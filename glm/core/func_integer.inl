@@ -28,8 +28,8 @@ namespace glm
 		)
 		{
 			detail::highp_uint_t Value64 = detail::highp_uint_t(x) + detail::highp_uint_t(y);
-			genUType Result = genUType(Value64 % (1 << 32));
-			Carry = (Value64 % (1 << 32)) > 1 : 1 : 0;
+			genUType Result = genUType(Value64 % (detail::highp_uint_t(1) << detail::highp_uint_t(32)));
+			Carry = (Value64 % (detail::highp_uint_t(1) << detail::highp_uint_t(32))) > 1 ? 1 : 0;
 			return Result;
 		}
 
@@ -88,7 +88,7 @@ namespace glm
 			if(x > y)
 				return genUType(detail::highp_int_t(x) - detail::highp_int_t(y));
 			else
-				return genUType(detail::highp_int_t(1 << 32) + detail::highp_int_t(x) - detail::highp_int_t(y));
+				return genUType(detail::highp_int_t(1) << detail::highp_int_t(32) + detail::highp_int_t(x) - detail::highp_int_t(y));
 		}
 
 		template <typename T>
@@ -146,8 +146,8 @@ namespace glm
 			detail::highp_uint_t ValueX64 = x;
 			detail::highp_uint_t ValueY64 = y;
 			detail::highp_uint_t Value64 = ValueX64 * ValueY64;
-			msb = *(genUType*)&(Value64 & ((1 << 32) - 1));
-			lsb = *(genUType*)&(Value64 >> 32);
+			msb = *(genUType*)&(Value64 & ((detail::highp_uint_t(1) << detail::highp_uint_t(32)) - detail::highp_uint_t(1)));
+			lsb = *(genUType*)&(Value64 >> detail::highp_uint_t(32));
 		}
 
 		template <typename T>
@@ -208,8 +208,8 @@ namespace glm
 			detail::highp_int_t ValueX64 = x;
 			detail::highp_int_t ValueY64 = y;
 			detail::highp_int_t Value64 = ValueX64 * ValueY64;
-			msb = *(genIType*)&(Value64 & ((1 << 32) - 1));
-			lsb = *(genIType*)&(Value64 >> 32);
+			msb = *(genIType*)&(Value64 & ((detail::highp_uint_t(1) << detail::highp_uint_t(32)) - detail::highp_uint_t(1)));
+			lsb = *(genIType*)&(Value64 >> detail::highp_uint_t(32));
 		}
 
 		template <typename T>
@@ -267,7 +267,7 @@ namespace glm
 		)
 		{
 			GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer);
-			GLM_STATIC_ASSERT(Offset + Bits <= sizeof(genIUType));
+			assert(Offset + Bits <= sizeof(genIUType));
 
 			genIUType Result = 0;
 			if(std::numeric_limits<genIUType>::is_signed)
@@ -333,7 +333,7 @@ namespace glm
 		)
 		{
 			GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer);
-			GLM_STATIC_ASSERT(Offset + Bits <= sizeof(genIUType));
+			assert(Offset + Bits <= sizeof(genIUType));
 
 			if(Bits == 0)
 				return Base;
@@ -399,7 +399,7 @@ namespace glm
 			genIUType Result = 0;
 			for(std::size_t i = 0; i < sizeof(genIUType) * std::size_t(8); ++i)
 				if(Value & (1 << i))
-					Result |= (1 << (sizeof(genIUType) * std::size_t(8)) - 1 - i);
+					Result |= (genIUType(1) << (sizeof(genIUType) * std::size_t(8)) - genIUType(1) - i);
 			return Result;
 		}	
 
@@ -491,18 +491,18 @@ namespace glm
 		}
 
 		// findLSB
-		template <typename genType>
+		template <typename genIUType>
 		inline int findLSB
 		(
-			genType const & Value
+			genIUType const & Value
 		)
 		{
 			GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer);
 			if(Value == 0)
 				return -1;
 
-			genType Bit;
-			for(Bit = genType(0); !(Value & (1 << Bit)); ++Bit){}
+			genIUType Bit;
+			for(Bit = genIUType(0); !(Value & (1 << Bit)); ++Bit){}
 			return Bit;
 		}
 
@@ -543,18 +543,18 @@ namespace glm
 		}
 
 		// findMSB
-		template <typename genType>
+		template <typename genIUType>
 		inline int findMSB
 		(
-			genType const & value
+			genIUType const & Value
 		)
 		{
 			GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer);
 			if(Value == 0)
 				return -1;
 
-			genType bit = genType(-1);
-			for(genType tmp = value; tmp; tmp >>= 1, ++bit){}
+			genIUType bit = genIUType(-1);
+			for(genIUType tmp = Value; tmp; tmp >>= 1, ++bit){}
 			return bit;
 		}
 
