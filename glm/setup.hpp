@@ -14,7 +14,10 @@
 // Version
 
 #define GLM_VERSION					90
-#define GLM_REVISION				1040
+#define GLM_VERSION_MAJOR			0
+#define GLM_VERSION_MINOR			9
+#define GLM_VERSION_PATCH			B
+#define GLM_VERSION_REVISION		2
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Common values
@@ -238,8 +241,8 @@
 // To use anonymous union to provide multiple component names access for class valType. Visual C++ only.
 // GLM_USE_ANONYMOUS_UNION
 
-#if(defined(GLM_USE_ANONYMOUS_UNION) && (GLM_COMPILER & GLM_COMPILER_GCC))
-#error GLM_USE_ANONYMOUS_UNION is defined to use anonymous union implementation of vector types. Anonymous unions can't be used with GCC.
+#if(defined(GLM_USE_ANONYMOUS_UNION) && !(GLM_COMPILER & GLM_COMPILER_VC))
+#error "GLM_USE_ANONYMOUS_UNION is defined to use anonymous union implementation of vector types. Anonymous unions can't be used with GCC."
 #endif//GLM_USE_ANONYMOUS_UNION
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

@@ -7,7 +7,6 @@ add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 
 add_subdirectory(glm)
 add_subdirectory(doc)
-add_subdirectory(sample)
 add_subdirectory(test)
 
 
