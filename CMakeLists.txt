@@ -4,11 +4,10 @@ cmake_policy(VERSION 2.6)
 project(glm)
 
 add_definitions(-D_CRT_SECURE_NO_WARNINGS)
-#add_definitions(-mfpmath=sse)
-#add_definitions(-msse3)
-#add_definitions(-Wextra)
 
 add_subdirectory(glm)
 add_subdirectory(doc)
 add_subdirectory(sample)
 add_subdirectory(test)
+
+
