@@ -1,0 +1,27 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Created : 2008-08-31
+// Updated : 2008-08-31
+// Licence : This source is under MIT License
+// File    : test/core/func_noise.cpp
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+#include "../precompiled.hpp"
+#include <glm/core/func_noise.hpp>
+
+namespace glm{
+namespace test{
+
+bool test_noise()
+{	
+	return true;
+}
+
+void main_core_func_noise()
+{
+	assert(test_noise());
+}
+
+}//namespace test
+}//namespace glm
