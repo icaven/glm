@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html><head><title>OpenGL Mathematics : Changelog</title><meta http-equiv="Content-Language" content="en" /><meta http-equiv="Content-Type" content="application/xhtml+xml; charset=iso-8859-1" /><meta name="copyright" content="G-Truc Creation" /><link href="./common/style.css" rel="stylesheet" media="screen, print, embossed" type="text/css" /></head><body><table><tr><td class="menu"><div class="menu1"><br /><div><a href="./common/glm.png"><img class="menu-img" src="./common/logo.png" alt="GLM Logo" /></a></div><br /><div><a class="menu" href="https://sourceforge.net/projects/glf/files/glm/glm-0.8.4.3/glm-0.8.4.3.zip/download">
+        Download GLM 0.8.4.3</a></div></div><br /><div class="menu2"><a href="./index.html">News</a></div><div class="menu2"><a href="./about.html">About</a></div><div class="menu2"><a href="./download.html">Downloads</a></div><div class="menu2"><a href="./changelog.html">Changelog</a></div><div class="menu2"><a href="./goodies.html">Goodies</a></div><br /><div class="menu2"><a href="./glm-manual.pdf">GLM Manual</a></div><div class="menu2"><a href="./html/index.html">GLM API</a></div><div class="menu2"><a href="./code.html">Code samples</a></div><div class="menu2"><a href="http://www.opengl.org/registry/doc/GLSLangSpec.Full.1.30.08.withchanges.pdf">GLSL Specification</a></div><br /><div class="menu2"><a href="http://glf.svn.sourceforge.net/viewvc/glf/Trunk">SVN Browse</a></div><div class="menu2"><a href="https://sourceforge.net/tracker2/?group_id=129808&amp;atid=1126032">Tracker</a></div><br /><div class="menu1"><img class="menu-img" src="./common/email.png" alt="contact" /></div><br /><div class="menu2"><a href="http://www.g-truc.net"><img class="menu-img" src="./common/g-truc.jpg" alt="G-Truc" /></a></div><div class="menu2"><a href="http://www.sourceforge.net"><img class="menu-img" src="./common/sourceforge.gif" alt="SourceForge" /></a></div><div class="menu2"><a href="http://www.opengl.org"><img class="menu-img" src="./common/opengl.jpg" alt="OpenGL" /></a></div><br /></td><td class="page"><div class="title1">OpenGL Mathematics</div><br /><div class="title3">GLSL + Optional features = OpenGL Mathematics (GLM).<br />A C++ mathematics library for 3D graphics.<br /></div><br /><br /><div class="title4">2009-11-16: <br /></div><div class="issue-content">
+        - GLM 0.8.4.3 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-11-12: <br /></div><div class="issue-content">
+        - Fixed half arithmetic.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-11-11: <br /></div><div class="issue-content">
+        - Added scalars support for GLM_IMG_multiple.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-11-05: <br /></div><div class="issue-content">
+        - Fixed setup defines.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-10-27: <br /></div><div class="issue-content">
+        - Added GLM_IMG_multiple extensions and unit tests.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-10-19: <br /></div><div class="issue-content">
+        - GLM 0.8.4.2 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-10-10: <br /></div><div class="issue-content">
+        - Fixed half.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-10-05: <br /></div><div class="issue-content">
+        - GLM 0.8.4.1 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-10-02: <br /></div><div class="issue-content">
+        - Updated documentation.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-09-30: <br /></div><div class="issue-content">
+        - Updated manual.<br /></div><div class="issue-content">
+        - Added static assert implementation.<br /></div><div class="issue-content">
+        - Removed unuse GLM_SWIZZLE_FUNC.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-09-23: <br /></div><div class="issue-content">
+        - Some progress on fixing GLM for MacOSX comflics.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-09-22: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_quaternion extension: cross and intermediate.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-09-17: <br /></div><div class="issue-content">
+        - Fixed quaternion angle.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-09-16: <br /></div><div class="issue-content">
+        - Updated documentation.<br /></div><div class="issue-content">
+        - GLM 0.8.4.0 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-09-14: <br /></div><div class="issue-content">
+        - Added Visual Studio 2010 support.<br /></div><div class="issue-content">
+        - Fixed build on GCC.<br /></div><div class="issue-content">
+        - Added GCC 4.4 support.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-09-03: <br /></div><div class="issue-content">
+        - Added no initilization constructor to vec4.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-09-01: <br /></div><div class="issue-content">
+        - Added no initilization constructor to mat4.<br /></div><div class="issue-content">
+        - Updated GLM_GTC_matrix_transform: faster rotate.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-08-29: <br /></div><div class="issue-content">
+        - Added GLM_GTX_matrix_operation: build diagonal matrix.<br /></div><div class="issue-content">
+        - Updated GLM_GTC_matrix_transform: faster scaling.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-08-28: <br /></div><div class="issue-content">
+        - Fixed transpose function for mat4x3.<br /></div><div class="issue-content">
+        - Optimized translate function for mat4 matrix: ~184 cycles instead of ~592 cycles on Q6600.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-08-24: <br /></div><div class="issue-content">
+        - Fixed OpenGL dependence.<br /></div><div class="issue-content">
+        - Added OpenGL 3 dependence.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-08-23: <br /></div><div class="issue-content">
+        - Fixed parameter definition and definition mismatch.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-08-11: <br /></div><div class="issue-content">
+        - Fixed GLM_GTC_matrix_projection.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_transform: Added missing entry points.<br /></div><div class="issue-content">
+        - GLM 0.8.3.5 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-08-10: <br /></div><div class="issue-content">
+        - Move inverse function to core following GLSL 1.4 specification.<br /></div><div class="issue-content">
+        - Move determinant function to core following GLSL 1.5 specification.<br /></div><div class="issue-content">
+        - GLM 0.8.3.4 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-07-22: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_matrix_query extension: Fixed row_size and col_size() calls.<br /></div><div class="issue-content">
+        - Fixed GLM_GTX_matrix_access extension: Fixed row_size calls.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-07-03: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_string_cast extension: Build on GCC 4.<br /></div><div class="issue-content">
+        - Fixed GLM_GTC_quaternion extension: rotate function build.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-06-25: <br /></div><div class="issue-content">
+        - Fixed GLM_GTC_matrix_transform extension: Fixed matrix operation order; like OpenGL instead of like Direct3D.<br /></div><div class="issue-content">
+        - GLM 0.8.3.3 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-06-16: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_rotate_vector extension: Fixed rotate function.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-06-09: <br /></div><div class="issue-content">
+        - Fixed matrix external operators.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-06-04: <br /></div><div class="issue-content">
+        - Added GLM_GTC_type_precision extension.<br /></div><div class="issue-content">
+        - GLM 0.8.3.2 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-06-02: <br /></div><div class="issue-content">
+        - Fixed GLM_GTC_matrix_transform: Fixed mat4 inverse function.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-05-22: <br /></div><div class="issue-content">
+        - Added GLM_GTC_quaternion extension.<br /></div><div class="issue-content">
+        - Updated GLM_GTC_quaternion extension.<br /></div><div class="issue-content">
+        - Fixed GLM_GTC_matrix_transform extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-05-21: <br /></div><div class="issue-content">
+        - GLM 0.8.3.1 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-05-20: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_bit extension: Added lowestBit functions.<br /></div><div class="issue-content">
+        - Fixed old extention inclusion method.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-05-19: <br /></div><div class="issue-content">
+        - Updated sse mat4 implementation.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-05-18: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_bit extension: Added bitRevert, bitRotateRight and bitRotateLeft functions.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-05-17: <br /></div><div class="issue-content">
+        - Added intrinsic like functions for mat4 product and inverse.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-05-15: <br /></div><div class="issue-content">
+        - Added intrinsic like functions for mat4 and vec4 products.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-05-06: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_type_ptr extension.<br /></div><div class="issue-content">
+        - GLM 0.8.3.0 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-05-06: <br /></div><div class="issue-content">
+        - Fixed GLM_GTC_matrix_projection: glm::project build.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-05-05: <br /></div><div class="issue-content">
+        - Added new extensions inclusion system.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-05-01: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_determinant extension.<br /></div><div class="issue-content">
+        - Reorganized extensions.<br /></div><div class="issue-content">
+        - Removed GLM_GTX_vector_comp_mult and GLM_GTX_mat4x3 extensions.<br /></div><div class="issue-content">
+        - Renamed .h files to .hpp.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-04-30: <br /></div><div class="issue-content">
+        - Added GLM_GTC_half_float.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-04-29: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_perpendicular extension.<br /></div><div class="issue-content">
+        - Fixed GLM_GTX_matrix_projection extension.<br /></div><div class="issue-content">
+        - Fixed GLM_GTX_transform2 extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-04-27: <br /></div><div class="issue-content">
+        - Added GLM_GTC_matrix_operation.<br /></div><div class="issue-content">
+        - Added GLM_GTC_matrix_transform.<br /></div><div class="issue-content">
+        - Added GLM_GTC_matrix_projection.<br /></div><div class="issue-content">
+        - Added GLM_GTC_double_float.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-04-20: <br /></div><div class="issue-content">
+        - Fixed bug 2774738.<br /></div><div class="issue-content">
+        - Fixed bug 2774015.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-04-01: <br /></div><div class="issue-content">
+        - GLM 0.8.2.3 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-03-30: <br /></div><div class="issue-content">
+        - Updaded mix function: Makes it more flexible, types wise.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-03-06: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_perpendicular and GLM_GTX_projection.<br /></div><div class="issue-content">
+        - Added GLM_GTX_radial_gradient extensions.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-02-24: <br /></div><div class="issue-content">
+        - Fixed GCC 4.3 pedantic build.<br /></div><div class="issue-content">
+        - GLM 0.8.2.2 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-02-19: <br /></div><div class="issue-content">
+        - Removed all deprecated ARB conventions.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-02-18: <br /></div><div class="issue-content">
+        - Fixed highp_int_t and highp_uint_t with Linux 64.<br /></div><div class="issue-content">
+        - Fixed GCC 4.3 'extra ;' with pedentic build.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-02-13: <br /></div><div class="issue-content">
+        - Fixed build.<br /></div><div class="issue-content">
+        - GLM 0.8.2.1 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-02-02: <br /></div><div class="issue-content">
+        - Fixed build.<br /></div><div class="issue-content">
+        - Added extensions build test.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-01-21: <br /></div><div class="issue-content">
+        - GLM 0.8.2 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-01-20: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_intersect: intersectRayTriangle.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-01-17: <br /></div><div class="issue-content">
+        - Fixed vectors access operators.<br /></div><div class="issue-content">
+        - Fixed unresolved with quaternions.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-01-16: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_norm: Include issue.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2009-01-01: <br /></div><div class="issue-content">
+        - Fixed left value swizzle operators.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-12-03: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX intersect extension: intersectRayTriangleGTX with GCC.<br /></div><div class="issue-content">
+        - Typo.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-12-02: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX inverse_transpose extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-11-27: <br /></div><div class="issue-content">
+        - Updated quaternion implementation.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-11-19: <br /></div><div class="issue-content">
+        - Added GLM_GTX_raw_data extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-11-18: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_bit extension: Added mask function.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-11-14: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_bit extension: Added extractField function.<br /></div><div class="issue-content">
+        - Fixed STATIC_ASSERT with 64bits integers.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-30: <br /></div><div class="issue-content">
+        - GLM 0.8.1 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-29: <br /></div><div class="issue-content">
+        - Fixed mix function with boolean parameter.<br /></div><div class="issue-content">
+        - Fixed value_size issue.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-28: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_component_wise extension.<br /></div><div class="issue-content">
+        - Added GLM_GTX_color_space_YCoCg extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-27: <br /></div><div class="issue-content">
+        - Added GLM_GTX_comparison extension: Defined comparison operators for vectors.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-25: <br /></div><div class="issue-content">
+        - Added GLM_GTX_log_base extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-24: <br /></div><div class="issue-content">
+        - Fixed 64 bits integers with GCC.<br /></div><div class="issue-content">
+        - Deleted deprecated half number setup options.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_number_precision: Clean up and added missing type definitions.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_color_cast: Clean up and fixes.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-23: <br /></div><div class="issue-content">
+        - Updated manuel and documentation.<br /></div><div class="issue-content">
+        - GLM 0.8.0 final released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-22: <br /></div><div class="issue-content">
+        - Fixed glm::size_t possible collisions with std::size_t. glm::size_t is now named glm::sizeType.<br /></div><div class="issue-content">
+        - Updated GLM_VIRTREV_address extension: Added none const fonctions.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_double_float extension: Typo.<br /></div><div class="issue-content">
+        - Added new API to use extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-18: <br /></div><div class="issue-content">
+        - Added logos in varius resolutions.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-17: <br /></div><div class="issue-content">
+        - Updated website.<br /></div><div class="issue-content">
+        - Added website builder.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-15: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_number_precision: No more warning with type size tests.<br /></div><div class="issue-content">
+        - Fixed none consistent size_t.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-12: <br /></div><div class="issue-content">
+        - Updated website.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-10: <br /></div><div class="issue-content">
+        - Fixed build.<br /></div><div class="issue-content">
+        - Updated manual.<br /></div><div class="issue-content">
+        - GLM 0.8.0 beta3 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-09: <br /></div><div class="issue-content">
+        - Added GLM_GTX_reciprocal extension: Define sec, csc, cot, asec, acsc, acot, sech, csch, coth, asech, acsch and acoth functions.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-08: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_euler_angles extension: Added functions to build rotation matrices.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-07: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_color_space: Fixed conflits with swizzle operators.<br /></div><div class="issue-content">
+        - Fixed virtrev.h, didn't build.<br /></div><div class="issue-content">
+        - Fixed genType build.<br /></div><div class="issue-content">
+        - Fixed GLM_GTX_compatibility build.<br /></div><div class="issue-content">
+        - Added GLM_VIRTREV_address: Get the address of internal vector or matrix contents.<br /></div><div class="issue-content">
+        - Fixed code typo and clean up.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-06: <br /></div><div class="issue-content">
+        - Added genType class. For long term base class for all types though template specialization.<br /></div><div class="issue-content">
+        - Updated project directory.<br /></div><div class="issue-content">
+        - Added CMakeFile in test directory.<br /></div><div class="issue-content">
+        - Fixed code typo and clean up.<br /></div><div class="issue-content">
+        - Fixed GLM_GTX_string_cast: Missing some matrix definitions, some wrong behaviours with matrices.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-05: <br /></div><div class="issue-content">
+        - Added glm::sizeType type which is used to defined size of all vectors and matrices. Defined as std::size_t.<br /></div><div class="issue-content">
+        - row_size, col_size and is_matrix are now functions.<br /></div><div class="issue-content">
+        - Fixed use inline on *mat4 function declaration.<br /></div><div class="issue-content">
+        - Deleted auto cast from *mat4x3.<br /></div><div class="issue-content">
+        - Fixed missing ++ -- and - operators to some matrix types.<br /></div><div class="issue-content">
+        - Fixed typo.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-04: <br /></div><div class="issue-content">
+        - GLM 0.8.0 beta2 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-03: <br /></div><div class="issue-content">
+        - value_size and is_vector are now functions.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-02: <br /></div><div class="issue-content">
+        - Added GLM_USE_ANONYMOUS_UNION: To use anonymous union to provide multiple component names access for class valType. Visual C++ only.<br /></div><div class="issue-content">
+        - Removed noise function from documentation.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-10-01: <br /></div><div class="issue-content">
+        - Fixed build with GCC.<br /></div><div class="issue-content">
+        - Updated manual.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-30: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_bit implementation.<br /></div><div class="issue-content">
+        - Added GLM_USE_ONLY_XYZW to disable multiple component names.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_euler_angles extension: added yawPitchRoll function.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-29: <br /></div><div class="issue-content">
+        - Fixed half vector build.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_vector_angle: Added orientedAngleFromRef function.<br /></div><div class="issue-content">
+        - Deprecated GLM_GTX_mul extension. Features moved in GLM_GTX_verbose_operator.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_verbose_operator: Added mad function.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-28: <br /></div><div class="issue-content">
+        - Fixed missing inline in tvec3 and tvec4 definisions.<br /></div><div class="issue-content">
+        - New implementation of hvec3 thought specialisation of tvec3 template.<br /></div><div class="issue-content">
+        - New implementation of hvec4 thought specialisation of tvec4 template.<br /></div><div class="issue-content">
+        - Fixed tvec4 operators than where applied just on 3 components.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-27: <br /></div><div class="issue-content">
+        - Added build option for build that support anonymous structure.<br /></div><div class="issue-content">
+        - Fixed missing inline in tvec2 definision.<br /></div><div class="issue-content">
+        - New implementation of hvec2 thought specialisation of tvec2 template.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-26: <br /></div><div class="issue-content">
+        - Updated documentation.<br /></div><div class="issue-content">
+        - GLM 0.8.0 beta1 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-25: <br /></div><div class="issue-content">
+        - Fixed static asserts within vector and matrix types.<br /></div><div class="issue-content">
+        - Updated mix function implementation, support for boolean vectors.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-24: <br /></div><div class="issue-content">
+        - Fixed static asserts.<br /></div><div class="issue-content">
+        - Added some asserts.<br /></div><div class="issue-content">
+        - Updated matrices operator[].<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-23: <br /></div><div class="issue-content">
+        - Added GLM_VIRTREV_equal_operator: Operators that compare vectors.<br /></div><div class="issue-content">
+        - Fixed build errors from static asserts.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-22: <br /></div><div class="issue-content">
+        - Fixed build errors with GCC.<br /></div><div class="issue-content">
+        - Fixed func_trigonometric.h encoding.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-21: <br /></div><div class="issue-content">
+        - Deleted GLM_GTX_INCLUDED.<br /></div><div class="issue-content">
+        - Fixed build errors.<br /></div><div class="issue-content">
+        - Fixed GLM_GTX_random: Bad assert definition.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-20: <br /></div><div class="issue-content">
+        - Updated manual.<br /></div><div class="issue-content">
+        - Updated swizzle operators with swizzle function.<br /></div><div class="issue-content">
+        - Added modf definition.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-17: <br /></div><div class="issue-content">
+        - Added namespaces to sort type and function in the API documentation.<br /></div><div class="issue-content">
+        - Deleted some documentations from {__}*GTX types and functions from extensions.<br /></div><div class="issue-content">
+        - Updated vectors and matrices documentation.<br /></div><div class="issue-content">
+        - Updated scalars and precisions documentation.<br /></div><div class="issue-content">
+        - Fixed some vectors and matrices declaration missing in some cases.<br /></div><div class="issue-content">
+        - Updated overall documentation.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-16: <br /></div><div class="issue-content">
+        - Included all types in type namespace.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-15: <br /></div><div class="issue-content">
+        - Added type namespace in glm namespace for documentation purpose.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-14: <br /></div><div class="issue-content">
+        - Added modf definition for vec2, vec3 and vec4.<br /></div><div class="issue-content">
+        - Updated static assert to exponential, geometric, matrix, noise, trigonometric and vector relational functions.<br /></div><div class="issue-content">
+        - Added GLM_GTC_matrix_transformation extensions: API and translate, rotate and scale definisions.<br /></div><div class="issue-content">
+        - Deprecated GLM_GTX_gpu_shader4, GLM_GTX_hyperbolic, GLM_GTX_flexible_mix, GLM_GTX_round.<br /></div><div class="issue-content">
+        - Added definition of mix with last parameter being booleans.<br /></div><div class="issue-content">
+        - Added hint classes.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_integer, GLM_GTX_unsigned_int, GLM_GTX_half and GLM_GTX_double_float extensions.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-13: <br /></div><div class="issue-content">
+        - Added trait code (class type) to detect bool, float, int and uint numbers.<br /></div><div class="issue-content">
+        - Updated static assert to common functions.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-12: <br /></div><div class="issue-content">
+        - Updated noise function definitions... Still unsure for staying in GLM 0.8.0.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-11: <br /></div><div class="issue-content">
+        - Updated overall documentation, doxygen documentation.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-10: <br /></div><div class="issue-content">
+        - Updated documentation and implementation of all matrix functions.<br /></div><div class="issue-content">
+        - Added declaration of main functions for each function group namespace.<br /></div><div class="issue-content">
+        - Updated documentation and API of all noise functions... Should be deleted becose of bad implementation?<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-09: <br /></div><div class="issue-content">
+        - Updated documentation and implementation of all vector relational functions.<br /></div><div class="issue-content">
+        - Added transpose_type typedef to all matrix types.<br /></div><div class="issue-content">
+        - Added is_matrix static constantes to all matrix types for static assert usage.<br /></div><div class="issue-content">
+        - Added is_vector static constantes to all vector types for static assert usage.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-08: <br /></div><div class="issue-content">
+        - Updated documentation and implementation of all geometric functions.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-07: <br /></div><div class="issue-content">
+        - Updated documentation and implementation of all exponential functions.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-06: <br /></div><div class="issue-content">
+        - Added isinf and isnan GLSL 1.3 functions.<br /></div><div class="issue-content">
+        - Updated common functions code, mostly syntax.<br /></div><div class="issue-content">
+        - Added trunc, round and roundEven GLSL 1.3 functions.<br /></div><div class="issue-content">
+        - Added sinh, cosh, tanh, asinh, acosh and atanh GLSL 1.3 functions.<br /></div><div class="issue-content">
+        - Updated documentation and implementation of all trigonometric functions.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-05: <br /></div><div class="issue-content">
+        - Added bool_type implementation detail to vector types.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-04: <br /></div><div class="issue-content">
+        - Added API and documentation of all common functions.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-03: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_extensions: Define operator* as a cross product. Still in WIP...<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-02: <br /></div><div class="issue-content">
+        - Updated *vec2 and *vec3 with precision types missed and documentation.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-09-01: <br /></div><div class="issue-content">
+        - Fixed 2085925 bug: rotateGTX didn't use it quaternion parameter.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-08-31: <br /></div><div class="issue-content">
+        - Added test files.<br /></div><div class="issue-content">
+        - Updated *vec4 with precision types missed and documentation.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-08-30: <br /></div><div class="issue-content">
+        - Renamed implementation files.<br /></div><div class="issue-content">
+        - Updated type pre-declarations.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-08-25: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_matrix_projection extension: frustum function gave a wrong result.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-08-24: <br /></div><div class="issue-content">
+        - Updated matrix types functions and extensions according new vectors types.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-08-23: <br /></div><div class="issue-content">
+        - Added new vector types implementation.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-08-22: <br /></div><div class="issue-content">
+        - Added support for new GLSL 1.30 precision model.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-08-19: <br /></div><div class="issue-content">
+        - Added GLSL 1.30.08 unsigned int types support<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-08-17: <br /></div><div class="issue-content">
+        - Added detail::vec1 type.<br /></div><div class="issue-content">
+        - Added detail::desc for types description and higher templatisation.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-08-11: <br /></div><div class="issue-content">
+        - Started work on GLM 0.8.x based on GLSL 1.3 specification.<br /></div><div class="issue-content">
+        - Visual Studio .NET 2003 (7.1) is now deprecated.<br /></div><div class="issue-content">
+        - GLM_FORCE_HALF_COMPATIBILITY is now deprecated.<br /></div><div class="issue-content">
+        - GLM_AUTO_CAST is now deprecated.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-08-09: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_fast_square_root implementation: Updated fastInverseSqrt<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-08-08: <br /></div><div class="issue-content">
+        - Updated documentation.<br /></div><div class="issue-content">
+        - GLM 0.7.6 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-08-06: <br /></div><div class="issue-content">
+        - gl_svec* (for GLshort) added in GLM_virtrev_gl extension.<br /></div><div class="issue-content">
+        - Updated detail implementation of vector types.<br /></div><div class="issue-content">
+        - Make Visual C++ build with Visual C++ extensions disabled.<br /></div><div class="issue-content">
+        - Rename "not" to "not_" for compatibility.<br /></div><div class="issue-content">
+        - Fixed GLM_GTX_fast_square_root build.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-07-31: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_component_wise extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-07-29: <br /></div><div class="issue-content">
+        - Updated mix functions for optimization purpose.<br /></div><div class="issue-content">
+        - Fixed mix functions static assert.<br /></div><div class="issue-content">
+        - Updated test files.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_statistics_operation.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-07-24: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_bit extension: isPowerOfTwoGTX works for signed int too.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_norm extension: Added distance2, l2norm and lxNorm functions.<br /></div><div class="issue-content">
+        - Added some boost static assert.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-07-23: <br /></div><div class="issue-content">
+        - Added GLM_GTX_std_based_type: Types based on C++ conventions.<br /></div><div class="issue-content">
+        - Added files for extension tests.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-07-22: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_fast_square_root: Updated fastDistance.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-07-16: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_fast_square_root: Wrong const and updated fastLenght.<br /></div><div class="issue-content">
+        - Optimized mix core function<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-07-14: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_epsilon: Wrong function definitions for y, z and w components.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-07-10: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_flexible: Flexible with scalar only failed.<br /></div><div class="issue-content">
+        - Fixed GLM_GTX_quaternion: One rotate overloaded function undefined.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-07-08: <br /></div><div class="issue-content">
+        - Some fixes on GLM_GTX_intersect extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-07-05: <br /></div><div class="issue-content">
+        - GLM 0.7.5 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-07-03: <br /></div><div class="issue-content">
+        - Updated documentation.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-07-01: <br /></div><div class="issue-content">
+        - Updated message system.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-06-26: <br /></div><div class="issue-content">
+        - Added new message system.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-06-13: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_normal extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-06-07: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_unsigned_int extension. (New typedef extensions)<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-06-06: <br /></div><div class="issue-content">
+        - Added new precompiler system.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-06-04: <br /></div><div class="issue-content">
+        - Increase C++ conformance.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-06-01: <br /></div><div class="issue-content">
+        - Fixed build errors.<br /></div><div class="issue-content">
+        - GLM 0.7.4 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-05-30: <br /></div><div class="issue-content">
+        - Updated external dependencies system.<br /></div><div class="issue-content">
+        - Updated manual.<br /></div><div class="issue-content">
+        - Fixed GLM_GTX_random extension: Fixed build with GCC.<br /></div><div class="issue-content">
+        - Fixed GLM_GTX_string_cast extension: Fixed build with GCC 3.4 due to GCC anonymuous namespace bug.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-05-29: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_transform2 extension: scaleBias didn't built.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-05-26: <br /></div><div class="issue-content">
+        - Added GLM_VIRTREV_xstream extension: XML output for GLM types.<br /></div><div class="issue-content">
+        - Added external library system<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-05-24: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_string_cast extension: Support of non-square matrices.<br /></div><div class="issue-content">
+        - GLM 0.7.3 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-05-23: <br /></div><div class="issue-content">
+        - Fixed mat2 product.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-05-18: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_transform2 dependencies.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-05-01: <br /></div><div class="issue-content">
+        - Added GLM_VIRTREV_gl extension: Vector and matrix integration with OpenGL.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-04-28: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_number_precision extension: Added uint type.<br /></div><div class="issue-content">
+        - Added GLM_GTX_string_cast extension: Create formated string from GLM type instances.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_transform2: added scaleBias matrix build<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-04-27: <br /></div><div class="issue-content">
+        - GLM 0.7.2 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-04-26: <br /></div><div class="issue-content">
+        - Added GLM_AUTO_CAST setup option.<br /></div><div class="issue-content">
+        - Updated documentation<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-04-23: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_inverse, added affine inverse functions for fast matrix inverts.<br /></div><div class="issue-content">
+        - Updated overall documentation<br /></div><div class="issue-content">
+        - Added trait typedef to all GLM data types<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-04-22: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_compatibility documentation.<br /></div><div class="issue-content">
+        - Fixed GLM_GTX_random, gauss functions didn't build.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-04-13: <br /></div><div class="issue-content">
+        - Added few SSE code.<br /></div><div class="issue-content">
+        - Fixed matrix projections.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-04-07: <br /></div><div class="issue-content">
+        - Added GLM_SWIZZLE_FUNC swizzle option.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-04-06: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_euler_angles documentation.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-03-26: <br /></div><div class="issue-content">
+        - Updated documentation.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-03-24: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_associated_min_max build on GCC.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_matrix_projection.<br /></div><div class="issue-content">
+        - GLM 0.7.1 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-03-22: <br /></div><div class="issue-content">
+        - GLM 0.7.0 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-03-20: <br /></div><div class="issue-content">
+        - Updated manual.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-03-16: <br /></div><div class="issue-content">
+        - Updated documentation.<br /></div><div class="issue-content">
+        - Added GLM_GTX_associated_min_max extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-03-15: <br /></div><div class="issue-content">
+        - Fixed not function with GCC.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-03-12: <br /></div><div class="issue-content">
+        - Fixed interger pow function for the case of a null power.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-02-20: <br /></div><div class="issue-content">
+        - Fixed mat4x2 and mat4x3 GCC build.<br /></div><div class="issue-content">
+        - Updated documentation.<br /></div><div class="issue-content">
+        - Reseted glmsetup.h to default values.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-02-17: <br /></div><div class="issue-content">
+        - Fixed missing xvec4 constructor with bool argument definition.<br /></div><div class="issue-content">
+        - Fixed namespace collision in quaternion inverse function.<br /></div><div class="issue-content">
+        - Fixed swizzle operators involved in operations.<br /></div><div class="issue-content">
+        - Change license from GNU LGPL to MIT.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-02-16: <br /></div><div class="issue-content">
+        - Fixed missing xvec4 ++ and -- operator definition.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-01-05: <br /></div><div class="issue-content">
+        - Move some implementation details into detail namespace.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-01-04: <br /></div><div class="issue-content">
+        - Fixed cast between matrices of different sizes.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2008-01-02: <br /></div><div class="issue-content">
+        - Fixed matNxM type cast to other matNxM type.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-12-15: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_matrix_projection extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-12-13: <br /></div><div class="issue-content">
+        - GLM 0.6.4 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-12-09: <br /></div><div class="issue-content">
+        - Fixed swizzle operators.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-11-21: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_matrix_selection extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-11-14: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_color_space extension. Added luminosity function.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-11-05: <br /></div><div class="issue-content">
+        - GLM 0.6.3 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-10-31: <br /></div><div class="issue-content">
+        - Fixed 3DSMax SDK conflict with GLM.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-10-29: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_quaternion. Added sqrt function.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-10-28: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_random extension.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_half extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-10-21: <br /></div><div class="issue-content">
+        - Fixed matrices operator const T*() const.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-10-08: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_normalize_dot extension.<br /></div><div class="issue-content">
+        - GLM 0.6.2 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-10-07: <br /></div><div class="issue-content">
+        - GLM 0.6.1 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-10-02: <br /></div><div class="issue-content">
+        - Added GLM_GTX_normalize_dot extension: Faster way to normalize parameters before a dot product<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-09-22: <br /></div><div class="issue-content">
+        - Fixed namespace error on GLM_GTX_matx extension<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-09-21: <br /></div><div class="issue-content">
+        - Added GLM_GTX_flexible_mix extension: mix function can take different types parameters<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-09-16: <br /></div><div class="issue-content">
+        - Updated documentation.<br /></div><div class="issue-content">
+        - GLM 0.6.0 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-09-15: <br /></div><div class="issue-content">
+        - Added GLM_SINGLE_COMP_NAME to fixed multiple component names on half types with GCC.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-09-10: <br /></div><div class="issue-content">
+        - Added #define GLM_GTX_INCLUDED to automatically include all GTX extensions in the language.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-09-09: <br /></div><div class="issue-content">
+        - Updated extensions documentation.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_quaternion extension: squad, euler angles conversions<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-09-06: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_compatibility extension: Added isfinite isinf, and isnan.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-08-26: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_random extension: Gauss distribution, spherical distribution, linear distribution.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-08-21: <br /></div><div class="issue-content">
+        - Fixed namespace issues with Visual Studio 8.0 SP1.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-08-20: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_gpu_shader4 extension: Add bit operators.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_integer extension: Delete some code duplications.<br /></div><div class="issue-content">
+        - Added GLM_GTX_unsigned_int extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-08-19: <br /></div><div class="issue-content">
+        - Fixed namespace issues with Visual Studio 8.0 SP1.<br /></div><div class="issue-content">
+        - Added new namespace management for extensions.<br /></div><div class="issue-content">
+        - Added automatic compiler ditection, no more compiler setup.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-07-31: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_number_precision extension.<br /></div><div class="issue-content">
+        - Updated usertype.dat for Visual Studio.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_random extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-06-21: <br /></div><div class="issue-content">
+        - Added GLM_GTX_color_cast extension.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_quaternion extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-05-22: <br /></div><div class="issue-content">
+        - Added GLM_GTX_verbose_operator extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-05-21: <br /></div><div class="issue-content">
+        - Added GLM_GTX_component_wise extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-05-10: <br /></div><div class="issue-content">
+        - Added GLM_GTX_number_precision extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-04-16: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_bit extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-04-10: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_bit extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-04-04: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_fast_square_root extension.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_fast_trigonometry extension.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_fast_exponential extension.<br /></div><div class="issue-content">
+        - Added GLM_GTX_mul extension.<br /></div><div class="issue-content">
+        - Fixed GLM_GTX_epsilon extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-04-03: <br /></div><div class="issue-content">
+        - Added GLM_GTX_mixed_product extension.<br /></div><div class="issue-content">
+        - Added GLM_GTX_intersect extension.<br /></div><div class="issue-content">
+        - Updated GLM_GTX_matrix_access extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-03-20: <br /></div><div class="issue-content">
+        - Added bits operators in comment for vec2, vec3 and vec4.<br /></div><div class="issue-content">
+        - Fixed friendly conformance to GLM_GTX_double.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-03-18: <br /></div><div class="issue-content">
+        - Fixed size_type errors.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-03-14: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_quaternion extension.<br /></div><div class="issue-content">
+        - Added GLM_GTX_bit extension.<br /></div><div class="issue-content">
+        - Added value_type, size_type and value_size typedefs and value to all types.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-03-09: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_compatibility extension.<br /></div><div class="issue-content">
+        - Fixed GLM_GTX_color_space extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-03-06: <br /></div><div class="issue-content">
+        - Added GLM_GTX_polar_coordinates extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-03-05: <br /></div><div class="issue-content">
+        - Added GLM_GTX_vector_query extension.<br /></div><div class="issue-content">
+        - Added GLM_GTX_matrix_query extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-03-01: <br /></div><div class="issue-content">
+        - Fixed square matrices division operators.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-02-28: <br /></div><div class="issue-content">
+        - Added GLM_GTX_mat_mn extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-02-22: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_color_space extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-02-21: <br /></div><div class="issue-content">
+        - Added GLM_GTX_vecx extension.<br /></div><div class="issue-content">
+        - Added GLM_GTX_matx extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2007-02-19: <br /></div><div class="issue-content">
+        - GLM 0.5.1 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-02-08: <br /></div><div class="issue-content">
+        - Updated Visual Studio projects.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-02-01: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_compatibility extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-01-26: <br /></div><div class="issue-content">
+        - Added GLM_GTX_hyperbolic extension.<br /></div><div class="issue-content">
+        - Added GLM_GTX_spline extension.<br /></div><div class="issue-content">
+        - Fixed unProject and project functions from GLM_GTX_matrix_projection extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-01-24: <br /></div><div class="issue-content">
+        - Added GLM_GTX_compatibility extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-01-19: <br /></div><div class="issue-content">
+        - Add some undefined write swizzle operators from bvec*<br /></div><div class="issue-content">
+        - Fixed vectors component access operators[] from bvec*<br /></div><div class="issue-content">
+        - Fixed bvec* equal operators with write swizzle operators<br /></div><div class="issue-content">
+        - Fixed various vector constructors<br /></div><div class="issue-content">
+        - Updated swizzle operators, _xvec* and _bvec* share the same code<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-01-11: <br /></div><div class="issue-content">
+        - Add some undefined write swizzle operators from xvec*<br /></div><div class="issue-content">
+        - Fixed some write operator considered as read operator from xvec*<br /></div><div class="issue-content">
+        - Fixed vectors component access operators[] from xvec*<br /></div><div class="issue-content">
+        - Fixed not function setup according compilers<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-01-06: <br /></div><div class="issue-content">
+        - Added user manual.<br /></div><div class="issue-content">
+        - GLM 0.5.0 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-01-05: <br /></div><div class="issue-content">
+        - Updated overloaded functions of matrixCompMult.<br /></div><div class="issue-content">
+        - Added transpose and outerProduct functions in the GLM core.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-12-15: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_rotate_vector extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-12-07: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_interger extension conformance.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-12-06: <br /></div><div class="issue-content">
+        - Improved "friendly conformance" support.<br /></div><div class="issue-content">
+        - Improved quaternion implementation.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-12-03: <br /></div><div class="issue-content">
+        - Updated setup options.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-11-26: <br /></div><div class="issue-content">
+        - Added new setup options for swizzle operators.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-11-14: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_integer extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-11-13: <br /></div><div class="issue-content">
+        - Added GLM_GTX_gpu_shader4 extension.<br /></div><div class="issue-content">
+        - Added extension errors management.<br /></div><div class="issue-content">
+        - Added compilers management.<br /></div><div class="issue-content">
+        - Added conformance management.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-11-02: <br /></div><div class="issue-content">
+        - Added GLM_GTX_rotate_vector extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-10-15: <br /></div><div class="issue-content">
+        - Updated product operators to non-squared matrices<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-10-01: <br /></div><div class="issue-content">
+        - Updated tmat4x3 and tmat3x4 types<br /></div><div class="issue-content">
+        - Added tmat2x3, tmat3x2, tmat2x4 and tmat4x2<br /></div><div class="issue-content">
+        - Clarified ToDo comments for missing operators with non-squared matrices types<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-08-05: <br /></div><div class="issue-content">
+        - Added GLSL 1.2 mat4x3 and mat3x4<br /></div><div class="issue-content">
+        - Added missing declaration of mat* operators<br /></div><div class="issue-content">
+        - Added _xmat* with _xvec* division operators<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-08-04: <br /></div><div class="issue-content">
+        - Added GLSL 1.2 non-squared matrices files<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-07-17: <br /></div><div class="issue-content">
+        - fastCos and fastSin are defined between -2 pi and 2 pi<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-06-18: <br /></div><div class="issue-content">
+        - Added swizzle operators for xvec4<br /></div><div class="issue-content">
+        - Added swizzle operators for bvec4<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-06-17: <br /></div><div class="issue-content">
+        - Added swizzle operators for bvec2&gt;<br /></div><div class="issue-content">
+        - Implicit conversion from *ref* to *vec*<br /></div><div class="issue-content">
+        - Added swizzles operators for xvec3<br /></div><div class="issue-content">
+        - Added swizzles operators for bvec3<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-05-29: <br /></div><div class="issue-content">
+        - Separated _*ref* types in different files<br /></div><div class="issue-content">
+        - Added _bref* types<br /></div><div class="issue-content">
+        - Updated _xref* types<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-05-28: <br /></div><div class="issue-content">
+        - Added operators for tvec2 swizzles operators management<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-05-23: <br /></div><div class="issue-content">
+        - GLM 0.4.1 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-05-22: <br /></div><div class="issue-content">
+        - Add 4 examples of use with OpenGL under Windows and Linux<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-05-17: <br /></div><div class="issue-content">
+        - GLM 0.4.0 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-05-16: <br /></div><div class="issue-content">
+        - It's not anymore required to include windows.h before glm.h whether windows.h is required<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-05-04: <br /></div><div class="issue-content">
+        - Improved tvec3 conversions<br /></div><div class="issue-content">
+        - Improved tvec2 conversions<br /></div><div class="issue-content">
+        - Added left hand side vec2 swizzle operators<br /></div><div class="issue-content">
+        - Improved bvec4 conversions<br /></div><div class="issue-content">
+        - Improved bvec3 conversions<br /></div><div class="issue-content">
+        - Improved bvec2 conversions<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-04-28: <br /></div><div class="issue-content">
+        - Added _xref* structures for swizzle operators implementation<br /></div><div class="issue-content">
+        - Seperated bvec* and xvec* types in different files<br /></div><div class="issue-content">
+        - Updated core functions code<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-04-22: <br /></div><div class="issue-content">
+        - Fixed texture coordinate components access<br /></div><div class="issue-content">
+        - Added GLM_GTX_mul extension.<br /></div><div class="issue-content">
+        - Added GLM_GTX_inertia extension.<br /></div><div class="issue-content">
+        - GLM 0.3.2 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-04-21: <br /></div><div class="issue-content">
+        - Added right hand side vec2 swizzle operators<br /></div><div class="issue-content">
+        - Improved tvec4 conversions<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-04-20: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_quaterion, added log and exp functions<br /></div><div class="issue-content">
+        - Added GLM_GTX_matrix_major_storage extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-04-19: <br /></div><div class="issue-content">
+        - Reorganize types code<br /></div><div class="issue-content">
+        - Complete addition and subtraction vertrices operators<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-04-18: <br /></div><div class="issue-content">
+        - Complete addition and subtraction matrices operators<br /></div><div class="issue-content">
+        - Optimize increment and decrement operators<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-04-17: <br /></div><div class="issue-content">
+        - Fixed tmat4x4 division<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-03-30: <br /></div><div class="issue-content">
+        - Added GLM_GTX_outer_product extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-03-28: <br /></div><div class="issue-content">
+        - GLM 0.3.1 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-03-27: <br /></div><div class="issue-content">
+        - Added Linux support under GCC 4.0 and 4.1.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-03-26: <br /></div><div class="issue-content">
+        - Optimisation of increment and decrement operators.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-03-20: <br /></div><div class="issue-content">
+        - Added MacOS X support under GCC 4.0.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-02-19: <br /></div><div class="issue-content">
+        - Added GLM_GTX_extend extension to wishlist in position 27.<br /></div><div class="issue-content">
+        - Added GLM_GTX_euler_angles extension to wishlist in position 28.<br /></div><div class="issue-content">
+        - Added Doxygen documentation.<br /></div><div class="issue-content">
+        - GLM 0.3.0 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-01-30: <br /></div><div class="issue-content">
+        - Optimized GLM_GTX_integer implementation.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-01-27: <br /></div><div class="issue-content">
+        - Deleted explicit conversions from array to type to prevent unespected conversions.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-01-16: <br /></div><div class="issue-content">
+        - Fixed bugs<br /></div><div class="issue-content">
+        - Improved types conversions.<br /></div><div class="issue-content">
+        - Added GLM_GTX_vector_access extension to wishlist in position 25.<br /></div><div class="issue-content">
+        - Added GLM_GTX_random extension to wishlist in position 26.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-01-13: <br /></div><div class="issue-content">
+        - Fixed bugs<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-01-10: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_integer extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-01-09: <br /></div><div class="issue-content">
+        - Added GLM_GTX_fast_exponential extension to wishlist in position 24.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-01-08: <br /></div><div class="issue-content">
+        - Optimized _xvec* copy.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-01-07: <br /></div><div class="issue-content">
+        - Added GLM_GTX_fast_trigonometry extension to wishlist in position 23.<br /></div><div class="issue-content">
+        - Added factorial function to GLM_GTX_integer extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-01-05: <br /></div><div class="issue-content">
+        - Added GLM_GTX_half extension to wishlist in position 21.<br /></div><div class="issue-content">
+        - Optimized normalize function.<br /></div><div class="issue-content">
+        - Global optimisation for debugging time<br /></div><div class="issue-content">
+        - Added GLM_GTX_integer extension to wishlist in position 18.<br /></div><div class="issue-content">
+        - Optimized clamp function.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2006-01-04: <br /></div><div class="issue-content">
+        - Added GLM_GTX_fast_square_root extension to wishlist in position 19.<br /></div><div class="issue-content">
+        - Added GLM_GTX_inverse_transpose extension to wishlist in position 20.<br /></div><div class="issue-content">
+        - Fixed missing of vec4 * mat4 operator.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-12-23: <br /></div><div class="issue-content">
+        - Reorganization of extensions.<br /></div><div class="issue-content">
+        - Fixed vec2 constructeur bug.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-11-22: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_length2 extension.<br /></div><div class="issue-content">
+        - Renamed GLM_GTX_length2 extension to GLM_GTX_norm.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-11-12: <br /></div><div class="issue-content">
+        - Fixed GLM_GTX_quaterion implémentation bugs.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-11-09: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_projection extension.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-10-30: <br /></div><div class="issue-content">
+        - Added GLM_GTX_transform2 extension to wishlist in position 18.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-09-28: <br /></div><div class="issue-content">
+        - Updated for GCC 4.0.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-08-12: <br /></div><div class="issue-content">
+        - Fixed normalization bug with LookAtGTX.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-07-15: <br /></div><div class="issue-content">
+        - Add array conversion to GLM types.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-07-02: <br /></div><div class="issue-content">
+        - Added GL_GTX_euler_angles extension to wishlist in position 17.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-06-24: <br /></div><div class="issue-content">
+        - Added GLM_GTX_matrix_selection extension to wishlist in position 16.<br /></div><div class="issue-content">
+        - Added GLM_GTX_matrix_selection extension support.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-06-22: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_projection extension to wishlist in position 15.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-06-21: <br /></div><div class="issue-content">
+        - Added GLM_GTX_projection extension to wishlist in position 15.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-06-09: <br /></div><div class="issue-content">
+        - Fixed bug from rotateGTX with quaternion.<br /></div><div class="issue-content">
+        - Fixed matrix vector product.<br /></div><div class="issue-content">
+        - Add vector usage to describe transformations axis.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-05-05: <br /></div><div class="issue-content">
+        - Added GLM_GTX_quaternion extension support<br /></div><div class="issue-content">
+        - GLM 0.2 released.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-05-02: <br /></div><div class="issue-content">
+        - Add GLM_GTX_transform 2D transform support<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-05-01: <br /></div><div class="issue-content">
+        - Add GLM_GTX_transform 3D transform support<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-04-29: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_transform extension to wishlist in position 2<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-04-23: <br /></div><div class="issue-content">
+        - Added GLM_GTX_vector_comp_mult extension to whislist in position 14<br /></div><div class="issue-content">
+        - Added GLM_GTX_vector_comp_mult extension support<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-04-22: <br /></div><div class="issue-content">
+        - Added GLM_GTX_color_space extension to whislist in position 13<br /></div><div class="issue-content">
+        - Added GLM_GTX_color_space extension support<br /></div><div class="issue-content">
+        - Added GLM_GTX_double extension support<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-04-10: <br /></div><div class="issue-content">
+        - Overload of GLSL functions used by extentions instead of create new functions<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-04-08: <br /></div><div class="issue-content">
+        - Added GLM_GTX_optimum_pow extension to whislist in position 11<br /></div><div class="issue-content">
+        - Added GLM_GTX_double extension to wishlist in position 12<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-04-03: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_matrix_cross_product extension to wishlist in position 8<br /></div><div class="issue-content">
+        - Added GLM_GTX_matrix_cross_product extension support<br /></div><div class="issue-content">
+        - Added GLM_GTX_projection extension to whislist in position 9<br /></div><div class="issue-content">
+        - Added GLM_GTX_perpendicular extension to wishlist in position 10<br /></div><div class="issue-content">
+        - Added GLM_GTX_projection extension support<br /></div><div class="issue-content">
+        - Added GLM_GTX_perpendicular extension support<br /></div><div class="issue-content">
+        - Changed extensions organisation<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-03-27: <br /></div><div class="issue-content">
+        - Added *vec* by *mat* product<br /></div><div class="issue-content">
+        - Updated GLM_GTX_determinant extension to wishlist in position 4<br /></div><div class="issue-content">
+        - Updated GLM_GTX_inverse extension to wishlist in position 5<br /></div><div class="issue-content">
+        - Updated GLM_GTX_length2 extension to wishlist in position 6<br /></div><div class="issue-content">
+        - Updated GLM_GTX_orthonormalize extension to wishlist in position 7<br /></div><div class="issue-content">
+        - Added GLM_GTX_determinant extension support<br /></div><div class="issue-content">
+        - Added GLM_GTX_inverse extension support<br /></div><div class="issue-content">
+        - Added GLM_GTX_length2 extension support<br /></div><div class="issue-content">
+        - Added GLM_GTX_orthonormalize extension support<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-03-21: <br /></div><div class="issue-content">
+        - Added bug #7 : Vector constructor non conform<br /></div><div class="issue-content">
+        - Updated issue #13 : Only ARB can allow extensions adding new operators<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-03-13: <br /></div><div class="issue-content">
+        - Added GLM_GTX_orthonormalize extension to wishlist in position 7<br /></div><div class="issue-content">
+        - Added GLM_GTX_matrix_cross_product extension to wishlist in position 8<br /></div><div class="issue-content">
+        - Updated issue #10 : Using template functions members<br /></div><div class="issue-content">
+        - Updated *vec* types following issue #10 guidance<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-03-06: <br /></div><div class="issue-content">
+        - Fixed bug #2 with '#error'<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-03-05: <br /></div><div class="issue-content">
+        - Updated issue #4<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-03-04: <br /></div><div class="issue-content">
+        - Updated issue #13<br /></div><div class="issue-content">
+        - Updated issue #8<br /></div><div class="issue-content">
+        - Updated issue #6<br /></div><div class="issue-content">
+        - Updated issue #4<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-03-03: <br /></div><div class="issue-content">
+        - Bugs #2 and #5 are now one<br /></div><div class="issue-content">
+        - Updated / operator for vec* types with support of the divisibility of two vectors, and the divisibility term to term<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-02-28: <br /></div><div class="issue-content">
+        - Updated GLM_GTX_transpose extension to wishlist in position 8<br /></div><div class="issue-content">
+        - Added GLM_GTX_transpose extension support<br /></div><div class="issue-content">
+        - Fixed mat* types constructor scalar-parameted<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-02-27: <br /></div><div class="issue-content">
+        - Fixed mat* types product by a scalar<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-02-25: <br /></div><div class="issue-content">
+        - Updated function 'not'<br /></div><div class="issue-content">
+        - Defined identificators following compilers<br /></div><div class="issue-content">
+        - Added GLM_GTX_length2 extension to wishlist in position 6<br /></div><div class="issue-content">
+        - Optimized mat3 type divide operator<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-02-21: <br /></div><div class="issue-content">
+        - GLM 0.1 released<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-02-18: <br /></div><div class="issue-content">
+        - Updated issue #4<br /></div><div class="issue-content">
+        - Updated issue #6<br /></div><div class="issue-content">
+        - Updated issue #9<br /></div><div class="issue-content">
+        - Updated issue #12<br /></div><div class="issue-content">
+        - Updated issue #13<br /></div><div class="issue-content">
+        - Updated issues ordering<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-02-17: <br /></div><div class="issue-content">
+        - Updated vec* types + operator. Can now add a vector and a scalar, term by term<br /></div><div class="issue-content">
+        - Updated vec* types - operator. Can now minus a vector and a scalar, term by term<br /></div><div class="issue-content">
+        - Updated vec* types * operator. Can now multiply a vector and a scalar, term by term<br /></div><div class="issue-content">
+        - Deleted issue #11, which was erroneous<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-02-15: <br /></div><div class="issue-content">
+        - Deleted from wishlist extension #6 : refract function is defined by version 1.10.59 from GLSL specs<br /></div><div class="issue-content">
+        - Updated reflect function tests<br /></div><div class="issue-content">
+        - Added fucntion reflect with its tests<br /></div><div class="issue-content">
+        - Using typename 'genType' for functions templates<br /></div><div class="issue-content">
+        - Added bug #5<br /></div><div class="issue-content">
+        - Updated function sqrt<br /></div><div class="issue-content">
+        - Added function log with its tests<br /></div><div class="issue-content">
+        - Added function exp with its tests<br /></div><div class="issue-content">
+        - Added function log2 with its tests<br /></div><div class="issue-content">
+        - Updated cross function<br /></div><div class="issue-content">
+        - Updated bvec* types data implementation<br /></div><div class="issue-content">
+        - Added bug #6<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-02-14: <br /></div><div class="issue-content">
+        - Updated issue #13<br /></div><div class="issue-content">
+        - Converted text files into XML<br /></div><div class="issue-content">
+        - Modified files hierarchy<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-02-13: <br /></div><div class="issue-content">
+        - Updated clamp function<br /></div><div class="issue-content">
+        - Added function noise1 with its tests<br /></div><div class="issue-content">
+        - Added function noise2 with its tests<br /></div><div class="issue-content">
+        - Added function noise3 with its tests<br /></div><div class="issue-content">
+        - Added function noise4 with its tests<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-02-08: <br /></div><div class="issue-content">
+        - Enhanced mat4 type division operator<br /></div><div class="issue-content">
+        - Added function sqrt with its tests<br /></div><div class="issue-content">
+        - Added function inversesqrt with its tests<br /></div><div class="issue-content">
+        - Added function exp2 with its tests<br /></div><div class="issue-content">
+        - Added function log2 with its tests<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-02-07: <br /></div><div class="issue-content">
+        - Modified *vec* types constructors implementation, chooses initialisation instead of affectation<br /></div><div class="issue-content">
+        - Added function reflect with its tests<br /></div><div class="issue-content">
+        - Updated tan function<br /></div><div class="issue-content">
+        - Fixed mat4 type * operator<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-02-05: <br /></div><div class="issue-content">
+        - Added GLM_GTX_refract extension to wishlist in position 5.<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-02-03: <br /></div><div class="issue-content">
+        - Added default constructor for mat* types<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-02-02: <br /></div><div class="issue-content">
+        - Added mat2 and vec2 type * operator<br /></div><div class="issue-content">
+        - Added mat3 and vec3 type * operator<br /></div><div class="issue-content">
+        - Added mat4 and vec4 type * operator<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-02-01: <br /></div><div class="issue-content">
+        - Added GLM_GTX_transpose extension to wishlist in position 3<br /></div><div class="issue-content">
+        - Added GLM_GTX_determinant extension to wishlist in position 4<br /></div><div class="issue-content">
+        - Added GLM_GTX_inverse extension to wishlist in position 5<br /></div><div class="issue-content">
+        - Added / operator for two mat3 types<br /></div><div class="issue-content">
+        - Enhanced *vec* types conception<br /></div><div class="issue-content">
+        - Enhanced *mat* types conception<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-01-31: <br /></div><div class="issue-content">
+        - Updated bug #3<br /></div><div class="issue-content">
+        - Updated issue #10<br /></div><div class="issue-content">
+        - Added function matrixCompMult with its tests<br /></div><div class="issue-content">
+        - Updated mat* type constant access operators<br /></div><div class="issue-content">
+        - Added bug #4 : Conversion problem between two different *vec* types<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-01-30: <br /></div><div class="issue-content">
+        - Added bug #1 : Inability to select multiple components<br /></div><div class="issue-content">
+        - Added bug #2 : Some *vec* types conversions are not available<br /></div><div class="issue-content">
+        - Added bug #3 : 'not' is a C++ ISO keyword<br /></div><div class="issue-content">
+        - Added * operator for two mat3 types<br /></div><div class="issue-content">
+        - Added * operator for two mat4 types<br /></div><div class="issue-content">
+        - Updated mat* types<br /></div><div class="issue-content">
+        - Updated GLM_GTX_quaternion extension to wishlist in position 1<br /></div><div class="issue-content">
+        - Updated GLM_GTX_transform extension to wishlist in position 2<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-01-27: <br /></div><div class="issue-content">
+        - Added mat2 type<br /></div><div class="issue-content">
+        - Added * operator for two mat2 types<br /></div><div class="issue-content">
+        - Added issue #14<br /></div><div class="issue-content">
+        - Added issue #15<br /></div><div class="issue-content">
+        - Added mat3 type<br /></div><div class="issue-content">
+        - Added mat4 type<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-01-26: <br /></div><div class="issue-content">
+        - Added function mix with its tests<br /></div><div class="issue-content">
+        - Added function step with its tests<br /></div><div class="issue-content">
+        - Added function smoothstep with its tests<br /></div><div class="issue-content">
+        - Updated issue #10<br /></div><div class="issue-content">
+        - Updated issue #12<br /></div><div class="issue-content">
+        - Updated issue #8<br /></div><div class="issue-content">
+        - Added type bvec4 forgotten declaration<br /></div><div class="issue-content">
+        - Added function lessThan with its tests<br /></div><div class="issue-content">
+        - Added function lessThanEqual with its tests<br /></div><div class="issue-content">
+        - Added function greaterThan with its tests<br /></div><div class="issue-content">
+        - Added function greaterThanEqual with its tests<br /></div><div class="issue-content">
+        - Added function equal with its tests<br /></div><div class="issue-content">
+        - Added function notEqual with its tests<br /></div><div class="issue-content">
+        - Added function any with its tests<br /></div><div class="issue-content">
+        - Added function all with its tests<br /></div><div class="issue-content">
+        - Added function not with its tests<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-01-24: <br /></div><div class="issue-content">
+        - Added function fract with its tests<br /></div><div class="issue-content">
+        - Added function mod with its tests<br /></div><div class="issue-content">
+        - Added function clamp with its tests<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-01-23: <br /></div><div class="issue-content">
+        - Added function mod with its tests<br /></div><div class="issue-content">
+        - Added function abs with its tests<br /></div><div class="issue-content">
+        - Added function sign with its tests<br /></div><div class="issue-content">
+        - Added function floor with its tests<br /></div><div class="issue-content">
+        - Added function ceil with its tests<br /></div><div class="issue-content">
+        - Added function min with its tests<br /></div><div class="issue-content">
+        - Added function max with its tests<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-01-22: <br /></div><div class="issue-content">
+        - Updated issue #13<br /></div><div class="issue-content">
+        - Added temporary namespace called 'glm'<br /></div><div class="issue-content">
+        - Added function pow with its tests<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-01-19: <br /></div><div class="issue-content">
+        - Updated sin function tests<br /></div><div class="issue-content">
+        - Enhanced trigonometrics functions<br /></div><div class="issue-content">
+        - Enhanced geometric functions<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-01-18: <br /></div><div class="issue-content">
+        - Added xvec* type constructor taking a single scalar as parameter.<br /></div><div class="issue-content">
+        - Added xvec* into xvec3 type conversion<br /></div><div class="issue-content">
+        - Added xvec* into xvec4 type conversion<br /></div><div class="issue-content">
+        - Added xvec* into bvec2 type conversion<br /></div><div class="issue-content">
+        - Added xvec* into bvec3 type conversion<br /></div><div class="issue-content">
+        - Added xvec* into bvec4 type conversion<br /></div><div class="issue-content">
+        - Added function sin with its tests<br /></div><div class="issue-content">
+        - Added function cos with its tests<br /></div><div class="issue-content">
+        - Added function tan with its tests<br /></div><div class="issue-content">
+        - Added function asin with its tests<br /></div><div class="issue-content">
+        - Added function acos with its tests<br /></div><div class="issue-content">
+        - Added function atan with its tests<br /></div><div class="issue-content">
+        - Added issue #13<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-01-17: <br /></div><div class="issue-content">
+        - Added function radians with its tests<br /></div><div class="issue-content">
+        - Added function degrees with its tests<br /></div><div class="issue-content">
+        - Added issue #9<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-01-16: <br /></div><div class="issue-content">
+        - Separated *vec* types definition from declaration<br /></div><div class="issue-content">
+        - Added xvec* into xvec2 type conversion<br /></div><div class="issue-content">
+        - Updated issue #11<br /></div><div class="issue-content">
+        - Added issue #12<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-01-15: <br /></div><div class="issue-content">
+        - Using 'union' for multiple access to *vec* types components<br /></div><div class="issue-content">
+        - Added issue #11<br /></div><div class="issue-content">
+        - Deleted __*vec1GT following issue #11 guidance<br /></div><div class="issue-content">
+        - Closed issue #2<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-01-13: <br /></div><div class="issue-content">
+        - Added function normalize with its tests<br /></div><div class="issue-content">
+        - Added function faceforward with its tests<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-01-12: <br /></div><div class="issue-content">
+        - Added function cross with its tests<br /></div><div class="issue-content">
+        - Added a function that can determine *vec* types size, and write beyond GLSL 1.051 specs<br /></div><div class="issue-content">
+        - Added function lenght with its tests<br /></div><div class="issue-content">
+        - Added function distance with its tests<br /></div><div class="issue-content">
+        - Added function dot with its tests<br /></div><div class="issue-content">
+        - Closed issue #1<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-01-10: <br /></div><div class="issue-content">
+        - Renamed intern types _vec* into _xvec*<br /></div><div class="issue-content">
+        - Separated _xvec* types data, operators and accesses<br /></div><div class="issue-content">
+        - Added bvec2 type<br /></div><div class="issue-content">
+        - Added __bvec1GT type beyond GLSL 1.051 specs<br /></div><div class="news-separator">_________________</div><br /><div class="title4">2005-01-09: <br /></div><div class="issue-content">
+        - Added types vec2 and ivec2<br /></div><div class="issue-content">
+        - Added types vec3 and ivec3<br /></div><div class="issue-content">
+        - Added types vec4 and ivec4<br /></div><div class="issue-content">
+        - Added types __vec1GT and __ivec1GT, write beyond GLSL 1.051 specs<br /></div><div class="news-separator">_________________</div><br /><div class="title3">
+              Copyright © 2005-2008 <a href="http://www.g-truc.net">G-Truc Creation</a></div></td></tr></table></body></html>
