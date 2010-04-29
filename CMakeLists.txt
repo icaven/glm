@@ -6,7 +6,6 @@ project(glm)
 add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 
 add_subdirectory(glm)
-add_subdirectory(test)
 add_subdirectory(doc)
 
 
