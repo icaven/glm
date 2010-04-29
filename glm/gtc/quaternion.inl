@@ -451,7 +451,7 @@ namespace quaternion{
             Result.w = (m[1][2] - m[2][1]) * mult;
             Result.x = biggestVal;
             Result.y = (m[0][1] + m[1][0]) * mult;
-            Result.z = (m[2][1] + m[1][2]) * mult;
+            Result.z = (m[2][0] + m[0][2]) * mult;
             break;
         case 2:
             Result.w = (m[2][0] - m[0][2]) * mult;
