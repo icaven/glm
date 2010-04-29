@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2007-03-14
-// Updated : 2007-03-14
+// Updated : 2010-02-19
 // Licence : This source is under MIT License
 // File    : gtx_extented_min_max.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -11,270 +11,170 @@ namespace glm{
 namespace gtx{
 namespace extented_min_max
 {
-	template <typename T> 
+	template <typename T>
 	inline T min(
-		const T x, 
-		const T y, 
-		const T z)
+		T const & x, 
+		T const & y, 
+		T const & z)
 	{
-		return min(min(x, y), z);
+		return glm::min(glm::min(x, y), z);
 	}
 
-	template <typename T> 
-	inline T min(
-		const T x, 
-		const T y, 
-		const T z, 
-		const T w)
+	template 
+	<
+		typename T, 
+		template <typename> class C
+	>
+	inline C<T> min
+	(
+		C<T> const & x, 
+		typename C<T>::value_type const & y, 
+		typename C<T>::value_type const & z
+	)
 	{
-		return min(min(x, y), min(z, w));
+		return glm::min(glm::min(x, y), z);
 	}
 
-	template <typename T> 
-	inline detail::tvec2<T> min(
-		const detail::tvec2<T>& x, 
-		const T y, 
-		const T z)
+	template 
+	<
+		typename T, 
+		template <typename> class C
+	>
+	inline C<T> min
+	(
+		C<T> const & x, 
+		C<T> const & y, 
+		C<T> const & z
+	)
 	{
-		return min(x, min(y, z));
+		return glm::min(glm::min(x, y), z);
 	}
 
-    template <typename T> 
-	inline detail::tvec3<T> min(
-		const detail::tvec3<T>& x, 
-		const T y, 
-		const T z)
+	template <typename T>
+	inline T min
+	(
+		T const & x, 
+		T const & y, 
+		T const & z, 
+		T const & w
+	)
 	{
-		return min(x, min(y, z));
+		return glm::min(glm::min(x, y), glm::min(z, w));
 	}
 
-    template <typename T> 
-	inline detail::tvec4<T> min(
-		const detail::tvec4<T>& x, 
-		const T y, 
-		const T z)
+	template 
+	<
+		typename T, 
+		template <typename> class C
+	>
+	inline C<T> min
+	(
+		C<T> const & x, 
+		typename C<T>::value_type const & y, 
+		typename C<T>::value_type const & z, 
+		typename C<T>::value_type const & w
+	)
 	{
-		return min(x, min(y, z));
+		return glm::min(glm::min(x, y), glm::min(z, w));
 	}
 
-    template <typename T> 
-	inline detail::tvec2<T> min(
-		const detail::tvec2<T>& x, 
-		const T y, 
-		const T z, 
-		const T w)
+	template 
+	<
+		typename T, 
+		template <typename> class C
+	>
+	inline C<T> min
+	(
+		C<T> const & x, 
+		C<T> const & y, 
+		C<T> const & z, 
+		C<T> const & w
+	)
 	{
-		return min(x, min(y, min(z, w)));
+		return glm::min(glm::min(x, y), glm::min(z, w));
 	}
 
-    template <typename T> 
-	inline detail::tvec3<T> min(
-		const detail::tvec3<T>& x, 
-		const T y, 
-		const T z, 
-		const T w)
-	{
-		return min(x, min(y, min(z, w)));
-	}
-
-    template <typename T> 
-	inline detail::tvec4<T> min(
-		const detail::tvec4<T>& x, 
-		const T y, 
-		const T z, 
-		const T w)
-	{
-		return min(x, min(y, min(z, w)));
-	}
-
-    template <typename T> 
-	inline detail::tvec2<T> min(
-		const detail::tvec2<T>& x, 
-		const detail::tvec2<T>& y, 
-		const detail::tvec2<T>& z)
-	{
-		return min(x, min(y, z));
-	}
-
-    template <typename T> 
-	inline detail::tvec3<T> min(
-		const detail::tvec3<T>& x, 
-		const detail::tvec3<T>& y, 
-		const detail::tvec3<T>& z)
-	{
-		return min(x, min(y, z));
-	}
-
-    template <typename T> 
-	inline detail::tvec4<T> min(
-		const detail::tvec4<T>& x, 
-		const detail::tvec4<T>& y, 
-		const detail::tvec4<T>& z)
-	{
-		return min(x, min(y, z));
-	}
-	
-    template <typename T> 
-	inline detail::tvec2<T> min(
-		const detail::tvec2<T>& x, 
-		const detail::tvec2<T>& y, 
-		const detail::tvec2<T>& z, 
-		const detail::tvec2<T>& w)
-	{
-		return min(min(x, y), min(z, w));
-	}
-
-    template <typename T> 
-	inline detail::tvec3<T> min(
-		const detail::tvec3<T>& x, 
-		const detail::tvec3<T>& y, 
-		const detail::tvec3<T>& z, 
-		const detail::tvec3<T>& w)
-	{
-		return min(min(x, y), min(z, w));
-	}
-
-    template <typename T> 
-	inline detail::tvec4<T> min(
-		const detail::tvec4<T>& x, 
-		const detail::tvec4<T>& y, 
-		const detail::tvec4<T>& z, 
-		const detail::tvec4<T>& w)
-	{
-		return min(min(x, y), min(z, w));
-	}
-
-	template <typename T> 
+	template <typename T>
 	inline T max(
-		const T x, 
-		const T y, 
-		const T z)
+		T const & x, 
+		T const & y, 
+		T const & z)
 	{
-		return max(max(x, y), z);
+		return glm::max(glm::max(x, y), z);
 	}
 
-	template <typename T> 
-	inline T max(
-		const T x, 
-		const T y, 
-		const T z, 
-		const T w)
+	template 
+	<
+		typename T, 
+		template <typename> class C
+	>
+	inline C<T> max
+	(
+		C<T> const & x, 
+		typename C<T>::value_type const & y, 
+		typename C<T>::value_type const & z
+	)
 	{
-		return max(max(x, y), max(z, w));
+		return glm::max(glm::max(x, y), z);
 	}
 
-	template <typename T> 
-	inline detail::tvec2<T> max(
-		const detail::tvec2<T>& x, 
-		const T y, 
-		const T z)
+	template 
+	<
+		typename T, 
+		template <typename> class C
+	>
+	inline C<T> max
+	(
+		C<T> const & x, 
+		C<T> const & y, 
+		C<T> const & z
+	)
 	{
-		return max(x, max(y, z));
+		return glm::max(glm::max(x, y), z);
 	}
 
-    template <typename T> 
-	inline detail::tvec3<T> max(
-		const detail::tvec3<T>& x, 
-		const T y, 
-		const T z)
+	template <typename T>
+	inline T max
+	(
+		T const & x, 
+		T const & y, 
+		T const & z, 
+		T const & w
+	)
 	{
-		return max(x, max(y, z));
+		return glm::max(glm::max(x, y), glm::max(z, w));
 	}
 
-    template <typename T> 
-	inline detail::tvec4<T> max(
-		const detail::tvec4<T>& x, 
-		const T y, 
-		const T z)
+	template 
+	<
+		typename T, 
+		template <typename> class C
+	>
+	inline C<T> max
+	(
+		C<T> const & x, 
+		typename C<T>::value_type const & y, 
+		typename C<T>::value_type const & z, 
+		typename C<T>::value_type const & w
+	)
 	{
-		return max(x, max(y, z));
+		return glm::max(glm::max(x, y), glm::max(z, w));
 	}
 
-    template <typename T> 
-	inline detail::tvec2<T> max(
-		const detail::tvec2<T>& x, 
-		const T y, 
-		const T z, 
-		const T w)
+	template 
+	<
+		typename T, 
+		template <typename> class C
+	>
+	inline C<T> max
+	(
+		C<T> const & x, 
+		C<T> const & y, 
+		C<T> const & z, 
+		C<T> const & w
+	)
 	{
-		return max(max(x, y), max(z, w));
-	}
-
-    template <typename T> 
-	inline detail::tvec3<T> max(
-		const detail::tvec3<T>& x, 
-		const T y, 
-		const T z, 
-		const T w)
-	{
-		return max(max(x, y), max(z, w));
-	}
-
-    template <typename T> 
-	inline detail::tvec4<T> max(
-		const detail::tvec4<T>& x, 
-		const T y, 
-		const T z, 
-		const T w)
-	{
-		return max(max(x, y), max(z, w));
-	}
-	
-    template <typename T> 
-	inline detail::tvec2<T> max(
-		const detail::tvec2<T>& x, 
-		const detail::tvec2<T>& y, 
-		const detail::tvec2<T>& z)
-	{
-		return max(max(x, y), z);
-	}
-
-    template <typename T> 
-	inline detail::tvec3<T> max(
-		const detail::tvec3<T>& x, 
-		const detail::tvec3<T>& y, 
-		const detail::tvec3<T>& z)
-	{
-		return max(max(x, y), z);
-	}
-
-    template <typename T> 
-	inline detail::tvec4<T> max(
-		const detail::tvec4<T>& x, 
-		const detail::tvec4<T>& y, 
-		const detail::tvec4<T>& z)
-	{
-		return max(max(x, y), z);
-	}
-
-    template <typename T> 
-	inline detail::tvec2<T> max(
-		const detail::tvec2<T>& x, 
-		const detail::tvec2<T>& y, 
-		const detail::tvec2<T>& z, 
-		const detail::tvec2<T>& w)
-	{
-		return max(max(x, y), max(z, w));
-	}
-
-    template <typename T> 
-	inline detail::tvec3<T> max(
-		const detail::tvec3<T>& x, 
-		const detail::tvec3<T>& y, 
-		const detail::tvec3<T>& z, 
-		const detail::tvec3<T>& w)
-	{
-		return max(max(x, y), max(z, w));
-	}
-
-    template <typename T> 
-	inline detail::tvec4<T> max(
-		const detail::tvec4<T>& x, 
-		const detail::tvec4<T>& y, 
-		const detail::tvec4<T>& z, 
-		const detail::tvec4<T>& w)
-	{
-		return max(max(x, y), max(z, w));
+		return glm::max(glm::max(x, y), glm::max(z, w));
 	}
 
 }//namespace extented_min_max

@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2007-02-21
 // Updated : 2007-02-21
 // Licence : This source is under MIT License
-// File    : glm/gtx/vecx.h
+// File    : glm/gtx/vecx.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -208,11 +208,8 @@ namespace detail{
     }
 }
 
-#define GLM_GTX_vecx namespace gtx::vecx
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_vecx;}
-#endif//GLM_GTX_GLOBAL
-
 #include "vecx.inl"
+
+namespace glm{using namespace gtx::vecx;}
 
 #endif//glm_gtx_vecx

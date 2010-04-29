@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2009-04-29
-// Updated : 2009-04-29
+// Updated : 2010-02-07
 // Licence : This source is under MIT License
 // File    : glm/gtc/matrix_projection.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,43 +88,43 @@ namespace matrix_projection
 		return Result;
 	}
 
-	template <typename valTypeT, typename valTypeU>
-	inline detail::tvec3<valTypeT> project(
-		detail::tvec3<valTypeT> const & obj, 
-		detail::tmat4x4<valTypeT> const & model, 
-		detail::tmat4x4<valTypeT> const & proj, 
-		detail::tvec4<valTypeU> const & viewport)
+	template <typename T, typename U>
+	inline detail::tvec3<T> project(
+		detail::tvec3<T> const & obj, 
+		detail::tmat4x4<T> const & model, 
+		detail::tmat4x4<T> const & proj, 
+		detail::tvec4<U> const & viewport)
 	{
-		detail::tvec4<valTypeT> tmp = detail::tvec4<valTypeT>(obj, valTypeT(1));
+		detail::tvec4<T> tmp = detail::tvec4<T>(obj, T(1));
 		tmp = model * tmp;
 		tmp = proj * tmp;
 
 		tmp /= tmp.w;
-		tmp = tmp * valTypeT(0.5) + valTypeT(0.5);
-		tmp[0] = tmp[0] * valTypeT(viewport[2]) + valTypeT(viewport[0]);
-		tmp[1] = tmp[1] * valTypeT(viewport[3]) + valTypeT(viewport[1]);
+		tmp = tmp * T(0.5) + T(0.5);
+		tmp[0] = tmp[0] * T(viewport[2]) + T(viewport[0]);
+		tmp[1] = tmp[1] * T(viewport[3]) + T(viewport[1]);
 
-		return detail::tvec3<valTypeT>(tmp);
+		return detail::tvec3<T>(tmp);
 	}
 
-	template <typename valTypeT, typename valTypeU>
-	inline detail::tvec3<valTypeT> unProject(
-		detail::tvec3<valTypeT> const & win, 
-		detail::tmat4x4<valTypeT> const & model, 
-		detail::tmat4x4<valTypeT> const & proj, 
-		detail::tvec4<valTypeU> const & viewport)
+	template <typename T, typename U>
+	inline detail::tvec3<T> unProject(
+		detail::tvec3<T> const & win, 
+		detail::tmat4x4<T> const & model, 
+		detail::tmat4x4<T> const & proj, 
+		detail::tvec4<U> const & viewport)
 	{
-		detail::tmat4x4<valTypeT> inverse = glm::inverse(proj * model);
+		detail::tmat4x4<T> inverse = glm::inverse(proj * model);
 
-		detail::tvec4<valTypeT> tmp = detail::tvec4<valTypeT>(win, valTypeT(1));
-		tmp.x = (tmp.x - valTypeT(viewport[0])) / valTypeT(viewport[2]);
-		tmp.y = (tmp.y - valTypeT(viewport[1])) / valTypeT(viewport[3]);
-		tmp = tmp * valTypeT(2) - valTypeT(1);
+		detail::tvec4<T> tmp = detail::tvec4<T>(win, T(1));
+		tmp.x = (tmp.x - T(viewport[0])) / T(viewport[2]);
+		tmp.y = (tmp.y - T(viewport[1])) / T(viewport[3]);
+		tmp = tmp * T(2) - T(1);
 
-		detail::tvec4<valTypeT> obj = inverse * tmp;
+		detail::tvec4<T> obj = inverse * tmp;
 		obj /= obj.w;
 
-		return detail::tvec3<valTypeT>(obj);
+		return detail::tvec3<T>(obj);
 	}
 
 }//namespace matrix_projection

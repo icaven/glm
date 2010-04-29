@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2007-03-14
 // Updated : 2008-11-14
 // Licence : This source is under MIT License
-// File    : glm/gtx/bit.h
+// File    : glm/gtx/bit.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -17,7 +17,6 @@
 // Dependency:
 #include "../glm.hpp"
 #include "../gtc/half_float.hpp"
-#include <limits>
 
 namespace glm
 {
@@ -96,11 +95,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_bit namespace gtx::bit
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_bit;}
-#endif//GLM_GTX_GLOBAL
-
 #include "bit.inl"
+
+namespace glm{using namespace gtx::bit;}
 
 #endif//glm_gtx_bit

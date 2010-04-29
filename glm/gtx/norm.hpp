@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2005-12-21
 // Updated : 2008-07-24
 // Licence : This source is under MIT License
-// File    : glm/gtx/norm.h
+// File    : glm/gtx/norm.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -136,11 +136,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_norm namespace gtx::norm
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_norm;}
-#endif//GLM_GTX_GLOBAL
-
 #include "norm.inl"
+
+namespace glm{using namespace gtx::norm;}
 
 #endif//glm_gtx_norm

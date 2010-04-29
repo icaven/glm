@@ -1,18 +1,18 @@
-#ifndef GLM_EXT_VIRTREV_EQUAL_OPERATOR_HPP
-#define GLM_EXT_VIRTREV_EQUAL_OPERATOR_HPP
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 // VirtreV SDK copyright matrem (matrem84.free.fr)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-09-23
 // Updated : 
 // Licence : This source is under MIT License
-// File    : glm/ext/virtrev/equal_operator.h
+// File    : glm/ext/virtrev/equal_operator.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+#ifndef glm_virtrev_equal_operator
+#define glm_virtrev_equal_operator
 
 #include "../glm.hpp"
 
@@ -20,7 +20,7 @@ namespace glm
 {
 	namespace virtrev_glmext
 	{
-	//! GLM_VIRTREV_gl extension: Vector & matrix integration with OpenGL.
+	//! GLM_VIRTREV_equal_operator extension: equal operator for vectors.
 	namespace equal_operator
 	{
 		template<typename T>
@@ -62,10 +62,7 @@ namespace glm
 	}
 }
 
-#define GLM_VIRTREV_equal_operator namespace glm::virtrev_glmext::equal_operator
-#ifndef GLM_VIRTREV_GLOBAL
-namespace glm {using GLM_VIRTREV_equal_operator;}
-#endif//GLM_VIRTREV_GLOBAL
+namespace glm {namespace virtrev_glmext::equal_operator;}
 
-#endif//GLM_EXT_VIRTREV_EQUAL_OPERATOR_HPP
+#endif//glm_virtrev_equal_operator
 

@@ -1,10 +1,10 @@
 //////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 //////////////////////////////////////////////////////////////////////////////////
 // Created : 2007-09-28
 // Updated : 2008-10-07
 // Licence : This source is under MIT License
-// File    : glm/gtx/normalize_dot.h
+// File    : glm/gtx/normalize_dot.hpp
 //////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -24,6 +24,8 @@ namespace glm
 	//! GLM_GTX_normalize_dot extension: Dot product of vectors that need to be normalize with a single square root.
 	namespace normalize_dot
 	{
+		using namespace gtx::fast_square_root;
+
 		//! Normalize parameters and returns the dot product of x and y.
 		//! It's faster that dot(normalize(x), normalize(y)).
 		//! From GLM_GTX_normalize_dot extension.
@@ -44,11 +46,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_normalize_dot namespace gtx::fast_square_root; using namespace gtx::normalize_dot
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_normalize_dot;}
-#endif//GLM_GTX_GLOBAL
-
 #include "normalize_dot.inl"
+
+namespace glm{using namespace gtx::normalize_dot;}
 
 #endif//glm_gtx_normalize_dot

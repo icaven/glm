@@ -1,15 +1,15 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2007-01-24
 // Updated : 2008-10-24
 // Licence : This source is under MIT License
-// File    : glm/gtx/compatibility.h
+// File    : glm/gtx/compatibility.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
-// - GLM_GTX_half_float
-// - GLM_GTX_double_float
+// - GLM_GTC_half_float
+// - GLM_GTC_double_float
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_compatibility
@@ -154,12 +154,9 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_compatibility namespace gtx::compatibility
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_compatibility;}
-#endif//GLM_GTC_GLOBAL
-
 #include "compatibility.inl"
+
+namespace glm{using namespace gtx::compatibility;}
 
 #endif//glm_gtx_compatibility
 

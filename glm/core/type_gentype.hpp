@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-10-05
-// Updated : 2008-10-05
+// Updated : 2010-01-26
 // Licence : This source is under MIT License
-// File    : glm/core/type_gentype.h
+// File    : glm/core/type_gentype.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_core_type_gentype
@@ -12,83 +12,139 @@
 
 #include "type_size.hpp"
 
-namespace glm{
-
-enum profile
+namespace glm
 {
-	nice,
-	fast,
-	simd
-};
+	enum profile
+	{
+		nice,
+		fast,
+		simd
+	};
 
-namespace detail{
-
-template <typename valTypeT, uint colT, uint rowT, profile proT = nice>
-class genType
+namespace detail
 {
-public:
-	//////////////////////////////////////
-	// Traits
+	template
+	<
+		typename VALTYPE, 
+		template <typename> class TYPE
+	>
+	struct genType
+	{
+	public:
+		enum ctor{null};
 
-	typedef sizeType							size_type;
-	typedef valTypeT							value_type;
+		typedef VALTYPE value_type;
+		typedef VALTYPE & value_reference;
+		typedef VALTYPE * value_pointer;
+		typedef VALTYPE const * value_const_pointer;
+		typedef TYPE<bool> bool_type;
 
-	typedef genType<value_type, colT, rowT>		class_type;
+		typedef sizeType size_type;
+		static bool is_vector();
+		static bool is_matrix();
+		
+		typedef TYPE<VALTYPE> type;
+		typedef TYPE<VALTYPE> * pointer;
+		typedef TYPE<VALTYPE> const * const_pointer;
+		typedef TYPE<VALTYPE> const * const const_pointer_const;
+		typedef TYPE<VALTYPE> * const pointer_const;
+		typedef TYPE<VALTYPE> & reference;
+		typedef TYPE<VALTYPE> const & const_reference;
+		typedef TYPE<VALTYPE> const & param_type;
 
-	typedef genType<bool, colT, rowT>			bool_type;
-	typedef genType<value_type, rowT, 1>		col_type;
-	typedef genType<value_type, colT, 1>		row_type;
-	typedef genType<value_type, rowT, colT>		transpose_type;
+		//////////////////////////////////////
+		// Address (Implementation details)
 
-	static size_type							col_size();
-	static size_type							row_size();
-	static size_type							value_size();
-	static bool									is_scalar();
-	static bool									is_vector();
-	static bool									is_matrix();
+		value_const_pointer value_address() const{return value_pointer(this);}
+		value_pointer value_address(){return value_pointer(this);}
 
-private:
-	// Data 
-	col_type value[colT];		
+	//protected:
+	//	enum kind
+	//	{
+	//		GEN_TYPE,
+	//		VEC_TYPE,
+	//		MAT_TYPE
+	//	};
 
-public:
-	//////////////////////////////////////
-	// Constructors
-	genType();
-	genType(class_type const & m);
+	//	typedef typename TYPE::kind kind;
+	};
 
-	explicit genType(value_type const & x);
-	explicit genType(value_type const * const x);
-	explicit genType(col_type const * const x);
+	template
+	<
+		typename VALTYPE, 
+		template <typename> class TYPE
+	>
+	bool genType<VALTYPE, TYPE>::is_vector()
+	{
+		return true;
+	}
+/*
+	template <typename valTypeT, unsigned int colT, unsigned int rowT, profile proT = nice>
+	class base
+	{
+	public:
+		//////////////////////////////////////
+		// Traits
 
-	//////////////////////////////////////
-	// Conversions
-	template <typename vU, uint cU, uint rU, profile pU>
-	explicit genType(genType<vU, cU, rU, pU> const & m);
+		typedef sizeType							size_type;
+		typedef valTypeT							value_type;
 
-	//////////////////////////////////////
-	// Accesses
-	col_type& operator[](size_type i);
-	col_type const & operator[](size_type i) const;
+		typedef base<value_type, colT, rowT>		class_type;
 
-	//////////////////////////////////////
-	// Unary updatable operators
-	class_type& operator=  (class_type const & x);
-	class_type& operator+= (value_type const & x);
-	class_type& operator+= (class_type const & x);
-	class_type& operator-= (value_type const & x);
-	class_type& operator-= (class_type const & x);
-	class_type& operator*= (value_type const & x);
-	class_type& operator*= (class_type const & x);
-	class_type& operator/= (value_type const & x);
-	class_type& operator/= (class_type const & x);
-	class_type& operator++ ();
-	class_type& operator-- ();
-};
+		typedef base<bool, colT, rowT>				bool_type;
+		typedef base<value_type, rowT, 1>			col_type;
+		typedef base<value_type, colT, 1>			row_type;
+		typedef base<value_type, rowT, colT>		transpose_type;
 
-}//namespace detail
+		static size_type							col_size();
+		static size_type							row_size();
+		static size_type							value_size();
+		static bool									is_scalar();
+		static bool									is_vector();
+		static bool									is_matrix();
+
+	private:
+		// Data 
+		col_type value[colT];		
+
+	public:
+		//////////////////////////////////////
+		// Constructors
+		base();
+		base(class_type const & m);
+
+		explicit base(value_type const & x);
+		explicit base(value_type const * const x);
+		explicit base(col_type const * const x);
+
+		//////////////////////////////////////
+		// Conversions
+		template <typename vU, uint cU, uint rU, profile pU>
+		explicit base(base<vU, cU, rU, pU> const & m);
+
+		//////////////////////////////////////
+		// Accesses
+		col_type& operator[](size_type i);
+		col_type const & operator[](size_type i) const;
+
+		//////////////////////////////////////
+		// Unary updatable operators
+		class_type& operator=  (class_type const & x);
+		class_type& operator+= (value_type const & x);
+		class_type& operator+= (class_type const & x);
+		class_type& operator-= (value_type const & x);
+		class_type& operator-= (class_type const & x);
+		class_type& operator*= (value_type const & x);
+		class_type& operator*= (class_type const & x);
+		class_type& operator/= (value_type const & x);
+		class_type& operator/= (class_type const & x);
+		class_type& operator++ ();
+		class_type& operator-- ();
+	};
+*/
+	}//namespace detail
 }//namespace glm
 
-#include "type_gentype.inl"
+//#include "type_gentype.inl"
 
 #endif//glm_core_type_gentype

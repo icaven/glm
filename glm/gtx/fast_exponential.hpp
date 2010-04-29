@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2006-01-09
 // Updated : 2006-11-13
@@ -76,11 +76,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_fast_exponential namespace gtx::fast_exponential
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_fast_exponential;}
-#endif//GLM_GTX_GLOBAL
-
 #include "fast_exponential.inl"
+
+namespace glm{using namespace gtx::fast_exponential;}
 
 #endif//glm_gtx_fast_exponential

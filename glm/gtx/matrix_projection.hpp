@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2005-12-21
 // Updated : 2009-04-29
 // Licence : This source is under MIT License
-// File    : glm/gtx/matrix_projection.h
+// File    : glm/gtx/matrix_projection.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -28,6 +28,8 @@ namespace glm
 	//! GLM_GTX_matrix_projection: Varius ways to build and operate on projection matrices
     namespace matrix_projection
     {
+		using namespace gtc::matrix_projection;
+
 		//! Builds a perspective projection matrix based on a field of view
 		//! From GLM_GTX_matrix_projection extension.
 		template <typename valType> 
@@ -54,11 +56,8 @@ namespace glm
     }//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_matrix_projection namespace gtc::matrix_projection; using namespace gtx::matrix_projection
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_matrix_projection;}
-#endif//GLM_GTX_GLOBAL
-
 #include "matrix_projection.inl"
+
+namespace glm{using namespace gtx::matrix_projection;}
 
 #endif//glm_gtx_matrix_projection

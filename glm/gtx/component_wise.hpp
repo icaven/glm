@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2007-05-21
 // Updated : 2007-05-21
 // Licence : This source is under MIT License
-// File    : glm/gtx/component_wise.h
+// File    : glm/gtx/component_wise.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -54,11 +54,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_component_wise namespace gtx::component_wise
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_component_wise;}
-#endif//GLM_GTC_GLOBAL
-
 #include "component_wise.inl"
+
+namespace glm{using namespace gtx::component_wise;}
 
 #endif//glm_gtx_component_wise

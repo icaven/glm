@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2009-05-21
-// Updated : 2009-06-04
+// Updated : 2010-02-04
 // Licence : This source is under MIT License
 // File    : glm/gtc/quaternion.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -12,19 +12,19 @@
 namespace glm{
 namespace detail{
 
-    template <typename valType> 
-    inline tquat<valType>::tquat() : 
+    template <typename T> 
+    inline tquat<T>::tquat() : 
         x(0),
         y(0),
         z(0),
         w(1)
     {}
 
-    template <typename valType> 
-    inline tquat<valType>::tquat
+    template <typename T> 
+    inline tquat<T>::tquat
 	(
-		valType const & s, 
-		tvec3<valType> const & v
+		value_type const & s, 
+		tvec3<T> const & v
 	) : 
         x(v.x),
         y(v.y),
@@ -32,13 +32,13 @@ namespace detail{
         w(s)
     {}
 
-    template <typename valType> 
-    inline tquat<valType>::tquat
+    template <typename T> 
+    inline tquat<T>::tquat
 	(
-		valType const & w, 
-		valType const & x, 
-		valType const & y, 
-		valType const & z
+		value_type const & w, 
+		value_type const & x, 
+		value_type const & y, 
+		value_type const & z
 	) :
         x(x),
         y(y),
@@ -67,14 +67,14 @@ namespace detail{
 	//	this->z = c.x * c.y * s.z - s.x * s.y * c.z;
 	//}
 
-	template <typename valType> 
-	inline tquat<valType>::tquat
+	template <typename T> 
+	inline tquat<T>::tquat
 	(
-		tvec3<valType> const & eulerAngle
+		tvec3<T> const & eulerAngle
 	)
 	{
-		tvec3<valType> c = glm::cos(eulerAngle * valType(0.5));
-		tvec3<valType> s = glm::sin(eulerAngle * valType(0.5));
+		tvec3<T> c = glm::cos(eulerAngle * value_type(0.5));
+		tvec3<T> s = glm::sin(eulerAngle * value_type(0.5));
 		
 		this->w = c.x * c.y * c.z + s.x * s.y * s.z;
 		this->x = s.x * c.y * c.z - c.x * s.y * s.z;
@@ -82,19 +82,19 @@ namespace detail{
 		this->z = c.x * c.y * s.z - s.x * s.y * c.z;		
 	}
 
-    template <typename valType> 
-    inline tquat<valType>::tquat
+    template <typename T> 
+    inline tquat<T>::tquat
 	(
-		tmat3x3<valType> const & m
+		tmat3x3<T> const & m
 	)
     {
 		*this = toQuat(m);
     }
 
-    template <typename valType> 
-    inline tquat<valType>::tquat
+    template <typename T> 
+    inline tquat<T>::tquat
 	(
-		tmat4x4<valType> const & m
+		tmat4x4<T> const & m
 	)
     {
 		*this = toQuat(m);
@@ -103,14 +103,14 @@ namespace detail{
     //////////////////////////////////////////////////////////////
     // tquat<T> accesses
 
-    template <typename valType> 
-    inline valType& tquat<valType>::operator [] (int i)
+    template <typename T> 
+	inline typename tquat<T>::value_type & tquat<T>::operator [] (int i)
     {
         return (&x)[i];
     }
 
-    template <typename valType> 
-    inline valType tquat<valType>::operator [] (int i) const
+    template <typename T> 
+    inline typename tquat<T>::value_type const & tquat<T>::operator [] (int i) const
     {
         return (&x)[i];
     }
@@ -118,10 +118,10 @@ namespace detail{
     //////////////////////////////////////////////////////////////
     // tquat<valType> operators
 
-    template <typename valType> 
-    inline tquat<valType>& tquat<valType>::operator *=
+    template <typename T> 
+    inline tquat<T> & tquat<T>::operator *=
 	(
-		valType const & s
+		value_type const & s
 	)
     {
         this->w *= s;
@@ -131,10 +131,10 @@ namespace detail{
         return *this;
     }
 
-    template <typename valType> 
-    inline tquat<valType>& tquat<valType>::operator /=
+    template <typename T> 
+    inline tquat<T> & tquat<T>::operator /=
 	(
-		valType const & s
+		value_type const & s
 	)
     {
         this->w /= s;
@@ -147,92 +147,94 @@ namespace detail{
     //////////////////////////////////////////////////////////////
     // tquat<valType> external operators
 
-	template <typename valType>
-	inline detail::tquat<valType> operator- 
+	template <typename T>
+	inline detail::tquat<T> operator- 
 	(
-		detail::tquat<valType> const & q
+		detail::tquat<T> const & q
 	)
 	{
-		return detail::tquat<valType>(-q.w, -q.x, -q.y, -q.z);
+		return detail::tquat<T>(-q.w, -q.x, -q.y, -q.z);
 	}
 
 	// Transformation
-	template <typename valType>
-	inline detail::tvec3<valType> operator* 
+	template <typename T>
+	inline detail::tvec3<T> operator* 
 	(
-		detail::tquat<valType> const & q, 
-		detail::tvec3<valType> const & v
+		detail::tquat<T> const & q, 
+		detail::tvec3<T> const & v
 	)
 	{
-		detail::tvec3<valType> uv, uuv;
-		detail::tvec3<valType> QuatVector(q.x, q.y, q.z);
+		typename detail::tquat<T>::value_type Two(2);
+
+		detail::tvec3<T> uv, uuv;
+		detail::tvec3<T> QuatVector(q.x, q.y, q.z);
 		uv = glm::cross(QuatVector, v);
 		uuv = glm::cross(QuatVector, uv);
-		uv *= (valType(2) * q.w); 
-		uuv *= valType(2); 
+		uv *= (Two * q.w); 
+		uuv *= Two; 
 
 		return v + uv + uuv;
 	}
 
-	template <typename valType>
-	inline detail::tvec3<valType> operator* 
+	template <typename T>
+	inline detail::tvec3<T> operator* 
 	(
-		detail::tvec3<valType> const & v,
-		detail::tquat<valType> const & q 
+		detail::tvec3<T> const & v,
+		detail::tquat<T> const & q 
 	)
 	{
 		return gtc::quaternion::inverse(q) * v;
 	}
 
-	template <typename valType>
-	inline detail::tvec4<valType> operator* 
+	template <typename T>
+	inline detail::tvec4<T> operator* 
 	(
-		detail::tquat<valType> const & q, 
-		detail::tvec4<valType> const & v
+		detail::tquat<T> const & q, 
+		detail::tvec4<T> const & v
 	)
 	{
-		return detail::tvec4<valType>(q * detail::tvec3<valType>(v), v.w);
+		return detail::tvec4<T>(q * detail::tvec3<T>(v), v.w);
 	}
 
-	template <typename valType>
-	inline detail::tvec4<valType> operator* 
+	template <typename T>
+	inline detail::tvec4<T> operator* 
 	(
-		detail::tvec4<valType> const & v,
-		detail::tquat<valType> const & q 
+		detail::tvec4<T> const & v,
+		detail::tquat<T> const & q 
 	)
 	{
 		return gtc::quaternion::inverse(q) * v;
 	}
 
-	template <typename valType> 
-	inline detail::tquat<valType> operator* 
+	template <typename T> 
+	inline detail::tquat<T> operator* 
 	(
-		detail::tquat<valType> const & q, 
-		valType const & s
+		detail::tquat<T> const & q, 
+		typename detail::tquat<T>::value_type const & s
 	)
 	{
-		return detail::tquat<valType>(
+		return detail::tquat<T>(
 			q.w * s, q.x * s, q.y * s, q.z * s);
 	}
 
-	template <typename valType> 
-	inline detail::tquat<valType> operator* 
+	template <typename T> 
+	inline detail::tquat<T> operator* 
 	(
-		valType const & s,
-		detail::tquat<valType> const & q
+		typename detail::tquat<T>::value_type const & s,
+		detail::tquat<T> const & q
 	)
 	{
 		return q * s;
 	}
 
-	template <typename valType> 
-	inline detail::tquat<valType> operator/ 
+	template <typename T> 
+	inline detail::tquat<T> operator/ 
 	(
-		detail::tquat<valType> const & q, 
-		valType const & s
+		detail::tquat<T> const & q, 
+		typename detail::tquat<T>::value_type const & s
 	)
 	{
-		return detail::tquat<valType>(
+		return detail::tquat<T>(
 			q.w / s, q.x / s, q.y / s, q.z / s);
 	}
 
@@ -242,13 +244,13 @@ namespace gtc{
 namespace quaternion{
 
 	////////////////////////////////////////////////////////
-    template <typename valType> 
-	inline valType length
+    template <typename T> 
+	inline typename detail::tquat<T>::value_type length
 	(
-		detail::tquat<valType> const & q
+		detail::tquat<T> const & q
 	)
     {
-		return static_cast<valType>(glm::sqrt(dot(q, q)));
+		return glm::sqrt(dot(q, q));
     }
 
     template <typename T> 
@@ -257,31 +259,31 @@ namespace quaternion{
 		detail::tquat<T> const & q
 	)
     {
-        T len = static_cast<T>(length(q));
-        if(len <= 0) // Problem
+        typename detail::tquat<T>::value_type len = length(q);
+        if(len <= typename detail::tquat<T>::value_type(0)) // Problem
             return detail::tquat<T>(1, 0, 0, 0);
-        T oneOverLen = 1 / len;
+        typename detail::tquat<T>::value_type oneOverLen = typename detail::tquat<T>::value_type(1) / len;
         return detail::tquat<T>(q.w * oneOverLen, q.x * oneOverLen, q.y * oneOverLen, q.z * oneOverLen);
     }
 
-    template <typename valType> 
-    inline valType dot
+    template <typename T> 
+    inline typename detail::tquat<T>::value_type dot
 	(
-		detail::tquat<valType> const & q1, 
-		detail::tquat<valType> const & q2
+		detail::tquat<T> const & q1, 
+		detail::tquat<T> const & q2
 	)
     {
         return q1.x * q2.x + q1.y * q2.y + q1.z * q2.z + q1.w * q2.w;
     }
 
-    template <typename valType> 
-    inline detail::tquat<valType> cross
+    template <typename T> 
+    inline detail::tquat<T> cross
 	(
-		detail::tquat<valType> const & q1, 
-		detail::tquat<valType> const & q2
+		detail::tquat<T> const & q1, 
+		detail::tquat<T> const & q2
 	)
     {
-        return detail::tquat<valType>(
+        return detail::tquat<T>(
             q1.w * q2.w - q1.x * q2.x - q1.y * q2.y - q1.z * q2.z,
 	        q1.w * q2.x + q1.x * q2.w + q1.y * q2.z - q1.z * q2.y,
 	        q1.w * q2.y + q1.y * q2.w + q1.z * q2.x - q1.x * q2.z,
@@ -293,15 +295,15 @@ namespace quaternion{
 	(
 		detail::tquat<T> const & x, 
 		detail::tquat<T> const & y, 
-		T const & a
+		typename detail::tquat<T>::value_type const & a
 	)
     {
-        if(a <= T(0)) return x;
-        if(a >= T(1)) return y;
+        if(a <= typename detail::tquat<T>::value_type(0)) return x;
+        if(a >= typename detail::tquat<T>::value_type(1)) return y;
 
         float fCos = dot(x, y);
         detail::tquat<T> y2(y); //BUG!!! tquat<T> y2;
-        if(fCos < T(0))
+        if(fCos < typename detail::tquat<T>::value_type(0))
         {
             y2 = -y;
             fCos = -fCos;
@@ -309,18 +311,18 @@ namespace quaternion{
 
         //if(fCos > 1.0f) // problem
         float k0, k1;
-        if(fCos > T(0.9999))
+        if(fCos > typename detail::tquat<T>::value_type(0.9999))
         {
-            k0 = T(1) - a;
-            k1 = T(0) + a; //BUG!!! 1.0f + a;
+            k0 = typename detail::tquat<T>::value_type(1) - a;
+            k1 = typename detail::tquat<T>::value_type(0) + a; //BUG!!! 1.0f + a;
         }
         else
         {
-            T fSin = sqrt(T(1) - fCos * fCos);
-            T fAngle = atan(fSin, fCos);
-            T fOneOverSin = T(1) / fSin;
-            k0 = sin((T(1) - a) * fAngle) * fOneOverSin;
-            k1 = sin((T(0) + a) * fAngle) * fOneOverSin;
+            typename detail::tquat<T>::value_type fSin = sqrt(T(1) - fCos * fCos);
+            typename detail::tquat<T>::value_type fAngle = atan(fSin, fCos);
+            typename detail::tquat<T>::value_type fOneOverSin = T(1) / fSin;
+            k0 = sin((typename detail::tquat<T>::value_type(1) - a) * fAngle) * fOneOverSin;
+            k1 = sin((typename detail::tquat<T>::value_type(0) + a) * fAngle) * fOneOverSin;
         }
 
         return detail::tquat<T>(
@@ -330,57 +332,57 @@ namespace quaternion{
             k0 * x.z + k1 * y2.z);
     }
 
-    template <typename valType> 
-    inline detail::tquat<valType> conjugate
+    template <typename T> 
+    inline detail::tquat<T> conjugate
 	(
-		detail::tquat<valType> const & q
+		detail::tquat<T> const & q
 	)
     {
-        return detail::tquat<valType>(q.w, -q.x, -q.y, -q.z);
+        return detail::tquat<T>(q.w, -q.x, -q.y, -q.z);
     }
 
-    template <typename valType> 
-    inline detail::tquat<valType> inverse
+    template <typename T> 
+    inline detail::tquat<T> inverse
 	(
-		detail::tquat<valType> const & q
+		detail::tquat<T> const & q
 	)
     {
         return gtc::quaternion::conjugate(q) / gtc::quaternion::length(q);
     }
 
-    template <typename valType> 
-    inline detail::tquat<valType> rotate
+    template <typename T> 
+    inline detail::tquat<T> rotate
 	(
-		detail::tquat<valType> const & q, 
-		valType const & angle, 
-		detail::tvec3<valType> const & v
+		detail::tquat<T> const & q, 
+		typename detail::tquat<T>::value_type const & angle, 
+		detail::tvec3<T> const & v
 	)
     {
-		detail::tvec3<valType> Tmp = v;
+		detail::tvec3<T> Tmp = v;
 
         // Axis of rotation must be normalised
-        valType len = glm::core::function::geometric::length(Tmp);
-        if(abs(len - valType(1)) > valType(0.001))
+        typename detail::tquat<T>::value_type len = glm::core::function::geometric::length(Tmp);
+        if(abs(len - typename detail::tquat<T>::value_type(1)) > typename detail::tquat<T>::value_type(0.001))
         {
-            valType oneOverLen = valType(1) / len;
+            T oneOverLen = T(1) / len;
             Tmp.x *= oneOverLen;
             Tmp.y *= oneOverLen;
             Tmp.z *= oneOverLen;
         }
 
-        valType AngleRad = radians(angle);
-        valType fSin = sin(AngleRad * valType(0.5));
+        typename detail::tquat<T>::value_type AngleRad = radians(angle);
+        typename detail::tquat<T>::value_type fSin = sin(AngleRad * T(0.5));
 
-        return gtc::quaternion::cross(q, detail::tquat<valType>(cos(AngleRad * valType(0.5)), Tmp.x * fSin, Tmp.y * fSin, Tmp.z * fSin));
+        return gtc::quaternion::cross(q, detail::tquat<T>(cos(AngleRad * T(0.5)), Tmp.x * fSin, Tmp.y * fSin, Tmp.z * fSin));
 	}
 
-    template <typename valType> 
-    inline detail::tmat3x3<valType> mat3_cast
+    template <typename T> 
+    inline detail::tmat3x3<T> mat3_cast
 	(
-		detail::tquat<valType> const & q
+		detail::tquat<T> const & q
 	)
     {
-        detail::tmat3x3<valType> Result(valType(1));
+        detail::tmat3x3<T> Result(typename detail::tquat<T>::value_type(1));
         Result[0][0] = 1 - 2 * q.y * q.y - 2 * q.z * q.z;
         Result[0][1] = 2 * q.x * q.y + 2 * q.w * q.z;
         Result[0][2] = 2 * q.x * q.z - 2 * q.w * q.y;
@@ -395,13 +397,13 @@ namespace quaternion{
         return Result;
     }
 
-    template <typename valType> 
-    inline detail::tmat4x4<valType> mat4_cast
+    template <typename T> 
+    inline detail::tmat4x4<T> mat4_cast
 	(
-		detail::tquat<valType> const & q
+		detail::tquat<T> const & q
 	)
     {
-        return detail::tmat4x4<valType>(mat3_cast(q));
+        return detail::tmat4x4<T>(mat3_cast(q));
     }
 
     template <typename T> 
@@ -410,13 +412,13 @@ namespace quaternion{
 		detail::tmat3x3<T> const & m
 	)
     {
-        T fourXSquaredMinus1 = m[0][0] - m[1][1] - m[2][2];
-        T fourYSquaredMinus1 = m[1][1] - m[0][0] - m[2][2];
-        T fourZSquaredMinus1 = m[2][2] - m[0][0] - m[1][1];
-        T fourWSquaredMinus1 = m[0][0] + m[1][1] + m[2][2];
+        typename detail::tquat<T>::value_type fourXSquaredMinus1 = m[0][0] - m[1][1] - m[2][2];
+        typename detail::tquat<T>::value_type fourYSquaredMinus1 = m[1][1] - m[0][0] - m[2][2];
+        typename detail::tquat<T>::value_type fourZSquaredMinus1 = m[2][2] - m[0][0] - m[1][1];
+        typename detail::tquat<T>::value_type fourWSquaredMinus1 = m[0][0] + m[1][1] + m[2][2];
         
         int biggestIndex = 0;
-        T fourBiggestSquaredMinus1 = fourWSquaredMinus1;
+        typename detail::tquat<T>::value_type fourBiggestSquaredMinus1 = fourWSquaredMinus1;
         if(fourXSquaredMinus1 > fourBiggestSquaredMinus1)
         {
             fourBiggestSquaredMinus1 = fourXSquaredMinus1;
@@ -433,8 +435,8 @@ namespace quaternion{
             biggestIndex = 3;
         }
 
-        T biggestVal = sqrt(fourBiggestSquaredMinus1 + T(1)) * T(0.5);
-        T mult = T(0.25) / biggestVal;
+        typename detail::tquat<T>::value_type biggestVal = sqrt(fourBiggestSquaredMinus1 + typename detail::tquat<T>::value_type(1)) * typename detail::tquat<T>::value_type(0.5);
+        typename detail::tquat<T>::value_type mult = typename detail::tquat<T>::value_type(0.25) / biggestVal;
 
         detail::tquat<T> Result;
         switch(biggestIndex)
@@ -467,13 +469,13 @@ namespace quaternion{
         return Result;
     }
 
-    template <typename valType> 
-    inline detail::tquat<valType> quat_cast
+    template <typename T> 
+    inline detail::tquat<T> quat_cast
 	(
-		detail::tmat4x4<valType> const & m4
+		detail::tmat4x4<T> const & m4
 	)
     {
-		return quat_cast(detail::tmat3x3<valType>(m4));
+		return quat_cast(detail::tmat3x3<T>(m4));
     }
 
 }//namespace quaternion

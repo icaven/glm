@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2009-04-29
 // Updated : 2009-04-29
@@ -54,39 +54,12 @@ namespace glm
 		//! From GLM_GTC_double_float extension.
 		typedef detail::tmat4x4<float>	fmat4;
 
-		//! Vector of 2 double-precision floating-point numbers. 
-		//! From GLM_GTC_double_float extension.
-		typedef detail::tvec2<double>	dvec2;
-
-		//! Vector of 3 double-precision floating-point numbers.
-		//! From GLM_GTC_double_float extension.
-		typedef detail::tvec3<double>	dvec3;
-
-		//! Vector of 4 double-precision floating-point numbers. 
-		//! From GLM_GTC_double_float extension.
-		typedef detail::tvec4<double>	dvec4;
-
-		//! 2 * 2 matrix of double-precision floating-point numbers. 
-		//! From GLM_GTC_double_float extension.
-		typedef detail::tmat2x2<double>	dmat2;
-
-		//! 3 * 3 matrix of double-precision floating-point numbers. 
-		//! From GLM_GTC_double_float extension.
-		typedef detail::tmat3x3<double>	dmat3;
-
-		//! 4 * 4 matrix of double-precision floating-point numbers.
-		//! From GLM_GTC_double_float extension.
-		typedef detail::tmat4x4<double>	dmat4;
-
 	}//namespace double_float
 	}//namespace gtc
 }//namespace glm
 
-#define GLM_GTC_double_float namespace gtc::double_float
-#ifndef GLM_GTC_GLOBAL
-namespace glm {using GLM_GTC_double_float;}
-#endif//GLM_GTC_GLOBAL
-
 #include "double_float.inl"
+
+namespace glm{using namespace gtc::double_float;}
 
 #endif//glm_gtc_double_float

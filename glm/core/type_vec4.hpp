@@ -1,15 +1,16 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-08-22
-// Updated : 2008-08-31
+// Updated : 2010-02-03
 // Licence : This source is under MIT License
-// File    : glm/core/type_tvec4.h
+// File    : glm/core/type_tvec4.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_core_type_gentype4
 #define glm_core_type_gentype4
 
+#include "type_vec.hpp"
 #include "type_float.hpp"
 #include "type_int.hpp"
 #include "type_size.hpp"
@@ -31,31 +32,16 @@ namespace glm
 		template <typename T> struct tvec2;
 		template <typename T> struct tvec3;
 
-		template <typename valType>
+		template <typename T>
 		struct tvec4
 		{
 			enum ctor{null};
-
-			//////////////////////////////////////
-			// Typedef (Implementation details)
-
-			typedef valType value_type;
-			typedef valType & value_reference;
-			typedef valType * value_pointer;
-			typedef tvec4<bool> bool_type;
-
-			typedef glm::sizeType size_type;
+			typedef T value_type;
+			typedef std::size_t size_type;
 			static size_type value_size();
-			static bool is_vector();
 
-			typedef tvec4<valType> type;
-			typedef tvec4<valType> * pointer;
-			typedef tvec4<valType> const * const_pointer;
-			typedef tvec4<valType> const * const const_pointer_const;
-			typedef tvec4<valType> * const pointer_const;
-			typedef tvec4<valType> & reference;
-			typedef tvec4<valType> const & const_reference;
-			typedef tvec4<valType> const & param_type;
+			typedef tvec4<T> type;
+			typedef tvec4<bool> bool_type;
 
 			//////////////////////////////////////
 			// Data
@@ -69,7 +55,6 @@ namespace glm
 				struct{value_type x, y, z, w;};
 				struct{value_type r, g, b, a;};
 				struct{value_type s, t, p, q;};
-
 			};
 #		else//GLM_USE_ANONYMOUS_UNION
 			union {value_type x, r, s;};
@@ -82,42 +67,47 @@ namespace glm
 			//////////////////////////////////////
 			// Accesses
 
-			valType & operator[](size_type i);
-			valType const & operator[](size_type i) const;
-
-			//////////////////////////////////////
-			// Address (Implementation details)
-
-			value_type * _address(){return (value_type*)(this);}
-			value_type const * _address() const{return (value_type*)(this);}
+			value_type & operator[](size_type i);
+			value_type const & operator[](size_type i) const;
 
 			//////////////////////////////////////
 			// Implicit basic constructors
 
 			tvec4();
-			tvec4(typename tvec4<valType>::ctor);
-			tvec4(tvec4<valType> const & v);
+			tvec4(type const & v);
 
 			//////////////////////////////////////
 			// Explicit basic constructors
 
-			explicit tvec4(valType const & s);
-			explicit tvec4(valType const & s0, valType const & s1, valType const & s2, valType const & s3);
+			explicit tvec4(
+				ctor);
+			explicit tvec4(
+				value_type const & s);
+			explicit tvec4(
+				value_type const & s0, 
+				value_type const & s1, 
+				value_type const & s2, 
+				value_type const & s3);
 
 			//////////////////////////////////////
 			// Swizzle constructors
 
-			tvec4(tref4<valType> const & r);
+			tvec4(tref4<T> const & r);
 
 			//////////////////////////////////////
 			// Convertion scalar constructors
 
 			//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-			template <typename valTypeU> 
-			explicit tvec4(valTypeU const & x);
+			template <typename U> 
+			explicit tvec4(
+				U const & x);
 			//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 			template <typename A, typename B, typename C, typename D> 
-			explicit tvec4(A const & x, B const & y, C const & z, D const & w);			
+			explicit tvec4(
+				A const & x, 
+				B const & y, 
+				C const & z, 
+				D const & w);			
 
 			//////////////////////////////////////
 			// Convertion vector constructors
@@ -147,87 +137,89 @@ namespace glm
 			//////////////////////////////////////
 			// Unary arithmetic operators
 
-			tvec4<valType>& operator= (tvec4<valType> const & v);
+			tvec4<T> & operator= (tvec4<T> const & v);
+			template <typename U>
+			tvec4<T> & operator= (tvec4<U> const & v);
 
-			tvec4<valType>& operator+=(valType const & s);
-			tvec4<valType>& operator+=(tvec4<valType> const & v);
-			tvec4<valType>& operator-=(valType const & s);
-			tvec4<valType>& operator-=(tvec4<valType> const & v);
-			tvec4<valType>& operator*=(valType const & s);
-			tvec4<valType>& operator*=(tvec4<valType> const & v);
-			tvec4<valType>& operator/=(valType const & s);
-			tvec4<valType>& operator/=(tvec4<valType> const & v);
-			tvec4<valType>& operator++();
-			tvec4<valType>& operator--();
+			template <typename U>
+			tvec4<T> & operator+=(U const & s);
+			template <typename U>
+			tvec4<T> & operator+=(tvec4<U> const & v);
+			template <typename U>
+			tvec4<T> & operator-=(U const & s);
+			template <typename U>
+			tvec4<T> & operator-=(tvec4<U> const & v);
+			template <typename U>
+			tvec4<T> & operator*=(U const & s);
+			template <typename U>
+			tvec4<T> & operator*=(tvec4<U> const & v);
+			template <typename U>
+			tvec4<T> & operator/=(U const & s);
+			template <typename U>
+			tvec4<T> & operator/=(tvec4<U> const & v);
+			tvec4<T> & operator++();
+			tvec4<T> & operator--();
 
 			//////////////////////////////////////
 			// Unary bit operators
 
-			tvec4<valType>& operator%= (valType const & s);
-			tvec4<valType>& operator%= (tvec4<valType> const & v);
-			tvec4<valType>& operator&= (valType const & s);
-			tvec4<valType>& operator&= (tvec4<valType> const & v);
-			tvec4<valType>& operator|= (valType const & s);
-			tvec4<valType>& operator|= (tvec4<valType> const & v);
-			tvec4<valType>& operator^= (valType const & s);
-			tvec4<valType>& operator^= (tvec4<valType> const & v);
-			tvec4<valType>& operator<<=(valType const & s);
-			tvec4<valType>& operator<<=(tvec4<valType> const & v);
-			tvec4<valType>& operator>>=(valType const & s);
-			tvec4<valType>& operator>>=(tvec4<valType> const & v);
+			template <typename U>
+			tvec4<T> & operator%= (U const & s);
+			template <typename U>
+			tvec4<T> & operator%= (tvec4<U> const & v);
+			template <typename U>
+			tvec4<T> & operator&= (U const & s);
+			template <typename U>
+			tvec4<T> & operator&= (tvec4<U> const & v);
+			template <typename U>
+			tvec4<T> & operator|= (U const & s);
+			template <typename U>
+			tvec4<T> & operator|= (tvec4<U> const & v);
+			template <typename U>
+			tvec4<T> & operator^= (U const & s);
+			template <typename U>
+			tvec4<T> & operator^= (tvec4<U> const & v);
+			template <typename U>
+			tvec4<T> & operator<<=(U const & s);
+			template <typename U>
+			tvec4<T> & operator<<=(tvec4<U> const & v);
+			template <typename U>
+			tvec4<T> & operator>>=(U const & s);
+			template <typename U>
+			tvec4<T> & operator>>=(tvec4<U> const & v);
 
 			//////////////////////////////////////
 			// Swizzle operators
 
-			valType swizzle(comp X) const;
-			tvec2<valType> swizzle(comp X, comp Y) const;
-			tvec3<valType> swizzle(comp X, comp Y, comp Z) const;
-			tvec4<valType> swizzle(comp X, comp Y, comp Z, comp W) const;
-			tref4<valType> swizzle(comp X, comp Y, comp Z, comp W);
+			value_type swizzle(comp X) const;
+			tvec2<T> swizzle(comp X, comp Y) const;
+			tvec3<T> swizzle(comp X, comp Y, comp Z) const;
+			tvec4<T> swizzle(comp X, comp Y, comp Z, comp W) const;
+			tref4<T> swizzle(comp X, comp Y, comp Z, comp W);
 		};
 
-		template <typename valType>
+		template <typename T>
 		struct tref4
 		{
-			tref4(valType & x, valType & y, valType & z, valType & w);
-			tref4(tref4<valType> const & r);
-			tref4(tvec4<valType> const & v);
+			tref4(T & x, T & y, T & z, T & w);
+			tref4(tref4<T> const & r);
+			tref4(tvec4<T> const & v);
 
-			tref4<valType>& operator= (tref4<valType> const & r);
-			tref4<valType>& operator= (tvec4<valType> const & v);
+			tref4<T> & operator= (tref4<T> const & r);
+			tref4<T> & operator= (tvec4<T> const & v);
 
-			valType & x;
-			valType & y;
-			valType & z;
-			valType & w;
+			T & x;
+			T & y;
+			T & z;
+			T & w;
 		};
 	} //namespace detail
 
 	namespace core{
 	namespace type{
-	namespace vector{
-
-	//////////////////////////
-	// Boolean definition
-
-	//! 4 components vector of boolean. 
-	//! From GLSL 1.30.8 specification, section 4.1.5 Vectors.
-	typedef detail::tvec4<bool>				bvec4;
 
 	//////////////////////////
 	// Float definition
-
-#ifndef GLM_PRECISION 
-	//! 4 components vector of floating-point numbers. 
-	//! From GLSL 1.30.8 specification, section 4.1.5 Vectors.
-	typedef detail::tvec4<mediump_float>	vec4;
-#elif(GLM_PRECISION & GLM_PRECISION_HIGHP_FLOAT)
-	typedef detail::tvec4<highp_float>		vec4;
-#elif(GLM_PRECISION & GLM_PRECISION_MEDIUMP_FLOAT)
-	typedef detail::tvec4<mediump_float>	vec4;
-#elif(GLM_PRECISION & GLM_PRECISION_LOWP_FLOAT)
-	typedef detail::tvec4<lowp_float>		vec4;
-#endif//GLM_PRECISION
 
 	namespace precision
 	{
@@ -243,26 +235,7 @@ namespace glm
 		//! There is no garanty on the actual precision.
 		//! From GLSL 1.30.8 specification, section 4.5.2 Precision Qualifiers.
 		typedef detail::tvec4<lowp_float>		lowp_vec4;
-	}
-	//namespace precision
 
-	//////////////////////////
-	// Signed integer definition
-
-#ifndef GLM_PRECISION 
-	//! 4 components vector of signed integer numbers. 
-	//! From GLSL 1.30.8 specification, section 4.1.5 Vectors.
-	typedef detail::tvec4<mediump_int>		ivec4;
-#elif(GLM_PRECISION & GLM_PRECISION_HIGHP_INT)
-	typedef detail::tvec4<highp_int>		ivec4;
-#elif(GLM_PRECISION & GLM_PRECISION_MEDIUMP_INT)
-	typedef detail::tvec4<mediump_int>		ivec4;
-#elif(GLM_PRECISION & GLM_PRECISION_LOWP_INT)
-	typedef detail::tvec4<lowp_int>			ivec4;
-#endif//GLM_PRECISION
-
-	namespace precision
-	{
 		//! 4 components vector of high precision signed integer numbers. 
 		//! There is no garanty on the actual precision.
 		//! From GLSL 1.30.8 specification, section 4.1.5 Precision Qualifiers.
@@ -275,26 +248,7 @@ namespace glm
 		//! There is no garanty on the actual precision.
 		//! From GLSL 1.30.8 specification, section 4.1.5 Precision Qualifiers.
 		typedef detail::tvec4<lowp_int>			lowp_ivec4;
-	}
-	//namespace precision
 
-	//////////////////////////
-	// Unsigned integer definition
-
-#ifndef GLM_PRECISION 
-	//! 4 components vector of unsigned integer numbers. 
-	//! From GLSL 1.30.8 specification, section 4.1.5 Vectors.
-	typedef detail::tvec4<mediump_uint>		uvec4;
-#elif(GLM_PRECISION & GLM_PRECISION_HIGHP_UINT)
-	typedef detail::tvec4<highp_uint>		uvec4;
-#elif(GLM_PRECISION & GLM_PRECISION_MEDIUMP_UINT)
-	typedef detail::tvec4<mediump_uint>		uvec4;
-#elif(GLM_PRECISION & GLM_PRECISION_LOWP_UINT)
-	typedef detail::tvec4<lowp_uint>		uvec4;
-#endif//GLM_PRECISION
-
-	namespace precision
-	{
 		//! 4 components vector of high precision unsigned integer numbers. 
 		//! There is no garanty on the actual precision.
 		//! From GLSL 1.30.8 specification, section 4.1.5 Precision Qualifiers.
@@ -310,7 +264,6 @@ namespace glm
 	}
 	//namespace precision
 
-	}//namespace vector
 	}//namespace type
 	}//namespace core
 

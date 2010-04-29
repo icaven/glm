@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2009-04-29
 // Updated : 2009-04-29
@@ -32,35 +32,32 @@ namespace glm
 
 		//! Builds a translation 4 * 4 matrix created from a vector of 3 components.
 		//! From GLM_GTC_matrix_transform extension.
-		template <typename valType> 
-		detail::tmat4x4<valType> translate(
-			detail::tmat4x4<valType> const & m,
-			detail::tvec3<valType> const & v);
+		template <typename T> 
+		detail::tmat4x4<T> translate(
+			detail::tmat4x4<T> const & m,
+			detail::tvec3<T> const & v);
 		
 		//! Builds a rotation 4 * 4 matrix created from an axis vector and an angle expressed in degrees. 
 		//! From GLM_GTC_matrix_transform extension.
-		template <typename valType> 
-		detail::tmat4x4<valType> rotate(
-			detail::tmat4x4<valType> const & m,
-			valType const & angle, 
-			detail::tvec3<valType> const & v);
+		template <typename T> 
+		detail::tmat4x4<T> rotate(
+			detail::tmat4x4<T> const & m,
+			T const & angle, 
+			detail::tvec3<T> const & v);
 
 		//! Builds a scale 4 * 4 matrix created from 3 scalars. 
 		//! From GLM_GTC_matrix_transform extension.
-		template <typename valType> 
-		detail::tmat4x4<valType> scale(
-			detail::tmat4x4<valType> const & m,
-			detail::tvec3<valType> const & v);
+		template <typename T> 
+		detail::tmat4x4<T> scale(
+			detail::tmat4x4<T> const & m,
+			detail::tvec3<T> const & v);
 
 	}//namespace matrix_transform
 	}//namespace gtc
 }//namespace glm
 
-#define GLM_GTC_matrix_transform namespace gtc::matrix_transform
-#ifndef GLM_GTC_GLOBAL
-namespace glm {using GLM_GTC_matrix_transform;}
-#endif//GLM_GTC_GLOBAL
-
 #include "matrix_transform.inl"
+
+namespace glm{using namespace gtc::matrix_transform;}
 
 #endif//glm_gtc_matrix_transform

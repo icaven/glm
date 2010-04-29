@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2007-05-10
 // Updated : 2009-06-04
@@ -55,11 +55,8 @@ namespace number_precision
 }//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_number_precision namespace gtx::number_precision
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_number_precision;}
-#endif//GLM_GTX_GLOBAL
-
 #include "number_precision.inl"
+
+namespace glm{using namespace gtx::number_precision;}
 
 #endif//glm_gtx_number_precision

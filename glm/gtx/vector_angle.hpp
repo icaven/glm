@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2005-12-30
 // Updated : 2006-11-13
 // Licence : This source is under MIT License
-// File    : glm/gtx/vector_angle.h
+// File    : glm/gtx/vector_angle.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -30,6 +30,9 @@ namespace glm
 	//! GLM_GTX_vector_angle extension: Compute angle between vectors
     namespace vector_angle
     {
+		using namespace quaternion;
+		using namespace epsilon;
+
 		//! Returns the absolute angle between x and y.
 		//! Parameters need to be normalized.
 		//! From GLM_GTX_vector_angle extension
@@ -58,11 +61,8 @@ namespace glm
     }//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_vector_angle namespace gtx::quaternion; using namespace gtx::epsilon; using namespace gtx::vector_angle
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_vector_angle;}
-#endif//GLM_GTX_GLOBAL
-
 #include "vector_angle.inl"
+
+namespace glm{using namespace gtx::vector_angle;}
 
 #endif//glm_gtx_vector_angle

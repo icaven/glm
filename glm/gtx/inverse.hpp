@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2005-12-21
 // Updated : 2008-09-30
 // Licence : This source is under MIT License
-// File    : glm/gtx/inverse.h
+// File    : glm/gtx/inverse.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -33,11 +33,8 @@ namespace inverse
 }//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_inverse namespace gtx::inverse
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_inverse;}
-#endif//GLM_GTX_GLOBAL
-
 #include "inverse.inl"
+
+namespace glm{using namespace gtx::inverse;}
 
 #endif//glm_gtx_inverse

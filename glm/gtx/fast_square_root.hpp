@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2006-01-04
 // Updated : 2008-10-07
 // Licence : This source is under MIT License
-// File    : glm/gtx/fast_square_root.h
+// File    : glm/gtx/fast_square_root.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -59,11 +59,8 @@ namespace glm
 	}//	namespace gtx
 }//namespace glm
 
-#define GLM_GTX_fast_square_root namespace gtx::fast_square_root
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_fast_square_root;}
-#endif//GLM_GTX_GLOBAL
-
 #include "fast_square_root.inl"
+
+namespace glm{using namespace gtx::fast_square_root;}
 
 #endif//glm_gtx_fast_square_root

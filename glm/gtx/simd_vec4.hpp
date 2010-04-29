@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2009-05-07
 // Updated : 2009-05-07
@@ -120,11 +120,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_simd_vec4		namespace gtx::simd_vec4;
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_simd_vec4;}
-#endif//GLM_GTX_GLOBAL
-
 #include "simd_vec4.inl"
+
+namespace glm{using namespace gtx::simd_vec4;}
 
 #endif//glm_gtx_simd_vec4

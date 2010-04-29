@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2005-12-21
 // Updated : 2007-02-22
 // Licence : This source is under MIT License
-// File    : glm/gtx/color_space.h
+// File    : glm/gtx/color_space.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -68,11 +68,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_color_space namespace gtx::color_space
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_color_space;}
-#endif//GLM_GTC_GLOBAL
-
 #include "color_space.inl"
+
+namespace glm{using namespace gtx::color_space;}
 
 #endif//glm_gtx_color_space

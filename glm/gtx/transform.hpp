@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2005-12-21
 // Updated : 2009-04-29
@@ -94,11 +94,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_transform namespace gtx::transform
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_transform;}
-#endif//GLM_GTX_GLOBAL
-
 #include "transform.inl"
+
+namespace glm{using namespace gtx::transform;}
 
 #endif//glm_gtx_transform

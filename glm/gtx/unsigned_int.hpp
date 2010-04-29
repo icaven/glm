@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2005-12-24
 // Updated : 2008-10-07
 // Licence : This source is under MIT License
-// File    : glm/gtx/unsigned_int.h
+// File    : glm/gtx/unsigned_int.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -28,6 +28,8 @@ namespace glm
 	//! GLM_GTX_unsigned_int extension: Add support for unsigned integer for core functions
 	namespace unsigned_int
 	{
+		using namespace gtx::integer;
+
 		//! 32bit signed integer. 
 		//! From GLM_GTX_unsigned_int extension.
 		typedef signed int					sint;
@@ -48,11 +50,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_unsigned_int namespace gtx::unsigned_int; using namespace gtx::integer
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_unsigned_int;}
-#endif//GLM_GTX_GLOBAL
-
 #include "unsigned_int.inl"
+
+namespace glm{using namespace gtx::unsigned_int;}
 
 #endif//glm_gtx_unsigned_int

@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2006-01-08
 // Updated : 2006-11-13
@@ -72,11 +72,8 @@ namespace glm
     }//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_fast_trigonometry namespace gtx::fast_trigonometry
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_fast_trigonometry;}
-#endif//GLM_GTX_GLOBAL
-
 #include "fast_trigonometry.inl"
+
+namespace glm{using namespace gtx::fast_trigonometry;}
 
 #endif//glm_gtx_fast_trigonometry

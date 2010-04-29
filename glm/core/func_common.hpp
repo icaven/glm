@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-03-08
-// Updated : 2008-03-08
+// Updated : 2010-01-26
 // Licence : This source is under MIT License
-// File    : glm/core/func_common.h
+// File    : glm/core/func_common.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_core_func_common
@@ -72,10 +72,18 @@ namespace glm
 	//! Modulus. Returns x - y * floor(x / y) 
 	//! for each component in x using the floating point value y.
 	//! (From GLSL 1.30.08 specification, section 8.3)
-    template <typename genTypeT, typename genTypeU> 
-	genTypeT mod(
-		genTypeT const & x, 
-		genTypeU const & y);
+    template <typename genType> 
+	genType mod(
+		genType const & x, 
+		genType const & y);
+
+	//! Modulus. Returns x - y * floor(x / y) 
+	//! for each component in x using the floating point value y.
+	//! (From GLSL 1.30.08 specification, section 8.3)
+    template <typename genType> 
+	genType mod(
+		genType const & x, 
+		typename genType::value_type const & y);
 
 	//! Returns the fractional part of x and sets i to the integer
 	//! part (as a whole number floating point value). Both the
@@ -89,26 +97,42 @@ namespace glm
 
     //! Returns y if y < x; otherwise, it returns x.
 	//! (From GLSL 1.30.08 specification, section 8.3)
-	template <typename genUIFTypeT, typename genUIFTypeU> 
-	genUIFTypeT min(
-		genUIFTypeT const & x, 
-		genUIFTypeU const & y);
+	template <typename genType> 
+	genType min(
+		genType const & x, 
+		genType const & y);
+
+	template <typename genType> 
+	genType min(
+		genType const & x, 
+		typename genType::value_type const & y);
 
     //! Returns y if x < y; otherwise, it returns x.
 	//! (From GLSL 1.30.08 specification, section 8.3)
-	template <typename genUIFTypeT, typename genUIFTypeU> 
-	genUIFTypeT max(
-		genUIFTypeT const & x, 
-		genUIFTypeU const & y);
+	template <typename genType> 
+	genType max(
+		genType const & x, 
+		genType const & y);
+
+	template <typename genType> 
+	genType max(
+		genType const & x, 
+		typename genType::value_type const & y);
 
     //! Returns min(max(x, minVal), maxVal) for each component in x 
 	//! using the floating-point values minVal and maxVal.
 	//! (From GLSL 1.30.08 specification, section 8.3)
-	template <typename genUIFTypeT, typename genUIFTypeU> 
-	genUIFTypeT clamp(
-		genUIFTypeT const & x, 
-		genUIFTypeU const & minVal, 
-		genUIFTypeU const & maxVal); 
+	template <typename genType> 
+	genType clamp(
+		genType const & x, 
+		genType const & minVal, 
+		genType const & maxVal); 
+
+	template <typename genType> 
+	genType clamp(
+		genType const & x, 
+		typename genType::value_type const & minVal, 
+		typename genType::value_type const & maxVal); 
 
 	//! \return If genTypeU is a floating scalar or vector: 
 	//! Returns x * (1.0 - a) + y * a, i.e., the linear blend of 
@@ -139,8 +163,15 @@ namespace glm
 
 	//! Returns 0.0 if x < edge, otherwise it returns 1.0.
 	//! (From GLSL 1.30.08 specification, section 8.3)
-	template <typename genTypeT, typename genTypeU> 
-	genTypeU step(genTypeT const & edge, genTypeU const & x);
+	template <typename genType> 
+	genType step(
+		genType const & edge, 
+		genType const & x);
+
+	template <typename genType> 
+	genType step(
+		typename genType::value_type const & edge, 
+		genType const & x);
 
 	//! Returns 0.0 if x <= edge0 and 1.0 if x >= edge1 and
 	//! performs smooth Hermite interpolation between 0 and 1
@@ -152,8 +183,17 @@ namespace glm
 	//! return t * t * (3 – 2 * t);
 	//! Results are undefined if edge0 >= edge1.
 	//! (From GLSL 1.30.08 specification, section 8.3)
-	template <typename genTypeT, typename genTypeU> 
-	genTypeU smoothstep(genTypeT const & edge0, genTypeT const & edge1, genTypeU const & x);
+	template <typename genType> 
+	genType smoothstep(
+		genType const & edge0, 
+		genType const & edge1, 
+		genType const & x);
+
+	template <typename genType> 
+	genType smoothstep(
+		typename genType::value_type const & edge0, 
+		typename genType::value_type const & edge1, 
+		genType const & x);
 
 	//! Returns true if x holds a NaN (not a number)
 	//! representation in the underlying implementation's set of
@@ -172,6 +212,55 @@ namespace glm
 	//! (From GLSL 1.30.08 specification, section 8.3)
 	template <typename genType> 
 	typename genType::bool_type isinf(genType const & x);
+
+	//! Returns a signed or unsigned integer value representing
+	//! the encoding of a floating-point value. The floatingpoint
+	//! value's bit-level representation is preserved.
+	//! (From GLSL 4.00.08 specification, section 8.3)
+	template <typename genType, typename genIType>
+	genIType floatBitsToInt(genType const & value);
+
+	//! Returns a signed or unsigned integer value representing
+	//! the encoding of a floating-point value. The floatingpoint
+	//! value's bit-level representation is preserved.
+	//! (From GLSL 4.00.08 specification, section 8.3)
+	template <typename genType, typename genUType>
+	genUType floatBitsToInt(genType const & value);
+
+	//! Returns a floating-point value corresponding to a signed
+	//! or unsigned integer encoding of a floating-point value.
+	//! If an inf or NaN is passed in, it will not signal, and the
+	//! resulting floating point value is unspecified. Otherwise,
+	//! the bit-level representation is preserved.
+	//! (From GLSL 4.00.08 specification, section 8.3)
+	template <typename genType, typename genIUType>
+	genType intBitsToFloat(genIUType const & value);
+
+	//! Computes and returns a * b + c.
+	//! (From GLSL 4.00.08 specification, section 8.3)
+	template <typename genType>
+	genType fma(genType const & a, genType const & b, genType const & c);
+
+	//! Splits x into a floating-point significand in the range
+	//! [0.5, 1.0) and an integral exponent of two, such that:
+	//! x = significand * exp(2, exponent)
+	//! The significand is returned by the function and the
+	//! exponent is returned in the parameter exp. For a
+	//! floating-point value of zero, the significant and exponent
+	//! are both zero. For a floating-point value that is an
+	//! infinity or is not a number, the results are undefined.
+	//! (From GLSL 4.00.08 specification, section 8.3)
+	template <typename genType, typename genIType>
+	genType frexp(genType const & x, genIType & exp);
+
+	//! Builds a floating-point number from x and the
+	//! corresponding integral exponent of two in exp, returning:
+	//! significand * exp(2, exponent)
+	//! If this product is too large to be represented in the
+	//! floating-point type, the result is undefined.
+	//! (From GLSL 4.00.08 specification, section 8.3)
+	template <typename genType, typename genIType>
+	genType ldexp(genType const & x, genIType const & exp);
 
 	}//namespace common
 	}//namespace function

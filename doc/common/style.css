@@ -1,3 +1,17 @@
+body
+{
+	background-color:#fff8f0;
+	width:100%;
+}
+
+table
+{
+	background-color:#ffffff;
+	width:800px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
 table.principale
 {
 	background-color:#ff8000;
@@ -112,7 +126,29 @@ img.menu-img
 
 div.paragraph
 {
-    text-indent:32px;   
+    /*text-indent:32px;   */
+    text-align:justify;
+}
+
+div.block
+{
+	padding-right: 16px;
+	padding-left: 16px;
+}
+
+div.include
+{
+	color:#0000FF;
+}
+
+spam.key
+{
+	color:#0000FF;
+}
+
+div.comment
+{
+	color:#008000;
 }
 
 td.page

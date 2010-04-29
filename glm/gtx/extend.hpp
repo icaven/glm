@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2006-01-07
 // Updated : 2006-11-13
@@ -38,11 +38,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_extend namespace gtx::extend
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_extend;}
-#endif//GLM_GTX_GLOBAL
-
 #include "extend.inl"
+
+namespace glm{using namespace gtx::extend;}
 
 #endif//glm_gtx_extend

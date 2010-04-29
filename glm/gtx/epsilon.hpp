@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2005-12-21
 // Updated : 2006-11-13
 // Licence : This source is under MIT License
-// File    : glm/gtx/epsilon.h
+// File    : glm/gtx/epsilon.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -50,11 +50,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_epsilon namespace gtx::epsilon
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_epsilon;}
-#endif//GLM_GTX_GLOBAL
-
 #include "epsilon.inl"
+
+namespace glm{using namespace gtx::epsilon;}
 
 #endif//glm_gtx_epsilon

@@ -4,7 +4,7 @@
 // Created : 2008-04-27
 // Updated : 2008-05-24
 // Licence : This source is under MIT License
-// File    : glm/gtx/string_cast.h
+// File    : glm/gtx/string_cast.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <cstdarg>

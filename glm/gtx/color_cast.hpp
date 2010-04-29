@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2007-06-21
 // Updated : 2009-06-05
@@ -97,11 +97,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_color_cast		namespace gtx::color_cast
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_color_cast;}
-#endif//GLM_GTC_GLOBAL
-
 #include "color_cast.inl"
+
+namespace glm{using namespace gtx::color_cast;}
 
 #endif//glm_gtx_color_cast

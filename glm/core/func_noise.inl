@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-08-01
 // Updated : 2008-09-23
@@ -26,38 +26,38 @@ namespace glm
 		return genType(int(iNbr / genType(65536)) % 32768) / genType(32767);
 	}
 
-	template <typename valType>
-	inline typename detail::tvec2<valType>::value_type noise1
+	template <typename T>
+	inline typename detail::tvec2<T>::value_type noise1
 	(
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & x
 	)
 	{
-		valType tmp(0);
-		for(typename detail::tvec2<valType>::size_type i = 0; i < detail::tvec2<valType>::value_size(); ++i)
+		T tmp(0);
+		for(typename detail::tvec2<T>::size_type i = 0; i < detail::tvec2<T>::value_size(); ++i)
 			tmp += x[i];
 		return noise1(tmp);
 	}
 
-	template <typename valType>
-	inline typename detail::tvec3<valType>::value_type noise1
+	template <typename T>
+	inline typename detail::tvec3<T>::value_type noise1
 	(
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & x
 	)
 	{
-		valType tmp(0);
-		for(typename detail::tvec3<valType>::size_type i = 0; i < detail::tvec3<valType>::value_size(); ++i)
+		T tmp(0);
+		for(typename detail::tvec3<T>::size_type i = 0; i < detail::tvec3<T>::value_size(); ++i)
 			tmp += x[i];
 		return noise1(tmp);
 	}
 
-	template <typename valType>
-	inline typename detail::tvec4<valType>::value_type noise1
+	template <typename T>
+	inline typename detail::tvec4<T>::value_type noise1
 	(
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & x
 	)
 	{
-		valType tmp(0);
-		for(typename detail::tvec4<valType>::size_type i = 0; i < detail::tvec4<valType>::value_size(); ++i)
+		T tmp(0);
+		for(typename detail::tvec4<T>::size_type i = 0; i < detail::tvec4<T>::value_size(); ++i)
 			tmp += x[i];
 		return noise1(tmp);
 	}
@@ -78,59 +78,59 @@ namespace glm
 			noise1(f2));
 	}
 
-	template <typename valType>
-	inline detail::tvec2<valType> noise2
+	template <typename T>
+	inline detail::tvec2<T> noise2
 	(
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & x
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
-		valType f0(0);
-		for(typename detail::tvec2<valType>::size_type i = 0; i < detail::tvec2<valType>::value_size(); ++i)
+		T f0(0);
+		for(typename detail::tvec2<T>::size_type i = 0; i < detail::tvec2<T>::value_size(); ++i)
 			f0 += x[i];
 		
-		valType f1 = f0 * valType(1103515245) + valType(12345);
-		valType f2 = f1 * valType(1103515245) + valType(12345);
-		return detail::tvec2<valType>(
+		T f1 = f0 * T(1103515245) + T(12345);
+		T f2 = f1 * T(1103515245) + T(12345);
+		return detail::tvec2<T>(
 			noise1(f1),
 			noise1(f2));
 	}
 
-	template <typename valType>
-	inline detail::tvec2<valType> noise2
+	template <typename T>
+	inline detail::tvec2<T> noise2
 	(
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & x
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
-		valType f0(0);
-		for(typename detail::tvec3<valType>::size_type i = 0; i < detail::tvec3<valType>::value_size(); ++i)
+		T f0(0);
+		for(typename detail::tvec3<T>::size_type i = 0; i < detail::tvec3<T>::value_size(); ++i)
 			f0 += x[i];
 
-		valType f1 = f0 * valType(1103515245) + valType(12345);
-		valType f2 = f1 * valType(1103515245) + valType(12345);
-		return detail::tvec2<valType>(
+		T f1 = f0 * T(1103515245) + T(12345);
+		T f2 = f1 * T(1103515245) + T(12345);
+		return detail::tvec2<T>(
 			noise1(f1),
 			noise1(f2));
 	}
 
-	template <typename valType>
-	inline detail::tvec2<valType> noise2
+	template <typename T>
+	inline detail::tvec2<T> noise2
 	(
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & x
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
-		valType f0(0);
-		for(typename detail::tvec4<valType>::size_type i = 0; i < detail::tvec4<valType>::value_size(); ++i)
+		T f0(0);
+		for(typename detail::tvec4<T>::size_type i = 0; i < detail::tvec4<T>::value_size(); ++i)
 			f0 += x[i];
 		
-		valType f1 = f0 * valType(1103515245) + valType(12345);
-		valType f2 = f1 * valType(1103515245) + valType(12345);
-		return detail::tvec2<valType>(
+		T f1 = f0 * T(1103515245) + T(12345);
+		T f2 = f1 * T(1103515245) + T(12345);
+		return detail::tvec2<T>(
 			noise1(f1),
 			noise1(f2));
 	}
@@ -153,61 +153,61 @@ namespace glm
 			noise1(f3));
 	}
 
-	template <typename valType>
-	inline detail::tvec3<valType> noise3
+	template <typename T>
+	inline detail::tvec3<T> noise3
 	(
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & x
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
-		valType f0(0);
-		for(typename detail::tvec2<valType>::size_type i = 0; i < detail::tvec2<valType>::value_size(); ++i)
+		T f0(0);
+		for(typename detail::tvec2<T>::size_type i = 0; i < detail::tvec2<T>::value_size(); ++i)
 			f0 += x[i];
-		valType f1 = f0 * valType(1103515245) + valType(12345);
-		valType f2 = f1 * valType(1103515245) + valType(12345);
-		valType f3 = f2 * valType(1103515245) + valType(12345);
-		return detail::tvec3<valType>(
+		T f1 = f0 * T(1103515245) + T(12345);
+		T f2 = f1 * T(1103515245) + T(12345);
+		T f3 = f2 * T(1103515245) + T(12345);
+		return detail::tvec3<T>(
 			noise1(f1),
 			noise1(f2),
 			noise1(f3));
 	}
 
-	template <typename valType>
-	inline detail::tvec3<valType> noise3
+	template <typename T>
+	inline detail::tvec3<T> noise3
 	(
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & x
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
-		valType f0(0);
-		for(typename detail::tvec3<valType>::size_type i = 0; i < detail::tvec3<valType>::value_size(); ++i)
+		T f0(0);
+		for(typename detail::tvec3<T>::size_type i = 0; i < detail::tvec3<T>::value_size(); ++i)
 			f0 += x[i];
-		valType f1 = f0 * valType(1103515245) + valType(12345);
-		valType f2 = f1 * valType(1103515245) + valType(12345);
-		valType f3 = f2 * valType(1103515245) + valType(12345);
-		return detail::tvec3<valType>(
+		T f1 = f0 * T(1103515245) + T(12345);
+		T f2 = f1 * T(1103515245) + T(12345);
+		T f3 = f2 * T(1103515245) + T(12345);
+		return detail::tvec3<T>(
 			noise1(f1),
 			noise1(f2),
 			noise1(f3));
 	}
 
-	template <typename valType>
-	inline detail::tvec3<valType> noise3
+	template <typename T>
+	inline detail::tvec3<T> noise3
 	(
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & x
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
-		valType f0(0);
-		for(typename detail::tvec4<valType>::size_type i = 0; i < detail::tvec4<valType>::value_size(); ++i)
+		T f0(0);
+		for(typename detail::tvec4<T>::size_type i = 0; i < detail::tvec4<T>::value_size(); ++i)
 			f0 += x[i];
-		valType f1 = f0 * valType(1103515245) + valType(12345);
-		valType f2 = f1 * valType(1103515245) + valType(12345);
-		valType f3 = f2 * valType(1103515245) + valType(12345);
-		return detail::tvec3<valType>(
+		T f1 = f0 * T(1103515245) + T(12345);
+		T f2 = f1 * T(1103515245) + T(12345);
+		T f3 = f2 * T(1103515245) + T(12345);
+		return detail::tvec3<T>(
 			noise1(f1),
 			noise1(f2),
 			noise1(f3));
@@ -233,66 +233,66 @@ namespace glm
 			noise1(f4));
 	}
 
-	template <typename valType>
-	inline detail::tvec4<valType> noise4
+	template <typename T>
+	inline detail::tvec4<T> noise4
 	(
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & x
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
-		valType f0(0);
-		for(typename detail::tvec2<valType>::size_type i = 0; i < detail::tvec2<valType>::value_size(); ++i)
+		T f0(0);
+		for(typename detail::tvec2<T>::size_type i = 0; i < detail::tvec2<T>::value_size(); ++i)
 			f0 += x[i];
-		valType f1 = f0 * valType(1103515245) + valType(12345);
-		valType f2 = f1 * valType(1103515245) + valType(12345);
-		valType f3 = f2 * valType(1103515245) + valType(12345);
-		valType f4 = f3 * valType(1103515245) + valType(12345);
-		return detail::tvec4<valType>(
+		T f1 = f0 * T(1103515245) + T(12345);
+		T f2 = f1 * T(1103515245) + T(12345);
+		T f3 = f2 * T(1103515245) + T(12345);
+		T f4 = f3 * T(1103515245) + T(12345);
+		return detail::tvec4<T>(
 			noise1(f1),
 			noise1(f2),
 			noise1(f3),
 			noise1(f4));
 	}
 
-	template <typename valType>
-	inline detail::tvec4<valType> noise4
+	template <typename T>
+	inline detail::tvec4<T> noise4
 	(
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & x
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
-		valType f0(0);
-		for(typename detail::tvec3<valType>::size_type i = 0; i < detail::tvec3<valType>::value_size(); ++i)
+		T f0(0);
+		for(typename detail::tvec3<T>::size_type i = 0; i < detail::tvec3<T>::value_size()(); ++i)
 			f0 += x[i];
-		valType f1 = f0 * valType(1103515245) + valType(12345);
-		valType f2 = f1 * valType(1103515245) + valType(12345);
-		valType f3 = f2 * valType(1103515245) + valType(12345);
-		valType f4 = f3 * valType(1103515245) + valType(12345);
-		return detail::tvec4<valType>(
+		T f1 = f0 * T(1103515245) + T(12345);
+		T f2 = f1 * T(1103515245) + T(12345);
+		T f3 = f2 * T(1103515245) + T(12345);
+		T f4 = f3 * T(1103515245) + T(12345);
+		return detail::tvec4<T>(
 			noise1(f1),
 			noise1(f2),
 			noise1(f3),
 			noise1(f4));
 	}
 
-	template <typename valType>
-	inline detail::tvec4<valType> noise4
+	template <typename T>
+	inline detail::tvec4<T> noise4
 	(
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & x
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
-		valType f0(0);
-		for(typename detail::tvec4<valType>::size_type i = 0; i < detail::tvec4<valType>::value_size(); ++i)
+		T f0(0);
+		for(typename detail::tvec4<T>::size_type i = 0; i < detail::tvec4<T>::value_size()(); ++i)
 			f0 += x[i];
-		valType f1 = f0 * valType(1103515245) + valType(12345);
-		valType f2 = f1 * valType(1103515245) + valType(12345);
-		valType f3 = f2 * valType(1103515245) + valType(12345);
-		valType f4 = f3 * valType(1103515245) + valType(12345);
-		return detail::tvec4<valType>(
+		T f1 = f0 * T(1103515245) + T(12345);
+		T f2 = f1 * T(1103515245) + T(12345);
+		T f3 = f2 * T(1103515245) + T(12345);
+		T f4 = f3 * T(1103515245) + T(12345);
+		return detail::tvec4<T>(
 			noise1(f1),
 			noise1(f2),
 			noise1(f3),

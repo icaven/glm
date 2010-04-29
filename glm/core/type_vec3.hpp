@@ -1,15 +1,16 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-08-22
-// Updated : 2008-08-31
+// Updated : 2010-02-03
 // Licence : This source is under MIT License
-// File    : glm/core/type_tvec3.h
+// File    : glm/core/type_tvec3.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_core_type_gentype3
 #define glm_core_type_gentype3
 
+#include "type_vec.hpp"
 #include "type_float.hpp"
 #include "type_int.hpp"
 #include "type_size.hpp"
@@ -30,29 +31,16 @@ namespace glm
 		template <typename T> struct tvec2;
 		template <typename T> struct tvec4;
 
-		template <typename valType>
+		template <typename T>
 		struct tvec3
-		{
-			//////////////////////////////////////
-			// Typedef (Implementation details)
-
-			typedef valType value_type;
-			typedef valType& value_reference;
-			typedef valType* value_pointer;
-			typedef tvec3<bool> bool_type;
-
-			typedef glm::sizeType size_type;
+		{	
+			enum ctor{null};
+			typedef T value_type;
+			typedef std::size_t size_type;
 			static size_type value_size();
-			static bool is_vector();
 
-			typedef tvec3<valType> type;
-			typedef tvec3<valType>* pointer;
-			typedef tvec3<valType> const * const_pointer;
-			typedef tvec3<valType> const * const const_pointer_const;
-			typedef tvec3<valType> * const pointer_const;
-			typedef tvec3<valType>& reference;
-			typedef tvec3<valType> const & const_reference;
-			typedef tvec3<valType> const & param_type;
+			typedef tvec3<T> type;
+			typedef tvec3<bool> bool_type;
 
 			//////////////////////////////////////
 			// Data
@@ -77,51 +65,55 @@ namespace glm
 			//////////////////////////////////////
 			// Accesses
 
-			valType & operator[](size_type i);
-			valType const & operator[](size_type i) const;
-
-			//////////////////////////////////////
-			// Address (Implementation details)
-
-			value_type const * _address() const{return (value_type*)(this);}
-			value_type * _address(){return (value_type*)(this);}
+			value_type & operator[](size_type i);
+			value_type const & operator[](size_type i) const;
 
 			//////////////////////////////////////
 			// Implicit basic constructors
 
 			tvec3();
-			tvec3(tvec3<valType> const & v);
+			tvec3(tvec3<T> const & v);
 
 			//////////////////////////////////////
 			// Explicit basic constructors
 
-			explicit tvec3(valType s);
-			explicit tvec3(valType s1, valType s2, valType s3);
+			explicit tvec3(
+				ctor);
+			explicit tvec3(
+				value_type const & s);
+			explicit tvec3(
+				value_type const & s1, 
+				value_type const & s2, 
+				value_type const & s3);
 
 			//////////////////////////////////////
 			// Swizzle constructors
 
-			tvec3(tref3<valType> const & r);
+			tvec3(tref3<T> const & r);
 
 			//////////////////////////////////////
 			// Convertion scalar constructors
 
 			//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 			template <typename U> 
-			explicit tvec3(U x);
+			explicit tvec3(
+				U const & x);
 			//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 			template <typename U, typename V, typename W> 
-			explicit tvec3(U x, V y, W z);			
+			explicit tvec3(
+				U const & x, 
+				V const & y, 
+				W const & z);			
 
 			//////////////////////////////////////
 			// Convertion vector constructors
 
 			//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 			template <typename A, typename B> 
-			explicit tvec3(tvec2<A> const & v, B s);
+			explicit tvec3(tvec2<A> const & v, B const & s);
 			//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 			template <typename A, typename B> 
-			explicit tvec3(A s, tvec2<B> const & v);
+			explicit tvec3(A const & s, tvec2<B> const & v);
 			//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 			template <typename U> 
 			explicit tvec3(tvec3<U> const & v);
@@ -132,88 +124,85 @@ namespace glm
 			//////////////////////////////////////
 			// Unary arithmetic operators
 
-			tvec3<valType>& operator= (tvec3<valType> const & v);
+			tvec3<T> & operator= (tvec3<T> const & v);
+			template <typename U> 
+			tvec3<T> & operator= (tvec3<U> const & v);
 
-			tvec3<valType>& operator+=(valType const & s);
-			tvec3<valType>& operator+=(tvec3<valType> const & v);
-			tvec3<valType>& operator-=(valType const & s);
-			tvec3<valType>& operator-=(tvec3<valType> const & v);
-			tvec3<valType>& operator*=(valType const & s);
-			tvec3<valType>& operator*=(tvec3<valType> const & v);
-			tvec3<valType>& operator/=(valType const & s);
-			tvec3<valType>& operator/=(tvec3<valType> const & v);
-			tvec3<valType>& operator++();
-			tvec3<valType>& operator--();
+			template <typename U> 
+			tvec3<T> & operator+=(U const & s);
+			template <typename U> 
+			tvec3<T> & operator+=(tvec3<U> const & v);
+			template <typename U> 
+			tvec3<T> & operator-=(U const & s);
+			template <typename U> 
+			tvec3<T> & operator-=(tvec3<U> const & v);
+			template <typename U> 
+			tvec3<T> & operator*=(U const & s);
+			template <typename U> 
+			tvec3<T> & operator*=(tvec3<U> const & v);
+			template <typename U> 
+			tvec3<T> & operator/=(U const & s);
+			template <typename U> 
+			tvec3<T> & operator/=(tvec3<U> const & v);
+			tvec3<T> & operator++();
+			tvec3<T> & operator--();
 
 			//////////////////////////////////////
 			// Unary bit operators
 
-			tvec3<valType>& operator%=(valType const & s);
-			tvec3<valType>& operator%=(tvec3<valType> const & v);
-			tvec3<valType>& operator&=(valType const & s);
-			tvec3<valType>& operator&=(tvec3<valType> const & v);
-			tvec3<valType>& operator|=(valType const & s);
-			tvec3<valType>& operator|=(tvec3<valType> const & v);
-			tvec3<valType>& operator^=(valType const & s);
-			tvec3<valType>& operator^=(tvec3<valType> const & v);
-			tvec3<valType>& operator<<=(valType const & s);
-			tvec3<valType>& operator<<=(tvec3<valType> const & v);
-			tvec3<valType>& operator>>=(valType const & s);
-			tvec3<valType>& operator>>=(tvec3<valType> const & v);
+			template <typename U>
+			tvec3<T> & operator%= (U const & s);
+			template <typename U>
+			tvec3<T> & operator%= (tvec3<U> const & v);
+			template <typename U>
+			tvec3<T> & operator&= (U const & s);
+			template <typename U>
+			tvec3<T> & operator&= (tvec3<U> const & v);
+			template <typename U>
+			tvec3<T> & operator|= (U const & s);
+			template <typename U>
+			tvec3<T> & operator|= (tvec3<U> const & v);
+			template <typename U>
+			tvec3<T> & operator^= (U const & s);
+			template <typename U>
+			tvec3<T> & operator^= (tvec3<U> const & v);
+			template <typename U>
+			tvec3<T> & operator<<=(U const & s);
+			template <typename U>
+			tvec3<T> & operator<<=(tvec3<U> const & v);
+			template <typename U>
+			tvec3<T> & operator>>=(U const & s);
+			template <typename U>
+			tvec3<T> & operator>>=(tvec3<U> const & v);
 
 			//////////////////////////////////////
 			// Swizzle operators
 
-			valType swizzle(comp X) const;
-			tvec2<valType> swizzle(comp X, comp Y) const;
-			tvec3<valType> swizzle(comp X, comp Y, comp Z) const;
-			tvec4<valType> swizzle(comp X, comp Y, comp Z, comp W) const;
-			tref3<valType> swizzle(comp X, comp Y, comp Z);
+			value_type swizzle(comp X) const;
+			tvec2<T> swizzle(comp X, comp Y) const;
+			tvec3<T> swizzle(comp X, comp Y, comp Z) const;
+			tvec4<T> swizzle(comp X, comp Y, comp Z, comp W) const;
+			tref3<T> swizzle(comp X, comp Y, comp Z);
 		};
 
 		template <typename T>
 		struct tref3
 		{
-			tref3(T& x, T& y, T& z);
+			tref3(T & x, T & y, T & z);
 			tref3(tref3<T> const & r);
 			tref3(tvec3<T> const & v);
 
-			tref3<T>& operator= (tref3<T> const & r);
-			tref3<T>& operator= (tvec3<T> const & v);
+			tref3<T> & operator= (tref3<T> const & r);
+			tref3<T> & operator= (tvec3<T> const & v);
 
-			T& x;
-			T& y;
-			T& z;
+			T & x;
+			T & y;
+			T & z;
 		};
 	} //namespace detail
 
 	namespace core{
 	namespace type{
-	namespace vector{
-
-	//////////////////////////
-	// Boolean definition
-
-	//! 3 components vector of boolean. 
-	//! From GLSL 1.30.8 specification, section 4.1.5 Vectors.
-	typedef detail::tvec3<bool>				bvec3;
-
-	//////////////////////////
-	// Float definition
-
-#ifndef GLM_PRECISION 
-	//! 3 components vector of floating-point numbers. 
-	//! From GLSL 1.30.8 specification, section 4.1.5 Vectors.
-	typedef detail::tvec3<mediump_float>	vec3;
-#elif(GLM_PRECISION & GLM_PRECISION_HIGHP_FLOAT)
-	typedef detail::tvec3<highp_float>		vec3;
-#elif(GLM_PRECISION & GLM_PRECISION_MEDIUMP_FLOAT)
-	typedef detail::tvec3<mediump_float>	vec3;
-#elif(GLM_PRECISION & GLM_PRECISION_LOWP_FLOAT)
-	typedef detail::tvec3<lowp_float>		vec3;
-#else
-	typedef detail::tvec3<mediump_float>	vec3;
-#endif//GLM_PRECISION
 
 	namespace precision
 	{
@@ -229,28 +218,7 @@ namespace glm
 		//! There is no garanty on the actual precision.
 		//! From GLSL 1.30.8 specification, section 4.5.2 Precision Qualifiers.
 		typedef detail::tvec3<lowp_float>		lowp_vec3;
-	}
-	//namespace precision
 
-	//////////////////////////
-	// Signed integer definition
-
-#ifndef GLM_PRECISION 
-	//! 3 components vector of signed integer numbers. 
-	//! From GLSL 1.30.8 specification, section 4.1.5 Vectors.
-	typedef detail::tvec3<mediump_int>		ivec3;
-#elif(GLM_PRECISION & GLM_PRECISION_HIGHP_INT)
-	typedef detail::tvec3<highp_int>		ivec3;
-#elif(GLM_PRECISION & GLM_PRECISION_MEDIUMP_INT)
-	typedef detail::tvec3<mediump_int>		ivec3;
-#elif(GLM_PRECISION & GLM_PRECISION_LOWP_INT)
-	typedef detail::tvec3<lowp_int>			ivec3;
-#else
-	typedef detail::tvec3<mediump_int>		ivec3;
-#endif//GLM_PRECISION
-
-	namespace precision
-	{
 		//! 3 components vector of high precision signed integer numbers. 
 		//! There is no garanty on the actual precision.
 		//! From GLSL 1.30.8 specification, section 4.1.5 Precision Qualifiers.
@@ -263,28 +231,7 @@ namespace glm
 		//! There is no garanty on the actual precision.
 		//! From GLSL 1.30.8 specification, section 4.1.5 Precision Qualifiers.
 		typedef detail::tvec3<lowp_int>			lowp_ivec3;
-	}
-	//namespace precision
 
-	//////////////////////////
-	// Unsigned integer definition
-
-#ifndef GLM_PRECISION 
-	//! 3 components vector of unsigned integer numbers. 
-	//! From GLSL 1.30.8 specification, section 4.1.5 Vectors.
-	typedef detail::tvec3<mediump_uint>		uvec3;
-#elif(GLM_PRECISION & GLM_PRECISION_HIGHP_UINT)
-	typedef detail::tvec3<highp_uint>		uvec3;
-#elif(GLM_PRECISION & GLM_PRECISION_MEDIUMP_UINT)
-	typedef detail::tvec3<mediump_uint>		uvec3;
-#elif(GLM_PRECISION & GLM_PRECISION_LOWP_UINT)
-	typedef detail::tvec3<lowp_uint>		uvec3;
-#else
-	typedef detail::tvec3<mediump_uint>		uvec3;
-#endif//GLM_PRECISION
-
-	namespace precision
-	{
 		//! 3 components vector of high precision unsigned integer numbers. 
 		//! There is no garanty on the actual precision.
 		//! From GLSL 1.30.8 specification, section 4.1.5 Precision Qualifiers.
@@ -299,8 +246,7 @@ namespace glm
 		typedef detail::tvec3<lowp_uint>		lowp_uvec3;
 	}
 	//namespace precision
-		
-	}//namespace vector
+
 	}//namespace type
 	}//namespace core
 }//namespace glm

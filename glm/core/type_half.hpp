@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-08-17
-// Updated : 2009-11-12
+// Updated : 2010-02-17
 // Licence : This source is under MIT License
 // File    : glm/core/type_half.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -35,7 +35,7 @@ namespace glm
 			thalf(thalf const & s);
 			
 			template <typename U>
-			thalf(U const & s);
+			explicit thalf(U const & s);
 
 			// Cast
 			//operator float();

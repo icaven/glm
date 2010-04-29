@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-03-10
 // Updated : 2008-03-15
 // Licence : This source is under MIT License
-// File    : gtx_associated_min_max.h
+// File    : gtx_associated_min_max.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -76,11 +76,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_associated_min_max namespace gtx::associated_min_max
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_associated_min_max;}
-#endif//GLM_GTC_GLOBAL
-
 #include "associated_min_max.inl"
+
+namespace glm{using namespace gtx::associated_min_max;}
 
 #endif//glm_gtx_associated_min_max

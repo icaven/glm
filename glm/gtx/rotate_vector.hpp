@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2006-11-02
 // Updated : 2009-02-19
@@ -100,11 +100,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_rotate_vector namespace gtx::rotate_vector
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_rotate_vector;}
-#endif//GLM_GTX_GLOBAL
-
 #include "rotate_vector.inl"
+
+namespace glm{using namespace gtx::rotate_vector;}
 
 #endif//glm_gtx_rotate_vector

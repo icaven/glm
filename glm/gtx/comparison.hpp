@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-06-22
 // Updated : 2008-10-27
 // Licence : This source is under MIT License
-// File    : glm/gtx/comparison.h
+// File    : glm/gtx/comparison.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -40,11 +40,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_comparison namespace glm::gtx::comparison
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_comparison;}
-#endif//GLM_GTC_GLOBAL
-
 #include "comparison.inl"
+
+namespace glm{using namespace gtx::comparison;}
 
 #endif//glm_gtx_comparison

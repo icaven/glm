@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 //////////////////////////////////////////////////////////////////////////////////
 // Created : 2006-01-16
 // Updated : 2006-01-16
@@ -17,7 +17,7 @@ namespace random
     template <>
 	inline float signedRand1()
 	{
-		#if(GLM_COMPILER == GLM_COMPILER_VC80)
+		#if(GLM_COMPILER & GLM_COMPILER_VC)
 		#define RAND_SHIFT_NUM 5
 		#else
 		#define RAND_SHIFT_NUM 0

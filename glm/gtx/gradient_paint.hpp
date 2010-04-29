@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2009-03-06
 // Updated : 2009-03-09
@@ -46,11 +46,8 @@ namespace glm
     }//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_gradient_paint namespace gtx::gradient_paint
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_gradient_paint;}
-#endif//GLM_GTX_GLOBAL
-
 #include "gradient_paint.inl"
+
+namespace glm{using namespace gtx::gradient_paint;}
 
 #endif//glm_gtx_gradient_paint

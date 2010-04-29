@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-08-03
-// Updated : 2008-09-04
+// Updated : 2010-01-26
 // Licence : This source is under MIT License
 // File    : glm/core/func_common.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -11,7 +11,6 @@ namespace glm
 {
 	namespace detail
 	{
-
 		template <typename genFIType, bool /*signed*/>
 		struct Abs_
 		{
@@ -144,6 +143,12 @@ namespace glm
     }
 
     // floor
+    template <>
+	inline detail::thalf floor<detail::thalf>(detail::thalf const& x)
+    {
+        return detail::thalf(::std::floor(float(x)));
+    }
+
     template <typename genType>
     inline genType floor(genType const& x)
     {
@@ -383,78 +388,78 @@ namespace glm
         return x - y * floor(x / y);
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> mod
+    template <typename T>
+    inline detail::tvec2<T> mod
 	(
-		detail::tvec2<valType> const & x, 
-		valType y
+		detail::tvec2<T> const & x, 
+		typename detail::tvec2<T>::value_type const & y
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             mod(x.x, y),
             mod(x.y, y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> mod
+    template <typename T>
+    inline detail::tvec3<T> mod
 	(
-		detail::tvec3<valType> const & x, 
-		valType y
+		detail::tvec3<T> const & x, 
+		typename detail::tvec3<T>::value_type const & y
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             mod(x.x, y),
             mod(x.y, y),
             mod(x.z, y));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> mod
+    template <typename T>
+    inline detail::tvec4<T> mod
 	(
-		detail::tvec4<valType> const & x, 
-		valType y
+		detail::tvec4<T> const & x, 
+		typename detail::tvec4<T>::value_type const & y
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             mod(x.x, y),
             mod(x.y, y),
             mod(x.z, y),
             mod(x.w, y));
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> mod
+    template <typename T>
+    inline detail::tvec2<T> mod
 	(
-		detail::tvec2<valType> const & x, 
-		detail::tvec2<valType> const & y
+		detail::tvec2<T> const & x, 
+		detail::tvec2<T> const & y
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             mod(x.x, y.x),
             mod(x.y, y.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> mod
+    template <typename T>
+    inline detail::tvec3<T> mod
 	(
-		detail::tvec3<valType> const & x, 
-		detail::tvec3<valType> const & y
+		detail::tvec3<T> const & x, 
+		detail::tvec3<T> const & y
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             mod(x.x, y.x),
             mod(x.y, y.y),
             mod(x.z, y.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> mod
+    template <typename T>
+    inline detail::tvec4<T> mod
 	(
-		detail::tvec4<valType> const & x, 
-		detail::tvec4<valType> const & y
+		detail::tvec4<T> const & x, 
+		detail::tvec4<T> const & y
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             mod(x.x, y.x),
             mod(x.y, y.y),
             mod(x.z, y.z),
@@ -539,78 +544,78 @@ namespace glm
         return x < y ? x : y;
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> min
+    template <typename T>
+    inline detail::tvec2<T> min
 	(
-		detail::tvec2<valType> const & x, 
-		valType y
+		detail::tvec2<T> const & x, 
+		typename detail::tvec2<T>::value_type const & y
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             min(x.x, y),
             min(x.y, y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> min
+    template <typename T>
+    inline detail::tvec3<T> min
 	(
-		detail::tvec3<valType> const & x, 
-		valType y
+		detail::tvec3<T> const & x, 
+		typename detail::tvec2<T>::value_type const & y
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             min(x.x, y),
             min(x.y, y),
             min(x.z, y));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> min
+    template <typename T>
+    inline detail::tvec4<T> min
 	(
-		detail::tvec4<valType> const & x, 
-		valType y
+		detail::tvec4<T> const & x, 
+		typename detail::tvec4<T>::value_type const & y
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             min(x.x, y),
             min(x.y, y),
             min(x.z, y),
             min(x.w, y));
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> min
+    template <typename T>
+    inline detail::tvec2<T> min
 	(
-		detail::tvec2<valType> const & x, 
-		detail::tvec2<valType> const & y
+		detail::tvec2<T> const & x, 
+		detail::tvec2<T> const & y
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             min(x.x, y.x),
             min(x.y, y.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> min
+    template <typename T>
+    inline detail::tvec3<T> min
 	(
-		detail::tvec3<valType> const & x, 
-		detail::tvec3<valType> const & y
+		detail::tvec3<T> const & x, 
+		detail::tvec3<T> const & y
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             min(x.x, y.x),
             min(x.y, y.y),
             min(x.z, y.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> min
+    template <typename T>
+    inline detail::tvec4<T> min
 	(
-		detail::tvec4<valType> const & x, 
-		detail::tvec4<valType> const & y
+		detail::tvec4<T> const & x, 
+		detail::tvec4<T> const & y
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             min(x.x, y.x),
             min(x.y, y.y),
             min(x.z, y.z),
@@ -633,77 +638,77 @@ namespace glm
 		return x > y ? x : y;
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> max
+    template <typename T>
+    inline detail::tvec2<T> max
 	(
-		detail::tvec2<valType> const & x, 
-		valType y
+		detail::tvec2<T> const & x, 
+		typename detail::tvec2<T>::value_type y
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             max(x.x, y),
             max(x.y, y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> max
+    template <typename T>
+    inline detail::tvec3<T> max
 	(
-		detail::tvec3<valType> const & x, 
-		valType y
+		detail::tvec3<T> const & x, 
+		typename detail::tvec3<T>::value_type y
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             max(x.x, y),
             max(x.y, y),
             max(x.z, y));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> max
+    template <typename T>
+    inline detail::tvec4<T> max
 	(
-		detail::tvec4<valType> const & x, 
-		valType y
+		detail::tvec4<T> const & x, 
+		typename detail::tvec4<T>::value_type y
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             max(x.x, y),
             max(x.y, y),
             max(x.z, y),
             max(x.w, y));
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> max
+    template <typename T>
+    inline detail::tvec2<T> max
 	(
-		detail::tvec2<valType> const & x, 
-		detail::tvec2<valType> const & y
+		detail::tvec2<T> const & x, 
+		detail::tvec2<T> const & y
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             max(x.x, y.x),
             max(x.y, y.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> max
+    template <typename T>
+    inline detail::tvec3<T> max
 	(
-		detail::tvec3<valType> const & x, 
-		detail::tvec3<valType> const & y
+		detail::tvec3<T> const & x, 
+		detail::tvec3<T> const & y
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             max(x.x, y.x),
             max(x.y, y.y),
             max(x.z, y.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> max
+    template <typename T>
+    inline detail::tvec4<T> max
 	(
-		detail::tvec4<valType> const & x, 
-		detail::tvec4<valType> const & y)
+		detail::tvec4<T> const & x, 
+		detail::tvec4<T> const & y)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             max(x.x, y.x),
             max(x.y, y.y),
             max(x.z, y.z),
@@ -729,84 +734,84 @@ namespace glm
 	    return x;
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> clamp
+    template <typename T>
+    inline detail::tvec2<T> clamp
 	(
-		detail::tvec2<valType> const & x, 
-		valType minVal, 
-		valType maxVal
+		detail::tvec2<T> const & x, 
+		typename detail::tvec2<T>::value_type const & minVal, 
+		typename detail::tvec2<T>::value_type const & maxVal
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             clamp(x.x, minVal, maxVal),
             clamp(x.y, minVal, maxVal));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> clamp
+    template <typename T>
+    inline detail::tvec3<T> clamp
 	(
-		detail::tvec3<valType> const & x, 
-		valType minVal, 
-		valType maxVal
+		detail::tvec3<T> const & x, 
+		typename detail::tvec3<T>::value_type const & minVal, 
+		typename detail::tvec3<T>::value_type const & maxVal
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             clamp(x.x, minVal, maxVal),
             clamp(x.y, minVal, maxVal),
             clamp(x.z, minVal, maxVal));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> clamp
+    template <typename T>
+    inline detail::tvec4<T> clamp
 	(
-		detail::tvec4<valType> const & x, 
-		valType minVal, 
-		valType maxVal
+		detail::tvec4<T> const & x, 
+		typename detail::tvec4<T>::value_type const & minVal, 
+		typename detail::tvec4<T>::value_type const & maxVal
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             clamp(x.x, minVal, maxVal),
             clamp(x.y, minVal, maxVal),
             clamp(x.z, minVal, maxVal),
             clamp(x.w, minVal, maxVal));
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> clamp
+    template <typename T>
+    inline detail::tvec2<T> clamp
 	(
-		detail::tvec2<valType> const & x, 
-		detail::tvec2<valType> const & minVal, 
-		detail::tvec2<valType> const & maxVal
+		detail::tvec2<T> const & x, 
+		detail::tvec2<T> const & minVal, 
+		detail::tvec2<T> const & maxVal
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             clamp(x.x, minVal.x, maxVal.x),
             clamp(x.y, minVal.y, maxVal.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> clamp
+    template <typename T>
+    inline detail::tvec3<T> clamp
 	(
-		detail::tvec3<valType> const & x, 
-		detail::tvec3<valType> const & minVal, 
-		detail::tvec3<valType> const & maxVal
+		detail::tvec3<T> const & x, 
+		detail::tvec3<T> const & minVal, 
+		detail::tvec3<T> const & maxVal
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             clamp(x.x, minVal.x, maxVal.x),
             clamp(x.y, minVal.y, maxVal.y),
             clamp(x.z, minVal.z, maxVal.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> clamp
+    template <typename T>
+    inline detail::tvec4<T> clamp
 	(
-		detail::tvec4<valType> const & x, 
-		detail::tvec4<valType> const & minVal, 
-		detail::tvec4<valType> const & maxVal
+		detail::tvec4<T> const & x, 
+		detail::tvec4<T> const & minVal, 
+		detail::tvec4<T> const & maxVal
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             clamp(x.x, minVal.x, maxVal.x),
             clamp(x.y, minVal.y, maxVal.y),
             clamp(x.z, minVal.z, maxVal.z),
@@ -932,21 +937,21 @@ namespace glm
 		return a ? x : y;
 	}
 
-	template <typename valType>
-	inline detail::tvec2<valType> mix
+	template <typename T>
+	inline detail::tvec2<T> mix
 	(
-		detail::tvec2<valType> const & x, 
-		detail::tvec2<valType> const & y, 
-		typename detail::tvec2<valType>::bool_type a
+		detail::tvec2<T> const & x, 
+		detail::tvec2<T> const & y, 
+		typename detail::tvec2<T>::bool_type a
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
-		detail::tvec2<valType> result;
+		detail::tvec2<T> result;
 		for
 		(
-			typename detail::tvec2<valType>::size_type i = 0; 
-			i < detail::tvec2<valType>::value_size(); 
+			typename detail::tvec2<T>::size_type i = 0; 
+			i < detail::tvec2<T>::value_size(); 
 			++i
 		)
 		{
@@ -955,21 +960,21 @@ namespace glm
 		return result;
 	}
 
-	template <typename valType>
-	inline detail::tvec3<valType> mix
+	template <typename T>
+	inline detail::tvec3<T> mix
 	(
-		detail::tvec3<valType> const & x, 
-		detail::tvec3<valType> const & y, 
-		typename detail::tvec3<valType>::bool_type a
+		detail::tvec3<T> const & x, 
+		detail::tvec3<T> const & y, 
+		typename detail::tvec3<T>::bool_type a
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
-		detail::tvec3<valType> result;
+		detail::tvec3<T> result;
 		for
 		(
-			typename detail::tvec3<valType>::size_type i = 0; 
-			i < detail::tvec3<valType>::value_size(); 
+			typename detail::tvec3<T>::size_type i = 0; 
+			i < detail::tvec3<T>::value_size(); 
 			++i
 		)
 		{
@@ -978,21 +983,21 @@ namespace glm
 		return result;
 	}
 
-	template <typename valType>
-	inline detail::tvec4<valType> mix
+	template <typename T>
+	inline detail::tvec4<T> mix
 	(
-		detail::tvec4<valType> const & x, 
-		detail::tvec4<valType> const & y, 
-		typename detail::tvec4<valType>::bool_type a
+		detail::tvec4<T> const & x, 
+		detail::tvec4<T> const & y, 
+		typename detail::tvec4<T>::bool_type a
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
-		detail::tvec4<valType> result;
+		detail::tvec4<T> result;
 		for
 		(
-			typename detail::tvec4<valType>::size_type i = 0; 
-			i < detail::tvec4<valType>::value_size(); 
+			typename detail::tvec4<T>::size_type i = 0; 
+			i < detail::tvec4<T>::value_size(); 
 			++i
 		)
 		{
@@ -1014,82 +1019,82 @@ namespace glm
         return x <= edge ? genType(0) : genType(1);
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> step
+    template <typename T>
+    inline detail::tvec2<T> step
 	(
-		valType const & edge, 
-		detail::tvec2<valType> const & x
+		typename detail::tvec2<T>::value_type const & edge, 
+		detail::tvec2<T> const & x
 	)
     {
-        return detail::tvec2<valType>(
-            x.x <= edge ? valType(0) : valType(1),
-            x.y <= edge ? valType(0) : valType(1));
+        return detail::tvec2<T>(
+            x.x <= edge ? T(0) : T(1),
+            x.y <= edge ? T(0) : T(1));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> step
+    template <typename T>
+    inline detail::tvec3<T> step
 	(
-		valType const & edge, 
-		detail::tvec3<valType> const & x
+		typename detail::tvec3<T>::value_type const & edge, 
+		detail::tvec3<T> const & x
 	)
     {
-		return detail::tvec3<valType>(
-			x.x <= edge ? valType(0) : valType(1),
-			x.y <= edge ? valType(0) : valType(1),
-			x.z <= edge ? valType(0) : valType(1));
+		return detail::tvec3<T>(
+			x.x <= edge ? T(0) : T(1),
+			x.y <= edge ? T(0) : T(1),
+			x.z <= edge ? T(0) : T(1));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> step
+    template <typename T>
+    inline detail::tvec4<T> step
 	(
-		valType edge, 
-		detail::tvec4<valType> const & x
+		typename detail::tvec4<T>::value_type const & edge, 
+		detail::tvec4<T> const & x
 	)
     {
-        return detail::tvec4<valType>(
-            x.x <= edge ? valType(0) : valType(1),
-            x.y <= edge ? valType(0) : valType(1),
-            x.z <= edge ? valType(0) : valType(1),
-            x.w <= edge ? valType(0) : valType(1));
+        return detail::tvec4<T>(
+            x.x <= edge ? T(0) : T(1),
+            x.y <= edge ? T(0) : T(1),
+            x.z <= edge ? T(0) : T(1),
+            x.w <= edge ? T(0) : T(1));
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> step
+    template <typename T>
+    inline detail::tvec2<T> step
 	(
-		detail::tvec2<valType> const & edge, 
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & edge, 
+		detail::tvec2<T> const & x
 	)
     {
-        return detail::tvec2<valType>(
-            x.x <= edge.x ? valType(0) : valType(1),
-            x.y <= edge.y ? valType(0) : valType(1));
+        return detail::tvec2<T>(
+            x.x <= edge.x ? T(0) : T(1),
+            x.y <= edge.y ? T(0) : T(1));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> step
+    template <typename T>
+    inline detail::tvec3<T> step
 	(
-		detail::tvec3<valType> const & edge, 
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & edge, 
+		detail::tvec3<T> const & x
 	)
     {
-        return detail::tvec3<valType>(
-            x.x <= edge.x ? valType(0) : valType(1),
-            x.y <= edge.y ? valType(0) : valType(1),
-            x.z <= edge.z ? valType(0) : valType(1));
+        return detail::tvec3<T>(
+            x.x <= edge.x ? T(0) : T(1),
+            x.y <= edge.y ? T(0) : T(1),
+            x.z <= edge.z ? T(0) : T(1));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> step
+    template <typename T>
+    inline detail::tvec4<T> step
 	(
-		detail::tvec4<valType> const & edge, 
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & edge, 
+		detail::tvec4<T> const & x
 	)
     {
-        return detail::tvec4<valType>(
-            x.x <= edge.x ? valType(0) : valType(1),
-            x.y <= edge.y ? valType(0) : valType(1),
-            x.z <= edge.z ? valType(0) : valType(1),
-            x.w <= edge.w ? valType(0) : valType(1));
+        return detail::tvec4<T>(
+            x.x <= edge.x ? T(0) : T(1),
+            x.y <= edge.y ? T(0) : T(1),
+            x.z <= edge.z ? T(0) : T(1),
+            x.w <= edge.w ? T(0) : T(1));
     }
 
     // smoothstep
@@ -1107,84 +1112,84 @@ namespace glm
         return tmp * tmp * (genType(3) - genType(2) * tmp);
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> smoothstep
+    template <typename T>
+    inline detail::tvec2<T> smoothstep
 	(
-		valType const & edge0, 
-		valType const & edge1, 
-		detail::tvec2<valType> const & x
+		typename detail::tvec2<T>::value_type const & edge0, 
+		typename detail::tvec2<T>::value_type const & edge1, 
+		detail::tvec2<T> const & x
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             smoothstep(edge0, edge1, x.x),
             smoothstep(edge0, edge1, x.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> smoothstep
+    template <typename T>
+    inline detail::tvec3<T> smoothstep
 	(
-		valType const & edge0, 
-		valType const & edge1, 
-		detail::tvec3<valType> const & x
+		typename detail::tvec3<T>::value_type const & edge0, 
+		typename detail::tvec3<T>::value_type const & edge1, 
+		detail::tvec3<T> const & x
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             smoothstep(edge0, edge1, x.x),
             smoothstep(edge0, edge1, x.y),
             smoothstep(edge0, edge1, x.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> smoothstep
+    template <typename T>
+    inline detail::tvec4<T> smoothstep
 	(
-		valType const & edge0, 
-		valType const & edge1, 
-		detail::tvec4<valType> const & x
+		typename detail::tvec4<T>::value_type const & edge0, 
+		typename detail::tvec4<T>::value_type const & edge1, 
+		detail::tvec4<T> const & x
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             smoothstep(edge0, edge1, x.x),
             smoothstep(edge0, edge1, x.y),
             smoothstep(edge0, edge1, x.z),
             smoothstep(edge0, edge1, x.w));
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> smoothstep
+    template <typename T>
+    inline detail::tvec2<T> smoothstep
 	(
-		detail::tvec2<valType> const & edge0, 
-		detail::tvec2<valType> const & edge1, 
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & edge0, 
+		detail::tvec2<T> const & edge1, 
+		detail::tvec2<T> const & x
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             smoothstep(edge0.x, edge1.x, x.x),
             smoothstep(edge0.y, edge1.y, x.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> smoothstep
+    template <typename T>
+    inline detail::tvec3<T> smoothstep
 	(
-		detail::tvec3<valType> const & edge0, 
-		detail::tvec3<valType> const & edge1, 
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & edge0, 
+		detail::tvec3<T> const & edge1, 
+		detail::tvec3<T> const & x
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             smoothstep(edge0.x, edge1.x, x.x),
             smoothstep(edge0.y, edge1.y, x.y),
             smoothstep(edge0.z, edge1.z, x.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> smoothstep
+    template <typename T>
+    inline detail::tvec4<T> smoothstep
 	(
-		detail::tvec4<valType> const & edge0, 
-		detail::tvec4<valType> const & edge1, 
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & edge0, 
+		detail::tvec4<T> const & edge1, 
+		detail::tvec4<T> const & x
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             smoothstep(edge0.x, edge1.x, x.x),
             smoothstep(edge0.y, edge1.y, x.y),
             smoothstep(edge0.z, edge1.z, x.z),
@@ -1206,36 +1211,36 @@ namespace glm
 #endif
 	}
 
-    template <typename valType>
-    inline typename detail::tvec2<valType>::bool_type isnan
+    template <typename T>
+    inline typename detail::tvec2<T>::bool_type isnan
 	(
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & x
 	)
     {
-        return typename detail::tvec2<valType>::bool_type(
+        return typename detail::tvec2<T>::bool_type(
             isnan(x.x),
             isnan(x.y));
     }
 
-    template <typename valType>
-    inline typename detail::tvec3<valType>::bool_type isnan
+    template <typename T>
+    inline typename detail::tvec3<T>::bool_type isnan
 	(
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & x
 	)
     {
-        return typename detail::tvec3<valType>::bool_type(
+        return typename detail::tvec3<T>::bool_type(
             isnan(x.x),
             isnan(x.y),
             isnan(x.z));
     }
 
-    template <typename valType>
-    inline typename detail::tvec4<valType>::bool_type isnan
+    template <typename T>
+    inline typename detail::tvec4<T>::bool_type isnan
 	(
-		const detail::tvec4<valType>& x
+		detail::tvec4<T> const & x
 	)
     {
-        return typename detail::tvec4<valType>::bool_type(
+        return typename detail::tvec4<T>::bool_type(
             isnan(x.x),
             isnan(x.y),
             isnan(x.z),
@@ -1257,41 +1262,279 @@ namespace glm
 #endif
 	}
 
-    template <typename valType>
-    inline typename detail::tvec2<valType>::bool_type isinf
+    template <typename T>
+    inline typename detail::tvec2<T>::bool_type isinf
 	(
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & x
 	)
     {
-        return typename detail::tvec2<valType>::bool_type(
+        return typename detail::tvec2<T>::bool_type(
             isnan(x.x),
             isnan(x.y));
     }
 
-    template <typename valType>
-    inline typename detail::tvec3<valType>::bool_type isinf
+    template <typename T>
+    inline typename detail::tvec3<T>::bool_type isinf
 	(
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & x
 	)
     {
-        return typename detail::tvec3<valType>::bool_type(
+        return typename detail::tvec3<T>::bool_type(
             isnan(x.x),
             isnan(x.y),
             isnan(x.z));
     }
 
-    template <typename valType>
-    inline typename detail::tvec4<valType>::bool_type isinf
+    template <typename T>
+    inline typename detail::tvec4<T>::bool_type isinf
 	(
-		const detail::tvec4<valType>& x
+		detail::tvec4<T> const & x
 	)
     {
-        return typename detail::tvec4<valType>::bool_type(
+        return typename detail::tvec4<T>::bool_type(
             isnan(x.x),
             isnan(x.y),
             isnan(x.z),
             isnan(x.w));
     }
+
+	inline int floatBitsToInt(float const & value)
+	{
+		union
+		{
+			float f;
+			int i;
+		} fi;
+
+		fi.f = value;
+		return fi.i;
+	}
+
+    template <typename T>
+    inline detail::tvec2<int> floatBitsToInt
+	(
+		detail::tvec2<T> const & value
+	)
+    {
+        return detail::tvec2<T>(
+            floatBitsToInt(value.x),
+            floatBitsToInt(value.y));
+    }
+
+    template <typename T>
+    inline detail::tvec3<int> floatBitsToInt
+	(
+		detail::tvec3<T> const & value
+	)
+    {
+        return detail::tvec3<T>(
+            floatBitsToInt(value.x),
+            floatBitsToInt(value.y));
+    }
+
+    template <typename T>
+    inline detail::tvec4<int> floatBitsToInt
+	(
+		detail::tvec4<T> const & value
+	)
+    {
+        return detail::tvec4<T>(
+            floatBitsToInt(value.x),
+            floatBitsToInt(value.y));
+    }
+
+	inline uint floatBitsToUint(float const & value)
+	{
+		union
+		{
+			float f;
+			uint u;
+		} fu;
+
+		fu.f = value;
+		return fu.u;
+	}
+
+    template <typename T>
+    inline detail::tvec2<uint> floatBitsToUint
+	(
+		detail::tvec2<T> const & value
+	)
+    {
+        return detail::tvec2<T>(
+            floatBitsToUint(value.x),
+            floatBitsToUint(value.y));
+    }
+
+    template <typename T>
+    inline detail::tvec3<uint> floatBitsToUint
+	(
+		detail::tvec3<T> const & value
+	)
+    {
+        return detail::tvec3<T>(
+            floatBitsToUint(value.x),
+            floatBitsToUint(value.y));
+    }
+
+    template <typename T>
+    inline detail::tvec4<uint> floatBitsToUint
+	(
+		detail::tvec4<T> const & value
+	)
+    {
+        return detail::tvec4<T>(
+            floatBitsToUint(value.x),
+            floatBitsToUint(value.y));
+    }
+
+	inline float intBitsToFloat(int const & value)
+	{
+		union
+		{
+			float f;
+			int i;
+		} fi;
+
+		fi.i = value;
+		return fi.f;
+	}
+
+	inline float intBitsToFloat(uint const & value)
+	{
+		union
+		{
+			float f;
+			uint u;
+		} fu;
+
+		fu.u = value;
+		return fu.f;
+	}
+
+    template <typename T>
+    inline detail::tvec2<float> intBitsToFloat
+	(
+		detail::tvec2<T> const & value
+	)
+    {
+        return detail::tvec2<T>(
+            intBitsToFloat(value.x),
+            intBitsToFloat(value.y));
+    }
+
+    template <typename T>
+    inline detail::tvec3<float> intBitsToFloat
+	(
+		detail::tvec3<T> const & value
+	)
+    {
+        return detail::tvec3<T>(
+            intBitsToFloat(value.x),
+            intBitsToFloat(value.y));
+    }
+
+    template <typename T>
+    inline detail::tvec4<float> intBitsToFloat
+	(
+		detail::tvec4<T> const & value
+	)
+    {
+        return detail::tvec4<T>(
+            intBitsToFloat(value.x),
+            intBitsToFloat(value.y));
+    }
+
+	template <typename genType>
+	inline genType fma
+	(
+		genType const & a, 
+		genType const & b, 
+		genType const & c
+	)
+	{
+		return a * b + c;
+	}
+
+	template <typename genType>
+	genType frexp
+	(
+		genType const & x, 
+		int & exp
+	)
+	{
+		return std::frexp(x, exp);
+	}
+
+	template <typename T>
+	detail::tvec2<T> frexp
+	(
+		detail::tvec2<T> const & x, 
+		detail::tvec2<int> & exp
+	)
+	{
+		return std::frexp(x, exp);
+	}
+
+	template <typename T>
+	detail::tvec3<T> frexp
+	(
+		detail::tvec3<T> const & x, 
+		detail::tvec3<int> & exp
+	)
+	{
+		return std::frexp(x, exp);
+	}
+
+	template <typename T>
+	detail::tvec4<T> frexp
+	(
+		detail::tvec4<T> const & x, 
+		detail::tvec4<int> & exp
+	)
+	{
+		return std::frexp(x, exp);
+	}
+
+	template <typename genType>
+	genType ldexp
+	(
+		genType const & x, 
+		int const & exp
+	)
+	{
+		return std::frexp(x, exp);
+	}
+
+	template <typename T>
+	detail::tvec2<T> ldexp
+	(
+		detail::tvec2<T> const & x, 
+		detail::tvec2<int> const & exp
+	)
+	{
+		return std::frexp(x, exp);
+	}
+
+	template <typename T>
+	detail::tvec3<T> ldexp
+	(
+		detail::tvec3<T> const & x, 
+		detail::tvec3<int> const & exp
+	)
+	{
+		return std::frexp(x, exp);
+	}
+
+	template <typename T>
+	detail::tvec4<T> ldexp
+	(
+		detail::tvec4<T> const & x, 
+		detail::tvec4<int> const & exp
+	)
+	{
+		return std::frexp(x, exp);
+	}
 
 	}//namespace common
 	}//namespace function

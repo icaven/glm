@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-08-03
 // Updated : 2008-09-14
@@ -26,36 +26,36 @@ namespace glm
         return degrees * (pi / genType(180));
     }
 
-    template <typename valType>
-	inline detail::tvec2<valType> radians
+    template <typename T>
+	inline detail::tvec2<T> radians
 	(
-		detail::tvec2<valType> const & degrees
+		detail::tvec2<T> const & degrees
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             radians(degrees.x),
             radians(degrees.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> radians
+    template <typename T>
+    inline detail::tvec3<T> radians
 	(
-		detail::tvec3<valType> const & degrees
+		detail::tvec3<T> const & degrees
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             radians(degrees.x),
             radians(degrees.y),
             radians(degrees.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> radians
+    template <typename T>
+    inline detail::tvec4<T> radians
 	(
-		detail::tvec4<valType> const & degrees
+		detail::tvec4<T> const & degrees
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             radians(degrees.x),
             radians(degrees.y),
             radians(degrees.z),
@@ -75,36 +75,36 @@ namespace glm
         return radians * (genType(180) / pi);
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> degrees
+    template <typename T>
+    inline detail::tvec2<T> degrees
 	(
-		detail::tvec2<valType> const & radians
+		detail::tvec2<T> const & radians
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             degrees(radians.x),
             degrees(radians.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> degrees
+    template <typename T>
+    inline detail::tvec3<T> degrees
 	(	
-		detail::tvec3<valType> const & radians
+		detail::tvec3<T> const & radians
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             degrees(radians.x),
             degrees(radians.y),
             degrees(radians.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> degrees
+    template <typename T>
+    inline detail::tvec4<T> degrees
 	(
-		detail::tvec4<valType> const & radians
+		detail::tvec4<T> const & radians
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             degrees(radians.x),
             degrees(radians.y),
             degrees(radians.z),
@@ -123,36 +123,36 @@ namespace glm
 		return ::std::sin(angle);
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> sin
+    template <typename T>
+    inline detail::tvec2<T> sin
 	(
-		detail::tvec2<valType> const & angle
+		detail::tvec2<T> const & angle
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             sin(angle.x),
             sin(angle.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> sin
+    template <typename T>
+    inline detail::tvec3<T> sin
 	(
-		detail::tvec3<valType> const & angle
+		detail::tvec3<T> const & angle
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             sin(angle.x),
             sin(angle.y),
             sin(angle.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> sin
+    template <typename T>
+    inline detail::tvec4<T> sin
 	(
-		detail::tvec4<valType> const & angle
+		detail::tvec4<T> const & angle
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             sin(angle.x),
             sin(angle.y),
             sin(angle.z),
@@ -168,36 +168,36 @@ namespace glm
         return ::std::cos(angle);
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> cos
+    template <typename T>
+    inline detail::tvec2<T> cos
 	(
-		detail::tvec2<valType> const & angle
+		detail::tvec2<T> const & angle
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             cos(angle.x),
             cos(angle.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> cos
+    template <typename T>
+    inline detail::tvec3<T> cos
 	(
-		detail::tvec3<valType> const & angle
+		detail::tvec3<T> const & angle
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             cos(angle.x),
             cos(angle.y),
             cos(angle.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> cos
+    template <typename T>
+    inline detail::tvec4<T> cos
 	(	
-		detail::tvec4<valType> const & angle
+		detail::tvec4<T> const & angle
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             cos(angle.x),
             cos(angle.y),
             cos(angle.z),
@@ -216,36 +216,36 @@ namespace glm
         return ::std::tan(angle);
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> tan
+    template <typename T>
+    inline detail::tvec2<T> tan
 	(
-		detail::tvec2<valType> const & angle
+		detail::tvec2<T> const & angle
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             tan(angle.x),
             tan(angle.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> tan
+    template <typename T>
+    inline detail::tvec3<T> tan
 	(
-		detail::tvec3<valType> const & angle
+		detail::tvec3<T> const & angle
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             tan(angle.x),
             tan(angle.y),
             tan(angle.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> tan
+    template <typename T>
+    inline detail::tvec4<T> tan
 	(
-		detail::tvec4<valType> const & angle
+		detail::tvec4<T> const & angle
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             tan(angle.x),
             tan(angle.y),
             tan(angle.z),
@@ -264,36 +264,36 @@ namespace glm
         return ::std::asin(x);
     }
 
-    template <typename valType>
-	inline detail::tvec2<valType> asin
+    template <typename T>
+	inline detail::tvec2<T> asin
 	(
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & x
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             asin(x.x),
             asin(x.y));
     }
 
-    template <typename valType>
-	inline detail::tvec3<valType> asin
+    template <typename T>
+	inline detail::tvec3<T> asin
 	(
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & x
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             asin(x.x),
             asin(x.y),
             asin(x.z));
     }
 
-    template <typename valType>
-	inline detail::tvec4<valType> asin
+    template <typename T>
+	inline detail::tvec4<T> asin
 	(
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & x
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             asin(x.x),
             asin(x.y),
             asin(x.z),
@@ -312,36 +312,36 @@ namespace glm
         return ::std::acos(x);
     }
 
-    template <typename valType>
-	inline detail::tvec2<valType> acos
+    template <typename T>
+	inline detail::tvec2<T> acos
 	(
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & x
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             acos(x.x),
             acos(x.y));
     }
 
-    template <typename valType>
-	inline detail::tvec3<valType> acos
+    template <typename T>
+	inline detail::tvec3<T> acos
 	(
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & x
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             acos(x.x),
             acos(x.y),
             acos(x.z));
     }
 
-    template <typename valType>
-	inline detail::tvec4<valType> acos
+    template <typename T>
+	inline detail::tvec4<T> acos
 	(
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & x
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             acos(x.x),
             acos(x.y),
             acos(x.z),
@@ -361,39 +361,39 @@ namespace glm
         return ::std::atan2(y, x);
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> atan
+    template <typename T>
+    inline detail::tvec2<T> atan
 	(
-		detail::tvec2<valType> const & y, 
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & y, 
+		detail::tvec2<T> const & x
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             atan(y.x, x.x),
             atan(y.y, x.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> atan
+    template <typename T>
+    inline detail::tvec3<T> atan
 	(
-		detail::tvec3<valType> const & y, 
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & y, 
+		detail::tvec3<T> const & x
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             atan(y.x, x.x),
             atan(y.y, x.y),
             atan(y.z, x.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> atan
+    template <typename T>
+    inline detail::tvec4<T> atan
 	(
-		detail::tvec4<valType> const & y, 
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & y, 
+		detail::tvec4<T> const & x
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             atan(y.x, x.x),
             atan(y.y, x.y),
             atan(y.z, x.z),
@@ -411,36 +411,36 @@ namespace glm
         return ::std::atan(x);
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> atan
+    template <typename T>
+    inline detail::tvec2<T> atan
 	(
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & x
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             atan(x.x),
             atan(x.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> atan
+    template <typename T>
+    inline detail::tvec3<T> atan
 	(
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & x
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             atan(x.x),
             atan(x.y),
             atan(x.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> atan
+    template <typename T>
+    inline detail::tvec4<T> atan
 	(
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & x
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             atan(x.x),
             atan(x.y),
             atan(x.z),
@@ -459,36 +459,36 @@ namespace glm
 		return std::sinh(angle);
     }
 
-    template <typename valType> 
-    inline detail::tvec2<valType> sinh
+    template <typename T> 
+    inline detail::tvec2<T> sinh
 	(
-		detail::tvec2<valType> const & angle
+		detail::tvec2<T> const & angle
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             sinh(angle.x),
             sinh(angle.y));
     }
 
-    template <typename valType> 
-    inline detail::tvec3<valType> sinh
+    template <typename T> 
+    inline detail::tvec3<T> sinh
 	(
-		detail::tvec3<valType> const & angle
+		detail::tvec3<T> const & angle
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             sinh(angle.x),
             sinh(angle.y),
             sinh(angle.z));
     }
 
-    template <typename valType> 
-    inline detail::tvec4<valType> sinh
+    template <typename T> 
+    inline detail::tvec4<T> sinh
 	(
-		detail::tvec4<valType> const & angle
+		detail::tvec4<T> const & angle
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             sinh(angle.x),
             sinh(angle.y),
             sinh(angle.z),
@@ -507,36 +507,36 @@ namespace glm
 		return std::cosh(angle);
     }
 
-    template <typename valType> 
-    inline detail::tvec2<valType> cosh
+    template <typename T> 
+    inline detail::tvec2<T> cosh
 	(
-		detail::tvec2<valType> const & angle
+		detail::tvec2<T> const & angle
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             cosh(angle.x),
             cosh(angle.y));
     }
 
-    template <typename valType> 
-    inline detail::tvec3<valType> cosh
+    template <typename T> 
+    inline detail::tvec3<T> cosh
 	(
-		detail::tvec3<valType> const & angle
+		detail::tvec3<T> const & angle
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             cosh(angle.x),
             cosh(angle.y),
             cosh(angle.z));
     }
 
-    template <typename valType> 
-    inline detail::tvec4<valType> cosh
+    template <typename T> 
+    inline detail::tvec4<T> cosh
 	(
-		detail::tvec4<valType> const & angle
+		detail::tvec4<T> const & angle
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             cosh(angle.x),
             cosh(angle.y),
             cosh(angle.z),
@@ -555,36 +555,36 @@ namespace glm
 		return std::tanh(angle);
     }
 
-    template <typename valType> 
-    inline detail::tvec2<valType> tanh
+    template <typename T> 
+    inline detail::tvec2<T> tanh
 	(
-		detail::tvec2<valType> const & angle
+		detail::tvec2<T> const & angle
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             tanh(angle.x),
             tanh(angle.y));
     }
 
-    template <typename valType> 
-    inline detail::tvec3<valType> tanh
+    template <typename T> 
+    inline detail::tvec3<T> tanh
 	(
-		detail::tvec3<valType> const & angle
+		detail::tvec3<T> const & angle
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             tanh(angle.x),
             tanh(angle.y),
             tanh(angle.z));
     }
 
-    template <typename valType> 
-    inline detail::tvec4<valType> tanh
+    template <typename T> 
+    inline detail::tvec4<T> tanh
 	(
-		detail::tvec4<valType> const & angle
+		detail::tvec4<T> const & angle
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             tanh(angle.x),
             tanh(angle.y),
             tanh(angle.z),
@@ -603,36 +603,36 @@ namespace glm
 		return (x < genType(0) ? genType(-1) : (x > genType(0) ? genType(1) : genType(0))) * log(abs(x) + sqrt(genType(1) + x * x));
     }
 
-    template <typename valType> 
-    inline detail::tvec2<valType> asinh
+    template <typename T> 
+    inline detail::tvec2<T> asinh
 	(
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & x
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             asinh(x.x),
             asinh(x.y));
     }
 
-    template <typename valType> 
-    inline detail::tvec3<valType> asinh
+    template <typename T> 
+    inline detail::tvec3<T> asinh
 	(
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & x
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             asinh(x.x),
             asinh(x.y),
             asinh(x.z));
     }
 
-    template <typename valType> 
-    inline detail::tvec4<valType> asinh
+    template <typename T> 
+    inline detail::tvec4<T> asinh
 	(
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & x
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             asinh(x.x),
             asinh(x.y),
             asinh(x.z),
@@ -653,36 +653,36 @@ namespace glm
 		return log(x + sqrt(x * x - genType(1)));
     }
 
-	template <typename valType> 
-	inline detail::tvec2<valType> acosh
+	template <typename T> 
+	inline detail::tvec2<T> acosh
 	(
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & x
 	)
 	{
-		return detail::tvec2<valType>(
+		return detail::tvec2<T>(
 			acosh(x.x),
 			acosh(x.y));
 	}
 
-    template <typename valType> 
-    inline detail::tvec3<valType> acosh
+    template <typename T> 
+    inline detail::tvec3<T> acosh
 	(
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & x
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             acosh(x.x),
             acosh(x.y),
             acosh(x.z));
     }
 
-    template <typename valType> 
-    inline detail::tvec4<valType> acosh
+    template <typename T> 
+    inline detail::tvec4<T> acosh
 	(
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & x
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             acosh(x.x),
             acosh(x.y),
             acosh(x.z),
@@ -703,36 +703,36 @@ namespace glm
 		return genType(0.5) * log((genType(1) + x) / (genType(1) - x));
     }
 
-    template <typename valType> 
-    inline detail::tvec2<valType> atanh
+    template <typename T> 
+    inline detail::tvec2<T> atanh
 	(
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & x
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             atanh(x.x),
             atanh(x.y));
     }
 
-    template <typename valType> 
-    inline detail::tvec3<valType> atanh
+    template <typename T> 
+    inline detail::tvec3<T> atanh
 	(
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & x
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             atanh(x.x),
             atanh(x.y),
             atanh(x.z));
     }
 
-    template <typename valType> 
-    inline detail::tvec4<valType> atanh
+    template <typename T> 
+    inline detail::tvec4<T> atanh
 	(
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & x
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             atanh(x.x),
             atanh(x.y),
             atanh(x.z),

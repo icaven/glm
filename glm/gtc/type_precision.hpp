@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2009-06-04
 // Updated : 2009-06-04
@@ -193,12 +193,8 @@ namespace glm
 	}//namespace gtc
 }//namespace glm
 
-#define GLM_GTC_type_precision	namespace gtc::type_precision	
-
-#ifndef GLM_GTC_GLOBAL
-namespace glm {using GLM_GTC_type_precision;}
-#endif//GLM_GTC_GLOBAL
-
 #include "type_precision.inl"
+
+namespace glm{using namespace gtc::type_precision;}
 
 #endif//glm_gtc_type_precision

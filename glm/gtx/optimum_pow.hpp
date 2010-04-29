@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2005-12-21
 // Updated : 2006-11-13
@@ -61,11 +61,8 @@ namespace glm
     }//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_optimum_pow namespace gtx::optimum_pow
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_optimum_pow;}
-#endif//GLM_GTX_GLOBAL
-
 #include "optimum_pow.inl"
+
+namespace glm{using namespace gtx::optimum_pow;}
 
 #endif//glm_gtx_optimum_pow

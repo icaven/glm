@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2007-04-03
 // Updated : 2009-01-20
@@ -64,11 +64,8 @@ namespace glm
 }//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_intersect namespace gtx::intersect
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_intersect;}
-#endif//GLM_GTX_GLOBAL
-
 #include "intersect.inl"
+
+namespace glm{using namespace gtx::intersect;}
 
 #endif//glm_gtx_intersect

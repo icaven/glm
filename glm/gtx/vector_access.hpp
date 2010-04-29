@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2006-01-16
 // Updated : 2008-10-07
 // Licence : This source is under MIT License
-// File    : glm/gtx/vector_access.h
+// File    : glm/gtx/vector_access.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -57,11 +57,8 @@ namespace glm
     }//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_vector_access namespace gtx::vector_access
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_vector_access;}
-#endif//GLM_GTX_GLOBAL
-
 #include "vector_access.inl"
+
+namespace glm{using namespace gtx::vector_access;}
 
 #endif//glm_gtx_vector_access

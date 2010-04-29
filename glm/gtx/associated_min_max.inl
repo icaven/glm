@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-03-10
 // Updated : 2008-03-15
@@ -28,7 +28,7 @@ namespace associated_min_max{
 		detail::tvec2<U> Result;
 		//Result.x = x[0] < y[0] ? a[0] : b[0];
 		//Result.y = x[1] < y[1] ? a[1] : b[1];
-		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size(); ++i)
+		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size; ++i)
 			Result[i] = x[i] < y[i] ? a[i] : b[i];
 		return Result;
 	}
@@ -41,7 +41,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec3<U> Result;
-		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size(); ++i)
+		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size; ++i)
 			Result[i] = x[i] < y[i] ? a[i] : b[i];
 		return Result;
 	}
@@ -54,7 +54,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec4<U> Result;
-		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size(); ++i)
+		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size; ++i)
 			Result[i] = x[i] < y[i] ? a[i] : b[i];
 		return Result;
 	}
@@ -67,7 +67,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec2<U> Result;
-		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size(); ++i)
+		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size; ++i)
 			Result[i] = x < y ? a[i] : b[i];
 		return Result;
 	}
@@ -80,7 +80,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec3<U> Result;
-		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size(); ++i)
+		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size; ++i)
 			Result[i] = x < y ? a[i] : b[i];
 		return Result;
 	}
@@ -93,7 +93,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec4<U> Result;
-		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size(); ++i)
+		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size; ++i)
 			Result[i] = x < y ? a[i] : b[i];
 		return Result;
 	}
@@ -159,7 +159,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec2<U> Result;
-		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size(); ++i)
+		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size; ++i)
 			Result[i] = x[i] < y[i] ? (x[i] < z[i] ? a[i] : c[i]) : (y[i] < z[i] ? b[i] : c[i]);
 		return Result;
 	}
@@ -173,7 +173,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec3<U> Result;
-		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size(); ++i)
+		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size; ++i)
 			Result[i] = x[i] < y[i] ? (x[i] < z[i] ? a[i] : c[i]) : (y[i] < z[i] ? b[i] : c[i]);
 		return Result;
 	}
@@ -187,7 +187,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec4<U> Result;
-		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size(); ++i)
+		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size; ++i)
 			Result[i] = x[i] < y[i] ? (x[i] < z[i] ? a[i] : c[i]) : (y[i] < z[i] ? b[i] : c[i]);
 		return Result;
 	}
@@ -221,7 +221,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec2<U> Result;
-		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size(); ++i)
+		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size; ++i)
 		{
 			T Test1 = min(x[i], y[i]);
 			T Test2 = min(z[i], w[i]);
@@ -243,7 +243,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec3<U> Result;
-		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size(); ++i)
+		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size; ++i)
 		{
 			T Test1 = min(x[i], y[i]);
 			T Test2 = min(z[i], w[i]);
@@ -265,7 +265,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec4<U> Result;
-		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size(); ++i)
+		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size; ++i)
 		{
 			T Test1 = min(x[i], y[i]);
 			T Test2 = min(z[i], w[i]);
@@ -290,7 +290,7 @@ namespace associated_min_max{
 		T Test2 = min(z, w);
 
 		detail::tvec2<U> Result;
-		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size(); ++i)
+		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size; ++i)
 		{
 			U Result1 = x < y ? a[i] : b[i];
 			U Result2 = z < w ? c[i] : d[i];
@@ -313,7 +313,7 @@ namespace associated_min_max{
 		T Test2 = min(z, w);
 
 		detail::tvec3<U> Result;
-		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size(); ++i)
+		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size; ++i)
 		{
 			U Result1 = x < y ? a[i] : b[i];
 			U Result2 = z < w ? c[i] : d[i];
@@ -336,7 +336,7 @@ namespace associated_min_max{
 		T Test2 = min(z, w);
 
 		detail::tvec4<U> Result;
-		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size(); ++i)
+		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size; ++i)
 		{
 			U Result1 = x < y ? a[i] : b[i];
 			U Result2 = z < w ? c[i] : d[i];
@@ -427,7 +427,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec2<U> Result;
-		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size(); ++i)
+		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size; ++i)
 			Result[i] = x[i] > y[i] ? a[i] : b[i];
 		return Result;
 	}
@@ -441,7 +441,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec3<U> Result;
-		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size(); ++i)
+		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size; ++i)
 			Result[i] = x[i] > y[i] ? a[i] : b[i];
 		return Result;
 	}
@@ -455,7 +455,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec4<U> Result;
-		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size(); ++i)
+		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size; ++i)
 			Result[i] = x[i] > y[i] ? a[i] : b[i];
 		return Result;
 	}
@@ -469,7 +469,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec2<U> Result;
-		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size(); ++i)
+		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size; ++i)
 			Result[i] = x > y ? a[i] : b[i];
 		return Result;
 	}
@@ -483,7 +483,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec3<U> Result;
-		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size(); ++i)
+		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size; ++i)
 			Result[i] = x > y ? a[i] : b[i];
 		return Result;
 	}
@@ -497,7 +497,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec4<U> Result;
-		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size(); ++i)
+		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size; ++i)
 			Result[i] = x > y ? a[i] : b[i];
 		return Result;
 	}
@@ -567,7 +567,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec2<U> Result;
-		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size(); ++i)
+		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size; ++i)
 			Result[i] = x[i] > y[i] ? (x[i] > z[i] ? a[i] : c[i]) : (y[i] > z[i] ? b[i] : c[i]);
 		return Result;
 	}
@@ -582,7 +582,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec3<U> Result;
-		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size(); ++i)
+		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size; ++i)
 			Result[i] = x[i] > y[i] ? (x[i] > z[i] ? a[i] : c[i]) : (y[i] > z[i] ? b[i] : c[i]);
 		return Result;
 	}
@@ -597,7 +597,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec4<U> Result;
-		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size(); ++i)
+		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size; ++i)
 			Result[i] = x[i] > y[i] ? (x[i] > z[i] ? a[i] : c[i]) : (y[i] > z[i] ? b[i] : c[i]);
 		return Result;
 	}
@@ -612,7 +612,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec2<U> Result;
-		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size(); ++i)
+		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size; ++i)
 			Result[i] = x > y ? (x > z ? a[i] : c[i]) : (y > z ? b[i] : c[i]);
 		return Result;
 	}
@@ -627,7 +627,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec3<U> Result;
-		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size(); ++i)
+		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size; ++i)
 			Result[i] = x > y ? (x > z ? a[i] : c[i]) : (y > z ? b[i] : c[i]);
 		return Result;
 	}
@@ -642,7 +642,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec4<U> Result;
-		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size(); ++i)
+		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size; ++i)
 			Result[i] = x > y ? (x > z ? a[i] : c[i]) : (y > z ? b[i] : c[i]);
 		return Result;
 	}
@@ -721,7 +721,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec2<U> Result;
-		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size(); ++i)
+		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size; ++i)
 		{
 			T Test1 = max(x[i], y[i]);
 			T Test2 = max(z[i], w[i]);
@@ -743,7 +743,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec3<U> Result;
-		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size(); ++i)
+		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size; ++i)
 		{
 			T Test1 = max(x[i], y[i]);
 			T Test2 = max(z[i], w[i]);
@@ -765,7 +765,7 @@ namespace associated_min_max{
 	)
 	{
 		detail::tvec4<U> Result;
-		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size(); ++i)
+		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size; ++i)
 		{
 			T Test1 = max(x[i], y[i]);
 			T Test2 = max(z[i], w[i]);
@@ -790,7 +790,7 @@ namespace associated_min_max{
 		T Test2 = max(z, w);
 
 		detail::tvec2<U> Result;
-		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size(); ++i)
+		for(typename detail::tvec2<U>::size_type i = 0; i < detail::tvec2<U>::value_size; ++i)
 		{
 			U Result1 = x > y ? a[i] : b[i];
 			U Result2 = z > w ? c[i] : d[i];
@@ -813,7 +813,7 @@ namespace associated_min_max{
 		T Test2 = max(z, w);
 
 		detail::tvec3<U> Result;
-		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size(); ++i)
+		for(typename detail::tvec3<U>::size_type i = 0; i < detail::tvec3<U>::value_size; ++i)
 		{
 			U Result1 = x > y ? a[i] : b[i];
 			U Result2 = z > w ? c[i] : d[i];
@@ -836,7 +836,7 @@ namespace associated_min_max{
 		T Test2 = max(z, w);
 
 		detail::tvec4<U> Result;
-		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size(); ++i)
+		for(typename detail::tvec4<U>::size_type i = 0; i < detail::tvec4<U>::value_size; ++i)
 		{
 			U Result1 = x > y ? a[i] : b[i];
 			U Result2 = z > w ? c[i] : d[i];

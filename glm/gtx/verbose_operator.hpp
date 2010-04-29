@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2007-05-21
 // Updated : 2007-05-21
 // Licence : This source is under MIT License
-// File    : glm/gtx/verbose_operator.h
+// File    : glm/gtx/verbose_operator.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -56,9 +56,6 @@ namespace glm
 
 #include "verbose_operator.inl"
 
-#define GLM_GTX_verbose_operator namespace gtx::verbose_operator
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_verbose_operator;}
-#endif//GLM_GTX_GLOBAL
+namespace glm{using namespace gtx::verbose_operator;}
 
 #endif//glm_gtx_verbose_operator

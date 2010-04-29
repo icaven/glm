@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2006-01-16
 // Updated : 2007-08-30
 // Licence : This source is under MIT License
-// File    : glm/gtx/random.h
+// File    : glm/gtx/random.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -17,7 +17,7 @@
 
 // Dependency:
 #include "../glm.hpp"
-#include "../gtx/half_float.hpp"
+#include "../gtc/half_float.hpp"
 
 namespace glm{
 namespace gtx{
@@ -75,11 +75,8 @@ namespace random
 }//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_random namespace gtx::random
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_random;}
-#endif//GLM_GTX_GLOBAL
-
 #include "random.inl"
+
+namespace glm{using namespace gtx::random;}
 
 #endif//glm_gtx_random

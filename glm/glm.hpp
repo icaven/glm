@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2008 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2005-01-14
 // Updated : 2009-05-01
@@ -36,12 +36,9 @@
 #define GLMcolType typename genType::col_type
 #define GLMrowType typename genType::row_type
 
-#define GLMsizeType typename genType::size_type
-#define GLMrowSize typename genType::row_size
-#define GLMcolSize typename genType::col_size
-
 #include <cmath>
 #include <climits>
+#include <cfloat>
 #include <limits>
 #include "./setup.hpp"
 
@@ -63,51 +60,33 @@ namespace glm
 		//! This namespace resolves precision qualifier define in section 4.5 of GLSL 1.30.8 specification.
 		namespace type
 		{
+/*
 			//! Scalar types from section 4.1.2 Booleans, 4.1.3 Integers and 4.1.4 Floats of GLSL 1.30.8 specification. 
 			//! This namespace is included in glm namespace.
-			namespace scalar
-			{
-				//! Scalar types with precision qualifier.
-				//! This namespace is included in glm namespace.
-				namespace precision{}
-			}
+			namespace scalar{}
 
 			//! Vector types from section 4.1.5 of GLSL 1.30.8 specification. 
 			//! This namespace is included in glm namespace.
-			namespace vector
-			{
-				//! Vector types with precision qualifier.
-				//! This namespace is included in glm namespace.
-				namespace precision{}
-			}
+			namespace vector{}
 			
 			//! Matrix types from section 4.1.6 of GLSL 1.30.8 specification. 
 			//! This namespace is included in glm namespace.
-			namespace matrix
-			{
-				//! Matrix types with precision qualifier.
-				//! This namespace is included in glm namespace.
-				namespace precision{}
-			}
+			namespace matrix{}
+*/
 		}
+
 		//! Some of the functions defined in section 8 Built-in Functions of GLSL 1.30.8 specification.
 		//! Angle and trigonometry, exponential, common, geometric, matrix and vector relational functions.
 		namespace function{}
 	}
 	//namespace core
 
-	using namespace core::type::scalar;
-	using namespace core::type::scalar::precision;
-	using namespace core::type::vector;
-	using namespace core::type::vector::precision;
-	using namespace core::type::matrix;
-	using namespace core::type::matrix::precision;
-
-	//! GLM experimental extensions. The interface could change between releases.
-	namespace gtx{}
-
-	//! GLM stable extensions.
+	//! G-Truc Creation stable extensions.
 	namespace gtc{}
+
+	//! G-Truc Creation experimental extensions. 
+	//! The interface could change between releases.
+	namespace gtx{}
 
 	//! IMG extensions.
 	namespace img{}
@@ -119,23 +98,34 @@ namespace glm
 
 #include "./core/_detail.hpp"
 #include "./core/type.hpp"
-#include "./core/type_half.hpp"
 
-#include "./core/func_common.hpp"
+#include "./core/func_trigonometric.hpp"
 #include "./core/func_exponential.hpp"
+#include "./core/func_common.hpp"
+#include "./core/func_packing.hpp"
 #include "./core/func_geometric.hpp"
 #include "./core/func_matrix.hpp"
-#include "./core/func_trigonometric.hpp"
 #include "./core/func_vector_relational.hpp"
+#include "./core/func_integer.hpp"
 #include "./core/func_noise.hpp"
 #include "./core/_swizzle.hpp"
 //#include "./core/_xref2.hpp"
 //#include "./core/_xref3.hpp"
 //#include "./core/_xref4.hpp"
 
+
+
+
+
+
+
 #if(defined(GLM_MESSAGE) && (GLM_MESSAGE & (GLM_MESSAGE_CORE | GLM_MESSAGE_NOTIFICATION)))
 #	pragma message("GLM message: Core library included")
 #endif//GLM_MESSAGE
+
+
+
+
 
 #if(defined(GLM_COMPILER) && (GLM_COMPILER & GLM_COMPILER_VC))
 
@@ -152,6 +142,10 @@ namespace glm
 #define GLM_ALIGN(x)
 
 #endif//GLM_COMPILER
+
+
+
+
 
 ////////////////////
 // check type sizes

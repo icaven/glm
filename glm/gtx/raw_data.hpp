@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-11-19
-// Updated : 2008-11-19
+// Updated : 2010-01-28
 // Licence : This source is under MIT License
-// File    : glm/gtx/raw_data.h
+// File    : glm/gtx/raw_data.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -17,37 +17,35 @@
 #include "../glm.hpp"
 #include "../gtc/type_precision.hpp"
 
-namespace glm
+namespace glm{
+namespace gtx
 {
-    namespace gtx
+	//! GLM_GTX_raw_data extension: Projection of a vector to other one
+    namespace raw_data
     {
-		//! GLM_GTX_raw_data extension: Projection of a vector to other one
-        namespace raw_data
-        {
-			//! Type for byte numbers. 
-			//! From GLM_GTX_raw_data extension.
-			typedef gtc::type_precision::uint8		byte;
+		using namespace gtc::type_precision;
 
-			//! Type for word numbers. 
-			//! From GLM_GTX_raw_data extension.
-			typedef gtc::type_precision::uint16		word;
+		//! Type for byte numbers. 
+		//! From GLM_GTX_raw_data extension.
+		typedef uint8		byte;
 
-			//! Type for dword numbers. 
-			//! From GLM_GTX_raw_data extension.
-			typedef gtc::type_precision::uint32		dword;
+		//! Type for word numbers. 
+		//! From GLM_GTX_raw_data extension.
+		typedef uint16		word;
 
-			//! Type for qword numbers. 
-			//! From GLM_GTX_raw_data extension.
-			typedef gtc::type_precision::uint64		qword;
-		}
-    }
-}
+		//! Type for dword numbers. 
+		//! From GLM_GTX_raw_data extension.
+		typedef uint32		dword;
 
-#define GLM_GTX_raw_data namespace gtx::raw_data
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_raw_data;}
-#endif//GLM_GTX_GLOBAL
+		//! Type for qword numbers. 
+		//! From GLM_GTX_raw_data extension.
+		typedef uint64		qword;
+	}
+}//namespace gtx
+}//namespace glm
 
 #include "raw_data.inl"
+
+namespace glm{using namespace gtx::raw_data;}
 
 #endif//glm_gtx_raw_data

@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-08-23
-// Updated : 2008-09-09
+// Updated : 2010-02-05
 // Licence : This source is under MIT License
 // File    : glm/core/type_tvec4.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -11,56 +11,60 @@ namespace glm
 {
 	namespace detail
 	{
-		template <typename valType>
-		typename tvec4<valType>::size_type tvec4<valType>::value_size()
+		template <typename T>
+		inline typename tvec4<T>::size_type tvec4<T>::value_size()
 		{
-			return typename tvec4<valType>::size_type(4);
-		}
-
-		template <typename valType> 
-		bool tvec4<valType>::is_vector()
-		{
-			return true;
+			return 4;
 		}
 
 		//////////////////////////////////////
 		// Accesses
 
-		template <typename valType>
-		inline valType& tvec4<valType>::operator[](typename tvec4<valType>::size_type i)
+		template <typename T>
+		inline typename tvec4<T>::value_type & 
+		tvec4<T>::operator[]
+		(
+			size_type i
+		)
 		{
-			assert( i >= typename tvec4<valType>::size_type(0) && 
-					i < tvec4<valType>::value_size());
-
+			assert(i >= size_type(0) && i < value_size());
 			return (&x)[i];
 		}
 
-		template <typename valType>
-		inline valType const & tvec4<valType>::operator[](typename tvec4<valType>::size_type i) const
+		template <typename T>
+		inline typename tvec4<T>::value_type const & 
+		tvec4<T>::operator[]
+		(
+			size_type i
+		) const
 		{
-			assert( i >= typename tvec4<valType>::size_type(0) && 
-					i < tvec4<valType>::value_size());
-
+			assert(i >= size_type(0) && i < value_size());
 			return (&x)[i];
 		}
 
 		//////////////////////////////////////
 		// Implicit basic constructors
 
-		template <typename valType>
-		inline tvec4<valType>::tvec4() :
-			x(valType(0)),
-			y(valType(0)),
-			z(valType(0)),
-			w(valType(0))
+		template <typename T>
+		inline tvec4<T>::tvec4() :
+			x(value_type(0)),
+			y(value_type(0)),
+			z(value_type(0)),
+			w(value_type(0))
 		{}
 
-		template <typename valType> 
-		inline tvec4<valType>::tvec4(typename tvec4<valType>::ctor)
+		template <typename T> 
+		inline tvec4<T>::tvec4
+		(
+			ctor
+		)
 		{}
 
-		template <typename valType>
-		inline tvec4<valType>::tvec4(tvec4<valType> const & v) :
+		template <typename T>
+		inline tvec4<T>::tvec4
+		(
+			type const & v
+		) :
 			x(v.x),
 			y(v.y),
 			z(v.z),
@@ -70,10 +74,10 @@ namespace glm
 		//////////////////////////////////////
 		// Explicit basic constructors
 
-		template <typename valType>
-		inline tvec4<valType>::tvec4
+		template <typename T>
+		inline tvec4<T>::tvec4
 		(
-			valType const & s
+			value_type const & s
 		) :
 			x(s),
 			y(s),
@@ -81,13 +85,13 @@ namespace glm
 			w(s)
 		{}
 
-		template <typename valType>
-		inline tvec4<valType>::tvec4
+		template <typename T>
+		inline tvec4<T>::tvec4
 		(
-			valType const & s1, 
-			valType const & s2, 
-			valType const & s3, 
-			valType const & s4
+			value_type const & s1, 
+			value_type const & s2, 
+			value_type const & s3, 
+			value_type const & s4
 		) :
 			x(s1),
 			y(s2),
@@ -98,10 +102,10 @@ namespace glm
 		//////////////////////////////////////
 		// Swizzle constructors
 
-		template <typename valType>
-		inline tvec4<valType>::tvec4
+		template <typename T>
+		inline tvec4<T>::tvec4
 		(
-			tref4<valType> const & r
+			tref4<T> const & r
 		) :
 			x(r.x),
 			y(r.y),
@@ -112,136 +116,136 @@ namespace glm
 		//////////////////////////////////////
 		// Convertion scalar constructors
 		
-		template <typename valType>
-		template <typename valTypeU> 
-		inline tvec4<valType>::tvec4
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T>::tvec4
 		(
-			valTypeU const & x
+			U const & x
 		) :
-			x(valType(x)),
-			y(valType(x)),
-			z(valType(x)),
-			w(valType(x))
+			x(value_type(x)),
+			y(value_type(x)),
+			z(value_type(x)),
+			w(value_type(x))
 		{}
 
-		template <typename valType>
+		template <typename T>
 		template <typename A, typename B, typename C, typename D> 
-		inline tvec4<valType>::tvec4
+		inline tvec4<T>::tvec4
 		(
 			A const & x, 
 			B const & y, 
 			C const & z, 
 			D const & w
 		) :
-			x(valType(x)),
-			y(valType(y)),
-			z(valType(z)),
-			w(valType(w))
+			x(value_type(x)),
+			y(value_type(y)),
+			z(value_type(z)),
+			w(value_type(w))
 		{}
 
 		//////////////////////////////////////
 		// Convertion vector constructors
 
-		template <typename valType>
+		template <typename T>
 		template <typename A, typename B, typename C> 
-		inline tvec4<valType>::tvec4
+		inline tvec4<T>::tvec4
 		(
 			tvec2<A> const & v, 
 			B const & s1, 
 			C const & s2
 		) :
-			x(valType(v.x)),
-			y(valType(v.y)),
-			z(valType(s1)),
-			w(valType(s2))
+			x(value_type(v.x)),
+			y(value_type(v.y)),
+			z(value_type(s1)),
+			w(value_type(s2))
 		{}
 
-		template <typename valType>
+		template <typename T>
 		template <typename A, typename B, typename C> 
-		inline tvec4<valType>::tvec4
+		inline tvec4<T>::tvec4
 		(
 			A const & s1, 
 			tvec2<B> const & v, 
 			C const & s2
 		) :
-			x(valType(s1)),
-			y(valType(v.x)),
-			z(valType(v.y)),
-			w(valType(s2))
+			x(value_type(s1)),
+			y(value_type(v.x)),
+			z(value_type(v.y)),
+			w(value_type(s2))
 		{}
 
-		template <typename valType>
+		template <typename T>
 		template <typename A, typename B, typename C> 
-		inline tvec4<valType>::tvec4
+		inline tvec4<T>::tvec4
 		(
 			A const & s1, 
 			B const & s2, 
 			tvec2<C> const & v
 		) :
-			x(valType(s1)),
-			y(valType(s2)),
-			z(valType(v.x)),
-			w(valType(v.y))
+			x(value_type(s1)),
+			y(value_type(s2)),
+			z(value_type(v.x)),
+			w(value_type(v.y))
 		{}
 
-		template <typename valType>
+		template <typename T>
 		template <typename A, typename B> 
-		inline tvec4<valType>::tvec4
+		inline tvec4<T>::tvec4
 		(
 			tvec3<A> const & v, 
 			B const & s
 		) :
-			x(valType(v.x)),
-			y(valType(v.y)),
-			z(valType(v.z)),
-			w(valType(s))
+			x(value_type(v.x)),
+			y(value_type(v.y)),
+			z(value_type(v.z)),
+			w(value_type(s))
 		{}
 
-		template <typename valType>
+		template <typename T>
 		template <typename A, typename B> 
-		inline tvec4<valType>::tvec4
+		inline tvec4<T>::tvec4
 		(
 			A const & s, 
 			tvec3<B> const & v
 		) :
-			x(valType(s)),
-			y(valType(v.x)),
-			z(valType(v.y)),
-			w(valType(v.z))
+			x(value_type(s)),
+			y(value_type(v.x)),
+			z(value_type(v.y)),
+			w(value_type(v.z))
 		{}
 
-		template <typename valType>
+		template <typename T>
 		template <typename A, typename B> 
-		inline tvec4<valType>::tvec4
+		inline tvec4<T>::tvec4
 		(
 			tvec2<A> const & v1, 
 			tvec2<B> const & v2
 		) :
-			x(valType(v1.x)),
-			y(valType(v1.y)),
-			z(valType(v2.x)),
-			w(valType(v2.y))
+			x(value_type(v1.x)),
+			y(value_type(v1.y)),
+			z(value_type(v2.x)),
+			w(value_type(v2.y))
 		{}
 
-		template <typename valType>
+		template <typename T>
 		template <typename U> 
-		inline tvec4<valType>::tvec4
+		inline tvec4<T>::tvec4
 		(
 			tvec4<U> const & v
 		) :
-			x(valType(v.x)),
-			y(valType(v.y)),
-			z(valType(v.z)),
-			w(valType(v.w))
+			x(value_type(v.x)),
+			y(value_type(v.y)),
+			z(value_type(v.z)),
+			w(value_type(v.w))
 		{}
 
 		//////////////////////////////////////
 		// Unary arithmetic operators
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator= 
+		template <typename T>
+		inline tvec4<T> & tvec4<T>::operator= 
 		(
-			tvec4<valType> const & v
+			tvec4<T> const & v
 		)
 		{
 			this->x = v.x;
@@ -251,112 +255,134 @@ namespace glm
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator+=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator= 
 		(
-			valType const & s
+			tvec4<U> const & v
 		)
 		{
-			this->x += s;
-			this->y += s;
-			this->z += s;
-			this->w += s;
+			this->x = T(v.x);
+			this->y = T(v.y);
+			this->z = T(v.z);
+			this->w = T(v.w);
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator+=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator+=
 		(
-			tvec4<valType> const & v
+			U const & s
 		)
 		{
-			this->x += v.x;
-			this->y += v.y;
-			this->z += v.z;
-			this->w += v.w;
+			this->x += T(s);
+			this->y += T(s);
+			this->z += T(s);
+			this->w += T(s);
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator-=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator+=
 		(
-			valType const & s
+			tvec4<U> const & v
 		)
 		{
-			this->x -= s;
-			this->y -= s;
-			this->z -= s;
-			this->w -= s;
+			this->x += T(v.x);
+			this->y += T(v.y);
+			this->z += T(v.z);
+			this->w += T(v.w);
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator-=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator-=
 		(
-			tvec4<valType> const & v
+			U const & s
 		)
 		{
-			this->x -= v.x;
-			this->y -= v.y;
-			this->z -= v.z;
-			this->w -= v.w;
+			this->x -= T(s);
+			this->y -= T(s);
+			this->z -= T(s);
+			this->w -= T(s);
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator*=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator-=
 		(
-			valType const & s
+			tvec4<U> const & v
 		)
 		{
-			this->x *= s;
-			this->y *= s;
-			this->z *= s;
-			this->w *= s;
+			this->x -= T(v.x);
+			this->y -= T(v.y);
+			this->z -= T(v.z);
+			this->w -= T(v.w);
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator*=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator*=
 		(
-			tvec4<valType> const & v
+			U const & s
 		)
 		{
-			this->x *= v.x;
-			this->y *= v.y;
-			this->z *= v.z;
-			this->w *= v.w;
+			this->x *= T(s);
+			this->y *= T(s);
+			this->z *= T(s);
+			this->w *= T(s);
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator/=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator*=
 		(
-			valType const & s
+			tvec4<U> const & v
 		)
 		{
-			this->x /= s;
-			this->y /= s;
-			this->z /= s;
-			this->w /= s;
+			this->x *= T(v.x);
+			this->y *= T(v.y);
+			this->z *= T(v.z);
+			this->w *= T(v.w);
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator/=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator/=
 		(
-			tvec4<valType> const & v
+			U const & s
 		)
 		{
-			this->x /= v.x;
-			this->y /= v.y;
-			this->z /= v.z;
-			this->w /= v.w;
+			this->x /= T(s);
+			this->y /= T(s);
+			this->z /= T(s);
+			this->w /= T(s);
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator++()
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator/=
+		(
+			tvec4<U> const & v
+		)
+		{
+			this->x /= T(v.x);
+			this->y /= T(v.y);
+			this->z /= T(v.z);
+			this->w /= T(v.w);
+			return *this;
+		}
+
+		template <typename T>
+		inline tvec4<T> & tvec4<T>::operator++()
 		{
 			++this->x;
 			++this->y;
@@ -365,8 +391,8 @@ namespace glm
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator--()
+		template <typename T>
+		inline tvec4<T> & tvec4<T>::operator--()
 		{
 			--this->x;
 			--this->y;
@@ -378,202 +404,239 @@ namespace glm
 		//////////////////////////////////////
 		// Unary bit operators
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator%=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator%=
 		(
-			valType const & s
+			U const & s
 		)
 		{
-			this->x %= s;
-			this->y %= s;
-			this->z %= s;
-			this->w %= s;
+			this->x %= T(s);
+			this->y %= T(s);
+			this->z %= T(s);
+			this->w %= T(s);
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator%=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator%=
 		(
-			tvec4<valType> const & v
+			tvec4<U> const & v
 		)
 		{
-			this->x %= v.x;
-			this->y %= v.y;
-			this->z %= v.z;
-			this->w %= v.w;
+			this->x %= T(v.x);
+			this->y %= T(v.y);
+			this->z %= T(v.z);
+			this->w %= T(v.w);
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator&=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator&=
 		(
-			valType const & s
+			U const & s
 		)
 		{
-			this->x &= s;
-			this->y &= s;
-			this->z &= s;
-			this->w &= s;
+			this->x &= T(s);
+			this->y &= T(s);
+			this->z &= T(s);
+			this->w &= T(s);
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator&=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator&=
 		(
-			tvec4<valType> const & v
+			tvec4<U> const & v
 		)
 		{
-			this->x &= v.x;
-			this->y &= v.y;
-			this->z &= v.z;
-			this->w &= v.w;
+			this->x &= T(v.x);
+			this->y &= T(v.y);
+			this->z &= T(v.z);
+			this->w &= T(v.w);
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator|=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator|=
 		(
-			valType const & s
+			U const & s
 		)
 		{
-			this->x |= s;
-			this->y |= s;
-			this->z |= s;
-			this->w |= s;
+			this->x |= T(s);
+			this->y |= T(s);
+			this->z |= T(s);
+			this->w |= T(s);
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator|=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator|=
 		(
-			tvec4<valType> const & v
+			tvec4<U> const & v
 		)
 		{
-			this->x |= v.x;
-			this->y |= v.y;
-			this->z |= v.z;
-			this->w |= v.w;
+			this->x |= T(v.x);
+			this->y |= T(v.y);
+			this->z |= T(v.z);
+			this->w |= T(v.w);
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator^=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator^=
 		(
-			valType const & s
+			U const & s
 		)
 		{
-			this->x ^= s;
-			this->y ^= s;
-			this->z ^= s;
-			this->w ^= s;
+			this->x ^= T(s);
+			this->y ^= T(s);
+			this->z ^= T(s);
+			this->w ^= T(s);
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator^=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator^=
 		(
-			tvec4<valType> const & v
+			tvec4<U> const & v
 		)
 		{
-			this->x ^= v.x;
-			this->y ^= v.y;
-			this->z ^= v.z;
-			this->w ^= v.w;
+			this->x ^= T(v.x);
+			this->y ^= T(v.y);
+			this->z ^= T(v.z);
+			this->w ^= T(v.w);
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator<<=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator<<=
 		(
-			valType const & s
+			U const & s
 		)
 		{
-			this->x <<= s;
-			this->y <<= s;
-			this->z <<= s;
-			this->w <<= s;
+			this->x <<= T(s);
+			this->y <<= T(s);
+			this->z <<= T(s);
+			this->w <<= T(s);
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator<<=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator<<=
 		(
-			tvec4<valType> const & v
+			tvec4<U> const & v
 		)
 		{
-			this->x <<= v.x;
-			this->y <<= v.y;
-			this->z <<= v.z;
-			this->w <<= v.w;
+			this->x <<= T(v.x);
+			this->y <<= T(v.y);
+			this->z <<= T(v.z);
+			this->w <<= T(v.w);
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator>>=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator>>=
 		(
-			valType const & s
+			U const & s
 		)
 		{
-			this->x >>= s;
-			this->y >>= s;
-			this->z >>= s;
-			this->w >>= s;
+			this->x >>= T(s);
+			this->y >>= T(s);
+			this->z >>= T(s);
+			this->w >>= T(s);
 			return *this;
 		}
 
-		template <typename valType>
-		inline tvec4<valType>& tvec4<valType>::operator>>=
+		template <typename T>
+		template <typename U> 
+		inline tvec4<T> & tvec4<T>::operator>>=
 		(
-			tvec4<valType> const & v
+			tvec4<U> const & v
 		)
 		{
-			this->x >>= v.x;
-			this->y >>= v.y;
-			this->z >>= v.z;
-			this->w >>= v.w;
+			this->x >>= T(v.x);
+			this->y >>= T(v.y);
+			this->z >>= T(v.z);
+			this->w >>= T(v.w);
 			return *this;
 		}
 
 		//////////////////////////////////////
 		// Swizzle operators
 
-		template <typename valType>
-		inline valType tvec4<valType>::swizzle(comp x) const
+		template <typename T>
+		inline typename tvec4<T>::value_type 
+		tvec4<T>::swizzle
+		(	
+			comp x
+		) const
 		{
 			return (*this)[x];
 		}
 
-		template <typename valType>
-		inline tvec2<valType> tvec4<valType>::swizzle(comp x, comp y) const
+		template <typename T>
+		inline tvec2<T> tvec4<T>::swizzle
+		(
+			comp x, 
+			comp y
+		) const
 		{
-			return tvec2<valType>(
+			return tvec2<T>(
 				(*this)[x],
 				(*this)[y]);
 		}
 
-		template <typename valType>
-		inline tvec3<valType> tvec4<valType>::swizzle(comp x, comp y, comp z) const
+		template <typename T>
+		inline tvec3<T> tvec4<T>::swizzle
+		(
+			comp x, 
+			comp y, 
+			comp z
+		) const
 		{
-			return tvec3<valType>(
+			return tvec3<T>(
 				(*this)[x],
 				(*this)[y],
 				(*this)[z]);
 		}
 
-		template <typename valType>
-		inline tvec4<valType> tvec4<valType>::swizzle(comp x, comp y, comp z, comp w) const
+		template <typename T>
+		inline tvec4<T> tvec4<T>::swizzle
+		(
+			comp x, 
+			comp y, 
+			comp z, 
+			comp w
+		) const
 		{
-			return tvec4<valType>(
+			return tvec4<T>(
 				(*this)[x],
 				(*this)[y],
 				(*this)[z],
 				(*this)[w]);
 		}
 
-		template <typename valType>
-		inline tref4<valType> tvec4<valType>::swizzle(comp x, comp y, comp z, comp w)
+		template <typename T>
+		inline tref4<T> tvec4<T>::swizzle
+		(
+			comp x, 
+			comp y, 
+			comp z, 
+			comp w
+		)
 		{
-			return tref4<valType>(
+			return tref4<T>(
 				(*this)[x],
 				(*this)[y],
 				(*this)[z],
@@ -583,42 +646,42 @@ namespace glm
 		//////////////////////////////////////
 		// Binary arithmetic operators
 
-		template <typename valType> 
-		inline tvec4<valType> operator+ 
+		template <typename T> 
+		inline tvec4<T> operator+ 
 		(
-			tvec4<valType> const & v, 
-			valType const & s
+			tvec4<T> const & v, 
+			typename tvec4<T>::value_type const & s
 		)
 		{
-			return tvec4<valType>(
+			return tvec4<T>(
 				v.x + s,
 				v.y + s,
 				v.z + s,
 				v.w + s);
 		}
 
-		template <typename valType> 
-		inline tvec4<valType> operator+ 
+		template <typename T> 
+		inline tvec4<T> operator+ 
 		(
-			valType const & s, 
-			tvec4<valType> const & v
+			typename tvec4<T>::value_type const & s, 
+			tvec4<T> const & v
 		)
 		{
-			return tvec4<valType>(
+			return tvec4<T>(
 				s + v.x,
 				s + v.y,
 				s + v.z,
 				s + v.w);
 		}
 
-		template <typename valType> 
-		inline tvec4<valType> operator+ 
+		template <typename T> 
+		inline tvec4<T> operator+ 
 		(
-			tvec4<valType> const & v1, 
-			tvec4<valType> const & v2
+			tvec4<T> const & v1, 
+			tvec4<T> const & v2
 		)
 		{
-			return tvec4<valType>(
+			return tvec4<T>(
 				v1.x + v2.x,
 				v1.y + v2.y,
 				v1.z + v2.z,
@@ -626,42 +689,42 @@ namespace glm
 		}
 
 		//operator-
-		template <typename valType> 
-		inline tvec4<valType> operator- 
+		template <typename T> 
+		inline tvec4<T> operator- 
 		(
-			tvec4<valType> const & v, 
-			valType const & s
+			tvec4<T> const & v, 
+			typename tvec4<T>::value_type const & s
 		)
 		{
-			return tvec4<valType>(
+			return tvec4<T>(
 				v.x - s,
 				v.y - s,
 				v.z - s,
 				v.w - s);
 		}
 
-		template <typename valType> 
-		inline tvec4<valType> operator- 
+		template <typename T> 
+		inline tvec4<T> operator- 
 		(
-			valType const & s, 
-			tvec4<valType> const & v
+			typename tvec4<T>::value_type const & s, 
+			tvec4<T> const & v
 		)
 		{
-			return tvec4<valType>(
+			return tvec4<T>(
 				s - v.x,
 				s - v.y,
 				s - v.z,
 				s - v.w);
 		}
 
-		template <typename valType> 
-		inline tvec4<valType> operator- 
+		template <typename T> 
+		inline tvec4<T> operator- 
 		(
-			tvec4<valType> const & v1, 
-			tvec4<valType> const & v2
+			tvec4<T> const & v1, 
+			tvec4<T> const & v2
 		)
 		{
-			return tvec4<valType>(
+			return tvec4<T>(
 				v1.x - v2.x,
 				v1.y - v2.y,
 				v1.z - v2.z,
@@ -669,42 +732,42 @@ namespace glm
 		}
 
 		//operator*
-		template <typename valType> 
-		inline tvec4<valType> operator* 
+		template <typename T> 
+		inline tvec4<T> operator* 
 		(
-			tvec4<valType> const & v, 
-			valType const & s
+			tvec4<T> const & v, 
+			typename tvec4<T>::value_type const & s
 		)
 		{
-			return tvec4<valType>(
+			return tvec4<T>(
 				v.x * s,
 				v.y * s,
 				v.z * s,
 				v.w * s);
 		}
 
-		template <typename valType> 
-		inline tvec4<valType> operator* 
+		template <typename T> 
+		inline tvec4<T> operator* 
 		(
-			valType const & s, 
-			tvec4<valType> const & v
+			typename tvec4<T>::value_type const & s, 
+			tvec4<T> const & v
 		)
 		{
-			return tvec4<valType>(
+			return tvec4<T>(
 				s * v.x,
 				s * v.y,
 				s * v.z,
 				s * v.w);
 		}
 
-		template <typename valType> 
-		inline tvec4<valType> operator*
+		template <typename T> 
+		inline tvec4<T> operator*
 		(
-			tvec4<valType> const & v1, 
-			tvec4<valType> const & v2
+			tvec4<T> const & v1, 
+			tvec4<T> const & v2
 		)
 		{
-			return tvec4<valType>(
+			return tvec4<T>(
 				v1.x * v2.x,
 				v1.y * v2.y,
 				v1.z * v2.z,
@@ -712,42 +775,42 @@ namespace glm
 		}
 
 		//operator/
-		template <typename valType> 
-		inline tvec4<valType> operator/ 
+		template <typename T> 
+		inline tvec4<T> operator/ 
 		(
-			tvec4<valType> const & v, 
-			valType const & s
+			tvec4<T> const & v, 
+			typename tvec4<T>::value_type const & s
 		)
 		{
-			return tvec4<valType>(
+			return tvec4<T>(
 				v.x / s,
 				v.y / s,
 				v.z / s,
 				v.w / s);
 		}
 
-		template <typename valType> 
-		inline tvec4<valType> operator/ 
+		template <typename T> 
+		inline tvec4<T> operator/ 
 		(
-			valType const & s, 
-			tvec4<valType> const & v
+			typename tvec4<T>::value_type const & s, 
+			tvec4<T> const & v
 		)
 		{
-			return tvec4<valType>(
+			return tvec4<T>(
 				s / v.x,
 				s / v.y,
 				s / v.z,
 				s / v.w);
 		}
 
-		template <typename valType> 
-		inline tvec4<valType> operator/ 
+		template <typename T> 
+		inline tvec4<T> operator/ 
 		(
-			tvec4<valType> const & v1, 
-			tvec4<valType> const & v2
+			tvec4<T> const & v1, 
+			tvec4<T> const & v2
 		)
 		{
-			return tvec4<valType>(
+			return tvec4<T>(
 				v1.x / v2.x,
 				v1.y / v2.y,
 				v1.z / v2.z,
@@ -755,45 +818,47 @@ namespace glm
 		}
 
 		// Unary constant operators
-		template <typename valType> 
-		inline tvec4<valType> operator- 
+		template <typename T> 
+		inline tvec4<T> operator- 
 		(
-			tvec4<valType> const & v
+			tvec4<T> const & v
 		)
 		{
-			return tvec4<valType>(
+			return tvec4<T>(
 				-v.x, 
 				-v.y, 
 				-v.z, 
 				-v.w);
 		}
 
-		template <typename valType> 
-		inline tvec4<valType> operator++ 
+		template <typename T> 
+		inline tvec4<T> operator++ 
 		(
-			tvec4<valType> const & v, 
+			tvec4<T> const & v, 
 			int
 		)
 		{
-			return tvec4<valType>(
-				v.x + valType(1), 
-				v.y + valType(1), 
-				v.z + valType(1), 
-				v.w + valType(1));
+			typename tvec4<T>::value_type One(1);
+			return tvec4<T>(
+				v.x + One, 
+				v.y + One, 
+				v.z + One, 
+				v.w + One);
 		}
 
-		template <typename valType> 
-		inline tvec4<valType> operator-- 
+		template <typename T> 
+		inline tvec4<T> operator-- 
 		(
-			tvec4<valType> const & v, 
+			tvec4<T> const & v, 
 			int
 		)
 		{
-			return tvec4<valType>(
-				v.x - valType(1), 
-				v.y - valType(1), 
-				v.z - valType(1), 
-				v.w - valType(1));
+			typename tvec4<T>::value_type One(1);
+			return tvec4<T>(
+				v.x - One, 
+				v.y - One, 
+				v.z - One, 
+				v.w - One);
 		}
 
 		//////////////////////////////////////
@@ -803,7 +868,7 @@ namespace glm
 		inline tvec4<T> operator% 
 		(
 			tvec4<T> const & v, 
-			T const & s
+			typename tvec4<T>::value_type const & s
 		)
 		{
 			return tvec4<T>(
@@ -816,7 +881,7 @@ namespace glm
 		template <typename T>
 		inline tvec4<T> operator% 
 		(
-			T const & s, 
+			typename tvec4<T>::value_type const & s, 
 			tvec4<T> const & v
 		)
 		{
@@ -845,7 +910,7 @@ namespace glm
 		inline tvec4<T> operator& 
 		(
 			tvec4<T> const & v, 
-			T const & s
+			typename tvec4<T>::value_type const & s
 		)
 		{
 			return tvec4<T>(
@@ -858,7 +923,7 @@ namespace glm
 		template <typename T>
 		inline tvec4<T> operator& 
 		(
-			T const & s, 
+			typename tvec4<T>::value_type const & s, 
 			tvec4<T> const & v
 		)
 		{
@@ -887,7 +952,7 @@ namespace glm
 		inline tvec4<T> operator|
 		(
 			tvec4<T> const & v, 
-			T const & s
+			typename tvec4<T>::value_type const & s
 		)
 		{
 			return tvec4<T>(
@@ -900,7 +965,7 @@ namespace glm
 		template <typename T>
 		inline tvec4<T> operator|
 		(
-			T const & s, 
+			typename tvec4<T>::value_type const & s, 
 			tvec4<T> const & v
 		)
 		{
@@ -929,7 +994,7 @@ namespace glm
 		inline tvec4<T> operator^
 		(
 			tvec4<T> const & v, 
-			T const & s
+			typename tvec4<T>::value_type const & s
 		)
 		{
 			return tvec4<T>(
@@ -942,7 +1007,7 @@ namespace glm
 		template <typename T>
 		inline tvec4<T> operator^
 		(
-			T const & s, 
+			typename tvec4<T>::value_type const & s, 
 			tvec4<T> const & v
 		)
 		{
@@ -971,7 +1036,7 @@ namespace glm
 		inline tvec4<T> operator<<
 		(
 			tvec4<T> const & v,
-			T const & s
+			typename tvec4<T>::value_type const & s
 		)
 		{
 			return tvec4<T>(
@@ -984,7 +1049,7 @@ namespace glm
 		template <typename T>
 		inline tvec4<T> operator<<
 		(
-			T const & s,
+			typename tvec4<T>::value_type const & s,
 			tvec4<T> const & v
 		)
 		{
@@ -1013,7 +1078,7 @@ namespace glm
 		inline tvec4<T> operator>>
 		(
 			tvec4<T> const & v,
-			T const & s
+			typename tvec4<T>::value_type const & s
 		)
 		{
 			return tvec4<T>(
@@ -1026,7 +1091,7 @@ namespace glm
 		template <typename T>
 		inline tvec4<T> operator>>
 		(
-			T const & s,
+			typename tvec4<T>::value_type const & s,
 			tvec4<T> const & v
 		)
 		{
@@ -1068,7 +1133,13 @@ namespace glm
 		// tref definition
 
 		template <typename T> 
-		tref4<T>::tref4(T& x, T& y, T& z, T& w) :
+		tref4<T>::tref4
+		(
+			T & x, 
+			T & y, 
+			T & z, 
+			T & w
+		) :
 			x(x),
 			y(y),
 			z(z),
@@ -1076,7 +1147,10 @@ namespace glm
 		{}
 
 		template <typename T> 
-		tref4<T>::tref4(tref4<T> const & r) :
+		tref4<T>::tref4
+		(
+			tref4<T> const & r
+		) :
 			x(r.x),
 			y(r.y),
 			z(r.z),
@@ -1084,7 +1158,10 @@ namespace glm
 		{}
 
 		template <typename T> 
-		tref4<T>::tref4(tvec4<T> const & v) :
+		tref4<T>::tref4
+		(
+			tvec4<T> const & v
+		) :
 			x(v.x),
 			y(v.y),
 			z(v.z),
@@ -1092,7 +1169,10 @@ namespace glm
 		{}
 
 		template <typename T> 
-		tref4<T>& tref4<T>::operator= (tref4<T> const & r)
+		tref4<T>& tref4<T>::operator= 
+		(
+			tref4<T> const & r
+		)
 		{
 			x = r.x;
 			y = r.y;
@@ -1102,7 +1182,10 @@ namespace glm
 		}
 
 		template <typename T> 
-		tref4<T>& tref4<T>::operator= (tvec4<T> const & v)
+		tref4<T>& tref4<T>::operator= 
+		(
+			tvec4<T> const & v
+		)
 		{
 			x = v.x;
 			y = v.y;

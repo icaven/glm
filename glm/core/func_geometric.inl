@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-08-03
-// Updated : 2008-09-08
+// Updated : 2010-02-04
 // Licence : This source is under MIT License
 // File    : glm/core/func_geometric.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -25,40 +25,40 @@ namespace glm
         genType sqr = x * x;
         return sqrt(sqr);
     }
-		
-	template <typename valType>
-	inline typename detail::tvec2<valType>::value_type length
+
+	template <typename T>
+	inline typename detail::tvec2<T>::value_type length
 	(
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & v
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
-        valType sqr = x.x * x.x + x.y * x.y;
+        typename detail::tvec2<T>::value_type sqr = v.x * v.x + v.y * v.y;
         return sqrt(sqr);
     }
 
-    template <typename valType>
-    inline typename detail::tvec3<valType>::value_type length
+    template <typename T>
+    inline typename detail::tvec3<T>::value_type length
 	(
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & v
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
-        valType sqr = x.x * x.x + x.y * x.y + x.z * x.z;
+        typename detail::tvec3<T>::value_type sqr = v.x * v.x + v.y * v.y + v.z * v.z;
         return sqrt(sqr);
     }
 
-    template <typename valType>
-    inline typename detail::tvec4<valType>::value_type length
+    template <typename T>
+    inline typename detail::tvec4<T>::value_type length
 	(
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & v
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
-        valType sqr = x.x * x.x + x.y * x.y + x.z * x.z + x.w * x.w;
+        typename detail::tvec4<T>::value_type sqr = v.x * v.x + v.y * v.y + v.z * v.z + v.w * v.w;
         return sqrt(sqr);
     }
 
@@ -75,38 +75,38 @@ namespace glm
 		return length(p1 - p0);
     }
  
-	template <typename valType>
-	inline typename detail::tvec2<valType>::value_type distance
+	template <typename T>
+	inline typename detail::tvec2<T>::value_type distance
 	(
-		detail::tvec2<valType> const & p0,
-		detail::tvec2<valType> const & p1
+		detail::tvec2<T> const & p0,
+		detail::tvec2<T> const & p1
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
         return length(p1 - p0);
     }
 
-    template <typename valType>
-    inline typename detail::tvec3<valType>::value_type distance
+    template <typename T>
+    inline typename detail::tvec3<T>::value_type distance
 	(
-		detail::tvec3<valType> const & p0,
-		detail::tvec3<valType> const & p1
+		detail::tvec3<T> const & p0,
+		detail::tvec3<T> const & p1
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
 		return length(p1 - p0);
     }
 
-    template <typename valType>
-    inline typename detail::tvec4<valType>::value_type distance
+    template <typename T>
+    inline typename detail::tvec4<T>::value_type distance
 	(
-		detail::tvec4<valType> const & p0,
-		detail::tvec4<valType> const & p1
+		detail::tvec4<T> const & p0,
+		detail::tvec4<T> const & p1
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
 		return length(p1 - p0);
     }
@@ -124,26 +124,26 @@ namespace glm
 		return x * y;
 	}
 
-    template <typename valType>
-	inline typename detail::tvec2<valType>::value_type dot
+    template <typename T>
+	inline typename detail::tvec2<T>::value_type dot
 	(
-		detail::tvec2<valType> const & x, 
-		detail::tvec2<valType> const & y
+		detail::tvec2<T> const & x, 
+		detail::tvec2<T> const & y
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
 		return x.x * y.x + x.y * y.y;
     }
 
-    template <typename valType>
-    inline valType dot
+    template <typename T>
+    inline T dot
 	(
-		detail::tvec3<valType> const & x, 
-		detail::tvec3<valType> const & y
+		detail::tvec3<T> const & x, 
+		detail::tvec3<T> const & y
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
 		return x.x * y.x + x.y * y.y + x.z * y.z;
     }
@@ -164,29 +164,29 @@ namespace glm
 	    return Result;
     }
 */
-    template <typename valType>
-    inline valType dot
+    template <typename T>
+    inline T dot
 	(
-		detail::tvec4<valType> const & x, 
-		detail::tvec4<valType> const & y
+		detail::tvec4<T> const & x, 
+		detail::tvec4<T> const & y
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
         return x.x * y.x + x.y * y.y + x.z * y.z + x.w * y.w;
     }
 
     // cross
-    template <typename valType>
-    inline detail::tvec3<valType> cross
+    template <typename T>
+    inline detail::tvec3<T> cross
 	(
-		detail::tvec3<valType> const & x, 
-		detail::tvec3<valType> const & y
+		detail::tvec3<T> const & x, 
+		detail::tvec3<T> const & y
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             x.y * y.z - y.y * x.z,
             x.z * y.x - y.z * x.x,
             x.x * y.y - y.x * x.y);
@@ -205,39 +205,39 @@ namespace glm
     }
 
     // According to issue 10 GLSL 1.10 specification, if length(x) == 0 then result is undefine and generate an error
-    template <typename valType>
-    inline detail::tvec2<valType> normalize
+    template <typename T>
+    inline detail::tvec2<T> normalize
 	(
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & x
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float);
 		
-		valType sqr = x.x * x.x + x.y * x.y;
+		typename detail::tvec2<T>::value_type sqr = x.x * x.x + x.y * x.y;
 	    return x * inversesqrt(sqr);
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> normalize
+    template <typename T>
+    inline detail::tvec3<T> normalize
 	(
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & x
 	)
     {
-        GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+        GLM_STATIC_ASSERT(detail::type<T>::is_float);
 
-		valType sqr = x.x * x.x + x.y * x.y + x.z * x.z;
+		typename detail::tvec3<T>::value_type sqr = x.x * x.x + x.y * x.y + x.z * x.z;
 	    return x * inversesqrt(sqr);
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> normalize
+    template <typename T>
+    inline detail::tvec4<T> normalize
 	(
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & x
 	)
     {
-        GLM_STATIC_ASSERT(detail::type<valType>::is_float);
+        GLM_STATIC_ASSERT(detail::type<T>::is_float);
 		
-		valType sqr = x.x * x.x + x.y * x.y + x.z * x.z + x.w * x.w;
+		typename detail::tvec4<T>::value_type sqr = x.x * x.x + x.y * x.y + x.z * x.z + x.w * x.w;
 	    return x * inversesqrt(sqr);
     }
 

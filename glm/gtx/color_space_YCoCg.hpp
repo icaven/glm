@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-10-28
 // Updated : 2008-10-28
 // Licence : This source is under MIT License
-// File    : glm/gtx/color_space_YCoCg.h
+// File    : glm/gtx/color_space_YCoCg.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -56,11 +56,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_color_space_YCoCg namespace gtx::color_space_YCoCg
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_color_space_YCoCg;}
-#endif//GLM_GTC_GLOBAL
-
 #include "color_space_YCoCg.inl"
+
+namespace glm{using namespace gtx::color_space_YCoCg;}
 
 #endif//glm_gtx_color_space_YCoCg

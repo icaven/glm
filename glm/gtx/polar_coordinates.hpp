@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2007-03-06
 // Updated : 2009-05-01
@@ -36,11 +36,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_polar_coordinates namespace gtx::polar_coordinates
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_polar_coordinates;}
-#endif//GLM_GTX_GLOBAL
-
 #include "polar_coordinates.inl"
+
+namespace glm{using namespace gtx::polar_coordinates;}
 
 #endif//glm_gtx_polar_coordinates

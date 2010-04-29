@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2007-03-14
 // Updated : 2008-11-14
@@ -240,6 +240,8 @@ inline int lowestBit
 	genType const & Value
 )
 {
+	assert(Value != genType(0)); // not valid call
+
 	genType Bit;
 	for(Bit = genType(0); !(Value & (1 << Bit)); ++Bit){}
 	return Bit;
@@ -288,6 +290,8 @@ inline int highestBit
 	genType const & value
 )
 {
+	assert(value != genType(0)); // not valid call
+
 	genType bit = genType(-1);
 	for(genType tmp = value; tmp; tmp >>= 1, ++bit){}
 	return bit;

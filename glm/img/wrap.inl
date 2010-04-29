@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2009-11-25
-// Updated : 2009-11-25
+// Updated : 2010-02-13
 // Licence : This source is under MIT License
 // File    : glm/img/wrap.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -17,47 +17,47 @@ namespace wrap
 	////////////////////////
 	// clamp
 
-	template <typename valType> 
-	inline valType clamp
+	template <typename genType> 
+	inline genType clamp
 	(
-		valType const & Texcoord
+		genType const & Texcoord
 	)
 	{
-		return glm::clamp(Texcoord, valType(0), valType(1));
+		return glm::clamp(Texcoord, genType(0), genType(1));
 	}
 
-	template <typename valType> 
-	inline detail::tvec2<valType> clamp
+	template <typename T> 
+	inline detail::tvec2<T> clamp
 	(
-		detail::tvec2<valType> const & Texcoord
+		detail::tvec2<T> const & Texcoord
 	)
 	{
-		detail::tvec2<valType> Result;
-		for(typename detail::tvec2<valType>::size_type i = 0; i < detail::tvec2<valType>::value_size(); ++i)
+		detail::tvec2<T> Result;
+		for(typename detail::tvec2<T>::size_type i = 0; i < detail::tvec2<T>::value_size(); ++i)
 			Result[i] = clamp(Texcoord[i]);
 		return Result;
 	}
 
-	template <typename valType> 
-	inline detail::tvec3<valType> clamp
+	template <typename T> 
+	inline detail::tvec3<T> clamp
 	(
-		detail::tvec3<valType> const & Texcoord
+		detail::tvec3<T> const & Texcoord
 	)
 	{
-		detail::tvec3<valType> Result;
-		for(typename detail::tvec3<valType>::size_type i = 0; i < detail::tvec3<valType>::value_size(); ++i)
+		detail::tvec3<T> Result;
+		for(typename detail::tvec3<T>::size_type i = 0; i < detail::tvec3<T>::value_size(); ++i)
 			Result[i] = clamp(Texcoord[i]);
 		return Result;
 	}
 
-	template <typename valType> 
-	inline detail::tvec4<valType> clamp
+	template <typename T> 
+	inline detail::tvec4<T> clamp
 	(
-		detail::tvec4<valType> const & Texcoord
+		detail::tvec4<T> const & Texcoord
 	)
 	{
-		detail::tvec4<valType> Result;
-		for(typename detail::tvec4<valType>::size_type i = 0; i < detail::tvec4<valType>::value_size(); ++i)
+		detail::tvec4<T> Result;
+		for(typename detail::tvec4<T>::size_type i = 0; i < detail::tvec4<T>::value_size(); ++i)
 			Result[i] = clamp(Texcoord[i]);
 		return Result;
 	}
@@ -65,47 +65,47 @@ namespace wrap
 	////////////////////////
 	// repeat
 
-	template <typename valType> 
-	inline valType repeat
+	template <typename genType> 
+	inline genType repeat
 	(
-		valType const & Texcoord
+		genType const & Texcoord
 	)
 	{
 		return glm::fract(Texcoord);
 	}
 
-	template <typename valType> 
-	inline detail::tvec2<valType> repeat
+	template <typename T> 
+	inline detail::tvec2<T> repeat
 	(
-		detail::tvec2<valType> const & Texcoord
+		detail::tvec2<T> const & Texcoord
 	)
 	{
-		detail::tvec2<valType> Result;
-		for(typename detail::tvec2<valType>::size_type i = 0; i < detail::tvec2<valType>::value_size(); ++i)
+		detail::tvec2<T> Result;
+		for(typename detail::tvec2<T>::size_type i = 0; i < detail::tvec2<T>::value_size(); ++i)
 			Result[i] = repeat(Texcoord[i]);
 		return Result;
 	}
 
-	template <typename valType> 
-	inline detail::tvec3<valType> repeat
+	template <typename T> 
+	inline detail::tvec3<T> repeat
 	(
-		detail::tvec3<valType> const & Texcoord
+		detail::tvec3<T> const & Texcoord
 	)
 	{
-		detail::tvec3<valType> Result;
-		for(typename detail::tvec3<valType>::size_type i = 0; i < detail::tvec3<valType>::value_size(); ++i)
+		detail::tvec3<T> Result;
+		for(typename detail::tvec3<T>::size_type i = 0; i < detail::tvec3<T>::value_size(); ++i)
 			Result[i] = repeat(Texcoord[i]);
 		return Result;
 	}
 
-	template <typename valType> 
-	inline detail::tvec4<valType> repeat
+	template <typename T> 
+	inline detail::tvec4<T> repeat
 	(
-		detail::tvec4<valType> const & Texcoord
+		detail::tvec4<T> const & Texcoord
 	)
 	{
-		detail::tvec4<valType> Result;
-		for(typename detail::tvec4<valType>::size_type i = 0; i < detail::tvec4<valType>::value_size(); ++i)
+		detail::tvec4<T> Result;
+		for(typename detail::tvec4<T>::size_type i = 0; i < detail::tvec4<T>::value_size(); ++i)
 			Result[i] = repeat(Texcoord[i]);
 		return Result;
 	}
@@ -132,38 +132,38 @@ namespace wrap
 		return Out;
 	}
 
-	template <typename valType> 
-	inline detail::tvec2<valType> mirrorRepeat
+	template <typename T> 
+	inline detail::tvec2<T> mirrorRepeat
 	(
-		detail::tvec2<valType> const & Texcoord
+		detail::tvec2<T> const & Texcoord
 	)
 	{
-		detail::tvec2<valType> Result;
-		for(typename detail::tvec2<valType>::size_type i = 0; i < detail::tvec2<valType>::value_size(); ++i)
+		detail::tvec2<T> Result;
+		for(typename detail::tvec2<T>::size_type i = 0; i < detail::tvec2<T>::value_size(); ++i)
 			Result[i] = mirrorRepeat(Texcoord[i]);
 		return Result;
 	}
 
-	template <typename valType> 
-	inline detail::tvec3<valType> mirrorRepeat
+	template <typename T> 
+	inline detail::tvec3<T> mirrorRepeat
 	(
-		detail::tvec3<valType> const & Texcoord
+		detail::tvec3<T> const & Texcoord
 	)
 	{
-		detail::tvec3<valType> Result;
-		for(typename detail::tvec3<valType>::size_type i = 0; i < detail::tvec3<valType>::value_size(); ++i)
+		detail::tvec3<T> Result;
+		for(typename detail::tvec3<T>::size_type i = 0; i < detail::tvec3<T>::value_size(); ++i)
 			Result[i] = mirrorRepeat(Texcoord[i]);
 		return Result;
 	}
 
-	template <typename valType> 
-	inline detail::tvec4<valType> mirrorRepeat
+	template <typename T> 
+	inline detail::tvec4<T> mirrorRepeat
 	(
-		detail::tvec4<valType> const & Texcoord
+		detail::tvec4<T> const & Texcoord
 	)
 	{
-		detail::tvec4<valType> Result;
-		for(typename detail::tvec4<valType>::size_type i = 0; i < detail::tvec4<valType>::value_size(); ++i)
+		detail::tvec4<T> Result;
+		for(typename detail::tvec4<T>::size_type i = 0; i < detail::tvec4<T>::value_size(); ++i)
 			Result[i] = mirrorRepeat(Texcoord[i]);
 		return Result;
 	}

@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2005-12-30
 // Updated : 2008-10-05
 // Licence : This source is under MIT License
-// File    : glm/gtx/closest_point.h
+// File    : glm/gtx/closest_point.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -38,11 +38,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_closest_point namespace gtx::closest_point
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_closest_point;}
-#endif//GLM_GTC_GLOBAL
-
 #include "closest_point.inl"
+
+namespace glm{using namespace gtx::closest_point;}
 
 #endif//glm_gtx_closest_point

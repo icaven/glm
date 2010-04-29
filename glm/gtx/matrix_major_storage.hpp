@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2006-04-19
 // Updated : 2009-02-19
@@ -110,11 +110,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_matrix_major_storage namespace gtx::matrix_major_storage
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_matrix_major_storage;}
-#endif//GLM_GTX_GLOBAL
-
 #include "matrix_major_storage.inl"
+
+namespace glm{using namespace gtx::matrix_major_storage;}
 
 #endif//glm_gtx_matrix_major_storage

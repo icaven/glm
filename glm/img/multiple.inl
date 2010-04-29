@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2009-10-26
 // Updated : 2009-10-26
@@ -61,41 +61,41 @@ namespace multiple
 		return Tmp ? Source + Multiple - double(Tmp) : Source;
 	}
 
-	template <typename valType> 
-	inline detail::tvec2<valType> higherMultiple
+	template <typename T> 
+	inline detail::tvec2<T> higherMultiple
 	(
-		detail::tvec2<valType> const & Source, 
-		detail::tvec2<valType> const & Multiple
+		detail::tvec2<T> const & Source, 
+		detail::tvec2<T> const & Multiple
 	)
 	{
-		detail::tvec2<valType> Result;
-		for(typename detail::tvec2<valType>::size_type i = 0; i < detail::tvec2<valType>::value_size(); ++i)
+		detail::tvec2<T> Result;
+		for(typename detail::tvec2<T>::size_type i = 0; i < detail::tvec2<T>::value_size(); ++i)
 			Result[i] = higherMultiple(Source[i], Multiple[i]);
 		return Result;
 	}
 
-	template <typename valType> 
-	inline detail::tvec3<valType> higherMultiple
+	template <typename T> 
+	inline detail::tvec3<T> higherMultiple
 	(
-		detail::tvec3<valType> const & Source, 
-		detail::tvec3<valType> const & Multiple
+		detail::tvec3<T> const & Source, 
+		detail::tvec3<T> const & Multiple
 	)
 	{
-		detail::tvec3<valType> Result;
-		for(typename detail::tvec3<valType>::size_type i = 0; i < detail::tvec3<valType>::value_size(); ++i)
+		detail::tvec3<T> Result;
+		for(typename detail::tvec3<T>::size_type i = 0; i < detail::tvec3<T>::value_size(); ++i)
 			Result[i] = higherMultiple(Source[i], Multiple[i]);
 		return Result;
 	}
 
-	template <typename valType> 
-	inline detail::tvec4<valType> higherMultiple
+	template <typename T> 
+	inline detail::tvec4<T> higherMultiple
 	(
-		detail::tvec4<valType> const & Source, 
-		detail::tvec4<valType> const & Multiple
+		detail::tvec4<T> const & Source, 
+		detail::tvec4<T> const & Multiple
 	)
 	{
-		detail::tvec4<valType> Result;
-		for(typename detail::tvec4<valType>::size_type i = 0; i < detail::tvec4<valType>::value_size(); ++i)
+		detail::tvec4<T> Result;
+		for(typename detail::tvec4<T>::size_type i = 0; i < detail::tvec4<T>::value_size(); ++i)
 			Result[i] = higherMultiple(Source[i], Multiple[i]);
 		return Result;
 	}
@@ -147,41 +147,41 @@ namespace multiple
 		return Tmp ? Source - double(Tmp) : Source;
 	}
 
-	template <typename valType> 
-	inline detail::tvec2<valType> lowerMultiple
+	template <typename T> 
+	inline detail::tvec2<T> lowerMultiple
 	(
-		detail::tvec2<valType> const & Source, 
-		detail::tvec2<valType> const & Multiple
+		detail::tvec2<T> const & Source, 
+		detail::tvec2<T> const & Multiple
 	)
 	{
-		detail::tvec2<valType> Result;
-		for(typename detail::tvec2<valType>::size_type i = 0; i < detail::tvec2<valType>::value_size(); ++i)
+		detail::tvec2<T> Result;
+		for(typename detail::tvec2<T>::size_type i = 0; i < detail::tvec2<T>::value_size(); ++i)
 			Result[i] = lowerMultiple(Source[i], Multiple[i]);
 		return Result;
 	}
 
-	template <typename valType> 
-	inline detail::tvec3<valType> lowerMultiple
+	template <typename T> 
+	inline detail::tvec3<T> lowerMultiple
 	(
-		detail::tvec3<valType> const & Source, 
-		detail::tvec3<valType> const & Multiple
+		detail::tvec3<T> const & Source, 
+		detail::tvec3<T> const & Multiple
 	)
 	{
-		detail::tvec3<valType> Result;
-		for(typename detail::tvec3<valType>::size_type i = 0; i < detail::tvec3<valType>::value_size(); ++i)
+		detail::tvec3<T> Result;
+		for(typename detail::tvec3<T>::size_type i = 0; i < detail::tvec3<T>::value_size(); ++i)
 			Result[i] = lowerMultiple(Source[i], Multiple[i]);
 		return Result;
 	}
 
-	template <typename valType> 
-	inline detail::tvec4<valType> lowerMultiple
+	template <typename T> 
+	inline detail::tvec4<T> lowerMultiple
 	(
-		detail::tvec4<valType> const & Source, 
-		detail::tvec4<valType> const & Multiple
+		detail::tvec4<T> const & Source, 
+		detail::tvec4<T> const & Multiple
 	)
 	{
-		detail::tvec4<valType> Result;
-		for(typename detail::tvec4<valType>::size_type i = 0; i < detail::tvec4<valType>::value_size(); ++i)
+		detail::tvec4<T> Result;
+		for(typename detail::tvec4<T>::size_type i = 0; i < detail::tvec4<T>::value_size(); ++i)
 			Result[i] = lowerMultiple(Source[i], Multiple[i]);
 		return Result;
 	}

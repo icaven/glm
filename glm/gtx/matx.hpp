@@ -1,10 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2007-02-21
 // Updated : 2007-03-01
 // Licence : This source is under MIT License
-// File    : glm/gtx/matx.h
+// File    : glm/gtx/matx.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -172,11 +172,8 @@ namespace detail{
     }
 }
 
-#define GLM_GTX_matx namespace gtx::matx
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_matx;}
-#endif//GLM_GTX_GLOBAL
-
 #include "matx.inl"
+
+namespace glm{using namespace gtx::matx;}
 
 #endif//glm_gtx_matx

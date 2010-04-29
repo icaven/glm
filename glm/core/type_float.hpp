@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-08-22
-// Updated : 2008-09-17
+// Updated : 2010-02-08
 // Licence : This source is under MIT License
 // File    : glm/core/type_float.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -26,7 +26,6 @@ namespace glm
 
 	namespace core{
 	namespace type{
-	namespace scalar{
 
 	namespace precision
 	{
@@ -54,19 +53,18 @@ namespace glm
 	//namespace precision
 
 #ifndef GLM_PRECISION 
-	typedef precision::mediump_float_t		float_t;
+	typedef precision::mediump_float		float_t;
 #elif(GLM_PRECISION & GLM_PRECISION_HIGHP_FLOAT)
-	typedef precision::highp_float_t		float_t;
+	typedef precision::highp_float			float_t;
 #elif(GLM_PRECISION & GLM_PRECISION_MEDIUMP_FLOAT)
-	typedef precision::mediump_float_t		float_t;
+	typedef precision::mediump_float		float_t;
 #elif(GLM_PRECISION & GLM_PRECISION_LOWP_FLOAT)
-	typedef precision::lowp_float_t			float_t;
+	typedef precision::lowp_float			float_t;
 #else
 	#	pragma message("GLM message: Precisson undefined for float numbers.");
-	typedef precision::mediump_float_t		float_t;
+	typedef precision::mediump_float		float_t;
 #endif//GLM_PRECISION
 
-	}//namespace scalar
 	}//namespace type
 	}//namespace core
 }//namespace glm

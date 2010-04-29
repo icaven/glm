@@ -1,10 +1,10 @@
  ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2007-03-05
 // Updated : 2007-03-05
 // Licence : This source is under MIT License
-// File    : glm/gtx/vector_query.h
+// File    : glm/gtx/vector_query.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -86,11 +86,8 @@ namespace glm
     }//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_vector_query namespace gtx::vector_query
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_vector_query;}
-#endif//GLM_GTX_GLOBAL
-
 #include "vector_query.inl"
+
+namespace glm{using namespace gtx::vector_query;}
 
 #endif//glm_gtx_vector_query

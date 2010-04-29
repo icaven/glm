@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2005-12-21
 // Updated : 2007-08-14
@@ -129,11 +129,8 @@ namespace glm
     }//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_euler_angles namespace gtx::euler_angles
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_euler_angles;}
-#endif//GLM_GTX_GLOBAL
-
 #include "euler_angles.inl"
+
+namespace glm{using namespace gtx::euler_angles;}
 
 #endif//glm_gtx_euler_angles

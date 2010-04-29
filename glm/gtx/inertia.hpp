@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2006-04-21
 // Updated : 2006-11-13
@@ -82,11 +82,8 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#define GLM_GTX_inertia namespace gtx::inertia
-#ifndef GLM_GTX_GLOBAL
-namespace glm {using GLM_GTX_inertia;}
-#endif//GLM_GTX_GLOBAL
-
 #include "inertia.inl"
+
+namespace glm{using namespace gtx::inertia;}
 
 #endif//glm_gtx_inertia

@@ -1,95 +1,107 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2005-01-16
-// Updated : 2007-03-01
+// Updated : 2010-02-11
 // Licence : This source is under MIT License
 // File    : glm/core/type_mat2x2.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace detail{
-
-	template <typename valType> 
-	typename tmat2x2<valType>::size_type tmat2x2<valType>::value_size()
+namespace detail
+{
+	template <typename T>
+	inline typename tmat2x2<T>::size_type tmat2x2<T>::col_size()
 	{
-		return typename tmat2x2<valType>::size_type(2);
+		return 2;
 	}
 
-	template <typename valType> 
-	typename tmat2x2<valType>::size_type tmat2x2<valType>::col_size()
+	template <typename T>
+	inline typename tmat2x2<T>::size_type tmat2x2<T>::row_size()
 	{
-		return typename tmat2x2<valType>::size_type(2);
-	}
-
-	template <typename valType> 
-	typename tmat2x2<valType>::size_type tmat2x2<valType>::row_size()
-	{
-		return typename tmat2x2<valType>::size_type(2);
-	}
-
-	template <typename valType> 
-	bool tmat2x2<valType>::is_matrix()
-	{
-		return true;
+		return 2;
 	}
 
 	//////////////////////////////////////
 	// Accesses
 
-	template <typename valType>
-	detail::tvec2<valType>& tmat2x2<valType>::operator[](typename tmat2x2<valType>::size_type i)
+	template <typename T>
+	inline typename tmat2x2<T>::col_type &
+	tmat2x2<T>::operator[]
+	(
+		size_type i
+	)
 	{
-		assert(
-			i >= typename tmat2x2<valType>::size_type(0) && 
-			i < tmat2x2<valType>::col_size());
-
-		return value[i];
+		assert(i >= size_type(0) && i < col_size());
+		return this->value[i];
 	}
 
-	template <typename valType>
-	const detail::tvec2<valType>& tmat2x2<valType>::operator[](typename tmat2x2<valType>::size_type i) const
+	template <typename T>
+	inline typename tmat2x2<T>::col_type const &
+	tmat2x2<T>::operator[]
+	(
+		size_type i
+	) const
 	{
-		assert(
-			i >= typename tmat2x2<valType>::size_type(0) && 
-			i < tmat2x2<valType>::col_size());
-
-		return value[i];
+		assert(i >= size_type(0) && i < col_size());
+		return this->value[i];
 	}
 
     //////////////////////////////////////////////////////////////
-    // mat2 constructors
+    // Constructors
 
     template <typename T> 
     inline tmat2x2<T>::tmat2x2()
     {
-        this->value[0] = detail::tvec2<T>(1, 0);
-        this->value[1] = detail::tvec2<T>(0, 1);
+		this->value[0] = col_type(1, 0);
+        this->value[1] = col_type(0, 1);
     }
 
     template <typename T> 
-    inline tmat2x2<T>::tmat2x2(const tmat2x2<T> & m)
+    inline tmat2x2<T>::tmat2x2
+	(
+		tmat2x2<T> const & m
+	)
     {
         this->value[0] = m.value[0];
         this->value[1] = m.value[1];
     }
 
     template <typename T> 
-    inline tmat2x2<T>::tmat2x2(const T f)
+    inline tmat2x2<T>::tmat2x2
+	(
+		ctor
+	)
+    {}
+
+    template <typename T> 
+	inline tmat2x2<T>::tmat2x2
+	(
+		value_type const & s
+	)
     {
-        this->value[0] = detail::tvec2<T>(f, 0);
-        this->value[1] = detail::tvec2<T>(0, f);
+		value_type const Zero(0);
+        this->value[0] = col_type(s, Zero);
+        this->value[1] = col_type(Zero, s);
     }
 
     template <typename T> 
-    inline tmat2x2<T>::tmat2x2(const T x0, const T y0, const T x1, const T y1)
+    inline tmat2x2<T>::tmat2x2
+	(
+		value_type const & x0, value_type const & y0, 
+		value_type const & x1, value_type const & y1
+	)
     {
-        this->value[0] = detail::tvec2<T>(x0, y0);
-        this->value[1] = detail::tvec2<T>(x1, y1);
+        this->value[0] = col_type(x0, y0);
+        this->value[1] = col_type(x1, y1);
     }
 
     template <typename T> 
-    inline tmat2x2<T>::tmat2x2(const detail::tvec2<T>& v0, const detail::tvec2<T>& v1)
+    inline tmat2x2<T>::tmat2x2
+	(
+		col_type const & v0, 
+		col_type const & v1
+	)
     {
         this->value[0] = v0;
         this->value[1] = v1;
@@ -100,87 +112,105 @@ namespace detail{
 
     template <typename T> 
     template <typename U> 
-    inline tmat2x2<T>::tmat2x2(const tmat2x2<U>& m)
+    inline tmat2x2<T>::tmat2x2
+	(
+		tmat2x2<U> const & m
+	)
     {
-        this->value[0] = detail::tvec2<T>(m[0]);
-        this->value[1] = detail::tvec2<T>(m[1]);
+        this->value[0] = col_type(m[0]);
+        this->value[1] = col_type(m[1]);
 	}
 
     template <typename T> 
-    inline tmat2x2<T>::tmat2x2(const tmat3x3<T>& m)
+    inline tmat2x2<T>::tmat2x2
+	(
+		tmat3x3<T> const & m
+	)
     {
-        this->value[0] = detail::tvec2<T>(m[0]);
-        this->value[1] = detail::tvec2<T>(m[1]);
+        this->value[0] = col_type(m[0]);
+        this->value[1] = col_type(m[1]);
     }
 
     template <typename T> 
-    inline tmat2x2<T>::tmat2x2(const tmat4x4<T>& m)
+    inline tmat2x2<T>::tmat2x2
+	(
+		tmat4x4<T> const & m
+	)
     {
-        this->value[0] = detail::tvec2<T>(m[0]);
-        this->value[1] = detail::tvec2<T>(m[1]);
+        this->value[0] = col_type(m[0]);
+        this->value[1] = col_type(m[1]);
     }
 
 	template <typename T> 
-    inline tmat2x2<T>::tmat2x2(const tmat2x3<T>& m)
+    inline tmat2x2<T>::tmat2x2
+	(
+		tmat2x3<T> const & m
+	)
     {
-        this->value[0] = detail::tvec2<T>(m[0]);
-        this->value[1] = detail::tvec2<T>(m[1]);
+        this->value[0] = col_type(m[0]);
+        this->value[1] = col_type(m[1]);
     }
 
     template <typename T> 
-    inline tmat2x2<T>::tmat2x2(const tmat3x2<T>& m)
+    inline tmat2x2<T>::tmat2x2
+	(
+		tmat3x2<T> const & m
+	)
     {
         this->value[0] = m[0];
         this->value[1] = m[1];
     }
 
     template <typename T> 
-    inline tmat2x2<T>::tmat2x2(const tmat2x4<T>& m)
+    inline tmat2x2<T>::tmat2x2
+	(
+		tmat2x4<T> const & m
+	)
     {
-        this->value[0] = detail::tvec2<T>(m[0]);
-        this->value[1] = detail::tvec2<T>(m[1]);
+        this->value[0] = col_type(m[0]);
+        this->value[1] = col_type(m[1]);
     }
 
     template <typename T> 
-    inline tmat2x2<T>::tmat2x2(const tmat4x2<T>& m)
+    inline tmat2x2<T>::tmat2x2
+	(
+		tmat4x2<T> const & m
+	)
     {
         this->value[0] = m[0];
         this->value[1] = m[1];
     }
 
     template <typename T> 
-    inline tmat2x2<T>::tmat2x2(const tmat3x4<T>& m)
+    inline tmat2x2<T>::tmat2x2
+	(
+		tmat3x4<T> const & m
+	)
     {
-        this->value[0] = detail::tvec2<T>(m[0]);
-        this->value[1] = detail::tvec2<T>(m[1]);
+        this->value[0] = col_type(m[0]);
+        this->value[1] = col_type(m[1]);
     }
 
     template <typename T> 
-    inline tmat2x2<T>::tmat2x2(const tmat4x3<T>& m)
+    inline tmat2x2<T>::tmat2x2
+	(
+		tmat4x3<T> const & m
+	)
     {
-        this->value[0] = detail::tvec2<T>(m[0]);
-        this->value[1] = detail::tvec2<T>(m[1]);
+        this->value[0] = col_type(m[0]);
+        this->value[1] = col_type(m[1]);
     }
-
-/*
-    template <typename T> 
-    inline tmat2x2<T>::tmat2x2(const T* a)
-    {
-        this->value[0] = detail::tvec2<T>(a[0], a[1]);
-        this->value[1] = detail::tvec2<T>(a[2], a[3]);
-    }
-*/
 
     template <typename T> 
     inline tmat2x2<T> tmat2x2<T>::_inverse() const
     {
-        T Determinant = value[0][0] * value[1][1] - value[1][0] * value[0][1];
+        typename tmat2x2<T>::value_type Determinant = this->value[0][0] * this->value[1][1] - this->value[1][0] * this->value[0][1];
 
         tmat2x2<T> Inverse(
-            + value[1][1] / Determinant,
-            - value[1][0] / Determinant,
-            - value[0][1] / Determinant, 
-            + value[0][0] / Determinant);
+            + this->value[1][1] / Determinant,
+            - this->value[1][0] / Determinant,
+            - this->value[0][1] / Determinant, 
+            + this->value[0][0] / Determinant);
         return Inverse;
     }
 
@@ -189,7 +219,22 @@ namespace detail{
 
     // This function shouldn't required but it seems that VC7.1 have an optimisation bug if this operator wasn't declared
     template <typename T> 
-    inline tmat2x2<T>& tmat2x2<T>::operator=(tmat2x2<T> const & m)
+    inline tmat2x2<T>& tmat2x2<T>::operator=
+	(
+		tmat2x2<T> const & m
+	)
+    {
+	    this->value[0] = m[0];
+	    this->value[1] = m[1];
+	    return *this;
+    }
+
+	template <typename T> 
+	template <typename U> 
+    inline tmat2x2<T>& tmat2x2<T>::operator=
+	(
+		tmat2x2<U> const & m
+	)
     {
 	    this->value[0] = m[0];
 	    this->value[1] = m[1];
@@ -197,7 +242,11 @@ namespace detail{
     }
 
     template <typename T> 
-    inline tmat2x2<T>& tmat2x2<T>::operator+= (const T & s)
+	template <typename U> 
+    inline tmat2x2<T>& tmat2x2<T>::operator+=
+	(
+		U const & s
+	)
     {
 	    this->value[0] += s;
 	    this->value[1] += s;
@@ -205,7 +254,11 @@ namespace detail{
     }
 
     template <typename T> 
-    inline tmat2x2<T>& tmat2x2<T>::operator+= (tmat2x2<T> const & m)
+	template <typename U> 
+    inline tmat2x2<T>& tmat2x2<T>::operator+=
+	(
+		tmat2x2<U> const & m
+	)
     {
 	    this->value[0] += m[0];
 	    this->value[1] += m[1];
@@ -213,7 +266,11 @@ namespace detail{
     }
 
     template <typename T> 
-    inline tmat2x2<T>& tmat2x2<T>::operator-= (const T & s)
+	template <typename U> 
+    inline tmat2x2<T>& tmat2x2<T>::operator-=
+	(
+		U const & s
+	)
     {
 	    this->value[0] -= s;
 	    this->value[1] -= s;
@@ -221,7 +278,11 @@ namespace detail{
     }
 
     template <typename T> 
-    inline tmat2x2<T>& tmat2x2<T>::operator-= (tmat2x2<T> const & m)
+	template <typename U> 
+    inline tmat2x2<T>& tmat2x2<T>::operator-=
+	(
+		tmat2x2<U> const & m
+	)
     {
 	    this->value[0] -= m[0];
 	    this->value[1] -= m[1];
@@ -229,7 +290,11 @@ namespace detail{
     }
 
     template <typename T> 
-    inline tmat2x2<T>& tmat2x2<T>::operator*= (const T & s)
+	template <typename U> 
+    inline tmat2x2<T>& tmat2x2<T>::operator*= 
+	(
+		U const & s
+	)
     {
 	    this->value[0] *= s;
 	    this->value[1] *= s;
@@ -237,13 +302,21 @@ namespace detail{
     }
 
     template <typename T> 
-    inline tmat2x2<T>& tmat2x2<T>::operator*= (tmat2x2<T> const & m)
+	template <typename U> 
+    inline tmat2x2<T>& tmat2x2<T>::operator*= 
+	(
+		tmat2x2<U> const & m
+	)
     {
         return (*this = *this * m);
     }
 
     template <typename T> 
-    inline tmat2x2<T>& tmat2x2<T>::operator/= (const T & s)
+	template <typename U> 
+    inline tmat2x2<T>& tmat2x2<T>::operator/= 
+	(
+		U const & s
+	)
     {
 	    this->value[0] /= s;
 	    this->value[1] /= s;
@@ -251,7 +324,11 @@ namespace detail{
     }
 
     template <typename T> 
-    inline tmat2x2<T>& tmat2x2<T>::operator/= (tmat2x2<T> const & m)
+	template <typename U> 
+    inline tmat2x2<T>& tmat2x2<T>::operator/= 
+	(
+		tmat2x2<U> const & m
+	)
     {
         return (*this = *this / m);
     }
@@ -276,7 +353,11 @@ namespace detail{
 	// Binary operators
 
     template <typename T> 
-    inline tmat2x2<T> operator+ (tmat2x2<T> const & m, const T & s)
+    inline tmat2x2<T> operator+ 
+	(
+		tmat2x2<T> const & m, 
+		typename tmat2x2<T>::value_type const & s
+	)
     {
         return tmat2x2<T>(
             m[0] + s,
@@ -284,27 +365,23 @@ namespace detail{
     }
 
     template <typename T> 
-    inline tmat2x2<T> operator+ (const T & s, tmat2x2<T> const & m)
+    inline tmat2x2<T> operator+ 
+	(
+		typename tmat2x2<T>::value_type const & s, 
+		tmat2x2<T> const & m
+	)
     {
         return tmat2x2<T>(
             m[0] + s,
             m[1] + s);
     }
 
-    //template <typename T> 
-    //inline detail::tvec2<T> operator+ (tmat2x2<T> const & m, const detail::tvec2<T>& v)
-    //{
-
-    //}
-
-    //template <typename T> 
-    //inline detail::tvec2<T> operator+ (const detail::tvec2<T>& v, tmat2x2<T> const & m)
-    //{
-
-    //}
-
     template <typename T> 
-    inline tmat2x2<T> operator+ (tmat2x2<T> const & m1, tmat2x2<T> const & m2)
+    inline tmat2x2<T> operator+ 
+	(
+		tmat2x2<T> const & m1, 
+		tmat2x2<T> const & m2
+	)
     {
         return tmat2x2<T>(
             m1[0] + m2[0],
@@ -312,7 +389,11 @@ namespace detail{
     }
 
     template <typename T> 
-    inline tmat2x2<T> operator- (tmat2x2<T> const & m, const T & s)
+    inline tmat2x2<T> operator- 
+	(
+		tmat2x2<T> const & m, 
+		typename tmat2x2<T>::value_type const & s
+	)
     {
         return tmat2x2<T>(
             m[0] - s,
@@ -320,27 +401,23 @@ namespace detail{
     }
 
     template <typename T> 
-    inline tmat2x2<T> operator- (const T & s, tmat2x2<T> const & m)
+    inline tmat2x2<T> operator- 
+	(
+		typename tmat2x2<T>::value_type const & s, 
+		tmat2x2<T> const & m
+	)
     {
         return tmat2x2<T>(
             s - m[0],
             s - m[1]);
     }
 
-    //template <typename T> 
-    //inline tmat2x2<T> operator- (tmat2x2<T> const & m, const detail::tvec2<T>& v)
-    //{
-
-    //}
-
-    //template <typename T> 
-    //inline tmat2x2<T> operator- (const detail::tvec2<T>& v, tmat2x2<T> const & m)
-    //{
-
-    //}
-
     template <typename T> 
-    inline tmat2x2<T> operator- (tmat2x2<T> const & m1, tmat2x2<T> const & m2)
+    inline tmat2x2<T> operator- 
+	(
+		tmat2x2<T> const & m1, 
+		tmat2x2<T> const & m2
+	)
     {
         return tmat2x2<T>(
             m1[0] - m2[0],
@@ -348,7 +425,11 @@ namespace detail{
     }
 
     template <typename T> 
-    inline tmat2x2<T> operator* (tmat2x2<T> const & m, const T & s)
+    inline tmat2x2<T> operator* 
+	(
+		tmat2x2<T> const & m, 
+		typename tmat2x2<T>::value_type const & s
+	)
     {
         return tmat2x2<T>(
             m[0] * s,
@@ -356,7 +437,11 @@ namespace detail{
     }
 
     template <typename T> 
-    inline tmat2x2<T> operator* (const T & s, tmat2x2<T> const & m)
+    inline tmat2x2<T> operator* 
+	(	
+		typename tmat2x2<T>::value_type const & s, 
+		tmat2x2<T> const & m
+	)
     {
         return tmat2x2<T>(
             m[0] * s,
@@ -364,7 +449,11 @@ namespace detail{
     }
 
     template <typename T> 
-    inline detail::tvec2<T> operator* (tmat2x2<T> const & m, const detail::tvec2<T>& v)
+    inline typename tmat2x2<T>::row_type operator* 
+	(
+		tmat2x2<T> const & m, 
+		typename tmat2x2<T>::col_type const & v
+	)
     {
         return detail::tvec2<T>(
             m[0][0] * v.x + m[1][0] * v.y,
@@ -372,7 +461,11 @@ namespace detail{
     }
 
     template <typename T> 
-    inline detail::tvec2<T> operator* (const detail::tvec2<T>& v, tmat2x2<T> const & m)
+    inline typename tmat2x2<T>::col_type operator* 
+	(
+		typename tmat2x2<T>::row_type const & v, 
+		tmat2x2<T> const & m
+	)
     {
         return detail::tvec2<T>(
             m[0][0] * v.x + m[0][1] * v.y,
@@ -380,7 +473,11 @@ namespace detail{
     }
 
 	template <typename T>
-	inline tmat2x2<T> operator* (tmat2x2<T> const & m1, tmat2x2<T> const & m2)
+	inline tmat2x2<T> operator* 
+	(
+		tmat2x2<T> const & m1, 
+		tmat2x2<T> const & m2
+	)
 	{
 		return tmat2x2<T>(
 			m1[0][0] * m2[0][0] + m1[1][0] * m2[0][1],
@@ -390,7 +487,11 @@ namespace detail{
 	}
 
     template <typename T> 
-    inline tmat2x2<T> operator/ (tmat2x2<T> const & m, const T & s)
+    inline tmat2x2<T> operator/ 
+	(
+		tmat2x2<T> const & m, 
+		typename tmat2x2<T>::value_type const & s
+	)
     {
         return tmat2x2<T>(
             m[0] / s,
@@ -398,7 +499,11 @@ namespace detail{
     }
 
     template <typename T> 
-    inline tmat2x2<T> operator/ (const T & s, tmat2x2<T> const & m)
+    inline tmat2x2<T> operator/ 
+	(
+		typename tmat2x2<T>::value_type const & s, 
+		tmat2x2<T> const & m
+	)
     {
         return tmat2x2<T>(
             s / m[0],
@@ -406,57 +511,69 @@ namespace detail{
     }
 
     template <typename T> 
-    inline detail::tvec2<T> operator/ (tmat2x2<T> const & m, const detail::tvec2<T>& v)
+    inline typename tmat2x2<T>::row_type operator/ 
+	(
+		tmat2x2<T> const & m, 
+		typename tmat2x2<T>::col_type & v
+	)
     {
         return m._inverse() * v;
     }
 
     template <typename T> 
-    inline detail::tvec2<T> operator/ (const detail::tvec2<T>& v, tmat2x2<T> const & m)
+    inline typename tmat2x2<T>::col_type operator/ 
+	(
+		typename tmat2x2<T>::row_type const & v,
+		tmat2x2<T> const & m
+	)
     {
         return v * m._inverse();
     }
 
     template <typename T> 
-    inline tmat2x2<T> operator/ (tmat2x2<T> const & m1, tmat2x2<T> const & m2)
+    inline tmat2x2<T> operator/ 
+	(
+		tmat2x2<T> const & m1, 
+		tmat2x2<T> const & m2
+	)
     {
         return m1 * m2._inverse();
     }
 
 	// Unary constant operators
-    template <typename valType> 
-    inline tmat2x2<valType> const operator- 
+    template <typename T> 
+    inline tmat2x2<T> const operator- 
 	(
-		tmat2x2<valType> const & m
+		tmat2x2<T> const & m
 	)
     {
-        return tmat2x2<valType>(
+        return tmat2x2<T>(
             -m[0], 
             -m[1]);
     }
 
-    template <typename valType> 
-    inline tmat2x2<valType> const operator++ 
+    template <typename T> 
+    inline tmat2x2<T> const operator++ 
 	(
-		tmat2x2<valType> const & m, 
+		tmat2x2<T> const & m, 
 		int
 	) 
     {
-        return tmat2x2<valType>(
-            m[0] + valType(1),
-            m[1] + valType(1));
+        return tmat2x2<T>(
+            m[0] + T(1),
+            m[1] + T(1));
     }
 
-    template <typename valType> 
-    inline tmat2x2<valType> const operator-- 
+    template <typename T> 
+    inline tmat2x2<T> const operator-- 
 	(
-		tmat2x2<valType> const & m, 
+		tmat2x2<T> const & m, 
 		int
 	) 
     {
-        return tmat2x2<valType>(
-            m[0] - valType(1),
-            m[1] - valType(1));
+        return tmat2x2<T>(
+            m[0] - T(1),
+            m[1] - T(1));
     }
 
 } //namespace detail

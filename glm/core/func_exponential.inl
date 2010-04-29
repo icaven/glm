@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2009 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-08-03
-// Updated : 2008-09-06
+// Updated : 2010-02-04
 // Licence : This source is under MIT License
 // File    : glm/core/func_exponential.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -26,39 +26,39 @@ namespace glm
         return ::std::pow(x, y);
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> pow
+    template <typename T>
+    inline detail::tvec2<T> pow
 	(
-		detail::tvec2<valType> const & x, 
-		detail::tvec2<valType> const & y
+		detail::tvec2<T> const & x, 
+		detail::tvec2<T> const & y
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             pow(x.x, y.x),
             pow(x.y, y.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> pow
+    template <typename T>
+    inline detail::tvec3<T> pow
 	(
-		detail::tvec3<valType> const & x, 
-		detail::tvec3<valType> const & y
+		detail::tvec3<T> const & x, 
+		detail::tvec3<T> const & y
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             pow(x.x, y.x),
             pow(x.y, y.y),
             pow(x.z, y.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> pow
+    template <typename T>
+    inline detail::tvec4<T> pow
 	(
-		detail::tvec4<valType> const & x, 
-		detail::tvec4<valType> const & y
+		detail::tvec4<T> const & x, 
+		detail::tvec4<T> const & y
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             pow(x.x, y.x),
             pow(x.y, y.y),
             pow(x.z, y.z),
@@ -77,36 +77,36 @@ namespace glm
         return ::std::exp(x);
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> exp
+    template <typename T>
+    inline detail::tvec2<T> exp
 	(
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & x
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             exp(x.x),
             exp(x.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> exp
+    template <typename T>
+    inline detail::tvec3<T> exp
 	(
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & x
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             exp(x.x),
             exp(x.y),
             exp(x.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> exp
+    template <typename T>
+    inline detail::tvec4<T> exp
 	(
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & x
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             exp(x.x),
             exp(x.y),
             exp(x.z),
@@ -125,36 +125,36 @@ namespace glm
         return ::std::log(x);
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> log
+    template <typename T>
+    inline detail::tvec2<T> log
 	(
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & x
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             log(x.x),
             log(x.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> log
+    template <typename T>
+    inline detail::tvec3<T> log
 	(
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & x
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             log(x.x),
             log(x.y),
             log(x.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> log
+    template <typename T>
+    inline detail::tvec4<T> log
 	(
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & x
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             log(x.x),
             log(x.y),
             log(x.z),
@@ -173,36 +173,36 @@ namespace glm
         return ::std::exp(genType(0.69314718055994530941723212145818) * x);
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> exp2
+    template <typename T>
+    inline detail::tvec2<T> exp2
 	(
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & x
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             exp2(x.x),
             exp2(x.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> exp2
+    template <typename T>
+    inline detail::tvec3<T> exp2
 	(
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & x
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             exp2(x.x),
             exp2(x.y),
             exp2(x.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> exp2
+    template <typename T>
+    inline detail::tvec4<T> exp2
 	(
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & x
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             exp2(x.x),
             exp2(x.y),
             exp2(x.z),
@@ -221,36 +221,36 @@ namespace glm
         return ::std::log(x) / genType(0.69314718055994530941723212145818);
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> log2
+    template <typename T>
+    inline detail::tvec2<T> log2
 	(
-		const detail::tvec2<valType>& x
+		detail::tvec2<T> const & x
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             log2(x.x),
             log2(x.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> log2
+    template <typename T>
+    inline detail::tvec3<T> log2
 	(
-		const detail::tvec3<valType>& x
+		detail::tvec3<T> const & x
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             log2(x.x),
             log2(x.y),
             log2(x.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> log2
+    template <typename T>
+    inline detail::tvec4<T> log2
 	(
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & x
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             log2(x.x),
             log2(x.y),
             log2(x.z),
@@ -269,36 +269,36 @@ namespace glm
         return genType(::std::sqrt(double(x)));
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> sqrt
+    template <typename T>
+    inline detail::tvec2<T> sqrt
 	(
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & x
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             sqrt(x.x),
             sqrt(x.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> sqrt
+    template <typename T>
+    inline detail::tvec3<T> sqrt
 	(
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & x
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             sqrt(x.x),
             sqrt(x.y),
             sqrt(x.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> sqrt
+    template <typename T>
+    inline detail::tvec4<T> sqrt
 	(
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & x
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             sqrt(x.x),
             sqrt(x.y),
             sqrt(x.z),
@@ -316,36 +316,36 @@ namespace glm
         return genType(1) / ::std::sqrt(x);
     }
 
-    template <typename valType>
-    inline detail::tvec2<valType> inversesqrt
+    template <typename T>
+    inline detail::tvec2<T> inversesqrt
 	(
-		detail::tvec2<valType> const & x
+		detail::tvec2<T> const & x
 	)
     {
-        return detail::tvec2<valType>(
+        return detail::tvec2<T>(
             inversesqrt(x.x),
             inversesqrt(x.y));
     }
 
-    template <typename valType>
-    inline detail::tvec3<valType> inversesqrt
+    template <typename T>
+    inline detail::tvec3<T> inversesqrt
 	(
-		detail::tvec3<valType> const & x
+		detail::tvec3<T> const & x
 	)
     {
-        return detail::tvec3<valType>(
+        return detail::tvec3<T>(
             inversesqrt(x.x),
             inversesqrt(x.y),
             inversesqrt(x.z));
     }
 
-    template <typename valType>
-    inline detail::tvec4<valType> inversesqrt
+    template <typename T>
+    inline detail::tvec4<T> inversesqrt
 	(
-		detail::tvec4<valType> const & x
+		detail::tvec4<T> const & x
 	)
     {
-        return detail::tvec4<valType>(
+        return detail::tvec4<T>(
             inversesqrt(x.x),
             inversesqrt(x.y),
             inversesqrt(x.z),
