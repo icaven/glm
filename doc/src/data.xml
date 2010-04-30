@@ -1525,13 +1525,13 @@
 	<page_news>
 		<news index="0050" date="30/04/2010" title="GLM 0.9 Beta 2 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
 			<paragraph>
-				
+				GLM 0.9 Beta 2 is available and should be the last development release of GLM 0.9.
 			</paragraph>
 			<paragraph>
-
+				The code has been moved from a SVN to Git repository which branching efficiency allowed to remove all the experimental code from this release.
 			</paragraph>
 			<paragraph>
-
+				Various bug fixes and manual updates have been done too.
 			</paragraph>
 			<source type="Download" adresse="https://sourceforge.net/projects/ogl-math/files/glm-0.9.B.2/glm-0.9.B.2.zip/download">GLM 0.9.B.2 (zip, 1.07 MB)</source>
 			<source type="Download" adresse="https://sourceforge.net/projects/ogl-math/files/glm-0.9.B.2/glm-0.9.B.2.7z/download">GLM 0.9.B.2 (7z, 555 KB)</source>
