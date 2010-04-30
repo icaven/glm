@@ -24,11 +24,11 @@ namespace glm
 
 	namespace gtc{
 	//! GLM_GTC_swizzle extension
-	namespace glm_gtc_swizzle{
+	namespace swizzle{
 
 
 
-	}//namespace closest_point
+	}//namespace swizzle
 	}//namespace gtc
 }//namespace glm
 
