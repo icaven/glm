@@ -93,9 +93,6 @@
   </div>
   <br />
   <xsl:apply-templates select="./menu-group"/>
-  <div class="menu1">
-    <img class="menu-img" src="./common/email.png" alt="contact"/>
-  </div>
   <br />
   <xsl:apply-templates select="./menu-link"/>
   <br />

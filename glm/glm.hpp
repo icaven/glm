@@ -17,7 +17,9 @@
  *
  * This library can be used with OpenGL but also for software rendering (Raytracing / Rasterisation), image processing and as much contexts as a simple math library could be used for.
  *
- * GLM is written as a platform independent library and supports the following compilers: - GNU GCC 3.4 and higher - Microsoft Visual Studio 8.0 and higher
+ * GLM is written as a platform independent library and supports the following compilers: 
+ * - GNU GCC 3.4 and higher 
+ * - Microsoft Visual Studio 8.0 and higher
  * 
  * The source code is under the MIT licence.
  * 
