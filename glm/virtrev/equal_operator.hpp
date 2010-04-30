@@ -62,7 +62,7 @@ namespace glm
 	}
 }
 
-namespace glm {namespace virtrev_glmext::equal_operator;}
+namespace glm {using namespace virtrev_glmext::equal_operator;}
 
 #endif//glm_virtrev_equal_operator
 

@@ -139,9 +139,6 @@ namespace glm
 	}
 }
 
-#define GLM_VIRTREV_xstream namespace glm::virtrev_glmext::xstream
-#ifndef GLM_VIRTREV_GLOBAL
-namespace glm {using GLM_VIRTREV_xstream;}
-#endif//GLM_VIRTREV_GLOBAL
+namespace glm{using namespace glm::virtrev_glmext::xstream;}
 
-#endif
+#endif//GLM_EXT_VIRTREV_XSTREAM_HPP
