@@ -19,6 +19,7 @@
 #include "gtc/quaternion.hpp"
 #include "gtc/swizzle.hpp"
 #include "gtc/type_precision.hpp"
+#include "gtc/type_ptr.hpp"
 
 #include "./gtx/associated_min_max.hpp"
 #include "./gtx/bit.hpp"
