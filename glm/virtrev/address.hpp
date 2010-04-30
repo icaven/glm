@@ -183,10 +183,7 @@ namespace glm
 	}
 }
 
-#define GLM_VIRTREV_address namespace virtrev_glmext::address
-#ifndef GLM_VIRTREV_GLOBAL
-namespace glm {using GLM_VIRTREV_address;}
-#endif//GLM_VIRTREV_GLOBAL
+namespace glm{using namespace virtrev_glmext::address;}
 
 #endif//GLM_EXT_VIRTREV_ADDRESS_HPP
 
