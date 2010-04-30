@@ -1,4 +1,30 @@
 =============================
+GLM 0.9.B.2: 2010-04-30
+-----------------------------
+- Git transition
+- Removed experimental code from releases
+- Fixed bugs
+
+=============================
+GLM 0.9.B.1: 2010-04-03
+-----------------------------
+- Based on GLSL 4.00 specification
+- Added the new core functions
+- Added some implicit conversion support
+
+=============================
+GLM 0.9.A.2: 2010-02-20
+-----------------------------
+- Improved some possible errors messages
+- Improved declarations and definitions match
+
+=============================
+GLM 0.9.A.1: 2010-02-09
+-----------------------------
+- Removed deprecated features
+- Internal redesign
+
+=============================
 GLM 0.8.4.4 final: 2010-01-25
 -----------------------------
 - Fixed warnings
