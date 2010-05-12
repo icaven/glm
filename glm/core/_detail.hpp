@@ -152,8 +152,8 @@ namespace detail{
 	{
 		enum is_int_enum
 		{
-			YES = 0,
-			NO = 1
+			IS_YES = 0,
+			IS_NO = 1
 		};
 	};
 
@@ -163,8 +163,8 @@ namespace detail{
 	{							\
 		enum is_int_enum		\
 		{						\
-			YES = 1,			\
-			NO = 0				\
+			IS_YES = 1,			\
+			IS_NO = 0				\
 		};						\
 	}
 
@@ -176,8 +176,8 @@ namespace detail{
 	{
 		enum is_uint_enum
 		{
-			YES = 0,
-			NO = 1
+			IS_YES = 0,
+			IS_NO = 1
 		};
 	};
 
@@ -187,8 +187,8 @@ namespace detail{
 	{							\
 		enum is_uint_enum		\
 		{						\
-			YES = 1,			\
-			NO = 0				\
+			IS_YES = 1,			\
+			IS_NO = 0				\
 		};						\
 	}
 
@@ -202,8 +202,8 @@ namespace detail{
 	{
 		enum is_float_enum
 		{
-			YES = 0,
-			NO = 1
+			IS_YES = 0,
+			IS_NO = 1
 		};
 	};
 
@@ -213,8 +213,8 @@ namespace detail{
 	{							\
 		enum is_float_enum		\
 		{						\
-			YES = 1,			\
-			NO = 0				\
+			IS_YES = 1,			\
+			IS_NO = 0				\
 		};						\
 	}
 
@@ -226,8 +226,8 @@ namespace detail{
 	{
 		enum is_bool_enum
 		{
-			YES = 0,
-			NO = 1
+			IS_YES = 0,
+			IS_NO = 1
 		};
 	};
 	
@@ -236,8 +236,8 @@ namespace detail{
 	{
 		enum is_bool_enum
 		{
-			YES = 1,
-			NO = 0
+			IS_YES = 1,
+			IS_NO = 0
 		};
 	};
 	
@@ -249,8 +249,8 @@ namespace detail{
 	{
 		enum is_vector_enum
 		{
-			YES = 0,
-			NO = 1
+			IS_YES = 0,
+			IS_NO = 1
 		};
 	};
 
@@ -260,8 +260,8 @@ namespace detail{
 	{							\
 		enum is_vector_enum		\
 		{						\
-			YES = 1,			\
-			NO = 0				\
+			IS_YES = 1,			\
+			IS_NO = 0			\
 		};						\
 	}
 
@@ -273,8 +273,8 @@ namespace detail{
 	{
 		enum is_matrix_enum
 		{
-			YES = 0,
-			NO = 1
+			IS_YES = 0,
+			IS_NO = 1
 		};
 	};
 
@@ -284,8 +284,8 @@ namespace detail{
 	{							\
 		enum is_matrix_enum		\
 		{						\
-			YES = 1,			\
-			NO = 0				\
+			IS_YES = 1,			\
+			IS_NO = 0			\
 		};						\
 	}
 
@@ -297,10 +297,10 @@ namespace detail{
 	{
 		enum type_enum
 		{
-			is_float = is_float<T>::YES,
-			is_int = is_int<T>::YES,
-			is_uint = is_uint<T>::YES,
-			is_bool = is_bool<T>::YES
+			is_float = is_float<T>::IS_YES,
+			is_int = is_int<T>::IS_YES,
+			is_uint = is_uint<T>::IS_YES,
+			is_bool = is_bool<T>::IS_YES
 		};
 	};
 
