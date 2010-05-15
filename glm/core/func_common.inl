@@ -833,7 +833,7 @@ namespace glm
 		//	detail::type<genTypeU>::is_float);
 
 		//return x + a * (y - x);
-		return genTypeU(x) + a * genTypeU(y - x);
+		return genTypeT(genTypeU(x) + a * genTypeU(y - x));
 	}
 
 	template <typename valTypeA, typename valTypeB>
