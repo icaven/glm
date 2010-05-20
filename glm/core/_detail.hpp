@@ -13,10 +13,6 @@
 #include "../setup.hpp"
 #include <cassert>
 
-//#define valType			typename genType::value_type
-//#define valType_cref	typename genType::value_type const &
-//#define genType_cref	typename genType const &
-
 namespace glm{
 namespace detail{
 
@@ -226,8 +222,8 @@ namespace detail{
 	{
 		enum is_bool_enum
 		{
-			YES = 0,
-			NO = 1
+			_YES = 0,
+			_NO = 1
 		};
 	};
 	
