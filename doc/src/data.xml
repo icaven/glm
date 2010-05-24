@@ -1524,11 +1524,10 @@
 	<page_news>
 		<news index="0051" date="24/05/2010" title="GLM 0.9.0.0 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
 			<paragraph>
-				GLM 0.9.0.0 is finally available!
+				GLM 0.9.0.0 brings various API changes from GLM 0.8.4.X branch which makes it not backward compatible.
 			</paragraph>
 			<paragraph>
-				It brings various API changes from GLM 0.8.4.X branch which makes it not backward compatible.
-				GLM is now compatible with Objective C++ to be used for MacOS X and iPhone projects.
+				Since Beta 2, GLM is now compatible with Objective C++ to be used for MacOS X and iPhone projects.
 			</paragraph>
 			<paragraph>
 				To continue making GLM a better library, 2 mailing lists have been created for users and developers.
