@@ -35,19 +35,6 @@
     </html>
   </xsl:template>
 
-  <xsl:template match="code">
-    <div>
-      <div class="title4">
-        <xsl:value-of select="./@date" /> | <xsl:value-of select="./@title" />
-      </div>
-      <div>
-        <xsl:apply-templates />
-      </div>
-      <div class="news-separator">_________________</div>
-      <br />
-    </div>
-  </xsl:template>
-  
 <!--
   <xsl:template match="code">
     <div>
