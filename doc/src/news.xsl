@@ -53,24 +53,12 @@
         <xsl:if test="./list">
           <xsl:apply-templates select="./list" />
         </xsl:if>
+		  <xsl:if test="./code">
+			  <xsl:apply-templates select="./code" />
+		  </xsl:if>
         <xsl:apply-templates select="./source" />
 
-        <!--table style="width:100%;">
-        <tr style="width:100%;">
-          <td>
-            <xsl:if test="./paragraph">
-              <xsl:apply-templates select="./paragraph" />
-            </xsl:if>
-            <xsl:if test="./list">
-              <xsl:apply-templates select="./list" />
-            </xsl:if>
-            <xsl:apply-templates select="./source" />
-          </td>
-          <td style="text-align:right;">
-            <a ref="{./@image}"><img src="{./@image-mini}" alt=" " /></a>
-          </td>
-        </tr>
-      </table-->
+		<!--xsl:apply-templates select="/" /-->
 
       </div>
       <div class="news-separator">_________________</div>

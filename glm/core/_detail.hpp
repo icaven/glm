@@ -13,10 +13,6 @@
 #include "../setup.hpp"
 #include <cassert>
 
-//#define valType			typename genType::value_type
-//#define valType_cref	typename genType::value_type const &
-//#define genType_cref	typename genType const &
-
 namespace glm{
 namespace detail{
 
@@ -152,8 +148,8 @@ namespace detail{
 	{
 		enum is_int_enum
 		{
-			YES = 0,
-			NO = 1
+			_YES = 0,
+			_NO = 1
 		};
 	};
 
@@ -163,8 +159,8 @@ namespace detail{
 	{							\
 		enum is_int_enum		\
 		{						\
-			YES = 1,			\
-			NO = 0				\
+			_YES = 1,			\
+			_NO = 0				\
 		};						\
 	}
 
@@ -176,8 +172,8 @@ namespace detail{
 	{
 		enum is_uint_enum
 		{
-			YES = 0,
-			NO = 1
+			_YES = 0,
+			_NO = 1
 		};
 	};
 
@@ -187,8 +183,8 @@ namespace detail{
 	{							\
 		enum is_uint_enum		\
 		{						\
-			YES = 1,			\
-			NO = 0				\
+			_YES = 1,			\
+			_NO = 0				\
 		};						\
 	}
 
@@ -202,8 +198,8 @@ namespace detail{
 	{
 		enum is_float_enum
 		{
-			YES = 0,
-			NO = 1
+			_YES = 0,
+			_NO = 1
 		};
 	};
 
@@ -213,8 +209,8 @@ namespace detail{
 	{							\
 		enum is_float_enum		\
 		{						\
-			YES = 1,			\
-			NO = 0				\
+			_YES = 1,			\
+			_NO = 0				\
 		};						\
 	}
 
@@ -226,8 +222,8 @@ namespace detail{
 	{
 		enum is_bool_enum
 		{
-			YES = 0,
-			NO = 1
+			_YES = 0,
+			_NO = 1
 		};
 	};
 	
@@ -236,8 +232,8 @@ namespace detail{
 	{
 		enum is_bool_enum
 		{
-			YES = 1,
-			NO = 0
+			_YES = 1,
+			_NO = 0
 		};
 	};
 	
@@ -249,8 +245,8 @@ namespace detail{
 	{
 		enum is_vector_enum
 		{
-			YES = 0,
-			NO = 1
+			_YES = 0,
+			_NO = 1
 		};
 	};
 
@@ -260,8 +256,8 @@ namespace detail{
 	{							\
 		enum is_vector_enum		\
 		{						\
-			YES = 1,			\
-			NO = 0				\
+			_YES = 1,			\
+			_NO = 0				\
 		};						\
 	}
 
@@ -273,8 +269,8 @@ namespace detail{
 	{
 		enum is_matrix_enum
 		{
-			YES = 0,
-			NO = 1
+			_YES = 0,
+			_NO = 1
 		};
 	};
 
@@ -284,8 +280,8 @@ namespace detail{
 	{							\
 		enum is_matrix_enum		\
 		{						\
-			YES = 1,			\
-			NO = 0				\
+			_YES = 1,			\
+			_NO = 0				\
 		};						\
 	}
 
@@ -297,10 +293,10 @@ namespace detail{
 	{
 		enum type_enum
 		{
-			is_float = is_float<T>::YES,
-			is_int = is_int<T>::YES,
-			is_uint = is_uint<T>::YES,
-			is_bool = is_bool<T>::YES
+			is_float = is_float<T>::_YES,
+			is_int = is_int<T>::_YES,
+			is_uint = is_uint<T>::_YES,
+			is_bool = is_bool<T>::_YES
 		};
 	};
 

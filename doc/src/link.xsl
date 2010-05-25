@@ -41,14 +41,17 @@
               <div class="menu2">
                 <a class="menu" href="./html/index.html">API Documentation</a>
               </div>
-              <div class="menu2">
-                <a class="menu" href="http://glf.svn.sourceforge.net/viewvc/glf">SVN Browse</a>
+				<div class="menu2">
+					<a class="menu" href="http://ogl-math.git.sourceforge.net/git/gitweb.cgi?p=ogl-math/ogl-math;a=snapshot;h=HEAD;sf=tgz">GIT HEAD snapshot</a>
+				</div>
+			  <div class="menu2">
+                <a class="menu" href="http://ogl-math.git.sourceforge.net/git/gitweb.cgi?p=ogl-math/ogl-math;a=summary">Browse Git repository</a>
               </div>
               <div class="menu2">
-                <a class="menu" href="https://sourceforge.net/tracker/?group_id=129808&amp;atid=901445">Bug tracker</a>
+                <a class="menu" href="https://sourceforge.net/projects/ogl-math/">SF.net page</a>
               </div>
               <div class="menu2">
-                <a class="menu" href="https://sourceforge.net/tracker/?group_id=129808&amp;atid=715891">Feature requests</a>
+                <a class="menu" href="https://sourceforge.net/apps/trac/ogl-math">Bug reports</a>
               </div>
               <div class="menu2">
                 <a class="menu" href="./link.html">Links</a>
@@ -91,7 +94,7 @@
 
   <xsl:template match="links">
     <div>
-      <div class="title2">Liens</div>
+      <div class="title2">Links</div>
       <div class="issue-content">
         This page lists all the documents that helped to develop OpenGL Mathematics.
       </div>

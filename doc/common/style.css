@@ -12,6 +12,12 @@ table
 	margin-right:auto;
 }
 
+ul
+{
+	padding:0px;
+	margin:0px;
+}
+
 table.principale
 {
 	background-color:#ff8000;
@@ -199,4 +205,100 @@ div.issue-content
 div.issue-title
 {
     font-weight:bold;    
+}
+
+span.progword
+{
+	color:#000000;
+	font-family:"Courier New";
+	font-size:11px;	
+}
+
+span.bold
+{
+	font-weight:bold;	
+}
+
+span.code-title
+{
+	padding-left:0px;
+	color:#803300;
+}
+
+span.code-line-content
+{
+	display:inline;
+	color:#000000;
+	border-left-style:solid;
+	border-left-width:1px;
+	border-left-color:#ffdac1;
+	margin-left:0px;
+	padding-left:8px;
+}
+
+ul.code-list
+{
+	border-style:solid;
+	border-width:1px;
+	border-color:#ffdac1;
+	color:#803300;
+	margin-bottom:16px;
+	margin-left:0px;
+	margin-right:0px;
+}
+
+li.code-line
+{
+	color:#008080;
+	font-family:"Courier New";
+	font-size:11px;
+	clear:both;
+	width:100%;
+	list-style-position:inside;
+	list-style-type:decimal-leading-zero;
+	margin:0px;
+	padding:0px;
+	padding-left:0px;
+}
+
+li.code-line:after
+{
+	clear:both;
+}
+
+span.code-line-content
+{
+	display:inline;
+	color:#000000;
+	border-left-style:solid;
+	border-left-width:1px;
+	border-left-color:#ffdac1;
+	margin-left:0px;
+	padding-left:8px;
+}
+
+span.userword
+{
+	color:#ff8000;	
+}
+
+span.keyword
+{
+	color:#0000ff;
+}
+
+span.comment
+{
+	color:#008000;
+}
+
+span.string
+{
+	color:#800000;
+}
+
+span.codeword
+{
+	color:#000000;
+	font-family:"Courier New";
 }

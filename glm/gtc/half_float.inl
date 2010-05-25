@@ -25,13 +25,13 @@ inline tvec2<thalf>::size_type tvec2<thalf>::value_size()
 
 inline thalf & tvec2<thalf>::operator[](tvec2<thalf>::size_type i)
 {
-	assert(i >= tvec2<thalf>::size_type(0) && i < tvec2<thalf>::value_size());
+	assert(/*i >= tvec2<thalf>::size_type(0) && */i < tvec2<thalf>::value_size());
 	return (&x)[i];
 }
 
 inline thalf const & tvec2<thalf>::operator[](tvec2<thalf>::size_type i) const
 {
-	assert(i >= tvec2<thalf>::size_type(0) && i < tvec2<thalf>::value_size());
+	assert(/*i >= tvec2<thalf>::size_type(0) && */i < tvec2<thalf>::value_size());
 	return (&x)[i];
 }
 
@@ -296,7 +296,7 @@ inline thalf & tvec3<thalf>::operator[]
 	tvec3<thalf>::size_type i
 )
 {
-	assert(i >= tvec3<thalf>::size_type(0) && i < tvec3<thalf>::value_size());
+	assert(/*i >= tvec3<thalf>::size_type(0) &&*/ i < tvec3<thalf>::value_size());
 
 	return (&x)[i];
 }
@@ -306,7 +306,7 @@ inline thalf const & tvec3<thalf>::operator[]
 	tvec3<thalf>::size_type i
 ) const
 {
-	assert(i >= tvec3<thalf>::size_type(0) && i < tvec3<thalf>::value_size());
+	assert(/*i >= tvec3<thalf>::size_type(0) &&*/ i < tvec3<thalf>::value_size());
 
 	return (&x)[i];
 }
@@ -608,7 +608,7 @@ inline thalf & tvec4<thalf>::operator[]
 	tvec4<thalf>::size_type i
 )
 {
-	assert(i >= tvec4<thalf>::size_type(0) && i < tvec4<thalf>::value_size());
+	assert(/*i >= tvec4<thalf>::size_type(0) && */i < tvec4<thalf>::value_size());
 
 	return (&x)[i];
 }
@@ -618,7 +618,7 @@ inline thalf const & tvec4<thalf>::operator[]
 	tvec4<thalf>::size_type i
 ) const
 {
-	assert(i >= tvec4<thalf>::size_type(0) && i < tvec4<thalf>::value_size());
+	assert(/*i >= tvec4<thalf>::size_type(0) && */i < tvec4<thalf>::value_size());
 
 	return (&x)[i];
 }

@@ -2,7 +2,7 @@
 // OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2005-01-14
-// Updated : 2009-05-01
+// Updated : 2010-05-30
 // Licence : This source is under MIT License
 // File    : glm/glm.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -11,13 +11,19 @@
  *
  * OpenGL Mathematics (GLM) is a C++ mathematics library for 3D applications based on the OpenGL Shading Language (GLSL) specification. 
  *
- * The goal of the project is to provide to 3D programmers math classes and functions that miss in C++ when we use to program with GLSL or any high level GPU language. With GLM, the idea is to have a library that works the same way that GLSL which imply a strict following of GLSL specification for the implementation.
+ * GLM provides 3D programmers with math classes and functions that are similar to GLSL or any high level GPU programming language. The idea is to have a library that has identical naming conventions and functionalities than GLSL so that when developers know GLSL, they know how to use GLM.
  *
- * However, this project isn't limited by GLSL features. An extension system based on GLSL extensions development conventions allows to extend GLSL capabilities.
+ * However, this project isn't limited by GLSL features. An extension system, based on the GLSL extension conventions, allows extended capabilities.
  *
- * GLM is release under MIT license and available for all version of GCC from version 3.4 and Visual Studio from version 8.0 as a platform independent library.
+ * This library can be used with OpenGL but also for software rendering (Raytracing / Rasterisation), image processing and as much contexts as a simple math library could be used for.
  *
- * Any feedback is welcome, please send them to g.truc.creation[NO_SPAM_THANKS]gmail.com.
+ * GLM is written as a platform independent library and supports the following compilers: 
+ * - GNU GCC 3.4 and higher 
+ * - Microsoft Visual Studio 8.0 and higher
+ * 
+ * The source code is under the MIT licence.
+ * 
+ * Any feedback is welcome and can be sent to g.truc.creation[at]gmail.com.
  *
  */
 
@@ -58,22 +64,7 @@ namespace glm
 		//! from section 4.1.2 Booleans, 4.1.3 Integers section, 4.1.4 Floats section,
 		//! 4.1.5 Vectors and section 4.1.6 Matrices of GLSL 1.30.8 specification. 
 		//! This namespace resolves precision qualifier define in section 4.5 of GLSL 1.30.8 specification.
-		namespace type
-		{
-/*
-			//! Scalar types from section 4.1.2 Booleans, 4.1.3 Integers and 4.1.4 Floats of GLSL 1.30.8 specification. 
-			//! This namespace is included in glm namespace.
-			namespace scalar{}
-
-			//! Vector types from section 4.1.5 of GLSL 1.30.8 specification. 
-			//! This namespace is included in glm namespace.
-			namespace vector{}
-			
-			//! Matrix types from section 4.1.6 of GLSL 1.30.8 specification. 
-			//! This namespace is included in glm namespace.
-			namespace matrix{}
-*/
-		}
+		namespace type{}
 
 		//! Some of the functions defined in section 8 Built-in Functions of GLSL 1.30.8 specification.
 		//! Angle and trigonometry, exponential, common, geometric, matrix and vector relational functions.
@@ -109,43 +100,21 @@ namespace glm
 #include "./core/func_integer.hpp"
 #include "./core/func_noise.hpp"
 #include "./core/_swizzle.hpp"
-//#include "./core/_xref2.hpp"
-//#include "./core/_xref3.hpp"
-//#include "./core/_xref4.hpp"
-
-
-
-
-
-
 
 #if(defined(GLM_MESSAGE) && (GLM_MESSAGE & (GLM_MESSAGE_CORE | GLM_MESSAGE_NOTIFICATION)))
 #	pragma message("GLM message: Core library included")
 #endif//GLM_MESSAGE
 
-
-
-
-
 #if(defined(GLM_COMPILER) && (GLM_COMPILER & GLM_COMPILER_VC))
-
-#define GLM_DEPRECATED __declspec(deprecated)
-#define GLM_RESTRICT __restrict
-#define GLM_ALIGN(x) __declspec(align(x))
-
-//#define aligned(x) __declspec(align(x)) struct
-
+#	define GLM_DEPRECATED __declspec(deprecated)
+#	define GLM_RESTRICT __restrict
+#	define GLM_ALIGN(x) __declspec(align(x))
+//#	define aligned(x) __declspec(align(x)) struct
 #else
-
-#define GLM_DEPRECATED
-#define GLM_RESTRICT
-#define GLM_ALIGN(x)
-
+#	define GLM_DEPRECATED
+#	define GLM_RESTRICT
+#	define GLM_ALIGN(x)
 #endif//GLM_COMPILER
-
-
-
-
 
 ////////////////////
 // check type sizes
