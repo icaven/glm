@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <glm copyright="Copyright © 2005 - 2010 ">
 	<downloads>
 		<section name="GLM - zip files">
-			<download name="GLM 0.9.0.0" date="24/05/2010" size="1.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.0/glm-0.9.0.0.zip/download"/>
+			<download name="GLM 0.9.0.0" date="25/05/2010" size="1.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.0/glm-0.9.0.0.zip/download"/>
 			<download name="GLM 0.9.B.2" date="30/04/2010" size="1.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.B.2/glm-0.9.B.2.zip/download"/>
 			<download name="GLM 0.9.B.1" date="03/04/2010" size="964 KB" link="https://sourceforge.net/projects/glf/files/glm/glm-0.9.B.1/glm-0.9.B.1.zip/download"/>
 			<download name="GLM 0.9.A.2" date="20/02/2010" size="1.3 KB" link="https://sourceforge.net/projects/glf/files/glm/glm-0.9.A.2/glm-0.9.A.2.zip/download"/>
@@ -48,7 +48,7 @@
 			<download name="GLM 0.1.0.0" date="02/21/2005" size="29.2 KB" link="http://prdownloads.sourceforge.net/glf/glm-0.1-ur.zip?download"/>
 		</section>
 		<section name="GLM - 7z files">
-			<download name="GLM 0.9.0.0" date="24/05/2010" size="555 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.0/glm-0.9.0.0.7z/download"/>
+			<download name="GLM 0.9.0.0" date="25/05/2010" size="555 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.0/glm-0.9.0.0.7z/download"/>
 			<download name="GLM 0.9.B.2" date="30/04/2010" size="555 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.B.2/glm-0.9.B.2.7z/download"/>
 			<download name="GLM 0.9.B.1" date="03/04/2010" size="414 KB" link="https://sourceforge.net/projects/glf/files/glm/glm-0.9.B.1/glm-0.9.B.1.7z/download"/>
 			<download name="GLM 0.9.A.2" date="20/02/2010" size="726 KB" link="https://sourceforge.net/projects/glf/files/glm/glm-0.9.A.2/glm-0.9.A.2.7z/download"/>
@@ -1522,7 +1522,7 @@
 		</update>
 	</changelog>
 	<page_news>
-		<news index="0051" date="24/05/2010" title="GLM 0.9.0.0 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+		<news index="0051" date="25/05/2010" title="GLM 0.9.0.0 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
 			<paragraph>
 				GLM 0.9.0.0 brings various API changes from GLM 0.8.4.X branch which makes it not backward compatible.
 			</paragraph>
