@@ -4,6 +4,7 @@
 	<downloads>
 		<section name="GLM - zip files">
 			<download name="GLM 0.9.0.0" date="25/05/2010" size="1.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.0/glm-0.9.0.0.zip/download"/>
+			<download name="GLM 0.9.0.0" date="25/05/2010" size="1.0 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.0/glm-0.9.0.0.zip/download"/>
 			<download name="GLM 0.9.B.2" date="30/04/2010" size="1.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.B.2/glm-0.9.B.2.zip/download"/>
 			<download name="GLM 0.9.B.1" date="03/04/2010" size="964 KB" link="https://sourceforge.net/projects/glf/files/glm/glm-0.9.B.1/glm-0.9.B.1.zip/download"/>
 			<download name="GLM 0.9.A.2" date="20/02/2010" size="1.3 KB" link="https://sourceforge.net/projects/glf/files/glm/glm-0.9.A.2/glm-0.9.A.2.zip/download"/>
@@ -48,7 +49,7 @@
 			<download name="GLM 0.1.0.0" date="02/21/2005" size="29.2 KB" link="http://prdownloads.sourceforge.net/glf/glm-0.1-ur.zip?download"/>
 		</section>
 		<section name="GLM - 7z files">
-			<download name="GLM 0.9.0.0" date="25/05/2010" size="555 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.0/glm-0.9.0.0.7z/download"/>
+			<download name="GLM 0.9.0.0" date="25/05/2010" size="514 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.0/glm-0.9.0.0.7z/download"/>
 			<download name="GLM 0.9.B.2" date="30/04/2010" size="555 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.B.2/glm-0.9.B.2.7z/download"/>
 			<download name="GLM 0.9.B.1" date="03/04/2010" size="414 KB" link="https://sourceforge.net/projects/glf/files/glm/glm-0.9.B.1/glm-0.9.B.1.7z/download"/>
 			<download name="GLM 0.9.A.2" date="20/02/2010" size="726 KB" link="https://sourceforge.net/projects/glf/files/glm/glm-0.9.A.2/glm-0.9.A.2.7z/download"/>
@@ -1524,19 +1525,18 @@
 	<page_news>
 		<news index="0051" date="25/05/2010" title="GLM 0.9.0.0 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
 			<paragraph>
-				GLM 0.9.0.0 brings various API changes from GLM 0.8.4.X branch which makes it not backward compatible.
-			</paragraph>
-			<paragraph>
-				Since Beta 2, GLM is now compatible with Objective C++ to be used for MacOS X and iPhone projects.
+				GLM 0.9.0.0 is finally available! It brings various API changes from GLM 0.8.4.X branch which makes it not backward compatible.
+				GLM is now compatible with Objective C++ to be used for MacOS X and iPhone projects.
 			</paragraph>
 			<paragraph>
 				To continue making GLM a better library, 2 mailing lists have been created for users and developers.
 			</paragraph>
 
-			<source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.0/glm-0.9.0.0.zip/download">GLM 0.9.0.0 (zip, 1.07 MB)</source>
-			<source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.0/glm-0.9.0.0.7z/download">GLM 0.9.0.0 (7z, 555 KB)</source>
+			<source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.0/glm-0.9.0.0.zip/download">GLM 0.9.0.0 (zip, 1.0 MB)</source>
+			<source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.0/glm-0.9.0.0.7z/download">GLM 0.9.0.0 (7z, 514 KB)</source>
 			<source type="Mailing list" href="https://lists.sourceforge.net/lists/listinfo/ogl-math-users">Register to GLM mailing list for users</source>
 			<source type="Mailing list" href="https://lists.sourceforge.net/lists/listinfo/ogl-math-devel">Register to GLM mailing list for developers</source>
+			<source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
 		</news>   
 		
 		<news index="0050" date="30/04/2010" title="GLM 0.9 Beta 2 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
