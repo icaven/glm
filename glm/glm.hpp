@@ -23,7 +23,7 @@
  * 
  * The source code is under the MIT licence.
  * 
- * Any feedback is welcome and can be sent to g.truc.creation[at]gmail.com.
+ * Any feedback is welcome and can be sent to glm@g-truc.net.
  *
  */
 

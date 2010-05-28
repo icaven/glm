@@ -1,4 +1,10 @@
 =============================
+G-Truc Creation
+-----------------------------
+www.g-truc.net
+glm@g-truc.net
+
+=============================
 GLM 0.9.0.0: 2010-05-25
 -----------------------------
 - Objective-C support
@@ -269,7 +275,4 @@ GLM 0.1: 2005-02-21
 - Add bvec2, bvec3, bvec4 GLSL types
 - Add mat2, mat3, mat4 GLSL types
 - Add almost all functions
-
-===========================
-Christophe [Groove] Riccio, glm|AT|g-truc|DOT|net
 
