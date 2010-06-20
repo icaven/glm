@@ -33,10 +33,10 @@ inline valType orientedAngle
     valType c = cos(Angle);
     valType s = sin(Angle);
     detail::tvec2<valType> TransformedVector = detail::tvec2<valType>(c * y.x - s * y.y, s * y.x + c * y.y);
-    if(all(equalEpsilonGTX(x, TransformedVector, valType(0.01))))
-        return -degrees(Angle);
+    if(all(equalEpsilon(x, TransformedVector, valType(0.01))))
+		return -glm::degrees(Angle);
     else
-        return degrees(Angle);
+        return glm::degrees(Angle);
 }
 
 //! \todo epsilon is hard coded to 0.01
@@ -48,11 +48,11 @@ inline valType orientedAngle
 )
 {
     valType Angle = degrees(acos(dot(x, y)));
-	detail::tvec3<valType> TransformedVector = rotate(detail::tquat<valType>(), Angle, cross(x, y)) * y;
+	detail::tvec3<valType> TransformedVector = glm::gtx::rotate_vector::rotate(y, Angle, glm::core::function::geometric::cross(x, y));
     if(all(equalEpsilon(x, TransformedVector, valType(0.01))))
-        return -degrees(Angle);
+		return -Angle;
     else
-        return degrees(Angle);
+	   return Angle;
 }
 
 //! \todo epsilon is hard coded to 0.01
@@ -64,11 +64,11 @@ inline valType orientedAngle
 )
 {
     valType Angle = degrees(acos(dot(x, y)));
-    detail::tvec4<valType> TransformedVector = rotate(detail::tquat<valType>(), Angle, cross(x, y)) * y;
+    detail::tvec4<valType> TransformedVector = glm::gtx::rotate_vector::rotate(y, Angle, glm::core::function::geometric::cross(x, y));
     if(all(equalEpsilon(x, TransformedVector, valType(0.01))))
-        return -degrees(Angle);
+        return -Angle;
     else
-        return degrees(Angle);
+        return Angle;
 }
 
 template <typename valType>
