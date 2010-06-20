@@ -42,6 +42,6 @@ namespace glm
 
 #include "comparison.inl"
 
-namespace glm{using namespace gtx::comparison;}
+using namespace glm::gtx::comparison;
 
 #endif//glm_gtx_comparison
