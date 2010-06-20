@@ -3,7 +3,7 @@
 <glm copyright="Copyright © 2005 - 2010 ">
 	<downloads>
 		<section name="GLM - zip files">
-      <download name="GLM 0.9.0.1" date="21/06/2010" size="1.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.1/glm-0.9.0.1.zip/download"/>
+      <download name="GLM 0.9.0.1" date="21/06/2010" size="714 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.1/glm-0.9.0.1.zip/download"/>
 			<download name="GLM 0.9.0.0" date="25/05/2010" size="1.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.0/glm-0.9.0.0.zip/download"/>
 			<download name="GLM 0.9.B.2" date="30/04/2010" size="1.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.B.2/glm-0.9.B.2.zip/download"/>
 			<download name="GLM 0.9.B.1" date="03/04/2010" size="964 KB" link="https://sourceforge.net/projects/glf/files/glm/glm-0.9.B.1/glm-0.9.B.1.zip/download"/>
@@ -49,7 +49,7 @@
 			<download name="GLM 0.1.0.0" date="02/21/2005" size="29.2 KB" link="http://prdownloads.sourceforge.net/glf/glm-0.1-ur.zip?download"/>
 		</section>
 		<section name="GLM - 7z files">
-      <download name="GLM 0.9.0.1" date="21/06/2010" size="527 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.1/glm-0.9.0.1.7z/download"/>
+      <download name="GLM 0.9.0.1" date="21/06/2010" size="556 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.1/glm-0.9.0.1.7z/download"/>
 			<download name="GLM 0.9.0.0" date="25/05/2010" size="526 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.0/glm-0.9.0.0.7z/download"/>
 			<download name="GLM 0.9.B.2" date="30/04/2010" size="555 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.B.2/glm-0.9.B.2.7z/download"/>
 			<download name="GLM 0.9.B.1" date="03/04/2010" size="414 KB" link="https://sourceforge.net/projects/glf/files/glm/glm-0.9.B.1/glm-0.9.B.1.7z/download"/>
@@ -1529,8 +1529,8 @@
         This revision only fixes few extensions bugs.
       </paragraph>
 
-      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.1/glm-0.9.0.1.zip/download">GLM 0.9.0.1 (zip, 1.0 MB)</source>
-      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.1/glm-0.9.0.1.7z/download">GLM 0.9.0.1 (7z, 536 KB)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.1/glm-0.9.0.1.zip/download">GLM 0.9.0.1 (zip, 714 KB)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.1/glm-0.9.0.1.7z/download">GLM 0.9.0.1 (7z, 556 KB)</source>
      <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
     </news>
 
