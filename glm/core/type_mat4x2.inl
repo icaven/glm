@@ -32,7 +32,7 @@ namespace detail
 		size_type i
 	)
 	{
-		assert(i >= size_type(0) && i < col_size());
+		assert(i < col_size());
 		return this->value[i];
 	}
 
@@ -43,7 +43,7 @@ namespace detail
 		size_type i
 	) const
 	{
-		assert(i >= size_type(0) && i < col_size());
+		assert(i < col_size());
 		return this->value[i];
 	}
 

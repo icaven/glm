@@ -26,7 +26,7 @@ namespace glm
 			size_type i
 		)
 		{
-			assert(i >= size_type(0) && i < value_size());
+			assert(i < value_size());
 			return (&x)[i];
 		}
 
@@ -36,7 +36,7 @@ namespace glm
 			size_type i
 		) const
 		{
-			assert(i >= size_type(0) && i < value_size());
+			assert(i < value_size());
 			return (&x)[i];
 		}
 
