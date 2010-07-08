@@ -1,4 +1,5 @@
 #include "../../glm/glm.hpp" // glm::vec3, glm::vec4, glm::ivec4, glm::mat4
+#include <vector>
 
 struct triangle
 {
@@ -17,11 +18,28 @@ void computeNormal(triangle & Triangle)
 #include "../../glm/gtc/matrix_projection.hpp" // glm::perspective
 #include "../../glm/gtc/matrix_transform.hpp" // glm::translate, glm::rotate, glm::scale
 #include "../../glm/gtc/type_ptr.hpp" // glm::value_ptr
+#include "../../glm/gtc/quaternion.hpp" // glm::quat
+#include "../../glm/gtx/comparison.hpp" // == != 
+//#include "../../glm/ext.hpp"
 
 glm::vec4 const ClearColor = glm::vec4(glm::vec3(0.0f), 1.0f);
 glm::ivec4 const Viewport = glm::ivec4(0, 0, 640, 480);
 
 void glUniformMatrix4fv(int location, int count, bool transpose, const float * value);
+
+void ticket0023()
+{
+	std::vector<int> vals;
+	vals.push_back(1);
+	vals.push_back(2);
+	vals.push_back(3);
+	std::vector<int>::iterator it1, it2;
+	it1 = vals.begin();
+	it2 = vals.end();
+	it1 != it2; // <-- Here
+	glm::vec3 c;
+	glm::quat q;
+}
 
 int main()
 {
@@ -38,5 +56,7 @@ int main()
 	glm::mat4 Model = glm::scale(glm::mat4(1.0f), glm::vec3(0.5f));
 	glm::mat4 MVP = Projection * View * Model;
 	
-	glUniformMatrix4fv(LocationMVP, 1, GL_FALSE, glm::value_ptr(MVP));
+	//glUniformMatrix4fv(LocationMVP, 1, GL_FALSE, glm::value_ptr(MVP));
+
+	ticket0023();
 }
