@@ -3,7 +3,7 @@
 <glm copyright="Copyright © 2005 - 2010 ">
 	<downloads>
 		<section name="GLM - zip files">
-      <download name="GLM 0.9.0.2" date="08/07/2010" size="727 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.2/glm-0.9.0.2.zip/download"/>
+      <download name="GLM 0.9.0.2" date="08/07/2010" size="809 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.2/glm-0.9.0.2.zip/download"/>
 			<download name="GLM 0.9.0.1" date="21/06/2010" size="727 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.1/glm-0.9.0.1.zip/download"/>
 			<download name="GLM 0.9.0.0" date="25/05/2010" size="1.0 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.0/glm-0.9.0.0.zip/download"/>
 			<download name="GLM 0.9.B.2" date="30/04/2010" size="1.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.B.2/glm-0.9.B.2.zip/download"/>
@@ -50,7 +50,7 @@
 			<download name="GLM 0.1.0.0" date="02/21/2005" size="29.2 KB" link="http://prdownloads.sourceforge.net/glf/glm-0.1-ur.zip?download"/>
 		</section>
 		<section name="GLM - 7z files">
-      <download name="GLM 0.9.0.2" date="08/07/2010" size="569 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.2/glm-0.9.0.2.7z/download"/>
+      <download name="GLM 0.9.0.2" date="08/07/2010" size="651 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.2/glm-0.9.0.2.7z/download"/>
       <download name="GLM 0.9.0.1" date="21/06/2010" size="569 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.1/glm-0.9.0.1.7z/download"/>
 			<download name="GLM 0.9.0.0" date="25/05/2010" size="514 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.0/glm-0.9.0.0.7z/download"/>
 			<download name="GLM 0.9.B.2" date="30/04/2010" size="555 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.B.2/glm-0.9.B.2.7z/download"/>
@@ -1528,11 +1528,13 @@
 	<page_news>
     <news index="0053" date="08/07/2010" title="GLM 0.9.0.2 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>
-        Second update of GLM 0.9.0 with more bug fixes 
+        Second update of GLM 0.9.0 with more bug fixes.
+        It also contains a new extension called GLM_GTX_int_10_10_10_2 to use GLM with OpenGL and 
+        <link href="http://www.opengl.org/registry/specs/ARB/vertex_type_2_10_10_10_rev.txt">GL_ARB_vertex_type_2_10_10_10_rev</link>.
       </paragraph>
 
-      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.2/glm-0.9.0.2.zip/download">GLM 0.9.0.2 (zip, 714 KB)</source>
-      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.2/glm-0.9.0.2.7z/download">GLM 0.9.0.2 (7z, 556 KB)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.2/glm-0.9.0.2.zip/download">GLM 0.9.0.2 (zip, 809 KB)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.2/glm-0.9.0.2.7z/download">GLM 0.9.0.2 (7z, 651 KB)</source>
       <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
     </news>
     
