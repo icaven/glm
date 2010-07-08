@@ -15,6 +15,7 @@
 
 // Dependency:
 #include "../glm.hpp"
+#include "../gtx/raw_data.hpp"
 
 namespace glm
 {
@@ -22,6 +23,8 @@ namespace glm
 	//! GLM_GTX_int_10_10_10_2 extension: Add support for integer for core functions
 	namespace int_10_10_10_2
 	{
+		using namespace gtx::raw_data;
+
 		//! From GLM_GTX_int_10_10_10_2 extension.
 		//! Cast a vec4 to an u_10_10_10_2.
 		dword uint10_10_10_2_cast(glm::vec4 const & v);
