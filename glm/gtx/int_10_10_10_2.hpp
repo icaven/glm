@@ -23,10 +23,8 @@ namespace glm
 	namespace int_10_10_10_2
 	{
 		//! From GLM_GTX_int_10_10_10_2 extension.
-		int int10_10_10_2_cast(glm::vec4 const & v);
-
-		//! From GLM_GTX_int_10_10_10_2 extension.
-		uint uint10_10_10_2_cast(glm::vec4 const & v);
+		//! Cast a vec4 to an u_10_10_10_2.
+		dword uint10_10_10_2_cast(glm::vec4 const & v);
 
 	}//namespace integer
 	}//namespace gtx
