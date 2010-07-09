@@ -41,6 +41,7 @@
 #include "./gtx/gradient_paint.hpp"
 #include "./gtx/handed_coordinate_space.hpp"
 #include "./gtx/inertia.hpp"
+#include "./gtx/int_10_10_10_2.hpp"
 #include "./gtx/integer.hpp"
 #include "./gtx/intersect.hpp"
 #include "./gtx/inverse.hpp"

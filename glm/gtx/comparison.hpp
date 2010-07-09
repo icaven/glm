@@ -28,13 +28,45 @@ namespace glm
 
 		//! Define == operator for vectors
 		//! From GLM_GTX_comparison extension.
-		template <typename vecType>
-		bool operator== (vecType const & x, vecType const & y);
+		template <typename T>
+		bool operator== (
+			detail::tvec2<T> const & x, 
+			detail::tvec2<T> const & y);
+
+		//! Define == operator for vectors
+		//! From GLM_GTX_comparison extension.
+		template <typename T>
+		bool operator== (
+			detail::tvec3<T> const & x, 
+			detail::tvec3<T> const & y);
+
+		//! Define == operator for vectors
+		//! From GLM_GTX_comparison extension.
+		template <typename T>
+		bool operator== (
+			detail::tvec4<T> const & x, 
+			detail::tvec4<T> const & y);
 
 		//! Define != operator for vectors
 		//! From GLM_GTX_comparison extension.
-		template <typename vecType>
-		bool operator!= (vecType const & x, vecType const & y);
+		template <typename T>
+		bool operator!= (
+			detail::tvec2<T> const & x, 
+			detail::tvec2<T> const & y);
+
+		//! Define != operator for vectors
+		//! From GLM_GTX_comparison extension.
+		template <typename T>
+		bool operator!= (
+			detail::tvec3<T> const & x, 
+			detail::tvec3<T> const & y);
+
+		//! Define != operator for vectors
+		//! From GLM_GTX_comparison extension.
+		template <typename T>
+		bool operator!= (
+			detail::tvec4<T> const & x, 
+			detail::tvec4<T> const & y);
 
 	}//namespace comparison
 	}//namespace gtx
