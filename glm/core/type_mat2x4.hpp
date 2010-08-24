@@ -60,7 +60,7 @@ namespace glm
 			tmat2x4(tmat2x4 const & m);
 
 			explicit tmat2x4(
-				ctor Null);
+				ctor);
 			explicit tmat2x4(
 				value_type const & s);
 			explicit tmat2x4(

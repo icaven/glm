@@ -61,6 +61,24 @@ namespace detail
     template <typename T> 
     inline tmat3x2<T>::tmat3x2
 	(
+		tmat3x2<T> const & m
+	)
+    {
+        this->value[0] = m.value[0];
+        this->value[1] = m.value[1];
+		this->value[2] = m.value[2];
+    }
+
+    template <typename T> 
+    inline tmat3x2<T>::tmat3x2
+	(
+		ctor
+	)
+    {}
+
+    template <typename T> 
+    inline tmat3x2<T>::tmat3x2
+	(
 		value_type const & s
 	)
     {
