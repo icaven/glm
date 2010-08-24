@@ -463,15 +463,14 @@ namespace detail
             m[2] * s,
             m[3] * s);
     }
-   
+
     template <typename T>
-    inline typename tmat4x2<T>::row_type operator* 
+    inline typename tmat4x2<T>::col_type operator* 
 	(
 		tmat4x2<T> const & m, 
-		typename tmat4x2<T>::col_type const & v
-	)
+		typename tmat4x2<T>::row_type const & v)
     {
-        return typename tmat4x2<T>::row_type(
+        return typename tmat4x2<T>::col_type(
             m[0][0] * v.x + m[1][0] * v.y + m[2][0] * v.z + m[3][0] * v.w,
             m[0][1] * v.x + m[1][1] * v.y + m[2][1] * v.z + m[3][1] * v.w);
     }
@@ -479,11 +478,10 @@ namespace detail
     template <typename T> 
     inline typename tmat4x2<T>::row_type operator* 
 	(
-		typename tmat4x2<T>::row_type const & v, 
-		tmat4x2<T> const & m
-	)
+		typename tmat4x2<T>::col_type const & v, 
+		tmat4x2<T> const & m) 
     {
-		return typename tmat4x2<T>::row_type(
+        return typename tmat4x2<T>::row_type(
             v.x * m[0][0] + v.y * m[0][1],
             v.x * m[1][0] + v.y * m[1][1],
             v.x * m[2][0] + v.y * m[2][1],
