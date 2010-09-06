@@ -271,6 +271,8 @@ namespace glm
 
 }//namespace glm
 
+#ifndef GLM_EXTERNAL_TEMPLATE
 #include "type_vec4.inl"
+#endif
 
 #endif//glm_core_type_gentype4

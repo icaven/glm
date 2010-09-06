@@ -251,6 +251,8 @@ namespace glm
 	}//namespace core
 }//namespace glm
 
+#ifndef GLM_EXTERNAL_TEMPLATE
 #include "type_vec3.inl"
+#endif
 
 #endif//glm_core_type_gentype3
