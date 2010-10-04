@@ -157,12 +157,12 @@ namespace glm
 			tmat3x2<T> const & m2);
 
 		template <typename T> 
-		tmat3x2<T> operator/ (
+		tmat2x3<T> operator/ (
 			tmat2x3<T> const & m, 
 			typename tmat2x3<T>::value_type const & s);
 
 		template <typename T> 
-		tmat3x2<T> operator/ (
+		tmat2x3<T> operator/ (
 			typename tmat2x3<T>::value_type const & s,
 			tmat2x3<T> const & m);
 

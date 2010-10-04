@@ -491,8 +491,7 @@ namespace detail
         return tmat3x2<T>(
             m[0] / s,
             m[1] / s,
-            m[2] / s,
-            m[3] / s);        
+            m[2] / s);        
     }
 
     template <typename T> 
@@ -505,8 +504,7 @@ namespace detail
         return tmat3x2<T>(
             s / m[0],
             s / m[1],
-            s / m[2],
-            s / m[3]);        
+            s / m[2]);        
     }
 
 	// Unary constant operators
