@@ -35,7 +35,7 @@ namespace glm
 		template <typename T> struct tmat4x3;
 		template <typename T> struct tmat4x4;
 
-		//!< \brief Template for 3 * 4 matrix of floating-point numbers.
+		//!< \brief Template for 3 columns and 4 rows matrix of floating-point numbers.
 		template <typename T> 
 		struct tmat3x4
 		{
@@ -144,13 +144,13 @@ namespace glm
 			tmat3x4<T> const & m);
 
 		template <typename T>
-		typename tmat3x4<T>::row_type operator* (
+		typename tmat3x4<T>::col_type operator* (
 			tmat3x4<T> const & m, 
-			typename tmat3x4<T>::col_type const & v);
+			typename tmat3x4<T>::row_type const & v);
 
 		template <typename T> 
-		typename tmat3x4<T>::col_type operator* (
-			typename tmat3x4<T>::row_type const & v, 
+		typename tmat3x4<T>::row_type operator* (
+			typename tmat3x4<T>::col_type const & v, 
 			tmat3x4<T> const & m);
 
 		template <typename T>

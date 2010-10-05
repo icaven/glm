@@ -146,13 +146,13 @@ namespace glm
 			tmat4x2<T> const & m);
 
 		template <typename T>
-		typename tmat4x2<T>::row_type operator* (
+		typename tmat4x2<T>::col_type operator* (
 			tmat4x2<T> const & m, 
-			typename tmat4x2<T>::col_type const & v);
+			typename tmat4x2<T>::row_type const & v);
 
 		template <typename T> 
-		typename tmat4x2<T>::col_type operator* (
-			typename tmat4x2<T>::row_type const & v, 
+		typename tmat4x2<T>::row_type operator* (
+			typename tmat4x2<T>::col_type const & v, 
 			tmat4x2<T> const & m);
 
 		template <typename T> 

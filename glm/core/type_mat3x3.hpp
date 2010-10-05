@@ -159,13 +159,13 @@ namespace glm
 			tmat3x3<T> const & m);
 
 		template <typename T> 
-		typename tmat3x3<T>::row_type operator* (
+		typename tmat3x3<T>::col_type operator* (
 			tmat3x3<T> const & m, 
-			typename tmat3x3<T>::col_type const & v);
+			typename tmat3x3<T>::row_type const & v);
 
 		template <typename T> 
-		typename tmat3x3<T>::col_type operator* (
-			typename tmat3x3<T>::row_type const & v, 
+		typename tmat3x3<T>::row_type operator* (
+			typename tmat3x3<T>::col_type const & v, 
 			tmat3x3<T> const & m);
 
 		template <typename T> 
@@ -184,13 +184,13 @@ namespace glm
 			tmat3x3<T> const & m);
 
 		template <typename T> 
-		typename tmat3x3<T>::row_type operator/ (
+		typename tmat3x3<T>::col_type operator/ (
 			tmat3x3<T> const & m, 
-			typename tmat3x3<T>::col_type const & v);
+			typename tmat3x3<T>::row_type const & v);
 
 		template <typename T> 
-		typename tmat3x3<T>::col_type operator/ (
-			typename tmat3x3<T>::row_type const & v, 
+		typename tmat3x3<T>::row_type operator/ (
+			typename tmat3x3<T>::col_type const & v, 
 			tmat3x3<T> const & m);
 
 		template <typename T> 
