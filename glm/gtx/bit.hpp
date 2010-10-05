@@ -38,8 +38,11 @@ namespace glm
 		//! Component wise extraction of bit fields.
 		//! genType and genIType could be a scalar or a vector.
 		//! From GLM_GTX_bit extension.
-		template <typename genType, typename genIType>
-		genIType extractField(genType const & v, genIType const & first, genIType const & count);
+		template <typename genIUType, typename sizeType>
+		genIUType extractField(
+			genIUType const & v, 
+			sizeType const & first, 
+			sizeType const & count);
 
 		//! Find the lowest bit set to 1 in a integer variable.
 		//! From GLM_GTX_bit extension.
