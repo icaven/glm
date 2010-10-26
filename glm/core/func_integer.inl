@@ -146,8 +146,8 @@ namespace glm
 			detail::highp_uint_t ValueX64 = x;
 			detail::highp_uint_t ValueY64 = y;
 			detail::highp_uint_t Value64 = ValueX64 * ValueY64;
-			msb = *(genUType*)&(Value64 & ((detail::highp_uint_t(1) << detail::highp_uint_t(32)) - detail::highp_uint_t(1)));
-			lsb = *(genUType*)&(Value64 >> detail::highp_uint_t(32));
+			msb = *(genUType*)&genUType(Value64 & ((detail::highp_uint_t(1) << detail::highp_uint_t(32)) - detail::highp_uint_t(1)));
+			lsb = *(genUType*)&genUType(Value64 >> detail::highp_uint_t(32));
 		}
 
 		template <typename T>
@@ -208,8 +208,8 @@ namespace glm
 			detail::highp_int_t ValueX64 = x;
 			detail::highp_int_t ValueY64 = y;
 			detail::highp_int_t Value64 = ValueX64 * ValueY64;
-			msb = *(genIType*)&(Value64 & ((detail::highp_uint_t(1) << detail::highp_uint_t(32)) - detail::highp_uint_t(1)));
-			lsb = *(genIType*)&(Value64 >> detail::highp_uint_t(32));
+			msb = *(genIType*)&genIType(Value64 & ((detail::highp_uint_t(1) << detail::highp_uint_t(32)) - detail::highp_uint_t(1)));
+			lsb = *(genIType*)&genIType(Value64 >> detail::highp_uint_t(32));
 		}
 
 		template <typename T>
