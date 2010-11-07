@@ -92,141 +92,147 @@ inline genIType extractField
 )
 {
 	assert(first + count < sizeof(double));
-	return (detail::uif64(value).i << first) >> ((sizeof(double) << 3) - count);
+	return (detail::uif64(value).i << first) >> ((sizeof(double) << genIType(3)) - count);
 }
 
-template <typename genType, typename genIType>
-inline genIType extractField
+template <typename genIUType, typename sizeType>
+inline genIUType extractField
 (
-	genType const & value, 
-	genIType const & first, 
-	genIType const & count
+	genIUType const & Value, 
+	sizeType const & First, 
+	sizeType const & Count
 )
 {
-	assert(first + count < sizeof(genType));
-	return (value << first) >> ((sizeof(genType) << 3) - count);
+	sizeType GenSize = sizeof(genIUType) << 3;
+
+	assert(First + Count <= GenSize);
+
+	genIUType ShiftLeft = Count ? Value << (GenSize - (Count + First)) : 0;
+	genIUType ShiftBack = ShiftLeft >> genIUType(GenSize - Count);
+
+	return ShiftBack;
 }
 
-template <typename valType, typename valIType>
-inline detail::tvec2<valIType> extractField
+template <typename genIUType, typename sizeType>
+inline detail::tvec2<genIUType> extractField
 (
-	detail::tvec2<valType> const & value, 
-	valIType const & first, 
-	valIType const & count
+	detail::tvec2<genIUType> const & value, 
+	sizeType const & first, 
+	sizeType const & count
 )
 {
-	return detail::tvec2<valIType>(
+	return detail::tvec2<genIUType>(
 		extractField(value[0], first, count),
 		extractField(value[1], first, count));
 }
 
-template <typename valType, typename valIType>
-inline detail::tvec3<valIType> extractField
+template <typename genIUType, typename sizeType>
+inline detail::tvec3<genIUType> extractField
 (
-	detail::tvec3<valType> const & value, 
-	valIType const & first, 
-	valIType const & count
+	detail::tvec3<genIUType> const & value, 
+	sizeType const & first, 
+	sizeType const & count
 )
 {
-	return detail::tvec3<valIType>(
+	return detail::tvec3<genIUType>(
 		extractField(value[0], first, count),
 		extractField(value[1], first, count),
 		extractField(value[2], first, count));
 }
 
-template <typename valType, typename valIType>
-inline detail::tvec4<valIType> extractField
+template <typename genIUType, typename sizeType>
+inline detail::tvec4<genIUType> extractField
 (
-	detail::tvec4<valType> const & value, 
-	valIType const & first, 
-	valIType const & count
+	detail::tvec4<genIUType> const & value, 
+	sizeType const & first, 
+	sizeType const & count
 )
 {
-	return detail::tvec4<valIType>(
+	return detail::tvec4<genIUType>(
 		extractField(value[0], first, count),
 		extractField(value[1], first, count),
 		extractField(value[2], first, count),
 		extractField(value[3], first, count));
 }
 
-template <typename valType, typename valIType>
-inline detail::tvec2<valIType> extractField
+template <typename genIUType, typename sizeType>
+inline detail::tvec2<genIUType> extractField
 (
-	detail::tvec2<valType> const & value, 
-	detail::tvec2<valIType> const & first, 
-	detail::tvec2<valIType> const & count
+	detail::tvec2<genIUType> const & value, 
+	detail::tvec2<sizeType> const & first, 
+	detail::tvec2<sizeType> const & count
 )
 {
-	return detail::tvec2<valIType>(
+	return detail::tvec2<genIUType>(
 		extractField(value[0], first[0], count[0]),
 		extractField(value[1], first[1], count[1]));
 }
 
-template <typename valType, typename valIType>
-inline detail::tvec3<valIType> extractField
+template <typename genIUType, typename sizeType>
+inline detail::tvec3<genIUType> extractField
 (
-	detail::tvec3<valType> const & value, 
-	detail::tvec3<valIType> const & first, 
-	detail::tvec3<valIType> const & count
+	detail::tvec3<genIUType> const & value, 
+	detail::tvec3<sizeType> const & first, 
+	detail::tvec3<sizeType> const & count
 )
 {
-	return detail::tvec3<valIType>(
+	return detail::tvec3<genIUType>(
 		extractField(value[0], first[0], count[0]),
 		extractField(value[1], first[1], count[1]),
 		extractField(value[2], first[2], count[2]));
 }
 
-template <typename valType, typename valIType>
-inline detail::tvec4<valIType> extractField
+template <typename genIUType, typename sizeType>
+inline detail::tvec4<genIUType> extractField
 (
-	detail::tvec4<valType> const & value, 
-	detail::tvec4<valIType> const & first, 
-	detail::tvec4<valIType> const & count
+	detail::tvec4<genIUType> const & value, 
+	detail::tvec4<sizeType> const & first, 
+	detail::tvec4<sizeType> const & count
 )
 {
-	return detail::tvec4<valIType>(
+	return detail::tvec4<genIUType>(
 		extractField(value[0], first[0], count[0]),
 		extractField(value[1], first[1], count[1]),
 		extractField(value[2], first[2], count[2]),
 		extractField(value[3], first[3], count[3]));
 }
 
-template <typename valType, typename valIType>
-inline detail::tvec2<valIType> extractField
+template <typename genIUType, typename sizeType>
+inline detail::tvec2<genIUType> extractField
 (
-	valType const & value, 
-	detail::tvec2<valIType> const & first, 
-	detail::tvec2<valIType> const & count
+	genIUType const & value, 
+	detail::tvec2<sizeType> const & first, 
+	detail::tvec2<sizeType> const & count
 )
 {
-	return detail::tvec2<valIType>(
+	return detail::tvec2<genIUType>(
 		extractField(value, first[0], count[0]),
 		extractField(value, first[1], count[1]));
 }
 
-template <typename valType, typename valIType>
-inline detail::tvec3<valIType> extractField
+template <typename genIUType, typename sizeType>
+inline detail::tvec3<genIUType> extractField
 (
-	valType const & value, 
-	detail::tvec3<valIType> const & first, 
-	detail::tvec3<valIType> const & count
+	genIUType const & value, 
+	detail::tvec3<sizeType> const & first, 
+	detail::tvec3<sizeType> const & count
 )
 {
-	return detail::tvec3<valIType>(
+	return detail::tvec3<genIUType>(
 		extractField(value, first[0], count[0]),
 		extractField(value, first[1], count[1]),
 		extractField(value, first[2], count[2]));
 }
 
-template <typename valType, typename valIType>
-inline detail::tvec4<valIType> extractField
+template <typename genIUType, typename sizeType>
+inline detail::tvec4<genIUType> extractField
 (
-	valType const & value, 
-	detail::tvec4<valIType> const & first, 
-	detail::tvec4<valIType> const & count
+	genIUType const & value, 
+	detail::tvec4<sizeType> const & first, 
+	detail::tvec4<sizeType> const & count
 )
 {
-	return detail::tvec4<valIType>(
+	return detail::tvec4<genIUType>(
 		extractField(value, first[0], count[0]),
 		extractField(value, first[1], count[1]),
 		extractField(value, first[2], count[2]),

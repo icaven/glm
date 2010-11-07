@@ -449,10 +449,10 @@ namespace detail
     }
 
     template <typename T> 
-    inline typename tmat2x2<T>::row_type operator* 
+    inline typename tmat2x2<T>::col_type operator* 
 	(
 		tmat2x2<T> const & m, 
-		typename tmat2x2<T>::col_type const & v
+		typename tmat2x2<T>::row_type const & v
 	)
     {
         return detail::tvec2<T>(
@@ -461,9 +461,9 @@ namespace detail
     }
 
     template <typename T> 
-    inline typename tmat2x2<T>::col_type operator* 
+    inline typename tmat2x2<T>::row_type operator* 
 	(
-		typename tmat2x2<T>::row_type const & v, 
+		typename tmat2x2<T>::col_type const & v, 
 		tmat2x2<T> const & m
 	)
     {
@@ -511,19 +511,19 @@ namespace detail
     }
 
     template <typename T> 
-    inline typename tmat2x2<T>::row_type operator/ 
+    inline typename tmat2x2<T>::col_type operator/ 
 	(
 		tmat2x2<T> const & m, 
-		typename tmat2x2<T>::col_type & v
+		typename tmat2x2<T>::row_type & v
 	)
     {
         return m._inverse() * v;
     }
 
     template <typename T> 
-    inline typename tmat2x2<T>::col_type operator/ 
+    inline typename tmat2x2<T>::row_type operator/ 
 	(
-		typename tmat2x2<T>::row_type const & v,
+		typename tmat2x2<T>::col_type const & v,
 		tmat2x2<T> const & m
 	)
     {

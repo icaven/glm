@@ -435,10 +435,11 @@ namespace detail
             - (this->value[0][0] * SubFactor14 - this->value[0][1] * SubFactor16 + this->value[0][3] * SubFactor18),
             + (this->value[0][0] * SubFactor15 - this->value[0][1] * SubFactor17 + this->value[0][2] * SubFactor18));
 
-        value_type Determinant = this->value[0][0] * Inverse[0][0] 
-                      + this->value[0][1] * Inverse[1][0] 
-                      + this->value[0][2] * Inverse[2][0] 
-                      + this->value[0][3] * Inverse[3][0];
+        value_type Determinant = 
+			+ this->value[0][0] * Inverse[0][0] 
+			+ this->value[0][1] * Inverse[1][0] 
+			+ this->value[0][2] * Inverse[2][0] 
+			+ this->value[0][3] * Inverse[3][0];
 
         Inverse /= Determinant;
         return Inverse;
@@ -558,13 +559,13 @@ namespace detail
     }
 
     template <typename T> 
-    inline typename tmat4x4<T>::row_type operator* 
+    inline typename tmat4x4<T>::col_type operator* 
 	(
 		tmat4x4<T> const & m, 
-		typename tmat4x4<T>::col_type const & v
+		typename tmat4x4<T>::row_type const & v
 	)
     {
-        return typename tmat4x4<T>::row_type(
+        return typename tmat4x4<T>::col_type(
             m[0][0] * v.x + m[1][0] * v.y + m[2][0] * v.z + m[3][0] * v.w,
             m[0][1] * v.x + m[1][1] * v.y + m[2][1] * v.z + m[3][1] * v.w,
             m[0][2] * v.x + m[1][2] * v.y + m[2][2] * v.z + m[3][2] * v.w,
@@ -572,13 +573,13 @@ namespace detail
     }
 
     template <typename T> 
-    inline typename tmat4x4<T>::col_type operator* 
+    inline typename tmat4x4<T>::row_type operator* 
 	(
-		typename tmat4x4<T>::row_type const & v, 
+		typename tmat4x4<T>::col_type const & v, 
 		tmat4x4<T> const & m
 	)
     {
-        return typename tmat4x4<T>::col_type(
+        return typename tmat4x4<T>::row_type(
             m[0][0] * v.x + m[0][1] * v.y + m[0][2] * v.z + m[0][3] * v.w,
             m[1][0] * v.x + m[1][1] * v.y + m[1][2] * v.z + m[1][3] * v.w,
             m[2][0] * v.x + m[2][1] * v.y + m[2][2] * v.z + m[2][3] * v.w,
@@ -639,19 +640,19 @@ namespace detail
     }
 
     template <typename T> 
-    inline typename tmat4x4<T>::row_type operator/ 
+    inline typename tmat4x4<T>::col_type operator/ 
 	(
 		tmat4x4<T> const & m, 
-		typename tmat4x4<T>::col_type const & v
+		typename tmat4x4<T>::row_type const & v
 	)
     {
         return m._inverse() * v;
     }
 
     template <typename T> 
-    inline typename tmat4x4<T>::col_type operator/ 
+    inline typename tmat4x4<T>::row_type operator/ 
 	(
-		typename tmat4x4<T>::row_type const & v, 
+		typename tmat4x4<T>::col_type const & v, 
 		tmat4x4<T> const & m
 	)
     {

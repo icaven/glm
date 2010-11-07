@@ -400,6 +400,12 @@ namespace detail
             m[1] * s);
     }
    
+	//     X
+	//     X
+	// X X
+	// X X
+	// X X
+	// X X
     template <typename T>
     inline typename tmat2x4<T>::col_type operator* 
 	(
@@ -414,7 +420,12 @@ namespace detail
             m[0][3] * v.x + m[1][3] * v.y);
     }
 
-    template <typename T> 
+	//			X X
+	//			X X
+	//			X X
+	//			X X
+	// X X X X
+	template <typename T> 
     inline typename tmat2x4<T>::row_type operator* 
 	(
 		typename tmat2x4<T>::col_type const & v, 
@@ -480,9 +491,7 @@ namespace detail
     {
         return tmat2x4<T>(
             m[0] / s,
-            m[1] / s,
-            m[2] / s,
-            m[3] / s);        
+            m[1] / s);        
     }
 
     template <typename T> 
@@ -494,9 +503,7 @@ namespace detail
     {
         return tmat2x4<T>(
             s / m[0],
-            s / m[1],
-            s / m[2],
-            s / m[3]);        
+            s / m[1]);        
     }
 
 	// Unary constant operators

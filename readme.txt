@@ -5,6 +5,18 @@ www.g-truc.net
 glm@g-truc.net
 
 =============================
+GLM 0.9.0.5: 2010-11-01
+-----------------------------
+- Improved Clang support
+- Fixed bugs
+
+=============================
+GLM 0.9.0.4: 2010-10-04
+-----------------------------
+- Added autoexp for GLM
+- Fixed bugs
+
+=============================
 GLM 0.9.0.3: 2010-08-26
 -----------------------------
 - Fixed non-squared matrix operators

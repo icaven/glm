@@ -160,13 +160,13 @@ namespace glm
 			tmat2x2<T> const & m);
 
 		template <typename T> 
-		typename tmat2x2<T>::row_type operator* (
+		typename tmat2x2<T>::col_type operator* (
 			tmat2x2<T> const & m, 
-			typename tmat2x2<T>::col_type const & s);
+			typename tmat2x2<T>::row_type const & v);
 
 		template <typename T> 
-		typename tmat2x2<T>::col_type operator* (
-			typename tmat2x2<T>::row_type, 
+		typename tmat2x2<T>::row_type operator* (
+			typename tmat2x2<T>::col_type const & v, 
 			tmat2x2<T> const & m);
 
 		template <typename T> 
@@ -185,13 +185,13 @@ namespace glm
 			tmat2x2<T> const & m);
 
 		template <typename T> 
-		typename tmat2x2<T>::row_type operator/ (
+		typename tmat2x2<T>::col_type operator/ (
 			tmat2x2<T> const & m, 
-			typename tmat2x2<T>::col_type const & v);
+			typename tmat2x2<T>::row_type const & v);
 
 		template <typename T> 
-		typename tmat2x2<T>::col_type operator/ (
-			typename tmat2x2<T>::row_type & v, 
+		typename tmat2x2<T>::row_type operator/ (
+			typename tmat2x2<T>::col_type const & v, 
 			tmat2x2<T> const & m);
 
 		template <typename T> 
