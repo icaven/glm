@@ -30,10 +30,6 @@ namespace glm
 	//! GLM_GTC_double_float extension: Add support for double precision floating-point types
 	namespace double_float
 	{
-		//! Vector of 2 single-precision floating-point numbers. 
-		//! From GLM_GTC_double_float extension.
-		typedef detail::tvec2<float>	fvec2;
-
 		//! Vector of 3 single-precision floating-point numbers. 
 		//! From GLM_GTC_double_float extension.
 		typedef detail::tvec3<float>	fvec3;
