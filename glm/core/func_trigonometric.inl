@@ -211,7 +211,7 @@ namespace glm
 		genType const & angle
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'tan' only accept floating-point input");
 
         return ::std::tan(angle);
     }
@@ -259,7 +259,7 @@ namespace glm
 		genType const & x
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'asin' only accept floating-point input");
 
         return ::std::asin(x);
     }
@@ -307,7 +307,7 @@ namespace glm
 		genType const & x
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'acos' only accept floating-point input");
 
         return ::std::acos(x);
     }
@@ -356,7 +356,7 @@ namespace glm
 		genType const & x
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'atan' only accept floating-point input");
 
         return ::std::atan2(y, x);
     }
@@ -406,7 +406,7 @@ namespace glm
 		genType const & x
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'atan' only accept floating-point input");
 
         return ::std::atan(x);
     }
@@ -454,7 +454,7 @@ namespace glm
 		genType const & angle
 	)
     {
-        GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+        GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'sinh' only accept floating-point input");
 
 		return std::sinh(angle);
     }
@@ -502,7 +502,7 @@ namespace glm
 		genType const & angle
 	)
     {
-        GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+        GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'cosh' only accept floating-point input");
 
 		return std::cosh(angle);
     }
@@ -550,7 +550,7 @@ namespace glm
 		genType const & angle
 	)
     {
-        GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+        GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'tanh' only accept floating-point input");
 
 		return std::tanh(angle);
     }
@@ -598,7 +598,7 @@ namespace glm
 		genType const & x
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'asinh' only accept floating-point input");
 		
 		return (x < genType(0) ? genType(-1) : (x > genType(0) ? genType(1) : genType(0))) * log(abs(x) + sqrt(genType(1) + x * x));
     }
@@ -646,7 +646,7 @@ namespace glm
 		genType const & x
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'acosh' only accept floating-point input");
 
 		if(x < genType(1))
 			return genType(0);
@@ -696,7 +696,7 @@ namespace glm
 		genType const & x
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'atanh' only accept floating-point input");
 		
 		if(abs(x) >= genType(1))
 			return 0;

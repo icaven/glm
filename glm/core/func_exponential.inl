@@ -21,7 +21,7 @@ namespace glm
 		genType const & y
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'pow' only accept floating-point input");
 
         return ::std::pow(x, y);
     }
@@ -72,7 +72,7 @@ namespace glm
 		genType const & x
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'exp' only accept floating-point input");
 
         return ::std::exp(x);
     }
@@ -120,7 +120,7 @@ namespace glm
 		genType const & x
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'log' only accept floating-point input");
 
         return ::std::log(x);
     }
@@ -168,7 +168,7 @@ namespace glm
 		genType const & x
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'exp2' only accept floating-point input");
 
         return ::std::exp(genType(0.69314718055994530941723212145818) * x);
     }
@@ -216,7 +216,7 @@ namespace glm
 		genType const & x
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'log2' only accept floating-point input");
 
         return ::std::log(x) / genType(0.69314718055994530941723212145818);
     }
@@ -264,9 +264,9 @@ namespace glm
 		genType const & x
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'sqrt' only accept floating-point input");
 
-        return genType(::std::sqrt(double(x)));
+        return genType(::std::sqrt(x));
     }
 
     template <typename T>
@@ -311,7 +311,7 @@ namespace glm
 		genType const & x
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'inversesqrt' only accept floating-point input");
 
         return genType(1) / ::std::sqrt(x);
     }

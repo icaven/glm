@@ -25,7 +25,7 @@ namespace matrix_access
 
     template <typename genType>
     inline typename genType::row_type row(
-		genType & const m, 
+		genType const & m, 
 		int index)
     {
 		typename genType::row_type Result;

@@ -34,7 +34,7 @@ namespace glm
 			GLM_STATIC_ASSERT(
 				detail::type<T>::is_float || 
 				detail::type<T>::is_int || 
-				detail::type<T>::is_uint);
+				detail::type<T>::is_uint, "'lessThan' only accept numbers");
 
 			typename vecType<bool>::bool_type Result(vecType<bool>::null);
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
@@ -54,7 +54,7 @@ namespace glm
 			GLM_STATIC_ASSERT(
 				detail::type<T>::is_float || 
 				detail::type<T>::is_int || 
-				detail::type<T>::is_uint);
+				detail::type<T>::is_uint, "'lessThanEqual' only accept numbers");
 
 			typename vecType<bool>::bool_type Result(vecType<bool>::null);
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
@@ -74,7 +74,7 @@ namespace glm
 			GLM_STATIC_ASSERT(
 				detail::type<T>::is_float || 
 				detail::type<T>::is_int || 
-				detail::type<T>::is_uint);
+				detail::type<T>::is_uint, "'greaterThan' only accept numbers");
 
 			typename vecType<bool>::bool_type Result(vecType<bool>::null);
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
@@ -94,7 +94,7 @@ namespace glm
 			GLM_STATIC_ASSERT(
 				detail::type<T>::is_float || 
 				detail::type<T>::is_int || 
-				detail::type<T>::is_uint);
+				detail::type<T>::is_uint, "'greaterThanEqual' only accept numbers");
 
 			typename vecType<bool>::bool_type Result(vecType<bool>::null);
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
@@ -115,7 +115,7 @@ namespace glm
 				detail::type<T>::is_float || 
 				detail::type<T>::is_int || 
 				detail::type<T>::is_uint || 
-				detail::type<T>::is_bool);
+				detail::type<T>::is_bool, "'equal' only accept GLM vectors");
 
 			typename vecType<bool>::bool_type Result(vecType<bool>::null);
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
@@ -136,7 +136,7 @@ namespace glm
 				detail::type<T>::is_float || 
 				detail::type<T>::is_int || 
 				detail::type<T>::is_uint || 
-				detail::type<T>::is_bool);
+				detail::type<T>::is_bool, "'notEqual' only accept GLM vectors");
 
 			typename vecType<bool>::bool_type Result(vecType<bool>::null);
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
@@ -149,6 +149,9 @@ namespace glm
 		template <template <typename> class vecType> 
 		inline bool any(vecType<bool> const & v)
 		{
+			GLM_STATIC_ASSERT(
+				detail::type<T>::is_bool, "'any' only accept GLM boolean vectors");
+
 			bool Result = false;
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
 				Result = Result || v[i];
@@ -160,6 +163,9 @@ namespace glm
 		template <template <typename> class vecType> 
 		inline bool all(vecType<bool> const & v)
 		{
+			GLM_STATIC_ASSERT(
+				detail::type<T>::is_bool, "'all' only accept GLM boolean vectors");
+
 			bool Result = true;
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
 				Result = Result && v[i];
@@ -171,6 +177,9 @@ namespace glm
 		template <template <typename> class vecType> 
 		inline vecType<bool> not_(vecType<bool> const & v)
 		{
+			GLM_STATIC_ASSERT(
+				detail::type<T>::is_bool, "'not_' only accept GLM boolean vectors");
+
 			typename vecType<bool>::bool_type Result(vecType<bool>::null);
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
 				Result[i] = !v[i];

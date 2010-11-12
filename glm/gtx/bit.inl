@@ -596,7 +596,7 @@ inline detail::tvec4<valType> powerOfTwoNearest
 template <typename genType>
 inline genType bitRevert(genType const & In)
 {
-	GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_integer);
+	GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_integer, "'bitRevert' only accept integer values");
 
 	genType Out = 0;
 	std::size_t BitSize = sizeof(genType) * 8;
@@ -645,7 +645,7 @@ inline detail::tvec4<valType> bitRevert
 template <typename genType>
 inline genType bitRotateRight(genType const & In, std::size_t Shift)
 {
-	GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_integer);
+	GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_integer, "'bitRotateRight' only accept integer values");
 
 	std::size_t BitSize = sizeof(genType) * 8;
 	return (In << Shift) | (In >> (BitSize - Shift));
@@ -693,7 +693,7 @@ inline detail::tvec4<valType> bitRotateRight
 template <typename genType>
 inline genType bitRotateLeft(genType const & In, std::size_t Shift)
 {
-	GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_integer);
+	GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_integer, "'bitRotateLeft' only accept integer values");
 
 	std::size_t BitSize = sizeof(genType) * 8;
 	return (In >> Shift) | (In << (BitSize - Shift));

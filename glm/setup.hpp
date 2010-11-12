@@ -248,7 +248,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Static assert
 
-#if(defined(GLM_LANGUAGE) && GLM_LANGUAGE == GLM_LANGUAGE_CPP0X)
+#if(GLM_COMPILER >= GLM_COMPILER_VC2010 || GLM_COMPILER >= GLM_COMPILER_GCC45)
 #define GLM_STATIC_ASSERT(x, message) static_assert(x, message)
 #elif(defined(BOOST_STATIC_ASSERT))
 #define GLM_STATIC_ASSERT(x, message) BOOST_STATIC_ASSERT(x)
