@@ -16,7 +16,6 @@
 
 // Dependency:
 #include "../glm.hpp"
-#include "../gtc/glu_replacement.hpp"
 #include "../gtx/transform.hpp"
 
 namespace glm
@@ -30,7 +29,6 @@ namespace glm
 	namespace transform2
 	{
 		using namespace gtx::transform;
-		using namespace gtc::glu_replacement;
 
 		//! Transforms a matrix with a shearing on X axis.
 		//! From GLM_GTX_transform2 extension.

@@ -4,11 +4,10 @@
 // Created : 2005-12-21
 // Updated : 2007-08-14
 // Licence : This source is under MIT License
-// File    : glm/gtx/euler_angles.h
+// File    : glm/gtx/euler_angles.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
-// - GLM_GTC_double_float
 // - GLM_GTC_half_float
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // ToDo:
@@ -21,7 +20,6 @@
 
 // Dependency:
 #include "../glm.hpp"
-#include "../gtc/double_float.hpp"
 #include "../gtc/half_float.hpp"
 
 namespace glm

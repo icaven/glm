@@ -9,7 +9,6 @@
 // Dependency:
 // - GLM core
 // - GLM_GTC_half_float
-// - GLM_GTC_double_float
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_compatibility
@@ -18,7 +17,6 @@
 // Dependency:
 #include "../glm.hpp"  
 #include "../gtc/half_float.hpp"
-#include "../gtc/double_float.hpp"
 
 #ifdef GLM_COMPILER_VC
 #include <cfloat>

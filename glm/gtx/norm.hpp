@@ -9,7 +9,6 @@
 // Dependency:
 // - GLM core
 // - GLM_GTX_quaternion
-// - GLM_GTC_double_float
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // ToDo:
 // - Study the validity of the notion of length2 to quaternion
@@ -20,7 +19,6 @@
 
 // Dependency:
 #include "../glm.hpp"
-#include "../gtc/double_float.hpp"
 #include "../gtx/quaternion.hpp"
 
 namespace glm

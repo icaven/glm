@@ -9,7 +9,6 @@
 // Dependency:
 // - GLM core
 // - GLM_GTC_half
-// - GLM_GTC_double
 // - GLM_GTC_quaternion
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -19,7 +18,6 @@
 // Dependency:
 #include "../glm.hpp"
 #include "../gtc/half_float.hpp"
-#include "../gtc/double_float.hpp"
 #include "../gtc/quaternion.hpp"
 
 namespace glm
@@ -36,7 +34,6 @@ namespace glm
 		// Dependences
 
 		using namespace gtc::half_float;
-		using namespace gtc::double_float;
 		using namespace gtc::quaternion;
 
 		///////////////////////////

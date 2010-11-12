@@ -9,7 +9,6 @@
 // Dependency:
 // - GLM core
 // - GLM_GTC_half_float
-// - GLM_GTC_double_float
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // ToDo:
 // - Study constructors with angles and axis
@@ -22,7 +21,6 @@
 // Dependency:
 #include "../glm.hpp"
 #include "../gtc/half_float.hpp"
-#include "../gtc/double_float.hpp"
 
 namespace glm
 {

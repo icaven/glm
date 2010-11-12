@@ -16,7 +16,6 @@
 
 // Dependency:
 #include "../glm.hpp"
-#include "../gtc/gl_replacement.hpp"
 
 namespace glm
 {

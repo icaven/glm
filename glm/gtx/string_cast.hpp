@@ -8,8 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
-// - GLM_GTX_double
-// - GLM_GTX_half
+// - GLM_GTC_half_float
 // - GLM_GTX_integer
 // - GLM_GTX_quaternion
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -19,7 +18,6 @@
 
 // Dependency:
 #include "../glm.hpp"
-#include "../gtc/double_float.hpp"
 #include "../gtc/half_float.hpp"
 #include "../gtx/integer.hpp"
 #include "../gtx/unsigned_int.hpp"
@@ -36,7 +34,6 @@ namespace glm
 	//! GLM_GTX_string_cast extension: Setup strings for GLM type values
 	namespace string_cast
 	{
-		using namespace gtc::double_float; 
 		using namespace gtc::half_float; 
 		using namespace gtx::integer; 
 		using namespace gtx::unsigned_int; 

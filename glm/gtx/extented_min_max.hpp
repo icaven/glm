@@ -9,7 +9,6 @@
 // Dependency:
 // - GLM core
 // - GLM_GTX_half_float
-// - GLM_GTX_double_float
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_extented_min_max
@@ -18,7 +17,6 @@
 // Dependency:
 #include "../glm.hpp"
 #include "../gtc/half_float.hpp"
-#include "../gtc/double_float.hpp"
 
 namespace glm
 {

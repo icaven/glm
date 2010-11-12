@@ -20,7 +20,7 @@ namespace glm
 		genType const & degrees
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'radians' only accept floating-point input");
 
         const genType pi = genType(3.1415926535897932384626433832795);
         return degrees * (pi / genType(180));
@@ -69,7 +69,7 @@ namespace glm
 		genType const & radians
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'degrees' only accept floating-point input");
 
         const genType pi = genType(3.1415926535897932384626433832795);
         return radians * (genType(180) / pi);
@@ -118,7 +118,7 @@ namespace glm
 		genType const & angle
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'sin' only accept floating-point input");
 
 		return ::std::sin(angle);
     }
@@ -163,7 +163,7 @@ namespace glm
     template <typename genType>
     inline genType cos(genType const & angle)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'cos' only accept floating-point input");
 
         return ::std::cos(angle);
     }

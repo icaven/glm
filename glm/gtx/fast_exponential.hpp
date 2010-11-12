@@ -8,8 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
-// - GLM_GTX_half
-// - GLM_GTX_double
+// - GLM_GTC_half_float
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_fast_exponential
@@ -18,7 +17,6 @@
 // Dependency:
 #include "../glm.hpp"
 #include "../gtc/half_float.hpp"
-#include "../gtc/double_float.hpp"
 
 namespace glm
 {
@@ -31,7 +29,6 @@ namespace glm
 	namespace fast_exponential
 	{
 		using namespace gtc::half_float;
-		using namespace gtc::double_float;
 
 		//! Faster than the common pow function but less accurate.
 		//! From GLM_GTX_fast_exponential extension.

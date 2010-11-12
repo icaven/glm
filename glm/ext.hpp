@@ -10,7 +10,6 @@
 #ifndef glm_ext
 #define glm_ext
 
-#include "./gtc/double_float.hpp"
 #include "./gtc/half_float.hpp"
 #include "./gtc/matrix_access.hpp"
 #include "./gtc/matrix_transform.hpp"
