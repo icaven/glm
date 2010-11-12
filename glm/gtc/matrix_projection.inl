@@ -12,7 +12,6 @@ namespace gtc{
 namespace matrix_projection
 {
 
-
 }//namespace matrix_projection
 }//namespace gtc
 }//namespace glm

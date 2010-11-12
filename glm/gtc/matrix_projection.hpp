@@ -16,7 +16,6 @@
 
 // Dependency:
 #include "../glm.hpp"
-#include "../gtc/glu_replacement.hpp"
 
 namespace glm
 {
@@ -28,7 +27,7 @@ namespace glm
 	//! GLM_GTC_matrix_projection: Varius ways to build and operate on projection matrices
     namespace matrix_projection
     {
-		using namespace gtc::glu_replacement;
+
 
     }//namespace matrix_projection
     }//namespace gtc
