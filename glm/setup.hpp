@@ -248,10 +248,12 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Static assert
 
-#if(defined(BOOST_STATIC_ASSERT))
-#define GLM_STATIC_ASSERT(x) BOOST_STATIC_ASSERT(x)
+#if(defined(GLM_LANGUAGE) && GLM_LANGUAGE == GLM_LANGUAGE_CPP0X)
+#define GLM_STATIC_ASSERT(x, message) static_assert(x, message)
+#elif(defined(BOOST_STATIC_ASSERT))
+#define GLM_STATIC_ASSERT(x, message) BOOST_STATIC_ASSERT(x)
 #else
-#define GLM_STATIC_ASSERT(x) typedef char __CASSERT__##__LINE__[(x) ? 1 : -1]
+#define GLM_STATIC_ASSERT(x, message) typedef char __CASSERT__##__LINE__[(x) ? 1 : -1]
 #endif//GLM_DEPENDENCE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
