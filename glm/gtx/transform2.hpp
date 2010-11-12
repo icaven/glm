@@ -16,6 +16,7 @@
 
 // Dependency:
 #include "../glm.hpp"
+#include "../gtc/glu_replacement.hpp"
 #include "../gtx/transform.hpp"
 
 namespace glm
@@ -29,6 +30,7 @@ namespace glm
 	namespace transform2
 	{
 		using namespace gtx::transform;
+		using namespace gtc::glu_replacement;
 
 		//! Transforms a matrix with a shearing on X axis.
 		//! From GLM_GTX_transform2 extension.
@@ -89,14 +91,6 @@ namespace glm
 		detail::tmat4x4<T> proj3D(
 			const detail::tmat4x4<T> & m, 
 			const detail::tvec3<T>& normal);
-
-		//! Build a look at view matrix.
-		//! From GLM_GTX_transform2 extension.
-		template <typename T> 
-		detail::tmat4x4<T> lookAt(
-			detail::tvec3<T> const & eye, 
-			detail::tvec3<T> const & center, 
-			detail::tvec3<T> const & up);
 
 		//! Build a scale bias matrix. 
 		//! From GLM_GTX_transform2 extension.

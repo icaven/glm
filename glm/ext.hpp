@@ -11,6 +11,8 @@
 #define glm_ext
 
 #include "./gtc/double_float.hpp"
+#include "./gtc/gl_replacement.hpp"
+#include "./gtc/glu_replacement.hpp"
 #include "./gtc/half_float.hpp"
 #include "./gtc/matrix_access.hpp"
 #include "./gtc/matrix_operation.hpp"

@@ -1,5 +1,6 @@
 #include "../glm.hpp"
 #include "../ext.hpp"
+#include <map>
 
 int main()
 {
@@ -83,6 +84,22 @@ int main()
 		glm::mat4x3 o = m / x;
 		glm::mat4x3 p = x * m;
 		glm::mat4x3 q = m * x;
+	}
+
+	class test
+	{
+	private:
+		glm::vec3 Data;
+	};
+
+	std::map<int, test*> TestMap;
+	TestMap.insert(std::make_pair(0, new test));
+	TestMap.insert(std::make_pair(1, new test));
+	TestMap.insert(std::make_pair(2, new test));
+	std::map<int, test*>::iterator It = TestMap.find(1);
+	if(It != TestMap.end())
+	{
+		TestMap.insert(std::make_pair(3, new test));
 	}
 
 	//{
