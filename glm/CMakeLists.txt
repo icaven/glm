@@ -40,7 +40,7 @@ source_group("VIRTREV Files" FILES ${VIRTREV_SOURCE})
 source_group("VIRTREV Files" FILES ${VIRTREV_INLINE})
 source_group("VIRTREV Files" FILES ${VIRTREV_HEADER})
 
-include_directories(..)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/..)
 
 add_executable(${NAME} 
 	${ROOT_SOURCE}    ${ROOT_INLINE}    ${ROOT_HEADER} 
