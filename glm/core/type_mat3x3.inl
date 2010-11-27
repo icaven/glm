@@ -377,7 +377,7 @@ namespace detail
         T S20 = value[2][0];
         T S21 = value[2][1];
         T S22 = value[2][2];
-
+/*
         tmat3x3<T> Inverse(
             + (S11 * S22 - S21 * S12),
             - (S10 * S22 - S20 * S12),
@@ -388,6 +388,17 @@ namespace detail
             + (S01 * S12 - S11 * S02),
             - (S00 * S12 - S10 * S02),
             + (S00 * S11 - S10 * S01));
+*/
+        tmat3x3<T> Inverse(
+            S11 * S22 - S21 * S12,
+            S12 * S20 - S22 * S10,
+            S10 * S21 - S20 * S11,
+            S02 * S21 - S01 * S22,
+            S00 * S22 - S02 * S20,
+            S01 * S20 - S00 * S21,
+            S12 * S01 - S11 * S02,
+            S10 * S02 - S12 * S00,
+            S11 * S00 - S10 * S01);
 
         T Determinant = S00 * (S11 * S22 - S21 * S12)
                       - S10 * (S01 * S22 - S21 * S02)
