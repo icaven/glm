@@ -413,7 +413,7 @@ namespace detail
         value_type SubFactor16 = this->value[1][0] * this->value[2][3] - this->value[2][0] * this->value[1][3];
         value_type SubFactor17 = this->value[1][0] * this->value[2][2] - this->value[2][0] * this->value[1][2];
         value_type SubFactor18 = this->value[1][0] * this->value[2][1] - this->value[2][0] * this->value[1][1];
-
+/*
         tmat4x4<T> Inverse(
             + (this->value[1][1] * SubFactor00 - this->value[1][2] * SubFactor01 + this->value[1][3] * SubFactor02),
             - (this->value[1][0] * SubFactor00 - this->value[1][2] * SubFactor03 + this->value[1][3] * SubFactor04),
@@ -434,6 +434,27 @@ namespace detail
             + (this->value[0][0] * SubFactor13 - this->value[0][2] * SubFactor16 + this->value[0][3] * SubFactor17),
             - (this->value[0][0] * SubFactor14 - this->value[0][1] * SubFactor16 + this->value[0][3] * SubFactor18),
             + (this->value[0][0] * SubFactor15 - this->value[0][1] * SubFactor17 + this->value[0][2] * SubFactor18));
+*/
+        tmat4x4<T> Inverse(
+            + this->value[1][1] * SubFactor00 - this->value[1][2] * SubFactor01 + this->value[1][3] * SubFactor02,
+            - this->value[1][0] * SubFactor00 + this->value[1][2] * SubFactor03 - this->value[1][3] * SubFactor04,
+            + this->value[1][0] * SubFactor01 - this->value[1][1] * SubFactor03 + this->value[1][3] * SubFactor05,
+            - this->value[1][0] * SubFactor02 + this->value[1][1] * SubFactor04 - this->value[1][2] * SubFactor05,
+
+            - this->value[0][1] * SubFactor00 + this->value[0][2] * SubFactor01 - this->value[0][3] * SubFactor02,
+            + this->value[0][0] * SubFactor00 - this->value[0][2] * SubFactor03 + this->value[0][3] * SubFactor04,
+            - this->value[0][0] * SubFactor01 + this->value[0][1] * SubFactor03 - this->value[0][3] * SubFactor05,
+            + this->value[0][0] * SubFactor02 - this->value[0][1] * SubFactor04 + this->value[0][2] * SubFactor05,
+
+            + this->value[0][1] * SubFactor06 - this->value[0][2] * SubFactor07 + this->value[0][3] * SubFactor08,
+            - this->value[0][0] * SubFactor06 + this->value[0][2] * SubFactor09 - this->value[0][3] * SubFactor10,
+            + this->value[0][0] * SubFactor11 - this->value[0][1] * SubFactor09 + this->value[0][3] * SubFactor12,
+            - this->value[0][0] * SubFactor08 + this->value[0][1] * SubFactor10 - this->value[0][2] * SubFactor12,
+
+            - this->value[0][1] * SubFactor13 + this->value[0][2] * SubFactor14 - this->value[0][3] * SubFactor15,
+            + this->value[0][0] * SubFactor13 - this->value[0][2] * SubFactor16 + this->value[0][3] * SubFactor17,
+            - this->value[0][0] * SubFactor14 + this->value[0][1] * SubFactor16 - this->value[0][3] * SubFactor18,
+            + this->value[0][0] * SubFactor15 - this->value[0][1] * SubFactor17 + this->value[0][2] * SubFactor18);
 
         value_type Determinant = 
 			+ this->value[0][0] * Inverse[0][0] 
