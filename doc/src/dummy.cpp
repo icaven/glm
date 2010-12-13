@@ -15,7 +15,6 @@ void computeNormal(triangle & Triangle)
 	Triangle.Normal = glm::normalize(glm::cross(c - a, b - a));
 }
 
-#include "../../glm/gtc/matrix_projection.hpp" // glm::perspective
 #include "../../glm/gtc/matrix_transform.hpp" // glm::translate, glm::rotate, glm::scale
 #include "../../glm/gtc/type_ptr.hpp" // glm::value_ptr
 #include "../../glm/gtc/quaternion.hpp" // glm::quat
