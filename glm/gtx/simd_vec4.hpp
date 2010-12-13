@@ -22,16 +22,23 @@ namespace glm
 {
 	namespace detail
 	{
-		GLM_ALIGN(4) struct fvec4SIMD
+		GLM_ALIGN(4) union fvec4SIMD
 		{
+			enum ctor{null};
+			typedef float value_type;
+			typedef std::size_t size_type;
+			static size_type value_size();
+
+			typedef fvec4SIMD type;
+			typedef tvec4<bool> bool_type;
+
 			static __m128 one;
 
-			union
-			{
-				__m128 Data;
-				struct{float x, y, z, w;};
-				float array[4];
-			};
+			__m128 Data;
+			float Array[4];
+			struct{float x, y, z, w;};
+			struct{float r, g, b, a;};
+			struct{float s, t, q, p;};
 
 			//////////////////////////////////////
 			// Implicit basic constructors
@@ -44,9 +51,15 @@ namespace glm
 			//////////////////////////////////////
 			// Explicit basic constructors
 
-			fvec4SIMD(float const & s);
-			fvec4SIMD(float const & x, float const & y, float const & z, float const & w);
-			fvec4SIMD(float const v[4]);
+			explicit fvec4SIMD(
+				ctor);
+			explicit fvec4SIMD(
+				float const & s);
+			explicit fvec4SIMD(
+				float const & x, 
+				float const & y, 
+				float const & z, 
+				float const & w);
 
 			////////////////////////////////////////
 			//// Swizzle constructors
@@ -80,22 +93,6 @@ namespace glm
 
 			fvec4SIMD& operator++();
 			fvec4SIMD& operator--();
-
-			////////////////////////////////////////
-			//// Unary bit operators
-
-			//fvec4SIMD& operator%= (float s);
-			//fvec4SIMD& operator%= (fvec4SIMD const & v);
-			//fvec4SIMD& operator&= (float s);
-			//fvec4SIMD& operator&= (fvec4SIMD const & v);
-			//fvec4SIMD& operator|= (float s);
-			//fvec4SIMD& operator|= (fvec4SIMD const & v);
-			//fvec4SIMD& operator^= (float s);
-			//fvec4SIMD& operator^= (fvec4SIMD const & v);
-			//fvec4SIMD& operator<<=(float s);
-			//fvec4SIMD& operator<<=(fvec4SIMD const & v);
-			//fvec4SIMD& operator>>=(float s);
-			//fvec4SIMD& operator>>=(fvec4SIMD const & v);
 
 			//////////////////////////////////////
 			// Swizzle operators

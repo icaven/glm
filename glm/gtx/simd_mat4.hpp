@@ -41,7 +41,7 @@ namespace glm
 			static size_type row_size();
 			static bool is_matrix();
 
-			fvec4SIMD Data[4];
+			fvec4SIMD value[4];
 
 			//////////////////////////////////////
 			// Constructors

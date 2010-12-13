@@ -42,11 +42,11 @@ namespace glm
 	//		Data(_mm_setr_ps(x, y, z, w))
 			Data(_mm_set_ps(w, z, y, x))
 		{}
-
+/*
 		inline fvec4SIMD::fvec4SIMD(float const v[4]) :
 			Data(_mm_load_ps(v))
 		{}
-
+*/
 		//////////////////////////////////////
 		// Swizzle constructors
 
