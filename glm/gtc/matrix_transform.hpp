@@ -89,8 +89,30 @@ namespace glm
 			T const & zNear, 
 			T const & zFar);
 
+		//! Builds a perspective projection matrix based on a field of view
+		//! From GLM_GTC_matrix_transform extension.
+		template <typename valType> 
+		detail::tmat4x4<valType> perspectiveFov(
+			valType const & fov, 
+			valType const & width, 
+			valType const & height, 
+			valType const & zNear, 
+			valType const & zFar);
+
+		//! Creates a matrix for a symmetric perspective-view frustum with far plane at infinite .
+		//! From GLM_GTC_matrix_transform extension.
+        template <typename T> 
+		detail::tmat4x4<T> infinitePerspective(
+			T fovy, T aspect, T zNear);
+
+		//! Creates a matrix for a symmetric perspective-view frustum with far plane at infinite for graphics hardware that doesn't support depth clamping.
+		//! From GLM_GTC_matrix_transform extension.
+        template <typename T> 
+		detail::tmat4x4<T> tweakedInfinitePerspective(
+			T fovy, T aspect, T zNear);
+
 		//! Map the specified object coordinates (obj.x, obj.y, obj.z) into window coordinates.
-		//! From GLM_GTC_glu_replacement extension.
+		//! From GLM_GTC_matrix_transform extension.
 		template <typename T, typename U> 
 		detail::tvec3<T> project(
 			detail::tvec3<T> const & obj, 
@@ -99,7 +121,7 @@ namespace glm
 			detail::tvec4<U> const & viewport);
 
 		//! Map the specified window coordinates (win.x, win.y, win.z) into object coordinates.
-		//! From GLM_GTC_glu_replacement extension.
+		//! From GLM_GTC_matrix_transform extension.
 		template <typename T, typename U> 
 		detail::tvec3<T> unProject(
 			detail::tvec3<T> const & win, 

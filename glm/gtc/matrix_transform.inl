@@ -220,6 +220,71 @@ namespace matrix_transform
 		return Result;
 	}
 
+	template <typename valType>
+	inline detail::tmat4x4<valType> perspectiveFov
+	(
+		valType const & fov, 
+		valType const & width, 
+		valType const & height, 
+		valType const & zNear, 
+		valType const & zFar
+	)
+	{
+		valType rad = glm::radians(fov);
+		valType h = glm::cos(valType(0.5) * rad) / glm::sin(valType(0.5) * rad);
+		valType w = h * height / width;
+
+		detail::tmat4x4<valType> Result(valType(0));
+		Result[0][0] = w;
+		Result[1][1] = h;
+		Result[2][2] = (zFar + zNear) / (zFar - zNear);
+		Result[2][3] = valType(1);
+		Result[3][2] = -(valType(2) * zFar * zNear) / (zFar - zNear);
+		return Result;
+	}
+
+	template <typename T> 
+	inline detail::tmat4x4<T> infinitePerspective(
+		T fovy, 
+		T aspect, 
+		T zNear)
+	{
+		T range = tan(radians(fovy / T(2))) * zNear;	
+		T left = -range * aspect;
+		T right = range * aspect;
+		T bottom = -range;
+		T top = range;
+
+		detail::tmat4x4<T> Result(T(0));
+		Result[0][0] = (T(2) * zNear) / (right - left);
+		Result[1][1] = (T(2) * zNear) / (top - bottom);
+		Result[2][2] = - T(1);
+		Result[2][3] = - T(1);
+		Result[3][2] = - T(2) * zNear;
+		return Result;
+	}
+
+	template <typename T> 
+	inline detail::tmat4x4<T> tweakedInfinitePerspective(
+		T fovy, 
+		T aspect, 
+		T zNear)
+	{
+		T range = tan(radians(fovy / T(2))) * zNear;	
+		T left = -range * aspect;
+		T right = range * aspect;
+		T bottom = -range;
+		T top = range;
+
+		detail::tmat4x4<T> Result(T(0));
+		Result[0][0] = (T(2) * zNear) / (right - left);
+		Result[1][1] = (T(2) * zNear) / (top - bottom);
+		Result[2][2] = T(0.0001) - T(1);
+		Result[2][3] = T(-1);
+		Result[3][2] = - (T(0.0001) - T(2)) * zNear;
+		return Result;
+	}
+
 	template <typename T, typename U>
 	inline detail::tvec3<T> project(
 		detail::tvec3<T> const & obj, 
