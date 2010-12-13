@@ -2,7 +2,7 @@
 // OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2009-05-01
-// Updated : 2010-04-30
+// Updated : 2010-12-13
 // Licence : This source is under MIT License
 // File    : glm/ext.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -12,6 +12,7 @@
 
 #include "./gtc/half_float.hpp"
 #include "./gtc/matrix_access.hpp"
+#include "./gtc/matrix_inverse.hpp"
 #include "./gtc/matrix_transform.hpp"
 #include "./gtc/quaternion.hpp"
 #include "./gtc/swizzle.hpp"
@@ -27,7 +28,6 @@
 #include "./gtx/comparison.hpp"
 #include "./gtx/compatibility.hpp"
 #include "./gtx/component_wise.hpp"
-#include "./gtx/determinant.hpp"
 #include "./gtx/epsilon.hpp"
 #include "./gtx/euler_angles.hpp"
 #include "./gtx/extend.hpp"
@@ -41,14 +41,11 @@
 #include "./gtx/int_10_10_10_2.hpp"
 #include "./gtx/integer.hpp"
 #include "./gtx/intersect.hpp"
-#include "./gtx/inverse.hpp"
-#include "./gtx/inverse_transpose.hpp"
 #include "./gtx/log_base.hpp"
 #include "./gtx/matrix_cross_product.hpp"
 #include "./gtx/matrix_major_storage.hpp"
 #include "./gtx/matrix_operation.hpp"
 #include "./gtx/matrix_query.hpp"
-#include "./gtx/matrix_selection.hpp"
 #include "./gtx/mixed_product.hpp"
 #include "./gtx/norm.hpp"
 #include "./gtx/normal.hpp"

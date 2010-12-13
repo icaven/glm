@@ -65,7 +65,6 @@ namespace glm
 			genIType & msb, 
 			genIType & lsb);
 
-
 		//! Extracts bits [offset, offset + bits - 1] from value,
 		//! returning them in the least significant bits of the result.
 		//! For unsigned data types, the most significant bits of the
