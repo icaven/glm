@@ -150,7 +150,7 @@ namespace glm
 		inline bool any(vecType<bool> const & v)
 		{
 			GLM_STATIC_ASSERT(
-				detail::type<T>::is_bool, "'any' only accept GLM boolean vectors");
+                                vecType<bool>::is_bool, "'any' only accept GLM boolean vectors");
 
 			bool Result = false;
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
@@ -164,7 +164,7 @@ namespace glm
 		inline bool all(vecType<bool> const & v)
 		{
 			GLM_STATIC_ASSERT(
-				detail::type<T>::is_bool, "'all' only accept GLM boolean vectors");
+                                vecType<bool>::is_bool, "'all' only accept GLM boolean vectors");
 
 			bool Result = true;
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
@@ -178,7 +178,7 @@ namespace glm
 		inline vecType<bool> not_(vecType<bool> const & v)
 		{
 			GLM_STATIC_ASSERT(
-				detail::type<T>::is_bool, "'not_' only accept GLM boolean vectors");
+                                vecType<bool>::is_bool, "'not_' only accept GLM boolean vectors");
 
 			typename vecType<bool>::bool_type Result(vecType<bool>::null);
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
