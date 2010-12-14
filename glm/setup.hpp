@@ -82,7 +82,10 @@
 #define GLM_COMPILER_GCC44			0x02004000
 #define GLM_COMPILER_GCC45			0x02008000
 #define GLM_COMPILER_GCC46			0x02010000
-#define GLM_COMPILER_GCC50			0x02020000
+#define GLM_COMPILER_GCC47			0x02020000
+#define GLM_COMPILER_GCC48			0x02040000
+#define GLM_COMPILER_GCC49			0x02080000
+#define GLM_COMPILER_GCC50			0x02100000
 
 // Borland C++ defines. How to identify BC?
 #define GLM_COMPILER_BC				0x03000000
@@ -90,7 +93,7 @@
 #define GLM_COMPILER_BCB5			0x03000800
 #define GLM_COMPILER_BCB6			0x03001000
 //#define GLM_COMPILER_BCBX			0x03002000 // What's the version value?
-#define GLM_COMPILER_BCB2009		0x03004000
+#define GLM_COMPILER_BCB2009                    0x03004000
 
 #define GLM_MODEL_32				0x00000010
 #define GLM_MODEL_64				0x00000020
@@ -98,7 +101,7 @@
 #ifndef GLM_COMPILER
 
 // CodeWarrior
-#define GLM_COMPILER_CODEWARRIOR	0x04000000
+#define GLM_COMPILER_CODEWARRIOR                0x04000000
 
 /////////////////
 // Visual C++ //
@@ -154,6 +157,12 @@
 #define GLM_COMPILER GLM_COMPILER_GCC45
 #elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 6)
 #define GLM_COMPILER GLM_COMPILER_GCC46
+#elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 7)
+#define GLM_COMPILER GLM_COMPILER_GCC47
+#elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 8)
+#define GLM_COMPILER GLM_COMPILER_GCC48
+#elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 9)
+#define GLM_COMPILER GLM_COMPILER_GCC49
 #elif (__GNUC__ == 5) && (__GNUC_MINOR__ == 0)
 #define GLM_COMPILER GLM_COMPILER_GCC50
 #else
@@ -248,7 +257,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Static assert
 
-#if((GLM_COMPILER & GLM_COMPILER_VC && GLM_COMPILER >= GLM_COMPILER_VC2010) || (GLM_COMPILER & GLM_COMPILER_GCC && GLM_COMPILER >= GLM_COMPILER_GCC45))
+#if((GLM_COMPILER & GLM_COMPILER_VC && GLM_COMPILER >= GLM_COMPILER_VC2010) || (GLM_COMPILER & GLM_COMPILER_GCC && GLM_COMPILER >= GLM_COMPILER_GCC47))
 #define GLM_STATIC_ASSERT(x, message) static_assert(x, message)
 #elif(defined(BOOST_STATIC_ASSERT))
 #define GLM_STATIC_ASSERT(x, message) BOOST_STATIC_ASSERT(x)
