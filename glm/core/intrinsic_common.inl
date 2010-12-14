@@ -164,11 +164,12 @@ inline __m128 _mm_flr_ps(__m128 x)
 }
 
 //trunc
+/*
 inline __m128 _mm_trc_ps(__m128 v)
 {
 	return __m128();
 }
-
+*/
 //round
 inline __m128 _mm_rnd_ps(__m128 x)
 {

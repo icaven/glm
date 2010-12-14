@@ -21,9 +21,19 @@
 namespace glm
 {
 	namespace detail
-	{
+        {
+                static __m128 one;
+
 		GLM_ALIGN(4) union fvec4SIMD
-		{
+                {
+                    enum ctor{null};
+                    typedef T value_type;
+                    typedef std::size_t size_type;
+                    static size_type value_size();
+
+                    typedef tvec4<T> type;
+                    typedef tvec4<bool> bool_type;
+
 			enum ctor{null};
 			typedef float value_type;
 			typedef std::size_t size_type;
@@ -31,8 +41,6 @@ namespace glm
 
 			typedef fvec4SIMD type;
 			typedef tvec4<bool> bool_type;
-
-			static __m128 one;
 
 			__m128 Data;
 			float Array[4];

@@ -85,7 +85,7 @@ int main()
 		glm::mat4x3 p = x * m;
 		glm::mat4x3 q = m * x;
 	}
-
+/*
 	class test
 	{
 	private:
@@ -101,7 +101,7 @@ int main()
 	{
 		TestMap.insert(std::make_pair(3, new test));
 	}
-
+*/
 	//{
 	//	glm::mat3x4 m(1.0f);
 	//	glm::vec3 v(1.0f);

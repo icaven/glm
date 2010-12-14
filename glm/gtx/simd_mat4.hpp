@@ -16,6 +16,7 @@
 
 // Dependency:
 #include "../glm.hpp"
+#include "../gtx/simd_vec4.hpp"
 #include <xmmintrin.h>
 #include <emmintrin.h>
 
