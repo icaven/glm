@@ -11,7 +11,7 @@ namespace glm
 {
 	namespace detail
 	{
-		__m128 fvec4SIMD::one = _mm_set_ps1(1.f);
+		//__m128 fvec4SIMD::one = _mm_set_ps1(1.f);
 
 		//////////////////////////////////////
 		// Implicit basic constructors

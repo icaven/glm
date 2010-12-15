@@ -24,7 +24,7 @@ namespace glm
 {
 	namespace detail
 	{
-		GLM_ALIGN(16) struct fmat4x4SIMD
+		GLM_ALIGNED(struct, 16) fmat4x4SIMD
 		{
 			static __m128 one;
 

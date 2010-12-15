@@ -108,16 +108,15 @@ namespace glm
 #if(defined(GLM_COMPILER) && (GLM_COMPILER & GLM_COMPILER_VC))
 #	define GLM_DEPRECATED __declspec(deprecated)
 #	define GLM_RESTRICT __restrict
-#	define GLM_ALIGN(x) __declspec(align(x))
-//#	define aligned(x) __declspec(align(x)) struct
+#	define GLM_ALIGNED(keyword, x) __declspec(align(x)) keyword
 #elif(defined(GLM_COMPILER) && (GLM_COMPILER & GLM_COMPILER_GCC))
-#	define GLM_DEPRECATED deprecated
+#	define GLM_DEPRECATED /*deprecated*/
 #	define GLM_RESTRICT
-#	define GLM_ALIGN(x) __attribute__(aligned(x))
+#	define GLM_ALIGNED(keyword, x) keyword __attribute__(aligned(x))
 #else
 #	define GLM_DEPRECATED
 #	define GLM_RESTRICT
-#	define GLM_ALIGN(x)
+#	define GLM_ALIGN_UNION(x) union
 #endif//GLM_COMPILER
 
 ////////////////////
