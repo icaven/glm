@@ -156,9 +156,7 @@ namespace glm
 		template <comp a, comp b, comp c, comp d>
 		inline fvec4SIMD fvec4SIMD::swizzle() const
 		{
-			int const Mask = ((int(d) << 6) | (int(c) << 4) | (int(b) << 2) | (int(a) << 0));
-
-			__m128 Data = _mm_shuffle_ps(this->Data, this->Data, Mask);
+			__m128 Data = _mm_shuffle_ps(this->Data, this->Data, ((int(d) << 6) | (int(c) << 4) | (int(b) << 2) | (int(a) << 0)));
 			return fvec4SIMD(Data);
 		}
 

@@ -16,9 +16,8 @@
 
 // Dependency:
 #include "../glm.hpp"
+#include "../core/intrinsic_matrix.hpp"
 #include "../gtx/simd_vec4.hpp"
-#include <xmmintrin.h>
-#include <emmintrin.h>
 
 namespace glm
 {
@@ -26,23 +25,18 @@ namespace glm
 	{
 		GLM_ALIGNED(struct, 16) fmat4x4SIMD
 		{
-			static __m128 one;
-
-			enum no_init
-			{
-				NO_INIT
-			};
+			enum ctor{null};
 
 			typedef float value_type;
 			typedef fvec4SIMD col_type;
 			typedef fvec4SIMD row_type;
-			typedef glm::sizeType size_type;
+			typedef std::size_t size_type;
 			static size_type value_size();
 			static size_type col_size();
 			static size_type row_size();
 			static bool is_matrix();
 
-			fvec4SIMD value[4];
+			fvec4SIMD Data[4];
 
 			//////////////////////////////////////
 			// Constructors
@@ -60,7 +54,7 @@ namespace glm
 				fvec4SIMD const & v2,
 				fvec4SIMD const & v3);
 			explicit fmat4x4SIMD(
-				tmat4x4 const & m);
+				tmat4x4<float> const & m);
 
 			// Conversions
 			//template <typename U> 
@@ -129,7 +123,7 @@ namespace glm
 	//! GLM_GTX_simd_mat4 extension: SIMD implementation of vec4 type.
 	namespace simd_mat4
 	{
-		typedef detail::fmat4SIMD mat4SIMD;
+		typedef detail::fmat4x4SIMD simd_mat4;
 
 	}//namespace simd_mat4
 	}//namespace gtx

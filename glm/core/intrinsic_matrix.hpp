@@ -11,9 +11,7 @@
 #define GLM_DETAIL_INTRINSIC_MATRIX_INCLUDED
 
 #include "../glm.hpp"
-
-#include <xmmintrin.h>
-#include <emmintrin.h>
+#include "intrinsic_geometric.hpp"
 
 void _mm_add_ps(__m128 in1[4], __m128 in2[4], __m128 out[4]);
 
