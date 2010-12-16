@@ -125,6 +125,18 @@ namespace glm
 	{
 		typedef detail::fmat4x4SIMD simd_mat4;
 
+		//! Returns the transposed matrix of x
+		//! (From GLM_GTX_simd_mat4 extension).
+		detail::fmat4x4SIMD simd_transpose(detail::fmat4x4SIMD const & m);
+
+		//! Return the determinant of a mat4 matrix.
+		//! (From GLM_GTX_simd_mat4 extension).
+		float simd_determinant(detail::fmat4x4SIMD const & m);
+
+		//! Return the inverse of a mat4 matrix.
+		//! (From GLM_GTX_simd_mat4 extension).
+		detail::fmat4x4SIMD simd_inverse(detail::fmat4x4SIMD const & m);
+
 	}//namespace simd_mat4
 	}//namespace gtx
 }//namespace glm

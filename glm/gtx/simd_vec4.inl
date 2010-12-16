@@ -163,7 +163,8 @@ namespace glm
 		template <comp a, comp b, comp c, comp d>
 		inline fvec4SIMD& fvec4SIMD::swizzle()
 		{
-			this->Data = _mm_shuffle_ps(this->Data, this->Data, (((int(d) << 6) | (int(c) << 4) | (int(b) << 2) | (int(a) << 0))));
+			enum{mask = (((int(d) << 6) | (int(c) << 4) | (int(b) << 2) | (int(a) << 0)))};
+			this->Data = _mm_shuffle_ps(this->Data, this->Data, mask);
 			return *this;
 		}
 

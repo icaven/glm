@@ -218,4 +218,38 @@ namespace detail
     }
 
 }//namespace detail
+
+namespace gtx{
+namespace simd_mat4
+{
+	inline detail::fmat4x4SIMD matrixCompMult
+	(
+		detail::fmat4x4SIMD const & x,
+		detail::fmat4x4SIMD const & y
+	)
+	{
+		GLM_STATIC_ASSERT(0, "TODO");
+	}
+
+	inline detail::fmat4x4SIMD simd_transpose(detail::fmat4x4SIMD const & m)
+	{
+		detail::fmat4x4SIMD result;
+		_mm_transpose_ps(&m[0].Data, &result[0].Data);
+		return result;
+	}
+
+	inline float simd_determinant(detail::fmat4x4SIMD const & m)
+	{
+		GLM_STATIC_ASSERT(0, "TODO");
+	}
+
+	inline detail::fmat4x4SIMD simd_inverse(detail::fmat4x4SIMD const & m)
+	{
+		detail::fmat4x4SIMD result;
+		_mm_inverse_ps(&m[0].Data, &result[0].Data);
+		return result;
+	}
+}//namespace simd_mat4
+}//namespace gtx
+
 }//namespace glm
