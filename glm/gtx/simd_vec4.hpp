@@ -60,11 +60,6 @@ namespace glm
 				float const & w);
 
 			////////////////////////////////////////
-			//// Swizzle constructors
-
-			//fvec4SIMD(ref4<float> const & r);
-
-			////////////////////////////////////////
 			//// Convertion vector constructors
 
 			fvec4SIMD(vec2 const & v, float const & s1, float const & s2);
@@ -95,12 +90,16 @@ namespace glm
 			//////////////////////////////////////
 			// Swizzle operators
 
-			//float swizzle(comp X) const;
-			//vec2 const swizzle(comp X, comp Y) const;
-			//vec3 const swizzle(comp X, comp Y, comp Z) const;
-			//fvec4SIMD const swizzle(comp X, comp Y, comp Z, comp W) const;
-			//fvec4SIMD const swizzle(int X, int Y, int Z, int W) const;
-			//ref4<float> swizzle(comp X, comp Y, comp Z, comp W);
+			template <comp A, comp B, comp C, comp D>
+			fvec4SIMD& swizzle();
+			template <comp A, comp B, comp C, comp D>
+			fvec4SIMD swizzle() const;
+			template <comp A, comp B, comp C>
+			fvec4SIMD swizzle() const;
+			template <comp A, comp B>
+			fvec4SIMD swizzle() const;
+			template <comp A>
+			fvec4SIMD swizzle() const;
 		};
 
 	}//namespace detail
@@ -109,7 +108,7 @@ namespace glm
 	//! GLM_GTX_simd_vec4 extension: SIMD implementation of vec4 type.
 	namespace simd_vec4
 	{
-		typedef detail::fvec4SIMD vec4SIMD;
+		typedef detail::fvec4SIMD simd_vec4;
 
 	}//namespace simd_vec4
 	}//namespace gtx

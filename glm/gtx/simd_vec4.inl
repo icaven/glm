@@ -11,8 +11,6 @@ namespace glm
 {
 	namespace detail
 	{
-		//__m128 fvec4SIMD::one = _mm_set_ps1(1.f);
-
 		//////////////////////////////////////
 		// Implicit basic constructors
 
@@ -155,13 +153,21 @@ namespace glm
 		//////////////////////////////////////
 		// Swizzle operators
 
-		//inline fvec4SIMD const fvec4SIMD::swizzle(int d, int c, int b, int a) const
-		//{
-		//	int const Mask = ((d << 6) | (c << 4) | (b << 2) | (a << 0));
+		template <comp a, comp b, comp c, comp d>
+		inline fvec4SIMD fvec4SIMD::swizzle() const
+		{
+			int const Mask = ((int(d) << 6) | (int(c) << 4) | (int(b) << 2) | (int(a) << 0));
 
-		//	__m128 Data = _mm_shuffle_ps(this->Data, this->Data, Mask);
-		//	return fvec4SIMD(Data);
-		//}
+			__m128 Data = _mm_shuffle_ps(this->Data, this->Data, Mask);
+			return fvec4SIMD(Data);
+		}
+
+		template <comp a, comp b, comp c, comp d>
+		inline fvec4SIMD& fvec4SIMD::swizzle()
+		{
+			this->Data = _mm_shuffle_ps(this->Data, this->Data, (((int(d) << 6) | (int(c) << 4) | (int(b) << 2) | (int(a) << 0))));
+			return *this;
+		}
 
 		// operator+
 		inline fvec4SIMD operator+ (fvec4SIMD const & v, float s)
