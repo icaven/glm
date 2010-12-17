@@ -90,15 +90,15 @@ namespace glm
 			//////////////////////////////////////
 			// Swizzle operators
 
-			template <comp A, comp B, comp C, comp D>
+			template <comp X, comp Y, comp Z, comp W>
 			fvec4SIMD& swizzle();
-			template <comp A, comp B, comp C, comp D>
+			template <comp X, comp Y, comp Z, comp W>
 			fvec4SIMD swizzle() const;
-			template <comp A, comp B, comp C>
+			template <comp X, comp Y, comp Z>
 			fvec4SIMD swizzle() const;
-			template <comp A, comp B>
+			template <comp X, comp Y>
 			fvec4SIMD swizzle() const;
-			template <comp A>
+			template <comp X>
 			fvec4SIMD swizzle() const;
 		};
 

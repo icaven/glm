@@ -11,6 +11,12 @@ namespace glm
 {
 	namespace detail
 	{
+		template <int Value>
+		struct mask
+		{
+			enum{value = Value};
+		};
+
 		//////////////////////////////////////
 		// Implicit basic constructors
 
@@ -146,25 +152,24 @@ namespace glm
 
 		inline fvec4SIMD& fvec4SIMD::operator--()
 		{
-			this->Data = _mm_sub_ps(this->Data , glm::detail::one);
+			this->Data = _mm_sub_ps(this->Data, glm::detail::one);
 			return *this;
 		}
 
 		//////////////////////////////////////
 		// Swizzle operators
 
-		template <comp a, comp b, comp c, comp d>
+		template <comp X, comp Y, comp Z, comp W>
 		inline fvec4SIMD fvec4SIMD::swizzle() const
 		{
-			__m128 Data = _mm_shuffle_ps(this->Data, this->Data, ((int(d) << 6) | (int(c) << 4) | (int(b) << 2) | (int(a) << 0)));
+			__m128 Data = _mm_shuffle_ps(this->Data, this->Data, mask<(W << 6) | (Z << 4) | (Y << 2) | (X << 0)>::value);
 			return fvec4SIMD(Data);
 		}
 
-		template <comp a, comp b, comp c, comp d>
+		template <comp X, comp Y, comp Z, comp W>
 		inline fvec4SIMD& fvec4SIMD::swizzle()
 		{
-			enum{mask = (((int(d) << 6) | (int(c) << 4) | (int(b) << 2) | (int(a) << 0)))};
-			this->Data = _mm_shuffle_ps(this->Data, this->Data, mask);
+			this->Data = _mm_shuffle_ps(this->Data, this->Data, mask<(W << 6) | (Z << 4) | (Y << 2) | (X << 0)>::value);
 			return *this;
 		}
 
