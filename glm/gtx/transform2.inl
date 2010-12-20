@@ -141,6 +141,7 @@ namespace transform2
 		result[0][0] = scale;
 		result[1][1] = scale;
 		result[2][2] = scale;
+		return result;
 	}
 
 	template <typename T> 

@@ -32,7 +32,7 @@ namespace detail
 		size_type i
 	)
 	{
-		assert(i < col_size());
+		assert(i < this->row_size());
 		return this->value[i];
 	}
 
@@ -43,7 +43,7 @@ namespace detail
 		size_type i
 	) const
 	{
-		assert(i < col_size());
+		assert(i < this->row_size());
 		return this->value[i];
 	}
 
@@ -348,18 +348,18 @@ namespace detail
     template <typename T> 
     inline tmat3x3<T> & tmat3x3<T>::operator++ ()
     {
-	    this->value[0]++;
-	    this->value[1]++;
-        this->value[2]++;
+	    ++this->value[0];
+	    ++this->value[1];
+        ++this->value[2];
 	    return *this;
     }
 
     template <typename T> 
     inline tmat3x3<T> & tmat3x3<T>::operator-- ()
     {
-	    this->value[0]--;
-	    this->value[1]--;
-        this->value[2]--;
+	    --this->value[0];
+	    --this->value[1];
+        --this->value[2];
 	    return *this;
     }
 
