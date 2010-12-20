@@ -560,7 +560,7 @@ namespace glm
     inline detail::tvec3<T> min
 	(
 		detail::tvec3<T> const & x, 
-		typename detail::tvec2<T>::value_type const & y
+		typename detail::tvec3<T>::value_type const & y
 	)
     {
         return detail::tvec3<T>(
