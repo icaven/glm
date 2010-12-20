@@ -32,7 +32,7 @@ namespace detail
 		size_type i
 	)
 	{
-		assert(i < col_size());
+		assert(i < this->row_size());
 		return this->value[i];
 	}
 
@@ -43,7 +43,7 @@ namespace detail
 		size_type i
 	) const
 	{
-		assert(i < col_size());
+		assert(i < this->row_size());
 		return this->value[i];
 	}
 
@@ -384,7 +384,7 @@ namespace detail
 		typename tmat3x2<T>::value_type const & s
 	)
     {
-        return tmat3x4<T>(
+        return tmat3x2<T>(
             m[0] - s,
             m[1] - s,
             m[2] - s);
@@ -420,7 +420,7 @@ namespace detail
     inline tmat3x2<T> operator* 
 	(
 		typename tmat3x2<T>::value_type const & s, 
-		const tmat3x2<T> & m
+		tmat3x2<T> const & m
 	)
     {
         return tmat3x2<T>(
@@ -474,7 +474,7 @@ namespace detail
         const T SrcB12 = m2[1][2];
 
         tmat2x2<T> Result(tmat2x2<T>::null);
-        Result[0][0] = SrcA00 * SrcB00 + SrcA01 * SrcB01 + SrcA20 * SrcB02;
+        Result[0][0] = SrcA00 * SrcB00 + SrcA10 * SrcB01 + SrcA20 * SrcB02;
         Result[0][1] = SrcA01 * SrcB00 + SrcA11 * SrcB01 + SrcA21 * SrcB02;
         Result[1][0] = SrcA00 * SrcB10 + SrcA10 * SrcB11 + SrcA20 * SrcB12;
         Result[1][1] = SrcA01 * SrcB10 + SrcA11 * SrcB11 + SrcA21 * SrcB12;

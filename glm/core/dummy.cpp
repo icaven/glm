@@ -18,6 +18,8 @@ int main()
 		glm::mat2x3 o = m / x;
 		glm::mat2x3 p = x * m;
 		glm::mat2x3 q = m * x;
+
+		glm::mat2x3::col_type v1 = m[3]
 	}
 
 	{
