@@ -270,12 +270,12 @@ inline __m128 _mm_inf_ps(__m128 x)
 
 // SSE scalar reciprocal sqrt using rsqrt op, plus one Newton-Rhaphson iteration
 // By Elan Ruskin, 
-inline __m128 _mm_sqrt_wip_ss(__m128 const x)
+inline __m128 _mm_sqrt_wip_ss(__m128 const & x)
 {
-	__m128 recip = _mm_rsqrt_ss( x );  // "estimate" opcode
-	const static __m128 three = { 3, 3, 3, 3 }; // aligned consts for fast load
-	const static __m128 half = { 0.5,0.5,0.5,0.5 };
-	__m128 halfrecip = _mm_mul_ss( half, recip );
-	__m128 threeminus_xrr = _mm_sub_ss( three, _mm_mul_ss( x, _mm_mul_ss ( recip, recip ) ) );
-	return _mm_mul_ss( halfrecip, threeminus_xrr );
+	__m128 recip = _mm_rsqrt_ss(x);  // "estimate" opcode
+	const static __m128 three = {3, 3, 3, 3}; // aligned consts for fast load
+	const static __m128 half = {0.5,0.5,0.5,0.5};
+	__m128 halfrecip = _mm_mul_ss(half, recip);
+	__m128 threeminus_xrr = _mm_sub_ss(three, _mm_mul_ss(x, _mm_mul_ss (recip, recip)));
+	return _mm_mul_ss( halfrecip, threeminus_xrr);
 }

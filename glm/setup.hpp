@@ -250,6 +250,37 @@
 #	define GLM_INSTRUCTION_SET GLM_INSTRUCTION_SET_PURE
 #endif
 
+#define GLM_INSTRUCTION_SET_SSSE3	0x00000008 // tmmintrin.h (SSSE3 + SSE3 + SSE2 + SSE1)
+#define GLM_INSTRUCTION_SET_POPCNT	0x00000800 // popcntintrin.h
+#define GLM_INSTRUCTION_SET_SSE4A	0x00000020 // ammintrin.h (SSE4A + POPCNT + SSE3 + SSE2 + SSE)
+#define GLM_INSTRUCTION_SET_SSE4_1	0x00000040 // smmintrin.h (SSE4_1 + SSSE3 + SSE3 + SSE2 + SSE)
+#define GLM_INSTRUCTION_SET_SSE4_2	0x00000080 // nmmintrin.h (SSE4_2 + SSE4_1 + SSSE3 + SSE3 + SSE2 + SSE)
+#define GLM_INSTRUCTION_SET_SSE5	0x00000100 // bmmintrin.h (SSE4A + SSE3 + SSE2 + SSE deprecated)
+#define GLM_INSTRUCTION_SET_AES		0x00000200 // wmmintrin.h (AES + PCLMUL + SSE2 + SSE1)
+#define GLM_INSTRUCTION_SET_PCLMUL	0x00000400 // wmmintrin.h (AES + PCLMUL + SSE2 + SSE1)
+#define GLM_INSTRUCTION_SET_AVX		0x00000800 // immintrin.h (AES + PCLMUL + SSE4_2 + SSE4_1 + SSSE3 + SSE3 + SSE2 + SSE)
+
+#if(GLM_INSTRUCTION_SET != GLM_INSTRUCTION_SET_PURE)
+#	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_MMX)
+#		include <mmintrin.h>
+#	endif
+#	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_3DNOW)
+#		include <mm3dnow.h>
+#	endif
+#	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_SSE)
+#		include <xmmintrin.h>
+#	endif
+#	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_SSE2)
+#		include <emmintrin.h>
+#	endif
+#	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_SSE3)
+#		include <pmmintrin.h>
+#	endif
+#	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_SSSE3)
+#		include <tmmintrin.h>
+#	endif
+#endif
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Swizzle operators
 
