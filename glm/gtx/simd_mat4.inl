@@ -228,7 +228,7 @@ namespace simd_mat4
 		detail::fmat4x4SIMD const & y
 	)
 	{
-		GLM_STATIC_ASSERT(0, "TODO");
+		//GLM_STATIC_ASSERT(0, "TODO");
 	}
 
 	inline detail::fmat4x4SIMD simd_transpose(detail::fmat4x4SIMD const & m)
@@ -240,7 +240,7 @@ namespace simd_mat4
 
 	inline float simd_determinant(detail::fmat4x4SIMD const & m)
 	{
-		GLM_STATIC_ASSERT(0, "TODO");
+		//GLM_STATIC_ASSERT(0, "TODO");
 	}
 
 	inline detail::fmat4x4SIMD simd_inverse(detail::fmat4x4SIMD const & m)
