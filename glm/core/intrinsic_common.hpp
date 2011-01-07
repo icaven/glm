@@ -10,11 +10,6 @@
 #ifndef GLM_DETAIL_INTRINSIC_COMMON_INCLUDED
 #define GLM_DETAIL_INTRINSIC_COMMON_INCLUDED
 
-//#include <mmintrin.h>
-//#include <emmintrin.h>
-#include <xmmintrin.h>
-#include <emmintrin.h>
-
 __m128 _mm_abs_ps(__m128 x);
 
 __m128 _mm_sgn_ps(__m128 x);

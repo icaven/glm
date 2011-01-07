@@ -10,9 +10,6 @@
 #ifndef GLM_DETAIL_INTRINSIC_VECTOR_RELATIONAL_INCLUDED
 #define GLM_DETAIL_INTRINSIC_VECTOR_RELATIONAL_INCLUDED
 
-#include <xmmintrin.h>
-#include <emmintrin.h>
-
 #include "intrinsic_vector_relational.inl"
 
 #endif//GLM_DETAIL_INTRINSIC_VECTOR_RELATIONAL_INCLUDED
