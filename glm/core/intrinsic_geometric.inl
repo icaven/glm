@@ -7,6 +7,9 @@
 // File    : glm/core/intrinsic_geometric.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+namespace glm{
+namespace detail{
+
 //length
 inline __m128 _mm_len_ps(__m128 x)
 {
@@ -115,3 +118,6 @@ inline __m128 _mm_rfa_ps(__m128 I, __m128 N, __m128 eta)
 
 	return sub2;
 }
+
+}//namespace detail
+}//namespace glm

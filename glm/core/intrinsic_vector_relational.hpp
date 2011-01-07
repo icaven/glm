@@ -7,9 +7,18 @@
 // File    : glm/core/intrinsic_vector_relational.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_DETAIL_INTRINSIC_VECTOR_RELATIONAL_INCLUDED
-#define GLM_DETAIL_INTRINSIC_VECTOR_RELATIONAL_INCLUDED
+#ifndef glm_detail_intrinsic_vector_relational
+#define glm_detail_intrinsic_vector_relational
+
+#include "../setup.hpp"
+
+namespace glm{
+namespace detail
+{
+
+}//namespace detail
+}//namespace glm
 
 #include "intrinsic_vector_relational.inl"
 
-#endif//GLM_DETAIL_INTRINSIC_VECTOR_RELATIONAL_INCLUDED
+#endif//glm_detail_intrinsic_vector_relational

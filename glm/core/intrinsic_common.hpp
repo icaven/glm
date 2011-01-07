@@ -7,49 +7,60 @@
 // File    : glm/core/intrinsic_common.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_DETAIL_INTRINSIC_COMMON_INCLUDED
-#define GLM_DETAIL_INTRINSIC_COMMON_INCLUDED
+#ifndef glm_detail_intrinsic_common
+#define glm_detail_intrinsic_common
 
-__m128 _mm_abs_ps(__m128 x);
+#include "../setup.hpp"
 
-__m128 _mm_sgn_ps(__m128 x);
+#if(GLM_ARCH != GLM_ARCH_PURE)
 
-//floor
-__m128 _mm_flr_ps(__m128 v);
+namespace glm{
+namespace detail
+{
+	__m128 sse_abs_ps(__m128 x);
 
-//trunc
-__m128 _mm_trc_ps(__m128 v);
+	__m128 sse_sgn_ps(__m128 x);
 
-//round
-__m128 _mm_rnd_ps(__m128 v);
+	//floor
+	__m128 sse_flr_ps(__m128 v);
 
-//roundEven
-__m128 _mm_rde_ps(__m128 v);
+	//trunc
+	__m128 sse_trc_ps(__m128 v);
 
-__m128 _mm_ceil_ps(__m128 v);
+	//round
+	__m128 sse_nd_ps(__m128 v);
 
-__m128 _mm_frc_ps(__m128 x);
+	//roundEven
+	__m128 sse_rde_ps(__m128 v);
 
-__m128 _mm_mod_ps(__m128 x, __m128 y);
+	__m128 sse_ceil_ps(__m128 v);
 
-__m128 _mm_modf_ps(__m128 x, __m128i & i);
+	__m128 sse_frc_ps(__m128 x);
 
-//inline __m128 _mm_min_ps(__m128 x, __m128 y)
+	__m128 sse_mod_ps(__m128 x, __m128 y);
 
-//inline __m128 _mm_max_ps(__m128 x, __m128 y)
+	__m128 sse_modf_ps(__m128 x, __m128i & i);
 
-__m128 _mm_clp_ps(__m128 v, __m128 minVal, __m128 maxVal);
+	//inline __m128 sse_min_ps(__m128 x, __m128 y)
 
-__m128 _mm_mix_ps(__m128 v1, __m128 v2, __m128 a);
+	//inline __m128 sse_max_ps(__m128 x, __m128 y)
 
-__m128 _mm_stp_ps(__m128 edge, __m128 x);
+	__m128 sse_clp_ps(__m128 v, __m128 minVal, __m128 maxVal);
 
-__m128 _mm_ssp_ps(__m128 edge0, __m128 edge1, __m128 x);
+	__m128 sse_mix_ps(__m128 v1, __m128 v2, __m128 a);
 
-__m128 _mm_nan_ps(__m128 x);
+	__m128 sse_stp_ps(__m128 edge, __m128 x);
 
-__m128 _mm_inf_ps(__m128 x);
+	__m128 sse_ssp_ps(__m128 edge0, __m128 edge1, __m128 x);
+
+	__m128 sse_nan_ps(__m128 x);
+
+	__m128 sse_inf_ps(__m128 x);
+
+}//namespace detail
+}//namespace glm
 
 #include "intrinsic_common.inl"
 
-#endif//GLM_DETAIL_INTRINSIC_COMMON_INCLUDED
+#endif//(GLM_ARCH != GLM_ARCH_PURE)
+#endif//glm_detail_intrinsic_common

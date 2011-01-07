@@ -12,33 +12,38 @@
 
 #include "intrinsic_common.hpp"
 
-//length
-__m128 _mm_len_ps(__m128 x);
+namespace glm{
+namespace detail
+{
+	//length
+	__m128 sse_len_ps(__m128 x);
 
-//distance
-__m128 _mm_dst_ps(__m128 p0, __m128 p1);
+	//distance
+	__m128 sse_dst_ps(__m128 p0, __m128 p1);
 
-//dot
-__m128 _mm_dot_ps(__m128 v1, __m128 v2);
+	//dot
+	__m128 sse_dot_ps(__m128 v1, __m128 v2);
 
-// SSE1
-__m128 _mm_dot_ss(__m128 v1, __m128 v2);
+	// SSE1
+	__m128 sse_dot_ss(__m128 v1, __m128 v2);
 
-//cross
-__m128 _mm_xpd_ps(__m128 v1, __m128 v2);
+	//cross
+	__m128 sse_xpd_ps(__m128 v1, __m128 v2);
 
-//normalize
-__m128 _mm_nrm_ps(__m128 v);
+	//normalize
+	__m128 sse_nrm_ps(__m128 v);
 
-//faceforward
-__m128 _mm_ffd_ps(__m128 N, __m128 I, __m128 Nref);
+	//faceforward
+	__m128 sse_ffd_ps(__m128 N, __m128 I, __m128 Nref);
 
-//reflect
-__m128 _mm_rfe_ps(__m128 I, __m128 N);
+	//reflect
+	__m128 sse_rfe_ps(__m128 I, __m128 N);
 
-//refract
-__m128 _mm_rfa_ps(__m128 I, __m128 N, __m128 eta);
+	//refract
+	__m128 sse_rfa_ps(__m128 I, __m128 N, __m128 eta);
 
+}//namespace detail
+}//namespace glm
 
 #include "intrinsic_geometric.inl"
 

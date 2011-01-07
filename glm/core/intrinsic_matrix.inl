@@ -7,6 +7,9 @@
 // File    : glm/core/intrinsic_common.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+namespace glm{
+namespace detail{
+
 static const __m128 one = _mm_set_ps1(1.0f);
 static const __m128 pi = _mm_set_ps1(3.141592653589793238462643383279f);
 static const __m128 _m128_rad_ps = _mm_set_ps1(3.141592653589793238462643383279f / 180.f);
@@ -181,7 +184,7 @@ inline void _mm_transpose_ps(__m128 const in[4], __m128 out[4])
     out[3] = _mm_shuffle_ps(tmp2, tmp3, 0xDD);
 }
 
-inline __m128 _mm_slow_det_ps(__m128 const in[4])
+inline __m128 _mm_det_ps(__m128 const in[4])
 {
 	__m128 Fac0;
 	{
@@ -407,29 +410,14 @@ inline __m128 _mm_slow_det_ps(__m128 const in[4])
 	return Det0;
 }
 
-/*
-float ssedot(const float * __restrict u, const float *  __restrict v){  
-    __m128 uv = _mm_mul_ps(_mm_load_ps(u), _mm_load_ps(v));  
-    uv = _mm_hadd_ps(uv, uv); // or shuffle like there's no tomorrow   
-    uv = _mm_hadd_ps(uv, uv); // if there ain't no haddps around.  
-    return __builtin_ia32_vec_ext_v4sf(uv, 0);  
-} 
-
-float dot_sse(float *u, float *v) 
-{  
-    __m128 mul  = _mm_mul_ps(_mm_load_ps(u), _mm_load_ps(v)); // { a,b,c,d }  
-    __m128 hi   = _mm_movehl_ps(mul, mul); // { c,d,c,d }  
-    __m128 add  = _mm_add_ps(mul, hi); // { a+c, b+d, c+c, d+d }  
-    __m128 half = _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(add), _MM_SHUFFLE(1, 1, 1, 1))); // { b+d }  
-    __m128 join = _mm_add_ss(add, half); // { a+c+b+d }  
-    float f;  
-    _mm_store_ss(&f, join);  
-    return f;  
-}
-*/
-
-inline __m128 _mm_det_ps(__m128 const m[4])
+template <typename T>
+inline typename detail::tmat4x4<T>::value_type _mm_det2_ps
+(
+	__m128 const & m[4]
+)
 {
+	GLM_STATIC_ASSERT(detail::type<T>::is_float, "'determinant' only accept floating-point inputs");
+
 	//T SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
 	//T SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
 	//T SubFactor02 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
@@ -437,27 +425,24 @@ inline __m128 _mm_det_ps(__m128 const m[4])
 	//T SubFactor04 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
 	//T SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
 
-	__m128 const & m2 = m[2];
-	__m128 const & m3 = m[3];
-
 	// First 2 columns
 	__m128 Swp2A = _mm_shuffle_ps(m[2], m[2], _MM_SHUFFLE(0, 1, 1, 2));
 	__m128 Swp3A = _mm_shuffle_ps(m[3], m[3], _MM_SHUFFLE(3, 2, 3, 3));
-	__m128 MulA = _mm_mul_ps(Swp2A, Swp3A);
+	__m128 MulA = __mm_mul_ps(Swp2A, Swp3A);
 
 	// Second 2 columns
-	__m128 Swp2B = _mm_shuffle_ps(m[2], m[2], _MM_SHUFFLE(3, 2, 3, 3));
-	__m128 Swp3B = _mm_shuffle_ps(m[3], m[3], _MM_SHUFFLE(0, 1, 1, 2));
-	__m128 MulB = _mm_mul_ps(Swp2B, Swp3B);
+	__m128 Swp2B = _mm_shuffle_ps(m[2], m[2], _MM_SHUFFLE(0, 1, 1, 2));
+	__m128 Swp3B = _mm_shuffle_ps(m[3], m[3], _MM_SHUFFLE(3, 2, 3, 3));
+	__m128 MulB = __mm_mul_ps(Swp2A, Swp3A);
 
 	// Columns subtraction
-	__m128 SubE = _mm_sub_ps(MulA, MulB);
+	__m128 SubAB = __mm_sub_ps(MulA, MulB);
 
 	// Last 2 rows
-	__m128 Swp2C = _mm_shuffle_ps(m[2], m[2], _MM_SHUFFLE(0, 0, 1, 2));
-	__m128 Swp3C = _mm_shuffle_ps(m[3], m[3], _MM_SHUFFLE(1, 2, 0, 0));
-	__m128 MulC = _mm_mul_ps(Swp2C, Swp3C);
-	__m128 SubF = _mm_sub_ps(_mm_movehl_ps(MulC, MulC), MulC);
+	__m128 Swp2C = _mm_shuffle_ps(m[2], m[2], _MM_SHUFFLE(1, 2, 0, 0));
+	__m128 Swp3C = _mm_shuffle_ps(m[3], m[3], _MM_SHUFFLE(0, 0, 1, 2));
+	__m128 MulC = __mm_mul_ps(Swp2C, Swp3C);
+	__m128 SwpD = __mm_hl_ps(MulC);
 
 	//detail::tvec4<T> DetCof(
 	//	+ (m[1][1] * SubFactor00 - m[1][2] * SubFactor01 + m[1][3] * SubFactor02),
@@ -465,31 +450,29 @@ inline __m128 _mm_det_ps(__m128 const m[4])
 	//	+ (m[1][0] * SubFactor01 - m[1][1] * SubFactor03 + m[1][3] * SubFactor05),
 	//	- (m[1][0] * SubFactor02 - m[1][1] * SubFactor04 + m[1][2] * SubFactor05));
 
-	__m128 SubFacA = _mm_shuffle_ps(SubE, SubE, _MM_SHUFFLE(2, 1, 0, 0));
-	__m128 SwpFacA = _mm_shuffle_ps(m[1], m[1], _MM_SHUFFLE(0, 0, 0, 1));
-	__m128 MulFacA = _mm_mul_ps(SwpFacA, SubFacA);
+	__128 SubFacA = _mm_shuffle_ps(SubAB, SubAB, _MM_SHUFFLE(2, 1, 0, 0));
+	__128 SwpFacA = _mm_shuffle_ps(m[1], m[1], _MM_SHUFFLE(0, 0, 0, 1));
+	__128 MulFacA = __mm_mul_ps(SwpFacA, SubFacA);
 
-	__m128 SubTmpB = _mm_shuffle_ps(SubE, SubF, _MM_SHUFFLE(0, 0, 3, 1));
-	__m128 SubFacB = _mm_shuffle_ps(SubTmpB, SubTmpB, _MM_SHUFFLE(3, 1, 1, 0));//SubF[0], SubE[3], SubE[3], SubE[1];
-	__m128 SwpFacB = _mm_shuffle_ps(m[1], m[1], _MM_SHUFFLE(1, 1, 2, 2));
-	__m128 MulFacB = _mm_mul_ps(SwpFacB, SubFacB);
+	__128 SubFacB = ;
+	__128 SwpFacB = _mm_shuffle_ps(m[1], m[1], _MM_SHUFFLE(1, 1, 2, 2));
+	__128 MulFacB = __mm_mul_ps(SwpFacB, SubFacB);
 
-	__m128 SubRes = _mm_sub_ps(MulFacA, MulFacB);
+	__128 SubRes = __mm_sub_ps(MulFacA, MulFacA);
 
-	__m128 SubTmpC = _mm_shuffle_ps(SubE, SubF, _MM_SHUFFLE(1, 0, 2, 2));
-	__m128 SubFacC = _mm_shuffle_ps(SubTmpC, SubTmpC, _MM_SHUFFLE(3, 3, 2, 0));
-	__m128 SwpFacC = _mm_shuffle_ps(m[1], m[1], _MM_SHUFFLE(2, 3, 3, 3));
-	__m128 MulFacC = _mm_mul_ps(SwpFacC, SubFacC);
+	__128 SubFacC = ;
+	__128 SwpFacC = _mm_shuffle_ps(m[1], m[1], _MM_SHUFFLE(1, 1, 2, 2));
+	__128 MulFacC = __mm_mul_ps(SwpFacC, SubFacC);
 
-	__m128 AddRes = _mm_add_ps(SubRes, MulFacC);
-	__m128 DetCof = _mm_mul_ps(AddRes, _mm_setr_ps( 1.0f,-1.0f, 1.0f,-1.0f));
+	__m128 AddRes = __mm_add_ps(SubRes, MulFacC);
+	__m128 DetCof = __mm_mul_ps(AddRes, _mm_set_ps( 1.0f,-1.0f, 1.0f,-1.0f));
 
 	//return m[0][0] * DetCof[0]
 	//	 + m[0][1] * DetCof[1]
 	//	 + m[0][2] * DetCof[2]
 	//	 + m[0][3] * DetCof[3];
 
-	return _mm_dot_ps(m[0], DetCof);
+	return _mm_dot_ps(m[0], Signed);
 }
 
 inline void _mm_inverse_ps(__m128 const in[4], __m128 out[4])
@@ -957,6 +940,7 @@ inline void _mm_inverse_fast_ps(__m128 const in[4], __m128 out[4])
 	out[3] = _mm_mul_ps(Inv3, Rcp0);
 }
 
+
 void _mm_rotate_ps(__m128 const in[4], float Angle, float const v[3], __m128 out[4])
 {
 	float a = glm::radians(Angle);
@@ -1029,8 +1013,11 @@ void _mm_rotate_ps(__m128 const in[4], float Angle, float const v[3], __m128 out
 
 void _mm_outer_ps(__m128 const & c, __m128 const & r, __m128 out[4])
 {
-	out[0] = _mm_mul_ps(c, _mm_shuffle_ps(r, r, _MM_SHUFFLE(0, 0, 0, 0)));
-	out[1] = _mm_mul_ps(c, _mm_shuffle_ps(r, r, _MM_SHUFFLE(1, 1, 1, 1)));
-	out[2] = _mm_mul_ps(c, _mm_shuffle_ps(r, r, _MM_SHUFFLE(2, 2, 2, 2)));
-	out[3] = _mm_mul_ps(c, _mm_shuffle_ps(r, r, _MM_SHUFFLE(3, 3, 3, 3)));
+	out[0] = _mm_mul_ps(c, _mm_shuffle_ps(r, r, _MM_SHUFFLE(0, 0, 0, 0));
+	out[1] = _mm_mul_ps(c, _mm_shuffle_ps(r, r, _MM_SHUFFLE(1, 1, 1, 1));
+	out[2] = _mm_mul_ps(c, _mm_shuffle_ps(r, r, _MM_SHUFFLE(2, 2, 2, 2));
+	out[3] = _mm_mul_ps(c, _mm_shuffle_ps(r, r, _MM_SHUFFLE(3, 3, 3, 3));
 }
+
+}//namespace detail
+}//namespace glm

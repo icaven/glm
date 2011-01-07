@@ -1,5 +1,24 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Created : 2009-05-11
+// Updated : 2009-05-11
+// Licence : This source is under MIT License
+// File    : glm/core/intrinsic_exponential.hpp
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+#ifndef glm_detail_intrinsic_exponential
+#define glm_detail_intrinsic_exponential
+
+#include "../setup.hpp"
+
+#if(GLM_ARCH != GLM_ARCH_PURE)
+
+namespace glm{
+namespace detail
+{
 /*
-inline __m128 _mm_rsqrt_nr_ss(__m128 const x)
+inline __m128 sse_rsqrt_nr_ss(__m128 const x)
 {
 	__m128 recip = _mm_rsqrt_ss( x );  // "estimate" opcode
 	const static __m128 three = { 3, 3, 3, 3 }; // aligned consts for fast load
@@ -9,7 +28,7 @@ inline __m128 _mm_rsqrt_nr_ss(__m128 const x)
 	return _mm_mul_ss( halfrecip, threeminus_xrr );
 }
  
-inline __m128 __mm_normalize_fast_ps(  float * RESTRICT vOut, float * RESTRICT vIn )
+inline __m128 sse_normalize_fast_ps(  float * RESTRICT vOut, float * RESTRICT vIn )
 {
         __m128 x = _mm_load_ss(&vIn[0]);
         __m128 y = _mm_load_ss(&vIn[1]);
@@ -32,3 +51,8 @@ inline __m128 __mm_normalize_fast_ps(  float * RESTRICT vOut, float * RESTRICT v
         return _mm_mul_ss( l , rsqt );
 }
 */
+}//namespace detail
+}//namespace glm
+
+#endif//GLM_ARCH != GLM_ARCH_PURE)
+#endif//glm_detail_intrinsic_exponential

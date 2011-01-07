@@ -7,28 +7,33 @@
 // File    : glm/core/intrinsic_common.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_DETAIL_INTRINSIC_MATRIX_INCLUDED
-#define GLM_DETAIL_INTRINSIC_MATRIX_INCLUDED
+#ifndef glm_detail_intrinsic_matrix
+#define glm_detail_intrinsic_matrix
 
-#include "../glm.hpp"
 #include "intrinsic_geometric.hpp"
 
-void _mm_add_ps(__m128 in1[4], __m128 in2[4], __m128 out[4]);
+namespace glm{
+namespace detail
+{
+	void sse_add_ps(__m128 in1[4], __m128 in2[4], __m128 out[4]);
 
-void _mm_sub_ps(__m128 in1[4], __m128 in2[4], __m128 out[4]);
+	void sse_sub_ps(__m128 in1[4], __m128 in2[4], __m128 out[4]);
 
-__m128 _mm_mul_ps(__m128 m[4], __m128 v);
+	__m128 sse_mul_ps(__m128 m[4], __m128 v);
 
-__m128 _mm_mul_ps(__m128 v, __m128 m[4]);
+	__m128 sse_mul_ps(__m128 v, __m128 m[4]);
 
-void _mm_mul_ps(__m128 const in1[4], __m128 const in2[4], __m128 out[4]);
+	void sse_mul_ps(__m128 const in1[4], __m128 const in2[4], __m128 out[4]);
 
-void _mm_transpose_ps(__m128 const in[4], __m128 out[4]);
+	void sse_transpose_ps(__m128 const in[4], __m128 out[4]);
 
-void _mm_inverse_ps(__m128 const in[4], __m128 out[4]);
+	void sse_inverse_ps(__m128 const in[4], __m128 out[4]);
 
-void _mm_rotate_ps(__m128 const in[4], float Angle, float const v[3], __m128 out[4]);
+	void sse_rotate_ps(__m128 const in[4], float Angle, float const v[3], __m128 out[4]);
+
+}//namespace detail
+}//namespace glm
 
 #include "intrinsic_matrix.inl"
 
-#endif//GLM_DETAIL_INTRINSIC_MATRIX_INCLUDED
+#endif//glm_detail_intrinsic_matrix
