@@ -12,11 +12,10 @@
 
 #include "../setup.hpp"
 
-#if(GLM_ARCH != GLM_ARCH_PURE)
+#if(GLM_ARCH >= GLM_ARCH_SSE2)
 
 namespace glm{
-namespace detail
-{
+namespace detail{
 	__m128 sse_abs_ps(__m128 x);
 
 	__m128 sse_sgn_ps(__m128 x);
@@ -62,5 +61,5 @@ namespace detail
 
 #include "intrinsic_common.inl"
 
-#endif//(GLM_ARCH != GLM_ARCH_PURE)
+#endif//(GLM_ARCH >= GLM_ARCH_SSE2)
 #endif//glm_detail_intrinsic_common

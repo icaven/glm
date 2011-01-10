@@ -110,6 +110,10 @@ namespace glm
 	{
 		typedef detail::fvec4SIMD simd_vec4;
 
+		detail::fvec4SIMD cross(
+			detail::fvec4SIMD const & a,
+			detail::fvec4SIMD const & b);
+
 	}//namespace simd_vec4
 	}//namespace gtx
 }//namespace glm

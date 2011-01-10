@@ -266,8 +266,25 @@ namespace glm
 	namespace gtx{
 	namespace simd_vec4
 	{
-		
-
+#		if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_SSE)
+			inline detail::fvec4SIMD cross
+			(
+				detail::fvec4SIMD const & a,
+				detail::fvec4SIMD const & b
+			)
+			{
+				return _mm_xpd_ps(a.Data, b.Data);
+			}
+#		else//(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_PURE)
+			inline detail::fvec4SIMD cross
+			(
+				detail::fvec4SIMD const & a,
+				detail::fvec4SIMD const & b
+			)
+			{
+				return glm::cross(a, b);
+			}
+#		endif
 	}//namespace simd_vec4
 	}//namespace gtx
 }//namespace glm
