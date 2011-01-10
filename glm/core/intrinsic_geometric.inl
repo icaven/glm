@@ -90,7 +90,7 @@ inline __m128 _mm_ffd_ps(__m128 N, __m128 I, __m128 Nref)
 inline __m128 _mm_rfe_ps(__m128 I, __m128 N)
 {
 	__m128 dot0 = _mm_dot_ps(N, I);
-	__m128 mul0 = _mm_mul_ps(N, I);
+	__m128 mul0 = _mm_mul_ps(N, dot0);
 	__m128 mul1 = _mm_mul_ps(mul0, glm::detail::two);
 	__m128 sub0 = _mm_sub_ps(I, mul1);
 	return sub0;
