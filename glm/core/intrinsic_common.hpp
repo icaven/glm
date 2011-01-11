@@ -12,7 +12,7 @@
 
 #include "../setup.hpp"
 
-#if(GLM_ARCH >= GLM_ARCH_SSE2)
+//#if(GLM_ARCH >= GLM_ARCH_SSE2)
 
 namespace glm{
 namespace detail{
@@ -63,5 +63,5 @@ namespace detail{
 
 #include "intrinsic_common.inl"
 
-#endif//(GLM_ARCH >= GLM_ARCH_SSE2)
+//#endif//(GLM_ARCH >= GLM_ARCH_SSE2)
 #endif//glm_detail_intrinsic_common
