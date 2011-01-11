@@ -10,13 +10,11 @@
 namespace glm{
 namespace detail{
 
-static const __m128 one = _mm_set_ps1(1.0f);
-static const __m128 pi = _mm_set_ps1(3.141592653589793238462643383279f);
 static const __m128 _m128_rad_ps = _mm_set_ps1(3.141592653589793238462643383279f / 180.f);
 static const __m128 _m128_deg_ps = _mm_set_ps1(180.f / 3.141592653589793238462643383279f);
 
 template <typename matType>
-inline matType _mm_comp_mul_ps
+inline matType sse_comp_mul_ps
 (
 	__m128 const in1[4],
 	__m128 const in2[4],
@@ -29,7 +27,7 @@ inline matType _mm_comp_mul_ps
 	out[3] = _mm_mul_ps(in1[3], in2[3]);
 }
 
-inline void _mm_add_ps(__m128 in1[4], __m128 in2[4], __m128 out[4])
+inline void sse_add_ps(__m128 in1[4], __m128 in2[4], __m128 out[4])
 {
 	{
 		out[0] = _mm_add_ps(in1[0], in2[0]);
@@ -39,7 +37,7 @@ inline void _mm_add_ps(__m128 in1[4], __m128 in2[4], __m128 out[4])
 	}
 }
 
-inline void _mm_sub_ps(__m128 in1[4], __m128 in2[4], __m128 out[4])
+inline void sse_sub_ps(__m128 in1[4], __m128 in2[4], __m128 out[4])
 {
 	{
 		out[0] = _mm_sub_ps(in1[0], in2[0]);
@@ -49,7 +47,7 @@ inline void _mm_sub_ps(__m128 in1[4], __m128 in2[4], __m128 out[4])
 	}
 }
 
-inline __m128 _mm_mul_ps(__m128 m[4], __m128 v)
+inline __m128 sse_mul_ps(__m128 m[4], __m128 v)
 {
 	__m128 v0 = _mm_shuffle_ps(v, v, _MM_SHUFFLE(0, 0, 0, 0));
 	__m128 v1 = _mm_shuffle_ps(v, v, _MM_SHUFFLE(1, 1, 1, 1));
@@ -68,7 +66,7 @@ inline __m128 _mm_mul_ps(__m128 m[4], __m128 v)
 	return a2;
 }
 
-inline __m128 _mm_mul_ps(__m128 v, __m128 m[4])
+inline __m128 sse_mul_ps(__m128 v, __m128 m[4])
 {
 	__m128 i0 = m[0];
 	__m128 i1 = m[1];
@@ -95,7 +93,7 @@ inline __m128 _mm_mul_ps(__m128 v, __m128 m[4])
 	return f2;
 }
 
-inline void _mm_mul_ps(__m128 const in1[4], __m128 const in2[4], __m128 out[4])
+inline void sse_mul_ps(__m128 const in1[4], __m128 const in2[4], __m128 out[4])
 {
 	{
 		__m128 e0 = _mm_shuffle_ps(in2[0], in2[0], _MM_SHUFFLE(0, 0, 0, 0));
@@ -171,7 +169,7 @@ inline void _mm_mul_ps(__m128 const in1[4], __m128 const in2[4], __m128 out[4])
 	}
 }
 
-inline void _mm_transpose_ps(__m128 const in[4], __m128 out[4])
+inline void sse_transpose_ps(__m128 const in[4], __m128 out[4])
 {
     __m128 tmp0 = _mm_shuffle_ps(in[0], in[1], 0x44);
     __m128 tmp2 = _mm_shuffle_ps(in[0], in[1], 0xEE);
@@ -184,7 +182,7 @@ inline void _mm_transpose_ps(__m128 const in[4], __m128 out[4])
     out[3] = _mm_shuffle_ps(tmp2, tmp3, 0xDD);
 }
 
-inline __m128 _mm_det_ps(__m128 const in[4])
+inline __m128 sse_slow_det_ps(__m128 const in[4])
 {
 	__m128 Fac0;
 	{
@@ -406,18 +404,15 @@ inline __m128 _mm_det_ps(__m128 const in[4])
 	//						+ m[0][1] * Inverse[1][0]
 	//						+ m[0][2] * Inverse[2][0]
 	//						+ m[0][3] * Inverse[3][0];
-	__m128 Det0 = _mm_dot_ps(in[0], Row2);
+	__m128 Det0 = sse_dot_ps(in[0], Row2);
 	return Det0;
 }
 
-template <typename T>
-inline typename detail::tmat4x4<T>::value_type _mm_det2_ps
+inline __m128 sse_det_ps
 (
-	__m128 const & m[4]
+	__m128 const m[4]
 )
 {
-	GLM_STATIC_ASSERT(detail::type<T>::is_float, "'determinant' only accept floating-point inputs");
-
 	//T SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
 	//T SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
 	//T SubFactor02 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
@@ -428,20 +423,20 @@ inline typename detail::tmat4x4<T>::value_type _mm_det2_ps
 	// First 2 columns
 	__m128 Swp2A = _mm_shuffle_ps(m[2], m[2], _MM_SHUFFLE(0, 1, 1, 2));
 	__m128 Swp3A = _mm_shuffle_ps(m[3], m[3], _MM_SHUFFLE(3, 2, 3, 3));
-	__m128 MulA = __mm_mul_ps(Swp2A, Swp3A);
+	__m128 MulA = _mm_mul_ps(Swp2A, Swp3A);
 
 	// Second 2 columns
 	__m128 Swp2B = _mm_shuffle_ps(m[2], m[2], _MM_SHUFFLE(0, 1, 1, 2));
 	__m128 Swp3B = _mm_shuffle_ps(m[3], m[3], _MM_SHUFFLE(3, 2, 3, 3));
-	__m128 MulB = __mm_mul_ps(Swp2A, Swp3A);
+	__m128 MulB = _mm_mul_ps(Swp2A, Swp3A);
 
 	// Columns subtraction
-	__m128 SubAB = __mm_sub_ps(MulA, MulB);
+	__m128 SubAB = _mm_sub_ps(MulA, MulB);
 
 	// Last 2 rows
 	__m128 Swp2C = _mm_shuffle_ps(m[2], m[2], _MM_SHUFFLE(1, 2, 0, 0));
 	__m128 Swp3C = _mm_shuffle_ps(m[3], m[3], _MM_SHUFFLE(0, 0, 1, 2));
-	__m128 MulC = __mm_mul_ps(Swp2C, Swp3C);
+	__m128 MulC = _mm_mul_ps(Swp2C, Swp3C);
 	__m128 SwpD = __mm_hl_ps(MulC);
 
 	//detail::tvec4<T> DetCof(
@@ -472,10 +467,10 @@ inline typename detail::tmat4x4<T>::value_type _mm_det2_ps
 	//	 + m[0][2] * DetCof[2]
 	//	 + m[0][3] * DetCof[3];
 
-	return _mm_dot_ps(m[0], Signed);
+	return sse_dot_ps(m[0], Signed);
 }
 
-inline void _mm_inverse_ps(__m128 const in[4], __m128 out[4])
+inline void sse_inverse_ps(__m128 const in[4], __m128 out[4])
 {
 	__m128 Fac0;
 	{
@@ -708,7 +703,7 @@ inline void _mm_inverse_ps(__m128 const in[4], __m128 out[4])
 	out[3] = _mm_mul_ps(Inv3, Rcp0);
 }
 
-inline void _mm_inverse_fast_ps(__m128 const in[4], __m128 out[4])
+inline void sse_inverse_fast_ps(__m128 const in[4], __m128 out[4])
 {
 	__m128 Fac0;
 	{
@@ -930,7 +925,7 @@ inline void _mm_inverse_fast_ps(__m128 const in[4], __m128 out[4])
 	//						+ m[0][1] * Inverse[1][0] 
 	//						+ m[0][2] * Inverse[2][0] 
 	//						+ m[0][3] * Inverse[3][0];
-	__m128 Det0 = _mm_dot_ps(in[0], Row2);
+	__m128 Det0 = sse_dot_ps(in[0], Row2);
 	__m128 Rcp0 = _mm_rcp_ps(Det0);
 	//__m128 Rcp0 = _mm_div_ps(one, Det0);
 	//	Inverse /= Determinant;
@@ -941,7 +936,7 @@ inline void _mm_inverse_fast_ps(__m128 const in[4], __m128 out[4])
 }
 
 
-void _mm_rotate_ps(__m128 const in[4], float Angle, float const v[3], __m128 out[4])
+void sse_rotate_ps(__m128 const in[4], float Angle, float const v[3], __m128 out[4])
 {
 	float a = glm::radians(Angle);
     float c = cos(a);
@@ -1008,10 +1003,10 @@ void _mm_rotate_ps(__m128 const in[4], float Angle, float const v[3], __m128 out
 	//Result[2] = m[0] * Rotate[2][0] + m[1] * Rotate[2][1] + m[2] * Rotate[2][2];
 	//Result[3] = m[3];
 	//return Result;
-	_mm_mul_ps(in, Result, out);
+	sse_mul_ps(in, Result, out);
 }
 
-void _mm_outer_ps(__m128 const & c, __m128 const & r, __m128 out[4])
+void sse_outer_ps(__m128 const & c, __m128 const & r, __m128 out[4])
 {
 	out[0] = _mm_mul_ps(c, _mm_shuffle_ps(r, r, _MM_SHUFFLE(0, 0, 0, 0));
 	out[1] = _mm_mul_ps(c, _mm_shuffle_ps(r, r, _MM_SHUFFLE(1, 1, 1, 1));

@@ -153,7 +153,7 @@ inline __m128 sse_sgn_ps(__m128 x)
 //floor
 inline __m128 sse_flr_ps(__m128 x)
 {
-	__m128 rnd0 = _mm_rnd_ps(x);
+	__m128 rnd0 = sse_rnd_ps(x);
 	__m128 cmp0 = _mm_cmplt_ps(x, rnd0);
 	__m128 and0 = _mm_and_ps(cmp0, glm::detail::_ps_1);
 	__m128 sub0 = _mm_sub_ps(rnd0, and0);
@@ -185,7 +185,7 @@ inline __m128 sse_rde_ps(__m128 v)
 
 inline __m128 sse_ceil_ps(__m128 x)
 {
-	__m128 rnd0 = _mm_rnd_ps(x);
+	__m128 rnd0 = sse_rnd_ps(x);
 	__m128 cmp0 = _mm_cmpgt_ps(x, rnd0);
 	__m128 and0 = _mm_and_ps(cmp0, glm::detail::_ps_1);
 	__m128 add0 = _mm_add_ps(rnd0, and0);
@@ -194,7 +194,7 @@ inline __m128 sse_ceil_ps(__m128 x)
 
 inline __m128 sse_frc_ps(__m128 x)
 {
-	__m128 flr0 = _mm_flr_ps(x);
+	__m128 flr0 = sse_flr_ps(x);
 	__m128 sub0 = _mm_sub_ps(x, flr0);
 	return sub0;
 }
@@ -202,7 +202,7 @@ inline __m128 sse_frc_ps(__m128 x)
 inline __m128 sse_mod_ps(__m128 x, __m128 y)
 {
 	__m128 div0 = _mm_div_ps(x, y);
-	__m128 flr0 = _mm_flr_ps(div0);
+	__m128 flr0 = sse_flr_ps(div0);
 	__m128 mul0 = _mm_mul_ps(y, flr0);
 	__m128 sub0 = _mm_sub_ps(x, mul0);
 	return sub0;
@@ -247,7 +247,7 @@ inline __m128 sse_ssp_ps(__m128 edge0, __m128 edge1, __m128 x)
 	__m128 sub0 = _mm_sub_ps(x, edge0);
 	__m128 sub1 = _mm_sub_ps(edge1, edge0);
 	__m128 div0 = _mm_sub_ps(sub0, sub1);
-	__m128 clp0 = _mm_clp_ps(div0, glm::detail::zero, glm::detail::one);
+	__m128 clp0 = sse_clp_ps(div0, glm::detail::zero, glm::detail::one);
 	__m128 mul0 = _mm_mul_ps(glm::detail::two, clp0);
 	__m128 sub2 = _mm_sub_ps(glm::detail::three, mul0);
 	__m128 mul1 = _mm_mul_ps(clp0, clp0);

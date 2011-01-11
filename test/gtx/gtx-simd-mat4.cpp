@@ -30,8 +30,8 @@ int main(int argc, void* argv[])
 		glm::simd_vec4(0.5f, 3.0f, 0.6f, 0.02f),
 		glm::simd_vec4(0.2f, 0.4f, 2.0f, 0.03f),
 		glm::simd_vec4(4.0f, 3.0f, 2.0f, 1.00f));
-	__m128 DetB = _mm_slow_det_ps(&IdentityB.Data[0].Data); 
-	__m128 DetC = _mm_det_ps(&IdentityB.Data[0].Data);
+	__m128 DetB = sse_slow_det_ps(&IdentityB.Data[0].Data); 
+	__m128 DetC = sse_det_ps(&IdentityB.Data[0].Data);
 
 	return 0;
 }

@@ -31,6 +31,10 @@ namespace detail
 
 	void sse_rotate_ps(__m128 const in[4], float Angle, float const v[3], __m128 out[4]);
 
+	__m128 sse_det_ps(__m128 const m[4]);
+
+	__m128 sse_slow_det_ps(__m128 const m[4]);
+
 }//namespace detail
 }//namespace glm
 

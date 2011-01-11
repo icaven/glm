@@ -108,7 +108,7 @@
 
 #ifdef _MSC_VER
 
-#if defined(_WIN64)
+#if defined(_M_X64)
 #define GLM_MODEL	GLM_MODEL_64
 #else
 #define GLM_MODEL	GLM_MODEL_32
@@ -222,42 +222,80 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Compiler instruction set
 
-#define GLM_INSTRUCTION_SET_NULL	0x00000000 // 
+//#define GLM_INSTRUCTION_SET_NULL	0x00000000 // 
 #define GLM_INSTRUCTION_SET_PURE	0x00000001 // x86intrin.h
-#define GLM_INSTRUCTION_SET_MMX		0x00000002 // mmintrin.h (MMX)
-#define GLM_INSTRUCTION_SET_3DNOW	0x00000004 // mm3dnow.h (3DNOW!)
-#define GLM_INSTRUCTION_SET_SSE		0x00000008 // xmmintrin.h (SSE + MMX)
+//#define GLM_INSTRUCTION_SET_MMX		0x00000002 // mmintrin.h (MMX)
+//#define GLM_INSTRUCTION_SET_3DNOW	0x00000004 // mm3dnow.h (3DNOW!)
+//#define GLM_INSTRUCTION_SET_SSE		0x00000008 // xmmintrin.h (SSE + MMX)
 #define GLM_INSTRUCTION_SET_SSE2	0x00000010 // emmintrin.h (SSE2 + SSE)
-#define GLM_INSTRUCTION_SET_SSE3	0x00000020 // pmmintrin.h (SSE3 + SSE2 + SSE1)
-#define GLM_INSTRUCTION_SET_SSSE3	0x00000040 // tmmintrin.h (SSSE3 + SSE3 + SSE2 + SSE1)
-#define GLM_INSTRUCTION_SET_POPCNT	0x00000080 // popcntintrin.h
-#define GLM_INSTRUCTION_SET_SSE4A	0x00000100 // ammintrin.h (SSE4A + POPCNT + SSE3 + SSE2 + SSE)
-#define GLM_INSTRUCTION_SET_SSE4_1	0x00000200 // smmintrin.h (SSE4_1 + SSSE3 + SSE3 + SSE2 + SSE)
-#define GLM_INSTRUCTION_SET_SSE4_2	0x00000400 // nmmintrin.h (SSE4_2 + SSE4_1 + SSSE3 + SSE3 + SSE2 + SSE)
-#define GLM_INSTRUCTION_SET_AES		0x00000800 // wmmintrin.h (AES + PCLMUL + SSE2 + SSE1)
-#define GLM_INSTRUCTION_SET_PCLMUL	0x00001000 // wmmintrin.h (AES + PCLMUL + SSE2 + SSE1)
-#define GLM_INSTRUCTION_SET_AVX		0x00002000 // immintrin.h (AES + PCLMUL + SSE4_2 + SSE4_1 + SSSE3 + SSE3 + SSE2 + SSE)
+#define GLM_INSTRUCTION_SET_SSE3	0x00000020 | GLM_INSTRUCTION_SET_SSE2 // pmmintrin.h (SSE3 + SSE2 + SSE1)
+//#define GLM_INSTRUCTION_SET_SSSE3	0x00000040 // tmmintrin.h (SSSE3 + SSE3 + SSE2 + SSE1)
+//#define GLM_INSTRUCTION_SET_POPCNT	0x00000080 // popcntintrin.h
+//#define GLM_INSTRUCTION_SET_SSE4A	0x00000100 // ammintrin.h (SSE4A + POPCNT + SSE3 + SSE2 + SSE)
+//#define GLM_INSTRUCTION_SET_SSE4_1	0x00000200 // smmintrin.h (SSE4_1 + SSSE3 + SSE3 + SSE2 + SSE)
+//#define GLM_INSTRUCTION_SET_SSE4_2	0x00000400 // nmmintrin.h (SSE4_2 + SSE4_1 + SSSE3 + SSE3 + SSE2 + SSE)
+//#define GLM_INSTRUCTION_SET_AES		0x00000800 // wmmintrin.h (AES + PCLMUL + SSE2 + SSE1)
+//#define GLM_INSTRUCTION_SET_PCLMUL	0x00001000 // wmmintrin.h (AES + PCLMUL + SSE2 + SSE1)
+#define GLM_INSTRUCTION_SET_AVX		0x00002000 | GLM_INSTRUCTION_SET_SSE3 // immintrin.h (AES + PCLMUL + SSE4_2 + SSE4_1 + SSSE3 + SSE3 + SSE2 + SSE)
 
-#if(defined(GLM_COMPILER) && (GLM_COMPILER & GLM_COMPILER_GCC)) 
-#	define GLM_INSTRUCTION_SET GLM_INSTRUCTION_SET_NULL
-#elif(defined(GLM_COMPILER) && (GLM_COMPILER & GLM_COMPILER_VC)) 
-#	if(GLM_MODEL == GLM_MODEL_64)
-#		ifdef _M_CEE_PURE
-#			define GLM_INSTRUCTION_SET GLM_INSTRUCTION_SET_PURE
-#		else
-#			define GLM_INSTRUCTION_SET GLM_INSTRUCTION_SET_MMX | GLM_INSTRUCTION_SET_SSE
-#		endif
+/////////////////
+// Platform 
+
+#define GLM_SUPPORT_PURE		0
+#define GLM_SUPPORT_SSE2		1
+#define GLM_SUPPORT_SSE3		2
+#define GLM_SUPPORT_AVX			3
+
+#if(GLM_COMPILER & GLM_COMPILER_VC)
+#	if(GLM_COMPILER >= GLM_COMPILER_VC2010)
+#		define GLM_SUPPORT GLM_SUPPORT_SSE3 //GLM_SUPPORT_AVX (Require SP1)
+#	elif(GLM_COMPILER >= GLM_COMPILER_VC2008)
+#		define GLM_SUPPORT GLM_SUPPORT_SSE3
+#	elif(GLM_COMPILER >= GLM_COMPILER_VC2005)
+#		define GLM_SUPPORT GLM_SUPPORT_SSE2
 #	else
-#		ifdef _M_CEE_PURE
-#			define GLM_INSTRUCTION_SET GLM_INSTRUCTION_SET_PURE
-#		else
-#			define GLM_INSTRUCTION_SET GLM_INSTRUCTION_SET_NULL
-#		endif
+#		define GLM_SUPPORT GLM_SUPPORT_PURE
+#	endif
+#elif(GLM_COMPILER & GLM_COMPILER_GCC)
+#	if(GLM_COMPILER >= GLM_COMPILER_GCC44)
+#		define GLM_SUPPORT GLM_SUPPORT_AVX
+#	elif(GLM_COMPILER >= GLM_COMPILER_GCC40)
+#		define GLM_SUPPORT GLM_SUPPORT_SSE3
+#	else
+#		define GLM_SUPPORT GLM_SUPPORT_PURE
 #	endif
 #else
-#	define GLM_INSTRUCTION_SET GLM_INSTRUCTION_SET_PURE
+#	define GLM_SUPPORT GLM_SUPPORT_PURE
 #endif
 
+#define GLM_PLATFORM_PURE		0
+#define GLM_PLATFORM_SSE2		1
+#define GLM_PLATFORM_SSE3		2
+#define GLM_PLATFORM_AVX		3
+
+#ifdef GLM_INSTRUCTION_SET
+#	if((GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_AVX) && GLM_SUPPORT >= GLM_SUPPORT_AVX)
+#		include <immintrin.h>
+#		define GLM_PLATFORM GLM_PLATFORM_AVX
+#	elif((GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_SSE3) && GLM_SUPPORT >= GLM_SUPPORT_SSE3)
+#		include <pmmintrin.h>
+#		define GLM_PLATFORM GLM_PLATFORM_SSE3
+#	elif((GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_SSE2) && GLM_SUPPORT >= GLM_SUPPORT_SSE2)
+#		include <emmintrin.h>
+#		define GLM_PLATFORM GLM_PLATFORM_SSE2
+#	else
+#		define GLM_PLATFORM GLM_PLATFORM_PURE
+#	endif
+#else
+#	if(GLM_MODEL == GLM_MODEL_64)
+#		include <emmintrin.h>
+#		define GLM_PLATFORM GLM_PLATFORM_SSE2
+#	else
+#		define GLM_PLATFORM GLM_PLATFORM_PURE
+#	endif
+#endif
+
+/*
 #if(GLM_INSTRUCTION_SET != GLM_INSTRUCTION_SET_NULL)
 #	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_MMX)
 #		include <mmintrin.h>
@@ -278,10 +316,10 @@
 #		include <tmmintrin.h>
 #	endif
 #	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_POPCNT)
-#		include <popcntintrin.h>
+//#		include <popcntintrin.h>
 #	endif
 #	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_SSE4A)
-#		include <ammintrin.h>
+//#		include <ammintrin.h>
 #	endif
 #	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_SSE4_1)
 #		include <smmintrin.h>
@@ -299,7 +337,7 @@
 #		include <immintrin.h>
 #	endif
 #endif
-
+*/
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Swizzle operators
 

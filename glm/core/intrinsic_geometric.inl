@@ -11,23 +11,23 @@ namespace glm{
 namespace detail{
 
 //length
-inline __m128 _mm_len_ps(__m128 x)
+inline __m128 sse_len_ps(__m128 x)
 {
-    __m128 dot0 = _mm_dot_ps(x, x);
+    __m128 dot0 = sse_dot_ps(x, x);
 	__m128 sqt0 = _mm_sqrt_ps(dot0);
     return sqt0;
 }
 
 //distance
-inline __m128 _mm_dst_ps(__m128 p0, __m128 p1)
+inline __m128 sse_dst_ps(__m128 p0, __m128 p1)
 {
 	__m128 sub0 = _mm_sub_ps(p0, p1);
-    __m128 len0 = _mm_len_ps(sub0);
+    __m128 len0 = sse_len_ps(sub0);
     return len0;
 }
 
 //dot
-inline __m128 _mm_dot_ps(__m128 v1, __m128 v2)
+inline __m128 sse_dot_ps(__m128 v1, __m128 v2)
 {
 	__m128 mul0 = _mm_mul_ps(v1, v2);
 	__m128 swp0 = _mm_shuffle_ps(mul0, mul0, _MM_SHUFFLE(2, 3, 0, 1));
@@ -38,7 +38,7 @@ inline __m128 _mm_dot_ps(__m128 v1, __m128 v2)
 }
 
 // SSE1
-inline __m128 _mm_dot_ss(__m128 v1, __m128 v2)
+inline __m128 sse_dot_ss(__m128 v1, __m128 v2)
 {
 	__m128 mul0 = _mm_mul_ps(v1, v2);
 	__m128 mov0 = _mm_movehl_ps(mul0, mul0);
@@ -49,7 +49,7 @@ inline __m128 _mm_dot_ss(__m128 v1, __m128 v2)
 }
 
 //cross
-inline __m128 _mm_xpd_ps(__m128 v1, __m128 v2)
+inline __m128 sse_xpd_ps(__m128 v1, __m128 v2)
 {
 	__m128 swp0 = _mm_shuffle_ps(v1, v1, _MM_SHUFFLE(3, 0, 2, 1));
 	__m128 swp1 = _mm_shuffle_ps(v1, v1, _MM_SHUFFLE(3, 1, 0, 2));
@@ -64,7 +64,7 @@ inline __m128 _mm_xpd_ps(__m128 v1, __m128 v2)
 //normalize
 inline __m128 _mm_nrm_ps(__m128 v)
 {
-	__m128 dot0 = _mm_dot_ps(v, v);
+	__m128 dot0 = sse_dot_ps(v, v);
 	__m128 isr0 = _mm_rsqrt_ps(dot0);
 	__m128 mul0 = _mm_mul_ps(v, isr0);
 	return mul0;
@@ -79,8 +79,8 @@ inline __m128 _mm_ffd_ps(__m128 N, __m128 I, __m128 Nref)
 	//__m128 mix0 = _mm_mix_ps(N, neg0, sgn0);
 	//return mix0;
 
-	__m128 dot0 = _mm_dot_ps(Nref, I);
-	__m128 sgn0 = _mm_sgn_ps(dot0);
+	__m128 dot0 = sse_dot_ps(Nref, I);
+	__m128 sgn0 = sse_sgn_ps(dot0);
 	__m128 mul0 = _mm_mul_ps(sgn0, glm::detail::minus_one);
 	__m128 mul1 = _mm_mul_ps(N, mul0);
 	return mul1;
@@ -89,7 +89,7 @@ inline __m128 _mm_ffd_ps(__m128 N, __m128 I, __m128 Nref)
 //reflect
 inline __m128 _mm_rfe_ps(__m128 I, __m128 N)
 {
-	__m128 dot0 = _mm_dot_ps(N, I);
+	__m128 dot0 = sse_dot_ps(N, I);
 	__m128 mul0 = _mm_mul_ps(N, dot0);
 	__m128 mul1 = _mm_mul_ps(mul0, glm::detail::two);
 	__m128 sub0 = _mm_sub_ps(I, mul1);
@@ -99,7 +99,7 @@ inline __m128 _mm_rfe_ps(__m128 I, __m128 N)
 //refract
 inline __m128 _mm_rfa_ps(__m128 I, __m128 N, __m128 eta)
 {
-	__m128 dot0 = _mm_dot_ps(N, I);
+	__m128 dot0 = sse_dot_ps(N, I);
 	__m128 mul0 = _mm_mul_ps(eta, eta);
 	__m128 mul1 = _mm_mul_ps(dot0, dot0);
 	__m128 sub0 = _mm_sub_ps(glm::detail::one, mul0);

@@ -234,7 +234,7 @@ namespace simd_mat4
 	inline detail::fmat4x4SIMD simd_transpose(detail::fmat4x4SIMD const & m)
 	{
 		detail::fmat4x4SIMD result;
-		_mm_transpose_ps(&m[0].Data, &result[0].Data);
+		sse_transpose_ps(&m[0].Data, &result[0].Data);
 		return result;
 	}
 
@@ -246,7 +246,7 @@ namespace simd_mat4
 	inline detail::fmat4x4SIMD simd_inverse(detail::fmat4x4SIMD const & m)
 	{
 		detail::fmat4x4SIMD result;
-		_mm_inverse_ps(&m[0].Data, &result[0].Data);
+		sse_inverse_ps(&m[0].Data, &result[0].Data);
 		return result;
 	}
 }//namespace simd_mat4

@@ -32,6 +32,8 @@ namespace detail{
 	//roundEven
 	__m128 sse_rde_ps(__m128 v);
 
+	__m128 sse_rnd_ps(__m128 x);
+
 	__m128 sse_ceil_ps(__m128 v);
 
 	__m128 sse_frc_ps(__m128 x);
