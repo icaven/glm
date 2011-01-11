@@ -273,7 +273,7 @@ namespace glm
 				detail::fvec4SIMD const & b
 			)
 			{
-				return _mm_xpd_ps(a.Data, b.Data);
+				return detail::sse_xpd_ps(a.Data, b.Data);
 			}
 #		else//(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_PURE)
 			inline detail::fvec4SIMD cross
@@ -282,7 +282,7 @@ namespace glm
 				detail::fvec4SIMD const & b
 			)
 			{
-				return glm::cross(a, b);
+				return detail::sse_xpd_ps(a.Data, b.Data);
 			}
 #		endif
 	}//namespace simd_vec4

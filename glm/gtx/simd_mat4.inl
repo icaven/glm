@@ -132,7 +132,7 @@ namespace detail
 		fmat4x4SIMD const & m
 	)
     {
-		_mm_mul_ps(&this->Data[0].Data, &m.Data[0].Data, &this->Data[0].Data);
+		sse_mul_ps(&this->Data[0].Data, &m.Data[0].Data, &this->Data[0].Data);
         return *this;
     }
 
@@ -142,8 +142,8 @@ namespace detail
 	)
     {
 		__m128 Inv[4];
-		_mm_inverse_ps(&this->Data[0].Data, Inv);
-		_mm_mul_ps(&this->Data[0].Data, Inv, &this->Data[0].Data);
+		sse_inverse_ps(&this->Data[0].Data, Inv);
+		sse_mul_ps(&this->Data[0].Data, Inv, &this->Data[0].Data);
         return *this;
     }
 
@@ -234,7 +234,7 @@ namespace simd_mat4
 	inline detail::fmat4x4SIMD simd_transpose(detail::fmat4x4SIMD const & m)
 	{
 		detail::fmat4x4SIMD result;
-		sse_transpose_ps(&m[0].Data, &result[0].Data);
+		detail::sse_transpose_ps(&m[0].Data, &result[0].Data);
 		return result;
 	}
 
@@ -246,7 +246,7 @@ namespace simd_mat4
 	inline detail::fmat4x4SIMD simd_inverse(detail::fmat4x4SIMD const & m)
 	{
 		detail::fmat4x4SIMD result;
-		sse_inverse_ps(&m[0].Data, &result[0].Data);
+		detail::sse_inverse_ps(&m[0].Data, &result[0].Data);
 		return result;
 	}
 }//namespace simd_mat4
