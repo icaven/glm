@@ -408,11 +408,79 @@ inline __m128 sse_slow_det_ps(__m128 const in[4])
 	return Det0;
 }
 
+inline __m128 sse_detd_ps
+(
+	__m128 const m[4]
+)
+{
+	// _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(
+
+	//T SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
+	//T SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
+	//T SubFactor02 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
+	//T SubFactor03 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
+	//T SubFactor04 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
+	//T SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
+
+	// First 2 columns
+ 	__m128 Swp2A = _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(m[2]), _MM_SHUFFLE(0, 1, 1, 2)));
+ 	__m128 Swp3A = _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(m[3]), _MM_SHUFFLE(3, 2, 3, 3)));
+	__m128 MulA = _mm_mul_ps(Swp2A, Swp3A);
+
+	// Second 2 columns
+	__m128 Swp2B = _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(m[2]), _MM_SHUFFLE(3, 2, 3, 3)));
+	__m128 Swp3B = _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(m[3]), _MM_SHUFFLE(0, 1, 1, 2)));
+	__m128 MulB = _mm_mul_ps(Swp2B, Swp3B);
+
+	// Columns subtraction
+	__m128 SubE = _mm_sub_ps(MulA, MulB);
+
+	// Last 2 rows
+	__m128 Swp2C = _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(m[2]), _MM_SHUFFLE(0, 0, 1, 2)));
+	__m128 Swp3C = _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(m[3]), _MM_SHUFFLE(1, 2, 0, 0)));
+	__m128 MulC = _mm_mul_ps(Swp2C, Swp3C);
+	__m128 SubF = _mm_sub_ps(_mm_movehl_ps(MulC, MulC), MulC);
+
+	//detail::tvec4<T> DetCof(
+	//	+ (m[1][1] * SubFactor00 - m[1][2] * SubFactor01 + m[1][3] * SubFactor02),
+	//	- (m[1][0] * SubFactor00 - m[1][2] * SubFactor03 + m[1][3] * SubFactor04),
+	//	+ (m[1][0] * SubFactor01 - m[1][1] * SubFactor03 + m[1][3] * SubFactor05),
+	//	- (m[1][0] * SubFactor02 - m[1][1] * SubFactor04 + m[1][2] * SubFactor05));
+
+	__m128 SubFacA = _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(SubE), _MM_SHUFFLE(2, 1, 0, 0)));
+	__m128 SwpFacA = _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(m[1]), _MM_SHUFFLE(0, 0, 0, 1)));
+	__m128 MulFacA = _mm_mul_ps(SwpFacA, SubFacA);
+
+	__m128 SubTmpB = _mm_shuffle_ps(SubE, SubF, _MM_SHUFFLE(0, 0, 3, 1));
+	__m128 SubFacB = _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(SubTmpB), _MM_SHUFFLE(3, 1, 1, 0)));//SubF[0], SubE[3], SubE[3], SubE[1];
+	__m128 SwpFacB = _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(m[1]), _MM_SHUFFLE(1, 1, 2, 2)));
+	__m128 MulFacB = _mm_mul_ps(SwpFacB, SubFacB);
+
+	__m128 SubRes = _mm_sub_ps(MulFacA, MulFacB);
+
+	__m128 SubTmpC = _mm_shuffle_ps(SubE, SubF, _MM_SHUFFLE(1, 0, 2, 2));
+	__m128 SubFacC = _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(SubTmpC), _MM_SHUFFLE(3, 3, 2, 0)));
+	__m128 SwpFacC = _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(m[1]), _MM_SHUFFLE(2, 3, 3, 3)));
+	__m128 MulFacC = _mm_mul_ps(SwpFacC, SubFacC);
+
+	__m128 AddRes = _mm_add_ps(SubRes, MulFacC);
+	__m128 DetCof = _mm_mul_ps(AddRes, _mm_setr_ps( 1.0f,-1.0f, 1.0f,-1.0f));
+
+	//return m[0][0] * DetCof[0]
+	//	 + m[0][1] * DetCof[1]
+	//	 + m[0][2] * DetCof[2]
+	//	 + m[0][3] * DetCof[3];
+
+	return sse_dot_ps(m[0], DetCof);
+}
+
 inline __m128 sse_det_ps
 (
 	__m128 const m[4]
 )
 {
+	// _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(add)
+
 	//T SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
 	//T SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
 	//T SubFactor02 = m[2][1] * m[3][2] - m[3][1] * m[2][2];

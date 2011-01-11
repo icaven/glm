@@ -10,98 +10,104 @@
 #define GLM_INSTRUCTION_SET GLM_PLATFORM_SSE3
 #include <glm/glm.hpp>
 #include <glm/gtx/simd_mat4.hpp>
+#include <glm/gtx/random.hpp>
 #include <iostream>
 #include <ctime>
 #include <vector>
+#include <array>
 
-void test_detA()
+std::vector<float> test_detA(std::vector<glm::mat4> const & Data)
 {
-	glm::mat4 Identity(
-		glm::vec4(4.0f, 0.7f, 0.1f, 0.01f),
-		glm::vec4(0.5f, 3.0f, 0.6f, 0.02f),
-		glm::vec4(0.2f, 0.4f, 2.0f, 0.03f),
-		glm::vec4(4.0f, 3.0f, 2.0f, 1.00f));
-
-	std::vector<float> Test(10000000);
+	std::vector<float> Test(Data.size());
 
 	std::clock_t TimeStart = clock();
 
 	for(std::size_t i = 0; i < Test.size(); ++i)
-		Test[i] = glm::determinant(Identity);
+		Test[i] = glm::determinant(Data[i]);
 
 	std::clock_t TimeEnd = clock();
 	printf("Det A: %d\n", TimeEnd - TimeStart);
+
+	return Test;
 }
 
-void test_detB()
+std::vector<float> test_detB(std::vector<glm::mat4> const & Data)
 {
-	glm::simd_mat4 IdentityB(
-		glm::simd_vec4(4.0f, 0.7f, 0.1f, 0.01f),
-		glm::simd_vec4(0.5f, 3.0f, 0.6f, 0.02f),
-		glm::simd_vec4(0.2f, 0.4f, 2.0f, 0.03f),
-		glm::simd_vec4(4.0f, 3.0f, 2.0f, 1.00f));
-
-	std::vector<__m128> Test(10000000);
+	std::vector<float> Test(Data.size());
 
 	std::clock_t TimeStart = clock();
 
 	for(std::size_t i = 0; i < Test.size(); ++i)
-		Test[i] = glm::detail::sse_slow_det_ps(&IdentityB.Data[0].Data); 
+	{
+		glm::simd_mat4 m(Data[i]);
+		Test[i] = glm::simd_vec4(glm::detail::sse_slow_det_ps((__m128 const * const)&m)).x; 
+	}
 
 	std::clock_t TimeEnd = clock();
 	printf("Det B: %d\n", TimeEnd - TimeStart);
+
+	return Test;
 }
 
-void test_detC()
+std::vector<float> test_detC(std::vector<glm::mat4> const & Data)
 {
-	glm::simd_mat4 IdentityB(
-		glm::simd_vec4(4.0f, 0.7f, 0.1f, 0.01f),
-		glm::simd_vec4(0.5f, 3.0f, 0.6f, 0.02f),
-		glm::simd_vec4(0.2f, 0.4f, 2.0f, 0.03f),
-		glm::simd_vec4(4.0f, 3.0f, 2.0f, 1.00f));
-
-	std::vector<__m128> Test(10000000);
+	std::vector<float> Test(Data.size());
 
 	std::clock_t TimeStart = clock();
 
 	for(std::size_t i = 0; i < Test.size(); ++i)
-		Test[i] = glm::detail::sse_det_ps(&IdentityB.Data[0].Data); 
+	{
+		glm::simd_mat4 m(Data[i]);
+		Test[i] = glm::simd_vec4(glm::detail::sse_det_ps((__m128 const * const)&m)).x; 
+	}
 
 	std::clock_t TimeEnd = clock();
 	printf("Det C: %d\n", TimeEnd - TimeStart);
+
+	return Test;
+}
+
+std::vector<float> test_detD(std::vector<glm::mat4> const & Data)
+{
+	std::vector<float> Test(Data.size());
+
+	std::clock_t TimeStart = clock();
+
+	for(std::size_t i = 0; i < Test.size(); ++i)
+	{
+		glm::simd_mat4 m(Data[i]);
+		Test[i] = glm::simd_vec4(glm::detail::sse_detd_ps((__m128 const * const)&m)).x; 
+	}
+
+	std::clock_t TimeEnd = clock();
+	printf("Det C: %d\n", TimeEnd - TimeStart);
+
+	return Test;
 }
 
 int main(int argc, void* argv[])
 {
-	test_detA();
-	test_detB();
-	test_detC();
+	std::vector<glm::mat4> Data(1024 * 1024 * 16);
+	for(std::size_t i = 0; i < Data.size(); ++i)
+		Data[i] = glm::mat4(
+			glm::vec4(glm::compRand4(-2.0f, 2.0f)),
+			glm::vec4(glm::compRand4(-2.0f, 2.0f)),
+			glm::vec4(glm::compRand4(-2.0f, 2.0f)),
+			glm::vec4(glm::compRand4(-2.0f, 2.0f)));
+
+	std::vector<float> TestDetA = test_detA(Data);
+	std::vector<float> TestDetB = test_detB(Data);
+	std::vector<float> TestDetC = test_detC(Data);
+	std::vector<float> TestDetD = test_detD(Data);
+
+	for(std::size_t i = 0; i < TestDetA.size(); ++i)
+		if(TestDetA[i] != TestDetB[i] && TestDetC[i] != TestDetB[i] && TestDetC[i] != TestDetD[i])
+			return 1;
 
 	// shuffle test
 	glm::simd_vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
 	glm::simd_vec4 B(5.0f, 6.0f, 7.0f, 8.0f);
 	__m128 C = _mm_shuffle_ps(A.Data, B.Data, _MM_SHUFFLE(1, 0, 1, 0));
-
-	glm::mat4 IdentityA(
-		glm::vec4(4.0f, 0.7f, 0.1f, 0.01f),
-		glm::vec4(0.5f, 3.0f, 0.6f, 0.02f),
-		glm::vec4(0.2f, 0.4f, 2.0f, 0.03f),
-		glm::vec4(4.0f, 3.0f, 2.0f, 1.00f));
-	float DetA = glm::determinant(IdentityA);
-
-	glm::simd_mat4 IdentityB(
-		glm::simd_vec4(4.0f, 0.7f, 0.1f, 0.01f),
-		glm::simd_vec4(0.5f, 3.0f, 0.6f, 0.02f),
-		glm::simd_vec4(0.2f, 0.4f, 2.0f, 0.03f),
-		glm::simd_vec4(4.0f, 3.0f, 2.0f, 1.00f));
-	__m128 DetB = glm::detail::sse_slow_det_ps(&IdentityB.Data[0].Data); 
-	__m128 DetC = glm::detail::sse_det_ps(&IdentityB.Data[0].Data);
-
-	std::vector<float> TestA(100000);
-
-
-	std::vector<__m128> TestB(100000);
-	std::vector<__m128> TestC(100000);
 
 	return 0;
 }

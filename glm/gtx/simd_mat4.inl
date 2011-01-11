@@ -10,6 +10,21 @@
 namespace glm{
 namespace detail
 {
+	inline fmat4x4SIMD::size_type fmat4x4SIMD::value_size()
+	{
+		return sizeof(value_type);
+	}
+
+	inline fmat4x4SIMD::size_type fmat4x4SIMD::col_size()
+	{
+		return 4;
+	}
+
+	inline fmat4x4SIMD::size_type fmat4x4SIMD::row_size()
+	{
+		return 4;
+	}
+
     inline fmat4x4SIMD::fmat4x4SIMD()
     {}
 
