@@ -17,6 +17,7 @@
 // Dependency:
 #include "../glm.hpp"
 #include "../core/intrinsic_common.hpp"
+#include "../core/intrinsic_geometric.hpp"
 
 namespace glm
 {

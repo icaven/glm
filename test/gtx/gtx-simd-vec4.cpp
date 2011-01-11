@@ -7,6 +7,7 @@
 // File    : test/gtx/simd-vec4.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_INSTRUCTION_SET GLM_PLATFORM_SSE3 | GLM_PLATFORM_SSE2
 #include <glm/glm.hpp>
 #include <glm/gtx/simd_vec4.hpp>
 #include <cstdio>

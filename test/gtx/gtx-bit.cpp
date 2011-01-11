@@ -53,9 +53,9 @@ namespace extractField
 		{0xffffffff00000000,32,32, 0x00000000ffffffff, SUCCESS},
 		{0xfffffffffffffff0, 0, 8, 0x0000000000000000, FAIL},
 		{0xffffffffffffffff,32,32, 0x0000000000000000, FAIL},
-		//{0xffffffffffffffff,64, 1, 0x0000000000000000, ASSERT}, /* Throw an assert */
-		//{0xffffffffffffffff, 0,65, 0x0000000000000000, ASSERT}, /* Throw an assert */
-		//{0xffffffffffffffff,33,32, 0x0000000000000000, ASSERT}, /* Throw an assert */
+		//{0xffffffffffffffff,64, 1, 0x0000000000000000, ASSERT}, // Throw an assert 
+		//{0xffffffffffffffff, 0,65, 0x0000000000000000, ASSERT}, // Throw an assert 
+		//{0xffffffffffffffff,33,32, 0x0000000000000000, ASSERT}, // Throw an assert 
 	};
 
 	int test()
