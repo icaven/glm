@@ -2,13 +2,14 @@ namespace glm{
 namespace gtc{
 namespace swizzle
 {
-	template <typename T>
+	template <typename T, template <typename> class vecType>
 	inline T swizzle
 	(	
-		detail::tvec4<T> const & v,
+		vecType<T> const & v,
 		comp x
 	)
 	{
+		assert(int(x) < int(typename vecType<T>::_size));
 		return v[x];
 	}
 

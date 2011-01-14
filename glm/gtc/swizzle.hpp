@@ -26,9 +26,9 @@ namespace glm
 	//! GLM_GTC_swizzle extension
 	namespace swizzle{
 
-		template <typename T>
+		template <typename T, template <typename> class vecType>
 		T swizzle(	
-			detail::tvec4<T> const & v,
+			vecType<T> const & v,
 			comp x);
 
 		template <typename T>
@@ -45,6 +45,21 @@ namespace glm
 		detail::tvec4<T> swizzle(
 			detail::tvec4<T> const & v,
 			comp x, comp y, comp z, comp w);
+
+		template <typename T>
+		T& swizzle(
+			detail::tvec4<T> & v,
+			comp x);
+
+		template <typename T>
+		detail::tref2<T> swizzle(
+			detail::tvec4<T> & v,
+			comp x, comp y);
+
+		template <typename T>
+		detail::tref3<T> swizzle(
+			detail::tvec4<T> & v,
+			comp x, comp y, comp z);
 
 		template <typename T>
 		detail::tref4<T> swizzle(
