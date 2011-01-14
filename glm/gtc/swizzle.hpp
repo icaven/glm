@@ -42,8 +42,13 @@ namespace glm
 			comp x, comp y, comp z);
 
 		template <typename T>
-		inline detail::tref4<T> swizzle(
+		detail::tvec4<T> swizzle(
 			detail::tvec4<T> const & v,
+			comp x, comp y, comp z, comp w);
+
+		template <typename T>
+		detail::tref4<T> swizzle(
+			detail::tvec4<T> & v,
 			comp x, comp y, comp z, comp w);
 
 	}//namespace swizzle
