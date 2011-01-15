@@ -38,7 +38,7 @@ int test_swizzle_vec4_ref_dynamic()
 		glm::ivec4 A(0, 1, 2, 3);
 		int B(2);
 		glm::swizzle(A, glm::Z) = B;
-		assert(A.x == B.x && A.y == B.y);
+		assert(A.x == B);
 	}
 
 	return 0;
@@ -71,7 +71,7 @@ int test_swizzle_vec4_ref_static()
 		glm::ivec4 A(0, 1, 2, 3);
 		int B(2);
 		glm::swizzle<glm::Z>(A) = B;
-		assert(A.x == B.x && A.y == B.y);
+		assert(A.x == B);
 	}
 
 	return 0;
@@ -84,12 +84,11 @@ int test_swizzle_vec4_const_dynamic()
 	assert(glm::all(glm::equal(A, B)));
 
 	glm::ivec3 C = glm::swizzle(A, glm::W, glm::Y, glm::Z);
-	assert(glm::all(glm::equal(A, C)));
+	assert(glm::all(glm::equal(glm::ivec3(A), C)));
 
 	glm::ivec2 D = glm::swizzle(A, glm::W, glm::X);
-	assert(glm::all(glm::equal(A, D)));
+	assert(glm::all(glm::equal(glm::ivec2(A), D)));
 
-	assert(D.x == A.w && D.y == A.x);
 	int E = glm::swizzle(A, glm::Q);
 	assert(E == A.q);
 
@@ -104,10 +103,10 @@ int test_swizzle_vec4_const_static()
 	assert(glm::all(glm::equal(A, B)));
 
 	glm::ivec3 C = glm::swizzle<glm::W, glm::Y, glm::Z>(A);
-	assert(glm::all(glm::equal(A, C)));
+	assert(glm::all(glm::equal(glm::ivec3(A), C)));
 
 	glm::ivec2 D = glm::swizzle<glm::W, glm::X>(A);
-	assert(glm::all(glm::equal(A, D)));
+	assert(glm::all(glm::equal(glm::ivec2(A), D)));
 
 	int E = glm::swizzle<glm::Q>(A);
 	assert(E == A.q);
