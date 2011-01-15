@@ -250,16 +250,16 @@ namespace detail{
 		};
 	};
 
-#define GLM_DETAIL_IS_VECTOR(T)	\
-	template <>					\
-	struct is_vector			\
-	{							\
-		enum is_vector_enum		\
-		{						\
-			_YES = 1,			\
-			_NO = 0				\
-		};						\
-	}
+#	define GLM_DETAIL_IS_VECTOR(TYPE) \
+		template <typename T> \
+		struct is_vector<TYPE<T> > \
+		{ \
+			enum is_vector_enum \
+			{ \
+				_YES = 1, \
+				_NO = 0 \
+			}; \
+		};
 
 	//////////////////
 	// matrix

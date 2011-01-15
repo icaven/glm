@@ -8,6 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/glm.hpp>
+#include <glm/gtc/half_float.hpp>
 #include <xmmintrin.h>
 #include <emmintrin.h>
 
@@ -32,8 +33,18 @@ __m128 swizzle(glm::vec4 const & v)
 	return _mm_shuffle_ps(Src, Src, mask<(int(W) << 6) | (int(Z) << 4) | (int(Y) << 2) | (int(X) << 0)>::value);
 }
 
+void test_hvec4()
+{
+	glm::hvec4 const A = glm::hvec4(0, 1, 2, 3);
+	//glm::hvec4 B = glm::swizzle<glm::X, glm::Y, glm::Z, glm::W>(A);
+
+	//glm::vec4 B = glm::detail::tvec##(glm::vec4::_size)<float>();
+}
+
 int main()
 {
+	test_hvec4();
+
 	__m128 DataA = swizzle<X, Y, Z, W>(glm::vec4(1.0f, 2.0f, 3.0f, 4.0f));
 	__m128 DataB = swizzle<W, Z, Y, X>(glm::vec4(1.0f, 2.0f, 3.0f, 4.0f));
 

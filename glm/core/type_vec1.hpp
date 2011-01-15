@@ -38,6 +38,8 @@ namespace glm
 		struct tvec1
 		{
 			enum ctor{null};
+			enum {_size = 1};
+
 			typedef T value_type;
 			typedef std::size_t size_type;
 			static size_type value_size();
@@ -153,6 +155,8 @@ namespace glm
 
 			T& x;
 		};
+
+		GLM_DETAIL_IS_VECTOR(tvec1);
 
 		typedef detail::tvec1<core::type::precision::highp_float>		highp_vec1_t;
 		typedef detail::tvec1<core::type::precision::mediump_float>		mediump_vec1_t;

@@ -37,6 +37,7 @@ namespace glm
 		{
 			enum ctor{null};
 			enum {_size = 4};
+
 			typedef T value_type;
 			typedef std::size_t size_type;
 			static size_type value_size();
@@ -214,6 +215,8 @@ namespace glm
 			T & z;
 			T & w;
 		};
+
+		GLM_DETAIL_IS_VECTOR(tvec4);
 	} //namespace detail
 
 	namespace core{

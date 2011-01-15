@@ -36,6 +36,8 @@ namespace glm
 		struct tvec2
 		{
 			enum ctor{null};
+			enum {_size = 2};
+
 			typedef T value_type;
 			typedef std::size_t size_type;
 			static size_type value_size();
@@ -193,6 +195,9 @@ namespace glm
 			T& x;
 			T& y;
 		};
+
+		GLM_DETAIL_IS_VECTOR(tvec2);
+
 	} //namespace detail
 
 	namespace core{
