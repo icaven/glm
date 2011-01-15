@@ -33,11 +33,10 @@ namespace glm
 			vecType<T> const & y
 		)
 		{
-			GLM_STATIC_ASSERT((
-				detail::type<T>::is_float || 
-				detail::type<T>::is_int || 
-				detail::type<T>::is_uint) && detail::is_vector<vecType<T> >::_YES, 
-				"'lessThan' only accept numbers");
+			GLM_STATIC_ASSERT(detail::is_vector<vecType<T> >::_YES, 
+				"Invalid template instantiation of 'lessThan', GLM vector types required");
+			GLM_STATIC_ASSERT(detail::is_bool<T>::_NO, 
+				"Invalid template instantiation of 'lessThan', GLM vector types required floating-point or integer value types vectors");
 
 			typename vecType<bool>::bool_type Result(vecType<bool>::null);
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
@@ -54,11 +53,10 @@ namespace glm
 			vecType<T> const & y
 		)
 		{
-			GLM_STATIC_ASSERT((
-				detail::type<T>::is_float || 
-				detail::type<T>::is_int || 
-				detail::type<T>::is_uint) && detail::is_vector<vecType<T> >::_YES, 
-				"'lessThanEqual' only accept numbers");
+			GLM_STATIC_ASSERT(detail::is_vector<vecType<T> >::_YES, 
+				"Invalid template instantiation of 'lessThanEqual', GLM vector types required");
+			GLM_STATIC_ASSERT(detail::is_bool<T>::_NO, 
+				"Invalid template instantiation of 'lessThanEqual', GLM vector types required floating-point or integer value types vectors");
 
 			typename vecType<bool>::bool_type Result(vecType<bool>::null);
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
@@ -75,11 +73,10 @@ namespace glm
 			vecType<T> const & y
 		)
 		{
-			GLM_STATIC_ASSERT((
-				detail::type<T>::is_float || 
-				detail::type<T>::is_int || 
-				detail::type<T>::is_uint) && detail::is_vector<vecType<T> >::_YES, 
-				"'greaterThan' only accept numbers");
+			GLM_STATIC_ASSERT(detail::is_vector<vecType<T> >::_YES, 
+				"Invalid template instantiation of 'greaterThan', GLM vector types required");
+			GLM_STATIC_ASSERT(detail::is_bool<T>::_NO, 
+				"Invalid template instantiation of 'greaterThan', GLM vector types required floating-point or integer value types vectors");
 
 			typename vecType<bool>::bool_type Result(vecType<bool>::null);
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
@@ -96,11 +93,10 @@ namespace glm
 			vecType<T> const & y
 		)
 		{
-			GLM_STATIC_ASSERT((
-				detail::type<T>::is_float || 
-				detail::type<T>::is_int || 
-				detail::type<T>::is_uint) && detail::is_vector<vecType<T> >::_YES, 
-				"'greaterThanEqual' only accept numbers");
+			GLM_STATIC_ASSERT(detail::is_vector<vecType<T> >::_YES, 
+				"Invalid template instantiation of 'greaterThanEqual', GLM vector types required");
+			GLM_STATIC_ASSERT(detail::is_bool<T>::_NO, 
+				"Invalid template instantiation of 'greaterThanEqual', GLM vector types required floating-point or integer value types vectors");
 
 			typename vecType<bool>::bool_type Result(vecType<bool>::null);
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
@@ -117,7 +113,8 @@ namespace glm
 			vecType<T> const & y
 		)
 		{
-			GLM_STATIC_ASSERT(detail::is_vector<vecType<T> >::_YES, "'equal' only accept GLM vectors");
+			GLM_STATIC_ASSERT(detail::is_vector<vecType<T> >::_YES, 
+				"Invalid template instantiation of 'equal', GLM vector types required");
 
 			typename vecType<bool>::bool_type Result(vecType<bool>::null);
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
@@ -134,7 +131,8 @@ namespace glm
 			vecType<T> const & y
 		)
 		{
-			GLM_STATIC_ASSERT(detail::is_vector<vecType<T> >::_YES, "'notEqual' only accept GLM vectors");
+			GLM_STATIC_ASSERT(detail::is_vector<vecType<T> >::_YES, 
+				"Invalid template instantiation of 'notEqual', GLM vector types required");
 
 			typename vecType<bool>::bool_type Result(vecType<bool>::null);
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
@@ -147,7 +145,8 @@ namespace glm
 		template <template <typename> class vecType> 
 		inline bool any(vecType<bool> const & v)
 		{
-			GLM_STATIC_ASSERT(detail::is_vector<vecType<bool> >::_YES, "'any' only accept GLM boolean vectors");
+			GLM_STATIC_ASSERT(detail::is_vector<vecType<bool> >::_YES, 
+				"Invalid template instantiation of 'any', GLM boolean vector types required");
 
 			bool Result = false;
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
@@ -160,7 +159,8 @@ namespace glm
 		template <template <typename> class vecType> 
 		inline bool all(vecType<bool> const & v)
 		{
-			GLM_STATIC_ASSERT(detail::is_vector<vecType<bool> >::_YES, "'all' only accept GLM boolean vectors");
+			GLM_STATIC_ASSERT(detail::is_vector<vecType<bool> >::_YES, 
+				"Invalid template instantiation of 'all', GLM boolean vector types required");
 
 			bool Result = true;
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
@@ -173,7 +173,8 @@ namespace glm
 		template <template <typename> class vecType> 
 		inline vecType<bool> not_(vecType<bool> const & v)
 		{
-			GLM_STATIC_ASSERT(detail::is_vector<vecType<bool> >::_YES, "'not_' only accept GLM boolean vectors");
+			GLM_STATIC_ASSERT(detail::is_vector<vecType<bool> >::_YES, 
+				"Invalid template instantiation of 'not_', GLM vector types required");
 
 			typename vecType<bool>::bool_type Result(vecType<bool>::null);
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)

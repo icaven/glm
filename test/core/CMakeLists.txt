@@ -14,5 +14,7 @@ glmCreateTestGTC(core_type_vec1)
 glmCreateTestGTC(core_type_vec2)
 glmCreateTestGTC(core_type_vec3)
 glmCreateTestGTC(core_type_vec4)
+glmCreateTestGTC(core_vector_relational)
+
 
 
