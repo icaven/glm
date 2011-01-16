@@ -36,7 +36,6 @@ namespace glm
 		struct tvec4
 		{
 			enum ctor{null};
-			enum {_size = 4};
 
 			typedef T value_type;
 			typedef std::size_t size_type;

@@ -9,6 +9,9 @@
 
 #define GLM_INSTRUCTION_SET GLM_PLATFORM_SSE3 | GLM_PLATFORM_SSE2
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/quaternion.hpp>
+#include <glm/gtx/simd_vec4.hpp>
 #include <glm/gtx/simd_mat4.hpp>
 #include <glm/gtx/random.hpp>
 #include <iostream>
@@ -178,8 +181,51 @@ void test_mulD(std::vector<glm::mat4> const & Data, std::vector<glm::mat4> & Out
 	printf("Mul D: %d\n", TimeEnd - TimeStart);
 }
 
+int test_compute_glm()
+{
+	return 0;
+}
+
+int test_compute_gtx()
+{
+	std::vector<glm::vec4> Output(1000000);
+
+	std::clock_t TimeStart = clock();
+
+	for(std::size_t k = 0; k < Output.size(); ++k)
+	{
+		float i = float(k) / 1000.f;
+		glm::vec3 A = glm::normalize(glm::vec3(i));
+		glm::vec3 B = glm::cross(A, glm::vec3(0, 0, 1));
+		glm::mat4 C = glm::rotate(glm::mat4(1.0f), i, B);
+		glm::mat4 D = glm::scale(C, glm::vec3(0.8f, 1.0f, 1.2f));
+		glm::mat4 E = glm::translate(D, glm::vec3(1.4f, 1.2f, 1.1f));
+		glm::mat4 F = glm::perspective(i, 1.5f, 0.1f, 1000.f);
+		glm::mat4 G = glm::inverse(F * E);
+		glm::vec3 H = glm::unProject(glm::vec3(i), G, F, E[3]);
+		glm::vec3 I = glm::project(H, G, F, E[3]);
+		glm::mat4 J = glm::lookAt(glm::normalize(B), H, I);
+		glm::mat4 K = glm::transpose(J);
+		glm::quat L = glm::normalize(glm::quat_cast(K));
+		glm::vec4 M = L * glm::smoothstep(K[3], J[3], glm::vec4(i));
+		glm::mat4 N = glm::mat4(glm::normalize(M), K[3], J[3], glm::vec4(i));
+		glm::mat4 O = N * glm::inverse(N);
+		glm::vec4 P = O * glm::reflect(N[3], glm::vec4(A, 1.0f));
+		glm::vec4 Q = glm::vec4(glm::dot(M, P));
+		glm::vec4 R = glm::quat(Q.w, glm::vec3(Q)) * P;
+		Output[k] = R;
+	}
+
+	std::clock_t TimeEnd = clock();
+	printf("test_compute_gtx: %d\n", TimeEnd - TimeStart);
+
+	return Output.size() != 0;
+}
+
 int main(int argc, void* argv[])
 {
+	int Failed = 0;
+
 	std::vector<glm::mat4> Data(1024 * 1024 * 8);
 	for(std::size_t i = 0; i < Data.size(); ++i)
 		Data[i] = glm::mat4(
@@ -213,8 +259,8 @@ int main(int argc, void* argv[])
 	{
 		std::vector<float> TestDetA = test_detA(Data);
 		std::vector<float> TestDetB = test_detB(Data);
-		std::vector<float> TestDetC = test_detC(Data);
 		std::vector<float> TestDetD = test_detD(Data);
+		std::vector<float> TestDetC = test_detC(Data);
 
 		for(std::size_t i = 0; i < TestDetA.size(); ++i)
 			if(TestDetA[i] != TestDetB[i] && TestDetC[i] != TestDetB[i] && TestDetC[i] != TestDetD[i])
@@ -226,7 +272,11 @@ int main(int argc, void* argv[])
 	glm::simd_vec4 B(5.0f, 6.0f, 7.0f, 8.0f);
 	__m128 C = _mm_shuffle_ps(A.Data, B.Data, _MM_SHUFFLE(1, 0, 1, 0));
 
+	Failed += test_compute_glm();
+	Failed += test_compute_gtx();
+	
+
 	system("pause");
 
-	return 0;
+	return Failed;
 }
