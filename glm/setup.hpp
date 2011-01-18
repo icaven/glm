@@ -13,7 +13,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Version
 
-#define GLM_VERSION					90
+#define GLM_VERSION					91
 #define GLM_VERSION_MAJOR			0
 #define GLM_VERSION_MINOR			9
 #define GLM_VERSION_PATCH			1
@@ -376,12 +376,13 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Static assert
 
+// TODO: Added static_assert support for G++ when C++0x is used.
 #if((GLM_COMPILER & GLM_COMPILER_VC && GLM_COMPILER >= GLM_COMPILER_VC2010) || (GLM_COMPILER & GLM_COMPILER_GCC && GLM_COMPILER >= GLM_COMPILER_GCC47))
-#define GLM_STATIC_ASSERT(x, message) static_assert(x, message)
+#	define GLM_STATIC_ASSERT(x, message) static_assert(x, message)
 #elif(defined(BOOST_STATIC_ASSERT))
-#define GLM_STATIC_ASSERT(x, message) BOOST_STATIC_ASSERT(x)
+#	define GLM_STATIC_ASSERT(x, message) BOOST_STATIC_ASSERT(x)
 #else
-#define GLM_STATIC_ASSERT(x, message) typedef char __CASSERT__##__LINE__[(x) ? 1 : -1]
+#	define GLM_STATIC_ASSERT(x, message) typedef char __CASSERT__##__LINE__[(x) ? 1 : -1]
 #endif//GLM_DEPENDENCE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

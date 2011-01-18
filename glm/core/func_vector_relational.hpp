@@ -35,12 +35,13 @@ namespace glm
 		{
 			GLM_STATIC_ASSERT(detail::is_vector<vecType<T> >::_YES, 
 				"Invalid template instantiation of 'lessThan', GLM vector types required");
-			GLM_STATIC_ASSERT(detail::is_bool<T>::_NO, 
+			GLM_STATIC_ASSERT(detail::is_bool<T>::_NO,
 				"Invalid template instantiation of 'lessThan', GLM vector types required floating-point or integer value types vectors");
 
 			typename vecType<bool>::bool_type Result(vecType<bool>::null);
 			for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
 				Result[i] = x[i] < y[i];
+
 			return Result;
 		}
 
