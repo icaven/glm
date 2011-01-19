@@ -548,5 +548,28 @@ namespace detail
             m[2] - One);
     }
 
+	//////////////////////////////////////
+	// Boolean operators
+
+	template <typename T> 
+	inline bool operator==
+	(
+		tmat3x2<T> const & m1, 
+		tmat3x2<T> const & m2
+	)
+	{
+		return (m1[0] == m2[0]) && (m1[1] == m2[1]) && (m1[2] == m2[2]);
+	}
+
+	template <typename T> 
+	inline bool operator!=
+	(
+		tmat3x2<T> const & m1, 
+		tmat3x2<T> const & m2
+	)
+	{
+		return (m1[0] != m2[0]) || (m1[1] != m2[1]) || (m1[2] != m2[2]);
+	}
+
 } //namespace detail
 } //namespace glm

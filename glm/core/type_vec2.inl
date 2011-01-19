@@ -297,6 +297,29 @@ namespace glm
 		}
 
 		//////////////////////////////////////
+		// Boolean operators
+
+		template <typename T> 
+		inline bool operator==
+		(
+			tvec2<T> const & v1, 
+			tvec2<T> const & v2
+		)
+		{
+			return (v1.x == v2.x) && (v1.y == v2.y);
+		}
+
+		template <typename T> 
+		inline bool operator!=
+		(
+			tvec2<T> const & v1, 
+			tvec2<T> const & v2
+		)
+		{
+			return (v1.x != v2.x) || (v1.y != v2.y);
+		}
+
+		//////////////////////////////////////
 		// Unary bit operators
 
 		template <typename T>
