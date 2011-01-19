@@ -52,6 +52,7 @@
 #include "./gtx/matrix_operation.hpp"
 #include "./gtx/matrix_query.hpp"
 #include "./gtx/mixed_product.hpp"
+#include "./gtx/multiple.hpp"
 #include "./gtx/norm.hpp"
 #include "./gtx/normal.hpp"
 #include "./gtx/normalize_dot.hpp"
@@ -78,9 +79,7 @@
 #include "./gtx/vector_angle.hpp"
 #include "./gtx/vector_query.hpp"
 #include "./gtx/verbose_operator.hpp"
-
-#include "./img/multiple.hpp"
-#include "./img/wrap.hpp"
+#include "./gtx/wrap.hpp"
 
 #include "./virtrev/xstream.hpp"
 

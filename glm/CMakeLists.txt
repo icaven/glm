@@ -16,10 +16,6 @@ file(GLOB_RECURSE GTX_SOURCE ./gtx/*.cpp)
 file(GLOB_RECURSE GTX_INLINE ./gtx/*.inl)
 file(GLOB_RECURSE GTX_HEADER ./gtx/*.hpp)
 
-file(GLOB_RECURSE IMG_SOURCE ./img/*.cpp)
-file(GLOB_RECURSE IMG_INLINE ./img/*.inl)
-file(GLOB_RECURSE IMG_HEADER ./img/*.hpp)
-
 file(GLOB_RECURSE VIRTREV_SOURCE ./virtrev/*.cpp)
 file(GLOB_RECURSE VIRTREV_INLINE ./virtrev/*.inl)
 file(GLOB_RECURSE VIRTREV_HEADER ./virtrev/*.hpp)
@@ -33,9 +29,6 @@ source_group("GTC Files" FILES ${GTC_HEADER})
 source_group("GTX Files" FILES ${GTX_SOURCE})
 source_group("GTX Files" FILES ${GTX_INLINE})
 source_group("GTX Files" FILES ${GTX_HEADER})
-source_group("IMG Files" FILES ${IMG_SOURCE})
-source_group("IMG Files" FILES ${IMG_INLINE})
-source_group("IMG Files" FILES ${IMG_HEADER})
 source_group("VIRTREV Files" FILES ${VIRTREV_SOURCE})
 source_group("VIRTREV Files" FILES ${VIRTREV_INLINE})
 source_group("VIRTREV Files" FILES ${VIRTREV_HEADER})
@@ -47,5 +40,4 @@ add_executable(${NAME}
 	${CORE_SOURCE}    ${CORE_INLINE}    ${CORE_HEADER}
 	${GTC_SOURCE}     ${GTC_INLINE}     ${GTC_HEADER} 
 	${GTX_SOURCE}     ${GTX_INLINE}     ${GTX_HEADER} 
-	${IMG_SOURCE}     ${IMG_INLINE}     ${IMG_HEADER}
 	${VIRTREV_SOURCE} ${VIRTREV_INLINE} ${VIRTREV_HEADER})

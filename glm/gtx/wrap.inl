@@ -4,14 +4,14 @@
 // Created : 2009-11-25
 // Updated : 2010-02-13
 // Licence : This source is under MIT License
-// File    : glm/img/wrap.inl
+// File    : glm/gtx/wrap.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace img{
+namespace gtx{
 namespace wrap
 {
 	////////////////////////
@@ -169,5 +169,5 @@ namespace wrap
 	}
 
 }//namespace wrap
-}//namespace img
+}//namespace gtx
 }//namespace glm

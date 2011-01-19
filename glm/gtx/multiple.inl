@@ -4,14 +4,14 @@
 // Created : 2009-10-26
 // Updated : 2009-10-26
 // Licence : This source is under MIT License
-// File    : glm/img/multiple.inl
+// File    : glm/gtx/multiple.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace img{
+namespace gtx{
 namespace multiple
 {
 	//////////////////////
@@ -187,5 +187,5 @@ namespace multiple
 	}
 
 }//namespace multiple
-}//namespace img
+}//namespace gtx
 }//namespace glm
