@@ -16,6 +16,7 @@ include_directories(".")
 
 add_subdirectory(glm)
 add_subdirectory(test)
+add_subdirectory(bench)
 add_subdirectory(doc)
 
 
