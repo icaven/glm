@@ -10,7 +10,7 @@
 namespace glm{
 namespace gtx{
 namespace comparison{
-
+/*
 template <typename valType>
 inline bool operator== 
 (
@@ -70,7 +70,7 @@ inline bool operator!=
 {
 	return glm::any(glm::notEqual(x, y));
 }
-
+*/
 }//namespace comparison
 }//namespace gtx
 }//namespace glm

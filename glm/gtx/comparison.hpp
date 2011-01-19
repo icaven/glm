@@ -24,8 +24,9 @@ namespace glm
 
 	namespace gtx{
 	//! GLM_GTX_comparison extension: Defined comparison operators for vectors.
-	namespace comparison{
-
+	namespace comparison
+	{
+/*
 		//! Define == operator for vectors
 		//! From GLM_GTX_comparison extension.
 		template <typename T>
@@ -67,7 +68,7 @@ namespace glm
 		bool operator!= (
 			detail::tvec4<T> const & x, 
 			detail::tvec4<T> const & y);
-
+*/
 	}//namespace comparison
 	}//namespace gtx
 }//namespace glm
