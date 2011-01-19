@@ -14,14 +14,14 @@
 #include <cassert>
 
 namespace glm{
-namespace detail{
-
+namespace detail
+{
 	class thalf;
 
-#if(defined(GLM_COMPILER) && (GLM_COMPILER & GLM_COMPILER_VC))
+#if(GLM_COMPILER & GLM_COMPILER_VC)
 	typedef signed __int64						sint64;
 	typedef unsigned __int64					uint64;
-#elif(defined(GLM_COMPILER) && (GLM_COMPILER & GLM_COMPILER_GCC))
+#elif(GLM_COMPILER & GLM_COMPILER_GCC)
 	__extension__ typedef signed long long		sint64;
 	__extension__ typedef unsigned long long	uint64;
 #else//unknown compiler
@@ -319,5 +319,45 @@ namespace detail{
 
 }//namespace detail
 }//namespace glm
+
+////////////////////
+// check type sizes
+GLM_STATIC_ASSERT(sizeof(glm::detail::int8) == 1, "int8 size isn't 1 byte on this platform");
+GLM_STATIC_ASSERT(sizeof(glm::detail::int16) == 2, "int16 size isn't 2 bytes on this platform");
+GLM_STATIC_ASSERT(sizeof(glm::detail::int32) == 4, "int32 size isn't 4 bytes on this platform");
+GLM_STATIC_ASSERT(sizeof(glm::detail::int64) == 8, "int64 size isn't 8 bytes on this platform");
+
+GLM_STATIC_ASSERT(sizeof(glm::detail::uint8) == 1, "uint8 size isn't 1 byte on this platform");
+GLM_STATIC_ASSERT(sizeof(glm::detail::uint16) == 2, "uint16 size isn't 2 bytes on this platform");
+GLM_STATIC_ASSERT(sizeof(glm::detail::uint32) == 4, "uint32 size isn't 4 bytes on this platform");
+GLM_STATIC_ASSERT(sizeof(glm::detail::uint64) == 8, "uint64 size isn't 8 bytes on this platform");
+
+GLM_STATIC_ASSERT(sizeof(glm::detail::float16) == 2, "float16 size isn't 2 bytes on this platform");
+GLM_STATIC_ASSERT(sizeof(glm::detail::float32) == 4, "float32 size isn't 4 bytes on this platform");
+GLM_STATIC_ASSERT(sizeof(glm::detail::float64) == 8, "float64 size isn't 8 bytes on this platform");
+
+#if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
+#	define GLM_DEPRECATED __declspec(deprecated)
+#	define GLM_ALIGNED(keyword, x) __declspec(align(x)) keyword
+#	define GLM_DEPRECATED __declspec(restrict)
+#	define GLM_RESTRICT_VAR __restrict
+#elif((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC31))
+#	define GLM_DEPRECATED __attribute__((__deprecated__))
+#	define GLM_ALIGNED(keyword, x) keyword __attribute__(aligned(x))
+#	if(GLM_COMPILER >= GLM_COMPILER_GCC33)
+#		define GLM_RESTRICT __restrict__
+#		define GLM_RESTRICT_VAR __restrict__
+#	elif
+#		define GLM_RESTRICT
+#		define GLM_RESTRICT_VAR
+#	endif
+#	define GLM_RESTRICT __restrict__
+#	define GLM_RESTRICT_VAR __restrict__
+#else
+#	define GLM_DEPRECATED
+#	define GLM_ALIGN_UNION(x) union
+#	define GLM_RESTRICT
+#	define GLM_RESTRICT_VAR
+#endif//GLM_COMPILER
 
 #endif//glm_core_detail
