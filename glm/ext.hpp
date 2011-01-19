@@ -10,6 +10,11 @@
 #ifndef glm_ext
 #define glm_ext
 
+#if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_EXT_INCLUDED_DISPLAYED))
+#	define GLM_MESSAGE_EXT_INCLUDED_DISPLAYED
+#	pragma message("GLM: All extensions included (not recommanded)")
+#endif//GLM_MESSAGE
+
 #include "./gtc/half_float.hpp"
 #include "./gtc/matrix_access.hpp"
 #include "./gtc/matrix_inverse.hpp"

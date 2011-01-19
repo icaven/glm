@@ -79,6 +79,9 @@
 #define GLM_COMPILER_GCC49			0x02000100
 #define GLM_COMPILER_GCC50			0x02000200
 
+// G++ command line to display defined
+// echo "" | g++ -E -dM -x c++ - | sort
+
 // Borland C++ defines. How to identify BC?
 #define GLM_COMPILER_BC				0x03000000
 #define GLM_COMPILER_BCB4			0x03000100
@@ -209,7 +212,7 @@
 #		define GLM_MODEL	GLM_MODEL_32
 #	endif//_M_X64
 #elif(GLM_COMPILER & GLM_COMPILER_GCC)
-#	if(defined(__WORDSIZE) && (__WORDSIZE == 64)) || defined(__arch64__) || defined(__LP64__)
+#	if(defined(__WORDSIZE) && (__WORDSIZE == 64)) || defined(__arch64__) || defined(__LP64__) || defined(__x86_64__)
 #		define GLM_MODEL	GLM_MODEL_64
 #	else
 #		define GLM_MODEL	GLM_MODEL_32
@@ -269,14 +272,14 @@
 #		else
 #			define GLM_SUPPORT GLM_SUPPORT_SSE3
 #		endif
-#	elif(GLM_COMPILER >= GLM_COMPILER_VC2008)
+#	elif(GLM_COMPILER >= GLM_COMPILER_VC2008) 
 #		define GLM_SUPPORT GLM_SUPPORT_SSE3
 #	elif(GLM_COMPILER >= GLM_COMPILER_VC2005)
 #		define GLM_SUPPORT GLM_SUPPORT_SSE2
 #	else
 #		define GLM_SUPPORT GLM_SUPPORT_PURE
 #	endif
-#elif(GLM_COMPILER & GLM_COMPILER_GCC)
+#elif((GLM_COMPILER & GLM_COMPILER_GCC) && (defined(__i386__) || defined(__x86_64__)))
 #	if(GLM_COMPILER >= GLM_COMPILER_GCC44)
 #		define GLM_SUPPORT GLM_SUPPORT_AVX
 #	elif(GLM_COMPILER >= GLM_COMPILER_GCC40)
