@@ -28,18 +28,18 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Message
 
-#define GLM_MESSAGE_QUIET			0x00000000
-
-#define GLM_MESSAGE_WARNING			0x00000001
-#define GLM_MESSAGE_NOTIFICATION	0x00000002
-#define GLM_MESSAGE_CORE			0x00000004
-#define GLM_MESSAGE_EXTS			0x00000008
-#define GLM_MESSAGE_SETUP			0x00000010
-
-#define GLM_MESSAGE_ALL				GLM_MESSAGE_WARNING | GLM_MESSAGE_NOTIFICATION | GLM_MESSAGE_CORE | GLM_MESSAGE_EXTS | GLM_MESSAGE_SETUP
+//#define GLM_MESSAGE_QUIET			0x00000000
+//
+//#define GLM_MESSAGE_WARNING			0x00000001
+//#define GLM_MESSAGE_NOTIFICATION	0x00000002
+//#define GLM_MESSAGE_CORE			0x00000004
+//#define GLM_MESSAGE_EXTS			0x00000008
+//#define GLM_MESSAGE_SETUP			0x00000010
+//
+//#define GLM_MESSAGE_ALL				GLM_MESSAGE_WARNING | GLM_MESSAGE_NOTIFICATION | GLM_MESSAGE_CORE | GLM_MESSAGE_EXTS | GLM_MESSAGE_SETUP
 
 //! By default:
-// #define GLM_MESSAGE				GLM_MESSAGE_QUIET
+// #define GLM_MESSAGE				GLM_DISABLE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Precision
@@ -204,15 +204,15 @@
 /////////////////
 // C++ Version //
 
-#define GLM_CPP98 1
-#define GLM_CPP0X 2
+#define GLM_LANG_CPP98 1
+#define GLM_LANG_CPP0X 2
 
 #if((GLM_COMPILER & GLM_COMPILER_GCC) && defined(__GXX_EXPERIMENTAL_CXX0X__)) // -std=c++0x or -std=gnu++0x
-#	define GLM_CPP GLM_CPP0X
+#	define GLM_LANG GLM_LANG_CPP0X
 #elif GLM_COMPILER & GLM_COMPILER_VC2010
-#	define GLM_CPP GLM_CPP0X
+#	define GLM_LANG GLM_LANG_CPP0X
 #else
-#	define GLM_CPP GLM_CPP98
+#	define GLM_LANG GLM_LANG_CPP98
 #endif
 
 /////////////
@@ -393,7 +393,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Static assert
 
- #if(GLM_CPP == GLM_CPP0X)
+ #if(GLM_LANG == GLM_LANG_CPP0X)
 #	define GLM_STATIC_ASSERT(x, message) static_assert(x, message)
 #elif(defined(BOOST_STATIC_ASSERT))
 #	define GLM_STATIC_ASSERT(x, message) BOOST_STATIC_ASSERT(x)

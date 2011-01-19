@@ -2,7 +2,7 @@
 // OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2005-01-14
-// Updated : 2010-05-30
+// Updated : 2011-01-19
 // Licence : This source is under MIT License
 // File    : glm/glm.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -30,14 +30,17 @@
 #ifndef glm_glm
 #define glm_glm
 
+//! Workaround for compatibility with other libraries
 #ifdef max
 #undef max
 #endif
 
+//! Workaround for compatibility with other libraries
 #ifdef min
 #undef min
 #endif
 
+//! TODO: to delete
 #define GLMvalType typename genType::value_type
 #define GLMcolType typename genType::col_type
 #define GLMrowType typename genType::row_type
@@ -47,6 +50,13 @@
 #include <cfloat>
 #include <limits>
 #include "./setup.hpp"
+
+#if(defined(GLM_MESSAGE) && (GLM_MESSAGE == GLM_ENABLE))
+#	ifndef GLM_MESSAGE_CORE_INCLUDED_DISPLAYED
+#		define GLM_MESSAGE_CORE_INCLUDED_DISPLAYED
+#		pragma message("GLM: Core library included")
+#	endif//GLM_MESSAGE_CORE_INCLUDED_DISPLAYED
+#endif//GLM_MESSAGE
 
 //! GLM namespace, it contains all GLSL based features.
 namespace glm
@@ -100,10 +110,6 @@ namespace glm
 #include "./core/func_integer.hpp"
 #include "./core/func_noise.hpp"
 #include "./core/_swizzle.hpp"
-
-#if(defined(GLM_MESSAGE) && (GLM_MESSAGE & (GLM_MESSAGE_CORE | GLM_MESSAGE_NOTIFICATION)))
-#	pragma message("GLM message: Core library included")
-#endif//GLM_MESSAGE
 
 #if(defined(GLM_COMPILER) && (GLM_COMPILER & GLM_COMPILER_VC))
 #	define GLM_DEPRECATED __declspec(deprecated)
