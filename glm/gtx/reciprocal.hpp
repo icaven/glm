@@ -13,6 +13,10 @@
 // Dependency:
 #include "../glm.hpp"
 
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_reciprocal extension included")
+#endif
+
 namespace glm
 {
    	namespace test{

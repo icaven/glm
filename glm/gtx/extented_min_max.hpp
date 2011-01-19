@@ -18,6 +18,10 @@
 #include "../glm.hpp"
 #include "../gtc/half_float.hpp"
 
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_extented_min_max extension included")
+#endif
+
 namespace glm
 {
    	namespace test{

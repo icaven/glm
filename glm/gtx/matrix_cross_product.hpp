@@ -16,6 +16,10 @@
 // Dependency:
 #include "../glm.hpp"
 
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_matrix_cross_product extension included")
+#endif
+
 namespace glm
 {
    	namespace test{

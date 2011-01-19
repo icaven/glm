@@ -18,6 +18,10 @@
 #include "../glm.hpp"
 #include "../gtx/transform.hpp"
 
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_transform2 extension included")
+#endif
+
 namespace glm
 {
 	namespace test{

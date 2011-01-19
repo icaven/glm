@@ -17,7 +17,7 @@
 #include "../glm.hpp"
 #include "../gtc/type_precision.hpp"
 
-#if(!defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
 #	pragma message("GLM: GLM_GTC_swizzle extension included")
 #endif
 

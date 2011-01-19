@@ -24,6 +24,10 @@
 #include "../gtx/quaternion.hpp"
 #include <string>
 
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_string_cast extension included")
+#endif
+
 namespace glm
 {
 	namespace test{

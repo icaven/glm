@@ -21,6 +21,10 @@
 #include "../glm.hpp"
 #include "../gtc/quaternion.hpp"
 
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_quaternion extension included")
+#endif
+
 namespace glm
 {
 	namespace gtx{

@@ -16,6 +16,10 @@
 // Dependency:
 #include "../glm.hpp"
 
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_ocl_type extension included")
+#endif
+
 namespace glm{
 namespace gtx{
 //! GLM_GTX_ocl_type extension: OpenCL types.

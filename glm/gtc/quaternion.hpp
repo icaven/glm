@@ -22,7 +22,7 @@
 #include "../glm.hpp"
 #include "../gtc/half_float.hpp"
 
-#if(!defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
 #	pragma message("GLM: GLM_GTC_quaternion extension included")
 #endif
 

@@ -18,12 +18,15 @@
 #include "../glm.hpp"  
 #include "../gtc/half_float.hpp"
 
-#ifdef GLM_COMPILER_VC
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_compatibility extension included")
+#endif
+
+#if(GLM_COMPILER & GLM_COMPILER_VC)
 #include <cfloat>
-#endif
-#ifdef GLM_COMPILER_GCC
+#elif(GLM_COMPILER & GLM_COMPILER_GCC)
 #include <cmath>
-#endif
+#endif//GLM_COMPILER
 
 namespace glm
 {

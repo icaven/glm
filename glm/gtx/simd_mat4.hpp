@@ -19,6 +19,10 @@
 #include "../core/intrinsic_matrix.hpp"
 #include "../gtx/simd_vec4.hpp"
 
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_simd_mat4 extension included")
+#endif
+
 namespace glm
 {
 	namespace detail

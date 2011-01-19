@@ -17,6 +17,10 @@
 #include "../glm.hpp"
 #include <cstdlib>
 
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_std_based_type extension included")
+#endif
+
 namespace glm
 {
 	namespace test{

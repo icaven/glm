@@ -20,6 +20,10 @@
 #include "../gtx/quaternion.hpp"
 #include "../gtx/epsilon.hpp"
 
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_vector_angle extension included")
+#endif
+
 namespace glm
 {
 	namespace test{

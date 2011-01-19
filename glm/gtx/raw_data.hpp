@@ -17,6 +17,10 @@
 #include "../glm.hpp"
 #include "../gtc/type_precision.hpp"
 
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_raw_data extension included")
+#endif
+
 namespace glm{
 namespace gtx
 {

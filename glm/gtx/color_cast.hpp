@@ -18,6 +18,10 @@
 #include "../glm.hpp"
 #include "../gtx/number_precision.hpp"
 
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_color_cast extension included")
+#endif
+
 namespace glm
 {
 	namespace test{

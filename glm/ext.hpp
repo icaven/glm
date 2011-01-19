@@ -30,7 +30,6 @@
 #include "./gtx/color_cast.hpp"
 #include "./gtx/color_space.hpp"
 #include "./gtx/color_space_YCoCg.hpp"
-#include "./gtx/comparison.hpp"
 #include "./gtx/compatibility.hpp"
 #include "./gtx/component_wise.hpp"
 #include "./gtx/epsilon.hpp"

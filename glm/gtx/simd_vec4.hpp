@@ -19,6 +19,10 @@
 #include "../core/intrinsic_common.hpp"
 #include "../core/intrinsic_geometric.hpp"
 
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_simd_vec4 extension included")
+#endif
+
 namespace glm
 {
 	namespace detail

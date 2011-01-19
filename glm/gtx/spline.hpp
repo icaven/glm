@@ -17,6 +17,10 @@
 #include "../glm.hpp"
 #include "../gtx/optimum_pow.hpp"
 
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_spline extension included")
+#endif
+
 namespace glm
 {
     namespace gtx{

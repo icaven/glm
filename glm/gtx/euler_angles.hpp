@@ -22,6 +22,10 @@
 #include "../glm.hpp"
 #include "../gtc/half_float.hpp"
 
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_euler_angles extension included")
+#endif
+
 namespace glm
 {
     namespace gtx{

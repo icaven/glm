@@ -19,6 +19,10 @@
 #include "../glm.hpp"
 #include "../gtc/type_precision.hpp"
 
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_number_precision extension included")
+#endif
+
 namespace glm{
 namespace gtx{
 //! GLM_GTX_number_precision extension: Defined size types.

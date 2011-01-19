@@ -17,6 +17,10 @@
 #include "../glm.hpp"
 #include "../core/type_vec1.hpp"
 
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_vec1 extension included")
+#endif
+
 namespace glm
 {
 	namespace test{

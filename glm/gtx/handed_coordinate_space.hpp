@@ -4,7 +4,7 @@
 // Created : 2005-12-21
 // Updated : 2009-02-19
 // Licence : This source is under MIT License
-// File    : glm/gtx/handed_coordinate_space.h
+// File    : glm/gtx/handed_coordinate_space.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -15,6 +15,10 @@
 
 // Dependency:
 #include "../glm.hpp"
+
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_handed_coordinate_space extension included")
+#endif
 
 namespace glm
 {

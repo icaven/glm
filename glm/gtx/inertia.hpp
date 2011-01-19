@@ -4,7 +4,7 @@
 // Created : 2006-04-21
 // Updated : 2006-11-13
 // Licence : This source is under MIT License
-// File    : glm/gtx/inertia.h
+// File    : glm/gtx/inertia.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -15,6 +15,10 @@
 
 // Dependency:
 #include "../glm.hpp"
+
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTX_inertia extension included")
+#endif
 
 namespace glm
 {

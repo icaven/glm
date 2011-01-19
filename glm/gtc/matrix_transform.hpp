@@ -17,7 +17,7 @@
 // Dependency:
 #include "../glm.hpp"
 
-#if(!defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
 #	pragma message("GLM: GLM_GTC_matrix_transform extension included")
 #endif
 

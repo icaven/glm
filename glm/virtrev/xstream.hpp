@@ -19,6 +19,10 @@
 #include "../gtc/matrix_access.hpp"
 #include <iostream>
 
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_VIRTREV_xstream extension included")
+#endif
+
 namespace glm
 {
 	namespace virtrev_glmext
