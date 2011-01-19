@@ -129,7 +129,7 @@
 
 #elif defined(__GNUC__)
 
-#if(defined(__WORDSIZE) && (__WORDSIZE == 64)) || defined(__arch64__)
+#if(defined(__WORDSIZE) && (__WORDSIZE == 64)) || defined(__arch64__) || defined(__LP64__)
 #define GLM_MODEL	GLM_MODEL_64
 #else
 #define GLM_MODEL	GLM_MODEL_32
@@ -200,6 +200,23 @@
 #if(!defined(GLM_MODEL) && GLM_COMPILER != 0)
 #error "GLM_MODEL undefined, your compiler may not be supported by GLM. Add #define GLM_MODEL 0 to ignore this message."
 #endif//GLM_MODEL
+
+/////////////////
+// C++ Version //
+
+#define GLM_CPP98 1
+#define GLM_CPP0X 2
+
+#if((GLM_COMPILER & GLM_COMPILER_GCC) && defined(__GXX_EXPERIMENTAL_CXX0X__)) // -std=c++0x or -std=gnu++0x
+#	define GLM_CPP GLM_CPP0X
+#elif GLM_COMPILER & GLM_COMPILER_VC2010
+#	define GLM_CPP GLM_CPP0X
+#else
+#	define GLM_CPP GLM_CPP98
+#endif
+
+/////////////
+// Message //
 
 #if(defined(GLM_MESSAGE) && (GLM_MESSAGE & (GLM_MESSAGE_SETUP | GLM_MESSAGE_NOTIFICATION)))
 #	if(defined(GLM_COMPILER) && GLM_COMPILER & GLM_COMPILER_VC)
@@ -376,8 +393,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Static assert
 
-// TODO: Added static_assert support for G++ when C++0x is used.
-#if((GLM_COMPILER & GLM_COMPILER_VC && GLM_COMPILER >= GLM_COMPILER_VC2010) || (GLM_COMPILER & GLM_COMPILER_GCC && GLM_COMPILER >= GLM_COMPILER_GCC47))
+ #if(GLM_CPP == GLM_CPP0X)
 #	define GLM_STATIC_ASSERT(x, message) static_assert(x, message)
 #elif(defined(BOOST_STATIC_ASSERT))
 #	define GLM_STATIC_ASSERT(x, message) BOOST_STATIC_ASSERT(x)
