@@ -82,8 +82,6 @@
 #include "./img/multiple.hpp"
 #include "./img/wrap.hpp"
 
-#include "./virtrev/address.hpp"
-#include "./virtrev/equal_operator.hpp"
 #include "./virtrev/xstream.hpp"
 
 //const float goldenRatio = 1.618033988749894848f;

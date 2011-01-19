@@ -16,7 +16,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "../glm.hpp"
-#include "../gtx/matrix_selection.hpp"
+#include "../gtc/matrix_access.hpp"
 #include <iostream>
 
 namespace glm
