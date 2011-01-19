@@ -126,7 +126,7 @@
 
 #elif defined(__GNUC__)
 
-#if(defined(__WORDSIZE) && (__WORDSIZE == 64)) || defined(__arch64__)
+#if(defined(__WORDSIZE) && (__WORDSIZE == 64)) || defined(__arch64__) || defined(__LP64__)
 #define GLM_MODEL	GLM_MODEL_64
 #else
 #define GLM_MODEL	GLM_MODEL_32
