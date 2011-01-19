@@ -30,13 +30,13 @@
 
 //#define GLM_MESSAGE_QUIET			0x00000000
 //
-//#define GLM_MESSAGE_WARNING			0x00000001
+//#define GLM_MESSAGE_WARNING		0x00000001
 //#define GLM_MESSAGE_NOTIFICATION	0x00000002
 //#define GLM_MESSAGE_CORE			0x00000004
 //#define GLM_MESSAGE_EXTS			0x00000008
 //#define GLM_MESSAGE_SETUP			0x00000010
 //
-//#define GLM_MESSAGE_ALL				GLM_MESSAGE_WARNING | GLM_MESSAGE_NOTIFICATION | GLM_MESSAGE_CORE | GLM_MESSAGE_EXTS | GLM_MESSAGE_SETUP
+//#define GLM_MESSAGE_ALL			GLM_MESSAGE_WARNING | GLM_MESSAGE_NOTIFICATION | GLM_MESSAGE_CORE | GLM_MESSAGE_EXTS | GLM_MESSAGE_SETUP
 
 //! By default:
 // #define GLM_MESSAGE				GLM_DISABLE
@@ -65,35 +65,43 @@
 
 // Visual C++ defines
 #define GLM_COMPILER_VC				0x01000000
-#define GLM_COMPILER_VC2005			0x01000010
-#define GLM_COMPILER_VC2008			0x01000020
-#define GLM_COMPILER_VC2010			0x01000040
+#define GLM_COMPILER_VC2			0x01000010
+#define GLM_COMPILER_VC4			0x01000020
+#define GLM_COMPILER_VC5			0x01000030
+#define GLM_COMPILER_VC6			0x01000040
+#define GLM_COMPILER_VC2002			0x01000050
+#define GLM_COMPILER_VC2003			0x01000060
+#define GLM_COMPILER_VC2005			0x01000070
+#define GLM_COMPILER_VC2008			0x01000080
+#define GLM_COMPILER_VC2010			0x01000090
 
 // GCC defines
 #define GLM_COMPILER_GCC            0x02000000
-#define GLM_COMPILER_GCC32			0x02000040
-#define GLM_COMPILER_GCC33			0x02000080
-#define GLM_COMPILER_GCC34			0x02000100
-#define GLM_COMPILER_GCC35			0x02000200
-#define GLM_COMPILER_GCC40			0x02000400
-#define GLM_COMPILER_GCC41			0x02000800
-#define GLM_COMPILER_GCC42			0x02001000
-#define GLM_COMPILER_GCC43			0x02002000
-#define GLM_COMPILER_GCC44			0x02004000
-#define GLM_COMPILER_GCC45			0x02008000
-#define GLM_COMPILER_GCC46			0x02010000
-#define GLM_COMPILER_GCC47			0x02020000
-#define GLM_COMPILER_GCC48			0x02040000
-#define GLM_COMPILER_GCC49			0x02080000
-#define GLM_COMPILER_GCC50			0x02100000
+#define GLM_COMPILER_GCC30			0x02000010
+#define GLM_COMPILER_GCC31			0x02000020
+#define GLM_COMPILER_GCC32			0x02000030
+#define GLM_COMPILER_GCC33			0x02000040
+#define GLM_COMPILER_GCC34			0x02000050
+#define GLM_COMPILER_GCC35			0x02000060
+#define GLM_COMPILER_GCC40			0x02000070
+#define GLM_COMPILER_GCC41			0x02000080
+#define GLM_COMPILER_GCC42			0x02000090
+#define GLM_COMPILER_GCC43			0x020000A0
+#define GLM_COMPILER_GCC44			0x020000B0
+#define GLM_COMPILER_GCC45			0x020000C0
+#define GLM_COMPILER_GCC46			0x020000D0
+#define GLM_COMPILER_GCC47			0x020000E0
+#define GLM_COMPILER_GCC48			0x020000F0
+#define GLM_COMPILER_GCC49			0x02000100
+#define GLM_COMPILER_GCC50			0x02000200
 
 // Borland C++ defines. How to identify BC?
 #define GLM_COMPILER_BC				0x03000000
-#define GLM_COMPILER_BCB4			0x03000400
-#define GLM_COMPILER_BCB5			0x03000800
-#define GLM_COMPILER_BCB6			0x03001000
-//#define GLM_COMPILER_BCBX			0x03002000 // What's the version value?
-#define GLM_COMPILER_BCB2009                    0x03004000
+#define GLM_COMPILER_BCB4			0x03000100
+#define GLM_COMPILER_BCB5			0x03000200
+#define GLM_COMPILER_BCB6			0x03000300
+//#define GLM_COMPILER_BCBX			0x03000400 // What's the version value?
+#define GLM_COMPILER_BCB2009		0x03000500
 
 #define GLM_MODEL_32				0x00000010
 #define GLM_MODEL_64				0x00000020
@@ -101,94 +109,88 @@
 #ifndef GLM_COMPILER
 
 // CodeWarrior
-#define GLM_COMPILER_CODEWARRIOR                0x04000000
+#define GLM_COMPILER_CODEWARRIOR	0x04000000
 
-/////////////////
-// Visual C++ //
-
+// Visual C++
 #ifdef _MSC_VER
+#	if _MSC_VER == 900
+#		define GLM_COMPILER GLM_COMPILER_VC2
+#	elif _MSC_VER == 1000
+#		define GLM_COMPILER GLM_COMPILER_VC4
+#	elif _MSC_VER == 1100
+#		define GLM_COMPILER GLM_COMPILER_VC5
+#	elif _MSC_VER == 1200
+#		define GLM_COMPILER GLM_COMPILER_VC6
+#	elif _MSC_VER == 1300
+#		define GLM_COMPILER GLM_COMPILER_VC2002
+#	elif _MSC_VER == 1310
+#		define GLM_COMPILER GLM_COMPILER_VC2003
+#	elif _MSC_VER == 1400
+#		define GLM_COMPILER GLM_COMPILER_VC2005
+#	elif _MSC_VER == 1500
+#		define GLM_COMPILER GLM_COMPILER_VC2008
+#	elif _MSC_VER == 1600
+#		define GLM_COMPILER GLM_COMPILER_VC2010
+#	else//_MSC_VER
+#		define GLM_COMPILER GLM_COMPILER_VC
+#	endif//_MSC_VER
 
-#if defined(_M_X64)
-#define GLM_MODEL	GLM_MODEL_64
-#else
-#define GLM_MODEL	GLM_MODEL_32
-#endif//_WIN64
-
-#if _MSC_VER == 1400
-#define GLM_COMPILER GLM_COMPILER_VC2005
-#elif _MSC_VER == 1500
-#define GLM_COMPILER GLM_COMPILER_VC2008
-#elif _MSC_VER == 1600
-#define GLM_COMPILER GLM_COMPILER_VC2010
-#else//_MSC_VER
-#define GLM_COMPILER GLM_COMPILER_VC
-#endif//_MSC_VER
-
-//////////////////
-// GCC defines //
-
+// G++
 #elif defined(__GNUC__)
+#	if   (__GNUC__ == 3) && (__GNUC_MINOR__ == 2)
+#		define GLM_COMPILER GLM_COMPILER_GCC32
+#	elif (__GNUC__ == 3) && (__GNUC_MINOR__ == 3)
+#		define GLM_COMPILER GLM_COMPILER_GCC33
+#	elif (__GNUC__ == 3) && (__GNUC_MINOR__ == 4)
+#		define GLM_COMPILER GLM_COMPILER_GCC34
+#	elif (__GNUC__ == 3) && (__GNUC_MINOR__ == 5)
+#		define GLM_COMPILER GLM_COMPILER_GCC35
+#	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 0)
+#		define GLM_COMPILER GLM_COMPILER_GCC40
+#	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 1)
+#		define GLM_COMPILER GLM_COMPILER_GCC41
+#	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 2)
+#		define GLM_COMPILER GLM_COMPILER_GCC42
+#	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 3)
+#		define GLM_COMPILER GLM_COMPILER_GCC43
+#	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 4)
+#		define GLM_COMPILER GLM_COMPILER_GCC44
+#	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 5)
+#		define GLM_COMPILER GLM_COMPILER_GCC45
+#	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 6)
+#		define GLM_COMPILER GLM_COMPILER_GCC46
+#	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 7)
+#		define GLM_COMPILER GLM_COMPILER_GCC47
+#	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 8)
+#		define GLM_COMPILER GLM_COMPILER_GCC48
+#	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 9)
+#		define GLM_COMPILER GLM_COMPILER_GCC49
+#	elif (__GNUC__ == 5) && (__GNUC_MINOR__ == 0)
+#		define GLM_COMPILER GLM_COMPILER_GCC50
+#	else
+#		define GLM_COMPILER GLM_COMPILER_GCC
+#	endif
 
-#if(defined(__WORDSIZE) && (__WORDSIZE == 64)) || defined(__arch64__) || defined(__LP64__)
-#define GLM_MODEL	GLM_MODEL_64
-#else
-#define GLM_MODEL	GLM_MODEL_32
-#endif//
-
-#if   (__GNUC__ == 3) && (__GNUC_MINOR__ == 2)
-#define GLM_COMPILER GLM_COMPILER_GCC32
-#elif (__GNUC__ == 3) && (__GNUC_MINOR__ == 3)
-#define GLM_COMPILER GLM_COMPILER_GCC33
-#elif (__GNUC__ == 3) && (__GNUC_MINOR__ == 4)
-#define GLM_COMPILER GLM_COMPILER_GCC34
-#elif (__GNUC__ == 3) && (__GNUC_MINOR__ == 5)
-#define GLM_COMPILER GLM_COMPILER_GCC35
-#elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 0)
-#define GLM_COMPILER GLM_COMPILER_GCC40
-#elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 1)
-#define GLM_COMPILER GLM_COMPILER_GCC41
-#elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 2)
-#define GLM_COMPILER GLM_COMPILER_GCC42
-#elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 3)
-#define GLM_COMPILER GLM_COMPILER_GCC43
-#elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 4)
-#define GLM_COMPILER GLM_COMPILER_GCC44
-#elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 5)
-#define GLM_COMPILER GLM_COMPILER_GCC45
-#elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 6)
-#define GLM_COMPILER GLM_COMPILER_GCC46
-#elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 7)
-#define GLM_COMPILER GLM_COMPILER_GCC47
-#elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 8)
-#define GLM_COMPILER GLM_COMPILER_GCC48
-#elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 9)
-#define GLM_COMPILER GLM_COMPILER_GCC49
-#elif (__GNUC__ == 5) && (__GNUC_MINOR__ == 0)
-#define GLM_COMPILER GLM_COMPILER_GCC50
-#else
-#define GLM_COMPILER GLM_COMPILER_GCC
-#endif
-
+// Borland C++
 #elif defined(_BORLANDC_)
+#	if defined(VER125)
+#		define GLM_COMPILER GLM_COMPILER_BCB4
+#	elif defined(VER130)
+#		define GLM_COMPILER GLM_COMPILER_BCB5
+#	elif defined(VER140)
+#		define GLM_COMPILER GLM_COMPILER_BCB6
+#	elif defined(VER200)
+#		define GLM_COMPILER GLM_COMPILER_BCB2009
+#	else
+#		define GLM_COMPILER GLM_COMPILER_BC
+#	endif
 
-#if defined(VER125)
-#define GLM_COMPILER GLM_COMPILER_BCB4
-#elif defined(VER130)
-#define GLM_COMPILER GLM_COMPILER_BCB5
-#elif defined(VER140)
-#define GLM_COMPILER GLM_COMPILER_BCB6
-#elif defined(VER200)
-#define GLM_COMPILER GLM_COMPILER_BCB2009
-#else
-#define GLM_COMPILER GLM_COMPILER_BC
-#endif
-
+// Codewarrior
 #elif defined(__MWERKS__)
-
-#define GLM_COMPILER GLM_COMPILER_CODEWARRIOR
+#	define GLM_COMPILER GLM_COMPILER_CODEWARRIOR
 
 #else
-#define GLM_COMPILER GLM_COMPILER_UNKNOWNED
+#	define GLM_COMPILER GLM_COMPILER_UNKNOWNED
 #endif//__GNUC__
 
 #endif//GLM_COMPILER
@@ -197,9 +199,57 @@
 #error "GLM_COMPILER undefined, your compiler may not be supported by GLM. Add #define GLM_COMPILER 0 to ignore this message."
 #endif//GLM_COMPILER
 
+// Report compiler detection
+#if(defined(GLM_MESSAGE) && (GLM_MESSAGE == GLM_ENABLE))
+#	ifndef GLM_MESSAGE_COMPILER_DISPLAYED
+#	define GLM_MESSAGE_COMPILER_DISPLAYED
+#		if(defined(GLM_COMPILER) && GLM_COMPILER & GLM_COMPILER_VC)
+#			pragma message("GLM: Visual C++ compiler detected")
+#		elif(defined(GLM_COMPILER) && GLM_COMPILER & GLM_COMPILER_GCC)
+#			pragma message("GLM: GCC compiler detected")
+#		elif(defined(GLM_COMPILER) && GLM_COMPILER & GLM_COMPILER_BC)
+#			pragma message("GLM: Borland compiler detected but not supported")
+#		elif(defined(GLM_COMPILER) && GLM_COMPILER & GLM_COMPILER_CODEWARRIOR)
+#			pragma message("GLM: Codewarrior compiler detected but not supported")
+#		else
+#			pragma message("GLM: Compiler not detected")
+#		endif
+#	endif//GLM_MESSAGE_COMPILER_DISPLAYED
+#endif//GLM_MESSAGE
+
+/////////////////
+// Build model //
+
+#if(GLM_COMPILER & GLM_COMPILER_VC)
+#	if defined(_M_X64)
+#		define GLM_MODEL	GLM_MODEL_64
+#	else
+#		define GLM_MODEL	GLM_MODEL_32
+#	endif//_M_X64
+#elif(GLM_COMPILER & GLM_COMPILER_GCC)
+#	if(defined(__WORDSIZE) && (__WORDSIZE == 64)) || defined(__arch64__) || defined(__LP64__)
+#		define GLM_MODEL	GLM_MODEL_64
+#	else
+#		define GLM_MODEL	GLM_MODEL_32
+#	endif//
+#else
+#	define GLM_MODEL	GLM_MODEL_32
+#endif//
+
 #if(!defined(GLM_MODEL) && GLM_COMPILER != 0)
 #error "GLM_MODEL undefined, your compiler may not be supported by GLM. Add #define GLM_MODEL 0 to ignore this message."
 #endif//GLM_MODEL
+
+#if(defined(GLM_MESSAGE) && (GLM_MESSAGE == GLM_ENABLE)))
+#	ifndef GLM_MESSAGE_MODEL_DISPLAYED
+#	define GLM_MESSAGE_MODEL_DISPLAYED
+#		if(GLM_MODEL == GLM_MODEL_64)
+#			pragma message("GLM: 64 bits model")
+#		elif(GLM_MODEL == GLM_MODEL_32)
+#			pragma message("GLM: 32 bits model")
+#		endif//GLM_MODEL
+#	endif//GLM_MESSAGE_MODEL_DISPLAYED
+#endif//GLM_MESSAGE
 
 /////////////////
 // C++ Version //
@@ -215,25 +265,15 @@
 #	define GLM_LANG GLM_LANG_CPP98
 #endif
 
-/////////////
-// Message //
-
-#if(defined(GLM_MESSAGE) && (GLM_MESSAGE & (GLM_MESSAGE_SETUP | GLM_MESSAGE_NOTIFICATION)))
-#	if(defined(GLM_COMPILER) && GLM_COMPILER & GLM_COMPILER_VC)
-#		pragma message("GLM message: Compiled with Visual C++")
-#	elif(defined(GLM_COMPILER) && GLM_COMPILER & GLM_COMPILER_GCC)
-#		pragma message("GLM message: Compiled with GCC")
-#	else
-#		pragma message("GLM warning: Compiler not detected")
-#	endif
-#endif//GLM_MESSAGE
-
-#if(defined(GLM_MESSAGE) && (GLM_MESSAGE & (GLM_MESSAGE_SETUP | GLM_MESSAGE_NOTIFICATION)))
-#	if(GLM_MODEL == GLM_MODEL_64)
-#		pragma message("GLM message: 64 bits model")
-#	elif(GLM_MODEL == GLM_MODEL_32)
-#		pragma message("GLM message: 32 bits model")
-#	endif//GLM_MODEL
+#if(defined(GLM_MESSAGE) && (GLM_MESSAGE == GLM_ENABLE)))
+#	ifndef GLM_MESSAGE_LANG_DISPLAYED
+#	define GLM_MESSAGE_LANG_DISPLAYED
+#		if(GLM_LANG == GLM_LANG_CPP98)
+#			pragma message("GLM: C++98")
+#		elif(GLM_LANG == GLM_LANG_CPP0X)
+#			pragma message("GLM: C++0x")
+#		endif//GLM_MODEL
+#	endif//GLM_MESSAGE_MODEL_DISPLAYED
 #endif//GLM_MESSAGE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
