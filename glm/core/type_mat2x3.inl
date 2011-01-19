@@ -514,5 +514,28 @@ namespace detail
             m[1] - typename tmat2x3<T>::value_type(1));
     }
 
+	//////////////////////////////////////
+	// Boolean operators
+
+	template <typename T> 
+	inline bool operator==
+	(
+		tmat2x3<T> const & m1, 
+		tmat2x3<T> const & m2
+	)
+	{
+		return (m1[0] == m2[0]) && (m1[1] == m2[1]);
+	}
+
+	template <typename T> 
+	inline bool operator!=
+	(
+		tmat2x3<T> const & m1, 
+		tmat2x3<T> const & m2
+	)
+	{
+		return (m1[0] != m2[0]) || (m1[1] != m2[1]);
+	}
+
 } //namespace detail
 } //namespace glm
