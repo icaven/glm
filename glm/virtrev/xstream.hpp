@@ -8,7 +8,7 @@
 // Created : 2008-05-24
 // Updated : 2008-05-26
 // Licence : This source is under MIT License
-// File    : glm/ext/virtrev/xstream.h
+// File    : glm/ext/virtrev/xstream.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
@@ -131,7 +131,7 @@ namespace glm
 				stream << "z=\"" << glm::row(mat, 3)[2] << "\" ";
 				stream << "w=\"" << glm::row(mat, 3)[3] << "\" ";
 				stream << "/>" << std::endl;
-				stream << "</glm_mat3>";
+				stream << "</glm_mat4>";
 			
 				return stream;
 			}

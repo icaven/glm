@@ -409,7 +409,7 @@
 
 #if((GLM_COMPONENT == GLM_COMPONENT_MS_EXT) && !(GLM_COMPILER & GLM_COMPILER_VC))
 #	error "GLM_COMPONENT value is GLM_COMPONENT_MS_EXT but this is not allowed with the current compiler."
-#endif//GLM_USE_ANONYMOUS_UNION
+#endif
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_COMPONENT_DISPLAYED))
 #	define GLM_MESSAGE_COMPONENT_DISPLAYED

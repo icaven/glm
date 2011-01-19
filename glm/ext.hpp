@@ -79,6 +79,7 @@
 
 #include "./virtrev/address.hpp"
 #include "./virtrev/equal_operator.hpp"
+#include "./virtrev/xstream.hpp"
 
 //const float goldenRatio = 1.618033988749894848f;
 //const float pi = 3.141592653589793238f;
