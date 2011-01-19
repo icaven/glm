@@ -14,7 +14,15 @@ glmCreateTestGTC(core_type_vec1)
 glmCreateTestGTC(core_type_vec2)
 glmCreateTestGTC(core_type_vec3)
 glmCreateTestGTC(core_type_vec4)
-glmCreateTestGTC(core_vector_relational)
+glmCreateTestGTC(core_func_common)
+glmCreateTestGTC(core_func_exponential)
+glmCreateTestGTC(core_func_geometric)
+glmCreateTestGTC(core_func_integer)
+glmCreateTestGTC(core_func_matrix)
+glmCreateTestGTC(core_func_noise)
+glmCreateTestGTC(core_func_packing)
+glmCreateTestGTC(core_func_trigonometric)
+glmCreateTestGTC(core_func_vector_relational)
 
 
 
