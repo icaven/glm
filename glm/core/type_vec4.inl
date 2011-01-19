@@ -1152,19 +1152,6 @@ namespace glm
 				~v.w);
 		}
 
-		template <typename T> 
-		inline tvec4<T> operator~
-		(
-			tvec4<T> const & v
-		)
-		{
-			return tvec4<T>(
-				~v.x,
-				~v.y,
-				~v.z,
-				~v.w);
-		}
-
 		//////////////////////////////////////
 		// tref definition
 
