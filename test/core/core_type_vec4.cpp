@@ -33,12 +33,24 @@ __m128 swizzle(glm::vec4 const & v)
 	return _mm_shuffle_ps(Src, Src, mask<(int(W) << 6) | (int(Z) << 4) | (int(Y) << 2) | (int(X) << 0)>::value);
 }
 
-void test_hvec4()
+bool test_hvec4()
 {
 	glm::hvec4 const A = glm::hvec4(0, 1, 2, 3);
 	//glm::hvec4 B = glm::swizzle<glm::X, glm::Y, glm::Z, glm::W>(A);
 
 	//glm::vec4 B = glm::detail::tvec##(glm::vec4::_size)<float>();
+
+	return true;
+}
+
+static bool test_operators()
+{
+	glm::vec4 A(1.0f);
+	glm::vec4 B(1.0f);
+	bool R = A != B;
+	bool S = A == B;
+
+	return true;
 }
 
 int main()
@@ -47,6 +59,14 @@ int main()
 
 	__m128 DataA = swizzle<X, Y, Z, W>(glm::vec4(1.0f, 2.0f, 3.0f, 4.0f));
 	__m128 DataB = swizzle<W, Z, Y, X>(glm::vec4(1.0f, 2.0f, 3.0f, 4.0f));
+
+	bool Result = true;
+
+	Result = Result && test_operators();
+	Result = Result && test_hvec4();
+	
+	assert(Result);
+	return Result;
 
 	return 0;
 }

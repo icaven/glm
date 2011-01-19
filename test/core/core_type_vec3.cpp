@@ -9,7 +9,22 @@
 
 #include <glm/glm.hpp>
 
+static bool test_operators()
+{
+	glm::vec4 A(1.0f);
+	glm::vec4 B(1.0f);
+	bool R = A != B;
+	bool S = A == B;
+
+	return true;
+}
+
 int main()
 {
-	return -1;
+	bool Result = true;
+
+	Result = Result && test_operators();
+	
+	assert(Result);
+	return Result;
 }

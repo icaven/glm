@@ -46,6 +46,8 @@ static bool test_operators()
 	glm::mat3x3 o = m / x;
 	glm::mat3x3 p = x * m;
 	glm::mat3x3 q = m * x;
+	bool R = m != q;
+	bool S = m == m;
 
 	return true;
 }

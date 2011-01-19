@@ -48,6 +48,8 @@ static bool test_operators()
 	glm::mat4x4 o = m / x;
 	glm::mat4x4 p = x * m;
 	glm::mat4x4 q = m * x;
+	bool R = m != q;
+	bool S = m == m;
 
 	return true;
 }

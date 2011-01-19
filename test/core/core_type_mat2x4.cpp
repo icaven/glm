@@ -21,6 +21,8 @@ static bool test_operators()
 	glm::mat2x4 o = m / x;
 	glm::mat2x4 p = x * m;
 	glm::mat2x4 q = m * x;
+	bool R = m != q;
+	bool S = m == m;
 
 	return true;
 }
