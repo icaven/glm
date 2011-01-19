@@ -49,11 +49,11 @@ namespace glm
 			//////////////////////////////////////
 			// Data
 
-#	if defined(GLM_USE_ONLY_XYZW)
+#		if(GLM_COMPONENT == GLM_COMPONENT_ONLY_XYZW)
 			value_type x;
-#	else//GLM_USE_ONLY_XYZW
+#		else//(GLM_COMPONENT == GLM_COMPONENT_GLSL_NAMES)
 			union {value_type x, r, s;};
-#	endif//GLM_USE_ONLY_XYZW
+#		endif//GLM_COMPONENT
 
 			//////////////////////////////////////
 			// Accesses

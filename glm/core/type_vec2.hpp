@@ -47,21 +47,19 @@ namespace glm
 			//////////////////////////////////////
 			// Data
 
-#	if defined(GLM_USE_ONLY_XYZW)
+#		if(GLM_COMPONENT == GLM_COMPONENT_ONLY_XYZW)
 			value_type x, y;
-#	else//GLM_USE_ONLY_XYZW
-#		ifdef GLM_USE_ANONYMOUS_UNION
+#		elif(GLM_COMPONENT == GLM_COMPONENT_MS_EXT)
 			union 
 			{
 				struct{value_type x, y;};
 				struct{value_type r, g;};
 				struct{value_type s, t;};
 			};
-#		else//GLM_USE_ANONYMOUS_UNION
+#		else//(GLM_COMPONENT == GLM_COMPONENT_GLSL_NAMES)
 			union {value_type x, r, s;};
 			union {value_type y, g, t;};
-#		endif//GLM_USE_ANONYMOUS_UNION
-#	endif//GLM_USE_ONLY_XYZW
+#		endif//GLM_COMPONENT
 
 			//////////////////////////////////////
 			// Accesses
