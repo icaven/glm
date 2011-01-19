@@ -13,7 +13,7 @@
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_EXT_INCLUDED_DISPLAYED))
 #	define GLM_MESSAGE_EXT_INCLUDED_DISPLAYED
 #	pragma message("GLM: All extensions included (not recommanded)")
-#endif//GLM_MESSAGE
+#endif//GLM_MESSAGES
 
 #include "./gtc/half_float.hpp"
 #include "./gtc/matrix_access.hpp"

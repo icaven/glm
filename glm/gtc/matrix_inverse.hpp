@@ -16,6 +16,10 @@
 // Dependency:
 #include "../glm.hpp"
 
+#if(!defined(glm_ext))
+#	pragma message("GLM: GLM_GTC_matrix_inverse extension included")
+#endif
+
 namespace glm{
 namespace gtc{
 //! GLM_GTC_matrix_inverse extension: Inverse matrix functions

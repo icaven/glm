@@ -7,7 +7,7 @@
 // File    : test/gtx/simd-mat4.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_INSTRUCTION_SET GLM_PLATFORM_SSE3 | GLM_PLATFORM_SSE2
+#define GLM_MESSAGES
 #include <glm/glm.hpp>
 #include <glm/gtc/swizzle.hpp>
 

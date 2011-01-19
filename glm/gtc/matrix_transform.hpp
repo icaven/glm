@@ -17,6 +17,10 @@
 // Dependency:
 #include "../glm.hpp"
 
+#if(!defined(glm_ext))
+#	pragma message("GLM: GLM_GTC_matrix_transform extension included")
+#endif
+
 namespace glm
 {
 	namespace test{

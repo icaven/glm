@@ -16,6 +16,10 @@
 // Dependency:
 #include "../glm.hpp"
 
+#if(!defined(glm_ext))
+#	pragma message("GLM: GLM_GTC_matrix_access extension included")
+#endif
+
 namespace glm{
 namespace gtc{
 //! GLM_GTC_matrix_access extension: Set a column or a row of a matrix
