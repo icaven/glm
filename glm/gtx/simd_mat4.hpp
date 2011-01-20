@@ -16,6 +16,11 @@
 
 // Dependency:
 #include "../glm.hpp"
+
+#if(!(GLM_ARCH & GLM_ARCH_SSE2))
+#error "GLM: GLM_GTX_simd_mat4 requires compiler support of SSE2 through intrinsics"
+#endif
+
 #include "../core/intrinsic_matrix.hpp"
 #include "../gtx/simd_vec4.hpp"
 

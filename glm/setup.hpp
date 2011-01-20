@@ -254,54 +254,48 @@
 /////////////////
 // Platform 
 
-#define GLM_SUPPORT_PURE		0
-#define GLM_SUPPORT_SSE2		1
-#define GLM_SUPPORT_SSE3		2
-#define GLM_SUPPORT_AVX			3
+#define GLM_ARCH_PURE		0x0000
+#define GLM_ARCH_SSE2		0x0001
+#define GLM_ARCH_SSE3		0x0002 | GLM_ARCH_SSE2
+#define GLM_ARCH_AVX		0x0004 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2
 
 #if((GLM_COMPILER & GLM_COMPILER_VC) && defined(_M_IX86))
 #	if(GLM_COMPILER >= GLM_COMPILER_VC2010)
 #		if(_M_IX86_FP == 3) //AVX
-#			define GLM_SUPPORT GLM_SUPPORT_AVX //GLM_SUPPORT_AVX (Require SP1)
+#			define GLM_ARCH GLM_ARCH_AVX //GLM_ARCH_AVX (Require SP1)
 #		else
-#			define GLM_SUPPORT GLM_SUPPORT_SSE3
+#			define GLM_ARCH GLM_ARCH_SSE3
 #		endif
 #	elif(GLM_COMPILER >= GLM_COMPILER_VC2008) 
-#		define GLM_SUPPORT GLM_SUPPORT_SSE3
+#		define GLM_ARCH GLM_ARCH_SSE3
 #	elif(GLM_COMPILER >= GLM_COMPILER_VC2005)
-#		define GLM_SUPPORT GLM_SUPPORT_SSE2
+#		define GLM_ARCH GLM_ARCH_SSE2
 #	else
-#		define GLM_SUPPORT GLM_SUPPORT_PURE
+#		define GLM_ARCH GLM_ARCH_PURE
 #	endif
 #elif((GLM_COMPILER & GLM_COMPILER_GCC) && (defined(__i386__) || defined(__x86_64__)))
 #	if(GLM_COMPILER >= GLM_COMPILER_GCC44)
-#		define GLM_SUPPORT GLM_SUPPORT_AVX
+#		define GLM_ARCH GLM_ARCH_AVX
 #	elif(GLM_COMPILER >= GLM_COMPILER_GCC40)
-#		define GLM_SUPPORT GLM_SUPPORT_SSE3
+#		define GLM_ARCH GLM_ARCH_SSE3
 #	else
-#		define GLM_SUPPORT GLM_SUPPORT_PURE
+#		define GLM_ARCH GLM_ARCH_PURE
 #	endif
 #else
-#	define GLM_SUPPORT GLM_SUPPORT_PURE
+#	define GLM_ARCH GLM_ARCH_PURE
 #endif
 
-#define GLM_ARCH_PURE		0
-#define GLM_ARCH_SSE2		1
-#define GLM_ARCH_SSE3		2
-#define GLM_ARCH_AVX		3
-
-#if(GLM_SUPPORT == GLM_SUPPORT_AVX)
+#if(GLM_ARCH != GLM_ARCH_PURE)
+#if(GLM_ARCH & GLM_ARCH_AVX)
 #	include <immintrin.h>
-#	define GLM_ARCH GLM_ARCH_AVX
-#elif(GLM_SUPPORT == GLM_SUPPORT_SSE3)
+#endif//GLM_ARCH
+#if(GLM_ARCH & GLM_ARCH_SSE3)
 #	include <pmmintrin.h>
-#	define GLM_ARCH GLM_ARCH_SSE3
-#elif((GLM_SUPPORT == GLM_SUPPORT_SSE2) || (GLM_MODEL == GLM_MODEL_64))
+#endif//GLM_ARCH
+#if(GLM_ARCH & GLM_ARCH_SSE2)
 #	include <emmintrin.h>
-#	define GLM_ARCH GLM_ARCH_SSE2
-#else
-#	define GLM_ARCH GLM_ARCH_PURE
-#endif//GLM_SUPPORT
+#endif//GLM_ARCH
+#endif//(GLM_ARCH != GLM_ARCH_PURE)
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_ARCH_DISPLAYED))
 #	define GLM_MESSAGE_ARCH_DISPLAYED
