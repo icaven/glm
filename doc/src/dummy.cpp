@@ -18,7 +18,6 @@ void computeNormal(triangle & Triangle)
 #include "../../glm/gtc/matrix_transform.hpp" // glm::translate, glm::rotate, glm::scale
 #include "../../glm/gtc/type_ptr.hpp" // glm::value_ptr
 #include "../../glm/gtc/quaternion.hpp" // glm::quat
-#include "../../glm/gtx/comparison.hpp" // == != 
 //#include "../../glm/ext.hpp"
 
 glm::vec4 const ClearColor = glm::vec4(glm::vec3(0.0f), 1.0f);
