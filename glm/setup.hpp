@@ -238,14 +238,14 @@
 /////////////////
 // Platform 
 
-#define GLM_ARCH_PURE		0x0000
-#define GLM_ARCH_SSE2		0x0001
-#define GLM_ARCH_SSE3		0x0002 | GLM_ARCH_SSE2
-#define GLM_ARCH_AVX		0x0004 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2
+#define GLM_ARCH_PURE		0x0000 //(0x0000)
+#define GLM_ARCH_SSE2		0x0001 //(0x0001)
+#define GLM_ARCH_SSE3		0x0003 //(0x0002 | GLM_ARCH_SSE2)
+#define GLM_ARCH_AVX		0x0007 //(0x0004 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 
 #if(defined(GLM_FORCE_PURE))
 #	define GLM_ARCH GLM_ARCH_PURE
-#elif((GLM_COMPILER & GLM_COMPILER_VC) && defined(_M_IX86))
+#elif((GLM_COMPILER & GLM_COMPILER_VC) && (defined(_M_IX86) || defined(_M_X64)))
 #	if(defined(_M_CEE_PURE))
 #		define GLM_ARCH GLM_ARCH_PURE
 #	elif(GLM_COMPILER >= GLM_COMPILER_VC2010)

@@ -18,7 +18,7 @@
 #include "../glm.hpp"
 
 #if(!(GLM_ARCH & GLM_ARCH_SSE2))
-#error "GLM: GLM_GTX_simd_vec4 requires compiler support of SSE2 through intrinsics"
+#	error "GLM: GLM_GTX_simd_vec4 requires compiler support of SSE2 through intrinsics"
 #endif
 
 #include "../core/intrinsic_common.hpp"
