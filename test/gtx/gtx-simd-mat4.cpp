@@ -223,7 +223,7 @@ int test_compute_gtx()
 
 int main(int argc, void* argv[])
 {
-	int Failed = 0;
+	int Failed = GLM_COMPILER;
 
 	std::vector<glm::mat4> Data(1024 * 1024 * 8);
 	for(std::size_t i = 0; i < Data.size(); ++i)

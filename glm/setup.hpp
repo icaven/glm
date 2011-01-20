@@ -218,9 +218,9 @@
 
 #if(defined(GLM_FORCE_CXX98))
 #	define GLM_LANG GLM_LANG_CXX98
-#elif((GLM_COMPILER & GLM_COMPILER_GCC) && defined(__GXX_EXPERIMENTAL_CXX0X__)) // -std=c++0x or -std=gnu++0x
+#elif(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && defined(__GXX_EXPERIMENTAL_CXX0X__)) // -std=c++0x or -std=gnu++0x
 #	define GLM_LANG GLM_LANG_CXX0X
-#elif GLM_COMPILER & GLM_COMPILER_VC2010 //_MSC_EXTENSIONS for MS language extensions
+#elif(GLM_COMPILER == GLM_COMPILER_VC2010) //_MSC_EXTENSIONS for MS language extensions
 #	define GLM_LANG GLM_LANG_CXX0X
 #else
 #	define GLM_LANG GLM_LANG_CXX98
@@ -274,13 +274,13 @@
 #endif
 
 #if(GLM_ARCH != GLM_ARCH_PURE)
-#if(GLM_ARCH & GLM_ARCH_AVX)
+#if((GLM_ARCH & GLM_ARCH_AVX) == GLM_ARCH_AVX)
 #	include <immintrin.h>
 #endif//GLM_ARCH
-#if(GLM_ARCH & GLM_ARCH_SSE3)
+#if((GLM_ARCH & GLM_ARCH_SSE3) == GLM_ARCH_SSE3)
 #	include <pmmintrin.h>
 #endif//GLM_ARCH
-#if(GLM_ARCH & GLM_ARCH_SSE2)
+#if((GLM_ARCH & GLM_ARCH_SSE2) == GLM_ARCH_SSE2)
 #	include <emmintrin.h>
 #endif//GLM_ARCH
 #endif//(GLM_ARCH != GLM_ARCH_PURE)
