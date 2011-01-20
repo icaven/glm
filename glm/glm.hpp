@@ -109,6 +109,13 @@ namespace glm
 #include "./core/func_noise.hpp"
 #include "./core/_swizzle.hpp"
 
+namespace glm
+{
+ 	using namespace core::type;
+	using namespace core::type::precision;
+	using namespace core::function;
+} //namespace glm
+
 ////////////////////
 // check type sizes
 GLM_STATIC_ASSERT(sizeof(glm::detail::int8) == 1, "int8 size isn't 1 byte on this platform");
