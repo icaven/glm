@@ -20,12 +20,6 @@
 #define GLM_VERSION_REVISION		0
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// Common values
-
-#define GLM_DISABLE					0x00000000
-#define GLM_ENABLE					0x00000001
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 // Precision
 
 #define GLM_PRECISION_NONE			0x00000000
@@ -237,8 +231,8 @@
 /////////////////
 // C++ Version //
 
-#define GLM_LANG_CXX98 1
-#define GLM_LANG_CXX0X 2
+#define GLM_LANG_CXX98			1
+#define GLM_LANG_CXX0X			2
 
 #if((GLM_COMPILER & GLM_COMPILER_GCC) && defined(__GXX_EXPERIMENTAL_CXX0X__)) // -std=c++0x or -std=gnu++0x
 #	define GLM_LANG GLM_LANG_CXX0X

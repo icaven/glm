@@ -128,11 +128,11 @@ namespace glm
 		typedef highp_imat4x2							imat4x2; //!< \brief Signed integer 4x2 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef highp_imat4x3							imat4x3; //!< \brief Signed integer 4x3 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef highp_imat4x4							imat4x4; //!< \brief Signed integer 4x4 matrix. (from GLM_GTC_matrix_integer extension)
+
 #elif(GLM_PRECISION & GLM_PRECISION_LOWP_INT)
 		typedef lowp_imat2								imat2; //!< \brief Signed integer 2x2 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef lowp_imat3								imat3; //!< \brief Signed integer 3x3 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef lowp_imat4								imat4; //!< \brief Signed integer 4x4 matrix. (from GLM_GTC_matrix_integer extension)
-
 		typedef lowp_imat2x2							imat2x2; //!< \brief Signed integer 2x2 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef lowp_imat2x3							imat2x3; //!< \brief Signed integer 2x3 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef lowp_imat2x4							imat2x4; //!< \brief Signed integer 2x4 matrix. (from GLM_GTC_matrix_integer extension)
@@ -142,11 +142,11 @@ namespace glm
 		typedef lowp_imat4x2							imat4x2; //!< \brief Signed integer 4x2 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef lowp_imat4x3							imat4x3; //!< \brief Signed integer 4x3 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef lowp_imat4x4							imat4x4; //!< \brief Signed integer 4x4 matrix. (from GLM_GTC_matrix_integer extension)
+
 #else //if(GLM_PRECISION & GLM_PRECISION_MEDIUMP_INT)
 		typedef mediump_imat2							imat2; //!< \brief Signed integer 2x2 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef mediump_imat3							imat3; //!< \brief Signed integer 3x3 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef mediump_imat4							imat4; //!< \brief Signed integer 4x4 matrix. (from GLM_GTC_matrix_integer extension)
-
 		typedef mediump_imat2x2							imat2x2; //!< \brief Signed integer 2x2 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef mediump_imat2x3							imat2x3; //!< \brief Signed integer 2x3 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef mediump_imat2x4							imat2x4; //!< \brief Signed integer 2x4 matrix. (from GLM_GTC_matrix_integer extension)
@@ -162,7 +162,6 @@ namespace glm
 		typedef highp_umat2								umat2; //!< \brief Unsigned integer 2x2 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef highp_umat3								umat3; //!< \brief Unsigned integer 3x3 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef highp_umat4								umat4; //!< \brief Unsigned integer 4x4 matrix. (from GLM_GTC_matrix_integer extension)
-
 		typedef highp_umat2x2							umat2x2; //!< \brief Unsigned integer 2x2 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef highp_umat2x3							umat2x3; //!< \brief Unsigned integer 2x3 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef highp_umat2x4							umat2x4; //!< \brief Unsigned integer 2x4 matrix. (from GLM_GTC_matrix_integer extension)
@@ -172,11 +171,11 @@ namespace glm
 		typedef highp_umat4x2							umat4x2; //!< \brief Unsigned integer 4x2 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef highp_umat4x3							umat4x3; //!< \brief Unsigned integer 4x3 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef highp_umat4x4							umat4x4; //!< \brief Unsigned integer 4x4 matrix. (from GLM_GTC_matrix_integer extension)
+
 #elif(GLM_PRECISION & GLM_PRECISION_LOWP_UINT)
 		typedef lowp_umat2								umat2; //!< \brief Unsigned integer 2x2 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef lowp_umat3								umat3; //!< \brief Unsigned integer 3x3 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef lowp_umat4								umat4; //!< \brief Unsigned integer 4x4 matrix. (from GLM_GTC_matrix_integer extension)
-
 		typedef lowp_umat2x2							umat2x2; //!< \brief Unsigned integer 2x2 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef lowp_umat2x3							umat2x3; //!< \brief Unsigned integer 2x3 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef lowp_umat2x4							umat2x4; //!< \brief Unsigned integer 2x4 matrix. (from GLM_GTC_matrix_integer extension)
@@ -186,11 +185,11 @@ namespace glm
 		typedef lowp_umat4x2							umat4x2; //!< \brief Unsigned integer 4x2 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef lowp_umat4x3							umat4x3; //!< \brief Unsigned integer 4x3 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef lowp_umat4x4							umat4x4; //!< \brief Unsigned integer 4x4 matrix. (from GLM_GTC_matrix_integer extension)
+
 #else //if(GLM_PRECISION & GLM_PRECISION_MEDIUMP_UINT)
 		typedef mediump_umat2							umat2; //!< \brief Unsigned integer 2x2 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef mediump_umat3							umat3; //!< \brief Unsigned integer 3x3 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef mediump_umat4							umat4; //!< \brief Unsigned integer 4x4 matrix. (from GLM_GTC_matrix_integer extension)
-
 		typedef mediump_umat2x2							umat2x2; //!< \brief Unsigned integer 2x2 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef mediump_umat2x3							umat2x3; //!< \brief Unsigned integer 2x3 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef mediump_umat2x4							umat2x4; //!< \brief Unsigned integer 2x4 matrix. (from GLM_GTC_matrix_integer extension)
