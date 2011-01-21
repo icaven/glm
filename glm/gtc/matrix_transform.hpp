@@ -137,6 +137,7 @@ namespace glm
 		//! From GLM_GTC_matrix_transform extension.
 		template <typename T> 
 		detail::tmat4x4<T> lookAt(
+			detail::tmat4x4<T> const & m,
 			detail::tvec3<T> const & eye, 
 			detail::tvec3<T> const & center, 
 			detail::tvec3<T> const & up);

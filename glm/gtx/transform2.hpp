@@ -109,6 +109,14 @@ namespace glm
 			valType scale, 
 			valType bias);
 
+		//! Build a look at view matrix.
+		//! From GLM_GTX_transform2 extension.
+		template <typename T>
+		detail::tmat4x4<T> lookAt(
+			detail::tvec3<T> const & eye,
+			detail::tvec3<T> const & center,
+			detail::tvec3<T> const & up);
+
 	}//namespace transform2
     }//namespace gtx
 }//namespace glm
