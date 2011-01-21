@@ -1,20 +1,29 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2011-01-19
-// Updated : 2011-01-19
-// Licence : This source is under MIT License
-// File    : glm/setup.hpp
+// Created : 2010-09-16
+// Updated : 2010-09-16
+// Licence : This source is under MIT licence
+// File    : test/gtx/simd-mat4.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// GLM is a header only library. There is nothing to compile. 
-// dummy.cpp exist only a wordaround for CMake file.
 
-#include "../glm.hpp"
-#include "../ext.hpp"
+#define GLM_MESSAGES
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_integer.hpp>
 
-//#error "GLM is a header only library"
-
-int main()
+int test_int_matrix()
 {
+	{
+		glm::mediump_uint A(0);
+	}
 
+	return 0;
+}
+
+int main(int argc, void* argv[])
+{
+	int Failed = 0;
+	Failed += test_int_matrix();
+
+	return Failed;
 }

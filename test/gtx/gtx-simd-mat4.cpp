@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2010-09-16
 // Updated : 2010-09-16
@@ -7,7 +7,6 @@
 // File    : test/gtx/simd-mat4.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_INSTRUCTION_SET GLM_PLATFORM_SSE3 | GLM_PLATFORM_SSE2
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/quaternion.hpp>
@@ -224,7 +223,7 @@ int test_compute_gtx()
 
 int main(int argc, void* argv[])
 {
-	int Failed = 0;
+	int Failed = GLM_COMPILER;
 
 	std::vector<glm::mat4> Data(1024 * 1024 * 8);
 	for(std::size_t i = 0; i < Data.size(); ++i)

@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2006-11-13
 // Updated : 2010-01-28
@@ -18,29 +18,6 @@
 #define GLM_VERSION_MINOR			9
 #define GLM_VERSION_PATCH			1
 #define GLM_VERSION_REVISION		0
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Common values
-
-#define GLM_DISABLE					0x00000000
-#define GLM_ENABLE					0x00000001
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Precision
-
-#define GLM_PRECISION_NONE			0x00000000
-
-#define GLM_PRECISION_LOWP_FLOAT	0x00000011
-#define GLM_PRECISION_MEDIUMP_FLOAT	0x00000012
-#define GLM_PRECISION_HIGHP_FLOAT	0x00000013	
-
-#define GLM_PRECISION_LOWP_INT		0x00001100
-#define GLM_PRECISION_MEDIUMP_INT	0x00001200
-#define GLM_PRECISION_HIGHP_INT		0x00001300
-
-#define GLM_PRECISION_LOWP_UINT		0x00110000
-#define GLM_PRECISION_MEDIUMP_UINT	0x00120000
-#define GLM_PRECISION_HIGHP_UINT	0x00130000	
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Compiler
@@ -93,13 +70,14 @@
 #define GLM_MODEL_32				0x00000010
 #define GLM_MODEL_64				0x00000020
 
-#ifndef GLM_COMPILER
-
 // CodeWarrior
 #define GLM_COMPILER_CODEWARRIOR	0x04000000
 
+// Force generic C++ compiler
+#ifdef GLM_FORCE_COMPILER_UNKNOWNED
+#		define GLM_COMPILER GLM_COMPILER_UNKNOWNED
 // Visual C++
-#ifdef _MSC_VER
+#elif defined(_MSC_VER)
 #	if _MSC_VER == 900
 #		define GLM_COMPILER GLM_COMPILER_VC2
 #	elif _MSC_VER == 1000
@@ -180,8 +158,6 @@
 #	define GLM_COMPILER GLM_COMPILER_UNKNOWNED
 #endif
 
-#endif//GLM_COMPILER
-
 #ifndef GLM_COMPILER
 #error "GLM_COMPILER undefined, your compiler may not be supported by GLM. Add #define GLM_COMPILER 0 to ignore this message."
 #endif//GLM_COMPILER
@@ -237,12 +213,14 @@
 /////////////////
 // C++ Version //
 
-#define GLM_LANG_CXX98 1
-#define GLM_LANG_CXX0X 2
+#define GLM_LANG_CXX98			1
+#define GLM_LANG_CXX0X			2
 
-#if((GLM_COMPILER & GLM_COMPILER_GCC) && defined(__GXX_EXPERIMENTAL_CXX0X__)) // -std=c++0x or -std=gnu++0x
+#if(defined(GLM_FORCE_CXX98))
+#	define GLM_LANG GLM_LANG_CXX98
+#elif(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && defined(__GXX_EXPERIMENTAL_CXX0X__)) // -std=c++0x or -std=gnu++0x
 #	define GLM_LANG GLM_LANG_CXX0X
-#elif GLM_COMPILER & GLM_COMPILER_VC2010 //_MSC_EXTENSIONS for MS language extensions
+#elif(GLM_COMPILER == GLM_COMPILER_VC2010) //_MSC_EXTENSIONS for MS language extensions
 #	define GLM_LANG GLM_LANG_CXX0X
 #else
 #	define GLM_LANG GLM_LANG_CXX98
@@ -260,54 +238,52 @@
 /////////////////
 // Platform 
 
-#define GLM_SUPPORT_PURE		0
-#define GLM_SUPPORT_SSE2		1
-#define GLM_SUPPORT_SSE3		2
-#define GLM_SUPPORT_AVX			3
+#define GLM_ARCH_PURE		0x0000 //(0x0000)
+#define GLM_ARCH_SSE2		0x0001 //(0x0001)
+#define GLM_ARCH_SSE3		0x0003 //(0x0002 | GLM_ARCH_SSE2)
+#define GLM_ARCH_AVX		0x0007 //(0x0004 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 
-#if((GLM_COMPILER & GLM_COMPILER_VC) && defined(_M_IX86))
-#	if(GLM_COMPILER >= GLM_COMPILER_VC2010)
-#		if(_M_IX86_FP == 3) //AVX
-#			define GLM_SUPPORT GLM_SUPPORT_AVX //GLM_SUPPORT_AVX (Require SP1)
+#if(defined(GLM_FORCE_PURE))
+#	define GLM_ARCH GLM_ARCH_PURE
+#elif((GLM_COMPILER & GLM_COMPILER_VC) && (defined(_M_IX86) || defined(_M_X64)))
+#	if(defined(_M_CEE_PURE))
+#		define GLM_ARCH GLM_ARCH_PURE
+#	elif(GLM_COMPILER >= GLM_COMPILER_VC2010)
+#		if(_MSC_FULL_VER >= 160031118) //160031118: VC2010 SP1 beta full version
+#			define GLM_ARCH GLM_ARCH_AVX //GLM_ARCH_AVX (Require SP1)
 #		else
-#			define GLM_SUPPORT GLM_SUPPORT_SSE3
+#			define GLM_ARCH GLM_ARCH_SSE3
 #		endif
 #	elif(GLM_COMPILER >= GLM_COMPILER_VC2008) 
-#		define GLM_SUPPORT GLM_SUPPORT_SSE3
+#		define GLM_ARCH GLM_ARCH_SSE3
 #	elif(GLM_COMPILER >= GLM_COMPILER_VC2005)
-#		define GLM_SUPPORT GLM_SUPPORT_SSE2
+#		define GLM_ARCH GLM_ARCH_SSE2
 #	else
-#		define GLM_SUPPORT GLM_SUPPORT_PURE
+#		define GLM_ARCH GLM_ARCH_PURE
 #	endif
 #elif((GLM_COMPILER & GLM_COMPILER_GCC) && (defined(__i386__) || defined(__x86_64__)))
 #	if(GLM_COMPILER >= GLM_COMPILER_GCC44)
-#		define GLM_SUPPORT GLM_SUPPORT_AVX
+#		define GLM_ARCH GLM_ARCH_AVX
 #	elif(GLM_COMPILER >= GLM_COMPILER_GCC40)
-#		define GLM_SUPPORT GLM_SUPPORT_SSE3
+#		define GLM_ARCH GLM_ARCH_SSE3
 #	else
-#		define GLM_SUPPORT GLM_SUPPORT_PURE
+#		define GLM_ARCH GLM_ARCH_PURE
 #	endif
 #else
-#	define GLM_SUPPORT GLM_SUPPORT_PURE
+#	define GLM_ARCH GLM_ARCH_PURE
 #endif
 
-#define GLM_ARCH_PURE		0
-#define GLM_ARCH_SSE2		1
-#define GLM_ARCH_SSE3		2
-#define GLM_ARCH_AVX		3
-
-#if(GLM_SUPPORT == GLM_SUPPORT_AVX)
+#if(GLM_ARCH != GLM_ARCH_PURE)
+#if((GLM_ARCH & GLM_ARCH_AVX) == GLM_ARCH_AVX)
 #	include <immintrin.h>
-#	define GLM_ARCH GLM_ARCH_AVX
-#elif(GLM_SUPPORT == GLM_SUPPORT_SSE3)
+#endif//GLM_ARCH
+#if((GLM_ARCH & GLM_ARCH_SSE3) == GLM_ARCH_SSE3)
 #	include <pmmintrin.h>
-#	define GLM_ARCH GLM_ARCH_SSE3
-#elif((GLM_SUPPORT == GLM_SUPPORT_SSE2) || (GLM_MODEL == GLM_MODEL_64))
+#endif//GLM_ARCH
+#if((GLM_ARCH & GLM_ARCH_SSE2) == GLM_ARCH_SSE2)
 #	include <emmintrin.h>
-#	define GLM_ARCH GLM_ARCH_SSE2
-#else
-#	define GLM_ARCH GLM_ARCH_PURE
-#endif//GLM_SUPPORT
+#endif//GLM_ARCH
+#endif//(GLM_ARCH != GLM_ARCH_PURE)
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_ARCH_DISPLAYED))
 #	define GLM_MESSAGE_ARCH_DISPLAYED
@@ -320,76 +296,6 @@
 #	elif(GLM_ARCH == GLM_ARCH_AVX)
 #		pragma message("GLM: AVX build platform")
 #	endif//GLM_ARCH
-#endif//GLM_MESSAGE
-
-/*
-#if(GLM_INSTRUCTION_SET != GLM_INSTRUCTION_SET_NULL)
-#	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_MMX)
-#		include <mmintrin.h>
-#	endif
-#	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_3DNOW)
-#		include <mm3dnow.h>
-#	endif
-#	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_SSE)
-#		include <xmmintrin.h>
-#	endif
-#	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_SSE2)
-#		include <emmintrin.h>
-#	endif
-#	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_SSE3)
-#		include <pmmintrin.h>
-#	endif
-#	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_SSSE3)
-#		include <tmmintrin.h>
-#	endif
-#	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_POPCNT)
-//#		include <popcntintrin.h>
-#	endif
-#	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_SSE4A)
-//#		include <ammintrin.h>
-#	endif
-#	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_SSE4_1)
-#		include <smmintrin.h>
-#	endif
-#	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_SSE4_2)
-#		include <nmmintrin.h>
-#	endif
-#	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_AES)
-#		include <wmmintrin.h>
-#	endif
-#	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_PCLMUL)
-#		include <wmmintrin.h>
-#	endif
-#	if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_AVX)
-#		include <immintrin.h>
-#	endif
-#endif
-*/
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Swizzle operators
-
-#define GLM_SWIZZLE_NONE            0x00000000
-#define GLM_SWIZZLE_XYZW            0x00000002
-#define GLM_SWIZZLE_RGBA            0x00000004
-#define GLM_SWIZZLE_STQP            0x00000008
-#define GLM_SWIZZLE_FULL            (GLM_SWIZZLE_XYZW | GLM_SWIZZLE_RGBA | GLM_SWIZZLE_STQP)
-
-//! By default:
-// #define GLM_SWIZZLE GLM_SWIZZLE_NONE
-
-#ifndef GLM_SWIZZLE
-#	define GLM_SWIZZLE GLM_SWIZZLE_NONE
-#endif//GLM_SWIZZLE
-
-#if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_SWIZZLE_DISPLAYED))
-#	define GLM_MESSAGE_SWIZZLE_DISPLAYED
-#	if !defined(GLM_SWIZZLE)|| (defined(GLM_SWIZZLE) && GLM_SWIZZLE == GLM_SWIZZLE_NONE)
-#		pragma message("GLM: No swizzling operator enabled")
-#	elif(defined(GLM_SWIZZLE) && GLM_SWIZZLE == GLM_SWIZZLE_FULL)
-#		pragma message("GLM: Full swizzling operator enabled")
-#	elif(defined(GLM_SWIZZLE) && GLM_SWIZZLE & GLM_SWIZZLE_FULL)
-#		pragma message("GLM: Partial swizzling operator enabled")
-#	endif//GLM_SWIZZLE
 #endif//GLM_MESSAGE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -437,6 +343,50 @@
 #else
 #	define GLM_STATIC_ASSERT(x, message) typedef char __CASSERT__##__LINE__[(x) ? 1 : -1]
 #endif//GLM_LANG
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Swizzle operators
+
+#define GLM_SWIZZLE_NONE            0x00000000
+#define GLM_SWIZZLE_XYZW            0x00000002
+#define GLM_SWIZZLE_RGBA            0x00000004
+#define GLM_SWIZZLE_STQP            0x00000008
+#define GLM_SWIZZLE_FULL            (GLM_SWIZZLE_XYZW | GLM_SWIZZLE_RGBA | GLM_SWIZZLE_STQP)
+
+//! By default:
+// #define GLM_SWIZZLE GLM_SWIZZLE_NONE
+
+//#ifndef GLM_SWIZZLE
+//#	define GLM_SWIZZLE GLM_SWIZZLE_NONE
+//#endif//GLM_SWIZZLE
+
+#if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_SWIZZLE_DISPLAYED))
+#	define GLM_MESSAGE_SWIZZLE_DISPLAYED
+#	if !defined(GLM_SWIZZLE)|| (defined(GLM_SWIZZLE) && GLM_SWIZZLE == GLM_SWIZZLE_NONE)
+#		pragma message("GLM: No swizzling operator enabled")
+#	elif(defined(GLM_SWIZZLE) && GLM_SWIZZLE == GLM_SWIZZLE_FULL)
+#		pragma message("GLM: Full swizzling operator enabled")
+#	elif(defined(GLM_SWIZZLE) && GLM_SWIZZLE & GLM_SWIZZLE_FULL)
+#		pragma message("GLM: Partial swizzling operator enabled")
+#	endif//GLM_SWIZZLE
+#endif//GLM_MESSAGE
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Precision
+
+#define GLM_PRECISION_NONE			0x00000000
+
+#define GLM_PRECISION_LOWP_FLOAT	0x00000011
+#define GLM_PRECISION_MEDIUMP_FLOAT	0x00000012
+#define GLM_PRECISION_HIGHP_FLOAT	0x00000013	
+
+#define GLM_PRECISION_LOWP_INT		0x00001100
+#define GLM_PRECISION_MEDIUMP_INT	0x00001200
+#define GLM_PRECISION_HIGHP_INT		0x00001300
+
+#define GLM_PRECISION_LOWP_UINT		0x00110000
+#define GLM_PRECISION_MEDIUMP_UINT	0x00120000
+#define GLM_PRECISION_HIGHP_UINT	0x00130000	
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2009-05-01
 // Updated : 2010-12-13
@@ -17,6 +17,7 @@
 
 #include "./gtc/half_float.hpp"
 #include "./gtc/matrix_access.hpp"
+#include "./gtc/matrix_integer.hpp"
 #include "./gtc/matrix_inverse.hpp"
 #include "./gtc/matrix_transform.hpp"
 #include "./gtc/quaternion.hpp"

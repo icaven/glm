@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2010 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2009-05-07
 // Updated : 2009-05-07
@@ -16,6 +16,11 @@
 
 // Dependency:
 #include "../glm.hpp"
+
+#if(!(GLM_ARCH & GLM_ARCH_SSE2))
+#	error "GLM: GLM_GTX_simd_vec4 requires compiler support of SSE2 through intrinsics"
+#endif
+
 #include "../core/intrinsic_common.hpp"
 #include "../core/intrinsic_geometric.hpp"
 
