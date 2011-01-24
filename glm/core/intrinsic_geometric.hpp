@@ -10,6 +10,12 @@
 #ifndef glm_core_intrinsic_geometric
 #define glm_core_intrinsic_geometric
 
+#include "../setup.hpp"
+
+#if((GLM_ARCH & GLM_ARCH_SSE2) != GLM_ARCH_SSE2)
+#	error "SSE2 instructions not supported or enabled"
+#else
+
 #include "intrinsic_common.hpp"
 
 namespace glm{
@@ -47,4 +53,5 @@ namespace detail
 
 #include "intrinsic_geometric.inl"
 
+#endif//GLM_ARCH
 #endif//glm_core_intrinsic_geometric

@@ -12,7 +12,9 @@
 
 #include "../setup.hpp"
 
-#if(GLM_ARCH != GLM_ARCH_PURE)
+#if((GLM_ARCH & GLM_ARCH_SSE2) != GLM_ARCH_SSE2)
+#	error "SSE2 instructions not supported or enabled"
+#else
 
 namespace glm{
 namespace detail
@@ -54,5 +56,5 @@ inline __m128 sse_normalize_fast_ps(  float * RESTRICT vOut, float * RESTRICT vI
 }//namespace detail
 }//namespace glm
 
-#endif//GLM_ARCH != GLM_ARCH_PURE)
+#endif//GLM_ARCH
 #endif//glm_detail_intrinsic_exponential
