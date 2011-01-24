@@ -21,8 +21,7 @@ namespace glm
 {
 	namespace test{
 		bool main_gtc_half_float();
-	}//namespace test
-
+	}//namespace 
 	namespace detail
 	{
 #ifndef _MSC_EXTENSIONS
