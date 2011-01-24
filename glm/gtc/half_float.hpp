@@ -25,7 +25,7 @@ namespace glm
 
 	namespace detail
 	{
-#ifndef GLM_USE_ANONYMOUS_UNION
+#ifndef _MSC_EXTENSIONS
 		template <>
 		struct tvec2<thalf>
 		{
@@ -319,7 +319,7 @@ namespace glm
 			tvec4<thalf> swizzle(comp X, comp Y, comp Z, comp W) const;
 			tref4<thalf> swizzle(comp X, comp Y, comp Z, comp W);
 		};
-#endif//GLM_USE_ANONYMOUS_UNION
+#endif//_MSC_EXTENSIONS
 	}
 	//namespace detail
 

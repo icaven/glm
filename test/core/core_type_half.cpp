@@ -19,12 +19,12 @@ int main()
 	glm::half C = A + B;
 	glm::half D(C);
 	float E = D;
-	int F = C;
+	int F = float(C);
 	glm::half G = B * C;
 	glm::half H = G / C;
 	H += glm::half(1.0f);
 	double J = H;
-	int I = H;
+	int I = float(H);
 
 	Result = Result && J == 3.0;
 	

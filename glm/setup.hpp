@@ -262,10 +262,12 @@
 #		define GLM_ARCH GLM_ARCH_PURE
 #	endif
 #elif((GLM_COMPILER & GLM_COMPILER_GCC) && (defined(__i386__) || defined(__x86_64__)))
-#	if(GLM_COMPILER >= GLM_COMPILER_GCC44)
+#	if(defined(__AVX__))
 #		define GLM_ARCH GLM_ARCH_AVX
-#	elif(GLM_COMPILER >= GLM_COMPILER_GCC40)
+#	elif(defined(__SSE3__))
 #		define GLM_ARCH GLM_ARCH_SSE3
+#	elif(defined(__SSE2__))
+#		define GLM_ARCH GLM_ARCH_SSE2
 #	else
 #		define GLM_ARCH GLM_ARCH_PURE
 #	endif
@@ -340,8 +342,10 @@
 #	define GLM_STATIC_ASSERT(x, message) static_assert(x, message)
 #elif(defined(BOOST_STATIC_ASSERT))
 #	define GLM_STATIC_ASSERT(x, message) BOOST_STATIC_ASSERT(x)
-#else
+#elif(GLM_COMPILER & GLM_COMPILER_VC)
 #	define GLM_STATIC_ASSERT(x, message) typedef char __CASSERT__##__LINE__[(x) ? 1 : -1]
+#else
+#	define GLM_STATIC_ASSERT(x, message)
 #endif//GLM_LANG
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

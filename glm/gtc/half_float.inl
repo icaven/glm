@@ -10,7 +10,7 @@
 namespace glm{
 namespace detail{
 
-#ifndef GLM_USE_ANONYMOUS_UNION
+#ifndef _MSC_EXTENSIONS
 
 //////////////////////////////////////
 // hvec2
@@ -969,7 +969,7 @@ inline tref4<thalf> tvec4<thalf>::swizzle(comp x, comp y, comp z, comp w)
 		(*this)[w]);
 }
 
-#endif//GLM_USE_ANONYMOUS_UNION
+#endif//_MSC_EXTENSIONS
 
 }//namespace detail
 }//namespace glm
