@@ -9,8 +9,6 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/half_float.hpp>
-#include <xmmintrin.h>
-#include <emmintrin.h>
 
 template <int Value>
 struct mask
@@ -26,12 +24,12 @@ enum comp
 	W
 };
 
-template<comp X, comp Y, comp Z, comp W>
-__m128 swizzle(glm::vec4 const & v)
-{
-	__m128 Src = _mm_set_ps(v.w, v.z, v.y, v.x);
-	return _mm_shuffle_ps(Src, Src, mask<(int(W) << 6) | (int(Z) << 4) | (int(Y) << 2) | (int(X) << 0)>::value);
-}
+//template<comp X, comp Y, comp Z, comp W>
+//__m128 swizzle(glm::vec4 const & v)
+//{
+//	__m128 Src = _mm_set_ps(v.w, v.z, v.y, v.x);
+//	return _mm_shuffle_ps(Src, Src, mask<(int(W) << 6) | (int(Z) << 4) | (int(Y) << 2) | (int(X) << 0)>::value);
+//}
 
 bool test_hvec4()
 {
@@ -57,8 +55,8 @@ int main()
 {
 	test_hvec4();
 
-	__m128 DataA = swizzle<X, Y, Z, W>(glm::vec4(1.0f, 2.0f, 3.0f, 4.0f));
-	__m128 DataB = swizzle<W, Z, Y, X>(glm::vec4(1.0f, 2.0f, 3.0f, 4.0f));
+	//__m128 DataA = swizzle<X, Y, Z, W>(glm::vec4(1.0f, 2.0f, 3.0f, 4.0f));
+	//__m128 DataB = swizzle<W, Z, Y, X>(glm::vec4(1.0f, 2.0f, 3.0f, 4.0f));
 
 	bool Result = true;
 

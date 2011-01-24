@@ -114,7 +114,7 @@ int test_swizzle_vec4_const_static()
 	return 0;
 }
 
-int main(int argc, void* argv[])
+int main()
 {
 	int Failed = 0;
 	Failed += test_swizzle_vec4_ref_dynamic();

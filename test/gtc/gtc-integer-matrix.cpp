@@ -20,7 +20,7 @@ int test_int_matrix()
 	return 0;
 }
 
-int main(int argc, void* argv[])
+int main()
 {
 	int Failed = 0;
 	Failed += test_int_matrix();

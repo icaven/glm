@@ -131,7 +131,7 @@ int test_all()
 }
 
 
-int main(int argc, void* argv[])
+int main()
 {
 	int Failed = 0;
 	Failed += test_static_assert();

@@ -221,7 +221,7 @@ int test_compute_gtx()
 	return Output.size() != 0;
 }
 
-int main(int argc, void* argv[])
+int main()
 {
 	int Failed = GLM_COMPILER;
 

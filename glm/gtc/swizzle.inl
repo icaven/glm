@@ -21,7 +21,7 @@ inline T swizzle
 	comp x
 )
 {
-	assert(int(x) < int(typename vecType<T>::_size));
+	assert(int(x) < int(vecType<T>::value_size));
 	return v[x];
 }
 

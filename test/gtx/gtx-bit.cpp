@@ -127,7 +127,7 @@ namespace bitRevert
 	}
 }//bitRevert
 
-int main(int argc, void* argv[])
+int main()
 {
 	::extractField::test();
 	::bitRevert::test();

@@ -7,7 +7,6 @@
 // File    : test/gtx/simd-mat4.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_INSTRUCTION_SET GLM_PLATFORM_SSE3 | GLM_PLATFORM_SSE2
 #include <glm/glm.hpp>
 
 int test_static_assert()
@@ -131,7 +130,7 @@ int test_all()
 }
 
 
-int main(int argc, void* argv[])
+int main()
 {
 	int Failed = 0;
 	Failed += test_static_assert();

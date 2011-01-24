@@ -331,7 +331,7 @@ namespace detail
 #	if(GLM_COMPILER >= GLM_COMPILER_GCC33)
 #		define GLM_RESTRICT __restrict__
 #		define GLM_RESTRICT_VAR __restrict__
-#	elif
+#	else
 #		define GLM_RESTRICT
 #		define GLM_RESTRICT_VAR
 #	endif

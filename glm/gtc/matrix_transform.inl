@@ -326,7 +326,6 @@ namespace matrix_transform
 
     template <typename T> 
     inline detail::tmat4x4<T> lookAt(
-		detail::tmat4x4<T> const & m,
 		const detail::tvec3<T>& eye, 
 		const detail::tvec3<T>& center, 
 		const detail::tvec3<T>& up)
@@ -351,7 +350,7 @@ namespace matrix_transform
         Result[3][1] =-dot(y, eye);
         Result[3][2] = dot(f, eye);
     */  
-		return m * gtc::matrix_transform::translate(Result, -eye);
+		return gtc::matrix_transform::translate(Result, -eye);
     }
 }//namespace matrix_transform
 }//namespace gtc

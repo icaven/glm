@@ -7,12 +7,11 @@
 // File    : test/gtx/simd-vec4.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_INSTRUCTION_SET GLM_PLATFORM_SSE3 | GLM_PLATFORM_SSE2
 #include <glm/glm.hpp>
 #include <glm/gtx/simd_vec4.hpp>
 #include <cstdio>
 
-int main(int argc, char* argv[])
+int main()
 {
 	glm::simd_vec4 A1(0.0f, 0.1f, 0.2f, 0.3f);
 	glm::simd_vec4 B1(0.4f, 0.5f, 0.6f, 0.7f);
