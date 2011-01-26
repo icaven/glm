@@ -2,7 +2,7 @@
 // OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2006-11-13
-// Updated : 2010-01-28
+// Updated : 2011-01-26
 // Licence : This source is under MIT License
 // File    : glm/setup.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -213,8 +213,11 @@
 /////////////////
 // C++ Version //
 
+#define GLM_LANG_CXX			0
 #define GLM_LANG_CXX98			1
 #define GLM_LANG_CXX0X			2
+#define GLM_LANG_CXXMS			3
+#define GLM_LANG_CXXGNU			4
 
 #if(defined(GLM_FORCE_CXX98))
 #	define GLM_LANG GLM_LANG_CXX98
@@ -222,8 +225,12 @@
 #	define GLM_LANG GLM_LANG_CXX0X
 #elif(GLM_COMPILER == GLM_COMPILER_VC2010) //_MSC_EXTENSIONS for MS language extensions
 #	define GLM_LANG GLM_LANG_CXX0X
-#else
+#elif(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && defined(__STRICT_ANSI__))
 #	define GLM_LANG GLM_LANG_CXX98
+#elif(((GLM_COMPILER & GLM_COMPILER_VC) == GLM_COMPILER_VC) && !defined(_MSC_EXTENSIONS))
+#	define GLM_LANG GLM_LANG_CXX98
+#else
+#	define GLM_LANG GLM_LANG_CXX
 #endif
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_LANG_DISPLAYED))
@@ -303,19 +310,19 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Components
 
+//#define GLM_FORCE_ONLY_XYZW
 #define GLM_COMPONENT_GLSL_NAMES			0 
 #define GLM_COMPONENT_ONLY_XYZW				1 // To disable multiple vector component names access.
 #define GLM_COMPONENT_MS_EXT				2 // To use anonymous union to provide multiple component names access for class valType. Visual C++ only.
 
-//! By default:
-// #define GLM_COMPONENT GLM_COMPONENT_GLSL_NAMES
-
-#ifndef GLM_COMPONENT
+#ifndef GLM_FORCE_ONLY_XYZW
 #	if((GLM_COMPILER & GLM_COMPILER_VC) && defined(_MSC_EXTENSIONS))
 #		define GLM_COMPONENT GLM_COMPONENT_MS_EXT
 #	else
 #		define GLM_COMPONENT GLM_COMPONENT_GLSL_NAMES
 #	endif
+#else
+#	define GLM_COMPONENT GLM_COMPONENT_ONLY_XYZW
 #endif
 
 #if((GLM_COMPONENT == GLM_COMPONENT_MS_EXT) && !(GLM_COMPILER & GLM_COMPILER_VC))
@@ -349,6 +356,21 @@
 #endif//GLM_LANG
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+// inline 
+
+#if(defined(GLM_FORCE_INLINE))
+#	if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
+#		define GLM_INLINE __forceinline
+#	elif((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
+#		define GLM_INLINE __attribute__((always_inline))
+#	else
+#		define GLM_INLINE inline
+#	endif//GLM_COMPILER
+#else
+#	define GLM_INLINE inline
+#endif//defined(GLM_FORCE_INLINE)
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 // Swizzle operators
 
 #define GLM_SWIZZLE_NONE            0x00000000
@@ -356,13 +378,6 @@
 #define GLM_SWIZZLE_RGBA            0x00000004
 #define GLM_SWIZZLE_STQP            0x00000008
 #define GLM_SWIZZLE_FULL            (GLM_SWIZZLE_XYZW | GLM_SWIZZLE_RGBA | GLM_SWIZZLE_STQP)
-
-//! By default:
-// #define GLM_SWIZZLE GLM_SWIZZLE_NONE
-
-//#ifndef GLM_SWIZZLE
-//#	define GLM_SWIZZLE GLM_SWIZZLE_NONE
-//#endif//GLM_SWIZZLE
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_SWIZZLE_DISPLAYED))
 #	define GLM_MESSAGE_SWIZZLE_DISPLAYED
@@ -391,7 +406,5 @@
 #define GLM_PRECISION_LOWP_UINT		0x00110000
 #define GLM_PRECISION_MEDIUMP_UINT	0x00120000
 #define GLM_PRECISION_HIGHP_UINT	0x00130000	
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #endif//glm_setup
