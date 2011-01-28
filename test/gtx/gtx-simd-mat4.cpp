@@ -274,6 +274,8 @@ int main()
 	Failed += test_compute_glm();
 	Failed += test_compute_gtx();
 	
+	float Det = glm::simd_determinant(glm::simd_mat4(1.0));
+	glm::simd_mat4 B = glm::simd_matrixCompMult(glm::simd_mat4(1.0), glm::simd_mat4(1.0));
 
 	system("pause");
 

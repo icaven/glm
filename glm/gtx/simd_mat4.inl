@@ -237,13 +237,18 @@ namespace detail
 namespace gtx{
 namespace simd_mat4
 {
-	inline detail::fmat4x4SIMD matrixCompMult
+	inline detail::fmat4x4SIMD simd_matrixCompMult
 	(
 		detail::fmat4x4SIMD const & x,
 		detail::fmat4x4SIMD const & y
 	)
 	{
-		//GLM_STATIC_ASSERT(0, "TODO");
+		detail::fmat4x4SIMD result;
+		result[0] = x[0] * y[0];
+		result[1] = x[1] * y[1];
+		result[2] = x[2] * y[2];
+		result[3] = x[3] * y[3];
+		return result;
 	}
 
 	inline detail::fmat4x4SIMD simd_transpose(detail::fmat4x4SIMD const & m)
@@ -255,7 +260,9 @@ namespace simd_mat4
 
 	inline float simd_determinant(detail::fmat4x4SIMD const & m)
 	{
-		//GLM_STATIC_ASSERT(0, "TODO");
+		float Result;
+		_mm_store_ss(&Result, detail::sse_det_ps(&m[0].Data));
+		return Result;
 	}
 
 	inline detail::fmat4x4SIMD simd_inverse(detail::fmat4x4SIMD const & m)
