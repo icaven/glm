@@ -29,7 +29,7 @@ namespace glm
 	};
 }//namespace glm
 
-#if(defined(GLM_FORCE_SWIZZLE_XYZW) || defined(GLM_FORCE_SWIZZLE))
+#if(defined(GLM_SWIZZLE_XYZW) || defined(GLM_SWIZZLE))
 
 #define xx swizzle(glm::X, glm::X)
 #define yx swizzle(glm::Y, glm::X)
@@ -50,7 +50,7 @@ namespace glm
 
 #endif
 
-#if(defined(GLM_FORCE_SWIZZLE_RGBA) || defined(GLM_FORCE_SWIZZLE))
+#if(defined(GLM_SWIZZLE_RGBA) || defined(GLM_SWIZZLE))
 
 #define rr swizzle(glm::X, glm::X)
 #define gr swizzle(glm::Y, glm::X)
@@ -71,7 +71,7 @@ namespace glm
 
 #endif
 
-#if(defined(GLM_FORCE_SWIZZLE_STPQ) || defined(GLM_FORCE_SWIZZLE))
+#if(defined(GLM_FORCE_SWIZZLE_STPQ) || defined(GLM_SWIZZLE))
 
 #define ss swizzle(glm::X, glm::X)
 #define ts swizzle(glm::Y, glm::X)
@@ -92,7 +92,7 @@ namespace glm
 
 #endif
 
-#if(defined(GLM_FORCE_SWIZZLE_XYZW) || defined(GLM_FORCE_SWIZZLE))
+#if(defined(GLM_SWIZZLE_XYZW) || defined(GLM_SWIZZLE))
 
 #define xxx swizzle(glm::X, glm::X, glm::X)
 #define yxx swizzle(glm::Y, glm::X, glm::X)
@@ -161,7 +161,7 @@ namespace glm
 
 #endif
 
-#if(defined(GLM_FORCE_SWIZZLE_RGBA) || defined(GLM_FORCE_SWIZZLE))
+#if(defined(GLM_SWIZZLE_RGBA) || defined(GLM_SWIZZLE))
 
 #define rrr swizzle(glm::X, glm::X, glm::X)
 #define grr swizzle(glm::Y, glm::X, glm::X)
@@ -230,7 +230,7 @@ namespace glm
 
 #endif
 
-#if(defined(GLM_FORCE_SWIZZLE_STPQ) || defined(GLM_FORCE_SWIZZLE))
+#if(defined(GLM_FORCE_SWIZZLE_STPQ) || defined(GLM_SWIZZLE))
 
 #define sss swizzle(glm::X, glm::X, glm::X)
 #define tss swizzle(glm::Y, glm::X, glm::X)
@@ -299,7 +299,7 @@ namespace glm
 
 #endif
 
-#if(defined(GLM_FORCE_SWIZZLE_XYZW) || defined(GLM_FORCE_SWIZZLE))
+#if(defined(GLM_SWIZZLE_XYZW) || defined(GLM_SWIZZLE))
 
 #define xxxx swizzle(glm::X, glm::X, glm::X, glm::X)
 #define yxxx swizzle(glm::Y, glm::X, glm::X, glm::X)
@@ -560,7 +560,7 @@ namespace glm
 
 #endif
 
-#if(defined(GLM_FORCE_SWIZZLE_RGBA) || defined(GLM_FORCE_SWIZZLE))
+#if(defined(GLM_SWIZZLE_RGBA) || defined(GLM_SWIZZLE))
 
 #define rrrr swizzle(glm::X, glm::X, glm::X, glm::X)
 #define grrr swizzle(glm::Y, glm::X, glm::X, glm::X)
@@ -821,7 +821,7 @@ namespace glm
 
 #endif
 
-#if(defined(GLM_FORCE_SWIZZLE_STPQ) || defined(GLM_FORCE_SWIZZLE))
+#if(defined(GLM_FORCE_SWIZZLE_STPQ) || defined(GLM_SWIZZLE))
 
 #define ssss swizzle(glm::X, glm::X, glm::X, glm::X)
 #define tsss swizzle(glm::Y, glm::X, glm::X, glm::X)

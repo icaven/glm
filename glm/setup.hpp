@@ -373,16 +373,16 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Swizzle operators
 
-//#define GLM_FORCE_SWIZZLE_XYZW
-//#define GLM_FORCE_SWIZZLE_RGBA
-//#define GLM_FORCE_SWIZZLE_STQP
-//#define GLM_FORCE_SWIZZLE
+//#define GLM_SWIZZLE_XYZW
+//#define GLM_SWIZZLE_RGBA
+//#define GLM_SWIZZLE_STQP
+//#define GLM_SWIZZLE
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_SWIZZLE_DISPLAYED))
 #	define GLM_MESSAGE_SWIZZLE_DISPLAYED
-#	if(defined(GLM_FORCE_SWIZZLE))
+#	if(defined(GLM_SWIZZLE))
 #		pragma message("GLM: Full swizzling operator enabled")
-#	elif(!defined(GLM_FORCE_SWIZZLE_XYZW) && !defined(GLM_FORCE_SWIZZLE_RGBA) && !defined(GLM_FORCE_SWIZZLE_STQP) && !defined(GLM_FORCE_SWIZZLE))
+#	elif(!defined(GLM_SWIZZLE_XYZW) && !defined(GLM_SWIZZLE_RGBA) && !defined(GLM_SWIZZLE_STQP) && !defined(GLM_SWIZZLE))
 #		pragma message("GLM: No swizzling operator enabled")
 #	else
 #		pragma message("GLM: Partial swizzling operator enabled")
