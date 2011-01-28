@@ -22,6 +22,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Compiler
 
+// User defines: GLM_FORCE_COMPILER_UNKNOWNED
+
 #define GLM_COMPILER_UNKNOWNED		0x00000000
 
 // Visual C++ defines
@@ -213,6 +215,8 @@
 /////////////////
 // C++ Version //
 
+// User defines: GLM_FORCE_CXX98
+
 #define GLM_LANG_CXX			0
 #define GLM_LANG_CXX98			1
 #define GLM_LANG_CXX0X			2
@@ -244,6 +248,8 @@
 
 /////////////////
 // Platform 
+
+// User defines: GLM_FORCE_PURE
 
 #define GLM_ARCH_PURE		0x0000 //(0x0000)
 #define GLM_ARCH_SSE2		0x0001 //(0x0001)
@@ -358,6 +364,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // inline 
 
+// User defines: GLM_FORCE_INLINE
+
 #if(defined(GLM_FORCE_INLINE))
 #	if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
 #		define GLM_INLINE __forceinline
@@ -373,10 +381,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Swizzle operators
 
-//#define GLM_SWIZZLE_XYZW
-//#define GLM_SWIZZLE_RGBA
-//#define GLM_SWIZZLE_STQP
-//#define GLM_SWIZZLE
+// User defines: GLM_SWIZZLE_XYZW GLM_SWIZZLE_RGBA GLM_SWIZZLE_STQP GLM_SWIZZLE
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_SWIZZLE_DISPLAYED))
 #	define GLM_MESSAGE_SWIZZLE_DISPLAYED
