@@ -147,6 +147,44 @@ namespace glm
 		detail::fmat4x4SIMD simd_inverse(detail::fmat4x4SIMD const & m);
 
 	}//namespace simd_mat4
+	namespace simd_mat4
+	{
+		//! Multiply matrix x by matrix y component-wise, i.e.,
+		//! result[i][j] is the scalar product of x[i][j] and y[i][j].
+		//! (From GLM_GTX_simd_mat4 extension).
+		template <typename matType>
+		matType matrixCompMult(
+			matType const & x,
+			matType const & y);
+
+		//! Treats the first parameter c as a column vector
+		//! and the second parameter r as a row vector
+		//! and does a linear algebraic matrix multiply c * r.
+		//! (From GLM_GTX_simd_mat4 extension).
+		template <typename vecType, typename matType>
+		matType outerProduct(
+			vecType const & c,
+			vecType const & r);
+
+		//! Returns the transposed matrix of x
+		//! (From GLM_GTX_simd_mat4 extension).
+		template <typename matType>
+		typename matType::transpose_type transpose(
+			matType const & x);
+
+		//! Return the determinant of a mat4 matrix.
+		//! (From GLM_GTX_simd_mat4 extension).
+		template <typename T>
+		typename detail::tmat4x4<T>::value_type determinant(
+			detail::tmat4x4<T> const & m);
+
+		//! Return the inverse of a mat4 matrix.
+		//! (From GLM_GTX_simd_mat4 extension).
+		template <typename T>
+		detail::tmat4x4<T> inverse(
+			detail::tmat4x4<T> const & m);
+
+	}//namespace simd_mat4
 	}//namespace gtx
 }//namespace glm
 

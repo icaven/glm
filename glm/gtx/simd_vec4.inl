@@ -286,5 +286,87 @@ namespace glm
 			}
 #		endif
 	}//namespace simd_vec4
+
+	namespace simd_vec4
+	{
+		inline float simdLength
+		(
+			detail::fvec4SIMD const & x
+		)
+		{
+			float Result = 0;
+			_mm_store_ss(sse_len_ps(x.data), &Result);
+			return Result;
+		}
+
+		inline float simdDistance
+		(
+			detail::fvec4SIMD const & p0,
+			detail::fvec4SIMD const & p1
+		)
+		{
+			float Result = 0;
+			_mm_store_ss(sse_dst_ps(p0.data, p1.data), &Result);
+			return Result;
+		}
+
+		inline float simdDot
+		(
+			detail::fvec4SIMD const & x,
+			detail::fvec4SIMD const & y
+		)
+		{
+			float Result = 0;
+			_mm_store_ss(sse_dot_ss(x.data, y.data), &Result);
+			return Result;
+		}
+
+		inline detail::fvec4SIMD simdCross
+		(
+			detail::fvec4SIMD const & x,
+			detail::fvec4SIMD const & y
+		)
+		{
+			return sse_xpd_ps(x.data, y.data);
+		}
+
+		inline detail::fvec4SIMD simdNormalize
+		(
+			detail::fvec4SIMD const & x
+		)
+		{
+			return _mm_nrm_ps(x.data);
+		}
+
+		inline detail::fvec4SIMD simdFaceforward
+		(
+			detail::fvec4SIMD const & N,
+			detail::fvec4SIMD const & I,
+			detail::fvec4SIMD const & Nref
+		)
+		{
+			return _mm_ffd_ps(N.data, I.data, Nref.data);
+		}
+
+		inline detail::fvec4SIMD simdReflect
+		(
+			detail::fvec4SIMD const & I,
+			detail::fvec4SIMD const & N
+		)
+		{
+			return detail::fvec4SIMD(_mm_rfe_ps(I.data, N.data));
+		}
+
+		inline detail::fvec4SIMD simdRefract
+		(
+			detail::fvec4SIMD const & I,
+			detail::fvec4SIMD const & N,
+			float const & eta
+		)
+		{
+			return detail::fvec4SIMD(_mm_rfa_ps(I.data, N.data, _mm_set1_ps(eta)));
+		}
+
+	}//namespace simd_vec4
 	}//namespace gtx
 }//namespace glm

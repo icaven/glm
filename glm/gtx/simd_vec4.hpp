@@ -125,6 +125,60 @@ namespace glm
 			detail::fvec4SIMD const & b);
 
 	}//namespace simd_vec4
+
+	namespace simd_vec4
+	{
+		//! Returns the length of x, i.e., sqrt(x * x).
+		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
+		float simdLength(
+			detail::fvec4SIMD const & x);
+
+		//! Returns the distance betwwen p0 and p1, i.e., length(p0 - p1).
+		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
+		float simdDistance(
+			detail::fvec4SIMD const & p0,
+			detail::fvec4SIMD const & p1);
+
+		//! Returns the dot product of x and y, i.e., result = x * y.
+		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
+		float simdDot(
+			detail::fvec4SIMD const & x,
+			detail::fvec4SIMD const & y);
+
+		//! Returns the cross product of x and y.
+		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
+		detail::fvec4SIMD simdCross(
+			detail::fvec4SIMD const & x,
+			detail::fvec4SIMD const & y);
+
+		//! Returns a vector in the same direction as x but with length of 1.
+		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
+		detail::fvec4SIMD simdNormalize(
+			detail::fvec4SIMD const & x);
+
+		//! If dot(Nref, I) < 0.0, return N, otherwise, return -N.
+		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
+		detail::fvec4SIMD simdFaceforward(
+			detail::fvec4SIMD const & N,
+			detail::fvec4SIMD const & I,
+			detail::fvec4SIMD const & Nref);
+
+		//! For the incident vector I and surface orientation N,
+		//! returns the reflection direction : result = I - 2.0 * dot(N, I) * N.
+		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
+		detail::fvec4SIMD simdReflect(
+			detail::fvec4SIMD const & I,
+			detail::fvec4SIMD const & N);
+
+		//! For the incident vector I and surface normal N,
+		//! and the ratio of indices of refraction eta,
+		//! return the refraction vector.
+		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
+		detail::fvec4SIMD simdRefract(
+			detail::fvec4SIMD const & I,
+			detail::fvec4SIMD const & N,
+			float const & eta);
+	}//namespace simd_vec4
 	}//namespace gtx
 }//namespace glm
 
