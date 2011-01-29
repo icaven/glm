@@ -120,9 +120,36 @@ namespace glm
 	{
 		typedef detail::fvec4SIMD simd_vec4;
 
-		detail::fvec4SIMD cross(
+		detail::fvec4SIMD simd_length(
+			detail::fvec4SIMD const & v);
+
+		detail::fvec4SIMD simd_cross(
 			detail::fvec4SIMD const & a,
 			detail::fvec4SIMD const & b);
+
+		detail::fvec4SIMD simd_distance(
+			detail::fvec4SIMD const & v);
+
+		detail::fvec4SIMD simd_dot(
+			detail::fvec4SIMD const & a,
+			detail::fvec4SIMD const & b);
+
+		detail::fvec4SIMD simd_normalize(
+			detail::fvec4SIMD const & v);
+
+		detail::fvec4SIMD simd_faceforward(
+			detail::fvec4SIMD const & N,
+			detail::fvec4SIMD const & I,
+			detail::fvec4SIMD const & Nref);
+
+		detail::fvec4SIMD simd_reflect(
+			detail::fvec4SIMD const & I,
+			detail::fvec4SIMD const & N);
+
+		detail::fvec4SIMD simd_refract(
+			detail::fvec4SIMD const & I,
+			detail::fvec4SIMD const & N,
+			float const & eta);
 
 	}//namespace simd_vec4
 

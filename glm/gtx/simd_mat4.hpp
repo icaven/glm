@@ -134,6 +134,13 @@ namespace glm
 	{
 		typedef detail::fmat4x4SIMD simd_mat4;
 
+		//! Multiply matrix x by matrix y component-wise, i.e., 
+		//! result[i][j] is the scalar product of x[i][j] and y[i][j].
+		//! (From GLM_GTX_simd_mat4 extension).
+		detail::fmat4x4SIMD simd_matrixCompMult(
+			detail::fmat4x4SIMD const & x,
+			detail::fmat4x4SIMD const & y);
+
 		//! Returns the transposed matrix of x
 		//! (From GLM_GTX_simd_mat4 extension).
 		detail::fmat4x4SIMD simd_transpose(detail::fmat4x4SIMD const & m);
