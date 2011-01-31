@@ -3,6 +3,7 @@
 <glm copyright="Copyright © 2005 - 2011">
   <downloads>
     <section name="GLM - zip files">
+      <download name="GLM 0.9.1.A" date="31/01/2010" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.A/glm-0.9.1.A.zip/download"/>
       <download name="GLM 0.9.0.7" date="30/01/2010" size="1.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.7/glm-0.9.0.7.zip/download"/>
       <download name="GLM 0.9.0.6" date="21/12/2010" size="2.2 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.6/glm-0.9.0.6.zip/download"/>
       <download name="GLM 0.9.0.5" date="01/11/2010" size="2.2 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.5/glm-0.9.0.5.zip/download"/>
@@ -55,6 +56,7 @@
       <download name="GLM 0.1.0.0" date="02/21/2005" size="29.2 KB" link="http://prdownloads.sourceforge.net/glf/glm-0.1-ur.zip?download"/>
     </section>
     <section name="GLM - 7z files">
+      <download name="GLM 0.9.1.A" date="31/01/2011" size="1.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.A/glm-0.9.1.A.7z/download"/>
       <download name="GLM 0.9.0.7" date="30/01/2011" size="832 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.7/glm-0.9.0.7.7z/download"/>
       <download name="GLM 0.9.0.6" date="21/12/2010" size="1.6 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.6/glm-0.9.0.6.7z/download"/>
       <download name="GLM 0.9.0.5" date="01/11/2010" size="1.6 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.5/glm-0.9.0.5.7z/download"/>
@@ -1537,6 +1539,42 @@
   </changelog>
 
   <page_news>
+
+    <news index="0059" date="31/01/2011" title="GLM 0.9.1 alpha released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+      <paragraph>
+        This new version of GLM is bringing a lot of improvements and maybe too many considering the development time it has required:
+        API exposing SIMD implementation but also some new, safe and feature complet swizzling functions and a new setup API.
+        All this is described in the largely updated <link href="http://glm.g-truc.net/glm-0.9.1.pdf">GLM manual</link>.
+      </paragraph>
+      <paragraph>
+        With the new setup system, GLM detects automatically the compiler settings to adapt its implementation to the flag set at build time.
+        It will automatically enable C++0x features, SSE optimizations and the display configuration informations at build-time.
+        The automatic setup can be overdrive by the GLM user.
+      </paragraph>
+      <paragraph>
+        The SIMD API maintly focus on vec4 and mat4 implementations that are embodied by the types <codeword>simdVec4</codeword> and <codeword>simdMat4</codeword>.
+        The implemention cover most of the common functions, the geometry functions and the matrix functions as described in the GLSL specifications.
+        Because it is hight inefficient to access individual components of a SIMD register, the <codeword>simdVec4</codeword> doesn't allow it.
+        To reflect this constraint, the <codeword>simdVec4</codeword> has to be converted to <codeword>vec4</codeword> first which would be effectively handle
+        by the compiler thank to the function <codeword>simdCast</codeword>.
+        Furthermore, GLM provides some specials functions like simdDot4 that returns a <codeword>simdVec4</codeword> instead of a float
+        with the duplicated dot product value in each components
+        and ensure that no unnecessary component manipulations are performed (typically <codeword>__m128</codeword> to <codeword>float</codeword>
+        and <codeword>float</codeword> to <codeword>__m128</codeword>).
+        This implementation can probably be improve in many ways so don't hesitate to send me some feedbacks.
+      </paragraph>
+
+      <paragraph>
+        GLM 0.9.1 is not 100% backward compatible with GLM 0.9.0 but mostly advanced usages should be concerned by this compatibility issues.
+      </paragraph>
+
+      <source-list>
+        <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.A/glm-0.9.1.A.zip/download">GLM 0.9.1.A (zip, 2.7 MB)</source>
+        <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.A/glm-0.9.1.A.7z/download">GLM 0.9.1.A (7z, 1.7 MB)</source>
+        <source type="Link" href="http://glm.g-truc.net/glm-0.9.1.pdf" title="GLM Manual" />
+        <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket" title="Submit a feature request or a bug report" />
+      </source-list>
+    </news>
 
     <news index="0058" date="30/01/2011" title="GLM 0.9.0.7 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>
