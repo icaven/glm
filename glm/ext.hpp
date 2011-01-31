@@ -81,6 +81,11 @@
 #include "./gtx/verbose_operator.hpp"
 #include "./gtx/wrap.hpp"
 
+#if(GLM_ARCH & GLM_ARCH_SSE2)
+#	include "./gtx/simd_vec4.hpp"
+#	include "./gtx/simd_mat4.hpp"
+#endif
+
 #include "./virtrev/xstream.hpp"
 
 //const float goldenRatio = 1.618033988749894848f;
