@@ -51,10 +51,6 @@ namespace glm
 			fvec4SIMD(__m128 const & Data);
 			fvec4SIMD(fvec4SIMD const & v);
 
-			fvec4SIMD(tvec4<float> const & v);
-			//operator detail::tvec4<float>();
-			//operator detail::tvec4<float> const();
-
 			//////////////////////////////////////
 			// Explicit basic constructors
 
@@ -67,6 +63,8 @@ namespace glm
 				float const & y, 
 				float const & z, 
 				float const & w);
+			explicit fvec4SIMD(
+				tvec4<float> const & v);
 
 			////////////////////////////////////////
 			//// Convertion vector constructors
@@ -129,15 +127,32 @@ namespace glm
 		float simdLength(
 			detail::fvec4SIMD const & x);
 
+		//! Returns the length of x, i.e., sqrt(x * x).
+		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
+		detail::fvec4SIMD simdLength4(
+			detail::fvec4SIMD const & x);
+
 		//! Returns the distance betwwen p0 and p1, i.e., length(p0 - p1).
 		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
 		float simdDistance(
 			detail::fvec4SIMD const & p0,
 			detail::fvec4SIMD const & p1);
 
+		//! Returns the distance betwwen p0 and p1, i.e., length(p0 - p1).
+		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
+		detail::fvec4SIMD simdDistance4(
+			detail::fvec4SIMD const & p0,
+			detail::fvec4SIMD const & p1);
+
 		//! Returns the dot product of x and y, i.e., result = x * y.
 		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
 		float simdDot(
+			detail::fvec4SIMD const & x,
+			detail::fvec4SIMD const & y);
+
+		//! Returns the dot product of x and y, i.e., result = x * y.
+		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
+		detail::fvec4SIMD simdDot4(
 			detail::fvec4SIMD const & x,
 			detail::fvec4SIMD const & y);
 

@@ -134,6 +134,11 @@ namespace glm
 	{
 		typedef detail::fmat4x4SIMD simdMat4;
 
+		//! Convert a simdMat4 to a mat4.
+		//! (From GLM_GTX_simd_mat4 extension)
+		detail::tmat4x4<float> mat4_cast(
+			detail::fmat4x4SIMD const & x);
+
 		//! Multiply matrix x by matrix y component-wise, i.e.,
 		//! result[i][j] is the scalar product of x[i][j] and y[i][j].
 		//! (From GLM_GTX_simd_mat4 extension).

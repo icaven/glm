@@ -17,8 +17,8 @@ int main()
 	glm::simdVec4 B1(0.4f, 0.5f, 0.6f, 0.7f);
 	glm::simdVec4 C1 = A1 + B1;
 	glm::simdVec4 D1 = A1.swizzle<glm::X, glm::Z, glm::Y, glm::W>();
-	glm::simdVec4 E1 = glm::vec4(1.0f);
-	glm::vec4 F1 = E1;
+	glm::simdVec4 E1(glm::vec4(1.0f));
+	glm::vec4 F1 = glm::vec4_cast(E1);
 	//glm::vec4 G1(E1);
 
 	//printf("A1(%2.3f, %2.3f, %2.3f, %2.3f)\n", A1.x, A1.y, A1.z, A1.w);

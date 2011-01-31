@@ -35,20 +35,6 @@ namespace glm
 			Data(_mm_set_ps(v.w, v.z, v.y, v.x))
 		{}
 
-		inline fvec4SIMD::operator detail::tvec4<float>()
-		{
-			detail::tvec4<float> Result;
-			_mm_store_ps(&Result[0], this->Data);
-			return Result;
-		}
-
-		//inline fvec4SIMD::operator detail::tvec4<float> const()
-		//{
-		//	detail::tvec4<float> Result;
-		//	_mm_store_ps(&Result[0], this->Data);
-		//	return Result;
-		//}
-
 		//////////////////////////////////////
 		// Explicit basic constructors
 
@@ -304,6 +290,14 @@ namespace glm
 			return Result;
 		}
 
+		inline detail::fvec4SIMD simdLength4
+		(
+			detail::fvec4SIMD const & x
+		)
+		{
+			return detail::sse_len_ps(x.Data);
+		}
+
 		inline float simdDistance
 		(
 			detail::fvec4SIMD const & p0,
@@ -315,6 +309,15 @@ namespace glm
 			return Result;
 		}
 
+		inline detail::fvec4SIMD simdDistance4
+		(
+			detail::fvec4SIMD const & p0,
+			detail::fvec4SIMD const & p1
+		)
+		{
+			return detail::sse_dst_ps(p0.Data, p1.Data);
+		}
+
 		inline float simdDot
 		(
 			detail::fvec4SIMD const & x,
@@ -324,6 +327,15 @@ namespace glm
 			float Result = 0;
 			_mm_store_ss(&Result, detail::sse_dot_ss(x.Data, y.Data));
 			return Result;
+		}
+
+		inline detail::fvec4SIMD simdDot4
+		(
+			detail::fvec4SIMD const & x,
+			detail::fvec4SIMD const & y
+		)
+		{
+			return detail::sse_dot_ss(x.Data, y.Data);
 		}
 
 		inline detail::fvec4SIMD simdCross
