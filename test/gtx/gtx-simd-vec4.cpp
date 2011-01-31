@@ -13,15 +13,18 @@
 
 int main()
 {
-	glm::simd_vec4 A1(0.0f, 0.1f, 0.2f, 0.3f);
-	glm::simd_vec4 B1(0.4f, 0.5f, 0.6f, 0.7f);
-	glm::simd_vec4 C1 = A1 + B1;
-	glm::simd_vec4 D1 = A1.swizzle<glm::X, glm::Z, glm::Y, glm::W>();
+	glm::simdVec4 A1(0.0f, 0.1f, 0.2f, 0.3f);
+	glm::simdVec4 B1(0.4f, 0.5f, 0.6f, 0.7f);
+	glm::simdVec4 C1 = A1 + B1;
+	glm::simdVec4 D1 = A1.swizzle<glm::X, glm::Z, glm::Y, glm::W>();
+	glm::simdVec4 E1 = glm::vec4(1.0f);
+	glm::vec4 F1 = E1;
+	//glm::vec4 G1(E1);
 
-	printf("A1(%2.3f, %2.3f, %2.3f, %2.3f)\n", A1.x, A1.y, A1.z, A1.w);
-	printf("B1(%2.3f, %2.3f, %2.3f, %2.3f)\n", B1.x, B1.y, B1.z, B1.w);
-	printf("C1(%2.3f, %2.3f, %2.3f, %2.3f)\n", C1.x, C1.y, C1.z, C1.w);
-	printf("D1(%2.3f, %2.3f, %2.3f, %2.3f)\n", D1.x, D1.y, D1.z, D1.w);
+	//printf("A1(%2.3f, %2.3f, %2.3f, %2.3f)\n", A1.x, A1.y, A1.z, A1.w);
+	//printf("B1(%2.3f, %2.3f, %2.3f, %2.3f)\n", B1.x, B1.y, B1.z, B1.w);
+	//printf("C1(%2.3f, %2.3f, %2.3f, %2.3f)\n", C1.x, C1.y, C1.z, C1.w);
+	//printf("D1(%2.3f, %2.3f, %2.3f, %2.3f)\n", D1.x, D1.y, D1.z, D1.w);
 
 	return 0;
 }

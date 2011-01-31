@@ -35,6 +35,20 @@ namespace glm
 			Data(_mm_set_ps(v.w, v.z, v.y, v.x))
 		{}
 
+		inline fvec4SIMD::operator detail::tvec4<float>()
+		{
+			detail::tvec4<float> Result;
+			_mm_store_ps(&Result[0], this->Data);
+			return Result;
+		}
+
+		//inline fvec4SIMD::operator detail::tvec4<float> const()
+		//{
+		//	detail::tvec4<float> Result;
+		//	_mm_store_ps(&Result[0], this->Data);
+		//	return Result;
+		//}
+
 		//////////////////////////////////////
 		// Explicit basic constructors
 
@@ -162,14 +176,18 @@ namespace glm
 		template <comp X, comp Y, comp Z, comp W>
 		inline fvec4SIMD fvec4SIMD::swizzle() const
 		{
-			__m128 Data = _mm_shuffle_ps(this->Data, this->Data, mask<(W << 6) | (Z << 4) | (Y << 2) | (X << 0)>::value);
+			__m128 Data = _mm_shuffle_ps(
+				this->Data, this->Data, 
+				mask<(W << 6) | (Z << 4) | (Y << 2) | (X << 0)>::value);
 			return fvec4SIMD(Data);
 		}
 
 		template <comp X, comp Y, comp Z, comp W>
 		inline fvec4SIMD& fvec4SIMD::swizzle()
 		{
-			this->Data = _mm_shuffle_ps(this->Data, this->Data, mask<(W << 6) | (Z << 4) | (Y << 2) | (X << 0)>::value);
+			this->Data = _mm_shuffle_ps(
+				this->Data, this->Data, 
+				mask<(W << 6) | (Z << 4) | (Y << 2) | (X << 0)>::value);
 			return *this;
 		}
 
@@ -266,36 +284,23 @@ namespace glm
 	namespace gtx{
 	namespace simd_vec4
 	{
-#		if(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_SSE)
-			inline detail::fvec4SIMD simd_cross
-			(
-				detail::fvec4SIMD const & a,
-				detail::fvec4SIMD const & b
-			)
-			{
-				return detail::sse_xpd_ps(a.Data, b.Data);
-			}
-#		else//(GLM_INSTRUCTION_SET & GLM_INSTRUCTION_SET_PURE)
-			inline detail::fvec4SIMD simd_cross
-			(
-				detail::fvec4SIMD const & a,
-				detail::fvec4SIMD const & b
-			)
-			{
-				return detail::sse_xpd_ps(a.Data, b.Data);
-			}
-#		endif
-	}//namespace simd_vec4
+		inline detail::tvec4<float> vec4_cast
+		(
+			detail::fvec4SIMD const & x
+		)
+		{
+			detail::tvec4<float> Result;
+			_mm_store_ps(&Result[0], x.Data);
+			return Result;
+		}
 
-	namespace simd_vec4
-	{
 		inline float simdLength
 		(
 			detail::fvec4SIMD const & x
 		)
 		{
 			float Result = 0;
-			_mm_store_ss(sse_len_ps(x.data), &Result);
+			_mm_store_ss(&Result, detail::sse_len_ps(x.Data));
 			return Result;
 		}
 
@@ -306,7 +311,7 @@ namespace glm
 		)
 		{
 			float Result = 0;
-			_mm_store_ss(sse_dst_ps(p0.data, p1.data), &Result);
+			_mm_store_ss(&Result, detail::sse_dst_ps(p0.Data, p1.Data));
 			return Result;
 		}
 
@@ -317,7 +322,7 @@ namespace glm
 		)
 		{
 			float Result = 0;
-			_mm_store_ss(sse_dot_ss(x.data, y.data), &Result);
+			_mm_store_ss(&Result, detail::sse_dot_ss(x.Data, y.Data));
 			return Result;
 		}
 
@@ -327,7 +332,7 @@ namespace glm
 			detail::fvec4SIMD const & y
 		)
 		{
-			return sse_xpd_ps(x.data, y.data);
+			return detail::sse_xpd_ps(x.Data, y.Data);
 		}
 
 		inline detail::fvec4SIMD simdNormalize
@@ -335,7 +340,7 @@ namespace glm
 			detail::fvec4SIMD const & x
 		)
 		{
-			return _mm_nrm_ps(x.data);
+			return detail::sse_nrm_ps(x.Data);
 		}
 
 		inline detail::fvec4SIMD simdFaceforward
@@ -345,7 +350,7 @@ namespace glm
 			detail::fvec4SIMD const & Nref
 		)
 		{
-			return _mm_ffd_ps(N.data, I.data, Nref.data);
+			return detail::sse_ffd_ps(N.Data, I.Data, Nref.Data);
 		}
 
 		inline detail::fvec4SIMD simdReflect
@@ -354,7 +359,7 @@ namespace glm
 			detail::fvec4SIMD const & N
 		)
 		{
-			return detail::fvec4SIMD(_mm_rfe_ps(I.data, N.data));
+			return detail::sse_rfe_ps(I.Data, N.Data);
 		}
 
 		inline detail::fvec4SIMD simdRefract
@@ -364,7 +369,7 @@ namespace glm
 			float const & eta
 		)
 		{
-			return detail::fvec4SIMD(_mm_rfa_ps(I.data, N.data, _mm_set1_ps(eta)));
+			return detail::sse_rfa_ps(I.Data, N.Data, _mm_set1_ps(eta));
 		}
 
 	}//namespace simd_vec4

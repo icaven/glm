@@ -1014,7 +1014,7 @@ void sse_rotate_ps(__m128 const in[4], float Angle, float const v[3], __m128 out
 
 	glm::vec4 AxisA(v[0], v[1], v[2], float(0));
 	__m128 AxisB = _mm_set_ps(AxisA.w, AxisA.z, AxisA.y, AxisA.x);
-    __m128 AxisC = _mm_nrm_ps(AxisB);
+    __m128 AxisC = detail::sse_nrm_ps(AxisB);
 
 	__m128 Cos0 = _mm_set_ss(c);
 	__m128 CosA = _mm_shuffle_ps(Cos0, Cos0, _MM_SHUFFLE(0, 0, 0, 0));

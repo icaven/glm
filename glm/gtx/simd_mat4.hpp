@@ -32,7 +32,7 @@ namespace glm
 {
 	namespace detail
 	{
-		GLM_ALIGNED(struct, 16) fmat4x4SIMD
+		GLM_ALIGN(16) struct fmat4x4SIMD
 		{
 			enum ctor{null};
 
@@ -132,64 +132,37 @@ namespace glm
 	//! GLM_GTX_simd_mat4 extension: SIMD implementation of vec4 type.
 	namespace simd_mat4
 	{
-		typedef detail::fmat4x4SIMD simd_mat4;
+		typedef detail::fmat4x4SIMD simdMat4;
 
-		//! Multiply matrix x by matrix y component-wise, i.e., 
-		//! result[i][j] is the scalar product of x[i][j] and y[i][j].
-		//! (From GLM_GTX_simd_mat4 extension).
-		detail::fmat4x4SIMD simd_matrixCompMult(
-			detail::fmat4x4SIMD const & x,
-			detail::fmat4x4SIMD const & y);
-
-		//! Returns the transposed matrix of x
-		//! (From GLM_GTX_simd_mat4 extension).
-		detail::fmat4x4SIMD simd_transpose(detail::fmat4x4SIMD const & m);
-
-		//! Return the determinant of a mat4 matrix.
-		//! (From GLM_GTX_simd_mat4 extension).
-		float simd_determinant(detail::fmat4x4SIMD const & m);
-
-		//! Return the inverse of a mat4 matrix.
-		//! (From GLM_GTX_simd_mat4 extension).
-		detail::fmat4x4SIMD simd_inverse(detail::fmat4x4SIMD const & m);
-
-	}//namespace simd_mat4
-	namespace simd_mat4
-	{
 		//! Multiply matrix x by matrix y component-wise, i.e.,
 		//! result[i][j] is the scalar product of x[i][j] and y[i][j].
 		//! (From GLM_GTX_simd_mat4 extension).
-		template <typename matType>
-		matType matrixCompMult(
-			matType const & x,
-			matType const & y);
+		detail::fmat4x4SIMD simdMatrixCompMult(
+			detail::fmat4x4SIMD const & x,
+			detail::fmat4x4SIMD const & y);
 
 		//! Treats the first parameter c as a column vector
 		//! and the second parameter r as a row vector
 		//! and does a linear algebraic matrix multiply c * r.
 		//! (From GLM_GTX_simd_mat4 extension).
-		template <typename vecType, typename matType>
-		matType outerProduct(
-			vecType const & c,
-			vecType const & r);
+		detail::fmat4x4SIMD simdOuterProduct(
+			detail::fvec4SIMD const & c,
+			detail::fvec4SIMD const & r);
 
 		//! Returns the transposed matrix of x
 		//! (From GLM_GTX_simd_mat4 extension).
-		template <typename matType>
-		typename matType::transpose_type transpose(
-			matType const & x);
+		detail::fmat4x4SIMD simdTranspose(
+			detail::fmat4x4SIMD const & x);
 
 		//! Return the determinant of a mat4 matrix.
 		//! (From GLM_GTX_simd_mat4 extension).
-		template <typename T>
-		typename detail::tmat4x4<T>::value_type determinant(
-			detail::tmat4x4<T> const & m);
+		float simdDeterminant(
+			detail::fmat4x4SIMD const & m);
 
 		//! Return the inverse of a mat4 matrix.
 		//! (From GLM_GTX_simd_mat4 extension).
-		template <typename T>
-		detail::tmat4x4<T> inverse(
-			detail::tmat4x4<T> const & m);
+		detail::fmat4x4SIMD simdInverse(
+			detail::fmat4x4SIMD const & m);
 
 	}//namespace simd_mat4
 	}//namespace gtx

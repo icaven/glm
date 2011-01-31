@@ -32,10 +32,10 @@ namespace glm
 {
 	namespace detail
 	{
-		GLM_ALIGNED(union, 4) fvec4SIMD
+		GLM_ALIGN(4) struct fvec4SIMD
 		{
 			enum ctor{null};
-			typedef float value_type;
+			typedef __m128 value_type;
 			typedef std::size_t size_type;
 			static size_type value_size();
 
@@ -43,10 +43,6 @@ namespace glm
 			typedef tvec4<bool> bool_type;
 
 			__m128 Data;
-			float Array[4];
-			struct{float x, y, z, w;};
-			struct{float r, g, b, a;};
-			struct{float s, t, q, p;};
 
 			//////////////////////////////////////
 			// Implicit basic constructors
@@ -54,7 +50,10 @@ namespace glm
 			fvec4SIMD();
 			fvec4SIMD(__m128 const & Data);
 			fvec4SIMD(fvec4SIMD const & v);
+
 			fvec4SIMD(tvec4<float> const & v);
+			//operator detail::tvec4<float>();
+			//operator detail::tvec4<float> const();
 
 			//////////////////////////////////////
 			// Explicit basic constructors
@@ -118,43 +117,13 @@ namespace glm
 	//! GLM_GTX_simd_vec4 extension: SIMD implementation of vec4 type.
 	namespace simd_vec4
 	{
-		typedef detail::fvec4SIMD simd_vec4;
+		typedef detail::fvec4SIMD simdVec4;
 
-		detail::fvec4SIMD simd_length(
-			detail::fvec4SIMD const & v);
+		//! Convert a simdVec4 to a vec4.
+		//! (From GLM_GTX_simd_vec4 extension)
+		detail::tvec4<float> vec4_cast(
+			detail::fvec4SIMD const & x);
 
-		detail::fvec4SIMD simd_cross(
-			detail::fvec4SIMD const & a,
-			detail::fvec4SIMD const & b);
-
-		detail::fvec4SIMD simd_distance(
-			detail::fvec4SIMD const & v);
-
-		detail::fvec4SIMD simd_dot(
-			detail::fvec4SIMD const & a,
-			detail::fvec4SIMD const & b);
-
-		detail::fvec4SIMD simd_normalize(
-			detail::fvec4SIMD const & v);
-
-		detail::fvec4SIMD simd_faceforward(
-			detail::fvec4SIMD const & N,
-			detail::fvec4SIMD const & I,
-			detail::fvec4SIMD const & Nref);
-
-		detail::fvec4SIMD simd_reflect(
-			detail::fvec4SIMD const & I,
-			detail::fvec4SIMD const & N);
-
-		detail::fvec4SIMD simd_refract(
-			detail::fvec4SIMD const & I,
-			detail::fvec4SIMD const & N,
-			float const & eta);
-
-	}//namespace simd_vec4
-
-	namespace simd_vec4
-	{
 		//! Returns the length of x, i.e., sqrt(x * x).
 		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
 		float simdLength(

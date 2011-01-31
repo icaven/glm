@@ -42,8 +42,10 @@ std::vector<float> test_detB(std::vector<glm::mat4> const & Data)
 	for(std::size_t i = 0; i < Test.size() - 1; ++i)
 	{
 		_mm_prefetch((char*)&Data[i + 1], _MM_HINT_T0);
-		glm::simd_mat4 m(Data[i]);
-		Test[i] = glm::simd_vec4(glm::detail::sse_slow_det_ps((__m128 const * const)&m)).x; 
+		glm::simdMat4 m(Data[i]);
+		glm::simdVec4 d(glm::detail::sse_slow_det_ps((__m128 const * const)&m)); 
+		glm::vec4 v;//(d);
+		Test[i] = v.x;
 	}
 
 	std::clock_t TimeEnd = clock();
@@ -61,8 +63,10 @@ std::vector<float> test_detC(std::vector<glm::mat4> const & Data)
 	for(std::size_t i = 0; i < Test.size() - 1; ++i)
 	{
 		_mm_prefetch((char*)&Data[i + 1], _MM_HINT_T0);
-		glm::simd_mat4 m(Data[i]);
-		Test[i] = glm::simd_vec4(glm::detail::sse_det_ps((__m128 const * const)&m)).x; 
+		glm::simdMat4 m(Data[i]);
+		glm::simdVec4 d(glm::detail::sse_det_ps((__m128 const * const)&m));
+		glm::vec4 v;//(d);
+		Test[i] = v.x;
 	}
 
 	std::clock_t TimeEnd = clock();
@@ -80,8 +84,10 @@ std::vector<float> test_detD(std::vector<glm::mat4> const & Data)
 	for(std::size_t i = 0; i < Test.size() - 1; ++i)
 	{
 		_mm_prefetch((char*)&Data[i + 1], _MM_HINT_T0);
-		glm::simd_mat4 m(Data[i]);
-		Test[i] = glm::simd_vec4(glm::detail::sse_detd_ps((__m128 const * const)&m)).x; 
+		glm::simdMat4 m(Data[i]);
+		glm::simdVec4 d(glm::detail::sse_detd_ps((__m128 const * const)&m));
+		glm::vec4 v;//(d); 
+		Test[i] = v.x;
 	}
 
 	std::clock_t TimeEnd = clock();
@@ -116,8 +122,8 @@ void test_invC(std::vector<glm::mat4> const & Data, std::vector<glm::mat4> & Out
 	for(std::size_t i = 0; i < Out.size() - 1; ++i)
 	{
 		_mm_prefetch((char*)&Data[i + 1], _MM_HINT_T0);
-		glm::simd_mat4 m(Data[i]);
-		glm::simd_mat4 o;
+		glm::simdMat4 m(Data[i]);
+		glm::simdMat4 o;
 		glm::detail::sse_inverse_fast_ps((__m128 const * const)&m, (__m128 *)&o);
 		Out[i] = *(glm::mat4*)&o;
 	}
@@ -136,8 +142,8 @@ void test_invD(std::vector<glm::mat4> const & Data, std::vector<glm::mat4> & Out
 	for(std::size_t i = 0; i < Out.size() - 1; ++i)
 	{
 		_mm_prefetch((char*)&Data[i + 1], _MM_HINT_T0);
-		glm::simd_mat4 m(Data[i]);
-		glm::simd_mat4 o;
+		glm::simdMat4 m(Data[i]);
+		glm::simdMat4 o;
 		glm::detail::sse_inverse_ps((__m128 const * const)&m, (__m128 *)&o);
 		Out[i] = *(glm::mat4*)&o;
 	}
@@ -172,7 +178,7 @@ void test_mulD(std::vector<glm::mat4> const & Data, std::vector<glm::mat4> & Out
 	for(std::size_t i = 0; i < Out.size() - 1; ++i)
 	{
 		_mm_prefetch((char*)&Data[i + 1], _MM_HINT_T0);
-		glm::simd_mat4 m(Data[i]);
+		glm::simdMat4 m(Data[i]);
 		glm::detail::sse_mul_ps((__m128 const * const)&m, (__m128 const * const)&m, (__m128*)&Out[i]);
 	}
 
@@ -267,15 +273,15 @@ int main()
 	}
 
 	// shuffle test
-	glm::simd_vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
-	glm::simd_vec4 B(5.0f, 6.0f, 7.0f, 8.0f);
+	glm::simdVec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+	glm::simdVec4 B(5.0f, 6.0f, 7.0f, 8.0f);
 	__m128 C = _mm_shuffle_ps(A.Data, B.Data, _MM_SHUFFLE(1, 0, 1, 0));
 
 	Failed += test_compute_glm();
 	Failed += test_compute_gtx();
 	
-	float Det = glm::simd_determinant(glm::simd_mat4(1.0));
-	glm::simd_mat4 B = glm::simd_matrixCompMult(glm::simd_mat4(1.0), glm::simd_mat4(1.0));
+	float Det = glm::simdDeterminant(glm::simdMat4(1.0));
+	glm::simdMat4 D = glm::simdMatrixCompMult(glm::simdMat4(1.0), glm::simdMat4(1.0));
 
 	system("pause");
 
