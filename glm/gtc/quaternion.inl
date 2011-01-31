@@ -238,6 +238,29 @@ namespace detail{
 			q.w / s, q.x / s, q.y / s, q.z / s);
 	}
 
+	//////////////////////////////////////
+	// Boolean operators
+
+	template <typename T> 
+	inline bool operator==
+	(
+		detail::tquat<T> const & q1, 
+		detail::tquat<T> const & q2
+	)
+	{
+		return (q1.x == q2.x) && (q1.y == q2.y) && (q1.z == q2.z) && (q1.w == q2.w);
+	}
+
+	template <typename T> 
+	inline bool operator!=
+	(
+		detail::tquat<T> const & q1, 
+		detail::tquat<T> const & q2
+	)
+	{
+		return (q1.x != q2.x) || (q1.y != q2.y) || (q1.z != q2.z) || (q1.w != q2.w);
+	}
+
 }//namespace detail
 
 namespace gtc{
