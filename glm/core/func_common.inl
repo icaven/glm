@@ -729,9 +729,11 @@ namespace glm
 			detail::type<valType>::is_int ||
 			detail::type<valType>::is_uint, "'clamp' only accept numbers");
 		
-		if(x >= maxVal) return maxVal; 
-        if(x <= minVal) return minVal;
-	    return x;
+		// Old implementation, less predictable branching
+		//if(x >= maxVal) return maxVal; 
+        //if(x <= minVal) return minVal;
+	    //return x;
+		return glm::max(glm::min(x, maxVal), minVal);
     }
 
     template <typename T>
