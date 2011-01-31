@@ -280,6 +280,241 @@ namespace glm
 			return Result;
 		}
 
+		detail::fvec4SIMD abs
+		(
+			detail::fvec4SIMD const & x
+		)
+		{
+			return detail::sse_abs_ps(x.Data);
+		}
+
+		inline detail::fvec4SIMD sign
+		(
+			detail::fvec4SIMD const & x
+		)
+		{
+			return detail::sse_sgn_ps(x.Data);
+		}
+
+		inline detail::fvec4SIMD floor
+		(
+			detail::fvec4SIMD const & x
+		)
+		{
+			return detail::sse_flr_ps(x.Data);
+		}
+
+		inline detail::fvec4SIMD trunc
+		(
+			detail::fvec4SIMD const & x
+		)
+		{
+			return detail::sse_flr_ps(detail::sse_abs_ps(x.Data));
+		}
+
+		inline detail::fvec4SIMD round
+		(
+			detail::fvec4SIMD const & x
+		)
+		{
+			return detail::sse_rnd_ps(x.Data);
+		}
+
+		//inline detail::fvec4SIMD roundEven
+		//(
+		//	detail::fvec4SIMD const & x
+		//)
+		//{
+
+		//}
+
+		inline detail::fvec4SIMD ceil
+		(
+			detail::fvec4SIMD const & x
+		)
+		{
+			return detail::sse_ceil_ps(x.Data);
+		}
+
+		inline detail::fvec4SIMD fract
+		(
+			detail::fvec4SIMD const & x
+		)
+		{
+			return detail::sse_frc_ps(x.Data);
+		}
+
+		inline detail::fvec4SIMD mod
+		(
+			detail::fvec4SIMD const & x, 
+			detail::fvec4SIMD const & y
+		)
+		{
+			return detail::sse_mod_ps(x.Data, y.Data);
+		}
+
+		inline detail::fvec4SIMD mod
+		(
+			detail::fvec4SIMD const & x, 
+			float const & y
+		)
+		{
+			return detail::sse_mod_ps(x.Data, _mm_set1_ps(y));
+		}
+
+		//inline detail::fvec4SIMD modf
+		//(
+		//	detail::fvec4SIMD const & x, 
+		//	detail::fvec4SIMD & i
+		//)
+		//{
+
+		//}
+
+		inline detail::fvec4SIMD min
+		(
+			detail::fvec4SIMD const & x, 
+			detail::fvec4SIMD const & y
+		)
+		{
+			return _mm_min_ps(x.Data, y.Data);
+		}
+
+		inline detail::fvec4SIMD min
+		(
+			detail::fvec4SIMD const & x, 
+			float const & y
+		)
+		{
+			return _mm_min_ps(x.Data, _mm_set1_ps(y));
+		}
+
+		inline detail::fvec4SIMD max
+		(
+			detail::fvec4SIMD const & x, 
+			detail::fvec4SIMD const & y
+		)
+		{
+			return _mm_max_ps(x.Data, y.Data);
+		}
+
+		inline detail::fvec4SIMD max
+		(
+			detail::fvec4SIMD const & x, 
+			float const & y
+		)
+		{
+			return _mm_max_ps(x.Data, _mm_set1_ps(y));
+		}
+
+		inline detail::fvec4SIMD clamp
+		(
+			detail::fvec4SIMD const & x, 
+			detail::fvec4SIMD const & minVal, 
+			detail::fvec4SIMD const & maxVal
+		)
+		{
+			return detail::sse_clp_ps(x.Data, minVal.Data, maxVal.Data);
+		}
+
+		inline detail::fvec4SIMD clamp
+		(
+			detail::fvec4SIMD const & x, 
+			float const & minVal, 
+			float const & maxVal
+		) 
+		{
+			return detail::sse_clp_ps(x.Data, _mm_set1_ps(minVal), _mm_set1_ps(maxVal));
+		}
+
+		inline detail::fvec4SIMD mix
+		(
+			detail::fvec4SIMD const & x, 
+			detail::fvec4SIMD const & y, 
+			detail::fvec4SIMD const & a
+		)
+		{
+			__m128 Sub0 = _mm_sub_ps(y.Data, x.Data);
+			__m128 Mul0 = _mm_mul_ps(a.Data, Sub0);
+			return _mm_mul_ps(x.Data, Mul0);
+		}
+
+		inline detail::fvec4SIMD step
+		(
+			detail::fvec4SIMD const & edge, 
+			detail::fvec4SIMD const & x
+		)
+		{
+			__m128 cmp0 = _mm_cmpngt_ps(x.Data, edge.Data);
+			return _mm_max_ps(_mm_min_ps(cmp0, _mm_setzero_ps()), detail::one);
+		}
+
+		inline detail::fvec4SIMD step
+		(
+			float const & edge, 
+			detail::fvec4SIMD const & x
+		)
+		{
+			__m128 cmp0 = _mm_cmpngt_ps(x.Data, _mm_set1_ps(edge));
+			return _mm_max_ps(_mm_min_ps(cmp0, _mm_setzero_ps()), detail::one);
+		}
+
+		inline detail::fvec4SIMD smoothstep
+		(
+			detail::fvec4SIMD const & edge0, 
+			detail::fvec4SIMD const & edge1, 
+			detail::fvec4SIMD const & x
+		)
+		{
+			return detail::sse_ssp_ps(edge0.Data, edge1.Data, x.Data);
+		}
+
+		inline detail::fvec4SIMD smoothstep
+		(
+			float const & edge0, 
+			float const & edge1, 
+			detail::fvec4SIMD const & x
+		)
+		{
+			return detail::sse_ssp_ps(_mm_set1_ps(edge0), _mm_set1_ps(edge1), x.Data);
+		}
+
+		//inline bvec4 isnan(detail::fvec4SIMD const & x)
+		//{
+
+		//}
+
+		//inline bvec4 isinf(detail::fvec4SIMD const & x)
+		//{
+
+		//}
+
+		//inline detail::ivec4SIMD floatBitsToInt
+		//(
+		//	detail::fvec4SIMD const & value
+		//)
+		//{
+
+		//}
+
+		//inline detail::fvec4SIMD intBitsToFloat
+		//(
+		//	detail::ivec4SIMD const & value
+		//)
+		//{
+
+		//}
+
+		inline detail::fvec4SIMD fma
+		(
+			detail::fvec4SIMD const & a, 
+			detail::fvec4SIMD const & b, 
+			detail::fvec4SIMD const & c
+		)
+		{
+			return _mm_add_ps(_mm_mul_ps(a.Data, b.Data), c.Data);
+		}
+
 		inline float simdLength
 		(
 			detail::fvec4SIMD const & x
