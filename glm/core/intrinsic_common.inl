@@ -34,7 +34,7 @@ namespace detail{
 	static const ieee754_QNAN absMask;
 	static const __m128 abs4Mask = _mm_set_ps1(absMask.f);
 
-        //static const __m128 _epi32_sign_mask = _mm_castsi128_ps(_mm_set1_epi32(0x80000000));
+	static const __m128 _epi32_sign_mask = _mm_castsi128_ps(_mm_set1_epi32(0x80000000));
         //static const __m128 _epi32_inv_sign_mask = _mm_castsi128_ps(_mm_set1_epi32(0x7FFFFFFF));
         //static const __m128 _epi32_mant_mask = _mm_castsi128_ps(_mm_set1_epi32(0x7F800000));
         //static const __m128 _epi32_inv_mant_mask = _mm_castsi128_ps(_mm_set1_epi32(0x807FFFFF));
@@ -130,24 +130,16 @@ inline __m128 sse_abs_ps(__m128 x)
 
 inline __m128 sse_sgn_ps(__m128 x)
 {
-	//__m128 cmp0 = _mm_cmpeq_ps(x, zero);
-	//__m128 cmp1 = _mm_cmple_ps(x, zero);
-	//__m128 cmp2 = _mm_cmpge_ps(x, zero);
+	__m128 Neg = _mm_set1_ps(-1.0f);
+	__m128 Pos = _mm_set1_ps(1.0f);
 
-	__m128 result;
-	__m128 cmp0 = _mm_cmpeq_ps(x, glm::detail::zero);
-	if(_mm_movemask_ps(cmp0) == 0)
-		result = glm::detail::zero;
-	else
-	{
-		__m128 cmp1 = _mm_cmpge_ps(x, glm::detail::zero);
-		//__m128 cmp2 = _mm_cmple_ps(x, glm::detail::zero);
-		if(_mm_movemask_ps(cmp1) > 0)
-			result = glm::detail::one;
-		else //if(_mm_movemask_ps(cmp2) > 0)
-			result = glm::detail::minus_one;
-	}
-	return result;
+	__m128 Cmp0 = _mm_cmplt_ps(x, zero);
+	__m128 Cmp1 = _mm_cmpgt_ps(x, zero);
+
+	__m128 And0 = _mm_and_ps(Cmp0, Neg);
+	__m128 And1 = _mm_and_ps(Cmp1, Pos);
+
+	return _mm_or_ps(And0, And1);
 }
 
 //floor
@@ -170,7 +162,7 @@ inline __m128 _mm_trc_ps(__m128 v)
 //round
 inline __m128 sse_rnd_ps(__m128 x)
 {
-	__m128 and0;// = _mm_and_ps(glm::detail::_epi32_sign_mask, x);
+	__m128 and0 = _mm_and_ps(glm::detail::_epi32_sign_mask, x);
 	__m128 or0 = _mm_or_ps(and0, glm::detail::_ps_2pow23);
 	__m128 add0 = _mm_add_ps(x, or0);
 	__m128 sub0 = _mm_sub_ps(add0, or0);

@@ -26,7 +26,7 @@ namespace glm
 	template <typename genFIType> 
 	genFIType abs(genFIType const & x);
 
-	//! Returns 1.0 if x > 0, 0.0 if x = 0, or -1.0 if x < 0. 
+	//! Returns 1.0 if x > 0, 0.0 if x == 0, or -1.0 if x < 0. 
 	//! (From GLSL 1.30.08 specification, section 8.3)
 	template <typename genFIType> 
 	genFIType sign(genFIType const & x);

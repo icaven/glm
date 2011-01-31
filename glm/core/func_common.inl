@@ -189,7 +189,7 @@ namespace glm
     inline genType trunc(genType const & x)
     {
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'trunc' only accept floating-point inputs");
-        return x < 0 ? -floor(-x) : floor(x);;
+        return x < 0 ? -floor(-x) : floor(x);
     }
 
     template <typename valType>
