@@ -5,6 +5,22 @@ www.g-truc.net
 glm@g-truc.net
 
 =============================
+GLM 0.9.1.A: 2010-01-31
+-----------------------------
+- Added SIMD support
+- Added new swizzle functions
+- Improved static assert error message with C++0x static_assert
+- New setup system
+- Reduced branching
+- Fixed trunc implementation
+
+=============================
+GLM 0.9.0.7: 2010-01-30
+-----------------------------
+- Added == and != operator for *mat* and *vec*
+- Added GLSL 4.10 packing functions
+
+=============================
 GLM 0.9.0.6: 2010-12-21
 -----------------------------
 - Many matrices bugs fixed
