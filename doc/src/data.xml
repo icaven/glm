@@ -3,7 +3,7 @@
 <glm copyright="Copyright © 2005 - 2011">
   <downloads>
     <section name="GLM - zip files">
-      <download name="GLM 0.9.1.A" date="31/01/2010" size="3.0 MB" link="http://glm.googlecode.com/files/glm-0.9.1.A.zip"/>
+      <download name="GLM 0.9.1.A" date="31/01/2010" size="3.0 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.A/glm-0.9.1.A.zip/download"/>
       <download name="GLM 0.9.0.7" date="30/01/2010" size="1.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.7/glm-0.9.0.7.zip/download"/>
       <download name="GLM 0.9.0.6" date="21/12/2010" size="2.2 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.6/glm-0.9.0.6.zip/download"/>
       <download name="GLM 0.9.0.5" date="01/11/2010" size="2.2 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.5/glm-0.9.0.5.zip/download"/>
@@ -56,7 +56,7 @@
       <download name="GLM 0.1.0.0" date="02/21/2005" size="29.2 KB" link="http://prdownloads.sourceforge.net/glf/glm-0.1-ur.zip?download"/>
     </section>
     <section name="GLM - 7z files">
-      <download name="GLM 0.9.1.A" date="31/01/2011" size="2.0 MB" link="http://glm.googlecode.com/files/glm-0.9.1.A.7z"/>
+      <download name="GLM 0.9.1.A" date="31/01/2011" size="2.0 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.A/glm-0.9.1.A.7z/download"/>
       <download name="GLM 0.9.0.7" date="30/01/2011" size="832 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.7/glm-0.9.0.7.7z/download"/>
       <download name="GLM 0.9.0.6" date="21/12/2010" size="1.6 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.6/glm-0.9.0.6.7z/download"/>
       <download name="GLM 0.9.0.5" date="01/11/2010" size="1.6 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.5/glm-0.9.0.5.7z/download"/>
@@ -1567,13 +1567,11 @@
         GLM 0.9.1 is not 100% backward compatible with GLM 0.9.0 but mostly advanced usages should be concerned by this compatibility issues.
       </paragraph>
       <paragraph>
-        UPDATED: SF.net has been the target of a directed attack. 
-        The upload system is currently disrupted which has corrupted GLM 0.9.1.A files. 
-        As a temporary mesure, the files are now hosted on Google Code.
+        UPDATED: SF.net mirrors are available again.
       </paragraph>
 
-      <source type="Download" href="http://glm.googlecode.com/files/glm-0.9.1.A.zip">GLM 0.9.1.A (zip, 3.0 MB)</source>
-      <source type="Download" href="http://glm.googlecode.com/files/glm-0.9.1.A.7z">GLM 0.9.1.A (7z, 2.0 MB)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.A/glm-0.9.1.A.zip/download">GLM 0.9.1.A (zip, 3.0 MB)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.A/glm-0.9.1.A.7z/download">GLM 0.9.1.A (7z, 2.0 MB)</source>
       <source type="Link" href="http://glm.g-truc.net/glm-0.9.1.pdf">GLM Manual</source>
       <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
     </news>
