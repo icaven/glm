@@ -146,7 +146,7 @@ namespace glm
         //! Returns the cross product of q1 and q2. 
 		//! From GLM_GTC_quaternion extension.
 		template <typename T> 
-		detail::tquat<T> cross(
+		GLM_DEPRECATED detail::tquat<T> cross(
 			detail::tquat<T> const & q1, 
 			detail::tquat<T> const & q2);
 		
