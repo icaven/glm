@@ -26,6 +26,9 @@ namespace glm
 	//! GLM_GTX_polar_coordinates extension: Conversion from Euclidean space to polar space and revert.
 	namespace polar_coordinates
 	{
+		/// \addtogroup gtx_polar_coordinates
+		///@{
+
 		//! Convert Euclidean to Polar coordinates, x is the xz distance, y, the latitude and z the longitude.
 		//! From GLM_GTX_polar_coordinates extension.
 		template <typename T> 
@@ -35,6 +38,8 @@ namespace glm
 		//! From GLM_GTX_polar_coordinates extension.
 		template <typename T> 
 		detail::tvec3<T> euclidean(const detail::tvec3<T>& polar);
+
+		///@}
 
 	}//namespace polar_coordinates
 	}//namespace gtx

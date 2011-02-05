@@ -25,6 +25,9 @@ namespace gtc{
 //! GLM_GTC_matrix_inverse extension: Inverse matrix functions
 namespace matrix_inverse
 {
+	/// \addtogroup gtc_matrix_inverse
+	///@{
+
 	//! Fast matrix inverse for affine matrix.
 	//! From GLM_GTC_matrix_inverse extension.
 	template <typename genType> 
@@ -35,6 +38,8 @@ namespace matrix_inverse
 	template <typename genType> 
 	inline typename genType::value_type inverseTranspose(
 		genType const & m);
+
+	///@}
 
 }//namespace matrix_inverse
 }//namespace gtc

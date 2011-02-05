@@ -30,6 +30,9 @@ namespace glm
 	//! GLM_GTX_normal extension: Compute the normal of a triangle.
     namespace normal
     {
+		/// \addtogroup gtx_normal
+		///@{
+
 		//! Computes triangle normal from triangle points. 
 		//! From GLM_GTX_normal extension.
         template <typename T> 
@@ -37,6 +40,8 @@ namespace glm
 			detail::tvec3<T> const & p1, 
 			detail::tvec3<T> const & p2, 
 			detail::tvec3<T> const & p3);
+
+		///@}
 
     }//namespace normal
     }//namespace gtx

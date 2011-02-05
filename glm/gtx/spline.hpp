@@ -29,7 +29,10 @@ namespace glm
     {
 		using namespace gtx::optimum_pow;
 
-        //! Return a point from a catmull rom curve.
+		/// \addtogroup gtx_spline
+		///@{
+
+		//! Return a point from a catmull rom curve.
 		//! From GLM_GTX_spline extension.
 		template <typename genType> 
 		genType catmullRom(
@@ -58,6 +61,8 @@ namespace glm
 			const genType& v3, 
 			const genType& v4, 
 			const GLMvalType& s);
+
+		///@}
 
 	}//namespace spline
     }//namespace gtx

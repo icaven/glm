@@ -21,6 +21,9 @@ namespace glm
 	//! Define all matrix functions from Section 8.5 of GLSL 1.30.8 specification. Included in glm namespace.
 	namespace matrix{
 
+	/// \addtogroup core_funcs
+	///@{
+
 	//! Multiply matrix x by matrix y component-wise, i.e., 
 	//! result[i][j] is the scalar product of x[i][j] and y[i][j].
 	//! (From GLSL 1.30.08 specification, section 8.5)
@@ -79,6 +82,8 @@ namespace glm
 	template <typename T> 
 	detail::tmat4x4<T> inverse(
 		detail::tmat4x4<T> const & m);
+
+	///@}
 
 	}//namespace matrix
 	}//namespace function

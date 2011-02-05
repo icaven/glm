@@ -26,6 +26,9 @@ namespace glm
 	//! GLM_GTX_inertia extension: Create inertia matrices
 	namespace inertia
 	{
+		/// \addtogroup gtx_inertia
+		///@{
+
 		//! Build an inertia matrix for a box.
 		//! From GLM_GTX_inertia extension.
 		template <typename T> 
@@ -81,6 +84,8 @@ namespace glm
 		detail::tmat4x4<T> sphereInertia4(
 			const T Mass, 
 			const T Radius);
+
+		///@}
 
 	}//namespace inertia
 	}//namespace gtx

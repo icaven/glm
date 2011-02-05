@@ -30,12 +30,17 @@ namespace glm
 	//! GLM_GTX_mixed_product extension: Mixed product of 3 vectors.
 	namespace mixed_product
 	{
+		/// \addtogroup gtx_mixed_product
+		///@{
+
 		//! \brief Mixed product of 3 vectors (from GLM_GTX_mixed_product extension)
 		template <typename valType> 
 		valType mixedProduct(
 			detail::tvec3<valType> const & v1, 
 			detail::tvec3<valType> const & v2, 
 			detail::tvec3<valType> const & v3);
+
+		///@}
 	}//namespace mixed_product
 	}//namespace gtx
 }//namespace glm

@@ -30,6 +30,9 @@ namespace glm
 	{
 		using namespace gtx::fast_square_root;
 
+		/// \addtogroup gtx_normalize_dot
+		///@{
+
 		//! Normalize parameters and returns the dot product of x and y.
 		//! It's faster that dot(normalize(x), normalize(y)).
 		//! From GLM_GTX_normalize_dot extension.
@@ -45,6 +48,8 @@ namespace glm
 		typename genType::value_type fastNormalizeDot(
 			genType const & x, 
 			genType const & y);
+
+		///@}
 
 	}//namespace normalize_dot
 	}//namespace gtx

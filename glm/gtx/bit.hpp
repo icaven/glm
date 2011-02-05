@@ -34,6 +34,8 @@ namespace glm
 	{
 		using namespace gtc::half_float;
 
+		/// \addtogroup gtx_bit
+		///@{
 		//! Build a mask of 'count' bits
 		//! From GLM_GTX_bit extension.
 		template <typename genIType>
@@ -97,6 +99,7 @@ namespace glm
 		//! From GLM_GTX_bit extension.
 		template <typename genType>
 		genType bitRotateLeft(genType const & In, std::size_t Shift);
+		///@}
 
 	}//namespace bit
 	}//namespace gtx

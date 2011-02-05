@@ -30,7 +30,10 @@ namespace glm
 	//! GLM_GTX_orthonormalize extension: Orthonormalize matrices.
     namespace orthonormalize
     {
-        //! Returns the orthonormalized matrix of m.
+		/// \addtogroup gtx_orthonormalize
+		///@{
+
+		//! Returns the orthonormalized matrix of m.
 		//! From GLM_GTX_orthonormalize extension.
 		template <typename T> 
 		detail::tmat3x3<T> orthonormalize(
@@ -42,6 +45,8 @@ namespace glm
 		detail::tvec3<T> orthonormalize(
 			const detail::tvec3<T>& x, 
 			const detail::tvec3<T>& y);
+
+		///@}
 
     }//namespace orthonormalize
     }//namespace gtx

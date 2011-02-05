@@ -27,9 +27,12 @@ namespace glm
 	}//namespace test
 
     namespace gtx{
-	//! GLM_GTX_optimum_pow extension: Integer exponenciation of power functions.
+	//! GLM_GTX_optimum_pow extension: Integer exponentiation of power functions.
     namespace optimum_pow
     {
+		/// \addtogroup gtx_optimum_pow
+		///@{
+
 		//! Returns x raised to the power of 2.
 		//! From GLM_GTX_optimum_pow extension.
         template <typename genType> 
@@ -60,6 +63,8 @@ namespace glm
 		//! Checks to determine if the parameter component are power of 2 numbers. 
 		//! From GLM_GTX_optimum_pow extension.
         detail::tvec4<bool> powOfTwo(const detail::tvec4<int>& x);
+
+		///@}
 
     }//namespace optimum_pow
     }//namespace gtx

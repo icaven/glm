@@ -27,9 +27,12 @@ namespace glm
 	}//namespace test
 
 	namespace gtx{
-	//! GLM_GTX_matrix_query: Query to evaluate matrices properties
+	//! GLM_GTX_matrix_query: Query to evaluate matrix properties
 	namespace matrix_query
 	{
+		/// \addtogroup gtx_matrix_query
+		///@{
+
 		//! Return if a matrix a null matrix.
 		//! From GLM_GTX_matrix_query extension.
 		template<typename T> 
@@ -86,6 +89,7 @@ namespace glm
 			const genType& m, 
 			const typename genType::value_type epsilon = std::numeric_limits<typename genType::value_type>::epsilon());
 
+		///@}
 	}//namespace matrix_query
 	}//namespace gtx
 }//namespace glm

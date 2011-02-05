@@ -29,9 +29,12 @@ namespace glm
 	}//namespace test
 
 	namespace gtx{
-	//! GLM_GTX_epsilon extension: Comparaison functions for a user defined epsilon values.
+	//! GLM_GTX_epsilon extension: Comparison functions for a user defined epsilon values.
 	namespace epsilon
 	{
+		/// \addtogroup gtx_epsilon
+		///@{
+
 		//! Returns the component-wise compare of |x - y| < epsilon.
 		//! From GLM_GTX_epsilon extension.
 		template <typename genTypeT, typename genTypeU> 
@@ -47,6 +50,8 @@ namespace glm
 			genTypeT const & x, 
 			genTypeT const & y, 
 			genTypeU const & epsilon);
+
+		///@}
 
 	}//namespace epsilon
 	}//namespace gtx

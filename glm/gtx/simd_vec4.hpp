@@ -32,6 +32,8 @@ namespace glm
 {
 	namespace detail
 	{
+		/// 4-dimensional vector implemented using SIMD SEE intrinsics.
+		/// \ingroup gtx_simd_vec4
 		GLM_ALIGN(4) struct fvec4SIMD
 		{
 			enum ctor{null};
@@ -116,6 +118,9 @@ namespace glm
 	namespace simd_vec4
 	{
 		typedef detail::fvec4SIMD simdVec4;
+
+		/// \addtogroup gtx_simd_vec4
+		///@{
 
 		//! Convert a simdVec4 to a vec4.
 		//! (From GLM_GTX_simd_vec4 extension)
@@ -401,6 +406,8 @@ namespace glm
 			detail::fvec4SIMD const & I,
 			detail::fvec4SIMD const & N,
 			float const & eta);
+
+		///@}
 	}//namespace simd_vec4
 	}//namespace gtx
 }//namespace glm

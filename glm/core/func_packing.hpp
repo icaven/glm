@@ -21,6 +21,9 @@ namespace glm
 	//! Define packing functions from section 8.4 floating-point pack and unpack functions of GLSL 4.00.8 specification
 	namespace packing
 	{
+		/// \addtogroup core_funcs
+		///@{
+
 		detail::uint32 packUnorm2x16(detail::tvec2<detail::float32> const & v);
 		detail::uint32 packUnorm4x8(detail::tvec4<detail::float32> const & v);
 		detail::uint32 packSnorm4x8(detail::tvec4<detail::float32> const & v);
@@ -31,6 +34,8 @@ namespace glm
 
 		double packDouble2x32(detail::tvec2<detail::uint32> const & v);
 		detail::tvec2<detail::uint32> unpackDouble2x32(double const & v);
+
+		///@}
 
 	}//namespace packing
 	}//namespace function

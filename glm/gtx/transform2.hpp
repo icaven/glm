@@ -34,6 +34,9 @@ namespace glm
 	{
 		using namespace gtx::transform;
 
+		/// \addtogroup gtx_transform2
+		///@{
+
 		//! Transforms a matrix with a shearing on X axis.
 		//! From GLM_GTX_transform2 extension.
 		template <typename T> 
@@ -108,6 +111,8 @@ namespace glm
 			detail::tmat4x4<valType> const & m, 
 			valType scale, 
 			valType bias);
+
+		///@}
 
 	}//namespace transform2
     }//namespace gtx

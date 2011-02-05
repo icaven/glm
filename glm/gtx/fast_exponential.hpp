@@ -33,6 +33,8 @@ namespace glm
 	namespace fast_exponential
 	{
 		using namespace gtc::half_float;
+		/// \addtogroup gtx_fast_exponential
+		///@{
 
 		//! Faster than the common pow function but less accurate.
 		//! From GLM_GTX_fast_exponential extension.
@@ -72,6 +74,8 @@ namespace glm
 		//! From GLM_GTX_fast_exponential extension.
 		template <typename T> 
 		T fastLn(const T& x);
+
+		///@}
 
 	}//namespace fast_exponential
 	}//namespace gtx

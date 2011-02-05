@@ -21,6 +21,9 @@ namespace glm
 	//! Define common functions from Section 8.3 of GLSL 1.30.8 specification. Included in glm namespace.
 	namespace common{
 
+	/// \addtogroup core_funcs
+	///@{
+
 	//! Returns x if x >= 0; otherwise, it returns -x. 
 	//! (From GLSL 1.30.08 specification, section 8.3)
 	template <typename genFIType> 
@@ -261,6 +264,8 @@ namespace glm
 	//! (From GLSL 4.00.08 specification, section 8.3)
 	template <typename genType, typename genIType>
 	genType ldexp(genType const & x, genIType const & exp);
+
+	///@}
 
 	}//namespace common
 	}//namespace function
