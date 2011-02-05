@@ -80,6 +80,11 @@ namespace glm
 			detail::tquat<T> const & q);
 
 		template <typename T> 
+		detail::tquat<T> operator* ( 
+			detail::tquat<T> const & q, 
+			detail::tquat<T> const & p); 
+
+		template <typename T> 
 		detail::tvec3<T> operator* (
 			detail::tquat<T> const & q, 
 			detail::tvec3<T> const & v);
@@ -145,7 +150,7 @@ namespace glm
         //! Returns the cross product of q1 and q2. 
 		//! From GLM_GTC_quaternion extension.
 		template <typename T> 
-		detail::tquat<T> cross(
+		GLM_DEPRECATED detail::tquat<T> cross(
 			detail::tquat<T> const & q1, 
 			detail::tquat<T> const & q2);
 		

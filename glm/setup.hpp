@@ -22,9 +22,9 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Compiler
 
-// User defines: GLM_FORCE_COMPILER_UNKNOWNED
+// User defines: GLM_FORCE_COMPILER_UNKNOWN
 
-#define GLM_COMPILER_UNKNOWNED		0x00000000
+#define GLM_COMPILER_UNKNOWN		0x00000000
 
 // Visual C++ defines
 #define GLM_COMPILER_VC				0x01000000
@@ -76,8 +76,8 @@
 #define GLM_COMPILER_CODEWARRIOR	0x04000000
 
 // Force generic C++ compiler
-#ifdef GLM_FORCE_COMPILER_UNKNOWNED
-#		define GLM_COMPILER GLM_COMPILER_UNKNOWNED
+#ifdef GLM_FORCE_COMPILER_UNKNOWN
+#		define GLM_COMPILER GLM_COMPILER_UNKNOWN
 // Visual C++
 #elif defined(_MSC_VER)
 #	if _MSC_VER == 900
@@ -157,7 +157,7 @@
 #	define GLM_COMPILER GLM_COMPILER_CODEWARRIOR
 
 #else
-#	define GLM_COMPILER GLM_COMPILER_UNKNOWNED
+#	define GLM_COMPILER GLM_COMPILER_UNKNOWN
 #endif
 
 #ifndef GLM_COMPILER
@@ -249,7 +249,7 @@
 /////////////////
 // Platform 
 
-// User defines: GLM_FORCE_PURE
+// User defines: GLM_FORCE_PURE GLM_FORCE_SSE2 GLM_FORCE_AVX
 
 #define GLM_ARCH_PURE		0x0000 //(0x0000)
 #define GLM_ARCH_SSE2		0x0001 //(0x0001)
@@ -258,6 +258,12 @@
 
 #if(defined(GLM_FORCE_PURE))
 #	define GLM_ARCH GLM_ARCH_PURE
+#elif(defined(GLM_FORCE_AVX))
+#	define GLM_ARCH GLM_ARCH_AVX
+#elif(defined(GLM_FORCE_SSE3))
+#	define GLM_ARCH GLM_ARCH_SSE3
+#elif(defined(GLM_FORCE_SSE2))
+#	define GLM_ARCH GLM_ARCH_SSE2
 #elif((GLM_COMPILER & GLM_COMPILER_VC) && (defined(_M_IX86) || defined(_M_X64)))
 #	if(defined(_M_CEE_PURE))
 #		define GLM_ARCH GLM_ARCH_PURE
@@ -344,7 +350,7 @@
 #	elif(GLM_COMPONENT == GLM_COMPONENT_MS_EXT)
 #		pragma message("GLM: Multiple vector component names through Visual C++ language extensions")
 #	else
-#		error "GLM_COMPONENT value unknowned"
+#		error "GLM_COMPONENT value unknown"
 #	endif//GLM_MESSAGE_COMPONENT_DISPLAYED
 #endif//GLM_MESSAGE
 

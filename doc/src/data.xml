@@ -1540,7 +1540,7 @@
 
   <page_news>
 
-    <news index="0059" date="31/01/2011" title="GLM 0.9.1 alpha released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+    <news index="0059" date="31/01/2011" title="GLM 0.9.1 alpha released (updated)" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>
         This new version of GLM is bringing a lot of improvements and maybe too many considering the development time it has required:
         API exposing SIMD implementation but also some new, safe and feature complet swizzling functions and a new setup API.
@@ -1563,17 +1563,17 @@
         and <codeword>float</codeword> to <codeword>__m128</codeword>).
         This implementation can probably be improve in many ways so don't hesitate to send me some feedbacks.
       </paragraph>
-
       <paragraph>
         GLM 0.9.1 is not 100% backward compatible with GLM 0.9.0 but mostly advanced usages should be concerned by this compatibility issues.
       </paragraph>
+      <paragraph>
+        UPDATED: SF.net mirrors are available again.
+      </paragraph>
 
-      <source-list>
-        <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.A/glm-0.9.1.A.zip/download">GLM 0.9.1.A (zip, 2.7 MB)</source>
-        <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.A/glm-0.9.1.A.7z/download">GLM 0.9.1.A (7z, 1.7 MB)</source>
-        <source type="Link" href="http://glm.g-truc.net/glm-0.9.1.pdf" title="GLM Manual" />
-        <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket" title="Submit a feature request or a bug report" />
-      </source-list>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.A/glm-0.9.1.A.zip/download">GLM 0.9.1.A (zip, 3.0 MB)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.A/glm-0.9.1.A.7z/download">GLM 0.9.1.A (7z, 2.0 MB)</source>
+      <source type="Link" href="http://glm.g-truc.net/glm-0.9.1.pdf">GLM Manual</source>
+      <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
     </news>
 
     <news index="0058" date="30/01/2011" title="GLM 0.9.0.7 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
