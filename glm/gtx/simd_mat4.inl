@@ -242,7 +242,7 @@ namespace simd_mat4
 		detail::fmat4x4SIMD const & x
 	)
 	{
-		detail::tmat4x4<float> Result;
+		GLM_ALIGN(16) detail::tmat4x4<float> Result;
 		_mm_store_ps(&Result[0][0], x.Data[0].Data);
 		_mm_store_ps(&Result[1][0], x.Data[1].Data);
 		_mm_store_ps(&Result[2][0], x.Data[2].Data);
