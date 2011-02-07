@@ -133,6 +133,14 @@ namespace glm
 			detail::tmat4x4<T> const & proj, 
 			detail::tvec4<U> const & viewport);
 
+		//! Define a picking region
+		//! From GLM_GTC_matrix_transform extension.
+		template <typename T, typename U> 
+		detail::tmat4x4<T> pickMatrix(
+			detail::tvec2<T> const & center, 
+			detail::tvec2<T> const & delta, 
+			detail::tvec4<U> const & viewport);
+
 		//! Build a look at view matrix.
 		//! From GLM_GTC_matrix_transform extension.
 		template <typename T> 
