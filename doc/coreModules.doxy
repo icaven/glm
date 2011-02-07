@@ -1,4 +1,4 @@
-/**
+/*!
 	\defgroup core GLM Core
 	
 	\brief The core of GLM, which implements exactly and only the GLSL specification to the degree possible.
@@ -7,21 +7,26 @@
 	\ref core_funcs "C++ functions that mirror the GLSL functions". It also includes 
 	\ref core_precision "a set of precision-based types" that can be used in the appropriate
 	functions. The C++ types are all based on a basic set of \ref core_template "template types".
+	
+	The best documentation for GLM Core is the current GLSL specification,
+	<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.clean.pdf">version 4.1
+	(pdf file)</a>.
+	There are a few \ref pg_differences "differences" between GLM core and GLSL.
 **/
 
 
-/**
+/*!
 	\defgroup core_types Core GLSL Types
 	
 	\brief The standard types defined by the GLSL specification.
 	
 	These types are all typedefs of more generalized, template types. To see the definiton
-	of the equivalent template types, go to \ref core_template.
+	of these template types, go to \ref core_template.
 	
 	\ingroup core
 **/
 
-/**
+/*!
 	\defgroup core_precision Core Precision Types
 	
 	\brief Non-GLSL types that are used to define precision-based types.
@@ -38,7 +43,7 @@
 	\ingroup core
 **/
 
-/**
+/*!
 	\defgroup core_template Core Template Types
 	
 	\brief The generic template types used as the basis for the core types.
@@ -48,7 +53,7 @@
 	\ingroup core
 **/
 
-/**
+/*!
 	\defgroup core_funcs Core GLSL Functions
 	
 	\brief The functions defined by the GLSL specification.
