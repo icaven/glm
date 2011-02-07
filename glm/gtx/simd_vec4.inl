@@ -275,7 +275,7 @@ namespace glm
 			detail::fvec4SIMD const & x
 		)
 		{
-			detail::tvec4<float> Result;
+			GLM_ALIGN(16) detail::tvec4<float> Result;
 			_mm_store_ps(&Result[0], x.Data);
 			return Result;
 		}
