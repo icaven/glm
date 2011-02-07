@@ -30,6 +30,9 @@ namespace glm
 	//! GLM_GTX_closest_point extension: Find the point on a straight line which is the closet of a point.
 	namespace closest_point{
 
+	/// \addtogroup gtx_closest_point
+	///@{
+
 	//! Find the point on a straight line which is the closet of a point. 
 	//! From GLM_GTX_closest_point extension.
 	template <typename T> 
@@ -37,6 +40,7 @@ namespace glm
 		detail::tvec3<T> const & point, 
 		detail::tvec3<T> const & a, 
 		detail::tvec3<T> const & b);
+	///@}
 
 	}//namespace closest_point
 	}//namespace gtx

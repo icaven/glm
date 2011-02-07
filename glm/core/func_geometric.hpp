@@ -21,6 +21,9 @@ namespace glm
 	//! Define all geometric functions from Section 8.4 of GLSL 1.30.8 specification. Included in glm namespace.
 	namespace geometric{
 
+	/// \addtogroup core_funcs
+	///@{
+
 	//! Returns the length of x, i.e., sqrt(x * x).
 	//! (From GLSL 1.30.08 specification, section 8.4)
 	template <typename genType> 
@@ -79,6 +82,8 @@ namespace glm
 		genType const & I, 
 		genType const & N, 
 		typename genType::value_type const & eta);
+
+	///@}
 
 	}//namespace geometric
 	}//namespace function

@@ -30,6 +30,9 @@ namespace glm
 	//! GLM_GTX_multiple: Find the closest number of a number multiple of other number.
 	namespace multiple
 	{
+		/// \addtogroup gtx_multiple
+		///@{
+
 		//! Higher Multiple number of Source.
 		//! From GLM_GTX_multiple extension.
 		template <typename genType> 
@@ -43,6 +46,8 @@ namespace glm
 		genType lowerMultiple(
 			genType const & Source, 
 			genType const & Multiple);
+
+		///@}
 
 	}//namespace multiple
 	}//namespace gtx

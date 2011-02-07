@@ -326,6 +326,9 @@ namespace glm
 	//! GLM_GTC_half_float extension: Add support for half precision floating-point types
 	namespace half_float
 	{
+		/// \addtogroup gtc_half_float
+		///@{
+
 		//! Type for half-precision floating-point numbers. 
 		//! From GLM_GTC_half_float extension.
 		typedef detail::thalf					half;
@@ -353,6 +356,8 @@ namespace glm
 		//! 4 * 4 matrix of half-precision floating-point numbers.
 		//! From GLM_GTC_half_float extension.
 		typedef detail::tmat4x4<detail::thalf>	hmat4;
+
+		///@}
 
 	}//namespace half_float
 	}//namespace gtc

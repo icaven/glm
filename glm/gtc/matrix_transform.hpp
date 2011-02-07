@@ -31,6 +31,9 @@ namespace glm
 	//! GLM_GTC_matrix_transform extension: Add transformation matrices
 	namespace matrix_transform
 	{
+		/// \addtogroup gtc_matrix_transform
+		///@{
+
 		//! Builds a translation 4 * 4 matrix created from a vector of 3 components.
 		//! From GLM_GTC_matrix_transform extension.
 		template <typename T> 
@@ -141,6 +144,7 @@ namespace glm
 			detail::tvec3<T> const & center, 
 			detail::tvec3<T> const & up);
 
+		///@}
 	}//namespace matrix_transform
 	}//namespace gtc
 }//namespace glm

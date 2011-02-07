@@ -32,7 +32,10 @@ namespace glm
 	//! GLM_GTX_vector_query extension: Query informations of vector types
     namespace vector_query
     {
-        //! Check if two vectors are collinears.
+		/// \addtogroup gtx_vector_query
+		///@{
+
+		//! Check if two vectors are collinears.
 		//! From GLM_GTX_vector_query extensions.
 		template <typename genType> 
 		bool areCollinear(
@@ -85,6 +88,8 @@ namespace glm
 			const genType& v0, 
 			const genType& v1, 
 			const GLMvalType epsilon = std::numeric_limits<GLMvalType>::epsilon());
+
+		///@}
 
     }//namespace vector_query
     }//namespace gtx

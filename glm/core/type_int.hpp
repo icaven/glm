@@ -63,32 +63,39 @@ namespace glm
 	namespace core{
 	namespace type{
 
+	///namespace for precision stuff.
 	namespace precision
 	{
 		//! Low precision signed integer. 
-		//! There is no garanty on the actual precision.
+		//! There is no guarantee on the actual precision.
 		//! From GLSL 1.30.8 specification.
+		//! \ingroup core_precision
 		typedef detail::lowp_int_t				lowp_int;
 		//! Medium precision signed integer. 
-		//! There is no garanty on the actual precision.
+		//! There is no guarantee on the actual precision.
 		//! From GLSL 1.30.8 specification.
+		//! \ingroup core_precision
 		typedef detail::mediump_int_t			mediump_int;
 		//! High precision signed integer.
-		//! There is no garanty on the actual precision.
+		//! There is no guarantee on the actual precision.
 		//! From GLSL 1.30.8 specification.
+		//! \ingroup core_precision
 		typedef detail::highp_int_t				highp_int;
 
 		//! Low precision unsigned integer. 
-		//! There is no garanty on the actual precision.
+		//! There is no guarantee on the actual precision.
 		//! From GLSL 1.30.8 specification.
+		//! \ingroup core_precision
 		typedef detail::lowp_uint_t				lowp_uint;
 		//! Medium precision unsigned integer. 
-		//! There is no garanty on the actual precision.
+		//! There is no guarantee on the actual precision.
 		//! From GLSL 1.30.8 specification.
+		//! \ingroup core_precision
 		typedef detail::mediump_uint_t			mediump_uint;
 		//! High precision unsigned integer. 
-		//! There is no garanty on the actual precision.
+		//! There is no guarantee on the actual precision.
 		//! From GLSL 1.30.8 specification.
+		//! \ingroup core_precision
 		typedef detail::highp_uint_t			highp_uint;
 	}
 	//namespace precision

@@ -25,6 +25,9 @@ namespace gtc{
 //! GLM_GTC_matrix_access extension: Set a column or a row of a matrix
 namespace matrix_access
 {
+	/// \addtogroup gtc_matrix_access
+	///@{
+
 	//! Get a specific row of a matrix.
 	//! From GLM_GTC_matrix_access extension.
 	template <typename genType> 
@@ -54,6 +57,8 @@ namespace matrix_access
 		genType const & m, 
 		int index, 
 		typename genType::col_type const & x);
+
+	///@}
 
 }//namespace matrix_access
 }//namespace gtc

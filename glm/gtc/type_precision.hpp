@@ -43,6 +43,9 @@ namespace glm
 		///////////////////////////
 		// Signed int vector types 
 
+		/// \addtogroup gtc_type_precision
+		///@{
+
 		typedef detail::int8						int8;         //!< \brief 8bit signed integer. (from GLM_GTC_type_precision extension)
 		typedef detail::int16						int16;        //!< \brief 16bit signed integer. (from GLM_GTC_type_precision extension)
 		typedef detail::int32						int32;        //!< \brief 32bit signed integer. (from GLM_GTC_type_precision extension)
@@ -209,6 +212,8 @@ namespace glm
 		typedef detail::tquat<f16>					f16quat;    //!< \brief Half-precision floating-point quaternion. (from GLM_GTC_type_precision extension)
 		typedef detail::tquat<f32>					f32quat;    //!< \brief Single-precision floating-point quaternion. (from GLM_GTC_type_precision extension)
 		typedef detail::tquat<f64>					f64quat;    //!< \brief Double-precision floating-point quaternion. (from GLM_GTC_type_precision extension)
+
+		///@}
 
 	}//namespace type_precision
 	}//namespace gtc

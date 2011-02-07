@@ -34,6 +34,9 @@ namespace glm
 	//! GLM_GTX_fast_square_root extension: Fast but less accurate implementations of square root based functions.
 	namespace fast_square_root
 	{
+		/// \addtogroup gtx_fast_square_root
+		///@{
+
 		//! Faster than the common sqrt function but less accurate.
 		//! From GLM_GTX_fast_square_root extension.
 		template <typename genType> 
@@ -58,6 +61,8 @@ namespace glm
 		//! From GLM_GTX_fast_square_root extension.
 		template <typename genType> 
 		genType fastNormalize(genType const & x);
+
+		///@}
 
 	}//namespace fast_square_root
 	}//	namespace gtx

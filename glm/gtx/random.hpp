@@ -25,9 +25,12 @@
 
 namespace glm{
 namespace gtx{
-//! GLM_GTX_random extension: Generate random number from varius distribution methods
+//! GLM_GTX_random extension: Generate random number from various distribution methods
 namespace random
 {
+	/// \addtogroup gtx_random
+	///@{
+
 	//! Generate a random number in the interval [-1, 1], according a linear distribution.
 	//! From GLM_GTX_random extension.
     template <typename T> T signedRand1();
@@ -75,6 +78,7 @@ namespace random
     template <typename T> detail::tvec3<T> gaussRand3(const detail::tvec3<T>& mean, const detail::tvec3<T>& std_deviation);     //!< \brief Gererate 3 random floating numbers according a Gauss distribution. (From GLM_GTX_random extension)
     template <typename T> detail::tvec4<T> gaussRand4(const detail::tvec4<T>& mean, const detail::tvec4<T>& std_deviation);     //!< \brief Gererate 4 random floating numbers according a Gauss distribution. (From GLM_GTX_random extension)
 
+	///@}
 }//namespace random
 }//namespace gtx
 }//namespace glm

@@ -30,6 +30,9 @@ namespace glm
 	//! GLM_GTX_extend extension: Extend a position from a source to a position at a defined length.
 	namespace extend
 	{
+		/// \addtogroup gtx_extend
+		///@{
+
 		//! Extends of Length the Origin position using the (Source - Origin) direction.
 		//! From GLM_GTX_extend extension.
 		template <typename genType> 
@@ -37,6 +40,8 @@ namespace glm
 			genType const & Origin, 
 			genType const & Source, 
 			typename genType::value_type const Length);
+
+		///@}
 
 	}//namespace extend
 	}//namespace gtx

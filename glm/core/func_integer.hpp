@@ -21,6 +21,9 @@ namespace glm
 	//! Define integer functions from Section 8.8 of GLSL 4.00.8 specification. 
 	namespace integer{
 
+		/// \addtogroup core_funcs
+		///@{
+
 		//! Adds 32-bit unsigned integer x and y, returning the sum
 		//! modulo pow(2, 32). The value carry is set to 0 if the sum was
 		//! less than pow(2, 32), or to 1 otherwise.
@@ -127,6 +130,8 @@ namespace glm
 		//! (From GLSL 4.00.08 specification, section 8.8)
 		template <typename T, template <typename> class C>
 		typename C<T>::signed_type findMSB(C<T> const & Value);
+
+		///@}
 
 	}//namespace integer
 	}//namespace function

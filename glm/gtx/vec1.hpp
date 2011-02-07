@@ -34,41 +34,41 @@ namespace glm
 		namespace precision
 		{
 			//! 1 component vector of high precision floating-point numbers. 
-			//! There is no garanty on the actual precision.
+			//! There is no guarantee on the actual precision.
 			//! From GLM_GTX_vec1 extension.
 			typedef detail::highp_vec1_t			highp_vec1;
 			//! 1 component vector of medium precision floating-point numbers. 
-			//! There is no garanty on the actual precision.
+			//! There is no guarantee on the actual precision.
 			//! From GLM_GTX_vec1 extension.
 			typedef detail::mediump_vec1_t			mediump_vec1;
 			//! 1 component vector of low precision floating-point numbers. 
-			//! There is no garanty on the actual precision.
+			//! There is no guarantee on the actual precision.
 			//! From GLM_GTX_vec1 extension.
 			typedef detail::lowp_vec1_t				lowp_vec1;
 
 			//! 1 component vector of high precision signed integer numbers. 
-			//! There is no garanty on the actual precision.
+			//! There is no guarantee on the actual precision.
 			//! From GLM_GTX_vec1 extension.
 			typedef detail::highp_ivec1_t			highp_ivec1;
 			//! 1 component vector of medium precision signed integer numbers. 
-			//! There is no garanty on the actual precision.
+			//! There is no guarantee on the actual precision.
 			//! From GLM_GTX_vec1 extension.
 			typedef detail::mediump_ivec1_t			mediump_ivec1;
 			//! 1 component vector of low precision signed integer numbers. 
-			//! There is no garanty on the actual precision.
+			//! There is no guarantee on the actual precision.
 			//! From GLM_GTX_vec1 extension.
 			typedef detail::lowp_ivec1_t			lowp_ivec1;
 
 			//! 1 component vector of high precision unsigned integer numbers. 
-			//! There is no garanty on the actual precision.
+			//! There is no guarantee on the actual precision.
 			//! From GLM_GTX_vec1 extension.
 			typedef detail::highp_uvec1_t			highp_uvec1;
 			//! 1 component vector of medium precision unsigned integer numbers. 
-			//! There is no garanty on the actual precision.
+			//! There is no guarantee on the actual precision.
 			//! From GLM_GTX_vec1 extension.
 			typedef detail::mediump_uvec1_t			mediump_uvec1;
 			//! 1 component vector of low precision unsigned integer numbers. 
-			//! There is no garanty on the actual precision.
+			//! There is no guarantee on the actual precision.
 			//! From GLM_GTX_vec1 extension.
 			typedef detail::lowp_uvec1_t			lowp_uvec1;
 		}//namespace precision

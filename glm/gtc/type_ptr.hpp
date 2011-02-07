@@ -30,6 +30,9 @@ namespace glm
 	//! GLM_GTC_type_ptr extension: Get access to vectors & matrices value type address.
 	namespace type_ptr{
 
+		/// \addtogroup gtc_type_ptr
+		///@{
+
 		//! Get the const address of the vector content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
@@ -290,6 +293,8 @@ namespace glm
 		{
 			return &(mat[0].x);
 		}
+
+		///@}
 
 	}//namespace type_ptr
 	}//namespace gtc
