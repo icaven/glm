@@ -9,6 +9,11 @@
 	 
 	This library works perfectly with OpenGL but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
 	
+	\note The Doxygen-generated documentation will often state that a type or function
+	is defined in a namespace that is a child of the \link glm glm \endlink namespace.
+	Please ignore this; you can access all publicly available types as direct children
+	of the glm namespace.
+	
 	GLM is written as a platform independent library with no dependence and officially supports the following compilers:
 	1. GCC 3.4 and higher
 	2. LLVM 2.3 and higher
@@ -53,23 +58,33 @@ int foo()
 }
 	\endcode
 	
-	\section started_dependencies Dependencies
+	\section started_structure Library Structure
 	
-	When <glm/glm.hpp> is included, GLM provides all the GLSL features it implements in C++.
- 
-	When an extension is included, all the dependent extensions will be included as well. All the extensions depend on GLM core. (<glm/glm.hpp>)
-	 
-	There is no dependence with external libraries or external headers like gl.h, gl3.h, glu.h or windows.h. However, if <boost/static_assert.hpp> is included, Boost static assert will be used throughout GLM code to provide compiled time errors.
+	GLM is arranged in 3 distinct segments. These are the GLM core,
+	core extensions, and experimental extensions.
+	
+	The \ref core "GLM core" represents only what GLSL's core provides in terms of types and functions
+	(to the best of GLM's ability to replicate them). All that is needed to use the core
+	is to <tt>#include <glm/glm.hpp></tt>.
+	
+	\ref gtc "Core extensions" are sets of functions and types that add onto the core.
+	These are considered reasonably stable, with their APIs not changing much between
+	versions. Each core extension is included with a separated header file include. All
+	of the core extensions are in the "glm/glc" directory.
+	
+	\ref gtx "Experimental extensions" are sets of functions and types that add onto the
+	core. Unlike core extensions, their APIs are not considered particularly stable, which
+	is why they are "experimental". All of the experimental extensions are in the
+	"glm/gtx" directory. Like core extensions, each experimental extension is included
+	with a separate header file.
+	
+	If you want to use all extensions by default, you may <tt>#include <glm/ext.hpp></tt>.
+	This includes all extensions, core and experimental.
+	
+	All of GLM is defined as direct children of the glm namespace, including extensions. Note that some extensions are incompatible with other extensions; this may result in C++ name collisions when used together.  
 
-	\section started_extensions GLM Extensions
-	
-	GLM extends the core GLSL feature set with extensions. These extensions include: \ref gtc_quaternion "quaternion", \ref gtc_matrix_transform "transformation", \ref gtx_spline "spline", \ref gtc_matrix_inverse "matrix inverse", \ref gtx_color_space "color spaces", etc.
-	
-	Note that some extensions are incompatible with other extensions; this may result in C++ name collisions when used together.  
-	 
-	GLM provides two methods to use these extensions.
-
-	This method simply requires the inclusion of the extension implementation filename. The extension features are added to the GLM namespace.
+	To use a particular extension, simply include the extension header file. All
+	extension features are added to the glm namespace.
 	
 	\code
 #include <glm/glm.hpp>
@@ -79,46 +94,66 @@ int foo()
 {
 	glm::vec4 Position = glm::vec4(glm::vec3(0.0f), 1.0f);
 	glm::mat4 Model = glm::translate(
-	glm::mat4(1.0f), glm::vec3(1.0f));
+		glm::mat4(1.0f), glm::vec3(1.0f));
 	glm::vec4 Transformed = Model * Position;
 	return 0;
 }
 	\endcode
 	
+	\section started_dependencies Dependencies
+	
+	When <glm/glm.hpp> is included, GLM provides all the GLSL features it implements in C++.
+ 
+	When an extension is included, all the dependent extensions will be included as well. All the extensions depend on GLM core. (<glm/glm.hpp>)
+	 
+	There is no dependence with external libraries or external headers like gl.h, gl3.h, glu.h or windows.h. However, if <boost/static_assert.hpp> is included, Boost static assert will be used throughout GLM code to provide compiled time errors.
+
 	\section started_interop OpenGL Interoperability
 	
-	It could be possible to implement <tt>glVertex3fv(glm::vec3(0))</tt> in C++ with the appropriate cast operator. It would result as a transparent cast in this example; however, cast operator may result in programs running with unexpected behaviors without build errors or any notification. 
-	 
-	The \ref gtc_type_ptr extension provides a safe solution:
+	It is often useful to get a vector type as an array of its base type. For example, the
+	OpenGL function <tt>glUniform3fv()</tt> takes an array instead of 3 individual values.
+	If the vector and matrix types were simple arrays, then one could pass them to the function
+	like so: <tt>glUniform3fv(loc, 1, glm::vec3(0))</tt>. However, this is not the case;
+	the vector and matrix types are C++ classes, not arrays.
 	
+	Instead, GLM provides a mechanism to get the contents of a vector or matrix as
+	an array pointer. The \ref gtc_type_ptr extension provides this ability.
+
 	\code
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
  
-void foo()
+void BindUniforms(GLuint uniVec, GLuint uniMat)
 {
 	glm::vec4 v(0.0f);
 	glm::mat4 m(1.0f);
 	...
-	glVertex3fv(glm::value_ptr(v)) 
-	glLoadMatrixfv(glm::value_ptr(m));
+	glUniform3fv(uniVec, 1, glm::value_ptr(v));
+	glUniformMatrix4fv(uniMat, 1, GL_FALSE, glm::value_ptr(m));
 }
 	\endcode
+	
+	Notice that all matrix types are <em>column-major</em> rather than row-major. Hence the need to pass GL_FALSE to glUniformMatrix4fv.
 	 
-	Another solution inspired by STL:
+	Alternatively, one can simply dereference the first element of the type.
 	
 	\code
 #include <glm/glm.hpp>
  
-void foo()
+void BindUniforms(GLuint uniVec, GLuint uniMat)
 {
 	glm::vec4 v(0.0f);
 	glm::mat4 m(1.0f);
 	...
-	glVertex3fv(&v[0]);
-	glLoadMatrixfv(&m[0][0]);
+	glUniform3fv(uniVec, 1, glm::value_ptr(&v[0]));
+	glUniformMatrix4fv(uniMat, 1, GL_FALSE, &m[0][0]);
 }
 	\endcode
+	
+	As you can see, this requires dereferencing the very first basic type of the object, not merely the first element. The [] operator on the matrix type returns a column vector; one must then access the first element of that column vector to get a pointer to the basic type.
+	
+	\note This operation could have been built into the base vector and matrix types and performed with a cast operator. However, this has some downsides. Implicit casts
+	can cause unexpected and unwanted behavior.
 **/
 
 /*!
@@ -126,7 +161,7 @@ void foo()
 	
 	\section advanced_swizzle Swizzle Operators
 	
-	A common feature of shader languages like GLSL is components swizzling. This involves being able to select which components of a vector are used and in what order. For example, “variable.x”, “variable.xxy”, “variable.zxyy” are examples of swizzling.
+	A common feature of shader languages like GLSL is components swizzling. This involves being able to select which components of a vector are used and in what order. For example, "variable.x", "variable.xxy", "variable.zxyy" are examples of swizzling.
 
 	\code
 vec4 A;
@@ -136,11 +171,11 @@ B.yx = A.wy;
 B = A.xx;
 	\endcode
 	 
-	This functionally turns out to be really complicated, not to say impossible, to implement in C++ using the exact GLSL conventions. GLM provides 2 implementions this feature.
+	This functionally turns out to be really complicated to implement in C++ using the exact GLSL conventions. GLM provides 2 implementions this feature.
 	 
 	\subsection advanced_swizzle_macro Macro implementation
 	
-	The first implementation follows the GLSL convensions accurately  however it uses macros which might generates name conflicts with system headers or third party libraries so that it is disabled by default. To enable this implementation, GLM_SWIZZLE has to be defined before any inclusion of <glm/glm.hpp>. 
+	The first implementation follows the GLSL convensions accurately. It uses macros to achieve this, which might generates name conflicts with system headers or third party libraries. Therefore, it is disabled by default. To enable this implementation, GLM_SWIZZLE must be defined before any inclusion of <glm/glm.hpp>. 
 	
 	\code
 #define GLM_SWIZZLE 
@@ -157,9 +192,9 @@ B = A.xx;
 	 
 	\subsection advanced_swizzle_ext Extension implementation
 	
-	A safer way to do swizzling is to use the extension GLM_GTC_swizzle. In term of functionalities, this extension is at the same level than GLSL expect that GLM support both static and dynamic swizzling where GLSL only support static swizzling. 
+	A safer way to do swizzling is to use the <glm/gtc/swizzle.hpp> extension. This extension provides the GLSL functionality, but uses a different syntax for it. However, the swizzle extension also provides dynamic swizzling.
 	 
-	Static swizzling is an operation which is resolved at build time but dynamic swizzling is revolved at runtime which is more flexible but slower especially when SSE instructions are used.
+	Static swizzling is resovled at compile-time. The swizzle mask ".xzyy" is as fixed as the type of a particular variable. Dynamic swizzling is resolved at runtime via function calls. Dynamic swizzling is more flexible, since one can choose the swizzle mask at runtime, but it runs slower. This performance issue is enhanced when \ref advanced_simd "SIMD instructions" are used.
 	
 	\code
 #include <glm/glm.hpp>
@@ -168,7 +203,7 @@ B = A.xx;
 void foo()
 {
 	glm::vec4 ColorRGBA(1.0f, 0.5f, 0.0f, 1.0f);
-	…
+	...
 	// Dynamic swizzling (at run time, more flexible)
 	// l-value:
 	glm::vec4 ColorBGRA1 = 
@@ -204,16 +239,16 @@ void foo()
 	
 	\section advanced_inline Force Inline
 	
-	To push further the software performance, a programmer can define GLM_FORCE_INLINE before any inclusion of <glm/glm.hpp> to force the compiler to inline GLM code.
+	GLM's functions are defined in headers, so they are defined with C++'s "inline" delcaration. This does not require the compiler to inline them, however. If you want to force the compiler to inline the function, using whatever capabilities that the compiler provides to do so, you can define GLM_FORCE_INLINE before any inclusion of <glm/glm.hpp>.
 
 	\code
 #define GLM_FORCE_INLINE 
 #include <glm/glm.hpp>
 	\endcode
-
+	
 	\section advanced_simd SIMD Support
 	
-	GLM provides some SIMD optimizations based on compiler intrinsics. These optimizations will be automatically utilized based on the build environment. These optimizations are mainly available through extensions, \ref gtx_simd_vec4 and \ref gtx_simd_mat4. 
+	GLM provides some SIMD optimizations based on compiler intrinsics. These optimizations will be automatically utilized based on the build environment. These optimizations are mainly available through the extensions \ref gtx_simd_vec4 and \ref gtx_simd_mat4. 
  
 	A programmer can restrict or force instruction sets used for these optimizations using GLM_FORCE_SSE2 or GLM_FORCE_AVX. 
 	 
@@ -225,7 +260,7 @@ void foo()
 	\endcode
 
 	\section advanced_compatibility Compatibility
-	Compilers have some language extensions that GLM will automatically take advantage of them when they are enabled. To increase cross platform compatibility and to avoid compiler extensions, a programmer can define GLM_FORCE_CXX98 before any inclusion of <glm/glm.hpp>.
+	Compilers have some language extensions that GLM will automatically take advantage of them when they are enabled. The #define GLM_FORCE_CXX98 can switch off these extensions, forcing GLM to operate on pure C++98.
 
 	\code
 #define GLM_FORCE_CXX98 
@@ -236,188 +271,45 @@ void foo()
 /*!
 	\page pg_deprecated Deprecated Function Replacements
 	
-	The OpenGL 3.0 specification deprecated some features, and most of these have been removed from the OpenGL 3.1 specfication and beyond. GLM provides some replacement functions.
+	The OpenGL 3.0 specification deprecated some features, and most of these have been removed from the OpenGL 3.1 specfication and beyond. GLM provides some replacement functions. Many of these functions come from the \ref gtc_matrix_transform extension.
 	
 	\section deprecated_opengl OpenGL Function Replacements
 	
-	<b>glRotate{f,d}:</b>
+	<dl>
+		<dt>glRotate[fd]</dt>
+		<dd>\link glm::gtc::matrix_transform::rotate glm::rotate \endlink</dd>
+		<dt>glScale[fd]</dt>
+		<dd>\link glm::gtc::matrix_transform::scale glm::scale \endlink</dd>
+		<dt>glTranslate[fd]</dt>
+		<dd>\link glm::gtc::matrix_transform::translate glm::translate \endlink</dd>
+		<dt>glLoadIdentity</dt>
+		<dd>The default constructor of all matrix types creates an identity matrix.</dd>
+		<dt>glMultMatrix[fd]</dt>
+		<dd>Per the GLSL specification, the multiplication operator is overloaded for all matrix types. Multiplying two matrices together will perform matrix multiplication.</dd>
+		<dt>glLoadTransposeMatrix[fd]</dt>
+		<dd>\link glm::core::function::matrix::transpose glm::transpose \endlink</dd>
+		<dt>glMultTransposeMatrix</dt>
+		<dd>Combine the last two.</dd>
+		<dt>glFrustum</dt>
+		<dd>\link glm::gtc::matrix_transform::frustum glm::frustum \endlink</dd>
+		<dt>glOrtho</dt>
+		<dd>\link glm::gtc::matrix_transform::ortho glm::ortho \endlink</dd>
+		<dt>gluLookAt</dt>
+		<dd>\link glm::gtc::matrix_transform::lookAt glm::lookAt \endlink</dd>
+	</dl>
 	
-	From \ref gtc_matrix_transform.
-	
-	\code
-glm::mat4 glm::rotate(
-	glm::mat4 const & m,
-	float angle, glm::vec3 const & axis);
-glm::dmat4 glm::rotate(
-	glm::dmat4 const & m,
-	double angle, glm::dvec3 const & axis);
-	\endcode
-	
-	<b>glScale{f, d}:</b>
-	
-	From \ref gtc_matrix_transform.
-	
-	\code
-glm::mat4 glm::scale(
-	glm::mat4 const & m,
-	glm::vec3 const & factors);
-glm::dmat4 glm::scale(
-	glm::dmat4 const & m,
-	glm::dvec3 const & factors);
-	\endcode
-	
-	<b>glTranslate{f, d}:</b>
-	
-	From \ref gtc_matrix_transform.
-	
-	\code
-glm::mat4 glm::translate(
-	glm::mat4 const & m,
-	glm::vec3 const & translation);
-glm::dmat4 glm::translate(
-	glm::dmat4 const & m,
-	glm::dvec3 const & translation);
-	\endcode
-	
-	<b>glLoadIdentity:</b>
-	
-	From \ref core.
-
-	\code
-glm::mat4(1.0) or glm::mat4();
-glm::dmat4(1.0) or glm::dmat4();
-	\endcode
-
-
-	<b>glMultMatrix{f, d}:</b>
-
-	From \ref core.
-
-	\code
-glm::mat4() * glm::mat4();
-glm::dmat4() * glm::dmat4();
-	\endcode
-
-	<b>glLoadTransposeMatrix{f, d}:</b>
-
-	From \ref core.
-
-	\code
-glm::transpose(glm::mat4());
-glm::transpose(glm::dmat4());
-	\endcode
-
-	<b>glMultTransposeMatrix{f, d}:</b>
-
-	From \ref core.
-
-	\code
-glm::mat4() * glm::transpose(glm::mat4());
-glm::dmat4() * glm::transpose(glm::dmat4());
-	\endcode
-
-	<b>glFrustum:</b>
-
-	From \ref gtc_matrix_transform.
-	
-	\code
-glm::mat4 glm::frustum(
-	float left, float right, 
-	float bottom, float top, 
-	float zNear, float zFar);
-glm::dmat4 glm::frustum(
-	double left, double right, 
-	double bottom, double top, 
-	double zNear, double zFar);
-	\endcode
-
-	<b>glOrtho:</b>
-	
-	From \ref gtc_matrix_transform.
-	
-	\code
-glm::mat4 glm::ortho(
-	float left, float right, 
-	float bottom, float top, 
-	float zNear, float zFar);
-glm::dmat4 glm::ortho(
-	double left, double right, 
-	double bottom, double top, 
-	double zNear, double zFar);
-	\endcode
-
 	\section deprecated_glu GLU Function Replacements
 	
-	<b>gluLookAt:</b>
-
-	From \ref gtc_matrix_transform.
-	
-	\code
-glm::mat4 glm::lookAt(
-	glm::vec3 const & eye,
-	glm::vec3 const & center,
-	glm::vec3 const & up);
-glm::dmat4 glm::lookAt(
-	glm::dvec3 const & eye,
-	glm::dvec3 const & center,
-	glm::dvec3 const & up);
-	\endcode
-
-	<b>gluOrtho2D:</b>
-
-	From \ref gtc_matrix_transform.
-	
-	\code
-glm::mat4 glm::ortho(
-	float left, float right, float bottom, float top);
-glm::dmat4 glm::ortho(
-	double left, double right, double bottom, double top);
-	\endcode
-
-	<b>gluPerspective:</b>
-
-	From \ref gtc_matrix_transform.
-	
-	\code
-glm::mat4 perspective(
-	float fovy, float aspect, float zNear, float zFar);
-glm::dmat4 perspective(
-	double fovy, double aspect, double zNear, double zFar);
-	\endcode
-	
-	<b>gluProject:</b>
-	
-	From \ref gtc_matrix_transform.
-	
-	\code
-glm::vec3 project(
-	glm::vec3 const & obj,
-	glm::mat4 const & model,
-	glm::mat4 const & proj,
-	glm::{i, ' ', d}vec4 const & viewport);
-glm::dvec3 project(
-	glm::dvec3 const & obj,
-	glm::dmat4 const & model,
-	glm::dmat4 const & proj,
-	glm::{i, ' ', d}vec4 const & viewport);
-	\endcode
-	
-	<b>gluUnProject:</b>
-	
-	From \ref gtc_matrix_transform.
-	
-	\code
-glm::vec3 unProject(
-	glm::vec3 const & win, 
-	glm::mat4 const & model, 
-	glm::mat4 const & proj, 
-	glm::{i, ' '}vec4 const & viewport);
-glm::dvec3 unProject(
-	glm::dvec3 const & win, 
-	glm::dmat4 const & model, 
-	glm::dmat4 const & proj, 
-	glm::{i, ' ', d}vec4 const & viewport);
-	\endcode
+	<dl>
+		<dt>gluOrtho2D</dt>
+		<dd>\link glm::gtc::matrix_transform::ortho glm::ortho \endlink</dd>
+		<dt>gluPerspective</dt>
+		<dd>\link glm::gtc::matrix_transform::perspective glm::perspective \endlink</dd>
+		<dt>gluProject</dt>
+		<dd>\link glm::gtc::matrix_transform::project glm::project \endlink</dd>
+		<dt>gluUnProject</dt>
+		<dd>\link glm::gtc::matrix_transform::unProject glm::unProject \endlink</dd>
+	</dl>
 **/
 
 /*!
@@ -453,7 +345,7 @@ glm::dvec3 unProject(
 	GLSL conventions is a way to find consensus. Moreover, basically when a developer knows 
 	GLSL, he knows GLM.
 	
-	\section faq2 Does GLM run GLSL program?
+	\section faq2 Does GLM run GLSL programs?
 	
 	No, GLM is a C++ implementation of a subset of GLSL.
 	
@@ -463,12 +355,9 @@ glm::dvec3 unProject(
 	
 	\section faq4 Should I use GTX extensions?
 	
-	\ref gtx are qualified to be experimental extensions. In GLM this means that these 
-	extensions might change from version to version without restriction. In practice, it doesn't 
-	really change except time to time. GTC extensions are stabled, tested and perfectly reliable 
-	in time. Many GTX extensions extend GTC extensions and provide a way to explore features 
-	and implementations before becoming stable by a promotion as GTC extensions. This is 
-	fairly the way OpenGL features are developed through extensions.
+	\ref gtx are experimental. In GLM this means that these extensions might change from version to version without restriction. In practice, it doesn't really change except time to time. GTC extensions are stabled, tested and perfectly reliable in time. Many GTX extensions extend GTC extensions and provide a way to explore features and implementations before becoming stable by a promotion as GTC extensions. This is similar to how OpenGL extensions can be EXT or ARB extensions before becoming core functionality.
+	
+	In short, if you use a GTX extension, the API is much more likely to change from version to version than if you don't. But you should not feel too uncomfortable about using them.
 	
 	\section faq5 Where can I ask my questions?
 	
@@ -483,12 +372,10 @@ glm::dvec3 unProject(
 	
 	\section faq7 Should I use 'using namespace glm;'?
 	
-	NO! Chances are that if 'using namespace glm;' is called, name collisions will happen 
-	because GLM is based on GLSL and GLSL is also a consensus on tokens so these tokens are 
-	probably used quite often.
+	This is unwise. There is every chance that are that if 'using namespace glm;' is called, name collisions will happen. GLSL names for functions are fairly generic, so it is entirely likely that there is another function called, for example, \link glm::sqrt sqrt \endlink.
 	
-	If you need frequent use of certain types, you can bring them into the global
-	namespace with a using declaration like this:
+	If you need frequent use of particular types, you can bring them into the global
+	namespace with a 'using' declaration like this:
 	
 	/code
 	using glm::mat4;
@@ -498,14 +385,20 @@ glm::dvec3 unProject(
 	
 	\section faq8 Is GLM fast?
 	
-	First, GLM is mainly designed to be convenient and that's why it is written against GLSL specification. Following the 20-80 rules where 20% of the code grad 80% of the performances, GLM perfectly operates on the 80% of the code that consumes 20% of the performances. This said, on performance critical code section, the developers will probably have to write to specific code based on a specific design to reach peak performances but GLM can provides some descent performances alternatives based on approximations or SIMD instructions.
+	GLM is mainly designed to be convenient; that's why it is written against GLSL specification.
+	
+	The <a href="http://en.wikipedia.org/wiki/Pareto_principle">80-20</a> rule suggests that 80% of a program's performance comes from 20% of its code. Therefore, one must first identify which 20% of the code is impacting the performance.
+	
+	In general, if one identifies certain math code to be a performance bottleneck, the only way to solve this is to write specialized code for those particular math needs. So no canned library solution would be suitable.
+	
+	That being said, GLM can provides some descent performances alternatives based on approximations or SIMD instructions.
 **/
 
 /*!
 	\page pg_samples Code Samples
 	
-	This series of samples only shows various GLM functionalities without consideration of any sort.
-
+	This series of samples only shows various GLM functionality.
+	
 	\section sample1 Compute a Triangle's Normal
 	
 	\code
