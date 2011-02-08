@@ -275,7 +275,7 @@ namespace glm
 			detail::fvec4SIMD const & x
 		)
 		{
-			detail::tvec4<float> Result;
+			GLM_ALIGN(4) detail::tvec4<float> Result;
 			_mm_store_ps(&Result[0], x.Data);
 			return Result;
 		}
@@ -530,25 +530,67 @@ namespace glm
 			return _mm_add_ps(_mm_mul_ps(a.Data, b.Data), c.Data);
 		}
 
-		inline float simdLength
+		inline float length
 		(
 			detail::fvec4SIMD const & x
 		)
 		{
+			detail::fvec4SIMD dot0 = detail::sse_dot_ss(x.Data, x.Data);
+			detail::fvec4SIMD sqt0 = sqrt(dot0);
 			float Result = 0;
-			_mm_store_ss(&Result, detail::sse_len_ps(x.Data));
+			_mm_store_ss(&Result, sqt0.Data);
 			return Result;
 		}
 
-		inline detail::fvec4SIMD simdLength4
+		inline float fastLength
 		(
 			detail::fvec4SIMD const & x
 		)
 		{
-			return detail::sse_len_ps(x.Data);
+			detail::fvec4SIMD dot0 = detail::sse_dot_ss(x.Data, x.Data);
+			detail::fvec4SIMD sqt0 = fastSqrt(dot0);
+			float Result = 0;
+			_mm_store_ss(&Result, sqt0.Data);
+			return Result;
 		}
 
-		inline float simdDistance
+		inline float niceLength
+		(
+			detail::fvec4SIMD const & x
+		)
+		{
+			detail::fvec4SIMD dot0 = detail::sse_dot_ss(x.Data, x.Data);
+			detail::fvec4SIMD sqt0 = niceSqrt(dot0);
+			float Result = 0;
+			_mm_store_ss(&Result, sqt0.Data);
+			return Result;
+		}
+
+		inline detail::fvec4SIMD length4
+		(
+			detail::fvec4SIMD const & x
+		)
+		{
+			return sqrt(dot4(x, x));
+		}
+
+		inline detail::fvec4SIMD fastLength4
+		(
+			detail::fvec4SIMD const & x
+		)
+		{
+			return fastSqrt(dot4(x, x));
+		}
+
+		inline detail::fvec4SIMD niceLength4
+		(
+			detail::fvec4SIMD const & x
+		)
+		{
+			return niceSqrt(dot4(x, x));
+		}
+
+		inline float distance
 		(
 			detail::fvec4SIMD const & p0,
 			detail::fvec4SIMD const & p1
@@ -559,7 +601,7 @@ namespace glm
 			return Result;
 		}
 
-		inline detail::fvec4SIMD simdDistance4
+		inline detail::fvec4SIMD distance4
 		(
 			detail::fvec4SIMD const & p0,
 			detail::fvec4SIMD const & p1
@@ -568,7 +610,7 @@ namespace glm
 			return detail::sse_dst_ps(p0.Data, p1.Data);
 		}
 
-		inline float simdDot
+		inline float dot
 		(
 			detail::fvec4SIMD const & x,
 			detail::fvec4SIMD const & y
@@ -579,16 +621,16 @@ namespace glm
 			return Result;
 		}
 
-		inline detail::fvec4SIMD simdDot4
+		inline detail::fvec4SIMD dot4
 		(
 			detail::fvec4SIMD const & x,
 			detail::fvec4SIMD const & y
 		)
 		{
-			return detail::sse_dot_ss(x.Data, y.Data);
+			return detail::sse_dot_ps(x.Data, y.Data);
 		}
 
-		inline detail::fvec4SIMD simdCross
+		inline detail::fvec4SIMD cross
 		(
 			detail::fvec4SIMD const & x,
 			detail::fvec4SIMD const & y
@@ -597,15 +639,29 @@ namespace glm
 			return detail::sse_xpd_ps(x.Data, y.Data);
 		}
 
-		inline detail::fvec4SIMD simdNormalize
+		inline detail::fvec4SIMD normalize
 		(
 			detail::fvec4SIMD const & x
 		)
 		{
-			return detail::sse_nrm_ps(x.Data);
+			__m128 dot0 = detail::sse_dot_ps(x.Data, x.Data);
+			__m128 isr0 = inversesqrt(dot0).Data;
+			__m128 mul0 = _mm_mul_ps(x.Data, isr0);
+			return mul0;
 		}
 
-		inline detail::fvec4SIMD simdFaceforward
+		inline detail::fvec4SIMD fastNormalize
+		(
+			detail::fvec4SIMD const & x
+		)
+		{
+			__m128 dot0 = detail::sse_dot_ps(x.Data, x.Data);
+			__m128 isr0 = fastInversesqrt(dot0).Data;
+			__m128 mul0 = _mm_mul_ps(x.Data, isr0);
+			return mul0;
+		}
+
+		inline detail::fvec4SIMD faceforward
 		(
 			detail::fvec4SIMD const & N,
 			detail::fvec4SIMD const & I,
@@ -615,7 +671,7 @@ namespace glm
 			return detail::sse_ffd_ps(N.Data, I.Data, Nref.Data);
 		}
 
-		inline detail::fvec4SIMD simdReflect
+		inline detail::fvec4SIMD reflect
 		(
 			detail::fvec4SIMD const & I,
 			detail::fvec4SIMD const & N
@@ -624,7 +680,7 @@ namespace glm
 			return detail::sse_rfe_ps(I.Data, N.Data);
 		}
 
-		inline detail::fvec4SIMD simdRefract
+		inline detail::fvec4SIMD refract
 		(
 			detail::fvec4SIMD const & I,
 			detail::fvec4SIMD const & N,
@@ -632,6 +688,39 @@ namespace glm
 		)
 		{
 			return detail::sse_rfa_ps(I.Data, N.Data, _mm_set1_ps(eta));
+		}
+
+		inline detail::fvec4SIMD sqrt(detail::fvec4SIMD const & x)
+		{
+			return _mm_mul_ps(inversesqrt(x.Data).Data, x.Data);
+		}
+
+		inline detail::fvec4SIMD niceSqrt(detail::fvec4SIMD const & x)
+		{
+			return _mm_sqrt_ps(x.Data);
+		}
+
+		inline detail::fvec4SIMD fastSqrt(detail::fvec4SIMD const & x)
+		{
+			return _mm_mul_ps(fastInversesqrt(x.Data).Data, x.Data);
+		}
+
+		// SSE scalar reciprocal sqrt using rsqrt op, plus one Newton-Rhaphson iteration
+		// By Elan Ruskin, http://assemblyrequired.crashworks.org/
+		inline detail::fvec4SIMD inversesqrt(detail::fvec4SIMD const & x)
+		{
+			GLM_ALIGN(4) static const __m128 three = {3, 3, 3, 3}; // aligned consts for fast load
+			GLM_ALIGN(4) static const __m128 half = {0.5,0.5,0.5,0.5};
+
+			__m128 recip = _mm_rsqrt_ps(x.Data);  // "estimate" opcode
+			__m128 halfrecip = _mm_mul_ps(half, recip);
+			__m128 threeminus_xrr = _mm_sub_ps(three, _mm_mul_ps(x.Data, _mm_mul_ps(recip, recip)));
+			return _mm_mul_ps(halfrecip, threeminus_xrr);
+		}
+
+		inline detail::fvec4SIMD fastInversesqrt(detail::fvec4SIMD const & x)
+		{
+			return _mm_rsqrt_ps(x.Data);
 		}
 
 	}//namespace simd_vec4

@@ -28,7 +28,7 @@ std::vector<float> test_detA(std::vector<glm::mat4> const & Data)
 		Test[i] = glm::determinant(Data[i]);
 
 	std::clock_t TimeEnd = clock();
-	printf("Det A: %d\n", TimeEnd - TimeStart);
+	printf("Det A: %ld\n", TimeEnd - TimeStart);
 
 	return Test;
 }
@@ -49,7 +49,7 @@ std::vector<float> test_detB(std::vector<glm::mat4> const & Data)
 	}
 
 	std::clock_t TimeEnd = clock();
-	printf("Det B: %d\n", TimeEnd - TimeStart);
+	printf("Det B: %ld\n", TimeEnd - TimeStart);
 
 	return Test;
 }
@@ -70,7 +70,7 @@ std::vector<float> test_detC(std::vector<glm::mat4> const & Data)
 	}
 
 	std::clock_t TimeEnd = clock();
-	printf("Det C: %d\n", TimeEnd - TimeStart);
+	printf("Det C: %ld\n", TimeEnd - TimeStart);
 
 	return Test;
 }
@@ -91,7 +91,7 @@ std::vector<float> test_detD(std::vector<glm::mat4> const & Data)
 	}
 
 	std::clock_t TimeEnd = clock();
-	printf("Det D: %d\n", TimeEnd - TimeStart);
+	printf("Det D: %ld\n", TimeEnd - TimeStart);
 
 	return Test;
 }
@@ -109,7 +109,7 @@ void test_invA(std::vector<glm::mat4> const & Data, std::vector<glm::mat4> & Out
 	}
 
 	std::clock_t TimeEnd = clock();
-	printf("Inv A: %d\n", TimeEnd - TimeStart);
+	printf("Inv A: %ld\n", TimeEnd - TimeStart);
 }
 
 void test_invC(std::vector<glm::mat4> const & Data, std::vector<glm::mat4> & Out)
@@ -129,7 +129,7 @@ void test_invC(std::vector<glm::mat4> const & Data, std::vector<glm::mat4> & Out
 	}
 
 	std::clock_t TimeEnd = clock();
-	printf("Inv C: %d\n", TimeEnd - TimeStart);
+	printf("Inv C: %ld\n", TimeEnd - TimeStart);
 }
 
 void test_invD(std::vector<glm::mat4> const & Data, std::vector<glm::mat4> & Out)
@@ -149,7 +149,7 @@ void test_invD(std::vector<glm::mat4> const & Data, std::vector<glm::mat4> & Out
 	}
 
 	std::clock_t TimeEnd = clock();
-	printf("Inv D: %d\n", TimeEnd - TimeStart);
+	printf("Inv D: %ld\n", TimeEnd - TimeStart);
 }
 
 void test_mulA(std::vector<glm::mat4> const & Data, std::vector<glm::mat4> & Out)
@@ -165,7 +165,7 @@ void test_mulA(std::vector<glm::mat4> const & Data, std::vector<glm::mat4> & Out
 	}
 
 	std::clock_t TimeEnd = clock();
-	printf("Mul A: %d\n", TimeEnd - TimeStart);
+	printf("Mul A: %ld\n", TimeEnd - TimeStart);
 }
 
 void test_mulD(std::vector<glm::mat4> const & Data, std::vector<glm::mat4> & Out)
@@ -183,7 +183,7 @@ void test_mulD(std::vector<glm::mat4> const & Data, std::vector<glm::mat4> & Out
 	}
 
 	std::clock_t TimeEnd = clock();
-	printf("Mul D: %d\n", TimeEnd - TimeStart);
+	printf("Mul D: %ld\n", TimeEnd - TimeStart);
 }
 
 int test_compute_glm()
@@ -222,7 +222,7 @@ int test_compute_gtx()
 	}
 
 	std::clock_t TimeEnd = clock();
-	printf("test_compute_gtx: %d\n", TimeEnd - TimeStart);
+	printf("test_compute_gtx: %ld\n", TimeEnd - TimeStart);
 
 	return Output.size() != 0;
 }
@@ -280,8 +280,8 @@ int main()
 	Failed += test_compute_glm();
 	Failed += test_compute_gtx();
 	
-	float Det = glm::simdDeterminant(glm::simdMat4(1.0));
-	glm::simdMat4 D = glm::simdMatrixCompMult(glm::simdMat4(1.0), glm::simdMat4(1.0));
+	float Det = glm::determinant(glm::simdMat4(1.0));
+	glm::simdMat4 D = glm::matrixCompMult(glm::simdMat4(1.0), glm::simdMat4(1.0));
 
 	system("pause");
 
