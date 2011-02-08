@@ -150,7 +150,7 @@ namespace glm
 			detail::tquat<T> const & q1, 
 			detail::tquat<T> const & q2);
 		
-		//! Returns a LERP interpolated quaternion of x and y according a. 
+		//! Returns a SLERP interpolated quaternion of x and y according a. 
 		//! From GLM_GTC_quaternion extension.
 		template <typename T> 
 		detail::tquat<T> mix(
