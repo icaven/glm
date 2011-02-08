@@ -250,7 +250,7 @@ namespace simd_mat4
 		return Result;
 	}
 
-	inline detail::fmat4x4SIMD simdMatrixCompMult
+	inline detail::fmat4x4SIMD matrixCompMult
 	(
 		detail::fmat4x4SIMD const & x,
 		detail::fmat4x4SIMD const & y
@@ -264,7 +264,7 @@ namespace simd_mat4
 		return result;
 	}
 
-	inline detail::fmat4x4SIMD simdOuterProduct
+	inline detail::fmat4x4SIMD outerProduct
 	(
 		detail::fvec4SIMD const & c,
 		detail::fvec4SIMD const & r
@@ -273,21 +273,21 @@ namespace simd_mat4
 
 	}
 
-	inline detail::fmat4x4SIMD simdTranspose(detail::fmat4x4SIMD const & m)
+	inline detail::fmat4x4SIMD transpose(detail::fmat4x4SIMD const & m)
 	{
 		detail::fmat4x4SIMD result;
 		detail::sse_transpose_ps(&m[0].Data, &result[0].Data);
 		return result;
 	}
 
-	inline float simdDeterminant(detail::fmat4x4SIMD const & m)
+	inline float determinant(detail::fmat4x4SIMD const & m)
 	{
 		float Result;
 		_mm_store_ss(&Result, detail::sse_det_ps(&m[0].Data));
 		return Result;
 	}
 
-	inline detail::fmat4x4SIMD simdInverse(detail::fmat4x4SIMD const & m)
+	inline detail::fmat4x4SIMD inverse(detail::fmat4x4SIMD const & m)
 	{
 		detail::fmat4x4SIMD result;
 		detail::sse_inverse_ps(&m[0].Data, &result[0].Data);
