@@ -16,9 +16,9 @@
 
 
 /*!
-	\defgroup core_types Core GLSL Types
+	\defgroup core_types Core Types
 	
-	\brief The standard types defined by the GLSL specification.
+	\brief The standard types defined by the specification.
 	
 	These types are all typedefs of more generalized, template types. To see the definiton
 	of these template types, go to \ref core_template.
@@ -54,9 +54,9 @@
 **/
 
 /*!
-	\defgroup core_funcs Core GLSL Functions
+	\defgroup core_funcs Core Functions
 	
-	\brief The functions defined by the GLSL specification.
+	\brief The functions defined by the specification.
 
 	\ingroup core
 **/

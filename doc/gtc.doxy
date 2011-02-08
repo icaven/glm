@@ -1,5 +1,5 @@
 /*!
-	\defgroup gtc GLM Core Extensions
+	\defgroup gtc GTC Extensions (Stable)
 	
 	\brief Functions and types that GLSL does not provide, but are useful to have.
 	
@@ -7,8 +7,8 @@
 	are fairly stable. The API for experimental extensions is expected to change
 	significantly between versions.
 	
-	You can bring all of the extensions, core or experimental, in by
-	including <glm/ext.hpp> Otherwise, you will have to include each extension
+	Even if it's highly unrecommended, you can bring all of the extensions, by
+	including <glm/ext.hpp>. Otherwise, you will have to include each extension
 	by including a specific file.
 **/
 
@@ -18,7 +18,7 @@
 	
 	\brief Defines the half-float type, along with various typedefs for vectors and matrices.
 
-	You must include <glm/glc/half_float.hpp> to get this functionality.
+	You must include <glm/gtc/half_float.hpp> to get this functionality.
 **/
 
 /*!
@@ -27,7 +27,7 @@
 	
 	\brief Defines functions that allow you to access rows or columns of a matrix easily.
 
-	You must include <glm/glc/matrix_access.hpp> to get this functionality.
+	You must include <glm/gtc/matrix_access.hpp> to get this functionality.
 **/
 
 /*!
@@ -36,7 +36,7 @@
 	
 	\brief Defines a number of matrices with integer types.
 	
-	You must include <glm/glc/matrix_integer.hpp> to get this functionality.
+	You must include <glm/gtc/matrix_integer.hpp> to get this functionality.
 **/
 
 /*!
@@ -45,7 +45,7 @@
 	
 	\brief Defines additional matrix inverting functions.
 	
-	You must include <glm/glc/matrix_inverse.hpp> to get this functionality.
+	You must include <glm/gtc/matrix_inverse.hpp> to get this functionality.
 **/
 
 /*!
@@ -60,7 +60,7 @@
 	perspective, ortho, etc) are designed to expect. The OpenGL compatibility
 	specifications defines the particular layout of this eye space.
 	
-	You must include <glm/glc/matrix_transform.hpp> to get this functionality.
+	You must include <glm/gtc/matrix_transform.hpp> to get this functionality.
 **/
 
 /*!
@@ -69,7 +69,7 @@
 	
 	\brief Defines a templated quaternion type and several quaternion operations.
 	
-	You must include <glm/glc/quaternion.hpp> to get this functionality.
+	You must include <glm/gtc/quaternion.hpp> to get this functionality.
 **/
 
 /*!
@@ -81,7 +81,7 @@
 	\ref core_precision defines types based on GLSL's precision qualifiers. This
 	extension defines types based on explicitly-sized C++ data types.
 	
-	You must include the file <glm/glc/type_precision.hpp> to get this functionality.
+	You must include the file <glm/gtc/type_precision.hpp> to get this functionality.
 **/
 
 /*!
@@ -101,7 +101,7 @@
 	
 	\code
 #include <glm/glm.hpp>
-#include <glm/glc/type_ptr.hpp>
+#include <glm/gtc/type_ptr.hpp>
 glm::vec3 aVector(3);
 glm::mat4 someMatrix(1.0);
 
@@ -109,6 +109,6 @@ glUniform3fv(uniformLoc, 1, glm::value_ptr(aVector));
 glUniformMatrix4fv(uniformMatrixLoc, 1, GL_FALSE, glm::value_ptr(someMatrix));
 	\endcode
 	
-	You must include the file <glm/glc/type_ptr.hpp> to get this functionality.
+	You must include the file <glm/gtc/type_ptr.hpp> to get this functionality.
 **/
 
