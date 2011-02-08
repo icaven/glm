@@ -1,5 +1,5 @@
 /*!
-	\defgroup gtx GLM Experimental Extensions
+	\defgroup gtx GTX Extensions (Experimental)
 	
 	\brief Functions and types that GLSL does not provide, but are useful to have.
 	
@@ -7,8 +7,8 @@
 	their API and functionality is not necessarily stable. They can change substantially
 	between versions. Backwards compatibility is not much of an issue for them.
 	
-	You can bring all of the extensions, core or experimental, in by
-	including <glm/ext.hpp> Otherwise, you will have to include each extension
+	Even if it's highly unrecommended, you can bring all of the extensions, by
+	including <glm/ext.hpp>. Otherwise, you will have to include each extension
 	by including a specific file.
 **/
 
