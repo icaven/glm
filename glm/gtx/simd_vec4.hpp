@@ -379,6 +379,12 @@ namespace glm
 		detail::fvec4SIMD simdNormalize(
 			detail::fvec4SIMD const & x);
 
+		//! Returns a vector in the same direction as x but with length of 1.
+		//! Less accurate but much faster than simdNormalize.
+		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
+		detail::fvec4SIMD simdFastNormalize(
+			detail::fvec4SIMD const & x);
+
 		//! If dot(Nref, I) < 0.0, return N, otherwise, return -N.
 		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
 		detail::fvec4SIMD simdFaceforward(
@@ -407,12 +413,14 @@ namespace glm
 		detail::fvec4SIMD simdSqrt(
 			detail::fvec4SIMD const & x);
 
-		//! Returns the positive square root of x with the nicest quality but very slow
+		//! Returns the positive square root of x with the nicest quality but very slow.
+		//! Slightly more accurate but much slower than simdSqrt.
 		//! (From GLM_GTX_simd_vec4 extension, exponential function)
 		detail::fvec4SIMD simdNiceSqrt(
 			detail::fvec4SIMD const & x);
 
-		//! Returns the positive square root of x but less accurate than simdSqrt but much faster.
+		//! Returns the positive square root of x
+		//! Less accurate but much faster than simdSqrt.
 		//! (From GLM_GTX_simd_vec4 extension, exponential function)
 		detail::fvec4SIMD simdFastSqrt(
 			detail::fvec4SIMD const & x);
@@ -422,8 +430,8 @@ namespace glm
 		detail::fvec4SIMD simdInversesqrt(
 			detail::fvec4SIMD const & x);
 
-		//! Returns the reciprocal of the positive square root of x, 
-		//! faster than simdInversesqrt but less accurate.
+		//! Returns the reciprocal of the positive square root of x.
+		//! Faster than simdInversesqrt but less accurate.
 		//! (From GLM_GTX_simd_vec4 extension, exponential function)
 		detail::fvec4SIMD simdFastInversesqrt(
 			detail::fvec4SIMD const & x);

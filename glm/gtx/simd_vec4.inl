@@ -585,7 +585,7 @@ namespace glm
 			detail::fvec4SIMD const & y
 		)
 		{
-			return detail::sse_dot_ss(x.Data, y.Data);
+			return detail::sse_dot_ps(x.Data, y.Data);
 		}
 
 		inline detail::fvec4SIMD simdCross
@@ -602,7 +602,21 @@ namespace glm
 			detail::fvec4SIMD const & x
 		)
 		{
-			return detail::sse_nrm_ps(x.Data);
+			__m128 dot0 = detail::sse_dot_ps(x.Data, x.Data);
+			__m128 isr0 = simdInversesqrt(dot0).Data;
+			__m128 mul0 = _mm_mul_ps(x.Data, isr0);
+			return mul0;
+		}
+
+		inline detail::fvec4SIMD simdFastNormalize
+		(
+			detail::fvec4SIMD const & x
+		)
+		{
+			__m128 dot0 = detail::sse_dot_ps(x.Data, x.Data);
+			__m128 isr0 = simdFastInversesqrt(dot0).Data;
+			__m128 mul0 = _mm_mul_ps(x.Data, isr0);
+			return mul0;
 		}
 
 		inline detail::fvec4SIMD simdFaceforward
@@ -636,7 +650,7 @@ namespace glm
 
 		inline detail::fvec4SIMD simdSqrt(detail::fvec4SIMD const & x)
 		{
-			return _mm_mul_ps(simdInversesqrt(x.Data), x.Data);
+			return _mm_mul_ps(simdInversesqrt(x.Data).Data, x.Data);
 		}
 
 		inline detail::fvec4SIMD simdNiceSqrt(detail::fvec4SIMD const & x)
@@ -646,7 +660,7 @@ namespace glm
 
 		inline detail::fvec4SIMD simdFastSqrt(detail::fvec4SIMD const & x)
 		{
-			return _mm_mul_ps(simdFastInversesqrt(x.Data), x.Data);
+			return _mm_mul_ps(simdFastInversesqrt(x.Data).Data, x.Data);
 		}
 
 		// SSE scalar reciprocal sqrt using rsqrt op, plus one Newton-Rhaphson iteration
