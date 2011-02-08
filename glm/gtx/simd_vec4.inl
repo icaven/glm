@@ -636,12 +636,17 @@ namespace glm
 
 		inline detail::fvec4SIMD simdSqrt(detail::fvec4SIMD const & x)
 		{
+			return _mm_mul_ps(simdInversesqrt(x.Data), x.Data);
+		}
+
+		inline detail::fvec4SIMD simdNiceSqrt(detail::fvec4SIMD const & x)
+		{
 			return _mm_sqrt_ps(x.Data);
 		}
 
 		inline detail::fvec4SIMD simdFastSqrt(detail::fvec4SIMD const & x)
 		{
-
+			return _mm_mul_ps(simdFastInversesqrt(x.Data), x.Data);
 		}
 
 		// SSE scalar reciprocal sqrt using rsqrt op, plus one Newton-Rhaphson iteration

@@ -407,7 +407,12 @@ namespace glm
 		detail::fvec4SIMD simdSqrt(
 			detail::fvec4SIMD const & x);
 
-		//! Returns the positive square root of x with an accuracy slight lower or equal than simdSqrt but much faster.
+		//! Returns the positive square root of x with the nicest quality but very slow
+		//! (From GLM_GTX_simd_vec4 extension, exponential function)
+		detail::fvec4SIMD simdNiceSqrt(
+			detail::fvec4SIMD const & x);
+
+		//! Returns the positive square root of x but less accurate than simdSqrt but much faster.
 		//! (From GLM_GTX_simd_vec4 extension, exponential function)
 		detail::fvec4SIMD simdFastSqrt(
 			detail::fvec4SIMD const & x);
