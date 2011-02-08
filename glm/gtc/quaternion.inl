@@ -369,6 +369,43 @@ namespace quaternion{
             k0 * x.z + k1 * y2.z);
     }
 
+    template <typename T>
+    inline detail::tquat<T> mix2
+	(
+		detail::tquat<T> const & x, 
+		detail::tquat<T> const & y, 
+		T const & a
+	)
+    {
+        bool flip = false;
+		if(a <= T(0)) return x;
+        if(a >= T(1)) return y;
+
+        T cos_t = dot(x, y);
+		if(cos_t < T(0))
+		{
+			cos_t = -cos_t;
+			flip = true;
+		}
+
+		T alpha(0), beta(0);
+
+		if(T(1) - cos_t < 1e-7)
+			beta = T(1) - alpha;
+		else
+		{
+			T theta = acos(cos_t);
+			T sin_t = sin(theta);
+			beta = sin(theta * (T(1) - alpha)) / sin_t;
+			alpha = sin(alpha * theta) / sin_t;
+		}
+
+		if(flip)
+			alpha = -alpha;
+		
+        return normalize(beta * x + alpha * y2);
+    }
+
     template <typename T> 
     inline detail::tquat<T> conjugate
 	(
