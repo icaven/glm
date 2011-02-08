@@ -270,7 +270,17 @@ namespace simd_mat4
 		detail::fvec4SIMD const & r
 	)
 	{
+		__m128 Shu0 = _mm_shuffle_ps(r.Data, r.Data, _MM_SHUFFLE(0, 0, 0, 0));
+		__m128 Shu1 = _mm_shuffle_ps(r.Data, r.Data, _MM_SHUFFLE(1, 1, 1, 1));
+		__m128 Shu2 = _mm_shuffle_ps(r.Data, r.Data, _MM_SHUFFLE(2, 2, 2, 2));
+		__m128 Shu3 = _mm_shuffle_ps(r.Data, r.Data, _MM_SHUFFLE(3, 3, 3, 3));
 
+		detail::fmat4x4SIMD result(detail::fmat4x4SIMD::null);
+		result[0].Data = _mm_mul_ps(c.Data, Shu0);
+		result[1].Data = _mm_mul_ps(c.Data, Shu1);
+		result[2].Data = _mm_mul_ps(c.Data, Shu2);
+		result[3].Data = _mm_mul_ps(c.Data, Shu3);
+		return result;
 	}
 
 	inline detail::fmat4x4SIMD transpose(detail::fmat4x4SIMD const & m)
