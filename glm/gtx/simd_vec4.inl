@@ -634,6 +634,34 @@ namespace glm
 			return detail::sse_rfa_ps(I.Data, N.Data, _mm_set1_ps(eta));
 		}
 
+		inline detail::fvec4SIMD simdSqrt(detail::fvec4SIMD const & x)
+		{
+			return _mm_sqrt_ps(x.Data);
+		}
+
+		inline detail::fvec4SIMD simdFastSqrt(detail::fvec4SIMD const & x)
+		{
+
+		}
+
+		// SSE scalar reciprocal sqrt using rsqrt op, plus one Newton-Rhaphson iteration
+		// By Elan Ruskin, http://assemblyrequired.crashworks.org/
+		inline detail::fvec4SIMD simdInversesqrt(detail::fvec4SIMD const & x)
+		{
+			GLM_ALIGN(4) static const __m128 three = {3, 3, 3, 3}; // aligned consts for fast load
+			GLM_ALIGN(4) static const __m128 half = {0.5,0.5,0.5,0.5};
+
+			__m128 recip = _mm_rsqrt_ps(x.Data);  // "estimate" opcode
+			__m128 halfrecip = _mm_mul_ps(half, recip);
+			__m128 threeminus_xrr = _mm_sub_ps(three, _mm_mul_ps(x.Data, _mm_mul_ps(recip, recip)));
+			return _mm_mul_ps(halfrecip, threeminus_xrr);
+		}
+
+		inline detail::fvec4SIMD simdFastInversesqrt(detail::fvec4SIMD const & x)
+		{
+			return _mm_rsqrt_ps(x.Data);
+		}
+
 	}//namespace simd_vec4
 	}//namespace gtx
 }//namespace glm

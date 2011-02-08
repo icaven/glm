@@ -407,6 +407,27 @@ namespace glm
 			detail::fvec4SIMD const & N,
 			float const & eta);
 
+		//! Returns the positive square root of x.
+		//! (From GLM_GTX_simd_vec4 extension, exponential function)
+		detail::fvec4SIMD simdSqrt(
+			detail::fvec4SIMD const & x);
+
+		//! Returns the positive square root of x with an accuracy slight lower or equal than simdSqrt but much faster.
+		//! (From GLM_GTX_simd_vec4 extension, exponential function)
+		detail::fvec4SIMD simdFastSqrt(
+			detail::fvec4SIMD const & x);
+
+		//! Returns the reciprocal of the positive square root of x.
+		//! (From GLM_GTX_simd_vec4 extension, exponential function)
+		detail::fvec4SIMD simdInversesqrt(
+			detail::fvec4SIMD const & x);
+
+		//! Returns the reciprocal of the positive square root of x, 
+		//! faster than simdInversesqrt but less accurate.
+		//! (From GLM_GTX_simd_vec4 extension, exponential function)
+		detail::fvec4SIMD simdFastInversesqrt(
+			detail::fvec4SIMD const & x);
+
 		///@}
 	}//namespace simd_vec4
 	}//namespace gtx
