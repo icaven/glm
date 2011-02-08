@@ -21,7 +21,7 @@
 	 
 	The source code is licenced under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT licence</a>.
 	 
-	Thanks for contributing to the project by submitting tickets for bug reports and feature requests. (SF.net account required). Any feedback is welcome at glm@g-truc.net.
+	Thanks for contributing to the project by <a href="https://sourceforge.net/apps/trac/ogl-math/newticket">submitting tickets for bug reports and feature requests</a>. (SF.net account required). Any feedback is welcome at glm@g-truc.net.
 
 	\li \subpage pg_started 
 	\li \subpage pg_advanced
@@ -70,7 +70,7 @@ int foo()
 	\ref gtc "Core extensions" are sets of functions and types that add onto the core.
 	These are considered reasonably stable, with their APIs not changing much between
 	versions. Each core extension is included with a separated header file include. All
-	of the core extensions are in the "glm/glc" directory.
+	of the core extensions are in the "glm/gtc" directory.
 	
 	\ref gtx "Experimental extensions" are sets of functions and types that add onto the
 	core. Unlike core extensions, their APIs are not considered particularly stable, which
