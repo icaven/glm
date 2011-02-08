@@ -258,7 +258,7 @@ inline __m128 sse_inf_ps(__m128 x)
 }
 
 // SSE scalar reciprocal sqrt using rsqrt op, plus one Newton-Rhaphson iteration
-// By Elan Ruskin, 
+// By Elan Ruskin, http://assemblyrequired.crashworks.org/
 inline __m128 sse_sqrt_wip_ss(__m128 const & x)
 {
 	__m128 recip = _mm_rsqrt_ss(x);  // "estimate" opcode
