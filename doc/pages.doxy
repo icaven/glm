@@ -16,7 +16,7 @@
 	
 	GLM is written as a platform independent library with no dependence and officially supports the following compilers:
 	1. GCC 3.4 and higher
-	2. LLVM 2.3 and higher
+	2. LLVM 2.3 through GCC 4.2 front-end and higher
 	3. Visual Studio 2005 and higher
 	 
 	The source code is licenced under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT licence</a>.
