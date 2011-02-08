@@ -341,23 +341,47 @@ namespace glm
 
 		//! Returns the length of x, i.e., sqrt(x * x).
 		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
-		float simdLength(
+		float length(
+			detail::fvec4SIMD const & x);
+
+		//! Returns the length of x, i.e., sqrt(x * x).
+		//! Less accurate but much faster than simdLength.
+		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
+		float fastLength(
+			detail::fvec4SIMD const & x);
+
+		//! Returns the length of x, i.e., sqrt(x * x).
+		//! Slightly more accurate but much slower than simdLength.
+		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
+		float niceLength(
 			detail::fvec4SIMD const & x);
 
 		//! Returns the length of x, i.e., sqrt(x * x).
 		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
-		detail::fvec4SIMD simdLength4(
+		detail::fvec4SIMD length4(
+			detail::fvec4SIMD const & x);
+
+		//! Returns the length of x, i.e., sqrt(x * x).
+		//! Less accurate but much faster than simdLength4.
+		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
+		detail::fvec4SIMD fastLength4(
+			detail::fvec4SIMD const & x);
+
+		//! Returns the length of x, i.e., sqrt(x * x).
+		//! Slightly more accurate but much slower than simdLength4.
+		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
+		detail::fvec4SIMD niceLength4(
 			detail::fvec4SIMD const & x);
 
 		//! Returns the distance betwwen p0 and p1, i.e., length(p0 - p1).
 		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
-		float simdDistance(
+		float distance(
 			detail::fvec4SIMD const & p0,
 			detail::fvec4SIMD const & p1);
 
 		//! Returns the distance betwwen p0 and p1, i.e., length(p0 - p1).
 		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
-		detail::fvec4SIMD simdDistance4(
+		detail::fvec4SIMD distance4(
 			detail::fvec4SIMD const & p0,
 			detail::fvec4SIMD const & p1);
 
@@ -369,19 +393,25 @@ namespace glm
 
 		//! Returns the dot product of x and y, i.e., result = x * y.
 		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
-		detail::fvec4SIMD simdDot4(
+		detail::fvec4SIMD dot4(
 			detail::fvec4SIMD const & x,
 			detail::fvec4SIMD const & y);
 
 		//! Returns the cross product of x and y.
 		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
-		detail::fvec4SIMD simdCross(
+		detail::fvec4SIMD cross(
 			detail::fvec4SIMD const & x,
 			detail::fvec4SIMD const & y);
 
 		//! Returns a vector in the same direction as x but with length of 1.
 		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
-		detail::fvec4SIMD simdNormalize(
+		detail::fvec4SIMD normalize(
+			detail::fvec4SIMD const & x);
+
+		//! Returns a vector in the same direction as x but with length of 1.
+		//! Less accurate but much faster than simdNormalize.
+		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
+		detail::fvec4SIMD fastNormalize(
 			detail::fvec4SIMD const & x);
 
 		//! If dot(Nref, I) < 0.0, return N, otherwise, return -N.
@@ -394,7 +424,7 @@ namespace glm
 		//! For the incident vector I and surface orientation N,
 		//! returns the reflection direction : result = I - 2.0 * dot(N, I) * N.
 		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
-		detail::fvec4SIMD simdReflect(
+		detail::fvec4SIMD reflect(
 			detail::fvec4SIMD const & I,
 			detail::fvec4SIMD const & N);
 
@@ -402,30 +432,37 @@ namespace glm
 		//! and the ratio of indices of refraction eta,
 		//! return the refraction vector.
 		//! (From GLM_GTX_simd_vec4 extension, geometry functions)
-		detail::fvec4SIMD simdRefract(
+		detail::fvec4SIMD refract(
 			detail::fvec4SIMD const & I,
 			detail::fvec4SIMD const & N,
 			float const & eta);
 
 		//! Returns the positive square root of x.
 		//! (From GLM_GTX_simd_vec4 extension, exponential function)
-		detail::fvec4SIMD simdSqrt(
+		detail::fvec4SIMD sqrt(
 			detail::fvec4SIMD const & x);
 
-		//! Returns the positive square root of x with an accuracy slight lower or equal than simdSqrt but much faster.
+		//! Returns the positive square root of x with the nicest quality but very slow.
+		//! Slightly more accurate but much slower than simdSqrt.
 		//! (From GLM_GTX_simd_vec4 extension, exponential function)
-		detail::fvec4SIMD simdFastSqrt(
+		detail::fvec4SIMD niceSqrt(
+			detail::fvec4SIMD const & x);
+
+		//! Returns the positive square root of x
+		//! Less accurate but much faster than sqrt.
+		//! (From GLM_GTX_simd_vec4 extension, exponential function)
+		detail::fvec4SIMD fastSqrt(
 			detail::fvec4SIMD const & x);
 
 		//! Returns the reciprocal of the positive square root of x.
 		//! (From GLM_GTX_simd_vec4 extension, exponential function)
-		detail::fvec4SIMD simdInversesqrt(
+		detail::fvec4SIMD inversesqrt(
 			detail::fvec4SIMD const & x);
 
-		//! Returns the reciprocal of the positive square root of x, 
-		//! faster than simdInversesqrt but less accurate.
+		//! Returns the reciprocal of the positive square root of x.
+		//! Faster than inversesqrt but less accurate.
 		//! (From GLM_GTX_simd_vec4 extension, exponential function)
-		detail::fvec4SIMD simdFastInversesqrt(
+		detail::fvec4SIMD fastInversesqrt(
 			detail::fvec4SIMD const & x);
 
 		///@}

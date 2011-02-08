@@ -147,7 +147,7 @@ namespace glm
 		//! Multiply matrix x by matrix y component-wise, i.e.,
 		//! result[i][j] is the scalar product of x[i][j] and y[i][j].
 		//! (From GLM_GTX_simd_mat4 extension).
-		detail::fmat4x4SIMD simdMatrixCompMult(
+		detail::fmat4x4SIMD matrixCompMult(
 			detail::fmat4x4SIMD const & x,
 			detail::fmat4x4SIMD const & y);
 
@@ -155,23 +155,23 @@ namespace glm
 		//! and the second parameter r as a row vector
 		//! and does a linear algebraic matrix multiply c * r.
 		//! (From GLM_GTX_simd_mat4 extension).
-		detail::fmat4x4SIMD simdOuterProduct(
+		detail::fmat4x4SIMD outerProduct(
 			detail::fvec4SIMD const & c,
 			detail::fvec4SIMD const & r);
 
 		//! Returns the transposed matrix of x
 		//! (From GLM_GTX_simd_mat4 extension).
-		detail::fmat4x4SIMD simdTranspose(
+		detail::fmat4x4SIMD transpose(
 			detail::fmat4x4SIMD const & x);
 
 		//! Return the determinant of a mat4 matrix.
 		//! (From GLM_GTX_simd_mat4 extension).
-		float simdDeterminant(
+		float determinant(
 			detail::fmat4x4SIMD const & m);
 
 		//! Return the inverse of a mat4 matrix.
 		//! (From GLM_GTX_simd_mat4 extension).
-		detail::fmat4x4SIMD simdInverse(
+		detail::fmat4x4SIMD inverse(
 			detail::fmat4x4SIMD const & m);
 
 		///@}
