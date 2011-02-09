@@ -67,9 +67,6 @@ namespace glm
 	//! The interface could change between releases.
 	namespace gtx{}
 
-	//! IMG extensions.
-	namespace img{}
-
 	//! VIRTREV extensions.
 	namespace img{}
 
