@@ -30,6 +30,9 @@ namespace glm
 	//! GLM_GTX_component_wise extension: Operations between components of a type
 	namespace component_wise
 	{
+		/// \addtogroup gtx_component_wise
+		///@{
+
 		//! Add all vector components together. 
 		//! From GLM_GTX_component_wise extension.
 		template <typename genType> 
@@ -53,6 +56,8 @@ namespace glm
 		template <typename genType> 
 		typename genType::value_type compMax(
 			genType const & v);
+
+		///@}
 
 	}//namespace component_wise
 	}//namespace gtx

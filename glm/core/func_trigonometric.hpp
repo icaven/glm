@@ -23,6 +23,9 @@ namespace glm
 	//! Included in glm namespace.
 	namespace trigonometric{
 
+	/// \addtogroup core_funcs
+	///@{
+
 	//! Converts degrees to radians and returns the result.
 	//! (From GLSL 1.30.08 specification, section 8.1)
 	template <typename genType> 
@@ -110,6 +113,8 @@ namespace glm
 	//! (From GLSL 1.30.08 specification, section 8.1)
 	template <typename genType> 
 	genType atanh(genType const & x);
+
+	///@}
 
 	}//namespace trigonometric
 	}//namespace function

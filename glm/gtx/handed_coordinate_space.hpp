@@ -23,9 +23,12 @@
 namespace glm
 {
 	namespace gtx{
-	//! GLM_GTX_handed_coordinate_space extension: To know if a triedron is right or left handed
+	//! GLM_GTX_handed_coordinate_space extension: To know if a set of three basis vectors defines a right or left-handed coordinate system.
 	namespace handed_coordinate_space
 	{
+		/// \addtogroup gtx_handed_coordinate_space
+		///@{
+
 		//! Return if a trihedron right handed or not.
 		//! From GLM_GTX_handed_coordinate_space extension.
 		template <typename T> 
@@ -41,6 +44,8 @@ namespace glm
 			detail::tvec3<T> const & tangent, 
 			detail::tvec3<T> const & binormal, 
 			detail::tvec3<T> const & normal);
+
+		///@}
 
 	}//namespace handed_coordinate_space
 	}//namespace gtx

@@ -34,6 +34,9 @@ namespace glm
 	{
 		using namespace gtx::integer;
 
+		/// \addtogroup gtx_unsigned_int
+		///@{
+
 		//! 32bit signed integer. 
 		//! From GLM_GTX_unsigned_int extension.
 		typedef signed int					sint;
@@ -49,6 +52,8 @@ namespace glm
 		//! Modulus. Returns x - y * floor(x / y) for each component in x using the floating point value y.
 		//! From GLM_GTX_unsigned_int extension.
 		uint mod(uint x, uint y);
+
+		///@}
 
 	}//namespace unsigned_int
 	}//namespace gtx

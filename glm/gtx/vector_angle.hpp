@@ -37,6 +37,9 @@ namespace glm
 		using namespace quaternion;
 		using namespace epsilon;
 
+		/// \addtogroup gtx_vector_angle
+		///@{
+
 		//! Returns the absolute angle between x and y.
 		//! Parameters need to be normalized.
 		//! From GLM_GTX_vector_angle extension
@@ -61,6 +64,8 @@ namespace glm
 			vecType const & x,
 			vecType const & y,
 			detail::tvec3<typename vecType::value_type> const & ref);
+
+		///@}
     }//namespace vector_angle
     }//namespace gtx
 }//namespace glm

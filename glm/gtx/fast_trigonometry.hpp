@@ -30,6 +30,9 @@ namespace glm
 	//! GLM_GTX_fast_trigonometry extension: Fast but less accurate implementations of trigonometric functions.
     namespace fast_trigonometry
     {
+		/// \addtogroup gtx_fast_trigonometry
+		///@{
+
 		//! Faster than the common sin function but less accurate. 
 		//! Defined between -2pi and 2pi. 
 		//! From GLM_GTX_fast_trigonometry extension.
@@ -71,6 +74,8 @@ namespace glm
 		//! From GLM_GTX_fast_trigonometry extension.
         template <typename T> 
 		T fastAtan(const T& angle);
+
+		///@}
 
     }//namespace fast_trigonometry
     }//namespace gtx

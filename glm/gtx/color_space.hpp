@@ -30,6 +30,9 @@ namespace glm
 	//! GLM_GTX_color_space extension: Related to RGB to HSV conversions and operations
     namespace color_space
     {
+		/// \addtogroup gtx_color_space
+		///@{
+
 		//! Converts a color from HSV color space to its color in RGB color space.
 		//! From GLM_GTX_color_space extension.
         template <typename valType> 
@@ -67,6 +70,8 @@ namespace glm
 		template <typename valType> 
 		valType luminosity(
 			detail::tvec3<valType> const & color);
+
+		///@}
 		
 	}//namespace color_space
 	}//namespace gtx

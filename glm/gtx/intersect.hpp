@@ -32,7 +32,10 @@ namespace glm
 	//! GLM_GTX_intersect extension: Add intersection functions
 	namespace intersect
 	{
-        //! Compute the intersection of a ray and a triangle.
+		/// \addtogroup gtx_intersect
+		///@{
+
+		//! Compute the intersection of a ray and a triangle.
 		//! From GLM_GTX_intersect extension.
 		template <typename genType>
 		bool intersectRayTriangle(
@@ -63,6 +66,8 @@ namespace glm
 			genType const & point0, genType const & point1,
 			genType const & center, typename genType::value_type radius,
 			genType & position, genType & normal);
+
+		///@}
 
 	}//namespace intersect
 }//namespace gtx

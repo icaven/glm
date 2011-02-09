@@ -32,6 +32,9 @@ namespace glm
 	//! GLM_GTX_extented_min_max extension: Min and max functions for 3 to 4 parameters.
 	namespace extented_min_max
 	{
+		/// \addtogroup gtx_extented_min_max
+		///@{
+
 		//< Return the minimum component-wise values of 3 inputs 
 		//< From GLM_GTX_extented_min_max extension
 		template <typename T>
@@ -165,6 +168,8 @@ namespace glm
 			C<T> const & y, 
 			C<T> const & z, 
 			C<T> const & w);
+
+		///@}
 
 	}//namespace extented_min_max
 	}//namespace gtx

@@ -34,6 +34,9 @@ namespace glm
 	{
 		using namespace gtc::matrix_transform; 
 
+		/// \addtogroup gtx_transform
+		///@{
+
 		//! Builds a translation 4 * 4 matrix created from 3 scalars.
 		//! From GLM_GTX_transform extension.
 		template <typename T> 
@@ -93,6 +96,8 @@ namespace glm
 		template <typename T> 
 		detail::tmat4x4<T> scale(
 			detail::tvec3<T> const & v);
+
+		///@}
 
 	}//namespace transform
 	}//namespace gtx

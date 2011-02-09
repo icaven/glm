@@ -36,6 +36,7 @@ namespace glm
 	{
 		//! \brief Template for quaternion. 
 		//! From GLM_GTC_quaternion extension.
+		/// \ingroup gtc_quaternion
 		template <typename T> 
 		struct tquat// : public genType<T, tquat>
 		{
@@ -124,6 +125,9 @@ namespace glm
 	//! GLM_GTC_quaternion extension: Quaternion types and functions
     namespace quaternion
     {
+		/// \addtogroup gtc_quaternion
+		///@{
+
 		//! Returns the length of the quaternion x. 
 		//! From GLM_GTC_quaternion extension.
         template <typename T> 
@@ -217,6 +221,8 @@ namespace glm
 		//! Quaternion of double-precision floating-point numbers. 
 		//! From GLM_GTC_quaternion extension.
 		typedef detail::tquat<double>	dquat;
+
+		///@}
 
     }//namespace quaternion
     }//namespace gtc

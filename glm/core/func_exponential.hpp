@@ -21,6 +21,9 @@ namespace glm
 	//! Define all exponential functions from Section 8.2 of GLSL 1.30.8 specification. Included in glm namespace.
 	namespace exponential{
 
+	/// \addtogroup core_funcs
+	///@{
+
 	//! Returns x raised to the y power. 
 	//! (From GLSL 1.30.08 specification, section 8.2)
 	template <typename genType> 
@@ -58,6 +61,8 @@ namespace glm
 	//! (From GLSL 1.30.08 specification, section 8.2)
 	template <typename genType> 
 	genType inversesqrt(genType const & x);
+
+	///@}
 
 	}//namespace exponential
 	}//namespace function

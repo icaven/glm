@@ -27,6 +27,9 @@ namespace glm
 	//! GLM_GTX_reciprocal extension: Define secant, cosecant and cotangent functions.
 	namespace reciprocal
 	{
+		/// \addtogroup gtx_reciprocal
+		///@{
+
 		//! Secant function. 
 		//! hypotenuse / adjacent or 1 / cos(x)
 		//! From GLM_GTX_reciprocal extension.
@@ -89,6 +92,8 @@ namespace glm
 		//! From GLM_GTX_reciprocal extension.
 		template <typename genType> 
 		genType acoth(genType const & x);
+
+		///@}
 
 	}//namespace reciprocal
 	}//namespace gtx

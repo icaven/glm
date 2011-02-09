@@ -29,9 +29,14 @@ namespace glm
 	{
 		using namespace gtx::raw_data;
 
+		/// \addtogroup gtx_int_10_10_10_2
+		///@{
+
 		//! From GLM_GTX_int_10_10_10_2 extension.
 		//! Cast a vec4 to an u_10_10_10_2.
 		dword uint10_10_10_2_cast(glm::vec4 const & v);
+
+		///@}
 
 	}//namespace integer
 	}//namespace gtx

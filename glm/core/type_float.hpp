@@ -38,16 +38,19 @@ namespace glm
 		typedef double				highp_float_t;
 
 		//! Low precision floating-point numbers. 
-		//! There is no garanty on the actual precision.
+		//! There is no guarantee on the actual precision.
 		//! From GLSL 1.30.8 specification
+		//! \ingroup core_precision
 		typedef lowp_float_t		lowp_float;
 		//! Medium precision floating-point numbers.
-		//! There is no garanty on the actual precision.
+		//! There is no guarantee on the actual precision.
 		//! From GLSL 1.30.8 specification
+		//! \ingroup core_precision
 		typedef mediump_float_t		mediump_float;
 		//! High precision floating-point numbers.
-		//! There is no garanty on the actual precision.
+		//! There is no guarantee on the actual precision.
 		//! From GLSL 1.30.8 specification
+		//! \ingroup core_precision
 		typedef highp_float_t		highp_float;
 	}
 	//namespace precision

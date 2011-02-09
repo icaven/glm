@@ -24,6 +24,9 @@ namespace glm
 	//! Included in glm namespace.
 	namespace vector_relational
 	{
+		/// \addtogroup core_funcs
+		///@{
+
 		//! Returns the component-wise comparison result of x < y.
 		//! (From GLSL 1.30.08 specification, section 8.6)
 		template <typename T, template <typename> class vecType> 
@@ -182,6 +185,8 @@ namespace glm
 				Result[i] = !v[i];
 			return Result;
 		}
+
+		///@}
 
 	}//namespace vector_relational
 	}//namespace function

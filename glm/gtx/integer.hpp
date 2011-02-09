@@ -26,6 +26,9 @@ namespace glm
 	//! GLM_GTX_integer extension: Add support for integer for core functions
 	namespace integer
 	{
+		/// \addtogroup gtx_integer
+		///@{
+
 		//! Returns x raised to the y power. 
 		//! From GLM_GTX_integer extension.
 		int pow(int x, int y);
@@ -42,6 +45,8 @@ namespace glm
 		//! From GLM_GTX_integer extension.
 		template <typename genType> 
 		genType factorial(genType const & x);
+
+		///@}
 
 	}//namespace integer
 	}//namespace gtx

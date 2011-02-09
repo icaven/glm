@@ -32,7 +32,10 @@ namespace glm
 	//! GLM_GTX_perpendicular extension: Perpendicular of a vector from other one
     namespace perpendicular
     {
-        //! Projects x a perpendicular axis of Normal.
+		/// \addtogroup gtx_perpendicular
+		///@{
+
+		//! Projects x a perpendicular axis of Normal.
 		//! From GLM_GTX_perpendicular extension.
 		template <typename T> 
 		detail::tvec2<T> perp(
@@ -52,6 +55,9 @@ namespace glm
 		detail::tvec4<T> perp(
 			detail::tvec4<T> const & x, 
 			detail::tvec4<T> const & Normal);
+
+
+		///@}
 		
     }//namespace perpendicular
     }//namespace gtx

@@ -7,26 +7,6 @@
 // File    : glm/glm.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-/*! \mainpage OpenGL Mathematics
- *
- * OpenGL Mathematics (GLM) is a C++ mathematics library for 3D applications based on the OpenGL Shading Language (GLSL) specification. 
- *
- * GLM provides 3D programmers with math classes and functions that are similar to GLSL or any high level GPU programming language. The idea is to have a library that has identical naming conventions and functionalities than GLSL so that when developers know GLSL, they know how to use GLM.
- *
- * However, this project isn't limited by GLSL features. An extension system, based on the GLSL extension conventions, allows extended capabilities.
- *
- * This library can be used with OpenGL but also for software rendering (Raytracing / Rasterisation), image processing and as much contexts as a simple math library could be used for.
- *
- * GLM is written as a platform independent library and supports the following compilers: 
- * - GNU GCC 3.4 and higher 
- * - Microsoft Visual Studio 8.0 and higher
- * 
- * The source code is under the MIT licence.
- * 
- * Any feedback is welcome and can be sent to glm@g-truc.net.
- *
- */
-
 #ifndef glm_glm
 #define glm_glm
 
@@ -42,8 +22,8 @@
 
 //! TODO: to delete
 #define GLMvalType typename genType::value_type
-#define GLMcolType typename genType::col_type
-#define GLMrowType typename genType::row_type
+//#define GLMcolType typename genType::col_type
+//#define GLMrowType typename genType::row_type
 
 #include <cmath>
 #include <climits>
@@ -65,7 +45,7 @@ namespace glm
 		bool main_core();
 	}//namespace test
 
-	//! GLM core. Namespace that includes all the feature define by GLSL 1.30.8 specification. This namespace is included in glm namespace.
+	//! GLM core. Namespace that includes all the feature define by GLSL 4.10.6 specification. This namespace is included in glm namespace.
 	namespace core
 	{
 		//! Scalar, vectors and matrices 
@@ -86,9 +66,6 @@ namespace glm
 	//! G-Truc Creation experimental extensions. 
 	//! The interface could change between releases.
 	namespace gtx{}
-
-	//! IMG extensions.
-	namespace img{}
 
 	//! VIRTREV extensions.
 	namespace img{}
