@@ -1,500 +1,498 @@
 /*!
 	\defgroup gtx GTX Extensions (Experimental)
 	
-	\brief Functions and types that GLSL does not provide, but are useful to have.
+	\brief Functions and types that the GLSL specification doesn't define, but useful to have for a C++ program.
 	
 	Experimental extensions are useful functions and types, but the development of
 	their API and functionality is not necessarily stable. They can change substantially
 	between versions. Backwards compatibility is not much of an issue for them.
 	
-	Even if it's highly unrecommended, you can bring all of the extensions, by
-	including <glm/ext.hpp>. Otherwise, you will have to include each extension
-	by including a specific file.
+	Even if it's highly unrecommended, it's possible to include all the extensions at once by
+	including <glm/ext.hpp>. Otherwise, each extension needs to be included  a specific file.
 **/
 
 /*!
-	\defgroup gtx_associated_min_max Associated Min/Max Experimental Extension
+	\defgroup gtx_associated_min_max GLM_GTX_associated_min_max: Associated Min/Max
 	\ingroup gtx
 	
 	\brief Min and max functions that return associated values not the compared onces.
-
-	You must include the file <glm/glx/associated_min_max.hpp> to get this functionality.
+	<glm/gtx/associated_min_max.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_bit Bitwise Operations Experimental Extension
+	\defgroup gtx_bit GLM_GTX_bit: Extended bitwise operations
 	\ingroup gtx
 	
 	\brief Allow to perform bit operations on integer values
 
-	You must include the file <glm/glx/bit.hpp> to get this functionality.
+	<glm/gtx/bit.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_closest_point Find Closest Point Experimental Extension
+	\defgroup gtx_closest_point GLM_GTX_closest_point: Find closest point
 	\ingroup gtx
 	
 	\brief Find the point on a straight line which is the closet of a point.
 
-	You must include the file <glm/glx/closest_point.hpp> to get this functionality.
+	<glm/gtx/closest_point.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_color_cast Color Conversion Experimental Extension
+	\defgroup gtx_color_cast GLM_GTX_color_cast: Color conversion
 	\ingroup gtx
 	
 	\brief Conversion between two color types.
 
-	You must include the file <glm/glx/color_cast.hpp> to get this functionality.
+	<glm/gtx/color_cast.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_color_space RGB to HSV Conversion Experimental Extension
+	\defgroup gtx_color_space GLM_GTX_color_space: RGB to HSV conversion
 	\ingroup gtx
 	
 	\brief Related to RGB to HSV conversions and operations.
 
-	You must include the file <glm/glx/color_space.hpp> to get this functionality.
+	<glm/gtx/color_space.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_color_space_YCoCg RGB to YCoCg Conversion Experimental Extension
+	\defgroup gtx_color_space_YCoCg GLM_GTX_color_space_YCoCg: RGB to YCoCg conversion
 	\ingroup gtx
 	
 	\brief RGB to YCoCg conversions and operations
 
-	You must include the file <glm/glx/color_space_YCoCg.hpp> to get this functionality.
+	<glm/gtx/color_space_YCoCg.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_compatibility Cg and HLSL Compatibility Experimental Extension
+	\defgroup gtx_compatibility GLM_GTX_compatibility: Cg and HLSL compatibility
 	\ingroup gtx
 	
 	\brief Provide functions to increase the compatibility with Cg and HLSL languages
 
-	You must include the file <glm/glx/compatibility.hpp> to get this functionality.
+	<glm/gtx/compatibility.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_component_wise Component Wise Experimental Extension
+	\defgroup gtx_component_wise GLM_GTX_component_wise: Component wise
 	\ingroup gtx
 	
 	\brief Operations between components of a type
 
-	You must include the file <glm/glx/component_wise.hpp> to get this functionality.
+	<glm/gtx/component_wise.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_epsilon Epsilon Comparison Experimental Extension
+	\defgroup gtx_epsilon GLM_GTX_epsilon: Epsilon comparison
 	\ingroup gtx
 	
 	\brief Comparison functions for a user defined epsilon values.
 
-	You must include the file <glm/glx/epsilon.hpp> to get this functionality.
+	<glm/gtx/epsilon.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_euler_angles Matrix From Euler Angles Experimental Extension
+	\defgroup gtx_euler_angles GLM_GTX_euler_angles: Matrix from euler angles
 	\ingroup gtx
 	
 	\brief Build matrices from Euler angles.
 
-	You must include the file <glm/glx/euler_angles.hpp> to get this functionality.
+	<glm/gtx/euler_angles.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_extend Position Extending Experimental Extension
+	\defgroup gtx_extend GLM_GTX_extend: Position extending 
 	\ingroup gtx
 	
 	\brief Extend a position from a source to a position at a defined length.
 
-	You must include the file <glm/glx/extend.hpp> to get this functionality.
+	<glm/gtx/extend.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_extented_min_max Extended Min Max Experimental Extension
+	\defgroup gtx_extented_min_max GLM_GTX_extented_min_max: Extended min max
 	\ingroup gtx
 	
 	\brief Min and max functions for 3 to 4 parameters.
 
-	You must include the file <glm/glx/extented_min_max.hpp> to get this functionality.
+	<glm/gtx/extented_min_max.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_fast_exponential Fast Exponentiation Experimental Extension
+	\defgroup gtx_fast_exponential GLM_GTX_fast_exponential: Fast exponentiation functions
 	\ingroup gtx
 	
 	\brief Fast but less accurate implementations of exponential based functions.
 
-	You must include the file <glm/glx/fast_exponential.hpp> to get this functionality.
+	<glm/gtx/fast_exponential.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_fast_square_root Fast Square Root Experimental Extension
+	\defgroup gtx_fast_square_root GLM_GTX_fast_square_root: Fast square root functions
 	\ingroup gtx
 	
 	\brief Fast but less accurate implementations of square root based functions.
 
-	You must include the file <glm/glx/fast_square_root.hpp> to get this functionality.
+	<glm/gtx/fast_square_root.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_fast_trigonometry Fast Trig Experimental Extension
+	\defgroup gtx_fast_trigonometry GLM_GTX_fast_trigonometry: Fast trigonometric functions
 	\ingroup gtx
 	
 	\brief Fast but less accurate implementations of trigonometric functions.
 
-	You must include the file <glm/glx/fast_trigonometry.hpp> to get this functionality.
+	<glm/gtx/fast_trigonometry.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_handed_coordinate_space Space Handedness Experimental Extension
+	\defgroup gtx_handed_coordinate_space GLM_GTX_handed_coordinate_space: Space Handedness
 	\ingroup gtx
 	
 	\brief To know if a set of three basis vectors defines a right or left-handed coordinate system.
 
-	You must include the file <glm/glx/handed_coordinate_system.hpp> to get this functionality.
+	<glm/gtx/handed_coordinate_system.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_inertia Intertial Matrix Experimental Extension
+	\defgroup gtx_inertia GLM_GTX_inertia: Intertial matrix
 	\ingroup gtx
 	
 	\brief Create inertia matrices
 
-	You must include the file <glm/glx/inertia.hpp> to get this functionality.
+	<glm/gtx/inertia.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_int_10_10_10_2 Packed Integer Experimental Extension
+	\defgroup gtx_int_10_10_10_2 GLM_GTX_int_10_10_10_2: Packed integer
+	\ingroup gtx
+	
+	\brief Pack vector to 1010102 integers. Storage only.
+
+	<glm/gtx/int_10_10_10_2.hpp> need to be included to use these functionalities.
+**/
+
+/*!
+	\defgroup gtx_integer GLM_GTX_integer: Extended integer functions
 	\ingroup gtx
 	
 	\brief Add support for integer for core functions
 
-	You must include the file <glm/glx/int_10_10_10_2.hpp> to get this functionality.
+	<glm/gtx/integer.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_integer Integer Function Experimental Extension
-	\ingroup gtx
-	
-	\brief Add support for integer for core functions
-
-	You must include the file <glm/glx/integer.hpp> to get this functionality.
-**/
-
-/*!
-	\defgroup gtx_intersect Intersection Test Experimental Extension
+	\defgroup gtx_intersect GLM_GTX_intersect: Intersection tests
 	\ingroup gtx
 	
 	\brief Add intersection functions
 
-	You must include the file <glm/glx/intersect.hpp> to get this functionality.
+	<glm/gtx/intersect.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_log_base Log With Base Experimental Extension
+	\defgroup gtx_log_base GLM_GTX_log_base: Log with base
 	\ingroup gtx
 	
 	\brief Logarithm for any base. base can be a vector or a scalar.
 
-	You must include the file <glm/glx/log_base.hpp> to get this functionality.
+	<glm/gtx/log_base.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_matrix_cross_product Cross Product Matrices Experimental Extension
+	\defgroup gtx_matrix_cross_product GLM_GTX_matrix_cross_product: Cross product matrix form
 	\ingroup gtx
 	
 	\brief Build cross product matrices
 
-	You must include the file <glm/glx/matrix_cross_product.hpp> to get this functionality.
+	<glm/gtx/matrix_cross_product.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_matrix_major_storage Build Matrix Experimental Extension
+	\defgroup gtx_matrix_major_storage GLM_GTX_matrix_major_storage: Build matrix
 	\ingroup gtx
 	
 	\brief Build matrices with specific matrix order, row or column
 
-	You must include the file <glm/glx/matrix_major_storage.hpp> to get this functionality.
+	<glm/gtx/matrix_major_storage.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_matrix_operation Diagonal Matrix Experimental Extension
+	\defgroup gtx_matrix_operation GLM_GTX_matrix_operation: Extended matrix operations
 	\ingroup gtx
 	
 	\brief Build diagonal matrices from vectors.
 
-	You must include the file <glm/glx/matrix_operation.hpp> to get this functionality.
+	<glm/gtx/matrix_operation.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_matrix_query Query Matrix Properties Experimental Extension
+	\defgroup gtx_matrix_query GLM_GTX_matrix_query: Query matrix properties
 	\ingroup gtx
 	
 	\brief Query to evaluate matrix properties
 
-	You must include the file <glm/glx/matrix_query.hpp> to get this functionality.
+	<glm/gtx/matrix_query.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_mixed_product Mixed Product Experimental Extension
+	\defgroup gtx_mixed_product GLM_GTX_mixed_producte: Mixed product
 	\ingroup gtx
 	
 	\brief Mixed product of 3 vectors.
 
-	You must include the file <glm/glx/mixed_product.hpp> to get this functionality.
+	<glm/gtx/mixed_product.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_multiple Multiples Experimental Extension
+	\defgroup gtx_multiple GLM_GTX_multiple: Multiples 
 	\ingroup gtx
 	
 	\brief Find the closest number of a number multiple of other number.
 
-	You must include the file <glm/glx/multiple.hpp> to get this functionality.
+	<glm/gtx/multiple.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_norm Vector Norm Experimental Extension
+	\defgroup gtx_norm GLM_GTX_norm: Vector norm calculations
 	\ingroup gtx
 	
 	\brief Various way to compute vector norms.
 
-	You must include the file <glm/glx/norm.hpp> to get this functionality.
+	<glm/gtx/norm.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_normal Compute Normal Experimental Extension
+	\defgroup gtx_normal GLM_GTX_normal: Compute normals
 	\ingroup gtx
 	
 	\brief Compute the normal of a triangle.
 
-	You must include the file <glm/glx/normal.hpp> to get this functionality.
+	<glm/gtx/normal.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_normalize_dot Normalize Dot Product Experimental Extension
+	\defgroup gtx_normalize_dot GLM_GTX_normalize_dot: Normalize dot product
 	\ingroup gtx
 	
 	\brief Dot product of vectors that need to be normalize with a single square root.
 
-	You must include the file <glm/glx/normalized_dot.hpp> to get this functionality.
+	<glm/gtx/normalized_dot.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_number_precision Number Precision Experimental Extension
+	\defgroup gtx_number_precision GLM_GTX_number_precision: Number precision
 	\ingroup gtx
 	
 	\brief Defined size types.
 
-	You must include the file <glm/glx/number_precision.hpp> to get this functionality.
+	<glm/gtx/number_precision.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_ocl_type OpenCL Types Experimental Extension
+	\defgroup gtx_ocl_type GLM_GTX_ocl_type: OpenCL types
 	\ingroup gtx
 	
 	\brief OpenCL types.
 
-	You must include the file <glm/glx/ocl_type.hpp> to get this functionality.
+	<glm/gtx/ocl_type.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_optimum_pow Optimum Pow Experimental Extension
+	\defgroup gtx_optimum_pow GLM_GTX_optimum_pow: Optimum pow
 	\ingroup gtx
 	
 	\brief Integer exponentiation of power functions.
 
-	You must include the file <glm/glx/optimum_pow.hpp> to get this functionality.
+	<glm/gtx/optimum_pow.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_orthonormalize Orthonormalize Experimental Extension
+	\defgroup gtx_orthonormalize GLM_GTX_orthonormalize: Orthonormalize
 	\ingroup gtx
 	
 	\brief Orthonormalize matrices.
 
-	You must include the file <glm/glx/orthonormalize.hpp> to get this functionality.
+	<glm/gtx/orthonormalize.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_perpendicular Perpendicular Experimental Extension
+	\defgroup gtx_perpendicular GLM_GTX_perpendicular: Perpendicular
 	\ingroup gtx
 	
 	\brief Perpendicular of a vector from other one
 
-	You must include the file <glm/glx/perpendicular.hpp> to get this functionality.
+	<glm/gtx/perpendicular.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_polar_coordinates Polar Coordinates Experimental Extension
+	\defgroup gtx_polar_coordinates GLM_GTX_polar_coordinates: Polar coordinates
 	\ingroup gtx
 	
 	\brief Conversion from Euclidean space to polar space and revert.
 
-	You must include the file <glm/glx/polar_coordinates.hpp> to get this functionality.
+	<glm/gtx/polar_coordinates.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_projection Projection Experimental Extension
+	\defgroup gtx_projection GLM_GTX_projection: Projection
 	\ingroup gtx
 	
 	\brief Projection of a vector to other one
 
-	You must include the file <glm/glx/projection.hpp> to get this functionality.
+	<glm/gtx/projection.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_quaternion Quaternion Experimental Extension
+	\defgroup gtx_quaternion GLM_GTX_quaternion: Extented quaternion types and functions
 	\ingroup gtx
 	
-	\brief Quaternion types and functions
+	\brief Extented quaternion types and functions
 
-	You must include the file <glm/glx/quaternion.hpp> to get this functionality.
+	<glm/gtx/quaternion.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_random Random Experimental Extension
+	\defgroup gtx_random GLM_GTX_random: Random
 	\ingroup gtx
 	
 	\brief Generate random number from various distribution methods
 
-	You must include the file <glm/glx/random.hpp> to get this functionality.
+	<glm/gtx/random.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_raw_data Raw Data Experimental Extension
+	\defgroup gtx_raw_data GLM_GTX_raw_data: Raw data
 	\ingroup gtx
 	
 	\brief Projection of a vector to other one
 
-	You must include the file <glm/glx/raw_data.hpp> to get this functionality.
+	<glm/gtx/raw_data.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_reciprocal Reciprocal Experimental Extension
+	\defgroup gtx_reciprocal GLM_GTX_reciprocal: Reciprocal
 	\ingroup gtx
 	
 	\brief Define secant, cosecant and cotangent functions.
 
-	You must include the file <glm/glx/reciprocal.hpp> to get this functionality.
+	<glm/gtx/reciprocal.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_rotate_vector Rotate Vector Experimental Extension
+	\defgroup gtx_rotate_vector GLM_GTX_rotate_vector: Rotate vector
 	\ingroup gtx
 	
 	\brief Function to directly rotate a vector
 
-	You must include the file <glm/glx/rotate_vector.hpp> to get this functionality.
+	<glm/gtx/rotate_vector.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_simd_mat4 SIMD Mat4 Experimental Extension
+	\defgroup gtx_simd_mat4 GLM_GTX_simd_mat4: SIMD mat4 type and functions
 	\ingroup gtx
 	
 	\brief SIMD implementation of mat4 type.
 
-	You must include the file <glm/glx/simd_mat4.hpp> to get this functionality.
+	<glm/gtx/simd_mat4.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_simd_vec4 SIMD Vec4 Experimental Extension
+	\defgroup gtx_simd_vec4 GLM_GTX_simd_vec4: SIMD vec4 type and functions
 	\ingroup gtx
 	
 	\brief SIMD implementation of vec4 type.
 
-	You must include the file <glm/glx/simd_vec4.hpp> to get this functionality.
+	<glm/gtx/simd_vec4.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_spline Spline Experimental Extension
+	\defgroup gtx_spline GLM_GTX_spline: Spline
 	\ingroup gtx
 	
 	\brief Spline functions
 
-	You must include the file <glm/glx/spline.hpp> to get this functionality.
+	<glm/gtx/spline.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_string_cast String Cast Experimental Extension
+	\defgroup gtx_string_cast GLM_GTX_string_cast: String cast
 	\ingroup gtx
 	
 	\brief Setup strings for GLM type values
 
-	You must include the file <glm/glx/transform.hpp> to get this functionality.
+	<glm/gtx/string_cast.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_transform Transformation Matrices Experimental Extension
+	\defgroup gtx_transform GLM_GTX_transform: Extented transformation matrices
 	\ingroup gtx
 	
 	\brief Add transformation matrices
 
-	You must include the file <glm/glx/transform2.hpp> to get this functionality.
+	<glm/gtx/transform.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_transform2 Extra Transform Matrices Experimental Extension
+	\defgroup gtx_transform2 GLM_GTX_transform2: Extra transformation matrices
 	\ingroup gtx
 	
 	\brief Add extra transformation matrices
 
-	You must include the file <glm/glx/unsigned_int.hpp> to get this functionality.
+	<glm/gtx/transform2.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_unsigned_int Unsigned Int Experimental Extension
+	\defgroup gtx_unsigned_int GLM_GTX_unsigned_int: Unsigned int
 	\ingroup gtx
 	
 	\brief Add support for unsigned integer for core functions
 
-	You must include the file <glm/glx/unsigned_int.hpp> to get this functionality.
+	<glm/gtx/unsigned_int.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_vector_access Vector Access Experimental Extension
+	\defgroup gtx_vector_access GLM_GTX_vector_angle: Vector access
 	\ingroup gtx
 	
 	\brief Function to set values to vectors
 
-	You must include the file <glm/glx/vector_access.hpp> to get this functionality.
+	<glm/gtx/vector_access.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_vector_angle Vector Angle Experimental Extension
+	\defgroup gtx_vector_angle GLM_GTX_vector_angle: Vector angle
 	\ingroup gtx
 	
 	\brief Compute angle between vectors
 
-	You must include the file <glm/glx/vector_angle.hpp> to get this functionality.
+	<glm/gtx/vector_angle.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_vector_query Vector Query Experimental Extension
+	\defgroup gtx_vector_query GLM_GTX_vector_query: Vector query
 	\ingroup gtx
 	
 	\brief Query informations of vector types
 
-	You must include the file <glm/glx/vector_query.hpp> to get this functionality.
+	<glm/gtx/vector_query.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_verbose_operator Verbose Operator Experimental Extension
+	\defgroup gtx_verbose_operator GLM_GTX_verbose_operator: Verbose operator
 	\ingroup gtx
 	
 	\brief Use words to replace operators
 
-	You must include the file <glm/glx/verbose_operator.hpp> to get this functionality.
+	<glm/gtx/verbose_operator.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtx_wrap Wrap Experimental Extension
+	\defgroup gtx_wrap GLM_GTX_wrap: Texture coordinate wrap modes
 	\ingroup gtx
 	
-	\brief Wrapping mode using my texture samping.
+	\brief Wrapping mode of texture coordinates.
 
-	You must include the file <glm/glx/wrap.hpp> to get this functionality.
+	<glm/gtx/wrap.hpp> need to be included to use these functionalities.
 **/
 

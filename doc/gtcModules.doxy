@@ -1,55 +1,48 @@
 /*!
 	\defgroup gtc GTC Extensions (Stable)
 	
-	\brief Functions and types that GLSL does not provide, but are useful to have.
+	\brief Functions and types that the GLSL specification doesn't define, but useful to have for a C++ program.
 	
-	Core extensions differ from \ref gtx "experimental extensions" in that core extensions
-	are fairly stable. The API for experimental extensions is expected to change
-	significantly between versions.
+	GTC extensions aim to be stable. 
 	
-	Even if it's highly unrecommended, you can bring all of the extensions, by
-	including <glm/ext.hpp>. Otherwise, you will have to include each extension
-	by including a specific file.
+	Even if it's highly unrecommended, it's possible to include all the extensions at once by
+	including <glm/ext.hpp>. Otherwise, each extension needs to be included  a specific file.
 **/
 
 /*!
-	\defgroup gtc_half_float Half Float Core Extension
+	\defgroup gtc_half_float GLM_GTC_half_float: Half-precision floating-point based types and functions.
 	\ingroup gtc
 	
-	\brief Defines the half-float type, along with various typedefs for vectors and matrices.
-
-	You must include <glm/gtc/half_float.hpp> to get this functionality.
+	Defines the half-precision floating-point type, along with various typedefs for vectors and matrices.
+	<glm/gtc/half_float.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtc_matrix_access Matrix Access Core Extension
+	\defgroup gtc_matrix_access GLM_GTC_matrix_access: Access matrix rows and columns.
 	\ingroup gtc
 	
-	\brief Defines functions that allow you to access rows or columns of a matrix easily.
-
-	You must include <glm/gtc/matrix_access.hpp> to get this functionality.
+	Defines functions to access rows or columns of a matrix easily.
+	<glm/gtc/matrix_access.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtc_matrix_integer Integer Matrix Core Extension
+	\defgroup gtc_matrix_integer GLM_GTC_matrix_integer: Integer matrix types.
 	\ingroup gtc
 	
-	\brief Defines a number of matrices with integer types.
-	
-	You must include <glm/gtc/matrix_integer.hpp> to get this functionality.
+	Defines a number of matrices with integer types.
+	<glm/gtc/matrix_integer.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtc_matrix_inverse Matrix Inverse Core Extension
+	\defgroup gtc_matrix_inverse GLM_GTC_matrix_inverse: Additional matrix inverse function
 	\ingroup gtc
 	
-	\brief Defines additional matrix inverting functions.
-	
-	You must include <glm/gtc/matrix_inverse.hpp> to get this functionality.
+	Defines additional matrix inverting functions.
+	<glm/gtc/matrix_inverse.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtc_matrix_transform Matrix Transform Core Extension
+	\defgroup gtc_matrix_transform GLM_GTC_matrix_transform: Matrix transform functions.
 	\ingroup gtc
 	
 	\brief Defines functions that generate common transformation matrices.
@@ -60,20 +53,20 @@
 	perspective, ortho, etc) are designed to expect. The OpenGL compatibility
 	specifications defines the particular layout of this eye space.
 	
-	You must include <glm/gtc/matrix_transform.hpp> to get this functionality.
+	<glm/gtc/matrix_transform.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtc_quaternion Quaternion Core Extension
+	\defgroup gtc_quaternion GLM_GTC_quaternion: Quaternion types and functions
 	\ingroup gtc
 	
 	\brief Defines a templated quaternion type and several quaternion operations.
 	
-	You must include <glm/gtc/quaternion.hpp> to get this functionality.
+	<glm/gtc/quaternion.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtc_type_precision Type Precision Core Extension
+	\defgroup gtc_type_precision GLM_GTC_type_precision: Vector and matrix types with defined precisions.
 	\ingroup gtc
 	
 	\brief Defines specific C++-based precision types.
@@ -81,11 +74,11 @@
 	\ref core_precision defines types based on GLSL's precision qualifiers. This
 	extension defines types based on explicitly-sized C++ data types.
 	
-	You must include the file <glm/gtc/type_precision.hpp> to get this functionality.
+	<glm/gtc/type_precision.hpp> need to be included to use these functionalities.
 **/
 
 /*!
-	\defgroup gtc_type_ptr Pointer Access Core Extension
+	\defgroup gtc_type_ptr GLM_GTC_type_ptr: Memory layout access.
 	\ingroup gtc
 	
 	\brief Used to get a pointer to the memory layout of a basic type.
@@ -93,7 +86,7 @@
 	This extension defines an overloaded function, glm::value_ptr, which
 	takes any of the \ref core_template "core template types". It returns
 	a pointer to the memory layout of the object. Matrix types store their values
-	in row-major order.
+	in column-major order.
 	
 	This is useful for uploading data to matrices or copying data to buffer objects.
 	
@@ -102,6 +95,7 @@
 	\code
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
+
 glm::vec3 aVector(3);
 glm::mat4 someMatrix(1.0);
 
@@ -109,6 +103,6 @@ glUniform3fv(uniformLoc, 1, glm::value_ptr(aVector));
 glUniformMatrix4fv(uniformMatrixLoc, 1, GL_FALSE, glm::value_ptr(someMatrix));
 	\endcode
 	
-	You must include the file <glm/gtc/type_ptr.hpp> to get this functionality.
+	<glm/gtc/type_ptr.hpp> need to be included to use these functionalities.
 **/
 

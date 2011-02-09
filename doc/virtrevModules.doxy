@@ -5,7 +5,7 @@
 **/
 
 /*!
-	\defgroup virtrev_xstream xml like output
+	\defgroup virtrev_xstream GLM_VIRTREV_xstream: xml like output
 	\ingroup virtrev
 	
 	\brief Streaming vector and matrix in a xml way.

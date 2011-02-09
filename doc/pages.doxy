@@ -21,7 +21,8 @@
 	 
 	The source code is licenced under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT licence</a>.
 	 
-	Thanks for contributing to the project by <a href="https://sourceforge.net/apps/trac/ogl-math/newticket">submitting tickets for bug reports and feature requests</a>. (SF.net account required). Any feedback is welcome at glm@g-truc.net.
+	Thanks for contributing to the project by <a href="https://sourceforge.net/apps/trac/ogl-math/newticket">submitting tickets for bug reports and feature requests</a>. 
+	(SF.net account required). Any feedback is welcome at glm@g-truc.net.
 
 	\li \subpage pg_started 
 	\li \subpage pg_advanced
@@ -44,7 +45,7 @@
 	 
 	GLM makes heavy usages of C++ templates. This design may significantly increase the compile time for files that use GLM. Precompiled headers are recommended to avoid this issue.
 
-	\section started_sample Use Sample of GLM Core
+	\section started_sample Use Sample of GLM
 	\code
 #include <glm/glm.hpp>
 
@@ -60,10 +61,11 @@ int foo()
 	
 	\section started_structure Library Structure
 	
-	GLM is arranged in 3 distinct segments. These are the GLM core,
-	core extensions, and experimental extensions.
+	GLM is arranged in 2 distinct segments. These are the GLM features based on the GLSL specification and a set of extensions.
+	Some extensions are stable and backward compatible (\ref gtc GTC \ref virtrev VIRTREV) but some are experimental (\ref gtx GTX) 
+	which means that they are not guarantee to be backward compatible from version to version.
 	
-	The \ref core "GLM core" represents only what GLSL's core provides in terms of types and functions
+	The \ref core "GLM" represents only what GLSL's core provides in terms of types and functions
 	(to the best of GLM's ability to replicate them). All that is needed to use the core
 	is to <tt>#include <glm/glm.hpp></tt>.
 	
@@ -157,7 +159,7 @@ void BindUniforms(GLuint uniVec, GLuint uniMat)
 **/
 
 /*!
-	\page pg_advanced Advaned Usage
+	\page pg_advanced Advanced Usage
 	
 	\section advanced_swizzle Swizzle Operators
 	
