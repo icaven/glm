@@ -45,7 +45,7 @@ namespace glm
 		bool main_core();
 	}//namespace test
 
-	//! GLM core. Namespace that includes all the feature define by GLSL 1.30.8 specification. This namespace is included in glm namespace.
+	//! GLM core. Namespace that includes all the feature define by GLSL 4.10.6 specification. This namespace is included in glm namespace.
 	namespace core
 	{
 		//! Scalar, vectors and matrices 

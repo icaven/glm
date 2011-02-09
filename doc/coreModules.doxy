@@ -27,7 +27,7 @@
 **/
 
 /*!
-	\defgroup core_precision Precision Types
+	\defgroup core_precision Precision types
 	
 	\brief Non-GLSL types that are used to define precision-based types.
 	
@@ -44,7 +44,7 @@
 **/
 
 /*!
-	\defgroup core_template Template Types
+	\defgroup core_template Template types
 	
 	\brief The generic template types used as the basis for the core types. 
 	
