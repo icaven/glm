@@ -16,7 +16,7 @@
 
 
 /*!
-	\defgroup core_types Core Types
+	\defgroup core_types Types
 	
 	\brief The standard types defined by the specification.
 	
@@ -27,7 +27,7 @@
 **/
 
 /*!
-	\defgroup core_precision Core Precision Types
+	\defgroup core_precision Precision types
 	
 	\brief Non-GLSL types that are used to define precision-based types.
 	
@@ -44,17 +44,18 @@
 **/
 
 /*!
-	\defgroup core_template Core Template Types
+	\defgroup core_template Template types
 	
-	\brief The generic template types used as the basis for the core types.
+	\brief The generic template types used as the basis for the core types. 
 	
 	These types are all templates used to define the actual \ref core_types.
+	These templetes are implementation details of GLM types and should not be used explicitly.
 
 	\ingroup core
 **/
 
 /*!
-	\defgroup core_funcs Core Functions
+	\defgroup core_funcs Functions
 	
 	\brief The functions defined by the specification.
 

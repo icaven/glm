@@ -21,7 +21,8 @@
 	 
 	The source code is licenced under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT licence</a>.
 	 
-	Thanks for contributing to the project by <a href="https://sourceforge.net/apps/trac/ogl-math/newticket">submitting tickets for bug reports and feature requests</a>. (SF.net account required). Any feedback is welcome at glm@g-truc.net.
+	Thanks for contributing to the project by <a href="https://sourceforge.net/apps/trac/ogl-math/newticket">submitting tickets for bug reports and feature requests</a>. 
+	(SF.net account required). Any feedback is welcome at glm@g-truc.net.
 
 	\li \subpage pg_started 
 	\li \subpage pg_advanced
@@ -44,7 +45,7 @@
 	 
 	GLM makes heavy usages of C++ templates. This design may significantly increase the compile time for files that use GLM. Precompiled headers are recommended to avoid this issue.
 
-	\section started_sample Use Sample of GLM Core
+	\section started_sample Use Sample of GLM
 	\code
 #include <glm/glm.hpp>
 
@@ -60,31 +61,31 @@ int foo()
 	
 	\section started_structure Library Structure
 	
-	GLM is arranged in 3 distinct segments. These are the GLM core,
-	core extensions, and experimental extensions.
+	GLM is arranged in 2 distinct segments. These are the GLM features based on the GLSL specification and a set of extensions.
+	Some extensions are stable and backward compatible (\ref gtc GTC \ref virtrev VIRTREV) but some are experimental (\ref gtx GTX) 
+	which means that they are not guarantee to be backward compatible from version to version.
 	
-	The \ref core "GLM core" represents only what GLSL's core provides in terms of types and functions
+	The \ref core "GLM" represents only what GLSL's core provides in terms of types and functions
 	(to the best of GLM's ability to replicate them). All that is needed to use the core
 	is to <tt>#include <glm/glm.hpp></tt>.
 	
-	\ref gtc "Core extensions" are sets of functions and types that add onto the core.
+	\ref gtc "GTC extensions" are functions and types that add onto the core.
 	These are considered reasonably stable, with their APIs not changing much between
 	versions. Each core extension is included with a separated header file include. All
 	of the core extensions are in the "glm/gtc" directory.
 	
-	\ref gtx "Experimental extensions" are sets of functions and types that add onto the
-	core. Unlike core extensions, their APIs are not considered particularly stable, which
-	is why they are "experimental". All of the experimental extensions are in the
-	"glm/gtx" directory. Like core extensions, each experimental extension is included
+	\ref gtx "GTX extensions" are functions and types that add onto the
+	core. Unlike GTC extensions, their APIs are not considered particularly stable, which
+	is why they are marked "experimental". Like GTC extensions, each experimental extension is included
 	with a separate header file.
 	
-	If you want to use all extensions by default, you may <tt>#include <glm/ext.hpp></tt>.
-	This includes all extensions, core and experimental.
+	All the extensions can be included at once by default with <tt>#include <glm/ext.hpp></tt> 
+	but this is not recommanded as it will reduce compilation speed for many unused features.
 	
-	All of GLM is defined as direct children of the glm namespace, including extensions. Note that some extensions are incompatible with other extensions; this may result in C++ name collisions when used together.  
+	All of GLM is defined as direct children of the glm namespace, including extensions. 
 
 	To use a particular extension, simply include the extension header file. All
-	extension features are added to the glm namespace.
+	extension features are added to the glm namespace automatically.
 	
 	\code
 #include <glm/glm.hpp>
@@ -116,7 +117,7 @@ int foo()
 	like so: <tt>glUniform3fv(loc, 1, glm::vec3(0))</tt>. However, this is not the case;
 	the vector and matrix types are C++ classes, not arrays.
 	
-	Instead, GLM provides a mechanism to get the contents of a vector or matrix as
+	Instead, GLM provides a mechanism to get the content of a vector or matrix as
 	an array pointer. The \ref gtc_type_ptr extension provides this ability.
 
 	\code
@@ -135,7 +136,7 @@ void BindUniforms(GLuint uniVec, GLuint uniMat)
 	
 	Notice that all matrix types are <em>column-major</em> rather than row-major. Hence the need to pass GL_FALSE to glUniformMatrix4fv.
 	 
-	Alternatively, one can simply dereference the first element of the type.
+	Alternatively, the first element of the type can be dereferenced.
 	
 	\code
 #include <glm/glm.hpp>
@@ -150,18 +151,21 @@ void BindUniforms(GLuint uniVec, GLuint uniMat)
 }
 	\endcode
 	
-	As you can see, this requires dereferencing the very first basic type of the object, not merely the first element. The [] operator on the matrix type returns a column vector; one must then access the first element of that column vector to get a pointer to the basic type.
+	This method requires dereferencing the very first basic type of the object, not merely the first element. 
+	The [] operator on the matrix type returns a column vector; one must then access the first element of that column vector to get a pointer to the basic type.
 	
-	\note This operation could have been built into the base vector and matrix types and performed with a cast operator. However, this has some downsides. Implicit casts
-	can cause unexpected and unwanted behavior.
+	\note This operation could have been built into the base vector and matrix types and performed with a cast operator. 
+	However, this has some downsides. Implicit casts can cause unexpected and unwanted behavior.
 **/
 
 /*!
-	\page pg_advanced Advaned Usage
+	\page pg_advanced Advanced Usage
 	
 	\section advanced_swizzle Swizzle Operators
 	
-	A common feature of shader languages like GLSL is components swizzling. This involves being able to select which components of a vector are used and in what order. For example, "variable.x", "variable.xxy", "variable.zxyy" are examples of swizzling.
+	A common feature of shader languages like GLSL is components swizzling. 
+	This involves being able to select which components of a vector are used and in what order. 
+	For example, "variable.x", "variable.xxy", "variable.zxyy" are examples of swizzling.
 
 	\code
 vec4 A;
@@ -171,18 +175,22 @@ B.yx = A.wy;
 B = A.xx;
 	\endcode
 	 
-	This functionally turns out to be really complicated to implement in C++ using the exact GLSL conventions. GLM provides 2 implementions this feature.
+	This functionally turns out to be really complicated to implement in C++ using the exact GLSL conventions. 
+	GLM provides 2 implementions this feature.
 	 
 	\subsection advanced_swizzle_macro Macro implementation
 	
-	The first implementation follows the GLSL convensions accurately. It uses macros to achieve this, which might generates name conflicts with system headers or third party libraries. Therefore, it is disabled by default. To enable this implementation, GLM_SWIZZLE must be defined before any inclusion of <glm/glm.hpp>. 
+	The first implementation follows the GLSL convensions accurately. 
+	It uses macros to achieve this, which might generates name conflicts with system headers or third party libraries. 
+	Therefore, it is disabled by default. To enable this implementation, GLM_SWIZZLE must be defined before any inclusion of <glm/glm.hpp>. 
 	
 	\code
 #define GLM_SWIZZLE 
 #include <glm/glm.hpp>
 	\endcode
 	 
-	This implementation can be partially enabled by defining GLM_SWIZZLE_XYZW, GLM_SWIZZLE_RGBA or GLM_SWIZZLE_STQP. Each macro only enable a set of swizzling operators. For example we can only enable x,y,z,w and s,t,q,p operators using:
+	This implementation can be partially enabled by defining GLM_SWIZZLE_XYZW, GLM_SWIZZLE_RGBA or GLM_SWIZZLE_STQP. 
+	Each macro only enable a set of swizzling operators. For example we can only enable x,y,z,w and s,t,q,p operators using:
 
 	\code
 #define GLM_SWIZZLE_XYZW 
@@ -192,9 +200,15 @@ B = A.xx;
 	 
 	\subsection advanced_swizzle_ext Extension implementation
 	
-	A safer way to do swizzling is to use the <glm/gtc/swizzle.hpp> extension. This extension provides the GLSL functionality, but uses a different syntax for it. However, the swizzle extension also provides dynamic swizzling.
+	A safer way to do swizzling is to use the <glm/gtc/swizzle.hpp> extension. 
+	This extension provides the GLSL functionality, but uses a different syntax for it. 
+	Moreover, the swizzle extension also provides dynamic swizzling.
 	 
-	Static swizzling is resovled at compile-time. The swizzle mask ".xzyy" is as fixed as the type of a particular variable. Dynamic swizzling is resolved at runtime via function calls. Dynamic swizzling is more flexible, since one can choose the swizzle mask at runtime, but it runs slower. This performance issue is enhanced when \ref advanced_simd "SIMD instructions" are used.
+	Static swizzling is resovled at compile-time. 
+	The swizzle mask ".xzyy" is as fixed as the type of a particular variable. 
+	Dynamic swizzling is resolved at runtime via function calls. 
+	Dynamic swizzling is more flexible, since one can choose the swizzle mask at runtime, but it runs slower. 
+	This performance issue is enhanced when \ref advanced_simd "SIMD instructions" are used.
 	
 	\code
 #include <glm/glm.hpp>
@@ -239,20 +253,26 @@ void foo()
 	
 	\section advanced_inline Force Inline
 	
-	GLM's functions are defined in headers, so they are defined with C++'s "inline" delcaration. This does not require the compiler to inline them, however. If you want to force the compiler to inline the function, using whatever capabilities that the compiler provides to do so, you can define GLM_FORCE_INLINE before any inclusion of <glm/glm.hpp>.
+	GLM's functions are defined in headers, so they are defined with C++'s "inline" delcaration. 
+	This does not require the compiler to inline them, however. 
+	If you want to force the compiler to inline the function, using whatever capabilities that the compiler provides to do so, 
+	you can define GLM_FORCE_INLINE before any inclusion of <glm/glm.hpp>.
 
 	\code
 #define GLM_FORCE_INLINE 
 #include <glm/glm.hpp>
 	\endcode
 	
-	\section advanced_simd SIMD Support
+	\section advanced_simd SIMD support
 	
-	GLM provides some SIMD optimizations based on compiler intrinsics. These optimizations will be automatically utilized based on the build environment. These optimizations are mainly available through the extensions \ref gtx_simd_vec4 and \ref gtx_simd_mat4. 
+	GLM provides some SIMD optimizations based on compiler intrinsics. 
+	These optimizations will be automatically utilized based on the build environment. 
+	These optimizations are mainly available through the extensions \ref gtx_simd_vec4 and \ref gtx_simd_mat4. 
  
 	A programmer can restrict or force instruction sets used for these optimizations using GLM_FORCE_SSE2 or GLM_FORCE_AVX. 
 	 
-	A programmer can discard the use of intrinsics by defining GLM_FORCE_PURE before any inclusion of <glm/glm.hpp>. If GLM_FORCE_PURE is defined, then including a SIMD extension will generate a build error.
+	A programmer can discard the use of intrinsics by defining GLM_FORCE_PURE before any inclusion of <glm/glm.hpp>. 
+	If GLM_FORCE_PURE is defined, then including a SIMD extension will generate a build error.
 
 	\code
 #define GLM_FORCE_PURE
@@ -260,7 +280,8 @@ void foo()
 	\endcode
 
 	\section advanced_compatibility Compatibility
-	Compilers have some language extensions that GLM will automatically take advantage of them when they are enabled. The #define GLM_FORCE_CXX98 can switch off these extensions, forcing GLM to operate on pure C++98.
+	Compilers have some language extensions that GLM will automatically take advantage of them when they are enabled. 
+	The #define GLM_FORCE_CXX98 can switch off these extensions, forcing GLM to operate on pure C++98.
 
 	\code
 #define GLM_FORCE_CXX98 
@@ -269,11 +290,12 @@ void foo()
 **/
 
 /*!
-	\page pg_deprecated Deprecated Function Replacements
+	\page pg_deprecated Deprecated function replacements
 	
-	The OpenGL 3.0 specification deprecated some features, and most of these have been removed from the OpenGL 3.1 specfication and beyond. GLM provides some replacement functions. Many of these functions come from the \ref gtc_matrix_transform extension.
+	The OpenGL 3.0 specification deprecated some features, and most of these have been removed from the OpenGL 3.1 specfication and beyond. 
+	GLM provides some replacement functions. Many of these functions come from the \ref gtc_matrix_transform extension.
 	
-	\section deprecated_opengl OpenGL Function Replacements
+	\section deprecated_opengl OpenGL function replacements
 	
 	<dl>
 		<dt>glRotate[fd]</dt>
@@ -298,7 +320,7 @@ void foo()
 		<dd>\link glm::gtc::matrix_transform::lookAt glm::lookAt \endlink</dd>
 	</dl>
 	
-	\section deprecated_glu GLU Function Replacements
+	\section deprecated_glu GLU function replacements
 	
 	<dl>
 		<dt>gluOrtho2D</dt>
