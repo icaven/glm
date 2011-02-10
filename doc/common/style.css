@@ -235,6 +235,12 @@ ul.code-list
 	margin-right:0px;
 }
 
+li
+{
+	list-style-position:inside;
+	padding-left:8px;
+}
+
 li.code-line
 {
 	color:#008080;

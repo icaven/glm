@@ -2793,25 +2793,45 @@
     </bug>
   </bugs>
 
-  <about-long date=" " title=" ">
-    <paragraph>
-      OpenGL Mathematics (GLM) is a C++ mathematics library for 3D software based on the OpenGL Shading Language (GLSL) specification.
-    </paragraph>
-    <paragraph>
-      The goal of the project is to provide to 3D programmers math classes and functions that miss in C++ when we use to program with GLSL or any high level GPU language. With GLM, the idea is to have a library that works the same way that GLSL which imply a strict following of GLSL specification for the implementation.
-    </paragraph>
-    <paragraph>
-      However, this project isn't limited by GLSL features. An extension system allows to extend GLSL capabilities. It allows GLM to be a great subtitute for some OpenGL 3 deprecated functions, to work following a clean programmable approach.
-    </paragraph>
-    <paragraph>
-      GLM is release under <link href="./copying.txt">MIT license</link> and available for all version of GCC from version 3.4 and Visual Studio from version 8.0 as a platform independent library.
-    </paragraph>
-  </about-long>
+	<about-long date=" " title=" ">
+		<paragraph>
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software 
+			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification.
+		</paragraph>
+		<paragraph>
+			GLM provides classes and functions designed and 
+			implemented with the same naming conventions 
+			and functionalities than GLSL so that 
+			when a programmer knows GLSL, he knows GLM as well which makes it really easy to use.
+		</paragraph>
+		<paragraph>
+			This project isn't limited by GLSL features. 
+			An extension system, based on the GLSL extension conventions, 
+			provides extended capabilities: matrix transformations, 
+			quaternions, half-based types, random numbers, etc...
+		</paragraph>
+		<paragraph>
+			This library works perfectly with OpenGL but it also ensures interoperability with other third party libraries and SDKs. It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
+		</paragraph>
+		<list name="GLM is written as a platform independent library with no dependence and officially supports the following compilers:">
+			<list-element><link href="http://http://gcc.gnu.org/">GCC</link> 3.4 and higher</list-element>
+			<list-element><link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher</list-element>
+			<list-element><link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher</list-element>
+			<list-element>Any C++ compiler following C++98 norm</list-element>
+		</list>
+		<paragraph>
+			The source code is under the <link href="./copying.txt">MIT license</link>.
+		</paragraph>
+		<paragraph>
+			Thanks for contributing to the project by <link href="https://sourceforge.net/apps/trac/ogl-math/newticket">submitting tickets</link> for bug reports and feature requests. (SF.net account required).
+			Any feedback is welcome at <a href="mailto://glm@g-truc.net">glm@g-truc.net</a>.
+		</paragraph>
+	</about-long>
 
-  <about-short>
-    <element>GLSL + Optional features = OpenGL Mathematics (GLM).</element>
-    <element>A C++ mathematics library for 3D graphics.</element>
-  </about-short>
+	<about-short>
+		<element>GLSL + Optional features = OpenGL Mathematics (GLM).</element>
+		<element>A C++ mathematics library for 3D graphics.</element>
+	</about-short>
 
   <goodies>
     <goodie date="16/10/2008" title="GLM Logo" image="goodies/logo.png" image-mini="image/logo-mini.png">
@@ -2832,29 +2852,25 @@
 
   <menu>
     <menu-group name="Main">
-      <menu-entry name="News" href="./index.html" />
-      <menu-entry name="About" href="./about.html" />
+      <menu-entry name="Front page" href="./index.html" />
       <menu-entry name="Downloads" href="./download.html" />
-      <menu-entry name="Goodies" href="./goodies.html" />
 		<menu-entry name="OpenGL SDK page" href="http://www.opengl.org/sdk/libs/GLM/" />
     </menu-group>
 
     <menu-group name="Documentation">
       <menu-entry name="GLM Manual" href="./glm-0.9.1.pdf" />
-      <menu-entry name="GLM API" href="./html-0.9.1/index.html" />
+      <menu-entry name="GLM API" href="./api-0.9.1/index.html" />
       <menu-entry name="Code samples" href="./code.html" />
       <menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.clean.pdf" />
       <menu-entry name="OpenGL.org Toolkits forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
-      <!--menu-entry name="Usage" href="./usage.html" /-->
     </menu-group>
 
     <menu-group name="Developer">
-      <!--menu-entry name="Contribute" href="./contribute.html" /-->
-		<menu-entry name="Bug report" href="https://sourceforge.net/apps/trac/ogl-math" />
+		<menu-entry name="Report a bug" href="https://sourceforge.net/apps/trac/ogl-math/newticket" />
 		<menu-entry name="SourceForge page" href="https://sourceforge.net/projects/ogl-math/" />
 		<menu-entry name="G-Truc Creation page" href="http://www.g-truc.net/project-0016.html#menu" />
       <menu-entry name="Browse Git repository" href="http://ogl-math.git.sourceforge.net/git/gitweb.cgi?p=ogl-math/ogl-math;a=summary" />
-      <menu-entry name="GIT HEAD snapshot" href="http://ogl-math.git.sourceforge.net/git/gitweb.cgi?p=ogl-math/ogl-math;a=snapshot;h=HEAD;sf=tgz" />
+      <menu-entry name="Source snapshot" href="http://ogl-math.git.sourceforge.net/git/gitweb.cgi?p=ogl-math/ogl-math;a=snapshot;h=HEAD;sf=tgz" />
     </menu-group>
 
     <menu-link>
