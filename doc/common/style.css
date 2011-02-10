@@ -1,13 +1,15 @@
 body
 {
-	background-color:#fff8f0;
+	background-color:#000000;
+	margin:0px;
+	padding:0px;
 	width:100%;
 }
 
 table
 {
 	background-color:#ffffff;
-	width:800px;
+	width:1000px;
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -189,12 +191,12 @@ a.menu
 */
 a.menu
 {
-    color:#008000;    
+    color:#000000;    
 }
 
 a
 {
-    color:#008000;    
+    color:#000000;    
 }
 
 div.issue-content
