@@ -1,5 +1,7 @@
 body
 {
+	font-family: Lucida Grande, Verdana, Geneva, Arial, sans-serif;
+	font-size: 12px;
 	background-color:#000000;
 	margin:0px;
 	padding:0px;
@@ -26,14 +28,8 @@ table.principale
 	border-style:none;
 	border-width:0px;
 	border-spacing:0px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-right: 0px;
-	margin-left: 0px;
-	padding-right: 0px;
-	padding-left: 0px;
-	padding-bottom: 0px;
-	padding-top: 0px;
+	margin: 0px;
+	padding: 0px;
 	width:100%;
 }
 
@@ -43,14 +39,8 @@ tr.principale
 	border-style:none;
 	border-width:0px;
 	border-spacing:0px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-right: 0px;
-	margin-left: 0px;
-	padding-right: 0px;
-	padding-left: 0px;
-	padding-bottom: 0px;
-	padding-top: 0px;	
+	margin: 0px;
+	padding: 0px;	
 }
 
 div.title1
@@ -78,8 +68,9 @@ div.title3
     border-width:1px;
 }
 
-div.title4
+h3
 {
+	font-family:Century;
     text-align:left;
     font-size:16px;
     font-weight:bolder;
@@ -97,14 +88,15 @@ div.title-date
 div.menu1
 {
     text-align:center;
-    font-size:16px;
+    font-size:12px;
     font-weight:bolder;
+	padding:16px;
 }
 
 div.menu2
 {
     text-align:center;
-    font-size:16px;
+    font-size:12px;
 }
 
 div.news-separator
@@ -136,12 +128,6 @@ div.paragraph
 {
     /*text-indent:32px;   */
     text-align:justify;
-}
-
-div.block
-{
-	padding-right: 16px;
-	padding-left: 16px;
 }
 
 div.include

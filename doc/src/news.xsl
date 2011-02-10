@@ -56,9 +56,9 @@
       <div class="title-date">
         <xsl:value-of select="./@date" />
       </div>
-      <div class="title4">
-        <xsl:value-of select="./@title" />
-      </div>
+		<h3>
+			<xsl:value-of select="./@title" />
+		</h3>
       <div>
         <xsl:if test="./paragraph">
           <xsl:apply-templates select="./paragraph" />
