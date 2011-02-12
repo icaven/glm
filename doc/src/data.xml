@@ -2803,8 +2803,8 @@
     </menu-group>
 
     <menu-group name="Documentation">
-      <menu-entry name="GLM Manual" href="./glm-manual.pdf" />
-      <menu-entry name="GLM API" href="./html/index.html" />
+      <menu-entry name="GLM Manual" href="./glm-0.9.0.pdf" />
+      <menu-entry name="GLM API" href="./html-0.9.0/index.html" />
       <menu-entry name="Code samples" href="./code.html" />
       <menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.00.8.clean.pdf" />
       <menu-entry name="OpenGL.org Toolkits forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
