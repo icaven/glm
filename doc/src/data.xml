@@ -3,6 +3,8 @@
 <glm copyright="Copyright © 2005 - 2011">
   <downloads>
     <section name="GLM - zip files">
+      <download name="GLM 0.9.1.B" date="13/02/2010" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.B/glm-0.9.1.B.zip/download"/>
+      <download name="GLM 0.9.0.8" date="13/02/2010" size="3.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.8/glm-0.9.0.8.zip/download"/>
       <download name="GLM 0.9.1.A" date="31/01/2010" size="3.0 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.A/glm-0.9.1.A.zip/download"/>
       <download name="GLM 0.9.0.7" date="30/01/2010" size="1.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.7/glm-0.9.0.7.zip/download"/>
       <download name="GLM 0.9.0.6" date="21/12/2010" size="2.2 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.6/glm-0.9.0.6.zip/download"/>
@@ -56,6 +58,8 @@
       <download name="GLM 0.1.0.0" date="02/21/2005" size="29.2 KB" link="http://prdownloads.sourceforge.net/glf/glm-0.1-ur.zip?download"/>
     </section>
     <section name="GLM - 7z files">
+      <download name="GLM 0.9.1.B" date="13/02/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.B/glm-0.9.1.B.7z/download"/>
+      <download name="GLM 0.9.0.8" date="13/02/2011" size="1.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.8/glm-0.9.0.8.7z/download"/>
       <download name="GLM 0.9.1.A" date="31/01/2011" size="2.0 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.A/glm-0.9.1.A.7z/download"/>
       <download name="GLM 0.9.0.7" date="30/01/2011" size="832 KB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.7/glm-0.9.0.7.7z/download"/>
       <download name="GLM 0.9.0.6" date="21/12/2010" size="1.6 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.6/glm-0.9.0.6.7z/download"/>
@@ -1570,9 +1574,17 @@
         UPDATED: SF.net mirrors are available again.
       </paragraph>
 
-      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.A/glm-0.9.1.A.zip/download">GLM 0.9.1.A (zip, 3.0 MB)</source>
-      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.A/glm-0.9.1.A.7z/download">GLM 0.9.1.A (7z, 2.0 MB)</source>
-      <source type="Link" href="http://glm.g-truc.net/glm-0.9.1.pdf">GLM Manual</source>
+      <download name="GLM 0.9.1.B" date="13/02/2010" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.B/glm-0.9.1.B.zip/download"/>
+      <download name="GLM 0.9.0.8" date="13/02/2010" size="3.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.8/glm-0.9.0.8.zip/download"/>
+      <download name="GLM 0.9.1.B" date="13/02/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.B/glm-0.9.1.B.7z/download"/>
+      <download name="GLM 0.9.0.8" date="13/02/2011" size="1.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.8/glm-0.9.0.8.7z/download"/>
+      
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.B/glm-0.9.1.B.zip/download">GLM 0.9.1.B (zip,)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.B/glm-0.9.1.B.7z/download">GLM 0.9.1.B (7z)</source>
+      <source type="Link" href="http://glm.g-truc.net/glm-0.9.1.pdf">GLM 0.9.1 manual</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.8/glm-0.9.0.8.zip/download">GLM 0.9.0.8 (zip,)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.8/glm-0.9.0.8.7z/download">GLM 0.9.0.8 (7z)</source>
+      <source type="Link" href="http://glm.g-truc.net/glm-0.9.0.pdf">GLM 0.9.0 manual</source>
       <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
     </news>
 
@@ -2858,8 +2870,13 @@
     </menu-group>
 
     <menu-group name="Documentation">
+<<<<<<< HEAD
       <menu-entry name="GLM Manual" href="./glm-0.9.1.pdf" />
       <menu-entry name="GLM API" href="./api-0.9.1/index.html" />
+=======
+      <menu-entry name="GLM Manual" href="./glm-0.9.0.pdf" />
+      <menu-entry name="GLM API" href="./html-0.9.0/index.html" />
+>>>>>>> 0.9.0
       <menu-entry name="Code samples" href="./code.html" />
       <menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.clean.pdf" />
       <menu-entry name="OpenGL.org Toolkits forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
