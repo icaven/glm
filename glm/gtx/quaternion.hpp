@@ -33,7 +33,10 @@ namespace glm
     {
 		using namespace gtc::quaternion;
 
-        //! Compute a cross product between a quaternion and a vector. 
+		/// \addtogroup gtx_quaternion
+		///@{
+
+		//! Compute a cross product between a quaternion and a vector. 
 		//! From GLM_GTX_quaternion extension.
 		template <typename valType> 
 		detail::tvec3<valType> cross(
@@ -187,6 +190,8 @@ namespace glm
 		template <typename valType> 
 		detail::tquat<valType> toQuat(
 			detail::tmat4x4<valType> const & x){return gtc::quaternion::quat_cast(x);}
+
+		///@}
 
     }//namespace quaternion
     }//namespace gtx

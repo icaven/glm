@@ -30,6 +30,9 @@ namespace glm
 	//! GLM_GTC_matrix_integer extension: Add integer matrices
 	namespace matrix_integer
 	{
+		/// \addtogroup gtc_matrix_integer
+		///@{
+
 		typedef detail::tmat2x2<highp_int>				highp_imat2;	//!< \brief High-precision signed integer 2x2 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef detail::tmat3x3<highp_int>				highp_imat3;	//!< \brief High-precision signed integer 3x3 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef detail::tmat4x4<highp_int>				highp_imat4;	//!< \brief High-precision signed integer 4x4 matrix. (from GLM_GTC_matrix_integer extension)
@@ -200,6 +203,8 @@ namespace glm
 		typedef mediump_umat4x3							umat4x3; //!< \brief Unsigned integer 4x3 matrix. (from GLM_GTC_matrix_integer extension)
 		typedef mediump_umat4x4							umat4x4; //!< \brief Unsigned integer 4x4 matrix. (from GLM_GTC_matrix_integer extension)
 #endif//GLM_PRECISION
+
+		///@}
 
 	}//namespace matrix_integer
 	}//namespace gtc

@@ -27,9 +27,12 @@ namespace glm
 	}//namespace test
 
 	namespace gtx{
-	//! GLM_GTX_matrix_operation: Build cross product matrices
+	//! GLM_GTX_matrix_operation: Build diagonal matrices
 	namespace matrix_operation
 	{
+		/// \addtogroup gtx_matrix_operation
+		///@{
+
 		//! Build a diagonal matrix.
 		//! From GLM_GTX_matrix_operation extension.
 		template <typename valType> 
@@ -83,6 +86,8 @@ namespace glm
 		template <typename valType> 
 		detail::tmat4x4<valType> diagonal4x4(
 			detail::tvec4<valType> const & v);
+
+		///@}
 
 	}//namespace matrix_operation
 	}//namespace gtx

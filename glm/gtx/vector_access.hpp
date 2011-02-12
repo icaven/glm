@@ -30,6 +30,9 @@ namespace glm
 	//! GLM_GTX_vector_access extension: Function to set values to vectors
     namespace vector_access
     {
+		/// \addtogroup gtx_vector_access
+		///@{
+
 		//! Set values to a 2 components vector.
 		//! From GLM_GTX_vector_access extension.
         template <typename valType> 
@@ -56,6 +59,8 @@ namespace glm
 			valType const & y, 
 			valType const & z, 
 			valType const & w);
+
+		///@}
 
     }//namespace vector_access
     }//namespace gtx

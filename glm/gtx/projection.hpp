@@ -30,6 +30,9 @@ namespace glm
 	//! GLM_GTX_projection extension: Projection of a vector to other one
 	namespace projection
 	{
+		/// \addtogroup gtx_projection
+		///@{
+
 		//! Projects x on Normal.
 		//! From GLM_GTX_projection extension.
 		template <typename T> 
@@ -50,6 +53,8 @@ namespace glm
 		detail::tvec4<T> proj(
 			detail::tvec4<T> const & x, 
 			detail::tvec4<T> const & Normal);
+
+		///@}
 		
 	}//namespace projection
     }//namespace gtx

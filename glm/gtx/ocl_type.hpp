@@ -28,6 +28,9 @@ namespace ocl_type
 	///////////////////////////
 	// Scalar types 
 
+	/// \addtogroup gtx_ocl_type
+	///@{
+
 	typedef detail::int8						cl_char;		//!< \brief 8bit signed integer. (from GLM_GTX_ocl_type extension)
 	typedef detail::int16						cl_short;		//!< \brief 16bit signed integer. (from GLM_GTX_ocl_type extension)
 	typedef detail::int32						cl_int;			//!< \brief 32bit signed integer. (from GLM_GTX_ocl_type extension)
@@ -95,6 +98,8 @@ namespace ocl_type
 
 	//typedef detail::tvec4<detail::float16>		cl_half4;	//!< \brief Half-precision floating-point scalar. (from GLM_GTX_ocl_type extension)
 	typedef detail::tvec4<detail::float32>		cl_float4;	//!< \brief Single-precision floating-point scalar. (from GLM_GTX_ocl_type extension)
+
+	///@}
 
 }//namespace ocl_type
 }//namespace gtx

@@ -32,9 +32,12 @@ namespace glm
 	}//namespace test
 
 	namespace gtx{
-	//! GLM_GTX_norm extension: Varius way to compute vector norms.
+	//! GLM_GTX_norm extension: Various way to compute vector norms.
 	namespace norm
 	{
+		/// \addtogroup gtx_norm
+		///@{
+
 		//! Returns the squared length of x.
 		//! From GLM_GTX_norm extension.
 		template <typename T> 
@@ -133,6 +136,8 @@ namespace glm
 		T lxNorm(
 			const detail::tvec3<T>& x,
 			unsigned int Depth);
+
+		///@}
 
 	}//namespace norm
 	}//namespace gtx

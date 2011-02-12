@@ -29,6 +29,9 @@ namespace gtx
     {
 		using namespace gtc::type_precision;
 
+		/// \addtogroup gtx_raw_data
+		///@{
+
 		//! Type for byte numbers. 
 		//! From GLM_GTX_raw_data extension.
 		typedef uint8		byte;
@@ -44,6 +47,8 @@ namespace gtx
 		//! Type for qword numbers. 
 		//! From GLM_GTX_raw_data extension.
 		typedef uint64		qword;
+
+		///@}
 	}
 }//namespace gtx
 }//namespace glm

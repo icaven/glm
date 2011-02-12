@@ -30,6 +30,9 @@ namespace glm
 	//! GLM_GTX_wrap: Wrapping mode using my texture samping.
 	namespace wrap
 	{
+		/// \addtogroup gtx_wrap
+		///@{
+
 		//! Simulate GL_CLAMP OpenGL wrap mode
 		//! From GLM_GTX_wrap extension.
 		template <typename genType> 
@@ -44,6 +47,8 @@ namespace glm
 		//! From GLM_GTX_wrap extension.
 		template <typename genType> 
 		genType mirrorRepeat(genType const & Texcoord);
+
+		///@}
 
 	}//namespace wrap
 	}//namespace gtx

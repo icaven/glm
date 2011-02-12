@@ -23,9 +23,12 @@
 namespace glm
 {
 	namespace gtx{
-	//! GLM_GTX_matrix_cross_product: Build matrices with specific matrix order, row or column
+	//! GLM_GTX_matrix_major_storage: Build matrices with specific matrix order, row or column
 	namespace matrix_major_storage
 	{
+		/// \addtogroup gtx_matrix_major_storage
+		///@{
+
 		//! Build a row major matrix from row vectors.
 		//! From GLM_GTX_matrix_major_storage extension.
 		template <typename T> 
@@ -109,6 +112,8 @@ namespace glm
 		template <typename T> 
 		detail::tmat4x4<T> colMajor4(
 			const detail::tmat4x4<T>& m);
+
+		///@}
 		
 	}//namespace matrix_major_storage
 	}//namespace gtx

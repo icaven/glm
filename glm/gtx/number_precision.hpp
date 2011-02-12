@@ -33,6 +33,9 @@ namespace number_precision
 	/////////////////////////////
 	// Unsigned int vector types 
 
+	/// \addtogroup gtx_number_precision
+	///@{
+
 	typedef u8			u8vec1;		//!< \brief 8bit unsigned integer scalar. (from GLM_GTX_number_precision extension)
 	typedef u16			u16vec1;    //!< \brief 16bit unsigned integer scalar. (from GLM_GTX_number_precision extension)
 	typedef u32			u32vec1;    //!< \brief 32bit unsigned integer scalar. (from GLM_GTX_number_precision extension)
@@ -55,6 +58,7 @@ namespace number_precision
 	typedef f64			f64mat1;	//!< \brief Double-precision floating-point scalar. (from GLM_GTX_number_precision extension)
 	typedef f64			f64mat1x1;	//!< \brief Double-precision floating-point scalar. (from GLM_GTX_number_precision extension)
 
+	///@}
 }//namespace number_precision
 }//namespace gtx
 }//namespace glm

@@ -30,6 +30,9 @@ namespace glm
 	//! GLM_GTX_matrix_cross_product: Build cross product matrices
 	namespace matrix_cross_product
 	{
+		/// \addtogroup gtx_matrix_cross_product
+		///@{
+
 		//! Build a cross product matrix.
 		//! From GLM_GTX_matrix_cross_product extension.
 		template <typename T> 
@@ -41,6 +44,8 @@ namespace glm
 		template <typename T> 
 		detail::tmat4x4<T> matrixCross4(
 			detail::tvec3<T> const & x);
+
+		///@}
 
 	}//namespace matrix_cross_product
 	}//namespace gtx

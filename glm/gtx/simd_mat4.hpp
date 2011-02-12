@@ -32,6 +32,8 @@ namespace glm
 {
 	namespace detail
 	{
+		/// 4x4 Matrix implemented using SIMD SEE intrinsics.
+		/// \ingroup gtx_simd_mat4
 		GLM_ALIGN(16) struct fmat4x4SIMD
 		{
 			enum ctor{null};
@@ -129,10 +131,13 @@ namespace glm
 	}//namespace detail
 
 	namespace gtx{
-	//! GLM_GTX_simd_mat4 extension: SIMD implementation of vec4 type.
+	//! GLM_GTX_simd_mat4 extension: SIMD implementation of mat4 type.
 	namespace simd_mat4
 	{
 		typedef detail::fmat4x4SIMD simdMat4;
+
+		/// \addtogroup gtx_simd_mat4
+		///@{
 
 		//! Convert a simdMat4 to a mat4.
 		//! (From GLM_GTX_simd_mat4 extension)
@@ -168,6 +173,8 @@ namespace glm
 		//! (From GLM_GTX_simd_mat4 extension).
 		detail::fmat4x4SIMD inverse(
 			detail::fmat4x4SIMD const & m);
+
+		///@}
 
 	}//namespace simd_mat4
 	}//namespace gtx
