@@ -1,4 +1,7 @@
 .tabs, .tabs2, .tabs3 {
+	background-image: -moz-linear-gradient(center top, #FFFFFF 0%, #FFFFFF 5%, #FFEEDD 95%, #FFEEDD);
+	background-image: -webkit-gradient(linear,center top,center bottom,from(#FFFFFF), color-stop(0.05,#FFFFFF), color-stop(0.05,#FFFFFF), color-stop(0.95,#FFEEDD), to(#FFEEDD));
+
     /*background-image: url('tab_b.png');*/
     background-color:#FFF8F0;
     width: 100%;
@@ -22,6 +25,10 @@
 .tablist li {
     float: left;
     display: table-cell;
+
+	background-image: -moz-linear-gradient(center top, #FFFFFF 0%, #FFFFFF 5%, #FFEEDD 95%, #FFEEDD);
+	background-image: -webkit-gradient(linear,center top,center bottom,from(#FFFFFF), color-stop(0.05,#FFFFFF), color-stop(0.05,#FFFFFF), color-stop(0.95,#FFEEDD), to(#FFEEDD));
+
     /*background-image: url('tab_b.png');*/
     line-height: 36px;
     list-style: none;
@@ -31,6 +38,10 @@
     display: block;
     padding: 0 20px;
     font-weight: bold;
+
+	background-image: -moz-linear-gradient(center top, #FFFFFF 0%, #FFFFFF 5%, #FFEEDD 95%, #FFEEDD);
+	background-image: -webkit-gradient(linear,center top,center bottom,from(#FFFFFF), color-stop(0.05,#FFFFFF), color-stop(0.05,#FFFFFF), color-stop(0.95,#FFEEDD), to(#FFEEDD));
+
     /*background-image:url('tab_s.png');*/
     background-repeat:no-repeat;
     background-position:right;
@@ -45,6 +56,9 @@
 }
 
 .tablist a:hover {
+	background-image: -moz-linear-gradient(center top, #FFFFFF 0%, #FFFFFF 5%, #FFEEDD 95%, #FFEEDD);
+	background-image: -webkit-gradient(linear,center top,center bottom,from(#FFFFFF), color-stop(0.05,#FFFFFF), color-stop(0.05,#FFFFFF), color-stop(0.95,#FFEEDD), to(#FFEEDD));
+
     /*background-image: url('tab_h.png');*/
     background-color:#FFFEFD;
     background-repeat:repeat-x;
@@ -54,6 +68,9 @@
 }
 
 .tablist li.current a {
+	background-image: -moz-linear-gradient(center top, #FFFFFF 0%, #FFFFFF 5%, #FFEEDD 95%, #FFEEDD);
+	background-image: -webkit-gradient(linear,center top,center bottom,from(#FFFFFF), color-stop(0.05,#FFFFFF), color-stop(0.05,#FFFFFF), color-stop(0.95,#FFEEDD), to(#FFEEDD));
+
     /*background-image: url('tab_a.png');*/
     background-color:#FFFEFD;
     background-repeat:repeat-x;

@@ -52,9 +52,42 @@
 	  </xsl:template>
 
 	<xsl:template match="list">
-		<xsl:value-of select="./@nom" /><br />
-		<xsl:apply-templates select="./element"/>
-		<br />
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<xsl:if test="./@name">
+				<xsl:choose>
+					<xsl:when test="./@href">
+						<span class="list">
+							<a href="{./@href}">
+								<xsl:value-of select="./@name" />
+							</a>
+						</span>
+					</xsl:when>
+					<xsl:otherwise>
+						<span class="list">
+							<xsl:value-of select="./@name" />
+						</span>
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:if>
+			<ul>
+				<xsl:apply-templates select="./list-element"/>
+			</ul>
+		</div>
+	</xsl:template>
+
+	<xsl:template match="list-element">
+		<li xmlns="http://www.w3.org/1999/xhtml">
+			<xsl:choose>
+				<xsl:when test="./@href">
+					<a href="{./@href}">
+						<xsl:apply-templates />
+					</a>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:apply-templates />
+				</xsl:otherwise>
+			</xsl:choose>
+		</li>
 	</xsl:template>
 
 	<xsl:template match="element">
@@ -62,7 +95,7 @@
 	</xsl:template>
 
 	<xsl:template match="paragraph">
-		<div class="paragraph"><xsl:text /><xsl:apply-templates /><xsl:text /></div><br />
+		<p><xsl:text /><xsl:apply-templates /><xsl:text /></p>
 	</xsl:template>
 
 	<xsl:template match="about-short">

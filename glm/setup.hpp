@@ -17,7 +17,7 @@
 #define GLM_VERSION_MAJOR			0
 #define GLM_VERSION_MINOR			9
 #define GLM_VERSION_PATCH			1
-#define GLM_VERSION_REVISION		A
+#define GLM_VERSION_REVISION		B
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Compiler

@@ -7,7 +7,7 @@
   <xsl:template match="/">
     <html>
       <head>
-        <title>OpenGL Mathematics : Links</title>
+        <title>OpenGL Mathematics: Links</title>
         <meta http-equiv="Content-Language" content="fr, be, ca, lu, ch" />
         <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=iso-8859-1" />
         <meta name="copyright" content="&#65533; 2005 C-Truc Creation" />
