@@ -1546,14 +1546,14 @@
 
     <news index="0060" date="13/02/2011" title="GLM 0.9.0.8 and GLM 0.9.1 beta released" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>
-        GLM 0.9.0.8 add the operator * for quaternion products and deprecated the cross function previously used for the same purpose.
+        The stable version, GLM 0.9.0.8, adds the operator * for quaternion products and deprecated the cross function previously used for the same purpose.
         Also, it clarifies that GLM is a header only library when a user try to build it. Once more, there is nothing to build.
       </paragraph>
       <paragraph>
-        GLM 0.9.1 beta includes a great contribution on the <a href="http://glm.g-truc.net/html-0.9.1/index.html">API documentation</a> by 
+        The development version, GLM 0.9.1 beta, provides an improved <a href="http://glm.g-truc.net/html-0.9.1/index.html">API documentation</a> by 
         <a href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=showprofile&amp;User=23530">Alfonse Reinheart</a>,
         author of <a href="http://www.arcsynthesis.org/gltut/">a great OpenGL tutorial</a> which uses GLM. 
-        This version also improves the SIMD implementation.
+        This version also improves the SIMD extensions and it fixes many bugs.
       </paragraph>
 
       <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.B/glm-0.9.1.B.zip/download">GLM 0.9.1.B (zip,)</source>
