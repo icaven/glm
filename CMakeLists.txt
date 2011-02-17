@@ -23,7 +23,7 @@ add_subdirectory(doc)
 
 option(GLM_TEST_MODE "GLM test" OFF)
 if(NOT GLM_TEST_MODE)
-	message(FATAL_ERROR "GLM is a header only library, no need to build it. Set the option GLM_TEST_MODE to ON if you want to run the test bench")
+	message(FATAL_ERROR "GLM is a header only library, no need to build it. Set the option GLM_TEST_MODE with ON to build and run the test bench")
 endif()
 
 install( DIRECTORY glm DESTINATION include )
