@@ -332,10 +332,10 @@ namespace matrix_transform
 		detail::tvec4<U> const & viewport
 	)
 	{
-		assert(delta.x > 0.0f && delta.y > 0.0f);
+		assert(delta.x > T(0) && delta.y > T(0));
 		detail::tmat4x4<T> Result(1.0f);
 
-		if(!(delta.x > 0.0f && delta.y > 0.0f)) 
+		if(!(delta.x > T(0) && delta.y > T(0))) 
 			return Result; // Error
 
 		// Translate and scale the picked region to the entire window
