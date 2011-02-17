@@ -403,7 +403,7 @@ namespace quaternion{
 		if(flip)
 			alpha = -alpha;
 		
-        return normalize(beta * x + alpha * y2);
+        return normalize(beta * x + alpha * y);
     }
 
     template <typename T> 

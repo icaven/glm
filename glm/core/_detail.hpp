@@ -327,7 +327,7 @@ namespace detail
 #	define GLM_RESTRICT_VAR __restrict
 #elif((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC31))
 #	define GLM_DEPRECATED __attribute__((__deprecated__))
-#	define GLM_ALIGN(x) __attribute__((aligned(x))) 
+#	define GLM_ALIGN(x) __attribute__((aligned(x)))
 #	if(GLM_COMPILER >= GLM_COMPILER_GCC33)
 #		define GLM_RESTRICT __restrict__
 #		define GLM_RESTRICT_VAR __restrict__
