@@ -259,7 +259,7 @@ namespace detail
 				_YES = 1, \
 				_NO = 0 \
 			}; \
-		};
+		}
 
 	//////////////////
 	// matrix
