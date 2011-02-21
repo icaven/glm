@@ -24,6 +24,16 @@ namespace detail
 #elif(GLM_COMPILER & GLM_COMPILER_GCC)
 	__extension__ typedef signed long long		sint64;
 	__extension__ typedef unsigned long long	uint64;
+//#	if GLM_MODEL == GLM_MODEL_64
+//		typedef signed long							highp_int_t;
+//		typedef unsigned long						highp_uint_t;
+//#   elif GLM_MODEL == GLM_MODEL_32
+//		__extension__ typedef signed long long		highp_int_t;
+//		__extension__ typedef unsigned long long	highp_uint_t;
+//#	endif//GLM_MODEL
+#elif(GLM_COMPILER & GLM_COMPILER_BC)
+	typedef Int64								sint64;
+	typedef Uint64								uint64;
 #else//unknown compiler
 	typedef signed long							sint64;
 	typedef unsigned long						uint64;

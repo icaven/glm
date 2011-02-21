@@ -17,26 +17,13 @@ namespace glm
 {
 	namespace detail
 	{
-#if defined(GLM_COMPILER) && (GLM_COMPILER & GLM_COMPILER_VC)
-		typedef signed __int64						highp_int_t;
-		typedef unsigned __int64					highp_uint_t;
-#elif(defined(GLM_COMPILER) && (GLM_COMPILER & GLM_COMPILER_GCC))
-		__extension__ typedef signed long long		highp_int_t;
-		__extension__ typedef unsigned long long	highp_uint_t;
-//#	if GLM_MODEL == GLM_MODEL_64
-//		typedef signed long							highp_int_t;
-//		typedef unsigned long						highp_uint_t;
-//#   elif GLM_MODEL == GLM_MODEL_32
-//		__extension__ typedef signed long long		highp_int_t;
-//		__extension__ typedef unsigned long long	highp_uint_t;
-//#	endif//GLM_MODEL
-#elif(defined(GLM_COMPILER_BC))
-		typedef Int64								highp_int_t;
-		typedef Uint64								highp_uint_t;
-#else
-		typedef signed long	long					highp_int_t;
-		typedef unsigned long long					highp_uint_t;
-#endif//GLM_COMPILER
+		typedef signed short			lowp_int_t;
+		typedef signed int				mediump_int_t;
+		typedef sint64					highp_int_t;
+
+		typedef unsigned short			lowp_uint_t;
+		typedef unsigned int			mediump_uint_t;
+		typedef uint64					highp_uint_t;
 
 		GLM_DETAIL_IS_INT(signed char);
 		GLM_DETAIL_IS_INT(signed short);
@@ -49,14 +36,6 @@ namespace glm
 		GLM_DETAIL_IS_UINT(unsigned int);
 		GLM_DETAIL_IS_UINT(unsigned long);
 		GLM_DETAIL_IS_UINT(highp_uint_t);
-
-		typedef signed short			lowp_int_t;
-		typedef signed int				mediump_int_t;
-		typedef detail::highp_int_t		highp_int_t;
-
-		typedef unsigned short			lowp_uint_t;
-		typedef unsigned int			mediump_uint_t;
-		typedef detail::highp_uint_t	highp_uint_t;
 	}
 	//namespace detail
 
