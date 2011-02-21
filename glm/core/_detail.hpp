@@ -333,11 +333,13 @@ namespace detail
 #if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
 #	define GLM_DEPRECATED __declspec(deprecated)
 #	define GLM_ALIGN(x) __declspec(align(x)) 
+#	define GLM_ALIGNED_STRUCT(x) __declspec(align(x)) struct 
 #	define GLM_RESTRICT __declspec(restrict)
 #	define GLM_RESTRICT_VAR __restrict
 #elif((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC31))
 #	define GLM_DEPRECATED __attribute__((__deprecated__))
 #	define GLM_ALIGN(x) __attribute__((aligned(x)))
+#	define GLM_ALIGNED_STRUCT(x) struct __attribute__((aligned(x)))
 #	if(GLM_COMPILER >= GLM_COMPILER_GCC33)
 #		define GLM_RESTRICT __restrict__
 #		define GLM_RESTRICT_VAR __restrict__
@@ -349,7 +351,8 @@ namespace detail
 #	define GLM_RESTRICT_VAR __restrict__
 #else
 #	define GLM_DEPRECATED
-#	define GLM_ALIGN(x) 
+#	define GLM_ALIGN
+#	define GLM_ALIGNED_STRUCT(x) 
 #	define GLM_RESTRICT
 #	define GLM_RESTRICT_VAR
 #endif//GLM_COMPILER
