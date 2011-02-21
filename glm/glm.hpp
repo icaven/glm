@@ -7,18 +7,10 @@
 // File    : glm/glm.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#include "core/_fixes.hpp"
+
 #ifndef glm_glm
 #define glm_glm
-
-//! Workaround for compatibility with other libraries
-#ifdef max
-#undef max
-#endif
-
-//! Workaround for compatibility with other libraries
-#ifdef min
-#undef min
-#endif
 
 //! TODO: to delete
 #define GLMvalType typename genType::value_type
@@ -29,7 +21,7 @@
 #include <climits>
 #include <cfloat>
 #include <limits>
-#include "./setup.hpp"
+#include "setup.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_CORE_INCLUDED_DISPLAYED))
 #	define GLM_MESSAGE_CORE_INCLUDED_DISPLAYED
