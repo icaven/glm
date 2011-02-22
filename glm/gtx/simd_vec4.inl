@@ -285,7 +285,7 @@ namespace glm
 		//{
 		//  return max(-a, a);
 		//}
-		detail::fvec4SIMD abs
+		inline detail::fvec4SIMD abs
 		(
 			detail::fvec4SIMD const & x
 		)
