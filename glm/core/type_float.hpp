@@ -11,7 +11,7 @@
 #define glm_core_type_float
 
 #include "type_half.hpp"
-#include "../setup.hpp"
+#include "setup.hpp"
 
 namespace glm
 {

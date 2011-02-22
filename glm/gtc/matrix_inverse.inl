@@ -8,7 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
+namespace gtc{
 namespace matrix_inverse
 {
 	template <typename T> 
@@ -135,5 +135,5 @@ namespace matrix_inverse
 	}
 
 }//namespace matrix_inverse
-}//namespace gtx
+}//namespace gtc
 }//namespace glm

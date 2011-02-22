@@ -34,7 +34,7 @@ namespace glm
 	{
 		/// 4x4 Matrix implemented using SIMD SEE intrinsics.
 		/// \ingroup gtx_simd_mat4
-		GLM_ALIGN(16) struct fmat4x4SIMD
+		GLM_ALIGNED_STRUCT(16) fmat4x4SIMD
 		{
 			enum ctor{null};
 

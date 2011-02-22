@@ -10,6 +10,8 @@
 #ifndef glm_core_func_common
 #define glm_core_func_common
 
+#include "_fixes.hpp"
+
 namespace glm
 {
 	namespace test{

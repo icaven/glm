@@ -10,7 +10,7 @@
 #ifndef glm_core_detail
 #define glm_core_detail
 
-#include "../setup.hpp"
+#include "setup.hpp"
 #include <cassert>
 
 namespace glm{
@@ -24,6 +24,16 @@ namespace detail
 #elif(GLM_COMPILER & GLM_COMPILER_GCC)
 	__extension__ typedef signed long long		sint64;
 	__extension__ typedef unsigned long long	uint64;
+//#	if GLM_MODEL == GLM_MODEL_64
+//		typedef signed long							highp_int_t;
+//		typedef unsigned long						highp_uint_t;
+//#   elif GLM_MODEL == GLM_MODEL_32
+//		__extension__ typedef signed long long		highp_int_t;
+//		__extension__ typedef unsigned long long	highp_uint_t;
+//#	endif//GLM_MODEL
+#elif(GLM_COMPILER & GLM_COMPILER_BC)
+	typedef Int64								sint64;
+	typedef Uint64								uint64;
 #else//unknown compiler
 	typedef signed long							sint64;
 	typedef unsigned long						uint64;
@@ -259,7 +269,7 @@ namespace detail
 				_YES = 1, \
 				_NO = 0 \
 			}; \
-		};
+		}
 
 	//////////////////
 	// matrix
@@ -323,11 +333,13 @@ namespace detail
 #if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
 #	define GLM_DEPRECATED __declspec(deprecated)
 #	define GLM_ALIGN(x) __declspec(align(x)) 
+#	define GLM_ALIGNED_STRUCT(x) __declspec(align(x)) struct 
 #	define GLM_RESTRICT __declspec(restrict)
 #	define GLM_RESTRICT_VAR __restrict
 #elif((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC31))
 #	define GLM_DEPRECATED __attribute__((__deprecated__))
 #	define GLM_ALIGN(x) __attribute__((aligned(x)))
+#	define GLM_ALIGNED_STRUCT(x) struct __attribute__((aligned(x)))
 #	if(GLM_COMPILER >= GLM_COMPILER_GCC33)
 #		define GLM_RESTRICT __restrict__
 #		define GLM_RESTRICT_VAR __restrict__
@@ -339,7 +351,8 @@ namespace detail
 #	define GLM_RESTRICT_VAR __restrict__
 #else
 #	define GLM_DEPRECATED
-#	define GLM_ALIGN(x) 
+#	define GLM_ALIGN
+#	define GLM_ALIGNED_STRUCT(x) 
 #	define GLM_RESTRICT
 #	define GLM_RESTRICT_VAR
 #endif//GLM_COMPILER
