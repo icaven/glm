@@ -10,7 +10,7 @@
 #ifndef glm_core_detail
 #define glm_core_detail
 
-#include "../setup.hpp"
+#include "setup.hpp"
 #include <cassert>
 
 namespace glm{

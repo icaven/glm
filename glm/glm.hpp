@@ -21,7 +21,7 @@
 #include <climits>
 #include <cfloat>
 #include <limits>
-#include "setup.hpp"
+#include "core/setup.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_CORE_INCLUDED_DISPLAYED))
 #	define GLM_MESSAGE_CORE_INCLUDED_DISPLAYED

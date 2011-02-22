@@ -10,7 +10,7 @@
 #ifndef glm_core_type_int
 #define glm_core_type_int
 
-#include "../setup.hpp"
+#include "setup.hpp"
 #include "_detail.hpp"
 
 namespace glm
