@@ -126,6 +126,8 @@ a {
 	margin-left:auto; 
 	margin-right:auto;
 	padding:0px;
+	padding-top:8px;
+	padding-bottom:8px;
 	width:1000px;
 }
 
