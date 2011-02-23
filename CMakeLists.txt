@@ -2,8 +2,7 @@ cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 cmake_policy(VERSION 2.6)
 
 project(glm)
-#Delayed for GLM 0.9.2
-#enable_testing()
+enable_testing()
 
 add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 add_definitions(-pedantic)
