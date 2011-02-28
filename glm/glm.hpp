@@ -14,8 +14,6 @@
 
 //! TODO: to delete
 #define GLMvalType typename genType::value_type
-//#define GLMcolType typename genType::col_type
-//#define GLMrowType typename genType::row_type
 
 #include <cmath>
 #include <climits>
