@@ -249,21 +249,27 @@ namespace glm
 	//! Splits x into a floating-point significand in the range
 	//! [0.5, 1.0) and an integral exponent of two, such that:
 	//! x = significand * exp(2, exponent)
+	//! 
 	//! The significand is returned by the function and the
 	//! exponent is returned in the parameter exp. For a
 	//! floating-point value of zero, the significant and exponent
 	//! are both zero. For a floating-point value that is an
 	//! infinity or is not a number, the results are undefined.
-	//! (From GLSL 4.00.08 specification, section 8.3)
+	//! 
+	//! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/frexp.xml">GLSL frexp man page</a>
+	//! \li GLSL 4.00.08 specification, section 8.3
 	template <typename genType, typename genIType>
 	genType frexp(genType const & x, genIType & exp);
 
 	//! Builds a floating-point number from x and the
 	//! corresponding integral exponent of two in exp, returning:
 	//! significand * exp(2, exponent)
+	//! 
 	//! If this product is too large to be represented in the
 	//! floating-point type, the result is undefined.
-	//! (From GLSL 4.00.08 specification, section 8.3)
+	//! 
+	//! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/ldexp.xml">GLSL ldexp man page</a>; 
+	//! \li GLSL 4.00.08 specification, section 8.3
 	template <typename genType, typename genIType>
 	genType ldexp(genType const & x, genIType const & exp);
 
