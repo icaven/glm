@@ -148,10 +148,12 @@
   </todo>
 
   <page_news>
-	  <news index="0061" date="02/03/2011" title="GLM 0.9.1.0 final released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+	  <news index="0061" date="03/03/2011" title="GLM 0.9.1.0 final released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+			<paragraph>
+				
+			</paragraph>
 
-
-		  <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.0/glm-0.9.1.0.zip/download">GLM 0.9.1.0 (zip,)</source>
+		  <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.0/glm-0.9.1.0.zip/download">GLM 0.9.1.0 (zip)</source>
 		  <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.0/glm-0.9.1.0.7z/download">GLM 0.9.1.0 (7z)</source>
 		  <source type="Link" href="http://glm.g-truc.net/glm-0.9.1.pdf">GLM 0.9.1 manual</source>
 		  <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
@@ -169,10 +171,10 @@
         This version also improves the SIMD extensions and it fixes many bugs.
       </paragraph>
 
-      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.B/glm-0.9.1.B.zip/download">GLM 0.9.1.B (zip,)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.B/glm-0.9.1.B.zip/download">GLM 0.9.1.B (zip)</source>
       <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.B/glm-0.9.1.B.7z/download">GLM 0.9.1.B (7z)</source>
       <source type="Link" href="http://glm.g-truc.net/glm-0.9.1.pdf">GLM 0.9.1 manual</source>
-      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.8/glm-0.9.0.8.zip/download">GLM 0.9.0.8 (zip,)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.8/glm-0.9.0.8.zip/download">GLM 0.9.0.8 (zip)</source>
       <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.8/glm-0.9.0.8.7z/download">GLM 0.9.0.8 (7z)</source>
       <source type="Link" href="http://glm.g-truc.net/glm-0.9.0.pdf">GLM 0.9.0 manual</source>
       <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
