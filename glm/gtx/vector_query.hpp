@@ -41,15 +41,15 @@ namespace glm
 		bool areCollinear(
 			const genType & v0, 
 			const genType & v1, 
-			const GLMvalType epsilon = std::numeric_limits<GLMvalType>::epsilon());
+			typename genType::value_type const epsilon = std::numeric_limits<GLMvalType>::epsilon());
 		
         //! Check if two vectors are opposites.
 		//! From GLM_GTX_vector_query extensions.
 		template <typename genType> 
 		bool areOpposite(
-			const genType & v0, 
-			const genType & v1, 
-			const GLMvalType epsilon = std::numeric_limits<GLMvalType>::epsilon());
+			genType const & v0, 
+			genType const & v1, 
+			typename genType::value_type const epsilon = std::numeric_limits<GLMvalType>::epsilon());
 		
         //! Check if two vectors are orthogonals.
 		//! From GLM_GTX_vector_query extensions.
