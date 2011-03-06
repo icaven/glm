@@ -42,7 +42,7 @@ namespace glm
 	}//namespace gtx
 }//namespace glm
 
-#include "spline.inl"
+#include "ulp.inl"
 
 namespace glm{using namespace gtx::spline;}
 
