@@ -34,7 +34,7 @@ namespace glm
 	{
 		/// 4-dimensional vector implemented using SIMD SEE intrinsics.
 		/// \ingroup gtx_simd_vec4
-		GLM_ALIGN(4) struct fvec4SIMD
+		GLM_ALIGNED_STRUCT(4) fvec4SIMD
 		{
 			enum ctor{null};
 			typedef __m128 value_type;

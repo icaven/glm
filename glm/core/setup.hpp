@@ -17,7 +17,7 @@
 #define GLM_VERSION_MAJOR			0
 #define GLM_VERSION_MINOR			9
 #define GLM_VERSION_PATCH			1
-#define GLM_VERSION_REVISION		B
+#define GLM_VERSION_REVISION		0
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Compiler
@@ -365,6 +365,7 @@
 #	define GLM_STATIC_ASSERT(x, message) typedef char __CASSERT__##__LINE__[(x) ? 1 : -1]
 #else
 #	define GLM_STATIC_ASSERT(x, message)
+#	define GLM_STATIC_ASSERT_NULL
 #endif//GLM_LANG
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
