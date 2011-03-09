@@ -12,9 +12,6 @@
 #ifndef glm_glm
 #define glm_glm
 
-//! TODO: to delete
-//#define GLMvalType typename genType::value_type
-
 #include <cmath>
 #include <climits>
 #include <cfloat>
