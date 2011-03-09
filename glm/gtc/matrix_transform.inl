@@ -338,8 +338,13 @@ namespace matrix_transform
 		if(!(delta.x > T(0) && delta.y > T(0))) 
 			return Result; // Error
 
+		detail::tvec3<T> Temp(
+			(T(viewport[2]) - T(2) * (center.x - T(viewport[0]))) / delta.x,
+			(T(viewport[3]) - T(2) * (center.y - T(viewport[1]))) / delta.y,
+			T(0));
+
 		// Translate and scale the picked region to the entire window
-		Result = translate(Result, (T(viewport[2]) - T(2) * (center.x - T(viewport[0]))) / delta.x, (T(viewport[3]) - T(2) * (center.y - T(viewport[1]))) / delta.y, T(0));
+		Result = translate(Result, Temp);
 		return scale(Result, T(viewport[2]) / delta.x, T(viewport[3]) / delta.y, T(1));
 	}
 
