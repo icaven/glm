@@ -403,7 +403,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Precision
-
+/*
 #define GLM_PRECISION_NONE			0x00000000
 
 #define GLM_PRECISION_LOWP_FLOAT	0x00000011
@@ -417,5 +417,5 @@
 #define GLM_PRECISION_LOWP_UINT		0x00110000
 #define GLM_PRECISION_MEDIUMP_UINT	0x00120000
 #define GLM_PRECISION_HIGHP_UINT	0x00130000	
-
+*/
 #endif//glm_setup
