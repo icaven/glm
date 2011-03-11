@@ -327,6 +327,7 @@ namespace quaternion{
 	        q1.w * q2.z + q1.z * q2.w + q1.x * q2.y - q1.y * q2.x);
     }
 
+	// (x * sin(1 - a) * angle / sin(angle)) + (y * sin(a) * angle / sin(angle))
     template <typename T>
     inline detail::tquat<T> mix
 	(

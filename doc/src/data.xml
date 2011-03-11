@@ -148,35 +148,48 @@
   </todo>
 
   <page_news>
-	  <news index="0061" date="02/03/2011" title="GLM 0.9.1.0 final released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+	  <news index="0061" date="03/03/2011" title="GLM 0.9.1.0 final released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+		  <paragraph>
+			  Finally, GLM 0.9.1 branch is reaching the status of stable with
+			  <link href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.0/glm-0.9.1.0.zip/download">GLM 0.9.1.0</link>.
+		  </paragraph>
+		  <paragraph>
+			  From GLM 0.9.1 beta, mainly bugs has been fixed. GLM has evolved on many sides since GLM 0.9.0:
+			  Improved documentation (manual and doxygen), better test framework, simplified setup/options/configration of GLM and new experimental SIMD API.
+		  </paragraph>
+		  <paragraph>
+			  GLM 0.9.1.0 is not 100% backward compatile with 
+			  <link href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.8/glm-0.9.0.8.zip/download">GLM 0.9.0.8</link>
+			  but mainly advanced usages should be affected by the differencies.
+			  Have a look at the <link href="http://glm.g-truc.net/glm-0.9.1.pdf">GLM manual</link> for more information on how to use GLM 0.9.1.
+		  </paragraph>
 
-
-		  <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.0/glm-0.9.1.0.zip/download">GLM 0.9.1.0 (zip,)</source>
+		  <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.0/glm-0.9.1.0.zip/download">GLM 0.9.1.0 (zip)</source>
 		  <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.0/glm-0.9.1.0.7z/download">GLM 0.9.1.0 (7z)</source>
 		  <source type="Link" href="http://glm.g-truc.net/glm-0.9.1.pdf">GLM 0.9.1 manual</source>
 		  <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
 	  </news>
 
-	  <news index="0060" date="13/02/2011" title="GLM 0.9.0.8 and GLM 0.9.1 beta released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <paragraph>
-        The stable version, GLM 0.9.0.8, adds the operator * for quaternion products and deprecated the cross function previously used for the same purpose.
-        Also, it clarifies that GLM is a header only library when a user try to build it. Once more, there is nothing to build.
-      </paragraph>
-      <paragraph>
-        The development version, GLM 0.9.1 beta, provides an improved <link href="http://glm.g-truc.net/html-0.9.1/index.html">API documentation</link> by 
-        <link href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=showprofile&amp;User=23530">Alfonse Reinheart</link>,
-        author of <link href="http://www.arcsynthesis.org/gltut/">a great OpenGL tutorial</link> which uses GLM. 
-        This version also improves the SIMD extensions and it fixes many bugs.
-      </paragraph>
+	<news index="0060" date="13/02/2011" title="GLM 0.9.0.8 and GLM 0.9.1 beta released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+		<paragraph>
+			The stable version, GLM 0.9.0.8, adds the operator * for quaternion products and deprecated the cross function previously used for the same purpose.
+			Also, it clarifies that GLM is a header only library when a user try to build it. Once more, there is nothing to build.
+		</paragraph>
+		<paragraph>
+			The development version, GLM 0.9.1 beta, provides an improved <link href="http://glm.g-truc.net/html-0.9.1/index.html">API documentation</link> by 
+			<link href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=showprofile&amp;User=23530">Alfonse Reinheart</link>,
+			author of <link href="http://www.arcsynthesis.org/gltut/">a great OpenGL tutorial</link> which uses GLM. 
+			This version also improves the SIMD extensions and it fixes many bugs.
+		</paragraph>
 
-      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.B/glm-0.9.1.B.zip/download">GLM 0.9.1.B (zip,)</source>
-      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.B/glm-0.9.1.B.7z/download">GLM 0.9.1.B (7z)</source>
-      <source type="Link" href="http://glm.g-truc.net/glm-0.9.1.pdf">GLM 0.9.1 manual</source>
-      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.8/glm-0.9.0.8.zip/download">GLM 0.9.0.8 (zip,)</source>
-      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.8/glm-0.9.0.8.7z/download">GLM 0.9.0.8 (7z)</source>
-      <source type="Link" href="http://glm.g-truc.net/glm-0.9.0.pdf">GLM 0.9.0 manual</source>
-      <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
-    </news>
+		<source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.B/glm-0.9.1.B.zip/download">GLM 0.9.1.B (zip)</source>
+		<source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.B/glm-0.9.1.B.7z/download">GLM 0.9.1.B (7z)</source>
+		<source type="Link" href="http://glm.g-truc.net/glm-0.9.1.pdf">GLM 0.9.1 manual</source>
+		<source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.8/glm-0.9.0.8.zip/download">GLM 0.9.0.8 (zip)</source>
+		<source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.8/glm-0.9.0.8.7z/download">GLM 0.9.0.8 (7z)</source>
+		<source type="Link" href="http://glm.g-truc.net/glm-0.9.0.pdf">GLM 0.9.0 manual</source>
+		<source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
+	</news>
 
     <news index="0059" date="31/01/2011" title="GLM 0.9.1 alpha released" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>

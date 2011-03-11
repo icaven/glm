@@ -88,7 +88,7 @@ namespace glm
 #elif(GLM_PRECISION & GLM_PRECISION_LOWP_INT)
 	typedef precision::lowp_int					int_t;
 #else
-	typedef mediump_int							int_t;
+	typedef precision::mediump_int							int_t;
 #	pragma message("GLM message: Precisson undefined for signed integer number.");
 #endif//GLM_PRECISION
 

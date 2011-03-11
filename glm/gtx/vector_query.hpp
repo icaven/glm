@@ -39,55 +39,55 @@ namespace glm
 		//! From GLM_GTX_vector_query extensions.
 		template <typename genType> 
 		bool areCollinear(
-			const genType & v0, 
-			const genType & v1, 
-			const GLMvalType epsilon = std::numeric_limits<GLMvalType>::epsilon());
+			genType const & v0, 
+			genType const & v1, 
+			typename genType::value_type const & epsilon = std::numeric_limits<typename genType::value_type>::epsilon());
 		
         //! Check if two vectors are opposites.
 		//! From GLM_GTX_vector_query extensions.
 		template <typename genType> 
 		bool areOpposite(
-			const genType & v0, 
-			const genType & v1, 
-			const GLMvalType epsilon = std::numeric_limits<GLMvalType>::epsilon());
+			genType const & v0, 
+			genType const & v1, 
+			typename genType::value_type const & epsilon = std::numeric_limits<typename genType::value_type>::epsilon());
 		
         //! Check if two vectors are orthogonals.
 		//! From GLM_GTX_vector_query extensions.
 		template <typename genType> 
 		bool areOrthogonal(
-			const genType & v0, 
-			const genType & v1, 
-			const GLMvalType epsilon = std::numeric_limits<GLMvalType>::epsilon());
+			genType const & v0, 
+			genType const & v1, 
+			typename genType::value_type const & epsilon = std::numeric_limits<typename genType::value_type>::epsilon());
 
 		//! Check if a vector is normalized.
 		//! From GLM_GTX_vector_query extensions.
 		template <typename genType> 
 		bool isNormalized(
-			const genType & v, 
-			const GLMvalType epsilon = std::numeric_limits<GLMvalType>::epsilon());
+			genType const & v, 
+			typename genType::value_type const & epsilon = std::numeric_limits<typename genType::value_type>::epsilon());
 		
 		//! Check if a vector is null.
 		//! From GLM_GTX_vector_query extensions.
 		template <typename genType> 
 		bool isNull(
-			const genType& v, 
-			const GLMvalType epsilon = std::numeric_limits<GLMvalType>::epsilon());
+			genType const & v, 
+			typename genType::value_type const & epsilon = std::numeric_limits<typename genType::value_type>::epsilon());
 
 		//! Check if two vectors are orthonormal.
 		//! From GLM_GTX_vector_query extensions.
 		template <typename genType>
 		bool areOrthonormal(
-			const genType & v0, 
-			const genType & v1, 
-			const GLMvalType epsilon = std::numeric_limits<GLMvalType>::epsilon());
+			genType const & v0, 
+			genType const & v1, 
+			typename genType::value_type const & epsilon = std::numeric_limits<typename genType::value_type>::epsilon());
 
 		//! Check if two vectors are similar.
 		//! From GLM_GTX_vector_query extensions.
 		template <typename genType> 
 		bool areSimilar(
-			const genType& v0, 
-			const genType& v1, 
-			const GLMvalType epsilon = std::numeric_limits<GLMvalType>::epsilon());
+			genType const & v0, 
+			genType const & v1, 
+			typename genType::value_type const & epsilon = std::numeric_limits<typename genType::value_type>::epsilon());
 
 		///@}
 
