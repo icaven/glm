@@ -144,13 +144,15 @@ namespace matrix_transform
     }
 
 	template <typename valType> 
-	inline detail::tmat4x4<valType> ortho(
+	inline detail::tmat4x4<valType> ortho
+	(
 		valType const & left, 
 		valType const & right, 
 		valType const & bottom, 
 		valType const & top, 
 		valType const & zNear, 
-		valType const & zFar)
+		valType const & zFar
+	)
 	{
 		detail::tmat4x4<valType> Result(1);
 		Result[0][0] = valType(2) / (right - left);
@@ -179,13 +181,15 @@ namespace matrix_transform
 	}
 
 	template <typename valType> 
-	inline detail::tmat4x4<valType> frustum(
+	inline detail::tmat4x4<valType> frustum
+	(
 		valType const & left, 
 		valType const & right, 
 		valType const & bottom, 
 		valType const & top, 
 		valType const & nearVal, 
-		valType const & farVal)
+		valType const & farVal
+	)
 	{
 		detail::tmat4x4<valType> Result(0);
 		Result[0][0] = (valType(2) * nearVal) / (right - left);
@@ -199,11 +203,13 @@ namespace matrix_transform
 	}
 
 	template <typename valType> 
-	inline detail::tmat4x4<valType> perspective(
+	inline detail::tmat4x4<valType> perspective
+	(
 		valType const & fovy, 
 		valType const & aspect, 
 		valType const & zNear, 
-		valType const & zFar)
+		valType const & zFar
+	)
 	{
 		valType range = tan(radians(fovy / valType(2))) * zNear;	
 		valType left = -range * aspect;
@@ -244,10 +250,12 @@ namespace matrix_transform
 	}
 
 	template <typename T> 
-	inline detail::tmat4x4<T> infinitePerspective(
+	inline detail::tmat4x4<T> infinitePerspective
+	(
 		T fovy, 
 		T aspect, 
-		T zNear)
+		T zNear
+	)
 	{
 		T range = tan(radians(fovy / T(2))) * zNear;	
 		T left = -range * aspect;
@@ -265,10 +273,12 @@ namespace matrix_transform
 	}
 
 	template <typename T> 
-	inline detail::tmat4x4<T> tweakedInfinitePerspective(
+	inline detail::tmat4x4<T> tweakedInfinitePerspective
+	(
 		T fovy, 
 		T aspect, 
-		T zNear)
+		T zNear
+	)
 	{
 		T range = tan(radians(fovy / T(2))) * zNear;	
 		T left = -range * aspect;
@@ -286,11 +296,13 @@ namespace matrix_transform
 	}
 
 	template <typename T, typename U>
-	inline detail::tvec3<T> project(
+	inline detail::tvec3<T> project
+	(
 		detail::tvec3<T> const & obj, 
 		detail::tmat4x4<T> const & model, 
 		detail::tmat4x4<T> const & proj, 
-		detail::tvec4<U> const & viewport)
+		detail::tvec4<U> const & viewport
+	)
 	{
 		detail::tvec4<T> tmp = detail::tvec4<T>(obj, T(1));
 		tmp = model * tmp;
@@ -305,11 +317,13 @@ namespace matrix_transform
 	}
 
 	template <typename T, typename U>
-	inline detail::tvec3<T> unProject(
+	inline detail::tvec3<T> unProject
+	(
 		detail::tvec3<T> const & win, 
 		detail::tmat4x4<T> const & model, 
 		detail::tmat4x4<T> const & proj, 
-		detail::tvec4<U> const & viewport)
+		detail::tvec4<U> const & viewport
+	)
 	{
 		detail::tmat4x4<T> inverse = glm::inverse(proj * model);
 
@@ -338,16 +352,23 @@ namespace matrix_transform
 		if(!(delta.x > T(0) && delta.y > T(0))) 
 			return Result; // Error
 
+		detail::tvec3<T> Temp(
+			(T(viewport[2]) - T(2) * (center.x - T(viewport[0]))) / delta.x,
+			(T(viewport[3]) - T(2) * (center.y - T(viewport[1]))) / delta.y,
+			T(0));
+
 		// Translate and scale the picked region to the entire window
-		Result = translate(Result, (T(viewport[2]) - T(2) * (center.x - T(viewport[0]))) / delta.x, (T(viewport[3]) - T(2) * (center.y - T(viewport[1]))) / delta.y, T(0));
+		Result = translate(Result, Temp);
 		return scale(Result, T(viewport[2]) / delta.x, T(viewport[3]) / delta.y, T(1));
 	}
 
     template <typename T> 
-    inline detail::tmat4x4<T> lookAt(
-		const detail::tvec3<T>& eye, 
-		const detail::tvec3<T>& center, 
-		const detail::tvec3<T>& up)
+	inline detail::tmat4x4<T> lookAt
+	(
+		detail::tvec3<T> const & eye,
+		detail::tvec3<T> const & center,
+		detail::tvec3<T> const & up
+	)
     {
         detail::tvec3<T> f = normalize(center - eye);
         detail::tvec3<T> u = normalize(up);
