@@ -4,7 +4,7 @@
 // Created : 2010-09-16
 // Updated : 2010-09-16
 // Licence : This source is under MIT licence
-// File    : test/gtx/simd-mat4.cpp
+// File    : test/gtc/swizzle.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #define GLM_MESSAGES
