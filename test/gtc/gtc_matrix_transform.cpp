@@ -14,6 +14,8 @@
 int main()
 {
 	int Failed = 0;
+	
+	glm::mat4 Pick = glm::pickMatrix(glm::vec2(1, 2), glm::vec2(3, 4), glm::ivec4(0, 0, 320, 240));
 
 	return Failed;
 }
