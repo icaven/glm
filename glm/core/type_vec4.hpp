@@ -15,7 +15,6 @@
 #include "type_int.hpp"
 #include "type_size.hpp"
 #include "_swizzle.hpp"
-#include "_detail.hpp"
 
 namespace glm
 {

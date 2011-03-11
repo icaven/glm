@@ -17,77 +17,100 @@ namespace gtx{
 namespace vector_query
 {
 	template <typename T>
-	inline bool areCollinear(
-		const detail::tvec2<T>& v0, 
-		const detail::tvec2<T>& v1, 
-		const T epsilon)
+	inline bool areCollinear
+	(
+		detail::tvec2<T> const & v0, 
+		detail::tvec2<T> const & v1, 
+		T const & epsilon
+	)
 	{
 		return length(cross(detail::tvec3<T>(v0, T(0)), detail::tvec3<T>(v1, T(0)))) < epsilon;
 	}
 
 	template <typename T>
-	inline bool areCollinear(
-		const detail::tvec3<T>& v0, 
-		const detail::tvec3<T>& v1, 
-		const T epsilon)
+	inline bool areCollinear
+	(
+		detail::tvec3<T> const & v0, 
+		detail::tvec3<T> const & v1, 
+		T const & epsilon
+	)
 	{
 		return length(cross(v0, v1)) < epsilon;
 	}
 
 	template <typename T>
-	inline bool areCollinear(
-		const detail::tvec4<T>& v0, 
-		const detail::tvec4<T>& v1, 
-		const T epsilon)
+	inline bool areCollinear
+	(
+		detail::tvec4<T> const & v0, 
+		detail::tvec4<T> const & v1, 
+		T const & epsilon
+	)
 	{
 		return length(cross(detail::tvec3<T>(v0), detail::tvec3<T>(v1))) < epsilon;
 	}
 
 	template <typename genType>
-	inline bool areOpposite(
-		const genType& v0, 
-		const genType& v1, 
-		const GLMvalType epsilon)
+	inline bool areOpposite
+	(
+		genType const & v0, 
+		genType const & v1, 
+		typename genType::value_type const & epsilon
+	)
 	{
 		assert(isNormalized(v0) && isNormalized(v1));
-        return((genType::value_type(1) + dot(v0, v1)) <= epsilon);
+        return((typename genType::value_type(1) + dot(v0, v1)) <= epsilon);
 	}
 
 	template <typename genType>
-	inline bool areOrthogonal(
-		const genType& v0, 
-		const genType& v1, 
-		const GLMvalType epsilon)
+	inline bool areOrthogonal
+	(
+		genType const & v0, 
+		genType const & v1, 
+		typename genType::value_type const & epsilon
+	)
 	{
-		return abs(dot(v0, v1)) <= max(GLMvalType(1), length(v0)) * max(GLMvalType(1), length(v1)) * epsilon;
+		return abs(dot(v0, v1)) <= max(
+			typename genType::value_type(1), 
+			length(v0)) * max(
+				typename genType::value_type(1), 
+				length(v1)) * epsilon;
 	}
 
 	template <typename genType> 
-	inline bool isNormalized(
-		const genType& v, 
-		const GLMvalType epsilon)
+	inline bool isNormalized
+	(
+		genType const & v, 
+		typename genType::value_type const & epsilon
+	)
 	{
 		return abs(length(v) - GLMvalType(1)) <= GLMvalType(2) * epsilon;
 	}
 
 	template <typename genType> 
-	inline bool isNull(const genType& v, const GLMvalType epsilon)
+	inline bool isNull
+	(
+		genType const & v, 
+		typename genType::value_type const & epsilon
+	)
 	{
 		return length(v) <= epsilon;
 	}
 
     template <typename T> 
-    inline bool isCompNull(
-		const T s, 
-		const T epsilon)
+    inline bool isCompNull
+	(
+		T const & s, 
+		T const & epsilon
+	)
     {
         return abs(s) < epsilon;
     }
 
     template <typename T> 
-    inline detail::tvec2<bool> isCompNull(
-		const detail::tvec2<T>& v, 
-		const T epsilon)
+    inline detail::tvec2<bool> isCompNull
+	(
+		detail::tvec2<T> const & v, 
+		T const & epsilon)
     {
         return detail::tvec2<bool>(
             (abs(v.x) < epsilon),
@@ -95,9 +118,11 @@ namespace vector_query
     }
 
     template <typename T> 
-    inline detail::tvec3<bool> isCompNull(
-		const detail::tvec3<T>& v, 
-		const T epsilon)
+    inline detail::tvec3<bool> isCompNull
+	(
+		detail::tvec3<T> const & v, 
+		T const & epsilon
+	)
     {
         return detail::tvec3<bool>(
             abs(v.x) < epsilon,
@@ -106,9 +131,11 @@ namespace vector_query
     }
 
     template <typename T> 
-    inline detail::tvec4<bool> isCompNull(
-		const detail::tvec4<T>& v, 
-		const T epsilon)
+    inline detail::tvec4<bool> isCompNull
+	(
+		detail::tvec4<T> const & v, 
+		T const & epsilon
+	)
     {
         return detail::tvec4<bool>(
             abs(v.x) < epsilon,
@@ -118,19 +145,23 @@ namespace vector_query
     }
 
 	template <typename genType>
-	inline bool areOrthonormal(
-		const genType& v0, 
-		const genType& v1, 
-		const GLMvalType epsilon)
+	inline bool areOrthonormal
+	(
+		genType const & v0, 
+		genType const & v1, 
+		typename genType::value_type const & epsilon
+	)
 	{
 		return isNormalized(v0, epsilon) && isNormalized(v1, epsilon) && (abs(dot(v0, v1)) <= epsilon);
 	}
 
 	template <typename genType>
-	inline bool areSimilar(
-		const genType& v0, 
-		const genType& v1, 
-		const GLMvalType epsilon)
+	inline bool areSimilar
+	(
+		genType const & v0, 
+		genType const & v1, 
+		typename genType::value_type const & epsilon
+	)
 	{
 		bool similar = true;
         for(typename genType::size_type i = 0; similar && i < genType::value_size(); i++)
