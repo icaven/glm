@@ -148,6 +148,22 @@
   </todo>
 
   <page_news>
+      <news index="0062" date="17/03/2011" title="GLM 0.9.1.1 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+    <paragraph>
+		GLM 0.9.1.1 fixes some bugs, warnings on Clang C++ and clean up a bit the code.
+    </paragraph>
+    <paragraph>
+    	If you have uncounter any issue with GLM 0.9.1.0, please download this revision.
+    </paragraph>
+    <paragraph>
+    	Finally, the work has started for GLM 0.9.2 if you have requests don't forget to <link href="https://sourceforge.net/apps/trac/ogl-math/newticket">submit them!</link>
+    </paragraph>
+
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.1/glm-0.9.1.1.zip/download">GLM 0.9.1.1 (zip)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.1/glm-0.9.1.1.7z/download">GLM 0.9.1.1 (7z)</source>
+      <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
+    </news>
+    
 	  <news index="0061" date="03/03/2011" title="GLM 0.9.1.0 final released" image="goodies/logo.png" image-mini="image/logo-mini.png">
 		  <paragraph>
 			  Finally, GLM 0.9.1 branch is reaching the status of stable with
