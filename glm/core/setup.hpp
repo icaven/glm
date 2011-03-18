@@ -167,13 +167,13 @@
 // Report compiler detection
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_COMPILER_DISPLAYED))
 #	define GLM_MESSAGE_COMPILER_DISPLAYED
-#	if(defined(GLM_COMPILER) && GLM_COMPILER & GLM_COMPILER_VC)
+#	if(GLM_COMPILER & GLM_COMPILER_VC)
 #		pragma message("GLM: Visual C++ compiler detected")
-#	elif(defined(GLM_COMPILER) && GLM_COMPILER & GLM_COMPILER_GCC)
+#	elif(GLM_COMPILER & GLM_COMPILER_GCC)
 #		pragma message("GLM: GCC compiler detected")
-#	elif(defined(GLM_COMPILER) && GLM_COMPILER & GLM_COMPILER_BC)
+#	elif(GLM_COMPILER & GLM_COMPILER_BC)
 #		pragma message("GLM: Borland compiler detected but not supported")
-#	elif(defined(GLM_COMPILER) && GLM_COMPILER & GLM_COMPILER_CODEWARRIOR)
+#	elif(GLM_COMPILER & GLM_COMPILER_CODEWARRIOR)
 #		pragma message("GLM: Codewarrior compiler detected but not supported")
 #	else
 #		pragma message("GLM: Compiler not detected")
