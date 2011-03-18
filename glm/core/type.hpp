@@ -38,7 +38,7 @@ namespace type
 	//////////////////////////
 	// Float definition
 
-#if(defined(GLM_PRECISION) && GLM_PRECISION & GLM_PRECISION_HIGHP_FLOAT)
+#if(defined(GLM_PRECISION_HIGHP_FLOAT))
 	typedef precision::highp_vec2		vec2;
 	typedef precision::highp_vec3		vec3;
 	typedef precision::highp_vec4		vec4;
@@ -51,7 +51,7 @@ namespace type
 	typedef precision::highp_mat4x2		mat4x2;
 	typedef precision::highp_mat4x3		mat4x3;
 	typedef precision::highp_mat4x4		mat4x4;
-#elif(defined(GLM_PRECISION) && GLM_PRECISION & GLM_PRECISION_MEDIUMP_FLOAT)
+#elif(defined(GLM_PRECISION_MEDIUMP_FLOAT))
 	typedef precision::mediump_vec2		vec2;
 	typedef precision::mediump_vec3		vec3;
 	typedef precision::mediump_vec4		vec4;
@@ -64,7 +64,7 @@ namespace type
 	typedef precision::mediump_mat4x2	mat4x2;
 	typedef precision::mediump_mat4x3	mat4x3;
 	typedef precision::mediump_mat4x4	mat4x4;
-#elif(defined(GLM_PRECISION) && GLM_PRECISION & GLM_PRECISION_LOWP_FLOAT)
+#elif(defined(GLM_PRECISION_LOWP_FLOAT))
 	typedef precision::lowp_vec2			vec2;
 	typedef precision::lowp_vec3			vec3;
 	typedef precision::lowp_vec4			vec4;
@@ -158,15 +158,15 @@ namespace type
 	//////////////////////////
 	// Signed integer definition
 
-#if(defined(GLM_PRECISION) && GLM_PRECISION & GLM_PRECISION_HIGHP_INT)
+#if(defined(GLM_PRECISION_HIGHP_INT))
 	typedef precision::highp_ivec2			ivec2;
 	typedef precision::highp_ivec3			ivec3;
 	typedef precision::highp_ivec4			ivec4;
-#elif(defined(GLM_PRECISION) && GLM_PRECISION & GLM_PRECISION_MEDIUMP_INT)
+#elif(defined(GLM_PRECISION_MEDIUMP_INT))
 	typedef precision::mediump_ivec2		ivec2;
 	typedef precision::mediump_ivec3		ivec3;
 	typedef precision::mediump_ivec4		ivec4;
-#elif(defined(GLM_PRECISION) && GLM_PRECISION & GLM_PRECISION_LOWP_INT)
+#elif(defined(GLM_PRECISION_LOWP_INT))
 	typedef precision::lowp_ivec2			ivec2;
 	typedef precision::lowp_ivec3			ivec3;
 	typedef precision::lowp_ivec4			ivec4;
@@ -190,15 +190,15 @@ namespace type
 	//////////////////////////
 	// Unsigned integer definition
 
-#if(defined(GLM_PRECISION) && GLM_PRECISION & GLM_PRECISION_HIGHP_UINT)
+#if(defined(GLM_PRECISION_HIGHP_UINT))
 	typedef precision::highp_uvec2			uvec2;
 	typedef precision::highp_uvec3			uvec3;
 	typedef precision::highp_uvec4			uvec4;
-#elif(defined(GLM_PRECISION) && GLM_PRECISION & GLM_PRECISION_MEDIUMP_UINT)
+#elif(defined(GLM_PRECISION_MEDIUMP_UINT))
 	typedef precision::mediump_uvec2		uvec2;
 	typedef precision::mediump_uvec3		uvec3;
 	typedef precision::mediump_uvec4		uvec4;
-#elif(defined(GLM_PRECISION) && GLM_PRECISION & GLM_PRECISION_LOWP_UINT)
+#elif(defined(GLM_PRECISION_LOWP_UINT))
 	typedef precision::lowp_uvec2			uvec2;
 	typedef precision::lowp_uvec3			uvec3;
 	typedef precision::lowp_uvec4			uvec4;

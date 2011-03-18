@@ -401,21 +401,4 @@
 #	endif
 #endif//GLM_MESSAGE
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Precision
-
-#define GLM_PRECISION_NONE			0x00000000
-
-#define GLM_PRECISION_LOWP_FLOAT	0x00000011
-#define GLM_PRECISION_MEDIUMP_FLOAT	0x00000012
-#define GLM_PRECISION_HIGHP_FLOAT	0x00000013	
-
-#define GLM_PRECISION_LOWP_INT		0x00001100
-#define GLM_PRECISION_MEDIUMP_INT	0x00001200
-#define GLM_PRECISION_HIGHP_INT		0x00001300
-
-#define GLM_PRECISION_LOWP_UINT		0x00110000
-#define GLM_PRECISION_MEDIUMP_UINT	0x00120000
-#define GLM_PRECISION_HIGHP_UINT	0x00130000	
-
 #endif//glm_setup
