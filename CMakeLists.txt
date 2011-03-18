@@ -6,7 +6,7 @@ project(glm)
 #enable_testing()
 
 add_definitions(-D_CRT_SECURE_NO_WARNINGS)
-add_definitions(-pedantic)
+#add_definitions(-pedantic)
 #add_definitions(-S)
 #add_definitions(-s)
 add_definitions(-msse2)
