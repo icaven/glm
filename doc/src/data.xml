@@ -3,7 +3,8 @@
 <glm copyright="Copyright © 2005 - 2011">
   <downloads>
     <section name="GLM - zip files">
-		<download name="GLM 0.9.1.0" date="02/03/2010" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.0/glm-0.9.1.0.zip/download"/>
+      <download name="GLM 0.9.1.1" date="17/03/2010" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.1/glm-0.9.1.1.zip/download"/>
+      <download name="GLM 0.9.1.0" date="03/03/2010" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.0/glm-0.9.1.0.zip/download"/>
       <download name="GLM 0.9.1.B" date="13/02/2010" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.B/glm-0.9.1.B.zip/download"/>
       <download name="GLM 0.9.0.8" date="13/02/2010" size="3.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.8/glm-0.9.0.8.zip/download"/>
       <download name="GLM 0.9.1.A" date="31/01/2010" size="3.0 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.A/glm-0.9.1.A.zip/download"/>
@@ -59,7 +60,8 @@
       <download name="GLM 0.1.0.0" date="02/21/2005" size="29.2 KB" link="http://prdownloads.sourceforge.net/glf/glm-0.1-ur.zip?download"/>
     </section>
     <section name="GLM - 7z files">
-		<download name="GLM 0.9.1.0" date="02/03/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.0/glm-0.9.1.0.7z/download"/>
+      <download name="GLM 0.9.1.1" date="17/03/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.1/glm-0.9.1.1.7z/download"/>
+		  <download name="GLM 0.9.1.0" date="03/03/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.0/glm-0.9.1.0.7z/download"/>
       <download name="GLM 0.9.1.B" date="13/02/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.B/glm-0.9.1.B.7z/download"/>
       <download name="GLM 0.9.0.8" date="13/02/2011" size="1.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.8/glm-0.9.0.8.7z/download"/>
       <download name="GLM 0.9.1.A" date="31/01/2011" size="2.0 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.A/glm-0.9.1.A.7z/download"/>
