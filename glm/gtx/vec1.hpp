@@ -80,11 +80,11 @@ namespace glm
 		//! From GLM_GTX_vec1 extension.
 		typedef detail::tvec1<bool>	bvec1;
 
-#if(defined(GLM_PRECISION) && GLM_PRECISION & GLM_PRECISION_HIGHP_FLOAT)
+#if(defined(GLM_PRECISION_HIGHP_FLOAT))
 		typedef precision::highp_vec1			vec1;
-#elif(defined(GLM_PRECISION) && GLM_PRECISION & GLM_PRECISION_MEDIUMP_FLOAT)
+#elif(defined(GLM_PRECISION_MEDIUMP_FLOAT))
 		typedef precision::mediump_vec1			vec1;
-#elif(defined(GLM_PRECISION) && GLM_PRECISION & GLM_PRECISION_LOWP_FLOAT)
+#elif(defined(GLM_PRECISION_LOWP_FLOAT))
 		typedef precision::lowp_vec1			vec1;
 #else
 		//! 1 component vector of floating-point numbers.
@@ -92,11 +92,11 @@ namespace glm
 		typedef precision::mediump_vec1			vec1;
 #endif//GLM_PRECISION
 
-#if(defined(GLM_PRECISION) && GLM_PRECISION & GLM_PRECISION_HIGHP_INT)
+#if(defined(GLM_PRECISION_HIGHP_INT))
 		typedef precision::highp_ivec1			ivec1;
-#elif(defined(GLM_PRECISION) && GLM_PRECISION & GLM_PRECISION_MEDIUMP_INT)
+#elif(defined(GLM_PRECISION_MEDIUMP_INT))
 		typedef precision::mediump_ivec1		ivec1;
-#elif(defined(GLM_PRECISION) && GLM_PRECISION & GLM_PRECISION_LOWP_INT)
+#elif(defined(GLM_PRECISION_LOWP_INT))
 		typedef precision::lowp_ivec1			ivec1;
 #else
 		//! 1 component vector of signed integer numbers. 
@@ -104,11 +104,11 @@ namespace glm
 		typedef precision::mediump_ivec1		ivec1;
 #endif//GLM_PRECISION
 
-#if(defined(GLM_PRECISION) && GLM_PRECISION & GLM_PRECISION_HIGHP_UINT)
+#if(defined(GLM_PRECISION_HIGHP_UINT))
 		typedef precision::highp_uvec1			uvec1;
-#elif(defined(GLM_PRECISION) && GLM_PRECISION & GLM_PRECISION_MEDIUMP_UINT)
+#elif(defined(GLM_PRECISION_MEDIUMP_UINT))
 		typedef precision::mediump_uvec1		uvec1;
-#elif(defined(GLM_PRECISION) && GLM_PRECISION & GLM_PRECISION_LOWP_UINT)
+#elif(defined(GLM_PRECISION_LOWP_UINT))
 		typedef precision::lowp_uvec1			uvec1;
 #else
 		//! 1 component vector of unsigned integer numbers. 

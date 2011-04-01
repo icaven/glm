@@ -1206,7 +1206,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'mix' only accept floating-point inputs");
 
-#if(defined(GLM_COMPILER) && GLM_COMPILER & GLM_COMPILER_VC)
+#if(GLM_COMPILER & GLM_COMPILER_VC)
 		return typename genType::bool_type(_isnan(x));
 #else
 		return typename genType::bool_type(std::isnan(x));
@@ -1257,7 +1257,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'isinf' only accept floating-point inputs");
 
-#if(defined(GLM_COMPILER) && GLM_COMPILER & GLM_COMPILER_VC)
+#if(GLM_COMPILER & GLM_COMPILER_VC)
 		return typename genType::bool_type(_fpclass(x) == _FPCLASS_NINF || _fpclass(x) == _FPCLASS_PINF);
 #else
 		return typename genType::bool_type(std::isinf(x));

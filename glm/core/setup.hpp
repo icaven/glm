@@ -167,13 +167,13 @@
 // Report compiler detection
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_COMPILER_DISPLAYED))
 #	define GLM_MESSAGE_COMPILER_DISPLAYED
-#	if(defined(GLM_COMPILER) && GLM_COMPILER & GLM_COMPILER_VC)
+#	if(GLM_COMPILER & GLM_COMPILER_VC)
 #		pragma message("GLM: Visual C++ compiler detected")
-#	elif(defined(GLM_COMPILER) && GLM_COMPILER & GLM_COMPILER_GCC)
+#	elif(GLM_COMPILER & GLM_COMPILER_GCC)
 #		pragma message("GLM: GCC compiler detected")
-#	elif(defined(GLM_COMPILER) && GLM_COMPILER & GLM_COMPILER_BC)
+#	elif(GLM_COMPILER & GLM_COMPILER_BC)
 #		pragma message("GLM: Borland compiler detected but not supported")
-#	elif(defined(GLM_COMPILER) && GLM_COMPILER & GLM_COMPILER_CODEWARRIOR)
+#	elif(GLM_COMPILER & GLM_COMPILER_CODEWARRIOR)
 #		pragma message("GLM: Codewarrior compiler detected but not supported")
 #	else
 #		pragma message("GLM: Compiler not detected")
@@ -400,22 +400,5 @@
 #		pragma message("GLM: Partial swizzling operator enabled")
 #	endif
 #endif//GLM_MESSAGE
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Precision
-
-#define GLM_PRECISION_NONE			0x00000000
-
-#define GLM_PRECISION_LOWP_FLOAT	0x00000011
-#define GLM_PRECISION_MEDIUMP_FLOAT	0x00000012
-#define GLM_PRECISION_HIGHP_FLOAT	0x00000013	
-
-#define GLM_PRECISION_LOWP_INT		0x00001100
-#define GLM_PRECISION_MEDIUMP_INT	0x00001200
-#define GLM_PRECISION_HIGHP_INT		0x00001300
-
-#define GLM_PRECISION_LOWP_UINT		0x00110000
-#define GLM_PRECISION_MEDIUMP_UINT	0x00120000
-#define GLM_PRECISION_HIGHP_UINT	0x00130000	
 
 #endif//glm_setup

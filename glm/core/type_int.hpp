@@ -54,7 +54,7 @@ namespace glm
 		//! There is no guarantee on the actual precision.
 		//! From GLSL 1.30.8 specification.
 		//! \ingroup core_precision
-		typedef detail::mediump_int_t			mediump_int;
+		typedef detail::mediump_int_t				mediump_int;
 		//! High precision signed integer.
 		//! There is no guarantee on the actual precision.
 		//! From GLSL 1.30.8 specification.
@@ -75,35 +75,33 @@ namespace glm
 		//! There is no guarantee on the actual precision.
 		//! From GLSL 1.30.8 specification.
 		//! \ingroup core_precision
-		typedef detail::highp_uint_t			highp_uint;
+		typedef detail::highp_uint_t				highp_uint;
 	}
 	//namespace precision
 
-#ifndef GLM_PRECISION 
+#if(!defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
 	typedef precision::mediump_int				int_t;
-#elif(GLM_PRECISION & GLM_PRECISION_HIGHP_INT)
-	typedef precision::highp_int				int_t;
-#elif(GLM_PRECISION & GLM_PRECISION_MEDIUMP_INT)
+#elif(defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
+	typedef precision::highp_int					int_t;
+#elif(!defined(GLM_PRECISION_HIGHP_INT) && defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
 	typedef precision::mediump_int				int_t;
-#elif(GLM_PRECISION & GLM_PRECISION_LOWP_INT)
+#elif(!defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && defined(GLM_PRECISION_LOWP_INT))
 	typedef precision::lowp_int					int_t;
 #else
-	typedef precision::mediump_int							int_t;
-#	pragma message("GLM message: Precisson undefined for signed integer number.");
-#endif//GLM_PRECISION
+#	error "GLM error: multiple default precision requested for signed interger types"
+#endif
 
-#ifndef GLM_PRECISION 
+#if(!defined(GLM_PRECISION_HIGHP_UINT) && !defined(GLM_PRECISION_MEDIUMP_UINT) && !defined(GLM_PRECISION_LOWP_UINT))
 	typedef precision::mediump_uint				uint_t;
-#elif(GLM_PRECISION & GLM_PRECISION_HIGHP_UINT)
-	typedef precision::highp_uint				uint_t;
-#elif(GLM_PRECISION & GLM_PRECISION_MEDIUMP_UINT)
+#elif(defined(GLM_PRECISION_HIGHP_UINT) && !defined(GLM_PRECISION_MEDIUMP_UINT) && !defined(GLM_PRECISION_LOWP_UINT))
+	typedef precision::highp_uint					uint_t;
+#elif(!defined(GLM_PRECISION_HIGHP_UINT) && defined(GLM_PRECISION_MEDIUMP_UINT) && !defined(GLM_PRECISION_LOWP_UINT))
 	typedef precision::mediump_uint				uint_t;
-#elif(GLM_PRECISION & GLM_PRECISION_LOWP_UINT)
-	typedef precision::lowp_uint				uint_t;
+#elif(!defined(GLM_PRECISION_HIGHP_UINT) && !defined(GLM_PRECISION_MEDIUMP_UINT) && defined(GLM_PRECISION_LOWP_UINT))
+	typedef precision::lowp_uint					uint_t;
 #else
-	typedef precision::mediump_uint				uint_t;
-#	pragma message("GLM message: Precisson undefined for unsigned integer number.");
-#endif//GLM_PRECISION
+#	error "GLM error: multiple default precision requested for unsigned interger types"
+#endif
 
 	//! Unsigned integer. 
 	//! From GLSL 1.30.8 specification section 4.1.3 Integers.

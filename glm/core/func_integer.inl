@@ -274,7 +274,7 @@ namespace glm
 				Result |= (1 << (sizeof(genIUType) * 8 - 1)) & (1 << (Offset + Bits - 1));
 
 			genIUType Mask = 0;
-			for(std::size_t Bit = Offset; Bit < Bits; ++Bit)
+			for(int Bit = Offset; Bit < Bits; ++Bit)
 				Mask |= (1 << Bit);
 
 			return Result | ((Mask & Value) >> Offset);
@@ -339,7 +339,7 @@ namespace glm
 				return Base;
 
 			genIUType Mask = 0;
-			for(std::size_t Bit = Offset; Bit < Offset + Bits; ++Bit)
+			for(int Bit = Offset; Bit < Offset + Bits; ++Bit)
 				Mask |= (1 << Bit);
 
 			return (Base & ~Mask) | (Insert & Mask);
