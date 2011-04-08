@@ -294,6 +294,66 @@ namespace glm
 			return &(mat[0].x);
 		}
 
+		//! Build a vector from a pointer.
+		//! From GLM_GTC_type_ptr extension.
+		template<typename T>
+		inline detail::tvec2<T> make_vec2(T const * const ptr)
+		{
+			detail::tvec2<T> Result;
+			memcpy(&Result[0], ptr, sizeof(detail::tvec2<T>));
+			return Result;
+		}
+
+		//! Build a vector from a pointer.
+		//! From GLM_GTC_type_ptr extension.
+		template<typename T>
+		inline detail::tvec3<T> make_vec3(T const * const ptr)
+		{
+			detail::tvec3<T> Result;
+			memcpy(&Result[0], ptr, sizeof(detail::tvec3<T>));
+			return Result;
+		}
+
+		//! Build a vector from a pointer.
+		//! From GLM_GTC_type_ptr extension.
+		template<typename T>
+		inline detail::tvec4<T> make_vec4(T const * const ptr)
+		{
+			detail::tvec4<T> Result;
+			memcpy(&Result[0], ptr, sizeof(detail::tvec4<T>));
+			return Result;
+		}
+
+		//! Build a matrix from a pointer.
+		//! From GLM_GTC_type_ptr extension.
+		template<typename T>
+		inline detail::tmat2<T> make_mat2(T const * const ptr)
+		{
+			detail::tmat2<T> Result;
+			memcpy(&Result[0], ptr, sizeof(detail::tmat2<T>));
+			return Result;
+		}
+
+		//! Build a matrix from a pointer.
+		//! From GLM_GTC_type_ptr extension.
+		template<typename T>
+		inline detail::tmat3<T> make_mat3(T const * const ptr)
+		{
+			detail::tmat3<T> Result;
+			memcpy(&Result[0], ptr, sizeof(detail::tmat3<T>));
+			return Result;
+		}
+		
+		//! Build a matrix from a pointer.
+		//! From GLM_GTC_type_ptr extension.
+		template<typename T>
+		inline detail::tmat4<T> make_mat4(T const * const ptr)
+		{
+			detail::tmat4<T> Result;
+			memcpy(&Result[0], ptr, sizeof(detail::tmat4<T>));
+			return Result;
+		}
+
 		///@}
 
 	}//namespace type_ptr
