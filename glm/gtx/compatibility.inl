@@ -19,7 +19,7 @@ inline bool isfinite(
 #if(GLM_COMPILER & GLM_COMPILER_VC)
 	return _finite(x);
 #else//(GLM_COMPILER & GLM_COMPILER_GCC)
-	return std::isfinite(x);
+	return std::isfinite(x) != 0;
 #endif
 }
 
@@ -61,7 +61,7 @@ inline bool isinf(
 #if(GLM_COMPILER & GLM_COMPILER_VC)
 	return _fpclass(x) == _FPCLASS_NINF || _fpclass(x) == _FPCLASS_PINF;
 #else
-	return std::isinf(x);
+	return std::isinf(x) != 0;
 #endif
 }
 
@@ -102,7 +102,7 @@ inline bool isnan(genType const & x)
 #if(GLM_COMPILER & GLM_COMPILER_VC)
 	return _isnan(x);
 #else
-	return std::isnan(x);
+	return std::isnan(x) != 0;
 #endif
 }
 
