@@ -12,7 +12,7 @@ namespace gtx{
 namespace matrix_cross_product
 {
     template <typename T> 
-    inline detail::tmat3x3<T> matrixCross3(
+    GLM_FUNC_QUALIFIER detail::tmat3x3<T> matrixCross3(
 		detail::tvec3<T> const & x)
     {
         detail::tmat3x3<T> Result(T(0));
@@ -26,7 +26,7 @@ namespace matrix_cross_product
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> matrixCross4(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> matrixCross4(
 		detail::tvec3<T> const & x)
     {
         detail::tmat4x4<T> Result(T(0));

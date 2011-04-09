@@ -13,7 +13,7 @@ namespace fast_square_root{
 
 // fastSqrt
 template <typename genType>
-inline genType fastSqrt
+GLM_FUNC_QUALIFIER genType fastSqrt
 (
 	genType const & x
 )
@@ -22,7 +22,7 @@ inline genType fastSqrt
 }
 
 template <typename valType>
-inline detail::tvec2<valType> fastSqrt
+GLM_FUNC_QUALIFIER detail::tvec2<valType> fastSqrt
 (
 	detail::tvec2<valType> const & x
 )
@@ -33,7 +33,7 @@ inline detail::tvec2<valType> fastSqrt
 }
 
 template <typename valType>
-inline detail::tvec3<valType> fastSqrt
+GLM_FUNC_QUALIFIER detail::tvec3<valType> fastSqrt
 (
 	detail::tvec3<valType> const & x
 )
@@ -45,7 +45,7 @@ inline detail::tvec3<valType> fastSqrt
 }
 
 template <typename valType>
-inline detail::tvec4<valType> fastSqrt
+GLM_FUNC_QUALIFIER detail::tvec4<valType> fastSqrt
 (
 	detail::tvec4<valType> const & x
 )
@@ -59,7 +59,7 @@ inline detail::tvec4<valType> fastSqrt
 
 // fastInversesqrt
 template <typename genType>
-inline genType fastInverseSqrt
+GLM_FUNC_QUALIFIER genType fastInverseSqrt
 (
 	genType const & x
 )
@@ -76,7 +76,7 @@ inline genType fastInverseSqrt
 }
 
 template <typename valType>
-inline detail::tvec2<valType> fastInverseSqrt
+GLM_FUNC_QUALIFIER detail::tvec2<valType> fastInverseSqrt
 (
 	detail::tvec2<valType> const & x
 )
@@ -87,7 +87,7 @@ inline detail::tvec2<valType> fastInverseSqrt
 }
 
 template <typename valType>
-inline detail::tvec3<valType> fastInverseSqrt
+GLM_FUNC_QUALIFIER detail::tvec3<valType> fastInverseSqrt
 (
 	detail::tvec3<valType> const & x
 )
@@ -99,7 +99,7 @@ inline detail::tvec3<valType> fastInverseSqrt
 }
 
 template <typename valType>
-inline detail::tvec4<valType> fastInverseSqrt
+GLM_FUNC_QUALIFIER detail::tvec4<valType> fastInverseSqrt
 (
 	detail::tvec4<valType> const & x
 )
@@ -113,7 +113,7 @@ inline detail::tvec4<valType> fastInverseSqrt
 
 // fastLength
 template <typename genType>
-inline genType fastLength
+GLM_FUNC_QUALIFIER genType fastLength
 (
 	genType const & x
 )
@@ -122,7 +122,7 @@ inline genType fastLength
 }
 
 template <typename valType>
-inline valType fastLength
+GLM_FUNC_QUALIFIER valType fastLength
 (
 	detail::tvec2<valType> const & x
 )
@@ -132,7 +132,7 @@ inline valType fastLength
 }
 
 template <typename valType>
-inline valType fastLength
+GLM_FUNC_QUALIFIER valType fastLength
 (
 	detail::tvec3<valType> const & x
 )
@@ -142,7 +142,7 @@ inline valType fastLength
 }
 
 template <typename valType>
-inline valType fastLength
+GLM_FUNC_QUALIFIER valType fastLength
 (
 	detail::tvec4<valType> const & x
 )
@@ -153,7 +153,7 @@ inline valType fastLength
 
 // fastDistance
 template <typename genType>
-inline genType fastDistance
+GLM_FUNC_QUALIFIER genType fastDistance
 (
 	genType const & x, 
 	genType const & y
@@ -163,7 +163,7 @@ inline genType fastDistance
 }
 
 template <typename valType>
-inline valType fastDistance
+GLM_FUNC_QUALIFIER valType fastDistance
 (
 	detail::tvec2<valType> const & x, 
 	detail::tvec2<valType> const & y
@@ -173,7 +173,7 @@ inline valType fastDistance
 }
 
 template <typename valType>
-inline valType fastDistance
+GLM_FUNC_QUALIFIER valType fastDistance
 (
 	detail::tvec3<valType> const & x, 
 	detail::tvec3<valType> const & y
@@ -183,7 +183,7 @@ inline valType fastDistance
 }
 
 template <typename valType>
-inline valType fastDistance
+GLM_FUNC_QUALIFIER valType fastDistance
 (
 	detail::tvec4<valType> const & x, 
 	detail::tvec4<valType> const & y
@@ -194,7 +194,7 @@ inline valType fastDistance
 
 // fastNormalize
 template <typename genType>
-inline genType fastNormalize
+GLM_FUNC_QUALIFIER genType fastNormalize
 (
 	genType const & x
 )
@@ -203,7 +203,7 @@ inline genType fastNormalize
 }
 
 template <typename valType>
-inline detail::tvec2<valType> fastNormalize
+GLM_FUNC_QUALIFIER detail::tvec2<valType> fastNormalize
 (
 	detail::tvec2<valType> const & x
 )
@@ -213,7 +213,7 @@ inline detail::tvec2<valType> fastNormalize
 }
 
 template <typename valType>
-inline detail::tvec3<valType> fastNormalize
+GLM_FUNC_QUALIFIER detail::tvec3<valType> fastNormalize
 (
 	detail::tvec3<valType> const & x
 )
@@ -223,7 +223,7 @@ inline detail::tvec3<valType> fastNormalize
 }
 
 template <typename valType>
-inline detail::tvec4<valType> fastNormalize
+GLM_FUNC_QUALIFIER detail::tvec4<valType> fastNormalize
 (
 	detail::tvec4<valType> const & x
 )

@@ -30,7 +30,7 @@ namespace glm
 		//! Returns the component-wise comparison result of x < y.
 		//! (From GLSL 1.30.08 specification, section 8.6)
 		template <typename T, template <typename> class vecType> 
-		inline typename vecType<T>::bool_type lessThan
+		GLM_FUNC_QUALIFIER typename vecType<T>::bool_type lessThan
 		(
 			vecType<T> const & x, 
 			vecType<T> const & y
@@ -51,7 +51,7 @@ namespace glm
 		//! Returns the component-wise comparison of result x <= y.
 		//! (From GLSL 1.30.08 specification, section 8.6)
 		template <typename T, template <typename> class vecType> 
-		inline typename vecType<T>::bool_type lessThanEqual
+		GLM_FUNC_QUALIFIER typename vecType<T>::bool_type lessThanEqual
 		(
 			vecType<T> const & x, 
 			vecType<T> const & y
@@ -71,7 +71,7 @@ namespace glm
 		//! Returns the component-wise comparison of result x > y.
 		//! (From GLSL 1.30.08 specification, section 8.6)
 		template <typename T, template <typename> class vecType> 
-		inline typename vecType<T>::bool_type greaterThan
+		GLM_FUNC_QUALIFIER typename vecType<T>::bool_type greaterThan
 		(
 			vecType<T> const & x, 
 			vecType<T> const & y
@@ -91,7 +91,7 @@ namespace glm
 		//! Returns the component-wise comparison of result x >= y.
 		//! (From GLSL 1.30.08 specification, section 8.6)
 		template <typename T, template <typename> class vecType> 
-		inline typename vecType<T>::bool_type greaterThanEqual
+		GLM_FUNC_QUALIFIER typename vecType<T>::bool_type greaterThanEqual
 		(
 			vecType<T> const & x, 
 			vecType<T> const & y
@@ -111,7 +111,7 @@ namespace glm
 		//! Returns the component-wise comparison of result x == y.
 		//! (From GLSL 1.30.08 specification, section 8.6)
 		template <typename T, template <typename> class vecType> 
-		inline typename vecType<T>::bool_type equal
+		GLM_FUNC_QUALIFIER typename vecType<T>::bool_type equal
 		(
 			vecType<T> const & x, 
 			vecType<T> const & y
@@ -129,7 +129,7 @@ namespace glm
 		//! Returns the component-wise comparison of result x != y.
 		//! (From GLSL 1.30.08 specification, section 8.6)
 		template <typename T, template <typename> class vecType> 
-		inline typename vecType<T>::bool_type notEqual
+		GLM_FUNC_QUALIFIER typename vecType<T>::bool_type notEqual
 		(
 			vecType<T> const & x, 
 			vecType<T> const & y
@@ -147,7 +147,7 @@ namespace glm
 		//! Returns true if any component of x is true.
 		//! (From GLSL 1.30.08 specification, section 8.6)
 		template <template <typename> class vecType> 
-		inline bool any(vecType<bool> const & v)
+		GLM_FUNC_QUALIFIER bool any(vecType<bool> const & v)
 		{
 			GLM_STATIC_ASSERT(detail::is_vector<vecType<bool> >::_YES, 
 				"Invalid template instantiation of 'any', GLM boolean vector types required");
@@ -161,7 +161,7 @@ namespace glm
 		//! Returns true if all components of x are true.
 		//! (From GLSL 1.30.08 specification, section 8.6)
 		template <template <typename> class vecType> 
-		inline bool all(vecType<bool> const & v)
+		GLM_FUNC_QUALIFIER bool all(vecType<bool> const & v)
 		{
 			GLM_STATIC_ASSERT(detail::is_vector<vecType<bool> >::_YES, 
 				"Invalid template instantiation of 'all', GLM boolean vector types required");
@@ -175,7 +175,7 @@ namespace glm
 		//! Returns the component-wise logical complement of x.
 		//! (From GLSL 1.30.08 specification, section 8.6)
 		template <template <typename> class vecType> 
-		inline vecType<bool> not_(vecType<bool> const & v)
+		GLM_FUNC_QUALIFIER vecType<bool> not_(vecType<bool> const & v)
 		{
 			GLM_STATIC_ASSERT(detail::is_vector<vecType<bool> >::_YES, 
 				"Invalid template instantiation of 'not_', GLM vector types required");

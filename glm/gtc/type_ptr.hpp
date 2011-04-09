@@ -36,7 +36,7 @@ namespace glm
 		//! Get the const address of the vector content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T const * value_ptr
+		GLM_FUNC_QUALIFIER T const * value_ptr
 		(
 			detail::tvec2<T> const & vec
 		)
@@ -47,7 +47,7 @@ namespace glm
 		//! Get the address of the vector content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T * value_ptr
+		GLM_FUNC_QUALIFIER T * value_ptr
 		(
 			detail::tvec2<T> & vec
 		)
@@ -58,7 +58,7 @@ namespace glm
 		//! Get the const address of the vector content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T const * value_ptr
+		GLM_FUNC_QUALIFIER T const * value_ptr
 		(
 			detail::tvec3<T> const & vec
 		)
@@ -69,7 +69,7 @@ namespace glm
 		//! Get the address of the vector content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T * value_ptr
+		GLM_FUNC_QUALIFIER T * value_ptr
 		(
 			detail::tvec3<T> & vec
 		)
@@ -80,7 +80,7 @@ namespace glm
 		//! Get the const address of the vector content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T const * value_ptr
+		GLM_FUNC_QUALIFIER T const * value_ptr
 		(	
 			detail::tvec4<T> const & vec
 		)
@@ -91,7 +91,7 @@ namespace glm
 		//! Get the address of the vector content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T * value_ptr
+		GLM_FUNC_QUALIFIER T * value_ptr
 		(	
 			detail::tvec4<T> & vec
 		)
@@ -102,7 +102,7 @@ namespace glm
 		//! Get the const address of the matrix content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T const * value_ptr
+		GLM_FUNC_QUALIFIER T const * value_ptr
 		(
 			detail::tmat2x2<T> const & mat
 		)
@@ -113,7 +113,7 @@ namespace glm
 		//! Get the address of the matrix content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T * value_ptr
+		GLM_FUNC_QUALIFIER T * value_ptr
 		(
 			detail::tmat2x2<T> & mat
 		)
@@ -124,7 +124,7 @@ namespace glm
 		//! Get the const address of the matrix content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T const * value_ptr
+		GLM_FUNC_QUALIFIER T const * value_ptr
 		(
 			detail::tmat3x3<T> const & mat
 		)
@@ -135,7 +135,7 @@ namespace glm
 		//! Get the address of the matrix content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T * value_ptr
+		GLM_FUNC_QUALIFIER T * value_ptr
 		(
 			detail::tmat3x3<T> & mat
 		)
@@ -146,7 +146,7 @@ namespace glm
 		//! Get the const address of the matrix content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T const * value_ptr
+		GLM_FUNC_QUALIFIER T const * value_ptr
 		(
 			detail::tmat4x4<T> const & mat
 		)
@@ -157,7 +157,7 @@ namespace glm
 		//! Get the address of the matrix content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T * value_ptr
+		GLM_FUNC_QUALIFIER T * value_ptr
 		(
 			detail::tmat4x4<T> & mat
 		)
@@ -168,7 +168,7 @@ namespace glm
 		//! Get the const address of the matrix content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T const * value_ptr
+		GLM_FUNC_QUALIFIER T const * value_ptr
 		(
 			detail::tmat2x3<T> const & mat
 		)
@@ -179,7 +179,7 @@ namespace glm
 		//! Get the address of the matrix content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T * value_ptr
+		GLM_FUNC_QUALIFIER T * value_ptr
 		(
 			detail::tmat2x3<T> & mat
 		)
@@ -190,7 +190,7 @@ namespace glm
 		//! Get the const address of the matrix content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T const * value_ptr
+		GLM_FUNC_QUALIFIER T const * value_ptr
 		(
 			detail::tmat3x2<T> const & mat
 		)
@@ -201,7 +201,7 @@ namespace glm
 		//! Get the address of the matrix content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T * value_ptr
+		GLM_FUNC_QUALIFIER T * value_ptr
 		(
 			detail::tmat3x2<T> & mat
 		)
@@ -212,7 +212,7 @@ namespace glm
 		//! Get the const address of the matrix content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T const * value_ptr
+		GLM_FUNC_QUALIFIER T const * value_ptr
 		(
 			detail::tmat2x4<T> const & mat
 		)
@@ -223,7 +223,7 @@ namespace glm
 		//! Get the address of the matrix content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T * value_ptr
+		GLM_FUNC_QUALIFIER T * value_ptr
 		(
 			detail::tmat2x4<T> & mat
 		)
@@ -234,7 +234,7 @@ namespace glm
 		//! Get the const address of the matrix content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T const * value_ptr
+		GLM_FUNC_QUALIFIER T const * value_ptr
 		(
 			detail::tmat4x2<T> const & mat
 		)
@@ -245,7 +245,7 @@ namespace glm
 		//! Get the address of the matrix content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T * value_ptr
+		GLM_FUNC_QUALIFIER T * value_ptr
 		(	
 			detail::tmat4x2<T> & mat
 		)
@@ -256,7 +256,7 @@ namespace glm
 		//! Get the const address of the matrix content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T const * value_ptr
+		GLM_FUNC_QUALIFIER T const * value_ptr
 		(
 			detail::tmat3x4<T> const & mat
 		)
@@ -267,7 +267,7 @@ namespace glm
 		//! Get the address of the matrix content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T * value_ptr
+		GLM_FUNC_QUALIFIER T * value_ptr
 		(
 			detail::tmat3x4<T> & mat
 		)
@@ -278,7 +278,7 @@ namespace glm
 		//! Get the const address of the matrix content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T const * value_ptr
+		GLM_FUNC_QUALIFIER T const * value_ptr
 		(
 			detail::tmat4x3<T> const & mat
 		)
@@ -289,7 +289,7 @@ namespace glm
 		//! Get the address of the matrix content.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline T * value_ptr(detail::tmat4x3<T> & mat)
+		GLM_FUNC_QUALIFIER T * value_ptr(detail::tmat4x3<T> & mat)
 		{
 			return &(mat[0].x);
 		}

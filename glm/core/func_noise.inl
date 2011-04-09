@@ -15,7 +15,7 @@ namespace glm
 
 	// noise1
 	template <typename genType>
-	inline genType noise1
+	GLM_FUNC_QUALIFIER genType noise1
 	(
 		genType const & x
 	)
@@ -27,7 +27,7 @@ namespace glm
 	}
 
 	template <typename T>
-	inline typename detail::tvec2<T>::value_type noise1
+	GLM_FUNC_QUALIFIER typename detail::tvec2<T>::value_type noise1
 	(
 		detail::tvec2<T> const & x
 	)
@@ -39,7 +39,7 @@ namespace glm
 	}
 
 	template <typename T>
-	inline typename detail::tvec3<T>::value_type noise1
+	GLM_FUNC_QUALIFIER typename detail::tvec3<T>::value_type noise1
 	(
 		detail::tvec3<T> const & x
 	)
@@ -51,7 +51,7 @@ namespace glm
 	}
 
 	template <typename T>
-	inline typename detail::tvec4<T>::value_type noise1
+	GLM_FUNC_QUALIFIER typename detail::tvec4<T>::value_type noise1
 	(
 		detail::tvec4<T> const & x
 	)
@@ -64,7 +64,7 @@ namespace glm
 
 	// noise2
 	template <typename genType>
-	inline detail::tvec2<genType> noise2
+	GLM_FUNC_QUALIFIER detail::tvec2<genType> noise2
 	(
 		genType const & x
 	)
@@ -79,7 +79,7 @@ namespace glm
 	}
 
 	template <typename T>
-	inline detail::tvec2<T> noise2
+	GLM_FUNC_QUALIFIER detail::tvec2<T> noise2
 	(
 		detail::tvec2<T> const & x
 	)
@@ -98,7 +98,7 @@ namespace glm
 	}
 
 	template <typename T>
-	inline detail::tvec2<T> noise2
+	GLM_FUNC_QUALIFIER detail::tvec2<T> noise2
 	(
 		detail::tvec3<T> const & x
 	)
@@ -117,7 +117,7 @@ namespace glm
 	}
 
 	template <typename T>
-	inline detail::tvec2<T> noise2
+	GLM_FUNC_QUALIFIER detail::tvec2<T> noise2
 	(
 		detail::tvec4<T> const & x
 	)
@@ -137,7 +137,7 @@ namespace glm
 
 	// noise3
 	template <typename genType>
-	inline detail::tvec3<genType> noise3
+	GLM_FUNC_QUALIFIER detail::tvec3<genType> noise3
 	(
 		genType const & x
 	)
@@ -154,7 +154,7 @@ namespace glm
 	}
 
 	template <typename T>
-	inline detail::tvec3<T> noise3
+	GLM_FUNC_QUALIFIER detail::tvec3<T> noise3
 	(
 		detail::tvec2<T> const & x
 	)
@@ -174,7 +174,7 @@ namespace glm
 	}
 
 	template <typename T>
-	inline detail::tvec3<T> noise3
+	GLM_FUNC_QUALIFIER detail::tvec3<T> noise3
 	(
 		detail::tvec3<T> const & x
 	)
@@ -194,7 +194,7 @@ namespace glm
 	}
 
 	template <typename T>
-	inline detail::tvec3<T> noise3
+	GLM_FUNC_QUALIFIER detail::tvec3<T> noise3
 	(
 		detail::tvec4<T> const & x
 	)
@@ -215,7 +215,7 @@ namespace glm
 
 	// noise4
 	template <typename genType>
-	inline detail::tvec4<genType> noise4
+	GLM_FUNC_QUALIFIER detail::tvec4<genType> noise4
 	(
 		genType const & x
 	)
@@ -234,7 +234,7 @@ namespace glm
 	}
 
 	template <typename T>
-	inline detail::tvec4<T> noise4
+	GLM_FUNC_QUALIFIER detail::tvec4<T> noise4
 	(
 		detail::tvec2<T> const & x
 	)
@@ -256,7 +256,7 @@ namespace glm
 	}
 
 	template <typename T>
-	inline detail::tvec4<T> noise4
+	GLM_FUNC_QUALIFIER detail::tvec4<T> noise4
 	(
 		detail::tvec3<T> const & x
 	)
@@ -278,7 +278,7 @@ namespace glm
 	}
 
 	template <typename T>
-	inline detail::tvec4<T> noise4
+	GLM_FUNC_QUALIFIER detail::tvec4<T> noise4
 	(
 		detail::tvec4<T> const & x
 	)

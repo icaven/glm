@@ -369,21 +369,29 @@
 #endif//GLM_LANG
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// inline 
+// Qualifiers 
 
-// User defines: GLM_FORCE_INLINE
+// User defines: GLM_FORCE_INLINE GLM_FORCE_CUDA
+
+#if(defined(GLM_FORCE_CUDA) || (defined(CUDA_VERSION) && (CUDA_VERSION >= 4000)))
+#   define GLM_CUDA_QUALIFIER __device__ __host__ 
+#else
+#   define GLM_CUDA_QUALIFIER
+#endif
 
 #if(defined(GLM_FORCE_INLINE))
-#	if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
-#		define GLM_INLINE __forceinline
-#	elif((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
-#		define GLM_INLINE __attribute__((always_inline))
-#	else
-#		define GLM_INLINE inline
-#	endif//GLM_COMPILER
+#   if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
+#       define GLM_INLINE __forceinline
+#   elif((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
+#       define GLM_INLINE __attribute__((always_inline))
+#   else
+#       define GLM_INLINE inline
+#   endif//GLM_COMPILER
 #else
-#	define GLM_INLINE inline
+#   define GLM_INLINE inline
 #endif//defined(GLM_FORCE_INLINE)
+
+#define GLM_FUNC_QUALIFIER GLM_CUDA_QUALIFIER GLM_INLINE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Swizzle operators

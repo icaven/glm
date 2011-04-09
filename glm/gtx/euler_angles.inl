@@ -12,7 +12,7 @@ namespace gtx{
 namespace euler_angles{
 
 template <typename valType> 
-inline detail::tmat4x4<valType> eulerAngleX
+GLM_FUNC_QUALIFIER detail::tmat4x4<valType> eulerAngleX
 (
 	valType const & angleX
 )
@@ -28,7 +28,7 @@ inline detail::tmat4x4<valType> eulerAngleX
 }
 
 template <typename valType> 
-inline detail::tmat4x4<valType> eulerAngleY
+GLM_FUNC_QUALIFIER detail::tmat4x4<valType> eulerAngleY
 (
 	valType const & angleY
 )
@@ -44,7 +44,7 @@ inline detail::tmat4x4<valType> eulerAngleY
 }
 
 template <typename valType> 
-inline detail::tmat4x4<valType> eulerAngleZ
+GLM_FUNC_QUALIFIER detail::tmat4x4<valType> eulerAngleZ
 (
 	valType const & angleZ
 )
@@ -60,7 +60,7 @@ inline detail::tmat4x4<valType> eulerAngleZ
 }
 
 template <typename valType> 
-inline detail::tmat4x4<valType> eulerAngleXY
+GLM_FUNC_QUALIFIER detail::tmat4x4<valType> eulerAngleXY
 (
 	valType const & angleX, 
 	valType const & angleY
@@ -79,7 +79,7 @@ inline detail::tmat4x4<valType> eulerAngleXY
 }
 
 template <typename valType> 
-inline detail::tmat4x4<valType> eulerAngleYX
+GLM_FUNC_QUALIFIER detail::tmat4x4<valType> eulerAngleYX
 (
 	valType const & angleY, 
 	valType const & angleX
@@ -98,7 +98,7 @@ inline detail::tmat4x4<valType> eulerAngleYX
 }
 
 template <typename valType> 
-inline detail::tmat4x4<valType> eulerAngleXZ
+GLM_FUNC_QUALIFIER detail::tmat4x4<valType> eulerAngleXZ
 (
 	valType const & angleX, 
 	valType const & angleZ
@@ -108,7 +108,7 @@ inline detail::tmat4x4<valType> eulerAngleXZ
 }
 
 template <typename valType> 
-inline detail::tmat4x4<valType> eulerAngleZX
+GLM_FUNC_QUALIFIER detail::tmat4x4<valType> eulerAngleZX
 (
 	valType const & angleZ, 
 	valType const & angleX
@@ -118,7 +118,7 @@ inline detail::tmat4x4<valType> eulerAngleZX
 }
 
 template <typename valType> 
-inline detail::tmat4x4<valType> eulerAngleYXZ
+GLM_FUNC_QUALIFIER detail::tmat4x4<valType> eulerAngleYXZ
 (
 	valType const & yaw, 
 	valType const & pitch, 
@@ -153,7 +153,7 @@ inline detail::tmat4x4<valType> eulerAngleYXZ
 }
 
 template <typename valType> 
-inline detail::tmat4x4<valType> yawPitchRoll
+GLM_FUNC_QUALIFIER detail::tmat4x4<valType> yawPitchRoll
 (
 	valType const & yaw, 
 	valType const & pitch, 
@@ -188,7 +188,7 @@ inline detail::tmat4x4<valType> yawPitchRoll
 }
 
 template <typename valType>
-inline detail::tmat2x2<valType> orientate2
+GLM_FUNC_QUALIFIER detail::tmat2x2<valType> orientate2
 (
 	valType const & angle
 )
@@ -205,7 +205,7 @@ inline detail::tmat2x2<valType> orientate2
 }
 
 template <typename valType>
-inline detail::tmat3x3<valType> orientate3
+GLM_FUNC_QUALIFIER detail::tmat3x3<valType> orientate3
 (
 	valType const & angle
 )
@@ -227,7 +227,7 @@ inline detail::tmat3x3<valType> orientate3
 }
 
 template <typename valType>
-inline detail::tmat3x3<valType> orientate3
+GLM_FUNC_QUALIFIER detail::tmat3x3<valType> orientate3
 (
 	detail::tvec3<valType> const & angles
 )
@@ -236,7 +236,7 @@ inline detail::tmat3x3<valType> orientate3
 }
 
 template <typename valType>
-inline detail::tmat4x4<valType> orientate4
+GLM_FUNC_QUALIFIER detail::tmat4x4<valType> orientate4
 (
 	detail::tvec3<valType> const & angles
 )
