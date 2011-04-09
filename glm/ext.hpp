@@ -68,6 +68,7 @@
 #include "./gtx/raw_data.hpp"
 #include "./gtx/reciprocal.hpp"
 #include "./gtx/rotate_vector.hpp"
+#include "./gtx/simplex.hpp"
 #include "./gtx/spline.hpp"
 #include "./gtx/std_based_type.hpp"
 #include "./gtx/string_cast.hpp"
