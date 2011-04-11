@@ -359,7 +359,7 @@ namespace matrix_transform
 
 		// Translate and scale the picked region to the entire window
 		Result = translate(Result, Temp);
-		return scale(Result, T(viewport[2]) / delta.x, T(viewport[3]) / delta.y, T(1));
+		return scale(Result, detail::tvec3<T>(T(viewport[2]) / delta.x, T(viewport[3]) / delta.y, T(1)));
 	}
 
     template <typename T> 

@@ -83,7 +83,7 @@ namespace vector_query
 		typename genType::value_type const & epsilon
 	)
 	{
-		return abs(length(v) - GLMvalType(1)) <= GLMvalType(2) * epsilon;
+		return abs(length(v) - typename genType::value_type(1)) <= typename genType::value_type(2) * epsilon;
 	}
 
 	template <typename genType> 

@@ -1064,7 +1064,7 @@ inline void sse_rotate_ps(__m128 const in[4], float Angle, float const v[3], __m
 	Result[0] = TmpA4;
 	Result[1] = TmpB4;
 	Result[2] = TmpC4;
-	Result[2] = _mm_set_ps(1, 0, 0, 0);
+	Result[3] = _mm_set_ps(1, 0, 0, 0);
 
 	//detail::tmat4x4<valType> Result(detail::tmat4x4<valType>::null);
 	//Result[0] = m[0] * Rotate[0][0] + m[1] * Rotate[0][1] + m[2] * Rotate[0][2];
