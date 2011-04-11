@@ -27,23 +27,31 @@ namespace glm
 	///@{
 
 	//! Returns x if x >= 0; otherwise, it returns -x. 
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/abs.xml">GLSL abs man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	template <typename genFIType> 
 	genFIType abs(genFIType const & x);
 
 	//! Returns 1.0 if x > 0, 0.0 if x == 0, or -1.0 if x < 0. 
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sign.xml">GLSL sign man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	template <typename genFIType> 
 	genFIType sign(genFIType const & x);
 
     //! Returns a value equal to the nearest integer that is less then or equal to x. 
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floor.xml">GLSL floor man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	template <typename genType> 
 	genType floor(genType const & x);
 
 	//! Returns a value equal to the nearest integer to x 
 	//! whose absolute value is not larger than the absolute value of x. 
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/trunc.xml">GLSL trunc man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	template <typename genType> 
 	genType trunc(genType const & x);
 
@@ -52,7 +60,9 @@ namespace glm
 	//! implementation, presumably the direction that is fastest. 
 	//! This includes the possibility that round(x) returns the 
 	//! same value as roundEven(x) for all values of x. 
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/round.xml">GLSL round man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	template <typename genType> 
 	genType round(genType const & x);
 
