@@ -28,7 +28,8 @@ namespace glm
 		//! modulo pow(2, 32). The value carry is set to 0 if the sum was
 		//! less than pow(2, 32), or to 1 otherwise.
 		//!
-		//! (From GLSL 4.00.08 specification, section 8.8)
+        //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/uaddCarry.xml">GLSL uaddCarry man page</a>
+        //! \li GLSL 4.00.08 specification, section 8.8
 		template <typename genUType>
 		genUType uaddCarry(
 			genUType const & x, 
@@ -38,8 +39,9 @@ namespace glm
 		//! Subtracts the 32-bit unsigned integer y from x, returning
 		//! the difference if non-negative, or pow(2, 32) plus the difference
 		//! otherwise. The value borrow is set to 0 if x >= y, or to 1 otherwise.
-		//! 
-		//! (From GLSL 4.00.08 specification, section 8.8)
+		//!
+        //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/usubBorrow.xml">GLSL usubBorrow man page</a>
+        //! \li GLSL 4.00.08 specification, section 8.8
 		template <typename genUType>
 		genUType usubBorrow(
 			genUType const & x, 
@@ -49,7 +51,9 @@ namespace glm
 		//! Multiplies 32-bit integers x and y, producing a 64-bit
 		//! result. The 32 least-significant bits are returned in lsb.
 		//! The 32 most-significant bits are returned in msb.
-		//! (From GLSL 4.00.08 specification, section 8.8)
+		//!
+        //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/umulExtended.xml">GLSL umulExtended man page</a>
+        //! \li GLSL 4.00.08 specification, section 8.8
 		template <typename genUType>
 		void umulExtended(
 			genUType const & x, 
@@ -60,7 +64,9 @@ namespace glm
 		//! Multiplies 32-bit integers x and y, producing a 64-bit
 		//! result. The 32 least-significant bits are returned in lsb.
 		//! The 32 most-significant bits are returned in msb.
-		//! (From GLSL 4.00.08 specification, section 8.8)
+		//!
+        //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/imulExtended.xml">GLSL imulExtended man page</a>
+        //! \li GLSL 4.00.08 specification, section 8.8
 		template <typename genIType>
 		void imulExtended(
 			genIType const & x, 
