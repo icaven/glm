@@ -85,7 +85,8 @@ namespace glm
 		//! offset and bits is greater than the number of bits used
 		//! to store the operand.
 		//!
-		//! (From GLSL 4.00.08 specification, section 8.8)
+        //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitfieldExtract.xml">GLSL bitfieldExtract man page</a>
+        //! \li GLSL 4.00.08 specification, section 8.8
 		template <typename genIUType>
 		genIUType bitfieldExtract(
 			genIUType const & Value, 
@@ -102,7 +103,8 @@ namespace glm
 		//! offset and bits is greater than the number of bits used to
 		//! store the operand.
 		//!
-		//! (From GLSL 4.00.08 specification, section 8.8)
+        //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitfieldInsert.xml">GLSL bitfieldInsert man page</a>
+        //! \li GLSL 4.00.08 specification, section 8.8
 		template <typename genIUType>
 		genIUType bitfieldInsert(
 			genIUType const & Base, 
@@ -113,19 +115,25 @@ namespace glm
 		//! Returns the reversal of the bits of value. 
 		//! The bit numbered n of the result will be taken from bit (bits - 1) - n of value, 
 		//! where bits is the total number of bits used to represent value.
-		//! (From GLSL 4.00.08 specification, section 8.8)
+		//!
+        //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitfieldReverse.xml">GLSL bitfieldReverse man page</a>
+        //! \li GLSL 4.00.08 specification, section 8.8
 		template <typename genIUType>
 		genIUType bitfieldReverse(genIUType const & value);
 		
 		//! Returns the number of bits set to 1 in the binary representation of value.
-		//! (From GLSL 4.00.08 specification, section 8.8)
+		//!
+        //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitCount.xml">GLSL bitCount man page</a>
+        //! \li GLSL 4.00.08 specification, section 8.8
 		template <typename T, template <typename> class C>
 		typename C<T>::signed_type bitCount(C<T> const & Value);
 
 		//! Returns the bit number of the least significant bit set to
 		//! 1 in the binary representation of value. 
 		//! If value is zero, -1 will be returned.
-		//! (From GLSL 4.00.08 specification, section 8.8)
+		//!
+        //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/findLSB.xml">GLSL findLSB man page</a>
+        //! \li GLSL 4.00.08 specification, section 8.8
 		template <typename T, template <typename> class C>
 		typename C<T>::signed_type findLSB(C<T> const & Value);
 
@@ -133,7 +141,9 @@ namespace glm
 		//! For positive integers, the result will be the bit number of the most significant bit set to 1. 
 		//! For negative integers, the result will be the bit number of the most significant
 		//! bit set to 0. For a value of zero or negative one, -1 will be returned.
-		//! (From GLSL 4.00.08 specification, section 8.8)
+		//!
+        //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/findMSB.xml">GLSL findMSB man page</a>
+        //! \li GLSL 4.00.08 specification, section 8.8
 		template <typename T, template <typename> class C>
 		typename C<T>::signed_type findMSB(C<T> const & Value);
 
