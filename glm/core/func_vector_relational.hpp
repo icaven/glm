@@ -31,6 +31,7 @@ namespace glm
         //!
         //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/lessThan.xml">GLSL lessThan man page</a>
         //! \li GLSL 1.30.08 specification, section 8.6
+        template <typename T, template <typename> class vecType> 
 		inline typename vecType<T>::bool_type lessThan
 		(
 			vecType<T> const & x, 
