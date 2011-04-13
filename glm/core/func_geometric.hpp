@@ -25,40 +25,52 @@ namespace glm
 	///@{
 
 	//! Returns the length of x, i.e., sqrt(x * x).
-	//! (From GLSL 1.30.08 specification, section 8.4)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/length.xml">GLSL length man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.4
 	template <typename genType> 
 	typename genType::value_type length(
 		genType const & x); 
 
 	//! Returns the distance betwwen p0 and p1, i.e., length(p0 - p1).
-    //! (From GLSL 1.30.08 specification, section 8.4)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/distance.xml">GLSL distance man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.4
 	template <typename genType> 
 	typename genType::value_type distance(
 		genType const & p0, 
 		genType const & p1);
 
 	//! Returns the dot product of x and y, i.e., result = x * y.
-	//! (From GLSL 1.30.08 specification, section 8.4)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/dot.xml">GLSL dot man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.4
     template <typename genType> 
 	typename genType::value_type dot(
 		genType const & x, 
 		genType const & y);
 
 	//! Returns the cross product of x and y.
-    //! (From GLSL 1.30.08 specification, section 8.4)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/cross.xml">GLSL cross man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.4
     template <typename T> 
 	detail::tvec3<T> cross(
 		detail::tvec3<T> const & x, 
 		detail::tvec3<T> const & y);
 
 	//! Returns a vector in the same direction as x but with length of 1.
-	//! (From GLSL 1.30.08 specification, section 8.4)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/normalize.xml">GLSL normalize man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.4
 	template <typename genType> 
 	genType normalize(
 		genType const & x);
 
 	//! If dot(Nref, I) < 0.0, return N, otherwise, return -N.
-	//! (From GLSL 1.30.08 specification, section 8.4)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/faceforward.xml">GLSL faceforward man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.4
     template <typename genType> 
 	genType faceforward(
 		genType const & N, 
@@ -67,7 +79,9 @@ namespace glm
   
 	//! For the incident vector I and surface orientation N, 
 	//! returns the reflection direction : result = I - 2.0 * dot(N, I) * N.
-	//! (From GLSL 1.30.08 specification, section 8.4)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/reflect.xml">GLSL reflect man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.4
     template <typename genType> 
 	genType reflect(
 		genType const & I, 
@@ -76,7 +90,9 @@ namespace glm
 	//! For the incident vector I and surface normal N, 
 	//! and the ratio of indices of refraction eta, 
 	//! return the refraction vector.
-	//! (From GLSL 1.30.08 specification, section 8.4)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/refract.xml">GLSL refract man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.4
     template <typename genType> 
 	genType refract(
 		genType const & I, 
