@@ -12,6 +12,41 @@ namespace glm
 	namespace core{
 	namespace function{
 	namespace noise{
+    namespace detail
+    {
+        template <typenane valType, typenane vecType> 
+        inline vecType permute
+        (
+            vecType const & x0,
+            detail::tvec3<valType> const & p 
+        ) 
+        {
+            vecType x1 = mod(x0 * p.y, p.x);
+            return floor(  mod( (x1 + p.z) *x0, p.x ));
+        }
+
+        inline detail::tvec2<T> permute
+        (
+            detail::tvec2<T> const & x0, 
+            detail::tvec3<valType> const & p
+        )
+        {
+            vec2 x1 = mod(x0 * p.y, p.x);
+            return floor(  mod( (x1 + p.z) *x0, p.x ));
+        }
+
+        inline vec3 permute(vec3 x0,vec3 p)
+        {
+            vec3 x1 = mod(x0 * p.y, p.x);
+            return floor(  mod( (x1 + p.z) *x0, p.x ));
+        }
+
+        inline vec4 permute(vec4 x0,vec3 p)
+        {
+            vec4 x1 = mod(x0 * p.y, p.x);
+            return floor(  mod( (x1 + p.z) *x0, p.x ));
+        }
+    }//namespace detail
 
 	// noise1
 	template <typename genType>
