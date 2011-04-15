@@ -25,40 +25,54 @@ namespace glm
 	///@{
 
 	//! Returns x raised to the y power. 
-	//! (From GLSL 1.30.08 specification, section 8.2)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/pow.xml">GLSL pow man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.2
 	template <typename genType> 
 	genType pow(genType const & x, genType const & y);
 
 	//! Returns the natural exponentiation of x, i.e., e^x.
-	//! (From GLSL 1.30.08 specification, section 8.2)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/exp.xml">GLSL exp man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.2
 	template <typename genType> 
 	genType exp(genType const & x);
 
 	//! Returns the natural logarithm of x, i.e., 
 	//! returns the value y which satisfies the equation x = e^y. 
 	//! Results are undefined if x <= 0.
-	//! (From GLSL 1.30.08 specification, section 8.2)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/log.xml">GLSL log man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.2
 	template <typename genType> 
 	genType log(genType const & x);
 
 	//! Returns 2 raised to the x power.
-	//! (From GLSL 1.30.08 specification, section 8.2)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/exp2.xml">GLSL exp2 man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.2
 	template <typename genType> 
 	genType exp2(genType const & x);
 
 	//! Returns the base 2 log of x, i.e., returns the value y, 
 	//! which satisfies the equation x = 2 ^ y.
-	//! (From GLSL 1.30.08 specification, section 8.2)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/log2.xml">GLSL log2 man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.2
 	template <typename genType> 
 	genType log2(genType const & x);
 
 	//! Returns the positive square root of x.
-	//! (From GLSL 1.30.08 specification, section 8.2)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sqrt.xml">GLSL sqrt man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.2
 	template <typename genType> 
 	genType sqrt(genType const & x);
     
 	//! Returns the reciprocal of the positive square root of x.
-	//! (From GLSL 1.30.08 specification, section 8.2)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inversesqrt.xml">GLSL inversesqrt man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.2
 	template <typename genType> 
 	genType inversesqrt(genType const & x);
 
