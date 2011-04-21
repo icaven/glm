@@ -12,7 +12,7 @@ namespace gtx{
 namespace normal{
 
     template <typename T> 
-    inline detail::tvec3<T> triangleNormal
+    GLM_FUNC_QUALIFIER detail::tvec3<T> triangleNormal
 	(
 		detail::tvec3<T> const & p1, 
 		detail::tvec3<T> const & p2, 

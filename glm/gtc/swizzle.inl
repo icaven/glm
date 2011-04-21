@@ -15,7 +15,7 @@ namespace gtc{
 namespace swizzle{
 
 template <typename T, template <typename> class vecType>
-inline T swizzle
+GLM_FUNC_QUALIFIER T swizzle
 (	
 	vecType<T> const & v,
 	comp x
@@ -26,7 +26,7 @@ inline T swizzle
 }
 
 template <typename T, template <typename> class vecType>
-inline detail::tvec2<T> swizzle
+GLM_FUNC_QUALIFIER detail::tvec2<T> swizzle
 (
 	vecType<T> const & v,
 	comp x, comp y
@@ -38,7 +38,7 @@ inline detail::tvec2<T> swizzle
 }
 
 template <typename T, template <typename> class vecType>
-inline detail::tvec3<T> swizzle
+GLM_FUNC_QUALIFIER detail::tvec3<T> swizzle
 (
 	vecType<T> const & v,
 	comp x, comp y, comp z
@@ -51,7 +51,7 @@ inline detail::tvec3<T> swizzle
 }
 
 template <typename T, template <typename> class vecType>
-inline detail::tvec4<T> swizzle
+GLM_FUNC_QUALIFIER detail::tvec4<T> swizzle
 (
 	vecType<T> const & v,
 	comp x, comp y, comp z, comp w
@@ -61,7 +61,7 @@ inline detail::tvec4<T> swizzle
 }
 
 template <typename T>
-inline T& swizzle
+GLM_FUNC_QUALIFIER T& swizzle
 (
 	detail::tvec4<T> & v,
 	comp x
@@ -71,7 +71,7 @@ inline T& swizzle
 }
 
 template <typename T>
-inline detail::tref2<T> swizzle
+GLM_FUNC_QUALIFIER detail::tref2<T> swizzle
 (
 	detail::tvec4<T> & v,
 	comp x, comp y
@@ -81,7 +81,7 @@ inline detail::tref2<T> swizzle
 }
 
 template <typename T>
-inline detail::tref3<T> swizzle
+GLM_FUNC_QUALIFIER detail::tref3<T> swizzle
 (
 	detail::tvec4<T> & v,
 	comp x, comp y, comp z
@@ -91,7 +91,7 @@ inline detail::tref3<T> swizzle
 }
 
 template <typename T>
-inline detail::tref4<T> swizzle
+GLM_FUNC_QUALIFIER detail::tref4<T> swizzle
 (
 	detail::tvec4<T> & v,
 	comp x, comp y, comp z, comp w
@@ -101,7 +101,7 @@ inline detail::tref4<T> swizzle
 }
 /*
 template <comp x>
-inline float& swizzle
+GLM_FUNC_QUALIFIER float& swizzle
 (
 	detail::tvec4<float> & v
 )
@@ -110,7 +110,7 @@ inline float& swizzle
 }
 
 template <comp x>
-inline int& swizzle
+GLM_FUNC_QUALIFIER int& swizzle
 (
 	detail::tvec4<int> & v
 )
@@ -119,7 +119,7 @@ inline int& swizzle
 }
 
 template <comp x, comp y>
-inline detail::tref2<float> swizzle
+GLM_FUNC_QUALIFIER detail::tref2<float> swizzle
 (
 	detail::tvec4<float> & v
 )
@@ -128,7 +128,7 @@ inline detail::tref2<float> swizzle
 }
 
 template <comp x, comp y>
-inline detail::tref2<int> swizzle
+GLM_FUNC_QUALIFIER detail::tref2<int> swizzle
 (
 	detail::tvec4<int> & v
 )
@@ -137,7 +137,7 @@ inline detail::tref2<int> swizzle
 }
 
 template <comp x, comp y, comp z>
-inline detail::tref3<float> swizzle
+GLM_FUNC_QUALIFIER detail::tref3<float> swizzle
 (
 	detail::tvec4<float> & v
 )
@@ -146,7 +146,7 @@ inline detail::tref3<float> swizzle
 }
 	
 template <comp x, comp y, comp z>
-inline detail::tref3<int> swizzle
+GLM_FUNC_QUALIFIER detail::tref3<int> swizzle
 (
 	detail::tvec4<int> & v
 )
@@ -155,7 +155,7 @@ inline detail::tref3<int> swizzle
 }
 
 template <comp x, comp y, comp z, comp w>
-inline detail::tref4<float> swizzle
+GLM_FUNC_QUALIFIER detail::tref4<float> swizzle
 (
 	detail::tvec4<float> & v
 )
@@ -164,7 +164,7 @@ inline detail::tref4<float> swizzle
 }
 
 template <comp x, comp y, comp z, comp w>
-inline detail::tref4<int> swizzle
+GLM_FUNC_QUALIFIER detail::tref4<int> swizzle
 (
 	detail::tvec4<int> & v
 )

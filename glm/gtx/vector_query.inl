@@ -17,7 +17,7 @@ namespace gtx{
 namespace vector_query
 {
 	template <typename T>
-	inline bool areCollinear
+	GLM_FUNC_QUALIFIER bool areCollinear
 	(
 		detail::tvec2<T> const & v0, 
 		detail::tvec2<T> const & v1, 
@@ -28,7 +28,7 @@ namespace vector_query
 	}
 
 	template <typename T>
-	inline bool areCollinear
+	GLM_FUNC_QUALIFIER bool areCollinear
 	(
 		detail::tvec3<T> const & v0, 
 		detail::tvec3<T> const & v1, 
@@ -39,7 +39,7 @@ namespace vector_query
 	}
 
 	template <typename T>
-	inline bool areCollinear
+	GLM_FUNC_QUALIFIER bool areCollinear
 	(
 		detail::tvec4<T> const & v0, 
 		detail::tvec4<T> const & v1, 
@@ -50,7 +50,7 @@ namespace vector_query
 	}
 
 	template <typename genType>
-	inline bool areOpposite
+	GLM_FUNC_QUALIFIER bool areOpposite
 	(
 		genType const & v0, 
 		genType const & v1, 
@@ -62,7 +62,7 @@ namespace vector_query
 	}
 
 	template <typename genType>
-	inline bool areOrthogonal
+	GLM_FUNC_QUALIFIER bool areOrthogonal
 	(
 		genType const & v0, 
 		genType const & v1, 
@@ -77,7 +77,7 @@ namespace vector_query
 	}
 
 	template <typename genType> 
-	inline bool isNormalized
+	GLM_FUNC_QUALIFIER bool isNormalized
 	(
 		genType const & v, 
 		typename genType::value_type const & epsilon
@@ -87,7 +87,7 @@ namespace vector_query
 	}
 
 	template <typename genType> 
-	inline bool isNull
+	GLM_FUNC_QUALIFIER bool isNull
 	(
 		genType const & v, 
 		typename genType::value_type const & epsilon
@@ -97,7 +97,7 @@ namespace vector_query
 	}
 
     template <typename T> 
-    inline bool isCompNull
+    GLM_FUNC_QUALIFIER bool isCompNull
 	(
 		T const & s, 
 		T const & epsilon
@@ -107,7 +107,7 @@ namespace vector_query
     }
 
     template <typename T> 
-    inline detail::tvec2<bool> isCompNull
+    GLM_FUNC_QUALIFIER detail::tvec2<bool> isCompNull
 	(
 		detail::tvec2<T> const & v, 
 		T const & epsilon)
@@ -118,7 +118,7 @@ namespace vector_query
     }
 
     template <typename T> 
-    inline detail::tvec3<bool> isCompNull
+    GLM_FUNC_QUALIFIER detail::tvec3<bool> isCompNull
 	(
 		detail::tvec3<T> const & v, 
 		T const & epsilon
@@ -131,7 +131,7 @@ namespace vector_query
     }
 
     template <typename T> 
-    inline detail::tvec4<bool> isCompNull
+    GLM_FUNC_QUALIFIER detail::tvec4<bool> isCompNull
 	(
 		detail::tvec4<T> const & v, 
 		T const & epsilon
@@ -145,7 +145,7 @@ namespace vector_query
     }
 
 	template <typename genType>
-	inline bool areOrthonormal
+	GLM_FUNC_QUALIFIER bool areOrthonormal
 	(
 		genType const & v0, 
 		genType const & v1, 
@@ -156,7 +156,7 @@ namespace vector_query
 	}
 
 	template <typename genType>
-	inline bool areSimilar
+	GLM_FUNC_QUALIFIER bool areSimilar
 	(
 		genType const & v0, 
 		genType const & v1, 

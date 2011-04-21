@@ -12,7 +12,7 @@ namespace gtx{
 namespace projection{
 
 template <typename T> 
-inline detail::tvec2<T> proj(
+GLM_FUNC_QUALIFIER detail::tvec2<T> proj(
 	detail::tvec2<T> const & x, 
 	detail::tvec2<T> const & Normal)
 {
@@ -20,7 +20,7 @@ inline detail::tvec2<T> proj(
 }
 
 template <typename T> 
-inline detail::tvec3<T> proj(
+GLM_FUNC_QUALIFIER detail::tvec3<T> proj(
 	detail::tvec3<T> const & x, 
 	detail::tvec3<T> const & Normal)
 {
@@ -28,7 +28,7 @@ inline detail::tvec3<T> proj(
 }
 
 template <typename T> 
-inline detail::tvec4<T> proj(
+GLM_FUNC_QUALIFIER detail::tvec4<T> proj(
 	detail::tvec4<T> const & x, 
 	detail::tvec4<T> const & Normal)
 {

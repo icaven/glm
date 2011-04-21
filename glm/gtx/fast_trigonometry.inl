@@ -13,13 +13,13 @@ namespace fast_trigonometry
 {
     // sin
     template <typename T> 
-    inline T fastSin(const T x)
+    GLM_FUNC_QUALIFIER T fastSin(const T x)
     {
         return x - ((x * x * x) / T(6)) + ((x * x * x * x * x) / T(120)) - ((x * x * x * x * x * x * x) / T(5040));
     }
 
     template <typename T> 
-    inline detail::tvec2<T> fastSin(
+    GLM_FUNC_QUALIFIER detail::tvec2<T> fastSin(
 		const detail::tvec2<T>& x)
     {
         return detail::tvec2<T>(
@@ -28,7 +28,7 @@ namespace fast_trigonometry
     }
 
     template <typename T> 
-    inline detail::tvec3<T> fastSin(
+    GLM_FUNC_QUALIFIER detail::tvec3<T> fastSin(
 		const detail::tvec3<T>& x)
     {
         return detail::tvec3<T>(
@@ -38,7 +38,7 @@ namespace fast_trigonometry
     }
 
     template <typename T> 
-    inline detail::tvec4<T> fastSin(
+    GLM_FUNC_QUALIFIER detail::tvec4<T> fastSin(
 		const detail::tvec4<T>& x)
     {
         return detail::tvec4<T>(
@@ -50,13 +50,13 @@ namespace fast_trigonometry
 
     // cos
     template <typename T> 
-    inline T fastCos(const T x)
+    GLM_FUNC_QUALIFIER T fastCos(const T x)
     {
         return T(1) - (x * x * T(0.5)) + (x * x * x * x * T(0.041666666666)) - (x * x * x * x * x * x * T(0.00138888888888));
     }
 
     template <typename T> 
-    inline detail::tvec2<T> fastCos(
+    GLM_FUNC_QUALIFIER detail::tvec2<T> fastCos(
 		const detail::tvec2<T>& x)
     {
         return detail::tvec2<T>(
@@ -65,7 +65,7 @@ namespace fast_trigonometry
     }
 
     template <typename T> 
-    inline detail::tvec3<T> fastCos(
+    GLM_FUNC_QUALIFIER detail::tvec3<T> fastCos(
 		const detail::tvec3<T>& x)
     {
         return detail::tvec3<T>(
@@ -75,7 +75,7 @@ namespace fast_trigonometry
     }
 
     template <typename T> 
-    inline detail::tvec4<T> fastCos(
+    GLM_FUNC_QUALIFIER detail::tvec4<T> fastCos(
 		const detail::tvec4<T>& x)
     {
         return detail::tvec4<T>(
@@ -87,13 +87,13 @@ namespace fast_trigonometry
 
     // tan
     template <typename T> 
-    inline T fastTan(const T x)
+    GLM_FUNC_QUALIFIER T fastTan(const T x)
     {
         return x + (x * x * x * T(0.3333333333)) + (x * x * x * x * x * T(0.1333333333333)) + (x * x * x * x * x * x * x * T(0.0539682539));
     }
 
     template <typename T> 
-    inline detail::tvec2<T> fastTan(
+    GLM_FUNC_QUALIFIER detail::tvec2<T> fastTan(
 		const detail::tvec2<T>& x)
     {
         return detail::tvec2<T>(
@@ -102,7 +102,7 @@ namespace fast_trigonometry
     }
 
     template <typename T> 
-    inline detail::tvec3<T> fastTan(
+    GLM_FUNC_QUALIFIER detail::tvec3<T> fastTan(
 		const detail::tvec3<T>& x)
     {
         return detail::tvec3<T>(
@@ -112,7 +112,7 @@ namespace fast_trigonometry
     }
 
     template <typename T> 
-    inline detail::tvec4<T> fastTan(
+    GLM_FUNC_QUALIFIER detail::tvec4<T> fastTan(
 		const detail::tvec4<T>& x)
     {
         return detail::tvec4<T>(
@@ -124,7 +124,7 @@ namespace fast_trigonometry
 
     // asin
     template <typename T> 
-    inline T fastAsin(const T x)
+    GLM_FUNC_QUALIFIER T fastAsin(const T x)
     {
         return x + (x * x * x * T(0.166666667)) + (x * x * x * x * x * T(0.075)) + (x * x * x * x * x * x * x * T(0.0446428571)) + (x * x * x * x * x * x * x * x * x * T(0.0303819444));// + (x * x * x * x * x * x * x * x * x * x * x * T(0.022372159));
     }
@@ -158,7 +158,7 @@ namespace fast_trigonometry
 
     // acos
     template <typename T> 
-    inline T fastAcos(const T x)
+    GLM_FUNC_QUALIFIER T fastAcos(const T x)
     {
         return T(1.5707963267948966192313216916398) - fastAsin(x); //(PI / 2)
     }
@@ -192,14 +192,14 @@ namespace fast_trigonometry
 
     // atan
     template <typename T> 
-    inline T fastAtan(const T y, const T x)
+    GLM_FUNC_QUALIFIER T fastAtan(const T y, const T x)
     {
         T sgn = sign(y) * sign(x);
         return abs(fastAtan(y / x)) * sgn;
     }
 
     template <typename T> 
-    inline detail::tvec2<T> fastAtan(
+    GLM_FUNC_QUALIFIER detail::tvec2<T> fastAtan(
 		const detail::tvec2<T>& y, 
 		const detail::tvec2<T>& x)
     {
@@ -209,7 +209,7 @@ namespace fast_trigonometry
     }
 
     template <typename T> 
-    inline detail::tvec3<T> fastAtan(
+    GLM_FUNC_QUALIFIER detail::tvec3<T> fastAtan(
 		const detail::tvec3<T>& y, 
 		const detail::tvec3<T>& x)
     {
@@ -220,7 +220,7 @@ namespace fast_trigonometry
     }
 
     template <typename T> 
-    inline detail::tvec4<T> fastAtan(
+    GLM_FUNC_QUALIFIER detail::tvec4<T> fastAtan(
 		const detail::tvec4<T>& y, 
 		const detail::tvec4<T>& x)
     {
@@ -232,13 +232,13 @@ namespace fast_trigonometry
     }
 
     template <typename T> 
-    inline T fastAtan(const T x)
+    GLM_FUNC_QUALIFIER T fastAtan(const T x)
     {
         return x - (x * x * x * T(0.333333333333)) + (x * x * x * x * x * T(0.2)) - (x * x * x * x * x * x * x * T(0.1428571429)) + (x * x * x * x * x * x * x * x * x * T(0.111111111111)) - (x * x * x * x * x * x * x * x * x * x * x * T(0.0909090909));
     }
 
     template <typename T> 
-    inline detail::tvec2<T> fastAtan(
+    GLM_FUNC_QUALIFIER detail::tvec2<T> fastAtan(
 		const detail::tvec2<T>& x)
     {
         return detail::tvec2<T>(
@@ -247,7 +247,7 @@ namespace fast_trigonometry
     }
 
     template <typename T> 
-    inline detail::tvec3<T> fastAtan(
+    GLM_FUNC_QUALIFIER detail::tvec3<T> fastAtan(
 		const detail::tvec3<T>& x)
     {
         return detail::tvec3<T>(
@@ -257,7 +257,7 @@ namespace fast_trigonometry
     }
 
     template <typename T> 
-    inline detail::tvec4<T> fastAtan(
+    GLM_FUNC_QUALIFIER detail::tvec4<T> fastAtan(
 		const detail::tvec4<T>& x)
     {
         return detail::tvec4<T>(

@@ -13,13 +13,13 @@ namespace fast_exponential
 {
     // fastPow:
 	template <typename T>
-    inline T fastPow(const T x, const T y)
+    GLM_FUNC_QUALIFIER T fastPow(const T x, const T y)
     {
         return exp(y * log(x));
     }
 
     template <typename T>
-    inline detail::tvec2<T> fastPow(
+    GLM_FUNC_QUALIFIER detail::tvec2<T> fastPow(
 		const detail::tvec2<T>& x, 
 		const detail::tvec2<T>& y)
     {
@@ -29,7 +29,7 @@ namespace fast_exponential
     }
 
     template <typename T>
-    inline detail::tvec3<T> fastPow(
+    GLM_FUNC_QUALIFIER detail::tvec3<T> fastPow(
 		const detail::tvec3<T>& x, 
 		const detail::tvec3<T>& y)
     {
@@ -40,7 +40,7 @@ namespace fast_exponential
     }
 
     template <typename T>
-    inline detail::tvec4<T> fastPow(
+    GLM_FUNC_QUALIFIER detail::tvec4<T> fastPow(
 		const detail::tvec4<T>& x, 
 		const detail::tvec4<T>& y)
     {
@@ -52,7 +52,7 @@ namespace fast_exponential
     }
 
 	template <typename T>
-	inline T fastPow(const T x, int y)
+	GLM_FUNC_QUALIFIER T fastPow(const T x, int y)
     {
         T f = T(1);
         for(int i = 0; i < y; ++i)
@@ -61,7 +61,7 @@ namespace fast_exponential
     }
 
     template <typename T>
-    inline detail::tvec2<T> fastPow(
+    GLM_FUNC_QUALIFIER detail::tvec2<T> fastPow(
 		const detail::tvec2<T>& x, 
 		const detail::tvec2<int>& y)
     {
@@ -71,7 +71,7 @@ namespace fast_exponential
     }
 
     template <typename T>
-    inline detail::tvec3<T> fastPow(
+    GLM_FUNC_QUALIFIER detail::tvec3<T> fastPow(
 		const detail::tvec3<T>& x, 
 		const detail::tvec3<int>& y)
     {
@@ -82,7 +82,7 @@ namespace fast_exponential
     }
 
     template <typename T>
-    inline detail::tvec4<T> fastPow(
+    GLM_FUNC_QUALIFIER detail::tvec4<T> fastPow(
 		const detail::tvec4<T>& x, 
 		const detail::tvec4<int>& y)
     {
@@ -96,7 +96,7 @@ namespace fast_exponential
     // fastExp
     // Note: This function provides accurate results only for value between -1 and 1, else avoid it.
 	template <typename T>
-    inline T fastExp(const T x)
+    GLM_FUNC_QUALIFIER T fastExp(const T x)
     {
         // This has a better looking and same performance in release mode than the following code. However, in debug mode it's slower.
         // return 1.0f + x * (1.0f + x * 0.5f * (1.0f + x * 0.3333333333f * (1.0f + x * 0.25 * (1.0f + x * 0.2f))));
@@ -107,7 +107,7 @@ namespace fast_exponential
         return T(1) + x + (x2 * T(0.5)) + (x3 * T(0.1666666667)) + (x4 * T(0.041666667)) + (x5 * T(0.008333333333));
     }
 /*  // Try to handle all values of float... but often shower than std::exp, glm::floor and the loop kill the performance
-    inline float fastExp(float x)
+    GLM_FUNC_QUALIFIER float fastExp(float x)
     {
         const float e = 2.718281828f;
         const float IntegerPart = floor(x);
@@ -125,7 +125,7 @@ namespace fast_exponential
     }
 
     // Increase accuracy on number bigger that 1 and smaller than -1 but it's not enough for high and negative numbers
-    inline float fastExp(float x)
+    GLM_FUNC_QUALIFIER float fastExp(float x)
     {
         // This has a better looking and same performance in release mode than the following code. However, in debug mode it's slower.
         // return 1.0f + x * (1.0f + x * 0.5f * (1.0f + x * 0.3333333333f * (1.0f + x * 0.25 * (1.0f + x * 0.2f))));
@@ -140,7 +140,7 @@ namespace fast_exponential
     }
 */
     template <typename T>
-    inline detail::tvec2<T> fastExp(
+    GLM_FUNC_QUALIFIER detail::tvec2<T> fastExp(
 		const detail::tvec2<T>& x)
     {
         return detail::tvec2<T>(
@@ -149,7 +149,7 @@ namespace fast_exponential
     }
 
     template <typename T>
-    inline detail::tvec3<T> fastExp(
+    GLM_FUNC_QUALIFIER detail::tvec3<T> fastExp(
 		const detail::tvec3<T>& x)
     {
         return detail::tvec3<T>(
@@ -159,7 +159,7 @@ namespace fast_exponential
     }
 
     template <typename T>
-    inline detail::tvec4<T> fastExp(
+    GLM_FUNC_QUALIFIER detail::tvec4<T> fastExp(
 		const detail::tvec4<T>& x)
     {
         return detail::tvec4<T>(
@@ -171,13 +171,13 @@ namespace fast_exponential
 
     // fastLog
 	template <typename T>
-    inline T fastLog(const T x)
+    GLM_FUNC_QUALIFIER T fastLog(const T x)
     {
         return std::log(x);
     }
 
     /* Slower than the VC7.1 function...
-    inline float fastLog(float x)
+    GLM_FUNC_QUALIFIER float fastLog(float x)
     {
         float y1 = (x - 1.0f) / (x + 1.0f);
         float y2 = y1 * y1;
@@ -186,7 +186,7 @@ namespace fast_exponential
     */
 
     template <typename T>
-    inline detail::tvec2<T> fastLog(
+    GLM_FUNC_QUALIFIER detail::tvec2<T> fastLog(
 		const detail::tvec2<T>& x)
     {
         return detail::tvec2<T>(
@@ -195,7 +195,7 @@ namespace fast_exponential
     }
 
     template <typename T>
-    inline detail::tvec3<T> fastLog(
+    GLM_FUNC_QUALIFIER detail::tvec3<T> fastLog(
 		const detail::tvec3<T>& x)
     {
         return detail::tvec3<T>(
@@ -205,7 +205,7 @@ namespace fast_exponential
     }
 
     template <typename T>
-    inline detail::tvec4<T> fastLog(
+    GLM_FUNC_QUALIFIER detail::tvec4<T> fastLog(
 		const detail::tvec4<T>& x)
     {
         return detail::tvec4<T>(
@@ -217,13 +217,13 @@ namespace fast_exponential
 
     //fastExp2, ln2 = 0.69314718055994530941723212145818f
 	template <typename T>
-    inline T fastExp2(const T x)
+    GLM_FUNC_QUALIFIER T fastExp2(const T x)
     {
         return fastExp(0.69314718055994530941723212145818f * x);
     }
 
     template <typename T>
-    inline detail::tvec2<T> fastExp2(
+    GLM_FUNC_QUALIFIER detail::tvec2<T> fastExp2(
 		const detail::tvec2<T>& x)
     {
         return detail::tvec2<T>(
@@ -232,7 +232,7 @@ namespace fast_exponential
     }
 
     template <typename T>
-    inline detail::tvec3<T> fastExp2(
+    GLM_FUNC_QUALIFIER detail::tvec3<T> fastExp2(
 		const detail::tvec3<T>& x)
     {
         return detail::tvec3<T>(
@@ -242,7 +242,7 @@ namespace fast_exponential
     }
 
     template <typename T>
-    inline detail::tvec4<T> fastExp2(
+    GLM_FUNC_QUALIFIER detail::tvec4<T> fastExp2(
 		const detail::tvec4<T>& x)
     {
         return detail::tvec4<T>(
@@ -254,13 +254,13 @@ namespace fast_exponential
 
     // fastLog2, ln2 = 0.69314718055994530941723212145818f
 	template <typename T>
-    inline T fastLog2(const T x)
+    GLM_FUNC_QUALIFIER T fastLog2(const T x)
     {
         return fastLog(x) / 0.69314718055994530941723212145818f;
     }
 
     template <typename T>
-    inline detail::tvec2<T> fastLog2(
+    GLM_FUNC_QUALIFIER detail::tvec2<T> fastLog2(
 		const detail::tvec2<T>& x)
     {
         return detail::tvec2<T>(
@@ -269,7 +269,7 @@ namespace fast_exponential
     }
 
     template <typename T>
-    inline detail::tvec3<T> fastLog2(
+    GLM_FUNC_QUALIFIER detail::tvec3<T> fastLog2(
 		const detail::tvec3<T>& x)
     {
         return detail::tvec3<T>(
@@ -279,7 +279,7 @@ namespace fast_exponential
     }
 
     template <typename T>
-    inline detail::tvec4<T> fastLog2(
+    GLM_FUNC_QUALIFIER detail::tvec4<T> fastLog2(
 		const detail::tvec4<T>& x)
     {
         return detail::tvec4<T>(

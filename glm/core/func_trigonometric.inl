@@ -15,7 +15,7 @@ namespace glm
 
     // radians
     template <typename genType>
-    inline genType radians
+    GLM_FUNC_QUALIFIER genType radians
 	(
 		genType const & degrees
 	)
@@ -27,7 +27,7 @@ namespace glm
     }
 
     template <typename T>
-	inline detail::tvec2<T> radians
+	GLM_FUNC_QUALIFIER detail::tvec2<T> radians
 	(
 		detail::tvec2<T> const & degrees
 	)
@@ -38,7 +38,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec3<T> radians
+    GLM_FUNC_QUALIFIER detail::tvec3<T> radians
 	(
 		detail::tvec3<T> const & degrees
 	)
@@ -50,7 +50,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec4<T> radians
+    GLM_FUNC_QUALIFIER detail::tvec4<T> radians
 	(
 		detail::tvec4<T> const & degrees
 	)
@@ -64,7 +64,7 @@ namespace glm
 
     // degrees
     template <typename genType>
-    inline genType degrees
+    GLM_FUNC_QUALIFIER genType degrees
 	(
 		genType const & radians
 	)
@@ -76,7 +76,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec2<T> degrees
+    GLM_FUNC_QUALIFIER detail::tvec2<T> degrees
 	(
 		detail::tvec2<T> const & radians
 	)
@@ -87,7 +87,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec3<T> degrees
+    GLM_FUNC_QUALIFIER detail::tvec3<T> degrees
 	(	
 		detail::tvec3<T> const & radians
 	)
@@ -99,7 +99,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec4<T> degrees
+    GLM_FUNC_QUALIFIER detail::tvec4<T> degrees
 	(
 		detail::tvec4<T> const & radians
 	)
@@ -113,7 +113,7 @@ namespace glm
 
     // sin
     template <typename genType>
-    inline genType sin
+    GLM_FUNC_QUALIFIER genType sin
 	(
 		genType const & angle
 	)
@@ -124,7 +124,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec2<T> sin
+    GLM_FUNC_QUALIFIER detail::tvec2<T> sin
 	(
 		detail::tvec2<T> const & angle
 	)
@@ -135,7 +135,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec3<T> sin
+    GLM_FUNC_QUALIFIER detail::tvec3<T> sin
 	(
 		detail::tvec3<T> const & angle
 	)
@@ -147,7 +147,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec4<T> sin
+    GLM_FUNC_QUALIFIER detail::tvec4<T> sin
 	(
 		detail::tvec4<T> const & angle
 	)
@@ -161,7 +161,7 @@ namespace glm
 
     // cos
     template <typename genType>
-    inline genType cos(genType const & angle)
+    GLM_FUNC_QUALIFIER genType cos(genType const & angle)
     {
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'cos' only accept floating-point input");
 
@@ -169,7 +169,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec2<T> cos
+    GLM_FUNC_QUALIFIER detail::tvec2<T> cos
 	(
 		detail::tvec2<T> const & angle
 	)
@@ -180,7 +180,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec3<T> cos
+    GLM_FUNC_QUALIFIER detail::tvec3<T> cos
 	(
 		detail::tvec3<T> const & angle
 	)
@@ -192,7 +192,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec4<T> cos
+    GLM_FUNC_QUALIFIER detail::tvec4<T> cos
 	(	
 		detail::tvec4<T> const & angle
 	)
@@ -206,7 +206,7 @@ namespace glm
 
     // tan
     template <typename genType>
-    inline genType tan
+    GLM_FUNC_QUALIFIER genType tan
 	(
 		genType const & angle
 	)
@@ -217,7 +217,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec2<T> tan
+    GLM_FUNC_QUALIFIER detail::tvec2<T> tan
 	(
 		detail::tvec2<T> const & angle
 	)
@@ -228,7 +228,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec3<T> tan
+    GLM_FUNC_QUALIFIER detail::tvec3<T> tan
 	(
 		detail::tvec3<T> const & angle
 	)
@@ -240,7 +240,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec4<T> tan
+    GLM_FUNC_QUALIFIER detail::tvec4<T> tan
 	(
 		detail::tvec4<T> const & angle
 	)
@@ -254,7 +254,7 @@ namespace glm
 
     // asin
     template <typename genType>
-    inline genType asin
+    GLM_FUNC_QUALIFIER genType asin
 	(
 		genType const & x
 	)
@@ -265,7 +265,7 @@ namespace glm
     }
 
     template <typename T>
-	inline detail::tvec2<T> asin
+	GLM_FUNC_QUALIFIER detail::tvec2<T> asin
 	(
 		detail::tvec2<T> const & x
 	)
@@ -276,7 +276,7 @@ namespace glm
     }
 
     template <typename T>
-	inline detail::tvec3<T> asin
+	GLM_FUNC_QUALIFIER detail::tvec3<T> asin
 	(
 		detail::tvec3<T> const & x
 	)
@@ -288,7 +288,7 @@ namespace glm
     }
 
     template <typename T>
-	inline detail::tvec4<T> asin
+	GLM_FUNC_QUALIFIER detail::tvec4<T> asin
 	(
 		detail::tvec4<T> const & x
 	)
@@ -302,7 +302,7 @@ namespace glm
 
     // acos
     template <typename genType>
-    inline genType acos
+    GLM_FUNC_QUALIFIER genType acos
 	(
 		genType const & x
 	)
@@ -313,7 +313,7 @@ namespace glm
     }
 
     template <typename T>
-	inline detail::tvec2<T> acos
+	GLM_FUNC_QUALIFIER detail::tvec2<T> acos
 	(
 		detail::tvec2<T> const & x
 	)
@@ -324,7 +324,7 @@ namespace glm
     }
 
     template <typename T>
-	inline detail::tvec3<T> acos
+	GLM_FUNC_QUALIFIER detail::tvec3<T> acos
 	(
 		detail::tvec3<T> const & x
 	)
@@ -336,7 +336,7 @@ namespace glm
     }
 
     template <typename T>
-	inline detail::tvec4<T> acos
+	GLM_FUNC_QUALIFIER detail::tvec4<T> acos
 	(
 		detail::tvec4<T> const & x
 	)
@@ -350,7 +350,7 @@ namespace glm
 
     // atan
     template <typename genType>
-    inline genType atan
+    GLM_FUNC_QUALIFIER genType atan
 	(
 		genType const & y, 
 		genType const & x
@@ -362,7 +362,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec2<T> atan
+    GLM_FUNC_QUALIFIER detail::tvec2<T> atan
 	(
 		detail::tvec2<T> const & y, 
 		detail::tvec2<T> const & x
@@ -374,7 +374,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec3<T> atan
+    GLM_FUNC_QUALIFIER detail::tvec3<T> atan
 	(
 		detail::tvec3<T> const & y, 
 		detail::tvec3<T> const & x
@@ -387,7 +387,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec4<T> atan
+    GLM_FUNC_QUALIFIER detail::tvec4<T> atan
 	(
 		detail::tvec4<T> const & y, 
 		detail::tvec4<T> const & x
@@ -401,7 +401,7 @@ namespace glm
     }
 
     template <typename genType>
-    inline genType atan
+    GLM_FUNC_QUALIFIER genType atan
 	(
 		genType const & x
 	)
@@ -412,7 +412,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec2<T> atan
+    GLM_FUNC_QUALIFIER detail::tvec2<T> atan
 	(
 		detail::tvec2<T> const & x
 	)
@@ -423,7 +423,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec3<T> atan
+    GLM_FUNC_QUALIFIER detail::tvec3<T> atan
 	(
 		detail::tvec3<T> const & x
 	)
@@ -435,7 +435,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec4<T> atan
+    GLM_FUNC_QUALIFIER detail::tvec4<T> atan
 	(
 		detail::tvec4<T> const & x
 	)
@@ -449,7 +449,7 @@ namespace glm
 
     // sinh
     template <typename genType> 
-    inline genType sinh
+    GLM_FUNC_QUALIFIER genType sinh
 	(
 		genType const & angle
 	)
@@ -460,7 +460,7 @@ namespace glm
     }
 
     template <typename T> 
-    inline detail::tvec2<T> sinh
+    GLM_FUNC_QUALIFIER detail::tvec2<T> sinh
 	(
 		detail::tvec2<T> const & angle
 	)
@@ -471,7 +471,7 @@ namespace glm
     }
 
     template <typename T> 
-    inline detail::tvec3<T> sinh
+    GLM_FUNC_QUALIFIER detail::tvec3<T> sinh
 	(
 		detail::tvec3<T> const & angle
 	)
@@ -483,7 +483,7 @@ namespace glm
     }
 
     template <typename T> 
-    inline detail::tvec4<T> sinh
+    GLM_FUNC_QUALIFIER detail::tvec4<T> sinh
 	(
 		detail::tvec4<T> const & angle
 	)
@@ -497,7 +497,7 @@ namespace glm
 
     // cosh
     template <typename genType> 
-    inline genType cosh
+    GLM_FUNC_QUALIFIER genType cosh
 	(
 		genType const & angle
 	)
@@ -508,7 +508,7 @@ namespace glm
     }
 
     template <typename T> 
-    inline detail::tvec2<T> cosh
+    GLM_FUNC_QUALIFIER detail::tvec2<T> cosh
 	(
 		detail::tvec2<T> const & angle
 	)
@@ -519,7 +519,7 @@ namespace glm
     }
 
     template <typename T> 
-    inline detail::tvec3<T> cosh
+    GLM_FUNC_QUALIFIER detail::tvec3<T> cosh
 	(
 		detail::tvec3<T> const & angle
 	)
@@ -531,7 +531,7 @@ namespace glm
     }
 
     template <typename T> 
-    inline detail::tvec4<T> cosh
+    GLM_FUNC_QUALIFIER detail::tvec4<T> cosh
 	(
 		detail::tvec4<T> const & angle
 	)
@@ -545,7 +545,7 @@ namespace glm
 
     // tanh
     template <typename genType>
-    inline genType tanh
+    GLM_FUNC_QUALIFIER genType tanh
 	(
 		genType const & angle
 	)
@@ -556,7 +556,7 @@ namespace glm
     }
 
     template <typename T> 
-    inline detail::tvec2<T> tanh
+    GLM_FUNC_QUALIFIER detail::tvec2<T> tanh
 	(
 		detail::tvec2<T> const & angle
 	)
@@ -567,7 +567,7 @@ namespace glm
     }
 
     template <typename T> 
-    inline detail::tvec3<T> tanh
+    GLM_FUNC_QUALIFIER detail::tvec3<T> tanh
 	(
 		detail::tvec3<T> const & angle
 	)
@@ -579,7 +579,7 @@ namespace glm
     }
 
     template <typename T> 
-    inline detail::tvec4<T> tanh
+    GLM_FUNC_QUALIFIER detail::tvec4<T> tanh
 	(
 		detail::tvec4<T> const & angle
 	)
@@ -593,7 +593,7 @@ namespace glm
 
     // asinh
     template <typename genType> 
-    inline genType asinh
+    GLM_FUNC_QUALIFIER genType asinh
 	(
 		genType const & x
 	)
@@ -604,7 +604,7 @@ namespace glm
     }
 
     template <typename T> 
-    inline detail::tvec2<T> asinh
+    GLM_FUNC_QUALIFIER detail::tvec2<T> asinh
 	(
 		detail::tvec2<T> const & x
 	)
@@ -615,7 +615,7 @@ namespace glm
     }
 
     template <typename T> 
-    inline detail::tvec3<T> asinh
+    GLM_FUNC_QUALIFIER detail::tvec3<T> asinh
 	(
 		detail::tvec3<T> const & x
 	)
@@ -627,7 +627,7 @@ namespace glm
     }
 
     template <typename T> 
-    inline detail::tvec4<T> asinh
+    GLM_FUNC_QUALIFIER detail::tvec4<T> asinh
 	(
 		detail::tvec4<T> const & x
 	)
@@ -641,7 +641,7 @@ namespace glm
 
     // acosh
     template <typename genType> 
-    inline genType acosh
+    GLM_FUNC_QUALIFIER genType acosh
 	(
 		genType const & x
 	)
@@ -654,7 +654,7 @@ namespace glm
     }
 
 	template <typename T> 
-	inline detail::tvec2<T> acosh
+	GLM_FUNC_QUALIFIER detail::tvec2<T> acosh
 	(
 		detail::tvec2<T> const & x
 	)
@@ -665,7 +665,7 @@ namespace glm
 	}
 
     template <typename T> 
-    inline detail::tvec3<T> acosh
+    GLM_FUNC_QUALIFIER detail::tvec3<T> acosh
 	(
 		detail::tvec3<T> const & x
 	)
@@ -677,7 +677,7 @@ namespace glm
     }
 
     template <typename T> 
-    inline detail::tvec4<T> acosh
+    GLM_FUNC_QUALIFIER detail::tvec4<T> acosh
 	(
 		detail::tvec4<T> const & x
 	)
@@ -691,7 +691,7 @@ namespace glm
 
     // atanh
     template <typename genType>
-    inline genType atanh
+    GLM_FUNC_QUALIFIER genType atanh
 	(
 		genType const & x
 	)
@@ -704,7 +704,7 @@ namespace glm
     }
 
     template <typename T> 
-    inline detail::tvec2<T> atanh
+    GLM_FUNC_QUALIFIER detail::tvec2<T> atanh
 	(
 		detail::tvec2<T> const & x
 	)
@@ -715,7 +715,7 @@ namespace glm
     }
 
     template <typename T> 
-    inline detail::tvec3<T> atanh
+    GLM_FUNC_QUALIFIER detail::tvec3<T> atanh
 	(
 		detail::tvec3<T> const & x
 	)
@@ -727,7 +727,7 @@ namespace glm
     }
 
     template <typename T> 
-    inline detail::tvec4<T> atanh
+    GLM_FUNC_QUALIFIER detail::tvec4<T> atanh
 	(
 		detail::tvec4<T> const & x
 	)
