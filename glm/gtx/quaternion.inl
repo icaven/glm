@@ -185,7 +185,6 @@ namespace quaternion
 	)
     {
         detail::tquat<valType> result;
-        detail::tvec3<valType> v_normalized = glm::normalize(v);
 
 		valType a = glm::radians(angle);
         valType s = glm::sin(a * valType(0.5));
