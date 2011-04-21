@@ -13,5 +13,5 @@
 
 int main()
 {
-
+	float ValueSNoise2D = glm::snoise(glm::vec2(0.5f));
 }
