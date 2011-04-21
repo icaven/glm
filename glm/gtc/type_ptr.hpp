@@ -426,7 +426,7 @@ namespace glm
 		//! Build a matrix from a pointer.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline detail::tmat3<T> make_mat3(T const * const ptr)
+		inline detail::tmat3x3<T> make_mat3(T const * const ptr)
 		{
 			return make_mat3x3(Result);
 		}
@@ -434,7 +434,7 @@ namespace glm
 		//! Build a matrix from a pointer.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline detail::tmat4<T> make_mat4(T const * const ptr)
+		inline detail::tmat4x4<T> make_mat4(T const * const ptr)
 		{
 			return make_mat4x4(Result);
 		}
