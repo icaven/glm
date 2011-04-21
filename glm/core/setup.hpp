@@ -64,22 +64,22 @@
 // echo "" | g++ -E -dM -x c++ - | sort
 
 // Borland C++ defines. How to identify BC?
-#define GLM_COMPILER_BC				0x03000000
-#define GLM_COMPILER_BCB4			0x03000100
-#define GLM_COMPILER_BCB5			0x03000200
-#define GLM_COMPILER_BCB6			0x03000300
-//#define GLM_COMPILER_BCBX			0x03000400 // What's the version value?
-#define GLM_COMPILER_BCB2009		0x03000500
+#define GLM_COMPILER_BC				0x04000000
+#define GLM_COMPILER_BCB4			0x04000100
+#define GLM_COMPILER_BCB5			0x04000200
+#define GLM_COMPILER_BCB6			0x04000300
+//#define GLM_COMPILER_BCBX			0x04000400 // What's the version value?
+#define GLM_COMPILER_BCB2009		0x04000500
 
 // CodeWarrior
-#define GLM_COMPILER_CODEWARRIOR	0x04000000
+#define GLM_COMPILER_CODEWARRIOR	0x08000000
 
 // CUDA
-#define GLM_COMPILER_CUDA           0x05000000
-#define GLM_COMPILER_CUDA30			0x05000010
-#define GLM_COMPILER_CUDA31			0x05000020
-#define GLM_COMPILER_CUDA32			0x05000030
-#define GLM_COMPILER_CUDA40			0x05000040
+#define GLM_COMPILER_CUDA           0x10000000
+#define GLM_COMPILER_CUDA30			0x10000010
+#define GLM_COMPILER_CUDA31			0x10000020
+#define GLM_COMPILER_CUDA32			0x10000030
+#define GLM_COMPILER_CUDA40			0x10000040
 
 // Build model
 #define GLM_MODEL_32				0x00000010
@@ -170,10 +170,8 @@
 
 // CUDA
 #elif defined(CUDA_VERSION)
-#	if CUDA_VERSION == 3000
-#		define GLM_COMPILER 
-#	elif CUDA_VERSION < 3000
-#		error ""
+#	if CUDA_VERSION < 3000
+#		error "GLM requires CUDA 3.0 or higher"
 #	elif CUDA_VERSION == 3000
 #		define GLM_COMPILER GLM_COMPILER_CUDA30	
 #	elif CUDA_VERSION == 3010
@@ -401,7 +399,7 @@
 
 // User defines: GLM_FORCE_INLINE GLM_FORCE_CUDA
 
-#if(defined(GLM_FORCE_CUDA) || (defined(CUDA_VERSION) && (CUDA_VERSION >= 4000)))
+#if(defined(GLM_FORCE_CUDA) || (defined(GLM_COMPILER) && (GLM_COMPILER >= GLM_COMPILER_CUDA30)))
 #   define GLM_CUDA_QUALIFIER __device__ __host__ 
 #else
 #   define GLM_CUDA_QUALIFIER
@@ -410,7 +408,7 @@
 #if(defined(GLM_FORCE_INLINE))
 #   if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
 #       define GLM_INLINE __forceinline
-#   elif((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
+#   elif((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC34))
 #       define GLM_INLINE __attribute__((always_inline))
 #   else
 #       define GLM_INLINE inline
