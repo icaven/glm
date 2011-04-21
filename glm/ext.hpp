@@ -53,6 +53,7 @@
 #include "./gtx/matrix_query.hpp"
 #include "./gtx/mixed_product.hpp"
 #include "./gtx/multiple.hpp"
+#include "./gtx/noise.hpp"
 #include "./gtx/norm.hpp"
 #include "./gtx/normal.hpp"
 #include "./gtx/normalize_dot.hpp"
