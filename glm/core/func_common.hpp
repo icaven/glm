@@ -27,23 +27,31 @@ namespace glm
 	///@{
 
 	//! Returns x if x >= 0; otherwise, it returns -x. 
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/abs.xml">GLSL abs man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	template <typename genFIType> 
 	genFIType abs(genFIType const & x);
 
 	//! Returns 1.0 if x > 0, 0.0 if x == 0, or -1.0 if x < 0. 
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sign.xml">GLSL sign man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	template <typename genFIType> 
 	genFIType sign(genFIType const & x);
 
     //! Returns a value equal to the nearest integer that is less then or equal to x. 
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floor.xml">GLSL floor man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	template <typename genType> 
 	genType floor(genType const & x);
 
 	//! Returns a value equal to the nearest integer to x 
 	//! whose absolute value is not larger than the absolute value of x. 
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/trunc.xml">GLSL trunc man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	template <typename genType> 
 	genType trunc(genType const & x);
 
@@ -52,31 +60,41 @@ namespace glm
 	//! implementation, presumably the direction that is fastest. 
 	//! This includes the possibility that round(x) returns the 
 	//! same value as roundEven(x) for all values of x. 
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/round.xml">GLSL round man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	template <typename genType> 
 	genType round(genType const & x);
 
 	//! Returns a value equal to the nearest integer to x.
 	//! A fractional part of 0.5 will round toward the nearest even
 	//! integer. (Both 3.5 and 4.5 for x will return 4.0.) 
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/roundEven.xml">GLSL roundEven man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	template <typename genType> 
 	genType roundEven(genType const & x);
 
 	//! Returns a value equal to the nearest integer 
 	//! that is greater than or equal to x. 
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/ceil.xml">GLSL ceil man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
     template <typename genType> 
 	genType ceil(genType const & x);
 
 	//! Return x - floor(x).
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/fract.xml">GLSL fract man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
     template <typename genType> 
 	genType fract(genType const & x);
 
 	//! Modulus. Returns x - y * floor(x / y) 
 	//! for each component in x using the floating point value y.
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml">GLSL mod man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
     template <typename genType> 
 	genType mod(
 		genType const & x, 
@@ -84,7 +102,9 @@ namespace glm
 
 	//! Modulus. Returns x - y * floor(x / y) 
 	//! for each component in x using the floating point value y.
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml">GLSL mod man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
     template <typename genType> 
 	genType mod(
 		genType const & x, 
@@ -94,14 +114,18 @@ namespace glm
 	//! part (as a whole number floating point value). Both the
 	//! return value and the output parameter will have the same
 	//! sign as x.
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/modf.xml">GLSL modf man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	template <typename genType> 
 	genType modf(
 		genType const & x, 
 		genType & i);
 
     //! Returns y if y < x; otherwise, it returns x.
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/min.xml">GLSL min man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	template <typename genType> 
 	genType min(
 		genType const & x, 
@@ -113,7 +137,9 @@ namespace glm
 		typename genType::value_type const & y);
 
     //! Returns y if x < y; otherwise, it returns x.
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/max.xml">GLSL max man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	template <typename genType> 
 	genType max(
 		genType const & x, 
@@ -126,7 +152,9 @@ namespace glm
 
     //! Returns min(max(x, minVal), maxVal) for each component in x 
 	//! using the floating-point values minVal and maxVal.
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/clamp.xml">GLSL clamp man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	template <typename genType> 
 	genType clamp(
 		genType const & x, 
@@ -155,8 +183,9 @@ namespace glm
 	//! provides different functionality than
 	//! genType mix(genType x, genType y, genType(a))
 	//! where a is a Boolean vector.
-	//! 
-	//! From GLSL 1.30.08 specification, section 8.3
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mix.xml">GLSL mix man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	//! 
 	//! \param[in]  x Floating point scalar or vector.
 	//! \param[in]  y Floating point scalar or vector.
@@ -167,7 +196,9 @@ namespace glm
 	genTypeT mix(genTypeT const & x, genTypeT const & y, genTypeU const & a);
 
 	//! Returns 0.0 if x < edge, otherwise it returns 1.0.
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/step.xml">GLSL step man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	template <typename genType> 
 	genType step(
 		genType const & edge, 
@@ -187,7 +218,9 @@ namespace glm
 	//! t = clamp ((x – edge0) / (edge1 – edge0), 0, 1);
 	//! return t * t * (3 – 2 * t);
 	//! Results are undefined if edge0 >= edge1.
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/smoothstep.xml">GLSL smoothstep man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	template <typename genType> 
 	genType smoothstep(
 		genType const & edge0, 
@@ -205,7 +238,9 @@ namespace glm
 	//! floating point representations. Returns false otherwise,
 	//! including for implementations with no NaN
 	//! representations.
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/isnan.xml">GLSL isnan man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	template <typename genType> 
 	typename genType::bool_type isnan(genType const & x);
 
@@ -214,35 +249,56 @@ namespace glm
 	//! set of floating point representations. Returns false
 	//! otherwise, including for implementations with no infinity
 	//! representations.
-	//! (From GLSL 1.30.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/isinf.xml">GLSL isinf man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.3
 	template <typename genType> 
 	typename genType::bool_type isinf(genType const & x);
 
-	//! Returns a signed or unsigned integer value representing
+	//! Returns a signed integer value representing
 	//! the encoding of a floating-point value. The floatingpoint
 	//! value's bit-level representation is preserved.
-	//! (From GLSL 4.00.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floatBitsToInt.xml">GLSL floatBitsToInt man page</a>
+	//! \li GLSL 4.00.08 specification, section 8.3
 	template <typename genType, typename genIType>
 	genIType floatBitsToInt(genType const & value);
 
-	//! Returns a signed or unsigned integer value representing
+	//! Returns a unsigned integer value representing
 	//! the encoding of a floating-point value. The floatingpoint
 	//! value's bit-level representation is preserved.
-	//! (From GLSL 4.00.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floatBitsToUint.xml">GLSL floatBitsToUint man page</a>
+    //! \li GLSL 4.00.08 specification, section 8.3
 	template <typename genType, typename genUType>
-	genUType floatBitsToInt(genType const & value);
+	genUType floatBitsToUint(genType const & value);
 
 	//! Returns a floating-point value corresponding to a signed
-	//! or unsigned integer encoding of a floating-point value.
+	//! integer encoding of a floating-point value.
 	//! If an inf or NaN is passed in, it will not signal, and the
 	//! resulting floating point value is unspecified. Otherwise,
 	//! the bit-level representation is preserved.
-	//! (From GLSL 4.00.08 specification, section 8.3)
-	template <typename genType, typename genIUType>
-	genType intBitsToFloat(genIUType const & value);
-
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/intBitsToFloat.xml">GLSL intBitsToFloat man page</a>
+    //! \li GLSL 4.00.08 specification, section 8.3
+	template <typename genType, typename genIType>
+	genType intBitsToFloat(genIType const & value);
+        
+    //! Returns a floating-point value corresponding to a
+    //! unsigned integer encoding of a floating-point value.
+    //! If an inf or NaN is passed in, it will not signal, and the
+    //! resulting floating point value is unspecified. Otherwise,
+    //! the bit-level representation is preserved.
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/uintBitsToFloat.xml">GLSL uintBitsToFloat man page</a>
+    //! \li GLSL 4.00.08 specification, section 8.3
+    template <typename genType, typename genUType>
+    genType uintBitsToFloat(genUType const & value);
+        
 	//! Computes and returns a * b + c.
-	//! (From GLSL 4.00.08 specification, section 8.3)
+    //! 
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/fma.xml">GLSL fma man page</a>
+    //! \li GLSL 4.00.08 specification, section 8.3
 	template <typename genType>
 	genType fma(genType const & a, genType const & b, genType const & c);
 
