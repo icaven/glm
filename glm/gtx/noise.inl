@@ -18,13 +18,13 @@
 namespace glm
 {
 	template <typename T, template<typename> class vecType>
-	inline vecType<T> permute(vecType<T> const & x)
+	GLM_FUNC_QUALIFIER vecType<T> permute(vecType<T> const & x)
 	{
 		return mod(((x * T(34)) + T(1)) * x, T(289));
 	}
   
 	template <typename T, template<typename> class vecType>
-	inline vecType<T> taylorInvSqrt(vecType<T> const & r)
+	GLM_FUNC_QUALIFIER vecType<T> taylorInvSqrt(vecType<T> const & r)
 	{
 		return T(1.79284291400159) - T(0.85373472095314) * r;
 	}
@@ -32,8 +32,56 @@ namespace glm
 namespace gtx{
 namespace noise
 {
+    template <typename T>
+    GLM_FUNC_QUALIFIER T cnoise(glm::detail::tvec2<T> const & v)
+    { 
+        return T(0);
+    }
+
+    template <typename T>
+    GLM_FUNC_QUALIFIER T cnoise(glm::detail::tvec3<T> const & v)
+    { 
+        return T(0);
+    }
+
+    template <typename T>
+    GLM_FUNC_QUALIFIER T cnoise(glm::detail::tvec4<T> const & v)
+    { 
+        return T(0);
+    }
+
+    template <typename T> 
+    GLM_FUNC_QUALIFIER T pnoise
+    (
+        glm::detail::tvec2<T> const & p, 
+        glm::detail::tvec2<T> const & rep
+    )
+    {
+        return T(0);
+    }
+
+    template <typename T> 
+    GLM_FUNC_QUALIFIER T pnoise
+    (
+        glm::detail::tvec3<T> const & p, 
+        glm::detail::tvec3<T> const & rep
+    )
+    {
+        return T(0);
+    }
+
+    template <typename T> 
+    GLM_FUNC_QUALIFIER T pnoise
+    (
+        glm::detail::tvec4<T> const & p, 
+        glm::detail::tvec4<T> const & rep
+    )
+    {
+        return T(0);
+    }
+
 	template <typename T>
-	inline T snoise(glm::detail::tvec2<T> const & v)
+	GLM_FUNC_QUALIFIER T snoise(glm::detail::tvec2<T> const & v)
 	{
 		detail::tvec4<T> const C = detail::tvec4<T>(
 			T( 0.211324865405187),  // (3.0 -  sqrt(3.0)) / 6.0
@@ -90,7 +138,7 @@ namespace noise
 	}
 
 	template <typename T>
-	inline T snoise(glm::detail::tvec3<T> const & v)
+	GLM_FUNC_QUALIFIER T snoise(glm::detail::tvec3<T> const & v)
 	{ 
 		detail::tvec2<T> const C = detail::tvec2<T>(1.0 / 6.0, 1.0 / 3.0);
 		detail::tvec4<T> const D = detail::tvec4<T>(0.0, 0.5, 1.0, 2.0);
@@ -175,6 +223,12 @@ namespace noise
 			dot(p2, x2), 
 			dot(p3, x3)));
 	}
+
+    template <typename T>
+    GLM_FUNC_QUALIFIER T snoise(glm::detail::tvec4<T> const & v)
+    { 
+        return T(0);
+    }
 
 }//namespace noise
 }//namespace gtx
