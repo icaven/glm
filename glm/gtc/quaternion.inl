@@ -422,7 +422,7 @@ namespace quaternion{
 		detail::tquat<T> const & q
 	)
     {
-        return gtc::quaternion::conjugate(q) / gtc::quaternion::length(q);
+        return gtc::quaternion::conjugate(q) / gtc::quaternion::dot(q, q);
     }
 
     template <typename T> 
