@@ -32,7 +32,7 @@ namespace glm
 		//! Return the number of ULP between 2 variables.
 		//! From GLM_GTX_ulp extension.
 		template <typename genType>
-		genIType ulp(
+        std::size_t ulp(
 			genType const & a,
 			genType const & b);
 
