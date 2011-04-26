@@ -54,42 +54,54 @@ namespace ulp
 	}
 
 	template <typename T>
-	inline detail::xvec2<T> ulp
+	inline std::size_t ulp
 	(
 		detail::xvec2<T> const & a,
 		detail::xvec2<T> const & b
 	)
 	{
-		return detail::xvec2<T>(
-				ulp(a[0], b[0]),
-				ulp(a[1], b[1]));
+        std::size_t ulps[] = 
+        {
+            ulp(a[0], b[0]),
+            ulp(a[1], b[1])
+        };
+
+        return glm::max(ulps[0], ulps[1])s;
 	}
 
 	template <typename T>
-	inline detail::xvec3<T> ulp
+	inline std::size_t ulp
 	(
 		detail::xvec3<T> const & a,
 		detail::xvec3<T> const & b
 	)
 	{
-		return detail::xvec3<T>(
-				ulp(a[0], b[0]),
-				ulp(a[1], b[1]),
-				ulp(a[2], b[2]));
+        std::size_t ulps[] = 
+        {
+            ulp(a[0], b[0]),
+            ulp(a[1], b[1]),
+            ulp(a[2], b[2])
+        };
+
+        return glm::max(glm::max(ulps[0], ulps[1]), ulps[2]);
 	}
 
 	template <typename T>
-	inline detail::xvec4<T> ulp
+	inline std::size_t ulp
 	(
 		detail::xvec4<T> const & a,
 		detail::xvec4<T> const & b
 	)
 	{
-		return detail::xvec4<T>(
-				ulp(a[0], b[0]),
-				ulp(a[1], b[1]),
-				ulp(a[2], b[2]),
-				ulp(a[3], b[3]));
+        std::size_t ulps[] = 
+        {
+            ulp(a[0], b[0]),
+            ulp(a[1], b[1]),
+            ulp(a[2], b[2]),
+            ulp(a[3], b[3])
+        };
+
+        return glm::max(glm::max(ulps[0], ulps[1]), glm::max(ulps[2], ulps[3]));
 	}
 
 }//namespace ulp
