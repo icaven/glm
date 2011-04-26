@@ -176,7 +176,6 @@ namespace noise
 			dot(p3, x3)));
 	}
 
-
 }//namespace noise
 }//namespace gtx
 }//namespace glm
