@@ -8,6 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <cmath>
+#include <iostream>
 
 namespace glm{
 namespace gtx{
@@ -36,7 +37,10 @@ namespace ulp
 		std::size_t Count = 0;
 		float Temp = a;
 		while((Temp = nextafterf(Temp, b)) != b)
+        {
+            std::cout << Temp << " " << b << std::endl;
 			++Count;
+        }
 		return Count;
 	}
 
@@ -49,7 +53,10 @@ namespace ulp
 		std::size_t Count = 0;
 		double Temp = a;
 		while((Temp = nextafter(Temp, b)) != b)
+        {
+            std::cout << Temp << " " << b << std::endl;
 			++Count;
+        }
 		return Count;
 	}
 
