@@ -15,7 +15,7 @@ namespace gtx{
 namespace intersect{
 
 template <typename genType>
-inline bool intersectRayTriangle
+GLM_FUNC_QUALIFIER bool intersectRayTriangle
 (
 	genType const & orig, genType const & dir,
 	genType const & v0, genType const & v1, genType const & v2,
@@ -55,7 +55,7 @@ inline bool intersectRayTriangle
 }
 
 //template <typename genType>
-//inline bool intersectRayTriangle
+//GLM_FUNC_QUALIFIER bool intersectRayTriangle
 //(
 //	genType const & orig, genType const & dir,
 //	genType const & vert0, genType const & vert1, genType const & vert2,
@@ -92,7 +92,7 @@ inline bool intersectRayTriangle
 //}
 
 template <typename genType>
-inline bool intersectLineTriangle
+GLM_FUNC_QUALIFIER bool intersectLineTriangle
 (
 	genType const & orig, genType const & dir,
 	genType const & vert0, genType const & vert1, genType const & vert2,
@@ -130,7 +130,7 @@ inline bool intersectLineTriangle
 }
 
 template <typename genType>
-inline bool intersectRaySphere
+GLM_FUNC_QUALIFIER bool intersectRaySphere
 (
 	genType const & rayStarting, genType const & rayDirection,
 	genType const & sphereCenter, typename genType::value_type sphereRadius,
@@ -163,7 +163,7 @@ inline bool intersectRaySphere
 }
 
 template <typename genType>
-inline bool intersectLineSphere
+GLM_FUNC_QUALIFIER bool intersectLineSphere
 (
 	genType const & point0, genType const & point1,
 	genType const & center, typename genType::value_type radius,

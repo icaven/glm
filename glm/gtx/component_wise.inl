@@ -12,7 +12,7 @@ namespace gtx{
 namespace component_wise
 {
 	template <typename genType>
-	inline typename genType::value_type compAdd(genType const & v)
+	GLM_FUNC_QUALIFIER typename genType::value_type compAdd(genType const & v)
 	{
         typename genType::size_type result = typename genType::value_type(0);
 		for(typename genType::size_type i = 0; i < genType::value_size(); ++i)
@@ -21,7 +21,7 @@ namespace component_wise
 	}
 
 	template <typename genType>
-	inline typename genType::value_type compMul(genType const & v)
+	GLM_FUNC_QUALIFIER typename genType::value_type compMul(genType const & v)
 	{
         typename genType::value_type result = typename genType::value_type(1);
 		for(typename genType::size_type i = 0; i < genType::value_size(); ++i)
@@ -30,7 +30,7 @@ namespace component_wise
 	}
 
 	template <typename genType>
-	inline typename genType::value_type compMin(genType const & v)
+	GLM_FUNC_QUALIFIER typename genType::value_type compMin(genType const & v)
 	{
         typename genType::value_type result = typename genType::value_type(v[0]);
 		for(typename genType::size_type i = 1; i < genType::value_size(); ++i)
@@ -39,7 +39,7 @@ namespace component_wise
 	}
 
 	template <typename genType>
-	inline typename genType::value_type compMax(genType const & v)
+	GLM_FUNC_QUALIFIER typename genType::value_type compMax(genType const & v)
 	{
         typename genType::value_type result = typename genType::value_type(v[0]);
 		for(typename genType::size_type i = 1; i < genType::value_size(); ++i)

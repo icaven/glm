@@ -12,7 +12,7 @@ namespace glm
 	namespace detail
 	{
 		template <typename T>
-		inline typename tvec1<T>::size_type tvec1<T>::value_size()
+		GLM_FUNC_QUALIFIER typename tvec1<T>::size_type tvec1<T>::value_size()
 		{
 			return 1;
 		}
@@ -21,7 +21,7 @@ namespace glm
 		// Accesses
 
 		template <typename T>
-		inline typename tvec1<T>::value_type & tvec1<T>::operator[]
+		GLM_FUNC_QUALIFIER typename tvec1<T>::value_type & tvec1<T>::operator[]
 		(
 			size_type i
 		)
@@ -31,7 +31,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline typename tvec1<T>::value_type const & tvec1<T>::operator[]
+		GLM_FUNC_QUALIFIER typename tvec1<T>::value_type const & tvec1<T>::operator[]
 		(
 			size_type i
 		) const
@@ -44,19 +44,19 @@ namespace glm
 		// Implicit basic constructors
 
 		template <typename T>
-		inline tvec1<T>::tvec1() :
+		GLM_FUNC_QUALIFIER tvec1<T>::tvec1() :
 			x(value_type(0))
 		{}
 
 		template <typename T>
-		inline tvec1<T>::tvec1
+		GLM_FUNC_QUALIFIER tvec1<T>::tvec1
 		(
 			ctor
 		)
 		{}
 
 		template <typename T>
-		inline tvec1<T>::tvec1
+		GLM_FUNC_QUALIFIER tvec1<T>::tvec1
 		(
 			tvec1<T> const & v
 		) :
@@ -67,7 +67,7 @@ namespace glm
 		// Explicit basic constructors
 
 		template <typename T>
-		inline tvec1<T>::tvec1
+		GLM_FUNC_QUALIFIER tvec1<T>::tvec1
 		(
 			value_type const & s
 		) :
@@ -78,7 +78,7 @@ namespace glm
 		// Swizzle constructors
 
 		template <typename T>
-		inline tvec1<T>::tvec1
+		GLM_FUNC_QUALIFIER tvec1<T>::tvec1
 		(
 			tref1<T> const & r
 		) :
@@ -90,7 +90,7 @@ namespace glm
 		
 		template <typename T>
 		template <typename U> 
-		inline tvec1<T>::tvec1
+		GLM_FUNC_QUALIFIER tvec1<T>::tvec1
 		(
 			U const & s
 		) :
@@ -102,7 +102,7 @@ namespace glm
 
 		template <typename T>
 		template <typename U> 
-		inline tvec1<T>::tvec1
+		GLM_FUNC_QUALIFIER tvec1<T>::tvec1
 		(
 			tvec2<U> const & v
 		) :
@@ -111,7 +111,7 @@ namespace glm
 
 		template <typename T>
 		template <typename U> 
-		inline tvec1<T>::tvec1
+		GLM_FUNC_QUALIFIER tvec1<T>::tvec1
 		(
 			tvec3<U> const & v
 		) :
@@ -120,7 +120,7 @@ namespace glm
 
 		template <typename T>
 		template <typename U> 
-		inline tvec1<T>::tvec1
+		GLM_FUNC_QUALIFIER tvec1<T>::tvec1
 		(
 			tvec4<U> const & v
 		) :
@@ -131,7 +131,7 @@ namespace glm
 		// Unary arithmetic operators
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator=
 		(
 			tvec1<T> const & v
 		)
@@ -141,7 +141,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator+=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator+=
 		(
 			value_type const & s
 		)
@@ -151,7 +151,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator+=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator+=
 		(
 			tvec1<T> const & v
 		)
@@ -161,7 +161,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator-=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator-=
 		(
 			value_type const & s
 		)
@@ -171,7 +171,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator-=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator-=
 		(
 			tvec1<T> const & v
 		)
@@ -181,7 +181,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator*=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator*=
 		(
 			value_type const & s
 		)
@@ -191,7 +191,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator*=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator*=
 		(	
 			tvec1<T> const & v
 		)
@@ -201,7 +201,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator/=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator/=
 		(
 			value_type const & s
 		)
@@ -211,7 +211,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator/=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator/=
 		(
 			tvec1<T> const & v
 		)
@@ -221,14 +221,14 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator++()
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator++()
 		{
 			++this->x;
 			return *this;
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator--()
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator--()
 		{
 			--this->x;
 			return *this;
@@ -238,7 +238,7 @@ namespace glm
 		// Boolean operators
 
 		template <typename T> 
-		inline bool operator==
+		GLM_FUNC_QUALIFIER bool operator==
 		(
 			tvec1<T> const & v1, 
 			tvec1<T> const & v2
@@ -248,7 +248,7 @@ namespace glm
 		}
 
 		template <typename T> 
-		inline bool operator!=
+		GLM_FUNC_QUALIFIER bool operator!=
 		(
 			tvec1<T> const & v1, 
 			tvec1<T> const & v2
@@ -261,7 +261,7 @@ namespace glm
 		// Unary bit operators
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator%=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator%=
 		(
 			value_type const & s
 		)
@@ -271,7 +271,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator%=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator%=
 		(
 			tvec1<T> const & v
 		)
@@ -281,7 +281,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator&=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator&=
 		(
 			value_type const & s
 		)
@@ -291,7 +291,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator&=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator&=
 		(
 			tvec1<T> const & v
 		)
@@ -301,7 +301,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator|=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator|=
 		(
 			value_type const & s
 		)
@@ -311,7 +311,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator|=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator|=
 		(
 			tvec1<T> const & v
 		)
@@ -321,7 +321,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator^=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator^=
 		(
 			value_type const & s
 		)
@@ -331,7 +331,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator^=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator^=
 		(
 			tvec1<T> const & v
 		)
@@ -341,7 +341,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator<<=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator<<=
 		(
 			value_type const & s
 		)
@@ -351,7 +351,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator<<=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator<<=
 		(
 			tvec1<T> const & v
 		)
@@ -361,7 +361,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator>>=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator>>=
 		(
 			value_type const & s
 		)
@@ -371,7 +371,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> & tvec1<T>::operator>>=
+		GLM_FUNC_QUALIFIER tvec1<T> & tvec1<T>::operator>>=
 		(
 			tvec1<T> const & v
 		)
@@ -384,14 +384,14 @@ namespace glm
 		// Swizzle operators
 
 		template <typename T>
-		inline T 
+		GLM_FUNC_QUALIFIER T 
 		tvec1<T>::swizzle(comp x) const
 		{
 			return (*this)[x];
 		}
 
 		template <typename T>
-		inline tvec2<T> 
+		GLM_FUNC_QUALIFIER tvec2<T> 
 		tvec1<T>::swizzle
 		(
 			comp x, 
@@ -404,7 +404,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec3<T> 
+		GLM_FUNC_QUALIFIER tvec3<T> 
 		tvec1<T>::swizzle
 		(
 			comp x, 
@@ -419,7 +419,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec4<T> 
+		GLM_FUNC_QUALIFIER tvec4<T> 
 		tvec1<T>::swizzle
 		(
 			comp x, 
@@ -436,7 +436,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tref1<T> 
+		GLM_FUNC_QUALIFIER tref1<T> 
 		tvec1<T>::swizzle
 		(
 			comp x
@@ -450,7 +450,7 @@ namespace glm
 		// Binary arithmetic operators
 
 		template <typename T> 
-		inline tvec1<T> operator+ 
+		GLM_FUNC_QUALIFIER tvec1<T> operator+ 
 		(
 			tvec1<T> const & v, 
 			typename tvec1<T>::value_type const & s
@@ -461,7 +461,7 @@ namespace glm
 		}
 
 		template <typename T> 
-		inline tvec1<T> operator+ 
+		GLM_FUNC_QUALIFIER tvec1<T> operator+ 
 		(
 			typename tvec1<T>::value_type const & s, 
 			tvec1<T> const & v
@@ -472,7 +472,7 @@ namespace glm
 		}
 
 		template <typename T> 
-		inline tvec1<T> operator+ 
+		GLM_FUNC_QUALIFIER tvec1<T> operator+ 
 		(
 			tvec1<T> const & v1, 
 			tvec1<T> const & v2
@@ -484,7 +484,7 @@ namespace glm
 
 		//operator-
 		template <typename T> 
-		inline tvec1<T> operator- 
+		GLM_FUNC_QUALIFIER tvec1<T> operator- 
 		(
 			tvec1<T> const & v, 
 			typename tvec1<T>::value_type const & s
@@ -495,7 +495,7 @@ namespace glm
 		}
 
 		template <typename T> 
-		inline tvec1<T> operator- 
+		GLM_FUNC_QUALIFIER tvec1<T> operator- 
 		(
 			typename tvec1<T>::value_type const & s, 
 			tvec1<T> const & v
@@ -506,7 +506,7 @@ namespace glm
 		}
 
 		template <typename T> 
-		inline tvec1<T> operator- 
+		GLM_FUNC_QUALIFIER tvec1<T> operator- 
 		(
 			tvec1<T> const & v1, 
 			tvec1<T> const & v2
@@ -518,7 +518,7 @@ namespace glm
 
 		//operator*
 		template <typename T> 
-		inline tvec1<T> operator* 
+		GLM_FUNC_QUALIFIER tvec1<T> operator* 
 		(
 			tvec1<T> const & v, 
 			typename tvec1<T>::value_type const & s
@@ -529,7 +529,7 @@ namespace glm
 		}
 
 		template <typename T> 
-		inline tvec1<T> operator* 
+		GLM_FUNC_QUALIFIER tvec1<T> operator* 
 		(
 			typename tvec1<T>::value_type const & s, 
 			tvec1<T> const & v
@@ -540,7 +540,7 @@ namespace glm
 		}
 
 		template <typename T> 
-		inline tvec1<T> operator*
+		GLM_FUNC_QUALIFIER tvec1<T> operator*
 		(
 			tvec1<T> const & v1, 
 			tvec1<T> const & v2
@@ -552,7 +552,7 @@ namespace glm
 
 		//operator/
 		template <typename T> 
-		inline tvec1<T> operator/ 
+		GLM_FUNC_QUALIFIER tvec1<T> operator/ 
 		(
 			tvec1<T> const & v, 
 			typename tvec1<T>::value_type const & s
@@ -563,7 +563,7 @@ namespace glm
 		}
 
 		template <typename T> 
-		inline tvec1<T> operator/ 
+		GLM_FUNC_QUALIFIER tvec1<T> operator/ 
 		(
 			typename tvec1<T>::value_type const & s, 
 			tvec1<T> const & v
@@ -574,7 +574,7 @@ namespace glm
 		}
 
 		template <typename T> 
-		inline tvec1<T> operator/ 
+		GLM_FUNC_QUALIFIER tvec1<T> operator/ 
 		(
 			tvec1<T> const & v1, 
 			tvec1<T> const & v2
@@ -586,7 +586,7 @@ namespace glm
 
 		// Unary constant operators
 		template <typename T> 
-		inline tvec1<T> operator- 
+		GLM_FUNC_QUALIFIER tvec1<T> operator- 
 		(
 			tvec1<T> const & v
 		)
@@ -596,7 +596,7 @@ namespace glm
 		}
 
 		template <typename T> 
-		inline tvec1<T> operator++ 
+		GLM_FUNC_QUALIFIER tvec1<T> operator++ 
 		(
 			tvec1<T> const & v, 
 			int
@@ -607,7 +607,7 @@ namespace glm
 		}
 
 		template <typename T> 
-		inline tvec1<T> operator-- 
+		GLM_FUNC_QUALIFIER tvec1<T> operator-- 
 		(
 			tvec1<T> const & v, 
 			int
@@ -621,7 +621,7 @@ namespace glm
 		// Binary bit operators
 
 		template <typename T>
-		inline tvec1<T> operator% 
+		GLM_FUNC_QUALIFIER tvec1<T> operator% 
 		(
 			tvec1<T> const & v, 
 			typename tvec1<T>::value_type const & s
@@ -632,7 +632,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> operator% 
+		GLM_FUNC_QUALIFIER tvec1<T> operator% 
 		(
 			typename tvec1<T>::value_type const & s, 
 			tvec1<T> const & v
@@ -643,7 +643,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> operator% 
+		GLM_FUNC_QUALIFIER tvec1<T> operator% 
 		(
 			tvec1<T> const & v1, 
 			tvec1<T> const & v2
@@ -654,7 +654,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> operator& 
+		GLM_FUNC_QUALIFIER tvec1<T> operator& 
 		(
 			tvec1<T> const & v, 
 			typename tvec1<T>::value_type const & s
@@ -665,7 +665,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> operator& 
+		GLM_FUNC_QUALIFIER tvec1<T> operator& 
 		(
 			typename tvec1<T>::value_type const & s, 
 			tvec1<T> const & v
@@ -676,7 +676,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> operator& 
+		GLM_FUNC_QUALIFIER tvec1<T> operator& 
 		(
 			tvec1<T> const & v1, 
 			tvec1<T> const & v2
@@ -687,7 +687,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> operator| 
+		GLM_FUNC_QUALIFIER tvec1<T> operator| 
 		(
 			tvec1<T> const & v, 
 			typename tvec1<T>::value_type const & s
@@ -698,7 +698,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> operator| 
+		GLM_FUNC_QUALIFIER tvec1<T> operator| 
 		(
 			typename tvec1<T>::value_type const & s, 
 			tvec1<T> const & v
@@ -709,7 +709,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> operator| 
+		GLM_FUNC_QUALIFIER tvec1<T> operator| 
 		(
 			tvec1<T> const & v1, 
 			tvec1<T> const & v2
@@ -720,7 +720,7 @@ namespace glm
 		}
 		
 		template <typename T>
-		inline tvec1<T> operator^ 
+		GLM_FUNC_QUALIFIER tvec1<T> operator^ 
 		(
 			tvec1<T> const & v, 
 			typename tvec1<T>::value_type const & s
@@ -731,7 +731,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> operator^ 
+		GLM_FUNC_QUALIFIER tvec1<T> operator^ 
 		(
 			typename tvec1<T>::value_type const & s, 
 			tvec1<T> const & v
@@ -742,7 +742,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> operator^ 
+		GLM_FUNC_QUALIFIER tvec1<T> operator^ 
 		(
 			tvec1<T> const & v1, 
 			tvec1<T> const & v2
@@ -753,7 +753,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> operator<< 
+		GLM_FUNC_QUALIFIER tvec1<T> operator<< 
 		(
 			tvec1<T> const & v, 
 			typename tvec1<T>::value_type const & s
@@ -764,7 +764,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> operator<< 
+		GLM_FUNC_QUALIFIER tvec1<T> operator<< 
 		(
 			typename tvec1<T>::value_type const & s, 
 			tvec1<T> const & v
@@ -775,7 +775,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> operator<< 
+		GLM_FUNC_QUALIFIER tvec1<T> operator<< 
 		(
 			tvec1<T> const & v1, 
 			tvec1<T> const & v2
@@ -786,7 +786,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> operator>> 
+		GLM_FUNC_QUALIFIER tvec1<T> operator>> 
 		(
 			tvec1<T> const & v, 
 			typename tvec1<T>::value_type const & s
@@ -797,7 +797,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> operator>> 
+		GLM_FUNC_QUALIFIER tvec1<T> operator>> 
 		(
 			typename tvec1<T>::value_type const & s, 
 			tvec1<T> const & v
@@ -808,7 +808,7 @@ namespace glm
 		}
 
 		template <typename T>
-		inline tvec1<T> operator>> 
+		GLM_FUNC_QUALIFIER tvec1<T> operator>> 
 		(
 			tvec1<T> const & v1, 
 			tvec1<T> const & v2
@@ -819,7 +819,7 @@ namespace glm
 		}
 
 		template <typename T> 
-		inline tvec1<T> operator~ 
+		GLM_FUNC_QUALIFIER tvec1<T> operator~ 
 		(
 			tvec1<T> const & v
 		)
@@ -832,7 +832,7 @@ namespace glm
 		// tref definition
 
 		template <typename T> 
-		inline tref1<T>::tref1
+		GLM_FUNC_QUALIFIER tref1<T>::tref1
 		(
 			T & x
 		) :
@@ -840,7 +840,7 @@ namespace glm
 		{}
 
 		template <typename T> 
-		inline tref1<T>::tref1
+		GLM_FUNC_QUALIFIER tref1<T>::tref1
 		(
 			tref1<T> const & r
 		) :
@@ -848,7 +848,7 @@ namespace glm
 		{}
 
 		template <typename T> 
-		inline tref1<T>::tref1
+		GLM_FUNC_QUALIFIER tref1<T>::tref1
 		(
 			tvec1<T> const & v
 		) :
@@ -856,7 +856,7 @@ namespace glm
 		{}
 
 		template <typename T> 
-		inline tref1<T> & tref1<T>::operator= 
+		GLM_FUNC_QUALIFIER tref1<T> & tref1<T>::operator= 
 		(
 			tref1<T> const & r
 		)
@@ -866,7 +866,7 @@ namespace glm
 		}
 
 		template <typename T> 
-		inline tref1<T> & tref1<T>::operator= 
+		GLM_FUNC_QUALIFIER tref1<T> & tref1<T>::operator= 
 		(
 			tvec1<T> const & v
 		)

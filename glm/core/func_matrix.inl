@@ -15,7 +15,7 @@ namespace glm
 
     // matrixCompMult
     template <typename matType>
-    inline matType matrixCompMult
+    GLM_FUNC_QUALIFIER matType matrixCompMult
 	(
 		matType const & x, 
 		matType const & y
@@ -31,7 +31,7 @@ namespace glm
 
 	// outerProduct
     template <typename T>
-    inline detail::tmat2x2<T> outerProduct
+    GLM_FUNC_QUALIFIER detail::tmat2x2<T> outerProduct
 	(
 		detail::tvec2<T> const & c, 
 		detail::tvec2<T> const & r
@@ -48,7 +48,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tmat3x3<T> outerProduct
+    GLM_FUNC_QUALIFIER detail::tmat3x3<T> outerProduct
 	(
 		detail::tvec3<T> const & c, 
 		detail::tvec3<T> const & r
@@ -63,7 +63,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tmat4x4<T> outerProduct
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> outerProduct
 	(
 		detail::tvec4<T> const & c, 
 		detail::tvec4<T> const & r
@@ -78,7 +78,7 @@ namespace glm
     }
 
     template <typename T>
-	inline detail::tmat2x3<T> outerProduct
+	GLM_FUNC_QUALIFIER detail::tmat2x3<T> outerProduct
 	(
 		detail::tvec3<T> const & c, 
 		detail::tvec2<T> const & r
@@ -97,7 +97,7 @@ namespace glm
 	}
 
     template <typename T>
-	inline detail::tmat3x2<T> outerProduct
+	GLM_FUNC_QUALIFIER detail::tmat3x2<T> outerProduct
 	(
 		detail::tvec2<T> const & c, 
 		detail::tvec3<T> const & r
@@ -116,7 +116,7 @@ namespace glm
 	}
 
 	template <typename T>
-	inline detail::tmat2x4<T> outerProduct
+	GLM_FUNC_QUALIFIER detail::tmat2x4<T> outerProduct
 	(
 		detail::tvec2<T> const & c, 
 		detail::tvec4<T> const & r
@@ -137,7 +137,7 @@ namespace glm
 	}
 
 	template <typename T>
-	inline detail::tmat4x2<T> outerProduct
+	GLM_FUNC_QUALIFIER detail::tmat4x2<T> outerProduct
 	(
 		detail::tvec4<T> const & c, 
 		detail::tvec2<T> const & r
@@ -158,7 +158,7 @@ namespace glm
 	}
 
 	template <typename T>
-	inline detail::tmat3x4<T> outerProduct
+	GLM_FUNC_QUALIFIER detail::tmat3x4<T> outerProduct
 	(
 		detail::tvec4<T> const & c, 
 		detail::tvec3<T> const & r
@@ -183,7 +183,7 @@ namespace glm
 	}
 
 	template <typename T>
-	inline detail::tmat4x3<T> outerProduct
+	GLM_FUNC_QUALIFIER detail::tmat4x3<T> outerProduct
 	(
 		detail::tvec3<T> const & c, 
 		detail::tvec4<T> const & r
@@ -208,7 +208,7 @@ namespace glm
 	}
 
     template <typename T>
-    inline detail::tmat2x2<T> transpose
+    GLM_FUNC_QUALIFIER detail::tmat2x2<T> transpose
 	(
 		detail::tmat2x2<T> const & m
 	)
@@ -224,7 +224,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tmat3x3<T> transpose
+    GLM_FUNC_QUALIFIER detail::tmat3x3<T> transpose
 	(
 		detail::tmat3x3<T> const & m
 	)
@@ -247,7 +247,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tmat4x4<T> transpose
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> transpose
 	(
 		detail::tmat4x4<T> const & m
 	)
@@ -278,7 +278,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tmat2x3<T> transpose
+    GLM_FUNC_QUALIFIER detail::tmat2x3<T> transpose
 	(
 		detail::tmat3x2<T> const & m
 	)
@@ -296,7 +296,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tmat3x2<T> transpose
+    GLM_FUNC_QUALIFIER detail::tmat3x2<T> transpose
 	(
 		detail::tmat2x3<T> const & m
 	)
@@ -314,7 +314,7 @@ namespace glm
     }
 
     template <typename T>
-	inline detail::tmat2x4<T> transpose
+	GLM_FUNC_QUALIFIER detail::tmat2x4<T> transpose
 	(
 		detail::tmat4x2<T> const & m
 	)
@@ -334,7 +334,7 @@ namespace glm
 	}
 
     template <typename T>
-	inline detail::tmat4x2<T> transpose
+	GLM_FUNC_QUALIFIER detail::tmat4x2<T> transpose
 	(
 		detail::tmat2x4<T> const & m
 	)
@@ -354,7 +354,7 @@ namespace glm
 	}
 
     template <typename T>
-	inline detail::tmat3x4<T> transpose
+	GLM_FUNC_QUALIFIER detail::tmat3x4<T> transpose
 	(
 		detail::tmat4x3<T> const & m
 	)
@@ -378,7 +378,7 @@ namespace glm
 	}
 
     template <typename T>
-	inline detail::tmat4x3<T> transpose
+	GLM_FUNC_QUALIFIER detail::tmat4x3<T> transpose
 	(
 		detail::tmat3x4<T> const & m
 	)
@@ -402,7 +402,7 @@ namespace glm
 	}
 
 	template <typename T>
-	inline typename detail::tmat2x2<T>::value_type determinant
+	GLM_FUNC_QUALIFIER typename detail::tmat2x2<T>::value_type determinant
 	(
 		detail::tmat2x2<T> const & m
 	)
@@ -413,7 +413,7 @@ namespace glm
 	}
 
 	template <typename T>
-	inline typename detail::tmat3x3<T>::value_type determinant
+	GLM_FUNC_QUALIFIER typename detail::tmat3x3<T>::value_type determinant
 	(
 		detail::tmat3x3<T> const & m
 	)
@@ -427,7 +427,7 @@ namespace glm
 	}
 
 	template <typename T>
-	inline typename detail::tmat4x4<T>::value_type determinant
+	GLM_FUNC_QUALIFIER typename detail::tmat4x4<T>::value_type determinant
 	(
 		detail::tmat4x4<T> const & m
 	)
@@ -454,7 +454,7 @@ namespace glm
 	}
 
 	template <typename T> 
-	inline detail::tmat2x2<T> inverse
+	GLM_FUNC_QUALIFIER detail::tmat2x2<T> inverse
 	(
 		detail::tmat2x2<T> const & m
 	)
@@ -474,7 +474,7 @@ namespace glm
 	}
 
 	template <typename T> 
-	inline detail::tmat3x3<T> inverse
+	GLM_FUNC_QUALIFIER detail::tmat3x3<T> inverse
 	(
 		detail::tmat3x3<T> const & m
 	)
@@ -503,7 +503,7 @@ namespace glm
 	}
 
 	template <typename T> 
-	inline detail::tmat4x4<T> inverse
+	GLM_FUNC_QUALIFIER detail::tmat4x4<T> inverse
 	(
 		detail::tmat4x4<T> const & m
 	)

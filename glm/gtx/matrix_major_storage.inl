@@ -12,7 +12,7 @@ namespace gtx{
 namespace matrix_major_storage
 {
     template <typename T> 
-    inline detail::tmat2x2<T> rowMajor2(
+    GLM_FUNC_QUALIFIER detail::tmat2x2<T> rowMajor2(
 		const detail::tvec2<T>& v1, 
 		const detail::tvec2<T>& v2)
     {
@@ -25,7 +25,7 @@ namespace matrix_major_storage
     }
 
     template <typename T> 
-    inline detail::tmat2x2<T> rowMajor2(
+    GLM_FUNC_QUALIFIER detail::tmat2x2<T> rowMajor2(
 		const detail::tmat2x2<T>& m)
     {
         detail::tmat2x2<T> Result;
@@ -37,7 +37,7 @@ namespace matrix_major_storage
     }
 
     template <typename T> 
-    inline detail::tmat3x3<T> rowMajor3(
+    GLM_FUNC_QUALIFIER detail::tmat3x3<T> rowMajor3(
 		const detail::tvec3<T>& v1, 
 		const detail::tvec3<T>& v2, 
 		const detail::tvec3<T>& v3)
@@ -56,7 +56,7 @@ namespace matrix_major_storage
     }
 
     template <typename T> 
-	inline detail::tmat3x3<T> rowMajor3(
+	GLM_FUNC_QUALIFIER detail::tmat3x3<T> rowMajor3(
 		const detail::tmat3x3<T>& m)
     {
         detail::tmat3x3<T> Result;
@@ -73,7 +73,7 @@ namespace matrix_major_storage
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> rowMajor4(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> rowMajor4(
 		const detail::tvec4<T>& v1, 
 		const detail::tvec4<T>& v2, 
 		const detail::tvec4<T>& v3, 
@@ -100,7 +100,7 @@ namespace matrix_major_storage
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> rowMajor4(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> rowMajor4(
 		const detail::tmat4x4<T>& m)
     {
         detail::tmat4x4<T> Result;
@@ -124,7 +124,7 @@ namespace matrix_major_storage
     }
 
     template <typename T> 
-    inline detail::tmat2x2<T> colMajor2(
+    GLM_FUNC_QUALIFIER detail::tmat2x2<T> colMajor2(
 		const detail::tvec2<T>& v1, 
 		const detail::tvec2<T>& v2)
     {
@@ -132,14 +132,14 @@ namespace matrix_major_storage
     }
 
     template <typename T> 
-    inline detail::tmat2x2<T> colMajor2(
+    GLM_FUNC_QUALIFIER detail::tmat2x2<T> colMajor2(
 		const detail::tmat2x2<T>& m)
     {
         return detail::tmat2x2<T>(m);
     }
 
     template <typename T> 
-    inline detail::tmat3x3<T> colMajor3(
+    GLM_FUNC_QUALIFIER detail::tmat3x3<T> colMajor3(
 		const detail::tvec3<T>& v1, 
 		const detail::tvec3<T>& v2, 
 		const detail::tvec3<T>& v3)
@@ -148,14 +148,14 @@ namespace matrix_major_storage
     }
 
     template <typename T> 
-    inline detail::tmat3x3<T> colMajor3(
+    GLM_FUNC_QUALIFIER detail::tmat3x3<T> colMajor3(
 		const detail::tmat3x3<T>& m)
     {
         return detail::tmat3x3<T>(m);
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> colMajor4(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> colMajor4(
 		const detail::tvec4<T>& v1, 
 		const detail::tvec4<T>& v2, 
 		const detail::tvec4<T>& v3, 
@@ -165,7 +165,7 @@ namespace matrix_major_storage
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> colMajor4(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> colMajor4(
 		const detail::tmat4x4<T>& m)
     {
         return detail::tmat4x4<T>(m);

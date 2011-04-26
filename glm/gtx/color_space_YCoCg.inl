@@ -12,7 +12,7 @@ namespace gtx{
 namespace color_space_YCoCg{
 
 template <typename valType> 
-inline detail::tvec3<valType> rgb2YCoCg
+GLM_FUNC_QUALIFIER detail::tvec3<valType> rgb2YCoCg
 (
 	detail::tvec3<valType> const & rgbColor
 )
@@ -25,7 +25,7 @@ inline detail::tvec3<valType> rgb2YCoCg
 }
 
 template <typename valType> 
-inline detail::tvec3<valType> rgb2YCoCgR
+GLM_FUNC_QUALIFIER detail::tvec3<valType> rgb2YCoCgR
 (
 	detail::tvec3<valType> const & rgbColor
 )
@@ -38,7 +38,7 @@ inline detail::tvec3<valType> rgb2YCoCgR
 }
 
 template <typename valType> 
-inline detail::tvec3<valType> YCoCg2rgb
+GLM_FUNC_QUALIFIER detail::tvec3<valType> YCoCg2rgb
 (
 	detail::tvec3<valType> const & YCoCgColor
 )
@@ -51,7 +51,7 @@ inline detail::tvec3<valType> YCoCg2rgb
 }
 
 template <typename valType> 
-inline detail::tvec3<valType> YCoCgR2rgb
+GLM_FUNC_QUALIFIER detail::tvec3<valType> YCoCgR2rgb
 (
 	detail::tvec3<valType> const & YCoCgRColor
 )

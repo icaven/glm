@@ -64,18 +64,26 @@
 // echo "" | g++ -E -dM -x c++ - | sort
 
 // Borland C++ defines. How to identify BC?
-#define GLM_COMPILER_BC				0x03000000
-#define GLM_COMPILER_BCB4			0x03000100
-#define GLM_COMPILER_BCB5			0x03000200
-#define GLM_COMPILER_BCB6			0x03000300
-//#define GLM_COMPILER_BCBX			0x03000400 // What's the version value?
-#define GLM_COMPILER_BCB2009		0x03000500
-
-#define GLM_MODEL_32				0x00000010
-#define GLM_MODEL_64				0x00000020
+#define GLM_COMPILER_BC				0x04000000
+#define GLM_COMPILER_BCB4			0x04000100
+#define GLM_COMPILER_BCB5			0x04000200
+#define GLM_COMPILER_BCB6			0x04000300
+//#define GLM_COMPILER_BCBX			0x04000400 // What's the version value?
+#define GLM_COMPILER_BCB2009		0x04000500
 
 // CodeWarrior
-#define GLM_COMPILER_CODEWARRIOR	0x04000000
+#define GLM_COMPILER_CODEWARRIOR	0x08000000
+
+// CUDA
+#define GLM_COMPILER_CUDA           0x10000000
+#define GLM_COMPILER_CUDA30			0x10000010
+#define GLM_COMPILER_CUDA31			0x10000020
+#define GLM_COMPILER_CUDA32			0x10000030
+#define GLM_COMPILER_CUDA40			0x10000040
+
+// Build model
+#define GLM_MODEL_32				0x00000010
+#define GLM_MODEL_64				0x00000020
 
 // Force generic C++ compiler
 #ifdef GLM_FORCE_COMPILER_UNKNOWN
@@ -159,6 +167,20 @@
 // Codewarrior
 #elif defined(__MWERKS__)
 #	define GLM_COMPILER GLM_COMPILER_CODEWARRIOR
+
+// CUDA
+#elif defined(CUDA_VERSION)
+#	if CUDA_VERSION < 3000
+#		error "GLM requires CUDA 3.0 or higher"
+#	elif CUDA_VERSION == 3000
+#		define GLM_COMPILER GLM_COMPILER_CUDA30	
+#	elif CUDA_VERSION == 3010
+#		define GLM_COMPILER GLM_COMPILER_CUDA31	
+#	elif CUDA_VERSION == 3020
+#		define GLM_COMPILER GLM_COMPILER_CUDA32	
+#	elif CUDA_VERSION == 4000
+#		define GLM_COMPILER GLM_COMPILER_CUDA40	
+#	endif
 
 #else
 #	define GLM_COMPILER GLM_COMPILER_UNKNOWN
@@ -373,21 +395,29 @@
 #endif//GLM_LANG
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// inline 
+// Qualifiers 
 
-// User defines: GLM_FORCE_INLINE
+// User defines: GLM_FORCE_INLINE GLM_FORCE_CUDA
+
+#if(defined(GLM_FORCE_CUDA) || (defined(GLM_COMPILER) && (GLM_COMPILER >= GLM_COMPILER_CUDA30)))
+#   define GLM_CUDA_QUALIFIER __device__ __host__ 
+#else
+#   define GLM_CUDA_QUALIFIER
+#endif
 
 #if(defined(GLM_FORCE_INLINE))
-#	if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
-#		define GLM_INLINE __forceinline
-#	elif((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
-#		define GLM_INLINE __attribute__((always_inline))
-#	else
-#		define GLM_INLINE inline
-#	endif//GLM_COMPILER
+#   if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
+#       define GLM_INLINE __forceinline
+#   elif((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC34))
+#       define GLM_INLINE __attribute__((always_inline))
+#   else
+#       define GLM_INLINE inline
+#   endif//GLM_COMPILER
 #else
-#	define GLM_INLINE inline
+#   define GLM_INLINE inline
 #endif//defined(GLM_FORCE_INLINE)
+
+#define GLM_FUNC_QUALIFIER GLM_CUDA_QUALIFIER GLM_INLINE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Swizzle operators

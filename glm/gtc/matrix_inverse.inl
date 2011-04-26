@@ -12,7 +12,7 @@ namespace gtc{
 namespace matrix_inverse
 {
 	template <typename T> 
-	inline detail::tmat3x3<T> affineInverse
+	GLM_FUNC_QUALIFIER detail::tmat3x3<T> affineInverse
 	(
 		detail::tmat3x3<T> const & m
 	)
@@ -26,7 +26,7 @@ namespace matrix_inverse
 	}
 
 	template <typename T> 
-	inline detail::tmat4x4<T> affineInverse
+	GLM_FUNC_QUALIFIER detail::tmat4x4<T> affineInverse
 	(
 		detail::tmat4x4<T> const & m
 	)
@@ -40,7 +40,7 @@ namespace matrix_inverse
 	}
 
 	template <typename valType> 
-	inline detail::tmat2x2<valType> inverseTranspose(
+	GLM_FUNC_QUALIFIER detail::tmat2x2<valType> inverseTranspose(
 		detail::tmat2x2<valType> const & m)
 	{
 		valType Determinant = m[0][0] * m[1][1] - m[1][0] * m[0][1];
@@ -55,7 +55,7 @@ namespace matrix_inverse
 	}
 
 	template <typename valType> 
-	inline detail::tmat3x3<valType> inverseTranspose(
+	GLM_FUNC_QUALIFIER detail::tmat3x3<valType> inverseTranspose(
 		detail::tmat3x3<valType> const & m)
 	{
 		valType Determinant = 
@@ -79,7 +79,7 @@ namespace matrix_inverse
 	}
 
 	template <typename valType> 
-	inline detail::tmat4x4<valType> inverseTranspose(
+	GLM_FUNC_QUALIFIER detail::tmat4x4<valType> inverseTranspose(
 		detail::tmat4x4<valType> const & m)
 	{
 		valType SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];

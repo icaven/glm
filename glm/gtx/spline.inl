@@ -12,7 +12,7 @@ namespace gtx{
 namespace spline
 {
 	template <typename genType>
-	inline genType catmullRom
+	GLM_FUNC_QUALIFIER genType catmullRom
 	(
 		genType const & v1, 
 		genType const & v2, 
@@ -35,7 +35,7 @@ namespace spline
 	}
 
 	template <typename genType>
-	inline genType hermite
+	GLM_FUNC_QUALIFIER genType hermite
 	(
 		genType const & v1, 
 		genType const & t1, 
@@ -57,7 +57,7 @@ namespace spline
 	}
 
 	template <typename genType>
-	inline genType cubic
+	GLM_FUNC_QUALIFIER genType cubic
 	(
 		genType const & v1, 
 		genType const & v2, 

@@ -43,7 +43,7 @@ namespace detail
 	struct If
 	{
 		template<typename F, typename T>
-		static inline T apply(F functor, const T& val)
+		static GLM_FUNC_QUALIFIER T apply(F functor, const T& val)
 		{
 			return functor(val);
 		}
@@ -53,7 +53,7 @@ namespace detail
 	struct If<false>
 	{
 		template<typename F, typename T>
-		static inline T apply(F, const T& val)
+		static GLM_FUNC_QUALIFIER T apply(F, const T& val)
 		{
 			return val;
 		}

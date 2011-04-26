@@ -12,7 +12,7 @@ namespace gtc{
 namespace matrix_access
 {
     template <typename genType>
-    inline genType row(
+    GLM_FUNC_QUALIFIER genType row(
 		genType const & m, 
 		int index, 
 		typename genType::row_type const & x)
@@ -24,7 +24,7 @@ namespace matrix_access
     }
 
     template <typename genType>
-    inline typename genType::row_type row(
+    GLM_FUNC_QUALIFIER typename genType::row_type row(
 		genType const & m, 
 		int index)
     {
@@ -35,7 +35,7 @@ namespace matrix_access
     }
 
     template <typename genType>
-    inline genType column(
+    GLM_FUNC_QUALIFIER genType column(
 		genType const & m, 
 		int index, 
 		typename genType::col_type const & x)
@@ -46,7 +46,7 @@ namespace matrix_access
     }
 
     template <typename genType>
-    inline typename genType::col_type column(
+    GLM_FUNC_QUALIFIER typename genType::col_type column(
 		genType const & m, 
 		int index)
     {
