@@ -15,6 +15,7 @@
 
 // Dependency:
 #include "../glm.hpp"
+#include <cstring>
 
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))
 #	pragma message("GLM: GLM_GTC_type_ptr extension included")
@@ -420,23 +421,23 @@ namespace glm
 		template<typename T>
 		inline detail::tmat2x2<T> make_mat2(T const * const ptr)
 		{
-			return make_mat2x2(Result);
+			return make_mat2x2(ptr);
 		}
         
 		//! Build a matrix from a pointer.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline detail::tmat3<T> make_mat3(T const * const ptr)
+		inline detail::tmat3x3<T> make_mat3(T const * const ptr)
 		{
-			return make_mat3x3(Result);
+			return make_mat3x3(ptr);
 		}
 		
 		//! Build a matrix from a pointer.
 		//! From GLM_GTC_type_ptr extension.
 		template<typename T>
-		inline detail::tmat4<T> make_mat4(T const * const ptr)
+		inline detail::tmat4x4<T> make_mat4(T const * const ptr)
 		{
-			return make_mat4x4(Result);
+			return make_mat4x4(ptr);
 		}
         
 		///@}

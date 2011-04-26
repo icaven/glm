@@ -26,7 +26,9 @@ namespace glm
 
 	//! Multiply matrix x by matrix y component-wise, i.e., 
 	//! result[i][j] is the scalar product of x[i][j] and y[i][j].
-	//! (From GLSL 1.30.08 specification, section 8.5)
+    //!
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/matrixCompMult.xml">GLSL matrixCompMult man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.5
 	template <typename matType> 
 	matType matrixCompMult(
 		matType const & x, 
@@ -35,50 +37,66 @@ namespace glm
 	//! Treats the first parameter c as a column vector 
 	//! and the second parameter r as a row vector
 	//! and does a linear algebraic matrix multiply c * r.
-	//! (From GLSL 1.30.08 specification, section 8.5)
-	template <typename vecType, typename matType> 
+    //!
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/outerProduct.xml">GLSL outerProduct man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.5	
+    template <typename vecType, typename matType> 
 	matType outerProduct(
 		vecType const & c, 
 		vecType const & r);
 
 	//! Returns the transposed matrix of x
-	//! (From GLSL 1.30.08 specification, section 8.5)
-	template <typename matType> 
+    //!
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/transpose.xml">GLSL transpose man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.5	
+    template <typename matType> 
 	typename matType::transpose_type transpose(
 		matType const & x);
 	
 	//! Return the determinant of a mat2 matrix. 
-	//! (From GLSL 1.50.09 specification, section 8.5)..
+    //!
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.5	
 	template <typename T> 
 	typename detail::tmat2x2<T>::value_type determinant(
 		detail::tmat2x2<T> const & m);
 
 	//! Return the determinant of a mat3 matrix. 
-	//! (From GLSL 1.50.09 specification, section 8.5).
+    //!
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.5	
 	template <typename T> 
 	typename detail::tmat3x3<T>::value_type determinant(
 		detail::tmat3x3<T> const & m);
 
 	//! Return the determinant of a mat4 matrix. 
-	//! (From GLSL 1.50.09 specification, section 8.5).
-	template <typename T> 
+    //!
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a>
+    //! \li GLSL 1.30.08 specification, section 8.5		
+    template <typename T> 
 	typename detail::tmat4x4<T>::value_type determinant(
 		detail::tmat4x4<T> const & m);
 
 	//! Return the inverse of a mat2 matrix. 
-	//! (From GLSL 1.40.07 specification, section 8.5).
+    //!
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inverse.xml">GLSL inverse man page</a>
+    //! \li GLSL 1.40.07 specification, section 8.5	 
 	template <typename T> 
 	detail::tmat2x2<T> inverse(
 		detail::tmat2x2<T> const & m);
 
 	//! Return the inverse of a mat3 matrix. 
-	//! (From GLSL 1.40.07 specification, section 8.5).
+    //!
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inverse.xml">GLSL inverse man page</a>
+    //! \li GLSL 1.40.07 specification, section 8.5 
 	template <typename T> 
 	detail::tmat3x3<T> inverse(
 		detail::tmat3x3<T> const & m);
 
 	//! Return the inverse of a mat4 matrix. 
-	//! (From GLSL 1.40.07 specification, section 8.5).
+    //!
+    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inverse.xml">GLSL inverse man page</a>
+    //! \li GLSL 1.40.07 specification, section 8.5
 	template <typename T> 
 	detail::tmat4x4<T> inverse(
 		detail::tmat4x4<T> const & m);
