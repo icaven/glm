@@ -13,10 +13,10 @@
 
 int test_ulp_float()
 {
-	std::size_t A = ulp(0.01, 0.02);
-	std::size_t B = ulp(glm::vec2(0.01), glm::vec2(0.02));
-	std::size_t C = ulp(glm::vec3(0.01), glm::vec3(0.02));
-	std::size_t D = ulp(glm::vec4(0.01), glm::vec4(0.02));
+	std::size_t A = glm::ulp(0.01, 0.02);
+	std::size_t B = glm::ulp(glm::vec2(0.01), glm::vec2(0.02));
+	std::size_t C = glm::ulp(glm::vec3(0.01), glm::vec3(0.02));
+	std::size_t D = glm::ulp(glm::vec4(0.01), glm::vec4(0.02));
 	std::cout << "glm::ulp test: " << A << std::endl;
 	std::cout << "glm::ulp test: " << B << std::endl;
 	std::cout << "glm::ulp test: " << C << std::endl;

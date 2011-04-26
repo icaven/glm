@@ -2,7 +2,7 @@
 // OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2011-03-07
-// Updated : 2011-03-07
+// Updated : 2011-04-26
 // Licence : This source is under MIT License
 // File    : glm/gtx/ulp.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -15,13 +15,13 @@ namespace ulp
 {
 	inline std::size_t ulp
 	(
-		half const & a,
-		half const & b
+		detail::thalf const & a,
+		detail::thalf const & b
 	)
 	{
 		std::size_t Count = 0;
-		float TempA = a;
-		float TempB = b;
+		float TempA(a);
+		float TempB(b);
 		while((TempA = nextafterf(TempA, TempB)) != TempB)
 			++Count;
 		return Count;
@@ -56,8 +56,8 @@ namespace ulp
 	template <typename T>
 	inline std::size_t ulp
 	(
-		detail::xvec2<T> const & a,
-		detail::xvec2<T> const & b
+		detail::tvec2<T> const & a,
+		detail::tvec2<T> const & b
 	)
 	{
         std::size_t ulps[] = 
@@ -66,14 +66,14 @@ namespace ulp
             ulp(a[1], b[1])
         };
 
-        return glm::max(ulps[0], ulps[1])s;
+        return glm::max(ulps[0], ulps[1]);
 	}
 
 	template <typename T>
 	inline std::size_t ulp
 	(
-		detail::xvec3<T> const & a,
-		detail::xvec3<T> const & b
+		detail::tvec3<T> const & a,
+		detail::tvec3<T> const & b
 	)
 	{
         std::size_t ulps[] = 
@@ -89,8 +89,8 @@ namespace ulp
 	template <typename T>
 	inline std::size_t ulp
 	(
-		detail::xvec4<T> const & a,
-		detail::xvec4<T> const & b
+		detail::tvec4<T> const & a,
+		detail::tvec4<T> const & b
 	)
 	{
         std::size_t ulps[] = 
