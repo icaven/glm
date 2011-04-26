@@ -121,7 +121,7 @@ namespace glm
 		detail::tvec3<valType> axis(
 			detail::tquat<valType> const & x);
 
-		//! Build a quaternion from an angle and an axis. 
+		//! Build a quaternion from an angle and a normalized axis. 
 		//! From GLM_GTX_quaternion extension.
 		template <typename valType> 
 		detail::tquat<valType> angleAxis(
@@ -130,12 +130,12 @@ namespace glm
 			valType const & y, 
 			valType const & z);
 
-        //! Build a quaternion from an angle and an axis.
+        //! Build a quaternion from an angle and a normalized axis.
 		//! From GLM_GTX_quaternion extension.
 		template <typename valType> 
 		detail::tquat<valType> angleAxis(
 			valType const & angle, 
-			detail::tvec3<valType> const & v);
+			detail::tvec3<valType> const & axis);
 
 		//! Extract the real component of a quaternion.
 		//! From GLM_GTX_quaternion extension.
