@@ -53,39 +53,39 @@ namespace ulp
 		return Count;
 	}
 
-	template <typename valType>
-	inline detail::xvec2<valType> ulp
+	template <typename T>
+	inline detail::xvec2<T> ulp
 	(
-		detail::xvec2<valType> const & a,
-		detail::xvec2<valType> const & b
+		detail::xvec2<T> const & a,
+		detail::xvec2<T> const & b
 	)
 	{
-		return detail::xvec2<valType>(
+		return detail::xvec2<T>(
 				ulp(a[0], b[0]),
 				ulp(a[1], b[1]));
 	}
 
-	template <typename valType>
-	inline detail::xvec3<valType> ulp
+	template <typename T>
+	inline detail::xvec3<T> ulp
 	(
-		detail::xvec3<valType> const & a,
-		detail::xvec3<valType> const & b
+		detail::xvec3<T> const & a,
+		detail::xvec3<T> const & b
 	)
 	{
-		return detail::xvec2<valType>(
+		return detail::xvec3<T>(
 				ulp(a[0], b[0]),
 				ulp(a[1], b[1]),
 				ulp(a[2], b[2]));
 	}
 
-	template <typename valType>
-	inline detail::xvec4<valType> ulp
+	template <typename T>
+	inline detail::xvec4<T> ulp
 	(
-		detail::xvec4<valType> const & a,
-		detail::xvec4<valType> const & b
+		detail::xvec4<T> const & a,
+		detail::xvec4<T> const & b
 	)
 	{
-		return detail::xvec2<valType>(
+		return detail::xvec4<T>(
 				ulp(a[0], b[0]),
 				ulp(a[1], b[1]),
 				ulp(a[2], b[2]),
