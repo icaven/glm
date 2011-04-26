@@ -14,6 +14,7 @@ namespace glm
 	namespace noise{
 
 
+
 	}//namespace noise
 	}//namespace function
 	}//namespace core

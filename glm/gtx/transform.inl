@@ -12,7 +12,7 @@ namespace gtx{
 namespace transform
 {
     template <typename T> 
-    inline detail::tmat4x4<T> translate(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> translate(
 		T x, T y, T z)
     {
 		return gtc::matrix_transform::translate(
@@ -21,7 +21,7 @@ namespace transform
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> translate(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> translate(
 		detail::tmat4x4<T> const & m, 
 		T x, T y, T z)
     {
@@ -30,7 +30,7 @@ namespace transform
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> translate(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> translate(
 		detail::tvec3<T> const & v)
     {
 		return gtc::matrix_transform::translate(
@@ -38,7 +38,7 @@ namespace transform
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> rotate(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> rotate(
 		T angle, 
 		T x, T y, T z)
     {
@@ -47,7 +47,7 @@ namespace transform
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> rotate(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> rotate(
 		T angle, 
 		detail::tvec3<T> const & v)
     {
@@ -56,7 +56,7 @@ namespace transform
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> rotate(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> rotate(
 		detail::tmat4x4<T> const & m, 
 		T angle, 
 		T x, T y, T z)
@@ -66,14 +66,14 @@ namespace transform
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> scale(T x, T y, T z)
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> scale(T x, T y, T z)
     {
 		return gtc::matrix_transform::scale(
 			detail::tmat4x4<T>(1), detail::tvec3<T>(x, y, z));
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> scale(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> scale(
 		detail::tmat4x4<T> const & m, 
 		T x, T y, T z)
     {
@@ -82,7 +82,7 @@ namespace transform
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> scale(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> scale(
 		detail::tvec3<T> const & v)
     {
         return gtc::matrix_transform::scale(

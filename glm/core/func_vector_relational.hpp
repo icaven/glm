@@ -32,7 +32,7 @@ namespace glm
         //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/lessThan.xml">GLSL lessThan man page</a>
         //! \li GLSL 1.30.08 specification, section 8.6
         template <typename T, template <typename> class vecType> 
-		inline typename vecType<T>::bool_type lessThan
+		GLM_FUNC_QUALIFIER typename vecType<T>::bool_type lessThan
 		(
 			vecType<T> const & x, 
 			vecType<T> const & y
@@ -55,7 +55,7 @@ namespace glm
         //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/lessThanEqual.xml">GLSL lessThanEqual man page</a>
         //! \li GLSL 1.30.08 specification, section 8.6
 		template <typename T, template <typename> class vecType> 
-		inline typename vecType<T>::bool_type lessThanEqual
+		GLM_FUNC_QUALIFIER typename vecType<T>::bool_type lessThanEqual
 		(
 			vecType<T> const & x, 
 			vecType<T> const & y
@@ -77,7 +77,7 @@ namespace glm
         //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/greaterThan.xml">GLSL greaterThan man page</a>
         //! \li GLSL 1.30.08 specification, section 8.6
 		template <typename T, template <typename> class vecType> 
-		inline typename vecType<T>::bool_type greaterThan
+		GLM_FUNC_QUALIFIER typename vecType<T>::bool_type greaterThan
 		(
 			vecType<T> const & x, 
 			vecType<T> const & y
@@ -99,7 +99,7 @@ namespace glm
         //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/greaterThanEqual.xml">GLSL greaterThanEqual man page</a>
         //! \li GLSL 1.30.08 specification, section 8.6
 		template <typename T, template <typename> class vecType> 
-		inline typename vecType<T>::bool_type greaterThanEqual
+		GLM_FUNC_QUALIFIER typename vecType<T>::bool_type greaterThanEqual
 		(
 			vecType<T> const & x, 
 			vecType<T> const & y
@@ -121,7 +121,7 @@ namespace glm
         //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/equal.xml">GLSL equal man page</a>
         //! \li GLSL 1.30.08 specification, section 8.6
 		template <typename T, template <typename> class vecType> 
-		inline typename vecType<T>::bool_type equal
+		GLM_FUNC_QUALIFIER typename vecType<T>::bool_type equal
 		(
 			vecType<T> const & x, 
 			vecType<T> const & y
@@ -141,7 +141,7 @@ namespace glm
         //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/notEqual.xml">GLSL notEqual man page</a>
         //! \li GLSL 1.30.08 specification, section 8.6
 		template <typename T, template <typename> class vecType> 
-		inline typename vecType<T>::bool_type notEqual
+		GLM_FUNC_QUALIFIER typename vecType<T>::bool_type notEqual
 		(
 			vecType<T> const & x, 
 			vecType<T> const & y
@@ -161,7 +161,7 @@ namespace glm
         //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/any.xml">GLSL any man page</a>
         //! \li GLSL 1.30.08 specification, section 8.6
 		template <template <typename> class vecType> 
-		inline bool any(vecType<bool> const & v)
+		GLM_FUNC_QUALIFIER bool any(vecType<bool> const & v)
 		{
 			GLM_STATIC_ASSERT(detail::is_vector<vecType<bool> >::_YES, 
 				"Invalid template instantiation of 'any', GLM boolean vector types required");
@@ -177,7 +177,7 @@ namespace glm
         //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/all.xml">GLSL all man page</a>
         //! \li GLSL 1.30.08 specification, section 8.6
 		template <template <typename> class vecType> 
-		inline bool all(vecType<bool> const & v)
+		GLM_FUNC_QUALIFIER bool all(vecType<bool> const & v)
 		{
 			GLM_STATIC_ASSERT(detail::is_vector<vecType<bool> >::_YES, 
 				"Invalid template instantiation of 'all', GLM boolean vector types required");
@@ -194,7 +194,7 @@ namespace glm
         //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/not.xml">GLSL not man page</a>
         //! \li GLSL 1.30.08 specification, section 8.6
 		template <template <typename> class vecType> 
-		inline vecType<bool> not_(vecType<bool> const & v)
+		GLM_FUNC_QUALIFIER vecType<bool> not_(vecType<bool> const & v)
 		{
 			GLM_STATIC_ASSERT(detail::is_vector<vecType<bool> >::_YES, 
 				"Invalid template instantiation of 'not_', GLM vector types required");

@@ -12,7 +12,7 @@ namespace gtx{
 namespace handed_coordinate_space
 {
     template <typename T> 
-    inline bool rightHanded(
+    GLM_FUNC_QUALIFIER bool rightHanded(
 		detail::tvec3<T> const & tangent, 
 		detail::tvec3<T> const & binormal,
 		detail::tvec3<T> const & normal)
@@ -21,7 +21,7 @@ namespace handed_coordinate_space
     }
 
     template <typename T> 
-    inline bool leftHanded(
+    GLM_FUNC_QUALIFIER bool leftHanded(
 		detail::tvec3<T> const & tangent, 
 		detail::tvec3<T> const & binormal, 
 		detail::tvec3<T> const & normal)

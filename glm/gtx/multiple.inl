@@ -18,7 +18,7 @@ namespace multiple
 	// higherMultiple
 
 	template <typename genType> 
-	inline genType higherMultiple
+	GLM_FUNC_QUALIFIER genType higherMultiple
 	(
 		genType const & Source, 
 		genType const & Multiple
@@ -29,7 +29,7 @@ namespace multiple
 	}
 
 	template <> 
-	inline detail::thalf higherMultiple
+	GLM_FUNC_QUALIFIER detail::thalf higherMultiple
 	(
 		detail::thalf const & Source, 
 		detail::thalf const & Multiple
@@ -40,7 +40,7 @@ namespace multiple
 	}
 
 	template <> 
-	inline float higherMultiple
+	GLM_FUNC_QUALIFIER float higherMultiple
 	(	
 		float const & Source, 
 		float const & Multiple
@@ -51,7 +51,7 @@ namespace multiple
 	}
 
 	template <> 
-	inline double higherMultiple
+	GLM_FUNC_QUALIFIER double higherMultiple
 	(
 		double const & Source, 
 		double const & Multiple
@@ -62,7 +62,7 @@ namespace multiple
 	}
 
 	template <typename T> 
-	inline detail::tvec2<T> higherMultiple
+	GLM_FUNC_QUALIFIER detail::tvec2<T> higherMultiple
 	(
 		detail::tvec2<T> const & Source, 
 		detail::tvec2<T> const & Multiple
@@ -75,7 +75,7 @@ namespace multiple
 	}
 
 	template <typename T> 
-	inline detail::tvec3<T> higherMultiple
+	GLM_FUNC_QUALIFIER detail::tvec3<T> higherMultiple
 	(
 		detail::tvec3<T> const & Source, 
 		detail::tvec3<T> const & Multiple
@@ -88,7 +88,7 @@ namespace multiple
 	}
 
 	template <typename T> 
-	inline detail::tvec4<T> higherMultiple
+	GLM_FUNC_QUALIFIER detail::tvec4<T> higherMultiple
 	(
 		detail::tvec4<T> const & Source, 
 		detail::tvec4<T> const & Multiple
@@ -104,7 +104,7 @@ namespace multiple
 	// lowerMultiple
 
 	template <typename genType> 
-	inline genType lowerMultiple
+	GLM_FUNC_QUALIFIER genType lowerMultiple
 	(
 		genType const & Source, 
 		genType const & Multiple
@@ -115,7 +115,7 @@ namespace multiple
 	}
 
 	template <> 
-	inline detail::thalf lowerMultiple
+	GLM_FUNC_QUALIFIER detail::thalf lowerMultiple
 	(
 		detail::thalf const & Source, 
 		detail::thalf const & Multiple
@@ -126,7 +126,7 @@ namespace multiple
 	}
 
 	template <> 
-	inline float lowerMultiple
+	GLM_FUNC_QUALIFIER float lowerMultiple
 	(
 		float const & Source, 
 		float const & Multiple
@@ -137,7 +137,7 @@ namespace multiple
 	}
 
 	template <> 
-	inline double lowerMultiple
+	GLM_FUNC_QUALIFIER double lowerMultiple
 	(
 		double const & Source, 
 		double const & Multiple
@@ -148,7 +148,7 @@ namespace multiple
 	}
 
 	template <typename T> 
-	inline detail::tvec2<T> lowerMultiple
+	GLM_FUNC_QUALIFIER detail::tvec2<T> lowerMultiple
 	(
 		detail::tvec2<T> const & Source, 
 		detail::tvec2<T> const & Multiple
@@ -161,7 +161,7 @@ namespace multiple
 	}
 
 	template <typename T> 
-	inline detail::tvec3<T> lowerMultiple
+	GLM_FUNC_QUALIFIER detail::tvec3<T> lowerMultiple
 	(
 		detail::tvec3<T> const & Source, 
 		detail::tvec3<T> const & Multiple
@@ -174,7 +174,7 @@ namespace multiple
 	}
 
 	template <typename T> 
-	inline detail::tvec4<T> lowerMultiple
+	GLM_FUNC_QUALIFIER detail::tvec4<T> lowerMultiple
 	(
 		detail::tvec4<T> const & Source, 
 		detail::tvec4<T> const & Multiple

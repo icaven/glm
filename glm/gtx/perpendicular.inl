@@ -12,7 +12,7 @@ namespace gtx{
 namespace perpendicular{
 
 template <typename T> 
-inline detail::tvec2<T> perp(
+GLM_FUNC_QUALIFIER detail::tvec2<T> perp(
 	detail::tvec2<T> const & x, 
 	detail::tvec2<T> const & Normal)
 {
@@ -20,7 +20,7 @@ inline detail::tvec2<T> perp(
 }
 
 template <typename T> 
-inline detail::tvec3<T> perp(
+GLM_FUNC_QUALIFIER detail::tvec3<T> perp(
 	detail::tvec3<T> const & x, 
 	detail::tvec3<T> const & Normal)
 {
@@ -28,7 +28,7 @@ inline detail::tvec3<T> perp(
 }
 
 template <typename T> 
-inline detail::tvec4<T> perp(
+GLM_FUNC_QUALIFIER detail::tvec4<T> perp(
 	detail::tvec4<T> const & x, 
 	detail::tvec4<T> const & Normal)
 {

@@ -20,7 +20,7 @@ namespace glm{
 namespace detail
 {
 /*
-inline __m128 sse_rsqrt_nr_ss(__m128 const x)
+GLM_FUNC_QUALIFIER __m128 sse_rsqrt_nr_ss(__m128 const x)
 {
 	__m128 recip = _mm_rsqrt_ss( x );  // "estimate" opcode
 	const static __m128 three = { 3, 3, 3, 3 }; // aligned consts for fast load
@@ -30,7 +30,7 @@ inline __m128 sse_rsqrt_nr_ss(__m128 const x)
 	return _mm_mul_ss( halfrecip, threeminus_xrr );
 }
  
-inline __m128 sse_normalize_fast_ps(  float * RESTRICT vOut, float * RESTRICT vIn )
+GLM_FUNC_QUALIFIER __m128 sse_normalize_fast_ps(  float * RESTRICT vOut, float * RESTRICT vIn )
 {
         __m128 x = _mm_load_ss(&vIn[0]);
         __m128 y = _mm_load_ss(&vIn[1]);

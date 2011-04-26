@@ -12,7 +12,7 @@ namespace gtx{
 namespace vector_access{
 
 template <typename valType> 
-inline void set
+GLM_FUNC_QUALIFIER void set
 (
 	detail::tvec2<valType>& v, 
 	valType const & x, 
@@ -24,7 +24,7 @@ inline void set
 }
 
 template <typename valType> 
-inline void set
+GLM_FUNC_QUALIFIER void set
 (
 	detail::tvec3<valType>& v, 
 	valType const & x, 
@@ -38,7 +38,7 @@ inline void set
 }
 
 template <typename valType>
-inline void set
+GLM_FUNC_QUALIFIER void set
 (
 	detail::tvec4<valType>& v, 
 	valType const & x, 
