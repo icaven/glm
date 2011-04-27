@@ -97,13 +97,13 @@ namespace noise
 
 		// First corner
 		detail::tvec3<T> i  = floor(v + dot(v, C.y));
-		detail::tvec3<T> x0 =   v - i + dot(i, C.x);
+		detail::tvec3<T> x0 = v - i + dot(i, C.x);
 
 		// Other corners
 		detail::tvec3<T> g = step(x0.yzx, x0.xyz);
-		detail::tvec3<T> l = 1.0 - g;
-		detail::tvec3<T> i1 = min( g.xyz, l.zxy );
-		detail::tvec3<T> i2 = max( g.xyz, l.zxy );
+		detail::tvec3<T> l = T(1) - g;
+		detail::tvec3<T> i1 = min(detail::tvec3<T>(g.x, g.y, g.z), detail::tvec3<T>(l.z, l.x, l.y));
+		detail::tvec3<T> i2 = max(detail::tvec3<T>(g.x, g.y, g.z), detail::tvec3<T>(l.z, l.x, l.y));
 
 		//   x0 = x0 - 0.0 + 0.0 * C.xxx;
 		//   x1 = x0 - i1  + 1.0 * C.xxx;
@@ -123,19 +123,19 @@ namespace noise
 		// Gradients: 7x7 points over a square, mapped onto an octahedron.
 		// The ring size 17*17 = 289 is close to a multiple of 49 (49*6 = 294)
 		T n_ = T(0.142857142857); // 1.0/7.0
-		detail::tvec3<T> ns = n_ * D.wyz - D.xzx;
+		detail::tvec3<T> ns = n_ * detail::tvec3<T>(D.w, D.y, D.z) - detail::tvec3<T>(D.x, D.z, D.x);
 
 		detail::tvec4<T> j = p - T(49) * floor(p * ns.z * ns.z);  //  mod(p,7*7)
 
 		detail::tvec4<T> x_ = floor(j * ns.z);
-		detail::tvec4<T> y_ = floor(j - T(7) * x_ );    // mod(j,N)
+		detail::tvec4<T> y_ = floor(j - T(7) * x_);    // mod(j,N)
 
 		detail::tvec4<T> x = x_ * ns.x + ns;
 		detail::tvec4<T> y = y_ * ns.x + ns;
 		detail::tvec4<T> h = T(1) - abs(x) - abs(y);
 
-		detail::tvec4<T> b0 = detail::tvec4<T>(x.xy, y.xy);
-		detail::tvec4<T> b1 = detail::tvec4<T>(x.zw, y.zw);
+		detail::tvec4<T> b0 = detail::tvec4<T>(x.x, x.y, y.x, y.y);
+		detail::tvec4<T> b1 = detail::tvec4<T>(x.z, x.w, y.z, y.w);
 
 		//vec4 s0 = vec4(lessThan(b0,0.0))*2.0 - 1.0;
 		//vec4 s1 = vec4(lessThan(b1,0.0))*2.0 - 1.0;
@@ -143,8 +143,8 @@ namespace noise
 		detail::tvec4<T> s1 = floor(b1) * T(2) + T(1);
 		detail::tvec4<T> sh = -step(h, detail::tvec4<T>(0));
 
-		detail::tvec4<T> a0 = b0 + s0 * sh.xxyy;
-		detail::tvec4<T> a1 = b1 + s1 * sh.zzww;
+		detail::tvec4<T> a0 = b0 + s0 * detail::tvec4<T>(sh.x, sh.x, sh.y, sh.y);
+		detail::tvec4<T> a1 = b1 + s1 * detail::tvec4<T>(sh.z, sh.z, sh.w, sh.w);
 
 		detail::tvec3<T> p0 = vec3(a0.xy, h.x);
 		detail::tvec3<T> p1 = vec3(a0.zw, h.y);
@@ -197,14 +197,14 @@ namespace noise
 
 		// Rank sorting originally contributed by Bill Licea-Kane, AMD (formerly ATI)
 		detail::tvec4<T> i0;
-		detail::tvec3<T> isX = step(x0.yzw, x0.xxx);
-		detail::tvec3<T> isYZ = step(x0.zww, x0.yyz);
-		//  i0.x = dot( isX, vec3( 1.0 ) );
+		detail::tvec3<T> isX = step(detail::tvec3<T>(x0.y, x0.z, x0.w), detail::tvec3<T>(x0.x));
+		detail::tvec3<T> isYZ = step(detail::tvec3<T>(x0.z, x0.w, x0.w), detail::tvec3<T>(x0.y, x0.y, x0.z));
+		//  i0.x = dot(isX, vec3(1.0));
 		i0.x = isX.x + isX.y + isX.z;
 		i0.yzw = 1.0 - isX;
-		//  i0.y += dot( isYZ.xy, vec2( 1.0 ) );
+		//  i0.y += dot(isYZ.xy, vec2(1.0));
 		i0.y += isYZ.x + isYZ.y;
-		i0.zw += 1.0 - isYZ.xy;
+		i0.zw += 1.0 - detail::tvec2<T>(isYZ.x, isYZ.y);
 		i0.z += isYZ.z;
 		i0.w += 1.0 - isYZ.z;
 
@@ -338,7 +338,7 @@ namespace noise
 		T n01 = dot(g01, detail::tvec2<T>(fx.z, fy.z));
 		T n11 = dot(g11, detail::tvec2<T>(fx.w, fy.w));
 
-		detail::tvec2<T> fade_xy = fade(Pf.xy);
+		detail::tvec2<T> fade_xy = fade(detail::tvec2<T>(Pf.x, Pf.y));
 		detail::tvec2<T> n_x = mix(detail::tvec2<T>(n00, n01), detail::tvec2<T>(n10, n11), fade_xy.x);
 		T n_xy = mix(n_x.x, n_x.y, fade_xy.y);
 		return T(2.3) * n_xy;
@@ -355,7 +355,7 @@ namespace noise
 		detail::tvec3<T> Pf0 = fract(P); // Fractional part for interpolation
 		detail::tvec3<T> Pf1 = Pf0 - T(1); // Fractional part - 1.0
 		detail::tvec4<T> ix(Pi0.x, Pi1.x, Pi0.x, Pi1.x);
-		detail::tvec4<T> iy(Pi0.yy, Pi1.yy);
+		detail::tvec4<T> iy(Pi0.y, Pi0.y, Pi1.y, Pi1.y);
 		detail::tvec4<T> iz0(Pi0.z);
 		detail::tvec4<T> iz1(Pi1.z);
 
@@ -428,7 +428,7 @@ namespace noise
 		detail::tvec3<T> Pf0 = fract(P); // Fractional part for interpolation
 		detail::tvec3<T> Pf1 = Pf0 - detail::tvec3<T>(1.0); // Fractional part - 1.0
 		detail::tvec4<T> ix = detail::tvec4<T>(Pi0.x, Pi1.x, Pi0.x, Pi1.x);
-		detail::tvec4<T> iy = detail::tvec4<T>(Pi0.yy, Pi1.yy);
+		detail::tvec4<T> iy = detail::tvec4<T>(Pi0.y, Pi0.y, Pi1.y, Pi1.y);
 		detail::tvec4<T> iz0(Pi0.z);
 		detail::tvec4<T> iz1(Pi1.z);
 
