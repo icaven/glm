@@ -90,17 +90,17 @@ namespace noise
 	}
 
 	template <typename T>
-	GLM_FUNC_QUALIFIER T snoise(glm::detail::tvec3<T> const & v)
+	GLM_FUNC_QUALIFIER T snoise(detail::tvec3<T> const & v)
 	{ 
 		detail::tvec2<T> const C = detail::tvec2<T>(1.0 / 6.0, 1.0 / 3.0);
 		detail::tvec4<T> const D = detail::tvec4<T>(0.0, 0.5, 1.0, 2.0);
 
 		// First corner
-		detail::tvec3<T> i  = floor(v + dot(v, C.y));
-		detail::tvec3<T> x0 = v - i + dot(i, C.x);
+		detail::tvec3<T> i  = floor(v + dot(v, detail::tvec3<T>(C.y)));
+		detail::tvec3<T> x0 = v - i + dot(i, detail::tvec3<T>(C.x));
 
 		// Other corners
-		detail::tvec3<T> g = step(x0.yzx, x0.xyz);
+		detail::tvec3<T> g = step(detail::tvec3<T>(x0.y, x0.z, x0.x), detail::tvec3<T>(x0.x, x0.y, x0.z));
 		detail::tvec3<T> l = T(1) - g;
 		detail::tvec3<T> i1 = min(detail::tvec3<T>(g.x, g.y, g.z), detail::tvec3<T>(l.z, l.x, l.y));
 		detail::tvec3<T> i2 = max(detail::tvec3<T>(g.x, g.y, g.z), detail::tvec3<T>(l.z, l.x, l.y));
@@ -146,10 +146,10 @@ namespace noise
 		detail::tvec4<T> a0 = b0 + s0 * detail::tvec4<T>(sh.x, sh.x, sh.y, sh.y);
 		detail::tvec4<T> a1 = b1 + s1 * detail::tvec4<T>(sh.z, sh.z, sh.w, sh.w);
 
-		detail::tvec3<T> p0 = vec3(a0.xy, h.x);
-		detail::tvec3<T> p1 = vec3(a0.zw, h.y);
-		detail::tvec3<T> p2 = vec3(a1.xy, h.z);
-		detail::tvec3<T> p3 = vec3(a1.zw, h.w);
+		detail::tvec3<T> p0 = vec3(a0.x, a0.y, h.x);
+		detail::tvec3<T> p1 = vec3(a0.z, a0.w, h.y);
+		detail::tvec3<T> p2 = vec3(a1.x, a1.y, h.z);
+		detail::tvec3<T> p3 = vec3(a1.z, a1.w, h.w);
 
 		//Normalise gradients
 		detail::tvec4<T> norm = taylorInvSqrt(detail::tvec4<T>(
@@ -200,11 +200,14 @@ namespace noise
 		detail::tvec3<T> isX = step(detail::tvec3<T>(x0.y, x0.z, x0.w), detail::tvec3<T>(x0.x));
 		detail::tvec3<T> isYZ = step(detail::tvec3<T>(x0.z, x0.w, x0.w), detail::tvec3<T>(x0.y, x0.y, x0.z));
 		//  i0.x = dot(isX, vec3(1.0));
-		i0.x = isX.x + isX.y + isX.z;
-		i0.yzw = 1.0 - isX;
+		//i0.x = isX.x + isX.y + isX.z;
+		//i0.yzw = T(1) - isX;
+        i0 = detail::tvec4<T>(isX.x + isX.y + isX.z, T(1) - isX);
 		//  i0.y += dot(isYZ.xy, vec2(1.0));
 		i0.y += isYZ.x + isYZ.y;
-		i0.zw += 1.0 - detail::tvec2<T>(isYZ.x, isYZ.y);
+		//i0.zw += 1.0 - detail::tvec2<T>(isYZ.x, isYZ.y);
+        i0.z += 1.0 - detail::tvec2<T>(isYZ.x, isYZ.y);
+        i0.w += 1.0 - detail::tvec2<T>(isYZ.x, isYZ.y);
 		i0.z += isYZ.z;
 		i0.w += 1.0 - isYZ.z;
 
@@ -296,7 +299,7 @@ namespace noise
 		T n01 = dot(g01, detail::tvec2<T>(fx.z, fy.z));
 		T n11 = dot(g11, detail::tvec2<T>(fx.w, fy.w));
 
-		detail::tvec2<T> fade_xy = fade(Pf.xy);
+		detail::tvec2<T> fade_xy = fade(detail::tvec2<T>(Pf.x, Pf.y));
 		detail::tvec2<T> n_x = mix(detail::tvec2<T>(n00, n01), detail::tvec2<T>(n10, n11), fade_xy.x);
 		T n_xy = mix(n_x.x, n_x.y, fade_xy.y);
 		return T(2.3) * n_xy;
