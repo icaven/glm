@@ -41,20 +41,20 @@ namespace glm
 		//! Classic perlin noise.
 		//! From GLM_GTX_noise extension.
 		template <typename T, template<typename> class vecType> 
-        T cnoise(
+        T perlin(
 			vecType<T> const & p);
 		
 		//! Periodic perlin noise.
 		//! From GLM_GTX_noise extension.
 		template <typename T, template<typename> class vecType> 
-        T pnoise(
+        T perlin(
 			vecType<T> const & p, 
 			vecType<T> const & rep);
 
 		//! Simplex noise.
 		//! From GLM_GTX_noise extension.
 		template <typename T, template<typename> class vecType> 
-        T snoise(
+        T simplex(
 			vecType<T> const & p);
 
 		///@}

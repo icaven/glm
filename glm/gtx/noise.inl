@@ -62,7 +62,7 @@ namespace noise
 {
 	// Classic Perlin noise
 	template <typename T>
-	GLM_FUNC_QUALIFIER T cnoise(detail::tvec2<T> const & P)
+	GLM_FUNC_QUALIFIER T perlin(detail::tvec2<T> const & P)
 	{
 		detail::tvec4<T> Pi = floor(detail::tvec4<T>(P.x, P.y, P.x, P.y)) + detail::tvec4<T>(0.0, 0.0, 1.0, 1.0);
 		detail::tvec4<T> Pf = fract(detail::tvec4<T>(P.x, P.y, P.x, P.y)) - detail::tvec4<T>(0.0, 0.0, 1.0, 1.0);
@@ -103,7 +103,7 @@ namespace noise
 
 	// Classic Perlin noise
 	template <typename T>
-	GLM_FUNC_QUALIFIER T cnoise(detail::tvec3<T> const & P)
+	GLM_FUNC_QUALIFIER T perlin(detail::tvec3<T> const & P)
 	{
 		detail::tvec3<T> Pi0 = floor(P); // Integer part for indexing
 		detail::tvec3<T> Pi1 = Pi0 + T(1); // Integer part + 1
@@ -176,7 +176,7 @@ namespace noise
 
 	// Classic Perlin noise
 	template <typename T>
-	GLM_FUNC_QUALIFIER T cnoise(detail::tvec4<T> const & P)
+	GLM_FUNC_QUALIFIER T perlin(detail::tvec4<T> const & P)
 	{
 		detail::tvec4<T> Pi0 = floor(P); // Integer part for indexing
 		detail::tvec4<T> Pi1 = Pi0 + T(1); // Integer part + 1
@@ -312,10 +312,10 @@ namespace noise
 
 	// Classic Perlin noise, periodic variant
 	template <typename T>
-	GLM_FUNC_QUALIFIER T pnoise(detail::tvec2<T> const & P, detail::tvec2<T> const & rep)
+	GLM_FUNC_QUALIFIER T perlin(detail::tvec2<T> const & P, detail::tvec2<T> const & rep)
 	{
-		detail::tvec4<T> Pi = floor(P.x, P.y, P.x, P.y) + detail::tvec4<T>(0.0, 0.0, 1.0, 1.0);
-		detail::tvec4<T> Pf = fract(P.x, P.y, P.x, P.y) - detail::tvec4<T>(0.0, 0.0, 1.0, 1.0);
+		detail::tvec4<T> Pi = floor(detail::tvec4<T>(P.x, P.y, P.x, P.y)) + detail::tvec4<T>(0.0, 0.0, 1.0, 1.0);
+		detail::tvec4<T> Pf = fract(detail::tvec4<T>(P.x, P.y, P.x, P.y)) - detail::tvec4<T>(0.0, 0.0, 1.0, 1.0);
 		Pi = mod(Pi, detail::tvec4<T>(rep.x, rep.y, rep.x, rep.y)); // To create noise with explicit period
 		Pi = mod(Pi, T(289)); // To avoid truncation effects in permutation
 		detail::tvec4<T> ix(Pi.x, Pi.z, Pi.x, Pi.z);
@@ -354,7 +354,7 @@ namespace noise
 
 	// Classic Perlin noise, periodic variant
 	template <typename T>
-	GLM_FUNC_QUALIFIER T pnoise(detail::tvec3<T> const & P, detail::tvec3<T> const & rep)
+	GLM_FUNC_QUALIFIER T perlin(detail::tvec3<T> const & P, detail::tvec3<T> const & rep)
 	{
 		detail::tvec3<T> Pi0 = mod(floor(P), rep); // Integer part, modulo period
 		detail::tvec3<T> Pi1 = mod(Pi0 + detail::tvec3<T>(1.0), rep); // Integer part + 1, mod period
@@ -425,7 +425,7 @@ namespace noise
 
 	// Classic Perlin noise, periodic version
 	template <typename T>
-	GLM_FUNC_QUALIFIER T pnoise(detail::tvec4<T> const & P, detail::tvec4<T> const & rep)
+	GLM_FUNC_QUALIFIER T perlin(detail::tvec4<T> const & P, detail::tvec4<T> const & rep)
 	{
 		detail::tvec4<T> Pi0 = mod(floor(P), rep); // Integer part modulo rep
 		detail::tvec4<T> Pi1 = mod(Pi0 + T(1), rep); // Integer part + 1 mod rep
@@ -558,7 +558,7 @@ namespace noise
 	}
 
 	template <typename T>
-	GLM_FUNC_QUALIFIER T snoise(glm::detail::tvec2<T> const & v)
+	GLM_FUNC_QUALIFIER T simplex(glm::detail::tvec2<T> const & v)
 	{
 		detail::tvec4<T> const C = detail::tvec4<T>(
 			T( 0.211324865405187),  // (3.0 -  sqrt(3.0)) / 6.0
@@ -615,7 +615,7 @@ namespace noise
 	}
 
 	template <typename T>
-	GLM_FUNC_QUALIFIER T snoise(detail::tvec3<T> const & v)
+	GLM_FUNC_QUALIFIER T simplex(detail::tvec3<T> const & v)
 	{ 
 		detail::tvec2<T> const C = detail::tvec2<T>(1.0 / 6.0, 1.0 / 3.0);
 		detail::tvec4<T> const D = detail::tvec4<T>(0.0, 0.5, 1.0, 2.0);
@@ -702,7 +702,7 @@ namespace noise
 	}
 
 	template <typename T>
-	GLM_FUNC_QUALIFIER T snoise(detail::tvec4<T> const & v)
+	GLM_FUNC_QUALIFIER T simplex(detail::tvec4<T> const & v)
 	{
 		detail::tvec4<T> const C(
 			0.138196601125011,  // (5 - sqrt(5))/20  G4
