@@ -17,16 +17,44 @@
 
 namespace glm
 {
+	template <typename T>
+	GLM_FUNC_QUALIFIER T permute(T const & x)
+	{
+		return mod(((x * T(34)) + T(1)) * x, T(289));
+	}
+
 	template <typename T, template<typename> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T> permute(vecType<T> const & x)
 	{
 		return mod(((x * T(34)) + T(1)) * x, T(289));
 	}
   
+	template <typename T>
+	GLM_FUNC_QUALIFIER T taylorInvSqrt(T const & r)
+	{
+		return T(1.79284291400159) - T(0.85373472095314) * r;
+	}
+
 	template <typename T, template<typename> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T> taylorInvSqrt(vecType<T> const & r)
 	{
 		return T(1.79284291400159) - T(0.85373472095314) * r;
+	}
+
+	template <typename T, template <typename> class vecType> 
+	GLM_FUNC_QUALIFIER vecType<T> fade(vecType<T> const & t) 
+	{
+		return t * t * t * (t * (t * T(6) - T(15)) + T(10));
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER detail::tvec4<T> grad4(T const & j, detail::tvec4<T> const & ip)
+	{
+		detail::tvec3<T> pXYZ = floor(fract(detail::tvec3<T>(j) * detail::tvec3<T>(ip)) * T(7)) * ip[2] - T(1);
+		T pW = T(1.5) - dot(abs(pXYZ), detail::tvec3<T>(1));
+		detail::tvec4<T> s = detail::tvec4<T>(lessThan(detail::tvec4<T>(pXYZ, pW), detail::tvec4<T>(0.0)));
+		pXYZ = pXYZ + (detail::tvec3<T>(s) * T(2) - T(1)) * s.w; 
+		return detail::tvec4<T>(pXYZ, pW);
 	}
 
 namespace gtx{
@@ -627,8 +655,8 @@ namespace noise
 		detail::tvec4<T> x_ = floor(j * ns.z);
 		detail::tvec4<T> y_ = floor(j - T(7) * x_);    // mod(j,N)
 
-		detail::tvec4<T> x = x_ * ns.x + ns;
-		detail::tvec4<T> y = y_ * ns.x + ns;
+		detail::tvec4<T> x = x_ * ns.x + ns.y;
+		detail::tvec4<T> y = y_ * ns.x + ns.y;
 		detail::tvec4<T> h = T(1) - abs(x) - abs(y);
 
 		detail::tvec4<T> b0 = detail::tvec4<T>(x.x, x.y, y.x, y.y);
@@ -683,7 +711,7 @@ namespace noise
 			-0.447213595499958); // -1 + 4 * G4
 
 		// (sqrt(5) - 1)/4 = F4, used once below
-		T const F4(0.309016994374947451);
+		T const F4 = T(0.309016994374947451);
 
 		// First corner
 		detail::tvec4<T> i  = floor(v + dot(v, vec4(F4)));
@@ -702,10 +730,10 @@ namespace noise
 		//  i0.y += dot(isYZ.xy, vec2(1.0));
 		i0.y += isYZ.x + isYZ.y;
 		//i0.zw += 1.0 - detail::tvec2<T>(isYZ.x, isYZ.y);
-        i0.z += 1.0 - detail::tvec2<T>(isYZ.x, isYZ.y);
-        i0.w += 1.0 - detail::tvec2<T>(isYZ.x, isYZ.y);
+        i0.z += T(1) - isYZ.x;
+        i0.w += T(1) - isYZ.y;
 		i0.z += isYZ.z;
-		i0.w += 1.0 - isYZ.z;
+		i0.w += T(1) - isYZ.z;
 
 		// i0 now contains the unique values 0,1,2,3 in each channel
 		detail::tvec4<T> i3 = clamp(i0, 0.0, 1.0);
