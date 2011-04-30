@@ -12,7 +12,7 @@ namespace gtc{
 namespace matrix_transform
 {
     template <typename T> 
-    inline detail::tmat4x4<T> translate
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> translate
 	(
 		detail::tmat4x4<T> const & m,
 		detail::tvec3<T> const & v
@@ -24,7 +24,7 @@ namespace matrix_transform
     }
 		
     template <typename T> 
-    inline detail::tmat4x4<T> rotate
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> rotate
 	(
 		detail::tmat4x4<T> const & m,
 		T const & angle, 
@@ -61,7 +61,7 @@ namespace matrix_transform
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> scale
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> scale
 	(
 		detail::tmat4x4<T> const & m,
 		detail::tvec3<T> const & v
@@ -76,7 +76,7 @@ namespace matrix_transform
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> translate_slow
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> translate_slow
 	(
 		detail::tmat4x4<T> const & m,
 		detail::tvec3<T> const & v
@@ -96,7 +96,7 @@ namespace matrix_transform
     }
 		
     template <typename T> 
-    inline detail::tmat4x4<T> rotate_slow
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> rotate_slow
 	(
 		detail::tmat4x4<T> const & m,
 		T const & angle, 
@@ -130,7 +130,7 @@ namespace matrix_transform
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> scale_slow
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> scale_slow
 	(
 		detail::tmat4x4<T> const & m,
 		detail::tvec3<T> const & v
@@ -144,7 +144,7 @@ namespace matrix_transform
     }
 
 	template <typename valType> 
-	inline detail::tmat4x4<valType> ortho
+	GLM_FUNC_QUALIFIER detail::tmat4x4<valType> ortho
 	(
 		valType const & left, 
 		valType const & right, 
@@ -165,7 +165,7 @@ namespace matrix_transform
 	}
 
 	template <typename valType> 
-	inline detail::tmat4x4<valType> ortho(
+	GLM_FUNC_QUALIFIER detail::tmat4x4<valType> ortho(
 		valType const & left, 
 		valType const & right, 
 		valType const & bottom, 
@@ -181,7 +181,7 @@ namespace matrix_transform
 	}
 
 	template <typename valType> 
-	inline detail::tmat4x4<valType> frustum
+	GLM_FUNC_QUALIFIER detail::tmat4x4<valType> frustum
 	(
 		valType const & left, 
 		valType const & right, 
@@ -203,7 +203,7 @@ namespace matrix_transform
 	}
 
 	template <typename valType> 
-	inline detail::tmat4x4<valType> perspective
+	GLM_FUNC_QUALIFIER detail::tmat4x4<valType> perspective
 	(
 		valType const & fovy, 
 		valType const & aspect, 
@@ -227,7 +227,7 @@ namespace matrix_transform
 	}
 
 	template <typename valType>
-	inline detail::tmat4x4<valType> perspectiveFov
+	GLM_FUNC_QUALIFIER detail::tmat4x4<valType> perspectiveFov
 	(
 		valType const & fov, 
 		valType const & width, 
@@ -250,7 +250,7 @@ namespace matrix_transform
 	}
 
 	template <typename T> 
-	inline detail::tmat4x4<T> infinitePerspective
+	GLM_FUNC_QUALIFIER detail::tmat4x4<T> infinitePerspective
 	(
 		T fovy, 
 		T aspect, 
@@ -273,7 +273,7 @@ namespace matrix_transform
 	}
 
 	template <typename T> 
-	inline detail::tmat4x4<T> tweakedInfinitePerspective
+	GLM_FUNC_QUALIFIER detail::tmat4x4<T> tweakedInfinitePerspective
 	(
 		T fovy, 
 		T aspect, 
@@ -296,7 +296,7 @@ namespace matrix_transform
 	}
 
 	template <typename T, typename U>
-	inline detail::tvec3<T> project
+	GLM_FUNC_QUALIFIER detail::tvec3<T> project
 	(
 		detail::tvec3<T> const & obj, 
 		detail::tmat4x4<T> const & model, 
@@ -317,7 +317,7 @@ namespace matrix_transform
 	}
 
 	template <typename T, typename U>
-	inline detail::tvec3<T> unProject
+	GLM_FUNC_QUALIFIER detail::tvec3<T> unProject
 	(
 		detail::tvec3<T> const & win, 
 		detail::tmat4x4<T> const & model, 
@@ -363,7 +363,7 @@ namespace matrix_transform
 	}
 
     template <typename T> 
-	inline detail::tmat4x4<T> lookAt
+	GLM_FUNC_QUALIFIER detail::tmat4x4<T> lookAt
 	(
 		detail::tvec3<T> const & eye,
 		detail::tvec3<T> const & center,

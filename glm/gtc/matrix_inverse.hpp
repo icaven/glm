@@ -36,7 +36,7 @@ namespace matrix_inverse
 	//! Compute the inverse transpose of a matrix.
 	//! From GLM_GTC_matrix_inverse extension.
 	template <typename genType> 
-	inline typename genType::value_type inverseTranspose(
+	GLM_FUNC_QUALIFIER typename genType::value_type inverseTranspose(
 		genType const & m);
 
 	///@}

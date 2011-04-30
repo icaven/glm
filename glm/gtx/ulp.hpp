@@ -24,7 +24,7 @@ namespace glm
 {
 	namespace gtx{
 	//! GLM_GTX_ulp extension: Precision calculation functions
-	namespace spline
+	namespace ulp
 	{
 		/// \addtogroup gtx_ulp
 		///@{
@@ -32,7 +32,7 @@ namespace glm
 		//! Return the number of ULP between 2 variables.
 		//! From GLM_GTX_ulp extension.
 		template <typename genType>
-		genIType ulp(
+        std::size_t ulp(
 			genType const & a,
 			genType const & b);
 
@@ -44,7 +44,7 @@ namespace glm
 
 #include "ulp.inl"
 
-namespace glm{using namespace gtx::spline;}
+namespace glm{using namespace gtx::ulp;}
 
-#endif//glm_gtx_spline
+#endif//glm_gtx_ulp
 

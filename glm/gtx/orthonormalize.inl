@@ -12,7 +12,7 @@ namespace gtx{
 namespace orthonormalize{
 
     template <typename T>
-    inline detail::tmat3x3<T> orthonormalize
+    GLM_FUNC_QUALIFIER detail::tmat3x3<T> orthonormalize
 	(
 		const detail::tmat3x3<T>& m
 	)
@@ -34,7 +34,7 @@ namespace orthonormalize{
     }
 
     template <typename T> 
-    inline detail::tvec3<T> orthonormalize
+    GLM_FUNC_QUALIFIER detail::tvec3<T> orthonormalize
 	(
 		const detail::tvec3<T>& x, 
 		const detail::tvec3<T>& y

@@ -12,7 +12,7 @@ namespace gtx{
 namespace extented_min_max
 {
 	template <typename T>
-	inline T min(
+	GLM_FUNC_QUALIFIER T min(
 		T const & x, 
 		T const & y, 
 		T const & z)
@@ -25,7 +25,7 @@ namespace extented_min_max
 		typename T, 
 		template <typename> class C
 	>
-	inline C<T> min
+	GLM_FUNC_QUALIFIER C<T> min
 	(
 		C<T> const & x, 
 		typename C<T>::value_type const & y, 
@@ -40,7 +40,7 @@ namespace extented_min_max
 		typename T, 
 		template <typename> class C
 	>
-	inline C<T> min
+	GLM_FUNC_QUALIFIER C<T> min
 	(
 		C<T> const & x, 
 		C<T> const & y, 
@@ -51,7 +51,7 @@ namespace extented_min_max
 	}
 
 	template <typename T>
-	inline T min
+	GLM_FUNC_QUALIFIER T min
 	(
 		T const & x, 
 		T const & y, 
@@ -67,7 +67,7 @@ namespace extented_min_max
 		typename T, 
 		template <typename> class C
 	>
-	inline C<T> min
+	GLM_FUNC_QUALIFIER C<T> min
 	(
 		C<T> const & x, 
 		typename C<T>::value_type const & y, 
@@ -83,7 +83,7 @@ namespace extented_min_max
 		typename T, 
 		template <typename> class C
 	>
-	inline C<T> min
+	GLM_FUNC_QUALIFIER C<T> min
 	(
 		C<T> const & x, 
 		C<T> const & y, 
@@ -95,7 +95,7 @@ namespace extented_min_max
 	}
 
 	template <typename T>
-	inline T max(
+	GLM_FUNC_QUALIFIER T max(
 		T const & x, 
 		T const & y, 
 		T const & z)
@@ -108,7 +108,7 @@ namespace extented_min_max
 		typename T, 
 		template <typename> class C
 	>
-	inline C<T> max
+	GLM_FUNC_QUALIFIER C<T> max
 	(
 		C<T> const & x, 
 		typename C<T>::value_type const & y, 
@@ -123,7 +123,7 @@ namespace extented_min_max
 		typename T, 
 		template <typename> class C
 	>
-	inline C<T> max
+	GLM_FUNC_QUALIFIER C<T> max
 	(
 		C<T> const & x, 
 		C<T> const & y, 
@@ -134,7 +134,7 @@ namespace extented_min_max
 	}
 
 	template <typename T>
-	inline T max
+	GLM_FUNC_QUALIFIER T max
 	(
 		T const & x, 
 		T const & y, 
@@ -150,7 +150,7 @@ namespace extented_min_max
 		typename T, 
 		template <typename> class C
 	>
-	inline C<T> max
+	GLM_FUNC_QUALIFIER C<T> max
 	(
 		C<T> const & x, 
 		typename C<T>::value_type const & y, 
@@ -166,7 +166,7 @@ namespace extented_min_max
 		typename T, 
 		template <typename> class C
 	>
-	inline C<T> max
+	GLM_FUNC_QUALIFIER C<T> max
 	(
 		C<T> const & x, 
 		C<T> const & y, 

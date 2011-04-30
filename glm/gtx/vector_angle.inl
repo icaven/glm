@@ -12,7 +12,7 @@ namespace gtx{
 namespace vector_angle{
 
 template <typename genType> 
-inline typename genType::value_type angle
+GLM_FUNC_QUALIFIER typename genType::value_type angle
 (
 	genType const & x, 
 	genType const & y
@@ -23,7 +23,7 @@ inline typename genType::value_type angle
 
 //! \todo epsilon is hard coded to 0.01
 template <typename valType> 
-inline valType orientedAngle
+GLM_FUNC_QUALIFIER valType orientedAngle
 (
 	detail::tvec2<valType> const & x, 
 	detail::tvec2<valType> const & y
@@ -41,7 +41,7 @@ inline valType orientedAngle
 
 //! \todo epsilon is hard coded to 0.01
 template <typename valType> 
-inline valType orientedAngle
+GLM_FUNC_QUALIFIER valType orientedAngle
 (
 	detail::tvec3<valType> const & x, 
 	detail::tvec3<valType> const & y
@@ -57,7 +57,7 @@ inline valType orientedAngle
 
 //! \todo epsilon is hard coded to 0.01
 template <typename valType>
-inline valType orientedAngle
+GLM_FUNC_QUALIFIER valType orientedAngle
 (
 	detail::tvec4<valType> const & x, 
 	detail::tvec4<valType> const & y
@@ -72,7 +72,7 @@ inline valType orientedAngle
 }
 
 template <typename valType>
-inline valType orientedAngleFromRef
+GLM_FUNC_QUALIFIER valType orientedAngleFromRef
 (
     detail::tvec2<valType> const & x,
     detail::tvec2<valType> const & y,
@@ -88,7 +88,7 @@ inline valType orientedAngleFromRef
 }
 
 template <typename valType>
-inline valType orientedAngleFromRef
+GLM_FUNC_QUALIFIER valType orientedAngleFromRef
 (
 	detail::tvec3<valType> const & x,
 	detail::tvec3<valType> const & y,
@@ -104,7 +104,7 @@ inline valType orientedAngleFromRef
 }
 
 template <typename valType>
-inline valType orientedAngleFromRef
+GLM_FUNC_QUALIFIER valType orientedAngleFromRef
 (
 	detail::tvec4<valType> const & x,
 	detail::tvec4<valType> const & y,

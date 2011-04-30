@@ -12,7 +12,7 @@ namespace gtx{
 namespace polar_coordinates
 {
 	template <typename T> 
-	inline detail::tvec3<T> polar(
+	GLM_FUNC_QUALIFIER detail::tvec3<T> polar(
 		const detail::tvec3<T>& euclidean)
 	{
 		T length = length(euclidean);
@@ -26,7 +26,7 @@ namespace polar_coordinates
 	}
 
 	template <typename T> 
-	inline detail::tvec3<T> euclidean(
+	GLM_FUNC_QUALIFIER detail::tvec3<T> euclidean(
 		const detail::tvec3<T>& polar)
 	{
 		T latitude = radians(polar.x);

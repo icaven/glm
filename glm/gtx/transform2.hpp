@@ -75,7 +75,7 @@ namespace glm
 			T x, 
 			T y);
 
-		//template <typename T> inline detail::tmat4x4<T> shear(const detail::tmat4x4<T> & m, shearPlane, planePoint, angle)
+		//template <typename T> GLM_FUNC_QUALIFIER detail::tmat4x4<T> shear(const detail::tmat4x4<T> & m, shearPlane, planePoint, angle)
 		// Identity + tan(angle) * cross(Normal, OnPlaneVector)     0
 		// - dot(PointOnPlane, normal) * OnPlaneVector              1
 

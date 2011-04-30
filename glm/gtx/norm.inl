@@ -12,35 +12,35 @@ namespace gtx{
 namespace norm
 {
 	template <typename T>
-    inline T length2(
+    GLM_FUNC_QUALIFIER T length2(
 		const T x)
     {
         return x * x;
     }
 
     template <typename T>
-    inline T length2(
+    GLM_FUNC_QUALIFIER T length2(
 		const detail::tvec2<T>& x)
     {
         return dot(x, x);
     }
 
     template <typename T>
-    inline T length2(
+    GLM_FUNC_QUALIFIER T length2(
 		const detail::tvec3<T>& x)
     {
         return dot(x, x);
     }
 
     template <typename T>
-    inline T length2(
+    GLM_FUNC_QUALIFIER T length2(
 		const detail::tvec4<T>& x)
     {
         return dot(x, x);
     }
 
     template <typename T> 
-    inline T length2(
+    GLM_FUNC_QUALIFIER T length2(
 		const detail::tquat<T>& q)
     {
         return q.x * q.x + q.y * q.y + q.z * q.z + q.w * q.w;
@@ -79,7 +79,7 @@ namespace norm
 	}
 
     template <typename T> 
-    inline T l1Norm(
+    GLM_FUNC_QUALIFIER T l1Norm(
 		const detail::tvec3<T>& a, 
 		const detail::tvec3<T>& b)
     {
@@ -87,14 +87,14 @@ namespace norm
     }
 
     template <typename T> 
-    inline T l1Norm(
+    GLM_FUNC_QUALIFIER T l1Norm(
 		const detail::tvec3<T>& v)
     {
         return abs(v.x) + abs(v.y) + abs(v.z);
     }
 
     template <typename T> 
-    inline T l2Norm(
+    GLM_FUNC_QUALIFIER T l2Norm(
 		const detail::tvec3<T>& a, 
 		const detail::tvec3<T>& b)
     {
@@ -102,14 +102,14 @@ namespace norm
     }
 
     template <typename T> 
-    inline T l2Norm(
+    GLM_FUNC_QUALIFIER T l2Norm(
 		const detail::tvec3<T>& v)
     {
         return length(v);
     }
 
 	template <typename T> 
-	inline T lxNorm(
+	GLM_FUNC_QUALIFIER T lxNorm(
 		const detail::tvec3<T>& x, 
 		const detail::tvec3<T>& y, 
 		unsigned int Depth)
@@ -118,7 +118,7 @@ namespace norm
 	}
 
 	template <typename T> 
-	inline T lxNorm(
+	GLM_FUNC_QUALIFIER T lxNorm(
 		const detail::tvec3<T>& v, 
 		unsigned int Depth)
 	{

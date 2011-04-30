@@ -15,7 +15,7 @@ namespace gtx{
 namespace random
 {
     template <>
-	inline float signedRand1()
+	GLM_FUNC_QUALIFIER float signedRand1()
 	{
 		#if(GLM_COMPILER & GLM_COMPILER_VC)
 		#define RAND_SHIFT_NUM 5
@@ -26,13 +26,13 @@ namespace random
 	}
 
     template <>
-	inline double signedRand1()
+	GLM_FUNC_QUALIFIER double signedRand1()
 	{
 		return double(signedRand1<float>());
 	}
 
 	template <typename T>
-	inline detail::tvec2<T> signedRand2()
+	GLM_FUNC_QUALIFIER detail::tvec2<T> signedRand2()
 	{
 		return detail::tvec2<T>(
 			signedRand1<float>(),
@@ -40,7 +40,7 @@ namespace random
 	}
 
 	template <typename T>
-	inline detail::tvec3<T> signedRand3()
+	GLM_FUNC_QUALIFIER detail::tvec3<T> signedRand3()
 	{
 		return detail::tvec3<T>(
 			signedRand1<float>(),
@@ -49,7 +49,7 @@ namespace random
 	}
 
 	template <typename T>
-	inline detail::tvec4<T> signedRand4()
+	GLM_FUNC_QUALIFIER detail::tvec4<T> signedRand4()
 	{
 		return detail::tvec4<T>(
 			signedRand1<float>(),
@@ -59,14 +59,14 @@ namespace random
 	}
 
     template <typename T>
-    inline detail::tvec2<T> normalizedRand2()
+    GLM_FUNC_QUALIFIER detail::tvec2<T> normalizedRand2()
     {
         T a = compRand1<T>(T(0), T(6.283185307179586476925286766559f));
         return detail::tvec2<T>(cos(a), sin(a));
     }
 
 	template <typename T>
-    inline detail::tvec3<T> normalizedRand3()
+    GLM_FUNC_QUALIFIER detail::tvec3<T> normalizedRand3()
     {
 	    T z = compRand1(T(-1), T(1));
 	    T a = compRand1(T(0), T(6.283185307179586476925286766559f));
@@ -80,7 +80,7 @@ namespace random
     }
 
     template <typename T>
-    inline detail::tvec3<T> normalizedRand3(
+    GLM_FUNC_QUALIFIER detail::tvec3<T> normalizedRand3(
 		T Min, 
 		T Max)
     {
@@ -88,32 +88,32 @@ namespace random
     }
 
 	template <>
-	inline float compRand1()
+	GLM_FUNC_QUALIFIER float compRand1()
 	{
 		return float(std::rand()) / float(RAND_MAX);
 	}
 
 	template <>
-	inline double compRand1()
+	GLM_FUNC_QUALIFIER double compRand1()
 	{
 		return double(std::rand()) / double(RAND_MAX);
 	}
 
-	inline glm::half compRand1(
+	GLM_FUNC_QUALIFIER glm::half compRand1(
 		glm::half Min, 
 		glm::half Max)
 	{
 		return compRand1<glm::half>() * (Max - Min) + Min;
 	}
 
-	inline float compRand1(
+	GLM_FUNC_QUALIFIER float compRand1(
 		float Min, 
 		float Max)
 	{
 		return compRand1<float>() * (Max - Min) + Min;
 	}
 
-	inline double compRand1(
+	GLM_FUNC_QUALIFIER double compRand1(
 		double Min, 
 		double Max)
 	{
@@ -121,7 +121,7 @@ namespace random
 	}
 
 	template <typename T>
-	inline T compRand1(
+	GLM_FUNC_QUALIFIER T compRand1(
 		T Min, 
 		T Max)
 	{
@@ -129,7 +129,7 @@ namespace random
 	}
 
 	template <typename T>
-	inline detail::tvec2<T> compRand2(
+	GLM_FUNC_QUALIFIER detail::tvec2<T> compRand2(
 		T Min, 
 		T Max)
 	{
@@ -139,7 +139,7 @@ namespace random
 	}
 
 	template <typename T>
-	inline detail::tvec3<T> compRand3(
+	GLM_FUNC_QUALIFIER detail::tvec3<T> compRand3(
 		T Min, 
 		T Max)
 	{
@@ -150,7 +150,7 @@ namespace random
 	}
 
 	template <typename T>
-	inline detail::tvec4<T> compRand4(
+	GLM_FUNC_QUALIFIER detail::tvec4<T> compRand4(
 		T Min, 
 		T Max)
 	{
@@ -162,7 +162,7 @@ namespace random
 	}
 
 	template <typename T>
-	inline detail::tvec2<T> compRand2(
+	GLM_FUNC_QUALIFIER detail::tvec2<T> compRand2(
 		T Min, 
 		const detail::tvec2<T>& Max)
 	{
@@ -172,7 +172,7 @@ namespace random
 	}
 
 	template <typename T>
-	inline detail::tvec3<T> compRand3(
+	GLM_FUNC_QUALIFIER detail::tvec3<T> compRand3(
 		T Min, 
 		const detail::tvec3<T>& Max)
 	{
@@ -183,7 +183,7 @@ namespace random
 	}
 
 	template <typename T>
-	inline detail::tvec4<T> compRand4(
+	GLM_FUNC_QUALIFIER detail::tvec4<T> compRand4(
 		T Min, 
 		const detail::tvec4<T>& Max)
 	{
@@ -195,7 +195,7 @@ namespace random
 	}
 
 	template <typename T>
-	inline detail::tvec2<T> compRand2(
+	GLM_FUNC_QUALIFIER detail::tvec2<T> compRand2(
 		const detail::tvec2<T>& Min, 
 		T Max)
 	{
@@ -205,7 +205,7 @@ namespace random
 	}
 
 	template <typename T>
-	inline detail::tvec3<T> compRand3(
+	GLM_FUNC_QUALIFIER detail::tvec3<T> compRand3(
 		const detail::tvec3<T>& Min, 
 		T Max)
 	{
@@ -216,7 +216,7 @@ namespace random
 	}
 
 	template <typename T>
-	inline detail::tvec4<T> compRand4(
+	GLM_FUNC_QUALIFIER detail::tvec4<T> compRand4(
 		const detail::tvec4<T>& Min, 
 		T Max)
 	{
@@ -228,7 +228,7 @@ namespace random
 	}
 
 	template <typename T>
-	inline detail::tvec2<T> compRand2(
+	GLM_FUNC_QUALIFIER detail::tvec2<T> compRand2(
 		const detail::tvec2<T>& Min, 
 		const detail::tvec2<T>& Max)
 	{
@@ -238,7 +238,7 @@ namespace random
 	}
 
 	template <typename T>
-	inline detail::tvec3<T> compRand3(
+	GLM_FUNC_QUALIFIER detail::tvec3<T> compRand3(
 		const detail::tvec3<T>& Min, 
 		const detail::tvec3<T>& Max)
 	{
@@ -249,7 +249,7 @@ namespace random
 	}
 
 	template <typename T>
-	inline detail::tvec4<T> compRand4(
+	GLM_FUNC_QUALIFIER detail::tvec4<T> compRand4(
 		const detail::tvec4<T>& Min, 
 		const detail::tvec4<T>& Max)
 	{
@@ -261,7 +261,7 @@ namespace random
 	}
 
 	template <typename T>
-    inline detail::tvec2<float> vecRand2()
+    GLM_FUNC_QUALIFIER detail::tvec2<float> vecRand2()
     {
 		detail::tvec2<float> result(float(0));
 		do
@@ -273,7 +273,7 @@ namespace random
     }
 
 	template <typename T>
-    inline detail::tvec2<double> vecRand2()
+    GLM_FUNC_QUALIFIER detail::tvec2<double> vecRand2()
     {
 		detail::tvec2<double> result(double(0));
 		do
@@ -285,7 +285,7 @@ namespace random
     }
 
 	template <typename T>
-    inline detail::tvec2<T> vecRand2(
+    GLM_FUNC_QUALIFIER detail::tvec2<T> vecRand2(
 		T MinRadius, 
 		T MaxRadius)
     {
@@ -305,7 +305,7 @@ namespace random
     }
 
 	template <typename T>
-    inline detail::tvec3<T> vecRand3()
+    GLM_FUNC_QUALIFIER detail::tvec3<T> vecRand3()
     {
 		detail::tvec3<T> Result(T(0));
 		do
@@ -318,7 +318,7 @@ namespace random
     }
 
 	template <typename T>
-    inline detail::tvec3<T> vecRand3(
+    GLM_FUNC_QUALIFIER detail::tvec3<T> vecRand3(
 		T MinRadius, 
 		T MaxRadius)
     {
@@ -338,7 +338,7 @@ namespace random
     }
 
 	template <typename T>
-    inline detail::tvec4<float> vecRand4()
+    GLM_FUNC_QUALIFIER detail::tvec4<float> vecRand4()
     {
 		detail::tvec4<float> result(float(0));
 		do
@@ -350,7 +350,7 @@ namespace random
     }
 
 	template <typename T>
-    inline detail::tvec4<double> vecRand4()
+    GLM_FUNC_QUALIFIER detail::tvec4<double> vecRand4()
     {
 		detail::tvec4<double> result(double(0));
 		do
@@ -362,7 +362,7 @@ namespace random
     }
 
 	template <typename T>
-    inline detail::tvec4<T> vecRand4(
+    GLM_FUNC_QUALIFIER detail::tvec4<T> vecRand4(
 		T MinRadius, 
 		T MaxRadius)
     {
@@ -382,7 +382,7 @@ namespace random
     }
 
     template <typename T>
-    inline T gaussRand1(
+    GLM_FUNC_QUALIFIER T gaussRand1(
 		T mean, 
 		T std_deviation)
     {
@@ -400,7 +400,7 @@ namespace random
     }
 
     template <typename T>
-    inline detail::tvec2<T> gaussRand2(
+    GLM_FUNC_QUALIFIER detail::tvec2<T> gaussRand2(
 		T mean, 
 		T std_deviation)
     {
@@ -410,7 +410,7 @@ namespace random
     }
 
     template <typename T>
-    inline detail::tvec3<T> gaussRand3(
+    GLM_FUNC_QUALIFIER detail::tvec3<T> gaussRand3(
 		T mean, 
 		T std_deviation)
     {
@@ -421,7 +421,7 @@ namespace random
     }
 
     template <typename T>
-    inline detail::tvec4<T> gaussRand4(
+    GLM_FUNC_QUALIFIER detail::tvec4<T> gaussRand4(
 		T mean, 
 		T std_deviation)
     {
@@ -433,7 +433,7 @@ namespace random
     }
 
     template <typename T>
-    inline detail::tvec2<T> gaussRand2(
+    GLM_FUNC_QUALIFIER detail::tvec2<T> gaussRand2(
 		T mean, 
 		const detail::tvec2<T>& std_deviation)
     {
@@ -443,7 +443,7 @@ namespace random
     }
 
     template <typename T>
-    inline detail::tvec3<T> gaussRand3(
+    GLM_FUNC_QUALIFIER detail::tvec3<T> gaussRand3(
 		T mean, 
 		const detail::tvec3<T>& std_deviation)
     {
@@ -454,7 +454,7 @@ namespace random
     }
 
     template <typename T>
-    inline detail::tvec4<T> gaussRand4(
+    GLM_FUNC_QUALIFIER detail::tvec4<T> gaussRand4(
 		T mean, 
 		const detail::tvec4<T>& std_deviation)
     {
@@ -466,7 +466,7 @@ namespace random
     }
 
     template <typename T>
-    inline detail::tvec2<T> gaussRand2(
+    GLM_FUNC_QUALIFIER detail::tvec2<T> gaussRand2(
 		const detail::tvec2<T>& mean, 
 		T std_deviation)
     {
@@ -476,7 +476,7 @@ namespace random
     }
 
     template <typename T>
-    inline detail::tvec3<T> gaussRand3(
+    GLM_FUNC_QUALIFIER detail::tvec3<T> gaussRand3(
 		const detail::tvec3<T>& mean, 
 		T std_deviation)
     {
@@ -487,7 +487,7 @@ namespace random
     }
 
     template <typename T>
-    inline detail::tvec4<T> gaussRand4(
+    GLM_FUNC_QUALIFIER detail::tvec4<T> gaussRand4(
 		const detail::tvec4<T>& mean, 
 		T std_deviation)
     {
@@ -499,7 +499,7 @@ namespace random
     }
 
     template <typename T>
-    inline detail::tvec2<T> gaussRand2(
+    GLM_FUNC_QUALIFIER detail::tvec2<T> gaussRand2(
 		const detail::tvec2<T>& mean, 
 		const detail::tvec2<T>& std_deviation)
     {
@@ -509,7 +509,7 @@ namespace random
     }
 
     template <typename T>
-    inline detail::tvec3<T> gaussRand3(
+    GLM_FUNC_QUALIFIER detail::tvec3<T> gaussRand3(
 		const detail::tvec3<T>& mean, 
 		const detail::tvec3<T>& std_deviation)
     {
@@ -520,7 +520,7 @@ namespace random
     }
 
     template <typename T>
-    inline detail::tvec4<T> gaussRand4(
+    GLM_FUNC_QUALIFIER detail::tvec4<T> gaussRand4(
 		const detail::tvec4<T>& mean, 
 		const detail::tvec4<T>& std_deviation)
     {

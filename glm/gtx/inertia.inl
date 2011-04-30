@@ -12,7 +12,7 @@ namespace gtx{
 namespace inertia{
 
     template <typename T>
-    inline detail::tmat3x3<T> boxInertia3(
+    GLM_FUNC_QUALIFIER detail::tmat3x3<T> boxInertia3(
 		const T Mass, 
 		const detail::tvec3<T>& Scale)
     {
@@ -24,7 +24,7 @@ namespace inertia{
     }
 
     template <typename T>
-    inline detail::tmat4x4<T> boxInertia4(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> boxInertia4(
 		const T Mass, 
 		const detail::tvec3<T>& Scale)
     {
@@ -36,7 +36,7 @@ namespace inertia{
     }
 
     template <typename T>
-    inline detail::tmat3x3<T> diskInertia3(
+    GLM_FUNC_QUALIFIER detail::tmat3x3<T> diskInertia3(
 		const T Mass, 
 		const T Radius)
     {
@@ -47,7 +47,7 @@ namespace inertia{
     }
 
     template <typename T>
-    inline detail::tmat4x4<T> diskInertia4(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> diskInertia4(
 		const T Mass, 
 		const T Radius)
     {
@@ -59,7 +59,7 @@ namespace inertia{
     }
 
     template <typename T>
-    inline detail::tmat3x3<T> ballInertia3(
+    GLM_FUNC_QUALIFIER detail::tmat3x3<T> ballInertia3(
 		const T Mass, 
 		const T Radius)
     {
@@ -68,7 +68,7 @@ namespace inertia{
     }
 
     template <typename T>
-    inline detail::tmat4x4<T> ballInertia4(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> ballInertia4(
 		const T Mass, 
 		const T Radius)
     {
@@ -79,7 +79,7 @@ namespace inertia{
     }
 
     template <typename T>
-    inline detail::tmat3x3<T> sphereInertia3(
+    GLM_FUNC_QUALIFIER detail::tmat3x3<T> sphereInertia3(
 		const T Mass, 
 		const T Radius)
     {
@@ -88,7 +88,7 @@ namespace inertia{
     }
 
     template <typename T>
-    inline detail::tmat4x4<T> sphereInertia4(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> sphereInertia4(
 		const T Mass, 
 		const T Radius)
     {

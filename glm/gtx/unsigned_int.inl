@@ -11,7 +11,7 @@ namespace glm{
 namespace gtx{
 namespace unsigned_int{
 
-inline uint pow(uint x, uint y)
+GLM_FUNC_QUALIFIER uint pow(uint x, uint y)
 {
     uint result = x;
     for(uint i = 1; i < y; ++i)
@@ -19,7 +19,7 @@ inline uint pow(uint x, uint y)
     return result;
 }
 
-inline uint sqrt(uint x)
+GLM_FUNC_QUALIFIER uint sqrt(uint x)
 {
     if(x <= 1) return x;
 
@@ -35,7 +35,7 @@ inline uint sqrt(uint x)
     return CurrentAnswer;
 }
 
-inline uint mod(uint x, uint y)
+GLM_FUNC_QUALIFIER uint mod(uint x, uint y)
 {
 	return x - y * (x / y);
 }

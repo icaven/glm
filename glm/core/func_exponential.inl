@@ -15,7 +15,7 @@ namespace glm
 
     // pow
     template <typename genType>
-    inline genType pow
+    GLM_FUNC_QUALIFIER genType pow
 	(
 		genType const & x, 
 		genType const & y
@@ -27,7 +27,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec2<T> pow
+    GLM_FUNC_QUALIFIER detail::tvec2<T> pow
 	(
 		detail::tvec2<T> const & x, 
 		detail::tvec2<T> const & y
@@ -39,7 +39,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec3<T> pow
+    GLM_FUNC_QUALIFIER detail::tvec3<T> pow
 	(
 		detail::tvec3<T> const & x, 
 		detail::tvec3<T> const & y
@@ -52,7 +52,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec4<T> pow
+    GLM_FUNC_QUALIFIER detail::tvec4<T> pow
 	(
 		detail::tvec4<T> const & x, 
 		detail::tvec4<T> const & y
@@ -67,7 +67,7 @@ namespace glm
 
     // exp
     template <typename genType>
-    inline genType exp
+    GLM_FUNC_QUALIFIER genType exp
 	(
 		genType const & x
 	)
@@ -78,7 +78,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec2<T> exp
+    GLM_FUNC_QUALIFIER detail::tvec2<T> exp
 	(
 		detail::tvec2<T> const & x
 	)
@@ -89,7 +89,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec3<T> exp
+    GLM_FUNC_QUALIFIER detail::tvec3<T> exp
 	(
 		detail::tvec3<T> const & x
 	)
@@ -101,7 +101,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec4<T> exp
+    GLM_FUNC_QUALIFIER detail::tvec4<T> exp
 	(
 		detail::tvec4<T> const & x
 	)
@@ -115,7 +115,7 @@ namespace glm
 
     // log
     template <typename genType>
-    inline genType log
+    GLM_FUNC_QUALIFIER genType log
 	(
 		genType const & x
 	)
@@ -126,7 +126,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec2<T> log
+    GLM_FUNC_QUALIFIER detail::tvec2<T> log
 	(
 		detail::tvec2<T> const & x
 	)
@@ -137,7 +137,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec3<T> log
+    GLM_FUNC_QUALIFIER detail::tvec3<T> log
 	(
 		detail::tvec3<T> const & x
 	)
@@ -149,7 +149,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec4<T> log
+    GLM_FUNC_QUALIFIER detail::tvec4<T> log
 	(
 		detail::tvec4<T> const & x
 	)
@@ -163,7 +163,7 @@ namespace glm
 
     //exp2, ln2 = 0.69314718055994530941723212145818f
     template <typename genType>
-    inline genType exp2
+    GLM_FUNC_QUALIFIER genType exp2
 	(
 		genType const & x
 	)
@@ -174,7 +174,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec2<T> exp2
+    GLM_FUNC_QUALIFIER detail::tvec2<T> exp2
 	(
 		detail::tvec2<T> const & x
 	)
@@ -185,7 +185,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec3<T> exp2
+    GLM_FUNC_QUALIFIER detail::tvec3<T> exp2
 	(
 		detail::tvec3<T> const & x
 	)
@@ -197,7 +197,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec4<T> exp2
+    GLM_FUNC_QUALIFIER detail::tvec4<T> exp2
 	(
 		detail::tvec4<T> const & x
 	)
@@ -211,7 +211,7 @@ namespace glm
 
     // log2, ln2 = 0.69314718055994530941723212145818f
     template <typename genType>
-    inline genType log2
+    GLM_FUNC_QUALIFIER genType log2
 	(
 		genType const & x
 	)
@@ -222,7 +222,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec2<T> log2
+    GLM_FUNC_QUALIFIER detail::tvec2<T> log2
 	(
 		detail::tvec2<T> const & x
 	)
@@ -233,7 +233,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec3<T> log2
+    GLM_FUNC_QUALIFIER detail::tvec3<T> log2
 	(
 		detail::tvec3<T> const & x
 	)
@@ -245,7 +245,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec4<T> log2
+    GLM_FUNC_QUALIFIER detail::tvec4<T> log2
 	(
 		detail::tvec4<T> const & x
 	)
@@ -259,7 +259,7 @@ namespace glm
 
     // sqrt
     template <typename genType>
-    inline genType sqrt
+    GLM_FUNC_QUALIFIER genType sqrt
 	(
 		genType const & x
 	)
@@ -270,7 +270,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec2<T> sqrt
+    GLM_FUNC_QUALIFIER detail::tvec2<T> sqrt
 	(
 		detail::tvec2<T> const & x
 	)
@@ -281,7 +281,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec3<T> sqrt
+    GLM_FUNC_QUALIFIER detail::tvec3<T> sqrt
 	(
 		detail::tvec3<T> const & x
 	)
@@ -293,7 +293,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec4<T> sqrt
+    GLM_FUNC_QUALIFIER detail::tvec4<T> sqrt
 	(
 		detail::tvec4<T> const & x
 	)
@@ -306,7 +306,7 @@ namespace glm
     }
 
     template <typename genType>
-    inline genType inversesqrt
+    GLM_FUNC_QUALIFIER genType inversesqrt
 	(
 		genType const & x
 	)
@@ -317,7 +317,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec2<T> inversesqrt
+    GLM_FUNC_QUALIFIER detail::tvec2<T> inversesqrt
 	(
 		detail::tvec2<T> const & x
 	)
@@ -328,7 +328,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec3<T> inversesqrt
+    GLM_FUNC_QUALIFIER detail::tvec3<T> inversesqrt
 	(
 		detail::tvec3<T> const & x
 	)
@@ -340,7 +340,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec4<T> inversesqrt
+    GLM_FUNC_QUALIFIER detail::tvec4<T> inversesqrt
 	(
 		detail::tvec4<T> const & x
 	)
