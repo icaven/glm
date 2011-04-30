@@ -14,7 +14,7 @@ namespace gtx{
 namespace bit{
 
 template <typename genIType>
-inline genIType mask
+GLM_FUNC_QUALIFIER genIType mask
 (
 	genIType const & count
 )
@@ -23,7 +23,7 @@ inline genIType mask
 }
 
 template <typename valIType>
-inline detail::tvec2<valIType> mask
+GLM_FUNC_QUALIFIER detail::tvec2<valIType> mask
 (
 	detail::tvec2<valIType> const & count
 )
@@ -34,7 +34,7 @@ inline detail::tvec2<valIType> mask
 }
 
 template <typename valIType>
-inline detail::tvec3<valIType> mask
+GLM_FUNC_QUALIFIER detail::tvec3<valIType> mask
 (
 	detail::tvec3<valIType> const & count
 )
@@ -46,7 +46,7 @@ inline detail::tvec3<valIType> mask
 }
 
 template <typename valIType>
-inline detail::tvec4<valIType> mask
+GLM_FUNC_QUALIFIER detail::tvec4<valIType> mask
 (
 	detail::tvec4<valIType> const & count
 )
@@ -60,7 +60,7 @@ inline detail::tvec4<valIType> mask
 
 // extractField
 template <typename genIType>
-inline genIType extractField
+GLM_FUNC_QUALIFIER genIType extractField
 (
 	gtc::half_float::half const & value, 
 	genIType const & first, 
@@ -72,7 +72,7 @@ inline genIType extractField
 }
 
 template <typename genIType>
-inline genIType extractField
+GLM_FUNC_QUALIFIER genIType extractField
 (
 	float const & value, 
 	genIType const & first, 
@@ -84,7 +84,7 @@ inline genIType extractField
 }
 
 template <typename genIType>
-inline genIType extractField
+GLM_FUNC_QUALIFIER genIType extractField
 (
 	double const & value, 
 	genIType const & first, 
@@ -96,7 +96,7 @@ inline genIType extractField
 }
 
 template <typename genIUType, typename sizeType>
-inline genIUType extractField
+GLM_FUNC_QUALIFIER genIUType extractField
 (
 	genIUType const & Value, 
 	sizeType const & First, 
@@ -114,7 +114,7 @@ inline genIUType extractField
 }
 
 template <typename genIUType, typename sizeType>
-inline detail::tvec2<genIUType> extractField
+GLM_FUNC_QUALIFIER detail::tvec2<genIUType> extractField
 (
 	detail::tvec2<genIUType> const & value, 
 	sizeType const & first, 
@@ -127,7 +127,7 @@ inline detail::tvec2<genIUType> extractField
 }
 
 template <typename genIUType, typename sizeType>
-inline detail::tvec3<genIUType> extractField
+GLM_FUNC_QUALIFIER detail::tvec3<genIUType> extractField
 (
 	detail::tvec3<genIUType> const & value, 
 	sizeType const & first, 
@@ -141,7 +141,7 @@ inline detail::tvec3<genIUType> extractField
 }
 
 template <typename genIUType, typename sizeType>
-inline detail::tvec4<genIUType> extractField
+GLM_FUNC_QUALIFIER detail::tvec4<genIUType> extractField
 (
 	detail::tvec4<genIUType> const & value, 
 	sizeType const & first, 
@@ -156,7 +156,7 @@ inline detail::tvec4<genIUType> extractField
 }
 
 template <typename genIUType, typename sizeType>
-inline detail::tvec2<genIUType> extractField
+GLM_FUNC_QUALIFIER detail::tvec2<genIUType> extractField
 (
 	detail::tvec2<genIUType> const & value, 
 	detail::tvec2<sizeType> const & first, 
@@ -169,7 +169,7 @@ inline detail::tvec2<genIUType> extractField
 }
 
 template <typename genIUType, typename sizeType>
-inline detail::tvec3<genIUType> extractField
+GLM_FUNC_QUALIFIER detail::tvec3<genIUType> extractField
 (
 	detail::tvec3<genIUType> const & value, 
 	detail::tvec3<sizeType> const & first, 
@@ -183,7 +183,7 @@ inline detail::tvec3<genIUType> extractField
 }
 
 template <typename genIUType, typename sizeType>
-inline detail::tvec4<genIUType> extractField
+GLM_FUNC_QUALIFIER detail::tvec4<genIUType> extractField
 (
 	detail::tvec4<genIUType> const & value, 
 	detail::tvec4<sizeType> const & first, 
@@ -198,7 +198,7 @@ inline detail::tvec4<genIUType> extractField
 }
 
 template <typename genIUType, typename sizeType>
-inline detail::tvec2<genIUType> extractField
+GLM_FUNC_QUALIFIER detail::tvec2<genIUType> extractField
 (
 	genIUType const & value, 
 	detail::tvec2<sizeType> const & first, 
@@ -211,7 +211,7 @@ inline detail::tvec2<genIUType> extractField
 }
 
 template <typename genIUType, typename sizeType>
-inline detail::tvec3<genIUType> extractField
+GLM_FUNC_QUALIFIER detail::tvec3<genIUType> extractField
 (
 	genIUType const & value, 
 	detail::tvec3<sizeType> const & first, 
@@ -225,7 +225,7 @@ inline detail::tvec3<genIUType> extractField
 }
 
 template <typename genIUType, typename sizeType>
-inline detail::tvec4<genIUType> extractField
+GLM_FUNC_QUALIFIER detail::tvec4<genIUType> extractField
 (
 	genIUType const & value, 
 	detail::tvec4<sizeType> const & first, 
@@ -241,7 +241,7 @@ inline detail::tvec4<genIUType> extractField
 
 // lowestBit
 template <typename genType>
-inline int lowestBit
+GLM_FUNC_QUALIFIER int lowestBit
 (
 	genType const & Value
 )
@@ -254,7 +254,7 @@ inline int lowestBit
 }
 
 template <typename valType>
-inline detail::tvec2<int> lowestBit
+GLM_FUNC_QUALIFIER detail::tvec2<int> lowestBit
 (
 	detail::tvec2<valType> const & value
 )
@@ -265,7 +265,7 @@ inline detail::tvec2<int> lowestBit
 }
 
 template <typename valType>
-inline detail::tvec3<int> lowestBit
+GLM_FUNC_QUALIFIER detail::tvec3<int> lowestBit
 (
 	detail::tvec3<valType> const & value
 )
@@ -277,7 +277,7 @@ inline detail::tvec3<int> lowestBit
 }
 
 template <typename valType>
-inline detail::tvec4<int> lowestBit
+GLM_FUNC_QUALIFIER detail::tvec4<int> lowestBit
 (
 	detail::tvec4<valType> const & value
 )
@@ -291,7 +291,7 @@ inline detail::tvec4<int> lowestBit
 
 // highestBit
 template <typename genType>
-inline int highestBit
+GLM_FUNC_QUALIFIER int highestBit
 (
 	genType const & value
 )
@@ -304,7 +304,7 @@ inline int highestBit
 }
 
 //template <>
-//inline int highestBit<int>
+//GLM_FUNC_QUALIFIER int highestBit<int>
 //(
 //	int value
 //)
@@ -315,7 +315,7 @@ inline int highestBit
 //}
 
 template <typename valType>
-inline detail::tvec2<int> highestBit
+GLM_FUNC_QUALIFIER detail::tvec2<int> highestBit
 (
 	detail::tvec2<valType> const & value
 )
@@ -326,7 +326,7 @@ inline detail::tvec2<int> highestBit
 }
 
 template <typename valType>
-inline detail::tvec3<int> highestBit
+GLM_FUNC_QUALIFIER detail::tvec3<int> highestBit
 (
 	detail::tvec3<valType> const & value
 )
@@ -338,7 +338,7 @@ inline detail::tvec3<int> highestBit
 }
 
 template <typename valType>
-inline detail::tvec4<int> highestBit
+GLM_FUNC_QUALIFIER detail::tvec4<int> highestBit
 (
 	detail::tvec4<valType> const & value
 )
@@ -352,7 +352,7 @@ inline detail::tvec4<int> highestBit
 
 // highestBitValue
 template <typename genType>
-inline genType highestBitValue
+GLM_FUNC_QUALIFIER genType highestBitValue
 (
 	genType const & value
 )
@@ -368,7 +368,7 @@ inline genType highestBitValue
 }
 
 template <typename valType>
-inline detail::tvec2<int> highestBitValue
+GLM_FUNC_QUALIFIER detail::tvec2<int> highestBitValue
 (
 	detail::tvec2<valType> const & value
 )
@@ -379,7 +379,7 @@ inline detail::tvec2<int> highestBitValue
 }
 
 template <typename valType>
-inline detail::tvec3<int> highestBitValue
+GLM_FUNC_QUALIFIER detail::tvec3<int> highestBitValue
 (
 	detail::tvec3<valType> const & value
 )
@@ -391,7 +391,7 @@ inline detail::tvec3<int> highestBitValue
 }
 
 template <typename valType>
-inline detail::tvec4<int> highestBitValue
+GLM_FUNC_QUALIFIER detail::tvec4<int> highestBitValue
 (
 	detail::tvec4<valType> const & value
 )
@@ -405,7 +405,7 @@ inline detail::tvec4<int> highestBitValue
 
 // isPowerOfTwo
 template <typename genType>
-inline bool isPowerOfTwo(genType const & Value)
+GLM_FUNC_QUALIFIER bool isPowerOfTwo(genType const & Value)
 {
 	//detail::If<std::numeric_limits<genType>::is_signed>::apply(abs, Value);
 	//return !(Value & (Value - 1));
@@ -418,7 +418,7 @@ inline bool isPowerOfTwo(genType const & Value)
 }
 
 template <typename valType>
-inline detail::tvec2<bool> isPowerOfTwo
+GLM_FUNC_QUALIFIER detail::tvec2<bool> isPowerOfTwo
 (
 	detail::tvec2<valType> const & value
 )
@@ -429,7 +429,7 @@ inline detail::tvec2<bool> isPowerOfTwo
 }
 
 template <typename valType>
-inline detail::tvec3<bool> isPowerOfTwo
+GLM_FUNC_QUALIFIER detail::tvec3<bool> isPowerOfTwo
 (
 	detail::tvec3<valType> const & value
 )
@@ -441,7 +441,7 @@ inline detail::tvec3<bool> isPowerOfTwo
 }
 
 template <typename valType>
-inline detail::tvec4<bool> isPowerOfTwo
+GLM_FUNC_QUALIFIER detail::tvec4<bool> isPowerOfTwo
 (
 	detail::tvec4<valType> const & value
 )
@@ -455,13 +455,13 @@ inline detail::tvec4<bool> isPowerOfTwo
 
 // powerOfTwoAbove
 template <typename genType>
-inline genType powerOfTwoAbove(genType const & value)
+GLM_FUNC_QUALIFIER genType powerOfTwoAbove(genType const & value)
 {
 	return isPowerOfTwo(value) ? value : highestBitValue(value) << 1;
 }
 
 template <typename valType>
-inline detail::tvec2<valType> powerOfTwoAbove
+GLM_FUNC_QUALIFIER detail::tvec2<valType> powerOfTwoAbove
 (
 	detail::tvec2<valType> const & value
 )
@@ -472,7 +472,7 @@ inline detail::tvec2<valType> powerOfTwoAbove
 }
 
 template <typename valType>
-inline detail::tvec3<valType> powerOfTwoAbove
+GLM_FUNC_QUALIFIER detail::tvec3<valType> powerOfTwoAbove
 (
 	detail::tvec3<valType> const & value
 )
@@ -484,7 +484,7 @@ inline detail::tvec3<valType> powerOfTwoAbove
 }
 
 template <typename valType>
-inline detail::tvec4<valType> powerOfTwoAbove
+GLM_FUNC_QUALIFIER detail::tvec4<valType> powerOfTwoAbove
 (
 	detail::tvec4<valType> const & value
 )
@@ -498,7 +498,7 @@ inline detail::tvec4<valType> powerOfTwoAbove
 
 // powerOfTwoBelow
 template <typename genType>
-inline genType powerOfTwoBelow
+GLM_FUNC_QUALIFIER genType powerOfTwoBelow
 (
 	genType const & value
 )
@@ -507,7 +507,7 @@ inline genType powerOfTwoBelow
 }
 
 template <typename valType>
-inline detail::tvec2<valType> powerOfTwoBelow
+GLM_FUNC_QUALIFIER detail::tvec2<valType> powerOfTwoBelow
 (
 	detail::tvec2<valType> const & value
 )
@@ -518,7 +518,7 @@ inline detail::tvec2<valType> powerOfTwoBelow
 }
 
 template <typename valType>
-inline detail::tvec3<valType> powerOfTwoBelow
+GLM_FUNC_QUALIFIER detail::tvec3<valType> powerOfTwoBelow
 (
 	detail::tvec3<valType> const & value
 )
@@ -530,7 +530,7 @@ inline detail::tvec3<valType> powerOfTwoBelow
 }
 
 template <typename valType>
-inline detail::tvec4<valType> powerOfTwoBelow
+GLM_FUNC_QUALIFIER detail::tvec4<valType> powerOfTwoBelow
 (
 	detail::tvec4<valType> const & value
 )
@@ -544,7 +544,7 @@ inline detail::tvec4<valType> powerOfTwoBelow
 
 // powerOfTwoNearest
 template <typename genType>
-inline genType powerOfTwoNearest
+GLM_FUNC_QUALIFIER genType powerOfTwoNearest
 (
 	genType const & value
 )
@@ -558,7 +558,7 @@ inline genType powerOfTwoNearest
 }
 
 template <typename valType>
-inline detail::tvec2<valType> powerOfTwoNearest
+GLM_FUNC_QUALIFIER detail::tvec2<valType> powerOfTwoNearest
 (
 	detail::tvec2<valType> const & value
 )
@@ -569,7 +569,7 @@ inline detail::tvec2<valType> powerOfTwoNearest
 }
 
 template <typename valType>
-inline detail::tvec3<valType> powerOfTwoNearest
+GLM_FUNC_QUALIFIER detail::tvec3<valType> powerOfTwoNearest
 (
 	detail::tvec3<valType> const & value
 )
@@ -581,7 +581,7 @@ inline detail::tvec3<valType> powerOfTwoNearest
 }
 
 template <typename valType>
-inline detail::tvec4<valType> powerOfTwoNearest
+GLM_FUNC_QUALIFIER detail::tvec4<valType> powerOfTwoNearest
 (
 	detail::tvec4<valType> const & value
 )
@@ -594,7 +594,7 @@ inline detail::tvec4<valType> powerOfTwoNearest
 }
 
 template <typename genType>
-inline genType bitRevert(genType const & In)
+GLM_FUNC_QUALIFIER genType bitRevert(genType const & In)
 {
 	GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_integer, "'bitRevert' only accept integer values");
 
@@ -607,7 +607,7 @@ inline genType bitRevert(genType const & In)
 }
 
 template <typename valType>
-inline detail::tvec2<valType> bitRevert
+GLM_FUNC_QUALIFIER detail::tvec2<valType> bitRevert
 (
 	detail::tvec2<valType> const & Value
 )
@@ -618,7 +618,7 @@ inline detail::tvec2<valType> bitRevert
 }
 
 template <typename valType>
-inline detail::tvec3<valType> bitRevert
+GLM_FUNC_QUALIFIER detail::tvec3<valType> bitRevert
 (
 	detail::tvec3<valType> const & Value
 )
@@ -630,7 +630,7 @@ inline detail::tvec3<valType> bitRevert
 }
 
 template <typename valType>
-inline detail::tvec4<valType> bitRevert
+GLM_FUNC_QUALIFIER detail::tvec4<valType> bitRevert
 (
 	detail::tvec4<valType> const & Value
 )
@@ -643,7 +643,7 @@ inline detail::tvec4<valType> bitRevert
 }
 
 template <typename genType>
-inline genType bitRotateRight(genType const & In, std::size_t Shift)
+GLM_FUNC_QUALIFIER genType bitRotateRight(genType const & In, std::size_t Shift)
 {
 	GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_integer, "'bitRotateRight' only accept integer values");
 
@@ -652,7 +652,7 @@ inline genType bitRotateRight(genType const & In, std::size_t Shift)
 }
 
 template <typename valType>
-inline detail::tvec2<valType> bitRotateRight
+GLM_FUNC_QUALIFIER detail::tvec2<valType> bitRotateRight
 (
 	detail::tvec2<valType> const & Value, 
 	std::size_t Shift
@@ -664,7 +664,7 @@ inline detail::tvec2<valType> bitRotateRight
 }
 
 template <typename valType>
-inline detail::tvec3<valType> bitRotateRight
+GLM_FUNC_QUALIFIER detail::tvec3<valType> bitRotateRight
 (
 	detail::tvec3<valType> const & Value, 
 	std::size_t Shift
@@ -677,7 +677,7 @@ inline detail::tvec3<valType> bitRotateRight
 }
 
 template <typename valType>
-inline detail::tvec4<valType> bitRotateRight
+GLM_FUNC_QUALIFIER detail::tvec4<valType> bitRotateRight
 (
 	detail::tvec4<valType> const & Value, 
 	std::size_t Shift
@@ -691,7 +691,7 @@ inline detail::tvec4<valType> bitRotateRight
 }
 
 template <typename genType>
-inline genType bitRotateLeft(genType const & In, std::size_t Shift)
+GLM_FUNC_QUALIFIER genType bitRotateLeft(genType const & In, std::size_t Shift)
 {
 	GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_integer, "'bitRotateLeft' only accept integer values");
 
@@ -700,7 +700,7 @@ inline genType bitRotateLeft(genType const & In, std::size_t Shift)
 }
 
 template <typename valType>
-inline detail::tvec2<valType> bitRotateLeft
+GLM_FUNC_QUALIFIER detail::tvec2<valType> bitRotateLeft
 (
 	detail::tvec2<valType> const & Value, 
 	std::size_t Shift
@@ -712,7 +712,7 @@ inline detail::tvec2<valType> bitRotateLeft
 }
 
 template <typename valType>
-inline detail::tvec3<valType> bitRotateLeft
+GLM_FUNC_QUALIFIER detail::tvec3<valType> bitRotateLeft
 (
 	detail::tvec3<valType> const & Value, 
 	std::size_t Shift
@@ -725,7 +725,7 @@ inline detail::tvec3<valType> bitRotateLeft
 }
 
 template <typename valType>
-inline detail::tvec4<valType> bitRotateLeft
+GLM_FUNC_QUALIFIER detail::tvec4<valType> bitRotateLeft
 (
 	detail::tvec4<valType> const & Value, 
 	std::size_t Shift

@@ -15,7 +15,7 @@ namespace gtx{
 namespace matrix_query
 {
 	template<typename T> 
-	inline bool isNull(
+	GLM_FUNC_QUALIFIER bool isNull(
 		const detail::tmat2x2<T>& m, 
 		const T epsilon)
 	{
@@ -26,7 +26,7 @@ namespace matrix_query
 	}
 
 	template<typename T> 
-	inline bool isNull(
+	GLM_FUNC_QUALIFIER bool isNull(
 		const detail::tmat3x3<T>& m, 
 		const T epsilon)
 	{
@@ -37,7 +37,7 @@ namespace matrix_query
 	}
 
 	template<typename T> 
-	inline bool isNull(
+	GLM_FUNC_QUALIFIER bool isNull(
 		const detail::tmat4x4<T>& m, 
 		const T epsilon)
 	{
@@ -48,7 +48,7 @@ namespace matrix_query
 	}
 
 	template<typename genType> 
-	inline bool isIdentity(
+	GLM_FUNC_QUALIFIER bool isIdentity(
 		const genType& m, 
 		const typename genType::value_type epsilon)
 	{
@@ -66,7 +66,7 @@ namespace matrix_query
 	}
 
 	template<typename T> 
-	inline bool isNormalized(
+	GLM_FUNC_QUALIFIER bool isNormalized(
 		const detail::tmat2x2<T>& m, 
 		const T epsilon)
 	{
@@ -84,7 +84,7 @@ namespace matrix_query
 	}
 
 	template<typename T> 
-	inline bool isNormalized(
+	GLM_FUNC_QUALIFIER bool isNormalized(
 		const detail::tmat3x3<T>& m, 
 		const T epsilon)
 	{
@@ -102,7 +102,7 @@ namespace matrix_query
 	}
 
 	template<typename T> 
-	inline bool isNormalized(
+	GLM_FUNC_QUALIFIER bool isNormalized(
 		const detail::tmat4x4<T>& m, 
 		const T epsilon)
 	{
@@ -120,7 +120,7 @@ namespace matrix_query
 	}
 
 	template<typename genType> 
-	inline bool isOrthogonal(
+	GLM_FUNC_QUALIFIER bool isOrthogonal(
 		const genType& m, 
 		const typename genType::value_type epsilon)
 	{

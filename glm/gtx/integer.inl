@@ -12,7 +12,7 @@ namespace gtx{
 namespace integer
 {
     // pow
-    inline int pow(int x, int y)
+    GLM_FUNC_QUALIFIER int pow(int x, int y)
     {
 		if(y == 0)
 			return 1;
@@ -23,7 +23,7 @@ namespace integer
     }
 
     // sqrt: From Christopher J. Musial, An integer square root, Graphics Gems, 1990, page 387
-    inline int sqrt(int x)
+    GLM_FUNC_QUALIFIER int sqrt(int x)
     {
         if(x <= 1) return x;
 
@@ -40,14 +40,14 @@ namespace integer
     }
 
     // mod
-	inline int mod(int x, int y)
+	GLM_FUNC_QUALIFIER int mod(int x, int y)
 	{
 		return x - y * (x / y);
 	}
 
     // factorial (!12 max, integer only)
 	template <typename genType>
-    inline genType factorial(genType const & x)
+    GLM_FUNC_QUALIFIER genType factorial(genType const & x)
     {
         genType Result;
         for(Result = 1; x > 1; --x)
@@ -56,7 +56,7 @@ namespace integer
     }
 
 	template <typename valType>
-    inline detail::tvec2<valType> factorial(
+    GLM_FUNC_QUALIFIER detail::tvec2<valType> factorial(
 		detail::tvec2<valType> const & x)
     {
         return detail::tvec2<valType>(
@@ -65,7 +65,7 @@ namespace integer
     }
 
 	template <typename valType>
-    inline detail::tvec3<valType> factorial(
+    GLM_FUNC_QUALIFIER detail::tvec3<valType> factorial(
 		detail::tvec3<valType> const & x)
     {
         return detail::tvec3<valType>(
@@ -75,7 +75,7 @@ namespace integer
     }
 
 	template <typename valType>
-    inline detail::tvec4<valType> factorial(
+    GLM_FUNC_QUALIFIER detail::tvec4<valType> factorial(
 		detail::tvec4<valType> const & x)
     {
         return detail::tvec4<valType>(

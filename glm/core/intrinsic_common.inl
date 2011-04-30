@@ -123,12 +123,12 @@ namespace detail{
 	static const __m128 _ps_log_c0 = _mm_set_ps1(0.693147180559945f);
 	static const __m128 _ps_log2_c0 = _mm_set_ps1(1.44269504088896340735992f);
 
-inline __m128 sse_abs_ps(__m128 x)
+GLM_FUNC_QUALIFIER __m128 sse_abs_ps(__m128 x)
 {
 	return _mm_and_ps(glm::detail::abs4Mask, x);
 } 
 
-inline __m128 sse_sgn_ps(__m128 x)
+GLM_FUNC_QUALIFIER __m128 sse_sgn_ps(__m128 x)
 {
 	__m128 Neg = _mm_set1_ps(-1.0f);
 	__m128 Pos = _mm_set1_ps(1.0f);
@@ -143,7 +143,7 @@ inline __m128 sse_sgn_ps(__m128 x)
 }
 
 //floor
-inline __m128 sse_flr_ps(__m128 x)
+GLM_FUNC_QUALIFIER __m128 sse_flr_ps(__m128 x)
 {
 	__m128 rnd0 = sse_rnd_ps(x);
 	__m128 cmp0 = _mm_cmplt_ps(x, rnd0);
@@ -154,13 +154,13 @@ inline __m128 sse_flr_ps(__m128 x)
 
 //trunc
 /*
-inline __m128 _mm_trc_ps(__m128 v)
+GLM_FUNC_QUALIFIER __m128 _mm_trc_ps(__m128 v)
 {
 	return __m128();
 }
 */
 //round
-inline __m128 sse_rnd_ps(__m128 x)
+GLM_FUNC_QUALIFIER __m128 sse_rnd_ps(__m128 x)
 {
 	__m128 and0 = _mm_and_ps(glm::detail::_epi32_sign_mask, x);
 	__m128 or0 = _mm_or_ps(and0, glm::detail::_ps_2pow23);
@@ -170,12 +170,12 @@ inline __m128 sse_rnd_ps(__m128 x)
 }
 
 //roundEven
-inline __m128 sse_rde_ps(__m128 v)
+GLM_FUNC_QUALIFIER __m128 sse_rde_ps(__m128 v)
 {
 
 }
 
-inline __m128 sse_ceil_ps(__m128 x)
+GLM_FUNC_QUALIFIER __m128 sse_ceil_ps(__m128 x)
 {
 	__m128 rnd0 = sse_rnd_ps(x);
 	__m128 cmp0 = _mm_cmpgt_ps(x, rnd0);
@@ -184,14 +184,14 @@ inline __m128 sse_ceil_ps(__m128 x)
 	return add0;
 }
 
-inline __m128 sse_frc_ps(__m128 x)
+GLM_FUNC_QUALIFIER __m128 sse_frc_ps(__m128 x)
 {
 	__m128 flr0 = sse_flr_ps(x);
 	__m128 sub0 = _mm_sub_ps(x, flr0);
 	return sub0;
 }
 
-inline __m128 sse_mod_ps(__m128 x, __m128 y)
+GLM_FUNC_QUALIFIER __m128 sse_mod_ps(__m128 x, __m128 y)
 {
 	__m128 div0 = _mm_div_ps(x, y);
 	__m128 flr0 = sse_flr_ps(div0);
@@ -200,23 +200,23 @@ inline __m128 sse_mod_ps(__m128 x, __m128 y)
 	return sub0;
 }
 
-inline __m128 sse_modf_ps(__m128 x, __m128i & i)
+GLM_FUNC_QUALIFIER __m128 sse_modf_ps(__m128 x, __m128i & i)
 {
 
 }
 
-//inline __m128 _mm_min_ps(__m128 x, __m128 y)
+//GLM_FUNC_QUALIFIER __m128 _mm_min_ps(__m128 x, __m128 y)
 
-//inline __m128 _mm_max_ps(__m128 x, __m128 y)
+//GLM_FUNC_QUALIFIER __m128 _mm_max_ps(__m128 x, __m128 y)
 
-inline __m128 sse_clp_ps(__m128 v, __m128 minVal, __m128 maxVal)
+GLM_FUNC_QUALIFIER __m128 sse_clp_ps(__m128 v, __m128 minVal, __m128 maxVal)
 {
 	__m128 min0 = _mm_min_ps(v, maxVal);
 	__m128 max0 = _mm_max_ps(min0, minVal);
 	return max0;
 }
 
-inline __m128 sse_mix_ps(__m128 v1, __m128 v2, __m128 a)
+GLM_FUNC_QUALIFIER __m128 sse_mix_ps(__m128 v1, __m128 v2, __m128 a)
 {
 	__m128 sub0 = _mm_sub_ps(glm::detail::one, a);
 	__m128 mul0 = _mm_mul_ps(v1, sub0);
@@ -225,7 +225,7 @@ inline __m128 sse_mix_ps(__m128 v1, __m128 v2, __m128 a)
 	return add0;
 }
 
-inline __m128 sse_stp_ps(__m128 edge, __m128 x)
+GLM_FUNC_QUALIFIER __m128 sse_stp_ps(__m128 edge, __m128 x)
 {
 	__m128 cmp = _mm_cmple_ps(x, edge);
 	if(_mm_movemask_ps(cmp) == 0)
@@ -234,7 +234,7 @@ inline __m128 sse_stp_ps(__m128 edge, __m128 x)
 		return glm::detail::zero;
 }
 
-inline __m128 sse_ssp_ps(__m128 edge0, __m128 edge1, __m128 x)
+GLM_FUNC_QUALIFIER __m128 sse_ssp_ps(__m128 edge0, __m128 edge1, __m128 x)
 {
 	__m128 sub0 = _mm_sub_ps(x, edge0);
 	__m128 sub1 = _mm_sub_ps(edge1, edge0);
@@ -247,19 +247,19 @@ inline __m128 sse_ssp_ps(__m128 edge0, __m128 edge1, __m128 x)
 	return mul2;
 }
 
-inline __m128 sse_nan_ps(__m128 x)
+GLM_FUNC_QUALIFIER __m128 sse_nan_ps(__m128 x)
 {
 
 }
 
-inline __m128 sse_inf_ps(__m128 x)
+GLM_FUNC_QUALIFIER __m128 sse_inf_ps(__m128 x)
 {
 
 }
 
 // SSE scalar reciprocal sqrt using rsqrt op, plus one Newton-Rhaphson iteration
 // By Elan Ruskin, http://assemblyrequired.crashworks.org/
-inline __m128 sse_sqrt_wip_ss(__m128 const & x)
+GLM_FUNC_QUALIFIER __m128 sse_sqrt_wip_ss(__m128 const & x)
 {
 	__m128 recip = _mm_rsqrt_ss(x);  // "estimate" opcode
 	const static __m128 three = {3, 3, 3, 3}; // aligned consts for fast load

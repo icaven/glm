@@ -12,7 +12,7 @@ namespace gtx{
 namespace normalize_dot{
 
 template <typename genType> 
-inline genType normalizeDot
+GLM_FUNC_QUALIFIER genType normalizeDot
 (
 	genType const & x, 
 	genType const & y
@@ -25,7 +25,7 @@ inline genType normalizeDot
 }
 
 template <typename valType> 
-inline valType normalizeDot
+GLM_FUNC_QUALIFIER valType normalizeDot
 (
 	detail::tvec2<valType> const & x, 
 	detail::tvec2<valType> const & y
@@ -38,7 +38,7 @@ inline valType normalizeDot
 }
 
 template <typename valType> 
-inline valType normalizeDot
+GLM_FUNC_QUALIFIER valType normalizeDot
 (
 	detail::tvec3<valType> const & x, 
 	detail::tvec3<valType> const & y
@@ -51,7 +51,7 @@ inline valType normalizeDot
 }
 
 template <typename valType> 
-inline valType normalizeDot
+GLM_FUNC_QUALIFIER valType normalizeDot
 (
 	detail::tvec4<valType> const & x, 
 	detail::tvec4<valType> const & y
@@ -64,7 +64,7 @@ inline valType normalizeDot
 }
 
 template <typename genType> 
-inline genType fastNormalizeDot
+GLM_FUNC_QUALIFIER genType fastNormalizeDot
 (
 	genType const & x, 
 	genType const & y
@@ -77,7 +77,7 @@ inline genType fastNormalizeDot
 }
 
 template <typename valType> 
-inline valType fastNormalizeDot
+GLM_FUNC_QUALIFIER valType fastNormalizeDot
 (
 	detail::tvec2<valType> const & x, 
 	detail::tvec2<valType> const & y
@@ -90,7 +90,7 @@ inline valType fastNormalizeDot
 }
 
 template <typename valType> 
-inline valType fastNormalizeDot
+GLM_FUNC_QUALIFIER valType fastNormalizeDot
 (
 	detail::tvec3<valType> const & x, 
 	detail::tvec3<valType> const & y
@@ -103,7 +103,7 @@ inline valType fastNormalizeDot
 }
 
 template <typename valType> 
-inline valType fastNormalizeDot
+GLM_FUNC_QUALIFIER valType fastNormalizeDot
 (
 	detail::tvec4<valType> const & x, 
 	detail::tvec4<valType> const & y

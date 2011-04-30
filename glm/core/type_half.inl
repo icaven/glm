@@ -16,7 +16,7 @@
 namespace glm{
 namespace detail
 {
-	inline float overflow()
+	GLM_FUNC_QUALIFIER float overflow()
 	{
 		volatile float f = 1e10;
 
@@ -26,7 +26,7 @@ namespace detail
 		return f;
 	}
 
-	inline float toFloat32(hdata value)
+	GLM_FUNC_QUALIFIER float toFloat32(hdata value)
 	{
 		int s = (value >> 15) & 0x00000001;
 		int e = (value >> 10) & 0x0000001f;
@@ -100,7 +100,7 @@ namespace detail
 		return Result.f;
 	}
 
-	inline hdata toFloat16(float const & f)
+	GLM_FUNC_QUALIFIER hdata toFloat16(float const & f)
 	{
 		uif Entry;
 		Entry.f = f;
@@ -235,79 +235,79 @@ namespace detail
 		}
 	}
 
-	inline thalf::thalf() :
+	GLM_FUNC_QUALIFIER thalf::thalf() :
 		data(0)
 	{}
 
-	inline thalf::thalf(thalf const & s) :
+	GLM_FUNC_QUALIFIER thalf::thalf(thalf const & s) :
 		data(s.data)
 	{}
 
 	template <typename U>
-	inline thalf::thalf(U const & s) :
+	GLM_FUNC_QUALIFIER thalf::thalf(U const & s) :
 		data(toFloat16(float(s)))
 	{}
 
 	// Cast
-	//inline half::operator float()
+	//GLM_FUNC_QUALIFIER half::operator float()
 	//{
 	//	return toFloat();
 	//}
 
-	inline thalf::operator float() const 
+	GLM_FUNC_QUALIFIER thalf::operator float() const 
 	{
 		return toFloat();
 	}
 
-	//inline half::operator double()
+	//GLM_FUNC_QUALIFIER half::operator double()
 	//{
 	//	return double(toFloat());
 	//}
 
-	//inline half::operator double() const
+	//GLM_FUNC_QUALIFIER half::operator double() const
 	//{
 	//	return double(toFloat());
 	//}
 
 	// Unary updatable operators
-	inline thalf& thalf::operator= (thalf const & s)
+	GLM_FUNC_QUALIFIER thalf& thalf::operator= (thalf const & s)
 	{
 		data = s.data;
 		return *this;
 	}
 
-	inline thalf& thalf::operator+=(thalf const & s)
+	GLM_FUNC_QUALIFIER thalf& thalf::operator+=(thalf const & s)
 	{
 		data = toFloat16(toFloat32(data) + toFloat32(s.data));
 		return *this;
 	}
 
-	inline thalf& thalf::operator-=(thalf const & s)
+	GLM_FUNC_QUALIFIER thalf& thalf::operator-=(thalf const & s)
 	{
 		data = toFloat16(toFloat32(data) - toFloat32(s.data));
 		return *this;
 	}
 
-	inline thalf& thalf::operator*=(thalf const & s)
+	GLM_FUNC_QUALIFIER thalf& thalf::operator*=(thalf const & s)
 	{
 		data = toFloat16(toFloat32(data) * toFloat32(s.data));		
 		return *this;
 	}
 
-	inline thalf& thalf::operator/=(thalf const & s)
+	GLM_FUNC_QUALIFIER thalf& thalf::operator/=(thalf const & s)
 	{
 		data = toFloat16(toFloat32(data) / toFloat32(s.data));
 		return *this;
 	}
 
-	inline thalf& thalf::operator++()
+	GLM_FUNC_QUALIFIER thalf& thalf::operator++()
 	{
 		float Casted = toFloat32(data);
 		data = toFloat16(++Casted);
 		return *this;
 	}
 
-	inline thalf& thalf::operator--()
+	GLM_FUNC_QUALIFIER thalf& thalf::operator--()
 	{
 		float Casted = toFloat32(data);
 		data = toFloat16(--Casted);
@@ -317,38 +317,38 @@ namespace detail
 	//////////////////////////////////////
 	// Binary arithmetic operators
 
-	inline detail::thalf operator+ (detail::thalf const & s1, detail::thalf const & s2)
+	GLM_FUNC_QUALIFIER detail::thalf operator+ (detail::thalf const & s1, detail::thalf const & s2)
 	{
 		return detail::thalf(float(s1) + float(s2));
 	}
 
-	inline detail::thalf operator- (detail::thalf const & s1, detail::thalf const & s2)
+	GLM_FUNC_QUALIFIER detail::thalf operator- (detail::thalf const & s1, detail::thalf const & s2)
 	{
 		return detail::thalf(float(s1) - float(s2));
 	}
 
-	inline detail::thalf operator* (detail::thalf const & s1, detail::thalf const & s2)
+	GLM_FUNC_QUALIFIER detail::thalf operator* (detail::thalf const & s1, detail::thalf const & s2)
 	{
 		return detail::thalf(float(s1) * float(s2));
 	}
 
-	inline detail::thalf operator/ (detail::thalf const & s1, detail::thalf const & s2)
+	GLM_FUNC_QUALIFIER detail::thalf operator/ (detail::thalf const & s1, detail::thalf const & s2)
 	{
 		return detail::thalf(float(s1) / float(s2));
 	}
 
 	// Unary constant operators
-	inline detail::thalf operator- (detail::thalf const & s)
+	GLM_FUNC_QUALIFIER detail::thalf operator- (detail::thalf const & s)
 	{
 		return detail::thalf(-float(s));
 	}
 
-	inline detail::thalf operator-- (detail::thalf const & s, int)
+	GLM_FUNC_QUALIFIER detail::thalf operator-- (detail::thalf const & s, int)
 	{
 		return detail::thalf(float(s) - 1.0f);
 	}
 
-	inline detail::thalf operator++ (detail::thalf const & s, int)
+	GLM_FUNC_QUALIFIER detail::thalf operator++ (detail::thalf const & s, int)
 	{
 		return detail::thalf(float(s) + 1.0f);
 	}

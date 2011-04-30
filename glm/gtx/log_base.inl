@@ -12,7 +12,7 @@ namespace gtx{
 namespace log_base{
 
 template <typename genType> 
-inline genType log(
+GLM_FUNC_QUALIFIER genType log(
 	genType const & x, 
 	genType const & base)
 {
@@ -22,7 +22,7 @@ inline genType log(
 }
 
 template <typename valType> 
-inline detail::tvec2<valType> log(
+GLM_FUNC_QUALIFIER detail::tvec2<valType> log(
 	detail::tvec2<valType> const & v, 
 	valType const & base)
 {
@@ -32,7 +32,7 @@ inline detail::tvec2<valType> log(
 }
 
 template <typename valType> 
-inline detail::tvec3<valType> log(
+GLM_FUNC_QUALIFIER detail::tvec3<valType> log(
 	detail::tvec3<valType> const & v, 
 	valType const & base)
 {
@@ -43,7 +43,7 @@ inline detail::tvec3<valType> log(
 }
 
 template <typename valType> 
-inline detail::tvec4<valType> log(
+GLM_FUNC_QUALIFIER detail::tvec4<valType> log(
 	detail::tvec4<valType> const & v, 
 	valType const & base)
 {
@@ -55,7 +55,7 @@ inline detail::tvec4<valType> log(
 }
 
 template <typename valType> 
-inline detail::tvec2<valType> log(
+GLM_FUNC_QUALIFIER detail::tvec2<valType> log(
 	detail::tvec2<valType> const & v, 
 	detail::tvec2<valType> const & base)
 {
@@ -65,7 +65,7 @@ inline detail::tvec2<valType> log(
 }
 
 template <typename valType> 
-inline detail::tvec3<valType> log(
+GLM_FUNC_QUALIFIER detail::tvec3<valType> log(
 	detail::tvec3<valType> const & v, 
 	detail::tvec3<valType> const & base)
 {
@@ -76,7 +76,7 @@ inline detail::tvec3<valType> log(
 }
 
 template <typename valType> 
-inline detail::tvec4<valType> log(
+GLM_FUNC_QUALIFIER detail::tvec4<valType> log(
 	detail::tvec4<valType> const & v, 
 	detail::tvec4<valType> const & base)
 {

@@ -13,7 +13,7 @@ namespace reciprocal{
 
 // sec
 template <typename genType>
-inline genType sec
+GLM_FUNC_QUALIFIER genType sec
 (
 	genType const & angle
 )
@@ -24,7 +24,7 @@ inline genType sec
 }
 
 template <typename valType>
-inline detail::tvec2<valType> sec
+GLM_FUNC_QUALIFIER detail::tvec2<valType> sec
 (
 	detail::tvec2<valType> const & angle
 )
@@ -35,7 +35,7 @@ inline detail::tvec2<valType> sec
 }
 
 template <typename valType>
-inline detail::tvec3<valType> sec
+GLM_FUNC_QUALIFIER detail::tvec3<valType> sec
 (
 	detail::tvec3<valType> const & angle
 )
@@ -47,7 +47,7 @@ inline detail::tvec3<valType> sec
 }
 
 template <typename valType>
-inline detail::tvec4<valType> sec
+GLM_FUNC_QUALIFIER detail::tvec4<valType> sec
 (
 	detail::tvec4<valType> const & angle
 )
@@ -61,7 +61,7 @@ inline detail::tvec4<valType> sec
 
 // csc
 template <typename genType>
-inline genType csc
+GLM_FUNC_QUALIFIER genType csc
 (
 	genType const & angle
 )
@@ -72,7 +72,7 @@ inline genType csc
 }
 
 template <typename valType>
-inline detail::tvec2<valType> csc
+GLM_FUNC_QUALIFIER detail::tvec2<valType> csc
 (
 	detail::tvec2<valType> const & angle
 )
@@ -83,7 +83,7 @@ inline detail::tvec2<valType> csc
 }
 
 template <typename valType>
-inline detail::tvec3<valType> csc
+GLM_FUNC_QUALIFIER detail::tvec3<valType> csc
 (
 	detail::tvec3<valType> const & angle
 )
@@ -95,7 +95,7 @@ inline detail::tvec3<valType> csc
 }
 
 template <typename valType>
-inline detail::tvec4<valType> csc
+GLM_FUNC_QUALIFIER detail::tvec4<valType> csc
 (	
 	detail::tvec4<valType> const & angle
 )
@@ -109,7 +109,7 @@ inline detail::tvec4<valType> csc
 
 // cot
 template <typename genType>
-inline genType cot
+GLM_FUNC_QUALIFIER genType cot
 (
 	genType const & angle
 )
@@ -120,7 +120,7 @@ inline genType cot
 }
 
 template <typename valType>
-inline detail::tvec2<valType> cot
+GLM_FUNC_QUALIFIER detail::tvec2<valType> cot
 (
 	detail::tvec2<valType> const & angle
 )
@@ -131,7 +131,7 @@ inline detail::tvec2<valType> cot
 }
 
 template <typename valType>
-inline detail::tvec3<valType> cot
+GLM_FUNC_QUALIFIER detail::tvec3<valType> cot
 (
 	detail::tvec3<valType> const & angle
 )
@@ -143,7 +143,7 @@ inline detail::tvec3<valType> cot
 }
 
 template <typename valType>
-inline detail::tvec4<valType> cot
+GLM_FUNC_QUALIFIER detail::tvec4<valType> cot
 (
 	detail::tvec4<valType> const & angle
 )
@@ -157,7 +157,7 @@ inline detail::tvec4<valType> cot
 
 // asec
 template <typename genType>
-inline genType asec
+GLM_FUNC_QUALIFIER genType asec
 (
 	genType const & x
 )
@@ -168,7 +168,7 @@ inline genType asec
 }
 
 template <typename valType>
-inline detail::tvec2<valType> asec
+GLM_FUNC_QUALIFIER detail::tvec2<valType> asec
 (
 	detail::tvec2<valType> const & x
 )
@@ -179,7 +179,7 @@ inline detail::tvec2<valType> asec
 }
 
 template <typename valType>
-inline detail::tvec3<valType> asec
+GLM_FUNC_QUALIFIER detail::tvec3<valType> asec
 (
 	detail::tvec3<valType> const & x
 )
@@ -191,7 +191,7 @@ inline detail::tvec3<valType> asec
 }
 
 template <typename valType>
-inline detail::tvec4<valType> asec
+GLM_FUNC_QUALIFIER detail::tvec4<valType> asec
 (
 	detail::tvec4<valType> const & x
 )
@@ -205,7 +205,7 @@ inline detail::tvec4<valType> asec
 
 // acsc
 template <typename genType>
-inline genType acsc
+GLM_FUNC_QUALIFIER genType acsc
 (
 	genType const & x
 )
@@ -216,7 +216,7 @@ inline genType acsc
 }
 
 template <typename valType>
-inline detail::tvec2<valType> acsc
+GLM_FUNC_QUALIFIER detail::tvec2<valType> acsc
 (
 	detail::tvec2<valType> const & x
 )
@@ -227,7 +227,7 @@ inline detail::tvec2<valType> acsc
 }
 
 template <typename valType>
-inline detail::tvec3<valType> acsc
+GLM_FUNC_QUALIFIER detail::tvec3<valType> acsc
 (
 	detail::tvec3<valType> const & x
 )
@@ -239,7 +239,7 @@ inline detail::tvec3<valType> acsc
 }
 
 template <typename valType>
-inline detail::tvec4<valType> acsc
+GLM_FUNC_QUALIFIER detail::tvec4<valType> acsc
 (	
 	detail::tvec4<valType> const & x
 )
@@ -253,7 +253,7 @@ inline detail::tvec4<valType> acsc
 
 // acot
 template <typename genType>
-inline genType acot
+GLM_FUNC_QUALIFIER genType acot
 (
 	genType const & x
 )
@@ -265,7 +265,7 @@ inline genType acot
 }
 
 template <typename valType>
-inline detail::tvec2<valType> acot
+GLM_FUNC_QUALIFIER detail::tvec2<valType> acot
 (
 	detail::tvec2<valType> const & x
 )
@@ -276,7 +276,7 @@ inline detail::tvec2<valType> acot
 }
 
 template <typename valType>
-inline detail::tvec3<valType> acot
+GLM_FUNC_QUALIFIER detail::tvec3<valType> acot
 (
 	detail::tvec3<valType> const & x
 )
@@ -288,7 +288,7 @@ inline detail::tvec3<valType> acot
 }
 
 template <typename valType>
-inline detail::tvec4<valType> acot
+GLM_FUNC_QUALIFIER detail::tvec4<valType> acot
 (
 	detail::tvec4<valType> const & x
 )
@@ -302,7 +302,7 @@ inline detail::tvec4<valType> acot
 
 // sech
 template <typename genType>
-inline genType sech
+GLM_FUNC_QUALIFIER genType sech
 (
 	genType const & angle
 )
@@ -313,7 +313,7 @@ inline genType sech
 }
 
 template <typename valType>
-inline detail::tvec2<valType> sech
+GLM_FUNC_QUALIFIER detail::tvec2<valType> sech
 (
 	detail::tvec2<valType> const & angle
 )
@@ -324,7 +324,7 @@ inline detail::tvec2<valType> sech
 }
 
 template <typename valType>
-inline detail::tvec3<valType> sech
+GLM_FUNC_QUALIFIER detail::tvec3<valType> sech
 (
 	detail::tvec3<valType> const & angle
 )
@@ -336,7 +336,7 @@ inline detail::tvec3<valType> sech
 }
 
 template <typename valType>
-inline detail::tvec4<valType> sech
+GLM_FUNC_QUALIFIER detail::tvec4<valType> sech
 (
 	detail::tvec4<valType> const & angle
 )
@@ -350,7 +350,7 @@ inline detail::tvec4<valType> sech
 
 // csch
 template <typename genType>
-inline genType csch
+GLM_FUNC_QUALIFIER genType csch
 (
 	genType const & angle
 )
@@ -361,7 +361,7 @@ inline genType csch
 }
 
 template <typename valType>
-inline detail::tvec2<valType> csch
+GLM_FUNC_QUALIFIER detail::tvec2<valType> csch
 (
 	detail::tvec2<valType> const & angle
 )
@@ -372,7 +372,7 @@ inline detail::tvec2<valType> csch
 }
 
 template <typename valType>
-inline detail::tvec3<valType> csch
+GLM_FUNC_QUALIFIER detail::tvec3<valType> csch
 (
 	detail::tvec3<valType> const & angle
 )
@@ -384,7 +384,7 @@ inline detail::tvec3<valType> csch
 }
 
 template <typename valType>
-inline detail::tvec4<valType> csch
+GLM_FUNC_QUALIFIER detail::tvec4<valType> csch
 (	
 	detail::tvec4<valType> const & angle
 )
@@ -398,7 +398,7 @@ inline detail::tvec4<valType> csch
 
 // coth
 template <typename genType>
-inline genType coth
+GLM_FUNC_QUALIFIER genType coth
 (
 	genType const & angle
 )
@@ -409,7 +409,7 @@ inline genType coth
 }
 
 template <typename valType>
-inline detail::tvec2<valType> coth
+GLM_FUNC_QUALIFIER detail::tvec2<valType> coth
 (
 	detail::tvec2<valType> const & angle
 )
@@ -420,7 +420,7 @@ inline detail::tvec2<valType> coth
 }
 
 template <typename valType>
-inline detail::tvec3<valType> coth
+GLM_FUNC_QUALIFIER detail::tvec3<valType> coth
 (
 	detail::tvec3<valType> const & angle
 )
@@ -432,7 +432,7 @@ inline detail::tvec3<valType> coth
 }
 
 template <typename valType>
-inline detail::tvec4<valType> coth
+GLM_FUNC_QUALIFIER detail::tvec4<valType> coth
 (
 	detail::tvec4<valType> const & angle
 )
@@ -446,7 +446,7 @@ inline detail::tvec4<valType> coth
 
 // asech
 template <typename genType>
-inline genType asech
+GLM_FUNC_QUALIFIER genType asech
 (
 	genType const & x
 )
@@ -457,7 +457,7 @@ inline genType asech
 }
 
 template <typename valType>
-inline detail::tvec2<valType> asech
+GLM_FUNC_QUALIFIER detail::tvec2<valType> asech
 (
 	detail::tvec2<valType> const & x
 )
@@ -468,7 +468,7 @@ inline detail::tvec2<valType> asech
 }
 
 template <typename valType>
-inline detail::tvec3<valType> asech
+GLM_FUNC_QUALIFIER detail::tvec3<valType> asech
 (
 	detail::tvec3<valType> const & x
 )
@@ -480,7 +480,7 @@ inline detail::tvec3<valType> asech
 }
 
 template <typename valType>
-inline detail::tvec4<valType> asech
+GLM_FUNC_QUALIFIER detail::tvec4<valType> asech
 (
 	detail::tvec4<valType> const & x
 )
@@ -494,7 +494,7 @@ inline detail::tvec4<valType> asech
 
 // acsch
 template <typename genType>
-inline genType acsch
+GLM_FUNC_QUALIFIER genType acsch
 (
 	genType const & x
 )
@@ -505,7 +505,7 @@ inline genType acsch
 }
 
 template <typename valType>
-inline detail::tvec2<valType> acsch
+GLM_FUNC_QUALIFIER detail::tvec2<valType> acsch
 (
 	detail::tvec2<valType> const & x
 )
@@ -516,7 +516,7 @@ inline detail::tvec2<valType> acsch
 }
 
 template <typename valType>
-inline detail::tvec3<valType> acsch
+GLM_FUNC_QUALIFIER detail::tvec3<valType> acsch
 (
 	detail::tvec3<valType> const & x
 )
@@ -528,7 +528,7 @@ inline detail::tvec3<valType> acsch
 }
 
 template <typename valType>
-inline detail::tvec4<valType> acsch
+GLM_FUNC_QUALIFIER detail::tvec4<valType> acsch
 (	
 	detail::tvec4<valType> const & x
 )
@@ -542,7 +542,7 @@ inline detail::tvec4<valType> acsch
 
 // acoth
 template <typename genType>
-inline genType acoth
+GLM_FUNC_QUALIFIER genType acoth
 (
 	genType const & x
 )
@@ -553,7 +553,7 @@ inline genType acoth
 }
 
 template <typename valType>
-inline detail::tvec2<valType> acoth
+GLM_FUNC_QUALIFIER detail::tvec2<valType> acoth
 (
 	detail::tvec2<valType> const & x
 )
@@ -564,7 +564,7 @@ inline detail::tvec2<valType> acoth
 }
 
 template <typename valType>
-inline detail::tvec3<valType> acoth
+GLM_FUNC_QUALIFIER detail::tvec3<valType> acoth
 (
 	detail::tvec3<valType> const & x
 )
@@ -576,7 +576,7 @@ inline detail::tvec3<valType> acoth
 }
 
 template <typename valType>
-inline detail::tvec4<valType> acoth
+GLM_FUNC_QUALIFIER detail::tvec4<valType> acoth
 (
 	detail::tvec4<valType> const & x
 )
