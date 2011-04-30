@@ -15,7 +15,7 @@ namespace glm
 
     // length
     template <typename genType>
-	inline genType length
+	GLM_FUNC_QUALIFIER genType length
 	(
 		genType const & x
 	)
@@ -27,7 +27,7 @@ namespace glm
     }
 
 	template <typename T>
-	inline typename detail::tvec2<T>::value_type length
+	GLM_FUNC_QUALIFIER typename detail::tvec2<T>::value_type length
 	(
 		detail::tvec2<T> const & v
 	)
@@ -39,7 +39,7 @@ namespace glm
     }
 
     template <typename T>
-    inline typename detail::tvec3<T>::value_type length
+    GLM_FUNC_QUALIFIER typename detail::tvec3<T>::value_type length
 	(
 		detail::tvec3<T> const & v
 	)
@@ -51,7 +51,7 @@ namespace glm
     }
 
     template <typename T>
-    inline typename detail::tvec4<T>::value_type length
+    GLM_FUNC_QUALIFIER typename detail::tvec4<T>::value_type length
 	(
 		detail::tvec4<T> const & v
 	)
@@ -64,7 +64,7 @@ namespace glm
 
     // distance
 	template <typename genType>
-    inline genType distance
+    GLM_FUNC_QUALIFIER genType distance
 	(
 		genType const & p0, 
 		genType const & p1
@@ -76,7 +76,7 @@ namespace glm
     }
  
 	template <typename T>
-	inline typename detail::tvec2<T>::value_type distance
+	GLM_FUNC_QUALIFIER typename detail::tvec2<T>::value_type distance
 	(
 		detail::tvec2<T> const & p0,
 		detail::tvec2<T> const & p1
@@ -88,7 +88,7 @@ namespace glm
     }
 
     template <typename T>
-    inline typename detail::tvec3<T>::value_type distance
+    GLM_FUNC_QUALIFIER typename detail::tvec3<T>::value_type distance
 	(
 		detail::tvec3<T> const & p0,
 		detail::tvec3<T> const & p1
@@ -100,7 +100,7 @@ namespace glm
     }
 
     template <typename T>
-    inline typename detail::tvec4<T>::value_type distance
+    GLM_FUNC_QUALIFIER typename detail::tvec4<T>::value_type distance
 	(
 		detail::tvec4<T> const & p0,
 		detail::tvec4<T> const & p1
@@ -113,7 +113,7 @@ namespace glm
 
 	// dot
 	template <typename genType>
-	inline genType dot
+	GLM_FUNC_QUALIFIER genType dot
 	(
 		genType const & x, 
 		genType const & y
@@ -125,7 +125,7 @@ namespace glm
 	}
 
     template <typename T>
-	inline typename detail::tvec2<T>::value_type dot
+	GLM_FUNC_QUALIFIER typename detail::tvec2<T>::value_type dot
 	(
 		detail::tvec2<T> const & x, 
 		detail::tvec2<T> const & y
@@ -137,7 +137,7 @@ namespace glm
     }
 
     template <typename T>
-    inline T dot
+    GLM_FUNC_QUALIFIER T dot
 	(
 		detail::tvec3<T> const & x, 
 		detail::tvec3<T> const & y
@@ -148,7 +148,7 @@ namespace glm
 		return x.x * y.x + x.y * y.y + x.z * y.z;
     }
 /* // SSE3
-    inline float dot(const tvec4<float>& x, const tvec4<float>& y)
+    GLM_FUNC_QUALIFIER float dot(const tvec4<float>& x, const tvec4<float>& y)
     {
 	    float Result;
 	    __asm
@@ -165,7 +165,7 @@ namespace glm
     }
 */
     template <typename T>
-    inline T dot
+    GLM_FUNC_QUALIFIER T dot
 	(
 		detail::tvec4<T> const & x, 
 		detail::tvec4<T> const & y
@@ -178,7 +178,7 @@ namespace glm
 
     // cross
     template <typename T>
-    inline detail::tvec3<T> cross
+    GLM_FUNC_QUALIFIER detail::tvec3<T> cross
 	(
 		detail::tvec3<T> const & x, 
 		detail::tvec3<T> const & y
@@ -194,7 +194,7 @@ namespace glm
 
     // normalize
     template <typename genType>
-    inline genType normalize
+    GLM_FUNC_QUALIFIER genType normalize
 	(
 		genType const & x
 	)
@@ -206,7 +206,7 @@ namespace glm
 
     // According to issue 10 GLSL 1.10 specification, if length(x) == 0 then result is undefine and generate an error
     template <typename T>
-    inline detail::tvec2<T> normalize
+    GLM_FUNC_QUALIFIER detail::tvec2<T> normalize
 	(
 		detail::tvec2<T> const & x
 	)
@@ -218,7 +218,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec3<T> normalize
+    GLM_FUNC_QUALIFIER detail::tvec3<T> normalize
 	(
 		detail::tvec3<T> const & x
 	)
@@ -230,7 +230,7 @@ namespace glm
     }
 
     template <typename T>
-    inline detail::tvec4<T> normalize
+    GLM_FUNC_QUALIFIER detail::tvec4<T> normalize
 	(
 		detail::tvec4<T> const & x
 	)
@@ -243,7 +243,7 @@ namespace glm
 
     // faceforward
 	template <typename genType>
-	inline genType faceforward
+	GLM_FUNC_QUALIFIER genType faceforward
 	(
 		genType const & N, 
 		genType const & I, 
@@ -266,7 +266,7 @@ namespace glm
 
     // refract
     template <typename genType>
-    inline genType refract
+    GLM_FUNC_QUALIFIER genType refract
 	(
 		genType const & I, 
 		genType const & N, 

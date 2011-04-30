@@ -12,7 +12,7 @@ namespace gtx{
 namespace epsilon{
 
 template <typename genType>
-inline bool equalEpsilon
+GLM_FUNC_QUALIFIER bool equalEpsilon
 (
 	genType const & x, 
 	genType const & y, 
@@ -23,7 +23,7 @@ inline bool equalEpsilon
 }
 
 template <typename genType>
-inline bool notEqualEpsilon
+GLM_FUNC_QUALIFIER bool notEqualEpsilon
 (
 	genType const & x, 
 	genType const & y, 
@@ -34,7 +34,7 @@ inline bool notEqualEpsilon
 }
 
 template <typename valType>
-inline detail::tvec2<bool> equalEpsilon
+GLM_FUNC_QUALIFIER detail::tvec2<bool> equalEpsilon
 (
 	detail::tvec2<valType> const & x, 
 	detail::tvec2<valType> const & y, 
@@ -46,7 +46,7 @@ inline detail::tvec2<bool> equalEpsilon
 }
 
 template <typename valType>
-inline detail::tvec3<bool> equalEpsilon
+GLM_FUNC_QUALIFIER detail::tvec3<bool> equalEpsilon
 (
 	detail::tvec3<valType> const & x, 
 	detail::tvec3<valType> const & y, 
@@ -59,7 +59,7 @@ inline detail::tvec3<bool> equalEpsilon
 }
 
 template <typename valType>
-inline detail::tvec4<bool> equalEpsilon
+GLM_FUNC_QUALIFIER detail::tvec4<bool> equalEpsilon
 (
 	detail::tvec4<valType> const & x, 
 	detail::tvec4<valType> const & y, 
@@ -74,7 +74,7 @@ inline detail::tvec4<bool> equalEpsilon
 }
 
 template <typename valType>
-inline detail::tvec2<bool> notEqualEpsilon
+GLM_FUNC_QUALIFIER detail::tvec2<bool> notEqualEpsilon
 (
 	detail::tvec2<valType> const & x, 
 	detail::tvec2<valType> const & y, 
@@ -87,7 +87,7 @@ inline detail::tvec2<bool> notEqualEpsilon
 }
 
 template <typename valType>
-inline detail::tvec3<bool> notEqualEpsilon
+GLM_FUNC_QUALIFIER detail::tvec3<bool> notEqualEpsilon
 (
 	detail::tvec3<valType> const & x, 
 	detail::tvec3<valType> const & y, 
@@ -101,7 +101,7 @@ inline detail::tvec3<bool> notEqualEpsilon
 }
 
 template <typename valType>
-inline detail::tvec4<bool> notEqualEpsilon
+GLM_FUNC_QUALIFIER detail::tvec4<bool> notEqualEpsilon
 (
 	detail::tvec4<valType> const & x, 
 	detail::tvec4<valType> const & y, 
@@ -116,7 +116,7 @@ inline detail::tvec4<bool> notEqualEpsilon
 }
 
 template <typename valType>
-inline detail::tvec2<bool> equalEpsilon
+GLM_FUNC_QUALIFIER detail::tvec2<bool> equalEpsilon
 (
 	detail::tvec2<valType> const & x, 
 	detail::tvec2<valType> const & y, 
@@ -129,7 +129,7 @@ inline detail::tvec2<bool> equalEpsilon
 }
 
 template <typename valType>
-inline detail::tvec3<bool> equalEpsilon
+GLM_FUNC_QUALIFIER detail::tvec3<bool> equalEpsilon
 (
 	detail::tvec3<valType> const & x, 
 	detail::tvec3<valType> const & y, 
@@ -143,7 +143,7 @@ inline detail::tvec3<bool> equalEpsilon
 }
 
 template <typename valType>
-inline detail::tvec4<bool> equalEpsilon
+GLM_FUNC_QUALIFIER detail::tvec4<bool> equalEpsilon
 (
 	detail::tvec4<valType> const & x, 
 	detail::tvec4<valType> const & y, 
@@ -158,7 +158,7 @@ inline detail::tvec4<bool> equalEpsilon
 }
 
 template <typename valType>
-inline detail::tvec2<bool> notEqualEpsilon
+GLM_FUNC_QUALIFIER detail::tvec2<bool> notEqualEpsilon
 (
 	detail::tvec2<valType> const & x, 
 	detail::tvec2<valType> const & y, 
@@ -171,7 +171,7 @@ inline detail::tvec2<bool> notEqualEpsilon
 }
 
 template <typename valType>
-inline detail::tvec3<bool> notEqualEpsilon
+GLM_FUNC_QUALIFIER detail::tvec3<bool> notEqualEpsilon
 (
 	detail::tvec3<valType> const & x, 
 	detail::tvec3<valType> const & y, 
@@ -185,7 +185,7 @@ inline detail::tvec3<bool> notEqualEpsilon
 }
 
 template <typename valType>
-inline detail::tvec4<bool> notEqualEpsilon
+GLM_FUNC_QUALIFIER detail::tvec4<bool> notEqualEpsilon
 (
 	detail::tvec4<valType> const & x, 
 	detail::tvec4<valType> const & y, 

@@ -12,7 +12,7 @@ namespace gtx{
 namespace transform2
 {
     template <typename T> 
-    inline detail::tmat3x3<T> shearX2D(
+    GLM_FUNC_QUALIFIER detail::tmat3x3<T> shearX2D(
 		const detail::tmat3x3<T>& m, 
 		T s)
     {
@@ -22,7 +22,7 @@ namespace transform2
     }
 
     template <typename T> 
-    inline detail::tmat3x3<T> shearY2D(
+    GLM_FUNC_QUALIFIER detail::tmat3x3<T> shearY2D(
 		const detail::tmat3x3<T>& m, 
 		T s)
     {
@@ -32,7 +32,7 @@ namespace transform2
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> shearX3D(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> shearX3D(
 		const detail::tmat4x4<T>& m, 
 		T s, 
 		T t)
@@ -44,7 +44,7 @@ namespace transform2
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> shearY3D(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> shearY3D(
 		const detail::tmat4x4<T>& m, 
 		T s, 
 		T t)
@@ -56,7 +56,7 @@ namespace transform2
     }
 
     template <typename T>     
-	inline detail::tmat4x4<T> shearZ3D(
+	GLM_FUNC_QUALIFIER detail::tmat4x4<T> shearZ3D(
 		const detail::tmat4x4<T>& m, 
 		T s, 
 		T t)
@@ -68,7 +68,7 @@ namespace transform2
     }
 
     template <typename T> 
-    inline detail::tmat3x3<T> reflect2D(
+    GLM_FUNC_QUALIFIER detail::tmat3x3<T> reflect2D(
 		const detail::tmat3x3<T>& m, 
 		const detail::tvec3<T>& normal)
     {
@@ -81,7 +81,7 @@ namespace transform2
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> reflect3D(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> reflect3D(
 		const detail::tmat4x4<T>& m, 
 		const detail::tvec3<T>& normal)
     {
@@ -101,7 +101,7 @@ namespace transform2
     }
 
     template <typename T> 
-    inline detail::tmat3x3<T> proj2D(
+    GLM_FUNC_QUALIFIER detail::tmat3x3<T> proj2D(
 		const detail::tmat3x3<T>& m, 
 		const detail::tvec3<T>& normal)
     {
@@ -114,7 +114,7 @@ namespace transform2
     }
 
     template <typename T> 
-    inline detail::tmat4x4<T> proj3D(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> proj3D(
 		const detail::tmat4x4<T>& m, 
 		const detail::tvec3<T>& normal)
     {
@@ -132,7 +132,7 @@ namespace transform2
     }
 
 	template <typename T> 
-	inline detail::tmat4x4<T> scaleBias(
+	GLM_FUNC_QUALIFIER detail::tmat4x4<T> scaleBias(
 		T scale, 
 		T bias)
 	{
@@ -145,7 +145,7 @@ namespace transform2
 	}
 
 	template <typename T> 
-	inline detail::tmat4x4<T> scaleBias(
+	GLM_FUNC_QUALIFIER detail::tmat4x4<T> scaleBias(
 		const detail::tmat4x4<T>& m, 
 		T scale, 
 		T bias)

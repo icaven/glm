@@ -12,19 +12,19 @@ namespace gtx{
 namespace verbose_operator{
 
 template <typename genType>
-inline genType add(genType const & a, genType const & b)
+GLM_FUNC_QUALIFIER genType add(genType const & a, genType const & b)
 {
     return a + b;
 }
 
 template <typename genType>
-inline genType sub(genType const & a, genType const & b)
+GLM_FUNC_QUALIFIER genType sub(genType const & a, genType const & b)
 {
     return a - b;
 }
 
 template <typename T>
-inline detail::tmat2x2<T> mul
+GLM_FUNC_QUALIFIER detail::tmat2x2<T> mul
 (
 	detail::tmat2x2<T> const & a, 
 	detail::tmat2x2<T> const & b
@@ -34,7 +34,7 @@ inline detail::tmat2x2<T> mul
 }
 
 template <typename T>
-inline detail::tmat3x3<T> mul
+GLM_FUNC_QUALIFIER detail::tmat3x3<T> mul
 (
 	detail::tmat3x3<T> const & a, 
 	detail::tmat3x3<T> const & b
@@ -44,7 +44,7 @@ inline detail::tmat3x3<T> mul
 }
 
 template <typename T>
-inline detail::tmat4x4<T> mul
+GLM_FUNC_QUALIFIER detail::tmat4x4<T> mul
 (
 	detail::tmat4x4<T> const & a, 
 	detail::tmat4x4<T> const & b
@@ -54,7 +54,7 @@ inline detail::tmat4x4<T> mul
 }
 
 template <typename T>
-inline detail::tvec2<T> mul
+GLM_FUNC_QUALIFIER detail::tvec2<T> mul
 (
 	detail::tmat2x2<T> const & m, 
 	detail::tvec2<T> const & v
@@ -64,7 +64,7 @@ inline detail::tvec2<T> mul
 }
 
 template <typename T>
-inline detail::tvec3<T> mul
+GLM_FUNC_QUALIFIER detail::tvec3<T> mul
 (
 	detail::tmat3x3<T> const & m, 
 	detail::tvec3<T> const & v)
@@ -73,7 +73,7 @@ inline detail::tvec3<T> mul
 }
 
 template <typename T>
-inline detail::tvec4<T> mul
+GLM_FUNC_QUALIFIER detail::tvec4<T> mul
 (
 	detail::tmat4x4<T> const & m, 
 	detail::tvec4<T> const & v
@@ -83,7 +83,7 @@ inline detail::tvec4<T> mul
 }
 
 template <typename T>
-inline detail::tvec2<T> mul
+GLM_FUNC_QUALIFIER detail::tvec2<T> mul
 (
 	detail::tvec2<T> const & v, 
 	detail::tmat2x2<T> const & m
@@ -93,7 +93,7 @@ inline detail::tvec2<T> mul
 }
 
 template <typename T>
-inline detail::tvec3<T> mul
+GLM_FUNC_QUALIFIER detail::tvec3<T> mul
 (
 	detail::tvec3<T> const & v, 
 	detail::tmat3x3<T> const & m
@@ -103,7 +103,7 @@ inline detail::tvec3<T> mul
 }
 
 template <typename T>
-inline detail::tvec4<T> mul
+GLM_FUNC_QUALIFIER detail::tvec4<T> mul
 (
 	detail::tvec4<T> const & v, 
 	detail::tmat4x4<T> const & m
@@ -113,13 +113,13 @@ inline detail::tvec4<T> mul
 }
 
 template <typename genType>
-inline genType div(genType const & a, genType const & b)
+GLM_FUNC_QUALIFIER genType div(genType const & a, genType const & b)
 {
     return a / b;
 }
 
 template <typename genTypeT, typename genTypeU, typename genTypeV> 
-inline genTypeT mad(genTypeT const & a, genTypeU const & b, genTypeV const & c)
+GLM_FUNC_QUALIFIER genTypeT mad(genTypeT const & a, genTypeU const & b, genTypeV const & c)
 {
 	return a * b + c;
 }

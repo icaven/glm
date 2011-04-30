@@ -12,7 +12,7 @@ namespace gtx{
 namespace rotate_vector
 {
 	template <typename T>
-	inline detail::tvec2<T> rotate(
+	GLM_FUNC_QUALIFIER detail::tvec2<T> rotate(
 		const detail::tvec2<T>& v, 
 		T angle)
 	{
@@ -25,7 +25,7 @@ namespace rotate_vector
 	}
 
 	template <typename T> 
-	inline detail::tvec3<T> rotate(
+	GLM_FUNC_QUALIFIER detail::tvec3<T> rotate(
 		const detail::tvec3<T>& v, T angle, 
 		const detail::tvec3<T>& normal)
 	{
@@ -33,7 +33,7 @@ namespace rotate_vector
 	}
 /*
     template <typename T> 
-    inline detail::tvec3<T> rotateGTX(const detail::tvec3<T>& x, T angle, const detail::tvec3<T>& normal)
+    GLM_FUNC_QUALIFIER detail::tvec3<T> rotateGTX(const detail::tvec3<T>& x, T angle, const detail::tvec3<T>& normal)
     {
         const T Cos = cos(radians(angle));
         const T Sin = sin(radians(angle));
@@ -41,7 +41,7 @@ namespace rotate_vector
     }
 */
 	template <typename T> 
-	inline detail::tvec4<T> rotate(
+	GLM_FUNC_QUALIFIER detail::tvec4<T> rotate(
 		const detail::tvec4<T>& v, 
 		T angle, 
 		const detail::tvec3<T>& normal)
@@ -50,7 +50,7 @@ namespace rotate_vector
 	}
 
 	template <typename T>
-	inline detail::tvec3<T> rotateX(
+	GLM_FUNC_QUALIFIER detail::tvec3<T> rotateX(
 		const detail::tvec3<T>& v, 
 		T angle)
 	{
@@ -63,7 +63,7 @@ namespace rotate_vector
 	}
 
 	template <typename T>
-	inline detail::tvec3<T> rotateY(
+	GLM_FUNC_QUALIFIER detail::tvec3<T> rotateY(
 		const detail::tvec3<T>& v, 
 		T angle)
 	{
@@ -76,7 +76,7 @@ namespace rotate_vector
 	}
 
 	template <typename T>
-	inline detail::tvec3<T> rotateZ(
+	GLM_FUNC_QUALIFIER detail::tvec3<T> rotateZ(
 		const detail::tvec3<T>& v, 
 		T angle)
 	{
@@ -89,7 +89,7 @@ namespace rotate_vector
 	}
 
 	template <typename T>
-	inline detail::tvec4<T> rotateX(
+	GLM_FUNC_QUALIFIER detail::tvec4<T> rotateX(
 		const detail::tvec4<T>& v, 
 		T angle)
 	{
@@ -102,7 +102,7 @@ namespace rotate_vector
 	}
 
 	template <typename T>
-	inline detail::tvec4<T> rotateY(
+	GLM_FUNC_QUALIFIER detail::tvec4<T> rotateY(
 		const detail::tvec4<T>& v, 
 		T angle)
 	{
@@ -115,7 +115,7 @@ namespace rotate_vector
 	}
 
 	template <typename T>
-	inline detail::tvec4<T> rotateZ(
+	GLM_FUNC_QUALIFIER detail::tvec4<T> rotateZ(
 		const detail::tvec4<T>& v, 
 		T angle)
 	{
@@ -128,7 +128,7 @@ namespace rotate_vector
 	}
 
 	template <typename T>
-	inline detail::tmat4x4<T> orientation(
+	GLM_FUNC_QUALIFIER detail::tmat4x4<T> orientation(
 		const detail::tvec3<T>& Normal, 
 		const detail::tvec3<T>& Up)
 	{

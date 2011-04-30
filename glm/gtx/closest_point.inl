@@ -15,7 +15,7 @@ namespace gtx{
 namespace closest_point{
 
 template <typename valType> 
-inline detail::tvec3<valType> closestPointOnLine
+GLM_FUNC_QUALIFIER detail::tvec3<valType> closestPointOnLine
 (
 	detail::tvec3<valType> const & point, 
 	detail::tvec3<valType> const & a, 
