@@ -13,7 +13,7 @@
 
 int main()
 {
-	int Failed = 0;
+	int Error = -1;
 
-	return Failed;
+	return Error;
 }

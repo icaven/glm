@@ -24,16 +24,16 @@ static bool test_operators()
 	bool R = m != q;
 	bool S = m == m;
 
-	return true;
+	return (S && !R) ? 0 : 1;
 }
 
 int main()
 {
-	bool Result = true;
+	int Error = 0;
 
-	Result = Result && test_operators();
+	Error += test_operators();
 
-	assert(Result);
-	return Result;
+	return Error;
 }
+
 
