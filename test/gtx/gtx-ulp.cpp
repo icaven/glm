@@ -13,8 +13,8 @@
 
 int test_ulp_float()
 {
-    double Temp = nextafter(0.02, 0.01);
-    std::cout << Temp << " 0.01, 0.02" << std::endl;
+    double Temp = _nextafter(0.01, 0.011);
+    std::cout << Temp << " 0.01, 0.011" << std::endl;
     
 	std::size_t A = glm::ulp(0.01, 0.02);
 	std::size_t B = glm::ulp(glm::vec2(0.01), glm::vec2(0.02));
