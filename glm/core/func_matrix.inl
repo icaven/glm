@@ -466,8 +466,8 @@ namespace glm
 
 		detail::tmat2x2<T> Inverse(
 			+ m[1][1] / Determinant,
-			- m[1][0] / Determinant,
 			- m[0][1] / Determinant, 
+			- m[1][0] / Determinant,
 			+ m[0][0] / Determinant);
 
 		return Inverse;
