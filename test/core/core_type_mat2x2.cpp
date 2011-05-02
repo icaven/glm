@@ -9,7 +9,7 @@
 
 #include <glm/glm.hpp>
 
-static bool test_operators()
+static int test_operators()
 {
 	glm::mat2x2 m(1.0f);
 	glm::vec2 u(1.0f);
@@ -24,15 +24,14 @@ static bool test_operators()
 	bool R = m != q;
 	bool S = m == m;
 
-	return true;
+	return (S && !R) ? 0 : 1;
 }
 
 int main()
 {
-	bool Result = true;
+	int Error = 0;
 
-	Result = Result && test_operators();
+	Error += test_operators();
 
-	assert(Result);
-	return Result;
+	return Error;
 }
