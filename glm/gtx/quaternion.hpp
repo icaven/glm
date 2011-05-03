@@ -109,7 +109,7 @@ namespace glm
 			detail::tquat<valType> const & q, 
 			detail::tvec4<valType> const & v);
 		
-        //! Returns the q rotation angle. 
+        //! Returns the quaternion rotation angle. 
 		//! From GLM_GTX_quaternion extension.
 		template <typename valType> 
 		valType angle(
@@ -190,6 +190,22 @@ namespace glm
 		template <typename valType> 
 		detail::tquat<valType> toQuat(
 			detail::tmat4x4<valType> const & x){return gtc::quaternion::quat_cast(x);}
+
+		//! Quaternion interpolation using the rotation short path. 
+		//! From GLM_GTX_quaternion extension.
+		template <typename T>
+		detail::tquat<T> shortMix(
+			detail::tquat<T> const & x, 
+			detail::tquat<T> const & y, 
+			T const & a);
+
+		//! Quaternion normalized linear interpolation. 
+		//! From GLM_GTX_quaternion extension.
+		template <typename T>
+		detail::tquat<T> fastMix(
+			detail::tquat<T> const & x, 
+			detail::tquat<T> const & y, 
+			T const & a);
 
 		///@}
 
