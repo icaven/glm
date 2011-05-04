@@ -23,7 +23,7 @@ namespace ulp
 		std::size_t Count = 0;
 		float TempA(a);
 		float TempB(b);
-		while((TempA = _nextafterf(TempA, TempB)) != TempB)
+		//while((TempA = _nextafterf(TempA, TempB)) != TempB)
 			++Count;
 		return Count;
 	}
@@ -36,7 +36,7 @@ namespace ulp
 	{
 		std::size_t Count = 0;
 		float Temp = a;
-		while((Temp = _nextafterf(Temp, b)) != b)
+		//while((Temp = _nextafterf(Temp, b)) != b)
         {
             std::cout << Temp << " " << b << std::endl;
 			++Count;
@@ -52,7 +52,7 @@ namespace ulp
 	{
 		std::size_t Count = 0;
 		double Temp = a;
-		while((Temp = _nextafter(Temp, b)) != b)
+		//while((Temp = _nextafter(Temp, b)) != b)
         {
             std::cout << Temp << " " << b << std::endl;
 			++Count;
