@@ -58,7 +58,7 @@ namespace ulp
     }
 
     template <typename T>
-    GLM_FUNC_QUALIFIER T next_float(T const & x, std::size_t const & ulps)
+    GLM_FUNC_QUALIFIER T next_float(T const & x, uint const & ulps)
     {
         T temp = x;
         for(std::size_t i = 0; i < ulps; ++i)
@@ -66,8 +66,17 @@ namespace ulp
         return temp;
     }
 
+    template<typename T, template<typename> class vecType>
+    GLM_FUNC_QUALIFIER vecType<T> next_float(vecType<T> const & x, vecType<uint> const & ulps)
+    {
+        vecType<T> Result;
+        for(std::size_t i = 0; i < Result.length(); ++i)
+            Result[i] = next_float(x[i], ulps[i]);
+        return Result;
+    }
+
     template <typename T>
-    GLM_FUNC_QUALIFIER T prev_float(T const & x, std::size_t const & ulps)
+    GLM_FUNC_QUALIFIER T prev_float(T const & x, uint const & ulps)
     {
         T temp = x;
         for(std::size_t i = 0; i < ulps; ++i)
@@ -75,8 +84,17 @@ namespace ulp
         return temp;
     }
 
+    template<typename T, template<typename> class vecType>
+    GLM_FUNC_QUALIFIER vecType<T> prev_float(vecType<T> const & x, vecType<uint> const & ulps)
+    {
+        vecType<T> Result;
+        for(std::size_t i = 0; i < Result.length(); ++i)
+            Result[i] = prev_float(x[i], ulps[i]);
+        return Result;
+    }
+
     template <typename T>
-    GLM_FUNC_QUALIFIER std::size_t float_distance(T const & x, T const & y)
+    GLM_FUNC_QUALIFIER uint float_distance(T const & x, T const & y)
     {
         std::size_t ulp = 0;
 
@@ -106,6 +124,15 @@ namespace ulp
         return ulp;
     }
 
+    template<typename T, template<typename> class vecType>
+    GLM_FUNC_QUALIFIER vecType<uint> float_distance(vecType<T> const & x, vecType<T> const & y)
+    {
+        vecType<uint> Result;
+        for(std::size_t i = 0; i < Result.length(); ++i)
+            Result[i] = float_distance(x[i], y[i]);
+        return Result;
+    }
+/*
 	inline std::size_t ulp
 	(
 		detail::thalf const & a,
@@ -202,7 +229,7 @@ namespace ulp
 
         return glm::max(glm::max(ulps[0], ulps[1]), glm::max(ulps[2], ulps[3]));
 	}
-
+*/
 }//namespace ulp
 }//namespace gtx
 }//namespace glm
