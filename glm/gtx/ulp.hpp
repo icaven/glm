@@ -29,13 +29,36 @@ namespace glm
 		/// \addtogroup gtx_ulp
 		///@{
 
-		//! Return the number of ULP between 2 variables.
+		//! Return the next ULP value(s) after the input value(s).
 		//! From GLM_GTX_ulp extension.
-		template <typename genType>
-        std::size_t ulp(
-			genType const & a,
-			genType const & b);
+        template <typename genType>
+        genType next_float(genType const & x);
+        
+		//! Return the previous ULP value(s) before the input value(s).
+		//! From GLM_GTX_ulp extension.
+        template <typename genType>
+        genType prev_float(genType const & x);
 
+		//! Return the value(s) ULP distance after the input value(s).
+		//! From GLM_GTX_ulp extension.
+        template <typename genType>
+        genType next_float(genType const & x, uint const & Distance);
+        
+        //! Return the value(s) ULP distance before the input value(s).
+		//! From GLM_GTX_ulp extension.
+        template <typename genType>
+        genType prev_float(genType const & x, uint const & Distance);
+        
+        //! Return the distance in the number of ULP between 2 scalars.
+		//! From GLM_GTX_ulp extension.
+        template <typename T>
+        uint float_distance(T const & x, T const & y);
+        
+        //! Return the distance in the number of ULP between 2 vectors.
+		//! From GLM_GTX_ulp extension.
+        template<typename T, template<typename> class vecType>
+        vecType<uint> float_distance(vecType<T> const & x, vecType<T> const & y);
+        
 		///@}
 
 	}//namespace ulp
