@@ -18,7 +18,7 @@ void print(glm::dmat3 const & Mat0)
 	printf("\tvec3(%2.3f, %2.3f, %2.3f))\n\n", Mat0[2][0], Mat0[2][1], Mat0[2][2]);
 }
 
-bool test_mat3x3()
+int test_mat3x3()
 {
 	glm::dmat3 Mat0(
 		glm::dvec3(0.6f, 0.2f, 0.3f), 
@@ -31,10 +31,10 @@ bool test_mat3x3()
 	print(Inv0);
 	print(Res0);
 
-	return true;
+	return 0;
 }
 
-static bool test_operators()
+static int test_operators()
 {
 	glm::mat3x3 m(1.0f);
 	glm::vec3 u(1.0f);
@@ -49,17 +49,16 @@ static bool test_operators()
 	bool R = m != q;
 	bool S = m == m;
 
-	return true;
+	return (S && !R) ? 0 : 1;
 }
 
 int main()
 {
-	bool Result = true;
+	int Error = 0;
 
-	Result = Result && test_mat3x3();
-	Result = Result && test_operators();
+	Error += test_mat3x3();
+	Error += test_operators();
 
-	assert(Result);
-	return Result;
+	return Error;
 }
 

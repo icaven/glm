@@ -224,14 +224,14 @@ int test_compute_gtx()
 	std::clock_t TimeEnd = clock();
 	printf("test_compute_gtx: %ld\n", TimeEnd - TimeStart);
 
-	return Output.size() != 0;
+	return 0;
 }
 
 int main()
 {
-	int Failed = GLM_COMPILER;
+	int Error = 0;
 
-	std::vector<glm::mat4> Data(1024 * 1024 * 8);
+	std::vector<glm::mat4> Data(64 * 64 * 1);
 	for(std::size_t i = 0; i < Data.size(); ++i)
 		Data[i] = glm::mat4(
 			glm::vec4(glm::compRand4(-2.0f, 2.0f)),
@@ -277,13 +277,11 @@ int main()
 	glm::simdVec4 B(5.0f, 6.0f, 7.0f, 8.0f);
 	__m128 C = _mm_shuffle_ps(A.Data, B.Data, _MM_SHUFFLE(1, 0, 1, 0));
 
-	Failed += test_compute_glm();
-	Failed += test_compute_gtx();
+	Error += test_compute_glm();
+	Error += test_compute_gtx();
 	
 	float Det = glm::determinant(glm::simdMat4(1.0));
 	glm::simdMat4 D = glm::matrixCompMult(glm::simdMat4(1.0), glm::simdMat4(1.0));
 
-	system("pause");
-
-	return Failed;
+	return Error;
 }

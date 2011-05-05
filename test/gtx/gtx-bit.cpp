@@ -129,6 +129,8 @@ namespace bitRevert
 
 int main()
 {
-	::extractField::test();
-	::bitRevert::test();
+	bool Error = 0;
+	Error += ::extractField::test();
+	Error += ::bitRevert::test();
+	return Error;
 }
