@@ -1,148 +1,135 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2011-01-15
-// Updated : 2011-01-15
+// Created : 2011-05-03
+// Updated : 2011-05-03
 // Licence : This source is under MIT licence
-// File    : test/gtx/simd-mat4.cpp
+// File    : test/core/func_integer.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_INSTRUCTION_SET GLM_PLATFORM_SSE3 | GLM_PLATFORM_SSE2
 #include <glm/glm.hpp>
+#include <glm/gtx/number_precision.hpp>
+#include <iostream>
 
-int test_static_assert()
+enum result
 {
-	//glm::lessThan(glm::mat4(0), glm::mat4(4));
+	SUCCESS,
+	FAIL,
+	ASSERT,
+	STATIC_ASSERT
+};
 
-	return 0;
-}
-
-int test_lessThan_vec2()
+namespace extractField
 {
-	glm::bvec2 O = glm::bvec2(true, false);
+	template <typename genType, typename sizeType>
+	struct type
+	{
+		genType		Value;
+		sizeType	BitFirst;
+		sizeType	BitCount;
+		genType		Return;
+		result		Result;
+	};
 
-	glm::bvec2 A = glm::lessThan(glm::vec2(0, 6), glm::vec2(4, 2));
-	assert(glm::all(glm::equal(O, A)));
+	typedef type<glm::uint64, glm::uint> typeU64;
 
-	glm::bvec2 B = glm::lessThan(glm::ivec2(0, 6), glm::ivec2(4, 2));
-	assert(glm::all(glm::equal(O, B)));
+	typeU64 const Data64[] =
+	{
+		{0xffffffffffffffff, 8, 0, 0x0000000000000000, SUCCESS},
+		{0x0000000000000000, 0,64, 0x0000000000000000, SUCCESS},
+		{0xffffffffffffffff, 0,64, 0xffffffffffffffff, SUCCESS},
+		{0x0f0f0f0f0f0f0f0f, 0,64, 0x0f0f0f0f0f0f0f0f, SUCCESS},
+		{0x0000000000000000, 8, 0, 0x0000000000000000, SUCCESS},
+		{0x8000000000000000,63, 1, 0x0000000000000001, SUCCESS},
+		{0x7fffffffffffffff,63, 1, 0x0000000000000000, SUCCESS},
+		{0x0000000000000300, 8, 8, 0x0000000000000003, SUCCESS},
+		{0x000000000000ff00, 8, 8, 0x00000000000000ff, SUCCESS},
+		{0xfffffffffffffff0, 0, 5, 0x0000000000000010, SUCCESS},
+		{0x00000000000000ff, 1, 3, 0x0000000000000007, SUCCESS},
+		{0x00000000000000ff, 0, 3, 0x0000000000000007, SUCCESS},
+		{0x0000000000000000, 0, 2, 0x0000000000000000, SUCCESS},
+		{0xffffffffffffffff, 0, 8, 0x00000000000000ff, SUCCESS},
+		{0xffffffff00000000,32,32, 0x00000000ffffffff, SUCCESS},
+		{0xfffffffffffffff0, 0, 8, 0x0000000000000000, FAIL},
+		{0xffffffffffffffff,32,32, 0x0000000000000000, FAIL},
+		//{0xffffffffffffffff,64, 1, 0x0000000000000000, ASSERT}, // Throw an assert 
+		//{0xffffffffffffffff, 0,65, 0x0000000000000000, ASSERT}, // Throw an assert 
+		//{0xffffffffffffffff,33,32, 0x0000000000000000, ASSERT}, // Throw an assert 
+	};
 
-	glm::bvec2 C = glm::lessThan(glm::uvec2(0, 6), glm::uvec2(4, 2));
-	assert(glm::all(glm::equal(O, C)));
+	int test()
+	{
+		glm::uint32 count = sizeof(Data64) / sizeof(typeU64);
+		
+		for(glm::uint32 i = 0; i < count; ++i)
+		{
+			glm::uint64 Return = glm::bitfieldExtract(
+				Data64[i].Value, 
+				Data64[i].BitFirst, 
+				Data64[i].BitCount);
+			
+			bool Compare = Data64[i].Return == Return;
+			
+			if(Data64[i].Result == SUCCESS && Compare)
+				continue;
+			else if(Data64[i].Result == FAIL && !Compare)
+				continue;
+			
+			std::cout << "glm::bitfieldExtract test fail on test " << i << std::endl;
+			return 1;
+		}
+		
+		return 0;
+	}
+}//extractField
 
-	return 0;
-}
-
-int test_lessThan_vec3()
+namespace bitRevert
 {
-	glm::bvec3 O = glm::bvec3(true, true, false);
+	template <typename genType>
+	struct type
+	{
+		genType		Value;
+		genType		Return;
+		result		Result;
+	};
 
-	glm::bvec3 A = glm::lessThan(glm::vec3(0, 1, 6), glm::vec3(4, 5, 2));
-	assert(glm::all(glm::equal(O, A)));
+	typedef type<glm::uint64> typeU64;
 
-	glm::bvec3 B = glm::lessThan(glm::ivec3(0, 1, 6), glm::ivec3(4, 5, 2));
-	assert(glm::all(glm::equal(O, B)));
+	typeU64 const Data64[] =
+	{
+		{0xffffffffffffffff, 0xffffffffffffffff, SUCCESS},
+		{0x0000000000000000, 0x0000000000000000, SUCCESS},
+		{0xf000000000000000, 0x000000000000000f, SUCCESS},
+	};
 
-	glm::bvec3 C = glm::lessThan(glm::uvec3(0, 1, 6), glm::uvec3(4, 5, 2));
-	assert(glm::all(glm::equal(O, C)));
-
-	return 0;
-}
-
-int test_lessThan_vec4()
-{
-	glm::bvec4 O = glm::bvec4(true, true, false, false);
-
-	glm::bvec4 A = glm::lessThan(glm::vec4(0, 1, 6, 7), glm::vec4(4, 5, 2, 3));
-	assert(glm::all(glm::equal(O, A)));
-
-	glm::bvec4 B = glm::lessThan(glm::ivec4(0, 1, 6, 7), glm::ivec4(4, 5, 2, 3));
-	assert(glm::all(glm::equal(O, B)));
-
-	glm::bvec4 C = glm::lessThan(glm::uvec4(0, 1, 6, 7), glm::uvec4(4, 5, 2, 3));
-	assert(glm::all(glm::equal(O, C)));
-
-	return 0;
-}
-
-int test_greaterThanEqual_vec2()
-{
-	glm::bvec2 O = glm::bvec2(false, true);
-
-	glm::bvec2 A = glm::greaterThanEqual(glm::vec2(0, 6), glm::vec2(4, 2));
-	assert(glm::all(glm::equal(O, A)));
-
-	glm::bvec2 B = glm::greaterThanEqual(glm::ivec2(0, 6), glm::ivec2(4, 2));
-	assert(glm::all(glm::equal(O, B)));
-
-	glm::bvec2 C = glm::greaterThanEqual(glm::uvec2(0, 6), glm::uvec2(4, 2));
-	assert(glm::all(glm::equal(O, C)));
-
-	return 0;
-}
-
-int test_greaterThanEqual_vec3()
-{
-	glm::bvec3 O = glm::bvec3(false, false, true);
-
-	glm::bvec3 A = glm::greaterThanEqual(glm::vec3(0, 1, 6), glm::vec3(4, 5, 2));
-	assert(glm::all(glm::equal(O, A)));
-
-	glm::bvec3 B = glm::greaterThanEqual(glm::ivec3(0, 1, 6), glm::ivec3(4, 5, 2));
-	assert(glm::all(glm::equal(O, B)));
-
-	glm::bvec3 C = glm::greaterThanEqual(glm::uvec3(0, 1, 6), glm::uvec3(4, 5, 2));
-	assert(glm::all(glm::equal(O, C)));
-
-	return 0;
-}
-
-int test_greaterThanEqual_vec4()
-{
-	glm::bvec4 O = glm::bvec4(false, false, true, true);
-
-	glm::bvec4 A = glm::greaterThanEqual(glm::vec4(0, 1, 6, 7), glm::vec4(4, 5, 2, 3));
-	assert(glm::all(glm::equal(O, A)));
-
-	glm::bvec4 B = glm::greaterThanEqual(glm::ivec4(0, 1, 6, 7), glm::ivec4(4, 5, 2, 3));
-	assert(glm::all(glm::equal(O, B)));
-
-	glm::bvec4 C = glm::greaterThanEqual(glm::uvec4(0, 1, 6, 7), glm::uvec4(4, 5, 2, 3));
-	assert(glm::all(glm::equal(O, C)));
-
-	return 0;
-}
-
-int test_all()
-{
-	assert(glm::all(glm::bvec2(true, true)));
-	assert(!glm::all(glm::bvec2(true, false)));
-	assert(!glm::all(glm::bvec2(false, false)));
-
-	assert(glm::all(glm::bvec3(true, true, true)));
-	assert(!glm::all(glm::bvec3(true, false, true)));
-	assert(!glm::all(glm::bvec3(false, false, false)));
-
-	assert(glm::all(glm::bvec4(true, true, true, true)));
-	assert(!glm::all(glm::bvec4(true, false, true, false)));
-	assert(!glm::all(glm::bvec4(false, false, false, false)));
-
-	return 0;
-}
-
+	int test()
+	{
+		glm::uint32 count = sizeof(Data64) / sizeof(typeU64);
+		
+		for(glm::uint32 i = 0; i < count; ++i)
+		{
+			glm::uint64 Return = glm::bitfieldReverse(
+				Data64[i].Value);
+			
+			bool Compare = Data64[i].Return == Return;
+			
+			if(Data64[i].Result == SUCCESS && Compare)
+				continue;
+			else if(Data64[i].Result == FAIL && !Compare)
+				continue;
+			
+			std::cout << "glm::bitfieldReverse test fail on test " << i << std::endl;
+			return 1;
+		}
+		
+		return 0;
+	}
+}//bitRevert
 
 int main()
 {
-	int Failed = 0;
-	Failed += test_static_assert();
-	Failed += test_lessThan_vec2();
-	Failed += test_lessThan_vec3();
-	Failed += test_lessThan_vec4();
-	Failed += test_greaterThanEqual_vec2();
-	Failed += test_greaterThanEqual_vec3();
-	Failed += test_greaterThanEqual_vec4();
-	Failed += test_all();
-
-	return Failed;
+	int Error = 0;
+	Error += ::extractField::test();
+	Error += ::bitRevert::test();
+	return Error;
 }
-

@@ -326,7 +326,7 @@ namespace quaternion{
 	        q1.w * q2.y + q1.y * q2.w + q1.z * q2.x - q1.x * q2.z,
 	        q1.w * q2.z + q1.z * q2.w + q1.x * q2.y - q1.y * q2.x);
     }
-
+/*
 	// (x * sin(1 - a) * angle / sin(angle)) + (y * sin(a) * angle / sin(angle))
     template <typename T>
     GLM_FUNC_QUALIFIER detail::tquat<T> mix
@@ -406,6 +406,18 @@ namespace quaternion{
 		
         return normalize(beta * x + alpha * y);
     }
+*/
+    template <typename T>
+    GLM_FUNC_QUALIFIER detail::tquat<T> mix
+	(
+		detail::tquat<T> const & x, 
+		detail::tquat<T> const & y, 
+		T const & a
+	)
+    {
+		T angle = acos(dot(x, y));
+		return (sin((1 - a) * angle) * x + sin(a * angle) * y) / sin(angle);
+	}
 
     template <typename T> 
     GLM_FUNC_QUALIFIER detail::tquat<T> conjugate

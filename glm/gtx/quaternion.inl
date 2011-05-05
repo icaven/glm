@@ -245,6 +245,59 @@ namespace quaternion
         return detail::tvec3<valType>(pitch(x), yaw(x), roll(x));
     }
 
+    template <typename T>
+    GLM_FUNC_QUALIFIER detail::tquat<T> shortMix
+	(
+		detail::tquat<T> const & x, 
+		detail::tquat<T> const & y, 
+		T const & a
+	)
+    {
+        if(a <= typename detail::tquat<T>::value_type(0)) return x;
+        if(a >= typename detail::tquat<T>::value_type(1)) return y;
+
+        float fCos = dot(x, y);
+        detail::tquat<T> y2(y); //BUG!!! tquat<T> y2;
+        if(fCos < typename detail::tquat<T>::value_type(0))
+        {
+            y2 = -y;
+            fCos = -fCos;
+        }
+
+        //if(fCos > 1.0f) // problem
+        float k0, k1;
+        if(fCos > typename detail::tquat<T>::value_type(0.9999))
+        {
+            k0 = typename detail::tquat<T>::value_type(1) - a;
+            k1 = typename detail::tquat<T>::value_type(0) + a; //BUG!!! 1.0f + a;
+        }
+        else
+        {
+            typename detail::tquat<T>::value_type fSin = sqrt(T(1) - fCos * fCos);
+            typename detail::tquat<T>::value_type fAngle = atan(fSin, fCos);
+            typename detail::tquat<T>::value_type fOneOverSin = T(1) / fSin;
+            k0 = sin((typename detail::tquat<T>::value_type(1) - a) * fAngle) * fOneOverSin;
+            k1 = sin((typename detail::tquat<T>::value_type(0) + a) * fAngle) * fOneOverSin;
+        }
+
+        return detail::tquat<T>(
+            k0 * x.w + k1 * y2.w,
+            k0 * x.x + k1 * y2.x,
+            k0 * x.y + k1 * y2.y,
+            k0 * x.z + k1 * y2.z);
+	}
+
+    template <typename T>
+    GLM_FUNC_QUALIFIER detail::tquat<T> fastMix
+	(
+		detail::tquat<T> const & x, 
+		detail::tquat<T> const & y, 
+		T const & a
+	)
+    {
+		return glm::normalize(x * (1 - a) + (y * a));
+	}
+
 }//namespace quaternion
 }//namespace gtx
 }//namespace glm

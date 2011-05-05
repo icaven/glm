@@ -269,13 +269,13 @@ namespace glm
 			GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'bitfieldExtract' only accept integer values");
 			assert(Offset + Bits <= sizeof(genIUType));
 
-			genIUType Result = 0;
+			genIUType Result(0);
 			if(std::numeric_limits<genIUType>::is_signed)
-				Result |= (1 << (sizeof(genIUType) * 8 - 1)) & (1 << (Offset + Bits - 1));
+				Result |= (genIUType(1) << (sizeof(genIUType) * genIUType(8) - genIUType(1))) & (genIUType(1) << (Offset + Bits - genIUType(1)));
 
-			genIUType Mask = 0;
+			genIUType Mask(0);
 			for(int Bit = Offset; Bit < Bits; ++Bit)
-				Mask |= (1 << Bit);
+				Mask |= (genIUType(1) << Bit);
 
 			return Result | ((Mask & Value) >> Offset);
 		}
@@ -340,7 +340,7 @@ namespace glm
 
 			genIUType Mask = 0;
 			for(int Bit = Offset; Bit < Offset + Bits; ++Bit)
-				Mask |= (1 << Bit);
+				Mask |= (genIUType(1) << Bit);
 
 			return (Base & ~Mask) | (Insert & Mask);
 		}
@@ -398,8 +398,8 @@ namespace glm
 
 			genIUType Result = 0;
 			for(std::size_t i = 0; i < sizeof(genIUType) * std::size_t(8); ++i)
-				if(Value & (1 << i))
-					Result |= (genIUType(1) << (sizeof(genIUType) * std::size_t(8)) - genIUType(1) - i);
+				if(Value & (genIUType(1) << genIUType(i)))
+					Result |= (genIUType(1) << (genIUType(sizeof(genIUType)) * genIUType(8)) - genIUType(1) - genIUType(i));
 			return Result;
 		}	
 
@@ -448,7 +448,7 @@ namespace glm
 			int Count = 0;
 			for(std::size_t i = 0; i < sizeof(genIUType) * std::size_t(8); ++i)
 			{
-				if(Value & (1 << i))
+				if(Value & (genIUType(1) << i))
 					++Count;
 			}
 			return Count;
