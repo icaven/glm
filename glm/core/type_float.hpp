@@ -46,7 +46,7 @@ namespace glm
 		//! There is no guarantee on the actual precision.
 		//! From GLSL 1.30.8 specification
 		//! \ingroup core_precision
-		typedef mediump_float_t	mediump_float;
+		typedef mediump_float_t     mediump_float;
 		//! High precision floating-point numbers.
 		//! There is no guarantee on the actual precision.
 		//! From GLSL 1.30.8 specification
@@ -58,7 +58,7 @@ namespace glm
 #if(!defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
 	typedef precision::mediump_float				float_t;
 #elif(defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
-	typedef precision::highp_float				float_t;
+	typedef precision::highp_float                  float_t;
 #elif(!defined(GLM_PRECISION_HIGHP_FLOAT) && defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
 	typedef precision::mediump_float				float_t;
 #elif(!defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && defined(GLM_PRECISION_LOWP_FLOAT))
