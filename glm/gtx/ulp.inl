@@ -20,8 +20,8 @@
  * is preserved.
  * ====================================================
  */
-/*
-#define EXTRACT_WORDS(ix0,ix1,d)                                \
+
+#define GLM_EXTRACT_WORDS(ix0,ix1,d)                                \
 do {                                                            \
   ieee_double_shape_type ew_u;                                  \
   ew_u.value = (d);                                             \
@@ -29,21 +29,21 @@ do {                                                            \
   (ix1) = ew_u.parts.lsw;                                       \
 } while (0)
 
-#define GET_FLOAT_WORD(i,d)                                     \
+#define GLM_GET_FLOAT_WORD(i,d)                                     \
 do {                                                            \
   ieee_float_shape_type gf_u;                                   \
   gf_u.value = (d);                                             \
   (i) = gf_u.word;                                              \
 } while (0)
 
-#define SET_FLOAT_WORD(d,i)                                     \
+#define GLM_SET_FLOAT_WORD(d,i)                                     \
 do {                                                            \
   ieee_float_shape_type sf_u;                                   \
   sf_u.word = (i);                                              \
   (d) = sf_u.value;                                             \
 } while (0)
 
-#define INSERT_WORDS(d,ix0,ix1)                                 \
+#define GLM_INSERT_WORDS(d,ix0,ix1)                                 \
 do {                                                            \
   ieee_double_shape_type iw_u;                                  \
   iw_u.parts.msw = (ix0);                                       \
@@ -51,113 +51,116 @@ do {                                                            \
   (d) = iw_u.value;                                             \
 } while (0)
 
-float nextafterf(float x, float y)
+namespace glm{
+namespace detail
 {
-        volatile float t;
-        int32_t hx,hy,ix,iy;
+	GLM_FUNC_QUALIFIER float nextafterf(float x, float y)
+	{
+		volatile float t;
+		glm::int32 hx, hy, ix, iy;
 
-        GET_FLOAT_WORD(hx,x);
-        GET_FLOAT_WORD(hy,y);
-        ix = hx&0x7fffffff;             // |x|
-        iy = hy&0x7fffffff;             // |y|
+		GLM_GET_FLOAT_WORD(hx,x);
+		GLM_GET_FLOAT_WORD(hy,y);
+		ix = hx&0x7fffffff;             // |x|
+		iy = hy&0x7fffffff;             // |y|
 
-        if((ix>0x7f800000) ||   // x is nan 
-           (iy>0x7f800000))     // y is nan 
-           return x+y;
-        if(x==y) return y;              // x=y, return y
-        if(ix==0) {                             // x == 0
-            SET_FLOAT_WORD(x,(hy&0x80000000)|1);// return +-minsubnormal
-            t = x*x;
-            if(t==x) return t; else return x;   // raise underflow flag
-        }
-        if(hx>=0) {                             // x > 0 
-            if(hx>hy) {                         // x > y, x -= ulp
-                hx -= 1;
-            } else {                            // x < y, x += ulp
-                hx += 1;
-            }
-        } else {                                // x < 0
-            if(hy>=0||hx>hy){                   // x < y, x -= ulp
-                hx -= 1;
-            } else {                            // x > y, x += ulp
-                hx += 1;
-            }
-        }
-        hy = hx&0x7f800000;
-        if(hy>=0x7f800000) return x+x;  // overflow
-        if(hy<0x00800000) {             // underflow
-            t = x*x;
-            if(t!=x) {          // raise underflow flag
-                SET_FLOAT_WORD(y,hx);
-                return y;
-            }
-        }
-        SET_FLOAT_WORD(x,hx);
-        return x;
-}
-*/
-/*
-double nextafter(double x, double y)
-{
-        volatile double t;
-        int32_t hx,hy,ix,iy;
-        u_int32_t lx,ly;
+		if((ix>0x7f800000) ||   // x is nan 
+			(iy>0x7f800000))     // y is nan 
+			return x+y;
+		if(x==y) return y;              // x=y, return y
+		if(ix==0) {                             // x == 0
+			GLM_SET_FLOAT_WORD(x,(hy&0x80000000)|1);// return +-minsubnormal
+			t = x*x;
+			if(t==x) return t; else return x;   // raise underflow flag
+		}
+		if(hx>=0) {                             // x > 0 
+			if(hx>hy) {                         // x > y, x -= ulp
+				hx -= 1;
+			} else {                            // x < y, x += ulp
+				hx += 1;
+			}
+		} else {                                // x < 0
+			if(hy>=0||hx>hy){                   // x < y, x -= ulp
+				hx -= 1;
+			} else {                            // x > y, x += ulp
+				hx += 1;
+			}
+		}
+		hy = hx&0x7f800000;
+		if(hy>=0x7f800000) return x+x;  // overflow
+		if(hy<0x00800000) {             // underflow
+			t = x*x;
+			if(t!=x) {          // raise underflow flag
+				GLM_SET_FLOAT_WORD(y,hx);
+				return y;
+			}
+		}
+		GLM_SET_FLOAT_WORD(x,hx);
+		return x;
+	}
 
-        EXTRACT_WORDS(hx,lx,x);
-        EXTRACT_WORDS(hy,ly,y);
-        ix = hx&0x7fffffff;             // |x| 
-        iy = hy&0x7fffffff;             // |y| 
+	GLM_FUNC_QUALIFIER double nextafter(double x, double y)
+	{
+		volatile double t;
+		glm::int32 hx, hy, ix, iy;
+		glm::uint32 lx, ly;
 
-        if(((ix>=0x7ff00000)&&((ix-0x7ff00000)|lx)!=0) ||   // x is nan
-           ((iy>=0x7ff00000)&&((iy-0x7ff00000)|ly)!=0))     // y is nan
-           return x+y;
-        if(x==y) return y;              // x=y, return y
-        if((ix|lx)==0) {                        // x == 0 
-            INSERT_WORDS(x,hy&0x80000000,1);    // return +-minsubnormal
-            t = x*x;
-            if(t==x) return t; else return x;   // raise underflow flag 
-        }
-        if(hx>=0) {                             // x > 0 
-            if(hx>hy||((hx==hy)&&(lx>ly))) {    // x > y, x -= ulp 
-                if(lx==0) hx -= 1;
-                lx -= 1;
-            } else {                            // x < y, x += ulp
-                lx += 1;
-                if(lx==0) hx += 1;
-            }
-        } else {                                // x < 0 
-            if(hy>=0||hx>hy||((hx==hy)&&(lx>ly))){// x < y, x -= ulp
-                if(lx==0) hx -= 1;
-                lx -= 1;
-            } else {                            // x > y, x += ulp
-                lx += 1;
-                if(lx==0) hx += 1;
-            }
-        }
-        hy = hx&0x7ff00000;
-        if(hy>=0x7ff00000) return x+x;  // overflow
-        if(hy<0x00100000) {             // underflow
-            t = x*x;
-            if(t!=x) {          // raise underflow flag
-                INSERT_WORDS(y,hx,lx);
-                return y;
-            }
-        }
-        INSERT_WORDS(x,hx,lx);
-        return x;
-}
-*/
+		GLM_EXTRACT_WORDS(hx, lx, x);
+		GLM_EXTRACT_WORDS(hy, ly, y);
+		ix = hx & 0x7fffffff;             // |x| 
+		iy = hy & 0x7fffffff;             // |y| 
+
+		if(((ix>=0x7ff00000)&&((ix-0x7ff00000)|lx)!=0) ||   // x is nan
+			((iy>=0x7ff00000)&&((iy-0x7ff00000)|ly)!=0))     // y is nan
+			return x+y;
+		if(x==y) return y;              // x=y, return y
+		if((ix|lx)==0) {                        // x == 0 
+			GLM_INSERT_WORDS(x, hy & 0x80000000, 1);    // return +-minsubnormal
+			t = x*x;
+			if(t==x) return t; else return x;   // raise underflow flag 
+		}
+		if(hx>=0) {                             // x > 0 
+			if(hx>hy||((hx==hy)&&(lx>ly))) {    // x > y, x -= ulp 
+				if(lx==0) hx -= 1;
+				lx -= 1;
+			} else {                            // x < y, x += ulp
+				lx += 1;
+				if(lx==0) hx += 1;
+			}
+		} else {                                // x < 0 
+			if(hy>=0||hx>hy||((hx==hy)&&(lx>ly))){// x < y, x -= ulp
+				if(lx==0) hx -= 1;
+				lx -= 1;
+			} else {                            // x > y, x += ulp
+				lx += 1;
+				if(lx==0) hx += 1;
+			}
+		}
+		hy = hx&0x7ff00000;
+		if(hy>=0x7ff00000) return x+x;  // overflow
+		if(hy<0x00100000) {             // underflow
+			t = x*x;
+			if(t!=x) {          // raise underflow flag
+				GLM_INSERT_WORDS(y,hx,lx);
+				return y;
+			}
+		}
+		GLM_INSERT_WORDS(x,hx,lx);
+		return x;
+	}
+}//namespace detail
+}//namespace glm
 
 #if(GLM_COMPILER & GLM_COMPILER_VC)
 #	if(GLM_MODEL == GLM_MODEL_32)
-#		define GLM_NEXT_AFTER_FLT(x, toward) (float)_nextafter(x, float(toward))
+#		define GLM_NEXT_AFTER_FLT(x, toward) glm::detail::nextafter((x), (toward))
 #	else
-#		define GLM_NEXT_AFTER_FLT(x, toward) _nextafterf(x, toward)
+#		define GLM_NEXT_AFTER_FLT(x, toward) _nextafterf((x), (toward))
 #	endif
-#   define GLM_NEXT_AFTER_DBL(x, toward) _nextafter(x, toward)
+#   define GLM_NEXT_AFTER_DBL(x, toward) _nextafter((x), (toward))
 #else
-#   define GLM_NEXT_AFTER_FLT(x, toward) nextafterf(x, toward)
-#   define GLM_NEXT_AFTER_DBL(x, toward) nextafter(x, toward)
+#   define GLM_NEXT_AFTER_FLT(x, toward) nextafterf((x), (toward))
+#   define GLM_NEXT_AFTER_DBL(x, toward) nextafter((x), (toward))
 #endif
 
 namespace glm{
