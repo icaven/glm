@@ -18,19 +18,15 @@ namespace detail
 {
 	class thalf;
 
-#if(GLM_COMPILER & GLM_COMPILER_VC)
+#if(__STDC_VERSION__ >= 199901L) // C99 detected, 64 bit types available
+	typedef int64_t								sint64;
+	typedef uint64_t							uint64;
+#elif(GLM_COMPILER & GLM_COMPILER_VC)
 	typedef signed __int64						sint64;
 	typedef unsigned __int64					uint64;
 #elif(GLM_COMPILER & GLM_COMPILER_GCC)
 	__extension__ typedef signed long long		sint64;
 	__extension__ typedef unsigned long long	uint64;
-//#	if GLM_MODEL == GLM_MODEL_64
-//		typedef signed long							highp_int_t;
-//		typedef unsigned long						highp_uint_t;
-//#   elif GLM_MODEL == GLM_MODEL_32
-//		__extension__ typedef signed long long		highp_int_t;
-//		__extension__ typedef unsigned long long	highp_uint_t;
-//#	endif//GLM_MODEL
 #elif(GLM_COMPILER & GLM_COMPILER_BC)
 	typedef Int64								sint64;
 	typedef Uint64								uint64;
