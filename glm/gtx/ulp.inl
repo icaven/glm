@@ -21,6 +21,23 @@
  * ====================================================
  */
 
+typedef union
+{
+	float value;
+	/* FIXME: Assumes 32 bit int.  */
+	unsigned int word;
+} ieee_float_shape_type;
+
+typedef union
+{
+	double value;
+	struct
+	{
+		glm::detail::int32 lsw;
+		glm::detail::int32 msw;
+	} parts;
+} ieee_double_shape_type;
+
 #define GLM_EXTRACT_WORDS(ix0,ix1,d)                                \
 do {                                                            \
   ieee_double_shape_type ew_u;                                  \
@@ -57,7 +74,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER float nextafterf(float x, float y)
 	{
 		volatile float t;
-		glm::int32 hx, hy, ix, iy;
+		glm::detail::int32 hx, hy, ix, iy;
 
 		GLM_GET_FLOAT_WORD(hx,x);
 		GLM_GET_FLOAT_WORD(hy,y);
@@ -102,8 +119,8 @@ namespace detail
 	GLM_FUNC_QUALIFIER double nextafter(double x, double y)
 	{
 		volatile double t;
-		glm::int32 hx, hy, ix, iy;
-		glm::uint32 lx, ly;
+		glm::detail::int32 hx, hy, ix, iy;
+		glm::detail::uint32 lx, ly;
 
 		GLM_EXTRACT_WORDS(hx, lx, x);
 		GLM_EXTRACT_WORDS(hy, ly, y);
@@ -153,7 +170,7 @@ namespace detail
 
 #if(GLM_COMPILER & GLM_COMPILER_VC)
 #	if(GLM_MODEL == GLM_MODEL_32)
-#		define GLM_NEXT_AFTER_FLT(x, toward) glm::detail::nextafter((x), (toward))
+#		define GLM_NEXT_AFTER_FLT(x, toward) glm::detail::nextafterf((x), (toward))
 #	else
 #		define GLM_NEXT_AFTER_FLT(x, toward) _nextafterf((x), (toward))
 #	endif
