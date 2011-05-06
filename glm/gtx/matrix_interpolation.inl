@@ -11,9 +11,8 @@ namespace glm{
 namespace gtx{
 namespace matrix_interpolation
 {
-
     template <typename T>
-    inline void axisAngle(
+    GLM_FUNC_QUALIFIER void axisAngle(
         detail::tmat4x4<T> const & mat,
         detail::tvec3<T> & axis,
         T & angle)
@@ -70,7 +69,7 @@ namespace matrix_interpolation
             return;
         }
         T s = sqrt((mat[2][1] - mat[1][2]) * (mat[2][1] - mat[1][2]) + (mat[2][0] - mat[0][2]) * (mat[2][0] - mat[0][2]) + (mat[1][0] - mat[0][1]) * (mat[1][0] - mat[0][1]));
-        if (fabs(s) < 0.001)
+        if (glm::abs(s) < T(0.001))
             s = (T)1.0;
         angle = acos((mat[0][0] + mat[1][1] + mat[2][2] - (T)1.0) / (T)2.0);
         axis.x = (mat[1][2] - mat[2][1]) / s;
@@ -79,25 +78,25 @@ namespace matrix_interpolation
     }
 
     template <typename T>
-    inline detail::tmat4x4<T> axisAngleMatrix(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> axisAngleMatrix(
 		detail::tvec3<T> const & axis,
 		T const angle)
     {
         T c = cos(angle);
         T s = sin(angle);
-        T t = 1.0 - c;
+        T t = T(1) - c;
         detail::tvec3<T> n = normalize(axis);
 
         return detail::tmat4x4<T>(
-            t * n.x * n.x + c,          t * n.x * n.y + n.z * s,    t * n.x * n.z - n.y * s,    0.0,
-            t * n.x * n.y - n.z * s,    t * n.y * n.y + c,          t * n.y * n.z + n.x * s,    0.0,
-            t * n.x * n.z + n.y * s,    t * n.y * n.z - n.x * s,    t * n.z * n.z + c,          0.0,
-            0.0,                        0.0,                        0.0,                        1.0
+            t * n.x * n.x + c,          t * n.x * n.y + n.z * s,    t * n.x * n.z - n.y * s,    T(0),
+            t * n.x * n.y - n.z * s,    t * n.y * n.y + c,          t * n.y * n.z + n.x * s,    T(0),
+            t * n.x * n.z + n.y * s,    t * n.y * n.z - n.x * s,    t * n.z * n.z + c,          T(0),
+            T(0),                        T(0),                        T(0),                     T(1)
         );
     }
 
     template <typename T>
-    inline detail::tmat4x4<T> interpolate(
+    GLM_FUNC_QUALIFIER detail::tmat4x4<T> interpolate(
 		detail::tmat4x4<T> const & m1,
 		detail::tmat4x4<T> const & m2,
 		T const delta)
