@@ -12,48 +12,96 @@
 #include <iostream>
 #include <limits>
 
-int test_ulp_float()
+int test_ulp_float_dist()
 {
-	std::cout.precision(std::numeric_limits<double>::digits10 + 1);
+	int Error = 0;
 
-	float W = 1.0f;
-    float X = glm::next_float(W);
-    
-	double Y = 1.0;
-    double Z = glm::next_float(Y);
-    
-	bool TestX = W != X;
-	bool TestZ = Y != Z;    
-    
-	std::cout << "1.0f, Next: " << glm::float_distance(W, X)<< std::endl;
-	std::cout << "1.0f, Next(1000): " << glm::float_distance(W, glm::next_float(W, 1000)) << std::endl;
-    
-	std::cout << "1.0f, Next: " << glm::float_distance(X, W)<< std::endl;
-	std::cout << "1.0f, Next(1000): " << glm::float_distance(glm::next_float(W, 1000), W) << std::endl;
-    
-	std::cout << "1.0, Next: " << glm::float_distance(Y, Z) << std::endl;
-	std::cout << "1.0, Next(1000): " << glm::float_distance(glm::next_float(Y, 1000), Y) << std::endl;
+	float A = 1.0f;
 
+    float B = glm::next_float(A);
+	Error += A != B ? 0 : 1;
+	float C = glm::prev_float(B);
+	Error += A == C ? 0 : 1;
 
+	int D = glm::float_distance(A, B);
+	Error += D == 1 ? 0 : 1;
+	int E = glm::float_distance(A, C);
+	Error += E == 0 ? 0 : 1;
 
-    std::cout << Z << " 0.01, 0.011" << std::endl;
-	std::cout << " 1.0, Next(1000000): " << glm::next_float(Y, 1000000)<< std::endl;
-    
-	//std::size_t A = glm::ulp(0.01, 0.02);
-	//std::size_t B = glm::ulp(glm::vec2(0.01), glm::vec2(0.02));
-	//std::size_t C = glm::ulp(glm::vec3(0.01), glm::vec3(0.02));
-	//std::size_t D = glm::ulp(glm::vec4(0.01), glm::vec4(0.02));
-	//std::cout << "glm::ulp test: " << A << std::endl;
-	//std::cout << "glm::ulp test: " << B << std::endl;
-	//std::cout << "glm::ulp test: " << C << std::endl;
-	//std::cout << "glm::ulp test: " << D << std::endl;
-	return 0;
+	return Error;
+}
+
+int test_ulp_float_step()
+{
+	int Error = 0;
+
+	float A = 1.0f;
+
+	for(int i = 10; i < 1000; i *= 10)
+	{
+		float B = glm::next_float(A, i);
+		Error += A != B ? 0 : 1;
+		float C = glm::prev_float(B, i);
+		Error += A == C ? 0 : 1;
+
+		int D = glm::float_distance(A, B);
+		Error += D == i ? 0 : 1;
+		int E = glm::float_distance(A, C);
+		Error += E == 0 ? 0 : 1;
+	}
+
+	return Error;
+}
+
+int test_ulp_double_dist()
+{
+	int Error = 0;
+
+	double A = 1.0;
+
+    double B = glm::next_float(A);
+	Error += A != B ? 0 : 1;
+	double C = glm::prev_float(B);
+	Error += A == C ? 0 : 1;
+
+	int D = glm::float_distance(A, B);
+	Error += D == 1 ? 0 : 1;
+	int E = glm::float_distance(A, C);
+	Error += E == 0 ? 0 : 1;
+
+	return Error;
+}
+
+int test_ulp_double_step()
+{
+	int Error = 0;
+
+	double A = 1.0;
+
+	for(int i = 10; i < 1000; i *= 10)
+	{
+		double B = glm::next_float(A, i);
+		Error += A != B ? 0 : 1;
+		double C = glm::prev_float(B, i);
+		Error += A == C ? 0 : 1;
+
+		int D = glm::float_distance(A, B);
+		Error += D == i ? 0 : 1;
+		int E = glm::float_distance(A, C);
+		Error += E == 0 ? 0 : 1;
+	}
+
+	return Error;
 }
 
 int main()
 {
-    std::cout << "Test 76" << std::endl;
-	test_ulp_float();
+	int Error = 0;
+	Error += test_ulp_float_dist();
+	Error += test_ulp_float_step();
+	Error += test_ulp_double_dist();
+	Error += test_ulp_double_step();
+	return Error;
 }
 
 
