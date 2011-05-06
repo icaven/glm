@@ -74,6 +74,7 @@
 #include "./gtx/string_cast.hpp"
 #include "./gtx/transform.hpp"
 #include "./gtx/transform2.hpp"
+#include "./gtx/ulp.hpp"
 #include "./gtx/unsigned_int.hpp"
 #include "./gtx/vec1.hpp"
 #include "./gtx/vector_access.hpp"
