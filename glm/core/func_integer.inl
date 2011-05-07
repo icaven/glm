@@ -197,7 +197,7 @@ namespace glm
 
 		// imulExtended
 		template <typename genIType>
-		void imulExtended
+		GLM_FUNC_QUALIFIER void imulExtended
 		(
 			genIType const & x, 
 			genIType const & y, 
@@ -259,7 +259,7 @@ namespace glm
 
 		// bitfieldExtract
 		template <typename genIUType>
-		genIUType bitfieldExtract
+		GLM_FUNC_QUALIFIER genIUType bitfieldExtract
 		(
 			genIUType const & Value, 
 			int const & Offset, 
@@ -441,7 +441,7 @@ namespace glm
 
 		// bitCount
 		template <typename genIUType>
-		int bitCount(genIUType const & Value)
+		GLM_FUNC_QUALIFIER int bitCount(genIUType const & Value)
 		{
 			GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'bitCount' only accept integer values");
 
