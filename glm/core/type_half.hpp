@@ -33,30 +33,30 @@ namespace glm
 		{
 		public: 
 			// Constructors
-			thalf();
-			thalf(thalf const & s);
+			GLM_FUNC_DECL thalf();
+			GLM_FUNC_DECL thalf(thalf const & s);
 			
 			template <typename U>
-			explicit thalf(U const & s);
+			GLM_FUNC_DECL explicit thalf(U const & s);
 
 			// Cast
 			//operator float();
-			operator float() const;
+			GLM_FUNC_DECL operator float() const;
 			//operator double();
 			//operator double() const;
 
 			// Unary updatable operators
-			thalf& operator= (thalf const & s);
-			thalf& operator+=(thalf const & s);
-			thalf& operator-=(thalf const & s);
-			thalf& operator*=(thalf const & s);
-			thalf& operator/=(thalf const & s);
-			thalf& operator++();
-			thalf& operator--();
+			GLM_FUNC_DECL thalf& operator= (thalf const & s);
+			GLM_FUNC_DECL thalf& operator+=(thalf const & s);
+			GLM_FUNC_DECL thalf& operator-=(thalf const & s);
+			GLM_FUNC_DECL thalf& operator*=(thalf const & s);
+			GLM_FUNC_DECL thalf& operator/=(thalf const & s);
+			GLM_FUNC_DECL thalf& operator++();
+			GLM_FUNC_DECL thalf& operator--();
 	
-			float toFloat() const{return toFloat32(data);}
+			GLM_FUNC_DECL float toFloat() const{return toFloat32(data);}
 
-			hdata _data() const{return data;}
+			GLM_FUNC_DECL hdata _data() const{return data;}
 
 		private:
 			hdata data;

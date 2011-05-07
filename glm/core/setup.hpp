@@ -400,9 +400,11 @@
 // User defines: GLM_FORCE_INLINE GLM_FORCE_CUDA
 
 #if(defined(GLM_FORCE_CUDA) || (defined(GLM_COMPILER) && (GLM_COMPILER >= GLM_COMPILER_CUDA30)))
-#   define GLM_CUDA_QUALIFIER __device__ __host__ 
+#   define GLM_CUDA_FUNC_DEF __device__ __host__ 
+#	define GLM_CUDA_FUNC_DECL __device__ __host__ 
 #else
-#   define GLM_CUDA_QUALIFIER
+#   define GLM_CUDA_FUNC_DEF
+#	define GLM_CUDA_FUNC_DECL
 #endif
 
 #if(defined(GLM_FORCE_INLINE))
@@ -417,7 +419,8 @@
 #   define GLM_INLINE inline
 #endif//defined(GLM_FORCE_INLINE)
 
-#define GLM_FUNC_QUALIFIER GLM_CUDA_QUALIFIER GLM_INLINE
+#define GLM_FUNC_DECL GLM_CUDA_FUNC_DECL
+#define GLM_FUNC_QUALIFIER GLM_CUDA_FUNC_DEF GLM_INLINE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Swizzle operators
