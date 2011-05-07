@@ -256,7 +256,7 @@ namespace detail
 
 	inline thalf::operator float() const 
 	{
-		return toFloat();
+		return toFloat32(this->data);
 	}
 
 	//inline half::operator double()
