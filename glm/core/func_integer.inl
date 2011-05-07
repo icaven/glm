@@ -390,7 +390,7 @@ namespace glm
 		template <typename genIUType>
 		GLM_FUNC_QUALIFIER genIUType bitfieldReverse(genIUType const & Value)
 		{
-			GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_integer, "'bitRevert' only accept integer values");
+			GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'bitfieldReverse' only accept integer values");
 
 			genIUType Out = 0;
 			std::size_t BitSize = sizeof(genIUType) * 8;
