@@ -261,7 +261,7 @@ namespace ulp
     template <typename T>
     GLM_FUNC_QUALIFIER uint float_distance(T const & x, T const & y)
     {
-        std::size_t ulp = 0;
+        uint ulp = 0;
 
         if(x < y)
         {
