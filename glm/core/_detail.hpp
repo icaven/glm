@@ -110,15 +110,15 @@ namespace detail
 
 	union uif32
 	{
-		uif32() :
+		GLM_FUNC_QUALIFIER uif32() :
 			i(0)
 		{}
 
-		uif32(float f) :
+		GLM_FUNC_QUALIFIER uif32(float f) :
 			f(f)
 		{}
 
-		uif32(unsigned int i) :
+		GLM_FUNC_QUALIFIER uif32(unsigned int i) :
 			i(i)
 		{}
 
@@ -128,15 +128,15 @@ namespace detail
 
 	union uif64
 	{
-		uif64() :
+		GLM_FUNC_QUALIFIER uif64() :
 			i(0)
 		{}
 
-		uif64(double f) :
+		GLM_FUNC_QUALIFIER uif64(double f) :
 			f(f)
 		{}
 
-		uif64(uint64 i) :
+		GLM_FUNC_QUALIFIER uif64(uint64 i) :
 			i(i)
 		{}
 
