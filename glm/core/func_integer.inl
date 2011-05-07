@@ -258,12 +258,12 @@ namespace glm
 		}
 
 		// bitfieldExtract
-		template <typename genIUType, typename sizeType>
+		template <typename genIUType>
 		GLM_FUNC_QUALIFIER genIUType bitfieldExtract
 		(
 			genIUType const & Value, 
-			sizeType const & Offset, 
-			sizeType const & Bits
+			int const & Offset, 
+			int const & Bits
 		)
 		{
 /*
@@ -280,7 +280,7 @@ namespace glm
 
 			return Result | ((Mask & Value) >> Offset);
 */
-			sizeType GenSize = sizeof(genIUType) << sizeType(3);
+			int GenSize = int(sizeof(genIUType)) << int(3);
 
 			assert(Offset + Bits <= GenSize);
 
