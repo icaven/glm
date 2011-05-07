@@ -118,7 +118,7 @@ namespace bitRevert
 			else if(Data64[i].Result == FAIL && !Compare)
 				continue;
 			
-			std::cout << "glm::bitfieldReverse test fail on test " << i << std::endl;
+			std::cout << "glm::bitRevert test fail on test " << i << std::endl;
 			return 1;
 		}
 		
