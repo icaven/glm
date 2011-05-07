@@ -266,20 +266,6 @@ namespace glm
 			int const & Bits
 		)
 		{
-/*
-			GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'bitfieldExtract' only accept integer values");
-			assert(Offset + Bits <= (sizeof(genIUType) << 3));
-
-			genIUType Result(0);
-			if(std::numeric_limits<genIUType>::is_signed)
-				Result |= (genIUType(1) << (sizeof(genIUType) * genIUType(8) - genIUType(1))) & (genIUType(1) << (Offset + Bits - genIUType(1)));
-
-			genIUType Mask(0);
-			for(int Bit = Offset; Bit < Bits; ++Bit)
-				Mask |= (genIUType(1) << Bit);
-
-			return Result | ((Mask & Value) >> Offset);
-*/
 			int GenSize = int(sizeof(genIUType)) << int(3);
 
 			assert(Offset + Bits <= GenSize);
@@ -350,7 +336,7 @@ namespace glm
 
 			genIUType Mask = 0;
 			for(int Bit = Offset; Bit < Offset + Bits; ++Bit)
-				Mask |= (genIUType(1) << Bit);
+				Mask |= (1 << Bit);
 
 			return (Base & ~Mask) | (Insert & Mask);
 		}
@@ -404,13 +390,14 @@ namespace glm
 		template <typename genIUType>
 		GLM_FUNC_QUALIFIER genIUType bitfieldReverse(genIUType const & Value)
 		{
-			GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'bitfieldReverse' only accept integer values");
+			GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_integer, "'bitRevert' only accept integer values");
 
-			genIUType Result = 0;
-			for(std::size_t i = 0; i < sizeof(genIUType) * std::size_t(8); ++i)
-				if(Value & (genIUType(1) << genIUType(i)))
-					Result |= (genIUType(1) << (genIUType(sizeof(genIUType)) * genIUType(8)) - genIUType(1) - genIUType(i));
-			return Result;
+			genIUType Out = 0;
+			std::size_t BitSize = sizeof(genIUType) * 8;
+			for(std::size_t i = 0; i < BitSize; ++i)
+				if(In & (genIUType(1) << i))
+					Out |= genIUType(1) << (BitSize - 1 - i);
+			return Out;
 		}	
 
 		template <typename T>
@@ -458,7 +445,7 @@ namespace glm
 			int Count = 0;
 			for(std::size_t i = 0; i < sizeof(genIUType) * std::size_t(8); ++i)
 			{
-				if(Value & (genIUType(1) << i))
+				if(Value & (1 << i))
 					++Count;
 			}
 			return Count;
