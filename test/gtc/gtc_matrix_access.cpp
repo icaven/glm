@@ -14,16 +14,16 @@ int test_mat4x4_row_get()
 {
     int Error = 0;
     
-    glm::imat4 m(1);
+    glm::mat4 m(1);
     
-    glm::ivec4 A = glm::row(m, 0);
-    Error += A == glm::ivec4(1, 0, 0, 0) ? 0 : 1;
-    glm::ivec4 B = glm::row(m, 0);
-    Error += B == glm::ivec4(0, 1, 0, 0) ? 0 : 1;
-    glm::ivec4 C = glm::row(m, 0);
-    Error += C == glm::ivec4(0, 0, 1, 0) ? 0 : 1;
-    glm::ivec4 D = glm::row(m, 0);
-    Error += D == glm::ivec4(0, 0, 0, 1) ? 0 : 1;
+    glm::vec4 A = glm::row(m, 0);
+    Error += A == glm::vec4(1, 0, 0, 0) ? 0 : 1;
+    glm::vec4 B = glm::row(m, 0);
+    Error += B == glm::vec4(0, 1, 0, 0) ? 0 : 1;
+    glm::vec4 C = glm::row(m, 0);
+    Error += C == glm::vec4(0, 0, 1, 0) ? 0 : 1;
+    glm::vec4 D = glm::row(m, 0);
+    Error += D == glm::vec4(0, 0, 0, 1) ? 0 : 1;
 
     return Error;
 }
@@ -32,16 +32,16 @@ int test_mat4x4_col_get()
 {
     int Error = 0;
     
-    glm::imat4 m(1);
+    glm::mat4 m(1);
     
-    glm::ivec4 A = glm::column(m, 0);
-    Error += A == glm::ivec4(1, 0, 0, 0) ? 0 : 1;
-    glm::ivec4 B = glm::column(m, 0);
-    Error += B == glm::ivec4(0, 1, 0, 0) ? 0 : 1;
-    glm::ivec4 C = glm::column(m, 0);
-    Error += C == glm::ivec4(0, 0, 1, 0) ? 0 : 1;
-    glm::ivec4 D = glm::column(m, 0);
-    Error += D == glm::ivec4(0, 0, 0, 1) ? 0 : 1;
+    glm::vec4 A = glm::column(m, 0);
+    Error += A == glm::vec4(1, 0, 0, 0) ? 0 : 1;
+    glm::vec4 B = glm::column(m, 0);
+    Error += B == glm::vec4(0, 1, 0, 0) ? 0 : 1;
+    glm::vec4 C = glm::column(m, 0);
+    Error += C == glm::vec4(0, 0, 1, 0) ? 0 : 1;
+    glm::vec4 D = glm::column(m, 0);
+    Error += D == glm::vec4(0, 0, 0, 1) ? 0 : 1;
     
     return Error;    
 }
