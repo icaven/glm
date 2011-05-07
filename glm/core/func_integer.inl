@@ -395,7 +395,7 @@ namespace glm
 			genIUType Out = 0;
 			std::size_t BitSize = sizeof(genIUType) * 8;
 			for(std::size_t i = 0; i < BitSize; ++i)
-				if(In & (genIUType(1) << i))
+				if(Value & (genIUType(1) << i))
 					Out |= genIUType(1) << (BitSize - 1 - i);
 			return Out;
 		}	
