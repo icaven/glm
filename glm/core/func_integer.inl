@@ -267,7 +267,7 @@ namespace glm
 		)
 		{
 			GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'bitfieldExtract' only accept integer values");
-			assert(Offset + Bits <= sizeof(genIUType));
+			assert(Offset + Bits <= (sizeof(genIUType) << 3));
 
 			genIUType Result(0);
 			if(std::numeric_limits<genIUType>::is_signed)
