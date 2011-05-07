@@ -48,6 +48,7 @@
 #include "./gtx/intersect.hpp"
 #include "./gtx/log_base.hpp"
 #include "./gtx/matrix_cross_product.hpp"
+#include "./gtx/matrix_interpolation.hpp"
 #include "./gtx/matrix_major_storage.hpp"
 #include "./gtx/matrix_operation.hpp"
 #include "./gtx/matrix_query.hpp"

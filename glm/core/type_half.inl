@@ -256,7 +256,7 @@ namespace detail
 
 	GLM_FUNC_QUALIFIER thalf::operator float() const 
 	{
-		return toFloat();
+		return toFloat32(this->data);
 	}
 
 	//GLM_FUNC_QUALIFIER half::operator double()
