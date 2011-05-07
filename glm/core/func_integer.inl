@@ -258,14 +258,15 @@ namespace glm
 		}
 
 		// bitfieldExtract
-		template <typename genIUType>
-		genIUType bitfieldExtract
+		template <typename genIUType, typename sizeType>
+		GLM_FUNC_QUALIFIER genIUType bitfieldExtract
 		(
 			genIUType const & Value, 
-			int const & Offset, 
-			int const & Bits
+			sizeType const & Offset, 
+			sizeType const & Bits
 		)
 		{
+/*
 			GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'bitfieldExtract' only accept integer values");
 			assert(Offset + Bits <= (sizeof(genIUType) << 3));
 
@@ -278,6 +279,15 @@ namespace glm
 				Mask |= (genIUType(1) << Bit);
 
 			return Result | ((Mask & Value) >> Offset);
+*/
+			sizeType GenSize = sizeof(genIUType) << sizeType(3);
+
+			assert(Offset + Bits <= GenSize);
+
+			genIUType ShiftLeft = Bits ? Value << (GenSize - (Bits + Offset)) : genIUType(0);
+			genIUType ShiftBack = ShiftLeft >> genIUType(GenSize - Bits);
+
+			return ShiftBack;
 		}
 
 		template <typename T>
