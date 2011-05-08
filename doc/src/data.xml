@@ -1588,8 +1588,8 @@
     </menu-group>
 
     <menu-group name="Documentation">
-      <menu-entry name="GLM Manual" href="./glm-0.9.1.pdf" />
-      <menu-entry name="GLM API" href="./api-0.9.1/index.html" />
+      <menu-entry name="GLM Manual" href="./glm-0.9.2.pdf" />
+      <menu-entry name="GLM API" href="./api-0.9.2/index.html" />
       <menu-entry name="Code samples" href="./code.html" />
       <menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.clean.pdf" />
       <menu-entry name="OpenGL.org Toolkits forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
