@@ -11,7 +11,16 @@ GLM is a header only library, there is nothing to build, just include it.
 #include <glm/glm.hpp>
 
 More informations in GLM manual:
-http://glm.g-truc.net/glm-0.9.1.pdf
+http://glm.g-truc.net/glm-0.9.2.pdf
+
+================================================================================
+GLM 0.9.2.0: 2010-05-08
+--------------------------------------------------------------------------------
+- Added CUDA support
+- Added CTest test suite
+- Added GLM_GTX_ulp
+- Added GLM_GTX_matrix_interpolation
+- Updated quaternion slerp interpolation
 
 ================================================================================
 GLM 0.9.1.3: 2010-05-07

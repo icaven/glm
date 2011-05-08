@@ -169,11 +169,7 @@ namespace detail
 }//namespace glm
 
 #if(GLM_COMPILER & GLM_COMPILER_VC)
-#	if(GLM_MODEL == GLM_MODEL_32)
-#		define GLM_NEXT_AFTER_FLT(x, toward) glm::detail::nextafterf((x), (toward))
-#	else
-#		define GLM_NEXT_AFTER_FLT(x, toward) _nextafterf((x), (toward))
-#	endif
+#	define GLM_NEXT_AFTER_FLT(x, toward) glm::detail::nextafterf((x), (toward))
 #   define GLM_NEXT_AFTER_DBL(x, toward) _nextafter((x), (toward))
 #else
 #   define GLM_NEXT_AFTER_FLT(x, toward) nextafterf((x), (toward))
@@ -261,7 +257,7 @@ namespace ulp
     template <typename T>
     GLM_FUNC_QUALIFIER uint float_distance(T const & x, T const & y)
     {
-        std::size_t ulp = 0;
+        uint ulp = 0;
 
         if(x < y)
         {
