@@ -169,6 +169,7 @@
 #	define GLM_COMPILER GLM_COMPILER_CODEWARRIOR
 
 // CUDA
+/*
 #elif defined(__CUDACC__)
 #	if CUDA_VERSION < 3000
 #		error "GLM requires CUDA 3.0 or higher"
@@ -183,6 +184,7 @@
 #	else
 #		define GLM_COMPILER GLM_COMPILER_CUDA
 #	endif
+*/
 
 #else
 #	define GLM_COMPILER GLM_COMPILER_UNKNOWN
