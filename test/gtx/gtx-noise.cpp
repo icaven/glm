@@ -13,15 +13,15 @@
 
 int main()
 {
-	float ValueSNoise2D = glm::snoise(glm::vec2(0.5f));
-    float ValueSNoise3D = glm::snoise(glm::vec3(0.5f));
-    float ValueSNoise4D = glm::snoise(glm::vec4(0.5f));
+	float ValueSNoise2D = glm::simplex(glm::vec2(0.5f));
+    float ValueSNoise3D = glm::simplex(glm::vec3(0.5f));
+    float ValueSNoise4D = glm::simplex(glm::vec4(0.5f));
 
-	float ValueCNoise2D = glm::cnoise(glm::vec2(0.5f));
-    float ValueCNoise3D = glm::cnoise(glm::vec3(0.5f));
-    float ValueCNoise4D = glm::cnoise(glm::vec4(0.5f));
+	float ValueCNoise2D = glm::perlin(glm::vec2(0.5f));
+    float ValueCNoise3D = glm::perlin(glm::vec3(0.5f));
+    float ValueCNoise4D = glm::perlin(glm::vec4(0.5f));
 
-	float ValuePNoise2D = glm::pnoise(glm::vec2(0.5f), glm::vec2(0.5f));
-    float ValuePNoise3D = glm::pnoise(glm::vec3(0.5f), glm::vec3(0.5f));
-    float ValuePNoise4D = glm::pnoise(glm::vec4(0.5f), glm::vec4(0.5f));
+	float ValuePNoise2D = glm::perlin(glm::vec2(0.5f), glm::vec2(0.5f));
+    float ValuePNoise3D = glm::perlin(glm::vec3(0.5f), glm::vec3(0.5f));
+    float ValuePNoise4D = glm::perlin(glm::vec4(0.5f), glm::vec4(0.5f));
 }
