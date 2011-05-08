@@ -18,8 +18,9 @@ GLM 0.9.2.0: 2010-05-08
 --------------------------------------------------------------------------------
 - Added CUDA support
 - Added CTest test suite
-- Added GLM_GTX_ulp
-- Added GLM_GTX_matrix_interpolation
+- Added GLM_GTX_ulp extension
+- Added GLM_GTX_noise extension
+- Added GLM_GTX_matrix_interpolation extension
 - Updated quaternion slerp interpolation
 
 ================================================================================
