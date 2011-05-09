@@ -10,9 +10,11 @@
 	This library works perfectly with OpenGL but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
 	
 	GLM is written as a platform independent library with no dependence and officially supports the following compilers:
-	1. GCC 3.4 and higher
-	2. LLVM 2.3 through GCC 4.2 front-end and higher
-	3. Visual Studio 2005 and higher
+	1. Clang 2.0  and higher
+	2. CUDA 3.0 and higher
+	3. GCC 3.4 and higher
+	4. LLVM 2.3 through GCC 4.2 front-end and higher
+	5. Visual Studio 2005 and higher
 
 	\note The Doxygen-generated documentation will often state that a type or function
 	is defined in a namespace that is a child of the \link glm glm \endlink namespace.
@@ -156,6 +158,16 @@ void BindUniforms(GLuint uniVec, GLuint uniMat)
 	
 	\note This operation could have been built into the base vector and matrix types and performed with a cast operator. 
 	However, this has some downsides. Implicit casts can cause unexpected and unwanted behavior.
+
+	\section started_cuda GLM for CUDA
+	
+	GLM 0.9.2 introduces CUDA compiler support allowing programmer to use GLM inside a CUDA Kernel. 
+	To make GLM compatible with CUDA, GLM_FORCE_CUDA requires to be define before any inclusion of <tt><glm/glm.hpp></tt>.
+
+	\code
+#define GLM_FORCE_CUDA
+#include <glm/glm.hpp>
+	\endcode
 **/
 
 /*!

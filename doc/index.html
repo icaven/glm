@@ -12,7 +12,7 @@
           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
           })();
         </script></head><body><table><tr><td class="menu"><div class="menu1"><br /><div><a href="./goodies/logo1920x1200.png"><img class="menu-img" src="./common/logo.png" alt="GLM Logo" /></a></div><br /><div><a class="menu" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.0/glm-0.9.2.0.zip/download">
-			Download GLM 0.9.2.0</a></div></div><br /><div class="menu2"><a href="./index.html">Front page</a></div><div class="menu2"><a href="./download.html">Downloads</a></div><div class="menu2"><a href="http://www.opengl.org/sdk/libs/GLM/">OpenGL SDK page</a></div><br /><div class="menu2"><a href="./glm-0.9.1.pdf">GLM Manual</a></div><div class="menu2"><a href="./api-0.9.1/index.html">GLM API</a></div><div class="menu2"><a href="./code.html">Code samples</a></div><div class="menu2"><a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.clean.pdf">GLSL Specification</a></div><div class="menu2"><a href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1">OpenGL.org Toolkits forum</a></div><br /><div class="menu2"><a href="https://sourceforge.net/apps/trac/ogl-math/newticket">Report a bug</a></div><div class="menu2"><a href="https://sourceforge.net/projects/ogl-math/">SourceForge page</a></div><div class="menu2"><a href="http://www.g-truc.net/project-0016.html#menu">G-Truc Creation page</a></div><div class="menu2"><a href="http://ogl-math.git.sourceforge.net/git/gitweb.cgi?p=ogl-math/ogl-math;a=summary">Browse Git repository</a></div><div class="menu2"><a href="http://ogl-math.git.sourceforge.net/git/gitweb.cgi?p=ogl-math/ogl-math;a=snapshot;h=HEAD;sf=tgz">Source snapshot</a></div><br /><br /><div class="menu2"><a href="http://www.g-truc.net"><img class="menu-img" src="./common/g-truc.png" alt="G-Truc" /></a></div><br /></td><td class="page"><div class="title1"><img src="./common/title.png" alt="OpenGL Mathematics" /></div><div class="title3">GLSL + Optional features = OpenGL Mathematics (GLM).<br />A C++ mathematics library for 3D graphics.<br /></div><br /><br /><p>
+			Download GLM 0.9.2.0</a></div></div><br /><div class="menu2"><a href="./index.html">Front page</a></div><div class="menu2"><a href="./download.html">Downloads</a></div><div class="menu2"><a href="http://www.opengl.org/sdk/libs/GLM/">OpenGL SDK page</a></div><br /><div class="menu2"><a href="./glm-0.9.2.pdf">GLM Manual</a></div><div class="menu2"><a href="./api-0.9.2/index.html">GLM API</a></div><div class="menu2"><a href="./code.html">Code samples</a></div><div class="menu2"><a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.clean.pdf">GLSL Specification</a></div><div class="menu2"><a href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1">OpenGL.org Toolkits forum</a></div><br /><div class="menu2"><a href="https://sourceforge.net/apps/trac/ogl-math/newticket">Report a bug</a></div><div class="menu2"><a href="https://sourceforge.net/projects/ogl-math/">SourceForge page</a></div><div class="menu2"><a href="http://www.g-truc.net/project-0016.html#menu">G-Truc Creation page</a></div><div class="menu2"><a href="http://ogl-math.git.sourceforge.net/git/gitweb.cgi?p=ogl-math/ogl-math;a=summary">Browse Git repository</a></div><div class="menu2"><a href="http://ogl-math.git.sourceforge.net/git/gitweb.cgi?p=ogl-math/ogl-math;a=snapshot;h=HEAD;sf=tgz">Source snapshot</a></div><br /><br /><div class="menu2"><a href="http://www.g-truc.net"><img class="menu-img" src="./common/g-truc.png" alt="G-Truc" /></a></div><br /></td><td class="page"><div class="title1"><img src="./common/title.png" alt="OpenGL Mathematics" /></div><div class="title3">GLSL + Optional features = OpenGL Mathematics (GLM).<br />A C++ mathematics library for 3D graphics.<br /></div><br /><br /><p>
 			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software 
 			based on the <a href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</a> specification.
 		</p><p>
@@ -32,23 +32,26 @@
 		</p><p>
 			Thanks for contributing to the project by <a href="https://sourceforge.net/apps/trac/ogl-math/newticket">submitting tickets</a> for bug reports and feature requests. (SF.net account required).
 			Any feedback is welcome at glm@g-truc.net.
-		</p><br /><div><h3>08/05/2011 - GLM 0.9.2.0 released</h3><div><p>
-        Various bugs fixed with GLM 0.9.1.3.
+		</p><br /><div><h3>09/05/2011 - GLM 0.9.2.0 released</h3><div><p>
+        GLM 0.9.2.0 provides many exciting features which first of all is the CUDA copiler support so that GLM can be used within a CUDA kernel. This is possible only by defining GLM_FORCE_CUDA before including glm/glm.hpp in the CUDA Kernel source code.
       </p><p>
-        Various bugs fixed with GLM 0.9.1.3.
-      </p><div xmlns="http://www.w3.org/1999/xhtml"><span class="list">GLM 0.9.2.0 changelog:</span><ul><li>
-          Added CUDA support
-        </li><li>
-          Added CTest test suite
-        </li><li>
-          Added GLM_GTX_ulp extension
-        </li><li>
-          Added GLM_GTX_noise extension
-        </li><li>
-          Added GLM_GTX_matrix_interpolation extension
-        </li><li>
-          Updated quaternion slerp interpolation
-        </li></ul></div>Download: <a href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.0/glm-0.9.2.0.zip/download">GLM 0.9.2.0 (zip)</a><br />Download: <a href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.0/glm-0.9.2.0.7z/download">GLM 0.9.2.0 (7z)</a><br />Link: <a href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</a><br /></div><br /></div><div><h3>07/05/2011 - GLM 0.9.1.3 released</h3><div><p>
+        New experimental extensions are also available. GLM_GTX_noise is based on the work by Stefan Gustavson and Ashima Arts on <a href="https://github.com/ashima/webgl-noise">WebGL-noise</a> which adds perlin and simplex noise functions in a pure computational way.
+        If everything goes well, this extension will be promoted to GLM core as implementation of the GLSL noise functions.
+      </p><p>
+        GLM_GTX_ulp provides functions to evaluate the number of ULPs between two floating-point values which gives a way to mesure the accuracy of a function compare to a reference function.
+        In the future, this extension could be used to update the documentation of function and gives the level of accuracy they provide.
+      </p><p>
+        Finally, GLM_GTX_matrix_interpolation is an extension developed by Ghenadii Ursachi to extract axis and angle of a 4 by 4 matrix but also directly interpolate between two matrices.
+        This extension works only on linear transformed matrices.
+      </p><p>
+        Last but not least: with the version 0.9.2, GLM supports <a href="http://www.cmake.org/cmake/help/ctest-2-8-docs.html">CTest</a> to manage GLM test suite which makes tests much easier to maintain.
+        The number of tests have significantly increase, even if a lot more tests are necessary.
+      </p><p>
+        GLM 0.9.2 is not backward compatible with GLM 0.9.1 with only one point: Quaternion SLERP interpolation!
+        In GLM 0.9.1 the function 'mix' always interpolate using the short rotation path but it's no longer the case.
+        The function 'shortMix' has to be called for short path interpolation.
+        'fastMix' will interpolate two quaternions using a normalized linear quaternion interpolation with non-constant rotation speed.
+      </p>Download: <a href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.0/glm-0.9.2.0.zip/download">GLM 0.9.2.0 (zip)</a><br />Download: <a href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.0/glm-0.9.2.0.7z/download">GLM 0.9.2.0 (7z)</a><br />Link: <a href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</a><br /></div><br /></div><div><h3>07/05/2011 - GLM 0.9.1.3 released</h3><div><p>
         Various bugs fixed with GLM 0.9.1.3.
       </p>Download: <a href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.3/glm-0.9.1.3.zip/download">GLM 0.9.1.3 (zip)</a><br />Download: <a href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.3/glm-0.9.1.3.7z/download">GLM 0.9.1.3 (7z)</a><br />Link: <a href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</a><br /></div><br /></div><div><h3>15/04/2011 - GLM 0.9.1.2 released</h3><div><p>
         Bug fixes Only for GLM 0.9.1.2.
