@@ -142,12 +142,6 @@
     <idea>Standard output stream</idea>
     <idea>In place operations</idea>
   </ideas>
-  <schedule>
-    <release version="0.9.3">More tests.</release>
-    <release version="0.9.4">Arrays.</release>
-    <release version="0.9.5">SIMD optimizations.</release>
-    <release version="0.9.6">In place operations.</release>
-  </schedule>
   <todo>
     <entry>RGBE.</entry>
     <entry>row matrices.</entry>
@@ -156,36 +150,33 @@
   </todo>
 
   <page_news>
-    <news index="0065" date="08/05/2011" title="GLM 0.9.2.0 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+    <news index="0065" date="09/05/2011" title="GLM 0.9.2.0 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>
-        Various bugs fixed with GLM 0.9.1.3.
+        GLM 0.9.2.0 provides many exciting features which first of all is the CUDA copiler support so that GLM can be used within a CUDA kernel. This is possible only by defining GLM_FORCE_CUDA before including glm/glm.hpp in the CUDA Kernel source code.
       </paragraph>
-      
-      <list name="GLM 0.9.2.0 changelog:">
-        <list-element>
-          Added CUDA support
-        </list-element>
-        <list-element>
-          Added CTest test suite
-        </list-element>
-        <list-element>
-          Added GLM_GTX_ulp extension
-        </list-element>
-        <list-element>
-          Added GLM_GTX_noise extension
-        </list-element>
-        <list-element>
-          Added GLM_GTX_matrix_interpolation extension
-        </list-element>
-        <list-element>
-          Updated quaternion slerp interpolation
-        </list-element>
-      </list>
-      
       <paragraph>
-        Various bugs fixed with GLM 0.9.1.3.
+        New experimental extensions are also available. GLM_GTX_noise is based on the work by Stefan Gustavson and Ashima Arts on <link href="https://github.com/ashima/webgl-noise">WebGL-noise</link> which adds perlin and simplex noise functions in a pure computational way.
+        If everything goes well, this extension will be promoted to GLM core as implementation of the GLSL noise functions.
       </paragraph>
-      
+      <paragraph>
+        GLM_GTX_ulp provides functions to evaluate the number of ULPs between two floating-point values which gives a way to mesure the accuracy of a function compare to a reference function.
+        In the future, this extension could be used to update the documentation of function and gives the level of accuracy they provide.
+      </paragraph>
+      <paragraph>
+        Finally, GLM_GTX_matrix_interpolation is an extension developed by Ghenadii Ursachi to extract axis and angle of a 4 by 4 matrix but also directly interpolate between two matrices.
+        This extension works only on linear transformed matrices.
+      </paragraph>
+      <paragraph>
+        Last but not least: with the version 0.9.2, GLM supports <link href="http://www.cmake.org/cmake/help/ctest-2-8-docs.html">CTest</link> to manage GLM test suite which makes tests much easier to maintain.
+        The number of tests have significantly increase, even if a lot more tests are necessary.
+      </paragraph>
+      <paragraph>
+        GLM 0.9.2 is not backward compatible with GLM 0.9.1 with only one point: Quaternion SLERP interpolation!
+        In GLM 0.9.1 the function 'mix' always interpolate using the short rotation path but it's no longer the case.
+        The function 'shortMix' has to be called for short path interpolation.
+        'fastMix' will interpolate two quaternions using a normalized linear quaternion interpolation with non-constant rotation speed.
+      </paragraph>
+
       <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.0/glm-0.9.2.0.zip/download">GLM 0.9.2.0 (zip)</source>
       <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.0/glm-0.9.2.0.7z/download">GLM 0.9.2.0 (7z)</source>
       <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
