@@ -402,7 +402,7 @@
 
 // User defines: GLM_FORCE_INLINE GLM_FORCE_CUDA
 
-#if(defined(GLM_FORCE_CUDA) || (defined(GLM_COMPILER) && (GLM_COMPILER >= GLM_COMPILER_CUDA30)))
+#if(defined(GLM_FORCE_CUDA) || (defined(__CUDACC__)))
 #   define GLM_CUDA_FUNC_DEF __device__ __host__ 
 #	define GLM_CUDA_FUNC_DECL __device__ __host__ 
 #else
