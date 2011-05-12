@@ -4,7 +4,7 @@
 // Created : 2005-01-14
 // Updated : 2011-01-19
 // Licence : This source is under MIT License
-// File    : glm/glm.hpp
+//! \file glm/glm.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "core/_fixes.hpp"
