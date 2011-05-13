@@ -12,6 +12,8 @@
 	<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.clean.pdf">version 4.1
 	(pdf file)</a>.
 	There are a few \ref pg_differences "differences" between GLM core and GLSL.
+
+	GLM core functionnalities requires <glm/glm.hpp> to be included to be used.
 **/
 
 
