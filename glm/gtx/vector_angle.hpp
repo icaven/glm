@@ -17,8 +17,9 @@
 
 // Dependency:
 #include "../glm.hpp"
-#include "../gtx/quaternion.hpp"
 #include "../gtx/epsilon.hpp"
+#include "../gtx/quaternion.hpp"
+#include "../gtx/rotate_vector.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))
 #	pragma message("GLM: GLM_GTX_vector_angle extension included")
@@ -59,11 +60,11 @@ namespace glm
 		//! Returns the orientation of a two vector base from a normal.
 		//! Parameters need to be normalized.
 		//! From GLM_GTX_vector_angle extension.
-		template <typename vecType>
-		typename vecType::value_type orientedAngleFromRef(
-			vecType const & x,
-			vecType const & y,
-			detail::tvec3<typename vecType::value_type> const & ref);
+		template <template<typename> class vecType, typename T>
+		typename vecType<T> orientedAngleFromRef(
+			vecType<T> const & x,
+			vecType<T> const & y,
+			detail::tvec3<T> const & ref);
 
 		///@}
     }//namespace vector_angle
