@@ -1,7 +1,7 @@
-glmCreateTestGTC(gtx-bit)
-glmCreateTestGTC(gtx-noise)
-glmCreateTestGTC(gtx-simd-vec4)
-glmCreateTestGTC(gtx-simd-mat4)
-glmCreateTestGTC(gtx-ulp)
-glmCreateTestGTC(gtx-vector-angle)
+glmCreateTestGTC(gtx_bit)
+glmCreateTestGTC(gtx_noise)
+glmCreateTestGTC(gtx_simd_vec4)
+glmCreateTestGTC(gtx_simd_mat4)
+glmCreateTestGTC(gtx_ulp)
+glmCreateTestGTC(gtx_vector_angle)
 
