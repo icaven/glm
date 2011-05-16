@@ -20,13 +20,12 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
+/// @ref gtc_matrix_transform
 /// @file glm/gtc/matrix_transform.hpp
 /// @date 2009-04-29 / 2011-05-16
 /// @author Christophe Riccio
 ///
-/// @ref gtc_matrix_transform
 /// @see core (dependence)
-/// @see gtc_matrix_transform
 /// @see gtx_transform
 /// @see gtx_transform2
 ///////////////////////////////////////////////////////////////////////////////////
@@ -58,6 +57,7 @@ namespace matrix_transform
 	/// @see - gtx_transform:
 	/// - @link glm::gtx::transform::translate(T x, T y, T z) translate(T x, T y, T z) @endlink
 	/// - @link glm::gtx::transform::translate(detail::tmat4x4<T> const & m, T x, T y, T z) translate(mat4x4<T> const & m, T x, T y, T z) @endlink
+	/// - @link glm::gtx::transform::translate(detail::tvec3<T> const & v) translate(vec3<T> const & v) @endlink
 	template <typename T> 
 	detail::tmat4x4<T> translate(
 		detail::tmat4x4<T> const & m,
@@ -68,6 +68,7 @@ namespace matrix_transform
 	/// @see - gtx_transform:
 	/// - @link glm::gtx::transform::rotate(T angle, T x, T y, T z) rotate(T const & angle, T const & x, T const & y, T const & z) @endlink
 	/// - @link glm::gtx::transform::rotate(detail::tmat4x4<T> const & m, T angle, T x, T y, T z) rotate(mat4x4<T> const & m, T const & angle, T const & x, T const & y, T const & z) @endlink
+	/// - @link glm::gtx::transform::rotate(T angle, detail::tvec3<T> const & v) rotate(T const & angle, vec3<T> const & v) @endlink
 	template <typename T> 
 	detail::tmat4x4<T> rotate(
 		detail::tmat4x4<T> const & m,
@@ -77,8 +78,9 @@ namespace matrix_transform
 	/// Builds a scale 4 * 4 matrix created from 3 scalars. 
 	/// @see - gtc_matrix_transform
 	/// @see - gtx_transform:
-	/// - @link glm::gtx::transform::scale(T x, T y, T z) rotate(T const & angle, T const & x, T const & y, T const & z) @endlink
-	/// - @link glm::gtx::transform::scale(detail::tmat4x4<T> const & m, T x, T y, T z) rotate(mat4x4<T> const & m, T const & angle, T const & x, T const & y, T const & z) @endlink
+	/// - @link glm::gtx::transform::scale(T x, T y, T z) scale(T const & x, T const & y, T const & z) @endlink
+	/// - @link glm::gtx::transform::scale(detail::tmat4x4<T> const & m, T x, T y, T z) scale(mat4x4<T> const & m, T const & angle, T const & x, T const & y, T const & z) @endlink
+	/// - @link glm::gtx::transform::scale(detail::tvec3<T> const & v) scale(vec3<T> const & v) @endlink
 	template <typename T> 
 	detail::tmat4x4<T> scale(
 		detail::tmat4x4<T> const & m,
