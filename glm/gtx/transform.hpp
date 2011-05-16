@@ -38,40 +38,46 @@ namespace glm
 		///@{
 
 		//! Builds a translation 4 * 4 matrix created from 3 scalars.
-		//! From GLM_GTX_transform extension.
+		//! - From \link gtx_transform GLM_GTX_transform \endlink extension
+		//! - See also: \link glm::gtc::matrix_transform::translate GLM_GTC_matrix_transform \endlink
 		template <typename T> 
 		detail::tmat4x4<T> translate(
 			T x, T y, T z);
 		
 		//! Transforms a matrix with a translation 4 * 4 matrix created from 3 scalars. 
-		//! From GLM_GTX_transform extension.
+		//! - From \link gtx_transform GLM_GTX_transform \endlink extension
+		//! - See also: \link glm::gtc::matrix_transform::translate GLM_GTC_matrix_transform \endlink
 		template <typename T> 
 		detail::tmat4x4<T> translate(
 			detail::tmat4x4<T> const & m, 
 			T x, T y, T z);
 		
 		//! Transforms a matrix with a translation 4 * 4 matrix created from 3 scalars. 
-		//! From GLM_GTX_transform extension.
+		//! - From \link gtx_transform GLM_GTX_transform \endlink extension
+		//! - See also: \link glm::gtc::matrix_transform::translate GLM_GTC_matrix_transform \endlink
 		template <typename T> 
 		detail::tmat4x4<T> translate(
 			detail::tvec3<T> const & v);
 
 		//! Builds a rotation 4 * 4 matrix created from an axis of 3 scalars and an angle expressed in degrees. 
-		//! From GLM_GTX_transform extension.
+		//! - From \link gtx_transform GLM_GTX_transform \endlink extension
+		//! - See also: \link glm::gtc::matrix_transform::rotate GLM_GTC_matrix_transform \endlink
 		template <typename T> 
 		detail::tmat4x4<T> rotate(
 			T angle, 
 			T x, T y, T z);
 
 		//! Builds a rotation 4 * 4 matrix created from an axis of 3 scalars and an angle expressed in degrees. 
-		//! From GLM_GTX_transform extension.
+		//! - From \link gtx_transform GLM_GTX_transform \endlink extension
+		//! - See also: \link glm::gtc::matrix_transform::rotate GLM_GTC_matrix_transform \endlink
 		template <typename T> 
 		detail::tmat4x4<T> rotate(
 			T angle, 
 			detail::tvec3<T> const & v);
 
 		//! Transforms a matrix with a rotation 4 * 4 matrix created from an axis of 3 scalars and an angle expressed in degrees. 
-		//! From GLM_GTX_transform extension.
+		//! - From \link gtx_transform GLM_GTX_transform \endlink extension
+		//! - See also: \link glm::gtc::matrix_transform::rotate GLM_GTC_matrix_transform \endlink
 		template <typename T> 
 		detail::tmat4x4<T> rotate(
 			detail::tmat4x4<T> const & m, 
@@ -79,20 +85,23 @@ namespace glm
 			T x, T y, T z);
 		
 		//! Builds a scale 4 * 4 matrix created from 3 scalars. 
-		//! From GLM_GTX_transform extension.
+		//! - From \link gtx_transform GLM_GTX_transform \endlink extension
+		//! - See also: \link glm::gtc::matrix_transform::scale GLM_GTC_matrix_transform \endlink
 		template <typename T> 
 		detail::tmat4x4<T> scale(
 			T x, T y, T z);
 		
 		//! Transforms a matrix with a scale 4 * 4 matrix created from 3 scalars.
-		//! From GLM_GTX_transform extension.
+		//! - From \link gtx_transform GLM_GTX_transform \endlink extension
+		//! - See also: \link glm::gtc::matrix_transform::scale GLM_GTC_matrix_transform \endlink
 		template <typename T> 
 		detail::tmat4x4<T> scale(
 			detail::tmat4x4<T> const & m, 
 			T x, T y, T z);
 
 		//! Transforms a matrix with a scale 4 * 4 matrix created from a vector of 3 components.
-		//! From GLM_GTX_transform extension.
+		//! - From \link gtx_transform GLM_GTX_transform \endlink extension
+		//! - See also: \link glm::gtc::matrix_transform::scale GLM_GTC_matrix_transform \endlink
 		template <typename T> 
 		detail::tmat4x4<T> scale(
 			detail::tvec3<T> const & v);
