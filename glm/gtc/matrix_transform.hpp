@@ -26,7 +26,7 @@
 //! \author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 //! Dependency:
-//! - \ref core GLM core
+//! - \link core GLM core \endlink
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtc_matrix_transform
@@ -53,16 +53,20 @@ namespace glm
 		///@{
 
 		//! Builds a translation 4 * 4 matrix created from a vector of 3 components.
-		//! - From \link gtc_matrix_transform GLM_GTC_matrix_transform \endlink extension
-		//! - See also: \link glm::gtx::transform::translate GLM_GTX_transform \endlink
+		//! \sa
+		//! - \link gtx_transform GLM_GTX_transform \endlink extension
+		//! - glm::gtx::transform::translate(T x, T y, T z)
+		//! - glm::gtx::transform::translate(detail::tmat4x4<T> const & m, T x, T y, T z)
 		template <typename T> 
 		detail::tmat4x4<T> translate(
 			detail::tmat4x4<T> const & m,
 			detail::tvec3<T> const & v);
 		
 		//! Builds a rotation 4 * 4 matrix created from an axis vector and an angle expressed in degrees. 
-		//! - From \link gtc_matrix_transform GLM_GTC_matrix_transform \endlink extension
-		//! - See also: \link glm::gtx::transform::rotate GLM_GTX_transform \endlink
+		//! \sa
+		//! - \link gtx_transform GLM_GTX_transform \endlink extension
+		//! - glm::gtx::transform::rotate(T angle, T x, T y, T z)
+		//! - glm::gtx::transform::rotate(detail::tmat4x4<T> const & m, T angle, T x, T y, T z)
 		template <typename T> 
 		detail::tmat4x4<T> rotate(
 			detail::tmat4x4<T> const & m,
@@ -166,7 +170,10 @@ namespace glm
 			detail::tvec4<U> const & viewport);
 
 		//! Build a look at view matrix.
-		//! - From \link gtc_matrix_transform GLM_GTC_matrix_transform \endlink extension
+		//! \sa frustum()
+		//! \param eye Position of the camera
+		//! \param center Position where the camera is looking at
+		//! \param up Normalized up vector, how the camera is oriented. Typically (0, 0, 1)
 		template <typename T> 
 		detail::tmat4x4<T> lookAt(
 			detail::tvec3<T> const & eye, 
