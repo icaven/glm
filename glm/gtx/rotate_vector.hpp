@@ -36,37 +36,38 @@ namespace glm
 		//! From GLM_GTX_rotate_vector extension.
 		template <typename T> 
 		detail::tvec2<T> rotate(
-			const detail::tvec2<T>& v, 
-			T angle);
+            detail::tvec2<T> const & v, 
+			T const & angle);
 		
 		//! Rotate a three dimensional vector around an axis.
 		//! From GLM_GTX_rotate_vector extension.
 		template <typename T> 
 		detail::tvec3<T> rotate(
-			const detail::tvec3<T>& v, 
-			T angle, 
-			const detail::tvec3<T>& normal);
+            detail::tvec3<T> const & v, 
+			T const & angle, 
+            detail::tvec3<T> const & normal);
 		
 		//! Rotate a four dimensional vector around an axis.
 		//! From GLM_GTX_rotate_vector extension.
 		template <typename T> 
 		detail::tvec4<T> rotate(
-			const detail::tvec4<T>& v, T angle, 
-			const detail::tvec3<T>& normal);
+            detail::tvec4<T> const & v, 
+            T const & angle, 
+			detail::tvec3<T> const & normal);
 		
 		//! Rotate a three dimensional vector around the X axis.
 		//! From GLM_GTX_rotate_vector extension.
 		template <typename T> 
 		detail::tvec3<T> rotateX(
-			const detail::tvec3<T>& v, 
-			T angle);
+            detail::tvec3<T> const & v, 
+			T const & angle);
 
 		//! Rotate a three dimensional vector around the Y axis.
 		//! From GLM_GTX_rotate_vector extension.
 		template <typename T> 
 		detail::tvec3<T> rotateY(
-			const detail::tvec3<T>& v, 
-			T angle);
+			detail::tvec3<T> const & v, 
+			T const & angle);
 		
 		//! Rotate a three dimensional vector around the Z axis.
 		//! From GLM_GTX_rotate_vector extension.
