@@ -21,12 +21,11 @@
 #	pragma message("GLM: GLM_GTX_rotate_vector extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+//! GLM_GTX_rotate_vector extension: Function to directly rotate a vector
+namespace rotate_vector
 {
-	namespace gtx{
-	//! GLM_GTX_rotate_vector extension: Function to directly rotate a vector
-	namespace rotate_vector
-	{
 		using namespace transform;
 
 		/// \addtogroup gtx_rotate_vector
@@ -73,41 +72,41 @@ namespace glm
 		//! From GLM_GTX_rotate_vector extension.
 		template <typename T> 
 		detail::tvec3<T> rotateZ(
-			const detail::tvec3<T>& v, 
-			T angle);
+            detail::tvec3<T> const & v, 
+			T const & angle);
 		
 		//! Rotate a four dimentionnals vector around the X axis.
 		//! From GLM_GTX_rotate_vector extension.
 		template <typename T> 
 		detail::tvec4<T> rotateX(
-			const detail::tvec4<T>& v, 
-			T angle);
+            detail::tvec4<T> const & v, 
+			T const & angle);
 		
 		//! Rotate a four dimensional vector around the X axis.
 		//! From GLM_GTX_rotate_vector extension.
 		template <typename T> 
 		detail::tvec4<T> rotateY(
-			const detail::tvec4<T>& v, 
-			T angle);
+            detail::tvec4<T> const & v, 
+			T const & angle);
 		
 		//! Rotate a four dimensional vector around the X axis. 
 		//! From GLM_GTX_rotate_vector extension.
 		template <typename T> 
 		detail::tvec4<T> rotateZ(
-			const detail::tvec4<T>& v, 
-			T angle);
+            detail::tvec4<T> const & v, 
+			T const & angle);
 		
 		//! Build a rotation matrix from a normal and a up vector.
 		//! From GLM_GTX_rotate_vector extension.
 		template <typename T> 
 		detail::tmat4x4<T> orientation(
-			const detail::tvec3<T>& Normal, 
-			const detail::tvec3<T>& Up);
+            detail::tvec3<T> const & Normal, 
+            detail::tvec3<T> const & Up);
 
 		///@}
 		
-	}//namespace rotate_vector
-	}//namespace gtx
+}//namespace rotate_vector
+}//namespace gtx
 }//namespace glm
 
 #include "rotate_vector.inl"
