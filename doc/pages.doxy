@@ -407,7 +407,7 @@ void foo()
 	\section faq7 Should I use 'using namespace glm;'?
 	
 	This is unwise. Chances are that if 'using namespace glm;' is called, name collisions will happen. 
-	GLSL names for functions are fairly generic, so it is entirely likely that there is another function called, for example, \link glm::sqrt sqrt \endlink.
+	GLSL names for functions are fairly generic, so it is entirely likely that there is another function called, for example, \link glm::sqrt() sqrt \endlink.
 	
 	For frequent use of particular types, they can be brough into the global
 	namespace with a 'using' declaration like this:
