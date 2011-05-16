@@ -20,14 +20,15 @@
 //! OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //! THE SOFTWARE.
 ///////////////////////////////////////////////////////////////////////////////////
-//! \ref gtc_matrix_transform GLM_GTC_matrix_transform
-//! \date 2005-12-21 / 2011-05-16
+//! \ref gtx_transform
 //! \file glm/gtx/transform.hpp
+//! \date 2005-12-21 / 2011-05-16
 //! \author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
-//! Dependency:
-//! - \link core GLM core \endlink
-//! - \link gtc_matrix_transform GLM_GTC_matric_transform \endlink
+//! \sa core (dependence)
+//! \sa gtc_matrix_transform (dependence)
+//! \sa gtx_transform
+//! \sa gtx_transform2
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_transform

@@ -10,7 +10,7 @@
 **/
 
 /*!
-	\defgroup gtc_half_float GLM_GTC_half_float: Half-precision floating-point based types and functions.
+	\defgroup gtc_half_float GLM_GTC_half_float: Half-precision floating-point based types and functions
 	\ingroup gtc
 	
 	Defines the half-precision floating-point type, along with various typedefs for vectors and matrices.
@@ -18,7 +18,7 @@
 **/
 
 /*!
-	\defgroup gtc_matrix_access GLM_GTC_matrix_access: Access matrix rows and columns.
+	\defgroup gtc_matrix_access GLM_GTC_matrix_access: Access matrix rows and columns
 	\ingroup gtc
 	
 	Defines functions to access rows or columns of a matrix easily.
@@ -26,7 +26,7 @@
 **/
 
 /*!
-	\defgroup gtc_matrix_integer GLM_GTC_matrix_integer: Integer matrix types.
+	\defgroup gtc_matrix_integer GLM_GTC_matrix_integer: Integer matrix types
 	\ingroup gtc
 	
 	Defines a number of matrices with integer types.
@@ -42,7 +42,7 @@
 **/
 
 /*!
-	\defgroup gtc_matrix_transform GLM_GTC_matrix_transform: Matrix transform functions.
+	\defgroup gtc_matrix_transform GLM_GTC_matrix_transform: Matrix transform functions
 	\ingroup gtc
 	
 	\brief Defines functions that generate common transformation matrices.
@@ -66,7 +66,7 @@
 **/
 
 /*!
-	\defgroup gtc_type_precision GLM_GTC_type_precision: Vector and matrix types with defined precisions.
+	\defgroup gtc_type_precision GLM_GTC_type_precision: Vector and matrix types with defined precisions
 	\ingroup gtc
 	
 	\brief Defines specific C++-based precision types.
@@ -78,7 +78,7 @@
 **/
 
 /*!
-	\defgroup gtc_type_ptr GLM_GTC_type_ptr: Memory layout access.
+	\defgroup gtc_type_ptr GLM_GTC_type_ptr: Memory layout access
 	\ingroup gtc
 	
 	\brief Used to get a pointer to the memory layout of a basic type.
