@@ -1,11 +1,31 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2005-01-14
-// Updated : 2011-01-19
-// Licence : This source is under MIT License
-//! \file glm/glm.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+/// OpenGL Mathematics (glm.g-truc.net)
+///
+/// Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+/// 
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+/// 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
+///
+/// @file glm/glm.hpp
+/// @date 2005-01-14 / 2011-05-16
+/// @author Christophe Riccio
+///
+/// @ref core
+///////////////////////////////////////////////////////////////////////////////////
 
 #include "core/_fixes.hpp"
 
@@ -24,39 +44,34 @@
 #endif//GLM_MESSAGE
 
 //! GLM namespace, it contains all GLSL based features.
-namespace glm
+namespace glm{
+namespace test
 {
-	namespace test
-	{
-		bool main_bug();
-		bool main_core();
-	}//namespace test
+	bool main_bug();
+	bool main_core();
+}//namespace test
 
-	//! GLM core. Namespace that includes all the feature define by GLSL 4.10.6 specification. This namespace is included in glm namespace.
-	namespace core
-	{
-		//! Scalar, vectors and matrices 
-		//! from section 4.1.2 Booleans, 4.1.3 Integers section, 4.1.4 Floats section,
-		//! 4.1.5 Vectors and section 4.1.6 Matrices of GLSL 1.30.8 specification. 
-		//! This namespace resolves precision qualifier define in section 4.5 of GLSL 1.30.8 specification.
-		namespace type{}
+/// GLM core. Namespace that includes all the feature define by GLSL 4.10.6 specification. This namespace is included in glm namespace.
+namespace core
+{
+	//! Scalar, vectors and matrices 
+	//! from section 4.1.2 Booleans, 4.1.3 Integers section, 4.1.4 Floats section,
+	//! 4.1.5 Vectors and section 4.1.6 Matrices of GLSL 1.30.8 specification. 
+	//! This namespace resolves precision qualifier define in section 4.5 of GLSL 1.30.8 specification.
+	namespace type{}
 
-		//! Some of the functions defined in section 8 Built-in Functions of GLSL 1.30.8 specification.
-		//! Angle and trigonometry, exponential, common, geometric, matrix and vector relational functions.
-		namespace function{}
-	}
-	//namespace core
+	//! Some of the functions defined in section 8 Built-in Functions of GLSL 1.30.8 specification.
+	//! Angle and trigonometry, exponential, common, geometric, matrix and vector relational functions.
+	namespace function{}
+}
+//namespace core
 
-	//! G-Truc Creation stable extensions.
-	namespace gtc{}
+/// G-Truc Creation stable extensions.
+namespace gtc{}
 
-	//! G-Truc Creation experimental extensions. 
-	//! The interface could change between releases.
-	namespace gtx{}
-
-	//! VIRTREV extensions.
-	namespace img{}
-
+/// G-Truc Creation experimental extensions. 
+/// The interface could change between releases.
+namespace gtx{}
 } //namespace glm
 
 #include "./core/_detail.hpp"
