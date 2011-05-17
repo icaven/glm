@@ -172,7 +172,11 @@ GLM_FUNC_QUALIFIER __m128 sse_rnd_ps(__m128 x)
 //roundEven
 GLM_FUNC_QUALIFIER __m128 sse_rde_ps(__m128 v)
 {
-
+	__m128 and0 = _mm_and_ps(glm::detail::_epi32_sign_mask, x);
+	__m128 or0 = _mm_or_ps(and0, glm::detail::_ps_2pow23);
+	__m128 add0 = _mm_add_ps(x, or0);
+	__m128 sub0 = _mm_sub_ps(add0, or0);
+	return sub0;
 }
 
 GLM_FUNC_QUALIFIER __m128 sse_ceil_ps(__m128 x)
