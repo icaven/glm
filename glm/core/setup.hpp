@@ -24,7 +24,7 @@
 // Compiler
 
 // User defines: GLM_FORCE_COMPILER_UNKNOWN
-// TODO ? __llvm__ __clang__
+// TODO ? __llvm__ 
 
 #define GLM_COMPILER_UNKNOWN		0x00000000
 
@@ -82,6 +82,16 @@
 #define GLM_COMPILER_CUDA32			0x10000030
 #define GLM_COMPILER_CUDA40			0x10000040
 
+// Clang
+#define GLM_COMPILER_CLANG          0x20000000
+#define GLM_COMPILER_CLANG26		0x20000010
+#define GLM_COMPILER_CLANG27		0x20000020
+#define GLM_COMPILER_CLANG28		0x20000030
+#define GLM_COMPILER_CLANG29		0x20000040
+
+// LLVM GCC
+#define GLM_COMPILER_LLVM_GCC		0x40000000
+
 // Build model
 #define GLM_MODEL_32				0x00000010
 #define GLM_MODEL_64				0x00000020
@@ -119,6 +129,20 @@
 #	else//_MSC_VER
 #		define GLM_COMPILER GLM_COMPILER_VC
 #	endif//_MSC_VER
+
+#elif defined(__clang__)
+#	if   (__clang_major__ == 2) && (__clang_minor__ == 6)
+#		define GLM_COMPILER GLM_COMPILER_CLANG26
+#	elif (__clang_major__ == 2) && (__clang_minor__ == 7)
+#		define GLM_COMPILER GLM_COMPILER_CLANG27
+#	elif (__clang_major__ == 2) && (__clang_minor__ == 8)
+#		define GLM_COMPILER GLM_COMPILER_CLANG28
+#	elif (__clang_major__ == 2) && (__clang_minor__ == 9)
+#		define GLM_COMPILER GLM_COMPILER_CLANG29
+#	endif
+
+#elif defined(__llvm__)
+#	define GLM_COMPILER GLM_COMPILER_LLVM_GCC
 
 // G++
 #elif defined(__GNUC__)
@@ -189,6 +213,10 @@
 #		pragma message("GLM: CUDA compiler detected")
 #	elif(GLM_COMPILER & GLM_COMPILER_VC)
 #		pragma message("GLM: Visual C++ compiler detected")
+#	elif(GLM_COMPILER & GLM_COMPILER_CLANG)
+#		pragma message("GLM: Clang compiler detected")
+#	elif(GLM_COMPILER & GLM_COMPILER_LLVM_GCC)
+#		pragma message("GLM: LLVM GCC compiler detected")
 #	elif(GLM_COMPILER & GLM_COMPILER_GCC)
 #		pragma message("GLM: GCC compiler detected")
 #	elif(GLM_COMPILER & GLM_COMPILER_BC)

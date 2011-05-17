@@ -10,7 +10,7 @@
 	This library works perfectly with OpenGL but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
 	
 	GLM is written as a platform independent library with no dependence and officially supports the following compilers:
-	1. Clang 2.0  and higher
+	1. Clang 2.0 and higher
 	2. CUDA 3.0 and higher
 	3. GCC 3.4 and higher
 	4. LLVM 2.3 through GCC 4.2 front-end and higher
