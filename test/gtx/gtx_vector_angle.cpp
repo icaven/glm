@@ -38,11 +38,6 @@ int test_vector_angle_orientedAngle()
 	float AngleD = glm::orientedAngle(glm::vec3(0, 1, 0), glm::normalize(glm::vec3(1, 1, 0)));    
     Error += AngleD == -45.f ? 0 : 1;
     
-	float AngleE = glm::orientedAngle(glm::vec4(1, 0, 0, 0), glm::normalize(glm::vec4(1, 1, 0, 0)));
-    Error += AngleE == 45.f ? 0 : 1;
-	float AngleF = glm::orientedAngle(glm::vec4(0, 1, 0, 0), glm::normalize(glm::vec4(1, 1, 0, 0))); 
-    Error += AngleF == -45.f ? 0 : 1;
-    
     return Error;
 }
 
