@@ -13,12 +13,12 @@ namespace detail{
 	union ieee754_QNAN
 	{
 	   const float f;
-	   struct
+	   struct i
 	   {
 		  const unsigned int mantissa:23, exp:8, sign:1;
 	   };
 	   
-	   ieee754_QNAN() : f(0.0), mantissa(0x7FFFFF), exp(0xFF), sign(0x0) {}
+	   ieee754_QNAN() : f(0.0)/*, mantissa(0x7FFFFF), exp(0xFF), sign(0x0)*/ {}
 	};
 
 	static const __m128 zero = _mm_setzero_ps();
@@ -170,7 +170,7 @@ GLM_FUNC_QUALIFIER __m128 sse_rnd_ps(__m128 x)
 }
 
 //roundEven
-GLM_FUNC_QUALIFIER __m128 sse_rde_ps(__m128 v)
+GLM_FUNC_QUALIFIER __m128 sse_rde_ps(__m128 x)
 {
 	__m128 and0 = _mm_and_ps(glm::detail::_epi32_sign_mask, x);
 	__m128 or0 = _mm_or_ps(and0, glm::detail::_ps_2pow23);
