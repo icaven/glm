@@ -55,22 +55,6 @@ GLM_FUNC_QUALIFIER valType orientedAngle
 	   return Angle;
 }
 
-//! \todo epsilon is hard coded to 0.01
-template <typename valType>
-GLM_FUNC_QUALIFIER valType orientedAngle
-(
-	detail::tvec4<valType> const & x, 
-	detail::tvec4<valType> const & y
-)
-{
-    valType Angle = degrees(acos(dot(x, y)));
-    detail::tvec4<valType> TransformedVector = glm::gtx::rotate_vector::rotate(y, Angle, glm::core::function::geometric::cross(x, y));
-    if(all(equalEpsilon(x, TransformedVector, valType(0.01))))
-        return -Angle;
-    else
-        return Angle;
-}
-
 template <typename valType>
 GLM_FUNC_QUALIFIER valType orientedAngleFromRef
 (
@@ -98,22 +82,6 @@ GLM_FUNC_QUALIFIER valType orientedAngleFromRef
 	valType Angle = glm::acos(glm::dot(x, y));
 
 	if(glm::dot(ref, glm::cross(x, y)) < valType(0))
-		return -glm::degrees(Angle);
-	else
-		return glm::degrees(Angle);
-}
-
-template <typename valType>
-GLM_FUNC_QUALIFIER valType orientedAngleFromRef
-(
-	detail::tvec4<valType> const & x,
-	detail::tvec4<valType> const & y,
-	detail::tvec3<valType> const & ref
-)
-{
-	valType Angle = glm::acos(glm::dot(x, y));
-
-	if(glm::dot(ref, glm::cross(detail::tvec3<valType>(x), detail::tvec3<valType>(y))) < valType(0))
 		return -glm::degrees(Angle);
 	else
 		return glm::degrees(Angle);

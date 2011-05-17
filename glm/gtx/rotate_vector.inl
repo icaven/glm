@@ -50,7 +50,7 @@ namespace rotate_vector
 		T const & angle, 
         detail::tvec3<T> const & normal)
 	{
-		return glm::gtx::transform::::rotate(angle, normal) * v;
+		return glm::gtx::transform::rotate(angle, normal) * v;
 	}
 
 	template <typename T>
@@ -141,7 +141,7 @@ namespace rotate_vector
 
 		detail::tvec3<T> RotationAxis = cross(Up, Normal);
 		T Angle = degrees(acos(dot(Normal, Up)));
-		return rotate(Angle, RotationAxis);
+		return glm::gtx::transform::rotate(Angle, RotationAxis);
 	}
 
 }//namespace rotate_vector
