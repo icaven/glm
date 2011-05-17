@@ -24,6 +24,7 @@
 // Compiler
 
 // User defines: GLM_FORCE_COMPILER_UNKNOWN
+// TODO ? __llvm__ __clang__
 
 #define GLM_COMPILER_UNKNOWN		0x00000000
 
@@ -88,6 +89,11 @@
 // Force generic C++ compiler
 #ifdef GLM_FORCE_COMPILER_UNKNOWN
 #		define GLM_COMPILER GLM_COMPILER_UNKNOWN
+
+// CUDA
+#elif defined(__CUDACC__)
+#	define GLM_COMPILER GLM_COMPILER_CUDA
+
 // Visual C++
 #elif defined(_MSC_VER)
 #	if _MSC_VER == 900
@@ -179,7 +185,9 @@
 // Report compiler detection
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_COMPILER_DISPLAYED))
 #	define GLM_MESSAGE_COMPILER_DISPLAYED
-#	if(GLM_COMPILER & GLM_COMPILER_VC)
+#	if(GLM_COMPILER & GLM_COMPILER_CUDA)
+#		pragma message("GLM: CUDA compiler detected")
+#	elif(GLM_COMPILER & GLM_COMPILER_VC)
 #		pragma message("GLM: Visual C++ compiler detected")
 #	elif(GLM_COMPILER & GLM_COMPILER_GCC)
 #		pragma message("GLM: GCC compiler detected")
@@ -385,7 +393,7 @@
 
 // User defines: GLM_FORCE_INLINE GLM_FORCE_CUDA
 
-#if(defined(GLM_FORCE_CUDA) || (defined(__CUDACC__)))
+#if(defined(GLM_FORCE_CUDA) || (GLM_COMPILER & GLM_COMPILER_CUDA))
 #   define GLM_CUDA_FUNC_DEF __device__ __host__ 
 #	define GLM_CUDA_FUNC_DECL __device__ __host__ 
 #else
