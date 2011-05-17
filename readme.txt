@@ -14,6 +14,14 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm-0.9.2.pdf
 
 ================================================================================
+GLM 0.9.2.1: 2010-05-20
+--------------------------------------------------------------------------------
+- Automatically detect CUDA support
+- Fixed errors and warnings in VC with C++ extensions disabled
+- Fixed and tested GLM_GTX_vector_angle
+- Fixed and tested GLM_GTX_rotate_vector
+
+================================================================================
 GLM 0.9.2.0: 2010-05-09
 --------------------------------------------------------------------------------
 - Added CUDA support

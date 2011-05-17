@@ -25,50 +25,45 @@
 #	pragma message("GLM: GLM_GTX_vector_angle extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+//! GLM_GTX_vector_angle extension: Compute angle between vectors
+namespace vector_angle
 {
-	namespace test{
-		void main_gtx_vector_angle();
-	}//namespace test
+	using namespace quaternion;
+	using namespace epsilon;
 
-    namespace gtx{
-	//! GLM_GTX_vector_angle extension: Compute angle between vectors
-    namespace vector_angle
-    {
-		using namespace quaternion;
-		using namespace epsilon;
+	/// \addtogroup gtx_vector_angle
+	///@{
 
-		/// \addtogroup gtx_vector_angle
-		///@{
+	//! Returns the absolute angle between two vectors
+	//! Parameters need to be normalized.
+	//! From GLM_GTX_vector_angle extension
+	template <typename vecType> 
+	typename vecType::value_type angle(
+		vecType const & x, 
+		vecType const & y);
 
-		//! Returns the absolute angle between x and y.
-		//! Parameters need to be normalized.
-		//! From GLM_GTX_vector_angle extension
-		template <typename vecType> 
-		typename vecType::value_type angle(
-			vecType const & x, 
-			vecType const & y);
+	//! Returns the oriented angle between two 2d vectors 
+	//! Parameters need to be normalized.
+	//! From GLM_GTX_vector_angle extension.
+	template <typename T> 
+	typename T orientedAngle(
+		detail::tvec2<T> const & x, 
+		detail::tvec2<T> const & y);
 
-		//! Returns the oriented angle between x and y 
-		//! Parameters need to be normalized.
-		//! From GLM_GTX_vector_angle extension.
-		template <typename vecType> 
-		typename vecType::value_type orientedAngle(
-			vecType const & x, 
-			vecType const & y);
+	//! Returns the oriented angle between two 3d vectors based from a reference axis.
+	//! Parameters need to be normalized.
+	//! From GLM_GTX_vector_angle extension.
+	template <typename T>
+	typename vecType<T> orientedAngle(
+		detail::tvec3<T> const & x,
+		detail::tvec3<T> const & y,
+		detail::tvec3<T> const & ref);
 
-		//! Returns the orientation of a two vector base from a normal.
-		//! Parameters need to be normalized.
-		//! From GLM_GTX_vector_angle extension.
-		template <template<typename> class vecType, typename T>
-		typename vecType<T> orientedAngleFromRef(
-			vecType<T> const & x,
-			vecType<T> const & y,
-			detail::tvec3<T> const & ref);
-
-		///@}
-    }//namespace vector_angle
-    }//namespace gtx
+	///@}
+}//namespace vector_angle
+}//namespace gtx
 }//namespace glm
 
 #include "vector_angle.inl"

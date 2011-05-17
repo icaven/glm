@@ -19,12 +19,12 @@ int test_vector_angle_calls()
 	float AngleA = glm::angle(glm::vec3(1, 0, 0), glm::vec3(0, 1, 0));
 	float AngleB = glm::orientedAngle(glm::vec2(1, 0), glm::normalize(glm::vec2(1, 1)));
 	float AngleC = glm::orientedAngle(glm::vec2(0, 1), glm::normalize(glm::vec2(1, 1)));
-	float AngleD = glm::orientedAngleFromRef(glm::vec3(1, 0, 0), glm::vec3(0, 1, 0), glm::vec3(0, 0, 1));
+	float AngleD = glm::orientedAngle(glm::vec3(1, 0, 0), glm::vec3(0, 1, 0), glm::vec3(0, 0, 1));
 
 	return Error;
 }
 
-int test_vector_angle_orientedAngle()
+int test_orientedAngle_vec2()
 {
     int Error = 0;
     
@@ -32,11 +32,22 @@ int test_vector_angle_orientedAngle()
     Error += AngleA == 45.f ? 0 : 1;
 	float AngleB = glm::orientedAngle(glm::vec2(0, 1), glm::normalize(glm::vec2(1, 1)));    
     Error += AngleB == -45.f ? 0 : 1;
- 
-	float AngleC = glm::orientedAngle(glm::vec3(1, 0, 0), glm::normalize(glm::vec3(1, 1, 0)));
+	float AngleC = glm::orientedAngle(glm::normalize(glm::vec2(1, 1)), glm::vec2(0, 1));
     Error += AngleC == 45.f ? 0 : 1;
-	float AngleD = glm::orientedAngle(glm::vec3(0, 1, 0), glm::normalize(glm::vec3(1, 1, 0)));    
-    Error += AngleD == -45.f ? 0 : 1;
+ 
+    return Error;
+}
+
+int test_orientedAngle_vec3()
+{
+    int Error = 0;
+    
+	float AngleA = glm::orientedAngle(glm::vec3(1, 0, 0), glm::normalize(glm::vec3(1, 1, 0)), glm::vec3(0, 0, 1));
+    Error += AngleA == 45.f ? 0 : 1;
+	float AngleB = glm::orientedAngle(glm::vec3(0, 1, 0), glm::normalize(glm::vec3(1, 1, 0)), glm::vec3(0, 0, 1));    
+    Error += AngleB == -45.f ? 0 : 1;
+	float AngleC = glm::orientedAngle(glm::normalize(glm::vec3(1, 1, 0)), glm::vec3(0, 1, 0), glm::vec3(0, 0, 1));    
+    Error += AngleC == 45.f ? 0 : 1;
     
     return Error;
 }
@@ -44,7 +55,8 @@ int test_vector_angle_orientedAngle()
 int main()
 {
 	int Error = 0;
-    Error += test_vector_angle_orientedAngle();
+    Error += test_orientedAngle_vec2();
+	Error += test_orientedAngle_vec3();
 	Error += test_vector_angle_calls();
 
 	return Error;
