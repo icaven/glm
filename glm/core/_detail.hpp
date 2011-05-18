@@ -24,15 +24,15 @@ namespace detail
 #elif(GLM_COMPILER & GLM_COMPILER_VC)
 	typedef signed __int64						sint64;
 	typedef unsigned __int64					uint64;
-#elif(GLM_COMPILER & GLM_COMPILER_GCC)
+#elif(GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_LLVM_GCC | GLM_COMPILER_CLANG))
 	__extension__ typedef signed long long		sint64;
 	__extension__ typedef unsigned long long	uint64;
 #elif(GLM_COMPILER & GLM_COMPILER_BC)
 	typedef Int64								sint64;
 	typedef Uint64								uint64;
 #else//unknown compiler
-	typedef signed long							sint64;
-	typedef unsigned long						uint64;
+	typedef signed long	long					sint64;
+	typedef unsigned long long					uint64;
 #endif//GLM_COMPILER
 
 	template<bool C>
