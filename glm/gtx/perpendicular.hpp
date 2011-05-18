@@ -22,45 +22,37 @@
 #	pragma message("GLM: GLM_GTX_perpendicular extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+namespace perpendicular ///< GLM_GTX_perpendicular extension: Perpendicular of a vector from other one
 {
-	namespace test{
-		void main_gtx_perpendicular();
-	}//namespace test
+	/// \addtogroup gtx_perpendicular
+	/// @{
 
-    namespace gtx{
-	//! GLM_GTX_perpendicular extension: Perpendicular of a vector from other one
-    namespace perpendicular
-    {
-		/// \addtogroup gtx_perpendicular
-		///@{
+	//! Projects x a perpendicular axis of Normal.
+	//! From GLM_GTX_perpendicular extension.
+	template <typename T> 
+	detail::tvec2<T> perp(
+		detail::tvec2<T> const & x, 
+		detail::tvec2<T> const & Normal);
 
-		//! Projects x a perpendicular axis of Normal.
-		//! From GLM_GTX_perpendicular extension.
-		template <typename T> 
-		detail::tvec2<T> perp(
-			detail::tvec2<T> const & x, 
-			detail::tvec2<T> const & Normal);
+    //! Projects x a perpendicular axis of Normal.
+	//! From GLM_GTX_perpendicular extension.
+	template <typename T> 
+	detail::tvec3<T> perp(
+		detail::tvec3<T> const & x, 
+		detail::tvec3<T> const & Normal);
 
-        //! Projects x a perpendicular axis of Normal.
-		//! From GLM_GTX_perpendicular extension.
-		template <typename T> 
-		detail::tvec3<T> perp(
-			detail::tvec3<T> const & x, 
-			detail::tvec3<T> const & Normal);
+    //! Projects x a perpendicular axis of Normal.
+	//! From GLM_GTX_perpendicular extension.
+	template <typename T> 
+	detail::tvec4<T> perp(
+		detail::tvec4<T> const & x, 
+		detail::tvec4<T> const & Normal);
 
-        //! Projects x a perpendicular axis of Normal.
-		//! From GLM_GTX_perpendicular extension.
-		template <typename T> 
-		detail::tvec4<T> perp(
-			detail::tvec4<T> const & x, 
-			detail::tvec4<T> const & Normal);
-
-
-		///@}
-		
-    }//namespace perpendicular
-    }//namespace gtx
+	/// @}
+}//namespace perpendicular
+}//namespace gtx
 }//namespace glm
 
 #include "perpendicular.inl"

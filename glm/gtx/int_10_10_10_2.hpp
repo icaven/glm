@@ -21,25 +21,23 @@
 #	pragma message("GLM: GLM_GTX_int_10_10_10_2 extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+namespace int_10_10_10_2 ///< GLM_GTX_int_10_10_10_2 extension: Add support for integer for core functions
 {
-	namespace gtx{
-	//! GLM_GTX_int_10_10_10_2 extension: Add support for integer for core functions
-	namespace int_10_10_10_2
-	{
-		using namespace gtx::raw_data;
+	using namespace gtx::raw_data;
 
-		/// \addtogroup gtx_int_10_10_10_2
-		///@{
+	/// \addtogroup gtx_int_10_10_10_2
+	///@{
 
-		//! From GLM_GTX_int_10_10_10_2 extension.
-		//! Cast a vec4 to an u_10_10_10_2.
-		dword uint10_10_10_2_cast(glm::vec4 const & v);
+	//! From GLM_GTX_int_10_10_10_2 extension.
+	//! Cast a vec4 to an u_10_10_10_2.
+	dword uint10_10_10_2_cast(glm::vec4 const & v);
 
-		///@}
+	///@}
 
-	}//namespace integer
-	}//namespace gtx
+}//namespace integer
+}//namespace gtx
 }//namespace glm
 
 #include "int_10_10_10_2.inl"

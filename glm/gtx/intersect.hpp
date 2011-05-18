@@ -22,54 +22,47 @@
 #	pragma message("GLM: GLM_GTX_closest_point extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+namespace intersect	///< GLM_GTX_intersect extension: Add intersection functions
 {
-	namespace test{
-		void main_gtx_intesect();
-	}//namespace test
+	/// \addtogroup gtx_intersect
+	/// @{
 
-	namespace gtx{
-	//! GLM_GTX_intersect extension: Add intersection functions
-	namespace intersect
-	{
-		/// \addtogroup gtx_intersect
-		///@{
+	//! Compute the intersection of a ray and a triangle.
+	//! From GLM_GTX_intersect extension.
+	template <typename genType>
+	bool intersectRayTriangle(
+		genType const & orig, genType const & dir,
+		genType const & vert0, genType const & vert1, genType const & vert2,
+		genType & baryPosition);
 
-		//! Compute the intersection of a ray and a triangle.
-		//! From GLM_GTX_intersect extension.
-		template <typename genType>
-		bool intersectRayTriangle(
-			genType const & orig, genType const & dir,
-			genType const & vert0, genType const & vert1, genType const & vert2,
-			genType & baryPosition);
+    //! Compute the intersection of a line and a triangle.
+	//! From GLM_GTX_intersect extension.
+	template <typename genType>
+	bool intersectLineTriangle(
+		genType const & orig, genType const & dir,
+		genType const & vert0, genType const & vert1, genType const & vert2,
+		genType & position);
 
-        //! Compute the intersection of a line and a triangle.
-		//! From GLM_GTX_intersect extension.
-		template <typename genType>
-		bool intersectLineTriangle(
-			genType const & orig, genType const & dir,
-			genType const & vert0, genType const & vert1, genType const & vert2,
-			genType & position);
+    //! Compute the intersection of a ray and a sphere.
+	//! From GLM_GTX_intersect extension.
+	template <typename genType>
+	bool intersectRaySphere(
+		genType const & orig, genType const & dir,
+		genType const & center, typename genType::value_type radius,
+		genType & position, genType & normal);
 
-        //! Compute the intersection of a ray and a sphere.
-		//! From GLM_GTX_intersect extension.
-		template <typename genType>
-		bool intersectRaySphere(
-			genType const & orig, genType const & dir,
-			genType const & center, typename genType::value_type radius,
-			genType & position, genType & normal);
+    //! Compute the intersection of a line and a sphere.
+	//! From GLM_GTX_intersect extension
+	template <typename genType>
+	bool intersectLineSphere(
+		genType const & point0, genType const & point1,
+		genType const & center, typename genType::value_type radius,
+		genType & position, genType & normal);
 
-        //! Compute the intersection of a line and a sphere.
-		//! From GLM_GTX_intersect extension
-		template <typename genType>
-		bool intersectLineSphere(
-			genType const & point0, genType const & point1,
-			genType const & center, typename genType::value_type radius,
-			genType & position, genType & normal);
-
-		///@}
-
-	}//namespace intersect
+	/// @}
+}//namespace intersect
 }//namespace gtx
 }//namespace glm
 

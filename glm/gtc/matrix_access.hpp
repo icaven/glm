@@ -22,8 +22,7 @@
 
 namespace glm{
 namespace gtc{
-//! GLM_GTC_matrix_access extension: Set a column or a row of a matrix
-namespace matrix_access
+namespace matrix_access ///< GLM_GTC_matrix_access extension: Set a column or a row of a matrix
 {
 	/// \addtogroup gtc_matrix_access
 	///@{

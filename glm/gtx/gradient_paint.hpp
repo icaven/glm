@@ -21,34 +21,32 @@
 #	pragma message("GLM: GLM_GTX_gradient_paint extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+namespace gradient_paint ///< GLM_GTX_gradient_paint extension: Compute a radient gradient according section OpenVG 1.1 specifications, 9.3.2 Radial Gradients
 {
-	namespace test{
-		void main_gtx_gradient_paint();
-	}//namespace test
+	using namespace gtx::optimum_pow;
 
-	namespace gtx{
-	//! GLM_GTX_gradient_paint extension: Compute a radient gradient according section OpenVG 1.1 specifications, 9.3.2 Radial Gradients
-	namespace gradient_paint
-	{
-		using namespace gtx::optimum_pow;
+	/// \addtogroup gtx_gradient_paint
+	/// @{
 
-		template <typename valType>
-		valType radialGradient(
-			glm::detail::tvec2<valType> const & Center,
-			valType const & Radius,
-			glm::detail::tvec2<valType> const & Focal,
-			glm::detail::tvec2<valType> const & Position);
+	template <typename valType>
+	valType radialGradient(
+		glm::detail::tvec2<valType> const & Center,
+		valType const & Radius,
+		glm::detail::tvec2<valType> const & Focal,
+		glm::detail::tvec2<valType> const & Position);
 
-		template <typename valType>
-		valType linearGradient(
-			glm::detail::tvec2<valType> const & Point0,
-			glm::detail::tvec2<valType> const & Point1,
-			glm::detail::tvec2<valType> const & Position);
+	template <typename valType>
+	valType linearGradient(
+		glm::detail::tvec2<valType> const & Point0,
+		glm::detail::tvec2<valType> const & Point1,
+		glm::detail::tvec2<valType> const & Position);
 
-	}//namespace gradient_paint
-    }//namespace gtx
-}//namespace glm
+	/// @}
+}// namespace gradient_paint
+}// namespace gtx
+}// namespace glm
 
 #include "gradient_paint.inl"
 

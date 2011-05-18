@@ -20,36 +20,33 @@
 #	pragma message("GLM: GLM_GTX_integer extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+namespace integer ///< GLM_GTX_integer extension: Add support for integer for core functions
 {
-	namespace gtx{
-	//! GLM_GTX_integer extension: Add support for integer for core functions
-	namespace integer
-	{
-		/// \addtogroup gtx_integer
-		///@{
+	/// \addtogroup gtx_integer
+	/// @{
 
-		//! Returns x raised to the y power. 
-		//! From GLM_GTX_integer extension.
-		int pow(int x, int y);
+	//! Returns x raised to the y power. 
+	//! From GLM_GTX_integer extension.
+	int pow(int x, int y);
 
-		//! Returns the positive square root of x.
-		//! From GLM_GTX_integer extension.
-		int sqrt(int x);
+	//! Returns the positive square root of x.
+	//! From GLM_GTX_integer extension.
+	int sqrt(int x);
 
-		//! Modulus. Returns x - y * floor(x / y) for each component in x using the floating point value y.
-		//! From GLM_GTX_integer extension.
-		int mod(int x, int y);
+	//! Modulus. Returns x - y * floor(x / y) for each component in x using the floating point value y.
+	//! From GLM_GTX_integer extension.
+	int mod(int x, int y);
 
-		//! Return the factorial value of a number (!12 max, integer only)
-		//! From GLM_GTX_integer extension.
-		template <typename genType> 
-		genType factorial(genType const & x);
+	//! Return the factorial value of a number (!12 max, integer only)
+	//! From GLM_GTX_integer extension.
+	template <typename genType> 
+	genType factorial(genType const & x);
 
-		///@}
-
-	}//namespace integer
-	}//namespace gtx
+	/// @}
+}//namespace integer
+}//namespace gtx
 }//namespace glm
 
 #include "integer.inl"
