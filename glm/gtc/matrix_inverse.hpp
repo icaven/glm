@@ -22,8 +22,7 @@
 
 namespace glm{
 namespace gtc{
-//! GLM_GTC_matrix_inverse extension: Inverse matrix functions
-namespace matrix_inverse
+namespace matrix_inverse ///< GLM_GTC_matrix_inverse extension: Inverse matrix functions
 {
 	/// \addtogroup gtc_matrix_inverse
 	///@{
