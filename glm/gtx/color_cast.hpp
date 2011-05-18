@@ -24,10 +24,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_ext_gtx_color_cast();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_color_cast extension: Conversion between two color types
 	namespace color_cast

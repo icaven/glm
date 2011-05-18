@@ -24,10 +24,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_transform2();
-	}//namespace test
-
     namespace gtx{
 	//! GLM_GTX_transform2 extension: Add extra transformation matrices
 	namespace transform2

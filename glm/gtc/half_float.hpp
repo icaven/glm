@@ -17,11 +17,7 @@
 #	pragma message("GLM: GLM_GTC_half_float extension included")
 #endif
 
-namespace glm
-{
-	namespace test{
-		bool main_gtc_half_float();
-	}//namespace 
+namespace glm{
 	namespace detail
 	{
 #ifndef _MSC_EXTENSIONS

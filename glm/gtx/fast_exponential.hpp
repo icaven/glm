@@ -24,10 +24,6 @@
 
 namespace glm
 {
-   	namespace test{
-		void main_gtx_fast_exponential();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_fast_exponential extension: Fast but less accurate implementations of exponential based functions.
 	namespace fast_exponential

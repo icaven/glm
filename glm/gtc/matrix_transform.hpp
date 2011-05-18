@@ -23,10 +23,6 @@
 
 namespace glm
 {
-	namespace test{
-		bool main_gtc_matrix_transform();
-	}//namespace test
-
 	namespace gtc{
 	//! GLM_GTC_matrix_transform extension: Add transformation matrices
 	namespace matrix_transform

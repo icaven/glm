@@ -30,10 +30,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_compatibility();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_compatibility extension: Provide functions to increase the compatibility with Cg and HLSL languages
 	namespace compatibility

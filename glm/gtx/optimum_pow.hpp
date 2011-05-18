@@ -22,10 +22,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_optimum_pow();
-	}//namespace test
-
     namespace gtx{
 	//! GLM_GTX_optimum_pow extension: Integer exponentiation of power functions.
     namespace optimum_pow

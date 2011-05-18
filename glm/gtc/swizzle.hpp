@@ -23,10 +23,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtc_swizzle();
-	}//namespace test
-
 	namespace gtc{
 	//! GLM_GTC_swizzle extension
 	namespace swizzle

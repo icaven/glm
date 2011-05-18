@@ -27,10 +27,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_noise();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_noise extension: Comparison functions for a user defined epsilon values.
 	namespace noise

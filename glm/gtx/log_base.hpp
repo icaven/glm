@@ -22,10 +22,6 @@
 
 namespace glm
 {
-   	namespace test{
-		void main_ext_gtx_log_base();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_log_base extension: Logarithm for any base. base can be a vector or a scalar.
 	namespace log_base

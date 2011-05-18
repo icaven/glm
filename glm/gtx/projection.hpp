@@ -22,10 +22,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_projection();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_projection extension: Projection of a vector to other one
 	namespace projection

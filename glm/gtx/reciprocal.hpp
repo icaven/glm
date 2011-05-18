@@ -19,10 +19,6 @@
 
 namespace glm
 {
-   	namespace test{
-		void main_gtx_reciprocal();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_reciprocal extension: Define secant, cosecant and cotangent functions.
 	namespace reciprocal

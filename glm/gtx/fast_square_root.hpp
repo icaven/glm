@@ -26,10 +26,6 @@
 
 namespace glm
 {
-   	namespace test{
-		void main_gtx_fast_square_root();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_fast_square_root extension: Fast but less accurate implementations of square root based functions.
 	namespace fast_square_root

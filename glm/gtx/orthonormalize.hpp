@@ -22,10 +22,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_orthonormalize();
-	}//namespace test
-
     namespace gtx{
 	//! GLM_GTX_orthonormalize extension: Orthonormalize matrices.
     namespace orthonormalize

@@ -20,38 +20,32 @@
 #	pragma message("GLM: GLM_GTX_wrap extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+namespace wrap ///< GLM_GTX_wrap: Wrapping mode using my texture samping.
 {
-	namespace test{
-		bool main_gtx_wrap();
-	}//namespace test
+	/// \addtogroup gtx_wrap
+	///@{
 
-	namespace gtx{
-	//! GLM_GTX_wrap: Wrapping mode using my texture samping.
-	namespace wrap
-	{
-		/// \addtogroup gtx_wrap
-		///@{
+	//! Simulate GL_CLAMP OpenGL wrap mode
+	//! From GLM_GTX_wrap extension.
+	template <typename genType> 
+	genType clamp(genType const & Texcoord);
 
-		//! Simulate GL_CLAMP OpenGL wrap mode
-		//! From GLM_GTX_wrap extension.
-		template <typename genType> 
-		genType clamp(genType const & Texcoord);
+	//! Simulate GL_REPEAT OpenGL wrap mode
+	//! From GLM_GTX_wrap extension.
+	template <typename genType> 
+	genType repeat(genType const & Texcoord);
 
-		//! Simulate GL_REPEAT OpenGL wrap mode
-		//! From GLM_GTX_wrap extension.
-		template <typename genType> 
-		genType repeat(genType const & Texcoord);
+	//! Simulate GL_MIRROR_REPEAT OpenGL wrap mode
+	//! From GLM_GTX_wrap extension.
+	template <typename genType> 
+	genType mirrorRepeat(genType const & Texcoord);
 
-		//! Simulate GL_MIRROR_REPEAT OpenGL wrap mode
-		//! From GLM_GTX_wrap extension.
-		template <typename genType> 
-		genType mirrorRepeat(genType const & Texcoord);
+	///@}
 
-		///@}
-
-	}//namespace wrap
-	}//namespace gtx
+}//namespace wrap
+}//namespace gtx
 }//namespace glm
 
 #include "wrap.inl"

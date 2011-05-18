@@ -24,10 +24,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_perpendicular();
-	}//namespace test
-
     namespace gtx{
 	//! GLM_GTX_perpendicular extension: Perpendicular of a vector from other one
     namespace perpendicular

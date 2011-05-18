@@ -30,10 +30,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_string_cast();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_string_cast extension: Setup strings for GLM type values
 	namespace string_cast

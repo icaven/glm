@@ -22,10 +22,6 @@
 
 namespace glm
 {
-   	namespace test{
-		void main_gtx_extend();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_extend extension: Extend a position from a source to a position at a defined length.
 	namespace extend

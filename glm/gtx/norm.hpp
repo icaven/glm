@@ -27,10 +27,6 @@
 
 namespace glm
 {
-   	namespace test{
-		void main_gtx_norm();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_norm extension: Various way to compute vector norms.
 	namespace norm

@@ -26,10 +26,6 @@
 
 namespace glm
 {
-	namespace test{
-		bool main_gtc_type_precision();
-	}//namespace test
-
 	namespace gtc{
 	//! GLM_GTC_type_precision extension: Defined types with specific size.
 	namespace type_precision

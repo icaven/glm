@@ -22,10 +22,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_component_wise();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_component_wise extension: Operations between components of a type
 	namespace component_wise

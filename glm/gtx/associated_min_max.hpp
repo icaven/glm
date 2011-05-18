@@ -23,10 +23,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_associated_min_max();
-	}//namespace test
-
 	namespace gtx
 	{
 		//! GLM_GTX_associated_min_max extension: Min and max functions that return associated values not the compared onces.

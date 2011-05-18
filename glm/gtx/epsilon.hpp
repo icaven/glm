@@ -24,10 +24,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_epsilon();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_epsilon extension: Comparison functions for a user defined epsilon values.
 	namespace epsilon

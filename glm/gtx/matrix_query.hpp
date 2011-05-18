@@ -22,10 +22,6 @@
 
 namespace glm
 {
-   	namespace test{
-		void main_gtx_matrix_query();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_matrix_query: Query to evaluate matrix properties
 	namespace matrix_query

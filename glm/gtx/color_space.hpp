@@ -22,10 +22,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_color_space();
-	}//namespace test
-
     namespace gtx{
 	//! GLM_GTX_color_space extension: Related to RGB to HSV conversions and operations
     namespace color_space

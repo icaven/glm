@@ -28,10 +28,6 @@
 
 namespace glm
 {
-	namespace test{
-		bool main_gtc_quaternion();
-	}//namespace test
-
 	namespace detail
 	{
 		//! \brief Template for quaternion. 

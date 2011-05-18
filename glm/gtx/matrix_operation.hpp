@@ -22,10 +22,6 @@
 
 namespace glm
 {
-   	namespace test{
-		void main_gtx_matrix_operation();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_matrix_operation: Build diagonal matrices
 	namespace matrix_operation

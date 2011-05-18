@@ -22,10 +22,6 @@
 
 namespace glm
 {
-	namespace test{
-		bool main_img_multiple();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_multiple: Find the closest number of a number multiple of other number.
 	namespace multiple

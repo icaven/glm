@@ -23,10 +23,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtc_type_ptr();
-	}//namespace test
-
 	namespace gtc{
 	//! GLM_GTC_type_ptr extension: Get access to vectors & matrices value type address.
 	namespace type_ptr{

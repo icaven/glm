@@ -22,10 +22,6 @@
 
 namespace glm
 {
-   	namespace test{
-		void main_gtx_normal();
-	}//namespace test
-	
 	namespace gtx{
 	//! GLM_GTX_normal extension: Compute the normal of a triangle.
     namespace normal

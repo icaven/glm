@@ -24,10 +24,6 @@
 
 namespace glm
 {
-   	namespace test{
-		void main_ext_gtx_extented_min_max();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_extented_min_max extension: Min and max functions for 3 to 4 parameters.
 	namespace extented_min_max

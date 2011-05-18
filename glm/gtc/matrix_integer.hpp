@@ -22,10 +22,6 @@
 
 namespace glm
 {
-	namespace test{
-		bool main_gtc_matrix_integer();
-	}//namespace test
-
 	namespace gtc{
 	//! GLM_GTC_matrix_integer extension: Add integer matrices
 	namespace matrix_integer

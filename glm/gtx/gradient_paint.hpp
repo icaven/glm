@@ -23,10 +23,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_gradient_paint();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_gradient_paint extension: Compute a radient gradient according section OpenVG 1.1 specifications, 9.3.2 Radial Gradients
 	namespace gradient_paint

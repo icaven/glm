@@ -22,10 +22,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_closest_point();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_closest_point extension: Find the point on a straight line which is the closet of a point.
 	namespace closest_point{

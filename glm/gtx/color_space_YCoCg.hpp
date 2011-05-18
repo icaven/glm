@@ -22,10 +22,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_color_space_YCoCg();
-	}//namespace test
-
     namespace gtx{
 	//! GLM_GTX_color_space_YCoCg extension: RGB to YCoCg conversions and operations
     namespace color_space_YCoCg

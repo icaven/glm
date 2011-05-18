@@ -27,8 +27,7 @@
 
 namespace glm{
 namespace gtx{
-//! GLM_GTX_vector_angle extension: Compute angle between vectors
-namespace vector_angle
+namespace vector_angle ///< GLM_GTX_vector_angle extension: Compute angle between vectors
 {
 	using namespace quaternion;
 	using namespace epsilon;

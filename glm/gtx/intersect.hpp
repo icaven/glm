@@ -24,10 +24,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_intesect();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_intersect extension: Add intersection functions
 	namespace intersect

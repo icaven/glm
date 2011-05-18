@@ -22,10 +22,6 @@
 
 namespace glm
 {
-   	namespace test{
-		void main_gtx_fast_trigonometry();
-	}//namespace test
-
     namespace gtx{
 	//! GLM_GTX_fast_trigonometry extension: Fast but less accurate implementations of trigonometric functions.
     namespace fast_trigonometry

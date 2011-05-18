@@ -24,10 +24,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_bit();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_bit extension: Allow to perform bit operations on integer values
 	namespace bit

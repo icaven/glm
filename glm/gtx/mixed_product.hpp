@@ -22,10 +22,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_matrix_selection();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_mixed_product extension: Mixed product of 3 vectors.
 	namespace mixed_product

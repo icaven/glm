@@ -23,10 +23,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_std_based_type();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_std_based_type extension: Add support vector types based on C++ standard type
 	namespace std_based_type

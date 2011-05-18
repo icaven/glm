@@ -25,10 +25,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_gtx_transform();
-	}//namespace test
-
 	namespace gtx{
 	//! GLM_GTX_matrix_interpolation extension: Add transformation matrices
 	namespace matrix_interpolation
