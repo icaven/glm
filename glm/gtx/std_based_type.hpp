@@ -21,50 +21,48 @@
 #	pragma message("GLM: GLM_GTX_std_based_type extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+namespace std_based_type ///< GLM_GTX_std_based_type extension: Add support vector types based on C++ standard type
 {
-	namespace gtx{
-	//! GLM_GTX_std_based_type extension: Add support vector types based on C++ standard type
-	namespace std_based_type
-	{
-		typedef detail::tvec2<std::size_t>		size2;
-		typedef detail::tvec3<std::size_t>		size3;
-		typedef detail::tvec4<std::size_t>		size4;
+	typedef detail::tvec2<std::size_t>		size2;
+	typedef detail::tvec3<std::size_t>		size3;
+	typedef detail::tvec4<std::size_t>		size4;
 
-		typedef detail::tvec2<signed char>		scvec2;
-		typedef detail::tvec3<signed char>		scvec3;
-		typedef detail::tvec4<signed char>		scvec4;
+	typedef detail::tvec2<signed char>		scvec2;
+	typedef detail::tvec3<signed char>		scvec3;
+	typedef detail::tvec4<signed char>		scvec4;
 
-		typedef detail::tvec2<unsigned char>	ucvec2;
-		typedef detail::tvec3<unsigned char>	ucvec3;
-		typedef detail::tvec4<unsigned char>	ucvec4;
+	typedef detail::tvec2<unsigned char>	ucvec2;
+	typedef detail::tvec3<unsigned char>	ucvec3;
+	typedef detail::tvec4<unsigned char>	ucvec4;
 
-		typedef detail::tvec2<signed short>		ssvec2;
-		typedef detail::tvec3<signed short>		ssvec3;
-		typedef detail::tvec4<signed short>		ssvec4;
+	typedef detail::tvec2<signed short>		ssvec2;
+	typedef detail::tvec3<signed short>		ssvec3;
+	typedef detail::tvec4<signed short>		ssvec4;
 
-		typedef detail::tvec2<unsigned short>	usvec2;
-		typedef detail::tvec3<unsigned short>	usvec3;
-		typedef detail::tvec4<unsigned short>	usvec4;
+	typedef detail::tvec2<unsigned short>	usvec2;
+	typedef detail::tvec3<unsigned short>	usvec3;
+	typedef detail::tvec4<unsigned short>	usvec4;
 
-		typedef detail::tvec2<signed int>		sivec2;
-		typedef detail::tvec3<signed int>		sivec3;
-		typedef detail::tvec4<signed int>		sivec4;
+	typedef detail::tvec2<signed int>		sivec2;
+	typedef detail::tvec3<signed int>		sivec3;
+	typedef detail::tvec4<signed int>		sivec4;
 
-		typedef detail::tvec2<unsigned int>		uivec2;
-		typedef detail::tvec3<unsigned int>		uivec3;
-		typedef detail::tvec4<unsigned int>		uivec4;
+	typedef detail::tvec2<unsigned int>		uivec2;
+	typedef detail::tvec3<unsigned int>		uivec3;
+	typedef detail::tvec4<unsigned int>		uivec4;
 
-		typedef detail::tvec2<signed long>		slvec2;
-		typedef detail::tvec3<signed long>		slvec3;
-		typedef detail::tvec4<signed long>		slvec4;
+	typedef detail::tvec2<signed long>		slvec2;
+	typedef detail::tvec3<signed long>		slvec3;
+	typedef detail::tvec4<signed long>		slvec4;
 
-		typedef detail::tvec2<unsigned long>	ulvec2;
-		typedef detail::tvec3<unsigned long>	ulvec3;
-		typedef detail::tvec4<unsigned long>	ulvec4;
+	typedef detail::tvec2<unsigned long>	ulvec2;
+	typedef detail::tvec3<unsigned long>	ulvec3;
+	typedef detail::tvec4<unsigned long>	ulvec4;
 
-	}//namespace std_based_type
-	}//namespace gtx
+}//namespace std_based_type
+}//namespace gtx
 }//namespace glm
 
 #include "std_based_type.inl"

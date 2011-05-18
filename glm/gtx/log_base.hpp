@@ -20,26 +20,24 @@
 #	pragma message("GLM: GLM_GTX_log_base extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+namespace log_base ///< GLM_GTX_log_base extension: Logarithm for any base. base can be a vector or a scalar.
 {
-	namespace gtx{
-	//! GLM_GTX_log_base extension: Logarithm for any base. base can be a vector or a scalar.
-	namespace log_base
-	{
-		/// \addtogroup gtx_log_base
-		///@{
+	/// \addtogroup gtx_log_base
+	/// @{
 
-		//! Logarithm for any base.
-		//! From GLM_GTX_log_base.
-		template <typename genType> 
-		genType log(
-			genType const & x, 
-			genType const & base);
+	//! Logarithm for any base.
+	//! From GLM_GTX_log_base.
+	template <typename genType> 
+	genType log(
+		genType const & x, 
+		genType const & base);
 
-		///@}
+	/// @}
 
-	}//namespace extend
-	}//namespace gtx
+}//namespace extend
+}//namespace gtx
 }//namespace glm
 
 #include "log_base.inl"

@@ -25,11 +25,10 @@
 
 namespace glm{
 namespace gtx{
-//! GLM_GTX_random extension: Generate random number from various distribution methods
-namespace random
+namespace random ///< GLM_GTX_random extension: Generate random number from various distribution methods
 {
 	/// \addtogroup gtx_random
-	///@{
+	/// @{
 
 	//! Generate a random number in the interval [-1, 1], according a linear distribution.
 	//! From GLM_GTX_random extension.

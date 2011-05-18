@@ -25,7 +25,7 @@ namespace gtx{
 namespace wrap ///< GLM_GTX_wrap: Wrapping mode using my texture samping.
 {
 	/// \addtogroup gtx_wrap
-	///@{
+	/// @{
 
 	//! Simulate GL_CLAMP OpenGL wrap mode
 	//! From GLM_GTX_wrap extension.
@@ -42,11 +42,10 @@ namespace wrap ///< GLM_GTX_wrap: Wrapping mode using my texture samping.
 	template <typename genType> 
 	genType mirrorRepeat(genType const & Texcoord);
 
-	///@}
-
-}//namespace wrap
-}//namespace gtx
-}//namespace glm
+	/// @}
+}// namespace wrap
+}// namespace gtx
+}// namespace glm
 
 #include "wrap.inl"
 

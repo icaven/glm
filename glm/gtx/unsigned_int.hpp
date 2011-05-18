@@ -29,7 +29,7 @@ namespace unsigned_int ///< GLM_GTX_unsigned_int extension: Add support for unsi
 	using namespace gtx::integer;
 
 	/// \addtogroup gtx_unsigned_int
-	///@{
+	/// @{
 
 	//! 32bit signed integer. 
 	//! From GLM_GTX_unsigned_int extension.
@@ -47,8 +47,7 @@ namespace unsigned_int ///< GLM_GTX_unsigned_int extension: Add support for unsi
 	//! From GLM_GTX_unsigned_int extension.
 	uint mod(uint x, uint y);
 
-	///@}
-
+	/// @}
 }//namespace unsigned_int
 }//namespace gtx
 }//namespace glm

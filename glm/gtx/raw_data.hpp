@@ -22,36 +22,34 @@
 #endif
 
 namespace glm{
-namespace gtx
+namespace gtx{
+namespace raw_data ///< GLM_GTX_raw_data extension: Projection of a vector to other one
 {
-	//! GLM_GTX_raw_data extension: Projection of a vector to other one
-    namespace raw_data
-    {
-		using namespace gtc::type_precision;
+	using namespace gtc::type_precision;
 
-		/// \addtogroup gtx_raw_data
-		///@{
+	/// \addtogroup gtx_raw_data
+	///@{
 
-		//! Type for byte numbers. 
-		//! From GLM_GTX_raw_data extension.
-		typedef uint8		byte;
+	//! Type for byte numbers. 
+	//! From GLM_GTX_raw_data extension.
+	typedef uint8		byte;
 
-		//! Type for word numbers. 
-		//! From GLM_GTX_raw_data extension.
-		typedef uint16		word;
+	//! Type for word numbers. 
+	//! From GLM_GTX_raw_data extension.
+	typedef uint16		word;
 
-		//! Type for dword numbers. 
-		//! From GLM_GTX_raw_data extension.
-		typedef uint32		dword;
+	//! Type for dword numbers. 
+	//! From GLM_GTX_raw_data extension.
+	typedef uint32		dword;
 
-		//! Type for qword numbers. 
-		//! From GLM_GTX_raw_data extension.
-		typedef uint64		qword;
+	//! Type for qword numbers. 
+	//! From GLM_GTX_raw_data extension.
+	typedef uint64		qword;
 
-		///@}
-	}
-}//namespace gtx
-}//namespace glm
+	///@}
+}// namespace raw_data
+}// namespace gtx
+}// namespace glm
 
 #include "raw_data.inl"
 

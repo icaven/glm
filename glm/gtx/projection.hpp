@@ -20,40 +20,37 @@
 #	pragma message("GLM: GLM_GTX_projection extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+namespace projection ///< GLM_GTX_projection extension: Projection of a vector to other one
 {
-	namespace gtx{
-	//! GLM_GTX_projection extension: Projection of a vector to other one
-	namespace projection
-	{
-		/// \addtogroup gtx_projection
-		///@{
+	/// \addtogroup gtx_projection
+	/// @{
 
-		//! Projects x on Normal.
-		//! From GLM_GTX_projection extension.
-		template <typename T> 
-		detail::tvec2<T> proj(
-			detail::tvec2<T> const & x, 
-			detail::tvec2<T> const & Normal);
+	//! Projects x on Normal.
+	//! From GLM_GTX_projection extension.
+	template <typename T> 
+	detail::tvec2<T> proj(
+		detail::tvec2<T> const & x, 
+		detail::tvec2<T> const & Normal);
 		
-		//! Projects x on Normal.
-		//! From GLM_GTX_projection extension.
-		template <typename T> 
-		detail::tvec3<T> proj(
-			detail::tvec3<T> const & x, 
-			detail::tvec3<T> const & Normal);
+	//! Projects x on Normal.
+	//! From GLM_GTX_projection extension.
+	template <typename T> 
+	detail::tvec3<T> proj(
+		detail::tvec3<T> const & x, 
+		detail::tvec3<T> const & Normal);
 
-		//! Projects x on Normal.
-		//! From GLM_GTX_projection extension.
-		template <typename T> 
-		detail::tvec4<T> proj(
-			detail::tvec4<T> const & x, 
-			detail::tvec4<T> const & Normal);
+	//! Projects x on Normal.
+	//! From GLM_GTX_projection extension.
+	template <typename T> 
+	detail::tvec4<T> proj(
+		detail::tvec4<T> const & x, 
+		detail::tvec4<T> const & Normal);
 
-		///@}
-		
-	}//namespace projection
-    }//namespace gtx
+	/// @}
+}//namespace projection
+}//namespace gtx
 }//namespace glm
 
 #include "projection.inl"

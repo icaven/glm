@@ -25,38 +25,35 @@
 #	pragma message("GLM: GLM_GTX_noise extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+namespace noise	///< GLM_GTX_noise extension: Comparison functions for a user defined epsilon values.
 {
-	namespace gtx{
-	//! GLM_GTX_noise extension: Comparison functions for a user defined epsilon values.
-	namespace noise
-	{
-		/// \addtogroup gtx_noise
-		///@{
+	/// \addtogroup gtx_noise
+	/// @{
 
-		//! Classic perlin noise.
-		//! From GLM_GTX_noise extension.
-		template <typename T, template<typename> class vecType> 
-        T perlin(
-			vecType<T> const & p);
+	//! Classic perlin noise.
+	//! From GLM_GTX_noise extension.
+	template <typename T, template<typename> class vecType> 
+    T perlin(
+		vecType<T> const & p);
 		
-		//! Periodic perlin noise.
-		//! From GLM_GTX_noise extension.
-		template <typename T, template<typename> class vecType> 
-        T perlin(
-			vecType<T> const & p, 
-			vecType<T> const & rep);
+	//! Periodic perlin noise.
+	//! From GLM_GTX_noise extension.
+	template <typename T, template<typename> class vecType> 
+    T perlin(
+		vecType<T> const & p, 
+		vecType<T> const & rep);
 
-		//! Simplex noise.
-		//! From GLM_GTX_noise extension.
-		template <typename T, template<typename> class vecType> 
-        T simplex(
-			vecType<T> const & p);
+	//! Simplex noise.
+	//! From GLM_GTX_noise extension.
+	template <typename T, template<typename> class vecType> 
+    T simplex(
+		vecType<T> const & p);
 
-		///@}
-
-	}//namespace noise
-	}//namespace gtx
+	/// @}
+}//namespace noise
+}//namespace gtx
 }//namespace glm
 
 #include "noise.inl"

@@ -109,9 +109,9 @@ namespace precision
 	typedef precision::mediump_uvec1		uvec1;
 #endif//GLM_PRECISION
 
-}//namespace vec1
-}//namespace gtx
-}//namespace glm
+}// namespace vec1
+}// namespace gtx
+}// namespace glm
 
 #include "vec1.inl"
 

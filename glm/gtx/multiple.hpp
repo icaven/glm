@@ -20,33 +20,30 @@
 #	pragma message("GLM: GLM_GTX_multiple extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+namespace multiple ///< GLM_GTX_multiple: Find the closest number of a number multiple of other number.
 {
-	namespace gtx{
-	//! GLM_GTX_multiple: Find the closest number of a number multiple of other number.
-	namespace multiple
-	{
-		/// \addtogroup gtx_multiple
-		///@{
+	/// \addtogroup gtx_multiple
+	/// @{
 
-		//! Higher Multiple number of Source.
-		//! From GLM_GTX_multiple extension.
-		template <typename genType> 
-		genType higherMultiple(
-			genType const & Source, 
-			genType const & Multiple);
+	//! Higher Multiple number of Source.
+	//! From GLM_GTX_multiple extension.
+	template <typename genType> 
+	genType higherMultiple(
+		genType const & Source, 
+		genType const & Multiple);
 
-		//! Lower Multiple number of Source.
-		//! From GLM_GTX_multiple extension.
-		template <typename genType> 
-		genType lowerMultiple(
-			genType const & Source, 
-			genType const & Multiple);
+	//! Lower Multiple number of Source.
+	//! From GLM_GTX_multiple extension.
+	template <typename genType> 
+	genType lowerMultiple(
+		genType const & Source, 
+		genType const & Multiple);
 
-		///@}
-
-	}//namespace multiple
-	}//namespace gtx
+	/// @}
+}//namespace multiple
+}//namespace gtx
 }//namespace glm
 
 #include "multiple.inl"

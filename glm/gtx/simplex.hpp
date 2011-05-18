@@ -22,8 +22,7 @@
 
 namespace glm{
 namespace gtx{
-//! GLM_GTX_simplex extension: Spline functions
-namespace spline
+namespace spline ///< GLM_GTX_simplex extension: Spline functions
 {
     /// \addtogroup gtx_spline
     ///@{
@@ -58,11 +57,10 @@ namespace spline
                     genType const & v4, 
                     typename genType::value_type const & s);
             
-    ///@}
-            
-}//namespace simplex
-}//namespace gtx
-}//namespace glm
+    /// @}
+}// namespace simplex
+}// namespace gtx
+}// namespace glm
 
 #include "simplex.inl"
 

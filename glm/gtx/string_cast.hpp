@@ -28,29 +28,26 @@
 #	pragma message("GLM: GLM_GTX_string_cast extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+namespace string_cast ///< GLM_GTX_string_cast extension: Setup strings for GLM type values
 {
-	namespace gtx{
-	//! GLM_GTX_string_cast extension: Setup strings for GLM type values
-	namespace string_cast
-	{
-		using namespace gtc::half_float; 
-		using namespace gtx::integer; 
-		using namespace gtx::unsigned_int; 
-		using namespace gtx::quaternion; 
+	using namespace gtc::half_float; 
+	using namespace gtx::integer; 
+	using namespace gtx::unsigned_int; 
+	using namespace gtx::quaternion; 
 
-		/// \addtogroup gtx_string_cast
-		///@{
+	/// \addtogroup gtx_string_cast
+	/// @{
 
-		//! Create a string from a GLM type value.
-		//! From GLM_GTX_string_cast extension.
-		template <typename genType> 
-		std::string to_string(genType const & x);
+	//! Create a string from a GLM type value.
+	//! From GLM_GTX_string_cast extension.
+	template <typename genType> 
+	std::string to_string(genType const & x);
 
-		///@}
-
-	}//namespace string_cast
-	}//namespace gtx
+	/// @}
+}//namespace string_cast
+}//namespace gtx
 }//namespace glm
 
 #include "string_cast.inl"

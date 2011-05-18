@@ -27,7 +27,7 @@ namespace gtx{
 namespace vector_query ///< GLM_GTX_vector_query extension: Query informations of vector types
 {
 	/// \addtogroup gtx_vector_query
-	///@{
+	/// @{
 
 	//! Check if two vectors are collinears.
 	//! From GLM_GTX_vector_query extensions.
@@ -83,11 +83,10 @@ namespace vector_query ///< GLM_GTX_vector_query extension: Query informations o
 		genType const & v1, 
 		typename genType::value_type const & epsilon = std::numeric_limits<typename genType::value_type>::epsilon());
 
-	///@}
-
-}//namespace vector_query
-}//namespace gtx
-}//namespace glm
+	/// @}
+}// namespace vector_query
+}// namespace gtx
+}// namespace glm
 
 #include "vector_query.inl"
 
