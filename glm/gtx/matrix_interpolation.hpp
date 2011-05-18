@@ -23,47 +23,40 @@
 #	pragma message("GLM: GLM_GTX_matrix_interpolation extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+namespace matrix_interpolation ///< GLM_GTX_matrix_interpolation extension: Add transformation matrices
 {
-	namespace test{
-		void main_gtx_transform();
-	}//namespace test
+	/// \addtogroup gtx_matrix_interpolation
+	/// @{
 
-	namespace gtx{
-	//! GLM_GTX_matrix_interpolation extension: Add transformation matrices
-	namespace matrix_interpolation
-	{
-		/// \addtogroup gtx_matrix_interpolation
-		///@{
+	//! Get the axis and angle of the rotation from a matrix.
+    //! From GLM_GTX_matrix_interpolation extension.
+	template <typename T>
+    void axisAngle(
+        detail::tmat4x4<T> const & mat,
+        detail::tvec3<T> & axis,
+        T & angle);
 
-		//! Get the axis and angle of the rotation from a matrix.
-        //! From GLM_GTX_matrix_interpolation extension.
-		template <typename T>
-        void axisAngle(
-            detail::tmat4x4<T> const & mat,
-            detail::tvec3<T> & axis,
-            T & angle);
+    //! Build a matrix from axis and angle.
+    //! From GLM_GTX_matrix_interpolation extension.
+	template <typename T>
+    detail::tmat4x4<T> axisAngleMatrix(
+        detail::tvec3<T> const & axis,
+        T const angle);
 
-        //! Build a matrix from axis and angle.
-        //! From GLM_GTX_matrix_interpolation extension.
-		template <typename T>
-        detail::tmat4x4<T> axisAngleMatrix(
-            detail::tvec3<T> const & axis,
-            T const angle);
+	//! Build a interpolation of 4 * 4 matrixes.
+    //! From GLM_GTX_matrix_interpolation extension.
+    //! Warning! works only with rotation and/or translation matrixes, scale will generate unexpected results.
+	template <typename T>
+    detail::tmat4x4<T> interpolate(
+        detail::tmat4x4<T> const & m1,
+        detail::tmat4x4<T> const & m2,
+        T const delta);
 
-		//! Build a interpolation of 4 * 4 matrixes.
-        //! From GLM_GTX_matrix_interpolation extension.
-        //! Warning! works only with rotation and/or translation matrixes, scale will generate unexpected results.
-		template <typename T>
-        detail::tmat4x4<T> interpolate(
-            detail::tmat4x4<T> const & m1,
-            detail::tmat4x4<T> const & m2,
-            T const delta);
-
-		///@}
-
-	}//namespace matrix_interpolation
-	}//namespace gtx
+	/// @}
+}//namespace matrix_interpolation
+}//namespace gtx
 }//namespace glm
 
 #include "matrix_interpolation.inl"

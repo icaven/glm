@@ -22,41 +22,34 @@
 #	pragma message("GLM: GLM_GTX_unsigned_int extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+namespace unsigned_int ///< GLM_GTX_unsigned_int extension: Add support for unsigned integer for core functions
 {
-	namespace test{
-		void main_gtx_unsigned_int();
-	}//namespace test
+	using namespace gtx::integer;
 
-	namespace gtx{
-	//! GLM_GTX_unsigned_int extension: Add support for unsigned integer for core functions
-	namespace unsigned_int
-	{
-		using namespace gtx::integer;
+	/// \addtogroup gtx_unsigned_int
+	/// @{
 
-		/// \addtogroup gtx_unsigned_int
-		///@{
+	//! 32bit signed integer. 
+	//! From GLM_GTX_unsigned_int extension.
+	typedef signed int					sint;
 
-		//! 32bit signed integer. 
-		//! From GLM_GTX_unsigned_int extension.
-		typedef signed int					sint;
+	//! Returns x raised to the y power.
+	//! From GLM_GTX_unsigned_int extension.
+	uint pow(uint x, uint y);
 
-		//! Returns x raised to the y power.
-		//! From GLM_GTX_unsigned_int extension.
-		uint pow(uint x, uint y);
+	//! Returns the positive square root of x. 
+	//! From GLM_GTX_unsigned_int extension.
+	uint sqrt(uint x);
 
-		//! Returns the positive square root of x. 
-		//! From GLM_GTX_unsigned_int extension.
-		uint sqrt(uint x);
+	//! Modulus. Returns x - y * floor(x / y) for each component in x using the floating point value y.
+	//! From GLM_GTX_unsigned_int extension.
+	uint mod(uint x, uint y);
 
-		//! Modulus. Returns x - y * floor(x / y) for each component in x using the floating point value y.
-		//! From GLM_GTX_unsigned_int extension.
-		uint mod(uint x, uint y);
-
-		///@}
-
-	}//namespace unsigned_int
-	}//namespace gtx
+	/// @}
+}//namespace unsigned_int
+}//namespace gtx
 }//namespace glm
 
 #include "unsigned_int.inl"

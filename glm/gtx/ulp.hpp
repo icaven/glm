@@ -20,50 +20,47 @@
 #	pragma message("GLM: GLM_GTX_ulp extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+namespace ulp ///< GLM_GTX_ulp extension: Precision calculation functions
 {
-	namespace gtx{
-	//! GLM_GTX_ulp extension: Precision calculation functions
-	namespace ulp
-	{
-		/// \addtogroup gtx_ulp
-		///@{
+	/// \addtogroup gtx_ulp
+	/// @{
 
-		//! Return the next ULP value(s) after the input value(s).
-		//! From GLM_GTX_ulp extension.
-        template <typename genType>
-        genType next_float(genType const & x);
+	//! Return the next ULP value(s) after the input value(s).
+	//! From GLM_GTX_ulp extension.
+    template <typename genType>
+    genType next_float(genType const & x);
         
-		//! Return the previous ULP value(s) before the input value(s).
-		//! From GLM_GTX_ulp extension.
-        template <typename genType>
-        genType prev_float(genType const & x);
+	//! Return the previous ULP value(s) before the input value(s).
+	//! From GLM_GTX_ulp extension.
+    template <typename genType>
+    genType prev_float(genType const & x);
 
-		//! Return the value(s) ULP distance after the input value(s).
-		//! From GLM_GTX_ulp extension.
-        template <typename genType>
-        genType next_float(genType const & x, uint const & Distance);
+	//! Return the value(s) ULP distance after the input value(s).
+	//! From GLM_GTX_ulp extension.
+    template <typename genType>
+    genType next_float(genType const & x, uint const & Distance);
         
-        //! Return the value(s) ULP distance before the input value(s).
-		//! From GLM_GTX_ulp extension.
-        template <typename genType>
-        genType prev_float(genType const & x, uint const & Distance);
+    //! Return the value(s) ULP distance before the input value(s).
+	//! From GLM_GTX_ulp extension.
+    template <typename genType>
+    genType prev_float(genType const & x, uint const & Distance);
         
-        //! Return the distance in the number of ULP between 2 scalars.
-		//! From GLM_GTX_ulp extension.
-        template <typename T>
-        uint float_distance(T const & x, T const & y);
+    //! Return the distance in the number of ULP between 2 scalars.
+	//! From GLM_GTX_ulp extension.
+    template <typename T>
+    uint float_distance(T const & x, T const & y);
         
-        //! Return the distance in the number of ULP between 2 vectors.
-		//! From GLM_GTX_ulp extension.
-        template<typename T, template<typename> class vecType>
-        vecType<uint> float_distance(vecType<T> const & x, vecType<T> const & y);
+    //! Return the distance in the number of ULP between 2 vectors.
+	//! From GLM_GTX_ulp extension.
+    template<typename T, template<typename> class vecType>
+    vecType<uint> float_distance(vecType<T> const & x, vecType<T> const & y);
         
-		///@}
-
-	}//namespace ulp
-	}//namespace gtx
-}//namespace glm
+	///@}
+}// namespace ulp
+}// namespace gtx
+}// namespace glm
 
 #include "ulp.inl"
 

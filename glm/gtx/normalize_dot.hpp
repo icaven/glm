@@ -22,37 +22,34 @@
 #	pragma message("GLM: GLM_GTX_normalize_dot extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+namespace normalize_dot	///< GLM_GTX_normalize_dot extension: Dot product of vectors that need to be normalize with a single square root.
 {
-	namespace gtx{
-	//! GLM_GTX_normalize_dot extension: Dot product of vectors that need to be normalize with a single square root.
-	namespace normalize_dot
-	{
-		using namespace gtx::fast_square_root;
+	using namespace gtx::fast_square_root;
 
-		/// \addtogroup gtx_normalize_dot
-		///@{
+	/// \addtogroup gtx_normalize_dot
+	/// @{
 
-		//! Normalize parameters and returns the dot product of x and y.
-		//! It's faster that dot(normalize(x), normalize(y)).
-		//! From GLM_GTX_normalize_dot extension.
-		template <typename genType> 
-		typename genType::value_type normalizeDot(
-			genType const & x, 
-			genType const & y);
+	//! Normalize parameters and returns the dot product of x and y.
+	//! It's faster that dot(normalize(x), normalize(y)).
+	//! From GLM_GTX_normalize_dot extension.
+	template <typename genType> 
+	typename genType::value_type normalizeDot(
+		genType const & x, 
+		genType const & y);
 
-		//! Normalize parameters and returns the dot product of x and y.
-		//! Faster that dot(fastNormalize(x), fastNormalize(y)).
-		//! From GLM_GTX_normalize_dot extension.
-		template <typename genType> 
-		typename genType::value_type fastNormalizeDot(
-			genType const & x, 
-			genType const & y);
+	//! Normalize parameters and returns the dot product of x and y.
+	//! Faster that dot(fastNormalize(x), fastNormalize(y)).
+	//! From GLM_GTX_normalize_dot extension.
+	template <typename genType> 
+	typename genType::value_type fastNormalizeDot(
+		genType const & x, 
+		genType const & y);
 
-		///@}
-
-	}//namespace normalize_dot
-	}//namespace gtx
+	/// @}
+}//namespace normalize_dot
+}//namespace gtx
 }//namespace glm
 
 #include "normalize_dot.inl"

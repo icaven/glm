@@ -20,50 +20,43 @@
 #	pragma message("GLM: GLM_GTX_vector_access extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+namespace vector_access ///< GLM_GTX_vector_access extension: Function to set values to vectors
 {
-	namespace test{
-		void main_gtx_vector_access();
-	}//namespace test
+	/// \addtogroup gtx_vector_access
+	/// @{
 
-    namespace gtx{
-	//! GLM_GTX_vector_access extension: Function to set values to vectors
-    namespace vector_access
-    {
-		/// \addtogroup gtx_vector_access
-		///@{
+	//! Set values to a 2 components vector.
+	//! From GLM_GTX_vector_access extension.
+    template <typename valType> 
+	void set(
+		detail::tvec2<valType> & v, 
+		valType const & x, 
+		valType const & y);
 
-		//! Set values to a 2 components vector.
-		//! From GLM_GTX_vector_access extension.
-        template <typename valType> 
-		void set(
-			detail::tvec2<valType> & v, 
-			valType const & x, 
-			valType const & y);
+	//! Set values to a 3 components vector.
+	//! From GLM_GTX_vector_access extension.
+    template <typename valType> 
+	void set(
+		detail::tvec3<valType> & v, 
+		valType const & x, 
+		valType const & y, 
+		valType const & z);
 
-		//! Set values to a 3 components vector.
-		//! From GLM_GTX_vector_access extension.
-        template <typename valType> 
-		void set(
-			detail::tvec3<valType> & v, 
-			valType const & x, 
-			valType const & y, 
-			valType const & z);
+	//! Set values to a 4 components vector.
+	//! From GLM_GTX_vector_access extension.
+    template <typename valType> 
+	void set(
+		detail::tvec4<valType> & v, 
+		valType const & x, 
+		valType const & y, 
+		valType const & z, 
+		valType const & w);
 
-		//! Set values to a 4 components vector.
-		//! From GLM_GTX_vector_access extension.
-        template <typename valType> 
-		void set(
-			detail::tvec4<valType> & v, 
-			valType const & x, 
-			valType const & y, 
-			valType const & z, 
-			valType const & w);
-
-		///@}
-
-    }//namespace vector_access
-    }//namespace gtx
+	/// @}
+}//namespace vector_access
+}//namespace gtx
 }//namespace glm
 
 #include "vector_access.inl"

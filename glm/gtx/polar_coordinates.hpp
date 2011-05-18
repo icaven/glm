@@ -20,29 +20,26 @@
 #	pragma message("GLM: GLM_GTX_polar_coordinates extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+namespace polar_coordinates ///< GLM_GTX_polar_coordinates extension: Conversion from Euclidean space to polar space and revert.
 {
-	namespace gtx{
-	//! GLM_GTX_polar_coordinates extension: Conversion from Euclidean space to polar space and revert.
-	namespace polar_coordinates
-	{
-		/// \addtogroup gtx_polar_coordinates
-		///@{
+	/// \addtogroup gtx_polar_coordinates
+	/// @{
 
-		//! Convert Euclidean to Polar coordinates, x is the xz distance, y, the latitude and z the longitude.
-		//! From GLM_GTX_polar_coordinates extension.
-		template <typename T> 
-		detail::tvec3<T> polar(const detail::tvec3<T>& euclidean);
+	//! Convert Euclidean to Polar coordinates, x is the xz distance, y, the latitude and z the longitude.
+	//! From GLM_GTX_polar_coordinates extension.
+	template <typename T> 
+	detail::tvec3<T> polar(const detail::tvec3<T>& euclidean);
 
-		//! Convert Polar to Euclidean coordinates.
-		//! From GLM_GTX_polar_coordinates extension.
-		template <typename T> 
-		detail::tvec3<T> euclidean(const detail::tvec3<T>& polar);
+	//! Convert Polar to Euclidean coordinates.
+	//! From GLM_GTX_polar_coordinates extension.
+	template <typename T> 
+	detail::tvec3<T> euclidean(const detail::tvec3<T>& polar);
 
-		///@}
-
-	}//namespace polar_coordinates
-	}//namespace gtx
+	/// @}
+}//namespace polar_coordinates
+}//namespace gtx
 }//namespace glm
 
 #include "polar_coordinates.inl"

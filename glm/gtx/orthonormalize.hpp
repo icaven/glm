@@ -20,36 +20,29 @@
 #	pragma message("GLM: GLM_GTX_orthonormalize extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace gtx{
+namespace orthonormalize ///< GLM_GTX_orthonormalize extension: Orthonormalize matrices.
 {
-	namespace test{
-		void main_gtx_orthonormalize();
-	}//namespace test
+	/// \addtogroup gtx_orthonormalize
+	/// @{
 
-    namespace gtx{
-	//! GLM_GTX_orthonormalize extension: Orthonormalize matrices.
-    namespace orthonormalize
-    {
-		/// \addtogroup gtx_orthonormalize
-		///@{
-
-		//! Returns the orthonormalized matrix of m.
-		//! From GLM_GTX_orthonormalize extension.
-		template <typename T> 
-		detail::tmat3x3<T> orthonormalize(
-			const detail::tmat3x3<T>& m);
+	//! Returns the orthonormalized matrix of m.
+	//! From GLM_GTX_orthonormalize extension.
+	template <typename T> 
+	detail::tmat3x3<T> orthonormalize(
+		const detail::tmat3x3<T>& m);
 		
-        //! Orthonormalizes x according y.
-		//! From GLM_GTX_orthonormalize extension.
-		template <typename T> 
-		detail::tvec3<T> orthonormalize(
-			const detail::tvec3<T>& x, 
-			const detail::tvec3<T>& y);
+    //! Orthonormalizes x according y.
+	//! From GLM_GTX_orthonormalize extension.
+	template <typename T> 
+	detail::tvec3<T> orthonormalize(
+		const detail::tvec3<T>& x, 
+		const detail::tvec3<T>& y);
 
-		///@}
-
-    }//namespace orthonormalize
-    }//namespace gtx
+	/// @}
+}//namespace orthonormalize
+}//namespace gtx
 }//namespace glm
 
 #include "orthonormalize.inl"
