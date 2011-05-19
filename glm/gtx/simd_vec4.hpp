@@ -33,7 +33,7 @@ namespace detail
 {
 	/// 4-dimensional vector implemented using SIMD SEE intrinsics.
 	/// \ingroup gtx_simd_vec4
-	GLM_ALIGNED_STRUCT(4) fvec4SIMD
+	GLM_ALIGNED_STRUCT(16) fvec4SIMD
 	{
 		enum ctor{null};
 		typedef __m128 value_type;
@@ -114,7 +114,7 @@ namespace detail
 namespace gtx{
 namespace simd_vec4 ///< GLM_GTX_simd_vec4 extension: SIMD implementation of vec4 type.
 {
-	typedef detail::fvec4SIMD simdVec4;
+	typedef glm::detail::fvec4SIMD simdVec4;
 
 	/// \addtogroup gtx_simd_vec4
 	///@{
