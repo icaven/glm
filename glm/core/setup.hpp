@@ -343,7 +343,18 @@
 #	else
 #		define GLM_ARCH GLM_ARCH_PURE
 #	endif
+#elif(GLM_COMPILER & GLM_COMPILER_LLVM_GCC)
+#	if(defined(__AVX__))
+#		define GLM_ARCH GLM_ARCH_AVX
+#	elif(defined(__SSE3__))
+#		define GLM_ARCH GLM_ARCH_SSE3
+#	elif(defined(__SSE2__))
+#		define GLM_ARCH GLM_ARCH_SSE2
+#	else
+#		define GLM_ARCH GLM_ARCH_PURE
+#	endif
 #elif((GLM_COMPILER & GLM_COMPILER_GCC) && (defined(__i386__) || defined(__x86_64__)))
+#   error "GCC"
 #	if(defined(__AVX__))
 #		define GLM_ARCH GLM_ARCH_AVX
 #	elif(defined(__SSE3__))
