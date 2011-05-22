@@ -75,7 +75,7 @@ namespace swizzle ///< GLM_GTC_swizzle extension
 		template <comp x>										\
 		GLM_FUNC_QUALIFIER TYPE& swizzle(detail::tvec##SIZE<TYPE> & v)		\
 		{return v[x];}
-
+/*
 	static_swizzle1(detail::float16, 2)
 	static_swizzle1(detail::float16, 3)
 	static_swizzle1(detail::float16, 4)
@@ -126,32 +126,34 @@ namespace swizzle ///< GLM_GTC_swizzle extension
 		template <comp x, comp y, comp z, comp w> \
 		GLM_FUNC_QUALIFIER TYPE swizzle(TYPE const & v) \
 		{return TYPE(v[x], v[y], v[z], v[w]);}
-/*
-#		define static_swizzle2_const(TYPE, SIZE)									\
+*/
+
+#	define static_swizzle2_const(TYPE, SIZE)									\
 		template <comp x, comp y>												\
 		GLM_FUNC_QUALIFIER detail::tvec2<TYPE> swizzle(detail::tvec##SIZE<TYPE> const & v)	\
 		{return detail::tvec2<TYPE>(v[x], v[y]);}
 
-#		define static_swizzle3_const(TYPE, SIZE)									\
+#	define static_swizzle3_const(TYPE, SIZE)									\
 		template <comp x, comp y, comp z>										\
 		GLM_FUNC_QUALIFIER detail::tvec3<TYPE> swizzle(detail::tvec##SIZE<TYPE> const & v)	\
 		{return detail::tvec3<TYPE>(v[x], v[y], v[z]);}
 
-#		define static_swizzle4_const(TYPE, SIZE)									\
+#	define static_swizzle4_const(TYPE, SIZE)									\
 		template <comp x, comp y, comp z, comp w>								\
 		GLM_FUNC_QUALIFIER detail::tvec4<TYPE> swizzle(detail::tvec##SIZE<TYPE> const & v)	\
 		{return detail::tvec4<TYPE>(v[x], v[y], v[z], v[w]);}
-*/
-	static_swizzle2_const(glm::f16vec2)
-	static_swizzle2_const(glm::f16vec3)
-	static_swizzle2_const(glm::f16vec4)
-	static_swizzle2_const(glm::f32vec2)
-	static_swizzle2_const(glm::f32vec3)
-	static_swizzle2_const(glm::f32vec4)
-	static_swizzle2_const(glm::f64vec2)
-	static_swizzle2_const(glm::f64vec3)
-	static_swizzle2_const(glm::f64vec4)
 
+
+	static_swizzle2_const(glm::f16vec2, 2)
+	static_swizzle2_const(glm::f16vec3, 3)
+	static_swizzle2_const(glm::f16vec4, 4)
+	static_swizzle2_const(glm::f32vec2, 2)
+	static_swizzle2_const(glm::f32vec3, 3)
+	static_swizzle2_const(glm::f32vec4, 4)
+	static_swizzle2_const(glm::f64vec2, 2)
+	static_swizzle2_const(glm::f64vec3, 3)
+	static_swizzle2_const(glm::f64vec4, 4)
+/*
 	static_swizzle2_const(glm::i8vec2)
 	static_swizzle2_const(glm::i8vec3)
 	static_swizzle2_const(glm::i8vec4)
@@ -339,7 +341,7 @@ namespace swizzle ///< GLM_GTC_swizzle extension
 	static_swizzle4_ref(glm::u16vec4)
 	static_swizzle4_ref(glm::u32vec4)
 	static_swizzle4_ref(glm::u64vec4)
-
+*/
 }//namespace swizzle
 }//namespace gtc
 }//namespace glm
