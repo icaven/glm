@@ -5,6 +5,29 @@ www.g-truc.net
 glm@g-truc.net
 
 ================================================================================
+The MIT License
+--------------------------------------------------------------------------------
+Copyright (c) 2005 - 2011 G-Truc Creation
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+================================================================================
 GLM Usage
 --------------------------------------------------------------------------------
 GLM is a header only library, there is nothing to build, just include it.
@@ -14,10 +37,10 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm-0.9.2.pdf
 
 ================================================================================
-GLM 0.9.2.1: 2010-05-20
+GLM 0.9.2.1: 2010-05-24
 --------------------------------------------------------------------------------
 - Automatically detect CUDA support
-- Improved Clang detection
+- Improved compiler detection
 - Fixed errors and warnings in VC with C++ extensions disabled
 - Fixed and tested GLM_GTX_vector_angle
 - Fixed and tested GLM_GTX_rotate_vector

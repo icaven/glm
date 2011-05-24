@@ -314,6 +314,8 @@ namespace glm
 			detail::fvec4SIMD const & x
 		)
 		{
+            //return x < 0 ? -floor(-x) : floor(x);
+
 			__m128 Flr0 = detail::sse_flr_ps(_mm_sub_ps(_mm_setzero_ps(), x.Data));
 			__m128 Sub0 = _mm_sub_ps(Flr0, x.Data);
 			__m128 Flr1 = detail::sse_flr_ps(x.Data);
@@ -321,7 +323,7 @@ namespace glm
 			__m128 Cmp0 = _mm_cmplt_ps(x.Data, glm::detail::zero);
 			__m128 Cmp1 = _mm_cmpnlt_ps(x.Data, glm::detail::zero);
 
-			__m128 And0 = _mm_and_ps(Flr0, Cmp0);
+			__m128 And0 = _mm_and_ps(Sub0, Cmp0);
 			__m128 And1 = _mm_and_ps(Flr1, Cmp1);
 
 			return _mm_or_ps(And0, And1);

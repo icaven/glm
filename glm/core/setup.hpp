@@ -19,7 +19,6 @@
 #define GLM_VERSION_PATCH			3
 #define GLM_VERSION_REVISION		0
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Compiler
 
@@ -43,6 +42,8 @@
 
 // GCC defines
 #define GLM_COMPILER_GCC            0x02000000
+#define GLM_COMPILER_GCC_LLVM       0x02000000
+#define GLM_COMPILER_GCC_CLANG      0x02000000
 #define GLM_COMPILER_GCC30			0x02000010
 #define GLM_COMPILER_GCC31			0x02000020
 #define GLM_COMPILER_GCC32			0x02000030
@@ -145,22 +146,19 @@
 #		define GLM_COMPILER GLM_COMPILER_VC
 #	endif//_MSC_VER
 
-#elif defined(__clang__)
-#	if   (__clang_major__ == 2) && (__clang_minor__ == 6)
-#		define GLM_COMPILER GLM_COMPILER_CLANG26
-#	elif (__clang_major__ == 2) && (__clang_minor__ == 7)
-#		define GLM_COMPILER GLM_COMPILER_CLANG27
-#	elif (__clang_major__ == 2) && (__clang_minor__ == 8)
-#		define GLM_COMPILER GLM_COMPILER_CLANG28
-#	elif (__clang_major__ == 2) && (__clang_minor__ == 9)
-#		define GLM_COMPILER GLM_COMPILER_CLANG29
-#	endif
-
-#elif defined(__llvm__)
-#	define GLM_COMPILER GLM_COMPILER_LLVM_GCC
-
 // G++
-#elif defined(__GNUC__)
+#elif defined(__GNUC__) || defined(__llvm__) || defined(__clang__)
+#   if defined (__llvm__)
+#       pragma message("LLVM")
+#       define GLM_COMPILER_GCC_EXTRA GLM_COMPILER_GCC_LLVM
+#   elif defined (__clang__)
+#       pragma message("CLANG")
+#       define GLM_COMPILER_GCC_EXTRA GLM_COMPILER_GCC_CLANG
+#   else
+#       pragma message("GCC")
+#       define GLM_COMPILER_GCC_EXTRA 0
+#   endif
+#
 #	if   (__GNUC__ == 3) && (__GNUC_MINOR__ == 2)
 #		define GLM_COMPILER GLM_COMPILER_GCC32
 #	elif (__GNUC__ == 3) && (__GNUC_MINOR__ == 3)
@@ -170,29 +168,29 @@
 #	elif (__GNUC__ == 3) && (__GNUC_MINOR__ == 5)
 #		define GLM_COMPILER GLM_COMPILER_GCC35
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 0)
-#		define GLM_COMPILER GLM_COMPILER_GCC40
+#		define GLM_COMPILER (GLM_COMPILER_GCC40 | GLM_COMPILER_GCC_EXTRA)
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 1)
-#		define GLM_COMPILER GLM_COMPILER_GCC41
+#		define GLM_COMPILER (GLM_COMPILER_GCC41 | GLM_COMPILER_GCC_EXTRA)
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 2)
-#		define GLM_COMPILER GLM_COMPILER_GCC42
+#		define GLM_COMPILER (GLM_COMPILER_GCC42 | GLM_COMPILER_GCC_EXTRA)
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 3)
-#		define GLM_COMPILER GLM_COMPILER_GCC43
+#		define GLM_COMPILER (GLM_COMPILER_GCC43 | GLM_COMPILER_GCC_EXTRA)
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 4)
-#		define GLM_COMPILER GLM_COMPILER_GCC44
+#		define GLM_COMPILER (GLM_COMPILER_GCC44 | GLM_COMPILER_GCC_EXTRA)
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 5)
-#		define GLM_COMPILER GLM_COMPILER_GCC45
+#		define GLM_COMPILER (GLM_COMPILER_GCC45 | GLM_COMPILER_GCC_EXTRA)
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 6)
-#		define GLM_COMPILER GLM_COMPILER_GCC46
+#		define GLM_COMPILER (GLM_COMPILER_GCC46 | GLM_COMPILER_GCC_EXTRA)
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 7)
-#		define GLM_COMPILER GLM_COMPILER_GCC47
+#		define GLM_COMPILER (GLM_COMPILER_GCC47 | GLM_COMPILER_GCC_EXTRA)
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 8)
-#		define GLM_COMPILER GLM_COMPILER_GCC48
+#		define GLM_COMPILER (GLM_COMPILER_GCC48 | GLM_COMPILER_GCC_EXTRA)
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 9)
-#		define GLM_COMPILER GLM_COMPILER_GCC49
+#		define GLM_COMPILER (GLM_COMPILER_GCC49 | GLM_COMPILER_GCC_EXTRA)
 #	elif (__GNUC__ == 5) && (__GNUC_MINOR__ == 0)
-#		define GLM_COMPILER GLM_COMPILER_GCC50
+#		define GLM_COMPILER (GLM_COMPILER_GCC50 | GLM_COMPILER_GCC_EXTRA)
 #	else
-#		define GLM_COMPILER GLM_COMPILER_GCC
+#		define GLM_COMPILER (GLM_COMPILER_GCC | GLM_COMPILER_GCC_EXTRA)
 #	endif
 
 // Borland C++
@@ -233,7 +231,13 @@
 #	elif(GLM_COMPILER & GLM_COMPILER_LLVM_GCC)
 #		pragma message("GLM: LLVM GCC compiler detected")
 #	elif(GLM_COMPILER & GLM_COMPILER_GCC)
-#		pragma message("GLM: GCC compiler detected")
+#       if(GLM_COMPILER & GLM_COMPILER_GCC_LLVM)
+#           pragma message("GLM: LLVM GCC compiler detected")
+#       elif(GLM_COMPILER & GLM_COMPILER_GCC_CLANG)
+#           pragma message("GLM: CLANG compiler detected")
+#       else
+#           pragma message("GLM: GCC compiler detected")
+#       endif
 #	elif(GLM_COMPILER & GLM_COMPILER_BC)
 #		pragma message("GLM: Borland compiler detected but not supported")
 #	elif(GLM_COMPILER & GLM_COMPILER_CODEWARRIOR)
@@ -339,6 +343,16 @@
 #	elif(GLM_COMPILER >= GLM_COMPILER_VC2008) 
 #		define GLM_ARCH GLM_ARCH_SSE3
 #	elif(GLM_COMPILER >= GLM_COMPILER_VC2005)
+#		define GLM_ARCH GLM_ARCH_SSE2
+#	else
+#		define GLM_ARCH GLM_ARCH_PURE
+#	endif
+#elif(GLM_COMPILER & GLM_COMPILER_LLVM_GCC)
+#	if(defined(__AVX__))
+#		define GLM_ARCH GLM_ARCH_AVX
+#	elif(defined(__SSE3__))
+#		define GLM_ARCH GLM_ARCH_SSE3
+#	elif(defined(__SSE2__))
 #		define GLM_ARCH GLM_ARCH_SSE2
 #	else
 #		define GLM_ARCH GLM_ARCH_PURE
