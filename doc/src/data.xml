@@ -1570,8 +1570,8 @@
 	</about-long>
 
 	<about-short>
-		<element>GLSL + Optional features = OpenGL Mathematics (GLM).</element>
-		<element>A C++ mathematics library for graphics programming.</element>
+		<element>GLSL + Optional features = OpenGL Mathematics (GLM)</element>
+		<element>A C++ mathematics library for graphics programming</element>
 	</about-short>
 
   <goodies>
