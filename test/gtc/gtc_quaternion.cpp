@@ -28,19 +28,19 @@ int test_quat_slerp()
     glm::quat C = glm::mix(A, B, 0.5f);
     
     Error += C != glm::quat(45.f, glm::vec3(0, 0, 1)) ? 0 : 1;
-    
+
     return Error;
 }
 
 int test_quat_length()
 {
     int Error = 0;
-    
+
     float A = glm::length(glm::quat(45.0f, glm::vec3(0, 0, 1)));
     Error += A == 1.0f ? 0 : 1;
     float B = glm::length(glm::quat(90.0f, glm::vec3(0, 0, 2)));
     Error += B == 2.0f ? 0 : 1;
-    
+
     return Error;
 }
 
@@ -53,26 +53,20 @@ int test_quat_normalize()
         glm::quat N = glm::normalize(Q);
         float L = glm::length(N);
         Error += L == 1.0f ? 0 : 1;
-        float A = glm::angle(N);
-        Error += glm::equalEpsilon(A, 45.0f, 0.01f) ? 0 : 1;
     }
     {
         glm::quat Q(45.0f, glm::vec3(0, 0, 2));
         glm::quat N = glm::normalize(Q);
         float L = glm::length(N);
         Error += L == 1.0f ? 0 : 1;
-        float A = glm::angle(N);
-        Error += glm::equalEpsilon(A, 45.0f, 0.01f) ? 0 : 1;
     }
     {
         glm::quat Q(45.0f, glm::vec3(1, 2, 3));
         glm::quat N = glm::normalize(Q);
         float L = glm::length(N);
         Error += L == 1.0f ? 0 : 1;
-        float A = glm::angle(N);
-        Error += glm::equalEpsilon(A, 45.0f, 0.01f) ? 0 : 1;
     }
-    
+
     return Error;
 }
 
