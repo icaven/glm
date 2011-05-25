@@ -122,13 +122,13 @@ namespace quaternion ///< GLM_GTC_quaternion extension: Quaternion types and fun
 	/// \addtogroup gtc_quaternion
 	///@{
 
-	//! Returns the length of the quaternion x. 
+	//! Returns the length of the quaternion. 
 	//! From GLM_GTC_quaternion extension.
     template <typename T> 
 	typename detail::tquat<T>::value_type length(
 		detail::tquat<T> const & q);
 
-    //! Returns the normalized quaternion of from x. 
+    //! Returns the normalized quaternion. 
 	//! From GLM_GTC_quaternion extension.
 	template <typename T> 
 	detail::tquat<T> normalize(
