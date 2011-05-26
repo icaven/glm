@@ -27,7 +27,8 @@ namespace detail
 		enum ctor{null};
 		typedef thalf value_type;
 		typedef std::size_t size_type;
-		static size_type value_size();
+        GLM_FUNC_DECL size_type length() const;
+		static GLM_FUNC_DECL size_type value_size();
 
 		typedef tvec2<thalf> type;
 		typedef tvec2<bool> bool_type;
@@ -119,7 +120,8 @@ namespace detail
 		enum ctor{null};
 		typedef thalf value_type;
 		typedef std::size_t size_type;
-		static size_type value_size();
+        GLM_FUNC_DECL size_type length() const;
+		static GLM_FUNC_DECL size_type value_size();
 
 		typedef tvec3<thalf> type;
 		typedef tvec3<bool> bool_type;
@@ -215,7 +217,8 @@ namespace detail
 		enum ctor{null};
 		typedef thalf value_type;
 		typedef std::size_t size_type;
-		static size_type value_size();
+        GLM_FUNC_DECL size_type length() const;
+		static GLM_FUNC_DECL size_type value_size();
 
 		typedef tvec4<thalf> type;
 		typedef tvec4<bool> bool_type;
@@ -343,7 +346,7 @@ namespace half_float ///< GLM_GTC_half_float extension: Add support for half pre
 	/// 2 * 2 matrix of half-precision floating-point numbers.
 	/// From GLM_GTC_half_float extension.
 	typedef detail::tmat2x2<detail::thalf>	hmat2;
-
+    
 	/// 3 * 3 matrix of half-precision floating-point numbers.
 	/// From GLM_GTC_half_float extension.
 	typedef detail::tmat3x3<detail::thalf>	hmat3;
@@ -352,6 +355,42 @@ namespace half_float ///< GLM_GTC_half_float extension: Add support for half pre
 	/// From GLM_GTC_half_float extension.
 	typedef detail::tmat4x4<detail::thalf>	hmat4;
 
+	/// 2 * 2 matrix of half-precision floating-point numbers.
+	/// From GLM_GTC_half_float extension.
+	typedef detail::tmat2x2<detail::thalf>	hmat2x2;
+    
+	/// 2 * 3 matrix of half-precision floating-point numbers.
+	/// From GLM_GTC_half_float extension.
+	typedef detail::tmat2x3<detail::thalf>	hmat2x3;
+    
+	/// 2 * 4 matrix of half-precision floating-point numbers.
+	/// From GLM_GTC_half_float extension.
+	typedef detail::tmat2x4<detail::thalf>	hmat2x4;
+
+	/// 3 * 2 matrix of half-precision floating-point numbers.
+	/// From GLM_GTC_half_float extension.
+	typedef detail::tmat3x2<detail::thalf>	hmat3x2;
+    
+	/// 3 * 3 matrix of half-precision floating-point numbers.
+	/// From GLM_GTC_half_float extension.
+	typedef detail::tmat3x3<detail::thalf>	hmat3x3;
+    
+	/// 3 * 4 matrix of half-precision floating-point numbers.
+	/// From GLM_GTC_half_float extension.
+	typedef detail::tmat3x4<detail::thalf>	hmat3x4;
+
+	/// 4 * 2 matrix of half-precision floating-point numbers.
+	/// From GLM_GTC_half_float extension.
+	typedef detail::tmat4x2<detail::thalf>	hmat4x2;    
+
+	/// 4 * 3 matrix of half-precision floating-point numbers.
+	/// From GLM_GTC_half_float extension.
+	typedef detail::tmat4x3<detail::thalf>	hmat4x3;
+    
+	/// 4 * 4 matrix of half-precision floating-point numbers.
+	/// From GLM_GTC_half_float extension.
+	typedef detail::tmat4x4<detail::thalf>	hmat4x4;
+    
 	/// @}
 
 }// namespace half_float
