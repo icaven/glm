@@ -27,7 +27,7 @@ int test_quat_slerp()
     glm::quat B(90.0f, glm::vec3(0, 0, 1));
     glm::quat C = glm::mix(A, B, 0.5f);
     
-    Error += C != glm::quat(45.f, glm::vec3(0, 0, 1)) ? 0 : 1;
+    Error += C == glm::quat(45.f, glm::vec3(0, 0, 1)) ? 0 : 1;
 
     return Error;
 }
