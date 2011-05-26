@@ -157,6 +157,20 @@ namespace detail{
 	}
 
 	template <typename T> 
+	GLM_FUNC_QUALIFIER detail::tquat<T> operator+
+	( 
+		detail::tquat<T> const & q, 
+		detail::tquat<T> const & p
+	) 
+	{ 
+        return detail::tquat<T>(
+            q.w + p.w,
+	        q.x + p.x,
+	        q.y + p.y,
+	        q.z + p.z);
+	} 
+
+	template <typename T> 
 	GLM_FUNC_QUALIFIER detail::tquat<T> operator*
 	( 
 		detail::tquat<T> const & q, 

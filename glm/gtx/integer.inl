@@ -49,9 +49,10 @@ namespace integer
 	template <typename genType>
     GLM_FUNC_QUALIFIER genType factorial(genType const & x)
     {
+		genType Temp = x;
         genType Result;
-        for(Result = 1; x > 1; --x)
-            Result *= x;
+        for(Result = 1; Temp > 1; --Temp)
+            Result *= Temp;
         return Result;
     }
 
