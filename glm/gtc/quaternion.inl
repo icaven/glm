@@ -416,7 +416,7 @@ namespace quaternion{
 	)
     {
 		T angle = acos(dot(x, y));
-		return (sin((1 - a) * angle) * x + sin(a * angle) * y) / sin(angle);
+		return (sin((T(1) - a) * angle) * x + sin(a * angle) * y) / sin(angle);
 	}
 
     template <typename T> 

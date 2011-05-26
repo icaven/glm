@@ -1,5 +1,6 @@
 glmCreateTestGTC(gtx_bit)
 glmCreateTestGTC(gtx_noise)
+glmCreateTestGTC(gtx_quaternion)
 glmCreateTestGTC(gtx_rotate_vector)
 glmCreateTestGTC(gtx_simd_vec4)
 glmCreateTestGTC(gtx_simd_mat4)
