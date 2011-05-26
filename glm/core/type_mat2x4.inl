@@ -10,6 +10,12 @@
 namespace glm{
 namespace detail
 {
+    template <typename T>
+    GLM_FUNC_QUALIFIER typename tmat2x4<T>::size_type tmat2x4<T>::length() const
+    {
+        return 2;
+    }
+
 	template <typename T>
 	GLM_FUNC_QUALIFIER typename tmat2x4<T>::size_type tmat2x4<T>::col_size()
 	{

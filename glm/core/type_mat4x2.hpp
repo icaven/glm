@@ -45,6 +45,7 @@ namespace glm
 			typedef std::size_t size_type;
 			typedef tvec2<T> col_type;
 			typedef tvec4<T> row_type;
+            GLM_FUNC_DECL size_type length() const;
 			static GLM_FUNC_DECL size_type col_size();
 			static GLM_FUNC_DECL size_type row_size();
 

@@ -35,10 +35,16 @@ namespace detail
 	template <typename T> 
 	struct tquat// : public genType<T, tquat>
 	{
-		typedef T value_type;
+        
+        enum ctor{null};
+        
+        typedef T value_type;
+        typedef std::size_t size_type;
 
 	public:
 		value_type x, y, z, w;
+        
+        GLM_FUNC_DECL size_type length() const;
 
 		// Constructors
 		tquat();
