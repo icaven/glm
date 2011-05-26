@@ -2,7 +2,7 @@
 // OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2006-10-01
-// Updated : 2010-02-03
+// Updated : 2011-05-26
 // Licence : This source is under MIT License
 // File    : glm/core/type_mat4x2.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -10,6 +10,12 @@
 namespace glm{
 namespace detail
 {
+    template <typename T>
+    GLM_FUNC_QUALIFIER typename tmat4x2<T>::size_type tmat4x2<T>::length() const
+    {
+        return 4;
+    }
+
 	template <typename T>
 	GLM_FUNC_QUALIFIER typename tmat4x2<T>::size_type tmat4x2<T>::col_size()
 	{
