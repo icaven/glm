@@ -2,7 +2,7 @@
 // OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2010-09-16
-// Updated : 2010-09-16
+// Updated : 2011-05-27
 // Licence : This source is under MIT licence
 // File    : test/gtc/type_ptr.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -11,8 +11,31 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-bool test_make_pointer()
+int test_make_pointer_mat()
 {
+    int Error = 0;
+
+    float ArrayA[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+    int ArrayB[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+    bool ArrayC[] = {true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false};
+    
+    glm::mat2x2 Mat2x2A = glm::make_mat2x2(ArrayA);
+    glm::mat2x3 Mat2x3A = glm::make_mat2x3(ArrayA);
+    glm::mat2x4 Mat2x4A = glm::make_mat2x4(ArrayA);
+    glm::mat3x2 Mat3x2A = glm::make_mat3x2(ArrayA);
+    glm::mat3x3 Mat3x3A = glm::make_mat3x3(ArrayA);
+    glm::mat3x4 Mat3x4A = glm::make_mat3x4(ArrayA);
+    glm::mat4x2 Mat4x2A = glm::make_mat4x2(ArrayA);
+    glm::mat4x3 Mat4x3A = glm::make_mat4x3(ArrayA);
+    glm::mat4x4 Mat4x4A = glm::make_mat4x4(ArrayA);
+    
+    return Error;
+}
+
+int test_make_pointer_vec()
+{
+    int Error = 0;
+    
     float ArrayA[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
     int ArrayB[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
     bool ArrayC[] = {true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false};
@@ -29,24 +52,15 @@ bool test_make_pointer()
     glm::bvec3 Vec3C = glm::make_vec3(ArrayC);
     glm::bvec4 Vec4C = glm::make_vec4(ArrayC);
     
-    glm::mat2x2 Mat2x2A = glm::make_mat2x2(ArrayA);
-    glm::mat2x3 Mat2x3A = glm::make_mat2x3(ArrayA);
-    glm::mat2x4 Mat2x4A = glm::make_mat2x4(ArrayA);
-    glm::mat3x2 Mat3x2A = glm::make_mat3x2(ArrayA);
-    glm::mat3x3 Mat3x3A = glm::make_mat3x3(ArrayA);
-    glm::mat3x4 Mat3x4A = glm::make_mat3x4(ArrayA);
-    glm::mat4x2 Mat4x2A = glm::make_mat4x2(ArrayA);
-    glm::mat4x3 Mat4x3A = glm::make_mat4x3(ArrayA);
-    glm::mat4x4 Mat4x4A = glm::make_mat4x4(ArrayA);
-    
-    return true;
+    return Error;
 }
 
 int main()
 {
-	int Failed = 0;
+	int Error = 0;
     
-    Failed += test_make_pointer() ? 0 : 1;
+    Error += test_make_pointer_vec();
+    Error += test_make_pointer_mat();
 
-	return Failed;
+	return Error;
 }
