@@ -23,11 +23,12 @@ int test_quat_slerp()
 {
     int Error = 0;
     
-    glm::quat A(0.0f, glm::vec3(0, 0, 1));
-    glm::quat B(90.0f, glm::vec3(0, 0, 1));
+    glm::quat A(glm::vec3(0, 0, 1));
+    glm::quat B(glm::vec3(0, 1, 0));
     glm::quat C = glm::mix(A, B, 0.5f);
-    
-    Error += C != glm::quat(45.f, glm::vec3(0, 0, 1)) ? 0 : 1;
+    glm::quat D(glm::normalize(glm::vec3(0, 1, 1)));
+
+    Error += C == D ? 0 : 1;
 
     return Error;
 }

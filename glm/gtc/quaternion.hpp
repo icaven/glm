@@ -75,6 +75,11 @@ namespace detail
 		detail::tquat<T> const & q);
 
 	template <typename T> 
+	detail::tquat<T> operator+ ( 
+		detail::tquat<T> const & q, 
+		detail::tquat<T> const & p); 
+
+	template <typename T> 
 	detail::tquat<T> operator* ( 
 		detail::tquat<T> const & q, 
 		detail::tquat<T> const & p); 
@@ -154,7 +159,7 @@ namespace quaternion ///< GLM_GTC_quaternion extension: Quaternion types and fun
 	detail::tquat<T> mix(
 		detail::tquat<T> const & x, 
 		detail::tquat<T> const & y, 
-		typename detail::tquat<T>::value_type const & a);
+		T const & a);
 		
 	//! Returns the q conjugate. 
 	//! From GLM_GTC_quaternion extension.

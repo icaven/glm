@@ -11,31 +11,48 @@
 #include <glm/gtx/quaternion.hpp>
 #include <glm/gtx/epsilon.hpp>
 
+int test_quat_angleAxis()
+{
+	int Error = 0;
+
+	glm::quat A = glm::angleAxis(0.0f, glm::vec3(0, 0, 1));
+	glm::quat B = glm::angleAxis(90.0f, glm::vec3(0, 0, 1));
+    glm::quat C = glm::mix(A, B, 0.5f);
+    glm::quat D = glm::angleAxis(45.0f, glm::vec3(0, 0, 1));
+
+    Error += glm::equalEpsilon(C.x, D.x, 0.01f) ? 0 : 1;
+	Error += glm::equalEpsilon(C.y, D.y, 0.01f) ? 0 : 1;
+	Error += glm::equalEpsilon(C.z, D.z, 0.01f) ? 0 : 1;
+	Error += glm::equalEpsilon(C.w, D.w, 0.01f) ? 0 : 1;
+
+	return Error;
+}
+
 int test_quat_angle()
 {
     int Error = 0;
     
     {
-        glm::quat Q(45.0f, glm::vec3(0, 0, 1));
+        glm::quat Q = glm::angleAxis(45.0f, glm::vec3(0, 0, 1));
         glm::quat N = glm::normalize(Q);
         float L = glm::length(N);
-        Error += L == 1.0f ? 0 : 1;
+        Error += glm::equalEpsilon(L, 1.0f, 0.01f) ? 0 : 1;
         float A = glm::angle(N);
         Error += glm::equalEpsilon(A, 45.0f, 0.01f) ? 0 : 1;
     }
     {
-        glm::quat Q(45.0f, glm::vec3(0, 0, 2));
+        glm::quat Q = glm::angleAxis(45.0f, glm::normalize(glm::vec3(0, 1, 1)));
         glm::quat N = glm::normalize(Q);
         float L = glm::length(N);
-        Error += L == 1.0f ? 0 : 1;
+        Error += glm::equalEpsilon(L, 1.0f, 0.01f) ? 0 : 1;
         float A = glm::angle(N);
         Error += glm::equalEpsilon(A, 45.0f, 0.01f) ? 0 : 1;
     }
     {
-        glm::quat Q(45.0f, glm::vec3(1, 2, 3));
+        glm::quat Q = glm::angleAxis(45.0f, glm::normalize(glm::vec3(1, 2, 3)));
         glm::quat N = glm::normalize(Q);
         float L = glm::length(N);
-        Error += L == 1.0f ? 0 : 1;
+        Error += glm::equalEpsilon(L, 1.0f, 0.01f) ? 0 : 1;
         float A = glm::angle(N);
         Error += glm::equalEpsilon(A, 45.0f, 0.01f) ? 0 : 1;
     }
@@ -48,6 +65,7 @@ int main()
 	int Error = 0;
     
     Error += test_quat_angle();
+	Error += test_quat_angleAxis();
 
 	return Error;
 }
