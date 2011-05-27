@@ -452,7 +452,7 @@
 **/
 
 /*!
-	\defgroup gtx_vector_access GLM_GTX_vector_angle: Vector access
+	\defgroup gtx_vector_access GLM_GTX_vector_access: Vector access
 	\ingroup gtx
 	
 	\brief Function to set values to vectors
