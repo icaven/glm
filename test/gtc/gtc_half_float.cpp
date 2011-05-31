@@ -51,10 +51,38 @@ int test_half_precision_mat()
     return Error;
 }
 
+int test_half_ctor_mat2x2()
+{
+	int Error = 0;
+
+	{
+		glm::hvec2 A(1, 2);
+		glm::hvec2 B(3, 4);
+		glm::hmat2 C(A, B);//, 2.0f, 3.0f, 4.0f);
+		glm::hmat2 D(1, 2, 3, 4);
+
+		Error += C[0] == D[0] ? 0 : 1;
+		Error += C[1] == D[1] ? 0 : 1;
+	}
+
+	{
+		glm::hvec2 A(1, 2.0);
+		glm::hvec2 B(3, 4.0);
+		glm::hmat2 C(A, B);//, 2.0f, 3.0f, 4.0f);
+		glm::hmat2 D(1, 2.0, 3u, 4.0f);
+
+		Error += C[0] == D[0] ? 0 : 1;
+		Error += C[1] == D[1] ? 0 : 1;
+	}
+
+    return Error;
+}
+
 int main()
 {
 	int Error = 0;
 
+	Error += test_half_ctor_mat2x2();
 	Error += test_half_precision_scalar();
 	Error += test_half_precision_vec();
 	Error += test_half_precision_mat();
