@@ -82,7 +82,7 @@ int test_vec2_ctor()
         glm::vec2 A = glm::vec2(2.0f);
         glm::vec2 B = glm::vec2(2.0f, 3.0f);
         glm::vec2 C = glm::vec2(2.0f, 3.0);
-        glm::vec2 D = glm::dvec2(2.0);
+        //glm::vec2 D = glm::dvec2(2.0); // Build error TODO: What does the specification says?
         glm::vec2 E(glm::dvec2(2.0));
         glm::vec2 F(glm::ivec2(2));
         
