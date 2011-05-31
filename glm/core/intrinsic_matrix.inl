@@ -10,8 +10,9 @@
 namespace glm{
 namespace detail{
 
-static const __m128 _m128_rad_ps = _mm_set_ps1(3.141592653589793238462643383279f / 180.f);
-static const __m128 _m128_deg_ps = _mm_set_ps1(180.f / 3.141592653589793238462643383279f);
+/// \todo
+//static const __m128 _m128_rad_ps = _mm_set_ps1(3.141592653589793238462643383279f / 180.f);
+//static const __m128 _m128_deg_ps = _mm_set_ps1(180.f / 3.141592653589793238462643383279f);
 
 template <typename matType>
 GLM_FUNC_QUALIFIER matType sse_comp_mul_ps
