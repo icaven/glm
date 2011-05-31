@@ -11,6 +11,16 @@
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtx/epsilon.hpp>
 
+int test_quat_precision()
+{
+	int Error = 0;
+
+	Error += sizeof(glm::lowp_quat) <= sizeof(glm::mediump_quat) ? 0 : 1;
+	Error += sizeof(glm::mediump_quat) <= sizeof(glm::highp_quat) ? 0 : 1;
+    
+    return Error;
+}
+
 int test_quat_type()
 {
     glm::quat A;
@@ -75,6 +85,7 @@ int main()
 {
 	int Error = 0;
     
+	Error += test_quat_precision();
     Error += test_quat_type();
     Error += test_quat_slerp();
     Error += test_quat_length();

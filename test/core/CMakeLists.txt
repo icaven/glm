@@ -23,6 +23,8 @@ glmCreateTestGTC(core_func_noise)
 glmCreateTestGTC(core_func_packing)
 glmCreateTestGTC(core_func_trigonometric)
 glmCreateTestGTC(core_func_vector_relational)
+glmCreateTestGTC(core_setup_message)
+glmCreateTestGTC(core_setup_precision)
 
 
 
