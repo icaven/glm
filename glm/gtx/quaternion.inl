@@ -149,7 +149,7 @@ namespace quaternion
 		detail::tquat<T> const & x
 	)
     {
-        return acos(x.w) * T(2);
+        return glm::degrees(acos(x.w) * T(2));
     }
 
     template <typename T> 
