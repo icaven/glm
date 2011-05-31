@@ -227,6 +227,17 @@ namespace quaternion ///< GLM_GTC_quaternion extension: Quaternion types and fun
 	//! From GLM_GTC_quaternion extension.
 	typedef detail::tquat<double>	dquat;
 
+	//! Quaternion of low precision floating-point numbers.
+	//! From GLM_GTC_quaternion extension.
+	typedef detail::tquat<lowp_float>		lowp_quat;
+
+	//! Quaternion of medium precision floating-point numbers. 
+	//! From GLM_GTC_quaternion extension.
+	typedef detail::tquat<mediump_float>	mediump_quat;
+
+	//! Quaternion of high precision floating-point numbers. 
+	//! From GLM_GTC_quaternion extension.
+	typedef detail::tquat<highp_float>		highp_quat;
 	///@}
 
 } //namespace quaternion

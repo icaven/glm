@@ -224,17 +224,35 @@ namespace glm
 	{
 		//! 3 columns of 3 components matrix of low precision floating-point numbers.
 		//! There is no guarantee on the actual precision.
-		//! (From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers)
+		//! From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers
 		//! \ingroup core_precision
-		typedef detail::tmat3x3<lowp_float>		lowp_mat3x3;
+		typedef detail::tmat3x3<lowp_float>		lowp_mat3;
 		//! 3 columns of 3 components matrix of medium precision floating-point numbers.
 		//! There is no guarantee on the actual precision.
-		//! (From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers)
+		//! From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers
 		//! \ingroup core_precision
-		typedef detail::tmat3x3<mediump_float>	mediump_mat3x3;
+		typedef detail::tmat3x3<mediump_float>	mediump_mat3;
 		//! 3 columns of 3 components matrix of high precision floating-point numbers.
 		//! There is no guarantee on the actual precision.
-		//! (From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers)
+		//! From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers
+		//! \ingroup core_precision
+		typedef detail::tmat3x3<highp_float>	highp_mat3;
+
+		//! 3 columns of 3 components matrix of low precision floating-point numbers.
+		//! There is no guarantee on the actual precision.
+		//! From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers
+		//! \ingroup core_precision
+		typedef detail::tmat3x3<lowp_float>		lowp_mat3x3;
+
+		//! 3 columns of 3 components matrix of medium precision floating-point numbers.
+		//! There is no guarantee on the actual precision.
+		//! From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers
+		//! \ingroup core_precision
+		typedef detail::tmat3x3<mediump_float>	mediump_mat3x3;
+
+		//! 3 columns of 3 components matrix of high precision floating-point numbers.
+		//! There is no guarantee on the actual precision.
+		//! From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers
 		//! \ingroup core_precision
 		typedef detail::tmat3x3<highp_float>	highp_mat3x3;
 	}

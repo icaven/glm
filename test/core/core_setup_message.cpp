@@ -1,18 +1,30 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2010-09-16
-// Updated : 2010-09-16
-// Licence : This source is under MIT licence
-// File    : test/gtc/matrix_integer.cpp
+// Created : 2011-05-31
+// Updated : 2011-05-31
+// Licence : This source is under MIT License
+// File    : test/core/setup_message.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_MESSAGES
 #include <glm/glm.hpp>
-#include <glm/gtc/matrix_integer.hpp>
+
+static int test_operators()
+{
+	glm::vec3 A(1.0f);
+	glm::vec3 B(1.0f);
+	bool R = A != B;
+	bool S = A == B;
+
+	return (S && !R) ? 0 : 1;
+}
 
 int main()
 {
-	int Failed = 0;
+	int Error = 0;
 
-	return Failed;
+	Error += test_operators();
+	
+	return Error;
 }

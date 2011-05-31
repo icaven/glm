@@ -7,7 +7,6 @@
 // File    : test/gtc/matrix_transform.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_MESSAGES
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
