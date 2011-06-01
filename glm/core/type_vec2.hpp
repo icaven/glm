@@ -93,7 +93,7 @@ namespace glm
 			tvec2(tref2<T> const & r);
 
 			//////////////////////////////////////
-			// Convertion scalar constructors
+			// Convertion constructors
 
 			//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 			template <typename U> 

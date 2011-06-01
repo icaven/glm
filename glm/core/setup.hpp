@@ -42,8 +42,8 @@
 
 // GCC defines
 #define GLM_COMPILER_GCC            0x02000000
-#define GLM_COMPILER_GCC_LLVM       0x02000000
-#define GLM_COMPILER_GCC_CLANG      0x02000000
+#define GLM_COMPILER_GCC_LLVM       0x02000001
+#define GLM_COMPILER_GCC_CLANG      0x02000002
 #define GLM_COMPILER_GCC30			0x02000010
 #define GLM_COMPILER_GCC31			0x02000020
 #define GLM_COMPILER_GCC32			0x02000030
@@ -228,9 +228,9 @@
 #	elif(GLM_COMPILER & GLM_COMPILER_LLVM_GCC)
 #		pragma message("GLM: LLVM GCC compiler detected")
 #	elif(GLM_COMPILER & GLM_COMPILER_GCC)
-#       if(GLM_COMPILER & GLM_COMPILER_GCC_LLVM)
+#       if(GLM_COMPILER == GLM_COMPILER_GCC_LLVM)
 #           pragma message("GLM: LLVM GCC compiler detected")
-#       elif(GLM_COMPILER & GLM_COMPILER_GCC_CLANG)
+#       elif(GLM_COMPILER == GLM_COMPILER_GCC_CLANG)
 #           pragma message("GLM: CLANG compiler detected")
 #       else
 #           pragma message("GLM: GCC compiler detected")

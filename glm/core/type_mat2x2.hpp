@@ -57,10 +57,12 @@ namespace glm
 			GLM_FUNC_DECL tmat2x2<T> _inverse() const;
 
 		private:
+			//////////////////////////////////////
 			// Data 
 			col_type value[2];
 
 		public:
+			//////////////////////////////////////
 			// Constructors
 			GLM_FUNC_DECL tmat2x2();
 			GLM_FUNC_DECL tmat2x2(
@@ -77,6 +79,23 @@ namespace glm
 				col_type const & v1, 
 				col_type const & v2);
 
+			//////////////////////////////////////
+			// Convertion constructors
+			template <typename U> 
+			GLM_FUNC_DECL explicit tmat2x2(
+				U const & x);
+			
+			template <typename U, typename V, typename M, typename N> 
+			GLM_FUNC_DECL explicit tmat2x2(
+				U const & x1, V const & y1, 
+				M const & x2, N const & y2);
+			
+			//template <typename U, typename V, typename M, typename N> 
+			//GLM_FUNC_DECL explicit tmat2x2(
+			//	tvec2<U, V> const & v1, 
+			//	tvec2<M, N> const & v2);
+
+			//////////////////////////////////////
 			// Conversions
 			template <typename U> 
 			GLM_FUNC_DECL explicit tmat2x2(tmat2x2<U> const & m);
@@ -225,17 +244,37 @@ namespace glm
 	{
 		//! 2 columns of 2 components matrix of low precision floating-point numbers.
 		//! There is no guarantee on the actual precision.
-		//! (From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers)
+		//! From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers
 		//! \ingroup core_precision
-		typedef detail::tmat2x2<lowp_float>		lowp_mat2x2;
+		typedef detail::tmat2x2<lowp_float>		lowp_mat2;
+
 		//! 2 columns of 2 components matrix of medium precision floating-point numbers. 
 		//! There is no guarantee on the actual precision.
-		//! (From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers)
+		//! From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers
 		//! \ingroup core_precision
-		typedef detail::tmat2x2<mediump_float>	mediump_mat2x2;
+		typedef detail::tmat2x2<mediump_float>	mediump_mat2;
+
 		//! 2 columns of 2 components matrix of high precision floating-point numbers. 
 		//! There is no guarantee on the actual precision. 
-		//! (From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers)
+		//! From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers
+		//! \ingroup core_precision
+		typedef detail::tmat2x2<highp_float>	highp_mat2;
+
+		//! 2 columns of 2 components matrix of low precision floating-point numbers.
+		//! There is no guarantee on the actual precision.
+		//! From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers
+		//! \ingroup core_precision
+		typedef detail::tmat2x2<lowp_float>		lowp_mat2x2;
+
+		//! 2 columns of 2 components matrix of medium precision floating-point numbers. 
+		//! There is no guarantee on the actual precision.
+		//! From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers
+		//! \ingroup core_precision
+		typedef detail::tmat2x2<mediump_float>	mediump_mat2x2;
+
+		//! 2 columns of 2 components matrix of high precision floating-point numbers. 
+		//! There is no guarantee on the actual precision. 
+		//! From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers
 		//! \ingroup core_precision
 		typedef detail::tmat2x2<highp_float>	highp_mat2x2;
 	}

@@ -113,8 +113,46 @@ namespace detail
         this->value[1] = v1;
     }
 
+	//////////////////////////////////////
+	// Convertion constructors
+	template <typename T> 
+	template <typename U> 
+	GLM_FUNC_DECL tmat2x2<T>::tmat2x2
+	(
+		U const & s
+	)
+	{
+		value_type const Zero(0);
+        this->value[0] = tvec2<T>(value_type(s), Zero);
+        this->value[1] = tvec2<T>(Zero, value_type(s));
+	}
+	
+	template <typename T> 
+	template <typename U, typename V, typename M, typename N> 
+	GLM_FUNC_DECL tmat2x2<T>::tmat2x2
+	(
+		U const & x1, V const & y1, 
+		M const & x2, N const & y2
+	)		
+	{
+        this->value[0] = col_type(value_type(x1), value_type(y1));
+        this->value[1] = col_type(value_type(x2), value_type(y2));
+	}
+	
+	//template <typename T> 
+	//template <typename U, typename V, typename M, typename N> 
+	//GLM_FUNC_DECL tmat2x2<T>::tmat2x2
+	//(
+	//	tvec2<U, V> const & v1, 
+	//	tvec2<M, N> const & v2
+	//)		
+	//{
+ //       this->value[0] = col_type(v1);
+ //       this->value[1] = col_type(v2);
+	//}
+
     //////////////////////////////////////////////////////////////
-    // mat2 conversions
+    // mat2x2 conversions
 
     template <typename T> 
     template <typename U> 
@@ -221,7 +259,7 @@ namespace detail
     }
 
     //////////////////////////////////////////////////////////////
-    // mat3 operators
+    // mat2x2 operators
 
     // This function shouldn't required but it seems that VC7.1 have an optimisation bug if this operator wasn't declared
     template <typename T> 

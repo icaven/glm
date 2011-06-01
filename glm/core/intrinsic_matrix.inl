@@ -548,8 +548,6 @@ GLM_FUNC_QUALIFIER void sse_inverse_ps(__m128 const in[4], __m128 out[4])
 		__m128 Mul00 = _mm_mul_ps(Swp00, Swp01);
 		__m128 Mul01 = _mm_mul_ps(Swp02, Swp03);
 		Fac0 = _mm_sub_ps(Mul00, Mul01);
-
-		bool stop = true;
 	}
 
 	__m128 Fac1;
@@ -570,8 +568,6 @@ GLM_FUNC_QUALIFIER void sse_inverse_ps(__m128 const in[4], __m128 out[4])
 		__m128 Mul00 = _mm_mul_ps(Swp00, Swp01);
 		__m128 Mul01 = _mm_mul_ps(Swp02, Swp03);
 		Fac1 = _mm_sub_ps(Mul00, Mul01);
-
-		bool stop = true;
 	}
 
 
@@ -593,9 +589,7 @@ GLM_FUNC_QUALIFIER void sse_inverse_ps(__m128 const in[4], __m128 out[4])
 		__m128 Mul00 = _mm_mul_ps(Swp00, Swp01);
 		__m128 Mul01 = _mm_mul_ps(Swp02, Swp03);
 		Fac2 = _mm_sub_ps(Mul00, Mul01);
-
-		bool stop = true;
-	}
+    }
 
 	__m128 Fac3;
 	{
@@ -615,8 +609,6 @@ GLM_FUNC_QUALIFIER void sse_inverse_ps(__m128 const in[4], __m128 out[4])
 		__m128 Mul00 = _mm_mul_ps(Swp00, Swp01);
 		__m128 Mul01 = _mm_mul_ps(Swp02, Swp03);
 		Fac3 = _mm_sub_ps(Mul00, Mul01);
-
-		bool stop = true;
 	}
 
 	__m128 Fac4;
@@ -637,8 +629,6 @@ GLM_FUNC_QUALIFIER void sse_inverse_ps(__m128 const in[4], __m128 out[4])
 		__m128 Mul00 = _mm_mul_ps(Swp00, Swp01);
 		__m128 Mul01 = _mm_mul_ps(Swp02, Swp03);
 		Fac4 = _mm_sub_ps(Mul00, Mul01);
-
-		bool stop = true;
 	}
 
 	__m128 Fac5;
@@ -659,8 +649,6 @@ GLM_FUNC_QUALIFIER void sse_inverse_ps(__m128 const in[4], __m128 out[4])
 		__m128 Mul00 = _mm_mul_ps(Swp00, Swp01);
 		__m128 Mul01 = _mm_mul_ps(Swp02, Swp03);
 		Fac5 = _mm_sub_ps(Mul00, Mul01);
-
-		bool stop = true;
 	}
 
 	__m128 SignA = _mm_set_ps( 1.0f,-1.0f, 1.0f,-1.0f);
@@ -781,8 +769,6 @@ GLM_FUNC_QUALIFIER void sse_inverse_fast_ps(__m128 const in[4], __m128 out[4])
 		__m128 Mul00 = _mm_mul_ps(Swp00, Swp01);
 		__m128 Mul01 = _mm_mul_ps(Swp02, Swp03);
 		Fac0 = _mm_sub_ps(Mul00, Mul01);
-
-		bool stop = true;
 	}
 
 	__m128 Fac1;
@@ -803,8 +789,6 @@ GLM_FUNC_QUALIFIER void sse_inverse_fast_ps(__m128 const in[4], __m128 out[4])
 		__m128 Mul00 = _mm_mul_ps(Swp00, Swp01);
 		__m128 Mul01 = _mm_mul_ps(Swp02, Swp03);
 		Fac1 = _mm_sub_ps(Mul00, Mul01);
-
-		bool stop = true;
 	}
 
 
@@ -826,8 +810,6 @@ GLM_FUNC_QUALIFIER void sse_inverse_fast_ps(__m128 const in[4], __m128 out[4])
 		__m128 Mul00 = _mm_mul_ps(Swp00, Swp01);
 		__m128 Mul01 = _mm_mul_ps(Swp02, Swp03);
 		Fac2 = _mm_sub_ps(Mul00, Mul01);
-
-		bool stop = true;
 	}
 
 	__m128 Fac3;
@@ -848,8 +830,6 @@ GLM_FUNC_QUALIFIER void sse_inverse_fast_ps(__m128 const in[4], __m128 out[4])
 		__m128 Mul00 = _mm_mul_ps(Swp00, Swp01);
 		__m128 Mul01 = _mm_mul_ps(Swp02, Swp03);
 		Fac3 = _mm_sub_ps(Mul00, Mul01);
-
-		bool stop = true;
 	}
 
 	__m128 Fac4;
@@ -870,8 +850,6 @@ GLM_FUNC_QUALIFIER void sse_inverse_fast_ps(__m128 const in[4], __m128 out[4])
 		__m128 Mul00 = _mm_mul_ps(Swp00, Swp01);
 		__m128 Mul01 = _mm_mul_ps(Swp02, Swp03);
 		Fac4 = _mm_sub_ps(Mul00, Mul01);
-
-		bool stop = true;
 	}
 
 	__m128 Fac5;
@@ -892,8 +870,6 @@ GLM_FUNC_QUALIFIER void sse_inverse_fast_ps(__m128 const in[4], __m128 out[4])
 		__m128 Mul00 = _mm_mul_ps(Swp00, Swp01);
 		__m128 Mul01 = _mm_mul_ps(Swp02, Swp03);
 		Fac5 = _mm_sub_ps(Mul00, Mul01);
-
-		bool stop = true;
 	}
 
 	__m128 SignA = _mm_set_ps( 1.0f,-1.0f, 1.0f,-1.0f);

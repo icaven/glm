@@ -430,7 +430,7 @@ namespace quaternion{
 	)
     {
 		T angle = acos(dot(x, y));
-		return (sin((T(1) - a) * angle) * x + sin(a * angle) * y) / sin(angle);
+		return (glm::sin((T(1) - a) * angle) * x + glm::sin(a * angle) * y) / glm::sin(angle);
 	}
 
     template <typename T> 
