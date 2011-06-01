@@ -133,17 +133,17 @@ namespace detail
         this->value[1] = col_type(value_type(x2), value_type(y2));
 	}
 	
-	//template <typename T> 
-	//template <typename U, typename V, typename M, typename N> 
-	//GLM_FUNC_DECL tmat2x2<T>::tmat2x2
-	//(
-	//	tvec2<U, V> const & v1, 
-	//	tvec2<M, N> const & v2
-	//)		
-	//{
- //       this->value[0] = col_type(v1);
- //       this->value[1] = col_type(v2);
-	//}
+	template <typename T> 
+	template <typename U, typename V> 
+	GLM_FUNC_DECL tmat2x2<T>::tmat2x2
+	(
+		tvec2<U> const & v1, 
+		tvec2<V> const & v2
+	)		
+	{
+        this->value[0] = col_type(v1);
+        this->value[1] = col_type(v2);
+	}
 
     //////////////////////////////////////////////////////////////
     // mat2x2 conversions

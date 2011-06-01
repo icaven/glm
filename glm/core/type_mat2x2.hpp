@@ -79,7 +79,7 @@ namespace glm
 				col_type const & v2);
 
 			//////////////////////////////////////
-			// Convertion constructors
+			// Conversions
 			template <typename U> 
 			GLM_FUNC_DECL explicit tmat2x2(
 				U const & x);
@@ -89,13 +89,13 @@ namespace glm
 				U const & x1, V const & y1, 
 				M const & x2, N const & y2);
 			
-			//template <typename U, typename V, typename M, typename N> 
-			//GLM_FUNC_DECL explicit tmat2x2(
-			//	tvec2<U, V> const & v1, 
-			//	tvec2<M, N> const & v2);
+			template <typename U, typename V> 
+			GLM_FUNC_DECL explicit tmat2x2(
+				tvec2<U> const & v1, 
+				tvec2<V> const & v2);
 
 			//////////////////////////////////////
-			// Conversions
+			// Matrix conversions
 			template <typename U> 
 			GLM_FUNC_DECL explicit tmat2x2(tmat2x2<U> const & m);
 
