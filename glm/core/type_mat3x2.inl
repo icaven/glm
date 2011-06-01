@@ -113,7 +113,55 @@ namespace detail
         this->value[2] = v2;
     }
 
-    // Conversion
+	//////////////////////////////////////
+	// Convertion constructors
+	template <typename T> 
+	template <typename U> 
+	GLM_FUNC_DECL tmat3x2<T>::tmat3x2
+	(
+		U const & s
+	)
+	{
+		value_type const Zero(0);
+        this->value[0] = tvec2<T>(value_type(s), Zero);
+        this->value[1] = tvec2<T>(Zero, value_type(s));
+        this->value[2] = tvec2<T>(Zero);
+	}
+	
+	template <typename T> 
+	template <
+		typename X1, typename Y1, 
+		typename X2, typename Y2, 
+		typename X3, typename Y3> 
+	GLM_FUNC_DECL tmat3x2<T>::tmat3x2
+	(
+		X1 const & x1, Y1 const & y1, 
+		X2 const & x2, Y2 const & y2, 
+		X3 const & x3, Y3 const & y3
+	)		
+	{
+        this->value[0] = col_type(value_type(x1), value_type(y1));
+        this->value[1] = col_type(value_type(x2), value_type(y2));
+        this->value[2] = col_type(value_type(x3), value_type(y3));
+	}
+	
+	template <typename T> 
+	template <typename U, typename V> 
+	GLM_FUNC_DECL tmat3x2<T>::tmat3x2
+	(
+		tvec2<V1> const & v1, 
+		tvec2<V2> const & v2, 
+		tvec2<V3> const & v3
+	)		
+	{
+        this->value[0] = col_type(v1);
+        this->value[1] = col_type(v2);
+        this->value[2] = col_type(v3);
+	}
+
+    //////////////////////////////////////////////////////////////
+    // mat3x2 matrix conversions
+
     template <typename T> 
     template <typename U> 
     GLM_FUNC_QUALIFIER tmat3x2<T>::tmat3x2

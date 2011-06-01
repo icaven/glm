@@ -116,6 +116,52 @@ namespace detail
         this->value[2] = v2;
     }
 
+	//////////////////////////////////////
+	// Convertion constructors
+	template <typename T> 
+	template <typename U> 
+	GLM_FUNC_DECL tmat3x3<T>::tmat3x3
+	(
+		U const & s
+	)
+	{
+		value_type const Zero(0);
+        this->value[0] = tvec3<T>(value_type(s), Zero, Zero);
+        this->value[1] = tvec3<T>(Zero, value_type(s), Zero);
+        this->value[2] = tvec3<T>(Zero, Zero, value_type(s));
+	}
+	
+	template <typename T> 
+	template <
+		typename X1, typename Y1, typename Z1, 
+		typename X2, typename Y2, typename Z2, 
+		typename X3, typename Y3, typename Z3>  
+	GLM_FUNC_DECL tmat3x3<T>::tmat3x3
+	(
+		X1 const & x1, Y1 const & y1, Z1 const & z1, 
+		X2 const & x2, Y2 const & y2, Z2 const & z2, 
+		X3 const & x3, Y3 const & y3, Z3 const & z3 
+	)		
+	{
+        this->value[0] = col_type(value_type(x1), value_type(y1), value_type(z1));
+        this->value[1] = col_type(value_type(x2), value_type(y2), value_type(z2));
+        this->value[2] = col_type(value_type(x3), value_type(y3), value_type(z3));
+	}
+	
+	template <typename T> 
+	template <typename V1, typename V2, typename V3> 
+	GLM_FUNC_DECL tmat3x3<T>::tmat3x3
+	(
+		tvec3<V1> const & v1, 
+		tvec3<V2> const & v2, 
+		tvec3<V3> const & v3
+	)		
+	{
+        this->value[0] = col_type(v1);
+        this->value[1] = col_type(v2);
+        this->value[2] = col_type(v3);
+	}
+
     //////////////////////////////////////////////////////////////
     // Conversions
 
