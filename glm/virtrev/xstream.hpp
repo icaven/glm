@@ -1,6 +1,3 @@
-#ifndef GLM_EXT_VIRTREV_XSTREAM_HPP
-#define GLM_EXT_VIRTREV_XSTREAM_HPP
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
 // Virtrev SDK copyright matrem (matrem84.free.fr)
@@ -14,6 +11,9 @@
 // - GLM core
 // - GLM_GTX_matrix_selection
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+#ifndef GLM_EXT_VIRTREV_XSTREAM_HPP
+#define GLM_EXT_VIRTREV_XSTREAM_HPP
 
 #include "../glm.hpp"
 #include "../gtc/matrix_access.hpp"

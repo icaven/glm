@@ -158,6 +158,21 @@ GLM_FUNC_QUALIFIER detail::tvec4<bool> equalEpsilon
 }
 
 template <typename valType>
+GLM_FUNC_QUALIFIER detail::tvec4<bool> equalEpsilon
+(
+	detail::tquat<valType> const & x, 
+	detail::tquat<valType> const & y, 
+	detail::tquat<valType> const & epsilon
+)
+{
+    return detail::tvec4<bool>(
+        abs(x.x - y.x) < epsilon.x,
+        abs(x.y - y.y) < epsilon.y,
+        abs(x.z - y.z) < epsilon.z,
+        abs(x.w - y.w) < epsilon.w);
+}
+
+template <typename valType>
 GLM_FUNC_QUALIFIER detail::tvec2<bool> notEqualEpsilon
 (
 	detail::tvec2<valType> const & x, 
@@ -190,6 +205,21 @@ GLM_FUNC_QUALIFIER detail::tvec4<bool> notEqualEpsilon
 	detail::tvec4<valType> const & x, 
 	detail::tvec4<valType> const & y, 
 	detail::tvec4<valType> const & epsilon
+)
+{
+    return detail::tvec4<bool>(
+        abs(x.x - y.x) >= epsilon.x,
+        abs(x.y - y.y) >= epsilon.y,
+        abs(x.z - y.z) >= epsilon.z,
+        abs(x.w - y.w) >= epsilon.w);
+}
+
+template <typename valType>
+GLM_FUNC_QUALIFIER detail::tvec4<bool> notEqualEpsilon
+(
+	detail::tquat<valType> const & x, 
+	detail::tquat<valType> const & y, 
+	detail::tquat<valType> const & epsilon
 )
 {
     return detail::tvec4<bool>(
