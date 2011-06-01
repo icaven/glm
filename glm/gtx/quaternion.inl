@@ -256,7 +256,7 @@ namespace quaternion
         if(a <= typename detail::tquat<T>::value_type(0)) return x;
         if(a >= typename detail::tquat<T>::value_type(1)) return y;
 
-        float fCos = dot(x, y);
+        detail::tquat<T>::value_type fCos = dot(x, y);
         detail::tquat<T> y2(y); //BUG!!! tquat<T> y2;
         if(fCos < typename detail::tquat<T>::value_type(0))
         {
@@ -265,7 +265,7 @@ namespace quaternion
         }
 
         //if(fCos > 1.0f) // problem
-        float k0, k1;
+        detail::tquat<T>::value_type k0, k1;
         if(fCos > typename detail::tquat<T>::value_type(0.9999))
         {
             k0 = typename detail::tquat<T>::value_type(1) - a;
@@ -295,7 +295,7 @@ namespace quaternion
 		T const & a
 	)
     {
-		return glm::normalize(x * (1 - a) + (y * a));
+		return glm::normalize(x * (detail::tquat<T>::value_type(1) - a) + (y * a));
 	}
 
 }//namespace quaternion
