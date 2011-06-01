@@ -8,7 +8,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
-// - GLM_GTX_half
+// - GLM_GTC_half_float
+// - GLM_GTC_quaternion
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_epsilon
@@ -17,6 +18,7 @@
 // Dependency:
 #include "../glm.hpp"
 #include "../gtc/half_float.hpp"
+#include "../gtc/quaternion.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))
 #	pragma message("GLM: GLM_GTX_epsilon extension included")
