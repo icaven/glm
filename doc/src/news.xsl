@@ -60,10 +60,7 @@
 			<xsl:value-of select="./@title" />
 		</h3>
 		<div>
-			<xsl:apply-templates select="./paragraph" />
-			<xsl:apply-templates select="./list" />
-			<xsl:apply-templates select="./code" />
-			<xsl:apply-templates select="./source" />
+			<xsl:apply-templates />
 		</div>
 		<br />
     </div>

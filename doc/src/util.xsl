@@ -171,20 +171,22 @@
 	</xsl:template>
 
 	<xsl:template match="code">
-		<xsl:choose>
-			<xsl:when test="./@href">
-				<span xmlns="http://www.w3.org/1999/xhtml" class="code-title">
-					<a href="{./@href}">
-						<xsl:value-of select="./@author" />
-					</a>
-				</span>
-			</xsl:when>
-			<xsl:otherwise>
-				<span xmlns="http://www.w3.org/1999/xhtml" class="code-title">
-					<xsl:value-of select="./@title" />
-				</span>
-			</xsl:otherwise>
-		</xsl:choose>
+		<xsl:if test="./@title">
+			<xsl:choose>
+				<xsl:when test="./@href">
+					<span xmlns="http://www.w3.org/1999/xhtml" class="code-title">
+						<a href="{./@href}">
+							<xsl:value-of select="./@title" />
+						</a>
+					</span>
+				</xsl:when>
+				<xsl:otherwise>
+					<span xmlns="http://www.w3.org/1999/xhtml" class="code-title">
+						<xsl:value-of select="./@title" />
+					</span>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:if>
 		<ul xmlns="http://www.w3.org/1999/xhtml" class="code-list">
 			<xsl:apply-templates select="./line" />
 		</ul>
