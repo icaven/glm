@@ -455,6 +455,12 @@
 #	define GLM_CUDA_FUNC_DECL
 #endif
 
+#if GLM_COMPILER & GLM_COMPILER_GCC
+#define GLM_VAR_USED __attribute__ ((unused))
+#else
+#define GLM_VAR_USED
+#endif
+
 #if(defined(GLM_FORCE_INLINE))
 #   if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
 #       define GLM_INLINE __forceinline
