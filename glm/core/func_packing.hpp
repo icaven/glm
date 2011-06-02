@@ -12,10 +12,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_core_func_packing();
-	}//namespace test
-
 	namespace core{
 	namespace function{
 	//! Define packing functions from section 8.4 floating-point pack and unpack functions of GLSL 4.00.8 specification

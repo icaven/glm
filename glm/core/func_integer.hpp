@@ -12,10 +12,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_core_func_integer();
-	}//namespace test
-
 	namespace core{
 	namespace function{
 	//! Define integer functions from Section 8.8 of GLSL 4.00.8 specification. 

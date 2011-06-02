@@ -13,71 +13,66 @@
 #include "setup.hpp"
 #include "_detail.hpp"
 
-namespace glm
+namespace glm{
+namespace detail
 {
-	namespace detail
-	{
-		typedef signed short			lowp_int_t;
-		typedef signed int				mediump_int_t;
-		typedef sint64					highp_int_t;
+	typedef signed short			lowp_int_t;
+	typedef signed int				mediump_int_t;
+	typedef sint64					highp_int_t;
 
-		typedef unsigned short			lowp_uint_t;
-		typedef unsigned int			mediump_uint_t;
-		typedef uint64					highp_uint_t;
+	typedef unsigned short			lowp_uint_t;
+	typedef unsigned int			mediump_uint_t;
+	typedef uint64					highp_uint_t;
 
-		GLM_DETAIL_IS_INT(signed char);
-		GLM_DETAIL_IS_INT(signed short);
-		GLM_DETAIL_IS_INT(signed int);
-		GLM_DETAIL_IS_INT(signed long);
-		GLM_DETAIL_IS_INT(highp_int_t);
+	GLM_DETAIL_IS_INT(signed char);
+	GLM_DETAIL_IS_INT(signed short);
+	GLM_DETAIL_IS_INT(signed int);
+	GLM_DETAIL_IS_INT(signed long);
+	GLM_DETAIL_IS_INT(highp_int_t);
 
-		GLM_DETAIL_IS_UINT(unsigned char);
-		GLM_DETAIL_IS_UINT(unsigned short);
-		GLM_DETAIL_IS_UINT(unsigned int);
-		GLM_DETAIL_IS_UINT(unsigned long);
-		GLM_DETAIL_IS_UINT(highp_uint_t);
-	}
-	//namespace detail
+	GLM_DETAIL_IS_UINT(unsigned char);
+	GLM_DETAIL_IS_UINT(unsigned short);
+	GLM_DETAIL_IS_UINT(unsigned int);
+	GLM_DETAIL_IS_UINT(unsigned long);
+	GLM_DETAIL_IS_UINT(highp_uint_t);
+}//namespace detail
 
-	namespace core{
-	namespace type{
+namespace core{
+namespace type{
+namespace precision //!< Namespace for precision stuff.
+{
+	//! Low precision signed integer. 
+	//! There is no guarantee on the actual precision.
+	//! From GLSL 1.30.8 specification.
+	//! \ingroup core_precision
+	typedef detail::lowp_int_t				lowp_int;
+	//! Medium precision signed integer. 
+	//! There is no guarantee on the actual precision.
+	//! From GLSL 1.30.8 specification.
+	//! \ingroup core_precision
+	typedef detail::mediump_int_t				mediump_int;
+	//! High precision signed integer.
+	//! There is no guarantee on the actual precision.
+	//! From GLSL 1.30.8 specification.
+	//! \ingroup core_precision
+	typedef detail::highp_int_t				highp_int;
 
-	///namespace for precision stuff.
-	namespace precision
-	{
-		//! Low precision signed integer. 
-		//! There is no guarantee on the actual precision.
-		//! From GLSL 1.30.8 specification.
-		//! \ingroup core_precision
-		typedef detail::lowp_int_t				lowp_int;
-		//! Medium precision signed integer. 
-		//! There is no guarantee on the actual precision.
-		//! From GLSL 1.30.8 specification.
-		//! \ingroup core_precision
-		typedef detail::mediump_int_t				mediump_int;
-		//! High precision signed integer.
-		//! There is no guarantee on the actual precision.
-		//! From GLSL 1.30.8 specification.
-		//! \ingroup core_precision
-		typedef detail::highp_int_t				highp_int;
-
-		//! Low precision unsigned integer. 
-		//! There is no guarantee on the actual precision.
-		//! From GLSL 1.30.8 specification.
-		//! \ingroup core_precision
-		typedef detail::lowp_uint_t				lowp_uint;
-		//! Medium precision unsigned integer. 
-		//! There is no guarantee on the actual precision.
-		//! From GLSL 1.30.8 specification.
-		//! \ingroup core_precision
-		typedef detail::mediump_uint_t			mediump_uint;
-		//! High precision unsigned integer. 
-		//! There is no guarantee on the actual precision.
-		//! From GLSL 1.30.8 specification.
-		//! \ingroup core_precision
-		typedef detail::highp_uint_t				highp_uint;
-	}
-	//namespace precision
+	//! Low precision unsigned integer. 
+	//! There is no guarantee on the actual precision.
+	//! From GLSL 1.30.8 specification.
+	//! \ingroup core_precision
+	typedef detail::lowp_uint_t				lowp_uint;
+	//! Medium precision unsigned integer. 
+	//! There is no guarantee on the actual precision.
+	//! From GLSL 1.30.8 specification.
+	//! \ingroup core_precision
+	typedef detail::mediump_uint_t			mediump_uint;
+	//! High precision unsigned integer. 
+	//! There is no guarantee on the actual precision.
+	//! From GLSL 1.30.8 specification.
+	//! \ingroup core_precision
+	typedef detail::highp_uint_t				highp_uint;
+}//namespace precision
 
 #if(!defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
 	typedef precision::mediump_int				int_t;
@@ -107,8 +102,8 @@ namespace glm
 	//! From GLSL 1.30.8 specification section 4.1.3 Integers.
 	typedef uint_t								uint;
 
-	}//namespace type
-	}//namespace core
+}//namespace type
+}//namespace core
 }//namespace glm
 
 #endif//glm_core_type_int

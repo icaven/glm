@@ -1,13 +1,13 @@
 ================================================================================
-G-Truc Creation
+OpenGL Mathematics (GLM)
 --------------------------------------------------------------------------------
-www.g-truc.net
+glm.g-truc.net
 glm@g-truc.net
 
 ================================================================================
 The MIT License
 --------------------------------------------------------------------------------
-Copyright (c) 2005 - 2011 G-Truc Creation
+Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -37,7 +37,7 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm-0.9.2.pdf
 
 ================================================================================
-GLM 0.9.2.2: 2011-06-XX
+GLM 0.9.2.2: 2011-06-02
 --------------------------------------------------------------------------------
 - Expend matrix constructors flexibility
 - Improved quaternion implementation
