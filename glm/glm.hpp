@@ -51,7 +51,7 @@ namespace test
 	bool main_core();
 }//namespace test
 
-/// GLM core. Namespace that includes all the feature define by GLSL 4.10.6 specification. This namespace is included in glm namespace.
+/// GLM core. Namespace that includes all the features define by GLSL 4.10.6 specification. This namespace is included in glm namespace.
 namespace core
 {
 	//! Scalar, vectors and matrices 
@@ -63,16 +63,18 @@ namespace core
 	//! Some of the functions defined in section 8 Built-in Functions of GLSL 1.30.8 specification.
 	//! Angle and trigonometry, exponential, common, geometric, matrix and vector relational functions.
 	namespace function{}
-}
-//namespace core
+}//namespace core
 
-/// G-Truc Creation stable extensions.
+//! G-Truc Creation stable extensions.
 namespace gtc{}
 
-/// G-Truc Creation experimental extensions. 
-/// The interface could change between releases.
+//! G-Truc Creation experimental extensions. 
+//! The interface could change between releases.
 namespace gtx{}
-} //namespace glm
+
+//! VIRTREV extensions.
+namespace virtrev{}
+}//namespace glm
 
 #include "./core/_detail.hpp"
 #include "./core/type.hpp"
@@ -93,7 +95,7 @@ namespace glm
  	using namespace core::type;
 	using namespace core::type::precision;
 	using namespace core::function;
-} //namespace glm
+}//namespace glm
 
 ////////////////////
 // check type sizes
@@ -113,4 +115,4 @@ namespace glm
 	GLM_STATIC_ASSERT(sizeof(glm::detail::float64) == 8, "float64 size isn't 8 bytes on this platform");
 #endif//GLM_STATIC_ASSERT_NULL
 
-#endif //glm_glm
+#endif//glm_glm
