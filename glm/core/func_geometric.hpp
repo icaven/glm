@@ -12,14 +12,9 @@
 
 namespace glm
 {
-	namespace test{
-		void main_core_func_geometric();
-	}//namespace test
-
 	namespace core{
 	namespace function{
-	//! Define all geometric functions from Section 8.4 of GLSL 1.30.8 specification. Included in glm namespace.
-	namespace geometric{
+	namespace geometric{ //!< Define all geometric functions from Section 8.4 of GLSL 1.30.8 specification. Included in glm namespace.
 
 	/// \addtogroup core_funcs
 	///@{

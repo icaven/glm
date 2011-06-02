@@ -14,10 +14,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_core_func_vector_relational();
-	}//namespace test
-
 	namespace core{
 	namespace function{
 	//! Define vector relational functions from Section 8.6 of GLSL 1.30.8 specification. 
