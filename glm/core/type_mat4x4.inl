@@ -136,6 +136,87 @@ namespace detail
         this->value[3] = col_type(m[3]);
 	}
 
+	//////////////////////////////////////
+	// Convertion constructors
+	template <typename T> 
+	template <typename U> 
+	GLM_FUNC_DECL tmat4x4<T>::tmat4x4
+	(
+		U const & s
+	)
+	{
+		GLM_STATIC_ASSERT(detail::type<U>::is_float || std::numeric_limits<U>::is_integer, "*mat4x4 constructor only takes float and integer types");
+
+		value_type const Zero(0);
+        this->value[0] = tvec4<T>(value_type(s), Zero, Zero, Zero);
+        this->value[1] = tvec4<T>(Zero, value_type(s), Zero, Zero);
+        this->value[2] = tvec4<T>(Zero, Zero, value_type(s), Zero);
+        this->value[3] = tvec4<T>(Zero, Zero, Zero, value_type(s));
+	}
+	
+	template <typename T> 
+	template <
+		typename X1, typename Y1, typename Z1, typename W1, 
+		typename X2, typename Y2, typename Z2, typename W2, 
+		typename X3, typename Y3, typename Z3, typename W3, 
+		typename X4, typename Y4, typename Z4, typename W4>  
+	GLM_FUNC_DECL tmat4x4<T>::tmat4x4
+	(
+		X1 const & x1, Y1 const & y1, Z1 const & z1, W1 const & w1, 
+		X2 const & x2, Y2 const & y2, Z2 const & z2, W2 const & w2, 
+		X3 const & x3, Y3 const & y3, Z3 const & z3, W3 const & w3, 
+		X4 const & x4, Y4 const & y4, Z4 const & z4, W4 const & w4
+	)		
+	{
+		GLM_STATIC_ASSERT(detail::type<X1>::is_float || std::numeric_limits<X1>::is_integer, "*mat4x4 constructor only takes float and integer types, 1st parameter type invalid.");
+		GLM_STATIC_ASSERT(detail::type<Y1>::is_float || std::numeric_limits<Y1>::is_integer, "*mat4x4 constructor only takes float and integer types, 2nd parameter type invalid.");
+		GLM_STATIC_ASSERT(detail::type<Z1>::is_float || std::numeric_limits<Z1>::is_integer, "*mat4x4 constructor only takes float and integer types, 3rd parameter type invalid.");
+		GLM_STATIC_ASSERT(detail::type<W1>::is_float || std::numeric_limits<W1>::is_integer, "*mat4x4 constructor only takes float and integer types, 4th parameter type invalid.");
+
+		GLM_STATIC_ASSERT(detail::type<X2>::is_float || std::numeric_limits<X2>::is_integer, "*mat4x4 constructor only takes float and integer types, 5th parameter type invalid.");
+		GLM_STATIC_ASSERT(detail::type<Y2>::is_float || std::numeric_limits<Y2>::is_integer, "*mat4x4 constructor only takes float and integer types, 6th parameter type invalid.");
+		GLM_STATIC_ASSERT(detail::type<Z2>::is_float || std::numeric_limits<Z2>::is_integer, "*mat4x4 constructor only takes float and integer types, 7th parameter type invalid.");
+		GLM_STATIC_ASSERT(detail::type<W2>::is_float || std::numeric_limits<W2>::is_integer, "*mat4x4 constructor only takes float and integer types, 8th parameter type invalid.");
+
+		GLM_STATIC_ASSERT(detail::type<X3>::is_float || std::numeric_limits<X3>::is_integer, "*mat4x4 constructor only takes float and integer types, 9th parameter type invalid.");
+		GLM_STATIC_ASSERT(detail::type<Y3>::is_float || std::numeric_limits<Y3>::is_integer, "*mat4x4 constructor only takes float and integer types, 10th parameter type invalid.");
+		GLM_STATIC_ASSERT(detail::type<Z3>::is_float || std::numeric_limits<Z3>::is_integer, "*mat4x4 constructor only takes float and integer types, 11th parameter type invalid.");
+		GLM_STATIC_ASSERT(detail::type<W3>::is_float || std::numeric_limits<W3>::is_integer, "*mat4x4 constructor only takes float and integer types, 12th parameter type invalid.");
+
+		GLM_STATIC_ASSERT(detail::type<X4>::is_float || std::numeric_limits<X4>::is_integer, "*mat4x4 constructor only takes float and integer types, 13th parameter type invalid.");
+		GLM_STATIC_ASSERT(detail::type<Y4>::is_float || std::numeric_limits<Y4>::is_integer, "*mat4x4 constructor only takes float and integer types, 14th parameter type invalid.");
+		GLM_STATIC_ASSERT(detail::type<Z4>::is_float || std::numeric_limits<Z4>::is_integer, "*mat4x4 constructor only takes float and integer types, 15th parameter type invalid.");
+		GLM_STATIC_ASSERT(detail::type<W4>::is_float || std::numeric_limits<W4>::is_integer, "*mat4x4 constructor only takes float and integer types, 16th parameter type invalid.");
+
+        this->value[0] = col_type(value_type(x1), value_type(y1), value_type(z1), value_type(w1));
+        this->value[1] = col_type(value_type(x2), value_type(y2), value_type(z2), value_type(w2));
+        this->value[2] = col_type(value_type(x3), value_type(y3), value_type(z3), value_type(w3));
+		this->value[3] = col_type(value_type(x4), value_type(y4), value_type(z4), value_type(w4));
+	}
+	
+	template <typename T> 
+	template <typename V1, typename V2, typename V3, typename V4> 
+	GLM_FUNC_DECL tmat4x4<T>::tmat4x4
+	(
+		tvec4<V1> const & v1, 
+		tvec4<V2> const & v2, 
+		tvec4<V3> const & v3,
+		tvec4<V4> const & v4
+	)		
+	{
+		GLM_STATIC_ASSERT(detail::type<V1>::is_float || std::numeric_limits<V1>::is_integer, "*mat4x4 constructor only takes float and integer types, 1st parameter type invalid.");
+		GLM_STATIC_ASSERT(detail::type<V2>::is_float || std::numeric_limits<V2>::is_integer, "*mat4x4 constructor only takes float and integer types, 2nd parameter type invalid.");
+		GLM_STATIC_ASSERT(detail::type<V3>::is_float || std::numeric_limits<V3>::is_integer, "*mat4x4 constructor only takes float and integer types, 3rd parameter type invalid.");
+		GLM_STATIC_ASSERT(detail::type<V4>::is_float || std::numeric_limits<V4>::is_integer, "*mat4x4 constructor only takes float and integer types, 4th parameter type invalid.");
+
+        this->value[0] = col_type(v1);
+        this->value[1] = col_type(v2);
+        this->value[2] = col_type(v3);
+		this->value[3] = col_type(v4);
+	}
+
+	//////////////////////////////////////
+	// Matrix convertion constructors
     template <typename T> 
     GLM_FUNC_QUALIFIER tmat4x4<T>::tmat4x4
 	(

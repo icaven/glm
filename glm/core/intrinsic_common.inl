@@ -205,19 +205,11 @@ GLM_FUNC_QUALIFIER __m128 sse_mod_ps(__m128 x, __m128 y)
 }
 
 /// TODO
-<<<<<<< HEAD
-/*
 GLM_FUNC_QUALIFIER __m128 sse_modf_ps(__m128 x, __m128i & i)
 {
-    return __m128();
+	__m128 empty;
+    return empty;
 }
-*/
-=======
-//GLM_FUNC_QUALIFIER __m128 sse_modf_ps(__m128 x, __m128i & i)
-//{
-//    return __m128();
-//}
->>>>>>> d373c85b676bf28e721f3b30fd3fb0b1ceadd0d2
 
 //GLM_FUNC_QUALIFIER __m128 _mm_min_ps(__m128 x, __m128 y)
 

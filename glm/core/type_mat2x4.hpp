@@ -77,14 +77,12 @@ namespace glm
 			GLM_FUNC_DECL explicit tmat2x4(
                 U const & x);
 			
-			template 
-            <
+			template <
                 typename X1, typename Y1, typename Z1, typename W1, 
-                typename X2, typename Y2, typename Z2, typename W2
-            > 
+                typename X2, typename Y2, typename Z2, typename W2> 
 			GLM_FUNC_DECL explicit tmat2x4(
                 X1 const & x1, Y1 const & y1, Z1 const & z1, W1 const & w1, 
-                X2 const & x2, Y2 const & y2, Z2 const & z2, W2 const & w2,);
+                X2 const & x2, Y2 const & y2, Z2 const & z2, W2 const & w2);
 			
 			template <typename U, typename V> 
 			GLM_FUNC_DECL explicit tmat2x4(

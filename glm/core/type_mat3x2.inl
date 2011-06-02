@@ -146,7 +146,7 @@ namespace detail
 	}
 	
 	template <typename T> 
-	template <typename U, typename V> 
+	template <typename V1, typename V2, typename V3> 
 	GLM_FUNC_DECL tmat3x2<T>::tmat3x2
 	(
 		tvec2<V1> const & v1, 
