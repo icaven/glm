@@ -10,14 +10,13 @@
 #ifndef glm_core_func_geometric
 #define glm_core_func_geometric
 
-namespace glm
+namespace glm{
+namespace core{
+namespace function{
+namespace geometric //!< Define all geometric functions from Section 8.4 of GLSL 1.30.8 specification. Included in glm namespace.
 {
-	namespace core{
-	namespace function{
-	namespace geometric{ //!< Define all geometric functions from Section 8.4 of GLSL 1.30.8 specification. Included in glm namespace.
-
 	/// \addtogroup core_funcs
-	///@{
+	/// @{
 
 	//! Returns the length of x, i.e., sqrt(x * x).
     //! 
@@ -94,12 +93,10 @@ namespace glm
 		genType const & N, 
 		typename genType::value_type const & eta);
 
-	///@}
-
-	}//namespace geometric
-	}//namespace function
-	}//namespace core
-
+	/// @}
+}//namespace geometric
+}//namespace function
+}//namespace core
 	using namespace core::function::geometric;
 }//namespace glm
 

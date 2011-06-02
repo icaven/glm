@@ -25,7 +25,6 @@ namespace glm{
 namespace gtc{
 namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matrices value type address.
 { 
-
 	/// \addtogroup gtc_type_ptr
 	///@{
 

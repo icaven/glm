@@ -25,7 +25,7 @@ namespace gtx{
 namespace color_space_YCoCg ///< GLM_GTX_color_space_YCoCg extension: RGB to YCoCg conversions and operations
 {
 	/// \addtogroup gtx_color_space_YCoCg
-	///@{
+	/// @{
 
     //! Convert a color from RGB color space to YCoCg color space.
 	//! From GLM_GTX_color_space_YCoCg extension.

@@ -35,7 +35,6 @@ namespace detail
 	template <typename T> 
 	struct tquat// : public genType<T, tquat>
 	{
-        
         enum ctor{null};
         
         typedef T value_type;

@@ -10,17 +10,16 @@
 #ifndef glm_core_func_trigonometric
 #define glm_core_func_trigonometric
 
-namespace glm
+namespace glm{
+namespace core{
+namespace function{
+//! Define Angle and trigonometry functions 
+//! from Section 8.1 of GLSL 1.30.8 specification. 
+//! Included in glm namespace.
+namespace trigonometric
 {
-	namespace core{
-	namespace function{
-	//! Define Angle and trigonometry functions 
-	//! from Section 8.1 of GLSL 1.30.8 specification. 
-	//! Included in glm namespace.
-	namespace trigonometric{
-
 	/// \addtogroup core_funcs
-	///@{
+	/// @{
 
 	//! Converts degrees to radians and returns the result.
     //!
@@ -140,12 +139,10 @@ namespace glm
 	template <typename genType> 
 	genType atanh(genType const & x);
 
-	///@}
-
-	}//namespace trigonometric
-	}//namespace function
-	}//namespace core
-
+	/// @}
+}//namespace trigonometric
+}//namespace function
+}//namespace core
 	using namespace core::function::trigonometric;
 }//namespace glm
 

@@ -25,7 +25,7 @@ namespace gtc{
 namespace matrix_integer ///< GLM_GTC_matrix_integer extension: Add integer matrices
 {
 	/// \addtogroup gtc_matrix_integer
-	///@{
+	/// @{
 
 	typedef detail::tmat2x2<highp_int>				highp_imat2;	//!< \brief High-precision signed integer 2x2 matrix. (from GLM_GTC_matrix_integer extension)
 	typedef detail::tmat3x3<highp_int>				highp_imat3;	//!< \brief High-precision signed integer 3x3 matrix. (from GLM_GTC_matrix_integer extension)

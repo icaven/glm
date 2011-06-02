@@ -325,7 +325,7 @@ namespace gtc{
 namespace half_float ///< GLM_GTC_half_float extension: Add support for half precision floating-point types
 {
 	/// \addtogroup gtc_half_float
-	///@{
+	/// @{
 
 	/// Type for half-precision floating-point numbers. 
 	/// From GLM_GTC_half_float extension.

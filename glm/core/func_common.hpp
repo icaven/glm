@@ -12,12 +12,11 @@
 
 #include "_fixes.hpp"
 
-namespace glm
+namespace glm{
+namespace core{
+namespace function{
+namespace common //!< Define common functions from Section 8.3 of GLSL 1.30.8 specification. Included in glm namespace.
 {
-	namespace core{
-	namespace function{
-	namespace common{ //!< Define common functions from Section 8.3 of GLSL 1.30.8 specification. Included in glm namespace.
-
 	/// \addtogroup core_funcs
 	///@{
 
@@ -325,10 +324,9 @@ namespace glm
 	genType ldexp(genType const & x, genIType const & exp);
 
 	///@}
-	}//namespace common
-	}//namespace function
-	}//namespace core
-
+}//namespace common
+}//namespace function
+}//namespace core
 	using namespace core::function::common;
 }//namespace glm
 

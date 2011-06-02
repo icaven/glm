@@ -29,7 +29,7 @@ namespace bit ///< GLM_GTX_bit extension: Allow to perform bit operations on int
 	using namespace gtc::half_float;
 
 	/// \addtogroup gtx_bit
-	///@{
+	/// @{
 
 	//! Build a mask of 'count' bits
 	//! From GLM_GTX_bit extension.

@@ -10,15 +10,13 @@
 #ifndef glm_core_func_matrix
 #define glm_core_func_matrix
 
-namespace glm
+namespace glm{
+namespace core{
+namespace function{
+namespace matrix //!< Define all matrix functions from Section 8.5 of GLSL 1.30.8 specification. Included in glm namespace.
 {
-	namespace core{
-	namespace function{
-	//! Define all matrix functions from Section 8.5 of GLSL 1.30.8 specification. Included in glm namespace.
-	namespace matrix{
-
 	/// \addtogroup core_funcs
-	///@{
+	/// @{
 
 	//! Multiply matrix x by matrix y component-wise, i.e., 
 	//! result[i][j] is the scalar product of x[i][j] and y[i][j].
@@ -97,12 +95,10 @@ namespace glm
 	detail::tmat4x4<T> inverse(
 		detail::tmat4x4<T> const & m);
 
-	///@}
-
-	}//namespace matrix
-	}//namespace function
-	}//namespace core
-
+	/// @}
+}//namespace matrix
+}//namespace function
+}//namespace core
 	using namespace core::function::matrix;
 }//namespace glm
 

@@ -10,13 +10,11 @@
 #ifndef glm_core_func_exponential
 #define glm_core_func_exponential
 
-namespace glm
+namespace glm{
+namespace core{
+namespace function{
+namespace exponential //!< Define all exponential functions from Section 8.2 of GLSL 1.30.8 specification. Included in glm namespace.
 {
-	namespace core{
-	namespace function{
-	//! Define all exponential functions from Section 8.2 of GLSL 1.30.8 specification. Included in glm namespace.
-	namespace exponential{
-
 	/// \addtogroup core_funcs
 	///@{
 
@@ -73,11 +71,9 @@ namespace glm
 	genType inversesqrt(genType const & x);
 
 	///@}
-
-	}//namespace exponential
-	}//namespace function
-	}//namespace core
-
+}//namespace exponential
+}//namespace function
+}//namespace core
 	using namespace core::function::exponential;
 }//namespace glm
 
