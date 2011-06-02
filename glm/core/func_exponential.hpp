@@ -12,10 +12,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_core_func_exponential();
-	}//namespace test
-
 	namespace core{
 	namespace function{
 	//! Define all exponential functions from Section 8.2 of GLSL 1.30.8 specification. Included in glm namespace.
