@@ -13,7 +13,7 @@ namespace detail
     template <typename T>
     GLM_FUNC_QUALIFIER typename tmat3x2<T>::size_type tmat3x2<T>::length() const
     {
-        return 2;
+        return 3;
     }
 
 	template <typename T>
