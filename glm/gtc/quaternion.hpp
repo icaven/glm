@@ -152,7 +152,7 @@ namespace quaternion ///< GLM_GTC_quaternion extension: Quaternion types and fun
 	//! Returns the length of the quaternion. 
 	//! From GLM_GTC_quaternion extension.
     template <typename T> 
-	typename detail::tquat<T>::value_type length(
+    T length(
 		detail::tquat<T> const & q);
 
     //! Returns the normalized quaternion. 
@@ -164,17 +164,10 @@ namespace quaternion ///< GLM_GTC_quaternion extension: Quaternion types and fun
     //! Returns dot product of q1 and q2, i.e., q1[0] * q2[0] + q1[1] * q2[1] + ... 
 	//! From GLM_GTC_quaternion extension.
 	template <typename T> 
-	typename detail::tquat<T>::value_type dot(
+	T dot(
 		detail::tquat<T> const & q1, 
 		detail::tquat<T> const & q2);
 
-    //! Returns the cross product of q1 and q2. 
-	//! From GLM_GTC_quaternion extension.
-	template <typename T> 
-	GLM_DEPRECATED detail::tquat<T> cross(
-		detail::tquat<T> const & q1, 
-		detail::tquat<T> const & q2);
-		
 	//! Returns a SLERP interpolated quaternion of x and y according a. 
 	//! From GLM_GTC_quaternion extension.
 	template <typename T> 
@@ -254,8 +247,8 @@ namespace quaternion ///< GLM_GTC_quaternion extension: Quaternion types and fun
 	//! Quaternion of high precision floating-point numbers. 
 	//! From GLM_GTC_quaternion extension.
 	typedef detail::tquat<highp_float>		highp_quat;
-	///@}
-
+    
+	/// @}
 } //namespace quaternion
 } //namespace gtc
 } //namespace glm

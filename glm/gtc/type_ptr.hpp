@@ -35,6 +35,8 @@
 
 // Dependency:
 #include "../glm.hpp"
+#include "../gtc/half_float.hpp"
+#include "../gtc/quaternion.hpp"
 #include <cstring>
 
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))

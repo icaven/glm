@@ -74,11 +74,11 @@ namespace detail
 	typedef detail::highp_uint_t				highp_uint;
 
 #if(!defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
-	typedef mediump_int				int_t;
+	typedef mediump_int                 int_t;
 #elif(defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
 	typedef highp_int					int_t;
 #elif(!defined(GLM_PRECISION_HIGHP_INT) && defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
-	typedef mediump_int				int_t;
+	typedef mediump_int                 int_t;
 #elif(!defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && defined(GLM_PRECISION_LOWP_INT))
 	typedef lowp_int					int_t;
 #else

@@ -296,7 +296,7 @@ namespace quaternion{
 
 	////////////////////////////////////////////////////////
     template <typename T> 
-	GLM_FUNC_QUALIFIER typename detail::tquat<T>::value_type length
+	GLM_FUNC_QUALIFIER T length
 	(
 		detail::tquat<T> const & q
 	)
@@ -318,7 +318,7 @@ namespace quaternion{
     }
 
     template <typename T> 
-    GLM_FUNC_QUALIFIER typename detail::tquat<T>::value_type dot
+    GLM_FUNC_QUALIFIER T dot
 	(
 		detail::tquat<T> const & q1, 
 		detail::tquat<T> const & q2
@@ -462,8 +462,8 @@ namespace quaternion{
 		detail::tvec3<T> Tmp = v;
 
         // Axis of rotation must be normalised
-        typename detail::tquat<T>::value_type len = glm::core::function::geometric::length(Tmp);
-        if(abs(len - typename detail::tquat<T>::value_type(1)) > typename detail::tquat<T>::value_type(0.001))
+        typename detail::tquat<T>::value_type len = glm::length(Tmp);
+        if(abs(len - T(1)) > T(0.001))
         {
             T oneOverLen = T(1) / len;
             Tmp.x *= oneOverLen;
@@ -483,7 +483,7 @@ namespace quaternion{
 		detail::tquat<T> const & q
 	)
     {
-        detail::tmat3x3<T> Result(typename detail::tquat<T>::value_type(1));
+        detail::tmat3x3<T> Result(T(1));
         Result[0][0] = 1 - 2 * q.y * q.y - 2 * q.z * q.z;
         Result[0][1] = 2 * q.x * q.y + 2 * q.w * q.z;
         Result[0][2] = 2 * q.x * q.z - 2 * q.w * q.y;
@@ -536,8 +536,8 @@ namespace quaternion{
             biggestIndex = 3;
         }
 
-        typename detail::tquat<T>::value_type biggestVal = sqrt(fourBiggestSquaredMinus1 + typename detail::tquat<T>::value_type(1)) * typename detail::tquat<T>::value_type(0.5);
-        typename detail::tquat<T>::value_type mult = typename detail::tquat<T>::value_type(0.25) / biggestVal;
+        typename detail::tquat<T>::value_type biggestVal = sqrt(fourBiggestSquaredMinus1 + T(1)) * T(0.5);
+        typename detail::tquat<T>::value_type mult = T(0.25) / biggestVal;
 
         detail::tquat<T> Result;
         switch(biggestIndex)

@@ -272,8 +272,8 @@ namespace glm
 	)
     {
         return detail::tvec2<T>(
-            sqrt(x.x),
-            sqrt(x.y));
+            glm::sqrt(x.x),
+            glm::sqrt(x.y));
     }
 
     template <typename T>
@@ -283,9 +283,9 @@ namespace glm
 	)
     {
         return detail::tvec3<T>(
-            sqrt(x.x),
-            sqrt(x.y),
-            sqrt(x.z));
+            glm::sqrt(x.x),
+            glm::sqrt(x.y),
+            glm::sqrt(x.z));
     }
 
     template <typename T>
@@ -295,10 +295,10 @@ namespace glm
 	)
     {
         return detail::tvec4<T>(
-            sqrt(x.x),
-            sqrt(x.y),
-            sqrt(x.z),
-            sqrt(x.w));
+            glm::sqrt(x.x),
+            glm::sqrt(x.y),
+            glm::sqrt(x.z),
+            glm::sqrt(x.w));
     }
 
     template <typename genType>
