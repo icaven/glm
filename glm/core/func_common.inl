@@ -38,6 +38,8 @@ namespace detail
     };
 }//namespace detail
 
+namespace core
+{
 	// abs
 	template <typename genFIType>
     GLM_FUNC_QUALIFIER genFIType abs(
@@ -1563,4 +1565,6 @@ namespace detail
 	{
 		return std::frexp(x, exp);
 	}
+
+}//namespace core
 }//namespace glm

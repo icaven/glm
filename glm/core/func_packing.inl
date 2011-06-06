@@ -7,7 +7,8 @@
 // File    : glm/core/func_packing.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm
+namespace glm{
+namespace core
 {
 		GLM_FUNC_QUALIFIER detail::uint32 packUnorm2x16(detail::tvec2<detail::float32> const & v)
 		{
@@ -79,4 +80,5 @@ namespace glm
 			return *(detail::tvec2<detail::uint32>*)&v;
 		}
 
+}//namespace core
 }//namespace glm

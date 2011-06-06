@@ -7,7 +7,8 @@
 // File    : glm/core/func_trigonometric.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm
+namespace glm{
+namespace core
 {
     // radians
     template <typename genType>
@@ -735,4 +736,5 @@ namespace glm
             atanh(x.w));
     }
 
+}//namespace core
 }//namespace glm

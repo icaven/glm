@@ -8,7 +8,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-
+namespace core
+{
     // matrixCompMult
     template <typename matType>
     GLM_FUNC_QUALIFIER matType matrixCompMult
@@ -561,4 +562,5 @@ namespace glm{
 		return Inverse;
 	}
 
+}//namespace core
 }//namespace glm

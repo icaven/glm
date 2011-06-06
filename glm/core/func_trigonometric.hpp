@@ -10,7 +10,8 @@
 #ifndef glm_core_func_trigonometric
 #define glm_core_func_trigonometric
 
-namespace glm
+namespace glm{
+namespace core
 {
 	/// \addtogroup core_funcs
 	/// @{
@@ -134,6 +135,7 @@ namespace glm
 	genType atanh(genType const & x);
 
 	/// @}
+}//namespace core
 }//namespace glm
 
 #include "func_trigonometric.inl"

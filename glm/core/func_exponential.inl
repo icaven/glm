@@ -7,7 +7,8 @@
 // File    : glm/core/func_exponential.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm
+namespace glm{
+namespace core
 {
     // pow
     template <typename genType>
@@ -348,4 +349,5 @@ namespace glm
             inversesqrt(x.w));
     }
 
+}//namespace core
 }//namespace glm

@@ -73,9 +73,12 @@ namespace glm
 	//! VIRTREV extensions.
 	namespace virtrev{}
 
+    using namespace core;
 	using namespace core::type;
 	using namespace core::type::precision;
 	using namespace core::function;
+    using namespace gtc;
+    using namespace gtx;
 }//namespace glm
 
 #include "./core/_detail.hpp"

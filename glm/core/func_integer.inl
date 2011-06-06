@@ -7,7 +7,8 @@
 // File    : glm/core/func_integer.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm
+namespace glm{
+namespace core
 {
 		// uaddCarry
 		template <typename genUType>
@@ -581,4 +582,6 @@ namespace glm
 				findMSB(value[2]),
 				findMSB(value[3]));
 		}
+
+}//namespace core
 }//namespace glm

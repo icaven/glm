@@ -7,7 +7,8 @@
 // File    : glm/core/func_geometric.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm
+namespace glm{
+namespace core
 {
     // length
     template <typename genType>
@@ -280,4 +281,5 @@ namespace glm
             return eta * I - (eta * dotValue + sqrt(k)) * N;
     }
 
+}//namespace core
 }//namespace glm

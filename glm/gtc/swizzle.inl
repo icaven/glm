@@ -12,7 +12,6 @@
 
 namespace glm{
 namespace gtc{
-namespace swizzle{
 
 template <typename T, template <typename> class vecType>
 GLM_FUNC_QUALIFIER T swizzle
@@ -172,6 +171,6 @@ GLM_FUNC_QUALIFIER detail::tref4<int> swizzle
 	return detail::tref4<int>(v[x], v[y],	v[z], v[w]);
 }
 */
-}//namespace swizzle
+
 }//namespace gtc
 }//namespace glm

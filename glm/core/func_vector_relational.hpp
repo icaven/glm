@@ -12,7 +12,8 @@
 
 #include "_detail.hpp"
 
-namespace glm
+namespace glm{
+namespace core
 {
 	/// \addtogroup core_funcs
 	/// @{
@@ -196,6 +197,7 @@ namespace glm
 	}
 
 	/// @}
+}//namespace core
 }//namespace glm
 
 #include "func_vector_relational.inl"

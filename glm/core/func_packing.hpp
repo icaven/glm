@@ -10,7 +10,8 @@
 #ifndef glm_core_func_packing
 #define glm_core_func_packing
 
-namespace glm
+namespace glm{
+namespace core
 {
 	/// \addtogroup core_funcs
 	///@{
@@ -113,6 +114,7 @@ namespace glm
 	detail::tvec2<detail::uint32> unpackDouble2x32(double const & v);
 
 	/// @}
+}//namespace core
 }//namespace glm
 
 #include "func_packing.inl"

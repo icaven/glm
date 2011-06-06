@@ -10,7 +10,8 @@
 #ifndef glm_core_func_matrix
 #define glm_core_func_matrix
 
-namespace glm
+namespace glm{
+namespace core
 {
 	/// \addtogroup core_funcs
 	/// @{
@@ -93,6 +94,7 @@ namespace glm
 		detail::tmat4x4<T> const & m);
 
 	/// @}
+}//namespace core
 }//namespace glm
 
 #include "func_matrix.inl"

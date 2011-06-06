@@ -40,8 +40,7 @@
 #endif
 
 namespace glm{
-namespace gtc{
-namespace swizzle ///< GLM_GTC_swizzle extension
+namespace gtc
 {
 	using namespace gtc::half_float;
 
@@ -361,12 +360,10 @@ namespace swizzle ///< GLM_GTC_swizzle extension
 	static_swizzle4_ref(glm::u32, 4)
 	static_swizzle4_ref(glm::u64, 4)
 
-}//namespace swizzle
+
 }//namespace gtc
 }//namespace glm
 
 #include "swizzle.inl"
-
-namespace glm{using namespace gtc::swizzle;}
 
 #endif//glm_gtc_swizzle

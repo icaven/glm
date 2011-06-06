@@ -10,7 +10,8 @@
 #ifndef glm_core_func_noise
 #define glm_core_func_noise
 
-namespace glm
+namespace glm{
+namespace core
 {
 	/// \addtogroup core_funcs
 	/// @{
@@ -44,6 +45,7 @@ namespace glm
 	detail::tvec4<typename genType::value_type> noise4(genType const & x);
 
 	/// @}
+}//namespace core
 }//namespace glm
 
 #include "func_noise.inl"

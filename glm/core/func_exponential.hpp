@@ -10,7 +10,8 @@
 #ifndef glm_core_func_exponential
 #define glm_core_func_exponential
 
-namespace glm
+namespace glm{
+namespace core
 {
 	/// \addtogroup core_funcs
 	/// @{
@@ -68,6 +69,7 @@ namespace glm
 	genType inversesqrt(genType const & x);
 
 	/// @}
+}//namespace core
 }//namespace glm
 
 #include "func_exponential.inl"

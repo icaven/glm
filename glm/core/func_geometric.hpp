@@ -10,7 +10,8 @@
 #ifndef glm_core_func_geometric
 #define glm_core_func_geometric
 
-namespace glm
+namespace glm{
+namespace core
 {
 	/// \addtogroup core_funcs
 	/// @{
@@ -19,9 +20,9 @@ namespace glm
     //! 
     //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/length.xml">GLSL length man page</a>
     //! \li GLSL 1.30.08 specification, section 8.4
-	//template <typename genType> 
-	//typename genType::value_type length(
-	//	genType const & x); 
+	template <typename genType> 
+        typename genType::value_type length(
+		genType const & x); 
 
 	//! Returns the distance betwwen p0 and p1, i.e., length(p0 - p1).
     //! 
@@ -91,6 +92,7 @@ namespace glm
 		typename genType::value_type const & eta);
 
 	/// @}
+}//namespace core
 }//namespace glm
 
 #include "func_geometric.inl"
