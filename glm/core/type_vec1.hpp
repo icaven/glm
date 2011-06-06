@@ -152,15 +152,15 @@ namespace detail
 
 	GLM_DETAIL_IS_VECTOR(tvec1);
 
-	typedef detail::tvec1<core::type::precision::highp_float>		highp_vec1_t;
-	typedef detail::tvec1<core::type::precision::mediump_float>		mediump_vec1_t;
-	typedef detail::tvec1<core::type::precision::lowp_float>		lowp_vec1_t;
-	typedef detail::tvec1<core::type::precision::highp_int>			highp_ivec1_t;
-	typedef detail::tvec1<core::type::precision::mediump_int>		mediump_ivec1_t;
-	typedef detail::tvec1<core::type::precision::lowp_int>			lowp_ivec1_t;
-	typedef detail::tvec1<core::type::precision::highp_uint>		highp_uvec1_t;
-	typedef detail::tvec1<core::type::precision::mediump_uint>		mediump_uvec1_t;
-	typedef detail::tvec1<core::type::precision::lowp_uint>			lowp_uvec1_t;
+	typedef detail::tvec1<highp_float>		highp_vec1_t;
+	typedef detail::tvec1<mediump_float>	mediump_vec1_t;
+	typedef detail::tvec1<lowp_float>		lowp_vec1_t;
+	typedef detail::tvec1<highp_int>		highp_ivec1_t;
+	typedef detail::tvec1<mediump_int>		mediump_ivec1_t;
+	typedef detail::tvec1<lowp_int>			lowp_ivec1_t;
+	typedef detail::tvec1<highp_uint>		highp_uvec1_t;
+	typedef detail::tvec1<mediump_uint>		mediump_uvec1_t;
+	typedef detail::tvec1<lowp_uint>		lowp_uvec1_t;
 
 }//namespace detail
 }//namespace glm

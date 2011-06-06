@@ -9,12 +9,6 @@
 
 namespace glm
 {
-	namespace core{
-	namespace function{
-	namespace vector_relational{
 
-	}//namespace vector_relational
-	}//namespace function
-	}//namespace core
 }//namespace glm
 

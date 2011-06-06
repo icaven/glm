@@ -37,20 +37,18 @@ namespace detail
 	GLM_DETAIL_IS_UINT(highp_uint_t);
 }//namespace detail
 
-namespace core{
-namespace type{
-namespace precision //!< Namespace for precision stuff.
-{
 	//! Low precision signed integer. 
 	//! There is no guarantee on the actual precision.
 	//! From GLSL 1.30.8 specification.
 	//! \ingroup core_precision
 	typedef detail::lowp_int_t				lowp_int;
+    
 	//! Medium precision signed integer. 
 	//! There is no guarantee on the actual precision.
 	//! From GLSL 1.30.8 specification.
 	//! \ingroup core_precision
-	typedef detail::mediump_int_t				mediump_int;
+	typedef detail::mediump_int_t			mediump_int;
+    
 	//! High precision signed integer.
 	//! There is no guarantee on the actual precision.
 	//! From GLSL 1.30.8 specification.
@@ -62,38 +60,39 @@ namespace precision //!< Namespace for precision stuff.
 	//! From GLSL 1.30.8 specification.
 	//! \ingroup core_precision
 	typedef detail::lowp_uint_t				lowp_uint;
+    
 	//! Medium precision unsigned integer. 
 	//! There is no guarantee on the actual precision.
 	//! From GLSL 1.30.8 specification.
 	//! \ingroup core_precision
 	typedef detail::mediump_uint_t			mediump_uint;
+    
 	//! High precision unsigned integer. 
 	//! There is no guarantee on the actual precision.
 	//! From GLSL 1.30.8 specification.
 	//! \ingroup core_precision
 	typedef detail::highp_uint_t				highp_uint;
-}//namespace precision
 
 #if(!defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
-	typedef precision::mediump_int				int_t;
+	typedef mediump_int				int_t;
 #elif(defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
-	typedef precision::highp_int					int_t;
+	typedef highp_int					int_t;
 #elif(!defined(GLM_PRECISION_HIGHP_INT) && defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
-	typedef precision::mediump_int				int_t;
+	typedef mediump_int				int_t;
 #elif(!defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && defined(GLM_PRECISION_LOWP_INT))
-	typedef precision::lowp_int					int_t;
+	typedef lowp_int					int_t;
 #else
 #	error "GLM error: multiple default precision requested for signed interger types"
 #endif
 
 #if(!defined(GLM_PRECISION_HIGHP_UINT) && !defined(GLM_PRECISION_MEDIUMP_UINT) && !defined(GLM_PRECISION_LOWP_UINT))
-	typedef precision::mediump_uint				uint_t;
+	typedef mediump_uint				uint_t;
 #elif(defined(GLM_PRECISION_HIGHP_UINT) && !defined(GLM_PRECISION_MEDIUMP_UINT) && !defined(GLM_PRECISION_LOWP_UINT))
-	typedef precision::highp_uint					uint_t;
+	typedef highp_uint					uint_t;
 #elif(!defined(GLM_PRECISION_HIGHP_UINT) && defined(GLM_PRECISION_MEDIUMP_UINT) && !defined(GLM_PRECISION_LOWP_UINT))
-	typedef precision::mediump_uint				uint_t;
+	typedef mediump_uint				uint_t;
 #elif(!defined(GLM_PRECISION_HIGHP_UINT) && !defined(GLM_PRECISION_MEDIUMP_UINT) && defined(GLM_PRECISION_LOWP_UINT))
-	typedef precision::lowp_uint					uint_t;
+	typedef lowp_uint					uint_t;
 #else
 #	error "GLM error: multiple default precision requested for unsigned interger types"
 #endif
@@ -102,8 +101,6 @@ namespace precision //!< Namespace for precision stuff.
 	//! From GLSL 1.30.8 specification section 4.1.3 Integers.
 	typedef uint_t								uint;
 
-}//namespace type
-}//namespace core
 }//namespace glm
 
 #endif//glm_core_type_int

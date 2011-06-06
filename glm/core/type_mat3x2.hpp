@@ -204,25 +204,21 @@ namespace detail
 
 } //namespace detail
 
-namespace core{
-namespace type{
-namespace precision
-{
 	//! 3 columns of 2 components matrix of low precision floating-point numbers.
 	//! There is no guarantee on the actual precision.
 	//! (From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers)
 	typedef detail::tmat3x2<lowp_float>		lowp_mat3x2;
+    
 	//! 3 columns of 2 components matrix of medium precision floating-point numbers.
 	//! There is no guarantee on the actual precision.
 	//! (From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers)
 	typedef detail::tmat3x2<mediump_float>	mediump_mat3x2;
+    
 	//! 3 columns of 2 components matrix of high precision floating-point numbers.
 	//! There is no guarantee on the actual precision.
 	//! (From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers)
 	typedef detail::tmat3x2<highp_float>	highp_mat3x2;
-}//namespace precision
-}//namespace type
-}//namespace core
+
 }//namespace glm
 
 #ifndef GLM_EXTERNAL_TEMPLATE

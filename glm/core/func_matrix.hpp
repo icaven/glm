@@ -10,10 +10,7 @@
 #ifndef glm_core_func_matrix
 #define glm_core_func_matrix
 
-namespace glm{
-namespace core{
-namespace function{
-namespace matrix //!< Define all matrix functions from Section 8.5 of GLSL 1.30.8 specification. Included in glm namespace.
+namespace glm
 {
 	/// \addtogroup core_funcs
 	/// @{
@@ -96,10 +93,6 @@ namespace matrix //!< Define all matrix functions from Section 8.5 of GLSL 1.30.
 		detail::tmat4x4<T> const & m);
 
 	/// @}
-}//namespace matrix
-}//namespace function
-}//namespace core
-	using namespace core::function::matrix;
 }//namespace glm
 
 #include "func_matrix.inl"

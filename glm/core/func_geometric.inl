@@ -9,10 +9,6 @@
 
 namespace glm
 {
-	namespace core{
-	namespace function{
-	namespace geometric{
-
     // length
     template <typename genType>
 	GLM_FUNC_QUALIFIER genType length
@@ -284,7 +280,4 @@ namespace glm
             return eta * I - (eta * dotValue + sqrt(k)) * N;
     }
 
-	}//namespace geometric
-	}//namespace function
-	}//namespace core
 }//namespace glm

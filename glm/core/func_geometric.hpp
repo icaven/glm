@@ -10,10 +10,7 @@
 #ifndef glm_core_func_geometric
 #define glm_core_func_geometric
 
-namespace glm{
-namespace core{
-namespace function{
-namespace geometric //!< Define all geometric functions from Section 8.4 of GLSL 1.30.8 specification. Included in glm namespace.
+namespace glm
 {
 	/// \addtogroup core_funcs
 	/// @{
@@ -94,10 +91,6 @@ namespace geometric //!< Define all geometric functions from Section 8.4 of GLSL
 		typename genType::value_type const & eta);
 
 	/// @}
-}//namespace geometric
-}//namespace function
-}//namespace core
-	using namespace core::function::geometric;
 }//namespace glm
 
 #include "func_geometric.inl"

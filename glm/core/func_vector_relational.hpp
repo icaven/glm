@@ -12,12 +12,7 @@
 
 #include "_detail.hpp"
 
-namespace glm{
-namespace core{
-namespace function{
-//! Define vector relational functions from Section 8.6 of GLSL 1.30.8 specification. 
-//! Included in glm namespace.
-namespace vector_relational
+namespace glm
 {
 	/// \addtogroup core_funcs
 	/// @{
@@ -201,10 +196,6 @@ namespace vector_relational
 	}
 
 	/// @}
-}//namespace vector_relational
-}//namespace function
-}//namespace core
-	using namespace core::function::vector_relational;
 }//namespace glm
 
 #include "func_vector_relational.inl"

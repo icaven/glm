@@ -10,10 +10,7 @@
 #ifndef glm_core_func_packing
 #define glm_core_func_packing
 
-namespace glm{
-namespace core{
-namespace function{
-namespace packing //!< Define packing functions from section 8.4 floating-point pack and unpack functions of GLSL 4.00.8 specification
+namespace glm
 {
 	/// \addtogroup core_funcs
 	///@{
@@ -115,11 +112,7 @@ namespace packing //!< Define packing functions from section 8.4 floating-point 
     //! \li GLSL 4.00.08 specification, section 8.4
 	detail::tvec2<detail::uint32> unpackDouble2x32(double const & v);
 
-	///@}
-}//namespace packing
-}//namespace function
-}//namespace core
-	using namespace core::function::packing;
+	/// @}
 }//namespace glm
 
 #include "func_packing.inl"

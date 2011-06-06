@@ -10,10 +10,7 @@
 #ifndef glm_core_func_noise
 #define glm_core_func_noise
 
-namespace glm{
-namespace core{
-namespace function{
-namespace noise //< Define all noise functions from Section 8.9 of GLSL 1.30.8 specification. Included in glm namespace.
+namespace glm
 {
 	/// \addtogroup core_funcs
 	/// @{
@@ -47,10 +44,6 @@ namespace noise //< Define all noise functions from Section 8.9 of GLSL 1.30.8 s
 	detail::tvec4<typename genType::value_type> noise4(genType const & x);
 
 	/// @}
-}//namespace noise
-}//namespace function
-}//namespace core
-	using namespace core::function::noise;
 }//namespace glm
 
 #include "func_noise.inl"

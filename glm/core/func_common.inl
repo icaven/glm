@@ -7,43 +7,36 @@
 // File    : glm/core/func_common.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm
+namespace glm{
+namespace detail
 {
-	namespace detail
-	{
-		template <typename genFIType, bool /*signed*/>
-		struct Abs_
-		{
-		};
+    template <typename genFIType, bool /*signed*/>
+    struct Abs_
+    {};
 
-		template <typename genFIType>
-		struct Abs_<genFIType, true>
-		{
-			static genFIType get(genFIType const & x)
-			{
-				GLM_STATIC_ASSERT(
-					detail::type<genFIType>::is_float || 
-					detail::type<genFIType>::is_int, "'abs' only accept floating-point and integer inputs");
-				return x >= genFIType(0) ? x : -x;
-			}
-		};
+    template <typename genFIType>
+    struct Abs_<genFIType, true>
+    {
+        static genFIType get(genFIType const & x)
+        {
+            GLM_STATIC_ASSERT(
+                detail::type<genFIType>::is_float || 
+                detail::type<genFIType>::is_int, "'abs' only accept floating-point and integer inputs");
+            return x >= genFIType(0) ? x : -x;
+        }
+    };
 
-		template <typename genFIType>
-		struct Abs_<genFIType, false>
-		{
-			static genFIType get(genFIType const & x)
-			{
-				GLM_STATIC_ASSERT(
+    template <typename genFIType>
+    struct Abs_<genFIType, false>
+    {
+        static genFIType get(genFIType const & x)
+        {
+            GLM_STATIC_ASSERT(
 					detail::type<genFIType>::is_uint, "'abs' only accept floating-point and integer inputs");
-
-				return x;
-			}
-		};
-	}//namespace detail
-
-	namespace core{
-	namespace function{
-	namespace common{
+            return x;
+        }
+    };
+}//namespace detail
 
 	// abs
 	template <typename genFIType>
@@ -1570,8 +1563,4 @@ namespace glm
 	{
 		return std::frexp(x, exp);
 	}
-
-	}//namespace common
-	}//namespace function
-	}//namespace core
 }//namespace glm

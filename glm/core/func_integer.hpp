@@ -10,10 +10,7 @@
 #ifndef glm_core_func_integer
 #define glm_core_func_integer
 
-namespace glm{
-namespace core{
-namespace function{
-namespace integer //!< Define integer functions from Section 8.8 of GLSL 4.00.8 specification. 
+namespace glm
 {
 	/// \addtogroup core_funcs
 	/// @{
@@ -142,10 +139,6 @@ namespace integer //!< Define integer functions from Section 8.8 of GLSL 4.00.8 
 	typename C<T>::signed_type findMSB(C<T> const & Value);
 
 	/// @}
-}//namespace integer
-}//namespace function
-}//namespace core
-	using namespace core::function::integer;
 }//namespace glm
 
 #include "func_integer.inl"

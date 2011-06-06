@@ -193,10 +193,6 @@ namespace detail
 
 } //namespace detail
 
-namespace core{
-namespace type{
-namespace precision
-{
 	//! 2 components vector of high precision floating-point numbers. 
 	//! There is no guarantee on the actual precision.
 	//! From GLSL 1.30.8 specification, section 4.5.2 Precision Qualifiers.
@@ -251,9 +247,6 @@ namespace precision
 	//! \ingroup core_precision
 	typedef detail::tvec2<lowp_uint>		lowp_uvec2;
 
-}//namespace precision
-}//namespace type
-}//namespace core
 }//namespace glm
 
 #ifndef GLM_EXTERNAL_TEMPLATE

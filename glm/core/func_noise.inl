@@ -9,13 +9,5 @@
 
 namespace glm
 {
-	namespace core{
-	namespace function{
-	namespace noise{
 
-
-
-	}//namespace noise
-	}//namespace function
-	}//namespace core
 }//namespace glm

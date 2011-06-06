@@ -9,10 +9,6 @@
 
 namespace glm
 {
-	namespace core{
-	namespace function{
-	namespace trigonometric{
-
     // radians
     template <typename genType>
     GLM_FUNC_QUALIFIER genType radians
@@ -739,7 +735,4 @@ namespace glm
             atanh(x.w));
     }
 
-	}//namespace trigonometric
-	}//namespace function
-	}//namespace core
 }//namespace glm

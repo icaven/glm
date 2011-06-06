@@ -207,10 +207,6 @@ namespace detail
 
 }//namespace detail
 
-namespace core{
-namespace type{
-namespace precision
-{
 	//! 4 columns of 3 components matrix of low precision floating-point numbers.
 	//! There is no guarantee on the actual precision.
 	//! (From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers)
@@ -229,9 +225,6 @@ namespace precision
 	//! \ingroup core_precision
 	typedef detail::tmat4x3<highp_float>	highp_mat4x3;
 
-}//namespace precision
-}//namespace type
-}//namespace core
 }//namespace glm
 
 #ifndef GLM_EXTERNAL_TEMPLATE

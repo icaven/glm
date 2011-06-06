@@ -10,13 +10,7 @@
 #ifndef glm_core_func_trigonometric
 #define glm_core_func_trigonometric
 
-namespace glm{
-namespace core{
-namespace function{
-//! Define Angle and trigonometry functions 
-//! from Section 8.1 of GLSL 1.30.8 specification. 
-//! Included in glm namespace.
-namespace trigonometric
+namespace glm
 {
 	/// \addtogroup core_funcs
 	/// @{
@@ -140,10 +134,6 @@ namespace trigonometric
 	genType atanh(genType const & x);
 
 	/// @}
-}//namespace trigonometric
-}//namespace function
-}//namespace core
-	using namespace core::function::trigonometric;
 }//namespace glm
 
 #include "func_trigonometric.inl"

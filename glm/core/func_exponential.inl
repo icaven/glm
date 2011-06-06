@@ -9,10 +9,6 @@
 
 namespace glm
 {
-	namespace core{
-	namespace function{
-	namespace exponential{
-
     // pow
     template <typename genType>
     GLM_FUNC_QUALIFIER genType pow
@@ -352,7 +348,4 @@ namespace glm
             inversesqrt(x.w));
     }
 
-	}//namespace exponential
-	}//namespace function
-	}//namespace core
 }//namespace glm

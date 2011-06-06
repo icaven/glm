@@ -7,11 +7,7 @@
 // File    : glm/core/func_matrix.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm
-{
-	namespace core{
-	namespace function{
-	namespace matrix{
+namespace glm{
 
     // matrixCompMult
     template <typename matType>
@@ -565,7 +561,4 @@ namespace glm
 		return Inverse;
 	}
 
-	}//namespace matrix
-	}//namespace function
-	}//namespace core
 }//namespace glm

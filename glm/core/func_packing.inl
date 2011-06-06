@@ -9,15 +9,6 @@
 
 namespace glm
 {
-	namespace detail
-	{
-		
-	}//namespace detail
-
-	namespace core{
-	namespace function{
-	namespace packing
-	{
 		GLM_FUNC_QUALIFIER detail::uint32 packUnorm2x16(detail::tvec2<detail::float32> const & v)
 		{
 			detail::uint16 A((detail::uint16)round(clamp(v.x, 0.0f, 1.0f) * 65535.0f));
@@ -88,7 +79,4 @@ namespace glm
 			return *(detail::tvec2<detail::uint32>*)&v;
 		}
 
-	}//namespace packing
-	}//namespace function
-	}//namespace core
 }//namespace glm

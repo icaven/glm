@@ -24,51 +24,44 @@ namespace glm
 	}
 	//namespace detail
 
-	namespace core{
-	namespace type{
-
-	namespace precision
-	{
 #ifdef GLM_USE_HALF_SCALAR
-		typedef detail::thalf		lowp_float_t;
+    typedef detail::thalf		lowp_float_t;
 #else//GLM_USE_HALF_SCALAR
-		typedef float				lowp_float_t;
+    typedef float				lowp_float_t;
 #endif//GLM_USE_HALF_SCALAR
-		typedef float				mediump_float_t;
-		typedef double				highp_float_t;
+    typedef float				mediump_float_t;
+    typedef double				highp_float_t;
 
-		//! Low precision floating-point numbers. 
-		//! There is no guarantee on the actual precision.
-		//! From GLSL 1.30.8 specification
-		//! \ingroup core_precision
-		typedef lowp_float_t		lowp_float;
-		//! Medium precision floating-point numbers.
-		//! There is no guarantee on the actual precision.
-		//! From GLSL 1.30.8 specification
-		//! \ingroup core_precision
-		typedef mediump_float_t     mediump_float;
-		//! High precision floating-point numbers.
-		//! There is no guarantee on the actual precision.
-		//! From GLSL 1.30.8 specification
-		//! \ingroup core_precision
-		typedef highp_float_t		highp_float;
-	}
-	//namespace precision
+    //! Low precision floating-point numbers. 
+    //! There is no guarantee on the actual precision.
+    //! From GLSL 1.30.8 specification
+    //! \ingroup core_precision
+    typedef lowp_float_t		lowp_float;
+    
+    //! Medium precision floating-point numbers.
+    //! There is no guarantee on the actual precision.
+    //! From GLSL 1.30.8 specification
+    //! \ingroup core_precision
+    typedef mediump_float_t     mediump_float;
+    
+    //! High precision floating-point numbers.
+    //! There is no guarantee on the actual precision.
+    //! From GLSL 1.30.8 specification
+    //! \ingroup core_precision
+    typedef highp_float_t		highp_float;
 
 #if(!defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
-	typedef precision::mediump_float				float_t;
+	typedef mediump_float				float_t;
 #elif(defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
-	typedef precision::highp_float                  float_t;
+	typedef highp_float                  float_t;
 #elif(!defined(GLM_PRECISION_HIGHP_FLOAT) && defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
-	typedef precision::mediump_float				float_t;
+	typedef mediump_float				float_t;
 #elif(!defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && defined(GLM_PRECISION_LOWP_FLOAT))
-	typedef precision::lowp_float					float_t;
+	typedef lowp_float					float_t;
 #else
 #	error "GLM error: multiple default precision requested for floating-point types"
 #endif
 
-	}//namespace type
-	}//namespace core
 }//namespace glm
 
 #endif//glm_core_type_float

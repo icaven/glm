@@ -9,15 +9,6 @@
 
 namespace glm
 {
-	namespace detail
-	{
-		
-	}//namespace detail
-
-	namespace core{
-	namespace function{
-	namespace integer
-	{
 		// uaddCarry
 		template <typename genUType>
 		GLM_FUNC_QUALIFIER genUType uaddCarry
@@ -590,8 +581,4 @@ namespace glm
 				findMSB(value[2]),
 				findMSB(value[3]));
 		}
-
-	}//namespace integer
-	}//namespace function
-	}//namespace core
 }//namespace glm
