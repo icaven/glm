@@ -49,7 +49,7 @@
 namespace glm{
 namespace gtc
 {
-	/// @addtogroup gtc_half_float
+	/// @addtogroup gtc_swizzle
 	/// @{
 	
 	template <typename T, template <typename> class vecType>

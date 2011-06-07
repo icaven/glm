@@ -1,17 +1,39 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2011-03-05
-// Updated : 2011-03-05
-// Licence : This source is under MIT License
-// File    : glm/gtx/matrix_interpolation.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-// - GLM_GTX_matric_interpolation
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// This extension has been written by Ghenadii Ursachi (the.asteroth@gmail.com)
-///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+/// OpenGL Mathematics (glm.g-truc.net)
+///
+/// Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+/// 
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+/// 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
+///
+/// @ref gtx_matrix_interpolation
+/// @file glm/gtx/matrix_interpolation.hpp
+/// @date 2011-03-05 / 2011-06-07
+/// @author Ghenadii Ursachi (the.asteroth@gmail.com)
+///
+/// @see core (dependence)
+///
+/// @defgroup gtx_matrix_interpolation GLM_GTX_matrix_interpolation: Rotation and translation matrix interpolation
+/// @ingroup gtx
+/// 
+/// @brief Allows to directly interpolate two exiciting matrices.
+/// 
+/// <glm/gtx/matrix_interpolation.hpp> need to be included to use these functionalities.
+///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_matrix_interpolation
 #define glm_gtx_matrix_interpolation
@@ -26,7 +48,7 @@
 namespace glm{
 namespace gtx
 {
-	/// \addtogroup gtx_matrix_interpolation
+	/// @addtogroup gtx_matrix_interpolation
 	/// @{
 
 	//! Get the axis and angle of the rotation from a matrix.
