@@ -23,13 +23,9 @@
 #	pragma message("GLM: GLM_VIRTREV_xstream extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace virtrev_glmext
 {
-	namespace virtrev_glmext
-	{
-		//! GLM_VIRTREV_xstream extension: Streaming vector and matrix in a xml way
-		namespace xstream
-		{
 			template<typename T>
 			std::ostream & operator << (std::ostream & stream, glm::detail::tvec2<T> const & vec)
 			{
@@ -139,10 +135,8 @@ namespace glm
 			
 				return stream;
 			}
-		}
-	}
-}
 
-namespace glm{using namespace glm::virtrev_glmext::xstream;}
+}//namespace virtrev_glmext
+}//namespace glm
 
 #endif//GLM_EXT_VIRTREV_XSTREAM_HPP
