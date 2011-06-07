@@ -20,13 +20,14 @@ int main()
 	glm::half D(C);
 	float E = D;
 	int F = float(C);
+	Result += float(F) == E ? 0 : 1;
 	glm::half G = B * C;
 	glm::half H = G / C;
 	H += glm::half(1.0f);
 	double J = H;
 	int I = float(H);
-
-	Result = Result && J == 3.0;
+	Result += J == 3.0 ? 0 : 1;
+	Result += I == 3 ? 0 : 1;
 	
-	return Result != 0;
+	return Result;
 }
