@@ -13,28 +13,106 @@
 
 int test_simplex()
 {
-	float ValueSNoise2D = glm::simplex(glm::vec2(0.5f));
-    float ValueSNoise3D = glm::simplex(glm::vec3(0.5f));
-    float ValueSNoise4D = glm::simplex(glm::vec4(0.5f));
+	{
+		float ImageData[256];
+		
+		for(std::size_t y = 0; y < 16; ++y)
+		for(std::size_t x = 0; x < 16; ++x)
+		{
+			ImageData[x + y * 16] = glm::simplex(glm::vec2(x / 16.f, y / 16.f));
+		}
+	}
+
+	{
+		float ImageData[256];
+		
+		for(std::size_t y = 0; y < 16; ++y)
+		for(std::size_t x = 0; x < 16; ++x)
+		{
+			ImageData[x + y * 16] = glm::simplex(glm::vec3(x / 16.f, y / 16.f, 0.5f));
+		}
+	}
+	
+	{
+		float ImageData[256];
+		
+		for(std::size_t y = 0; y < 16; ++y)
+		for(std::size_t x = 0; x < 16; ++x)
+		{
+			ImageData[x + y * 16] = glm::simplex(glm::vec4(x / 16.f, y / 16.f, 0.5f, 0.5f));
+		}
+	}	
 
 	return 0;
 }
 
 int test_perlin()
 {
-	float ValueCNoise2D = glm::perlin(glm::vec2(0.5f));
-    float ValueCNoise3D = glm::perlin(glm::vec3(0.5f));
-    float ValueCNoise4D = glm::perlin(glm::vec4(0.5f));
-
+	{
+		float ImageData[256];
+		
+		for(std::size_t y = 0; y < 16; ++y)
+		for(std::size_t x = 0; x < 16; ++x)
+		{
+			ImageData[x + y * 16] = glm::perlin(glm::vec2(x / 16.f, y / 16.f));
+		}
+	}
+	
+	{
+		float ImageData[256];
+		
+		for(std::size_t y = 0; y < 16; ++y)
+		for(std::size_t x = 0; x < 16; ++x)
+		{
+			ImageData[x + y * 16] = glm::perlin(glm::vec3(x / 16.f, y / 16.f, 0.5f));
+		}
+	}
+	
+	{
+		float ImageData[256];
+		
+		for(std::size_t y = 0; y < 16; ++y)
+		for(std::size_t x = 0; x < 16; ++x)
+		{
+			ImageData[x + y * 16] = glm::perlin(glm::vec4(x / 16.f, y / 16.f, 0.5f, 0.5f));
+		}
+	}	
+	
 	return 0;
 }
 
 int test_perlin_pedioric()
 {
-	float ValuePNoise2D = glm::perlin(glm::vec2(0.5f), glm::vec2(0.5f));
-    float ValuePNoise3D = glm::perlin(glm::vec3(0.5f), glm::vec3(0.5f));
-    float ValuePNoise4D = glm::perlin(glm::vec4(0.5f), glm::vec4(0.5f));
-
+	{
+		float ImageData[256];
+		
+		for(std::size_t y = 0; y < 16; ++y)
+		for(std::size_t x = 0; x < 16; ++x)
+		{
+			ImageData[x + y * 16] = glm::perlin(glm::vec2(x / 16.f, y / 16.f), glm::vec2(0.5f));
+		}
+	}
+	
+	{
+		float ImageData[256];
+		
+		for(std::size_t y = 0; y < 16; ++y)
+		for(std::size_t x = 0; x < 16; ++x)
+		{
+			ImageData[x + y * 16] = glm::perlin(glm::vec3(x / 16.f, y / 16.f, 0.5f), glm::vec3(0.5f));
+		}
+	}
+	
+	{
+		float ImageData[256];
+		
+		for(std::size_t y = 0; y < 16; ++y)
+		for(std::size_t x = 0; x < 16; ++x)
+		{
+			ImageData[x + y * 16] = glm::perlin(glm::vec4(x / 16.f, y / 16.f, 0.5f, 0.5f), glm::vec4(0.5f));
+		}
+	}	
+	
 	return 0;
 }
 
