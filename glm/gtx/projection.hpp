@@ -21,10 +21,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace projection ///< GLM_GTX_projection extension: Projection of a vector to other one
+namespace gtx
 {
-	/// \addtogroup gtx_projection
+	/// @addtogroup gtx_projection
 	/// @{
 
 	//! Projects x on Normal.
@@ -49,12 +48,9 @@ namespace projection ///< GLM_GTX_projection extension: Projection of a vector t
 		detail::tvec4<T> const & Normal);
 
 	/// @}
-}//namespace projection
 }//namespace gtx
 }//namespace glm
 
 #include "projection.inl"
-
-namespace glm{using namespace gtx::projection;}
 
 #endif//glm_gtx_projection

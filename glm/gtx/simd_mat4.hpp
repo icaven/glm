@@ -128,13 +128,12 @@ namespace detail
 	fmat4x4SIMD const operator++ (fmat4x4SIMD const & m, int);
 }//namespace detail
 
-namespace gtx{
-namespace simd_mat4 ///< GLM_GTX_simd_mat4 extension: SIMD implementation of mat4 type.
+namespace gtx
 {
 	typedef detail::fmat4x4SIMD simdMat4;
 
-	/// \addtogroup gtx_simd_mat4
-	///@{
+	/// @addtogroup gtx_simd_mat4
+	/// @{
 
 	//! Convert a simdMat4 to a mat4.
 	//! (From GLM_GTX_simd_mat4 extension)
@@ -172,12 +171,9 @@ namespace simd_mat4 ///< GLM_GTX_simd_mat4 extension: SIMD implementation of mat
 		detail::fmat4x4SIMD const & m);
 
 	/// @}
-}// namespace simd_mat4
 }// namespace gtx
 }// namespace glm
 
 #include "simd_mat4.inl"
-
-namespace glm{using namespace gtx::simd_mat4;}
 
 #endif//glm_gtx_simd_mat4

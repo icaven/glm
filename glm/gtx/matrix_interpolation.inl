@@ -9,8 +9,7 @@
 
 namespace glm{
 namespace gtx{
-namespace matrix_interpolation
-{
+
     template <typename T>
     GLM_FUNC_QUALIFIER void axisAngle(
         detail::tmat4x4<T> const & mat,
@@ -112,6 +111,5 @@ namespace matrix_interpolation
 		return out;
     }
 
-}//namespace transform
 }//namespace gtx
 }//namespace glm

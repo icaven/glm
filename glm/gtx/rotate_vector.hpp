@@ -22,12 +22,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace rotate_vector ///< GLM_GTX_rotate_vector extension: Function to directly rotate a vector
+namespace gtx
 {
-	using namespace transform;
-
-	/// \addtogroup gtx_rotate_vector
+	/// @addtogroup gtx_rotate_vector
 	/// @{
 
 	//! Rotate a two dimensional vector.
@@ -103,12 +100,9 @@ namespace rotate_vector ///< GLM_GTX_rotate_vector extension: Function to direct
         detail::tvec3<T> const & Up);
 
 	/// @}
-}//namespace rotate_vector
 }//namespace gtx
 }//namespace glm
 
 #include "rotate_vector.inl"
-
-namespace glm{using namespace gtx::rotate_vector;}
 
 #endif//glm_gtx_rotate_vector

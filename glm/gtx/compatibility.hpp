@@ -29,11 +29,10 @@
 #endif//GLM_COMPILER
 
 namespace glm{
-namespace gtx{
-namespace compatibility ///< GLM_GTX_compatibility extension: Provide functions to increase the compatibility with Cg and HLSL languages
+namespace gtx
 {
-	/// \addtogroup gtx_compatibility
-	///@{
+	/// @addtogroup gtx_compatibility
+	/// @{
 
 	template <typename T> GLM_FUNC_QUALIFIER T lerp(T x, T y, T a){return mix(x, y, a);}																					//!< \brief Returns x * (1.0 - a) + y * a, i.e., the linear blend of x and y using the floating-point value a. The value for a is not restricted to the range [0, 1]. (From GLM_GTX_compatibility)
 	template <typename T> GLM_FUNC_QUALIFIER detail::tvec2<T> lerp(const detail::tvec2<T>& x, const detail::tvec2<T>& y, T a){return mix(x, y, a);}							//!< \brief Returns x * (1.0 - a) + y * a, i.e., the linear blend of x and y using the floating-point value a. The value for a is not restricted to the range [0, 1]. (From GLM_GTX_compatibility)
@@ -149,14 +148,11 @@ namespace compatibility ///< GLM_GTX_compatibility extension: Provide functions 
 	typedef detail::tmat4x4<double>		double4x4;		//!< \brief double-precision floating-point matrix with 4 x 4 components. (From GLM_GTX_compatibility extension)
 
 	/// @}
-}//namespace compatibility
 }//namespace gtx
 }//namespace glm
 
 #include "compatibility.inl"
-
-namespace glm{using namespace gtx::compatibility;}
-
+    
 #endif//glm_gtx_compatibility
 
 

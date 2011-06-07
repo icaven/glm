@@ -8,8 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
-namespace fast_trigonometry
+namespace gtx
 {
     // sin
     template <typename T> 
@@ -267,6 +266,5 @@ namespace fast_trigonometry
             fastAtan(x.w));
     }
 
-}//namespace fast_trigonometry
 }//namespace gtx
 }//namespace glm

@@ -9,7 +9,6 @@
 
 namespace glm{
 namespace gtx{
-namespace gradient_paint{
 
 	template <typename valType>
 	valType radialGradient(
@@ -39,6 +38,5 @@ namespace gradient_paint{
 		return (Dist.x * (Position.x - Point0.x) + Dist.y * (Position.y - Point0.y)) / glm::dot(Dist, Dist);
 	}
 
-}//namespace gradient_paint
 }//namespace gtx
 }//namespace glm

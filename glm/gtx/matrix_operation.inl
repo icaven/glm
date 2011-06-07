@@ -9,8 +9,7 @@
 
 namespace glm{
 namespace gtx{
-namespace matrix_operation
-{
+
 	template <typename valType> 
 	GLM_FUNC_QUALIFIER detail::tmat2x2<valType> diagonal2x2
 	(
@@ -124,6 +123,5 @@ namespace matrix_operation
 		return Result;		
 	}
 
-}//namespace matrix_operation
 }//namespace gtx
 }//namespace glm

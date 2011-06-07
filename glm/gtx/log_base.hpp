@@ -21,10 +21,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace log_base ///< GLM_GTX_log_base extension: Logarithm for any base. base can be a vector or a scalar.
+namespace gtx
 {
-	/// \addtogroup gtx_log_base
+	/// @addtogroup gtx_log_base
 	/// @{
 
 	//! Logarithm for any base.
@@ -35,13 +34,9 @@ namespace log_base ///< GLM_GTX_log_base extension: Logarithm for any base. base
 		genType const & base);
 
 	/// @}
-
-}//namespace extend
 }//namespace gtx
 }//namespace glm
 
 #include "log_base.inl"
-
-namespace glm{using namespace gtx::log_base;}
 
 #endif//glm_gtx_log_base

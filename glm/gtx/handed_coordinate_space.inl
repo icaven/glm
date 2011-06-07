@@ -8,8 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
-namespace handed_coordinate_space
+namespace gtx
 {
     template <typename T> 
     GLM_FUNC_QUALIFIER bool rightHanded(
@@ -29,6 +28,5 @@ namespace handed_coordinate_space
         return dot(cross(normal, tangent), binormal) < T(0);
     }
 
-}//namespace handed_coordinate_space
 }//namespace gtx
 }//namespace glm

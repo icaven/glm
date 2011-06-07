@@ -111,13 +111,12 @@ namespace detail
 	};
 }//namespace detail
 
-namespace gtx{
-namespace simd_vec4 ///< GLM_GTX_simd_vec4 extension: SIMD implementation of vec4 type.
+namespace gtx
 {
 	typedef glm::detail::fvec4SIMD simdVec4;
 
-	/// \addtogroup gtx_simd_vec4
-	///@{
+	/// @addtogroup gtx_simd_vec4
+	/// @{
 
 	//! Convert a simdVec4 to a vec4.
 	//! (From GLM_GTX_simd_vec4 extension)
@@ -463,12 +462,9 @@ namespace simd_vec4 ///< GLM_GTX_simd_vec4 extension: SIMD implementation of vec
 		detail::fvec4SIMD const & x);
 
 	/// @}
-}//namespace simd_vec4
 }//namespace gtx
 }//namespace glm
 
 #include "simd_vec4.inl"
-
-namespace glm{using namespace gtx::simd_vec4;}
 
 #endif//glm_gtx_simd_vec4

@@ -26,10 +26,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace norm ///< GLM_GTX_norm extension: Various way to compute vector norms.
+namespace gtx
 {
-	/// \addtogroup gtx_norm
+	/// @addtogroup gtx_norm
 	/// @{
 
 	//! Returns the squared length of x.
@@ -132,12 +131,9 @@ namespace norm ///< GLM_GTX_norm extension: Various way to compute vector norms.
 		unsigned int Depth);
 
 	/// @}
-}//namespace norm
 }//namespace gtx
 }//namespace glm
 
 #include "norm.inl"
-
-namespace glm{using namespace gtx::norm;}
 
 #endif//glm_gtx_norm

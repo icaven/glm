@@ -24,8 +24,7 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace matrix_interpolation ///< GLM_GTX_matrix_interpolation extension: Add transformation matrices
+namespace gtx
 {
 	/// \addtogroup gtx_matrix_interpolation
 	/// @{
@@ -55,12 +54,9 @@ namespace matrix_interpolation ///< GLM_GTX_matrix_interpolation extension: Add 
         T const delta);
 
 	/// @}
-}//namespace matrix_interpolation
 }//namespace gtx
 }//namespace glm
 
 #include "matrix_interpolation.inl"
-
-namespace glm{using namespace gtx::matrix_interpolation;}
 
 #endif//glm_gtx_transform

@@ -18,10 +18,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace reciprocal ///< GLM_GTX_reciprocal extension: Define secant, cosecant and cotangent functions.
+namespace gtx
 {
-	/// \addtogroup gtx_reciprocal
+	/// @addtogroup gtx_reciprocal
 	/// @{
 
 	//! Secant function. 
@@ -88,12 +87,9 @@ namespace reciprocal ///< GLM_GTX_reciprocal extension: Define secant, cosecant 
 	genType acoth(genType const & x);
 
 	/// @}
-}//namespace reciprocal
 }//namespace gtx
 }//namespace glm
 
 #include "reciprocal.inl"
-
-namespace glm{using namespace gtx::reciprocal;}
 
 #endif//glm_gtx_reciprocal

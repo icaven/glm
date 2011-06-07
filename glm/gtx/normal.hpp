@@ -21,10 +21,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace normal ///< GLM_GTX_normal extension: Compute the normal of a triangle.
+namespace gtx
 {
-	/// \addtogroup gtx_normal
+	/// @addtogroup gtx_normal
 	/// @{
 
 	//! Computes triangle normal from triangle points. 
@@ -36,12 +35,9 @@ namespace normal ///< GLM_GTX_normal extension: Compute the normal of a triangle
 		detail::tvec3<T> const & p3);
 
 	/// @}
-}//namespace normal
 }//namespace gtx
 }//namespace glm
 
 #include "normal.inl"
-
-namespace glm{using namespace gtx::normal;}
 
 #endif//glm_gtx_normal

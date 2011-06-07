@@ -21,13 +21,12 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace ocl_type ///< GLM_GTX_ocl_type extension: OpenCL types.
+namespace gtx
 {
 	///////////////////////////
 	// Scalar types 
 
-	/// \addtogroup gtx_ocl_type
+	/// @addtogroup gtx_ocl_type
 	/// @{
 
 	typedef detail::int8						cl_char;		//!< \brief 8bit signed integer. (from GLM_GTX_ocl_type extension)
@@ -99,12 +98,9 @@ namespace ocl_type ///< GLM_GTX_ocl_type extension: OpenCL types.
 	typedef detail::tvec4<detail::float32>		cl_float4;	//!< \brief Single-precision floating-point scalar. (from GLM_GTX_ocl_type extension)
 
 	/// @}
-}//namespace ocl_type
 }//namespace gtx
 }//namespace glm
 
 #include "ocl_type.inl"
-
-namespace glm{using namespace gtx::ocl_type;}
 
 #endif//glm_gtx_ocl_type

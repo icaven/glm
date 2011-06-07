@@ -27,10 +27,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace euler_angles ///< GLM_GTX_euler_angles extension: Build matrices from Euler angles.
+namespace gtx
 {
-	/// \addtogroup gtx_euler_angles
+	/// @addtogroup gtx_euler_angles
 	/// @{
 
 	//! Creates a 3D 4 * 4 homogeneous rotation matrix from an euler angle X.
@@ -130,12 +129,9 @@ namespace euler_angles ///< GLM_GTX_euler_angles extension: Build matrices from 
 	detail::tmat4x4<T> orientate4(detail::tvec3<T> const & angles);
 
 	/// @}
-}//namespace euler_angles
 }//namespace gtx
 }//namespace glm
 
 #include "euler_angles.inl"
-
-namespace glm{using namespace gtx::euler_angles;}
 
 #endif//glm_gtx_euler_angles

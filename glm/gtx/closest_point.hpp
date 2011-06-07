@@ -21,8 +21,7 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace closest_point ///< GLM_GTX_closest_point extension: Find the point on a straight line which is the closet of a point.
+namespace gtx
 {
 	/// \addtogroup gtx_closest_point
 	/// @{
@@ -36,12 +35,9 @@ namespace closest_point ///< GLM_GTX_closest_point extension: Find the point on 
 		detail::tvec3<T> const & b);
 
 	/// @}
-}// namespace closest_point
 }// namespace gtx
 }// namespace glm
 
 #include "closest_point.inl"
-
-namespace glm{using namespace gtx::closest_point;}
 
 #endif//glm_gtx_closest_point

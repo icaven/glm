@@ -24,10 +24,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace random ///< GLM_GTX_random extension: Generate random number from various distribution methods
+namespace gtx
 {
-	/// \addtogroup gtx_random
+	/// @addtogroup gtx_random
 	/// @{
 
 	//! Generate a random number in the interval [-1, 1], according a linear distribution.
@@ -78,12 +77,9 @@ namespace random ///< GLM_GTX_random extension: Generate random number from vari
     template <typename T> detail::tvec4<T> gaussRand4(const detail::tvec4<T>& mean, const detail::tvec4<T>& std_deviation);     //!< \brief Gererate 4 random floating numbers according a Gauss distribution. (From GLM_GTX_random extension)
 
 	///@}
-}//namespace random
 }//namespace gtx
 }//namespace glm
 
 #include "random.inl"
-
-namespace glm{using namespace gtx::random;}
 
 #endif//glm_gtx_random

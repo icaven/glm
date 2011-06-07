@@ -22,11 +22,10 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace raw_data ///< GLM_GTX_raw_data extension: Projection of a vector to other one
+namespace gtx
 {
-	/// \addtogroup gtx_raw_data
-	///@{
+	/// @addtogroup gtx_raw_data
+	/// @{
 
 	//! Type for byte numbers. 
 	//! From GLM_GTX_raw_data extension.
@@ -44,13 +43,11 @@ namespace raw_data ///< GLM_GTX_raw_data extension: Projection of a vector to ot
 	//! From GLM_GTX_raw_data extension.
 	typedef uint64		qword;
 
-	///@}
+	/// @}
 }// namespace raw_data
 }// namespace gtx
 }// namespace glm
 
 #include "raw_data.inl"
-
-namespace glm{using namespace gtx::raw_data;}
 
 #endif//glm_gtx_raw_data

@@ -8,8 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
-namespace color_space
+namespace gtx
 {
     template <typename T> 
     GLM_FUNC_QUALIFIER detail::tvec3<T> rgbColor(const detail::tvec3<T>& hsvColor)
@@ -149,6 +148,5 @@ namespace color_space
 		return dot(color, tmp);
 	}
 
-}//namespace color_space
 }//namespace gtx
 }//namespace glm

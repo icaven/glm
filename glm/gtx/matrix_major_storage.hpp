@@ -21,8 +21,7 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace matrix_major_storage ///< GLM_GTX_matrix_major_storage: Build matrices with specific matrix order, row or column
+namespace gtx
 {
 	/// \addtogroup gtx_matrix_major_storage
 	/// @{
@@ -112,12 +111,9 @@ namespace matrix_major_storage ///< GLM_GTX_matrix_major_storage: Build matrices
 		const detail::tmat4x4<T>& m);
 
 	/// @}
-}//namespace matrix_major_storage
 }//namespace gtx
 }//namespace glm
 
 #include "matrix_major_storage.inl"
-
-namespace glm{using namespace gtx::matrix_major_storage;}
 
 #endif//glm_gtx_matrix_major_storage

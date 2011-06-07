@@ -21,10 +21,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace optimum_pow ///< GLM_GTX_optimum_pow extension: Integer exponentiation of power functions.
+namespace gtx
 {
-	/// \addtogroup gtx_optimum_pow
+	/// @addtogroup gtx_optimum_pow
 	/// @{
 
 	//! Returns x raised to the power of 2.
@@ -59,12 +58,9 @@ namespace optimum_pow ///< GLM_GTX_optimum_pow extension: Integer exponentiation
     detail::tvec4<bool> powOfTwo(const detail::tvec4<int>& x);
 
 	/// @}
-}//namespace optimum_pow
 }//namespace gtx
 }//namespace glm
 
 #include "optimum_pow.inl"
-
-namespace glm{using namespace gtx::optimum_pow;}
 
 #endif//glm_gtx_optimum_pow

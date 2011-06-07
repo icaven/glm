@@ -15,8 +15,9 @@
 // - GLM core
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm
-{
+namespace glm{
+namespace gtx{
+
 	template <typename T>
 	GLM_FUNC_QUALIFIER T permute(T const & x)
 	{
@@ -57,9 +58,6 @@ namespace glm
 		return detail::tvec4<T>(pXYZ, pW);
 	}
 
-namespace gtx{
-namespace noise
-{
 	// Classic Perlin noise
 	template <typename T>
 	GLM_FUNC_QUALIFIER T perlin(detail::tvec2<T> const & P)
@@ -787,6 +785,5 @@ namespace noise
 			dot(m1 * m1, detail::tvec2<T>(dot(p3, x3), dot(p4, x4))));
 	}
 
-}//namespace noise
 }//namespace gtx
 }//namespace glm

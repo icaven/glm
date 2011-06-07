@@ -9,7 +9,6 @@
 
 namespace glm{
 namespace gtx{
-namespace normalize_dot{
 
 template <typename genType> 
 GLM_FUNC_QUALIFIER genType normalizeDot
@@ -115,6 +114,5 @@ GLM_FUNC_QUALIFIER valType fastNormalizeDot
 		glm::dot(y, y));
 }
 
-}//namespace normalize_dot
 }//namespace gtx
 }//namespace glm

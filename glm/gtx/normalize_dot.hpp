@@ -23,12 +23,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace normalize_dot	///< GLM_GTX_normalize_dot extension: Dot product of vectors that need to be normalize with a single square root.
+namespace gtx
 {
-	using namespace gtx::fast_square_root;
-
-	/// \addtogroup gtx_normalize_dot
+	/// @addtogroup gtx_normalize_dot
 	/// @{
 
 	//! Normalize parameters and returns the dot product of x and y.
@@ -48,12 +45,9 @@ namespace normalize_dot	///< GLM_GTX_normalize_dot extension: Dot product of vec
 		genType const & y);
 
 	/// @}
-}//namespace normalize_dot
 }//namespace gtx
 }//namespace glm
 
 #include "normalize_dot.inl"
-
-namespace glm{using namespace gtx::normalize_dot;}
 
 #endif//glm_gtx_normalize_dot

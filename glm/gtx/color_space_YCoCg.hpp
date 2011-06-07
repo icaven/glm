@@ -21,8 +21,7 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace color_space_YCoCg ///< GLM_GTX_color_space_YCoCg extension: RGB to YCoCg conversions and operations
+namespace gtx
 {
 	/// \addtogroup gtx_color_space_YCoCg
 	/// @{
@@ -54,12 +53,9 @@ namespace color_space_YCoCg ///< GLM_GTX_color_space_YCoCg extension: RGB to YCo
 		detail::tvec3<valType> const & YCoCgColor);
 
 	/// @}
-}//namespace color_space_YCoCg
 }//namespace gtx
 }//namespace glm
 
 #include "color_space_YCoCg.inl"
-
-namespace glm{using namespace gtx::color_space_YCoCg;}
 
 #endif//glm_gtx_color_space_YCoCg

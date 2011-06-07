@@ -9,7 +9,6 @@
 
 namespace glm{
 namespace gtx{
-namespace orthonormalize{
 
     template <typename T>
     GLM_FUNC_QUALIFIER detail::tmat3x3<T> orthonormalize
@@ -43,7 +42,6 @@ namespace orthonormalize{
         return normalize(x - y * dot(y, x));
     }
 
-}//namespace orthonormalize
 }//namespace gtx
 }//namespace glm
 

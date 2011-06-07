@@ -21,10 +21,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace orthonormalize ///< GLM_GTX_orthonormalize extension: Orthonormalize matrices.
+namespace gtx
 {
-	/// \addtogroup gtx_orthonormalize
+	/// @addtogroup gtx_orthonormalize
 	/// @{
 
 	//! Returns the orthonormalized matrix of m.
@@ -41,12 +40,9 @@ namespace orthonormalize ///< GLM_GTX_orthonormalize extension: Orthonormalize m
 		const detail::tvec3<T>& y);
 
 	/// @}
-}//namespace orthonormalize
 }//namespace gtx
 }//namespace glm
 
 #include "orthonormalize.inl"
-
-namespace glm{using namespace gtx::orthonormalize;}
 
 #endif//glm_gtx_orthonormalize

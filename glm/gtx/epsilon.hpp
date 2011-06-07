@@ -2,7 +2,7 @@
 // OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2005-12-21
-// Updated : 2006-11-13
+// Updated : 2011-06-07
 // Licence : This source is under MIT License
 // File    : glm/gtx/epsilon.hpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -25,11 +25,10 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace epsilon ///< GLM_GTX_epsilon extension: Comparison functions for a user defined epsilon values.
+namespace gtx
 {
-	/// \addtogroup gtx_epsilon
-	///@{
+	/// @addtogroup gtx_epsilon
+	/// @{
 
 	//! Returns the component-wise compare of |x - y| < epsilon.
 	//! From GLM_GTX_epsilon extension.
@@ -47,13 +46,10 @@ namespace epsilon ///< GLM_GTX_epsilon extension: Comparison functions for a use
 		genTypeT const & y, 
 		genTypeU const & epsilon);
 
-	///@}
-}//namespace epsilon
+	/// @}
 }//namespace gtx
 }//namespace glm
 
 #include "epsilon.inl"
-
-namespace glm{using namespace gtx::epsilon;}
 
 #endif//glm_gtx_epsilon

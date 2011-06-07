@@ -26,10 +26,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace noise	///< GLM_GTX_noise extension: Comparison functions for a user defined epsilon values.
+namespace gtx
 {
-	/// \addtogroup gtx_noise
+	/// @addtogroup gtx_noise
 	/// @{
 
 	//! Classic perlin noise.
@@ -52,12 +51,9 @@ namespace noise	///< GLM_GTX_noise extension: Comparison functions for a user de
 		vecType<T> const & p);
 
 	/// @}
-}//namespace noise
 }//namespace gtx
 }//namespace glm
 
 #include "noise.inl"
-
-namespace glm{using namespace gtx::noise;}
 
 #endif//glm_gtx_noise

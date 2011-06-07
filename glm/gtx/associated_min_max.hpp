@@ -22,8 +22,7 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace associated_min_max ///< GLM_GTX_associated_min_max extension: Min and max functions that return associated values not the compared onces.
+namespace gtx
 {
 	/// \addtogroup gtx_associated_min_max
 	/// @{
@@ -71,12 +70,9 @@ namespace associated_min_max ///< GLM_GTX_associated_min_max extension: Min and 
 		const genTypeT& w, const genTypeU& d);
 
 	/// @}
-} //namespace associated_min_max
 } //namespace gtx
 } //namespace glm
 
 #include "associated_min_max.inl"
-
-namespace glm{using namespace gtx::associated_min_max;}
 
 #endif//glm_gtx_associated_min_max

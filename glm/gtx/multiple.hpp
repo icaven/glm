@@ -21,10 +21,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace multiple ///< GLM_GTX_multiple: Find the closest number of a number multiple of other number.
+namespace gtx
 {
-	/// \addtogroup gtx_multiple
+	/// @addtogroup gtx_multiple
 	/// @{
 
 	//! Higher Multiple number of Source.
@@ -42,12 +41,9 @@ namespace multiple ///< GLM_GTX_multiple: Find the closest number of a number mu
 		genType const & Multiple);
 
 	/// @}
-}//namespace multiple
 }//namespace gtx
 }//namespace glm
 
 #include "multiple.inl"
-
-namespace glm{using namespace gtx::multiple;}
 
 #endif//glm_gtx_multiple

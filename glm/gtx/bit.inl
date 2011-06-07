@@ -11,7 +11,6 @@
 
 namespace glm{
 namespace gtx{
-namespace bit{
 
 template <typename genIType>
 GLM_FUNC_QUALIFIER genIType mask
@@ -772,6 +771,5 @@ GLM_FUNC_QUALIFIER genIUType fillBitfieldWithZero
 	return Result;
 }
 
-}//namespace bit
 }//namespace gtx
 }//namespace glm

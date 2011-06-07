@@ -9,8 +9,7 @@
 
 namespace glm{
 namespace gtx{
-namespace integer
-{
+
     // pow
     GLM_FUNC_QUALIFIER int pow(int x, int y)
     {
@@ -86,6 +85,5 @@ namespace integer
             factorial(x.w));
     }
 
-}//namespace integer
 }//namespace gtx
 }//namespace glm

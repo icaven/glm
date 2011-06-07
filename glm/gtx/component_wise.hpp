@@ -21,10 +21,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace component_wise ///< GLM_GTX_component_wise extension: Operations between components of a type
+namespace gtx
 {
-	/// \addtogroup gtx_component_wise
+	/// @addtogroup gtx_component_wise
 	/// @{
 
 	//! Add all vector components together. 
@@ -52,12 +51,9 @@ namespace component_wise ///< GLM_GTX_component_wise extension: Operations betwe
 		genType const & v);
 
 	/// @}
-}//namespace component_wise
 }//namespace gtx
 }//namespace glm
 
 #include "component_wise.inl"
-
-namespace glm{using namespace gtx::component_wise;}
 
 #endif//glm_gtx_component_wise

@@ -22,12 +22,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace gradient_paint ///< GLM_GTX_gradient_paint extension: Compute a radient gradient according section OpenVG 1.1 specifications, 9.3.2 Radial Gradients
+namespace gtx
 {
-	using namespace gtx::optimum_pow;
-
-	/// \addtogroup gtx_gradient_paint
+	/// @addtogroup gtx_gradient_paint
 	/// @{
 
 	template <typename valType>
@@ -44,12 +41,9 @@ namespace gradient_paint ///< GLM_GTX_gradient_paint extension: Compute a radien
 		glm::detail::tvec2<valType> const & Position);
 
 	/// @}
-}// namespace gradient_paint
 }// namespace gtx
 }// namespace glm
 
 #include "gradient_paint.inl"
-
-namespace glm{using namespace gtx::gradient_paint;}
 
 #endif//glm_gtx_gradient_paint

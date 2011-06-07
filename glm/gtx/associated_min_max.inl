@@ -8,9 +8,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
-namespace associated_min_max{
-
+namespace gtx
+{
 	// Min comparison between 2 variables
 	template<typename T, typename U>
 	GLM_FUNC_QUALIFIER U associatedMin(T x, U a, T y, U b)
@@ -911,6 +910,5 @@ namespace associated_min_max{
 		return Result;
 	}
 
-}//namespace associated_min_max
 }//namespace gtx
 }//namespace glm

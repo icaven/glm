@@ -12,7 +12,6 @@
 
 namespace glm{
 namespace gtx{
-namespace closest_point{
 
 template <typename valType> 
 GLM_FUNC_QUALIFIER detail::tvec3<valType> closestPointOnLine
@@ -34,7 +33,6 @@ GLM_FUNC_QUALIFIER detail::tvec3<valType> closestPointOnLine
     return a + LineDirection * Distance;
 }
 
-}//namespace closest_point
 }//namespace gtx
 }//namespace glm
 

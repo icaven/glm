@@ -11,8 +11,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
-namespace matrix_query
+namespace gtx
 {
 	template<typename T> 
 	GLM_FUNC_QUALIFIER bool isNull(
@@ -139,6 +138,5 @@ namespace matrix_query
 		return result;
 	}
 
-}//namespace matrix_query
 }//namespace gtx
 }//namespace glm

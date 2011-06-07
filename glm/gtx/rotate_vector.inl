@@ -9,8 +9,7 @@
 
 namespace glm{
 namespace gtx{
-namespace rotate_vector
-{
+
 	template <typename T>
 	GLM_FUNC_QUALIFIER detail::tvec2<T> rotate(
         detail::tvec2<T> const & v, 
@@ -144,6 +143,5 @@ namespace rotate_vector
 		return glm::gtx::transform::rotate(Angle, RotationAxis);
 	}
 
-}//namespace rotate_vector
 }//namespace gtx
 }//namespace glm

@@ -21,10 +21,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace integer ///< GLM_GTX_integer extension: Add support for integer for core functions
+namespace gtx
 {
-	/// \addtogroup gtx_integer
+	/// @addtogroup gtx_integer
 	/// @{
 
 	//! Returns x raised to the y power. 
@@ -45,12 +44,9 @@ namespace integer ///< GLM_GTX_integer extension: Add support for integer for co
 	genType factorial(genType const & x);
 
 	/// @}
-}//namespace integer
 }//namespace gtx
 }//namespace glm
 
 #include "integer.inl"
-
-namespace glm{using namespace gtx::integer;}
 
 #endif//glm_gtx_integer

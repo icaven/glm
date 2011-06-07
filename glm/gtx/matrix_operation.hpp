@@ -21,8 +21,7 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace matrix_operation ///< GLM_GTX_matrix_operation: Build diagonal matrices
+namespace gtx
 {
 	/// \addtogroup gtx_matrix_operation
 	/// @{
@@ -82,7 +81,6 @@ namespace matrix_operation ///< GLM_GTX_matrix_operation: Build diagonal matrice
 		detail::tvec4<valType> const & v);
 
 	/// @}
-}//namespace matrix_operation
 }//namespace gtx
 }//namespace glm
 

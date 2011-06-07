@@ -21,10 +21,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace inertia ///< GLM_GTX_inertia extension: Create inertia matrices
+namespace gtx
 {
-	/// \addtogroup gtx_inertia
+	/// @addtogroup gtx_inertia
 	/// @{
 
 	//! Build an inertia matrix for a box.
@@ -84,12 +83,9 @@ namespace inertia ///< GLM_GTX_inertia extension: Create inertia matrices
 		const T Radius);
 
 	/// @}
-}// namespace inertia
 }// namespace gtx
 }// namespace glm
 
 #include "inertia.inl"
-
-namespace glm{using namespace gtx::inertia;}
 
 #endif//glm_gtx_inertia

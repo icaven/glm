@@ -8,8 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
-namespace norm
+namespace gtx
 {
 	template <typename T>
     GLM_FUNC_QUALIFIER T length2(
@@ -125,6 +124,5 @@ namespace norm
 		return pow(pow(v.x, T(Depth)) + pow(v.y, T(Depth)) + pow(v.z, T(Depth)), T(1) / T(Depth));
 	}
 
-}//namespace norm
 }//namespace gtx
 }//namespace glm

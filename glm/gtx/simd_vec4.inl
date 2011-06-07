@@ -7,10 +7,9 @@
 // File    : glm/gtx/simd_vec4.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm
+namespace glm{
+namespace detail
 {
-	namespace detail
-	{
 		template <int Value>
 		struct mask
 		{
@@ -265,11 +264,10 @@ namespace glm
 			return fvec4SIMD(_mm_sub_ps(v.Data, glm::detail::one));
 		}
 
-	}//namespace detail
+}//namespace detail
 
-	namespace gtx{
-	namespace simd_vec4
-	{
+namespace gtx{
+
 		GLM_FUNC_QUALIFIER detail::tvec4<float> vec4_cast
 		(
 			detail::fvec4SIMD const & x
@@ -725,6 +723,5 @@ namespace glm
 			return _mm_rsqrt_ps(x.Data);
 		}
 
-	}//namespace simd_vec4
-	}//namespace gtx
+}//namespace gtx
 }//namespace glm

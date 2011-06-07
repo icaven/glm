@@ -21,8 +21,7 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace matrix_cross_product ///< GLM_GTX_matrix_cross_product: Build cross product matrices
+namespace gtx
 {
 	/// \addtogroup gtx_matrix_cross_product
 	/// @{
@@ -40,12 +39,9 @@ namespace matrix_cross_product ///< GLM_GTX_matrix_cross_product: Build cross pr
 		detail::tvec3<T> const & x);
 
 	/// @}
-}//namespace matrix_cross_product
 }//namespace gtx
 }//namespace glm
 
 #include "matrix_cross_product.inl"
-
-namespace glm{using namespace gtx::matrix_cross_product;}
 
 #endif//glm_gtx_matrix_cross_product

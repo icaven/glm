@@ -2,14 +2,13 @@
 // OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2005-12-21
-// Updated : 2006-01-16
+// Updated : 2011-06-07
 // Licence : This source is under MIT License
 // File    : glm/gtx/epsilon.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
 namespace gtx{
-namespace epsilon{
 
 template <typename genType>
 GLM_FUNC_QUALIFIER bool equalEpsilon
@@ -229,6 +228,5 @@ GLM_FUNC_QUALIFIER detail::tvec4<bool> notEqualEpsilon
         abs(x.w - y.w) >= epsilon.w);
 }
 
-}//namespace epsilon
 }//namespace gtx
 }//namespace glm

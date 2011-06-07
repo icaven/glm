@@ -21,11 +21,10 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace spline ///< GLM_GTX_simplex extension: Spline functions
+namespace gtx
 {
-    /// \addtogroup gtx_spline
-    ///@{
+    /// @addtogroup gtx_spline
+    /// @{
             
     //! Return a point from a catmull rom curve.
     //! From GLM_GTX_spline extension.
@@ -58,13 +57,10 @@ namespace spline ///< GLM_GTX_simplex extension: Spline functions
                     typename genType::value_type const & s);
             
     /// @}
-}// namespace simplex
 }// namespace gtx
 }// namespace glm
 
 #include "simplex.inl"
-
-namespace glm{using namespace gtx::simplex;}
 
 #endif//glm_gtx_spline
 

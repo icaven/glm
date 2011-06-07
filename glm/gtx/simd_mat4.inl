@@ -234,8 +234,7 @@ namespace detail
 
 }//namespace detail
 
-namespace gtx{
-namespace simd_mat4
+namespace gtx
 {
 	GLM_FUNC_QUALIFIER detail::tmat4x4<float> mat4_cast
 	(
@@ -303,7 +302,6 @@ namespace simd_mat4
 		detail::sse_inverse_ps(&m[0].Data, &result[0].Data);
 		return result;
 	}
-}//namespace simd_mat4
-}//namespace gtx
 
+}//namespace gtx
 }//namespace glm

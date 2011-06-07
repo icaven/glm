@@ -21,8 +21,7 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace color_space ///< GLM_GTX_color_space extension: Related to RGB to HSV conversions and operations
+namespace gtx
 {
 	/// \addtogroup gtx_color_space
 	/// @{
@@ -66,12 +65,9 @@ namespace color_space ///< GLM_GTX_color_space extension: Related to RGB to HSV 
 		detail::tvec3<valType> const & color);
 
 	/// @}
-}//namespace color_space
 }//namespace gtx
 }//namespace glm
 
 #include "color_space.inl"
-
-namespace glm{using namespace gtx::color_space;}
 
 #endif//glm_gtx_color_space

@@ -23,11 +23,8 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace color_cast ///< GLM_GTX_color_cast extension: Conversion between two color types
+namespace gtx
 {
-	using namespace gtx::number_precision;
-
 	/// \addtogroup gtx_color_cast
 	/// @{
 
@@ -96,12 +93,9 @@ namespace color_cast ///< GLM_GTX_color_cast extension: Conversion between two c
 	template <typename T> gtc::f64vec4 f64_abgr_cast(T c);		//!< \brief Conversion of a u32 or u64 color into 4 components floating color. (From GLM_GTX_color_cast extension)
 
 	/// @}
-}//namespace color_space
 }//namespace gtx
 }//namespace glm
 
 #include "color_cast.inl"
-
-namespace glm{using namespace gtx::color_cast;}
 
 #endif//glm_gtx_color_cast

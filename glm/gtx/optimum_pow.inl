@@ -9,7 +9,6 @@
 
 namespace glm{
 namespace gtx{
-namespace optimum_pow{
 
     template <typename genType> 
     GLM_FUNC_QUALIFIER genType pow2(const genType& x)
@@ -58,6 +57,5 @@ namespace optimum_pow{
             powOfTwo(x.w));
     }
 
-}//namespace optimum_pow
 }//namespace gtx
 }//namespace glm

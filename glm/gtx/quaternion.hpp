@@ -26,11 +26,10 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace quaternion ///< GLM_GTX_quaternion extension: Quaternion types and functions
+namespace gtx
 {
-	/// \addtogroup gtx_quaternion
-	///@{
+	/// @addtogroup gtx_quaternion
+	/// @{
 
 	//! Compute a cross product between a quaternion and a vector. 
 	//! From GLM_GTX_quaternion extension.
@@ -204,12 +203,9 @@ namespace quaternion ///< GLM_GTX_quaternion extension: Quaternion types and fun
 		T const & a);
 
 	/// @}
-}//namespace quaternion
 }//namespace gtx
 }//namespace glm
 
 #include "quaternion.inl"
-
-namespace glm{using namespace gtx::quaternion;}
 
 #endif//glm_gtx_quaternion

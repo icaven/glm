@@ -21,8 +21,7 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace matrix_query ///< GLM_GTX_matrix_query: Query to evaluate matrix properties
+namespace gtx
 {
 	/// \addtogroup gtx_matrix_query
 	/// @{
@@ -84,12 +83,9 @@ namespace matrix_query ///< GLM_GTX_matrix_query: Query to evaluate matrix prope
 		const typename genType::value_type epsilon = std::numeric_limits<typename genType::value_type>::epsilon());
 
 	/// @}
-}//namespace matrix_query
 }//namespace gtx
 }//namespace glm
 
 #include "matrix_query.inl"
-
-namespace glm{using namespace gtx::matrix_query;}
 
 #endif//glm_gtx_matrix_query

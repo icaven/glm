@@ -23,8 +23,7 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace bit ///< GLM_GTX_bit extension: Allow to perform bit operations on integer values
+namespace gtx
 {
 	/// \addtogroup gtx_bit
 	/// @{
@@ -110,12 +109,9 @@ namespace bit ///< GLM_GTX_bit extension: Allow to perform bit operations on int
 		int const & ToBit);
 
 	/// @}
-}// namespace bit
 }// namespace gtx
 }// namespace glm
 
 #include "bit.inl"
-
-namespace glm{using namespace gtx::bit;}
 
 #endif//glm_gtx_bit

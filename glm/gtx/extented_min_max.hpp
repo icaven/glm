@@ -23,11 +23,10 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace extented_min_max ///< GLM_GTX_extented_min_max extension: Min and max functions for 3 to 4 parameters.
+namespace gtx
 {
-	/// \addtogroup gtx_extented_min_max
-	///@{
+	/// @addtogroup gtx_extented_min_max
+	/// @{
 
 	//< Return the minimum component-wise values of 3 inputs 
 	//< From GLM_GTX_extented_min_max extension
@@ -164,12 +163,9 @@ namespace extented_min_max ///< GLM_GTX_extented_min_max extension: Min and max 
 		C<T> const & w);
 
 	/// @}
-}//namespace extented_min_max
 }//namespace gtx
 }//namespace glm
 
 #include "extented_min_max.inl"
-
-namespace glm{using namespace gtx::extented_min_max;}
 
 #endif//glm_gtx_extented_min_max

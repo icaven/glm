@@ -23,10 +23,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace intersect	///< GLM_GTX_intersect extension: Add intersection functions
+namespace gtx
 {
-	/// \addtogroup gtx_intersect
+	/// @addtogroup gtx_intersect
 	/// @{
 
 	//! Compute the intersection of a ray and a triangle.
@@ -62,12 +61,9 @@ namespace intersect	///< GLM_GTX_intersect extension: Add intersection functions
 		genType & position, genType & normal);
 
 	/// @}
-}//namespace intersect
 }//namespace gtx
 }//namespace glm
 
 #include "intersect.inl"
-
-namespace glm{using namespace gtx::intersect;}
 
 #endif//glm_gtx_intersect

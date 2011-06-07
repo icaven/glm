@@ -9,7 +9,6 @@
 
 namespace glm{
 namespace gtx{
-namespace color_space_YCoCg{
 
 template <typename valType> 
 GLM_FUNC_QUALIFIER detail::tvec3<valType> rgb2YCoCg
@@ -64,6 +63,5 @@ GLM_FUNC_QUALIFIER detail::tvec3<valType> YCoCgR2rgb
 	return result;
 }
 
-}//namespace color_space_YCoCg
 }//namespace gtx
 }//namespace glm

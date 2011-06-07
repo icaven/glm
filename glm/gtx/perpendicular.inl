@@ -9,7 +9,6 @@
 
 namespace glm{
 namespace gtx{
-namespace perpendicular{
 
 template <typename T> 
 GLM_FUNC_QUALIFIER detail::tvec2<T> perp(
@@ -35,6 +34,5 @@ GLM_FUNC_QUALIFIER detail::tvec4<T> perp(
     return x - projection::proj(x, Normal);
 }
 
-}//namespace perpendicular
 }//namespace gtx
 }//namespace glm

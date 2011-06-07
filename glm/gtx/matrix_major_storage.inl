@@ -9,8 +9,7 @@
 
 namespace glm{
 namespace gtx{
-namespace matrix_major_storage
-{
+
     template <typename T> 
     GLM_FUNC_QUALIFIER detail::tmat2x2<T> rowMajor2(
 		const detail::tvec2<T>& v1, 
@@ -171,6 +170,5 @@ namespace matrix_major_storage
         return detail::tmat4x4<T>(m);
 	}
 
-}//namespace matrix_major_storage
 }//namespace gtx
 }//namespace glm

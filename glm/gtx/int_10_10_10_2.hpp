@@ -22,26 +22,19 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace int_10_10_10_2 ///< GLM_GTX_int_10_10_10_2 extension: Add support for integer for core functions
+namespace gtx
 {
-	using namespace gtx::raw_data;
-
-	/// \addtogroup gtx_int_10_10_10_2
-	///@{
+	/// @addtogroup gtx_int_10_10_10_2
+	/// @{
 
 	//! From GLM_GTX_int_10_10_10_2 extension.
 	//! Cast a vec4 to an u_10_10_10_2.
 	dword uint10_10_10_2_cast(glm::vec4 const & v);
 
-	///@}
-
-}//namespace integer
+	/// @}
 }//namespace gtx
 }//namespace glm
 
 #include "int_10_10_10_2.inl"
-
-namespace glm{using namespace gtx::int_10_10_10_2;}
 
 #endif//glm_gtx_int_10_10_10_2

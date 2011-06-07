@@ -24,13 +24,12 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace number_precision ///< GLM_GTX_number_precision extension: Defined size types.
+namespace gtx
 {
 	/////////////////////////////
 	// Unsigned int vector types 
 
-	/// \addtogroup gtx_number_precision
+	/// @addtogroup gtx_number_precision
 	/// @{
 
 	typedef u8			u8vec1;		//!< \brief 8bit unsigned integer scalar. (from GLM_GTX_number_precision extension)
@@ -56,12 +55,9 @@ namespace number_precision ///< GLM_GTX_number_precision extension: Defined size
 	typedef f64			f64mat1x1;	//!< \brief Double-precision floating-point scalar. (from GLM_GTX_number_precision extension)
 
 	/// @}
-}//namespace number_precision
 }//namespace gtx
 }//namespace glm
 
 #include "number_precision.inl"
-
-namespace glm{using namespace gtx::number_precision;}
 
 #endif//glm_gtx_number_precision

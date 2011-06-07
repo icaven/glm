@@ -4,12 +4,11 @@
 // Created : 2006-01-09
 // Updated : 2006-01-09
 // Licence : This source is under MIT License
-// File    : glm/gtx/fast_exponential.h
+// File    : glm/gtx/fast_exponential.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
-namespace fast_exponential
+namespace gtx
 {
     // fastPow:
 	template <typename T>
@@ -289,6 +288,5 @@ namespace fast_exponential
             fastLog2(x.w));
     }
 
-}//namespace fast_exponential
 }//namespace gtx
 }//namespace glm

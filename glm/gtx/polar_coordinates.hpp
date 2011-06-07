@@ -21,10 +21,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace polar_coordinates ///< GLM_GTX_polar_coordinates extension: Conversion from Euclidean space to polar space and revert.
+namespace gtx
 {
-	/// \addtogroup gtx_polar_coordinates
+	/// @addtogroup gtx_polar_coordinates
 	/// @{
 
 	//! Convert Euclidean to Polar coordinates, x is the xz distance, y, the latitude and z the longitude.
@@ -38,12 +37,9 @@ namespace polar_coordinates ///< GLM_GTX_polar_coordinates extension: Conversion
 	detail::tvec3<T> euclidean(const detail::tvec3<T>& polar);
 
 	/// @}
-}//namespace polar_coordinates
 }//namespace gtx
 }//namespace glm
 
 #include "polar_coordinates.inl"
-
-namespace glm{using namespace gtx::polar_coordinates;}
 
 #endif//glm_gtx_polar_coordinates

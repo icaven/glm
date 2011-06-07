@@ -11,8 +11,7 @@
 #include <cassert>
 
 namespace glm{
-namespace gtx{
-namespace random
+namespace gtx
 {
     template <>
 	GLM_FUNC_QUALIFIER float signedRand1()
@@ -531,6 +530,5 @@ namespace random
             gaussRand1(mean.w, std_deviation.w));
     }
 
-}//namespace random
 }//namespace gtx
 }//namespace glm

@@ -9,7 +9,6 @@
 
 namespace glm{
 namespace gtx{
-namespace inertia{
 
     template <typename T>
     GLM_FUNC_QUALIFIER detail::tmat3x3<T> boxInertia3(
@@ -98,6 +97,5 @@ namespace inertia{
         return Result;
     }
 
-}//namespace inertia
 }//namespace gtx
 }//namespace glm

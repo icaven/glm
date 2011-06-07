@@ -8,8 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
-namespace component_wise
+namespace gtx
 {
 	template <typename genType>
 	GLM_FUNC_QUALIFIER typename genType::value_type compAdd(genType const & v)
@@ -47,6 +46,5 @@ namespace component_wise
 		return result;
 	}
 
-}//namespace component_wise
 }//namespace gtx
 }//namespace glm

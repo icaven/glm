@@ -21,10 +21,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace extend ///< GLM_GTX_extend extension: Extend a position from a source to a position at a defined length.
+namespace gtx
 {
-	/// \addtogroup gtx_extend
+	/// @addtogroup gtx_extend
 	/// @{
 
 	//! Extends of Length the Origin position using the (Source - Origin) direction.
@@ -36,12 +35,9 @@ namespace extend ///< GLM_GTX_extend extension: Extend a position from a source 
 		typename genType::value_type const Length);
 
 	/// @}
-}//namespace extend
 }//namespace gtx
 }//namespace glm
 
 #include "extend.inl"
-
-namespace glm{using namespace gtx::extend;}
 
 #endif//glm_gtx_extend

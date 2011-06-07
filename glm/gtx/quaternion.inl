@@ -10,8 +10,7 @@
 #include <limits>
 
 namespace glm{
-namespace gtx{
-namespace quaternion
+namespace gtx
 {
     template <typename valType> 
     GLM_FUNC_QUALIFIER detail::tvec3<valType> cross
@@ -298,6 +297,5 @@ namespace quaternion
 		return glm::normalize(x * (T(1) - a) + (y * a));
 	}
 
-}//namespace quaternion
 }//namespace gtx
 }//namespace glm
