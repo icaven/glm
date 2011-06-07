@@ -86,6 +86,4 @@ namespace gtx
 
 #include "matrix_operation.inl"
 
-namespace glm{using namespace gtx::matrix_operation;}
-
 #endif//glm_gtx_matrix_operation

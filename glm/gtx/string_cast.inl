@@ -34,8 +34,7 @@ namespace detail
 }//namespace detail
 
 namespace gtx{
-namespace string_cast
-{
+
 	////////////////////////////////
 	// Scalars
 
@@ -592,6 +591,5 @@ namespace string_cast
 			x[3][0], x[3][1], x[3][2], x[3][3]);
 	}
 
-	}//namespace string_cast
-	}//namespace gtx
+}//namespace gtx
 }//namespace glm

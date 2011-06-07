@@ -21,10 +21,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace ulp ///< GLM_GTX_ulp extension: Precision calculation functions
+namespace gtx
 {
-	/// \addtogroup gtx_ulp
+	/// @addtogroup gtx_ulp
 	/// @{
 
 	//! Return the next ULP value(s) after the input value(s).
@@ -58,13 +57,10 @@ namespace ulp ///< GLM_GTX_ulp extension: Precision calculation functions
     vecType<uint> float_distance(vecType<T> const & x, vecType<T> const & y);
         
 	///@}
-}// namespace ulp
 }// namespace gtx
 }// namespace glm
 
 #include "ulp.inl"
-
-namespace glm{using namespace gtx::ulp;}
 
 #endif//glm_gtx_ulp
 

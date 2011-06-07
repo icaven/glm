@@ -43,9 +43,8 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace transform ///< GLM_GTX_transform extension: Add transformation matrices
-    {
+namespace gtx
+{
 	/// @addtogroup gtx_transform
 	/// @{
 
@@ -119,12 +118,9 @@ namespace transform ///< GLM_GTX_transform extension: Add transformation matrice
 		detail::tvec3<T> const & v);
 
 	/// @}
-}// namespace transform
 }// namespace gtx
 }// namespace glm
 
 #include "transform.inl"
-
-namespace glm{using namespace gtx::transform;}
 
 #endif//glm_gtx_transform

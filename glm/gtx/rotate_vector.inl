@@ -29,7 +29,7 @@ namespace gtx{
         T const & angle, 
 		const detail::tvec3<T> & normal)
 	{
-		return detail::tmat3x3<T>(glm::gtx::transform::rotate(angle, normal)) * v;
+		return detail::tmat3x3<T>(glm::gtx::rotate(angle, normal)) * v;
 	}
 /*
     template <typename T> 
@@ -49,7 +49,7 @@ namespace gtx{
 		T const & angle, 
         detail::tvec3<T> const & normal)
 	{
-		return glm::gtx::transform::rotate(angle, normal) * v;
+		return glm::gtx::rotate(angle, normal) * v;
 	}
 
 	template <typename T>
@@ -140,7 +140,7 @@ namespace gtx{
 
 		detail::tvec3<T> RotationAxis = cross(Up, Normal);
 		T Angle = degrees(acos(dot(Normal, Up)));
-		return glm::gtx::transform::rotate(Angle, RotationAxis);
+		return glm::gtx::rotate(Angle, RotationAxis);
 	}
 
 }//namespace gtx

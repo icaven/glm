@@ -14,8 +14,7 @@
 
 namespace glm{
 namespace gtx{
-namespace vector_query
-{
+
 	template <typename T>
 	GLM_FUNC_QUALIFIER bool areCollinear
 	(
@@ -169,6 +168,5 @@ namespace vector_query
 		return similar;
 	}
 
-}//namespace vector_query
 }//namespace gtx
 }//namespace glm

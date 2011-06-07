@@ -71,7 +71,7 @@ GLM_FUNC_QUALIFIER genType fastNormalizeDot
 {
 	return 
 		glm::dot(x, y) * 
-		glm::gtx::fast_square_root::fastInverseSqrt(glm::dot(x, x) * 
+		glm::gtx::fastInverseSqrt(glm::dot(x, x) * 
 		glm::dot(y, y));
 }
 
@@ -84,7 +84,7 @@ GLM_FUNC_QUALIFIER valType fastNormalizeDot
 {
 	return 
 		glm::dot(x, y) * 
-		glm::gtx::fast_square_root::fastInverseSqrt(glm::dot(x, x) * 
+		glm::gtx::fastInverseSqrt(glm::dot(x, x) * 
 		glm::dot(y, y));
 }
 
@@ -97,7 +97,7 @@ GLM_FUNC_QUALIFIER valType fastNormalizeDot
 {
 	return 
 		glm::dot(x, y) * 
-		glm::gtx::fast_square_root::fastInverseSqrt(glm::dot(x, x) * 
+		glm::gtx::fastInverseSqrt(glm::dot(x, x) * 
 		glm::dot(y, y));
 }
 
@@ -110,7 +110,7 @@ GLM_FUNC_QUALIFIER valType fastNormalizeDot
 {
 	return 
 		glm::dot(x, y) * 
-		glm::gtx::fast_square_root::fastInverseSqrt(glm::dot(x, x) * 
+		glm::gtx::fastInverseSqrt(glm::dot(x, x) * 
 		glm::dot(y, y));
 }
 

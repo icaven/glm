@@ -8,8 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
-namespace transform
+namespace gtx
 {
     template <typename T> 
     GLM_FUNC_QUALIFIER detail::tmat4x4<T> translate(
@@ -89,6 +88,5 @@ namespace transform
 			detail::tmat4x4<T>(1.0f), v);
     }
 
-}//namespace transform
 }//namespace gtx
 }//namespace glm

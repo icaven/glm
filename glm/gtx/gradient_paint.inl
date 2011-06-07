@@ -19,11 +19,11 @@ namespace gtx{
 	{
 		glm::detail::tvec2<valType> F = Focal - Center;
 		glm::detail::tvec2<valType> D = Position - Focal;
-		valType Radius2 = gtx::optimum_pow::pow2(Radius);
-		valType Fx2 = gtx::optimum_pow::pow2(F.x);
-		valType Fy2 = gtx::optimum_pow::pow2(F.y);
+		valType Radius2 = gtx::pow2(Radius);
+		valType Fx2 = gtx::pow2(F.x);
+		valType Fy2 = gtx::pow2(F.y);
 
-		valType Numerator = (D.x * F.x + D.y * F.y) + glm::sqrt(Radius2 * (gtx::optimum_pow::pow2(D.x) + gtx::optimum_pow::pow2(D.y)) - gtx::optimum_pow::pow2(D.x * F.y - D.y * F.x));
+		valType Numerator = (D.x * F.x + D.y * F.y) + glm::sqrt(Radius2 * (gtx::pow2(D.x) + gtx::pow2(D.y)) - gtx::pow2(D.x * F.y - D.y * F.x));
 		valType Denominator = Radius2 - (Fx2 + Fy2);
 		return Numerator / Denominator;
 	}

@@ -23,12 +23,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace transform2 ///< GLM_GTX_transform2 extension: Add extra transformation matrices
+namespace gtx
 {
-	using namespace gtx::transform;
-
-	/// \addtogroup gtx_transform2
+	/// @addtogroup gtx_transform2
 	/// @{
 
 	//! Transforms a matrix with a shearing on X axis.
@@ -107,12 +104,9 @@ namespace transform2 ///< GLM_GTX_transform2 extension: Add extra transformation
 		valType bias);
 
 	/// @}
-}// namespace transform2
 }// namespace gtx
 }// namespace glm
 
 #include "transform2.inl"
-
-namespace glm{using namespace gtx::transform2;}
 
 #endif//glm_gtx_transform2

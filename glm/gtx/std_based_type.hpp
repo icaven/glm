@@ -22,8 +22,7 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace std_based_type ///< GLM_GTX_std_based_type extension: Add support vector types based on C++ standard type
+namespace gtx
 {
 	typedef detail::tvec2<std::size_t>		size2;
 	typedef detail::tvec3<std::size_t>		size3;
@@ -61,12 +60,9 @@ namespace std_based_type ///< GLM_GTX_std_based_type extension: Add support vect
 	typedef detail::tvec3<unsigned long>	ulvec3;
 	typedef detail::tvec4<unsigned long>	ulvec4;
 
-}//namespace std_based_type
 }//namespace gtx
 }//namespace glm
 
 #include "std_based_type.inl"
-
-namespace glm{using namespace gtx::std_based_type;}
 
 #endif//glm_gtx_std_based_type

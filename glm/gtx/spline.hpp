@@ -22,12 +22,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace spline ///< GLM_GTX_spline extension: Spline functions
+namespace gtx
 {
-	using namespace gtx::optimum_pow;
-
-	/// \addtogroup gtx_spline
+	/// @addtogroup gtx_spline
 	/// @{
 
 	//! Return a point from a catmull rom curve.
@@ -61,13 +58,10 @@ namespace spline ///< GLM_GTX_spline extension: Spline functions
 		typename genType::value_type const & s);
 
 	/// @}
-}//namespace spline
 }//namespace gtx
 }//namespace glm
 
 #include "spline.inl"
-
-namespace glm{using namespace gtx::spline;}
 
 #endif//glm_gtx_spline
 

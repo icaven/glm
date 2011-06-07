@@ -15,7 +15,7 @@ GLM_FUNC_QUALIFIER detail::tvec2<T> perp(
 	detail::tvec2<T> const & x, 
 	detail::tvec2<T> const & Normal)
 {
-    return x - projection::proj(x, Normal);
+    return x - proj(x, Normal);
 }
 
 template <typename T> 
@@ -23,7 +23,7 @@ GLM_FUNC_QUALIFIER detail::tvec3<T> perp(
 	detail::tvec3<T> const & x, 
 	detail::tvec3<T> const & Normal)
 {
-    return x - projection::proj(x, Normal);
+    return x - proj(x, Normal);
 }
 
 template <typename T> 
@@ -31,7 +31,7 @@ GLM_FUNC_QUALIFIER detail::tvec4<T> perp(
 	detail::tvec4<T> const & x, 
 	detail::tvec4<T> const & Normal)
 {
-    return x - projection::proj(x, Normal);
+    return x - proj(x, Normal);
 }
 
 }//namespace gtx

@@ -21,10 +21,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace vector_access ///< GLM_GTX_vector_access extension: Function to set values to vectors
+namespace gtx
 {
-	/// \addtogroup gtx_vector_access
+	/// @addtogroup gtx_vector_access
 	/// @{
 
 	//! Set values to a 2 components vector.
@@ -55,12 +54,9 @@ namespace vector_access ///< GLM_GTX_vector_access extension: Function to set va
 		valType const & w);
 
 	/// @}
-}//namespace vector_access
 }//namespace gtx
 }//namespace glm
 
 #include "vector_access.inl"
-
-namespace glm{using namespace gtx::vector_access;}
 
 #endif//glm_gtx_vector_access

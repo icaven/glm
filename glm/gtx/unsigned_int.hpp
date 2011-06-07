@@ -23,12 +23,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace unsigned_int ///< GLM_GTX_unsigned_int extension: Add support for unsigned integer for core functions
+namespace gtx
 {
-	using namespace gtx::integer;
-
-	/// \addtogroup gtx_unsigned_int
+	/// @addtogroup gtx_unsigned_int
 	/// @{
 
 	//! 32bit signed integer. 
@@ -48,12 +45,9 @@ namespace unsigned_int ///< GLM_GTX_unsigned_int extension: Add support for unsi
 	uint mod(uint x, uint y);
 
 	/// @}
-}//namespace unsigned_int
 }//namespace gtx
 }//namespace glm
 
 #include "unsigned_int.inl"
-
-namespace glm{using namespace gtx::unsigned_int;}
 
 #endif//glm_gtx_unsigned_int

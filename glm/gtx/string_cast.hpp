@@ -29,14 +29,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace string_cast ///< GLM_GTX_string_cast extension: Setup strings for GLM type values
+namespace gtx
 {
-	using namespace gtx::integer; 
-	using namespace gtx::unsigned_int; 
-	using namespace gtx::quaternion; 
-
-	/// \addtogroup gtx_string_cast
+	/// @addtogroup gtx_string_cast
 	/// @{
 
 	//! Create a string from a GLM type value.
@@ -45,12 +40,9 @@ namespace string_cast ///< GLM_GTX_string_cast extension: Setup strings for GLM 
 	std::string to_string(genType const & x);
 
 	/// @}
-}//namespace string_cast
 }//namespace gtx
 }//namespace glm
 
 #include "string_cast.inl"
-
-namespace glm{using namespace gtx::string_cast;}
 
 #endif//glm_gtx_string_cast

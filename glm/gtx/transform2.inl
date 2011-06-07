@@ -9,8 +9,7 @@
 
 namespace glm{
 namespace gtx{
-namespace transform2
-{
+
     template <typename T> 
     GLM_FUNC_QUALIFIER detail::tmat3x3<T> shearX2D(
 		const detail::tmat3x3<T>& m, 
@@ -153,7 +152,6 @@ namespace transform2
 		return m * scaleBias(scale, bias);
 	}
 
-}//namespace transform2
 }//namespace gtx
 }//namespace glm
 

@@ -22,9 +22,7 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace vector1{ ///< GLM_GTX_vec1 extension: 1 component vector.
-namespace precision
+namespace gtx
 {
 	//! 1 component vector of high precision floating-point numbers. 
 	//! There is no guarantee on the actual precision.
@@ -64,7 +62,6 @@ namespace precision
 	//! There is no guarantee on the actual precision.
 	//! From GLM_GTX_vec1 extension.
 	typedef detail::lowp_uvec1_t			lowp_uvec1;
-}//namespace precision
 
 	//////////////////////////
 	// vec1 definition
@@ -74,48 +71,45 @@ namespace precision
 	typedef detail::tvec1<bool>	bvec1;
 
 #if(defined(GLM_PRECISION_HIGHP_FLOAT))
-	typedef precision::highp_vec1			vec1;
+	typedef highp_vec1			vec1;
 #elif(defined(GLM_PRECISION_MEDIUMP_FLOAT))
-	typedef precision::mediump_vec1			vec1;
+	typedef mediump_vec1			vec1;
 #elif(defined(GLM_PRECISION_LOWP_FLOAT))
-	typedef precision::lowp_vec1			vec1;
+	typedef lowp_vec1			vec1;
 #else
 	//! 1 component vector of floating-point numbers.
 	//! From GLM_GTX_vec1 extension.
-	typedef precision::mediump_vec1			vec1;
+	typedef mediump_vec1			vec1;
 #endif//GLM_PRECISION
 
 #if(defined(GLM_PRECISION_HIGHP_INT))
-	typedef precision::highp_ivec1			ivec1;
+	typedef highp_ivec1			ivec1;
 #elif(defined(GLM_PRECISION_MEDIUMP_INT))
-	typedef precision::mediump_ivec1		ivec1;
+	typedef mediump_ivec1		ivec1;
 #elif(defined(GLM_PRECISION_LOWP_INT))
-	typedef precision::lowp_ivec1			ivec1;
+	typedef lowp_ivec1			ivec1;
 #else
 	//! 1 component vector of signed integer numbers. 
 	//! From GLM_GTX_vec1 extension.
-	typedef precision::mediump_ivec1		ivec1;
+	typedef mediump_ivec1		ivec1;
 #endif//GLM_PRECISION
 
 #if(defined(GLM_PRECISION_HIGHP_UINT))
-	typedef precision::highp_uvec1			uvec1;
+	typedef highp_uvec1			uvec1;
 #elif(defined(GLM_PRECISION_MEDIUMP_UINT))
-	typedef precision::mediump_uvec1		uvec1;
+	typedef mediump_uvec1		uvec1;
 #elif(defined(GLM_PRECISION_LOWP_UINT))
-	typedef precision::lowp_uvec1			uvec1;
+	typedef lowp_uvec1			uvec1;
 #else
 	//! 1 component vector of unsigned integer numbers. 
 	//! From GLM_GTX_vec1 extension.
-	typedef precision::mediump_uvec1		uvec1;
+	typedef mediump_uvec1		uvec1;
 #endif//GLM_PRECISION
 
-}// namespace vec1
 }// namespace gtx
 }// namespace glm
 
 #include "vec1.inl"
-
-namespace glm{using namespace gtx::vector1;}
 
 #endif//glm_gtx_vec1
 

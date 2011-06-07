@@ -44,7 +44,6 @@ namespace gtx
 	typedef uint64		qword;
 
 	/// @}
-}// namespace raw_data
 }// namespace gtx
 }// namespace glm
 

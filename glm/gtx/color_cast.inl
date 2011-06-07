@@ -9,8 +9,6 @@
 
 namespace glm{
 namespace gtx{
-//! GLM_GTX_color_cast extension: Conversion between two color types
-namespace color_cast{
 
 template <typename T> 
 GLM_FUNC_QUALIFIER gtc::uint8 u8channel_cast(T a)
@@ -734,6 +732,5 @@ GLM_FUNC_QUALIFIER detail::tvec4<double> f64_abgr_cast<uint64>(uint64 color)
 	return result;
 }
 
-}//namespace color_space
 }//namespace gtx
 }//namespace glm

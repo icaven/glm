@@ -11,8 +11,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
-namespace wrap
+namespace gtx
 {
 	////////////////////////
 	// clamp
@@ -168,6 +167,5 @@ namespace wrap
 		return Result;
 	}
 
-}//namespace wrap
 }//namespace gtx
 }//namespace glm

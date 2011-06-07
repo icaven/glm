@@ -23,10 +23,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace vector_query ///< GLM_GTX_vector_query extension: Query informations of vector types
+namespace gtx
 {
-	/// \addtogroup gtx_vector_query
+	/// @addtogroup gtx_vector_query
 	/// @{
 
 	//! Check if two vectors are collinears.
@@ -84,12 +83,9 @@ namespace vector_query ///< GLM_GTX_vector_query extension: Query informations o
 		typename genType::value_type const & epsilon = std::numeric_limits<typename genType::value_type>::epsilon());
 
 	/// @}
-}// namespace vector_query
 }// namespace gtx
 }// namespace glm
 
 #include "vector_query.inl"
-
-namespace glm{using namespace gtx::vector_query;}
 
 #endif//glm_gtx_vector_query

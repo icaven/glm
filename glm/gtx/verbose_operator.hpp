@@ -21,10 +21,9 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace verbose_operator ///< GLM_GTX_verbose_operator extension: Use words to replace operators
+namespace gtx
 {
-	/// \addtogroup gtx_verbose_operator
+	/// @addtogroup gtx_verbose_operator
 	/// @{
 
 	//! Addition of two values
@@ -53,12 +52,9 @@ namespace verbose_operator ///< GLM_GTX_verbose_operator extension: Use words to
 	genTypeT mad(genTypeT const & a, genTypeU const & b, genTypeV const & c);
 
 	/// @}
-}// namespace verbose_operator
 }// namespace gtx
 }// namespace glm
 
 #include "verbose_operator.inl"
-
-namespace glm{using namespace gtx::verbose_operator;}
 
 #endif//glm_gtx_verbose_operator

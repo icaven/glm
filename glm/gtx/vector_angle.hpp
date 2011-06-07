@@ -26,14 +26,10 @@
 #endif
 
 namespace glm{
-namespace gtx{
-namespace vector_angle ///< GLM_GTX_vector_angle extension: Compute angle between vectors
+namespace gtx
 {
-	using namespace quaternion;
-	using namespace epsilon;
-
-	/// \addtogroup gtx_vector_angle
-	///@{
+	/// @addtogroup gtx_vector_angle
+	/// @{
 
 	//! Returns the absolute angle between two vectors
 	//! Parameters need to be normalized.
@@ -61,12 +57,9 @@ namespace vector_angle ///< GLM_GTX_vector_angle extension: Compute angle betwee
 		detail::tvec3<T> const & ref);
 
 	/// @}
-}// namespace vector_angle
 }// namespace gtx
 }// namespace glm
 
 #include "vector_angle.inl"
-
-namespace glm{using namespace gtx::vector_angle;}
 
 #endif//glm_gtx_vector_angle

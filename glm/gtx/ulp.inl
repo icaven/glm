@@ -178,8 +178,7 @@ namespace detail
 
 namespace glm{
 namespace gtx{
-namespace ulp
-{
+
     GLM_FUNC_QUALIFIER float next_float(float const & x)
     {
         return GLM_NEXT_AFTER_FLT(x, std::numeric_limits<float>::max());
@@ -391,6 +390,6 @@ namespace ulp
         return glm::max(glm::max(ulps[0], ulps[1]), glm::max(ulps[2], ulps[3]));
 	}
 */
-}//namespace ulp
+
 }//namespace gtx
 }//namespace glm

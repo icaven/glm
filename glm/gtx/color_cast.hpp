@@ -56,7 +56,7 @@ namespace gtx
 	template <typename T> gtc::uint64 u64_bgra_cast(const detail::tvec4<T>& c);		//!< \brief Conversion of a 4 components color into an 64bit unsigned int value. (From GLM_GTX_color_cast extension)
 	template <typename T> gtc::uint64 u64_abgr_cast(const detail::tvec4<T>& c);		//!< \brief Conversion of a 4 components color into an 64bit unsigned int value. (From GLM_GTX_color_cast extension)
 
-	template <typename T> gtx::number_precision::f16vec1 f16_channel_cast(T a);	//!< \brief Conversion of a u8 or u16 value to a single channel floating value. (From GLM_GTX_color_cast extension)
+	template <typename T> gtx::f16vec1 f16_channel_cast(T a);	//!< \brief Conversion of a u8 or u16 value to a single channel floating value. (From GLM_GTX_color_cast extension)
 
 	template <typename T> gtc::f16vec3 f16_rgbx_cast(T c);		//!< \brief Conversion of a u32 or u64 color into 3 components floating color. (From GLM_GTX_color_cast extension)
 	template <typename T> gtc::f16vec3 f16_xrgb_cast(T c);		//!< \brief Conversion of a u32 or u64 color into 3 components floating color. (From GLM_GTX_color_cast extension)
@@ -68,7 +68,7 @@ namespace gtx
 	template <typename T> gtc::f16vec4 f16_bgra_cast(T c);		//!< \brief Conversion of a u32 or u64 color into 4 components floating color. (From GLM_GTX_color_cast extension)
 	template <typename T> gtc::f16vec4 f16_abgr_cast(T c);		//!< \brief Conversion of a u32 or u64 color into 4 components floating color. (From GLM_GTX_color_cast extension)
 
-	template <typename T> gtx::number_precision::f32vec1 f32_channel_cast(T a);	//!< \brief Conversion of a u8 or u16 value to a single channel floating value. (From GLM_GTX_color_cast extension)
+	template <typename T> gtx::f32vec1 f32_channel_cast(T a);	//!< \brief Conversion of a u8 or u16 value to a single channel floating value. (From GLM_GTX_color_cast extension)
 
 	template <typename T> gtc::f32vec3 f32_rgbx_cast(T c);		//!< \brief Conversion of a u32 or u64 color into 3 components floating color. (From GLM_GTX_color_cast extension)
 	template <typename T> gtc::f32vec3 f32_xrgb_cast(T c);		//!< \brief Conversion of a u32 or u64 color into 3 components floating color. (From GLM_GTX_color_cast extension)
@@ -80,7 +80,7 @@ namespace gtx
 	template <typename T> gtc::f32vec4 f32_bgra_cast(T c);		//!< \brief Conversion of a u32 or u64 color into 4 components floating color. (From GLM_GTX_color_cast extension)
 	template <typename T> gtc::f32vec4 f32_abgr_cast(T c);		//!< \brief Conversion of a u32 or u64 color into 4 components floating color. (From GLM_GTX_color_cast extension)
 
-	template <typename T> gtx::number_precision::f64vec1 f64_channel_cast(T a);	//!< \brief Conversion of a u8 or u16 value to a single channel floating value. (From GLM_GTX_color_cast extension)
+	template <typename T> gtx::f64vec1 f64_channel_cast(T a);	//!< \brief Conversion of a u8 or u16 value to a single channel floating value. (From GLM_GTX_color_cast extension)
 
 	template <typename T> gtc::f64vec3 f64_rgbx_cast(T c);		//!< \brief Conversion of a u32 or u64 color into 3 components floating color. (From GLM_GTX_color_cast extension)
 	template <typename T> gtc::f64vec3 f64_xrgb_cast(T c);		//!< \brief Conversion of a u32 or u64 color into 3 components floating color. (From GLM_GTX_color_cast extension)
