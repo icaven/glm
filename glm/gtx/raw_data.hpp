@@ -25,8 +25,6 @@ namespace glm{
 namespace gtx{
 namespace raw_data ///< GLM_GTX_raw_data extension: Projection of a vector to other one
 {
-	using namespace gtc::type_precision;
-
 	/// \addtogroup gtx_raw_data
 	///@{
 

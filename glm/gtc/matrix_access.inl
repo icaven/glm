@@ -8,8 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtc{
-namespace matrix_access
+namespace gtc
 {
     template <typename genType>
     GLM_FUNC_QUALIFIER genType row(
@@ -53,7 +52,6 @@ namespace matrix_access
         return m[index];
     }
 
-}//namespace matrix_access
 }//namespace gtc
 }//namespace glm
 

@@ -26,8 +26,7 @@ namespace glm{
 namespace gtx{
 namespace fast_exponential ///< GLM_GTX_fast_exponential extension: Fast but less accurate implementations of exponential based functions.
 {
-	using namespace gtc::half_float;
-	/// \addtogroup gtx_fast_exponential
+	/// @addtogroup gtx_fast_exponential
 	/// @{
 
 	//! Faster than the common pow function but less accurate.

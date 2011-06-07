@@ -32,7 +32,6 @@ namespace glm{
 namespace gtx{
 namespace string_cast ///< GLM_GTX_string_cast extension: Setup strings for GLM type values
 {
-	using namespace gtc::half_float; 
 	using namespace gtx::integer; 
 	using namespace gtx::unsigned_int; 
 	using namespace gtx::quaternion; 
