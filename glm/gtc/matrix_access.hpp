@@ -26,6 +26,12 @@
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
+/// 
+/// @defgroup gtc_matrix_access GLM_GTC_matrix_access: Access matrix rows and columns
+/// @ingroup gtc
+/// 
+/// Defines functions to access rows or columns of a matrix easily.
+/// <glm/gtc/matrix_access.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtc_matrix_access

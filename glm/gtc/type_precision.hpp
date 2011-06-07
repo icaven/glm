@@ -28,6 +28,16 @@
 /// @see core (dependence)
 /// @see gtc_half_float (dependence)
 /// @see gtc_quaternion (dependence)
+/// 
+/// @defgroup gtc_type_precision GLM_GTC_type_precision: Vector and matrix types with defined precisions
+/// @ingroup gtc
+/// 
+/// @brief Defines specific C++-based precision types.
+/// 
+/// @ref core_precision defines types based on GLSL's precision qualifiers. This
+/// extension defines types based on explicitly-sized C++ data types.
+/// 
+/// <glm/gtc/type_precision.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtc_type_precision

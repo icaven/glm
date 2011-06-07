@@ -28,6 +28,32 @@
 /// @see core (dependence)
 /// @see gtc_half_float (dependence)
 /// @see gtc_quaternion (dependence)
+///
+/// @defgroup gtc_type_ptr GLM_GTC_type_ptr: Memory layout access
+/// @ingroup gtc
+///
+/// @brief Used to get a pointer to the memory layout of a basic type.
+/// 
+/// This extension defines an overloaded function, glm::value_ptr, which
+/// takes any of the \ref core_template "core template types". It returns
+/// a pointer to the memory layout of the object. Matrix types store their values
+/// in column-major order.
+/// 
+/// This is useful for uploading data to matrices or copying data to buffer objects.
+///
+/// Example:
+/// @code
+/// #include <glm/glm.hpp>
+/// #include <glm/gtc/type_ptr.hpp>
+/// 
+/// glm::vec3 aVector(3);
+/// glm::mat4 someMatrix(1.0);
+/// 
+/// glUniform3fv(uniformLoc, 1, glm::value_ptr(aVector));
+/// glUniformMatrix4fv(uniformMatrixLoc, 1, GL_FALSE, glm::value_ptr(someMatrix));
+/// @endcode
+/// 
+/// <glm/gtc/type_ptr.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtc_type_ptr
@@ -44,7 +70,8 @@
 #endif
 
 namespace glm{
-namespace gtc{ 
+namespace gtc
+{ 
 	/// @addtogroup gtc_type_ptr
 	/// @{
 

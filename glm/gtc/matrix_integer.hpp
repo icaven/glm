@@ -26,6 +26,12 @@
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
+///
+/// @defgroup gtc_matrix_integer GLM_GTC_matrix_integer: Integer matrix types
+/// @ingroup gtc
+/// 
+/// Defines a number of matrices with integer types.
+/// <glm/gtc/matrix_integer.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtc_matrix_integer

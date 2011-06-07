@@ -26,6 +26,13 @@
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
+/// 
+/// @defgroup gtc_swizzle GLM_GTC_swizzle: Swizzle 'operator' implementation
+/// @ingroup gtc
+/// 
+/// @brief Provide functions to emulate GLSL swizzle operator fonctionalities.
+/// 
+/// <glm/gtc/swizzle.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtc_swizzle
@@ -42,6 +49,9 @@
 namespace glm{
 namespace gtc
 {
+	/// @addtogroup gtc_half_float
+	/// @{
+	
 	template <typename T, template <typename> class vecType>
 	T const & swizzle(	
 		vecType<T> const & v,
@@ -358,6 +368,7 @@ namespace gtc
 	static_swizzle4_ref(glm::u32, 4)
 	static_swizzle4_ref(glm::u64, 4)
 
+	/// @}
 }//namespace gtc
 }//namespace glm
 

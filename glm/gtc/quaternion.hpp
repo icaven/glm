@@ -30,6 +30,13 @@
 ///
 /// @todo Study constructors with angles and axis
 /// @todo Study constructors with vec3 that are the imaginary component of quaternion
+/// 
+/// @defgroup gtc_quaternion GLM_GTC_quaternion: Quaternion types and functions
+/// @ingroup gtc
+/// 
+/// @brief Defines a templated quaternion type and several quaternion operations.
+/// 
+/// <glm/gtc/quaternion.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtc_quaternion
@@ -46,9 +53,9 @@
 namespace glm{
 namespace detail
 {
-	/// \brief Template for quaternion. 
+	/// @brief Template for quaternion. 
 	/// From GLM_GTC_quaternion extension.
-	/// \ingroup gtc_quaternion
+	/// @ingroup gtc_quaternion
 	template <typename T> 
 	struct tquat// : public genType<T, tquat>
 	{

@@ -26,6 +26,13 @@
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
+///
+/// @defgroup gtc_half_float GLM_GTC_half_float: Half-precision floating-point based types and functions
+/// @ingroup gtc
+/// 
+/// Defines the half-precision floating-point type, along with various typedefs for vectors and matrices.
+/// <glm/gtc/half_float.hpp> need to be included to use these functionalities.
+///
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtc_half_float
@@ -344,7 +351,7 @@ namespace detail
 
 namespace gtc
 {
-	/// \addtogroup gtc_half_float
+	/// @addtogroup gtc_half_float
 	/// @{
 
 	/// Type for half-precision floating-point numbers. 

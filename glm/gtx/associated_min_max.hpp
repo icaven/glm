@@ -24,7 +24,13 @@
 namespace glm{
 namespace gtx
 {
-	/// \addtogroup gtx_associated_min_max
+	/// @defgroup gtx_associated_min_max GLM_GTX_associated_min_max: Associated Min/Max
+	/// @ingroup gtx
+	///
+	/// @brief Min and max functions that return associated values not the compared onces.
+	/// <glm/gtx/associated_min_max.hpp> need to be included to use these functionalities.	
+	///
+	/// @addtogroup gtx_associated_min_max
 	/// @{
 
 	//! \brief Min comparison between 2 variables
