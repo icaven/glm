@@ -40,8 +40,7 @@
 
 namespace glm{
 namespace gtc{
-namespace matrix_integer ///< GLM_GTC_matrix_integer extension: Add integer matrices
-{
+
 	/// \addtogroup gtc_matrix_integer
 	/// @{
 
@@ -211,12 +210,8 @@ namespace matrix_integer ///< GLM_GTC_matrix_integer extension: Add integer matr
 	typedef mediump_umat4x4							umat4x4; //!< \brief Unsigned integer 4x4 matrix. (from GLM_GTC_matrix_integer extension)
 #endif//GLM_PRECISION
 
-	///@}
-
-}//namespace matrix_integer
+	/// @}
 }//namespace gtc
 }//namespace glm
-
-namespace glm{using namespace gtc::matrix_integer;}
 
 #endif//glm_gtc_matrix_integer

@@ -42,8 +42,6 @@
 namespace glm{
 namespace gtc
 {
-	using namespace gtc::half_float;
-
 	template <typename T, template <typename> class vecType>
 	T const & swizzle(	
 		vecType<T> const & v,
@@ -359,7 +357,6 @@ namespace gtc
 	static_swizzle4_ref(glm::u16, 4)
 	static_swizzle4_ref(glm::u32, 4)
 	static_swizzle4_ref(glm::u64, 4)
-
 
 }//namespace gtc
 }//namespace glm

@@ -9,8 +9,7 @@
 
 namespace glm{
 namespace gtc{
-namespace matrix_transform
-{
+
     template <typename T> 
     GLM_FUNC_QUALIFIER detail::tmat4x4<T> translate
 	(
@@ -390,8 +389,8 @@ namespace matrix_transform
         Result[3][1] =-dot(y, eye);
         Result[3][2] = dot(f, eye);
     */  
-		return gtc::matrix_transform::translate(Result, -eye);
+		return gtc::translate(Result, -eye);
     }
-}//namespace matrix_transform
+
 }//namespace gtc
 }//namespace glm

@@ -26,8 +26,6 @@ namespace glm{
 namespace gtx{
 namespace bit ///< GLM_GTX_bit extension: Allow to perform bit operations on integer values
 {
-	using namespace gtc::half_float;
-
 	/// \addtogroup gtx_bit
 	/// @{
 

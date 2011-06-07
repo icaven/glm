@@ -20,7 +20,7 @@ namespace quaternion
 		detail::tquat<valType> const & q
 	)
     {
-		return gtc::quaternion::inverse(q) * v;
+		return gtc::inverse(q) * v;
     }
 
 	template <typename valType> 
@@ -53,7 +53,7 @@ namespace quaternion
 		detail::tquat<T> const & next
 	)
     {
-        detail::tquat<T> invQuat = gtc::quaternion::inverse(curr);
+        detail::tquat<T> invQuat = gtc::inverse(curr);
         return ext((log(next + invQuat) + log(prev + invQuat)) / T(-4)) * curr;
     }
 

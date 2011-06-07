@@ -27,8 +27,6 @@ namespace glm{
 namespace gtx{
 namespace number_precision ///< GLM_GTX_number_precision extension: Defined size types.
 {
-	using namespace gtc::type_precision;
-
 	/////////////////////////////
 	// Unsigned int vector types 
 

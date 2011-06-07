@@ -342,8 +342,7 @@ namespace detail
 }
 //namespace detail
 
-namespace gtc{
-namespace half_float ///< GLM_GTC_half_float extension: Add support for half precision floating-point types
+namespace gtc
 {
 	/// \addtogroup gtc_half_float
 	/// @{
@@ -413,13 +412,9 @@ namespace half_float ///< GLM_GTC_half_float extension: Add support for half pre
 	typedef detail::tmat4x4<detail::thalf>	hmat4x4;
     
 	/// @}
-
-}// namespace half_float
 }// namespace gtc
 }// namespace glm
 
 #include "half_float.inl"
-
-namespace glm{using namespace gtc::half_float;}
 
 #endif//glm_gtc_half_float

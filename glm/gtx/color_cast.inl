@@ -13,210 +13,210 @@ namespace gtx{
 namespace color_cast{
 
 template <typename T> 
-GLM_FUNC_QUALIFIER gtc::type_precision::uint8 u8channel_cast(T a)
+GLM_FUNC_QUALIFIER gtc::uint8 u8channel_cast(T a)
 {
-	return static_cast<gtc::type_precision::uint8>(a * T(255));
+	return static_cast<gtc::uint8>(a * T(255));
 }
 
 template <typename T> 
-GLM_FUNC_QUALIFIER gtc::type_precision::uint16 u16channel_cast(T a)
+GLM_FUNC_QUALIFIER gtc::uint16 u16channel_cast(T a)
 {
-	return static_cast<gtc::type_precision::uint16>(a * T(65535));
+	return static_cast<gtc::uint16>(a * T(65535));
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER gtc::type_precision::uint32 u32_rgbx_cast(const detail::tvec3<T>& c)
+GLM_FUNC_QUALIFIER gtc::uint32 u32_rgbx_cast(const detail::tvec3<T>& c)
 {
-	gtc::type_precision::uint32 result = 0;
-	result += static_cast<gtc::type_precision::uint32>(c.x * detail::tvec3<T>::value_type(255)) <<  0;
-	result += static_cast<gtc::type_precision::uint32>(c.y * detail::tvec3<T>::value_type(255)) <<  8;
-	result += static_cast<gtc::type_precision::uint32>(c.z * detail::tvec3<T>::value_type(255)) << 16;
+	gtc::uint32 result = 0;
+	result += static_cast<gtc::uint32>(c.x * detail::tvec3<T>::value_type(255)) <<  0;
+	result += static_cast<gtc::uint32>(c.y * detail::tvec3<T>::value_type(255)) <<  8;
+	result += static_cast<gtc::uint32>(c.z * detail::tvec3<T>::value_type(255)) << 16;
 	return result;
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER gtc::type_precision::uint32 u32_xrgb_cast(const detail::tvec3<T>& c)
+GLM_FUNC_QUALIFIER gtc::uint32 u32_xrgb_cast(const detail::tvec3<T>& c)
 {
-	gtc::type_precision::uint32 result = 0;
-    result += static_cast<gtc::type_precision::uint32>(c.x * detail::tvec3<T>::value_type(255)) <<  8;
-	result += static_cast<gtc::type_precision::uint32>(c.y * detail::tvec3<T>::value_type(255)) << 16;
-	result += static_cast<gtc::type_precision::uint32>(c.z * detail::tvec3<T>::value_type(255)) << 24;
+	gtc::uint32 result = 0;
+    result += static_cast<gtc::uint32>(c.x * detail::tvec3<T>::value_type(255)) <<  8;
+	result += static_cast<gtc::uint32>(c.y * detail::tvec3<T>::value_type(255)) << 16;
+	result += static_cast<gtc::uint32>(c.z * detail::tvec3<T>::value_type(255)) << 24;
 	return result;
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER gtc::type_precision::uint32 u32_bgrx_cast(const detail::tvec3<T>& c)
+GLM_FUNC_QUALIFIER gtc::uint32 u32_bgrx_cast(const detail::tvec3<T>& c)
 {
-	gtc::type_precision::uint32 result = 0;
-	result += static_cast<gtc::type_precision::uint32>(c.x * detail::tvec3<T>::value_type(255)) << 16;
-	result += static_cast<gtc::type_precision::uint32>(c.y * detail::tvec3<T>::value_type(255)) <<  8;
-	result += static_cast<gtc::type_precision::uint32>(c.z * detail::tvec3<T>::value_type(255)) <<  0;
+	gtc::uint32 result = 0;
+	result += static_cast<gtc::uint32>(c.x * detail::tvec3<T>::value_type(255)) << 16;
+	result += static_cast<gtc::uint32>(c.y * detail::tvec3<T>::value_type(255)) <<  8;
+	result += static_cast<gtc::uint32>(c.z * detail::tvec3<T>::value_type(255)) <<  0;
 	return result;
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER gtc::type_precision::uint32 u32_xbgr_cast(const detail::tvec3<T>& c)
+GLM_FUNC_QUALIFIER gtc::uint32 u32_xbgr_cast(const detail::tvec3<T>& c)
 {
-	gtc::type_precision::uint32 result = 0;
-	result += static_cast<gtc::type_precision::uint32>(c.x * detail::tvec3<T>::value_type(255)) << 24;
-	result += static_cast<gtc::type_precision::uint32>(c.y * detail::tvec3<T>::value_type(255)) << 16;
-	result += static_cast<gtc::type_precision::uint32>(c.z * detail::tvec3<T>::value_type(255)) <<  8;
-	result += static_cast<gtc::type_precision::uint32>(c.w * detail::tvec3<T>::value_type(255)) <<  0;
+	gtc::uint32 result = 0;
+	result += static_cast<gtc::uint32>(c.x * detail::tvec3<T>::value_type(255)) << 24;
+	result += static_cast<gtc::uint32>(c.y * detail::tvec3<T>::value_type(255)) << 16;
+	result += static_cast<gtc::uint32>(c.z * detail::tvec3<T>::value_type(255)) <<  8;
+	result += static_cast<gtc::uint32>(c.w * detail::tvec3<T>::value_type(255)) <<  0;
 	return result;
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER gtc::type_precision::uint32 u32_rgba_cast(const detail::tvec4<T>& c)
+GLM_FUNC_QUALIFIER gtc::uint32 u32_rgba_cast(const detail::tvec4<T>& c)
 {
-	gtc::type_precision::uint32 result = 0;
-	result += static_cast<gtc::type_precision::uint32>(c.x * detail::tvec4<T>::value_type(255)) <<  0;
-	result += static_cast<gtc::type_precision::uint32>(c.y * detail::tvec4<T>::value_type(255)) <<  8;
-	result += static_cast<gtc::type_precision::uint32>(c.z * detail::tvec4<T>::value_type(255)) << 16;
-	result += static_cast<gtc::type_precision::uint32>(c.w * detail::tvec4<T>::value_type(255)) << 24;
+	gtc::uint32 result = 0;
+	result += static_cast<gtc::uint32>(c.x * detail::tvec4<T>::value_type(255)) <<  0;
+	result += static_cast<gtc::uint32>(c.y * detail::tvec4<T>::value_type(255)) <<  8;
+	result += static_cast<gtc::uint32>(c.z * detail::tvec4<T>::value_type(255)) << 16;
+	result += static_cast<gtc::uint32>(c.w * detail::tvec4<T>::value_type(255)) << 24;
 	return result;
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER gtc::type_precision::uint32 u32_argb_cast(const detail::tvec4<T>& c)
+GLM_FUNC_QUALIFIER gtc::uint32 u32_argb_cast(const detail::tvec4<T>& c)
 {
-	gtc::type_precision::uint32 result = 0;
-	result += static_cast<gtc::type_precision::uint32>(c.x * detail::tvec4<T>::value_type(255)) <<  8;
-	result += static_cast<gtc::type_precision::uint32>(c.y * detail::tvec4<T>::value_type(255)) << 16;
-	result += static_cast<gtc::type_precision::uint32>(c.z * detail::tvec4<T>::value_type(255)) << 24;
-	result += static_cast<gtc::type_precision::uint32>(c.w * detail::tvec4<T>::value_type(255)) <<  0;
+	gtc::uint32 result = 0;
+	result += static_cast<gtc::uint32>(c.x * detail::tvec4<T>::value_type(255)) <<  8;
+	result += static_cast<gtc::uint32>(c.y * detail::tvec4<T>::value_type(255)) << 16;
+	result += static_cast<gtc::uint32>(c.z * detail::tvec4<T>::value_type(255)) << 24;
+	result += static_cast<gtc::uint32>(c.w * detail::tvec4<T>::value_type(255)) <<  0;
 	return result;
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER gtc::type_precision::uint32 u32_bgra_cast(const detail::tvec4<T>& c)
+GLM_FUNC_QUALIFIER gtc::uint32 u32_bgra_cast(const detail::tvec4<T>& c)
 {
-	gtc::type_precision::uint32 result = 0;
-	result += static_cast<gtc::type_precision::uint32>(c.x * detail::tvec4<T>::value_type(255)) << 16;
-	result += static_cast<gtc::type_precision::uint32>(c.y * detail::tvec4<T>::value_type(255)) <<  8;
-	result += static_cast<gtc::type_precision::uint32>(c.z * detail::tvec4<T>::value_type(255)) <<  0;
-	result += static_cast<gtc::type_precision::uint32>(c.w * detail::tvec4<T>::value_type(255)) << 24;
+	gtc::uint32 result = 0;
+	result += static_cast<gtc::uint32>(c.x * detail::tvec4<T>::value_type(255)) << 16;
+	result += static_cast<gtc::uint32>(c.y * detail::tvec4<T>::value_type(255)) <<  8;
+	result += static_cast<gtc::uint32>(c.z * detail::tvec4<T>::value_type(255)) <<  0;
+	result += static_cast<gtc::uint32>(c.w * detail::tvec4<T>::value_type(255)) << 24;
 	return result;
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER gtc::type_precision::uint32 u32_abgr_cast(const detail::tvec4<T>& c)
+GLM_FUNC_QUALIFIER gtc::uint32 u32_abgr_cast(const detail::tvec4<T>& c)
 {
-	gtc::type_precision::uint32 result = 0;
-	result += static_cast<gtc::type_precision::uint32>(c.x * detail::tvec4<T>::value_type(255)) << 24;
-	result += static_cast<gtc::type_precision::uint32>(c.y * detail::tvec4<T>::value_type(255)) << 16;
-	result += static_cast<gtc::type_precision::uint32>(c.z * detail::tvec4<T>::value_type(255)) <<  8;
-	result += static_cast<gtc::type_precision::uint32>(c.w * detail::tvec4<T>::value_type(255)) <<  0;
+	gtc::uint32 result = 0;
+	result += static_cast<gtc::uint32>(c.x * detail::tvec4<T>::value_type(255)) << 24;
+	result += static_cast<gtc::uint32>(c.y * detail::tvec4<T>::value_type(255)) << 16;
+	result += static_cast<gtc::uint32>(c.z * detail::tvec4<T>::value_type(255)) <<  8;
+	result += static_cast<gtc::uint32>(c.w * detail::tvec4<T>::value_type(255)) <<  0;
 	return result;
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER gtc::type_precision::uint64 u64_rgbx_cast(const detail::tvec3<T>& c)
+GLM_FUNC_QUALIFIER gtc::uint64 u64_rgbx_cast(const detail::tvec3<T>& c)
 {
-	gtc::type_precision::uint64 result = 0;
-	result += static_cast<gtc::type_precision::uint64>(c.x * detail::tvec3<T>::value_type(65535)) <<  0;
-	result += static_cast<gtc::type_precision::uint64>(c.y * detail::tvec3<T>::value_type(65535)) << 16;
-	result += static_cast<gtc::type_precision::uint64>(c.z * detail::tvec3<T>::value_type(65535)) << 32;
+	gtc::uint64 result = 0;
+	result += static_cast<gtc::uint64>(c.x * detail::tvec3<T>::value_type(65535)) <<  0;
+	result += static_cast<gtc::uint64>(c.y * detail::tvec3<T>::value_type(65535)) << 16;
+	result += static_cast<gtc::uint64>(c.z * detail::tvec3<T>::value_type(65535)) << 32;
 	return result;
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER gtc::type_precision::uint64 u32_xrgb_cast(const detail::tvec3<T>& c)
+GLM_FUNC_QUALIFIER gtc::uint64 u32_xrgb_cast(const detail::tvec3<T>& c)
 {
-	gtc::type_precision::uint64 result = 0;
-	result += static_cast<gtc::type_precision::uint64>(c.x * detail::tvec3<T>::value_type(65535)) << 16;
-	result += static_cast<gtc::type_precision::uint64>(c.y * detail::tvec3<T>::value_type(65535)) << 32;
-	result += static_cast<gtc::type_precision::uint64>(c.z * detail::tvec3<T>::value_type(65535)) << 48;
+	gtc::uint64 result = 0;
+	result += static_cast<gtc::uint64>(c.x * detail::tvec3<T>::value_type(65535)) << 16;
+	result += static_cast<gtc::uint64>(c.y * detail::tvec3<T>::value_type(65535)) << 32;
+	result += static_cast<gtc::uint64>(c.z * detail::tvec3<T>::value_type(65535)) << 48;
 	return result;
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER gtc::type_precision::uint64 u32_bgrx_cast(const detail::tvec3<T>& c)
+GLM_FUNC_QUALIFIER gtc::uint64 u32_bgrx_cast(const detail::tvec3<T>& c)
 {
-	gtc::type_precision::uint64 result = 0;
-	result += static_cast<gtc::type_precision::uint64>(c.x * detail::tvec3<T>::value_type(65535)) << 32;
-	result += static_cast<gtc::type_precision::uint64>(c.y * detail::tvec3<T>::value_type(65535)) << 16;
-	result += static_cast<gtc::type_precision::uint64>(c.z * detail::tvec3<T>::value_type(65535)) <<  0;
+	gtc::uint64 result = 0;
+	result += static_cast<gtc::uint64>(c.x * detail::tvec3<T>::value_type(65535)) << 32;
+	result += static_cast<gtc::uint64>(c.y * detail::tvec3<T>::value_type(65535)) << 16;
+	result += static_cast<gtc::uint64>(c.z * detail::tvec3<T>::value_type(65535)) <<  0;
 	return result;
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER gtc::type_precision::uint64 u32_xbgr_cast(const detail::tvec3<T>& c)
+GLM_FUNC_QUALIFIER gtc::uint64 u32_xbgr_cast(const detail::tvec3<T>& c)
 {
-	gtc::type_precision::uint64 result = 0;
-	result += static_cast<gtc::type_precision::uint64>(c.x * detail::tvec3<T>::value_type(65535)) << 48;
-	result += static_cast<gtc::type_precision::uint64>(c.y * detail::tvec3<T>::value_type(65535)) << 32;
-	result += static_cast<gtc::type_precision::uint64>(c.z * detail::tvec3<T>::value_type(65535)) << 16;
-	result += static_cast<gtc::type_precision::uint64>(c.w * detail::tvec3<T>::value_type(65535)) <<  0;
+	gtc::uint64 result = 0;
+	result += static_cast<gtc::uint64>(c.x * detail::tvec3<T>::value_type(65535)) << 48;
+	result += static_cast<gtc::uint64>(c.y * detail::tvec3<T>::value_type(65535)) << 32;
+	result += static_cast<gtc::uint64>(c.z * detail::tvec3<T>::value_type(65535)) << 16;
+	result += static_cast<gtc::uint64>(c.w * detail::tvec3<T>::value_type(65535)) <<  0;
 	return result;
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER gtc::type_precision::uint64 u64_rgba_cast(const detail::tvec4<T>& c)
+GLM_FUNC_QUALIFIER gtc::uint64 u64_rgba_cast(const detail::tvec4<T>& c)
 {
-	gtc::type_precision::uint64 result = 0;
-	result += static_cast<gtc::type_precision::uint64>(c.x * detail::tvec4<T>::value_type(65535)) <<  0;
-	result += static_cast<gtc::type_precision::uint64>(c.y * detail::tvec4<T>::value_type(65535)) << 16;
-	result += static_cast<gtc::type_precision::uint64>(c.z * detail::tvec4<T>::value_type(65535)) << 32;
-	result += static_cast<gtc::type_precision::uint64>(c.w * detail::tvec4<T>::value_type(65535)) << 48;
+	gtc::uint64 result = 0;
+	result += static_cast<gtc::uint64>(c.x * detail::tvec4<T>::value_type(65535)) <<  0;
+	result += static_cast<gtc::uint64>(c.y * detail::tvec4<T>::value_type(65535)) << 16;
+	result += static_cast<gtc::uint64>(c.z * detail::tvec4<T>::value_type(65535)) << 32;
+	result += static_cast<gtc::uint64>(c.w * detail::tvec4<T>::value_type(65535)) << 48;
 	return result;
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER gtc::type_precision::uint64 u64_argb_cast(const detail::tvec4<T>& c)
+GLM_FUNC_QUALIFIER gtc::uint64 u64_argb_cast(const detail::tvec4<T>& c)
 {
-	gtc::type_precision::uint64 result = 0;
-	result += static_cast<gtc::type_precision::uint64>(c.x * detail::tvec4<T>::value_type(65535)) << 16;
-	result += static_cast<gtc::type_precision::uint64>(c.y * detail::tvec4<T>::value_type(65535)) << 32;
-	result += static_cast<gtc::type_precision::uint64>(c.z * detail::tvec4<T>::value_type(65535)) << 48;
-	result += static_cast<gtc::type_precision::uint64>(c.w * detail::tvec4<T>::value_type(65535)) <<  0;
+	gtc::uint64 result = 0;
+	result += static_cast<gtc::uint64>(c.x * detail::tvec4<T>::value_type(65535)) << 16;
+	result += static_cast<gtc::uint64>(c.y * detail::tvec4<T>::value_type(65535)) << 32;
+	result += static_cast<gtc::uint64>(c.z * detail::tvec4<T>::value_type(65535)) << 48;
+	result += static_cast<gtc::uint64>(c.w * detail::tvec4<T>::value_type(65535)) <<  0;
 	return result;
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER gtc::type_precision::uint64 u64_bgra_cast(const detail::tvec4<T>& c)
+GLM_FUNC_QUALIFIER gtc::uint64 u64_bgra_cast(const detail::tvec4<T>& c)
 {
-	gtc::type_precision::uint64 result = 0;
-	result += static_cast<gtc::type_precision::uint64>(c.x * detail::tvec4<T>::value_type(65535)) << 32;
-	result += static_cast<gtc::type_precision::uint64>(c.y * detail::tvec4<T>::value_type(65535)) << 16;
-	result += static_cast<gtc::type_precision::uint64>(c.z * detail::tvec4<T>::value_type(65535)) <<  0;
-	result += static_cast<gtc::type_precision::uint64>(c.w * detail::tvec4<T>::value_type(65535)) << 48;
+	gtc::uint64 result = 0;
+	result += static_cast<gtc::uint64>(c.x * detail::tvec4<T>::value_type(65535)) << 32;
+	result += static_cast<gtc::uint64>(c.y * detail::tvec4<T>::value_type(65535)) << 16;
+	result += static_cast<gtc::uint64>(c.z * detail::tvec4<T>::value_type(65535)) <<  0;
+	result += static_cast<gtc::uint64>(c.w * detail::tvec4<T>::value_type(65535)) << 48;
 	return result;
 }
 
 template <typename T>
-GLM_FUNC_QUALIFIER gtc::type_precision::uint64 u64_abgr_cast(const detail::tvec4<T>& c)
+GLM_FUNC_QUALIFIER gtc::uint64 u64_abgr_cast(const detail::tvec4<T>& c)
 {
-	gtc::type_precision::uint64 result = 0;
-	result += static_cast<gtc::type_precision::uint64>(c.x * detail::tvec4<T>::value_type(65535)) << 48;
-	result += static_cast<gtc::type_precision::uint64>(c.y * detail::tvec4<T>::value_type(65535)) << 32;
-	result += static_cast<gtc::type_precision::uint64>(c.z * detail::tvec4<T>::value_type(65535)) << 16;
-	result += static_cast<gtc::type_precision::uint64>(c.w * detail::tvec4<T>::value_type(65535)) <<  0;
+	gtc::uint64 result = 0;
+	result += static_cast<gtc::uint64>(c.x * detail::tvec4<T>::value_type(65535)) << 48;
+	result += static_cast<gtc::uint64>(c.y * detail::tvec4<T>::value_type(65535)) << 32;
+	result += static_cast<gtc::uint64>(c.z * detail::tvec4<T>::value_type(65535)) << 16;
+	result += static_cast<gtc::uint64>(c.w * detail::tvec4<T>::value_type(65535)) <<  0;
 	return result;
 }
 
 template <>
-GLM_FUNC_QUALIFIER f16vec1 f16_channel_cast<gtc::type_precision::uint32>(gtc::type_precision::uint32 color)
+GLM_FUNC_QUALIFIER f16vec1 f16_channel_cast<gtc::uint32>(gtc::uint32 color)
 {
-	return gtc::type_precision::f16(static_cast<float>(color >>  0) / static_cast<float>(255));
+	return gtc::f16(static_cast<float>(color >>  0) / static_cast<float>(255));
 }
 
 template <>
-GLM_FUNC_QUALIFIER gtc::type_precision::f16vec3 f16_rgbx_cast<gtc::type_precision::uint32>(gtc::type_precision::uint32 color)
+GLM_FUNC_QUALIFIER gtc::f16vec3 f16_rgbx_cast<gtc::uint32>(gtc::uint32 color)
 {
-	gtc::type_precision::f16vec3 result;
-	result.x = gtc::type_precision::f16(static_cast<float>(color >>  0) / static_cast<float>(255));
-	result.y = gtc::type_precision::f16(static_cast<float>(color >>  8) / static_cast<float>(255));
-	result.z = gtc::type_precision::f16(static_cast<float>(color >> 16) / static_cast<float>(255));
+	gtc::f16vec3 result;
+	result.x = gtc::f16(static_cast<float>(color >>  0) / static_cast<float>(255));
+	result.y = gtc::f16(static_cast<float>(color >>  8) / static_cast<float>(255));
+	result.z = gtc::f16(static_cast<float>(color >> 16) / static_cast<float>(255));
 	return result;
 }
 
 template <>
-GLM_FUNC_QUALIFIER gtc::type_precision::f16vec3 f16_xrgb_cast<gtc::type_precision::uint32>(gtc::type_precision::uint32 color)
+GLM_FUNC_QUALIFIER gtc::f16vec3 f16_xrgb_cast<gtc::uint32>(gtc::uint32 color)
 {
-	gtc::type_precision::f16vec3 result;
-	result.x = gtc::type_precision::f16(static_cast<float>(color >>  8) / static_cast<float>(255));
-	result.y = gtc::type_precision::f16(static_cast<float>(color >> 16) / static_cast<float>(255));
-	result.z = gtc::type_precision::f16(static_cast<float>(color >> 24) / static_cast<float>(255));
+	gtc::f16vec3 result;
+	result.x = gtc::f16(static_cast<float>(color >>  8) / static_cast<float>(255));
+	result.y = gtc::f16(static_cast<float>(color >> 16) / static_cast<float>(255));
+	result.z = gtc::f16(static_cast<float>(color >> 24) / static_cast<float>(255));
 	return result;
 }
 

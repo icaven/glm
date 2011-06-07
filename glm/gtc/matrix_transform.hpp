@@ -42,8 +42,7 @@
 
 namespace glm{
 namespace gtc{
-namespace matrix_transform ///< GLM_GTC_matrix_transform extension: Add transformation matrices
-{
+
 	/// @addtogroup gtc_matrix_transform
 	/// @{
 
@@ -83,7 +82,7 @@ namespace matrix_transform ///< GLM_GTC_matrix_transform extension: Add transfor
 
 	/// Creates a matrix for an orthographic parallel viewing volume.
 	/// @see - gtc_matrix_transform:
-	/// - @link glm::gtc::matrix_transform::ortho(T const & left, T const & right, T const & bottom, T const & top) ortho(T const & left, T const & right, T const & bottom, T const & top) @endlink
+	/// - @link glm::gtc::ortho(T const & left, T const & right, T const & bottom, T const & top) ortho(T const & left, T const & right, T const & bottom, T const & top) @endlink
 	template <typename T> 
 	detail::tmat4x4<T> ortho(
 		T const & left, 
@@ -95,7 +94,7 @@ namespace matrix_transform ///< GLM_GTC_matrix_transform extension: Add transfor
 
 	/// Creates a matrix for projecting two-dimensional coordinates onto the screen.
 	/// @see - gtc_matrix_transform:
-    /// - @link glm::gtc::matrix_transform::ortho(T const & left, T const & right, T const & bottom, T const & top, T const & zNear, T const & zFar) ortho(T const & left, T const & right, T const & bottom, T const & top, T const & zNear, T const & zFar) @endlink
+    /// - @link glm::gtc::ortho(T const & left, T const & right, T const & bottom, T const & top, T const & zNear, T const & zFar) ortho(T const & left, T const & right, T const & bottom, T const & top, T const & zNear, T const & zFar) @endlink
 	template <typename T> 
 	detail::tmat4x4<T> ortho(
 		T const & left, 
@@ -184,12 +183,9 @@ namespace matrix_transform ///< GLM_GTC_matrix_transform extension: Add transfor
 		detail::tvec3<T> const & up);
 
 	/// @}
-}//namespace matrix_transform
 }//namespace gtc
 }//namespace glm
 
 #include "matrix_transform.inl"
-
-namespace glm{using namespace gtc::matrix_transform;}
 
 #endif//glm_gtc_matrix_transform

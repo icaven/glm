@@ -45,10 +45,8 @@
 namespace glm{
 namespace gtx{
 namespace transform ///< GLM_GTX_transform extension: Add transformation matrices
-{
-	using namespace gtc::matrix_transform; 
-
-	/// \addtogroup gtx_transform
+    {
+	/// @addtogroup gtx_transform
 	/// @{
 
 	//! Builds a translation 4 * 4 matrix created from 3 scalars.

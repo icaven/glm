@@ -40,10 +40,9 @@
 
 namespace glm{
 namespace gtc{
-namespace matrix_inverse ///< GLM_GTC_matrix_inverse extension: Inverse matrix functions
-{
-	/// \addtogroup gtc_matrix_inverse
-	///@{
+
+	/// @addtogroup gtc_matrix_inverse
+	/// @{
 
 	//! Fast matrix inverse for affine matrix.
 	//! From GLM_GTC_matrix_inverse extension.
@@ -56,14 +55,10 @@ namespace matrix_inverse ///< GLM_GTC_matrix_inverse extension: Inverse matrix f
 	GLM_FUNC_QUALIFIER typename genType::value_type inverseTranspose(
 		genType const & m);
 
-	///@}
-
-}//namespace matrix_inverse
+	/// @}
 }//namespace gtc
 }//namespace glm
 
 #include "matrix_inverse.inl"
-
-namespace glm{using namespace gtc::matrix_inverse;}
 
 #endif//glm_gtc_matrix_inverse

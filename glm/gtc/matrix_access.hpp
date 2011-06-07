@@ -40,8 +40,7 @@
 
 namespace glm{
 namespace gtc{
-namespace matrix_access ///< GLM_GTC_matrix_access extension: Set a column or a row of a matrix
-{
+    
 	/// @addtogroup gtc_matrix_access
 	/// @{
 
@@ -76,12 +75,9 @@ namespace matrix_access ///< GLM_GTC_matrix_access extension: Set a column or a 
 		typename genType::col_type const & x);
 
 	/// @}
-}//namespace matrix_access
 }//namespace gtc
 }//namespace glm
 
 #include "matrix_access.inl"
-
-namespace glm{using namespace gtc::matrix_access;}
 
 #endif//glm_gtc_matrix_access

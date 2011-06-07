@@ -44,14 +44,12 @@
 #endif
 
 namespace glm{
-namespace gtc{
-namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matrices value type address.
-{ 
-	/// \addtogroup gtc_type_ptr
-	///@{
+namespace gtc{ 
+	/// @addtogroup gtc_type_ptr
+	/// @{
 
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
+	/// Return the constant address to the data of the input parameter.
+	/// From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T const * value_ptr
 	(
@@ -477,13 +475,10 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 	}
     
 	/// @}
-}//namespace type_ptr
 }//namespace gtc
 }//namespace glm
 
 #include "type_ptr.inl"
-
-namespace glm{using namespace gtc::type_ptr;}
 
 #endif//glm_gtx_type_ptr
 

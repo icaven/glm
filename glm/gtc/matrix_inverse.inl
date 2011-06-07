@@ -9,8 +9,7 @@
 
 namespace glm{
 namespace gtc{
-namespace matrix_inverse
-{
+
 	template <typename T> 
 	GLM_FUNC_QUALIFIER detail::tmat3x3<T> affineInverse
 	(
@@ -134,6 +133,5 @@ namespace matrix_inverse
 		return Inverse;
 	}
 
-}//namespace matrix_inverse
 }//namespace gtc
 }//namespace glm

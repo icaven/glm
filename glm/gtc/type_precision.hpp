@@ -44,19 +44,12 @@
 
 namespace glm{
 namespace gtc{
-namespace type_precision ///< GLM_GTC_type_precision extension: Defined types with specific size.
-{
-	///////////////////////////
-	// Dependences
-
-	using namespace gtc::half_float;
-	using namespace gtc::quaternion;
 
 	///////////////////////////
 	// Signed int vector types 
 
-	/// \addtogroup gtc_type_precision
-	///@{
+	/// @addtogroup gtc_type_precision
+	/// @{
 
 	typedef detail::int8						int8;         //!< \brief 8bit signed integer. (from GLM_GTC_type_precision extension)
 	typedef detail::int16						int16;        //!< \brief 16bit signed integer. (from GLM_GTC_type_precision extension)
@@ -225,14 +218,10 @@ namespace type_precision ///< GLM_GTC_type_precision extension: Defined types wi
 	typedef detail::tquat<f32>					f32quat;    //!< \brief Single-precision floating-point quaternion. (from GLM_GTC_type_precision extension)
 	typedef detail::tquat<f64>					f64quat;    //!< \brief Double-precision floating-point quaternion. (from GLM_GTC_type_precision extension)
 
-	///@}
-
-}//namespace type_precision
+	/// @}
 }//namespace gtc
 }//namespace glm
 
 #include "type_precision.inl"
-
-namespace glm{using namespace gtc::type_precision;}
 
 #endif//glm_gtc_type_precision

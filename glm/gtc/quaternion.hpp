@@ -144,10 +144,9 @@ namespace detail
 } //namespace detail
 
 namespace gtc{
-namespace quaternion ///< GLM_GTC_quaternion extension: Quaternion types and functions
-{
-	/// \addtogroup gtc_quaternion
-	///@{
+
+	/// @addtogroup gtc_quaternion
+	/// @{
 
 	//! Returns the length of the quaternion. 
 	//! From GLM_GTC_quaternion extension.
@@ -249,12 +248,9 @@ namespace quaternion ///< GLM_GTC_quaternion extension: Quaternion types and fun
 	typedef detail::tquat<highp_float>		highp_quat;
     
 	/// @}
-} //namespace quaternion
 } //namespace gtc
 } //namespace glm
 
 #include "quaternion.inl"
-
-namespace glm{using namespace gtc::quaternion;}
 
 #endif//glm_gtc_quaternion

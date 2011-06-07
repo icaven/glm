@@ -62,13 +62,13 @@ GLM_FUNC_QUALIFIER detail::tvec4<valIType> mask
 template <typename genIType>
 GLM_FUNC_QUALIFIER genIType extractField
 (
-	gtc::half_float::half const & value, 
+	gtc::half const & value, 
 	genIType const & first, 
 	genIType const & count
 )
 {
-	assert(first + count < sizeof(gtc::half_float::half));
-	return (value._data() << first) >> ((sizeof(gtc::half_float::half) << 3) - count);
+	assert(first + count < sizeof(gtc::half));
+	return (value._data() << first) >> ((sizeof(gtc::half) << 3) - count);
 }
 
 template <typename genIType>
