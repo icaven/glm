@@ -10,9 +10,9 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/quaternion.hpp>
+#include <glm/gtx/random.hpp>
 #include <glm/gtx/simd_vec4.hpp>
 #include <glm/gtx/simd_mat4.hpp>
-#include <glm/gtx/random.hpp>
 #include <iostream>
 #include <cstdio>
 #include <ctime>
@@ -285,3 +285,4 @@ int main()
 
 	return Error;
 }
+
