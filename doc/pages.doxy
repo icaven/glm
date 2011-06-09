@@ -311,38 +311,38 @@ void foo()
 	
 	<dl>
 		<dt>glRotate[fd]</dt>
-		<dd>\link glm::gtc::matrix_transform::rotate glm::rotate \endlink</dd>
+		<dd>\link glm::gtc::rotate glm::rotate \endlink</dd>
 		<dt>glScale[fd]</dt>
-		<dd>\link glm::gtc::matrix_transform::scale glm::scale \endlink</dd>
+		<dd>\link glm::gtc::scale glm::scale \endlink</dd>
 		<dt>glTranslate[fd]</dt>
-		<dd>\link glm::gtc::matrix_transform::translate glm::translate \endlink</dd>
+		<dd>\link glm::gtc::translate glm::translate \endlink</dd>
 		<dt>glLoadIdentity</dt>
 		<dd>The default constructor of all matrix types creates an identity matrix.</dd>
 		<dt>glMultMatrix[fd]</dt>
 		<dd>Per the GLSL specification, the multiplication operator is overloaded for all matrix types. Multiplying two matrices together will perform matrix multiplication.</dd>
 		<dt>glLoadTransposeMatrix[fd]</dt>
-		<dd>\link glm::core::function::matrix::transpose glm::transpose \endlink</dd>
+		<dd>\link glm::core::transpose glm::transpose \endlink</dd>
 		<dt>glMultTransposeMatrix</dt>
 		<dd>Combine the last two.</dd>
 		<dt>glFrustum</dt>
-		<dd>\link glm::gtc::matrix_transform::frustum glm::frustum \endlink</dd>
+		<dd>\link glm::gtc::frustum glm::frustum \endlink</dd>
 		<dt>glOrtho</dt>
-		<dd>\link glm::gtc::matrix_transform::ortho glm::ortho \endlink</dd>
+		<dd>\link glm::gtc::ortho glm::ortho \endlink</dd>
 		<dt>gluLookAt</dt>
-		<dd>\link glm::gtc::matrix_transform::lookAt glm::lookAt \endlink</dd>
+		<dd>\link glm::gtc::lookAt glm::lookAt \endlink</dd>
 	</dl>
 	
 	\section deprecated_glu GLU function replacements
 	
 	<dl>
 		<dt>gluOrtho2D</dt>
-		<dd>\link glm::gtc::matrix_transform::ortho glm::ortho \endlink</dd>
+		<dd>\link glm::gtc::ortho glm::ortho \endlink</dd>
 		<dt>gluPerspective</dt>
-		<dd>\link glm::gtc::matrix_transform::perspective glm::perspective \endlink</dd>
+		<dd>\link glm::gtc::perspective glm::perspective \endlink</dd>
 		<dt>gluProject</dt>
-		<dd>\link glm::gtc::matrix_transform::project glm::project \endlink</dd>
+		<dd>\link glm::gtc::project glm::project \endlink</dd>
 		<dt>gluUnProject</dt>
-		<dd>\link glm::gtc::matrix_transform::unProject glm::unProject \endlink</dd>
+		<dd>\link glm::gtc::unProject glm::unProject \endlink</dd>
 	</dl>
 **/
 
