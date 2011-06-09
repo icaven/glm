@@ -20,8 +20,8 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_normalized_dot
-/// @file glm/gtx/normalized_dot.hpp
+/// @ref gtx_normalize_dot
+/// @file glm/gtx/normalize_dot.hpp
 /// @date 2007-09-28 / 2011-06-07
 /// @author Christophe Riccio
 ///
