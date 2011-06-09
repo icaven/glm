@@ -20,33 +20,20 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_associated_min_max
-/// @file glm/gtx/associated_min_max.hpp
-/// @date 2008-03-10 / 2011-06-07
+/// @ref gtx_fast_trigonometry
+/// @file glm/gtx/fast_trigonometry.hpp
+/// @date 2006-01-08 / 2011-06-07
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
-/// @see gtx_extented_min_max (dependence)
 ///
-\defgroup gtx_fast_trigonometry GLM_GTX_fast_trigonometry: Fast trigonometric functions
-\ingroup gtx
-
-\brief Fast but less accurate implementations of trigonometric functions.
-
-<glm/gtx/fast_trigonometry.hpp> need to be included to use these functionalities.
+/// @defgroup gtx_fast_trigonometry GLM_GTX_fast_trigonometry: Fast trigonometric functions
+/// @ingroup gtx
+/// 
+/// @brief Fast but less accurate implementations of trigonometric functions.
+/// 
+/// <glm/gtx/fast_trigonometry.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2006-01-08
-// Updated : 2006-11-13
-// Licence : This source is under MIT License
-// File    : glm/gtx/fast_trigonometry.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_fast_trigonometry
 #define glm_gtx_fast_trigonometry

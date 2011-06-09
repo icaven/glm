@@ -20,33 +20,21 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_associated_min_max
-/// @file glm/gtx/associated_min_max.hpp
-/// @date 2008-03-10 / 2011-06-07
+/// @ref gtx_matrix_major_storage
+/// @file glm/gtx/matrix_major_storage.hpp
+/// @date 2006-04-19 / 2011-06-07
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
 /// @see gtx_extented_min_max (dependence)
 ///
-\defgroup gtx_matrix_major_storage GLM_GTX_matrix_major_storage: Build matrix
-\ingroup gtx
-
-\brief Build matrices with specific matrix order, row or column
-
-<glm/gtx/matrix_major_storage.hpp> need to be included to use these functionalities.
+/// @defgroup gtx_matrix_major_storage GLM_GTX_matrix_major_storage: Build matrix
+/// @ingroup gtx
+/// 
+/// @brief Build matrices with specific matrix order, row or column
+/// 
+/// <glm/gtx/matrix_major_storage.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2006-04-19
-// Updated : 2009-02-19
-// Licence : This source is under MIT License
-// File    : glm/gtx/matrix_major_storage.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_matrix_major_storage
 #define glm_gtx_matrix_major_storage

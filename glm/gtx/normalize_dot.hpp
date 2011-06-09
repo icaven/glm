@@ -20,34 +20,21 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_associated_min_max
-/// @file glm/gtx/associated_min_max.hpp
-/// @date 2008-03-10 / 2011-06-07
+/// @ref gtx_normalized_dot
+/// @file glm/gtx/normalized_dot.hpp
+/// @date 2007-09-28 / 2011-06-07
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
-/// @see gtx_extented_min_max (dependence)
+/// @see gtx_fast_square_root (dependence)
 ///
-\defgroup gtx_normalize_dot GLM_GTX_normalize_dot: Normalize dot product
-\ingroup gtx
-
-\brief Dot product of vectors that need to be normalize with a single square root.
-
-<glm/gtx/normalized_dot.hpp> need to be included to use these functionalities.
+/// @defgroup gtx_normalize_dot GLM_GTX_normalize_dot: Normalize dot product
+/// @ingroup gtx
+/// 
+/// @brief Dot product of vectors that need to be normalize with a single square root.
+/// 
+/// <glm/gtx/normalized_dot.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
-
-//////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-//////////////////////////////////////////////////////////////////////////////////
-// Created : 2007-09-28
-// Updated : 2008-10-07
-// Licence : This source is under MIT License
-// File    : glm/gtx/normalize_dot.hpp
-//////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-// - GLM_GTX_fast_square_root
-//////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_normalize_dot
 #define glm_gtx_normalize_dot

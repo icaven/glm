@@ -20,35 +20,22 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_associated_min_max
-/// @file glm/gtx/associated_min_max.hpp
-/// @date 2008-03-10 / 2011-06-07
+/// @ref gtx_number_precision
+/// @file glm/gtx/number_precision.hpp
+/// @date 2007-05-10 / 2011-06-07
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
-/// @see gtx_extented_min_max (dependence)
+/// @see gtc_type_precision (dependence)
+/// @see gtc_quaternion (dependence)
 ///
-\defgroup gtx_number_precision GLM_GTX_number_precision: Number precision
-\ingroup gtx
-
-\brief Defined size types.
-
-<glm/gtx/number_precision.hpp> need to be included to use these functionalities.
+/// @defgroup gtx_number_precision GLM_GTX_number_precision: Number precision
+/// @ingroup gtx
+/// 
+/// @brief Defined size types.
+/// 
+/// <glm/gtx/number_precision.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2007-05-10
-// Updated : 2009-06-04
-// Licence : This source is under MIT License
-// File    : glm/gtx/number_precision.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-// - GLM_GTC_type_precision
-// - GLM_GTC_quaternion
-///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_number_precision
 #define glm_gtx_number_precision

@@ -22,32 +22,19 @@
 ///
 /// @ref gtx_associated_min_max
 /// @file glm/gtx/associated_min_max.hpp
-/// @date 2008-03-10 / 2011-06-07
+/// @date 2007-03-14 / 2011-06-07
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
-/// @see gtx_extented_min_max (dependence)
+/// @see gtx_half_float (dependence)
 ///
-\defgroup gtx_extented_min_max GLM_GTX_extented_min_max: Extended min max
-\ingroup gtx
-
-\brief Min and max functions for 3 to 4 parameters.
-
-<glm/gtx/extented_min_max.hpp> need to be included to use these functionalities.
+/// @defgroup gtx_extented_min_max GLM_GTX_extented_min_max: Extended min max
+/// @ingroup gtx
+/// 
+/// @brief Min and max functions for 3 to 4 parameters.
+/// 
+/// <glm/gtx/extented_min_max.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2007-03-14
-// Updated : 2010-02-19
-// Licence : This source is under MIT License
-// File    : gtx_extented_min_max.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-// - GLM_GTX_half_float
-///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_extented_min_max
 #define glm_gtx_extented_min_max

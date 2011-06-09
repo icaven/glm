@@ -20,33 +20,20 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_associated_min_max
-/// @file glm/gtx/associated_min_max.hpp
-/// @date 2008-03-10 / 2011-06-07
+/// @ref gtx_mixed_product
+/// @file glm/gtx/mixed_product.hpp
+/// @date 2007-04-03 / 2011-06-07
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
-/// @see gtx_extented_min_max (dependence)
 ///
-\defgroup gtx_mixed_product GLM_GTX_mixed_producte: Mixed product
-\ingroup gtx
-
-\brief Mixed product of 3 vectors.
-
-<glm/gtx/mixed_product.hpp> need to be included to use these functionalities.
+/// @defgroup gtx_mixed_product GLM_GTX_mixed_producte: Mixed product
+/// @ingroup gtx
+/// 
+/// @brief Mixed product of 3 vectors.
+/// 
+/// <glm/gtx/mixed_product.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2007-04-03
-// Updated : 2008-09-17
-// Licence : This source is under MIT License
-// File    : glm/gtx/mixed_product.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_mixed_product
 #define glm_gtx_mixed_product

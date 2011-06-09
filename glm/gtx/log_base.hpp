@@ -20,33 +20,20 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_associated_min_max
-/// @file glm/gtx/associated_min_max.hpp
-/// @date 2008-03-10 / 2011-06-07
+/// @ref gtx_log_base
+/// @file glm/gtx/log_base.hpp
+/// @date 2008-10-24 / 2011-06-07
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
-/// @see gtx_extented_min_max (dependence)
 ///
-\defgroup gtx_log_base GLM_GTX_log_base: Log with base
-\ingroup gtx
-
-\brief Logarithm for any base. base can be a vector or a scalar.
-
-<glm/gtx/log_base.hpp> need to be included to use these functionalities.
+/// @defgroup gtx_log_base GLM_GTX_log_base: Log with base
+/// @ingroup gtx
+/// 
+/// @brief Logarithm for any base. base can be a vector or a scalar.
+/// 
+/// <glm/gtx/log_base.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2008-10-24
-// Updated : 2008-10-24
-// Licence : This source is under MIT License
-// File    : glm/gtx/log_base.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_log_base
 #define glm_gtx_log_base

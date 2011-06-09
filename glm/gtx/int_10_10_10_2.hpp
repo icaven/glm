@@ -20,33 +20,21 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_associated_min_max
-/// @file glm/gtx/associated_min_max.hpp
-/// @date 2008-03-10 / 2011-06-07
+/// @ref gtx_int_10_10_10_2
+/// @file glm/gtx/int_10_10_10_2.hpp
+/// @date 2010-07-07 / 2011-06-07
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
-/// @see gtx_extented_min_max (dependence)
+/// @see gtx_raw_data (dependence)
 ///
-\defgroup gtx_int_10_10_10_2 GLM_GTX_int_10_10_10_2: Packed integer
-\ingroup gtx
-
-\brief Pack vector to 1010102 integers. Storage only.
-
-<glm/gtx/int_10_10_10_2.hpp> need to be included to use these functionalities.
+/// @defgroup gtx_int_10_10_10_2 GLM_GTX_int_10_10_10_2: Packed integer
+/// @ingroup gtx
+/// 
+/// @brief Pack vector to 1010102 integers. Storage only.
+/// 
+/// <glm/gtx/int_10_10_10_2.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2010-07-07
-// Updated : 2010-07-07
-// Licence : This source is under MIT License
-// File    : glm/gtx/int_10_10_10_2.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_int_10_10_10_2
 #define glm_gtx_int_10_10_10_2

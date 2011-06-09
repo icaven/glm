@@ -20,33 +20,20 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_associated_min_max
-/// @file glm/gtx/associated_min_max.hpp
-/// @date 2008-03-10 / 2011-06-07
+/// @ref gtx_handed_coordinate_space
+/// @file glm/gtx/handed_coordinate_space.hpp
+/// @date 2005-12-21 / 2011-06-07
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
-/// @see gtx_extented_min_max (dependence)
 ///
-\defgroup gtx_handed_coordinate_space GLM_GTX_handed_coordinate_space: Space Handedness
-\ingroup gtx
-
-\brief To know if a set of three basis vectors defines a right or left-handed coordinate system.
-
-<glm/gtx/handed_coordinate_system.hpp> need to be included to use these functionalities.
+/// @defgroup gtx_handed_coordinate_space GLM_GTX_handed_coordinate_space: Space Handedness
+/// @ingroup gtx
+/// 
+/// @brief To know if a set of three basis vectors defines a right or left-handed coordinate system.
+/// 
+/// <glm/gtx/handed_coordinate_system.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2005-12-21
-// Updated : 2009-02-19
-// Licence : This source is under MIT License
-// File    : glm/gtx/handed_coordinate_space.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_handed_coordinate_space
 #define glm_gtx_handed_coordinate_space

@@ -20,33 +20,21 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_associated_min_max
-/// @file glm/gtx/associated_min_max.hpp
-/// @date 2008-03-10 / 2011-06-07
+/// @ref gtx_matrix_cross_product
+/// @file glm/gtx/matrix_cross_product.hpp
+/// @date 2005-12-21 / 2011-06-07
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
 /// @see gtx_extented_min_max (dependence)
 ///
-\defgroup gtx_matrix_cross_product GLM_GTX_matrix_cross_product: Cross product matrix form
-\ingroup gtx
-
-\brief Build cross product matrices
-
-<glm/gtx/matrix_cross_product.hpp> need to be included to use these functionalities.
+/// @defgroup gtx_matrix_cross_product GLM_GTX_matrix_cross_product: Cross product matrix form
+/// @ingroup gtx
+/// 
+/// @brief Build cross product matrices
+/// 
+/// <glm/gtx/matrix_cross_product.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2005-12-21
-// Updated : 2006-11-13
-// Licence : This source is under MIT License
-// File    : glm/gtx/matrix_cross_product.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_matrix_cross_product
 #define glm_gtx_matrix_cross_product
@@ -61,7 +49,7 @@
 namespace glm{
 namespace gtx
 {
-	/// \addtogroup gtx_matrix_cross_product
+	/// @addtogroup gtx_matrix_cross_product
 	/// @{
 
 	//! Build a cross product matrix.

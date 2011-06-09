@@ -20,34 +20,21 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_associated_min_max
-/// @file glm/gtx/associated_min_max.hpp
-/// @date 2008-03-10 / 2011-06-07
+/// @ref gtx_fast_exponential
+/// @file glm/gtx/fast_exponential.hpp
+/// @date 2006-01-09 / 2011-06-07
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
-/// @see gtx_extented_min_max (dependence)
+/// @see gtx_half_float (dependence)
 ///
-\defgroup gtx_fast_exponential GLM_GTX_fast_exponential: Fast exponentiation functions
-\ingroup gtx
-
-\brief Fast but less accurate implementations of exponential based functions.
-
-<glm/gtx/fast_exponential.hpp> need to be included to use these functionalities.
+/// @defgroup gtx_fast_exponential GLM_GTX_fast_exponential: Fast exponentiation functions
+/// @ingroup gtx
+/// 
+/// @brief Fast but less accurate implementations of exponential based functions.
+/// 
+/// <glm/gtx/fast_exponential.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2006-01-09
-// Updated : 2006-11-13
-// Licence : This source is under MIT License
-// File    : glm/gtx/fast_exponential.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-// - GLM_GTC_half_float
-///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_fast_exponential
 #define glm_gtx_fast_exponential

@@ -20,33 +20,20 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_associated_min_max
-/// @file glm/gtx/associated_min_max.hpp
-/// @date 2008-03-10 / 2011-06-07
+/// @ref gtx_matrix_operation
+/// @file glm/gtx/matrix_operation.hpp
+/// @date 2009-08-29 / 2011-06-07
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
-/// @see gtx_extented_min_max (dependence)
 ///
-\defgroup gtx_matrix_operation GLM_GTX_matrix_operation: Extended matrix operations
-\ingroup gtx
-
-\brief Build diagonal matrices from vectors.
-
-<glm/gtx/matrix_operation.hpp> need to be included to use these functionalities.
+/// @defgroup gtx_matrix_operation GLM_GTX_matrix_operation: Extended matrix operations
+/// @ingroup gtx
+/// 
+/// @brief Build diagonal matrices from vectors.
+/// 
+/// <glm/gtx/matrix_operation.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2009-08-29
-// Updated : 2009-08-29
-// Licence : This source is under MIT License
-// File    : glm/gtx/matrix_operation.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_matrix_operation
 #define glm_gtx_matrix_operation

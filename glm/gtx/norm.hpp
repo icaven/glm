@@ -20,37 +20,23 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_associated_min_max
-/// @file glm/gtx/associated_min_max.hpp
-/// @date 2008-03-10 / 2011-06-07
+/// @ref gtx_norm
+/// @file glm/gtx/norm.hpp
+/// @date 2005-12-21 / 2011-06-07
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
-/// @see gtx_extented_min_max (dependence)
+/// @see gtx_quaternion (dependence)
 ///
-\defgroup gtx_norm GLM_GTX_norm: Vector norm calculations
-\ingroup gtx
-
-\brief Various way to compute vector norms.
-
-<glm/gtx/norm.hpp> need to be included to use these functionalities.
+/// @defgroup gtx_norm GLM_GTX_norm: Vector norm calculations
+/// @ingroup gtx
+/// 
+/// @brief Various way to compute vector norms.
+/// 
+/// <glm/gtx/norm.hpp> need to be included to use these functionalities.
+/// 
+/// @todo Study the validity of the notion of length2 to quaternion
 ///////////////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2005-12-21
-// Updated : 2008-07-24
-// Licence : This source is under MIT License
-// File    : glm/gtx/norm.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-// - GLM_GTX_quaternion
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// ToDo:
-// - Study the validity of the notion of length2 to quaternion
-///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_norm
 #define glm_gtx_norm

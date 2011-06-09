@@ -37,7 +37,6 @@
 /// http://www.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf
 /// Defines the half-precision floating-point type, along with various typedefs for vectors and matrices.
 /// <glm/gtx/noise.hpp> need to be included to use these functionalities.
-///
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_noise
