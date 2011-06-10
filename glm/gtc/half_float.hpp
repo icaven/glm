@@ -35,8 +35,8 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtc_half_float
-#define glm_gtc_half_float
+#ifndef GLM_GTC_half_float
+#define GLM_GTC_half_float 90
 
 // Dependency:
 #include "../glm.hpp"
@@ -421,4 +421,4 @@ namespace detail
 
 #include "half_float.inl"
 
-#endif//glm_gtc_half_float
+#endif//GLM_GTC_half_float

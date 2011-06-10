@@ -39,8 +39,8 @@
 /// <glm/gtc/quaternion.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtc_quaternion
-#define glm_gtc_quaternion
+#ifndef GLM_GTC_quaternion
+#define GLM_GTC_quaternion 90
 
 // Dependency:
 #include "../glm.hpp"
@@ -257,4 +257,4 @@ namespace detail
 
 #include "quaternion.inl"
 
-#endif//glm_gtc_quaternion
+#endif//GLM_GTC_quaternion

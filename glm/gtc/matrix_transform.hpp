@@ -43,8 +43,8 @@
 /// <glm/gtc/matrix_transform.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtc_matrix_transform
-#define glm_gtc_matrix_transform
+#ifndef GLM_GTC_matrix_transform
+#define GLM_GTC_matrix_transform 90
 
 // Dependency:
 #include "../glm.hpp"
@@ -199,4 +199,4 @@ namespace glm
 
 #include "matrix_transform.inl"
 
-#endif//glm_gtc_matrix_transform
+#endif//GLM_GTC_matrix_transform

@@ -35,8 +35,8 @@
 /// <glm/gtc/swizzle.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtc_swizzle
-#define glm_gtc_swizzle
+#ifndef GLM_GTC_swizzle
+#define GLM_GTC_swizzle 90
 
 // Dependency:
 #include "../glm.hpp"
@@ -372,4 +372,4 @@ namespace glm
 
 #include "swizzle.inl"
 
-#endif//glm_gtc_swizzle
+#endif//GLM_GTC_swizzle

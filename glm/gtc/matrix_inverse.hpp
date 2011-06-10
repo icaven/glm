@@ -34,8 +34,8 @@
 /// <glm/gtc/matrix_inverse.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtc_matrix_inverse
-#define glm_gtc_matrix_inverse
+#ifndef GLM_GTC_matrix_inverse
+#define GLM_GTC_matrix_inverse 90
 
 // Dependency:
 #include "../glm.hpp"
@@ -65,4 +65,4 @@ namespace glm
 
 #include "matrix_inverse.inl"
 
-#endif//glm_gtc_matrix_inverse
+#endif//GLM_GTC_matrix_inverse

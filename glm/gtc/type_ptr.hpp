@@ -56,8 +56,8 @@
 /// <glm/gtc/type_ptr.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtc_type_ptr
-#define glm_gtc_type_ptr
+#ifndef GLM_GTC_type_ptr
+#define GLM_GTC_type_ptr 90
 
 // Dependency:
 #include "../glm.hpp"
@@ -505,5 +505,5 @@ namespace glm
 
 #include "type_ptr.inl"
 
-#endif//glm_gtx_type_ptr
+#endif//GLM_GTC_type_ptr
 
