@@ -49,8 +49,7 @@
 #	pragma message("GLM: GLM_GTX_norm extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_norm
 	/// @{
@@ -155,7 +154,6 @@ namespace gtx
 		unsigned int Depth);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "norm.inl"

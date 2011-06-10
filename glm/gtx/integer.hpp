@@ -45,8 +45,7 @@
 #	pragma message("GLM: GLM_GTX_integer extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_integer
 	/// @{
@@ -69,7 +68,6 @@ namespace gtx
 	genType factorial(genType const & x);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "integer.inl"

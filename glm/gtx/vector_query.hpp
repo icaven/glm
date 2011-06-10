@@ -47,8 +47,7 @@
 #	pragma message("GLM: GLM_GTX_vector_query extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_vector_query
 	/// @{
@@ -108,7 +107,6 @@ namespace gtx
 		typename genType::value_type const & epsilon = std::numeric_limits<typename genType::value_type>::epsilon());
 
 	/// @}
-}// namespace gtx
 }// namespace glm
 
 #include "vector_query.inl"

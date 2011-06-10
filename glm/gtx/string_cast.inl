@@ -33,8 +33,6 @@ namespace detail
 	static const char* False = "false";
 }//namespace detail
 
-namespace gtx{
-
 	////////////////////////////////
 	// Scalars
 
@@ -591,5 +589,4 @@ namespace gtx{
 			x[3][0], x[3][1], x[3][2], x[3][3]);
 	}
 
-}//namespace gtx
 }//namespace glm

@@ -47,8 +47,7 @@
 #	pragma message("GLM: GLM_GTX_fast_exponential extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_fast_exponential
 	/// @{
@@ -93,7 +92,6 @@ namespace gtx
 	T fastLn(const T& x);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "fast_exponential.inl"

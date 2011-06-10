@@ -45,8 +45,7 @@
 #	pragma message("GLM: GLM_GTX_component_wise extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_component_wise
 	/// @{
@@ -76,7 +75,6 @@ namespace gtx
 		genType const & v);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "component_wise.inl"

@@ -44,8 +44,7 @@
 #	pragma message("GLM: GLM_GTC_matrix_inverse extension included")
 #endif
 
-namespace glm{
-namespace gtc
+namespace glm
 {
 	/// @addtogroup gtc_matrix_inverse
 	/// @{
@@ -62,7 +61,6 @@ namespace gtc
 		genType const & m);
 
 	/// @}
-}//namespace gtc
 }//namespace glm
 
 #include "matrix_inverse.inl"

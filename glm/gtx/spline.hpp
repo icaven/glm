@@ -46,8 +46,7 @@
 #	pragma message("GLM: GLM_GTX_spline extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_spline
 	/// @{
@@ -83,7 +82,6 @@ namespace gtx
 		typename genType::value_type const & s);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "spline.inl"

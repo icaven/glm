@@ -69,8 +69,7 @@
 #	pragma message("GLM: GLM_GTC_type_ptr extension included")
 #endif
 
-namespace glm{
-namespace gtc
+namespace glm
 { 
 	/// @addtogroup gtc_type_ptr
 	/// @{
@@ -502,7 +501,6 @@ namespace gtc
 	}
     
 	/// @}
-}//namespace gtc
 }//namespace glm
 
 #include "type_ptr.inl"

@@ -152,8 +152,6 @@ namespace detail
 	fmat4x4SIMD const operator++ (fmat4x4SIMD const & m, int);
 }//namespace detail
 
-namespace gtx
-{
 	typedef detail::fmat4x4SIMD simdMat4;
 
 	/// @addtogroup gtx_simd_mat4
@@ -195,7 +193,6 @@ namespace gtx
 		detail::fmat4x4SIMD const & m);
 
 	/// @}
-}// namespace gtx
 }// namespace glm
 
 #include "simd_mat4.inl"

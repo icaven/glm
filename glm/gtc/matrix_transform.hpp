@@ -53,8 +53,7 @@
 #	pragma message("GLM: GLM_GTC_matrix_transform extension included")
 #endif
 
-namespace glm{
-namespace gtc
+namespace glm
 {
 	/// @addtogroup gtc_matrix_transform
 	/// @{
@@ -62,9 +61,9 @@ namespace gtc
 	/// Builds a translation 4 * 4 matrix created from a vector of 3 components.
 	/// @see - gtc_matrix_transform
 	/// @see - gtx_transform:
-	/// - @link glm::gtx::translate(T x, T y, T z) translate(T x, T y, T z) @endlink
-	/// - @link glm::gtx::translate(detail::tmat4x4<T> const & m, T x, T y, T z) translate(mat4x4<T> const & m, T x, T y, T z) @endlink
-	/// - @link glm::gtx::translate(detail::tvec3<T> const & v) translate(vec3<T> const & v) @endlink
+	/// - @link translate(T x, T y, T z) translate(T x, T y, T z) @endlink
+	/// - @link translate(detail::tmat4x4<T> const & m, T x, T y, T z) translate(mat4x4<T> const & m, T x, T y, T z) @endlink
+	/// - @link translate(detail::tvec3<T> const & v) translate(vec3<T> const & v) @endlink
 	template <typename T> 
 	detail::tmat4x4<T> translate(
 		detail::tmat4x4<T> const & m,
@@ -73,9 +72,9 @@ namespace gtc
 	/// Builds a rotation 4 * 4 matrix created from an axis vector and an angle expressed in degrees. 
 	/// @see - gtc_matrix_transform
 	/// @see - gtx_transform:
-	/// - @link glm::gtx::rotate(T angle, T x, T y, T z) rotate(T const & angle, T const & x, T const & y, T const & z) @endlink
-	/// - @link glm::gtx::rotate(detail::tmat4x4<T> const & m, T angle, T x, T y, T z) rotate(mat4x4<T> const & m, T const & angle, T const & x, T const & y, T const & z) @endlink
-	/// - @link glm::gtx::rotate(T angle, detail::tvec3<T> const & v) rotate(T const & angle, vec3<T> const & v) @endlink
+	/// - @link rotate(T angle, T x, T y, T z) rotate(T const & angle, T const & x, T const & y, T const & z) @endlink
+	/// - @link rotate(detail::tmat4x4<T> const & m, T angle, T x, T y, T z) rotate(mat4x4<T> const & m, T const & angle, T const & x, T const & y, T const & z) @endlink
+	/// - @link rotate(T angle, detail::tvec3<T> const & v) rotate(T const & angle, vec3<T> const & v) @endlink
 	template <typename T> 
 	detail::tmat4x4<T> rotate(
 		detail::tmat4x4<T> const & m,
@@ -85,9 +84,9 @@ namespace gtc
 	/// Builds a scale 4 * 4 matrix created from 3 scalars. 
 	/// @see - gtc_matrix_transform
 	/// @see - gtx_transform:
-	/// - @link glm::gtx::scale(T x, T y, T z) scale(T const & x, T const & y, T const & z) @endlink
-	/// - @link glm::gtx::scale(detail::tmat4x4<T> const & m, T x, T y, T z) scale(mat4x4<T> const & m, T const & angle, T const & x, T const & y, T const & z) @endlink
-	/// - @link glm::gtx::scale(detail::tvec3<T> const & v) scale(vec3<T> const & v) @endlink
+	/// - @link scale(T x, T y, T z) scale(T const & x, T const & y, T const & z) @endlink
+	/// - @link scale(detail::tmat4x4<T> const & m, T x, T y, T z) scale(mat4x4<T> const & m, T const & angle, T const & x, T const & y, T const & z) @endlink
+	/// - @link scale(detail::tvec3<T> const & v) scale(vec3<T> const & v) @endlink
 	template <typename T> 
 	detail::tmat4x4<T> scale(
 		detail::tmat4x4<T> const & m,
@@ -95,7 +94,7 @@ namespace gtc
 
 	/// Creates a matrix for an orthographic parallel viewing volume.
 	/// @see - gtc_matrix_transform:
-	/// - @link glm::gtc::ortho(T const & left, T const & right, T const & bottom, T const & top) ortho(T const & left, T const & right, T const & bottom, T const & top) @endlink
+	/// - @link glm::ortho(T const & left, T const & right, T const & bottom, T const & top) ortho(T const & left, T const & right, T const & bottom, T const & top) @endlink
 	template <typename T> 
 	detail::tmat4x4<T> ortho(
 		T const & left, 
@@ -107,7 +106,7 @@ namespace gtc
 
 	/// Creates a matrix for projecting two-dimensional coordinates onto the screen.
 	/// @see - gtc_matrix_transform:
-    /// - @link glm::gtc::ortho(T const & left, T const & right, T const & bottom, T const & top, T const & zNear, T const & zFar) ortho(T const & left, T const & right, T const & bottom, T const & top, T const & zNear, T const & zFar) @endlink
+    /// - @link glm::ortho(T const & left, T const & right, T const & bottom, T const & top, T const & zNear, T const & zFar) ortho(T const & left, T const & right, T const & bottom, T const & top, T const & zNear, T const & zFar) @endlink
 	template <typename T> 
 	detail::tmat4x4<T> ortho(
 		T const & left, 
@@ -196,7 +195,6 @@ namespace gtc
 		detail::tvec3<T> const & up);
 
 	/// @}
-}//namespace gtc
 }//namespace glm
 
 #include "matrix_transform.inl"

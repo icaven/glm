@@ -45,8 +45,7 @@
 #	pragma message("GLM: GLM_GTX_color_space extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_color_space
 	/// @{
@@ -90,7 +89,6 @@ namespace gtx
 		detail::tvec3<valType> const & color);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "color_space.inl"

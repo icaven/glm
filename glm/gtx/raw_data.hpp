@@ -46,8 +46,7 @@
 #	pragma message("GLM: GLM_GTX_raw_data extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_raw_data
 	/// @{
@@ -69,7 +68,6 @@ namespace gtx
 	typedef uint64		qword;
 
 	/// @}
-}// namespace gtx
 }// namespace glm
 
 #include "raw_data.inl"

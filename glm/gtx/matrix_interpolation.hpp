@@ -45,8 +45,7 @@
 #	pragma message("GLM: GLM_GTX_matrix_interpolation extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_matrix_interpolation
 	/// @{
@@ -76,7 +75,6 @@ namespace gtx
         T const delta);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "matrix_interpolation.inl"

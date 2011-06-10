@@ -47,8 +47,7 @@
 #	pragma message("GLM: GLM_GTX_random extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_random
 	/// @{
@@ -101,7 +100,6 @@ namespace gtx
     template <typename T> detail::tvec4<T> gaussRand4(const detail::tvec4<T>& mean, const detail::tvec4<T>& std_deviation); //!< \brief Gererate 4 random floating numbers according a Gauss distribution. (From GLM_GTX_random extension)
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "random.inl"

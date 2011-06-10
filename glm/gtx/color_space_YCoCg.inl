@@ -8,7 +8,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
 
 template <typename valType> 
 GLM_FUNC_QUALIFIER detail::tvec3<valType> rgb2YCoCg
@@ -63,5 +62,4 @@ GLM_FUNC_QUALIFIER detail::tvec3<valType> YCoCgR2rgb
 	return result;
 }
 
-}//namespace gtx
 }//namespace glm

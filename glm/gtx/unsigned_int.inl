@@ -8,7 +8,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
 
 GLM_FUNC_QUALIFIER uint pow(uint x, uint y)
 {
@@ -39,5 +38,4 @@ GLM_FUNC_QUALIFIER uint mod(uint x, uint y)
 	return x - y * (x / y);
 }
 
-}//namespace gtx
 }//namespace glm

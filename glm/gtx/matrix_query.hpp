@@ -46,8 +46,7 @@
 #	pragma message("GLM: GLM_GTX_matrix_query extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_matrix_query
 	/// @{
@@ -109,7 +108,6 @@ namespace gtx
 		const typename genType::value_type epsilon = std::numeric_limits<typename genType::value_type>::epsilon());
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "matrix_query.inl"

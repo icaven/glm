@@ -47,8 +47,7 @@
 #	pragma message("GLM: GLM_GTX_rotate_vector extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_rotate_vector
 	/// @{
@@ -126,7 +125,6 @@ namespace gtx
         detail::tvec3<T> const & Up);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "rotate_vector.inl"

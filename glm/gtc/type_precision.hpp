@@ -52,9 +52,8 @@
 #	pragma message("GLM: GLM_GTC_type_precision extension included")
 #endif
 
-namespace glm{
-namespace gtc{
-
+namespace glm
+{
 	///////////////////////////
 	// Signed int vector types 
 
@@ -229,7 +228,6 @@ namespace gtc{
 	typedef detail::tquat<f64>					f64quat;    //!< \brief Double-precision floating-point quaternion. (from GLM_GTC_type_precision extension)
 
 	/// @}
-}//namespace gtc
 }//namespace glm
 
 #include "type_precision.inl"

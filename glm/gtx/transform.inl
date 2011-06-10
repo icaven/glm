@@ -7,14 +7,13 @@
 // File    : glm/gtx/transform.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm{
-namespace gtx
+namespace glm
 {
     template <typename T> 
     GLM_FUNC_QUALIFIER detail::tmat4x4<T> translate(
 		T x, T y, T z)
     {
-		return gtc::translate(
+		return translate(
 			detail::tmat4x4<T>(1.0f), 
 			detail::tvec3<T>(x, y , z));
     }
@@ -24,7 +23,7 @@ namespace gtx
 		detail::tmat4x4<T> const & m, 
 		T x, T y, T z)
     {
-        return gtc::translate(
+        return translate(
 			m, detail::tvec3<T>(x, y , z));
     }
 
@@ -32,7 +31,7 @@ namespace gtx
     GLM_FUNC_QUALIFIER detail::tmat4x4<T> translate(
 		detail::tvec3<T> const & v)
     {
-		return gtc::translate(
+		return translate(
 			detail::tmat4x4<T>(1.0f), v);
     }
 
@@ -41,7 +40,7 @@ namespace gtx
 		T angle, 
 		T x, T y, T z)
     {
-		return gtc::rotate(
+		return rotate(
 			detail::tmat4x4<T>(1), angle, detail::tvec3<T>(x, y, z));
     }
 
@@ -50,7 +49,7 @@ namespace gtx
 		T angle, 
 		detail::tvec3<T> const & v)
     {
-		return gtc::rotate(
+		return rotate(
 			detail::tmat4x4<T>(1), angle, v);
     }
 
@@ -60,14 +59,14 @@ namespace gtx
 		T angle, 
 		T x, T y, T z)
     {
-		return gtc::rotate(
+		return rotate(
 			m, angle, detail::tvec3<T>(x, y, z));
     }
 
     template <typename T> 
     GLM_FUNC_QUALIFIER detail::tmat4x4<T> scale(T x, T y, T z)
     {
-		return gtc::scale(
+		return scale(
 			detail::tmat4x4<T>(1), detail::tvec3<T>(x, y, z));
     }
 
@@ -76,7 +75,7 @@ namespace gtx
 		detail::tmat4x4<T> const & m, 
 		T x, T y, T z)
     {
-        return gtc::scale(
+        return scale(
 			m, detail::tvec3<T>(x, y, z));
     }
 
@@ -84,9 +83,8 @@ namespace gtx
     GLM_FUNC_QUALIFIER detail::tmat4x4<T> scale(
 		detail::tvec3<T> const & v)
     {
-        return gtc::scale(
+        return scale(
 			detail::tmat4x4<T>(1.0f), v);
     }
 
-}//namespace gtx
 }//namespace glm

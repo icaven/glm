@@ -45,8 +45,7 @@
 #	pragma message("GLM: GLM_GTX_handed_coordinate_space extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_handed_coordinate_space
 	/// @{
@@ -68,7 +67,6 @@ namespace gtx
 		detail::tvec3<T> const & normal);
 
 	/// @}
-}// namespace gtx
 }// namespace glm
 
 #include "handed_coordinate_space.inl"

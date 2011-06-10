@@ -47,8 +47,7 @@
 #	pragma message("GLM: GLM_GTX_transform2 extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_transform2
 	/// @{
@@ -129,7 +128,6 @@ namespace gtx
 		valType bias);
 
 	/// @}
-}// namespace gtx
 }// namespace glm
 
 #include "transform2.inl"

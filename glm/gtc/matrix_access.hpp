@@ -44,9 +44,8 @@
 #	pragma message("GLM: GLM_GTC_matrix_access extension included")
 #endif
 
-namespace glm{
-namespace gtc{
-    
+namespace glm
+{
 	/// @addtogroup gtc_matrix_access
 	/// @{
 
@@ -81,7 +80,6 @@ namespace gtc{
 		typename genType::col_type const & x);
 
 	/// @}
-}//namespace gtc
 }//namespace glm
 
 #include "matrix_access.inl"

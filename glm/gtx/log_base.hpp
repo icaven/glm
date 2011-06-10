@@ -45,8 +45,7 @@
 #	pragma message("GLM: GLM_GTX_log_base extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_log_base
 	/// @{
@@ -59,7 +58,6 @@ namespace gtx
 		genType const & base);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "log_base.inl"

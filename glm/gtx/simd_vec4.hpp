@@ -135,8 +135,6 @@ namespace detail
 	};
 }//namespace detail
 
-namespace gtx
-{
 	typedef glm::detail::fvec4SIMD simdVec4;
 
 	/// @addtogroup gtx_simd_vec4
@@ -486,7 +484,6 @@ namespace gtx
 		detail::fvec4SIMD const & x);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "simd_vec4.inl"

@@ -45,8 +45,7 @@
 #	pragma message("GLM: GLM_GTX_color_space_YCoCg extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_color_space_YCoCg
 	/// @{
@@ -78,7 +77,6 @@ namespace gtx
 		detail::tvec3<valType> const & YCoCgColor);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "color_space_YCoCg.inl"

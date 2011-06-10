@@ -45,8 +45,7 @@
 #	pragma message("GLM: GLM_GTX_projection extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_projection
 	/// @{
@@ -73,7 +72,6 @@ namespace gtx
 		detail::tvec4<T> const & Normal);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "projection.inl"

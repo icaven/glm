@@ -46,8 +46,7 @@
 #	pragma message("GLM: GLM_GTX_inertia extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_inertia
 	/// @{
@@ -109,7 +108,6 @@ namespace gtx
 		const T Radius);
 
 	/// @}
-}// namespace gtx
 }// namespace glm
 
 #include "inertia.inl"

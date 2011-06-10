@@ -49,8 +49,7 @@
 #	pragma message("GLM: GLM_GTX_epsilon extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_epsilon
 	/// @{
@@ -72,7 +71,6 @@ namespace gtx
 		genTypeU const & epsilon);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "epsilon.inl"

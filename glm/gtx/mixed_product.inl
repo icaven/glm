@@ -8,7 +8,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
 
 template <typename valType> 
 GLM_FUNC_QUALIFIER valType mixedProduct(
@@ -19,14 +18,4 @@ GLM_FUNC_QUALIFIER valType mixedProduct(
     return dot(cross(v1, v2), v3);
 }
 
-}//namespace gtx
 }//namespace glm
-
-
-
-
-
-
-
-
-

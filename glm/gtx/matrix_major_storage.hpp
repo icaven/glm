@@ -46,10 +46,9 @@
 #	pragma message("GLM: GLM_GTX_matrix_major_storage extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
-	/// \addtogroup gtx_matrix_major_storage
+	/// @addtogroup gtx_matrix_major_storage
 	/// @{
 
 	//! Build a row major matrix from row vectors.
@@ -137,7 +136,6 @@ namespace gtx
 		const detail::tmat4x4<T>& m);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "matrix_major_storage.inl"

@@ -46,8 +46,7 @@
 #	pragma message("GLM: GLM_GTX_gradient_paint extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_gradient_paint
 	/// @{
@@ -70,7 +69,6 @@ namespace gtx
 		glm::detail::tvec2<valType> const & Position);
 
 	/// @}
-}// namespace gtx
 }// namespace glm
 
 #include "gradient_paint.inl"

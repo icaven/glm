@@ -349,8 +349,6 @@ namespace detail
 }
 //namespace detail
 
-namespace gtc
-{
 	/// @addtogroup gtc_half_float
 	/// @{
 
@@ -419,7 +417,6 @@ namespace gtc
 	typedef detail::tmat4x4<detail::thalf>	hmat4x4;
     
 	/// @}
-}// namespace gtc
 }// namespace glm
 
 #include "half_float.inl"

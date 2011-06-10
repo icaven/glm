@@ -16,6 +16,6 @@ namespace glm
 	class dont_care {};
 	class nicest {};
 	class fastest {};
-};
+}//namespace glm
 
 #endif//glm_core_type

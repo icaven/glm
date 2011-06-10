@@ -47,8 +47,7 @@
 #	pragma message("GLM: GLM_GTX_extented_min_max extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_extented_min_max
 	/// @{
@@ -188,7 +187,6 @@ namespace gtx
 		C<T> const & w);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "extented_min_max.inl"

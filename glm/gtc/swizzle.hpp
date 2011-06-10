@@ -46,8 +46,7 @@
 #	pragma message("GLM: GLM_GTC_swizzle extension included")
 #endif
 
-namespace glm{
-namespace gtc
+namespace glm
 {
 	/// @addtogroup gtc_swizzle
 	/// @{
@@ -369,7 +368,6 @@ namespace gtc
 	static_swizzle4_ref(glm::u64, 4)
 
 	/// @}
-}//namespace gtc
 }//namespace glm
 
 #include "swizzle.inl"
