@@ -46,8 +46,7 @@
 #	pragma message("GLM: GLM_GTX_std_based_type extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_std_based_type
 	/// @{
@@ -77,7 +76,6 @@ namespace gtx
 	typedef detail::tvec4<std::size_t>		size4_t;
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "std_based_type.inl"

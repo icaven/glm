@@ -8,7 +8,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
 
 // fastSqrt
 template <typename genType>
@@ -231,5 +230,4 @@ GLM_FUNC_QUALIFIER detail::tvec4<valType> fastNormalize
     return x * fastInverseSqrt(sqr);
 }
 
-}//namespace gtx
 }//namespace glm

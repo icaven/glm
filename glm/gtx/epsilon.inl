@@ -8,7 +8,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
 
 template <typename genType>
 GLM_FUNC_QUALIFIER bool equalEpsilon
@@ -228,5 +227,4 @@ GLM_FUNC_QUALIFIER detail::tvec4<bool> notEqualEpsilon
         abs(x.w - y.w) >= epsilon.w);
 }
 
-}//namespace gtx
 }//namespace glm

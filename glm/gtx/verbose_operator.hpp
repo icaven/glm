@@ -45,8 +45,7 @@
 #	pragma message("GLM: GLM_GTX_verbose_operator extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_verbose_operator
 	/// @{
@@ -77,7 +76,6 @@ namespace gtx
 	genTypeT mad(genTypeT const & a, genTypeU const & b, genTypeV const & c);
 
 	/// @}
-}// namespace gtx
 }// namespace glm
 
 #include "verbose_operator.inl"

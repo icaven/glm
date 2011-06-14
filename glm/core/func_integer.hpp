@@ -29,10 +29,9 @@
 #ifndef glm_core_func_integer
 #define glm_core_func_integer
 
-namespace glm{
-namespace core
+namespace glm
 {
-	/// \addtogroup core_funcs
+	/// @addtogroup core_funcs
 	/// @{
 
 	//! Adds 32-bit unsigned integer x and y, returning the sum
@@ -159,7 +158,6 @@ namespace core
 	typename C<T>::signed_type findMSB(C<T> const & Value);
 
 	/// @}
-}//namespace core
 }//namespace glm
 
 #include "func_integer.inl"

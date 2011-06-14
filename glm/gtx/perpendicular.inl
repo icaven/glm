@@ -8,7 +8,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
 
 template <typename T> 
 GLM_FUNC_QUALIFIER detail::tvec2<T> perp(
@@ -34,5 +33,4 @@ GLM_FUNC_QUALIFIER detail::tvec4<T> perp(
     return x - proj(x, Normal);
 }
 
-}//namespace gtx
 }//namespace glm

@@ -45,8 +45,7 @@
 #	pragma message("GLM: GLM_GTX_associated_min_max extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_associated_min_max
 	/// @{
@@ -94,7 +93,6 @@ namespace gtx
 		const genTypeT& w, const genTypeU& d);
 
 	/// @}
-} //namespace gtx
 } //namespace glm
 
 #include "associated_min_max.inl"

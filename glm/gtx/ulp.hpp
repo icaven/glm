@@ -46,8 +46,7 @@
 #	pragma message("GLM: GLM_GTX_ulp extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_ulp
 	/// @{
@@ -83,7 +82,6 @@ namespace gtx
     vecType<uint> float_distance(vecType<T> const & x, vecType<T> const & y);
         
 	/// @}
-}// namespace gtx
 }// namespace glm
 
 #include "ulp.inl"

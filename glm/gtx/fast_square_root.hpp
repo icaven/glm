@@ -47,8 +47,7 @@
 #	pragma message("GLM: GLM_GTX_fast_square_root extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_fast_square_root
 	/// @{
@@ -79,7 +78,6 @@ namespace gtx
 	genType fastNormalize(genType const & x);
 
 	/// @}
-}// namespace gtx
 }// namespace glm
 
 #include "fast_square_root.inl"

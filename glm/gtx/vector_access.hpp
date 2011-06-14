@@ -45,8 +45,7 @@
 #	pragma message("GLM: GLM_GTX_vector_access extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_vector_access
 	/// @{
@@ -79,7 +78,6 @@ namespace gtx
 		valType const & w);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "vector_access.inl"

@@ -34,8 +34,8 @@
 /// <glm/gtc/matrix_integer.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtc_matrix_integer
-#define glm_gtc_matrix_integer
+#ifndef GLM_GTC_matrix_integer
+#define GLM_GTC_matrix_integer 90
 
 // Dependency:
 #include "../glm.hpp"
@@ -44,10 +44,9 @@
 #	pragma message("GLM: GLM_GTC_matrix_integer extension included")
 #endif
 
-namespace glm{
-namespace gtc{
-
-	/// \addtogroup gtc_matrix_integer
+namespace glm
+{
+	/// @addtogroup gtc_matrix_integer
 	/// @{
 
 	typedef detail::tmat2x2<highp_int>				highp_imat2;	//!< \brief High-precision signed integer 2x2 matrix. (from GLM_GTC_matrix_integer extension)
@@ -217,7 +216,6 @@ namespace gtc{
 #endif//GLM_PRECISION
 
 	/// @}
-}//namespace gtc
 }//namespace glm
 
-#endif//glm_gtc_matrix_integer
+#endif//GLM_GTC_matrix_integer

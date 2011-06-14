@@ -8,8 +8,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
-namespace compatibility{
 
 // isfinite
 template <typename genType> 
@@ -136,6 +134,4 @@ GLM_FUNC_QUALIFIER detail::tvec4<bool> isnan(
 		isnan(x.w));
 }
 
-}//namespace compatibility
-}//namespace gtx
 }//namespace glm

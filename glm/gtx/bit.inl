@@ -10,7 +10,6 @@
 #include "../core/_detail.hpp"
 
 namespace glm{
-namespace gtx{
 
 template <typename genIType>
 GLM_FUNC_QUALIFIER genIType mask
@@ -61,13 +60,13 @@ GLM_FUNC_QUALIFIER detail::tvec4<valIType> mask
 template <typename genIType>
 GLM_FUNC_QUALIFIER genIType extractField
 (
-	gtc::half const & value, 
+	half const & value, 
 	genIType const & first, 
 	genIType const & count
 )
 {
-	assert(first + count < sizeof(gtc::half));
-	return (value._data() << first) >> ((sizeof(gtc::half) << 3) - count);
+	assert(first + count < sizeof(half));
+	return (value._data() << first) >> ((sizeof(half) << 3) - count);
 }
 
 template <typename genIType>
@@ -771,5 +770,4 @@ GLM_FUNC_QUALIFIER genIUType fillBitfieldWithZero
 	return Result;
 }
 
-}//namespace gtx
 }//namespace glm

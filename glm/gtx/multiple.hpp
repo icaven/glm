@@ -46,8 +46,7 @@
 #	pragma message("GLM: GLM_GTX_multiple extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_multiple
 	/// @{
@@ -67,7 +66,6 @@ namespace gtx
 		genType const & Multiple);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "multiple.inl"

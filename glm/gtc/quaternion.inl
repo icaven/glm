@@ -211,7 +211,7 @@ namespace detail{
 		detail::tquat<T> const & q 
 	)
 	{
-		return gtc::inverse(q) * v;
+		return inverse(q) * v;
 	}
 
 	template <typename T>
@@ -231,7 +231,7 @@ namespace detail{
 		detail::tquat<T> const & q 
 	)
 	{
-		return gtc::inverse(q) * v;
+		return inverse(q) * v;
 	}
 
 	template <typename T> 
@@ -290,8 +290,6 @@ namespace detail{
 	}
 
 }//namespace detail
-
-namespace gtc{
 
 	////////////////////////////////////////////////////////
     template <typename T> 
@@ -447,7 +445,7 @@ namespace gtc{
 		detail::tquat<T> const & q
 	)
     {
-        return gtc::conjugate(q) / gtc::dot(q, q);
+        return conjugate(q) / dot(q, q);
     }
 
     template <typename T> 
@@ -473,7 +471,7 @@ namespace gtc{
         typename detail::tquat<T>::value_type AngleRad = radians(angle);
         typename detail::tquat<T>::value_type fSin = sin(AngleRad * T(0.5));
 
-        return gtc::cross(q, detail::tquat<T>(cos(AngleRad * T(0.5)), Tmp.x * fSin, Tmp.y * fSin, Tmp.z * fSin));
+        return cross(q, detail::tquat<T>(cos(AngleRad * T(0.5)), Tmp.x * fSin, Tmp.y * fSin, Tmp.z * fSin));
 	}
 
     template <typename T> 
@@ -578,5 +576,4 @@ namespace gtc{
 		return quat_cast(detail::tmat3x3<T>(m4));
     }
 
-}//namespace gtc
 }//namespace glm

@@ -47,8 +47,7 @@
 #	pragma message("GLM: GLM_GTX_normalize_dot extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_normalize_dot
 	/// @{
@@ -70,7 +69,6 @@ namespace gtx
 		genType const & y);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "normalize_dot.inl"

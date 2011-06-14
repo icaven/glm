@@ -10,10 +10,9 @@
 #ifndef glm_core_func_matrix
 #define glm_core_func_matrix
 
-namespace glm{
-namespace core
+namespace glm
 {
-	/// \addtogroup core_funcs
+	/// @addtogroup core_funcs
 	/// @{
 
 	//! Multiply matrix x by matrix y component-wise, i.e., 
@@ -94,7 +93,6 @@ namespace core
 		detail::tmat4x4<T> const & m);
 
 	/// @}
-}//namespace core
 }//namespace glm
 
 #include "func_matrix.inl"

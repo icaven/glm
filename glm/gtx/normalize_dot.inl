@@ -8,7 +8,6 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
 
 template <typename genType> 
 GLM_FUNC_QUALIFIER genType normalizeDot
@@ -71,7 +70,7 @@ GLM_FUNC_QUALIFIER genType fastNormalizeDot
 {
 	return 
 		glm::dot(x, y) * 
-		glm::gtx::fastInverseSqrt(glm::dot(x, x) * 
+		fastInverseSqrt(glm::dot(x, x) * 
 		glm::dot(y, y));
 }
 
@@ -84,7 +83,7 @@ GLM_FUNC_QUALIFIER valType fastNormalizeDot
 {
 	return 
 		glm::dot(x, y) * 
-		glm::gtx::fastInverseSqrt(glm::dot(x, x) * 
+		fastInverseSqrt(glm::dot(x, x) * 
 		glm::dot(y, y));
 }
 
@@ -97,7 +96,7 @@ GLM_FUNC_QUALIFIER valType fastNormalizeDot
 {
 	return 
 		glm::dot(x, y) * 
-		glm::gtx::fastInverseSqrt(glm::dot(x, x) * 
+		fastInverseSqrt(glm::dot(x, x) * 
 		glm::dot(y, y));
 }
 
@@ -110,9 +109,8 @@ GLM_FUNC_QUALIFIER valType fastNormalizeDot
 {
 	return 
 		glm::dot(x, y) * 
-		glm::gtx::fastInverseSqrt(glm::dot(x, x) * 
+		fastInverseSqrt(glm::dot(x, x) * 
 		glm::dot(y, y));
 }
 
-}//namespace gtx
 }//namespace glm

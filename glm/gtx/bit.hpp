@@ -47,8 +47,7 @@
 #	pragma message("GLM: GLM_GTX_bit extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_bit
 	/// @{
@@ -134,7 +133,6 @@ namespace gtx
 		int const & ToBit);
 
 	/// @}
-}// namespace gtx
 }// namespace glm
 
 #include "bit.inl"

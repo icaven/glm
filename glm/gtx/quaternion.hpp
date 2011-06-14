@@ -50,8 +50,7 @@
 #	pragma message("GLM: GLM_GTX_quaternion extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_quaternion
 	/// @{
@@ -191,25 +190,25 @@ namespace gtx
 	//! From GLM_GTX_quaternion extension.
     template <typename valType> 
 	detail::tmat3x3<valType> toMat3(
-		detail::tquat<valType> const & x){return gtc::mat3_cast(x);}
+		detail::tquat<valType> const & x){return mat3_cast(x);}
 
 	//! Converts a quaternion to a 4 * 4 matrix. 
 	//! From GLM_GTX_quaternion extension.
 	template <typename valType> 
 	detail::tmat4x4<valType> toMat4(
-		detail::tquat<valType> const & x){return gtc::mat4_cast(x);}
+		detail::tquat<valType> const & x){return mat4_cast(x);}
 
 	//! Converts a 3 * 3 matrix to a quaternion. 
 	//! From GLM_GTX_quaternion extension.
 	template <typename valType> 
 	detail::tquat<valType> toQuat(
-		detail::tmat3x3<valType> const & x){return gtc::quat_cast(x);}
+		detail::tmat3x3<valType> const & x){return quat_cast(x);}
 
 	//! Converts a 4 * 4 matrix to a quaternion. 
 	//! From GLM_GTX_quaternion extension.
 	template <typename valType> 
 	detail::tquat<valType> toQuat(
-		detail::tmat4x4<valType> const & x){return gtc::quat_cast(x);}
+		detail::tmat4x4<valType> const & x){return quat_cast(x);}
 
 	//! Quaternion interpolation using the rotation short path. 
 	//! From GLM_GTX_quaternion extension.
@@ -228,7 +227,6 @@ namespace gtx
 		T const & a);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "quaternion.inl"

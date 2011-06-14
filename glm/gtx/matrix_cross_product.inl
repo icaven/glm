@@ -8,7 +8,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
 
 template <typename T> 
 GLM_FUNC_QUALIFIER detail::tmat3x3<T> matrixCross3(
@@ -38,5 +37,4 @@ GLM_FUNC_QUALIFIER detail::tmat4x4<T> matrixCross4(
     return Result;
 }
 
-}//namespace gtx
 }//namespace glm

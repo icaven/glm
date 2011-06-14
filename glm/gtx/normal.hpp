@@ -46,8 +46,7 @@
 #	pragma message("GLM: GLM_GTX_normal extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_normal
 	/// @{
@@ -61,7 +60,6 @@ namespace gtx
 		detail::tvec3<T> const & p3);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "normal.inl"

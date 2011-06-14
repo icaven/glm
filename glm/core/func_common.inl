@@ -38,8 +38,6 @@ namespace detail
     };
 }//namespace detail
 
-namespace core
-{
 	// abs
 	template <typename genFIType>
     GLM_FUNC_QUALIFIER genFIType abs(
@@ -728,7 +726,7 @@ namespace core
 		//if(x >= maxVal) return maxVal; 
         //if(x <= minVal) return minVal;
 	    //return x;
-		return glm::max(glm::min(x, maxVal), minVal);
+		return max(min(x, maxVal), minVal);
     }
 
     template <typename T>
@@ -1566,5 +1564,4 @@ namespace core
 		return std::frexp(x, exp);
 	}
 
-}//namespace core
 }//namespace glm

@@ -43,16 +43,6 @@
 #	pragma message("GLM: Core library included")
 #endif//GLM_MESSAGE
 
-namespace glm
-{
-	namespace gtc{}
-	namespace gtx{}
-	namespace virtrev{}
-	
-	using namespace gtc;
-	using namespace gtx;
-}//namespace glm
-
 #include "./core/_detail.hpp"
 #include "./core/type.hpp"
 

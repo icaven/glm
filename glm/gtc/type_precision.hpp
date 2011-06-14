@@ -40,8 +40,8 @@
 /// <glm/gtc/type_precision.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtc_type_precision
-#define glm_gtc_type_precision
+#ifndef GLM_GTC_type_precision
+#define GLM_GTC_type_precision 100
 
 // Dependency:
 #include "../glm.hpp"
@@ -52,9 +52,8 @@
 #	pragma message("GLM: GLM_GTC_type_precision extension included")
 #endif
 
-namespace glm{
-namespace gtc{
-
+namespace glm
+{
 	///////////////////////////
 	// Signed int vector types 
 
@@ -229,9 +228,8 @@ namespace gtc{
 	typedef detail::tquat<f64>					f64quat;    //!< \brief Double-precision floating-point quaternion. (from GLM_GTC_type_precision extension)
 
 	/// @}
-}//namespace gtc
 }//namespace glm
 
 #include "type_precision.inl"
 
-#endif//glm_gtc_type_precision
+#endif//GLM_GTC_type_precision

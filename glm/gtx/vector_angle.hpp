@@ -50,8 +50,7 @@
 #	pragma message("GLM: GLM_GTX_vector_angle extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_vector_angle
 	/// @{
@@ -82,7 +81,6 @@ namespace gtx
 		detail::tvec3<T> const & ref);
 
 	/// @}
-}// namespace gtx
 }// namespace glm
 
 #include "vector_angle.inl"

@@ -45,8 +45,7 @@
 #	pragma message("GLM: GLM_GTX_fast_trigonometry extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_fast_trigonometry
 	/// @{
@@ -94,7 +93,6 @@ namespace gtx
 	T fastAtan(const T& angle);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "fast_trigonometry.inl"

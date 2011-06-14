@@ -8,7 +8,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
 
 template <typename T> 
 GLM_FUNC_QUALIFIER detail::tvec3<T> triangleNormal
@@ -21,5 +20,4 @@ GLM_FUNC_QUALIFIER detail::tvec3<T> triangleNormal
     return normalize(cross(p1 - p2, p1 - p3));
 }
 
-}//namespace gtx
 }//namespace glm

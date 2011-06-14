@@ -46,8 +46,7 @@
 #	pragma message("GLM: GLM_GTX_orthonormalize extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_orthonormalize
 	/// @{
@@ -66,7 +65,6 @@ namespace gtx
 		const detail::tvec3<T>& y);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "orthonormalize.inl"

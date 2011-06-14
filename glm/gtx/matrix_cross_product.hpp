@@ -46,8 +46,7 @@
 #	pragma message("GLM: GLM_GTX_matrix_cross_product extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_matrix_cross_product
 	/// @{
@@ -65,7 +64,6 @@ namespace gtx
 		detail::tvec3<T> const & x);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "matrix_cross_product.inl"

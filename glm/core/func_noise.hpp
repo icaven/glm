@@ -10,10 +10,9 @@
 #ifndef glm_core_func_noise
 #define glm_core_func_noise
 
-namespace glm{
-namespace core
+namespace glm
 {
-	/// \addtogroup core_funcs
+	/// @addtogroup core_funcs
 	/// @{
 
 	//! Returns a 1D noise value based on the input value x.
@@ -45,7 +44,6 @@ namespace core
 	detail::tvec4<typename genType::value_type> noise4(genType const & x);
 
 	/// @}
-}//namespace core
 }//namespace glm
 
 #include "func_noise.inl"

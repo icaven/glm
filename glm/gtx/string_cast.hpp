@@ -54,8 +54,7 @@
 #	pragma message("GLM: GLM_GTX_string_cast extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_string_cast
 	/// @{
@@ -66,7 +65,6 @@ namespace gtx
 	std::string to_string(genType const & x);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "string_cast.inl"

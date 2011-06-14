@@ -45,8 +45,7 @@
 #	pragma message("GLM: GLM_GTX_wrap extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_wrap
 	/// @{
@@ -67,7 +66,6 @@ namespace gtx
 	genType mirrorRepeat(genType const & Texcoord);
 
 	/// @}
-}// namespace gtx
 }// namespace glm
 
 #include "wrap.inl"

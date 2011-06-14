@@ -8,7 +8,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
 
 template <typename genType> 
 GLM_FUNC_QUALIFIER genType log(
@@ -86,5 +85,4 @@ GLM_FUNC_QUALIFIER detail::tvec4<valType> log(
 		log(v.w, base.w));
 }
 
-}//namespace gtx
 }//namespace glm

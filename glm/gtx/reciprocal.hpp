@@ -45,8 +45,7 @@
 #	pragma message("GLM: GLM_GTX_reciprocal extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_reciprocal
 	/// @{
@@ -115,7 +114,6 @@ namespace gtx
 	genType acoth(genType const & x);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "reciprocal.inl"

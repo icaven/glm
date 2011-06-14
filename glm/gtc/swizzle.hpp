@@ -35,8 +35,8 @@
 /// <glm/gtc/swizzle.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtc_swizzle
-#define glm_gtc_swizzle
+#ifndef GLM_GTC_swizzle
+#define GLM_GTC_swizzle 90
 
 // Dependency:
 #include "../glm.hpp"
@@ -46,8 +46,7 @@
 #	pragma message("GLM: GLM_GTC_swizzle extension included")
 #endif
 
-namespace glm{
-namespace gtc
+namespace glm
 {
 	/// @addtogroup gtc_swizzle
 	/// @{
@@ -369,9 +368,8 @@ namespace gtc
 	static_swizzle4_ref(glm::u64, 4)
 
 	/// @}
-}//namespace gtc
 }//namespace glm
 
 #include "swizzle.inl"
 
-#endif//glm_gtc_swizzle
+#endif//GLM_GTC_swizzle

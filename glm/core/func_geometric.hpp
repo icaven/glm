@@ -29,8 +29,7 @@
 #ifndef glm_core_func_geometric
 #define glm_core_func_geometric
 
-namespace glm{
-namespace core
+namespace glm
 {
 	/// \addtogroup core_funcs
 	/// @{
@@ -111,7 +110,6 @@ namespace core
 		typename genType::value_type const & eta);
 
 	/// @}
-}//namespace core
 }//namespace glm
 
 #include "func_geometric.inl"

@@ -47,8 +47,7 @@
 #	pragma message("GLM: GLM_GTX_perpendicular extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_perpendicular
 	/// @{
@@ -75,7 +74,6 @@ namespace gtx
 		detail::tvec4<T> const & Normal);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "perpendicular.inl"

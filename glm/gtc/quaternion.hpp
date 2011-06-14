@@ -39,8 +39,8 @@
 /// <glm/gtc/quaternion.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtc_quaternion
-#define glm_gtc_quaternion
+#ifndef GLM_GTC_quaternion
+#define GLM_GTC_quaternion 90
 
 // Dependency:
 #include "../glm.hpp"
@@ -73,7 +73,7 @@ namespace detail
 		tquat();
 		explicit tquat(
 			value_type const & s, 
-			tvec3<T> const & v);
+			glm::detail::tvec3<T> const & v);
 		explicit tquat(
 			value_type const & w, 
 			value_type const & x, 
@@ -149,8 +149,6 @@ namespace detail
 		typename detail::tquat<T>::value_type const & s);
 
 } //namespace detail
-
-namespace gtc{
 
 	/// @addtogroup gtc_quaternion
 	/// @{
@@ -255,9 +253,8 @@ namespace gtc{
 	typedef detail::tquat<highp_float>		highp_quat;
     
 	/// @}
-} //namespace gtc
 } //namespace glm
 
 #include "quaternion.inl"
 
-#endif//glm_gtc_quaternion
+#endif//GLM_GTC_quaternion

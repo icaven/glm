@@ -45,8 +45,7 @@
 #	pragma message("GLM: GLM_GTX_extend extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_extend
 	/// @{
@@ -60,7 +59,6 @@ namespace gtx
 		typename genType::value_type const Length);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "extend.inl"

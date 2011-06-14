@@ -31,8 +31,7 @@
 
 #include "_fixes.hpp"
 
-namespace glm{
-namespace core
+namespace glm
 {
 	/// @addtogroup core_funcs
 	/// @{
@@ -367,7 +366,6 @@ namespace core
 	genType ldexp(genType const & x, genIType const & exp);
 
 	/// @}
-}//namespace core
 }//namespace glm
 
 #include "func_common.inl"

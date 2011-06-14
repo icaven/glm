@@ -45,8 +45,7 @@
 #	pragma message("GLM: GLM_GTX_closest_point extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_closest_point
 	/// @{
@@ -60,7 +59,6 @@ namespace gtx
 		detail::tvec3<T> const & b);
 
 	/// @}
-}// namespace gtx
 }// namespace glm
 
 #include "closest_point.inl"

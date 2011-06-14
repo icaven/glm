@@ -47,120 +47,118 @@
 #	pragma message("GLM: GLM_VIRTREV_xstream extension included")
 #endif
 
-namespace glm{
-namespace virtrev_glmext
+namespace glm
 {
-			template<typename T>
-			std::ostream & operator << (std::ostream & stream, glm::detail::tvec2<T> const & vec)
-			{
-				stream << "<glm_vec2 ";
-				stream << "x=\"" << vec.x << "\" ";
-				stream << "y=\"" << vec.y << "\" ";
-				stream << "/>";
+	template<typename T>
+	std::ostream & operator << (std::ostream & stream, glm::detail::tvec2<T> const & vec)
+	{
+		stream << "<glm_vec2 ";
+		stream << "x=\"" << vec.x << "\" ";
+		stream << "y=\"" << vec.y << "\" ";
+		stream << "/>";
 
-				return stream;
-			}
+		return stream;
+	}
 
-			template<typename T>
-			std::ostream & operator << (std::ostream & stream, glm::detail::tvec3<T> const & vec)
-			{
-				stream << "<glm_vec3 ";
-				stream << "x=\"" << vec.x << "\" ";
-				stream << "y=\"" << vec.y << "\" ";
-				stream << "z=\"" << vec.z << "\" ";
-				stream << "/>";
+	template<typename T>
+	std::ostream & operator << (std::ostream & stream, glm::detail::tvec3<T> const & vec)
+	{
+		stream << "<glm_vec3 ";
+		stream << "x=\"" << vec.x << "\" ";
+		stream << "y=\"" << vec.y << "\" ";
+		stream << "z=\"" << vec.z << "\" ";
+		stream << "/>";
 
-				return stream;
-			}
+		return stream;
+	}
 
-			template<typename T>
-			std::ostream & operator << (std::ostream & stream, glm::detail::tvec4<T> const & vec)
-			{
-				stream << "<glm_vec4 ";
-				stream << "x=\"" << vec.x << "\" ";
-				stream << "y=\"" << vec.y << "\" ";
-				stream << "z=\"" << vec.z << "\" ";
-				stream << "w=\"" << vec.w << "\" ";
-				stream << "/>";
+	template<typename T>
+	std::ostream & operator << (std::ostream & stream, glm::detail::tvec4<T> const & vec)
+	{
+		stream << "<glm_vec4 ";
+		stream << "x=\"" << vec.x << "\" ";
+		stream << "y=\"" << vec.y << "\" ";
+		stream << "z=\"" << vec.z << "\" ";
+		stream << "w=\"" << vec.w << "\" ";
+		stream << "/>";
 
-				return stream;
-			}
+		return stream;
+	}
 
-			template<typename T>
-			std::ostream & operator << (std::ostream & stream, glm::detail::tmat2x2<T> const & mat)
-			{
-				stream << "<glm_mat2>" << std::endl;
-				stream << "<row ";
-				stream << "x=\"" << glm::row(mat, 0)[0] << "\" ";
-				stream << "y=\"" << glm::row(mat, 0)[1] << "\" ";
-				stream << "/>" << std::endl;
-				stream << "<row ";
-				stream << "x=\"" << glm::row(mat, 1)[0] << "\" ";
-				stream << "y=\"" << glm::row(mat, 1)[1] << "\" ";
-				stream << "/>" << std::endl;
-				stream << "</glm_mat2>";
+	template<typename T>
+	std::ostream & operator << (std::ostream & stream, glm::detail::tmat2x2<T> const & mat)
+	{
+		stream << "<glm_mat2>" << std::endl;
+		stream << "<row ";
+		stream << "x=\"" << glm::row(mat, 0)[0] << "\" ";
+		stream << "y=\"" << glm::row(mat, 0)[1] << "\" ";
+		stream << "/>" << std::endl;
+		stream << "<row ";
+		stream << "x=\"" << glm::row(mat, 1)[0] << "\" ";
+		stream << "y=\"" << glm::row(mat, 1)[1] << "\" ";
+		stream << "/>" << std::endl;
+		stream << "</glm_mat2>";
 
-				return stream;
-			}
+		return stream;
+	}
 
-			template<typename T>
-			std::ostream & operator << (std::ostream & stream, glm::detail::tmat3x3<T> const & mat)
-			{
-				stream << "<glm_mat3>" << std::endl;
-				stream << "<row ";
-				stream << "x=\"" << glm::row(mat, 0)[0] << "\" ";
-				stream << "y=\"" << glm::row(mat, 0)[1] << "\" ";
-				stream << "z=\"" << glm::row(mat, 0)[2] << "\" ";
-				stream << "/>" << std::endl;
-				stream << "<row ";
-				stream << "x=\"" << glm::row(mat, 1)[0] << "\" ";
-				stream << "y=\"" << glm::row(mat, 1)[1] << "\" ";
-				stream << "z=\"" << glm::row(mat, 1)[2] << "\" ";
-				stream << "/>" << std::endl;
-				stream << "<row ";
-				stream << "x=\"" << glm::row(mat, 2)[0] << "\" ";
-				stream << "y=\"" << glm::row(mat, 2)[1] << "\" ";
-				stream << "z=\"" << glm::row(mat, 2)[2] << "\" ";
-				stream << "/>" << std::endl;
-				stream << "</glm_mat3>";
+	template<typename T>
+	std::ostream & operator << (std::ostream & stream, glm::detail::tmat3x3<T> const & mat)
+	{
+		stream << "<glm_mat3>" << std::endl;
+		stream << "<row ";
+		stream << "x=\"" << glm::row(mat, 0)[0] << "\" ";
+		stream << "y=\"" << glm::row(mat, 0)[1] << "\" ";
+		stream << "z=\"" << glm::row(mat, 0)[2] << "\" ";
+		stream << "/>" << std::endl;
+		stream << "<row ";
+		stream << "x=\"" << glm::row(mat, 1)[0] << "\" ";
+		stream << "y=\"" << glm::row(mat, 1)[1] << "\" ";
+		stream << "z=\"" << glm::row(mat, 1)[2] << "\" ";
+		stream << "/>" << std::endl;
+		stream << "<row ";
+		stream << "x=\"" << glm::row(mat, 2)[0] << "\" ";
+		stream << "y=\"" << glm::row(mat, 2)[1] << "\" ";
+		stream << "z=\"" << glm::row(mat, 2)[2] << "\" ";
+		stream << "/>" << std::endl;
+		stream << "</glm_mat3>";
 
-				return stream;
-			}
+		return stream;
+	}
 
-			template<typename T>
-			std::ostream & operator << (std::ostream & stream, glm::detail::tmat4x4<T> const & mat)
-			{
-				stream << "<glm_mat4>" << std::endl;
-				stream << "<row ";
-				stream << "x=\"" << glm::row(mat, 0)[0] << "\" ";
-				stream << "y=\"" << glm::row(mat, 0)[1] << "\" ";
-				stream << "z=\"" << glm::row(mat, 0)[2] << "\" ";
-				stream << "w=\"" << glm::row(mat, 0)[3] << "\" ";
-				stream << "/>" << std::endl;
-				stream << "<row ";
-				stream << "x=\"" << glm::row(mat, 1)[0] << "\" ";
-				stream << "y=\"" << glm::row(mat, 1)[1] << "\" ";
-				stream << "z=\"" << glm::row(mat, 1)[2] << "\" ";
-				stream << "w=\"" << glm::row(mat, 1)[3] << "\" ";
-				stream << "/>" << std::endl;
-				stream << "<row ";
-				stream << "x=\"" << glm::row(mat, 2)[0] << "\" ";
-				stream << "y=\"" << glm::row(mat, 2)[1] << "\" ";
-				stream << "z=\"" << glm::row(mat, 2)[2] << "\" ";
-				stream << "w=\"" << glm::row(mat, 2)[3] << "\" ";
-				stream << "/>" << std::endl;
-				stream << "<row ";
-				stream << "x=\"" << glm::row(mat, 3)[0] << "\" ";
-				stream << "y=\"" << glm::row(mat, 3)[1] << "\" ";
-				stream << "z=\"" << glm::row(mat, 3)[2] << "\" ";
-				stream << "w=\"" << glm::row(mat, 3)[3] << "\" ";
-				stream << "/>" << std::endl;
-				stream << "</glm_mat4>";
+	template<typename T>
+	std::ostream & operator << (std::ostream & stream, glm::detail::tmat4x4<T> const & mat)
+	{
+		stream << "<glm_mat4>" << std::endl;
+		stream << "<row ";
+		stream << "x=\"" << glm::row(mat, 0)[0] << "\" ";
+		stream << "y=\"" << glm::row(mat, 0)[1] << "\" ";
+		stream << "z=\"" << glm::row(mat, 0)[2] << "\" ";
+		stream << "w=\"" << glm::row(mat, 0)[3] << "\" ";
+		stream << "/>" << std::endl;
+		stream << "<row ";
+		stream << "x=\"" << glm::row(mat, 1)[0] << "\" ";
+		stream << "y=\"" << glm::row(mat, 1)[1] << "\" ";
+		stream << "z=\"" << glm::row(mat, 1)[2] << "\" ";
+		stream << "w=\"" << glm::row(mat, 1)[3] << "\" ";
+		stream << "/>" << std::endl;
+		stream << "<row ";
+		stream << "x=\"" << glm::row(mat, 2)[0] << "\" ";
+		stream << "y=\"" << glm::row(mat, 2)[1] << "\" ";
+		stream << "z=\"" << glm::row(mat, 2)[2] << "\" ";
+		stream << "w=\"" << glm::row(mat, 2)[3] << "\" ";
+		stream << "/>" << std::endl;
+		stream << "<row ";
+		stream << "x=\"" << glm::row(mat, 3)[0] << "\" ";
+		stream << "y=\"" << glm::row(mat, 3)[1] << "\" ";
+		stream << "z=\"" << glm::row(mat, 3)[2] << "\" ";
+		stream << "w=\"" << glm::row(mat, 3)[3] << "\" ";
+		stream << "/>" << std::endl;
+		stream << "</glm_mat4>";
 			
-				return stream;
-			}
+		return stream;
+	}
 
-}//namespace virtrev_glmext
 }//namespace glm
 
 #endif//GLM_VIRTREV_XSTREAM_INCLUDED

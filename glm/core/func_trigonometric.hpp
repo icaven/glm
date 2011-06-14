@@ -10,10 +10,9 @@
 #ifndef glm_core_func_trigonometric
 #define glm_core_func_trigonometric
 
-namespace glm{
-namespace core
+namespace glm
 {
-	/// \addtogroup core_funcs
+	/// @addtogroup core_funcs
 	/// @{
 
 	//! Converts degrees to radians and returns the result.
@@ -135,7 +134,6 @@ namespace core
 	genType atanh(genType const & x);
 
 	/// @}
-}//namespace core
 }//namespace glm
 
 #include "func_trigonometric.inl"

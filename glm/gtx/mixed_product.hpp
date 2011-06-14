@@ -45,8 +45,7 @@
 #	pragma message("GLM: GLM_GTX_mixed_product extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_mixed_product
 	/// @{
@@ -59,7 +58,6 @@ namespace gtx
 		detail::tvec3<valType> const & v3);
 
 	/// @}
-}// namespace gtx
 }// namespace glm
 
 #include "mixed_product.inl"

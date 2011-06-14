@@ -45,8 +45,7 @@
 #	pragma message("GLM: GLM_GTX_polar_coordinates extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_polar_coordinates
 	/// @{
@@ -62,7 +61,6 @@ namespace gtx
 	detail::tvec3<T> euclidean(const detail::tvec3<T>& polar);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "polar_coordinates.inl"

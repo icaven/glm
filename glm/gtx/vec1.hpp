@@ -45,8 +45,7 @@
 #	pragma message("GLM: GLM_GTX_vec1 extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	//! 1 component vector of high precision floating-point numbers. 
 	//! There is no guarantee on the actual precision.
@@ -130,7 +129,6 @@ namespace gtx
 	typedef mediump_uvec1		uvec1;
 #endif//GLM_PRECISION
 
-}// namespace gtx
 }// namespace glm
 
 #include "vec1.inl"

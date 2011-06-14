@@ -50,8 +50,7 @@
 #	pragma message("GLM: GLM_GTX_euler_angles extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_euler_angles
 	/// @{
@@ -153,7 +152,6 @@ namespace gtx
 	detail::tmat4x4<T> orientate4(detail::tvec3<T> const & angles);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "euler_angles.inl"

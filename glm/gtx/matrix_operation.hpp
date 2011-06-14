@@ -45,10 +45,9 @@
 #	pragma message("GLM: GLM_GTX_matrix_operation extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
-	/// \addtogroup gtx_matrix_operation
+	/// @addtogroup gtx_matrix_operation
 	/// @{
 
 	//! Build a diagonal matrix.
@@ -106,7 +105,6 @@ namespace gtx
 		detail::tvec4<valType> const & v);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "matrix_operation.inl"

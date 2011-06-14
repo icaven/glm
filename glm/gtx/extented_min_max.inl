@@ -7,8 +7,7 @@
 // File    : gtx_extented_min_max.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	template <typename T>
 	GLM_FUNC_QUALIFIER T min(
@@ -176,5 +175,4 @@ namespace gtx
 		return glm::max(glm::max(x, y), glm::max(z, w));
 	}
 
-}//namespace gtx
 }//namespace glm

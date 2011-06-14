@@ -47,8 +47,7 @@
 #	pragma message("GLM: GLM_GTX_unsigned_int extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_unsigned_int
 	/// @{
@@ -70,7 +69,6 @@ namespace gtx
 	uint mod(uint x, uint y);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "unsigned_int.inl"

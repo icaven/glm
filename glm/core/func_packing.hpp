@@ -10,11 +10,10 @@
 #ifndef glm_core_func_packing
 #define glm_core_func_packing
 
-namespace glm{
-namespace core
+namespace glm
 {
-	/// \addtogroup core_funcs
-	///@{
+	/// @addtogroup core_funcs
+	/// @{
 
     //! First, converts each component of the normalized floating-point value v into 8- or 16-bit integer values. 
     //! Then, the results are packed into the returned 32-bit unsigned integer.
@@ -114,7 +113,6 @@ namespace core
 	detail::tvec2<detail::uint32> unpackDouble2x32(double const & v);
 
 	/// @}
-}//namespace core
 }//namespace glm
 
 #include "func_packing.inl"

@@ -49,8 +49,7 @@
 #	pragma message("GLM: GLM_GTX_noise extension included")
 #endif
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_noise
 	/// @{
@@ -75,7 +74,6 @@ namespace gtx
 		vecType<T> const & p);
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "noise.inl"

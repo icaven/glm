@@ -35,8 +35,8 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtc_half_float
-#define glm_gtc_half_float
+#ifndef GLM_GTC_half_float
+#define GLM_GTC_half_float 90
 
 // Dependency:
 #include "../glm.hpp"
@@ -349,8 +349,6 @@ namespace detail
 }
 //namespace detail
 
-namespace gtc
-{
 	/// @addtogroup gtc_half_float
 	/// @{
 
@@ -419,9 +417,8 @@ namespace gtc
 	typedef detail::tmat4x4<detail::thalf>	hmat4x4;
     
 	/// @}
-}// namespace gtc
 }// namespace glm
 
 #include "half_float.inl"
 
-#endif//glm_gtc_half_float
+#endif//GLM_GTC_half_float

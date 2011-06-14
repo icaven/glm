@@ -12,10 +12,9 @@
 
 #include "_detail.hpp"
 
-namespace glm{
-namespace core
+namespace glm
 {
-	/// \addtogroup core_funcs
+	/// @addtogroup core_funcs
 	/// @{
 
 	//! Returns the component-wise comparison result of x < y.
@@ -197,7 +196,6 @@ namespace core
 	}
 
 	/// @}
-}//namespace core
 }//namespace glm
 
 #include "func_vector_relational.inl"

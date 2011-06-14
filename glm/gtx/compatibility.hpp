@@ -53,8 +53,7 @@
 #include <cmath>
 #endif//GLM_COMPILER
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	/// @addtogroup gtx_compatibility
 	/// @{
@@ -124,21 +123,21 @@ namespace gtx
 	typedef detail::tmat4x3<int>		int4x3;			//!< \brief integer matrix with 4 x 3 components. (From GLM_GTX_compatibility extension)
 	typedef detail::tmat4x4<int>		int4x4;			//!< \brief integer matrix with 4 x 4 components. (From GLM_GTX_compatibility extension)
 
-	typedef gtc::half						half1;			//!< \brief half-precision floating-point vector with 1 component. (From GLM_GTX_compatibility extension)
-	typedef detail::tvec2<gtc::half>		half2;			//!< \brief half-precision floating-point vector with 2 components. (From GLM_GTX_compatibility extension)
-	typedef detail::tvec3<gtc::half>		half3;			//!< \brief half-precision floating-point vector with 2 components. (From GLM_GTX_compatibility extension)
-	typedef detail::tvec4<gtc::half>		half4;			//!< \brief half-precision floating-point vector with 2 components. (From GLM_GTX_compatibility extension)
+	typedef detail::thalf					half1;			//!< \brief half-precision floating-point vector with 1 component. (From GLM_GTX_compatibility extension)
+	typedef detail::tvec2<detail::thalf>	half2;			//!< \brief half-precision floating-point vector with 2 components. (From GLM_GTX_compatibility extension)
+	typedef detail::tvec3<detail::thalf>	half3;			//!< \brief half-precision floating-point vector with 2 components. (From GLM_GTX_compatibility extension)
+	typedef detail::tvec4<detail::thalf>	half4;			//!< \brief half-precision floating-point vector with 2 components. (From GLM_GTX_compatibility extension)
 
-	typedef gtc::half						half1x1;		//!< \brief half-precision floating-point matrix with 1 component. (From GLM_GTX_compatibility extension)
-	typedef detail::tmat2x2<gtc::half>		half2x2;		//!< \brief half-precision floating-point matrix with 2 x 2 components. (From GLM_GTX_compatibility extension)
-	typedef detail::tmat2x3<gtc::half>		half2x3;		//!< \brief half-precision floating-point matrix with 2 x 3 components. (From GLM_GTX_compatibility extension)
-	typedef detail::tmat2x4<gtc::half>		half2x4;		//!< \brief half-precision floating-point matrix with 2 x 4 components. (From GLM_GTX_compatibility extension)
-	typedef detail::tmat3x2<gtc::half>		half3x2;		//!< \brief half-precision floating-point matrix with 3 x 2 components. (From GLM_GTX_compatibility extension)
-	typedef detail::tmat3x3<gtc::half>		half3x3;		//!< \brief half-precision floating-point matrix with 3 x 3 components. (From GLM_GTX_compatibility extension)
-	typedef detail::tmat3x4<gtc::half>		half3x4;		//!< \brief half-precision floating-point matrix with 3 x 3 components. (From GLM_GTX_compatibility extension)
-	typedef detail::tmat4x2<gtc::half>		half4x2;		//!< \brief half-precision floating-point matrix with 4 x 2 components. (From GLM_GTX_compatibility extension)
-	typedef detail::tmat4x3<gtc::half>		half4x3;		//!< \brief half-precision floating-point matrix with 4 x 3 components. (From GLM_GTX_compatibility extension)
-	typedef detail::tmat4x4<gtc::half>		half4x4;		//!< \brief half-precision floating-point matrix with 4 x 4 components. (From GLM_GTX_compatibility extension)
+	typedef detail::thalf					half1x1;		//!< \brief half-precision floating-point matrix with 1 component. (From GLM_GTX_compatibility extension)
+	typedef detail::tmat2x2<detail::thalf>	half2x2;		//!< \brief half-precision floating-point matrix with 2 x 2 components. (From GLM_GTX_compatibility extension)
+	typedef detail::tmat2x3<detail::thalf>	half2x3;		//!< \brief half-precision floating-point matrix with 2 x 3 components. (From GLM_GTX_compatibility extension)
+	typedef detail::tmat2x4<detail::thalf>	half2x4;		//!< \brief half-precision floating-point matrix with 2 x 4 components. (From GLM_GTX_compatibility extension)
+	typedef detail::tmat3x2<detail::thalf>	half3x2;		//!< \brief half-precision floating-point matrix with 3 x 2 components. (From GLM_GTX_compatibility extension)
+	typedef detail::tmat3x3<detail::thalf>	half3x3;		//!< \brief half-precision floating-point matrix with 3 x 3 components. (From GLM_GTX_compatibility extension)
+	typedef detail::tmat3x4<detail::thalf>	half3x4;		//!< \brief half-precision floating-point matrix with 3 x 3 components. (From GLM_GTX_compatibility extension)
+	typedef detail::tmat4x2<detail::thalf>	half4x2;		//!< \brief half-precision floating-point matrix with 4 x 2 components. (From GLM_GTX_compatibility extension)
+	typedef detail::tmat4x3<detail::thalf>	half4x3;		//!< \brief half-precision floating-point matrix with 4 x 3 components. (From GLM_GTX_compatibility extension)
+	typedef detail::tmat4x4<detail::thalf>	half4x4;		//!< \brief half-precision floating-point matrix with 4 x 4 components. (From GLM_GTX_compatibility extension)
 
 	typedef float						float1;			//!< \brief single-precision floating-point vector with 1 component. (From GLM_GTX_compatibility extension)
 	typedef detail::tvec2<float>		float2;			//!< \brief single-precision floating-point vector with 2 components. (From GLM_GTX_compatibility extension)
@@ -173,7 +172,6 @@ namespace gtx
 	typedef detail::tmat4x4<double>		double4x4;		//!< \brief double-precision floating-point matrix with 4 x 4 components. (From GLM_GTX_compatibility extension)
 
 	/// @}
-}//namespace gtx
 }//namespace glm
 
 #include "compatibility.inl"

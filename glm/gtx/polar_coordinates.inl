@@ -7,8 +7,7 @@
 // File    : glm/gtx/polar_coordinates.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm{
-namespace gtx
+namespace glm
 {
 	template <typename T> 
 	GLM_FUNC_QUALIFIER detail::tvec3<T> polar(
@@ -36,5 +35,4 @@ namespace gtx
 			cos(latitude) * cos(longitude));
 	}
 
-}//namespace gtx
 }//namespace glm
