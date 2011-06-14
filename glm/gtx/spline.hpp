@@ -35,8 +35,8 @@
 /// <glm/gtx/spline.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_spline
-#define glm_gtx_spline
+#ifndef GLM_GTX_spline
+#define GLM_GTX_spline 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -88,5 +88,5 @@ namespace gtx
 
 #include "spline.inl"
 
-#endif//glm_gtx_spline
+#endif//GLM_GTX_spline
 

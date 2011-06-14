@@ -39,8 +39,8 @@
 /// <glm/gtx/noise.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_noise
-#define glm_gtx_noise
+#ifndef GLM_GTX_noise
+#define GLM_GTX_noise 50
 
 // Dependency:
 #include "../glm.hpp"

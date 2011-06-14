@@ -35,8 +35,8 @@
 /// <glm/gtx/vector_access.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_vector_access
-#define glm_gtx_vector_access
+#ifndef GLM_GTX_vector_access
+#define GLM_GTX_vector_access 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -84,4 +84,4 @@ namespace gtx
 
 #include "vector_access.inl"
 
-#endif//glm_gtx_vector_access
+#endif//GLM_GTX_vector_access

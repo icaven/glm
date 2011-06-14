@@ -39,8 +39,8 @@
 /// @todo mat3 mat3GTX(const vec2& angles) undefined
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_euler_angles
-#define glm_gtx_euler_angles
+#ifndef GLM_GTX_euler_angles
+#define GLM_GTX_euler_angles 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -158,4 +158,4 @@ namespace gtx
 
 #include "euler_angles.inl"
 
-#endif//glm_gtx_euler_angles
+#endif//GLM_GTX_euler_angles

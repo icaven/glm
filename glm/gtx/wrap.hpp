@@ -35,8 +35,8 @@
 /// <glm/gtx/wrap.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_wrap
-#define glm_gtx_wrap
+#ifndef GLM_GTX_wrap
+#define GLM_GTX_wrap 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -72,4 +72,4 @@ namespace gtx
 
 #include "wrap.inl"
 
-#endif//glm_img_wrap
+#endif//GLM_GTX_wrap

@@ -36,8 +36,8 @@
 /// <glm/gtx/bit.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_bit
-#define glm_gtx_bit
+#ifndef GLM_GTX_bit
+#define GLM_GTX_bit 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -139,4 +139,4 @@ namespace gtx
 
 #include "bit.inl"
 
-#endif//glm_gtx_bit
+#endif//GLM_GTX_bit

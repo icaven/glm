@@ -35,8 +35,8 @@
 /// <glm/gtx/matrix_operation.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_matrix_operation
-#define glm_gtx_matrix_operation
+#ifndef GLM_GTX_matrix_operation
+#define GLM_GTX_matrix_operation 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -111,4 +111,4 @@ namespace gtx
 
 #include "matrix_operation.inl"
 
-#endif//glm_gtx_matrix_operation
+#endif//GLM_GTX_matrix_operation

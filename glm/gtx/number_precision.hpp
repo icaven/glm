@@ -37,8 +37,8 @@
 /// <glm/gtx/number_precision.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_number_precision
-#define glm_gtx_number_precision
+#ifndef GLM_GTX_number_precision
+#define GLM_GTX_number_precision 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -85,4 +85,4 @@ namespace gtx
 
 #include "number_precision.inl"
 
-#endif//glm_gtx_number_precision
+#endif//GLM_GTX_number_precision

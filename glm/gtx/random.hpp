@@ -36,8 +36,8 @@
 /// <glm/gtx/random.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_random
-#define glm_gtx_random
+#ifndef GLM_GTX_random
+#define GLM_GTX_random 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -106,4 +106,4 @@ namespace gtx
 
 #include "random.inl"
 
-#endif//glm_gtx_random
+#endif//GLM_GTX_random

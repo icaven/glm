@@ -35,8 +35,8 @@
 /// <glm/gtx/gradient_paint.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_gradient_paint
-#define glm_gtx_gradient_paint
+#ifndef GLM_GTX_gradient_paint
+#define GLM_GTX_gradient_paint 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -75,4 +75,4 @@ namespace gtx
 
 #include "gradient_paint.inl"
 
-#endif//glm_gtx_gradient_paint
+#endif//GLM_GTX_gradient_paint

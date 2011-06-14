@@ -35,8 +35,8 @@
 /// <glm/gtx/extend.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_extend
-#define glm_gtx_extend
+#ifndef GLM_GTX_extend
+#define GLM_GTX_extend 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -65,4 +65,4 @@ namespace gtx
 
 #include "extend.inl"
 
-#endif//glm_gtx_extend
+#endif//GLM_GTX_extend

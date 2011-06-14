@@ -35,8 +35,8 @@
 /// <glm/gtx/verbose_operator.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_verbose_operator
-#define glm_gtx_verbose_operator
+#ifndef GLM_GTX_verbose_operator
+#define GLM_GTX_verbose_operator 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -82,4 +82,4 @@ namespace gtx
 
 #include "verbose_operator.inl"
 
-#endif//glm_gtx_verbose_operator
+#endif//GLM_GTX_verbose_operator

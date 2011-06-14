@@ -36,8 +36,8 @@
 /// <glm/gtx/inertia.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_inertia
-#define glm_gtx_inertia
+#ifndef GLM_GTX_inertia
+#define GLM_GTX_inertia 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -114,4 +114,4 @@ namespace gtx
 
 #include "inertia.inl"
 
-#endif//glm_gtx_inertia
+#endif//GLM_GTX_inertia

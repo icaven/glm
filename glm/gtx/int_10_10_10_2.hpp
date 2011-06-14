@@ -36,8 +36,8 @@
 /// <glm/gtx/int_10_10_10_2.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_int_10_10_10_2
-#define glm_gtx_int_10_10_10_2
+#ifndef GLM_GTX_int_10_10_10_2
+#define GLM_GTX_int_10_10_10_2 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -63,4 +63,4 @@ namespace gtx
 
 #include "int_10_10_10_2.inl"
 
-#endif//glm_gtx_int_10_10_10_2
+#endif//GLM_GTX_int_10_10_10_2

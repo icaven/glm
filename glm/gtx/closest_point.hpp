@@ -35,8 +35,8 @@
 /// <glm/gtx/closest_point.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_closest_point
-#define glm_gtx_closest_point
+#ifndef GLM_GTX_closest_point
+#define GLM_GTX_closest_point 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -65,4 +65,4 @@ namespace gtx
 
 #include "closest_point.inl"
 
-#endif//glm_gtx_closest_point
+#endif//GLM_GTX_closest_point

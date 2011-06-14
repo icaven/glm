@@ -36,8 +36,8 @@
 /// <glm/gtx/multiple.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_multiple
-#define glm_gtx_multiple
+#ifndef GLM_GTX_multiple
+#define GLM_GTX_multiple 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -72,4 +72,4 @@ namespace gtx
 
 #include "multiple.inl"
 
-#endif//glm_gtx_multiple
+#endif//GLM_GTX_multiple

@@ -38,8 +38,8 @@
 /// <glm/gtx/transform.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_transform
-#define glm_gtx_transform
+#ifndef GLM_GTX_transform 
+#define GLM_GTX_transform 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -130,4 +130,4 @@ namespace gtx
 
 #include "transform.inl"
 
-#endif//glm_gtx_transform
+#endif//GLM_GTX_transform

@@ -35,8 +35,8 @@
 /// <glm/gtx/projection.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_projection
-#define glm_gtx_projection
+#ifndef GLM_GTX_projection
+#define GLM_GTX_projection 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -78,4 +78,4 @@ namespace gtx
 
 #include "projection.inl"
 
-#endif//glm_gtx_projection
+#endif//GLM_GTX_projection

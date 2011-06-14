@@ -35,8 +35,8 @@
 /// <glm/gtx/optimum_pow.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_optimum_pow
-#define glm_gtx_optimum_pow
+#ifndef GLM_GTX_optimum_pow
+#define GLM_GTX_optimum_pow 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -88,4 +88,4 @@ namespace gtx
 
 #include "optimum_pow.inl"
 
-#endif//glm_gtx_optimum_pow
+#endif//GLM_GTX_optimum_pow

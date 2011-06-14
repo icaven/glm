@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_color_space_YCoCg
-#define glm_gtx_color_space_YCoCg
+#define glm_gtx_color_space_YCoCg 50
 
 // Dependency:
 #include "../glm.hpp"

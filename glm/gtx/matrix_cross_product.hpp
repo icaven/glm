@@ -36,8 +36,8 @@
 /// <glm/gtx/matrix_cross_product.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_matrix_cross_product
-#define glm_gtx_matrix_cross_product
+#ifndef GLM_GTX_matrix_cross_product
+#define GLM_GTX_matrix_cross_product 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -70,4 +70,4 @@ namespace gtx
 
 #include "matrix_cross_product.inl"
 
-#endif//glm_gtx_matrix_cross_product
+#endif//GLM_GTX_matrix_cross_product

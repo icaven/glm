@@ -36,8 +36,8 @@
 /// <glm/gtx/normalized_dot.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_normalize_dot
-#define glm_gtx_normalize_dot
+#ifndef GLM_GTX_normalize_dot
+#define GLM_GTX_normalize_dot 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -75,4 +75,4 @@ namespace gtx
 
 #include "normalize_dot.inl"
 
-#endif//glm_gtx_normalize_dot
+#endif//GLM_GTX_normalize_dot

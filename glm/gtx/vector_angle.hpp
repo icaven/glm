@@ -37,8 +37,8 @@
 /// <glm/gtx/vector_angle.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_vector_angle
-#define glm_gtx_vector_angle
+#ifndef GLM_GTX_vector_angle
+#define GLM_GTX_vector_angle 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -87,4 +87,4 @@ namespace gtx
 
 #include "vector_angle.inl"
 
-#endif//glm_gtx_vector_angle
+#endif//GLM_GTX_vector_angle

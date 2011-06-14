@@ -35,8 +35,8 @@
 /// <glm/gtx/std_based_type.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_std_based_type
-#define glm_gtx_std_based_type
+#ifndef GLM_GTX_std_based_type
+#define GLM_GTX_std_based_type 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -82,4 +82,4 @@ namespace gtx
 
 #include "std_based_type.inl"
 
-#endif//glm_gtx_std_based_type
+#endif//GLM_GTX_std_based_type

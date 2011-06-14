@@ -36,8 +36,8 @@
 /// <glm/gtx/ocl_type.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_ocl_type
-#define glm_gtx_ocl_type
+#ifndef GLM_GTX_ocl_type
+#define GLM_GTX_ocl_type 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -129,4 +129,4 @@ namespace gtx
 
 #include "ocl_type.inl"
 
-#endif//glm_gtx_ocl_type
+#endif//GLM_GTX_ocl_type

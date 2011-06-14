@@ -37,8 +37,8 @@
 /// <glm/gtx/epsilon.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_epsilon
-#define glm_gtx_epsilon
+#ifndef GLM_GTX_epsilon
+#define GLM_GTX_epsilon 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -77,4 +77,4 @@ namespace gtx
 
 #include "epsilon.inl"
 
-#endif//glm_gtx_epsilon
+#endif//GLM_GTX_epsilon

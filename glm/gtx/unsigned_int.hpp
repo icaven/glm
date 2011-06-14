@@ -36,8 +36,8 @@
 /// <glm/gtx/unsigned_int.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_unsigned_int
-#define glm_gtx_unsigned_int
+#ifndef GLM_GTX_unsigned_int
+#define GLM_GTX_unsigned_int 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -75,4 +75,4 @@ namespace gtx
 
 #include "unsigned_int.inl"
 
-#endif//glm_gtx_unsigned_int
+#endif//GLM_GTX_unsigned_int

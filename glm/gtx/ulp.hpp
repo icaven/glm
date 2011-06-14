@@ -36,8 +36,8 @@
 /// <glm/gtx/ulp.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_ulp
-#define glm_gtx_ulp
+#ifndef GLM_GTX_ulp
+#define GLM_GTX_ulp 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -88,5 +88,5 @@ namespace gtx
 
 #include "ulp.inl"
 
-#endif//glm_gtx_ulp
+#endif//GLM_GTX_ulp
 

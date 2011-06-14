@@ -36,8 +36,8 @@
 /// <glm/gtx/extented_min_max.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_extented_min_max
-#define glm_gtx_extented_min_max
+#ifndef GLM_GTX_extented_min_max
+#define GLM_GTX_extented_min_max 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -193,4 +193,4 @@ namespace gtx
 
 #include "extented_min_max.inl"
 
-#endif//glm_gtx_extented_min_max
+#endif//GLM_GTX_extented_min_max

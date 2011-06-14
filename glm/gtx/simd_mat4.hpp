@@ -35,8 +35,8 @@
 /// <glm/gtx/simd_mat4.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_simd_mat4
-#define glm_gtx_simd_mat4
+#ifndef GLM_GTX_simd_mat4
+#define GLM_GTX_simd_mat4 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -200,4 +200,4 @@ namespace gtx
 
 #include "simd_mat4.inl"
 
-#endif//glm_gtx_simd_mat4
+#endif//GLM_GTX_simd_mat4

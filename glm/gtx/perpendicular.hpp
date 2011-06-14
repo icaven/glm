@@ -36,8 +36,8 @@
 /// <glm/gtx/perpendicular.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_perpendicular
-#define glm_gtx_perpendicular
+#ifndef GLM_GTX_perpendicular
+#define GLM_GTX_perpendicular 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -80,4 +80,4 @@ namespace gtx
 
 #include "perpendicular.inl"
 
-#endif//glm_gtx_perpendicular
+#endif//GLM_GTX_perpendicular

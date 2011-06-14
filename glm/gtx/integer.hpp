@@ -35,8 +35,8 @@
 /// <glm/gtx/integer.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_integer
-#define glm_gtx_integer
+#ifndef GLM_GTX_integer
+#define GLM_GTX_integer 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -74,4 +74,4 @@ namespace gtx
 
 #include "integer.inl"
 
-#endif//glm_gtx_integer
+#endif//GLM_GTX_integer

@@ -35,8 +35,8 @@
 /// <glm/gtx/vector_query.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_vector_query
-#define glm_gtx_vector_query
+#ifndef GLM_GTX_vector_query
+#define GLM_GTX_vector_query 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -113,4 +113,4 @@ namespace gtx
 
 #include "vector_query.inl"
 
-#endif//glm_gtx_vector_query
+#endif//GLM_GTX_vector_query

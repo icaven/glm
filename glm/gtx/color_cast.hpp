@@ -36,8 +36,8 @@
 /// <glm/gtx/color_cast.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_color_cast
-#define glm_gtx_color_cast
+#ifndef GLM_GTX_color_cast
+#define GLM_GTX_color_cast 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -123,4 +123,4 @@ namespace gtx
 
 #include "color_cast.inl"
 
-#endif//glm_gtx_color_cast
+#endif//GLM_GTX_color_cast

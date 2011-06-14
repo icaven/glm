@@ -38,8 +38,8 @@
 /// @todo Study the validity of the notion of length2 to quaternion
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_norm
-#define glm_gtx_norm
+#ifndef GLM_GTX_norm
+#define GLM_GTX_norm 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -160,4 +160,4 @@ namespace gtx
 
 #include "norm.inl"
 
-#endif//glm_gtx_norm
+#endif//GLM_GTX_norm

@@ -35,8 +35,8 @@
 /// <glm/gtx/reciprocal.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_reciprocal
-#define glm_gtx_reciprocal
+#ifndef GLM_GTX_reciprocal
+#define GLM_GTX_reciprocal 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -120,4 +120,4 @@ namespace gtx
 
 #include "reciprocal.inl"
 
-#endif//glm_gtx_reciprocal
+#endif//GLM_GTX_reciprocal

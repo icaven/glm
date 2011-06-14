@@ -39,8 +39,8 @@
 /// @todo Study constructors with vec3 that are the imaginary component of quaternion
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_quaternion
-#define glm_gtx_quaternion
+#ifndef GLM_GTX_quaternion
+#define GLM_GTX_quaternion 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -233,4 +233,4 @@ namespace gtx
 
 #include "quaternion.inl"
 
-#endif//glm_gtx_quaternion
+#endif//GLM_GTX_quaternion

@@ -37,8 +37,8 @@
 /// <glm/gtx/fast_square_root.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_fast_square_root
-#define glm_gtx_fast_square_root
+#ifndef GLM_GTX_fast_square_root
+#define GLM_GTX_fast_square_root 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -84,4 +84,4 @@ namespace gtx
 
 #include "fast_square_root.inl"
 
-#endif//glm_gtx_fast_square_root
+#endif//GLM_GTX_fast_square_root

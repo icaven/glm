@@ -39,8 +39,8 @@
 /// <glm/gtx/string_cast.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_string_cast
-#define glm_gtx_string_cast
+#ifndef GLM_GTX_string_cast
+#define GLM_GTX_string_cast 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -71,4 +71,4 @@ namespace gtx
 
 #include "string_cast.inl"
 
-#endif//glm_gtx_string_cast
+#endif//GLM_GTX_string_cast

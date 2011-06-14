@@ -36,8 +36,8 @@
 /// <glm/gtx/normal.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_normal
-#define glm_gtx_normal
+#ifndef GLM_GTX_normal
+#define GLM_GTX_normal 50
 
 // Dependency:
 #include "../glm.hpp"
@@ -66,4 +66,4 @@ namespace gtx
 
 #include "normal.inl"
 
-#endif//glm_gtx_normal
+#endif//GLM_GTX_normal
