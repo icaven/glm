@@ -141,19 +141,19 @@ namespace quaternion ///< GLM_GTX_quaternion extension: Quaternion types and fun
 	valType extractRealComponent(
 		detail::tquat<valType> const & q);
 
-    //! Returns roll value of euler angles. 
+    //! Returns roll value of euler angles in degrees. 
 	//! From GLM_GTX_quaternion extension.
 	template <typename valType> 
 	valType roll(
 		detail::tquat<valType> const & x);
 
-	//! Returns pitch value of euler angles. 
+	//! Returns pitch value of euler angles in degrees. 
 	//! From GLM_GTX_quaternion extension.
     template <typename valType> 
 	valType pitch(
 		detail::tquat<valType> const & x);
 
-    //! Returns yaw value of euler angles. 
+    //! Returns yaw value of euler angles in degrees. 
 	//! From GLM_GTX_quaternion extension.
 	template <typename valType> 
 	valType yaw(
@@ -162,7 +162,7 @@ namespace quaternion ///< GLM_GTX_quaternion extension: Quaternion types and fun
 	//! Returns euler angles, yitch as x, yaw as y, roll as z. 
 	//! From GLM_GTX_quaternion extension.
 	template <typename valType> 
-	detail::tvec3<valType> eularAngles(
+	detail::tvec3<valType> eulerAngles(
 		detail::tquat<valType> const & x);
 
 	//! Converts a quaternion to a 3 * 3 matrix. 
