@@ -936,7 +936,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'mix' only accept floating-point inputs");
 
-		return a ? x : y;
+		return a ? y : x;
 	}
 
 	template <typename T>
@@ -957,7 +957,7 @@ namespace glm
 			++i
 		)
 		{
-			result[i] = a[i] ? x[i] : y[i];
+			result[i] = a[i] ? y[i] : x[i];
 		}
 		return result;
 	}
@@ -980,7 +980,7 @@ namespace glm
 			++i
 		)
 		{
-			result[i] = a[i] ? x[i] : y[i];
+			result[i] = a[i] ? y[i] : x[i];
 		}
 		return result;
 	}
@@ -1003,7 +1003,7 @@ namespace glm
 			++i
 		)
 		{
-			result[i] = a[i] ? x[i] : y[i];
+			result[i] = a[i] ? y[i] : x[i];
 		}
 		return result;
 	}
