@@ -27,9 +27,6 @@
 ///
 /// @see core (dependence)
 /// @see gtc_half_float (dependence)
-///
-/// @todo Study constructors with angles and axis
-/// @todo Study constructors with vec3 that are the imaginary component of quaternion
 /// 
 /// @defgroup gtc_quaternion GLM_GTC_quaternion: Quaternion types and functions
 /// @ingroup gtc

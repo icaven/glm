@@ -34,9 +34,6 @@
 /// @brief Extented quaternion types and functions
 /// 
 /// <glm/gtx/quaternion.hpp> need to be included to use these functionalities.
-///
-/// @todo Study constructors with angles and axis
-/// @todo Study constructors with vec3 that are the imaginary component of quaternion
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_quaternion

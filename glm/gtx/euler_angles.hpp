@@ -34,9 +34,6 @@
 /// @brief Build matrices from Euler angles.
 /// 
 /// <glm/gtx/euler_angles.hpp> need to be included to use these functionalities.
-/// 
-/// @todo mat2 mat2GTX(const vec2& angles) undefined
-/// @todo mat3 mat3GTX(const vec2& angles) undefined
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_euler_angles

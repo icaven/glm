@@ -34,8 +34,6 @@
 /// @brief Various way to compute vector norms.
 /// 
 /// <glm/gtx/norm.hpp> need to be included to use these functionalities.
-/// 
-/// @todo Study the validity of the notion of length2 to quaternion
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_norm
