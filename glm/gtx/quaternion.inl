@@ -213,7 +213,7 @@ GLM_FUNC_QUALIFIER valType roll
 	detail::tquat<valType> const & q
 )
 {
-	return atan2(valType(2) * (q.x * q.y + q.w * q.z), q.w * q.w + q.x * q.x - q.y * q.y - q.z * q.z);
+	return glm::degrees(atan2(valType(2) * (q.x * q.y + q.w * q.z), q.w * q.w + q.x * q.x - q.y * q.y - q.z * q.z));
 }
 
 template <typename valType> 
@@ -222,7 +222,7 @@ GLM_FUNC_QUALIFIER valType pitch
 	detail::tquat<valType> const & q
 )
 {
-	return atan2(valType(2) * (q.y * q.z + q.w * q.x), q.w * q.w - q.x * q.x - q.y * q.y + q.z * q.z);
+	return glm::degrees(atan2(valType(2) * (q.y * q.z + q.w * q.x), q.w * q.w - q.x * q.x - q.y * q.y + q.z * q.z));
 }
 
 template <typename valType> 
@@ -231,7 +231,7 @@ GLM_FUNC_QUALIFIER valType yaw
 	detail::tquat<valType> const & q
 )
 {
-	return asin(valType(-2) * (q.x * q.z - q.w * q.y));
+	return glm::degrees(asin(valType(-2) * (q.x * q.z - q.w * q.y)));
 }
 
 template <typename valType> 
