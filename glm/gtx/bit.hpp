@@ -133,7 +133,7 @@ namespace glm
 		int const & ToBit);
 
 	/// @}
-}// namespace glm
+} //namespace glm
 
 #include "bit.inl"
 

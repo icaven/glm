@@ -21,7 +21,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/type_tvec4.hpp
+/// @file glm/core/type_vec4.hpp
 /// @date 2008-08-22 / 2011-06-15
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
@@ -44,8 +44,8 @@ namespace detail
 	template <typename T> struct tvec2;
 	template <typename T> struct tvec3;
 
-	///Basic 4D vector type.
-	//! \ingroup core_template
+	/// Basic 4D vector type.
+	/// @ingroup core_template
 	template <typename T>
 	struct tvec4
 	{

@@ -20,6 +20,7 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
+/// @ref core
 /// @file glm/core/_fixes.hpp
 /// @date 2011-02-21 / 2011-02-16
 /// @author Christophe Riccio

@@ -19,12 +19,12 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
-///
+/// 
 /// @ref gtc_matrix_access
 /// @file glm/gtc/matrix_access.hpp
 /// @date 2005-12-27 / 2011-05-16
 /// @author Christophe Riccio
-///
+/// 
 /// @see core (dependence)
 /// 
 /// @defgroup gtc_matrix_access GLM_GTC_matrix_access: Access matrix rows and columns
