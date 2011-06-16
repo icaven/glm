@@ -311,38 +311,38 @@ void foo()
 	
 	<dl>
 		<dt>glRotate[fd]</dt>
-		<dd>\link glm::rotate glm::rotate \endlink</dd>
+		<dd>\ref rotate()</dd>
 		<dt>glScale[fd]</dt>
-		<dd>\link glm::scale glm::scale \endlink</dd>
+		<dd>\ref scale()</dd>
 		<dt>glTranslate[fd]</dt>
-		<dd>\link glm::translate glm::translate \endlink</dd>
+		<dd>\ref translate()</dd>
 		<dt>glLoadIdentity</dt>
 		<dd>The default constructor of all matrix types creates an identity matrix.</dd>
 		<dt>glMultMatrix[fd]</dt>
 		<dd>Per the GLSL specification, the multiplication operator is overloaded for all matrix types. Multiplying two matrices together will perform matrix multiplication.</dd>
 		<dt>glLoadTransposeMatrix[fd]</dt>
-		<dd>\link glm::core::transpose glm::transpose \endlink</dd>
+		<dd>\ref transpose()</dd>
 		<dt>glMultTransposeMatrix</dt>
 		<dd>Combine the last two.</dd>
 		<dt>glFrustum</dt>
-		<dd>\link glm::frustum glm::frustum \endlink</dd>
+		<dd>\ref frustum()</dd>
 		<dt>glOrtho</dt>
-		<dd>\link glm::ortho glm::ortho \endlink</dd>
+		<dd>\ref ortho()</dd>
 		<dt>gluLookAt</dt>
-		<dd>\link glm::lookAt glm::lookAt \endlink</dd>
+		<dd>\ref lookAt()</dd>
 	</dl>
 	
 	\section deprecated_glu GLU function replacements
 	
 	<dl>
 		<dt>gluOrtho2D</dt>
-		<dd>\link glm::ortho glm::ortho \endlink</dd>
+		<dd>\ref ortho()</dd>
 		<dt>gluPerspective</dt>
-		<dd>\link glm::perspective glm::perspective \endlink</dd>
+		<dd>\ref perspective()</dd>
 		<dt>gluProject</dt>
-		<dd>\link glm::project glm::project \endlink</dd>
+		<dd>\ref project()</dd>
 		<dt>gluUnProject</dt>
-		<dd>\link glm::unProject glm::unProject \endlink</dd>
+		<dd>\ref unProject()</dd>
 	</dl>
 **/
 
