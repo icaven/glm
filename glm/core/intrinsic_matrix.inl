@@ -10,8 +10,8 @@
 namespace glm{
 namespace detail{
 
-static const __m128 _m128_rad_ps = _mm_set_ps1(3.141592653589793238462643383279f / 180.f);
-static const __m128 _m128_deg_ps = _mm_set_ps1(180.f / 3.141592653589793238462643383279f);
+static const __m128 GLM_VAR_USED _m128_rad_ps = _mm_set_ps1(3.141592653589793238462643383279f / 180.f);
+static const __m128 GLM_VAR_USED _m128_deg_ps = _mm_set_ps1(180.f / 3.141592653589793238462643383279f);
 
 template <typename matType>
 GLM_FUNC_QUALIFIER matType sse_comp_mul_ps
@@ -968,7 +968,7 @@ GLM_FUNC_QUALIFIER void sse_inverse_fast_ps(__m128 const in[4], __m128 out[4])
 	out[2] = _mm_mul_ps(Inv2, Rcp0);
 	out[3] = _mm_mul_ps(Inv3, Rcp0);
 }
-
+/*
 GLM_FUNC_QUALIFIER void sse_rotate_ps(__m128 const in[4], float Angle, float const v[3], __m128 out[4])
 {
 	float a = glm::radians(Angle);
@@ -1038,7 +1038,7 @@ GLM_FUNC_QUALIFIER void sse_rotate_ps(__m128 const in[4], float Angle, float con
 	//return Result;
 	sse_mul_ps(in, Result, out);
 }
-
+*/
 GLM_FUNC_QUALIFIER void sse_outer_ps(__m128 const & c, __m128 const & r, __m128 out[4])
 {
 	out[0] = _mm_mul_ps(c, _mm_shuffle_ps(r, r, _MM_SHUFFLE(0, 0, 0, 0)));

@@ -122,31 +122,31 @@ namespace detail
 	}
 	
 	template <typename T> 
-	template <typename U, typename V, typename M, typename N> 
+	template <typename X1, typename Y1, typename X2, typename Y2> 
 	GLM_FUNC_DECL tmat2x2<T>::tmat2x2
 	(
-		U const & x1, V const & y1, 
-		M const & x2, N const & y2
+		X1 const & x1, Y1 const & y1, 
+		X2 const & x2, Y2 const & y2
 	)		
 	{
         this->value[0] = col_type(value_type(x1), value_type(y1));
         this->value[1] = col_type(value_type(x2), value_type(y2));
 	}
 	
-	//template <typename T> 
-	//template <typename U, typename V, typename M, typename N> 
-	//GLM_FUNC_DECL tmat2x2<T>::tmat2x2
-	//(
-	//	tvec2<U, V> const & v1, 
-	//	tvec2<M, N> const & v2
-	//)		
-	//{
- //       this->value[0] = col_type(v1);
- //       this->value[1] = col_type(v2);
-	//}
+	template <typename T> 
+	template <typename V1, typename V2> 
+	GLM_FUNC_DECL tmat2x2<T>::tmat2x2
+	(
+		tvec2<V1> const & v1, 
+		tvec2<V2> const & v2
+	)		
+	{
+        this->value[0] = col_type(v1);
+        this->value[1] = col_type(v2);
+	}
 
     //////////////////////////////////////////////////////////////
-    // mat2x2 conversions
+    // mat2x2 matrix conversions
 
     template <typename T> 
     template <typename U> 

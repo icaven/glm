@@ -12,10 +12,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_core_func_noise();
-	}//namespace test
-
 	namespace core{
 	namespace function{
 	// Define all noise functions from Section 8.9 of GLSL 1.30.8 specification. Included in glm namespace.

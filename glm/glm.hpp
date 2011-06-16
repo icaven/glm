@@ -26,12 +26,6 @@
 //! GLM namespace, it contains all GLSL based features.
 namespace glm
 {
-	namespace test
-	{
-		bool main_bug();
-		bool main_core();
-	}//namespace test
-
 	//! GLM core. Namespace that includes all the feature define by GLSL 4.10.6 specification. This namespace is included in glm namespace.
 	namespace core
 	{
@@ -39,13 +33,15 @@ namespace glm
 		//! from section 4.1.2 Booleans, 4.1.3 Integers section, 4.1.4 Floats section,
 		//! 4.1.5 Vectors and section 4.1.6 Matrices of GLSL 1.30.8 specification. 
 		//! This namespace resolves precision qualifier define in section 4.5 of GLSL 1.30.8 specification.
-		namespace type{}
+		namespace type
+		{
+			namespace precision{}
+		}
 
 		//! Some of the functions defined in section 8 Built-in Functions of GLSL 1.30.8 specification.
 		//! Angle and trigonometry, exponential, common, geometric, matrix and vector relational functions.
 		namespace function{}
-	}
-	//namespace core
+	}//namespace core
 
 	//! G-Truc Creation stable extensions.
 	namespace gtc{}
@@ -55,9 +51,12 @@ namespace glm
 	namespace gtx{}
 
 	//! VIRTREV extensions.
-	namespace img{}
+	namespace virtrev{}
 
-} //namespace glm
+ 	using namespace core::type;
+	using namespace core::type::precision;
+	using namespace core::function;
+}//namespace glm
 
 #include "./core/_detail.hpp"
 #include "./core/type.hpp"
@@ -72,13 +71,6 @@ namespace glm
 #include "./core/func_integer.hpp"
 #include "./core/func_noise.hpp"
 #include "./core/_swizzle.hpp"
-
-namespace glm
-{
- 	using namespace core::type;
-	using namespace core::type::precision;
-	using namespace core::function;
-} //namespace glm
 
 ////////////////////
 // check type sizes
@@ -98,4 +90,4 @@ namespace glm
 	GLM_STATIC_ASSERT(sizeof(glm::detail::float64) == 8, "float64 size isn't 8 bytes on this platform");
 #endif//GLM_STATIC_ASSERT_NULL
 
-#endif //glm_glm
+#endif//glm_glm

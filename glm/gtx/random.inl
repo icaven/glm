@@ -17,7 +17,7 @@ namespace random
     template <>
 	GLM_FUNC_QUALIFIER float signedRand1()
 	{
-		#if(GLM_COMPILER & GLM_COMPILER_VC)
+		#if(GLM_COMPILER & GLM_COMPILER_VC)// && (GLM_COMPILER < GLM_COMPILER_VC2010)
 		#define RAND_SHIFT_NUM 5
 		#else
 		#define RAND_SHIFT_NUM 0

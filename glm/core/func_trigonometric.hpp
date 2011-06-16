@@ -12,10 +12,6 @@
 
 namespace glm
 {
-	namespace test{
-		void main_core_func_trigonometric();
-	}//namespace test
-
 	namespace core{
 	namespace function{
 	//! Define Angle and trigonometry functions 
