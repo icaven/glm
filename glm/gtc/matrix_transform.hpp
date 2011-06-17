@@ -59,22 +59,22 @@ namespace glm
 	/// @{
 
 	/// Builds a translation 4 * 4 matrix created from a vector of 3 components.
-	/// @see - gtc_matrix_transform
-	/// @see - gtx_transform
-	// - @ref template <typename T> detail::tmat4x4<T> translate(T x, T y, T z)
-	// - @ref template <typename T> detail::tmat4x4<T> translate(detail::tmat4x4<T> const & m, T x, T y, T z)
-	// - @ref template <typename T> detail::tmat4x4<T> translate(detail::tvec3<T> const & v)
+	/// @see gtc_matrix_transform
+	/// @see gtx_transform
+	/// @see - translate(T x, T y, T z)
+	/// @see - translate(detail::tmat4x4<T> const & m, T x, T y, T z)
+	/// @see - translate(detail::tvec3<T> const & v)
 	template <typename T> 
 	detail::tmat4x4<T> translate(
 		detail::tmat4x4<T> const & m,
 		detail::tvec3<T> const & v);
 		
 	/// Builds a rotation 4 * 4 matrix created from an axis vector and an angle expressed in degrees. 
-	/// @see - gtc_matrix_transform
-	/// @see - gtx_transform
-	// - @link glm::rotate(T angle, T x, T y, T z) rotate(T const & angle, T const & x, T const & y, T const & z) @endlink
-	// - @link glm::rotate(detail::tmat4x4<T> const & m, T angle, T x, T y, T z) rotate(mat4x4<T> const & m, T const & angle, T const & x, T const & y, T const & z) @endlink
-	// - @link glm::rotate(T angle, detail::tvec3<T> const & v) rotate(T const & angle, vec3<T> const & v) @endlink
+	/// @see gtc_matrix_transform
+	/// @see gtx_transform
+	/// @see - rotate(T angle, T x, T y, T z) 
+	/// @see - rotate(detail::tmat4x4<T> const & m, T angle, T x, T y, T z) 
+	/// @see - rotate(T angle, detail::tvec3<T> const & v) 
 	template <typename T> 
 	detail::tmat4x4<T> rotate(
 		detail::tmat4x4<T> const & m,
@@ -82,19 +82,19 @@ namespace glm
 		detail::tvec3<T> const & v);
 
 	/// Builds a scale 4 * 4 matrix created from 3 scalars. 
-	/// @see - gtc_matrix_transform
-	/// @see - gtx_transform
-	// - @link scale(T x, T y, T z) scale(T const & x, T const & y, T const & z) @endlink
-	// - @link scale(detail::tmat4x4<T> const & m, T x, T y, T z) scale(mat4x4<T> const & m, T const & angle, T const & x, T const & y, T const & z) @endlink
-	// - @link scale(detail::tvec3<T> const & v) scale(vec3<T> const & v) @endlink
+	/// @see gtc_matrix_transform
+	/// @see gtx_transform
+	/// @see - scale(T x, T y, T z) scale(T const & x, T const & y, T const & z)
+	/// @see - scale(detail::tmat4x4<T> const & m, T x, T y, T z)
+	/// @see - scale(detail::tvec3<T> const & v)
 	template <typename T> 
 	detail::tmat4x4<T> scale(
 		detail::tmat4x4<T> const & m,
 		detail::tvec3<T> const & v);
 
 	/// Creates a matrix for an orthographic parallel viewing volume.
-	/// @see - gtc_matrix_transform
-	// - @link glm::ortho(T const & left, T const & right, T const & bottom, T const & top) ortho(T const & left, T const & right, T const & bottom, T const & top) @endlink
+	/// @see gtc_matrix_transform
+	/// @see - glm::ortho(T const & left, T const & right, T const & bottom, T const & top)
 	template <typename T> 
 	detail::tmat4x4<T> ortho(
 		T const & left, 
@@ -105,8 +105,8 @@ namespace glm
 		T const & zFar);
 
 	/// Creates a matrix for projecting two-dimensional coordinates onto the screen.
-	/// @see - gtc_matrix_transform
-    // - @link glm::ortho(T const & left, T const & right, T const & bottom, T const & top, T const & zNear, T const & zFar) ortho(T const & left, T const & right, T const & bottom, T const & top, T const & zNear, T const & zFar) @endlink
+	/// @see gtc_matrix_transform
+    /// @see - glm::ortho(T const & left, T const & right, T const & bottom, T const & top, T const & zNear, T const & zFar)
 	template <typename T> 
 	detail::tmat4x4<T> ortho(
 		T const & left, 
@@ -115,7 +115,7 @@ namespace glm
 		T const & top);
 
 	/// Creates a frustum matrix.
-	/// @see - gtc_matrix_transform
+	/// @see gtc_matrix_transform
 	template <typename T> 
 	detail::tmat4x4<T> frustum(
 		T const & left, 
@@ -126,7 +126,7 @@ namespace glm
 		T const & farVal);
 
 	/// Creates a matrix for a symetric perspective-view frustum.
-	/// @see - gtc_matrix_transform
+	/// @see gtc_matrix_transform
 	template <typename T> 
 	detail::tmat4x4<T> perspective(
 		T const & fovy, 
@@ -135,7 +135,7 @@ namespace glm
 		T const & zFar);
 
 	/// Builds a perspective projection matrix based on a field of view
-	/// @see - gtc_matrix_transform
+	/// @see gtc_matrix_transform
 	template <typename valType> 
 	detail::tmat4x4<valType> perspectiveFov(
 		valType const & fov, 
@@ -145,19 +145,19 @@ namespace glm
 		valType const & zFar);
 
 	/// Creates a matrix for a symmetric perspective-view frustum with far plane at infinite .
-	/// @see - gtc_matrix_transform
+	/// @see gtc_matrix_transform
     template <typename T> 
 	detail::tmat4x4<T> infinitePerspective(
 		T fovy, T aspect, T zNear);
 
 	/// Creates a matrix for a symmetric perspective-view frustum with far plane at infinite for graphics hardware that doesn't support depth clamping.
-	/// @see - gtc_matrix_transform
+	/// @see gtc_matrix_transform
     template <typename T> 
 	detail::tmat4x4<T> tweakedInfinitePerspective(
 		T fovy, T aspect, T zNear);
 
 	/// Map the specified object coordinates (obj.x, obj.y, obj.z) into window coordinates.
-	/// @see - gtc_matrix_transform
+	/// @see gtc_matrix_transform
 	template <typename T, typename U> 
 	detail::tvec3<T> project(
 		detail::tvec3<T> const & obj, 
@@ -166,7 +166,7 @@ namespace glm
 		detail::tvec4<U> const & viewport);
 
 	/// Map the specified window coordinates (win.x, win.y, win.z) into object coordinates.
-	/// @see - gtc_matrix_transform
+	/// @see gtc_matrix_transform
 	template <typename T, typename U> 
 	detail::tvec3<T> unProject(
 		detail::tvec3<T> const & win, 
@@ -175,7 +175,7 @@ namespace glm
 		detail::tvec4<U> const & viewport);
 
 	/// Define a picking region
-	/// @see - gtc_matrix_transform
+	/// @see gtc_matrix_transform
 	template <typename T, typename U> 
 	detail::tmat4x4<T> pickMatrix(
 		detail::tvec2<T> const & center, 
@@ -183,8 +183,8 @@ namespace glm
 		detail::tvec4<U> const & viewport);
 
 	/// Build a look at view matrix.
-	/// @see - gtc_matrix_transform
-	// - @link frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal) frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal) @endlink 
+	/// @see gtc_matrix_transform
+	/// @see - frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal) frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal)
 	/// @param eye Position of the camera
 	/// @param center Position where the camera is looking at
 	/// @param up Normalized up vector, how the camera is oriented. Typically (0, 0, 1)
