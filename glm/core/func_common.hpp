@@ -24,6 +24,13 @@
 /// @file glm/core/func_common.hpp
 /// @date 2008-03-08 / 2010-01-26
 /// @author Christophe Riccio
+/// 
+/// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
+///
+/// @defgroup core_func_common Common functions
+/// @ingroup core
+/// 
+/// These all operate component-wise. The description is per component.
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_core_func_common
@@ -33,30 +40,30 @@
 
 namespace glm
 {
-	/// @addtogroup core_funcs
+	/// @addtogroup core_func_common
 	/// @{
 
 	/// Returns x if x >= 0; otherwise, it returns -x.
     /// 
-    /// @see
-	/// @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/abs.xml">GLSL abs man page</a>
-	/// @li GLSL 1.30.08 specification, section 8.3
+	/// @see
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/abs.xml">GLSL abs man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
     template <typename genFIType> 
 	genFIType abs(genFIType const & x);
 
 	/// Returns 1.0 if x > 0, 0.0 if x == 0, or -1.0 if x < 0. 
     /// 
     /// @see
-    /// @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sign.xml">GLSL sign man page</a>
-    /// @li GLSL 1.30.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sign.xml">GLSL sign man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	template <typename genFIType> 
 	genFIType sign(genFIType const & x);
 
     //! Returns a value equal to the nearest integer that is less then or equal to x. 
     //! 
     /// @see
-    //! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floor.xml">GLSL floor man page</a>
-    //! @li GLSL 1.30.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floor.xml">GLSL floor man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	template <typename genType> 
 	genType floor(genType const & x);
 
@@ -64,8 +71,8 @@ namespace glm
 	//! whose absolute value is not larger than the absolute value of x. 
     //! 
     /// @see
-    //! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/trunc.xml">GLSL trunc man page</a>
-    //! @li GLSL 1.30.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/trunc.xml">GLSL trunc man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	template <typename genType> 
 	genType trunc(genType const & x);
 
@@ -76,8 +83,8 @@ namespace glm
 	//! same value as roundEven(x) for all values of x. 
     //! 
     /// @see
-    //! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/round.xml">GLSL round man page</a>
-    //! @li GLSL 1.30.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/round.xml">GLSL round man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	template <typename genType> 
 	genType round(genType const & x);
 
@@ -86,8 +93,8 @@ namespace glm
 	//! integer. (Both 3.5 and 4.5 for x will return 4.0.) 
     //! 
     /// @see
-    //! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/roundEven.xml">GLSL roundEven man page</a>
-    //! @li GLSL 1.30.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/roundEven.xml">GLSL roundEven man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	template <typename genType> 
 	genType roundEven(genType const & x);
 
@@ -95,16 +102,16 @@ namespace glm
 	//! that is greater than or equal to x. 
     //! 
     /// @see
-    //! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/ceil.xml">GLSL ceil man page</a>
-    //! @li GLSL 1.30.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/ceil.xml">GLSL ceil man page</a>
+	/// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
     template <typename genType> 
 	genType ceil(genType const & x);
 
 	//! Return x - floor(x).
     //! 
     /// @see
-    //! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/fract.xml">GLSL fract man page</a>
-    //! @li GLSL 1.30.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/fract.xml">GLSL fract man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
     template <typename genType> 
 	genType fract(genType const & x);
 
@@ -112,8 +119,8 @@ namespace glm
 	//! for each component in x using the floating point value y.
     //! 
     /// @see
-    //! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml">GLSL mod man page</a>
-    //! @li GLSL 1.30.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml">GLSL mod man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
     template <typename genType> 
 	genType mod(
 		genType const & x, 
@@ -123,8 +130,8 @@ namespace glm
 	//! for each component in x using the floating point value y.
     //! 
     /// @see
-    //! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml">GLSL mod man page</a>
-    //! @li GLSL 1.30.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml">GLSL mod man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
     template <typename genType> 
 	genType mod(
 		genType const & x, 
@@ -136,8 +143,8 @@ namespace glm
 	//! sign as x.
     //! 
     /// @see
-    /// @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/modf.xml">GLSL modf man page</a>
-    /// @li GLSL 1.30.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/modf.xml">GLSL modf man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	template <typename genType> 
 	genType modf(
 		genType const & x, 
@@ -146,8 +153,8 @@ namespace glm
     /// Returns y if y < x; otherwise, it returns x.
     /// 
     /// @see
-    /// @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/min.xml">GLSL min man page</a>
-    /// @li GLSL 1.30.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/min.xml">GLSL min man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	template <typename genType> 
 	genType min(
 		genType const & x, 
@@ -161,8 +168,8 @@ namespace glm
     /// Returns y if x < y; otherwise, it returns x.
     /// 
     /// @see
-    /// @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/max.xml">GLSL max man page</a>
-    /// @li GLSL 1.30.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/max.xml">GLSL max man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	template <typename genType> 
 	genType max(
 		genType const & x, 
@@ -177,8 +184,8 @@ namespace glm
 	//! using the floating-point values minVal and maxVal.
     //! 
     /// @see
-    //! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/clamp.xml">GLSL clamp man page</a>
-    //! @li GLSL 1.30.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/clamp.xml">GLSL clamp man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	template <typename genType> 
 	genType clamp(
 		genType const & x, 
@@ -209,8 +216,8 @@ namespace glm
 	//! where a is a Boolean vector.
     //! 
     //! @see
-    //! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mix.xml">GLSL mix man page</a>
-    //! @li GLSL 1.30.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mix.xml">GLSL mix man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	//! 
 	//! @param[in]  x Floating point scalar or vector.
 	//! @param[in]  y Floating point scalar or vector.
@@ -223,8 +230,8 @@ namespace glm
 	//! Returns 0.0 if x < edge, otherwise it returns 1.0.
     //!
     //! @see
-    //! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/step.xml">GLSL step man page</a>
-    //! @li GLSL 1.30.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/step.xml">GLSL step man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	template <typename genType> 
 	genType step(
 		genType const & edge, 
@@ -246,8 +253,8 @@ namespace glm
 	//! Results are undefined if edge0 >= edge1.
     //! 
     //! @see
-    //! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/smoothstep.xml">GLSL smoothstep man page</a>
-    //! @li GLSL 1.30.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/smoothstep.xml">GLSL smoothstep man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	template <typename genType> 
 	genType smoothstep(
 		genType const & edge0, 
@@ -267,8 +274,8 @@ namespace glm
 	//! representations.
     //! 
     //! @see
-    //! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/isnan.xml">GLSL isnan man page</a>
-    //! @li GLSL 1.30.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/isnan.xml">GLSL isnan man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	template <typename genType> 
 	typename genType::bool_type isnan(genType const & x);
 
@@ -279,8 +286,8 @@ namespace glm
 	//! representations.
     //! 
     //! @see
-    //! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/isinf.xml">GLSL isinf man page</a>
-    //! @li GLSL 1.30.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/isinf.xml">GLSL isinf man page</a>
+	/// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	template <typename genType> 
 	typename genType::bool_type isinf(genType const & x);
 
@@ -289,8 +296,8 @@ namespace glm
 	//! value's bit-level representation is preserved.
     //! 
     //! @see
-    //! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floatBitsToInt.xml">GLSL floatBitsToInt man page</a>
-	//! @li GLSL 4.00.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floatBitsToInt.xml">GLSL floatBitsToInt man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	template <typename genType, typename genIType>
 	genIType floatBitsToInt(genType const & value);
 
@@ -299,8 +306,8 @@ namespace glm
 	//! value's bit-level representation is preserved.
     //! 
     //! @see
-    //! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floatBitsToUint.xml">GLSL floatBitsToUint man page</a>
-    //! @li GLSL 4.00.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floatBitsToUint.xml">GLSL floatBitsToUint man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	template <typename genType, typename genUType>
 	genUType floatBitsToUint(genType const & value);
 
@@ -311,8 +318,8 @@ namespace glm
 	//! the bit-level representation is preserved.
     //! 
     //! @see
-    //! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/intBitsToFloat.xml">GLSL intBitsToFloat man page</a>
-    //! @li GLSL 4.00.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/intBitsToFloat.xml">GLSL intBitsToFloat man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	template <typename genType, typename genIType>
 	genType intBitsToFloat(genIType const & value);
         
@@ -323,16 +330,16 @@ namespace glm
     //! the bit-level representation is preserved.
     //! 
     //! @see
-    //! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/uintBitsToFloat.xml">GLSL uintBitsToFloat man page</a>
-    //! @li GLSL 4.00.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/uintBitsToFloat.xml">GLSL uintBitsToFloat man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
     template <typename genType, typename genUType>
     genType uintBitsToFloat(genUType const & value);
         
 	//! Computes and returns a * b + c.
     //! 
     //! @see
-    //! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/fma.xml">GLSL fma man page</a>
-    //! @li GLSL 4.00.08 specification, section 8.3
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/fma.xml">GLSL fma man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	template <typename genType>
 	genType fma(genType const & a, genType const & b, genType const & c);
 
@@ -347,8 +354,8 @@ namespace glm
 	//! infinity or is not a number, the results are undefined.
 	//! 
     //! @see
-	//! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/frexp.xml">GLSL frexp man page</a>
-	//! @li GLSL 4.00.08 specification, section 8.3
+	/// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/frexp.xml">GLSL frexp man page</a>
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	template <typename genType, typename genIType>
 	genType frexp(genType const & x, genIType & exp);
 
@@ -360,8 +367,8 @@ namespace glm
 	//! floating-point type, the result is undefined.
 	//! 
     //! @see
-	//! @li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/ldexp.xml">GLSL ldexp man page</a>; 
-	//! @li GLSL 4.00.08 specification, section 8.3
+	/// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/ldexp.xml">GLSL ldexp man page</a>; 
+    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.3</a>
 	template <typename genType, typename genIType>
 	genType ldexp(genType const & x, genIType const & exp);
 
