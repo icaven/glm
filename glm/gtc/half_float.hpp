@@ -32,7 +32,6 @@
 /// 
 /// Defines the half-precision floating-point type, along with various typedefs for vectors and matrices.
 /// <glm/gtc/half_float.hpp> need to be included to use these functionalities.
-///
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_half_float
