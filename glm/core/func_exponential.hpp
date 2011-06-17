@@ -25,7 +25,7 @@
 /// @date 2008-08-08 / 2011-06-14
 /// @author Christophe Riccio
 /// 
-/// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
+/// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
 ///
 /// @defgroup core_func_exponential Exponential functions
 /// @ingroup core
@@ -45,7 +45,7 @@ namespace glm
     ///
 	/// @see
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/pow.xml">GLSL pow man page</a>
-    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
 	template <typename genType> 
 	genType pow(genType const & x, genType const & y);
 
@@ -53,7 +53,7 @@ namespace glm
     /// 
 	/// @see
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/exp.xml">GLSL exp man page</a>
-    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
 	template <typename genType> 
 	genType exp(genType const & x);
 
@@ -63,7 +63,7 @@ namespace glm
     /// 
 	/// @see
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/log.xml">GLSL log man page</a>
-    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
 	template <typename genType> 
 	genType log(genType const & x);
 
@@ -71,7 +71,7 @@ namespace glm
     /// 
 	/// @see
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/exp2.xml">GLSL exp2 man page</a>
-    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
 	template <typename genType> 
 	genType exp2(genType const & x);
 
@@ -80,7 +80,7 @@ namespace glm
     /// 
 	/// @see
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/log2.xml">GLSL log2 man page</a>
-    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
 	template <typename genType> 
 	genType log2(genType const & x);
 
@@ -88,7 +88,7 @@ namespace glm
     /// 
 	/// @see
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sqrt.xml">GLSL sqrt man page</a>
-    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
 	template <typename genType> 
 	genType sqrt(genType const & x);
     
@@ -96,7 +96,7 @@ namespace glm
     /// 
 	/// @see
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inversesqrt.xml">GLSL inversesqrt man page</a>
-    /// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
 	template <typename genType> 
 	genType inversesqrt(genType const & x);
 
