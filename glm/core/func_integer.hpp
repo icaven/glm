@@ -22,24 +22,33 @@
 ///
 /// @ref core
 /// @file glm/core/func_integer.hpp
-/// @date 2010-03-17 / 2011-06-14
+/// @date 2010-03-17 / 2011-06-18
 /// @author Christophe Riccio
+///
+/// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.8</a>
+/// 
+/// @defgroup core_func_integer Integer functions
+/// @ingroup core
+/// 
+/// These all operate component-wise. The description is per component. 
+/// The notation [a, b] means the set of bits from bit-number a through bit-number 
+/// b, inclusive. The lowest-order bit is bit 0.
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_core_func_integer
-#define glm_core_func_integer
+#define glm_core_func_integer GLM_VERSION
 
 namespace glm
 {
-	/// @addtogroup core_funcs
+	/// @addtogroup core_func_integer
 	/// @{
 
 	//! Adds 32-bit unsigned integer x and y, returning the sum
 	//! modulo pow(2, 32). The value carry is set to 0 if the sum was
 	//! less than pow(2, 32), or to 1 otherwise.
 	//!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/uaddCarry.xml">GLSL uaddCarry man page</a>
-    //! \li GLSL 4.00.08 specification, section 8.8
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/uaddCarry.xml">GLSL uaddCarry man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.8</a>
 	template <typename genUType>
 	genUType uaddCarry(
 		genUType const & x, 
@@ -50,8 +59,8 @@ namespace glm
 	//! the difference if non-negative, or pow(2, 32) plus the difference
 	//! otherwise. The value borrow is set to 0 if x >= y, or to 1 otherwise.
 	//!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/usubBorrow.xml">GLSL usubBorrow man page</a>
-    //! \li GLSL 4.00.08 specification, section 8.8
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/usubBorrow.xml">GLSL usubBorrow man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.8</a>
 	template <typename genUType>
 	genUType usubBorrow(
 		genUType const & x, 
@@ -62,8 +71,8 @@ namespace glm
 	//! result. The 32 least-significant bits are returned in lsb.
 	//! The 32 most-significant bits are returned in msb.
 	//!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/umulExtended.xml">GLSL umulExtended man page</a>
-    //! \li GLSL 4.00.08 specification, section 8.8
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/umulExtended.xml">GLSL umulExtended man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.8</a>
 	template <typename genUType>
 	void umulExtended(
 		genUType const & x, 
@@ -75,8 +84,8 @@ namespace glm
 	//! result. The 32 least-significant bits are returned in lsb.
 	//! The 32 most-significant bits are returned in msb.
 	//!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/imulExtended.xml">GLSL imulExtended man page</a>
-    //! \li GLSL 4.00.08 specification, section 8.8
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/imulExtended.xml">GLSL imulExtended man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.8</a>
 	template <typename genIType>
 	void imulExtended(
 		genIType const & x, 
@@ -95,8 +104,8 @@ namespace glm
 	//! offset and bits is greater than the number of bits used
 	//! to store the operand.
 	//!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitfieldExtract.xml">GLSL bitfieldExtract man page</a>
-    //! \li GLSL 4.00.08 specification, section 8.8
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitfieldExtract.xml">GLSL bitfieldExtract man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.8</a>
 	template <typename genIUType>
 	genIUType bitfieldExtract(
 		genIUType const & Value, 
@@ -113,8 +122,8 @@ namespace glm
 	//! offset and bits is greater than the number of bits used to
 	//! store the operand.
 	//!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitfieldInsert.xml">GLSL bitfieldInsert man page</a>
-    //! \li GLSL 4.00.08 specification, section 8.8
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitfieldInsert.xml">GLSL bitfieldInsert man page</a>
+	/// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.8</a>
 	template <typename genIUType>
 	genIUType bitfieldInsert(
 		genIUType const & Base, 
@@ -126,15 +135,15 @@ namespace glm
 	//! The bit numbered n of the result will be taken from bit (bits - 1) - n of value, 
 	//! where bits is the total number of bits used to represent value.
 	//!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitfieldReverse.xml">GLSL bitfieldReverse man page</a>
-    //! \li GLSL 4.00.08 specification, section 8.8
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitfieldReverse.xml">GLSL bitfieldReverse man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.8</a>
 	template <typename genIUType>
 	genIUType bitfieldReverse(genIUType const & value);
 		
 	//! Returns the number of bits set to 1 in the binary representation of value.
 	//!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitCount.xml">GLSL bitCount man page</a>
-    //! \li GLSL 4.00.08 specification, section 8.8
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitCount.xml">GLSL bitCount man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.8</a>
 	template <typename T, template <typename> class C>
 	typename C<T>::signed_type bitCount(C<T> const & Value);
 
@@ -142,8 +151,8 @@ namespace glm
 	//! 1 in the binary representation of value. 
 	//! If value is zero, -1 will be returned.
 	//!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/findLSB.xml">GLSL findLSB man page</a>
-    //! \li GLSL 4.00.08 specification, section 8.8
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/findLSB.xml">GLSL findLSB man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.8</a>
 	template <typename T, template <typename> class C>
 	typename C<T>::signed_type findLSB(C<T> const & Value);
 
@@ -152,8 +161,8 @@ namespace glm
 	//! For negative integers, the result will be the bit number of the most significant
 	//! bit set to 0. For a value of zero or negative one, -1 will be returned.
 	//!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/findMSB.xml">GLSL findMSB man page</a>
-    //! \li GLSL 4.00.08 specification, section 8.8
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/findMSB.xml">GLSL findMSB man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.8</a>
 	template <typename T, template <typename> class C>
 	typename C<T>::signed_type findMSB(C<T> const & Value);
 

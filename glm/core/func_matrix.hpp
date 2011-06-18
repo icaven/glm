@@ -24,89 +24,100 @@
 /// @file glm/core/func_matrix.hpp
 /// @date 2008-08-03 / 2011-06-15
 /// @author Christophe Riccio
+///
+/// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.6</a>
+/// 
+/// @defgroup core_func_matrix Matrix functions
+/// @ingroup core
+/// 
+/// For each of the following built-in matrix functions, there is both a 
+/// single-precision floating point version, where all arguments and return values 
+/// are single precision, and a double-precision floating version, where all 
+/// arguments and return values are double precision. Only the single-precision 
+/// floating point version is shown.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_func_matrix
-#define glm_core_func_matrix
+#ifndef GLM_CORE_func_matrix
+#define GLM_CORE_func_matrix GLM_VERSION
 
 namespace glm
 {
-	/// @addtogroup core_funcs
+	/// @addtogroup core_func_matrix
 	/// @{
 
-	//! Multiply matrix x by matrix y component-wise, i.e., 
-	//! result[i][j] is the scalar product of x[i][j] and y[i][j].
-    //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/matrixCompMult.xml">GLSL matrixCompMult man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.5
+	/// Multiply matrix x by matrix y component-wise, i.e., 
+	/// result[i][j] is the scalar product of x[i][j] and y[i][j].
+    ///
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/matrixCompMult.xml">GLSL matrixCompMult man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.6</a>
 	template <typename matType> 
 	matType matrixCompMult(
 		matType const & x, 
 		matType const & y);
 
-	//! Treats the first parameter c as a column vector 
-	//! and the second parameter r as a row vector
-	//! and does a linear algebraic matrix multiply c * r.
-    //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/outerProduct.xml">GLSL outerProduct man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.5	
+	/// Treats the first parameter c as a column vector 
+	/// and the second parameter r as a row vector
+	/// and does a linear algebraic matrix multiply c * r.
+    ///
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/outerProduct.xml">GLSL outerProduct man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.6</a>
     template <typename vecType, typename matType> 
 	matType outerProduct(
 		vecType const & c, 
 		vecType const & r);
 
-	//! Returns the transposed matrix of x
-    //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/transpose.xml">GLSL transpose man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.5	
+	/// Returns the transposed matrix of x
+    ///
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/transpose.xml">GLSL transpose man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.6</a>	
     template <typename matType> 
 	typename matType::transpose_type transpose(
 		matType const & x);
 	
-	//! Return the determinant of a mat2 matrix. 
-    //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.5	
+	/// Return the determinant of a mat2 matrix. 
+    ///
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.6</a>	
 	template <typename T> 
 	typename detail::tmat2x2<T>::value_type determinant(
 		detail::tmat2x2<T> const & m);
 
-	//! Return the determinant of a mat3 matrix. 
-    //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.5	
+	/// Return the determinant of a mat3 matrix. 
+    ///
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.6</a>	
 	template <typename T> 
 	typename detail::tmat3x3<T>::value_type determinant(
 		detail::tmat3x3<T> const & m);
 
-	//! Return the determinant of a mat4 matrix. 
-    //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.5		
+	/// Return the determinant of a mat4 matrix. 
+    ///
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.6</a>		
     template <typename T> 
 	typename detail::tmat4x4<T>::value_type determinant(
 		detail::tmat4x4<T> const & m);
 
-	//! Return the inverse of a mat2 matrix. 
-    //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inverse.xml">GLSL inverse man page</a>
-    //! \li GLSL 1.40.07 specification, section 8.5	 
+	/// Return the inverse of a mat2 matrix. 
+    ///
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inverse.xml">GLSL inverse man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.6</a>	 
 	template <typename T> 
 	detail::tmat2x2<T> inverse(
 		detail::tmat2x2<T> const & m);
 
-	//! Return the inverse of a mat3 matrix. 
-    //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inverse.xml">GLSL inverse man page</a>
-    //! \li GLSL 1.40.07 specification, section 8.5 
+	/// Return the inverse of a mat3 matrix. 
+    ///
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inverse.xml">GLSL inverse man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.6</a> 
 	template <typename T> 
 	detail::tmat3x3<T> inverse(
 		detail::tmat3x3<T> const & m);
 
-	//! Return the inverse of a mat4 matrix. 
-    //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inverse.xml">GLSL inverse man page</a>
-    //! \li GLSL 1.40.07 specification, section 8.5
+	/// Return the inverse of a mat4 matrix. 
+    ///
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inverse.xml">GLSL inverse man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.6</a>
 	template <typename T> 
 	detail::tmat4x4<T> inverse(
 		detail::tmat4x4<T> const & m);
@@ -116,4 +127,4 @@ namespace glm
 
 #include "func_matrix.inl"
 
-#endif//glm_core_func_matrix
+#endif//GLM_CORE_func_matrix
