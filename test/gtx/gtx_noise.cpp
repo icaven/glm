@@ -9,6 +9,7 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtx/noise.hpp>
+#include <gli/gli.hpp>
 #include <iostream>
 
 int test_simplex()
