@@ -22,7 +22,7 @@ if(CMAKE_COMPILER_IS_GNUCXX)
 endif()
 
 include_directories(".")
-include_directories("./test/extenal")
+include_directories("./test/external")
 
 add_subdirectory(glm)
 add_subdirectory(test)
