@@ -34,7 +34,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_core_func_exponential
-#define glm_core_func_exponential
+#define glm_core_func_exponential GLM_VERSION
 
 namespace glm
 {
@@ -43,7 +43,6 @@ namespace glm
 
 	/// Returns x raised to the y power. 
     ///
-	/// @see
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/pow.xml">GLSL pow man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
 	template <typename genType> 
@@ -51,7 +50,6 @@ namespace glm
 
 	/// Returns the natural exponentiation of x, i.e., e^x.
     /// 
-	/// @see
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/exp.xml">GLSL exp man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
 	template <typename genType> 
@@ -61,7 +59,6 @@ namespace glm
 	/// returns the value y which satisfies the equation x = e^y. 
 	/// Results are undefined if x <= 0.
     /// 
-	/// @see
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/log.xml">GLSL log man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
 	template <typename genType> 
@@ -69,7 +66,6 @@ namespace glm
 
 	/// Returns 2 raised to the x power.
     /// 
-	/// @see
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/exp2.xml">GLSL exp2 man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
 	template <typename genType> 
@@ -78,7 +74,6 @@ namespace glm
 	/// Returns the base 2 log of x, i.e., returns the value y, 
 	/// which satisfies the equation x = 2 ^ y.
     /// 
-	/// @see
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/log2.xml">GLSL log2 man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
 	template <typename genType> 
@@ -86,7 +81,6 @@ namespace glm
 
 	/// Returns the positive square root of x.
     /// 
-	/// @see
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sqrt.xml">GLSL sqrt man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
 	template <typename genType> 
@@ -94,7 +88,6 @@ namespace glm
     
 	/// Returns the reciprocal of the positive square root of x.
     /// 
-	/// @see
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inversesqrt.xml">GLSL inversesqrt man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
 	template <typename genType> 

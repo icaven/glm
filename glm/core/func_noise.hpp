@@ -22,43 +22,52 @@
 ///
 /// @ref core
 /// @file glm/core/func_noise.hpp
-/// @date 2008-08-01 / 2011-06-15
+/// @date 2008-08-01 / 2011-06-18
 /// @author Christophe Riccio
+///
+/// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.11</a>
+/// 
+/// @defgroup core_func_noise Noise functions
+/// @ingroup core
+/// 
+/// Noise functions are stochastic functions that can be used to increase visual 
+/// complexity. Values returned by the following noise functions give the 
+/// appearance of randomness, but are not truly random.
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_core_func_noise
-#define glm_core_func_noise
+#define glm_core_func_noise GLM_VERSION
 
 namespace glm
 {
-	/// @addtogroup core_funcs
+	/// @addtogroup core_func_noise
 	/// @{
 
-	//! Returns a 1D noise value based on the input value x.
-    //! 
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/noise1.xml">GLSL noise1 man page</a>
-	//! \li GLSL 1.30.08 specification, section 8.9
+	/// Returns a 1D noise value based on the input value x.
+    /// 
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/noise1.xml">GLSL noise1 man page</a>
+	/// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.11</a>
 	template <typename genType>
 	typename genType::value_type noise1(genType const & x);
 
-	//! Returns a 2D noise value based on the input value x.
-    //! 
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/noise2.xml">GLSL noise2 man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.9
+	/// Returns a 2D noise value based on the input value x.
+    /// 
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/noise2.xml">GLSL noise2 man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.11</a>
 	template <typename genType>
 	detail::tvec2<typename genType::value_type> noise2(genType const & x);
 
-	//! Returns a 3D noise value based on the input value x.
-    //! 
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/noise3.xml">GLSL noise3 man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.9
+	/// Returns a 3D noise value based on the input value x.
+    /// 
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/noise3.xml">GLSL noise3 man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.11</a>
 	template <typename genType>
 	detail::tvec3<typename genType::value_type> noise3(genType const & x);
 
-	//! Returns a 4D noise value based on the input value x.
-    //! 
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/noise4.xml">GLSL noise4 man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.9
+	/// Returns a 4D noise value based on the input value x.
+    /// 
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/noise4.xml">GLSL noise4 man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.11</a>
 	template <typename genType>
 	detail::tvec4<typename genType::value_type> noise4(genType const & x);
 

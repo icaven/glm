@@ -73,12 +73,6 @@
 /// These templetes are implementation details of GLM types and should not be used explicitly.
 /// 
 /// @ingroup core
-/// 
-/// @defgroup core_funcs Functions
-/// 
-/// @brief The functions defined by the specification.
-/// 
-/// @ingroup core
 ///////////////////////////////////////////////////////////////////////////////////
 
 #include "core/_fixes.hpp"

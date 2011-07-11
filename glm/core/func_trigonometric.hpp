@@ -24,50 +24,61 @@
 /// @file glm/core/func_trigonometric.hpp
 /// @date 2008-08-01 / 2011-06-15
 /// @author Christophe Riccio
+///
+/// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.1</a>
+/// 
+/// @defgroup core_func_trigonometric Angle and Trigonometry Functions
+/// @ingroup core
+/// 
+/// Function parameters specified as angle are assumed to be in units of radians. 
+/// In no case will any of these functions result in a divide by zero error. If 
+/// the divisor of a ratio is 0, then results will be undefined.
+/// 
+/// These all operate component-wise. The description is per component.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_func_trigonometric
-#define glm_core_func_trigonometric
+#ifndef GLM_CORE_func_trigonometric
+#define GLM_CORE_func_trigonometric GLM_VERSION
 
 namespace glm
 {
-	/// @addtogroup core_funcs
+	/// @addtogroup core_func_trigonometric
 	/// @{
 
 	//! Converts degrees to radians and returns the result.
     //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/radians.xml">GLSL radians man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.1	
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/radians.xml">GLSL radians man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.1</a>
 	template <typename genType> 
 	genType radians(genType const & degrees);
 
 	//! Converts radians to degrees and returns the result.
     //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/degrees.xml">GLSL degrees man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.1	
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/degrees.xml">GLSL degrees man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.1</a>
 	template <typename genType> 
 	genType degrees(genType const & radians);
 
 	//! The standard trigonometric sine function. 
 	//! The values returned by this function will range from [-1, 1].
     //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sin.xml">GLSL sin man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.1	
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sin.xml">GLSL sin man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.1</a>
 	template <typename genType> 
 	genType sin(genType const & angle);
 
 	//! The standard trigonometric cosine function. 
 	//! The values returned by this function will range from [-1, 1].
     //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/cos.xml">GLSL cos man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.1	
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/cos.xml">GLSL cos man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.1</a>
 	template <typename genType> 
 	genType cos(genType const & angle);
 
 	//! The standard trigonometric tangent function.
     //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/tan.xml">GLSL tan man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.1	
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/tan.xml">GLSL tan man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.1</a>
 	template <typename genType> 
 	genType tan(genType const & angle); 
 
@@ -75,8 +86,8 @@ namespace glm
 	//! The range of values returned by this function is [-PI/2, PI/2]. 
 	//! Results are undefined if |x| > 1.
     //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/asin.xml">GLSL asin man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.1	
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/asin.xml">GLSL asin man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.1</a>
 	template <typename genType> 
 	genType asin(genType const & x);
 
@@ -84,8 +95,8 @@ namespace glm
 	//! The range of values returned by this function is [0, PI]. 
 	//! Results are undefined if |x| > 1.
     //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/acos.xml">GLSL acos man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.1	
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/acos.xml">GLSL acos man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.1</a>
 	template <typename genType> 
 	genType acos(genType const & x);
 
@@ -95,60 +106,60 @@ namespace glm
 	//! by this function is [-PI, PI]. Results are undefined 
 	//! if x and y are both 0. 
     //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/atan.xml">GLSL atan man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.1	
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/atan.xml">GLSL atan man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.1</a>
 	template <typename genType> 
 	genType atan(genType const & y, genType const & x);
 
 	//! Arc tangent. Returns an angle whose tangent is y_over_x. 
 	//! The range of values returned by this function is [-PI/2, PI/2].
     //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/atan.xml">GLSL atan man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.1	
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/atan.xml">GLSL atan man page</a>
+	/// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.1</a>
 	template <typename genType> 
 	genType atan(genType const & y_over_x);
 
 	//! Returns the hyperbolic sine function, (exp(x) - exp(-x)) / 2
     //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sinh.xml">GLSL sinh man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.1	
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sinh.xml">GLSL sinh man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.1</a>
 	template <typename genType> 
 	genType sinh(genType const & angle);
 
 	//! Returns the hyperbolic cosine function, (exp(x) + exp(-x)) / 2
     //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/cosh.xml">GLSL cosh man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.1	
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/cosh.xml">GLSL cosh man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.1</a>
 	template <typename genType> 
 	genType cosh(genType const & angle);
 
 	//! Returns the hyperbolic tangent function, sinh(angle) / cosh(angle)
     //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/tanh.xml">GLSL tanh man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.1	
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/tanh.xml">GLSL tanh man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.1</a>
 	template <typename genType> 
 	genType tanh(genType const & angle);
 
 	//! Arc hyperbolic sine; returns the inverse of sinh.
     //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/asinh.xml">GLSL asinh man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.1	
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/asinh.xml">GLSL asinh man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.1</a>
 	template <typename genType> 
 	genType asinh(genType const & x);
 	
 	//! Arc hyperbolic cosine; returns the non-negative inverse
 	//! of cosh. Results are undefined if x < 1.
     //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/acosh.xml">GLSL acosh man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.1	
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/acosh.xml">GLSL acosh man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.1</a>
 	template <typename genType> 
 	genType acosh(genType const & x);
 
 	//! Arc hyperbolic tangent; returns the inverse of tanh.
 	//! Results are undefined if abs(x) >= 1.
     //!
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/atanh.xml">GLSL atanh man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.1	
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/atanh.xml">GLSL atanh man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.1</a>
 	template <typename genType> 
 	genType atanh(genType const & x);
 
@@ -157,6 +168,6 @@ namespace glm
 
 #include "func_trigonometric.inl"
 
-#endif//glm_core_func_trigonometric
+#endif//GLM_CORE_func_trigonometric
 
 

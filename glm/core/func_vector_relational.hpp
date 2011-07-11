@@ -24,16 +24,28 @@
 /// @file glm/core/func_vector_relational.hpp
 /// @date 2008-08-03 / 2011-06-15
 /// @author Christophe Riccio
+///
+/// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.7</a>
+/// 
+/// @defgroup core_func_vector_relational Vector Relational Functions
+/// @ingroup core
+/// 
+/// Relational and equality operators (<, <=, >, >=, ==, !=) are defined to 
+/// operate on scalars and produce scalar Boolean results. For vector results, 
+/// use the following built-in functions. 
+/// 
+/// In all cases, the sizes of all the input and return vectors for any particular 
+/// call must match.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_func_vector_relational
-#define glm_core_func_vector_relational
+#ifndef GLM_CORE_func_vector_relational
+#define GLM_CORE_func_vector_relational GLM_VERSION
 
 #include "_detail.hpp"
 
 namespace glm
 {
-	/// @addtogroup core_funcs
+	/// @addtogroup core_func_vector_relational
 	/// @{
 
 	//! Returns the component-wise comparison result of x < y.
@@ -219,4 +231,4 @@ namespace glm
 
 #include "func_vector_relational.inl"
 
-#endif//glm_core_func_vector_relational
+#endif//GLM_CORE_func_vector_relational
