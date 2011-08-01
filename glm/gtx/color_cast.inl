@@ -356,10 +356,10 @@ template <>
 GLM_FUNC_QUALIFIER detail::tvec4<float> f32_bgra_cast<uint32>(uint32 color)
 {
 	detail::tvec4<float> result;
-	result.x = static_cast<float>(color >> 16) / static_cast<float>(255);
-	result.y = static_cast<float>(color >>  8) / static_cast<float>(255);
-	result.z = static_cast<float>(color >>  0) / static_cast<float>(255);
-	result.w = static_cast<float>(color >> 24) / static_cast<float>(255);
+	result.x = static_cast<float>((color >> 16) & 0xFF) / static_cast<float>(255);
+	result.y = static_cast<float>((color >>  8) & 0xFF) / static_cast<float>(255);
+	result.z = static_cast<float>((color >>  0) & 0xFF) / static_cast<float>(255);
+	result.w = static_cast<float>((color >> 24) & 0xFF) / static_cast<float>(255);
 	return result;
 }
 
