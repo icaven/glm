@@ -78,10 +78,111 @@ int test_half_ctor_mat2x2()
     return Error;
 }
 
+int test_half_ctor_mat2x3()
+{
+	int Error = 0;
+	
+	return Error;
+}
+
+int test_half_ctor_mat2x4()
+{
+	int Error = 0;
+	
+	return Error;
+}
+
+int test_half_ctor_mat3x2()
+{
+	int Error = 0;
+	
+	return Error;
+}
+
+int test_half_ctor_mat3x3()
+{
+	int Error = 0;
+	
+	return Error;
+}
+
+int test_half_ctor_mat3x4()
+{
+	int Error = 0;
+	
+	return Error;
+}
+
+int test_half_ctor_mat4x2()
+{
+	int Error = 0;
+	
+	return Error;
+}
+
+int test_half_ctor_mat4x3()
+{
+	int Error = 0;
+	
+	return Error;
+}
+
+int test_half_ctor_mat4x4()
+{
+	int Error = 0;
+	
+	return Error;
+}
+
+int test_half_ctor_vec2()
+{
+	int Error = 0;
+	
+	{
+		glm::hvec2 A(1, 2);
+		glm::hvec2 B(A);
+		glm::vec2 C(1, 2);
+		glm::hvec2 D(C);
+		glm::dvec2 E(1, 2);
+		glm::hvec2 F(E);
+		glm::hvec2 G(1, 2.0);
+		glm::hvec2 H;
+		H = A;
+		
+		Error += A == B ? 0 : 1;
+		Error += C == D ? 0 : 1;
+		Error += E == F ? 0 : 1;
+		Error += A == G ? 0 : 1;
+		Error += A == H ? 0 : 1;
+	}
+	
+	{
+		glm::hvec2 A(1);
+		glm::vec2 B(1);
+	
+		Error += A == B ? 0 : 1;
+	}
+	
+	return Error;
+}
+
+int test_half_ctor_vec3()
+{
+	
+}
+
+int test_half_ctor_vec4()
+{
+	
+}
+
 int main()
 {
 	int Error = 0;
 
+	Error += test_half_ctor_vec2();
+	Error += test_half_ctor_vec3();
+	Error += test_half_ctor_vec4();
 	Error += test_half_ctor_mat2x2();
 	Error += test_half_precision_scalar();
 	Error += test_half_precision_vec();
