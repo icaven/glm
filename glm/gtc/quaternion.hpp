@@ -79,7 +79,7 @@ namespace detail
 
 		// Convertions
 		//explicit tquat(valType const & pitch, valType const & yaw, valType const & roll);
-		//! pitch, yaw, roll
+		//! Build a quaternion from euler angles (pitch, yaw, roll), in radians.
 		explicit tquat(
 			tvec3<T> const & eulerAngles);
 		explicit tquat(
@@ -248,7 +248,7 @@ namespace detail
 	//! Quaternion of high precision floating-point numbers. 
 	//! From GLM_GTC_quaternion extension.
 	typedef detail::tquat<highp_float>		highp_quat;
-    
+
 	/// @}
 } //namespace glm
 
