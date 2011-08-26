@@ -24,12 +24,18 @@ int test_float_precision()
             sizeof(glm::mediump_float) <= sizeof(glm::highp_float)) ? 0 : 1;
 }
 
+int test_vec2()
+{
+	glm
+}
+
 int main()
 {
     int Error = 0;
     
     Error += test_float_size();
     Error += test_float_precision();
+	Error += test_vec2();
     
 	return Error;
 }
