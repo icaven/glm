@@ -8,6 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Dependency:
 // - GLM core
+// - GLM_GTX_matrix_query
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_matrix_query
@@ -24,7 +25,7 @@ namespace glm{
 namespace gtx{
 namespace matrix_query ///< GLM_GTX_matrix_query: Query to evaluate matrix properties
 {
-	/// \addtogroup gtx_matrix_query
+	/// @addtogroup gtx_matrix_query
 	/// @{
 
 	//! Return if a matrix a null matrix.
