@@ -28,7 +28,7 @@ namespace matrix_interpolation
                 axis.z = (T)0.0;
                 return;
             }
-            angle = M_1_PI;
+            angle = T(3.1415926535897932384626433832795);
             T xx = (mat[0][0] + (T)1.0) / (T)2.0;
             T yy = (mat[1][1] + (T)1.0) / (T)2.0;
             T zz = (mat[2][2] + (T)1.0) / (T)2.0;
