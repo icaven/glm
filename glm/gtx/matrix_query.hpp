@@ -22,11 +22,11 @@
 ///
 /// @ref gtx_matrix_query
 /// @file glm/gtx/matrix_query.hpp
-/// @date 2007-03-05 / 2011-06-07
+/// @date 2007-03-05 / 2011-08-28
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
-/// @see gtx_extented_min_max (dependence)
+/// @see gtx_vector_query (dependence)
 ///
 /// @defgroup gtx_matrix_query GLM_GTX_matrix_query: Query matrix properties
 /// @ingroup gtx
@@ -41,6 +41,7 @@
 
 // Dependency:
 #include "../glm.hpp"
+#include "../gtx/vector_query.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))
 #	pragma message("GLM: GLM_GTX_matrix_query extension included")
