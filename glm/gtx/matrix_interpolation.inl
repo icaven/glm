@@ -26,7 +26,7 @@ GLM_FUNC_QUALIFIER void axisAngle(
             axis.z = (T)0.0;
             return;
         }
-        angle = M_1_PI;
+        angle = T(3.1415926535897932384626433832795);
         T xx = (mat[0][0] + (T)1.0) / (T)2.0;
         T yy = (mat[1][1] + (T)1.0) / (T)2.0;
         T zz = (mat[2][2] + (T)1.0) / (T)2.0;
@@ -58,34 +58,6 @@ GLM_FUNC_QUALIFIER void axisAngle(
                 axis.x = (T)0.7071;
                 axis.y = (T)0.7071;
                 axis.z = (T)0.0;
-
-            angle = T(3.1415926535897932384626433832795);
-            T xx = (mat[0][0] + (T)1.0) / (T)2.0;
-            T yy = (mat[1][1] + (T)1.0) / (T)2.0;
-            T zz = (mat[2][2] + (T)1.0) / (T)2.0;
-            T xy = (mat[1][0] + mat[0][1]) / (T)4.0;
-            T xz = (mat[2][0] + mat[0][2]) / (T)4.0;
-            T yz = (mat[2][1] + mat[1][2]) / (T)4.0;
-            if ((xx > yy) && (xx > zz)) {
-                if (xx < epsilon) {
-                    axis.x = (T)0.0;
-                    axis.y = (T)0.7071;
-                    axis.z = (T)0.7071;
-                } else {
-                    axis.x = sqrt(xx);
-                    axis.y = xy / axis.x;
-                    axis.z = xz / axis.x;
-                }
-            } else if (yy > zz) {
-                if (yy < epsilon) {
-                    axis.x = (T)0.7071;
-                    axis.y = (T)0.0;
-                    axis.z = (T)0.7071;
-                } else {
-                    axis.y = sqrt(yy);
-                    axis.x = xy / axis.y;
-                    axis.z = yz / axis.y;
-                }
             } else {
                 axis.z = sqrt(zz);
                 axis.x = xz / axis.z;
