@@ -88,7 +88,7 @@ namespace detail{
 		tmat3x3<T> const & m
 	)
     {
-		*this = toQuat(m);
+		*this = gtc::quaternion::quat_cast(m);
     }
 
     template <typename T> 
@@ -97,7 +97,7 @@ namespace detail{
 		tmat4x4<T> const & m
 	)
     {
-		*this = toQuat(m);
+		*this = gtc::quaternion::quat_cast(m);
     }
 
     //////////////////////////////////////////////////////////////
