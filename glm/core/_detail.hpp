@@ -324,6 +324,7 @@ namespace detail
 			is_bool = is_bool<T>::_YES
 		};
 	};
+}//namespace detail
 
 	//////////////////
 	// type
@@ -342,7 +343,6 @@ namespace detail
 	typedef float								float32;
 	typedef double								float64;
 
-}//namespace detail
 }//namespace glm
 
 #if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
