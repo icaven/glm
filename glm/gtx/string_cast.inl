@@ -41,7 +41,7 @@ namespace string_cast
 
 	GLM_FUNC_QUALIFIER std::string to_string(detail::thalf const & x)
 	{
-		return detail::format("half(%f)", float(x));
+		return detail::format("half(%2.4f)", float(x));
 	}
 
 	GLM_FUNC_QUALIFIER std::string to_string(float x)
@@ -109,7 +109,7 @@ namespace string_cast
 		detail::tvec2<detail::thalf> const & v
 	)
 	{
-		return detail::format("hvec2(%f, %f)", float(v.x), float(v.y));
+		return detail::format("hvec2(%2.4f, %2.4f)", float(v.x), float(v.y));
 	}
 
 	template <> 
@@ -118,7 +118,7 @@ namespace string_cast
 		detail::tvec3<detail::thalf> const & v
 	)
 	{
-		return detail::format("hvec3(%f, %f, %f)", float(v.x), float(v.y), float(v.z));
+		return detail::format("hvec3(%2.4f, %2.4f, %2.4f)", float(v.x), float(v.y), float(v.z));
 	}
 
 	template <> 
@@ -127,7 +127,7 @@ namespace string_cast
 		detail::tvec4<detail::thalf> const & v
 	)
 	{
-		return detail::format("hvec4(%f, %f, %f, %f)", float(v.x), float(v.y), float(v.z), float(v.w));
+		return detail::format("hvec4(%2.4f, %2.4f, %2.4f, %2.4f)", float(v.x), float(v.y), float(v.z), float(v.w));
 	}
 
 	////////////////////////////////
