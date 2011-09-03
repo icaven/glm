@@ -158,9 +158,10 @@
   </todo>
 
   <page_news>
-	  <news index="0069" date="04/08/2011" title="GLM 0.9.2.4 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+	  
+	  <news index="0069" date="03/09/2011" title="GLM 0.9.2.4 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
 		  <paragraph>
-			  Fixed few bugs reported by GLM users. Thanks!
+			  Fixed bugs and warnings reported by GLM users. Thanks!
 		  </paragraph>
 
 		  <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.4/glm-0.9.2.4.zip/download">GLM 0.9.2.4 (zip)</source>
