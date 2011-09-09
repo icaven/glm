@@ -25,7 +25,7 @@
 /// @date 2008-08-03 / 2011-06-14
 /// @author Christophe Riccio
 ///
-/// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.5</a>
+/// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5</a>
 /// 
 /// @defgroup core_func_geometric Geometric functions
 /// @ingroup core
@@ -44,7 +44,7 @@ namespace glm
 	/// Returns the length of x, i.e., sqrt(x * x).
     /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/length.xml">GLSL length man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.5</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5</a>
 	template <typename genType> 
         typename genType::value_type length(
 		genType const & x); 
@@ -52,7 +52,7 @@ namespace glm
 	/// Returns the distance betwwen p0 and p1, i.e., length(p0 - p1).
     /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/distance.xml">GLSL distance man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.5</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5</a>
 	template <typename genType> 
 	typename genType::value_type distance(
 		genType const & p0, 
@@ -61,7 +61,7 @@ namespace glm
 	/// Returns the dot product of x and y, i.e., result = x * y.
     /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/dot.xml">GLSL dot man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.5</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5</a>
     template <typename genType> 
 	typename genType::value_type dot(
 		genType const & x, 
@@ -70,7 +70,7 @@ namespace glm
 	/// Returns the cross product of x and y.
     /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/cross.xml">GLSL cross man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.5</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5</a>
     template <typename T> 
 	detail::tvec3<T> cross(
 		detail::tvec3<T> const & x, 
@@ -79,7 +79,7 @@ namespace glm
 	/// Returns a vector in the same direction as x but with length of 1.
     /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/normalize.xml">GLSL normalize man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.5</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5</a>
 	template <typename genType> 
 	genType normalize(
 		genType const & x);
@@ -87,7 +87,7 @@ namespace glm
 	/// If dot(Nref, I) < 0.0, return N, otherwise, return -N.
     /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/faceforward.xml">GLSL faceforward man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.5</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5</a>
     template <typename genType> 
 	genType faceforward(
 		genType const & N, 
@@ -98,7 +98,7 @@ namespace glm
 	/// returns the reflection direction : result = I - 2.0 * dot(N, I) * N.
     /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/reflect.xml">GLSL reflect man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.5</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5</a>
     template <typename genType> 
 	genType reflect(
 		genType const & I, 
@@ -109,7 +109,7 @@ namespace glm
 	/// return the refraction vector.
     /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/refract.xml">GLSL refract man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.5</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5</a>
     template <typename genType> 
 	genType refract(
 		genType const & I, 

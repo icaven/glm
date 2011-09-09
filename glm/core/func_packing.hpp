@@ -25,7 +25,7 @@
 /// @date 2010-03-17 / 2011-06-15
 /// @author Christophe Riccio
 ///
-/// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.4</a>
+/// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
 /// 
 /// @defgroup core_func_packing Floating-Point Pack and Unpack Functions
 /// @ingroup core
@@ -51,7 +51,7 @@ namespace glm
     //! the last component will be written to the most significant bits.
     //! 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packUnorm2x16.xml">GLSL packUnorm2x16 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.4</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
 	detail::uint32 packUnorm2x16(detail::tvec2<detail::float32> const & v);
         
     //! First, converts each component of the normalized floating-point value v into 8- or 16-bit integer values. 
@@ -64,7 +64,7 @@ namespace glm
     //! the last component will be written to the most significant bits.
     //! 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packUnorm4x8.xml">GLSL packUnorm4x8 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.4</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
 	detail::uint32 packUnorm4x8(detail::tvec4<detail::float32> const & v);
         
     //! First, converts each component of the normalized floating-point value v into 8- or 16-bit integer values. 
@@ -77,7 +77,7 @@ namespace glm
     //! the last component will be written to the most significant bits.
     //! 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packSnorm4x8.xml">GLSL packSnorm4x8 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.4</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
 	detail::uint32 packSnorm4x8(detail::tvec4<detail::float32> const & v);
 
     //! First, unpacks a single 32-bit unsigned integer p into a pair of 16-bit unsigned integers, four 8-bit unsigned integers, or four 8-bit signed integers. 
@@ -90,7 +90,7 @@ namespace glm
     //! the last component will be extracted from the most significant bits.
     //! 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackUnorm2x16.xml">GLSL unpackUnorm2x16 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.4</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
 	detail::tvec2<detail::float32> unpackUnorm2x16(detail::uint32 const & p);
 
     //! First, unpacks a single 32-bit unsigned integer p into a pair of 16-bit unsigned integers, four 8-bit unsigned integers, or four 8-bit signed integers. 
@@ -103,7 +103,7 @@ namespace glm
     //! the last component will be extracted from the most significant bits.
     //! 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackUnorm4x8.xml">GLSL unpackUnorm4x8 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.4</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
     detail::tvec4<detail::float32> unpackUnorm4x8(detail::uint32 const & p);
         
     //! First, unpacks a single 32-bit unsigned integer p into a pair of 16-bit unsigned integers, four 8-bit unsigned integers, or four 8-bit signed integers. 
@@ -116,7 +116,7 @@ namespace glm
     //! the last component will be extracted from the most significant bits.
     //! 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackSnorm4x8.xml">GLSL unpackSnorm4x8 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.4</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
 	detail::tvec4<detail::float32> unpackSnorm4x8(detail::uint32 const & p);
 
     //! Returns a double-precision value obtained by packing the components of v into a 64-bit value. 
@@ -126,7 +126,7 @@ namespace glm
     //! the second component specifies the 32 most significant bits.
     //! 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packDouble2x32.xml">GLSL packDouble2x32 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.4</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
 	double packDouble2x32(detail::tvec2<detail::uint32> const & v);
         
     //! Returns a two-component unsigned integer vector representation of v. 
@@ -135,7 +135,7 @@ namespace glm
     //! the second component consists the 32 most significant bits.
     //! 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackDouble2x32.xml">GLSL unpackDouble2x32 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.4</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
 	detail::tvec2<detail::uint32> unpackDouble2x32(double const & v);
 
 	/// @}
