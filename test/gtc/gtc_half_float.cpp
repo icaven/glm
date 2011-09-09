@@ -168,12 +168,12 @@ int test_half_ctor_vec2()
 
 int test_half_ctor_vec3()
 {
-	
+	return 0;
 }
 
 int test_half_ctor_vec4()
 {
-	
+	return 0;
 }
 
 int main()

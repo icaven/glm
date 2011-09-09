@@ -165,9 +165,7 @@ namespace gli
 		Data((glm::compMul(Dimensions) * detail::sizeBitPerPixel(Format)) >> 3),
 		Dimensions(Dimensions),
 		Format(Format)
-	{
-		std::size_t Size = (glm::compMul(Dimensions) * detail::sizeBitPerPixel(Format)) >> 3;
-	}
+	{}
 
 	inline image2D::image2D
 	(

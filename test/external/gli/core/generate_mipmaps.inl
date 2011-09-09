@@ -32,7 +32,6 @@ namespace gli
 
 			texture2D::dimensions_type LevelDimensions = Result[Level + 0].dimensions() >> texture2D::dimensions_type(1);
 			LevelDimensions = glm::max(LevelDimensions, texture2D::dimensions_type(1));
-			texture2D::size_type ValueSize = Result[Level + 0].value_size();
 			texture2D::size_type Components = Result[Level + 0].components();
 
 			texture2D::data_type DataDst(glm::compMul(LevelDimensions) * Components);
