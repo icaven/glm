@@ -62,9 +62,7 @@ namespace glm
 	/// 
 	/// @param m Matrix multiplied by this translation matrix.
 	/// @param v Coordinates of a translation vector.
-	/// 
 	/// @tparam T Value type used to build the translation matrix. Currently supported: half (not recommanded), float or double.
-	/// 
 	/// @code
 	/// #include <glm/glm.hpp>
 	/// #include <glm/gtc/matrix_transform.hpp>
@@ -75,7 +73,6 @@ namespace glm
 	/// // m[2][0] == 0.0f, m[2][1] == 0.0f, m[2][2] == 1.0f, m[2][3] == 0.0f
 	/// // m[3][0] == 1.0f, m[3][1] == 1.0f, m[3][2] == 1.0f, m[3][3] == 1.0f
 	/// @endcode
-	/// 
 	/// @see gtc_matrix_transform
 	/// @see gtx_transform
 	/// @see - translate(T x, T y, T z)
