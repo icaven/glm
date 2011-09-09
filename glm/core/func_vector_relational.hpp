@@ -53,161 +53,56 @@ namespace glm
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/lessThan.xml">GLSL lessThan man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
     template <typename T, template <typename> class vecType> 
-	GLM_FUNC_QUALIFIER typename vecType<T>::bool_type lessThan
-	(
-		vecType<T> const & x, 
-		vecType<T> const & y
-	)
-	{
-		GLM_STATIC_ASSERT(detail::is_vector<vecType<T> >::_YES, 
-			"Invalid template instantiation of 'lessThan', GLM vector types required");
-		GLM_STATIC_ASSERT(detail::is_bool<T>::_NO,
-			"Invalid template instantiation of 'lessThan', GLM vector types required floating-point or integer value types vectors");
-
-		typename vecType<bool>::bool_type Result(vecType<bool>::null);
-		for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
-			Result[i] = x[i] < y[i];
-
-		return Result;
-	}
+	GLM_FUNC_QUALIFIER typename vecType<T>::bool_type lessThan(vecType<T> const & x, vecType<T> const & y);
 
 	//! Returns the component-wise comparison of result x <= y.
     //!
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/lessThanEqual.xml">GLSL lessThanEqual man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
 	template <typename T, template <typename> class vecType> 
-	GLM_FUNC_QUALIFIER typename vecType<T>::bool_type lessThanEqual
-	(
-		vecType<T> const & x, 
-		vecType<T> const & y
-	)
-	{
-		GLM_STATIC_ASSERT(detail::is_vector<vecType<T> >::_YES, 
-			"Invalid template instantiation of 'lessThanEqual', GLM vector types required");
-		GLM_STATIC_ASSERT(detail::is_bool<T>::_NO, 
-			"Invalid template instantiation of 'lessThanEqual', GLM vector types required floating-point or integer value types vectors");
-
-		typename vecType<bool>::bool_type Result(vecType<bool>::null);
-		for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
-			Result[i] = x[i] <= y[i];
-		return Result;
-	}
+	GLM_FUNC_QUALIFIER typename vecType<T>::bool_type lessThanEqual(vecType<T> const & x, vecType<T> const & y);
 
 	//! Returns the component-wise comparison of result x > y.
     //!
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/greaterThan.xml">GLSL greaterThan man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
 	template <typename T, template <typename> class vecType> 
-	GLM_FUNC_QUALIFIER typename vecType<T>::bool_type greaterThan
-	(
-		vecType<T> const & x, 
-		vecType<T> const & y
-	)
-	{
-		GLM_STATIC_ASSERT(detail::is_vector<vecType<T> >::_YES, 
-			"Invalid template instantiation of 'greaterThan', GLM vector types required");
-		GLM_STATIC_ASSERT(detail::is_bool<T>::_NO, 
-			"Invalid template instantiation of 'greaterThan', GLM vector types required floating-point or integer value types vectors");
-
-		typename vecType<bool>::bool_type Result(vecType<bool>::null);
-		for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
-			Result[i] = x[i] > y[i];
-		return Result;
-	}
+	GLM_FUNC_QUALIFIER typename vecType<T>::bool_type greaterThan(vecType<T> const & x, vecType<T> const & y);
 
 	//! Returns the component-wise comparison of result x >= y.
     //!
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/greaterThanEqual.xml">GLSL greaterThanEqual man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
 	template <typename T, template <typename> class vecType> 
-	GLM_FUNC_QUALIFIER typename vecType<T>::bool_type greaterThanEqual
-	(
-		vecType<T> const & x, 
-		vecType<T> const & y
-	)
-	{
-		GLM_STATIC_ASSERT(detail::is_vector<vecType<T> >::_YES, 
-			"Invalid template instantiation of 'greaterThanEqual', GLM vector types required");
-		GLM_STATIC_ASSERT(detail::is_bool<T>::_NO, 
-			"Invalid template instantiation of 'greaterThanEqual', GLM vector types required floating-point or integer value types vectors");
-
-		typename vecType<bool>::bool_type Result(vecType<bool>::null);
-		for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
-			Result[i] = x[i] >= y[i];
-		return Result;
-	}
+	typename vecType<T>::bool_type greaterThanEqual(vecType<T> const & x, vecType<T> const & y);
 
 	//! Returns the component-wise comparison of result x == y.
     //!
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/equal.xml">GLSL equal man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
 	template <typename T, template <typename> class vecType> 
-	GLM_FUNC_QUALIFIER typename vecType<T>::bool_type equal
-	(
-		vecType<T> const & x, 
-		vecType<T> const & y
-	)
-	{
-		GLM_STATIC_ASSERT(detail::is_vector<vecType<T> >::_YES, 
-			"Invalid template instantiation of 'equal', GLM vector types required");
-
-		typename vecType<bool>::bool_type Result(vecType<bool>::null);
-		for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
-			Result[i] = x[i] == y[i];
-		return Result;
-	}
+	GLM_FUNC_QUALIFIER typename vecType<T>::bool_type equal(vecType<T> const & x, vecType<T> const & y);
 
 	//! Returns the component-wise comparison of result x != y.
     //!
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/notEqual.xml">GLSL notEqual man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
 	template <typename T, template <typename> class vecType> 
-	GLM_FUNC_QUALIFIER typename vecType<T>::bool_type notEqual
-	(
-		vecType<T> const & x, 
-		vecType<T> const & y
-	)
-	{
-		GLM_STATIC_ASSERT(detail::is_vector<vecType<T> >::_YES, 
-			"Invalid template instantiation of 'notEqual', GLM vector types required");
-
-		typename vecType<bool>::bool_type Result(vecType<bool>::null);
-		for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
-			Result[i] = x[i] != y[i];
-		return Result;
-	}
+	typename vecType<T>::bool_type notEqual(vecType<T> const & x, vecType<T> const & y);
 
 	//! Returns true if any component of x is true.
     //!
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/any.xml">GLSL any man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
 	template <template <typename> class vecType> 
-	GLM_FUNC_QUALIFIER bool any(vecType<bool> const & v)
-	{
-		GLM_STATIC_ASSERT(detail::is_vector<vecType<bool> >::_YES, 
-			"Invalid template instantiation of 'any', GLM boolean vector types required");
-
-		bool Result = false;
-		for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
-			Result = Result || v[i];
-		return Result;
-	}
+	bool any(vecType<bool> const & v);
 
 	//! Returns true if all components of x are true.
     //!
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/all.xml">GLSL all man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
 	template <template <typename> class vecType> 
-	GLM_FUNC_QUALIFIER bool all(vecType<bool> const & v)
-	{
-		GLM_STATIC_ASSERT(detail::is_vector<vecType<bool> >::_YES, 
-			"Invalid template instantiation of 'all', GLM boolean vector types required");
-
-		bool Result = true;
-		for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
-			Result = Result && v[i];
-		return Result;
-	}
+	bool all(vecType<bool> const & v);
 
 	//! Returns the component-wise logical complement of x.
     //! /!\ Because of language incompatibilities between C++ and GLSL, GLM defines the function not but not_ instead.
@@ -215,16 +110,7 @@ namespace glm
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/not.xml">GLSL not man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
 	template <template <typename> class vecType> 
-	GLM_FUNC_QUALIFIER vecType<bool> not_(vecType<bool> const & v)
-	{
-		GLM_STATIC_ASSERT(detail::is_vector<vecType<bool> >::_YES, 
-			"Invalid template instantiation of 'not_', GLM vector types required");
-
-		typename vecType<bool>::bool_type Result(vecType<bool>::null);
-		for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
-			Result[i] = !v[i];
-		return Result;
-	}
+	vecType<bool> not_(vecType<bool> const & v);
 
 	/// @}
 }//namespace glm

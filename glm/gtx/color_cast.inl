@@ -201,9 +201,9 @@ template <>
 GLM_FUNC_QUALIFIER f16vec3 f16_rgbx_cast<uint32>(uint32 color)
 {
 	f16vec3 result;
-	result.x = gtc::type_precision::f16(static_cast<float>((color >>  0) & 0xFF) / static_cast<float>(255));
-	result.y = gtc::type_precision::f16(static_cast<float>((color >>  8) & 0xFF) / static_cast<float>(255));
-	result.z = gtc::type_precision::f16(static_cast<float>((color >> 16) & 0xFF) / static_cast<float>(255));
+	result.x = f16(static_cast<float>((color >>  0) & 0xFF) / static_cast<float>(255));
+	result.y = f16(static_cast<float>((color >>  8) & 0xFF) / static_cast<float>(255));
+	result.z = f16(static_cast<float>((color >> 16) & 0xFF) / static_cast<float>(255));
 	return result;
 }
 
@@ -211,9 +211,9 @@ template <>
 GLM_FUNC_QUALIFIER f16vec3 f16_xrgb_cast<uint32>(uint32 color)
 {
 	f16vec3 result;
-	result.x = gtc::type_precision::f16(static_cast<float>((color >>  8) & 0xFF) / static_cast<float>(255));
-	result.y = gtc::type_precision::f16(static_cast<float>((color >> 16) & 0xFF) / static_cast<float>(255));
-	result.z = gtc::type_precision::f16(static_cast<float>((color >> 24) & 0xFF) / static_cast<float>(255));
+	result.x = f16(static_cast<float>((color >>  8) & 0xFF) / static_cast<float>(255));
+	result.y = f16(static_cast<float>((color >> 16) & 0xFF) / static_cast<float>(255));
+	result.z = f16(static_cast<float>((color >> 24) & 0xFF) / static_cast<float>(255));
 	return result;
 }
 

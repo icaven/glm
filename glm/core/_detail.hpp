@@ -324,24 +324,25 @@ namespace detail
 			is_bool = is_bool<T>::_YES
 		};
 	};
-}//namespace detail
-
+	
 	//////////////////
 	// type
-
+	
 	typedef signed char							int8;
 	typedef signed short						int16;
 	typedef signed int							int32;
 	typedef detail::sint64						int64;
-
+	
 	typedef unsigned char						uint8;
 	typedef unsigned short						uint16;
 	typedef unsigned int						uint32;
 	typedef detail::uint64						uint64;
-
+	
 	typedef detail::thalf						float16;
 	typedef float								float32;
 	typedef double								float64;
+	
+}//namespace detail
 
 }//namespace glm
 
