@@ -1415,6 +1415,7 @@ namespace detail
 	}
 
 	GLM_FUNC_QUALIFIER detail::tvec2<float> intBitsToFloat
+
 	(
 		detail::tvec2<int> const & value
 	)
