@@ -1330,7 +1330,7 @@ namespace detail
 		detail::tvec2<T> const & value
 	)
     {
-        return detail::tvec2<T>(
+        return detail::tvec2<int>(
             floatBitsToInt(value.x),
             floatBitsToInt(value.y));
     }
@@ -1341,7 +1341,7 @@ namespace detail
 		detail::tvec3<T> const & value
 	)
     {
-        return detail::tvec3<T>(
+        return detail::tvec3<int>(
             floatBitsToInt(value.x),
             floatBitsToInt(value.y));
     }
@@ -1352,7 +1352,7 @@ namespace detail
 		detail::tvec4<T> const & value
 	)
     {
-        return detail::tvec4<T>(
+        return detail::tvec4<int>(
             floatBitsToInt(value.x),
             floatBitsToInt(value.y));
     }
@@ -1375,7 +1375,7 @@ namespace detail
 		detail::tvec2<T> const & value
 	)
     {
-        return detail::tvec2<T>(
+        return detail::tvec2<uint>(
             floatBitsToUint(value.x),
             floatBitsToUint(value.y));
     }
@@ -1386,7 +1386,7 @@ namespace detail
 		detail::tvec3<T> const & value
 	)
     {
-        return detail::tvec3<T>(
+        return detail::tvec3<uint>(
             floatBitsToUint(value.x),
             floatBitsToUint(value.y));
     }
@@ -1397,7 +1397,7 @@ namespace detail
 		detail::tvec4<T> const & value
 	)
     {
-        return detail::tvec4<T>(
+        return detail::tvec4<uint>(
             floatBitsToUint(value.x),
             floatBitsToUint(value.y));
     }
@@ -1420,7 +1420,7 @@ namespace detail
 		detail::tvec2<T> const & value
 	)
     {
-        return detail::tvec2<T>(
+        return detail::tvec2<float>(
             intBitsToFloat(value.x),
             intBitsToFloat(value.y));
     }
@@ -1431,7 +1431,7 @@ namespace detail
 		detail::tvec3<T> const & value
 	)
     {
-        return detail::tvec3<T>(
+        return detail::tvec3<float>(
             intBitsToFloat(value.x),
             intBitsToFloat(value.y));
     }
@@ -1442,7 +1442,7 @@ namespace detail
 		detail::tvec4<T> const & value
 	)
     {
-        return detail::tvec4<T>(
+        return detail::tvec4<float>(
             intBitsToFloat(value.x),
             intBitsToFloat(value.y));
     }
@@ -1465,7 +1465,7 @@ namespace detail
 		detail::tvec2<T> const & value
 	)
     {
-        return detail::tvec2<T>(
+        return detail::tvec2<float>(
             uintBitsToFloat(value.x),
             uintBitsToFloat(value.y));
     }
@@ -1476,7 +1476,7 @@ namespace detail
 		detail::tvec3<T> const & value
 	)
     {
-        return detail::tvec3<T>(
+        return detail::tvec3<float>(
             uintBitsToFloat(value.x),
             uintBitsToFloat(value.y));
     }
@@ -1487,7 +1487,7 @@ namespace detail
 		detail::tvec4<T> const & value
 	)
     {
-        return detail::tvec4<T>(
+        return detail::tvec4<float>(
             uintBitsToFloat(value.x),
             uintBitsToFloat(value.y));
     }
