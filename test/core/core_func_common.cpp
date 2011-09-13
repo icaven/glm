@@ -25,6 +25,23 @@ int test_floatBitsToInt()
 		Error += B.x == *(float*)&(A.x) ? 0 : 1;
 		Error += B.y == *(float*)&(A.y) ? 0 : 1;
 	}
+
+	{
+		glm::vec3 A(1.0f, 2.0f, 3.0f);
+		glm::ivec3 B = glm::floatBitsToInt(A);
+		Error += B.x == *(float*)&(A.x) ? 0 : 1;
+		Error += B.y == *(float*)&(A.y) ? 0 : 1;
+		Error += B.z == *(float*)&(A.z) ? 0 : 1;
+	}
+	
+	{
+		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::ivec4 B = glm::floatBitsToInt(A);
+		Error += B.x == *(float*)&(A.x) ? 0 : 1;
+		Error += B.y == *(float*)&(A.y) ? 0 : 1;
+		Error += B.z == *(float*)&(A.z) ? 0 : 1;
+		Error += B.w == *(float*)&(A.w) ? 0 : 1;
+	}
 	
 	return Error;
 }
