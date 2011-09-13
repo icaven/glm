@@ -20,7 +20,7 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref core
+/// @ref core	
 /// @file glm/core/type_mat2x2.hpp
 /// @date 2005-01-27 / 2011-06-15
 /// @author Christophe Riccio
