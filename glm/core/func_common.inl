@@ -1376,7 +1376,8 @@ namespace glm
     {
         return detail::tvec3<uint>(
             floatBitsToUint(value.x),
-            floatBitsToUint(value.y));
+			floatBitsToUint(value.y),
+			floatBitsToUint(value.z));
     }
 
     template <typename T>
@@ -1387,7 +1388,9 @@ namespace glm
     {
         return detail::tvec4<uint>(
             floatBitsToUint(value.x),
-            floatBitsToUint(value.y));
+			floatBitsToUint(value.y),
+			floatBitsToUint(value.z),
+			floatBitsToUint(value.w));
     }
 
 	GLM_FUNC_QUALIFIER float intBitsToFloat(int const & value)
@@ -1421,7 +1424,8 @@ namespace glm
     {
         return detail::tvec3<float>(
             intBitsToFloat(value.x),
-            intBitsToFloat(value.y));
+			intBitsToFloat(value.y),
+			intBitsToFloat(value.z));
     }
 
     template <typename T>
@@ -1432,7 +1436,9 @@ namespace glm
     {
         return detail::tvec4<float>(
             intBitsToFloat(value.x),
-            intBitsToFloat(value.y));
+			intBitsToFloat(value.y),
+			intBitsToFloat(value.z),
+			intBitsToFloat(value.w));
     }
 
     GLM_FUNC_QUALIFIER float uintBitsToFloat(uint const & value)
@@ -1466,7 +1472,8 @@ namespace glm
     {
         return detail::tvec3<float>(
             uintBitsToFloat(value.x),
-            uintBitsToFloat(value.y));
+			uintBitsToFloat(value.y),
+			uintBitsToFloat(value.z));
     }
 
     template <typename T>
@@ -1477,7 +1484,9 @@ namespace glm
     {
         return detail::tvec4<float>(
             uintBitsToFloat(value.x),
-            uintBitsToFloat(value.y));
+			uintBitsToFloat(value.y),
+			uintBitsToFloat(value.z),
+			uintBitsToFloat(value.w));
     }
 
 	template <typename genType>
