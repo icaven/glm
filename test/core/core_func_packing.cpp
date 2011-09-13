@@ -9,6 +9,7 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/half_float.hpp>
+#include <glm/gtc/type_precision.hpp>
 #include <vector>
 
 int test_packHalf2x16()
@@ -31,11 +32,32 @@ int test_packHalf2x16()
 	return Error;
 }
 
+int test_packDouble2x32()
+{
+	int Error = 0;
+	
+	std::vector<glm::u32vec2> A;
+	A.push_back(glm::u32vec2( 1, 2));
+	A.push_back(glm::u32vec2(-1,-2));
+	A.push_back(glm::u32vec2(-1000, 1100));
+	
+	for(std::size_t i = 0; i < A.size(); ++i)
+	{
+		glm::u32vec2 B(A[i]);
+		double C = glm::packDouble2x32(B);
+		glm::u32vec2 D = glm::unpackDouble2x32(C);
+		Error += B == D ? 0 : 1;
+	}
+	
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
 
 	Error += test_packHalf2x16();
+	Error += test_packDouble2x32();
 	
 	return Error;
 }
