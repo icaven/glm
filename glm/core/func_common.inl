@@ -1300,7 +1300,6 @@ namespace glm
             isnan(x.w));
     }
 
-	template <>
 	GLM_FUNC_QUALIFIER int floatBitsToInt(float const & value)
 	{
 		union
@@ -1313,7 +1312,6 @@ namespace glm
 		return fi.i;
 	}
 
-    template <>
     GLM_FUNC_QUALIFIER detail::tvec2<int> floatBitsToInt
 	(
 		detail::tvec2<float> const & value
@@ -1324,7 +1322,6 @@ namespace glm
             floatBitsToInt(value.y));
     }
 
-    template <>
     GLM_FUNC_QUALIFIER detail::tvec3<int> floatBitsToInt
 	(
 		detail::tvec3<float> const & value
@@ -1336,8 +1333,7 @@ namespace glm
 			floatBitsToInt(value.z));
     }
 
-    template <>
-    GLM_FUNC_QUALIFIER detail::tvec4<int> floatBitsToInt
+	GLM_FUNC_QUALIFIER detail::tvec4<int> floatBitsToInt
 	(
 		detail::tvec4<float> const & value
 	)
@@ -1349,7 +1345,6 @@ namespace glm
 			floatBitsToInt(value.w));
     }
 
-	template<>
 	GLM_FUNC_QUALIFIER uint floatBitsToUint(float const & value)
 	{
 		union
@@ -1362,7 +1357,6 @@ namespace glm
 		return fu.u;
 	}
 
-    template <>
     GLM_FUNC_QUALIFIER detail::tvec2<uint> floatBitsToUint
 	(
 		detail::tvec2<float> const & value
@@ -1373,7 +1367,6 @@ namespace glm
             floatBitsToUint(value.y));
     }
 
-    template <>
     GLM_FUNC_QUALIFIER detail::tvec3<uint> floatBitsToUint
 	(
 		detail::tvec3<float> const & value
@@ -1385,7 +1378,6 @@ namespace glm
 			floatBitsToUint(value.z));
     }
 
-    template <>
     GLM_FUNC_QUALIFIER detail::tvec4<uint> floatBitsToUint
 	(
 		detail::tvec4<float> const & value
@@ -1410,7 +1402,6 @@ namespace glm
 		return fi.f;
 	}
 
-    template <>
     GLM_FUNC_QUALIFIER detail::tvec2<float> intBitsToFloat
 	(
 		detail::tvec2<int> const & value
@@ -1421,7 +1412,6 @@ namespace glm
             intBitsToFloat(value.y));
     }
 
-    template <>
     GLM_FUNC_QUALIFIER detail::tvec3<float> intBitsToFloat
 	(
 		detail::tvec3<int> const & value
@@ -1433,10 +1423,9 @@ namespace glm
 			intBitsToFloat(value.z));
     }
 
-    template <>
     GLM_FUNC_QUALIFIER detail::tvec4<float> intBitsToFloat
 	(
-		detail::tvec4<T> const & value
+		detail::tvec4<int> const & value
 	)
     {
         return detail::tvec4<float>(
@@ -1446,7 +1435,6 @@ namespace glm
 			intBitsToFloat(value.w));
     }
 
-	template<>
     GLM_FUNC_QUALIFIER float uintBitsToFloat(uint const & value)
     {
         union
@@ -1459,7 +1447,6 @@ namespace glm
         return fu.f;
     }
 
-    template <>
     GLM_FUNC_QUALIFIER detail::tvec2<float> uintBitsToFloat
 	(
 		detail::tvec2<uint> const & value
@@ -1470,7 +1457,6 @@ namespace glm
             uintBitsToFloat(value.y));
     }
 
-    template <>
     GLM_FUNC_QUALIFIER detail::tvec3<float> uintBitsToFloat
 	(
 		detail::tvec3<uint> const & value
@@ -1482,7 +1468,6 @@ namespace glm
 			uintBitsToFloat(value.z));
     }
 
-    template <>
     GLM_FUNC_QUALIFIER detail::tvec4<float> uintBitsToFloat
 	(
 		detail::tvec4<uint> const & value
