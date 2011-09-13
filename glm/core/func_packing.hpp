@@ -37,7 +37,7 @@
 #define GLM_CORE_func_packing GLM_VERSION
 
 namespace glm
-{
+{	
 	/// @addtogroup core_func_packing
 	/// @{
 
@@ -53,7 +53,20 @@ namespace glm
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packUnorm2x16.xml">GLSL packUnorm2x16 man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
 	detail::uint32 packUnorm2x16(detail::tvec2<detail::float32> const & v);
-        
+
+    //! First, converts each component of the normalized floating-point value v into 8- or 16-bit integer values. 
+    //! Then, the results are packed into the returned 32-bit unsigned integer.
+    //! 
+    //! The conversion for component c of v to fixed point is done as follows:
+    //! packSnorm2x16: round(clamp(c, 0, +1) * 65535.0) 
+    //! 
+    //! The first component of the vector will be written to the least significant bits of the output; 
+    //! the last component will be written to the most significant bits.
+    //! 
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packSnorm2x16.xml">GLSL packSnorm2x16 man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
+	detail::uint32 packSnorm2x16(detail::tvec2<detail::float32> const & v);
+	
     //! First, converts each component of the normalized floating-point value v into 8- or 16-bit integer values. 
     //! Then, the results are packed into the returned 32-bit unsigned integer.
     //! 

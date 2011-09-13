@@ -35,6 +35,13 @@ GLM_FUNC_QUALIFIER detail::uint32 packUnorm2x16(detail::tvec2<detail::float32> c
 	return detail::uint32((B << 16) | A);
 }
 
+GLM_FUNC_QUALIFIER detail::uint32 packSnorm2x16(detail::tvec2<detail::float32> const & v)
+{
+	detail::uint16 A((detail::uint16)round(clamp(v.x,-1.0f, 1.0f) * 32767.0f));
+	detail::uint16 B((detail::uint16)round(clamp(v.y,-1.0f, 1.0f) * 32767.0f));
+	return detail::uint32((B << 16) | A);
+}
+
 GLM_FUNC_QUALIFIER detail::uint32 packUnorm4x8(detail::tvec4<detail::float32> const & v)
 {
 		detail::uint8 A((detail::uint8)round(clamp(v.x, 0.0f, 1.0f) * 255.0f));
@@ -60,6 +67,15 @@ GLM_FUNC_QUALIFIER detail::tvec2<detail::float32> unpackUnorm2x16(detail::uint32
 	return detail::tvec2<detail::float32>(
 		A * 1.0f / 65535.0f, 
 		B * 1.0f / 65535.0f);
+}
+
+GLM_FUNC_QUALIFIER detail::tvec2<detail::float32> unpackSnorm2x16(detail::uint32 const & p)
+{
+	detail::uint16 A(detail::uint16(p >> 0));
+	detail::uint16 B(detail::uint16(p >> 16));
+	return clamp(detail::tvec2<detail::float32>(
+		A * 1.0f / 32767.0f, 
+		B * 1.0f / 32767.0f));
 }
 
 GLM_FUNC_QUALIFIER detail::tvec4<detail::float32> unpackUnorm4x8(detail::uint32 const & p)
