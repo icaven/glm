@@ -10,7 +10,50 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/half_float.hpp>
 #include <glm/gtc/type_precision.hpp>
+#include <glm/gtx/epsilon.hpp>
 #include <vector>
+
+int test_packUnorm2x16()
+{
+	int Error = 0;
+	
+	std::vector<glm::hvec2> A;
+	A.push_back(glm::hvec2(glm::half( 1.0f), glm::half( 0.0f)));
+	A.push_back(glm::hvec2(glm::half( 0.5f), glm::half( 0.7f)));
+	A.push_back(glm::hvec2(glm::half( 0.1f), glm::half( 0.2f)));
+	
+	for(std::size_t i = 0; i < A.size(); ++i)
+	{
+		glm::vec2 B(A[i]);
+		glm::uint32 C = glm::packUnorm2x16(B);
+		glm::vec2 D = glm::unpackUnorm2x16(C);
+		Error += glm::all(glm::equalEpsilon(B, D, 0.0001f)) ? 0 : 1;
+		assert(!Error);
+	}
+	
+	return Error;
+}
+
+int test_packSnorm2x16()
+{
+	int Error = 0;
+	
+	std::vector<glm::hvec2> A;
+	A.push_back(glm::hvec2(glm::half( 1.0f), glm::half( 0.0f)));
+	A.push_back(glm::hvec2(glm::half(-0.5f), glm::half(-0.7f)));
+	A.push_back(glm::hvec2(glm::half(-0.1f), glm::half( 0.1f)));
+	
+	for(std::size_t i = 0; i < A.size(); ++i)
+	{
+		glm::vec2 B(A[i]);
+		glm::uint32 C = glm::packSnorm2x16(B);
+		glm::vec2 D = glm::unpackSnorm2x16(C);
+		Error += glm::all(glm::equalEpsilon(B, D, 0.0001f)) ? 0 : 1;
+		//assert(!Error);
+	}
+	
+	return Error;
+}
 
 int test_packHalf2x16()
 {
@@ -55,7 +98,9 @@ int test_packDouble2x32()
 int main()
 {
 	int Error = 0;
-
+	
+	Error += test_packSnorm2x16();
+	Error += test_packUnorm2x16();
 	Error += test_packHalf2x16();
 	Error += test_packDouble2x32();
 	
