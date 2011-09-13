@@ -9,10 +9,19 @@
 
 #include <glm/glm.hpp>
 
+int test_packHalf2x16()
+{
+	int Error = 0;
+	
+	return Error;
+}
+
 int main()
 {
-	int Failed = 0;
+	int Error = 0;
 
-	return Failed;
+	Error += test_packHalf2x16();
+	
+	return Error;
 }
 

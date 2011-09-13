@@ -75,7 +75,7 @@ GLM_FUNC_QUALIFIER detail::tvec2<detail::float32> unpackSnorm2x16(detail::uint32
 	detail::uint16 B(detail::uint16(p >> 16));
 	return clamp(detail::tvec2<detail::float32>(
 		A * 1.0f / 32767.0f, 
-		B * 1.0f / 32767.0f));
+		B * 1.0f / 32767.0f), -1.0f, 1.0f);
 }
 
 GLM_FUNC_QUALIFIER detail::tvec4<detail::float32> unpackUnorm4x8(detail::uint32 const & p)
@@ -109,9 +109,21 @@ GLM_FUNC_QUALIFIER double packDouble2x32(detail::tvec2<detail::uint32> const & v
 	return *(double*)&v;
 }
 
-GLM_FUNC_QUALIFIER detail::tvec2<detail::uint32> unpackDouble2x32(double const & v)
+GLM_FUNC_QUALIFIER detail::tvec2<uint> unpackDouble2x32(double const & v)
 {
-	return *(detail::tvec2<detail::uint32>*)&v;
+	return *(detail::tvec2<uint>*)&v;
+}
+
+GLM_FUNC_QUALIFIER uint packHalf2x16(vec2 const & v)
+{
+	detail::tvec2<detail::hdata> Pack(detail::toFloat16(v.x), detail::toFloat16(v.y));
+	return *(uint*)&Pack;
+}
+
+GLM_FUNC_QUALIFIER vec2 unpackHalf2x16(uint const & v)
+{
+	detail::tvec2<detail::hdata> Unpack = *(detail::tvec2<detail::hdata>*)&v;
+	return vec2(detail::toFloat32(Unpack.x), detail::toFloat32(Unpack.y));
 }
 
 }//namespace glm
