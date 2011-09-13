@@ -1312,6 +1312,7 @@ namespace detail
             isnan(x.w));
     }
 
+	template <>
 	GLM_FUNC_QUALIFIER int floatBitsToInt(float const & value)
 	{
 		union
@@ -1324,10 +1325,10 @@ namespace detail
 		return fi.i;
 	}
 
-    template <typename T>
+    template <>
     GLM_FUNC_QUALIFIER detail::tvec2<int> floatBitsToInt
 	(
-		detail::tvec2<T> const & value
+		detail::tvec2<float> const & value
 	)
     {
         return detail::tvec2<int>(
@@ -1335,28 +1336,32 @@ namespace detail
             floatBitsToInt(value.y));
     }
 
-    template <typename T>
+    template <>
     GLM_FUNC_QUALIFIER detail::tvec3<int> floatBitsToInt
 	(
-		detail::tvec3<T> const & value
+		detail::tvec3<float> const & value
 	)
     {
         return detail::tvec3<int>(
             floatBitsToInt(value.x),
-            floatBitsToInt(value.y));
+			floatBitsToInt(value.y),
+			floatBitsToInt(value.z));
     }
 
-    template <typename T>
+    template <>
     GLM_FUNC_QUALIFIER detail::tvec4<int> floatBitsToInt
 	(
-		detail::tvec4<T> const & value
+		detail::tvec4<float> const & value
 	)
     {
         return detail::tvec4<int>(
             floatBitsToInt(value.x),
-            floatBitsToInt(value.y));
+			floatBitsToInt(value.y),
+			floatBitsToInt(value.z),
+			floatBitsToInt(value.w));
     }
 
+	template<>
 	GLM_FUNC_QUALIFIER uint floatBitsToUint(float const & value)
 	{
 		union
@@ -1369,10 +1374,10 @@ namespace detail
 		return fu.u;
 	}
 
-    template <typename T>
+    template <>
     GLM_FUNC_QUALIFIER detail::tvec2<uint> floatBitsToUint
 	(
-		detail::tvec2<T> const & value
+		detail::tvec2<float> const & value
 	)
     {
         return detail::tvec2<uint>(
@@ -1380,10 +1385,10 @@ namespace detail
             floatBitsToUint(value.y));
     }
 
-    template <typename T>
+    template <>
     GLM_FUNC_QUALIFIER detail::tvec3<uint> floatBitsToUint
 	(
-		detail::tvec3<T> const & value
+		detail::tvec3<float> const & value
 	)
     {
         return detail::tvec3<uint>(
@@ -1392,10 +1397,10 @@ namespace detail
 			floatBitsToUint(value.z));
     }
 
-    template <typename T>
+    template <>
     GLM_FUNC_QUALIFIER detail::tvec4<uint> floatBitsToUint
 	(
-		detail::tvec4<T> const & value
+		detail::tvec4<float> const & value
 	)
     {
         return detail::tvec4<uint>(
@@ -1417,10 +1422,10 @@ namespace detail
 		return fi.f;
 	}
 
-    template <typename T>
+    template <>
     GLM_FUNC_QUALIFIER detail::tvec2<float> intBitsToFloat
 	(
-		detail::tvec2<T> const & value
+		detail::tvec2<int> const & value
 	)
     {
         return detail::tvec2<float>(
@@ -1428,10 +1433,10 @@ namespace detail
             intBitsToFloat(value.y));
     }
 
-    template <typename T>
+    template <>
     GLM_FUNC_QUALIFIER detail::tvec3<float> intBitsToFloat
 	(
-		detail::tvec3<T> const & value
+		detail::tvec3<int> const & value
 	)
     {
         return detail::tvec3<float>(
@@ -1440,7 +1445,7 @@ namespace detail
 			intBitsToFloat(value.z));
     }
 
-    template <typename T>
+    template <>
     GLM_FUNC_QUALIFIER detail::tvec4<float> intBitsToFloat
 	(
 		detail::tvec4<T> const & value
@@ -1453,6 +1458,7 @@ namespace detail
 			intBitsToFloat(value.w));
     }
 
+	template<>
     GLM_FUNC_QUALIFIER float uintBitsToFloat(uint const & value)
     {
         union
@@ -1465,10 +1471,10 @@ namespace detail
         return fu.f;
     }
 
-    template <typename T>
+    template <>
     GLM_FUNC_QUALIFIER detail::tvec2<float> uintBitsToFloat
 	(
-		detail::tvec2<T> const & value
+		detail::tvec2<uint> const & value
 	)
     {
         return detail::tvec2<float>(
@@ -1476,10 +1482,10 @@ namespace detail
             uintBitsToFloat(value.y));
     }
 
-    template <typename T>
+    template <>
     GLM_FUNC_QUALIFIER detail::tvec3<float> uintBitsToFloat
 	(
-		detail::tvec3<T> const & value
+		detail::tvec3<uint> const & value
 	)
     {
         return detail::tvec3<float>(
@@ -1488,10 +1494,10 @@ namespace detail
 			uintBitsToFloat(value.z));
     }
 
-    template <typename T>
+    template <>
     GLM_FUNC_QUALIFIER detail::tvec4<float> uintBitsToFloat
 	(
-		detail::tvec4<T> const & value
+		detail::tvec4<uint> const & value
 	)
     {
         return detail::tvec4<float>(
