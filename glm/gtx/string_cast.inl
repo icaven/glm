@@ -15,7 +15,7 @@ namespace detail
 {
 	GLM_FUNC_QUALIFIER std::string format(const char* msg, ...)
 	{
-		const int STRING_BUFFER = 4096;
+		std::size_t const STRING_BUFFER(4096);
 		char text[STRING_BUFFER];
 		va_list list;
 
@@ -23,7 +23,12 @@ namespace detail
 			return std::string();
 
 		va_start(list, msg);
+// Ticket #123
+#if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER_VC >= GLM_COMPILER_VC2005))
+			vsprintf_s(text, msg, list, STRING_BUFFER);
+#else//
 			vsprintf(text, msg, list);
+#endif//
 		va_end(list);
 
 		return std::string(text);
