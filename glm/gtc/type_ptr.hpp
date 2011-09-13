@@ -57,7 +57,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_type_ptr
-#define GLM_GTC_type_ptr 90
+#define GLM_GTC_type_ptr GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

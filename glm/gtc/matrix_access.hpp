@@ -35,7 +35,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_matrix_access
-#define GLM_GTC_matrix_access 90
+#define GLM_GTC_matrix_access GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

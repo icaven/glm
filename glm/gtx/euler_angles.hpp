@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_euler_angles
-#define GLM_GTX_euler_angles 50
+#define GLM_GTX_euler_angles GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_perpendicular
-#define GLM_GTX_perpendicular 50
+#define GLM_GTX_perpendicular GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

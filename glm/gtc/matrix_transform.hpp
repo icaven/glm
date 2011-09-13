@@ -44,7 +44,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_matrix_transform
-#define GLM_GTC_matrix_transform 90
+#define GLM_GTC_matrix_transform GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

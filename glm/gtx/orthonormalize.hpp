@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_orthonormalize
-#define GLM_GTX_orthonormalize 50
+#define GLM_GTX_orthonormalize GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

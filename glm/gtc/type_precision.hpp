@@ -41,7 +41,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_type_precision
-#define GLM_GTC_type_precision 100
+#define GLM_GTC_type_precision GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

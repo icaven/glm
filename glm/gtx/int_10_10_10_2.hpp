@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_int_10_10_10_2
-#define GLM_GTX_int_10_10_10_2 50
+#define GLM_GTX_int_10_10_10_2 GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

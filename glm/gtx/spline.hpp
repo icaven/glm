@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_spline
-#define GLM_GTX_spline 50
+#define GLM_GTX_spline GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

@@ -38,7 +38,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_fast_square_root
-#define GLM_GTX_fast_square_root 50
+#define GLM_GTX_fast_square_root GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

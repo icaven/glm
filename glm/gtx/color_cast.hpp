@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_color_cast
-#define GLM_GTX_color_cast 50
+#define GLM_GTX_color_cast GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

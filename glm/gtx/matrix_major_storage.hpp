@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_matrix_major_storage
-#define GLM_GTX_matrix_major_storage 50
+#define GLM_GTX_matrix_major_storage GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

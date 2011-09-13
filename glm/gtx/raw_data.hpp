@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_raw_data
-#define GLM_GTX_raw_data 50
+#define GLM_GTX_raw_data GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

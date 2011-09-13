@@ -38,7 +38,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_vector_angle
-#define GLM_GTX_vector_angle 50
+#define GLM_GTX_vector_angle GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

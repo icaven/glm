@@ -38,7 +38,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_epsilon
-#define GLM_GTX_epsilon 50
+#define GLM_GTX_epsilon GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_std_based_type
-#define GLM_GTX_std_based_type 50
+#define GLM_GTX_std_based_type GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

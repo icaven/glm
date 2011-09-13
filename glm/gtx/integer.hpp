@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_integer
-#define GLM_GTX_integer 50
+#define GLM_GTX_integer GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

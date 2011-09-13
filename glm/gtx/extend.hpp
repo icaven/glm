@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_extend
-#define GLM_GTX_extend 50
+#define GLM_GTX_extend GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

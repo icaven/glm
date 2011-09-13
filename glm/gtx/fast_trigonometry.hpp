@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_fast_trigonometry
-#define GLM_GTX_fast_trigonometry 50
+#define GLM_GTX_fast_trigonometry GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

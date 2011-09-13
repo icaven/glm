@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_swizzle
-#define GLM_GTC_swizzle 90
+#define GLM_GTC_swizzle GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_intersect
-#define GLM_GTX_intersect 50
+#define GLM_GTX_intersect GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

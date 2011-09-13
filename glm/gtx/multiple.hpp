@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_multiple
-#define GLM_GTX_multiple 50
+#define GLM_GTX_multiple GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

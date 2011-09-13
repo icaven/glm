@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_color_space
-#define GLM_GTX_color_space 50
+#define GLM_GTX_color_space GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

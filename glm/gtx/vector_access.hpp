@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_vector_access
-#define GLM_GTX_vector_access 50
+#define GLM_GTX_vector_access GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

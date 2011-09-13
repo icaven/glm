@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_component_wise
-#define GLM_GTX_component_wise 50
+#define GLM_GTX_component_wise GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

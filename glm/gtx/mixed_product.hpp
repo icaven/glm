@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_mixed_product
-#define GLM_GTX_mixed_product 50
+#define GLM_GTX_mixed_product GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

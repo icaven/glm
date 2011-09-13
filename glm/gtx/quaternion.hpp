@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_quaternion
-#define GLM_GTX_quaternion 50
+#define GLM_GTX_quaternion GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

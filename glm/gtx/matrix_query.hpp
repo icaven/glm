@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_matrix_query
-#define GLM_GTX_matrix_query 50
+#define GLM_GTX_matrix_query GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

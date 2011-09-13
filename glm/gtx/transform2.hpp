@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_transform2
-#define GLM_GTX_transform2 50
+#define GLM_GTX_transform2 GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

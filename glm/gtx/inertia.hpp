@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_inertia
-#define GLM_GTX_inertia 50
+#define GLM_GTX_inertia GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

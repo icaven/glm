@@ -35,7 +35,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_half_float
-#define GLM_GTC_half_float 90
+#define GLM_GTC_half_float GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_projection
-#define GLM_GTX_projection 50
+#define GLM_GTX_projection GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

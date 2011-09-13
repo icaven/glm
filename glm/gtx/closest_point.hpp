@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_closest_point
-#define GLM_GTX_closest_point 50
+#define GLM_GTX_closest_point GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

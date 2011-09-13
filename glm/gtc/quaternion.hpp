@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_quaternion
-#define GLM_GTC_quaternion 90
+#define GLM_GTC_quaternion GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"
@@ -151,26 +151,30 @@ namespace detail
 	/// @{
 
 	//! Returns the length of the quaternion. 
-	//! From GLM_GTC_quaternion extension.
+	/// 
+	/// @see - gtc_quaternion
     template <typename T> 
     T length(
 		detail::tquat<T> const & q);
 
     //! Returns the normalized quaternion. 
-	//! From GLM_GTC_quaternion extension.
+	/// 
+	/// @see - gtc_quaternion
 	template <typename T> 
 	detail::tquat<T> normalize(
 		detail::tquat<T> const & q);
 		
     //! Returns dot product of q1 and q2, i.e., q1[0] * q2[0] + q1[1] * q2[1] + ... 
-	//! From GLM_GTC_quaternion extension.
+	/// 
+	/// @see - gtc_quaternion
 	template <typename T> 
 	T dot(
 		detail::tquat<T> const & q1, 
 		detail::tquat<T> const & q2);
 
 	//! Returns a SLERP interpolated quaternion of x and y according a. 
-	//! From GLM_GTC_quaternion extension.
+	/// 
+	/// @see - gtc_quaternion
 	template <typename T> 
 	detail::tquat<T> mix(
 		detail::tquat<T> const & x, 
@@ -178,19 +182,22 @@ namespace detail
 		T const & a);
 		
 	//! Returns the q conjugate. 
-	//! From GLM_GTC_quaternion extension.
+	/// 
+	/// @see - gtc_quaternion
     template <typename T> 
 	detail::tquat<T> conjugate(
 		detail::tquat<T> const & q);
 
 	//! Returns the q inverse. 
-	//! From GLM_GTC_quaternion extension.
+	/// 
+	/// @see - gtc_quaternion
     template <typename T> 
 	detail::tquat<T> inverse(
 		detail::tquat<T> const & q);
 
 	//! Rotates a quaternion from an vector of 3 components axis and an angle expressed in degrees.
-	//! From GLM_GTC_quaternion extension.
+	/// 
+	/// @see - gtc_quaternion
 	template <typename T> 
 	detail::tquat<T> rotate(
 		detail::tquat<T> const & q, 
@@ -198,55 +205,66 @@ namespace detail
 		detail::tvec3<T> const & v);
 
 	//! Converts a quaternion to a 3 * 3 matrix. 
-	//! From GLM_GTC_quaternion extension.
+	/// 
+	/// @see - gtc_quaternion
     template <typename T> 
 	detail::tmat3x3<T> mat3_cast(
 		detail::tquat<T> const & x);
 
 	//! Converts a quaternion to a 4 * 4 matrix. 
-	//! From GLM_GTC_quaternion extension.
+	/// 
+	/// @see - gtc_quaternion
 	template <typename T> 
 	detail::tmat4x4<T> mat4_cast(
 		detail::tquat<T> const & x);
 
 	//! Converts a 3 * 3 matrix to a quaternion. 
-	//! From GLM_GTC_quaternion extension.
+	/// 
+	/// @see - gtc_quaternion
 	template <typename T> 
 	detail::tquat<T> quat_cast(
 		detail::tmat3x3<T> const & x);
 
 	//! Converts a 4 * 4 matrix to a quaternion. 
-	//! From GLM_GTC_quaternion extension.
+	/// 
+	/// @see - gtc_quaternion
 	template <typename T> 
 	detail::tquat<T> quat_cast(
 		detail::tmat4x4<T> const & x);
 
 	//! Quaternion of floating-point numbers. 
-	//! From GLM_GTC_quaternion extension.
+	/// 
+	/// @see - gtc_quaternion
     typedef detail::tquat<float> quat;
 
 	//! Quaternion of half-precision floating-point numbers.
-	//! From GLM_GTC_quaternion extension.
+	/// 
+	/// @see - gtc_quaternion
 	typedef detail::tquat<detail::thalf>	hquat;
 
 	//! Quaternion of single-precision floating-point numbers. 
-	//! From GLM_GTC_quaternion extension.
+	/// 
+	/// @see - gtc_quaternion
 	typedef detail::tquat<float>	fquat;
 
 	//! Quaternion of double-precision floating-point numbers. 
-	//! From GLM_GTC_quaternion extension.
+	/// 
+	/// @see - gtc_quaternion
 	typedef detail::tquat<double>	dquat;
 
 	//! Quaternion of low precision floating-point numbers.
-	//! From GLM_GTC_quaternion extension.
+	/// 
+	/// @see - gtc_quaternion
 	typedef detail::tquat<lowp_float>		lowp_quat;
 
 	//! Quaternion of medium precision floating-point numbers. 
-	//! From GLM_GTC_quaternion extension.
+	/// 
+	/// @see - gtc_quaternion
 	typedef detail::tquat<mediump_float>	mediump_quat;
 
 	//! Quaternion of high precision floating-point numbers. 
-	//! From GLM_GTC_quaternion extension.
+	/// 
+	/// @see - gtc_quaternion
 	typedef detail::tquat<highp_float>		highp_quat;
 
 	/// @}

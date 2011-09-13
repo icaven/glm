@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_compatibility
-#define GLM_GTX_compatibility 50
+#define GLM_GTX_compatibility GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"  

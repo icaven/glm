@@ -40,7 +40,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_string_cast
-#define GLM_GTX_string_cast 50
+#define GLM_GTX_string_cast GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

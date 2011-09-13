@@ -36,8 +36,8 @@
 /// Include <glm/virtrev/xstream.hpp> for this functionality.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_VIRTREV_XSTREAM_INCLUDED
-#define GLM_VIRTREV_XSTREAM_INCLUDED
+#ifndef GLM_VIRTREV_xstream
+#define GLM_VIRTREV_xstream GLM_VERSION
 
 #include "../glm.hpp"
 #include "../gtc/matrix_access.hpp"
@@ -161,4 +161,4 @@ namespace glm
 
 }//namespace glm
 
-#endif//GLM_VIRTREV_XSTREAM_INCLUDED
+#endif//GLM_VIRTREV_xstream

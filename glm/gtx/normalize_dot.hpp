@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_normalize_dot
-#define GLM_GTX_normalize_dot 50
+#define GLM_GTX_normalize_dot GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

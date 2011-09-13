@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_random
-#define GLM_GTX_random 50
+#define GLM_GTX_random GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

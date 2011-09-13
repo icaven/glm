@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_gradient_paint
-#define GLM_GTX_gradient_paint 50
+#define GLM_GTX_gradient_paint GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

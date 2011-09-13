@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_vector_query
-#define GLM_GTX_vector_query 50
+#define GLM_GTX_vector_query GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_associated_min_max
-#define GLM_GTX_associated_min_max 50
+#define GLM_GTX_associated_min_max GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

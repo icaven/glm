@@ -40,7 +40,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_noise
-#define GLM_GTX_noise 50
+#define GLM_GTX_noise GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

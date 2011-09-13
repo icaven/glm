@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_bit
-#define GLM_GTX_bit 50
+#define GLM_GTX_bit GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

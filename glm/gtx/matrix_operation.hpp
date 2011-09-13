@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_matrix_operation
-#define GLM_GTX_matrix_operation 50
+#define GLM_GTX_matrix_operation GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_optimum_pow
-#define GLM_GTX_optimum_pow 50
+#define GLM_GTX_optimum_pow GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_unsigned_int
-#define GLM_GTX_unsigned_int 50
+#define GLM_GTX_unsigned_int GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

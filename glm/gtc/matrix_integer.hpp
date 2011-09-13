@@ -35,7 +35,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_matrix_integer
-#define GLM_GTC_matrix_integer 90
+#define GLM_GTC_matrix_integer GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

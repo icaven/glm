@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_ulp
-#define GLM_GTX_ulp 50
+#define GLM_GTX_ulp GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

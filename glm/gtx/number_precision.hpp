@@ -38,7 +38,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_number_precision
-#define GLM_GTX_number_precision 50
+#define GLM_GTX_number_precision GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

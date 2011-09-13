@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_matrix_cross_product
-#define GLM_GTX_matrix_cross_product 50
+#define GLM_GTX_matrix_cross_product GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

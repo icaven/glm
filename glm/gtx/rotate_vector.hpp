@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_rotate_vector
-#define GLM_GTX_rotate_vector 50
+#define GLM_GTX_rotate_vector GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

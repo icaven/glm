@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_verbose_operator
-#define GLM_GTX_verbose_operator 50
+#define GLM_GTX_verbose_operator GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

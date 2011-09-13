@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_fast_exponential
-#define GLM_GTX_fast_exponential 50
+#define GLM_GTX_fast_exponential GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

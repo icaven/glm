@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_normal
-#define GLM_GTX_normal 50
+#define GLM_GTX_normal GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

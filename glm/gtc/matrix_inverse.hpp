@@ -35,7 +35,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_matrix_inverse
-#define GLM_GTC_matrix_inverse 90
+#define GLM_GTC_matrix_inverse GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

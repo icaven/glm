@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_polar_coordinates
-#define GLM_GTX_polar_coordinates 50
+#define GLM_GTX_polar_coordinates GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

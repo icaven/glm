@@ -35,7 +35,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_vec1
-#define GLM_GTX_vec1 50
+#define GLM_GTX_vec1 GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_reciprocal
-#define GLM_GTX_reciprocal 50
+#define GLM_GTX_reciprocal GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

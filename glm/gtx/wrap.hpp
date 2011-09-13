@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_wrap
-#define GLM_GTX_wrap 50
+#define GLM_GTX_wrap GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"

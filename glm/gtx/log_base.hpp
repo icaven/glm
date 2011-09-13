@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_log_base
-#define GLM_GTX_log_base 50
+#define GLM_GTX_log_base GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"
