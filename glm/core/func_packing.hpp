@@ -58,7 +58,7 @@ namespace glm
     //! Then, the results are packed into the returned 32-bit unsigned integer.
     //! 
     //! The conversion for component c of v to fixed point is done as follows:
-    //! packSnorm2x16: round(clamp(c, 0, +1) * 65535.0) 
+    //! packSnorm2x16: round(clamp(v, -1, +1) * 32767.0)
     //! 
     //! The first component of the vector will be written to the least significant bits of the output; 
     //! the last component will be written to the most significant bits.
@@ -106,6 +106,19 @@ namespace glm
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
 	detail::tvec2<detail::float32> unpackUnorm2x16(detail::uint32 const & p);
 
+    //! First, unpacks a single 32-bit unsigned integer p into a pair of 16-bit unsigned integers, four 8-bit unsigned integers, or four 8-bit signed integers. 
+    //! Then, each component is converted to a normalized floating-point value to generate the returned two- or four-component vector.
+    //! 
+    //! The conversion for unpacked fixed-point value f to floating point is done as follows:
+    //! unpackSnorm2x16: clamp(f / 32767.0, -1, +1)
+    //! 
+    //! The first component of the returned vector will be extracted from the least significant bits of the input; 
+    //! the last component will be extracted from the most significant bits.
+    //! 
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackSnorm2x16.xml">GLSL unpackSnorm2x16 man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
+	detail::tvec2<detail::float32> unpackSnorm2x16(detail::uint32 const & p);
+	
     /// First, unpacks a single 32-bit unsigned integer p into a pair of 16-bit unsigned integers, four 8-bit unsigned integers, or four 8-bit signed integers. 
     /// Then, each component is converted to a normalized floating-point value to generate the returned two- or four-component vector.
     /// 
