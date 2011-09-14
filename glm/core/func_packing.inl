@@ -87,14 +87,15 @@ GLM_FUNC_QUALIFIER detail::uint32 packUnorm4x8(detail::tvec4<detail::float32> co
 
 GLM_FUNC_QUALIFIER detail::tvec4<detail::float32> unpackUnorm4x8(detail::uint32 const & p)
 {	
-	detail::uint8 A(detail::uint8(p >> 0));
-	detail::uint8 B(detail::uint8(p >> 8));
-	detail::uint8 C(detail::uint8(p >> 16));
-	detail::uint8 D(detail::uint8(p >> 24));
+	detail::uint32 Mask8((1 << 8) - 1);
+	detail::uint32 A((p >>  0) & Mask8);
+	detail::uint32 B((p >>  8) & Mask8);
+	detail::uint32 C((p >> 16) & Mask8);
+	detail::uint32 D((p >> 24) & Mask8);
 	return detail::tvec4<detail::float32>(
 		A * 1.0f / 255.0f, 
-		B * 1.0f / 255.0f,
-		C * 1.0f / 255.0f,
+		B * 1.0f / 255.0f, 
+		C * 1.0f / 255.0f, 
 		D * 1.0f / 255.0f);
 }
 	
@@ -114,9 +115,9 @@ GLM_FUNC_QUALIFIER detail::uint32 packSnorm4x8(detail::tvec4<detail::float32> co
 	detail::uint32 Pack = (detail::uint32(D.u) << 24) | (detail::uint32(C.u) << 16) | (detail::uint32(B.u) << 8) | (detail::uint32(A.u) << 0);
 	return Pack;
 }
-
+	
 GLM_FUNC_QUALIFIER detail::tvec4<detail::float32> unpackSnorm4x8(detail::uint32 const & p)
-{
+{	
 	union iu
 	{
 		detail::int8 i;
@@ -130,7 +131,7 @@ GLM_FUNC_QUALIFIER detail::tvec4<detail::float32> unpackSnorm4x8(detail::uint32 
 	D.u = detail::uint8((p >> 24) & Mask8);
 	vec4 Pack(A.i, B.i, C.i, D.i);
 	
-	return clamp(Pack, -1.0f, 1.0f);
+	return clamp(Pack * 1.0f / 127.0f, -1.0f, 1.0f);
 }
 
 GLM_FUNC_QUALIFIER double packDouble2x32(detail::tvec2<detail::uint32> const & v)
