@@ -55,6 +55,46 @@ int test_packSnorm2x16()
 	return Error;
 }
 
+int test_packUnorm4x8()
+{
+	int Error = 0;
+	
+	std::vector<glm::vec4> A;
+	A.push_back(glm::vec4(1.0f, 0.7f, 0.3f, 0.0f));
+	A.push_back(glm::vec4(0.5f, 0.1f, 0.2f, 0.3f));
+	
+	for(std::size_t i = 0; i < A.size(); ++i)
+	{
+		glm::vec4 B(A[i]);
+		glm::uint32 C = glm::packUnorm4x8(B);
+		glm::vec4 D = glm::unpackUnorm4x8(C);
+		Error += glm::all(glm::equalEpsilon(B, D, 0.0001f)) ? 0 : 1;
+		assert(!Error);
+	}
+	
+	return Error;
+}
+
+int test_packSnorm4x8()
+{
+	int Error = 0;
+	
+	std::vector<glm::vec4> A;
+	A.push_back(glm::vec4( 1.0f, 0.0f,-0.5f,-1.0f));
+	A.push_back(glm::vec4(-0.7f,-0.1f, 0.1f, 0.7f));
+	
+	for(std::size_t i = 0; i < A.size(); ++i)
+	{
+		glm::vec4 B(A[i]);
+		glm::uint32 C = glm::packSnorm4x8(B);
+		glm::vec4 D = glm::unpackSnorm4x8(C);
+		Error += glm::all(glm::equalEpsilon(B, D, 0.0001f)) ? 0 : 1;
+		//assert(!Error);
+	}
+	
+	return Error;
+}
+
 int test_packHalf2x16()
 {
 	int Error = 0;
@@ -99,11 +139,13 @@ int main()
 {
 	int Error = 0;
 	
+	Error += test_packSnorm4x8();
+	Error += test_packUnorm4x8();
 	Error += test_packSnorm2x16();
 	Error += test_packUnorm2x16();
 	Error += test_packHalf2x16();
 	Error += test_packDouble2x32();
-	
+
 	return Error;
 }
 
