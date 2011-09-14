@@ -25,7 +25,7 @@ namespace detail
 		va_start(list, msg);
 // Ticket #123
 #if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER_VC >= GLM_COMPILER_VC2005))
-			vsprintf_s(text, msg, list, STRING_BUFFER);
+			vsprintf_s(text, STRING_BUFFER, msg, list);
 #else//
 			vsprintf(text, msg, list);
 #endif//
