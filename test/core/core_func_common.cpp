@@ -121,6 +121,43 @@ int test_mix()
 	return Error;
 }
 
+int test_round()
+{
+	int Error = 0;
+	
+	{
+		float A = glm::round(0.0f);
+		Error += A == 0.0f ? 0 : 1;
+		float B = glm::round(0.5f);
+		Error += B == 1.0f ? 0 : 1;
+		float C = glm::round(1.0f);
+		Error += C == 1.0f ? 0 : 1;
+		float D = glm::round(0.1f);
+		Error += D == 0.0f ? 0 : 1;
+		float E = glm::round(0.9f);
+		Error += E == 1.0f ? 0 : 1;
+		float F = glm::round(1.9f);
+		Error += F == 2.0f ? 0 : 1;
+	}
+	
+	{
+		float A = glm::round(-0.0f);
+		Error += A == 0.0f ? 0 : 1;
+		float B = glm::round(-0.5f);
+		Error += B == -1.0f ? 0 : 1;
+		float C = glm::round(-1.0f);
+		Error += C == -1.0f ? 0 : 1;
+		float D = glm::round(-0.1f);
+		Error += D == 0.0f ? 0 : 1;
+		float E = glm::round(-0.9f);
+		Error += E == -1.0f ? 0 : 1;
+		float F = glm::round(-1.9f);
+		Error += F == -2.0f ? 0 : 1;
+	}
+	
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
@@ -128,6 +165,7 @@ int main()
 	Error += test_floatBitsToInt();
 	Error += test_floatBitsToUint();
 	Error += test_mix();
+	Error += test_round();
 
 	return Error;
 }
