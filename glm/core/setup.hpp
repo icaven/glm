@@ -281,7 +281,13 @@
 #else
 #	define GLM_MODEL	GLM_MODEL_32
 #endif//
-
+/*
+#if(sizeof(void*) == 8)
+#	define GLM_MODEL	GLM_MODEL_64
+#else
+#	define GLM_MODEL	GLM_MODEL_32
+#endif//_M_X64
+*/
 #if(!defined(GLM_MODEL) && GLM_COMPILER != 0)
 #error "GLM_MODEL undefined, your compiler may not be supported by GLM. Add #define GLM_MODEL 0 to ignore this message."
 #endif//GLM_MODEL
