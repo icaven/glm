@@ -19,7 +19,7 @@ namespace glm
 	namespace common{ //!< Define common functions from Section 8.3 of GLSL 1.30.8 specification. Included in glm namespace.
 
 	/// \addtogroup core_funcs
-	///@{
+	/// @{
 
 	//! Returns x if x >= 0; otherwise, it returns -x. 
     //! 
