@@ -239,7 +239,7 @@ namespace detail
 
 		if(x < 0)
 			return genType(int(x - genType(0.5)));
-        return genType(int(x + genType(0.5)));
+		return genType(int(x + genType(0.5)));
     }
 
     template <typename valType>
