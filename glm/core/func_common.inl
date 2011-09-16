@@ -225,7 +225,9 @@ namespace glm
     {
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'round' only accept floating-point inputs");
 
-        return genType(int(x + genType(0.5)));
+		if(x < 0)
+			return genType(int(x - genType(0.5)));
+		return genType(int(x + genType(0.5)));
     }
 
     template <typename valType>
