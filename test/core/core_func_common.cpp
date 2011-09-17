@@ -167,55 +167,71 @@ int test_roundEven()
 	int Error = 0;
 	
 	{
-		float A = glm::roundEven(0.0f);
+		float A = glm::round(0.0f);
 		Error += A == 0.0f ? 0 : 1;
-		float B = glm::roundEven(0.5f);
+		float B = glm::round(0.5f);
 		Error += B == 0.0f ? 0 : 1;
-		float C = glm::roundEven(1.0f);
-		Error += C == 2.0f ? 0 : 1;
-		float D = glm::roundEven(0.1f);
+		float C = glm::round(1.0f);
+		Error += C == 1.0f ? 0 : 1;
+		float D = glm::round(0.1f);
 		Error += D == 0.0f ? 0 : 1;
-		float E = glm::roundEven(0.9f);
-		Error += E == 0.0f ? 0 : 1;
-		float F = glm::roundEven(1.9f);
+		float E = glm::round(0.9f);
+		Error += E == 1.0f ? 0 : 1;
+		float F = glm::round(1.5f);
 		Error += F == 2.0f ? 0 : 1;
-		float G = glm::roundEven(2.5f);
+		float G = glm::round(1.9f);
 		Error += G == 2.0f ? 0 : 1;
-		float H = glm::roundEven(2.9f);
-		Error += H == 2.0f ? 0 : 1;
-		float I = glm::roundEven(3.2f);
-		Error += I == 4.0f ? 0 : 1;
-		float J = glm::roundEven(3.5f);
-		Error += J == 4.0f ? 0 : 1;
-		float K = glm::roundEven(3.9f);
-		Error += K == 4.0f ? 0 : 1;
-		float L = glm::roundEven(4.1f);
-		Error += L == 4.0f ? 0 : 1;
 	}
 	
 	{
-		float A = glm::roundEven(-0.0f);
-		Error += A == 0.0f ? 0 : 1;
-		float B = glm::roundEven(-0.5f);
-		Error += B == -2.0f ? 0 : 1;
-		float C = glm::roundEven(-1.0f);
-		Error += C == -2.0f ? 0 : 1;
-		float D = glm::roundEven(-0.1f);
+		float A = glm::round(-0.0f);
+		Error += A ==  0.0f ? 0 : 1;
+		float B = glm::round(-0.5f);
+		Error += B == -0.0f ? 0 : 1;
+		float C = glm::round(-1.0f);
+		Error += C == -1.0f ? 0 : 1;
+		float D = glm::round(-0.1f);
 		Error += D ==  0.0f ? 0 : 1;
-		float E = glm::roundEven(-0.9f);
-		Error += E == -2.0f ? 0 : 1;
-		float F = glm::roundEven(-1.9f);
+		float E = glm::round(-0.9f);
+		Error += E == -1.0f ? 0 : 1;
+		float F = glm::round(-1.5f);
 		Error += F == -2.0f ? 0 : 1;
-		float G = glm::roundEven(-2.5f);
+		float G = glm::round(-1.9f);
 		Error += G == -2.0f ? 0 : 1;
-		float H = glm::roundEven(-2.9f);
-		Error += H == -2.0f ? 0 : 1;
-		float I = glm::roundEven(-3.2f);
-		Error += I == -4.0f ? 0 : 1;
-		float J = glm::roundEven(-3.5f);
-		Error += J == -4.0f ? 0 : 1;
-		float K = glm::roundEven(-3.9f);
-		Error += K == -4.0f ? 0 : 1;
+	}
+	
+	{
+		float A = glm::round(1.5f);
+		Error += A == 2.0f ? 0 : 1;
+		float B = glm::round(2.5f);
+		Error += B == 2.0f ? 0 : 1;
+		float C = glm::round(3.5f);
+		Error += C == 4.0f ? 0 : 1;
+		float D = glm::round(4.5f);
+		Error += D == 4.0f ? 0 : 1;
+		float E = glm::round(5.5f);
+		Error += E == 6.0f ? 0 : 1;
+		float F = glm::round(6.5f);
+		Error += F == 6.0f ? 0 : 1;
+		float G = glm::round(7.5f);
+		Error += G == 8.0f ? 0 : 1;
+	}
+	
+	{
+		float A = glm::round(-1.5f);
+		Error += A == -2.0f ? 0 : 1;
+		float B = glm::round(-2.5f);
+		Error += B == -2.0f ? 0 : 1;
+		float C = glm::round(-3.5f);
+		Error += C == -4.0f ? 0 : 1;
+		float D = glm::round(-4.5f);
+		Error += D == -4.0f ? 0 : 1;
+		float E = glm::round(-5.5f);
+		Error += E == -6.0f ? 0 : 1;
+		float F = glm::round(-6.5f);
+		Error += F == -6.0f ? 0 : 1;
+		float G = glm::round(-7.5f);
+		Error += G == -8.0f ? 0 : 1;
 	}
 	
 	return Error;

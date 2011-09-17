@@ -268,7 +268,7 @@ namespace detail
             round(x.z),
             round(x.w));
     }
-
+/*
     // roundEven
     template <typename genType>
     GLM_FUNC_QUALIFIER genType roundEven(genType const& x)
@@ -277,7 +277,22 @@ namespace detail
 
 		return genType(int(x + genType(int(x) % 2)));
     }
-
+*/
+    // roundEven
+    template <typename genType>
+    GLM_FUNC_QUALIFIER genType roundEven(genType const& x)
+    {
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'roundEven' only accept floating-point inputs");
+		
+		genType RoundValue(0.5);
+		if(fract(x) == genType(0.5) && int(x) % 2)
+			RoundValue = genType(-0.5);
+		
+		if(x < genType(0.0))
+			return genType(int(x - RoundValue));
+		return genType(int(x + RoundValue));
+    }
+	
     template <typename valType>
     GLM_FUNC_QUALIFIER detail::tvec2<valType> roundEven(detail::tvec2<valType> const& x)
     {
