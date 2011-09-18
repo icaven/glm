@@ -27,6 +27,7 @@ int test_signedRand1()
 
 		Error += glm::equalEpsilon(ResultFloat, 0.0f, 0.0001f);
 		Error += glm::equalEpsilon(ResultDouble, 0.0, 0.0001);
+		assert(!Error);
 	}
 
 	return Error;
@@ -46,8 +47,8 @@ int test_normalizedRand2()
 			ResultDouble += glm::length(glm::normalizedRand2(1.0f, 1.0f));
 		}
 
-		Error += glm::equalEpsilon(ResultFloat, float(Max), 0.000001f) ? 0 : 1;
-		Error += glm::equalEpsilon(ResultDouble, double(Max), 0.000001) ? 0 : 1;
+		Error += glm::equalEpsilon(ResultFloat, float(Max), 0.01f) ? 0 : 1;
+		Error += glm::equalEpsilon(ResultDouble, double(Max), 0.01) ? 0 : 1;
 		assert(!Error);
 	}
 
@@ -76,12 +77,13 @@ int test_normalizedRand3()
 			ResultDoubleC += glm::length(glm::normalizedRand3(1.0, 3.0));
 		}
 
-		Error += glm::equalEpsilon(ResultFloatA, float(Max), 0.0001f) ? 0 : 1;
-		Error += glm::equalEpsilon(ResultDoubleA, double(Max), 0.0001) ? 0 : 1;
-		Error += glm::equalEpsilon(ResultFloatB, float(Max * 2), 0.0001f) ? 0 : 1;
-		Error += glm::equalEpsilon(ResultDoubleB, double(Max * 2), 0.0001) ? 0 : 1;
+		Error += glm::equalEpsilon(ResultFloatA, float(Max), 100.0f) ? 0 : 1;
+		Error += glm::equalEpsilon(ResultDoubleA, double(Max), 100.0) ? 0 : 1;
+		Error += glm::equalEpsilon(ResultFloatB, float(Max * 2), 100.0001f) ? 0 : 1;
+		Error += glm::equalEpsilon(ResultDoubleB, double(Max * 2), 100.0001) ? 0 : 1;
 		Error += (ResultFloatC >= float(Max) && ResultFloatC <= float(Max * 3)) ? 0 : 1;
 		Error += (ResultDoubleC >= double(Max) && ResultDoubleC <= double(Max * 3)) ? 0 : 1;
+		assert(!Error);
 	}
 
 	return Error;

@@ -67,15 +67,8 @@ GLM_FUNC_QUALIFIER detail::tvec2<T> normalizedRand2(
 template <typename T>
 GLM_FUNC_QUALIFIER detail::tvec2<T> normalizedRand2()
 {
-	T z = compRand1(T(-1), T(1));
-	T a = compRand1(T(0), T(6.283185307179586476925286766559f));
-
-    T r = sqrt(T(1) - z * z);
-
-	T x = r * cos(a);
-	T y = r * sin(a);
-
-    return detail::tvec2<T>(x, y);
+    T a = compRand1<T>(T(0), T(6.283185307179586476925286766559f));
+    return detail::tvec2<T>(cos(a), sin(a));
 }
 
 template <typename T>
@@ -98,14 +91,6 @@ GLM_FUNC_QUALIFIER detail::tvec3<T> normalizedRand3()
 	T y = r * sin(a);
 
     return detail::tvec3<T>(x, y, z);
-}
-
-template <typename T>
-GLM_FUNC_QUALIFIER detail::tvec3<T> normalizedRand3(
-	T Min, 
-	T Max)
-{
-    return normalizedRand3<T>() * compRand1(Min, Max);
 }
 
 template <>
