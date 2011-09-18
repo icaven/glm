@@ -26,7 +26,7 @@ int test_float_precision()
 
 int test_vec2()
 {
-	glm
+	return 0;
 }
 
 int main()
