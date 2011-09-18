@@ -80,8 +80,8 @@ namespace glm
     //!
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/equal.xml">GLSL equal man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
-	template <typename T, template <typename> class vecType> 
-	GLM_FUNC_QUALIFIER typename vecType<T>::bool_type equal(vecType<T> const & x, vecType<T> const & y);
+	//template <typename T, template <typename> class vecType> 
+	//GLM_FUNC_QUALIFIER typename vecType<T>::bool_type equal(vecType<T> const & x, vecType<T> const & y);
 
 	//! Returns the component-wise comparison of result x != y.
     //!
