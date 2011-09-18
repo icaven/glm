@@ -54,6 +54,7 @@ namespace detail
 		enum ctor{null};
 		typedef thalf value_type;
 		typedef std::size_t size_type;
+
         GLM_FUNC_DECL size_type length() const;
 		static GLM_FUNC_DECL size_type value_size();
 
