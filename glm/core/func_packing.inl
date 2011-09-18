@@ -55,7 +55,7 @@ GLM_FUNC_QUALIFIER detail::tvec2<detail::float32> unpackSnorm2x16(detail::uint32
 	detail::uint32 Mask16((1 << 16) - 1);
 	A.u = detail::uint16((p >>  0) & Mask16);
 	B.u = detail::uint16((p >> 16) & Mask16);
-	vec2 Pack(A.i, B.i);
+	detail::tvec2<detail::float32> Pack(A.i, B.i);
 		
 	return clamp(Pack * 1.0f / 32767.0f, -1.0f, 1.0f);
 }
@@ -113,7 +113,7 @@ GLM_FUNC_QUALIFIER detail::tvec4<detail::float32> unpackSnorm4x8(detail::uint32 
 	B.u = detail::uint8((p >>  8) & Mask8);
 	C.u = detail::uint8((p >> 16) & Mask8);
 	D.u = detail::uint8((p >> 24) & Mask8);
-	vec4 Pack(A.i, B.i, C.i, D.i);
+	detail::tvec4<detail::float32> Pack(A.i, B.i, C.i, D.i);
 	
 	return clamp(Pack * 1.0f / 127.0f, -1.0f, 1.0f);
 }
