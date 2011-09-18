@@ -20,40 +20,41 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_random
-/// @file glm/gtx/random.hpp
-/// @date 2006-01-16 / 2011-06-07
+/// @ref gtc_random
+/// @file glm/gtc/random.hpp
+/// @date 2011-09-18 / 2011-09-18
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
 /// @see gtc_half_float (dependence)
+/// @see gtx_random (extended)
 ///
-/// @defgroup gtx_random GLM_GTX_random: Random
-/// @ingroup gtx
+/// @defgroup gtc_random GLM_GTC_random: Random number generation
+/// @ingroup gtc
 /// 
 /// @brief Generate random number from various distribution methods
 /// 
-/// <glm/gtx/random.hpp> need to be included to use these functionalities.
+/// <glm/gtc/random.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_random
-#define GLM_GTX_random GLM_VERSION
+#ifndef GLM_GTC_random
+#define GLM_GTC_random GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"
-#include "../gtc/random.hpp"
+#include "../gtc/half_float.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))
-#	pragma message("GLM: GLM_GTX_random extension included")
+#	pragma message("GLM: GLM_GTC_random extension included")
 #endif
 
 namespace glm
 {
-	/// @addtogroup gtx_random
+	/// @addtogroup gtc_random
 	/// @{
 
 	/// Generate a random number in the interval [-1, 1], according a linear distribution.
-	/// From GLM_GTX_random extension.
+	/// From GLM_GTC_random extension.
     template <typename T> T signedRand1();
 	
 	template <> float signedRand1(); //!< \brief Generate a random number in the interval [-1, 1], according a linear distribution (From GLM_GTX_random extension)
@@ -104,4 +105,4 @@ namespace glm
 
 #include "random.inl"
 
-#endif//GLM_GTX_random
+#endif//GLM_GTC_random
