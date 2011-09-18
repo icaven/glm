@@ -168,18 +168,108 @@ int test_half_ctor_vec2()
 
 int test_half_ctor_vec3()
 {
+	int Error = 0;
 	
+	{
+		glm::hvec3 A(1, 2, 3);
+		glm::hvec3 B(A);
+		glm::vec3 C(1, 2, 3);
+		glm::hvec3 D(C);
+		glm::dvec3 E(1, 2, 3);
+		glm::hvec3 F(E);
+		glm::hvec3 G(1, 2.0, 3);
+		glm::hvec3 H;
+		H = A;
+		
+		Error += A == B ? 0 : 1;
+		//Error += C == D ? 0 : 1;
+		//Error += E == F ? 0 : 1;
+		Error += A == G ? 0 : 1;
+		Error += A == H ? 0 : 1;
+	}
+	
+	{
+		glm::hvec3 A(1);
+		glm::vec3 B(1);
+		
+		//Error += A == B ? 0 : 1;
+	}
+	
+	return Error;
 }
 
 int test_half_ctor_vec4()
 {
+	int Error = 0;
 	
+	{
+		glm::hvec4 A(1, 2, 3, 4);
+		glm::hvec4 B(A);
+		glm::vec4 C(1, 2, 3, 4);
+		glm::hvec4 D(C);
+		glm::dvec4 E(1, 2, 3, 4);
+		glm::hvec4 F(E);
+		glm::hvec4 G(1, 2.0, 3, 4);
+		glm::hvec4 H;
+		H = A;
+		
+		Error += A == B ? 0 : 1;
+		//Error += C == D ? 0 : 1;
+		//Error += E == F ? 0 : 1;
+		Error += A == G ? 0 : 1;
+		Error += A == H ? 0 : 1;
+	}
+	
+	{
+		glm::hvec4 A(1);
+		glm::vec4 B(1);
+		
+		//Error += A == B ? 0 : 1;
+	}
+	
+	return Error;
+}
+
+int test_hvec2_size()
+{
+	int Error = 0;
+	
+	Error += sizeof(glm::hvec2) <= sizeof(glm::lowp_vec2) ? 0 : 1;
+	Error += 4 == sizeof(glm::hvec2) ? 0 : 1;
+	Error += glm::hvec2().length() == 2 ? 0 : 1;
+	
+	return Error;
+}
+
+int test_hvec3_size()
+{
+	int Error = 0;
+	
+	Error += sizeof(glm::hvec3) <= sizeof(glm::lowp_vec3) ? 0 : 1;
+	Error += 6 <= sizeof(glm::hvec3) ? 0 : 1;
+	Error += glm::hvec3().length() == 3 ? 0 : 1;
+		
+	return Error;
+}
+
+int test_hvec4_size()
+{
+	int Error = 0;
+	
+	Error += sizeof(glm::hvec4) <= sizeof(glm::lowp_vec4) ? 0 : 1;
+	Error += 8 <= sizeof(glm::hvec4) ? 0 : 1;
+	Error += glm::hvec4().length() == 4 ? 0 : 1;
+	
+	return Error;
 }
 
 int main()
 {
 	int Error = 0;
 
+	Error += test_hvec2_size();
+	Error += test_hvec3_size();
+	Error += test_hvec4_size();
 	Error += test_half_ctor_vec2();
 	Error += test_half_ctor_vec3();
 	Error += test_half_ctor_vec4();

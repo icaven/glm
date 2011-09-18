@@ -20,6 +20,11 @@ GLM_FUNC_QUALIFIER tvec2<thalf>::size_type tvec2<thalf>::value_size()
 	return 2;
 }
 
+GLM_FUNC_QUALIFIER typename tvec2<thalf>::size_type tvec2<thalf>::length() const
+{
+	return 2;
+}
+
 //////////////////////////////////////
 // Accesses
 
@@ -284,6 +289,11 @@ GLM_FUNC_QUALIFIER tref2<thalf> tvec2<thalf>::swizzle(comp x, comp y)
 // hvec3
 
 GLM_FUNC_QUALIFIER tvec3<thalf>::size_type tvec3<thalf>::value_size()
+{
+	return 3;
+}
+
+GLM_FUNC_QUALIFIER typename tvec3<thalf>::size_type tvec3<thalf>::length() const
 {
 	return 3;
 }
@@ -600,6 +610,12 @@ GLM_FUNC_QUALIFIER tvec4<thalf>::size_type tvec4<thalf>::value_size()
 	return 4;
 }
 
+	
+GLM_FUNC_QUALIFIER typename tvec4<thalf>::size_type tvec4<thalf>::length() const
+{
+	return 4;
+}
+	
 //////////////////////////////////////
 // Accesses
 

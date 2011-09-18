@@ -28,6 +28,7 @@ namespace detail
 		typedef thalf value_type;
 		typedef std::size_t size_type;
 		static size_type value_size();
+		GLM_FUNC_DECL size_type length() const;
 
 		typedef tvec2<thalf> type;
 		typedef tvec2<bool> bool_type;
@@ -120,6 +121,7 @@ namespace detail
 		typedef thalf value_type;
 		typedef std::size_t size_type;
 		static size_type value_size();
+		GLM_FUNC_DECL size_type length() const;
 
 		typedef tvec3<thalf> type;
 		typedef tvec3<bool> bool_type;
@@ -216,6 +218,7 @@ namespace detail
 		typedef thalf value_type;
 		typedef std::size_t size_type;
 		static size_type value_size();
+		GLM_FUNC_DECL size_type length() const;
 
 		typedef tvec4<thalf> type;
 		typedef tvec4<bool> bool_type;
