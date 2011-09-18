@@ -1,14 +1,14 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2011-05-31
-// Updated : 2011-05-31
+// Created : 2011-09-19
+// Updated : 2011-09-19
 // Licence : This source is under MIT licence
-// File    : test/gtx/random.cpp
+// File    : test/gtc/random.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/glm.hpp>
-#include <glm/gtx/random.hpp>
+#include <glm/gtc/random.hpp>
 #include <glm/gtx/epsilon.hpp>
 #include <iostream>
 
@@ -21,8 +21,8 @@ int test_signedRand1()
 		double ResultDouble = 0.0f;
 		for(std::size_t i = 0; i < 100000; ++i)
 		{
-			ResultFloat += glm::signedRand1<float>();
-			ResultDouble += glm::signedRand1<double>();
+			ResultFloat += glm::signedRand1(-1.0f, 1.0f);
+			ResultDouble += glm::signedRand1(-1.0, 1.0);
 		}
 
 		Error += glm::equalEpsilon(ResultFloat, 0.0f, 0.0001f);
@@ -42,8 +42,8 @@ int test_normalizedRand2()
 		double ResultDouble = 0.0f;
 		for(std::size_t i = 0; i < Max; ++i)
 		{
-			ResultFloat += glm::length(glm::normalizedRand2<float>());
-			ResultDouble += glm::length(glm::normalizedRand2<double>());
+			ResultFloat += glm::length(glm::normalizedRand2(1.0f, 1.0f));
+			ResultDouble += glm::length(glm::normalizedRand2(1.0f, 1.0f));
 		}
 
 		Error += glm::equalEpsilon(ResultFloat, float(Max), 0.000001f) ? 0 : 1;
@@ -68,8 +68,8 @@ int test_normalizedRand3()
 		double ResultDoubleC = 0.0f;
 		for(std::size_t i = 0; i < Max; ++i)
 		{
-			ResultFloatA += glm::length(glm::normalizedRand3<float>());
-			ResultDoubleA += glm::length(glm::normalizedRand3<double>());
+			ResultFloatA += glm::length(glm::normalizedRand3(1.0f, 1.0f));
+			ResultDoubleA += glm::length(glm::normalizedRand3(1.0f, 1.0f));
 			ResultFloatB += glm::length(glm::normalizedRand3(2.0f, 2.0f));
 			ResultDoubleB += glm::length(glm::normalizedRand3(2.0, 2.0));
 			ResultFloatC += glm::length(glm::normalizedRand3(1.0f, 3.0f));
