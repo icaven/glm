@@ -41,7 +41,7 @@ int test_hvec4()
 	return 0;
 }
 
-static int test_operators()
+int test_vec4_operators()
 {
 	glm::vec4 A(1.0f);
 	glm::vec4 B(1.0f);
@@ -51,13 +51,28 @@ static int test_operators()
 	return (S && !R) ? 0 : 1;
 }
 
+int test_vec4_size()
+{
+	int Error = 0;
+	
+	Error += sizeof(glm::vec4) == sizeof(glm::mediump_vec4) ? 0 : 1;
+	Error += 16 == sizeof(glm::mediump_vec4) ? 0 : 1;
+	Error += sizeof(glm::dvec4) == sizeof(glm::highp_vec4) ? 0 : 1;
+	Error += 32 == sizeof(glm::highp_vec4) ? 0 : 1;
+	Error += glm::vec4().length() == 4 ? 0 : 1;
+	Error += glm::dvec4().length() == 4 ? 0 : 1;
+	
+	return Error;
+}
+
 int main()
 {
 	//__m128 DataA = swizzle<X, Y, Z, W>(glm::vec4(1.0f, 2.0f, 3.0f, 4.0f));
 	//__m128 DataB = swizzle<W, Z, Y, X>(glm::vec4(1.0f, 2.0f, 3.0f, 4.0f));
 
 	int Error = 0;
-	Error += test_operators();
+	Error += test_vec4_size();
+	Error += test_vec4_operators();
 	Error += test_hvec4();
 	return Error;
 }
