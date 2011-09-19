@@ -166,7 +166,7 @@
 #	endif//_MSC_VER
 
 // G++
-#elif defined(__GNUC__) || defined(__llvm__) || defined(__clang__)
+#elif defined(__GNUC__)// || defined(__llvm__) || defined(__clang__)
 #   if defined (__llvm__)
 #       define GLM_COMPILER_GCC_EXTRA GLM_COMPILER_GCC_LLVM
 #   elif defined (__clang__)
