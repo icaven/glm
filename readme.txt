@@ -42,6 +42,7 @@ GLM 0.9.3.0: 2011-XX-XX
 - Improved doxygen documentation
 - Added extension versioning
 - Removed many unused namespaces
+- Fixed half based type contructors
 
 ================================================================================
 GLM 0.9.2.5: 2011-09-2X
