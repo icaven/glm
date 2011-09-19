@@ -31,6 +31,9 @@
 
 #include "setup.hpp"
 #include <cassert>
+#if(defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L))
+#include <cstdint>
+#endif
 
 namespace glm{
 namespace detail
