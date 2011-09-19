@@ -29,7 +29,7 @@
 namespace glm{
 namespace detail{
 
-#ifndef _MSC_EXTENSIONS
+#if 1 //ndef _MSC_EXTENSIONS
 
 //////////////////////////////////////
 // hvec2

@@ -29,12 +29,15 @@ GLM_FUNC_QUALIFIER genType higherMultiple
 template <> 
 GLM_FUNC_QUALIFIER detail::thalf higherMultiple
 (
-	detail::thalf const & Source, 
-	detail::thalf const & Multiple
+	detail::thalf const & SourceH, 
+	detail::thalf const & MultipleH
 )
 {
-	int Tmp = int(float(Source)) % int(float(Multiple));
-	return Tmp ? Source + Multiple - detail::thalf(float(Tmp)) : Source;
+	float Source = SourceH.toFloat();
+	float Multiple = MultipleH.toFloat();
+
+	int Tmp = int(float(Source)) % int();
+	return detail::thalf(Tmp ? Source + Multiple - float(Tmp) : Source);
 }
 
 template <> 
@@ -115,12 +118,15 @@ GLM_FUNC_QUALIFIER genType lowerMultiple
 template <> 
 GLM_FUNC_QUALIFIER detail::thalf lowerMultiple
 (
-	detail::thalf const & Source, 
-	detail::thalf const & Multiple
+	detail::thalf const & SourceH, 
+	detail::thalf const & MultipleH
 )
 {
+	float Source = SourceH.toFloat();
+	float Multiple = MultipleH.toFloat();
+
 	int Tmp = int(float(Source)) % int(float(Multiple));
-	return Tmp ? Source - detail::thalf(float(Tmp)) : Source;
+	return detail::thalf(Tmp ? Source - float(Tmp) : Source);
 }
 
 template <> 

@@ -250,7 +250,9 @@ namespace detail
 			// Assemble the half from s, e and m.
 			//
 
-			return hdata(s | (e << 10) | (m >> 13));
+			hdata Hdata(s | (e << 10) | (m >> 13));
+
+			return Hdata;
 		}
 	}
 
@@ -273,10 +275,10 @@ namespace detail
 	//	return toFloat();
 	//}
 
-	GLM_FUNC_QUALIFIER thalf::operator float() const 
-	{
-		return toFloat32(this->data);
-	}
+	//GLM_FUNC_QUALIFIER thalf::operator float() const 
+	//{
+	//	return toFloat32(this->data);
+	//}
 
 	//GLM_FUNC_QUALIFIER half::operator double()
 	//{
@@ -338,38 +340,92 @@ namespace detail
 
 	GLM_FUNC_QUALIFIER detail::thalf operator+ (detail::thalf const & s1, detail::thalf const & s2)
 	{
-		return detail::thalf(float(s1) + float(s2));
+		return detail::thalf(s1.toFloat() + s2.toFloat());
 	}
 
 	GLM_FUNC_QUALIFIER detail::thalf operator- (detail::thalf const & s1, detail::thalf const & s2)
 	{
-		return detail::thalf(float(s1) - float(s2));
+		return detail::thalf(s1.toFloat() - s2.toFloat());
 	}
 
 	GLM_FUNC_QUALIFIER detail::thalf operator* (detail::thalf const & s1, detail::thalf const & s2)
 	{
-		return detail::thalf(float(s1) * float(s2));
+		return detail::thalf(s1.toFloat() * s2.toFloat());
 	}
 
 	GLM_FUNC_QUALIFIER detail::thalf operator/ (detail::thalf const & s1, detail::thalf const & s2)
 	{
-		return detail::thalf(float(s1) / float(s2));
+		return detail::thalf(s1.toFloat() / s2.toFloat());
 	}
 
 	// Unary constant operators
 	GLM_FUNC_QUALIFIER detail::thalf operator- (detail::thalf const & s)
 	{
-		return detail::thalf(-float(s));
+		return detail::thalf(-s.toFloat());
 	}
 
 	GLM_FUNC_QUALIFIER detail::thalf operator-- (detail::thalf const & s, int)
 	{
-		return detail::thalf(float(s) - 1.0f);
+		return detail::thalf(s.toFloat() - 1.0f);
 	}
 
 	GLM_FUNC_QUALIFIER detail::thalf operator++ (detail::thalf const & s, int)
 	{
-		return detail::thalf(float(s) + 1.0f);
+		return detail::thalf(s.toFloat() + 1.0f);
+	}
+
+	GLM_FUNC_QUALIFIER bool operator==
+	(
+		detail::thalf const & x, 
+		detail::thalf const & y
+	)
+	{
+		return x._data() == y._data();
+	}
+
+	GLM_FUNC_QUALIFIER bool operator!=
+	(
+		detail::thalf const & x, 
+		detail::thalf const & y
+	)
+	{
+		return x._data() != y._data();
+	}
+
+	GLM_FUNC_QUALIFIER bool operator<
+	(
+		detail::thalf const & x, 
+		detail::thalf const & y
+	)
+	{
+		return x.toFloat() < y.toFloat();
+	}
+
+	GLM_FUNC_QUALIFIER bool operator<=
+	(
+		detail::thalf const & x, 
+		detail::thalf const & y
+	)
+	{
+		return x.toFloat() <= y.toFloat();
+	}
+
+	GLM_FUNC_QUALIFIER bool operator>
+	(
+		detail::thalf const & x, 
+		detail::thalf const & y
+	)
+	{
+		return x.toFloat() > y.toFloat();
+	}
+
+	GLM_FUNC_QUALIFIER bool operator>=
+	(
+		detail::thalf const & x, 
+		detail::thalf const & y
+	)
+	{
+		return x.toFloat() >= y.toFloat();
 	}
 
 }//namespace detail

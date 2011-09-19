@@ -139,7 +139,10 @@ int test_half_ctor_vec2()
 	int Error = 0;
 	
 	{
-		glm::hvec2 A(1, 2);
+		glm::hvec2 A;
+		A.x = glm::half(1);
+		A.y = glm::half(2);
+		//glm::hvec2 A(1, 2);
 		glm::hvec2 B(A);
 		glm::vec2 C(1, 2);
 		glm::hvec2 D(C);

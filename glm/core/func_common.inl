@@ -158,7 +158,7 @@ namespace detail
     template <>
 	GLM_FUNC_QUALIFIER detail::thalf floor<detail::thalf>(detail::thalf const& x)
     {
-        return detail::thalf(::std::floor(float(x)));
+        return detail::thalf(::std::floor(x.toFloat()));
     }
 
     template <typename genType>

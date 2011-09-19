@@ -53,7 +53,7 @@ namespace detail
 
 		// Cast
 		//operator float();
-		GLM_FUNC_DECL operator float() const;
+		//GLM_FUNC_DECL operator float() const;
 		//operator double();
 		//operator double() const;
 
@@ -88,6 +88,30 @@ namespace detail
 	thalf operator-- (thalf const & s, int);
 
 	thalf operator++ (thalf const & s, int);
+
+	bool operator==(
+		detail::thalf const & x, 
+		detail::thalf const & y);
+
+	bool operator!=(
+		detail::thalf const & x, 
+		detail::thalf const & y);
+
+	bool operator<(
+		detail::thalf const & x, 
+		detail::thalf const & y);
+
+	bool operator<=(
+		detail::thalf const & x, 
+		detail::thalf const & y);
+
+	bool operator>(
+		detail::thalf const & x, 
+		detail::thalf const & y);
+
+	bool operator>=(
+		detail::thalf const & x, 
+		detail::thalf const & y);
 
 }//namespace detail
 }//namespace glm

@@ -16,12 +16,17 @@
 int test_packUnorm2x16()
 {
 	int Error = 0;
-	
+/*	
 	std::vector<glm::hvec2> A;
 	A.push_back(glm::hvec2(glm::half( 1.0f), glm::half( 0.0f)));
 	A.push_back(glm::hvec2(glm::half( 0.5f), glm::half( 0.7f)));
 	A.push_back(glm::hvec2(glm::half( 0.1f), glm::half( 0.2f)));
-	
+*/
+	std::vector<glm::vec2> A;
+	A.push_back(glm::vec2(1.0f, 0.0f));
+	A.push_back(glm::vec2(0.5f, 0.7f));
+	A.push_back(glm::vec2(0.1f, 0.2f));
+
 	for(std::size_t i = 0; i < A.size(); ++i)
 	{
 		glm::vec2 B(A[i]);
@@ -37,12 +42,17 @@ int test_packUnorm2x16()
 int test_packSnorm2x16()
 {
 	int Error = 0;
-	
+/*
 	std::vector<glm::hvec2> A;
 	A.push_back(glm::hvec2(glm::half( 1.0f), glm::half( 0.0f)));
 	A.push_back(glm::hvec2(glm::half(-0.5f), glm::half(-0.7f)));
 	A.push_back(glm::hvec2(glm::half(-0.1f), glm::half( 0.1f)));
-	
+*/
+	std::vector<glm::vec2> A;
+	A.push_back(glm::vec2( 1.0f, 0.0f));
+	A.push_back(glm::vec2(-0.5f,-0.7f));
+	A.push_back(glm::vec2(-0.1f, 0.1f));
+
 	for(std::size_t i = 0; i < A.size(); ++i)
 	{
 		glm::vec2 B(A[i]);
@@ -98,12 +108,17 @@ int test_packSnorm4x8()
 int test_packHalf2x16()
 {
 	int Error = 0;
-	
+/*
 	std::vector<glm::hvec2> A;
 	A.push_back(glm::hvec2(glm::half( 1.0f), glm::half( 2.0f)));
 	A.push_back(glm::hvec2(glm::half(-1.0f), glm::half(-2.0f)));
 	A.push_back(glm::hvec2(glm::half(-1.1f), glm::half( 1.1f)));
-	
+*/
+	std::vector<glm::vec2> A;
+	A.push_back(glm::vec2( 1.0f, 2.0f));
+	A.push_back(glm::vec2(-1.0f,-2.0f));
+	A.push_back(glm::vec2(-1.1f, 1.1f));
+
 	for(std::size_t i = 0; i < A.size(); ++i)
 	{
 		glm::vec2 B(A[i]);

@@ -18,14 +18,14 @@ int main()
 	glm::half B(2.0f);
 	glm::half C = A + B;
 	glm::half D(C);
-	float E = D;
-	int F = float(C);
+	float E = D.toFloat();
+	int F = C.toFloat();
 	Result += float(F) == E ? 0 : 1;
 	glm::half G = B * C;
 	glm::half H = G / C;
 	H += glm::half(1.0f);
-	double J = H;
-	int I = float(H);
+	double J = H.toFloat();
+	int I = H.toFloat();
 	Result += J == 3.0 ? 0 : 1;
 	Result += I == 3 ? 0 : 1;
 	

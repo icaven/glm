@@ -142,11 +142,11 @@ namespace detail
 	template <typename U, typename V> 
 	GLM_FUNC_QUALIFIER tvec2<T>::tvec2
 	(
-		U const & x, 
-		V const & y
+		U const & a, 
+		V const & b
 	) :
-		x(value_type(x)),
-		y(value_type(y))
+		x(value_type(a)),
+		y(value_type(b))
 	{}
 
 	//////////////////////////////////////
