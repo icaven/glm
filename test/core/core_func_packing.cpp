@@ -124,7 +124,9 @@ int test_packHalf2x16()
 		glm::vec2 B(A[i]);
 		glm::uint C = glm::packHalf2x16(B);
 		glm::vec2 D = glm::unpackHalf2x16(C);
-		Error += B == D ? 0 : 1;
+		//Error += B == D ? 0 : 1;
+		Error += glm::all(glm::equalEpsilon(B, D, 1.0f / 127.f)) ? 0 : 1;
+		assert(!Error);
 	}
 	
 	return Error;
@@ -145,6 +147,7 @@ int test_packDouble2x32()
 		double C = glm::packDouble2x32(B);
 		glm::u32vec2 D = glm::unpackDouble2x32(C);
 		Error += B == D ? 0 : 1;
+		assert(!Error);
 	}
 	
 	return Error;
