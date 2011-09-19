@@ -36,7 +36,7 @@ GLM_FUNC_QUALIFIER detail::thalf higherMultiple
 	float Source = SourceH.toFloat();
 	float Multiple = MultipleH.toFloat();
 
-	int Tmp = int(float(Source)) % int();
+	int Tmp = int(float(Source)) % int(Multiple);
 	return detail::thalf(Tmp ? Source + Multiple - float(Tmp) : Source);
 }
 
