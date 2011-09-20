@@ -269,6 +269,12 @@ namespace detail
 		data(toFloat16(float(s)))
 	{}
 
+	template <typename U>
+	GLM_FUNC_QUALIFIER thalf::operator U() const
+	{
+		return static_cast<U>(this->toFloat());
+	}
+
 	// Cast
 	//GLM_FUNC_QUALIFIER half::operator float()
 	//{

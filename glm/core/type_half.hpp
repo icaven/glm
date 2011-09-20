@@ -22,7 +22,7 @@
 ///
 /// @ref core
 /// @file glm/core/type_half.hpp
-/// @date 2008-08-17 / 2011-06-15
+/// @date 2008-08-17 / 2011-09-20
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -40,7 +40,7 @@ namespace detail
 	hdata toFloat16(float const & value);
 
 	/// 16-bit floating point type.
-	/// \ingroup gtc_half_float
+	/// @ingroup gtc_half_float
 	class thalf
 	{
 	public: 
@@ -52,10 +52,8 @@ namespace detail
 		GLM_FUNC_DECL explicit thalf(U const & s);
 
 		// Cast
-		//operator float();
-		//GLM_FUNC_DECL operator float() const;
-		//operator double();
-		//operator double() const;
+		template <typename U>
+		GLM_FUNC_DECL operator U() const;
 
 		// Unary updatable operators
 		GLM_FUNC_DECL thalf& operator= (thalf const & s);
