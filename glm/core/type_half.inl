@@ -275,27 +275,6 @@ namespace detail
 		return static_cast<U>(this->toFloat());
 	}
 
-	// Cast
-	//GLM_FUNC_QUALIFIER half::operator float()
-	//{
-	//	return toFloat();
-	//}
-
-	//GLM_FUNC_QUALIFIER thalf::operator float() const 
-	//{
-	//	return toFloat32(this->data);
-	//}
-
-	//GLM_FUNC_QUALIFIER half::operator double()
-	//{
-	//	return double(toFloat());
-	//}
-
-	//GLM_FUNC_QUALIFIER half::operator double() const
-	//{
-	//	return double(toFloat());
-	//}
-
 	// Unary updatable operators
 	GLM_FUNC_QUALIFIER thalf& thalf::operator= (thalf const & s)
 	{
@@ -330,14 +309,14 @@ namespace detail
 	GLM_FUNC_QUALIFIER thalf& thalf::operator++()
 	{
 		float Casted = toFloat32(data);
-		data = toFloat16(++Casted);
+		this->data = toFloat16(++Casted);
 		return *this;
 	}
 
 	GLM_FUNC_QUALIFIER thalf& thalf::operator--()
 	{
 		float Casted = toFloat32(data);
-		data = toFloat16(--Casted);
+		this->data = toFloat16(--Casted);
 		return *this;
 	}
 

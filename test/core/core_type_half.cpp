@@ -72,15 +72,47 @@ int test_half_arithmetic_unary_ops()
 {
 	int Error = 0;
 
-	glm::half A(2.0f);
-	glm::half B(3.0f);
+	{
+		glm::half A(2.0f);
+		glm::half B(3.0f);
+		A += B;
+		Error += (A == glm::half( 5.0f) ? 0 : 1);
+	}
 
-	Error += A + B == glm::half( 5.0f) ? 0 : 1;
-	Error += A - B == glm::half(-1.0f) ? 0 : 1;
-	Error += B - A == glm::half( 1.0f) ? 0 : 1;
-	Error += A * B == glm::half( 6.0f) ? 0 : 1;
-	Error += A / B == glm::half(2.0f / 3.0f) ? 0 : 1;
-	Error += B / A == glm::half(3.0f / 2.0f) ? 0 : 1;
+	{
+		glm::half A(2.0f);
+		glm::half B(3.0f);
+		A -= B;
+		Error += (A == glm::half(-1.0f) ? 0 : 1);
+	}
+
+	{
+		glm::half A(2.0f);
+		glm::half B(3.0f);
+		B -= A;
+		Error += (B == glm::half( 1.0f) ? 0 : 1);
+	}
+
+	{
+		glm::half A(2.0f);
+		glm::half B(3.0f);
+		A *= B;
+		Error += (A == glm::half(6.0f) ? 0 : 1);
+	}
+
+	{
+		glm::half A(2.0f);
+		glm::half B(3.0f);
+		A /= B;
+		Error += (A == glm::half(2.0f / 3.0f) ? 0 : 1);
+	}
+
+	{
+		glm::half A(2.0f);
+		glm::half B(3.0f);
+		B /= A;
+		Error += (B == glm::half(3.0f / 2.0f) ? 0 : 1);
+	}
 
 	return Error;
 }
@@ -102,6 +134,48 @@ int test_half_arithmetic_binary_ops()
 	return Error;
 }
 
+int test_half_arithmetic_counter_ops()
+{
+	int Error = 0;
+
+	{
+		glm::half A(2.0f);
+		Error += A == glm::half(2.0f) ? 0 : 1;
+	}
+
+	{
+		glm::half A(2.0f);
+		glm::half B = A++;
+		Error += B == glm::half(3.0f) ? 0 : 1;
+	}
+
+	{
+		glm::half A(2.0f);
+		glm::half B = A--;
+		Error += B == glm::half(1.0f) ? 0 : 1;
+	}
+
+	{
+		glm::half A(2.0f);
+		glm::half B = ++A;
+		Error += B == glm::half(3.0f) ? 0 : 1;
+	}
+
+	{
+		glm::half A(2.0f);
+		glm::half B = --A;
+		Error += B == glm::half(1.0f) ? 0 : 1;
+	}
+
+	{
+		glm::half A(2.0f);
+		glm::half B = -A;
+		Error += B == glm::half(-2.0f) ? 0 : 1;
+	}
+
+	return Error;
+}
+
 int main()
 {
 	int Result = 0;
@@ -111,6 +185,7 @@ int main()
 	Result += test_half_relational();
 	Result += test_half_arithmetic_unary_ops();
 	Result += test_half_arithmetic_binary_ops();
+	Result += test_half_arithmetic_counter_ops();
 	
 	return Result;
 }
