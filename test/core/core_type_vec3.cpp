@@ -146,28 +146,28 @@ int test_vec3_swizzle_half()
 
     float a = u.x;
     float b = u.y;
-    Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
+    Error += (u.x.toFloat() == 1.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 3.0f) ? 0 : 1;
     
-    /*u = v.xyz;
-    Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
+    u = v.xyz;
+    Error += (u.x.toFloat() == 1.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 3.0f) ? 0 : 1;
     u = v.zyx;
-    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    Error += (u.x.toFloat() == 3.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 1.0f) ? 0 : 1;
     u.zyx = v;
-    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    Error += (u.x.toFloat() == 3.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 1.0f) ? 0 : 1;
     
     u = v.rgb;
-    Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
+    Error += (u.x.toFloat() == 1.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 3.0f) ? 0 : 1;
     u = v.bgr;
-    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    Error += (u.x.toFloat() == 3.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 1.0f) ? 0 : 1;
     u.bgr = v;
-    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    Error += (u.x.toFloat() == 3.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 1.0f) ? 0 : 1;
 
     u = v.stp;
-    Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
+    Error += (u.x.toFloat() == 1.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 3.0f) ? 0 : 1;
     u = v.pts;
-    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    Error += (u.x.toFloat() == 3.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 1.0f) ? 0 : 1;
     u.pts = v;
-    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;*/
+    Error += (u.x.toFloat() == 3.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 1.0f) ? 0 : 1;
 
     return Error;
 }
