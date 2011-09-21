@@ -53,7 +53,7 @@ namespace detail
             for (int i = 0; i < N; ++i)
                 t[i] = that[i];
             for (int i = 0; i < N; ++i)
-                e[offset_dst[i]] = t[i];
+                elem(offset_dst[i]) = t[i];
 
             return *this;
         }
@@ -63,12 +63,18 @@ namespace detail
             static const int offset_dst[4] = { E0, E1, E2, E3 };
 
             for (int i = 0; i < N; ++i)
-                e[offset_dst[i]] = t;
+                elem(offset_dst[i]) = t;
 
             return *this;
         }
 
-        Type    e[N];
+    protected:
+        Type&   elem   (size_t i) { return (reinterpret_cast<Type*>(_buffer))[i]; }
+
+        // Use an opaque buffer to *ensure* the compiler doesn't call a constructor.
+        // Otherwise, a vec4 containg all swizzles might end up with 1000s of 
+        // constructor calls
+        char    _buffer[sizeof(Type) * N];
     };
 
     template <typename Type, typename Class, int N, int E0, int E1, int E2, int E3>
@@ -76,8 +82,10 @@ namespace detail
     {
         struct Stub {};
         swizzle_base& operator= (const Stub& that) {}
-                
-        Type    e[N];
+          
+    protected:
+        Type&   elem   (size_t i) { return (reinterpret_cast<Type*>(_buffer))[i]; }
+        char    _buffer[sizeof(Type) * N];      
     };
 
     //! Internal class for implementing swizzle operators
@@ -85,7 +93,7 @@ namespace detail
     struct swizzle2 : public swizzle_base<T,P,2,E0,E1,0,0,(E0 == E1)>
     {
         using swizzle_base<T,P,2,E0,E1,0,0,(E0 == E1)>::operator=;
-        operator P () { return P(this->e[E0], this->e[E1]); }
+        operator P () { return P(this->elem(E0), this->elem(E1)); }
     };
 
     //! Internal class for implementing swizzle operators
@@ -93,7 +101,7 @@ namespace detail
     struct swizzle2_3 : public swizzle_base<T,P,2,E0,E1,E2,0,1>
     {
         using swizzle_base<T,P,2,E0,E1,E2,0,1>::operator=;
-        operator P () { return P(this->e[E0], this->e[E1], this->e[E2]); }
+        operator P () { return P(this->elem(E0), this->elem(E1), this->elem(E2)); }
     };
 
     //! Internal class for implementing swizzle operators
@@ -101,7 +109,7 @@ namespace detail
     struct swizzle2_4 : public swizzle_base<T,P,2,E0,E1,E2,E3,1>
     {
         using swizzle_base<T,P,2,E0,E1,E2,E3,1>::operator=;
-        operator P () { return P(this->e[E0], this->e[E1], this->e[E2], this->e[E3]); }
+        operator P () { return P(this->elem(E0), this->elem(E1), this->elem(E2), this->elem(E3)); }
     };
 
     //! Internal class for implementing swizzle operators
@@ -109,7 +117,7 @@ namespace detail
     struct swizzle3 : public swizzle_base<T,P,3,E0,E1,E2,0,(E0==E1||E0==E2||E1==E2)>
     {
         using swizzle_base<T,P,3,E0,E1,E2,0,(E0==E1||E0==E2||E1==E2)>::operator=;
-        operator P () { return P(this->e[E0], this->e[E1], this->e[E2]); }
+        operator P () { return P(this->elem(E0), this->elem(E1), this->elem(E2)); }
     };
 
     //! Internal class for implementing swizzle operators
@@ -117,7 +125,7 @@ namespace detail
     struct swizzle3_2 : public swizzle_base<T,P,2,E0,E1,0,0,(E0==E1)>
     {
         using swizzle_base<T,P,2,E0,E1,0,0,(E0==E1)>::operator=;
-        operator P () { return P(this->e[E0], this->e[E1]); }
+        operator P () { return P(this->elem(E0), this->elem(E1)); }
     };
 
     //! Internal class for implementing swizzle operators
@@ -125,7 +133,7 @@ namespace detail
     struct swizzle3_4 : public swizzle_base<T,P,3,E0,E1,E2,E3,1>
     {
         using swizzle_base<T,P,3,E0,E1,E2,E3,1>::operator=;
-        operator P () { return P(this->e[E0], this->e[E1], this->e[E2], this->e[E3]); }
+        operator P () { return P(this->elem(E0), this->elem(E1), this->elem(E2), this->elem(E3)); }
     };
 
     //! Internal class for implementing swizzle operators
@@ -133,7 +141,7 @@ namespace detail
     struct swizzle4 : public swizzle_base<T,P,4,E0,E1,E2,E3,(E0==E1||E0==E2||E0==E3||E1==E2||E1==E3||E2==E3)>
     {
         using swizzle_base<T,P,4,E0,E1,E2,E3,(E0==E1||E0==E2||E0==E3||E1==E2||E1==E3||E2==E3)>::operator=;
-        operator P () { return P(this->e[E0], this->e[E1], this->e[E2], this->e[E3]); }
+        operator P () { return P(this->elem(E0), this->elem(E1), this->elem(E2), this->elem(E3)); }
     };
 
     //! Internal class for implementing swizzle operators
@@ -141,7 +149,7 @@ namespace detail
     struct swizzle4_2 : public swizzle_base<T,P,2,E0,E1,0,0,(E0==E1)>
     {
         using swizzle_base<T,P,2,E0,E1,0,0,(E0==E1)>::operator=;
-        operator P () { return P(this->e[E0], this->e[E1]); }
+        operator P () { return P(this->elem(E0), this->elem(E1)); }
     };
 
 
@@ -150,7 +158,7 @@ namespace detail
     struct swizzle4_3 : public swizzle_base<T,P,4,E0,E1,E2,0,(E0==E1||E0==E2||E1==E2)>
     {
         using swizzle_base<T,P,4,E0,E1,E2,0,(E0==E1||E0==E2||E1==E2)>::operator=;
-        operator P () { return P(this->e[E0], this->e[E1], this->e[E2]); }
+        operator P () { return P(this->elem(E0), this->elem(E1), this->elem(E2)); }
     };
 
 }//namespace detail 

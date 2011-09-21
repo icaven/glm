@@ -48,10 +48,6 @@ namespace detail
 #		elif(GLM_COMPONENT == GLM_COMPONENT_MS_EXT)
 		union 
 		{
-			struct{value_type x, y;};
-			struct{value_type r, g;};
-			struct{value_type s, t;};
-
             _GLM_SWIZZLE2_2_MEMBERS(value_type,glm::detail::tvec2<value_type>,x,y)
             _GLM_SWIZZLE2_2_MEMBERS(value_type,glm::detail::tvec2<value_type>,r,g)
             _GLM_SWIZZLE2_2_MEMBERS(value_type,glm::detail::tvec2<value_type>,s,t)
@@ -61,6 +57,10 @@ namespace detail
             _GLM_SWIZZLE2_4_MEMBERS(value_type,glm::detail::tvec4<value_type>,x,y)
             _GLM_SWIZZLE2_4_MEMBERS(value_type,glm::detail::tvec4<value_type>,r,g)
             _GLM_SWIZZLE2_4_MEMBERS(value_type,glm::detail::tvec4<value_type>,s,t)
+
+			struct{value_type r, g;};
+			struct{value_type s, t;};
+			struct{value_type x, y;};
 		};
 #		else//(GLM_COMPONENT == GLM_COMPONENT_GLSL_NAMES)
 		union {value_type x, r, s;};

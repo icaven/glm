@@ -8,6 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/glm.hpp>
+#include <glm/gtc/half_float.hpp>
 
 static int test_vec3_operators()
 {
@@ -91,10 +92,9 @@ int test_vec3_swizzle3_2()
     v.zx = u;       Error += (v.x == 2.0f && v.y == 1.0f && v.z == 1.0f) ? 0 : 1;
     v.zy = u;       Error += (v.x == 2.0f && v.y == 2.0f && v.z == 1.0f) ? 0 : 1;
     //v.zz = u;     //Illegal
-
+    
     return Error;
 }
-
 
 int test_vec3_swizzle3_3()
 {
@@ -102,7 +102,7 @@ int test_vec3_swizzle3_3()
 
     glm::vec3 v(1, 2, 3);
     glm::vec3 u;
-
+    
     u = v;
     Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
     
@@ -126,6 +126,48 @@ int test_vec3_swizzle3_3()
     Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
     u.pts = v;
     Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    
+    return Error;
+}
+
+int test_vec3_swizzle_half()
+{
+    int Error = 0;
+
+    glm::half a1(1);
+    glm::half b1(2);
+    glm::half c1(3);
+    glm::hvec3 v(a1, b1, c1);
+    glm::hvec3 u;
+
+    float c = v.x;
+    float d = v.y;
+    u = v;
+
+    float a = u.x;
+    float b = u.y;
+    Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
+    
+    /*u = v.xyz;
+    Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
+    u = v.zyx;
+    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    u.zyx = v;
+    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    
+    u = v.rgb;
+    Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
+    u = v.bgr;
+    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    u.bgr = v;
+    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+
+    u = v.stp;
+    Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
+    u = v.pts;
+    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    u.pts = v;
+    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;*/
 
     return Error;
 }
@@ -138,6 +180,7 @@ int main()
 	Error += test_vec3_size();
     Error += test_vec3_swizzle3_2();
     Error += test_vec3_swizzle3_3();
+    Error += test_vec3_swizzle_half();
 	
 	return Error;
 }
