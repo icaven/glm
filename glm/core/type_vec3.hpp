@@ -48,9 +48,9 @@ namespace detail
 #	elif(GLM_COMPONENT == GLM_COMPONENT_MS_EXT)
 		union 
 		{
-			struct{value_type x, y, z;};
 			struct{value_type r, g, b;};
 			struct{value_type s, t, p;};
+			struct{value_type x, y, z;};
 		};
 #	else//(GLM_COMPONENT == GLM_COMPONENT_GLSL_NAMES)
 		union {value_type x, r, s;};
