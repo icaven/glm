@@ -51,7 +51,17 @@ namespace detail
 			struct{value_type x, y, z;};
 			struct{value_type r, g, b;};
 			struct{value_type s, t, p;};
-		};
+
+            _GLM_SWIZZLE3_2_MEMBERS(value_type,glm::detail::tvec2<value_type>,x,y,z)
+            _GLM_SWIZZLE3_2_MEMBERS(value_type,glm::detail::tvec2<value_type>,r,g,b)
+            _GLM_SWIZZLE3_2_MEMBERS(value_type,glm::detail::tvec2<value_type>,s,t,p)
+            _GLM_SWIZZLE3_3_MEMBERS(value_type,glm::detail::tvec3<value_type>,x,y,z)
+            _GLM_SWIZZLE3_3_MEMBERS(value_type,glm::detail::tvec3<value_type>,r,g,b)
+            _GLM_SWIZZLE3_3_MEMBERS(value_type,glm::detail::tvec3<value_type>,s,t,p)
+            _GLM_SWIZZLE3_4_MEMBERS(value_type,glm::detail::tvec4<value_type>,x,y,z)
+            _GLM_SWIZZLE3_4_MEMBERS(value_type,glm::detail::tvec4<value_type>,r,g,b)
+            _GLM_SWIZZLE3_4_MEMBERS(value_type,glm::detail::tvec4<value_type>,s,t,p)
+        };
 #	else//(GLM_COMPONENT == GLM_COMPONENT_GLSL_NAMES)
 		union {value_type x, r, s;};
 		union {value_type y, g, t;};
