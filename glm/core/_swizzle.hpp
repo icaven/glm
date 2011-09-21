@@ -196,23 +196,35 @@ namespace detail
         operator P () { return cast(); }
     };
 
-
-
-    template <typename T, typename P, int N, typename S0, int E0, int E1, int E2, int E3, int D0, typename S1,int F0, int F1, int F2, int F3, int D1>
-    typename P operator+ (
-        const glm::detail::swizzle_base<S0,T,P,N,E0,E1,E2,E3,D0>& a, 
-        const glm::detail::swizzle_base<S1,T,P,N,F0,F1,F2,F3,D1>& b)
-    {
-        return static_cast<const S0&>(a).cast() + static_cast<const S1&>(b).cast();
+#define _GLM_SWIZZLE_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)\
+    template <typename T, typename P, int N, typename S0, int E0, int E1, int E2, int E3, int D0, typename S1,int F0, int F1, int F2, int F3, int D1> \
+    typename P operator OPERAND ( \
+        const glm::detail::swizzle_base<S0,T,P,N,E0,E1,E2,E3,D0>& a, \
+        const glm::detail::swizzle_base<S1,T,P,N,F0,F1,F2,F3,D1>& b) \
+    { \
+        return static_cast<const S0&>(a).cast() OPERAND static_cast<const S1&>(b).cast(); \
+    } \
+    \
+    template <typename T, typename P, int N, typename S0, int E0, int E1, int E2, int E3, int D0> \
+    typename P operator OPERAND ( \
+        const glm::detail::swizzle_base<S0,T,P,N,E0,E1,E2,E3,D0>& a, \
+        const typename P& b) \
+    { \
+        return static_cast<const S0&>(a).cast() OPERAND b; \
+    } \
+    \
+    template <typename T, typename P, int N, typename S0, int E0, int E1, int E2, int E3, int D0> \
+    typename P operator OPERAND ( \
+        const typename P& a, \
+        const glm::detail::swizzle_base<S0,T,P,N,E0,E1,E2,E3,D0>& b) \
+    { \
+        return a OPERAND static_cast<const S0&>(b).cast(); \
     }
 
-    template <typename T, typename P, int N, typename S0, int E0, int E1, int E2, int E3, int D0, typename S1,int F0, int F1, int F2, int F3, int D1>
-    typename P operator- (
-        const glm::detail::swizzle_base<S0,T,P,N,E0,E1,E2,E3,D0>& a, 
-        const glm::detail::swizzle_base<S1,T,P,N,F0,F1,F2,F3,D1>& b)
-    {
-        return static_cast<const S0&>(a).cast() - static_cast<const S1&>(b).cast();
-    }
+    _GLM_SWIZZLE_BINARY_OPERATOR_IMPLEMENTATION(+)
+    _GLM_SWIZZLE_BINARY_OPERATOR_IMPLEMENTATION(-)
+    _GLM_SWIZZLE_BINARY_OPERATOR_IMPLEMENTATION(*)
+    _GLM_SWIZZLE_BINARY_OPERATOR_IMPLEMENTATION(/)
 
 }//namespace detail 
 }//namespace glm

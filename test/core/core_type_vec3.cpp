@@ -167,10 +167,32 @@ int test_vec3_swizzle_operators()
     u = glm::vec3(1, 2, 3);
     v = glm::vec3(10, 20, 30);
 
+    // Swizzle, swizzle binary operators
     q = u.xyz + v.xyz;          Error += (q == (u + v)) ? 0 : 1;
     q = (u.zyx + v.zyx).zyx;    Error += (q == (u + v)) ? 0 : 1;
     q = (u.xyz - v.xyz);        Error += (q == (u - v)) ? 0 : 1;
-    
+    q = (u.xyz * v.xyz);        Error += (q == (u * v)) ? 0 : 1;
+    q = (u.xxx * v.xxx);        Error += (q == glm::vec3(u.x * v.x)) ? 0 : 1;
+    q = (u.xyz / v.xyz);        Error += (q == (u / v)) ? 0 : 1;
+
+    // vec, swizzle binary operators
+    q = u + v.xyz;              Error += (q == (u + v)) ? 0 : 1;
+    q = (u - v.xyz);            Error += (q == (u - v)) ? 0 : 1;
+    q = (u * v.xyz);            Error += (q == (u * v)) ? 0 : 1;
+    q = (u * v.xxx);            Error += (q == v.x * u) ? 0 : 1;
+    q = (u / v.xyz);            Error += (q == (u / v)) ? 0 : 1;
+
+    // swizzle,vec binary operators
+    q = u.xyz + v;              Error += (q == (u + v)) ? 0 : 1;
+    q = (u.xyz - v);            Error += (q == (u - v)) ? 0 : 1;
+    q = (u.xyz * v);            Error += (q == (u * v)) ? 0 : 1;
+    q = (u.xxx * v);            Error += (q == u.x * v) ? 0 : 1;
+    q = (u.xyz / v);            Error += (q == (u / v)) ? 0 : 1;
+
+    // Compile errors
+    //q = (u.yz * v.xyz);
+    //q = (u * v.xy);
+
     return Error;
 }
 
