@@ -56,21 +56,24 @@ namespace detail
     /*!
         Template parameters:
 
-        Type    = type of scalar values (e.g. float, double)
-        Class   = class the swizzle is applies to (e.g. vector3f)
+        ValueType = type of scalar values (e.g. float, double)
+        VecType   = class the swizzle is applies to (e.g. vector3f)
         N       = number of components in the vector (e.g. 3)
         E0...3  = what index the n-th element of this swizzle refers to
     */
-    template <typename Derived, typename Type, typename Class, int N, int E0, int E1, int E2, int E3, int DUPLICATE_ELEMENTS>
+    template <typename DerivedType, typename ValueType, typename VecType, int N, int E0, int E1, int E2, int E3, int DUPLICATE_ELEMENTS>
     struct swizzle_base
     {
-        typedef Derived     derived_type;
+        typedef DerivedType     derived_type;
+        typedef VecType         vec_type;        
+        typedef ValueType       value_type;
 
-        swizzle_base& operator= (const Class& that)
+        swizzle_base& operator= (const VecType& that)
         {
             static const int offset_dst[4] = { E0, E1, E2, E3 };
 
-            Type t[N];
+            // Make a copy of the data in this == &that
+            ValueType t[N];
             for (int i = 0; i < N; ++i)
                 t[i] = that[i];
             for (int i = 0; i < N; ++i)
@@ -79,7 +82,7 @@ namespace detail
             return *this;
         }
 
-        swizzle_base& operator= (const Type& t)
+        swizzle_base& operator= (const ValueType& t)
         {
             static const int offset_dst[4] = { E0, E1, E2, E3 };
 
@@ -89,34 +92,80 @@ namespace detail
             return *this;
         }
 
+        void operator -= (const VecType& that)
+        {
+            static const int offset_dst[4] = { E0, E1, E2, E3 };
+
+            ValueType t[N];
+            for (int i = 0; i < N; ++i)
+                t[i] = that[i];
+            for (int i = 0; i < N; ++i)
+                elem(offset_dst[i]) -= t[i];
+        }
+
+        void operator += (const VecType& that)
+        {
+            static const int offset_dst[4] = { E0, E1, E2, E3 };
+
+            ValueType t[N];
+            for (int i = 0; i < N; ++i)
+                t[i] = that[i];
+            for (int i = 0; i < N; ++i)
+                elem(offset_dst[i]) += t[i];
+        }
+
+        void operator *= (const VecType& that)
+        {
+            static const int offset_dst[4] = { E0, E1, E2, E3 };
+
+            ValueType t[N];
+            for (int i = 0; i < N; ++i)
+                t[i] = that[i];
+            for (int i = 0; i < N; ++i)
+                elem(offset_dst[i]) *= t[i];
+        }
+
+        void operator /= (const VecType& that)
+        {
+            static const int offset_dst[4] = { E0, E1, E2, E3 };
+
+            ValueType t[N];
+            for (int i = 0; i < N; ++i)
+                t[i] = that[i];
+            for (int i = 0; i < N; ++i)
+                elem(offset_dst[i]) /= t[i];
+        }
+
     protected:
-        Type&         elem   (size_t i)       { return (reinterpret_cast<Type*>(_buffer))[i]; }
-        const Type&   elem   (size_t i) const { return (reinterpret_cast<const Type*>(_buffer))[i]; }
+        value_type&         elem   (size_t i)       { return (reinterpret_cast<value_type*>(_buffer))[i]; }
+        const value_type&   elem   (size_t i) const { return (reinterpret_cast<const value_type*>(_buffer))[i]; }
 
         // Use an opaque buffer to *ensure* the compiler doesn't call a constructor.
         // Otherwise, a vec4 containing all swizzles might end up with 1000s of 
         // constructor calls
-        char    _buffer[sizeof(Type) * N];
+        char    _buffer[sizeof(value_type) * N];
     };
 
-    template <typename Derived, typename Type, typename Class, int N, int E0, int E1, int E2, int E3>
-    struct swizzle_base<Derived, Type,Class,N,E0,E1,E2,E3,1>
+    template <typename DerivedType, typename ValueType, typename VecType, int N, int E0, int E1, int E2, int E3>
+    struct swizzle_base<DerivedType,ValueType,VecType,N,E0,E1,E2,E3,1>
     {
-        typedef Derived     derived_type;
+        typedef DerivedType     derived_type;
+        typedef VecType         vec_type;        
+        typedef ValueType       value_type;
 
         struct Stub {};
         swizzle_base& operator= (const Stub& that) {}
           
     protected:
-        Type&         elem   (size_t i)       { return (reinterpret_cast<Type*>(_buffer))[i]; }
-        const Type&   elem   (size_t i) const { return (reinterpret_cast<const Type*>(_buffer))[i]; }
+        value_type&         elem   (size_t i)       { return (reinterpret_cast<value_type*>(_buffer))[i]; }
+        const value_type&   elem   (size_t i) const { return (reinterpret_cast<const value_type*>(_buffer))[i]; }
 
-        char    _buffer[sizeof(Type) * N];      
+        char    _buffer[sizeof(value_type) * N];      
     };
 
     //! Internal class for implementing swizzle operators
     template <typename T, typename P, int E0, int E1>
-    struct swizzle2 : public swizzle_base<swizzle2<T,P,E0,E1>, T,P,2,E0,E1,0,0,(E0 == E1)>
+    struct swizzle2 : public swizzle_base<swizzle2<T,P,E0,E1>,T,P,2,E0,E1,0,0,(E0 == E1)>
     {
         using swizzle_base<swizzle2<T,P,E0,E1>,T,P,2,E0,E1,0,0,(E0 == E1)>::operator=;
         P cast() const { return P(this->elem(E0), this->elem(E1)); }
@@ -221,15 +270,49 @@ namespace detail
         return a OPERAND static_cast<const S0&>(b).cast(); \
     }
 
+#define _GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)\
+    template <typename T, typename P, int N, typename S0, int E0, int E1, int E2, int E3, int D0> \
+    typename P operator OPERAND ( \
+        const glm::detail::swizzle_base<S0,T,P,N,E0,E1,E2,E3,D0>& a, \
+        const typename T& b) \
+    { \
+        return static_cast<const S0&>(a).cast() OPERAND b; \
+    } \
+    \
+    template <typename T, typename P, int N, typename S0, int E0, int E1, int E2, int E3, int D0> \
+    typename P operator OPERAND ( \
+        const typename T& a, \
+        const glm::detail::swizzle_base<S0,T,P,N,E0,E1,E2,E3,D0>& b) \
+    { \
+        return a OPERAND static_cast<const S0&>(b).cast(); \
+    }
+
+//
+// To prevent the C++ syntax from getting *completely* overwhelming, define some alias macros
+//
+#define _GLM_SWIZZLE_TEMPLATE1   template <typename T, typename P, int N, typename S0, int E0, int E1, int E2, int E3, int D0>
+#define _GLM_SWIZZLE_TEMPLATE2   template <typename T, typename P, int N, typename S0, int E0, int E1, int E2, int E3, int D0, typename S1,int F0, int F1, int F2, int F3, int D1>
+#define _GLM_SWIZZLE_TYPE1       glm::detail::swizzle_base<S0,T,P,N,E0,E1,E2,E3,D0>
+#define _GLM_SWIZZLE_TYPE2       glm::detail::swizzle_base<S1,T,P,N,F0,F1,F2,F3,D1>
+
+    _GLM_SWIZZLE_TEMPLATE1  typename S0::vec_type   operator-   (typename S0::value_type a, const _GLM_SWIZZLE_TYPE1& b)        { return a - b; }
+
     _GLM_SWIZZLE_BINARY_OPERATOR_IMPLEMENTATION(+)
     _GLM_SWIZZLE_BINARY_OPERATOR_IMPLEMENTATION(-)
     _GLM_SWIZZLE_BINARY_OPERATOR_IMPLEMENTATION(*)
     _GLM_SWIZZLE_BINARY_OPERATOR_IMPLEMENTATION(/)
 
+    _GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(*)
+
 }//namespace detail 
 }//namespace glm
 
-
+namespace glm
+{
+    /*_GLM_SWIZZLE_TEMPLATE2  typename S0::value_type dot         (const _GLM_SWIZZLE_TYPE1& a, const _GLM_SWIZZLE_TYPE2& b)      { return dot(a.cast(), b.cast()); }
+    _GLM_SWIZZLE_TEMPLATE1  typename S0::value_type dot         (const _GLM_SWIZZLE_TYPE1& a, const typename S0::vec_type& b)   { return dot(a.cast(), b); }
+    _GLM_SWIZZLE_TEMPLATE1  typename S0::value_type dot         (const typename S0::vec_type& a, const _GLM_SWIZZLE_TYPE1& b)   { return dot(a, b.cast()); }*/
+}
 
 
 #define _GLM_SWIZZLE2_2_MEMBERS(T,P,E0,E1) \

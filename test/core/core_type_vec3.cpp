@@ -239,13 +239,19 @@ vec4 grad4(float j, vec4 ip)
   const vec4 ones = vec4(1.0, 1.0, 1.0, -1.0);
   vec4 p,s;
 
-  p.xyz = floor( fract (vec3(j) * ip.xyz) * 7.0) * ip.z - 1.0;
-  p.w = 1.5 - dot(abs(p.xyz), ones.xyz);
+  auto t1 = abs(p.xyz);
+  auto t2 = ones.xyz;
+  auto t3 = dot(t1, t2);
+  auto t0 = dot(abs(p.xyz), ones.xyz);
+
+  p.xyz = floor( fract (vec3(j) * ip.xyz) * 7.0f) * ip.z - 1.0f;
+  p.w = 1.5f - dot(abs(p.xyz), ones.xyz);
   s = vec4(lessThan(p, vec4(0.0)));
-  p.xyz = p.xyz + (s.xyz*2.0 - 1.0) * s.www; 
+  p.xyz = p.xyz + (s.xyz*2.0f - 1.0f) * s.www; 
 
   return p;
   }
+
 
 float snoise(vec4 v)
   {
@@ -269,12 +275,12 @@ float snoise(vec4 v)
   vec3 isYZ = step( x0.zww, x0.yyz );
 //  i0.x = dot( isX, vec3( 1.0 ) );
   i0.x = isX.x + isX.y + isX.z;
-  i0.yzw = 1.0 - isX;
+  i0.yzw = 1.0f - isX;
 //  i0.y += dot( isYZ.xy, vec2( 1.0 ) );
   i0.y += isYZ.x + isYZ.y;
-  i0.zw += 1.0 - isYZ.xy;
+  i0.zw += 1.0f - isYZ.xy;
   i0.z += isYZ.z;
-  i0.w += 1.0 - isYZ.z;
+  i0.w += 1.0f - isYZ.z;
 
   // i0 now contains the unique values 0,1,2,3 in each channel
   vec4 i3 = clamp( i0, 0.0, 1.0 );
@@ -319,8 +325,8 @@ float snoise(vec4 v)
   p4 *= taylorInvSqrt(dot(p4,p4));
 
 // Mix contributions from the five corners
-  vec3 m0 = max(0.6 - vec3(dot(x0,x0), dot(x1,x1), dot(x2,x2)), 0.0);
-  vec2 m1 = max(0.6 - vec2(dot(x3,x3), dot(x4,x4)            ), 0.0);
+  vec3 m0 = max(0.6f - vec3(dot(x0,x0), dot(x1,x1), dot(x2,x2)), 0.0);
+  vec2 m1 = max(0.6f - vec2(dot(x3,x3), dot(x4,x4)            ), 0.0);
   m0 = m0 * m0;
   m1 = m1 * m1;
   return 49.0 * ( dot(m0*m0, vec3( dot( p0, x0 ), dot( p1, x1 ), dot( p2, x2 )))
