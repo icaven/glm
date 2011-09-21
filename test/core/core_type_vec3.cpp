@@ -103,7 +103,7 @@ int test_vec3_swizzle3_3()
     glm::vec3 v(1, 2, 3);
     glm::vec3 u;
     
-    u = v;
+    u.xyz = v.xyz;
     Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
     
     u = v.xyz;
@@ -146,7 +146,7 @@ int test_vec3_swizzle_half()
 
     float a = u.x;
     float b = u.y;
-    Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
+    Error += (u.x == glm::half(1.0f) && u.y == glm::half(2.0f) && u.z == glm::half(3.0f)) ? 0 : 1;
     
     /*u = v.xyz;
     Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
