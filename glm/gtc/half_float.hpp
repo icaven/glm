@@ -1,14 +1,41 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2009-04-29
-// Updated : 2010-02-07
-// Licence : This source is under MIT License
-// File    : glm/gtc/half_float.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+/// OpenGL Mathematics (glm.g-truc.net)
+///
+/// Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+/// 
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+/// 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
+///
+/// @ref gtc_half_float
+/// @file glm/gtc/half_float.hpp
+/// @date 2009-04-29 / 2011-06-05
+/// @author Christophe Riccio
+///
+/// @see core (dependence)
+///
+/// @defgroup gtc_half_float GLM_GTC_half_float: Half-precision floating-point based types and functions
+/// @ingroup gtc
+/// 
+/// Defines the half-precision floating-point type, along with various typedefs for vectors and matrices.
+/// <glm/gtc/half_float.hpp> need to be included to use these functionalities.
+///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtc_half_float
-#define glm_gtc_half_float
+#ifndef GLM_GTC_half_float
+#define GLM_GTC_half_float GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"
@@ -27,8 +54,9 @@ namespace detail
 		enum ctor{null};
 		typedef thalf value_type;
 		typedef std::size_t size_type;
-		static size_type value_size();
-		GLM_FUNC_DECL size_type length() const;
+
+        GLM_FUNC_DECL size_type length() const;
+		static GLM_FUNC_DECL size_type value_size();
 
 		typedef tvec2<thalf> type;
 		typedef tvec2<bool> bool_type;
@@ -120,8 +148,8 @@ namespace detail
 		enum ctor{null};
 		typedef thalf value_type;
 		typedef std::size_t size_type;
-		static size_type value_size();
-		GLM_FUNC_DECL size_type length() const;
+        GLM_FUNC_DECL size_type length() const;
+		static GLM_FUNC_DECL size_type value_size();
 
 		typedef tvec3<thalf> type;
 		typedef tvec3<bool> bool_type;
@@ -217,8 +245,8 @@ namespace detail
 		enum ctor{null};
 		typedef thalf value_type;
 		typedef std::size_t size_type;
-		static size_type value_size();
-		GLM_FUNC_DECL size_type length() const;
+        GLM_FUNC_DECL size_type length() const;
+		static GLM_FUNC_DECL size_type value_size();
 
 		typedef tvec4<thalf> type;
 		typedef tvec4<bool> bool_type;
@@ -321,11 +349,8 @@ namespace detail
 }
 //namespace detail
 
-namespace gtc{
-namespace half_float ///< GLM_GTC_half_float extension: Add support for half precision floating-point types
-{
-	/// \addtogroup gtc_half_float
-	///@{
+	/// @addtogroup gtc_half_float
+	/// @{
 
 	/// Type for half-precision floating-point numbers. 
 	/// From GLM_GTC_half_float extension.
@@ -392,13 +417,8 @@ namespace half_float ///< GLM_GTC_half_float extension: Add support for half pre
 	typedef detail::tmat4x4<detail::thalf>	hmat4x4;
     
 	/// @}
-
-}// namespace half_float
-}// namespace gtc
 }// namespace glm
 
 #include "half_float.inl"
 
-namespace glm{using namespace gtc::half_float;}
-
-#endif//glm_gtc_half_float
+#endif//GLM_GTC_half_float

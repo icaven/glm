@@ -8,8 +8,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
-namespace euler_angles{
 
 template <typename valType> 
 GLM_FUNC_QUALIFIER detail::tmat4x4<valType> eulerAngleX
@@ -244,6 +242,4 @@ GLM_FUNC_QUALIFIER detail::tmat4x4<valType> orientate4
     return yawPitchRoll(angles.z, angles.x, angles.y);
 }
 
-}//namespace euler_angles
-}//namespace gtx
 }//namespace glm

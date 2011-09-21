@@ -2,147 +2,168 @@
 // OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2011-01-15
-// Updated : 2011-01-15
+// Updated : 2011-09-13
 // Licence : This source is under MIT licence
-// File    : test/gtx/simd-mat4.cpp
+// File    : test/core/func_packing.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_INSTRUCTION_SET GLM_PLATFORM_SSE3 | GLM_PLATFORM_SSE2
 #include <glm/glm.hpp>
+#include <glm/gtc/half_float.hpp>
+#include <glm/gtc/type_precision.hpp>
+#include <glm/gtx/epsilon.hpp>
+#include <vector>
 
-int test_static_assert()
+int test_packUnorm2x16()
 {
-	//glm::lessThan(glm::mat4(0), glm::mat4(4));
+	int Error = 0;
+/*	
+	std::vector<glm::hvec2> A;
+	A.push_back(glm::hvec2(glm::half( 1.0f), glm::half( 0.0f)));
+	A.push_back(glm::hvec2(glm::half( 0.5f), glm::half( 0.7f)));
+	A.push_back(glm::hvec2(glm::half( 0.1f), glm::half( 0.2f)));
+*/
+	std::vector<glm::vec2> A;
+	A.push_back(glm::vec2(1.0f, 0.0f));
+	A.push_back(glm::vec2(0.5f, 0.7f));
+	A.push_back(glm::vec2(0.1f, 0.2f));
 
-	return 0;
+	for(std::size_t i = 0; i < A.size(); ++i)
+	{
+		glm::vec2 B(A[i]);
+		glm::uint32 C = glm::packUnorm2x16(B);
+		glm::vec2 D = glm::unpackUnorm2x16(C);
+		Error += glm::all(glm::equalEpsilon(B, D, 1.0f / 65535.f)) ? 0 : 1;
+		assert(!Error);
+	}
+	
+	return Error;
 }
 
-int test_lessThan_vec2()
+int test_packSnorm2x16()
 {
-	glm::bvec2 O = glm::bvec2(true, false);
+	int Error = 0;
+/*
+	std::vector<glm::hvec2> A;
+	A.push_back(glm::hvec2(glm::half( 1.0f), glm::half( 0.0f)));
+	A.push_back(glm::hvec2(glm::half(-0.5f), glm::half(-0.7f)));
+	A.push_back(glm::hvec2(glm::half(-0.1f), glm::half( 0.1f)));
+*/
+	std::vector<glm::vec2> A;
+	A.push_back(glm::vec2( 1.0f, 0.0f));
+	A.push_back(glm::vec2(-0.5f,-0.7f));
+	A.push_back(glm::vec2(-0.1f, 0.1f));
 
-	glm::bvec2 A = glm::lessThan(glm::vec2(0, 6), glm::vec2(4, 2));
-	assert(glm::all(glm::equal(O, A)));
-
-	glm::bvec2 B = glm::lessThan(glm::ivec2(0, 6), glm::ivec2(4, 2));
-	assert(glm::all(glm::equal(O, B)));
-
-	glm::bvec2 C = glm::lessThan(glm::uvec2(0, 6), glm::uvec2(4, 2));
-	assert(glm::all(glm::equal(O, C)));
-
-	return 0;
+	for(std::size_t i = 0; i < A.size(); ++i)
+	{
+		glm::vec2 B(A[i]);
+		glm::uint32 C = glm::packSnorm2x16(B);
+		glm::vec2 D = glm::unpackSnorm2x16(C);
+		Error += glm::all(glm::equalEpsilon(B, D, 1.0f / 32767.0f * 2.0f)) ? 0 : 1;
+		assert(!Error);
+	}
+	
+	return Error;
 }
 
-int test_lessThan_vec3()
+int test_packUnorm4x8()
 {
-	glm::bvec3 O = glm::bvec3(true, true, false);
-
-	glm::bvec3 A = glm::lessThan(glm::vec3(0, 1, 6), glm::vec3(4, 5, 2));
-	assert(glm::all(glm::equal(O, A)));
-
-	glm::bvec3 B = glm::lessThan(glm::ivec3(0, 1, 6), glm::ivec3(4, 5, 2));
-	assert(glm::all(glm::equal(O, B)));
-
-	glm::bvec3 C = glm::lessThan(glm::uvec3(0, 1, 6), glm::uvec3(4, 5, 2));
-	assert(glm::all(glm::equal(O, C)));
-
-	return 0;
+	int Error = 0;
+	
+	std::vector<glm::vec4> A;
+	A.push_back(glm::vec4(1.0f, 0.7f, 0.3f, 0.0f));
+	A.push_back(glm::vec4(0.5f, 0.1f, 0.2f, 0.3f));
+	
+	for(std::size_t i = 0; i < A.size(); ++i)
+	{
+		glm::vec4 B(A[i]);
+		glm::uint32 C = glm::packUnorm4x8(B);
+		glm::vec4 D = glm::unpackUnorm4x8(C);
+		Error += glm::all(glm::equalEpsilon(B, D, 1.0f / 255.f)) ? 0 : 1;
+		assert(!Error);
+	}
+	
+	return Error;
 }
 
-int test_lessThan_vec4()
+int test_packSnorm4x8()
 {
-	glm::bvec4 O = glm::bvec4(true, true, false, false);
-
-	glm::bvec4 A = glm::lessThan(glm::vec4(0, 1, 6, 7), glm::vec4(4, 5, 2, 3));
-	assert(glm::all(glm::equal(O, A)));
-
-	glm::bvec4 B = glm::lessThan(glm::ivec4(0, 1, 6, 7), glm::ivec4(4, 5, 2, 3));
-	assert(glm::all(glm::equal(O, B)));
-
-	glm::bvec4 C = glm::lessThan(glm::uvec4(0, 1, 6, 7), glm::uvec4(4, 5, 2, 3));
-	assert(glm::all(glm::equal(O, C)));
-
-	return 0;
+	int Error = 0;
+	
+	std::vector<glm::vec4> A;
+	A.push_back(glm::vec4( 1.0f, 0.0f,-0.5f,-1.0f));
+	A.push_back(glm::vec4(-0.7f,-0.1f, 0.1f, 0.7f));
+	
+	for(std::size_t i = 0; i < A.size(); ++i)
+	{
+		glm::vec4 B(A[i]);
+		glm::uint32 C = glm::packSnorm4x8(B);
+		glm::vec4 D = glm::unpackSnorm4x8(C);
+		Error += glm::all(glm::equalEpsilon(B, D, 1.0f / 127.f)) ? 0 : 1;
+		assert(!Error);
+	}
+	
+	return Error;
 }
 
-int test_greaterThanEqual_vec2()
+int test_packHalf2x16()
 {
-	glm::bvec2 O = glm::bvec2(false, true);
+	int Error = 0;
+/*
+	std::vector<glm::hvec2> A;
+	A.push_back(glm::hvec2(glm::half( 1.0f), glm::half( 2.0f)));
+	A.push_back(glm::hvec2(glm::half(-1.0f), glm::half(-2.0f)));
+	A.push_back(glm::hvec2(glm::half(-1.1f), glm::half( 1.1f)));
+*/
+	std::vector<glm::vec2> A;
+	A.push_back(glm::vec2( 1.0f, 2.0f));
+	A.push_back(glm::vec2(-1.0f,-2.0f));
+	A.push_back(glm::vec2(-1.1f, 1.1f));
 
-	glm::bvec2 A = glm::greaterThanEqual(glm::vec2(0, 6), glm::vec2(4, 2));
-	assert(glm::all(glm::equal(O, A)));
-
-	glm::bvec2 B = glm::greaterThanEqual(glm::ivec2(0, 6), glm::ivec2(4, 2));
-	assert(glm::all(glm::equal(O, B)));
-
-	glm::bvec2 C = glm::greaterThanEqual(glm::uvec2(0, 6), glm::uvec2(4, 2));
-	assert(glm::all(glm::equal(O, C)));
-
-	return 0;
+	for(std::size_t i = 0; i < A.size(); ++i)
+	{
+		glm::vec2 B(A[i]);
+		glm::uint C = glm::packHalf2x16(B);
+		glm::vec2 D = glm::unpackHalf2x16(C);
+		//Error += B == D ? 0 : 1;
+		Error += glm::all(glm::equalEpsilon(B, D, 1.0f / 127.f)) ? 0 : 1;
+		assert(!Error);
+	}
+	
+	return Error;
 }
 
-int test_greaterThanEqual_vec3()
+int test_packDouble2x32()
 {
-	glm::bvec3 O = glm::bvec3(false, false, true);
-
-	glm::bvec3 A = glm::greaterThanEqual(glm::vec3(0, 1, 6), glm::vec3(4, 5, 2));
-	assert(glm::all(glm::equal(O, A)));
-
-	glm::bvec3 B = glm::greaterThanEqual(glm::ivec3(0, 1, 6), glm::ivec3(4, 5, 2));
-	assert(glm::all(glm::equal(O, B)));
-
-	glm::bvec3 C = glm::greaterThanEqual(glm::uvec3(0, 1, 6), glm::uvec3(4, 5, 2));
-	assert(glm::all(glm::equal(O, C)));
-
-	return 0;
+	int Error = 0;
+	
+	std::vector<glm::u32vec2> A;
+	A.push_back(glm::u32vec2( 1, 2));
+	A.push_back(glm::u32vec2(-1,-2));
+	A.push_back(glm::u32vec2(-1000, 1100));
+	
+	for(std::size_t i = 0; i < A.size(); ++i)
+	{
+		glm::u32vec2 B(A[i]);
+		double C = glm::packDouble2x32(B);
+		glm::u32vec2 D = glm::unpackDouble2x32(C);
+		Error += B == D ? 0 : 1;
+		assert(!Error);
+	}
+	
+	return Error;
 }
-
-int test_greaterThanEqual_vec4()
-{
-	glm::bvec4 O = glm::bvec4(false, false, true, true);
-
-	glm::bvec4 A = glm::greaterThanEqual(glm::vec4(0, 1, 6, 7), glm::vec4(4, 5, 2, 3));
-	assert(glm::all(glm::equal(O, A)));
-
-	glm::bvec4 B = glm::greaterThanEqual(glm::ivec4(0, 1, 6, 7), glm::ivec4(4, 5, 2, 3));
-	assert(glm::all(glm::equal(O, B)));
-
-	glm::bvec4 C = glm::greaterThanEqual(glm::uvec4(0, 1, 6, 7), glm::uvec4(4, 5, 2, 3));
-	assert(glm::all(glm::equal(O, C)));
-
-	return 0;
-}
-
-int test_all()
-{
-	assert(glm::all(glm::bvec2(true, true)));
-	assert(!glm::all(glm::bvec2(true, false)));
-	assert(!glm::all(glm::bvec2(false, false)));
-
-	assert(glm::all(glm::bvec3(true, true, true)));
-	assert(!glm::all(glm::bvec3(true, false, true)));
-	assert(!glm::all(glm::bvec3(false, false, false)));
-
-	assert(glm::all(glm::bvec4(true, true, true, true)));
-	assert(!glm::all(glm::bvec4(true, false, true, false)));
-	assert(!glm::all(glm::bvec4(false, false, false, false)));
-
-	return 0;
-}
-
 
 int main()
 {
-	int Failed = 0;
-	Failed += test_static_assert();
-	Failed += test_lessThan_vec2();
-	Failed += test_lessThan_vec3();
-	Failed += test_lessThan_vec4();
-	Failed += test_greaterThanEqual_vec2();
-	Failed += test_greaterThanEqual_vec3();
-	Failed += test_greaterThanEqual_vec4();
-	Failed += test_all();
+	int Error = 0;
+	
+	Error += test_packSnorm4x8();
+	Error += test_packUnorm4x8();
+	Error += test_packSnorm2x16();
+	Error += test_packUnorm2x16();
+	Error += test_packHalf2x16();
+	Error += test_packDouble2x32();
 
-	return Failed;
+	return Error;
 }
 

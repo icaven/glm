@@ -10,9 +10,9 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/quaternion.hpp>
+#include <glm/gtx/random.hpp>
 #include <glm/gtx/simd_vec4.hpp>
 #include <glm/gtx/simd_mat4.hpp>
-#include <glm/gtx/random.hpp>
 #include <iostream>
 #include <cstdio>
 #include <ctime>
@@ -275,13 +275,16 @@ int main()
 	// shuffle test
 	glm::simdVec4 A(1.0f, 2.0f, 3.0f, 4.0f);
 	glm::simdVec4 B(5.0f, 6.0f, 7.0f, 8.0f);
-	__m128 C = _mm_shuffle_ps(A.Data, B.Data, _MM_SHUFFLE(1, 0, 1, 0));
+	//__m128 C = _mm_shuffle_ps(A.Data, B.Data, _MM_SHUFFLE(1, 0, 1, 0));
 
 	Error += test_compute_glm();
 	Error += test_compute_gtx();
 	
 	float Det = glm::determinant(glm::simdMat4(1.0));
+	Error += Det == 1.0f ? 0 : 1;
+	
 	glm::simdMat4 D = glm::matrixCompMult(glm::simdMat4(1.0), glm::simdMat4(1.0));
 
 	return Error;
 }
+

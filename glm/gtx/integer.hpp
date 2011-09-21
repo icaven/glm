@@ -1,17 +1,42 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2005-12-24
-// Updated : 2006-11-14
-// Licence : This source is under MIT License
-// File    : glm/gtx/integer.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+/// OpenGL Mathematics (glm.g-truc.net)
+///
+/// Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+/// 
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+/// 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
+///
+/// @ref gtx_integer
+/// @file glm/gtx/integer.hpp
+/// @date 2005-12-24 / 2011-06-07
+/// @author Christophe Riccio
+///
+/// @see core (dependence)
+///
+/// @defgroup gtx_integer GLM_GTX_integer: Extended integer functions
+/// @ingroup gtx
+/// 
+/// @brief Add support for integer for core functions
+/// 
+/// <glm/gtx/integer.hpp> need to be included to use these functionalities.
+///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_integer
-#define glm_gtx_integer
+#ifndef GLM_GTX_integer
+#define GLM_GTX_integer GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"
@@ -20,11 +45,9 @@
 #	pragma message("GLM: GLM_GTX_integer extension included")
 #endif
 
-namespace glm{
-namespace gtx{
-namespace integer ///< GLM_GTX_integer extension: Add support for integer for core functions
+namespace glm
 {
-	/// \addtogroup gtx_integer
+	/// @addtogroup gtx_integer
 	/// @{
 
 	//! Returns x raised to the y power. 
@@ -45,12 +68,8 @@ namespace integer ///< GLM_GTX_integer extension: Add support for integer for co
 	genType factorial(genType const & x);
 
 	/// @}
-}//namespace integer
-}//namespace gtx
 }//namespace glm
 
 #include "integer.inl"
 
-namespace glm{using namespace gtx::integer;}
-
-#endif//glm_gtx_integer
+#endif//GLM_GTX_integer

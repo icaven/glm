@@ -1,36 +1,81 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2009-05-06
-// Updated : 2010-04-30
-// Licence : This source is under MIT License
-// File    : glm/gtc/type_ptr.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+/// OpenGL Mathematics (glm.g-truc.net)
+///
+/// Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+/// 
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+/// 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
+///
+/// @ref gtc_type_ptr
+/// @file glm/gtc/type_ptr.hpp
+/// @date 2009-05-06 / 2011-06-05
+/// @author Christophe Riccio
+///
+/// @see core (dependence)
+/// @see gtc_half_float (dependence)
+/// @see gtc_quaternion (dependence)
+///
+/// @defgroup gtc_type_ptr GLM_GTC_type_ptr: Memory layout access
+/// @ingroup gtc
+///
+/// @brief Used to get a pointer to the memory layout of a basic type.
+/// 
+/// This extension defines an overloaded function, glm::value_ptr, which
+/// takes any of the \ref core_template "core template types". It returns
+/// a pointer to the memory layout of the object. Matrix types store their values
+/// in column-major order.
+/// 
+/// This is useful for uploading data to matrices or copying data to buffer objects.
+///
+/// Example:
+/// @code
+/// #include <glm/glm.hpp>
+/// #include <glm/gtc/type_ptr.hpp>
+/// 
+/// glm::vec3 aVector(3);
+/// glm::mat4 someMatrix(1.0);
+/// 
+/// glUniform3fv(uniformLoc, 1, glm::value_ptr(aVector));
+/// glUniformMatrix4fv(uniformMatrixLoc, 1, GL_FALSE, glm::value_ptr(someMatrix));
+/// @endcode
+/// 
+/// <glm/gtc/type_ptr.hpp> need to be included to use these functionalities.
+///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtc_type_ptr
-#define glm_gtc_type_ptr
+#ifndef GLM_GTC_type_ptr
+#define GLM_GTC_type_ptr GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"
+#include "../gtc/half_float.hpp"
+#include "../gtc/quaternion.hpp"
 #include <cstring>
 
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))
 #	pragma message("GLM: GLM_GTC_type_ptr extension included")
 #endif
 
-namespace glm{
-namespace gtc{
-namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matrices value type address.
+namespace glm
 { 
+	/// @addtogroup gtc_type_ptr
+	/// @{
 
-	/// \addtogroup gtc_type_ptr
-	///@{
-
-	//! Get the const address of the vector content.
-	//! From GLM_GTC_type_ptr extension.
+	/// Return the constant address to the data of the input parameter.
+	/// From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T const * value_ptr
 	(
@@ -40,7 +85,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(vec.x);
 	}
 
-	//! Get the address of the vector content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T * value_ptr
@@ -51,7 +96,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(vec.x);
 	}
 
-	//! Get the const address of the vector content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T const * value_ptr
@@ -62,7 +107,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(vec.x);
 	}
 
-	//! Get the address of the vector content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T * value_ptr
@@ -73,7 +118,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(vec.x);
 	}
 		
-	//! Get the const address of the vector content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T const * value_ptr
@@ -84,7 +129,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(vec.x);
 	}
 
-	//! Get the address of the vector content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T * value_ptr
@@ -95,7 +140,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(vec.x);
 	}
 
-	//! Get the const address of the matrix content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T const * value_ptr
@@ -106,7 +151,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(mat[0].x);
 	}
 
-	//! Get the address of the matrix content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T * value_ptr
@@ -117,7 +162,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(mat[0].x);
 	}
 		
-	//! Get the const address of the matrix content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T const * value_ptr
@@ -128,7 +173,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(mat[0].x);
 	}
 
-	//! Get the address of the matrix content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T * value_ptr
@@ -139,7 +184,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(mat[0].x);
 	}
 		
-	//! Get the const address of the matrix content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T const * value_ptr
@@ -150,7 +195,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(mat[0].x);
 	}
 
-	//! Get the address of the matrix content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T * value_ptr
@@ -161,7 +206,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(mat[0].x);
 	}
 
-	//! Get the const address of the matrix content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T const * value_ptr
@@ -172,7 +217,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(mat[0].x);
 	}
 
-	//! Get the address of the matrix content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T * value_ptr
@@ -183,7 +228,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(mat[0].x);
 	}
 		
-	//! Get the const address of the matrix content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T const * value_ptr
@@ -194,7 +239,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(mat[0].x);
 	}
 
-	//! Get the address of the matrix content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T * value_ptr
@@ -205,7 +250,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(mat[0].x);
 	}
 		
-	//! Get the const address of the matrix content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T const * value_ptr
@@ -216,7 +261,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(mat[0].x);
 	}
 
-	//! Get the address of the matrix content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T * value_ptr
@@ -227,7 +272,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(mat[0].x);
 	}
 		
-	//! Get the const address of the matrix content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T const * value_ptr
@@ -238,7 +283,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(mat[0].x);
 	}
 
-	//! Get the address of the matrix content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T * value_ptr
@@ -249,7 +294,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(mat[0].x);
 	}
 		
-	//! Get the const address of the matrix content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T const * value_ptr
@@ -260,7 +305,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(mat[0].x);
 	}
 
-	//! Get the address of the matrix content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T * value_ptr
@@ -271,7 +316,7 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		return &(mat[0].x);
 	}
 		
-	//! Get the const address of the matrix content.
+	//! Return the constant address to the data of the input parameter.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
 	GLM_FUNC_QUALIFIER T const * value_ptr
@@ -281,7 +326,18 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 	{
 		return &(mat[0].x);
 	}
-
+    
+	//! Return the constant address to the data of the input parameter.
+	//! From GLM_GTC_type_ptr extension.
+	template<typename T>
+	GLM_FUNC_QUALIFIER T const * value_ptr
+	(
+        detail::tquat<T> const & q
+    )
+	{
+		return &(q[0]);
+	}
+    
 	//! Get the address of the matrix content.
 	//! From GLM_GTC_type_ptr extension.
 	template<typename T>
@@ -379,7 +435,6 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 		memcpy(value_ptr(Result), ptr, sizeof(detail::tmat3x4<T>));
 		return Result;
 	}
-
         
 	//! Build a matrix from a pointer.
 	//! From GLM_GTC_type_ptr extension.
@@ -434,16 +489,21 @@ namespace type_ptr ///< GLM_GTC_type_ptr extension: Get access to vectors & matr
 	{
 		return make_mat4x4(ptr);
 	}
-        
-	///@}
-
-}//namespace type_ptr
-}//namespace gtc
+ 
+	//! Build a quaternion from a pointer.
+	//! From GLM_GTC_type_ptr extension.
+	template<typename T>
+	GLM_FUNC_QUALIFIER detail::tquat<T> make_quat(T const * const ptr)
+	{
+		detail::tquat<T> Result;
+		memcpy(value_ptr(Result), ptr, sizeof(detail::tquat<T>));
+		return Result;
+	}
+    
+	/// @}
 }//namespace glm
 
 #include "type_ptr.inl"
 
-namespace glm{using namespace gtc::type_ptr;}
-
-#endif//glm_gtx_type_ptr
+#endif//GLM_GTC_type_ptr
 

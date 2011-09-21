@@ -75,6 +75,14 @@ int test_half_ctor_mat2x2()
 		Error += C[1] == D[1] ? 0 : 1;
 	}
 
+	{
+		glm::hmat2 A(1);
+		glm::mat2 B(1);
+		glm::hmat2 C(A);
+
+		Error += A == C ? 0 : 1;
+	}
+
     return Error;
 }
 
@@ -139,7 +147,10 @@ int test_half_ctor_vec2()
 	int Error = 0;
 	
 	{
-		glm::hvec2 A(1, 2);
+		glm::hvec2 A;
+		A.x = glm::half(1);
+		A.y = glm::half(2);
+		//glm::hvec2 A(1, 2);
 		glm::hvec2 B(A);
 		glm::vec2 C(1, 2);
 		glm::hvec2 D(C);
@@ -150,8 +161,8 @@ int test_half_ctor_vec2()
 		H = A;
 		
 		Error += A == B ? 0 : 1;
-		//Error += C == D ? 0 : 1;
-		//Error += E == F ? 0 : 1;
+		//Error += C == D ? 0 : 1; //Error
+		//Error += E == F ? 0 : 1; //Error
 		Error += A == G ? 0 : 1;
 		Error += A == H ? 0 : 1;
 	}
@@ -159,8 +170,9 @@ int test_half_ctor_vec2()
 	{
 		glm::hvec2 A(1);
 		glm::vec2 B(1);
-	
-		//Error += A == B ? 0 : 1;
+		glm::hvec2 C(A);
+
+		Error += A == C ? 0 : 1;
 	}
 	
 	return Error;
@@ -191,8 +203,9 @@ int test_half_ctor_vec3()
 	{
 		glm::hvec3 A(1);
 		glm::vec3 B(1);
+		glm::hvec3 C(B);
 		
-		//Error += A == B ? 0 : 1;
+		Error += A == C ? 0 : 1;
 	}
 	
 	return Error;
@@ -223,8 +236,9 @@ int test_half_ctor_vec4()
 	{
 		glm::hvec4 A(1);
 		glm::vec4 B(1);
+		glm::hvec4 C(B);
 		
-		//Error += A == B ? 0 : 1;
+		Error += A == C ? 0 : 1;
 	}
 	
 	return Error;

@@ -1,11 +1,30 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2006-11-13
-// Updated : 2011-01-26
-// Licence : This source is under MIT License
-// File    : glm/setup.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+/// OpenGL Mathematics (glm.g-truc.net)
+///
+/// Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+/// 
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+/// 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
+///
+/// @ref core
+/// @file glm/core/setup.hpp
+/// @date 2006-11-13 / 2011-06-15
+/// @author Christophe Riccio
+///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_setup
 #define glm_setup
@@ -13,11 +32,11 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Version
 
-#define GLM_VERSION					92
+#define GLM_VERSION					93
 #define GLM_VERSION_MAJOR			0
 #define GLM_VERSION_MINOR			9
-#define GLM_VERSION_PATCH			2
-#define GLM_VERSION_REVISION		3
+#define GLM_VERSION_PATCH			3
+#define GLM_VERSION_REVISION		0
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Compiler
@@ -104,6 +123,21 @@
 // CUDA
 #elif defined(__CUDACC__)
 #	define GLM_COMPILER GLM_COMPILER_CUDA
+/*
+#	if CUDA_VERSION < 3000
+#		error "GLM requires CUDA 3.0 or higher"
+#	elif CUDA_VERSION == 3000
+#		define GLM_COMPILER GLM_COMPILER_CUDA30	
+#	elif CUDA_VERSION == 3010
+#		define GLM_COMPILER GLM_COMPILER_CUDA31	
+#	elif CUDA_VERSION == 3020
+#		define GLM_COMPILER GLM_COMPILER_CUDA32	
+#	elif CUDA_VERSION == 4000
+#		define GLM_COMPILER GLM_COMPILER_CUDA40	
+#	else
+#		define GLM_COMPILER GLM_COMPILER_CUDA
+#	endif
+*/
 
 // Visual C++
 #elif defined(_MSC_VER)
@@ -132,7 +166,7 @@
 #	endif//_MSC_VER
 
 // G++
-#elif defined(__GNUC__) || defined(__llvm__) || defined(__clang__)
+#elif defined(__GNUC__)// || defined(__llvm__) || defined(__clang__)
 #   if defined (__llvm__)
 #       define GLM_COMPILER_GCC_EXTRA GLM_COMPILER_GCC_LLVM
 #   elif defined (__clang__)
@@ -247,7 +281,13 @@
 #else
 #	define GLM_MODEL	GLM_MODEL_32
 #endif//
-
+/*
+#if(sizeof(void*) == 8)
+#	define GLM_MODEL	GLM_MODEL_64
+#else
+#	define GLM_MODEL	GLM_MODEL_32
+#endif//_M_X64
+*/
 #if(!defined(GLM_MODEL) && GLM_COMPILER != 0)
 #error "GLM_MODEL undefined, your compiler may not be supported by GLM. Add #define GLM_MODEL 0 to ignore this message."
 #endif//GLM_MODEL

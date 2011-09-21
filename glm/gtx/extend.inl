@@ -8,8 +8,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
-namespace extend{
 
 template <typename genType>
 genType extend
@@ -55,6 +53,4 @@ detail::tvec4<valType> extend
     return Origin + (Source - Origin) * Distance;
 }
 
-}//namespace extend
-}//namespace gtx
 }//namespace glm

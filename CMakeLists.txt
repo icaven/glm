@@ -16,9 +16,13 @@ if(CMAKE_COMPILER_IS_GNUCXX)
 	#add_definitions(-mfpmath=387)
 	#add_definitions(-ffast-math)
 	#add_definitions(-O3)
+    
+    #add_definitions(-fprofile-arcs -ftest-coverage) gcov
+    #ctest_enable_coverage()
 endif()
 
 include_directories(".")
+include_directories("./test/external")
 
 add_subdirectory(glm)
 add_subdirectory(test)

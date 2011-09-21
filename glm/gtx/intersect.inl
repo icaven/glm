@@ -11,8 +11,6 @@
 #include <limits>
 
 namespace glm{
-namespace gtx{
-namespace intersect{
 
 template <typename genType>
 GLM_FUNC_QUALIFIER bool intersectRayTriangle
@@ -196,6 +194,4 @@ GLM_FUNC_QUALIFIER bool intersectLineSphere
 	return false;
 }
 
-}//namespace intersect
-}//namespace gtx
 }//namespace glm

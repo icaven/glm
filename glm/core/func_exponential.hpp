@@ -1,84 +1,99 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2008-08-08
-// Updated : 2010-02-04
-// Licence : This source is under MIT License
-// File    : glm/core/func_exponential.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+/// OpenGL Mathematics (glm.g-truc.net)
+///
+/// Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+/// 
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+/// 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
+///
+/// @ref core
+/// @file glm/core/func_exponential.hpp
+/// @date 2008-08-08 / 2011-06-14
+/// @author Christophe Riccio
+/// 
+/// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2</a>
+///
+/// @defgroup core_func_exponential Exponential functions
+/// @ingroup core
+/// 
+/// These all operate component-wise. The description is per component.
+///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_core_func_exponential
-#define glm_core_func_exponential
+#define glm_core_func_exponential GLM_VERSION
 
 namespace glm
 {
-	namespace core{
-	namespace function{
-	//! Define all exponential functions from Section 8.2 of GLSL 1.30.8 specification. Included in glm namespace.
-	namespace exponential{
+	/// @addtogroup core_func_exponential
+	/// @{
 
-	/// \addtogroup core_funcs
-	///@{
-
-	//! Returns x raised to the y power. 
-    //! 
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/pow.xml">GLSL pow man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.2
+	/// Returns x raised to the y power. 
+    ///
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/pow.xml">GLSL pow man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2</a>
 	template <typename genType> 
 	genType pow(genType const & x, genType const & y);
 
-	//! Returns the natural exponentiation of x, i.e., e^x.
-    //! 
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/exp.xml">GLSL exp man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.2
+	/// Returns the natural exponentiation of x, i.e., e^x.
+    /// 
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/exp.xml">GLSL exp man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2</a>
 	template <typename genType> 
 	genType exp(genType const & x);
 
-	//! Returns the natural logarithm of x, i.e., 
-	//! returns the value y which satisfies the equation x = e^y. 
-	//! Results are undefined if x <= 0.
-    //! 
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/log.xml">GLSL log man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.2
+	/// Returns the natural logarithm of x, i.e., 
+	/// returns the value y which satisfies the equation x = e^y. 
+	/// Results are undefined if x <= 0.
+    /// 
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/log.xml">GLSL log man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2</a>
 	template <typename genType> 
 	genType log(genType const & x);
 
-	//! Returns 2 raised to the x power.
-    //! 
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/exp2.xml">GLSL exp2 man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.2
+	/// Returns 2 raised to the x power.
+    /// 
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/exp2.xml">GLSL exp2 man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2</a>
 	template <typename genType> 
 	genType exp2(genType const & x);
 
-	//! Returns the base 2 log of x, i.e., returns the value y, 
-	//! which satisfies the equation x = 2 ^ y.
-    //! 
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/log2.xml">GLSL log2 man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.2
+	/// Returns the base 2 log of x, i.e., returns the value y, 
+	/// which satisfies the equation x = 2 ^ y.
+    /// 
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/log2.xml">GLSL log2 man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2</a>
 	template <typename genType> 
 	genType log2(genType const & x);
 
-	//! Returns the positive square root of x.
-    //! 
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sqrt.xml">GLSL sqrt man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.2
+	/// Returns the positive square root of x.
+    /// 
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sqrt.xml">GLSL sqrt man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2</a>
 	template <typename genType> 
 	genType sqrt(genType const & x);
     
-	//! Returns the reciprocal of the positive square root of x.
-    //! 
-    //! \li <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inversesqrt.xml">GLSL inversesqrt man page</a>
-    //! \li GLSL 1.30.08 specification, section 8.2
+	/// Returns the reciprocal of the positive square root of x.
+    /// 
+    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inversesqrt.xml">GLSL inversesqrt man page</a>
+    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2</a>
 	template <typename genType> 
 	genType inversesqrt(genType const & x);
 
-	///@}
-
-	}//namespace exponential
-	}//namespace function
-	}//namespace core
-
-	using namespace core::function::exponential;
+	/// @}
 }//namespace glm
 
 #include "func_exponential.inl"

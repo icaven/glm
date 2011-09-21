@@ -1,11 +1,30 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2005-01-27
-// Updated : 2010-02-11
-// Licence : This source is under MIT License
-// File    : glm/core/type_mat2x2.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+/// OpenGL Mathematics (glm.g-truc.net)
+///
+/// Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+/// 
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+/// 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
+///
+/// @ref core	
+/// @file glm/core/type_mat2x2.hpp
+/// @date 2005-01-27 / 2011-06-15
+/// @author Christophe Riccio
+///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_core_type_mat2x2
 #define glm_core_type_mat2x2
@@ -39,6 +58,7 @@ namespace detail
 		typedef std::size_t size_type;
 		typedef tvec2<T> col_type;
 		typedef tvec2<T> row_type;
+		GLM_FUNC_DECL size_type length() const;
 		static GLM_FUNC_DECL size_type col_size();
 		static GLM_FUNC_DECL size_type row_size();
 
@@ -77,7 +97,7 @@ namespace detail
 		template <typename U> 
 		GLM_FUNC_DECL explicit tmat2x2(
 			U const & x);
-			
+
 		template <typename U, typename V, typename M, typename N> 
 		GLM_FUNC_DECL explicit tmat2x2(
 			U const & x1, V const & y1, 
@@ -229,10 +249,6 @@ namespace detail
 		int);
 } //namespace detail
 
-namespace core{
-namespace type{
-namespace precision
-{
 	//! 2 columns of 2 components matrix of low precision floating-point numbers.
 	//! There is no guarantee on the actual precision.
 	//! From GLSL 1.30.8 specification, section 4.1.6 Matrices and section 4.5 Precision and Precision Qualifiers
@@ -269,9 +285,6 @@ namespace precision
 	//! \ingroup core_precision
 	typedef detail::tmat2x2<highp_float>	highp_mat2x2;
 
-}//namespace precision
-}//namespace type
-}//namespace core
 }//namespace glm
 
 #ifndef GLM_EXTERNAL_TEMPLATE

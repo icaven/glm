@@ -1,19 +1,47 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2009-06-04
-// Updated : 2009-06-04
-// Licence : This source is under MIT License
-// File    : glm/gtc/type_precision.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-// - GLM_GTC_half
-// - GLM_GTC_quaternion
-///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+/// OpenGL Mathematics (glm.g-truc.net)
+///
+/// Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+/// 
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+/// 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
+///
+/// @ref gtc_type_precision
+/// @file glm/gtc/type_precision.hpp
+/// @date 2009-06-04 / 2011-06-05
+/// @author Christophe Riccio
+///
+/// @see core (dependence)
+/// @see gtc_half_float (dependence)
+/// @see gtc_quaternion (dependence)
+/// 
+/// @defgroup gtc_type_precision GLM_GTC_type_precision: Vector and matrix types with defined precisions
+/// @ingroup gtc
+/// 
+/// @brief Defines specific C++-based precision types.
+/// 
+/// @ref core_precision defines types based on GLSL's precision qualifiers. This
+/// extension defines types based on explicitly-sized C++ data types.
+/// 
+/// <glm/gtc/type_precision.hpp> need to be included to use these functionalities.
+///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtc_type_precision
-#define glm_gtc_type_precision
+#ifndef GLM_GTC_type_precision
+#define GLM_GTC_type_precision GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"
@@ -24,21 +52,13 @@
 #	pragma message("GLM: GLM_GTC_type_precision extension included")
 #endif
 
-namespace glm{
-namespace gtc{
-namespace type_precision ///< GLM_GTC_type_precision extension: Defined types with specific size.
+namespace glm
 {
-	///////////////////////////
-	// Dependences
-
-	using namespace gtc::half_float;
-	using namespace gtc::quaternion;
-
 	///////////////////////////
 	// Signed int vector types 
 
-	/// \addtogroup gtc_type_precision
-	///@{
+	/// @addtogroup gtc_type_precision
+	/// @{
 
 	typedef detail::int8						int8;         //!< \brief 8bit signed integer. (from GLM_GTC_type_precision extension)
 	typedef detail::int16						int16;        //!< \brief 16bit signed integer. (from GLM_GTC_type_precision extension)
@@ -207,14 +227,9 @@ namespace type_precision ///< GLM_GTC_type_precision extension: Defined types wi
 	typedef detail::tquat<f32>					f32quat;    //!< \brief Single-precision floating-point quaternion. (from GLM_GTC_type_precision extension)
 	typedef detail::tquat<f64>					f64quat;    //!< \brief Double-precision floating-point quaternion. (from GLM_GTC_type_precision extension)
 
-	///@}
-
-}//namespace type_precision
-}//namespace gtc
+	/// @}
 }//namespace glm
 
 #include "type_precision.inl"
 
-namespace glm{using namespace gtc::type_precision;}
-
-#endif//glm_gtc_type_precision
+#endif//GLM_GTC_type_precision

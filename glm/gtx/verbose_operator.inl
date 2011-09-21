@@ -8,8 +8,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
-namespace verbose_operator{
 
 template <typename genType>
 GLM_FUNC_QUALIFIER genType add(genType const & a, genType const & b)
@@ -124,6 +122,4 @@ GLM_FUNC_QUALIFIER genTypeT mad(genTypeT const & a, genTypeU const & b, genTypeV
 	return a * b + c;
 }
 
-}//namespace verbose_operator
-}//namespace gtx
 }//namespace glm

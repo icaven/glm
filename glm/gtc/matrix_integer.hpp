@@ -1,17 +1,41 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2011-01-20
-// Updated : 2011-01-20
-// Licence : This source is under MIT License
-// File    : glm/gtc/matrix_integer.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+/// OpenGL Mathematics (glm.g-truc.net)
+///
+/// Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+/// 
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+/// 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
+///
+/// @ref gtc_matrix_integer
+/// @file glm/gtc/matrix_integer.hpp
+/// @date 2011-01-20 / 2011-06-05
+/// @author Christophe Riccio
+///
+/// @see core (dependence)
+///
+/// @defgroup gtc_matrix_integer GLM_GTC_matrix_integer: Integer matrix types
+/// @ingroup gtc
+/// 
+/// Defines a number of matrices with integer types.
+/// <glm/gtc/matrix_integer.hpp> need to be included to use these functionalities.
+///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtc_matrix_integer
-#define glm_gtc_matrix_integer
+#ifndef GLM_GTC_matrix_integer
+#define GLM_GTC_matrix_integer GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"
@@ -20,12 +44,10 @@
 #	pragma message("GLM: GLM_GTC_matrix_integer extension included")
 #endif
 
-namespace glm{
-namespace gtc{
-namespace matrix_integer ///< GLM_GTC_matrix_integer extension: Add integer matrices
+namespace glm
 {
-	/// \addtogroup gtc_matrix_integer
-	///@{
+	/// @addtogroup gtc_matrix_integer
+	/// @{
 
 	typedef detail::tmat2x2<highp_int>				highp_imat2;	//!< \brief High-precision signed integer 2x2 matrix. (from GLM_GTC_matrix_integer extension)
 	typedef detail::tmat3x3<highp_int>				highp_imat3;	//!< \brief High-precision signed integer 3x3 matrix. (from GLM_GTC_matrix_integer extension)
@@ -193,12 +215,7 @@ namespace matrix_integer ///< GLM_GTC_matrix_integer extension: Add integer matr
 	typedef mediump_umat4x4							umat4x4; //!< \brief Unsigned integer 4x4 matrix. (from GLM_GTC_matrix_integer extension)
 #endif//GLM_PRECISION
 
-	///@}
-
-}//namespace matrix_integer
-}//namespace gtc
+	/// @}
 }//namespace glm
 
-namespace glm{using namespace gtc::matrix_integer;}
-
-#endif//glm_gtc_matrix_integer
+#endif//GLM_GTC_matrix_integer

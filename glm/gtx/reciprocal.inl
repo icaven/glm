@@ -8,8 +8,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
-namespace reciprocal{
 
 // sec
 template <typename genType>
@@ -588,6 +586,4 @@ GLM_FUNC_QUALIFIER detail::tvec4<valType> acoth
         acoth(x.w));
 }
 
-}//namespace reciprocal
-}//namespace gtx
 }//namespace glm

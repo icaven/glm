@@ -46,8 +46,9 @@ int test_normalizedRand2()
 			ResultDouble += glm::length(glm::normalizedRand2<double>());
 		}
 
-		Error += glm::equalEpsilon(ResultFloat, float(Max), 0.0001f);
-		Error += glm::equalEpsilon(ResultDouble, double(Max), 0.0001);
+		Error += glm::equalEpsilon(ResultFloat, float(Max), 0.000001f) ? 0 : 1;
+		Error += glm::equalEpsilon(ResultDouble, double(Max), 0.000001) ? 0 : 1;
+		assert(!Error);
 	}
 
 	return Error;

@@ -1,21 +1,43 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2005-12-21
-// Updated : 2008-07-24
-// Licence : This source is under MIT License
-// File    : glm/gtx/norm.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-// - GLM_GTX_quaternion
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// ToDo:
-// - Study the validity of the notion of length2 to quaternion
-///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+/// OpenGL Mathematics (glm.g-truc.net)
+///
+/// Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+/// 
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+/// 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
+///
+/// @ref gtx_norm
+/// @file glm/gtx/norm.hpp
+/// @date 2005-12-21 / 2011-06-07
+/// @author Christophe Riccio
+///
+/// @see core (dependence)
+/// @see gtx_quaternion (dependence)
+///
+/// @defgroup gtx_norm GLM_GTX_norm: Vector norm calculations
+/// @ingroup gtx
+/// 
+/// @brief Various way to compute vector norms.
+/// 
+/// <glm/gtx/norm.hpp> need to be included to use these functionalities.
+///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_norm
-#define glm_gtx_norm
+#ifndef GLM_GTX_norm
+#define GLM_GTX_norm GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"
@@ -25,11 +47,9 @@
 #	pragma message("GLM: GLM_GTX_norm extension included")
 #endif
 
-namespace glm{
-namespace gtx{
-namespace norm ///< GLM_GTX_norm extension: Various way to compute vector norms.
+namespace glm
 {
-	/// \addtogroup gtx_norm
+	/// @addtogroup gtx_norm
 	/// @{
 
 	//! Returns the squared length of x.
@@ -132,12 +152,8 @@ namespace norm ///< GLM_GTX_norm extension: Various way to compute vector norms.
 		unsigned int Depth);
 
 	/// @}
-}//namespace norm
-}//namespace gtx
 }//namespace glm
 
 #include "norm.inl"
 
-namespace glm{using namespace gtx::norm;}
-
-#endif//glm_gtx_norm
+#endif//GLM_GTX_norm

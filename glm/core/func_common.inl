@@ -1,49 +1,61 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2008-08-03
-// Updated : 2010-01-26
-// Licence : This source is under MIT License
-// File    : glm/core/func_common.inl
-///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+/// OpenGL Mathematics (glm.g-truc.net)
+///
+/// Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+/// 
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+/// 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
+///
+/// @ref core
+/// @file glm/core/func_common.inl
+/// @date 2008-08-03 / 2011-06-15
+/// @author Christophe Riccio
+///////////////////////////////////////////////////////////////////////////////////
 
-namespace glm
+namespace glm{
+namespace detail
 {
-	namespace detail
-	{
-		template <typename genFIType, bool /*signed*/>
-		struct Abs_
-		{
-		};
+    template <typename genFIType, bool /*signed*/>
+    struct Abs_
+    {};
 
-		template <typename genFIType>
-		struct Abs_<genFIType, true>
-		{
-			static genFIType get(genFIType const & x)
-			{
-				GLM_STATIC_ASSERT(
-					detail::type<genFIType>::is_float || 
-					detail::type<genFIType>::is_int, "'abs' only accept floating-point and integer inputs");
-				return x >= genFIType(0) ? x : -x;
-			}
-		};
+    template <typename genFIType>
+    struct Abs_<genFIType, true>
+    {
+        static genFIType get(genFIType const & x)
+        {
+            GLM_STATIC_ASSERT(
+                detail::type<genFIType>::is_float || 
+                detail::type<genFIType>::is_int, "'abs' only accept floating-point and integer inputs");
+            return x >= genFIType(0) ? x : -x;
+        }
+    };
 
-		template <typename genFIType>
-		struct Abs_<genFIType, false>
-		{
-			static genFIType get(genFIType const & x)
-			{
-				GLM_STATIC_ASSERT(
+    template <typename genFIType>
+    struct Abs_<genFIType, false>
+    {
+        static genFIType get(genFIType const & x)
+        {
+            GLM_STATIC_ASSERT(
 					detail::type<genFIType>::is_uint, "'abs' only accept floating-point and integer inputs");
-
-				return x;
-			}
-		};
-	}//namespace detail
-
-	namespace core{
-	namespace function{
-	namespace common{
+            return x;
+        }
+    };
+}//namespace detail
 
 	// abs
 	template <typename genFIType>
@@ -146,7 +158,7 @@ namespace glm
     template <>
 	GLM_FUNC_QUALIFIER detail::thalf floor<detail::thalf>(detail::thalf const& x)
     {
-        return detail::thalf(::std::floor(float(x)));
+        return detail::thalf(::std::floor(x.toFloat()));
     }
 
     template <typename genType>
@@ -256,7 +268,7 @@ namespace glm
             round(x.z),
             round(x.w));
     }
-
+/*
     // roundEven
     template <typename genType>
     GLM_FUNC_QUALIFIER genType roundEven(genType const& x)
@@ -265,7 +277,22 @@ namespace glm
 
 		return genType(int(x + genType(int(x) % 2)));
     }
-
+*/
+    // roundEven
+    template <typename genType>
+    GLM_FUNC_QUALIFIER genType roundEven(genType const& x)
+    {
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'roundEven' only accept floating-point inputs");
+		
+		genType RoundValue(0.5);
+		if(fract(x) == genType(0.5) && int(x) % 2)
+			RoundValue = genType(-0.5);
+		
+		if(x < genType(0.0))
+			return genType(int(x - RoundValue));
+		return genType(int(x + RoundValue));
+    }
+	
     template <typename valType>
     GLM_FUNC_QUALIFIER detail::tvec2<valType> roundEven(detail::tvec2<valType> const& x)
     {
@@ -735,7 +762,7 @@ namespace glm
 		//if(x >= maxVal) return maxVal; 
         //if(x <= minVal) return minVal;
 	    //return x;
-		return glm::max(glm::min(x, maxVal), minVal);
+		return max(min(x, maxVal), minVal);
     }
 
     template <typename T>
@@ -1335,7 +1362,7 @@ namespace glm
 			floatBitsToInt(value.z));
     }
 
-	GLM_FUNC_QUALIFIER detail::tvec4<int> floatBitsToInt
+    GLM_FUNC_QUALIFIER detail::tvec4<int> floatBitsToInt
 	(
 		detail::tvec4<float> const & value
 	)
@@ -1404,7 +1431,8 @@ namespace glm
 		return fi.f;
 	}
 
-    GLM_FUNC_QUALIFIER detail::tvec2<float> intBitsToFloat
+	GLM_FUNC_QUALIFIER detail::tvec2<float> intBitsToFloat
+
 	(
 		detail::tvec2<int> const & value
 	)
@@ -1414,7 +1442,7 @@ namespace glm
             intBitsToFloat(value.y));
     }
 
-    GLM_FUNC_QUALIFIER detail::tvec3<float> intBitsToFloat
+	GLM_FUNC_QUALIFIER detail::tvec3<float> intBitsToFloat
 	(
 		detail::tvec3<int> const & value
 	)
@@ -1573,7 +1601,4 @@ namespace glm
 		return std::frexp(x, exp);
 	}
 
-	}//namespace common
-	}//namespace function
-	}//namespace core
 }//namespace glm

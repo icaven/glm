@@ -8,8 +8,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
-namespace vector_angle{
 
 template <typename genType> 
 GLM_FUNC_QUALIFIER typename genType::value_type angle
@@ -30,7 +28,7 @@ GLM_FUNC_QUALIFIER valType orientedAngle
 )
 {
     valType Angle = glm::degrees(acos(dot(x, y)));
-	detail::tvec2<valType> TransformedVector = glm::gtx::rotate_vector::rotate(x, Angle);
+	detail::tvec2<valType> TransformedVector = glm::rotate(x, Angle);
     if(all(equalEpsilon(y, TransformedVector, valType(0.01))))
 		return Angle;
     else
@@ -53,6 +51,4 @@ GLM_FUNC_QUALIFIER valType orientedAngle
 		return Angle;
 }
 
-}//namespace vector_angle
-}//namespace gtx
 }//namespace glm

@@ -8,8 +8,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
-namespace projection{
 
 template <typename T> 
 GLM_FUNC_QUALIFIER detail::tvec2<T> proj(
@@ -35,6 +33,4 @@ GLM_FUNC_QUALIFIER detail::tvec4<T> proj(
 	return glm::dot(x, Normal) / glm::dot(Normal, Normal) * Normal;
 }
 
-}//namespace projection
-}//namespace gtx
 }//namespace glm

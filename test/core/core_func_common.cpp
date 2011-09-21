@@ -2,145 +2,251 @@
 // OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2011-01-15
-// Updated : 2011-01-15
+// Updated : 2011-09-13
 // Licence : This source is under MIT licence
-// File    : test/gtx/simd-mat4.cpp
+// File    : test/core/func_common.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/glm.hpp>
 
-int test_static_assert()
+int test_floatBitsToInt()
 {
-	//glm::lessThan(glm::mat4(0), glm::mat4(4));
+	int Error = 0;
+	
+	{
+		float A = 1.0f;
+		int B = glm::floatBitsToInt(A);
+		float C = glm::intBitsToFloat(B);
+		int D = *(int*)&A;
+		Error += B == D ? 0 : 1;
+		Error += A == C ? 0 : 1;
+	}
 
-	return 0;
+	{
+		glm::vec2 A(1.0f, 2.0f);
+		glm::ivec2 B = glm::floatBitsToInt(A);
+		glm::vec2 C = glm::intBitsToFloat(B);
+		Error += B.x == *(int*)&(A.x) ? 0 : 1;
+		Error += B.y == *(int*)&(A.y) ? 0 : 1;
+		Error += A == C? 0 : 1;
+	}
+
+	{
+		glm::vec3 A(1.0f, 2.0f, 3.0f);
+		glm::ivec3 B = glm::floatBitsToInt(A);
+		glm::vec3 C = glm::intBitsToFloat(B);
+		Error += B.x == *(int*)&(A.x) ? 0 : 1;
+		Error += B.y == *(int*)&(A.y) ? 0 : 1;
+		Error += B.z == *(int*)&(A.z) ? 0 : 1;
+		Error += A == C? 0 : 1;
+	}
+	
+	{
+		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::ivec4 B = glm::floatBitsToInt(A);
+		glm::vec4 C = glm::intBitsToFloat(B);
+		Error += B.x == *(int*)&(A.x) ? 0 : 1;
+		Error += B.y == *(int*)&(A.y) ? 0 : 1;
+		Error += B.z == *(int*)&(A.z) ? 0 : 1;
+		Error += B.w == *(int*)&(A.w) ? 0 : 1;
+		Error += A == C? 0 : 1;
+	}
+	
+	return Error;
 }
 
-int test_lessThan_vec2()
+int test_floatBitsToUint()
 {
-	glm::bvec2 O = glm::bvec2(true, false);
-
-	glm::bvec2 A = glm::lessThan(glm::vec2(0, 6), glm::vec2(4, 2));
-	assert(glm::all(glm::equal(O, A)));
-
-	glm::bvec2 B = glm::lessThan(glm::ivec2(0, 6), glm::ivec2(4, 2));
-	assert(glm::all(glm::equal(O, B)));
-
-	glm::bvec2 C = glm::lessThan(glm::uvec2(0, 6), glm::uvec2(4, 2));
-	assert(glm::all(glm::equal(O, C)));
-
-	return 0;
+	int Error = 0;
+	
+	{
+		float A = 1.0f;
+		glm::uint B = glm::floatBitsToUint(A);
+		float C = glm::intBitsToFloat(B);
+		Error += B == *(glm::uint*)&A ? 0 : 1;
+		Error += A == C? 0 : 1;
+	}
+	
+	{
+		glm::vec2 A(1.0f, 2.0f);
+		glm::uvec2 B = glm::floatBitsToUint(A);
+		glm::vec2 C = glm::uintBitsToFloat(B);
+		Error += B.x == *(glm::uint*)&(A.x) ? 0 : 1;
+		Error += B.y == *(glm::uint*)&(A.y) ? 0 : 1;
+		Error += A == C ? 0 : 1;
+	}
+	
+	{
+		glm::vec3 A(1.0f, 2.0f, 3.0f);
+		glm::uvec3 B = glm::floatBitsToUint(A);
+		glm::vec3 C = glm::uintBitsToFloat(B);
+		Error += B.x == *(glm::uint*)&(A.x) ? 0 : 1;
+		Error += B.y == *(glm::uint*)&(A.y) ? 0 : 1;
+		Error += B.z == *(glm::uint*)&(A.z) ? 0 : 1;
+		Error += A == C? 0 : 1;
+	}
+	
+	{
+		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::uvec4 B = glm::floatBitsToUint(A);
+		glm::vec4 C = glm::uintBitsToFloat(B);
+		Error += B.x == *(glm::uint*)&(A.x) ? 0 : 1;
+		Error += B.y == *(glm::uint*)&(A.y) ? 0 : 1;
+		Error += B.z == *(glm::uint*)&(A.z) ? 0 : 1;
+		Error += B.w == *(glm::uint*)&(A.w) ? 0 : 1;
+		Error += A == C? 0 : 1;
+	}
+	
+	return Error;
 }
 
-int test_lessThan_vec3()
+int test_mix()
 {
-	glm::bvec3 O = glm::bvec3(true, true, false);
+	int Error = 0;
 
-	glm::bvec3 A = glm::lessThan(glm::vec3(0, 1, 6), glm::vec3(4, 5, 2));
-	assert(glm::all(glm::equal(O, A)));
+	{
+		float A = glm::mix(0.f, 1.f, true);
+		Error += A == 1.f ? 0 : 1;
+		float B = glm::mix(0.f, 1.f, false);
+		Error += B == 0.f ? 0 : 1;
+	}
 
-	glm::bvec3 B = glm::lessThan(glm::ivec3(0, 1, 6), glm::ivec3(4, 5, 2));
-	assert(glm::all(glm::equal(O, B)));
+	{
+		float A = glm::mix(0.f, 1.f, 1.f);
+		Error += A == 1.f ? 0 : 1;
+		float B = glm::mix(0.f, 1.f, 0.f);
+		Error += B == 0.f ? 0 : 1;
+	}
 
-	glm::bvec3 C = glm::lessThan(glm::uvec3(0, 1, 6), glm::uvec3(4, 5, 2));
-	assert(glm::all(glm::equal(O, C)));
-
-	return 0;
+	return Error;
 }
 
-int test_lessThan_vec4()
+int test_round()
 {
-	glm::bvec4 O = glm::bvec4(true, true, false, false);
-
-	glm::bvec4 A = glm::lessThan(glm::vec4(0, 1, 6, 7), glm::vec4(4, 5, 2, 3));
-	assert(glm::all(glm::equal(O, A)));
-
-	glm::bvec4 B = glm::lessThan(glm::ivec4(0, 1, 6, 7), glm::ivec4(4, 5, 2, 3));
-	assert(glm::all(glm::equal(O, B)));
-
-	glm::bvec4 C = glm::lessThan(glm::uvec4(0, 1, 6, 7), glm::uvec4(4, 5, 2, 3));
-	assert(glm::all(glm::equal(O, C)));
-
-	return 0;
+	int Error = 0;
+	
+	{
+		float A = glm::round(0.0f);
+		Error += A == 0.0f ? 0 : 1;
+		float B = glm::round(0.5f);
+		Error += B == 1.0f ? 0 : 1;
+		float C = glm::round(1.0f);
+		Error += C == 1.0f ? 0 : 1;
+		float D = glm::round(0.1f);
+		Error += D == 0.0f ? 0 : 1;
+		float E = glm::round(0.9f);
+		Error += E == 1.0f ? 0 : 1;
+		float F = glm::round(1.5f);
+		Error += F == 2.0f ? 0 : 1;
+		float G = glm::round(1.9f);
+		Error += G == 2.0f ? 0 : 1;
+	}
+	
+	{
+		float A = glm::round(-0.0f);
+		Error += A ==  0.0f ? 0 : 1;
+		float B = glm::round(-0.5f);
+		Error += B == -1.0f ? 0 : 1;
+		float C = glm::round(-1.0f);
+		Error += C == -1.0f ? 0 : 1;
+		float D = glm::round(-0.1f);
+		Error += D ==  0.0f ? 0 : 1;
+		float E = glm::round(-0.9f);
+		Error += E == -1.0f ? 0 : 1;
+		float F = glm::round(-1.5f);
+		Error += F == -2.0f ? 0 : 1;
+		float G = glm::round(-1.9f);
+		Error += G == -2.0f ? 0 : 1;
+	}
+	
+	return Error;
 }
 
-int test_greaterThanEqual_vec2()
+int test_roundEven()
 {
-	glm::bvec2 O = glm::bvec2(false, true);
-
-	glm::bvec2 A = glm::greaterThanEqual(glm::vec2(0, 6), glm::vec2(4, 2));
-	assert(glm::all(glm::equal(O, A)));
-
-	glm::bvec2 B = glm::greaterThanEqual(glm::ivec2(0, 6), glm::ivec2(4, 2));
-	assert(glm::all(glm::equal(O, B)));
-
-	glm::bvec2 C = glm::greaterThanEqual(glm::uvec2(0, 6), glm::uvec2(4, 2));
-	assert(glm::all(glm::equal(O, C)));
-
-	return 0;
-}
-
-int test_greaterThanEqual_vec3()
-{
-	glm::bvec3 O = glm::bvec3(false, false, true);
-
-	glm::bvec3 A = glm::greaterThanEqual(glm::vec3(0, 1, 6), glm::vec3(4, 5, 2));
-	assert(glm::all(glm::equal(O, A)));
-
-	glm::bvec3 B = glm::greaterThanEqual(glm::ivec3(0, 1, 6), glm::ivec3(4, 5, 2));
-	assert(glm::all(glm::equal(O, B)));
-
-	glm::bvec3 C = glm::greaterThanEqual(glm::uvec3(0, 1, 6), glm::uvec3(4, 5, 2));
-	assert(glm::all(glm::equal(O, C)));
-
-	return 0;
-}
-
-int test_greaterThanEqual_vec4()
-{
-	glm::bvec4 O = glm::bvec4(false, false, true, true);
-
-	glm::bvec4 A = glm::greaterThanEqual(glm::vec4(0, 1, 6, 7), glm::vec4(4, 5, 2, 3));
-	assert(glm::all(glm::equal(O, A)));
-
-	glm::bvec4 B = glm::greaterThanEqual(glm::ivec4(0, 1, 6, 7), glm::ivec4(4, 5, 2, 3));
-	assert(glm::all(glm::equal(O, B)));
-
-	glm::bvec4 C = glm::greaterThanEqual(glm::uvec4(0, 1, 6, 7), glm::uvec4(4, 5, 2, 3));
-	assert(glm::all(glm::equal(O, C)));
-
-	return 0;
-}
-
-int test_all()
-{
-	assert(glm::all(glm::bvec2(true, true)));
-	assert(!glm::all(glm::bvec2(true, false)));
-	assert(!glm::all(glm::bvec2(false, false)));
-
-	assert(glm::all(glm::bvec3(true, true, true)));
-	assert(!glm::all(glm::bvec3(true, false, true)));
-	assert(!glm::all(glm::bvec3(false, false, false)));
-
-	assert(glm::all(glm::bvec4(true, true, true, true)));
-	assert(!glm::all(glm::bvec4(true, false, true, false)));
-	assert(!glm::all(glm::bvec4(false, false, false, false)));
-
-	return 0;
+	int Error = 0;
+	
+	{
+		float A = glm::round(0.0f);
+		Error += A == 0.0f ? 0 : 1;
+		float B = glm::round(0.5f);
+		Error += B == 0.0f ? 0 : 1;
+		float C = glm::round(1.0f);
+		Error += C == 1.0f ? 0 : 1;
+		float D = glm::round(0.1f);
+		Error += D == 0.0f ? 0 : 1;
+		float E = glm::round(0.9f);
+		Error += E == 1.0f ? 0 : 1;
+		float F = glm::round(1.5f);
+		Error += F == 2.0f ? 0 : 1;
+		float G = glm::round(1.9f);
+		Error += G == 2.0f ? 0 : 1;
+	}
+	
+	{
+		float A = glm::round(-0.0f);
+		Error += A ==  0.0f ? 0 : 1;
+		float B = glm::round(-0.5f);
+		Error += B == -0.0f ? 0 : 1;
+		float C = glm::round(-1.0f);
+		Error += C == -1.0f ? 0 : 1;
+		float D = glm::round(-0.1f);
+		Error += D ==  0.0f ? 0 : 1;
+		float E = glm::round(-0.9f);
+		Error += E == -1.0f ? 0 : 1;
+		float F = glm::round(-1.5f);
+		Error += F == -2.0f ? 0 : 1;
+		float G = glm::round(-1.9f);
+		Error += G == -2.0f ? 0 : 1;
+	}
+	
+	{
+		float A = glm::round(1.5f);
+		Error += A == 2.0f ? 0 : 1;
+		float B = glm::round(2.5f);
+		Error += B == 2.0f ? 0 : 1;
+		float C = glm::round(3.5f);
+		Error += C == 4.0f ? 0 : 1;
+		float D = glm::round(4.5f);
+		Error += D == 4.0f ? 0 : 1;
+		float E = glm::round(5.5f);
+		Error += E == 6.0f ? 0 : 1;
+		float F = glm::round(6.5f);
+		Error += F == 6.0f ? 0 : 1;
+		float G = glm::round(7.5f);
+		Error += G == 8.0f ? 0 : 1;
+	}
+	
+	{
+		float A = glm::round(-1.5f);
+		Error += A == -2.0f ? 0 : 1;
+		float B = glm::round(-2.5f);
+		Error += B == -2.0f ? 0 : 1;
+		float C = glm::round(-3.5f);
+		Error += C == -4.0f ? 0 : 1;
+		float D = glm::round(-4.5f);
+		Error += D == -4.0f ? 0 : 1;
+		float E = glm::round(-5.5f);
+		Error += E == -6.0f ? 0 : 1;
+		float F = glm::round(-6.5f);
+		Error += F == -6.0f ? 0 : 1;
+		float G = glm::round(-7.5f);
+		Error += G == -8.0f ? 0 : 1;
+	}
+	
+	return Error;
 }
 
 int main()
 {
-	int Failed = 0;
-	Failed += test_static_assert();
-	Failed += test_lessThan_vec2();
-	Failed += test_lessThan_vec3();
-	Failed += test_lessThan_vec4();
-	Failed += test_greaterThanEqual_vec2();
-	Failed += test_greaterThanEqual_vec3();
-	Failed += test_greaterThanEqual_vec4();
-	Failed += test_all();
+	int Error = 0;
 
-	return Failed;
+	Error += test_floatBitsToInt();
+	Error += test_floatBitsToUint();
+	Error += test_mix();
+	Error += test_round();
+	Error += test_roundEven();
+
+	return Error;
 }
 

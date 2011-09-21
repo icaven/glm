@@ -15,9 +15,8 @@ int test_make_pointer_mat()
     int Error = 0;
 
     float ArrayA[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-    int ArrayB[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-    bool ArrayC[] = {true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false};
-    
+    double ArrayB[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+ 
     glm::mat2x2 Mat2x2A = glm::make_mat2x2(ArrayA);
     glm::mat2x3 Mat2x3A = glm::make_mat2x3(ArrayA);
     glm::mat2x4 Mat2x4A = glm::make_mat2x4(ArrayA);
@@ -27,7 +26,17 @@ int test_make_pointer_mat()
     glm::mat4x2 Mat4x2A = glm::make_mat4x2(ArrayA);
     glm::mat4x3 Mat4x3A = glm::make_mat4x3(ArrayA);
     glm::mat4x4 Mat4x4A = glm::make_mat4x4(ArrayA);
-    
+  
+    glm::dmat2x2 Mat2x2B = glm::make_mat2x2(ArrayB);
+    glm::dmat2x3 Mat2x3B = glm::make_mat2x3(ArrayB);
+    glm::dmat2x4 Mat2x4B = glm::make_mat2x4(ArrayB);
+    glm::dmat3x2 Mat3x2B = glm::make_mat3x2(ArrayB);
+    glm::dmat3x3 Mat3x3B = glm::make_mat3x3(ArrayB);
+    glm::dmat3x4 Mat3x4B = glm::make_mat3x4(ArrayB);
+    glm::dmat4x2 Mat4x2B = glm::make_mat4x2(ArrayB);
+    glm::dmat4x3 Mat4x3B = glm::make_mat4x3(ArrayB);
+    glm::dmat4x4 Mat4x4B = glm::make_mat4x4(ArrayB);
+	
     return Error;
 }
 

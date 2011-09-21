@@ -1,6 +1,7 @@
 glmCreateTestGTC(core_type_float)
 glmCreateTestGTC(core_type_half)
 glmCreateTestGTC(core_type_int)
+glmCreateTestGTC(core_type_length)
 glmCreateTestGTC(core_type_mat2x2)
 glmCreateTestGTC(core_type_mat2x3)
 glmCreateTestGTC(core_type_mat2x4)

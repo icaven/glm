@@ -8,27 +8,23 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
-namespace handed_coordinate_space
+
+template <typename T> 
+GLM_FUNC_QUALIFIER bool rightHanded(
+	detail::tvec3<T> const & tangent, 
+	detail::tvec3<T> const & binormal,
+	detail::tvec3<T> const & normal)
 {
-    template <typename T> 
-    GLM_FUNC_QUALIFIER bool rightHanded(
-		detail::tvec3<T> const & tangent, 
-		detail::tvec3<T> const & binormal,
-		detail::tvec3<T> const & normal)
-    {
-        return dot(cross(normal, tangent), binormal) > T(0);
-    }
+    return dot(cross(normal, tangent), binormal) > T(0);
+}
 
-    template <typename T> 
-    GLM_FUNC_QUALIFIER bool leftHanded(
-		detail::tvec3<T> const & tangent, 
-		detail::tvec3<T> const & binormal, 
-		detail::tvec3<T> const & normal)
-    {
-        return dot(cross(normal, tangent), binormal) < T(0);
-    }
+template <typename T> 
+GLM_FUNC_QUALIFIER bool leftHanded(
+	detail::tvec3<T> const & tangent, 
+	detail::tvec3<T> const & binormal, 
+	detail::tvec3<T> const & normal)
+{
+    return dot(cross(normal, tangent), binormal) < T(0);
+}
 
-}//namespace handed_coordinate_space
-}//namespace gtx
 }//namespace glm

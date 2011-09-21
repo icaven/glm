@@ -1,11 +1,30 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2005-12-21
-// Updated : 2010-02-07
-// Licence : This source is under MIT licence
-// File    : glm/gtc/half_float.inl
-///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+/// OpenGL Mathematics (glm.g-truc.net)
+///
+/// Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+/// 
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+/// 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
+///
+/// @ref gtc_half_float
+/// @file glm/gtc/half_float.inl
+/// @date 2009-04-29 / 2011-06-05
+/// @author Christophe Riccio
+///////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
 namespace detail{
@@ -15,12 +34,12 @@ namespace detail{
 //////////////////////////////////////
 // hvec2
 
-GLM_FUNC_QUALIFIER tvec2<thalf>::size_type tvec2<thalf>::value_size()
+GLM_FUNC_QUALIFIER tvec2<thalf>::size_type tvec2<thalf>::length() const
 {
-	return 2;
+    return 2;
 }
 
-GLM_FUNC_QUALIFIER typename tvec2<thalf>::size_type tvec2<thalf>::length() const
+GLM_FUNC_QUALIFIER tvec2<thalf>::size_type tvec2<thalf>::value_size()
 {
 	return 2;
 }
@@ -288,12 +307,12 @@ GLM_FUNC_QUALIFIER tref2<thalf> tvec2<thalf>::swizzle(comp x, comp y)
 //////////////////////////////////////
 // hvec3
 
-GLM_FUNC_QUALIFIER tvec3<thalf>::size_type tvec3<thalf>::value_size()
+GLM_FUNC_QUALIFIER tvec3<thalf>::size_type tvec3<thalf>::length() const
 {
-	return 3;
+    return 3;
 }
 
-GLM_FUNC_QUALIFIER typename tvec3<thalf>::size_type tvec3<thalf>::length() const
+GLM_FUNC_QUALIFIER tvec3<thalf>::size_type tvec3<thalf>::value_size()
 {
 	return 3;
 }
@@ -605,13 +624,12 @@ GLM_FUNC_QUALIFIER tref3<thalf> tvec3<thalf>::swizzle(comp x, comp y, comp z)
 //////////////////////////////////////
 // hvec4
 
-GLM_FUNC_QUALIFIER tvec4<thalf>::size_type tvec4<thalf>::value_size()
+GLM_FUNC_QUALIFIER tvec4<thalf>::size_type tvec4<thalf>::length() const
 {
-	return 4;
+    return 4;
 }
 
-	
-GLM_FUNC_QUALIFIER typename tvec4<thalf>::size_type tvec4<thalf>::length() const
+GLM_FUNC_QUALIFIER tvec4<thalf>::size_type tvec4<thalf>::value_size()
 {
 	return 4;
 }

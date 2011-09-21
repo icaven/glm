@@ -1,22 +1,43 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2005-12-21
-// Updated : 2007-08-14
-// Licence : This source is under MIT License
-// File    : glm/gtx/euler_angles.hpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Dependency:
-// - GLM core
-// - GLM_GTC_half_float
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// ToDo:
-// - mat2 mat2GTX(const vec2& angles) undefined
-// - mat3 mat3GTX(const vec2& angles) undefined
-///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+/// OpenGL Mathematics (glm.g-truc.net)
+///
+/// Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+/// 
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+/// 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
+///
+/// @ref gtx_euler_angles
+/// @file glm/gtx/euler_angles.hpp
+/// @date 2005-12-21 / 2011-06-07
+/// @author Christophe Riccio
+///
+/// @see core (dependence)
+/// @see gtc_half_float (dependence)
+///
+/// @defgroup gtx_euler_angles GLM_GTX_euler_angles: Matrix from euler angles
+/// @ingroup gtx
+/// 
+/// @brief Build matrices from Euler angles.
+/// 
+/// <glm/gtx/euler_angles.hpp> need to be included to use these functionalities.
+///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_euler_angles
-#define glm_gtx_euler_angles
+#ifndef GLM_GTX_euler_angles
+#define GLM_GTX_euler_angles GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"
@@ -26,11 +47,9 @@
 #	pragma message("GLM: GLM_GTX_euler_angles extension included")
 #endif
 
-namespace glm{
-namespace gtx{
-namespace euler_angles ///< GLM_GTX_euler_angles extension: Build matrices from Euler angles.
+namespace glm
 {
-	/// \addtogroup gtx_euler_angles
+	/// @addtogroup gtx_euler_angles
 	/// @{
 
 	//! Creates a 3D 4 * 4 homogeneous rotation matrix from an euler angle X.
@@ -130,12 +149,8 @@ namespace euler_angles ///< GLM_GTX_euler_angles extension: Build matrices from 
 	detail::tmat4x4<T> orientate4(detail::tvec3<T> const & angles);
 
 	/// @}
-}//namespace euler_angles
-}//namespace gtx
 }//namespace glm
 
 #include "euler_angles.inl"
 
-namespace glm{using namespace gtx::euler_angles;}
-
-#endif//glm_gtx_euler_angles
+#endif//GLM_GTX_euler_angles

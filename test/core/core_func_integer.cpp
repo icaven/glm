@@ -31,7 +31,7 @@ namespace extractField
 		result		Result;
 	};
 
-	typedef type<glm::uint64, glm::uint> typeU64;
+	typedef type<glm::uint64, glm::uint32> typeU64;
 
 	typeU64 const Data64[] =
 	{

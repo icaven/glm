@@ -8,8 +8,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
-namespace gtx{
-namespace vector_access{
 
 template <typename valType> 
 GLM_FUNC_QUALIFIER void set
@@ -53,6 +51,4 @@ GLM_FUNC_QUALIFIER void set
     v.w = w;
 }
 
-}//namespace vector_access
-}//namespace gtx
 }//namespace glm
