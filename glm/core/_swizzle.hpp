@@ -242,50 +242,8 @@ namespace detail
     {
         using swizzle_base<swizzle4_3<T,P,E0,E1,E2>,T,P,4,E0,E1,E2,0,(E0==E1||E0==E2||E1==E2)>::operator=;
         P cast() const { return P(this->elem(E0), this->elem(E1), this->elem(E2)); }
-        operator P () { return cast(); }
+        operator P () const { return cast(); }
     };
-
-#define _GLM_SWIZZLE_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)\
-    template <typename T, typename P, int N, typename S0, int E0, int E1, int E2, int E3, int D0, typename S1,int F0, int F1, int F2, int F3, int D1> \
-    typename P operator OPERAND ( \
-        const glm::detail::swizzle_base<S0,T,P,N,E0,E1,E2,E3,D0>& a, \
-        const glm::detail::swizzle_base<S1,T,P,N,F0,F1,F2,F3,D1>& b) \
-    { \
-        return static_cast<const S0&>(a).cast() OPERAND static_cast<const S1&>(b).cast(); \
-    } \
-    \
-    template <typename T, typename P, int N, typename S0, int E0, int E1, int E2, int E3, int D0> \
-    typename P operator OPERAND ( \
-        const glm::detail::swizzle_base<S0,T,P,N,E0,E1,E2,E3,D0>& a, \
-        const typename P& b) \
-    { \
-        return static_cast<const S0&>(a).cast() OPERAND b; \
-    } \
-    \
-    template <typename T, typename P, int N, typename S0, int E0, int E1, int E2, int E3, int D0> \
-    typename P operator OPERAND ( \
-        const typename P& a, \
-        const glm::detail::swizzle_base<S0,T,P,N,E0,E1,E2,E3,D0>& b) \
-    { \
-        return a OPERAND static_cast<const S0&>(b).cast(); \
-    }
-
-#define _GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)\
-    template <typename T, typename P, int N, typename S0, int E0, int E1, int E2, int E3, int D0> \
-    typename P operator OPERAND ( \
-        const glm::detail::swizzle_base<S0,T,P,N,E0,E1,E2,E3,D0>& a, \
-        const typename T& b) \
-    { \
-        return static_cast<const S0&>(a).cast() OPERAND b; \
-    } \
-    \
-    template <typename T, typename P, int N, typename S0, int E0, int E1, int E2, int E3, int D0> \
-    typename P operator OPERAND ( \
-        const typename T& a, \
-        const glm::detail::swizzle_base<S0,T,P,N,E0,E1,E2,E3,D0>& b) \
-    { \
-        return a OPERAND static_cast<const S0&>(b).cast(); \
-    }
 
 //
 // To prevent the C++ syntax from getting *completely* overwhelming, define some alias macros
@@ -294,6 +252,52 @@ namespace detail
 #define _GLM_SWIZZLE_TEMPLATE2   template <typename T, typename P, int N, typename S0, int E0, int E1, int E2, int E3, int D0, typename S1,int F0, int F1, int F2, int F3, int D1>
 #define _GLM_SWIZZLE_TYPE1       glm::detail::swizzle_base<S0,T,P,N,E0,E1,E2,E3,D0>
 #define _GLM_SWIZZLE_TYPE2       glm::detail::swizzle_base<S1,T,P,N,F0,F1,F2,F3,D1>
+
+#define _GLM_SWIZZLE_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)\
+    _GLM_SWIZZLE_TEMPLATE2 \
+    typename P operator OPERAND ( const _GLM_SWIZZLE_TYPE1& a, const _GLM_SWIZZLE_TYPE2& b) \
+    { \
+        return static_cast<const S0&>(a).cast() OPERAND static_cast<const S1&>(b).cast(); \
+    } \
+    _GLM_SWIZZLE_TEMPLATE1 \
+    typename P operator OPERAND ( const _GLM_SWIZZLE_TYPE1& a, const typename P& b) \
+    { \
+        return static_cast<const S0&>(a).cast() OPERAND b; \
+    } \
+    _GLM_SWIZZLE_TEMPLATE1 \
+    typename P operator OPERAND ( const typename P& a, const _GLM_SWIZZLE_TYPE1& b) \
+    { \
+        return a OPERAND static_cast<const S0&>(b).cast(); \
+    }
+
+#define _GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)\
+    _GLM_SWIZZLE_TEMPLATE1 \
+    typename P operator OPERAND ( const _GLM_SWIZZLE_TYPE1& a, const typename T& b) \
+    { \
+        return static_cast<const S0&>(a).cast() OPERAND b; \
+    } \
+    _GLM_SWIZZLE_TEMPLATE1 \
+    typename P operator OPERAND ( const typename T& a, const _GLM_SWIZZLE_TYPE1& b) \
+    { \
+        return a OPERAND static_cast<const S0&>(b).cast(); \
+    }
+
+#define _GLM_SWIZZLE_FUNCTION2(RETURN_TYPE,FUNCTION)\
+    _GLM_SWIZZLE_TEMPLATE2\
+    typename S0::RETURN_TYPE FUNCTION(const typename _GLM_SWIZZLE_TYPE1& a, const typename _GLM_SWIZZLE_TYPE2& b)\
+    {\
+        return FUNCTION(static_cast<const S0&>(a).cast(), static_cast<const S1&>(b).cast());\
+    }\
+    _GLM_SWIZZLE_TEMPLATE1\
+    typename S0::RETURN_TYPE FUNCTION(const typename _GLM_SWIZZLE_TYPE1& a, const typename S0::vec_type& b)\
+    {\
+        return FUNCTION(static_cast<const S0&>(a).cast(), b);\
+    }\
+    _GLM_SWIZZLE_TEMPLATE1\
+    typename S0::RETURN_TYPE FUNCTION(const typename S0::vec_type& a, const typename _GLM_SWIZZLE_TYPE1& b)\
+    {\
+        return FUNCTION(a, static_cast<const S0&>(b).cast());\
+    }
 
     _GLM_SWIZZLE_TEMPLATE1  typename S0::vec_type   operator-   (typename S0::value_type a, const _GLM_SWIZZLE_TYPE1& b)        { return a - b; }
 
@@ -309,9 +313,10 @@ namespace detail
 
 namespace glm
 {
-    /*_GLM_SWIZZLE_TEMPLATE2  typename S0::value_type dot         (const _GLM_SWIZZLE_TYPE1& a, const _GLM_SWIZZLE_TYPE2& b)      { return dot(a.cast(), b.cast()); }
-    _GLM_SWIZZLE_TEMPLATE1  typename S0::value_type dot         (const _GLM_SWIZZLE_TYPE1& a, const typename S0::vec_type& b)   { return dot(a.cast(), b); }
-    _GLM_SWIZZLE_TEMPLATE1  typename S0::value_type dot         (const typename S0::vec_type& a, const _GLM_SWIZZLE_TYPE1& b)   { return dot(a, b.cast()); }*/
+        
+
+    _GLM_SWIZZLE_FUNCTION2(value_type,  dot);
+    _GLM_SWIZZLE_FUNCTION2(vec_type,    abs);
 }
 
 

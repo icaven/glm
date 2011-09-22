@@ -196,6 +196,39 @@ int test_vec3_swizzle_operators()
     return Error;
 }
 
+int test_vec3_swizzle_functions()
+{
+    int Error = 0;
+
+    // vec3 - working as expected
+    glm::vec3 q, u, v;
+    u = glm::vec3(1, 2, 3);
+    v = glm::vec3(10, 20, 30);
+    glm::dot(u, v);
+    glm::dot(u.xyz, v.zyz);
+    glm::dot(u, v.zyx);
+    glm::dot(u.xyz, v);
+
+    // vec2 - not working! how is vec3 working and not vec2?
+    glm::vec2 a, b;
+    glm::dot(a, b);
+    glm::dot(a.xy, b.xy);
+    //glm::dot(u.xy, v.xy);
+
+    glm::dot(glm::vec4(1,2,3,4).xyz, v);
+
+    glm::vec4 r, s, t;
+
+    r = glm::vec4(1, 2, 3, 4);
+    s = glm::vec4(10, 20, 30, 40);
+
+    glm::dot(r, s);
+    //glm::dot(r.xyzw, s.xyzw);
+    //glm::dot(r.xyz, s.xyz);
+
+    return Error;
+}
+
 #if 0
 using namespace glm;
 
@@ -345,6 +378,7 @@ int main()
     Error += test_vec3_swizzle3_3();
     Error += test_vec3_swizzle_half();
     Error += test_vec3_swizzle_operators();
+    Error += test_vec3_swizzle_functions();
 	
 	return Error;
 }
