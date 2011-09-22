@@ -48,7 +48,6 @@ namespace glm
 	};
 }//namespace glm
 
-
 namespace glm{
 namespace detail
 {
@@ -58,8 +57,8 @@ namespace detail
 
         ValueType = type of scalar values (e.g. float, double)
         VecType   = class the swizzle is applies to (e.g. vector3f)
-        N       = number of components in the vector (e.g. 3)
-        E0...3  = what index the n-th element of this swizzle refers to
+        N         = number of components in the vector (e.g. 3)
+        E0...3    = what index the n-th element of this swizzle refers to in the unswizzled vec
     */
     template <typename DerivedType, typename ValueType, typename VecType, int N, int E0, int E1, int E2, int E3, int DUPLICATE_ELEMENTS>
     struct swizzle_base
@@ -67,20 +66,6 @@ namespace detail
         typedef DerivedType     derived_type;
         typedef VecType         vec_type;        
         typedef ValueType       value_type;
-
-        swizzle_base& operator= (const VecType& that)
-        {
-            static const int offset_dst[4] = { E0, E1, E2, E3 };
-
-            // Make a copy of the data in this == &that
-            ValueType t[N];
-            for (int i = 0; i < N; ++i)
-                t[i] = that[i];
-            for (int i = 0; i < N; ++i)
-                elem(offset_dst[i]) = t[i];
-
-            return *this;
-        }
 
         swizzle_base& operator= (const ValueType& t)
         {
@@ -92,51 +77,61 @@ namespace detail
             return *this;
         }
 
+        swizzle_base& operator= (const VecType& that)
+        {
+            struct op { 
+                void operator() (value_type& e, value_type& t) { e = t; } 
+            };
+            _apply_op(that, op());
+            return *this;
+        }
+
         void operator -= (const VecType& that)
         {
-            static const int offset_dst[4] = { E0, E1, E2, E3 };
-
-            ValueType t[N];
-            for (int i = 0; i < N; ++i)
-                t[i] = that[i];
-            for (int i = 0; i < N; ++i)
-                elem(offset_dst[i]) -= t[i];
+            struct op { 
+                void operator() (value_type& e, value_type& t) { e -= t; } 
+            };
+            _apply_op(that, op());
         }
 
         void operator += (const VecType& that)
         {
-            static const int offset_dst[4] = { E0, E1, E2, E3 };
-
-            ValueType t[N];
-            for (int i = 0; i < N; ++i)
-                t[i] = that[i];
-            for (int i = 0; i < N; ++i)
-                elem(offset_dst[i]) += t[i];
+            struct op { 
+                void operator() (value_type& e, value_type& t) { e += t; } 
+            };
+            _apply_op(that, op());
         }
 
         void operator *= (const VecType& that)
         {
-            static const int offset_dst[4] = { E0, E1, E2, E3 };
-
-            ValueType t[N];
-            for (int i = 0; i < N; ++i)
-                t[i] = that[i];
-            for (int i = 0; i < N; ++i)
-                elem(offset_dst[i]) *= t[i];
+            struct op { 
+                void operator() (value_type& e, value_type& t) { e *= t; } 
+            };
+            _apply_op(that, op());
         }
 
         void operator /= (const VecType& that)
         {
+            struct op { 
+                void operator() (value_type& e, value_type& t) { e /= t; } 
+            };
+            _apply_op(that, op());
+        }
+
+    protected:
+        template <typename T>
+        void _apply_op(const VecType& that, T op)
+        {
             static const int offset_dst[4] = { E0, E1, E2, E3 };
 
+            // Make a copy of the data in this == &that
             ValueType t[N];
             for (int i = 0; i < N; ++i)
                 t[i] = that[i];
             for (int i = 0; i < N; ++i)
-                elem(offset_dst[i]) /= t[i];
+                op( elem(offset_dst[i]), t[i] );
         }
 
-    protected:
         value_type&         elem   (size_t i)       { return (reinterpret_cast<value_type*>(_buffer))[i]; }
         const value_type&   elem   (size_t i) const { return (reinterpret_cast<const value_type*>(_buffer))[i]; }
 
@@ -169,6 +164,7 @@ namespace detail
     {
         using swizzle_base<swizzle2<T,P,E0,E1>,T,P,2,E0,E1,0,0,(E0 == E1)>::operator=;
         P cast() const { return P(this->elem(E0), this->elem(E1)); }
+        P operator ()() const { return cast(); }
         operator P () const { return cast(); }
     };
 
@@ -178,6 +174,7 @@ namespace detail
     {
         using swizzle_base<swizzle2_3<T,P,E0,E1,E2>,T,P,2,E0,E1,E2,0,1>::operator=;
         P cast() const { return P(this->elem(E0), this->elem(E1), this->elem(E2)); }
+        P operator ()() const { return cast(); }
         operator P () const { return cast(); }
     };
 
@@ -187,6 +184,7 @@ namespace detail
     {
         using swizzle_base<swizzle2_4<T,P,E0,E1,E2,E3>,T,P,2,E0,E1,E2,E3,1>::operator=;
         P cast() const { return P(this->elem(E0), this->elem(E1), this->elem(E2), this->elem(E3)); }
+        P operator ()() const { return cast(); }
         operator P () const { return cast(); }
     };
 
@@ -196,6 +194,7 @@ namespace detail
     {
         using swizzle_base<swizzle3<T,P,E0,E1,E2>,T,P,3,E0,E1,E2,0,(E0==E1||E0==E2||E1==E2)>::operator=;
         P cast() const { return P(this->elem(E0), this->elem(E1), this->elem(E2)); }
+        P operator ()()  const { return cast(); }
         operator P () const { return cast(); }
     };
 
@@ -205,6 +204,7 @@ namespace detail
     {
         using swizzle_base<swizzle3_2<T,P,E0,E1>,T,P,2,E0,E1,0,0,(E0==E1)>::operator=;
         P cast() const { return P(this->elem(E0), this->elem(E1)); }
+        P operator ()()  const { return cast(); }
         operator P () const { return cast(); }
     };
 
@@ -214,6 +214,7 @@ namespace detail
     {
         using swizzle_base<swizzle3_4<T,P,E0,E1,E2,E3>,T,P,3,E0,E1,E2,E3,1>::operator=;
         P cast() const { return P(this->elem(E0), this->elem(E1), this->elem(E2), this->elem(E3)); }
+        P operator ()()  const { return cast(); }
         operator P () const { return cast(); }
     };
 
@@ -223,6 +224,7 @@ namespace detail
     {
         using swizzle_base<swizzle4<T,P,E0,E1,E2,E3>,T,P,4,E0,E1,E2,E3,(E0==E1||E0==E2||E0==E3||E1==E2||E1==E3||E2==E3)>::operator=;
         P cast() const { return P(this->elem(E0), this->elem(E1), this->elem(E2), this->elem(E3)); }
+        P operator ()()  const { return cast(); }
         operator P () const { return cast(); }
     };
 
@@ -232,6 +234,7 @@ namespace detail
     {
         using swizzle_base<swizzle4_2<T,P,E0,E1>,T,P,2,E0,E1,0,0,(E0==E1)>::operator=;
         P cast() const { return P(this->elem(E0), this->elem(E1)); }
+        P operator ()()  const { return cast(); }
         operator P () const { return cast(); }
     };
 
@@ -242,18 +245,19 @@ namespace detail
     {
         using swizzle_base<swizzle4_3<T,P,E0,E1,E2>,T,P,4,E0,E1,E2,0,(E0==E1||E0==E2||E1==E2)>::operator=;
         P cast() const { return P(this->elem(E0), this->elem(E1), this->elem(E2)); }
+        P operator ()()  const { return cast(); }
         operator P () const { return cast(); }
     };
 
 //
-// To prevent the C++ syntax from getting *completely* overwhelming, define some alias macros
+// To prevent the C++ syntax from getting entirely overwhelming, define some alias macros
 //
 #define _GLM_SWIZZLE_TEMPLATE1   template <typename T, typename P, int N, typename S0, int E0, int E1, int E2, int E3, int D0>
 #define _GLM_SWIZZLE_TEMPLATE2   template <typename T, typename P, int N, typename S0, int E0, int E1, int E2, int E3, int D0, typename S1,int F0, int F1, int F2, int F3, int D1>
 #define _GLM_SWIZZLE_TYPE1       glm::detail::swizzle_base<S0,T,P,N,E0,E1,E2,E3,D0>
 #define _GLM_SWIZZLE_TYPE2       glm::detail::swizzle_base<S1,T,P,N,F0,F1,F2,F3,D1>
 
-#define _GLM_SWIZZLE_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)\
+#define _GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)\
     _GLM_SWIZZLE_TEMPLATE2 \
     typename P operator OPERAND ( const _GLM_SWIZZLE_TYPE1& a, const _GLM_SWIZZLE_TYPE2& b) \
     { \
@@ -282,11 +286,63 @@ namespace detail
         return a OPERAND static_cast<const S0&>(b).cast(); \
     }
 
-#define _GLM_SWIZZLE_FUNCTION2(RETURN_TYPE,FUNCTION)\
+#define _GLM_SWIZZLE_FUNCTION_1_ARGS(RETURN_TYPE,FUNCTION)\
+    template <typename T, typename P, int E0, int E1> \
+    typename glm::detail::swizzle2<T,P,E0,E1>::RETURN_TYPE FUNCTION(const glm::detail::swizzle2<T,P,E0,E1>& a)  \
+    { \
+        return FUNCTION(a.cast()); \
+    } \
+    template <typename T, typename P, int E0, int E1, int E2> \
+    typename glm::detail::swizzle2_3<T,P,E0,E1,E2>::RETURN_TYPE FUNCTION(const glm::detail::swizzle2_3<T,P,E0,E1,E2>& a)  \
+    { \
+        return FUNCTION(a.cast()); \
+    } \
+    template <typename T, typename P, int E0, int E1, int E2, int E3> \
+    typename glm::detail::swizzle2_4<T,P,E0,E1,E2,E3>::RETURN_TYPE FUNCTION(const glm::detail::swizzle2_4<T,P,E0,E1,E2,E3>& a) \
+    { \
+        return FUNCTION(a.cast()); \
+    } \
+    template <typename T, typename P, int E0, int E1> \
+    typename glm::detail::swizzle3_2<T,P,E0,E1>::RETURN_TYPE FUNCTION(const glm::detail::swizzle3_2<T,P,E0,E1>& a) \
+    { \
+        return FUNCTION(a.cast()); \
+    } \
+    template <typename T, typename P, int E0, int E1, int E2> \
+    typename glm::detail::swizzle3<T,P,E0,E1,E2>::RETURN_TYPE FUNCTION(const glm::detail::swizzle3<T,P,E0,E1,E2>& a) \
+    { \
+        return FUNCTION(a.cast()); \
+    } \
+    template <typename T, typename P, int E0, int E1, int E2, int E3> \
+    typename glm::detail::swizzle3_4<T,P,E0,E1,E2,E3>::RETURN_TYPE FUNCTION(const glm::detail::swizzle3_4<T,P,E0,E1,E2,E3>& a) \
+    { \
+        return FUNCTION(a.cast()); \
+    } \
+    template <typename T, typename P, int E0, int E1> \
+    typename glm::detail::swizzle4_2<T,P,E0,E1>::RETURN_TYPE FUNCTION(const glm::detail::swizzle4_2<T,P,E0,E1>& a) \
+    { \
+        return FUNCTION(a.cast()); \
+    } \
+    template <typename T, typename P, int E0, int E1, int E2> \
+    typename glm::detail::swizzle4_3<T,P,E0,E1,E2>::RETURN_TYPE FUNCTION(const glm::detail::swizzle4_3<T,P,E0,E1,E2>& a) \
+    { \
+        return FUNCTION(a.cast()); \
+    } \
+    template <typename T, typename P, int E0, int E1, int E2, int E3> \
+    typename glm::detail::swizzle4<T,P,E0,E1,E2,E3>::RETURN_TYPE FUNCTION(const glm::detail::swizzle4<T,P,E0,E1,E2,E3>& a) \
+    { \
+        return FUNCTION(a.cast()); \
+    } 
+
+#define _GLM_SWIZZLE_FUNCTION_2_ARGS(RETURN_TYPE,FUNCTION)\
     _GLM_SWIZZLE_TEMPLATE2\
     typename S0::RETURN_TYPE FUNCTION(const typename _GLM_SWIZZLE_TYPE1& a, const typename _GLM_SWIZZLE_TYPE2& b)\
     {\
         return FUNCTION(static_cast<const S0&>(a).cast(), static_cast<const S1&>(b).cast());\
+    }\
+    _GLM_SWIZZLE_TEMPLATE1\
+    typename S0::RETURN_TYPE FUNCTION(const typename _GLM_SWIZZLE_TYPE1& a, const typename _GLM_SWIZZLE_TYPE1& b)\
+    {\
+        return FUNCTION(static_cast<const S0&>(a).cast(), static_cast<const S0&>(b).cast());\
     }\
     _GLM_SWIZZLE_TEMPLATE1\
     typename S0::RETURN_TYPE FUNCTION(const typename _GLM_SWIZZLE_TYPE1& a, const typename S0::vec_type& b)\
@@ -297,26 +353,146 @@ namespace detail
     typename S0::RETURN_TYPE FUNCTION(const typename S0::vec_type& a, const typename _GLM_SWIZZLE_TYPE1& b)\
     {\
         return FUNCTION(a, static_cast<const S0&>(b).cast());\
+    } \
+    template <typename T, typename P, int E0, int E1> \
+    typename glm::detail::swizzle2<T,P,E0,E1>::RETURN_TYPE FUNCTION(const glm::detail::swizzle2<T,P,E0,E1>& a, const glm::detail::swizzle2<T,P,E0,E1>& b)  \
+    { \
+        return FUNCTION(a.cast(), b.cast()); \
+    } \
+    template <typename T, typename P, int E0, int E1, int E2> \
+    typename glm::detail::swizzle2_3<T,P,E0,E1,E2>::RETURN_TYPE FUNCTION(const glm::detail::swizzle2_3<T,P,E0,E1,E2>& a, const glm::detail::swizzle2_3<T,P,E0,E1,E2>& b)  \
+    { \
+        return FUNCTION(a.cast(), b.cast()); \
+    } \
+    template <typename T, typename P, int E0, int E1, int E2, int E3> \
+    typename glm::detail::swizzle2_4<T,P,E0,E1,E2,E3>::RETURN_TYPE FUNCTION(const glm::detail::swizzle2_4<T,P,E0,E1,E2,E3>& a, const glm::detail::swizzle2_4<T,P,E0,E1,E2,E3>& b) \
+    { \
+        return FUNCTION(a.cast(), b.cast()); \
+    } \
+    template <typename T, typename P, int E0, int E1> \
+    typename glm::detail::swizzle3_2<T,P,E0,E1>::RETURN_TYPE FUNCTION(const glm::detail::swizzle3_2<T,P,E0,E1>& a, const glm::detail::swizzle3_2<T,P,E0,E1>& b) \
+    { \
+        return FUNCTION(a.cast(), b.cast()); \
+    } \
+    template <typename T, typename P, int E0, int E1, int E2> \
+    typename glm::detail::swizzle3<T,P,E0,E1,E2>::RETURN_TYPE FUNCTION(const glm::detail::swizzle3<T,P,E0,E1,E2>& a, const glm::detail::swizzle3<T,P,E0,E1,E2>& b) \
+    { \
+        return FUNCTION(a.cast(), b.cast()); \
+    } \
+    template <typename T, typename P, int E0, int E1, int E2, int E3> \
+    typename glm::detail::swizzle3_4<T,P,E0,E1,E2,E3>::RETURN_TYPE FUNCTION(const glm::detail::swizzle3_4<T,P,E0,E1,E2,E3>& a, const glm::detail::swizzle3_4<T,P,E0,E1,E2,E3>& b) \
+    { \
+        return FUNCTION(a.cast(), b.cast()); \
+    } \
+    template <typename T, typename P, int E0, int E1> \
+    typename glm::detail::swizzle4_2<T,P,E0,E1>::RETURN_TYPE FUNCTION(const glm::detail::swizzle4_2<T,P,E0,E1>& a, const glm::detail::swizzle4_2<T,P,E0,E1>& b) \
+    { \
+        return FUNCTION(a.cast(), b.cast()); \
+    } \
+    template <typename T, typename P, int E0, int E1, int E2> \
+    typename glm::detail::swizzle4_3<T,P,E0,E1,E2>::RETURN_TYPE FUNCTION(const glm::detail::swizzle4_3<T,P,E0,E1,E2>& a, const glm::detail::swizzle4_3<T,P,E0,E1,E2>& b) \
+    { \
+        return FUNCTION(a.cast(), b.cast()); \
+    } \
+    template <typename T, typename P, int E0, int E1, int E2, int E3> \
+    typename glm::detail::swizzle4<T,P,E0,E1,E2,E3>::RETURN_TYPE FUNCTION(const glm::detail::swizzle4<T,P,E0,E1,E2,E3>& a, const glm::detail::swizzle4<T,P,E0,E1,E2,E3>& b) \
+    { \
+        return FUNCTION(a.cast(), b.cast()); \
     }
 
-    _GLM_SWIZZLE_TEMPLATE1  typename S0::vec_type   operator-   (typename S0::value_type a, const _GLM_SWIZZLE_TYPE1& b)        { return a - b; }
-
-    _GLM_SWIZZLE_BINARY_OPERATOR_IMPLEMENTATION(+)
-    _GLM_SWIZZLE_BINARY_OPERATOR_IMPLEMENTATION(-)
-    _GLM_SWIZZLE_BINARY_OPERATOR_IMPLEMENTATION(*)
-    _GLM_SWIZZLE_BINARY_OPERATOR_IMPLEMENTATION(/)
-
-    _GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(*)
+#define _GLM_SWIZZLE_FUNCTION_2_ARGS_SCALAR(RETURN_TYPE,FUNCTION)\
+    _GLM_SWIZZLE_TEMPLATE2\
+    typename S0::RETURN_TYPE FUNCTION(const typename _GLM_SWIZZLE_TYPE1& a, const typename _GLM_SWIZZLE_TYPE2& b, const typename S0::value_type& c)\
+    {\
+        return FUNCTION(static_cast<const S0&>(a).cast(), static_cast<const S1&>(b).cast(), c);\
+    }\
+    _GLM_SWIZZLE_TEMPLATE1\
+    typename S0::RETURN_TYPE FUNCTION(const typename _GLM_SWIZZLE_TYPE1& a, const typename _GLM_SWIZZLE_TYPE1& b, const typename S0::value_type& c)\
+    {\
+        return FUNCTION(static_cast<const S0&>(a).cast(), static_cast<const S0&>(b).cast(), c);\
+    }\
+    _GLM_SWIZZLE_TEMPLATE1\
+    typename S0::RETURN_TYPE FUNCTION(const typename _GLM_SWIZZLE_TYPE1& a, const typename S0::vec_type& b, const typename S0::value_type& c)\
+    {\
+        return FUNCTION(static_cast<const S0&>(a).cast(), b, c);\
+    }\
+    _GLM_SWIZZLE_TEMPLATE1\
+    typename S0::RETURN_TYPE FUNCTION(const typename S0::vec_type& a, const typename _GLM_SWIZZLE_TYPE1& b, const typename S0::value_type& c)\
+    {\
+        return FUNCTION(a, static_cast<const S0&>(b).cast(), c);\
+    } \
+    template <typename T, typename P, int E0, int E1> \
+    typename glm::detail::swizzle2<T,P,E0,E1>::RETURN_TYPE FUNCTION(const glm::detail::swizzle2<T,P,E0,E1>& a, const glm::detail::swizzle2<T,P,E0,E1>& b, const T& c)  \
+    { \
+        return FUNCTION(a.cast(), b.cast(), c); \
+    } \
+    template <typename T, typename P, int E0, int E1, int E2> \
+    typename glm::detail::swizzle2_3<T,P,E0,E1,E2>::RETURN_TYPE FUNCTION(const glm::detail::swizzle2_3<T,P,E0,E1,E2>& a, const glm::detail::swizzle2_3<T,P,E0,E1,E2>& b, const T& c)  \
+    { \
+        return FUNCTION(a.cast(), b.cast(), c); \
+    } \
+    template <typename T, typename P, int E0, int E1, int E2, int E3> \
+    typename glm::detail::swizzle2_4<T,P,E0,E1,E2,E3>::RETURN_TYPE FUNCTION(const glm::detail::swizzle2_4<T,P,E0,E1,E2,E3>& a, const glm::detail::swizzle2_4<T,P,E0,E1,E2,E3>& b, const T& c) \
+    { \
+        return FUNCTION(a.cast(), b.cast(), c); \
+    } \
+    template <typename T, typename P, int E0, int E1> \
+    typename glm::detail::swizzle3_2<T,P,E0,E1>::RETURN_TYPE FUNCTION(const glm::detail::swizzle3_2<T,P,E0,E1>& a, const glm::detail::swizzle3_2<T,P,E0,E1>& b, const T& c) \
+    { \
+        return FUNCTION(a.cast(), b.cast(), c); \
+    } \
+    template <typename T, typename P, int E0, int E1, int E2> \
+    typename glm::detail::swizzle3<T,P,E0,E1,E2>::RETURN_TYPE FUNCTION(const glm::detail::swizzle3<T,P,E0,E1,E2>& a, const glm::detail::swizzle3<T,P,E0,E1,E2>& b, const T& c) \
+    { \
+        return FUNCTION(a.cast(), b.cast(), c); \
+    } 
+    template <typename T, typename P, int E0, int E1, int E2, int E3> \
+    typename glm::detail::swizzle3_4<T,P,E0,E1,E2,E3>::RETURN_TYPE FUNCTION(const glm::detail::swizzle3_4<T,P,E0,E1,E2,E3>& a, const glm::detail::swizzle3_4<T,P,E0,E1,E2,E3>& b, const T& c) \
+    { \
+        return FUNCTION(a.cast(), b.cast(), c); \
+    } \
+    template <typename T, typename P, int E0, int E1> \
+    typename glm::detail::swizzle4_2<T,P,E0,E1>::RETURN_TYPE FUNCTION(const glm::detail::swizzle4_2<T,P,E0,E1>& a, const glm::detail::swizzle4_2<T,P,E0,E1>& b, const T& c) \
+    { \
+        return FUNCTION(a.cast(), b.cast(), c); \
+    } \
+    template <typename T, typename P, int E0, int E1, int E2> \
+    typename glm::detail::swizzle4_3<T,P,E0,E1,E2>::RETURN_TYPE FUNCTION(const glm::detail::swizzle4_3<T,P,E0,E1,E2>& a, const glm::detail::swizzle4_3<T,P,E0,E1,E2>& b, const T& c) \
+    { \
+        return FUNCTION(a.cast(), b.cast(), c); \
+    } \
+    template <typename T, typename P, int E0, int E1, int E2, int E3> \
+    typename glm::detail::swizzle4<T,P,E0,E1,E2,E3>::RETURN_TYPE FUNCTION(const glm::detail::swizzle4<T,P,E0,E1,E2,E3>& a, const glm::detail::swizzle4<T,P,E0,E1,E2,E3>& b, const T& c) \
+    { \
+        return FUNCTION(a.cast(), b.cast(), c); \
+    }
 
 }//namespace detail 
 }//namespace glm
 
 namespace glm
 {
-        
+    namespace detail
+    {
+        _GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(-)
+        _GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(*)
 
-    _GLM_SWIZZLE_FUNCTION2(value_type,  dot);
-    _GLM_SWIZZLE_FUNCTION2(vec_type,    abs);
+        _GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(+)
+        _GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(-)
+        _GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(*)
+        _GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(/)
+    }
+
+    _GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    abs);
+    _GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    acos);
+    _GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    acosh);
+    _GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    all);
+    _GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    any);
+    
+    _GLM_SWIZZLE_FUNCTION_2_ARGS(value_type,  dot);
+    _GLM_SWIZZLE_FUNCTION_2_ARGS(vec_type,    cross);
+    _GLM_SWIZZLE_FUNCTION_2_ARGS(vec_type,    step);    
+    _GLM_SWIZZLE_FUNCTION_2_ARGS_SCALAR(vec_type, mix);
 }
 
 

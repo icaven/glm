@@ -118,6 +118,22 @@ namespace detail
 
 		GLM_FUNC_DECL tvec4(tref4<T> const & r);
 
+        template <int E0, int E1, int E2, int E3>
+        GLM_FUNC_DECL tvec4(glm::detail::swizzle2_4<T,tvec4<T>,E0,E1,E2,E3>& that)
+        {
+            *this = that();
+        }
+        template <int E0, int E1, int E2, int E3>
+        GLM_FUNC_DECL tvec4(glm::detail::swizzle3_4<T,tvec4<T>,E0,E1,E2,E3>& that)
+        {
+            *this = that();
+        }
+        template <int E0, int E1, int E2, int E3>
+        GLM_FUNC_DECL tvec4(glm::detail::swizzle4<T,tvec4<T>,E0,E1,E2,E3>& that)
+        {
+            *this = that();
+        }
+
 		//////////////////////////////////////
 		// Convertion scalar constructors
 
