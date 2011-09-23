@@ -117,17 +117,7 @@ namespace detail
 		GLM_FUNC_DECL tvec3(tref3<T> const & r);
 
         template <int E0, int E1, int E2>
-        GLM_FUNC_DECL tvec3(glm::detail::swizzle2_3<T,tvec3<T>,E0,E1,E2>& that)
-        {
-            *this = that();
-        }
-        template <int E0, int E1, int E2>
-        GLM_FUNC_DECL tvec3(glm::detail::swizzle3<T,tvec3<T>,E0,E1,E2>& that)
-        {
-            *this = that();
-        }
-        template <int E0, int E1, int E2>
-        GLM_FUNC_DECL tvec3(glm::detail::swizzle4_3<T,tvec3<T>,E0,E1,E2>& that)
+        GLM_FUNC_DECL tvec3(const glm::detail::swizzle<3,T,tvec3<T>,E0,E1,E2,-1>& that)
         {
             *this = that();
         }
