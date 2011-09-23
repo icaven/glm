@@ -8,11 +8,11 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/glm.hpp>
-#include <glm/gtx/random.hpp>
+#include <glm/gtc/random.hpp>
 #include <glm/gtx/epsilon.hpp>
 #include <iostream>
 
-int test_signedRand1()
+int test_linearRand()
 {
 	int Error = 0;
 
@@ -21,8 +21,8 @@ int test_signedRand1()
 		double ResultDouble = 0.0f;
 		for(std::size_t i = 0; i < 100000; ++i)
 		{
-			ResultFloat += glm::signedRand1<float>(/*-1.0f, 1.0f*/);
-			ResultDouble += glm::signedRand1<double>(/*-1.0, 1.0*/);
+			ResultFloat += glm::linearRand(-1.0f, 1.0f);
+			ResultDouble += glm::linearRand(-1.0, 1.0);
 		}
 
 		Error += glm::equalEpsilon(ResultFloat, 0.0f, 0.0001f);
@@ -93,7 +93,7 @@ int main()
 {
 	int Error = 0;
 
-	Error += test_signedRand1();
+	Error += test_linearRand();
 	Error += test_normalizedRand2();
 	Error += test_normalizedRand3();
 
