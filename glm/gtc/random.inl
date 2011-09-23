@@ -81,4 +81,39 @@ GLM_FUNC_QUALIFIER detail::tvec4<T> linearRand
 		linearRand(Min.w, Max.w));
 }
 
+template <>
+half gaussRand
+(
+	half const & Mean,	
+	half const & Deviation
+)
+{
+
+template <typename T> 
+detail::tvec2<T> circularRand
+(
+	T const & Radius
+)
+{
+	T a = compRand1<T>(T(0), T(6.283185307179586476925286766559f));
+	return detail::tvec2<T>(cos(a), sin(a)) * Radius;		
+}
+	
+template <typename T> 
+detail::tvec3<T> sphericalRand
+(
+	T const & Radius
+)
+{
+	T z = compRand1(T(-1), T(1));
+	T a = compRand1(T(0), T(6.283185307179586476925286766559f));
+	
+	T r = sqrt(T(1) - z * z);
+	
+	T x = r * cos(a);
+	T y = r * sin(a);
+	
+	return detail::tvec3<T>(x, y, z) * Radius;	
+}
+
 }//namespace glm

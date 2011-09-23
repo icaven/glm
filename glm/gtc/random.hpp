@@ -66,10 +66,10 @@ namespace glm
 
 	/// Generate random numbers in the interval [Min, Max], according a gaussian distribution 
 	/// (From GLM_GTX_random extension)
-	template <typename T, template <typename> class vecType> 
-	vecType<T> gaussRand(
-		vecType<T> const & Mean, 
-		vecType<T> const & Deviation);
+	template <typename genType>
+	genType gaussRand(
+		genType const & Mean, 
+		genType const & Deviation);
 	
 	/// Generate a random 2D vector which coordinates are regulary distributed on a circle of a given radius
 	/// (From GLM_GTX_random extension)

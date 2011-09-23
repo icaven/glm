@@ -12,7 +12,7 @@
 #include <glm/gtx/epsilon.hpp>
 #include <iostream>
 
-int test_signedRand1()
+int test_linearRand()
 {
 	int Error = 0;
 
@@ -93,7 +93,7 @@ int main()
 {
 	int Error = 0;
 
-	Error += test_signedRand1();
+	Error += test_linearRand();
 	Error += test_normalizedRand2();
 	Error += test_normalizedRand3();
 
