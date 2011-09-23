@@ -18,15 +18,21 @@
 namespace glm{
 
 template <typename T>
+GLM_FUNC_QUALIFIER T mod289(T const & x)
+{
+	return x - floor(x * T(1.0 / 289.0)) * T(289.0);
+}
+
+template <typename T>
 GLM_FUNC_QUALIFIER T permute(T const & x)
 {
-	return mod(((x * T(34)) + T(1)) * x, T(289));
+	return mod289(((x * T(34)) + T(1)) * x);
 }
 
 template <typename T, template<typename> class vecType>
 GLM_FUNC_QUALIFIER vecType<T> permute(vecType<T> const & x)
 {
-	return mod(((x * T(34)) + T(1)) * x, T(289));
+	return mod289(((x * T(34)) + T(1)) * x);
 }
   
 template <typename T>
@@ -104,6 +110,77 @@ GLM_FUNC_QUALIFIER T perlin(detail::tvec3<T> const & P)
 {
 	detail::tvec3<T> Pi0 = floor(P); // Integer part for indexing
 	detail::tvec3<T> Pi1 = Pi0 + T(1); // Integer part + 1
+	Pi0 = mod289(Pi0);
+	Pi1 = mod289(Pi1);
+	detail::tvec3<T> Pf0 = fract(P); // Fractional part for interpolation
+	detail::tvec3<T> Pf1 = Pf0 - T(1); // Fractional part - 1.0
+	detail::tvec4<T> ix(Pi0.x, Pi1.x, Pi0.x, Pi1.x);
+	detail::tvec4<T> iy = detail::tvec4<T>(detail::tvec2<T>(Pi0.y), detail::tvec2<T>(Pi1.y));
+	detail::tvec4<T> iz0(Pi0.z);
+	detail::tvec4<T> iz1(Pi1.z);
+
+	detail::tvec4<T> ixy = permute(permute(ix) + iy);
+	detail::tvec4<T> ixy0 = permute(ixy + iz0);
+	detail::tvec4<T> ixy1 = permute(ixy + iz1);
+
+	detail::tvec4<T> gx0 = ixy0 * T(1.0 / 7.0);
+	detail::tvec4<T> gy0 = fract(floor(gx0) * T(1.0 / 7.0)) - T(0.5);
+	gx0 = fract(gx0);
+	detail::tvec4<T> gz0 = detail::tvec4<T>(0.5) - abs(gx0) - abs(gy0);
+	detail::tvec4<T> sz0 = step(gz0, detail::tvec4<T>(0.0));
+	gx0 -= sz0 * (step(T(0), gx0) - T(0.5));
+	gy0 -= sz0 * (step(T(0), gy0) - T(0.5));
+
+	detail::tvec4<T> gx1 = ixy1 * T(1.0 / 7.0);
+	detail::tvec4<T> gy1 = fract(floor(gx1) * T(1.0 / 7.0)) - T(0.5);
+	gx1 = fract(gx1);
+	detail::tvec4<T> gz1 = detail::tvec4<T>(0.5) - abs(gx1) - abs(gy1);
+	detail::tvec4<T> sz1 = step(gz1, detail::tvec4<T>(0.0));
+	gx1 -= sz1 * (step(T(0), gx1) - T(0.5));
+	gy1 -= sz1 * (step(T(0), gy1) - T(0.5));
+
+	detail::tvec3<T> g000(gx0.x, gy0.x, gz0.x);
+	detail::tvec3<T> g100(gx0.y, gy0.y, gz0.y);
+	detail::tvec3<T> g010(gx0.z, gy0.z, gz0.z);
+	detail::tvec3<T> g110(gx0.w, gy0.w, gz0.w);
+	detail::tvec3<T> g001(gx1.x, gy1.x, gz1.x);
+	detail::tvec3<T> g101(gx1.y, gy1.y, gz1.y);
+	detail::tvec3<T> g011(gx1.z, gy1.z, gz1.z);
+	detail::tvec3<T> g111(gx1.w, gy1.w, gz1.w);
+
+	detail::tvec4<T> norm0 = taylorInvSqrt(detail::tvec4<T>(dot(g000, g000), dot(g010, g010), dot(g100, g100), dot(g110, g110)));
+	g000 *= norm0.x;
+	g010 *= norm0.y;
+	g100 *= norm0.z;
+	g110 *= norm0.w;
+	detail::tvec4<T> norm1 = taylorInvSqrt(detail::tvec4<T>(dot(g001, g001), dot(g011, g011), dot(g101, g101), dot(g111, g111)));
+	g001 *= norm1.x;
+	g011 *= norm1.y;
+	g101 *= norm1.z;
+	g111 *= norm1.w;
+
+	T n000 = dot(g000, Pf0);
+	T n100 = dot(g100, detail::tvec3<T>(Pf1.x, Pf0.y, Pf0.z));
+	T n010 = dot(g010, detail::tvec3<T>(Pf0.x, Pf1.y, Pf0.z));
+	T n110 = dot(g110, detail::tvec3<T>(Pf1.x, Pf1.y, Pf0.z));
+	T n001 = dot(g001, detail::tvec3<T>(Pf0.x, Pf0.y, Pf1.z));
+	T n101 = dot(g101, detail::tvec3<T>(Pf1.x, Pf0.y, Pf1.z));
+	T n011 = dot(g011, detail::tvec3<T>(Pf0.x, Pf1.y, Pf1.z));
+	T n111 = dot(g111, Pf1);
+
+	detail::tvec3<T> fade_xyz = fade(Pf0);
+	detail::tvec4<T> n_z = mix(detail::tvec4<T>(n000, n100, n010, n110), detail::tvec4<T>(n001, n101, n011, n111), fade_xyz.z);
+	detail::tvec2<T> n_yz = mix(detail::tvec2<T>(n_z.x, n_z.y), detail::tvec2<T>(n_z.z, n_z.w), fade_xyz.y);
+	T n_xyz = mix(n_yz.x, n_yz.y, fade_xyz.x); 
+	return T(2.2) * n_xyz;
+}
+/*
+// Classic Perlin noise
+template <typename T>
+GLM_FUNC_QUALIFIER T perlin(detail::tvec3<T> const & P)
+{
+	detail::tvec3<T> Pi0 = floor(P); // Integer part for indexing
+	detail::tvec3<T> Pi1 = Pi0 + T(1); // Integer part + 1
 	Pi0 = mod(Pi0, T(289));
 	Pi1 = mod(Pi1, T(289));
 	detail::tvec3<T> Pf0 = fract(P); // Fractional part for interpolation
@@ -170,7 +247,7 @@ GLM_FUNC_QUALIFIER T perlin(detail::tvec3<T> const & P)
 	T n_xyz = mix(n_yz.x, n_yz.y, fade_xyz.x); 
 	return T(2.2) * n_xyz;
 }
-
+*/
 // Classic Perlin noise
 template <typename T>
 GLM_FUNC_QUALIFIER T perlin(detail::tvec4<T> const & P)
@@ -614,18 +691,18 @@ GLM_FUNC_QUALIFIER T simplex(glm::detail::tvec2<T> const & v)
 template <typename T>
 GLM_FUNC_QUALIFIER T simplex(detail::tvec3<T> const & v)
 { 
-	detail::tvec2<T> const C = detail::tvec2<T>(1.0 / 6.0, 1.0 / 3.0);
-	detail::tvec4<T> const D = detail::tvec4<T>(0.0, 0.5, 1.0, 2.0);
+	detail::tvec2<T> const C(1.0 / 6.0, 1.0 / 3.0);
+	detail::tvec4<T> const D(0.0, 0.5, 1.0, 2.0);
 
 	// First corner
 	detail::tvec3<T> i  = floor(v + dot(v, detail::tvec3<T>(C.y)));
-	detail::tvec3<T> x0 = v - i + dot(i, detail::tvec3<T>(C.x));
+	detail::tvec3<T> x0 =   v - i + dot(i, detail::tvec3<T>(C.x));
 
 	// Other corners
-	detail::tvec3<T> g = step(detail::tvec3<T>(x0.y, x0.z, x0.x), detail::tvec3<T>(x0.x, x0.y, x0.z));
+	detail::tvec3<T> g = step(detail::tvec3<T>(x0.y, x0.z, x0.x), x0);
 	detail::tvec3<T> l = T(1) - g;
-	detail::tvec3<T> i1 = min(detail::tvec3<T>(g.x, g.y, g.z), detail::tvec3<T>(l.z, l.x, l.y));
-	detail::tvec3<T> i2 = max(detail::tvec3<T>(g.x, g.y, g.z), detail::tvec3<T>(l.z, l.x, l.y));
+	detail::tvec3<T> i1 = min(g, detail::tvec3<T>(l.z, l.x, l.y));
+	detail::tvec3<T> i2 = max(g, detail::tvec3<T>(l.z, l.x, l.y));
 
 	//   x0 = x0 - 0.0 + 0.0 * C.xxx;
 	//   x1 = x0 - i1  + 1.0 * C.xxx;
@@ -636,11 +713,11 @@ GLM_FUNC_QUALIFIER T simplex(detail::tvec3<T> const & v)
 	detail::tvec3<T> x3 = x0 - D.y;      // -1.0+3.0*C.x = -0.5 = -D.y
 
 	// Permutations
-	i = mod(i, T(289)); 
+	i = mod289(i); 
 	detail::tvec4<T> p = permute(permute(permute( 
-		i.z + detail::tvec4<T>(0.0, i1.z, i2.z, 1.0)) + 
-		i.y + detail::tvec4<T>(0.0, i1.y, i2.y, 1.0)) + 
-		i.x + detail::tvec4<T>(0.0, i1.x, i2.x, 1.0));
+		i.z + detail::tvec4<T>(T(0), i1.z, i2.z, T(1))) + 
+		i.y + detail::tvec4<T>(T(0), i1.y, i2.y, T(1))) + 
+		i.x + detail::tvec4<T>(T(0), i1.x, i2.x, T(1)));
 
 	// Gradients: 7x7 points over a square, mapped onto an octahedron.
 	// The ring size 17*17 = 289 is close to a multiple of 49 (49*6 = 294)
@@ -656,46 +733,34 @@ GLM_FUNC_QUALIFIER T simplex(detail::tvec3<T> const & v)
 	detail::tvec4<T> y = y_ * ns.x + ns.y;
 	detail::tvec4<T> h = T(1) - abs(x) - abs(y);
 
-	detail::tvec4<T> b0 = detail::tvec4<T>(x.x, x.y, y.x, y.y);
-	detail::tvec4<T> b1 = detail::tvec4<T>(x.z, x.w, y.z, y.w);
+	detail::tvec4<T> b0(x.x, x.y, y.x, y.y);
+	detail::tvec4<T> b1(x.z, x.w, y.z, y.w);
 
-	//vec4 s0 = vec4(lessThan(b0,0.0))*2.0 - 1.0;
-	//vec4 s1 = vec4(lessThan(b1,0.0))*2.0 - 1.0;
+	// vec4 s0 = vec4(lessThan(b0,0.0))*2.0 - 1.0;
+	// vec4 s1 = vec4(lessThan(b1,0.0))*2.0 - 1.0;
 	detail::tvec4<T> s0 = floor(b0) * T(2) + T(1);
 	detail::tvec4<T> s1 = floor(b1) * T(2) + T(1);
-	detail::tvec4<T> sh = -step(h, detail::tvec4<T>(0));
+	detail::tvec4<T> sh = -step(h, detail::tvec4<T>(0.0));
 
-	detail::tvec4<T> a0 = b0 + s0 * detail::tvec4<T>(sh.x, sh.x, sh.y, sh.y);
-	detail::tvec4<T> a1 = b1 + s1 * detail::tvec4<T>(sh.z, sh.z, sh.w, sh.w);
+	detail::tvec4<T> a0 = detail::tvec4<T>(b0.x, b0.z, b0.y, b0.w) + detail::tvec4<T>(s0.x, s0.z, s0.y, s0.w) * detail::tvec4<T>(sh.x, sh.x, sh.y, sh.y);
+	detail::tvec4<T> a1 = detail::tvec4<T>(b1.x, b1.z, b1.y, b1.w) + detail::tvec4<T>(s1.x, s1.z, s1.y, s1.w) * detail::tvec4<T>(sh.z, sh.z, sh.w, sh.w);
 
-	detail::tvec3<T> p0 = vec3(a0.x, a0.y, h.x);
-	detail::tvec3<T> p1 = vec3(a0.z, a0.w, h.y);
-	detail::tvec3<T> p2 = vec3(a1.x, a1.y, h.z);
-	detail::tvec3<T> p3 = vec3(a1.z, a1.w, h.w);
+	detail::tvec3<T> p0(a0.x, a0.y, h.x);
+	detail::tvec3<T> p1(a0.z, a0.w, h.y);
+	detail::tvec3<T> p2(a1.x, a1.y, h.z);
+	detail::tvec3<T> p3(a1.z, a1.w, h.w);
 
-	//Normalise gradients
-	detail::tvec4<T> norm = taylorInvSqrt(detail::tvec4<T>(
-		dot(p0, p0), 
-		dot(p1, p1), 
-		dot(p2, p2), 
-		dot(p3, p3)));
+	// Normalise gradients
+	detail::tvec4<T> norm = taylorInvSqrt(detail::tvec4<T>(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
 	p0 *= norm.x;
 	p1 *= norm.y;
 	p2 *= norm.z;
 	p3 *= norm.w;
 
 	// Mix final noise value
-	vec4 m = max(T(0.6) - detail::tvec4<T>(
-		dot(x0, x0), 
-		dot(x1, x1), 
-		dot(x2, x2), 
-		dot(x3, x3)), T(0));
+	detail::tvec4<T> m = max(T(0.6) - detail::tvec4<T>(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3)), T(0));
 	m = m * m;
-	return T(42) * dot(m * m, detail::tvec4<T>(
-		dot(p0, x0), 
-		dot(p1, x1), 
-		dot(p2, x2), 
-		dot(p3, x3)));
+	return T(42) * dot(m * m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
 }
 
 template <typename T>
