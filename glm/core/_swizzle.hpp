@@ -56,9 +56,12 @@ namespace detail
         Template parameters:
 
         ValueType = type of scalar values (e.g. float, double)
-        VecType   = class the swizzle is applies to (e.g. vector3f)
+        VecType   = class the swizzle is applies to (e.g. tvec3<float>)
         N         = number of components in the vector (e.g. 3)
         E0...3    = what index the n-th element of this swizzle refers to in the unswizzled vec
+        
+        DUPLICATE_ELEMENTS = 1 if there is a repeated element, 0 otherwise (used to specialize swizzles
+            containing duplicate elements so that they cannot be used as r-values).            
     */
     template <typename DerivedType, typename ValueType, typename VecType, int N, int E0, int E1, int E2, int E3, int DUPLICATE_ELEMENTS>
     struct swizzle_base
@@ -69,11 +72,8 @@ namespace detail
 
         swizzle_base& operator= (const ValueType& t)
         {
-            static const int offset_dst[4] = { E0, E1, E2, E3 };
-
             for (int i = 0; i < N; ++i)
-                elem(offset_dst[i]) = t;
-
+                (*this)[i] = t;
             return *this;
         }
 
@@ -118,18 +118,29 @@ namespace detail
             _apply_op(that, op());
         }
 
+        value_type& operator[]  (size_t i)
+        {
+            static const int offset_dst[4] = { E0, E1, E2, E3 };
+            return elem(offset_dst[i]);
+        }
+        value_type  operator[]  (size_t) const
+        {
+            static const int offset_dst[4] = { E0, E1, E2, E3 };
+            return elem(offset_dst[i]);
+        }
+
     protected:
         template <typename T>
         void _apply_op(const VecType& that, T op)
         {
-            static const int offset_dst[4] = { E0, E1, E2, E3 };
-
-            // Make a copy of the data in this == &that
+            // Make a copy of the data in this == &that.
+            // The copier should optimize out the copy in cases where the function is
+            // properly inlined and the copy is not necessary.
             ValueType t[N];
             for (int i = 0; i < N; ++i)
                 t[i] = that[i];
             for (int i = 0; i < N; ++i)
-                op( elem(offset_dst[i]), t[i] );
+                op( (*this)[i], t[i] );
         }
 
         value_type&         elem   (size_t i)       { return (reinterpret_cast<value_type*>(_buffer))[i]; }
@@ -141,6 +152,7 @@ namespace detail
         char    _buffer[sizeof(value_type) * N];
     };
 
+    //! Specialization for swizzles containing duplicate elements.  These cannot be modified.
     template <typename DerivedType, typename ValueType, typename VecType, int N, int E0, int E1, int E2, int E3>
     struct swizzle_base<DerivedType,ValueType,VecType,N,E0,E1,E2,E3,1>
     {
@@ -150,6 +162,12 @@ namespace detail
 
         struct Stub {};
         swizzle_base& operator= (const Stub& that) {}
+
+        value_type  operator[]  (size_t) const
+        {
+            static const int offset_dst[4] = { E0, E1, E2, E3 };
+            return elem(offset_dst[i]);
+        }
           
     protected:
         value_type&         elem   (size_t i)       { return (reinterpret_cast<value_type*>(_buffer))[i]; }
@@ -257,6 +275,9 @@ namespace detail
 #define _GLM_SWIZZLE_TYPE1       glm::detail::swizzle_base<S0,T,P,N,E0,E1,E2,E3,D0>
 #define _GLM_SWIZZLE_TYPE2       glm::detail::swizzle_base<S1,T,P,N,F0,F1,F2,F3,D1>
 
+//
+// Wrapper for a binary operator (e.g. u.yy + v.zy)
+//
 #define _GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)\
     _GLM_SWIZZLE_TEMPLATE2 \
     typename P operator OPERAND ( const _GLM_SWIZZLE_TYPE1& a, const _GLM_SWIZZLE_TYPE2& b) \
@@ -274,6 +295,9 @@ namespace detail
         return a OPERAND static_cast<const S0&>(b).cast(); \
     }
 
+//
+// Wrapper for a operand between a swizzle and a binary (e.g. 1.0f - u.xyz)
+//
 #define _GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)\
     _GLM_SWIZZLE_TEMPLATE1 \
     typename P operator OPERAND ( const _GLM_SWIZZLE_TYPE1& a, const typename T& b) \
@@ -286,6 +310,10 @@ namespace detail
         return a OPERAND static_cast<const S0&>(b).cast(); \
     }
 
+//
+// Macro for wrapping a function taking one argument (e.g. abs())
+// Needs to wrap all 12 swizzle types.
+//
 #define _GLM_SWIZZLE_FUNCTION_1_ARGS(RETURN_TYPE,FUNCTION)\
     template <typename T, typename P, int E0, int E1> \
     typename glm::detail::swizzle2<T,P,E0,E1>::RETURN_TYPE FUNCTION(const glm::detail::swizzle2<T,P,E0,E1>& a)  \
@@ -333,6 +361,14 @@ namespace detail
         return FUNCTION(a.cast()); \
     } 
 
+//
+// Macro for wrapping a function taking two vector arguments (e.g. dot()).
+//
+// Needs to wrap all 12 swizzle types when the same type is passed as
+// both arguments (u.xyz, v.xyz), wrappers for when the arguments are 
+// different types (u.xyz, v.yyx), and lastly wrappers for swizzle/unswizzled
+// combinations (u.xyz, v).
+//
 #define _GLM_SWIZZLE_FUNCTION_2_ARGS(RETURN_TYPE,FUNCTION)\
     _GLM_SWIZZLE_TEMPLATE2\
     typename S0::RETURN_TYPE FUNCTION(const typename _GLM_SWIZZLE_TYPE1& a, const typename _GLM_SWIZZLE_TYPE2& b)\
@@ -400,6 +436,9 @@ namespace detail
         return FUNCTION(a.cast(), b.cast()); \
     }
 
+//
+// Macro for wrapping a function take 2 vec arguments followed by a scalar (e.g. mix()).
+//
 #define _GLM_SWIZZLE_FUNCTION_2_ARGS_SCALAR(RETURN_TYPE,FUNCTION)\
     _GLM_SWIZZLE_TEMPLATE2\
     typename S0::RETURN_TYPE FUNCTION(const typename _GLM_SWIZZLE_TYPE1& a, const typename _GLM_SWIZZLE_TYPE2& b, const typename S0::value_type& c)\
@@ -483,16 +522,26 @@ namespace glm
         _GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(/)
     }
 
-    _GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    abs);
-    _GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    acos);
-    _GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    acosh);
-    _GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    all);
-    _GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    any);
+    //
+    // Swizzles are distinct types from the unswizzled type.  The below macros will
+    // provide template specializations for the swizzle types for the given functions
+    // so that the compiler does not have any ambiguity to choosing how to handle
+    // the function.
+    //
+    // The alternative is to use the operator()() when calling the function in order
+    // to explicitly convert the swizzled type to the unswizzled type.
+    //
+
+    //_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    abs);
+    //_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    acos);
+    //_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    acosh);
+    //_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    all);
+    //_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    any);
     
-    _GLM_SWIZZLE_FUNCTION_2_ARGS(value_type,  dot);
-    _GLM_SWIZZLE_FUNCTION_2_ARGS(vec_type,    cross);
-    _GLM_SWIZZLE_FUNCTION_2_ARGS(vec_type,    step);    
-    _GLM_SWIZZLE_FUNCTION_2_ARGS_SCALAR(vec_type, mix);
+    //_GLM_SWIZZLE_FUNCTION_2_ARGS(value_type,  dot);
+    //_GLM_SWIZZLE_FUNCTION_2_ARGS(vec_type,    cross);
+    //_GLM_SWIZZLE_FUNCTION_2_ARGS(vec_type,    step);    
+    //_GLM_SWIZZLE_FUNCTION_2_ARGS_SCALAR(vec_type, mix);
 }
 
 
