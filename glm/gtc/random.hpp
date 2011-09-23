@@ -65,21 +65,46 @@ namespace glm
 		genType const & Max);
 
 	/// Generate random numbers in the interval [Min, Max], according a gaussian distribution 
-	/// (From GLM_GTX_random extension)
+	/// 
+	/// @param Mean
+	/// @param Deviation
+	/// @see gtc_random
 	template <typename genType>
 	genType gaussRand(
 		genType const & Mean, 
 		genType const & Deviation);
 	
 	/// Generate a random 2D vector which coordinates are regulary distributed on a circle of a given radius
-	/// (From GLM_GTX_random extension)
+	/// 
+	/// @param Radius 
+	/// @see gtc_random
 	template <typename T> 
-	detail::tvec2<T> circularRand(T const & Radius); 
+	detail::tvec2<T> circularRand(
+		T const & Radius); 
 	
 	/// Generate a random 3D vector which coordinates are regulary distributed on a sphere of a given radius
-	/// (From GLM_GTX_random extension)
+	/// 
+	/// @param Radius
+	/// @see gtc_random
 	template <typename T> 
-	detail::tvec3<T> sphericalRand(T const & Radius); 
+	detail::tvec3<T> sphericalRand(
+		T const & Radius); 
+	
+	/// Generate a random 2D vector which coordinates are regulary distributed within the area of a disk of a given radius
+	/// 
+	/// @param Radius
+	/// @see gtc_random
+	template <typename T> 
+	detail::tvec2<T> diskRand(
+		T const & Radius); 
+	
+	/// Generate a random 3D vector which coordinates are regulary distributed within the volume of a ball of a given radius
+	/// 
+	/// @param Radius
+	/// @see gtc_random
+	template <typename T>
+	GLM_FUNC_QUALIFIER detail::tvec3<T> ballRand(
+		T const & Radius);
 	
 	/// @}
 }//namespace glm
