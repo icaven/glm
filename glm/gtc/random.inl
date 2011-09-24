@@ -194,8 +194,8 @@ GLM_FUNC_QUALIFIER detail::tvec3<T> sphericalRand
 	T const & Radius
 )
 {
-	T z = compRand1(T(-1), T(1));
-	T a = compRand1(T(0), T(6.283185307179586476925286766559f));
+	T z = linearRand(T(-1), T(1));
+	T a = linearRand(T(0), T(6.283185307179586476925286766559f));
 	
 	T r = sqrt(T(1) - z * z);
 	
