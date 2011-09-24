@@ -64,7 +64,7 @@ namespace detail
 
 #	if(GLM_COMPONENT == GLM_COMPONENT_ONLY_XYZW)
 		value_type x, y, z;
-#	elif(GLM_COMPONENT == GLM_COMPONENT_MS_EXT)
+#	elif(GLM_COMPONENT == GLM_COMPONENT_MS_EXT || GLM_LANG == GLM_LANG_CXX0X)
 		union 
 		{
             _GLM_SWIZZLE3_2_MEMBERS(value_type,glm::detail::tvec2<value_type>,x,y,z)
@@ -115,6 +115,12 @@ namespace detail
 		// Swizzle constructors
 
 		GLM_FUNC_DECL tvec3(tref3<T> const & r);
+
+        template <int E0, int E1, int E2>
+        GLM_FUNC_DECL tvec3(const glm::detail::swizzle<3,T,tvec3<T>,E0,E1,E2,-1>& that)
+        {
+            *this = that();
+        }
 
 		//////////////////////////////////////
 		// Convertion scalar constructors
