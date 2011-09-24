@@ -98,46 +98,46 @@ GLM_FUNC_QUALIFIER genType gaussRand
         w = x1 * x1 + x2 * x2;
     } while(w > genType(1));
 	
-    return x2 * std_deviation * std_deviation * sqrt((genType(-2) * log(w)) / w) + mean;
+    return x2 * Deviation * Deviation * sqrt((genType(-2) * log(w)) / w) + Mean;
 }
 
 template <typename T>
 GLM_FUNC_QUALIFIER detail::tvec2<T> gaussRand
 (
-	detail::tvec2<T> const & Min, 
-	detail::tvec2<T> const & Max
+	detail::tvec2<T> const & Mean, 
+	detail::tvec2<T> const & Deviation
 )
 {
 	return detail::tvec2<T>(
-		gaussRand(Min.x, Max.x),
-		gaussRand(Min.y, Max.y));
+		gaussRand(Mean.x, Deviation.x),
+		gaussRand(Mean.y, Deviation.y));
 }
 	
 template <typename T>
 GLM_FUNC_QUALIFIER detail::tvec3<T> gaussRand
 (
-	detail::tvec3<T> const & Min, 
-	detail::tvec3<T> const & Max
+	detail::tvec3<T> const & Mean, 
+	detail::tvec3<T> const & Deviation
 )
 {
 	return detail::tvec3<T>(
-		gaussRand(Min.x, Max.x),
-		gaussRand(Min.y, Max.y),
-		gaussRand(Min.z, Max.z));
+		gaussRand(Mean.x, Deviation.x),
+		gaussRand(Mean.y, Deviation.y),
+		gaussRand(Mean.z, Deviation.z));
 }
 	
 template <typename T>
 GLM_FUNC_QUALIFIER detail::tvec4<T> gaussRand
 (
-	detail::tvec4<T> const & Min, 
-	detail::tvec4<T> const & Max
+	detail::tvec4<T> const & Mean, 
+	detail::tvec4<T> const & Deviation
 )
 {
 	return detail::tvec4<T>(
-		gaussRand(Min.x, Max.x),
-		gaussRand(Min.y, Max.y),
-		gaussRand(Min.z, Max.z),
-		gaussRand(Min.w, Max.w));
+		gaussRand(Mean.x, Deviation.x),
+		gaussRand(Mean.y, Deviation.y),
+		gaussRand(Mean.z, Deviation.z),
+		gaussRand(Mean.w, Deviation.w));
 }
 	
 template <typename T>
@@ -184,7 +184,7 @@ GLM_FUNC_QUALIFIER detail::tvec2<T> circularRand
 	T const & Radius
 )
 {
-	T a = compRand1<T>(T(0), T(6.283185307179586476925286766559f));
+	T a = linearRand(T(0), T(6.283185307179586476925286766559f));
 	return detail::tvec2<T>(cos(a), sin(a)) * Radius;		
 }
 	

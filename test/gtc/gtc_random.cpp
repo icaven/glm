@@ -32,7 +32,7 @@ int test_linearRand()
 
 	return Error;
 }
-
+/*
 int test_normalizedRand2()
 {
 	int Error = 0;
@@ -88,14 +88,14 @@ int test_normalizedRand3()
 
 	return Error;
 }
-
+*/
 int main()
 {
 	int Error = 0;
 
 	Error += test_linearRand();
-	Error += test_normalizedRand2();
-	Error += test_normalizedRand3();
+	//Error += test_normalizedRand2();
+	//Error += test_normalizedRand3();
 
 	return Error;
 }
