@@ -91,6 +91,36 @@ int test_sphericalRand()
 	return Error;
 }
 
+int test_diskRand()
+{
+	int Error = 0;
+
+	{
+		float ResultFloat = 0.0f;
+		double ResultDouble = 0.0f;
+		for(std::size_t i = 0; i < 100000; ++i)
+		{
+			ResultFloat += glm::length(glm::diskRand(2.0f));
+			ResultDouble += glm::length(glm::diskRand(2.0));
+		}
+
+		Error += ResultFloat < 200000.f ? 0 : 1;
+		Error += ResultDouble < 200000.0 ? 0 : 1;
+		assert(!Error);
+	}
+
+	return Error;
+}
+
+int test_ballRand()
+{
+	int Error = 0;
+
+
+
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
@@ -98,6 +128,8 @@ int main()
 	Error += test_linearRand();
 	Error += test_circularRand();
 	Error += test_sphericalRand();
+	Error += test_diskRand();
+	Error += test_ballRand();
 
 	return Error;
 }

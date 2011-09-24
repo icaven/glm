@@ -141,7 +141,7 @@ GLM_FUNC_QUALIFIER detail::tvec4<T> gaussRand
 }
 	
 template <typename T>
-GLM_FUNC_QUALIFIER detail::tvec3<T> diskRand
+GLM_FUNC_QUALIFIER detail::tvec2<T> diskRand
 (
 	T const & Radius
 )
@@ -151,7 +151,7 @@ GLM_FUNC_QUALIFIER detail::tvec3<T> diskRand
 		
 	do
 	{
-		Result = compRand2(-Radius, Radius);
+		Result = linearRand(detail::tvec2<T>(-Radius), detail::tvec2<T>(Radius));
 		LenRadius = length(Result);
 	}
 	while(LenRadius > Radius);
@@ -170,7 +170,7 @@ GLM_FUNC_QUALIFIER detail::tvec3<T> ballRand
 		
 	do
 	{
-		Result = compRand3(-Radius, Radius);
+		Result = linearRand(detail::tvec3<T>(-Radius), detail::tvec3<T>(Radius));
 		LenRadius = length(Result);
 	}
 	while(LenRadius > Radius);
