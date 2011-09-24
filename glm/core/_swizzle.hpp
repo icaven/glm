@@ -159,12 +159,12 @@ namespace detail
 		value_type& operator[]  (size_t i)
 		{
 			static const int offset_dst[4] = { E0, E1, E2, E3 };
-			return elem(offset_dst[i]);
+			return this->elem(offset_dst[i]);
 		}
-		value_type  operator[]  (size_t) const
+		value_type  operator[]  (size_t i) const
 		{
 			static const int offset_dst[4] = { E0, E1, E2, E3 };
-			return elem(offset_dst[i]);
+			return this->elem(offset_dst[i]);
 		}
 	protected:
 		template <typename T>
@@ -191,10 +191,10 @@ namespace detail
 		struct Stub {};
 		_swizzle_base2& operator= (const Stub& that) {}
 
-		value_type  operator[]  (size_t) const
+		value_type  operator[]  (size_t i) const
 		{
 			static const int offset_dst[4] = { E0, E1, E2, E3 };
-			return elem(offset_dst[i]);
+			return this->elem(offset_dst[i]);
 		} 
 	};
 
