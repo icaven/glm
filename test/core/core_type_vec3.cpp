@@ -9,6 +9,7 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/half_float.hpp>
+#include <cstdio>
 
 static int test_vec3_operators()
 {
@@ -251,5 +252,7 @@ int main()
     Error += test_vec3_swizzle_operators();
     Error += test_vec3_swizzle_functions();
 	
+	printf("Errors: %d\n", Error);
+
 	return Error;
 }

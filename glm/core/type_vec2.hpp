@@ -62,9 +62,9 @@ namespace detail
 		//////////////////////////////////////
 		// Data
 
-#		if(GLM_COMPONENT == GLM_COMPONENT_ONLY_XYZW)
+#	if(GLM_COMPONENT == GLM_COMPONENT_ONLY_XYZW)
 		value_type x, y;
-#		elif(GLM_COMPONENT == GLM_COMPONENT_MS_EXT)
+#	elif(GLM_COMPONENT == GLM_COMPONENT_MS_EXT || GLM_LANG == GLM_LANG_CXX0X)
 		union 
 		{
             _GLM_SWIZZLE2_2_MEMBERS(value_type,glm::detail::tvec2<value_type>,x,y)
@@ -81,10 +81,10 @@ namespace detail
 			struct{value_type s, t;};
 			struct{value_type x, y;};
 		};
-#		else//(GLM_COMPONENT == GLM_COMPONENT_GLSL_NAMES)
+#	else//(GLM_COMPONENT == GLM_COMPONENT_GLSL_NAMES)
 		union {value_type x, r, s;};
 		union {value_type y, g, t;};
-#		endif//GLM_COMPONENT
+#	endif//GLM_COMPONENT
 
 		//////////////////////////////////////
 		// Accesses
