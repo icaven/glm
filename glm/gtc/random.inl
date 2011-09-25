@@ -92,8 +92,8 @@ GLM_FUNC_QUALIFIER genType gaussRand
 	
     do
     {
-        x1 = compRand1(genType(-1), genType(1));
-        x2 = compRand1(genType(-1), genType(1));
+        x1 = linearRand(genType(-1), genType(1));
+        x2 = linearRand(genType(-1), genType(1));
 		
         w = x1 * x1 + x2 * x2;
     } while(w > genType(1));

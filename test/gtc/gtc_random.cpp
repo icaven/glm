@@ -69,6 +69,7 @@ int test_sphericalRand()
 		double ResultDoubleA = 0.0f;
 		double ResultDoubleB = 0.0f;
 		double ResultDoubleC = 0.0f;
+
 		for(std::size_t i = 0; i < Max; ++i)
 		{
 			ResultFloatA += glm::length(glm::sphericalRand(1.0f));
@@ -98,6 +99,7 @@ int test_diskRand()
 	{
 		float ResultFloat = 0.0f;
 		double ResultDouble = 0.0f;
+
 		for(std::size_t i = 0; i < 100000; ++i)
 		{
 			ResultFloat += glm::length(glm::diskRand(2.0f));
@@ -116,7 +118,20 @@ int test_ballRand()
 {
 	int Error = 0;
 
+	{
+		float ResultFloat = 0.0f;
+		double ResultDouble = 0.0f;
 
+		for(std::size_t i = 0; i < 100000; ++i)
+		{
+			ResultFloat += glm::length(glm::ballRand(2.0f));
+			ResultDouble += glm::length(glm::ballRand(2.0));
+		}
+
+		Error += ResultFloat < 200000.f ? 0 : 1;
+		Error += ResultDouble < 200000.0 ? 0 : 1;
+		assert(!Error);
+	}
 
 	return Error;
 }
