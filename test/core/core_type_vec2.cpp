@@ -154,8 +154,8 @@ int test_vec2_operators()
 	}
 	
 	{
-		glm::vec3 A(1.0f, 2.0f);
-		glm::vec3 B = -A;
+		glm::vec2 A(1.0f, 2.0f);
+		glm::vec2 B = -A;
 		Error += B == glm::vec2(-1.0f, -2.0f) ? 0 : 1;
 	}
 	
