@@ -33,7 +33,7 @@ int test_linearRand()
 	return Error;
 }
 
-int test_normalizedRand2()
+int test_circularRand()
 {
 	int Error = 0;
 
@@ -41,21 +41,23 @@ int test_normalizedRand2()
 		std::size_t Max = 100000;
 		float ResultFloat = 0.0f;
 		double ResultDouble = 0.0f;
+		double Radius = 2.0f;
+
 		for(std::size_t i = 0; i < Max; ++i)
 		{
-			ResultFloat += glm::length(glm::normalizedRand2(1.0f, 1.0f));
-			ResultDouble += glm::length(glm::normalizedRand2(1.0f, 1.0f));
+			ResultFloat += glm::length(glm::circularRand(1.0f));
+			ResultDouble += glm::length(glm::circularRand(Radius));
 		}
 
 		Error += glm::equalEpsilon(ResultFloat, float(Max), 0.01f) ? 0 : 1;
-		Error += glm::equalEpsilon(ResultDouble, double(Max), 0.01) ? 0 : 1;
+		Error += glm::equalEpsilon(ResultDouble, double(Max) * double(Radius), 0.01) ? 0 : 1;
 		assert(!Error);
 	}
 
 	return Error;
 }
 
-int test_normalizedRand3()
+int test_sphericalRand()
 {
 	int Error = 0;
 
@@ -67,22 +69,67 @@ int test_normalizedRand3()
 		double ResultDoubleA = 0.0f;
 		double ResultDoubleB = 0.0f;
 		double ResultDoubleC = 0.0f;
+
 		for(std::size_t i = 0; i < Max; ++i)
 		{
-			ResultFloatA += glm::length(glm::normalizedRand3(1.0f, 1.0f));
-			ResultDoubleA += glm::length(glm::normalizedRand3(1.0f, 1.0f));
-			ResultFloatB += glm::length(glm::normalizedRand3(2.0f, 2.0f));
-			ResultDoubleB += glm::length(glm::normalizedRand3(2.0, 2.0));
-			ResultFloatC += glm::length(glm::normalizedRand3(1.0f, 3.0f));
-			ResultDoubleC += glm::length(glm::normalizedRand3(1.0, 3.0));
+			ResultFloatA += glm::length(glm::sphericalRand(1.0f));
+			ResultDoubleA += glm::length(glm::sphericalRand(1.0));
+			ResultFloatB += glm::length(glm::sphericalRand(2.0f));
+			ResultDoubleB += glm::length(glm::sphericalRand(2.0));
+			ResultFloatC += glm::length(glm::sphericalRand(3.0f));
+			ResultDoubleC += glm::length(glm::sphericalRand(3.0));
 		}
 
-		Error += glm::equalEpsilon(ResultFloatA, float(Max), 100.0f) ? 0 : 1;
-		Error += glm::equalEpsilon(ResultDoubleA, double(Max), 100.0) ? 0 : 1;
-		Error += glm::equalEpsilon(ResultFloatB, float(Max * 2), 100.0001f) ? 0 : 1;
-		Error += glm::equalEpsilon(ResultDoubleB, double(Max * 2), 100.0001) ? 0 : 1;
-		Error += (ResultFloatC >= float(Max) && ResultFloatC <= float(Max * 3)) ? 0 : 1;
-		Error += (ResultDoubleC >= double(Max) && ResultDoubleC <= double(Max * 3)) ? 0 : 1;
+		Error += glm::equalEpsilon(ResultFloatA, float(Max), 0.01f) ? 0 : 1;
+		Error += glm::equalEpsilon(ResultDoubleA, double(Max), 0.0001) ? 0 : 1;
+		Error += glm::equalEpsilon(ResultFloatB, float(Max * 2), 0.01f) ? 0 : 1;
+		Error += glm::equalEpsilon(ResultDoubleB, double(Max * 2), 0.0001) ? 0 : 1;
+		Error += glm::equalEpsilon(ResultFloatC, float(Max * 3), 0.01f) ? 0 : 1;
+		Error += glm::equalEpsilon(ResultDoubleC, double(Max * 3), 0.01) ? 0 : 1;
+		assert(!Error);
+	}
+
+	return Error;
+}
+
+int test_diskRand()
+{
+	int Error = 0;
+
+	{
+		float ResultFloat = 0.0f;
+		double ResultDouble = 0.0f;
+
+		for(std::size_t i = 0; i < 100000; ++i)
+		{
+			ResultFloat += glm::length(glm::diskRand(2.0f));
+			ResultDouble += glm::length(glm::diskRand(2.0));
+		}
+
+		Error += ResultFloat < 200000.f ? 0 : 1;
+		Error += ResultDouble < 200000.0 ? 0 : 1;
+		assert(!Error);
+	}
+
+	return Error;
+}
+
+int test_ballRand()
+{
+	int Error = 0;
+
+	{
+		float ResultFloat = 0.0f;
+		double ResultDouble = 0.0f;
+
+		for(std::size_t i = 0; i < 100000; ++i)
+		{
+			ResultFloat += glm::length(glm::ballRand(2.0f));
+			ResultDouble += glm::length(glm::ballRand(2.0));
+		}
+
+		Error += ResultFloat < 200000.f ? 0 : 1;
+		Error += ResultDouble < 200000.0 ? 0 : 1;
 		assert(!Error);
 	}
 
@@ -94,8 +141,10 @@ int main()
 	int Error = 0;
 
 	Error += test_linearRand();
-	Error += test_normalizedRand2();
-	Error += test_normalizedRand3();
+	Error += test_circularRand();
+	Error += test_sphericalRand();
+	Error += test_diskRand();
+	Error += test_ballRand();
 
 	return Error;
 }

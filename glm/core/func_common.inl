@@ -156,13 +156,13 @@ namespace detail
 
     // floor
     template <>
-	GLM_FUNC_QUALIFIER detail::thalf floor<detail::thalf>(detail::thalf const& x)
+	GLM_FUNC_QUALIFIER detail::thalf floor<detail::thalf>(detail::thalf const & x)
     {
         return detail::thalf(::std::floor(x.toFloat()));
     }
 
     template <typename genType>
-    GLM_FUNC_QUALIFIER genType floor(genType const& x)
+    GLM_FUNC_QUALIFIER genType floor(genType const & x)
     {
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'floor' only accept floating-point inputs");
 
