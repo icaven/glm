@@ -71,6 +71,118 @@ int test_vec2_operators()
         Error += A.x == C.x && A.y == C.y ? 0 : 1;
     }    
     
+	{
+		glm::vec2 A(1.0f, 2.0f);
+		glm::vec2 B(4.0f, 5.0f);
+		
+		glm::vec2 C = A + B;
+		Error += C == glm::vec2(5, 7) ? 0 : 1;
+		
+		glm::vec2 D = B - A;
+		Error += D == glm::vec2(3, 3) ? 0 : 1;
+		
+		glm::vec2 E = A * B;
+		Error += E == glm::vec2(4, 10) ? 0 : 1;
+		
+		glm::vec2 F = B / A;
+		Error += F == glm::vec2(4, 2.5) ? 0 : 1;
+		
+		glm::vec2 G = A + 1.0f;
+		Error += G == glm::vec2(2, 3) ? 0 : 1;
+		
+		glm::vec2 H = B - 1.0f;
+		Error += H == glm::vec2(3, 4) ? 0 : 1;
+		
+		glm::vec2 I = A * 2.0f;
+		Error += I == glm::vec2(2, 4) ? 0 : 1;
+		
+		glm::vec2 J = B / 2.0f;
+		Error += J == glm::vec2(2, 2.5) ? 0 : 1;
+		
+		glm::vec2 K = 1.0f + A;
+		Error += K == glm::vec2(2, 3) ? 0 : 1;
+		
+		glm::vec2 L = 1.0f - B;
+		Error += L == glm::vec2(-3, -4) ? 0 : 1;
+		
+		glm::vec2 M = 2.0f * A;
+		Error += M == glm::vec2(2, 4) ? 0 : 1;
+		
+		glm::vec2 N = 2.0f / B;
+		Error += N == glm::vec2(0.5, 2.0 / 5.0) ? 0 : 1;
+	}
+	
+	{
+		glm::vec2 A(1.0f, 2.0f);
+		glm::vec2 B(4.0f, 5.0f);
+		
+		A += B;
+		Error += A == glm::vec2(5, 7) ? 0 : 1;
+		
+		A += 1.0f;
+		Error += A == glm::vec2(6, 8) ? 0 : 1;
+	}
+	{
+		glm::vec2 A(1.0f, 2.0f);
+		glm::vec2 B(4.0f, 5.0f);
+		
+		B -= A;
+		Error += B == glm::vec2(3, 3) ? 0 : 1;
+		
+		B -= 1.0f;
+		Error += B == glm::vec2(2, 2) ? 0 : 1;
+	}
+	{
+		glm::vec2 A(1.0f, 2.0f);
+		glm::vec2 B(4.0f, 5.0f);
+		
+		A *= B;
+		Error += A == glm::vec2(4, 10) ? 0 : 1;
+		
+		A *= 2.0f;
+		Error += A == glm::vec2(8, 20) ? 0 : 1;
+	}
+	{
+		glm::vec2 A(1.0f, 2.0f);
+		glm::vec2 B(4.0f, 5.0f);
+		
+		B /= A;
+		Error += B == glm::vec2(4, 2.5) ? 0 : 1;
+		
+		B /= 2.0f;
+		Error += B == glm::vec2(2, 1.25) ? 0 : 1;
+	}
+	
+	{
+		glm::vec3 A(1.0f, 2.0f);
+		glm::vec3 B = -A;
+		Error += B == glm::vec2(-1.0f, -2.0f) ? 0 : 1;
+	}
+	
+	{
+		glm::vec2 A(1.0f, 2.0f);
+		glm::vec2 B = --A;
+		Error += B == glm::vec2(0.0f, 1.0f) ? 0 : 1;
+	}
+	
+	{
+		glm::vec2 A(1.0f, 2.0f);
+		glm::vec2 B = A--;
+		Error += B == glm::vec2(0.0f, 1.0f) ? 0 : 1;
+	}
+	
+	{
+		glm::vec2 A(1.0f, 2.0f);
+		glm::vec2 B = ++A;
+		Error += B == glm::vec2(2.0f, 3.0f) ? 0 : 1;
+	}
+	
+	{
+		glm::vec2 A(1.0f, 2.0f);
+		glm::vec2 B = A++;
+		Error += B == glm::vec2(2.0f, 3.0f) ? 0 : 1;
+	}
+	
 	return Error;
 }
 
