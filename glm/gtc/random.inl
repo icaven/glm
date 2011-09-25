@@ -92,8 +92,8 @@ GLM_FUNC_QUALIFIER genType gaussRand
 	
     do
     {
-        x1 = compRand1(genType(-1), genType(1));
-        x2 = compRand1(genType(-1), genType(1));
+        x1 = linearRand(genType(-1), genType(1));
+        x2 = linearRand(genType(-1), genType(1));
 		
         w = x1 * x1 + x2 * x2;
     } while(w > genType(1));
@@ -141,7 +141,7 @@ GLM_FUNC_QUALIFIER detail::tvec4<T> gaussRand
 }
 	
 template <typename T>
-GLM_FUNC_QUALIFIER detail::tvec3<T> diskRand
+GLM_FUNC_QUALIFIER detail::tvec2<T> diskRand
 (
 	T const & Radius
 )
@@ -151,7 +151,7 @@ GLM_FUNC_QUALIFIER detail::tvec3<T> diskRand
 		
 	do
 	{
-		Result = compRand2(-Radius, Radius);
+		Result = linearRand(detail::tvec2<T>(-Radius), detail::tvec2<T>(Radius));
 		LenRadius = length(Result);
 	}
 	while(LenRadius > Radius);
@@ -170,7 +170,7 @@ GLM_FUNC_QUALIFIER detail::tvec3<T> ballRand
 		
 	do
 	{
-		Result = compRand3(-Radius, Radius);
+		Result = linearRand(detail::tvec3<T>(-Radius), detail::tvec3<T>(Radius));
 		LenRadius = length(Result);
 	}
 	while(LenRadius > Radius);
@@ -194,8 +194,8 @@ GLM_FUNC_QUALIFIER detail::tvec3<T> sphericalRand
 	T const & Radius
 )
 {
-	T z = compRand1(T(-1), T(1));
-	T a = compRand1(T(0), T(6.283185307179586476925286766559f));
+	T z = linearRand(T(-1), T(1));
+	T a = linearRand(T(0), T(6.283185307179586476925286766559f));
 	
 	T r = sqrt(T(1) - z * z);
 	

@@ -13,12 +13,35 @@
 
 static int test_vec3_operators()
 {
-	glm::vec3 A(1.0f);
-	glm::vec3 B(1.0f);
-	bool R = A != B;
-	bool S = A == B;
+	int Error = 0;
+	
+	{
+		glm::vec3 A(1.0f);
+		glm::vec3 B(1.0f);
+		bool R = A != B;
+		bool S = A == B;
 
-	return (S && !R) ? 0 : 1;
+		Error += (S && !R) ? 0 : 1;
+	}
+
+	{
+		glm::vec3 A(1.0f, 2.0f, 3.0f);
+		glm::vec3 B(4.0f, 5.0f, 6.0f);
+
+		glm::vec3 C = A + B;
+		Error += C == glm::vec3(5, 7, 9) ? 0 : 1;
+
+		glm::vec3 D = B - A;
+		Error += D == glm::vec3(3, 3, 3) ? 0 : 1;
+
+		glm::vec3 E = A * B;
+		Error += E == glm::vec3(4, 10, 18) ? 0 : 1;
+
+		glm::vec3 F = B / A;
+		Error += F == glm::vec3(4, 2.5, 2) ? 0 : 1;
+	}
+
+	return Error;
 }
 
 int test_vec3_size()

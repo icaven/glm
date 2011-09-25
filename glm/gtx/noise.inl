@@ -695,52 +695,52 @@ GLM_FUNC_QUALIFIER T simplex(detail::tvec3<T> const & v)
 	detail::tvec4<T> const D(0.0, 0.5, 1.0, 2.0);
 
 	// First corner
-	detail::tvec3<T> i  = floor(v + dot(v, detail::tvec3<T>(C.y)));
-	detail::tvec3<T> x0 =   v - i + dot(i, detail::tvec3<T>(C.x));
+	detail::tvec3<T> i(floor(v + dot(v, detail::tvec3<T>(C.y))));
+	detail::tvec3<T> x0(v - i + dot(i, detail::tvec3<T>(C.x)));
 
 	// Other corners
-	detail::tvec3<T> g = step(detail::tvec3<T>(x0.y, x0.z, x0.x), x0);
-	detail::tvec3<T> l = T(1) - g;
-	detail::tvec3<T> i1 = min(g, detail::tvec3<T>(l.z, l.x, l.y));
-	detail::tvec3<T> i2 = max(g, detail::tvec3<T>(l.z, l.x, l.y));
+	detail::tvec3<T> g(step(detail::tvec3<T>(x0.y, x0.z, x0.x), x0));
+	detail::tvec3<T> l(T(1) - g);
+	detail::tvec3<T> i1(min(g, detail::tvec3<T>(l.z, l.x, l.y)));
+	detail::tvec3<T> i2(max(g, detail::tvec3<T>(l.z, l.x, l.y)));
 
 	//   x0 = x0 - 0.0 + 0.0 * C.xxx;
 	//   x1 = x0 - i1  + 1.0 * C.xxx;
 	//   x2 = x0 - i2  + 2.0 * C.xxx;
 	//   x3 = x0 - 1.0 + 3.0 * C.xxx;
-	detail::tvec3<T> x1 = x0 - i1 + C.x;
-	detail::tvec3<T> x2 = x0 - i2 + C.y; // 2.0*C.x = 1/3 = C.y
-	detail::tvec3<T> x3 = x0 - D.y;      // -1.0+3.0*C.x = -0.5 = -D.y
+	detail::tvec3<T> x1(x0 - i1 + C.x);
+	detail::tvec3<T> x2(x0 - i2 + C.y); // 2.0*C.x = 1/3 = C.y
+	detail::tvec3<T> x3(x0 - D.y);      // -1.0+3.0*C.x = -0.5 = -D.y
 
 	// Permutations
 	i = mod289(i); 
-	detail::tvec4<T> p = permute(permute(permute( 
+	detail::tvec4<T> p(permute(permute(permute( 
 		i.z + detail::tvec4<T>(T(0), i1.z, i2.z, T(1))) + 
 		i.y + detail::tvec4<T>(T(0), i1.y, i2.y, T(1))) + 
-		i.x + detail::tvec4<T>(T(0), i1.x, i2.x, T(1)));
+		i.x + detail::tvec4<T>(T(0), i1.x, i2.x, T(1))));
 
 	// Gradients: 7x7 points over a square, mapped onto an octahedron.
 	// The ring size 17*17 = 289 is close to a multiple of 49 (49*6 = 294)
 	T n_ = T(0.142857142857); // 1.0/7.0
-	detail::tvec3<T> ns = n_ * detail::tvec3<T>(D.w, D.y, D.z) - detail::tvec3<T>(D.x, D.z, D.x);
+	detail::tvec3<T> ns(n_ * detail::tvec3<T>(D.w, D.y, D.z) - detail::tvec3<T>(D.x, D.z, D.x));
 
-	detail::tvec4<T> j = p - T(49) * floor(p * ns.z * ns.z);  //  mod(p,7*7)
+	detail::tvec4<T> j(p - T(49) * floor(p * ns.z * ns.z));  //  mod(p,7*7)
 
-	detail::tvec4<T> x_ = floor(j * ns.z);
-	detail::tvec4<T> y_ = floor(j - T(7) * x_);    // mod(j,N)
+	detail::tvec4<T> x_(floor(j * ns.z));
+	detail::tvec4<T> y_(floor(j - T(7) * x_));    // mod(j,N)
 
-	detail::tvec4<T> x = x_ * ns.x + ns.y;
-	detail::tvec4<T> y = y_ * ns.x + ns.y;
-	detail::tvec4<T> h = T(1) - abs(x) - abs(y);
+	detail::tvec4<T> x(x_ * ns.x + ns.y);
+	detail::tvec4<T> y(y_ * ns.x + ns.y);
+	detail::tvec4<T> h(T(1) - abs(x) - abs(y));
 
 	detail::tvec4<T> b0(x.x, x.y, y.x, y.y);
 	detail::tvec4<T> b1(x.z, x.w, y.z, y.w);
 
 	// vec4 s0 = vec4(lessThan(b0,0.0))*2.0 - 1.0;
 	// vec4 s1 = vec4(lessThan(b1,0.0))*2.0 - 1.0;
-	detail::tvec4<T> s0 = floor(b0) * T(2) + T(1);
-	detail::tvec4<T> s1 = floor(b1) * T(2) + T(1);
-	detail::tvec4<T> sh = -step(h, detail::tvec4<T>(0.0));
+	detail::tvec4<T> s0(floor(b0) * T(2) + T(1));
+	detail::tvec4<T> s1(floor(b1) * T(2) + T(1));
+	detail::tvec4<T> sh(-step(h, detail::tvec4<T>(0.0)));
 
 	detail::tvec4<T> a0 = detail::tvec4<T>(b0.x, b0.z, b0.y, b0.w) + detail::tvec4<T>(s0.x, s0.z, s0.y, s0.w) * detail::tvec4<T>(sh.x, sh.x, sh.y, sh.y);
 	detail::tvec4<T> a1 = detail::tvec4<T>(b1.x, b1.z, b1.y, b1.w) + detail::tvec4<T>(s1.x, s1.z, s1.y, s1.w) * detail::tvec4<T>(sh.z, sh.z, sh.w, sh.w);
