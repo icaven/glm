@@ -9,7 +9,7 @@
 
 #include <glm/glm.hpp>
 
-static int test_vec3_operators()
+int test_vec3_operators()
 {
 	int Error = 0;
 	
