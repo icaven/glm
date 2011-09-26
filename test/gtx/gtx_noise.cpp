@@ -23,7 +23,7 @@ int test_simplex()
 		for(std::size_t y = 0; y < Size; ++y)
 		for(std::size_t x = 0; x < Size; ++x)
 		{
-			ImageData[(x + y * Size) * 3 + 0] = glm::byte(glm::simplex(glm::vec2(x / 32.f, y / 32.f)) * 128.f + 127.f);
+			ImageData[(x + y * Size) * 3 + 0] = glm::byte(glm::simplex(glm::vec2(x / 64.f, y / 64.f)) * 128.f + 127.f);
 			ImageData[(x + y * Size) * 3 + 1] = ImageData[(x + y * Size) * 3 + 0];
 			ImageData[(x + y * Size) * 3 + 2] = ImageData[(x + y * Size) * 3 + 0];
 		}
@@ -40,7 +40,7 @@ int test_simplex()
 		for(std::size_t y = 0; y < Size; ++y)
 		for(std::size_t x = 0; x < Size; ++x)
 		{
-			ImageData[(x + y * Size) * 3 + 0] = glm::byte(glm::simplex(glm::vec3(x / 32.f, y / 32.f, 0.5f)) * 128.f + 127.f);
+			ImageData[(x + y * Size) * 3 + 0] = glm::byte(glm::simplex(glm::vec3(x / 64.f, y / 64.f, 0.5f)) * 128.f + 127.f);
 			ImageData[(x + y * Size) * 3 + 1] = ImageData[(x + y * Size) * 3 + 0];
 			ImageData[(x + y * Size) * 3 + 2] = ImageData[(x + y * Size) * 3 + 0];
 		}
@@ -57,7 +57,7 @@ int test_simplex()
 		for(std::size_t y = 0; y < Size; ++y)
 		for(std::size_t x = 0; x < Size; ++x)
 		{
-			ImageData[(x + y * Size) * 3 + 0] = glm::byte(glm::simplex(glm::vec4(x / 32.f, y / 32.f, 0.5f, 0.5f)) * 128.f + 127.f);
+			ImageData[(x + y * Size) * 3 + 0] = glm::byte(glm::simplex(glm::vec4(x / 64.f, y / 64.f, 0.5f, 0.5f)) * 128.f + 127.f);
 			ImageData[(x + y * Size) * 3 + 1] = ImageData[(x + y * Size) * 3 + 0];
 			ImageData[(x + y * Size) * 3 + 2] = ImageData[(x + y * Size) * 3 + 0];
 		}
@@ -81,7 +81,7 @@ int test_perlin()
 		for(std::size_t y = 0; y < Size; ++y)
 		for(std::size_t x = 0; x < Size; ++x)
 		{
-			ImageData[(x + y * Size) * 3 + 0] = glm::byte(glm::perlin(glm::vec2(x / 16.f, y / 16.f)) * 128.f + 127.f);
+			ImageData[(x + y * Size) * 3 + 0] = glm::byte(glm::perlin(glm::vec2(x / 64.f, y / 64.f)) * 128.f + 127.f);
 			ImageData[(x + y * Size) * 3 + 1] = ImageData[(x + y * Size) * 3 + 0];
 			ImageData[(x + y * Size) * 3 + 2] = ImageData[(x + y * Size) * 3 + 0];
 		}
@@ -98,7 +98,7 @@ int test_perlin()
 		for(std::size_t y = 0; y < Size; ++y)
 		for(std::size_t x = 0; x < Size; ++x)
 		{
-			ImageData[(x + y * Size) * 3 + 0] = glm::byte(glm::perlin(glm::vec3(x / 16.f, y / 16.f, 0.5f)) * 128.f + 127.f);
+			ImageData[(x + y * Size) * 3 + 0] = glm::byte(glm::perlin(glm::vec3(x / 64.f, y / 64.f, 0.5f)) * 128.f + 127.f);
 			ImageData[(x + y * Size) * 3 + 1] = ImageData[(x + y * Size) * 3 + 0];
 			ImageData[(x + y * Size) * 3 + 2] = ImageData[(x + y * Size) * 3 + 0];
 		}
@@ -115,7 +115,7 @@ int test_perlin()
 		for(std::size_t y = 0; y < Size; ++y)
 		for(std::size_t x = 0; x < Size; ++x)
 		{
-			ImageData[(x + y * Size) * 3 + 0] = glm::byte(glm::perlin(glm::vec4(x / 16.f, y / 16.f, 0.5f, 0.5f)) * 128.f + 127.f);
+			ImageData[(x + y * Size) * 3 + 0] = glm::byte(glm::perlin(glm::vec4(x / 64.f, y / 64.f, 0.5f, 0.5f)) * 128.f + 127.f);
 			ImageData[(x + y * Size) * 3 + 1] = ImageData[(x + y * Size) * 3 + 0];
 			ImageData[(x + y * Size) * 3 + 2] = ImageData[(x + y * Size) * 3 + 0];
 		}
@@ -139,7 +139,7 @@ int test_perlin_pedioric()
 		for(std::size_t y = 0; y < Size; ++y)
 		for(std::size_t x = 0; x < Size; ++x)
 		{
-			ImageData[(x + y * Size) * 3 + 0] = glm::byte(glm::perlin(glm::vec2(x / 16.f, y / 16.f), glm::vec2(2.0f)) * 128.f + 127.f);
+			ImageData[(x + y * Size) * 3 + 0] = glm::byte(glm::perlin(glm::vec2(x / 64.f, y / 64.f), glm::vec2(2.0f)) * 128.f + 127.f);
 			ImageData[(x + y * Size) * 3 + 1] = ImageData[(x + y * Size) * 3 + 0];
 			ImageData[(x + y * Size) * 3 + 2] = ImageData[(x + y * Size) * 3 + 0];
 		}
@@ -156,7 +156,7 @@ int test_perlin_pedioric()
 		for(std::size_t y = 0; y < Size; ++y)
 		for(std::size_t x = 0; x < Size; ++x)
 		{
-			ImageData[(x + y * Size) * 3 + 0] = glm::byte(glm::perlin(glm::vec3(x / 16.f, y / 16.f, 0.5f), glm::vec3(2.0f)) * 128.f + 127.f);
+			ImageData[(x + y * Size) * 3 + 0] = glm::byte(glm::perlin(glm::vec3(x / 64.f, y / 64.f, 0.5f), glm::vec3(2.0f)) * 128.f + 127.f);
 			ImageData[(x + y * Size) * 3 + 1] = ImageData[(x + y * Size) * 3 + 0];
 			ImageData[(x + y * Size) * 3 + 2] = ImageData[(x + y * Size) * 3 + 0];
 		}
@@ -173,7 +173,7 @@ int test_perlin_pedioric()
 		for(std::size_t y = 0; y < Size; ++y)
 		for(std::size_t x = 0; x < Size; ++x)
 		{
-			ImageData[(x + y * Size) * 3 + 0] = glm::byte(glm::perlin(glm::vec4(x / 16.f, y / 16.f, 0.5f, 0.5f), glm::vec4(2.0f)) * 128.f + 127.f);
+			ImageData[(x + y * Size) * 3 + 0] = glm::byte(glm::perlin(glm::vec4(x / 64.f, y / 64.f, 0.5f, 0.5f), glm::vec4(2.0f)) * 128.f + 127.f);
 			ImageData[(x + y * Size) * 3 + 1] = ImageData[(x + y * Size) * 3 + 0];
 			ImageData[(x + y * Size) * 3 + 2] = ImageData[(x + y * Size) * 3 + 0];
 		}

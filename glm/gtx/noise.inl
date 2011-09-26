@@ -760,7 +760,7 @@ GLM_FUNC_QUALIFIER T simplex(detail::tvec3<T> const & v)
 	// Mix final noise value
 	detail::tvec4<T> m = max(T(0.6) - detail::tvec4<T>(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3)), T(0));
 	m = m * m;
-	return T(42) * dot(m * m, vec4(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
+	return T(42) * dot(m * m, detail::tvec4<T>(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
 }
 
 template <typename T>
