@@ -9,6 +9,7 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/half_float.hpp>
+#include <vector>
 
 template <int Value>
 struct mask
@@ -39,6 +40,35 @@ int test_hvec4()
 	//glm::vec4 B = glm::detail::tvec##(glm::vec4::_size)<float>();
 
 	return 0;
+}
+
+int test_vec4_ctor()
+{
+	int Error = 0;
+	
+	{
+		glm::vec4 A(1);
+		glm::vec4 B(1, 1, 1, 1);
+		
+		Error += A == B ? 0 : 1;
+	}
+	
+	{
+		std::vector<glm::vec4> Tests;
+		Tests.push_back(glm::vec4(glm::vec2(1, 2), 3, 4));
+		Tests.push_back(glm::vec4(1, glm::vec2(2, 3), 4));
+		Tests.push_back(glm::vec4(1, 2, glm::vec2(3, 4)));
+		Tests.push_back(glm::vec4(glm::vec3(1, 2, 3), 4));
+		Tests.push_back(glm::vec4(1, glm::vec3(2, 3, 4)));
+		Tests.push_back(glm::vec4(glm::vec2(1, 2), glm::vec2(3, 4)));
+		Tests.push_back(glm::vec4(1, 2, 3, 4));
+		Tests.push_back(glm::vec4(glm::vec4(1, 2, 3, 4)));
+		
+		for(std::size_t i = 0; i < Tests.size(); ++i)
+			Error += Tests[i] == glm::vec4(1, 2, 3, 4) ? 0 : 1;
+	}
+	
+	return Error;
 }
 
 int test_vec4_operators()
@@ -189,6 +219,7 @@ int main()
 	//__m128 DataB = swizzle<W, Z, Y, X>(glm::vec4(1.0f, 2.0f, 3.0f, 4.0f));
 
 	int Error = 0;
+	Error += test_vec4_ctor();
 	Error += test_vec4_size();
 	Error += test_vec4_operators();
 	Error += test_hvec4();
