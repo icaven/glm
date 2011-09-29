@@ -224,11 +224,13 @@ GLM_FUNC_QUALIFIER __m128 sse_mod_ps(__m128 x, __m128 y)
 }
 
 /// TODO
+/*
 GLM_FUNC_QUALIFIER __m128 sse_modf_ps(__m128 x, __m128i & i)
 {
 	__m128 empty;
     return empty;
 }
+*/
 
 //GLM_FUNC_QUALIFIER __m128 _mm_min_ps(__m128 x, __m128 y)
 
@@ -273,18 +275,18 @@ GLM_FUNC_QUALIFIER __m128 sse_ssp_ps(__m128 edge0, __m128 edge1, __m128 x)
 }
 
 /// \todo
-GLM_FUNC_QUALIFIER __m128 sse_nan_ps(__m128 x)
-{
-	__m128 empty;
-    return empty;
-}
+//GLM_FUNC_QUALIFIER __m128 sse_nan_ps(__m128 x)
+//{
+//	__m128 empty;
+//    return empty;
+//}
 
 /// \todo
-GLM_FUNC_QUALIFIER __m128 sse_inf_ps(__m128 x)
-{
-	__m128 empty;
-    return empty;
-}
+//GLM_FUNC_QUALIFIER __m128 sse_inf_ps(__m128 x)
+//{
+//	__m128 empty;
+//    return empty;
+//}
 
 // SSE scalar reciprocal sqrt using rsqrt op, plus one Newton-Rhaphson iteration
 // By Elan Ruskin, http://assemblyrequired.crashworks.org/
