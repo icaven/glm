@@ -76,8 +76,8 @@ namespace detail
 		volatile float t;
 		glm::detail::int32 hx, hy, ix, iy;
 
-		GLM_GET_FLOAT_WORD(hx,x);
-		GLM_GET_FLOAT_WORD(hy,y);
+		GLM_GET_FLOAT_WORD(hx, x);
+		GLM_GET_FLOAT_WORD(hy, y);
 		ix = hx&0x7fffffff;             // |x|
 		iy = hy&0x7fffffff;             // |y|
 
