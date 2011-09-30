@@ -21,6 +21,9 @@
  * ====================================================
  */
 
+#pragma warning(push)
+#pragma warning(disable : 4127)
+
 typedef union
 {
 	float value;
@@ -167,6 +170,8 @@ namespace detail
 	}
 }//namespace detail
 }//namespace glm
+
+#pragma warning(pop)
 
 #if(GLM_COMPILER & GLM_COMPILER_VC)
 #	define GLM_NEXT_AFTER_FLT(x, toward) glm::detail::nextafterf((x), (toward))
