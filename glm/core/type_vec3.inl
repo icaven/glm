@@ -595,6 +595,18 @@ namespace detail
 	}
 
 	template <typename T>
+	GLM_FUNC_QUALIFIER tref2<T> tvec3<T>::swizzle
+	(
+		comp x, 
+		comp y
+	)
+	{
+		return tref2<T>(
+			(*this)[x],
+			(*this)[y]);
+	}
+
+	template <typename T>
 	GLM_FUNC_QUALIFIER tref3<T> tvec3<T>::swizzle
 	(
 		comp x, 
