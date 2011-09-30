@@ -8,6 +8,32 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/glm.hpp>
+#include <vector>
+
+int test_vec3_ctor()
+{
+	int Error = 0;
+	
+	{
+		glm::vec3 A(1);
+		glm::vec3 B(1, 1, 1);
+		
+		Error += A == B ? 0 : 1;
+	}
+	
+	{
+		std::vector<glm::vec3> Tests;
+		Tests.push_back(glm::vec3(glm::vec2(1, 2), 3));
+		Tests.push_back(glm::vec3(1, glm::vec2(2, 3)));
+		Tests.push_back(glm::vec3(1, 2, 3));
+		Tests.push_back(glm::vec3(glm::vec4(1, 2, 3, 4)));
+
+		for(std::size_t i = 0; i < Tests.size(); ++i)
+			Error += Tests[i] == glm::vec3(1, 2, 3) ? 0 : 1;
+	}
+		
+	return Error;
+}
 
 int test_vec3_operators()
 {
@@ -155,6 +181,7 @@ int main()
 {
 	int Error = 0;
 
+	Error += test_vec3_ctor();
 	Error += test_vec3_operators();
 	Error += test_vec3_size();
 	
