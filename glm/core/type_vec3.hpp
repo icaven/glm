@@ -178,6 +178,7 @@ namespace detail
 		GLM_FUNC_DECL tvec2<T> swizzle(comp X, comp Y) const;
 		GLM_FUNC_DECL tvec3<T> swizzle(comp X, comp Y, comp Z) const;
 		GLM_FUNC_DECL tvec4<T> swizzle(comp X, comp Y, comp Z, comp W) const;
+		GLM_FUNC_DECL tref2<T> swizzle(comp X, comp Y);
 		GLM_FUNC_DECL tref3<T> swizzle(comp X, comp Y, comp Z);
 	};
 
