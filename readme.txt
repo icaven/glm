@@ -40,6 +40,10 @@ http://glm.g-truc.net/glm-0.9.3.pdf
 GLM 0.9.3.0: 2011-XX-XX
 --------------------------------------------------------------------------------
 - Improved doxygen documentation
+- Promoted GLM_GTC_noise extension: simplex, perlin, periodic noise functions
+- Promoted GLM_GTC_random extension: linear, gaussian and various random number 
+generation distribution.
+- Added GLM_GTX_constants: provides usefull constants
 - Added extension versioning
 - Removed many unused namespaces
 - Fixed half based type contructors
