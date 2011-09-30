@@ -41,7 +41,7 @@ namespace detail
 				//
 
 				detail::uif result;
-				result.i = s << 31;
+				result.i = (unsigned int)(s << 31);
 				return result.f;
 			}
 			else
@@ -69,7 +69,7 @@ namespace detail
 				//
 
 				uif result;
-				result.i = (s << 31) | 0x7f800000;
+				result.i = (unsigned int)((s << 31) | 0x7f800000);
 				return result.f;
 			}
 			else
@@ -79,7 +79,7 @@ namespace detail
 				//
 
 				uif result;
-				result.i = (s << 31) | 0x7f800000 | (m << 13);
+				result.i = (unsigned int)((s << 31) | 0x7f800000 | (m << 13));
 				return result.f;
 			}
 		}
@@ -96,7 +96,7 @@ namespace detail
 		//
 
 		uif Result;
-		Result.i = (s << 31) | (e << 23) | m;
+		Result.i = (unsigned int)((s << 31) | (e << 23) | m);
 		return Result.f;
 	}
 
@@ -104,7 +104,7 @@ namespace detail
 	{
 		uif Entry;
 		Entry.f = f;
-		int i = Entry.i;
+		int i = (int)Entry.i;
 
 		//
 		// Our floating point number, f, is represented by the bit
