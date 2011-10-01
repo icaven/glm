@@ -53,6 +53,7 @@ GLM 0.9.2.6: 2011-10-01
 --------------------------------------------------------------------------------
 - Fixed half based type build on old GCC
 - Fixed /W4 warnings on Visual C++
+- Fixed some missing l-value swizzle operators
 
 ================================================================================
 GLM 0.9.2.5: 2011-09-20
