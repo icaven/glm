@@ -118,6 +118,113 @@ namespace detail
 		w(r.w)
 	{}
 
+	template <typename T>
+	template <typename A, typename B, typename C> 
+	GLM_FUNC_QUALIFIER tvec4<T>::tvec4
+	(
+		tref2<A> const & v, 
+		B const & s1, 
+		C const & s2
+	) :
+		x(value_type(v.x)),
+		y(value_type(v.y)),
+		z(value_type(s1)),
+		w(value_type(s2))
+	{}
+
+	template <typename T>
+	template <typename A, typename B, typename C> 
+	GLM_FUNC_QUALIFIER tvec4<T>::tvec4
+	(
+		A const & s1, 
+		tref2<B> const & v, 
+		C const & s2
+	) :
+		x(value_type(s1)),
+		y(value_type(v.x)),
+		z(value_type(v.y)),
+		w(value_type(s2))
+	{}
+
+	template <typename T>
+	template <typename A, typename B, typename C> 
+	GLM_FUNC_QUALIFIER tvec4<T>::tvec4
+	(
+		A const & s1, 
+		B const & s2, 
+		tref2<C> const & v
+	) :
+		x(value_type(s1)),
+		y(value_type(s2)),
+		z(value_type(v.x)),
+		w(value_type(v.y))
+	{}
+
+	template <typename T>
+	template <typename A, typename B> 
+	GLM_FUNC_QUALIFIER tvec4<T>::tvec4
+	(
+		tref3<A> const & v, 
+		B const & s
+	) :
+		x(value_type(v.x)),
+		y(value_type(v.y)),
+		z(value_type(v.z)),
+		w(value_type(s))
+	{}
+
+	template <typename T>
+	template <typename A, typename B> 
+	GLM_FUNC_QUALIFIER tvec4<T>::tvec4
+	(
+		A const & s, 
+		tref3<B> const & v
+	) :
+		x(value_type(s)),
+		y(value_type(v.x)),
+		z(value_type(v.y)),
+		w(value_type(v.z))
+	{}
+
+	template <typename T>
+	template <typename A, typename B> 
+	GLM_FUNC_QUALIFIER tvec4<T>::tvec4
+	(
+		tref2<A> const & v1, 
+		tref2<B> const & v2
+	) :
+		x(value_type(v1.x)),
+		y(value_type(v1.y)),
+		z(value_type(v2.x)),
+		w(value_type(v2.y))
+	{}
+
+	template <typename T>
+	template <typename A, typename B> 
+	GLM_FUNC_QUALIFIER tvec4<T>::tvec4
+	(
+		tvec2<A> const & v1, 
+		tref2<B> const & v2
+	) :
+		x(value_type(v1.x)),
+		y(value_type(v1.y)),
+		z(value_type(v2.x)),
+		w(value_type(v2.y))
+	{}
+
+	template <typename T>
+	template <typename A, typename B> 
+	GLM_FUNC_QUALIFIER tvec4<T>::tvec4
+	(
+		tref2<A> const & v1, 
+		tvec2<B> const & v2
+	) :
+		x(value_type(v1.x)),
+		y(value_type(v1.y)),
+		z(value_type(v2.x)),
+		w(value_type(v2.y))
+	{}
+
 	//////////////////////////////////////
 	// Convertion scalar constructors
 		
