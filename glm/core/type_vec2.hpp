@@ -204,8 +204,10 @@ namespace detail
 		GLM_FUNC_DECL tref2<T> & operator= (tref2<T> const & r);
 		GLM_FUNC_DECL tref2<T> & operator= (tvec2<T> const & v);
 
-		T& x;
-		T& y;
+		GLM_FUNC_DECL tvec2<T> operator() ();
+
+		T & x;
+		T & y;
 	};
 
 	GLM_DETAIL_IS_VECTOR(tvec2);

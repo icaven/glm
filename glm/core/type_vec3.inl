@@ -1148,5 +1148,11 @@ namespace detail
 		return *this;
 	}
 
+	template <typename T> 
+	GLM_FUNC_QUALIFIER tvec3<T> tref3<T>::operator() ()
+	{
+		return tvec3<T>(this->x, this->y, this->z);
+	}
+
 }//namespace detail
 }//namespace glm
