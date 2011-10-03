@@ -131,6 +131,30 @@ namespace detail
 		z(r.z)
 	{}
 
+	template <typename T>
+	template <typename A, typename B> 
+	GLM_FUNC_QUALIFIER tvec3<T>::tvec3
+	(
+		tref2<A> const & v, 
+		B const & s
+	) : 
+		x(value_type(v.x)),
+		y(value_type(v.y)),
+		z(value_type(s))
+	{}
+
+	template <typename T>
+	template <typename A, typename B> 
+	GLM_FUNC_QUALIFIER tvec3<T>::tvec3
+	(
+		A const & s, 
+		tref2<B> const & v
+	) :
+		x(value_type(s)),
+		y(value_type(v.x)),
+		z(value_type(v.y))
+	{}
+
 	//////////////////////////////////////
 	// Convertion scalar constructors
 		
@@ -592,6 +616,18 @@ namespace detail
 			(*this)[y],
 			(*this)[z],
 			(*this)[w]);
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER tref2<T> tvec3<T>::swizzle
+	(
+		comp x, 
+		comp y
+	)
+	{
+		return tref2<T>(
+			(*this)[x],
+			(*this)[y]);
 	}
 
 	template <typename T>
@@ -1110,6 +1146,12 @@ namespace detail
 		y = v.y;
 		z = v.z;
 		return *this;
+	}
+
+	template <typename T> 
+	GLM_FUNC_QUALIFIER tvec3<T> tref3<T>::operator() ()
+	{
+		return tvec3<T>(this->x, this->y, this->z);
 	}
 
 }//namespace detail

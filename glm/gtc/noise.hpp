@@ -20,9 +20,9 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_noise
-/// @file glm/gtx/noise.hpp
-/// @date 2011-04-21 / 2011-06-07
+/// @ref gtc_noise
+/// @file glm/gtc/noise.hpp
+/// @date 2011-04-21 / 2011-09-27
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
@@ -39,15 +39,14 @@
 /// <glm/gtx/noise.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_noise
-#define GLM_GTX_noise GLM_VERSION
+#ifndef GLM_GTC_noise
+#define GLM_GTC_noise GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"
-#include "../gtc/noise.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))
-#	pragma message("GLM: GLM_GTX_noise extension included")
+#	pragma message("GLM: GLM_GTC_noise extension included")
 #endif
 
 namespace glm
@@ -55,9 +54,28 @@ namespace glm
 	/// @addtogroup gtx_noise
 	/// @{
 
+	/// Classic perlin noise.
+	/// From GLM_GTC_noise extension.
+	template <typename T, template<typename> class vecType> 
+    T perlin(
+		vecType<T> const & p);
+		
+	/// Periodic perlin noise.
+	/// From GLM_GTC_noise extension.
+	template <typename T, template<typename> class vecType> 
+    T perlin(
+		vecType<T> const & p, 
+		vecType<T> const & rep);
+
+	/// Simplex noise.
+	/// From GLM_GTC_noise extension.
+	template <typename T, template<typename> class vecType> 
+    T simplex(
+		vecType<T> const & p);
+
 	/// @}
 }//namespace glm
 
 #include "noise.inl"
 
-#endif//glm_gtx_noise
+#endif//GLM_GTC_noise

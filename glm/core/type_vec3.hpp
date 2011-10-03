@@ -112,11 +112,6 @@ namespace detail
 			value_type const & s3);
 
 		//////////////////////////////////////
-		// Swizzle constructors
-
-		GLM_FUNC_DECL tvec3(tref3<T> const & r);
-
-		//////////////////////////////////////
 		// Convertion scalar constructors
 
 		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
@@ -145,6 +140,17 @@ namespace detail
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U> 
 		GLM_FUNC_DECL explicit tvec3(tvec4<U> const & v);
+
+		//////////////////////////////////////
+		// Swizzle constructors
+
+		GLM_FUNC_DECL tvec3(tref3<T> const & r);
+
+		template <typename A, typename B> 
+		GLM_FUNC_DECL explicit tvec3(tref2<A> const & v, B const & s);
+
+		template <typename A, typename B> 
+		GLM_FUNC_DECL explicit tvec3(A const & s, tref2<B> const & v);
 
 		//////////////////////////////////////
 		// Unary arithmetic operators
@@ -207,6 +213,7 @@ namespace detail
 		GLM_FUNC_DECL tvec2<T> swizzle(comp X, comp Y) const;
 		GLM_FUNC_DECL tvec3<T> swizzle(comp X, comp Y, comp Z) const;
 		GLM_FUNC_DECL tvec4<T> swizzle(comp X, comp Y, comp Z, comp W) const;
+		GLM_FUNC_DECL tref2<T> swizzle(comp X, comp Y);
 		GLM_FUNC_DECL tref3<T> swizzle(comp X, comp Y, comp Z);
 	};
 
@@ -219,6 +226,8 @@ namespace detail
 
 		GLM_FUNC_DECL tref3<T> & operator= (tref3<T> const & r);
 		GLM_FUNC_DECL tref3<T> & operator= (tvec3<T> const & v);
+
+		GLM_FUNC_DECL tvec3<T> operator() ();
 
 		T & x;
 		T & y;
