@@ -230,6 +230,8 @@ namespace detail
 		GLM_FUNC_DECL tref4<T> & operator= (tref4<T> const & r);
 		GLM_FUNC_DECL tref4<T> & operator= (tvec4<T> const & v);
 
+		GLM_FUNC_DECL tvec4<T> operator() ();
+
 		T & x;
 		T & y;
 		T & z;
