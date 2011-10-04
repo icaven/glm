@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="1">
+    <root name="glm"/>
+    <includedir>
+        <dir name=".."/>
+    </includedir>
+    <paths>
+        <dir name=".."/>
+    </paths>
+</project>

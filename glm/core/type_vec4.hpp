@@ -153,6 +153,12 @@ namespace detail
 		template <typename U> 
 		GLM_FUNC_DECL explicit tvec4(tvec4<U> const & v);
 
+        template <int E0, int E1, int E2, int E3>
+        GLM_FUNC_DECL tvec4(glm::detail::swizzle<4, T, tvec4<T>, E0, E1, E2, E3> const & that)
+        {
+            *this = that();
+        }
+
 		//////////////////////////////////////
 		// Swizzle constructors
 

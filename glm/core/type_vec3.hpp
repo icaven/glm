@@ -64,7 +64,7 @@ namespace detail
 
 #	if(GLM_COMPONENT == GLM_COMPONENT_ONLY_XYZW)
 		value_type x, y, z;
-#	elif(GLM_COMPONENT == GLM_COMPONENT_MS_EXT)
+#	elif(GLM_COMPONENT == GLM_COMPONENT_MS_EXT || GLM_LANG == GLM_LANG_CXX0X)
 		union 
 		{
             _GLM_SWIZZLE3_2_MEMBERS(value_type,glm::detail::tvec2<value_type>,x,y,z)
@@ -80,7 +80,7 @@ namespace detail
 			struct{value_type r, g, b;};
 			struct{value_type s, t, p;};
 			struct{value_type x, y, z;};
-        };
+		};
 #	else//(GLM_COMPONENT == GLM_COMPONENT_GLSL_NAMES)
 		union {value_type x, r, s;};
 		union {value_type y, g, t;};
@@ -151,6 +151,12 @@ namespace detail
 
 		template <typename A, typename B> 
 		GLM_FUNC_DECL explicit tvec3(A const & s, tref2<B> const & v);
+
+        template <int E0, int E1, int E2>
+        GLM_FUNC_DECL tvec3(glm::detail::swizzle<3, T, tvec3<T>, E0, E1, E2, -1> const & that)
+        {
+            *this = that();
+        }
 
 		//////////////////////////////////////
 		// Unary arithmetic operators

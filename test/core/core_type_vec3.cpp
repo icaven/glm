@@ -247,30 +247,20 @@ int test_vec3_swizzle3_3()
     glm::vec3 v(1, 2, 3);
     glm::vec3 u;
     
-    u.xyz = v.xyz;
-    Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
+    u = v;          Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
     
-    u = v.xyz;
-    Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
-    u = v.zyx;
-    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
-    u.zyx = v;
-    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    u = v.xyz;      Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
+    u = v.zyx;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    u.zyx = v;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
     
-    u = v.rgb;
-    Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
-    u = v.bgr;
-    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
-    u.bgr = v;
-    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    u = v.rgb;      Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
+    u = v.bgr;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    u.bgr = v;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
 
-    u = v.stp;
-    Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
-    u = v.pts;
-    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
-    u.pts = v;
-    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
-    
+    u = v.stp;      Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
+    u = v.pts;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    u.pts = v;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+   
     return Error;
 }
 
@@ -284,34 +274,111 @@ int test_vec3_swizzle_half()
     glm::hvec3 v(a1, b1, c1);
     glm::hvec3 u;
 
-    float c = v.x;
-    float d = v.y;
     u = v;
 
-    float a = u.x;
-    float b = u.y;
-    Error += (u.x == glm::half(1.0f) && u.y == glm::half(2.0f) && u.z == glm::half(3.0f)) ? 0 : 1;
+    Error += (u.x.toFloat() == 1.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 3.0f) ? 0 : 1;
     
-    /*u = v.xyz;
-    Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
+    u = v.xyz;
+    Error += (u.x.toFloat() == 1.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 3.0f) ? 0 : 1;
     u = v.zyx;
-    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    Error += (u.x.toFloat() == 3.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 1.0f) ? 0 : 1;
     u.zyx = v;
-    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    Error += (u.x.toFloat() == 3.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 1.0f) ? 0 : 1;
     
     u = v.rgb;
-    Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
+    Error += (u.x.toFloat() == 1.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 3.0f) ? 0 : 1;
     u = v.bgr;
-    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    Error += (u.x.toFloat() == 3.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 1.0f) ? 0 : 1;
     u.bgr = v;
-    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    Error += (u.x.toFloat() == 3.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 1.0f) ? 0 : 1;
 
     u = v.stp;
-    Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
+    Error += (u.x.toFloat() == 1.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 3.0f) ? 0 : 1;
     u = v.pts;
-    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+    Error += (u.x.toFloat() == 3.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 1.0f) ? 0 : 1;
     u.pts = v;
-    Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;*/
+    Error += (u.x.toFloat() == 3.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 1.0f) ? 0 : 1;
+
+    return Error;
+}
+
+int test_vec3_swizzle_operators()
+{
+    int Error = 0;
+
+    glm::vec3 q, u, v;
+
+    u = glm::vec3(1, 2, 3);
+    v = glm::vec3(10, 20, 30);
+
+    // Swizzle, swizzle binary operators
+    q = u.xyz + v.xyz;          Error += (q == (u + v)) ? 0 : 1;
+    q = (u.zyx + v.zyx).zyx;    Error += (q == (u + v)) ? 0 : 1;
+    q = (u.xyz - v.xyz);        Error += (q == (u - v)) ? 0 : 1;
+    q = (u.xyz * v.xyz);        Error += (q == (u * v)) ? 0 : 1;
+    q = (u.xxx * v.xxx);        Error += (q == glm::vec3(u.x * v.x)) ? 0 : 1;
+    q = (u.xyz / v.xyz);        Error += (q == (u / v)) ? 0 : 1;
+
+    // vec, swizzle binary operators
+    q = u + v.xyz;              Error += (q == (u + v)) ? 0 : 1;
+    q = (u - v.xyz);            Error += (q == (u - v)) ? 0 : 1;
+    q = (u * v.xyz);            Error += (q == (u * v)) ? 0 : 1;
+    q = (u * v.xxx);            Error += (q == v.x * u) ? 0 : 1;
+    q = (u / v.xyz);            Error += (q == (u / v)) ? 0 : 1;
+
+    // swizzle,vec binary operators
+    q = u.xyz + v;              Error += (q == (u + v)) ? 0 : 1;
+    q = (u.xyz - v);            Error += (q == (u - v)) ? 0 : 1;
+    q = (u.xyz * v);            Error += (q == (u * v)) ? 0 : 1;
+    q = (u.xxx * v);            Error += (q == u.x * v) ? 0 : 1;
+    q = (u.xyz / v);            Error += (q == (u / v)) ? 0 : 1;
+
+    // Compile errors
+    //q = (u.yz * v.xyz);
+    //q = (u * v.xy);
+
+    return Error;
+}
+
+int test_vec3_swizzle_functions()
+{
+    int Error = 0;
+
+    //
+    // NOTE: template functions cannot pick up the implicit conversion from
+    // a swizzle to the unswizzled type, therefore the operator() must be 
+    // used.  E.g.:
+    //
+    // glm::dot(u.xy, v.xy);        <--- Compile error
+    // glm::dot(u.xy(), v.xy());    <--- Compiles correctly
+    //
+
+    float r;
+
+    // vec2
+    glm::vec2 a(1, 2);
+    glm::vec2 b(10, 20);
+    r = glm::dot(a, b);                 Error += (int(r) == 50) ? 0 : 1;
+    r = glm::dot(a.xy(), b.xy());       Error += (int(r) == 50) ? 0 : 1;
+    r = glm::dot(a.xy(), b.yy());       Error += (int(r) == 60) ? 0 : 1;
+
+    // vec3
+    glm::vec3 q, u, v;
+    u = glm::vec3(1, 2, 3);
+    v = glm::vec3(10, 20, 30);
+    r = glm::dot(u, v);                 Error += (int(r) == 140) ? 0 : 1;
+    r = glm::dot(u.xyz(), v.zyz());     Error += (int(r) == 160) ? 0 : 1;
+    r = glm::dot(u, v.zyx());           Error += (int(r) == 100) ? 0 : 1;
+    r = glm::dot(u.xyz(), v);           Error += (int(r) == 140) ? 0 : 1;
+    r = glm::dot(u.xy(), v.xy());       Error += (int(r) == 50) ? 0 : 1;
+
+    // vec4
+    glm::vec4 s, t;
+    s = glm::vec4(1, 2, 3, 4);
+    t = glm::vec4(10, 20, 30, 40);
+    r = glm::dot(s, t);                 Error += (int(r) == 300) ? 0 : 1;
+    r = glm::dot(s.xyzw(), t.xyzw());   Error += (int(r) == 300) ? 0 : 1;
+    r = glm::dot(s.xyz(), t.xyz());     Error += (int(r) == 140) ? 0 : 1;
 
     return Error;
 }
@@ -354,6 +421,8 @@ int main()
     Error += test_vec3_swizzle3_3();
     Error += test_vec3_swizzle_half();
 	Error += test_vec3_swizzle_partial();
+    Error += test_vec3_swizzle_operators();
+    Error += test_vec3_swizzle_functions();
 	
 	return Error;
 }
