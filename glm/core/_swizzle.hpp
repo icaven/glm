@@ -155,12 +155,12 @@ namespace detail
             _apply_op(that, op());
         }
 
-        value_type& operator[]  (size_t i)
+        VecType& operator[]  (size_t i)
         {
             static const int offset_dst[4] = { E0, E1, E2, E3 };
             return elem(offset_dst[i]);
         }
-        value_type  operator[]  (size_t) const
+        VecType  operator[]  (size_t) const
         {
             static const int offset_dst[4] = { E0, E1, E2, E3 };
             return elem(offset_dst[i]);
