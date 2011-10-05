@@ -391,19 +391,16 @@ int test_vec3_swizzle_partial()
 
 	{
 		glm::vec3 B(A.xy, 3.0f);
-
 		Error += A == B ? 0 : 1;
 	}
 
 	{
 		glm::vec3 B(1.0f, A.yz);
-
 		Error += A == B ? 0 : 1;
 	}
 
 	{
 		glm::vec3 B(A.xyz);
-
 		Error += A == B ? 0 : 1;
 	}
 

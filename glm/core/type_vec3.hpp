@@ -158,6 +158,18 @@ namespace detail
             *this = that();
         }
 
+        template <int E0, int E1>
+        GLM_FUNC_DECL tvec3(glm::detail::swizzle<2, T, tvec2<T>, E0, E1, -1, -2> const & v, T const & s)
+        {
+            *this = tvec3<T>(v(), s);
+        }
+
+        template <int E0, int E1>
+        GLM_FUNC_DECL tvec3(T const & s, glm::detail::swizzle<2, T, tvec2<T>, E0, E1, -1, -2> const & v)
+        {
+            *this = tvec3<T>(s, v());
+        }
+
 		//////////////////////////////////////
 		// Unary arithmetic operators
 
