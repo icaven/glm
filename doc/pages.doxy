@@ -265,7 +265,7 @@ void foo()
 	
 	\section advanced_inline Force Inline
 	
-	GLM's functions are defined in headers, so they are defined with C++'s "inline" delcaration. 
+	GLM's functions are defined in headers, so they are defined with C++'s "inline" declaration. 
 	This does not require the compiler to inline them, however. 
 	To force the compiler to inline the function, using whatever capabilities that the compiler provides to do so, 
 	GLM_FORCE_INLINE can be defined before any inclusion of <glm/glm.hpp>.

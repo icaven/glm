@@ -21,6 +21,9 @@
  * ====================================================
  */
 
+#pragma warning(push)
+#pragma warning(disable : 4127)
+
 typedef union
 {
 	float value;
@@ -76,8 +79,8 @@ namespace detail
 		volatile float t;
 		glm::detail::int32 hx, hy, ix, iy;
 
-		GLM_GET_FLOAT_WORD(hx,x);
-		GLM_GET_FLOAT_WORD(hy,y);
+		GLM_GET_FLOAT_WORD(hx, x);
+		GLM_GET_FLOAT_WORD(hy, y);
 		ix = hx&0x7fffffff;             // |x|
 		iy = hy&0x7fffffff;             // |y|
 
@@ -167,6 +170,8 @@ namespace detail
 	}
 }//namespace detail
 }//namespace glm
+
+#pragma warning(pop)
 
 #if(GLM_COMPILER & GLM_COMPILER_VC)
 #	define GLM_NEXT_AFTER_FLT(x, toward) glm::detail::nextafterf((x), (toward))

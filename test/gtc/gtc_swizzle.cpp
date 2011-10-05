@@ -121,13 +121,83 @@ int test_swizzle_vec4_const_static()
 	return Error;
 }
 
+int test_swizzle_vec3_partial()
+{
+	int Error = 0;
+
+	glm::ivec3 A(0, 1, 2);
+
+	{
+		glm::ivec3 B(A.swizzle(glm::R, glm::G, glm::B));	
+		Error += (A == B) ? 0 : 1;
+	}
+
+	{
+		glm::ivec3 B(A.swizzle(glm::R, glm::G), 2);	
+		Error += (A == B) ? 0 : 1;
+	}
+
+	{
+		glm::ivec3 B(0, A.swizzle(glm::G, glm::B));	
+		Error += (A == B) ? 0 : 1;
+	}
+
+	return Error;
+}
+
+int test_swizzle_vec4_partial()
+{
+	int Error = 0;
+
+	glm::ivec4 A(0, 1, 2, 3);
+
+	{
+		glm::ivec4 B(A.swizzle(glm::R, glm::G, glm::B), 3);	
+		Error += (A == B) ? 0 : 1;
+	}
+
+	{
+		glm::ivec4 B(A.swizzle(glm::R, glm::G), 2, 3);	
+		Error += (A == B) ? 0 : 1;
+	}
+
+	{
+		glm::ivec4 B(0, A.swizzle(glm::G, glm::B), 3);	
+		Error += (A == B) ? 0 : 1;
+	}
+
+	{
+		glm::ivec4 B(0, 1, A.swizzle(glm::B, glm::A));	
+		Error += (A == B) ? 0 : 1;
+	}
+
+	{
+		glm::ivec4 B(A.swizzle(glm::X, glm::Y), A.swizzle(glm::Z, glm::W));	
+		Error += (A == B) ? 0 : 1;
+	}
+
+	{
+		glm::ivec4 B(A.swizzle(glm::X, glm::Y), glm::vec2(2, 3));	
+		Error += (A == B) ? 0 : 1;
+	}
+
+	{
+		glm::ivec4 B(glm::vec2(0, 1), A.swizzle(glm::Z, glm::W));	
+		Error += (A == B) ? 0 : 1;
+	}
+
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
+	Error += test_swizzle_vec3_partial();
 	Error += test_swizzle_vec4_ref_dynamic();
 	Error += test_swizzle_vec4_ref_static();
 	Error += test_swizzle_vec4_const_dynamic();
 	Error += test_swizzle_vec4_const_static();
+	Error += test_swizzle_vec4_partial();
 
 	return Error;
 }

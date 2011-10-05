@@ -114,17 +114,6 @@ namespace detail
 			value_type const & s3);
 
 		//////////////////////////////////////
-		// Swizzle constructors
-
-		GLM_FUNC_DECL tvec4(tref4<T> const & r);
-
-        template <int E0, int E1, int E2, int E3>
-        GLM_FUNC_DECL tvec4(const glm::detail::swizzle<4,T,tvec4<T>,E0,E1,E2,E3>& that)
-        {
-            *this = that();
-        }
-
-		//////////////////////////////////////
 		// Convertion scalar constructors
 
 		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
@@ -163,6 +152,42 @@ namespace detail
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U> 
 		GLM_FUNC_DECL explicit tvec4(tvec4<U> const & v);
+
+        template <int E0, int E1, int E2, int E3>
+        GLM_FUNC_DECL tvec4(glm::detail::swizzle<4, T, tvec4<T>, E0, E1, E2, E3> const & that)
+        {
+            *this = that();
+        }
+
+		//////////////////////////////////////
+		// Swizzle constructors
+
+		GLM_FUNC_DECL tvec4(tref4<T> const & r);
+
+		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename A, typename B, typename C> 
+		GLM_FUNC_DECL explicit tvec4(tref2<A> const & v, B const & s1, C const & s2);
+		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename A, typename B, typename C> 
+		GLM_FUNC_DECL explicit tvec4(A const & s1, tref2<B> const & v, C const & s2);
+		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename A, typename B, typename C> 
+		GLM_FUNC_DECL explicit tvec4(A const & s1, B const & s2, tref2<C> const & v);
+		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename A, typename B> 
+		GLM_FUNC_DECL explicit tvec4(tref3<A> const & v, B const & s);
+		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename A, typename B> 
+		GLM_FUNC_DECL explicit tvec4(A const & s, tref3<B> const & v);
+		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename A, typename B> 
+		GLM_FUNC_DECL explicit tvec4(tref2<A> const & v1, tref2<B> const & v2);
+		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename A, typename B> 
+		GLM_FUNC_DECL explicit tvec4(tvec2<A> const & v1, tref2<B> const & v2);
+		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename A, typename B> 
+		GLM_FUNC_DECL explicit tvec4(tref2<A> const & v1, tvec2<B> const & v2);
 
 		//////////////////////////////////////
 		// Unary arithmetic operators
@@ -225,6 +250,8 @@ namespace detail
 		GLM_FUNC_DECL tvec2<T> swizzle(comp X, comp Y) const;
 		GLM_FUNC_DECL tvec3<T> swizzle(comp X, comp Y, comp Z) const;
 		GLM_FUNC_DECL tvec4<T> swizzle(comp X, comp Y, comp Z, comp W) const;
+		GLM_FUNC_DECL tref2<T> swizzle(comp X, comp Y);
+		GLM_FUNC_DECL tref3<T> swizzle(comp X, comp Y, comp Z);
 		GLM_FUNC_DECL tref4<T> swizzle(comp X, comp Y, comp Z, comp W);
 	};
 
@@ -237,6 +264,8 @@ namespace detail
 
 		GLM_FUNC_DECL tref4<T> & operator= (tref4<T> const & r);
 		GLM_FUNC_DECL tref4<T> & operator= (tvec4<T> const & v);
+
+		GLM_FUNC_DECL tvec4<T> operator() ();
 
 		T & x;
 		T & y;

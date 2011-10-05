@@ -29,6 +29,9 @@
 namespace glm{
 namespace detail{
 
+#pragma warning(push)
+#pragma warning(disable : 4510 4512 4610)
+
 	union ieee754_QNAN
 	{
 	   const float f;
@@ -39,6 +42,8 @@ namespace detail{
 	   
 	   ieee754_QNAN() : f(0.0)/*, mantissa(0x7FFFFF), exp(0xFF), sign(0x0)*/ {}
 	};
+
+#pragma warning(pop)
 
 	static const __m128 GLM_VAR_USED zero = _mm_setzero_ps();
 	static const __m128 GLM_VAR_USED one = _mm_set_ps1(1.0f);
@@ -224,11 +229,13 @@ GLM_FUNC_QUALIFIER __m128 sse_mod_ps(__m128 x, __m128 y)
 }
 
 /// TODO
+/*
 GLM_FUNC_QUALIFIER __m128 sse_modf_ps(__m128 x, __m128i & i)
 {
 	__m128 empty;
     return empty;
 }
+*/
 
 //GLM_FUNC_QUALIFIER __m128 _mm_min_ps(__m128 x, __m128 y)
 
@@ -273,18 +280,18 @@ GLM_FUNC_QUALIFIER __m128 sse_ssp_ps(__m128 edge0, __m128 edge1, __m128 x)
 }
 
 /// \todo
-GLM_FUNC_QUALIFIER __m128 sse_nan_ps(__m128 x)
-{
-	__m128 empty;
-    return empty;
-}
+//GLM_FUNC_QUALIFIER __m128 sse_nan_ps(__m128 x)
+//{
+//	__m128 empty;
+//    return empty;
+//}
 
 /// \todo
-GLM_FUNC_QUALIFIER __m128 sse_inf_ps(__m128 x)
-{
-	__m128 empty;
-    return empty;
-}
+//GLM_FUNC_QUALIFIER __m128 sse_inf_ps(__m128 x)
+//{
+//	__m128 empty;
+//    return empty;
+//}
 
 // SSE scalar reciprocal sqrt using rsqrt op, plus one Newton-Rhaphson iteration
 // By Elan Ruskin, http://assemblyrequired.crashworks.org/
