@@ -38,7 +38,7 @@ int test_log2()
 		double B = glm::log2(double(i));
 
 		Error += glm::equalEpsilon(double(A), B, 1.0) ? 0 : 1;
-		assert(!Error);
+		//assert(!Error);
 	}
 
 	return Error;
@@ -49,7 +49,7 @@ int test_nlz()
 	int Error = 0;
 
 	for(std::size_t i = 1; i < 33; ++i)
-		printf("%d, %d\n", glm::nlz(i), 31 - glm::findMSB(i));
+		printf("%d, %d\n", glm::nlz(i), 31u - glm::findMSB(i));
 
 	return Error;
 }

@@ -55,30 +55,21 @@ namespace detail
 	}
 }//namespace detail
 
+#if(GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_GCC))
+
+GLM_FUNC_QUALIFIER unsigned int log2(unsigned int x)
+{
+	return x <= 1 ? 0 : unsigned(32) - nlz(x - 1u);
+}
+
+#else
+
 GLM_FUNC_QUALIFIER unsigned int log2(unsigned int x)
 {
 	return unsigned(32) - nlz(x - 1u);
-	//if(x <= 1)
-	//	return 0;
-	//return unsigned(32) - findLSB(x) - 1u;
-	
-	
-/*
-	// Henry Gordon Dietz: http://aggregate.org/MAGIC/
-
-	register int y = (x & (x - 1));
-
-	y |= -y;
-	y >>= (WORDBITS - 1);
-	x |= (x >> 1);
-	x |= (x >> 2);
-	x |= (x >> 4);
-	x |= (x >> 8);
-	x |= (x >> 16);
-	
-	return detail::ones32(x) - 1 - y;
-*/
 }
+
+#endif
 
 // Henry Gordon Dietz: http://aggregate.org/MAGIC/
 unsigned int floor_log2(unsigned int x)
@@ -172,7 +163,7 @@ GLM_FUNC_QUALIFIER uint mod(uint x, uint y)
 
 GLM_FUNC_QUALIFIER unsigned int nlz(unsigned int x) 
 {
-	return 32u - findMSB(x);
+	return 31u - findMSB(x);
 }
 
 #else
