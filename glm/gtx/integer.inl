@@ -37,6 +37,52 @@ GLM_FUNC_QUALIFIER int sqrt(int x)
     return CurrentAnswer;
 }
 
+// Henry Gordon Dietz: http://aggregate.org/MAGIC/
+namespace detail
+{
+	GLM_FUNC_QUALIFIER unsigned int ones32(unsigned int x)
+	{
+		/* 32-bit recursive reduction using SWAR...
+		but first step is mapping 2-bit values
+		into sum of 2 1-bit values in sneaky way
+		*/
+		x -= ((x >> 1) & 0x55555555);
+		x = (((x >> 2) & 0x33333333) + (x & 0x33333333));
+		x = (((x >> 4) + x) & 0x0f0f0f0f);
+		x += (x >> 8);
+		x += (x >> 16);
+		return(x & 0x0000003f);
+	}
+}//namespace detail
+/*
+// Henry Gordon Dietz: http://aggregate.org/MAGIC/
+GLM_FUNC_QUALIFIER unsigned int log2(unsigned int x)
+{
+	register int y = (x & (x - 1));
+
+	y |= -y;
+	y >>= (WORDBITS - 1);
+	x |= (x >> 1);
+	x |= (x >> 2);
+	x |= (x >> 4);
+	x |= (x >> 8);
+	x |= (x >> 16);
+	
+	return detail::ones32(x) - 1 - y;
+}
+*/
+// Henry Gordon Dietz: http://aggregate.org/MAGIC/
+unsigned int log2(unsigned int x)
+{
+	x |= (x >> 1);
+	x |= (x >> 2);
+	x |= (x >> 4);
+	x |= (x >> 8);
+	x |= (x >> 16);
+
+	return(detail::ones32(x) - 1);
+}
+
 // mod
 GLM_FUNC_QUALIFIER int mod(int x, int y)
 {
@@ -82,6 +128,35 @@ GLM_FUNC_QUALIFIER detail::tvec4<valType> factorial(
         factorial(x.y),
         factorial(x.z),
         factorial(x.w));
+}
+
+GLM_FUNC_QUALIFIER uint pow(uint x, uint y)
+{
+    uint result = x;
+    for(uint i = 1; i < y; ++i)
+        result *= x;
+    return result;
+}
+
+GLM_FUNC_QUALIFIER uint sqrt(uint x)
+{
+    if(x <= 1) return x;
+
+    uint NextTrial = x >> 1;
+    uint CurrentAnswer;
+
+    do
+    {
+        CurrentAnswer = NextTrial;
+        NextTrial = (NextTrial + x / NextTrial) >> 1;
+    } while(NextTrial < CurrentAnswer);
+
+    return CurrentAnswer;
+}
+
+GLM_FUNC_QUALIFIER uint mod(uint x, uint y)
+{
+	return x - y * (x / y);
 }
 
 }//namespace glm

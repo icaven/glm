@@ -58,6 +58,10 @@ namespace glm
 	//! From GLM_GTX_integer extension.
 	int sqrt(int x);
 
+	//! Returns the log2 of x.
+	//! From GLM_GTX_integer extension.
+	unsigned int log2(unsigned int x);
+
 	//! Modulus. Returns x - y * floor(x / y) for each component in x using the floating point value y.
 	//! From GLM_GTX_integer extension.
 	int mod(int x, int y);
@@ -66,6 +70,22 @@ namespace glm
 	//! From GLM_GTX_integer extension.
 	template <typename genType> 
 	genType factorial(genType const & x);
+
+	//! 32bit signed integer. 
+	//! From GLM_GTX_unsigned_int extension.
+	typedef signed int					sint;
+
+	//! Returns x raised to the y power.
+	//! From GLM_GTX_unsigned_int extension.
+	uint pow(uint x, uint y);
+
+	//! Returns the positive square root of x. 
+	//! From GLM_GTX_unsigned_int extension.
+	uint sqrt(uint x);
+
+	//! Modulus. Returns x - y * floor(x / y) for each component in x using the floating point value y.
+	//! From GLM_GTX_unsigned_int extension.
+	uint mod(uint x, uint y);
 
 	/// @}
 }//namespace glm

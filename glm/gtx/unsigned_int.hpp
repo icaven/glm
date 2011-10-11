@@ -19,58 +19,8 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
-///
-/// @ref gtx_unsigned_int
-/// @file glm/gtx/unsigned_int.hpp
-/// @date 2005-12-24 / 2011-06-07
-/// @author Christophe Riccio
-///
-/// @see core (dependence)
-/// @see gtx_integer (dependence)
-///
-/// @defgroup gtx_unsigned_int GLM_GTX_unsigned_int: Unsigned int
-/// @ingroup gtx
-/// 
-/// @brief Add support for unsigned integer for core functions
-/// 
-/// <glm/gtx/unsigned_int.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_unsigned_int
-#define GLM_GTX_unsigned_int GLM_VERSION
-
-// Dependency:
-#include "../glm.hpp"
-#include "../gtx/integer.hpp"
-
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
-#	pragma message("GLM: GLM_GTX_unsigned_int extension included")
+#if(defined(GLM_MESSAGES))
+#	pragma message("GLM: GLM_GTX_unsigned_int extension is deprecated, include GLM_GTX_integer instead")
 #endif
-
-namespace glm
-{
-	/// @addtogroup gtx_unsigned_int
-	/// @{
-
-	//! 32bit signed integer. 
-	//! From GLM_GTX_unsigned_int extension.
-	typedef signed int					sint;
-
-	//! Returns x raised to the y power.
-	//! From GLM_GTX_unsigned_int extension.
-	uint pow(uint x, uint y);
-
-	//! Returns the positive square root of x. 
-	//! From GLM_GTX_unsigned_int extension.
-	uint sqrt(uint x);
-
-	//! Modulus. Returns x - y * floor(x / y) for each component in x using the floating point value y.
-	//! From GLM_GTX_unsigned_int extension.
-	uint mod(uint x, uint y);
-
-	/// @}
-}//namespace glm
-
-#include "unsigned_int.inl"
-
-#endif//GLM_GTX_unsigned_int
