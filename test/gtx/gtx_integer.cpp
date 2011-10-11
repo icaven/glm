@@ -1,136 +1,66 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2010-09-16
-// Updated : 2010-09-16
+// Created : 2011-10-11
+// Updated : 2011-10-11
 // Licence : This source is under MIT licence
-// File    : test/gtx/bit.cpp
+// File    : test/gtx/gtx_integer.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/glm.hpp>
-#include <glm/gtx/number_precision.hpp>
-#include <glm/gtx/bit.hpp>
+#include <glm/gtx/integer.hpp>
+#include <glm/gtx/epsilon.hpp>
 #include <iostream>
 
-enum result
+int test_floor_log2()
 {
-	SUCCESS,
-	FAIL,
-	ASSERT,
-	STATIC_ASSERT
-};
+	int Error = 0;
 
-namespace extractField
-{
-	template <typename genType, typename sizeType>
-	struct type
+	for(std::size_t i = 1; i < 1000000; ++i)
 	{
-		genType		Value;
-		sizeType	BitFirst;
-		sizeType	BitCount;
-		genType		Return;
-		result		Result;
-	};
+		glm::uint A = glm::floor_log2(glm::uint(i));
+		glm::uint B = glm::uint(glm::log2(double(i))); // Will fail with float, lack of accuracy
 
-	typedef type<glm::uint64, glm::uint> typeU64;
-
-	typeU64 const Data64[] =
-	{
-		{0xffffffffffffffff, 8, 0, 0x0000000000000000, SUCCESS},
-		{0x0000000000000000, 0,64, 0x0000000000000000, SUCCESS},
-		{0xffffffffffffffff, 0,64, 0xffffffffffffffff, SUCCESS},
-		{0x0f0f0f0f0f0f0f0f, 0,64, 0x0f0f0f0f0f0f0f0f, SUCCESS},
-		{0x0000000000000000, 8, 0, 0x0000000000000000, SUCCESS},
-		{0x8000000000000000,63, 1, 0x0000000000000001, SUCCESS},
-		{0x7fffffffffffffff,63, 1, 0x0000000000000000, SUCCESS},
-		{0x0000000000000300, 8, 8, 0x0000000000000003, SUCCESS},
-		{0x000000000000ff00, 8, 8, 0x00000000000000ff, SUCCESS},
-		{0xfffffffffffffff0, 0, 5, 0x0000000000000010, SUCCESS},
-		{0x00000000000000ff, 1, 3, 0x0000000000000007, SUCCESS},
-		{0x00000000000000ff, 0, 3, 0x0000000000000007, SUCCESS},
-		{0x0000000000000000, 0, 2, 0x0000000000000000, SUCCESS},
-		{0xffffffffffffffff, 0, 8, 0x00000000000000ff, SUCCESS},
-		{0xffffffff00000000,32,32, 0x00000000ffffffff, SUCCESS},
-		{0xfffffffffffffff0, 0, 8, 0x0000000000000000, FAIL},
-		{0xffffffffffffffff,32,32, 0x0000000000000000, FAIL},
-		//{0xffffffffffffffff,64, 1, 0x0000000000000000, ASSERT}, // Throw an assert 
-		//{0xffffffffffffffff, 0,65, 0x0000000000000000, ASSERT}, // Throw an assert 
-		//{0xffffffffffffffff,33,32, 0x0000000000000000, ASSERT}, // Throw an assert 
-	};
-
-	int test()
-	{
-		glm::uint32 count = sizeof(Data64) / sizeof(typeU64);
-		
-		for(glm::uint32 i = 0; i < count; ++i)
-		{
-			glm::uint64 Return = glm::extractField(
-				Data64[i].Value, 
-				Data64[i].BitFirst, 
-				Data64[i].BitCount);
-			
-			bool Compare = Data64[i].Return == Return;
-			
-			if(Data64[i].Result == SUCCESS && Compare)
-				continue;
-			else if(Data64[i].Result == FAIL && !Compare)
-				continue;
-			
-			std::cout << "glm::extractfield test fail on test " << i << std::endl;
-			return 1;
-		}
-		
-		return 0;
+		Error += A == B ? 0 : 1;
+		assert(!Error);
 	}
-}//extractField
 
-namespace bitRevert
+	return Error;
+}
+
+int test_log2()
 {
-	template <typename genType>
-	struct type
-	{
-		genType		Value;
-		genType		Return;
-		result		Result;
-	};
+	int Error = 0;
 
-	typedef type<glm::uint64> typeU64;
-
-	typeU64 const Data64[] =
+	for(std::size_t i = 1; i < 1000000; ++i)
 	{
-		{0xffffffffffffffff, 0xffffffffffffffff, SUCCESS},
-		{0x0000000000000000, 0x0000000000000000, SUCCESS},
-		{0xf000000000000000, 0x000000000000000f, SUCCESS},
-	};
+		glm::uint A = glm::log2(glm::uint(i));
+		double B = glm::log2(double(i));
 
-	int test()
-	{
-		glm::uint32 count = sizeof(Data64) / sizeof(typeU64);
-		
-		for(glm::uint32 i = 0; i < count; ++i)
-		{
-			glm::uint64 Return = glm::bitRevert(
-				Data64[i].Value);
-			
-			bool Compare = Data64[i].Return == Return;
-			
-			if(Data64[i].Result == SUCCESS && Compare)
-				continue;
-			else if(Data64[i].Result == FAIL && !Compare)
-				continue;
-			
-			std::cout << "glm::extractfield test fail on test " << i << std::endl;
-			return 1;
-		}
-		
-		return 0;
+		Error += glm::equalEpsilon(double(A), B, 1.0) ? 0 : 1;
+		assert(!Error);
 	}
-}//bitRevert
+
+	return Error;
+}
+
+int test_nlz()
+{
+	int Error = 0;
+
+	for(std::size_t i = 1; i < 33; ++i)
+		printf("%d, %d\n", glm::nlz(i), 31 - glm::findMSB(i));
+
+	return Error;
+}
 
 int main()
 {
 	int Error = 0;
-	Error += ::extractField::test();
-	Error += ::bitRevert::test();
+
+	Error += test_nlz();
+	Error += test_floor_log2();
+	Error += test_log2();
+
 	return Error;
 }

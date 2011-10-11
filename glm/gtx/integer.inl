@@ -54,10 +54,18 @@ namespace detail
 		return(x & 0x0000003f);
 	}
 }//namespace detail
-/*
-// Henry Gordon Dietz: http://aggregate.org/MAGIC/
+
 GLM_FUNC_QUALIFIER unsigned int log2(unsigned int x)
 {
+	return unsigned(32) - nlz(x - 1u);
+	//if(x <= 1)
+	//	return 0;
+	//return unsigned(32) - findLSB(x) - 1u;
+	
+	
+/*
+	// Henry Gordon Dietz: http://aggregate.org/MAGIC/
+
 	register int y = (x & (x - 1));
 
 	y |= -y;
@@ -69,10 +77,11 @@ GLM_FUNC_QUALIFIER unsigned int log2(unsigned int x)
 	x |= (x >> 16);
 	
 	return detail::ones32(x) - 1 - y;
-}
 */
+}
+
 // Henry Gordon Dietz: http://aggregate.org/MAGIC/
-unsigned int log2(unsigned int x)
+unsigned int floor_log2(unsigned int x)
 {
 	x |= (x >> 1);
 	x |= (x >> 2);
@@ -158,5 +167,46 @@ GLM_FUNC_QUALIFIER uint mod(uint x, uint y)
 {
 	return x - y * (x / y);
 }
+
+#if(GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_GCC))
+
+GLM_FUNC_QUALIFIER unsigned int nlz(unsigned int x) 
+{
+	return 32u - findMSB(x);
+}
+
+#else
+
+// Hackers Delight: http://www.hackersdelight.org/HDcode/nlz.c.txt
+GLM_FUNC_QUALIFIER unsigned int nlz(unsigned int x) 
+{
+   int y, m, n;
+
+   y = -int(x >> 16);      // If left half of x is 0,
+   m = (y >> 16) & 16;  // set n = 16.  If left half
+   n = 16 - m;          // is nonzero, set n = 0 and
+   x = x >> m;          // shift x right 16.
+                        // Now x is of the form 0000xxxx.
+   y = x - 0x100;       // If positions 8-15 are 0,
+   m = (y >> 16) & 8;   // add 8 to n and shift x left 8.
+   n = n + m;
+   x = x << m;
+
+   y = x - 0x1000;      // If positions 12-15 are 0,
+   m = (y >> 16) & 4;   // add 4 to n and shift x left 4.
+   n = n + m;
+   x = x << m;
+
+   y = x - 0x4000;      // If positions 14-15 are 0,
+   m = (y >> 16) & 2;   // add 2 to n and shift x left 2.
+   n = n + m;
+   x = x << m;
+
+   y = x >> 14;         // Set y = 0, 1, 2, or 3.
+   m = y & ~(y >> 1);   // Set m = 0, 1, 2, or 2 resp.
+   return unsigned(n + 2 - m);
+}
+
+#endif//(GLM_COMPILER)
 
 }//namespace glm
