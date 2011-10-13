@@ -26,6 +26,11 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#if(GLM_COMPILER & GLM_COMPILER_VC)
+#include <intrin.h>
+#pragma intrinsic(_BitScanReverse)
+#endif
+
 namespace glm
 {
 	// uaddCarry
@@ -550,6 +555,32 @@ namespace glm
 	}
 
 	// findMSB
+#if(GLM_COMPILER & GLM_COMPILER_VC)
+
+	template <typename genIUType>
+	GLM_FUNC_QUALIFIER int findMSB
+	(
+		genIUType const & Value
+	)
+	{
+		unsigned long Result(0);
+		_BitScanReverse(&Result, Value); 
+		return int(Result);
+	}
+
+#elif((GLM_COMPILER & GLM_COMPILER_GCC) && __has_builtin(__builtin_clz))
+
+	template <typename genIUType>
+	GLM_FUNC_QUALIFIER int findMSB
+	(
+		genIUType const & Value
+	)
+	{
+		return __builtin_clz(x);
+	}
+
+#else
+
 	template <typename genIUType>
 	GLM_FUNC_QUALIFIER int findMSB
 	(
@@ -564,6 +595,7 @@ namespace glm
 		for(genIUType tmp = Value; tmp; tmp >>= 1, ++bit){}
 		return bit;
 	}
+#endif//(GLM_COMPILER)
 
 	template <typename T>
 	GLM_FUNC_QUALIFIER detail::tvec2<int> findMSB

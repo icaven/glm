@@ -9,33 +9,5 @@
 
 namespace glm{
 
-GLM_FUNC_QUALIFIER uint pow(uint x, uint y)
-{
-    uint result = x;
-    for(uint i = 1; i < y; ++i)
-        result *= x;
-    return result;
-}
-
-GLM_FUNC_QUALIFIER uint sqrt(uint x)
-{
-    if(x <= 1) return x;
-
-    uint NextTrial = x >> 1;
-    uint CurrentAnswer;
-
-    do
-    {
-        CurrentAnswer = NextTrial;
-        NextTrial = (NextTrial + x / NextTrial) >> 1;
-    } while(NextTrial < CurrentAnswer);
-
-    return CurrentAnswer;
-}
-
-GLM_FUNC_QUALIFIER uint mod(uint x, uint y)
-{
-	return x - y * (x / y);
-}
 
 }//namespace glm
