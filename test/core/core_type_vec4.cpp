@@ -9,6 +9,7 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/half_float.hpp>
+#include <vector>
 
 template <int Value>
 struct mask
@@ -41,14 +42,161 @@ int test_hvec4()
 	return 0;
 }
 
+int test_vec4_ctor()
+{
+	int Error = 0;
+	
+	{
+		glm::vec4 A(1);
+		glm::vec4 B(1, 1, 1, 1);
+		
+		Error += A == B ? 0 : 1;
+	}
+	
+	{
+		std::vector<glm::vec4> Tests;
+		Tests.push_back(glm::vec4(glm::vec2(1, 2), 3, 4));
+		Tests.push_back(glm::vec4(1, glm::vec2(2, 3), 4));
+		Tests.push_back(glm::vec4(1, 2, glm::vec2(3, 4)));
+		Tests.push_back(glm::vec4(glm::vec3(1, 2, 3), 4));
+		Tests.push_back(glm::vec4(1, glm::vec3(2, 3, 4)));
+		Tests.push_back(glm::vec4(glm::vec2(1, 2), glm::vec2(3, 4)));
+		Tests.push_back(glm::vec4(1, 2, 3, 4));
+		Tests.push_back(glm::vec4(glm::vec4(1, 2, 3, 4)));
+		
+		for(std::size_t i = 0; i < Tests.size(); ++i)
+			Error += Tests[i] == glm::vec4(1, 2, 3, 4) ? 0 : 1;
+	}
+	
+	return Error;
+}
+
 int test_vec4_operators()
 {
-	glm::vec4 A(1.0f);
-	glm::vec4 B(1.0f);
-	bool R = A != B;
-	bool S = A == B;
+	int Error = 0;
+	
+	{
+		glm::vec4 A(1.0f);
+		glm::vec4 B(1.0f);
+		bool R = A != B;
+		bool S = A == B;
 
-	return (S && !R) ? 0 : 1;
+		Error += (S && !R) ? 0 : 1;
+	}
+
+	{
+		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::vec4 B(4.0f, 5.0f, 6.0f, 7.0f);
+
+		glm::vec4 C = A + B;
+		Error += C == glm::vec4(5, 7, 9, 11) ? 0 : 1;
+
+		glm::vec4 D = B - A;
+		Error += D == glm::vec4(3, 3, 3, 3) ? 0 : 1;
+
+		glm::vec4 E = A * B;
+		Error += E == glm::vec4(4, 10, 18, 28) ? 0 : 1;
+
+		glm::vec4 F = B / A;
+		Error += F == glm::vec4(4, 2.5, 2, 7.0f / 4.0f) ? 0 : 1;
+
+		glm::vec4 G = A + 1.0f;
+		Error += G == glm::vec4(2, 3, 4, 5) ? 0 : 1;
+
+		glm::vec4 H = B - 1.0f;
+		Error += H == glm::vec4(3, 4, 5, 6) ? 0 : 1;
+
+		glm::vec4 I = A * 2.0f;
+		Error += I == glm::vec4(2, 4, 6, 8) ? 0 : 1;
+
+		glm::vec4 J = B / 2.0f;
+		Error += J == glm::vec4(2, 2.5, 3, 3.5) ? 0 : 1;
+
+		glm::vec4 K = 1.0f + A;
+		Error += K == glm::vec4(2, 3, 4, 5) ? 0 : 1;
+
+		glm::vec4 L = 1.0f - B;
+		Error += L == glm::vec4(-3, -4, -5, -6) ? 0 : 1;
+
+		glm::vec4 M = 2.0f * A;
+		Error += M == glm::vec4(2, 4, 6, 8) ? 0 : 1;
+
+		glm::vec4 N = 2.0f / B;
+		Error += N == glm::vec4(0.5, 2.0 / 5.0, 2.0 / 6.0, 2.0 / 7.0) ? 0 : 1;
+	}
+
+	{
+		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::vec4 B(4.0f, 5.0f, 6.0f, 7.0f);
+
+		A += B;
+		Error += A == glm::vec4(5, 7, 9, 11) ? 0 : 1;
+
+		A += 1.0f;
+		Error += A == glm::vec4(6, 8, 10, 12) ? 0 : 1;
+	}
+	{
+		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::vec4 B(4.0f, 5.0f, 6.0f, 7.0f);
+
+		B -= A;
+		Error += B == glm::vec4(3, 3, 3, 3) ? 0 : 1;
+
+		B -= 1.0f;
+		Error += B == glm::vec4(2, 2, 2, 2) ? 0 : 1;
+	}
+	{
+		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::vec4 B(4.0f, 5.0f, 6.0f, 7.0f);
+
+		A *= B;
+		Error += A == glm::vec4(4, 10, 18, 28) ? 0 : 1;
+
+		A *= 2.0f;
+		Error += A == glm::vec4(8, 20, 36, 56) ? 0 : 1;
+	}
+	{
+		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::vec4 B(4.0f, 5.0f, 6.0f, 7.0f);
+
+		B /= A;
+		Error += B == glm::vec4(4, 2.5, 2, 7.0f / 4.0f) ? 0 : 1;
+
+		B /= 2.0f;
+		Error += B == glm::vec4(2, 1.25, 1, 7.0f / 4.0f / 2.0f) ? 0 : 1;
+	}
+
+	{
+		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::vec4 B = -A;
+		Error += B == glm::vec4(-1.0f, -2.0f, -3.0f, -4.0f) ? 0 : 1;
+	}
+
+	{
+		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::vec4 B = --A;
+		Error += B == glm::vec4(0.0f, 1.0f, 2.0f, 3.0f) ? 0 : 1;
+	}
+
+	{
+		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::vec4 B = A--;
+		Error += B == glm::vec4(0.0f, 1.0f, 2.0f, 3.0f) ? 0 : 1;
+	}
+
+	{
+		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::vec4 B = ++A;
+		Error += B == glm::vec4(2.0f, 3.0f, 4.0f, 5.0f) ? 0 : 1;
+	}
+
+	{
+		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::vec4 B = A++;
+		Error += B == glm::vec4(2.0f, 3.0f, 4.0f, 5.0f) ? 0 : 1;
+	}
+
+	return Error;
 }
 
 int test_vec4_size()
@@ -65,15 +213,52 @@ int test_vec4_size()
 	return Error;
 }
 
+int test_vec4_swizzle_partial()
+{
+	int Error = 0;
+
+	glm::vec4 A(1, 2, 3, 4);
+
+	{
+		glm::vec4 B(A.xy, A.zw);
+		Error += A == B ? 0 : 1;
+	}
+	{
+		glm::vec4 B(A.xy, 3.0f, 4.0f);
+		Error += A == B ? 0 : 1;
+	}
+	{
+		glm::vec4 B(1.0f, A.yz, 4.0f);
+		Error += A == B ? 0 : 1;
+	}
+	{
+		glm::vec4 B(1.0f, 2.0f, A.zw);
+		Error += A == B ? 0 : 1;
+	}
+
+	{
+		glm::vec4 B(A.xyz, 4.0f);
+		Error += A == B ? 0 : 1;
+	}
+	{
+		glm::vec4 B(1.0f, A.yzw);
+		Error += A == B ? 0 : 1;
+	}
+
+	return Error;
+}
+
 int main()
 {
 	//__m128 DataA = swizzle<X, Y, Z, W>(glm::vec4(1.0f, 2.0f, 3.0f, 4.0f));
 	//__m128 DataB = swizzle<W, Z, Y, X>(glm::vec4(1.0f, 2.0f, 3.0f, 4.0f));
 
 	int Error = 0;
+	Error += test_vec4_ctor();
 	Error += test_vec4_size();
 	Error += test_vec4_operators();
 	Error += test_hvec4();
+    Error += test_vec4_swizzle_partial();
 	return Error;
 }
 

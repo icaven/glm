@@ -40,9 +40,25 @@ http://glm.g-truc.net/glm-0.9.3.pdf
 GLM 0.9.3.0: 2011-XX-XX
 --------------------------------------------------------------------------------
 - Improved doxygen documentation
+- Promoted GLM_GTC_noise extension: simplex, perlin, periodic noise functions
+- Promoted GLM_GTC_random extension: linear, gaussian and various random number 
+generation distribution.
+- Added GLM_GTX_constants: provides usefull constants
 - Added extension versioning
 - Removed many unused namespaces
 - Fixed half based type contructors
+
+================================================================================
+GLM 0.9.2.7: 2011-1X-XX
+--------------------------------------------------------------------------------
+- Added more swizzling constructors
+
+================================================================================
+GLM 0.9.2.6: 2011-10-01
+--------------------------------------------------------------------------------
+- Fixed half based type build on old GCC
+- Fixed /W4 warnings on Visual C++
+- Fixed some missing l-value swizzle operators
 
 ================================================================================
 GLM 0.9.2.5: 2011-09-20

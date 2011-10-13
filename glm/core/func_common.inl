@@ -42,6 +42,7 @@ namespace detail
                 detail::type<genFIType>::is_float || 
                 detail::type<genFIType>::is_int, "'abs' only accept floating-point and integer inputs");
             return x >= genFIType(0) ? x : -x;
+			// TODO, perf comp with: *(((int *) &x) + 1) &= 0x7fffffff;
         }
     };
 

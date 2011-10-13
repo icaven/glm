@@ -44,6 +44,7 @@
 
 // Dependency:
 #include "../glm.hpp"
+#include "../gtc/noise.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))
 #	pragma message("GLM: GLM_GTX_noise extension included")
@@ -53,25 +54,6 @@ namespace glm
 {
 	/// @addtogroup gtx_noise
 	/// @{
-
-	//! Classic perlin noise.
-	//! From GLM_GTX_noise extension.
-	template <typename T, template<typename> class vecType> 
-    T perlin(
-		vecType<T> const & p);
-		
-	//! Periodic perlin noise.
-	//! From GLM_GTX_noise extension.
-	template <typename T, template<typename> class vecType> 
-    T perlin(
-		vecType<T> const & p, 
-		vecType<T> const & rep);
-
-	//! Simplex noise.
-	//! From GLM_GTX_noise extension.
-	template <typename T, template<typename> class vecType> 
-    T simplex(
-		vecType<T> const & p);
 
 	/// @}
 }//namespace glm
