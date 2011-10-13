@@ -22,7 +22,7 @@
 ///
 /// @ref gtx_integer
 /// @file glm/gtx/integer.hpp
-/// @date 2005-12-24 / 2011-06-07
+/// @date 2005-12-24 / 2011-10-13
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
