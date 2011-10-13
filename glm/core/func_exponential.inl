@@ -224,6 +224,30 @@ namespace glm
             exp2(x.w));
     }
 
+namespace detail
+{
+	template <int PATH = float_or_int_value::ERROR>
+	struct compute_log2
+	{
+		template <typename T>
+		T operator() (T const & Value) const
+		{
+			static_assert(0, "'log2' parameter has an invalid template parameter type");
+			return Value;
+		}
+	};
+
+	template <>
+	struct compute_log2<float_or_int_value::FLOAT>
+	{
+		template <typename T>
+		T operator() (T const & Value) const
+		{
+			return ::std::log(Value) / T(0.69314718055994530941723212145818);
+		}
+	};
+}//namespace detail
+
     // log2, ln2 = 0.69314718055994530941723212145818f
     template <typename genType>
     GLM_FUNC_QUALIFIER genType log2
@@ -231,9 +255,7 @@ namespace glm
 		genType const & x
 	)
     {
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'log2' only accept floating-point input");
-
-        return ::std::log(x) / genType(0.69314718055994530941723212145818);
+		return detail::compute_log2<detail::float_or_int_trait<genType>::ID>()(x);
     }
 
     template <typename T>
