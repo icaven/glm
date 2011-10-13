@@ -53,23 +53,21 @@ namespace detail
 		x += (x >> 16);
 		return(x & 0x0000003f);
 	}
-}//namespace detail
 
+	template <>
+	struct compute_log2<float_or_int_value::INT>
+	{
+		template <typename T>
+		T operator() (T const & Value) const
+		{
 #if(GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_GCC))
-
-GLM_FUNC_QUALIFIER unsigned int log2(unsigned int x)
-{
-	return x <= 1 ? 0 : unsigned(32) - nlz(x - 1u);
-}
-
+			return Value <= T(1) ? T(0) : T(32) - nlz(Value - T(1));
 #else
-
-GLM_FUNC_QUALIFIER unsigned int log2(unsigned int x)
-{
-	return unsigned(32) - nlz(x - 1u);
-}
-
+			return T(32) - nlz(Value - T(1));
 #endif
+		}
+	};
+}//namespace detail
 
 // Henry Gordon Dietz: http://aggregate.org/MAGIC/
 unsigned int floor_log2(unsigned int x)
