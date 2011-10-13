@@ -232,7 +232,7 @@ namespace detail
 		template <typename T>
 		T operator() (T const & Value) const
 		{
-			static_assert(0, "'log2' parameter has an invalid template parameter type");
+			static_assert(0, "'log2' parameter has an invalid template parameter type. GLM core features only supports floating-point types, include <glm/gtx/integer.hpp> for integer types support. Others types are not supported.");
 			return Value;
 		}
 	};
