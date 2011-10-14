@@ -7,50 +7,49 @@
 // File    : glm/gtx/extend.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm{
-
-template <typename genType>
-genType extend
-(
-	genType const & Origin, 
-	genType const & Source, 
-	genType const & Distance
-)
+namespace glm
 {
-    return Origin + (Source - Origin) * Distance;
-}
+	template <typename genType>
+	genType extend
+	(
+		genType const & Origin, 
+		genType const & Source, 
+		genType const & Distance
+	)
+	{
+		return Origin + (Source - Origin) * Distance;
+	}
 
-template <typename valType>
-detail::tvec2<valType> extend
-(
-	detail::tvec2<valType> const & Origin, 
-	detail::tvec2<valType> const & Source, 
-	valType const & Distance
-)
-{
-    return Origin + (Source - Origin) * Distance;
-}
+	template <typename valType>
+	detail::tvec2<valType> extend
+	(
+		detail::tvec2<valType> const & Origin, 
+		detail::tvec2<valType> const & Source, 
+		valType const & Distance
+	)
+	{
+		return Origin + (Source - Origin) * Distance;
+	}
 
-template <typename valType>
-detail::tvec3<valType> extend
-(
-	detail::tvec3<valType> const & Origin, 
-	detail::tvec3<valType> const & Source, 
-	valType const & Distance
-)
-{
-    return Origin + (Source - Origin) * Distance;
-}
+	template <typename valType>
+	detail::tvec3<valType> extend
+	(
+		detail::tvec3<valType> const & Origin, 
+		detail::tvec3<valType> const & Source, 
+		valType const & Distance
+	)
+	{
+		return Origin + (Source - Origin) * Distance;
+	}
 
-template <typename valType>
-detail::tvec4<valType> extend
-(
-	detail::tvec4<valType> const & Origin, 
-	detail::tvec4<valType> const & Source, 
-	valType const & Distance
-)
-{
-    return Origin + (Source - Origin) * Distance;
-}
-
+	template <typename valType>
+	detail::tvec4<valType> extend
+	(
+		detail::tvec4<valType> const & Origin, 
+		detail::tvec4<valType> const & Source, 
+		valType const & Distance
+	)
+	{
+		return Origin + (Source - Origin) * Distance;
+	}
 }//namespace glm

@@ -52,24 +52,10 @@ namespace glm
 
 	//! Projects x on Normal.
 	//! From GLM_GTX_projection extension.
-	template <typename T> 
-	detail::tvec2<T> proj(
-		detail::tvec2<T> const & x, 
-		detail::tvec2<T> const & Normal);
-		
-	//! Projects x on Normal.
-	//! From GLM_GTX_projection extension.
-	template <typename T> 
-	detail::tvec3<T> proj(
-		detail::tvec3<T> const & x, 
-		detail::tvec3<T> const & Normal);
-
-	//! Projects x on Normal.
-	//! From GLM_GTX_projection extension.
-	template <typename T> 
-	detail::tvec4<T> proj(
-		detail::tvec4<T> const & x, 
-		detail::tvec4<T> const & Normal);
+	template <typename vecType> 
+	vecType proj(
+		vecType const & x, 
+		vecType const & Normal);
 
 	/// @}
 }//namespace glm

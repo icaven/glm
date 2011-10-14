@@ -7,17 +7,16 @@
 // File    : glm/gtx/normal.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm{
-
-template <typename T> 
-GLM_FUNC_QUALIFIER detail::tvec3<T> triangleNormal
-(
-    detail::tvec3<T> const & p1, 
-    detail::tvec3<T> const & p2, 
-    detail::tvec3<T> const & p3
-)
+namespace glm
 {
-    return normalize(cross(p1 - p2, p1 - p3));
-}
-
+	template <typename T> 
+	GLM_FUNC_QUALIFIER detail::tvec3<T> triangleNormal
+	(
+		detail::tvec3<T> const & p1, 
+		detail::tvec3<T> const & p2, 
+		detail::tvec3<T> const & p3
+	)
+	{
+		return normalize(cross(p1 - p2, p1 - p3));
+	}
 }//namespace glm

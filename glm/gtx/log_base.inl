@@ -7,82 +7,20 @@
 // File    : glm/gtx/log_base.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm{
+#include "../core/_vectorize.hpp"
 
-template <typename genType> 
-GLM_FUNC_QUALIFIER genType log(
-	genType const & x, 
-	genType const & base)
+namespace glm
 {
-	assert(x != genType(0));
+	template <typename genType> 
+	GLM_FUNC_QUALIFIER genType log(
+		genType const & x, 
+		genType const & base)
+	{
+		assert(x != genType(0));
 
-	return glm::log(x) / glm::log(base);
-}
+		return glm::log(x) / glm::log(base);
+	}
 
-template <typename valType> 
-GLM_FUNC_QUALIFIER detail::tvec2<valType> log(
-	detail::tvec2<valType> const & v, 
-	valType const & base)
-{
-	return detail::tvec2<valType>(
-		log(v.x, base),
-		log(v.y, base));
-}
-
-template <typename valType> 
-GLM_FUNC_QUALIFIER detail::tvec3<valType> log(
-	detail::tvec3<valType> const & v, 
-	valType const & base)
-{
-	return detail::tvec3<valType>(
-		log(v.x, base),
-		log(v.y, base),
-		log(v.z, base));
-}
-
-template <typename valType> 
-GLM_FUNC_QUALIFIER detail::tvec4<valType> log(
-	detail::tvec4<valType> const & v, 
-	valType const & base)
-{
-	return detail::tvec4<valType>(
-		log(v.x, base),
-		log(v.y, base),
-		log(v.z, base),
-		log(v.w, base));
-}
-
-template <typename valType> 
-GLM_FUNC_QUALIFIER detail::tvec2<valType> log(
-	detail::tvec2<valType> const & v, 
-	detail::tvec2<valType> const & base)
-{
-	return detail::tvec2<valType>(
-		log(v.x, base.x),
-		log(v.y, base.y));
-}
-
-template <typename valType> 
-GLM_FUNC_QUALIFIER detail::tvec3<valType> log(
-	detail::tvec3<valType> const & v, 
-	detail::tvec3<valType> const & base)
-{
-	return detail::tvec3<valType>(
-		log(v.x, base.x),
-		log(v.y, base.y),
-		log(v.z, base.z));
-}
-
-template <typename valType> 
-GLM_FUNC_QUALIFIER detail::tvec4<valType> log(
-	detail::tvec4<valType> const & v, 
-	detail::tvec4<valType> const & base)
-{
-	return detail::tvec4<valType>(
-		log(v.x, base.x),
-		log(v.y, base.y),
-		log(v.z, base.z),
-		log(v.w, base.w));
-}
-
+	VECTORIZE_VEC_SCA(log)
+	VECTORIZE_VEC_VEC(log)
 }//namespace glm

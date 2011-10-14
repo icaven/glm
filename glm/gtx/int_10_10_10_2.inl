@@ -7,11 +7,13 @@
 // File    : glm/gtx/int_10_10_10_2.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm{
-
-GLM_FUNC_QUALIFIER dword uint10_10_10_2_cast(glm::vec4 const & v)
+namespace glm
 {
-    return dword(uint(v.x * 2047.f) << 0 | uint(v.y * 2047.f) << 10 | uint(v.z * 2047.f) << 20 | uint(v.w * 3.f) << 30);
-}
-
+	GLM_FUNC_QUALIFIER dword uint10_10_10_2_cast
+	(
+		glm::vec4 const & v
+	)
+	{
+		return dword(uint(v.x * 2047.f) << 0 | uint(v.y * 2047.f) << 10 | uint(v.z * 2047.f) << 20 | uint(v.w * 3.f) << 30);
+	}
 }//namespace glm
