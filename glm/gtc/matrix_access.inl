@@ -26,49 +26,55 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-namespace glm{
-
-template <typename genType>
-GLM_FUNC_QUALIFIER genType row(
-	genType const & m, 
-	int index, 
-	typename genType::row_type const & x)
+namespace glm
 {
-    genType Result = m;
-    for(typename genType::size_type i = 0; i < genType::row_size(); ++i)
-		Result[i][index] = x[i];
-    return Result;
-}
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType row
+	(
+		genType const & m, 
+		int index, 
+		typename genType::row_type const & x
+	)
+	{
+		genType Result = m;
+		for(typename genType::size_type i = 0; i < genType::row_size(); ++i)
+			Result[i][index] = x[i];
+		return Result;
+	}
 
-template <typename genType>
-GLM_FUNC_QUALIFIER typename genType::row_type row(
-	genType const & m, 
-	int index)
-{
-	typename genType::row_type Result;
-	for(typename genType::size_type i = 0; i < genType::row_size(); ++i)
-		Result[i] = m[i][index];
-	return Result;
-}
+	template <typename genType>
+	GLM_FUNC_QUALIFIER typename genType::row_type row
+	(
+		genType const & m, 
+		int index
+	)
+	{
+		typename genType::row_type Result;
+		for(typename genType::size_type i = 0; i < genType::row_size(); ++i)
+			Result[i] = m[i][index];
+		return Result;
+	}
 
-template <typename genType>
-GLM_FUNC_QUALIFIER genType column(
-	genType const & m, 
-	int index, 
-	typename genType::col_type const & x)
-{
-    genType Result = m;
-    Result[index] = x;
-    return Result;
-}
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType column
+	(
+		genType const & m, 
+		int index, 
+		typename genType::col_type const & x
+	)
+	{
+		genType Result = m;
+		Result[index] = x;
+		return Result;
+	}
 
-template <typename genType>
-GLM_FUNC_QUALIFIER typename genType::col_type column(
-	genType const & m, 
-	int index)
-{
-    return m[index];
-}
-
+	template <typename genType>
+	GLM_FUNC_QUALIFIER typename genType::col_type column
+	(
+		genType const & m, 
+		int index
+	)
+	{
+		return m[index];
+	}
 }//namespace glm
-
