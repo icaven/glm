@@ -26,6 +26,8 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "_vectorize.hpp"
+
 namespace glm
 {
     // pow
@@ -41,44 +43,7 @@ namespace glm
         return ::std::pow(x, y);
     }
 
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec2<T> pow
-	(
-		detail::tvec2<T> const & x, 
-		detail::tvec2<T> const & y
-	)
-    {
-        return detail::tvec2<T>(
-            pow(x.x, y.x),
-            pow(x.y, y.y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec3<T> pow
-	(
-		detail::tvec3<T> const & x, 
-		detail::tvec3<T> const & y
-	)
-    {
-        return detail::tvec3<T>(
-            pow(x.x, y.x),
-            pow(x.y, y.y),
-            pow(x.z, y.z));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec4<T> pow
-	(
-		detail::tvec4<T> const & x, 
-		detail::tvec4<T> const & y
-	)
-    {
-        return detail::tvec4<T>(
-            pow(x.x, y.x),
-            pow(x.y, y.y),
-            pow(x.z, y.z),
-            pow(x.w, y.w));
-    }
+	VECTORIZE_VEC_VEC(pow)
 
     // exp
     template <typename genType>
@@ -92,41 +57,7 @@ namespace glm
         return ::std::exp(x);
     }
 
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec2<T> exp
-	(
-		detail::tvec2<T> const & x
-	)
-    {
-        return detail::tvec2<T>(
-            exp(x.x),
-            exp(x.y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec3<T> exp
-	(
-		detail::tvec3<T> const & x
-	)
-    {
-        return detail::tvec3<T>(
-            exp(x.x),
-            exp(x.y),
-            exp(x.z));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec4<T> exp
-	(
-		detail::tvec4<T> const & x
-	)
-    {
-        return detail::tvec4<T>(
-            exp(x.x),
-            exp(x.y),
-            exp(x.z),
-            exp(x.w));
-    }
+	VECTORIZE_VEC(exp)
 
     // log
     template <typename genType>
@@ -140,41 +71,7 @@ namespace glm
         return ::std::log(x);
     }
 
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec2<T> log
-	(
-		detail::tvec2<T> const & x
-	)
-    {
-        return detail::tvec2<T>(
-            log(x.x),
-            log(x.y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec3<T> log
-	(
-		detail::tvec3<T> const & x
-	)
-    {
-        return detail::tvec3<T>(
-            log(x.x),
-            log(x.y),
-            log(x.z));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec4<T> log
-	(
-		detail::tvec4<T> const & x
-	)
-    {
-        return detail::tvec4<T>(
-            log(x.x),
-            log(x.y),
-            log(x.z),
-            log(x.w));
-    }
+	VECTORIZE_VEC(log)
 
     //exp2, ln2 = 0.69314718055994530941723212145818f
     template <typename genType>
@@ -188,41 +85,7 @@ namespace glm
         return ::std::exp(genType(0.69314718055994530941723212145818) * x);
     }
 
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec2<T> exp2
-	(
-		detail::tvec2<T> const & x
-	)
-    {
-        return detail::tvec2<T>(
-            exp2(x.x),
-            exp2(x.y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec3<T> exp2
-	(
-		detail::tvec3<T> const & x
-	)
-    {
-        return detail::tvec3<T>(
-            exp2(x.x),
-            exp2(x.y),
-            exp2(x.z));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec4<T> exp2
-	(
-		detail::tvec4<T> const & x
-	)
-    {
-        return detail::tvec4<T>(
-            exp2(x.x),
-            exp2(x.y),
-            exp2(x.z),
-            exp2(x.w));
-    }
+	VECTORIZE_VEC(exp2)
 
 namespace detail
 {
@@ -232,7 +95,7 @@ namespace detail
 		template <typename T>
 		T operator() (T const & Value) const
 		{
-			static_assert(0, "'log2' parameter has an invalid template parameter type");
+			GLM_STATIC_ASSERT(0, "'log2' parameter has an invalid template parameter type. GLM core features only supports floating-point types, include <glm/gtx/integer.hpp> for integer types support. Others types are not supported.");
 			return Value;
 		}
 	};
@@ -255,44 +118,11 @@ namespace detail
 		genType const & x
 	)
     {
+		assert(x > genType(0)); // log2 is only defined on the range (0, inf]
 		return detail::compute_log2<detail::float_or_int_trait<genType>::ID>()(x);
     }
 
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec2<T> log2
-	(
-		detail::tvec2<T> const & x
-	)
-    {
-        return detail::tvec2<T>(
-            log2(x.x),
-            log2(x.y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec3<T> log2
-	(
-		detail::tvec3<T> const & x
-	)
-    {
-        return detail::tvec3<T>(
-            log2(x.x),
-            log2(x.y),
-            log2(x.z));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec4<T> log2
-	(
-		detail::tvec4<T> const & x
-	)
-    {
-        return detail::tvec4<T>(
-            log2(x.x),
-            log2(x.y),
-            log2(x.z),
-            log2(x.w));
-    }
+	VECTORIZE_VEC(log2)
 
     // sqrt
     template <typename genType>
@@ -306,41 +136,7 @@ namespace detail
         return genType(::std::sqrt(x));
     }
 
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec2<T> sqrt
-	(
-		detail::tvec2<T> const & x
-	)
-    {
-        return detail::tvec2<T>(
-            glm::sqrt(x.x),
-            glm::sqrt(x.y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec3<T> sqrt
-	(
-		detail::tvec3<T> const & x
-	)
-    {
-        return detail::tvec3<T>(
-            glm::sqrt(x.x),
-            glm::sqrt(x.y),
-            glm::sqrt(x.z));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec4<T> sqrt
-	(
-		detail::tvec4<T> const & x
-	)
-    {
-        return detail::tvec4<T>(
-            glm::sqrt(x.x),
-            glm::sqrt(x.y),
-            glm::sqrt(x.z),
-            glm::sqrt(x.w));
-    }
+	VECTORIZE_VEC(sqrt)
 
     template <typename genType>
     GLM_FUNC_QUALIFIER genType inversesqrt
@@ -353,40 +149,6 @@ namespace detail
         return genType(1) / ::std::sqrt(x);
     }
 
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec2<T> inversesqrt
-	(
-		detail::tvec2<T> const & x
-	)
-    {
-        return detail::tvec2<T>(
-            inversesqrt(x.x),
-            inversesqrt(x.y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec3<T> inversesqrt
-	(
-		detail::tvec3<T> const & x
-	)
-    {
-        return detail::tvec3<T>(
-            inversesqrt(x.x),
-            inversesqrt(x.y),
-            inversesqrt(x.z));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec4<T> inversesqrt
-	(
-		detail::tvec4<T> const & x
-	)
-    {
-        return detail::tvec4<T>(
-            inversesqrt(x.x),
-            inversesqrt(x.y),
-            inversesqrt(x.z),
-            inversesqrt(x.w));
-    }
+	VECTORIZE_VEC(inversesqrt)
 
 }//namespace glm

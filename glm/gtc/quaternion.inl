@@ -29,8 +29,8 @@
 #include <limits>
 
 namespace glm{
-namespace detail{
-
+namespace detail
+{
     template <typename T> 
     GLM_FUNC_QUALIFIER tquat<T>::tquat() : 
         x(0),

@@ -26,6 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "_vectorize.hpp"
 #if(GLM_COMPILER & GLM_COMPILER_VC)
 #include <intrin.h>
 #pragma intrinsic(_BitScanReverse)
@@ -415,41 +416,7 @@ namespace glm
 		return Out;
 	}	
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec2<T> bitfieldReverse
-	(
-		detail::tvec2<T> const & value
-	)
-	{
-		return detail::tvec2<T>(
-			bitfieldReverse(value[0]),
-			bitfieldReverse(value[1]));
-	}
-
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<T> bitfieldReverse
-	(
-		detail::tvec3<T> const & value
-	)
-	{
-		return detail::tvec3<T>(
-			bitfieldReverse(value[0]),
-			bitfieldReverse(value[1]),
-			bitfieldReverse(value[2]));
-	}
-
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec4<T> bitfieldReverse
-	(
-		detail::tvec4<T> const & value
-	)
-	{
-		return detail::tvec4<T>(
-			bitfieldReverse(value[0]),
-			bitfieldReverse(value[1]),
-			bitfieldReverse(value[2]),
-			bitfieldReverse(value[3]));
-	}
+	VECTORIZE_VEC(bitfieldReverse)
 
 	// bitCount
 	template <typename genIUType>
