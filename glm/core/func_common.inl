@@ -26,6 +26,8 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "_vectorize.hpp"
+
 namespace glm{
 namespace detail
 {
@@ -60,56 +62,23 @@ namespace detail
 
 	// abs
 	template <typename genFIType>
-    GLM_FUNC_QUALIFIER genFIType abs(
-		genFIType const & x)
+    GLM_FUNC_QUALIFIER genFIType abs
+	(
+		genFIType const & x
+	)
     {
 		return detail::Abs_<genFIType, std::numeric_limits<genFIType>::is_signed>::get(x);
     }
 
-	//template <typename T> 
-	//GLM_FUNC_QUALIFIER detail::tvec1<T> abs(
-	//	detail::tvec1<T> const & v)
-	//{
-	//	return detail::tvec1<T>(
-	//		abs(v.x));	
-	//}
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec2<T> abs(
-		detail::tvec2<T> const & v)
-    {
-        return detail::tvec2<T>(
-            abs(v.x),
-            abs(v.y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec3<T> abs(
-		detail::tvec3<T> const & v)
-    {
-        return detail::tvec3<T>(
-            abs(v.x),
-            abs(v.y),
-            abs(v.z));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec4<T> abs(
-		detail::tvec4<T> const & v)
-    {
-        return detail::tvec4<T>(
-            abs(v.x),
-            abs(v.y),
-            abs(v.z),
-            abs(v.w));
-    }
+	VECTORIZE_1PARAM(abs)
 
     // sign
-
 	//Try something like based on x >> 31 to get the sign bit
     template <typename genFIType> 
-	GLM_FUNC_QUALIFIER genFIType sign(
-		genFIType const & x)
+	GLM_FUNC_QUALIFIER genFIType sign
+	(
+		genFIType const & x
+	)
 	{
 		GLM_STATIC_ASSERT(
 			detail::type<genFIType>::is_float || 
@@ -125,35 +94,7 @@ namespace detail
         return result;
 	}
 	
-    template <typename valFIType>
-    GLM_FUNC_QUALIFIER detail::tvec2<valFIType> sign(
-		detail::tvec2<valFIType> const & x)
-    {
-        return detail::tvec2<valFIType>(
-            sign(x.x),
-            sign(x.y));
-    }
-
-    template <typename valFIType>
-    GLM_FUNC_QUALIFIER detail::tvec3<valFIType> sign(
-		detail::tvec3<valFIType> const & x)
-    {
-        return detail::tvec3<valFIType>(
-            sign(x.x),
-            sign(x.y),
-            sign(x.z));
-    }
-
-    template <typename valFIType>
-    GLM_FUNC_QUALIFIER detail::tvec4<valFIType> sign(
-		detail::tvec4<valFIType> const & x)
-    {
-        return detail::tvec4<valFIType>(
-            sign(x.x),
-            sign(x.y),
-            sign(x.z),
-            sign(x.w));
-    }
+	VECTORIZE_1PARAM(sign)
 
     // floor
     template <>
@@ -170,32 +111,7 @@ namespace detail
         return ::std::floor(x);
     }
 
-    template <typename valType>
-    GLM_FUNC_QUALIFIER detail::tvec2<valType> floor(detail::tvec2<valType> const& x)
-    {
-        return detail::tvec2<valType>(
-            floor(x.x),
-            floor(x.y));
-    }
-
-    template <typename valType>
-    GLM_FUNC_QUALIFIER detail::tvec3<valType> floor(detail::tvec3<valType> const& x)
-    {
-        return detail::tvec3<valType>(
-            floor(x.x),
-            floor(x.y),
-            floor(x.z));
-    }
-
-    template <typename valType>
-    GLM_FUNC_QUALIFIER detail::tvec4<valType> floor(detail::tvec4<valType> const& x)
-    {
-        return detail::tvec4<valType>(
-            floor(x.x),
-            floor(x.y),
-            floor(x.z),
-            floor(x.w));
-    }
+	VECTORIZE_1PARAM(floor)
 
     // trunc
     template <typename genType>
@@ -205,32 +121,7 @@ namespace detail
         return x < 0 ? -floor(-x) : floor(x);
     }
 
-    template <typename valType>
-    GLM_FUNC_QUALIFIER detail::tvec2<valType> trunc(detail::tvec2<valType> const & x)
-    {
-        return detail::tvec2<valType>(
-            trunc(x.x),
-            trunc(x.y));
-    }
-
-    template <typename valType>
-    GLM_FUNC_QUALIFIER detail::tvec3<valType> trunc(detail::tvec3<valType> const & x)
-    {
-        return detail::tvec3<valType>(
-            trunc(x.x),
-            trunc(x.y),
-            trunc(x.z));
-    }
-
-    template <typename valType>
-    GLM_FUNC_QUALIFIER detail::tvec4<valType> trunc(detail::tvec4<valType> const & x)
-    {
-        return detail::tvec4<valType>(
-            trunc(x.x),
-            trunc(x.y),
-            trunc(x.z),
-            trunc(x.w));
-    }
+	VECTORIZE_1PARAM(trunc)
 
     // round
     template <typename genType>
@@ -243,32 +134,8 @@ namespace detail
 		return genType(int(x + genType(0.5)));
     }
 
-    template <typename valType>
-    GLM_FUNC_QUALIFIER detail::tvec2<valType> round(detail::tvec2<valType> const& x)
-    {
-        return detail::tvec2<valType>(
-            round(x.x),
-            round(x.y));
-    }
+	VECTORIZE_1PARAM(round)
 
-    template <typename valType>
-    GLM_FUNC_QUALIFIER detail::tvec3<valType> round(detail::tvec3<valType> const& x)
-    {
-        return detail::tvec3<valType>(
-            round(x.x),
-            round(x.y),
-            round(x.z));
-    }
-
-    template <typename valType>
-    GLM_FUNC_QUALIFIER detail::tvec4<valType> round(detail::tvec4<valType> const& x)
-    {
-        return detail::tvec4<valType>(
-            round(x.x),
-            round(x.y),
-            round(x.z),
-            round(x.w));
-    }
 /*
     // roundEven
     template <typename genType>
@@ -294,32 +161,7 @@ namespace detail
 		return genType(int(x + RoundValue));
     }
 	
-    template <typename valType>
-    GLM_FUNC_QUALIFIER detail::tvec2<valType> roundEven(detail::tvec2<valType> const& x)
-    {
-        return detail::tvec2<valType>(
-            roundEven(x.x),
-            roundEven(x.y));
-    }
-
-    template <typename valType>
-    GLM_FUNC_QUALIFIER detail::tvec3<valType> roundEven(detail::tvec3<valType> const& x)
-    {
-        return detail::tvec3<valType>(
-            roundEven(x.x),
-            roundEven(x.y),
-            roundEven(x.z));
-    }
-
-    template <typename valType>
-    GLM_FUNC_QUALIFIER detail::tvec4<valType> roundEven(detail::tvec4<valType> const& x)
-    {
-        return detail::tvec4<valType>(
-            roundEven(x.x),
-            roundEven(x.y),
-            roundEven(x.z),
-            roundEven(x.w));
-    }
+	VECTORIZE_1PARAM(roundEven)
 
     // ceil
     template <typename genType>
@@ -330,32 +172,7 @@ namespace detail
         return ::std::ceil(x);
     }
 
-    template <typename valType>
-    GLM_FUNC_QUALIFIER detail::tvec2<valType> ceil(detail::tvec2<valType> const & x)
-    {
-        return detail::tvec2<valType>(
-            ceil(x.x),
-            ceil(x.y));
-    }
-
-    template <typename valType>
-    GLM_FUNC_QUALIFIER detail::tvec3<valType> ceil(detail::tvec3<valType> const & x)
-    {
-        return detail::tvec3<valType>(
-            ceil(x.x),
-            ceil(x.y),
-            ceil(x.z));
-    }
-
-    template <typename valType>
-    GLM_FUNC_QUALIFIER detail::tvec4<valType> ceil(detail::tvec4<valType> const & x)
-    {
-        return detail::tvec4<valType>(
-            ceil(x.x),
-            ceil(x.y),
-            ceil(x.z),
-            ceil(x.w));
-    }
+	VECTORIZE_1PARAM(ceil)
 
     // fract
     template <typename genType>
@@ -369,41 +186,7 @@ namespace detail
         return x - ::std::floor(x);
     }
 
-    template <typename valType>
-    GLM_FUNC_QUALIFIER detail::tvec2<valType> fract
-	(
-		detail::tvec2<valType> const & x
-	)
-    {
-        return detail::tvec2<valType>(
-            fract(x.x),
-            fract(x.y));
-    }
-
-    template <typename valType>
-    GLM_FUNC_QUALIFIER detail::tvec3<valType> fract
-	(
-		detail::tvec3<valType> const & x
-	)
-    {
-        return detail::tvec3<valType>(
-            fract(x.x),
-            fract(x.y),
-            fract(x.z));
-    }
-
-    template <typename valType>
-    GLM_FUNC_QUALIFIER detail::tvec4<valType> fract
-	(
-		detail::tvec4<valType> const & x
-	)
-    {
-        return detail::tvec4<valType>(
-            fract(x.x),
-            fract(x.y),
-            fract(x.z),
-            fract(x.w));
-    }
+	VECTORIZE_1PARAM(fract)
 
     // mod
     template <typename genType>
