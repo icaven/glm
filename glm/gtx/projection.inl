@@ -7,30 +7,15 @@
 // File    : glm/gtx/projection.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm{
-
-template <typename T> 
-GLM_FUNC_QUALIFIER detail::tvec2<T> proj(
-	detail::tvec2<T> const & x, 
-	detail::tvec2<T> const & Normal)
+namespace glm
 {
-	return glm::dot(x, Normal) / glm::dot(Normal, Normal) * Normal;
-}
-
-template <typename T> 
-GLM_FUNC_QUALIFIER detail::tvec3<T> proj(
-	detail::tvec3<T> const & x, 
-	detail::tvec3<T> const & Normal)
-{
-	return dot(x, Normal) / glm::dot(Normal, Normal) * Normal;
-}
-
-template <typename T> 
-GLM_FUNC_QUALIFIER detail::tvec4<T> proj(
-	detail::tvec4<T> const & x, 
-	detail::tvec4<T> const & Normal)
-{
-	return glm::dot(x, Normal) / glm::dot(Normal, Normal) * Normal;
-}
-
+	template <typename vecType> 
+	GLM_FUNC_QUALIFIER vecType proj
+	(
+		vecType const & x, 
+		vecType const & Normal
+	)
+	{
+		return glm::dot(x, Normal) / glm::dot(Normal, Normal) * Normal;
+	}
 }//namespace glm

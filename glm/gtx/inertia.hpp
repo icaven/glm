@@ -55,57 +55,57 @@ namespace glm
 	//! From GLM_GTX_inertia extension.
 	template <typename T> 
 	detail::tmat3x3<T> boxInertia3(
-		const T Mass, 
-		const detail::tvec3<T>& Scale);
+		T const & Mass, 
+		detail::tvec3<T> const & Scale);
 		
 	//! Build an inertia matrix for a box.
 	//! From GLM_GTX_inertia extension.
 	template <typename T> 
 	detail::tmat4x4<T> boxInertia4(
-		const T Mass, 
-		const detail::tvec3<T>& Scale);
+		T const & Mass, 
+		detail::tvec3<T> const & Scale);
 		
 	//! Build an inertia matrix for a disk.
 	//! From GLM_GTX_inertia extension.
 	template <typename T> 
 	detail::tmat3x3<T> diskInertia3(
-		const T Mass, 
-		const T Radius);
+		T const & Mass, 
+		T const & Radius);
 
 	//! Build an inertia matrix for a disk.
 	//! From GLM_GTX_inertia extension.
 	template <typename T> 
 	detail::tmat4x4<T> diskInertia4(
-		const T Mass, 
-		const T Radius);
+		T const & Mass, 
+		T const & Radius);
 
 	//! Build an inertia matrix for a ball.
 	//! From GLM_GTX_inertia extension.
 	template <typename T> 
 	detail::tmat3x3<T> ballInertia3(
-		const T Mass, 
-		const T Radius);
+		T const & Mass, 
+		T const & Radius);
 		
 	//! Build an inertia matrix for a ball.
 	//! From GLM_GTX_inertia extension.
 	template <typename T> 
 	detail::tmat4x4<T> ballInertia4(
-		const T Mass, 
-		const T Radius);
+		T const & Mass, 
+		T const & Radius);
 
 	//! Build an inertia matrix for a sphere.
 	//! From GLM_GTX_inertia extension.
 	template <typename T> 
 	detail::tmat3x3<T> sphereInertia3(
-		const T Mass, 
-		const T Radius);
+		T const & Mass, 
+		T const & Radius);
 
 	//! Build an inertia matrix for a sphere.
 	//! From GLM_GTX_inertia extension.
 	template <typename T> 
 	detail::tmat4x4<T> sphereInertia4(
-		const T Mass, 
-		const T Radius);
+		T const & Mass, 
+		T const & Radius);
 
 	/// @}
 }// namespace glm
