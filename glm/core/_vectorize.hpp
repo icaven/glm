@@ -26,7 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#define VECTORIZE_1PARAM(func) \
+#define VECTORIZE_VEC(func) \
     template <typename T> \
     GLM_FUNC_QUALIFIER detail::tvec2<T> func( \
 		detail::tvec2<T> const & v) \
@@ -57,7 +57,47 @@
             func(v.w)); \
     }
 
-#define VECTORIZE_2PARAMS(func) \
+#define VECTORIZE_VEC_SCA(func) \
+    template <typename T> \
+    GLM_FUNC_QUALIFIER detail::tvec2<T> func \
+	( \
+		detail::tvec2<T> const & x,  \
+		typename detail::tvec2<T>::value_type const & y \
+	) \
+    { \
+        return detail::tvec2<T>( \
+            func(x.x, y), \
+            func(x.y, y)); \
+    } \
+	 \
+    template <typename T> \
+    GLM_FUNC_QUALIFIER detail::tvec3<T> func \
+	( \
+		detail::tvec3<T> const & x,  \
+		typename detail::tvec3<T>::value_type const & y \
+	) \
+    { \
+        return detail::tvec3<T>( \
+            func(x.x, y), \
+            func(x.y, y), \
+            func(x.z, y)); \
+    } \
+	 \
+    template <typename T> \
+    GLM_FUNC_QUALIFIER detail::tvec4<T> func \
+	( \
+		detail::tvec4<T> const & x,  \
+		typename detail::tvec4<T>::value_type const & y \
+	) \
+    { \
+        return detail::tvec4<T>( \
+            func(x.x, y), \
+            func(x.y, y), \
+            func(x.z, y), \
+            func(x.w, y)); \
+    }
+
+#define VECTORIZE_VEC_VEC(func) \
     template <typename T> \
     GLM_FUNC_QUALIFIER detail::tvec2<T> func \
 	( \
