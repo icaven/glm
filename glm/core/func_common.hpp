@@ -44,72 +44,90 @@ namespace glm
 	/// @{
 
 	/// Returns x if x >= 0; otherwise, it returns -x.
+	/// 
+	/// @tparam genType floating-point or signed integer; scalar or vector types.
     /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/abs.xml">GLSL abs man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
-    template <typename genFIType> 
-	genFIType abs(genFIType const & x);
+    template <typename genType> 
+	genType abs(genType const & x);
 
 	/// Returns 1.0 if x > 0, 0.0 if x == 0, or -1.0 if x < 0. 
-    /// 
+	/// 
+	/// @tparam genType Floating-point or signed integer; scalar or vector types.
+	/// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sign.xml">GLSL sign man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
-	template <typename genFIType> 
-	genFIType sign(genFIType const & x);
+	template <typename genType> 
+	genType sign(genType const & x);
 
-    //! Returns a value equal to the nearest integer that is less then or equal to x. 
-    //! 
+    /// Returns a value equal to the nearest integer that is less then or equal to x. 
+	/// 
+	/// @tparam genType Floating-point scalar or vector types.
+    /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floor.xml">GLSL floor man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
 	template <typename genType> 
 	genType floor(genType const & x);
 
-	//! Returns a value equal to the nearest integer to x 
-	//! whose absolute value is not larger than the absolute value of x. 
-    //! 
+	/// Returns a value equal to the nearest integer to x 
+	/// whose absolute value is not larger than the absolute value of x. 
+	/// 
+	/// @tparam genType Floating-point scalar or vector types.
+    /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/trunc.xml">GLSL trunc man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
 	template <typename genType> 
 	genType trunc(genType const & x);
 
-	//! Returns a value equal to the nearest integer to x. 
-	//! The fraction 0.5 will round in a direction chosen by the 
-	//! implementation, presumably the direction that is fastest. 
-	//! This includes the possibility that round(x) returns the 
-	//! same value as roundEven(x) for all values of x. 
-    //! 
+	/// Returns a value equal to the nearest integer to x. 
+	/// The fraction 0.5 will round in a direction chosen by the 
+	/// implementation, presumably the direction that is fastest. 
+	/// This includes the possibility that round(x) returns the 
+	/// same value as roundEven(x) for all values of x. 
+	/// 
+	/// @tparam genType Floating-point scalar or vector types.
+    /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/round.xml">GLSL round man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
 	template <typename genType> 
 	genType round(genType const & x);
 
-	//! Returns a value equal to the nearest integer to x.
-	//! A fractional part of 0.5 will round toward the nearest even
-	//! integer. (Both 3.5 and 4.5 for x will return 4.0.) 
-    //! 
+	/// Returns a value equal to the nearest integer to x.
+	/// A fractional part of 0.5 will round toward the nearest even
+	/// integer. (Both 3.5 and 4.5 for x will return 4.0.) 
+	///
+	/// @tparam genType Floating-point scalar or vector types.
+    /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/roundEven.xml">GLSL roundEven man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
 	template <typename genType> 
 	genType roundEven(genType const & x);
 
-	//! Returns a value equal to the nearest integer 
-	//! that is greater than or equal to x. 
-    //! 
+	/// Returns a value equal to the nearest integer 
+	/// that is greater than or equal to x. 
+    /// 
+	/// @tparam genType Floating-point scalar or vector types.
+	///
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/ceil.xml">GLSL ceil man page</a>
 	/// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
     template <typename genType> 
 	genType ceil(genType const & x);
 
-	//! Return x - floor(x).
-    //! 
+	/// Return x - floor(x).
+    /// 
+	/// @tparam genType Floating-point scalar or vector types.
+	///
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/fract.xml">GLSL fract man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
     template <typename genType> 
 	genType fract(genType const & x);
 
-	//! Modulus. Returns x - y * floor(x / y) 
-	//! for each component in x using the floating point value y.
-    //! 
+	/// Modulus. Returns x - y * floor(x / y) 
+	/// for each component in x using the floating point value y.
+	///
+	/// @tparam genType Floating-point scalar or vector types.
+    ///
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml">GLSL mod man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
     template <typename genType> 
@@ -117,9 +135,11 @@ namespace glm
 		genType const & x, 
 		genType const & y);
 
-	//! Modulus. Returns x - y * floor(x / y) 
-	//! for each component in x using the floating point value y.
-    //! 
+	/// Modulus. Returns x - y * floor(x / y) 
+	/// for each component in x using the floating point value y.
+	/// 
+	/// @tparam genType Floating-point scalar or vector types.
+    /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml">GLSL mod man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
     template <typename genType> 
@@ -127,11 +147,13 @@ namespace glm
 		genType const & x, 
 		typename genType::value_type const & y);
 
-	//! Returns the fractional part of x and sets i to the integer
-	//! part (as a whole number floating point value). Both the
-	//! return value and the output parameter will have the same
-	//! sign as x.
-    //! 
+	/// Returns the fractional part of x and sets i to the integer
+	/// part (as a whole number floating point value). Both the
+	/// return value and the output parameter will have the same
+	/// sign as x.
+    /// 
+	/// @tparam genType Floating-point scalar or vector types.
+	///
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/modf.xml">GLSL modf man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
 	template <typename genType> 
@@ -140,6 +162,8 @@ namespace glm
 		genType & i);
 
     /// Returns y if y < x; otherwise, it returns x.
+	///
+	/// @tparam genType Floating-point or integer; scalar or vector types.
     /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/min.xml">GLSL min man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
@@ -154,6 +178,8 @@ namespace glm
 		typename genType::value_type const & y);
 
     /// Returns y if x < y; otherwise, it returns x.
+	/// 
+	/// @tparam genType Floating-point or integer; scalar or vector types.
     /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/max.xml">GLSL max man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
@@ -167,9 +193,11 @@ namespace glm
 		genType const & x, 
 		typename genType::value_type const & y);
 
-    //! Returns min(max(x, minVal), maxVal) for each component in x 
-	//! using the floating-point values minVal and maxVal.
-    //! 
+    /// Returns min(max(x, minVal), maxVal) for each component in x 
+	/// using the floating-point values minVal and maxVal.
+    ///
+	/// @tparam genType Floating-point or integer; scalar or vector types.
+	///
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/clamp.xml">GLSL clamp man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
 	template <typename genType> 
@@ -243,16 +271,18 @@ namespace glm
 		typename genType::value_type const & edge, 
 		genType const & x);
 
-	//! Returns 0.0 if x <= edge0 and 1.0 if x >= edge1 and
-	//! performs smooth Hermite interpolation between 0 and 1
-	//! when edge0 < x < edge1. This is useful in cases where
-	//! you would want a threshold function with a smooth
-	//! transition. This is equivalent to:
-	//! genType t;
-	//! t = clamp ((x – edge0) / (edge1 – edge0), 0, 1);
-	//! return t * t * (3 – 2 * t);
-	//! Results are undefined if edge0 >= edge1.
-    //! 
+	/// Returns 0.0 if x <= edge0 and 1.0 if x >= edge1 and
+	/// performs smooth Hermite interpolation between 0 and 1
+	/// when edge0 < x < edge1. This is useful in cases where
+	/// you would want a threshold function with a smooth
+	/// transition. This is equivalent to:
+	/// genType t;
+	/// t = clamp ((x – edge0) / (edge1 – edge0), 0, 1);
+	/// return t * t * (3 – 2 * t);
+	/// Results are undefined if edge0 >= edge1.
+	///
+	/// @tparam genType Floating-point scalar or vector types.
+    /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/smoothstep.xml">GLSL smoothstep man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
 	template <typename genType> 
@@ -267,97 +297,123 @@ namespace glm
 		typename genType::value_type const & edge1, 
 		genType const & x);
 
-	//! Returns true if x holds a NaN (not a number)
-	//! representation in the underlying implementation's set of
-	//! floating point representations. Returns false otherwise,
-	//! including for implementations with no NaN
-	//! representations.
-    //! 
+	/// Returns true if x holds a NaN (not a number)
+	/// representation in the underlying implementation's set of
+	/// floating point representations. Returns false otherwise,
+	/// including for implementations with no NaN
+	/// representations.
+    /// 
+	/// @tparam genType Floating-point scalar or vector types.
+	///
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/isnan.xml">GLSL isnan man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
 	template <typename genType> 
 	typename genType::bool_type isnan(genType const & x);
 
-	//! Returns true if x holds a positive infinity or negative
-	//! infinity representation in the underlying implementation's
-	//! set of floating point representations. Returns false
-	//! otherwise, including for implementations with no infinity
-	//! representations.
-    //! 
+	/// Returns true if x holds a positive infinity or negative
+	/// infinity representation in the underlying implementation's
+	/// set of floating point representations. Returns false
+	/// otherwise, including for implementations with no infinity
+	/// representations.
+    /// 
+	/// @tparam genType Floating-point scalar or vector types.
+	/// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/isinf.xml">GLSL isinf man page</a>
 	/// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
 	template <typename genType> 
 	typename genType::bool_type isinf(genType const & x);
 
-	//! Returns a signed integer value representing
-	//! the encoding of a floating-point value. The floatingpoint
-	//! value's bit-level representation is preserved.
-    //! 
+	/// Returns a signed integer value representing
+	/// the encoding of a floating-point value. The floatingpoint
+	/// value's bit-level representation is preserved.
+	///
+	/// @tparam genType Single-precision floating-point scalar or vector types.
+	/// @tparam genIType Signed integer scalar or vector types.
+    /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floatBitsToInt.xml">GLSL floatBitsToInt man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
 	template <typename genType, typename genIType>
 	genIType floatBitsToInt(genType const & value);
 
-	//! Returns a unsigned integer value representing
-	//! the encoding of a floating-point value. The floatingpoint
-	//! value's bit-level representation is preserved.
-    //! 
+	/// Returns a unsigned integer value representing
+	/// the encoding of a floating-point value. The floatingpoint
+	/// value's bit-level representation is preserved.
+	///
+	/// @tparam genType Single-precision floating-point scalar or vector types.
+	/// @tparam genUType Unsigned integer scalar or vector types.
+    /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floatBitsToUint.xml">GLSL floatBitsToUint man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
 	template <typename genType, typename genUType>
 	genUType floatBitsToUint(genType const & value);
 
-	//! Returns a floating-point value corresponding to a signed
-	//! integer encoding of a floating-point value.
-	//! If an inf or NaN is passed in, it will not signal, and the
-	//! resulting floating point value is unspecified. Otherwise,
-	//! the bit-level representation is preserved.
-    //! 
+	/// Returns a floating-point value corresponding to a signed
+	/// integer encoding of a floating-point value.
+	/// If an inf or NaN is passed in, it will not signal, and the
+	/// resulting floating point value is unspecified. Otherwise,
+	/// the bit-level representation is preserved.
+    /// 
+	/// @tparam genType Single-precision floating-point scalar or vector types.
+	/// @tparam genIType Signed integer scalar or vector types.
+	/// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/intBitsToFloat.xml">GLSL intBitsToFloat man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
+	/// 
+	/// @todo - Clarify this declaration, we don't need to actually specify the return type
 	template <typename genType, typename genIType>
 	genType intBitsToFloat(genIType const & value);
         
-    //! Returns a floating-point value corresponding to a
-    //! unsigned integer encoding of a floating-point value.
-    //! If an inf or NaN is passed in, it will not signal, and the
-    //! resulting floating point value is unspecified. Otherwise,
-    //! the bit-level representation is preserved.
-    //! 
+    /// Returns a floating-point value corresponding to a
+    /// unsigned integer encoding of a floating-point value.
+    /// If an inf or NaN is passed in, it will not signal, and the
+    /// resulting floating point value is unspecified. Otherwise,
+    /// the bit-level representation is preserved.
+    /// 
+	/// @tparam genType Single-precision floating-point scalar or vector types.
+	/// @tparam genUType Unsigned integer scalar or vector types.
+    /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/uintBitsToFloat.xml">GLSL uintBitsToFloat man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
+	/// 
+	/// @todo - Clarify this declaration, we don't need to actually specify the return type
     template <typename genType, typename genUType>
     genType uintBitsToFloat(genUType const & value);
         
-	//! Computes and returns a * b + c.
-    //! 
+	/// Computes and returns a * b + c.
+	/// 
+	/// @tparam genType Floating-point scalar or vector types.
+    /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/fma.xml">GLSL fma man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
 	template <typename genType>
 	genType fma(genType const & a, genType const & b, genType const & c);
 
-	//! Splits x into a floating-point significand in the range
-	//! [0.5, 1.0) and an integral exponent of two, such that:
-	//! x = significand * exp(2, exponent)
-	//! 
-	//! The significand is returned by the function and the
-	//! exponent is returned in the parameter exp. For a
-	//! floating-point value of zero, the significant and exponent
-	//! are both zero. For a floating-point value that is an
-	//! infinity or is not a number, the results are undefined.
-	//! 
+	/// Splits x into a floating-point significand in the range
+	/// [0.5, 1.0) and an integral exponent of two, such that:
+	/// x = significand * exp(2, exponent)
+	/// 
+	/// The significand is returned by the function and the
+	/// exponent is returned in the parameter exp. For a
+	/// floating-point value of zero, the significant and exponent
+	/// are both zero. For a floating-point value that is an
+	/// infinity or is not a number, the results are undefined.
+	/// 
+	/// @tparam genType Floating-point scalar or vector types.
+	/// 
 	/// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/frexp.xml">GLSL frexp man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
 	template <typename genType, typename genIType>
 	genType frexp(genType const & x, genIType & exp);
 
-	//! Builds a floating-point number from x and the
-	//! corresponding integral exponent of two in exp, returning:
-	//! significand * exp(2, exponent)
-	//! 
-	//! If this product is too large to be represented in the
-	//! floating-point type, the result is undefined.
-	//! 
+	/// Builds a floating-point number from x and the
+	/// corresponding integral exponent of two in exp, returning:
+	/// significand * exp(2, exponent)
+	/// 
+	/// If this product is too large to be represented in the
+	/// floating-point type, the result is undefined.
+	/// 
+	/// @tparam genType Floating-point scalar or vector types.
+	///  
 	/// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/ldexp.xml">GLSL ldexp man page</a>; 
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
 	template <typename genType, typename genIType>

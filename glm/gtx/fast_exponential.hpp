@@ -62,7 +62,7 @@ namespace glm
 	//! Faster than the common pow function but less accurate.
 	//! From GLM_GTX_fast_exponential extension.
 	template <typename genTypeT, typename genTypeU> 
-	genType fastPow(
+	genTypeT fastPow(
 		genTypeT const & x, 
 		genTypeU const & y);
 		
