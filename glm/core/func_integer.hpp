@@ -161,7 +161,7 @@ namespace glm
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitCount.xml">GLSL bitCount man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8</a>
 	///
-	/// @todo Clarify the declaration to specify that scalars are suported
+	/// @todo Clarify the declaration to specify that scalars are suported.
 	template <typename T, template <typename> class genIUType>
 	typename genIUType<T>::signed_type bitCount(genIUType<T> const & Value);
 
@@ -174,7 +174,7 @@ namespace glm
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/findLSB.xml">GLSL findLSB man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8</a>
 	///
-	/// @todo Clarify the declaration to specify that scalars are suported
+	/// @todo Clarify the declaration to specify that scalars are suported.
 	template <typename T, template <typename> class genIUType>
 	typename genIUType<T>::signed_type findLSB(genIUType<T> const & Value);
 
@@ -188,7 +188,7 @@ namespace glm
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/findMSB.xml">GLSL findMSB man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8</a>
 	///
-	/// @todo Clarify the declaration to specify that scalars are suported
+	/// @todo Clarify the declaration to specify that scalars are suported.
 	template <typename T, template <typename> class genIUType>
 	typename genIUType<T>::signed_type findMSB(genIUType<T> const & Value);
 
