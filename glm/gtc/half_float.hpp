@@ -47,7 +47,7 @@
 namespace glm{
 namespace detail
 {
-#ifndef _MSC_EXTENSIONS
+#if 0 //ndef _MSC_EXTENSIONS
 	template <>
 	struct tvec2<thalf>
 	{

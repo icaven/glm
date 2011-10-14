@@ -64,18 +64,18 @@ namespace detail
 
 #	if(GLM_COMPONENT == GLM_COMPONENT_ONLY_XYZW)
 		value_type x, y, z, w;
-#	elif(GLM_COMPONENT == GLM_COMPONENT_MS_EXT)
+#	elif(GLM_COMPONENT == GLM_COMPONENT_MS_EXT || GLM_LANG == GLM_LANG_CXX0X)
 		union 
 		{
-            _GLM_SWIZZLE4_2_MEMBERS(value_type,glm::detail::tvec2<value_type>,x,y,z,w)
-            _GLM_SWIZZLE4_2_MEMBERS(value_type,glm::detail::tvec2<value_type>,r,g,b,a)
-            _GLM_SWIZZLE4_2_MEMBERS(value_type,glm::detail::tvec2<value_type>,s,t,p,q)
-            _GLM_SWIZZLE4_3_MEMBERS(value_type,glm::detail::tvec3<value_type>,x,y,z,w)
-            _GLM_SWIZZLE4_3_MEMBERS(value_type,glm::detail::tvec3<value_type>,r,g,b,a)
-            _GLM_SWIZZLE4_3_MEMBERS(value_type,glm::detail::tvec3<value_type>,s,t,p,q)
-            _GLM_SWIZZLE4_4_MEMBERS(value_type,glm::detail::tvec4<value_type>,x,y,z,w)
-            _GLM_SWIZZLE4_4_MEMBERS(value_type,glm::detail::tvec4<value_type>,r,g,b,a)
-            _GLM_SWIZZLE4_4_MEMBERS(value_type,glm::detail::tvec4<value_type>,s,t,p,q)
+			_GLM_SWIZZLE4_2_MEMBERS(value_type,glm::detail::tvec2<value_type>,x,y,z,w)
+			_GLM_SWIZZLE4_2_MEMBERS(value_type,glm::detail::tvec2<value_type>,r,g,b,a)
+			_GLM_SWIZZLE4_2_MEMBERS(value_type,glm::detail::tvec2<value_type>,s,t,p,q)
+			_GLM_SWIZZLE4_3_MEMBERS(value_type,glm::detail::tvec3<value_type>,x,y,z,w)
+			_GLM_SWIZZLE4_3_MEMBERS(value_type,glm::detail::tvec3<value_type>,r,g,b,a)
+			_GLM_SWIZZLE4_3_MEMBERS(value_type,glm::detail::tvec3<value_type>,s,t,p,q)
+			_GLM_SWIZZLE4_4_MEMBERS(value_type,glm::detail::tvec4<value_type>,x,y,z,w)
+			_GLM_SWIZZLE4_4_MEMBERS(value_type,glm::detail::tvec4<value_type>,r,g,b,a)
+			_GLM_SWIZZLE4_4_MEMBERS(value_type,glm::detail::tvec4<value_type>,s,t,p,q)
 
 			struct{value_type r, g, b, a;};
 			struct{value_type s, t, p, q;};
