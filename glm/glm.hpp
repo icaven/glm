@@ -84,6 +84,7 @@
 #include <climits>
 #include <cfloat>
 #include <limits>
+#include <type_traits>
 #include "core/setup.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_CORE_INCLUDED_DISPLAYED))

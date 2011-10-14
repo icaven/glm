@@ -3,6 +3,7 @@
 <glm copyright="Copyright © 2005 - 2011">
   <downloads>
     <section name="GLM - zip files">
+      <download name="GLM 0.9.2.6" date="01/10/2011" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.6/glm-0.9.2.6.zip/download"/>
       <download name="GLM 0.9.2.5" date="20/09/2011" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.5/glm-0.9.2.5.zip/download"/>
 		<download name="GLM 0.9.2.4" date="03/09/2011" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.4/glm-0.9.2.4.zip/download"/>
 		<download name="GLM 0.9.2.3" date="08/06/2011" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.3/glm-0.9.2.3.zip/download"/>
@@ -68,6 +69,7 @@
       <download name="GLM 0.1.0.0" date="02/21/2005" size="29.2 KB" link="http://prdownloads.sourceforge.net/glf/glm-0.1-ur.zip?download"/>
     </section>
     <section name="GLM - 7z files">
+      <download name="GLM 0.9.2.6" date="01/10/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.6/glm-0.9.2.6.7z/download"/>
       <download name="GLM 0.9.2.5" date="20/09/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.5/glm-0.9.2.5.7z/download"/>
 		<download name="GLM 0.9.2.4" date="03/09/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.4/glm-0.9.2.4.7z/download"/>
 		<download name="GLM 0.9.2.3" date="08/06/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.3/glm-0.9.2.3.7z/download"/>
@@ -160,6 +162,19 @@
   </todo>
 
   <page_news>
+    <news index="0071" date="01/10/2011" title="GLM 0.9.2.6 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+      <paragraph>
+        Half based vector types have been fixed on GCC 4.4 and below, missing l-value swizzle operations added and a couple of other bugs squeezed down.
+      </paragraph>
+      <paragraph>
+        Finally, all the Visual C++ /W4 warnings should have been removed. However, for this to happen, it is required to build with the Visual C++ language extension disabled (/Za).
+      </paragraph>
+
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.6/glm-0.9.2.6.zip/download">GLM 0.9.2.6 (zip)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.6/glm-0.9.2.6.7z/download">GLM 0.9.2.6 (7z)</source>
+      <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
+    </news>
+    
     <news index="0070" date="20/09/2011" title="GLM 0.9.2.5 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>
         This update fixes some major core issues including the implementation of round, floatBitToXint, pack and unpack functions.

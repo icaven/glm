@@ -9,6 +9,33 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/half_float.hpp>
+#include <cstdio>
+#include <vector>
+
+int test_vec3_ctor()
+{
+	int Error = 0;
+	
+	{
+		glm::vec3 A(1);
+		glm::vec3 B(1, 1, 1);
+		
+		Error += A == B ? 0 : 1;
+	}
+	
+	{
+		std::vector<glm::vec3> Tests;
+		Tests.push_back(glm::vec3(glm::vec2(1, 2), 3));
+		Tests.push_back(glm::vec3(1, glm::vec2(2, 3)));
+		Tests.push_back(glm::vec3(1, 2, 3));
+		Tests.push_back(glm::vec3(glm::vec4(1, 2, 3, 4)));
+
+		for(std::size_t i = 0; i < Tests.size(); ++i)
+			Error += Tests[i] == glm::vec3(1, 2, 3) ? 0 : 1;
+	}
+		
+	return Error;
+}
 
 int test_vec3_operators()
 {
@@ -357,17 +384,45 @@ int test_vec3_swizzle_functions()
     return Error;
 }
 
+int test_vec3_swizzle_partial()
+{
+	int Error = 0;
+
+	glm::vec3 A(1, 2, 3);
+
+	{
+		glm::vec3 B(A.xy, 3.0f);
+		Error += A == B ? 0 : 1;
+	}
+
+	{
+		glm::vec3 B(1.0f, A.yz);
+		Error += A == B ? 0 : 1;
+	}
+
+	{
+		glm::vec3 B(A.xyz);
+		Error += A == B ? 0 : 1;
+	}
+
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
 
+	Error += test_vec3_ctor();
 	Error += test_vec3_operators();
 	Error += test_vec3_size();
     Error += test_vec3_swizzle3_2();
     Error += test_vec3_swizzle3_3();
     Error += test_vec3_swizzle_half();
+	Error += test_vec3_swizzle_partial();
     Error += test_vec3_swizzle_operators();
     Error += test_vec3_swizzle_functions();
 	
+	printf("Errors: %d\n", Error);
+
 	return Error;
 }

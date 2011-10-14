@@ -1,4 +1,6 @@
 glmCreateTestGTC(gtx_bit)
+glmCreateTestGTC(gtx_gradient_paint)
+glmCreateTestGTC(gtx_integer)
 glmCreateTestGTC(gtx_noise)
 glmCreateTestGTC(gtx_quaternion)
 glmCreateTestGTC(gtx_random)
