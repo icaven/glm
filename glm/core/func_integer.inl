@@ -26,6 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "_vectorize.hpp"
 #if(GLM_COMPILER & GLM_COMPILER_VC)
 #include <intrin.h>
 #pragma intrinsic(_BitScanReverse)
