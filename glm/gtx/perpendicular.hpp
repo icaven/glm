@@ -54,24 +54,10 @@ namespace glm
 
 	//! Projects x a perpendicular axis of Normal.
 	//! From GLM_GTX_perpendicular extension.
-	template <typename T> 
-	detail::tvec2<T> perp(
-		detail::tvec2<T> const & x, 
-		detail::tvec2<T> const & Normal);
-
-    //! Projects x a perpendicular axis of Normal.
-	//! From GLM_GTX_perpendicular extension.
-	template <typename T> 
-	detail::tvec3<T> perp(
-		detail::tvec3<T> const & x, 
-		detail::tvec3<T> const & Normal);
-
-    //! Projects x a perpendicular axis of Normal.
-	//! From GLM_GTX_perpendicular extension.
-	template <typename T> 
-	detail::tvec4<T> perp(
-		detail::tvec4<T> const & x, 
-		detail::tvec4<T> const & Normal);
+	template <typename vecType> 
+	vecType perp(
+		vecType const & x, 
+		vecType const & Normal);
 
 	/// @}
 }//namespace glm

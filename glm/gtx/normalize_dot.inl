@@ -7,110 +7,109 @@
 // File    : glm/gtx/normalize_dot.inl
 //////////////////////////////////////////////////////////////////////////////////
 
-namespace glm{
-
-template <typename genType> 
-GLM_FUNC_QUALIFIER genType normalizeDot
-(
-	genType const & x, 
-	genType const & y
-)
+namespace glm
 {
-	return 
-		glm::dot(x, y) * 
-		glm::inversesqrt(glm::dot(x, x) * 
-		glm::dot(y, y));
-}
+	template <typename genType> 
+	GLM_FUNC_QUALIFIER genType normalizeDot
+	(
+		genType const & x, 
+		genType const & y
+	)
+	{
+		return 
+			glm::dot(x, y) * 
+			glm::inversesqrt(glm::dot(x, x) * 
+			glm::dot(y, y));
+	}
 
-template <typename valType> 
-GLM_FUNC_QUALIFIER valType normalizeDot
-(
-	detail::tvec2<valType> const & x, 
-	detail::tvec2<valType> const & y
-)
-{
-	return 
-		glm::dot(x, y) * 
-		glm::inversesqrt(glm::dot(x, x) * 
-		glm::dot(y, y));
-}
+	template <typename valType> 
+	GLM_FUNC_QUALIFIER valType normalizeDot
+	(
+		detail::tvec2<valType> const & x, 
+		detail::tvec2<valType> const & y
+	)
+	{
+		return 
+			glm::dot(x, y) * 
+			glm::inversesqrt(glm::dot(x, x) * 
+			glm::dot(y, y));
+	}
 
-template <typename valType> 
-GLM_FUNC_QUALIFIER valType normalizeDot
-(
-	detail::tvec3<valType> const & x, 
-	detail::tvec3<valType> const & y
-)
-{
-	return 
-		glm::dot(x, y) * 
-		glm::inversesqrt(glm::dot(x, x) * 
-		glm::dot(y, y));
-}
+	template <typename valType> 
+	GLM_FUNC_QUALIFIER valType normalizeDot
+	(
+		detail::tvec3<valType> const & x, 
+		detail::tvec3<valType> const & y
+	)
+	{
+		return 
+			glm::dot(x, y) * 
+			glm::inversesqrt(glm::dot(x, x) * 
+			glm::dot(y, y));
+	}
 
-template <typename valType> 
-GLM_FUNC_QUALIFIER valType normalizeDot
-(
-	detail::tvec4<valType> const & x, 
-	detail::tvec4<valType> const & y
-)
-{
-	return 
-		glm::dot(x, y) * 
-		glm::inversesqrt(glm::dot(x, x) * 
-		glm::dot(y, y));
-}
+	template <typename valType> 
+	GLM_FUNC_QUALIFIER valType normalizeDot
+	(
+		detail::tvec4<valType> const & x, 
+		detail::tvec4<valType> const & y
+	)
+	{
+		return 
+			glm::dot(x, y) * 
+			glm::inversesqrt(glm::dot(x, x) * 
+			glm::dot(y, y));
+	}
 
-template <typename genType> 
-GLM_FUNC_QUALIFIER genType fastNormalizeDot
-(
-	genType const & x, 
-	genType const & y
-)
-{
-	return 
-		glm::dot(x, y) * 
-		fastInverseSqrt(glm::dot(x, x) * 
-		glm::dot(y, y));
-}
+	template <typename genType> 
+	GLM_FUNC_QUALIFIER genType fastNormalizeDot
+	(
+		genType const & x, 
+		genType const & y
+	)
+	{
+		return 
+			glm::dot(x, y) * 
+			fastInverseSqrt(glm::dot(x, x) * 
+			glm::dot(y, y));
+	}
 
-template <typename valType> 
-GLM_FUNC_QUALIFIER valType fastNormalizeDot
-(
-	detail::tvec2<valType> const & x, 
-	detail::tvec2<valType> const & y
-)
-{
-	return 
-		glm::dot(x, y) * 
-		fastInverseSqrt(glm::dot(x, x) * 
-		glm::dot(y, y));
-}
+	template <typename valType> 
+	GLM_FUNC_QUALIFIER valType fastNormalizeDot
+	(
+		detail::tvec2<valType> const & x, 
+		detail::tvec2<valType> const & y
+	)
+	{
+		return 
+			glm::dot(x, y) * 
+			fastInverseSqrt(glm::dot(x, x) * 
+			glm::dot(y, y));
+	}
 
-template <typename valType> 
-GLM_FUNC_QUALIFIER valType fastNormalizeDot
-(
-	detail::tvec3<valType> const & x, 
-	detail::tvec3<valType> const & y
-)
-{
-	return 
-		glm::dot(x, y) * 
-		fastInverseSqrt(glm::dot(x, x) * 
-		glm::dot(y, y));
-}
+	template <typename valType> 
+	GLM_FUNC_QUALIFIER valType fastNormalizeDot
+	(
+		detail::tvec3<valType> const & x, 
+		detail::tvec3<valType> const & y
+	)
+	{
+		return 
+			glm::dot(x, y) * 
+			fastInverseSqrt(glm::dot(x, x) * 
+			glm::dot(y, y));
+	}
 
-template <typename valType> 
-GLM_FUNC_QUALIFIER valType fastNormalizeDot
-(
-	detail::tvec4<valType> const & x, 
-	detail::tvec4<valType> const & y
-)
-{
-	return 
-		glm::dot(x, y) * 
-		fastInverseSqrt(glm::dot(x, x) * 
-		glm::dot(y, y));
-}
-
+	template <typename valType> 
+	GLM_FUNC_QUALIFIER valType fastNormalizeDot
+	(
+		detail::tvec4<valType> const & x, 
+		detail::tvec4<valType> const & y
+	)
+	{
+		return 
+			glm::dot(x, y) * 
+			fastInverseSqrt(glm::dot(x, x) * 
+			glm::dot(y, y));
+	}
 }//namespace glm

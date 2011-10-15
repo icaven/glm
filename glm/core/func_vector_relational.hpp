@@ -48,65 +48,83 @@ namespace glm
 	/// @addtogroup core_func_vector_relational
 	/// @{
 
-	//! Returns the component-wise comparison result of x < y.
-    //!
+	/// Returns the component-wise comparison result of x < y.
+	/// 
+	/// @tparam vecType Floating-point or integer vector types.
+    ///
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/lessThan.xml">GLSL lessThan man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
-    //template <typename T, template <typename> class vecType> 
-	//GLM_FUNC_QUALIFIER typename vecType<T>::bool_type lessThan(vecType<T> const & x, vecType<T> const & y);
+    template <typename vecType> 
+	GLM_FUNC_QUALIFIER typename vecType::bool_type lessThan(vecType const & x, vecType const & y);
 
-	//! Returns the component-wise comparison of result x <= y.
-    //!
+	/// Returns the component-wise comparison of result x <= y.
+    ///
+	/// @tparam vecType Floating-point or integer vector types.
+	///
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/lessThanEqual.xml">GLSL lessThanEqual man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
 	template <typename T, template <typename> class vecType> 
 	GLM_FUNC_QUALIFIER typename vecType<T>::bool_type lessThanEqual(vecType<T> const & x, vecType<T> const & y);
 
-	//! Returns the component-wise comparison of result x > y.
-    //!
+	/// Returns the component-wise comparison of result x > y.
+    ///
+	/// @tparam vecType Floating-point or integer vector types.
+	/// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/greaterThan.xml">GLSL greaterThan man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
 	template <typename T, template <typename> class vecType> 
 	GLM_FUNC_QUALIFIER typename vecType<T>::bool_type greaterThan(vecType<T> const & x, vecType<T> const & y);
 
-	//! Returns the component-wise comparison of result x >= y.
-    //!
+	/// Returns the component-wise comparison of result x >= y.
+    ///
+	/// @tparam vecType Floating-point or integer vector types.
+	/// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/greaterThanEqual.xml">GLSL greaterThanEqual man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
 	template <typename T, template <typename> class vecType> 
 	typename vecType<T>::bool_type greaterThanEqual(vecType<T> const & x, vecType<T> const & y);
 
-	//! Returns the component-wise comparison of result x == y.
-    //!
+	/// Returns the component-wise comparison of result x == y.
+    ///
+	/// @tparam vecType Floating-point, integer or boolean vector types.
+	/// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/equal.xml">GLSL equal man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
-	//template <typename T, template <typename> class vecType> 
-	//GLM_FUNC_QUALIFIER typename vecType<T>::bool_type equal(vecType<T> const & x, vecType<T> const & y);
+	template <typename T, template <typename> class vecType> 
+	GLM_FUNC_QUALIFIER typename vecType<T>::bool_type equal(vecType<T> const & x, vecType<T> const & y);
 
-	//! Returns the component-wise comparison of result x != y.
-    //!
+	/// Returns the component-wise comparison of result x != y.
+	/// 
+	/// @tparam vecType Floating-point, integer or boolean vector types.
+    ///
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/notEqual.xml">GLSL notEqual man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
 	template <typename T, template <typename> class vecType> 
 	typename vecType<T>::bool_type notEqual(vecType<T> const & x, vecType<T> const & y);
 
-	//! Returns true if any component of x is true.
-    //!
+	/// Returns true if any component of x is true.
+	///
+	/// @tparam vecType Boolean vector types.
+    /// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/any.xml">GLSL any man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
 	template <template <typename> class vecType> 
 	bool any(vecType<bool> const & v);
 
-	//! Returns true if all components of x are true.
-    //!
+	/// Returns true if all components of x are true.
+	///
+	/// @tparam vecType Boolean vector types.
+    ///
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/all.xml">GLSL all man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
 	template <template <typename> class vecType> 
 	bool all(vecType<bool> const & v);
 
-	//! Returns the component-wise logical complement of x.
-    //! /!\ Because of language incompatibilities between C++ and GLSL, GLM defines the function not but not_ instead.
-    //!
+	/// Returns the component-wise logical complement of x.
+    /// /!\ Because of language incompatibilities between C++ and GLSL, GLM defines the function not but not_ instead.
+	///
+	/// @tparam vecType Boolean vector types.
+    ///
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/not.xml">GLSL not man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
 	template <template <typename> class vecType> 

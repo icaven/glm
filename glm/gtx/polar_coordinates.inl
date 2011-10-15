@@ -10,8 +10,10 @@
 namespace glm
 {
 	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tvec3<T> polar(
-		const detail::tvec3<T>& euclidean)
+	GLM_FUNC_QUALIFIER detail::tvec3<T> polar
+	(
+		detail::tvec3<T> const & euclidean
+	)
 	{
 		T length = length(euclidean);
 		detail::tvec3<T> tmp = euclidean / length;
@@ -24,8 +26,10 @@ namespace glm
 	}
 
 	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tvec3<T> euclidean(
-		const detail::tvec3<T>& polar)
+	GLM_FUNC_QUALIFIER detail::tvec3<T> euclidean
+	(
+		detail::tvec3<T> const & polar
+	)
 	{
 		T latitude = radians(polar.x);
 		T longitude = radians(polar.y);

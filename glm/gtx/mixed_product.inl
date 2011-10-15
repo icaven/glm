@@ -7,15 +7,16 @@
 // File    : glm/gtx/mixed_product.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm{
-
-template <typename valType> 
-GLM_FUNC_QUALIFIER valType mixedProduct(
-    detail::tvec3<valType> const & v1, 
-    detail::tvec3<valType> const & v2, 
-    detail::tvec3<valType> const & v3)
+namespace glm
 {
-    return dot(cross(v1, v2), v3);
-}
-
+	template <typename valType> 
+	GLM_FUNC_QUALIFIER valType mixedProduct
+	(
+		detail::tvec3<valType> const & v1, 
+		detail::tvec3<valType> const & v2, 
+		detail::tvec3<valType> const & v3
+	)
+	{
+		return dot(cross(v1, v2), v3);
+	}
 }//namespace glm

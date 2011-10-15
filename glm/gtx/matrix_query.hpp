@@ -56,57 +56,57 @@ namespace glm
 	//! From GLM_GTX_matrix_query extension.
 	template<typename T> 
 	bool isNull(
-		const detail::tmat2x2<T>& m, 
-		const T epsilon = std::numeric_limits<T>::epsilon());
+		detail::tmat2x2<T> const & m, 
+		T const & epsilon = std::numeric_limits<T>::epsilon());
 		
 	//! Return if a matrix a null matrix.
 	//! From GLM_GTX_matrix_query extension.
 	template<typename T> 
 	bool isNull(
-		const detail::tmat3x3<T>& m, 
-		const T epsilon = std::numeric_limits<T>::epsilon());
+		detail::tmat3x3<T> const & m, 
+		T const & epsilon = std::numeric_limits<T>::epsilon());
 		
 	//! Return if a matrix a null matrix.
 	//! From GLM_GTX_matrix_query extension.
 	template<typename T> 
 	bool isNull(
-		const detail::tmat4x4<T>& m, 
-		const T epsilon = std::numeric_limits<T>::epsilon());
+		detail::tmat4x4<T> const & m, 
+		T const & epsilon = std::numeric_limits<T>::epsilon());
 			
 	//! Return if a matrix an identity matrix. 
 	//! From GLM_GTX_matrix_query extension.
 	template<typename genType> 
 	bool isIdentity(
-		const genType& m, 
-		const typename genType::value_type epsilon = std::numeric_limits<typename genType::value_type>::epsilon());
+		genType const & m, 
+		typename genType::value_type const & epsilon = std::numeric_limits<typename genType::value_type>::epsilon());
 
 	//! Return if a matrix a normalized matrix.
 	//! From GLM_GTX_matrix_query extension.
 	template<typename T> 
 	bool isNormalized(
-		const detail::tmat2x2<T>& m, 
-		const T epsilon = std::numeric_limits<T>::epsilon());
+		detail::tmat2x2<T> const & m, 
+		T const & epsilon = std::numeric_limits<T>::epsilon());
 		
 	//! Return if a matrix a normalized matrix.
 	//! From GLM_GTX_matrix_query extension.
 	template<typename T> 
 	bool isNormalized(
-		const detail::tmat3x3<T>& m, 
-		const T epsilon = std::numeric_limits<T>::epsilon());
+		detail::tmat3x3<T> const & m, 
+		T const & epsilon = std::numeric_limits<T>::epsilon());
 		
 	//! Return if a matrix a normalized matrix.
 	//! From GLM_GTX_matrix_query extension.
 	template<typename T> 
 	bool isNormalized(
-		const detail::tmat4x4<T>& m, 
-		const T epsilon = std::numeric_limits<T>::epsilon());
+		detail::tmat4x4<T> const & m, 
+		T const & epsilon = std::numeric_limits<T>::epsilon());
 
 	//! Return if a matrix an orthonormalized matrix.
 	//! From GLM_GTX_matrix_query extension.
 	template<typename genType> 
 	bool isOrthogonal(
-		const genType& m, 
-		const typename genType::value_type epsilon = std::numeric_limits<typename genType::value_type>::epsilon());
+		genType const & m, 
+		typename genType::value_type const & epsilon = std::numeric_limits<typename genType::value_type>::epsilon());
 
 	/// @}
 }//namespace glm

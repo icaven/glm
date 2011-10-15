@@ -70,7 +70,7 @@ namespace detail
 		return detail::Abs_<genFIType, std::numeric_limits<genFIType>::is_signed>::get(x);
     }
 
-	VECTORIZE_1PARAM(abs)
+	VECTORIZE_VEC(abs)
 
     // sign
 	//Try something like based on x >> 31 to get the sign bit
@@ -94,7 +94,7 @@ namespace detail
         return result;
 	}
 	
-	VECTORIZE_1PARAM(sign)
+	VECTORIZE_VEC(sign)
 
     // floor
     template <>
@@ -111,7 +111,7 @@ namespace detail
         return ::std::floor(x);
     }
 
-	VECTORIZE_1PARAM(floor)
+	VECTORIZE_VEC(floor)
 
     // trunc
     template <typename genType>
@@ -121,7 +121,7 @@ namespace detail
         return x < 0 ? -floor(-x) : floor(x);
     }
 
-	VECTORIZE_1PARAM(trunc)
+	VECTORIZE_VEC(trunc)
 
     // round
     template <typename genType>
@@ -134,7 +134,7 @@ namespace detail
 		return genType(int(x + genType(0.5)));
     }
 
-	VECTORIZE_1PARAM(round)
+	VECTORIZE_VEC(round)
 
 /*
     // roundEven
@@ -161,7 +161,7 @@ namespace detail
 		return genType(int(x + RoundValue));
     }
 	
-	VECTORIZE_1PARAM(roundEven)
+	VECTORIZE_VEC(roundEven)
 
     // ceil
     template <typename genType>
@@ -172,7 +172,7 @@ namespace detail
         return ::std::ceil(x);
     }
 
-	VECTORIZE_1PARAM(ceil)
+	VECTORIZE_VEC(ceil)
 
     // fract
     template <typename genType>
@@ -186,7 +186,7 @@ namespace detail
         return x - ::std::floor(x);
     }
 
-	VECTORIZE_1PARAM(fract)
+	VECTORIZE_VEC(fract)
 
     // mod
     template <typename genType>
@@ -201,83 +201,8 @@ namespace detail
         return x - y * floor(x / y);
     }
 
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec2<T> mod
-	(
-		detail::tvec2<T> const & x, 
-		typename detail::tvec2<T>::value_type const & y
-	)
-    {
-        return detail::tvec2<T>(
-            mod(x.x, y),
-            mod(x.y, y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec3<T> mod
-	(
-		detail::tvec3<T> const & x, 
-		typename detail::tvec3<T>::value_type const & y
-	)
-    {
-        return detail::tvec3<T>(
-            mod(x.x, y),
-            mod(x.y, y),
-            mod(x.z, y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec4<T> mod
-	(
-		detail::tvec4<T> const & x, 
-		typename detail::tvec4<T>::value_type const & y
-	)
-    {
-        return detail::tvec4<T>(
-            mod(x.x, y),
-            mod(x.y, y),
-            mod(x.z, y),
-            mod(x.w, y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec2<T> mod
-	(
-		detail::tvec2<T> const & x, 
-		detail::tvec2<T> const & y
-	)
-    {
-        return detail::tvec2<T>(
-            mod(x.x, y.x),
-            mod(x.y, y.y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec3<T> mod
-	(
-		detail::tvec3<T> const & x, 
-		detail::tvec3<T> const & y
-	)
-    {
-        return detail::tvec3<T>(
-            mod(x.x, y.x),
-            mod(x.y, y.y),
-            mod(x.z, y.z));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec4<T> mod
-	(
-		detail::tvec4<T> const & x, 
-		detail::tvec4<T> const & y
-	)
-    {
-        return detail::tvec4<T>(
-            mod(x.x, y.x),
-            mod(x.y, y.y),
-            mod(x.z, y.z),
-            mod(x.w, y.w));
-    }
+	VECTORIZE_VEC_SCA(mod)
+	VECTORIZE_VEC_VEC(mod)
 
     // modf
     template <typename genType>
@@ -298,39 +223,39 @@ namespace detail
     GLM_FUNC_QUALIFIER detail::tvec2<valType> modf
 	(
 		detail::tvec2<valType> const & x, 
-		detail::tvec2<valType> const & y
+		detail::tvec2<valType> & i
 	)
     {
         return detail::tvec2<valType>(
-            modf(x.x, y.x),
-            modf(x.y, y.y));
+            modf(x.x, i.x),
+            modf(x.y, i.y));
     }
 
     template <typename valType>
     GLM_FUNC_QUALIFIER detail::tvec3<valType> modf
 	(
 		detail::tvec3<valType> const & x, 
-		detail::tvec3<valType> const & y
+		detail::tvec3<valType> & i
 	)
     {
         return detail::tvec3<valType>(
-            modf(x.x, y.x),
-            modf(x.y, y.y),
-            modf(x.z, y.z));
+            modf(x.x, i.x),
+            modf(x.y, i.y),
+            modf(x.z, i.z));
     }
 
     template <typename valType>
     GLM_FUNC_QUALIFIER detail::tvec4<valType> modf
 	(
 		detail::tvec4<valType> const & x, 
-		detail::tvec4<valType> const & y
+		detail::tvec4<valType> & i
 	)
     {
         return detail::tvec4<valType>(
-            modf(x.x, y.x),
-            modf(x.y, y.y),
-            modf(x.z, y.z),
-            modf(x.w, y.w));
+            modf(x.x, i.x),
+            modf(x.y, i.y),
+            modf(x.z, i.z),
+            modf(x.w, i.w));
     }
 
 	//// Only valid if (INT_MIN <= x-y <= INT_MAX)
@@ -357,83 +282,8 @@ namespace detail
         return x < y ? x : y;
     }
 
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec2<T> min
-	(
-		detail::tvec2<T> const & x, 
-		typename detail::tvec2<T>::value_type const & y
-	)
-    {
-        return detail::tvec2<T>(
-            min(x.x, y),
-            min(x.y, y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec3<T> min
-	(
-		detail::tvec3<T> const & x, 
-		typename detail::tvec3<T>::value_type const & y
-	)
-    {
-        return detail::tvec3<T>(
-            min(x.x, y),
-            min(x.y, y),
-            min(x.z, y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec4<T> min
-	(
-		detail::tvec4<T> const & x, 
-		typename detail::tvec4<T>::value_type const & y
-	)
-    {
-        return detail::tvec4<T>(
-            min(x.x, y),
-            min(x.y, y),
-            min(x.z, y),
-            min(x.w, y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec2<T> min
-	(
-		detail::tvec2<T> const & x, 
-		detail::tvec2<T> const & y
-	)
-    {
-        return detail::tvec2<T>(
-            min(x.x, y.x),
-            min(x.y, y.y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec3<T> min
-	(
-		detail::tvec3<T> const & x, 
-		detail::tvec3<T> const & y
-	)
-    {
-        return detail::tvec3<T>(
-            min(x.x, y.x),
-            min(x.y, y.y),
-            min(x.z, y.z));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec4<T> min
-	(
-		detail::tvec4<T> const & x, 
-		detail::tvec4<T> const & y
-	)
-    {
-        return detail::tvec4<T>(
-            min(x.x, y.x),
-            min(x.y, y.y),
-            min(x.z, y.z),
-            min(x.w, y.w));
-    }
+	VECTORIZE_VEC_SCA(min)
+	VECTORIZE_VEC_VEC(min)
 
     // max
     template <typename genType>
@@ -451,82 +301,8 @@ namespace detail
 		return x > y ? x : y;
     }
 
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec2<T> max
-	(
-		detail::tvec2<T> const & x, 
-		typename detail::tvec2<T>::value_type y
-	)
-    {
-        return detail::tvec2<T>(
-            max(x.x, y),
-            max(x.y, y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec3<T> max
-	(
-		detail::tvec3<T> const & x, 
-		typename detail::tvec3<T>::value_type y
-	)
-    {
-        return detail::tvec3<T>(
-            max(x.x, y),
-            max(x.y, y),
-            max(x.z, y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec4<T> max
-	(
-		detail::tvec4<T> const & x, 
-		typename detail::tvec4<T>::value_type y
-	)
-    {
-        return detail::tvec4<T>(
-            max(x.x, y),
-            max(x.y, y),
-            max(x.z, y),
-            max(x.w, y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec2<T> max
-	(
-		detail::tvec2<T> const & x, 
-		detail::tvec2<T> const & y
-	)
-    {
-        return detail::tvec2<T>(
-            max(x.x, y.x),
-            max(x.y, y.y));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec3<T> max
-	(
-		detail::tvec3<T> const & x, 
-		detail::tvec3<T> const & y
-	)
-    {
-        return detail::tvec3<T>(
-            max(x.x, y.x),
-            max(x.y, y.y),
-            max(x.z, y.z));
-    }
-
-    template <typename T>
-    GLM_FUNC_QUALIFIER detail::tvec4<T> max
-	(
-		detail::tvec4<T> const & x, 
-		detail::tvec4<T> const & y)
-    {
-        return detail::tvec4<T>(
-            max(x.x, y.x),
-            max(x.y, y.y),
-            max(x.z, y.z),
-            max(x.w, y.w));
-    }
+	VECTORIZE_VEC_SCA(max)
+	VECTORIZE_VEC_VEC(max)
 
     // clamp
     template <typename valType>
