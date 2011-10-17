@@ -55,7 +55,7 @@ namespace glm
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/lessThan.xml">GLSL lessThan man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
     template <typename vecType> 
-	GLM_FUNC_QUALIFIER typename vecType::bool_type lessThan(vecType const & x, vecType const & y);
+	typename vecType::bool_type lessThan(vecType const & x, vecType const & y);
 
 	/// Returns the component-wise comparison of result x <= y.
     ///
@@ -63,8 +63,8 @@ namespace glm
 	///
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/lessThanEqual.xml">GLSL lessThanEqual man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
-	template <typename T, template <typename> class vecType> 
-	GLM_FUNC_QUALIFIER typename vecType<T>::bool_type lessThanEqual(vecType<T> const & x, vecType<T> const & y);
+	template <typename vecType> 
+	typename vecType::bool_type lessThanEqual(vecType const & x, vecType const & y);
 
 	/// Returns the component-wise comparison of result x > y.
     ///
@@ -72,8 +72,8 @@ namespace glm
 	/// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/greaterThan.xml">GLSL greaterThan man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
-	template <typename T, template <typename> class vecType> 
-	GLM_FUNC_QUALIFIER typename vecType<T>::bool_type greaterThan(vecType<T> const & x, vecType<T> const & y);
+	template <typename vecType> 
+	typename vecType::bool_type greaterThan(vecType const & x, vecType const & y);
 
 	/// Returns the component-wise comparison of result x >= y.
     ///
@@ -81,8 +81,8 @@ namespace glm
 	/// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/greaterThanEqual.xml">GLSL greaterThanEqual man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
-	template <typename T, template <typename> class vecType> 
-	typename vecType<T>::bool_type greaterThanEqual(vecType<T> const & x, vecType<T> const & y);
+	template <typename vecType> 
+	typename vecType::bool_type greaterThanEqual(vecType const & x, vecType const & y);
 
 	/// Returns the component-wise comparison of result x == y.
     ///
@@ -90,8 +90,8 @@ namespace glm
 	/// 
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/equal.xml">GLSL equal man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
-	template <typename T, template <typename> class vecType> 
-	GLM_FUNC_QUALIFIER typename vecType<T>::bool_type equal(vecType<T> const & x, vecType<T> const & y);
+	template <typename vecType> 
+	typename vecType::bool_type equal(vecType const & x, vecType const & y);
 
 	/// Returns the component-wise comparison of result x != y.
 	/// 
@@ -99,8 +99,8 @@ namespace glm
     ///
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/notEqual.xml">GLSL notEqual man page</a>
     /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7</a>
-	template <typename T, template <typename> class vecType> 
-	typename vecType<T>::bool_type notEqual(vecType<T> const & x, vecType<T> const & y);
+	template <typename vecType> 
+	typename vecType::bool_type notEqual(vecType const & x, vecType const & y);
 
 	/// Returns true if any component of x is true.
 	///
