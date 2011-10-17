@@ -27,16 +27,15 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_noise GLM_GTX_noise: Procedural noise functions
-/// @ingroup gtx
+/// @defgroup gtc_noise GLM_GTC_noise: Procedural noise functions
+/// @ingroup gtc
 /// 
 /// Defines 2D, 3D and 4D procedural noise functions 
 /// Based on the work of Stefan Gustavson and Ashima Arts on "webgl-noise": 
 /// https://github.com/ashima/webgl-noise 
 /// Following Stefan Gustavson's paper "Simplex noise demystified": 
 /// http://www.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf
-/// Defines the half-precision floating-point type, along with various typedefs for vectors and matrices.
-/// <glm/gtx/noise.hpp> need to be included to use these functionalities.
+/// <glm/gtc/noise.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_noise
@@ -51,7 +50,7 @@
 
 namespace glm
 {
-	/// @addtogroup gtx_noise
+	/// @addtogroup gtc_noise
 	/// @{
 
 	/// Classic perlin noise.

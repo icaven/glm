@@ -32,7 +32,7 @@
 /// @defgroup gtc_type_ptr GLM_GTC_type_ptr: Memory layout access
 /// @ingroup gtc
 ///
-/// @brief Used to get a pointer to the memory layout of a basic type.
+/// @brief Handles the interaction between pointers and vector, matrix types.
 /// 
 /// This extension defines an overloaded function, glm::value_ptr, which
 /// takes any of the \ref core_template "core template types". It returns

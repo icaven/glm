@@ -32,7 +32,7 @@
 /// @defgroup gtc_random GLM_GTC_random: Random number generation
 /// @ingroup gtc
 /// 
-/// @brief Generate random number from various distribution methods
+/// @brief Generate random number from various distribution methods.
 /// 
 /// <glm/gtc/random.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
