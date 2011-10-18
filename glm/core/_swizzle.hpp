@@ -29,6 +29,8 @@
 #ifndef glm_core_swizzle
 #define glm_core_swizzle
 
+#include "_swizzle_func.hpp"
+
 namespace glm
 {
 	enum comp

@@ -86,6 +86,10 @@ namespace detail
 		union {value_type y, g, t;};
 		union {value_type z, b, p;};
 		union {value_type w, a, q;};
+
+		// Defines all he swizzle operator as functions
+		GLM_SWIZZLE_GEN_REF_FROM_VEC4(T, detail::ref4, detail::vec2, detail::vec3, detail::vec4)
+		GLM_SWIZZLE_GEN_VEC_FROM_VEC4(T, detail::vec4, detail::vec2, detail::vec3, detail::vec4)
 #	endif//GLM_COMPONENT
 
 		//////////////////////////////////////

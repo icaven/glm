@@ -308,12 +308,18 @@
 
 #define GLM_LANG_CXX			0
 #define GLM_LANG_CXX98			1
-#define GLM_LANG_CXX0X			2
-#define GLM_LANG_CXXMS			3
-#define GLM_LANG_CXXGNU			4
+#define GLM_LANG_CXX03			2
+#define GLM_LANG_CXX0X			3
+#define GLM_LANG_CXX11			4
+#define GLM_LANG_CXXMS			5
+#define GLM_LANG_CXXGNU			6
 
 #if(defined(GLM_FORCE_CXX98))
 #	define GLM_LANG GLM_LANG_CXX98
+#elif(defined(GLM_FORCE_CXX03))
+#	define GLM_LANG GLM_LANG_CXX03
+#elif(defined(GLM_FORCE_CXX11))
+#	define GLM_LANG GLM_LANG_CXX11
 #elif(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && defined(__GXX_EXPERIMENTAL_CXX0X__)) // -std=c++0x or -std=gnu++0x
 #	define GLM_LANG GLM_LANG_CXX0X
 #elif(GLM_COMPILER == GLM_COMPILER_VC2010) //_MSC_EXTENSIONS for MS language extensions
@@ -330,8 +336,12 @@
 #	define GLM_MESSAGE_LANG_DISPLAYED
 #	if(GLM_LANG == GLM_LANG_CXX98)
 #		pragma message("GLM: C++98")
+#	elif(GLM_LANG == GLM_LANG_CXX03)
+#		pragma message("GLM: C++03")
 #	elif(GLM_LANG == GLM_LANG_CXX0X)
 #		pragma message("GLM: C++0x")
+#	elif(GLM_LANG == GLM_LANG_CXX11)
+#		pragma message("GLM: C++11")
 #	endif//GLM_MODEL
 #endif//GLM_MESSAGE
 

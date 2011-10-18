@@ -80,6 +80,8 @@
 #ifndef glm_glm
 #define glm_glm
 
+#define GLM_FORCE_CXX98
+
 #include <cmath>
 #include <climits>
 #include <cfloat>
