@@ -11,6 +11,8 @@
 #include <glm/gtx/simd_vec4.hpp>
 #include <cstdio>
 
+#if(GLM_ARCH != GLM_ARCH_PURE)
+
 int main()
 {
 	glm::simdVec4 A1(0.0f, 0.1f, 0.2f, 0.3f);
@@ -28,3 +30,14 @@ int main()
 
 	return 0;
 }
+
+#else
+
+int main()
+{
+	int Error = 0;
+
+	return Error;
+}
+
+#endif//(GLM_ARCH != GLM_ARCH_PURE)
