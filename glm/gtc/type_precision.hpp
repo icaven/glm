@@ -65,6 +65,11 @@ namespace glm
 	typedef detail::int32						int32;        //!< \brief 32bit signed integer. (from GLM_GTC_type_precision extension)
 	typedef detail::int64						int64;        //!< \brief 64bit signed integer. (from GLM_GTC_type_precision extension)
 
+	typedef detail::int8						int8_t;         //!< \brief 8bit signed integer. (from GLM_GTC_type_precision extension)
+	typedef detail::int16						int16_t;        //!< \brief 16bit signed integer. (from GLM_GTC_type_precision extension)
+	typedef detail::int32						int32_t;        //!< \brief 32bit signed integer. (from GLM_GTC_type_precision extension)
+	typedef detail::int64						int64_t;        //!< \brief 64bit signed integer. (from GLM_GTC_type_precision extension)
+
 	typedef int8								i8;         //!< \brief 8bit signed integer. (from GLM_GTC_type_precision extension)
 	typedef int16								i16;        //!< \brief 16bit signed integer. (from GLM_GTC_type_precision extension)
 	typedef int32								i32;        //!< \brief 32bit signed integer. (from GLM_GTC_type_precision extension)
@@ -98,6 +103,11 @@ namespace glm
 	typedef detail::uint32						uint32;        //!< \brief 32bit unsigned integer. (from GLM_GTC_type_precision extension)
 	typedef detail::uint64						uint64;        //!< \brief 64bit unsigned integer. (from GLM_GTC_type_precision extension)
 
+	typedef detail::uint8						uint8_t;         //!< \brief 8bit unsigned integer. (from GLM_GTC_type_precision extension)
+	typedef detail::uint16						uint16_t;        //!< \brief 16bit unsigned integer. (from GLM_GTC_type_precision extension)
+	typedef detail::uint32						uint32_t;        //!< \brief 32bit unsigned integer. (from GLM_GTC_type_precision extension)
+	typedef detail::uint64						uint64_t;        //!< \brief 64bit unsigned integer. (from GLM_GTC_type_precision extension)
+
 	typedef uint8								u8;         //!< \brief 8bit unsigned integer. (from GLM_GTC_type_precision extension)
 	typedef uint16								u16;        //!< \brief 16bit unsigned integer. (from GLM_GTC_type_precision extension)
 	typedef uint32								u32;        //!< \brief 32bit unsigned integer. (from GLM_GTC_type_precision extension)
@@ -129,6 +139,10 @@ namespace glm
 	typedef detail::float16						float16;	//!< \brief Half-precision floating-point scalar. (from GLM_GTC_type_precision extension)
 	typedef detail::float32						float32;	//!< \brief Single-precision floating-point scalar. (from GLM_GTC_type_precision extension)
 	typedef detail::float64						float64;	//!< \brief Double-precision floating-point scalar. (from GLM_GTC_type_precision extension)
+
+	typedef detail::float16						float16_t;	//!< \brief Half-precision floating-point scalar. (from GLM_GTC_type_precision extension)
+	typedef detail::float32						float32_t;	//!< \brief Single-precision floating-point scalar. (from GLM_GTC_type_precision extension)
+	typedef detail::float64						float64_t;	//!< \brief Double-precision floating-point scalar. (from GLM_GTC_type_precision extension)
 
 	typedef float16								f16;        //!< \brief Half-precision floating-point scalar. (from GLM_GTC_type_precision extension)
 	typedef float32								f32;        //!< \brief Single-precision floating-point scalar. (from GLM_GTC_type_precision extension)
