@@ -41,6 +41,8 @@
 // Dependency:
 #include "../glm.hpp"
 
+#if(GLM_ARCH != GLM_ARCH_PURE)
+
 #if(GLM_ARCH & GLM_ARCH_SSE2)
 #	include "../core/intrinsic_matrix.hpp"
 #	include "../gtx/simd_vec4.hpp"
@@ -196,5 +198,7 @@ namespace detail
 }// namespace glm
 
 #include "simd_mat4.inl"
+
+#endif//(GLM_ARCH != GLM_ARCH_PURE)
 
 #endif//GLM_GTX_simd_mat4

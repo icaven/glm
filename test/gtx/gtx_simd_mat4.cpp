@@ -18,6 +18,8 @@
 #include <ctime>
 #include <vector>
 
+#if(GLM_ARCH != GLM_ARCH_PURE)
+
 std::vector<float> test_detA(std::vector<glm::mat4> const & Data)
 {
 	std::vector<float> Test(Data.size());
@@ -288,3 +290,13 @@ int main()
 	return Error;
 }
 
+#else
+
+int main()
+{
+	int Error = 0;
+
+	return Error;
+}
+
+#endif//(GLM_ARCH != GLM_ARCH_PURE)

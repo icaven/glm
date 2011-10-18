@@ -65,27 +65,32 @@ namespace glm
 	typedef detail::int32						int32;        //!< \brief 32bit signed integer. (from GLM_GTC_type_precision extension)
 	typedef detail::int64						int64;        //!< \brief 64bit signed integer. (from GLM_GTC_type_precision extension)
 
+	typedef detail::int8						int8_t;         //!< \brief 8bit signed integer. (from GLM_GTC_type_precision extension)
+	typedef detail::int16						int16_t;        //!< \brief 16bit signed integer. (from GLM_GTC_type_precision extension)
+	typedef detail::int32						int32_t;        //!< \brief 32bit signed integer. (from GLM_GTC_type_precision extension)
+	typedef detail::int64						int64_t;        //!< \brief 64bit signed integer. (from GLM_GTC_type_precision extension)
+
 	typedef int8								i8;         //!< \brief 8bit signed integer. (from GLM_GTC_type_precision extension)
 	typedef int16								i16;        //!< \brief 16bit signed integer. (from GLM_GTC_type_precision extension)
 	typedef int32								i32;        //!< \brief 32bit signed integer. (from GLM_GTC_type_precision extension)
 	typedef int64								i64;        //!< \brief 64bit signed integer. (from GLM_GTC_type_precision extension)
 
-	//typedef i8									i8vec1;		//!< \brief 8bit signed integer scalar. (from GLM_GTC_type_precision extension)
+	typedef detail::tvec1<i8>					i8vec1;		//!< \brief 8bit signed integer scalar. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec2<i8>					i8vec2;     //!< \brief 8bit signed integer vector of 2 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec3<i8>					i8vec3;     //!< \brief 8bit signed integer vector of 3 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec4<i8>					i8vec4;     //!< \brief 8bit signed integer vector of 4 components. (from GLM_GTC_type_precision extension)
 
-	//typedef i16									i16vec1;	//!< \brief 16bit signed integer scalar. (from GLM_GTC_type_precision extension)
+	typedef detail::tvec1<i16>					i16vec1;	//!< \brief 16bit signed integer scalar. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec2<i16>					i16vec2;    //!< \brief 16bit signed integer vector of 2 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec3<i16>					i16vec3;    //!< \brief 16bit signed integer vector of 3 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec4<i16>					i16vec4;    //!< \brief 16bit signed integer vector of 4 components. (from GLM_GTC_type_precision extension)
 
-	//typedef i32									i32vec1;	//!< \brief 32bit signed integer scalar. (from GLM_GTC_type_precision extension)
+	typedef detail::tvec1<i32>					i32vec1;	//!< \brief 32bit signed integer scalar. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec2<i32>					i32vec2;    //!< \brief 32bit signed integer vector of 2 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec3<i32>					i32vec3;    //!< \brief 32bit signed integer vector of 3 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec4<i32>					i32vec4;    //!< \brief 32bit signed integer vector of 4 components. (from GLM_GTC_type_precision extension)
 
-	//typedef i64									i64vec1;	//!< \brief 32bit signed integer scalar. (from GLM_GTC_type_precision extension)
+	typedef detail::tvec1<i64>					i64vec1;	//!< \brief 32bit signed integer scalar. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec2<i64>					i64vec2;    //!< \brief 64bit signed integer vector of 2 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec3<i64>					i64vec3;    //!< \brief 64bit signed integer vector of 3 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec4<i64>					i64vec4;    //!< \brief 64bit signed integer vector of 4 components. (from GLM_GTC_type_precision extension)
@@ -98,27 +103,32 @@ namespace glm
 	typedef detail::uint32						uint32;        //!< \brief 32bit unsigned integer. (from GLM_GTC_type_precision extension)
 	typedef detail::uint64						uint64;        //!< \brief 64bit unsigned integer. (from GLM_GTC_type_precision extension)
 
+	typedef detail::uint8						uint8_t;         //!< \brief 8bit unsigned integer. (from GLM_GTC_type_precision extension)
+	typedef detail::uint16						uint16_t;        //!< \brief 16bit unsigned integer. (from GLM_GTC_type_precision extension)
+	typedef detail::uint32						uint32_t;        //!< \brief 32bit unsigned integer. (from GLM_GTC_type_precision extension)
+	typedef detail::uint64						uint64_t;        //!< \brief 64bit unsigned integer. (from GLM_GTC_type_precision extension)
+
 	typedef uint8								u8;         //!< \brief 8bit unsigned integer. (from GLM_GTC_type_precision extension)
 	typedef uint16								u16;        //!< \brief 16bit unsigned integer. (from GLM_GTC_type_precision extension)
 	typedef uint32								u32;        //!< \brief 32bit unsigned integer. (from GLM_GTC_type_precision extension)
 	typedef uint64								u64;        //!< \brief 64bit unsigned integer. (from GLM_GTC_type_precision extension)
 
-	//typedef u8									u8vec1;		//!< \brief 8bit unsigned integer scalar. (from GLM_GTC_type_precision extension)
+	typedef detail::tvec1<u8>					u8vec1;		//!< \brief 8bit unsigned integer scalar. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec2<u8>					u8vec2;     //!< \brief 8bit unsigned integer vector of 2 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec3<u8>					u8vec3;     //!< \brief 8bit unsigned integer vector of 3 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec4<u8>					u8vec4;     //!< \brief 8bit unsigned integer vector of 4 components. (from GLM_GTC_type_precision extension)
 
-	//typedef u16									u16vec1;    //!< \brief 16bit unsigned integer scalar. (from GLM_GTC_type_precision extension)
+	typedef detail::tvec1<u16>					u16vec1;    //!< \brief 16bit unsigned integer scalar. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec2<u16>					u16vec2;    //!< \brief 16bit unsigned integer vector of 2 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec3<u16>					u16vec3;    //!< \brief 16bit unsigned integer vector of 3 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec4<u16>					u16vec4;    //!< \brief 16bit unsigned integer vector of 4 components. (from GLM_GTC_type_precision extension)
 
-	//typedef u32									u32vec1;    //!< \brief 32bit unsigned integer scalar. (from GLM_GTC_type_precision extension)
+	typedef detail::tvec1<u32>					u32vec1;    //!< \brief 32bit unsigned integer scalar. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec2<u32>					u32vec2;    //!< \brief 32bit unsigned integer vector of 2 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec3<u32>					u32vec3;    //!< \brief 32bit unsigned integer vector of 3 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec4<u32>					u32vec4;    //!< \brief 32bit unsigned integer vector of 4 components. (from GLM_GTC_type_precision extension)
 
-	//typedef u64									u64vec1;    //!< \brief 64bit unsigned integer scalar. (from GLM_GTC_type_precision extension)
+	typedef detail::tvec1<u64>					u64vec1;    //!< \brief 64bit unsigned integer scalar. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec2<u64>					u64vec2;    //!< \brief 64bit unsigned integer vector of 2 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec3<u64>					u64vec3;    //!< \brief 64bit unsigned integer vector of 3 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec4<u64>					u64vec4;    //!< \brief 64bit unsigned integer vector of 4 components. (from GLM_GTC_type_precision extension)
@@ -130,6 +140,10 @@ namespace glm
 	typedef detail::float32						float32;	//!< \brief Single-precision floating-point scalar. (from GLM_GTC_type_precision extension)
 	typedef detail::float64						float64;	//!< \brief Double-precision floating-point scalar. (from GLM_GTC_type_precision extension)
 
+	typedef detail::float16						float16_t;	//!< \brief Half-precision floating-point scalar. (from GLM_GTC_type_precision extension)
+	typedef detail::float32						float32_t;	//!< \brief Single-precision floating-point scalar. (from GLM_GTC_type_precision extension)
+	typedef detail::float64						float64_t;	//!< \brief Double-precision floating-point scalar. (from GLM_GTC_type_precision extension)
+
 	typedef float16								f16;        //!< \brief Half-precision floating-point scalar. (from GLM_GTC_type_precision extension)
 	typedef float32								f32;        //!< \brief Single-precision floating-point scalar. (from GLM_GTC_type_precision extension)
 	typedef float64								f64;        //!< \brief Double-precision floating-point scalar. (from GLM_GTC_type_precision extension)
@@ -138,17 +152,17 @@ namespace glm
 	typedef detail::tvec3<float>				fvec3;		//!<  Vector of 3 single-precision floating-point numbers. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec4<float>				fvec4;		//!<  Vector of 4 single-precision floating-point numbers. (from GLM_GTC_type_precision extension)
 
-	//typedef f16									f16vec1;    //!< \brief Half-precision floating-point scalar. (from GLM_GTC_type_precision extension)
+	typedef detail::tvec1<f16>					f16vec1;    //!< \brief Half-precision floating-point scalar. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec2<f16>					f16vec2;    //!< \brief Half-precision floating-point vector of 2 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec3<f16>					f16vec3;    //!< \brief Half-precision floating-point vector of 3 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec4<f16>					f16vec4;    //!< \brief Half-precision floating-point vector of 4 components. (from GLM_GTC_type_precision extension)
 
-	//typedef f32									f32vec1;    //!< \brief Single-precision floating-point scalar. (from GLM_GTC_type_precision extension)
+	typedef detail::tvec1<f32>					f32vec1;    //!< \brief Single-precision floating-point scalar. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec2<f32>					f32vec2;    //!< \brief Single-precision floating-point vector of 2 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec3<f32>					f32vec3;    //!< \brief Single-precision floating-point vector of 3 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec4<f32>					f32vec4;    //!< \brief Single-precision floating-point vector of 4 components. (from GLM_GTC_type_precision extension)
 
-	//typedef f64									f64vec1;    //!< \brief Single-precision floating-point scalar. (from GLM_GTC_type_precision extension)
+	typedef detail::tvec1<f64>					f64vec1;    //!< \brief Single-precision floating-point scalar. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec2<f64>					f64vec2;    //!< \brief Double-precision floating-point vector of 2 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec3<f64>					f64vec3;    //!< \brief Double-precision floating-point vector of 3 components. (from GLM_GTC_type_precision extension)
 	typedef detail::tvec4<f64>					f64vec4;    //!< \brief Double-precision floating-point vector of 4 components. (from GLM_GTC_type_precision extension)
