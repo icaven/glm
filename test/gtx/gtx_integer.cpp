@@ -10,7 +10,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtx/integer.hpp>
 #include <glm/gtx/epsilon.hpp>
-#include <iostream>
+#include <cstdio>
 
 int test_floor_log2()
 {

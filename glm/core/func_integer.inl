@@ -522,7 +522,7 @@ namespace glm
 	}
 
 	// findMSB
-#if(GLM_COMPILER & GLM_COMPILER_VC)
+#if((GLM_ARCH != GLM_ARCH_PURE) && (GLM_COMPILER & GLM_COMPILER_VC))
 
 	template <typename genIUType>
 	GLM_FUNC_QUALIFIER int findMSB
@@ -535,7 +535,7 @@ namespace glm
 		return int(Result);
 	}
 
-#elif((GLM_COMPILER & GLM_COMPILER_GCC) && __has_builtin(__builtin_clz))
+#elif((GLM_ARCH != GLM_ARCH_PURE) && (GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC40))
 
 	template <typename genIUType>
 	GLM_FUNC_QUALIFIER int findMSB
@@ -543,7 +543,7 @@ namespace glm
 		genIUType const & Value
 	)
 	{
-		return __builtin_clz(x);
+		return __builtin_clz(Value);
 	}
 
 #else
