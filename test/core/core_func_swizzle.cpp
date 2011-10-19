@@ -7,8 +7,38 @@
 // File    : test/core/core_func_swizzle.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_CXX98
+#define GLM_MESSAGES
+#define GLM_SWIZZLE_OPERATOR
+//#define GLM_FORCE_CXX11
 #include <glm/glm.hpp>
+
+int test_vec2_swizzle()
+{
+	int Error = 0;
+
+    glm::ivec2 A(1, 2);
+	glm::ivec2 B = A.xy();
+	glm::ivec2 C(0);
+	C.xy() = B.xy();
+
+	Error += A == B ? 0 : 1;
+
+	return Error;
+}
+
+int test_vec3_swizzle()
+{
+	int Error = 0;
+
+    glm::ivec3 A(1, 2, 3);
+	glm::ivec3 B = A.xyz();
+	glm::ivec3 C(0);
+	C.xyz() = B.xyz();
+
+	Error += A == B ? 0 : 1;
+
+	return Error;
+}
 
 int test_vec4_swizzle()
 {
@@ -16,6 +46,8 @@ int test_vec4_swizzle()
 
     glm::ivec4 A(1, 2, 3, 4);
 	glm::ivec4 B = A.xyzw();
+	glm::ivec4 C(0);
+	C.xyzw() = B.xyzw();
 
 	Error += A == B ? 0 : 1;
 
@@ -26,6 +58,8 @@ int main()
 {
     int Error = 0;
     
+	Error += test_vec2_swizzle();
+	Error += test_vec3_swizzle();
     Error += test_vec4_swizzle();
         
 	return Error;

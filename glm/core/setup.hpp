@@ -314,12 +314,12 @@
 #define GLM_LANG_CXXMS			5
 #define GLM_LANG_CXXGNU			6
 
-#if(defined(GLM_FORCE_CXX98))
-#	define GLM_LANG GLM_LANG_CXX98
+#if(defined(GLM_FORCE_CXX11))
+#	define GLM_LANG GLM_LANG_CXX11
 #elif(defined(GLM_FORCE_CXX03))
 #	define GLM_LANG GLM_LANG_CXX03
-#elif(defined(GLM_FORCE_CXX11))
-#	define GLM_LANG GLM_LANG_CXX11
+#elif(defined(GLM_FORCE_CXX98))
+#	define GLM_LANG GLM_LANG_CXX98
 #elif(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && defined(__GXX_EXPERIMENTAL_CXX0X__)) // -std=c++0x or -std=gnu++0x
 #	define GLM_LANG GLM_LANG_CXX0X
 #elif(GLM_COMPILER == GLM_COMPILER_VC2010) //_MSC_EXTENSIONS for MS language extensions
