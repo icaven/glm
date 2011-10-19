@@ -7,6 +7,7 @@
 // File    : test/core/type_vec3.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_SWIZZLE_OPERATOR
 #include <glm/glm.hpp>
 #include <glm/gtc/half_float.hpp>
 #include <cstdio>

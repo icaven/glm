@@ -320,14 +320,18 @@
 #	define GLM_LANG GLM_LANG_CXX03
 #elif(defined(GLM_FORCE_CXX98))
 #	define GLM_LANG GLM_LANG_CXX98
-#elif(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && defined(__GXX_EXPERIMENTAL_CXX0X__)) // -std=c++0x or -std=gnu++0x
-#	define GLM_LANG GLM_LANG_CXX0X
-#elif(GLM_COMPILER == GLM_COMPILER_VC2010) //_MSC_EXTENSIONS for MS language extensions
-#	define GLM_LANG GLM_LANG_CXX0X
 #elif(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && defined(__STRICT_ANSI__))
 #	define GLM_LANG GLM_LANG_CXX98
+#elif(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && defined(__GXX_EXPERIMENTAL_CXX0X__)) // -std=c++0x or -std=gnu++0x
+#	define GLM_LANG GLM_LANG_CXX0X
+#elif(((GLM_COMPILER & GLM_COMPILER_VC) == GLM_COMPILER_VC) && defined(_MSC_EXTENSIONS))
+#	define GLM_LANG GLM_LANG_CXXMS
 #elif(((GLM_COMPILER & GLM_COMPILER_VC) == GLM_COMPILER_VC) && !defined(_MSC_EXTENSIONS))
-#	define GLM_LANG GLM_LANG_CXX98
+#	if(GLM_COMPILER >= GLM_COMPILER_VC2010)
+#		define GLM_LANG GLM_LANG_CXX0X
+#	else
+#		define GLM_LANG GLM_LANG_CXX98
+#	endif//(GLM_COMPILER == GLM_COMPILER_VC2010)
 #else
 #	define GLM_LANG GLM_LANG_CXX
 #endif
@@ -342,6 +346,10 @@
 #		pragma message("GLM: C++0x")
 #	elif(GLM_LANG == GLM_LANG_CXX11)
 #		pragma message("GLM: C++11")
+#	elif(GLM_LANG == GLM_LANG_CXXGNU)
+#		pragma message("GLM: C++ with GNU language extensions")
+#	elif(GLM_LANG == GLM_LANG_CXXMS)
+#		pragma message("GLM: C++ with VC language extensions")
 #	endif//GLM_MODEL
 #endif//GLM_MESSAGE
 

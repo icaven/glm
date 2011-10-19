@@ -7,10 +7,10 @@
 // File    : test/core/core_func_swizzle.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_ONLY_XYZW
+//#define GLM_FORCE_ONLY_XYZW
 #define GLM_MESSAGES
 #define GLM_SWIZZLE_OPERATOR
-//#define GLM_FORCE_CXX11
+#define GLM_FORCE_CXX98
 #include <glm/glm.hpp>
 
 int test_vec2_swizzle()

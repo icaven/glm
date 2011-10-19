@@ -47,7 +47,7 @@
 namespace glm{
 namespace detail
 {
-#if 0 //ndef _MSC_EXTENSIONS
+#if((GLM_LANG != GLM_LANG_CXX11) && (GLM_LANG != GLM_LANG_CXXMS))
 	template <>
 	struct tvec2<thalf>
 	{
@@ -345,7 +345,7 @@ namespace detail
 		tvec4<thalf> swizzle(comp X, comp Y, comp Z, comp W) const;
 		tref4<thalf> swizzle(comp X, comp Y, comp Z, comp W);
 	};
-#endif//_MSC_EXTENSIONS
+#endif//((GLM_LANG != GLM_LANG_CXX11) && (GLM_LANG != GLM_LANG_CXXMS))
 }
 //namespace detail
 
