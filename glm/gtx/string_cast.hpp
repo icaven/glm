@@ -28,7 +28,6 @@
 /// @see core (dependence)
 /// @see gtc_half_float (dependence)
 /// @see gtx_integer (dependence)
-/// @see gtx_unsigned_int (dependence)
 /// @see gtx_quaternion (dependence)
 ///
 /// @defgroup gtx_string_cast GLM_GTX_string_cast: String cast
@@ -46,7 +45,6 @@
 #include "../glm.hpp"
 #include "../gtc/half_float.hpp"
 #include "../gtx/integer.hpp"
-#include "../gtx/unsigned_int.hpp"
 #include "../gtx/quaternion.hpp"
 #include <string>
 
