@@ -202,6 +202,7 @@ int test_vec3_swizzle3_2()
     u = v.zy;       Error += (u.x == 3.0f && u.y == 2.0f) ? 0 : 1;
     u = v.zz;       Error += (u.x == 3.0f && u.y == 3.0f) ? 0 : 1;
 
+#if((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
     u = v.rr;       Error += (u.r == 1.0f && u.g == 1.0f) ? 0 : 1;
     u = v.rg;       Error += (u.r == 1.0f && u.g == 2.0f) ? 0 : 1;
     u = v.rb;       Error += (u.r == 1.0f && u.g == 3.0f) ? 0 : 1;
@@ -221,7 +222,7 @@ int test_vec3_swizzle3_2()
     u = v.ps;       Error += (u.s == 3.0f && u.t == 1.0f) ? 0 : 1;
     u = v.pt;       Error += (u.s == 3.0f && u.t == 2.0f) ? 0 : 1;
     u = v.pp;       Error += (u.s == 3.0f && u.t == 3.0f) ? 0 : 1;
-
+#endif//((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
     // Mixed member aliases are not valid
     //u = v.rx;     //Illegal
     //u = v.sy;     //Illegal
@@ -254,7 +255,8 @@ int test_vec3_swizzle3_3()
     u = v.xyz;      Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
     u = v.zyx;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
     u.zyx = v;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
-    
+
+#if((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
     u = v.rgb;      Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
     u = v.bgr;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
     u.bgr = v;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
@@ -262,7 +264,7 @@ int test_vec3_swizzle3_3()
     u = v.stp;      Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
     u = v.pts;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
     u.pts = v;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
-   
+#endif//((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
     return Error;
 }
 
@@ -287,6 +289,7 @@ int test_vec3_swizzle_half()
     u.zyx = v;
     Error += (u.x.toFloat() == 3.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 1.0f) ? 0 : 1;
     
+#if((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
     u = v.rgb;
     Error += (u.x.toFloat() == 1.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 3.0f) ? 0 : 1;
     u = v.bgr;
@@ -300,6 +303,7 @@ int test_vec3_swizzle_half()
     Error += (u.x.toFloat() == 3.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 1.0f) ? 0 : 1;
     u.pts = v;
     Error += (u.x.toFloat() == 3.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 1.0f) ? 0 : 1;
+#endif//((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
 
     return Error;
 }
@@ -321,6 +325,7 @@ int test_vec3_swizzle_operators()
     q = (u.xxx * v.xxx);        Error += (q == glm::vec3(u.x * v.x)) ? 0 : 1;
     q = (u.xyz / v.xyz);        Error += (q == (u / v)) ? 0 : 1;
 
+#if((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
     // vec, swizzle binary operators
     q = u + v.xyz;              Error += (q == (u + v)) ? 0 : 1;
     q = (u - v.xyz);            Error += (q == (u - v)) ? 0 : 1;
@@ -334,6 +339,7 @@ int test_vec3_swizzle_operators()
     q = (u.xyz * v);            Error += (q == (u * v)) ? 0 : 1;
     q = (u.xxx * v);            Error += (q == u.x * v) ? 0 : 1;
     q = (u.xyz / v);            Error += (q == (u / v)) ? 0 : 1;
+#endif//((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
 
     // Compile errors
     //q = (u.yz * v.xyz);
@@ -357,30 +363,30 @@ int test_vec3_swizzle_functions()
 
     float r;
 
-    // vec2
-    glm::vec2 a(1, 2);
-    glm::vec2 b(10, 20);
-    r = glm::dot(a, b);                 Error += (int(r) == 50) ? 0 : 1;
-    r = glm::dot(a.xy(), b.xy());       Error += (int(r) == 50) ? 0 : 1;
-    r = glm::dot(a.xy(), b.yy());       Error += (int(r) == 60) ? 0 : 1;
+	// vec2
+	glm::vec2 a(1, 2);
+	glm::vec2 b(10, 20);
+	r = glm::dot(a, b);                 Error += (int(r) == 50) ? 0 : 1;
+	r = glm::dot(a.xy(), b.xy());       Error += (int(r) == 50) ? 0 : 1;
+	r = glm::dot(a.xy(), b.yy());       Error += (int(r) == 60) ? 0 : 1;
 
-    // vec3
-    glm::vec3 q, u, v;
-    u = glm::vec3(1, 2, 3);
-    v = glm::vec3(10, 20, 30);
-    r = glm::dot(u, v);                 Error += (int(r) == 140) ? 0 : 1;
-    r = glm::dot(u.xyz(), v.zyz());     Error += (int(r) == 160) ? 0 : 1;
-    r = glm::dot(u, v.zyx());           Error += (int(r) == 100) ? 0 : 1;
-    r = glm::dot(u.xyz(), v);           Error += (int(r) == 140) ? 0 : 1;
-    r = glm::dot(u.xy(), v.xy());       Error += (int(r) == 50) ? 0 : 1;
+	// vec3
+	glm::vec3 q, u, v;
+	u = glm::vec3(1, 2, 3);
+	v = glm::vec3(10, 20, 30);
+	r = glm::dot(u, v);                 Error += (int(r) == 140) ? 0 : 1;
+	r = glm::dot(u.xyz(), v.zyz());     Error += (int(r) == 160) ? 0 : 1;
+	r = glm::dot(u, v.zyx());           Error += (int(r) == 100) ? 0 : 1;
+	r = glm::dot(u.xyz(), v);           Error += (int(r) == 140) ? 0 : 1;
+	r = glm::dot(u.xy(), v.xy());       Error += (int(r) == 50) ? 0 : 1;
 
-    // vec4
-    glm::vec4 s, t;
-    s = glm::vec4(1, 2, 3, 4);
-    t = glm::vec4(10, 20, 30, 40);
-    r = glm::dot(s, t);                 Error += (int(r) == 300) ? 0 : 1;
-    r = glm::dot(s.xyzw(), t.xyzw());   Error += (int(r) == 300) ? 0 : 1;
-    r = glm::dot(s.xyz(), t.xyz());     Error += (int(r) == 140) ? 0 : 1;
+	// vec4
+	glm::vec4 s, t;
+	s = glm::vec4(1, 2, 3, 4);
+	t = glm::vec4(10, 20, 30, 40);
+	r = glm::dot(s, t);                 Error += (int(r) == 300) ? 0 : 1;
+	r = glm::dot(s.xyzw(), t.xyzw());   Error += (int(r) == 300) ? 0 : 1;
+	r = glm::dot(s.xyz(), t.xyz());     Error += (int(r) == 140) ? 0 : 1;
 
     return Error;
 }

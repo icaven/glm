@@ -29,7 +29,7 @@
 namespace glm{
 namespace detail
 {
-#if 1 //ndef _MSC_EXTENSIONS
+#if((GLM_LANG != GLM_LANG_CXX11) && (GLM_LANG != GLM_LANG_CXXMS))
 
 	//////////////////////////////////////
 	// hvec2

@@ -47,7 +47,7 @@
 namespace glm{
 namespace detail
 {
-#if 1 //((GLM_LANG != GLM_LANG_CXX11) && (GLM_LANG != GLM_LANG_CXXMS))
+#if((GLM_LANG != GLM_LANG_CXX11) && (GLM_LANG != GLM_LANG_CXXMS))
 	template <>
 	struct tvec2<thalf>
 	{
