@@ -220,6 +220,7 @@ int test_vec4_swizzle_partial()
 
 	glm::vec4 A(1, 2, 3, 4);
 
+#if((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
 	{
 		glm::vec4 B(A.xy, A.zw);
 		Error += A == B ? 0 : 1;
@@ -245,6 +246,7 @@ int test_vec4_swizzle_partial()
 		glm::vec4 B(1.0f, A.yzw);
 		Error += A == B ? 0 : 1;
 	}
+#endif//((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
 
 	return Error;
 }
