@@ -76,7 +76,7 @@ namespace detail
 			GLM_SWIZZLE_GEN_REF_FROM_VEC3_COMP(T, detail::tvec3, detail::tref2, detail::tref3, x, y, z)
 			GLM_SWIZZLE_GEN_VEC_FROM_VEC3_COMP(T, detail::tvec3, detail::tvec2, detail::tvec3, detail::tvec4, x, y, z)
 #		endif//GLM_SWIZZLE_OPERATOR
-#	elif((GLM_LANG == GLM_LANG_CXXMS) || ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_LANG == GLM_LANG_CXX0X)))
+#	elif(GLM_SUPPORT_SWIZZLE_OPERATOR())
 		union 
 		{
 #		ifdef GLM_SWIZZLE_OPERATOR

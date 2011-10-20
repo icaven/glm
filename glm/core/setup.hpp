@@ -535,4 +535,10 @@
 #	endif
 #endif//GLM_MESSAGE
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Support check macros
+
+#define GLM_SUPPORT_SWIZZLE_OPERATOR() \
+	((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS) || ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_LANG == GLM_LANG_CXX0X)))
+
 #endif//glm_setup

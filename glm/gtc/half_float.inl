@@ -29,7 +29,7 @@
 namespace glm{
 namespace detail
 {
-#if((GLM_LANG != GLM_LANG_CXX11) && (GLM_LANG != GLM_LANG_CXXMS))
+#if(!GLM_SUPPORT_SWIZZLE_OPERATOR())
 
 	//////////////////////////////////////
 	// hvec2
@@ -1003,7 +1003,7 @@ namespace detail
 			(*this)[w]);
 	}
 
-#endif//_MSC_EXTENSIONS
+#endif//(!GLM_SUPPORT_SWIZZLE_OPERATOR())
 
 }//namespace detail
 }//namespace glm

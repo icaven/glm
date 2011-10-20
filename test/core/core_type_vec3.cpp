@@ -192,7 +192,7 @@ int test_vec3_swizzle3_2()
     //u = v.rgb;    //Illegal
     //u = v.stp;    //Illegal
 
-#if((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
+#if(GLM_SUPPORT_SWIZZLE_OPERATOR())
 	u = v.xx;       Error += (u.x == 1.0f && u.y == 1.0f) ? 0 : 1;
     u = v.xy;       Error += (u.x == 1.0f && u.y == 2.0f) ? 0 : 1;
     u = v.xz;       Error += (u.x == 1.0f && u.y == 3.0f) ? 0 : 1;
@@ -238,7 +238,7 @@ int test_vec3_swizzle3_2()
     v.zx = u;       Error += (v.x == 2.0f && v.y == 1.0f && v.z == 1.0f) ? 0 : 1;
     v.zy = u;       Error += (v.x == 2.0f && v.y == 2.0f && v.z == 1.0f) ? 0 : 1;
     //v.zz = u;     //Illegal
-#endif//((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
+#endif//(GLM_SUPPORT_SWIZZLE_OPERATOR())
 
     return Error;
 }
@@ -252,7 +252,7 @@ int test_vec3_swizzle3_3()
     
     u = v;          Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
     
-#if((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
+#if(GLM_SUPPORT_SWIZZLE_OPERATOR())
 	u = v.xyz;      Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
     u = v.zyx;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
     u.zyx = v;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
@@ -264,7 +264,7 @@ int test_vec3_swizzle3_3()
     u = v.stp;      Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
     u = v.pts;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
     u.pts = v;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
-#endif//((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
+#endif//(GLM_SUPPORT_SWIZZLE_OPERATOR())
     return Error;
 }
 
@@ -282,7 +282,7 @@ int test_vec3_swizzle_half()
 
     Error += (u.x.toFloat() == 1.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 3.0f) ? 0 : 1;
     
-	#if((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
+#if(GLM_SUPPORT_SWIZZLE_OPERATOR())
 	u = v.xyz;
     Error += (u.x.toFloat() == 1.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 3.0f) ? 0 : 1;
     u = v.zyx;
@@ -303,7 +303,7 @@ int test_vec3_swizzle_half()
     Error += (u.x.toFloat() == 3.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 1.0f) ? 0 : 1;
     u.pts = v;
     Error += (u.x.toFloat() == 3.0f && u.y.toFloat() == 2.0f && u.z.toFloat() == 1.0f) ? 0 : 1;
-#endif//((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
+#endif//(GLM_SUPPORT_SWIZZLE_OPERATOR())
 
     return Error;
 }
@@ -317,7 +317,7 @@ int test_vec3_swizzle_operators()
     u = glm::vec3(1, 2, 3);
     v = glm::vec3(10, 20, 30);
 
-#if((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
+#if(GLM_SUPPORT_SWIZZLE_OPERATOR())
     // Swizzle, swizzle binary operators
     q = u.xyz + v.xyz;          Error += (q == (u + v)) ? 0 : 1;
     q = (u.zyx + v.zyx).zyx;    Error += (q == (u + v)) ? 0 : 1;
@@ -339,7 +339,7 @@ int test_vec3_swizzle_operators()
     q = (u.xyz * v);            Error += (q == (u * v)) ? 0 : 1;
     q = (u.xxx * v);            Error += (q == u.x * v) ? 0 : 1;
     q = (u.xyz / v);            Error += (q == (u / v)) ? 0 : 1;
-#endif//((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
+#endif//(GLM_SUPPORT_SWIZZLE_OPERATOR())
 
     // Compile errors
     //q = (u.yz * v.xyz);
@@ -363,7 +363,7 @@ int test_vec3_swizzle_functions()
 
     float r;
 
-#if((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
+#if(GLM_SUPPORT_SWIZZLE_OPERATOR())
 	// vec2
 	glm::vec2 a(1, 2);
 	glm::vec2 b(10, 20);
@@ -388,7 +388,7 @@ int test_vec3_swizzle_functions()
 	r = glm::dot(s, t);                 Error += (int(r) == 300) ? 0 : 1;
 	r = glm::dot(s.xyzw(), t.xyzw());   Error += (int(r) == 300) ? 0 : 1;
 	r = glm::dot(s.xyz(), t.xyz());     Error += (int(r) == 140) ? 0 : 1;
-#endif//((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
+#endif//(GLM_SUPPORT_SWIZZLE_OPERATOR())
 
     return Error;
 }
@@ -399,7 +399,7 @@ int test_vec3_swizzle_partial()
 
 	glm::vec3 A(1, 2, 3);
 
-#if((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
+#if(GLM_SUPPORT_SWIZZLE_OPERATOR())
 	{
 		glm::vec3 B(A.xy, 3.0f);
 		Error += A == B ? 0 : 1;
@@ -414,7 +414,7 @@ int test_vec3_swizzle_partial()
 		glm::vec3 B(A.xyz);
 		Error += A == B ? 0 : 1;
 	}
-#endif//((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS))
+#endif//(GLM_SUPPORT_SWIZZLE_OPERATOR())
 
 	return Error;
 }

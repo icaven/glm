@@ -47,7 +47,7 @@
 namespace glm{
 namespace detail
 {
-#if((GLM_LANG != GLM_LANG_CXX11) && (GLM_LANG != GLM_LANG_CXXMS))
+#if(!GLM_SUPPORT_SWIZZLE_OPERATOR())
 	template <>
 	struct tvec2<thalf>
 	{
@@ -345,7 +345,7 @@ namespace detail
 		tvec4<thalf> swizzle(comp X, comp Y, comp Z, comp W) const;
 		tref4<thalf> swizzle(comp X, comp Y, comp Z, comp W);
 	};
-#endif//((GLM_LANG != GLM_LANG_CXX11) && (GLM_LANG != GLM_LANG_CXXMS))
+#endif//(!GLM_SUPPORT_SWIZZLE_OPERATOR())
 }
 //namespace detail
 
