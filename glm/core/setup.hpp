@@ -520,6 +520,13 @@
 #define GLM_FUNC_QUALIFIER GLM_CUDA_FUNC_DEF GLM_INLINE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+// Support check macros
+
+#define GLM_SUPPORT_SWIZZLE_OPERATOR() (defined(GLM_SWIZZLE_OPERATOR) && \
+	((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS) || ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_LANG == GLM_LANG_CXX0X))))
+#define GLM_SUPPORT_SWIZZLE_FUNCTION() defined(GLM_SWIZZLE_OPERATOR)
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 // Swizzle operators
 
 // User defines: GLM_SWIZZLE_XYZW GLM_SWIZZLE_RGBA GLM_SWIZZLE_STQP GLM_SWIZZLE
@@ -534,11 +541,5 @@
 #		pragma message("GLM: Partial swizzling operator enabled")
 #	endif
 #endif//GLM_MESSAGE
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Support check macros
-
-#define GLM_SUPPORT_SWIZZLE_OPERATOR() \
-	((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS) || ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_LANG == GLM_LANG_CXX0X)))
 
 #endif//glm_setup
