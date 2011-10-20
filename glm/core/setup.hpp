@@ -281,13 +281,7 @@
 #else
 #	define GLM_MODEL	GLM_MODEL_32
 #endif//
-/*
-#if(sizeof(void*) == 8)
-#	define GLM_MODEL	GLM_MODEL_64
-#else
-#	define GLM_MODEL	GLM_MODEL_32
-#endif//_M_X64
-*/
+
 #if(!defined(GLM_MODEL) && GLM_COMPILER != 0)
 #error "GLM_MODEL undefined, your compiler may not be supported by GLM. Add #define GLM_MODEL 0 to ignore this message."
 #endif//GLM_MODEL
@@ -522,23 +516,23 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Support check macros
 
-#define GLM_SUPPORT_SWIZZLE_OPERATOR() (defined(GLM_SWIZZLE_OPERATOR) && \
+#define GLM_SUPPORT_SWIZZLE_OPERATOR() (defined(GLM_SWIZZLE) && \
 	((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS) || ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_LANG == GLM_LANG_CXX0X))))
-#define GLM_SUPPORT_SWIZZLE_FUNCTION() defined(GLM_SWIZZLE_OPERATOR)
+#define GLM_SUPPORT_SWIZZLE_FUNCTION() defined(GLM_SWIZZLE)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Swizzle operators
 
-// User defines: GLM_SWIZZLE_XYZW GLM_SWIZZLE_RGBA GLM_SWIZZLE_STQP GLM_SWIZZLE
+// User defines: GLM_SWIZZLE
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_SWIZZLE_DISPLAYED))
 #	define GLM_MESSAGE_SWIZZLE_DISPLAYED
-#	if(defined(GLM_SWIZZLE))
-#		pragma message("GLM: Full swizzling operator enabled")
-#	elif(!defined(GLM_SWIZZLE_XYZW) && !defined(GLM_SWIZZLE_RGBA) && !defined(GLM_SWIZZLE_STQP) && !defined(GLM_SWIZZLE))
-#		pragma message("GLM: No swizzling operator enabled")
+#	if(GLM_SUPPORT_SWIZZLE_OPERATOR())
+#		pragma message("GLM: Swizzling operators enabled")
+#	elif(GLM_SUPPORT_SWIZZLE_FUNCTION())
+#		pragma message("GLM: Swizzling operators supported through swizzling functions")
 #	else
-#		pragma message("GLM: Partial swizzling operator enabled")
+#		pragma message("GLM: Swizzling operators disabled")
 #	endif
 #endif//GLM_MESSAGE
 
