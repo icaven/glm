@@ -146,9 +146,9 @@ namespace glm
 	}
 
 	template <typename T>
-	GLM_FUNC_QUALIFIER T ln_ten(2.30258509299404568401799145468436421)
+	GLM_FUNC_QUALIFIER T ln_ten()
 	{
-		return T();
+		return T(2.30258509299404568401799145468436421);
 	}
 
 	template <typename T>
