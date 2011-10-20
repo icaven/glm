@@ -148,18 +148,21 @@ namespace detail
 */
     // roundEven
     template <typename genType>
-    GLM_FUNC_QUALIFIER genType roundEven(genType const& x)
+    GLM_FUNC_QUALIFIER genType roundEven(genType const & x)
     {
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'roundEven' only accept floating-point inputs");
 		
-		genType RoundValue(0.5);
-		if(fract(x) == genType(0.5) && int(x) % 2)
-			RoundValue = genType(-0.5);
-		
-		if(x < genType(0.0))
-			return genType(int(x - RoundValue));
-		return genType(int(x + RoundValue));
-    }
+		int Integer = int(x);
+		genType IntegerPart = genType(Integer);
+		genType FractionalPart = fract(x);
+
+		if(FractionalPart > genType(0.5) || FractionalPart < genType(0.5))
+			return round(x);
+		else if(!(Integer % 2))
+			return IntegerPart;
+		else
+			return IntegerPart + mix(genType(-1), genType(1), x >= genType(0));
+	}
 	
 	VECTORIZE_VEC(roundEven)
 
