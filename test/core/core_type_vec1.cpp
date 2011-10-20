@@ -7,7 +7,7 @@
 // File    : test/core/type_vec1.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_SWIZZLE_OPERATOR
+#define GLM_SWIZZLE
 #include <glm/glm.hpp>
 
 static int test_operators()

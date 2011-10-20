@@ -272,7 +272,7 @@ namespace detail
 	template <typename U>
 	GLM_FUNC_QUALIFIER thalf::operator U() const
 	{
-		return static_cast<U>(this->toFloat());
+		return static_cast<U>(toFloat32(this->data));
 	}
 
 	// Unary updatable operators
@@ -325,38 +325,38 @@ namespace detail
 
 	GLM_FUNC_QUALIFIER detail::thalf operator+ (detail::thalf const & s1, detail::thalf const & s2)
 	{
-		return detail::thalf(s1.toFloat() + s2.toFloat());
+		return detail::thalf(float(s1) + float(s2));
 	}
 
 	GLM_FUNC_QUALIFIER detail::thalf operator- (detail::thalf const & s1, detail::thalf const & s2)
 	{
-		return detail::thalf(s1.toFloat() - s2.toFloat());
+		return detail::thalf(float(s1) - float(s2));
 	}
 
 	GLM_FUNC_QUALIFIER detail::thalf operator* (detail::thalf const & s1, detail::thalf const & s2)
 	{
-		return detail::thalf(s1.toFloat() * s2.toFloat());
+		return detail::thalf(float(s1) * float(s2));
 	}
 
 	GLM_FUNC_QUALIFIER detail::thalf operator/ (detail::thalf const & s1, detail::thalf const & s2)
 	{
-		return detail::thalf(s1.toFloat() / s2.toFloat());
+		return detail::thalf(float(s1) / float(s2));
 	}
 
 	// Unary constant operators
 	GLM_FUNC_QUALIFIER detail::thalf operator- (detail::thalf const & s)
 	{
-		return detail::thalf(-s.toFloat());
+		return detail::thalf(-float(s));
 	}
 
 	GLM_FUNC_QUALIFIER detail::thalf operator-- (detail::thalf const & s, int)
 	{
-		return detail::thalf(s.toFloat() - 1.0f);
+		return detail::thalf(float(s) - 1.0f);
 	}
 
 	GLM_FUNC_QUALIFIER detail::thalf operator++ (detail::thalf const & s, int)
 	{
-		return detail::thalf(s.toFloat() + 1.0f);
+		return detail::thalf(float(s) + 1.0f);
 	}
 
 	GLM_FUNC_QUALIFIER bool operator==
@@ -383,7 +383,7 @@ namespace detail
 		detail::thalf const & y
 	)
 	{
-		return x.toFloat() < y.toFloat();
+		return float(x) < float(y);
 	}
 
 	GLM_FUNC_QUALIFIER bool operator<=
@@ -392,7 +392,7 @@ namespace detail
 		detail::thalf const & y
 	)
 	{
-		return x.toFloat() <= y.toFloat();
+		return float(x) <= float(y);
 	}
 
 	GLM_FUNC_QUALIFIER bool operator>
@@ -401,7 +401,7 @@ namespace detail
 		detail::thalf const & y
 	)
 	{
-		return x.toFloat() > y.toFloat();
+		return float(x) > float(y);
 	}
 
 	GLM_FUNC_QUALIFIER bool operator>=
@@ -410,7 +410,7 @@ namespace detail
 		detail::thalf const & y
 	)
 	{
-		return x.toFloat() >= y.toFloat();
+		return float(x) >= float(y);
 	}
 
 }//namespace detail

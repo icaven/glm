@@ -62,18 +62,10 @@ namespace detail
 		//////////////////////////////////////
 		// Data
 
-#	if(GLM_COMPONENT == GLM_COMPONENT_ONLY_XYZW)
-		value_type x, y, z;
-
-#		if(GLM_SUPPORT_SWIZZLE_FUNCTION())
-			// Defines all he swizzle operator as functions
-			GLM_SWIZZLE_GEN_REF_FROM_VEC3_COMP(T, detail::tvec3, detail::tref2, detail::tref3, x, y, z)
-			GLM_SWIZZLE_GEN_VEC_FROM_VEC3_COMP(T, detail::tvec3, detail::tvec2, detail::tvec3, detail::tvec4, x, y, z)
-#		endif//GLM_SUPPORT_SWIZZLE_FUNCTION()
-#	elif(GLM_COMPONENT == GLM_COMPONENT_MS_EXT)
+#	if(GLM_SUPPORT_ANONYMOUS_UNION_OF_STRUCTURE() && !defined(GLM_FORCE_ONLY_XYZW))
 		union 
 		{
-#		if(GLM_SUPPORT_SWIZZLE_OPERATOR())
+#		if(defined(GLM_SWIZZLE))
 			_GLM_SWIZZLE3_2_MEMBERS(value_type, glm::detail::tvec2<value_type>, x, y, z)
 			_GLM_SWIZZLE3_2_MEMBERS(value_type, glm::detail::tvec2<value_type>, r, g, b)
 			_GLM_SWIZZLE3_2_MEMBERS(value_type, glm::detail::tvec2<value_type>, s, t, p)
@@ -83,22 +75,30 @@ namespace detail
 			_GLM_SWIZZLE3_4_MEMBERS(value_type, glm::detail::tvec4<value_type>, x, y, z)
 			_GLM_SWIZZLE3_4_MEMBERS(value_type, glm::detail::tvec4<value_type>, r, g, b)
 			_GLM_SWIZZLE3_4_MEMBERS(value_type, glm::detail::tvec4<value_type>, s, t, p)
-#		endif//(GLM_SUPPORT_SWIZZLE_OPERATOR())
+#		endif//(defined(GLM_SWIZZLE))
 
 			struct{value_type r, g, b;};
 			struct{value_type s, t, p;};
 			struct{value_type x, y, z;};
 		};
-#	else//(GLM_COMPONENT == GLM_COMPONENT_GLSL_NAMES)
+#	elif(GLM_SUPPORT_ANONYMOUS_UNION() && !defined(GLM_FORCE_ONLY_XYZW))
 		union {value_type x, r, s;};
 		union {value_type y, g, t;};
 		union {value_type z, b, p;};
 
-#		if(GLM_SUPPORT_SWIZZLE_FUNCTION())
+#		if(defined(GLM_SWIZZLE))
 			// Defines all he swizzle operator as functions
 			GLM_SWIZZLE_GEN_REF_FROM_VEC3(T, detail::tvec3, detail::tref2, detail::tref3)
 			GLM_SWIZZLE_GEN_VEC_FROM_VEC3(T, detail::tvec3, detail::tvec2, detail::tvec3, detail::tvec4)
-#		endif//GLM_SUPPORT_SWIZZLE_FUNCTION()
+#		endif//(defined(GLM_SWIZZLE))
+#	else
+		value_type x, y, z;
+
+#		if(defined(GLM_SWIZZLE))
+			// Defines all he swizzle operator as functions
+			GLM_SWIZZLE_GEN_REF_FROM_VEC3_COMP(T, detail::tvec3, detail::tref2, detail::tref3, x, y, z)
+			GLM_SWIZZLE_GEN_VEC_FROM_VEC3_COMP(T, detail::tvec3, detail::tvec2, detail::tvec3, detail::tvec4, x, y, z)
+#		endif//(defined(GLM_SWIZZLE))
 #	endif//GLM_COMPONENT
 
 		//////////////////////////////////////

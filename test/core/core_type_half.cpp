@@ -15,13 +15,13 @@ int test_half_ctor()
 	int Error = 0;
 
 	glm::half A(1.0f);
-	Error += A.toFloat() == 1.0f ? 0 : 1;
+	Error += float(A) == 1.0f ? 0 : 1;
 
 	glm::half B = glm::half(1.0f);
-	Error += B.toFloat() == 1.0f ? 0 : 1;
+	Error += float(B) == 1.0f ? 0 : 1;
 
 	glm::half C = B;
-	Error += C.toFloat() == 1.0f ? 0 : 1;
+	Error += float(C) == 1.0f ? 0 : 1;
 
 	return Error;
 }
@@ -31,13 +31,13 @@ int test_half_cast()
 	int Error = 0;
 
 	glm::half A(2.0f);
-	Error += A.toFloat() == 2.0f ? 0 : 1;
+	Error += float(A) == 2.0f ? 0 : 1;
 
 	glm::half B(2.0);
-	Error += B.toFloat() == 2.0f ? 0 : 1;
+	Error += float(B) == 2.0f ? 0 : 1;
 
 	glm::half C(2);
-	Error += C.toFloat() == 2.0f ? 0 : 1;
+	Error += float(C) == 2.0f ? 0 : 1;
 
 	float D(A);
 	Error += D == 2.0f ? 0 : 1;

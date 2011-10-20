@@ -43,7 +43,7 @@ namespace detail
 
 	GLM_FUNC_QUALIFIER std::string to_string(detail::thalf const & x)
 	{
-		return detail::format("half(%2.4f)", x.toFloat());
+		return detail::format("half(%2.4f)", float(x));
 	}
 
 	GLM_FUNC_QUALIFIER std::string to_string(float x)

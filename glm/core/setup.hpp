@@ -300,13 +300,13 @@
 
 // User defines: GLM_FORCE_CXX98
 
-#define GLM_LANG_CXX			0
-#define GLM_LANG_CXX98			1
-#define GLM_LANG_CXX03			2
-#define GLM_LANG_CXX0X			3
-#define GLM_LANG_CXX11			4
-#define GLM_LANG_CXXMS			5
-#define GLM_LANG_CXXGNU			6
+#define GLM_LANG_CXX			(0 << 0)
+#define GLM_LANG_CXX98			((1 << 1) | GLM_LANG_CXX)
+#define GLM_LANG_CXX03			((1 << 2) | GLM_LANG_CXX98)
+#define GLM_LANG_CXX0X			((1 << 3) | GLM_LANG_CXX03)
+#define GLM_LANG_CXX11			((1 << 4) | GLM_LANG_CXX11)
+#define GLM_LANG_CXXMS			(1 << 5)
+#define GLM_LANG_CXXGNU			(1 << 6)
 
 #if(defined(GLM_FORCE_CXX11))
 #	define GLM_LANG GLM_LANG_CXX11
@@ -314,20 +314,22 @@
 #	define GLM_LANG GLM_LANG_CXX03
 #elif(defined(GLM_FORCE_CXX98))
 #	define GLM_LANG GLM_LANG_CXX98
-#elif(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && defined(__STRICT_ANSI__))
-#	define GLM_LANG GLM_LANG_CXX98
-#elif(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && defined(__GXX_EXPERIMENTAL_CXX0X__)) // -std=c++0x or -std=gnu++0x
-#	define GLM_LANG GLM_LANG_CXX0X
-#elif(((GLM_COMPILER & GLM_COMPILER_VC) == GLM_COMPILER_VC) && defined(_MSC_EXTENSIONS))
-#	define GLM_LANG GLM_LANG_CXXMS
-#elif(((GLM_COMPILER & GLM_COMPILER_VC) == GLM_COMPILER_VC) && !defined(_MSC_EXTENSIONS))
-#	if(GLM_COMPILER >= GLM_COMPILER_VC2010)
-#		define GLM_LANG GLM_LANG_CXX0X
-#	else
-#		define GLM_LANG GLM_LANG_CXX98
-#	endif//(GLM_COMPILER == GLM_COMPILER_VC2010)
 #else
-#	define GLM_LANG GLM_LANG_CXX
+#	if(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && defined(__STRICT_ANSI__))
+#		define GLM_LANG GLM_LANG_CXX98
+#	elif(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && defined(__GXX_EXPERIMENTAL_CXX0X__)) // -std=c++0x or -std=gnu++0x
+#		define GLM_LANG GLM_LANG_CXX0X
+#	elif(((GLM_COMPILER & GLM_COMPILER_VC) == GLM_COMPILER_VC) && defined(_MSC_EXTENSIONS))
+#		define GLM_LANG GLM_LANG_CXXMS
+#	elif(((GLM_COMPILER & GLM_COMPILER_VC) == GLM_COMPILER_VC) && !defined(_MSC_EXTENSIONS))
+#		if(GLM_COMPILER >= GLM_COMPILER_VC2010)
+#			define GLM_LANG GLM_LANG_CXX0X
+#		else
+#			define GLM_LANG GLM_LANG_CXX98
+#		endif//(GLM_COMPILER == GLM_COMPILER_VC2010)
+#	else
+#		define GLM_LANG GLM_LANG_CXX
+#	endif
 #endif
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_LANG_DISPLAYED))
@@ -431,37 +433,45 @@
 #endif//GLM_MESSAGE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+// Support check macros
+
+#define GLM_SUPPORT_ANONYMOUS_UNION() \
+	((GLM_LANG & GLM_LANG_CXX98) == GLM_LANG_CXX98)
+
+#define GLM_SUPPORT_ANONYMOUS_UNION_OF_STRUCTURE() \
+	(((GLM_LANG & GLM_LANG_CXX11) == GLM_LANG_CXX11) || ((GLM_LANG & GLM_LANG_CXXMS) == GLM_LANG_CXXMS) || ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_LANG == GLM_LANG_CXX0X)))
+
+#define GLM_SUPPORT_SWIZZLE_OPERATOR() \
+	(defined(GLM_SWIZZLE) && GLM_SUPPORT_ANONYMOUS_UNION_OF_STRUCTURE())
+
+#define GLM_SUPPORT_SWIZZLE_FUNCTION() defined(GLM_SWIZZLE)
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 // Components
 
 //#define GLM_FORCE_ONLY_XYZW
-#define GLM_COMPONENT_GLSL_NAMES			0 
-#define GLM_COMPONENT_ONLY_XYZW				1 // To disable multiple vector component names access.
-#define GLM_COMPONENT_MS_EXT				2 // To use anonymous union to provide multiple component names access for class valType. Visual C++ only.
+#define GLM_COMPONENT_ONLY_XYZW				0 // To disable multiple vector component names access.
+#define GLM_COMPONENT_CXX98					1 //  
+#define GLM_COMPONENT_CXX11					2 // To use anonymous union to provide multiple component names access for class valType. Visual C++ only.
 
-#ifndef GLM_FORCE_ONLY_XYZW
-#	if((GLM_COMPILER & GLM_COMPILER_VC) && defined(_MSC_EXTENSIONS))
-#		define GLM_COMPONENT GLM_COMPONENT_MS_EXT
-#	else
-#		define GLM_COMPONENT GLM_COMPONENT_GLSL_NAMES
-#	endif
+#if(GLM_SUPPORT_ANONYMOUS_UNION_OF_STRUCTURE() && !defined(GLM_FORCE_ONLY_XYZW))
+#	define GLM_COMPONENT GLM_COMPONENT_CXX11
+#elif(GLM_SUPPORT_ANONYMOUS_UNION() && !defined(GLM_FORCE_ONLY_XYZW))
+#	define GLM_COMPONENT GLM_COMPONENT_CXX98
 #else
 #	define GLM_COMPONENT GLM_COMPONENT_ONLY_XYZW
 #endif
 
-#if((GLM_COMPONENT == GLM_COMPONENT_MS_EXT) && !(GLM_COMPILER & GLM_COMPILER_VC))
-#	error "GLM_COMPONENT value is GLM_COMPONENT_MS_EXT but this is not allowed with the current compiler."
-#endif
-
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_COMPONENT_DISPLAYED))
 #	define GLM_MESSAGE_COMPONENT_DISPLAYED
-#	if(GLM_COMPONENT == GLM_COMPONENT_GLSL_NAMES)
-#		pragma message("GLM: GLSL multiple vector component names")
+#	if(GLM_COMPONENT == GLM_COMPONENT_CXX98)
+#		pragma message("GLM: x,y,z,w; r,g,b,a; s,t,p,q component names except of half based vector types")
 #	elif(GLM_COMPONENT == GLM_COMPONENT_ONLY_XYZW)
-#		pragma message("GLM: x,y,z,w vector component names only")
-#	elif(GLM_COMPONENT == GLM_COMPONENT_MS_EXT)
-#		pragma message("GLM: Multiple vector component names through Visual C++ language extensions")
+#		pragma message("GLM: x,y,z,w component names for all vector types")
+#	elif(GLM_COMPONENT == GLM_COMPONENT_CXX11)
+#		pragma message("GLM: x,y,z,w; r,g,b,a; s,t,p,q component names for all vector types")
 #	else
-#		error "GLM_COMPONENT value unknown"
+#		error "GLM: GLM_COMPONENT value unknown"
 #	endif//GLM_MESSAGE_COMPONENT_DISPLAYED
 #endif//GLM_MESSAGE
 
@@ -512,13 +522,6 @@
 
 #define GLM_FUNC_DECL GLM_CUDA_FUNC_DECL
 #define GLM_FUNC_QUALIFIER GLM_CUDA_FUNC_DEF GLM_INLINE
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Support check macros
-
-#define GLM_SUPPORT_SWIZZLE_OPERATOR() (defined(GLM_SWIZZLE) && \
-	((GLM_LANG == GLM_LANG_CXX11) || (GLM_LANG == GLM_LANG_CXXMS) || ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_LANG == GLM_LANG_CXX0X))))
-#define GLM_SUPPORT_SWIZZLE_FUNCTION() defined(GLM_SWIZZLE)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Swizzle operators

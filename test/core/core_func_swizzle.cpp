@@ -8,9 +8,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 //#define GLM_FORCE_ONLY_XYZW
+//#define GLM_FORCE_PURE
 #define GLM_MESSAGES
-#define GLM_SWIZZLE_OPERATOR
-#define GLM_FORCE_CXX98
+#define GLM_SWIZZLE
+//#define GLM_FORCE_CXX98
 #include <glm/glm.hpp>
 
 int test_vec2_swizzle()
