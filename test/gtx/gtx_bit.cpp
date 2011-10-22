@@ -34,6 +34,31 @@ namespace extractField
 
 	typedef type<glm::uint64, glm::uint> typeU64;
 
+#if(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && (GLM_COMPILER < GLM_COMPILER_GCC44))
+	typeU64 const Data64[] =
+	{
+		{0xffffffffffffffffLLU, 8, 0, 0x0000000000000000LLU, SUCCESS},
+		{0x0000000000000000LLU, 0,64, 0x0000000000000000LLU, SUCCESS},
+		{0xffffffffffffffffLLU, 0,64, 0xffffffffffffffffLLU, SUCCESS},
+		{0x0f0f0f0f0f0f0f0fLLU, 0,64, 0x0f0f0f0f0f0f0f0fLLU, SUCCESS},
+		{0x0000000000000000LLU, 8, 0, 0x0000000000000000LLU, SUCCESS},
+		{0x8000000000000000LLU,63, 1, 0x0000000000000001LLU, SUCCESS},
+		{0x7fffffffffffffffLLU,63, 1, 0x0000000000000000LLU, SUCCESS},
+		{0x0000000000000300LLU, 8, 8, 0x0000000000000003LLU, SUCCESS},
+		{0x000000000000ff00LLU, 8, 8, 0x00000000000000ffLLU, SUCCESS},
+		{0xfffffffffffffff0LLU, 0, 5, 0x0000000000000010LLU, SUCCESS},
+		{0x00000000000000ffLLU, 1, 3, 0x0000000000000007LLU, SUCCESS},
+		{0x00000000000000ffLLU, 0, 3, 0x0000000000000007LLU, SUCCESS},
+		{0x0000000000000000LLU, 0, 2, 0x0000000000000000LLU, SUCCESS},
+		{0xffffffffffffffffLLU, 0, 8, 0x00000000000000ffLLU, SUCCESS},
+		{0xffffffff00000000LLU,32,32, 0x00000000ffffffffLLU, SUCCESS},
+		{0xfffffffffffffff0LLU, 0, 8, 0x0000000000000000LLU, FAIL},
+		{0xffffffffffffffffLLU,32,32, 0x0000000000000000LLU, FAIL},
+		//{0xffffffffffffffffLLU,64, 1, 0x0000000000000000LLU, ASSERT}, // Throw an assert 
+		//{0xffffffffffffffffLLU, 0,65, 0x0000000000000000LLU, ASSERT}, // Throw an assert 
+		//{0xffffffffffffffffLLU,33,32, 0x0000000000000000LLU, ASSERT}, // Throw an assert 
+	};
+#else
 	typeU64 const Data64[] =
 	{
 		{0xffffffffffffffff, 8, 0, 0x0000000000000000, SUCCESS},
@@ -57,6 +82,7 @@ namespace extractField
 		//{0xffffffffffffffff, 0,65, 0x0000000000000000, ASSERT}, // Throw an assert 
 		//{0xffffffffffffffff,33,32, 0x0000000000000000, ASSERT}, // Throw an assert 
 	};
+#endif
 
 	int test()
 	{
@@ -96,12 +122,21 @@ namespace bitRevert
 
 	typedef type<glm::uint64> typeU64;
 
+#if(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && (GLM_COMPILER < GLM_COMPILER_GCC44))
+	typeU64 const Data64[] =
+	{
+		{0xffffffffffffffffLLU, 0xffffffffffffffffLLU, SUCCESS},
+		{0x0000000000000000LLU, 0x0000000000000000LLU, SUCCESS},
+		{0xf000000000000000LLU, 0x000000000000000fLLU, SUCCESS},
+	};
+#else
 	typeU64 const Data64[] =
 	{
 		{0xffffffffffffffff, 0xffffffffffffffff, SUCCESS},
 		{0x0000000000000000, 0x0000000000000000, SUCCESS},
 		{0xf000000000000000, 0x000000000000000f, SUCCESS},
 	};
+#endif
 
 	int test()
 	{

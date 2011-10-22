@@ -129,6 +129,8 @@ int main()
 {
 	int Error = 0;
 
+	std::cout << "sizeof(glm::uint64): " << sizeof(glm::detail::uint64) << std::endl;
+
 	Error += ::bitfieldExtract::test();
 	Error += ::bitfieldReverse::test();
 
