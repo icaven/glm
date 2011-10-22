@@ -11,7 +11,7 @@
 //#define GLM_FORCE_PURE
 #define GLM_MESSAGES
 #define GLM_SWIZZLE
-//#define GLM_FORCE_CXX98
+#define GLM_FORCE_CXX98
 #include <glm/glm.hpp>
 
 int test_vec2_swizzle()
@@ -24,6 +24,7 @@ int test_vec2_swizzle()
 	C.xy() = B.xy();
 
 	Error += A == B ? 0 : 1;
+	Error += A == C ? 0 : 1;
 
 	return Error;
 }
@@ -38,6 +39,7 @@ int test_vec3_swizzle()
 	C.xyz() = B.xyz();
 
 	Error += A == B ? 0 : 1;
+	Error += A == C ? 0 : 1;
 
 	return Error;
 }
@@ -52,6 +54,7 @@ int test_vec4_swizzle()
 	C.xyzw() = B.xyzw();
 
 	Error += A == B ? 0 : 1;
+	Error += A == C ? 0 : 1;
 
 	return Error;
 }
