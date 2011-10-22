@@ -129,6 +129,9 @@ namespace bitRevert
 int main()
 {
 	int Error = 0;
+
+	//GLM_STATIC_ASSERT(sizeof(glm::uint64) == 2, "glm::uint64 isn't a 64 bits type");
+
 	Error += ::extractField::test();
 	Error += ::bitRevert::test();
 	return Error;
