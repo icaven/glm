@@ -229,7 +229,7 @@ namespace detail
 	{
 		GLM_FUNC_DECL tref2(T & x, T & y);
 		GLM_FUNC_DECL tref2(tref2<T> const & r);
-		GLM_FUNC_DECL tref2(tvec2<T> const & v);
+		GLM_FUNC_DECL explicit tref2(tvec2<T> const & v);
 
 		GLM_FUNC_DECL tref2<T> & operator= (tref2<T> const & r);
 		GLM_FUNC_DECL tref2<T> & operator= (tvec2<T> const & v);

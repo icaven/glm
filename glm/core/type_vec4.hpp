@@ -310,7 +310,7 @@ namespace detail
 	{
 		GLM_FUNC_DECL tref4(T & x, T & y, T & z, T & w);
 		GLM_FUNC_DECL tref4(tref4<T> const & r);
-		GLM_FUNC_DECL tref4(tvec4<T> const & v);
+		GLM_FUNC_DECL explicit tref4(tvec4<T> const & v);
 
 		GLM_FUNC_DECL tref4<T> & operator= (tref4<T> const & r);
 		GLM_FUNC_DECL tref4<T> & operator= (tvec4<T> const & v);

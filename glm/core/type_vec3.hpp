@@ -254,7 +254,7 @@ namespace detail
 	{
 		GLM_FUNC_DECL tref3(T & x, T & y, T & z);
 		GLM_FUNC_DECL tref3(tref3<T> const & r);
-		GLM_FUNC_DECL tref3(tvec3<T> const & v);
+		GLM_FUNC_DECL explicit tref3(tvec3<T> const & v);
 
 		GLM_FUNC_DECL tref3<T> & operator= (tref3<T> const & r);
 		GLM_FUNC_DECL tref3<T> & operator= (tvec3<T> const & v);

@@ -7,7 +7,7 @@
 // File    : test/core/core_func_swizzle.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-//#define GLM_FORCE_ONLY_XYZW
+#define GLM_FORCE_ONLY_XYZW
 //#define GLM_FORCE_PURE
 #define GLM_MESSAGES
 #define GLM_SWIZZLE
