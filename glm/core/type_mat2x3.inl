@@ -462,6 +462,22 @@ namespace detail
             v.x * m[1][0] + v.y * m[1][1] + v.z * m[1][2]);
     }
 
+	template <typename T>
+	GLM_FUNC_QUALIFIER tmat2x3<T> operator* 
+	(
+		tmat2x3<T> const & m1, 
+		tmat2x2<T> const & m2
+	)
+	{
+		return tmat2x3<T>(
+			m1[0][0] * m2[0][0] + m1[1][0] * m2[0][1],
+			m1[0][1] * m2[0][0] + m1[1][1] * m2[0][1],
+			m1[0][2] * m2[0][0] + m1[1][2] * m2[0][1],
+			m1[0][0] * m2[1][0] + m1[1][0] * m2[1][1],
+			m1[0][1] * m2[1][0] + m1[1][1] * m2[1][1],
+			m1[0][2] * m2[1][0] + m1[1][2] * m2[1][1]);
+	}
+
     template <typename T> 
     GLM_FUNC_QUALIFIER tmat3x3<T> operator* 
 	(
@@ -495,6 +511,28 @@ namespace detail
 		Result[2][2] = SrcA02 * SrcB20 + SrcA12 * SrcB21;
 		return Result;
     }
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER tmat4x3<T> operator* 
+	(
+		tmat2x3<T> const & m1, 
+		tmat4x2<T> const & m2
+	)
+	{
+		return tmat4x3<T>(
+			m1[0][0] * m2[0][0] + m1[1][0] * m2[0][1],
+			m1[0][1] * m2[0][0] + m1[1][1] * m2[0][1],
+			m1[0][2] * m2[0][0] + m1[1][2] * m2[0][1],
+			m1[0][0] * m2[1][0] + m1[1][0] * m2[1][1],
+			m1[0][1] * m2[1][0] + m1[1][1] * m2[1][1],
+			m1[0][2] * m2[1][0] + m1[1][2] * m2[1][1],
+			m1[0][0] * m2[2][0] + m1[1][0] * m2[2][1],
+			m1[0][1] * m2[2][0] + m1[1][1] * m2[2][1],
+			m1[0][2] * m2[2][0] + m1[1][2] * m2[2][1],
+			m1[0][0] * m2[3][0] + m1[1][0] * m2[3][1],
+			m1[0][1] * m2[3][0] + m1[1][1] * m2[3][1],
+			m1[0][2] * m2[3][0] + m1[1][2] * m2[3][1]);
+	}
 
     template <typename T> 
     GLM_FUNC_QUALIFIER tmat2x3<T> operator/ 
