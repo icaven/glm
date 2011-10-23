@@ -52,6 +52,7 @@ generation distribution.
 GLM 0.9.2.7: 2011-1X-XX
 --------------------------------------------------------------------------------
 - Added more swizzling constructors
+- Added missing none-squared matrix products
 
 ================================================================================
 GLM 0.9.2.6: 2011-10-01
