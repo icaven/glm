@@ -37,7 +37,7 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm-0.9.2.pdf
 
 ================================================================================
-GLM 0.9.2.7: 2011-1X-XX
+GLM 0.9.2.7: 2011-10-24
 --------------------------------------------------------------------------------
 - Added more swizzling constructors
 - Added missing none-squared matrix products
