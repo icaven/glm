@@ -188,6 +188,16 @@ namespace detail
 	typename tmat4x4<T>::row_type operator* (
 		typename tmat4x4<T>::col_type const & v, 
 		tmat4x4<T> const & m);
+		
+	template <typename T>
+	tmat2x4<T> operator* (
+		tmat4x4<T> const & m1, 
+		tmat2x4<T> const & m2);
+
+	template <typename T>
+	tmat3x4<T> operator* (
+		tmat4x4<T> const & m1, 
+		tmat3x4<T> const & m2);
 
 	template <typename T> 
 	tmat4x4<T> operator* (

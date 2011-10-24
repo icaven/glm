@@ -175,9 +175,19 @@ namespace detail
 		tmat4x3<T> const & m);
 
 	template <typename T> 
+	tmat2x3<T> operator* (
+		tmat4x3<T> const & m1, 
+		tmat2x4<T> const & m2);
+
+	template <typename T> 
 	tmat3x3<T> operator* (
 		tmat4x3<T> const & m1, 
 		tmat3x4<T> const & m2);
+		
+	template <typename T>
+	tmat4x3<T> operator* (
+		tmat4x3<T> const & m1, 
+		tmat4x4<T> const & m2);
 
 	template <typename T> 
 	tmat4x3<T> operator/ (
