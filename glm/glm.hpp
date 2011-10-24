@@ -22,24 +22,24 @@
 ///
 /// @ref core
 /// @file glm/glm.hpp
-/// @date 2005-01-14 / 2011-05-16
+/// @date 2005-01-14 / 2011-10-24
 /// @author Christophe Riccio
 ///
 ///	@defgroup core GLM Core
 ///	
 ///	@brief The core of GLM, which implements exactly and only the GLSL specification to the degree possible.
 ///
-/// The GLM core consists of @ref core_types "C++ types that mirror GLSL types",
-/// @ref core_funcs "C++ functions that mirror the GLSL functions". It also includes 
+/// The GLM core consists of @ref core_types "C++ types that mirror GLSL types" and
+/// C++ functions that mirror the GLSL functions. It also includes 
 /// @ref core_precision "a set of precision-based types" that can be used in the appropriate
 /// functions. The C++ types are all based on a basic set of @ref core_template "template types".
 /// 
 /// The best documentation for GLM Core is the current GLSL specification,
-/// <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.clean.pdf">version 4.1
+/// <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.clean.pdf">version 4.2
 /// (pdf file)</a>.
 /// There are a few @ref pg_differences "differences" between GLM core and GLSL.
 /// 
-/// GLM core functionnalities requires <glm/glm.hpp> to be included to be used.
+/// GLM core functionnalities require <glm/glm.hpp> to be included to be used.
 /// 
 /// @defgroup core_types Types
 /// 
