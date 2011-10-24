@@ -44,6 +44,7 @@ namespace glm
 	/// Returns x raised to the y power. 
 	///
 	/// @param x pow function is defined for input values of x defined in the range (inf-, inf+) in the limit of the type precision.
+	/// @param y 
 	/// @tparam genType Floating-point scalar or vector types.
     ///
     /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/pow.xml">GLSL pow man page</a>

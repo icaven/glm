@@ -20,7 +20,7 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref constants
+/// @ref gtx_constants
 /// @file glm/gtx/constants.hpp
 /// @date 2011-09-30 / 2011-09-30
 /// @author Christophe Riccio

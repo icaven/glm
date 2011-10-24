@@ -28,3 +28,25 @@
 
 	These pages are the API reference only. For more information about how to use GLM, please have a look at <a href="http://glm.g-truc.net/glm.pdf">the manual</a>.
 **/
+
+/*!
+	\page pg_differences Differences between GLSL and GLM core
+	
+	GLM comes very close to replicating GLSL, but it is not exact. Here is a list of
+	differences between GLM and GLSL:
+	
+	<ul>
+		<li>
+		Precision qualifiers. In GLSL numeric types can have qualifiers that define
+		the precision of that type. While OpenGL's GLSL ignores these qualifiers, OpenGL
+		ES's version of GLSL uses them.
+		
+		C++ has no language equivalent to precision qualifiers. Instead, GLM provides
+		a set of typedefs for each kind of precision qualifier and type. These types can
+		be found in \ref core_precision "their own section".
+		
+		Functions that take types tend to be templated on those types, so they can 
+		take these qualified types just as well as the regular ones.
+		</li>
+	</ul>
+**/
