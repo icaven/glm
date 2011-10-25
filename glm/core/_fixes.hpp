@@ -16,3 +16,14 @@
 #ifdef min
 #undef min
 #endif
+
+//! Workaround for Android
+#ifdef isnan
+#undef isnan
+#endif
+
+//! Workaround for Android
+#ifdef isinf
+#undef isinf
+#endif
+
