@@ -1210,6 +1210,8 @@ namespace glm
 
 #if(GLM_COMPILER & GLM_COMPILER_VC)
 		return typename genType::bool_type(_isnan(x));
+#elif(defined(ANDROID))
+		return typename genType::bool_type(isnan(x));
 #else
 		return typename genType::bool_type(std::isnan(x));
 #endif
@@ -1261,6 +1263,8 @@ namespace glm
 
 #if(GLM_COMPILER & GLM_COMPILER_VC)
 		return typename genType::bool_type(_fpclass(x) == _FPCLASS_NINF || _fpclass(x) == _FPCLASS_PINF);
+#elif(defined(ANDROID))
+		return typename genType::bool_type(isinf(x));
 #else
 		return typename genType::bool_type(std::isinf(x));
 #endif
