@@ -39,6 +39,30 @@
 #define GLM_VERSION_REVISION		0
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+// Platform
+
+#define GLM_PLATFORM_UNKNOWN		0x00000000
+#define GLM_PLATFORM_WINDOWS		0x00010000
+#define GLM_PLATFORM_LINUX			0x00020000
+#define GLM_PLATFORM_MACOSX			0x00040000
+#define GLM_PLATFORM_IOS			0x00080000
+#define GLM_PLATFORM_ANDROID		0x00100000
+
+#ifdef GLM_FORCE_PLATFORM_UNKNOWN
+#	define GLM_PLATFORM GLM_PLATFORM_UNKNOWN
+#elif defined(_WIN32)
+#	define GLM_PLATFORM GLM_PLATFORM_WINDOWS
+#elif defined(TARGET_OS_IPHONE) || defined(TARGET_IPHONE_SIMULATOR)
+#	define GLM_PLATFORM GLM_PLATFORM_IOS
+#elif defined(__APPLE__)
+#	define GLM_PLATFORM GLM_PLATFORM_MACOSX
+#elif defined(ANDROID)
+#	define GLM_PLATFORM GLM_PLATFORM_ANDROID
+#else
+#	define GLM_PLATFORM GLM_PLATFORM_UNKNOWN
+#endif//
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 // Compiler
 
 // User defines: GLM_FORCE_COMPILER_UNKNOWN
