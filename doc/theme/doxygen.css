@@ -2,8 +2,8 @@
 
 body, table, div, p, dl 
 {
-	font-family: Lucida Grande, Verdana, Geneva, Arial, sans-serif;
-	font-size: 12px;
+	font-family: Lucida Grande, Calibri, Verdana;
+	font-size: 14px;
 }
 
 body
@@ -32,20 +32,23 @@ p
 h1 
 {
     color:#FF8000;
-	font-family:Century;
-	font-size: 150%;
+	font-family: Lucida Grande, Cambria, Georgia;
+	font-size: 24px;
+	font-weight: bold;
 }
 
 h2 
 {
     color:#FF8000;
-	font-family:Century;
-	font-size: 120%;
+	font-family: Lucida Grande, Cambria, Georgia;
+	font-size: 18px;
+	font-weight: bold;
 }
 
 h3 {
-	font-family:Century;
-	font-size: 100%;
+	font-family: Lucida Grande, Cambria, Georgia;
+	font-size: 14px;
+	font-weight: bold;
 }
 
 dt {
@@ -125,10 +128,11 @@ a {
 	margin:0px;
 	margin-left:auto; 
 	margin-right:auto;
-	padding:0px;
 	padding-top:8px;
 	padding-bottom:8px;
-	width:1000px;
+	padding-left:32px; 
+	padding-right:32px;
+	width:936px;
 }
 
 div.textblock{
@@ -160,11 +164,6 @@ a.qindexHL {
 
 a.el {
 	font-weight: bold;
-/*
-	font-family: Century;
-	font-size: 150%;
-	color:#FF8000;
-*/
 }
 
 a.elRef {
@@ -185,8 +184,8 @@ dl.el {
 }
 
 .fragment {
-	font-family: monospace, fixed;
-	font-size: 105%;
+	font-family: consolas, monospace, fixed;
+	font-size: 12px;
 }
 
 pre.fragment {
@@ -196,7 +195,6 @@ pre.fragment {
 	margin: 4px 8px 4px 2px;
 	overflow: auto;
 	word-wrap: break-word;
-	font-size:  9pt;
 	line-height: 125%;
 }
 
@@ -352,7 +350,7 @@ input.search {
 */
 
 td.tiny {
-	font-size: 75%;
+	font-size: 10px;
 }
 
 .dirtab {
@@ -389,6 +387,7 @@ table.memberdecls {
 .mdescLeft, .mdescRight,
 .memItemLeft, .memItemRight,
 .memTemplItemLeft, .memTemplItemRight, .memTemplParams {
+	font-family: consolas, "courier new", monospace;
 	background-color: #FFFCF8;
 	border: none;
 	margin: 4px;
@@ -420,14 +419,13 @@ table.memberdecls {
 /* Styles for detailed member documentation */
 
 .memtemplate {
-	font-size: 80%;
-	color: #4665A2;
+	color: #000000;
 	font-weight: normal;
 	margin-left: 9px;
 }
 
 .memnav {
-	background-color: #EBEFF6;
+	background-color: #000000;
 	border: 0px solid #A3B4D7;
 	text-align: center;
 	margin: 2px;
@@ -441,59 +439,61 @@ table.memberdecls {
 }
 
 .memname {
-        white-space: nowrap;
-        font-weight: bold;
-        margin-left: 6px;
+	font-family: consolas, "courier new", monospace;
+    font-weight: bold;
+	font-size: 12px;
+    white-space: nowrap;
+    margin-left: 6px;
 }
 
 .memproto {
-        border-top: 0px solid #FF8000;
-        border-left: 0px solid #FF8000;
-        border-right: 0px solid #FF8000;
-        padding: 6px 0px 6px 0px;
-        color: #253555;
-        font-weight: bold;
-        text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.9);
-        /* opera specific markup */
-        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
-        border-top-right-radius: 8px;
-        border-top-left-radius: 8px;
-        /* firefox specific markup */
-        -moz-box-shadow: rgba(0, 0, 0, 0.15) 5px 5px 5px;
-        -moz-border-radius-topright: 8px;
-        -moz-border-radius-topleft: 8px;
-        /* webkit specific markup */
-        -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
-        -webkit-border-top-right-radius: 8px;
-        -webkit-border-top-left-radius: 8px;
-        /*background-image:url('nav_f.png');*/
-        background-repeat:repeat-x;
-        background-color: #FFFFFF;
-		background-image: -moz-linear-gradient(center top, #FFF8F0 0%, #FFFFFF 60%, #FFFFFF 95%, #FFFFFF);
-		background-image: -webkit-gradient(linear,center top,center bottom,from(#FFF8F0), color-stop(0.2,#FFFFFF), color-stop(0.60,#FFFFFF), color-stop(0.95,#FFFFFF), to(#FFFFFF));
+    border-top: 0px solid #FF8000;
+    border-left: 0px solid #FF8000;
+    border-right: 0px solid #FF8000;
+    padding: 6px 0px 6px 0px;
+    color: #000000;
+    font-weight: bold;
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.9);
+    /* opera specific markup */
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    /* firefox specific markup */
+    -moz-box-shadow: rgba(0, 0, 0, 0.15) 5px 5px 5px;
+    -moz-border-radius-topright: 8px;
+    -moz-border-radius-topleft: 8px;
+    /* webkit specific markup */
+    -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+    -webkit-border-top-right-radius: 8px;
+    -webkit-border-top-left-radius: 8px;
+    background-repeat:repeat-x;
+    background-color: #FFFFFF;
+	background-image: -moz-linear-gradient(center top, #FFF8F0 0%, #FFFFFF 60%, #FFFFFF 95%, #FFFFFF);
+	background-image: -webkit-gradient(linear,center top,center bottom,from(#FFF8F0), color-stop(0.2,#FFFFFF), color-stop(0.60,#FFFFFF), color-stop(0.95,#FFFFFF), to(#FFFFFF));
 }
 
 .memdoc {
-        border-bottom: 0px solid #FF8000;      
-        border-left: 0px solid #FF8000;      
-        border-right: 0px solid #FF8000; 
-        padding: 2px 5px;
-        background-color: #FFFFFF;
-        border-top-width: 0;
-        /* opera specific markup */
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
-        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
-        /* firefox specific markup */
-        -moz-border-radius-bottomleft: 8px;
-        -moz-border-radius-bottomright: 8px;
-        -moz-box-shadow: rgba(0, 0, 0, 0.15) 5px 5px 5px;
-        background-image: -moz-linear-gradient(center top, #FFFFFF 0%, #FFFFFF 60%, #FFF8F0 90%, #FFEEDD);
-        /* webkit specific markup */
-        -webkit-border-bottom-left-radius: 8px;
-        -webkit-border-bottom-right-radius: 8px;
-        -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
-        background-image: -webkit-gradient(linear,center top,center bottom,from(#FFFFFF), color-stop(0.6,#FFFFFF), color-stop(0.60,#FFFFFF), color-stop(0.90,#FFF8F0), to(#FFEEDD));
+	/*font-family: Lucida Grande, Calibri, Verdana;*/
+    border-bottom: 0px solid #FF8000;      
+    border-left: 0px solid #FF8000;      
+    border-right: 0px solid #FF8000; 
+    padding: 2px 5px;
+    background-color: #FFFFFF;
+    border-top-width: 0;
+    /* opera specific markup */
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+    /* firefox specific markup */
+    -moz-border-radius-bottomleft: 8px;
+    -moz-border-radius-bottomright: 8px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.15) 5px 5px 5px;
+    background-image: -moz-linear-gradient(center top, #FFFFFF 0%, #FFFFFF 60%, #FFF8F0 90%, #FFEEDD);
+    /* webkit specific markup */
+    -webkit-border-bottom-left-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+    -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+    background-image: -webkit-gradient(linear,center top,center bottom,from(#FFFFFF), color-stop(0.6,#FFFFFF), color-stop(0.60,#FFFFFF), color-stop(0.90,#FFF8F0), to(#FFEEDD));
 }
 
 .paramkey {
@@ -505,7 +505,7 @@ table.memberdecls {
 }
 
 .paramname {
-	color: #602020;
+	color: #000000;
 	white-space: nowrap;
 }
 .paramname em {
@@ -517,7 +517,9 @@ table.memberdecls {
 }       
 
 .params .paramname, .retval .paramname {
+        font-family: monospace, consolas, "courier new";
         font-weight: bold;
+		font-size: 12px;
         vertical-align: top;
 }
         
@@ -527,7 +529,6 @@ table.memberdecls {
 }       
         
 .params .paramdir {
-        font-family: "courier new",courier,monospace;
         vertical-align: top;
 }
 
@@ -541,14 +542,13 @@ table.memberdecls {
 /* for the tree view */
 
 .ftvtree {
-	font-family: sans-serif;
+	/*font-family: Lucida Grande, Calibri, Verdana;*/
 	margin: 0px;
 }
 
 /* these are for tree view when used as main index */
 
 .directory {
-	font-size: 9pt;
 	font-weight: bold;
 	margin: 5px;
 }
@@ -556,7 +556,6 @@ table.memberdecls {
 .directory h3 {
 	margin: 0px;
 	margin-top: 1em;
-	font-size: 11pt;
 }
 
 /*
@@ -605,7 +604,6 @@ proper pixel height of your image.
 .directory-alt h3 {
 	margin: 0px;
 	margin-top: 1em;
-	font-size: 11pt;
 }
 
 .directory-alt > h3 {
@@ -642,12 +640,12 @@ table.doxtable {
 }
 
 table.doxtable td, table.doxtable th {
-	border: 0px solid #2D4068;
+	border: 0px solid #000000;
 	padding: 3px 7px 2px;
 }
 
 table.doxtable th {
-	background-color: #374F7F;
+	background-color: #000000;
 	color: #FFFFFF;
 	font-size: 110%;
 	padding-bottom: 4px;
@@ -662,12 +660,10 @@ table.doxtable th {
 	/*background-image: url('tab_b.png');*/
 	z-index: 101;
 	overflow: hidden;
-	font-size: 13px;
 }
 
 .navpath ul
 {
-	font-size: 11px;
 	background-color: #FFEEDD;
 	height:30px;
 	line-height:30px;
@@ -710,15 +706,14 @@ table.doxtable th {
 	background-repeat:no-repeat;
 	background-position:right;
 	color:#FFEEDD;
-	font-size: 8pt;
 }
 
 div.summary
 {
 	float: right;
-	font-size: 8pt;
+	font-size: 12px;
 	padding-right: 5px;
-	width: 50%;
+	width: 160px;
 	text-align: right;
 }       
 
@@ -729,7 +724,6 @@ div.summary a
 
 div.ingroups
 {
-	font-size: 8pt;
 	padding-left: 5px;
 	width: 50%;
 	text-align: left;
@@ -762,6 +756,13 @@ div.headertitle
 	padding-top:10px;
 }
 
+div.title
+{
+	font-family: Lucida Grande, Cambria, Georgia;
+	font-size: 24px;
+	color: #FF7F00;
+}
+
 dl
 {
         padding: 0 0 0 10px;
@@ -769,7 +770,7 @@ dl
 
 dl.note, dl.warning, dl.attention, dl.pre, dl.post, dl.invariant, dl.deprecated, dl.todo, dl.test, dl.bug
 {
-    border-color: #FF8000;
+    border-color: #FF7F00;
     border-left:4px solid;
     padding: 0 0 0 6px;
 }
@@ -823,21 +824,24 @@ dl.bug
  
 #projectname
 {
-	font: 300% arial,sans-serif;
+	/*font-family: Lucida Grande, Cambria, Georgia;*/
+	font-size: 24px;
 	margin: 0px;
 	padding: 0px;
 }
     
 #projectbrief
 {
-	font: 120% arial,sans-serif;
+	/*font-family: Lucida Grande, Cambria, Georgia;*/
+	font-size: 18px;
 	margin: 0px;
 	padding: 0px;
 }
 
 #projectnumber
 {
-	font: 50% arial,sans-serif;
+	/*font-family: Lucida Grande, Cambria, Georgia;*/
+	font-size: 14px;
 	margin: 0px;
 	padding: 0px;
 }
@@ -856,6 +860,4 @@ dl.bug
 	margin-left:auto; 
 	margin-right:auto;
 	width:1000px;
-
-    /*background-color:#000000;*/
 }
