@@ -37,7 +37,7 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm-0.9.3.pdf
 
 ================================================================================
-GLM 0.9.3.0: 2011-XX-XX
+GLM 0.9.3.A: 2011-11-11
 --------------------------------------------------------------------------------
 - Improved doxygen documentation
 - Promoted GLM_GTC_noise extension: simplex, perlin, periodic noise functions
