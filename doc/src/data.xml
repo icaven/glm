@@ -4,7 +4,7 @@
   <downloads>
     <section name="GLM - zip files">
       <download name="GLM 0.9.2.7" date="24/10/2011" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.7/glm-0.9.2.7.zip/download"/>
-      <download name="GLM 0.9.3.A" date="11/11/2011" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.A/glm-0.9.3.A.zip/download"/>
+      <download name="GLM 0.9.3.A" date="11/11/2011" size="4.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.A/glm-0.9.3.A.zip/download"/>
       <download name="GLM 0.9.2.6" date="01/10/2011" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.6/glm-0.9.2.6.zip/download"/>
       <download name="GLM 0.9.2.5" date="20/09/2011" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.5/glm-0.9.2.5.zip/download"/>
       <download name="GLM 0.9.2.4" date="03/09/2011" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.4/glm-0.9.2.4.zip/download"/>
@@ -72,7 +72,7 @@
     </section>
     <section name="GLM - 7z files">
       <download name="GLM 0.9.2.7" date="24/10/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.7/glm-0.9.2.7.7z/download"/>
-      <download name="GLM 0.9.3.A" date="11/11/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.A/glm-0.9.3.A.7z/download"/>
+      <download name="GLM 0.9.3.A" date="11/11/2011" size="2.8 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.A/glm-0.9.3.A.7z/download"/>
       <download name="GLM 0.9.2.6" date="01/10/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.6/glm-0.9.2.6.7z/download"/>
       <download name="GLM 0.9.2.5" date="20/09/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.5/glm-0.9.2.5.7z/download"/>
 		<download name="GLM 0.9.2.4" date="03/09/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.4/glm-0.9.2.4.7z/download"/>
@@ -170,6 +170,29 @@
       <paragraph>
         GLM 0.9.3 is making progress which is illustrated by the release of this first alpha. 
       </paragraph>
+      <list name="Changelog:">
+        <list-element>
+          Improved doxygen documentation
+        </list-element>
+        <list-element>
+          Added GLSL 4.20 length for vector and matrix types
+        </list-element>
+        <list-element>
+          Added GLSL core noise functions
+        </list-element>
+        <list-element>
+          Promoted GLM_GTC_noise extension: simplex, perlin, periodic noise functions
+        </list-element>
+        <list-element>
+          Promoted GLM_GTC_random extension: linear, gaussian and various random number generation distribution
+        </list-element>
+        <list-element>
+          Added GLM_GTX_constants: provides usefull constants
+        </list-element>
+        <list-element>
+          Fixed half based type contructors
+        </list-element>
+      </list>
       <paragraph>
         
       </paragraph>
