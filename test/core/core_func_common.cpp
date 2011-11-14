@@ -33,6 +33,15 @@ int test_modf()
 	}
 
 	{
+		glm::dvec4 X(1.1, 1.2, 1.5, 1.7);
+		glm::dvec4 I(0.0);
+		glm::dvec4 A = glm::modf(X, I);
+
+		Error += I == glm::dvec4(1.0) ? 0 : 1;
+		Error += glm::all(glm::equalEpsilon(A, glm::dvec4(0.1, 0.2, 0.5, 0.7), 0.000000001)) ? 0 : 1;
+	}
+
+	{
 		double X(1.5);
 		double I(0.0);
 		double A = glm::modf(X, I);
