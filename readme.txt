@@ -34,7 +34,7 @@ GLM is a header only library, there is nothing to build, just include it.
 #include <glm/glm.hpp>
 
 More informations in GLM manual:
-http://glm.g-truc.net/glm-0.9.2.pdf
+http://glm.g-truc.net/glm-0.9.3.pdf
 
 ================================================================================
 GLM 0.9.2.8: 2011-12-XX
