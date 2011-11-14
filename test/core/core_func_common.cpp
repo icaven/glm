@@ -245,7 +245,7 @@ int test_roundEven()
 
 int main()
 {
-	int Error = 0;
+	int Error(0);
 
 	Error += test_floatBitsToInt();
 	Error += test_floatBitsToUint();

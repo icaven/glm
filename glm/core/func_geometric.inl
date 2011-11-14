@@ -279,7 +279,7 @@ namespace glm
 		genType const & N
 	)
 	{
-		return I - N * dot(N, I) * float(2);
+		return I - N * dot(N, I) * genType(2);
 	}
 
     // refract
