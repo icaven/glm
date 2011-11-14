@@ -217,9 +217,7 @@ namespace detail
     {
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'modf' only accept floating-point inputs");
 
-		i = glm::floor(x);
-
-        return x - i;
+		return std::modf(x, &i);
     }
 
     template <typename valType>

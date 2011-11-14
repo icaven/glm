@@ -34,12 +34,19 @@ GLM is a header only library, there is nothing to build, just include it.
 #include <glm/glm.hpp>
 
 More informations in GLM manual:
-http://glm.g-truc.net/glm-0.9.3.pdf
+http://glm.g-truc.net/glm-0.9.2.pdf
+
+================================================================================
+GLM 0.9.2.8: 2011-12-XX
+--------------------------------------------------------------------------------
+- Fixed modf implementation
 
 ================================================================================
 GLM 0.9.3.A: 2011-11-11
 --------------------------------------------------------------------------------
 - Improved doxygen documentation
+- Added new swizzle operators for C++11 compilers
+- Added new swizzle operators declared as functions
 - Promoted GLM_GTC_noise extension: simplex, perlin, periodic noise functions
 - Promoted GLM_GTC_random extension: linear, gaussian and various random number 
 generation distribution

@@ -242,6 +242,11 @@ namespace detail
 		};						\
 	}
 
+	GLM_DETAIL_IS_FLOAT(detail::thalf);
+	GLM_DETAIL_IS_FLOAT(float);
+	GLM_DETAIL_IS_FLOAT(double);
+	GLM_DETAIL_IS_FLOAT(long double);
+
 	//////////////////
 	// bool
 

@@ -34,15 +34,6 @@
 
 namespace glm
 {
-	namespace detail
-	{
-		GLM_DETAIL_IS_FLOAT(detail::thalf);
-		GLM_DETAIL_IS_FLOAT(float);
-		GLM_DETAIL_IS_FLOAT(double);
-		GLM_DETAIL_IS_FLOAT(long double);
-	}
-	//namespace detail
-
 #ifdef GLM_USE_HALF_SCALAR
     typedef detail::thalf		lowp_float_t;
 #else//GLM_USE_HALF_SCALAR
