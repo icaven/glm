@@ -200,7 +200,7 @@
         </list-element>
       </list>
       <paragraph>
-        
+
       </paragraph>
 
       <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.A/glm-0.9.3.A.zip/download">GLM 0.9.3.A (zip)</source>
@@ -209,7 +209,7 @@
       <source type="Link" href="http://glm.g-truc.net/glm-0.9.3.pdf">GLM 0.9.3 Manual</source>
       <source type="Link" href="http://glm.g-truc.net/api-0.9.3/index.html">GLM 0.9.3 API</source>
     </news>
-    
+
     <news index="0072" date="24/10/2011" title="GLM 0.9.2.7 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>
         This revision fixes two problems: First, it adds all matrix products for all possible combinations of none-squared matrices. Thanks to <a href="http://www.zeuscmd.com">Grant James</a> who has provide the code for that.
