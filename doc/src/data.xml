@@ -175,6 +175,12 @@
           Improved doxygen documentation
         </list-element>
         <list-element>
+          Added new swizzle operators for C++11 compilers
+        </list-element>
+        <list-element>
+          Added new swizzle operators declared as functions
+        </list-element>
+        <list-element>
           Added GLSL 4.20 length for vector and matrix types
         </list-element>
         <list-element>

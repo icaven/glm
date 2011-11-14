@@ -47,6 +47,7 @@ GLM 0.9.3.A: 2011-11-11
 - Improved doxygen documentation
 - Added new swizzle operators for C++11 compilers
 - Added new swizzle operators declared as functions
+- Added GLSL 4.20 length for vector and matrix types
 - Promoted GLM_GTC_noise extension: simplex, perlin, periodic noise functions
 - Promoted GLM_GTC_random extension: linear, gaussian and various random number 
 generation distribution
