@@ -288,6 +288,25 @@ namespace glm
 	(
 		genType const & I, 
 		genType const & N, 
+		genType const & eta
+	)
+    {
+		//It could be a vector
+		//GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+
+        genType dotValue = dot(N, I);
+        genType k = genType(1) - eta * eta * (genType(1) - dotValue * dotValue);
+        if(k < genType(0))
+            return genType(0);
+        else
+            return eta * I - (eta * dotValue + sqrt(k)) * N;
+    }
+
+    template <typename genType>
+    GLM_FUNC_QUALIFIER genType refract
+	(
+		genType const & I, 
+		genType const & N, 
 		typename genType::value_type const & eta
 	)
     {
