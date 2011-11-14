@@ -8,6 +8,41 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/glm.hpp>
+#include <glm/gtx/epsilon.hpp>
+
+int test_modf()
+{
+	int Error(0);
+
+	{
+		float X(1.5f);
+		float I(0.0f);
+		float A = glm::modf(X, I);
+
+		Error += I == 1.0f ? 0 : 1;
+		Error += A == 0.5f ? 0 : 1;
+	}
+
+	{
+		glm::vec4 X(1.1f, 1.2f, 1.5f, 1.7f);
+		glm::vec4 I(0.0f);
+		glm::vec4 A = glm::modf(X, I);
+
+		Error += I == glm::vec4(1.0f) ? 0 : 1;
+		Error += glm::all(glm::equalEpsilon(A, glm::vec4(0.1f, 0.2f, 0.5f, 0.7f), 0.00001f)) ? 0 : 1;
+	}
+
+	{
+		double X(1.5);
+		double I(0.0);
+		double A = glm::modf(X, I);
+
+		Error += I == 1.0 ? 0 : 1;
+		Error += A == 0.5 ? 0 : 1;
+	}
+
+	return Error;
+}
 
 int test_floatBitsToInt()
 {
@@ -247,6 +282,7 @@ int main()
 {
 	int Error = 0;
 
+	Error += test_modf();
 	Error += test_floatBitsToInt();
 	Error += test_floatBitsToUint();
 	Error += test_mix();
