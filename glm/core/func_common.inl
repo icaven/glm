@@ -608,7 +608,7 @@ namespace detail
     {
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'mix' only accept floating-point inputs");
 
-        return x <= edge ? genType(0) : genType(1);
+        return x < edge ? genType(0) : genType(1);
     }
 
     template <typename T>
@@ -619,8 +619,8 @@ namespace detail
 	)
     {
         return detail::tvec2<T>(
-            x.x <= edge ? T(0) : T(1),
-            x.y <= edge ? T(0) : T(1));
+            x.x < edge ? T(0) : T(1),
+            x.y < edge ? T(0) : T(1));
     }
 
     template <typename T>
@@ -631,9 +631,9 @@ namespace detail
 	)
     {
 		return detail::tvec3<T>(
-			x.x <= edge ? T(0) : T(1),
-			x.y <= edge ? T(0) : T(1),
-			x.z <= edge ? T(0) : T(1));
+			x.x < edge ? T(0) : T(1),
+			x.y < edge ? T(0) : T(1),
+			x.z < edge ? T(0) : T(1));
     }
 
     template <typename T>
@@ -644,10 +644,10 @@ namespace detail
 	)
     {
         return detail::tvec4<T>(
-            x.x <= edge ? T(0) : T(1),
-            x.y <= edge ? T(0) : T(1),
-            x.z <= edge ? T(0) : T(1),
-            x.w <= edge ? T(0) : T(1));
+            x.x < edge ? T(0) : T(1),
+            x.y < edge ? T(0) : T(1),
+            x.z < edge ? T(0) : T(1),
+            x.w < edge ? T(0) : T(1));
     }
 
     template <typename T>
@@ -658,8 +658,8 @@ namespace detail
 	)
     {
         return detail::tvec2<T>(
-            x.x <= edge.x ? T(0) : T(1),
-            x.y <= edge.y ? T(0) : T(1));
+            x.x < edge.x ? T(0) : T(1),
+            x.y < edge.y ? T(0) : T(1));
     }
 
     template <typename T>
@@ -670,9 +670,9 @@ namespace detail
 	)
     {
         return detail::tvec3<T>(
-            x.x <= edge.x ? T(0) : T(1),
-            x.y <= edge.y ? T(0) : T(1),
-            x.z <= edge.z ? T(0) : T(1));
+            x.x < edge.x ? T(0) : T(1),
+            x.y < edge.y ? T(0) : T(1),
+            x.z < edge.z ? T(0) : T(1));
     }
 
     template <typename T>
@@ -683,10 +683,10 @@ namespace detail
 	)
     {
         return detail::tvec4<T>(
-            x.x <= edge.x ? T(0) : T(1),
-            x.y <= edge.y ? T(0) : T(1),
-            x.z <= edge.z ? T(0) : T(1),
-            x.w <= edge.w ? T(0) : T(1));
+            x.x < edge.x ? T(0) : T(1),
+            x.y < edge.y ? T(0) : T(1),
+            x.z < edge.z ? T(0) : T(1),
+            x.w < edge.w ? T(0) : T(1));
     }
 
     // smoothstep
