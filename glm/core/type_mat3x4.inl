@@ -57,7 +57,7 @@ namespace detail
 		size_type i
 	)
 	{
-		assert(i < this->row_size());
+		assert(i < this->length());
 		return this->value[i];
 	}
 
@@ -68,7 +68,7 @@ namespace detail
 		size_type i
 	) const
 	{
-		assert(i < this->row_size());
+		assert(i < this->length());
 		return this->value[i];
 	}
 

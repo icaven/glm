@@ -51,7 +51,7 @@ namespace detail
 		size_type i
 	)
 	{
-		assert(i < value_size());
+		assert(i < this->length());
 		return (&x)[i];
 	}
 
@@ -62,7 +62,7 @@ namespace detail
 		size_type i
 	) const
 	{
-		assert(i < value_size());
+		assert(i < this->length());
 		return (&x)[i];
 	}
 
