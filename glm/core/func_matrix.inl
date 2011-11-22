@@ -135,8 +135,8 @@ namespace glm
 	template <typename T>
 	GLM_FUNC_QUALIFIER detail::tmat2x4<T> outerProduct
 	(
-		detail::tvec2<T> const & c, 
-		detail::tvec4<T> const & r
+		detail::tvec4<T> const & c, 
+		detail::tvec2<T> const & r
 	)
 	{
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'outerProduct' only accept floating-point inputs");
@@ -156,8 +156,8 @@ namespace glm
 	template <typename T>
 	GLM_FUNC_QUALIFIER detail::tmat4x2<T> outerProduct
 	(
-		detail::tvec4<T> const & c, 
-		detail::tvec2<T> const & r
+		detail::tvec2<T> const & c, 
+		detail::tvec4<T> const & r
 	)
 	{
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'outerProduct' only accept floating-point inputs");
