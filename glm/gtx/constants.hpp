@@ -52,8 +52,12 @@ namespace glm
 	/// @addtogroup gtx_constants
 	/// @{
 
+	/// @todo Implement epsilon for half-precision floating point type.
 	template <typename T>
-	T pi();
+	GLM_FUNC_QUALIFIER T epsilon()
+	{
+		return std::numeric_limits<T>::epsilon();
+	}
 
 	template <typename T>
 	GLM_FUNC_QUALIFIER T pi()

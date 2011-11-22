@@ -74,21 +74,41 @@ namespace glm
 				length(v1)) * epsilon;
 	}
 
-	template <typename genType> 
+	template <typename genType, template <typename> class vecType> 
 	GLM_FUNC_QUALIFIER bool isNormalized
 	(
-		genType const & v, 
-		typename genType::value_type const & epsilon
+		vecType<genType> const & v, 
+		genType const & epsilon
 	)
 	{
-		return abs(length(v) - typename genType::value_type(1)) <= typename genType::value_type(2) * epsilon;
+		return abs(length(v) - genType(1)) <= genType(2) * epsilon;
 	}
 
-	template <typename genType> 
+	template <typename valType> 
 	GLM_FUNC_QUALIFIER bool isNull
 	(
-		genType const & v, 
-		typename genType::value_type const & epsilon
+		detail::tvec2<valType> const & v, 
+		valType const & epsilon
+	)
+	{
+		return length(v) <= epsilon;
+	}
+
+	template <typename valType> 
+	GLM_FUNC_QUALIFIER bool isNull
+	(
+		detail::tvec3<valType> const & v, 
+		valType const & epsilon
+	)
+	{
+		return length(v) <= epsilon;
+	}
+
+	template <typename valType> 
+	GLM_FUNC_QUALIFIER bool isNull
+	(
+		detail::tvec4<valType> const & v, 
+		valType const & epsilon
 	)
 	{
 		return length(v) <= epsilon;
