@@ -78,12 +78,12 @@ namespace glm
 	)
 	{
 		bool result(true);
-		for(detail::tmat2x2<genType>::size_type i(0); result && i < m.length(); ++i)
+                for(typename detail::tmat2x2<genType>::size_type i(0); result && i < m.length(); ++i)
 			result = isNormalized(m[i], epsilon);
-		for(detail::tmat2x2<genType>::size_type i(0); result && i < m.length(); ++i)
+                for(typename detail::tmat2x2<genType>::size_type i(0); result && i < m.length(); ++i)
 		{
-			detail::tmat2x2<genType>::col_type v;
-			for(detail::tmat2x2<genType>::size_type j(0); j < m.length(); ++j)
+                        typename detail::tmat2x2<genType>::col_type v;
+                        for(typename detail::tmat2x2<genType>::size_type j(0); j < m.length(); ++j)
 				v[j] = m[j][i];
 			result = isNormalized(v, epsilon);
 		}
@@ -98,12 +98,12 @@ namespace glm
 	)
 	{
 		bool result(true);
-		for(detail::tmat3x3<genType>::size_type i(0); result && i < m.length(); ++i)
+                for(typename detail::tmat3x3<genType>::size_type i(0); result && i < m.length(); ++i)
 			result = isNormalized(m[i], epsilon);
-		for(detail::tmat3x3<genType>::size_type i(0); result && i < m.length(); ++i)
+                for(typename detail::tmat3x3<genType>::size_type i(0); result && i < m.length(); ++i)
 		{
-			detail::tmat3x3<genType>::col_type v;
-			for(detail::tmat3x3<genType>::size_type j(0); j < m.length(); ++j)
+                        typename detail::tmat3x3<genType>::col_type v;
+                        for(typename detail::tmat3x3<genType>::size_type j(0); j < m.length(); ++j)
 				v[j] = m[j][i];
 			result = isNormalized(v, epsilon);
 		}
@@ -118,12 +118,12 @@ namespace glm
 	)
 	{
 		bool result(true);
-		for(detail::tmat4x4<genType>::size_type i(0); result && i < m.length(); ++i)
+                for(typename detail::tmat4x4<genType>::size_type i(0); result && i < m.length(); ++i)
 			result = isNormalized(m[i], epsilon);
-		for(detail::tmat4x4<genType>::size_type i(0); result && i < m.length(); ++i)
+                for(typename detail::tmat4x4<genType>::size_type i(0); result && i < m.length(); ++i)
 		{
-			detail::tmat4x4<genType>::col_type v;
-			for(detail::tmat4x4<genType>::size_type j(0); j < m.length(); ++j)
+                        typename detail::tmat4x4<genType>::col_type v;
+                        for(typename detail::tmat4x4<genType>::size_type j(0); j < m.length(); ++j)
 				v[j] = m[j][i];
 			result = isNormalized(v, epsilon);
 		}
