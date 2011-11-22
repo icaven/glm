@@ -39,9 +39,10 @@ namespace glm
 			"Invalid template instantiation of 'lessThan', GLM vector types required");
 		GLM_STATIC_ASSERT(detail::is_bool<T>::_NO,
 			"Invalid template instantiation of 'lessThan', GLM vector types required floating-point or integer value types vectors");
+		assert(x.length() == y.length());
 
 		typename vecType<bool>::bool_type Result(vecType<bool>::null);
-		for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
+		for(typename vecType<bool>::size_type i = 0; i < x.length(); ++i)
 			Result[i] = x[i] < y[i];
 
 		return Result;
@@ -58,9 +59,10 @@ namespace glm
 			"Invalid template instantiation of 'lessThanEqual', GLM vector types required");
 		GLM_STATIC_ASSERT(detail::is_bool<T>::_NO, 
 			"Invalid template instantiation of 'lessThanEqual', GLM vector types required floating-point or integer value types vectors");
+		assert(x.length() == y.length());
 
 		typename vecType<bool>::bool_type Result(vecType<bool>::null);
-		for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
+		for(typename vecType<bool>::size_type i = 0; i < x.length(); ++i)
 			Result[i] = x[i] <= y[i];
 		return Result;
 	}
@@ -76,9 +78,10 @@ namespace glm
 			"Invalid template instantiation of 'greaterThan', GLM vector types required");
 		GLM_STATIC_ASSERT(detail::is_bool<T>::_NO, 
 			"Invalid template instantiation of 'greaterThan', GLM vector types required floating-point or integer value types vectors");
+		assert(x.length() == y.length());
 
 		typename vecType<bool>::bool_type Result(vecType<bool>::null);
-		for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
+		for(typename vecType<bool>::size_type i = 0; i < x.length(); ++i)
 			Result[i] = x[i] > y[i];
 		return Result;
 	}
@@ -94,9 +97,10 @@ namespace glm
 			"Invalid template instantiation of 'greaterThanEqual', GLM vector types required");
 		GLM_STATIC_ASSERT(detail::is_bool<T>::_NO, 
 			"Invalid template instantiation of 'greaterThanEqual', GLM vector types required floating-point or integer value types vectors");
+		assert(x.length() == y.length());
 
 		typename vecType<bool>::bool_type Result(vecType<bool>::null);
-		for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
+		for(typename vecType<bool>::size_type i = 0; i < x.length(); ++i)
 			Result[i] = x[i] >= y[i];
 		return Result;
 	}
@@ -110,9 +114,10 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::is_vector<vecType<T> >::_YES, 
 			"Invalid template instantiation of 'equal', GLM vector types required");
+		assert(x.length() == y.length());
 
 		typename vecType<bool>::bool_type Result(vecType<bool>::null);
-		for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
+		for(typename vecType<bool>::size_type i = 0; i < x.length(); ++i)
 			Result[i] = x[i] == y[i];
 		return Result;
 	}
@@ -126,9 +131,10 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::is_vector<vecType<T> >::_YES, 
 			"Invalid template instantiation of 'notEqual', GLM vector types required");
+		assert(x.length() == y.length());
 
 		typename vecType<bool>::bool_type Result(vecType<bool>::null);
-		for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
+		for(typename vecType<bool>::size_type i = 0; i < x.length(); ++i)
 			Result[i] = x[i] != y[i];
 		return Result;
 	}
@@ -140,7 +146,7 @@ namespace glm
 			"Invalid template instantiation of 'any', GLM boolean vector types required");
 
 		bool Result = false;
-		for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
+		for(typename vecType<bool>::size_type i = 0; i < v.length(); ++i)
 			Result = Result || v[i];
 		return Result;
 	}
@@ -152,7 +158,7 @@ namespace glm
 			"Invalid template instantiation of 'all', GLM boolean vector types required");
 
 		bool Result = true;
-		for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
+		for(typename vecType<bool>::size_type i = 0; i < v.length(); ++i)
 			Result = Result && v[i];
 		return Result;
 	}
@@ -164,7 +170,7 @@ namespace glm
 			"Invalid template instantiation of 'not_', GLM vector types required");
 
 		typename vecType<bool>::bool_type Result(vecType<bool>::null);
-		for(typename vecType<bool>::size_type i = 0; i < vecType<bool>::value_size(); ++i)
+		for(typename vecType<bool>::size_type i = 0; i < v.length(); ++i)
 			Result[i] = !v[i];
 		return Result;
 	}

@@ -35,12 +35,6 @@ namespace detail
 		return 4;
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER typename tvec4<T>::size_type tvec4<T>::value_size()
-	{
-		return 4;
-	}
-
 	//////////////////////////////////////
 	// Accesses
 
