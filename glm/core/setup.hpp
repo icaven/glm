@@ -47,6 +47,7 @@
 #define GLM_PLATFORM_MACOSX			0x00040000
 #define GLM_PLATFORM_IOS			0x00080000
 #define GLM_PLATFORM_ANDROID		0x00100000
+#define GLM_PLATFORM_CHROME_NACL	0x00200000
 
 #ifdef GLM_FORCE_PLATFORM_UNKNOWN
 #	define GLM_PLATFORM GLM_PLATFORM_UNKNOWN
@@ -58,9 +59,31 @@
 #	define GLM_PLATFORM GLM_PLATFORM_MACOSX
 #elif defined(ANDROID)
 #	define GLM_PLATFORM GLM_PLATFORM_ANDROID
+#elif defined(__native_client__)
+#	define GLM_PLATFORM GLM_PLATFORM_CHROME_NACL
 #else
 #	define GLM_PLATFORM GLM_PLATFORM_UNKNOWN
 #endif//
+
+// Report platform detection
+#if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_PLATFORM_DISPLAYED))
+#	define GLM_MESSAGE_PLATFORM_DISPLAYED
+#	if(GLM_PLATFORM & GLM_PLATFORM_WINDOWS)
+#		pragma message("GLM: Windows platform detected")
+#	elif(GLM_PLATFORM & GLM_PLATFORM_IOS)
+#		pragma message("GLM: iOS platform detected")
+#	elif(GLM_PLATFORM & GLM_PLATFORM_MACOSX)
+#		pragma message("GLM: MacOSX platform detected")
+#	elif(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
+#		pragma message("GLM: Android platform detected")
+#	elif(GLM_PLATFORM & GLM_PLATFORM_CHROME_NACL)
+#		pragma message("GLM: Chrone Native Client detected")
+#	elif(GLM_PLATFORM & GLM_PLATFORM_UNKNOWN)
+#		pragma message("GLM: platform unknown")
+#	else
+#		pragma message("GLM: platform not detected")
+#	endif
+#endif//GLM_MESSAGE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Compiler

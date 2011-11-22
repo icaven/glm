@@ -22,7 +22,7 @@
 ///
 /// @ref core
 /// @file glm/core/_fixes.hpp
-/// @date 2011-02-21 / 2011-02-16
+/// @date 2011-02-21 / 2011-11-22
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -44,5 +44,10 @@
 //! Workaround for Android
 #ifdef isinf
 #undef isinf
+#endif
+
+//! Workaround for Chrone Native Client
+#ifdef log2
+#undef log2
 #endif
 
