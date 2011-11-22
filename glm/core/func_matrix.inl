@@ -74,7 +74,7 @@ namespace glm
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'outerProduct' only accept floating-point inputs");
 
 		detail::tmat3x3<T> m(detail::tmat3x3<T>::null);
-		for(typename detail::tmat3x3<T>::size_type i = 0; i < detail::tmat3x3<T>::col_size(); ++i)
+		for(typename detail::tmat3x3<T>::size_type i(0); i < m.length(); ++i)
 			m[i] = c * r[i];
 		return m;
 	}
@@ -89,7 +89,7 @@ namespace glm
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'outerProduct' only accept floating-point inputs");
 
 		detail::tmat4x4<T> m(detail::tmat4x4<T>::null);
-		for(typename detail::tmat4x4<T>::size_type i = 0; i < detail::tmat4x4<T>::col_size(); ++i)
+		for(typename detail::tmat4x4<T>::size_type i(0); i < m.length(); ++i)
 			m[i] = c * r[i];
 		return m;
 	}
