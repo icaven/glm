@@ -48,17 +48,29 @@
 #define GLM_PLATFORM_IOS			0x00080000
 #define GLM_PLATFORM_ANDROID		0x00100000
 #define GLM_PLATFORM_CHROME_NACL	0x00200000
+#define GLM_PLATFORM_UNIX			0x00040000
 
 #ifdef GLM_FORCE_PLATFORM_UNKNOWN
 #	define GLM_PLATFORM GLM_PLATFORM_UNKNOWN
 #elif defined(_WIN32)
 #	define GLM_PLATFORM GLM_PLATFORM_WINDOWS
-#elif defined(TARGET_OS_IPHONE) || defined(TARGET_IPHONE_SIMULATOR)
-#	define GLM_PLATFORM GLM_PLATFORM_IOS
-#elif defined(__APPLE__)
-#	define GLM_PLATFORM GLM_PLATFORM_MACOSX
-#elif defined(ANDROID)
+#elif defined(__unix)
+#   if defined(__APPLE__)
+#       include "TargetConditionals.h"
+#       if defined(TARGET_OS_IPHONE) || defined(TARGET_IPHONE_SIMULATOR)
+#           define GLM_PLATFORM GLM_PLATFORM_IOS
+#       elif defined(TARGET_OS_MAC)
+#           define GLM_PLATFORM GLM_PLATFORM_MACOSX
+#       else
+#           define GLM_PLATFORM GLM_PLATFORM_UNKNOWN
+#       endif
+#   elif defined(ANDROID)
 #	define GLM_PLATFORM GLM_PLATFORM_ANDROID
+#   elif defined(__linux)
+#	define GLM_PLATFORM GLM_PLATFORM_LINUX
+#   else
+#	define GLM_PLATFORM GLM_PLATFORM_UNIX
+#   endif
 #elif defined(__native_client__)
 #	define GLM_PLATFORM GLM_PLATFORM_CHROME_NACL
 #else
@@ -74,6 +86,10 @@
 #		pragma message("GLM: iOS platform detected")
 #	elif(GLM_PLATFORM & GLM_PLATFORM_MACOSX)
 #		pragma message("GLM: MacOSX platform detected")
+#	elif(GLM_PLATFORM & GLM_PLATFORM_LINUX)
+#		pragma message("GLM: Linux platform detected")
+#	elif(GLM_PLATFORM & GLM_PLATFORM_UNIX)
+#		pragma message("GLM: UNIX platform detected")
 #	elif(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
 #		pragma message("GLM: Android platform detected")
 #	elif(GLM_PLATFORM & GLM_PLATFORM_CHROME_NACL)
