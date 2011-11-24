@@ -24,7 +24,7 @@ int test_isNormalized()
 {
     int Error(0);
     
-	bool TestA = glm::isNormalized(glm::vec4(1), 0.00001f);
+	bool TestA = glm::isNormalized(glm::vec4(1, 0, 0, 0), 0.00001f);
     Error += TestA ? 0 : 1;
 
     return Error;
