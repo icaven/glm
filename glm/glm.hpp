@@ -84,6 +84,7 @@
 #include <climits>
 #include <cfloat>
 #include <limits>
+#include <cstdio>
 //#include <type_traits>
 #include "core/setup.hpp"
 

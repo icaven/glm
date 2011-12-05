@@ -19,7 +19,7 @@ int test_floor_log2()
 	for(std::size_t i = 1; i < 1000000; ++i)
 	{
 		glm::uint A = glm::floor_log2(glm::uint(i));
-		glm::uint B = glm::uint(glm::log2(double(i))); // Will fail with float, lack of accuracy
+		glm::uint B = glm::uint(glm::floor(glm::log2(double(i)))); // Will fail with float, lack of accuracy
 
 		Error += A == B ? 0 : 1;
 		assert(!Error);

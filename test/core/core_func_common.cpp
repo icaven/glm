@@ -9,6 +9,7 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtx/epsilon.hpp>
+#include <cstdio>
 
 int test_modf()
 {
@@ -209,10 +210,70 @@ int test_round()
 int test_roundEven()
 {
 	int Error = 0;
-	
+
 	{
 		float A = glm::roundEven(-1.5f);
-		Error += A == -2.0f ? 0 : 1;
+		Error += glm::equalEpsilon(A, -2.0f, 0.0001f) ? 0 : 1;
+		Error += 0;
+	}
+	{
+		float A = glm::roundEven(1.5f);
+		Error += glm::equalEpsilon(A, 2.0f, 0.0001f) ? 0 : 1;
+		Error += 0;
+	}
+
+	{
+		float A = glm::roundEven(-3.5f);
+		Error += glm::equalEpsilon(A, -4.0f, 0.0001f) ? 0 : 1;
+		Error += 0;
+	}
+	{
+		float A = glm::roundEven(3.5f);
+		Error += glm::equalEpsilon(A, 4.0f, 0.0001f) ? 0 : 1;
+		Error += 0;
+	}
+
+	{
+		float A = glm::roundEven(-2.5f);
+		Error += glm::equalEpsilon(A, -2.0f, 0.0001f) ? 0 : 1;
+		Error += 0;
+	}
+	{
+		float A = glm::roundEven(2.5f);
+		Error += glm::equalEpsilon(A, 2.0f, 0.0001f) ? 0 : 1;
+		Error += 0;
+	}
+
+	{
+		float A = glm::roundEven(-2.4f);
+		Error += glm::equalEpsilon(A, -2.0f, 0.0001f) ? 0 : 1;
+		Error += 0;
+	}
+	{
+		float A = glm::roundEven(2.4f);
+		Error += glm::equalEpsilon(A, 2.0f, 0.0001f) ? 0 : 1;
+		Error += 0;
+	}
+
+	{
+		float A = glm::roundEven(-2.6f);
+		Error += glm::equalEpsilon(A, -3.0f, 0.0001f) ? 0 : 1;
+		Error += 0;
+	}
+	{
+		float A = glm::roundEven(2.6f);
+		Error += glm::equalEpsilon(A, 3.0f, 0.0001f) ? 0 : 1;
+		Error += 0;
+	}
+
+	{
+		float A = glm::roundEven(-2.0f);
+		Error += glm::equalEpsilon(A, -2.0f, 0.0001f) ? 0 : 1;
+		Error += 0;
+	}
+	{
+		float A = glm::roundEven(2.0f);
+		Error += glm::equalEpsilon(A, 2.0f, 0.0001f) ? 0 : 1;
 		Error += 0;
 	}
 
@@ -232,7 +293,7 @@ int test_roundEven()
 		float G = glm::roundEven(1.9f);
 		Error += G == 2.0f ? 0 : 1;
 	}
-	
+
 	{
 		float A = glm::roundEven(-0.0f);
 		Error += A ==  0.0f ? 0 : 1;
@@ -249,7 +310,7 @@ int test_roundEven()
 		float G = glm::roundEven(-1.9f);
 		Error += G == -2.0f ? 0 : 1;
 	}
-	
+
 	{
 		float A = glm::roundEven(1.5f);
 		Error += A == 2.0f ? 0 : 1;
@@ -283,7 +344,7 @@ int test_roundEven()
 		float G = glm::roundEven(-7.5f);
 		Error += G == -8.0f ? 0 : 1;
 	}
-	
+
 	return Error;
 }
 
