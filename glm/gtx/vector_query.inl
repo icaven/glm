@@ -19,7 +19,7 @@ namespace glm
 	(
 		detail::tvec2<T> const & v0, 
 		detail::tvec2<T> const & v1, 
-		T const & epsilon
+		typename detail::tvec2<T>::value_type const & epsilon
 	)
 	{
 		return length(cross(detail::tvec3<T>(v0, T(0)), detail::tvec3<T>(v1, T(0)))) < epsilon;
@@ -30,7 +30,7 @@ namespace glm
 	(
 		detail::tvec3<T> const & v0, 
 		detail::tvec3<T> const & v1, 
-		T const & epsilon
+		typename detail::tvec3<T>::value_type const & epsilon
 	)
 	{
 		return length(cross(v0, v1)) < epsilon;
@@ -41,22 +41,10 @@ namespace glm
 	(
 		detail::tvec4<T> const & v0, 
 		detail::tvec4<T> const & v1, 
-		T const & epsilon
+		typename detail::tvec4<T>::value_type const & epsilon
 	)
 	{
 		return length(cross(detail::tvec3<T>(v0), detail::tvec3<T>(v1))) < epsilon;
-	}
-
-	template <typename genType>
-	GLM_FUNC_QUALIFIER bool areOpposite
-	(
-		genType const & v0, 
-		genType const & v1, 
-		typename genType::value_type const & epsilon
-	)
-	{
-		assert(isNormalized(v0) && isNormalized(v1));
-		return((typename genType::value_type(1) + dot(v0, v1)) <= epsilon);
 	}
 
 	template <typename genType>
@@ -173,17 +161,4 @@ namespace glm
 		return isNormalized(v0, epsilon) && isNormalized(v1, epsilon) && (abs(dot(v0, v1)) <= epsilon);
 	}
 
-	template <typename genType>
-	GLM_FUNC_QUALIFIER bool areSimilar
-	(
-		genType const & v0, 
-		genType const & v1, 
-		typename genType::value_type const & epsilon
-	)
-	{
-		bool similar = true;
-		for(typename genType::size_type i = 0; similar && i < genType::value_size(); i++)
-			similar = (abs(v0[i] - v1[i]) <= epsilon);
-		return similar;
-	}
 }//namespace glm
