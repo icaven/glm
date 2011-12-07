@@ -73,432 +73,92 @@ namespace glm
 { 
 	/// @addtogroup gtc_type_ptr
 	/// @{
-
+    
 	/// Return the constant address to the data of the input parameter.
-	/// From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T const * value_ptr
-	(
-		detail::tvec2<T> const & vec
-	)
-	{
-		return &(vec.x);
-	}
+    /// @see gtc_type_ptr
+	template<typename genType>
+    typename genType::value_type const * value_ptr(genType const & vec);
 
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
+	/// Build a vector from a pointer.
+	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_QUALIFIER T * value_ptr
-	(
-		detail::tvec2<T> & vec
-	)
-	{
-		return &(vec.x);
-	}
+    detail::tvec2<T> make_vec2(T const * const ptr);
 
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
+	/// Build a vector from a pointer.
+	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_QUALIFIER T const * value_ptr
-	(
-		detail::tvec3<T> const & vec
-	)
-	{
-		return &(vec.x);
-	}
+    detail::tvec3<T> make_vec3(T const * const ptr);
 
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
+	/// Build a vector from a pointer.
+	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_QUALIFIER T * value_ptr
-	(
-		detail::tvec3<T> & vec
-	)
-	{
-		return &(vec.x);
-	}
-		
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T const * value_ptr
-	(	
-		detail::tvec4<T> const & vec
-	)
-	{
-		return &(vec.x);
-	}
+    detail::tvec4<T> make_vec4(T const * const ptr);
 
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
+	/// Build a matrix from a pointer.
+	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_QUALIFIER T * value_ptr
-	(	
-		detail::tvec4<T> & vec
-	)
-	{
-		return &(vec.x);
-	}
-
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T const * value_ptr
-	(
-		detail::tmat2x2<T> const & mat
-	)
-	{
-		return &(mat[0].x);
-	}
-
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T * value_ptr
-	(
-		detail::tmat2x2<T> & mat
-	)
-	{
-		return &(mat[0].x);
-	}
-		
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T const * value_ptr
-	(
-		detail::tmat3x3<T> const & mat
-	)
-	{
-		return &(mat[0].x);
-	}
-
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T * value_ptr
-	(
-		detail::tmat3x3<T> & mat
-	)
-	{
-		return &(mat[0].x);
-	}
-		
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T const * value_ptr
-	(
-		detail::tmat4x4<T> const & mat
-	)
-	{
-		return &(mat[0].x);
-	}
-
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T * value_ptr
-	(
-		detail::tmat4x4<T> & mat
-	)
-	{
-		return &(mat[0].x);
-	}
-
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T const * value_ptr
-	(
-		detail::tmat2x3<T> const & mat
-	)
-	{
-		return &(mat[0].x);
-	}
-
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T * value_ptr
-	(
-		detail::tmat2x3<T> & mat
-	)
-	{
-		return &(mat[0].x);
-	}
-		
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T const * value_ptr
-	(
-		detail::tmat3x2<T> const & mat
-	)
-	{
-		return &(mat[0].x);
-	}
-
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T * value_ptr
-	(
-		detail::tmat3x2<T> & mat
-	)
-	{
-		return &(mat[0].x);
-	}
-		
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T const * value_ptr
-	(
-		detail::tmat2x4<T> const & mat
-	)
-	{
-		return &(mat[0].x);
-	}
-
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T * value_ptr
-	(
-		detail::tmat2x4<T> & mat
-	)
-	{
-		return &(mat[0].x);
-	}
-		
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T const * value_ptr
-	(
-		detail::tmat4x2<T> const & mat
-	)
-	{
-		return &(mat[0].x);
-	}
-
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T * value_ptr
-	(	
-		detail::tmat4x2<T> & mat
-	)
-	{
-		return &(mat[0].x);
-	}
-		
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T const * value_ptr
-	(
-		detail::tmat3x4<T> const & mat
-	)
-	{
-		return &(mat[0].x);
-	}
-
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T * value_ptr
-	(
-		detail::tmat3x4<T> & mat
-	)
-	{
-		return &(mat[0].x);
-	}
-		
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T const * value_ptr
-	(
-		detail::tmat4x3<T> const & mat
-	)
-	{
-		return &(mat[0].x);
-	}
-    
-	//! Return the constant address to the data of the input parameter.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T const * value_ptr
-	(
-        detail::tquat<T> const & q
-    )
-	{
-		return &(q[0]);
-	}
-    
-	//! Get the address of the matrix content.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER T * value_ptr(detail::tmat4x3<T> & mat)
-	{
-		return &(mat[0].x);
-	}
-
-	//! Build a vector from a pointer.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER detail::tvec2<T> make_vec2(T const * const ptr)
-	{
-		detail::tvec2<T> Result;
-		memcpy(value_ptr(Result), ptr, sizeof(detail::tvec2<T>));
-		return Result;
-	}
-
-	//! Build a vector from a pointer.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<T> make_vec3(T const * const ptr)
-	{
-		detail::tvec3<T> Result;
-		memcpy(value_ptr(Result), ptr, sizeof(detail::tvec3<T>));
-		return Result;
-	}
-
-	//! Build a vector from a pointer.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER detail::tvec4<T> make_vec4(T const * const ptr)
-	{
-		detail::tvec4<T> Result;
-		memcpy(value_ptr(Result), ptr, sizeof(detail::tvec4<T>));
-		return Result;
-	}
-
-	//! Build a matrix from a pointer.
-	//! From GLM_GTC_type_ptr extension.
-	template<typename T>
-	GLM_FUNC_QUALIFIER detail::tmat2x2<T> make_mat2x2(T const * const ptr)
-	{
-		detail::tmat2x2<T> Result;
-		memcpy(value_ptr(Result), ptr, sizeof(detail::tmat2x2<T>));
-		return Result;
-	}
+    detail::tmat2x2<T> make_mat2x2(T const * const ptr);
         
-	//! Build a matrix from a pointer.
-	//! From GLM_GTC_type_ptr extension.
+	/// Build a matrix from a pointer.
+	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_QUALIFIER detail::tmat2x3<T> make_mat2x3(T const * const ptr)
-	{
-		detail::tmat2x3<T> Result;
-		memcpy(value_ptr(Result), ptr, sizeof(detail::tmat2x3<T>));
-		return Result;
-	}
+    detail::tmat2x3<T> make_mat2x3(T const * const ptr);
         
-	//! Build a matrix from a pointer.
-	//! From GLM_GTC_type_ptr extension.
+	/// Build a matrix from a pointer.
+	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_QUALIFIER detail::tmat2x4<T> make_mat2x4(T const * const ptr)
-	{
-		detail::tmat2x4<T> Result;
-		memcpy(value_ptr(Result), ptr, sizeof(detail::tmat2x4<T>));
-		return Result;
-	}
+    detail::tmat2x4<T> make_mat2x4(T const * const ptr);
         
-	//! Build a matrix from a pointer.
-	//! From GLM_GTC_type_ptr extension.
+	/// Build a matrix from a pointer.
+	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_QUALIFIER detail::tmat3x2<T> make_mat3x2(T const * const ptr)
-	{
-		detail::tmat3x2<T> Result;
-		memcpy(value_ptr(Result), ptr, sizeof(detail::tmat3x2<T>));
-		return Result;
-	}
+    detail::tmat3x2<T> make_mat3x2(T const * const ptr);
         
-	//! Build a matrix from a pointer.
-	//! From GLM_GTC_type_ptr extension.
+	/// Build a matrix from a pointer.
+	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_QUALIFIER detail::tmat3x3<T> make_mat3x3(T const * const ptr)
-	{
-		detail::tmat3x3<T> Result;
-		memcpy(value_ptr(Result), ptr, sizeof(detail::tmat3x3<T>));
-		return Result;
-	}
+    detail::tmat3x3<T> make_mat3x3(T const * const ptr);
 
-	//! Build a matrix from a pointer.
-	//! From GLM_GTC_type_ptr extension.
+	/// Build a matrix from a pointer.
+	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_QUALIFIER detail::tmat3x4<T> make_mat3x4(T const * const ptr)
-	{
-		detail::tmat3x4<T> Result;
-		memcpy(value_ptr(Result), ptr, sizeof(detail::tmat3x4<T>));
-		return Result;
-	}
+    detail::tmat3x4<T> make_mat3x4(T const * const ptr);
         
-	//! Build a matrix from a pointer.
-	//! From GLM_GTC_type_ptr extension.
+	/// Build a matrix from a pointer.
+	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_QUALIFIER detail::tmat4x2<T> make_mat4x2(T const * const ptr)
-	{
-		detail::tmat4x2<T> Result;
-		memcpy(value_ptr(Result), ptr, sizeof(detail::tmat4x2<T>));
-		return Result;
-	}
+    detail::tmat4x2<T> make_mat4x2(
+        T const * const ptr);
         
-	//! Build a matrix from a pointer.
-	//! From GLM_GTC_type_ptr extension.
+	/// Build a matrix from a pointer.
+	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_QUALIFIER detail::tmat4x3<T> make_mat4x3(T const * const ptr)
-	{
-		detail::tmat4x3<T> Result;
-		memcpy(value_ptr(Result), ptr, sizeof(detail::tmat4x3<T>));
-		return Result;
-	}
+    detail::tmat4x3<T> make_mat4x3(T const * const ptr);
         
-	//! Build a matrix from a pointer.
-	//! From GLM_GTC_type_ptr extension.
+	/// Build a matrix from a pointer.
+	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_QUALIFIER detail::tmat4x4<T> make_mat4x4(T const * const ptr)
-	{
-		detail::tmat4x4<T> Result;
-		memcpy(value_ptr(Result), ptr, sizeof(detail::tmat4x4<T>));
-		return Result;
-	}
+    detail::tmat4x4<T> make_mat4x4(T const * const ptr);
         
-	//! Build a matrix from a pointer.
-	//! From GLM_GTC_type_ptr extension.
+	/// Build a matrix from a pointer.
+	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_QUALIFIER detail::tmat2x2<T> make_mat2(T const * const ptr)
-	{
-		return make_mat2x2(ptr);
-	}
+    detail::tmat2x2<T> make_mat2(T const * const ptr);
         
-	//! Build a matrix from a pointer.
-	//! From GLM_GTC_type_ptr extension.
+	/// Build a matrix from a pointer.
+	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_QUALIFIER detail::tmat3x3<T> make_mat3(T const * const ptr)
-	{
-		return make_mat3x3(ptr);
-	}
+    detail::tmat3x3<T> make_mat3(T const * const ptr);
 		
-	//! Build a matrix from a pointer.
-	//! From GLM_GTC_type_ptr extension.
+	/// Build a matrix from a pointer.
+	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_QUALIFIER detail::tmat4x4<T> make_mat4(T const * const ptr)
-	{
-		return make_mat4x4(ptr);
-	}
+    detail::tmat4x4<T> make_mat4(T const * const ptr);
  
-	//! Build a quaternion from a pointer.
-	//! From GLM_GTC_type_ptr extension.
+	/// Build a quaternion from a pointer.
+	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_QUALIFIER detail::tquat<T> make_quat(T const * const ptr)
-	{
-		detail::tquat<T> Result;
-		memcpy(value_ptr(Result), ptr, sizeof(detail::tquat<T>));
-		return Result;
-	}
+    detail::tquat<T> make_quat(T const * const ptr);
     
 	/// @}
 }//namespace glm
