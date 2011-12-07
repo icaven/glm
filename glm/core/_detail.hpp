@@ -38,7 +38,7 @@
 namespace glm{
 namespace detail
 {
-	class thalf;
+	class half;
 
 #if(defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)) // C99 detected, 64 bit types available
 	typedef int64_t								sint64;
@@ -242,7 +242,7 @@ namespace detail
 		};						\
 	}
 
-	GLM_DETAIL_IS_FLOAT(detail::thalf);
+	GLM_DETAIL_IS_FLOAT(detail::half);
 	GLM_DETAIL_IS_FLOAT(float);
 	GLM_DETAIL_IS_FLOAT(double);
 	GLM_DETAIL_IS_FLOAT(long double);
@@ -346,7 +346,7 @@ namespace detail
 	typedef unsigned int						uint32;
 	typedef detail::uint64						uint64;
 	
-	typedef detail::thalf						float16;
+	typedef detail::half						float16;
 	typedef float								float32;
 	typedef double								float64;
 	

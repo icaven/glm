@@ -51,7 +51,7 @@ namespace glm
 	/// @{
 
 	/// Extends of Length the Origin position using the (Source - Origin) direction.
-	/// From GLM_GTX_extend extension.
+	/// @see gtx_extend
 	template <typename genType> 
 	genType extend(
 		genType const & Origin, 

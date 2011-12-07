@@ -54,16 +54,16 @@ namespace glm
 	/// @addtogroup gtx_epsilon
 	/// @{
 
-	//! Returns the component-wise compare of |x - y| < epsilon.
-	//! From GLM_GTX_epsilon extension.
+	/// Returns the component-wise compare of |x - y| < epsilon.
+	/// @see gtx_epsilon
 	template <typename genTypeT, typename genTypeU> 
 	bool equalEpsilon(
 		genTypeT const & x, 
 		genTypeT const & y, 
 		genTypeU const & epsilon);
 		
-	//! Returns the component-wise compare of |x - y| >= epsilon.
-	//! From GLM_GTX_epsilon extension.
+	/// Returns the component-wise compare of |x - y| >= epsilon.
+	/// @see gtx_epsilon
 	template <typename genTypeT, typename genTypeU>
 	bool notEqualEpsilon(
 		genTypeT const & x, 

@@ -98,9 +98,9 @@ namespace detail
 
     // floor
     template <>
-	GLM_FUNC_QUALIFIER detail::thalf floor<detail::thalf>(detail::thalf const & x)
+	GLM_FUNC_QUALIFIER detail::half floor<detail::half>(detail::half const & x)
     {
-        return detail::thalf(::std::floor(float(x)));
+        return detail::half(::std::floor(float(x)));
     }
 
     template <typename genType>

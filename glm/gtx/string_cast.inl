@@ -41,7 +41,7 @@ namespace detail
 	////////////////////////////////
 	// Scalars
 
-	GLM_FUNC_QUALIFIER std::string to_string(detail::thalf const & x)
+	GLM_FUNC_QUALIFIER std::string to_string(detail::half const & x)
 	{
 		return detail::format("half(%2.4f)", float(x));
 	}
@@ -108,7 +108,7 @@ namespace detail
 	template <>
 	GLM_FUNC_QUALIFIER std::string to_string
 	(
-		detail::tvec2<detail::thalf> const & v
+		detail::tvec2<detail::half> const & v
 	)
 	{
 		return detail::format("hvec2(%2.4f, %2.4f)", v.x.toFloat(), v.y.toFloat());
@@ -117,7 +117,7 @@ namespace detail
 	template <> 
 	GLM_FUNC_QUALIFIER std::string to_string
 	(
-		detail::tvec3<detail::thalf> const & v
+		detail::tvec3<detail::half> const & v
 	)
 	{
 		return detail::format("hvec3(%2.4f, %2.4f, %2.4f)", v.x.toFloat(), v.y.toFloat(), v.z.toFloat());
@@ -126,7 +126,7 @@ namespace detail
 	template <> 
 	GLM_FUNC_QUALIFIER std::string to_string
 	(
-		detail::tvec4<detail::thalf> const & v
+		detail::tvec4<detail::half> const & v
 	)
 	{
 		return detail::format("hvec4(%2.4f, %2.4f, %2.4f, %2.4f)", v.x.toFloat(), v.y.toFloat(), v.z.toFloat(), v.w.toFloat());
@@ -258,7 +258,7 @@ namespace detail
 	template <> 
 	GLM_FUNC_QUALIFIER std::string to_string
 	(
-		detail::tmat2x2<detail::thalf> const & m
+		detail::tmat2x2<detail::half> const & m
 	)
 	{
 		return detail::format("hmat2x2((%f, %f), (%f, %f))", 
@@ -269,7 +269,7 @@ namespace detail
 	template <> 
 	GLM_FUNC_QUALIFIER std::string to_string
 	(
-		detail::tmat2x3<detail::thalf> const & x
+		detail::tmat2x3<detail::half> const & x
 	)
 	{
 		return detail::format("hmat2x3((%f, %f, %f), (%f, %f, %f))", 
@@ -280,7 +280,7 @@ namespace detail
 	template <> 
 	GLM_FUNC_QUALIFIER std::string to_string
 	(
-		detail::tmat2x4<detail::thalf> const & x
+		detail::tmat2x4<detail::half> const & x
 	)
 	{
 		return detail::format("hmat2x4((%f, %f, %f, %f), (%f, %f, %f, %f))", 
@@ -291,7 +291,7 @@ namespace detail
 	template <> 
 	GLM_FUNC_QUALIFIER std::string to_string
 	(
-		detail::tmat3x2<detail::thalf> const & x
+		detail::tmat3x2<detail::half> const & x
 	)
 	{
 		return detail::format("hmat3x2((%f, %f), (%f, %f), (%f, %f))", 
@@ -303,7 +303,7 @@ namespace detail
 	template <> 
 	GLM_FUNC_QUALIFIER std::string to_string
 	(
-		detail::tmat3x3<detail::thalf> const & x
+		detail::tmat3x3<detail::half> const & x
 	)
 	{
 		return detail::format("hmat3x3((%f, %f, %f), (%f, %f, %f), (%f, %f, %f))", 
@@ -315,7 +315,7 @@ namespace detail
 	template <> 
 	GLM_FUNC_QUALIFIER std::string to_string
 	(
-		detail::tmat3x4<detail::thalf> const & x
+		detail::tmat3x4<detail::half> const & x
 	)
 	{
 		return detail::format("hmat3x4((%f, %f, %f, %f), (%f, %f, %f, %f), (%f, %f, %f, %f))", 
@@ -327,7 +327,7 @@ namespace detail
 	template <> 
 	GLM_FUNC_QUALIFIER std::string to_string
 	(
-		detail::tmat4x2<detail::thalf> const & x
+		detail::tmat4x2<detail::half> const & x
 	)
 	{
 		return detail::format("hmat4x2((%f, %f), (%f, %f), (%f, %f), (%f, %f))", 
@@ -340,7 +340,7 @@ namespace detail
 	template <> 
 	GLM_FUNC_QUALIFIER std::string to_string
 	(
-		detail::tmat4x3<detail::thalf> const & x
+		detail::tmat4x3<detail::half> const & x
 	)
 	{
 		return detail::format("hmat4x3((%f, %f, %f), (%f, %f, %f), (%f, %f, %f), (%f, %f, %f))", 
@@ -353,7 +353,7 @@ namespace detail
 	template <>
 	GLM_FUNC_QUALIFIER std::string to_string
 	(
-		detail::tmat4x4<detail::thalf> const & x
+		detail::tmat4x4<detail::half> const & x
 	)
 	{
 		return detail::format("hmat4x4((%f, %f, %f, %f), (%f, %f, %f, %f), (%f, %f, %f, %f), (%f, %f, %f, %f))", 

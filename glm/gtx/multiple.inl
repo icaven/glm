@@ -29,17 +29,17 @@ namespace glm
 	}
 
 	template <> 
-	GLM_FUNC_QUALIFIER detail::thalf higherMultiple
+	GLM_FUNC_QUALIFIER detail::half higherMultiple
 	(
-		detail::thalf const & SourceH, 
-		detail::thalf const & MultipleH
+		detail::half const & SourceH, 
+		detail::half const & MultipleH
 	)
 	{
 		float Source = SourceH.toFloat();
 		float Multiple = MultipleH.toFloat();
 
 		int Tmp = int(float(Source)) % int(Multiple);
-		return detail::thalf(Tmp ? Source + Multiple - float(Tmp) : Source);
+		return detail::half(Tmp ? Source + Multiple - float(Tmp) : Source);
 	}
 
 	template <> 
@@ -81,17 +81,17 @@ namespace glm
 	}
 
 	template <> 
-	GLM_FUNC_QUALIFIER detail::thalf lowerMultiple
+	GLM_FUNC_QUALIFIER detail::half lowerMultiple
 	(
-		detail::thalf const & SourceH, 
-		detail::thalf const & MultipleH
+		detail::half const & SourceH, 
+		detail::half const & MultipleH
 	)
 	{
 		float Source = SourceH.toFloat();
 		float Multiple = MultipleH.toFloat();
 
 		int Tmp = int(float(Source)) % int(float(Multiple));
-		return detail::thalf(Tmp ? Source - float(Tmp) : Source);
+		return detail::half(Tmp ? Source - float(Tmp) : Source);
 	}
 
 	template <> 

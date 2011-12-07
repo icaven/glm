@@ -35,7 +35,7 @@
 namespace glm
 {
 #ifdef GLM_USE_HALF_SCALAR
-    typedef detail::thalf		lowp_float_t;
+    typedef detail::half		lowp_float_t;
 #else//GLM_USE_HALF_SCALAR
     typedef float				lowp_float_t;
 #endif//GLM_USE_HALF_SCALAR

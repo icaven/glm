@@ -240,7 +240,7 @@ namespace detail
 	/// Quaternion of half-precision floating-point numbers.
 	/// 
 	/// @see gtc_quaternion
-	typedef detail::tquat<detail::thalf>	hquat;
+	typedef detail::tquat<detail::half>	hquat;
 
 	/// Quaternion of single-precision floating-point numbers. 
 	/// 

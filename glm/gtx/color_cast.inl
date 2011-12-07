@@ -462,92 +462,92 @@ namespace glm
 	}
 
 	template <>
-	GLM_FUNC_QUALIFIER detail::thalf f16_channel_cast<uint16>(uint16 color)
+	GLM_FUNC_QUALIFIER detail::half f16_channel_cast<uint16>(uint16 color)
 	{
-		return detail::thalf(static_cast<float>(color >>  0) / static_cast<float>(65535));
+		return detail::half(static_cast<float>(color >>  0) / static_cast<float>(65535));
 	}
 
 	template <>
-	GLM_FUNC_QUALIFIER detail::tvec3<detail::thalf> f16_rgbx_cast<uint64>(uint64 color)
+	GLM_FUNC_QUALIFIER detail::tvec3<detail::half> f16_rgbx_cast<uint64>(uint64 color)
 	{
-		detail::tvec3<detail::thalf> result;
-		result.x = detail::thalf(static_cast<float>((color >>  0) & 0xFFFF) / static_cast<float>(65535));
-		result.y = detail::thalf(static_cast<float>((color >> 16) & 0xFFFF) / static_cast<float>(65535));
-		result.z = detail::thalf(static_cast<float>((color >> 32) & 0xFFFF) / static_cast<float>(65535));
+		detail::tvec3<detail::half> result;
+		result.x = detail::half(static_cast<float>((color >>  0) & 0xFFFF) / static_cast<float>(65535));
+		result.y = detail::half(static_cast<float>((color >> 16) & 0xFFFF) / static_cast<float>(65535));
+		result.z = detail::half(static_cast<float>((color >> 32) & 0xFFFF) / static_cast<float>(65535));
 		return result;
 	}
 
 	template <>
-	GLM_FUNC_QUALIFIER detail::tvec3<detail::thalf> f16_xrgb_cast<uint64>(uint64 color)
+	GLM_FUNC_QUALIFIER detail::tvec3<detail::half> f16_xrgb_cast<uint64>(uint64 color)
 	{
-		detail::tvec3<detail::thalf> result;
-		result.x = detail::thalf(static_cast<float>((color >> 16) & 0xFFFF) / static_cast<float>(65535));
-		result.y = detail::thalf(static_cast<float>((color >> 32) & 0xFFFF) / static_cast<float>(65535));
-		result.z = detail::thalf(static_cast<float>((color >> 48) & 0xFFFF) / static_cast<float>(65535));
+		detail::tvec3<detail::half> result;
+		result.x = detail::half(static_cast<float>((color >> 16) & 0xFFFF) / static_cast<float>(65535));
+		result.y = detail::half(static_cast<float>((color >> 32) & 0xFFFF) / static_cast<float>(65535));
+		result.z = detail::half(static_cast<float>((color >> 48) & 0xFFFF) / static_cast<float>(65535));
 		return result;
 	}
 
 	template <>
-	GLM_FUNC_QUALIFIER detail::tvec3<detail::thalf> f16_bgrx_cast<uint64>(uint64 color)
+	GLM_FUNC_QUALIFIER detail::tvec3<detail::half> f16_bgrx_cast<uint64>(uint64 color)
 	{
-		detail::tvec3<detail::thalf> result;
-		result.x = detail::thalf(static_cast<float>((color >> 32) & 0xFFFF) / static_cast<float>(65535));
-		result.y = detail::thalf(static_cast<float>((color >> 16) & 0xFFFF) / static_cast<float>(65535));
-		result.z = detail::thalf(static_cast<float>((color >>  0) & 0xFFFF) / static_cast<float>(65535));
+		detail::tvec3<detail::half> result;
+		result.x = detail::half(static_cast<float>((color >> 32) & 0xFFFF) / static_cast<float>(65535));
+		result.y = detail::half(static_cast<float>((color >> 16) & 0xFFFF) / static_cast<float>(65535));
+		result.z = detail::half(static_cast<float>((color >>  0) & 0xFFFF) / static_cast<float>(65535));
 		return result;
 	}
 
 	template <>
-	GLM_FUNC_QUALIFIER detail::tvec3<detail::thalf> f16_xbgr_cast<uint64>(uint64 color)
+	GLM_FUNC_QUALIFIER detail::tvec3<detail::half> f16_xbgr_cast<uint64>(uint64 color)
 	{
-		detail::tvec3<detail::thalf> result;
-		result.x = detail::thalf(static_cast<float>((color >> 48) & 0xFFFF) / static_cast<float>(65535));
-		result.y = detail::thalf(static_cast<float>((color >> 32) & 0xFFFF) / static_cast<float>(65535));
-		result.z = detail::thalf(static_cast<float>((color >> 16) & 0xFFFF) / static_cast<float>(65535));
+		detail::tvec3<detail::half> result;
+		result.x = detail::half(static_cast<float>((color >> 48) & 0xFFFF) / static_cast<float>(65535));
+		result.y = detail::half(static_cast<float>((color >> 32) & 0xFFFF) / static_cast<float>(65535));
+		result.z = detail::half(static_cast<float>((color >> 16) & 0xFFFF) / static_cast<float>(65535));
 		return result;
 	}
 
 	template <>
-	GLM_FUNC_QUALIFIER detail::tvec4<detail::thalf> f16_rgba_cast<uint64>(uint64 color)
+	GLM_FUNC_QUALIFIER detail::tvec4<detail::half> f16_rgba_cast<uint64>(uint64 color)
 	{
-		detail::tvec4<detail::thalf> result;
-		result.x = detail::thalf(static_cast<float>((color >>  0) & 0xFFFF) / static_cast<float>(65535));
-		result.y = detail::thalf(static_cast<float>((color >> 16) & 0xFFFF) / static_cast<float>(65535));
-		result.z = detail::thalf(static_cast<float>((color >> 32) & 0xFFFF) / static_cast<float>(65535));
-		result.w = detail::thalf(static_cast<float>((color >> 48) & 0xFFFF) / static_cast<float>(65535));
+		detail::tvec4<detail::half> result;
+		result.x = detail::half(static_cast<float>((color >>  0) & 0xFFFF) / static_cast<float>(65535));
+		result.y = detail::half(static_cast<float>((color >> 16) & 0xFFFF) / static_cast<float>(65535));
+		result.z = detail::half(static_cast<float>((color >> 32) & 0xFFFF) / static_cast<float>(65535));
+		result.w = detail::half(static_cast<float>((color >> 48) & 0xFFFF) / static_cast<float>(65535));
 		return result;
 	}
 
 	template <>
-	GLM_FUNC_QUALIFIER detail::tvec4<detail::thalf> f16_argb_cast<uint64>(uint64 color)
+	GLM_FUNC_QUALIFIER detail::tvec4<detail::half> f16_argb_cast<uint64>(uint64 color)
 	{
-		detail::tvec4<detail::thalf> result;
-		result.x = detail::thalf(static_cast<float>((color >> 16) & 0xFFFF) / static_cast<float>(65535));
-		result.y = detail::thalf(static_cast<float>((color >> 32) & 0xFFFF) / static_cast<float>(65535));
-		result.z = detail::thalf(static_cast<float>((color >> 48) & 0xFFFF) / static_cast<float>(65535));
-		result.w = detail::thalf(static_cast<float>((color >>  0) & 0xFFFF) / static_cast<float>(65535));
+		detail::tvec4<detail::half> result;
+		result.x = detail::half(static_cast<float>((color >> 16) & 0xFFFF) / static_cast<float>(65535));
+		result.y = detail::half(static_cast<float>((color >> 32) & 0xFFFF) / static_cast<float>(65535));
+		result.z = detail::half(static_cast<float>((color >> 48) & 0xFFFF) / static_cast<float>(65535));
+		result.w = detail::half(static_cast<float>((color >>  0) & 0xFFFF) / static_cast<float>(65535));
 		return result;
 	}
 
 	template <>
-	GLM_FUNC_QUALIFIER detail::tvec4<detail::thalf> f16_bgra_cast<uint64>(uint64 color)
+	GLM_FUNC_QUALIFIER detail::tvec4<detail::half> f16_bgra_cast<uint64>(uint64 color)
 	{
-		detail::tvec4<detail::thalf> result;
-		result.x = detail::thalf(static_cast<float>((color >> 32) & 0xFFFF) / static_cast<float>(65535));
-		result.y = detail::thalf(static_cast<float>((color >> 16) & 0xFFFF) / static_cast<float>(65535));
-		result.z = detail::thalf(static_cast<float>((color >>  0) & 0xFFFF) / static_cast<float>(65535));
-		result.w = detail::thalf(static_cast<float>((color >> 48) & 0xFFFF) / static_cast<float>(65535));
+		detail::tvec4<detail::half> result;
+		result.x = detail::half(static_cast<float>((color >> 32) & 0xFFFF) / static_cast<float>(65535));
+		result.y = detail::half(static_cast<float>((color >> 16) & 0xFFFF) / static_cast<float>(65535));
+		result.z = detail::half(static_cast<float>((color >>  0) & 0xFFFF) / static_cast<float>(65535));
+		result.w = detail::half(static_cast<float>((color >> 48) & 0xFFFF) / static_cast<float>(65535));
 		return result;
 	}
 
 	template <>
-	GLM_FUNC_QUALIFIER detail::tvec4<detail::thalf> f16_abgr_cast<uint64>(uint64 color)
+	GLM_FUNC_QUALIFIER detail::tvec4<detail::half> f16_abgr_cast<uint64>(uint64 color)
 	{
-		detail::tvec4<detail::thalf> result;
-		result.x = detail::thalf(static_cast<float>((color >> 48) & 0xFFFF) / static_cast<float>(65535));
-		result.y = detail::thalf(static_cast<float>((color >> 32) & 0xFFFF) / static_cast<float>(65535));
-		result.z = detail::thalf(static_cast<float>((color >> 16) & 0xFFFF) / static_cast<float>(65535));
-		result.w = detail::thalf(static_cast<float>((color >>  0) & 0xFFFF) / static_cast<float>(65535));
+		detail::tvec4<detail::half> result;
+		result.x = detail::half(static_cast<float>((color >> 48) & 0xFFFF) / static_cast<float>(65535));
+		result.y = detail::half(static_cast<float>((color >> 32) & 0xFFFF) / static_cast<float>(65535));
+		result.z = detail::half(static_cast<float>((color >> 16) & 0xFFFF) / static_cast<float>(65535));
+		result.w = detail::half(static_cast<float>((color >>  0) & 0xFFFF) / static_cast<float>(65535));
 		return result;
 	}
 

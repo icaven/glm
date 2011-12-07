@@ -25,7 +25,7 @@
 /// @date 2008-03-08 / 2010-01-26
 /// @author Christophe Riccio
 /// 
-/// @see - <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
+/// @see <a href="http://www.opengl.org/GLSLangSpec.4.10.6.pdf">GLSL 4.10.6 specification, section 8.2</a>
 ///
 /// @defgroup core_func_common Common functions
 /// @ingroup core
@@ -357,10 +357,10 @@ namespace glm
 	/// @tparam genType Single-precision floating-point scalar or vector types.
 	/// @tparam genIType Signed integer scalar or vector types.
 	/// 
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/intBitsToFloat.xml">GLSL intBitsToFloat man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/intBitsToFloat.xml">GLSL intBitsToFloat man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3</a>
 	/// 
-	/// @todo - Clarify this declaration, we don't need to actually specify the return type
+	/// @todo Clarify this declaration, we don't need to actually specify the return type
 	template <typename genType, typename genIType>
 	genType intBitsToFloat(genIType const & value);
         
