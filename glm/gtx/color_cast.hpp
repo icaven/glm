@@ -53,11 +53,11 @@ namespace glm
 	/// @{
 
 	//! Conversion of a floating value into a 8bit unsigned int value. 
-	//! From GLM_GTX_color_cast extension.
+	/// @see gtx_color_cast
 	template <typename valType> uint8 u8channel_cast(valType a);
 
-	//! Conversion of a floating value into a 16bit unsigned int value. 
-	//! From GLM_GTX_color_cast extension.
+	/// Conversion of a floating value into a 16bit unsigned int value. 
+	/// @see gtx_color_cast
 	template <typename valType>	uint16 u16channel_cast(valType a);
 
 	template <typename T> uint32 u32_rgbx_cast(const detail::tvec3<T>& c);		//!< \brief Conversion of a 3 components color into an 32bit unsigned int value. (From GLM_GTX_color_cast extension)

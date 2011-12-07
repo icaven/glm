@@ -52,126 +52,106 @@ namespace glm
 	/// @addtogroup gtx_constants
 	/// @{
 
+	/// Return the epsilon constant for floating point types.
 	/// @todo Implement epsilon for half-precision floating point type.
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T epsilon()
-	{
-		return std::numeric_limits<T>::epsilon();
-	}
+	T epsilon();
 
+	/// Return the pi constant.
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T pi()
-	{
-		return T(3.14159265358979323846264338327950288);
-	}
+	T pi();
 
+	/// Return square root of pi.
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T root_pi()
-	{
-		return T(1.772453850905516027);
-	}
+	T root_pi();
 
+	/// Return pi / 2.
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T half_pi()
-	{
-		return T(1.57079632679489661923132169163975144);
-	}
+	T half_pi();
 
+	/// Return pi / 4.
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T quarter_pi()
-	{
-		return T(0.785398163397448309615660845819875721);
-	}
+	T quarter_pi();
 
+	/// Return 1 / pi.
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T one_over_pi()
-	{
-		return T(0.318309886183790671537767526745028724);
-	}
+	T one_over_pi();
 
+	/// Return 2 / pi.
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T two_over_pi()
-	{
-		return T(0.636619772367581343075535053490057448);
-	}
+	T two_over_pi();
 
+	/// Return 2 / sqrt(pi).
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T two_over_root_pi()
-	{
-		return T(1.12837916709551257389615890312154517);
-	}
+	T two_over_root_pi();
 
+	/// Return 1 / sqrt(2).
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T one_over_root_two()
-	{
-		return T(0.707106781186547524400844362104849039);
-	}
+	T one_over_root_two();
 
+	/// Return sqrt(pi / 2).
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T root_half_pi()
-	{
-		return T(1.253314137315500251);
-	}
+	T root_half_pi();
 
+	/// Return sqrt(2 * pi).
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T root_two_pi()
-	{
-		return T(2.506628274631000502);
-	}
+	T root_two_pi();
 
+	/// Return sqrt(ln(4)).
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T root_ln_four()
-	{
-		return T(1.17741002251547469);
-	}
+	T root_ln_four();
 
+	/// Return e constant.
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T e()
-	{
-		return T(2.71828182845904523536);
-	}
+	T e();
 
+	/// Return Euler's constant.
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T euler()
-	{
-		return T(0.577215664901532860606);
-	}
+	T euler();
 
+	/// Return sqrt(2).
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T root_two()
-	{
-		return T(1.41421356237309504880168872420969808);
-	}
+	T root_two();
 
+	/// Return ln(2).
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T ln_two()
-	{
-		return T(0.693147180559945309417232121458176568);
-	}
+	T ln_two();
 
+	/// Return ln(10).
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T ln_ten()
-	{
-		return T(2.30258509299404568401799145468436421);
-	}
+	T ln_ten();
 
+	/// Return ln(ln(2)).
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T ln_ln_two()
-	{
-		return T(-0.3665129205816643);
-	}
+	T ln_ln_two();
 
+	/// Return 1 / 3.
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T third()
-	{
-		return T(0.333333333333333333);
-	}
+	T third();
 
+	/// Return 2 / 3.
+	/// @see gtx_constants
 	template <typename T>
-	GLM_FUNC_QUALIFIER T twothirds()
-	{
-		return T(0.666666666666666666);
-	}
+	T twothirds();
 
 	/// @}
 } //namespace glm
