@@ -35,6 +35,18 @@ namespace glm
 	}
 
 	template <typename T>
+	GLM_FUNC_QUALIFIER T zero()
+	{
+		return T(0);
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER T one()
+	{
+		return T(1);
+	}
+
+	template <typename T>
 	GLM_FUNC_QUALIFIER T pi()
 	{
 		return T(3.14159265358979323846264338327950288);
@@ -119,6 +131,18 @@ namespace glm
 	}
 
 	template <typename T>
+	GLM_FUNC_QUALIFIER T root_three()
+	{
+		return T(1.73205080756887729352744634150587236);
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER T root_five()
+	{
+		return T(2.23606797749978969640917366873127623);
+	}
+
+	template <typename T>
 	GLM_FUNC_QUALIFIER T ln_two()
 	{
 		return T(0.693147180559945309417232121458176568);
@@ -139,12 +163,18 @@ namespace glm
 	template <typename T>
 	GLM_FUNC_QUALIFIER T third()
 	{
-		return T(0.333333333333333333);
+		return T(0.3333333333333333333333333333333333333333);
 	}
 
 	template <typename T>
-	GLM_FUNC_QUALIFIER T twothirds()
+	GLM_FUNC_QUALIFIER T two_thirds()
 	{
-		return T(0.666666666666666667);
+		return T(0.666666666666666666666666666666666666667);
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER T golden_ratio()
+	{
+		return T(1.61803398874989484820458683436563811);
 	}
 } //namespace glm

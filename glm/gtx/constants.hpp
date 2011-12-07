@@ -58,6 +58,16 @@ namespace glm
 	template <typename T>
 	T epsilon();
 
+	/// Return 0.
+	/// @see gtx_constants
+	template <typename T>
+	T zero();
+
+	/// Return 1.
+	/// @see gtx_constants
+	template <typename T>
+	T one();
+
 	/// Return the pi constant.
 	/// @see gtx_constants
 	template <typename T>
@@ -128,6 +138,16 @@ namespace glm
 	template <typename T>
 	T root_two();
 
+	/// Return sqrt(3).
+	/// @see gtx_constants
+	template <typename T>
+	T root_three();
+
+	/// Return sqrt(5).
+	/// @see gtx_constants
+	template <typename T>
+	T root_five();
+
 	/// Return ln(2).
 	/// @see gtx_constants
 	template <typename T>
@@ -151,7 +171,12 @@ namespace glm
 	/// Return 2 / 3.
 	/// @see gtx_constants
 	template <typename T>
-	T twothirds();
+	T two_thirds();
+
+	/// Return the golden ratio constant.
+	/// @see gtx_constants
+	template <typename T>
+	T golden_ratio();
 
 	/// @}
 } //namespace glm
