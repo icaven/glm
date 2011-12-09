@@ -98,9 +98,9 @@ namespace detail
 
     // floor
     template <>
-	GLM_FUNC_QUALIFIER detail::thalf floor<detail::thalf>(detail::thalf const & x)
+	GLM_FUNC_QUALIFIER detail::half floor<detail::half>(detail::half const & x)
     {
-        return detail::thalf(::std::floor(float(x)));
+        return detail::half(::std::floor(float(x)));
     }
 
     template <typename genType>
@@ -146,6 +146,7 @@ namespace detail
 		return genType(int(x + genType(int(x) % 2)));
     }
 */
+	
     // roundEven
     template <typename genType>
     GLM_FUNC_QUALIFIER genType roundEven(genType const & x)
@@ -157,11 +158,25 @@ namespace detail
 		genType FractionalPart = fract(x);
 
 		if(FractionalPart > genType(0.5) || FractionalPart < genType(0.5))
+		{
 			return round(x);
-		else if(!(Integer % 2))
+		}
+		else if((Integer % 2) == 0)
+		{
 			return IntegerPart;
+		}
+		else if(x <= genType(0)) // Work around... 
+		{
+			return IntegerPart - 1;
+		}
 		else
-			return IntegerPart + mix(genType(-1), genType(1), x >= genType(0));
+		{
+			return IntegerPart + 1;
+		}
+		//else // Bug on MinGW 4.5.2
+		//{
+		//	return mix(IntegerPart + genType(-1), IntegerPart + genType(1), x <= genType(0));
+		//}
 	}
 	
 	VECTORIZE_VEC(roundEven)
@@ -521,7 +536,7 @@ namespace detail
 	(
 		genType const & x, 
 		genType const & y, 
-		bool a
+		bool const & a
 	)
 	{
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'mix' only accept floating-point inputs");

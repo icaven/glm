@@ -34,12 +34,12 @@ namespace detail
 	//////////////////////////////////////
 	// hvec2
 
-	GLM_FUNC_QUALIFIER tvec2<thalf>::size_type tvec2<thalf>::length() const
+	GLM_FUNC_QUALIFIER tvec2<half>::size_type tvec2<half>::length() const
 	{
 		return 2;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<thalf>::size_type tvec2<thalf>::value_size()
+	GLM_FUNC_QUALIFIER tvec2<half>::size_type tvec2<half>::value_size()
 	{
 		return 2;
 	}
@@ -47,29 +47,29 @@ namespace detail
 	//////////////////////////////////////
 	// Accesses
 
-	GLM_FUNC_QUALIFIER thalf & tvec2<thalf>::operator[](tvec2<thalf>::size_type i)
+	GLM_FUNC_QUALIFIER half & tvec2<half>::operator[](tvec2<half>::size_type i)
 	{
-		assert(/*i >= tvec2<thalf>::size_type(0) && */i < tvec2<thalf>::value_size());
+		assert(/*i >= tvec2<half>::size_type(0) && */i < tvec2<half>::value_size());
 		return (&x)[i];
 	}
 
-	GLM_FUNC_QUALIFIER thalf const & tvec2<thalf>::operator[](tvec2<thalf>::size_type i) const
+	GLM_FUNC_QUALIFIER half const & tvec2<half>::operator[](tvec2<half>::size_type i) const
 	{
-		assert(/*i >= tvec2<thalf>::size_type(0) && */i < tvec2<thalf>::value_size());
+		assert(/*i >= tvec2<half>::size_type(0) && */i < tvec2<half>::value_size());
 		return (&x)[i];
 	}
 
 	//////////////////////////////////////
 	// Implicit basic constructors
 
-	GLM_FUNC_QUALIFIER tvec2<thalf>::tvec2() :
-		x(thalf(0.f)),
-		y(thalf(0.f))
+	GLM_FUNC_QUALIFIER tvec2<half>::tvec2() :
+		x(half(0.f)),
+		y(half(0.f))
 	{}
 
-	GLM_FUNC_QUALIFIER tvec2<thalf>::tvec2
+	GLM_FUNC_QUALIFIER tvec2<half>::tvec2
 	(
-		tvec2<thalf> const & v
+		tvec2<half> const & v
 	) :
 		x(v.x),
 		y(v.y)
@@ -78,18 +78,18 @@ namespace detail
 	//////////////////////////////////////
 	// Explicit basic constructors
 
-	GLM_FUNC_QUALIFIER tvec2<thalf>::tvec2
+	GLM_FUNC_QUALIFIER tvec2<half>::tvec2
 	(
-		thalf const & s
+		half const & s
 	) :
 		x(s),
 		y(s)
 	{}
 
-	GLM_FUNC_QUALIFIER tvec2<thalf>::tvec2
+	GLM_FUNC_QUALIFIER tvec2<half>::tvec2
 	(
-		thalf const & s1, 
-		thalf const & s2
+		half const & s1, 
+		half const & s2
 	) :
 		x(s1),
 		y(s2)
@@ -98,9 +98,9 @@ namespace detail
 	//////////////////////////////////////
 	// Swizzle constructors
 
-	GLM_FUNC_QUALIFIER tvec2<thalf>::tvec2
+	GLM_FUNC_QUALIFIER tvec2<half>::tvec2
 	(
-		tref2<thalf> const & r
+		tref2<half> const & r
 	) :
 		x(r.x),
 		y(r.y)
@@ -110,60 +110,60 @@ namespace detail
 	// Convertion scalar constructors
 
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec2<thalf>::tvec2
+	GLM_FUNC_QUALIFIER tvec2<half>::tvec2
 	(
 		U const & x
 	) :
-		x(thalf(x)),
-		y(thalf(x))
+		x(half(x)),
+		y(half(x))
 	{}
 
 	template <typename U, typename V> 
-	GLM_FUNC_QUALIFIER tvec2<thalf>::tvec2
+	GLM_FUNC_QUALIFIER tvec2<half>::tvec2
 	(
 		U const & x, 
 		V const & y
 	) :
-		x(thalf(x)),
-		y(thalf(y))
+		x(half(x)),
+		y(half(y))
 	{}
 
 	//////////////////////////////////////
 	// Convertion vector constructors
 
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec2<thalf>::tvec2
+	GLM_FUNC_QUALIFIER tvec2<half>::tvec2
 	(
 		tvec2<U> const & v
 	) :
-		x(thalf(v.x)),
-		y(thalf(v.y))
+		x(half(v.x)),
+		y(half(v.y))
 	{}
 
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec2<thalf>::tvec2
+	GLM_FUNC_QUALIFIER tvec2<half>::tvec2
 	(	
 		tvec3<U> const & v
 	) :
-		x(thalf(v.x)),
-		y(thalf(v.y))
+		x(half(v.x)),
+		y(half(v.y))
 	{}
 
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec2<thalf>::tvec2
+	GLM_FUNC_QUALIFIER tvec2<half>::tvec2
 	(
 		tvec4<U> const & v
 	) :
-		x(thalf(v.x)),
-		y(thalf(v.y))
+		x(half(v.x)),
+		y(half(v.y))
 	{}
 
 	//////////////////////////////////////
 	// Unary arithmetic operators
 
-	GLM_FUNC_QUALIFIER tvec2<thalf> & tvec2<thalf>::operator= 
+	GLM_FUNC_QUALIFIER tvec2<half> & tvec2<half>::operator= 
 	(
-		tvec2<thalf> const & v
+		tvec2<half> const & v
 	)
 	{
 		this->x = v.x;
@@ -171,9 +171,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<thalf> & tvec2<thalf>::operator+=
+	GLM_FUNC_QUALIFIER tvec2<half> & tvec2<half>::operator+=
 	(
-		thalf const & s
+		half const & s
 	)
 	{
 		this->x += s;
@@ -181,9 +181,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<thalf> & tvec2<thalf>::operator+=
+	GLM_FUNC_QUALIFIER tvec2<half> & tvec2<half>::operator+=
 	(
-		tvec2<thalf> const & v
+		tvec2<half> const & v
 	)
 	{
 		this->x += v.x;
@@ -191,9 +191,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<thalf> & tvec2<thalf>::operator-=
+	GLM_FUNC_QUALIFIER tvec2<half> & tvec2<half>::operator-=
 	(
-		thalf const & s
+		half const & s
 	)
 	{
 		this->x -= s;
@@ -201,9 +201,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<thalf> & tvec2<thalf>::operator-=
+	GLM_FUNC_QUALIFIER tvec2<half> & tvec2<half>::operator-=
 	(
-		tvec2<thalf> const & v
+		tvec2<half> const & v
 	)
 	{
 		this->x -= v.x;
@@ -211,9 +211,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<thalf>& tvec2<thalf>::operator*=
+	GLM_FUNC_QUALIFIER tvec2<half>& tvec2<half>::operator*=
 	(
-		thalf const & s
+		half const & s
 	)
 	{
 		this->x *= s;
@@ -221,9 +221,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<thalf> & tvec2<thalf>::operator*=
+	GLM_FUNC_QUALIFIER tvec2<half> & tvec2<half>::operator*=
 	(
-		tvec2<thalf> const & v
+		tvec2<half> const & v
 	)
 	{
 		this->x *= v.x;
@@ -231,9 +231,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<thalf> & tvec2<thalf>::operator/=
+	GLM_FUNC_QUALIFIER tvec2<half> & tvec2<half>::operator/=
 	(
-		thalf const & s
+		half const & s
 	)
 	{
 		this->x /= s;
@@ -241,9 +241,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<thalf> & tvec2<thalf>::operator/=
+	GLM_FUNC_QUALIFIER tvec2<half> & tvec2<half>::operator/=
 	(
-		tvec2<thalf> const & v
+		tvec2<half> const & v
 	)
 	{
 		this->x /= v.x;
@@ -251,14 +251,14 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<thalf> & tvec2<thalf>::operator++()
+	GLM_FUNC_QUALIFIER tvec2<half> & tvec2<half>::operator++()
 	{
 		++this->x;
 		++this->y;
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<thalf>& tvec2<thalf>::operator--()
+	GLM_FUNC_QUALIFIER tvec2<half>& tvec2<half>::operator--()
 	{
 		--this->x;
 		--this->y;
@@ -268,38 +268,38 @@ namespace detail
 	//////////////////////////////////////
 	// Swizzle operators
 
-	GLM_FUNC_QUALIFIER thalf tvec2<thalf>::swizzle(comp x) const
+	GLM_FUNC_QUALIFIER half tvec2<half>::swizzle(comp x) const
 	{
 		return (*this)[x];
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<thalf> tvec2<thalf>::swizzle(comp x, comp y) const
+	GLM_FUNC_QUALIFIER tvec2<half> tvec2<half>::swizzle(comp x, comp y) const
 	{
-		return tvec2<thalf>(
+		return tvec2<half>(
 			(*this)[x],
 			(*this)[y]);
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<thalf> tvec2<thalf>::swizzle(comp x, comp y, comp z) const
+	GLM_FUNC_QUALIFIER tvec3<half> tvec2<half>::swizzle(comp x, comp y, comp z) const
 	{
-		return tvec3<thalf>(
+		return tvec3<half>(
 			(*this)[x],
 			(*this)[y],
 			(*this)[z]);
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<thalf> tvec2<thalf>::swizzle(comp x, comp y, comp z, comp w) const
+	GLM_FUNC_QUALIFIER tvec4<half> tvec2<half>::swizzle(comp x, comp y, comp z, comp w) const
 	{
-		return tvec4<thalf>(
+		return tvec4<half>(
 			(*this)[x],
 			(*this)[y],
 			(*this)[z],
 			(*this)[w]);
 	}
 
-	GLM_FUNC_QUALIFIER tref2<thalf> tvec2<thalf>::swizzle(comp x, comp y)
+	GLM_FUNC_QUALIFIER tref2<half> tvec2<half>::swizzle(comp x, comp y)
 	{
-		return tref2<thalf>(
+		return tref2<half>(
 			(*this)[x],
 			(*this)[y]);
 	}
@@ -307,12 +307,12 @@ namespace detail
 	//////////////////////////////////////
 	// hvec3
 
-	GLM_FUNC_QUALIFIER tvec3<thalf>::size_type tvec3<thalf>::length() const
+	GLM_FUNC_QUALIFIER tvec3<half>::size_type tvec3<half>::length() const
 	{
 		return 3;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<thalf>::size_type tvec3<thalf>::value_size()
+	GLM_FUNC_QUALIFIER tvec3<half>::size_type tvec3<half>::value_size()
 	{
 		return 3;
 	}
@@ -320,22 +320,22 @@ namespace detail
 	//////////////////////////////////////
 	// Accesses
 
-	GLM_FUNC_QUALIFIER thalf & tvec3<thalf>::operator[]
+	GLM_FUNC_QUALIFIER half & tvec3<half>::operator[]
 	(
-		tvec3<thalf>::size_type i
+		tvec3<half>::size_type i
 	)
 	{
-		assert(/*i >= tvec3<thalf>::size_type(0) &&*/ i < tvec3<thalf>::value_size());
+		assert(/*i >= tvec3<half>::size_type(0) &&*/ i < tvec3<half>::value_size());
 
 		return (&x)[i];
 	}
 
-	GLM_FUNC_QUALIFIER thalf const & tvec3<thalf>::operator[]
+	GLM_FUNC_QUALIFIER half const & tvec3<half>::operator[]
 	(
-		tvec3<thalf>::size_type i
+		tvec3<half>::size_type i
 	) const
 	{
-		assert(/*i >= tvec3<thalf>::size_type(0) &&*/ i < tvec3<thalf>::value_size());
+		assert(/*i >= tvec3<half>::size_type(0) &&*/ i < tvec3<half>::value_size());
 
 		return (&x)[i];
 	}
@@ -343,15 +343,15 @@ namespace detail
 	//////////////////////////////////////
 	// Implicit basic constructors
 
-	GLM_FUNC_QUALIFIER tvec3<thalf>::tvec3() :
-		x(thalf(0)),
-		y(thalf(0)),
-		z(thalf(0))
+	GLM_FUNC_QUALIFIER tvec3<half>::tvec3() :
+		x(half(0)),
+		y(half(0)),
+		z(half(0))
 	{}
 
-	GLM_FUNC_QUALIFIER tvec3<thalf>::tvec3
+	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
 	(
-		tvec3<thalf> const & v
+		tvec3<half> const & v
 	) :
 		x(v.x),
 		y(v.y),
@@ -361,20 +361,20 @@ namespace detail
 	//////////////////////////////////////
 	// Explicit basic constructors
 
-	GLM_FUNC_QUALIFIER tvec3<thalf>::tvec3
+	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
 	(
-		thalf const & s
+		half const & s
 	) :
 		x(s),
 		y(s),
 		z(s)
 	{}
 
-	GLM_FUNC_QUALIFIER tvec3<thalf>::tvec3
+	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
 	(
-		thalf const & s0, 
-		thalf const & s1, 
-		thalf const & s2
+		half const & s0, 
+		half const & s1, 
+		half const & s2
 	) :
 		x(s0),
 		y(s1),
@@ -384,9 +384,9 @@ namespace detail
 	//////////////////////////////////////
 	// Swizzle constructors
 
-	GLM_FUNC_QUALIFIER tvec3<thalf>::tvec3
+	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
 	(
-		tref3<thalf> const & r
+		tref3<half> const & r
 	) :
 		x(r.x),
 		y(r.y),
@@ -397,78 +397,78 @@ namespace detail
 	// Convertion scalar constructors
 
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec3<thalf>::tvec3
+	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
 	(
 		U const & x
 	) :
-		x(thalf(x)),
-		y(thalf(x)),
-		z(thalf(x))
+		x(half(x)),
+		y(half(x)),
+		z(half(x))
 	{}
 
 	template <typename A, typename B, typename C> 
-	GLM_FUNC_QUALIFIER tvec3<thalf>::tvec3
+	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
 	(
 		A const & x, 
 		B const & y, 
 		C const & z
 	) :
-		x(thalf(x)),
-		y(thalf(y)),
-		z(thalf(z))
+		x(half(x)),
+		y(half(y)),
+		z(half(z))
 	{}
 
 	//////////////////////////////////////
 	// Convertion vector constructors
 
 	template <typename A, typename B> 
-	GLM_FUNC_QUALIFIER tvec3<thalf>::tvec3
+	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
 	(
 		tvec2<A> const & v, 
 		B const & s
 	) :
-		x(thalf(v.x)),
-		y(thalf(v.y)),
-		z(thalf(s))
+		x(half(v.x)),
+		y(half(v.y)),
+		z(half(s))
 	{}
 
 	template <typename A, typename B> 
-	GLM_FUNC_QUALIFIER tvec3<thalf>::tvec3
+	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
 	(
 		A const & s, 
 		tvec2<B> const & v
 	) :
-		x(thalf(s)),
-		y(thalf(v.x)),
-		z(thalf(v.y))
+		x(half(s)),
+		y(half(v.x)),
+		z(half(v.y))
 	{}
 
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec3<thalf>::tvec3
+	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
 	(
 		tvec3<U> const & v
 	) :
-		x(thalf(v.x)),
-		y(thalf(v.y)),
-		z(thalf(v.z))
+		x(half(v.x)),
+		y(half(v.y)),
+		z(half(v.z))
 	{}
 
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec3<thalf>::tvec3
+	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
 	(
 		tvec4<U> const & v
 	) :
-		x(thalf(v.x)),
-		y(thalf(v.y)),
-		z(thalf(v.z))
+		x(half(v.x)),
+		y(half(v.y)),
+		z(half(v.z))
 	{}
 
 	//////////////////////////////////////
 	// Unary arithmetic operators
 
-	GLM_FUNC_QUALIFIER tvec3<thalf> & tvec3<thalf>::operator= 
+	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator= 
 	(
-		tvec3<thalf> const & v
+		tvec3<half> const & v
 	)
 	{
 		this->x = v.x;
@@ -477,9 +477,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<thalf> & tvec3<thalf>::operator+=
+	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator+=
 	(
-		thalf const & s
+		half const & s
 	)
 	{
 		this->x += s;
@@ -488,9 +488,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<thalf> & tvec3<thalf>::operator+=
+	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator+=
 	(
-		tvec3<thalf> const & v
+		tvec3<half> const & v
 	)
 	{
 		this->x += v.x;
@@ -499,9 +499,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<thalf> & tvec3<thalf>::operator-=
+	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator-=
 	(
-		thalf const & s
+		half const & s
 	)
 	{
 		this->x -= s;
@@ -510,9 +510,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<thalf> & tvec3<thalf>::operator-=
+	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator-=
 	(
-		tvec3<thalf> const & v
+		tvec3<half> const & v
 	)
 	{
 		this->x -= v.x;
@@ -521,9 +521,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<thalf> & tvec3<thalf>::operator*=
+	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator*=
 	(
-		thalf const & s
+		half const & s
 	)
 	{
 		this->x *= s;
@@ -532,9 +532,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<thalf> & tvec3<thalf>::operator*=
+	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator*=
 	(
-		tvec3<thalf> const & v
+		tvec3<half> const & v
 	)
 	{
 		this->x *= v.x;
@@ -543,9 +543,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<thalf> & tvec3<thalf>::operator/=
+	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator/=
 	(
-		thalf const & s
+		half const & s
 	)
 	{
 		this->x /= s;
@@ -554,9 +554,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<thalf> & tvec3<thalf>::operator/=
+	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator/=
 	(
-		tvec3<thalf> const & v
+		tvec3<half> const & v
 	)
 	{
 		this->x /= v.x;
@@ -565,7 +565,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<thalf> & tvec3<thalf>::operator++()
+	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator++()
 	{
 		++this->x;
 		++this->y;
@@ -573,7 +573,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<thalf> & tvec3<thalf>::operator--()
+	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator--()
 	{
 		--this->x;
 		--this->y;
@@ -584,38 +584,38 @@ namespace detail
 	//////////////////////////////////////
 	// Swizzle operators
 
-	GLM_FUNC_QUALIFIER thalf tvec3<thalf>::swizzle(comp x) const
+	GLM_FUNC_QUALIFIER half tvec3<half>::swizzle(comp x) const
 	{
 		return (*this)[x];
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<thalf> tvec3<thalf>::swizzle(comp x, comp y) const
+	GLM_FUNC_QUALIFIER tvec2<half> tvec3<half>::swizzle(comp x, comp y) const
 	{
-		return tvec2<thalf>(
+		return tvec2<half>(
 			(*this)[x],
 			(*this)[y]);
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<thalf> tvec3<thalf>::swizzle(comp x, comp y, comp z) const
+	GLM_FUNC_QUALIFIER tvec3<half> tvec3<half>::swizzle(comp x, comp y, comp z) const
 	{
-		return tvec3<thalf>(
+		return tvec3<half>(
 			(*this)[x],
 			(*this)[y],
 			(*this)[z]);
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<thalf> tvec3<thalf>::swizzle(comp x, comp y, comp z, comp w) const
+	GLM_FUNC_QUALIFIER tvec4<half> tvec3<half>::swizzle(comp x, comp y, comp z, comp w) const
 	{
-		return tvec4<thalf>(
+		return tvec4<half>(
 			(*this)[x],
 			(*this)[y],
 			(*this)[z],
 			(*this)[w]);
 	}
 
-	GLM_FUNC_QUALIFIER tref3<thalf> tvec3<thalf>::swizzle(comp x, comp y, comp z)
+	GLM_FUNC_QUALIFIER tref3<half> tvec3<half>::swizzle(comp x, comp y, comp z)
 	{
-		return tref3<thalf>(
+		return tref3<half>(
 			(*this)[x],
 			(*this)[y],
 			(*this)[z]);
@@ -624,12 +624,12 @@ namespace detail
 	//////////////////////////////////////
 	// hvec4
 
-	GLM_FUNC_QUALIFIER tvec4<thalf>::size_type tvec4<thalf>::length() const
+	GLM_FUNC_QUALIFIER tvec4<half>::size_type tvec4<half>::length() const
 	{
 		return 4;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<thalf>::size_type tvec4<thalf>::value_size()
+	GLM_FUNC_QUALIFIER tvec4<half>::size_type tvec4<half>::value_size()
 	{
 		return 4;
 	}
@@ -637,22 +637,22 @@ namespace detail
 	//////////////////////////////////////
 	// Accesses
 
-	GLM_FUNC_QUALIFIER thalf & tvec4<thalf>::operator[]
+	GLM_FUNC_QUALIFIER half & tvec4<half>::operator[]
 	(
-		tvec4<thalf>::size_type i
+		tvec4<half>::size_type i
 	)
 	{
-		assert(/*i >= tvec4<thalf>::size_type(0) && */i < tvec4<thalf>::value_size());
+		assert(/*i >= tvec4<half>::size_type(0) && */i < tvec4<half>::value_size());
 
 		return (&x)[i];
 	}
 
-	GLM_FUNC_QUALIFIER thalf const & tvec4<thalf>::operator[]
+	GLM_FUNC_QUALIFIER half const & tvec4<half>::operator[]
 	(
-		tvec4<thalf>::size_type i
+		tvec4<half>::size_type i
 	) const
 	{
-		assert(/*i >= tvec4<thalf>::size_type(0) && */i < tvec4<thalf>::value_size());
+		assert(/*i >= tvec4<half>::size_type(0) && */i < tvec4<half>::value_size());
 
 		return (&x)[i];
 	}
@@ -660,16 +660,16 @@ namespace detail
 	//////////////////////////////////////
 	// Implicit basic constructors
 
-	GLM_FUNC_QUALIFIER tvec4<thalf>::tvec4() :
-		x(thalf(0)),
-		y(thalf(0)),
-		z(thalf(0)),
-		w(thalf(0))
+	GLM_FUNC_QUALIFIER tvec4<half>::tvec4() :
+		x(half(0)),
+		y(half(0)),
+		z(half(0)),
+		w(half(0))
 	{}
 
-	GLM_FUNC_QUALIFIER tvec4<thalf>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
 	(
-		tvec4<thalf> const & v
+		tvec4<half> const & v
 	) :
 		x(v.x),
 		y(v.y),
@@ -680,9 +680,9 @@ namespace detail
 	//////////////////////////////////////
 	// Explicit basic constructors
 
-	GLM_FUNC_QUALIFIER tvec4<thalf>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
 	(
-		thalf const & s
+		half const & s
 	) :
 		x(s),
 		y(s),
@@ -690,12 +690,12 @@ namespace detail
 		w(s)
 	{}
 
-	GLM_FUNC_QUALIFIER tvec4<thalf>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
 	(
-		thalf const & s1, 
-		thalf const & s2, 
-		thalf const & s3, 
-		thalf const & s4
+		half const & s1, 
+		half const & s2, 
+		half const & s3, 
+		half const & s4
 	) :
 		x(s1),
 		y(s2),
@@ -706,9 +706,9 @@ namespace detail
 	//////////////////////////////////////
 	// Swizzle constructors
 
-	GLM_FUNC_QUALIFIER tvec4<thalf>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
 	(
-		tref4<thalf> const & r
+		tref4<half> const & r
 	) :
 		x(r.x),
 		y(r.y),
@@ -720,125 +720,125 @@ namespace detail
 	// Convertion scalar constructors
 
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec4<thalf>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
 	(
 		U const & x
 	) :
-		x(thalf(x)),
-		y(thalf(x)),
-		z(thalf(x)),
-		w(thalf(x))
+		x(half(x)),
+		y(half(x)),
+		z(half(x)),
+		w(half(x))
 	{}
 
 	template <typename A, typename B, typename C, typename D> 
-	GLM_FUNC_QUALIFIER tvec4<thalf>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
 	(
 		A const & x, 
 		B const & y, 
 		C const & z, 
 		D const & w
 	) :
-		x(thalf(x)),
-		y(thalf(y)),
-		z(thalf(z)),
-		w(thalf(w))
+		x(half(x)),
+		y(half(y)),
+		z(half(z)),
+		w(half(w))
 	{}
 
 	//////////////////////////////////////
 	// Convertion vector constructors
 
 	template <typename A, typename B, typename C> 
-	GLM_FUNC_QUALIFIER tvec4<thalf>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
 	(
 		tvec2<A> const & v, 
 		B const & s1, 
 		C const & s2
 	) :
-		x(thalf(v.x)),
-		y(thalf(v.y)),
-		z(thalf(s1)),
-		w(thalf(s2))
+		x(half(v.x)),
+		y(half(v.y)),
+		z(half(s1)),
+		w(half(s2))
 	{}
 
 	template <typename A, typename B, typename C> 
-	GLM_FUNC_QUALIFIER tvec4<thalf>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
 	(
 		A const & s1, 
 		tvec2<B> const & v, 
 		C const & s2
 	) :
-		x(thalf(s1)),
-		y(thalf(v.x)),
-		z(thalf(v.y)),
-		w(thalf(s2))
+		x(half(s1)),
+		y(half(v.x)),
+		z(half(v.y)),
+		w(half(s2))
 	{}
 
 	template <typename A, typename B, typename C> 
-	GLM_FUNC_QUALIFIER tvec4<thalf>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
 	(
 		A const & s1, 
 		B const & s2, 
 		tvec2<C> const & v
 	) :
-		x(thalf(s1)),
-		y(thalf(s2)),
-		z(thalf(v.x)),
-		w(thalf(v.y))
+		x(half(s1)),
+		y(half(s2)),
+		z(half(v.x)),
+		w(half(v.y))
 	{}
 
 	template <typename A, typename B> 
-	GLM_FUNC_QUALIFIER tvec4<thalf>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
 	(
 		tvec3<A> const & v, 
 		B const & s
 	) :
-		x(thalf(v.x)),
-		y(thalf(v.y)),
-		z(thalf(v.z)),
-		w(thalf(s))
+		x(half(v.x)),
+		y(half(v.y)),
+		z(half(v.z)),
+		w(half(s))
 	{}
 
 	template <typename A, typename B> 
-	GLM_FUNC_QUALIFIER tvec4<thalf>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
 	(
 		A const & s, 
 		tvec3<B> const & v
 	) :
-		x(thalf(s)),
-		y(thalf(v.x)),
-		z(thalf(v.y)),
-		w(thalf(v.z))
+		x(half(s)),
+		y(half(v.x)),
+		z(half(v.y)),
+		w(half(v.z))
 	{}
 
 	template <typename A, typename B> 
-	GLM_FUNC_QUALIFIER tvec4<thalf>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
 	(
 		tvec2<A> const & v1, 
 		tvec2<B> const & v2
 	) :
-		x(thalf(v1.x)),
-		y(thalf(v1.y)),
-		z(thalf(v2.x)),
-		w(thalf(v2.y))
+		x(half(v1.x)),
+		y(half(v1.y)),
+		z(half(v2.x)),
+		w(half(v2.y))
 	{}
 
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec4<thalf>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
 	(
 		tvec4<U> const & v
 	) :
-		x(thalf(v.x)),
-		y(thalf(v.y)),
-		z(thalf(v.z)),
-		w(thalf(v.w))
+		x(half(v.x)),
+		y(half(v.y)),
+		z(half(v.z)),
+		w(half(v.w))
 	{}
 
 	//////////////////////////////////////
 	// Unary arithmetic operators
 
-	GLM_FUNC_QUALIFIER tvec4<thalf>& tvec4<thalf>::operator= 
+	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator= 
 	(
-		tvec4<thalf> const & v
+		tvec4<half> const & v
 	)
 	{
 		this->x = v.x;
@@ -848,9 +848,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<thalf>& tvec4<thalf>::operator+=
+	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator+=
 	(
-		thalf const & s
+		half const & s
 	)
 	{
 		this->x += s;
@@ -860,9 +860,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<thalf>& tvec4<thalf>::operator+=
+	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator+=
 	(
-		tvec4<thalf> const & v
+		tvec4<half> const & v
 	)
 	{
 		this->x += v.x;
@@ -872,9 +872,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<thalf>& tvec4<thalf>::operator-=
+	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator-=
 	(
-		thalf const & s
+		half const & s
 	)
 	{
 		this->x -= s;
@@ -884,9 +884,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<thalf>& tvec4<thalf>::operator-=
+	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator-=
 	(
-		tvec4<thalf> const & v
+		tvec4<half> const & v
 	)
 	{
 		this->x -= v.x;
@@ -896,9 +896,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<thalf>& tvec4<thalf>::operator*=
+	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator*=
 	(
-		thalf const & s
+		half const & s
 	)
 	{
 		this->x *= s;
@@ -908,9 +908,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<thalf>& tvec4<thalf>::operator*=
+	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator*=
 	(
-		tvec4<thalf> const & v
+		tvec4<half> const & v
 	)
 	{
 		this->x *= v.x;
@@ -920,9 +920,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<thalf>& tvec4<thalf>::operator/=
+	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator/=
 	(
-		thalf const & s
+		half const & s
 	)
 	{
 		this->x /= s;
@@ -932,9 +932,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<thalf>& tvec4<thalf>::operator/=
+	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator/=
 	(
-		tvec4<thalf> const & v
+		tvec4<half> const & v
 	)
 	{
 		this->x /= v.x;
@@ -944,7 +944,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<thalf>& tvec4<thalf>::operator++()
+	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator++()
 	{
 		++this->x;
 		++this->y;
@@ -953,7 +953,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<thalf>& tvec4<thalf>::operator--()
+	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator--()
 	{
 		--this->x;
 		--this->y;
@@ -965,38 +965,38 @@ namespace detail
 	//////////////////////////////////////
 	// Swizzle operators
 
-	GLM_FUNC_QUALIFIER thalf tvec4<thalf>::swizzle(comp x) const
+	GLM_FUNC_QUALIFIER half tvec4<half>::swizzle(comp x) const
 	{
 		return (*this)[x];
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<thalf> tvec4<thalf>::swizzle(comp x, comp y) const
+	GLM_FUNC_QUALIFIER tvec2<half> tvec4<half>::swizzle(comp x, comp y) const
 	{
-		return tvec2<thalf>(
+		return tvec2<half>(
 			(*this)[x],
 			(*this)[y]);
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<thalf> tvec4<thalf>::swizzle(comp x, comp y, comp z) const
+	GLM_FUNC_QUALIFIER tvec3<half> tvec4<half>::swizzle(comp x, comp y, comp z) const
 	{
-		return tvec3<thalf>(
+		return tvec3<half>(
 			(*this)[x],
 			(*this)[y],
 			(*this)[z]);
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<thalf> tvec4<thalf>::swizzle(comp x, comp y, comp z, comp w) const
+	GLM_FUNC_QUALIFIER tvec4<half> tvec4<half>::swizzle(comp x, comp y, comp z, comp w) const
 	{
-		return tvec4<thalf>(
+		return tvec4<half>(
 			(*this)[x],
 			(*this)[y],
 			(*this)[z],
 			(*this)[w]);
 	}
 
-	GLM_FUNC_QUALIFIER tref4<thalf> tvec4<thalf>::swizzle(comp x, comp y, comp z, comp w)
+	GLM_FUNC_QUALIFIER tref4<half> tvec4<half>::swizzle(comp x, comp y, comp z, comp w)
 	{
-		return tref4<thalf>(
+		return tref4<half>(
 			(*this)[x],
 			(*this)[y],
 			(*this)[z],

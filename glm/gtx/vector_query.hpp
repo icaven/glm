@@ -60,14 +60,6 @@ namespace glm
 		genType const & v1, 
 		typename genType::value_type const & epsilon/* = std::numeric_limits<typename genType::value_type>::epsilon()*/);
 		
-    //! Check whether two vectors are opposites.
-	//! From GLM_GTX_vector_query extensions.
-	template <typename genType> 
-	bool areOpposite(
-		genType const & v0, 
-		genType const & v1, 
-		typename genType::value_type const & epsilon/* = std::numeric_limits<typename genType::value_type>::epsilon()*/);
-		
     //! Check whether two vectors are orthogonals.
 	//! From GLM_GTX_vector_query extensions.
 	template <typename genType> 
@@ -108,14 +100,6 @@ namespace glm
 	//! From GLM_GTX_vector_query extensions.
 	template <typename genType>
 	bool areOrthonormal(
-		genType const & v0, 
-		genType const & v1, 
-		typename genType::value_type const & epsilon/* = std::numeric_limits<typename genType::value_type>::epsilon()*/);
-
-	//! Check whether two vectors are similar.
-	//! From GLM_GTX_vector_query extensions.
-	template <typename genType> 
-	bool areSimilar(
 		genType const & v0, 
 		genType const & v1, 
 		typename genType::value_type const & epsilon/* = std::numeric_limits<typename genType::value_type>::epsilon()*/);

@@ -41,28 +41,28 @@ namespace detail
 
 	/// 16-bit floating point type.
 	/// @ingroup gtc_half_float
-	class thalf
+	class half
 	{
 	public: 
 		// Constructors
-		GLM_FUNC_DECL thalf();
-		GLM_FUNC_DECL thalf(thalf const & s);
+		GLM_FUNC_DECL half();
+		GLM_FUNC_DECL half(half const & s);
 			
 		template <typename U>
-		GLM_FUNC_DECL explicit thalf(U const & s);
+		GLM_FUNC_DECL explicit half(U const & s);
 
 		// Cast
 		template <typename U>
 		GLM_FUNC_DECL operator U() const;
 
 		// Unary updatable operators
-		GLM_FUNC_DECL thalf& operator= (thalf const & s);
-		GLM_FUNC_DECL thalf& operator+=(thalf const & s);
-		GLM_FUNC_DECL thalf& operator-=(thalf const & s);
-		GLM_FUNC_DECL thalf& operator*=(thalf const & s);
-		GLM_FUNC_DECL thalf& operator/=(thalf const & s);
-		GLM_FUNC_DECL thalf& operator++();
-		GLM_FUNC_DECL thalf& operator--();
+		GLM_FUNC_DECL half& operator= (half const & s);
+		GLM_FUNC_DECL half& operator+=(half const & s);
+		GLM_FUNC_DECL half& operator-=(half const & s);
+		GLM_FUNC_DECL half& operator*=(half const & s);
+		GLM_FUNC_DECL half& operator/=(half const & s);
+		GLM_FUNC_DECL half& operator++();
+		GLM_FUNC_DECL half& operator--();
 	
 		GLM_FUNC_DECL float toFloat() const{return toFloat32(data);}
 
@@ -72,44 +72,44 @@ namespace detail
 		hdata data;
 	};
 
-	thalf operator+ (thalf const & s1, thalf const & s2);
+	half operator+ (half const & s1, half const & s2);
 
-	thalf operator- (thalf const & s1, thalf const & s2);
+	half operator- (half const & s1, half const & s2);
 
-	thalf operator* (thalf const & s1, thalf const & s2);
+	half operator* (half const & s1, half const & s2);
 
-	thalf operator/ (thalf const & s1, thalf const & s2);
+	half operator/ (half const & s1, half const & s2);
 
 	// Unary constant operators
-	thalf operator- (thalf const & s);
+	half operator- (half const & s);
 
-	thalf operator-- (thalf const & s, int);
+	half operator-- (half const & s, int);
 
-	thalf operator++ (thalf const & s, int);
+	half operator++ (half const & s, int);
 
 	bool operator==(
-		detail::thalf const & x, 
-		detail::thalf const & y);
+		detail::half const & x, 
+		detail::half const & y);
 
 	bool operator!=(
-		detail::thalf const & x, 
-		detail::thalf const & y);
+		detail::half const & x, 
+		detail::half const & y);
 
 	bool operator<(
-		detail::thalf const & x, 
-		detail::thalf const & y);
+		detail::half const & x, 
+		detail::half const & y);
 
 	bool operator<=(
-		detail::thalf const & x, 
-		detail::thalf const & y);
+		detail::half const & x, 
+		detail::half const & y);
 
 	bool operator>(
-		detail::thalf const & x, 
-		detail::thalf const & y);
+		detail::half const & x, 
+		detail::half const & y);
 
 	bool operator>=(
-		detail::thalf const & x, 
-		detail::thalf const & y);
+		detail::half const & x, 
+		detail::half const & y);
 
 }//namespace detail
 }//namespace glm

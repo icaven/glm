@@ -49,49 +49,49 @@ namespace detail
 {
 #if(!GLM_SUPPORT_ANONYMOUS_UNION_OF_STRUCTURE())
 	template <>
-	struct tvec2<thalf>
+	struct tvec2<half>
 	{
 		enum ctor{null};
-		typedef thalf value_type;
+		typedef half value_type;
 		typedef std::size_t size_type;
 
         GLM_FUNC_DECL size_type length() const;
 		static GLM_FUNC_DECL size_type value_size();
 
-		typedef tvec2<thalf> type;
+		typedef tvec2<half> type;
 		typedef tvec2<bool> bool_type;
 
 		//////////////////////////////////////
 		// Data
 
-		thalf x, y;
+		half x, y;
 
 		//////////////////////////////////////
 		// Accesses
 
-		thalf & operator[](size_type i);
-		thalf const & operator[](size_type i) const;
+		half & operator[](size_type i);
+		half const & operator[](size_type i) const;
 
 		//////////////////////////////////////
 		// Implicit basic constructors
 
 		tvec2();
-		tvec2(tvec2<thalf> const & v);
+		tvec2(tvec2<half> const & v);
 
 		//////////////////////////////////////
 		// Explicit basic constructors
 
 		explicit tvec2(ctor);
 		explicit tvec2(
-			thalf const & s);
+			half const & s);
 		explicit tvec2(
-			thalf const & s1, 
-			thalf const & s2);
+			half const & s1, 
+			half const & s2);
 
 		//////////////////////////////////////
 		// Swizzle constructors
 
-		tvec2(tref2<thalf> const & r);
+		tvec2(tref2<half> const & r);
 
 		//////////////////////////////////////
 		// Convertion scalar constructors
@@ -119,73 +119,73 @@ namespace detail
 		//////////////////////////////////////
 		// Unary arithmetic operators
 
-		tvec2<thalf>& operator= (tvec2<thalf> const & v);
+		tvec2<half>& operator= (tvec2<half> const & v);
 
-		tvec2<thalf>& operator+=(thalf const & s);
-		tvec2<thalf>& operator+=(tvec2<thalf> const & v);
-		tvec2<thalf>& operator-=(thalf const & s);
-		tvec2<thalf>& operator-=(tvec2<thalf> const & v);
-		tvec2<thalf>& operator*=(thalf const & s);
-		tvec2<thalf>& operator*=(tvec2<thalf> const & v);
-		tvec2<thalf>& operator/=(thalf const & s);
-		tvec2<thalf>& operator/=(tvec2<thalf> const & v);
-		tvec2<thalf>& operator++();
-		tvec2<thalf>& operator--();
+		tvec2<half>& operator+=(half const & s);
+		tvec2<half>& operator+=(tvec2<half> const & v);
+		tvec2<half>& operator-=(half const & s);
+		tvec2<half>& operator-=(tvec2<half> const & v);
+		tvec2<half>& operator*=(half const & s);
+		tvec2<half>& operator*=(tvec2<half> const & v);
+		tvec2<half>& operator/=(half const & s);
+		tvec2<half>& operator/=(tvec2<half> const & v);
+		tvec2<half>& operator++();
+		tvec2<half>& operator--();
 
 		//////////////////////////////////////
 		// Swizzle operators
 
-		thalf swizzle(comp X) const;
-		tvec2<thalf> swizzle(comp X, comp Y) const;
-		tvec3<thalf> swizzle(comp X, comp Y, comp Z) const;
-		tvec4<thalf> swizzle(comp X, comp Y, comp Z, comp W) const;
-		tref2<thalf> swizzle(comp X, comp Y);
+		half swizzle(comp X) const;
+		tvec2<half> swizzle(comp X, comp Y) const;
+		tvec3<half> swizzle(comp X, comp Y, comp Z) const;
+		tvec4<half> swizzle(comp X, comp Y, comp Z, comp W) const;
+		tref2<half> swizzle(comp X, comp Y);
 	};
 
 	template <>
-	struct tvec3<thalf>
+	struct tvec3<half>
 	{
 		enum ctor{null};
-		typedef thalf value_type;
+		typedef half value_type;
 		typedef std::size_t size_type;
         GLM_FUNC_DECL size_type length() const;
 		static GLM_FUNC_DECL size_type value_size();
 
-		typedef tvec3<thalf> type;
+		typedef tvec3<half> type;
 		typedef tvec3<bool> bool_type;
 
 		//////////////////////////////////////
 		// Data
 
-		thalf x, y, z;
+		half x, y, z;
 
 		//////////////////////////////////////
 		// Accesses
 
-		thalf & operator[](size_type i);
-		thalf const & operator[](size_type i) const;
+		half & operator[](size_type i);
+		half const & operator[](size_type i) const;
 
 		//////////////////////////////////////
 		// Implicit basic constructors
 
 		tvec3();
-		tvec3(tvec3<thalf> const & v);
+		tvec3(tvec3<half> const & v);
 
 		//////////////////////////////////////
 		// Explicit basic constructors
 
 		explicit tvec3(ctor);
 		explicit tvec3(
-			thalf const & s);
+			half const & s);
 		explicit tvec3(
-			thalf const & s1, 
-			thalf const & s2, 
-			thalf const & s3);
+			half const & s1, 
+			half const & s2, 
+			half const & s3);
 
 		//////////////////////////////////////
 		// Swizzle constructors
 
-		tvec3(tref3<thalf> const & r);
+		tvec3(tref3<half> const & r);
 
 		//////////////////////////////////////
 		// Convertion scalar constructors
@@ -216,74 +216,74 @@ namespace detail
 		//////////////////////////////////////
 		// Unary arithmetic operators
 
-		tvec3<thalf>& operator= (tvec3<thalf> const & v);
+		tvec3<half>& operator= (tvec3<half> const & v);
 
-		tvec3<thalf>& operator+=(thalf const & s);
-		tvec3<thalf>& operator+=(tvec3<thalf> const & v);
-		tvec3<thalf>& operator-=(thalf const & s);
-		tvec3<thalf>& operator-=(tvec3<thalf> const & v);
-		tvec3<thalf>& operator*=(thalf const & s);
-		tvec3<thalf>& operator*=(tvec3<thalf> const & v);
-		tvec3<thalf>& operator/=(thalf const & s);
-		tvec3<thalf>& operator/=(tvec3<thalf> const & v);
-		tvec3<thalf>& operator++();
-		tvec3<thalf>& operator--();
+		tvec3<half>& operator+=(half const & s);
+		tvec3<half>& operator+=(tvec3<half> const & v);
+		tvec3<half>& operator-=(half const & s);
+		tvec3<half>& operator-=(tvec3<half> const & v);
+		tvec3<half>& operator*=(half const & s);
+		tvec3<half>& operator*=(tvec3<half> const & v);
+		tvec3<half>& operator/=(half const & s);
+		tvec3<half>& operator/=(tvec3<half> const & v);
+		tvec3<half>& operator++();
+		tvec3<half>& operator--();
 
 		//////////////////////////////////////
 		// Swizzle operators
 
-		thalf swizzle(comp X) const;
-		tvec2<thalf> swizzle(comp X, comp Y) const;
-		tvec3<thalf> swizzle(comp X, comp Y, comp Z) const;
-		tvec4<thalf> swizzle(comp X, comp Y, comp Z, comp W) const;
-		tref3<thalf> swizzle(comp X, comp Y, comp Z);
+		half swizzle(comp X) const;
+		tvec2<half> swizzle(comp X, comp Y) const;
+		tvec3<half> swizzle(comp X, comp Y, comp Z) const;
+		tvec4<half> swizzle(comp X, comp Y, comp Z, comp W) const;
+		tref3<half> swizzle(comp X, comp Y, comp Z);
 	};
 
 	template <>
-	struct tvec4<thalf>
+	struct tvec4<half>
 	{
 		enum ctor{null};
-		typedef thalf value_type;
+		typedef half value_type;
 		typedef std::size_t size_type;
         GLM_FUNC_DECL size_type length() const;
 		static GLM_FUNC_DECL size_type value_size();
 
-		typedef tvec4<thalf> type;
+		typedef tvec4<half> type;
 		typedef tvec4<bool> bool_type;
 
 		//////////////////////////////////////
 		// Data
 
-		thalf x, y, z, w;
+		half x, y, z, w;
 
 		//////////////////////////////////////
 		// Accesses
 
-		thalf & operator[](size_type i);
-		thalf const & operator[](size_type i) const;
+		half & operator[](size_type i);
+		half const & operator[](size_type i) const;
 
 		//////////////////////////////////////
 		// Implicit basic constructors
 
 		tvec4();
-		tvec4(tvec4<thalf> const & v);
+		tvec4(tvec4<half> const & v);
 
 		//////////////////////////////////////
 		// Explicit basic constructors
 
 		explicit tvec4(ctor);
 		explicit tvec4(
-			thalf const & s);
+			half const & s);
 		explicit tvec4(
-			thalf const & s0, 
-			thalf const & s1, 
-			thalf const & s2, 
-			thalf const & s3);
+			half const & s0, 
+			half const & s1, 
+			half const & s2, 
+			half const & s3);
 
 		//////////////////////////////////////
 		// Swizzle constructors
 
-		tvec4(tref4<thalf> const & r);
+		tvec4(tref4<half> const & r);
 
 		//////////////////////////////////////
 		// Convertion scalar constructors
@@ -323,27 +323,27 @@ namespace detail
 		//////////////////////////////////////
 		// Unary arithmetic operators
 
-		tvec4<thalf>& operator= (tvec4<thalf> const & v);
+		tvec4<half>& operator= (tvec4<half> const & v);
 
-		tvec4<thalf>& operator+=(thalf const & s);
-		tvec4<thalf>& operator+=(tvec4<thalf> const & v);
-		tvec4<thalf>& operator-=(thalf const & s);
-		tvec4<thalf>& operator-=(tvec4<thalf> const & v);
-		tvec4<thalf>& operator*=(thalf const & s);
-		tvec4<thalf>& operator*=(tvec4<thalf> const & v);
-		tvec4<thalf>& operator/=(thalf const & s);
-		tvec4<thalf>& operator/=(tvec4<thalf> const & v);
-		tvec4<thalf>& operator++();
-		tvec4<thalf>& operator--();
+		tvec4<half>& operator+=(half const & s);
+		tvec4<half>& operator+=(tvec4<half> const & v);
+		tvec4<half>& operator-=(half const & s);
+		tvec4<half>& operator-=(tvec4<half> const & v);
+		tvec4<half>& operator*=(half const & s);
+		tvec4<half>& operator*=(tvec4<half> const & v);
+		tvec4<half>& operator/=(half const & s);
+		tvec4<half>& operator/=(tvec4<half> const & v);
+		tvec4<half>& operator++();
+		tvec4<half>& operator--();
 
 		//////////////////////////////////////
 		// Swizzle operators
 
-		thalf swizzle(comp X) const;
-		tvec2<thalf> swizzle(comp X, comp Y) const;
-		tvec3<thalf> swizzle(comp X, comp Y, comp Z) const;
-		tvec4<thalf> swizzle(comp X, comp Y, comp Z, comp W) const;
-		tref4<thalf> swizzle(comp X, comp Y, comp Z, comp W);
+		half swizzle(comp X) const;
+		tvec2<half> swizzle(comp X, comp Y) const;
+		tvec3<half> swizzle(comp X, comp Y, comp Z) const;
+		tvec4<half> swizzle(comp X, comp Y, comp Z, comp W) const;
+		tref4<half> swizzle(comp X, comp Y, comp Z, comp W);
 	};
 #endif//(!GLM_SUPPORT_ANONYMOUS_UNION_OF_STRUCTURE())
 }
@@ -353,68 +353,68 @@ namespace detail
 	/// @{
 
 	/// Type for half-precision floating-point numbers. 
-	/// From GLM_GTC_half_float extension.
-	typedef detail::thalf					half;
+	/// @see gtc_half_float
+	typedef detail::half					half;
 
 	/// Vector of 2 half-precision floating-point numbers. 
-	/// From GLM_GTC_half_float extension.
-	typedef detail::tvec2<detail::thalf>	hvec2;
+	/// @see gtc_half_float
+	typedef detail::tvec2<detail::half>	hvec2;
 
 	/// Vector of 3 half-precision floating-point numbers.
-	/// From GLM_GTC_half_float extension.
-	typedef detail::tvec3<detail::thalf>	hvec3;
+	/// @see gtc_half_float
+	typedef detail::tvec3<detail::half>	hvec3;
 
 	/// Vector of 4 half-precision floating-point numbers. 
-	/// From GLM_GTC_half_float extension.
-	typedef detail::tvec4<detail::thalf>	hvec4;
+	/// @see gtc_half_float
+	typedef detail::tvec4<detail::half>	hvec4;
 
 	/// 2 * 2 matrix of half-precision floating-point numbers.
-	/// From GLM_GTC_half_float extension.
-	typedef detail::tmat2x2<detail::thalf>	hmat2;
+	/// @see gtc_half_float
+	typedef detail::tmat2x2<detail::half>	hmat2;
     
 	/// 3 * 3 matrix of half-precision floating-point numbers.
-	/// From GLM_GTC_half_float extension.
-	typedef detail::tmat3x3<detail::thalf>	hmat3;
+	/// @see gtc_half_float
+	typedef detail::tmat3x3<detail::half>	hmat3;
 
 	/// 4 * 4 matrix of half-precision floating-point numbers.
-	/// From GLM_GTC_half_float extension.
-	typedef detail::tmat4x4<detail::thalf>	hmat4;
+	/// @see gtc_half_float
+	typedef detail::tmat4x4<detail::half>	hmat4;
 
 	/// 2 * 2 matrix of half-precision floating-point numbers.
-	/// From GLM_GTC_half_float extension.
-	typedef detail::tmat2x2<detail::thalf>	hmat2x2;
+	/// @see gtc_half_float
+	typedef detail::tmat2x2<detail::half>	hmat2x2;
     
 	/// 2 * 3 matrix of half-precision floating-point numbers.
-	/// From GLM_GTC_half_float extension.
-	typedef detail::tmat2x3<detail::thalf>	hmat2x3;
+	/// @see gtc_half_float
+	typedef detail::tmat2x3<detail::half>	hmat2x3;
     
 	/// 2 * 4 matrix of half-precision floating-point numbers.
-	/// From GLM_GTC_half_float extension.
-	typedef detail::tmat2x4<detail::thalf>	hmat2x4;
+	/// @see gtc_half_float
+	typedef detail::tmat2x4<detail::half>	hmat2x4;
 
 	/// 3 * 2 matrix of half-precision floating-point numbers.
-	/// From GLM_GTC_half_float extension.
-	typedef detail::tmat3x2<detail::thalf>	hmat3x2;
+	/// @see gtc_half_float
+	typedef detail::tmat3x2<detail::half>	hmat3x2;
     
 	/// 3 * 3 matrix of half-precision floating-point numbers.
-	/// From GLM_GTC_half_float extension.
-	typedef detail::tmat3x3<detail::thalf>	hmat3x3;
+	/// @see gtc_half_float
+	typedef detail::tmat3x3<detail::half>	hmat3x3;
     
 	/// 3 * 4 matrix of half-precision floating-point numbers.
-	/// From GLM_GTC_half_float extension.
-	typedef detail::tmat3x4<detail::thalf>	hmat3x4;
+	/// @see gtc_half_float
+	typedef detail::tmat3x4<detail::half>	hmat3x4;
 
 	/// 4 * 2 matrix of half-precision floating-point numbers.
-	/// From GLM_GTC_half_float extension.
-	typedef detail::tmat4x2<detail::thalf>	hmat4x2;    
+	/// @see gtc_half_float
+	typedef detail::tmat4x2<detail::half>	hmat4x2;    
 
 	/// 4 * 3 matrix of half-precision floating-point numbers.
-	/// From GLM_GTC_half_float extension.
-	typedef detail::tmat4x3<detail::thalf>	hmat4x3;
+	/// @see gtc_half_float
+	typedef detail::tmat4x3<detail::half>	hmat4x3;
     
 	/// 4 * 4 matrix of half-precision floating-point numbers.
-	/// From GLM_GTC_half_float extension.
-	typedef detail::tmat4x4<detail::thalf>	hmat4x4;
+	/// @see gtc_half_float
+	typedef detail::tmat4x4<detail::half>	hmat4x4;
     
 	/// @}
 }// namespace glm

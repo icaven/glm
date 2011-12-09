@@ -4,6 +4,7 @@
   <downloads>
     <section name="GLM - zip files">
       <download name="GLM 0.9.2.7" date="24/10/2011" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.7/glm-0.9.2.7.zip/download"/>
+      <download name="GLM 0.9.3.B" date="06/12/2011" size="4.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.B/glm-0.9.3.B.zip/download"/>
       <download name="GLM 0.9.3.A" date="11/11/2011" size="4.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.A/glm-0.9.3.A.zip/download"/>
       <download name="GLM 0.9.2.6" date="01/10/2011" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.6/glm-0.9.2.6.zip/download"/>
       <download name="GLM 0.9.2.5" date="20/09/2011" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.5/glm-0.9.2.5.zip/download"/>
@@ -72,6 +73,7 @@
     </section>
     <section name="GLM - 7z files">
       <download name="GLM 0.9.2.7" date="24/10/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.7/glm-0.9.2.7.7z/download"/>
+      <download name="GLM 0.9.3.B" date="06/12/2011" size="2.8 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.B/glm-0.9.3.B.7z/download"/>
       <download name="GLM 0.9.3.A" date="11/11/2011" size="2.8 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.A/glm-0.9.3.A.7z/download"/>
       <download name="GLM 0.9.2.6" date="01/10/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.6/glm-0.9.2.6.7z/download"/>
       <download name="GLM 0.9.2.5" date="20/09/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.5/glm-0.9.2.5.7z/download"/>
@@ -166,6 +168,18 @@
   </todo>
 
   <page_news>
+    <news index="0074" date="06/12/2011" title="GLM 0.9.3 beta released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+      <paragraph>
+        GLM 0.9.3 beta fixes various bugs and add support for <link href="http://code.google.com/chrome/nativeclient/">Chrome Native Client</link>
+      </paragraph>
+
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.B/glm-0.9.3.B.zip/download">GLM 0.9.3.B (zip)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.B/glm-0.9.3.B.7z/download">GLM 0.9.3.B (7z)</source>
+      <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
+      <source type="Link" href="http://glm.g-truc.net/glm-0.9.3.pdf">GLM 0.9.3 Manual</source>
+      <source type="Link" href="http://glm.g-truc.net/api-0.9.3/index.html">GLM 0.9.3 API</source>
+    </news>
+
     <news index="0073" date="11/11/2011" title="GLM 0.9.3 alpha released" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>
         GLM 0.9.3 is making progress which is illustrated by the release of this first alpha. 

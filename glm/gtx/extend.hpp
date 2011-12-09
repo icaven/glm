@@ -50,8 +50,8 @@ namespace glm
 	/// @addtogroup gtx_extend
 	/// @{
 
-	//! Extends of Length the Origin position using the (Source - Origin) direction.
-	//! From GLM_GTX_extend extension.
+	/// Extends of Length the Origin position using the (Source - Origin) direction.
+	/// @see gtx_extend
 	template <typename genType> 
 	genType extend(
 		genType const & Origin, 

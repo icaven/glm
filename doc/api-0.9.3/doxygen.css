@@ -192,7 +192,7 @@ dl.el {
 }
 
 .fragment {
-	font-family: consolas, monospace, fixed;
+	font-family: monospace, consolas, "courier new";
 	font-size: 12px;
 }
 
@@ -395,7 +395,8 @@ table.memberdecls {
 .mdescLeft, .mdescRight,
 .memItemLeft, .memItemRight,
 .memTemplItemLeft, .memTemplItemRight, .memTemplParams {
-	font-family: consolas, "courier new", monospace;
+	font-family: monospace, consolas, "courier new";
+	font-size: 12px;
 	background-color: #FFFCF8;
 	border: none;
 	margin: 4px;
@@ -447,7 +448,7 @@ table.memberdecls {
 }
 
 .memname {
-	font-family: consolas, "courier new", monospace;
+	font-family: monospace, consolas, "courier new";
     font-weight: bold;
 	font-size: 12px;
     white-space: nowrap;
@@ -513,7 +514,7 @@ table.memberdecls {
 }
 
 .paramname {
-	color: #000000;
+	color: #FF8000;
 	white-space: nowrap;
 }
 .paramname em {
@@ -525,6 +526,7 @@ table.memberdecls {
 }       
 
 .params .paramname, .retval .paramname {
+		color: #FF8000;
         font-family: monospace, consolas, "courier new";
         font-weight: bold;
 		font-size: 12px;

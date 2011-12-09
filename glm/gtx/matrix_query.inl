@@ -58,13 +58,13 @@ namespace glm
 	)
 	{
 		bool result = true;
-		for(typename genType::value_type i = typename genType::value_type(0); result && i < genType::col_size(); ++i)
+		for(typename genType::size_type i = typename genType::size_type(0); result && i < genType::col_size(); ++i)
 		{
-			for(typename genType::value_type j = typename genType::value_type(0); result && j < i ; ++j)
+			for(typename genType::size_type j = typename genType::size_type(0); result && j < i ; ++j)
 				result = abs(m[i][j]) <= epsilon;
 			if(result)
 				result = abs(m[i][i] - typename genType::value_type(1)) <= epsilon;
-			for(typename genType::value_type j = i + typename genType::value_type(1); result && j < genType::row_size(); ++j)
+			for(typename genType::size_type j = i + typename genType::size_type(1); result && j < genType::row_size(); ++j)
 				result = abs(m[i][j]) <= epsilon;
 		}
 		return result;

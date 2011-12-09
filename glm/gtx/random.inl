@@ -105,11 +105,11 @@ GLM_FUNC_QUALIFIER double compRand1()
 	return double(std::rand()) / double(RAND_MAX);
 }
 
-GLM_FUNC_QUALIFIER detail::thalf compRand1(
-	detail::thalf Min, 
-	detail::thalf Max)
+GLM_FUNC_QUALIFIER detail::half compRand1(
+	detail::half Min, 
+	detail::half Max)
 {
-	return compRand1<detail::thalf>() * (Max - Min) + Min;
+	return compRand1<detail::half>() * (Max - Min) + Min;
 }
 
 GLM_FUNC_QUALIFIER float compRand1(
