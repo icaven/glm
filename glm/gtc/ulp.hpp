@@ -20,64 +20,64 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_ulp
-/// @file glm/gtx/ulp.hpp
-/// @date 2011-02-21 / 2011-06-07
+/// @ref gtc_ulp
+/// @file glm/gtc/ulp.hpp
+/// @date 2011-02-21 / 2011-12-12
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_ulp GLM_GTX_ulp: Accuracy measurement
-/// @ingroup gtx
+/// @defgroup gtc_ulp GLM_GTC_ulp: Accuracy measurement
+/// @ingroup gtc
 /// 
 /// @brief Allow the measurement of the accuracy of a function against a reference 
 /// implementation. This extension works on floating-point data and provide results 
 /// in ULP.
-/// <glm/gtx/ulp.hpp> need to be included to use these functionalities.
+/// <glm/gtc/ulp.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_ulp
-#define GLM_GTX_ulp GLM_VERSION
+#ifndef GLM_GTC_ulp
+#define GLM_GTC_ulp GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))
-#	pragma message("GLM: GLM_GTX_ulp extension included")
+#	pragma message("GLM: GLM_GTC_ulp extension included")
 #endif
 
 namespace glm
 {
-	/// @addtogroup gtx_ulp
+	/// @addtogroup gtc_ulp
 	/// @{
 
-	//! Return the next ULP value(s) after the input value(s).
-	//! From GLM_GTX_ulp extension.
+	/// Return the next ULP value(s) after the input value(s).
+	/// @see gtc_ulp
     template <typename genType>
     genType next_float(genType const & x);
         
-	//! Return the previous ULP value(s) before the input value(s).
-	//! From GLM_GTX_ulp extension.
+	/// Return the previous ULP value(s) before the input value(s).
+	/// @see gtc_ulp
     template <typename genType>
     genType prev_float(genType const & x);
 
-	//! Return the value(s) ULP distance after the input value(s).
-	//! From GLM_GTX_ulp extension.
+	/// Return the value(s) ULP distance after the input value(s).
+	/// @see gtc_ulp
     template <typename genType>
     genType next_float(genType const & x, uint const & Distance);
         
-    //! Return the value(s) ULP distance before the input value(s).
-	//! From GLM_GTX_ulp extension.
+    /// Return the value(s) ULP distance before the input value(s).
+	/// @see gtc_ulp
     template <typename genType>
     genType prev_float(genType const & x, uint const & Distance);
         
-    //! Return the distance in the number of ULP between 2 scalars.
-	//! From GLM_GTX_ulp extension.
+    /// Return the distance in the number of ULP between 2 scalars.
+	/// @see gtc_ulp
     template <typename T>
     uint float_distance(T const & x, T const & y);
         
-    //! Return the distance in the number of ULP between 2 vectors.
-	//! From GLM_GTX_ulp extension.
+    /// Return the distance in the number of ULP between 2 vectors.
+	/// @see gtc_ulp
     template<typename T, template<typename> class vecType>
     vecType<uint> float_distance(vecType<T> const & x, vecType<T> const & y);
         
@@ -86,5 +86,5 @@ namespace glm
 
 #include "ulp.inl"
 
-#endif//GLM_GTX_ulp
+#endif//GLM_GTC_ulp
 
