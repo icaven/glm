@@ -66,8 +66,6 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
     typedef highp_float_t		highp_float;
 
-	/// @}
-
 #if(!defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
 	typedef mediump_float				float_t;
 #elif(defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
@@ -80,6 +78,7 @@ namespace glm
 #	error "GLM error: multiple default precision requested for floating-point types"
 #endif
 
+	/// @}
 }//namespace glm
 
 #endif//glm_core_type_float
