@@ -1765,34 +1765,34 @@
 			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification.
 		</paragraph>
 		<paragraph>
-			GLM provides classes and functions designed and 
-			implemented with the same naming conventions 
-			and functionalities than GLSL so that 
-			when a programmer knows GLSL, he knows GLM as well which makes it really easy to use.
+			GLM provides classes and functions designed and implemented with the same naming conventions 
+			and functionalities than GLSL so that when a programmer knows GLSL, he knows GLM as well 
+      which makes it really easy to use.
 		</paragraph>
 		<paragraph>
-			This project isn't limited by GLSL features. 
-			An extension system, based on the GLSL extension conventions, 
-			provides extended capabilities: matrix transformations, 
-			quaternions, half-based types, random numbers, etc...
+			This project isn't limited to GLSL features. An extension system, based on the GLSL extension conventions, 
+			provides extended capabilities: matrix transformations, quaternions, half-based types, random numbers, 
+      procedural noise functions, etc...
 		</paragraph>
 		<paragraph>
-			This library works perfectly with OpenGL but it also ensures interoperability with other third party libraries and SDKs. It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
+			This library works perfectly with OpenGL but it also ensures interoperability with third party libraries and SDKs. 
+      It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
 		</paragraph>
-		<list name="GLM is written as a platform independent library with no dependence and officially supports the following compilers:">
-			<list-element><link href="http://clang.llvm.org">Clang</link> 2.0 and higher</list-element>
+		<list name="GLM is written in C++98 but can take advantage of C++11 when supported by the compiler. It is a platform independent library with no dependence and officially supports the following compilers:">
+			<list-element><link href="http://clang.llvm.org">Clang</link> 2.6 and higher</list-element>
 			<list-element>
 				<link href="http://developer.nvidia.com/category/zone/cuda-zone">CUDA</link> 3.0 and higher
 			</list-element>
 			<list-element><link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher</list-element>
 			<list-element><link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher</list-element>
 			<list-element><link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher</list-element>
-			<list-element>Any C++ compiler following C++98 norm</list-element>
+			<list-element>Any conform C++98 or C++11 compiler</list-element>
 		</list>
 		<paragraph>
-			The source code is under the <link href="./copying.txt">MIT license</link>.
+      The source code is licenced under the <link href="./copying.txt">MIT license</link>.
 		</paragraph>
-		<paragraph>
+      For more information about GLM, please have a look at <a href="http://glm.g-truc.net/glm.pdf">the manual</a> and <a href="http://glm.g-truc.net/api/index.html">the API reference documentation</a>.
+    <paragraph>
 			Thanks for contributing to the project by <link href="https://sourceforge.net/apps/trac/ogl-math/newticket">submitting tickets</link> for bug reports and feature requests. (SF.net account required).
 			Any feedback is welcome at <a href="mailto://glm@g-truc.net">glm@g-truc.net</a>.
 		</paragraph>
@@ -1828,8 +1828,8 @@
     </menu-group>
 
     <menu-group name="Documentation">
-      <menu-entry name="GLM Manual" href="./glm-0.9.2.pdf" />
-      <menu-entry name="GLM API" href="./api-0.9.2/index.html" />
+      <menu-entry name="GLM Manual" href="./glm.pdf" />
+      <menu-entry name="GLM API" href="./api/index.html" />
       <menu-entry name="Code samples" href="./code.html" />
       <menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.clean.pdf" />
       <menu-entry name="OpenGL.org Toolkits forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
