@@ -37,7 +37,7 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm-0.9.2.pdf
 
 ================================================================================
-GLM 0.9.2.8: 2011-12-XX
+GLM 0.9.2.8: 2011-12-12
 --------------------------------------------------------------------------------
 - Fixed modf implementation
 - Fixed step function accuracy
