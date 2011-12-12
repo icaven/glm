@@ -25,7 +25,7 @@
 /// @date 2010-03-17 / 2011-06-15
 /// @author Christophe Riccio
 ///
-/// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
+/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 /// 
 /// @defgroup core_func_packing Floating-Point Pack and Unpack Functions
 /// @ingroup core
@@ -50,8 +50,8 @@ namespace glm
     //! The first component of the vector will be written to the least significant bits of the output; 
     //! the last component will be written to the most significant bits.
     //! 
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packUnorm2x16.xml">GLSL packUnorm2x16 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packUnorm2x16.xml">GLSL packUnorm2x16 man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	detail::uint32 packUnorm2x16(detail::tvec2<detail::float32> const & v);
 
     //! First, converts each component of the normalized floating-point value v into 8- or 16-bit integer values. 
@@ -63,8 +63,8 @@ namespace glm
     //! The first component of the vector will be written to the least significant bits of the output; 
     //! the last component will be written to the most significant bits.
     //! 
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packSnorm2x16.xml">GLSL packSnorm2x16 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packSnorm2x16.xml">GLSL packSnorm2x16 man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	detail::uint32 packSnorm2x16(detail::tvec2<detail::float32> const & v);
 	
     //! First, converts each component of the normalized floating-point value v into 8- or 16-bit integer values. 
@@ -76,8 +76,8 @@ namespace glm
     //! The first component of the vector will be written to the least significant bits of the output; 
     //! the last component will be written to the most significant bits.
     //! 
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packUnorm4x8.xml">GLSL packUnorm4x8 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packUnorm4x8.xml">GLSL packUnorm4x8 man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	detail::uint32 packUnorm4x8(detail::tvec4<detail::float32> const & v);
         
     //! First, converts each component of the normalized floating-point value v into 8- or 16-bit integer values. 
@@ -89,8 +89,8 @@ namespace glm
     //! The first component of the vector will be written to the least significant bits of the output; 
     //! the last component will be written to the most significant bits.
     //! 
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packSnorm4x8.xml">GLSL packSnorm4x8 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packSnorm4x8.xml">GLSL packSnorm4x8 man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	detail::uint32 packSnorm4x8(detail::tvec4<detail::float32> const & v);
 
     //! First, unpacks a single 32-bit unsigned integer p into a pair of 16-bit unsigned integers, four 8-bit unsigned integers, or four 8-bit signed integers. 
@@ -102,8 +102,8 @@ namespace glm
     //! The first component of the returned vector will be extracted from the least significant bits of the input; 
     //! the last component will be extracted from the most significant bits.
     //! 
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackUnorm2x16.xml">GLSL unpackUnorm2x16 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackUnorm2x16.xml">GLSL unpackUnorm2x16 man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	detail::tvec2<detail::float32> unpackUnorm2x16(detail::uint32 const & p);
 
     //! First, unpacks a single 32-bit unsigned integer p into a pair of 16-bit unsigned integers, four 8-bit unsigned integers, or four 8-bit signed integers. 
@@ -115,8 +115,8 @@ namespace glm
     //! The first component of the returned vector will be extracted from the least significant bits of the input; 
     //! the last component will be extracted from the most significant bits.
     //! 
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackSnorm2x16.xml">GLSL unpackSnorm2x16 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackSnorm2x16.xml">GLSL unpackSnorm2x16 man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	detail::tvec2<detail::float32> unpackSnorm2x16(detail::uint32 const & p);
 	
     /// First, unpacks a single 32-bit unsigned integer p into a pair of 16-bit unsigned integers, four 8-bit unsigned integers, or four 8-bit signed integers. 
@@ -128,8 +128,8 @@ namespace glm
     /// The first component of the returned vector will be extracted from the least significant bits of the input; 
     /// the last component will be extracted from the most significant bits.
     /// 
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackUnorm4x8.xml">GLSL unpackUnorm4x8 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackUnorm4x8.xml">GLSL unpackUnorm4x8 man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
     detail::tvec4<detail::float32> unpackUnorm4x8(detail::uint32 const & p);
         
     /// First, unpacks a single 32-bit unsigned integer p into a pair of 16-bit unsigned integers, four 8-bit unsigned integers, or four 8-bit signed integers. 
@@ -141,8 +141,8 @@ namespace glm
     /// The first component of the returned vector will be extracted from the least significant bits of the input; 
     /// the last component will be extracted from the most significant bits.
     /// 
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackSnorm4x8.xml">GLSL unpackSnorm4x8 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackSnorm4x8.xml">GLSL unpackSnorm4x8 man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	detail::tvec4<detail::float32> unpackSnorm4x8(detail::uint32 const & p);
 
     /// Returns a double-precision value obtained by packing the components of v into a 64-bit value. 
@@ -151,8 +151,8 @@ namespace glm
     /// The first vector component specifies the 32 least significant bits; 
     /// the second component specifies the 32 most significant bits.
     /// 
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packDouble2x32.xml">GLSL packDouble2x32 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packDouble2x32.xml">GLSL packDouble2x32 man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	double packDouble2x32(detail::tvec2<detail::uint32> const & v);
         
     /// Returns a two-component unsigned integer vector representation of v. 
@@ -160,8 +160,8 @@ namespace glm
     /// The first component of the vector contains the 32 least significant bits of the double; 
     /// the second component consists the 32 most significant bits.
     /// 
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackDouble2x32.xml">GLSL unpackDouble2x32 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackDouble2x32.xml">GLSL unpackDouble2x32 man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	detail::tvec2<detail::uint32> unpackDouble2x32(double const & v);
 
 	
@@ -171,8 +171,8 @@ namespace glm
 	/// The first vector component specifies the 16 least-significant bits of the result; 
 	/// the second component specifies the 16 most-significant bits.
     /// 
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packHalf2x16.xml">GLSL packHalf2x16 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packHalf2x16.xml">GLSL packHalf2x16 man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	uint packHalf2x16(vec2 const & v);
 	
 	/// Returns a two-component floating-point vector with components obtained by unpacking a 32-bit unsigned integer into a pair of 16-bit values, 
@@ -181,8 +181,8 @@ namespace glm
 	/// The first component of the vector is obtained from the 16 least-significant bits of v; 
 	/// the second component is obtained from the 16 most-significant bits of v.
     /// 
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackHalf2x16.xml">GLSL unpackHalf2x16 man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4</a>
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackHalf2x16.xml">GLSL unpackHalf2x16 man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	vec2 unpackHalf2x16(uint const & v);
 	
 	/// @}

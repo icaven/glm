@@ -42,23 +42,31 @@ namespace glm
     typedef float				mediump_float_t;
     typedef double				highp_float_t;
 
-    //! Low precision floating-point numbers. 
-    //! There is no guarantee on the actual precision.
-    //! From GLSL 1.30.8 specification
-    //! \ingroup core_precision
+	/// @addtogroup core_precision
+	/// @{
+
+    /// Low precision floating-point numbers. 
+    /// There is no guarantee on the actual precision.
+	/// 
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.4 Floats</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
     typedef lowp_float_t		lowp_float;
     
-    //! Medium precision floating-point numbers.
-    //! There is no guarantee on the actual precision.
-    //! From GLSL 1.30.8 specification
-    //! \ingroup core_precision
+    /// Medium precision floating-point numbers.
+    /// There is no guarantee on the actual precision.
+	/// 
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.4 Floats</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
     typedef mediump_float_t     mediump_float;
     
-    //! High precision floating-point numbers.
-    //! There is no guarantee on the actual precision.
-    //! From GLSL 1.30.8 specification
-    //! \ingroup core_precision
+    /// High precision floating-point numbers.
+    /// There is no guarantee on the actual precision.
+	/// 
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.4 Floats</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
     typedef highp_float_t		highp_float;
+
+	/// @}
 
 #if(!defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
 	typedef mediump_float				float_t;
