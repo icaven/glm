@@ -1,5 +1,5 @@
 /*!
-	\mainpage OpenGL Mathematics
+	@mainpage OpenGL Mathematics
 	
 	OpenGL Mathematics (GLM) is a C++ mathematics library for graphics software based on the OpenGL Shading Language (GLSL) specification.
  
@@ -16,8 +16,8 @@
 	- LLVM 2.3 through GCC 4.2 front-end and higher
 	- Visual Studio 2005 and higher
 
-	\note The Doxygen-generated documentation will often state that a type or function
-	is defined in a namespace that is a child of the \link glm glm \endlink namespace.
+	@note The Doxygen-generated documentation will often state that a type or function
+	is defined in a namespace that is a child of the @link glm glm @endlink namespace.
 	Please ignore this; All publicly available types and functions can be accessed as a direct children
 	of the glm namespace.
 	 
@@ -30,7 +30,7 @@
 **/
 
 /*!
-	\page pg_differences Differences between GLSL and GLM core
+	@page pg_differences Differences between GLSL and GLM core
 	
 	GLM comes very close to replicating GLSL, but it is not exact. Here is a list of
 	differences between GLM and GLSL:
@@ -43,7 +43,7 @@
 		
 		C++ has no language equivalent to precision qualifiers. Instead, GLM provides
 		a set of typedefs for each kind of precision qualifier and type. These types can
-		be found in \ref core_precision "their own section".
+		be found in @ref core_precision "their own section".
 		
 		Functions that take types tend to be templated on those types, so they can 
 		take these qualified types just as well as the regular ones.

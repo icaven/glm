@@ -279,31 +279,32 @@
 <a name="l00243"></a>00243 
 <a name="l00244"></a>00244 } <span class="comment">//namespace detail</span>
 <a name="l00245"></a>00245 
-<a name="l00250"></a><a class="code" href="a00156.html#ga9b65d7afd0783a02f5b3d1b75d1d872e">00250</a>         <span class="keyword">typedef</span> detail::tvec2&lt;highp_float&gt;              <a class="code" href="a00156.html#ga9b65d7afd0783a02f5b3d1b75d1d872e" title="2 components vector of high precision floating-point numbers.">highp_vec2</a>;
-<a name="l00251"></a>00251 
-<a name="l00256"></a><a class="code" href="a00156.html#ga9a8a10fce5852b088dd631b34e942b7d">00256</a>         <span class="keyword">typedef</span> detail::tvec2&lt;mediump_float&gt;    <a class="code" href="a00156.html#ga9a8a10fce5852b088dd631b34e942b7d" title="2 components vector of medium precision floating-point numbers.">mediump_vec2</a>;
-<a name="l00257"></a>00257 
-<a name="l00262"></a><a class="code" href="a00156.html#ga4df6c67742cd65d6d0a885b3a539d9ff">00262</a>         <span class="keyword">typedef</span> detail::tvec2&lt;lowp_float&gt;               <a class="code" href="a00156.html#ga4df6c67742cd65d6d0a885b3a539d9ff" title="2 components vector of low precision floating-point numbers.">lowp_vec2</a>;
-<a name="l00263"></a>00263 
-<a name="l00268"></a><a class="code" href="a00156.html#ga306173e656477f59bf0164a623780236">00268</a>         <span class="keyword">typedef</span> detail::tvec2&lt;highp_int&gt;                <a class="code" href="a00156.html#ga306173e656477f59bf0164a623780236" title="2 components vector of high precision signed integer numbers.">highp_ivec2</a>;
+<a name="l00248"></a>00248 
+<a name="l00254"></a><a class="code" href="a00156.html#ga9b65d7afd0783a02f5b3d1b75d1d872e">00254</a>         <span class="keyword">typedef</span> detail::tvec2&lt;highp_float&gt;              <a class="code" href="a00156.html#ga9b65d7afd0783a02f5b3d1b75d1d872e" title="2 components vector of high precision floating-point numbers.">highp_vec2</a>;
+<a name="l00255"></a>00255 
+<a name="l00261"></a><a class="code" href="a00156.html#ga9a8a10fce5852b088dd631b34e942b7d">00261</a>         <span class="keyword">typedef</span> detail::tvec2&lt;mediump_float&gt;    <a class="code" href="a00156.html#ga9a8a10fce5852b088dd631b34e942b7d" title="2 components vector of medium precision floating-point numbers.">mediump_vec2</a>;
+<a name="l00262"></a>00262 
+<a name="l00268"></a><a class="code" href="a00156.html#ga4df6c67742cd65d6d0a885b3a539d9ff">00268</a>         <span class="keyword">typedef</span> detail::tvec2&lt;lowp_float&gt;               <a class="code" href="a00156.html#ga4df6c67742cd65d6d0a885b3a539d9ff" title="2 components vector of low precision floating-point numbers.">lowp_vec2</a>;
 <a name="l00269"></a>00269 
-<a name="l00274"></a><a class="code" href="a00156.html#ga269315792504783f450b829161f2bccf">00274</a>         <span class="keyword">typedef</span> detail::tvec2&lt;mediump_int&gt;              <a class="code" href="a00156.html#ga269315792504783f450b829161f2bccf" title="2 components vector of medium precision signed integer numbers.">mediump_ivec2</a>;
-<a name="l00275"></a>00275 
-<a name="l00280"></a><a class="code" href="a00156.html#ga26364654fd75ba6c7f11a65967a7fbee">00280</a>         <span class="keyword">typedef</span> detail::tvec2&lt;lowp_int&gt;                 <a class="code" href="a00156.html#ga26364654fd75ba6c7f11a65967a7fbee" title="2 components vector of low precision signed integer numbers.">lowp_ivec2</a>;
-<a name="l00281"></a>00281         
-<a name="l00286"></a><a class="code" href="a00156.html#gad4a5243fc438d0f2efbc22d075b4e399">00286</a>         <span class="keyword">typedef</span> detail::tvec2&lt;highp_uint&gt;               <a class="code" href="a00156.html#gad4a5243fc438d0f2efbc22d075b4e399" title="2 components vector of high precision unsigned integer numbers.">highp_uvec2</a>;
-<a name="l00287"></a>00287 
-<a name="l00292"></a><a class="code" href="a00156.html#ga5cd4f5f5667de09c7c12df85d138f599">00292</a>         <span class="keyword">typedef</span> detail::tvec2&lt;mediump_uint&gt;             <a class="code" href="a00156.html#ga5cd4f5f5667de09c7c12df85d138f599" title="2 components vector of medium precision unsigned integer numbers.">mediump_uvec2</a>;
-<a name="l00293"></a>00293 
-<a name="l00298"></a><a class="code" href="a00156.html#ga9cb9b78162fca09f7ce9d08758f8b3c1">00298</a>         <span class="keyword">typedef</span> detail::tvec2&lt;lowp_uint&gt;                <a class="code" href="a00156.html#ga9cb9b78162fca09f7ce9d08758f8b3c1" title="2 components vector of low precision unsigned integer numbers.">lowp_uvec2</a>;
-<a name="l00299"></a>00299 
-<a name="l00300"></a>00300 }<span class="comment">//namespace glm</span>
-<a name="l00301"></a>00301 
-<a name="l00302"></a>00302 <span class="preprocessor">#ifndef GLM_EXTERNAL_TEMPLATE</span>
-<a name="l00303"></a>00303 <span class="preprocessor"></span><span class="preprocessor">#include &quot;type_vec2.inl&quot;</span>
-<a name="l00304"></a>00304 <span class="preprocessor">#endif//GLM_EXTERNAL_TEMPLATE</span>
-<a name="l00305"></a>00305 <span class="preprocessor"></span>
-<a name="l00306"></a>00306 <span class="preprocessor">#endif//glm_core_type_gentype2</span>
+<a name="l00275"></a><a class="code" href="a00156.html#ga306173e656477f59bf0164a623780236">00275</a>         <span class="keyword">typedef</span> detail::tvec2&lt;highp_int&gt;                <a class="code" href="a00156.html#ga306173e656477f59bf0164a623780236" title="2 components vector of high precision signed integer numbers.">highp_ivec2</a>;
+<a name="l00276"></a>00276 
+<a name="l00282"></a><a class="code" href="a00156.html#ga269315792504783f450b829161f2bccf">00282</a>         <span class="keyword">typedef</span> detail::tvec2&lt;mediump_int&gt;              <a class="code" href="a00156.html#ga269315792504783f450b829161f2bccf" title="2 components vector of medium precision signed integer numbers.">mediump_ivec2</a>;
+<a name="l00283"></a>00283 
+<a name="l00289"></a><a class="code" href="a00156.html#ga26364654fd75ba6c7f11a65967a7fbee">00289</a>         <span class="keyword">typedef</span> detail::tvec2&lt;lowp_int&gt;                 <a class="code" href="a00156.html#ga26364654fd75ba6c7f11a65967a7fbee" title="2 components vector of low precision signed integer numbers.">lowp_ivec2</a>;
+<a name="l00290"></a>00290         
+<a name="l00296"></a><a class="code" href="a00156.html#gad4a5243fc438d0f2efbc22d075b4e399">00296</a>         <span class="keyword">typedef</span> detail::tvec2&lt;highp_uint&gt;               <a class="code" href="a00156.html#gad4a5243fc438d0f2efbc22d075b4e399" title="2 components vector of high precision unsigned integer numbers.">highp_uvec2</a>;
+<a name="l00297"></a>00297 
+<a name="l00303"></a><a class="code" href="a00156.html#ga5cd4f5f5667de09c7c12df85d138f599">00303</a>         <span class="keyword">typedef</span> detail::tvec2&lt;mediump_uint&gt;             <a class="code" href="a00156.html#ga5cd4f5f5667de09c7c12df85d138f599" title="2 components vector of medium precision unsigned integer numbers.">mediump_uvec2</a>;
+<a name="l00304"></a>00304 
+<a name="l00310"></a><a class="code" href="a00156.html#ga9cb9b78162fca09f7ce9d08758f8b3c1">00310</a>         <span class="keyword">typedef</span> detail::tvec2&lt;lowp_uint&gt;                <a class="code" href="a00156.html#ga9cb9b78162fca09f7ce9d08758f8b3c1" title="2 components vector of low precision unsigned integer numbers.">lowp_uvec2</a>;
+<a name="l00311"></a>00311 
+<a name="l00313"></a>00313 }<span class="comment">//namespace glm</span>
+<a name="l00314"></a>00314 
+<a name="l00315"></a>00315 <span class="preprocessor">#ifndef GLM_EXTERNAL_TEMPLATE</span>
+<a name="l00316"></a>00316 <span class="preprocessor"></span><span class="preprocessor">#include &quot;type_vec2.inl&quot;</span>
+<a name="l00317"></a>00317 <span class="preprocessor">#endif//GLM_EXTERNAL_TEMPLATE</span>
+<a name="l00318"></a>00318 <span class="preprocessor"></span>
+<a name="l00319"></a>00319 <span class="preprocessor">#endif//glm_core_type_gentype2</span>
 </pre></div></div>
 </div>
 

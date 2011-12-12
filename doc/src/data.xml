@@ -1307,14 +1307,7 @@
         <string>&lt;glm/glm.hpp&gt; </string>
       </line>
       <line>
-        <comment>// glm::perspective</comment>
-      </line>
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/gtc/matrix_projection.hpp&gt; </string>
-      </line>
-      <line>
-        <comment>// glm::translate, glm::rotate, glm::scale</comment>
+        <comment>// glm::translate, glm::rotate, glm::scale, glm::perspective</comment>
       </line>
       <line>
         <keyword>#include </keyword>
