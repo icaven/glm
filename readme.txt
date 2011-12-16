@@ -37,16 +37,13 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm-0.9.3.pdf
 
 ================================================================================
-GLM 0.9.3.B: 2011-12-06
+GLM 0.9.3.B: 2011-12-12
 --------------------------------------------------------------------------------
 - Added support for Chrone Native Client
 - Added epsilon constant
 - Removed value_size function from vector types
 - Fixed roundEven on GCC
-
-================================================================================
-GLM 0.9.2.8: 2011-12-XX
---------------------------------------------------------------------------------
+- Improved API documentation
 - Fixed modf implementation
 - Fixed step function accuracy
 - Fixed outerProduct

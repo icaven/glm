@@ -51,7 +51,7 @@ namespace glm{
 namespace detail
 {
 	/// @brief Template for quaternion. 
-	/// From GLM_GTC_quaternion extension.
+	/// @see gtc_quaternion
 	/// @ingroup gtc_quaternion
 	template <typename T> 
 	struct tquat// : public genType<T, tquat>

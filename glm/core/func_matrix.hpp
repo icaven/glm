@@ -25,7 +25,7 @@
 /// @date 2008-08-03 / 2011-06-15
 /// @author Christophe Riccio
 ///
-/// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6</a>
+/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
 /// 
 /// @defgroup core_func_matrix Matrix functions
 /// @ingroup core
@@ -50,8 +50,8 @@ namespace glm
 	/// 
 	/// @tparam matType Floating-point matrix types.
     ///
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/matrixCompMult.xml">GLSL matrixCompMult man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6</a>
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/matrixCompMult.xml">GLSL matrixCompMult man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
 	template <typename matType> 
 	matType matrixCompMult(
 		matType const & x, 
@@ -63,8 +63,8 @@ namespace glm
 	/// 
 	/// @tparam matType Floating-point matrix types.
     ///
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/outerProduct.xml">GLSL outerProduct man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6</a>
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/outerProduct.xml">GLSL outerProduct man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
 	/// 
 	/// @todo Clarify the declaration to specify that matType doesn't have to be provided when used.
     template <typename vecType, typename matType> 
@@ -76,8 +76,8 @@ namespace glm
 	/// 
 	/// @tparam matType Floating-point matrix types.
     ///
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/transpose.xml">GLSL transpose man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6</a>	
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/transpose.xml">GLSL transpose man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>	
     template <typename matType> 
 	typename matType::transpose_type transpose(
 		matType const & x);
@@ -86,8 +86,8 @@ namespace glm
 	/// 
 	/// @tparam valType Floating-point scalar types.
     ///
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6</a>	
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>	
 	template <typename valType> 
 	typename detail::tmat2x2<valType>::value_type determinant(
 		detail::tmat2x2<valType> const & m);
@@ -96,8 +96,8 @@ namespace glm
 	/// 
 	/// @tparam valType Floating-point scalar types.
     ///
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6</a>	
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>	
 	template <typename valType> 
 	typename detail::tmat3x3<valType>::value_type determinant(
 		detail::tmat3x3<valType> const & m);
@@ -106,8 +106,8 @@ namespace glm
 	/// 
 	/// @tparam valType Floating-point scalar types.
     ///
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6</a>		
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>		
     template <typename valType> 
 	typename detail::tmat4x4<valType>::value_type determinant(
 		detail::tmat4x4<valType> const & m);
@@ -116,8 +116,8 @@ namespace glm
 	/// 
 	/// @tparam valType Floating-point scalar types.
     ///
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inverse.xml">GLSL inverse man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6</a>	 
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inverse.xml">GLSL inverse man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>	 
 	template <typename valType> 
 	detail::tmat2x2<valType> inverse(
 		detail::tmat2x2<valType> const & m);
@@ -126,8 +126,8 @@ namespace glm
 	/// 
 	/// @tparam valType Floating-point scalar types.
     ///
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inverse.xml">GLSL inverse man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6</a> 
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inverse.xml">GLSL inverse man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a> 
 	template <typename valType> 
 	detail::tmat3x3<valType> inverse(
 		detail::tmat3x3<valType> const & m);
@@ -136,8 +136,8 @@ namespace glm
 	/// 
 	/// @tparam valType Floating-point scalar types.
     ///
-    /// @see - <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inverse.xml">GLSL inverse man page</a>
-    /// @see - <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6</a>
+    /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inverse.xml">GLSL inverse man page</a>
+    /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
 	template <typename valType> 
 	detail::tmat4x4<valType> inverse(
 		detail::tmat4x4<valType> const & m);
