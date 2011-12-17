@@ -51,11 +51,19 @@ namespace glm
 	/// @addtogroup gtc_swizzle
 	/// @{
 	
+
 	template <typename T, template <typename> class vecType>
 	T const & swizzle(	
 		vecType<T> const & v,
 		comp x);
 
+    /// 
+	/// 
+	/// @param v Vector source   
+	/// @param x 
+	/// @tparam T  
+    /// @tparam vecType 
+	/// @see gtc_swizzle
 	template <typename T, template <typename> class vecType>
 	detail::tvec2<T> const & swizzle(
 		vecType<T> const & v,
