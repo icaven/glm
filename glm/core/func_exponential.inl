@@ -89,7 +89,7 @@ namespace glm
 
 namespace detail
 {
-	template <int PATH = float_or_int_value::ERROR>
+	template <int PATH = float_or_int_value::GLM_ERROR>
 	struct compute_log2
 	{
 		template <typename T>
@@ -101,7 +101,7 @@ namespace detail
 	};
 
 	template <>
-	struct compute_log2<float_or_int_value::FLOAT>
+	struct compute_log2<float_or_int_value::GLM_FLOAT>
 	{
 		template <typename T>
 		T operator() (T const & Value) const

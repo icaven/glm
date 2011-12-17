@@ -357,82 +357,82 @@ namespace detail
 	{
 		enum
 		{
-			ERROR,
-			FLOAT,
-			INT
+			GLM_ERROR,
+			GLM_FLOAT,
+			GLM_INT
 		};
 	};
 
 	template <typename T>
 	struct float_or_int_trait
 	{
-		enum{ID = float_or_int_value::ERROR};
+		enum{ID = float_or_int_value::GLM_ERROR};
 	};
 
 	template <>
 	struct float_or_int_trait<int8>
 	{
-		enum{ID = float_or_int_value::INT};
+		enum{ID = float_or_int_value::GLM_INT};
 	};
 
 	template <>
 	struct float_or_int_trait<int16>
 	{
-		enum{ID = float_or_int_value::INT};
+		enum{ID = float_or_int_value::GLM_INT};
 	};
 
 	template <>
 	struct float_or_int_trait<int32>
 	{
-		enum{ID = float_or_int_value::INT};
+		enum{ID = float_or_int_value::GLM_INT};
 	};
 
 	template <>
 	struct float_or_int_trait<int64>
 	{
-		enum{ID = float_or_int_value::INT};
+		enum{ID = float_or_int_value::GLM_INT};
 	};
 
 	template <>
 	struct float_or_int_trait<uint8>
 	{
-		enum{ID = float_or_int_value::INT};
+		enum{ID = float_or_int_value::GLM_INT};
 	};
 
 	template <>
 	struct float_or_int_trait<uint16>
 	{
-		enum{ID = float_or_int_value::INT};
+		enum{ID = float_or_int_value::GLM_INT};
 	};
 
 	template <>
 	struct float_or_int_trait<uint32>
 	{
-		enum{ID = float_or_int_value::INT};
+		enum{ID = float_or_int_value::GLM_INT};
 	};
 
 	template <>
 	struct float_or_int_trait<uint64>
 	{
-		enum{ID = float_or_int_value::INT};
+		enum{ID = float_or_int_value::GLM_INT};
 	};
 
 	template <>
 	struct float_or_int_trait<float16>
 	{
-		enum{ID = float_or_int_value::FLOAT};
+		enum{ID = float_or_int_value::GLM_FLOAT};
 	};
 
 	template <>
 	struct float_or_int_trait<float32>
 	{
-		enum{ID = float_or_int_value::FLOAT};
+		enum{ID = float_or_int_value::GLM_FLOAT};
 	};
 
 	template <>
 	struct float_or_int_trait<float64>
 	{
-		enum{ID = float_or_int_value::FLOAT};
+		enum{ID = float_or_int_value::GLM_FLOAT};
 	};
 
 }//namespace detail

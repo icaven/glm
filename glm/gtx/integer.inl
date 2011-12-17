@@ -55,7 +55,7 @@ namespace detail
 	}
 
 	template <>
-	struct compute_log2<float_or_int_value::INT>
+	struct compute_log2<float_or_int_value::GLM_INT>
 	{
 		template <typename T>
 		T operator() (T const & Value) const
