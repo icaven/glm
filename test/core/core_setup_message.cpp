@@ -13,7 +13,7 @@
 
 int test_compiler()
 {
-	int Error = 0;
+	int Error(0);
 	
 	switch(GLM_COMPILER)
 	{
