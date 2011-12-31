@@ -880,8 +880,8 @@ namespace detail
 	)
     {
         return typename detail::tvec2<T>::bool_type(
-            isnan(x.x),
-            isnan(x.y));
+            isinf(x.x),
+            isinf(x.y));
     }
 
     template <typename T>
@@ -891,9 +891,9 @@ namespace detail
 	)
     {
         return typename detail::tvec3<T>::bool_type(
-            isnan(x.x),
-            isnan(x.y),
-            isnan(x.z));
+            isinf(x.x),
+            isinf(x.y),
+            isinf(x.z));
     }
 
     template <typename T>
@@ -903,10 +903,10 @@ namespace detail
 	)
     {
         return typename detail::tvec4<T>::bool_type(
-            isnan(x.x),
-            isnan(x.y),
-            isnan(x.z),
-            isnan(x.w));
+            isinf(x.x),
+            isinf(x.y),
+            isinf(x.z),
+            isinf(x.w));
     }
 
 	GLM_FUNC_QUALIFIER int floatBitsToInt(float const & value)
