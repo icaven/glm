@@ -3,7 +3,7 @@
 <glm copyright="Copyright © 2005 - 2012">
   <downloads>
     <section name="GLM - zip files">
-      <download name="GLM 0.9.3.0" date="03/01/2012" size="4.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.zip/download" />
+      <download name="GLM 0.9.3.0" date="07/01/2012" size="4.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.zip/download" />
       <download name="GLM 0.9.3.B" date="12/12/2011" size="4.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.B/glm-0.9.3.B.zip/download"/>
       <download name="GLM 0.9.3.A" date="11/11/2011" size="4.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.A/glm-0.9.3.A.zip/download"/>
       <download name="GLM 0.9.2.7" date="24/10/2011" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.7/glm-0.9.2.7.zip/download"/>
@@ -73,7 +73,7 @@
       <download name="GLM 0.1.0.0" date="02/21/2005" size="29.2 KB" link="http://prdownloads.sourceforge.net/glf/glm-0.1-ur.zip?download"/>
     </section>
     <section name="GLM - 7z files">
-        <download name="GLM 0.9.3.0" date="03/01/2012" size="2.8 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.7z/download"/>
+        <download name="GLM 0.9.3.0" date="07/01/2012" size="2.8 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.7z/download"/>
         <download name="GLM 0.9.3.B" date="12/12/2011" size="2.8 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.B/glm-0.9.3.B.7z/download"/>
       <download name="GLM 0.9.3.A" date="11/11/2011" size="2.8 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.A/glm-0.9.3.A.7z/download"/>
       <download name="GLM 0.9.2.7" date="24/10/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.7/glm-0.9.2.7.7z/download"/>
@@ -170,6 +170,18 @@
   </todo>
 
   <page_news>
+    <news index="0075" date="07/01/2012" title="GLM 0.9.3.0 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+      <paragraph>
+        GLM 0.9.3.0 is finally released. Since the branch 0.9.2, the test bench and the Doxygen API documentation has been expend.
+      </paragraph>
+
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.zip/download">GLM 0.9.3.0 (zip)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.7z/download">GLM 0.9.3.0 (7z)</source>
+      <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
+      <source type="Link" href="http://glm.g-truc.net/glm-0.9.3.pdf">GLM 0.9.3 Manual</source>
+      <source type="Link" href="http://glm.g-truc.net/api-0.9.3/index.html">GLM 0.9.3 API</source>
+    </news>
+
     <news index="0074" date="12/12/2011" title="GLM 0.9.3 beta released" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>
         GLM 0.9.3 beta fixes various bugs and add support for <link href="http://code.google.com/chrome/nativeclient/">Chrome Native Client</link>

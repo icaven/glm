@@ -40,6 +40,7 @@ int test_mat4x4()
 static bool test_operators()
 {
 	glm::mat4x4 m(1.0f);
+	glm::mat4x4 n(1.0f);
 	glm::vec4 u(1.0f);
 	glm::vec4 v(1.0f);
 	float x = 1.0f;
@@ -50,7 +51,7 @@ static bool test_operators()
 	glm::mat4x4 p = x * m;
 	glm::mat4x4 q = m * x;
 	bool R = m != q;
-	bool S = m == m;
+	bool S = m == n;
 
 	return (S && !R) ? 0 : 1;
 }

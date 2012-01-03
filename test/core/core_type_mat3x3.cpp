@@ -37,6 +37,7 @@ int test_mat3x3()
 static int test_operators()
 {
 	glm::mat3x3 m(1.0f);
+	glm::mat3x3 n(1.0f);
 	glm::vec3 u(1.0f);
 	glm::vec3 v(1.0f);
 	float x = 1.0f;
@@ -47,7 +48,7 @@ static int test_operators()
 	glm::mat3x3 p = x * m;
 	glm::mat3x3 q = m * x;
 	bool R = m != q;
-	bool S = m == m;
+	bool S = m == n;
 
 	return (S && !R) ? 0 : 1;
 }
