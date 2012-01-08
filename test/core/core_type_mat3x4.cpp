@@ -11,8 +11,8 @@
 
 static bool test_operators()
 {
+	glm::mat3x4 l(1.0f);
 	glm::mat3x4 m(1.0f);
-	glm::mat3x4 n(1.0f);
 	glm::vec3 u(1.0f);
 	glm::vec4 v(1.0f);
 	float x = 1.0f;
@@ -23,7 +23,7 @@ static bool test_operators()
 	glm::mat3x4 p = x * m;
 	glm::mat3x4 q = m * x;
 	bool R = m != q;
-	bool S = m == n;
+	bool S = m == l;
 
 	return (S && !R) ? 0 : 1;
 }
