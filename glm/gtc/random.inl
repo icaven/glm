@@ -17,13 +17,15 @@ namespace detail
 	struct compute_linearRand
 	{
 		template <typename T>
-		GLM_FUNC_QUALIFIER T operator() (T const & Min, T const & Max) const
+		GLM_FUNC_QUALIFIER T operator() (T const & Min, T const & Max) const;
+/*
 		{
 			GLM_STATIC_ASSERT(0, "'linearRand' invalid template parameter type. GLM_GTC_random only supports floating-point template types.");
 			return Min;
 		}
+*/
 	};
-
+    
 	template <>
 	GLM_FUNC_QUALIFIER half compute_linearRand::operator()<half> (half const & Min, half const & Max) const
 	{
@@ -40,6 +42,12 @@ namespace detail
 	GLM_FUNC_QUALIFIER double compute_linearRand::operator()<double> (double const & Min, double const & Max) const
 	{
 		return double(std::rand()) / double(RAND_MAX) * (Max - Min) + Min;
+	}
+    
+	template <>
+	GLM_FUNC_QUALIFIER long double compute_linearRand::operator()<long double> (long double const & Min, long double const & Max) const
+	{
+		return (long double)(std::rand()) / (long double)(RAND_MAX) * (Max - Min) + Min;
 	}
 }//namespace detail
 

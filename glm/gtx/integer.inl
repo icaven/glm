@@ -38,7 +38,7 @@ namespace glm
 	}
 
 // Henry Gordon Dietz: http://aggregate.org/MAGIC/
-namespace detail
+namespace _detail
 {
 	GLM_FUNC_QUALIFIER unsigned int ones32(unsigned int x)
 	{
@@ -55,7 +55,7 @@ namespace detail
 	}
 
 	template <>
-	struct compute_log2<float_or_int_value::GLM_INT>
+	struct _compute_log2<detail::float_or_int_value::GLM_INT>
 	{
 		template <typename T>
 		T operator() (T const & Value) const
@@ -67,7 +67,8 @@ namespace detail
 #endif
 		}
 	};
-}//namespace detail
+
+}//namespace _detail
 
 	// Henry Gordon Dietz: http://aggregate.org/MAGIC/
 	unsigned int floor_log2(unsigned int x)
@@ -78,7 +79,7 @@ namespace detail
 		x |= (x >> 8);
 		x |= (x >> 16);
 
-		return(detail::ones32(x) - 1);
+		return(_detail::ones32(x) - 1);
 	}
 
 	// mod

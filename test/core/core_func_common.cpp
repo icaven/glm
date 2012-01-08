@@ -7,12 +7,13 @@
 // File    : test/core/func_common.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
-#include <glm/gtx/epsilon.hpp>
-#include <cstdio>
 #include <boost/array.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp>
 #include <boost/thread/thread.hpp>
+#include <glm/glm.hpp>
+#include <glm/ext.hpp>
+#include <glm/gtx/epsilon.hpp>
+#include <cstdio>
 
 int test_modf()
 {
