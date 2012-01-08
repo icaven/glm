@@ -146,13 +146,33 @@ namespace glm
 
 	GLM_FUNC_QUALIFIER uint packHalf2x16(detail::tvec2<float> const & v)
 	{
-		detail::tvec2<detail::hdata> Pack(detail::toFloat16(v.x), detail::toFloat16(v.y));
+        union helper
+        { 
+            uint other; 
+            struct 
+            { 
+                detail::hdata a, b; 
+            } orig; 
+        } Pack; 
+
+        Pack.orig.a = detail::toFloat16(v.x); 
+        Pack.orig.b = detail::toFloat16(v.y); 
 		return *(uint*)&Pack;
 	}
 
 	GLM_FUNC_QUALIFIER vec2 unpackHalf2x16(uint const & v)
 	{
-		detail::tvec2<detail::hdata> Unpack = *(detail::tvec2<detail::hdata>*)&v;
-		return vec2(detail::toFloat32(Unpack.x), detail::toFloat32(Unpack.y));
+        union helper
+        { 
+            uint other; 
+            struct 
+            { 
+                detail::hdata a, b; 
+            } orig; 
+        } Unpack; 
+        Unpack.other = v;
+        
+		return vec2(detail::toFloat32(Unpack.orig.a), detail::toFloat32(Unpack.orig.b));
 	}
 }//namespace glm
+
