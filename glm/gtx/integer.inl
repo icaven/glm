@@ -60,8 +60,10 @@ namespace _detail
 		template <typename T>
 		T operator() (T const & Value) const
 		{
-#if(GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_GCC))
+#if(GLM_COMPILER & GLM_COMPILER_VC)
 			return Value <= T(1) ? T(0) : T(32) - nlz(Value - T(1));
+#elif(GLM_COMPILER & GLM_COMPILER_GCC)
+			return Value <= T(1) ? T(0) : nlz(Value - T(1)) + 1;
 #else
 			return T(32) - nlz(Value - T(1));
 #endif
