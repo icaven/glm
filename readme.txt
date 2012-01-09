@@ -37,12 +37,13 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm-0.9.3.pdf
 
 ================================================================================
-GLM 0.9.3.0: 2012-01-07
+GLM 0.9.3.0: 2012-01-08
 --------------------------------------------------------------------------------
 - Added CPP Check project
 - Fixed conflict with Windows headers
 - Fixed isinf implementation
 - Fixed Boost conflict
+- Fixed warnings
 
 ================================================================================
 GLM 0.9.3.B: 2011-12-12
