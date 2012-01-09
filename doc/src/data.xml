@@ -170,10 +170,14 @@
   </todo>
 
   <page_news>
-    <news index="0075" date="08/01/2012" title="GLM 0.9.3.0 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+    <news index="0075" date="09/01/2012" title="GLM 0.9.3.0 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>
-        GLM 0.9.3.0 is finally released. Since the branch 0.9.2, the test bench and the Doxygen API documentation has been expend.
+        GLM 0.9.3.0 is finally released. Since the branch 0.9.2, the test bench and the Doxygen API documentation has been expended significantly leading to an even more reliable implementation and hopefully an even smoother development experience.
       </paragraph>
+      <paragraph>
+        From the many improvements, it is worth to acknowledge the addition of the core noise functions as defined by GLSL. The implementation is based on the promoted GLM_GTC_noise features which implement a perlin noise, periodic perlin noise and a simplex noise. The random number generation functions (GLM_GTC_random) which provides various interesting distributions as illustrated below. Reaching GLM tool box, the new experimental extension GLM_GTX_constants provides a set of constant.
+      </paragraph>
+        <image href="./image/0075-1.jpg" />
       <paragraph>
         Swizzle operators are a challenging task to implement but thanks to the effort of many contributors, GLM 0.9.3.0 provides finally something interesting even if
         not perfect but still a great improvement considering the incompatibilities with some external libraries. GLM 0.9.3 provides two implemetanations, one for C++ 98 
@@ -207,13 +211,13 @@
           glm::vec4 b = glm::vec4(0, 2, 0, 0);
         </line>
         <line align="32px">
-          glm::vec3 c = (a.zyx() + b.xyz()) * 0.5f;
+          glm::vec3 c = vec4((a.zyx() + b.xyz()).xyz() * 0.5f, 1.0f);
         </line>
         <line align="32px">
           glm::vec2 d = glm::normalize(glm::vec2(c.yz()));
         </line>
         <line align="32px">
-          a.xyzw = d.xyxy;
+          a.xyzw() = d.xyxy();
         </line>
         <line>
           }
@@ -235,7 +239,7 @@
 
         </line>
         <line>
-          <keyword>void</keyword> example_cpp98()
+          <keyword>void</keyword> example_cpp11()
         </line>
         <line>
           {
@@ -246,12 +250,19 @@
         <line align="32px">
           glm::vec4 b = glm::vec4(0, 2, 0, 0);
         </line>
+          <comment>// To use a swizzle operator with an operator, it needs to be cast into a vector either explicitly or with the operator ()</comment> 
         <line align="32px">
-          glm::vec3 c = (a.zyx() + b.xyz()) * 0.5f;
+          glm::vec4 c = glm::vec4((a.zyx() + b.xyz()).xyz * 0.5f, 1.0f);
         </line>
         <line align="32px">
-          glm::vec2 d = glm::normalize(glm::vec2(c.yz()));
+          <comment>// Before being pasted to a function, a swizzle operator needs to be cast into a vector either explicitly or with the operator ()</comment> 
+        </line>    
+        <line align="32px">
+          glm::vec2 d = glm::normalize(glm::vec2(c.yz));
         </line>
+          <line align="32px">
+              <comment>// glm::vec2 d = glm::normalize(c.yz()); // Equivalent code</comment>
+          </line>
         <line align="32px">
           a.xyzw = d.xyxy;
         </line>

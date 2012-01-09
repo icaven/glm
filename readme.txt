@@ -37,7 +37,7 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm-0.9.3.pdf
 
 ================================================================================
-GLM 0.9.3.0: 2012-01-08
+GLM 0.9.3.0: 2012-01-09
 --------------------------------------------------------------------------------
 - Added CPP Check project
 - Fixed conflict with Windows headers
