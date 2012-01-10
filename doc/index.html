@@ -34,13 +34,19 @@
     <p>
 			Thanks for contributing to the project by <a href="https://sourceforge.net/apps/trac/ogl-math/newticket">submitting tickets</a> for bug reports and feature requests. (SF.net account required).
 			Any feedback is welcome at glm@g-truc.net.
-		</p><br /><div><h3>08/01/2012 - GLM 0.9.3.0 released</h3><div><p>
-        GLM 0.9.3.0 is finally released. Since the branch 0.9.2, the test bench and the Doxygen API documentation has been expend.
-      </p><p /><p>
-        Swizzle operators are a challenging task to implement but thanks to the effort of many contributors, GLM 0.9.3.0 provides finally something interesting even if
-        not perfect but still a great improvement considering the incompatibilities with some external libraries. GLM 0.9.3 provides two implemetanations, one for C++ 98 
+		</p><br /><div><h3>09/01/2012 - GLM 0.9.3.0 released</h3><div><p>
+        GLM 0.9.3.0 is finally released. Since the branch 0.9.2, the test bench and the Doxygen API documentation has been expended significantly leading to an even more reliable implementation and hopefully an even smoother development experience.
+      </p><p>
+        For the feature set, the GLSL noise functions are added, based on the implementation of <a href="https://github.com/ashima/webgl-noise">webgl-noise</a>.
+        Some users might prefer the promoted GLM_GTC_noise extension also based on <a href="https://github.com/ashima/webgl-noise">webgl-noise</a> but with a different interface and three noise methods: Perlin noise, periodic noise and simplex noise.
+      </p><div xmlns="http://www.w3.org/1999/xhtml" class="post-image-white"><a href=""><img src="./image/0075-1.jpg" alt="2D simplex noise with GLM_GTC_noise" /></a></div><div xmlns="http://www.w3.org/1999/xhtml" class="post-image-title">2D simplex noise with GLM_GTC_noise</div><p>
+        Additionally, the random number generation functions (GLM_GTC_random) which provides various interesting distributions as illustrated below. 
+        Also reaching GLM tool box, the new experimental extension GLM_GTX_constants provides a set of constants.
+      </p><div xmlns="http://www.w3.org/1999/xhtml" class="post-image-white"><a href=""><img src="./image/0075-2.jpg" alt="Spherical random distribution with GLM_GTC_random" /></a></div><div xmlns="http://www.w3.org/1999/xhtml" class="post-image-title">Spherical random distribution with GLM_GTC_random</div><p>
+        Finally, swizzle operators are a challenging task to implement but thanks to the effort of many contributors, GLM 0.9.3.0 provides something interesting, but admittably
+        not perfect. The new implementation is a great improvement considering the incompatibilities with some external libraries in GLM 0.9.2.7. GLM 0.9.3 provides two implemetanations, one for C++ 98
         compilers and one for C++ 11 compilers providing an implemetnation closer to what GLSL does. Indeed the C++ 98 implementation is compatible with C++ 11 compilers.
-      </p><img src="" alt="" /><span xmlns="http://www.w3.org/1999/xhtml" class="code-title">Implementation for C++ 98 compilers:</span><ul xmlns="http://www.w3.org/1999/xhtml" class="code-list"><li class="code-line"><span class="code-line-content"><span class="comment">// To declare before including glm.hpp, to use the swizzle operators</span></span></li><li class="code-line"><span class="code-line-content"><span class="keyword">#define </span> GLM_SWIZZLE 
+      </p><span xmlns="http://www.w3.org/1999/xhtml" class="code-title">Implementation for C++ 98 compilers:</span><ul xmlns="http://www.w3.org/1999/xhtml" class="code-list"><li class="code-line"><span class="code-line-content"><span class="comment">// To declare before including glm.hpp, to use the swizzle operators</span></span></li><li class="code-line"><span class="code-line-content"><span class="keyword">#define </span> GLM_SWIZZLE 
         </span></li><li class="code-line"><span class="code-line-content"><span class="keyword">#include </span><span class="string">&lt;glm/glm.hpp&gt;</span></span></li><li class="code-line"><span class="code-line-content" /></li><li class="code-line"><span class="code-line-content"><span class="keyword">void</span> example_cpp98()
         </span></li><li class="code-line"><span class="code-line-content">
           {
@@ -49,7 +55,7 @@
         </span></li><li class="code-line"><span class="code-line-content" style="padding-left:32px">
           glm::vec4 b = glm::vec4(0, 2, 0, 0);
         </span></li><li class="code-line"><span class="code-line-content" style="padding-left:32px">
-          glm::vec3 c = (a.zyx() + b.xyz()) * 0.5f;
+          glm::vec3 c = vec4((a.zyx() + b.xyz()).xyz() * 0.5f, 1.0f);
         </span></li><li class="code-line"><span class="code-line-content" style="padding-left:32px">
           glm::vec2 d = glm::normalize(glm::vec2(c.yz()));
         </span></li><li class="code-line"><span class="code-line-content" style="padding-left:32px">
@@ -57,7 +63,7 @@
         </span></li><li class="code-line"><span class="code-line-content">
           }
         </span></li></ul><span xmlns="http://www.w3.org/1999/xhtml" class="code-title">Implementation for C++ 11 compilers:</span><ul xmlns="http://www.w3.org/1999/xhtml" class="code-list"><li class="code-line"><span class="code-line-content"><span class="comment">// To declare before including glm.hpp, to use the swizzle operators</span></span></li><li class="code-line"><span class="code-line-content"><span class="keyword">#define </span> GLM_SWIZZLE
-        </span></li><li class="code-line"><span class="code-line-content"><span class="keyword">#include </span><span class="string">&lt;glm/glm.hpp&gt;</span></span></li><li class="code-line"><span class="code-line-content" /></li><li class="code-line"><span class="code-line-content"><span class="keyword">void</span> example_cpp98()
+        </span></li><li class="code-line"><span class="code-line-content"><span class="keyword">#include </span><span class="string">&lt;glm/glm.hpp&gt;</span></span></li><li class="code-line"><span class="code-line-content" /></li><li class="code-line"><span class="code-line-content"><span class="keyword">void</span> example_cpp11()
         </span></li><li class="code-line"><span class="code-line-content">
           {
         </span></li><li class="code-line"><span class="code-line-content" style="padding-left:32px">
@@ -65,10 +71,10 @@
         </span></li><li class="code-line"><span class="code-line-content" style="padding-left:32px">
           glm::vec4 b = glm::vec4(0, 2, 0, 0);
         </span></li><li class="code-line"><span class="code-line-content" style="padding-left:32px">
-          glm::vec3 c = (a.zyx() + b.xyz()) * 0.5f;
-        </span></li><li class="code-line"><span class="code-line-content" style="padding-left:32px">
+          glm::vec4 c = glm::vec4((a.zyx() + b.xyz()).xyz * 0.5f, 1.0f);
+        </span></li><li class="code-line"><span class="code-line-content" style="padding-left:32px"><span class="comment">// Before being pasted to a function, a swizzle operator needs to be cast into</span></span></li><li class="code-line"><span class="code-line-content" style="padding-left:32px"><span class="comment">// a vector either explicitly or with the operator ()</span></span></li><li class="code-line"><span class="code-line-content" style="padding-left:32px">
           glm::vec2 d = glm::normalize(glm::vec2(c.yz));
-        </span></li><li class="code-line"><span class="code-line-content" style="padding-left:32px">
+        </span></li><li class="code-line"><span class="code-line-content" style="padding-left:32px"><span class="comment">// glm::vec2 d = glm::normalize(c.yz()); // Equivalent code</span></span></li><li class="code-line"><span class="code-line-content" style="padding-left:32px">
           a.xyzw = d.xyxy;
         </span></li><li class="code-line"><span class="code-line-content">
           }

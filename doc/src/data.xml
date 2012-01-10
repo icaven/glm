@@ -3,7 +3,7 @@
 <glm copyright="Copyright © 2005 - 2012">
   <downloads>
     <section name="GLM - zip files">
-      <download name="GLM 0.9.3.0" date="09/01/2012" size="4.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.zip/download" />
+      <download name="GLM 0.9.3.0" date="09/01/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.zip/download" />
       <download name="GLM 0.9.3.B" date="12/12/2011" size="4.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.B/glm-0.9.3.B.zip/download"/>
       <download name="GLM 0.9.3.A" date="11/11/2011" size="4.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.A/glm-0.9.3.A.zip/download"/>
       <download name="GLM 0.9.2.7" date="24/10/2011" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.7/glm-0.9.2.7.zip/download"/>
@@ -73,7 +73,7 @@
       <download name="GLM 0.1.0.0" date="02/21/2005" size="29.2 KB" link="http://prdownloads.sourceforge.net/glf/glm-0.1-ur.zip?download"/>
     </section>
     <section name="GLM - 7z files">
-        <download name="GLM 0.9.3.0" date="09/01/2012" size="2.8 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.7z/download"/>
+        <download name="GLM 0.9.3.0" date="09/01/2012" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.7z/download"/>
         <download name="GLM 0.9.3.B" date="12/12/2011" size="2.8 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.B/glm-0.9.3.B.7z/download"/>
       <download name="GLM 0.9.3.A" date="11/11/2011" size="2.8 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.A/glm-0.9.3.A.7z/download"/>
       <download name="GLM 0.9.2.7" date="24/10/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.7/glm-0.9.2.7.7z/download"/>
@@ -175,24 +175,19 @@
         GLM 0.9.3.0 is finally released. Since the branch 0.9.2, the test bench and the Doxygen API documentation has been expended significantly leading to an even more reliable implementation and hopefully an even smoother development experience.
       </paragraph>
       <paragraph>
-<<<<<<< HEAD
-        From the many improvements, it is worth to acknowledge the addition of the core noise functions as defined by GLSL. The implementation is based on the promoted GLM_GTC_noise features which implement a perlin noise, periodic perlin noise and a simplex noise. The random number generation functions (GLM_GTC_random) which provides various interesting distributions as illustrated below. Reaching GLM tool box, the new experimental extension GLM_GTX_constants provides a set of constant.
+        For the feature set, the GLSL noise functions are added, based on the implementation of <link href="https://github.com/ashima/webgl-noise">webgl-noise</link>.
+        Some users might prefer the promoted GLM_GTC_noise extension also based on <link href="https://github.com/ashima/webgl-noise">webgl-noise</link> but with a different interface and three noise methods: Perlin noise, periodic noise and simplex noise.
       </paragraph>
-        <image href="./image/0075-1.jpg" />
+        <image img="./image/0075-1.jpg" title="2D simplex noise with GLM_GTC_noise" color="'white'" />
       <paragraph>
-        Swizzle operators are a challenging task to implement but thanks to the effort of many contributors, GLM 0.9.3.0 provides finally something interesting even if
-        not perfect but still a great improvement considering the incompatibilities with some external libraries. GLM 0.9.3 provides two implemetanations, one for C++ 98 
-        compilers and one for C++ 11 compilers providing an implemetnation closer to what GLSL does. Indeed the C++ 98 implementation is compatible with C++ 11 compilers.
-=======
-        For the feature set, the GLSL noise functions have been implemented and based on the implementation of <link href="https://github.com/ashima/webgl-noise">webgl-noise</link>.
-        Some users might prefer the promoted GLM_GTC_noise extension also based on <link href="https://github.com/ashima/webgl-noise">webgl-noise</link> but different interface and three noise methods: Perlin noise, periodic noise and simplex noise.
->>>>>>> 6de0628bc9cdb995b33a67edcd2fd852a6ee4ef8
+        Additionally, the random number generation functions (GLM_GTC_random) which provides various interesting distributions as illustrated below. 
+        Also reaching GLM tool box, the new experimental extension GLM_GTX_constants provides a set of constants.
       </paragraph>
-      <image src="./image/0075-1.jpg" />
+      <image img="./image/0075-2.jpg" title="Spherical random distribution with GLM_GTC_random" color="'white'" />
       
       <paragraph>
-        Finally, swizzle operators are a challenging task to implement but thanks to the effort of many contributors, GLM 0.9.3.0 provides finally something interesting even if
-        not perfect but still a great improvement considering the incompatibilities with some external libraries. GLM 0.9.3 provides two implemetanations, one for C++ 98
+        Finally, swizzle operators are a challenging task to implement but thanks to the effort of many contributors, GLM 0.9.3.0 provides something interesting, but admittably
+        not perfect. The new implementation is a great improvement considering the incompatibilities with some external libraries in GLM 0.9.2.7. GLM 0.9.3 provides two implemetanations, one for C++ 98
         compilers and one for C++ 11 compilers providing an implemetnation closer to what GLSL does. Indeed the C++ 98 implementation is compatible with C++ 11 compilers.
       </paragraph>
 
@@ -267,12 +262,12 @@
           glm::vec4 c = glm::vec4((a.zyx() + b.xyz()).xyz * 0.5f, 1.0f);
         </line>
         <line align="32px">
-<<<<<<< HEAD
-          <comment>// Before being pasted to a function, a swizzle operator needs to be cast into a vector either explicitly or with the operator ()</comment> 
-        </line>    
+          <comment>// Before being pasted to a function, a swizzle operator needs to be cast into</comment> 
+        </line>
         <line align="32px">
-=======
->>>>>>> 6de0628bc9cdb995b33a67edcd2fd852a6ee4ef8
+          <comment>// a vector either explicitly or with the operator ()</comment>
+        </line>
+        <line align="32px">
           glm::vec2 d = glm::normalize(glm::vec2(c.yz));
         </line>
           <line align="32px">
