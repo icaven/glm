@@ -61,7 +61,7 @@ namespace glm
 	/// genType and genIType could be a scalar or a vector.
 	/// @see gtx_bit
 	template <typename genIUType, typename sizeType>
-	genIUType extractField(
+	GLM_DEPRECATED genIUType extractField(
 		genIUType const & v, 
 		sizeType const & first, 
 		sizeType const & count);
@@ -69,12 +69,12 @@ namespace glm
 	//! Find the lowest bit set to 1 in a integer variable.
 	/// @see gtx_bit
 	template <typename genType> 
-	int lowestBit(genType const & value);
+	GLM_DEPRECATED int lowestBit(genType const & value);
 
 	//! Find the highest bit set to 1 in a integer variable.
 	/// @see gtx_bit
 	template <typename genType> 
-	int highestBit(genType const & value);
+	GLM_DEPRECATED int highestBit(genType const & value);
 
 	//! Find the highest bit set to 1 in a integer variable and return its value. 
 	/// @see gtx_bit
@@ -104,7 +104,7 @@ namespace glm
 	//! Revert all bits of any integer based type. 
 	/// @see gtx_bit
 	template <typename genType> 
-	genType bitRevert(genType const & value);
+	GLM_DEPRECATED genType bitRevert(genType const & value);
 
 	//! Rotate all bits to the right.
 	/// @see gtx_bit
