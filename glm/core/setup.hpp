@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// OpenGL Mathematics (glm.g-truc.net)
 ///
-/// Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+/// Copyright (c) 2005 - 2012 G-Truc Creation (www.g-truc.net)
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
@@ -393,18 +393,10 @@
 /////////////////
 // Build model //
 
-#if(GLM_COMPILER & GLM_COMPILER_VC)
-#	if defined(_M_X64)
+#if((defined(__WORDSIZE) && (__WORDSIZE == 64)) || defined(__arch64__) || defined(__LP64__) || defined(_M_X64) || defined(__ppc64__) || defined(__x86_64__))
 #		define GLM_MODEL	GLM_MODEL_64
-#	else
-#		define GLM_MODEL	GLM_MODEL_32
-#	endif//_M_X64
-#elif(GLM_COMPILER & GLM_COMPILER_GCC)
-#	if(defined(__WORDSIZE) && (__WORDSIZE == 64)) || defined(__arch64__) || defined(__LP64__) || defined(__x86_64__)
-#		define GLM_MODEL	GLM_MODEL_64
-#	else
-#		define GLM_MODEL	GLM_MODEL_32
-#	endif//
+#elif(defined(__i386__) || defined(__ppc__))
+#	define GLM_MODEL	GLM_MODEL_32
 #else
 #	define GLM_MODEL	GLM_MODEL_32
 #endif//

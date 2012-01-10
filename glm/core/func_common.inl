@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// OpenGL Mathematics (glm.g-truc.net)
 ///
-/// Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+/// Copyright (c) 2005 - 2012 G-Truc Creation (www.g-truc.net)
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
@@ -880,8 +880,8 @@ namespace detail
 	)
     {
         return typename detail::tvec2<T>::bool_type(
-            isnan(x.x),
-            isnan(x.y));
+            isinf(x.x),
+            isinf(x.y));
     }
 
     template <typename T>
@@ -891,9 +891,9 @@ namespace detail
 	)
     {
         return typename detail::tvec3<T>::bool_type(
-            isnan(x.x),
-            isnan(x.y),
-            isnan(x.z));
+            isinf(x.x),
+            isinf(x.y),
+            isinf(x.z));
     }
 
     template <typename T>
@@ -903,10 +903,10 @@ namespace detail
 	)
     {
         return typename detail::tvec4<T>::bool_type(
-            isnan(x.x),
-            isnan(x.y),
-            isnan(x.z),
-            isnan(x.w));
+            isinf(x.x),
+            isinf(x.y),
+            isinf(x.z),
+            isinf(x.w));
     }
 
 	GLM_FUNC_QUALIFIER int floatBitsToInt(float const & value)

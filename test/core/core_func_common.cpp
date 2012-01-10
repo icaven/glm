@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2012 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2011-01-15
 // Updated : 2011-09-13
@@ -7,7 +7,11 @@
 // File    : test/core/func_common.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+//#include <boost/array.hpp>
+//#include <boost/date_time/posix_time/posix_time.hpp>
+//#include <boost/thread/thread.hpp>
 #include <glm/glm.hpp>
+#include <glm/ext.hpp>
 #include <glm/gtx/epsilon.hpp>
 #include <cstdio>
 

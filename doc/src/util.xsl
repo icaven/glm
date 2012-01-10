@@ -18,7 +18,7 @@
 		<a href="{./@href}"><xsl:value-of select="." /></a>
 	</xsl:template>
 
-	<xsl:template match="image">
+  <!--xsl:template match="image">
 		<xsl:choose>
 			<xsl:when test="./@href">
 				<xsl:element name="a">
@@ -37,9 +37,33 @@
 				</xsl:element>
 			</xsl:otherwise>
 		</xsl:choose>
-	</xsl:template>
+	</xsl:template-->
 
-	  <xsl:template match="image-list">
+  <xsl:template match="image">
+    <xsl:choose>
+      <xsl:when test="contains(./@color, 'white')">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="post-image-white">
+          <a href="{./@href}">
+            <img src="{./@img}" alt="{./@title}" />
+          </a>
+        </div>
+      </xsl:when>
+      <xsl:otherwise>
+        <div xmlns="http://www.w3.org/1999/xhtml" class="post-image-black">
+          <a href="{./@href}">
+            <img src="{./@img}" alt="{./@title}" />
+          </a>
+        </div>
+      </xsl:otherwise>
+    </xsl:choose>
+    <xsl:if test="./@title">
+      <div xmlns="http://www.w3.org/1999/xhtml" class="post-image-title">
+        <xsl:value-of select="./@title"/>
+      </div>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="image-list">
 		<div class="news-image">
 		  <xsl:apply-templates select="./image-element" />
 		</div>

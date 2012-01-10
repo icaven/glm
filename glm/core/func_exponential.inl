@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// OpenGL Mathematics (glm.g-truc.net)
 ///
-/// Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+/// Copyright (c) 2005 - 2012 G-Truc Creation (www.g-truc.net)
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
@@ -87,29 +87,32 @@ namespace glm
 
 	VECTORIZE_VEC(exp2)
 
-namespace detail
+namespace _detail
 {
-	template <int PATH = float_or_int_value::ERROR>
-	struct compute_log2
+	template <int _PATH = detail::float_or_int_value::GLM_ERROR>
+	struct _compute_log2
 	{
 		template <typename T>
-		T operator() (T const & Value) const
+		T operator() (T const & Value) const;
+/*
 		{
 			GLM_STATIC_ASSERT(0, "'log2' parameter has an invalid template parameter type. GLM core features only supports floating-point types, include <glm/gtx/integer.hpp> for integer types support. Others types are not supported.");
 			return Value;
 		}
+*/
 	};
 
 	template <>
-	struct compute_log2<float_or_int_value::FLOAT>
+	struct _compute_log2<detail::float_or_int_value::GLM_FLOAT>
 	{
 		template <typename T>
 		T operator() (T const & Value) const
 		{
-			return ::std::log(Value) / T(0.69314718055994530941723212145818);
+			return T(::std::log(Value)) / T(0.69314718055994530941723212145818);
 		}
 	};
-}//namespace detail
+    
+}//namespace _detail
 
     // log2, ln2 = 0.69314718055994530941723212145818f
     template <typename genType>
@@ -119,7 +122,7 @@ namespace detail
 	)
     {
 		assert(x > genType(0)); // log2 is only defined on the range (0, inf]
-		return detail::compute_log2<detail::float_or_int_trait<genType>::ID>()(x);
+		return _detail::_compute_log2<detail::float_or_int_trait<genType>::ID>()(x);
     }
 
 	VECTORIZE_VEC(log2)

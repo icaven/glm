@@ -115,6 +115,36 @@ div.image
 	text-align:right;
 }
 
+div.post-image-white, 
+div.post-image-black
+{
+	width:100%;
+	padding-top:32px;
+	padding-bottom:32px;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	/*border-radius:0px;*/
+}
+
+div.post-image-black
+{
+	background-color:#000000;
+}
+
+div.post-image-white
+{
+	background-color:#ffffff;
+}
+
+div.post-image-title
+{
+	display:block;
+	font-style:italic;
+	text-align:center;
+	padding-bottom:32px;
+}
+
 img.menu-img
 {
     text-align:center;

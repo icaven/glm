@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2012 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-08-31
 // Updated : 2008-08-31
@@ -11,6 +11,7 @@
 
 static int test_operators()
 {
+	glm::mat2x3 l(1.0f);
 	glm::mat2x3 m(1.0f);
 	glm::vec2 u(1.0f);
 	glm::vec3 v(1.0f);
@@ -22,7 +23,7 @@ static int test_operators()
 	glm::mat2x3 p = x * m;
 	glm::mat2x3 q = m * x;
 	bool R = m != q;
-	bool S = m == m;
+	bool S = m == l;
 
 	return (S && !R) ? 0 : 1;
 }

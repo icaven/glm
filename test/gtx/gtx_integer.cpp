@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2012 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2011-10-11
 // Updated : 2011-10-11
@@ -32,14 +32,19 @@ int test_log2()
 {
 	int Error = 0;
 
-	for(std::size_t i = 1; i < 1000000; ++i)
+	for(std::size_t i = 1; i < 24; ++i)
 	{
-		glm::uint A = glm::log2(glm::uint(i));
-		double B = glm::log2(double(i));
+		glm::uint A = glm::log2(glm::uint(1 << i));
+		glm::uint B = glm::uint(glm::log2(double(1 << i)));
 
-		Error += glm::equalEpsilon(double(A), B, 1.0) ? 0 : 1;
-		//assert(!Error);
+		//Error += glm::equalEpsilon(double(A), B, 1.0) ? 0 : 1;
+		Error += glm::abs(double(A) - B) <= 24 ? 0 : 1;
+		assert(!Error);
+
+		printf("Log2(%d) Error: %d, %d\n", 1 << i, A, B);
 	}
+
+	printf("log2 error: %d\n", Error);
 
 	return Error;
 }
@@ -49,7 +54,8 @@ int test_nlz()
 	int Error = 0;
 
 	for(std::size_t i = 1; i < 33; ++i)
-		printf("%d, %d\n", glm::nlz(i), 31u - glm::findMSB(i));
+		Error += glm::nlz(i) == 31u - glm::findMSB(i) ? 0 : 1;
+		//printf("%d, %d\n", glm::nlz(i), 31u - glm::findMSB(i));
 
 	return Error;
 }

@@ -7,7 +7,7 @@ glm@g-truc.net
 ================================================================================
 The MIT License
 --------------------------------------------------------------------------------
-Copyright (c) 2005 - 2011 G-Truc Creation (www.g-truc.net)
+Copyright (c) 2005 - 2012 G-Truc Creation (www.g-truc.net)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -37,17 +37,22 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm-0.9.3.pdf
 
 ================================================================================
-GLM 0.9.3.B: 2011-12-13
+GLM 0.9.3.0: 2012-01-09
+--------------------------------------------------------------------------------
+- Added CPP Check project
+- Fixed conflict with Windows headers
+- Fixed isinf implementation
+- Fixed Boost conflict
+- Fixed warnings
+
+================================================================================
+GLM 0.9.3.B: 2011-12-12
 --------------------------------------------------------------------------------
 - Added support for Chrone Native Client
 - Added epsilon constant
 - Removed value_size function from vector types
 - Fixed roundEven on GCC
 - Improved API documentation
-
-================================================================================
-GLM 0.9.2.8: 2011-12-12
---------------------------------------------------------------------------------
 - Fixed modf implementation
 - Fixed step function accuracy
 - Fixed outerProduct
