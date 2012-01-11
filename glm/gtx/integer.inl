@@ -58,7 +58,7 @@ namespace _detail
 	struct _compute_log2<detail::float_or_int_value::GLM_INT>
 	{
 		template <typename T>
-		T operator() (T const & Value) const
+		GLM_FUNC_QUALIFIER T operator() (T const & Value) const
 		{
 #if(GLM_COMPILER & GLM_COMPILER_VC)
 			return Value <= T(1) ? T(0) : T(32) - nlz(Value - T(1));
@@ -73,7 +73,7 @@ namespace _detail
 }//namespace _detail
 
 	// Henry Gordon Dietz: http://aggregate.org/MAGIC/
-	unsigned int floor_log2(unsigned int x)
+	GLM_FUNC_QUALIFIER unsigned int floor_log2(unsigned int x)
 	{
 		x |= (x >> 1);
 		x |= (x >> 2);
