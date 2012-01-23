@@ -235,7 +235,7 @@ namespace glm
 	}
 
 	template <typename valType> 
-	GLM_FUNC_QUALIFIER detail::tvec3<valType> eularAngles
+	GLM_FUNC_QUALIFIER detail::tvec3<valType> eulerAngles
 	(
 		detail::tquat<valType> const & x
 	)
