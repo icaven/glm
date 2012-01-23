@@ -66,8 +66,10 @@ namespace detail
 		typedef tmat2x2<T> transpose_type;
 
 	public:
-		// Implementation detail
+		/// Implementation detail
+        /// @cond DETAIL
 		GLM_FUNC_DECL tmat2x2<T> _inverse() const;
+        /// @endcond
 
 	private:
 		//////////////////////////////////////

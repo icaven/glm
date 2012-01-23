@@ -66,8 +66,10 @@ namespace detail
 		typedef tmat4x4<T> transpose_type;
 
 	public:
-		// Implementation detail
+		/// Implementation detail
+        /// @cond DETAIL
 		GLM_FUNC_DECL tmat4x4<T> _inverse() const;
+        /// @endcond
 
 	private:
 		// Data 
