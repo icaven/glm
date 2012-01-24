@@ -29,8 +29,10 @@
 namespace glm{
 namespace detail{
 
+#if(GLM_COMPILER & GLM_COMPILER_VC)
 #pragma warning(push)
 #pragma warning(disable : 4510 4512 4610)
+#endif
 
 	union ieee754_QNAN
 	{
@@ -43,7 +45,9 @@ namespace detail{
 	   ieee754_QNAN() : f(0.0)/*, mantissa(0x7FFFFF), exp(0xFF), sign(0x0)*/ {}
 	};
 
+#if(GLM_COMPILER & GLM_COMPILER_VC)
 #pragma warning(pop)
+#endif
 
 	static const __m128 GLM_VAR_USED zero = _mm_setzero_ps();
 	static const __m128 GLM_VAR_USED one = _mm_set_ps1(1.0f);

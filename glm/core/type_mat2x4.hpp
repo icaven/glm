@@ -48,8 +48,8 @@ namespace detail
 	template <typename T> struct tmat4x3;
 	template <typename T> struct tmat4x4;
 
-	//! Template for 2 columns and 4 rows matrix of floating-point numbers.
-	//! \ingroup core_template
+	// Template for 2 columns and 4 rows matrix of floating-point numbers.
+	// \ingroup core_template
 	template <typename T> 
 	struct tmat2x4
 	{

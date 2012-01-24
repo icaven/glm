@@ -48,32 +48,34 @@ namespace detail
 	template <typename T> struct tmat4x3;
 	template <typename T> struct tmat4x4;
 
-	//! \brief Template for 2 * 2 matrix of floating-point numbers.
-	//! \ingroup core_template
+	// @brief Template for 2 * 2 matrix of floating-point numbers.
+	// @ingroup core_template
 	template <typename T> 
 	struct tmat2x2
 	{
+                // Implementation detail
 		enum ctor{null};
 		typedef T value_type;
 		typedef std::size_t size_type;
 		typedef tvec2<T> col_type;
 		typedef tvec2<T> row_type;
-		GLM_FUNC_DECL size_type length() const;
 		static GLM_FUNC_DECL size_type col_size();
 		static GLM_FUNC_DECL size_type row_size();
 
 		typedef tmat2x2<T> type;
 		typedef tmat2x2<T> transpose_type;
-
+        
+		GLM_FUNC_DECL size_type length() const;
+        
 	public:
-		// Implementation detail
+                // Implementation detail
 		GLM_FUNC_DECL tmat2x2<T> _inverse() const;
 
 	private:
 		//////////////////////////////////////
-		// Data 
+                // Implementation detail
 		col_type value[2];
-
+        
 	public:
 		//////////////////////////////////////
 		// Constructors

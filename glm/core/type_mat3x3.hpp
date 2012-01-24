@@ -48,8 +48,8 @@ namespace detail
 	template <typename T> struct tmat4x3;
 	template <typename T> struct tmat4x4;
 
-	//! \brief Template for 3 * 3 matrix of floating-point numbers.
-	//! \ingroup core_template
+	// @brief Template for 3 * 3 matrix of floating-point numbers.
+	// @ingroup core_template
 	template <typename T> 
 	struct tmat3x3
 	{
@@ -66,9 +66,11 @@ namespace detail
 		typedef tmat3x3<T> transpose_type;
 
 	public:
-		// Implementation detail
+		/// Implementation detail
+        /// @cond DETAIL
 		GLM_FUNC_DECL tmat3x3<T> _inverse() const;
-
+        /// @endcond
+        
 	private:
 		// Data
 		col_type value[3];
