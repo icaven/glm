@@ -133,6 +133,12 @@ int test_compiler()
 		case GLM_COMPILER_CLANG29:
 			std::cout << "GLM_COMPILER_CLANG29" << std::endl;		
 			break;
+		case GLM_COMPILER_CLANG30:
+			std::cout << "GLM_COMPILER_CLANG30" << std::endl;		
+			break;
+		case GLM_COMPILER_CLANG31:
+			std::cout << "GLM_COMPILER_CLANG31" << std::endl;		
+			break;
 	case GLM_COMPILER_LLVM_GCC:
 		std::cout << "GLM_COMPILER_LLVM_GCC" << std::endl;		
 		break;
