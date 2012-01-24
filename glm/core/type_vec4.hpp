@@ -61,7 +61,7 @@ namespace detail
 		//////////////////////////////////////
 		// Data
 
-#	if(GLM_SUPPORT_ANONYMOUS_UNION_OF_STRUCTURE() && !defined(GLM_FORCE_ONLY_XYZW))
+#	if(GLM_COMPONENT == GLM_COMPONENT_CXX11)
 		union 
 		{
 #		if(defined(GLM_SWIZZLE))
@@ -80,7 +80,7 @@ namespace detail
 			struct{value_type s, t, p, q;};
 			struct{value_type x, y, z, w;};
 		};
-#	elif(GLM_SUPPORT_ANONYMOUS_UNION() && !defined(GLM_FORCE_ONLY_XYZW))
+#	elif(GLM_COMPONENT == GLM_COMPONENT_CXX98)
 		union {value_type x, r, s;};
 		union {value_type y, g, t;};
 		union {value_type z, b, p;};
@@ -91,7 +91,7 @@ namespace detail
 			GLM_SWIZZLE_GEN_REF_FROM_VEC4(T, detail::tvec4, detail::tref2, detail::tref3, detail::tref4)
 			GLM_SWIZZLE_GEN_VEC_FROM_VEC4(T, detail::tvec4, detail::tvec2, detail::tvec3, detail::tvec4)
 #		endif//(defined(GLM_SWIZZLE))
-#	else
+#	else //(GLM_COMPONENT == GLM_COMPONENT_ONLY_XYZW)
 		value_type x, y, z, w;
 
 #		if(defined(GLM_SWIZZLE))
