@@ -284,7 +284,7 @@
 #   endif
 
 // G++ 
-#elif defined(__GNUC__)// || defined(__llvm__) || defined(__clang__)
+#elif(defined(__GNUC__) || defined(__MINGW32__))// || defined(__llvm__) || defined(__clang__)
 #   if defined (__llvm__)
 #       define GLM_COMPILER_GCC_EXTRA GLM_COMPILER_GCC_LLVM
 #   elif defined (__clang__)
@@ -425,12 +425,8 @@
 #elif(defined(GLM_FORCE_CXX98))
 #	define GLM_LANG GLM_LANG_CXX98
 #else
-#	if(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && defined(__STRICT_ANSI__))
-#		define GLM_LANG GLM_LANG_CXX98
-#	elif((GLM_COMPILER & GLM_COMPILER_CLANG) == GLM_COMPILER_CLANG) 
-#		define GLM_LANG GLM_LANG_CXX98
 //  -std=c++0x or -std=gnu++0x
-#	elif(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && defined(__GXX_EXPERIMENTAL_CXX0X__)) 
+#	if(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && defined(__GXX_EXPERIMENTAL_CXX0X__)) 
 #		define GLM_LANG GLM_LANG_CXX0X
 #	elif(((GLM_COMPILER & GLM_COMPILER_VC) == GLM_COMPILER_VC) && defined(_MSC_EXTENSIONS))
 #		define GLM_LANG GLM_LANG_CXXMS
@@ -440,6 +436,10 @@
 #		else
 #			define GLM_LANG GLM_LANG_CXX98
 #		endif//(GLM_COMPILER == GLM_COMPILER_VC2010)
+#	elif((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) //&& defined(__STRICT_ANSI__))
+#		define GLM_LANG GLM_LANG_CXX98
+#	elif((GLM_COMPILER & GLM_COMPILER_CLANG) == GLM_COMPILER_CLANG) 
+#		define GLM_LANG GLM_LANG_CXX98
 #	else
 #		define GLM_LANG GLM_LANG_CXX
 #	endif
@@ -539,11 +539,11 @@
 #	if(GLM_ARCH == GLM_ARCH_PURE)
 #		pragma message("GLM: Platform independent")
 #	elif(GLM_ARCH == GLM_ARCH_SSE2)
-#		pragma message("GLM: SSE2 build platform")
+#		pragma message("GLM: SSE2 instruction set")
 #	elif(GLM_ARCH == GLM_ARCH_SSE3)
-#		pragma message("GLM: SSE3 build platform")
+#		pragma message("GLM: SSE3 instruction set")
 #	elif(GLM_ARCH == GLM_ARCH_AVX)
-#		pragma message("GLM: AVX build platform")
+#		pragma message("GLM: AVX instruction set")
 #	endif//GLM_ARCH
 #endif//GLM_MESSAGE
 
