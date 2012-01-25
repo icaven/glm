@@ -33,7 +33,7 @@
 /// @brief Allow the measurement of the accuracy of a function against a reference 
 /// implementation. This extension works on floating-point data and provide results 
 /// in ULP.
-/// <glm/gtc/ulp.hpp> need to be included to use these functionalities.
+/// <glm/gtc/ulp.hpp> need to be included to use these features.
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_ulp

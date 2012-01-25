@@ -32,7 +32,7 @@
 /// 
 /// @brief Define secant, cosecant and cotangent functions.
 /// 
-/// <glm/gtc/reciprocal.hpp> need to be included to use these functionalities.
+/// <glm/gtc/reciprocal.hpp> need to be included to use these features.
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_reciprocal

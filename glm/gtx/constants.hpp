@@ -56,127 +56,127 @@ namespace glm
 	/// @todo Implement epsilon for half-precision floating point type.
 	/// @see gtx_constants
 	template <typename T>
-	T epsilon();
+	GLM_CONSTEXPR T epsilon();
 
 	/// Return 0.
 	/// @see gtx_constants
 	template <typename T>
-	T zero();
+	GLM_CONSTEXPR T zero();
 
 	/// Return 1.
 	/// @see gtx_constants
 	template <typename T>
-	T one();
+	GLM_CONSTEXPR T one();
 
 	/// Return the pi constant.
 	/// @see gtx_constants
 	template <typename T>
-	T pi();
+	GLM_CONSTEXPR T pi();
 
 	/// Return square root of pi.
 	/// @see gtx_constants
 	template <typename T>
-	T root_pi();
+	GLM_CONSTEXPR T root_pi();
 
 	/// Return pi / 2.
 	/// @see gtx_constants
 	template <typename T>
-	T half_pi();
+	GLM_CONSTEXPR T half_pi();
 
 	/// Return pi / 4.
 	/// @see gtx_constants
 	template <typename T>
-	T quarter_pi();
+	GLM_CONSTEXPR T quarter_pi();
 
 	/// Return 1 / pi.
 	/// @see gtx_constants
 	template <typename T>
-	T one_over_pi();
+	GLM_CONSTEXPR T one_over_pi();
 
 	/// Return 2 / pi.
 	/// @see gtx_constants
 	template <typename T>
-	T two_over_pi();
+	GLM_CONSTEXPR T two_over_pi();
 
 	/// Return 2 / sqrt(pi).
 	/// @see gtx_constants
 	template <typename T>
-	T two_over_root_pi();
+	GLM_CONSTEXPR T two_over_root_pi();
 
 	/// Return 1 / sqrt(2).
 	/// @see gtx_constants
 	template <typename T>
-	T one_over_root_two();
+	GLM_CONSTEXPR T one_over_root_two();
 
 	/// Return sqrt(pi / 2).
 	/// @see gtx_constants
 	template <typename T>
-	T root_half_pi();
+	GLM_CONSTEXPR T root_half_pi();
 
 	/// Return sqrt(2 * pi).
 	/// @see gtx_constants
 	template <typename T>
-	T root_two_pi();
+	GLM_CONSTEXPR T root_two_pi();
 
 	/// Return sqrt(ln(4)).
 	/// @see gtx_constants
 	template <typename T>
-	T root_ln_four();
+	GLM_CONSTEXPR T root_ln_four();
 
 	/// Return e constant.
 	/// @see gtx_constants
 	template <typename T>
-	T e();
+	GLM_CONSTEXPR T e();
 
 	/// Return Euler's constant.
 	/// @see gtx_constants
 	template <typename T>
-	T euler();
+	GLM_CONSTEXPR T euler();
 
 	/// Return sqrt(2).
 	/// @see gtx_constants
 	template <typename T>
-	T root_two();
+	GLM_CONSTEXPR T root_two();
 
 	/// Return sqrt(3).
 	/// @see gtx_constants
 	template <typename T>
-	T root_three();
+	GLM_CONSTEXPR T root_three();
 
 	/// Return sqrt(5).
 	/// @see gtx_constants
 	template <typename T>
-	T root_five();
+	GLM_CONSTEXPR T root_five();
 
 	/// Return ln(2).
 	/// @see gtx_constants
 	template <typename T>
-	T ln_two();
+	GLM_CONSTEXPR T ln_two();
 
 	/// Return ln(10).
 	/// @see gtx_constants
 	template <typename T>
-	T ln_ten();
+	GLM_CONSTEXPR T ln_ten();
 
 	/// Return ln(ln(2)).
 	/// @see gtx_constants
 	template <typename T>
-	T ln_ln_two();
+	GLM_CONSTEXPR T ln_ln_two();
 
 	/// Return 1 / 3.
 	/// @see gtx_constants
 	template <typename T>
-	T third();
+	GLM_CONSTEXPR T third();
 
 	/// Return 2 / 3.
 	/// @see gtx_constants
 	template <typename T>
-	T two_thirds();
+	GLM_CONSTEXPR T two_thirds();
 
 	/// Return the golden ratio constant.
 	/// @see gtx_constants
 	template <typename T>
-	T golden_ratio();
+	GLM_CONSTEXPR T golden_ratio();
 
 	/// @}
 } //namespace glm

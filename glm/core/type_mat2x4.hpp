@@ -58,12 +58,13 @@ namespace detail
 		typedef std::size_t size_type;
 		typedef tvec4<T> col_type;
 		typedef tvec2<T> row_type;
-        GLM_FUNC_DECL size_type length() const;
+		typedef tmat2x4<T> type;
+		typedef tmat4x2<T> transpose_type;
+
 		static GLM_FUNC_DECL size_type col_size();
 		static GLM_FUNC_DECL size_type row_size();
 
-		typedef tmat2x4<T> type;
-		typedef tmat4x2<T> transpose_type;
+        GLM_FUNC_DECL GLM_CONSTEXPR size_type length() const;
 
 	private:
 		// Data 

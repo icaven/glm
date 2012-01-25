@@ -53,10 +53,10 @@ namespace detail
 
 		typedef T value_type;
 		typedef std::size_t size_type;
-		GLM_FUNC_DECL size_type length() const;
-
 		typedef tvec2<T> type;
 		typedef tvec2<bool> bool_type;
+
+		GLM_FUNC_DECL GLM_CONSTEXPR size_type length() const;
 
 		//////////////////////////////////////
 		// Data

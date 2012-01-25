@@ -30,7 +30,7 @@ namespace glm{
 namespace detail
 {
 	template <typename T>
-	GLM_FUNC_QUALIFIER typename tvec2<T>::size_type tvec2<T>::length() const
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tvec2<T>::size_type tvec2<T>::length() const
 	{
 		return 2;
 	}
