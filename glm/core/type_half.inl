@@ -250,9 +250,7 @@ namespace detail
 			// Assemble the half from s, e and m.
 			//
 
-			hdata Hdata(s | (e << 10) | (m >> 13));
-
-			return Hdata;
+			return hdata(s | (e << 10) | (m >> 13));
 		}
 	}
 

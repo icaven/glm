@@ -93,7 +93,7 @@ namespace detail
     };
 
     // Internal class for implementing swizzle operators
-    /*!
+    /*
         Template parameters:
 
         ValueType = type of scalar values (e.g. float, double)

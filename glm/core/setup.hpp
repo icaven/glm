@@ -414,7 +414,7 @@
 #define GLM_LANG_CXX98			((1 << 1) | GLM_LANG_CXX)
 #define GLM_LANG_CXX03			((1 << 2) | GLM_LANG_CXX98)
 #define GLM_LANG_CXX0X			((1 << 3) | GLM_LANG_CXX03)
-#define GLM_LANG_CXX11			((1 << 4) | GLM_LANG_CXX11)
+#define GLM_LANG_CXX11			((1 << 4) | GLM_LANG_CXX0X)
 #define GLM_LANG_CXXMS			(1 << 5)
 #define GLM_LANG_CXXGNU			(1 << 6)
 
