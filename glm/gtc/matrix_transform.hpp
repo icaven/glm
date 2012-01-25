@@ -83,10 +83,10 @@ namespace glm
 		detail::tmat4x4<T> const & m,
 		detail::tvec3<T> const & v);
 		
-	/// Builds a rotation 4 * 4 matrix created from an axis vector and an angle expressed in degrees. 
+	/// Builds a rotation 4 * 4 matrix created from an axis vector and an angle. 
 	/// 
 	/// @param m Input matrix multiplied by this rotation matrix.
-	/// @param angle Rotation angle expressed in degrees.
+	/// @param angle Rotation angle expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
 	/// @param axis Rotation axis, recommanded to be normalized.
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
@@ -172,7 +172,7 @@ namespace glm
 
 	/// Creates a matrix for a symetric perspective-view frustum.
 	/// 
-	/// @param fovy 
+	/// @param fovy Expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
 	/// @param aspect 
 	/// @param near 
 	/// @param far 
@@ -187,7 +187,7 @@ namespace glm
 
 	/// Builds a perspective projection matrix based on a field of view.
 	/// 
-	/// @param fov 
+	/// @param fov Expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
 	/// @param width 
 	/// @param height 
 	/// @param near 
@@ -204,7 +204,7 @@ namespace glm
 
 	/// Creates a matrix for a symmetric perspective-view frustum with far plane at infinite.
 	/// 
-	/// @param fovy 
+	/// @param fovy Expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
 	/// @param aspect 
 	/// @param near 
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
@@ -215,7 +215,7 @@ namespace glm
 
 	/// Creates a matrix for a symmetric perspective-view frustum with far plane at infinite for graphics hardware that doesn't support depth clamping.
 	/// 
-	/// @param fovy 
+	/// @param fovy Expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
 	/// @param aspect 
 	/// @param near 
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.

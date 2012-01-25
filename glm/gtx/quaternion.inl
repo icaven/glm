@@ -147,7 +147,11 @@ namespace glm
 		detail::tquat<T> const & x
 	)
 	{
+#ifdef GLM_FORCE_RADIANS
+		return acos(x.w) * T(2);
+#else
 		return glm::degrees(acos(x.w) * T(2));
+#endif
 	}
 
 	template <typename T> 
@@ -184,7 +188,11 @@ namespace glm
 	{
 		detail::tquat<valType> result;
 
-		valType a = glm::radians(angle);
+#ifdef GLM_FORCE_RADIANS
+		valType a(angle);
+#else
+		valType a(glm::radians(angle));
+#endif
 		valType s = glm::sin(a * valType(0.5));
 
 		result.w = glm::cos(a * valType(0.5));
@@ -213,7 +221,11 @@ namespace glm
 		detail::tquat<valType> const & q
 	)
 	{
+#ifdef GLM_FORCE_RADIANS
+		return atan2(valType(2) * (q.x * q.y + q.w * q.z), q.w * q.w + q.x * q.x - q.y * q.y - q.z * q.z);
+#else
 		return glm::degrees(atan2(valType(2) * (q.x * q.y + q.w * q.z), q.w * q.w + q.x * q.x - q.y * q.y - q.z * q.z));
+#endif
 	}
 
 	template <typename valType> 
@@ -222,7 +234,11 @@ namespace glm
 		detail::tquat<valType> const & q
 	)
 	{
+#ifdef GLM_FORCE_RADIANS
+		return atan2(valType(2) * (q.y * q.z + q.w * q.x), q.w * q.w - q.x * q.x - q.y * q.y + q.z * q.z);
+#else
 		return glm::degrees(atan2(valType(2) * (q.y * q.z + q.w * q.x), q.w * q.w - q.x * q.x - q.y * q.y + q.z * q.z));
+#endif
 	}
 
 	template <typename valType> 
@@ -231,7 +247,11 @@ namespace glm
 		detail::tquat<valType> const & q
 	)
 	{
+#ifdef GLM_FORCE_RADIANS
+		return asin(valType(-2) * (q.x * q.z - q.w * q.y));
+#else
 		return glm::degrees(asin(valType(-2) * (q.x * q.z - q.w * q.y)));
+#endif
 	}
 
 	template <typename valType> 
