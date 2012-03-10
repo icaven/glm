@@ -175,7 +175,7 @@
     <news index="0077" date="10/03/2012" title="GLM on GitHub" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>
         After years of using <link href="http://sourceforge.net/projects/ogl-math/?source=directory">SourceForge.net</link>, GLM is moving to <link href="https://github.com/Groovounet/glm">GitHub</link>,
-        as least for its repository. GitHub provides easy ways to clone the repository and submit pull requests which seems a definity advantage for the project.
+        as least for its repository. GitHub provides easy ways to clone the repository and submit pull requests which seems a definity advantage for the community contribution.
         It also allows to download snapshots of every branches.
       </paragraph>
 
