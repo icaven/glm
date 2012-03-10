@@ -172,6 +172,19 @@
   </todo>
 
   <page_news>
+    <news index="0077" date="10/03/2012" title="GLM on GitHub" image="goodies/logo.png" image-mini="image/logo-mini.png">
+      <paragraph>
+        After years of using <link href="http://sourceforge.net/projects/ogl-math/?source=directory">SourceForge.net</link>, GLM is moving to <link href="https://github.com/Groovounet/glm">GitHub</link>,
+        as least for its repository. GitHub provides easy ways to clone the repository and submit pull requests which seems a definity advantage for the project.
+        It also allows to download snapshots of every branches.
+      </paragraph>
+
+		<source type="Link" href="https://github.com/Groovounet/glm">Browse GLM repository on GitHub</source>
+      <source type="Download" href="https://github.com/Groovounet/glm/zipball/master">GLM master branch snapshot</source>
+      <source type="Download" href="https://github.com/Groovounet/glm/zipball/0.9.3">GLM 0.9.3 branch snapshot</source>
+      <source type="Download" href="https://github.com/Groovounet/glm/zipball/0.9.4">GLM 0.9.4 branch snapshot</source>
+    </news>
+
     <news index="0076" date="25/01/2012" title="GLM 0.9.3.1 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>
         GLM 0.9.3.1 fixes some platforms detection issues and warnings.
@@ -1918,7 +1931,7 @@
       <menu-entry name="GLM Manual" href="./glm.pdf" />
       <menu-entry name="GLM API" href="./api/index.html" />
       <menu-entry name="Code samples" href="./code.html" />
-      <menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.clean.pdf" />
+      <menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.11.pdf" />
       <menu-entry name="OpenGL.org Toolkits forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
     </menu-group>
 
@@ -1926,8 +1939,10 @@
 		<menu-entry name="Report a bug" href="https://sourceforge.net/apps/trac/ogl-math/newticket" />
 		<menu-entry name="SourceForge page" href="https://sourceforge.net/projects/ogl-math/" />
 		<menu-entry name="G-Truc Creation page" href="http://www.g-truc.net/project-0016.html#menu" />
-      <menu-entry name="Browse Git repository" href="http://ogl-math.git.sourceforge.net/git/gitweb.cgi?p=ogl-math/ogl-math;a=summary" />
-      <menu-entry name="Source snapshot" href="http://ogl-math.git.sourceforge.net/git/gitweb.cgi?p=ogl-math/ogl-math;a=snapshot;h=HEAD;sf=tgz" />
+      <menu-entry name="Browse Git repository" href="https://github.com/Groovounet/glm" />
+      <menu-entry name="Master branch snapshot" href="https://github.com/Groovounet/glm/zipball/master" />
+      <menu-entry name="0.9.3 branch snapshot" href="https://github.com/Groovounet/glm/zipball/0.9.3" />
+      <menu-entry name="0.9.4 branch snapshot" href="https://github.com/Groovounet/glm/zipball/0.9.4" />
     </menu-group>
 
     <menu-link>
