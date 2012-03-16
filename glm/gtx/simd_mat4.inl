@@ -157,7 +157,7 @@ GLM_FUNC_QUALIFIER fmat4x4SIMD & fmat4x4SIMD::operator/=
 )
 {
 	__m128 Inv[4];
-	sse_inverse_ps(&this->Data[0].Data, Inv);
+	sse_inverse_ps(&m.Data[0].Data, Inv);
 	sse_mul_ps(&this->Data[0].Data, Inv, &this->Data[0].Data);
     return *this;
 }

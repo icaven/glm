@@ -263,21 +263,21 @@
 
 // Clang
 #elif defined(__clang__)
-#	if(CLANG_VERSION_MAJOR == 2) && (CLANG_VERSION_MINOR == 6)
+#	if(__clang_major__ == 2) && (__clang_minor__ == 6)
 #		define GLM_COMPILER GLM_COMPILER_CLANG26
-#	elif(CLANG_VERSION_MAJOR == 2) && (CLANG_VERSION_MINOR == 7)
+#	elif(__clang_major__ == 2) && (__clang_minor__ == 7)
 #		define GLM_COMPILER GLM_COMPILER_CLANG27
-#	elif(CLANG_VERSION_MAJOR == 2) && (CLANG_VERSION_MINOR == 8)
+#	elif(__clang_major__ == 2) && (__clang_minor__ == 8)
 #		define GLM_COMPILER GLM_COMPILER_CLANG28
-#	elif(CLANG_VERSION_MAJOR == 2) && (CLANG_VERSION_MINOR == 9)
+#	elif(__clang_major__ == 2) && (__clang_minor__ == 9)
 #		define GLM_COMPILER GLM_COMPILER_CLANG29
-#	elif(CLANG_VERSION_MAJOR == 3) && (CLANG_VERSION_MINOR == 0)
+#	elif(__clang_major__ == 3) && (__clang_minor__ == 0)
 #		define GLM_COMPILER GLM_COMPILER_CLANG30
-#	elif(CLANG_VERSION_MAJOR == 3) && (CLANG_VERSION_MINOR == 1)
+#	elif(__clang_major__ == 3) && (__clang_minor__ == 1)
 #		define GLM_COMPILER GLM_COMPILER_CLANG31
-#	elif(CLANG_VERSION_MAJOR == 3) && (CLANG_VERSION_MINOR == 2)
+#	elif(__clang_major__ == 3) && (__clang_minor__ == 2)
 #		define GLM_COMPILER GLM_COMPILER_CLANG32
-#	elif(CLANG_VERSION_MAJOR == 3) && (CLANG_VERSION_MINOR == 3)
+#	elif(__clang_major__ == 3) && (__clang_minor__ == 3)
 #		define GLM_COMPILER GLM_COMPILER_CLANG33
 #	else
 #		define GLM_COMPILER GLM_COMPILER_CLANG
