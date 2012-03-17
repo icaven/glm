@@ -3,6 +3,7 @@
 <glm copyright="Copyright © 2005 - 2012">
   <downloads>
     <section name="GLM - zip files">
+      <download name="GLM 0.9.3.2" date="15/03/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.2/glm-0.9.3.2.zip/download" />
       <download name="GLM 0.9.3.1" date="25/01/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.1/glm-0.9.3.1.zip/download" />
       <download name="GLM 0.9.3.0" date="09/01/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.zip/download" />
       <download name="GLM 0.9.3.B" date="12/12/2011" size="4.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.B/glm-0.9.3.B.zip/download"/>
@@ -74,6 +75,7 @@
       <download name="GLM 0.1.0.0" date="02/21/2005" size="29.2 KB" link="http://prdownloads.sourceforge.net/glf/glm-0.1-ur.zip?download"/>
     </section>
     <section name="GLM - 7z files">
+      <download name="GLM 0.9.3.2" date="15/03/2012" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.2/glm-0.9.3.2.7z/download"/>
       <download name="GLM 0.9.3.1" date="25/01/2012" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.1/glm-0.9.3.1.7z/download"/>
       <download name="GLM 0.9.3.0" date="09/01/2012" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.7z/download"/>
       <download name="GLM 0.9.3.B" date="12/12/2011" size="2.8 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.B/glm-0.9.3.B.7z/download"/>
@@ -172,6 +174,19 @@
   </todo>
 
   <page_news>
+
+    <news index="0078" date="15/03/2012" title="GLM 0.9.3.2 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+      <paragraph>
+        Just a regular revision fixing the only three minor issues reported since last release.
+      </paragraph>
+
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.2/glm-0.9.3.2.zip/download">GLM 0.9.3.2 (zip)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.2/glm-0.9.3.2.7z/download">GLM 0.9.3.2 (7z)</source>
+      <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
+      <source type="Link" href="http://glm.g-truc.net/glm-0.9.3.pdf">GLM 0.9.3 Manual</source>
+      <source type="Link" href="http://glm.g-truc.net/api-0.9.3/index.html">GLM 0.9.3 API</source>
+    </news>
+
     <news index="0077" date="10/03/2012" title="GLM on GitHub" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>
         After years of using <link href="http://sourceforge.net/projects/ogl-math/?source=directory">SourceForge.net</link>, GLM is moving to <link href="https://github.com/Groovounet/glm">GitHub</link>,
@@ -179,7 +194,7 @@
         It also allows to download snapshots of every branches.
       </paragraph>
 
-		<source type="Link" href="https://github.com/Groovounet/glm">Browse GLM repository on GitHub</source>
+      <source type="Link" href="https://github.com/Groovounet/glm">Browse GLM repository on GitHub</source>
       <source type="Download" href="https://github.com/Groovounet/glm/zipball/master">GLM master branch snapshot</source>
       <source type="Download" href="https://github.com/Groovounet/glm/zipball/0.9.3">GLM 0.9.3 branch snapshot</source>
       <source type="Download" href="https://github.com/Groovounet/glm/zipball/0.9.4">GLM 0.9.4 branch snapshot</source>
