@@ -17,8 +17,13 @@ namespace glm
 	)
 	{
 		detail::tvec2<T> Result;
+#ifdef GLM_FORCE_RADIANS
+		T const Cos(cos(angle));
+		T const Sin(sin(angle));
+#else
 		T const Cos = cos(radians(angle));
 		T const Sin = sin(radians(angle));
+#endif
 		Result.x = v.x * Cos - v.y * Sin;
 		Result.y = v.x * Sin + v.y * Cos;
 		return Result;
@@ -64,9 +69,16 @@ namespace glm
 		T const & angle
 	)
 	{
-		detail::tvec3<T> Result = v;
-		const T Cos = cos(radians(angle));
-		const T Sin = sin(radians(angle));
+		detail::tvec3<T> Result(v);
+
+#ifdef GLM_FORCE_RADIANS
+		T const Cos(cos(angle));
+		T const Sin(sin(angle));
+#else
+		T const Cos = cos(radians(angle));
+		T const Sin = sin(radians(angle));
+#endif
+
 		Result.y = v.y * Cos - v.z * Sin;
 		Result.z = v.y * Sin + v.z * Cos;
 		return Result;
@@ -80,8 +92,15 @@ namespace glm
 	)
 	{
 		detail::tvec3<T> Result = v;
-		const T Cos = cos(radians(angle));
-		const T Sin = sin(radians(angle));
+
+#ifdef GLM_FORCE_RADIANS
+		T const Cos(cos(angle));
+		T const Sin(sin(angle));
+#else
+		T const Cos(cos(radians(angle)));
+		T const Sin(sin(radians(angle)));
+#endif
+
 		Result.x =  v.x * Cos + v.z * Sin;
 		Result.z = -v.x * Sin + v.z * Cos;
 		return Result;
@@ -95,8 +114,15 @@ namespace glm
 	)
 	{
 		detail::tvec3<T> Result = v;
-		const T Cos = cos(radians(angle));
-		const T Sin = sin(radians(angle));
+
+#ifdef GLM_FORCE_RADIANS
+		T const Cos(cos(angle));
+		T const Sin(sin(angle));
+#else
+		T const Cos(cos(radians(angle)));
+		T const Sin(sin(radians(angle)));
+#endif
+
 		Result.x = v.x * Cos - v.y * Sin;
 		Result.y = v.x * Sin + v.y * Cos;
 		return Result;
@@ -110,8 +136,15 @@ namespace glm
 	)
 	{
 		detail::tvec4<T> Result = v;
-		const T Cos = cos(radians(angle));
-		const T Sin = sin(radians(angle));
+
+#ifdef GLM_FORCE_RADIANS
+		T const Cos(cos(angle));
+		T const Sin(sin(angle));
+#else
+		T const Cos(cos(radians(angle)));
+		T const Sin(sin(radians(angle)));
+#endif
+
 		Result.y = v.y * Cos - v.z * Sin;
 		Result.z = v.y * Sin + v.z * Cos;
 		return Result;
@@ -125,8 +158,15 @@ namespace glm
 	)
 	{
 		detail::tvec4<T> Result = v;
-		const T Cos = cos(radians(angle));
-		const T Sin = sin(radians(angle));
+
+#ifdef GLM_FORCE_RADIANS
+		T const Cos(cos(angle));
+		T const Sin(sin(angle));
+#else
+		T const Cos(cos(radians(angle)));
+		T const Sin(sin(radians(angle)));
+#endif
+
 		Result.x =  v.x * Cos + v.z * Sin;
 		Result.z = -v.x * Sin + v.z * Cos;
 		return Result;
@@ -140,8 +180,15 @@ namespace glm
 	)
 	{
 		detail::tvec4<T> Result = v;
-		const T Cos = cos(radians(angle));
-		const T Sin = sin(radians(angle));
+
+#ifdef GLM_FORCE_RADIANS
+		T const Cos(cos(angle));
+		T const Sin(sin(angle));
+#else
+		T const Cos(cos(radians(angle)));
+		T const Sin(sin(radians(angle)));
+#endif
+
 		Result.x = v.x * Cos - v.y * Sin;
 		Result.y = v.x * Sin + v.y * Cos;
 		return Result;

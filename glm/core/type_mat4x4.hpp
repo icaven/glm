@@ -48,8 +48,8 @@ namespace detail
 	template <typename T> struct tmat4x3;
 	template <typename T> struct tmat4x4;
 
-	//! \brief Template for 4 * 4 matrix of floating-point numbers.
-	//! \ingroup core_template
+	// \brief Template for 4 * 4 matrix of floating-point numbers.
+	// \ingroup core_template
 	template <typename T> 
 	struct tmat4x4
 	{
@@ -58,16 +58,19 @@ namespace detail
 		typedef std::size_t size_type;
 		typedef tvec4<T> col_type;
 		typedef tvec4<T> row_type;
-        GLM_FUNC_DECL size_type length() const;
-		static GLM_FUNC_DECL size_type col_size();
-		static GLM_FUNC_DECL size_type row_size();
-
 		typedef tmat4x4<T> type;
 		typedef tmat4x4<T> transpose_type;
 
+		static GLM_FUNC_DECL size_type col_size();
+		static GLM_FUNC_DECL size_type row_size();
+
+		GLM_FUNC_DECL GLM_CONSTEXPR size_type length() const;
+
 	public:
-		// Implementation detail
+		/// Implementation detail
+        /// @cond DETAIL
 		GLM_FUNC_DECL tmat4x4<T> _inverse() const;
+        /// @endcond
 
 	private:
 		// Data 

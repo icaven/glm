@@ -3,6 +3,7 @@
 <glm copyright="Copyright © 2005 - 2012">
   <downloads>
     <section name="GLM - zip files">
+      <download name="GLM 0.9.3.1" date="25/01/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.1/glm-0.9.3.1.zip/download" />
       <download name="GLM 0.9.3.0" date="09/01/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.zip/download" />
       <download name="GLM 0.9.3.B" date="12/12/2011" size="4.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.B/glm-0.9.3.B.zip/download"/>
       <download name="GLM 0.9.3.A" date="11/11/2011" size="4.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.A/glm-0.9.3.A.zip/download"/>
@@ -73,21 +74,22 @@
       <download name="GLM 0.1.0.0" date="02/21/2005" size="29.2 KB" link="http://prdownloads.sourceforge.net/glf/glm-0.1-ur.zip?download"/>
     </section>
     <section name="GLM - 7z files">
-        <download name="GLM 0.9.3.0" date="09/01/2012" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.7z/download"/>
-        <download name="GLM 0.9.3.B" date="12/12/2011" size="2.8 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.B/glm-0.9.3.B.7z/download"/>
+      <download name="GLM 0.9.3.1" date="25/01/2012" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.1/glm-0.9.3.1.7z/download"/>
+      <download name="GLM 0.9.3.0" date="09/01/2012" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.7z/download"/>
+      <download name="GLM 0.9.3.B" date="12/12/2011" size="2.8 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.B/glm-0.9.3.B.7z/download"/>
       <download name="GLM 0.9.3.A" date="11/11/2011" size="2.8 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.A/glm-0.9.3.A.7z/download"/>
       <download name="GLM 0.9.2.7" date="24/10/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.7/glm-0.9.2.7.7z/download"/>
       <download name="GLM 0.9.2.6" date="01/10/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.6/glm-0.9.2.6.7z/download"/>
       <download name="GLM 0.9.2.5" date="20/09/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.5/glm-0.9.2.5.7z/download"/>
-		<download name="GLM 0.9.2.4" date="03/09/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.4/glm-0.9.2.4.7z/download"/>
-		<download name="GLM 0.9.2.3" date="08/06/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.3/glm-0.9.2.3.7z/download"/>
-		<download name="GLM 0.9.2.2" date="02/06/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.2/glm-0.9.2.2.7z/download"/>
-		<download name="GLM 0.9.2.1" date="24/05/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.1/glm-0.9.2.1.7z/download"/>
-		<download name="GLM 0.9.2.0" date="08/05/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.0/glm-0.9.2.0.7z/download"/>
+      <download name="GLM 0.9.2.4" date="03/09/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.4/glm-0.9.2.4.7z/download"/>
+      <download name="GLM 0.9.2.3" date="08/06/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.3/glm-0.9.2.3.7z/download"/>
+      <download name="GLM 0.9.2.2" date="02/06/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.2/glm-0.9.2.2.7z/download"/>
+      <download name="GLM 0.9.2.1" date="24/05/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.1/glm-0.9.2.1.7z/download"/>
+      <download name="GLM 0.9.2.0" date="08/05/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.0/glm-0.9.2.0.7z/download"/>
       <download name="GLM 0.9.1.3" date="07/05/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.3/glm-0.9.1.3.7z/download"/>
       <download name="GLM 0.9.1.2" date="12/04/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.2/glm-0.9.1.2.7z/download"/>
       <download name="GLM 0.9.1.1" date="17/03/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.1/glm-0.9.1.1.7z/download"/>
-	  <download name="GLM 0.9.1.0" date="03/03/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.0/glm-0.9.1.0.7z/download"/>
+      <download name="GLM 0.9.1.0" date="03/03/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.0/glm-0.9.1.0.7z/download"/>
       <download name="GLM 0.9.1.B" date="13/02/2011" size="2.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.B/glm-0.9.1.B.7z/download"/>
       <download name="GLM 0.9.0.8" date="13/02/2011" size="1.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.8/glm-0.9.0.8.7z/download"/>
       <download name="GLM 0.9.1.A" date="31/01/2011" size="2.0 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.1.A/glm-0.9.1.A.7z/download"/>
@@ -170,6 +172,31 @@
   </todo>
 
   <page_news>
+    <news index="0077" date="10/03/2012" title="GLM on GitHub" image="goodies/logo.png" image-mini="image/logo-mini.png">
+      <paragraph>
+        After years of using <link href="http://sourceforge.net/projects/ogl-math/?source=directory">SourceForge.net</link>, GLM is moving to <link href="https://github.com/Groovounet/glm">GitHub</link>,
+        as least for its repository. GitHub provides easy ways to clone the repository and submit pull requests which seems a definity advantage for the community contribution.
+        It also allows to download snapshots of every branches.
+      </paragraph>
+
+		<source type="Link" href="https://github.com/Groovounet/glm">Browse GLM repository on GitHub</source>
+      <source type="Download" href="https://github.com/Groovounet/glm/zipball/master">GLM master branch snapshot</source>
+      <source type="Download" href="https://github.com/Groovounet/glm/zipball/0.9.3">GLM 0.9.3 branch snapshot</source>
+      <source type="Download" href="https://github.com/Groovounet/glm/zipball/0.9.4">GLM 0.9.4 branch snapshot</source>
+    </news>
+
+    <news index="0076" date="25/01/2012" title="GLM 0.9.3.1 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+      <paragraph>
+        GLM 0.9.3.1 fixes some platforms detection issues and warnings.
+      </paragraph>
+
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.1/glm-0.9.3.1.zip/download">GLM 0.9.3.1 (zip)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.1/glm-0.9.3.1.7z/download">GLM 0.9.3.1 (7z)</source>
+      <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
+      <source type="Link" href="http://glm.g-truc.net/glm-0.9.3.pdf">GLM 0.9.3 Manual</source>
+      <source type="Link" href="http://glm.g-truc.net/api-0.9.3/index.html">GLM 0.9.3 API</source>
+    </news>
+
     <news index="0075" date="09/01/2012" title="GLM 0.9.3.0 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>
         GLM 0.9.3.0 is finally released. Since the branch 0.9.2, the test bench and the Doxygen API documentation has been expended significantly leading to an even more reliable implementation and hopefully an even smoother development experience.
@@ -796,7 +823,6 @@
     </news>
 
     <news index="0048" date="20/02/2010" title="GLM 0.9 Alpha 2 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         This update fixes some problem of Alpha 1 but also brings some improvements in case of errors when using GLM to provide more relevant messages.
       </paragraph>
@@ -805,7 +831,6 @@
     </news>
 
     <news index="0047" date="09/02/2010" title="GLM 0.9 Alpha 1 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         First step until a major release for GLM with this first alpha of GLM 0.9.
       </paragraph>
@@ -825,7 +850,6 @@
     </news>
 
     <news index="0046" date="25/01/2010" title="GLM 0.8.4.4 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         This update just removes some warnings
       </paragraph>
@@ -838,7 +862,6 @@
     </news>
 
     <news index="0045" date="16/11/2009" title="GLM 0.8.4.3 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         This version fixed half scalars and half vectors arithmetics.
         This is a really slow practice that should be avoid.
@@ -851,7 +874,6 @@
     </news>
 
     <news index="0044" date="19/10/2009" title="GLM 0.8.4.2 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         This version is a really minor updates, fixing single issue with half float types.
       </paragraph>
@@ -861,7 +883,6 @@
     </news>
 
     <news index="0043" date="05/10/2009" title="GLM 0.8.4.1 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         This version fixes few bugs and provides an major update of the manual thanks to Damian Trebilco.
       </paragraph>
@@ -871,7 +892,6 @@
     </news>
 
     <news index="0042" date="16/09/2009" title="GLM 0.8.4.0 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         This new version mainly adds support for Visual Studio 2010 and GCC 4.4. It also provides various code optimization, bug fixes and an extension.
       </paragraph>
@@ -881,7 +901,6 @@
     </news>
 
     <news index="0041" date="11/08/2009" title="GLM 0.8.3.5 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         Fixed extension bugs introduced by core update.
       </paragraph>
@@ -891,7 +910,6 @@
     </news>
 
     <news index="0040" date="10/08/2009" title="GLM 0.8.3.4 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         Fixed varius bugs. Move determinant fonction to core following GLSL 1.5 specification.
       </paragraph>
@@ -901,7 +919,6 @@
     </news>
 
     <news index="0039" date="25/06/2009" title="GLM 0.8.3.3 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         Fixed varius bugs.
       </paragraph>
@@ -911,7 +928,6 @@
     </news>
 
     <news index="0038" date="04/06/2009" title="GLM 0.8.3.2 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         Add GLM_GTC_quaternion and GLM_GTC_type_precision extensions both subset of GLM_GTX_quaternion and GLM_GTX_number_precision
       </paragraph>
@@ -921,7 +937,6 @@
     </news>
 
     <news index="0037" date="21/05/2009" title="GLM 0.8.3.1 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         The old way to use extensions have been fixed and GLM_GTX_bit extension gets updated with more functions to manipulate bit fields.
       </paragraph>
@@ -931,7 +946,6 @@
     </news>
 
     <news index="0036" date="06/05/2009" title="GLM 0.8.3.0 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         This version brings to main changed: Stable extensions and a new extension system.
       </paragraph>
@@ -952,7 +966,6 @@
     </news>
 
     <news index="0035" date="01/04/2009" title="GLM 0.8.2.3 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <source type="Download" href="http://prdownloads.sourceforge.net/glf/glm-0.8.2.3.zip?download">GLM 0.8.2.3 (zip, 963 KB)</source>
       <source type="Download" href="http://prdownloads.sourceforge.net/glf/glm-0.8.2.3.7z?download">GLM 0.8.2.3 (7z, 381 KB)</source>
       <source type="Link" href="./glm-manual.pdf">Manual</source>
@@ -960,7 +973,6 @@
     </news>
 
     <news index="0034" date="13/02/2009" title="GLM 0.8.2.1 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         A new release is available and inogurate a patch number. The goal of this patch number is to release faster fixes from bug reports.
       </paragraph>
@@ -971,8 +983,7 @@
     </news>
 
     <news index="0033" date="21/01/2009" title="GLM 0.8.2 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
-      <paragraph>
+     <paragraph>
         This release only fixes bugs. Left sided swizzle operators, quaternion operators, vectors access operators for the main onces.
       </paragraph>
       <source type="Download" href="http://prdownloads.sourceforge.net/glf/glm-0.8.2.zip?download">GLM 0.8.2 (zip, 963 KB)</source>
@@ -982,7 +993,6 @@
     </news>
 
     <news index="0032" date="19/11/2008" title="GLM current developments" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         Some artifacts have been added to the tracker to give a picture of what you could expect for the next releases.
       </paragraph>
@@ -999,7 +1009,6 @@
     </news>
 
     <news index="0031" date="30/10/2008" title="GLM 0.8.1 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         GLM 0.8.1 is released. This new version mainly fixes 64 bit integers with GCC and various bugs.
       </paragraph>
@@ -1010,7 +1019,6 @@
     </news>
 
     <news index="0030" date="23/10/2008" title="GLM 0.8.0 final released" image="image/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         GLM 0.8.0 is released. This new version is now based on GLSL 1.30 specification which provided new functions and precision qualifiers.
       </paragraph>
@@ -1037,7 +1045,6 @@
     </news>
 
     <news index="0029" date="22/10/2008" title="A Humus demo to feature GLM 0.8.0" image="image/0029.jpg" image-mini="image/0029-mini.jpg">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         Ambient aperture lighting <link href="http://www.humus.name">Humus</link> demo have been updated to use GLM as math library.
       </paragraph>
@@ -1047,7 +1054,6 @@
     </news>
 
     <news index="0028" date="18/10/2008" title="Webside updated" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         As you can see the website get a little update to prepare GLM 0.8.0 final release.
       </paragraph>
@@ -1057,7 +1063,6 @@
     </news>
 
     <news index="0027" date="10/10/2008" title="GLM 0.8.0 beta 3 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         This release fixes some bugs and add few features though extensions. The development is now based on <link href="http://www.cmake.org">CMake</link> to make easier cross platform tests and project management.
       </paragraph>
@@ -1068,7 +1073,6 @@
     </news>
 
     <news index="0026" date="04/10/2008" title="GLM 0.8.0 beta 2 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         This release mainly improves half float vectors support. By default the low precission vectors are based on float numbers not on half numbers
       </paragraph>
@@ -1085,7 +1089,6 @@
     </news>
 
     <news index="0025" date="26/09/2008" title="GLM 0.8.0 beta 1 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         GLM have been updated to support GLSL 1.30. API documentation had significant improvements to make easier finding of GLSL functions and types.
       </paragraph>
@@ -1102,7 +1105,6 @@
     </news>
 
     <news index="0024" date="08/08/2008" title="GLM 0.7.6 released">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         GLM 0.7.6 provides a better C++ conformance so that you can build GLM with –pedantic G++ parameter or without Visual Studio extensions. To make GLM more reliable, BOOST_STATIC_ASSERT are used according developer wishes.
       </paragraph>
@@ -1113,7 +1115,6 @@
     </news>
 
     <news index="0023" date="05/07/2008" title="GLM 0.7.5 released">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         GLM 0.7.5 is available and introduces a new build messsage system to get information of GLM build configuration with Visual Studio. This mechanism is documented in section 6 of GLM manual. Also, GLM can be built with GCC pedantic options.
       </paragraph>
@@ -1124,7 +1125,6 @@
     </news>
 
     <news index="0022" date="01/06/2008" title="GLM 0.7.4 released">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         GLM 0.7.4 introduces a new system to manage external dependencies.
       </paragraph>
@@ -1141,7 +1141,6 @@
     </news>
 
     <news index="0021" date="24/05/2008" title="GLM 0.7.3 released">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         GLM 0.7.3 is released. This version fixes few bugs and add few extensions
       </paragraph>
@@ -1151,7 +1150,6 @@
     </news>
 
     <news index="0020" date="27/04/2008" title="GLM 0.7.2 released">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         GLM 0.7.2 is released. The documentation have been completed again and several issues handle with precompiler options.
       </paragraph>
@@ -1173,7 +1171,6 @@
     </news>
 
     <news index="0019" date="24/03/2008" title="GLM 0.7.1 released">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         GLM 0.7.1 is available under MIT license. It fixes bugs with GCC.
       </paragraph>
@@ -1183,7 +1180,6 @@
     </news>
 
     <news index="0018" date="22/03/2008" title="GLM 0.7.0 released">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         GLM 0.7.0 is available under MIT license. LGPL lisence have been discard due to an issue of use for console development. This release contains a lot better documentation based on Doxygen. Lot of bugs have been fixed and the documentation completed. Thanks to all people that has contributed thought bug reports and ideas to make this version a lot better!
       </paragraph>
@@ -1193,7 +1189,6 @@
     </news>
 
     <news index="0017" date="10/12/2007" title="GLM 0.6.4 released">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         GLM 0.6.4 is available and fixes some swizzle operator issues.
       </paragraph>
@@ -1203,7 +1198,6 @@
     </news>
 
     <news index="0016" date="05/11/2007" title="GLM 0.6.3 released">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         GLM 0.6.3 fixes accesses of matrices and a 3DSMax SDK conflict.
       </paragraph>
@@ -1213,7 +1207,6 @@
     </news>
 
     <news index="0015" date="08/10/2007" title="GLM 0.6.2 released">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         GLM 0.6.2 fixes an error on an extension.
       </paragraph>
@@ -1223,7 +1216,6 @@
     </news>
 
     <news index="0014" date="07/10/2007" title="GLM 0.6.1 released">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         GLM 0.6.1 is a minor update that fix an issue on extension namespace and add two more extensions.
       </paragraph>
@@ -1233,7 +1225,6 @@
     </news>
 
     <news index="0013" date="16/09/2007" title="GLM 0.6.0 released">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         GLM 0.6.0 is available. For this release, work focus on extensions. A new mecanisum allows to integrate GLM extensions as it is actually done for GLSL extension by vendors. Lot of new extensions have been added.
       </paragraph>
@@ -1245,7 +1236,6 @@
     </news>
 
     <news index="0012" date="19/02/2007" title="GLM 0.5.1 released">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         This release fixes some issues with swizzle operators.
       </paragraph>
@@ -1254,7 +1244,6 @@
     </news>
 
     <news index="0011" date="26/01/2007" title="Cattmull Clark subdivision sample">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         A new sample is available. It's an update of Philip Rideout's Catmull Clark subdivision program that uses GLM. Released with pleasant permission of <link href="http://prideout.net">Philip Rideout</link>.
       </paragraph>
@@ -1262,7 +1251,6 @@
     </news>
 
     <news index="0010" date="06/01/2007" title="GLM 0.5.0 released">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         This release include GLSL 1.2 new feature in the core implementation. Also, it includes swizzle read and write operators and a custom options system to setup GLM.
       </paragraph>
@@ -1282,7 +1270,6 @@
     </news>
 
     <news index="0009" date="22/05/2006" title="GLM 0.4.1 released">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         A GLM update is available. It simply includes some examples for a sweet start with GLM.
       </paragraph>
@@ -1305,7 +1292,6 @@
     </news>
 
     <news index="0007" date="23/04/2006" title="Roadmap for the years">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         Version 0.4 will complete matrices and vectors operators and will add GLSL 1.2 features. First, conversions simplifications will be integrated. Then, 4 per 3 matrices and outer product will be available from extensions. The transpose function is already available from extension.
       </paragraph>
@@ -1318,7 +1304,6 @@
     </news>
 
     <news index="0006" date="22/04/2006" title="GLM 0.3.2 released">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         This release corrects two main bugs. First, a bug of the imat4 and mat4 division operators and other correct the vectors components access from texture coordinate way.
       </paragraph>
@@ -1326,7 +1311,6 @@
     </news>
 
     <news index="0005" date="28/03/2006" title="GLM 0.3.1 released">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         This update adds GCC 4.0 support for MacOS X and Linux and GCC 4.1 under Linux. Also, its provides some optimisations.
       </paragraph>
@@ -1337,7 +1321,6 @@
     </news>
 
     <news index="0004" date="19/02/2006" title="GLM 0.3 released">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         A new release of GLM is now available. It improves GLSL data type conversion and construction compliance. Also, It's adds extensions like some to manage double-precision and half-precision float numbers. Finally a Doxygen documentation has been added.
       </paragraph>
@@ -1350,7 +1333,6 @@
     </news>
 
     <news index="0003" date="06/05/2005" title="GLM 0.2 released">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         A new release of GLM is now available. A few bugs have been fixed, the portability of GLSL into C++ has been improved, and new experimental extensions have been implemented, enhancing GLSL features.
       </paragraph>
@@ -1363,14 +1345,12 @@
     </news>
 
     <news index="0002" date="04/05/2005" title="English pages">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         The english section of this site is now available.
       </paragraph>
     </news>
 
     <news index="0001" date="21/02/2005" title="GLM 0.1 is available">
-      <redacteur href="mailto:contact@g-truc.net">Groove</redacteur>
       <paragraph>
         This is the first public availability of GLM. This library supports part of GLSL specifications : All vectors and matrices types, and all the operators and associated functions.
       </paragraph>
@@ -1951,7 +1931,7 @@
       <menu-entry name="GLM Manual" href="./glm.pdf" />
       <menu-entry name="GLM API" href="./api/index.html" />
       <menu-entry name="Code samples" href="./code.html" />
-      <menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.10.6.clean.pdf" />
+      <menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.11.pdf" />
       <menu-entry name="OpenGL.org Toolkits forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
     </menu-group>
 
@@ -1959,8 +1939,10 @@
 		<menu-entry name="Report a bug" href="https://sourceforge.net/apps/trac/ogl-math/newticket" />
 		<menu-entry name="SourceForge page" href="https://sourceforge.net/projects/ogl-math/" />
 		<menu-entry name="G-Truc Creation page" href="http://www.g-truc.net/project-0016.html#menu" />
-      <menu-entry name="Browse Git repository" href="http://ogl-math.git.sourceforge.net/git/gitweb.cgi?p=ogl-math/ogl-math;a=summary" />
-      <menu-entry name="Source snapshot" href="http://ogl-math.git.sourceforge.net/git/gitweb.cgi?p=ogl-math/ogl-math;a=snapshot;h=HEAD;sf=tgz" />
+      <menu-entry name="Browse Git repository" href="https://github.com/Groovounet/glm" />
+      <menu-entry name="Master branch snapshot" href="https://github.com/Groovounet/glm/zipball/master" />
+      <menu-entry name="0.9.3 branch snapshot" href="https://github.com/Groovounet/glm/zipball/0.9.3" />
+      <menu-entry name="0.9.4 branch snapshot" href="https://github.com/Groovounet/glm/zipball/0.9.4" />
     </menu-group>
 
     <menu-link>

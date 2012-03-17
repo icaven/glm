@@ -487,10 +487,14 @@ namespace detail
             Tmp.z *= oneOverLen;
         }
 
-        typename detail::tquat<T>::value_type AngleRad = radians(angle);
-        typename detail::tquat<T>::value_type fSin = sin(AngleRad * T(0.5));
+#ifdef GLM_FORCE_RADIANS
+		typename detail::tquat<T>::value_type const AngleRad(angle);
+#else
+        typename detail::tquat<T>::value_type const AngleRad = radians(angle);
+#endif
+        typename detail::tquat<T>::value_type const Sin = sin(AngleRad * T(0.5));
 
-		return q * detail::tquat<T>(cos(AngleRad * T(0.5)), Tmp.x * fSin, Tmp.y * fSin, Tmp.z * fSin);
+		return q * detail::tquat<T>(cos(AngleRad * T(0.5)), Tmp.x * Sin, Tmp.y * Sin, Tmp.z * Sin);
         //return gtc::quaternion::cross(q, detail::tquat<T>(cos(AngleRad * T(0.5)), Tmp.x * fSin, Tmp.y * fSin, Tmp.z * fSin));
 	}
 

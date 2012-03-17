@@ -15,14 +15,21 @@ namespace glm
 		detail::tvec3<T> const & euclidean
 	)
 	{
-		T length = length(euclidean);
-		detail::tvec3<T> tmp = euclidean / length;
-		T xz_dist = sqrt(tmp.x * tmp.x + tmp.z * tmp.z);
+		T const Length(length(euclidean));
+		detail::tvec3<T> const tmp(euclidean / Length);
+		T const xz_dist(sqrt(tmp.x * tmp.x + tmp.z * tmp.z));
 
+#ifdef GLM_FORCE_RADIANS
+		return detail::tvec3<T>(
+			atan(xz_dist, tmp.y),	// latitude
+			atan(tmp.x, tmp.z),		// longitude
+			xz_dist);				// xz distance
+#else
 		return detail::tvec3<T>(
 			degrees(atan(xz_dist, tmp.y)),	// latitude
-			degrees(atan(tmp.x, tmp.z)),		// longitude
-			xz_dist);									// xz distance
+			degrees(atan(tmp.x, tmp.z)),	// longitude
+			xz_dist);						// xz distance
+#endif
 	}
 
 	template <typename T> 
@@ -31,8 +38,14 @@ namespace glm
 		detail::tvec3<T> const & polar
 	)
 	{
-		T latitude = radians(polar.x);
-		T longitude = radians(polar.y);
+#ifdef GLM_FORCE_RADIANS
+		T const latitude(polar.x);
+		T const longitude(polar.y);
+#else
+		T const latitude(radians(polar.x));
+		T const longitude(radians(polar.y));
+#endif
+
 		return detail::tvec3<T>(
 			cos(latitude) * sin(longitude),
 			sin(latitude),

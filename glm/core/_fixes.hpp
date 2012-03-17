@@ -26,6 +26,8 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include <cmath>
+
 //! Workaround for compatibility with other libraries
 #ifdef max
 #undef max

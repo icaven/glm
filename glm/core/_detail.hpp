@@ -444,6 +444,7 @@ namespace detail
 #	define GLM_ALIGNED_STRUCT(x) __declspec(align(x)) struct 
 #	define GLM_RESTRICT __declspec(restrict)
 #	define GLM_RESTRICT_VAR __restrict
+#	define GLM_CONSTEXPR 
 #elif((GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_LLVM_GCC)) && (GLM_COMPILER >= GLM_COMPILER_GCC31))
 #	define GLM_DEPRECATED __attribute__((__deprecated__))
 #	define GLM_ALIGN(x) __attribute__((aligned(x)))
@@ -457,12 +458,18 @@ namespace detail
 #	endif
 #	define GLM_RESTRICT __restrict__
 #	define GLM_RESTRICT_VAR __restrict__
+#	if((GLM_COMPILER >= GLM_COMPILER_GCC47) && ((GLM_LANG & GLM_LANG_CXX0X) == GLM_LANG_CXX0X))
+#		define GLM_CONSTEXPR constexpr 
+#	else
+#		define GLM_CONSTEXPR 
+#	endif
 #else
 #	define GLM_DEPRECATED
 #	define GLM_ALIGN
 #	define GLM_ALIGNED_STRUCT(x) 
 #	define GLM_RESTRICT
 #	define GLM_RESTRICT_VAR
+#	define GLM_CONSTEXPR 
 #endif//GLM_COMPILER
 
 #endif//glm_core_detail

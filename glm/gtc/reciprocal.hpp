@@ -20,96 +20,108 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_reciprocal
-/// @file glm/gtx/reciprocal.hpp
-/// @date 2008-10-09 / 2011-06-07
+/// @ref gtc_reciprocal
+/// @file glm/gtc/reciprocal.hpp
+/// @date 2008-10-09 / 2012-01-25
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_reciprocal GLM_GTX_reciprocal: Reciprocal
-/// @ingroup gtx
+/// @defgroup gtc_reciprocal GLM_GTC_reciprocal: Reciprocal
+/// @ingroup gtc
 /// 
 /// @brief Define secant, cosecant and cotangent functions.
 /// 
-/// <glm/gtx/reciprocal.hpp> need to be included to use these functionalities.
+/// <glm/gtc/reciprocal.hpp> need to be included to use these features.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_reciprocal
-#define GLM_GTX_reciprocal GLM_VERSION
+#ifndef GLM_GTC_reciprocal
+#define GLM_GTC_reciprocal GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))
-#	pragma message("GLM: GLM_GTX_reciprocal extension included")
+#	pragma message("GLM: GLM_GTC_reciprocal extension included")
 #endif
 
 namespace glm
 {
-	/// @addtogroup gtx_reciprocal
+	/// @addtogroup gtc_reciprocal
 	/// @{
 
-	//! Secant function. 
-	//! hypotenuse / adjacent or 1 / cos(x)
-	//! From GLM_GTX_reciprocal extension.
+	/// Secant function. 
+	/// hypotenuse / adjacent or 1 / cos(x)
+	/// 
+	/// @see gtc_reciprocal
 	template <typename genType> 
 	genType sec(genType const & angle);
 
-	//! Cosecant function. 
-	//! hypotenuse / opposite or 1 / sin(x)
-	//! From GLM_GTX_reciprocal extension.
+	/// Cosecant function. 
+	/// hypotenuse / opposite or 1 / sin(x)
+	/// 
+	/// @see gtc_reciprocal
 	template <typename genType> 
 	genType csc(genType const & angle);
 		
-	//! Cotangent function. 
-	//! adjacent / opposite or 1 / tan(x)
-	//! From GLM_GTX_reciprocal extension.
+	/// Cotangent function. 
+	/// adjacent / opposite or 1 / tan(x)
+	/// 
+	/// @see gtc_reciprocal
 	template <typename genType> 
 	genType cot(genType const & angle);
 
-	//! Inverse secant function. 
-	//! From GLM_GTX_reciprocal extension.
+	/// Inverse secant function. 
+	/// 
+	/// @see gtc_reciprocal
 	template <typename genType> 
 	genType asec(genType const & x);
 
-	//! Inverse cosecant function. 
-	//! From GLM_GTX_reciprocal extension.
+	/// Inverse cosecant function. 
+	/// 
+	/// @see gtc_reciprocal
 	template <typename genType> 
 	genType acsc(genType const & x);
 		
-	//! Inverse cotangent function. 
-	//! From GLM_GTX_reciprocal extension.
+	/// Inverse cotangent function. 
+	/// 
+	/// @see gtc_reciprocal
 	template <typename genType> 
 	genType acot(genType const & x);
 
-	//! Secant hyperbolic function. 
-	//! From GLM_GTX_reciprocal extension.
+	/// Secant hyperbolic function. 
+	/// 
+	/// @see gtc_reciprocal
 	template <typename genType> 
 	genType sech(genType const & angle);
 
-	//! Cosecant hyperbolic function. 
-	//! From GLM_GTX_reciprocal extension.
+	/// Cosecant hyperbolic function. 
+	/// 
+	/// @see gtc_reciprocal
 	template <typename genType> 
 	genType csch(genType const & angle);
 		
-	//! Cotangent hyperbolic function. 
-	//! From GLM_GTX_reciprocal extension.
+	/// Cotangent hyperbolic function. 
+	/// 
+	/// @see gtc_reciprocal
 	template <typename genType> 
 	genType coth(genType const & angle);
 
-	//! Inverse secant hyperbolic function. 
-	//! From GLM_GTX_reciprocal extension.
+	/// Inverse secant hyperbolic function. 
+	/// 
+	/// @see gtc_reciprocal
 	template <typename genType> 
 	genType asech(genType const & x);
 
-	//! Inverse cosecant hyperbolic function. 
-	//! From GLM_GTX_reciprocal extension.
+	/// Inverse cosecant hyperbolic function. 
+	/// 
+	/// @see gtc_reciprocal
 	template <typename genType> 
 	genType acsch(genType const & x);
 		
-	//! Inverse cotangent hyperbolic function. 
-	//! From GLM_GTX_reciprocal extension.
+	/// Inverse cotangent hyperbolic function. 
+	/// 
+	/// @see gtc_reciprocal
 	template <typename genType> 
 	genType acoth(genType const & x);
 
@@ -118,4 +130,4 @@ namespace glm
 
 #include "reciprocal.inl"
 
-#endif//GLM_GTX_reciprocal
+#endif//GLM_GTC_reciprocal

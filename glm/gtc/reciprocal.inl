@@ -2,9 +2,9 @@
 // OpenGL Mathematics Copyright (c) 2005 - 2012 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-10-09
-// Updated : 2011-10-14
+// Updated : 2012-01-25
 // Licence : This source is under MIT License
-// File    : glm/gtx/reciprocal.inl
+// File    : glm/gtc/reciprocal.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "../core/_vectorize.hpp"

@@ -27,8 +27,12 @@ namespace glm
 		detail::tvec2<valType> const & y
 	)
 	{
-		valType Angle = glm::degrees(acos(dot(x, y)));
-		detail::tvec2<valType> TransformedVector = glm::rotate(x, Angle);
+#ifdef GLM_FORCE_RADIANS
+		valType const Angle(acos(dot(x, y)));
+#else
+		valType const Angle(glm::degrees(acos(dot(x, y))));
+#endif
+		detail::tvec2<valType> const TransformedVector(glm::rotate(x, Angle));
 		if(all(equalEpsilon(y, TransformedVector, valType(0.01))))
 			return Angle;
 		else
@@ -43,7 +47,7 @@ namespace glm
 		detail::tvec3<valType> const & ref
 	)
 	{
-		valType Angle = glm::degrees(glm::acos(glm::dot(x, y)));
+		valType const Angle(glm::degrees(glm::acos(glm::dot(x, y))));
 
 		if(glm::dot(ref, glm::cross(x, y)) < valType(0))
 			return -Angle;
