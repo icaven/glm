@@ -36,7 +36,7 @@ namespace detail
 {
 	typedef short hdata;
 
-	float toFloat32(hdata value);
+	GLM_FUNC_DECL float toFloat32(hdata value);
 	hdata toFloat16(float const & value);
 
 	/// 16-bit floating point type.
