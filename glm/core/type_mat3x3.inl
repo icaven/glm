@@ -57,7 +57,8 @@ namespace detail
 		size_type i
 	)
 	{
-		assert(i < this->length());
+		ASSERT(i < this->length());
+		
 		return this->value[i];
 	}
 
@@ -68,10 +69,8 @@ namespace detail
 		size_type i
 	) const
 	{
-		#if !(GLM_COMPILER & GLM_COMPILER_CUDA)
-			assert(i < this->length());
-		#endif
-		
+		ASSERT(i < this->length());
+	
 		return this->value[i];
 	}
 

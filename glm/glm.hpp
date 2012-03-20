@@ -88,6 +88,12 @@
 //#include <type_traits>
 #include "core/setup.hpp"
 
+#if (GLM_COMPILER & GLM_COMPILER_CUDA)
+	#define ASSERT(s)
+#else
+	#define ASSERT(s) assert(s);
+#endif
+
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_CORE_INCLUDED_DISPLAYED))
 #	define GLM_MESSAGE_CORE_INCLUDED_DISPLAYED
 #	pragma message("GLM: Core library included")

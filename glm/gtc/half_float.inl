@@ -49,18 +49,14 @@ namespace detail
 
 	GLM_FUNC_QUALIFIER half & tvec2<half>::operator[](tvec2<half>::size_type i)
 	{
-		#if !(GLM_COMPILER & GLM_COMPILER_CUDA)
-			assert(/*i >= tvec2<half>::size_type(0) && */i < tvec2<half>::value_size());
-		#endif
+		ASSERT(/*i >= tvec2<half>::size_type(0) && */i < tvec2<half>::value_size());
 		
 		return (&x)[i];
 	}
 
 	GLM_FUNC_QUALIFIER half const & tvec2<half>::operator[](tvec2<half>::size_type i) const
 	{
-		#if !(GLM_COMPILER & GLM_COMPILER_CUDA)
-			assert(/*i >= tvec2<half>::size_type(0) && */i < tvec2<half>::value_size());
-		#endif
+		ASSERT(/*i >= tvec2<half>::size_type(0) && */i < tvec2<half>::value_size());
 		
 		return (&x)[i];
 	}
@@ -331,9 +327,7 @@ namespace detail
 		tvec3<half>::size_type i
 	)
 	{
-		#if !(GLM_COMPILER & GLM_COMPILER_CUDA)
-			assert(/*i >= tvec3<half>::size_type(0) &&*/ i < tvec3<half>::value_size());
-		#endif
+		ASSERT(/*i >= tvec3<half>::size_type(0) &&*/ i < tvec3<half>::value_size());
 
 		return (&x)[i];
 	}
@@ -343,9 +337,7 @@ namespace detail
 		tvec3<half>::size_type i
 	) const
 	{
-		#if !(GLM_COMPILER & GLM_COMPILER_CUDA)
-			assert(/*i >= tvec3<half>::size_type(0) &&*/ i < tvec3<half>::value_size());
-		#endif
+		ASSERT(/*i >= tvec3<half>::size_type(0) &&*/ i < tvec3<half>::value_size());
 
 		return (&x)[i];
 	}
@@ -652,9 +644,7 @@ namespace detail
 		tvec4<half>::size_type i
 	)
 	{
-		#if !(GLM_COMPILER & GLM_COMPILER_CUDA)
-			assert(/*i >= tvec4<half>::size_type(0) && */i < tvec4<half>::value_size());
-		#endif
+		ASSERT(/*i >= tvec4<half>::size_type(0) && */i < tvec4<half>::value_size());
 
 		return (&x)[i];
 	}
@@ -664,9 +654,7 @@ namespace detail
 		tvec4<half>::size_type i
 	) const
 	{
-		#if !(GLM_COMPILER & GLM_COMPILER_CUDA)
-			assert(/*i >= tvec4<half>::size_type(0) && */i < tvec4<half>::value_size());
-		#endif
+		ASSERT(/*i >= tvec4<half>::size_type(0) && */i < tvec4<half>::value_size());
 
 		return (&x)[i];
 	}
