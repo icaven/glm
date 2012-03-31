@@ -31,6 +31,12 @@
 namespace glm{
 namespace detail
 {
+    template <typename T>
+    GLM_FUNC_QUALIFIER typename tquat<T>::size_type tquat<T>::length() const
+    {
+        return 4;
+    }
+
     template <typename T> 
     GLM_FUNC_QUALIFIER tquat<T>::tquat() : 
         x(0),
