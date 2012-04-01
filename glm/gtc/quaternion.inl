@@ -500,6 +500,15 @@ namespace detail
         //return gtc::quaternion::cross(q, detail::tquat<T>(cos(AngleRad * T(0.5)), Tmp.x * fSin, Tmp.y * fSin, Tmp.z * fSin));
 	}
 
+	template <typename T> 
+	GLM_FUNC_QUALIFIER detail::tvec3<T> eulerAngles
+	(
+        detail::tquat<T> const & x
+    )
+	{
+		return detail::tvec3<T>(pitch(x), yaw(x), roll(x));
+	}
+    
     template <typename T> 
     GLM_FUNC_QUALIFIER detail::tmat3x3<T> mat3_cast
 	(

@@ -176,12 +176,6 @@ namespace glm
 	template <typename valType> 
 	valType yaw(
 		detail::tquat<valType> const & x);
-		
-	//! Returns euler angles, yitch as x, yaw as y, roll as z. 
-	//! From GLM_GTX_quaternion extension.
-	template <typename valType> 
-	detail::tvec3<valType> eulerAngles(
-		detail::tquat<valType> const & x);
 
 	//! Converts a quaternion to a 3 * 3 matrix. 
 	//! From GLM_GTX_quaternion extension.
