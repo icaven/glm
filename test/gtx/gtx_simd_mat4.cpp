@@ -181,7 +181,9 @@ void test_mulD(std::vector<glm::mat4> const & Data, std::vector<glm::mat4> & Out
 	{
 		_mm_prefetch((char*)&Data[i + 1], _MM_HINT_T0);
 		glm::simdMat4 m(Data[i]);
-		glm::detail::sse_mul_ps((__m128 const * const)&m, (__m128 const * const)&m, (__m128*)&Out[i]);
+		glm::simdMat4 o;
+		glm::detail::sse_mul_ps((__m128 const * const)&m, (__m128 const * const)&m, (__m128*)&o);
+		Out[i] = *(glm::mat4*)&o;
 	}
 
 	std::clock_t TimeEnd = clock();

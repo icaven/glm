@@ -204,6 +204,13 @@ namespace detail
 		typename detail::tquat<T>::value_type const & angle, 
 		detail::tvec3<T> const & v);
 
+	/// Returns euler angles, yitch as x, yaw as y, roll as z. 
+	/// 
+	/// @see gtc_quaternion
+	template <typename T> 
+	detail::tvec3<T> eulerAngles(
+        detail::tquat<T> const & x);
+    
 	/// Converts a quaternion to a 3 * 3 matrix. 
 	/// 
 	/// @see gtc_quaternion
