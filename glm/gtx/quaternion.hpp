@@ -199,7 +199,7 @@ namespace glm
 	template <typename valType> 
 	valType yaw(
 		detail::tquat<valType> const & x);
-		
+
 	/// Returns euler angles, yitch as x, yaw as y, roll as z. 
 	///
 	/// @see gtx_quaternion
