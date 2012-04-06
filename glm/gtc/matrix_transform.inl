@@ -260,9 +260,9 @@ namespace glm
 		detail::tmat4x4<valType> Result(valType(0));
 		Result[0][0] = w;
 		Result[1][1] = h;
-		Result[2][2] = (zFar + zNear) / (zFar - zNear);
-		Result[2][3] = -valType(1);
-		Result[3][2] = (valType(2) * zFar * zNear) / (zFar - zNear);
+		Result[2][2] = - (zFar + zNear) / (zFar - zNear);
+		Result[2][3] = - valType(1);
+		Result[3][2] = - (valType(2) * zFar * zNear) / (zFar - zNear);
 		return Result;
 	}
 
