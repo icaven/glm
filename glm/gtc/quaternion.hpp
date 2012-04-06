@@ -241,6 +241,43 @@ namespace detail
 	detail::tquat<T> quat_cast(
 		detail::tmat4x4<T> const & x);
 
+    /// Returns the quaternion rotation angle. 
+	///
+	/// @see gtc_quaternion
+	template <typename valType> 
+	valType angle(
+		detail::tquat<valType> const & x);
+
+	/// Returns the q rotation axis. 
+	///
+	/// @see gtc_quaternion
+	template <typename valType> 
+	detail::tvec3<valType> axis(
+		detail::tquat<valType> const & x);
+
+	/// Build a quaternion from an angle and a normalized axis. 
+	///
+	/// @param angle Angle expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
+	///
+	/// @see gtc_quaternion
+	template <typename valType> 
+	detail::tquat<valType> angleAxis(
+		valType const & angle, 
+		valType const & x, 
+		valType const & y, 
+		valType const & z);
+
+    /// Build a quaternion from an angle and a normalized axis.
+	///
+	/// @param angle Angle expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
+	/// @param axis Axis of the quaternion, must be normalized. 
+	///
+	/// @see gtc_quaternion
+	template <typename valType> 
+	detail::tquat<valType> angleAxis(
+		valType const & angle, 
+		detail::tvec3<valType> const & axis);
+
 	/// Quaternion of floating-point numbers. 
 	/// 
 	/// @see gtc_quaternion

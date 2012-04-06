@@ -134,43 +134,6 @@ namespace glm
 	detail::tvec4<valType> rotate(
 		detail::tquat<valType> const & q, 
 		detail::tvec4<valType> const & v);
-		
-    /// Returns the quaternion rotation angle. 
-	///
-	/// @see gtx_quaternion
-	template <typename valType> 
-	valType angle(
-		detail::tquat<valType> const & x);
-
-	/// Returns the q rotation axis. 
-	///
-	/// @see gtx_quaternion
-	template <typename valType> 
-	detail::tvec3<valType> axis(
-		detail::tquat<valType> const & x);
-
-	/// Build a quaternion from an angle and a normalized axis. 
-	///
-	/// @param angle Angle expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
-	///
-	/// @see gtx_quaternion
-	template <typename valType> 
-	detail::tquat<valType> angleAxis(
-		valType const & angle, 
-		valType const & x, 
-		valType const & y, 
-		valType const & z);
-
-    /// Build a quaternion from an angle and a normalized axis.
-	///
-	/// @param angle Angle expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
-	/// @param axis Axis of the quaternion, must be normalized. 
-	///
-	/// @see gtx_quaternion
-	template <typename valType> 
-	detail::tquat<valType> angleAxis(
-		valType const & angle, 
-		detail::tvec3<valType> const & axis);
 
 	/// Extract the real component of a quaternion.
 	///

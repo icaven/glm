@@ -142,67 +142,6 @@ namespace glm
 	}
 
 	template <typename T> 
-	GLM_FUNC_QUALIFIER T angle
-	(
-		detail::tquat<T> const & x
-	)
-	{
-#ifdef GLM_FORCE_RADIANS
-		return acos(x.w) * T(2);
-#else
-		return glm::degrees(acos(x.w) * T(2));
-#endif
-	}
-
-	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tvec3<T> axis
-	(
-		detail::tquat<T> const & x
-	)
-	{
-		T tmp1 = T(1) - x.w * x.w;
-		if(tmp1 <= T(0))
-			return detail::tvec3<T>(0, 0, 1);
-		T tmp2 = T(1) / sqrt(tmp1);
-		return detail::tvec3<T>(x.x * tmp2, x.y * tmp2, x.z * tmp2);
-	}
-
-	template <typename valType> 
-	GLM_FUNC_QUALIFIER detail::tquat<valType> angleAxis
-	(
-		valType const & angle, 
-		valType const & x, 
-		valType const & y, 
-		valType const & z
-	)
-	{
-		return angleAxis(angle, detail::tvec3<valType>(x, y, z));
-	}
-
-	template <typename valType> 
-	GLM_FUNC_QUALIFIER detail::tquat<valType> angleAxis
-	(
-		valType const & angle, 
-		detail::tvec3<valType> const & v
-	)
-	{
-		detail::tquat<valType> result;
-
-#ifdef GLM_FORCE_RADIANS
-		valType a(angle);
-#else
-		valType a(glm::radians(angle));
-#endif
-		valType s = glm::sin(a * valType(0.5));
-
-		result.w = glm::cos(a * valType(0.5));
-		result.x = v.x * s;
-		result.y = v.y * s;
-		result.z = v.z * s;
-		return result;
-	}
-
-	template <typename T> 
 	GLM_FUNC_QUALIFIER T extractRealComponent
 	(
 		detail::tquat<T> const & q
