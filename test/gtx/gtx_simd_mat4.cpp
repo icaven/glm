@@ -10,7 +10,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/quaternion.hpp>
-#include <glm/gtx/random.hpp>
+#include <glm/gtc/random.hpp>
 #include <glm/gtx/simd_vec4.hpp>
 #include <glm/gtx/simd_mat4.hpp>
 #include <iostream>
@@ -238,10 +238,10 @@ int main()
 	std::vector<glm::mat4> Data(64 * 64 * 1);
 	for(std::size_t i = 0; i < Data.size(); ++i)
 		Data[i] = glm::mat4(
-			glm::vec4(glm::compRand4(-2.0f, 2.0f)),
-			glm::vec4(glm::compRand4(-2.0f, 2.0f)),
-			glm::vec4(glm::compRand4(-2.0f, 2.0f)),
-			glm::vec4(glm::compRand4(-2.0f, 2.0f)));
+			glm::vec4(glm::linearRand(glm::vec4(-2.0f), glm::vec4(2.0f))),
+			glm::vec4(glm::linearRand(glm::vec4(-2.0f), glm::vec4(2.0f))),
+			glm::vec4(glm::linearRand(glm::vec4(-2.0f), glm::vec4(2.0f))),
+			glm::vec4(glm::linearRand(glm::vec4(-2.0f), glm::vec4(2.0f))));
 
 	{
 		std::vector<glm::mat4> TestInvA;
