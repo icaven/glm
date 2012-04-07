@@ -4,11 +4,11 @@
 // Created : 2011-04-21
 // Updated : 2011-04-26
 // Licence : This source is under MIT licence
-// File    : test/gtx/noise.cpp
+// File    : test/gtc/noise.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/glm.hpp>
-#include <glm/gtx/noise.hpp>
+#include <glm/gtc/noise.hpp>
 #include <gli/gli.hpp>
 #include <gli/gtx/loader.hpp>
 #include <iostream>

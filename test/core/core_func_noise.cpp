@@ -4,7 +4,7 @@
 // Created : 2011-01-15
 // Updated : 2011-09-13
 // Licence : This source is under MIT licence
-// File    : test/gtx/func_noise.cpp
+// File    : test/core/func_noise.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/glm.hpp>

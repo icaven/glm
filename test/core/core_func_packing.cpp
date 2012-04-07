@@ -10,7 +10,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/half_float.hpp>
 #include <glm/gtc/type_precision.hpp>
-#include <glm/gtx/epsilon.hpp>
+#include <glm/gtc/epsilon.hpp>
 #include <vector>
 
 int test_packUnorm2x16()

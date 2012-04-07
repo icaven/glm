@@ -9,7 +9,7 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/random.hpp>
-#include <glm/gtx/epsilon.hpp>
+#include <glm/gtc/epsilon.hpp>
 #include <iostream>
 
 int test_linearRand()

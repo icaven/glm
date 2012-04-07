@@ -19,11 +19,60 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
+///
+/// @ref gtc_epsilon
+/// @file glm/gtc/epsilon.hpp
+/// @date 2012-04-07 / 2012-04-07
+/// @author Christophe Riccio
+/// 
+/// @see core (dependence)
+/// @see gtc_half_float (dependence)
+/// @see gtc_quaternion (dependence)
+///
+/// @defgroup gtc_epsilon GLM_GTC_epsilon: Epsilon comparison
+/// @ingroup gtc
+/// 
+/// @brief Comparison functions for a user defined epsilon values.
+/// 
+/// <glm/gtc/epsilon.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#if(defined(GLM_MESSAGES))
-#	pragma message("GLM: GLM_GTX_epsilon extension is deprecated, include GLM_GTC_epsilon (glm/gtc/epsilon) instead")
+#ifndef GLM_GTC_epsilon
+#define GLM_GTC_epsilon GLM_VERSION
+
+// Dependency:
+#include "../glm.hpp"
+#include "../gtc/half_float.hpp"
+#include "../gtc/quaternion.hpp"
+
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#	pragma message("GLM: GLM_GTC_epsilon extension included")
 #endif
 
-// Promoted:
-#include "../gtc/epsilon.hpp"
+namespace glm
+{
+	/// @addtogroup gtc_epsilon
+	/// @{
+
+	/// Returns the component-wise compare of |x - y| < epsilon.
+	/// @see gtc_epsilon
+	template <typename genTypeT, typename genTypeU> 
+	bool equalEpsilon(
+		genTypeT const & x, 
+		genTypeT const & y, 
+		genTypeU const & epsilon);
+		
+	/// Returns the component-wise compare of |x - y| >= epsilon.
+	/// @see gtc_epsilon
+	template <typename genTypeT, typename genTypeU>
+	bool notEqualEpsilon(
+		genTypeT const & x, 
+		genTypeT const & y, 
+		genTypeU const & epsilon);
+
+	/// @}
+}//namespace glm
+
+#include "epsilon.inl"
+
+#endif//GLM_GTC_epsilon

@@ -8,7 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/glm.hpp>
-#include <glm/gtx/number_precision.hpp>
+#include <glm/gtc/type_precision.hpp>
 #include <glm/gtx/bit.hpp>
 #include <iostream>
 

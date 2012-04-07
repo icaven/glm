@@ -8,8 +8,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/glm.hpp>
+#include <glm/gtc/epsilon.hpp>
 #include <glm/gtx/integer.hpp>
-#include <glm/gtx/epsilon.hpp>
 #include <cstdio>
 
 int test_floor_log2()

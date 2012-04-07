@@ -4,11 +4,11 @@
 // Created : 2011-01-15
 // Updated : 2011-11-14
 // Licence : This source is under MIT licence
-// File    : test/gtx/func_geometric.cpp
+// File    : test/core/func_geometric.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/glm.hpp>
-#include <glm/gtx/epsilon.hpp>
+#include <glm/gtc/epsilon.hpp>
 
 int test_reflect()
 {

@@ -42,7 +42,7 @@
 
 // Dependency:
 #include "../glm.hpp"
-#include "../gtx/epsilon.hpp"
+#include "../gtc/epsilon.hpp"
 #include "../gtx/quaternion.hpp"
 #include "../gtx/rotate_vector.hpp"
 

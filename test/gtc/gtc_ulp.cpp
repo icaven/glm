@@ -4,11 +4,11 @@
 // Created : 2011-04-26
 // Updated : 2011-04-26
 // Licence : This source is under MIT licence
-// File    : test/gtx/ulp.cpp
+// File    : test/gtc/ulp.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/glm.hpp>
-#include <glm/gtx/ulp.hpp>
+#include <glm/gtc/ulp.hpp>
 #include <iostream>
 #include <limits>
 
