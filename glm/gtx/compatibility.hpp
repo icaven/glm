@@ -42,6 +42,7 @@
 // Dependency:
 #include "../glm.hpp"  
 #include "../gtc/half_float.hpp"
+#include "../gtc/quaternion.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))
 #	pragma message("GLM: GLM_GTX_compatibility extension included")
@@ -65,6 +66,8 @@ namespace glm
 	template <typename T> GLM_FUNC_QUALIFIER detail::tvec2<T> lerp(const detail::tvec2<T>& x, const detail::tvec2<T>& y, const detail::tvec2<T>& a){return mix(x, y, a);}	//!< \brief Returns the component-wise result of x * (1.0 - a) + y * a, i.e., the linear blend of x and y using vector a. The value for a is not restricted to the range [0, 1]. (From GLM_GTX_compatibility)
 	template <typename T> GLM_FUNC_QUALIFIER detail::tvec3<T> lerp(const detail::tvec3<T>& x, const detail::tvec3<T>& y, const detail::tvec3<T>& a){return mix(x, y, a);}	//!< \brief Returns the component-wise result of x * (1.0 - a) + y * a, i.e., the linear blend of x and y using vector a. The value for a is not restricted to the range [0, 1]. (From GLM_GTX_compatibility)
 	template <typename T> GLM_FUNC_QUALIFIER detail::tvec4<T> lerp(const detail::tvec4<T>& x, const detail::tvec4<T>& y, const detail::tvec4<T>& a){return mix(x, y, a);}	//!< \brief Returns the component-wise result of x * (1.0 - a) + y * a, i.e., the linear blend of x and y using vector a. The value for a is not restricted to the range [0, 1]. (From GLM_GTX_compatibility)
+
+	template <typename T> GLM_FUNC_QUALIFIER T slerp(detail::tquat<T> const & x, detail::tquat<T> const & y, T const & a){return mix(x, y, a);} //!< \brief Returns the slurp interpolation between two quaternions.
 
 	template <typename T> GLM_FUNC_QUALIFIER T saturate(T x){return clamp(x, T(0), T(1));}														//!< \brief Returns clamp(x, 0, 1) for each component in x. (From GLM_GTX_compatibility)
 	template <typename T> GLM_FUNC_QUALIFIER detail::tvec2<T> saturate(const detail::tvec2<T>& x){return clamp(x, T(0), T(1));}					//!< \brief Returns clamp(x, 0, 1) for each component in x. (From GLM_GTX_compatibility)
