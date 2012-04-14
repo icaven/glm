@@ -173,7 +173,7 @@ namespace detail
 
 #pragma warning(pop)
 
-#if(GLM_COMPILER & GLM_COMPILER_VC)
+#if(GLM_COMPILER & GLM_COMPILER_VC || GLM_COMPILER & GLM_COMPILER_INTEL)
 #	define GLM_NEXT_AFTER_FLT(x, toward) glm::detail::nextafterf((x), (toward))
 #   define GLM_NEXT_AFTER_DBL(x, toward) _nextafter((x), (toward))
 #else
