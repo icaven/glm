@@ -14,11 +14,18 @@ namespace glm
 	GLM_FUNC_QUALIFIER bool isfinite(
 		genType const & x)
 	{
-	#if(GLM_COMPILER & GLM_COMPILER_VC)
-		return _finite(x);
-	#else//(GLM_COMPILER & GLM_COMPILER_GCC)
-		return std::isfinite(x) != 0;
-	#endif
+#       if(GLM_COMPILER & GLM_COMPILER_VC)
+            return _finite(x);
+#       elif(GLM_COMPILER & GLM_COMPILER_GCC)
+#           if(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
+                return _isfinite(x) != 0;
+#           else
+                return std::isfinite(x) != 0;
+#           endif
+#       else
+            return std::isfinite(x) != 0;
+#       endif
+
 	}
 
 	template <typename valType> 
@@ -56,11 +63,17 @@ namespace glm
 	GLM_FUNC_QUALIFIER bool isinf(
 		genType const & x)
 	{
-	#if(GLM_COMPILER & GLM_COMPILER_VC)
-		return _fpclass(x) == _FPCLASS_NINF || _fpclass(x) == _FPCLASS_PINF;
-	#else
-		return std::isinf(x) != 0;
-	#endif
+#       if(GLM_COMPILER & GLM_COMPILER_VC)
+            return _fpclass(x) == _FPCLASS_NINF || _fpclass(x) == _FPCLASS_PINF;
+#       elif(GLM_COMPILER & GLM_COMPILER_GCC)
+#           if(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
+                return _isinf(x) != 0;
+#           else
+                return std::isinf(x) != 0;
+#           endif
+#       else
+            return std::isinf(x) != 0;
+#       endif
 	}
 
 	template <typename valType> 
@@ -97,11 +110,17 @@ namespace glm
 	template <typename genType> 
 	GLM_FUNC_QUALIFIER bool isnan(genType const & x)
 	{
-	#if(GLM_COMPILER & GLM_COMPILER_VC)
-		return _isnan(x);
-	#else
-		return std::isnan(x) != 0;
-	#endif
+#       if(GLM_COMPILER & GLM_COMPILER_VC)
+            return _isnan(x);
+#       elif(GLM_COMPILER & GLM_COMPILER_GCC)
+#           if(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
+                return _isnan(x) != 0;
+#           else
+                return std::isnan(x) != 0;
+#           endif
+#       else
+            return std::isnan(x) != 0;
+#       endif
 	}
 
 	template <typename valType> 
