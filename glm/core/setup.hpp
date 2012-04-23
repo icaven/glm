@@ -58,7 +58,7 @@
 #	define GLM_PLATFORM GLM_PLATFORM_WINDOWS
 #elif defined(__native_client__)
 #	define GLM_PLATFORM GLM_PLATFORM_CHROME_NACL
-#elif defined(ANDROID)
+#elif defined(__ANDROID__)
 #   define GLM_PLATFORM GLM_PLATFORM_ANDROID
 #elif defined(__linux)
 #   define GLM_PLATFORM GLM_PLATFORM_LINUX
