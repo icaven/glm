@@ -804,20 +804,21 @@ namespace detail
     }
 
 	template <typename genType> 
-	GLM_FUNC_QUALIFIER typename genType::bool_type isnan
-	(
-		genType const & x
-	)
+	GLM_FUNC_QUALIFIER bool isnan(genType const & x)
 	{
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'mix' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'isnan' only accept floating-point inputs");
 
-#if(GLM_COMPILER & GLM_COMPILER_VC)
-		return typename genType::bool_type(_isnan(x));
-#elif(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
-		return typename genType::bool_type(::isnanf(x));
-#else
-		return typename genType::bool_type(std::isnan(x));
-#endif
+#       if(GLM_COMPILER & GLM_COMPILER_VC)
+            return _isnan(x);
+#       elif(GLM_COMPILER & GLM_COMPILER_GCC)
+#           if(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
+                return _isnan(x) != 0;
+#           else
+                return std::isnan(x) != 0;
+#           endif
+#       else
+            return std::isnan(x) != 0;
+#       endif
 	}
 
     template <typename T>
@@ -857,20 +858,22 @@ namespace detail
     }
 
 	template <typename genType> 
-	GLM_FUNC_QUALIFIER typename genType::bool_type isinf
-	(
-		genType const & x
-	)
+	GLM_FUNC_QUALIFIER bool isinf(
+		genType const & x)
 	{
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'isinf' only accept floating-point inputs");
 
-#if(GLM_COMPILER & GLM_COMPILER_VC)
-		return typename genType::bool_type(_fpclass(x) == _FPCLASS_NINF || _fpclass(x) == _FPCLASS_PINF);
-#elif(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
-		return typename genType::bool_type(::__isinf(x));
-#else
-		return typename genType::bool_type(std::isinf(x));
-#endif
+#       if(GLM_COMPILER & GLM_COMPILER_VC)
+            return _fpclass(x) == _FPCLASS_NINF || _fpclass(x) == _FPCLASS_PINF;
+#       elif(GLM_COMPILER & GLM_COMPILER_GCC)
+#           if(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
+                return _isinf(x) != 0;
+#           else
+                return std::isinf(x) != 0;
+#           endif
+#       else
+            return std::isinf(x) != 0;
+#       endif
 	}
 
     template <typename T>

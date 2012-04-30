@@ -87,16 +87,6 @@ namespace glm
 	template <typename valType> detail::tvec3<bool> isfinite(const detail::tvec3<valType>& x);				//!< \brief Test whether or not a scalar or each vector component is a finite value. (From GLM_GTX_compatibility)
 	template <typename valType> detail::tvec4<bool> isfinite(const detail::tvec4<valType>& x);				//!< \brief Test whether or not a scalar or each vector component is a finite value. (From GLM_GTX_compatibility)
 
-	template <typename genType> bool isinf(genType const & x);														//!< \brief Determines whether the given floating-point value is infinite. (From GLM_GTX_compatibility extension) 
-	template <typename genType> detail::tvec2<bool> isinf(const detail::tvec2<genType>& x);					//!< \brief Determines whether the given floating-point value is infinite. (From GLM_GTX_compatibility extension) 
-	template <typename genType> detail::tvec3<bool> isinf(const detail::tvec3<genType>& x);					//!< \brief Determines whether the given floating-point value is infinite. (From GLM_GTX_compatibility extension) 
-	template <typename genType> detail::tvec4<bool> isinf(const detail::tvec4<genType>& x);					//!< \brief Determines whether the given floating-point value is infinite. (From GLM_GTX_compatibility extension) 
-
-	template <typename genType> bool isnan(genType const & x);														//!< \brief Checks given floating-point value for not a number (NAN) (From GLM_GTX_compatibility extension)
-	template <typename genType> detail::tvec2<bool> isnan(const detail::tvec2<genType>& x);					//!< \brief Checks given floating-point value for not a number (NAN) (From GLM_GTX_compatibility extension)
-	template <typename genType> detail::tvec3<bool> isnan(const detail::tvec3<genType>& x);					//!< \brief Checks given floating-point value for not a number (NAN) (From GLM_GTX_compatibility extension)
-	template <typename genType> detail::tvec4<bool> isnan(const detail::tvec4<genType>& x);					//!< \brief Checks given floating-point value for not a number (NAN) (From GLM_GTX_compatibility extension)
-
 	typedef bool						bool1;			//!< \brief boolean type with 1 component. (From GLM_GTX_compatibility extension)
 	typedef detail::tvec2<bool>			bool2;			//!< \brief boolean type with 2 components. (From GLM_GTX_compatibility extension)
 	typedef detail::tvec3<bool>			bool3;			//!< \brief boolean type with 3 components. (From GLM_GTX_compatibility extension)
