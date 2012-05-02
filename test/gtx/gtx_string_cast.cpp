@@ -7,7 +7,6 @@
 // File    : test/gtx/string_cast.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_MESSAGES
 #include <glm/glm.hpp>
 #include <glm/gtx/string_cast.hpp>
 #include <iostream>
