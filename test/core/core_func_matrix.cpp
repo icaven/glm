@@ -2,7 +2,7 @@
 // OpenGL Mathematics Copyright (c) 2005 - 2012 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2011-01-15
-// Updated : 2011-01-15
+// Updated : 2012-05-02
 // Licence : This source is under MIT licence
 // File    : test/core/func_matrix.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -79,9 +79,63 @@ int test_outerProduct()
 
 int test_transpose()
 {
+    int Error(0);
+    
+    {
+        glm::mat2 m(0, 1, 2, 3);
+        glm::mat2 t = glm::transpose(m);
+        Error += t == glm::mat2(0, 2, 1, 3) ? 0 : 1;
+    }
 
+    {
+        glm::mat2x3 m(0, 1, 2, 3, 4, 5);
+        glm::mat3x2 t = glm::transpose(m);
+        Error += t == glm::mat3x2(0, 3, 1, 4, 2, 5) ? 0 : 1;
+    }
 
-	return 0;
+    {
+        glm::mat2x4 m(0, 1, 2, 3, 4, 5, 6, 7);
+        glm::mat4x2 t = glm::transpose(m);
+        Error += t == glm::mat4x2(0, 4, 1, 5, 2, 6, 3, 7) ? 0 : 1;
+    }
+    
+    {
+        glm::mat3 m(0, 1, 2, 3, 4, 5, 6, 7, 8);
+        glm::mat3 t = glm::transpose(m);
+        Error += t == glm::mat3(0, 3, 6, 1, 4, 7, 2, 5, 8) ? 0 : 1;
+    }
+    
+    {
+        glm::mat3x2 m(0, 1, 2, 3, 4, 5);
+        glm::mat2x3 t = glm::transpose(m);
+        Error += t == glm::mat2x3(0, 3, 1, 4, 2, 5) ? 0 : 1;
+    }
+    
+    {
+        glm::mat3x4 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+        glm::mat4x3 t = glm::transpose(m);
+        Error += t == glm::mat4x3(0, 4, 8, 1, 5, 9, 2, 6, 10, 3, 7, 11) ? 0 : 1;
+    }
+    
+    {
+        glm::mat4 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+        glm::mat4 t = glm::transpose(m);
+        Error += t == glm::mat4(0, 4, 8, 12, 1, 5, 9, 13, 2, 6, 10, 14, 3, 7, 11, 15) ? 0 : 1;
+    }
+    
+    {
+        glm::mat4x2 m(0, 1, 2, 3, 4, 5, 6, 7);
+        glm::mat2x4 t = glm::transpose(m);
+        Error += t == glm::mat2x4(0, 4, 1, 5, 2, 6, 3, 7) ? 0 : 1;
+    }
+    
+    {
+        glm::mat4x3 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+        glm::mat3x4 t = glm::transpose(m);
+        Error += t == glm::mat3x4(0, 4, 8, 1, 5, 9, 2, 6, 10, 3, 7, 11) ? 0 : 1;
+    }
+    
+	return Error;
 }
 
 int test_determinant()
