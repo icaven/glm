@@ -41,7 +41,7 @@ namespace glm
 		GLM_STATIC_ASSERT(detail::type<typename matType::value_type>::is_float, "'matrixCompMult' only accept floating-point inputs");
 
 		matType result(matType::null);
-		for(typename matType::size_type i = 0; i < matType::col_size(); ++i)
+		for(typename matType::size_type i = 0; i < matType::row_size(); ++i)
 			result[i] = x[i] * y[i];
 		return result;
 	}
