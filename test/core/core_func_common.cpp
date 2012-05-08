@@ -351,6 +351,62 @@ int test_roundEven()
 	return Error;
 }
 
+int test_isnan()
+{
+	int Error = 0;
+
+	float Zero_f = 0.0;
+	double Zero_d = 0.0;
+
+	{
+ 		Error += true == glm::isnan(0.0/Zero_d) ? 0 : 1;
+ 		Error += true == glm::any(glm::isnan(glm::dvec2(0.0f/Zero_f))) ? 0 : 1;
+ 		Error += true == glm::any(glm::isnan(glm::dvec3(0.0f/Zero_f))) ? 0 : 1;
+ 		Error += true == glm::any(glm::isnan(glm::dvec4(0.0f/Zero_f))) ? 0 : 1;
+	}
+ 
+	{
+ 		Error += true == glm::isnan(0.0f/Zero_f) ? 0 : 1;
+ 		Error += true == glm::any(glm::isnan(glm::vec2(0.0f/Zero_f))) ? 0 : 1;
+ 		Error += true == glm::any(glm::isnan(glm::vec3(0.0f/Zero_f))) ? 0 : 1;
+ 		Error += true == glm::any(glm::isnan(glm::vec4(0.0f/Zero_f))) ? 0 : 1;
+	}
+ 
+	return Error;
+}
+ 
+int test_isinf()
+{
+	int Error = 0;
+ 
+	float Zero_f = 0.0;
+	double Zero_d = 0.0;
+
+	{
+ 		Error += true == glm::isinf( 1.0/Zero_d) ? 0 : 1;
+		Error += true == glm::isinf(-1.0/Zero_d) ? 0 : 1;
+ 		Error += true == glm::any(glm::isinf(glm::dvec2( 1.0/Zero_d))) ? 0 : 1;
+ 		Error += true == glm::any(glm::isinf(glm::dvec2(-1.0/Zero_d))) ? 0 : 1;
+ 		Error += true == glm::any(glm::isinf(glm::dvec3( 1.0/Zero_d))) ? 0 : 1;
+ 		Error += true == glm::any(glm::isinf(glm::dvec3(-1.0/Zero_d))) ? 0 : 1;
+ 		Error += true == glm::any(glm::isinf(glm::dvec4( 1.0/Zero_d))) ? 0 : 1;
+ 		Error += true == glm::any(glm::isinf(glm::dvec4(-1.0/Zero_d))) ? 0 : 1;
+	}
+ 
+	{
+ 		Error += true == glm::isinf( 1.0f/Zero_f) ? 0 : 1;
+ 		Error += true == glm::isinf(-1.0f/Zero_f) ? 0 : 1;
+ 		Error += true == glm::any(glm::isinf(glm::vec2( 1.0f/Zero_f))) ? 0 : 1;
+ 		Error += true == glm::any(glm::isinf(glm::vec2(-1.0f/Zero_f))) ? 0 : 1;
+ 		Error += true == glm::any(glm::isinf(glm::vec3( 1.0f/Zero_f))) ? 0 : 1;
+ 		Error += true == glm::any(glm::isinf(glm::vec3(-1.0f/Zero_f))) ? 0 : 1;
+ 		Error += true == glm::any(glm::isinf(glm::vec4( 1.0f/Zero_f))) ? 0 : 1;
+ 		Error += true == glm::any(glm::isinf(glm::vec4(-1.0f/Zero_f))) ? 0 : 1;
+	}
+ 
+	return Error;
+}
+
 int main()
 {
 	int Error(0);
@@ -361,6 +417,8 @@ int main()
 	Error += test_mix();
 	Error += test_round();
 	Error += test_roundEven();
+	Error += test_isnan();
+	Error += test_isinf();
 
 	return Error;
 }

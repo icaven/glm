@@ -53,7 +53,7 @@ int test_nlz()
 {
 	int Error = 0;
 
-	for(glm::uint i = 1; i < 33; ++i)
+	for(glm::uint i = 1; i < glm::uint(33); ++i)
 		Error += glm::nlz(i) == glm::uint(31u) - glm::findMSB(i) ? 0 : 1;
 		//printf("%d, %d\n", glm::nlz(i), 31u - glm::findMSB(i));
 
