@@ -47,7 +47,8 @@
 #	pragma message("GLM: GLM_VIRTREV_xstream extension included")
 #endif
 
-namespace glm
+namespace glm{
+namespace detail
 {
 	template<typename T>
 	std::ostream & operator << (std::ostream & stream, glm::detail::tvec2<T> const & vec)
@@ -159,6 +160,7 @@ namespace glm
 		return stream;
 	}
 
+}//namespace detail
 }//namespace glm
 
 #endif//GLM_VIRTREV_xstream
