@@ -45,6 +45,8 @@ GLM 0.9.3.3: 2012-05-10
 - Fixed SIMD mat4 test on GCC
 - Fixed perspectiveFov implementation
 - Fixed matrixCompMult for none-square matrices
+- Fixed namespace issue on stream operators
+- Fixed various warnings
 - Added VC11 support
 
 ================================================================================
