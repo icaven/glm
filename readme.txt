@@ -37,12 +37,15 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm-0.9.3.pdf
 
 ================================================================================
-GLM 0.9.3.3: 2012-05-XX
+GLM 0.9.3.3: 2012-05-10
 --------------------------------------------------------------------------------
 - Fixed isinf and isnan
 - Improved compatibility with Intel compiler
 - Added CMake test build options: SIMD, C++11, fast math and MS land ext
 - Fixed SIMD mat4 test on GCC
+- Fixed perspectiveFov implementation
+- Fixed matrixCompMult for none-square matrices
+- Added VC11 support
 
 ================================================================================
 GLM 0.9.3.2: 2012-03-15

@@ -3,6 +3,7 @@
 <glm copyright="Copyright © 2005 - 2012">
   <downloads>
     <section name="GLM - zip files">
+      <download name="GLM 0.9.3.3" date="10/05/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.3/glm-0.9.3.3.zip/download" />
       <download name="GLM 0.9.3.2" date="15/03/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.2/glm-0.9.3.2.zip/download" />
       <download name="GLM 0.9.3.1" date="25/01/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.1/glm-0.9.3.1.zip/download" />
       <download name="GLM 0.9.3.0" date="09/01/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.zip/download" />
@@ -75,6 +76,7 @@
       <download name="GLM 0.1.0.0" date="02/21/2005" size="29.2 KB" link="http://prdownloads.sourceforge.net/glf/glm-0.1-ur.zip?download"/>
     </section>
     <section name="GLM - 7z files">
+      <download name="GLM 0.9.3.3" date="10/05/2012" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.3/glm-0.9.3.3.7z/download"/>
       <download name="GLM 0.9.3.2" date="15/03/2012" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.2/glm-0.9.3.2.7z/download"/>
       <download name="GLM 0.9.3.1" date="25/01/2012" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.1/glm-0.9.3.1.7z/download"/>
       <download name="GLM 0.9.3.0" date="09/01/2012" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.7z/download"/>
@@ -174,7 +176,35 @@
   </todo>
 
   <page_news>
+    <news index="0079" date="10/05/2012" title="GLM 0.9.3.3 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+      <paragraph>
+        Nearly two months since the previous release of a GLM revision gave enough time to fix few things reported.
+        Most importantly, this revision should provide a better compatibility with Intel C++ compiler. 
+      </paragraph>
 
+      <list name="Changelog:">
+        <list-element>Fixed isinf and isnan</list-element>
+        <list-element>Improved compatibility with Intel compiler</list-element>
+        <list-element>Added CMake test build options: SIMD, C++11, fast math and MS land ext</list-element>
+        <list-element>Fixed SIMD mat4 test on GCC</list-element>
+        <list-element>Fixed perspectiveFov implementation</list-element>
+        <list-element>Fixed matrixCompMult for none-square matrices</list-element>
+        <list-element>Fixed namespace issue on stream operators</list-element>
+        <list-element>Fixed various warnings</list-element>
+        <list-element>Added VC11 support</list-element>
+      </list>
+
+      <paragraph>
+        <link href="https://github.com/Groovounet/glm/issues">If you encounter bugs, don't hesitate to report them.</link>
+      </paragraph>
+
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.3/glm-0.9.3.3.zip/download">GLM 0.9.3.3 (zip)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.3/glm-0.9.3.3.7z/download">GLM 0.9.3.3 (7z)</source>
+      <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
+      <source type="Link" href="http://glm.g-truc.net/glm-0.9.3.pdf">GLM 0.9.3 Manual</source>
+      <source type="Link" href="http://glm.g-truc.net/api-0.9.3/index.html">GLM 0.9.3 API</source>
+    </news>
+    
     <news index="0078" date="15/03/2012" title="GLM 0.9.3.2 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>
         Just a regular revision fixing the only three minor issues reported since last release.
