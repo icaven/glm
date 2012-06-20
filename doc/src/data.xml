@@ -200,7 +200,7 @@
 
       <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.3/glm-0.9.3.3.zip/download">GLM 0.9.3.3 (zip)</source>
       <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.3/glm-0.9.3.3.7z/download">GLM 0.9.3.3 (7z)</source>
-      <source type="Link" href="https://sourceforge.net/apps/trac/ogl-math/newticket">Submit a bug report</source>
+      <source type="Link" href="https://github.com/Groovounet/glm/issues">Submit a bug report</source>
       <source type="Link" href="http://glm.g-truc.net/glm-0.9.3.pdf">GLM 0.9.3 Manual</source>
       <source type="Link" href="http://glm.g-truc.net/api-0.9.3/index.html">GLM 0.9.3 API</source>
     </news>
