@@ -36,7 +36,7 @@
 #define GLM_VERSION_MAJOR			0
 #define GLM_VERSION_MINOR			9
 #define GLM_VERSION_PATCH			3
-#define GLM_VERSION_REVISION		1
+#define GLM_VERSION_REVISION		4
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Platform
@@ -469,15 +469,21 @@
 
 // User defines: GLM_FORCE_PURE GLM_FORCE_SSE2 GLM_FORCE_AVX
 
-#define GLM_ARCH_PURE		0x0000 //(0x0000)
-#define GLM_ARCH_SSE2		0x0001 //(0x0001)
-#define GLM_ARCH_SSE3		0x0003 //(0x0002 | GLM_ARCH_SSE2)
-#define GLM_ARCH_AVX		0x0007 //(0x0004 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
+#define GLM_ARCH_PURE		0x0000
+#define GLM_ARCH_SSE2		0x0001
+#define GLM_ARCH_SSE3		0x0002 | GLM_ARCH_SSE2
+#define GLM_ARCH_SSE4		0x0004 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2
+#define GLM_ARCH_AVX		0x0008 | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2
+#define GLM_ARCH_AVX2		0x0010 | GLM_ARCH_AVX | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2
 
 #if(defined(GLM_FORCE_PURE))
 #	define GLM_ARCH GLM_ARCH_PURE
+#elif(defined(GLM_FORCE_AVX2))
+#	define GLM_ARCH GLM_ARCH_AVX2
 #elif(defined(GLM_FORCE_AVX))
 #	define GLM_ARCH GLM_ARCH_AVX
+#elif(defined(GLM_FORCE_SSE4))
+#	define GLM_ARCH GLM_ARCH_SSE4
 #elif(defined(GLM_FORCE_SSE3))
 #	define GLM_ARCH GLM_ARCH_SSE3
 #elif(defined(GLM_FORCE_SSE2))
@@ -498,19 +504,13 @@
 #	else
 #		define GLM_ARCH GLM_ARCH_PURE
 #	endif
-#elif(GLM_COMPILER & GLM_COMPILER_LLVM_GCC)
-#	if(defined(__AVX__))
+#elif(((GLM_COMPILER & GLM_COMPILER_GCC) && (defined(__i386__) || defined(__x86_64__))) || (GLM_COMPILER & GLM_COMPILER_LLVM_GCC))
+#	if(defined(__AVX2__))
+#		define GLM_ARCH GLM_ARCH_AVX2
+#	elif(defined(__AVX__))
 #		define GLM_ARCH GLM_ARCH_AVX
-#	elif(defined(__SSE3__))
-#		define GLM_ARCH GLM_ARCH_SSE3
-#	elif(defined(__SSE2__))
-#		define GLM_ARCH GLM_ARCH_SSE2
-#	else
-#		define GLM_ARCH GLM_ARCH_PURE
-#	endif
-#elif((GLM_COMPILER & GLM_COMPILER_GCC) && (defined(__i386__) || defined(__x86_64__)))
-#	if(defined(__AVX__))
-#		define GLM_ARCH GLM_ARCH_AVX
+#	elif(defined(__SSE4__))
+#		define GLM_ARCH GLM_ARCH_SSE4
 #	elif(defined(__SSE3__))
 #		define GLM_ARCH GLM_ARCH_SSE3
 #	elif(defined(__SSE2__))
@@ -523,8 +523,14 @@
 #endif
 
 #if(GLM_ARCH != GLM_ARCH_PURE)
+#if((GLM_ARCH & GLM_ARCH_AVX2) == GLM_ARCH_AVX2)
+#	include <immintrin.h>
+#endif//GLM_ARCH
 #if((GLM_ARCH & GLM_ARCH_AVX) == GLM_ARCH_AVX)
 #	include <immintrin.h>
+#endif//GLM_ARCH
+#if((GLM_ARCH & GLM_ARCH_SSE4) == GLM_ARCH_SSE4)
+#	include <smmintrin.h>
 #endif//GLM_ARCH
 #if((GLM_ARCH & GLM_ARCH_SSE3) == GLM_ARCH_SSE3)
 #	include <pmmintrin.h>
@@ -542,8 +548,12 @@
 #		pragma message("GLM: SSE2 instruction set")
 #	elif(GLM_ARCH == GLM_ARCH_SSE3)
 #		pragma message("GLM: SSE3 instruction set")
+#	elif(GLM_ARCH == GLM_ARCH_SSE4)
+#		pragma message("GLM: SSE4 instruction set")
 #	elif(GLM_ARCH == GLM_ARCH_AVX)
 #		pragma message("GLM: AVX instruction set")
+#	elif(GLM_ARCH == GLM_ARCH_AVX2)
+#		pragma message("GLM: AVX2 instruction set")
 #	endif//GLM_ARCH
 #endif//GLM_MESSAGE
 
