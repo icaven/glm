@@ -43,6 +43,7 @@ GLM 0.9.3.4: 2012-06-28
 - Removed VIRTREV_xstream and the incompatibility generated with GCC
 - Fixed C++11 compiler option for GCC
 - Removed MS language extension option for GCC (not fonctionnal)
+- Fixed bitfieldExtract for vector types
 
 ================================================================================
 GLM 0.9.3.3: 2012-05-10

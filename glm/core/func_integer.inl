@@ -301,8 +301,8 @@ namespace glm
 	)
 	{
 		return detail::tvec2<T>(
-			bitfieldExtract(Value[0]),
-			bitfieldExtract(Value[1]));
+			bitfieldExtract(Value[0], Offset, Bits),
+			bitfieldExtract(Value[1], Offset, Bits));
 	}
 
 	template <typename T>
@@ -314,9 +314,9 @@ namespace glm
 	)
 	{
 		return detail::tvec3<T>(
-			bitfieldExtract(Value[0]),
-			bitfieldExtract(Value[1]),
-			bitfieldExtract(Value[2]));
+			bitfieldExtract(Value[0], Offset, Bits),
+			bitfieldExtract(Value[1], Offset, Bits),
+			bitfieldExtract(Value[2], Offset, Bits));
 	}
 
 	template <typename T>
@@ -328,10 +328,10 @@ namespace glm
 	)
 	{
 		return detail::tvec4<T>(
-			bitfieldExtract(Value[0]),
-			bitfieldExtract(Value[1]),
-			bitfieldExtract(Value[2]),
-			bitfieldExtract(Value[3]));
+			bitfieldExtract(Value[0], Offset, Bits),
+			bitfieldExtract(Value[1], Offset, Bits),
+			bitfieldExtract(Value[2], Offset, Bits),
+			bitfieldExtract(Value[3], Offset, Bits));
 	}
 
 	// bitfieldInsert
