@@ -44,6 +44,8 @@ GLM 0.9.3.4: 2012-06-28
 - Fixed C++11 compiler option for GCC
 - Removed MS language extension option for GCC (not fonctionnal)
 - Fixed bitfieldExtract for vector types
+- Fixed warnings
+- Fixed SSE includes
 
 ================================================================================
 GLM 0.9.3.3: 2012-05-10
