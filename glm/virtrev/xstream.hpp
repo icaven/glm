@@ -46,7 +46,7 @@
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))
 #	pragma message("GLM: GLM_VIRTREV_xstream extension included")
 #endif
-
+/*
 namespace glm{
 namespace detail
 {
@@ -162,5 +162,5 @@ namespace detail
 
 }//namespace detail
 }//namespace glm
-
+*/
 #endif//GLM_VIRTREV_xstream

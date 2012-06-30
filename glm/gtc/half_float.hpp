@@ -47,7 +47,7 @@
 namespace glm{
 namespace detail
 {
-#if(!GLM_SUPPORT_ANONYMOUS_UNION_OF_STRUCTURE())
+#if(GLM_COMPONENT == GLM_COMPONENT_CXX98)
 	template <>
 	struct tvec2<half>
 	{
@@ -345,7 +345,7 @@ namespace detail
 		tvec4<half> swizzle(comp X, comp Y, comp Z, comp W) const;
 		tref4<half> swizzle(comp X, comp Y, comp Z, comp W);
 	};
-#endif//(!GLM_SUPPORT_ANONYMOUS_UNION_OF_STRUCTURE())
+#endif//(GLM_COMPONENT == GLM_COMPONENT_CXX98)
 }
 //namespace detail
 

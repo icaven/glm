@@ -29,7 +29,7 @@
 namespace glm{
 namespace detail
 {
-#if(!GLM_SUPPORT_ANONYMOUS_UNION_OF_STRUCTURE())
+#if(GLM_COMPONENT == GLM_COMPONENT_CXX98)
 
 	//////////////////////////////////////
 	// hvec2
@@ -1003,7 +1003,7 @@ namespace detail
 			(*this)[w]);
 	}
 
-#endif//(!GLM_SUPPORT_ANONYMOUS_UNION_OF_STRUCTURE())
+#endif//(GLM_COMPONENT == GLM_COMPONENT_CXX98)
 
 }//namespace detail
 }//namespace glm

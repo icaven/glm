@@ -191,7 +191,7 @@ namespace detail
 		typedef ValueType       value_type;
 
 		struct Stub {};
-		_swizzle_base2& operator= (const Stub& that) {}
+		_swizzle_base2& operator= (Stub const &) {}
 
 		value_type  operator[]  (size_t i) const
 		{
