@@ -37,7 +37,7 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm-0.9.3.pdf
 
 ================================================================================
-GLM 0.9.3.4: 2012-06-28
+GLM 0.9.3.4: 2012-06-30
 --------------------------------------------------------------------------------
 - Added SSE4 and AVX2 detection.
 - Removed VIRTREV_xstream and the incompatibility generated with GCC
