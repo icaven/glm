@@ -250,7 +250,7 @@ namespace glm
 		Result[3][2] = - (valType(2) * zFar * zNear) / (zFar - zNear);
 		return Result;
 	}
-
+	
 	template <typename valType>
 	GLM_FUNC_QUALIFIER detail::tmat4x4<valType> perspectiveFov
 	(
@@ -267,7 +267,7 @@ namespace glm
 		valType rad = glm::radians(fov);
 #endif
 		valType h = glm::cos(valType(0.5) * rad) / glm::sin(valType(0.5) * rad);
-		valType w = h * height / width;
+		valType w = h * height / width; ///todo max(width , Height) / min(width , Height)?
 
 		detail::tmat4x4<valType> Result(valType(0));
 		Result[0][0] = w;

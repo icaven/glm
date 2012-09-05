@@ -3,6 +3,7 @@
 <glm copyright="Copyright © 2005 - 2012">
   <downloads>
     <section name="GLM - zip files">
+      <download name="GLM 0.9.3.4" date="30/06/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.4/glm-0.9.3.4.zip/download" />
       <download name="GLM 0.9.3.3" date="10/05/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.3/glm-0.9.3.3.zip/download" />
       <download name="GLM 0.9.3.2" date="15/03/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.2/glm-0.9.3.2.zip/download" />
       <download name="GLM 0.9.3.1" date="25/01/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.1/glm-0.9.3.1.zip/download" />
@@ -76,6 +77,7 @@
       <download name="GLM 0.1.0.0" date="02/21/2005" size="29.2 KB" link="http://prdownloads.sourceforge.net/glf/glm-0.1-ur.zip?download"/>
     </section>
     <section name="GLM - 7z files">
+      <download name="GLM 0.9.3.4" date="30/06/2012" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.4/glm-0.9.3.4.7z/download"/>
       <download name="GLM 0.9.3.3" date="10/05/2012" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.3/glm-0.9.3.3.7z/download"/>
       <download name="GLM 0.9.3.2" date="15/03/2012" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.2/glm-0.9.3.2.7z/download"/>
       <download name="GLM 0.9.3.1" date="25/01/2012" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.1/glm-0.9.3.1.7z/download"/>
@@ -176,6 +178,31 @@
   </todo>
 
   <page_news>
+	<news index="0080" date="30/06/2012" title="GLM 0.9.3.4 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+      <paragraph>
+		GLM 0.9.3.4 fixes quite few issues with GCC.
+      </paragraph>
+
+      <list name="Changelog:">
+        <list-element>Fixed incompatibility generated with GCC</list-element>
+        <list-element>Fixed C++11 compiler option for GCC</list-element>
+        <list-element>Removed MS language extension option for GCC</list-element>
+        <list-element>Fixed bitfieldExtract for vector types</list-element>
+        <list-element>Fixed warnings</list-element>
+        <list-element>Fixed SSE includes</list-element>
+      </list>
+
+      <paragraph>
+        <link href="https://github.com/Groovounet/glm/issues">If you encounter bugs, don't hesitate to report them.</link>
+      </paragraph>
+
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.4/glm-0.9.3.4.zip/download">GLM 0.9.3.4 (zip)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.4/glm-0.9.3.4.7z/download">GLM 0.9.3.4 (7z)</source>
+      <source type="Link" href="https://github.com/Groovounet/glm/issues">Submit a bug report</source>
+      <source type="Link" href="http://glm.g-truc.net/glm-0.9.3.pdf">GLM 0.9.3 Manual</source>
+      <source type="Link" href="http://glm.g-truc.net/api-0.9.3/index.html">GLM 0.9.3 API</source>
+    </news>
+  
     <news index="0079" date="10/05/2012" title="GLM 0.9.3.3 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>
         Nearly two months since the previous release of a GLM revision gave enough time to fix few things reported.
