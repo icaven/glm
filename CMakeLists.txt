@@ -88,7 +88,5 @@ include_directories("./test/external")
 
 add_subdirectory(glm)
 add_subdirectory(test)
-add_subdirectory(bench)
-add_subdirectory(doc)
 
 install(DIRECTORY glm DESTINATION include)
