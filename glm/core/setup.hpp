@@ -510,19 +510,12 @@
 #elif((GLM_PLATFORM & GLM_PLATFORM_APPLE) && (GLM_COMPILER & GLM_COMPILER_GCC))
 #	define GLM_ARCH GLM_ARCH_PURE
 #elif(((GLM_COMPILER & GLM_COMPILER_GCC) && (defined(__i386__) || defined(__x86_64__))) || (GLM_COMPILER & GLM_COMPILER_LLVM_GCC))
-#	if(defined(__AVX2__))
-#		define GLM_ARCH GLM_ARCH_AVX2
-#	elif(defined(__AVX__))
-#		define GLM_ARCH GLM_ARCH_AVX
-#	elif(defined(__SSE4__))
-#		define GLM_ARCH GLM_ARCH_SSE4
-#	elif(defined(__SSE3__))
-#		define GLM_ARCH GLM_ARCH_SSE3
-#	elif(defined(__SSE2__))
-#		define GLM_ARCH GLM_ARCH_SSE2
-#	else
-#		define GLM_ARCH GLM_ARCH_PURE
-#	endif
+#	define GLM_ARCH (GLM_ARCH_PURE \
+| (defined(__AVX2__) ? GLM_ARCH_AVX2 : 0) \
+| (defined(__AVX__) ? GLM_ARCH_AVX : 0) \
+| (defined(__SSE4__) ? GLM_ARCH_SSE4 : 0) \
+| (defined(__SSE3__) ? GLM_ARCH_SSE3 : 0) \
+| (defined(__SSE2__) ? GLM_ARCH_SSE2 : 0))
 #else
 #	define GLM_ARCH GLM_ARCH_PURE
 #endif
