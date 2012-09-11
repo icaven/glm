@@ -816,6 +816,8 @@ namespace detail
 #           else
                 return std::isnan(x) != 0;
 #           endif
+#       elif(GLM_COMPILER & GLM_COMPILER_INTEL)
+            return isnan(x) != 0;			
 #       else
             return std::isnan(x) != 0;
 #       endif
@@ -871,6 +873,8 @@ namespace detail
 #           else
                 return std::isinf(x) != 0;
 #           endif
+#       elif(GLM_COMPILER & GLM_COMPILER_INTEL)
+            return isinf(x) != 0;			
 #       else
             return std::isinf(x) != 0;
 #       endif
