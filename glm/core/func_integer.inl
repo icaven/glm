@@ -543,7 +543,11 @@ namespace glm
 		genIUType const & Value
 	)
 	{
-		return __builtin_clz(Value);
+		/**
+		 * ctz returns the number or trailing 0-bits; see
+		 * http://gcc.gnu.org/onlinedocs/gcc-4.7.1/gcc/Other-Builtins.html
+		 */
+		return __builtin_ctz(Value);
 	}
 
 #else
