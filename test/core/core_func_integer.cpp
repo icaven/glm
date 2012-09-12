@@ -125,6 +125,87 @@ namespace bitfieldReverse
 	}
 }//bitRevert
 
+namespace findMSB
+{
+	template <typename genType>
+	struct type
+	{
+		genType		Value;
+		genType		Return;
+	};
+
+	type<int> const DataI32[] =
+	{
+		{0x00000000, -1},
+		{0x00000001,  0},
+		{0x00000002,  1},
+		{0x00000003,  1},
+		{0x00000004,  2},
+		{0x00000005,  2},
+		{0x00000007,  2},
+		{0x00000008,  3},
+		{0x00000010,  4},
+		{0x00000020,  5},
+		{0x00000040,  6},
+		{0x00000080,  7},
+		{0x00000100,  8},
+		{0x00000200,  9},
+		{0x00000400, 10},
+		{0x00000800, 11},
+		{0x00001000, 12},
+		{0x00002000, 13},
+		{0x00004000, 14},
+		{0x00008000, 15},
+		{0x00010000, 16},
+		{0x00020000, 17},
+		{0x00040000, 18},
+		{0x00080000, 19},
+		{0x00100000, 20},
+		{0x00200000, 21},
+		{0x00400000, 22},
+		{0x00800000, 23},
+		{0x01000000, 24},
+		{0x02000000, 25},
+		{0x04000000, 26},
+		{0x08000000, 27},
+		{0x10000000, 28},
+		{0x20000000, 29},
+		{0x40000000, 30},
+		{0x80000000, 30},
+		{0xffffffff, -1},
+		{0xfffffffe,  0},
+		{0xfffffffd,  1},
+		{0xfffffffc,  1},
+		{0xfffffffb,  2},
+		{0xfffffffa,  2},
+		{0xfffffff0,  3}
+	};
+
+	int test()
+	{
+		int Error(0);
+
+		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(type<int>); ++i)
+		{
+			int Result = glm::findMSB(DataI32[i].Value);
+			Error += DataI32[i].Return == Result ? 0 : 1;
+			assert(!Error);
+		}
+
+		return Error;
+	}
+}//findMSB
+
+namespace findLSB
+{
+	int test()
+	{
+		int Error(0);
+
+		return Error;
+	}
+}//findLSB
+
 int main()
 {
 	int Error = 0;
@@ -133,6 +214,8 @@ int main()
 
 	Error += ::bitfieldExtract::test();
 	Error += ::bitfieldReverse::test();
+	Error += ::findMSB::test();
+	Error += ::findLSB::test();
 
 	return Error;
 }
