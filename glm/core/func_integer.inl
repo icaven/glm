@@ -543,7 +543,14 @@ namespace glm
 		genIUType const & Value
 	)
 	{
-		return __builtin_clz(Value);
+		/**
+		 * clz returns the number or trailing 0-bits; see
+		 * http://gcc.gnu.org/onlinedocs/gcc-4.7.1/gcc/Other-Builtins.html
+		 *
+		 * NoteBecause __builtin_clz only works for unsigned ints, this
+		 * implementation will not work for 64-bit integers.
+		 */
+		return 31 - __builtin_clz(Value);
 	}
 
 #else
