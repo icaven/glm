@@ -563,6 +563,24 @@ namespace glm
 	}
 #else
 */
+/* SSE implementation idea
+
+		__m128i const Zero = _mm_set_epi32( 0,  0,  0,  0);
+		__m128i const One = _mm_set_epi32( 1,  1,  1,  1);
+		__m128i Bit = _mm_set_epi32(-1, -1, -1, -1);
+		__m128i Tmp = _mm_set_epi32(Value, Value, Value, Value);
+		__m128i Mmi = Zero;
+		for(int i = 0; i < 32; ++i)
+		{
+			__m128i Shilt = _mm_and_si128(_mm_cmpgt_epi32(Tmp, One), One);
+			Tmp = _mm_srai_epi32(Tmp, One);
+			Bit = _mm_add_epi32(Bit, _mm_and_si128(Shilt, i));
+			Mmi = _mm_and_si128(Mmi, One);
+		}
+		return Bit;
+
+*/
+
 	template <typename genIUType>
 	GLM_FUNC_QUALIFIER int findMSB
 	(
