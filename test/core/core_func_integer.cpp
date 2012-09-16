@@ -198,10 +198,32 @@ namespace findMSB
 
 namespace findLSB
 {
+	template <typename genType>
+	struct type
+	{
+		genType		Value;
+		genType		Return;
+	};
+    
+	type<int> const DataI32[] =
+	{
+		{0x00000001,  0},
+        {0x00000003,  0},
+        {0x00000002,  1},
+        {0x80000000, 31}
+	};
+    
 	int test()
 	{
 		int Error(0);
 
+		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(type<int>); ++i)
+		{
+			int Result = glm::findLSB(DataI32[i].Value);
+			Error += DataI32[i].Return == Result ? 0 : 1;
+			assert(!Error);
+		}
+        
 		return Error;
 	}
 }//findLSB
