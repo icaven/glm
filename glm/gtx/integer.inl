@@ -71,6 +71,7 @@ namespace _detail
 }//namespace _detail
 
 	// Henry Gordon Dietz: http://aggregate.org/MAGIC/
+/*
 	GLM_FUNC_QUALIFIER unsigned int floor_log2(unsigned int x)
 	{
 		x |= (x >> 1);
@@ -79,9 +80,9 @@ namespace _detail
 		x |= (x >> 8);
 		x |= (x >> 16);
 
-		return(_detail::ones32(x) - 1);
+		return _detail::ones32(x) >> 1;
 	}
-
+*/
 	// mod
 	GLM_FUNC_QUALIFIER int mod(int x, int y)
 	{

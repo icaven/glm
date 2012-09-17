@@ -11,7 +11,7 @@
 #include <glm/gtc/epsilon.hpp>
 #include <glm/gtx/integer.hpp>
 #include <cstdio>
-
+/*
 int test_floor_log2()
 {
 	int Error = 0;
@@ -27,7 +27,7 @@ int test_floor_log2()
 
 	return Error;
 }
-
+*/
 int test_log2()
 {
 	int Error = 0;
@@ -65,7 +65,7 @@ int main()
 	int Error = 0;
 
 	Error += test_nlz();
-	Error += test_floor_log2();
+//	Error += test_floor_log2();
 	Error += test_log2();
 
 	return Error;

@@ -371,7 +371,7 @@ int test_isnan()
  		Error += true == glm::any(glm::isnan(glm::vec3(0.0f/Zero_f))) ? 0 : 1;
  		Error += true == glm::any(glm::isnan(glm::vec4(0.0f/Zero_f))) ? 0 : 1;
 	}
- 
+
 	return Error;
 }
  

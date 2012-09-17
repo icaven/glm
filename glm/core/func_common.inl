@@ -803,6 +803,7 @@ namespace detail
             smoothstep(edge0.w, edge1.w, x.w));
     }
 
+	// TODO: Not working on MinGW...
 	template <typename genType> 
 	GLM_FUNC_QUALIFIER bool isnan(genType const & x)
 	{
@@ -814,12 +815,12 @@ namespace detail
 #           if(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
                 return _isnan(x) != 0;
 #           else
-                return std::isnan(x) != 0;
+                return std::isnan(x);
 #           endif
 #       elif(GLM_COMPILER & GLM_COMPILER_INTEL)
             return isnan(x) != 0;			
 #       else
-            return std::isnan(x) != 0;
+            return std::isnan(x);
 #       endif
 	}
 
@@ -871,12 +872,12 @@ namespace detail
 #           if(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
                 return _isinf(x) != 0;
 #           else
-                return std::isinf(x) != 0;
+                return std::isinf(x);
 #           endif
 #       elif(GLM_COMPILER & GLM_COMPILER_INTEL)
             return isinf(x) != 0;			
 #       else
-            return std::isinf(x) != 0;
+            return std::isinf(x);
 #       endif
 	}
 
