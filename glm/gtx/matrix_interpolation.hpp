@@ -65,6 +65,12 @@ namespace glm
         detail::tvec3<T> const & axis,
         T const angle);
 
+	//! Extracts the rotation part of a matrix.
+    //! From GLM_GTX_matrix_interpolation extension.
+	template <typename T>
+	detail::tmat4x4<T> extractMatrixRotation(
+		detail::tmat4x4<T> const & mat);
+
 	//! Build a interpolation of 4 * 4 matrixes.
     //! From GLM_GTX_matrix_interpolation extension.
     //! Warning! works only with rotation and/or translation matrixes, scale will generate unexpected results.
