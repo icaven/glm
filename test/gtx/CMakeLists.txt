@@ -1,6 +1,7 @@
 glmCreateTestGTC(gtx_bit)
 glmCreateTestGTC(gtx_gradient_paint)
 glmCreateTestGTC(gtx_integer)
+glmCreateTestGTC(gtx_matrix_interpolation)
 glmCreateTestGTC(gtx_matrix_query)
 glmCreateTestGTC(gtx_quaternion)
 glmCreateTestGTC(gtx_rotate_vector)

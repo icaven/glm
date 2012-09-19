@@ -494,6 +494,8 @@
 #elif((GLM_COMPILER & GLM_COMPILER_VC) && (defined(_M_IX86) || defined(_M_X64)))
 #	if(defined(_M_CEE_PURE))
 #		define GLM_ARCH GLM_ARCH_PURE
+#	elif(GLM_COMPILER >= GLM_COMPILER_VC2012)
+#		define GLM_ARCH (GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #	elif(GLM_COMPILER >= GLM_COMPILER_VC2010)
 #		if(_MSC_FULL_VER >= 160031118) //160031118: VC2010 SP1 beta full version
 #			define GLM_ARCH (GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)//GLM_ARCH_AVX (Require SP1)
@@ -542,15 +544,15 @@
 #	define GLM_MESSAGE_ARCH_DISPLAYED
 #	if(GLM_ARCH == GLM_ARCH_PURE)
 #		pragma message("GLM: Platform independent")
-#	elif(GLM_ARCH == GLM_ARCH_SSE2)
+#	elif(GLM_ARCH & GLM_ARCH_SSE2)
 #		pragma message("GLM: SSE2 instruction set")
-#	elif(GLM_ARCH == GLM_ARCH_SSE3)
+#	elif(GLM_ARCH & GLM_ARCH_SSE3)
 #		pragma message("GLM: SSE3 instruction set")
-#	elif(GLM_ARCH == GLM_ARCH_SSE4)
+#	elif(GLM_ARCH & GLM_ARCH_SSE4)
 #		pragma message("GLM: SSE4 instruction set")
-#	elif(GLM_ARCH == GLM_ARCH_AVX)
+#	elif(GLM_ARCH & GLM_ARCH_AVX)
 #		pragma message("GLM: AVX instruction set")
-#	elif(GLM_ARCH == GLM_ARCH_AVX2)
+#	elif(GLM_ARCH & GLM_ARCH_AVX2)
 #		pragma message("GLM: AVX2 instruction set")
 #	endif//GLM_ARCH
 #endif//GLM_MESSAGE
