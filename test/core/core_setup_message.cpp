@@ -15,11 +15,12 @@ int test_compiler()
 {
 	int Error(0);
 	
-	switch(GLM_COMPILER)
+	if(GLM_COMPILER & GLM_COMPILER_VC)
 	{
-	case GLM_COMPILER_VC:
 		std::cout << "GLM_COMPILER_VC" << std::endl;	
-		break;
+
+		switch(GLM_COMPILER)
+		{
 		case GLM_COMPILER_VC2:
 			std::cout << "GLM_COMPILER_VC2" << std::endl;	
 			break;
@@ -47,13 +48,21 @@ int test_compiler()
 		case GLM_COMPILER_VC2010:
 			std::cout << "GLM_COMPILER_VC2010" << std::endl;	
 			break;
-		case GLM_COMPILER_VC2011:
-			std::cout << "GLM_COMPILER_VC2011" << std::endl;	
+		case GLM_COMPILER_VC2012:
+			std::cout << "GLM_COMPILER_VC2012" << std::endl;	
 			break;
-
-	case GLM_COMPILER_GCC:
+		default:
+			std::cout << "Visual C++ version not detected" << std::endl;
+			Error += 1;
+			break;
+		}
+	}
+	else if(GLM_COMPILER & GLM_COMPILER_GCC)
+	{
 		std::cout << "GLM_COMPILER_GCC" << std::endl;	
-		break;
+
+		switch(GLM_COMPILER)
+		{
 		case GLM_COMPILER_GCC30:
 			std::cout << "GLM_COMPILER_GCC30" << std::endl;	
 			break;
@@ -96,10 +105,21 @@ int test_compiler()
 		case GLM_COMPILER_GCC47:
 			std::cout << "GLM_COMPILER_GCC47" << std::endl;	
 			break;
-			
-	case GLM_COMPILER_BC:
+		case GLM_COMPILER_GCC48:
+			std::cout << "GLM_COMPILER_GCC48" << std::endl;	
+			break;
+		default:
+			std::cout << "GCC version not detected" << std::endl;
+			Error += 1;
+			break;
+		}
+	}
+	else if(GLM_COMPILER & GLM_COMPILER_BC)
+	{
 		std::cout << "GLM_COMPILER_BC" << std::endl;	
-		break;
+
+		switch(GLM_COMPILER)
+		{
 		case GLM_COMPILER_BCB4:
 			std::cout << "GLM_COMPILER_BCB4" << std::endl;	
 			break;
@@ -112,15 +132,26 @@ int test_compiler()
 		case GLM_COMPILER_BCB2009:
 			std::cout << "GLM_COMPILER_BCB2009" << std::endl;	
 			break;
-	case GLM_COMPILER_CODEWARRIOR:
+		default:
+			std::cout << "Borland C++ version not detected" << std::endl;
+			Error += 1;
+			break;
+		}
+	}
+	else if(GLM_COMPILER & GLM_COMPILER_CODEWARRIOR)
+	{
 		std::cout << "GLM_COMPILER_CODEWARRIOR" << std::endl;	
-		break;
-	case GLM_COMPILER_CUDA:
+	}
+	else if(GLM_COMPILER & GLM_COMPILER_CUDA)
+	{
 		std::cout << "GLM_COMPILER_CUDA" << std::endl;		
-		break;
-	case GLM_COMPILER_CLANG:
-		std::cout << "GLM_COMPILER_CLANG" << std::endl;		
-		break;
+	}
+	else if(GLM_COMPILER & GLM_COMPILER_CLANG)
+	{
+		std::cout << "GLM_COMPILER_CLANG" << std::endl;	
+
+		switch(GLM_COMPILER)
+		{
 		case GLM_COMPILER_CLANG26:
 			std::cout << "GLM_COMPILER_CLANG26" << std::endl;		
 			break;
@@ -139,13 +170,51 @@ int test_compiler()
 		case GLM_COMPILER_CLANG31:
 			std::cout << "GLM_COMPILER_CLANG31" << std::endl;		
 			break;
-	case GLM_COMPILER_LLVM_GCC:
-		std::cout << "GLM_COMPILER_LLVM_GCC" << std::endl;		
-		break;
-	case GLM_COMPILER_INTEL:
-		std::cout << "GLM_COMPILER_INTEL" << std::endl;		
-		break;
-	default:
+		default:
+			std::cout << "Clang version not detected" << std::endl;
+			Error += 1;
+			break;
+		}
+	}
+	else if(GLM_COMPILER & GLM_COMPILER_LLVM_GCC)
+	{
+		std::cout << "GLM_COMPILER_LLVM_GCC" << std::endl;
+
+	}
+	else if(GLM_COMPILER & GLM_COMPILER_INTEL)
+	{
+		std::cout << "GLM_COMPILER_INTEL" << std::endl;	
+		switch(GLM_COMPILER)
+		{
+		case GLM_COMPILER_INTEL9:
+			std::cout << "GLM_COMPILER_INTEL9" << std::endl;		
+			break;
+		case GLM_COMPILER_INTEL10_0:
+			std::cout << "GLM_COMPILER_INTEL10_0" << std::endl;		
+			break;
+		case GLM_COMPILER_INTEL10_1:
+			std::cout << "GLM_COMPILER_INTEL10_1" << std::endl;		
+			break;
+		case GLM_COMPILER_INTEL11_0:
+			std::cout << "GLM_COMPILER_INTEL11_0" << std::endl;		
+			break;
+		case GLM_COMPILER_INTEL11_1:
+			std::cout << "GLM_COMPILER_INTEL11_1" << std::endl;		
+			break;
+		case GLM_COMPILER_INTEL12_1:
+			std::cout << "GLM_COMPILER_INTEL12_1" << std::endl;		
+			break;
+		case GLM_COMPILER_INTEL13_0:
+			std::cout << "GLM_COMPILER_INTEL13_0" << std::endl;		
+			break;
+		default:
+			std::cout << "Intel compiler version not detected" << std::endl;
+			Error += 1;
+			break;
+		}
+	}
+	else
+	{
 		std::cout << "Undetected compiler" << std::endl;
 		Error += 1;
 	}
