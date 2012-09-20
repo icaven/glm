@@ -387,7 +387,7 @@
 /////////////////
 // Build model //
 
-#if((defined(__WORDSIZE) && (__WORDSIZE == 64)) || defined(__arch64__) || defined(__LP64__) || defined(_M_X64) || defined(__ppc64__) || defined(__x86_64__))
+#if(defined(__arch64__) || defined(__LP64__) || defined(_M_X64) || defined(__ppc64__) || defined(__x86_64__))
 #		define GLM_MODEL	GLM_MODEL_64
 #elif(defined(__i386__) || defined(__ppc__))
 #	define GLM_MODEL	GLM_MODEL_32
