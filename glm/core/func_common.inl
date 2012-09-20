@@ -817,16 +817,6 @@ namespace detail
 #			else
 				return std::isnan(x);
 #			endif
-/*
-#       elif(GLM_COMPILER & GLM_COMPILER_GCC)
-#           if(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
-                return _isnan(x) != 0;
-#           else
-                return std::isnan(x);
-#           endif
-#       elif(GLM_COMPILER & GLM_COMPILER_INTEL)
-            return _isnan(x) != 0;
-*/
 #       else
             return std::isnan(x);
 #       endif

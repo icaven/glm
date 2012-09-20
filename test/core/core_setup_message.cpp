@@ -142,6 +142,9 @@ int test_compiler()
 	case GLM_COMPILER_LLVM_GCC:
 		std::cout << "GLM_COMPILER_LLVM_GCC" << std::endl;		
 		break;
+	case GLM_COMPILER_INTEL:
+		std::cout << "GLM_COMPILER_INTEL" << std::endl;		
+		break;
 	default:
 		std::cout << "Undetected compiler" << std::endl;
 		Error += 1;
