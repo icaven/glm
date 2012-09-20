@@ -809,8 +809,15 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'isnan' only accept floating-point inputs");
 
-#       if(GLM_COMPILER & GLM_COMPILER_VC)
+#       if(GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_INTEL))
             return _isnan(x) != 0;
+#		elif(GLM_COMPILER & GLM_COMPILER_GCC)
+#			if(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
+				return _isnan(x) != 0;
+#			else
+				return std::isnan(x);
+#			endif
+/*
 #       elif(GLM_COMPILER & GLM_COMPILER_GCC)
 #           if(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
                 return _isnan(x) != 0;
@@ -818,7 +825,8 @@ namespace detail
                 return std::isnan(x);
 #           endif
 #       elif(GLM_COMPILER & GLM_COMPILER_INTEL)
-            return isnan(x) != 0;			
+            return _isnan(x) != 0;
+*/
 #       else
             return std::isnan(x);
 #       endif

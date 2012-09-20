@@ -364,14 +364,14 @@ int test_isnan()
  		Error += true == glm::any(glm::isnan(glm::dvec3(0.0 / Zero_d))) ? 0 : 1;
  		Error += true == glm::any(glm::isnan(glm::dvec4(0.0 / Zero_d))) ? 0 : 1;
 	}
-/*
+
 	{
  		Error += true == glm::isnan(0.0f/Zero_f) ? 0 : 1;
  		Error += true == glm::any(glm::isnan(glm::vec2(0.0f/Zero_f))) ? 0 : 1;
  		Error += true == glm::any(glm::isnan(glm::vec3(0.0f/Zero_f))) ? 0 : 1;
  		Error += true == glm::any(glm::isnan(glm::vec4(0.0f/Zero_f))) ? 0 : 1;
 	}
-*/
+
 	return Error;
 }
  

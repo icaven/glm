@@ -40,6 +40,8 @@ elseif(NOT GLM_TEST_ENABLE_MS_EXTENSIONS)
 	endif()
 endif()
 
+#set(GLM_SIMD_INSTRUCTION_SET "" CACHE STRING "Instruction set. Possible values are SSE1, SSE2")
+
 option(GLM_TEST_ENABLE_SIMD "Enable SIMD optimizations" OFF)
 if(GLM_TEST_ENABLE_SIMD)
 	if(CMAKE_COMPILER_IS_GNUCXX)
