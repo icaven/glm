@@ -494,6 +494,16 @@
 #elif((GLM_COMPILER & GLM_COMPILER_VC) && (defined(_M_IX86) || defined(_M_X64)))
 #	if(defined(_M_CEE_PURE))
 #		define GLM_ARCH GLM_ARCH_PURE
+/* TODO: Explore auto detection of instruction set support
+#	elif(defined(_M_IX86_FP))
+#		if(_M_IX86_FP >= 3)
+#			define GLM_ARCH (GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
+#		elif(_M_IX86_FP >= 2)
+#			define GLM_ARCH (GLM_ARCH_SSE2)
+#		else
+#			define GLM_ARCH GLM_ARCH_PURE
+#		endif
+*/
 #	elif(GLM_COMPILER >= GLM_COMPILER_VC2012)
 #		define GLM_ARCH (GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #	elif(GLM_COMPILER >= GLM_COMPILER_VC2010)
