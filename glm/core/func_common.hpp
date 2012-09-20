@@ -303,6 +303,8 @@ namespace glm
 	/// floating point representations. Returns false otherwise,
 	/// including for implementations with no NaN
 	/// representations.
+	/// 
+	/// /!\ When using compiler fast math, this function may fail.
     /// 
 	/// @tparam genType Floating-point scalar or vector types.
 	///

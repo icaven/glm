@@ -864,6 +864,18 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'isinf' only accept floating-point inputs");
 
+#       if(GLM_COMPILER & (GLM_COMPILER_INTEL | GLM_COMPILER_VC))
+            return _fpclass(x) == _FPCLASS_NINF || _fpclass(x) == _FPCLASS_PINF;
+#		elif(GLM_COMPILER & GLM_COMPILER_GCC)
+#			if(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
+				return _isinf(x) != 0;
+#			else
+				return std::isinf(x);
+#			endif
+#       else
+            return std::isinf(x);
+#       endif
+/*
 #       if(GLM_COMPILER & GLM_COMPILER_VC)
             return _fpclass(x) == _FPCLASS_NINF || _fpclass(x) == _FPCLASS_PINF;
 #       elif(GLM_COMPILER & GLM_COMPILER_GCC)
@@ -877,6 +889,7 @@ namespace detail
 #       else
             return std::isinf(x);
 #       endif
+*/
 	}
 
     template <typename T>
