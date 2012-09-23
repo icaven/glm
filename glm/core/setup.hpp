@@ -282,6 +282,10 @@
 #		define GLM_COMPILER GLM_COMPILER_CLANG32
 #	elif(__clang_major__ == 3) && (__clang_minor__ == 3)
 #		define GLM_COMPILER GLM_COMPILER_CLANG33
+#	elif(__clang_major__ == 4) && (__clang_minor__ == 0)
+#		define GLM_COMPILER GLM_COMPILER_CLANG40
+#	elif(__clang_major__ == 4) && (__clang_minor__ == 1)
+#		define GLM_COMPILER GLM_COMPILER_CLANG41
 #	else
 #		define GLM_COMPILER GLM_COMPILER_CLANG
 #   endif
