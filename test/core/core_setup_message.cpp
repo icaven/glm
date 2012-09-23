@@ -176,7 +176,7 @@ int test_compiler()
         case GLM_COMPILER_CLANG33:
             std::cout << "GLM_COMPILER_CLANG33" << std::endl;
             break;
-        case GLM_COMPILER_CLANG33:
+        case GLM_COMPILER_CLANG40:
             std::cout << "GLM_COMPILER_CLANG40" << std::endl;
             break;
 		default:
