@@ -171,6 +171,8 @@
 #define GLM_COMPILER_CLANG31		0x20000060
 #define GLM_COMPILER_CLANG32		0x20000070
 #define GLM_COMPILER_CLANG33		0x20000080
+#define GLM_COMPILER_CLANG40		0x20000090
+#define GLM_COMPILER_CLANG41		0x200000A0
 
 // LLVM GCC
 #define GLM_COMPILER_LLVM_GCC		0x40000000
@@ -282,6 +284,10 @@
 #		define GLM_COMPILER GLM_COMPILER_CLANG32
 #	elif(__clang_major__ == 3) && (__clang_minor__ == 3)
 #		define GLM_COMPILER GLM_COMPILER_CLANG33
+#	elif(__clang_major__ == 4) && (__clang_minor__ == 0)
+#		define GLM_COMPILER GLM_COMPILER_CLANG40
+#	elif(__clang_major__ == 4) && (__clang_minor__ == 1)
+#		define GLM_COMPILER GLM_COMPILER_CLANG41
 #	else
 #		define GLM_COMPILER GLM_COMPILER_CLANG
 #   endif
