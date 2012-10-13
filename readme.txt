@@ -37,13 +37,14 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm-0.9.3.pdf
 
 ================================================================================
-GLM 0.9.4.0: 2012-09-17
+GLM 0.9.4.0: 2012-10-13
 --------------------------------------------------------------------------------
 - Added Intel Composer support
 - Promoted GTC_espilon extension
 - Promoted GTC_ulp extension
 - Removed GLM website from the source repository
 - Added GLM_FORCE_RADIANS so that all functions takes radians for arguments
+- Fixed detection of Clang and LLVM GCC on MacOS X
 
 ================================================================================
 GLM 0.9.3.4: 2012-06-30
