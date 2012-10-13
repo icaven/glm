@@ -148,8 +148,9 @@ int test_compiler()
 	}
 	else if(GLM_COMPILER & GLM_COMPILER_CLANG)
 	{
-		std::cout << "GLM_COMPILER_CLANG " << __clang_major__ << "." << __clang_minor__ << std::endl;
-        
+#       ifdef __clang_major__
+            std::cout << "GLM_COMPILER_CLANG " << __clang_major__ << "." << __clang_minor__ << std::endl;
+#       endif
 		switch(GLM_COMPILER)
 		{
 		case GLM_COMPILER_CLANG26:
@@ -179,7 +180,16 @@ int test_compiler()
         case GLM_COMPILER_CLANG40:
             std::cout << "GLM_COMPILER_CLANG40" << std::endl;
             break;
-		default:
+        case GLM_COMPILER_CLANG41:
+            std::cout << "GLM_COMPILER_CLANG41" << std::endl;
+            break;
+        case GLM_COMPILER_CLANG42:
+            std::cout << "GLM_COMPILER_CLANG42" << std::endl;
+            break;
+        case GLM_COMPILER_CLANG43:
+            std::cout << "GLM_COMPILER_CLANG43" << std::endl;
+            break;
+        default:
 			std::cout << "Clang version not detected" << std::endl;
 			break;
 		}

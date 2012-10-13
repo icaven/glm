@@ -173,6 +173,8 @@
 #define GLM_COMPILER_CLANG33		0x20000080
 #define GLM_COMPILER_CLANG40		0x20000090
 #define GLM_COMPILER_CLANG41		0x200000A0
+#define GLM_COMPILER_CLANG42		0x200000B0
+#define GLM_COMPILER_CLANG43		0x200000C0
 
 // LLVM GCC
 #define GLM_COMPILER_LLVM_GCC		0x40000000
@@ -288,20 +290,16 @@
 #		define GLM_COMPILER GLM_COMPILER_CLANG40
 #	elif(__clang_major__ == 4) && (__clang_minor__ == 1)
 #		define GLM_COMPILER GLM_COMPILER_CLANG41
+#	elif(__clang_major__ == 4) && (__clang_minor__ == 2)
+#		define GLM_COMPILER GLM_COMPILER_CLANG42
+#	elif(__clang_major__ == 4) && (__clang_minor__ == 3)
+#		define GLM_COMPILER GLM_COMPILER_CLANG43
 #	else
 #		define GLM_COMPILER GLM_COMPILER_CLANG
 #   endif
 
 // G++ 
 #elif(defined(__GNUC__) || defined(__MINGW32__))// || defined(__llvm__) || defined(__clang__)
-#   if defined (__llvm__)
-#       define GLM_COMPILER_GCC_EXTRA GLM_COMPILER_GCC_LLVM
-#   elif defined (__clang__)
-#       define GLM_COMPILER_GCC_EXTRA GLM_COMPILER_GCC_CLANG
-#   else
-#       define GLM_COMPILER_GCC_EXTRA 0
-#   endif
-#
 #	if   (__GNUC__ == 3) && (__GNUC_MINOR__ == 2)
 #		define GLM_COMPILER GLM_COMPILER_GCC32
 #	elif (__GNUC__ == 3) && (__GNUC_MINOR__ == 3)
@@ -311,29 +309,29 @@
 #	elif (__GNUC__ == 3) && (__GNUC_MINOR__ == 5)
 #		define GLM_COMPILER GLM_COMPILER_GCC35
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 0)
-#		define GLM_COMPILER (GLM_COMPILER_GCC40 | GLM_COMPILER_GCC_EXTRA)
+#		define GLM_COMPILER (GLM_COMPILER_GCC40)
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 1)
-#		define GLM_COMPILER (GLM_COMPILER_GCC41 | GLM_COMPILER_GCC_EXTRA)
+#		define GLM_COMPILER (GLM_COMPILER_GCC41)
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 2)
-#		define GLM_COMPILER (GLM_COMPILER_GCC42 | GLM_COMPILER_GCC_EXTRA)
+#		define GLM_COMPILER (GLM_COMPILER_GCC42)
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 3)
-#		define GLM_COMPILER (GLM_COMPILER_GCC43 | GLM_COMPILER_GCC_EXTRA)
+#		define GLM_COMPILER (GLM_COMPILER_GCC43)
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 4)
-#		define GLM_COMPILER (GLM_COMPILER_GCC44 | GLM_COMPILER_GCC_EXTRA)
+#		define GLM_COMPILER (GLM_COMPILER_GCC44)
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 5)
-#		define GLM_COMPILER (GLM_COMPILER_GCC45 | GLM_COMPILER_GCC_EXTRA)
+#		define GLM_COMPILER (GLM_COMPILER_GCC45)
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 6)
-#		define GLM_COMPILER (GLM_COMPILER_GCC46 | GLM_COMPILER_GCC_EXTRA)
+#		define GLM_COMPILER (GLM_COMPILER_GCC46)
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 7)
-#		define GLM_COMPILER (GLM_COMPILER_GCC47 | GLM_COMPILER_GCC_EXTRA)
+#		define GLM_COMPILER (GLM_COMPILER_GCC47)
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 8)
-#		define GLM_COMPILER (GLM_COMPILER_GCC48 | GLM_COMPILER_GCC_EXTRA)
+#		define GLM_COMPILER (GLM_COMPILER_GCC48)
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 9)
-#		define GLM_COMPILER (GLM_COMPILER_GCC49 | GLM_COMPILER_GCC_EXTRA)
+#		define GLM_COMPILER (GLM_COMPILER_GCC49)
 #	elif (__GNUC__ == 5) && (__GNUC_MINOR__ == 0)
-#		define GLM_COMPILER (GLM_COMPILER_GCC50 | GLM_COMPILER_GCC_EXTRA)
+#		define GLM_COMPILER (GLM_COMPILER_GCC50)
 #	else
-#		define GLM_COMPILER (GLM_COMPILER_GCC | GLM_COMPILER_GCC_EXTRA)
+#		define GLM_COMPILER (GLM_COMPILER_GCC)
 #	endif
 
 // Borland C++
