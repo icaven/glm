@@ -45,6 +45,7 @@ GLM 0.9.4.0: 2012-10-13
 - Removed GLM website from the source repository
 - Added GLM_FORCE_RADIANS so that all functions takes radians for arguments
 - Fixed detection of Clang and LLVM GCC on MacOS X
+- Added debugger visualizers for Visual C++ 2012
 
 ================================================================================
 GLM 0.9.3.4: 2012-06-30
