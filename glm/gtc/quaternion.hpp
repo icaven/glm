@@ -56,15 +56,15 @@ namespace detail
 	template <typename T> 
 	struct tquat// : public genType<T, tquat>
 	{
-        enum ctor{null};
-        
-        typedef T value_type;
-        typedef std::size_t size_type;
+		enum ctor{null};
+
+		typedef T value_type;
+		typedef std::size_t size_type;
 
 	public:
 		value_type x, y, z, w;
-        
-        GLM_FUNC_DECL size_type length() const;
+
+		GLM_FUNC_DECL size_type length() const;
 
 		// Constructors
 		tquat();
@@ -78,7 +78,7 @@ namespace detail
 			value_type const & z);
 
 		// Convertions
-		//explicit tquat(valType const & pitch, valType const & yaw, valType const & roll);
+
 		//! Build a quaternion from euler angles (pitch, yaw, roll), in radians.
 		explicit tquat(
 			tvec3<T> const & eulerAngles);
@@ -153,18 +153,18 @@ namespace detail
 	/// Returns the length of the quaternion. 
 	/// 
 	/// @see gtc_quaternion
-    template <typename T> 
-    T length(
+	template <typename T> 
+	T length(
 		detail::tquat<T> const & q);
 
-    /// Returns the normalized quaternion. 
+	/// Returns the normalized quaternion. 
 	/// 
 	/// @see gtc_quaternion
 	template <typename T> 
 	detail::tquat<T> normalize(
 		detail::tquat<T> const & q);
 		
-    /// Returns dot product of q1 and q2, i.e., q1[0] * q2[0] + q1[1] * q2[1] + ... 
+	/// Returns dot product of q1 and q2, i.e., q1[0] * q2[0] + q1[1] * q2[1] + ... 
 	/// 
 	/// @see gtc_quaternion
 	template <typename T> 
@@ -184,14 +184,14 @@ namespace detail
 	/// Returns the q conjugate. 
 	/// 
 	/// @see gtc_quaternion
-    template <typename T> 
+	template <typename T> 
 	detail::tquat<T> conjugate(
 		detail::tquat<T> const & q);
 
 	/// Returns the q inverse. 
 	/// 
 	/// @see gtc_quaternion
-    template <typename T> 
+	template <typename T> 
 	detail::tquat<T> inverse(
 		detail::tquat<T> const & q);
 
@@ -211,12 +211,12 @@ namespace detail
 	/// @see gtc_quaternion
 	template <typename T> 
 	detail::tvec3<T> eulerAngles(
-        detail::tquat<T> const & x);
-    
+		detail::tquat<T> const & x);
+
 	/// Converts a quaternion to a 3 * 3 matrix. 
 	/// 
 	/// @see gtc_quaternion
-    template <typename T> 
+	template <typename T> 
 	detail::tmat3x3<T> mat3_cast(
 		detail::tquat<T> const & x);
 
@@ -241,7 +241,7 @@ namespace detail
 	detail::tquat<T> quat_cast(
 		detail::tmat4x4<T> const & x);
 
-    /// Returns the quaternion rotation angle. 
+	/// Returns the quaternion rotation angle. 
 	///
 	/// @see gtc_quaternion
 	template <typename valType> 
