@@ -7,9 +7,6 @@
 // File    : glm/gtx/bit.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include "../core/_detail.hpp"
-#include "../core/_vectorize.hpp"
-
 namespace glm
 {
 	template <typename genIType>

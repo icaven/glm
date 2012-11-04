@@ -94,6 +94,7 @@
 #endif//GLM_MESSAGE
 
 #include "./core/_detail.hpp"
+#include "./core/_vectorize.hpp"
 #include "./core/type.hpp"
 
 #include "./core/func_trigonometric.hpp"

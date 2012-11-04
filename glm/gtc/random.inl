@@ -28,7 +28,6 @@
 
 #include <ctime>
 #include <cassert>
-#include "../core/_vectorize.hpp"
 
 namespace glm{
 namespace detail

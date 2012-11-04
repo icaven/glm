@@ -26,7 +26,6 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#include "_vectorize.hpp"
 #if(GLM_COMPILER & GLM_COMPILER_VC)
 #include <intrin.h>
 #pragma intrinsic(_BitScanReverse)
@@ -589,7 +588,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findMSB' only accept integer values");
 		
-		if(Value == 0 || Value == -1)
+		if(Value == genIUType(0) || Value == genIUType(-1))
 			return -1;
 		else if(Value > 0)
 		{
