@@ -152,7 +152,7 @@ namespace glm
     /// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitfieldReverse.xml">GLSL bitfieldReverse man page</a>
     /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a>
 	template <typename genIUType>
-	genIUType bitfieldReverse(genIUType const & value);
+	genIUType bitfieldReverse(genIUType const & Value);
 		
 	/// Returns the number of bits set to 1 in the binary representation of value.
 	///
