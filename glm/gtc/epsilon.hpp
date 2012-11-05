@@ -57,7 +57,7 @@ namespace glm
 	/// Returns the component-wise compare of |x - y| < epsilon.
 	/// @see gtc_epsilon
 	template <typename genTypeT, typename genTypeU> 
-	bool equalEpsilon(
+	bool epsilonEqual(
 		genTypeT const & x, 
 		genTypeT const & y, 
 		genTypeU const & epsilon);
@@ -65,7 +65,7 @@ namespace glm
 	/// Returns the component-wise compare of |x - y| >= epsilon.
 	/// @see gtc_epsilon
 	template <typename genTypeT, typename genTypeU>
-	bool notEqualEpsilon(
+	bool epsilonNotEqual(
 		genTypeT const & x, 
 		genTypeT const & y, 
 		genTypeU const & epsilon);

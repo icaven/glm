@@ -34,12 +34,12 @@ GLM is a header only library, there is nothing to build, just include it.
 #include <glm/glm.hpp>
 
 More informations in GLM manual:
-http://glm.g-truc.net/glm-0.9.3.pdf
+http://glm.g-truc.net/glm-0.9.4.pdf
 
 ================================================================================
-GLM 0.9.4.0: 2012-10-13
+GLM 0.9.4.0: 2012-11-07
 --------------------------------------------------------------------------------
-- Added Intel Composer support
+- Added Intel Composer Compiler support
 - Promoted GTC_espilon extension
 - Promoted GTC_ulp extension
 - Removed GLM website from the source repository

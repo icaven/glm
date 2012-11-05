@@ -20,10 +20,10 @@ int test_quat_fastMix()
     glm::quat C = glm::fastMix(A, B, 0.5f);
     glm::quat D = glm::angleAxis(45.0f, glm::vec3(0, 0, 1));
     
-    Error += glm::equalEpsilon(C.x, D.x, 0.01f) ? 0 : 1;
-	Error += glm::equalEpsilon(C.y, D.y, 0.01f) ? 0 : 1;
-	Error += glm::equalEpsilon(C.z, D.z, 0.01f) ? 0 : 1;
-	Error += glm::equalEpsilon(C.w, D.w, 0.01f) ? 0 : 1;
+    Error += glm::epsilonEqual(C.x, D.x, 0.01f) ? 0 : 1;
+	Error += glm::epsilonEqual(C.y, D.y, 0.01f) ? 0 : 1;
+	Error += glm::epsilonEqual(C.z, D.z, 0.01f) ? 0 : 1;
+	Error += glm::epsilonEqual(C.w, D.w, 0.01f) ? 0 : 1;
     
 	return Error;
 }
@@ -37,10 +37,10 @@ int test_quat_shortMix()
     glm::quat C = glm::shortMix(A, B, 0.5f);
     glm::quat D = glm::angleAxis(45.0f, glm::vec3(0, 0, 1));
     
-    Error += glm::equalEpsilon(C.x, D.x, 0.01f) ? 0 : 1;
-	Error += glm::equalEpsilon(C.y, D.y, 0.01f) ? 0 : 1;
-	Error += glm::equalEpsilon(C.z, D.z, 0.01f) ? 0 : 1;
-	Error += glm::equalEpsilon(C.w, D.w, 0.01f) ? 0 : 1;
+    Error += glm::epsilonEqual(C.x, D.x, 0.01f) ? 0 : 1;
+	Error += glm::epsilonEqual(C.y, D.y, 0.01f) ? 0 : 1;
+	Error += glm::epsilonEqual(C.z, D.z, 0.01f) ? 0 : 1;
+	Error += glm::epsilonEqual(C.w, D.w, 0.01f) ? 0 : 1;
     
 	return Error;
 }

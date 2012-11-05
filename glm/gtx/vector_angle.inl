@@ -33,7 +33,7 @@ namespace glm
 		valType const Angle(glm::degrees(acos(dot(x, y))));
 #endif
 		detail::tvec2<valType> const TransformedVector(glm::rotate(x, Angle));
-		if(all(equalEpsilon(y, TransformedVector, valType(0.01))))
+		if(all(epsilonEqual(y, TransformedVector, valType(0.01))))
 			return Angle;
 		else
 			return -Angle;
