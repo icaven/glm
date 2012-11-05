@@ -32,7 +32,7 @@ int test_packUnorm2x16()
 		glm::vec2 B(A[i]);
 		glm::uint32 C = glm::packUnorm2x16(B);
 		glm::vec2 D = glm::unpackUnorm2x16(C);
-		Error += glm::all(glm::equalEpsilon(B, D, 1.0f / 65535.f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(B, D, 1.0f / 65535.f)) ? 0 : 1;
 		assert(!Error);
 	}
 	
@@ -58,7 +58,7 @@ int test_packSnorm2x16()
 		glm::vec2 B(A[i]);
 		glm::uint32 C = glm::packSnorm2x16(B);
 		glm::vec2 D = glm::unpackSnorm2x16(C);
-		Error += glm::all(glm::equalEpsilon(B, D, 1.0f / 32767.0f * 2.0f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(B, D, 1.0f / 32767.0f * 2.0f)) ? 0 : 1;
 		assert(!Error);
 	}
 	
@@ -78,7 +78,7 @@ int test_packUnorm4x8()
 		glm::vec4 B(A[i]);
 		glm::uint32 C = glm::packUnorm4x8(B);
 		glm::vec4 D = glm::unpackUnorm4x8(C);
-		Error += glm::all(glm::equalEpsilon(B, D, 1.0f / 255.f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(B, D, 1.0f / 255.f)) ? 0 : 1;
 		assert(!Error);
 	}
 	
@@ -98,7 +98,7 @@ int test_packSnorm4x8()
 		glm::vec4 B(A[i]);
 		glm::uint32 C = glm::packSnorm4x8(B);
 		glm::vec4 D = glm::unpackSnorm4x8(C);
-		Error += glm::all(glm::equalEpsilon(B, D, 1.0f / 127.f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(B, D, 1.0f / 127.f)) ? 0 : 1;
 		assert(!Error);
 	}
 	
@@ -125,7 +125,7 @@ int test_packHalf2x16()
 		glm::uint C = glm::packHalf2x16(B);
 		glm::vec2 D = glm::unpackHalf2x16(C);
 		//Error += B == D ? 0 : 1;
-		Error += glm::all(glm::equalEpsilon(B, D, 1.0f / 127.f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(B, D, 1.0f / 127.f)) ? 0 : 1;
 		assert(!Error);
 	}
 	

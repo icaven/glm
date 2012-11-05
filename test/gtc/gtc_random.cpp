@@ -25,8 +25,8 @@ int test_linearRand()
 			ResultDouble += glm::linearRand(-1.0, 1.0);
 		}
 
-		Error += glm::equalEpsilon(ResultFloat, 0.0f, 0.0001f);
-		Error += glm::equalEpsilon(ResultDouble, 0.0, 0.0001);
+		Error += glm::epsilonEqual(ResultFloat, 0.0f, 0.0001f);
+		Error += glm::epsilonEqual(ResultDouble, 0.0, 0.0001);
 		assert(!Error);
 	}
 
@@ -49,8 +49,8 @@ int test_circularRand()
 			ResultDouble += glm::length(glm::circularRand(Radius));
 		}
 
-		Error += glm::equalEpsilon(ResultFloat, float(Max), 0.01f) ? 0 : 1;
-		Error += glm::equalEpsilon(ResultDouble, double(Max) * double(Radius), 0.01) ? 0 : 1;
+		Error += glm::epsilonEqual(ResultFloat, float(Max), 0.01f) ? 0 : 1;
+		Error += glm::epsilonEqual(ResultDouble, double(Max) * double(Radius), 0.01) ? 0 : 1;
 		assert(!Error);
 	}
 
@@ -80,12 +80,12 @@ int test_sphericalRand()
 			ResultDoubleC += glm::length(glm::sphericalRand(3.0));
 		}
 
-		Error += glm::equalEpsilon(ResultFloatA, float(Max), 0.01f) ? 0 : 1;
-		Error += glm::equalEpsilon(ResultDoubleA, double(Max), 0.0001) ? 0 : 1;
-		Error += glm::equalEpsilon(ResultFloatB, float(Max * 2), 0.01f) ? 0 : 1;
-		Error += glm::equalEpsilon(ResultDoubleB, double(Max * 2), 0.0001) ? 0 : 1;
-		Error += glm::equalEpsilon(ResultFloatC, float(Max * 3), 0.01f) ? 0 : 1;
-		Error += glm::equalEpsilon(ResultDoubleC, double(Max * 3), 0.01) ? 0 : 1;
+		Error += glm::epsilonEqual(ResultFloatA, float(Max), 0.01f) ? 0 : 1;
+		Error += glm::epsilonEqual(ResultDoubleA, double(Max), 0.0001) ? 0 : 1;
+		Error += glm::epsilonEqual(ResultFloatB, float(Max * 2), 0.01f) ? 0 : 1;
+		Error += glm::epsilonEqual(ResultDoubleB, double(Max * 2), 0.0001) ? 0 : 1;
+		Error += glm::epsilonEqual(ResultFloatC, float(Max * 3), 0.01f) ? 0 : 1;
+		Error += glm::epsilonEqual(ResultDoubleC, double(Max * 3), 0.01) ? 0 : 1;
 		assert(!Error);
 	}
 

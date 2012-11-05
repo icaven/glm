@@ -46,7 +46,7 @@ int test_refract()
 		glm::vec2 A(0.0f,-1.0f);
 		glm::vec2 B(0.0f, 1.0f);
 		glm::vec2 C = glm::refract(A, B, 0.5f);
-		Error += glm::all(glm::equalEpsilon(C, glm::vec2(0.0, -1.0), 0.0001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(C, glm::vec2(0.0, -1.0), 0.0001f)) ? 0 : 1;
 	}
 
 	{
