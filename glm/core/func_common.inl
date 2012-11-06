@@ -60,19 +60,19 @@ namespace detail
 
 	// abs
 	template <typename genFIType>
-    GLM_FUNC_QUALIFIER genFIType abs
+	GLM_FUNC_QUALIFIER genFIType abs
 	(
 		genFIType const & x
 	)
-    {
+	{
 		return detail::Abs_<genFIType, std::numeric_limits<genFIType>::is_signed>::get(x);
-    }
+	}
 
 	VECTORIZE_VEC(abs)
 
-    // sign
+	// sign
 	//Try something like based on x >> 31 to get the sign bit
-    template <typename genFIType> 
+	template <typename genFIType> 
 	GLM_FUNC_QUALIFIER genFIType sign
 	(
 		genFIType const & x
@@ -81,43 +81,43 @@ namespace detail
 		GLM_STATIC_ASSERT(
 			detail::type<genFIType>::is_float || 
 			detail::type<genFIType>::is_int, "'sign' only accept signed inputs");
-        
+
 		genFIType result;
 		if(x > genFIType(0))
-            result = genFIType(1);
-        else if(x < genFIType(0))
-            result = genFIType(-1);
-        else
-            result = genFIType(0);
-        return result;
+			result = genFIType(1);
+		else if(x < genFIType(0))
+			result = genFIType(-1);
+		else
+			result = genFIType(0);
+		return result;
 	}
 	
 	VECTORIZE_VEC(sign)
 
-    // floor
-    template <>
+	// floor
+	template <>
 	GLM_FUNC_QUALIFIER detail::half floor<detail::half>(detail::half const & x)
-    {
-        return detail::half(::std::floor(float(x)));
-    }
+	{
+		return detail::half(::std::floor(float(x)));
+	}
 
-    template <typename genType>
-    GLM_FUNC_QUALIFIER genType floor(genType const & x)
-    {
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType floor(genType const & x)
+	{
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'floor' only accept floating-point inputs");
 
-        return ::std::floor(x);
-    }
+		return ::std::floor(x);
+	}
 
 	VECTORIZE_VEC(floor)
 
-    // trunc
-    template <typename genType>
-    GLM_FUNC_QUALIFIER genType trunc(genType const & x)
-    {
+	// trunc
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType trunc(genType const & x)
+	{
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'trunc' only accept floating-point inputs");
-        return x < 0 ? -floor(-x) : floor(x);
-    }
+		return x < 0 ? -floor(-x) : floor(x);
+	}
 
 	VECTORIZE_VEC(trunc)
 

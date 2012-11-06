@@ -22,7 +22,7 @@
 ///
 /// @ref gtc_half_float
 /// @file glm/gtc/half_float.hpp
-/// @date 2009-04-29 / 2011-06-05
+/// @date 2009-04-29 / 2012-11-06
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
@@ -55,7 +55,7 @@ namespace detail
 		typedef half value_type;
 		typedef std::size_t size_type;
 
-        GLM_FUNC_DECL size_type length() const;
+		GLM_FUNC_DECL size_type length() const;
 		static GLM_FUNC_DECL size_type value_size();
 
 		typedef tvec2<half> type;
@@ -148,7 +148,7 @@ namespace detail
 		enum ctor{null};
 		typedef half value_type;
 		typedef std::size_t size_type;
-        GLM_FUNC_DECL size_type length() const;
+		GLM_FUNC_DECL size_type length() const;
 		static GLM_FUNC_DECL size_type value_size();
 
 		typedef tvec3<half> type;
@@ -245,7 +245,7 @@ namespace detail
 		enum ctor{null};
 		typedef half value_type;
 		typedef std::size_t size_type;
-        GLM_FUNC_DECL size_type length() const;
+		GLM_FUNC_DECL size_type length() const;
 		static GLM_FUNC_DECL size_type value_size();
 
 		typedef tvec4<half> type;
@@ -371,7 +371,7 @@ namespace detail
 	/// 2 * 2 matrix of half-precision floating-point numbers.
 	/// @see gtc_half_float
 	typedef detail::tmat2x2<detail::half>	hmat2;
-    
+
 	/// 3 * 3 matrix of half-precision floating-point numbers.
 	/// @see gtc_half_float
 	typedef detail::tmat3x3<detail::half>	hmat3;
@@ -383,11 +383,11 @@ namespace detail
 	/// 2 * 2 matrix of half-precision floating-point numbers.
 	/// @see gtc_half_float
 	typedef detail::tmat2x2<detail::half>	hmat2x2;
-    
+
 	/// 2 * 3 matrix of half-precision floating-point numbers.
 	/// @see gtc_half_float
 	typedef detail::tmat2x3<detail::half>	hmat2x3;
-    
+
 	/// 2 * 4 matrix of half-precision floating-point numbers.
 	/// @see gtc_half_float
 	typedef detail::tmat2x4<detail::half>	hmat2x4;
@@ -395,11 +395,11 @@ namespace detail
 	/// 3 * 2 matrix of half-precision floating-point numbers.
 	/// @see gtc_half_float
 	typedef detail::tmat3x2<detail::half>	hmat3x2;
-    
+
 	/// 3 * 3 matrix of half-precision floating-point numbers.
 	/// @see gtc_half_float
 	typedef detail::tmat3x3<detail::half>	hmat3x3;
-    
+
 	/// 3 * 4 matrix of half-precision floating-point numbers.
 	/// @see gtc_half_float
 	typedef detail::tmat3x4<detail::half>	hmat3x4;
@@ -411,11 +411,27 @@ namespace detail
 	/// 4 * 3 matrix of half-precision floating-point numbers.
 	/// @see gtc_half_float
 	typedef detail::tmat4x3<detail::half>	hmat4x3;
-    
+
 	/// 4 * 4 matrix of half-precision floating-point numbers.
 	/// @see gtc_half_float
 	typedef detail::tmat4x4<detail::half>	hmat4x4;
-    
+
+	/// Returns the absolute value of a half-precision floating-point value
+	/// @see gtc_half_float
+	half abs(half const & x);
+
+	/// Returns the absolute value of a half-precision floating-point two dimensional vector
+	/// @see gtc_half_float
+	hvec2 abs(hvec2 const & x);
+
+	/// Returns the absolute value of a half-precision floating-point three dimensional vector
+	/// @see gtc_half_float
+	hvec3 abs(hvec3 const & x);
+
+	/// Returns the absolute value of a half-precision floating-point four dimensional vector
+	/// @see gtc_half_float
+	hvec4 abs(hvec4 const & x);
+
 	/// @}
 }// namespace glm
 
