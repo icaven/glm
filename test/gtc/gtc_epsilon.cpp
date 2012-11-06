@@ -20,31 +20,31 @@ int test_equal()
 	{
 		T A = glm::epsilon<T>();
 		T B = glm::epsilon<T>();
-		Error += glm::epsilonEqual(A, B, glm::epsilon<T>()) ? 0 : 1;
+		Error += glm::epsilonEqual(A, B, glm::epsilon<T>() * T(2)) ? 0 : 1;
 	}
 
 	{
 		T A(0);
 		T B = T(0) + glm::epsilon<T>();
-		Error += glm::epsilonEqual(A, B, glm::epsilon<T>()) ? 0 : 1;
+		Error += glm::epsilonEqual(A, B, glm::epsilon<T>() * T(2)) ? 0 : 1;
 	}
 
 	{
 		T A(0);
 		T B = T(0) - glm::epsilon<T>();
-		Error += glm::epsilonEqual(A, B, glm::epsilon<T>()) ? 0 : 1;
+		Error += glm::epsilonEqual(A, B, glm::epsilon<T>() * T(2)) ? 0 : 1;
 	}
 
 	{
 		T A = T(0) + glm::epsilon<T>();
 		T B = T(0);
-		Error += glm::epsilonEqual(A, B, glm::epsilon<T>()) ? 0 : 1;
+		Error += glm::epsilonEqual(A, B, glm::epsilon<T>() * T(2)) ? 0 : 1;
 	}
 
 	{
 		T A = T(0) - glm::epsilon<T>();
 		T B = T(0);
-		Error += glm::epsilonEqual(A, B, glm::epsilon<T>()) ? 0 : 1;
+		Error += glm::epsilonEqual(A, B, glm::epsilon<T>() * T(2)) ? 0 : 1;
 	}
 
 	return Error;
