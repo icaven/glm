@@ -466,8 +466,8 @@
 #		pragma message("GLM: C++ with GNU language extensions")
 #	elif(GLM_LANG == GLM_LANG_CXXMS)
 #		pragma message("GLM: C++ with VC language extensions")
-#   else
-#       pragma message("GLM: C++ language undetected")
+#	else
+#		pragma message("GLM: C++ language undetected")
 #	endif//GLM_MODEL
 #endif//GLM_MESSAGE
 

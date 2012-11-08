@@ -53,60 +53,60 @@ namespace glm
 namespace glm{
 namespace detail
 {
-    // Internal class for implementing swizzle operators
-    template <typename T, int N>
-    struct _swizzle_base0
-    {
-        typedef T       value_type;
+	// Internal class for implementing swizzle operators
+	template <typename T, int N>
+	struct _swizzle_base0
+	{
+		typedef T       value_type;
 
-    protected:
-        value_type&         elem   (size_t i)       { return (reinterpret_cast<value_type*>(_buffer))[i]; }
-        const value_type&   elem   (size_t i) const { return (reinterpret_cast<const value_type*>(_buffer))[i]; }
+	protected:
+		value_type&         elem   (size_t i)       { return (reinterpret_cast<value_type*>(_buffer))[i]; }
+		const value_type&   elem   (size_t i) const { return (reinterpret_cast<const value_type*>(_buffer))[i]; }
 
-        // Use an opaque buffer to *ensure* the compiler doesn't call a constructor.
-        // The size 1 buffer is assumed to aligned to the actual members so that the
-        // elem() 
-        char    _buffer[1];
-    };
+		// Use an opaque buffer to *ensure* the compiler doesn't call a constructor.
+		// The size 1 buffer is assumed to aligned to the actual members so that the
+		// elem() 
+		char    _buffer[1];
+	};
 
-    template <typename T, typename V, int E0, int E1, int E2, int E3, int N>
-    struct _swizzle_base1 : public _swizzle_base0<T,N>
-    {
-    };
+	template <typename T, typename V, int E0, int E1, int E2, int E3, int N>
+	struct _swizzle_base1 : public _swizzle_base0<T,N>
+	{
+	};
 
-    template <typename T, typename V, int E0, int E1>
-    struct _swizzle_base1<T,V,E0,E1,-1,-2,2> : public _swizzle_base0<T,2>
-    {
-        V operator ()()  const { return V(this->elem(E0), this->elem(E1)); }
-    };
+	template <typename T, typename V, int E0, int E1>
+	struct _swizzle_base1<T,V,E0,E1,-1,-2,2> : public _swizzle_base0<T,2>
+	{
+		V operator ()()  const { return V(this->elem(E0), this->elem(E1)); }
+	};
 
-    template <typename T, typename V, int E0, int E1, int E2>
-    struct _swizzle_base1<T,V,E0,E1,E2,-1,3> : public _swizzle_base0<T,3>
-    {
-        V operator ()()  const { return V(this->elem(E0), this->elem(E1), this->elem(E2)); }
-    };
+	template <typename T, typename V, int E0, int E1, int E2>
+	struct _swizzle_base1<T,V,E0,E1,E2,-1,3> : public _swizzle_base0<T,3>
+	{
+		V operator ()()  const { return V(this->elem(E0), this->elem(E1), this->elem(E2)); }
+	};
 
-    template <typename T, typename V, int E0, int E1, int E2, int E3>
-    struct _swizzle_base1<T,V,E0,E1,E2,E3,4> : public _swizzle_base0<T,4>
-    { 
-        V operator ()()  const { return V(this->elem(E0), this->elem(E1), this->elem(E2), this->elem(E3)); }
-    };
+	template <typename T, typename V, int E0, int E1, int E2, int E3>
+	struct _swizzle_base1<T,V,E0,E1,E2,E3,4> : public _swizzle_base0<T,4>
+	{ 
+		V operator ()()  const { return V(this->elem(E0), this->elem(E1), this->elem(E2), this->elem(E3)); }
+	};
 
-    // Internal class for implementing swizzle operators
-    /*
-        Template parameters:
+	// Internal class for implementing swizzle operators
+	/*
+		Template parameters:
 
-        ValueType = type of scalar values (e.g. float, double)
-        VecType   = class the swizzle is applies to (e.g. tvec3<float>)
-        N         = number of components in the vector (e.g. 3)
-        E0...3    = what index the n-th element of this swizzle refers to in the unswizzled vec
+		ValueType = type of scalar values (e.g. float, double)
+		VecType   = class the swizzle is applies to (e.g. tvec3<float>)
+		N         = number of components in the vector (e.g. 3)
+		E0...3    = what index the n-th element of this swizzle refers to in the unswizzled vec
         
-        DUPLICATE_ELEMENTS = 1 if there is a repeated element, 0 otherwise (used to specialize swizzles
-            containing duplicate elements so that they cannot be used as r-values).            
-    */
-    template <typename ValueType, typename VecType, int N, int E0, int E1, int E2, int E3, int DUPLICATE_ELEMENTS>
-    struct _swizzle_base2 : public _swizzle_base1<ValueType,VecType,E0,E1,E2,E3,N>
-    {
+		DUPLICATE_ELEMENTS = 1 if there is a repeated element, 0 otherwise (used to specialize swizzles
+			containing duplicate elements so that they cannot be used as r-values).            
+	*/
+	template <typename ValueType, typename VecType, int N, int E0, int E1, int E2, int E3, int DUPLICATE_ELEMENTS>
+	struct _swizzle_base2 : public _swizzle_base1<ValueType,VecType,E0,E1,E2,E3,N>
+	{
 		typedef VecType vec_type;
 		typedef ValueType value_type;
 
@@ -181,7 +181,7 @@ namespace detail
 			for (int i = 0; i < N; ++i)
 				op( (*this)[i], t[i] );
 		}
-    };
+	};
 
 	// Specialization for swizzles containing duplicate elements.  These cannot be modified.
 	template <typename ValueType, typename VecType, int N, int E0, int E1, int E2, int E3>
@@ -322,33 +322,32 @@ namespace glm
 	{
 		_GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(-)
 		_GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(*)
-        
 		_GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(+)
 		_GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(-)
 		_GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(*)
 		_GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(/)
 	}
 
-    //
-    // Swizzles are distinct types from the unswizzled type.  The below macros will
-    // provide template specializations for the swizzle types for the given functions
-    // so that the compiler does not have any ambiguity to choosing how to handle
-    // the function.
-    //
-    // The alternative is to use the operator()() when calling the function in order
-    // to explicitly convert the swizzled type to the unswizzled type.
-    //
+	//
+	// Swizzles are distinct types from the unswizzled type.  The below macros will
+	// provide template specializations for the swizzle types for the given functions
+	// so that the compiler does not have any ambiguity to choosing how to handle
+	// the function.
+	//
+	// The alternative is to use the operator()() when calling the function in order
+	// to explicitly convert the swizzled type to the unswizzled type.
+	//
 
-    //_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    abs);
-    //_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    acos);
-    //_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    acosh);
-    //_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    all);
-    //_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    any);
-    
-    //_GLM_SWIZZLE_FUNCTION_2_ARGS(value_type,  dot);
-    //_GLM_SWIZZLE_FUNCTION_2_ARGS(vec_type,    cross);
-    //_GLM_SWIZZLE_FUNCTION_2_ARGS(vec_type,    step);    
-    //_GLM_SWIZZLE_FUNCTION_2_ARGS_SCALAR(vec_type, mix);
+	//_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    abs);
+	//_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    acos);
+	//_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    acosh);
+	//_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    all);
+	//_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    any);
+
+	//_GLM_SWIZZLE_FUNCTION_2_ARGS(value_type,  dot);
+	//_GLM_SWIZZLE_FUNCTION_2_ARGS(vec_type,    cross);
+	//_GLM_SWIZZLE_FUNCTION_2_ARGS(vec_type,    step);    
+	//_GLM_SWIZZLE_FUNCTION_2_ARGS_SCALAR(vec_type, mix);
 }
 
 #define _GLM_SWIZZLE2_2_MEMBERS(T,P,E0,E1) \

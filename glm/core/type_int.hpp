@@ -65,14 +65,14 @@ namespace detail
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.3 Integers</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
 	typedef detail::lowp_int_t				lowp_int;
-    
+
 	/// Medium precision signed integer. 
 	/// There is no guarantee on the actual precision.
 	/// 
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.3 Integers</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
 	typedef detail::mediump_int_t			mediump_int;
-    
+
 	/// High precision signed integer.
 	/// There is no guarantee on the actual precision.
 	/// 
@@ -86,14 +86,14 @@ namespace detail
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.3 Integers</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
 	typedef detail::lowp_uint_t				lowp_uint;
-    
+
 	/// Medium precision unsigned integer. 
 	/// There is no guarantee on the actual precision.
 	/// 
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.3 Integers</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
 	typedef detail::mediump_uint_t			mediump_uint;
-    
+
 	/// High precision unsigned integer. 
 	/// There is no guarantee on the actual precision.
 	/// 
@@ -131,7 +131,6 @@ namespace detail
 	typedef uint_t								uint;
 
 	/// @}
-
 }//namespace glm
 
 #endif//glm_core_type_int

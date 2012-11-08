@@ -35,36 +35,36 @@
 namespace glm
 {
 #ifdef GLM_USE_HALF_SCALAR
-    typedef detail::half		lowp_float_t;
+	typedef detail::half		lowp_float_t;
 #else//GLM_USE_HALF_SCALAR
-    typedef float				lowp_float_t;
+	typedef float				lowp_float_t;
 #endif//GLM_USE_HALF_SCALAR
-    typedef float				mediump_float_t;
-    typedef double				highp_float_t;
+	typedef float				mediump_float_t;
+	typedef double				highp_float_t;
 
 	/// @addtogroup core_precision
 	/// @{
 
-    /// Low precision floating-point numbers. 
-    /// There is no guarantee on the actual precision.
+	/// Low precision floating-point numbers. 
+	/// There is no guarantee on the actual precision.
 	/// 
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.4 Floats</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
-    typedef lowp_float_t		lowp_float;
-    
-    /// Medium precision floating-point numbers.
-    /// There is no guarantee on the actual precision.
+	typedef lowp_float_t		lowp_float;
+
+	/// Medium precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
 	/// 
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.4 Floats</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
-    typedef mediump_float_t     mediump_float;
-    
-    /// High precision floating-point numbers.
-    /// There is no guarantee on the actual precision.
+	typedef mediump_float_t     mediump_float;
+
+	/// High precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
 	/// 
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.4 Floats</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
-    typedef highp_float_t		highp_float;
+	typedef highp_float_t		highp_float;
 
 #if(!defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
 	typedef mediump_float				float_t;

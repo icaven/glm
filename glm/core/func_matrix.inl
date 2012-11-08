@@ -576,7 +576,7 @@ namespace glm
 		T Determinant = glm::dot(m[0], Row0);
 
 		Inverse /= Determinant;
-	    
+
 		return Inverse;
 	}
 }//namespace glm

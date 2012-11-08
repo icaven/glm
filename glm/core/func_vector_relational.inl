@@ -28,7 +28,7 @@
 
 namespace glm
 {
-    template <typename T, template <typename> class vecType> 
+	template <typename T, template <typename> class vecType> 
 	GLM_FUNC_QUALIFIER typename vecType<T>::bool_type lessThan
 	(
 		vecType<T> const & x, 
