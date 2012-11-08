@@ -79,7 +79,7 @@ namespace detail
 
 		// Convertions
 
-		//! Build a quaternion from euler angles (pitch, yaw, roll), in radians.
+		/// Build a quaternion from euler angles (pitch, yaw, roll), in radians.
 		explicit tquat(
 			tvec3<T> const & eulerAngles);
 		explicit tquat(
