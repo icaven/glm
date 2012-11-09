@@ -176,7 +176,7 @@ namespace detail
 
 	//////////////////////////////////////
 	// Matrix conversions
-    
+
 	template <typename T> 
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tmat2x4<T>::tmat2x4
@@ -660,6 +660,5 @@ namespace detail
 	{
 		return (m1[0] != m2[0]) || (m1[1] != m2[1]);
 	}
-
 } //namespace detail
 } //namespace glm

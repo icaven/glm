@@ -34,24 +34,20 @@ int test_inverse()
 	int Error(0);
 
 	{
-		glm::mat2 Matrix(1, 2, 3, 4);
-		glm::mat2 Inverse = glm::inverse(Matrix);
-		glm::mat2 Identity = Matrix * Inverse;
+		glm::mat2 const Matrix(1, 2, 3, 4);
+		glm::mat2 const Inverse = glm::inverse(Matrix);
+		glm::mat2 const Identity = Matrix * Inverse;
 
-		Error += glm::epsilonEqual(Identity[0][0], 1.0f, 0.01f) ? 0 : 1;
-		Error += glm::epsilonEqual(Identity[0][1], 0.0f, 0.01f) ? 0 : 1;
-		Error += glm::epsilonEqual(Identity[1][0], 0.0f, 0.01f) ? 0 : 1;
-		Error += glm::epsilonEqual(Identity[1][1], 1.0f, 0.01f) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Identity[0], glm::vec2(1.0f, 0.0f), glm::vec2(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Identity[1], glm::vec2(0.0f, 1.0f), glm::vec2(0.01f))) ? 0 : 1;
 	}
 
 	{
-		glm::mat2 Matrix(1, 2, 3, 4);
-		glm::mat2 Identity = Matrix / Matrix;
+		glm::mat2 const Matrix(1, 2, 3, 4);
+		glm::mat2 const Identity = Matrix / Matrix;
 
-		Error += glm::epsilonEqual(Identity[0][0], 1.0f, 0.01f) ? 0 : 1;
-		Error += glm::epsilonEqual(Identity[0][1], 0.0f, 0.01f) ? 0 : 1;
-		Error += glm::epsilonEqual(Identity[1][0], 0.0f, 0.01f) ? 0 : 1;
-		Error += glm::epsilonEqual(Identity[1][1], 1.0f, 0.01f) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Identity[0], glm::vec2(1.0f, 0.0f), glm::vec2(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Identity[1], glm::vec2(0.0f, 1.0f), glm::vec2(0.01f))) ? 0 : 1;
 	}
 
 	return Error;

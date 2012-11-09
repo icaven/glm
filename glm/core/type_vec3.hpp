@@ -44,8 +44,8 @@ namespace detail
 	template <typename T> struct tvec2;
 	template <typename T> struct tvec4;
 
-	// Basic 3D vector type.
-	// \ingroup core_template
+	/// Basic 3D vector type.
+	/// @ingroup core_template
 	template <typename T>
 	struct tvec3
 	{	
@@ -165,23 +165,23 @@ namespace detail
 		template <typename A, typename B> 
 		GLM_FUNC_DECL explicit tvec3(A const & s, tref2<B> const & v);
 
-        template <int E0, int E1, int E2>
-        GLM_FUNC_DECL tvec3(glm::detail::swizzle<3, T, tvec3<T>, E0, E1, E2, -1> const & that)
-        {
-            *this = that();
-        }
+		template <int E0, int E1, int E2>
+		GLM_FUNC_DECL tvec3(glm::detail::swizzle<3, T, tvec3<T>, E0, E1, E2, -1> const & that)
+		{
+			*this = that();
+		}
 
-        template <int E0, int E1>
-        GLM_FUNC_DECL tvec3(glm::detail::swizzle<2, T, tvec2<T>, E0, E1, -1, -2> const & v, T const & s)
-        {
-            *this = tvec3<T>(v(), s);
-        }
+		template <int E0, int E1>
+		GLM_FUNC_DECL tvec3(glm::detail::swizzle<2, T, tvec2<T>, E0, E1, -1, -2> const & v, T const & s)
+		{
+			*this = tvec3<T>(v(), s);
+		}
 
-        template <int E0, int E1>
-        GLM_FUNC_DECL tvec3(T const & s, glm::detail::swizzle<2, T, tvec2<T>, E0, E1, -1, -2> const & v)
-        {
-            *this = tvec3<T>(s, v());
-        }
+		template <int E0, int E1>
+		GLM_FUNC_DECL tvec3(T const & s, glm::detail::swizzle<2, T, tvec2<T>, E0, E1, -1, -2> const & v)
+		{
+			*this = tvec3<T>(s, v());
+		}
 
 		//////////////////////////////////////
 		// Unary arithmetic operators

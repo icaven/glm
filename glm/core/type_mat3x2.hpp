@@ -48,8 +48,8 @@ namespace detail
 	template <typename T> struct tmat4x3;
 	template <typename T> struct tmat4x4;
 
-	// \brief Template for 3 columns and 2 rows matrix of floating-point numbers.
-	// \ingroup core_template
+	/// @brief Template for 3 columns and 2 rows matrix of floating-point numbers.
+	/// @ingroup core_template
 	template <typename T> 
 	struct tmat3x2
 	{
@@ -92,25 +92,25 @@ namespace detail
 		// Conversions
 		template <typename U> 
 		GLM_FUNC_DECL explicit tmat3x2(
-            U const & x);
+			U const & x);
 			
 		template 
-        <
-            typename X1, typename Y1, 
-            typename X2, typename Y2, 
-            typename X3, typename Y3
-        > 
+		<
+			typename X1, typename Y1, 
+			typename X2, typename Y2, 
+			typename X3, typename Y3
+		> 
 		GLM_FUNC_DECL explicit tmat3x2(
-            X1 const & x1, Y1 const & y1, 
-            X2 const & x2, Y2 const & y2,
-            X3 const & x3, Y3 const & y3);
+			X1 const & x1, Y1 const & y1, 
+			X2 const & x2, Y2 const & y2,
+			X3 const & x3, Y3 const & y3);
 			
 		template <typename V1, typename V2, typename V3> 
 		GLM_FUNC_DECL explicit tmat3x2(
-            tvec2<V1> const & v1, 
-            tvec2<V2> const & v2,
-            tvec2<V3> const & v3);
-            
+			tvec2<V1> const & v1, 
+			tvec2<V2> const & v2,
+			tvec2<V3> const & v3);
+
 		// Matrix conversions
 		template <typename U> 
 		GLM_FUNC_DECL explicit tmat3x2(tmat3x2<U> const & m);
@@ -231,7 +231,6 @@ namespace detail
 	tmat3x2<T> const operator++ (
 		tmat3x2<T> const & m, 
 		int);
-
 } //namespace detail
 
 	/// @addtogroup core_precision
@@ -243,14 +242,14 @@ namespace detail
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
 	typedef detail::tmat3x2<lowp_float>		lowp_mat3x2;
-    
+
 	/// 3 columns of 2 components matrix of medium precision floating-point numbers.
 	/// There is no guarantee on the actual precision.
 	/// 
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
 	typedef detail::tmat3x2<mediump_float>	mediump_mat3x2;
-    
+
 	/// 3 columns of 2 components matrix of high precision floating-point numbers.
 	/// There is no guarantee on the actual precision.
 	/// 

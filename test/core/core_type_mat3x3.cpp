@@ -8,6 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/glm.hpp>
+#include <glm/gtc/epsilon.hpp>
 #include <cstdio>
 
 void print(glm::dmat3 const & Mat0)
@@ -53,12 +54,45 @@ static int test_operators()
 	return (S && !R) ? 0 : 1;
 }
 
+int test_inverse()
+{
+	int Error(0);
+
+	{
+		glm::mat3 const Matrix(
+			glm::vec3(0.6f, 0.2f, 0.3f), 
+			glm::vec3(0.2f, 0.7f, 0.5f), 
+			glm::vec3(0.3f, 0.5f, 0.7f));
+		glm::mat3 const Inverse = glm::inverse(Matrix);
+		glm::mat3 const Identity = Matrix * Inverse;
+
+		Error += glm::all(glm::epsilonEqual(Identity[0], glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Identity[1], glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Identity[2], glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(0.01f))) ? 0 : 1;
+	}
+
+	{
+		glm::mat3 const Matrix(
+			glm::vec3(0.6f, 0.2f, 0.3f), 
+			glm::vec3(0.2f, 0.7f, 0.5f), 
+			glm::vec3(0.3f, 0.5f, 0.7f));
+		glm::mat3 const Identity = Matrix / Matrix;
+
+		Error += glm::all(glm::epsilonEqual(Identity[0], glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Identity[1], glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Identity[2], glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(0.01f))) ? 0 : 1;
+	}
+
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
 
 	Error += test_mat3x3();
 	Error += test_operators();
+	Error += test_inverse();
 
 	return Error;
 }

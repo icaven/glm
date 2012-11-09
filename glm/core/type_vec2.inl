@@ -1024,6 +1024,5 @@ namespace detail
 	{
 		return tvec2<T>(this->x, this->y);
 	}
-
 }//namespace detail
 }//namespace glm

@@ -89,32 +89,32 @@ namespace detail
 			col_type const & v1,
 			col_type const & v2,
 			col_type const & v3);
-            
+
 		//////////////////////////////////////
 		// Conversions
 		template <typename U> 
 		GLM_FUNC_DECL explicit tmat4x2(
-            U const & x);
+			U const & x);
 			
 		template 
-        <
-            typename X1, typename Y1, 
-            typename X2, typename Y2, 
-            typename X3, typename Y3,
-            typename X4, typename Y4
-        > 
+		<
+			typename X1, typename Y1, 
+			typename X2, typename Y2, 
+			typename X3, typename Y3,
+			typename X4, typename Y4
+		> 
 		GLM_FUNC_DECL explicit tmat4x2(
-            X1 const & x1, Y1 const & y1, 
-            X2 const & x2, Y2 const & y2,
-            X3 const & x3, Y3 const & y3,
-            X4 const & x4, Y4 const & y4);
+			X1 const & x1, Y1 const & y1, 
+			X2 const & x2, Y2 const & y2,
+			X3 const & x3, Y3 const & y3,
+			X4 const & x4, Y4 const & y4);
 			
 		template <typename V1, typename V2, typename V3, typename V4> 
 		GLM_FUNC_DECL explicit tmat4x2(
-            tvec2<V1> const & v1, 
-            tvec2<V2> const & v2,
-            tvec2<V3> const & v3,
-            tvec2<V4> const & v4);
+			tvec2<V1> const & v1, 
+			tvec2<V2> const & v2,
+			tvec2<V3> const & v3,
+			tvec2<V4> const & v4);
             
 		// Matrix conversions
 		template <typename U> 
@@ -161,12 +161,12 @@ namespace detail
 	tmat4x2<T> operator+ (
 		tmat4x2<T> const & m, 
 		typename tmat4x2<T>::value_type const & s);
-	    
+
 	template <typename T> 
 	tmat4x2<T> operator+ (
 		tmat4x2<T> const & m1, 
 		tmat4x2<T> const & m2);
-	    
+
 	template <typename T> 
 	tmat4x2<T> operator- (
 		tmat4x2<T> const & m, 
@@ -236,7 +236,6 @@ namespace detail
 	tmat4x2<T> const operator++ (
 		tmat4x2<T> const & m, 
 		int);
-
 } //namespace detail
 
 	/// @addtogroup core_precision

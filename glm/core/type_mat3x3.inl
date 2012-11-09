@@ -166,7 +166,7 @@ namespace detail
 		X1 const & x1, Y1 const & y1, Z1 const & z1, 
 		X2 const & x2, Y2 const & y2, Z2 const & z2, 
 		X3 const & x3, Y3 const & y3, Z3 const & z3 
-	)		
+	)
 	{
 		this->value[0] = col_type(value_type(x1), value_type(y1), value_type(z1));
 		this->value[1] = col_type(value_type(x2), value_type(y2), value_type(z2));
@@ -180,7 +180,7 @@ namespace detail
 		tvec3<V1> const & v1, 
 		tvec3<V2> const & v2, 
 		tvec3<V3> const & v3
-	)		
+	)
 	{
 		this->value[0] = col_type(v1);
 		this->value[1] = col_type(v2);
