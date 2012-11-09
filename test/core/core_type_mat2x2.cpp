@@ -8,8 +8,9 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/glm.hpp>
+#include <glm/gtc/epsilon.hpp>
 
-static int test_operators()
+int test_operators()
 {
 	glm::mat2x2 l(1.0f);
 	glm::mat2x2 m(1.0f);
@@ -28,11 +29,40 @@ static int test_operators()
 	return (S && !R) ? 0 : 1;
 }
 
+int test_inverse()
+{
+	int Error(0);
+
+	{
+		glm::mat2 Matrix(1, 2, 3, 4);
+		glm::mat2 Inverse = glm::inverse(Matrix);
+		glm::mat2 Identity = Matrix * Inverse;
+
+		Error += glm::epsilonEqual(Identity[0][0], 1.0f, 0.01f) ? 0 : 1;
+		Error += glm::epsilonEqual(Identity[0][1], 0.0f, 0.01f) ? 0 : 1;
+		Error += glm::epsilonEqual(Identity[1][0], 0.0f, 0.01f) ? 0 : 1;
+		Error += glm::epsilonEqual(Identity[1][1], 1.0f, 0.01f) ? 0 : 1;
+	}
+
+	{
+		glm::mat2 Matrix(1, 2, 3, 4);
+		glm::mat2 Identity = Matrix / Matrix;
+
+		Error += glm::epsilonEqual(Identity[0][0], 1.0f, 0.01f) ? 0 : 1;
+		Error += glm::epsilonEqual(Identity[0][1], 0.0f, 0.01f) ? 0 : 1;
+		Error += glm::epsilonEqual(Identity[1][0], 0.0f, 0.01f) ? 0 : 1;
+		Error += glm::epsilonEqual(Identity[1][1], 1.0f, 0.01f) ? 0 : 1;
+	}
+
+	return Error;
+}
+
 int main()
 {
-	int Error = 0;
+	int Error(0);
 
 	Error += test_operators();
+	Error += test_inverse();
 
 	return Error;
 }
