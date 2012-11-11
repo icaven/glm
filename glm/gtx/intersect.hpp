@@ -81,9 +81,9 @@ namespace glm
 	//! From GLM_GTX_intersect extension.
 	template <typename genType>
 	bool intersectRaySphere(
-		genType const & orig, genType const & dir,
-		genType const & center, typename genType::value_type radius,
-		genType & position, genType & normal);
+		genType const & rayStarting, genType const & rayNormalizedDirection,
+		genType const & sphereCenter, const typename genType::value_type sphereRadius,
+		genType & intersectionPosition, genType & intersectionNormal);
 
     //! Compute the intersection of a line and a sphere.
 	//! From GLM_GTX_intersect extension

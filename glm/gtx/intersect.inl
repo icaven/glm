@@ -151,31 +151,16 @@ namespace glm
 	template <typename genType>
 	GLM_FUNC_QUALIFIER bool intersectRaySphere
 	(
-		genType const & rayStarting, genType const & rayDirection,
-		genType const & sphereCenter, typename genType::value_type sphereRadius,
-		genType & position, genType & normal
+		genType const & rayStarting, genType const & rayNormalizedDirection,
+		genType const & sphereCenter, const typename genType::value_type sphereRadius,
+		genType & intersectionPosition, genType & intersectionNormal
 	)
 	{
-		typename genType::value_type Epsilon = std::numeric_limits<typename genType::value_type>::epsilon();
-
-		typename genType::value_type a = dot(rayDirection, rayDirection);
-		typename genType::value_type b = typename genType::value_type(2) * dot(rayStarting, rayDirection);
-		typename genType::value_type c = dot(rayStarting, rayStarting) - sphereRadius * sphereRadius;
-		typename genType::value_type d = b * b - typename genType::value_type(4) * a * c;
-		typename genType::value_type e = sqrt(d);
-		typename genType::value_type x1 = (-b - e) / (typename genType::value_type(2) * a);
-		typename genType::value_type x2 = (-b + e) / (typename genType::value_type(2) * a);
-
-		if(x1 > Epsilon)
+		typename genType::value_type distance;
+		if( intersectRaySphere( rayStarting, rayNormalizedDirection, sphereCenter, sphereRadius * sphereRadius, distance ) )
 		{
-			position = rayStarting + rayDirection * sphereRadius;
-			normal = (position - sphereCenter) / sphereRadius;
-			return true;
-		}
-		else if(x2 > Epsilon)
-		{
-			position = rayStarting + rayDirection * sphereRadius;
-			normal = (position - sphereCenter) / sphereRadius;
+			intersectionPosition = rayStarting + rayNormalizedDirection * distance;
+			intersectionNormal = (intersectionPosition - sphereCenter) / sphereRadius;
 			return true;
 		}
 		return false;
