@@ -68,6 +68,15 @@ namespace glm
 		genType const & vert0, genType const & vert1, genType const & vert2,
 		genType & position);
 
+	//! Compute the intersection distance of a ray and a sphere. 
+	//! The ray direction vector is unit length.
+	//! From GLM_GTX_intersect extension.
+	template <typename genType>
+	bool intersectRaySphere(
+		genType const & rayStarting, genType const & rayNormalizedDirection,
+		genType const & sphereCenter, const typename genType::value_type sphereRadiusSquered,
+		typename genType::value_type & intersectionDistance);
+
     //! Compute the intersection of a ray and a sphere.
 	//! From GLM_GTX_intersect extension.
 	template <typename genType>
