@@ -90,8 +90,9 @@ namespace glm
 	template <typename genType>
 	bool intersectLineSphere(
 		genType const & point0, genType const & point1,
-		genType const & center, typename genType::value_type radius,
-		genType & position, genType & normal);
+		genType const & sphereCenter, typename genType::value_type sphereRadius,
+		genType & intersectionPosition1, genType & intersectionNormal1, 
+		genType & intersectionPosition2 = genType(), genType & intersectionNormal2 = genType());
 
 	/// @}
 }//namespace glm
