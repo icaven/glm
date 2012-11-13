@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_extented_min_max (dependence)
 ///
-/// @defgroup gtx_matrix_major_storage GLM_GTX_matrix_major_storage: Build matrix
+/// @defgroup gtx_matrix_major_storage GLM_GTX_matrix_major_storage
 /// @ingroup gtx
 /// 
 /// @brief Build matrices with specific matrix order, row or column

@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_wrap GLM_GTX_wrap: Texture coordinate wrap modes
+/// @defgroup gtx_wrap GLM_GTX_wrap
 /// @ingroup gtx
 /// 
 /// @brief Wrapping mode of texture coordinates.

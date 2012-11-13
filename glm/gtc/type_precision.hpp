@@ -29,7 +29,7 @@
 /// @see gtc_half_float (dependence)
 /// @see gtc_quaternion (dependence)
 /// 
-/// @defgroup gtc_type_precision GLM_GTC_type_precision: Vector and matrix types with defined precisions
+/// @defgroup gtc_type_precision GLM_GTC_type_precision
 /// @ingroup gtc
 /// 
 /// @brief Defines specific C++-based precision types.

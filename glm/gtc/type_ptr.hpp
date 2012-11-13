@@ -29,7 +29,7 @@
 /// @see gtc_half_float (dependence)
 /// @see gtc_quaternion (dependence)
 ///
-/// @defgroup gtc_type_ptr GLM_GTC_type_ptr: Memory layout access
+/// @defgroup gtc_type_ptr GLM_GTC_type_ptr
 /// @ingroup gtc
 ///
 /// @brief Handles the interaction between pointers and vector, matrix types.

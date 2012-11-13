@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtc_half_float (dependence)
 ///
-/// @defgroup gtx_bit GLM_GTX_bit: Extended bitwise operations
+/// @defgroup gtx_bit GLM_GTX_bit
 /// @ingroup gtx
 /// 
 /// @brief Allow to perform bit operations on integer values

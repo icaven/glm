@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_half_float (dependence)
 ///
-/// @defgroup gtx_fast_exponential GLM_GTX_fast_exponential: Fast exponentiation functions
+/// @defgroup gtx_fast_exponential GLM_GTX_fast_exponential
 /// @ingroup gtx
 /// 
 /// @brief Fast but less accurate implementations of exponential based functions.

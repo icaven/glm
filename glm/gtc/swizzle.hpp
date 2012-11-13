@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 /// 
-/// @defgroup gtc_swizzle GLM_GTC_swizzle: Swizzle 'operator' implementation
+/// @defgroup gtc_swizzle GLM_GTC_swizzle
 /// @ingroup gtc
 /// 
 /// @brief Provide functions to emulate GLSL swizzle operator fonctionalities.
@@ -50,20 +50,12 @@ namespace glm
 {
 	/// @addtogroup gtc_swizzle
 	/// @{
-	
 
 	template <typename T, template <typename> class vecType>
 	T const & swizzle(	
 		vecType<T> const & v,
 		comp x);
 
-    /// 
-	/// 
-	/// @param v Vector source   
-	/// @param x 
-	/// @tparam T  
-    /// @tparam vecType 
-	/// @see gtc_swizzle
 	template <typename T, template <typename> class vecType>
 	detail::tvec2<T> const & swizzle(
 		vecType<T> const & v,

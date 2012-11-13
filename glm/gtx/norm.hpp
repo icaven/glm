@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_quaternion (dependence)
 ///
-/// @defgroup gtx_norm GLM_GTX_norm: Vector norm calculations
+/// @defgroup gtx_norm GLM_GTX_norm
 /// @ingroup gtx
 /// 
 /// @brief Various way to compute vector norms.

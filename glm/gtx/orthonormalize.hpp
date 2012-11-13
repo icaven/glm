@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_extented_min_max (dependence)
 ///
-/// @defgroup gtx_orthonormalize GLM_GTX_orthonormalize: Orthonormalize
+/// @defgroup gtx_orthonormalize GLM_GTX_orthonormalize
 /// @ingroup gtx
 /// 
 /// @brief Orthonormalize matrices.

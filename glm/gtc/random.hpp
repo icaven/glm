@@ -29,7 +29,7 @@
 /// @see gtc_half_float (dependence)
 /// @see gtx_random (extended)
 ///
-/// @defgroup gtc_random GLM_GTC_random: Random number generation
+/// @defgroup gtc_random GLM_GTC_random
 /// @ingroup gtc
 /// 
 /// @brief Generate random number from various distribution methods.

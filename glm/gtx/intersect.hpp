@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_closest_point (dependence)
 ///
-/// @defgroup gtx_intersect GLM_GTX_intersect: Intersection tests
+/// @defgroup gtx_intersect GLM_GTX_intersect
 /// @ingroup gtx
 /// 
 /// @brief Add intersection functions

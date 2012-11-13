@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_spline GLM_GTX_spline: Spline
+/// @defgroup gtx_spline GLM_GTX_spline
 /// @ingroup gtx
 /// 
 /// @brief Spline functions

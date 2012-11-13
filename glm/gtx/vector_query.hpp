@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_vector_query GLM_GTX_vector_query: Vector query
+/// @defgroup gtx_vector_query GLM_GTX_vector_query
 /// @ingroup gtx
 /// 
 /// @brief Query informations of vector types

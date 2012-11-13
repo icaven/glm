@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_transform (dependence)
 ///
-/// @defgroup gtx_rotate_vector GLM_GTX_rotate_vector: Rotate vector
+/// @defgroup gtx_rotate_vector GLM_GTX_rotate_vector
 /// @ingroup gtx
 /// 
 /// @brief Function to directly rotate a vector

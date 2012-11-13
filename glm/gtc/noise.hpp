@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtc_noise GLM_GTC_noise: Procedural noise functions
+/// @defgroup gtc_noise GLM_GTC_noise
 /// @ingroup gtc
 /// 
 /// Defines 2D, 3D and 4D procedural noise functions 

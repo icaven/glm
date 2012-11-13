@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_integer GLM_GTX_integer: Extended integer functions
+/// @defgroup gtx_integer GLM_GTX_integer
 /// @ingroup gtx
 /// 
 /// @brief Add support for integer for core functions

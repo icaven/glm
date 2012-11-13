@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_log_base GLM_GTX_log_base: Log with base
+/// @defgroup gtx_log_base GLM_GTX_log_base
 /// @ingroup gtx
 /// 
 /// @brief Logarithm for any base. base can be a vector or a scalar.

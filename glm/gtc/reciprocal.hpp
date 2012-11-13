@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtc_reciprocal GLM_GTC_reciprocal: Reciprocal
+/// @defgroup gtc_reciprocal GLM_GTC_reciprocal
 /// @ingroup gtc
 /// 
 /// @brief Define secant, cosecant and cotangent functions.

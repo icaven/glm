@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_polar_coordinates GLM_GTX_polar_coordinates: Polar coordinates
+/// @defgroup gtx_polar_coordinates GLM_GTX_polar_coordinates
 /// @ingroup gtx
 /// 
 /// @brief Conversion from Euclidean space to polar space and revert.

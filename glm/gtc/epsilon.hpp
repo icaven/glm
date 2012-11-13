@@ -29,7 +29,7 @@
 /// @see gtc_half_float (dependence)
 /// @see gtc_quaternion (dependence)
 ///
-/// @defgroup gtc_epsilon GLM_GTC_epsilon: Epsilon comparison
+/// @defgroup gtc_epsilon GLM_GTC_epsilon
 /// @ingroup gtc
 /// 
 /// @brief Comparison functions for a user defined epsilon values.

@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_extented_min_max (dependence)
 ///
-/// @defgroup gtx_inertia GLM_GTX_inertia: Intertial matrix
+/// @defgroup gtx_inertia GLM_GTX_inertia
 /// @ingroup gtx
 /// 
 /// @brief Create inertia matrices

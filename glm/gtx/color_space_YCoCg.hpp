@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_color_space_YCoCg GLM_GTX_color_space_YCoCg: RGB to YCoCg conversion
+/// @defgroup gtx_color_space_YCoCg GLM_GTX_color_space_YCoCg
 /// @ingroup gtx
 ///
 /// @brief RGB to YCoCg conversions and operations

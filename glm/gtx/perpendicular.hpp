@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_projection (dependence)
 ///
-/// @defgroup gtx_perpendicular GLM_GTX_perpendicular: Perpendicular
+/// @defgroup gtx_perpendicular GLM_GTX_perpendicular
 /// @ingroup gtx
 /// 
 /// @brief Perpendicular of a vector from other one

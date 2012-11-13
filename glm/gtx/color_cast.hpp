@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_number_precision (dependence)
 ///
-/// @defgroup gtx_color_cast GLM_GTX_color_cast: Color conversion
+/// @defgroup gtx_color_cast GLM_GTX_color_cast
 /// @ingroup gtx
 ///
 /// @brief Conversion between two color types.

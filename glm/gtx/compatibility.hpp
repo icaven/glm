@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtc_half_float (dependence)
 ///
-/// @defgroup gtx_compatibility GLM_GTX_compatibility: Cg and HLSL compatibility
+/// @defgroup gtx_compatibility GLM_GTX_compatibility
 /// @ingroup gtx
 /// 
 /// @brief Provide functions to increase the compatibility with Cg and HLSL languages

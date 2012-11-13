@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_fast_trigonometry GLM_GTX_fast_trigonometry: Fast trigonometric functions
+/// @defgroup gtx_fast_trigonometry GLM_GTX_fast_trigonometry
 /// @ingroup gtx
 /// 
 /// @brief Fast but less accurate implementations of trigonometric functions.

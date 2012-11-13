@@ -30,7 +30,7 @@
 /// @see gtx_transform
 /// @see gtx_transform2
 ///
-/// @defgroup gtx_transform GLM_GTX_transform: Extented transformation matrices
+/// @defgroup gtx_transform GLM_GTX_transform
 /// @ingroup gtx
 ///
 /// @brief Add transformation matrices

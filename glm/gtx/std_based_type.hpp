@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_extented_min_max (dependence)
 ///
-/// @defgroup gtx_std_based_type GLM_GTX_std_based_type: Add types based on STL
+/// @defgroup gtx_std_based_type GLM_GTX_std_based_type
 /// @ingroup gtx
 /// 
 /// @brief Adds vector types based on STL value types.

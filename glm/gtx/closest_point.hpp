@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_closest_point GLM_GTX_closest_point: Find closest point
+/// @defgroup gtx_closest_point GLM_GTX_closest_point
 /// @ingroup gtx
 ///
 /// @brief Find the point on a straight line which is the closet of a point.

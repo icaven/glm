@@ -27,7 +27,7 @@
 /// 
 /// @see core (dependence)
 /// 
-/// @defgroup gtc_matrix_access GLM_GTC_matrix_access: Access matrix rows and columns
+/// @defgroup gtc_matrix_access GLM_GTC_matrix_access
 /// @ingroup gtc
 /// 
 /// Defines functions to access rows or columns of a matrix easily.

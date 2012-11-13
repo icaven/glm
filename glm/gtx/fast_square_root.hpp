@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_fast_square_root GLM_GTX_fast_square_root: Fast square root functions
+/// @defgroup gtx_fast_square_root GLM_GTX_fast_square_root
 /// @ingroup gtx
 /// 
 /// @brief Fast but less accurate implementations of square root based functions.

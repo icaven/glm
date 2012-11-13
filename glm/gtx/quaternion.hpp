@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_extented_min_max (dependence)
 ///
-/// @defgroup gtx_quaternion GLM_GTX_quaternion: Extented quaternion types and functions
+/// @defgroup gtx_quaternion GLM_GTX_quaternion
 /// @ingroup gtx
 /// 
 /// @brief Extented quaternion types and functions

@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_extented_min_max (dependence)
 ///
-/// @defgroup gtx_multiple GLM_GTX_multiple: Multiples 
+/// @defgroup gtx_multiple GLM_GTX_multiple
 /// @ingroup gtx
 /// 
 /// @brief Find the closest number of a number multiple of other number.

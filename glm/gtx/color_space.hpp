@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_color_space GLM_GTX_color_space: RGB to HSV conversion
+/// @defgroup gtx_color_space GLM_GTX_color_space
 /// @ingroup gtx
 /// 
 /// @brief Related to RGB to HSV conversions and operations.

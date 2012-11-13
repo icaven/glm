@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtc_half_float (dependence)
 ///
-/// @defgroup gtx_euler_angles GLM_GTX_euler_angles: Matrix from euler angles
+/// @defgroup gtx_euler_angles GLM_GTX_euler_angles
 /// @ingroup gtx
 /// 
 /// @brief Build matrices from Euler angles.

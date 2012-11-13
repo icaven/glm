@@ -100,7 +100,7 @@ namespace detail
 		VecType   = class the swizzle is applies to (e.g. tvec3<float>)
 		N         = number of components in the vector (e.g. 3)
 		E0...3    = what index the n-th element of this swizzle refers to in the unswizzled vec
-        
+
 		DUPLICATE_ELEMENTS = 1 if there is a repeated element, 0 otherwise (used to specialize swizzles
 			containing duplicate elements so that they cannot be used as r-values).            
 	*/
@@ -197,7 +197,7 @@ namespace detail
 		{
 			static const int offset_dst[4] = { E0, E1, E2, E3 };
 			return this->elem(offset_dst[i]);
-		} 
+		}
 	};
 
 	template <int N,typename ValueType, typename VecType, int E0,int E1,int E2,int E3>

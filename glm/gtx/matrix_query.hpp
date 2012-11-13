@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_vector_query (dependence)
 ///
-/// @defgroup gtx_matrix_query GLM_GTX_matrix_query: Query matrix properties
+/// @defgroup gtx_matrix_query GLM_GTX_matrix_query
 /// @ingroup gtx
 /// 
 /// @brief Query to evaluate matrix properties

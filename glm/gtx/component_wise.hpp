@@ -27,7 +27,7 @@
 /// 
 /// @see core (dependence)
 ///
-/// @defgroup gtx_component_wise GLM_GTX_component_wise: Component wise
+/// @defgroup gtx_component_wise GLM_GTX_component_wise
 /// @ingroup gtx
 /// 
 /// @brief Operations between components of a type

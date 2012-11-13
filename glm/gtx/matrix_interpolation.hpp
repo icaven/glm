@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_matrix_interpolation GLM_GTX_matrix_interpolation: Rotation and translation matrix interpolation
+/// @defgroup gtx_matrix_interpolation GLM_GTX_matrix_interpolation
 /// @ingroup gtx
 /// 
 /// @brief Allows to directly interpolate two exiciting matrices.

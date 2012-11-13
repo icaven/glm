@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_matrix_operation GLM_GTX_matrix_operation: Extended matrix operations
+/// @defgroup gtx_matrix_operation GLM_GTX_matrix_operation
 /// @ingroup gtx
 /// 
 /// @brief Build diagonal matrices from vectors.

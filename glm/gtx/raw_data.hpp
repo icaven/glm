@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_raw_data GLM_GTX_raw_data: Raw data
+/// @defgroup gtx_raw_data GLM_GTX_raw_data
 /// @ingroup gtx
 /// 
 /// @brief Projection of a vector to other one

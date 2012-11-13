@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_vec1 GLM_GTX_vec1: Add vec1 types
+/// @defgroup gtx_vec1 GLM_GTX_vec1
 /// @ingroup gtx
 /// 
 /// @brief Add vec1, ivec1, uvec1 and bvec1 types.

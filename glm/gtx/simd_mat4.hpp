@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_simd_mat4 GLM_GTX_simd_mat4: SIMD mat4 type and functions
+/// @defgroup gtx_simd_mat4 GLM_GTX_simd_mat4
 /// @ingroup gtx
 /// 
 /// @brief SIMD implementation of mat4 type.

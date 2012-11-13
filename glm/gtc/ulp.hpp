@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtc_ulp GLM_GTC_ulp: Accuracy measurement
+/// @defgroup gtc_ulp GLM_GTC_ulp
 /// @ingroup gtc
 /// 
 /// @brief Allow the measurement of the accuracy of a function against a reference 

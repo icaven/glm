@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtc_half_float (dependence)
 ///
-/// @defgroup gtc_constants GLM_GTC_constants: Provide build-in constants
+/// @defgroup gtc_constants GLM_GTC_constants
 /// @ingroup gtc
 /// 
 /// @brief Allow to perform bit operations on integer values

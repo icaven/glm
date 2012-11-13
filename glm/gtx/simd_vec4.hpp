@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_simd_vec4 GLM_GTX_simd_vec4: SIMD vec4 type and functions
+/// @defgroup gtx_simd_vec4 GLM_GTX_simd_vec4
 /// @ingroup gtx
 /// 
 /// @brief SIMD implementation of vec4 type.

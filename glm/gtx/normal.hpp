@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_extented_min_max (dependence)
 ///
-/// @defgroup gtx_normal GLM_GTX_normal: Compute normals
+/// @defgroup gtx_normal GLM_GTX_normal
 /// @ingroup gtx
 /// 
 /// @brief Compute the normal of a triangle.

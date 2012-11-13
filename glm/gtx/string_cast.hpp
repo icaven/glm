@@ -30,7 +30,7 @@
 /// @see gtx_integer (dependence)
 /// @see gtx_quaternion (dependence)
 ///
-/// @defgroup gtx_string_cast GLM_GTX_string_cast: String cast
+/// @defgroup gtx_string_cast GLM_GTX_string_cast
 /// @ingroup gtx
 /// 
 /// @brief Setup strings for GLM type values

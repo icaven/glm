@@ -29,7 +29,7 @@
 /// @see gtc_type_precision (dependence)
 /// @see gtc_quaternion (dependence)
 ///
-/// @defgroup gtx_number_precision GLM_GTX_number_precision: Number precision
+/// @defgroup gtx_number_precision GLM_GTX_number_precision
 /// @ingroup gtx
 /// 
 /// @brief Defined size types.

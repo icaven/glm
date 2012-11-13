@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_optimum_pow GLM_GTX_optimum_pow: Optimum pow
+/// @defgroup gtx_optimum_pow GLM_GTX_optimum_pow
 /// @ingroup gtx
 /// 
 /// @brief Integer exponentiation of power functions.

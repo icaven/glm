@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_handed_coordinate_space GLM_GTX_handed_coordinate_space: Space Handedness
+/// @defgroup gtx_handed_coordinate_space GLM_GTX_handed_coordinate_space
 /// @ingroup gtx
 /// 
 /// @brief To know if a set of three basis vectors defines a right or left-handed coordinate system.

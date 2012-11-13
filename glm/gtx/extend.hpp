@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_extend GLM_GTX_extend: Position extending 
+/// @defgroup gtx_extend GLM_GTX_extend
 /// @ingroup gtx
 /// 
 /// @brief Extend a position from a source to a position at a defined length.

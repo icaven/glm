@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtc_matrix_integer GLM_GTC_matrix_integer: Integer matrix types
+/// @defgroup gtc_matrix_integer GLM_GTC_matrix_integer
 /// @ingroup gtc
 /// 
 /// Defines a number of matrices with integer types.

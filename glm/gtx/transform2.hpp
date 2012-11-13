@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_transform (dependence)
 ///
-/// @defgroup gtx_transform2 GLM_GTX_transform2: Extra transformation matrices
+/// @defgroup gtx_transform2 GLM_GTX_transform2
 /// @ingroup gtx
 /// 
 /// @brief Add extra transformation matrices

@@ -29,7 +29,7 @@
 /// @see gtx_quaternion (dependence)
 /// @see gtx_epsilon (dependence)
 ///
-/// @defgroup gtx_vector_angle GLM_GTX_vector_angle: Vector angle
+/// @defgroup gtx_vector_angle GLM_GTX_vector_angle
 /// @ingroup gtx
 /// 
 /// @brief Compute angle between vectors

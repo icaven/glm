@@ -29,7 +29,7 @@
 /// @see gtx_transform
 /// @see gtx_transform2
 /// 
-/// @defgroup gtc_matrix_transform GLM_GTC_matrix_transform: Matrix transform functions
+/// @defgroup gtc_matrix_transform GLM_GTC_matrix_transform
 /// @ingroup gtc
 /// 
 /// @brief Defines functions that generate common transformation matrices.

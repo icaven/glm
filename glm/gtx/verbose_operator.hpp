@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_verbose_operator GLM_GTX_verbose_operator: Verbose operator
+/// @defgroup gtx_verbose_operator GLM_GTX_verbose_operator
 /// @ingroup gtx
 /// 
 /// @brief Use words to replace operators

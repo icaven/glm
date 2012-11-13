@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_projection GLM_GTX_projection: Projection
+/// @defgroup gtx_projection GLM_GTX_projection
 /// @ingroup gtx
 /// 
 /// @brief Projection of a vector to other one

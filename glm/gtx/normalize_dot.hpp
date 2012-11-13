@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_fast_square_root (dependence)
 ///
-/// @defgroup gtx_normalize_dot GLM_GTX_normalize_dot: Normalize dot product
+/// @defgroup gtx_normalize_dot GLM_GTX_normalize_dot
 /// @ingroup gtx
 /// 
 /// @brief Dot product of vectors that need to be normalize with a single square root.

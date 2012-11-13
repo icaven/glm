@@ -14,6 +14,7 @@
 	- Clang 2.6 and higher
 	- CUDA 3.0 and higher
 	- GCC 3.4 and higher
+	- Intel C++ Composer XE 2013 and higher
 	- LLVM 2.3 through GCC 4.2 front-end and higher
 	- Visual Studio 2005 and higher
 	- Any conform C++98 or C++11 compiler
@@ -27,7 +28,7 @@
 
 	These pages are the API reference only. For more information about how to use GLM, please have a look at <a href="http://glm.g-truc.net/glm.pdf">the manual</a>.
 	 
-	Thanks for contributing to the project by <a href="https://sourceforge.net/apps/trac/ogl-math/newticket">submitting tickets for bug reports and feature requests</a>. 
+	Thanks for contributing to the project by <a href="https://github.com/g-truc/glm/issues">submitting tickets for bug reports and feature requests</a>. 
 	(SF.net account required). Any feedback is welcome at glm@g-truc.net.
 **/
 

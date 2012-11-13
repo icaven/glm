@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtc_half_float GLM_GTC_half_float: Half-precision floating-point based types and functions
+/// @defgroup gtc_half_float GLM_GTC_half_float
 /// @ingroup gtc
 /// 
 /// Defines the half-precision floating-point type, along with various typedefs for vectors and matrices.

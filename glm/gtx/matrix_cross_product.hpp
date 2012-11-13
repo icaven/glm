@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_extented_min_max (dependence)
 ///
-/// @defgroup gtx_matrix_cross_product GLM_GTX_matrix_cross_product: Cross product matrix form
+/// @defgroup gtx_matrix_cross_product GLM_GTX_matrix_cross_product
 /// @ingroup gtx
 /// 
 /// @brief Build cross product matrices

@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_raw_data (dependence)
 ///
-/// @defgroup gtx_int_10_10_10_2 GLM_GTX_int_10_10_10_2: Packed integer
+/// @defgroup gtx_int_10_10_10_2 GLM_GTX_int_10_10_10_2
 /// @ingroup gtx
 /// 
 /// @brief Pack vector to 1010102 integers. Storage only.

@@ -30,7 +30,7 @@ namespace glm
 {
 	template <typename T, template <typename> class vecType>
 	GLM_FUNC_QUALIFIER T swizzle
-	(	
+	(
 		vecType<T> const & v,
 		comp x
 	)

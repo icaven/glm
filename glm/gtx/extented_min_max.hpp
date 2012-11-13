@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_half_float (dependence)
 ///
-/// @defgroup gtx_extented_min_max GLM_GTX_extented_min_max: Extended min max
+/// @defgroup gtx_extented_min_max GLM_GTX_extented_min_max
 /// @ingroup gtx
 /// 
 /// Min and max functions for 3 to 4 parameters.

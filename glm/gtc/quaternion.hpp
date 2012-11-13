@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtc_half_float (dependence)
 /// 
-/// @defgroup gtc_quaternion GLM_GTC_quaternion: Quaternion types and functions
+/// @defgroup gtc_quaternion GLM_GTC_quaternion
 /// @ingroup gtc
 /// 
 /// @brief Defines a templated quaternion type and several quaternion operations.
@@ -197,14 +197,16 @@ namespace detail
 
 	/// Rotates a quaternion from an vector of 3 components axis and an angle.
 	/// 
+	/// @param q Source orientation
 	/// @param angle Angle expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
+	/// @param axis Axis of the rotation, must be normalized.
 	/// 
 	/// @see gtc_quaternion
 	template <typename T> 
 	detail::tquat<T> rotate(
 		detail::tquat<T> const & q, 
 		typename detail::tquat<T>::value_type const & angle, 
-		detail::tvec3<T> const & v);
+		detail::tvec3<T> const & axis);
 
 	/// Returns euler angles, yitch as x, yaw as y, roll as z. 
 	/// 
@@ -258,6 +260,9 @@ namespace detail
 	/// Build a quaternion from an angle and a normalized axis. 
 	///
 	/// @param angle Angle expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
+	/// @param x x component of the x-axis, x, y, z must be a normalized axis
+	/// @param y y component of the y-axis, x, y, z must be a normalized axis
+	/// @param z z component of the z-axis, x, y, z must be a normalized axis
 	///
 	/// @see gtc_quaternion
 	template <typename valType> 
@@ -267,7 +272,7 @@ namespace detail
 		valType const & y, 
 		valType const & z);
 
-    /// Build a quaternion from an angle and a normalized axis.
+	/// Build a quaternion from an angle and a normalized axis.
 	///
 	/// @param angle Angle expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
 	/// @param axis Axis of the quaternion, must be normalized. 
@@ -281,7 +286,7 @@ namespace detail
 	/// Quaternion of floating-point numbers. 
 	/// 
 	/// @see gtc_quaternion
-    typedef detail::tquat<float> quat;
+	typedef detail::tquat<float> quat;
 
 	/// Quaternion of half-precision floating-point numbers.
 	/// 

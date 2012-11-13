@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_extented_min_max (dependence)
 ///
-/// @defgroup gtx_ocl_type GLM_GTX_ocl_type: OpenCL types
+/// @defgroup gtx_ocl_type GLM_GTX_ocl_type
 /// @ingroup gtx
 /// 
 /// @brief OpenCL types.

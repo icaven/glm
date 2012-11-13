@@ -28,7 +28,7 @@
 /// @see core (dependence)
 /// @see gtx_optimum_pow (dependence)
 ///
-/// @defgroup gtx_gradient_paint GLM_GTX_gradient_paint: Procedural gradient color
+/// @defgroup gtx_gradient_paint GLM_GTX_gradient_paint
 /// @ingroup gtx
 /// 
 /// @brief Functions that return the color of procedural gradient for specific coordinates.

@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_mixed_product GLM_GTX_mixed_producte: Mixed product
+/// @defgroup gtx_mixed_product GLM_GTX_mixed_producte
 /// @ingroup gtx
 /// 
 /// @brief Mixed product of 3 vectors.

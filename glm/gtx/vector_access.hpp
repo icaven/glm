@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_vector_access GLM_GTX_vector_access: Vector access
+/// @defgroup gtx_vector_access GLM_GTX_vector_access
 /// @ingroup gtx
 /// 
 /// @brief Function to set values to vectors

@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 /// 
-/// @defgroup gtc_matrix_inverse GLM_GTC_matrix_inverse: Additional matrix inverse function
+/// @defgroup gtc_matrix_inverse GLM_GTC_matrix_inverse
 /// @ingroup gtc
 /// 
 /// Defines additional matrix inverting functions.
