@@ -14,18 +14,17 @@ namespace glm
 	GLM_FUNC_QUALIFIER bool isfinite(
 		genType const & x)
 	{
-#       if(GLM_COMPILER & GLM_COMPILER_VC)
-            return _finite(x);
-#       elif(GLM_COMPILER & GLM_COMPILER_GCC)
-#           if(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
-                return _isfinite(x) != 0;
-#           else
-                return std::isfinite(x) != 0;
-#           endif
-#       else
-            return std::isfinite(x) != 0;
-#       endif
-
+#		if(GLM_COMPILER & GLM_COMPILER_VC)
+			return _finite(x);
+#		elif(GLM_COMPILER & GLM_COMPILER_GCC)
+#			if(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
+				return _isfinite(x) != 0;
+#			else
+				return std::isfinite(x) != 0;
+#			endif
+#		else
+			return std::isfinite(x) != 0;
+#		endif
 	}
 
 	template <typename valType> 

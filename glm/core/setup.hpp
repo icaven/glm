@@ -54,19 +54,19 @@
 #ifdef GLM_FORCE_PLATFORM_UNKNOWN
 #	define GLM_PLATFORM GLM_PLATFORM_UNKNOWN
 #elif defined(__QNXNTO__)
-#   define GLM_PLATFORM GLM_PLATFORM_QNXNTO
+#	define GLM_PLATFORM GLM_PLATFORM_QNXNTO
 #elif defined(__APPLE__)
-#   define GLM_PLATFORM GLM_PLATFORM_APPLE
+#	define GLM_PLATFORM GLM_PLATFORM_APPLE
 #elif defined(_WIN32)
 #	define GLM_PLATFORM GLM_PLATFORM_WINDOWS
 #elif defined(__native_client__)
 #	define GLM_PLATFORM GLM_PLATFORM_CHROME_NACL
 #elif defined(__ANDROID__)
-#   define GLM_PLATFORM GLM_PLATFORM_ANDROID
+#	define GLM_PLATFORM GLM_PLATFORM_ANDROID
 #elif defined(__linux)
-#   define GLM_PLATFORM GLM_PLATFORM_LINUX
+#	define GLM_PLATFORM GLM_PLATFORM_LINUX
 #elif defined(__unix)
-#   define GLM_PLATFORM GLM_PLATFORM_UNIX
+#	define GLM_PLATFORM GLM_PLATFORM_UNIX
 #else
 #	define GLM_PLATFORM GLM_PLATFORM_UNKNOWN
 #endif//
@@ -117,9 +117,9 @@
 #define GLM_COMPILER_VC2012			0x010000A0
 
 // GCC defines
-#define GLM_COMPILER_GCC            0x02000000
-#define GLM_COMPILER_GCC_LLVM       0x02000001
-#define GLM_COMPILER_GCC_CLANG      0x02000002
+#define GLM_COMPILER_GCC			0x02000000
+#define GLM_COMPILER_GCC_LLVM		0x02000001
+#define GLM_COMPILER_GCC_CLANG		0x02000002
 #define GLM_COMPILER_GCC30			0x02000010
 #define GLM_COMPILER_GCC31			0x02000020
 #define GLM_COMPILER_GCC32			0x02000030
@@ -153,7 +153,7 @@
 #define GLM_COMPILER_CODEWARRIOR	0x08000000
 
 // CUDA
-#define GLM_COMPILER_CUDA           0x10000000
+#define GLM_COMPILER_CUDA			0x10000000
 #define GLM_COMPILER_CUDA30			0x10000010
 #define GLM_COMPILER_CUDA31			0x10000020
 #define GLM_COMPILER_CUDA32			0x10000030
@@ -162,7 +162,7 @@
 #define GLM_COMPILER_CUDA42			0x10000060
 
 // Clang
-#define GLM_COMPILER_CLANG          0x20000000
+#define GLM_COMPILER_CLANG			0x20000000
 #define GLM_COMPILER_CLANG26		0x20000010
 #define GLM_COMPILER_CLANG27		0x20000020
 #define GLM_COMPILER_CLANG28		0x20000030
@@ -180,7 +180,7 @@
 #define GLM_COMPILER_LLVM_GCC		0x40000000
 
 // Intel
-#define GLM_COMPILER_INTEL          0x80000000
+#define GLM_COMPILER_INTEL			0x80000000
 #define GLM_COMPILER_INTEL9			0x80000010
 #define GLM_COMPILER_INTEL10_0		0x80000020
 #define GLM_COMPILER_INTEL10_1		0x80000030
@@ -296,7 +296,7 @@
 #		define GLM_COMPILER GLM_COMPILER_CLANG43
 #	else
 #		define GLM_COMPILER GLM_COMPILER_CLANG
-#   endif
+#	endif
 
 // G++ 
 #elif(defined(__GNUC__) || defined(__MINGW32__))// || defined(__llvm__) || defined(__clang__)
@@ -372,13 +372,13 @@
 #	elif(GLM_COMPILER & GLM_COMPILER_LLVM_GCC)
 #		pragma message("GLM: LLVM GCC compiler detected")
 #	elif(GLM_COMPILER & GLM_COMPILER_GCC)
-#       if(GLM_COMPILER == GLM_COMPILER_GCC_LLVM)
-#           pragma message("GLM: LLVM GCC compiler detected")
-#       elif(GLM_COMPILER == GLM_COMPILER_GCC_CLANG)
-#           pragma message("GLM: CLANG compiler detected")
-#       else
-#           pragma message("GLM: GCC compiler detected")
-#       endif
+#		if(GLM_COMPILER == GLM_COMPILER_GCC_LLVM)
+#			pragma message("GLM: LLVM GCC compiler detected")
+#		elif(GLM_COMPILER == GLM_COMPILER_GCC_CLANG)
+#			pragma message("GLM: CLANG compiler detected")
+#		else
+#			pragma message("GLM: GCC compiler detected")
+#		endif
 #	elif(GLM_COMPILER & GLM_COMPILER_BC)
 #		pragma message("GLM: Borland compiler detected but not supported")
 #	elif(GLM_COMPILER & GLM_COMPILER_CODEWARRIOR)
@@ -400,7 +400,7 @@
 #endif//
 
 #if(!defined(GLM_MODEL) && GLM_COMPILER != 0)
-#error "GLM_MODEL undefined, your compiler may not be supported by GLM. Add #define GLM_MODEL 0 to ignore this message."
+#	error "GLM_MODEL undefined, your compiler may not be supported by GLM. Add #define GLM_MODEL 0 to ignore this message."
 #endif//GLM_MODEL
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_MODEL_DISPLAYED))
