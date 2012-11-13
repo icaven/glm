@@ -60,7 +60,7 @@ namespace glm
 		genType const & vert0, genType const & vert1, genType const & vert2,
 		genType & baryPosition);
 
-    //! Compute the intersection of a line and a triangle.
+	//! Compute the intersection of a line and a triangle.
 	//! From GLM_GTX_intersect extension.
 	template <typename genType>
 	bool intersectLineTriangle(
@@ -77,7 +77,7 @@ namespace glm
 		genType const & sphereCenter, const typename genType::value_type sphereRadiusSquered,
 		typename genType::value_type & intersectionDistance);
 
-    //! Compute the intersection of a ray and a sphere.
+	//! Compute the intersection of a ray and a sphere.
 	//! From GLM_GTX_intersect extension.
 	template <typename genType>
 	bool intersectRaySphere(
@@ -85,7 +85,7 @@ namespace glm
 		genType const & sphereCenter, const typename genType::value_type sphereRadius,
 		genType & intersectionPosition, genType & intersectionNormal);
 
-    //! Compute the intersection of a line and a sphere.
+	//! Compute the intersection of a line and a sphere.
 	//! From GLM_GTX_intersect extension
 	template <typename genType>
 	bool intersectLineSphere(
