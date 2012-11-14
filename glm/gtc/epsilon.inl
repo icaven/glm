@@ -28,7 +28,6 @@
 
 namespace glm
 {
-	template <>
 	GLM_FUNC_QUALIFIER bool epsilonEqual
 	(
 		glm::half const & x, 
@@ -39,7 +38,6 @@ namespace glm
 		return abs(x - y) < epsilon;
 	}
 
-	template <>
 	GLM_FUNC_QUALIFIER bool epsilonEqual
 	(
 		float const & x, 
@@ -50,7 +48,6 @@ namespace glm
 		return abs(x - y) < epsilon;
 	}
 
-	template <>
 	GLM_FUNC_QUALIFIER bool epsilonEqual
 	(
 		double const & x, 
@@ -61,7 +58,6 @@ namespace glm
 		return abs(x - y) < epsilon;
 	}
 
-	template <>
 	GLM_FUNC_QUALIFIER bool epsilonNotEqual
 	(
 		glm::half const & x, 
@@ -72,7 +68,6 @@ namespace glm
 		return abs(x - y) >= epsilon;
 	}
 
-	template <>
 	GLM_FUNC_QUALIFIER bool epsilonNotEqual
 	(
 		float const & x, 
@@ -83,7 +78,6 @@ namespace glm
 		return abs(x - y) >= epsilon;
 	}
 
-	template <>
 	GLM_FUNC_QUALIFIER bool epsilonNotEqual
 	(
 		double const & x, 
@@ -260,7 +254,6 @@ namespace glm
 			abs(x.w - y.w) >= epsilon.w);
 	}
 
-/*
 	template <typename valType>
 	GLM_FUNC_QUALIFIER detail::tvec4<bool> epsilonEqual
 	(
@@ -290,6 +283,4 @@ namespace glm
 			abs(x.z - y.z) >= epsilon.z,
 			abs(x.w - y.w) >= epsilon.w);
 	}
-*/
-
 }//namespace glm
