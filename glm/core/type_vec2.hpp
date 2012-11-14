@@ -44,8 +44,6 @@ namespace detail
 	template <typename T> struct tvec3;
 	template <typename T> struct tvec4;
 
-	/// The basic 2D vector type.
-	/// @ingroup core_template
 	template <typename T>
 	struct tvec2
 	{
