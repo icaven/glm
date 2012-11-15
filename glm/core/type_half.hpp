@@ -39,8 +39,6 @@ namespace detail
 	float toFloat32(hdata value);
 	hdata toFloat16(float const & value);
 
-	/// 16-bit floating point type.
-	/// @ingroup gtc_half_float
 	class half
 	{
 	public: 
