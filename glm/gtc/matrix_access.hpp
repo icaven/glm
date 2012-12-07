@@ -58,7 +58,7 @@ namespace glm
 
 	/// Set a specific row to a matrix.
 	/// @see gtc_matrix_access
-    template <typename genType> 
+	template <typename genType> 
 	genType row(
 		genType const & m, 
 		int index, 
