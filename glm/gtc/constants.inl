@@ -28,159 +28,159 @@
 
 namespace glm
 {
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T epsilon()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType epsilon()
 	{
-		return std::numeric_limits<T>::epsilon();
+		return std::numeric_limits<genType>::epsilon();
 	}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR half epsilon()
+	GLM_FUNC_QUALIFIER half epsilon()
 	{
 		return half(1.19209290e-007);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T zero()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType zero()
 	{
-		return T(0);
+		return genType(0);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T one()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType one()
 	{
-		return T(1);
+		return genType(1);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T pi()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType pi()
 	{
-		return T(3.14159265358979323846264338327950288);
+		return genType(3.14159265358979323846264338327950288);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T root_pi()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType root_pi()
 	{
-		return T(1.772453850905516027);
+		return genType(1.772453850905516027);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T half_pi()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType half_pi()
 	{
-		return T(1.57079632679489661923132169163975144);
+		return genType(1.57079632679489661923132169163975144);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T quarter_pi()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType quarter_pi()
 	{
-		return T(0.785398163397448309615660845819875721);
+		return genType(0.785398163397448309615660845819875721);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T one_over_pi()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType one_over_pi()
 	{
-		return T(0.318309886183790671537767526745028724);
+		return genType(0.318309886183790671537767526745028724);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T two_over_pi()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType two_over_pi()
 	{
-		return T(0.636619772367581343075535053490057448);
+		return genType(0.636619772367581343075535053490057448);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T two_over_root_pi()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType two_over_root_pi()
 	{
-		return T(1.12837916709551257389615890312154517);
+		return genType(1.12837916709551257389615890312154517);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T one_over_root_two()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType one_over_root_two()
 	{
-		return T(0.707106781186547524400844362104849039);
+		return genType(0.707106781186547524400844362104849039);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T root_half_pi()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType root_half_pi()
 	{
-		return T(1.253314137315500251);
+		return genType(1.253314137315500251);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T root_two_pi()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType root_two_pi()
 	{
-		return T(2.506628274631000502);
+		return genType(2.506628274631000502);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T root_ln_four()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType root_ln_four()
 	{
-		return T(1.17741002251547469);
+		return genType(1.17741002251547469);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T e()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType e()
 	{
-		return T(2.71828182845904523536);
+		return genType(2.71828182845904523536);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T euler()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType euler()
 	{
-		return T(0.577215664901532860606);
+		return genType(0.577215664901532860606);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T root_two()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType root_two()
 	{
-		return T(1.41421356237309504880168872420969808);
+		return genType(1.41421356237309504880168872420969808);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T root_three()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType root_three()
 	{
-		return T(1.73205080756887729352744634150587236);
+		return genType(1.73205080756887729352744634150587236);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T root_five()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType root_five()
 	{
-		return T(2.23606797749978969640917366873127623);
+		return genType(2.23606797749978969640917366873127623);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T ln_two()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType ln_two()
 	{
-		return T(0.693147180559945309417232121458176568);
+		return genType(0.693147180559945309417232121458176568);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T ln_ten()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType ln_ten()
 	{
-		return T(2.30258509299404568401799145468436421);
+		return genType(2.30258509299404568401799145468436421);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T ln_ln_two()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType ln_ln_two()
 	{
-		return T(-0.3665129205816643);
+		return genType(-0.3665129205816643);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T third()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType third()
 	{
-		return T(0.3333333333333333333333333333333333333333);
+		return genType(0.3333333333333333333333333333333333333333);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T two_thirds()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType two_thirds()
 	{
-		return T(0.666666666666666666666666666666666666667);
+		return genType(0.666666666666666666666666666666666666667);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T golden_ratio()
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType golden_ratio()
 	{
-		return T(1.61803398874989484820458683436563811);
+		return genType(1.61803398874989484820458683436563811);
 	}
 } //namespace glm
