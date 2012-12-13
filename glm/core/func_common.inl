@@ -332,11 +332,7 @@ namespace detail
 			detail::type<valType>::is_int ||
 			detail::type<valType>::is_uint, "'clamp' only accept numbers");
 		
-		// Old implementation, less predictable branching
-		//if(x >= maxVal) return maxVal; 
-		//if(x <= minVal) return minVal;
-		//return x;
-		return max(min(x, maxVal), minVal);
+		return min(maxVal, max(minVal, x));
 	}
 
 	template <typename T>
