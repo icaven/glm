@@ -87,7 +87,7 @@ namespace glm
 	/// 
 	/// @param m Input matrix multiplied by this rotation matrix.
 	/// @param angle Rotation angle expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
-	/// @param axis Rotation axis, recommanded to be normalized.
+	/// @param axis Rotation axis.
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	/// @see gtx_transform

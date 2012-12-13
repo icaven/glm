@@ -51,7 +51,7 @@ namespace glm
 #ifdef GLM_FORCE_RADIANS
 		T a = angle;
 #else
-		T a = radians(angle);		
+		T a = radians(angle);
 #endif
 		T c = cos(a);
 		T s = sin(a);

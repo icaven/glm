@@ -192,11 +192,11 @@ namespace detail
 	detail::tquat<T> inverse(
 		detail::tquat<T> const & q);
 
-	/// Rotates a quaternion from an vector of 3 components axis and an angle.
+	/// Rotates a quaternion from a vector of 3 components axis and an angle.
 	/// 
 	/// @param q Source orientation
 	/// @param angle Angle expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
-	/// @param axis Axis of the rotation, must be normalized.
+	/// @param axis Axis of the rotation
 	/// 
 	/// @see gtc_quaternion
 	template <typename T> 
