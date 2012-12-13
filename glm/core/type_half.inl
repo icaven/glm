@@ -266,11 +266,17 @@ namespace detail
 	GLM_FUNC_QUALIFIER half::half(U const & s) :
 		data(toFloat16(float(s)))
 	{}
-
+/*
 	template <typename U>
 	GLM_FUNC_QUALIFIER half::operator U() const
 	{
 		return static_cast<U>(toFloat32(this->data));
+	}
+*/
+
+	GLM_FUNC_QUALIFIER half::operator float() const
+	{
+		return toFloat32(this->data);
 	}
 
 	// Unary updatable operators

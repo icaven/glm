@@ -212,6 +212,27 @@ namespace detail
 	detail::tvec3<T> eulerAngles(
 		detail::tquat<T> const & x);
 
+	/// Returns roll value of euler angles expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
+	///
+	/// @see gtx_quaternion
+	template <typename valType> 
+	valType roll(
+		detail::tquat<valType> const & x);
+
+	/// Returns pitch value of euler angles expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
+	///
+	/// @see gtx_quaternion
+	template <typename valType> 
+	valType pitch(
+		detail::tquat<valType> const & x);
+
+	/// Returns yaw value of euler angles expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
+	///
+	/// @see gtx_quaternion
+	template <typename valType> 
+	valType yaw(
+		detail::tquat<valType> const & x);
+
 	/// Converts a quaternion to a 3 * 3 matrix. 
 	/// 
 	/// @see gtc_quaternion

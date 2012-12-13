@@ -38,7 +38,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'pow' only accept floating-point input");
 
-		return ::std::pow(x, y);
+		return genType(::std::pow(x, y));
 	}
 
 	VECTORIZE_VEC_VEC(pow)
@@ -52,7 +52,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'exp' only accept floating-point input");
 
-		return ::std::exp(x);
+		return genType(::std::exp(x));
 	}
 
 	VECTORIZE_VEC(exp)
@@ -66,7 +66,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'log' only accept floating-point input");
 
-		return ::std::log(x);
+		return genType(::std::log(x));
 	}
 
 	VECTORIZE_VEC(log)
@@ -80,7 +80,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'exp2' only accept floating-point input");
 
-		return ::std::exp(genType(0.69314718055994530941723212145818) * x);
+		return genType(::std::exp(genType(0.69314718055994530941723212145818) * x));
 	}
 
 	VECTORIZE_VEC(exp2)

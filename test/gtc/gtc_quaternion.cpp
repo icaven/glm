@@ -13,34 +13,34 @@
 
 int test_quat_angle()
 {
-    int Error = 0;
-    
-    {
-        glm::quat Q = glm::angleAxis(45.0f, glm::vec3(0, 0, 1));
-        glm::quat N = glm::normalize(Q);
-        float L = glm::length(N);
-        Error += glm::epsilonEqual(L, 1.0f, 0.01f) ? 0 : 1;
-        float A = glm::angle(N);
-        Error += glm::epsilonEqual(A, 45.0f, 0.01f) ? 0 : 1;
-    }
-    {
-        glm::quat Q = glm::angleAxis(45.0f, glm::normalize(glm::vec3(0, 1, 1)));
-        glm::quat N = glm::normalize(Q);
-        float L = glm::length(N);
-        Error += glm::epsilonEqual(L, 1.0f, 0.01f) ? 0 : 1;
-        float A = glm::angle(N);
-        Error += glm::epsilonEqual(A, 45.0f, 0.01f) ? 0 : 1;
-    }
-    {
-        glm::quat Q = glm::angleAxis(45.0f, glm::normalize(glm::vec3(1, 2, 3)));
-        glm::quat N = glm::normalize(Q);
-        float L = glm::length(N);
-        Error += glm::epsilonEqual(L, 1.0f, 0.01f) ? 0 : 1;
-        float A = glm::angle(N);
-        Error += glm::epsilonEqual(A, 45.0f, 0.01f) ? 0 : 1;
-    }
-    
-    return Error;
+	int Error = 0;
+
+	{
+		glm::quat Q = glm::angleAxis(45.0f, glm::vec3(0, 0, 1));
+		glm::quat N = glm::normalize(Q);
+		float L = glm::length(N);
+		Error += glm::epsilonEqual(L, 1.0f, 0.01f) ? 0 : 1;
+		float A = glm::angle(N);
+		Error += glm::epsilonEqual(A, 45.0f, 0.01f) ? 0 : 1;
+	}
+	{
+		glm::quat Q = glm::angleAxis(45.0f, glm::normalize(glm::vec3(0, 1, 1)));
+		glm::quat N = glm::normalize(Q);
+		float L = glm::length(N);
+		Error += glm::epsilonEqual(L, 1.0f, 0.01f) ? 0 : 1;
+		float A = glm::angle(N);
+		Error += glm::epsilonEqual(A, 45.0f, 0.01f) ? 0 : 1;
+	}
+	{
+		glm::quat Q = glm::angleAxis(45.0f, glm::normalize(glm::vec3(1, 2, 3)));
+		glm::quat N = glm::normalize(Q);
+		float L = glm::length(N);
+		Error += glm::epsilonEqual(L, 1.0f, 0.01f) ? 0 : 1;
+		float A = glm::angle(N);
+		Error += glm::epsilonEqual(A, 45.0f, 0.01f) ? 0 : 1;
+	}
+
+	return Error;
 }
 
 int test_quat_angleAxis()
@@ -49,10 +49,10 @@ int test_quat_angleAxis()
 
 	glm::quat A = glm::angleAxis(0.0f, glm::vec3(0, 0, 1));
 	glm::quat B = glm::angleAxis(90.0f, glm::vec3(0, 0, 1));
-    glm::quat C = glm::mix(A, B, 0.5f);
-    glm::quat D = glm::angleAxis(45.0f, glm::vec3(0, 0, 1));
+	glm::quat C = glm::mix(A, B, 0.5f);
+	glm::quat D = glm::angleAxis(45.0f, glm::vec3(0, 0, 1));
 
-    Error += glm::epsilonEqual(C.x, D.x, 0.01f) ? 0 : 1;
+	Error += glm::epsilonEqual(C.x, D.x, 0.01f) ? 0 : 1;
 	Error += glm::epsilonEqual(C.y, D.y, 0.01f) ? 0 : 1;
 	Error += glm::epsilonEqual(C.z, D.z, 0.01f) ? 0 : 1;
 	Error += glm::epsilonEqual(C.w, D.w, 0.01f) ? 0 : 1;
@@ -63,17 +63,17 @@ int test_quat_angleAxis()
 int test_quat_mix()
 {
 	int Error = 0;
-    
+
 	glm::quat A = glm::angleAxis(0.0f, glm::vec3(0, 0, 1));
 	glm::quat B = glm::angleAxis(90.0f, glm::vec3(0, 0, 1));
-    glm::quat C = glm::mix(A, B, 0.5f);
-    glm::quat D = glm::angleAxis(45.0f, glm::vec3(0, 0, 1));
-    
-    Error += glm::epsilonEqual(C.x, D.x, 0.01f) ? 0 : 1;
+	glm::quat C = glm::mix(A, B, 0.5f);
+	glm::quat D = glm::angleAxis(45.0f, glm::vec3(0, 0, 1));
+
+	Error += glm::epsilonEqual(C.x, D.x, 0.01f) ? 0 : 1;
 	Error += glm::epsilonEqual(C.y, D.y, 0.01f) ? 0 : 1;
 	Error += glm::epsilonEqual(C.z, D.z, 0.01f) ? 0 : 1;
 	Error += glm::epsilonEqual(C.w, D.w, 0.01f) ? 0 : 1;
-    
+
 	return Error;
 }
 
@@ -83,54 +83,86 @@ int test_quat_precision()
 
 	Error += sizeof(glm::lowp_quat) <= sizeof(glm::mediump_quat) ? 0 : 1;
 	Error += sizeof(glm::mediump_quat) <= sizeof(glm::highp_quat) ? 0 : 1;
-    
-    return Error;
+
+	return Error;
 }
 
 int test_quat_normalize()
 {
-    int Error = 0;
- 
-    {
-        glm::quat Q = glm::angleAxis(45.0f, glm::vec3(0, 0, 1));
-        glm::quat N = glm::normalize(Q);
-        float L = glm::length(N);
-        Error += glm::epsilonEqual(L, 1.0f, 0.000001f) ? 0 : 1;
-    }
-    {
-        glm::quat Q = glm::angleAxis(45.0f, glm::vec3(0, 0, 2));
-        glm::quat N = glm::normalize(Q);
-        float L = glm::length(N);
-        Error += glm::epsilonEqual(L, 1.0f, 0.000001f) ? 0 : 1;
-    }
-    {
-        glm::quat Q = glm::angleAxis(45.0f, glm::vec3(1, 2, 3));
-        glm::quat N = glm::normalize(Q);
-        float L = glm::length(N);
-        Error += glm::epsilonEqual(L, 1.0f, 0.000001f) ? 0 : 1;
-    }
+	int Error(0);
 
-    return Error;
+	{
+		glm::quat Q = glm::angleAxis(45.0f, glm::vec3(0, 0, 1));
+		glm::quat N = glm::normalize(Q);
+		float L = glm::length(N);
+		Error += glm::epsilonEqual(L, 1.0f, 0.000001f) ? 0 : 1;
+	}
+	{
+		glm::quat Q = glm::angleAxis(45.0f, glm::vec3(0, 0, 2));
+		glm::quat N = glm::normalize(Q);
+		float L = glm::length(N);
+		Error += glm::epsilonEqual(L, 1.0f, 0.000001f) ? 0 : 1;
+	}
+	{
+		glm::quat Q = glm::angleAxis(45.0f, glm::vec3(1, 2, 3));
+		glm::quat N = glm::normalize(Q);
+		float L = glm::length(N);
+		Error += glm::epsilonEqual(L, 1.0f, 0.000001f) ? 0 : 1;
+	}
+
+	return Error;
+}
+
+int test_quat_euler()
+{
+	int Error(0);
+
+	{
+		glm::quat q(1.0f, 0.0f, 0.0f, 1.0f);
+		float Roll = glm::roll(q);
+		float Pitch = glm::pitch(q);
+		float Yaw = glm::yaw(q);
+		glm::vec3 Angles = glm::eulerAngles(q);
+	}
+
+	{
+		glm::dquat q(1.0f, 0.0f, 0.0f, 1.0f);
+		double Roll = glm::roll(q);
+		double Pitch = glm::pitch(q);
+		double Yaw = glm::yaw(q);
+		glm::dvec3 Angles = glm::eulerAngles(q);
+	}
+
+	{
+		glm::hquat q(glm::half(1.0f), glm::half(0.0f), glm::half(0.0f), glm::half(1.0f));
+		glm::half Roll = glm::roll(q);
+		glm::half Pitch = glm::pitch(q);
+		glm::half Yaw = glm::yaw(q);
+		glm::hvec3 Angles = glm::eulerAngles(q);
+	}
+
+	return Error;
 }
 
 int test_quat_type()
 {
-    glm::quat A;
-    glm::dquat B;
-    
-    return 0;
+	glm::quat A;
+	glm::dquat B;
+
+	return 0;
 }
 
 int main()
 {
-	int Error = 0;
-    
+	int Error(0);
+
 	Error += test_quat_precision();
-    Error += test_quat_type();
-    Error += test_quat_angle();
+	Error += test_quat_type();
+	Error += test_quat_angle();
 	Error += test_quat_angleAxis();
 	Error += test_quat_mix();
 	Error += test_quat_normalize();
+	Error += test_quat_euler();
 
 	return Error;
 }

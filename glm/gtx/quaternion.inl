@@ -154,45 +154,6 @@ namespace glm
 			return -sqrt(w);
 	}
 
-	template <typename valType> 
-	GLM_FUNC_QUALIFIER valType roll
-	(
-		detail::tquat<valType> const & q
-	)
-	{
-#ifdef GLM_FORCE_RADIANS
-		return atan2(valType(2) * (q.x * q.y + q.w * q.z), q.w * q.w + q.x * q.x - q.y * q.y - q.z * q.z);
-#else
-		return glm::degrees(atan2(valType(2) * (q.x * q.y + q.w * q.z), q.w * q.w + q.x * q.x - q.y * q.y - q.z * q.z));
-#endif
-	}
-
-	template <typename valType> 
-	GLM_FUNC_QUALIFIER valType pitch
-	(
-		detail::tquat<valType> const & q
-	)
-	{
-#ifdef GLM_FORCE_RADIANS
-		return atan2(valType(2) * (q.y * q.z + q.w * q.x), q.w * q.w - q.x * q.x - q.y * q.y + q.z * q.z);
-#else
-		return glm::degrees(atan2(valType(2) * (q.y * q.z + q.w * q.x), q.w * q.w - q.x * q.x - q.y * q.y + q.z * q.z));
-#endif
-	}
-
-	template <typename valType> 
-	GLM_FUNC_QUALIFIER valType yaw
-	(
-		detail::tquat<valType> const & q
-	)
-	{
-#ifdef GLM_FORCE_RADIANS
-		return asin(valType(-2) * (q.x * q.z - q.w * q.y));
-#else
-		return glm::degrees(asin(valType(-2) * (q.x * q.z - q.w * q.y)));
-#endif
-	}
-
 	template <typename T>
 	GLM_FUNC_QUALIFIER detail::tquat<T> shortMix
 	(
