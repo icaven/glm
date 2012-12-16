@@ -155,7 +155,7 @@ namespace detail
 				// We convert f to a half zero.
 				//
 
-				return 0;
+				return hdata(s);
 			}
 
 			//
