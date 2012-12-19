@@ -22,12 +22,13 @@
 ///
 /// @ref gtc_quaternion
 /// @file glm/gtc/quaternion.hpp
-/// @date 2009-05-21 / 2011-06-05
+/// @date 2009-05-21 / 2012-12-20
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
 /// @see gtc_half_float (dependence)
-/// 
+/// @see gtc_constants (dependence)
+///
 /// @defgroup gtc_quaternion GLM_GTC_quaternion
 /// @ingroup gtc
 /// 
@@ -42,6 +43,7 @@
 // Dependency:
 #include "../glm.hpp"
 #include "../gtc/half_float.hpp"
+#include "../gtc/constants.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))
 #	pragma message("GLM: GLM_GTC_quaternion extension included")
