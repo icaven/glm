@@ -44,6 +44,7 @@ GLM 0.9.4.1: 2012-12-17
 - Fixed interaction between quaternion and euler angles.
 - Fixed GTC_constants build
 - Fixed GTX_multiple
+- Fixed quat slerp using mix function when cosTheta close to 1
 
 ================================================================================
 GLM 0.9.4.0: 2012-11-18
