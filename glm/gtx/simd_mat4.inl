@@ -472,6 +472,52 @@ GLM_FUNC_QUALIFIER fmat4x4SIMD operator/
 }
 
 
+//////////////////////////////////////////////////////////////
+// Unary constant operators
+GLM_FUNC_QUALIFIER fmat4x4SIMD const operator-
+(
+    fmat4x4SIMD const & m
+)
+{
+    return detail::fmat4x4SIMD
+    (
+        -m[0],
+        -m[1],
+        -m[2],
+        -m[3]
+    );
+}
+
+GLM_FUNC_QUALIFIER fmat4x4SIMD const operator--
+(
+    fmat4x4SIMD const & m,
+    int
+)
+{
+    return detail::fmat4x4SIMD
+    (
+        m[0] - 1.0f,
+        m[1] - 1.0f,
+        m[2] - 1.0f,
+        m[3] - 1.0f
+    );
+}
+
+GLM_FUNC_QUALIFIER fmat4x4SIMD const operator++
+(
+    fmat4x4SIMD const & m,
+    int
+)
+{
+    return detail::fmat4x4SIMD
+    (
+        m[0] + 1.0f,
+        m[1] + 1.0f,
+        m[2] + 1.0f,
+        m[3] + 1.0f
+    );
+}
+
 }//namespace detail
 
 GLM_FUNC_QUALIFIER detail::tmat4x4<float> mat4_cast
