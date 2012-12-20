@@ -26,7 +26,14 @@ GLM_FUNC_QUALIFIER fmat4x4SIMD::size_type fmat4x4SIMD::row_size()
 }
 
 GLM_FUNC_QUALIFIER fmat4x4SIMD::fmat4x4SIMD()
-{}
+{
+#ifndef GLM_SIMD_ENABLE_DEFAULT_INIT
+    this->Data[0] = fvec4SIMD(1.0f, 0, 0, 0);
+	this->Data[1] = fvec4SIMD(0, 1.0f, 0, 0);
+	this->Data[2] = fvec4SIMD(0, 0, 1.0f, 0);
+	this->Data[3] = fvec4SIMD(0, 0, 0, 1.0f);
+#endif
+}
 
 GLM_FUNC_QUALIFIER fmat4x4SIMD::fmat4x4SIMD(float const & s)
 {
