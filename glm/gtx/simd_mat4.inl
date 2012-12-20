@@ -250,6 +250,228 @@ GLM_FUNC_QUALIFIER fmat4x4SIMD & fmat4x4SIMD::operator-- ()
     return *this;
 }
 
+
+//////////////////////////////////////////////////////////////
+// Binary operators
+
+GLM_FUNC_QUALIFIER fmat4x4SIMD operator+
+(
+    const fmat4x4SIMD &m,
+    float const & s
+)
+{
+    return detail::fmat4x4SIMD
+    (
+        m[0] + s,
+        m[1] + s,
+        m[2] + s,
+        m[3] + s
+    );
+}
+
+GLM_FUNC_QUALIFIER fmat4x4SIMD operator+
+(
+    float const & s,
+    const fmat4x4SIMD &m
+)
+{
+    return detail::fmat4x4SIMD
+    (
+        m[0] + s,
+        m[1] + s,
+        m[2] + s,
+        m[3] + s
+    );
+}
+
+GLM_FUNC_QUALIFIER fmat4x4SIMD operator+
+(
+    const fmat4x4SIMD &m1,
+    const fmat4x4SIMD &m2
+)
+{
+    return detail::fmat4x4SIMD
+    (
+        m1[0] + m2[0],
+        m1[1] + m2[1],
+        m1[2] + m2[2],
+        m1[3] + m2[3]
+    );
+}
+
+
+GLM_FUNC_QUALIFIER fmat4x4SIMD operator-
+(
+    const fmat4x4SIMD &m,
+    float const & s
+)
+{
+    return detail::fmat4x4SIMD
+    (
+        m[0] - s,
+        m[1] - s,
+        m[2] - s,
+        m[3] - s
+    );
+}
+
+GLM_FUNC_QUALIFIER fmat4x4SIMD operator-
+(
+    float const & s,
+    const fmat4x4SIMD &m
+)
+{
+    return detail::fmat4x4SIMD
+    (
+        s - m[0],
+        s - m[1],
+        s - m[2],
+        s - m[3]
+    );
+}
+
+GLM_FUNC_QUALIFIER fmat4x4SIMD operator-
+(
+    const fmat4x4SIMD &m1,
+    const fmat4x4SIMD &m2
+)
+{
+    return detail::fmat4x4SIMD
+    (
+        m1[0] - m2[0],
+        m1[1] - m2[1],
+        m1[2] - m2[2],
+        m1[3] - m2[3]
+    );
+}
+
+
+GLM_FUNC_QUALIFIER fmat4x4SIMD operator*
+(
+    const fmat4x4SIMD &m,
+    float const & s
+)
+{
+    return detail::fmat4x4SIMD
+    (
+        m[0] * s,
+        m[1] * s,
+        m[2] * s,
+        m[3] * s
+    );
+}
+
+GLM_FUNC_QUALIFIER fmat4x4SIMD operator*
+(
+    float const & s,
+    const fmat4x4SIMD &m
+)
+{
+    return detail::fmat4x4SIMD
+    (
+        m[0] * s,
+        m[1] * s,
+        m[2] * s,
+        m[3] * s
+    );
+}
+
+GLM_FUNC_QUALIFIER fvec4SIMD operator*
+(
+    const fmat4x4SIMD &m,
+    fvec4SIMD const & v
+)
+{
+    return sse_mul_ps(&m.Data[0].Data, v.Data);
+}
+
+GLM_FUNC_QUALIFIER fvec4SIMD operator*
+(
+    fvec4SIMD const & v,
+    const fmat4x4SIMD &m
+)
+{
+    return sse_mul_ps(v.Data, &m.Data[0].Data);
+}
+
+GLM_FUNC_QUALIFIER fmat4x4SIMD operator*
+(
+    const fmat4x4SIMD &m1,
+    const fmat4x4SIMD &m2
+)
+{
+    fmat4x4SIMD result;
+    sse_mul_ps(&m1.Data[0].Data, &m2.Data[0].Data, &result.Data[0].Data);
+    
+    return result;
+}
+    
+
+
+GLM_FUNC_QUALIFIER fmat4x4SIMD operator/
+(
+    const fmat4x4SIMD &m,
+    float const & s
+)
+{
+    return detail::fmat4x4SIMD
+    (
+        m[0] / s,
+        m[1] / s,
+        m[2] / s,
+        m[3] / s
+    );
+}
+
+GLM_FUNC_QUALIFIER fmat4x4SIMD operator/
+(
+    float const & s,
+    const fmat4x4SIMD &m
+)
+{
+    return detail::fmat4x4SIMD
+    (
+        s / m[0],
+        s / m[1],
+        s / m[2],
+        s / m[3]
+    );
+}
+
+GLM_FUNC_QUALIFIER fvec4SIMD operator/
+(
+    const fmat4x4SIMD &m,
+    fvec4SIMD const & v
+)
+{
+    return inverse(m) * v;
+}
+
+GLM_FUNC_QUALIFIER fvec4SIMD operator/
+(
+    fvec4SIMD const & v,
+    const fmat4x4SIMD &m
+)
+{
+    return v * inverse(m);
+}
+
+GLM_FUNC_QUALIFIER fmat4x4SIMD operator/
+(
+    const fmat4x4SIMD &m1,
+    const fmat4x4SIMD &m2
+)
+{
+    __m128 result[4];
+    __m128 inv[4];
+
+	sse_inverse_ps(&m2.Data[0].Data, inv);
+	sse_mul_ps(&m1.Data[0].Data, inv, result);
+
+    return fmat4x4SIMD(result);
+}
+
+
 }//namespace detail
 
 GLM_FUNC_QUALIFIER detail::tmat4x4<float> mat4_cast
