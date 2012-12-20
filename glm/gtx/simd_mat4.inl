@@ -82,6 +82,17 @@ GLM_FUNC_QUALIFIER fmat4x4SIMD::fmat4x4SIMD
 	this->Data[3] = fvec4SIMD(m[3]);
 }
 
+GLM_FUNC_QUALIFIER fmat4x4SIMD::fmat4x4SIMD
+(
+    __m128 const in[4]
+)
+{
+    this->Data[0] = in[0];
+    this->Data[1] = in[1];
+    this->Data[2] = in[2];
+    this->Data[3] = in[3];
+}
+
 //////////////////////////////////////
 // Accesses
 
