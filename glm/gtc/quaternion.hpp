@@ -171,15 +171,48 @@ namespace detail
 		detail::tquat<T> const & q1, 
 		detail::tquat<T> const & q2);
 
-	/// Returns a SLERP interpolated quaternion of x and y according a. 
+	/// Spherical linear interpolation of two quaternions.
+	/// The interpolation is oriented and the rotation is performed at constant speed.
 	/// 
+	/// @param x A quaternion
+	/// @param y A quaternion
+	/// @param a Interpolation factor. The interpolation is defined beyond the range [0, 1].
+	/// @tparam T Value type used to build the quaternion. Supported: half, float or double.
 	/// @see gtc_quaternion
 	template <typename T> 
 	detail::tquat<T> mix(
 		detail::tquat<T> const & x, 
 		detail::tquat<T> const & y, 
 		T const & a);
-		
+
+	/// Linear interpolation of two quaternions. 
+	/// The interpolation is oriented.
+	/// 
+	/// @param x A quaternion
+	/// @param y A quaternion
+	/// @param a Interpolation factor. The interpolation is defined beyond the range [0, 1].
+	/// @tparam T Value type used to build the quaternion. Supported: half, float or double.
+	/// @see gtc_quaternion
+	template <typename T> 
+	detail::tquat<T> lerp(
+		detail::tquat<T> const & x, 
+		detail::tquat<T> const & y, 
+		T const & a);
+
+	/// Spherical linear interpolation of two quaternions.
+	/// The interpolation always take the short path and the rotation is performed at constant speed.
+	/// 
+	/// @param x A quaternion
+	/// @param y A quaternion
+	/// @param a Interpolation factor. The interpolation is defined beyond the range [0, 1].
+	/// @tparam T Value type used to build the quaternion. Supported: half, float or double.
+	/// @see gtc_quaternion
+	template <typename T> 
+	detail::tquat<T> slerp(
+		detail::tquat<T> const & x, 
+		detail::tquat<T> const & y, 
+		T const & a);
+
 	/// Returns the q conjugate. 
 	/// 
 	/// @see gtc_quaternion

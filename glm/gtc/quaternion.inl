@@ -443,8 +443,48 @@ namespace detail
 		return normalize(beta * x + alpha * y);
 	}
 */
+
 	template <typename T>
 	GLM_FUNC_QUALIFIER detail::tquat<T> mix
+	(
+		detail::tquat<T> const & x, 
+		detail::tquat<T> const & y, 
+		T const & a
+	)
+	{
+		T cosTheta = dot(x, y);
+
+		// Perform a linear interpolation when cosTheta is close to 1 to avoid side effect of sin(angle) becoming a zero denominator
+		if(cosTheta > T(1) - epsilon<T>())
+		{
+			// Linear interpolation
+			return detail::tquat<T>(
+				mix(x.w, y.w, a),
+				mix(x.x, y.x, a),
+				mix(x.y, y.y, a),
+				mix(x.z, y.z, a));
+		}
+		else
+		{
+			// Essential Mathematics, page 467
+			T angle = acos(cosTheta);
+			return (sin((T(1) - a) * angle) * x + sin(a * angle) * z) / sin(angle);
+		}
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER detail::tquat<T> lerp
+	(
+		detail::tquat<T> const & x, 
+		detail::tquat<T> const & y, 
+		T const & a
+	)
+	{
+		return x * (T(1) - a) + (y * a);
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER detail::tquat<T> slerp
 	(
 		detail::tquat<T> const & x, 
 		detail::tquat<T> const & y, 
