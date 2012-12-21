@@ -47,6 +47,7 @@ GLM 0.9.4.1: 2012-12-21
 - Fixed quat slerp using mix function when cosTheta close to 1
 - Improved fvec4SIMD and fmat4x4SIMD implementations
 - Fixed assert messages
+- Added slerp and lerp quaternion functions and tests
 
 ================================================================================
 GLM 0.9.4.0: 2012-11-18

@@ -468,7 +468,7 @@ namespace detail
 		{
 			// Essential Mathematics, page 467
 			T angle = acos(cosTheta);
-			return (sin((T(1) - a) * angle) * x + sin(a * angle) * z) / sin(angle);
+			return (sin((T(1) - a) * angle) * x + sin(a * angle) * y) / sin(angle);
 		}
 	}
 
@@ -658,7 +658,7 @@ namespace detail
 		typename detail::tquat<T>::value_type fourYSquaredMinus1 = m[1][1] - m[0][0] - m[2][2];
 		typename detail::tquat<T>::value_type fourZSquaredMinus1 = m[2][2] - m[0][0] - m[1][1];
 		typename detail::tquat<T>::value_type fourWSquaredMinus1 = m[0][0] + m[1][1] + m[2][2];
-        
+
 		int biggestIndex = 0;
 		typename detail::tquat<T>::value_type fourBiggestSquaredMinus1 = fourWSquaredMinus1;
 		if(fourXSquaredMinus1 > fourBiggestSquaredMinus1)

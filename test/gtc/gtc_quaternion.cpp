@@ -144,6 +144,67 @@ int test_quat_euler()
 	return Error;
 }
 
+int test_quat_slerp()
+{
+	int Error(0);
+
+	float const Epsilon = 0.0001f;//glm::epsilon<float>();
+
+	float sqrt2 = sqrt(2.0f)/2.0f;
+	glm::quat id;
+	glm::quat Y90rot(sqrt2, 0.0f, sqrt2, 0.0f);
+	glm::quat Y180rot(0.0f, 0.0f, 1.0f, 0.0f);
+
+	// Testing a == 0
+	// Must be id
+	glm::quat id2 = glm::slerp(id, Y90rot, 0.0f);
+	Error += glm::all(glm::epsilonEqual(id, id2, Epsilon)) ? 0 : 1;
+
+	// Testing a == 1
+	// Must be 90° rotation on Y : 0 0.7 0 0.7
+	glm::quat Y90rot2 = glm::slerp(id, Y90rot, 1.0f);
+	Error += glm::all(glm::epsilonEqual(Y90rot, Y90rot2, Epsilon)) ? 0 : 1;
+
+	// Testing standard, easy case
+	// Must be 45° rotation on Y : 0 0.38 0 0.92
+	glm::quat Y45rot1 = glm::slerp(id, Y90rot, 0.5f);
+
+	// Testing reverse case
+	// Must be 45° rotation on Y : 0 0.38 0 0.92
+	glm::quat Ym45rot2 = glm::slerp(Y90rot, id, 0.5f);
+
+	// Testing against full circle around the sphere instead of shortest path
+	// Must be 45° rotation on Y
+	// certainly not a 135° rotation
+	glm::quat Y45rot3 = glm::slerp(id , -Y90rot, 0.5f);
+	float Y45angle3 = glm::angle(Y45rot3);
+	Error += glm::epsilonEqual(Y45angle3, 45.f, Epsilon) ? 0 : 1;
+	Error += glm::all(glm::epsilonEqual(Ym45rot2, Y45rot3, Epsilon)) ? 0 : 1;
+
+	// Same, but inverted
+	// Must also be 45° rotation on Y :  0 0.38 0 0.92
+	// -0 -0.38 -0 -0.92 is ok too
+	glm::quat Y45rot4 = glm::slerp(-Y90rot, id, 0.5f);
+	Error += glm::all(glm::epsilonEqual(Ym45rot2, -Y45rot4, Epsilon)) ? 0 : 1;
+
+	// Testing q1 = q2
+	// Must be 90° rotation on Y : 0 0.7 0 0.7
+	glm::quat Y90rot3 = glm::slerp(Y90rot, Y90rot, 0.5f);
+	Error += glm::all(glm::epsilonEqual(Y90rot, Y90rot3, Epsilon)) ? 0 : 1;
+
+	// Testing 180° rotation
+	// Must be 90° rotation on almost any axis that is on the XZ plane
+	glm::quat XZ90rot = glm::slerp(id, -Y90rot, 0.5f);
+	float XZ90angle = glm::angle(XZ90rot); // Must be PI/4 = 0.78;
+	Error += glm::epsilonEqual(XZ90angle, 45.f, Epsilon) ? 0 : 1;
+
+	// Testing almost equal quaternions (this test should pass through the linear interpolation)
+	// Must be 0 0.00X 0 0.99999
+	glm::quat almostid = glm::slerp(id, glm::angleAxis(0.1f, 0.0f, 1.0f, 0.0f), 0.5f);
+
+	return Error;
+}
+
 int test_quat_type()
 {
 	glm::quat A;
@@ -163,6 +224,7 @@ int main()
 	Error += test_quat_mix();
 	Error += test_quat_normalize();
 	Error += test_quat_euler();
+	Error += test_quat_slerp();
 
 	return Error;
 }
