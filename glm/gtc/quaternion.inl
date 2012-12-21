@@ -451,19 +451,33 @@ namespace detail
 		T const & a
 	)
 	{
+		detail::tquat<T> z = y;
+
 		T cosTheta = dot(x, y);
-		if(glm::abs(cosTheta - T(1)) <= epsilon<T>())
+
+		// If cosTheta < 0, the interpolation will take the long way around the sphere. 
+		// To fix this, one quat must be negated.
+		if (cosTheta < T(0))
 		{
+			z        = -y;
+			cosTheta = -cosTheta;
+		}
+
+		// Perform a linear interpolation when cosTheta is close to 1 to avoid side effect of sin(angle) becoming a zero denominator
+		if(cosTheta > T(1) - epsilon<T>())
+		{
+			// Linear interpolation
 			return detail::tquat<T>(
+				mix(x.w, y.w, a),
 				mix(x.x, y.x, a),
 				mix(x.y, y.y, a),
-				mix(x.z, y.z, a),
-				mix(x.w, y.w, a));
+				mix(x.z, y.z, a));
 		}
 		else
 		{
+			// Essential Mathematics, page 467
 			T angle = acos(cosTheta);
-			return (glm::sin((T(1) - a) * angle) * x + glm::sin(a * angle) * y) / glm::sin(angle);
+			return (sin((T(1) - a) * angle) * x + sin(a * angle) * z) / sin(angle);
 		}
 	}
 
