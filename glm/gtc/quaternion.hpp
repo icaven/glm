@@ -173,12 +173,14 @@ namespace detail
 
 	/// Spherical linear interpolation of two quaternions.
 	/// The interpolation is oriented and the rotation is performed at constant speed.
+	/// For short path spherical linear interpolation, use the slerp function.
 	/// 
 	/// @param x A quaternion
 	/// @param y A quaternion
 	/// @param a Interpolation factor. The interpolation is defined beyond the range [0, 1].
 	/// @tparam T Value type used to build the quaternion. Supported: half, float or double.
 	/// @see gtc_quaternion
+	/// @see - slerp(detail::tquat<T> const & x, detail::tquat<T> const & y, T const & a) 
 	template <typename T> 
 	detail::tquat<T> mix(
 		detail::tquat<T> const & x, 
@@ -190,7 +192,7 @@ namespace detail
 	/// 
 	/// @param x A quaternion
 	/// @param y A quaternion
-	/// @param a Interpolation factor. The interpolation is defined beyond the range [0, 1].
+	/// @param a Interpolation factor. The interpolation is defined in the range [0, 1].
 	/// @tparam T Value type used to build the quaternion. Supported: half, float or double.
 	/// @see gtc_quaternion
 	template <typename T> 
