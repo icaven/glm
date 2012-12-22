@@ -37,7 +37,7 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
 
 ================================================================================
-GLM 0.9.4.1: 2012-12-21
+GLM 0.9.4.1: 2012-12-22
 --------------------------------------------------------------------------------
 - Improved half support: -0.0 case and implicit conversions
 - Fixed Intel Composer Compiler support on Linux
