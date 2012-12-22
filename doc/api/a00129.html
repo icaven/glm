@@ -669,14 +669,14 @@ If genTypeU is a boolean scalar or vector: Selects which vector each returned co
 <div class="line">...</div>
 <div class="line">float a;</div>
 <div class="line"><span class="keywordtype">bool</span> b;</div>
-<div class="line"><a class="code" href="a00142.html#ga0f0fcb7b631cbbac4341badb01d84218" title="Vector of 3 double-precision floating-point numbers.">glm::dvec3</a> <a class="code" href="a00145.html#ga1cebaa574cc7c9018ccefbde3f174db5" title="Return e constant.">e</a>;</div>
+<div class="line"><a class="code" href="a00142.html#ga0f0fcb7b631cbbac4341badb01d84218" title="Vector of 3 double-precision floating-point numbers.">glm::dvec3</a> <a class="code" href="a00145.html#ga3220d28f6664e2091ae72f57fea57423" title="Return e constant.">e</a>;</div>
 <div class="line"><a class="code" href="a00142.html#ga0f0fcb7b631cbbac4341badb01d84218" title="Vector of 3 double-precision floating-point numbers.">glm::dvec3</a> f;</div>
 <div class="line"><a class="code" href="a00142.html#ga3f36f44916da88f7173bc4afa030ebe1" title="4 components vector of floating-point numbers.">glm::vec4</a> g;</div>
 <div class="line"><a class="code" href="a00142.html#ga3f36f44916da88f7173bc4afa030ebe1" title="4 components vector of floating-point numbers.">glm::vec4</a> h;</div>
 <div class="line">...</div>
 <div class="line">glm::vec4 r = <a class="code" href="a00129.html#ga3f64b3986efe205cf30300700667e761">glm::mix</a>(g, h, a); <span class="comment">// Interpolate with a floating-point scalar two vectors. </span></div>
 <div class="line"><a class="code" href="a00142.html#ga3f36f44916da88f7173bc4afa030ebe1" title="4 components vector of floating-point numbers.">glm::vec4</a> s = <a class="code" href="a00129.html#ga3f64b3986efe205cf30300700667e761">glm::mix</a>(g, h, b); <span class="comment">// Teturns g or h;</span></div>
-<div class="line"><a class="code" href="a00142.html#ga0f0fcb7b631cbbac4341badb01d84218" title="Vector of 3 double-precision floating-point numbers.">glm::dvec3</a> t = <a class="code" href="a00129.html#ga3f64b3986efe205cf30300700667e761">glm::mix</a>(<a class="code" href="a00145.html#ga1cebaa574cc7c9018ccefbde3f174db5" title="Return e constant.">e</a>, f, a); <span class="comment">// Types of the third parameter is not required to match with the first and the second.</span></div>
+<div class="line"><a class="code" href="a00142.html#ga0f0fcb7b631cbbac4341badb01d84218" title="Vector of 3 double-precision floating-point numbers.">glm::dvec3</a> t = <a class="code" href="a00129.html#ga3f64b3986efe205cf30300700667e761">glm::mix</a>(<a class="code" href="a00145.html#ga3220d28f6664e2091ae72f57fea57423" title="Return e constant.">e</a>, f, a); <span class="comment">// Types of the third parameter is not required to match with the first and the second.</span></div>
 <div class="line"><a class="code" href="a00142.html#ga3f36f44916da88f7173bc4afa030ebe1" title="4 components vector of floating-point numbers.">glm::vec4</a> u = <a class="code" href="a00129.html#ga3f64b3986efe205cf30300700667e761">glm::mix</a>(g, h, r); <span class="comment">// Interpolations can be perform per component with a vector for the last parameter.</span></div>
 </div><!-- fragment --> 
 <p>Referenced by <a class="el" href="a00013_source.html#l00065">glm::lerp()</a>, and <a class="el" href="a00013_source.html#l00073">glm::slerp()</a>.</p>
