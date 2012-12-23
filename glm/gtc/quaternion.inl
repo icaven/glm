@@ -480,6 +480,10 @@ namespace detail
 		T const & a
 	)
 	{
+		// Lerp is only defined in [0, 1]
+		assert(a >= T(0));
+		assert(a <= T(1));
+
 		return x * (T(1) - a) + (y * a);
 	}
 
