@@ -36,8 +36,10 @@
 #include <cmath>
 #include <cfloat>
 
-#pragma warning(push)
-#pragma warning(disable : 4127)
+#if(GLM_COMPILER & GLM_COMPILER_VC)
+#	pragma warning(push)
+#	pragma warning(disable : 4127)
+#endif
 
 typedef union
 {
@@ -186,7 +188,9 @@ namespace detail
 }//namespace detail
 }//namespace glm
 
-#pragma warning(pop)
+#if(GLM_COMPILER & GLM_COMPILER_VC)
+#	pragma warning(pop)
+#endif
 
 #if((GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS)))
 #	define GLM_NEXT_AFTER_FLT(x, toward) glm::detail::nextafterf((x), (toward))
