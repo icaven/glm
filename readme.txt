@@ -40,6 +40,9 @@ http://glm.g-truc.net/glm.pdf
 GLM 0.9.4.2: 2013-01-XX
 --------------------------------------------------------------------------------
 - Fixed SIMD support for Intel compiler on Windows
+- Fixed isnan and isinf for CUDA compiler
+- Fixed GLM_FORCE_RADIANS on glm::perspective
+- Fixed GCC warnings
 
 ================================================================================
 GLM 0.9.4.1: 2012-12-22
