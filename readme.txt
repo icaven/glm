@@ -7,7 +7,7 @@ glm@g-truc.net
 ================================================================================
 The MIT License
 --------------------------------------------------------------------------------
-Copyright (c) 2005 - 2012 G-Truc Creation (www.g-truc.net)
+Copyright (c) 2005 - 2013 G-Truc Creation (www.g-truc.net)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -40,6 +40,9 @@ http://glm.g-truc.net/glm.pdf
 GLM 0.9.4.2: 2013-01-XX
 --------------------------------------------------------------------------------
 - Fixed compAdd from GTX_component_wise
+- Fixed SIMD support for Intel compiler on Windows
+- Fixed isnan and isinf for CUDA compiler
+- Fixed GLM_FORCE_RADIANS on glm::perspective
 - Fixed GCC warnings
 
 ================================================================================
