@@ -136,12 +136,42 @@ namespace glm
 
 	GLM_FUNC_QUALIFIER double packDouble2x32(detail::tvec2<detail::uint32> const & v)
 	{
-		return *(double*)&v;
+		struct uint32_pair
+		{
+			detail::uint32 x;
+			detail::uint32 y;
+		};
+
+		union helper
+		{
+			uint32_pair input;
+			double output;
+		} Helper;
+
+		Helper.input.x = v.x;
+		Helper.input.y = v.y;
+
+		return Helper.output;
+		//return *(double*)&v;
 	}
 
 	GLM_FUNC_QUALIFIER detail::tvec2<uint> unpackDouble2x32(double const & v)
 	{
-		return *(detail::tvec2<uint>*)&v;
+		struct uint32_pair
+		{
+			detail::uint32 x;
+			detail::uint32 y;
+		};
+
+		union helper
+		{
+			double input;
+			uint32_pair output;
+		} Helper;
+
+		Helper.input = v;
+
+		return detail::tvec2<uint>(Helper.output.x, Helper.output.y);
 	}
 
 	GLM_FUNC_QUALIFIER uint packHalf2x16(detail::tvec2<float> const & v)

@@ -44,6 +44,7 @@ GLM 0.9.4.2: 2013-01-XX
 - Fixed isnan and isinf for CUDA compiler
 - Fixed GLM_FORCE_RADIANS on glm::perspective
 - Fixed GCC warnings
+- Fixed packDouble2x32 on XCode
 
 ================================================================================
 GLM 0.9.4.1: 2012-12-22
