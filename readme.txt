@@ -45,6 +45,9 @@ GLM 0.9.4.2: 2013-01-XX
 - Fixed GLM_FORCE_RADIANS on glm::perspective
 - Fixed GCC warnings
 - Fixed packDouble2x32 on XCode
+- Fixed mix for vec4 SSE implementation
+- Fixed 0x2013 dash character in comments that cause issue in Windows 
+  Japanese mode
 
 ================================================================================
 GLM 0.9.4.1: 2012-12-22
