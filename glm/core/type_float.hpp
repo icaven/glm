@@ -32,8 +32,14 @@
 #include "type_half.hpp"
 #include "setup.hpp"
 
-namespace glm
+namespace glm{
+namespace detail
 {
+	typedef detail::half		float16;
+	typedef float				float32;
+	typedef double				float64;
+}//namespace detail
+
 #ifdef GLM_USE_HALF_SCALAR
 	typedef detail::half		lowp_float_t;
 #else//GLM_USE_HALF_SCALAR
@@ -78,7 +84,47 @@ namespace glm
 #	error "GLM error: multiple default precision requested for floating-point types"
 #endif
 
+	typedef detail::half				float16;
+	typedef float						float32;
+	typedef double						float64;
+
 	/// @}
+
+////////////////////
+// check type sizes
+#ifndef GLM_STATIC_ASSERT_NULL
+	GLM_STATIC_ASSERT(sizeof(glm::float16) == 2, "float16 size isn't 2 bytes on this platform");
+	GLM_STATIC_ASSERT(sizeof(glm::float32) == 4, "float32 size isn't 4 bytes on this platform");
+	GLM_STATIC_ASSERT(sizeof(glm::float64) == 8, "float64 size isn't 8 bytes on this platform");
+#endif//GLM_STATIC_ASSERT_NULL
+
+namespace detail
+{
+	////////////////////
+	// Mark half to be flaot
+	GLM_DETAIL_IS_FLOAT(detail::half);
+	GLM_DETAIL_IS_FLOAT(float);
+	GLM_DETAIL_IS_FLOAT(double);
+	GLM_DETAIL_IS_FLOAT(long double);
+
+	template <>
+	struct float_or_int_trait<float16>
+	{
+		enum{ID = float_or_int_value::GLM_FLOAT};
+	};
+
+	template <>
+	struct float_or_int_trait<float32>
+	{
+		enum{ID = float_or_int_value::GLM_FLOAT};
+	};
+
+	template <>
+	struct float_or_int_trait<float64>
+	{
+		enum{ID = float_or_int_value::GLM_FLOAT};
+	};
+}//namespace detail
 }//namespace glm
 
 #endif//glm_core_type_float

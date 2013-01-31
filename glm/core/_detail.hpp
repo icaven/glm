@@ -31,6 +31,7 @@
 
 #include "setup.hpp"
 #include <cassert>
+//#if((GLM_LANG & GLM_LANG_CXX0X) || (defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)))
 #if(defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L))
 #include <cstdint>
 #endif
@@ -38,24 +39,44 @@
 namespace glm{
 namespace detail
 {
-	class half;
+#	if((GLM_LANG & GLM_LANG_CXX0X) == GLM_LANG_CXX0X)
+		typedef std::int8_t							int8;
+		typedef std::int16_t						int16;
+		typedef std::int32_t						int32;
+		typedef std::int64_t						int64;
+	
+		typedef std::uint8_t						uint8;
+		typedef std::uint16_t						uint16;
+		typedef std::uint32_t						uint32;
+		typedef std::uint64_t						uint64;
+#	else
+#		if(defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)) // C99 detected, 64 bit types available
+			typedef int64_t								sint64;
+			typedef uint64_t							uint64;
+#		elif(GLM_COMPILER & GLM_COMPILER_VC)
+			typedef signed __int64						sint64;
+			typedef unsigned __int64					uint64;
+#		elif(GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_LLVM_GCC | GLM_COMPILER_CLANG))
+			__extension__ typedef signed long long		sint64;
+			__extension__ typedef unsigned long long	uint64;
+#		elif(GLM_COMPILER & GLM_COMPILER_BC)
+			typedef Int64								sint64;
+			typedef Uint64								uint64;
+#		else//unknown compiler
+			typedef signed long	long					sint64;
+			typedef unsigned long long					uint64;
+#		endif//GLM_COMPILER
 
-#if(defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)) // C99 detected, 64 bit types available
-	typedef int64_t								sint64;
-	typedef uint64_t							uint64;
-#elif(GLM_COMPILER & GLM_COMPILER_VC)
-	typedef signed __int64						sint64;
-	typedef unsigned __int64					uint64;
-#elif(GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_LLVM_GCC | GLM_COMPILER_CLANG))
-	__extension__ typedef signed long long		sint64;
-	__extension__ typedef unsigned long long	uint64;
-#elif(GLM_COMPILER & GLM_COMPILER_BC)
-	typedef Int64								sint64;
-	typedef Uint64								uint64;
-#else//unknown compiler
-	typedef signed long	long					sint64;
-	typedef unsigned long long					uint64;
-#endif//GLM_COMPILER
+	typedef signed char					int8;
+	typedef signed short				int16;
+	typedef signed int					int32;
+	typedef sint64						int64;
+	
+	typedef unsigned char				uint8;
+	typedef unsigned short				uint16;
+	typedef unsigned int				uint32;
+	typedef uint64						uint64;
+#endif//
 
 	template<bool C>
 	struct If
@@ -242,11 +263,6 @@ namespace detail
 		};						\
 	}
 
-	GLM_DETAIL_IS_FLOAT(detail::half);
-	GLM_DETAIL_IS_FLOAT(float);
-	GLM_DETAIL_IS_FLOAT(double);
-	GLM_DETAIL_IS_FLOAT(long double);
-
 	//////////////////
 	// bool
 
@@ -334,23 +350,6 @@ namespace detail
 	};
 	
 	//////////////////
-	// type
-	
-	typedef signed char							int8;
-	typedef signed short						int16;
-	typedef signed int							int32;
-	typedef detail::sint64						int64;
-	
-	typedef unsigned char						uint8;
-	typedef unsigned short						uint16;
-	typedef unsigned int						uint32;
-	typedef detail::uint64						uint64;
-	
-	typedef detail::half						float16;
-	typedef float								float32;
-	typedef double								float64;
-	
-	//////////////////
 	// float_or_int_trait 
 
 	struct float_or_int_value
@@ -368,73 +367,6 @@ namespace detail
 	{
 		enum{ID = float_or_int_value::GLM_ERROR};
 	};
-
-	template <>
-	struct float_or_int_trait<int8>
-	{
-		enum{ID = float_or_int_value::GLM_INT};
-	};
-
-	template <>
-	struct float_or_int_trait<int16>
-	{
-		enum{ID = float_or_int_value::GLM_INT};
-	};
-
-	template <>
-	struct float_or_int_trait<int32>
-	{
-		enum{ID = float_or_int_value::GLM_INT};
-	};
-
-	template <>
-	struct float_or_int_trait<int64>
-	{
-		enum{ID = float_or_int_value::GLM_INT};
-	};
-
-	template <>
-	struct float_or_int_trait<uint8>
-	{
-		enum{ID = float_or_int_value::GLM_INT};
-	};
-
-	template <>
-	struct float_or_int_trait<uint16>
-	{
-		enum{ID = float_or_int_value::GLM_INT};
-	};
-
-	template <>
-	struct float_or_int_trait<uint32>
-	{
-		enum{ID = float_or_int_value::GLM_INT};
-	};
-
-	template <>
-	struct float_or_int_trait<uint64>
-	{
-		enum{ID = float_or_int_value::GLM_INT};
-	};
-
-	template <>
-	struct float_or_int_trait<float16>
-	{
-		enum{ID = float_or_int_value::GLM_FLOAT};
-	};
-
-	template <>
-	struct float_or_int_trait<float32>
-	{
-		enum{ID = float_or_int_value::GLM_FLOAT};
-	};
-
-	template <>
-	struct float_or_int_trait<float64>
-	{
-		enum{ID = float_or_int_value::GLM_FLOAT};
-	};
-
 }//namespace detail
 }//namespace glm
 

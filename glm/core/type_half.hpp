@@ -30,6 +30,7 @@
 #define glm_core_type_half
 
 #include <cstdlib>
+#include "_detail.hpp"
 
 namespace glm{
 namespace detail

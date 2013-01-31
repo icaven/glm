@@ -37,24 +37,22 @@ namespace detail
 {
 	typedef signed short			lowp_int_t;
 	typedef signed int				mediump_int_t;
-	typedef sint64					highp_int_t;
+	typedef int64					highp_int_t;
 
 	typedef unsigned short			lowp_uint_t;
 	typedef unsigned int			mediump_uint_t;
 	typedef uint64					highp_uint_t;
-
-	GLM_DETAIL_IS_INT(signed char);
-	GLM_DETAIL_IS_INT(signed short);
-	GLM_DETAIL_IS_INT(signed int);
-	GLM_DETAIL_IS_INT(signed long);
-	GLM_DETAIL_IS_INT(highp_int_t);
-
-	GLM_DETAIL_IS_UINT(unsigned char);
-	GLM_DETAIL_IS_UINT(unsigned short);
-	GLM_DETAIL_IS_UINT(unsigned int);
-	GLM_DETAIL_IS_UINT(unsigned long);
-	GLM_DETAIL_IS_UINT(highp_uint_t);
 }//namespace detail
+
+	typedef detail::int8				int8;
+	typedef detail::int16				int16;
+	typedef detail::int32				int32;
+	typedef detail::int64				int64;
+	
+	typedef detail::uint8				uint8;
+	typedef detail::uint16				uint16;
+	typedef detail::uint32				uint32;
+	typedef detail::uint64				uint64;
 
 	/// @addtogroup core_precision
 	/// @{
@@ -131,6 +129,83 @@ namespace detail
 	typedef uint_t								uint;
 
 	/// @}
+
+////////////////////
+// check type sizes
+#ifndef GLM_STATIC_ASSERT_NULL
+	GLM_STATIC_ASSERT(sizeof(glm::int8) == 1, "int8 size isn't 1 byte on this platform");
+	GLM_STATIC_ASSERT(sizeof(glm::int16) == 2, "int16 size isn't 2 bytes on this platform");
+	GLM_STATIC_ASSERT(sizeof(glm::int32) == 4, "int32 size isn't 4 bytes on this platform");
+	GLM_STATIC_ASSERT(sizeof(glm::int64) == 8, "int64 size isn't 8 bytes on this platform");
+
+	GLM_STATIC_ASSERT(sizeof(glm::uint8) == 1, "uint8 size isn't 1 byte on this platform");
+	GLM_STATIC_ASSERT(sizeof(glm::uint16) == 2, "uint16 size isn't 2 bytes on this platform");
+	GLM_STATIC_ASSERT(sizeof(glm::uint32) == 4, "uint32 size isn't 4 bytes on this platform");
+	GLM_STATIC_ASSERT(sizeof(glm::uint64) == 8, "uint64 size isn't 8 bytes on this platform");
+#endif//GLM_STATIC_ASSERT_NULL
+
+namespace detail
+{
+	GLM_DETAIL_IS_INT(signed char);
+	GLM_DETAIL_IS_INT(signed short);
+	GLM_DETAIL_IS_INT(signed int);
+	GLM_DETAIL_IS_INT(signed long);
+	GLM_DETAIL_IS_INT(highp_int_t);
+
+	GLM_DETAIL_IS_UINT(unsigned char);
+	GLM_DETAIL_IS_UINT(unsigned short);
+	GLM_DETAIL_IS_UINT(unsigned int);
+	GLM_DETAIL_IS_UINT(unsigned long);
+	GLM_DETAIL_IS_UINT(highp_uint_t);
+
+	template <>
+	struct float_or_int_trait<int8>
+	{
+		enum{ID = float_or_int_value::GLM_INT};
+	};
+
+	template <>
+	struct float_or_int_trait<int16>
+	{
+		enum{ID = float_or_int_value::GLM_INT};
+	};
+
+	template <>
+	struct float_or_int_trait<int32>
+	{
+		enum{ID = float_or_int_value::GLM_INT};
+	};
+
+	template <>
+	struct float_or_int_trait<int64>
+	{
+		enum{ID = float_or_int_value::GLM_INT};
+	};
+
+	template <>
+	struct float_or_int_trait<uint8>
+	{
+		enum{ID = float_or_int_value::GLM_INT};
+	};
+
+	template <>
+	struct float_or_int_trait<uint16>
+	{
+		enum{ID = float_or_int_value::GLM_INT};
+	};
+
+	template <>
+	struct float_or_int_trait<uint32>
+	{
+		enum{ID = float_or_int_value::GLM_INT};
+	};
+
+	template <>
+	struct float_or_int_trait<uint64>
+	{
+		enum{ID = float_or_int_value::GLM_INT};
+	};
+}//namespace detail
 }//namespace glm
 
 #endif//glm_core_type_int

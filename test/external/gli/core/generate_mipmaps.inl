@@ -9,6 +9,7 @@
 
 namespace gli
 {
+/*
 	inline texture2D generateMipmaps
 	(
 		texture2D const & Image, 
@@ -64,5 +65,5 @@ namespace gli
 
 		return Result;
 	}
-
+*/
 }//namespace gli
