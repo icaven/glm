@@ -470,18 +470,18 @@
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_LANG_DISPLAYED))
 #	define GLM_MESSAGE_LANG_DISPLAYED
-#	if(GLM_LANG == GLM_LANG_CXX98)
-#		pragma message("GLM: C++98")
-#	elif(GLM_LANG == GLM_LANG_CXX03)
-#		pragma message("GLM: C++03")
-#	elif(GLM_LANG == GLM_LANG_CXX0X)
-#		pragma message("GLM: C++0x")
-#	elif(GLM_LANG == GLM_LANG_CXX11)
-#		pragma message("GLM: C++11")
-#	elif(GLM_LANG == GLM_LANG_CXXGNU)
+#	if((GLM_LANG & GLM_LANG_CXXGNU) == GLM_LANG_CXXGNU)
 #		pragma message("GLM: C++ with GNU language extensions")
-#	elif(GLM_LANG == GLM_LANG_CXXMS)
+#	elif((GLM_LANG & GLM_LANG_CXXMS) == GLM_LANG_CXXMS)
 #		pragma message("GLM: C++ with VC language extensions")
+#	elif((GLM_LANG & GLM_LANG_CXX11) == GLM_LANG_CXX11)
+#		pragma message("GLM: C++11")
+#	elif((GLM_LANG & GLM_LANG_CXX0X) == GLM_LANG_CXX0X)
+#		pragma message("GLM: C++0x")
+#	elif((GLM_LANG & GLM_LANG_CXX03) == GLM_LANG_CXX03)
+#		pragma message("GLM: C++03")
+#	elif((GLM_LANG & GLM_LANG_CXX98) == GLM_LANG_CXX98)
+#		pragma message("GLM: C++98")
 #	else
 #		pragma message("GLM: C++ language undetected")
 #	endif//GLM_MODEL
@@ -604,10 +604,10 @@
 //	(((GLM_LANG & GLM_LANG_CXX11) == GLM_LANG_CXX11) || ((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_LANG & GLM_LANG_CXXMS) == GLM_LANG_CXXMS) || ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_LANG == GLM_LANG_CXX0X)))
 
 #define GLM_SUPPORT_ANONYMOUS_UNION_OF_STRUCTURE() \
-	(((GLM_LANG & GLM_LANG_CXX11) == GLM_LANG_CXX11) || ((GLM_COMPILER & GLM_COMPILER_VC) && ((GLM_LANG & GLM_LANG_CXXMS) == GLM_LANG_CXXMS)) || ((GLM_LANG == GLM_LANG_CXX0X) == GLM_LANG_CXX0X))
+	(((GLM_LANG & GLM_LANG_CXX11) == GLM_LANG_CXX11) || ((GLM_COMPILER & GLM_COMPILER_VC) && ((GLM_LANG & GLM_LANG_CXXMS) == GLM_LANG_CXXMS)) || ((GLM_LANG & GLM_LANG_CXX0X) == GLM_LANG_CXX0X))
 
 #define GLM_SUPPORT_SWIZZLE_OPERATOR() \
-	(/*defined(GLM_SWIZZLE) && */GLM_SUPPORT_ANONYMOUS_UNION_OF_STRUCTURE())
+	(defined(GLM_SWIZZLE) && GLM_SUPPORT_ANONYMOUS_UNION_OF_STRUCTURE())
 
 #define GLM_SUPPORT_SWIZZLE_FUNCTION() defined(GLM_SWIZZLE)
 
