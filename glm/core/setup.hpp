@@ -371,6 +371,8 @@
 #		pragma message("GLM: Clang compiler detected")
 #	elif(GLM_COMPILER & GLM_COMPILER_LLVM_GCC)
 #		pragma message("GLM: LLVM GCC compiler detected")
+#	elif(GLM_COMPILER & GLM_COMPILER_INTEL)
+#		pragma message("GLM: Intel Compiler detected")
 #	elif(GLM_COMPILER & GLM_COMPILER_GCC)
 #		if(GLM_COMPILER == GLM_COMPILER_GCC_LLVM)
 #			pragma message("GLM: LLVM GCC compiler detected")
