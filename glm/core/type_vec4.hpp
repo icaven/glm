@@ -59,7 +59,7 @@ namespace detail
 		//////////////////////////////////////
 		// Data
 
-#	if(GLM_COMPONENT == GLM_COMPONENT_CXX11)
+#	if(GLM_COMPONENT == GLM_COMPONENT_CXXMS)
 		union 
 		{
 #		if(defined(GLM_SWIZZLE))
