@@ -471,6 +471,20 @@
 #				define GLM_LANG GLM_LANG_CXX98
 #			endif
 #		endif
+#	elif(GLM_COMPILER & GLM_COMPILER_INTEL)
+#		if(defined(_MSC_EXTENSIONS))
+#			if(GLM_COMPILER >= GLM_COMPILER_INTEL13_0)
+#				define GLM_LANG (GLM_LANG_CXX0X | GLM_LANG_CXXMS_FLAG)
+#			else
+#				define GLM_LANG (GLM_LANG_CXX98 | GLM_LANG_CXXMS_FLAG)
+#			endif
+#		else
+#			if(GLM_COMPILER >= GLM_COMPILER_INTEL13_0)
+#				define GLM_LANG (GLM_LANG_CXX0X)
+#			else
+#				define GLM_LANG (GLM_LANG_CXX98)
+#			endif
+#		endif
 #	elif((GLM_COMPILER & GLM_COMPILER_CLANG) == GLM_COMPILER_CLANG) 
 #		define GLM_LANG GLM_LANG_CXX98
 #	else
@@ -481,9 +495,9 @@
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_LANG_DISPLAYED))
 #	define GLM_MESSAGE_LANG_DISPLAYED
 #	if(GLM_LANG & GLM_LANG_CXXGNU_FLAG)
-#		pragma message("GLM: C++ with GNU language extensions")
+#		pragma message("GLM: C++ with language extensions")
 #	elif(GLM_LANG & GLM_LANG_CXXMS_FLAG)
-#		pragma message("GLM: C++ with VC language extensions")
+#		pragma message("GLM: C++ with language extensions")
 #	elif(GLM_LANG & GLM_LANG_CXX11_FLAG)
 #		pragma message("GLM: C++11")
 #	elif(GLM_LANG & GLM_LANG_CXX0X_FLAG)
@@ -611,7 +625,7 @@
 	(GLM_LANG & GLM_LANG_CXX98_FLAG)
 
 #define GLM_SUPPORT_ANONYMOUS_UNION_OF_STRUCTURE() \
-	(GLM_LANG & GLM_LANG_CXXMS_FLAG)
+	((GLM_LANG & GLM_LANG_CXXMS_FLAG) && (GLM_COMPILER & GLM_COMPILER_VC))
 
 #define GLM_SUPPORT_SWIZZLE_OPERATOR() \
 	(defined(GLM_SWIZZLE) && GLM_SUPPORT_ANONYMOUS_UNION_OF_STRUCTURE())
