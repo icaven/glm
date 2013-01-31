@@ -20,6 +20,9 @@ struct mask
 // Implicit basic constructors
 
 GLM_FUNC_QUALIFIER fvec4SIMD::fvec4SIMD()
+#ifdef GLM_SIMD_ENABLE_DEFAULT_INIT
+    : Data(_mm_set_ps(0.0f, 0.0f, 0.0f, 0.0f))
+#endif
 {}
 
 GLM_FUNC_QUALIFIER fvec4SIMD::fvec4SIMD(__m128 const & Data) :
@@ -449,7 +452,7 @@ GLM_FUNC_QUALIFIER detail::fvec4SIMD mix
 {
 	__m128 Sub0 = _mm_sub_ps(y.Data, x.Data);
 	__m128 Mul0 = _mm_mul_ps(a.Data, Sub0);
-	return _mm_mul_ps(x.Data, Mul0);
+	return _mm_add_ps(x.Data, Mul0);
 }
 
 GLM_FUNC_QUALIFIER detail::fvec4SIMD step

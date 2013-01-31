@@ -7,7 +7,7 @@ glm@g-truc.net
 ================================================================================
 The MIT License
 --------------------------------------------------------------------------------
-Copyright (c) 2005 - 2012 G-Truc Creation (www.g-truc.net)
+Copyright (c) 2005 - 2013 G-Truc Creation (www.g-truc.net)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -35,6 +35,32 @@ GLM is a header only library, there is nothing to build, just include it.
 
 More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
+
+================================================================================
+GLM 0.9.4.2: 2013-01-XX
+--------------------------------------------------------------------------------
+- Fixed compAdd from GTX_component_wise
+- Fixed SIMD support for Intel compiler on Windows
+- Fixed isnan and isinf for CUDA compiler
+- Fixed GLM_FORCE_RADIANS on glm::perspective
+- Fixed GCC warnings
+- Fixed packDouble2x32 on XCode
+- Fixed mix for vec4 SSE implementation
+- Fixed 0x2013 dash character in comments that cause issue in Windows 
+  Japanese mode
+
+================================================================================
+GLM 0.9.4.1: 2012-12-22
+--------------------------------------------------------------------------------
+- Improved half support: -0.0 case and implicit conversions
+- Fixed Intel Composer Compiler support on Linux
+- Fixed interaction between quaternion and euler angles
+- Fixed GTC_constants build
+- Fixed GTX_multiple
+- Fixed quat slerp using mix function when cosTheta close to 1
+- Improved fvec4SIMD and fmat4x4SIMD implementations
+- Fixed assert messages
+- Added slerp and lerp quaternion functions and tests
 
 ================================================================================
 GLM 0.9.4.0: 2012-11-18

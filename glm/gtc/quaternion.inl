@@ -443,6 +443,7 @@ namespace detail
 		return normalize(beta * x + alpha * y);
 	}
 */
+
 	template <typename T>
 	GLM_FUNC_QUALIFIER detail::tquat<T> mix
 	(
@@ -451,8 +452,77 @@ namespace detail
 		T const & a
 	)
 	{
-		T angle = acos(dot(x, y));
-		return (glm::sin((T(1) - a) * angle) * x + glm::sin(a * angle) * y) / glm::sin(angle);
+		T cosTheta = dot(x, y);
+
+		// Perform a linear interpolation when cosTheta is close to 1 to avoid side effect of sin(angle) becoming a zero denominator
+		if(cosTheta > T(1) - epsilon<T>())
+		{
+			// Linear interpolation
+			return detail::tquat<T>(
+				mix(x.w, y.w, a),
+				mix(x.x, y.x, a),
+				mix(x.y, y.y, a),
+				mix(x.z, y.z, a));
+		}
+		else
+		{
+			// Essential Mathematics, page 467
+			T angle = acos(cosTheta);
+			return (sin((T(1) - a) * angle) * x + sin(a * angle) * y) / sin(angle);
+		}
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER detail::tquat<T> lerp
+	(
+		detail::tquat<T> const & x, 
+		detail::tquat<T> const & y, 
+		T const & a
+	)
+	{
+		// Lerp is only defined in [0, 1]
+		assert(a >= T(0));
+		assert(a <= T(1));
+
+		return x * (T(1) - a) + (y * a);
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER detail::tquat<T> slerp
+	(
+		detail::tquat<T> const & x, 
+		detail::tquat<T> const & y, 
+		T const & a
+	)
+	{
+		detail::tquat<T> z = y;
+
+		T cosTheta = dot(x, y);
+
+		// If cosTheta < 0, the interpolation will take the long way around the sphere. 
+		// To fix this, one quat must be negated.
+		if (cosTheta < T(0))
+		{
+			z        = -y;
+			cosTheta = -cosTheta;
+		}
+
+		// Perform a linear interpolation when cosTheta is close to 1 to avoid side effect of sin(angle) becoming a zero denominator
+		if(cosTheta > T(1) - epsilon<T>())
+		{
+			// Linear interpolation
+			return detail::tquat<T>(
+				mix(x.w, y.w, a),
+				mix(x.x, y.x, a),
+				mix(x.y, y.y, a),
+				mix(x.z, y.z, a));
+		}
+		else
+		{
+			// Essential Mathematics, page 467
+			T angle = acos(cosTheta);
+			return (sin((T(1) - a) * angle) * x + sin(a * angle) * z) / sin(angle);
+		}
 	}
 
 	template <typename T> 
@@ -592,7 +662,7 @@ namespace detail
 		typename detail::tquat<T>::value_type fourYSquaredMinus1 = m[1][1] - m[0][0] - m[2][2];
 		typename detail::tquat<T>::value_type fourZSquaredMinus1 = m[2][2] - m[0][0] - m[1][1];
 		typename detail::tquat<T>::value_type fourWSquaredMinus1 = m[0][0] + m[1][1] + m[2][2];
-        
+
 		int biggestIndex = 0;
 		typename detail::tquat<T>::value_type fourBiggestSquaredMinus1 = fourWSquaredMinus1;
 		if(fourXSquaredMinus1 > fourBiggestSquaredMinus1)
@@ -641,6 +711,10 @@ namespace detail
 			Result.y = (m[1][2] + m[2][1]) * mult;
 			Result.z = biggestVal;
 			break;
+			
+        default:                // Silence a -Wswitch-default warning in GCC. Should never actually get here. Assert is just for sanity.
+            assert(false);
+            break;
 		}
 		return Result;
 	}

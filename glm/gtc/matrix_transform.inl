@@ -236,7 +236,13 @@ namespace glm
 		valType const & zFar
 	)
 	{
-		valType range = tan(radians(fovy / valType(2))) * zNear;	
+#ifdef GLM_FORCE_RADIANS
+		valType const rad = fovy;
+#else
+		valType const rad = glm::radians(fovy);
+#endif
+        
+		valType range = tan(radians(rad / valType(2))) * zNear;	
 		valType left = -range * aspect;
 		valType right = range * aspect;
 		valType bottom = -range;

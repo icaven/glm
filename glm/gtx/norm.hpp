@@ -31,7 +31,7 @@
 /// @defgroup gtx_norm GLM_GTX_norm
 /// @ingroup gtx
 /// 
-/// @brief Various way to compute vector norms.
+/// @brief Various ways to compute vector norms.
 /// 
 /// <glm/gtx/norm.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////

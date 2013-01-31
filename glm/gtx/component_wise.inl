@@ -12,7 +12,7 @@ namespace glm
 	template <typename genType>
 	GLM_FUNC_QUALIFIER typename genType::value_type compAdd(genType const & v)
 	{
-		typename genType::size_type result = typename genType::value_type(0);
+		typename genType::value_type result = typename genType::value_type(0);
 		for(typename genType::size_type i = 0; i < v.length(); ++i)
 			result += v[i];
 		return result;
