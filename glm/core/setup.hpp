@@ -32,11 +32,11 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Version
 
-#define GLM_VERSION					94
+#define GLM_VERSION					95
 #define GLM_VERSION_MAJOR			0
 #define GLM_VERSION_MINOR			9
-#define GLM_VERSION_PATCH			4
-#define GLM_VERSION_REVISION		2
+#define GLM_VERSION_PATCH			5
+#define GLM_VERSION_REVISION		0
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Platform
@@ -417,7 +417,7 @@
 
 // User defines: GLM_FORCE_CXX98
 
-#define GLM_LANG_CXX			(0 << 0)
+#define GLM_LANG_CXX			(1 << 0)
 #define GLM_LANG_CXX98			((1 << 1) | GLM_LANG_CXX)
 #define GLM_LANG_CXX03			((1 << 2) | GLM_LANG_CXX98)
 #define GLM_LANG_CXX0X			((1 << 3) | GLM_LANG_CXX03)
@@ -433,18 +433,34 @@
 #	define GLM_LANG GLM_LANG_CXX98
 #else
 //  -std=c++0x or -std=gnu++0x
-#	if(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && defined(__GXX_EXPERIMENTAL_CXX0X__)) 
-#		define GLM_LANG GLM_LANG_CXX0X
-#	elif(((GLM_COMPILER & GLM_COMPILER_VC) == GLM_COMPILER_VC) && defined(_MSC_EXTENSIONS))
-#		define GLM_LANG GLM_LANG_CXXMS
-#	elif(((GLM_COMPILER & GLM_COMPILER_VC) == GLM_COMPILER_VC) && !defined(_MSC_EXTENSIONS))
-#		if(GLM_COMPILER >= GLM_COMPILER_VC2010)
-#			define GLM_LANG GLM_LANG_CXX0X
+#	if((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC)
+#		if(defined(__GXX_EXPERIMENTAL_CXX0X__)) 
+#			if(GLM_COMPILER >= GLM_COMPILER_GCC47)
+#				define GLM_LANG GLM_LANG_CXX11
+#			else
+#				define GLM_LANG GLM_LANG_CXX0X
+#			endif
 #		else
 #			define GLM_LANG GLM_LANG_CXX98
-#		endif//(GLM_COMPILER == GLM_COMPILER_VC2010)
-#	elif((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) //&& defined(__STRICT_ANSI__))
-#		define GLM_LANG GLM_LANG_CXX98
+#		endif
+#	elif((GLM_COMPILER & GLM_COMPILER_VC) == GLM_COMPILER_VC)
+#		if(defined(_MSC_EXTENSIONS))
+#			if(GLM_COMPILER >= GLM_COMPILER_VC2012)
+#				define GLM_LANG GLM_LANG_CXX11 | GLM_LANG_CXXMS
+#			elif(GLM_COMPILER >= GLM_COMPILER_VC2010)
+#				define GLM_LANG GLM_LANG_CXX0X | GLM_LANG_CXXMS
+#			else
+#				define GLM_LANG GLM_LANG_CXX98 | GLM_LANG_CXXMS
+#			endif
+#		else
+#			if(GLM_COMPILER >= GLM_COMPILER_VC2012)
+#				define GLM_LANG GLM_LANG_CXX11
+#			elif(GLM_COMPILER >= GLM_COMPILER_VC2010)
+#				define GLM_LANG GLM_LANG_CXX0X
+#			else
+#				define GLM_LANG GLM_LANG_CXX98
+#			endif
+#		endif
 #	elif((GLM_COMPILER & GLM_COMPILER_CLANG) == GLM_COMPILER_CLANG) 
 #		define GLM_LANG GLM_LANG_CXX98
 #	else
@@ -632,7 +648,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Static assert
 
-#if(GLM_LANG == GLM_LANG_CXX0X)
+#if((GLM_LANG & GLM_LANG_CXX0X) == GLM_LANG_CXX0X)
 #	define GLM_STATIC_ASSERT(x, message) static_assert(x, message)
 #elif(defined(BOOST_STATIC_ASSERT))
 #	define GLM_STATIC_ASSERT(x, message) BOOST_STATIC_ASSERT(x)

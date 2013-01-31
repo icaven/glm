@@ -31,24 +31,24 @@
 
 #include "setup.hpp"
 #include <cassert>
-//#if((GLM_LANG & GLM_LANG_CXX0X) || (defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)))
-#if(defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L))
+#if(((GLM_LANG & GLM_LANG_CXX11) == GLM_LANG_CXX11) || (defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)))
+//#if((defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)))
 #include <cstdint>
 #endif
 
 namespace glm{
 namespace detail
 {
-#	if((GLM_LANG & GLM_LANG_CXX0X) == GLM_LANG_CXX0X)
-		typedef std::int8_t							int8;
-		typedef std::int16_t						int16;
-		typedef std::int32_t						int32;
-		typedef std::int64_t						int64;
+#	if((GLM_LANG & GLM_LANG_CXX11) == GLM_LANG_CXX11)
+		typedef std::int8_t						int8;
+		typedef std::int16_t					int16;
+		typedef std::int32_t					int32;
+		typedef std::int64_t					int64;
 	
-		typedef std::uint8_t						uint8;
-		typedef std::uint16_t						uint16;
-		typedef std::uint32_t						uint32;
-		typedef std::uint64_t						uint64;
+		typedef std::uint8_t					uint8;
+		typedef std::uint16_t					uint16;
+		typedef std::uint32_t					uint32;
+		typedef std::uint64_t					uint64;
 #	else
 #		if(defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)) // C99 detected, 64 bit types available
 			typedef int64_t								sint64;
