@@ -40,6 +40,7 @@ http://glm.g-truc.net/glm.pdf
 GLM 0.9.5.X: 2013-XX-XX
 --------------------------------------------------------------------------------
 - Improved Intel Compiler detection
+- Added bitfieldInterleave and _mm_bit_interleave_si128 functions
 
 ================================================================================
 GLM 0.9.4.2: 2013-01-XX
