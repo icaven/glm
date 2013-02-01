@@ -132,6 +132,30 @@ namespace glm
 		int const & FromBit, 
 		int const & ToBit);
 
+	///
+	/// @see gtx_bit
+	int16 bitfieldInterleave(int8 x, int8 y);
+
+	///
+	/// @see gtx_bit
+	uint16 bitfieldInterleave(uint8 x, uint8 y);
+
+	///
+	/// @see gtx_bit
+	int32 bitfieldInterleave(int16 x, int16 y);
+
+	///
+	/// @see gtx_bit
+	uint32 bitfieldInterleave(uint16 x, uint16 y);
+
+	///
+	/// @see gtx_bit
+	int64 bitfieldInterleave(int32 x, int32 y);
+
+	///
+	/// @see gtx_bit
+	uint64 bitfieldInterleave(uint32 x, uint32 y);
+
 	/// @}
 } //namespace glm
 

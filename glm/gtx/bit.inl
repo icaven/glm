@@ -597,4 +597,46 @@ namespace glm
 			Result &= ~(1 << i);
 		return Result;
 	}
+
+	namespace detail
+	{
+		template <typename PARAM, typename RET>
+		inline RET bitfieldInterleave(PARAM x, PARAM y)
+		{
+			RET Result = 0; 
+			for (int i = 0; i < sizeof(PARAM) * 8; i++)
+				Result |= (x & 1U << i) << i | (y & 1U << i) << (i + 1);
+			return Result;
+		}
+	}//namespace detail
+
+	inline int16 bitfieldInterleave(int8 x, int8 y)
+	{
+		return detail::bitfieldInterleave<int8, int16>(x, y);
+	}
+
+	inline uint16 bitfieldInterleave(uint8 x, uint8 y)
+	{
+		return detail::bitfieldInterleave<uint8, uint16>(x, y);
+	}
+
+	inline int32 bitfieldInterleave(int16 x, int16 y)
+	{
+		return detail::bitfieldInterleave<int16, int32>(x, y);
+	}
+
+	inline uint32 bitfieldInterleave(uint16 x, uint16 y)
+	{
+		return detail::bitfieldInterleave<uint16, uint32>(x, y);
+	}
+
+	inline int64 bitfieldInterleave(int32 x, int32 y)
+	{
+		return detail::bitfieldInterleave<int32, int64>(x, y);
+	}
+
+	inline uint64 bitfieldInterleave(uint32 x, uint32 y)
+	{
+		return detail::bitfieldInterleave<uint32, uint64>(x, y);
+	}
 }//namespace glm
