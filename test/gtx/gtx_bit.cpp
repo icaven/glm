@@ -436,6 +436,61 @@ inline __m128i _mm_bit_interleave_si128(__m128i x, __m128i y)
 	return Reg1;
 }
 
+
+inline __m128i _mm_bit_interleave_si128(__m128i x)
+{
+	__m128i const Mask4 = _mm_set1_epi32(0x0000FFFF);
+	__m128i const Mask3 = _mm_set1_epi32(0x00FF00FF);
+	__m128i const Mask2 = _mm_set1_epi32(0x0F0F0F0F);
+	__m128i const Mask1 = _mm_set1_epi32(0x33333333);
+	__m128i const Mask0 = _mm_set1_epi32(0x55555555);
+
+	__m128i Reg1;
+	__m128i Reg2;
+
+	// REG1 = x;
+	// REG2 = y;
+	//Reg1 = _mm_unpacklo_epi64(x, y);
+	Reg1 = x;
+
+	//REG1 = ((REG1 << 16) | REG1) & glm::uint64(0x0000FFFF0000FFFF);
+	//REG2 = ((REG2 << 16) | REG2) & glm::uint64(0x0000FFFF0000FFFF);
+	Reg2 = _mm_slli_si128(Reg1, 2);
+	Reg1 = _mm_or_si128(Reg2, Reg1);
+	Reg1 = _mm_and_si128(Reg1, Mask4);
+
+	//REG1 = ((REG1 <<  8) | REG1) & glm::uint64(0x00FF00FF00FF00FF);
+	//REG2 = ((REG2 <<  8) | REG2) & glm::uint64(0x00FF00FF00FF00FF);
+	Reg2 = _mm_slli_si128(Reg1, 1);
+	Reg1 = _mm_or_si128(Reg2, Reg1);
+	Reg1 = _mm_and_si128(Reg1, Mask3);
+
+	//REG1 = ((REG1 <<  4) | REG1) & glm::uint64(0x0F0F0F0F0F0F0F0F);
+	//REG2 = ((REG2 <<  4) | REG2) & glm::uint64(0x0F0F0F0F0F0F0F0F);
+	Reg2 = _mm_slli_epi32(Reg1, 4);
+	Reg1 = _mm_or_si128(Reg2, Reg1);
+	Reg1 = _mm_and_si128(Reg1, Mask2);
+
+	//REG1 = ((REG1 <<  2) | REG1) & glm::uint64(0x3333333333333333);
+	//REG2 = ((REG2 <<  2) | REG2) & glm::uint64(0x3333333333333333);
+	Reg2 = _mm_slli_epi32(Reg1, 2);
+	Reg1 = _mm_or_si128(Reg2, Reg1);
+	Reg1 = _mm_and_si128(Reg1, Mask1);
+
+	//REG1 = ((REG1 <<  1) | REG1) & glm::uint64(0x5555555555555555);
+	//REG2 = ((REG2 <<  1) | REG2) & glm::uint64(0x5555555555555555);
+	Reg2 = _mm_slli_epi32(Reg1, 1);
+	Reg1 = _mm_or_si128(Reg2, Reg1);
+	Reg1 = _mm_and_si128(Reg1, Mask0);
+
+	//return REG1 | (REG2 << 1);
+	Reg2 = _mm_slli_epi32(Reg1, 1);
+	Reg2 = _mm_srli_si128(Reg2, 8);
+	Reg1 = _mm_or_si128(Reg1, Reg2);
+	
+	return Reg1;
+}
+
 namespace bitfieldInterleave
 {
 	int test()
@@ -444,13 +499,10 @@ namespace bitfieldInterleave
 		glm::uint32 y_max = 1 << 12;
 
 		// ALU
-		std::vector<glm::u64vec2> Data(x_max * y_max);
-		std::vector<glm::u64vec2> ParamX(x_max);
-		std::vector<glm::u64vec2> ParamY(y_max);
-		for(glm::uint32 x = 0; x < x_max; ++x)
-			ParamX[x] = glm::u64vec2(x);
-		for(glm::uint32 y = 0; y < y_max; ++y)
-			ParamY[y] = glm::u64vec2(y);
+		std::vector<glm::uint64> Data(x_max * y_max);
+		std::vector<glm::u32vec2> Param(x_max * y_max);
+		for(glm::uint32 i = 0; i < Param.size(); ++i)
+			Param[i] = glm::u32vec2(i % x_max, i / y_max);
 
 		{
 			for(glm::uint32 y = 0; y < (1 << 10); ++y)
@@ -473,12 +525,8 @@ namespace bitfieldInterleave
 		{
 			std::clock_t LastTime = std::clock();
 
-			for(glm::uint32 y = 0; y < y_max; ++y)
-			for(glm::uint32 x = 0; x < x_max; ++x)
-			{
-				glm::uint64 Result = glm::bitfieldInterleave(glm::uint32(ParamX[x].x), glm::uint32(ParamY[y].x));
-				Data[x + y * x_max].x = Result;
-			}
+			for(std::size_t i = 0; i < Data.size(); ++i)
+				Data[i] = glm::bitfieldInterleave(Param[i].x, Param[i].y);
 
 			std::clock_t Time = std::clock() - LastTime;
 
@@ -488,12 +536,8 @@ namespace bitfieldInterleave
 		{
 			std::clock_t LastTime = std::clock();
 
-			for(glm::uint32 y = 0; y < y_max; ++y)
-			for(glm::uint32 x = 0; x < x_max; ++x)
-			{
-				glm::uint64 Result = fastBitfieldInterleave(glm::uint32(ParamX[x].x), glm::uint32(ParamY[y].x));
-				Data[x + y * x_max].x = Result;
-			}
+			for(std::size_t i = 0; i < Data.size(); ++i)
+				Data[i] = fastBitfieldInterleave(Param[i].x, Param[i].y);
 
 			std::clock_t Time = std::clock() - LastTime;
 
@@ -503,12 +547,8 @@ namespace bitfieldInterleave
 		{
 			std::clock_t LastTime = std::clock();
 
-			for(glm::uint32 y = 0; y < y_max; ++y)
-			for(glm::uint32 x = 0; x < x_max; ++x)
-			{
-				glm::uint64 Result = loopBitfieldInterleave(glm::uint32(ParamX[x].x), glm::uint32(ParamY[y].x));
-				Data[x + y * x_max].x = Result;
-			}
+			for(std::size_t i = 0; i < Data.size(); ++i)
+				Data[i] = loopBitfieldInterleave(Param[i].x, Param[i].y);
 
 			std::clock_t Time = std::clock() - LastTime;
 
@@ -518,12 +558,8 @@ namespace bitfieldInterleave
 		{
 			std::clock_t LastTime = std::clock();
 
-			for(glm::uint32 y = 0; y < y_max; ++y)
-			for(glm::uint32 x = 0; x < x_max; ++x)
-			{
-				glm::uint64 Result = interleaveBitfieldInterleave(glm::uint32(ParamX[x].x), glm::uint32(ParamY[y].x));
-				Data[x + y * x_max].x = Result;
-			}
+			for(std::size_t i = 0; i < Data.size(); ++i)
+				Data[i] = interleaveBitfieldInterleave(Param[i].x, Param[i].y);
 
 			std::clock_t Time = std::clock() - LastTime;
 
@@ -533,12 +569,8 @@ namespace bitfieldInterleave
 		{
 			std::clock_t LastTime = std::clock();
 
-			for(glm::uint32 y = 0; y < y_max; ++y)
-			for(glm::uint32 x = 0; x < x_max; ++x)
-			{
-				glm::uint64 Result = sseBitfieldInterleave(glm::uint32(ParamX[x].x), glm::uint32(ParamY[y].x));
-				Data[x + y * x_max].x = Result;
-			}
+			for(std::size_t i = 0; i < Data.size(); ++i)
+				Data[i] = sseBitfieldInterleave(Param[i].x, Param[i].y);
 
 			std::clock_t Time = std::clock() - LastTime;
 
@@ -548,12 +580,8 @@ namespace bitfieldInterleave
 		{
 			std::clock_t LastTime = std::clock();
 
-			for(glm::uint32 y = 0; y < y_max; ++y)
-			for(glm::uint32 x = 0; x < x_max; ++x)
-			{
-				glm::uint64 Result = sseUnalignedBitfieldInterleave(glm::uint32(ParamX[x].x), glm::uint32(ParamY[y].x));
-				Data[x + y * x_max].x = Result;
-			}
+			for(std::size_t i = 0; i < Data.size(); ++i)
+				Data[i] = sseUnalignedBitfieldInterleave(Param[i].x, Param[i].y);
 
 			std::clock_t Time = std::clock() - LastTime;
 
@@ -566,21 +594,14 @@ namespace bitfieldInterleave
 			glm::int32 simd_y_max = 1 << 12;
 
 			std::vector<__m128i> SimdData(x_max * y_max);
-			std::vector<__m128i> SimdParamX(x_max);
-			std::vector<__m128i> SimdParamY(y_max);
-			for(int x = 0; x < simd_x_max; ++x)
-				SimdParamX[x] = _mm_set1_epi32(x);
-			for(int y = 0; y < simd_y_max; ++y)
-				SimdParamY[y] = _mm_set1_epi32(y);
+			std::vector<__m128i> SimdParam(x_max * y_max);
+			for(int i = 0; i < SimdParam.size(); ++i)
+				SimdParam[i] = _mm_set_epi32(i % simd_x_max, 0, i / simd_y_max, 0);
 
 			std::clock_t LastTime = std::clock();
 
-			for(glm::int32 y = 0; y < simd_y_max; ++y)
-			for(glm::int32 x = 0; x < simd_x_max; ++x)
-			{
-				__m128i Result = _mm_bit_interleave_si128(SimdParamX[x], SimdParamX[y]);
-				SimdData[x + y * x_max] = Result;
-			}
+			for(std::size_t i = 0; i < Data.size(); ++i)
+				SimdData[i] = _mm_bit_interleave_si128(SimdParam[i]);
 
 			std::clock_t Time = std::clock() - LastTime;
 
