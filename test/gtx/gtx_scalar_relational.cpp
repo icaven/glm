@@ -135,10 +135,8 @@ int test_any()
 {
 	int Error(0);
 
-	Error += glm::any(true, true) ? 0 : 1;
-	Error += glm::any(true, false) ? 0 : 1;
-	Error += glm::any(false, true) ? 0 : 1;
-	Error += glm::any(false, false) ? 1 : 0;
+	Error += glm::any(true) ? 0 : 1;
+	Error += glm::any(false) ? 1 : 0;
 
 	return Error;
 }
@@ -147,10 +145,8 @@ int test_all()
 {
 	int Error(0);
 
-	Error += glm::all(true, true) ? 0 : 1;
-	Error += glm::all(true, false) ? 1 : 0;
-	Error += glm::all(false, true) ? 1 : 0;
-	Error += glm::all(false, false) ? 1 : 0;
+	Error += glm::all(true) ? 0 : 1;
+	Error += glm::all(false) ? 1 : 0;
 
 	return Error;
 }

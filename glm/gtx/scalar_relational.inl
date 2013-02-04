@@ -71,20 +71,18 @@ namespace glm
 
 	GLM_FUNC_QUALIFIER bool any
 	(
-		bool const & x, 
-		bool const & y
+		bool const & x
 	)
 	{
-		return x || y;
+		return x;
 	}
 
 	GLM_FUNC_QUALIFIER bool all
 	(
-		bool const & x, 
-		bool const & y
+		bool const & x
 	)
 	{
-		return x && y;
+		return x;
 	}
 
 	GLM_FUNC_QUALIFIER bool not_
