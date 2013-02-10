@@ -187,7 +187,7 @@ namespace glm
 
 		Pack.orig.a = detail::toFloat16(v.x); 
 		Pack.orig.b = detail::toFloat16(v.y); 
-		return *(uint*)&Pack;
+		return Pack.other;
 	}
 
 	GLM_FUNC_QUALIFIER vec2 unpackHalf2x16(uint const & v)
