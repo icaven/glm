@@ -671,6 +671,70 @@ namespace glm
 
 			return REG1 | (REG2 << 1);
 		}
+
+		inline glm::uint64 bitfieldInterleave(glm::uint32 x, glm::uint32 y, glm::uint32 z)
+		{
+			glm::uint64 REG1(x);
+			glm::uint64 REG2(y);
+			glm::uint64 REG3(z);
+
+			REG1 = ((REG1 << 32) | REG1) & glm::uint64(0xFFFF00000000FFFF);
+			REG2 = ((REG2 << 32) | REG2) & glm::uint64(0xFFFF00000000FFFF);
+			REG3 = ((REG3 << 32) | REG3) & glm::uint64(0xFFFF00000000FFFF);
+
+			REG1 = ((REG1 << 16) | REG1) & glm::uint64(0x00FF0000FF0000FF);
+			REG2 = ((REG2 << 16) | REG2) & glm::uint64(0x00FF0000FF0000FF);
+			REG3 = ((REG3 << 16) | REG3) & glm::uint64(0x00FF0000FF0000FF);
+
+			REG1 = ((REG1 <<  8) | REG1) & glm::uint64(0xF00F00F00F00F00F);
+			REG2 = ((REG2 <<  8) | REG2) & glm::uint64(0xF00F00F00F00F00F);
+			REG3 = ((REG3 <<  8) | REG3) & glm::uint64(0xF00F00F00F00F00F);
+
+			REG1 = ((REG1 <<  4) | REG1) & glm::uint64(0x30C30C30C30C30C3);
+			REG2 = ((REG2 <<  4) | REG2) & glm::uint64(0x30C30C30C30C30C3);
+			REG3 = ((REG3 <<  4) | REG3) & glm::uint64(0x30C30C30C30C30C3);
+
+			REG1 = ((REG1 <<  2) | REG1) & glm::uint64(0x9249249249249249);
+			REG2 = ((REG2 <<  2) | REG2) & glm::uint64(0x9249249249249249);
+			REG3 = ((REG3 <<  2) | REG3) & glm::uint64(0x9249249249249249);
+
+			return REG1 | (REG2 << 1) | (REG3 << 2);
+		}
+
+		inline glm::uint64 bitfieldInterleave(glm::uint16 x, glm::uint16 y, glm::uint16 z, glm::uint16 w)
+		{
+			glm::uint64 REG1(x);
+			glm::uint64 REG2(y);
+			glm::uint64 REG3(z);
+			glm::uint64 REG4(w);
+/*
+			REG1 = ((REG1 << 64) | REG1) & glm::uint64(0x000000000000FFFF);
+			REG2 = ((REG2 << 64) | REG2) & glm::uint64(0x000000000000FFFF);
+			REG3 = ((REG3 << 64) | REG3) & glm::uint64(0x000000000000FFFF);
+			REG4 = ((REG4 << 64) | REG4) & glm::uint64(0x000000000000FFFF);
+*/
+			REG1 = ((REG1 << 32) | REG1) & glm::uint64(0x000000FF000000FF);
+			REG2 = ((REG2 << 32) | REG2) & glm::uint64(0x000000FF000000FF);
+			REG3 = ((REG3 << 32) | REG3) & glm::uint64(0x000000FF000000FF);
+			REG4 = ((REG4 << 32) | REG4) & glm::uint64(0x000000FF000000FF);
+
+			REG1 = ((REG1 << 16) | REG1) & glm::uint64(0x000F000F000F000F);
+			REG2 = ((REG2 << 16) | REG2) & glm::uint64(0x000F000F000F000F);
+			REG3 = ((REG3 << 16) | REG3) & glm::uint64(0x000F000F000F000F);
+			REG4 = ((REG4 << 16) | REG4) & glm::uint64(0x000F000F000F000F);
+
+			REG1 = ((REG1 <<  8) | REG1) & glm::uint64(0x0303030303030303);
+			REG2 = ((REG2 <<  8) | REG2) & glm::uint64(0x0303030303030303);
+			REG3 = ((REG3 <<  8) | REG3) & glm::uint64(0x0303030303030303);
+			REG4 = ((REG4 <<  8) | REG4) & glm::uint64(0x0303030303030303);
+
+			REG1 = ((REG1 <<  4) | REG1) & glm::uint64(0x1111111111111111);
+			REG2 = ((REG2 <<  4) | REG2) & glm::uint64(0x1111111111111111);
+			REG3 = ((REG3 <<  4) | REG3) & glm::uint64(0x1111111111111111);
+			REG4 = ((REG4 <<  4) | REG4) & glm::uint64(0x1111111111111111);
+
+			return REG1 | (REG2 << 1) | (REG3 << 2) | (REG4 << 3);
+		}
 	}//namespace detail
 
 	inline int16 bitfieldInterleave(int8 x, int8 y)

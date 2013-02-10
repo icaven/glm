@@ -7,6 +7,8 @@
 // File    : test/gtx/bit.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#include <emmintrin.h>
+
 #include <glm/glm.hpp>
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtx/bit.hpp>
@@ -18,8 +20,6 @@
 #include <iostream>
 #include <vector>
 #include <ctime>
-
-#include <emmintrin.h>
 
 enum result
 {
@@ -479,6 +479,17 @@ namespace bitfieldInterleave
 			std::cout << "sseUnalignedBitfieldInterleave Time " << Time << " clocks" << std::endl;
 		}
 
+		{
+			std::clock_t LastTime = std::clock();
+
+			for(std::size_t i = 0; i < Data.size(); ++i)
+				Data[i] = glm::detail::bitfieldInterleave(Param[i].x, Param[i].y, Param[i].x);
+
+			std::clock_t Time = std::clock() - LastTime;
+
+			std::cout << "glm::detail::bitfieldInterleave Time " << Time << " clocks" << std::endl;
+		}
+
 #		if(GLM_ARCH != GLM_ARCH_PURE)
 		{
 			// SIMD
@@ -505,12 +516,28 @@ namespace bitfieldInterleave
 	}
 }
 
+namespace bitfieldInterleave3
+{
+	int test()
+	{
+		int Error(0);
+
+		glm::uint64 Result = glm::detail::bitfieldInterleave(0xFFFFFFFF, 0x00000000, 0x00000000);
+
+		return Error;
+	}
+}
+
 int main()
 {
-	int Error = 0;
+	int Error(0);
+
+	Error += ::bitfieldInterleave3::test();
 	Error += ::bitfieldInterleave::test();
 	Error += ::extractField::test();
 	Error += ::bitRevert::test();
+
+	while(true);
 
 	return Error;
 }

@@ -136,5 +136,120 @@ namespace detail
 		return Reg1;
 	}
 
+	inline __m128i _mm_bit_interleave3_si128(__m128i x)
+	{
+		__m128i const Mask4 = _mm_set1_epi32(0xFFFF00000000FFFF);
+		__m128i const Mask3 = _mm_set1_epi32(0x00FF0000FF0000FF);
+		__m128i const Mask2 = _mm_set1_epi32(0xF00F00F00F00F00F);
+		__m128i const Mask1 = _mm_set1_epi32(0x30C30C30C30C30C3);
+		__m128i const Mask0 = _mm_set1_epi32(0x9249249249249249);
+
+		__m128i Reg1;
+		__m128i Reg2;
+
+		// REG1 = x;
+		// REG2 = y;
+		Reg1 = _mm_unpacklo_epi64(x, y);
+
+		//REG1 = ((REG1 << 32) | REG1) & glm::uint64(0xFFFF00000000FFFF);
+		//REG2 = ((REG2 << 32) | REG2) & glm::uint64(0xFFFF00000000FFFF);
+		//REG3 = ((REG3 << 32) | REG3) & glm::uint64(0xFFFF00000000FFFF);
+		Reg2 = _mm_slli_si128(Reg1, 4);
+		Reg1 = _mm_or_si128(Reg2, Reg1);
+		Reg1 = _mm_and_si128(Reg1, Mask4);
+
+		//REG1 = ((REG1 << 16) | REG1) & glm::uint64(0x00FF0000FF0000FF);
+		//REG2 = ((REG2 << 16) | REG2) & glm::uint64(0x00FF0000FF0000FF);
+		//REG3 = ((REG3 << 16) | REG3) & glm::uint64(0x00FF0000FF0000FF);
+		Reg2 = _mm_slli_si128(Reg1, 2);
+		Reg1 = _mm_or_si128(Reg2, Reg1);
+		Reg1 = _mm_and_si128(Reg1, Mask3);
+
+		//REG1 = ((REG1 <<  8) | REG1) & glm::uint64(0xF00F00F00F00F00F);
+		//REG2 = ((REG2 <<  8) | REG2) & glm::uint64(0xF00F00F00F00F00F);
+		//REG3 = ((REG3 <<  8) | REG3) & glm::uint64(0xF00F00F00F00F00F);
+		Reg2 = _mm_slli_si128(Reg1, 1);
+		Reg1 = _mm_or_si128(Reg2, Reg1);
+		Reg1 = _mm_and_si128(Reg1, Mask2);
+
+		//REG1 = ((REG1 <<  4) | REG1) & glm::uint64(0x30C30C30C30C30C3);
+		//REG2 = ((REG2 <<  4) | REG2) & glm::uint64(0x30C30C30C30C30C3);
+		//REG3 = ((REG3 <<  4) | REG3) & glm::uint64(0x30C30C30C30C30C3);
+		Reg2 = _mm_slli_epi32(Reg1, 4);
+		Reg1 = _mm_or_si128(Reg2, Reg1);
+		Reg1 = _mm_and_si128(Reg1, Mask1);
+
+		//REG1 = ((REG1 <<  2) | REG1) & glm::uint64(0x9249249249249249);
+		//REG2 = ((REG2 <<  2) | REG2) & glm::uint64(0x9249249249249249);
+		//REG3 = ((REG3 <<  2) | REG3) & glm::uint64(0x9249249249249249);
+		Reg2 = _mm_slli_epi32(Reg1, 2);
+		Reg1 = _mm_or_si128(Reg2, Reg1);
+		Reg1 = _mm_and_si128(Reg1, Mask0);
+
+		//return REG1 | (REG2 << 1) | (REG3 << 2);
+		Reg2 = _mm_slli_epi32(Reg1, 1);
+		Reg2 = _mm_srli_si128(Reg2, 8);
+		Reg1 = _mm_or_si128(Reg1, Reg2);
+	
+		return Reg1;
+	}
+
+	inline __m128i _mm_bit_interleave4_si128(__m128i x)
+	{
+		__m128i const Mask4 = _mm_set1_epi32(0xFFFF00000000FFFF);
+		__m128i const Mask3 = _mm_set1_epi32(0x00FF0000FF0000FF);
+		__m128i const Mask2 = _mm_set1_epi32(0xF00F00F00F00F00F);
+		__m128i const Mask1 = _mm_set1_epi32(0x30C30C30C30C30C3);
+		__m128i const Mask0 = _mm_set1_epi32(0x9249249249249249);
+
+		__m128i Reg1;
+		__m128i Reg2;
+
+		// REG1 = x;
+		// REG2 = y;
+		Reg1 = _mm_unpacklo_epi64(x, y);
+
+		//REG1 = ((REG1 << 32) | REG1) & glm::uint64(0xFFFF00000000FFFF);
+		//REG2 = ((REG2 << 32) | REG2) & glm::uint64(0xFFFF00000000FFFF);
+		//REG3 = ((REG3 << 32) | REG3) & glm::uint64(0xFFFF00000000FFFF);
+		Reg2 = _mm_slli_si128(Reg1, 4);
+		Reg1 = _mm_or_si128(Reg2, Reg1);
+		Reg1 = _mm_and_si128(Reg1, Mask4);
+
+		//REG1 = ((REG1 << 16) | REG1) & glm::uint64(0x00FF0000FF0000FF);
+		//REG2 = ((REG2 << 16) | REG2) & glm::uint64(0x00FF0000FF0000FF);
+		//REG3 = ((REG3 << 16) | REG3) & glm::uint64(0x00FF0000FF0000FF);
+		Reg2 = _mm_slli_si128(Reg1, 2);
+		Reg1 = _mm_or_si128(Reg2, Reg1);
+		Reg1 = _mm_and_si128(Reg1, Mask3);
+
+		//REG1 = ((REG1 <<  8) | REG1) & glm::uint64(0xF00F00F00F00F00F);
+		//REG2 = ((REG2 <<  8) | REG2) & glm::uint64(0xF00F00F00F00F00F);
+		//REG3 = ((REG3 <<  8) | REG3) & glm::uint64(0xF00F00F00F00F00F);
+		Reg2 = _mm_slli_si128(Reg1, 1);
+		Reg1 = _mm_or_si128(Reg2, Reg1);
+		Reg1 = _mm_and_si128(Reg1, Mask2);
+
+		//REG1 = ((REG1 <<  4) | REG1) & glm::uint64(0x30C30C30C30C30C3);
+		//REG2 = ((REG2 <<  4) | REG2) & glm::uint64(0x30C30C30C30C30C3);
+		//REG3 = ((REG3 <<  4) | REG3) & glm::uint64(0x30C30C30C30C30C3);
+		Reg2 = _mm_slli_epi32(Reg1, 4);
+		Reg1 = _mm_or_si128(Reg2, Reg1);
+		Reg1 = _mm_and_si128(Reg1, Mask1);
+
+		//REG1 = ((REG1 <<  2) | REG1) & glm::uint64(0x9249249249249249);
+		//REG2 = ((REG2 <<  2) | REG2) & glm::uint64(0x9249249249249249);
+		//REG3 = ((REG3 <<  2) | REG3) & glm::uint64(0x9249249249249249);
+		Reg2 = _mm_slli_epi32(Reg1, 2);
+		Reg1 = _mm_or_si128(Reg2, Reg1);
+		Reg1 = _mm_and_si128(Reg1, Mask0);
+
+		//return REG1 | (REG2 << 1) | (REG3 << 2);
+		Reg2 = _mm_slli_epi32(Reg1, 1);
+		Reg2 = _mm_srli_si128(Reg2, 8);
+		Reg1 = _mm_or_si128(Reg1, Reg2);
+	
+		return Reg1;
+	}
 }//namespace detail
 }//namespace glms
