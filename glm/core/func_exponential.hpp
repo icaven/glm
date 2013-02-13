@@ -41,16 +41,16 @@ namespace glm
 	/// @addtogroup core_func_exponential
 	/// @{
 
-	/// Returns x raised to the y power. 
+	/// Returns 'base' raised to the power 'exponent'. 
 	///
-	/// @param x pow function is defined for input values of x defined in the range (inf-, inf+) in the limit of the type precision.
-	/// @param y 
+	/// @param base Floating point value. pow function is defined for input values of x defined in the range (inf-, inf+) in the limit of the type precision.
+	/// @param exponent Floating point value representing the 'exponent'.
 	/// @tparam genType Floating-point scalar or vector types.
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/pow.xml">GLSL pow man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2 Exponential Functions</a>
 	template <typename genType> 
-	genType pow(genType const & x, genType const & y);
+	genType pow(genType const & base, genType const & exponent);
 
 	/// Returns the natural exponentiation of x, i.e., e^x.
 	///
