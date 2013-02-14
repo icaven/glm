@@ -191,7 +191,7 @@ namespace detail
 		X2 const & x2, Y2 const & y2, Z2 const & z2, W2 const & w2, 
 		X3 const & x3, Y3 const & y3, Z3 const & z3, W3 const & w3, 
 		X4 const & x4, Y4 const & y4, Z4 const & z4, W4 const & w4
-	)		
+	)
 	{
 		GLM_STATIC_ASSERT(detail::type<X1>::is_float || std::numeric_limits<X1>::is_integer, "*mat4x4 constructor only takes float and integer types, 1st parameter type invalid.");
 		GLM_STATIC_ASSERT(detail::type<Y1>::is_float || std::numeric_limits<Y1>::is_integer, "*mat4x4 constructor only takes float and integer types, 2nd parameter type invalid.");

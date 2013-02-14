@@ -213,22 +213,22 @@ namespace glm
 		typename genType::value_type const & minVal, 
 		typename genType::value_type const & maxVal); 
 
-	//! @return If genTypeU is a floating scalar or vector: 
-	//! Returns x * (1.0 - a) + y * a, i.e., the linear blend of 
-	//! x and y using the floating-point value a. 
-	//! The value for a is not restricted to the range [0, 1].
-	//! 
-	//! @return If genTypeU is a boolean scalar or vector: 
-	//! Selects which vector each returned component comes
-	//! from. For a component of a that is false, the
-	//! corresponding component of x is returned. For a
-	//! component of a that is true, the corresponding
-	//! component of y is returned. Components of x and y that
-	//! are not selected are allowed to be invalid floating point
-	//! values and will have no effect on the results. Thus, this
-	//! provides different functionality than
-	//! genType mix(genType x, genType y, genType(a))
-	//! where a is a Boolean vector.
+	/// If genTypeU is a floating scalar or vector: 
+	/// Returns x * (1.0 - a) + y * a, i.e., the linear blend of 
+	/// x and y using the floating-point value a. 
+	/// The value for a is not restricted to the range [0, 1].
+	/// 
+	/// If genTypeU is a boolean scalar or vector: 
+	/// Selects which vector each returned component comes
+	/// from. For a component of a that is false, the
+	/// corresponding component of x is returned. For a
+	/// component of a that is true, the corresponding
+	/// component of y is returned. Components of x and y that
+	/// are not selected are allowed to be invalid floating point
+	/// values and will have no effect on the results. Thus, this
+	/// provides different functionality than
+	/// genType mix(genType x, genType y, genType(a))
+	/// where a is a Boolean vector.
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mix.xml">GLSL mix man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>

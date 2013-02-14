@@ -34,40 +34,6 @@
 namespace glm{
 namespace detail
 {
-	//template 
-	//<
-	//	typename T, 
-	//	template <typename> class C, 
-	//	template <typename> class R
-	//>
-	//struct matType
-	//{
-	//	enum ctor{null};
-	//	typedef T value_type;
-	//	typedef std::size_t size_type;
-	//	typedef C<T> col_type;
-	//	typedef R<T> row_type;
-	//	static size_type const col_size;
-	//	static size_type const row_size;
-	//};
-
-	//template 
-	//<
-	//	typename T, 
-	//	template <typename> class C, 
-	//	template <typename> class R
-	//>
-	//typename matType<T, C, R>::size_type const 
-	//matType<T, C, R>::col_size = matType<T, C, R>::col_type::value_size;
-
-	//template 
-	//<
-	//	typename T, 
-	//	template <typename> class C, 
-	//	template <typename> class R
-	//>
-	//typename matType<T, C, R>::size_type const 
-	//matType<T, C, R>::row_size = matType<T, C, R>::row_type::value_size;
 
 }//namespace detail
 }//namespace glm
