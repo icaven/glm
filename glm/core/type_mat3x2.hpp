@@ -154,12 +154,12 @@ namespace detail
 	tmat3x2<T> operator+ (
 		tmat3x2<T> const & m, 
 		typename tmat3x2<T>::value_type const & s);
-	    
+
 	template <typename T> 
 	tmat3x2<T> operator+ (
 		tmat3x2<T> const & m1, 
 		tmat3x2<T> const & m2);
-	    
+
 	template <typename T> 
 	tmat3x2<T> operator- (
 		tmat3x2<T> const & m, 

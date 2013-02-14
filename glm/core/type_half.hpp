@@ -36,8 +36,8 @@ namespace detail
 {
 	typedef short hdata;
 
-	float toFloat32(hdata value);
-	hdata toFloat16(float const & value);
+	GLM_FUNC_DECL float toFloat32(hdata value);
+	GLM_FUNC_DECL hdata toFloat16(float const & value);
 
 	class half
 	{
@@ -71,42 +71,42 @@ namespace detail
 		hdata data;
 	};
 
-	half operator+ (half const & s1, half const & s2);
+	GLM_FUNC_DECL half operator+ (half const & s1, half const & s2);
 
-	half operator- (half const & s1, half const & s2);
+	GLM_FUNC_DECL half operator- (half const & s1, half const & s2);
 
-	half operator* (half const & s1, half const & s2);
+	GLM_FUNC_DECL half operator* (half const & s1, half const & s2);
 
-	half operator/ (half const & s1, half const & s2);
+	GLM_FUNC_DECL half operator/ (half const & s1, half const & s2);
 
 	// Unary constant operators
-	half operator- (half const & s);
+	GLM_FUNC_DECL half operator- (half const & s);
 
-	half operator-- (half const & s, int);
+	GLM_FUNC_DECL half operator-- (half const & s, int);
 
-	half operator++ (half const & s, int);
+	GLM_FUNC_DECL half operator++ (half const & s, int);
 
-	bool operator==(
+	GLM_FUNC_DECL bool operator==(
 		detail::half const & x, 
 		detail::half const & y);
 
-	bool operator!=(
+	GLM_FUNC_DECL bool operator!=(
 		detail::half const & x, 
 		detail::half const & y);
 
-	bool operator<(
+	GLM_FUNC_DECL bool operator<(
 		detail::half const & x, 
 		detail::half const & y);
 
-	bool operator<=(
+	GLM_FUNC_DECL bool operator<=(
 		detail::half const & x, 
 		detail::half const & y);
 
-	bool operator>(
+	GLM_FUNC_DECL bool operator>(
 		detail::half const & x, 
 		detail::half const & y);
 
-	bool operator>=(
+	GLM_FUNC_DECL bool operator>=(
 		detail::half const & x, 
 		detail::half const & y);
 

@@ -132,7 +132,6 @@ namespace glm
 	(
 		genType const & x, 
 		genType const & y
-        
 	)
 	{
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'dot' only accept floating-point inputs");
@@ -271,7 +270,7 @@ namespace glm
 
 	// reflect
 	template <typename genType>
-	genType reflect
+	GLM_FUNC_QUALIFIER genType reflect
 	(
 		genType const & I, 
 		genType const & N

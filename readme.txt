@@ -49,6 +49,7 @@ GLM 0.9.4.2: 2013-02-14
 - Fixed 0x2013 dash character in comments that cause issue in Windows 
   Japanese mode
 - Fixed documentation warnings
+- Fixed CUDA warnings
 
 ================================================================================
 GLM 0.9.4.1: 2012-12-22
