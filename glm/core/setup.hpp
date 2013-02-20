@@ -649,29 +649,31 @@
 // User defines: GLM_FORCE_INLINE GLM_FORCE_CUDA
 
 #if(defined(GLM_FORCE_CUDA) || (GLM_COMPILER & GLM_COMPILER_CUDA))
-#   define GLM_CUDA_FUNC_DEF __device__ __host__ 
+#	define GLM_CUDA_FUNC_DEF __device__ __host__ 
 #	define GLM_CUDA_FUNC_DECL __device__ __host__ 
 #else
-#   define GLM_CUDA_FUNC_DEF
+#	define GLM_CUDA_FUNC_DEF
 #	define GLM_CUDA_FUNC_DECL
 #endif
 
 #if GLM_COMPILER & GLM_COMPILER_GCC
-#define GLM_VAR_USED __attribute__ ((unused))
+#	define GLM_VAR_USED __attribute__ ((unused))
 #else
-#define GLM_VAR_USED
+#	define GLM_VAR_USED
 #endif
 
 #if(defined(GLM_FORCE_INLINE))
-#   if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
-#       define GLM_INLINE __forceinline
-#   elif((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC34))
-#       define GLM_INLINE __attribute__((always_inline))
-#   else
-#       define GLM_INLINE inline
-#   endif//GLM_COMPILER
+#	if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
+#		define GLM_INLINE __forceinline
+#	elif((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC34))
+#		define GLM_INLINE __attribute__((always_inline))
+#	elif(GLM_COMPILER & GLM_COMPILER_CLANG)
+#		define GLM_INLINE __attribute__((always_inline))
+#	else
+#		define GLM_INLINE inline
+#	endif//GLM_COMPILER
 #else
-#   define GLM_INLINE inline
+#	define GLM_INLINE inline
 #endif//defined(GLM_FORCE_INLINE)
 
 #define GLM_FUNC_DECL GLM_CUDA_FUNC_DECL
