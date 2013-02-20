@@ -37,11 +37,17 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
 
 ================================================================================
-GLM 0.9.5.X: 2013-XX-XX
+GLM 0.9.5.0: 2013-XX-XX
 --------------------------------------------------------------------------------
 - Improved Intel Compiler detection
 - Added bitfieldInterleave and _mm_bit_interleave_si128 functions
 - Added GTX_scalar_relational
+- Added GTX_dual_quaternion
+
+================================================================================
+GLM 0.9.4.3: 2013-0X-XX
+--------------------------------------------------------------------------------
+- Detected qualifier for Clang
 
 ================================================================================
 GLM 0.9.4.2: 2013-02-14
