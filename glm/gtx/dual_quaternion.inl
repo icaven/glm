@@ -20,8 +20,8 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtc_quaternion
-/// @file glm/gtc/quaternion.inl
+/// @ref gtx_quaternion
+/// @file glm/gtx/quaternion.inl
 /// @date 2013-02-10 / 2013-02-13
 /// @author Maksim Vorobiev (msomeone@gmail.com)
 ///////////////////////////////////////////////////////////////////////////////////

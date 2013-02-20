@@ -20,9 +20,9 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtc_dual_quaternion
-/// @file glm/gtc/dual_quaternion.hpp
-/// @date 2013-02-10 / 2013-02-13
+/// @ref gtx_dual_quaternion
+/// @file glm/gtx/dual_quaternion.hpp
+/// @date 2013-02-10 / 2013-02-20
 /// @author Maksim Vorobiev (msomeone@gmail.com)
 ///
 /// @see core (dependence)
@@ -30,16 +30,16 @@
 /// @see gtc_constants (dependence)
 /// @see gtc_quaternion (dependence)
 ///
-/// @defgroup gtc_dual_quaternion GLM_GTC_dual_quaternion
+/// @defgroup gtc_dual_quaternion GLM_GTX_dual_quaternion
 /// @ingroup gtc
 /// 
 /// @brief Defines a templated dual-quaternion type and several dual-quaternion operations.
 /// 
-/// <glm/gtc/dual_quaternion.hpp> need to be included to use these functionalities.
+/// <glm/gtx/dual_quaternion.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTC_dual_quaternion
-#define GLM_GTC_dual_quaternion GLM_VERSION
+#ifndef GLM_GTX_dual_quaternion
+#define GLM_GTX_dual_quaternion GLM_VERSION
 
 // Dependency:
 #include "../glm.hpp"
@@ -48,7 +48,7 @@
 #include "../gtc/quaternion.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))
-#	pragma message("GLM: GLM_GTC_dual_quaternion extension included")
+#	pragma message("GLM: GLM_GTX_dual_quaternion extension included")
 #endif
 
 namespace glm{
@@ -239,4 +239,4 @@ namespace detail
 
 #include "dual_quaternion.inl"
 
-#endif//GLM_GTC_dual_quaternion
+#endif//GLM_GTX_dual_quaternion
