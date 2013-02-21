@@ -41,6 +41,7 @@ GLM 0.9.4.3: 2013-0X-XX
 --------------------------------------------------------------------------------
 - Detected qualifier for Clang
 - Fixed C++11 mode for GCC, couldn't be enabled without MS extensions
+- Fixed squad, intermediate and exp quaternion functions
 
 ================================================================================
 GLM 0.9.4.2: 2013-02-14
