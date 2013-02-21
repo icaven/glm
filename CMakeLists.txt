@@ -48,7 +48,6 @@ elseif(NOT GLM_TEST_ENABLE_LANG_EXTENSIONS)
 	endif()
 
 	if(CMAKE_COMPILER_IS_GNUCXX)
-		add_definitions(-std=c++98)
 		add_definitions(-pedantic)
 	endif()
 
