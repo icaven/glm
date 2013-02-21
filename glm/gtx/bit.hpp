@@ -132,29 +132,117 @@ namespace glm
 		int const & FromBit, 
 		int const & ToBit);
 
-	///
+	/// Interleaves the bits of x and y. 
+	/// The first bit is the first bit of x followed by the first bit of y.
+	/// The other bits are interleaved following the previous sequence.
+	/// 
 	/// @see gtx_bit
 	int16 bitfieldInterleave(int8 x, int8 y);
 
-	///
+	/// Interleaves the bits of x and y. 
+	/// The first bit is the first bit of x followed by the first bit of y.
+	/// The other bits are interleaved following the previous sequence.
+	/// 
 	/// @see gtx_bit
 	uint16 bitfieldInterleave(uint8 x, uint8 y);
 
-	///
+	/// Interleaves the bits of x and y. 
+	/// The first bit is the first bit of x followed by the first bit of y.
+	/// The other bits are interleaved following the previous sequence.
+	/// 
 	/// @see gtx_bit
 	int32 bitfieldInterleave(int16 x, int16 y);
 
-	///
+	/// Interleaves the bits of x and y. 
+	/// The first bit is the first bit of x followed by the first bit of y.
+	/// The other bits are interleaved following the previous sequence.
+	/// 
 	/// @see gtx_bit
 	uint32 bitfieldInterleave(uint16 x, uint16 y);
 
-	///
+	/// Interleaves the bits of x and y. 
+	/// The first bit is the first bit of x followed by the first bit of y.
+	/// The other bits are interleaved following the previous sequence.
+	/// 
 	/// @see gtx_bit
 	int64 bitfieldInterleave(int32 x, int32 y);
 
-	///
+	/// Interleaves the bits of x and y. 
+	/// The first bit is the first bit of x followed by the first bit of y.
+	/// The other bits are interleaved following the previous sequence.
+	/// 
 	/// @see gtx_bit
 	uint64 bitfieldInterleave(uint32 x, uint32 y);
+
+	/// Interleaves the bits of x, y and z. 
+	/// The first bit is the first bit of x followed by the first bit of y and the first bit of z.
+	/// The other bits are interleaved following the previous sequence.
+	/// 
+	/// @see gtx_bit
+	int32 bitfieldInterleave(int8 x, int8 y, int8 z);
+
+	/// Interleaves the bits of x, y and z. 
+	/// The first bit is the first bit of x followed by the first bit of y and the first bit of z.
+	/// The other bits are interleaved following the previous sequence.
+	/// 
+	/// @see gtx_bit
+	uint32 bitfieldInterleave(uint8 x, uint8 y, uint8 z);
+
+	/// Interleaves the bits of x, y and z. 
+	/// The first bit is the first bit of x followed by the first bit of y and the first bit of z.
+	/// The other bits are interleaved following the previous sequence.
+	/// 
+	/// @see gtx_bit
+	int64 bitfieldInterleave(int16 x, int16 y, int16 z);
+
+	/// Interleaves the bits of x, y and z. 
+	/// The first bit is the first bit of x followed by the first bit of y and the first bit of z.
+	/// The other bits are interleaved following the previous sequence.
+	/// 
+	/// @see gtx_bit
+	uint64 bitfieldInterleave(uint16 x, uint16 y, uint16 z);
+
+	/// Interleaves the bits of x, y and z. 
+	/// The first bit is the first bit of x followed by the first bit of y and the first bit of z.
+	/// The other bits are interleaved following the previous sequence.
+	/// 
+	/// @see gtx_bit
+	int64 bitfieldInterleave(int32 x, int32 y, int32 z);
+
+	/// Interleaves the bits of x, y and z. 
+	/// The first bit is the first bit of x followed by the first bit of y and the first bit of z.
+	/// The other bits are interleaved following the previous sequence.
+	/// 
+	/// @see gtx_bit
+	uint64 bitfieldInterleave(uint32 x, uint32 y, uint32 z);
+
+	/// Interleaves the bits of x, y, z and w. 
+	/// The first bit is the first bit of x followed by the first bit of y, the first bit of z and finally the first bit of w.
+	/// The other bits are interleaved following the previous sequence.
+	/// 
+	/// @see gtx_bit
+	int32 bitfieldInterleave(int8 x, int8 y, int8 z, int8 w);
+
+	/// Interleaves the bits of x, y, z and w. 
+	/// The first bit is the first bit of x followed by the first bit of y, the first bit of z and finally the first bit of w.
+	/// The other bits are interleaved following the previous sequence.
+	/// 
+	/// @see gtx_bit
+	uint32 bitfieldInterleave(uint8 x, uint8 y, uint8 z, uint8 w);
+
+	/// Interleaves the bits of x, y, z and w. 
+	/// The first bit is the first bit of x followed by the first bit of y, the first bit of z and finally the first bit of w.
+	/// The other bits are interleaved following the previous sequence.
+	/// 
+	/// @see gtx_bit
+	int64 bitfieldInterleave(int16 x, int16 y, int16 z, int16 w);
+
+	/// Interleaves the bits of x, y, z and w. 
+	/// The first bit is the first bit of x followed by the first bit of y, the first bit of z and finally the first bit of w.
+	/// The other bits are interleaved following the previous sequence.
+	/// 
+	/// @see gtx_bit
+	uint64 bitfieldInterleave(uint16 x, uint16 y, uint16 z, uint16 w);
 
 	/// @}
 } //namespace glm

@@ -388,7 +388,7 @@ namespace bitfieldInterleave
 				assert(A == F);
 
 #				if(GLM_ARCH != GLM_ARCH_PURE)
-					__m128i G = _mm_bit_interleave_si128(_mm_set_epi32(0, y, 0, x));
+					__m128i G = glm::detail::_mm_bit_interleave_si128(_mm_set_epi32(0, y, 0, x));
 					glm::uint64 Result[2];
 					_mm_storeu_si128((__m128i*)Result, G);
 					assert(A == Result[0]);
@@ -483,7 +483,7 @@ namespace bitfieldInterleave
 			std::clock_t LastTime = std::clock();
 
 			for(std::size_t i = 0; i < Data.size(); ++i)
-				Data[i] = glm::detail::bitfieldInterleave(Param[i].x, Param[i].y, Param[i].x);
+				Data[i] = glm::bitfieldInterleave(Param[i].x, Param[i].y, Param[i].x);
 
 			std::clock_t Time = std::clock() - LastTime;
 
@@ -518,11 +518,75 @@ namespace bitfieldInterleave
 
 namespace bitfieldInterleave3
 {
+	template <typename PARAM, typename RET>
+	inline RET refBitfieldInterleave(PARAM x, PARAM y, PARAM z)
+	{
+		RET Result = 0; 
+		for(RET i = 0; i < sizeof(PARAM) * 8; ++i)
+		{
+			Result |= ((RET(x) & (RET(1U) << i)) << ((i << 1) + 0));
+			Result |= ((RET(y) & (RET(1U) << i)) << ((i << 1) + 1));
+			Result |= ((RET(z) & (RET(1U) << i)) << ((i << 1) + 2));
+		}
+		return Result;
+	}
+
 	int test()
 	{
 		int Error(0);
 
-		glm::uint64 Result = glm::detail::bitfieldInterleave(0xFFFFFFFF, 0x00000000, 0x00000000);
+		glm::uint16 x_max = 1 << 11;
+		glm::uint16 y_max = 1 << 11;
+		glm::uint16 z_max = 1 << 11;
+
+		for(glm::uint16 z = 0; z < z_max; z += 27)
+		for(glm::uint16 y = 0; y < y_max; y += 27)
+		for(glm::uint16 x = 0; x < x_max; x += 27)
+		{
+			glm::uint64 ResultA = refBitfieldInterleave<glm::uint16, glm::uint64>(x, y, z);
+			glm::uint64 ResultB = glm::bitfieldInterleave(x, y, z);
+			Error += ResultA == ResultB ? 0 : 1;
+		}
+
+		return Error;
+	}
+}
+
+namespace bitfieldInterleave4
+{
+	template <typename PARAM, typename RET>
+	inline RET loopBitfieldInterleave(PARAM x, PARAM y, PARAM z, PARAM w)
+	{
+		RET const v[4] = {x, y, z, w};
+		RET Result = 0; 
+		for(RET i = 0; i < sizeof(PARAM) * 8; i++)
+		{
+			Result |= ((((v[0] >> i) & 1U)) << ((i << 2) + 0));
+			Result |= ((((v[1] >> i) & 1U)) << ((i << 2) + 1));
+			Result |= ((((v[2] >> i) & 1U)) << ((i << 2) + 2));
+			Result |= ((((v[3] >> i) & 1U)) << ((i << 2) + 3));
+		}
+		return Result;
+	}
+
+	int test()
+	{
+		int Error(0);
+
+		glm::uint16 x_max = 1 << 11;
+		glm::uint16 y_max = 1 << 11;
+		glm::uint16 z_max = 1 << 11;
+		glm::uint16 w_max = 1 << 11;
+
+		for(glm::uint16 w = 0; w < w_max; w += 27)
+		for(glm::uint16 z = 0; z < z_max; z += 27)
+		for(glm::uint16 y = 0; y < y_max; y += 27)
+		for(glm::uint16 x = 0; x < x_max; x += 27)
+		{
+			glm::uint64 ResultA = loopBitfieldInterleave<glm::uint16, glm::uint64>(x, y, z, w);
+			glm::uint64 ResultB = glm::bitfieldInterleave(x, y, z, w);
+			Error += ResultA == ResultB ? 0 : 1;
+		}
 
 		return Error;
 	}
@@ -533,6 +597,7 @@ int main()
 	int Error(0);
 
 	Error += ::bitfieldInterleave3::test();
+	Error += ::bitfieldInterleave4::test();
 	Error += ::bitfieldInterleave::test();
 	Error += ::extractField::test();
 	Error += ::bitRevert::test();

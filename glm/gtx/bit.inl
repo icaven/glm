@@ -601,6 +601,16 @@ namespace glm
 	namespace detail
 	{
 		template <typename PARAM, typename RET>
+		RET bitfieldInterleave(PARAM x, PARAM y);
+
+		template <typename PARAM, typename RET>
+		RET bitfieldInterleave(PARAM x, PARAM y, PARAM z);
+
+		template <typename PARAM, typename RET>
+		RET bitfieldInterleave(PARAM x, PARAM y, PARAM z, PARAM w);
+
+/*
+		template <typename PARAM, typename RET>
 		inline RET bitfieldInterleave(PARAM x, PARAM y)
 		{
 			RET Result = 0; 
@@ -609,6 +619,33 @@ namespace glm
 			return Result;
 		}
 
+		template <typename PARAM, typename RET>
+		inline RET bitfieldInterleave(PARAM x, PARAM y, PARAM z)
+		{
+			RET Result = 0; 
+			for (RET i = 0; i < sizeof(PARAM) * 8; i++)
+			{
+				Result |= ((RET(x) & (RET(1) << i)) << ((i << 1) + 0));
+				Result |= ((RET(y) & (RET(1) << i)) << ((i << 1) + 1));
+				Result |= ((RET(z) & (RET(1) << i)) << ((i << 1) + 2));
+			}
+			return Result;
+		}
+
+		template <typename PARAM, typename RET>
+		inline RET bitfieldInterleave(PARAM x, PARAM y, PARAM z, PARAM w)
+		{
+			RET Result = 0; 
+			for (int i = 0; i < sizeof(PARAM) * 8; i++)
+			{
+				Result |= ((((RET(x) >> i) & RET(1))) << RET((i << 2) + 0));
+				Result |= ((((RET(y) >> i) & RET(1))) << RET((i << 2) + 1));
+				Result |= ((((RET(z) >> i) & RET(1))) << RET((i << 2) + 2));
+				Result |= ((((RET(w) >> i) & RET(1))) << RET((i << 2) + 3));
+			}
+			return Result;
+		}
+*/
 		template <>
 		inline glm::uint16 bitfieldInterleave(glm::uint8 x, glm::uint8 y)
 		{
@@ -672,6 +709,7 @@ namespace glm
 			return REG1 | (REG2 << 1);
 		}
 
+		template <>
 		inline glm::uint64 bitfieldInterleave(glm::uint32 x, glm::uint32 y, glm::uint32 z)
 		{
 			glm::uint64 REG1(x);
@@ -701,37 +739,33 @@ namespace glm
 			return REG1 | (REG2 << 1) | (REG3 << 2);
 		}
 
+		template <>
 		inline glm::uint64 bitfieldInterleave(glm::uint16 x, glm::uint16 y, glm::uint16 z, glm::uint16 w)
 		{
 			glm::uint64 REG1(x);
 			glm::uint64 REG2(y);
 			glm::uint64 REG3(z);
 			glm::uint64 REG4(w);
-/*
-			REG1 = ((REG1 << 64) | REG1) & glm::uint64(0x000000000000FFFF);
-			REG2 = ((REG2 << 64) | REG2) & glm::uint64(0x000000000000FFFF);
-			REG3 = ((REG3 << 64) | REG3) & glm::uint64(0x000000000000FFFF);
-			REG4 = ((REG4 << 64) | REG4) & glm::uint64(0x000000000000FFFF);
-*/
-			REG1 = ((REG1 << 32) | REG1) & glm::uint64(0x000000FF000000FF);
-			REG2 = ((REG2 << 32) | REG2) & glm::uint64(0x000000FF000000FF);
-			REG3 = ((REG3 << 32) | REG3) & glm::uint64(0x000000FF000000FF);
-			REG4 = ((REG4 << 32) | REG4) & glm::uint64(0x000000FF000000FF);
 
-			REG1 = ((REG1 << 16) | REG1) & glm::uint64(0x000F000F000F000F);
-			REG2 = ((REG2 << 16) | REG2) & glm::uint64(0x000F000F000F000F);
-			REG3 = ((REG3 << 16) | REG3) & glm::uint64(0x000F000F000F000F);
-			REG4 = ((REG4 << 16) | REG4) & glm::uint64(0x000F000F000F000F);
+			REG1 = ((REG1 << 24) | REG1) & glm::uint64(0x000000FF000000FF);
+			REG2 = ((REG2 << 24) | REG2) & glm::uint64(0x000000FF000000FF);
+			REG3 = ((REG3 << 24) | REG3) & glm::uint64(0x000000FF000000FF);
+			REG4 = ((REG4 << 24) | REG4) & glm::uint64(0x000000FF000000FF);
 
-			REG1 = ((REG1 <<  8) | REG1) & glm::uint64(0x0303030303030303);
-			REG2 = ((REG2 <<  8) | REG2) & glm::uint64(0x0303030303030303);
-			REG3 = ((REG3 <<  8) | REG3) & glm::uint64(0x0303030303030303);
-			REG4 = ((REG4 <<  8) | REG4) & glm::uint64(0x0303030303030303);
+			REG1 = ((REG1 << 12) | REG1) & glm::uint64(0x000F000F000F000F);
+			REG2 = ((REG2 << 12) | REG2) & glm::uint64(0x000F000F000F000F);
+			REG3 = ((REG3 << 12) | REG3) & glm::uint64(0x000F000F000F000F);
+			REG4 = ((REG4 << 12) | REG4) & glm::uint64(0x000F000F000F000F);
 
-			REG1 = ((REG1 <<  4) | REG1) & glm::uint64(0x1111111111111111);
-			REG2 = ((REG2 <<  4) | REG2) & glm::uint64(0x1111111111111111);
-			REG3 = ((REG3 <<  4) | REG3) & glm::uint64(0x1111111111111111);
-			REG4 = ((REG4 <<  4) | REG4) & glm::uint64(0x1111111111111111);
+			REG1 = ((REG1 <<  6) | REG1) & glm::uint64(0x0303030303030303);
+			REG2 = ((REG2 <<  6) | REG2) & glm::uint64(0x0303030303030303);
+			REG3 = ((REG3 <<  6) | REG3) & glm::uint64(0x0303030303030303);
+			REG4 = ((REG4 <<  6) | REG4) & glm::uint64(0x0303030303030303);
+
+			REG1 = ((REG1 <<  3) | REG1) & glm::uint64(0x1111111111111111);
+			REG2 = ((REG2 <<  3) | REG2) & glm::uint64(0x1111111111111111);
+			REG3 = ((REG3 <<  3) | REG3) & glm::uint64(0x1111111111111111);
+			REG4 = ((REG4 <<  3) | REG4) & glm::uint64(0x1111111111111111);
 
 			return REG1 | (REG2 << 1) | (REG3 << 2) | (REG4 << 3);
 		}
@@ -753,7 +787,7 @@ namespace glm
 
 		sign_x.i = x;
 		sign_y.i = y;
-		result.u = detail::bitfieldInterleave<int8, int16>(sign_x.u, sign_y.u);
+		result.u = bitfieldInterleave(sign_x.u, sign_y.u);
 
 		return result.i;
 	}
@@ -779,7 +813,7 @@ namespace glm
 
 		sign_x.i = x;
 		sign_y.i = y;
-		result.u = detail::bitfieldInterleave<int16, int32>(sign_x.u, sign_y.u);
+		result.u = bitfieldInterleave(sign_x.u, sign_y.u);
 
 		return result.i;
 	}
@@ -805,7 +839,7 @@ namespace glm
 
 		sign_x.i = x;
 		sign_y.i = y;
-		result.u = detail::bitfieldInterleave<int32, int64>(sign_x.u, sign_y.u);
+		result.u = bitfieldInterleave(sign_x.u, sign_y.u);
 
 		return result.i;
 	}
@@ -814,4 +848,142 @@ namespace glm
 	{
 		return detail::bitfieldInterleave<uint32, uint64>(x, y);
 	}
+
+	inline int32 bitfieldInterleave(int8 x, int8 y, int8 z)
+	{
+		union sign8
+		{
+			int8 i;
+			uint8 u;
+		} sign_x, sign_y, sign_z;
+
+		union sign32
+		{
+			int32 i;
+			uint32 u;
+		} result;
+
+		sign_x.i = x;
+		sign_y.i = y;
+		sign_z.i = z;
+		result.u = bitfieldInterleave(sign_x.u, sign_y.u, sign_z.u);
+
+		return result.i;
+	}
+
+	inline uint32 bitfieldInterleave(uint8 x, uint8 y, uint8 z)
+	{
+		return detail::bitfieldInterleave<uint8, uint32>(x, y, z);
+	}
+
+	inline int64 bitfieldInterleave(int16 x, int16 y, int16 z)
+	{
+		union sign16
+		{
+			int16 i;
+			uint16 u;
+		} sign_x, sign_y, sign_z;
+
+		union sign64
+		{
+			int64 i;
+			uint64 u;
+		} result;
+
+		sign_x.i = x;
+		sign_y.i = y;
+		sign_z.i = z;
+		result.u = bitfieldInterleave(sign_x.u, sign_y.u, sign_z.u);
+
+		return result.i;
+	}
+
+	inline uint64 bitfieldInterleave(uint16 x, uint16 y, uint16 z)
+	{
+		return detail::bitfieldInterleave<uint32, uint64>(x, y, z);
+	}
+
+	inline int64 bitfieldInterleave(int32 x, int32 y, int32 z)
+	{
+		union sign16
+		{
+			int32 i;
+			uint32 u;
+		} sign_x, sign_y, sign_z;
+
+		union sign64
+		{
+			int64 i;
+			uint64 u;
+		} result;
+
+		sign_x.i = x;
+		sign_y.i = y;
+		sign_z.i = z;
+		result.u = bitfieldInterleave(sign_x.u, sign_y.u, sign_z.u);
+
+		return result.i;
+	}
+
+	inline uint64 bitfieldInterleave(uint32 x, uint32 y, uint32 z)
+	{
+		return detail::bitfieldInterleave<uint32, uint64>(x, y, z);
+	}
+
+	inline int32 bitfieldInterleave(int8 x, int8 y, int8 z, int8 w)
+	{
+		union sign8
+		{
+			int8 i;
+			uint8 u;
+		} sign_x, sign_y, sign_z, sign_w;
+
+		union sign32
+		{
+			int32 i;
+			uint32 u;
+		} result;
+
+		sign_x.i = x;
+		sign_y.i = y;
+		sign_z.i = z;
+		sign_w.i = w;
+		result.u = bitfieldInterleave(sign_x.u, sign_y.u, sign_z.u);
+
+		return result.i;
+	}
+
+	inline uint32 bitfieldInterleave(uint8 x, uint8 y, uint8 z, uint8 w)
+	{
+		return detail::bitfieldInterleave<uint8, uint32>(x, y, z);
+	}
+
+	inline int64 bitfieldInterleave(int16 x, int16 y, int16 z, int16 w)
+	{
+		union sign16
+		{
+			int16 i;
+			uint16 u;
+		} sign_x, sign_y, sign_z, sign_w;
+
+		union sign64
+		{
+			int64 i;
+			uint64 u;
+		} result;
+
+		sign_x.i = x;
+		sign_y.i = y;
+		sign_z.i = z;
+		sign_w.i = w;
+		result.u = bitfieldInterleave(sign_x.u, sign_y.u, sign_z.u);
+
+		return result.i;
+	}
+
+	inline uint64 bitfieldInterleave(uint16 x, uint16 y, uint16 z, uint16 w)
+	{
+		return detail::bitfieldInterleave<uint16, uint64>(x, y, z, w);
+	}
+
 }//namespace glm
