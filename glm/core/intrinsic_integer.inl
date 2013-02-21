@@ -136,6 +136,7 @@ namespace detail
 		return Reg1;
 	}
 
+/*
 	inline __m128i _mm_bit_interleave3_si128(__m128i x)
 	{
 		__m128i const Mask4 = _mm_set1_epi32(0xFFFF00000000FFFF);
@@ -251,5 +252,6 @@ namespace detail
 	
 		return Reg1;
 	}
+*/
 }//namespace detail
 }//namespace glms

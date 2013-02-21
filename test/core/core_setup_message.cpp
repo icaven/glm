@@ -171,25 +171,25 @@ int test_compiler()
 		case GLM_COMPILER_CLANG31:
 			std::cout << "GLM_COMPILER_CLANG31" << std::endl;		
 			break;
-        case GLM_COMPILER_CLANG32:
-            std::cout << "GLM_COMPILER_CLANG32" << std::endl;
-            break;
-        case GLM_COMPILER_CLANG33:
-            std::cout << "GLM_COMPILER_CLANG33" << std::endl;
-            break;
-        case GLM_COMPILER_CLANG40:
-            std::cout << "GLM_COMPILER_CLANG40" << std::endl;
-            break;
-        case GLM_COMPILER_CLANG41:
-            std::cout << "GLM_COMPILER_CLANG41" << std::endl;
-            break;
-        case GLM_COMPILER_CLANG42:
-            std::cout << "GLM_COMPILER_CLANG42" << std::endl;
-            break;
-        case GLM_COMPILER_CLANG43:
-            std::cout << "GLM_COMPILER_CLANG43" << std::endl;
-            break;
-        default:
+		case GLM_COMPILER_CLANG32:
+			std::cout << "GLM_COMPILER_CLANG32" << std::endl;
+			break;
+		case GLM_COMPILER_CLANG33:
+			std::cout << "GLM_COMPILER_CLANG33" << std::endl;
+			break;
+		case GLM_COMPILER_CLANG40:
+			std::cout << "GLM_COMPILER_CLANG40" << std::endl;
+			break;
+		case GLM_COMPILER_CLANG41:
+			std::cout << "GLM_COMPILER_CLANG41" << std::endl;
+			break;
+		case GLM_COMPILER_CLANG42:
+			std::cout << "GLM_COMPILER_CLANG42" << std::endl;
+			break;
+		case GLM_COMPILER_CLANG43:
+			std::cout << "GLM_COMPILER_CLANG43" << std::endl;
+			break;
+		default:
 			std::cout << "Clang version not detected" << std::endl;
 			break;
 		}
