@@ -31,7 +31,6 @@ if(GLM_TEST_ENABLE_MS_EXTENSIONS)
 	endif()
 elseif(NOT GLM_TEST_ENABLE_MS_EXTENSIONS)
 	if(CMAKE_COMPILER_IS_GNUCXX)
-		add_definitions(-std=c++98)
 		add_definitions(-pedantic)
 	endif()
 
