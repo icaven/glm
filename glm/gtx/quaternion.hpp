@@ -94,8 +94,7 @@ namespace glm
 	/// @see gtx_quaternion
     template <typename valType> 
 	detail::tquat<valType> exp(
-		detail::tquat<valType> const & q, 
-		valType const & exponent);
+		detail::tquat<valType> const & q);
 
 	//! Returns a log of a quaternion. 
 	///
