@@ -64,12 +64,6 @@ namespace glm
 	typename genType::value_type length2(
 		genType const & x);
 		
-	//! Returns the squared length of x.
-	//! From GLM_GTX_norm extension.
-	template <typename T>
-	T length2(
-		detail::tquat<T> const & q);
-
 	//! Returns the squared distance between p0 and p1, i.e., length(p0 - p1).
 	//! From GLM_GTX_norm extension.
 	template <typename T>

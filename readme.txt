@@ -43,6 +43,7 @@ GLM 0.9.5.0: 2013-XX-XX
 - Added bitfieldInterleave and _mm_bit_interleave_si128 functions
 - Added GTX_scalar_relational
 - Added GTX_dual_quaternion
+- Added rotation function to GTX_quaternion (#22)
 
 ================================================================================
 GLM 0.9.4.3: 2013-0X-XX

@@ -67,10 +67,27 @@ int test_orientation()
 	return Error;
 }
 
+int test_rotation()
+{
+	int Error(0);
+
+	glm::vec3 v(1, 0, 0);
+	glm::vec3 u(0, 1, 0);
+
+	glm::quat Rotation = glm::rotation(v, u);
+
+	float Angle = glm::angle(Rotation);
+
+	Error += glm::abs(Angle - 90.0f) < glm::epsilon<float>() ? 0 : 1;
+
+	return Error;
+}
+
 int main()
 {
-	int Error = 0;
+	int Error(0);
 
+	Error += test_rotation();
 	Error += test_quat_fastMix();
 	Error += test_quat_shortMix();
 

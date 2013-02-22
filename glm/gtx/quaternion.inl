@@ -153,6 +153,15 @@ namespace glm
 			return -sqrt(w);
 	}
 
+	template <typename T> 
+	GLM_FUNC_QUALIFIER T length2
+	(
+		detail::tquat<T> const & q
+	)
+	{
+		return q.x * q.x + q.y * q.y + q.z * q.z + q.w * q.w;
+	}
+
 	template <typename T>
 	GLM_FUNC_QUALIFIER detail::tquat<T> shortMix
 	(
@@ -205,4 +214,43 @@ namespace glm
 	{
 		return glm::normalize(x * (T(1) - a) + (y * a));
 	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER detail::tquat<T> rotation
+	(
+		detail::tvec3<T> const & orig, 
+		detail::tvec3<T> const & dest
+	)
+	{
+		T cosTheta = dot(orig, dest);
+		detail::tvec3<T> rotationAxis;
+
+		if(cosTheta < T(-1) + epsilon<T>())
+		{
+			// special case when vectors in opposite directions :
+			// there is no "ideal" rotation axis
+			// So guess one; any will do as long as it's perpendicular to start
+			// This implementation favors a rotation around the Up axis (Y),
+			// since it's often what you want to do.
+			rotationAxis = cross(detail::tvec3<T>(0, 0, 1), orig);
+			if(length2(rotationAxis) < epsilon<T>()) // bad luck, they were parallel, try again!
+				rotationAxis = cross(detail::tvec3<T>(1, 0, 0), orig);
+
+			rotationAxis = normalize(rotationAxis);
+			return angleAxis(pi<T>(), rotationAxis);
+		}
+
+		// Implementation from Stan Melax's Game Programming Gems 1 article
+		rotationAxis = cross(orig, dest);
+
+		T s = sqrt((T(1) + cosTheta) * T(2));
+		T invs = T(1) / s;
+
+		return detail::tquat<T>(
+			s * T(0.5f), 
+			rotationAxis.x * invs,
+			rotationAxis.y * invs,
+			rotationAxis.z * invs);
+	}
+
 }//namespace glm

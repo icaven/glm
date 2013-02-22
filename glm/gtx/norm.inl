@@ -46,15 +46,6 @@ namespace glm
 	}
 
 	template <typename T> 
-	GLM_FUNC_QUALIFIER T length2
-	(
-		detail::tquat<T> const & q
-	)
-	{
-		return q.x * q.x + q.y * q.y + q.z * q.z + q.w * q.w;
-	}
-
-	template <typename T> 
 	GLM_FUNC_QUALIFIER T distance2
 	(
 		T const & p0, 

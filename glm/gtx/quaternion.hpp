@@ -41,7 +41,9 @@
 
 // Dependency:
 #include "../glm.hpp"
+#include "../gtc/constants.hpp"
 #include "../gtc/quaternion.hpp"
+#include "../gtx/norm.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))
 #	pragma message("GLM: GLM_GTX_quaternion extension included")
@@ -186,6 +188,22 @@ namespace glm
 		detail::tquat<T> const & x, 
 		detail::tquat<T> const & y, 
 		T const & a);
+
+	/// Compute the rotation between two vectors. 
+	/// param orig vector, needs to be normalized
+	/// param dest vector, needs to be normalized
+	///
+	/// @see gtx_quaternion
+	template <typename T>
+	detail::tquat<T> rotation(
+		detail::tvec3<T> const & orig, 
+		detail::tvec3<T> const & dest);
+
+	/// Returns the squared length of x.
+	/// 
+	/// @see gtx_quaternion
+	template <typename T>
+	T length2(detail::tquat<T> const & q);
 
 	/// @}
 }//namespace glm
