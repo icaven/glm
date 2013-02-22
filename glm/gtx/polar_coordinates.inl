@@ -35,7 +35,7 @@ namespace glm
 	template <typename T> 
 	GLM_FUNC_QUALIFIER detail::tvec3<T> euclidean
 	(
-		detail::tvec3<T> const & polar
+		detail::tvec2<T> const & polar
 	)
 	{
 #ifdef GLM_FORCE_RADIANS
