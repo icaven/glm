@@ -52,6 +52,8 @@ GLM 0.9.4.3: 2013-0X-XX
 - Fixed C++11 mode for GCC, couldn't be enabled without MS extensions
 - Fixed squad, intermediate and exp quaternion functions
 - Fixed GTX_polar_coordinates euclidean function, takes a vec2 instead of a vec3
+- Clarify the license applying on the manual
+- Added a docx copy of the manual
 
 ================================================================================
 GLM 0.9.4.2: 2013-02-14
