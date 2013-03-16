@@ -45,6 +45,9 @@ GLM 0.9.4.3: 2013-0X-XX
 - Fixed GTX_polar_coordinates euclidean function, takes a vec2 instead of a vec3
 - Clarify the license applying on the manual
 - Added a docx copy of the manual
+- Fixed GLM_GTX_matrix_interpolation
+- Fixed isnan and isinf on Android with Clang
+
 
 ================================================================================
 GLM 0.9.4.2: 2013-02-14
