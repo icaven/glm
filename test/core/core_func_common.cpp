@@ -216,11 +216,11 @@ namespace test_mix
 
 		// vec2 with bool
 		{
-			for(std::size_t i = 0; i < sizeof(TestBVec2) / sizeof(test<glm::vec2, bool>); ++i)
+			for(std::size_t i = 0; i < sizeof(TestVec2Bool) / sizeof(test<glm::vec2, bool>); ++i)
 			{
-				glm::vec2 Result = glm::mix(TestBVec2[i].x, TestBVec2[i].y, TestBVec2[i].a);
-				Error += glm::epsilonEqual(Result.x, TestBVec2[i].Result.x, glm::epsilon<float>()) ? 0 : 1;
-				Error += glm::epsilonEqual(Result.y, TestBVec2[i].Result.y, glm::epsilon<float>()) ? 0 : 1;
+				glm::vec2 Result = glm::mix(TestVec2Bool[i].x, TestVec2Bool[i].y, TestVec2Bool[i].a);
+				Error += glm::epsilonEqual(Result.x, TestVec2Bool[i].Result.x, glm::epsilon<float>()) ? 0 : 1;
+				Error += glm::epsilonEqual(Result.y, TestVec2Bool[i].Result.y, glm::epsilon<float>()) ? 0 : 1;
 			}
 		}
 
