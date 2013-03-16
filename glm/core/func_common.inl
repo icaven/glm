@@ -803,19 +803,19 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'isnan' only accept floating-point inputs");
 
-#       if(GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_INTEL))
+#		if(GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_INTEL))
 			return _isnan(x) != 0;
-#		elif(GLM_COMPILER & GLM_COMPILER_GCC)
+#		elif(GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG))
 #			if(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
 				return _isnan(x) != 0;
 #			else
 				return std::isnan(x);
 #			endif
 #		elif(GLM_COMPILER & GLM_COMPILER_CUDA)
-            return isnan(x) != 0;
-#       else
+			return isnan(x) != 0;
+#		else
 			return std::isnan(x);
-#       endif
+#		endif
 	}
 
 	template <typename T>
@@ -860,35 +860,20 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'isinf' only accept floating-point inputs");
 
-#       if(GLM_COMPILER & (GLM_COMPILER_INTEL | GLM_COMPILER_VC))
+#		if(GLM_COMPILER & (GLM_COMPILER_INTEL | GLM_COMPILER_VC))
 			return _fpclass(x) == _FPCLASS_NINF || _fpclass(x) == _FPCLASS_PINF;
-#		elif(GLM_COMPILER & GLM_COMPILER_GCC)
+#		elif(GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG))
 #			if(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
 				return _isinf(x) != 0;
 #			else
 				return std::isinf(x);
 #			endif
 #		elif(GLM_COMPILER & GLM_COMPILER_CUDA)
-            // http://developer.download.nvidia.com/compute/cuda/4_2/rel/toolkit/docs/online/group__CUDA__MATH__DOUBLE_g13431dd2b40b51f9139cbb7f50c18fab.html#g13431dd2b40b51f9139cbb7f50c18fab
-            return isinf(double(x)) != 0;
-#       else
+			// http://developer.download.nvidia.com/compute/cuda/4_2/rel/toolkit/docs/online/group__CUDA__MATH__DOUBLE_g13431dd2b40b51f9139cbb7f50c18fab.html#g13431dd2b40b51f9139cbb7f50c18fab
+			return isinf(double(x)) != 0;
+#		else
 			return std::isinf(x);
-#       endif
-/*
-#       if(GLM_COMPILER & GLM_COMPILER_VC)
-			return _fpclass(x) == _FPCLASS_NINF || _fpclass(x) == _FPCLASS_PINF;
-#       elif(GLM_COMPILER & GLM_COMPILER_GCC)
-#           if(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
-				return _isinf(x) != 0;
-#           else
-				return std::isinf(x);
-#           endif
-#       elif(GLM_COMPILER & GLM_COMPILER_INTEL)
-			return isinf(x) != 0;			
-#       else
-			return std::isinf(x);
-#       endif
-*/
+#		endif
 	}
 
 	template <typename T>
