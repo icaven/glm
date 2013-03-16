@@ -37,7 +37,7 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
 
 ================================================================================
-GLM 0.9.4.3: 2013-0X-XX
+GLM 0.9.4.3: 2013-03-17
 --------------------------------------------------------------------------------
 - Detected qualifier for Clang
 - Fixed C++11 mode for GCC, couldn't be enabled without MS extensions

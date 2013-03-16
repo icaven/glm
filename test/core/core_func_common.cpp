@@ -11,6 +11,7 @@
 //#include <boost/date_time/posix_time/posix_time.hpp>
 //#include <boost/thread/thread.hpp>
 #include <glm/glm.hpp>
+#include <glm/gtc/constants.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <cstdio>
 
@@ -148,26 +149,94 @@ int test_floatBitsToUint()
 	return Error;
 }
 
-int test_mix()
+namespace test_mix
 {
-	int Error = 0;
-
+	template <typename T, typename B>
+	struct test
 	{
-		float A = glm::mix(0.f, 1.f, true);
-		Error += A == 1.f ? 0 : 1;
-		float B = glm::mix(0.f, 1.f, false);
-		Error += B == 0.f ? 0 : 1;
-	}
+		T x;
+		T y;
+		B a;
+		T Result;
+	};
 
+	test<float, bool> TestBool[] = 
 	{
-		float A = glm::mix(0.f, 1.f, 1.f);
-		Error += A == 1.f ? 0 : 1;
-		float B = glm::mix(0.f, 1.f, 0.f);
-		Error += B == 0.f ? 0 : 1;
-	}
+		{0.0f, 1.0f, false, 0.0f},
+		{0.0f, 1.0f, true, 1.0f},
+		{-1.0f, 1.0f, false, -1.0f},
+		{-1.0f, 1.0f, true, 1.0f}
+	};
 
-	return Error;
-}
+	test<float, bool> TestFloat[] = 
+	{
+		{0.0f, 1.0f, 0.0f, 0.0f},
+		{0.0f, 1.0f, 1.0f, 1.0f},
+		{-1.0f, 1.0f, 0.0f, -1.0f},
+		{-1.0f, 1.0f, 1.0f, 1.0f}
+	};
+
+	test<glm::vec2, bool> TestVec2Bool[] = 
+	{
+		{glm::vec2(0.0f), glm::vec2(1.0f), false, glm::vec2(0.0f)},
+		{glm::vec2(0.0f), glm::vec2(1.0f), true, glm::vec2(1.0f)},
+		{glm::vec2(-1.0f), glm::vec2(1.0f), false, glm::vec2(-1.0f)},
+		{glm::vec2(-1.0f), glm::vec2(1.0f), true, glm::vec2(1.0f)}
+	};
+
+	test<glm::vec2, glm::bvec2> TestBVec2[] = 
+	{
+		{glm::vec2(0.0f), glm::vec2(1.0f), glm::bvec2(false), glm::vec2(0.0f)},
+		{glm::vec2(0.0f), glm::vec2(1.0f), glm::bvec2(true), glm::vec2(1.0f)},
+		{glm::vec2(-1.0f), glm::vec2(1.0f), glm::bvec2(false), glm::vec2(-1.0f)},
+		{glm::vec2(-1.0f), glm::vec2(1.0f), glm::bvec2(true), glm::vec2(1.0f)}
+	};
+
+	int run()
+	{
+		int Error = 0;
+
+		// Float with bool
+		{
+			for(std::size_t i = 0; i < sizeof(TestBool) / sizeof(test<float, bool>); ++i)
+			{
+				float Result = glm::mix(TestBool[i].x, TestBool[i].y, TestBool[i].a);
+				Error += glm::epsilonEqual(Result, TestBool[i].Result, glm::epsilon<float>()) ? 0 : 1;
+			}
+		}
+
+		// Float with float
+		{
+			for(std::size_t i = 0; i < sizeof(TestFloat) / sizeof(test<float, float>); ++i)
+			{
+				float Result = glm::mix(TestFloat[i].x, TestFloat[i].y, TestFloat[i].a);
+				Error += glm::epsilonEqual(Result, TestFloat[i].Result, glm::epsilon<float>()) ? 0 : 1;
+			}
+		}
+
+		// vec2 with bool
+		{
+			for(std::size_t i = 0; i < sizeof(TestBVec2) / sizeof(test<glm::vec2, bool>); ++i)
+			{
+				glm::vec2 Result = glm::mix(TestBVec2[i].x, TestBVec2[i].y, TestBVec2[i].a);
+				Error += glm::epsilonEqual(Result.x, TestBVec2[i].Result.x, glm::epsilon<float>()) ? 0 : 1;
+				Error += glm::epsilonEqual(Result.y, TestBVec2[i].Result.y, glm::epsilon<float>()) ? 0 : 1;
+			}
+		}
+
+		// vec2 with bvec2
+		{
+			for(std::size_t i = 0; i < sizeof(TestBVec2) / sizeof(test<glm::vec2, glm::bvec2>); ++i)
+			{
+				glm::vec2 Result = glm::mix(TestBVec2[i].x, TestBVec2[i].y, TestBVec2[i].a);
+				Error += glm::epsilonEqual(Result.x, TestBVec2[i].Result.x, glm::epsilon<float>()) ? 0 : 1;
+				Error += glm::epsilonEqual(Result.y, TestBVec2[i].Result.y, glm::epsilon<float>()) ? 0 : 1;
+			}
+		}
+
+		return Error;
+	}
+}//namespace test_mix
 
 int test_round()
 {
@@ -414,7 +483,7 @@ int main()
 	Error += test_modf();
 	Error += test_floatBitsToInt();
 	Error += test_floatBitsToUint();
-	Error += test_mix();
+	Error += test_mix::run();
 	Error += test_round();
 	Error += test_roundEven();
 	Error += test_isnan();
