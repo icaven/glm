@@ -168,7 +168,7 @@ namespace test_mix
 		{-1.0f, 1.0f, true, 1.0f}
 	};
 
-	test<float, bool> TestFloat[] = 
+	test<float, float> TestFloat[] = 
 	{
 		{0.0f, 1.0f, 0.0f, 0.0f},
 		{0.0f, 1.0f, 1.0f, 1.0f},
@@ -190,6 +190,38 @@ namespace test_mix
 		{glm::vec2(0.0f), glm::vec2(1.0f), glm::bvec2(true), glm::vec2(1.0f)},
 		{glm::vec2(-1.0f), glm::vec2(1.0f), glm::bvec2(false), glm::vec2(-1.0f)},
 		{glm::vec2(-1.0f), glm::vec2(1.0f), glm::bvec2(true), glm::vec2(1.0f)}
+	};
+
+	test<glm::vec3, bool> TestVec3Bool[] = 
+	{
+		{glm::vec3(0.0f), glm::vec3(1.0f), false, glm::vec3(0.0f)},
+		{glm::vec3(0.0f), glm::vec3(1.0f), true, glm::vec3(1.0f)},
+		{glm::vec3(-1.0f), glm::vec3(1.0f), false, glm::vec3(-1.0f)},
+		{glm::vec3(-1.0f), glm::vec3(1.0f), true, glm::vec3(1.0f)}
+	};
+
+	test<glm::vec3, glm::bvec3> TestBVec3[] = 
+	{
+		{glm::vec3(0.0f), glm::vec3(1.0f), glm::bvec3(false), glm::vec3(0.0f)},
+		{glm::vec3(0.0f), glm::vec3(1.0f), glm::bvec3(true), glm::vec3(1.0f)},
+		{glm::vec3(-1.0f), glm::vec3(1.0f), glm::bvec3(false), glm::vec3(-1.0f)},
+		{glm::vec3(-1.0f), glm::vec3(1.0f), glm::bvec3(true), glm::vec3(1.0f)}
+	};
+
+	test<glm::vec4, bool> TestVec4Bool[] = 
+	{
+		{glm::vec4(0.0f), glm::vec4(1.0f), false, glm::vec4(0.0f)},
+		{glm::vec4(0.0f), glm::vec4(1.0f), true, glm::vec4(1.0f)},
+		{glm::vec4(-1.0f), glm::vec4(1.0f), false, glm::vec4(-1.0f)},
+		{glm::vec4(-1.0f), glm::vec4(1.0f), true, glm::vec4(1.0f)}
+	};
+
+	test<glm::vec4, glm::bvec4> TestBVec4[] = 
+	{
+		{glm::vec4(0.0f), glm::vec4(1.0f), glm::bvec4(false), glm::vec4(0.0f)},
+		{glm::vec4(0.0f), glm::vec4(1.0f), glm::bvec4(true), glm::vec4(1.0f)},
+		{glm::vec4(-1.0f), glm::vec4(1.0f), glm::bvec4(false), glm::vec4(-1.0f)},
+		{glm::vec4(-1.0f), glm::vec4(1.0f), glm::bvec4(true), glm::vec4(1.0f)}
 	};
 
 	int run()
@@ -231,6 +263,52 @@ namespace test_mix
 				glm::vec2 Result = glm::mix(TestBVec2[i].x, TestBVec2[i].y, TestBVec2[i].a);
 				Error += glm::epsilonEqual(Result.x, TestBVec2[i].Result.x, glm::epsilon<float>()) ? 0 : 1;
 				Error += glm::epsilonEqual(Result.y, TestBVec2[i].Result.y, glm::epsilon<float>()) ? 0 : 1;
+			}
+		}
+
+		// vec3 with bool
+		{
+			for(std::size_t i = 0; i < sizeof(TestVec3Bool) / sizeof(test<glm::vec3, bool>); ++i)
+			{
+				glm::vec3 Result = glm::mix(TestVec3Bool[i].x, TestVec3Bool[i].y, TestVec3Bool[i].a);
+				Error += glm::epsilonEqual(Result.x, TestVec3Bool[i].Result.x, glm::epsilon<float>()) ? 0 : 1;
+				Error += glm::epsilonEqual(Result.y, TestVec3Bool[i].Result.y, glm::epsilon<float>()) ? 0 : 1;
+				Error += glm::epsilonEqual(Result.z, TestVec3Bool[i].Result.z, glm::epsilon<float>()) ? 0 : 1;
+			}
+		}
+
+		// vec3 with bvec3
+		{
+			for(std::size_t i = 0; i < sizeof(TestBVec3) / sizeof(test<glm::vec3, glm::bvec3>); ++i)
+			{
+				glm::vec3 Result = glm::mix(TestBVec3[i].x, TestBVec3[i].y, TestBVec3[i].a);
+				Error += glm::epsilonEqual(Result.x, TestBVec3[i].Result.x, glm::epsilon<float>()) ? 0 : 1;
+				Error += glm::epsilonEqual(Result.y, TestBVec3[i].Result.y, glm::epsilon<float>()) ? 0 : 1;
+				Error += glm::epsilonEqual(Result.z, TestBVec3[i].Result.z, glm::epsilon<float>()) ? 0 : 1;
+			}
+		}
+
+		// vec4 with bool
+		{
+			for(std::size_t i = 0; i < sizeof(TestVec4Bool) / sizeof(test<glm::vec4, bool>); ++i)
+			{
+				glm::vec3 Result = glm::mix(TestVec4Bool[i].x, TestVec4Bool[i].y, TestVec4Bool[i].a);
+				Error += glm::epsilonEqual(Result.x, TestVec4Bool[i].Result.x, glm::epsilon<float>()) ? 0 : 1;
+				Error += glm::epsilonEqual(Result.y, TestVec4Bool[i].Result.y, glm::epsilon<float>()) ? 0 : 1;
+				Error += glm::epsilonEqual(Result.z, TestVec4Bool[i].Result.z, glm::epsilon<float>()) ? 0 : 1;
+				Error += glm::epsilonEqual(Result.w, TestVec4Bool[i].Result.w, glm::epsilon<float>()) ? 0 : 1;
+			}
+		}
+
+		// vec4 with bvec4
+		{
+			for(std::size_t i = 0; i < sizeof(TestBVec4) / sizeof(test<glm::vec4, glm::bvec4>); ++i)
+			{
+				glm::vec4 Result = glm::mix(TestBVec4[i].x, TestBVec4[i].y, TestBVec4[i].a);
+				Error += glm::epsilonEqual(Result.x, TestBVec3[i].Result.x, glm::epsilon<float>()) ? 0 : 1;
+				Error += glm::epsilonEqual(Result.y, TestBVec3[i].Result.y, glm::epsilon<float>()) ? 0 : 1;
+				Error += glm::epsilonEqual(Result.z, TestBVec3[i].Result.z, glm::epsilon<float>()) ? 0 : 1;
+				Error += glm::epsilonEqual(Result.w, TestBVec3[i].Result.w, glm::epsilon<float>()) ? 0 : 1;
 			}
 		}
 
