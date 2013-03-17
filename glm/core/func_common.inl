@@ -420,93 +420,87 @@ namespace detail
 	}
 
 	// mix
-	template <typename genTypeT, typename genTypeU>
-	GLM_FUNC_QUALIFIER genTypeT mix
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType mix
 	(
-		genTypeT const & x, 
-		genTypeT const & y, 
-		genTypeU const & a
+		genType const & x, 
+		genType const & y, 
+		genType const & a
 	)
 	{
-		// It could be a vector too
-		//GLM_STATIC_ASSERT(
-		//	detail::type<genTypeT>::is_float && 
-		//	detail::type<genTypeU>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float , "'genType' is not floating-point type");
 
-		//return x + a * (y - x);
-		return genTypeT(genTypeU(x) + a * genTypeU(y - x));
+		return x + a * (y - x);
 	}
 
-	template <typename valTypeA, typename valTypeB>
-	GLM_FUNC_QUALIFIER detail::tvec2<valTypeA> mix
+	template <typename valType>
+	GLM_FUNC_QUALIFIER detail::tvec2<valType> mix
 	(
-		detail::tvec2<valTypeA> const & x, 
-		detail::tvec2<valTypeA> const & y, 
-		valTypeB const & a
+		detail::tvec2<valType> const & x, 
+		detail::tvec2<valType> const & y, 
+		valType const & a
 	)
 	{
-		return detail::tvec2<valTypeA>(
-			detail::tvec2<valTypeB>(x) + a * detail::tvec2<valTypeB>(y - x));
+		GLM_STATIC_ASSERT(detail::type<valType>::is_float , "'genType' is not floating-point type");
+
+		return x + a * (y - x);
 	}
 
-	template <typename valTypeA, typename valTypeB>
-	GLM_FUNC_QUALIFIER detail::tvec3<valTypeA> mix
+	template <typename valType>
+	GLM_FUNC_QUALIFIER detail::tvec3<valType> mix
 	(
-		detail::tvec3<valTypeA> const & x, 
-		detail::tvec3<valTypeA> const & y, 
-		valTypeB const & a
+		detail::tvec3<valType> const & x, 
+		detail::tvec3<valType> const & y, 
+		valType const & a
 	)
 	{
-		return detail::tvec3<valTypeA>(
-			detail::tvec3<valTypeB>(x) + a * detail::tvec3<valTypeB>(y - x));
+		return x + a * (y - x);
 	}
 
-	template <typename valTypeA, typename valTypeB>
-	GLM_FUNC_QUALIFIER detail::tvec4<valTypeA> mix
+	template <typename valType>
+	GLM_FUNC_QUALIFIER detail::tvec4<valType> mix
 	(
-		detail::tvec4<valTypeA> const & x, 
-		detail::tvec4<valTypeA> const & y, 
-		valTypeB const & a
+		detail::tvec4<valType> const & x, 
+		detail::tvec4<valType> const & y, 
+		valType const & a
 	)
 	{
-		return detail::tvec4<valTypeA>(
-			detail::tvec4<valTypeB>(x) + a * detail::tvec4<valTypeB>(y - x));
+		return x + a * (y - x);
 	}
 
-	template <typename valTypeA, typename valTypeB>
-	GLM_FUNC_QUALIFIER detail::tvec2<valTypeA> mix
+	template <typename valType>
+	GLM_FUNC_QUALIFIER detail::tvec2<valType> mix
 	(
-		detail::tvec2<valTypeA> const & x, 
-		detail::tvec2<valTypeA> const & y, 
-		detail::tvec2<valTypeB> const & a
+		detail::tvec2<valType> const & x, 
+		detail::tvec2<valType> const & y, 
+		detail::tvec2<valType> const & a
 	)
 	{
-		return detail::tvec2<valTypeA>(
-			detail::tvec2<valTypeB>(x) + a * detail::tvec2<valTypeB>(y - x));
+		return x + a * (y - x);
 	}
 
-	template <typename valTypeA, typename valTypeB>
-	GLM_FUNC_QUALIFIER detail::tvec3<valTypeA> mix
+	template <typename valType>
+	GLM_FUNC_QUALIFIER detail::tvec3<valType> mix
 	(
-		detail::tvec3<valTypeA> const & x, 
-		detail::tvec3<valTypeA> const & y, 
-		detail::tvec3<valTypeB> const & a
+		detail::tvec3<valType> const & x, 
+		detail::tvec3<valType> const & y, 
+		detail::tvec3<valType> const & a
 	)
 	{
-		return detail::tvec3<valTypeA>(
-			detail::tvec3<valTypeB>(x) + a * detail::tvec3<valTypeB>(y - x));
+		GLM_STATIC_ASSERT(detail::type<valType>::is_float , "'genType' is not floating-point type");
+
+		return x + a * (y - x);
 	}
 
-	template <typename valTypeA, typename valTypeB>
-	GLM_FUNC_QUALIFIER detail::tvec4<valTypeA> mix
+	template <typename valType>
+	GLM_FUNC_QUALIFIER detail::tvec4<valType> mix
 	(
-		detail::tvec4<valTypeA> const & x, 
-		detail::tvec4<valTypeA> const & y, 
-		detail::tvec4<valTypeB> const & a
+		detail::tvec4<valType> const & x, 
+		detail::tvec4<valType> const & y, 
+		detail::tvec4<valType> const & a
 	)
 	{
-		return detail::tvec4<valTypeA>(
-			detail::tvec4<valTypeB>(x) + a * detail::tvec4<valTypeB>(y - x));
+		return x + a * (y - x);
 	}
 
 	//template <typename genTypeT>
@@ -525,15 +519,63 @@ namespace detail
 	//	return x + a * (y - x);
 	//}
 
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType mix
+	template <>
+	GLM_FUNC_QUALIFIER float mix
 	(
-		genType const & x, 
-		genType const & y, 
+		float const & x, 
+		float const & y, 
 		bool const & a
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'mix' only accept floating-point inputs");
+		return a ? y : x;
+	}
+
+	template <>
+	GLM_FUNC_QUALIFIER double mix
+	(
+		double const & x, 
+		double const & y, 
+		bool const & a
+	)
+	{
+		return a ? y : x;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER detail::tvec2<T> mix
+	(
+		detail::tvec2<T> const & x, 
+		detail::tvec2<T> const & y, 
+		bool a
+	)
+	{
+		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'mix' only accept floating-point inputs");
+
+		return a ? y : x;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER detail::tvec3<T> mix
+	(
+		detail::tvec3<T> const & x, 
+		detail::tvec3<T> const & y, 
+		bool a
+	)
+	{
+		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'mix' only accept floating-point inputs");
+
+		return a ? y : x;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER detail::tvec4<T> mix
+	(
+		detail::tvec4<T> const & x, 
+		detail::tvec4<T> const & y, 
+		bool a
+	)
+	{
+		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'mix' only accept floating-point inputs");
 
 		return a ? y : x;
 	}
@@ -552,8 +594,7 @@ namespace detail
 		for
 		(
 			typename detail::tvec2<T>::size_type i = 0; 
-			i < detail::tvec2<T>::value_size(); 
-			++i
+			i < x.length(); ++i
 		)
 		{
 			result[i] = a[i] ? y[i] : x[i];
@@ -575,8 +616,7 @@ namespace detail
 		for
 		(
 			typename detail::tvec3<T>::size_type i = 0; 
-			i < detail::tvec3<T>::value_size(); 
-			++i
+			i < x.length(); ++i
 		)
 		{
 			result[i] = a[i] ? y[i] : x[i];
@@ -598,8 +638,7 @@ namespace detail
 		for
 		(
 			typename detail::tvec4<T>::size_type i = 0; 
-			i < detail::tvec4<T>::value_size(); 
-			++i
+			i < x.length(); ++i
 		)
 		{
 			result[i] = a[i] ? y[i] : x[i];

@@ -47,7 +47,8 @@ GLM 0.9.4.3: 2013-03-17
 - Added a docx copy of the manual
 - Fixed GLM_GTX_matrix_interpolation
 - Fixed isnan and isinf on Android with Clang
-
+- Autodetected C++ version using __cplusplus value
+- Fixed mix for bool and bvec* third parameter
 
 ================================================================================
 GLM 0.9.4.2: 2013-02-14

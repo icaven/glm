@@ -220,7 +220,7 @@ namespace glm
 	/// 
 	/// If genTypeU is a boolean scalar or vector: 
 	/// Selects which vector each returned component comes
-	/// from. For a component of a that is false, the
+	/// from. For a component of <a> that is false, the
 	/// corresponding component of x is returned. For a
 	/// component of a that is true, the corresponding
 	/// component of y is returned. Components of x and y that
