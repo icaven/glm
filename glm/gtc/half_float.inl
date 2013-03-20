@@ -1036,4 +1036,15 @@ namespace detail
 			float(v.w) >= float(0) ? v.w : -v.w);
 	}
 
+	template <>
+	GLM_FUNC_QUALIFIER glm::half mix
+	(
+		glm::half const & x, 
+		glm::half const & y, 
+		bool const & a
+	)
+	{
+		return a ? y : x;
+	}
+
 }//namespace glm
