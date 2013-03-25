@@ -512,10 +512,10 @@ namespace detail
 		{
 			// Linear interpolation
 			return detail::tquat<T>(
-				mix(x.w, y.w, a),
-				mix(x.x, y.x, a),
-				mix(x.y, y.y, a),
-				mix(x.z, y.z, a));
+				mix(x.w, z.w, a),
+				mix(x.x, z.x, a),
+				mix(x.y, z.y, a),
+				mix(x.z, z.z, a));
 		}
 		else
 		{
