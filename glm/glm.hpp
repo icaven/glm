@@ -95,7 +95,6 @@
 #	pragma message("GLM: Core library included")
 #endif//GLM_MESSAGE
 
-#include "./core/_detail.hpp"
 #include "./core/_vectorize.hpp"
 
 #include "./core/type_half.hpp"

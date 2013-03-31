@@ -26,6 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include <cstdlib>
 #include <ctime>
 #include <cassert>
 
@@ -43,7 +44,7 @@ namespace detail
 		}
 */
 	};
-    
+	
 	template <>
 	GLM_FUNC_QUALIFIER half compute_linearRand::operator()<half> (half const & Min, half const & Max) const
 	{
@@ -61,7 +62,7 @@ namespace detail
 	{
 		return double(std::rand()) / double(RAND_MAX) * (Max - Min) + Min;
 	}
-    
+
 	template <>
 	GLM_FUNC_QUALIFIER long double compute_linearRand::operator()<long double> (long double const & Min, long double const & Max) const
 	{

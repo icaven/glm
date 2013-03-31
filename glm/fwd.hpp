@@ -31,27 +31,10 @@
 
 #include "core/type_int.hpp"
 #include "core/type_float.hpp"
+#include "core/type.hpp"
 
-namespace glm{
-namespace detail
+namespace glm
 {
-	class half;
-	
-	template <typename T> struct tvec1;
-	template <typename T> struct tvec2;
-	template <typename T> struct tvec3;
-	template <typename T> struct tvec4;
-	
-	template <typename T> struct tmat2x2;
-	template <typename T> struct tmat2x3;
-	template <typename T> struct tmat2x4;
-	template <typename T> struct tmat3x2;
-	template <typename T> struct tmat3x3;
-	template <typename T> struct tmat3x4;
-	template <typename T> struct tmat4x2;
-	template <typename T> struct tmat4x3;
-	template <typename T> struct tmat4x4;
-}//namespace detail
 
 }//namespace glm
 
