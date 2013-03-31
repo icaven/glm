@@ -22,7 +22,7 @@
 ///
 /// @ref core
 /// @file glm/fwd.hpp
-/// @date 2013-03-30 / 2013-03-30
+/// @date 2013-03-30 / 2013-03-31
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -31,7 +31,8 @@
 
 #include "core/type_int.hpp"
 #include "core/type_float.hpp"
-#include "core/type.hpp"
+#include "core/type_vec.hpp"
+#include "core/type_mat.hpp"
 
 namespace glm
 {
