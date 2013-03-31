@@ -41,8 +41,6 @@
 #ifndef GLM_CORE_func_vector_relational
 #define GLM_CORE_func_vector_relational GLM_VERSION
 
-#include "_detail.hpp"
-
 namespace glm
 {
 	/// @addtogroup core_func_vector_relational

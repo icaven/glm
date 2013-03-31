@@ -30,7 +30,6 @@
 #define glm_core_type_int
 
 #include "setup.hpp"
-#include "_detail.hpp"
 
 #if(((GLM_LANG & GLM_LANG_CXX11) == GLM_LANG_CXX11) || (defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)))
 //#if((defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)))

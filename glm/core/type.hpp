@@ -22,34 +22,545 @@
 ///
 /// @ref core
 /// @file glm/core/type.hpp
-/// @date 2008-01-08 / 2011-06-15
+/// @date 2008-01-08 / 2013-03-31
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_core_type
 #define glm_core_type
 
-#include "type_half.hpp"
-#include "type_float.hpp"
-#include "type_int.hpp"
+namespace glm{
+namespace detail
+{		
+	template <typename T> struct tvec1;
+	template <typename T> struct tvec2;
+	template <typename T> struct tvec3;
+	template <typename T> struct tvec4;
+		
+	template <typename T> struct tmat2x2;
+	template <typename T> struct tmat2x3;
+	template <typename T> struct tmat2x4;
+	template <typename T> struct tmat3x2;
+	template <typename T> struct tmat3x3;
+	template <typename T> struct tmat3x4;
+	template <typename T> struct tmat4x2;
+	template <typename T> struct tmat4x3;
+	template <typename T> struct tmat4x4;
+}//namespace detail
 
-#include "type_vec1.hpp"
-#include "type_vec2.hpp"
-#include "type_vec3.hpp"
-#include "type_vec4.hpp"
+	typedef detail::tvec1<highp_float>		highp_vec1_t;
+	typedef detail::tvec1<mediump_float>	mediump_vec1_t;
+	typedef detail::tvec1<lowp_float>		lowp_vec1_t;
+	typedef detail::tvec1<highp_int>		highp_ivec1_t;
+	typedef detail::tvec1<mediump_int>		mediump_ivec1_t;
+	typedef detail::tvec1<lowp_int>			lowp_ivec1_t;
+	typedef detail::tvec1<highp_uint>		highp_uvec1_t;
+	typedef detail::tvec1<mediump_uint>		mediump_uvec1_t;
+	typedef detail::tvec1<lowp_uint>		lowp_uvec1_t;
+	
+	/// @addtogroup core_precision
+	/// @{
+	
+	/// 2 components vector of high precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec2<highp_float>		highp_vec2;
+	
+	/// 2 components vector of medium precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec2<mediump_float>	mediump_vec2;
+	
+	/// 2 components vector of low precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec2<lowp_float>		lowp_vec2;
+	
+	/// 2 components vector of high precision signed integer numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec2<highp_int>		highp_ivec2;
+	
+	/// 2 components vector of medium precision signed integer numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec2<mediump_int>		mediump_ivec2;
+	
+	/// 2 components vector of low precision signed integer numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec2<lowp_int>			lowp_ivec2;
+	
+	/// 2 components vector of high precision unsigned integer numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec2<highp_uint>		highp_uvec2;
+	
+	/// 2 components vector of medium precision unsigned integer numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec2<mediump_uint>		mediump_uvec2;
+	
+	/// 2 components vector of low precision unsigned integer numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec2<lowp_uint>		lowp_uvec2;
+	
+	/// @}
+	
+	
+	/// @addtogroup core_precision
+	/// @{
+	
+	/// 3 components vector of high precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec3<highp_float>		highp_vec3;
+	
+	/// 3 components vector of medium precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec3<mediump_float>	mediump_vec3;
+	
+	/// 3 components vector of low precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec3<lowp_float>		lowp_vec3;
+	
+	/// 3 components vector of high precision signed integer numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec3<highp_int>		highp_ivec3;
+	
+	/// 3 components vector of medium precision signed integer numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec3<mediump_int>		mediump_ivec3;
+	
+	/// 3 components vector of low precision signed integer numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec3<lowp_int>			lowp_ivec3;
+	
+	/// 3 components vector of high precision unsigned integer numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec3<highp_uint>		highp_uvec3;
+	
+	/// 3 components vector of medium precision unsigned integer numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec3<mediump_uint>		mediump_uvec3;
+	
+	/// 3 components vector of low precision unsigned integer numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec3<lowp_uint>		lowp_uvec3;
+	
+	/// @}
 
-#include "type_mat2x2.hpp"
-#include "type_mat2x3.hpp"
-#include "type_mat2x4.hpp"
-#include "type_mat3x2.hpp"
-#include "type_mat3x3.hpp"
-#include "type_mat3x4.hpp"
-#include "type_mat4x2.hpp"
-#include "type_mat4x3.hpp"
-#include "type_mat4x4.hpp"
+	/// @addtogroup core_precision
+	/// @{
+	
+	/// 4 components vector of high precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec4<highp_float>		highp_vec4;
+	
+	/// 4 components vector of medium precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec4<mediump_float>	mediump_vec4;
+	
+	/// 4 components vector of low precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec4<lowp_float>		lowp_vec4;
+	
+	/// 4 components vector of high precision signed integer numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec4<highp_int>		highp_ivec4;
+	
+	/// 4 components vector of medium precision signed integer numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec4<mediump_int>		mediump_ivec4;
+	
+	/// 4 components vector of low precision signed integer numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec4<lowp_int>			lowp_ivec4;
+	
+	/// 4 components vector of high precision unsigned integer numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec4<highp_uint>		highp_uvec4;
+	
+	/// 4 components vector of medium precision unsigned integer numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec4<mediump_uint>		mediump_uvec4;
+	
+	/// 4 components vector of low precision unsigned integer numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tvec4<lowp_uint>		lowp_uvec4;
+	
+	/// @}
 
-namespace glm
-{
+	/// @addtogroup core_precision
+	/// @{
+	
+	/// 2 columns of 2 components matrix of low precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat2x2<lowp_float>		lowp_mat2;
+	
+	/// 2 columns of 2 components matrix of medium precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat2x2<mediump_float>	mediump_mat2;
+	
+	/// 2 columns of 2 components matrix of high precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat2x2<highp_float>	highp_mat2;
+	
+	/// 2 columns of 2 components matrix of low precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat2x2<lowp_float>		lowp_mat2x2;
+	
+	/// 2 columns of 2 components matrix of medium precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat2x2<mediump_float>	mediump_mat2x2;
+	
+	/// 2 columns of 2 components matrix of high precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat2x2<highp_float>	highp_mat2x2;
+	
+	/// @}
+	
+	/// @addtogroup core_precision
+	/// @{
+	
+	/// 2 columns of 3 components matrix of low precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat2x3<lowp_float>		lowp_mat2x3;
+	
+	/// 2 columns of 3 components matrix of medium precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat2x3<mediump_float>	mediump_mat2x3;
+	
+	/// 2 columns of 3 components matrix of high precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat2x3<highp_float>	highp_mat2x3;
+	
+	/// @}
+	
+	/// @addtogroup core_precision
+	/// @{
+	
+	/// 2 columns of 4 components matrix of low precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat2x4<lowp_float>		lowp_mat2x4;
+	
+	/// 2 columns of 4 components matrix of medium precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat2x4<mediump_float>	mediump_mat2x4;
+	
+	/// 2 columns of 4 components matrix of high precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat2x4<highp_float>	highp_mat2x4;
+	
+	/// @}
+	
+	/// @addtogroup core_precision
+	/// @{
+	
+	/// 3 columns of 2 components matrix of low precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat3x2<lowp_float>		lowp_mat3x2;
+	
+	/// 3 columns of 2 components matrix of medium precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat3x2<mediump_float>	mediump_mat3x2;
+	
+	/// 3 columns of 2 components matrix of high precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat3x2<highp_float>	highp_mat3x2;
+	
+	/// @}
+	
+	/// @addtogroup core_precision
+	/// @{
+	
+	/// 3 columns of 3 components matrix of low precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat3x3<lowp_float>		lowp_mat3;
+	
+	/// 3 columns of 3 components matrix of medium precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat3x3<mediump_float>	mediump_mat3;
+	
+	/// 3 columns of 3 components matrix of high precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat3x3<highp_float>	highp_mat3;
+	
+	/// 3 columns of 3 components matrix of low precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat3x3<lowp_float>		lowp_mat3x3;
+	
+	/// 3 columns of 3 components matrix of medium precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat3x3<mediump_float>	mediump_mat3x3;
+	
+	/// 3 columns of 3 components matrix of high precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat3x3<highp_float>	highp_mat3x3;
+	
+	/// @}
+
+	/// @addtogroup core_precision
+	/// @{
+	
+	/// 3 columns of 4 components matrix of low precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat3x4<lowp_float>		lowp_mat3x4;
+	
+	/// 3 columns of 4 components matrix of medium precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat3x4<mediump_float>	mediump_mat3x4;
+	
+	/// 3 columns of 4 components matrix of high precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat3x4<highp_float>	highp_mat3x4;
+	
+	/// @}
+
+	/// @addtogroup core_precision
+	/// @{
+	
+	/// 4 columns of 2 components matrix of low precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat4x2<lowp_float>		lowp_mat4x2;
+	
+	/// 4 columns of 2 components matrix of medium precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat4x2<mediump_float>	mediump_mat4x2;
+	
+	/// 4 columns of 2 components matrix of high precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat4x2<highp_float>	highp_mat4x2;
+	
+	/// @}
+	
+	/// @addtogroup core_precision
+	/// @{
+	
+	/// 4 columns of 3 components matrix of low precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat4x3<lowp_float>		lowp_mat4x3;
+	
+	/// 4 columns of 3 components matrix of medium precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat4x3<mediump_float>	mediump_mat4x3;
+	
+	/// 4 columns of 3 components matrix of high precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat4x3<highp_float>	highp_mat4x3;
+	
+	/// @}
+	
+	
+	/// @addtogroup core_precision
+	/// @{
+	
+	/// 4 columns of 4 components matrix of low precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat4x4<lowp_float>		lowp_mat4;
+	
+	/// 4 columns of 4 components matrix of medium precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat4x4<mediump_float>	mediump_mat4;
+	
+	/// 4 columns of 4 components matrix of high precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat4x4<highp_float>	highp_mat4;
+	
+	/// 4 columns of 4 components matrix of low precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat4x4<lowp_float>		lowp_mat4x4;
+	
+	/// 4 columns of 4 components matrix of medium precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat4x4<mediump_float>	mediump_mat4x4;
+	
+	/// 4 columns of 4 components matrix of high precision floating-point numbers.
+	/// There is no guarantee on the actual precision.
+	///
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
+	typedef detail::tmat4x4<highp_float>	highp_mat4x4;
+	
+	/// @}
+	
 	/// @addtogroup core_types
 	/// @{
 
@@ -57,9 +568,9 @@ namespace glm
 	// Float definition
 
 #if(defined(GLM_PRECISION_HIGHP_FLOAT))
-	typedef highp_vec2          vec2;
-	typedef highp_vec3          vec3;
-	typedef highp_vec4          vec4;
+	typedef highp_vec2			vec2;
+	typedef highp_vec3			vec3;
+	typedef highp_vec4			vec4;
 	typedef highp_mat2x2		mat2x2;
 	typedef highp_mat2x3		mat2x3;
 	typedef highp_mat2x4		mat2x4;
@@ -73,15 +584,15 @@ namespace glm
 	typedef mediump_vec2		vec2;
 	typedef mediump_vec3		vec3;
 	typedef mediump_vec4		vec4;
-	typedef mediump_mat2x2      mat2x2;
-	typedef mediump_mat2x3      mat2x3;
-	typedef mediump_mat2x4      mat2x4;
-	typedef mediump_mat3x2      mat3x2;
-	typedef mediump_mat3x3      mat3x3;
-	typedef mediump_mat3x4      mat3x4;
-	typedef mediump_mat4x2      mat4x2;
-	typedef mediump_mat4x3      mat4x3;
-	typedef mediump_mat4x4      mat4x4;
+	typedef mediump_mat2x2		mat2x2;
+	typedef mediump_mat2x3		mat2x3;
+	typedef mediump_mat2x4		mat2x4;
+	typedef mediump_mat3x2		mat3x2;
+	typedef mediump_mat3x3		mat3x3;
+	typedef mediump_mat3x4		mat3x4;
+	typedef mediump_mat4x2		mat4x2;
+	typedef mediump_mat4x3		mat4x3;
+	typedef mediump_mat4x4		mat4x4;
 #elif(defined(GLM_PRECISION_LOWP_FLOAT))
 	typedef lowp_vec2			vec2;
 	typedef lowp_vec3			vec3;

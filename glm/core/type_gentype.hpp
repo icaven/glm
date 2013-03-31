@@ -29,8 +29,6 @@
 #ifndef glm_core_type_gentype
 #define glm_core_type_gentype
 
-#include "type_size.hpp"
-
 namespace glm
 {
 	enum profile
@@ -40,6 +38,8 @@ namespace glm
 		simd
 	};
 
+	typedef std::size_t sizeType;
+	
 namespace detail
 {
 	template

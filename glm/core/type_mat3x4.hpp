@@ -29,25 +29,12 @@
 #ifndef glm_core_type_mat3x4
 #define glm_core_type_mat3x4
 
+#include "../fwd.hpp"
 #include "type_mat.hpp"
 
 namespace glm{
 namespace detail
 {
-	template <typename T> struct tvec1;
-	template <typename T> struct tvec2;
-	template <typename T> struct tvec3;
-	template <typename T> struct tvec4;
-	template <typename T> struct tmat2x2;
-	template <typename T> struct tmat2x3;
-	template <typename T> struct tmat2x4;
-	template <typename T> struct tmat3x2;
-	template <typename T> struct tmat3x3;
-	template <typename T> struct tmat3x4;
-	template <typename T> struct tmat4x2;
-	template <typename T> struct tmat4x3;
-	template <typename T> struct tmat4x4;
-
 	template <typename T> 
 	struct tmat3x4
 	{
@@ -90,25 +77,25 @@ namespace detail
 		// Conversions
 		template <typename U> 
 		GLM_FUNC_DECL explicit tmat3x4(
-            U const & x);
+			U const & x);
 			
 		template 
-        <
-            typename X1, typename Y1, typename Z1, typename W1, 
-            typename X2, typename Y2, typename Z2, typename W2, 
-            typename X3, typename Y3, typename Z3, typename W3 
-        > 
+		<
+			typename X1, typename Y1, typename Z1, typename W1,
+			typename X2, typename Y2, typename Z2, typename W2,
+			typename X3, typename Y3, typename Z3, typename W3
+		>
 		GLM_FUNC_DECL explicit tmat3x4(
-            X1 const & x1, Y1 const & y1, Z1 const & z1, W1 const & w1, 
-            X2 const & x2, Y2 const & y2, Z2 const & z2, W2 const & w2, 
-            X3 const & x3, Y3 const & y3, Z3 const & z3, W3 const & w3);
+			X1 const & x1, Y1 const & y1, Z1 const & z1, W1 const & w1,
+			X2 const & x2, Y2 const & y2, Z2 const & z2, W2 const & w2,
+			X3 const & x3, Y3 const & y3, Z3 const & z3, W3 const & w3);
 			
-		template <typename V1, typename V2, typename V3> 
+		template <typename V1, typename V2, typename V3>
 		GLM_FUNC_DECL explicit tmat3x4(
-            tvec4<V1> const & v1, 
-            tvec4<V2> const & v2,
-            tvec4<V3> const & v3);
-            
+			tvec4<V1> const & v1,
+			tvec4<V2> const & v2,
+			tvec4<V3> const & v3);
+
 		// Matrix conversion
 		template <typename U> 
 		GLM_FUNC_DECL explicit tmat3x4(tmat3x4<U> const & m);
@@ -150,24 +137,24 @@ namespace detail
 	};
 
 	// Binary operators
-	template <typename T> 
+	template <typename T>
 	tmat3x4<T> operator+ (
-		tmat3x4<T> const & m, 
-		typename tmat3x4<T>::value_type const & s);
-	    
-	template <typename T> 
-	tmat3x4<T> operator+ (
-		tmat3x4<T> const & m1, 
-		tmat3x4<T> const & m2);
-	    
-	template <typename T> 
-	tmat3x4<T> operator- (
-		tmat3x4<T> const & m, 
+		tmat3x4<T> const & m,
 		typename tmat3x4<T>::value_type const & s);
 
-	template <typename T> 
+	template <typename T>
+	tmat3x4<T> operator+ (
+		tmat3x4<T> const & m1,
+		tmat3x4<T> const & m2);
+
+	template <typename T>
 	tmat3x4<T> operator- (
-		tmat3x4<T> const & m1, 
+		tmat3x4<T> const & m,
+		typename tmat3x4<T>::value_type const & s);
+
+	template <typename T>
+	tmat3x4<T> operator- (
+		tmat3x4<T> const & m1,
 		tmat3x4<T> const & m2);
 
 	template <typename T> 
@@ -175,88 +162,62 @@ namespace detail
 		tmat3x4<T> const & m, 
 		typename tmat3x4<T>::value_type const & s);
 
-	template <typename T> 
+	template <typename T>
 	tmat3x4<T> operator* (
-		typename tmat3x4<T>::value_type const & s, 
+		typename tmat3x4<T>::value_type const & s,
 		tmat3x4<T> const & m);
 
 	template <typename T>
 	typename tmat3x4<T>::col_type operator* (
-		tmat3x4<T> const & m, 
+		tmat3x4<T> const & m,
 		typename tmat3x4<T>::row_type const & v);
 
 	template <typename T> 
 	typename tmat3x4<T>::row_type operator* (
-		typename tmat3x4<T>::col_type const & v, 
+		typename tmat3x4<T>::col_type const & v,
 		tmat3x4<T> const & m);
 
 	template <typename T>
 	tmat4x4<T> operator* (
-		tmat3x4<T> const & m1, 
+		tmat3x4<T> const & m1,
 		tmat4x3<T> const & m2);
 		
 	template <typename T>
 	tmat2x4<T> operator* (
-		tmat3x4<T> const & m1, 
+		tmat3x4<T> const & m1,
 		tmat2x3<T> const & m2);
 		
 	template <typename T>
 	tmat3x4<T> operator* (
-		tmat3x4<T> const & m1, 
+		tmat3x4<T> const & m1,
 		tmat3x3<T> const & m2);
 
-	template <typename T> 
+	template <typename T>
 	tmat3x4<T> operator/ (
-		tmat3x4<T> const & m, 
+		tmat3x4<T> const & m,
 		typename tmat3x4<T>::value_type const & s);
 
-	template <typename T> 
+	template <typename T>
 	tmat3x4<T> operator/ (
-		typename tmat3x4<T>::value_type const & s, 
+		typename tmat3x4<T>::value_type const & s,
 		tmat3x4<T> const & m);
 
 	// Unary constant operators
-	template <typename T> 
-	tmat3x4<T> const operator-  (
+	template <typename T>
+	tmat3x4<T> const operator- (
 		tmat3x4<T> const & m);
 
 	template <typename T> 
 	tmat3x4<T> const operator-- (
-		tmat3x4<T> const & m, 
+		tmat3x4<T> const & m,
 		int);
 
 	template <typename T> 
 	tmat3x4<T> const operator++ (
-		tmat3x4<T> const & m, 
+		tmat3x4<T> const & m,
 		int);
 
 }//namespace detail
-
-	/// @addtogroup core_precision
-	/// @{
-
-	/// 3 columns of 4 components matrix of low precision floating-point numbers.
-	/// There is no guarantee on the actual precision.
-	/// 
-	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
-	typedef detail::tmat3x4<lowp_float>		lowp_mat3x4;
-
-	/// 3 columns of 4 components matrix of medium precision floating-point numbers.
-	/// There is no guarantee on the actual precision.
-	/// 
-	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
-	typedef detail::tmat3x4<mediump_float>	mediump_mat3x4;
-
-	/// 3 columns of 4 components matrix of high precision floating-point numbers.
-	/// There is no guarantee on the actual precision.
-	/// 
-	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
-	typedef detail::tmat3x4<highp_float>	highp_mat3x4;
-
-	/// @}
 }//namespace glm
 
 #ifndef GLM_EXTERNAL_TEMPLATE

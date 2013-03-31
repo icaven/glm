@@ -29,7 +29,7 @@
 #ifndef glm_core_type_half
 #define glm_core_type_half
 
-#include "_detail.hpp"
+#include "setup.hpp"
 
 namespace glm{
 namespace detail

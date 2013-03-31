@@ -26,6 +26,9 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#ifndef GLM_CORE_DETAIL_INCLUDED
+#define GLM_CORE_DETAIL_INCLUDED
+
 #define VECTORIZE2_VEC(func) \
 	template <typename T> \
 	GLM_FUNC_QUALIFIER detail::tvec2<T> func( \
@@ -157,3 +160,30 @@
 	VECTORIZE2_VEC_VEC(func) \
 	VECTORIZE3_VEC_VEC(func) \
 	VECTORIZE4_VEC_VEC(func)
+
+namespace glm{
+namespace detail
+{
+	template<bool C>
+	struct If
+	{
+		template<typename F, typename T>
+		static GLM_FUNC_QUALIFIER T apply(F functor, const T& val)
+		{
+			return functor(val);
+		}
+	};
+
+	template<>
+	struct If<false>
+	{
+		template<typename F, typename T>
+		static GLM_FUNC_QUALIFIER T apply(F, const T& val)
+		{
+			return val;
+		}
+	};
+}//namespace detail
+}//namespace glm
+
+#endif//GLM_CORE_DETAIL_INCLUDED

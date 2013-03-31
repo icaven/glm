@@ -29,10 +29,8 @@
 #ifndef glm_core_type_gentype1
 #define glm_core_type_gentype1
 
+#include "../fwd.hpp"
 #include "type_vec.hpp"
-#include "type_float.hpp"
-#include "type_int.hpp"
-#include "type_size.hpp"
 #include "_swizzle.hpp"
 
 namespace glm{
@@ -42,10 +40,6 @@ namespace detail
 	template <typename T> struct tref2;
 	template <typename T> struct tref3;
 	template <typename T> struct tref4;
-	template <typename T> struct tvec1;
-	template <typename T> struct tvec2;
-	template <typename T> struct tvec3;
-	template <typename T> struct tvec4;
 
 	template <typename T>
 	struct tvec1
@@ -191,16 +185,6 @@ namespace detail
 	};
 
 	GLM_DETAIL_IS_VECTOR(tvec1);
-
-	typedef detail::tvec1<highp_float>		highp_vec1_t;
-	typedef detail::tvec1<mediump_float>	mediump_vec1_t;
-	typedef detail::tvec1<lowp_float>		lowp_vec1_t;
-	typedef detail::tvec1<highp_int>		highp_ivec1_t;
-	typedef detail::tvec1<mediump_int>		mediump_ivec1_t;
-	typedef detail::tvec1<lowp_int>			lowp_ivec1_t;
-	typedef detail::tvec1<highp_uint>		highp_uvec1_t;
-	typedef detail::tvec1<mediump_uint>		mediump_uvec1_t;
-	typedef detail::tvec1<lowp_uint>		lowp_uvec1_t;
 
 }//namespace detail
 }//namespace glm
