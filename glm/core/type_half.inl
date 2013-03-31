@@ -57,7 +57,7 @@ namespace detail
 				// Plus or minus zero
 				//
 
-				detail::uif result;
+				detail::uif32 result;
 				result.i = (unsigned int)(s << 31);
 				return result.f;
 			}
@@ -85,7 +85,7 @@ namespace detail
 				// Positive or negative infinity
 				//
 
-				uif result;
+				uif32 result;
 				result.i = (unsigned int)((s << 31) | 0x7f800000);
 				return result.f;
 			}
@@ -95,7 +95,7 @@ namespace detail
 				// Nan -- preserve sign and significand bits
 				//
 
-				uif result;
+				uif32 result;
 				result.i = (unsigned int)((s << 31) | 0x7f800000 | (m << 13));
 				return result.f;
 			}
@@ -112,14 +112,14 @@ namespace detail
 		// Assemble s, e and m.
 		//
 
-		uif Result;
+		uif32 Result;
 		Result.i = (unsigned int)((s << 31) | (e << 23) | m);
 		return Result.f;
 	}
 
 	GLM_FUNC_QUALIFIER hdata toFloat16(float const & f)
 	{
-		uif Entry;
+		uif32 Entry;
 		Entry.f = f;
 		int i = (int)Entry.i;
 

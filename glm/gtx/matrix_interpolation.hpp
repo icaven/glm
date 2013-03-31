@@ -39,7 +39,7 @@
 #define GLM_GTX_matrix_interpolation GLM_VERSION
 
 // Dependency:
-//#include "../glm.hpp"
+#include "../glm.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))
 #	pragma message("GLM: GLM_GTX_matrix_interpolation extension included")

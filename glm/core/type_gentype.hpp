@@ -161,7 +161,61 @@ namespace detail
 		class_type& operator-- ();
 	};
 */
-	}//namespace detail
+	
+	//template <typename T>
+	//struct traits
+	//{
+	//	static const bool is_signed = false;
+	//	static const bool is_float = false;
+	//	static const bool is_vector = false;
+	//	static const bool is_matrix = false;
+	//	static const bool is_genType = false;
+	//	static const bool is_genIType = false;
+	//	static const bool is_genUType = false;
+	//};
+	
+	//template <>
+	//struct traits<half>
+	//{
+	//	static const bool is_float = true;
+	//	static const bool is_genType = true;
+	//};
+	
+	//template <>
+	//struct traits<float>
+	//{
+	//	static const bool is_float = true;
+	//	static const bool is_genType = true;
+	//};
+	
+	//template <>
+	//struct traits<double>
+	//{
+	//	static const bool is_float = true;
+	//	static const bool is_genType = true;
+	//};
+	
+	//template <typename genType>
+	//struct desc
+	//{
+	//	typedef genType							type;
+	//	typedef genType *						pointer;
+	//	typedef genType const*					const_pointer;
+	//	typedef genType const *const			const_pointer_const;
+	//	typedef genType *const					pointer_const;
+	//	typedef genType &						reference;
+	//	typedef genType const&					const_reference;
+	//	typedef genType const&					param_type;
+	
+	//	typedef typename genType::value_type	value_type;
+	//	typedef typename genType::size_type		size_type;
+	//	static const typename size_type			value_size;
+	//};
+	
+	//template <typename genType>
+	//const typename desc<genType>::size_type desc<genType>::value_size = genType::value_size();
+	
+}//namespace detail
 }//namespace glm
 
 //#include "type_gentype.inl"

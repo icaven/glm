@@ -11,7 +11,7 @@
 #include <glm/gtc/random.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <iostream>
-#if(GLM_LANG & GLM_LANG_CXX0X)
+#if((GLM_LANG & GLM_LANG_CXX0X) == GLM_LANG_CXX0X)
 #	include <array>
 #endif
 
@@ -139,7 +139,7 @@ int test_ballRand()
 	return Error;
 }
 
-#if(GLM_LANG & GLM_LANG_CXX0X)
+#if((GLM_LANG & GLM_LANG_CXX0X) == GLM_LANG_CXX0X)
 int test_grid()
 {
 	int Error = 0;
@@ -188,6 +188,9 @@ int main()
 	Error += test_sphericalRand();
 	Error += test_diskRand();
 	Error += test_ballRand();
+#if((GLM_LANG & GLM_LANG_CXX0X) == GLM_LANG_CXX0X)
+	Error += test_grid();
+#endif
 
 	return Error;
 }

@@ -22,7 +22,7 @@
 ///
 /// @ref core
 /// @file glm/core/type_int.hpp
-/// @date 2008-08-22 / 2011-06-15
+/// @date 2008-08-22 / 2013-03-30
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -32,27 +32,71 @@
 #include "setup.hpp"
 #include "_detail.hpp"
 
+#if(((GLM_LANG & GLM_LANG_CXX11) == GLM_LANG_CXX11) || (defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)))
+//#if((defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)))
+#include <cstdint>
+#endif
+
 namespace glm{
 namespace detail
 {
+#	if((GLM_LANG & GLM_LANG_CXX11) == GLM_LANG_CXX11)
+		typedef std::int8_t					int8;
+		typedef std::int16_t				int16;
+		typedef std::int32_t				int32;
+		typedef std::int64_t				int64;
+	
+		typedef std::uint8_t				uint8;
+		typedef std::uint16_t				uint16;
+		typedef std::uint32_t				uint32;
+		typedef std::uint64_t				uint64;
+#	else
+#		if(defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)) // C99 detected, 64 bit types available
+			typedef int64_t					sint64;
+			typedef uint64_t				uint64;
+#		elif(GLM_COMPILER & GLM_COMPILER_VC)
+			typedef signed __int64			sint64;
+			typedef unsigned __int64		uint64;
+#		elif(GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_LLVM_GCC | GLM_COMPILER_CLANG))
+			__extension__ typedef signed long long		sint64;
+			__extension__ typedef unsigned long long	uint64;
+#		elif(GLM_COMPILER & GLM_COMPILER_BC)
+			typedef Int64					sint64;
+			typedef Uint64					uint64;
+#		else//unknown compiler
+			typedef signed long	long		sint64;
+			typedef unsigned long long		uint64;
+#		endif//GLM_COMPILER
+		
+		typedef signed char					int8;
+		typedef signed short				int16;
+		typedef signed int					int32;
+		typedef sint64						int64;
+	
+		typedef unsigned char				uint8;
+		typedef unsigned short				uint16;
+		typedef unsigned int				uint32;
+		typedef uint64						uint64;
+#endif//
+	
 	typedef signed short			lowp_int_t;
 	typedef signed int				mediump_int_t;
 	typedef int64					highp_int_t;
-
+	
 	typedef unsigned short			lowp_uint_t;
 	typedef unsigned int			mediump_uint_t;
 	typedef uint64					highp_uint_t;
 }//namespace detail
 
-	typedef detail::int8				int8;
-	typedef detail::int16				int16;
-	typedef detail::int32				int32;
-	typedef detail::int64				int64;
+	typedef detail::int8			int8;
+	typedef detail::int16			int16;
+	typedef detail::int32			int32;
+	typedef detail::int64			int64;
 	
-	typedef detail::uint8				uint8;
-	typedef detail::uint16				uint16;
-	typedef detail::uint32				uint32;
-	typedef detail::uint64				uint64;
+	typedef detail::uint8			uint8;
+	typedef detail::uint16			uint16;
+	typedef detail::uint32			uint32;
+	typedef detail::uint64			uint64;
 
 	/// @addtogroup core_precision
 	/// @{
@@ -126,7 +170,7 @@ namespace detail
 	/// Unsigned integer type. 
 	/// 
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.3 Integers</a>
-	typedef uint_t								uint;
+	typedef uint_t						uint;
 
 	/// @}
 
@@ -146,11 +190,59 @@ namespace detail
 
 namespace detail
 {
+	//////////////////
+	// int
+	
+	template <typename T>
+	struct is_int
+	{
+		enum is_int_enum
+		{
+			_YES = 0,
+			_NO = 1
+		};
+	};
+	
+	#define GLM_DETAIL_IS_INT(T)	\
+		template <>					\
+		struct is_int<T>			\
+		{							\
+			enum is_int_enum		\
+			{						\
+				_YES = 1,			\
+				_NO = 0				\
+			};						\
+		}
+	
 	GLM_DETAIL_IS_INT(signed char);
 	GLM_DETAIL_IS_INT(signed short);
 	GLM_DETAIL_IS_INT(signed int);
 	GLM_DETAIL_IS_INT(signed long);
 	GLM_DETAIL_IS_INT(highp_int_t);
+	
+	//////////////////
+	// uint
+	
+	template <typename T>
+	struct is_uint
+	{
+		enum is_uint_enum
+		{
+			_YES = 0,
+			_NO = 1
+		};
+	};
+	
+	#define GLM_DETAIL_IS_UINT(T)	\
+		template <>					\
+		struct is_uint<T>			\
+		{							\
+			enum is_uint_enum		\
+			{						\
+				_YES = 1,			\
+				_NO = 0				\
+			};						\
+		}
 
 	GLM_DETAIL_IS_UINT(unsigned char);
 	GLM_DETAIL_IS_UINT(unsigned short);
@@ -158,50 +250,92 @@ namespace detail
 	GLM_DETAIL_IS_UINT(unsigned long);
 	GLM_DETAIL_IS_UINT(highp_uint_t);
 
+	//////////////////
+	// bool
+	
+	template <typename T>
+	struct is_bool
+	{
+		enum is_bool_enum
+		{
+			_YES = 0,
+			_NO = 1
+		};
+	};
+	
 	template <>
-	struct float_or_int_trait<int8>
+	struct is_bool<bool>
+	{
+		enum is_bool_enum
+		{
+			_YES = 1,
+			_NO = 0
+		};
+	};
+	
+	//////////////////
+	// float_or_int_trait
+	
+	struct float_or_int_value
+	{
+		enum
+		{
+			GLM_ERROR,
+			GLM_FLOAT,
+			GLM_INT
+		};
+	};
+	
+	template <typename T>
+	struct float_or_int_trait
+	{
+		enum{ID = float_or_int_value::GLM_ERROR};
+	};
+	
+	template <>
+	struct float_or_int_trait<detail::int8>
 	{
 		enum{ID = float_or_int_value::GLM_INT};
 	};
 
 	template <>
-	struct float_or_int_trait<int16>
+	struct float_or_int_trait<detail::int16>
 	{
 		enum{ID = float_or_int_value::GLM_INT};
 	};
 
 	template <>
-	struct float_or_int_trait<int32>
+	struct float_or_int_trait<detail::int32>
 	{
 		enum{ID = float_or_int_value::GLM_INT};
 	};
 
 	template <>
-	struct float_or_int_trait<int64>
+	struct float_or_int_trait<detail::int64>
 	{
 		enum{ID = float_or_int_value::GLM_INT};
 	};
 
 	template <>
-	struct float_or_int_trait<uint8>
+	struct float_or_int_trait<detail::uint8>
 	{
 		enum{ID = float_or_int_value::GLM_INT};
 	};
 
 	template <>
-	struct float_or_int_trait<uint16>
+	struct float_or_int_trait<detail::uint16>
 	{
 		enum{ID = float_or_int_value::GLM_INT};
 	};
 
 	template <>
-	struct float_or_int_trait<uint32>
+	struct float_or_int_trait<detail::uint32>
 	{
 		enum{ID = float_or_int_value::GLM_INT};
 	};
 
 	template <>
-	struct float_or_int_trait<uint64>
+	struct float_or_int_trait<detail::uint64>
 	{
 		enum{ID = float_or_int_value::GLM_INT};
 	};

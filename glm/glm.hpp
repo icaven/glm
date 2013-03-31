@@ -84,8 +84,10 @@
 #include <climits>
 #include <cfloat>
 #include <limits>
-#include <cstdio>
+//#include <cstdint>
 //#include <type_traits>
+
+#include "fwd.hpp"
 #include "core/setup.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_CORE_INCLUDED_DISPLAYED))
@@ -95,7 +97,27 @@
 
 #include "./core/_detail.hpp"
 #include "./core/_vectorize.hpp"
+
+#include "./core/type_half.hpp"
+#include "./core/type_float.hpp"
+#include "./core/type_int.hpp"
+
 #include "./core/type.hpp"
+
+#include "./core/type_vec1.hpp"
+#include "./core/type_vec2.hpp"
+#include "./core/type_vec3.hpp"
+#include "./core/type_vec4.hpp"
+
+#include "./core/type_mat2x2.hpp"
+#include "./core/type_mat2x3.hpp"
+#include "./core/type_mat2x4.hpp"
+#include "./core/type_mat3x2.hpp"
+#include "./core/type_mat3x3.hpp"
+#include "./core/type_mat3x4.hpp"
+#include "./core/type_mat4x2.hpp"
+#include "./core/type_mat4x3.hpp"
+#include "./core/type_mat4x4.hpp"
 
 #include "./core/func_trigonometric.hpp"
 #include "./core/func_exponential.hpp"
@@ -106,6 +128,7 @@
 #include "./core/func_vector_relational.hpp"
 #include "./core/func_integer.hpp"
 #include "./core/func_noise.hpp"
+
 #include "./core/_swizzle.hpp"
 
 #endif//glm_glm

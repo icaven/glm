@@ -172,7 +172,7 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packHalf2x16.xml">GLSL packHalf2x16 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
-	uint packHalf2x16(vec2 const & v);
+	uint packHalf2x16(detail::tvec2<float32> const & v);
 	
 	/// Returns a two-component floating-point vector with components obtained by unpacking a 32-bit unsigned integer into a pair of 16-bit values, 
 	/// interpreting those values as 16-bit floating-point numbers according to the OpenGL Specification, 

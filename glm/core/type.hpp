@@ -33,8 +33,6 @@
 #include "type_float.hpp"
 #include "type_int.hpp"
 
-#include "type_gentype.hpp"
-
 #include "type_vec1.hpp"
 #include "type_vec2.hpp"
 #include "type_vec3.hpp"
@@ -177,7 +175,7 @@ namespace glm
 
 	//////////////////////////
 	// Signed integer definition
-
+	
 #if(defined(GLM_PRECISION_HIGHP_INT))
 	typedef highp_ivec2			ivec2;
 	typedef highp_ivec3			ivec3;
@@ -191,25 +189,25 @@ namespace glm
 	typedef lowp_ivec3			ivec3;
 	typedef lowp_ivec4			ivec4;
 #else
-	//! 2 components vector of signed integer numbers. 
-	/// 
+	//! 2 components vector of signed integer numbers.
+	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
 	typedef mediump_ivec2		ivec2;
-
-	//! 3 components vector of signed integer numbers. 
-	/// 
+	
+	//! 3 components vector of signed integer numbers.
+	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
 	typedef mediump_ivec3		ivec3;
-
-	//! 4 components vector of signed integer numbers. 
-	/// 
+	
+	//! 4 components vector of signed integer numbers.
+	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
 	typedef mediump_ivec4		ivec4;
 #endif//GLM_PRECISION
-
+	
 	//////////////////////////
 	// Unsigned integer definition
-
+	
 #if(defined(GLM_PRECISION_HIGHP_UINT))
 	typedef highp_uvec2			uvec2;
 	typedef highp_uvec3			uvec3;
@@ -223,22 +221,22 @@ namespace glm
 	typedef lowp_uvec3			uvec3;
 	typedef lowp_uvec4			uvec4;
 #else
-	//! 2 components vector of unsigned integer numbers. 
-	/// 
+	/// 2 components vector of unsigned integer numbers.
+	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
 	typedef mediump_uvec2		uvec2;
-
-	//! 3 components vector of unsigned integer numbers. 
-	/// 
+	
+	/// 3 components vector of unsigned integer numbers.
+	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
 	typedef mediump_uvec3		uvec3;
-
-	//! 4 components vector of unsigned integer numbers. 
-	/// 
+	
+	/// 4 components vector of unsigned integer numbers.
+	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
 	typedef mediump_uvec4		uvec4;
 #endif//GLM_PRECISION
-
+	
 	//////////////////////////
 	// Boolean definition
 
@@ -310,27 +308,27 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
 	typedef detail::tmat3x2<double>	dmat3x2;
 
-	//! 3 * 3 matrix of double-precision floating-point numbers. 
+	/// 3 * 3 matrix of double-precision floating-point numbers. 
 	/// 
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
 	typedef detail::tmat3x3<double>	dmat3x3;
 
-	//! 3 * 4 matrix of double-precision floating-point numbers. 
+	/// 3 * 4 matrix of double-precision floating-point numbers.
 	/// 
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
 	typedef detail::tmat3x4<double>	dmat3x4;
 
-	//! 4 * 2 matrix of double-precision floating-point numbers. 
+	/// 4 * 2 matrix of double-precision floating-point numbers.
 	/// 
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
 	typedef detail::tmat4x2<double>	dmat4x2;
 
-	//! 4 * 3 matrix of double-precision floating-point numbers. 
+	/// 4 * 3 matrix of double-precision floating-point numbers.
 	/// 
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
 	typedef detail::tmat4x3<double>	dmat4x3;
 
-	//! 4 * 4 matrix of double-precision floating-point numbers. 
+	/// 4 * 4 matrix of double-precision floating-point numbers.
 	/// 
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
 	typedef detail::tmat4x4<double>	dmat4x4;

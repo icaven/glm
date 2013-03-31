@@ -8,10 +8,10 @@
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-/// 
+///
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-/// 
+///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -21,40 +21,38 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/_detail.hpp
-/// @date 2008-07-24 / 2011-06-14
+/// @file glm/fwd.hpp
+/// @date 2013-03-30 / 2013-03-30
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_detail
-#define glm_core_detail
-/*
-#include "setup.hpp"
+#ifndef GLM_FWD_INCLUDED
+#define GLM_FWD_INCLUDED
+
+#include "core/type_int.hpp"
+#include "core/type_float.hpp"
 
 namespace glm{
 namespace detail
 {
-	template<bool C>
-	struct If
-	{
-		template<typename F, typename T>
-		static GLM_FUNC_QUALIFIER T apply(F functor, const T& val)
-		{
-			return functor(val);
-		}
-	};
-
-	template<>
-	struct If<false>
-	{
-		template<typename F, typename T>
-		static GLM_FUNC_QUALIFIER T apply(F, const T& val)
-		{
-			return val;
-		}
-	};
+	class half;
 	
+	template <typename T> struct tvec1;
+	template <typename T> struct tvec2;
+	template <typename T> struct tvec3;
+	template <typename T> struct tvec4;
+	
+	template <typename T> struct tmat2x2;
+	template <typename T> struct tmat2x3;
+	template <typename T> struct tmat2x4;
+	template <typename T> struct tmat3x2;
+	template <typename T> struct tmat3x3;
+	template <typename T> struct tmat3x4;
+	template <typename T> struct tmat4x2;
+	template <typename T> struct tmat4x3;
+	template <typename T> struct tmat4x4;
 }//namespace detail
+
 }//namespace glm
-*/
-#endif//glm_core_detail
+
+#endif//GLM_FWD_INCLUDED

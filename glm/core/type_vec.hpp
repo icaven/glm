@@ -34,7 +34,26 @@
 namespace glm{
 namespace detail
 {
-
+	template <typename T>
+	struct is_vector
+	{
+		enum is_vector_enum
+		{
+			_YES = 0,
+			_NO = 1
+		};
+	};
+	
+#	define GLM_DETAIL_IS_VECTOR(TYPE)	\
+		template <typename T>			\
+		struct is_vector<TYPE<T> >		\
+		{								\
+			enum is_vector_enum			\
+			{							\
+				_YES = 1,				\
+				_NO = 0					\
+			};							\
+		}
 }//namespace detail
 }//namespace glm
 

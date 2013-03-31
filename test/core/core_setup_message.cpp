@@ -254,6 +254,13 @@ int test_model()
 	return Error;
 }
 
+int test_cpp_version()
+{
+	std::cout << "__cplusplus: " << __cplusplus << std::endl;
+	
+	return 0;
+}
+
 int test_operators()
 {
 	glm::vec3 A(1.0f);
@@ -268,6 +275,7 @@ int main()
 {
 	int Error = 0;
 
+	Error += test_cpp_version();
 	Error += test_compiler();
 	Error += test_model();
 	Error += test_operators();

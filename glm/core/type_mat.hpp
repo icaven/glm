@@ -34,7 +34,26 @@
 namespace glm{
 namespace detail
 {
-
+	template <typename T>
+	struct is_matrix
+	{
+		enum is_matrix_enum
+		{
+			_YES = 0,
+			_NO = 1
+		};
+	};
+	
+	#define GLM_DETAIL_IS_MATRIX(T)	\
+		template <>					\
+		struct is_matrix			\
+		{							\
+			enum is_matrix_enum		\
+			{						\
+				_YES = 1,			\
+				_NO = 0				\
+			};						\
+		}
 }//namespace detail
 }//namespace glm
 

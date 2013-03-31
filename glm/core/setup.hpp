@@ -22,12 +22,14 @@
 ///
 /// @ref core
 /// @file glm/core/setup.hpp
-/// @date 2006-11-13 / 2011-06-15
+/// @date 2006-11-13 / 2013-03-30
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_setup
-#define glm_setup
+#ifndef GLM_SETUP_INCLUDED
+#define GLM_SETUP_INCLUDED
+
+#include <cassert>
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Version
@@ -726,4 +728,48 @@
 #	endif
 #endif//GLM_MESSAGE
 
-#endif//glm_setup
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Qualifiers
+
+#if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
+#	define GLM_DEPRECATED __declspec(deprecated)
+#	define GLM_ALIGN(x) __declspec(align(x))
+#	define GLM_ALIGNED_STRUCT(x) __declspec(align(x)) struct
+#	define GLM_RESTRICT __declspec(restrict)
+#	define GLM_RESTRICT_VAR __restrict
+#	define GLM_CONSTEXPR
+#elif(GLM_COMPILER & GLM_COMPILER_INTEL)
+#	define GLM_DEPRECATED
+#	define GLM_ALIGN(x) __declspec(align(x))
+#	define GLM_ALIGNED_STRUCT(x) __declspec(align(x)) struct
+#	define GLM_RESTRICT
+#	define GLM_RESTRICT_VAR __restrict
+#	define GLM_CONSTEXPR
+#elif(((GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_LLVM_GCC)) && (GLM_COMPILER >= GLM_COMPILER_GCC31)) || (GLM_COMPILER & GLM_COMPILER_CLANG))
+#	define GLM_DEPRECATED __attribute__((__deprecated__))
+#	define GLM_ALIGN(x) __attribute__((aligned(x)))
+#	define GLM_ALIGNED_STRUCT(x) struct __attribute__((aligned(x)))
+#	if(GLM_COMPILER >= GLM_COMPILER_GCC33)
+#		define GLM_RESTRICT __restrict__
+#		define GLM_RESTRICT_VAR __restrict__
+#	else
+#		define GLM_RESTRICT
+#		define GLM_RESTRICT_VAR
+#	endif
+#	define GLM_RESTRICT __restrict__
+#	define GLM_RESTRICT_VAR __restrict__
+#	if((GLM_COMPILER >= GLM_COMPILER_GCC47) && ((GLM_LANG & GLM_LANG_CXX0X) == GLM_LANG_CXX0X))
+#		define GLM_CONSTEXPR constexpr
+#	else
+#		define GLM_CONSTEXPR
+#	endif
+#else
+#	define GLM_DEPRECATED
+#	define GLM_ALIGN
+#	define GLM_ALIGNED_STRUCT(x)
+#	define GLM_RESTRICT
+#	define GLM_RESTRICT_VAR
+#	define GLM_CONSTEXPR
+#endif//GLM_COMPILER
+
+#endif//GLM_SETUP_INCLUDED
