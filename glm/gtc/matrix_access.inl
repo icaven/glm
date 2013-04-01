@@ -45,7 +45,7 @@ namespace glm
 	template <typename genType>
 	GLM_FUNC_QUALIFIER typename genType::row_type row
 	(
-		genType const & m, 
+		genType const & m,
 		int index
 	)
 	{
@@ -58,8 +58,8 @@ namespace glm
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType column
 	(
-		genType const & m, 
-		int index, 
+		genType const & m,
+		int index,
 		typename genType::col_type const & x
 	)
 	{
@@ -71,7 +71,7 @@ namespace glm
 	template <typename genType>
 	GLM_FUNC_QUALIFIER typename genType::col_type column
 	(
-		genType const & m, 
+		genType const & m,
 		int index
 	)
 	{

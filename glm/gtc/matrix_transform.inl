@@ -241,7 +241,6 @@ namespace glm
 #else
 		valType const rad = glm::radians(fovy);
 #endif
-        
 		valType range = tan(rad / valType(2)) * zNear;	
 		valType left = -range * aspect;
 		valType right = range * aspect;
@@ -314,8 +313,8 @@ namespace glm
 	template <typename T> 
 	GLM_FUNC_QUALIFIER detail::tmat4x4<T> tweakedInfinitePerspective
 	(
-		T fovy, 
-		T aspect, 
+		T fovy,
+		T aspect,
 		T zNear
 	)
 	{
@@ -384,15 +383,15 @@ namespace glm
 	template <typename T, typename U> 
 	detail::tmat4x4<T> pickMatrix
 	(
-		detail::tvec2<T> const & center, 
-		detail::tvec2<T> const & delta, 
+		detail::tvec2<T> const & center,
+		detail::tvec2<T> const & delta,
 		detail::tvec4<U> const & viewport
 	)
 	{
 		assert(delta.x > T(0) && delta.y > T(0));
 		detail::tmat4x4<T> Result(1.0f);
 
-		if(!(delta.x > T(0) && delta.y > T(0))) 
+		if(!(delta.x > T(0) && delta.y > T(0)))
 			return Result; // Error
 
 		detail::tvec3<T> Temp(

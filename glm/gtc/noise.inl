@@ -50,7 +50,7 @@ namespace glm
 	{
 		return mod289(((x * T(34)) + T(1)) * x);
 	}
-  
+
 	template <typename T>
 	GLM_FUNC_QUALIFIER T taylorInvSqrt(T const & r)
 	{
@@ -426,10 +426,10 @@ namespace glm
 		detail::tvec2<T> g11(gx.w, gy.w);
 
 		detail::tvec4<T> norm = taylorInvSqrt(detail::tvec4<T>(dot(g00, g00), dot(g01, g01), dot(g10, g10), dot(g11, g11)));
-		g00 *= norm.x;  
-		g01 *= norm.y;  
-		g10 *= norm.z;  
-		g11 *= norm.w;  
+		g00 *= norm.x;
+		g01 *= norm.y;
+		g10 *= norm.z;
+		g11 *= norm.w;
 
 		T n00 = dot(g00, detail::tvec2<T>(fx.x, fy.x));
 		T n10 = dot(g10, detail::tvec2<T>(fx.y, fy.y));

@@ -71,8 +71,8 @@ namespace glm
 		genType const & m, 
 		int index);
 
-	 /// Set a specific column to a matrix.
-	 /// @see gtc_matrix_access
+	/// Set a specific column to a matrix.
+	/// @see gtc_matrix_access
 	template <typename genType> 
 	genType column(
 		genType const & m, 

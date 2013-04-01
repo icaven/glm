@@ -338,41 +338,6 @@ namespace detail
 		valType const & angle, 
 		detail::tvec3<valType> const & axis);
 
-	/// Quaternion of floating-point numbers. 
-	/// 
-	/// @see gtc_quaternion
-	typedef detail::tquat<float> quat;
-
-	/// Quaternion of half-precision floating-point numbers.
-	/// 
-	/// @see gtc_quaternion
-	typedef detail::tquat<detail::half>	hquat;
-
-	/// Quaternion of single-precision floating-point numbers. 
-	/// 
-	/// @see gtc_quaternion
-	typedef detail::tquat<float>	fquat;
-
-	/// Quaternion of double-precision floating-point numbers. 
-	/// 
-	/// @see gtc_quaternion
-	typedef detail::tquat<double>	dquat;
-
-	/// Quaternion of low precision floating-point numbers.
-	/// 
-	/// @see gtc_quaternion
-	typedef detail::tquat<lowp_float>		lowp_quat;
-
-	/// Quaternion of medium precision floating-point numbers. 
-	/// 
-	/// @see gtc_quaternion
-	typedef detail::tquat<mediump_float>	mediump_quat;
-
-	/// Quaternion of high precision floating-point numbers. 
-	/// 
-	/// @see gtc_quaternion
-	typedef detail::tquat<highp_float>		highp_quat;
-
 	/// @}
 } //namespace glm
 

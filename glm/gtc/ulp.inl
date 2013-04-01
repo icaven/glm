@@ -58,34 +58,34 @@ typedef union
 	} parts;
 } ieee_double_shape_type;
 
-#define GLM_EXTRACT_WORDS(ix0,ix1,d)                                \
-	do {                                                            \
-	  ieee_double_shape_type ew_u;                                  \
-	  ew_u.value = (d);                                             \
-	  (ix0) = ew_u.parts.msw;                                       \
-	  (ix1) = ew_u.parts.lsw;                                       \
+#define GLM_EXTRACT_WORDS(ix0,ix1,d)		\
+	do {									\
+		ieee_double_shape_type ew_u;		\
+		ew_u.value = (d);					\
+		(ix0) = ew_u.parts.msw;				\
+		(ix1) = ew_u.parts.lsw;				\
 	} while (0)
 
-#define GLM_GET_FLOAT_WORD(i,d)                                     \
-	do {                                                            \
-	  ieee_float_shape_type gf_u;                                   \
-	  gf_u.value = (d);                                             \
-	  (i) = gf_u.word;                                              \
+#define GLM_GET_FLOAT_WORD(i,d)				\
+	do {									\
+		ieee_float_shape_type gf_u;			\
+		gf_u.value = (d);					\
+		(i) = gf_u.word;					\
 	} while (0)
 
-#define GLM_SET_FLOAT_WORD(d,i)                                     \
-	do {                                                            \
-	  ieee_float_shape_type sf_u;                                   \
-	  sf_u.word = (i);                                              \
-	  (d) = sf_u.value;                                             \
+#define GLM_SET_FLOAT_WORD(d,i)				\
+	do {									\
+		ieee_float_shape_type sf_u;			\
+		sf_u.word = (i);					\
+		(d) = sf_u.value;					\
 	} while (0)
 
-#define GLM_INSERT_WORDS(d,ix0,ix1)                                 \
-	do {                                                            \
-	  ieee_double_shape_type iw_u;                                  \
-	  iw_u.parts.msw = (ix0);                                       \
-	  iw_u.parts.lsw = (ix1);                                       \
-	  (d) = iw_u.value;                                             \
+#define GLM_INSERT_WORDS(d,ix0,ix1)			\
+	do {									\
+		ieee_double_shape_type iw_u;		\
+		iw_u.parts.msw = (ix0);				\
+		iw_u.parts.lsw = (ix1);				\
+		(d) = iw_u.value;					\
 	} while (0)
 
 namespace glm{
@@ -98,28 +98,28 @@ namespace detail
 
 		GLM_GET_FLOAT_WORD(hx, x);
 		GLM_GET_FLOAT_WORD(hy, y);
-		ix = hx&0x7fffffff;             // |x|
-		iy = hy&0x7fffffff;             // |y|
+		ix = hx&0x7fffffff;		// |x|
+		iy = hy&0x7fffffff;		// |y|
 
-		if((ix>0x7f800000) ||   // x is nan 
-			(iy>0x7f800000))     // y is nan 
+		if((ix>0x7f800000) ||	// x is nan 
+			(iy>0x7f800000))	// y is nan 
 			return x+y;
-		if(x==y) return y;              // x=y, return y
-		if(ix==0) {                             // x == 0
+		if(x==y) return y;		// x=y, return y
+		if(ix==0) {				// x == 0
 			GLM_SET_FLOAT_WORD(x,(hy&0x80000000)|1);// return +-minsubnormal
 			t = x*x;
-			if(t==x) return t; else return x;   // raise underflow flag
+			if(t==x) return t; else return x;	// raise underflow flag
 		}
-		if(hx>=0) {                             // x > 0 
-			if(hx>hy) {                         // x > y, x -= ulp
+		if(hx>=0) {				// x > 0 
+			if(hx>hy) {			// x > y, x -= ulp
 				hx -= 1;
-			} else {                            // x < y, x += ulp
+			} else {			// x < y, x += ulp
 				hx += 1;
 			}
-		} else {                                // x < 0
-			if(hy>=0||hx>hy){                   // x < y, x -= ulp
+		} else {				// x < 0
+			if(hy>=0||hx>hy){	// x < y, x -= ulp
 				hx -= 1;
-			} else {                            // x > y, x += ulp
+			} else {			// x > y, x += ulp
 				hx += 1;
 			}
 		}

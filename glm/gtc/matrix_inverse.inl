@@ -67,7 +67,7 @@ namespace glm
 		detail::tmat2x2<valType> Inverse(
 			+ m[1][1] / Determinant,
 			- m[0][1] / Determinant,
-			- m[1][0] / Determinant, 
+			- m[1][0] / Determinant,
 			+ m[0][0] / Determinant);
 
 		return Inverse;
@@ -153,7 +153,7 @@ namespace glm
 			+ m[0][3] * Inverse[0][3];
 
 		Inverse /= Determinant;
-    
+
 		return Inverse;
 	}
 }//namespace glm
