@@ -34,9 +34,4 @@
 #include "core/type_vec.hpp"
 #include "core/type_mat.hpp"
 
-namespace glm
-{
-
-}//namespace glm
-
 #endif//GLM_FWD_INCLUDED
