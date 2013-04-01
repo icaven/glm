@@ -76,20 +76,20 @@ namespace detail
 	typedef highp_float_t		highp_float;
 
 #if(!defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
-	typedef mediump_float				float_t;
+	typedef mediump_float		float_t;
 #elif(defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
-	typedef highp_float					float_t;
+	typedef highp_float			float_t;
 #elif(!defined(GLM_PRECISION_HIGHP_FLOAT) && defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
-	typedef mediump_float				float_t;
+	typedef mediump_float		float_t;
 #elif(!defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && defined(GLM_PRECISION_LOWP_FLOAT))
-	typedef lowp_float					float_t;
+	typedef lowp_float			float_t;
 #else
 #	error "GLM error: multiple default precision requested for floating-point types"
 #endif
 
-	typedef detail::half				float16;
-	typedef float						float32;
-	typedef double						float64;
+	typedef detail::half		float16;
+	typedef float				float32;
+	typedef double				float64;
 
 	/// @}
 

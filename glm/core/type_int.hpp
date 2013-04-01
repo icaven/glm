@@ -78,24 +78,24 @@ namespace detail
 		typedef uint64						uint64;
 #endif//
 	
-	typedef signed short			lowp_int_t;
-	typedef signed int				mediump_int_t;
-	typedef int64					highp_int_t;
+	typedef signed short					lowp_int_t;
+	typedef signed int						mediump_int_t;
+	typedef int64							highp_int_t;
 	
-	typedef unsigned short			lowp_uint_t;
-	typedef unsigned int			mediump_uint_t;
-	typedef uint64					highp_uint_t;
+	typedef unsigned short					lowp_uint_t;
+	typedef unsigned int					mediump_uint_t;
+	typedef uint64							highp_uint_t;
 }//namespace detail
 
-	typedef detail::int8			int8;
-	typedef detail::int16			int16;
-	typedef detail::int32			int32;
-	typedef detail::int64			int64;
+	typedef detail::int8					int8;
+	typedef detail::int16					int16;
+	typedef detail::int32					int32;
+	typedef detail::int64					int64;
 	
-	typedef detail::uint8			uint8;
-	typedef detail::uint16			uint16;
-	typedef detail::uint32			uint32;
-	typedef detail::uint64			uint64;
+	typedef detail::uint8					uint8;
+	typedef detail::uint16					uint16;
+	typedef detail::uint32					uint32;
+	typedef detail::uint64					uint64;
 
 	/// @addtogroup core_precision
 	/// @{
@@ -140,14 +140,14 @@ namespace detail
 	/// 
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.3 Integers</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
-	typedef detail::highp_uint_t				highp_uint;
+	typedef detail::highp_uint_t			highp_uint;
 
 #if(!defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
-	typedef mediump_int                 int_t;
+	typedef mediump_int					int_t;
 #elif(defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
 	typedef highp_int					int_t;
 #elif(!defined(GLM_PRECISION_HIGHP_INT) && defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
-	typedef mediump_int                 int_t;
+	typedef mediump_int					int_t;
 #elif(!defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && defined(GLM_PRECISION_LOWP_INT))
 	typedef lowp_int					int_t;
 #else
@@ -166,10 +166,10 @@ namespace detail
 #	error "GLM error: multiple default precision requested for unsigned interger types"
 #endif
 
-	/// Unsigned integer type. 
+	/// Unsigned integer type.
 	/// 
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.3 Integers</a>
-	typedef uint_t						uint;
+	typedef unsigned int				uint;
 
 	/// @}
 
