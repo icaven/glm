@@ -68,9 +68,9 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/dot.xml">GLSL dot man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <typename genType> 
+	template <typename genType>
 	typename genType::value_type dot(
-		genType const & x, 
+		genType const & x,
 		genType const & y);
 
 	/// Returns the cross product of x and y.
@@ -79,16 +79,16 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/cross.xml">GLSL cross man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <typename valType> 
-	detail::tvec3<valType> cross(
-		detail::tvec3<valType> const & x, 
-		detail::tvec3<valType> const & y);
+	template <typename T, precision P>
+	detail::tvec3<T, P> cross(
+		detail::tvec3<T, P> const & x,
+		detail::tvec3<T, P> const & y);
 
 	/// Returns a vector in the same direction as x but with length of 1.
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/normalize.xml">GLSL normalize man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <typename genType> 
+	template <typename genType>
 	genType normalize(
 		genType const & x);
 
@@ -98,10 +98,10 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/faceforward.xml">GLSL faceforward man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <typename genType> 
+	template <typename genType>
 	genType faceforward(
-		genType const & N, 
-		genType const & I, 
+		genType const & N,
+		genType const & I,
 		genType const & Nref);
 
 	/// For the incident vector I and surface orientation N, 
@@ -111,9 +111,9 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/reflect.xml">GLSL reflect man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <typename genType> 
+	template <typename genType>
 	genType reflect(
-		genType const & I, 
+		genType const & I,
 		genType const & N);
 
 	/// For the incident vector I and surface normal N, 
@@ -124,10 +124,10 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/refract.xml">GLSL refract man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <typename genType> 
+	template <typename genType>
 	genType refract(
-		genType const & I, 
-		genType const & N, 
+		genType const & I,
+		genType const & N,
 		typename genType::value_type const & eta);
 
 	/// @}

@@ -53,20 +53,20 @@ namespace glm
 
 	/// Return a color from a radial gradient.
 	/// @see - gtx_gradient_paint
-	template <typename valType>
-	valType radialGradient(
-		detail::tvec2<valType> const & Center,
-		valType const & Radius,
-		detail::tvec2<valType> const & Focal,
-		detail::tvec2<valType> const & Position);
+	template <typename T, precision P>
+	T radialGradient(
+		detail::tvec2<T, P> const & Center,
+		T const & Radius,
+		detail::tvec2<T, P> const & Focal,
+		detail::tvec2<T, P> const & Position);
 
 	/// Return a color from a linear gradient.
 	/// @see - gtx_gradient_paint
-	template <typename valType>
-	valType linearGradient(
-		detail::tvec2<valType> const & Point0,
-		detail::tvec2<valType> const & Point1,
-		detail::tvec2<valType> const & Position);
+	template <typename T, precision P>
+	T linearGradient(
+		detail::tvec2<T, P> const & Point0,
+		detail::tvec2<T, P> const & Point1,
+		detail::tvec2<T, P> const & Position);
 
 	/// @}
 }// namespace glm

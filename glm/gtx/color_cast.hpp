@@ -60,25 +60,25 @@ namespace glm
 	/// @see gtx_color_cast
 	template <typename valType>	uint16 u16channel_cast(valType a);
 
-	template <typename T> uint32 u32_rgbx_cast(const detail::tvec3<T>& c);		//!< \brief Conversion of a 3 components color into an 32bit unsigned int value. (From GLM_GTX_color_cast extension)
-	template <typename T> uint32 u32_xrgb_cast(const detail::tvec3<T>& c);		//!< \brief Conversion of a 3 components color into an 32bit unsigned int value. (From GLM_GTX_color_cast extension)
-	template <typename T> uint32 u32_bgrx_cast(const detail::tvec3<T>& c);		//!< \brief Conversion of a 3 components color into an 32bit unsigned int value. (From GLM_GTX_color_cast extension)
-	template <typename T> uint32 u32_xbgr_cast(const detail::tvec3<T>& c);		//!< \brief Conversion of a 3 components color into an 32bit unsigned int value. (From GLM_GTX_color_cast extension)
+	template <typename T> uint32 u32_rgbx_cast(const detail::tvec3<T, P>& c);		//!< \brief Conversion of a 3 components color into an 32bit unsigned int value. (From GLM_GTX_color_cast extension)
+	template <typename T> uint32 u32_xrgb_cast(const detail::tvec3<T, P>& c);		//!< \brief Conversion of a 3 components color into an 32bit unsigned int value. (From GLM_GTX_color_cast extension)
+	template <typename T> uint32 u32_bgrx_cast(const detail::tvec3<T, P>& c);		//!< \brief Conversion of a 3 components color into an 32bit unsigned int value. (From GLM_GTX_color_cast extension)
+	template <typename T> uint32 u32_xbgr_cast(const detail::tvec3<T, P>& c);		//!< \brief Conversion of a 3 components color into an 32bit unsigned int value. (From GLM_GTX_color_cast extension)
 
-	template <typename T> uint32 u32_rgba_cast(const detail::tvec4<T>& c);		//!< \brief Conversion of a 4 components color into an 32bit unsigned int value. (From GLM_GTX_color_cast extension)
-	template <typename T> uint32 u32_argb_cast(const detail::tvec4<T>& c);		//!< \brief Conversion of a 4 components color into an 32bit unsigned int value. (From GLM_GTX_color_cast extension)
-	template <typename T> uint32 u32_bgra_cast(const detail::tvec4<T>& c);		//!< \brief Conversion of a 4 components color into an 32bit unsigned int value. (From GLM_GTX_color_cast extension)
-	template <typename T> uint32 u32_abgr_cast(const detail::tvec4<T>& c);		//!< \brief Conversion of a 4 components color into an 32bit unsigned int value. (From GLM_GTX_color_cast extension)
+	template <typename T> uint32 u32_rgba_cast(const detail::tvec4<T, P>& c);		//!< \brief Conversion of a 4 components color into an 32bit unsigned int value. (From GLM_GTX_color_cast extension)
+	template <typename T> uint32 u32_argb_cast(const detail::tvec4<T, P>& c);		//!< \brief Conversion of a 4 components color into an 32bit unsigned int value. (From GLM_GTX_color_cast extension)
+	template <typename T> uint32 u32_bgra_cast(const detail::tvec4<T, P>& c);		//!< \brief Conversion of a 4 components color into an 32bit unsigned int value. (From GLM_GTX_color_cast extension)
+	template <typename T> uint32 u32_abgr_cast(const detail::tvec4<T, P>& c);		//!< \brief Conversion of a 4 components color into an 32bit unsigned int value. (From GLM_GTX_color_cast extension)
 
-	template <typename T> uint64 u64_rgbx_cast(const detail::tvec3<T>& c);		//!< \brief Conversion of a 3 components color into an 64bit unsigned int value. (From GLM_GTX_color_cast extension)
-	template <typename T> uint64 u64_xrgb_cast(const detail::tvec3<T>& c);		//!< \brief Conversion of a 3 components color into an 64bit unsigned int value. (From GLM_GTX_color_cast extension)
-	template <typename T> uint64 u64_bgrx_cast(const detail::tvec3<T>& c);		//!< \brief Conversion of a 3 components color into an 64bit unsigned int value. (From GLM_GTX_color_cast extension)
-	template <typename T> uint64 u64_xbgr_cast(const detail::tvec3<T>& c);		//!< \brief Conversion of a 3 components color into an 64bit unsigned int value. (From GLM_GTX_color_cast extension)
+	template <typename T> uint64 u64_rgbx_cast(const detail::tvec3<T, P>& c);		//!< \brief Conversion of a 3 components color into an 64bit unsigned int value. (From GLM_GTX_color_cast extension)
+	template <typename T> uint64 u64_xrgb_cast(const detail::tvec3<T, P>& c);		//!< \brief Conversion of a 3 components color into an 64bit unsigned int value. (From GLM_GTX_color_cast extension)
+	template <typename T> uint64 u64_bgrx_cast(const detail::tvec3<T, P>& c);		//!< \brief Conversion of a 3 components color into an 64bit unsigned int value. (From GLM_GTX_color_cast extension)
+	template <typename T> uint64 u64_xbgr_cast(const detail::tvec3<T, P>& c);		//!< \brief Conversion of a 3 components color into an 64bit unsigned int value. (From GLM_GTX_color_cast extension)
 
-	template <typename T> uint64 u64_rgba_cast(const detail::tvec4<T>& c);		//!< \brief Conversion of a 4 components color into an 64bit unsigned int value. (From GLM_GTX_color_cast extension)
-	template <typename T> uint64 u64_argb_cast(const detail::tvec4<T>& c);		//!< \brief Conversion of a 4 components color into an 64bit unsigned int value. (From GLM_GTX_color_cast extension)
-	template <typename T> uint64 u64_bgra_cast(const detail::tvec4<T>& c);		//!< \brief Conversion of a 4 components color into an 64bit unsigned int value. (From GLM_GTX_color_cast extension)
-	template <typename T> uint64 u64_abgr_cast(const detail::tvec4<T>& c);		//!< \brief Conversion of a 4 components color into an 64bit unsigned int value. (From GLM_GTX_color_cast extension)
+	template <typename T> uint64 u64_rgba_cast(const detail::tvec4<T, P>& c);		//!< \brief Conversion of a 4 components color into an 64bit unsigned int value. (From GLM_GTX_color_cast extension)
+	template <typename T> uint64 u64_argb_cast(const detail::tvec4<T, P>& c);		//!< \brief Conversion of a 4 components color into an 64bit unsigned int value. (From GLM_GTX_color_cast extension)
+	template <typename T> uint64 u64_bgra_cast(const detail::tvec4<T, P>& c);		//!< \brief Conversion of a 4 components color into an 64bit unsigned int value. (From GLM_GTX_color_cast extension)
+	template <typename T> uint64 u64_abgr_cast(const detail::tvec4<T, P>& c);		//!< \brief Conversion of a 4 components color into an 64bit unsigned int value. (From GLM_GTX_color_cast extension)
 
 	template <typename T> f16 f16_channel_cast(T a);	//!< \brief Conversion of a u8 or u16 value to a single channel floating value. (From GLM_GTX_color_cast extension)
 

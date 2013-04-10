@@ -11,90 +11,90 @@
 
 namespace glm
 {
-	template <typename valType> 
-	GLM_FUNC_QUALIFIER detail::tvec3<valType> cross
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> cross
 	(
-		detail::tvec3<valType> const & v, 
-		detail::tquat<valType> const & q
+		detail::tvec3<T, P> const & v,
+		detail::tquat<T, P> const & q
 	)
 	{
 		return inverse(q) * v;
 	}
 
-	template <typename valType> 
-	GLM_FUNC_QUALIFIER detail::tvec3<valType> cross
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> cross
 	(
-		detail::tquat<valType> const & q, 
-		detail::tvec3<valType> const & v
+		detail::tquat<T, P> const & q,
+		detail::tvec3<T, P> const & v
 	)
 	{
 		return q * v;
 	}
 
-	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tquat<T> squad
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tquat<T, P> squad
 	(
-		detail::tquat<T> const & q1, 
-		detail::tquat<T> const & q2, 
-		detail::tquat<T> const & s1, 
-		detail::tquat<T> const & s2, 
+		detail::tquat<T, P> const & q1,
+		detail::tquat<T, P> const & q2,
+		detail::tquat<T, P> const & s1,
+		detail::tquat<T, P> const & s2,
 		T const & h)
 	{
 		return mix(mix(q1, q2, h), mix(s1, s2, h), T(2) * (T(1) - h) * h);
 	}
 
-	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tquat<T> intermediate
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tquat<T, P> intermediate
 	(
-		detail::tquat<T> const & prev, 
-		detail::tquat<T> const & curr, 
-		detail::tquat<T> const & next
+		detail::tquat<T, P> const & prev,
+		detail::tquat<T, P> const & curr,
+		detail::tquat<T, P> const & next
 	)
 	{
-		detail::tquat<T> invQuat = inverse(curr);
+		detail::tquat<T, P> invQuat = inverse(curr);
 		return exp((log(next + invQuat) + log(prev + invQuat)) / T(-4)) * curr;
 	}
 
-	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tquat<T> exp
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tquat<T, P> exp
 	(
-		detail::tquat<T> const & q
+		detail::tquat<T, P> const & q
 	)
 	{
-		detail::tvec3<T> u(q.x, q.y, q.z);
+		detail::tvec3<T, P> u(q.x, q.y, q.z);
 		float Angle = glm::length(u);
-		detail::tvec3<T> v(u / Angle);
-		return detail::tquat<T>(cos(Angle), sin(Angle) * v);
+		detail::tvec3<T, P> v(u / Angle);
+		return detail::tquat<T, P>(cos(Angle), sin(Angle) * v);
 	}
 
-	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tquat<T> log
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tquat<T, P> log
 	(
-		detail::tquat<T> const & q
+		detail::tquat<T, P> const & q
 	)
 	{
 		if((q.x == T(0)) && (q.y == T(0)) && (q.z == T(0)))
 		{
 			if(q.w > T(0))
-				return detail::tquat<T>(log(q.w), T(0), T(0), T(0));
+				return detail::tquat<T, P>(log(q.w), T(0), T(0), T(0));
 			else if(q.w < T(0))
-				return detail::tquat<T>(log(-q.w), T(3.1415926535897932384626433832795), T(0),T(0));
+				return detail::tquat<T, P>(log(-q.w), T(3.1415926535897932384626433832795), T(0),T(0));
 			else
-				return detail::tquat<T>(std::numeric_limits<T>::infinity(), std::numeric_limits<T>::infinity(), std::numeric_limits<T>::infinity(), std::numeric_limits<T>::infinity());
-		} 
-		else 
+				return detail::tquat<T, P>(std::numeric_limits<T>::infinity(), std::numeric_limits<T>::infinity(), std::numeric_limits<T>::infinity(), std::numeric_limits<T>::infinity());
+		}
+		else
 		{
 			T Vec3Len = sqrt(q.x * q.x + q.y * q.y + q.z * q.z);
 			T QuatLen = sqrt(Vec3Len * Vec3Len + q.w * q.w);
 			T t = atan(Vec3Len, T(q.w)) / Vec3Len;
-			return detail::tquat<T>(t * q.x, t * q.y, t * q.z, log(QuatLen));
+			return detail::tquat<T, P>(t * q.x, t * q.y, t * q.z, log(QuatLen));
 		}
 	}
 
-	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tquat<T> pow
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tquat<T, P> pow
 	(
-		detail::tquat<T> const & x, 
+		detail::tquat<T, P> const & x,
 		T const & y
 	)
 	{
@@ -103,47 +103,47 @@ namespace glm
 		float Angle = acos(y);
 		float NewAngle = Angle * y;
 		float Div = sin(NewAngle) / sin(Angle);
-		return detail::tquat<T>(
+		return detail::tquat<T, P>(
 			cos(NewAngle),
 			x.x * Div,
 			x.y * Div,
 			x.z * Div);
 	}
 
-	//template <typename T> 
-	//GLM_FUNC_QUALIFIER detail::tquat<T> sqrt
+	//template <typename T, precision P>
+	//GLM_FUNC_QUALIFIER detail::tquat<T, P> sqrt
 	//(
-	//	detail::tquat<T> const & q
+	//	detail::tquat<T, P> const & q
 	//)
 	//{
 	//	T q0 = T(1) - dot(q, q);
 	//	return T(2) * (T(1) + q0) * q;
 	//}
 
-	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tvec3<T> rotate
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> rotate
 	(
-		detail::tquat<T> const & q, 
-		detail::tvec3<T> const & v
+		detail::tquat<T, P> const & q,
+		detail::tvec3<T, P> const & v
 	)
 	{
 		return q * v;
 	}
 
-	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tvec4<T> rotate
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> rotate
 	(
-		detail::tquat<T> const & q, 
-		detail::tvec4<T> const & v
+		detail::tquat<T, P> const & q,
+		detail::tvec4<T, P> const & v
 	)
 	{
 		return q * v;
 	}
 
-	template <typename T> 
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T extractRealComponent
 	(
-		detail::tquat<T> const & q
+		detail::tquat<T, P> const & q
 	)
 	{
 		T w = T(1.0) - q.x * q.x - q.y * q.y - q.z * q.z;
@@ -153,28 +153,28 @@ namespace glm
 			return -sqrt(w);
 	}
 
-	template <typename T> 
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T length2
 	(
-		detail::tquat<T> const & q
+		detail::tquat<T, P> const & q
 	)
 	{
 		return q.x * q.x + q.y * q.y + q.z * q.z + q.w * q.w;
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tquat<T> shortMix
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tquat<T, P> shortMix
 	(
-		detail::tquat<T> const & x, 
-		detail::tquat<T> const & y, 
+		detail::tquat<T, P> const & x,
+		detail::tquat<T, P> const & y,
 		T const & a
 	)
 	{
-		if(a <= typename detail::tquat<T>::value_type(0)) return x;
-		if(a >= typename detail::tquat<T>::value_type(1)) return y;
+		if(a <= typename detail::tquat<T, P>::value_type(0)) return x;
+		if(a >= typename detail::tquat<T, P>::value_type(1)) return y;
 
 		T fCos = dot(x, y);
-		detail::tquat<T> y2(y); //BUG!!! tquat<T> y2;
+		detail::tquat<T, P> y2(y); //BUG!!! tquat<T> y2;
 		if(fCos < T(0))
 		{
 			y2 = -y;
@@ -197,33 +197,33 @@ namespace glm
 			k1 = sin((T(0) + a) * fAngle) * fOneOverSin;
 		}
 
-		return detail::tquat<T>(
+		return detail::tquat<T, P>(
 			k0 * x.w + k1 * y2.w,
 			k0 * x.x + k1 * y2.x,
 			k0 * x.y + k1 * y2.y,
 			k0 * x.z + k1 * y2.z);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tquat<T> fastMix
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tquat<T, P> fastMix
 	(
-		detail::tquat<T> const & x, 
-		detail::tquat<T> const & y, 
+		detail::tquat<T, P> const & x,
+		detail::tquat<T, P> const & y,
 		T const & a
 	)
 	{
 		return glm::normalize(x * (T(1) - a) + (y * a));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tquat<T> rotation
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tquat<T, P> rotation
 	(
-		detail::tvec3<T> const & orig, 
-		detail::tvec3<T> const & dest
+		detail::tvec3<T, P> const & orig,
+		detail::tvec3<T, P> const & dest
 	)
 	{
 		T cosTheta = dot(orig, dest);
-		detail::tvec3<T> rotationAxis;
+		detail::tvec3<T, P> rotationAxis;
 
 		if(cosTheta < T(-1) + epsilon<T>())
 		{
@@ -232,9 +232,9 @@ namespace glm
 			// So guess one; any will do as long as it's perpendicular to start
 			// This implementation favors a rotation around the Up axis (Y),
 			// since it's often what you want to do.
-			rotationAxis = cross(detail::tvec3<T>(0, 0, 1), orig);
+			rotationAxis = cross(detail::tvec3<T, P>(0, 0, 1), orig);
 			if(length2(rotationAxis) < epsilon<T>()) // bad luck, they were parallel, try again!
-				rotationAxis = cross(detail::tvec3<T>(1, 0, 0), orig);
+				rotationAxis = cross(detail::tvec3<T, P>(1, 0, 0), orig);
 
 			rotationAxis = normalize(rotationAxis);
 			return angleAxis(pi<T>(), rotationAxis);
@@ -246,7 +246,7 @@ namespace glm
 		T s = sqrt((T(1) + cosTheta) * T(2));
 		T invs = T(1) / s;
 
-		return detail::tquat<T>(
+		return detail::tquat<T, P>(
 			s * T(0.5f), 
 			rotationAxis.x * invs,
 			rotationAxis.y * invs,

@@ -12,18 +12,18 @@
 
 int test_isNull()
 {
-    int Error(0);
-    
+	int Error(0);
+	
 	bool TestA = glm::isNull(glm::mat4(0), 0.00001f);
-    Error += TestA ? 0 : 1;
+	Error += TestA ? 0 : 1;
 
-    return Error;
+	return Error;
 }
 
 int test_isIdentity()
 {
-    int Error(0);
-   
+	int Error(0);
+	
 	{
 		bool TestA = glm::isIdentity(glm::mat2(1), 0.00001f);
 		Error += TestA ? 0 : 1;
@@ -37,27 +37,27 @@ int test_isIdentity()
 		Error += TestA ? 0 : 1;
 	}
 
-    return Error;
+	return Error;
 }
 
 int test_isNormalized()
 {
-    int Error(0);
-    
-	bool TestA = glm::isNormalized(glm::mat4(1), 0.00001f);
-    Error += TestA ? 0 : 1;
+	int Error(0);
 
-    return Error;
+	bool TestA = glm::isNormalized(glm::mat4(1), 0.00001f);
+	Error += TestA ? 0 : 1;
+
+	return Error;
 }
 
 int test_isOrthogonal()
 {
-    int Error(0);
-    
-	bool TestA = glm::isOrthogonal(glm::mat4(1), 0.00001f);
-    Error += TestA ? 0 : 1;
+	int Error(0);
 
-    return Error;
+	bool TestA = glm::isOrthogonal(glm::mat4(1), 0.00001f);
+	Error += TestA ? 0 : 1;
+
+	return Error;
 }
 
 int main()

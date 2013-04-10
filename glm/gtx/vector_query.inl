@@ -14,95 +14,95 @@
 
 namespace glm
 {
-	template <typename T>
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER bool areCollinear
 	(
-		detail::tvec2<T> const & v0, 
-		detail::tvec2<T> const & v1, 
-		typename detail::tvec2<T>::value_type const & epsilon
+		detail::tvec2<T, P> const & v0,
+		detail::tvec2<T, P> const & v1,
+		typename detail::tvec2<T, P>::value_type const & epsilon
 	)
 	{
-		return length(cross(detail::tvec3<T>(v0, T(0)), detail::tvec3<T>(v1, T(0)))) < epsilon;
+		return length(cross(detail::tvec3<T, P>(v0, T(0)), detail::tvec3<T, P>(v1, T(0)))) < epsilon;
 	}
 
-	template <typename T>
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER bool areCollinear
 	(
-		detail::tvec3<T> const & v0, 
-		detail::tvec3<T> const & v1, 
-		typename detail::tvec3<T>::value_type const & epsilon
+		detail::tvec3<T, P> const & v0,
+		detail::tvec3<T, P> const & v1,
+		typename detail::tvec3<T, P>::value_type const & epsilon
 	)
 	{
 		return length(cross(v0, v1)) < epsilon;
 	}
 
-	template <typename T>
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER bool areCollinear
 	(
-		detail::tvec4<T> const & v0, 
-		detail::tvec4<T> const & v1, 
-		typename detail::tvec4<T>::value_type const & epsilon
+		detail::tvec4<T, P> const & v0,
+		detail::tvec4<T, P> const & v1,
+		typename detail::tvec4<T, P>::value_type const & epsilon
 	)
 	{
-		return length(cross(detail::tvec3<T>(v0), detail::tvec3<T>(v1))) < epsilon;
+		return length(cross(detail::tvec3<T, P>(v0), detail::tvec3<T, P>(v1))) < epsilon;
 	}
 
 	template <typename genType>
 	GLM_FUNC_QUALIFIER bool areOrthogonal
 	(
-		genType const & v0, 
-		genType const & v1, 
+		genType const & v0,
+		genType const & v1,
 		typename genType::value_type const & epsilon
 	)
 	{
 		return abs(dot(v0, v1)) <= max(
-			typename genType::value_type(1), 
+			typename genType::value_type(1),
 			length(v0)) * max(
-				typename genType::value_type(1), 
+				typename genType::value_type(1),
 				length(v1)) * epsilon;
 	}
 
-	template <typename genType, template <typename> class vecType> 
+	template <typename genType, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER bool isNormalized
 	(
-		vecType<genType> const & v, 
+		vecType<genType, P> const & v,
 		genType const & epsilon
 	)
 	{
 		return abs(length(v) - genType(1)) <= genType(2) * epsilon;
 	}
 
-	template <typename valType> 
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER bool isNull
 	(
-		detail::tvec2<valType> const & v, 
-		valType const & epsilon
+		detail::tvec2<T, P> const & v,
+		T const & epsilon
 	)
 	{
 		return length(v) <= epsilon;
 	}
 
-	template <typename valType> 
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER bool isNull
 	(
-		detail::tvec3<valType> const & v, 
-		valType const & epsilon
+		detail::tvec3<T, P> const & v,
+		T const & epsilon
 	)
 	{
 		return length(v) <= epsilon;
 	}
 
-	template <typename valType> 
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER bool isNull
 	(
-		detail::tvec4<valType> const & v, 
-		valType const & epsilon
+		detail::tvec4<T, P> const & v,
+		T const & epsilon
 	)
 	{
 		return length(v) <= epsilon;
 	}
 
-	template <typename T> 
+	template <typename T>
 	GLM_FUNC_QUALIFIER bool isCompNull
 	(
 		T const & s, 
@@ -112,38 +112,38 @@ namespace glm
 		return abs(s) < epsilon;
 	}
 
-	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tvec2<bool> isCompNull
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<bool, P> isCompNull
 	(
-		detail::tvec2<T> const & v, 
+		detail::tvec2<T, P> const & v,
 		T const & epsilon)
 	{
-		return detail::tvec2<bool>(
+		return detail::tvec2<bool, P>(
 			(abs(v.x) < epsilon),
 			(abs(v.y) < epsilon));
 	}
 
-	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tvec3<bool> isCompNull
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<bool, P> isCompNull
 	(
-		detail::tvec3<T> const & v, 
+		detail::tvec3<T, P> const & v,
 		T const & epsilon
 	)
 	{
-		return detail::tvec3<bool>(
+		return detail::tvec3<bool, P>(
 			abs(v.x) < epsilon,
 			abs(v.y) < epsilon,
 			abs(v.z) < epsilon);
 	}
 
-	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tvec4<bool> isCompNull
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<bool, P> isCompNull
 	(
-		detail::tvec4<T> const & v, 
+		detail::tvec4<T, P> const & v,
 		T const & epsilon
 	)
 	{
-		return detail::tvec4<bool>(
+		return detail::tvec4<bool, P>(
 			abs(v.x) < epsilon,
 			abs(v.y) < epsilon,
 			abs(v.z) < epsilon,
@@ -153,8 +153,8 @@ namespace glm
 	template <typename genType>
 	GLM_FUNC_QUALIFIER bool areOrthonormal
 	(
-		genType const & v0, 
-		genType const & v1, 
+		genType const & v0,
+		genType const & v1,
 		typename genType::value_type const & epsilon
 	)
 	{

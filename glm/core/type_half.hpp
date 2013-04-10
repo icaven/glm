@@ -111,6 +111,28 @@ namespace detail
 		detail::half const & y);
 
 }//namespace detail
+	
+	/// Low half-precision floating-point numbers.
+	typedef detail::half		lowp_half;
+	
+	/// Medium half-precision floating-point numbers.
+	typedef detail::half		mediump_half;
+	
+	/// High half-precision floating-point numbers.
+	typedef detail::half		highp_half;
+	
+#if(!defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
+	typedef mediump_half		half_t;
+#elif(defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
+	typedef highp_half			half_t;
+#elif(!defined(GLM_PRECISION_HIGHP_HALF) && defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
+	typedef mediump_half		half_t;
+#elif(!defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && defined(GLM_PRECISION_LOWP_HALF))
+	typedef lowp_half			half_t;
+#else
+#	error "GLM error: Multiple default precisions requested for half-precision floating-point types"
+#endif
+	
 }//namespace glm
 
 #include "type_half.inl"

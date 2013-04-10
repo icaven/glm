@@ -8,10 +8,10 @@
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-/// 
+///
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-/// 
+///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -20,52 +20,35 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_matrix_cross_product
-/// @file glm/gtx/matrix_cross_product.hpp
-/// @date 2005-12-21 / 2011-06-07
+/// @ref core
+/// @file glm/core/precision.hpp
+/// @date 2013-04-01 / 2013-04-01
 /// @author Christophe Riccio
-///
-/// @see core (dependence)
-/// @see gtx_extented_min_max (dependence)
-///
-/// @defgroup gtx_matrix_cross_product GLM_GTX_matrix_cross_product
-/// @ingroup gtx
-/// 
-/// @brief Build cross product matrices
-/// 
-/// <glm/gtx/matrix_cross_product.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_matrix_cross_product
-#define GLM_GTX_matrix_cross_product GLM_VERSION
-
-// Dependency:
-#include "../glm.hpp"
-
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
-#	pragma message("GLM: GLM_GTX_matrix_cross_product extension included")
-#endif
+#ifndef GLM_CORE_PRECISION_INCLUDED
+#define GLM_CORE_PRECISION_INCLUDED
 
 namespace glm
 {
-	/// @addtogroup gtx_matrix_cross_product
-	/// @{
-
-	//! Build a cross product matrix.
-	//! From GLM_GTX_matrix_cross_product extension.
-	template <typename T> 
-	detail::tmat3x3<T, P> matrixCross3(
-		detail::tvec3<T, P> const & x);
-		
-	//! Build a cross product matrix.
-	//! From GLM_GTX_matrix_cross_product extension.
-	template <typename T> 
-	detail::tmat4x4<T, P> matrixCross4(
-		detail::tvec3<T, P> const & x);
-
-	/// @}
+	enum precision
+	{
+		lowp,
+		mediump,
+		highp
+	};
 }//namespace glm
 
-#include "matrix_cross_product.inl"
+#if(!defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
+#define defaultp		mediump
+#elif(defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
+#define defaultp		highp
+#elif(!defined(GLM_PRECISION_HIGHP_INT) && defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
+#define defaultp		mediump
+#elif(!defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && defined(GLM_PRECISION_LOWP_INT))
+#define defaultp		lowp
+#else
+#	error "GLM error: multiple default precision requested for signed interger types"
+#endif
 
-#endif//GLM_GTX_matrix_cross_product
+#endif//GLM_CORE_PRECISION_INCLUDED

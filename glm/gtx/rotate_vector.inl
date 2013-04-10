@@ -9,14 +9,14 @@
 
 namespace glm
 {
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec2<T> rotate
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<T, P> rotate
 	(
-		detail::tvec2<T> const & v, 
+		detail::tvec2<T, P> const & v,
 		T const & angle
 	)
 	{
-		detail::tvec2<T> Result;
+		detail::tvec2<T, P> Result;
 #ifdef GLM_FORCE_RADIANS
 		T const Cos(cos(angle));
 		T const Sin(sin(angle));
@@ -29,47 +29,47 @@ namespace glm
 		return Result;
 	}
 
-	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tvec3<T> rotate
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> rotate
 	(
-		detail::tvec3<T> const & v, 
-		T const & angle, 
-		detail::tvec3<T> const & normal
+		detail::tvec3<T, P> const & v,
+		T const & angle,
+		detail::tvec3<T, P> const & normal
 	)
 	{
-		return detail::tmat3x3<T>(glm::rotate(angle, normal)) * v;
+		return detail::tmat3x3<T, P>(glm::rotate(angle, normal)) * v;
 	}
 	/*
-	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tvec3<T> rotateGTX(
-		const detail::tvec3<T>& x, 
-		T angle, 
-		const detail::tvec3<T>& normal)
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> rotateGTX(
+		const detail::tvec3<T, P>& x,
+		T angle,
+		const detail::tvec3<T, P>& normal)
 	{
 		const T Cos = cos(radians(angle));
 		const T Sin = sin(radians(angle));
 		return x * Cos + ((x * normal) * (T(1) - Cos)) * normal + cross(x, normal) * Sin;
 	}
 	*/
-	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tvec4<T> rotate
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> rotate
 	(
-		detail::tvec4<T> const & v, 
-		T const & angle, 
-		detail::tvec3<T> const & normal
+		detail::tvec4<T, P> const & v,
+		T const & angle,
+		detail::tvec3<T, P> const & normal
 	)
 	{
 		return rotate(angle, normal) * v;
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<T> rotateX
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> rotateX
 	(
-		detail::tvec3<T> const & v, 
+		detail::tvec3<T, P> const & v,
 		T const & angle
 	)
 	{
-		detail::tvec3<T> Result(v);
+		detail::tvec3<T, P> Result(v);
 
 #ifdef GLM_FORCE_RADIANS
 		T const Cos(cos(angle));
@@ -84,14 +84,14 @@ namespace glm
 		return Result;
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<T> rotateY
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> rotateY
 	(
-		detail::tvec3<T> const & v, 
+		detail::tvec3<T, P> const & v,
 		T const & angle
 	)
 	{
-		detail::tvec3<T> Result = v;
+		detail::tvec3<T, P> Result = v;
 
 #ifdef GLM_FORCE_RADIANS
 		T const Cos(cos(angle));
@@ -106,14 +106,14 @@ namespace glm
 		return Result;
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<T> rotateZ
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> rotateZ
 	(
-		detail::tvec3<T> const & v, 
+		detail::tvec3<T, P> const & v,
 		T const & angle
 	)
 	{
-		detail::tvec3<T> Result = v;
+		detail::tvec3<T, P> Result = v;
 
 #ifdef GLM_FORCE_RADIANS
 		T const Cos(cos(angle));
@@ -128,14 +128,14 @@ namespace glm
 		return Result;
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec4<T> rotateX
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> rotateX
 	(
-		detail::tvec4<T> const & v, 
+		detail::tvec4<T, P> const & v,
 		T const & angle
 	)
 	{
-		detail::tvec4<T> Result = v;
+		detail::tvec4<T, P> Result = v;
 
 #ifdef GLM_FORCE_RADIANS
 		T const Cos(cos(angle));
@@ -150,14 +150,14 @@ namespace glm
 		return Result;
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec4<T> rotateY
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> rotateY
 	(
-		detail::tvec4<T> const & v, 
+		detail::tvec4<T, P> const & v,
 		T const & angle
 	)
 	{
-		detail::tvec4<T> Result = v;
+		detail::tvec4<T, P> Result = v;
 
 #ifdef GLM_FORCE_RADIANS
 		T const Cos(cos(angle));
@@ -172,14 +172,14 @@ namespace glm
 		return Result;
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec4<T> rotateZ
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> rotateZ
 	(
-		detail::tvec4<T> const & v, 
+		detail::tvec4<T, P> const & v,
 		T const & angle
 	)
 	{
-		detail::tvec4<T> Result = v;
+		detail::tvec4<T, P> Result = v;
 
 #ifdef GLM_FORCE_RADIANS
 		T const Cos(cos(angle));
@@ -194,17 +194,17 @@ namespace glm
 		return Result;
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tmat4x4<T> orientation
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tmat4x4<T, P> orientation
 	(
-		detail::tvec3<T> const & Normal, 
-		detail::tvec3<T> const & Up
+		detail::tvec3<T, P> const & Normal,
+		detail::tvec3<T, P> const & Up
 	)
 	{
 		if(all(equal(Normal, Up)))
-			return detail::tmat4x4<T>(T(1));
+			return detail::tmat4x4<T, P>(T(1));
 
-		detail::tvec3<T> RotationAxis = cross(Up, Normal);
+		detail::tvec3<T, P> RotationAxis = cross(Up, Normal);
 		T Angle = degrees(acos(dot(Normal, Up)));
 		return rotate(Angle, RotationAxis);
 	}

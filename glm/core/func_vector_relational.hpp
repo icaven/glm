@@ -52,7 +52,7 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/lessThan.xml">GLSL lessThan man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7 Vector Relational Functions</a>
-	template <typename vecType> 
+	template <typename vecType>
 	typename vecType::bool_type lessThan(vecType const & x, vecType const & y);
 
 	/// Returns the component-wise comparison of result x <= y.

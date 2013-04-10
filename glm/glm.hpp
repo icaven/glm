@@ -84,6 +84,7 @@
 #include <climits>
 #include <cfloat>
 #include <limits>
+#include <cassert>
 //#include <cstdint>
 //#include <type_traits>
 

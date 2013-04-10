@@ -22,89 +22,89 @@ namespace glm
 	}
 
 	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tmat2x2<T> mul
+	GLM_FUNC_QUALIFIER detail::tmat2x2<T, P> mul
 	(
-		detail::tmat2x2<T> const & a, 
-		detail::tmat2x2<T> const & b
+		detail::tmat2x2<T, P> const & a, 
+		detail::tmat2x2<T, P> const & b
 	)
 	{
 		return a * b;
 	}
 
 	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tmat3x3<T> mul
+	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> mul
 	(
-		detail::tmat3x3<T> const & a, 
-		detail::tmat3x3<T> const & b
+		detail::tmat3x3<T, P> const & a, 
+		detail::tmat3x3<T, P> const & b
 	)
 	{
 		return a * b;
 	}
 
 	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tmat4x4<T> mul
+	GLM_FUNC_QUALIFIER detail::tmat4x4<T, P> mul
 	(
-		detail::tmat4x4<T> const & a, 
-		detail::tmat4x4<T> const & b
+		detail::tmat4x4<T, P> const & a, 
+		detail::tmat4x4<T, P> const & b
 	)
 	{
 		return a * b;
 	}
 
 	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec2<T> mul
+	GLM_FUNC_QUALIFIER detail::tvec2<T, P> mul
 	(
-		detail::tmat2x2<T> const & m, 
-		detail::tvec2<T> const & v
+		detail::tmat2x2<T, P> const & m, 
+		detail::tvec2<T, P> const & v
 	)
 	{
 		return m * v;
 	}
 
 	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<T> mul
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> mul
 	(
-		detail::tmat3x3<T> const & m, 
-		detail::tvec3<T> const & v)
+		detail::tmat3x3<T, P> const & m, 
+		detail::tvec3<T, P> const & v)
 	{
 		return m * v;
 	}
 
 	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec4<T> mul
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> mul
 	(
-		detail::tmat4x4<T> const & m, 
-		detail::tvec4<T> const & v
+		detail::tmat4x4<T, P> const & m, 
+		detail::tvec4<T, P> const & v
 	)
 	{
 		return m * v;
 	}
 
 	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec2<T> mul
+	GLM_FUNC_QUALIFIER detail::tvec2<T, P> mul
 	(
-		detail::tvec2<T> const & v, 
-		detail::tmat2x2<T> const & m
+		detail::tvec2<T, P> const & v, 
+		detail::tmat2x2<T, P> const & m
 	)
 	{
 		return v * m;
 	}
 
 	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<T> mul
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> mul
 	(
-		detail::tvec3<T> const & v, 
-		detail::tmat3x3<T> const & m
+		detail::tvec3<T, P> const & v, 
+		detail::tmat3x3<T, P> const & m
 	)
 	{
 		return v * m;
 	}
 
 	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec4<T> mul
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> mul
 	(
-		detail::tvec4<T> const & v, 
-		detail::tmat4x4<T> const & m
+		detail::tvec4<T, P> const & v, 
+		detail::tmat4x4<T, P> const & m
 	)
 	{
 		return v * m;

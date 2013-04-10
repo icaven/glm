@@ -10,22 +10,22 @@
 namespace glm
 {
 	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tvec3<T> polar
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> polar
 	(
-		detail::tvec3<T> const & euclidean
+		detail::tvec3<T, P> const & euclidean
 	)
 	{
 		T const Length(length(euclidean));
-		detail::tvec3<T> const tmp(euclidean / Length);
+		detail::tvec3<T, P> const tmp(euclidean / Length);
 		T const xz_dist(sqrt(tmp.x * tmp.x + tmp.z * tmp.z));
 
 #ifdef GLM_FORCE_RADIANS
-		return detail::tvec3<T>(
+		return detail::tvec3<T, P>(
 			atan(xz_dist, tmp.y),	// latitude
 			atan(tmp.x, tmp.z),		// longitude
 			xz_dist);				// xz distance
 #else
-		return detail::tvec3<T>(
+		return detail::tvec3<T, P>(
 			degrees(atan(xz_dist, tmp.y)),	// latitude
 			degrees(atan(tmp.x, tmp.z)),	// longitude
 			xz_dist);						// xz distance
@@ -33,9 +33,9 @@ namespace glm
 	}
 
 	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tvec3<T> euclidean
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> euclidean
 	(
-		detail::tvec2<T> const & polar
+		detail::tvec2<T, P> const & polar
 	)
 	{
 #ifdef GLM_FORCE_RADIANS
@@ -46,7 +46,7 @@ namespace glm
 		T const longitude(radians(polar.y));
 #endif
 
-		return detail::tvec3<T>(
+		return detail::tvec3<T, P>(
 			cos(latitude) * sin(longitude),
 			sin(latitude),
 			cos(latitude) * cos(longitude));

@@ -37,8 +37,8 @@ namespace glm
 	template <typename genUType>
 	GLM_FUNC_QUALIFIER genUType uaddCarry
 	(
-		genUType const & x, 
-		genUType const & y, 
+		genUType const & x,
+		genUType const & y,
 		genUType & Carry
 	)
 	{
@@ -48,42 +48,42 @@ namespace glm
 		return Result;
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec2<T> uaddCarry
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<T, P> uaddCarry
 	(
-		detail::tvec2<T> const & x, 
-		detail::tvec2<T> const & y, 
-		detail::tvec2<T> & Carry
+		detail::tvec2<T, P> const & x,
+		detail::tvec2<T, P> const & y,
+		detail::tvec2<T, P> & Carry
 	)
 	{
-		return detail::tvec2<T>(
+		return detail::tvec2<T, P>(
 			uaddCarry(x[0], y[0], Carry[0]),
 			uaddCarry(x[1], y[1], Carry[1]));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<T> uaddCarry
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> uaddCarry
 	(
-		detail::tvec3<T> const & x, 
-		detail::tvec3<T> const & y, 
-		detail::tvec3<T> & Carry
+		detail::tvec3<T, P> const & x,
+		detail::tvec3<T, P> const & y,
+		detail::tvec3<T, P> & Carry
 	)
 	{
-		return detail::tvec3<T>(
+		return detail::tvec3<T, P>(
 			uaddCarry(x[0], y[0], Carry[0]),
 			uaddCarry(x[1], y[1], Carry[1]),
 			uaddCarry(x[2], y[2], Carry[2]));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec4<T> uaddCarry
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> uaddCarry
 	(
-		detail::tvec4<T> const & x, 
-		detail::tvec4<T> const & y, 
-		detail::tvec4<T> & Carry
+		detail::tvec4<T, P> const & x,
+		detail::tvec4<T, P> const & y,
+		detail::tvec4<T, P> & Carry
 	)
 	{
-		return detail::tvec4<T>(
+		return detail::tvec4<T, P>(
 			uaddCarry(x[0], y[0], Carry[0]),
 			uaddCarry(x[1], y[1], Carry[1]),
 			uaddCarry(x[2], y[2], Carry[2]),
@@ -94,8 +94,8 @@ namespace glm
 	template <typename genUType>
 	GLM_FUNC_QUALIFIER genUType usubBorrow
 	(
-		genUType const & x, 
-		genUType const & y, 
+		genUType const & x,
+		genUType const & y,
 		genUType & Borrow
 	)
 	{
@@ -106,42 +106,42 @@ namespace glm
 			return genUType((detail::highp_int_t(1) << detail::highp_int_t(32)) + detail::highp_int_t(x) - detail::highp_int_t(y));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec2<T> usubBorrow
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<T, P> usubBorrow
 	(
-		detail::tvec2<T> const & x, 
-		detail::tvec2<T> const & y, 
-		detail::tvec2<T> & Borrow
+		detail::tvec2<T, P> const & x,
+		detail::tvec2<T, P> const & y,
+		detail::tvec2<T, P> & Borrow
 	)
 	{
-		return detail::tvec2<T>(
+		return detail::tvec2<T, P>(
 			usubBorrow(x[0], y[0], Borrow[0]),
 			usubBorrow(x[1], y[1], Borrow[1]));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<T> usubBorrow
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> usubBorrow
 	(
-		detail::tvec3<T> const & x, 
-		detail::tvec3<T> const & y, 
-		detail::tvec3<T> & Borrow
+		detail::tvec3<T, P> const & x,
+		detail::tvec3<T, P> const & y,
+		detail::tvec3<T, P> & Borrow
 	)
 	{
-		return detail::tvec3<T>(
+		return detail::tvec3<T, P>(
 			usubBorrow(x[0], y[0], Borrow[0]),
 			usubBorrow(x[1], y[1], Borrow[1]),
 			usubBorrow(x[2], y[2], Borrow[2]));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec4<T> usubBorrow
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> usubBorrow
 	(
-		detail::tvec4<T> const & x, 
-		detail::tvec4<T> const & y, 
-		detail::tvec4<T> & Borrow
+		detail::tvec4<T, P> const & x,
+		detail::tvec4<T, P> const & y,
+		detail::tvec4<T, P> & Borrow
 	)
 	{
-		return detail::tvec4<T>(
+		return detail::tvec4<T, P>(
 			usubBorrow(x[0], y[0], Borrow[0]),
 			usubBorrow(x[1], y[1], Borrow[1]),
 			usubBorrow(x[2], y[2], Borrow[2]),
@@ -152,9 +152,9 @@ namespace glm
 	template <typename genUType>
 	GLM_FUNC_QUALIFIER void umulExtended
 	(
-		genUType const & x, 
-		genUType const & y, 
-		genUType & msb, 
+		genUType const & x,
+		genUType const & y,
+		genUType & msb,
 		genUType & lsb
 	)
 	{
@@ -165,45 +165,45 @@ namespace glm
 		lsb = *(genUType*)&genUType(Value64 >> detail::highp_uint_t(32));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec2<T> umulExtended
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<T, P> umulExtended
 	(
-		detail::tvec2<T> const & x, 
-		detail::tvec2<T> const & y, 
-		detail::tvec2<T> & msb, 
-		detail::tvec2<T> & lsb
+		detail::tvec2<T, P> const & x,
+		detail::tvec2<T, P> const & y,
+		detail::tvec2<T, P> & msb,
+		detail::tvec2<T, P> & lsb
 	)
 	{
-		return detail::tvec2<T>(
+		return detail::tvec2<T, P>(
 			umulExtended(x[0], y[0], msb, lsb),
 			umulExtended(x[1], y[1], msb, lsb));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<T> umulExtended
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> umulExtended
 	(
-		detail::tvec3<T> const & x, 
-		detail::tvec3<T> const & y, 
-		detail::tvec3<T> & msb, 
-		detail::tvec3<T> & lsb
+		detail::tvec3<T, P> const & x,
+		detail::tvec3<T, P> const & y,
+		detail::tvec3<T, P> & msb,
+		detail::tvec3<T, P> & lsb
 	)
 	{
-		return detail::tvec3<T>(
+		return detail::tvec3<T, P>(
 			umulExtended(x[0], y[0], msb, lsb),
 			umulExtended(x[1], y[1], msb, lsb),
 			umulExtended(x[2], y[2], msb, lsb));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec4<T> umulExtended
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> umulExtended
 	(
-		detail::tvec4<T> const & x, 
-		detail::tvec4<T> const & y, 
-		detail::tvec4<T> & msb, 
-		detail::tvec4<T> & lsb
+		detail::tvec4<T, P> const & x,
+		detail::tvec4<T, P> const & y,
+		detail::tvec4<T, P> & msb,
+		detail::tvec4<T, P> & lsb
 	)
 	{
-		return detail::tvec4<T>(
+		return detail::tvec4<T, P>(
 			umulExtended(x[0], y[0], msb, lsb),
 			umulExtended(x[1], y[1], msb, lsb),
 			umulExtended(x[2], y[2], msb, lsb),
@@ -214,9 +214,9 @@ namespace glm
 	template <typename genIType>
 	GLM_FUNC_QUALIFIER void imulExtended
 	(
-		genIType const & x, 
-		genIType const & y, 
-		genIType & msb, 
+		genIType const & x,
+		genIType const & y,
+		genIType & msb,
 		genIType & lsb
 	)
 	{
@@ -227,45 +227,45 @@ namespace glm
 		lsb = *(genIType*)&genIType(Value64 >> detail::highp_uint_t(32));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec2<T> imulExtended
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<T, P> imulExtended
 	(
-		detail::tvec2<T> const & x, 
-		detail::tvec2<T> const & y, 
-		detail::tvec2<T> & msb, 
-		detail::tvec2<T> & lsb
+		detail::tvec2<T, P> const & x,
+		detail::tvec2<T, P> const & y,
+		detail::tvec2<T, P> & msb,
+		detail::tvec2<T, P> & lsb
 	)
 	{
-		return detail::tvec2<T>(
+		return detail::tvec2<T, P>(
 			imulExtended(x[0], y[0], msb, lsb),
 			imulExtended(x[1], y[1], msb, lsb));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<T> imulExtended
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> imulExtended
 	(
-		detail::tvec3<T> const & x, 
-		detail::tvec3<T> const & y, 
-		detail::tvec3<T> & msb, 
-		detail::tvec3<T> & lsb
+		detail::tvec3<T, P> const & x,
+		detail::tvec3<T, P> const & y,
+		detail::tvec3<T, P> & msb,
+		detail::tvec3<T, P> & lsb
 	)
 	{
-		return detail::tvec3<T>(
+		return detail::tvec3<T, P>(
 			imulExtended(x[0], y[0], msb, lsb),
 			imulExtended(x[1], y[1], msb, lsb),
 			imulExtended(x[2], y[2], msb, lsb));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec4<T> imulExtended
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> imulExtended
 	(
-		detail::tvec4<T> const & x, 
-		detail::tvec4<T> const & y, 
-		detail::tvec4<T> & msb, 
-		detail::tvec4<T> & lsb
+		detail::tvec4<T, P> const & x,
+		detail::tvec4<T, P> const & y,
+		detail::tvec4<T, P> & msb,
+		detail::tvec4<T, P> & lsb
 	)
 	{
-		return detail::tvec4<T>(
+		return detail::tvec4<T, P>(
 			imulExtended(x[0], y[0], msb, lsb),
 			imulExtended(x[1], y[1], msb, lsb),
 			imulExtended(x[2], y[2], msb, lsb),
@@ -276,8 +276,8 @@ namespace glm
 	template <typename genIUType>
 	GLM_FUNC_QUALIFIER genIUType bitfieldExtract
 	(
-		genIUType const & Value, 
-		int const & Offset, 
+		genIUType const & Value,
+		int const & Offset,
 		int const & Bits
 	)
 	{
@@ -291,42 +291,42 @@ namespace glm
 		return ShiftBack;
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec2<T> bitfieldExtract
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<T, P> bitfieldExtract
 	(
-		detail::tvec2<T> const & Value, 
-		int const & Offset, 
+		detail::tvec2<T, P> const & Value,
+		int const & Offset,
 		int const & Bits
 	)
 	{
-		return detail::tvec2<T>(
+		return detail::tvec2<T, P>(
 			bitfieldExtract(Value[0], Offset, Bits),
 			bitfieldExtract(Value[1], Offset, Bits));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<T> bitfieldExtract
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> bitfieldExtract
 	(
-		detail::tvec3<T> const & Value, 
-		int const & Offset, 
+		detail::tvec3<T, P> const & Value,
+		int const & Offset,
 		int const & Bits
 	)
 	{
-		return detail::tvec3<T>(
+		return detail::tvec3<T, P>(
 			bitfieldExtract(Value[0], Offset, Bits),
 			bitfieldExtract(Value[1], Offset, Bits),
 			bitfieldExtract(Value[2], Offset, Bits));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec4<T> bitfieldExtract
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> bitfieldExtract
 	(
-		detail::tvec4<T> const & Value, 
-		int const & Offset, 
+		detail::tvec4<T, P> const & Value,
+		int const & Offset,
 		int const & Bits
 	)
 	{
-		return detail::tvec4<T>(
+		return detail::tvec4<T, P>(
 			bitfieldExtract(Value[0], Offset, Bits),
 			bitfieldExtract(Value[1], Offset, Bits),
 			bitfieldExtract(Value[2], Offset, Bits),
@@ -337,9 +337,9 @@ namespace glm
 	template <typename genIUType>
 	GLM_FUNC_QUALIFIER genIUType bitfieldInsert
 	(
-		genIUType const & Base, 
-		genIUType const & Insert, 
-		int const & Offset, 
+		genIUType const & Base,
+		genIUType const & Insert,
+		int const & Offset,
 		int const & Bits
 	)
 	{
@@ -356,45 +356,45 @@ namespace glm
 		return (Base & ~Mask) | (Insert & Mask);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec2<T> bitfieldInsert
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<T, P> bitfieldInsert
 	(
-		detail::tvec2<T> const & Base, 
-		detail::tvec2<T> const & Insert, 
-		int const & Offset, 
+		detail::tvec2<T, P> const & Base,
+		detail::tvec2<T, P> const & Insert,
+		int const & Offset,
 		int const & Bits
 	)
 	{
-		return detail::tvec2<T>(
+		return detail::tvec2<T, P>(
 			bitfieldInsert(Base[0], Insert[0], Offset, Bits),
 			bitfieldInsert(Base[1], Insert[1], Offset, Bits));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<T> bitfieldInsert
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> bitfieldInsert
 	(
-		detail::tvec3<T> const & Base, 
-		detail::tvec3<T> const & Insert, 
-		int const & Offset, 
+		detail::tvec3<T, P> const & Base,
+		detail::tvec3<T, P> const & Insert,
+		int const & Offset,
 		int const & Bits
 	)
 	{
-		return detail::tvec3<T>(
+		return detail::tvec3<T, P>(
 			bitfieldInsert(Base[0], Insert[0], Offset, Bits),
 			bitfieldInsert(Base[1], Insert[1], Offset, Bits),
 			bitfieldInsert(Base[2], Insert[2], Offset, Bits));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec4<T> bitfieldInsert
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> bitfieldInsert
 	(
-		detail::tvec4<T> const & Base, 
-		detail::tvec4<T> const & Insert, 
-		int const & Offset, 
+		detail::tvec4<T, P> const & Base,
+		detail::tvec4<T, P> const & Insert,
+		int const & Offset,
 		int const & Bits
 	)
 	{
-		return detail::tvec4<T>(
+		return detail::tvec4<T, P>(
 			bitfieldInsert(Base[0], Insert[0], Offset, Bits),
 			bitfieldInsert(Base[1], Insert[1], Offset, Bits),
 			bitfieldInsert(Base[2], Insert[2], Offset, Bits),
@@ -432,36 +432,36 @@ namespace glm
 		return Count;
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec2<int> bitCount
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<int, P> bitCount
 	(
-		detail::tvec2<T> const & value
+		detail::tvec2<T, P> const & value
 	)
 	{
-		return detail::tvec2<int>(
+		return detail::tvec2<int, P>(
 			bitCount(value[0]),
 			bitCount(value[1]));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<int> bitCount
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<int, P> bitCount
 	(
-		detail::tvec3<T> const & value
+		detail::tvec3<T, P> const & value
 	)
 	{
-		return detail::tvec3<int>(
+		return detail::tvec3<int, P>(
 			bitCount(value[0]),
 			bitCount(value[1]),
 			bitCount(value[2]));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec4<int> bitCount
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<int, P> bitCount
 	(
-		detail::tvec4<T> const & value
+		detail::tvec4<T, P> const & value
 	)
 	{
-		return detail::tvec4<int>(
+		return detail::tvec4<int, P>(
 			bitCount(value[0]),
 			bitCount(value[1]),
 			bitCount(value[2]),
@@ -484,36 +484,36 @@ namespace glm
 		return Bit;
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec2<int> findLSB
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<int, P> findLSB
 	(
-		detail::tvec2<T> const & value
+		detail::tvec2<T, P> const & value
 	)
 	{
-		return detail::tvec2<int>(
+		return detail::tvec2<int, P>(
 			findLSB(value[0]),
 			findLSB(value[1]));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<int> findLSB
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<int, P> findLSB
 	(
-		detail::tvec3<T> const & value
+		detail::tvec3<T, P> const & value
 	)
 	{
-		return detail::tvec3<int>(
+		return detail::tvec3<int, P>(
 			findLSB(value[0]),
 			findLSB(value[1]),
 			findLSB(value[2]));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec4<int> findLSB
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<int, P> findLSB
 	(
-		detail::tvec4<T> const & value
+		detail::tvec4<T, P> const & value
 	)
 	{
-		return detail::tvec4<int>(
+		return detail::tvec4<int, P>(
 			findLSB(value[0]),
 			findLSB(value[1]),
 			findLSB(value[2]),
@@ -535,7 +535,7 @@ namespace glm
 			return -1;
 
 		unsigned long Result(0);
-		_BitScanReverse(&Result, Value); 
+		_BitScanReverse(&Result, Value);
 		return int(Result);
 	}
 
@@ -608,36 +608,36 @@ namespace glm
 	}
 //#endif//(GLM_COMPILER)
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec2<int> findMSB
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<int, P> findMSB
 	(
-		detail::tvec2<T> const & value
+		detail::tvec2<T, P> const & value
 	)
 	{
-		return detail::tvec2<int>(
+		return detail::tvec2<int, P>(
 			findMSB(value[0]),
 			findMSB(value[1]));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<int> findMSB
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<int, P> findMSB
 	(
-		detail::tvec3<T> const & value
+		detail::tvec3<T, P> const & value
 	)
 	{
-		return detail::tvec3<int>(
+		return detail::tvec3<int, P>(
 			findMSB(value[0]),
 			findMSB(value[1]),
 			findMSB(value[2]));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec4<int> findMSB
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<int, P> findMSB
 	(
-		detail::tvec4<T> const & value
+		detail::tvec4<T, P> const & value
 	)
 	{
-		return detail::tvec4<int>(
+		return detail::tvec4<int, P>(
 			findMSB(value[0]),
 			findMSB(value[1]),
 			findMSB(value[2]),

@@ -31,42 +31,42 @@
 namespace glm{
 namespace detail
 {
-	template <typename T>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tdualquat<T>::size_type tdualquat<T>::length() const
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tdualquat<T, P>::size_type tdualquat<T, P>::length() const
 	{
 		return 8;
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER tdualquat<T>::tdualquat() :
-		real(tquat<T>()),
-		dual(tquat<T>(T(0), T(0), T(0), T(0)))
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat() :
+		real(tquat<T, P>()),
+		dual(tquat<T, P>(T(0), T(0), T(0), T(0)))
 	{}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER tdualquat<T>::tdualquat
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat
 	(
-		tquat<T> const & r
+		tquat<T, P> const & r
 	) :
 		real(r),
-		dual(tquat<T>(T(0), T(0), T(0), T(0)))
+		dual(tquat<T, P>(T(0), T(0), T(0), T(0)))
 	{}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER tdualquat<T>::tdualquat
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat
 	(
-		tquat<T> const & r,
-		tquat<T> const & d
+		tquat<T, P> const & r,
+		tquat<T, P> const & d
 	) :
 		real(r),
 		dual(d)
 	{}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER tdualquat<T>::tdualquat
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat
 	(
-		tquat<T> const & q,
-		tvec3<T> const& p
+		tquat<T, P> const & q,
+		tvec3<T, P> const& p
 	) :
 		real(q),
 		dual(
@@ -78,35 +78,35 @@ namespace detail
 
 	//////////////////////////////////////////////////////////////
 	// tdualquat conversions
-	template <typename T>
-	GLM_FUNC_QUALIFIER tdualquat<T>::tdualquat
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat
 	(
-		tmat2x4<T> const & m
+		tmat2x4<T, P> const & m
 	)
 	{
 		*this = dualquat_cast(m);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER tdualquat<T>::tdualquat
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat
 	(
-		tmat3x4<T> const & m
+		tmat3x4<T, P> const & m
 	)
 	{
 		*this = dualquat_cast(m);
 	}
 
 	//////////////////////////////////////////////////////////////
-	// tdualquat<T> accesses
+	// tdualquat<T, P> accesses
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER typename tdualquat<T>::part_type & tdualquat<T>::operator [] (int i)
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER typename tdualquat<T, P>::part_type & tdualquat<T, P>::operator [] (int i)
 	{
 		return (&real)[i];
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER typename tdualquat<T>::part_type const & tdualquat<T>::operator [] (int i) const
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER typename tdualquat<T, P>::part_type const & tdualquat<T, P>::operator [] (int i) const
 	{
 		return (&real)[i];
 	}
@@ -114,8 +114,8 @@ namespace detail
 	//////////////////////////////////////////////////////////////
 	// tdualquat<valType> operators
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER tdualquat<T> & tdualquat<T>::operator *=
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tdualquat<T, P> & tdualquat<T, P>::operator *=
 	(
 		value_type const & s
 	)
@@ -125,8 +125,8 @@ namespace detail
 		return *this;
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER tdualquat<T> & tdualquat<T>::operator /=
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tdualquat<T, P> & tdualquat<T, P>::operator /=
 	(
 		value_type const & s
 	)
@@ -139,125 +139,125 @@ namespace detail
 	//////////////////////////////////////////////////////////////
 	// tquat<valType> external operators
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tdualquat<T> operator-
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tdualquat<T, P> operator-
 	(
-		detail::tdualquat<T> const & q
+		detail::tdualquat<T, P> const & q
 	)
 	{
-		return detail::tdualquat<T>(-q.real,-q.dual);
+		return detail::tdualquat<T, P>(-q.real,-q.dual);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tdualquat<T> operator+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tdualquat<T, P> operator+
 	(
-		detail::tdualquat<T> const & q,
-		detail::tdualquat<T> const & p
+		detail::tdualquat<T, P> const & q,
+		detail::tdualquat<T, P> const & p
 	)
 	{
-		return detail::tdualquat<T>(q.real + p.real,q.dual + p.dual);
+		return detail::tdualquat<T, P>(q.real + p.real,q.dual + p.dual);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tdualquat<T> operator*
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tdualquat<T, P> operator*
 	(
-		detail::tdualquat<T> const & p,
-		detail::tdualquat<T> const & o
+		detail::tdualquat<T, P> const & p,
+		detail::tdualquat<T, P> const & o
 	)
 	{
-		return detail::tdualquat<T>(p.real * o.real,p.real * o.dual + p.dual * o.real);
+		return detail::tdualquat<T, P>(p.real * o.real,p.real * o.dual + p.dual * o.real);
 	}
 
 	// Transformation
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<T> operator*
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> operator*
 	(
-		detail::tdualquat<T> const & q,
-		detail::tvec3<T> const & v
+		detail::tdualquat<T, P> const & q,
+		detail::tvec3<T, P> const & v
 	)
 	{
-		detail::tvec3<T> const real_v3(q.real.x,q.real.y,q.real.z);
-		detail::tvec3<T> const dual_v3(q.dual.x,q.dual.y,q.dual.z);
+		detail::tvec3<T, P> const real_v3(q.real.x,q.real.y,q.real.z);
+		detail::tvec3<T, P> const dual_v3(q.dual.x,q.dual.y,q.dual.z);
 		return (cross(real_v3, cross(real_v3,v) + v * q.real.w + dual_v3) + dual_v3 * q.real.w - real_v3 * q.dual.w) * T(2) + v;
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<T> operator*
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> operator*
 	(
-		detail::tvec3<T> const & v,
-		detail::tdualquat<T> const & q
+		detail::tvec3<T, P> const & v,
+		detail::tdualquat<T, P> const & q
 	)
 	{
 		return inverse(q) * v;
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec4<T> operator*
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> operator*
 	(
-		detail::tdualquat<T> const & q,
-		detail::tvec4<T> const & v
+		detail::tdualquat<T, P> const & q,
+		detail::tvec4<T, P> const & v
 	)
 	{
-		return detail::tvec4<T>(q * detail::tvec3<T>(v), v.w);
+		return detail::tvec4<T, P>(q * detail::tvec3<T, P>(v), v.w);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec4<T> operator*
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> operator*
 	(
-		detail::tvec4<T> const & v,
-		detail::tdualquat<T> const & q
+		detail::tvec4<T, P> const & v,
+		detail::tdualquat<T, P> const & q
 	)
 	{
 		return inverse(q) * v;
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tdualquat<T> operator*
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tdualquat<T, P> operator*
 	(
-		detail::tdualquat<T> const & q,
-		typename detail::tdualquat<T>::value_type const & s
+		detail::tdualquat<T, P> const & q,
+		typename detail::tdualquat<T, P>::value_type const & s
 	)
 	{
-		return detail::tdualquat<T>(q.real * s, q.dual * s);
+		return detail::tdualquat<T, P>(q.real * s, q.dual * s);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tdualquat<T> operator*
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tdualquat<T, P> operator*
 	(
-		typename detail::tdualquat<T>::value_type const & s,
-		detail::tdualquat<T> const & q
+		typename detail::tdualquat<T, P>::value_type const & s,
+		detail::tdualquat<T, P> const & q
 	)
 	{
 		return q * s;
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tdualquat<T> operator/
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tdualquat<T, P> operator/
 	(
-		detail::tdualquat<T> const & q,
-		typename detail::tdualquat<T>::value_type const & s
+		detail::tdualquat<T, P> const & q,
+		typename detail::tdualquat<T, P>::value_type const & s
 	)
 	{
-		return detail::tdualquat<T>(q.real / s, q.dual / s);
+		return detail::tdualquat<T, P>(q.real / s, q.dual / s);
 	}
 
 	//////////////////////////////////////
 	// Boolean operators
-	template <typename T>
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER bool operator==
 	(
-		detail::tdualquat<T> const & q1,
-		detail::tdualquat<T> const & q2
+		detail::tdualquat<T, P> const & q1,
+		detail::tdualquat<T, P> const & q2
 	)
 	{
 		return (q1.real == q2.real) && (q1.dual == q2.dual);
 	}
 
-	template <typename T>
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER bool operator!=
 	(
-		detail::tdualquat<T> const & q1,
-		detail::tdualquat<T> const & q2
+		detail::tdualquat<T, P> const & q1,
+		detail::tdualquat<T, P> const & q2
 	)
 	{
 		return (q1.real != q2.dual) || (q1.real != q2.dual);
@@ -265,69 +265,69 @@ namespace detail
 	}//namespace detail
 
 	////////////////////////////////////////////////////////
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tdualquat<T> normalize
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tdualquat<T, P> normalize
 	(
-		detail::tdualquat<T> const & q
+		detail::tdualquat<T, P> const & q
 	)
 	{
 		return q / length(q.real);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tdualquat<T> lerp
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tdualquat<T, P> lerp
 	(
-		detail::tdualquat<T> const & x,
-		detail::tdualquat<T> const & y,
-		typename detail::tdualquat<T>::value_type const & a
+		detail::tdualquat<T, P> const & x,
+		detail::tdualquat<T, P> const & y,
+		typename detail::tdualquat<T, P>::value_type const & a
 	)
 	{
 		// Dual Quaternion Linear blend aka DLB:
 		// Lerp is only defined in [0, 1]
 		assert(a >= T(0));
 		assert(a <= T(1));
-		T const k = dot(x.real,y.real) < detail::tdualquat<T>::value_type(0) ? -a : a;
+		T const k = dot(x.real,y.real) < detail::tdualquat<T, P>::value_type(0) ? -a : a;
 		T const one(1);
-		return detail::tdualquat<T>(x * (one - a) + y * k);
+		return detail::tdualquat<T, P>(x * (one - a) + y * k);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tdualquat<T> inverse
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tdualquat<T, P> inverse
 	(
-		detail::tdualquat<T> const & q
+		detail::tdualquat<T, P> const & q
 	)
 	{
-		const glm::detail::tquat<T> real = conjugate(q.real);
-		const glm::detail::tquat<T> dual = conjugate(q.dual);
-		return detail::tdualquat<T>(real, dual + (real * (-2.0f * dot(real,dual))));
+		const glm::detail::tquat<T, P> real = conjugate(q.real);
+		const glm::detail::tquat<T, P> dual = conjugate(q.dual);
+		return detail::tdualquat<T, P>(real, dual + (real * (-2.0f * dot(real,dual))));
 	}
 	/*
-	 template <typename T>
-	 GLM_FUNC_QUALIFIER detail::tmat3x3<T> mat3_cast
+	 template <typename T, precision P>
+	 GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> mat3_cast
 	 (
-	 detail::tdualquat<T> const & x
+	 detail::tdualquat<T, P> const & x
 	 )
 	 {
 	 }
 	 */
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tmat2x4<T> mat2x4_cast
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tmat2x4<T, P> mat2x4_cast
 	(
-		detail::tdualquat<T> const & x
+		detail::tdualquat<T, P> const & x
 	)
 	{
-		return detail::tmat2x4<T>( x[0].x, x[0].y, x[0].z, x[0].w, x[1].x, x[1].y, x[1].z, x[1].w );
+		return detail::tmat2x4<T, P>( x[0].x, x[0].y, x[0].z, x[0].w, x[1].x, x[1].y, x[1].z, x[1].w );
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tmat3x4<T> mat3x4_cast
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tmat3x4<T, P> mat3x4_cast
 	(
-		detail::tdualquat<T> const & x
+		detail::tdualquat<T, P> const & x
 	)
 	{
-		detail::tquat<T> r = x.real / length2(x.real);
+		detail::tquat<T, P> r = x.real / length2(x.real);
 		
-		detail::tquat<T> const rr(r.w * x.real.w, r.x * x.real.x, r.y * x.real.y, r.z * x.real.z);
+		detail::tquat<T, P> const rr(r.w * x.real.w, r.x * x.real.x, r.y * x.real.y, r.z * x.real.z);
 		r *= T(2);
 		
 		T const xy = r.x * x.real.y;
@@ -337,61 +337,61 @@ namespace detail
 		T const wy = r.w * x.real.y;
 		T const wz = r.w * x.real.z;
 		
-		detail::tvec4<T> const a(
+		detail::tvec4<T, P> const a(
 			rr.w + rr.x - rr.y - rr.z,
 			xy - wz,
 			xz + wy,
 			-(x.dual.w * r.x - x.dual.x * r.w + x.dual.y * r.z - x.dual.z * r.y));
 		
-		detail::tvec4<T> const b(
+		detail::tvec4<T, P> const b(
 			xy + wz,
 			rr.w + rr.y - rr.x - rr.z,
 			yz - wx,
 			-(x.dual.w * r.y - x.dual.x * r.z - x.dual.y * r.w + x.dual.z * r.x));
 		
-		detail::tvec4<T> const c(
+		detail::tvec4<T, P> const c(
 			xz - wy,
 			yz + wx,
 			rr.w + rr.z - rr.x - rr.y,
 			-(x.dual.w * r.z + x.dual.x * r.y - x.dual.y * r.x - x.dual.z * r.w));
 		
-		return detail::tmat3x4<T>(a, b, c);
+		return detail::tmat3x4<T, P>(a, b, c);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tdualquat<T> dualquat_cast
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tdualquat<T, P> dualquat_cast
 	(
-		detail::tmat2x4<T> const & x
+		detail::tmat2x4<T, P> const & x
 	)
 	{
-		return detail::tdualquat<T>(
-			detail::tquat<T>( x[0].w, x[0].x, x[0].y, x[0].z ),
-			detail::tquat<T>( x[1].w, x[1].x, x[1].y, x[1].z ));
+		return detail::tdualquat<T, P>(
+			detail::tquat<T, P>( x[0].w, x[0].x, x[0].y, x[0].z ),
+			detail::tquat<T, P>( x[1].w, x[1].x, x[1].y, x[1].z ));
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tdualquat<T> dualquat_cast
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tdualquat<T, P> dualquat_cast
 	(
-		detail::tmat3x4<T> const & x
+		detail::tmat3x4<T, P> const & x
 	)
 	{
-		detail::tquat<T> real;
+		detail::tquat<T, P> real;
 		
 		T const trace = x[0].x + x[1].y + x[2].z;
-		if(trace > detail::tdualquat<T>::value_type(0))
+		if(trace > detail::tdualquat<T, P>::value_type(0))
 		{
-			T const r = sqrt(detail::tdualquat<T>::value_type(1) + trace);
-			T const invr = detail::tdualquat<T>::value_type(0.5) / r;
-			real.w = detail::tdualquat<T>::value_type(0.5) * r;
+			T const r = sqrt(detail::tdualquat<T, P>::value_type(1) + trace);
+			T const invr = detail::tdualquat<T, P>::value_type(0.5) / r;
+			real.w = detail::tdualquat<T, P>::value_type(0.5) * r;
 			real.x = (x[2].y - x[1].z) * invr;
 			real.y = (x[0].z - x[2].x) * invr;
 			real.z = (x[1].x - x[0].y) * invr;
 		}
 		else if(x[0].x > x[1].y && x[0].x > x[2].z)
 		{
-			T const r = sqrt(detail::tdualquat<T>::value_type(1) + x[0].x - x[1].y - x[2].z);
-			T const invr = detail::tdualquat<T>::value_type(0.5) / r;
-			real.x = detail::tdualquat<T>::value_type(0.5)*r;
+			T const r = sqrt(detail::tdualquat<T, P>::value_type(1) + x[0].x - x[1].y - x[2].z);
+			T const invr = detail::tdualquat<T, P>::value_type(0.5) / r;
+			real.x = detail::tdualquat<T, P>::value_type(0.5)*r;
 			real.y = (x[1].x + x[0].y) * invr;
 			real.z = (x[0].z + x[2].x) * invr;
 			real.w = (x[2].y - x[1].z) * invr;
@@ -415,12 +415,12 @@ namespace detail
 			real.w = (x[1].x - x[0].y) * invr;
 		}
 		
-		detail::tquat<T> dual;
+		detail::tquat<T, P> dual;
 		dual.x =  T(0.5) * ( x[0].w * real.w + x[1].w * real.z - x[2].w * real.y);
 		dual.y =  T(0.5) * (-x[0].w * real.z + x[1].w * real.w + x[2].w * real.x);
 		dual.z =  T(0.5) * ( x[0].w * real.y - x[1].w * real.x + x[2].w * real.w);
 		dual.w = -T(0.5) * ( x[0].w * real.x + x[1].w * real.y + x[2].w * real.z);
-		return detail::tdualquat<T>(real, dual);
+		return detail::tdualquat<T, P>(real, dual);
 	}
 
 }//namespace glm

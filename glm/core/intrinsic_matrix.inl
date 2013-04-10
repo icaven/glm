@@ -448,7 +448,7 @@ GLM_FUNC_QUALIFIER __m128 sse_detd_ps
 	__m128 MulC = _mm_mul_ps(Swp2C, Swp3C);
 	__m128 SubF = _mm_sub_ps(_mm_movehl_ps(MulC, MulC), MulC);
 
-	//detail::tvec4<T> DetCof(
+	//detail::tvec4<T, P> DetCof(
 	//	+ (m[1][1] * SubFactor00 - m[1][2] * SubFactor01 + m[1][3] * SubFactor02),
 	//	- (m[1][0] * SubFactor00 - m[1][2] * SubFactor03 + m[1][3] * SubFactor04),
 	//	+ (m[1][0] * SubFactor01 - m[1][1] * SubFactor03 + m[1][3] * SubFactor05),
@@ -514,7 +514,7 @@ GLM_FUNC_QUALIFIER __m128 sse_det_ps
 	__m128 MulC = _mm_mul_ps(Swp2C, Swp3C);
 	__m128 SubF = _mm_sub_ps(_mm_movehl_ps(MulC, MulC), MulC);
 
-	//detail::tvec4<T> DetCof(
+	//detail::tvec4<T, P> DetCof(
 	//	+ (m[1][1] * SubFactor00 - m[1][2] * SubFactor01 + m[1][3] * SubFactor02),
 	//	- (m[1][0] * SubFactor00 - m[1][2] * SubFactor03 + m[1][3] * SubFactor04),
 	//	+ (m[1][0] * SubFactor01 - m[1][1] * SubFactor03 + m[1][3] * SubFactor05),

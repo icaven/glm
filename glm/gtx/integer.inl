@@ -100,30 +100,30 @@ namespace _detail
 		return Result;
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec2<valType> factorial(
-		detail::tvec2<valType> const & x)
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<T, P> factorial(
+		detail::tvec2<T, P> const & x)
 	{
-		return detail::tvec2<valType>(
+		return detail::tvec2<T, P>(
 			factorial(x.x),
 			factorial(x.y));
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec3<valType> factorial(
-		detail::tvec3<valType> const & x)
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> factorial(
+		detail::tvec3<T, P> const & x)
 	{
-		return detail::tvec3<valType>(
+		return detail::tvec3<T, P>(
 			factorial(x.x),
 			factorial(x.y),
 			factorial(x.z));
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec4<valType> factorial(
-		detail::tvec4<valType> const & x)
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> factorial(
+		detail::tvec4<T, P> const & x)
 	{
-		return detail::tvec4<valType>(
+		return detail::tvec4<T, P>(
 			factorial(x.x),
 			factorial(x.y),
 			factorial(x.z),

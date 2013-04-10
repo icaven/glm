@@ -63,13 +63,13 @@ namespace glm
 	/// 
 	/// @see gtx_rotate_normalized_axis
 	/// @see - rotate(T angle, T x, T y, T z) 
-	/// @see - rotate(detail::tmat4x4<T> const & m, T angle, T x, T y, T z) 
-	/// @see - rotate(T angle, detail::tvec3<T> const & v) 
-	template <typename T> 
-	detail::tmat4x4<T> rotateNormalizedAxis(
-		detail::tmat4x4<T> const & m,
-		T const & angle, 
-		detail::tvec3<T> const & axis);
+	/// @see - rotate(detail::tmat4x4<T, P> const & m, T angle, T x, T y, T z) 
+	/// @see - rotate(T angle, detail::tvec3<T, P> const & v) 
+	template <typename T, precision P>
+	detail::tmat4x4<T, P> rotateNormalizedAxis(
+		detail::tmat4x4<T, P> const & m,
+		T const & angle,
+		detail::tvec3<T, P> const & axis);
 
 	/// Rotates a quaternion from a vector of 3 components normalized axis and an angle.
 	/// 
@@ -78,11 +78,11 @@ namespace glm
 	/// @param axis Normalized axis of the rotation, must be normalized.
 	/// 
 	/// @see gtx_rotate_normalized_axis
-	template <typename T> 
-	detail::tquat<T> rotateNormalizedAxis(
-		detail::tquat<T> const & q, 
-		typename detail::tquat<T>::value_type const & angle, 
-		detail::tvec3<T> const & axis);
+	template <typename T, precision P>
+	detail::tquat<T, P> rotateNormalizedAxis(
+		detail::tquat<T, P> const & q,
+		typename detail::tquat<T, P>::value_type const & angle,
+		detail::tvec3<T, P> const & axis);
 
 	/// @}
 }//namespace glm

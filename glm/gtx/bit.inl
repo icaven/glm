@@ -60,8 +60,8 @@ namespace glm
 	template <typename genIUType, typename sizeType>
 	GLM_FUNC_QUALIFIER genIUType extractField
 	(
-		genIUType const & Value, 
-		sizeType const & First, 
+		genIUType const & Value,
+		sizeType const & First,
 		sizeType const & Count
 	)
 	{
@@ -75,126 +75,126 @@ namespace glm
 		return ShiftBack;
 	}
 
-	template <typename genIUType, typename sizeType>
-	GLM_FUNC_QUALIFIER detail::tvec2<genIUType> extractField
+	template <typename T, precision P, typename sizeType>
+	GLM_FUNC_QUALIFIER detail::tvec2<T, P> extractField
 	(
-		detail::tvec2<genIUType> const & value, 
+		detail::tvec2<T, P> const & value,
 		sizeType const & first, 
 		sizeType const & count
 	)
 	{
-		return detail::tvec2<genIUType>(
+		return detail::tvec2<T, P>(
 			extractField(value[0], first, count),
 			extractField(value[1], first, count));
 	}
 
-	template <typename genIUType, typename sizeType>
-	GLM_FUNC_QUALIFIER detail::tvec3<genIUType> extractField
+	template <typename T, precision P, typename sizeType>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> extractField
 	(
-		detail::tvec3<genIUType> const & value, 
-		sizeType const & first, 
+		detail::tvec3<T, P> const & value,
+		sizeType const & first,
 		sizeType const & count
 	)
 	{
-		return detail::tvec3<genIUType>(
+		return detail::tvec3<T, P>(
 			extractField(value[0], first, count),
 			extractField(value[1], first, count),
 			extractField(value[2], first, count));
 	}
 
-	template <typename genIUType, typename sizeType>
-	GLM_FUNC_QUALIFIER detail::tvec4<genIUType> extractField
+	template <typename T, precision P, typename sizeType>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> extractField
 	(
-		detail::tvec4<genIUType> const & value, 
-		sizeType const & first, 
+		detail::tvec4<T, P> const & value,
+		sizeType const & first,
 		sizeType const & count
 	)
 	{
-		return detail::tvec4<genIUType>(
+		return detail::tvec4<T, P>(
 			extractField(value[0], first, count),
 			extractField(value[1], first, count),
 			extractField(value[2], first, count),
 			extractField(value[3], first, count));
 	}
 
-	template <typename genIUType, typename sizeType>
-	GLM_FUNC_QUALIFIER detail::tvec2<genIUType> extractField
+	template <typename T, precision P, typename sizeType>
+	GLM_FUNC_QUALIFIER detail::tvec2<T, P> extractField
 	(
-		detail::tvec2<genIUType> const & value, 
-		detail::tvec2<sizeType> const & first, 
-		detail::tvec2<sizeType> const & count
+		detail::tvec2<T, P> const & value, 
+		detail::tvec2<sizeType, P> const & first, 
+		detail::tvec2<sizeType, P> const & count
 	)
 	{
-		return detail::tvec2<genIUType>(
+		return detail::tvec2<T, P>(
 			extractField(value[0], first[0], count[0]),
 			extractField(value[1], first[1], count[1]));
 	}
 
-	template <typename genIUType, typename sizeType>
-	GLM_FUNC_QUALIFIER detail::tvec3<genIUType> extractField
+	template <typename T, precision P, typename sizeType>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> extractField
 	(
-		detail::tvec3<genIUType> const & value, 
-		detail::tvec3<sizeType> const & first, 
-		detail::tvec3<sizeType> const & count
+		detail::tvec3<T, P> const & value, 
+		detail::tvec3<sizeType, P> const & first, 
+		detail::tvec3<sizeType, P> const & count
 	)
 	{
-		return detail::tvec3<genIUType>(
+		return detail::tvec3<T, P>(
 			extractField(value[0], first[0], count[0]),
 			extractField(value[1], first[1], count[1]),
 			extractField(value[2], first[2], count[2]));
 	}
 
-	template <typename genIUType, typename sizeType>
-	GLM_FUNC_QUALIFIER detail::tvec4<genIUType> extractField
+	template <typename T, precision P, typename sizeType>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> extractField
 	(
-		detail::tvec4<genIUType> const & value, 
-		detail::tvec4<sizeType> const & first, 
-		detail::tvec4<sizeType> const & count
+		detail::tvec4<T, P> const & value, 
+		detail::tvec4<sizeType, P> const & first, 
+		detail::tvec4<sizeType, P> const & count
 	)
 	{
-		return detail::tvec4<genIUType>(
+		return detail::tvec4<T, P>(
 			extractField(value[0], first[0], count[0]),
 			extractField(value[1], first[1], count[1]),
 			extractField(value[2], first[2], count[2]),
 			extractField(value[3], first[3], count[3]));
 	}
 
-	template <typename genIUType, typename sizeType>
-	GLM_FUNC_QUALIFIER detail::tvec2<genIUType> extractField
+	template <typename T, precision P, typename sizeType>
+	GLM_FUNC_QUALIFIER detail::tvec2<T, P> extractField
 	(
-		genIUType const & value, 
-		detail::tvec2<sizeType> const & first, 
-		detail::tvec2<sizeType> const & count
+		T const & value, 
+		detail::tvec2<sizeType, P> const & first, 
+		detail::tvec2<sizeType, P> const & count
 	)
 	{
-		return detail::tvec2<genIUType>(
+		return detail::tvec2<T, P>(
 			extractField(value, first[0], count[0]),
 			extractField(value, first[1], count[1]));
 	}
 
-	template <typename genIUType, typename sizeType>
-	GLM_FUNC_QUALIFIER detail::tvec3<genIUType> extractField
+	template <typename T, precision P, typename sizeType>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> extractField
 	(
-		genIUType const & value, 
-		detail::tvec3<sizeType> const & first, 
-		detail::tvec3<sizeType> const & count
+		T const & value,
+		detail::tvec3<sizeType, P> const & first,
+		detail::tvec3<sizeType, P> const & count
 	)
 	{
-		return detail::tvec3<genIUType>(
+		return detail::tvec3<T, P>(
 			extractField(value, first[0], count[0]),
 			extractField(value, first[1], count[1]),
 			extractField(value, first[2], count[2]));
 	}
 
-	template <typename genIUType, typename sizeType>
-	GLM_FUNC_QUALIFIER detail::tvec4<genIUType> extractField
+	template <typename T, precision P, typename sizeType>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> extractField
 	(
-		genIUType const & value, 
-		detail::tvec4<sizeType> const & first, 
-		detail::tvec4<sizeType> const & count
+		T const & value,
+		detail::tvec4<sizeType, P> const & first,
+		detail::tvec4<sizeType, P> const & count
 	)
 	{
-		return detail::tvec4<genIUType>(
+		return detail::tvec4<T, P>(
 			extractField(value, first[0], count[0]),
 			extractField(value, first[1], count[1]),
 			extractField(value, first[2], count[2]),
@@ -215,36 +215,36 @@ namespace glm
 		return Bit;
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec2<int> lowestBit
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<int, P> lowestBit
 	(
-		detail::tvec2<valType> const & value
+		detail::tvec2<T, P> const & value
 	)
 	{
-		return detail::tvec2<int>(
+		return detail::tvec2<int, P>(
 			lowestBit(value[0]),
 			lowestBit(value[1]));
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec3<int> lowestBit
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<int, P> lowestBit
 	(
-		detail::tvec3<valType> const & value
+		detail::tvec3<T, P> const & value
 	)
 	{
-		return detail::tvec3<int>(
+		return detail::tvec3<int, P>(
 			lowestBit(value[0]),
 			lowestBit(value[1]),
 			lowestBit(value[2]));
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec4<int> lowestBit
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<int, P> lowestBit
 	(
-		detail::tvec4<valType> const & value
+		detail::tvec4<T, P> const & value
 	)
 	{
-		return detail::tvec4<int>(
+		return detail::tvec4<int, P>(
 			lowestBit(value[0]),
 			lowestBit(value[1]),
 			lowestBit(value[2]),
@@ -276,36 +276,36 @@ namespace glm
 	//	return bit;
 	//}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec2<int> highestBit
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<int, P> highestBit
 	(
-		detail::tvec2<valType> const & value
+		detail::tvec2<T, P> const & value
 	)
 	{
-		return detail::tvec2<int>(
+		return detail::tvec2<int, P>(
 			highestBit(value[0]),
 			highestBit(value[1]));
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec3<int> highestBit
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<int, P> highestBit
 	(
-		detail::tvec3<valType> const & value
+		detail::tvec3<T, P> const & value
 	)
 	{
-		return detail::tvec3<int>(
+		return detail::tvec3<int, P>(
 			highestBit(value[0]),
 			highestBit(value[1]),
 			highestBit(value[2]));
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec4<int> highestBit
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<int, P> highestBit
 	(
-		detail::tvec4<valType> const & value
+		detail::tvec4<T, P> const & value
 	)
 	{
-		return detail::tvec4<int>(
+		return detail::tvec4<int, P>(
 			highestBit(value[0]),
 			highestBit(value[1]),
 			highestBit(value[2]),
@@ -329,36 +329,36 @@ namespace glm
 		return result;
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec2<int> highestBitValue
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<int, P> highestBitValue
 	(
-		detail::tvec2<valType> const & value
+		detail::tvec2<T, P> const & value
 	)
 	{
-		return detail::tvec2<int>(
+		return detail::tvec2<int, P>(
 			highestBitValue(value[0]),
 			highestBitValue(value[1]));
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec3<int> highestBitValue
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<int, P> highestBitValue
 	(
-		detail::tvec3<valType> const & value
+		detail::tvec3<T, P> const & value
 	)
 	{
-		return detail::tvec3<int>(
+		return detail::tvec3<int, P>(
 			highestBitValue(value[0]),
 			highestBitValue(value[1]),
 			highestBitValue(value[2]));
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec4<int> highestBitValue
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<int, P> highestBitValue
 	(
-		detail::tvec4<valType> const & value
+		detail::tvec4<T, P> const & value
 	)
 	{
-		return detail::tvec4<int>(
+		return detail::tvec4<int, P>(
 			highestBitValue(value[0]),
 			highestBitValue(value[1]),
 			highestBitValue(value[2]),
@@ -379,36 +379,36 @@ namespace glm
 		return !(Result & (Result - 1));
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec2<bool> isPowerOfTwo
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<bool, P> isPowerOfTwo
 	(
-		detail::tvec2<valType> const & value
+		detail::tvec2<T, P> const & value
 	)
 	{
-		return detail::tvec2<bool>(
+		return detail::tvec2<bool, P>(
 			isPowerOfTwo(value[0]),
 			isPowerOfTwo(value[1]));
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec3<bool> isPowerOfTwo
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<bool, P> isPowerOfTwo
 	(
-		detail::tvec3<valType> const & value
+		detail::tvec3<T, P> const & value
 	)
 	{
-		return detail::tvec3<bool>(
+		return detail::tvec3<bool, P>(
 			isPowerOfTwo(value[0]),
 			isPowerOfTwo(value[1]),
 			isPowerOfTwo(value[2]));
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec4<bool> isPowerOfTwo
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<bool, P> isPowerOfTwo
 	(
-		detail::tvec4<valType> const & value
+		detail::tvec4<T, P> const & value
 	)
 	{
-		return detail::tvec4<bool>(
+		return detail::tvec4<bool, P>(
 			isPowerOfTwo(value[0]),
 			isPowerOfTwo(value[1]),
 			isPowerOfTwo(value[2]),
@@ -477,39 +477,39 @@ namespace glm
 		return (In << Shift) | (In >> (BitSize - Shift));
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec2<valType> bitRotateRight
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<T, P> bitRotateRight
 	(
-		detail::tvec2<valType> const & Value, 
+		detail::tvec2<T, P> const & Value, 
 		std::size_t Shift
 	)
 	{
-		return detail::tvec2<valType>(
+		return detail::tvec2<T, P>(
 			bitRotateRight(Value[0], Shift),
 			bitRotateRight(Value[1], Shift));
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec3<valType> bitRotateRight
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> bitRotateRight
 	(
-		detail::tvec3<valType> const & Value, 
+		detail::tvec3<T, P> const & Value, 
 		std::size_t Shift
 	)
 	{
-		return detail::tvec3<valType>(
+		return detail::tvec3<T, P>(
 			bitRotateRight(Value[0], Shift),
 			bitRotateRight(Value[1], Shift),
 			bitRotateRight(Value[2], Shift));
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec4<valType> bitRotateRight
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> bitRotateRight
 	(
-		detail::tvec4<valType> const & Value, 
+		detail::tvec4<T, P> const & Value, 
 		std::size_t Shift
 	)
 	{
-		return detail::tvec4<valType>(
+		return detail::tvec4<T, P>(
 			bitRotateRight(Value[0], Shift),
 			bitRotateRight(Value[1], Shift),
 			bitRotateRight(Value[2], Shift),
@@ -525,39 +525,39 @@ namespace glm
 		return (In >> Shift) | (In << (BitSize - Shift));
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec2<valType> bitRotateLeft
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<T, P> bitRotateLeft
 	(
-		detail::tvec2<valType> const & Value, 
+		detail::tvec2<T, P> const & Value, 
 		std::size_t Shift
 	)
 	{
-		return detail::tvec2<valType>(
+		return detail::tvec2<T, P>(
 			bitRotateLeft(Value[0], Shift),
 			bitRotateLeft(Value[1], Shift));
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec3<valType> bitRotateLeft
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> bitRotateLeft
 	(
-		detail::tvec3<valType> const & Value, 
+		detail::tvec3<T, P> const & Value, 
 		std::size_t Shift
 	)
 	{
-		return detail::tvec3<valType>(
+		return detail::tvec3<T, P>(
 			bitRotateLeft(Value[0], Shift),
 			bitRotateLeft(Value[1], Shift),
 			bitRotateLeft(Value[2], Shift));
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec4<valType> bitRotateLeft
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> bitRotateLeft
 	(
-		detail::tvec4<valType> const & Value, 
+		detail::tvec4<T, P> const & Value, 
 		std::size_t Shift
 	)
 	{
-		return detail::tvec4<valType>(
+		return detail::tvec4<T, P>(
 			bitRotateLeft(Value[0], Shift),
 			bitRotateLeft(Value[1], Shift),
 			bitRotateLeft(Value[2], Shift),

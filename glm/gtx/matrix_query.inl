@@ -12,10 +12,10 @@
 
 namespace glm
 {
-	template<typename T> 
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER bool isNull
 	(
-		detail::tmat2x2<T> const & m, 
+		detail::tmat2x2<T, P> const & m,
 		T const & epsilon)
 	{
 		bool result = true;
@@ -24,10 +24,10 @@ namespace glm
 		return result;
 	}
 
-	template<typename T> 
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER bool isNull
 	(
-		detail::tmat3x3<T> const & m, 
+		detail::tmat3x3<T, P> const & m,
 		T const & epsilon
 	)
 	{
@@ -37,10 +37,10 @@ namespace glm
 		return result;
 	}
 
-	template<typename T> 
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER bool isNull
 	(
-		detail::tmat4x4<T> const & m, 
+		detail::tmat4x4<T, P> const & m,
 		T const & epsilon
 	)
 	{
@@ -50,10 +50,10 @@ namespace glm
 		return result;
 	}
 
-	template<typename genType> 
+	template<typename genType>
 	GLM_FUNC_QUALIFIER bool isIdentity
 	(
-		genType const & m, 
+		genType const & m,
 		typename genType::value_type const & epsilon
 	)
 	{
@@ -70,83 +70,83 @@ namespace glm
 		return result;
 	}
 
-	template<typename genType>  
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER bool isNormalized
 	(
-		detail::tmat2x2<genType> const & m, 
-		genType const & epsilon
+		detail::tmat2x2<T, P> const & m,
+		T const & epsilon
 	)
 	{
 		bool result(true);
-                for(typename detail::tmat2x2<genType>::size_type i(0); result && i < m.length(); ++i)
+		for(typename detail::tmat2x2<T, P>::size_type i(0); result && i < m.length(); ++i)
 			result = isNormalized(m[i], epsilon);
-                for(typename detail::tmat2x2<genType>::size_type i(0); result && i < m.length(); ++i)
+		for(typename detail::tmat2x2<T, P>::size_type i(0); result && i < m.length(); ++i)
 		{
-                        typename detail::tmat2x2<genType>::col_type v;
-                        for(typename detail::tmat2x2<genType>::size_type j(0); j < m.length(); ++j)
+			typename detail::tmat2x2<T, P>::col_type v;
+			for(typename detail::tmat2x2<T, P>::size_type j(0); j < m.length(); ++j)
 				v[j] = m[j][i];
 			result = isNormalized(v, epsilon);
 		}
 		return result;
 	}
 
-	template<typename genType>  
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER bool isNormalized
 	(
-		detail::tmat3x3<genType> const & m, 
-		genType const & epsilon
+		detail::tmat3x3<T, P> const & m,
+		T const & epsilon
 	)
 	{
 		bool result(true);
-                for(typename detail::tmat3x3<genType>::size_type i(0); result && i < m.length(); ++i)
+		for(typename detail::tmat3x3<T, P>::size_type i(0); result && i < m.length(); ++i)
 			result = isNormalized(m[i], epsilon);
-                for(typename detail::tmat3x3<genType>::size_type i(0); result && i < m.length(); ++i)
+		for(typename detail::tmat3x3<T, P>::size_type i(0); result && i < m.length(); ++i)
 		{
-                        typename detail::tmat3x3<genType>::col_type v;
-                        for(typename detail::tmat3x3<genType>::size_type j(0); j < m.length(); ++j)
+			typename detail::tmat3x3<T, P>::col_type v;
+			for(typename detail::tmat3x3<T, P>::size_type j(0); j < m.length(); ++j)
 				v[j] = m[j][i];
 			result = isNormalized(v, epsilon);
 		}
 		return result;
 	}
 
-	template<typename genType>  
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER bool isNormalized
 	(
-		detail::tmat4x4<genType> const & m, 
-		genType const & epsilon
+		detail::tmat4x4<T, P> const & m,
+		T const & epsilon
 	)
 	{
 		bool result(true);
-                for(typename detail::tmat4x4<genType>::size_type i(0); result && i < m.length(); ++i)
+		for(typename detail::tmat4x4<T, P>::size_type i(0); result && i < m.length(); ++i)
 			result = isNormalized(m[i], epsilon);
-                for(typename detail::tmat4x4<genType>::size_type i(0); result && i < m.length(); ++i)
+		for(typename detail::tmat4x4<T, P>::size_type i(0); result && i < m.length(); ++i)
 		{
-                        typename detail::tmat4x4<genType>::col_type v;
-                        for(typename detail::tmat4x4<genType>::size_type j(0); j < m.length(); ++j)
+			typename detail::tmat4x4<T, P>::col_type v;
+			for(typename detail::tmat4x4<T, P>::size_type j(0); j < m.length(); ++j)
 				v[j] = m[j][i];
 			result = isNormalized(v, epsilon);
 		}
 		return result;
 	}
 
-	template<typename genType, template <typename> class matType>  
+	template<typename T, precision P, template <typename, precision> class matType>
 	GLM_FUNC_QUALIFIER bool isOrthogonal
 	(
-		matType<genType> const & m, 
-		genType const & epsilon
+		matType<T, P> const & m,
+		T const & epsilon
 	)
 	{
 		bool result(true);
-		for(typename matType<genType>::size_type i(0); result && i < m.length() - 1; ++i)
-		for(typename matType<genType>::size_type j(i + 1); result && j < m.length(); ++j)
+		for(typename matType<T, P>::size_type i(0); result && i < m.length() - 1; ++i)
+		for(typename matType<T, P>::size_type j(i + 1); result && j < m.length(); ++j)
 			result = areOrthogonal(m[i], m[j], epsilon);
 
 		if(result)
 		{
-			matType<genType> tmp = transpose(m);
-			for(typename matType<genType>::size_type i(0); result && i < m.length() - 1 ; ++i)
-			for(typename matType<genType>::size_type j(i + 1); result && j < m.length(); ++j)
+			matType<T, P> tmp = transpose(m);
+			for(typename matType<T, P>::size_type i(0); result && i < m.length() - 1 ; ++i)
+			for(typename matType<T, P>::size_type j(i + 1); result && j < m.length(); ++j)
 				result = areOrthogonal(tmp[i], tmp[j], epsilon);
 		}
 		return result;

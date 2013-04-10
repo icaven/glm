@@ -34,12 +34,12 @@ namespace detail
 	//////////////////////////////////////
 	// hvec2
 
-	GLM_FUNC_QUALIFIER tvec2<half>::size_type tvec2<half>::length() const
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp>::size_type tvec2<half, defaultp>::length() const
 	{
 		return 2;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<half>::size_type tvec2<half>::value_size()
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp>::size_type tvec2<half, defaultp>::value_size()
 	{
 		return 2;
 	}
@@ -47,29 +47,29 @@ namespace detail
 	//////////////////////////////////////
 	// Accesses
 
-	GLM_FUNC_QUALIFIER half & tvec2<half>::operator[](tvec2<half>::size_type i)
+	GLM_FUNC_QUALIFIER half & tvec2<half, defaultp>::operator[](tvec2<half, defaultp>::size_type i)
 	{
-		assert(/*i >= tvec2<half>::size_type(0) && */i < tvec2<half>::value_size());
+		assert(i < this->length());
 		return (&x)[i];
 	}
 
-	GLM_FUNC_QUALIFIER half const & tvec2<half>::operator[](tvec2<half>::size_type i) const
+	GLM_FUNC_QUALIFIER half const & tvec2<half, defaultp>::operator[](tvec2<half, defaultp>::size_type i) const
 	{
-		assert(/*i >= tvec2<half>::size_type(0) && */i < tvec2<half>::value_size());
+		assert(i < this->length());
 		return (&x)[i];
 	}
 
 	//////////////////////////////////////
 	// Implicit basic constructors
 
-	GLM_FUNC_QUALIFIER tvec2<half>::tvec2() :
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp>::tvec2() :
 		x(half(0.f)),
 		y(half(0.f))
 	{}
 
-	GLM_FUNC_QUALIFIER tvec2<half>::tvec2
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp>::tvec2
 	(
-		tvec2<half> const & v
+		tvec2<half, defaultp> const & v
 	) :
 		x(v.x),
 		y(v.y)
@@ -78,7 +78,7 @@ namespace detail
 	//////////////////////////////////////
 	// Explicit basic constructors
 
-	GLM_FUNC_QUALIFIER tvec2<half>::tvec2
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp>::tvec2
 	(
 		half const & s
 	) :
@@ -86,7 +86,7 @@ namespace detail
 		y(s)
 	{}
 
-	GLM_FUNC_QUALIFIER tvec2<half>::tvec2
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp>::tvec2
 	(
 		half const & s1,
 		half const & s2
@@ -98,9 +98,9 @@ namespace detail
 	//////////////////////////////////////
 	// Swizzle constructors
 
-	GLM_FUNC_QUALIFIER tvec2<half>::tvec2
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp>::tvec2
 	(
-		tref2<half> const & r
+		tref2<half, defaultp> const & r
 	) :
 		x(r.x),
 		y(r.y)
@@ -109,8 +109,8 @@ namespace detail
 	//////////////////////////////////////
 	// Convertion scalar constructors
 
-	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec2<half>::tvec2
+	template <typename U>
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp>::tvec2
 	(
 		U const & x
 	) :
@@ -118,10 +118,10 @@ namespace detail
 		y(half(x))
 	{}
 
-	template <typename U, typename V> 
-	GLM_FUNC_QUALIFIER tvec2<half>::tvec2
+	template <typename U, typename V>
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp>::tvec2
 	(
-		U const & x, 
+		U const & x,
 		V const & y
 	) :
 		x(half(x)),
@@ -131,28 +131,28 @@ namespace detail
 	//////////////////////////////////////
 	// Convertion vector constructors
 
-	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec2<half>::tvec2
+	template <typename U>
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp>::tvec2
 	(
-		tvec2<U> const & v
+		tvec2<U, defaultp> const & v
 	) :
 		x(half(v.x)),
 		y(half(v.y))
 	{}
 
-	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec2<half>::tvec2
+	template <typename U>
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp>::tvec2
 	(	
-		tvec3<U> const & v
+		tvec3<U, defaultp> const & v
 	) :
 		x(half(v.x)),
 		y(half(v.y))
 	{}
 
-	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec2<half>::tvec2
+	template <typename U>
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp>::tvec2
 	(
-		tvec4<U> const & v
+		tvec4<U, defaultp> const & v
 	) :
 		x(half(v.x)),
 		y(half(v.y))
@@ -161,9 +161,9 @@ namespace detail
 	//////////////////////////////////////
 	// Unary arithmetic operators
 
-	GLM_FUNC_QUALIFIER tvec2<half> & tvec2<half>::operator= 
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp> & tvec2<half, defaultp>::operator=
 	(
-		tvec2<half> const & v
+		tvec2<half, defaultp> const & v
 	)
 	{
 		this->x = v.x;
@@ -171,7 +171,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<half> & tvec2<half>::operator+=
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp> & tvec2<half, defaultp>::operator+=
 	(
 		half const & s
 	)
@@ -181,9 +181,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<half> & tvec2<half>::operator+=
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp> & tvec2<half, defaultp>::operator+=
 	(
-		tvec2<half> const & v
+		tvec2<half, defaultp> const & v
 	)
 	{
 		this->x += v.x;
@@ -191,7 +191,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<half> & tvec2<half>::operator-=
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp> & tvec2<half, defaultp>::operator-=
 	(
 		half const & s
 	)
@@ -201,9 +201,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<half> & tvec2<half>::operator-=
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp> & tvec2<half, defaultp>::operator-=
 	(
-		tvec2<half> const & v
+		tvec2<half, defaultp> const & v
 	)
 	{
 		this->x -= v.x;
@@ -211,7 +211,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<half>& tvec2<half>::operator*=
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp>& tvec2<half, defaultp>::operator*=
 	(
 		half const & s
 	)
@@ -221,9 +221,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<half> & tvec2<half>::operator*=
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp> & tvec2<half, defaultp>::operator*=
 	(
-		tvec2<half> const & v
+		tvec2<half, defaultp> const & v
 	)
 	{
 		this->x *= v.x;
@@ -231,7 +231,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<half> & tvec2<half>::operator/=
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp> & tvec2<half, defaultp>::operator/=
 	(
 		half const & s
 	)
@@ -241,9 +241,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<half> & tvec2<half>::operator/=
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp> & tvec2<half, defaultp>::operator/=
 	(
-		tvec2<half> const & v
+		tvec2<half, defaultp> const & v
 	)
 	{
 		this->x /= v.x;
@@ -251,14 +251,14 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<half> & tvec2<half>::operator++()
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp> & tvec2<half, defaultp>::operator++()
 	{
 		++this->x;
 		++this->y;
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<half>& tvec2<half>::operator--()
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp>& tvec2<half, defaultp>::operator--()
 	{
 		--this->x;
 		--this->y;
@@ -268,38 +268,38 @@ namespace detail
 	//////////////////////////////////////
 	// Swizzle operators
 
-	GLM_FUNC_QUALIFIER half tvec2<half>::swizzle(comp x) const
+	GLM_FUNC_QUALIFIER half tvec2<half, defaultp>::swizzle(comp x) const
 	{
 		return (*this)[x];
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<half> tvec2<half>::swizzle(comp x, comp y) const
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp> tvec2<half, defaultp>::swizzle(comp x, comp y) const
 	{
-		return tvec2<half>(
+		return tvec2<half, defaultp>(
 			(*this)[x],
 			(*this)[y]);
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<half> tvec2<half>::swizzle(comp x, comp y, comp z) const
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp> tvec2<half, defaultp>::swizzle(comp x, comp y, comp z) const
 	{
-		return tvec3<half>(
+		return tvec3<half, defaultp>(
 			(*this)[x],
 			(*this)[y],
 			(*this)[z]);
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<half> tvec2<half>::swizzle(comp x, comp y, comp z, comp w) const
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp> tvec2<half, defaultp>::swizzle(comp x, comp y, comp z, comp w) const
 	{
-		return tvec4<half>(
+		return tvec4<half, defaultp>(
 			(*this)[x],
 			(*this)[y],
 			(*this)[z],
 			(*this)[w]);
 	}
 
-	GLM_FUNC_QUALIFIER tref2<half> tvec2<half>::swizzle(comp x, comp y)
+	GLM_FUNC_QUALIFIER tref2<half, defaultp> tvec2<half, defaultp>::swizzle(comp x, comp y)
 	{
-		return tref2<half>(
+		return tref2<half, defaultp>(
 			(*this)[x],
 			(*this)[y]);
 	}
@@ -307,12 +307,12 @@ namespace detail
 	//////////////////////////////////////
 	// hvec3
 
-	GLM_FUNC_QUALIFIER tvec3<half>::size_type tvec3<half>::length() const
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp>::size_type tvec3<half, defaultp>::length() const
 	{
 		return 3;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<half>::size_type tvec3<half>::value_size()
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp>::size_type tvec3<half, defaultp>::value_size()
 	{
 		return 3;
 	}
@@ -320,22 +320,22 @@ namespace detail
 	//////////////////////////////////////
 	// Accesses
 
-	GLM_FUNC_QUALIFIER half & tvec3<half>::operator[]
+	GLM_FUNC_QUALIFIER half & tvec3<half, defaultp>::operator[]
 	(
-		tvec3<half>::size_type i
+		tvec3<half, defaultp>::size_type i
 	)
 	{
-		assert(/*i >= tvec3<half>::size_type(0) &&*/ i < tvec3<half>::value_size());
+		assert(i < this->length());
 
 		return (&x)[i];
 	}
 
-	GLM_FUNC_QUALIFIER half const & tvec3<half>::operator[]
+	GLM_FUNC_QUALIFIER half const & tvec3<half, defaultp>::operator[]
 	(
-		tvec3<half>::size_type i
+		tvec3<half, defaultp>::size_type i
 	) const
 	{
-		assert(/*i >= tvec3<half>::size_type(0) &&*/ i < tvec3<half>::value_size());
+		assert(i < this->length());
 
 		return (&x)[i];
 	}
@@ -343,15 +343,15 @@ namespace detail
 	//////////////////////////////////////
 	// Implicit basic constructors
 
-	GLM_FUNC_QUALIFIER tvec3<half>::tvec3() :
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp>::tvec3() :
 		x(half(0)),
 		y(half(0)),
 		z(half(0))
 	{}
 
-	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp>::tvec3
 	(
-		tvec3<half> const & v
+		tvec3<half, defaultp> const & v
 	) :
 		x(v.x),
 		y(v.y),
@@ -361,7 +361,7 @@ namespace detail
 	//////////////////////////////////////
 	// Explicit basic constructors
 
-	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp>::tvec3
 	(
 		half const & s
 	) :
@@ -370,7 +370,7 @@ namespace detail
 		z(s)
 	{}
 
-	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp>::tvec3
 	(
 		half const & s0,
 		half const & s1,
@@ -384,9 +384,9 @@ namespace detail
 	//////////////////////////////////////
 	// Swizzle constructors
 
-	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp>::tvec3
 	(
-		tref3<half> const & r
+		tref3<half, defaultp> const & r
 	) :
 		x(r.x),
 		y(r.y),
@@ -396,8 +396,8 @@ namespace detail
 	//////////////////////////////////////
 	// Convertion scalar constructors
 
-	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
+	template <typename U>
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp>::tvec3
 	(
 		U const & x
 	) :
@@ -407,7 +407,7 @@ namespace detail
 	{}
 
 	template <typename A, typename B, typename C>
-	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp>::tvec3
 	(
 		A const & x,
 		B const & y,
@@ -421,10 +421,10 @@ namespace detail
 	//////////////////////////////////////
 	// Convertion vector constructors
 
-	template <typename A, typename B> 
-	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
+	template <typename A, typename B>
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp>::tvec3
 	(
-		tvec2<A> const & v, 
+		tvec2<A, defaultp> const & v,
 		B const & s
 	) :
 		x(half(v.x)),
@@ -432,31 +432,31 @@ namespace detail
 		z(half(s))
 	{}
 
-	template <typename A, typename B> 
-	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
+	template <typename A, typename B>
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp>::tvec3
 	(
-		A const & s, 
-		tvec2<B> const & v
+		A const & s,
+		tvec2<B, defaultp> const & v
 	) :
 		x(half(s)),
 		y(half(v.x)),
 		z(half(v.y))
 	{}
 
-	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
+	template <typename U>
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp>::tvec3
 	(
-		tvec3<U> const & v
+		tvec3<U, defaultp> const & v
 	) :
 		x(half(v.x)),
 		y(half(v.y)),
 		z(half(v.z))
 	{}
 
-	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec3<half>::tvec3
+	template <typename U>
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp>::tvec3
 	(
-		tvec4<U> const & v
+		tvec4<U, defaultp> const & v
 	) :
 		x(half(v.x)),
 		y(half(v.y)),
@@ -466,9 +466,9 @@ namespace detail
 	//////////////////////////////////////
 	// Unary arithmetic operators
 
-	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator=
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp> & tvec3<half, defaultp>::operator=
 	(
-		tvec3<half> const & v
+		tvec3<half, defaultp> const & v
 	)
 	{
 		this->x = v.x;
@@ -477,7 +477,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator+=
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp> & tvec3<half, defaultp>::operator+=
 	(
 		half const & s
 	)
@@ -488,9 +488,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator+=
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp> & tvec3<half, defaultp>::operator+=
 	(
-		tvec3<half> const & v
+		tvec3<half, defaultp> const & v
 	)
 	{
 		this->x += v.x;
@@ -499,7 +499,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator-=
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp> & tvec3<half, defaultp>::operator-=
 	(
 		half const & s
 	)
@@ -510,9 +510,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator-=
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp> & tvec3<half, defaultp>::operator-=
 	(
-		tvec3<half> const & v
+		tvec3<half, defaultp> const & v
 	)
 	{
 		this->x -= v.x;
@@ -521,7 +521,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator*=
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp> & tvec3<half, defaultp>::operator*=
 	(
 		half const & s
 	)
@@ -532,9 +532,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator*=
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp> & tvec3<half, defaultp>::operator*=
 	(
-		tvec3<half> const & v
+		tvec3<half, defaultp> const & v
 	)
 	{
 		this->x *= v.x;
@@ -543,7 +543,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator/=
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp> & tvec3<half, defaultp>::operator/=
 	(
 		half const & s
 	)
@@ -554,9 +554,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator/=
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp> & tvec3<half, defaultp>::operator/=
 	(
-		tvec3<half> const & v
+		tvec3<half, defaultp> const & v
 	)
 	{
 		this->x /= v.x;
@@ -565,7 +565,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator++()
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp> & tvec3<half, defaultp>::operator++()
 	{
 		++this->x;
 		++this->y;
@@ -573,7 +573,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<half> & tvec3<half>::operator--()
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp> & tvec3<half, defaultp>::operator--()
 	{
 		--this->x;
 		--this->y;
@@ -584,38 +584,38 @@ namespace detail
 	//////////////////////////////////////
 	// Swizzle operators
 
-	GLM_FUNC_QUALIFIER half tvec3<half>::swizzle(comp x) const
+	GLM_FUNC_QUALIFIER half tvec3<half, defaultp>::swizzle(comp x) const
 	{
 		return (*this)[x];
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<half> tvec3<half>::swizzle(comp x, comp y) const
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp> tvec3<half, defaultp>::swizzle(comp x, comp y) const
 	{
-		return tvec2<half>(
+		return tvec2<half, defaultp>(
 			(*this)[x],
 			(*this)[y]);
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<half> tvec3<half>::swizzle(comp x, comp y, comp z) const
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp> tvec3<half, defaultp>::swizzle(comp x, comp y, comp z) const
 	{
-		return tvec3<half>(
+		return tvec3<half, defaultp>(
 			(*this)[x],
 			(*this)[y],
 			(*this)[z]);
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<half> tvec3<half>::swizzle(comp x, comp y, comp z, comp w) const
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp> tvec3<half, defaultp>::swizzle(comp x, comp y, comp z, comp w) const
 	{
-		return tvec4<half>(
+		return tvec4<half, defaultp>(
 			(*this)[x],
 			(*this)[y],
 			(*this)[z],
 			(*this)[w]);
 	}
 
-	GLM_FUNC_QUALIFIER tref3<half> tvec3<half>::swizzle(comp x, comp y, comp z)
+	GLM_FUNC_QUALIFIER tref3<half, defaultp> tvec3<half, defaultp>::swizzle(comp x, comp y, comp z)
 	{
-		return tref3<half>(
+		return tref3<half, defaultp>(
 			(*this)[x],
 			(*this)[y],
 			(*this)[z]);
@@ -624,12 +624,12 @@ namespace detail
 	//////////////////////////////////////
 	// hvec4
 
-	GLM_FUNC_QUALIFIER tvec4<half>::size_type tvec4<half>::length() const
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>::size_type tvec4<half, defaultp>::length() const
 	{
 		return 4;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<half>::size_type tvec4<half>::value_size()
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>::size_type tvec4<half, defaultp>::value_size()
 	{
 		return 4;
 	}
@@ -637,22 +637,22 @@ namespace detail
 	//////////////////////////////////////
 	// Accesses
 
-	GLM_FUNC_QUALIFIER half & tvec4<half>::operator[]
+	GLM_FUNC_QUALIFIER half & tvec4<half, defaultp>::operator[]
 	(
-		tvec4<half>::size_type i
+		tvec4<half, defaultp>::size_type i
 	)
 	{
-		assert(/*i >= tvec4<half>::size_type(0) && */i < tvec4<half>::value_size());
+		assert(i < this->length());
 
 		return (&x)[i];
 	}
 
-	GLM_FUNC_QUALIFIER half const & tvec4<half>::operator[]
+	GLM_FUNC_QUALIFIER half const & tvec4<half, defaultp>::operator[]
 	(
-		tvec4<half>::size_type i
+		tvec4<half, defaultp>::size_type i
 	) const
 	{
-		assert(/*i >= tvec4<half>::size_type(0) && */i < tvec4<half>::value_size());
+		assert(i < this->length());
 
 		return (&x)[i];
 	}
@@ -660,16 +660,16 @@ namespace detail
 	//////////////////////////////////////
 	// Implicit basic constructors
 
-	GLM_FUNC_QUALIFIER tvec4<half>::tvec4() :
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>::tvec4() :
 		x(half(0)),
 		y(half(0)),
 		z(half(0)),
 		w(half(0))
 	{}
 
-	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>::tvec4
 	(
-		tvec4<half> const & v
+		tvec4<half, defaultp> const & v
 	) :
 		x(v.x),
 		y(v.y),
@@ -680,7 +680,7 @@ namespace detail
 	//////////////////////////////////////
 	// Explicit basic constructors
 
-	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>::tvec4
 	(
 		half const & s
 	) :
@@ -690,7 +690,7 @@ namespace detail
 		w(s)
 	{}
 
-	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>::tvec4
 	(
 		half const & s1,
 		half const & s2,
@@ -706,9 +706,9 @@ namespace detail
 	//////////////////////////////////////
 	// Swizzle constructors
 
-	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>::tvec4
 	(
-		tref4<half> const & r
+		tref4<half, defaultp> const & r
 	) :
 		x(r.x),
 		y(r.y),
@@ -720,7 +720,7 @@ namespace detail
 	// Convertion scalar constructors
 
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>::tvec4
 	(
 		U const & x
 	) :
@@ -731,7 +731,7 @@ namespace detail
 	{}
 
 	template <typename A, typename B, typename C, typename D>
-	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>::tvec4
 	(
 		A const & x,
 		B const & y,
@@ -748,9 +748,9 @@ namespace detail
 	// Convertion vector constructors
 
 	template <typename A, typename B, typename C>
-	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>::tvec4
 	(
-		tvec2<A> const & v,
+		tvec2<A, defaultp> const & v,
 		B const & s1,
 		C const & s2
 	) :
@@ -761,10 +761,10 @@ namespace detail
 	{}
 
 	template <typename A, typename B, typename C>
-	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>::tvec4
 	(
 		A const & s1,
-		tvec2<B> const & v,
+		tvec2<B, defaultp> const & v,
 		C const & s2
 	) :
 		x(half(s1)),
@@ -774,11 +774,11 @@ namespace detail
 	{}
 
 	template <typename A, typename B, typename C>
-	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>::tvec4
 	(
 		A const & s1,
 		B const & s2,
-		tvec2<C> const & v
+		tvec2<C, defaultp> const & v
 	) :
 		x(half(s1)),
 		y(half(s2)),
@@ -787,9 +787,9 @@ namespace detail
 	{}
 
 	template <typename A, typename B>
-	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>::tvec4
 	(
-		tvec3<A> const & v,
+		tvec3<A, defaultp> const & v,
 		B const & s
 	) :
 		x(half(v.x)),
@@ -799,10 +799,10 @@ namespace detail
 	{}
 
 	template <typename A, typename B>
-	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>::tvec4
 	(
 		A const & s,
-		tvec3<B> const & v
+		tvec3<B, defaultp> const & v
 	) :
 		x(half(s)),
 		y(half(v.x)),
@@ -811,10 +811,10 @@ namespace detail
 	{}
 
 	template <typename A, typename B>
-	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>::tvec4
 	(
-		tvec2<A> const & v1,
-		tvec2<B> const & v2
+		tvec2<A, defaultp> const & v1,
+		tvec2<B, defaultp> const & v2
 	) :
 		x(half(v1.x)),
 		y(half(v1.y)),
@@ -823,9 +823,9 @@ namespace detail
 	{}
 
 	template <typename U>
-	GLM_FUNC_QUALIFIER tvec4<half>::tvec4
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>::tvec4
 	(
-		tvec4<U> const & v
+		tvec4<U, defaultp> const & v
 	) :
 		x(half(v.x)),
 		y(half(v.y)),
@@ -836,9 +836,9 @@ namespace detail
 	//////////////////////////////////////
 	// Unary arithmetic operators
 
-	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator=
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>& tvec4<half, defaultp>::operator=
 	(
-		tvec4<half> const & v
+		tvec4<half, defaultp> const & v
 	)
 	{
 		this->x = v.x;
@@ -848,7 +848,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator+=
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>& tvec4<half, defaultp>::operator+=
 	(
 		half const & s
 	)
@@ -860,9 +860,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator+=
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>& tvec4<half, defaultp>::operator+=
 	(
-		tvec4<half> const & v
+		tvec4<half, defaultp> const & v
 	)
 	{
 		this->x += v.x;
@@ -872,7 +872,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator-=
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>& tvec4<half, defaultp>::operator-=
 	(
 		half const & s
 	)
@@ -884,9 +884,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator-=
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>& tvec4<half, defaultp>::operator-=
 	(
-		tvec4<half> const & v
+		tvec4<half, defaultp> const & v
 	)
 	{
 		this->x -= v.x;
@@ -896,7 +896,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator*=
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>& tvec4<half, defaultp>::operator*=
 	(
 		half const & s
 	)
@@ -908,9 +908,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator*=
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>& tvec4<half, defaultp>::operator*=
 	(
-		tvec4<half> const & v
+		tvec4<half, defaultp> const & v
 	)
 	{
 		this->x *= v.x;
@@ -920,7 +920,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator/=
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>& tvec4<half, defaultp>::operator/=
 	(
 		half const & s
 	)
@@ -932,9 +932,9 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator/=
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>& tvec4<half, defaultp>::operator/=
 	(
-		tvec4<half> const & v
+		tvec4<half, defaultp> const & v
 	)
 	{
 		this->x /= v.x;
@@ -944,7 +944,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator++()
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>& tvec4<half, defaultp>::operator++()
 	{
 		++this->x;
 		++this->y;
@@ -953,7 +953,7 @@ namespace detail
 		return *this;
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<half>& tvec4<half>::operator--()
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp>& tvec4<half, defaultp>::operator--()
 	{
 		--this->x;
 		--this->y;
@@ -965,38 +965,38 @@ namespace detail
 	//////////////////////////////////////
 	// Swizzle operators
 
-	GLM_FUNC_QUALIFIER half tvec4<half>::swizzle(comp x) const
+	GLM_FUNC_QUALIFIER half tvec4<half, defaultp>::swizzle(comp x) const
 	{
 		return (*this)[x];
 	}
 
-	GLM_FUNC_QUALIFIER tvec2<half> tvec4<half>::swizzle(comp x, comp y) const
+	GLM_FUNC_QUALIFIER tvec2<half, defaultp> tvec4<half, defaultp>::swizzle(comp x, comp y) const
 	{
-		return tvec2<half>(
+		return tvec2<half, defaultp>(
 			(*this)[x],
 			(*this)[y]);
 	}
 
-	GLM_FUNC_QUALIFIER tvec3<half> tvec4<half>::swizzle(comp x, comp y, comp z) const
+	GLM_FUNC_QUALIFIER tvec3<half, defaultp> tvec4<half, defaultp>::swizzle(comp x, comp y, comp z) const
 	{
-		return tvec3<half>(
+		return tvec3<half, defaultp>(
 			(*this)[x],
 			(*this)[y],
 			(*this)[z]);
 	}
 
-	GLM_FUNC_QUALIFIER tvec4<half> tvec4<half>::swizzle(comp x, comp y, comp z, comp w) const
+	GLM_FUNC_QUALIFIER tvec4<half, defaultp> tvec4<half, defaultp>::swizzle(comp x, comp y, comp z, comp w) const
 	{
-		return tvec4<half>(
+		return tvec4<half, defaultp>(
 			(*this)[x],
 			(*this)[y],
 			(*this)[z],
 			(*this)[w]);
 	}
 
-	GLM_FUNC_QUALIFIER tref4<half> tvec4<half>::swizzle(comp x, comp y, comp z, comp w)
+	GLM_FUNC_QUALIFIER tref4<half, defaultp> tvec4<half, defaultp>::swizzle(comp x, comp y, comp z, comp w)
 	{
-		return tref4<half>(
+		return tref4<half, defaultp>(
 			(*this)[x],
 			(*this)[y],
 			(*this)[z],

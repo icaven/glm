@@ -50,35 +50,35 @@ namespace glm
 	/// @addtogroup gtx_matrix_interpolation
 	/// @{
 
-	//! Get the axis and angle of the rotation from a matrix.
-    //! From GLM_GTX_matrix_interpolation extension.
-	template <typename T>
-    void axisAngle(
-        detail::tmat4x4<T> const & mat,
-        detail::tvec3<T> & axis,
-        T & angle);
+	/// Get the axis and angle of the rotation from a matrix.
+	/// From GLM_GTX_matrix_interpolation extension.
+	template <typename T, precision P>
+	void axisAngle(
+		detail::tmat4x4<T, P> const & mat,
+		detail::tvec3<T, P> & axis,
+		T & angle);
 
-    //! Build a matrix from axis and angle.
-    //! From GLM_GTX_matrix_interpolation extension.
-	template <typename T>
-    detail::tmat4x4<T> axisAngleMatrix(
-        detail::tvec3<T> const & axis,
-        T const angle);
+	/// Build a matrix from axis and angle.
+	/// From GLM_GTX_matrix_interpolation extension.
+	template <typename T, precision P>
+	detail::tmat4x4<T, P> axisAngleMatrix(
+		detail::tvec3<T, P> const & axis,
+		T const angle);
 
-	//! Extracts the rotation part of a matrix.
-    //! From GLM_GTX_matrix_interpolation extension.
-	template <typename T>
-	detail::tmat4x4<T> extractMatrixRotation(
-		detail::tmat4x4<T> const & mat);
+	/// Extracts the rotation part of a matrix.
+	/// From GLM_GTX_matrix_interpolation extension.
+	template <typename T, precision P>
+	detail::tmat4x4<T, P> extractMatrixRotation(
+		detail::tmat4x4<T, P> const & mat);
 
-	//! Build a interpolation of 4 * 4 matrixes.
-    //! From GLM_GTX_matrix_interpolation extension.
-    //! Warning! works only with rotation and/or translation matrixes, scale will generate unexpected results.
-	template <typename T>
-    detail::tmat4x4<T> interpolate(
-        detail::tmat4x4<T> const & m1,
-        detail::tmat4x4<T> const & m2,
-        T const delta);
+	/// Build a interpolation of 4 * 4 matrixes.
+	/// From GLM_GTX_matrix_interpolation extension.
+	/// Warning! works only with rotation and/or translation matrixes, scale will generate unexpected results.
+	template <typename T, precision P>
+	detail::tmat4x4<T, P> interpolate(
+		detail::tmat4x4<T, P> const & m1,
+		detail::tmat4x4<T, P> const & m2,
+		T const delta);
 
 	/// @}
 }//namespace glm
