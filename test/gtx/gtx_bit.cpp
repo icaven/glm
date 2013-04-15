@@ -602,7 +602,5 @@ int main()
 	Error += ::extractField::test();
 	Error += ::bitRevert::test();
 
-	while(true);
-
 	return Error;
 }

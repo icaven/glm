@@ -121,14 +121,15 @@ namespace detail
 	/// High half-precision floating-point numbers.
 	typedef detail::half		highp_half;
 	
-#if(!defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
-	typedef mediump_half		half_t;
-#elif(defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
+#if(defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
 	typedef highp_half			half_t;
 #elif(!defined(GLM_PRECISION_HIGHP_HALF) && defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
 	typedef mediump_half		half_t;
 #elif(!defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && defined(GLM_PRECISION_LOWP_HALF))
 	typedef lowp_half			half_t;
+#elif(!defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
+	/// Default half-precision floating-point numbers.
+	typedef highp_half			half_t;
 #else
 #	error "GLM error: Multiple default precisions requested for half-precision floating-point types"
 #endif

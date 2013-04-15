@@ -210,8 +210,8 @@ int test_vec2_size()
 	
 	Error += sizeof(glm::vec2) == sizeof(glm::mediump_vec2) ? 0 : 1;
 	Error += 8 == sizeof(glm::mediump_vec2) ? 0 : 1;
-	Error += sizeof(glm::dvec2) == sizeof(glm::highp_vec2) ? 0 : 1;
-	Error += 16 == sizeof(glm::highp_vec2) ? 0 : 1;
+	Error += sizeof(glm::dvec2) == sizeof(glm::highp_dvec2) ? 0 : 1;
+	Error += 16 == sizeof(glm::highp_dvec2) ? 0 : 1;
 	Error += glm::vec2().length() == 2 ? 0 : 1;
 	Error += glm::dvec2().length() == 2 ? 0 : 1;
 	
@@ -223,7 +223,7 @@ int main()
 	int Error = 0;
 
 	Error += test_vec2_size();
-    Error += test_vec2_ctor();
+	Error += test_vec2_ctor();
 	Error += test_vec2_operators();
 
 	return Error;

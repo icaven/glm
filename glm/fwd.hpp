@@ -47,40 +47,107 @@ namespace detail
 	template <typename T, precision P> struct tquat;
 }//namespace detail
 	
-	/// Quaternion of floating-point numbers.
+	/// Quaternion of low half-precision floating-point numbers.
 	///
 	/// @see gtc_quaternion
-	typedef detail::tquat<float, mediump>			quat;
+	typedef detail::tquat<half, lowp>		lowp_hquat;
 	
-	/// Quaternion of half-precision floating-point numbers.
+	/// Quaternion of medium half-precision floating-point numbers.
 	///
 	/// @see gtc_quaternion
-	typedef detail::tquat<detail::half, mediump>	hquat;
+	typedef detail::tquat<half, mediump>	mediump_hquat;
+
+	/// Quaternion of high half-precision floating-point numbers.
+	///
+	/// @see gtc_quaternion
+	typedef detail::tquat<half, highp>		highp_hquat;
+
+#if(defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
+	typedef highp_hquat			hquat;
+#elif(!defined(GLM_PRECISION_HIGHP_HALF) && defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
+	typedef mediump_hquat		hquat;
+#elif(!defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && defined(GLM_PRECISION_LOWP_HALF))
+	typedef lowp_hquat			hquat;
+#elif(!defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
+	/// Default half-precision floating-point numbers.
+	typedef highp_hquat			hquat;
+#endif
 	
-	/// Quaternion of single-precision floating-point numbers.
-	///
-	/// @see gtc_quaternion
-	typedef detail::tquat<float, mediump>			fquat;
 	
-	/// Quaternion of double-precision floating-point numbers.
+	/// Quaternion of low single-precision floating-point numbers.
 	///
 	/// @see gtc_quaternion
-	typedef detail::tquat<double, mediump>			dquat;
+	typedef detail::tquat<float, lowp>		lowp_quat;
 	
-	/// Quaternion of low precision floating-point numbers.
+	/// Quaternion of medium single-precision floating-point numbers.
 	///
 	/// @see gtc_quaternion
-	typedef detail::tquat<float, lowp>				lowp_quat;
+	typedef detail::tquat<float, mediump>	mediump_quat;
 	
-	/// Quaternion of medium precision floating-point numbers.
+	/// Quaternion of high single-precision floating-point numbers.
 	///
 	/// @see gtc_quaternion
-	typedef detail::tquat<float, mediump>			mediump_quat;
+	typedef detail::tquat<float, highp>		highp_quat;
 	
-	/// Quaternion of high precision floating-point numbers.
+#if(defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
+	typedef highp_quat			quat;
+#elif(!defined(GLM_PRECISION_HIGHP_FLOAT) && defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
+	typedef mediump_quat		quat;
+#elif(!defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && defined(GLM_PRECISION_LOWP_FLOAT))
+	typedef lowp_quat			quat;
+#elif(!defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
+	/// Quaternion of default single-precision floating-point numbers.
+	typedef highp_quat			quat;
+#endif
+	
+	/// Quaternion of low single-precision floating-point numbers.
 	///
 	/// @see gtc_quaternion
-	typedef detail::tquat<float, highp>				highp_quat;
+	typedef lowp_quat			lowp_fquat;
+	
+	/// Quaternion of medium single-precision floating-point numbers.
+	///
+	/// @see gtc_quaternion
+	typedef mediump_quat		mediump_fquat;
+	
+	/// Quaternion of high single-precision floating-point numbers.
+	///
+	/// @see gtc_quaternion
+	typedef highp_quat			highp_fquat;
+	
+	/// Quaternion of default single-precision floating-point numbers.
+	///
+	/// @see gtc_quaternion
+	typedef quat				fquat;
+	
+
+	/// Quaternion of low double-precision floating-point numbers.
+	///
+	/// @see gtc_quaternion
+	typedef detail::tquat<double, lowp>		lowp_dquat;
+	
+	/// Quaternion of medium double-precision floating-point numbers.
+	///
+	/// @see gtc_quaternion
+	typedef detail::tquat<double, mediump>	mediump_dquat;
+	
+	/// Quaternion of high double-precision floating-point numbers.
+	///
+	/// @see gtc_quaternion
+	typedef detail::tquat<double, highp>	highp_dquat;
+	
+#if(defined(GLM_PRECISION_HIGHP_DOUBLE) && !defined(GLM_PRECISION_MEDIUMP_DOUBLE) && !defined(GLM_PRECISION_LOWP_DOUBLE))
+	typedef highp_dquat			dquat;
+#elif(!defined(GLM_PRECISION_HIGHP_DOUBLE) && defined(GLM_PRECISION_MEDIUMP_DOUBLE) && !defined(GLM_PRECISION_LOWP_DOUBLE))
+	typedef mediump_dquat		dquat;
+#elif(!defined(GLM_PRECISION_HIGHP_DOUBLE) && !defined(GLM_PRECISION_MEDIUMP_DOUBLE) && defined(GLM_PRECISION_LOWP_DOUBLE))
+	typedef lowp_dquat			dquat;
+#elif(!defined(GLM_PRECISION_HIGHP_DOUBLE) && !defined(GLM_PRECISION_MEDIUMP_DOUBLE) && !defined(GLM_PRECISION_LOWP_DOUBLE))
+	/// Quaternion of default double-precision floating-point numbers.
+	///
+	/// @see gtc_quaternion
+	typedef highp_dquat			dquat;
+#endif
 
 }//namespace glm
 

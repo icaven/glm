@@ -48,8 +48,8 @@ namespace glm{
 namespace detail
 {
 #if(GLM_COMPONENT == GLM_COMPONENT_CXX98)
-	template <>
-	struct tvec2<half, defaultp>
+	template <precision P>
+	struct tvec2<half, P>
 	{
 		enum ctor{null};
 		typedef half value_type;
@@ -58,8 +58,8 @@ namespace detail
 		GLM_FUNC_DECL size_type length() const;
 		static GLM_FUNC_DECL size_type value_size();
 
-		typedef tvec2<half, defaultp> type;
-		typedef tvec2<bool, defaultp> bool_type;
+		typedef tvec2<half, P> type;
+		typedef tvec2<bool, P> bool_type;
 
 		//////////////////////////////////////
 		// Data
@@ -76,7 +76,7 @@ namespace detail
 		// Implicit basic constructors
 
 		tvec2();
-		tvec2(tvec2<half, defaultp> const & v);
+		tvec2(tvec2<half, P> const & v);
 
 		//////////////////////////////////////
 		// Explicit basic constructors
@@ -91,7 +91,7 @@ namespace detail
 		//////////////////////////////////////
 		// Swizzle constructors
 
-		tvec2(tref2<half, defaultp> const & r);
+		tvec2(tref2<half, P> const & r);
 
 		//////////////////////////////////////
 		// Convertion scalar constructors
@@ -108,42 +108,42 @@ namespace detail
 
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U> 
-		explicit tvec2(tvec2<U, defaultp> const & v);
+		explicit tvec2(tvec2<U, P> const & v);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U> 
-		explicit tvec2(tvec3<U, defaultp> const & v);
+		explicit tvec2(tvec3<U, P> const & v);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U> 
-		explicit tvec2(tvec4<U, defaultp> const & v);
+		explicit tvec2(tvec4<U, P> const & v);
 
 		//////////////////////////////////////
 		// Unary arithmetic operators
 
-		tvec2<half, defaultp>& operator= (tvec2<half, defaultp> const & v);
+		tvec2<half, P>& operator= (tvec2<half, P> const & v);
 
-		tvec2<half, defaultp>& operator+=(half const & s);
-		tvec2<half, defaultp>& operator+=(tvec2<half, defaultp> const & v);
-		tvec2<half, defaultp>& operator-=(half const & s);
-		tvec2<half, defaultp>& operator-=(tvec2<half, defaultp> const & v);
-		tvec2<half, defaultp>& operator*=(half const & s);
-		tvec2<half, defaultp>& operator*=(tvec2<half, defaultp> const & v);
-		tvec2<half, defaultp>& operator/=(half const & s);
-		tvec2<half, defaultp>& operator/=(tvec2<half, defaultp> const & v);
-		tvec2<half, defaultp>& operator++();
-		tvec2<half, defaultp>& operator--();
+		tvec2<half, P>& operator+=(half const & s);
+		tvec2<half, P>& operator+=(tvec2<half, P> const & v);
+		tvec2<half, P>& operator-=(half const & s);
+		tvec2<half, P>& operator-=(tvec2<half, P> const & v);
+		tvec2<half, P>& operator*=(half const & s);
+		tvec2<half, P>& operator*=(tvec2<half, P> const & v);
+		tvec2<half, P>& operator/=(half const & s);
+		tvec2<half, P>& operator/=(tvec2<half, P> const & v);
+		tvec2<half, P>& operator++();
+		tvec2<half, P>& operator--();
 
 		//////////////////////////////////////
 		// Swizzle operators
 
 		half swizzle(comp X) const;
-		tvec2<half, defaultp> swizzle(comp X, comp Y) const;
-		tvec3<half, defaultp> swizzle(comp X, comp Y, comp Z) const;
-		tvec4<half, defaultp> swizzle(comp X, comp Y, comp Z, comp W) const;
-		tref2<half, defaultp> swizzle(comp X, comp Y);
+		tvec2<half, P> swizzle(comp X, comp Y) const;
+		tvec3<half, P> swizzle(comp X, comp Y, comp Z) const;
+		tvec4<half, P> swizzle(comp X, comp Y, comp Z, comp W) const;
+		tref2<half, P> swizzle(comp X, comp Y);
 	};
 
-	template <>
-	struct tvec3<half, defaultp>
+	template <precision P>
+	struct tvec3<half, P>
 	{
 		enum ctor{null};
 		typedef half value_type;
@@ -151,8 +151,8 @@ namespace detail
 		GLM_FUNC_DECL size_type length() const;
 		static GLM_FUNC_DECL size_type value_size();
 
-		typedef tvec3<half, defaultp> type;
-		typedef tvec3<bool, defaultp> bool_type;
+		typedef tvec3<half, P> type;
+		typedef tvec3<bool, P> bool_type;
 
 		//////////////////////////////////////
 		// Data
@@ -169,7 +169,7 @@ namespace detail
 		// Implicit basic constructors
 
 		tvec3();
-		tvec3(tvec3<half, defaultp> const & v);
+		tvec3(tvec3<half, P> const & v);
 
 		//////////////////////////////////////
 		// Explicit basic constructors
@@ -185,7 +185,7 @@ namespace detail
 		//////////////////////////////////////
 		// Swizzle constructors
 
-		tvec3(tref3<half, defaultp> const & r);
+		tvec3(tref3<half, P> const & r);
 
 		//////////////////////////////////////
 		// Convertion scalar constructors
@@ -202,45 +202,45 @@ namespace detail
 
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename A, typename B> 
-		explicit tvec3(tvec2<A, defaultp> const & v, B const & s);
+		explicit tvec3(tvec2<A, P> const & v, B const & s);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename A, typename B> 
-		explicit tvec3(A const & s, tvec2<B, defaultp> const & v);
+		explicit tvec3(A const & s, tvec2<B, P> const & v);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U> 
-		explicit tvec3(tvec3<U, defaultp> const & v);
+		explicit tvec3(tvec3<U, P> const & v);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U> 
-		explicit tvec3(tvec4<U, defaultp> const & v);
+		explicit tvec3(tvec4<U, P> const & v);
 
 		//////////////////////////////////////
 		// Unary arithmetic operators
 
-		tvec3<half, defaultp>& operator= (tvec3<half, defaultp> const & v);
+		tvec3<half, P>& operator= (tvec3<half, P> const & v);
 
-		tvec3<half, defaultp>& operator+=(half const & s);
-		tvec3<half, defaultp>& operator+=(tvec3<half, defaultp> const & v);
-		tvec3<half, defaultp>& operator-=(half const & s);
-		tvec3<half, defaultp>& operator-=(tvec3<half, defaultp> const & v);
-		tvec3<half, defaultp>& operator*=(half const & s);
-		tvec3<half, defaultp>& operator*=(tvec3<half, defaultp> const & v);
-		tvec3<half, defaultp>& operator/=(half const & s);
-		tvec3<half, defaultp>& operator/=(tvec3<half, defaultp> const & v);
-		tvec3<half, defaultp>& operator++();
-		tvec3<half, defaultp>& operator--();
+		tvec3<half, P>& operator+=(half const & s);
+		tvec3<half, P>& operator+=(tvec3<half, P> const & v);
+		tvec3<half, P>& operator-=(half const & s);
+		tvec3<half, P>& operator-=(tvec3<half, P> const & v);
+		tvec3<half, P>& operator*=(half const & s);
+		tvec3<half, P>& operator*=(tvec3<half, P> const & v);
+		tvec3<half, P>& operator/=(half const & s);
+		tvec3<half, P>& operator/=(tvec3<half, P> const & v);
+		tvec3<half, P>& operator++();
+		tvec3<half, P>& operator--();
 
 		//////////////////////////////////////
 		// Swizzle operators
 
 		half swizzle(comp X) const;
-		tvec2<half, defaultp> swizzle(comp X, comp Y) const;
-		tvec3<half, defaultp> swizzle(comp X, comp Y, comp Z) const;
-		tvec4<half, defaultp> swizzle(comp X, comp Y, comp Z, comp W) const;
-		tref3<half, defaultp> swizzle(comp X, comp Y, comp Z);
+		tvec2<half, P> swizzle(comp X, comp Y) const;
+		tvec3<half, P> swizzle(comp X, comp Y, comp Z) const;
+		tvec4<half, P> swizzle(comp X, comp Y, comp Z, comp W) const;
+		tref3<half, P> swizzle(comp X, comp Y, comp Z);
 	};
 
-	template <>
-	struct tvec4<half, defaultp>
+	template <precision P>
+	struct tvec4<half, P>
 	{
 		enum ctor{null};
 		typedef half value_type;
@@ -248,8 +248,8 @@ namespace detail
 		GLM_FUNC_DECL size_type length() const;
 		static GLM_FUNC_DECL size_type value_size();
 
-		typedef tvec4<half, defaultp> type;
-		typedef tvec4<bool, defaultp> bool_type;
+		typedef tvec4<half, P> type;
+		typedef tvec4<bool, P> bool_type;
 
 		//////////////////////////////////////
 		// Data
@@ -266,7 +266,7 @@ namespace detail
 		// Implicit basic constructors
 
 		tvec4();
-		tvec4(tvec4<half, defaultp> const & v);
+		tvec4(tvec4<half, P> const & v);
 
 		//////////////////////////////////////
 		// Explicit basic constructors
@@ -283,7 +283,7 @@ namespace detail
 		//////////////////////////////////////
 		// Swizzle constructors
 
-		tvec4(tref4<half, defaultp> const & r);
+		tvec4(tref4<half, P> const & r);
 
 		//////////////////////////////////////
 		// Convertion scalar constructors
@@ -300,50 +300,50 @@ namespace detail
 
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename A, typename B, typename C> 
-		explicit tvec4(tvec2<A, defaultp> const & v, B const & s1, C const & s2);
+		explicit tvec4(tvec2<A, P> const & v, B const & s1, C const & s2);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename A, typename B, typename C> 
-		explicit tvec4(A const & s1, tvec2<B, defaultp> const & v, C const & s2);
+		explicit tvec4(A const & s1, tvec2<B, P> const & v, C const & s2);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename A, typename B, typename C> 
-		explicit tvec4(A const & s1, B const & s2, tvec2<C, defaultp> const & v);
+		explicit tvec4(A const & s1, B const & s2, tvec2<C, P> const & v);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename A, typename B> 
-		explicit tvec4(tvec3<A, defaultp> const & v, B const & s);
+		explicit tvec4(tvec3<A, P> const & v, B const & s);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename A, typename B> 
-		explicit tvec4(A const & s, tvec3<B, defaultp> const & v);
+		explicit tvec4(A const & s, tvec3<B, P> const & v);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename A, typename B> 
-		explicit tvec4(tvec2<A, defaultp> const & v1, tvec2<B, defaultp> const & v2);
+		explicit tvec4(tvec2<A, P> const & v1, tvec2<B, P> const & v2);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U> 
-		explicit tvec4(tvec4<U, defaultp> const & v);
+		explicit tvec4(tvec4<U, P> const & v);
 
 		//////////////////////////////////////
 		// Unary arithmetic operators
 
-		tvec4<half, defaultp>& operator= (tvec4<half, defaultp> const & v);
+		tvec4<half, P>& operator= (tvec4<half, P> const & v);
 
-		tvec4<half, defaultp>& operator+=(half const & s);
-		tvec4<half, defaultp>& operator+=(tvec4<half, defaultp> const & v);
-		tvec4<half, defaultp>& operator-=(half const & s);
-		tvec4<half, defaultp>& operator-=(tvec4<half, defaultp> const & v);
-		tvec4<half, defaultp>& operator*=(half const & s);
-		tvec4<half, defaultp>& operator*=(tvec4<half, defaultp> const & v);
-		tvec4<half, defaultp>& operator/=(half const & s);
-		tvec4<half, defaultp>& operator/=(tvec4<half, defaultp> const & v);
-		tvec4<half, defaultp>& operator++();
-		tvec4<half, defaultp>& operator--();
+		tvec4<half, P>& operator+=(half const & s);
+		tvec4<half, P>& operator+=(tvec4<half, P> const & v);
+		tvec4<half, P>& operator-=(half const & s);
+		tvec4<half, P>& operator-=(tvec4<half, P> const & v);
+		tvec4<half, P>& operator*=(half const & s);
+		tvec4<half, P>& operator*=(tvec4<half, P> const & v);
+		tvec4<half, P>& operator/=(half const & s);
+		tvec4<half, P>& operator/=(tvec4<half, P> const & v);
+		tvec4<half, P>& operator++();
+		tvec4<half, P>& operator--();
 
 		//////////////////////////////////////
 		// Swizzle operators
 
 		half swizzle(comp X) const;
-		tvec2<half, defaultp> swizzle(comp X, comp Y) const;
-		tvec3<half, defaultp> swizzle(comp X, comp Y, comp Z) const;
-		tvec4<half, defaultp> swizzle(comp X, comp Y, comp Z, comp W) const;
-		tref4<half, defaultp> swizzle(comp X, comp Y, comp Z, comp W);
+		tvec2<half, P> swizzle(comp X, comp Y) const;
+		tvec3<half, P> swizzle(comp X, comp Y, comp Z) const;
+		tvec4<half, P> swizzle(comp X, comp Y, comp Z, comp W) const;
+		tref4<half, P> swizzle(comp X, comp Y, comp Z, comp W);
 	};
 #endif//(GLM_COMPONENT == GLM_COMPONENT_CXX98)
 }
@@ -548,123 +548,105 @@ namespace detail
 	
 	/// Type for default half-precision floating-point numbers.
 	/// @see gtc_half_float
-	typedef half_t					half;
-	
-#if(!defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
+	typedef half_t				half;
+
+
+#if(!defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && defined(GLM_PRECISION_LOWP_HALF))
+	typedef lowp_hvec2			hvec2;
+	typedef lowp_hvec3			hvec3;
+	typedef lowp_hvec4			hvec4;
+	typedef lowp_hmat2			hmat2;
+	typedef lowp_hmat3			hmat3;
+	typedef lowp_hmat4			hmat4;
+	typedef lowp_hmat2x2		hmat2x2;
+	typedef lowp_hmat2x3		hmat2x3;
+	typedef lowp_hmat2x4		hmat2x4;
+	typedef lowp_hmat3x2		hmat3x2;
+	typedef lowp_hmat3x3		hmat3x3;
+	typedef lowp_hmat3x4		hmat3x4;
+	typedef lowp_hmat4x2		hmat4x2;
+	typedef lowp_hmat4x3		hmat4x3;
+	typedef lowp_hmat4x4		hmat4x4;
+#elif(!defined(GLM_PRECISION_HIGHP_HALF) && defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
+	typedef mediump_hvec2		hvec2;
+	typedef mediump_hvec3		hvec3;
+	typedef mediump_hvec4		hvec4;
+	typedef mediump_hmat2		hmat2;
+	typedef mediump_hmat3		hmat3;
+	typedef mediump_hmat4		hmat4;
+	typedef mediump_hmat2x2		hmat2x2;
+	typedef mediump_hmat2x3		hmat2x3;
+	typedef mediump_hmat2x4		hmat2x4;
+	typedef mediump_hmat3x2		hmat3x2;
+	typedef mediump_hmat3x3		hmat3x3;
+	typedef mediump_hmat3x4		hmat3x4;
+	typedef mediump_hmat4x2		hmat4x2;
+	typedef mediump_hmat4x3		hmat4x3;
+	typedef mediump_hmat4x4		hmat4x4;
+#else //(!defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
 	//////////////////////////////////////////////
 	// Default half precision floating-point numbers.
 	
 	/// Vector of 2 default half-precision floating-point numbers.
 	/// @see gtc_half_float
-	typedef mediump_hvec2		hvec2;
+	typedef highp_hvec2			hvec2;
 	
 	/// Vector of 3 default half-precision floating-point numbers.
 	/// @see gtc_half_float
-	typedef mediump_hvec3		hvec3;
+	typedef highp_hvec3			hvec3;
 	
 	/// Vector of 4 default half-precision floating-point numbers.
 	/// @see gtc_half_float
-	typedef mediump_hvec4		hvec4;
+	typedef highp_hvec4			hvec4;
 	
 	/// 2 * 2 matrix of default half-precision floating-point numbers.
 	/// @see gtc_half_float
-	typedef mediump_hmat2x2		hmat2;
+	typedef highp_hmat2x2		hmat2;
 	
 	/// 3 * 3 matrix of default half-precision floating-point numbers.
 	/// @see gtc_half_float
-	typedef mediump_hmat3x3		hmat3;
+	typedef highp_hmat3x3		hmat3;
 	
 	/// 4 * 4 matrix of default half-precision floating-point numbers.
 	/// @see gtc_half_float
-	typedef mediump_hmat4x4		hmat4;
+	typedef highp_hmat4x4		hmat4;
 	
 	/// 2 * 2 matrix of default half-precision floating-point numbers.
 	/// @see gtc_half_float
-	typedef mediump_hmat2x2		hmat2x2;
+	typedef highp_hmat2x2		hmat2x2;
 	
 	/// 2 * 3 matrix of default half-precision floating-point numbers.
 	/// @see gtc_half_float
-	typedef mediump_hmat2x3		hmat2x3;
+	typedef highp_hmat2x3		hmat2x3;
 	
 	/// 2 * 4 matrix of default half-precision floating-point numbers.
 	/// @see gtc_half_float
-	typedef mediump_hmat2x4		hmat2x4;
+	typedef highp_hmat2x4		hmat2x4;
 	
 	/// 3 * 2 matrix of default half-precision floating-point numbers.
 	/// @see gtc_half_float
-	typedef mediump_hmat3x2		hmat3x2;
+	typedef highp_hmat3x2		hmat3x2;
 	
 	/// 3 * 3 matrix of default half-precision floating-point numbers.
 	/// @see gtc_half_float
-	typedef mediump_hmat3x3		hmat3x3;
+	typedef highp_hmat3x3		hmat3x3;
 	
 	/// 3 * 4 matrix of default half-precision floating-point numbers.
 	/// @see gtc_half_float
-	typedef mediump_hmat3x4		hmat3x4;
+	typedef highp_hmat3x4		hmat3x4;
 	
 	/// 4 * 2 matrix of default half-precision floating-point numbers.
 	/// @see gtc_half_float
-	typedef mediump_hmat4x2		hmat4x2;
+	typedef highp_hmat4x2		hmat4x2;
 	
 	/// 4 * 3 matrix of default half-precision floating-point numbers.
 	/// @see gtc_half_float
-	typedef mediump_hmat4x3		hmat4x3;
+	typedef highp_hmat4x3		hmat4x3;
 	
 	/// 4 * 4 matrix of default half-precision floating-point numbers.
 	/// @see gtc_half_float
-	typedef mediump_hmat4x4		hmat4x4;
-	
-#elif(defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
-	typedef detail::tvec2<half_t, highp>		hvec2;
-	typedef detail::tvec3<half_t, highp>		hvec3;
-	typedef detail::tvec4<half_t, highp>		hvec4;
-	typedef detail::tmat2x2<half_t, highp>		hmat2;
-	typedef detail::tmat3x3<half_t, highp>		hmat3;
-	typedef detail::tmat4x4<half_t, highp>		hmat4;
-	typedef detail::tmat2x2<half_t, highp>		hmat2x2;
-	typedef detail::tmat2x3<half_t, highp>		hmat2x3;
-	typedef detail::tmat2x4<half_t, highp>		hmat2x4;
-	typedef detail::tmat3x2<half_t, highp>		hmat3x2;
-	typedef detail::tmat3x3<half_t, highp>		hmat3x3;
-	typedef detail::tmat3x4<half_t, highp>		hmat3x4;
-	typedef detail::tmat4x2<half_t, highp>		hmat4x2;
-	typedef detail::tmat4x3<half_t, highp>		hmat4x3;
-	typedef detail::tmat4x4<half_t, highp>		hmat4x4;
-	
-#elif(!defined(GLM_PRECISION_HIGHP_HALF) && defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
-	typedef detail::tvec2<half_t, mediump>		hvec2;
-	typedef detail::tvec3<half_t, mediump>		hvec3;
-	typedef detail::tvec4<half_t, mediump>		hvec4;
-	typedef detail::tmat2x2<half_t, mediump>	hmat2;
-	typedef detail::tmat3x3<half_t, mediump>	hmat3;
-	typedef detail::tmat4x4<half_t, mediump>	hmat4;
-	typedef detail::tmat2x2<half_t, mediump>	hmat2x2;
-	typedef detail::tmat2x3<half_t, mediump>	hmat2x3;
-	typedef detail::tmat2x4<half_t, mediump>	hmat2x4;
-	typedef detail::tmat3x2<half_t, mediump>	hmat3x2;
-	typedef detail::tmat3x3<half_t, mediump>	hmat3x3;
-	typedef detail::tmat3x4<half_t, mediump>	hmat3x4;
-	typedef detail::tmat4x2<half_t, mediump>	hmat4x2;
-	typedef detail::tmat4x3<half_t, mediump>	hmat4x3;
-	typedef detail::tmat4x4<half_t, mediump>	hmat4x4;
-	
-#elif(!defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && defined(GLM_PRECISION_LOWP_HALF))	
-	typedef detail::tvec2<half_t, lowp>			hvec2;
-	typedef detail::tvec3<half_t, lowp>			hvec3;
-	typedef detail::tvec4<half_t, lowp>			hvec4;
-	typedef detail::tmat2x2<half_t, lowp>		hmat2;
-	typedef detail::tmat3x3<half_t, lowp>		hmat3;
-	typedef detail::tmat4x4<half_t, lowp>		hmat4;
-	typedef detail::tmat2x2<half_t, lowp>		hmat2x2;
-	typedef detail::tmat2x3<half_t, lowp>		hmat2x3;
-	typedef detail::tmat2x4<half_t, lowp>		hmat2x4;
-	typedef detail::tmat3x2<half_t, lowp>		hmat3x2;
-	typedef detail::tmat3x3<half_t, lowp>		hmat3x3;
-	typedef detail::tmat3x4<half_t, lowp>		hmat3x4;
-	typedef detail::tmat4x2<half_t, lowp>		hmat4x2;
-	typedef detail::tmat4x3<half_t, lowp>		hmat4x3;
-	typedef detail::tmat4x4<half_t, lowp>		hmat4x4;
-#endif
+	typedef highp_hmat4x4		hmat4x4;
+#endif//GLM_PRECISION
 	
 	/// Returns the absolute value of a half-precision floating-point value
 	/// @see gtc_half_float

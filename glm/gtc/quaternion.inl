@@ -754,18 +754,6 @@ namespace detail
 		return detail::tvec3<T, P>(x.x * tmp2, x.y * tmp2, x.z * tmp2);
 	}
 
-	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tquat<T, defaultp> angleAxis
-	(
-		T const & angle,
-		T const & x,
-		T const & y,
-		T const & z
-	)
-	{
-		return angleAxis(angle, detail::tvec3<T, defaultp>(x, y, z));
-	}
-
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tquat<T, P> angleAxis
 	(

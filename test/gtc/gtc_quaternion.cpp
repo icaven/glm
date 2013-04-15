@@ -200,7 +200,7 @@ int test_quat_slerp()
 
 	// Testing almost equal quaternions (this test should pass through the linear interpolation)
 	// Must be 0 0.00X 0 0.99999
-	glm::quat almostid = glm::slerp(id, glm::angleAxis(0.1f, 0.0f, 1.0f, 0.0f), 0.5f);
+	glm::quat almostid = glm::slerp(id, glm::angleAxis(0.1f, glm::vec3(0.0f, 1.0f, 0.0f)), 0.5f);
 
 	return Error;
 }

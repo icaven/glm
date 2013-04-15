@@ -46,8 +46,8 @@ int test_half_precision_vec()
 	Error += sizeof(glm::hvec2) == 4 ? 0 : 1;
 	Error += sizeof(glm::hvec3) == 6 ? 0 : 1;
 	Error += sizeof(glm::hvec4) == 8 ? 0 : 1;
-    
-    return Error;
+	
+	return Error;
 }
 
 int test_half_precision_mat()
@@ -68,7 +68,7 @@ int test_half_precision_mat()
 	Error += sizeof(glm::hmat4x3) == 24 ? 0 : 1;
 	Error += sizeof(glm::hmat4x4) == 32 ? 0 : 1;
 
-    return Error;
+	return Error;
 }
 
 int test_half_ctor_mat2x2()
@@ -103,7 +103,7 @@ int test_half_ctor_mat2x2()
 		Error += A == C ? 0 : 1;
 	}
 
-    return Error;
+	return Error;
 }
 
 int test_half_ctor_mat2x3()
@@ -208,7 +208,7 @@ int test_half_ctor_mat3x2()
 		Error += A == C ? 0 : 1;
 	}
 	
-    return Error;
+	return Error;
 }
 
 int test_half_ctor_mat3x3()
@@ -243,7 +243,7 @@ int test_half_ctor_mat3x3()
 		Error += A == C ? 0 : 1;
 	}
 	
-    return Error;
+	return Error;
 }
 
 int test_half_ctor_mat3x4()
@@ -278,7 +278,7 @@ int test_half_ctor_mat3x4()
 		Error += A == C ? 0 : 1;
 	}
 	
-    return Error;
+	return Error;
 }
 
 int test_half_ctor_mat4x2()
@@ -527,10 +527,69 @@ int test_hvec4_size()
 	return Error;
 }
 
+static int test_hvec_precision()
+{
+	int Error = 0;
+	
+	Error += sizeof(glm::hvec2) == sizeof(glm::highp_hvec2) ? 0 : 1;
+	Error += sizeof(glm::hvec3) == sizeof(glm::highp_hvec3) ? 0 : 1;
+	Error += sizeof(glm::hvec4) == sizeof(glm::highp_hvec4) ? 0 : 1;
+	
+	return Error;
+}
+
+static int test_hmat_precision()
+{
+	int Error = 0;
+	
+	Error += sizeof(glm::hmat2) == sizeof(glm::lowp_hmat2) ? 0 : 1;
+	Error += sizeof(glm::hmat3) == sizeof(glm::lowp_hmat3) ? 0 : 1;
+	Error += sizeof(glm::hmat4) == sizeof(glm::lowp_hmat4) ? 0 : 1;
+	Error += sizeof(glm::hmat2) == sizeof(glm::mediump_hmat2) ? 0 : 1;
+	Error += sizeof(glm::hmat3) == sizeof(glm::mediump_hmat3) ? 0 : 1;
+	Error += sizeof(glm::hmat4) == sizeof(glm::mediump_hmat4) ? 0 : 1;
+	Error += sizeof(glm::hmat2) == sizeof(glm::highp_hmat2) ? 0 : 1;
+	Error += sizeof(glm::hmat3) == sizeof(glm::highp_hmat3) ? 0 : 1;
+	Error += sizeof(glm::hmat4) == sizeof(glm::highp_hmat4) ? 0 : 1;
+
+	Error += sizeof(glm::hmat2x2) == sizeof(glm::lowp_hmat2x2) ? 0 : 1;
+	Error += sizeof(glm::hmat3x2) == sizeof(glm::lowp_hmat3x2) ? 0 : 1;
+	Error += sizeof(glm::hmat4x2) == sizeof(glm::lowp_hmat4x2) ? 0 : 1;
+	Error += sizeof(glm::hmat2x2) == sizeof(glm::mediump_hmat2x2) ? 0 : 1;
+	Error += sizeof(glm::hmat3x2) == sizeof(glm::mediump_hmat3x2) ? 0 : 1;
+	Error += sizeof(glm::hmat4x2) == sizeof(glm::mediump_hmat4x2) ? 0 : 1;
+	Error += sizeof(glm::hmat2x2) == sizeof(glm::highp_hmat2x2) ? 0 : 1;
+	Error += sizeof(glm::hmat3x2) == sizeof(glm::highp_hmat3x2) ? 0 : 1;
+	Error += sizeof(glm::hmat4x2) == sizeof(glm::highp_hmat4x2) ? 0 : 1;
+
+	Error += sizeof(glm::hmat2x3) == sizeof(glm::lowp_hmat2x3) ? 0 : 1;
+	Error += sizeof(glm::hmat3x3) == sizeof(glm::lowp_hmat3x3) ? 0 : 1;
+	Error += sizeof(glm::hmat4x3) == sizeof(glm::lowp_hmat4x3) ? 0 : 1;
+	Error += sizeof(glm::hmat2x3) == sizeof(glm::mediump_hmat2x3) ? 0 : 1;
+	Error += sizeof(glm::hmat3x3) == sizeof(glm::mediump_hmat3x3) ? 0 : 1;
+	Error += sizeof(glm::hmat4x3) == sizeof(glm::mediump_hmat4x3) ? 0 : 1;
+	Error += sizeof(glm::hmat2x3) == sizeof(glm::highp_hmat2x3) ? 0 : 1;
+	Error += sizeof(glm::hmat3x3) == sizeof(glm::highp_hmat3x3) ? 0 : 1;
+	Error += sizeof(glm::hmat4x3) == sizeof(glm::highp_hmat4x3) ? 0 : 1;
+	
+	Error += sizeof(glm::hmat2x4) == sizeof(glm::lowp_hmat2x4) ? 0 : 1;
+	Error += sizeof(glm::hmat3x4) == sizeof(glm::lowp_hmat3x4) ? 0 : 1;
+	Error += sizeof(glm::hmat4x4) == sizeof(glm::lowp_hmat4x4) ? 0 : 1;
+	Error += sizeof(glm::hmat2x4) == sizeof(glm::mediump_hmat2x4) ? 0 : 1;
+	Error += sizeof(glm::hmat3x4) == sizeof(glm::mediump_hmat3x4) ? 0 : 1;
+	Error += sizeof(glm::hmat4x4) == sizeof(glm::mediump_hmat4x4) ? 0 : 1;
+	Error += sizeof(glm::hmat2x4) == sizeof(glm::highp_hmat2x4) ? 0 : 1;
+	Error += sizeof(glm::hmat3x4) == sizeof(glm::highp_hmat3x4) ? 0 : 1;
+	Error += sizeof(glm::hmat4x4) == sizeof(glm::highp_hmat4x4) ? 0 : 1;
+	
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
 
+	Error += test_hvec_precision();
 	Error += test_hvec2_size();
 	Error += test_hvec3_size();
 	Error += test_hvec4_size();

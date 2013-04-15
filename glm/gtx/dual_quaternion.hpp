@@ -271,12 +271,12 @@ namespace detail
 	/// Dual-quaternion of floating-point numbers.
 	///
 	/// @see gtc_dual_quaternion
-	typedef mediump_fdualquat		dualquat;
+	typedef highp_fdualquat			dualquat;
 	
 	/// Dual-quaternion of single-precision floating-point numbers.
 	///
 	/// @see gtc_dual_quaternion
-	typedef mediump_fdualquat		fdualquat;
+	typedef highp_fdualquat			fdualquat;
 #elif(defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
 	typedef highp_fdualquat			dualquat;
 	typedef highp_fdualquat			fdualquat;

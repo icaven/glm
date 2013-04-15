@@ -311,21 +311,6 @@ namespace detail
 	/// Build a quaternion from an angle and a normalized axis.
 	///
 	/// @param angle Angle expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
-	/// @param x x component of the x-axis, x, y, z must be a normalized axis
-	/// @param y y component of the y-axis, x, y, z must be a normalized axis
-	/// @param z z component of the z-axis, x, y, z must be a normalized axis
-	///
-	/// @see gtc_quaternion
-	template <typename T, precision P>
-	detail::tquat<T, P> angleAxis(
-		T const & angle,
-		T const & x,
-		T const & y,
-		T const & z);
-
-	/// Build a quaternion from an angle and a normalized axis.
-	///
-	/// @param angle Angle expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
 	/// @param axis Axis of the quaternion, must be normalized.
 	///
 	/// @see gtc_quaternion

@@ -42,12 +42,24 @@ static int test_vec()
 	return Error;
 }
 
+static int test_dvec()
+{
+	int Error = 0;
+	
+	Error += sizeof(glm::dvec2) == sizeof(glm::highp_dvec2) ? 0 : 1;
+	Error += sizeof(glm::dvec3) == sizeof(glm::highp_dvec3) ? 0 : 1;
+	Error += sizeof(glm::dvec4) == sizeof(glm::highp_dvec4) ? 0 : 1;
+	
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
 
 	Error += test_mat();
 	Error += test_vec();
+	Error += test_dvec();
 	
 	return Error;
 }

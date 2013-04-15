@@ -370,16 +370,16 @@ namespace detail
 	//////////////////////////
 	// Float definition
 	
-#if(defined(GLM_PRECISION_HIGHP_FLOAT))
-	typedef highp_mat2x2		mat2x2;
-	typedef highp_mat2x3		mat2x3;
-	typedef highp_mat2x4		mat2x4;
-	typedef highp_mat3x2		mat3x2;
-	typedef highp_mat3x3		mat3x3;
-	typedef highp_mat3x4		mat3x4;
-	typedef highp_mat4x2		mat4x2;
-	typedef highp_mat4x3		mat4x3;
-	typedef highp_mat4x4		mat4x4;
+#if(defined(GLM_PRECISION_LOWP_FLOAT))
+	typedef lowp_mat2x2			mat2x2;
+	typedef lowp_mat2x3			mat2x3;
+	typedef lowp_mat2x4			mat2x4;
+	typedef lowp_mat3x2			mat3x2;
+	typedef lowp_mat3x3			mat3x3;
+	typedef lowp_mat3x4			mat3x4;
+	typedef lowp_mat4x2			mat4x2;
+	typedef lowp_mat4x3			mat4x3;
+	typedef lowp_mat4x4			mat4x4;
 #elif(defined(GLM_PRECISION_MEDIUMP_FLOAT))
 	typedef mediump_mat2x2		mat2x2;
 	typedef mediump_mat2x3		mat2x3;
@@ -390,61 +390,51 @@ namespace detail
 	typedef mediump_mat4x2		mat4x2;
 	typedef mediump_mat4x3		mat4x3;
 	typedef mediump_mat4x4		mat4x4;
-#elif(defined(GLM_PRECISION_LOWP_FLOAT))
-	typedef lowp_mat2x2			mat2x2;
-	typedef lowp_mat2x3			mat2x3;
-	typedef lowp_mat2x4			mat2x4;
-	typedef lowp_mat3x2			mat3x2;
-	typedef lowp_mat3x3			mat3x3;
-	typedef lowp_mat3x4			mat3x4;
-	typedef lowp_mat4x2			mat4x2;
-	typedef lowp_mat4x3			mat4x3;
-	typedef lowp_mat4x4			mat4x4;
 #else	
 	//! 2 columns of 2 components matrix of floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_mat2x2			mat2x2;
+	typedef highp_mat2x2			mat2x2;
 	
 	//! 2 columns of 3 components matrix of floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_mat2x3			mat2x3;
+	typedef highp_mat2x3			mat2x3;
 	
 	//! 2 columns of 4 components matrix of floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_mat2x4			mat2x4;
+	typedef highp_mat2x4			mat2x4;
 	
 	//! 3 columns of 2 components matrix of floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_mat3x2			mat3x2;
+	typedef highp_mat3x2			mat3x2;
 	
 	//! 3 columns of 3 components matrix of floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_mat3x3			mat3x3;
+	typedef highp_mat3x3			mat3x3;
 	
 	//! 3 columns of 4 components matrix of floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_mat3x4			mat3x4;
+	typedef highp_mat3x4			mat3x4;
 	
 	//! 4 columns of 2 components matrix of floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_mat4x2			mat4x2;
+	typedef highp_mat4x2			mat4x2;
 	
 	//! 4 columns of 3 components matrix of floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_mat4x3			mat4x3;
+	typedef highp_mat4x3			mat4x3;
 	
 	//! 4 columns of 4 components matrix of floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_mat4x4			mat4x4;
+	typedef highp_mat4x4			mat4x4;
 	
 #endif//GLM_PRECISION
 	
@@ -727,16 +717,16 @@ namespace detail
 	
 	/// @}
 	
-#if(defined(GLM_PRECISION_HIGHP_DOUBLE))
-	typedef highp_dmat2x2		dmat2x2;
-	typedef highp_dmat2x3		dmat2x3;
-	typedef highp_dmat2x4		dmat2x4;
-	typedef highp_dmat3x2		dmat3x2;
-	typedef highp_dmat3x3		dmat3x3;
-	typedef highp_dmat3x4		dmat3x4;
-	typedef highp_dmat4x2		dmat4x2;
-	typedef highp_dmat4x3		dmat4x3;
-	typedef highp_dmat4x4		dmat4x4;
+#if(defined(GLM_PRECISION_LOWP_DOUBLE))
+	typedef lowp_dmat2x2		dmat2x2;
+	typedef lowp_dmat2x3		dmat2x3;
+	typedef lowp_dmat2x4		dmat2x4;
+	typedef lowp_dmat3x2		dmat3x2;
+	typedef lowp_dmat3x3		dmat3x3;
+	typedef lowp_dmat3x4		dmat3x4;
+	typedef lowp_dmat4x2		dmat4x2;
+	typedef lowp_dmat4x3		dmat4x3;
+	typedef lowp_dmat4x4		dmat4x4;
 #elif(defined(GLM_PRECISION_MEDIUMP_DOUBLE))
 	typedef mediump_dmat2x2		dmat2x2;
 	typedef mediump_dmat2x3		dmat2x3;
@@ -747,77 +737,67 @@ namespace detail
 	typedef mediump_dmat4x2		dmat4x2;
 	typedef mediump_dmat4x3		dmat4x3;
 	typedef mediump_dmat4x4		dmat4x4;
-#elif(defined(GLM_PRECISION_LOWP_DOUBLE))
-	typedef lowp_dmat2x2		dmat2x2;
-	typedef lowp_dmat2x3		dmat2x3;
-	typedef lowp_dmat2x4		dmat2x4;
-	typedef lowp_dmat3x2		dmat3x2;
-	typedef lowp_dmat3x3		dmat3x3;
-	typedef lowp_dmat3x4		dmat3x4;
-	typedef lowp_dmat4x2		dmat4x2;
-	typedef lowp_dmat4x3		dmat4x3;
-	typedef lowp_dmat4x4		dmat4x4;
-#else
+#else //defined(GLM_PRECISION_HIGHP_DOUBLE)
 	
 	//! 2 * 2 matrix of double-precision floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_dmat2x2		dmat2;
+	typedef highp_dmat2x2		dmat2;
 	
 	//! 3 * 3 matrix of double-precision floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_dmat3x3		dmat3;
+	typedef highp_dmat3x3		dmat3;
 	
 	//! 4 * 4 matrix of double-precision floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_dmat4x4		dmat4;
+	typedef highp_dmat4x4		dmat4;
 	
 	//! 2 * 2 matrix of double-precision floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_dmat2x2		dmat2x2;
+	typedef highp_dmat2x2		dmat2x2;
 	
 	//! 2 * 3 matrix of double-precision floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_dmat2x3		dmat2x3;
+	typedef highp_dmat2x3		dmat2x3;
 	
 	//! 2 * 4 matrix of double-precision floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_dmat2x4		dmat2x4;
+	typedef highp_dmat2x4		dmat2x4;
 	
 	//! 3 * 2 matrix of double-precision floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_dmat3x2		dmat3x2;
+	typedef highp_dmat3x2		dmat3x2;
 	
 	/// 3 * 3 matrix of double-precision floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_dmat3x3		dmat3x3;
+	typedef highp_dmat3x3		dmat3x3;
 	
 	/// 3 * 4 matrix of double-precision floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_dmat3x4		dmat3x4;
+	typedef highp_dmat3x4		dmat3x4;
 	
 	/// 4 * 2 matrix of double-precision floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_dmat4x2		dmat4x2;
+	typedef highp_dmat4x2		dmat4x2;
 	
 	/// 4 * 3 matrix of double-precision floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_dmat4x3		dmat4x3;
+	typedef highp_dmat4x3		dmat4x3;
 	
 	/// 4 * 4 matrix of double-precision floating-point numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	typedef mediump_dmat4x4		dmat4x4;
+	typedef highp_dmat4x4		dmat4x4;
 
 #endif//GLM_PRECISION
 	
