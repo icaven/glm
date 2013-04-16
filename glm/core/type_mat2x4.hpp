@@ -91,8 +91,8 @@ namespace detail
 
 		//////////////////////////////////////
 		// Matrix conversions
-		template <typename U> 
-		GLM_FUNC_DECL explicit tmat2x4(tmat2x4<U, P> const & m);
+		template <typename U, precision Q>
+		GLM_FUNC_DECL explicit tmat2x4(tmat2x4<U, Q> const & m);
 
 		GLM_FUNC_DECL explicit tmat2x4(tmat2x2<T, P> const & x);
 		GLM_FUNC_DECL explicit tmat2x4(tmat3x3<T, P> const & x);
@@ -156,19 +156,19 @@ namespace detail
 		tmat2x4<T, P> const & m, 
 		typename tmat2x4<T, P>::value_type const & s);
 
-	template <typename T, precision P> 
+	template <typename T, precision P>
 	tmat2x4<T, P> operator* (
-		typename tmat2x4<T, P>::value_type const & s, 
+		typename tmat2x4<T, P>::value_type const & s,
 		tmat2x4<T, P> const & m);
 
 	template <typename T, precision P>
 	typename tmat2x4<T, P>::col_type operator* (
-		tmat2x4<T, P> const & m, 
+		tmat2x4<T, P> const & m,
 		typename tmat2x4<T, P>::row_type const & v);
 
-	template <typename T, precision P> 
+	template <typename T, precision P>
 	typename tmat2x4<T, P>::row_type operator* (
-		typename tmat2x4<T, P>::col_type const & v, 
+		typename tmat2x4<T, P>::col_type const & v,
 		tmat2x4<T, P> const & m);
 
 	template <typename T, precision P>
@@ -178,30 +178,30 @@ namespace detail
 		
 	template <typename T, precision P>
 	tmat2x4<T, P> operator* (
-		tmat2x4<T, P> const & m1, 
+		tmat2x4<T, P> const & m1,
 		tmat2x2<T, P> const & m2);
 		
 	template <typename T, precision P>
 	tmat3x4<T, P> operator* (
-		tmat2x4<T, P> const & m1, 
+		tmat2x4<T, P> const & m1,
 		tmat3x2<T, P> const & m2);
 
-	template <typename T, precision P> 
+	template <typename T, precision P>
 	tmat2x4<T, P> operator/ (
-		tmat2x4<T, P> const & m, 
+		tmat2x4<T, P> const & m,
 		typename tmat2x4<T, P>::value_type const & s);
 
 	template <typename T, precision P> 
 	tmat2x4<T, P> operator/ (
-		typename tmat2x4<T, P>::value_type const & s, 
+		typename tmat2x4<T, P>::value_type const & s,
 		tmat2x4<T, P> const & m);
 
 	// Unary constant operators
-	template <typename T, precision P> 
+	template <typename T, precision P>
 	tmat2x4<T, P> const operator-  (
 		tmat2x4<T, P> const & m);
 
-	template <typename T, precision P> 
+	template <typename T, precision P>
 	tmat2x4<T, P> const operator-- (
 		tmat2x4<T, P> const & m, 
 		int);

@@ -202,10 +202,10 @@ namespace detail
 
 	// Conversion
 	template <typename T, precision P>
-	template <typename U>
+	template <typename U, precision Q>
 	GLM_FUNC_QUALIFIER tmat4x2<T, P>::tmat4x2
 	(
-		tmat4x2<U, P> const & m
+		tmat4x2<U, Q> const & m
 	)
 	{
 		this->value[0] = col_type(m[0]);

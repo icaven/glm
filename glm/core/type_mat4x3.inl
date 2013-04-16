@@ -204,10 +204,10 @@ namespace detail
 	// Matrix conversions
 
 	template <typename T, precision P>
-	template <typename U>
+	template <typename U, precision Q>
 	GLM_FUNC_QUALIFIER tmat4x3<T, P>::tmat4x3
 	(
-		tmat4x3<U, P> const & m
+		tmat4x3<U, Q> const & m
 	)
 	{
 		this->value[0] = col_type(m[0]);
@@ -240,7 +240,7 @@ namespace detail
 		this->value[3] = col_type(value_type(0));
 	}
 
-	template <typename T, precision P> 
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat4x3<T, P>::tmat4x3
 	(
 		tmat4x4<T, P> const & m

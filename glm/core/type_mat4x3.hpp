@@ -77,7 +77,7 @@ namespace detail
 
 		//////////////////////////////////////
 		// Conversions
-		template <typename U> 
+		template <typename U>
 		GLM_FUNC_DECL explicit tmat4x3(
 			U const & x);
 
@@ -100,8 +100,8 @@ namespace detail
 			tvec3<V4, P> const & v4);
 
 		// Matrix conversions
-		template <typename U>
-		GLM_FUNC_DECL explicit tmat4x3(tmat4x3<U, P> const & m);
+		template <typename U, precision Q>
+		GLM_FUNC_DECL explicit tmat4x3(tmat4x3<U, Q> const & m);
 			
 		GLM_FUNC_DECL explicit tmat4x3(tmat2x2<T, P> const & x);
 		GLM_FUNC_DECL explicit tmat4x3(tmat3x3<T, P> const & x);

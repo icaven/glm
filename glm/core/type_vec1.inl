@@ -119,28 +119,37 @@ namespace detail
 	// Convertion vector constructors
 
 	template <typename T, precision P>
-	template <typename U> 
+	template <typename U, precision Q>
 	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1
 	(
-		tvec2<U, P> const & v
+		tvec1<U, Q> const & v
 	) :
 		x(value_type(v.x))
 	{}
 
 	template <typename T, precision P>
-	template <typename U> 
+	template <typename U, precision Q>
 	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1
 	(
-		tvec3<U, P> const & v
+		tvec2<U, Q> const & v
 	) :
 		x(value_type(v.x))
 	{}
 
 	template <typename T, precision P>
-	template <typename U> 
+	template <typename U, precision Q>
 	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1
 	(
-		tvec4<U, P> const & v
+		tvec3<U, Q> const & v
+	) :
+		x(value_type(v.x))
+	{}
+
+	template <typename T, precision P>
+	template <typename U, precision Q>
+	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1
+	(
+		tvec4<U, Q> const & v
 	) :
 		x(value_type(v.x))
 	{}

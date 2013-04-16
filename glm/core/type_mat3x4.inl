@@ -126,7 +126,7 @@ namespace detail
 		this->value[2] = col_type(x2, y2, z2, w2);
 	}
 
-	template <typename T, precision P> 
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat3x4<T, P>::tmat3x4
 	(
 		col_type const & v0,
@@ -187,10 +187,10 @@ namespace detail
 
 	// Conversion
 	template <typename T, precision P>
-	template <typename U>
+	template <typename U, precision Q>
 	GLM_FUNC_QUALIFIER tmat3x4<T, P>::tmat3x4
 	(
-		tmat3x4<U, P> const & m
+		tmat3x4<U, Q> const & m
 	)
 	{
 		this->value[0] = col_type(m[0]);

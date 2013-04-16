@@ -178,10 +178,10 @@ namespace detail
 	// Matrix conversions
 
 	template <typename T, precision P>
-	template <typename U>
+	template <typename U, precision Q>
 	GLM_FUNC_QUALIFIER tmat2x4<T, P>::tmat2x4
 	(
-		tmat2x4<U, P> const & m
+		tmat2x4<U, Q> const & m
 	)
 	{
 		this->value[0] = col_type(m[0]);

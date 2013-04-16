@@ -149,10 +149,10 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	template <typename U>
+	template <typename U, precision Q>
 	GLM_FUNC_QUALIFIER tmat4x4<T, P>::tmat4x4
 	(
-		tmat4x4<U, P> const & m
+		tmat4x4<U, Q> const & m
 	)
 	{
 		this->value[0] = col_type(m[0]);

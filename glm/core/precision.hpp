@@ -39,16 +39,6 @@ namespace glm
 	};
 }//namespace glm
 
-#if(!defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
-#define defaultp		mediump
-#elif(defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
 #define defaultp		highp
-#elif(!defined(GLM_PRECISION_HIGHP_INT) && defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
-#define defaultp		mediump
-#elif(!defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && defined(GLM_PRECISION_LOWP_INT))
-#define defaultp		lowp
-#else
-#	error "GLM error: multiple default precision requested for signed interger types"
-#endif
 
 #endif//GLM_CORE_PRECISION_INCLUDED

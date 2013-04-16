@@ -131,23 +131,23 @@ namespace detail
 		GLM_FUNC_DECL explicit tvec2(
 			U const & x);
 		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename U, typename V> 
+		template <typename U, typename V>
 		GLM_FUNC_DECL explicit tvec2(
-			U const & x, 
+			U const & x,
 			V const & y);
 
 		//////////////////////////////////////
 		// Convertion vector constructors
 
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename U> 
-		GLM_FUNC_DECL explicit tvec2(tvec2<U, P> const & v);
+		template <typename U, precision Q>
+		GLM_FUNC_DECL explicit tvec2(tvec2<U, Q> const & v);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename U> 
-		GLM_FUNC_DECL explicit tvec2(tvec3<U, P> const & v);
+		template <typename U, precision Q>
+		GLM_FUNC_DECL explicit tvec2(tvec3<U, Q> const & v);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename U> 
-		GLM_FUNC_DECL explicit tvec2(tvec4<U, P> const & v);
+		template <typename U, precision Q>
+		GLM_FUNC_DECL explicit tvec2(tvec4<U, Q> const & v);
 
 		//////////////////////////////////////
 		// Unary arithmetic operators

@@ -295,7 +295,7 @@ namespace detail
 	/// Dual-quaternion of default half-precision floating-point numbers.
 	///
 	/// @see gtc_dual_quaternion
-	typedef mediump_hdualquat		hdualquat;
+	typedef highp_hdualquat			hdualquat;
 #elif(defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
 	typedef highp_hdualquat			hdualquat;
 #elif(!defined(GLM_PRECISION_HIGHP_HALF) && defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
@@ -311,7 +311,7 @@ namespace detail
 	/// Dual-quaternion of default double-precision floating-point numbers.
 	///
 	/// @see gtc_dual_quaternion
-	typedef mediump_ddualquat		ddualquat;
+	typedef highp_ddualquat			ddualquat;
 #elif(defined(GLM_PRECISION_HIGHP_DOUBLE) && !defined(GLM_PRECISION_MEDIUMP_DOUBLE) && !defined(GLM_PRECISION_LOWP_DOUBLE))
 	typedef highp_ddualquat			ddualquat;
 #elif(!defined(GLM_PRECISION_HIGHP_DOUBLE) && defined(GLM_PRECISION_MEDIUMP_DOUBLE) && !defined(GLM_PRECISION_LOWP_DOUBLE))

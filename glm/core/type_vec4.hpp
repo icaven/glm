@@ -111,50 +111,50 @@ namespace detail
 		GLM_FUNC_DECL explicit tvec4(
 			value_type const & s);
 		GLM_FUNC_DECL explicit tvec4(
-			value_type const & s0, 
-			value_type const & s1, 
-			value_type const & s2, 
+			value_type const & s0,
+			value_type const & s1,
+			value_type const & s2,
 			value_type const & s3);
 
 		//////////////////////////////////////
 		// Convertion scalar constructors
 
 		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename U> 
+		template <typename U>
 		GLM_FUNC_DECL explicit tvec4(
 			U const & x);
 		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B, typename C, typename D> 
+		template <typename A, typename B, typename C, typename D>
 		GLM_FUNC_DECL explicit tvec4(
-			A const & x, 
-			B const & y, 
-			C const & z, 
+			A const & x,
+			B const & y,
+			C const & z,
 			D const & w);			
 
 		//////////////////////////////////////
 		// Convertion vector constructors
 
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B, typename C> 
-		GLM_FUNC_DECL explicit tvec4(tvec2<A, P> const & v, B const & s1, C const & s2);
+		template <typename A, typename B, typename C, precision Q>
+		GLM_FUNC_DECL explicit tvec4(tvec2<A, Q> const & v, B const & s1, C const & s2);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B, typename C> 
-		GLM_FUNC_DECL explicit tvec4(A const & s1, tvec2<B, P> const & v, C const & s2);
+		template <typename A, typename B, typename C, precision Q>
+		GLM_FUNC_DECL explicit tvec4(A const & s1, tvec2<B, Q> const & v, C const & s2);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B, typename C> 
-		GLM_FUNC_DECL explicit tvec4(A const & s1, B const & s2, tvec2<C, P> const & v);
+		template <typename A, typename B, typename C, precision Q>
+		GLM_FUNC_DECL explicit tvec4(A const & s1, B const & s2, tvec2<C, Q> const & v);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B> 
-		GLM_FUNC_DECL explicit tvec4(tvec3<A, P> const & v, B const & s);
+		template <typename A, typename B, precision Q>
+		GLM_FUNC_DECL explicit tvec4(tvec3<A, Q> const & v, B const & s);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B> 
-		GLM_FUNC_DECL explicit tvec4(A const & s, tvec3<B, P> const & v);
+		template <typename A, typename B, precision Q>
+		GLM_FUNC_DECL explicit tvec4(A const & s, tvec3<B, Q> const & v);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B> 
-		GLM_FUNC_DECL explicit tvec4(tvec2<A, P> const & v1, tvec2<B, P> const & v2);
+		template <typename A, typename B, precision Q>
+		GLM_FUNC_DECL explicit tvec4(tvec2<A, Q> const & v1, tvec2<B, Q> const & v2);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename U> 
-		GLM_FUNC_DECL explicit tvec4(tvec4<U, P> const & v);
+		template <typename U, precision Q>
+		GLM_FUNC_DECL explicit tvec4(tvec4<U, Q> const & v);
 
 		template <int E0, int E1, int E2, int E3>
 		GLM_FUNC_DECL tvec4(glm::detail::swizzle<4, T, tvec4<T, P>, E0, E1, E2, E3> const & that)

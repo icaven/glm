@@ -136,16 +136,16 @@ int test_packDouble2x32()
 {
 	int Error = 0;
 	
-	std::vector<glm::u32vec2> A;
-	A.push_back(glm::u32vec2( 1, 2));
-	A.push_back(glm::u32vec2(-1,-2));
-	A.push_back(glm::u32vec2(-1000, 1100));
+	std::vector<glm::uvec2> A;
+	A.push_back(glm::uvec2( 1, 2));
+	A.push_back(glm::uvec2(-1,-2));
+	A.push_back(glm::uvec2(-1000, 1100));
 	
 	for(std::size_t i = 0; i < A.size(); ++i)
 	{
-		glm::u32vec2 B(A[i]);
+		glm::uvec2 B(A[i]);
 		double C = glm::packDouble2x32(B);
-		glm::u32vec2 D = glm::unpackDouble2x32(C);
+		glm::uvec2 D = glm::unpackDouble2x32(C);
 		Error += B == D ? 0 : 1;
 		assert(!Error);
 	}

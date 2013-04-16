@@ -73,10 +73,10 @@ namespace detail
 		GLM_FUNC_DECL explicit tmat2x2(
 			value_type const & x);
 		GLM_FUNC_DECL explicit tmat2x2(
-			value_type const & x1, value_type const & y1, 
+			value_type const & x1, value_type const & y1,
 			value_type const & x2, value_type const & y2);
 		GLM_FUNC_DECL explicit tmat2x2(
-			col_type const & v1, 
+			col_type const & v1,
 			col_type const & v2);
 
 		//////////////////////////////////////
@@ -85,20 +85,20 @@ namespace detail
 		GLM_FUNC_DECL explicit tmat2x2(
 			U const & x);
 
-		template <typename U, typename V, typename M, typename N> 
+		template <typename U, typename V, typename M, typename N>
 		GLM_FUNC_DECL explicit tmat2x2(
-			U const & x1, V const & y1, 
+			U const & x1, V const & y1,
 			M const & x2, N const & y2);
 			
-		template <typename U, typename V> 
+		template <typename U, typename V>
 		GLM_FUNC_DECL explicit tmat2x2(
 			tvec2<U, P> const & v1,
 			tvec2<V, P> const & v2);
 
 		//////////////////////////////////////
 		// Matrix conversions
-		template <typename U> 
-		GLM_FUNC_DECL explicit tmat2x2(tmat2x2<U, P> const & m);
+		template <typename U, precision Q>
+		GLM_FUNC_DECL explicit tmat2x2(tmat2x2<U, Q> const & m);
 
 		GLM_FUNC_DECL explicit tmat2x2(tmat3x3<T, P> const & x);
 		GLM_FUNC_DECL explicit tmat2x2(tmat4x4<T, P> const & x);

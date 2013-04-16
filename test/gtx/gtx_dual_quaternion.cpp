@@ -17,23 +17,23 @@
 
 int myrand()
 {
-    static int holdrand = 1;
-    return (((holdrand = holdrand * 214013L + 2531011L) >> 16) & 0x7fff);
+	static int holdrand = 1;
+	return (((holdrand = holdrand * 214013L + 2531011L) >> 16) & 0x7fff);
 }
 
 float myfrand() // returns values from -1 to 1 inclusive
 {
-    return float(double(myrand()) / double( 0x7ffff )) * 2.0f - 1.0f;
+	return float(double(myrand()) / double( 0x7ffff )) * 2.0f - 1.0f;
 }
 
 int test_dquat_type()
 {
-    glm::dvec3 vA;
-    glm::dquat dqA,dqB;
-    glm::ddualquat C(dqA,dqB);
-    glm::ddualquat B(dqA);
-    glm::ddualquat D(dqA,vA);
-    return 0;
+	glm::dvec3 vA;
+	glm::dquat dqA,dqB;
+	glm::ddualquat C(dqA,dqB);
+	glm::ddualquat B(dqA);
+	glm::ddualquat D(dqA,vA);
+	return 0;
 }
 
 int test_scalars() {
@@ -76,7 +76,8 @@ int test_inverse()
     glm::dualquat dqid;
     glm::mat4x4 mid(1.0f);
 
-    for (int j = 0; j < 100; ++j) {
+    for (int j = 0; j < 100; ++j)
+	{
         glm::mat4x4 rot = glm::yawPitchRoll(myfrand() * 360.0f, myfrand() * 360.0f, myfrand() * 360.0f);
         glm::vec3 vt = glm::vec3(myfrand() * 10.0f, myfrand() * 10.0f, myfrand() * 10.0f);
 

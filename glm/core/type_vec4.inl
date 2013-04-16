@@ -270,10 +270,10 @@ namespace detail
 	// Convertion vector constructors
 
 	template <typename T, precision P>
-	template <typename A, typename B, typename C>
+	template <typename A, typename B, typename C, precision Q>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
 	(
-		tvec2<A, P> const & v,
+		tvec2<A, Q> const & v,
 		B const & s1,
 		C const & s2
 	) :
@@ -284,11 +284,11 @@ namespace detail
 	{}
 
 	template <typename T, precision P>
-	template <typename A, typename B, typename C>
+	template <typename A, typename B, typename C, precision Q>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
 	(
 		A const & s1,
-		tvec2<B, P> const & v,
+		tvec2<B, Q> const & v,
 		C const & s2
 	) :
 		x(value_type(s1)),
@@ -298,12 +298,12 @@ namespace detail
 	{}
 
 	template <typename T, precision P>
-	template <typename A, typename B, typename C>
+	template <typename A, typename B, typename C, precision Q>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
 	(
 		A const & s1,
 		B const & s2,
-		tvec2<C, P> const & v
+		tvec2<C, Q> const & v
 	) :
 		x(value_type(s1)),
 		y(value_type(s2)),
@@ -312,10 +312,10 @@ namespace detail
 	{}
 
 	template <typename T, precision P>
-	template <typename A, typename B>
+	template <typename A, typename B, precision Q>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
 	(
-		tvec3<A, P> const & v,
+		tvec3<A, Q> const & v,
 		B const & s
 	) :
 		x(value_type(v.x)),
@@ -325,11 +325,11 @@ namespace detail
 	{}
 
 	template <typename T, precision P>
-	template <typename A, typename B>
+	template <typename A, typename B, precision Q>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
 	(
 		A const & s,
-		tvec3<B, P> const & v
+		tvec3<B, Q> const & v
 	) :
 		x(value_type(s)),
 		y(value_type(v.x)),
@@ -338,11 +338,11 @@ namespace detail
 	{}
 
 	template <typename T, precision P>
-	template <typename A, typename B>
+	template <typename A, typename B, precision Q>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
 	(
-		tvec2<A, P> const & v1,
-		tvec2<B, P> const & v2
+		tvec2<A, Q> const & v1,
+		tvec2<B, Q> const & v2
 	) :
 		x(value_type(v1.x)),
 		y(value_type(v1.y)),
@@ -351,10 +351,10 @@ namespace detail
 	{}
 
 	template <typename T, precision P>
-	template <typename U>
+	template <typename U, precision Q>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
 	(
-		tvec4<U, P> const & v
+		tvec4<U, Q> const & v
 	) :
 		x(value_type(v.x)),
 		y(value_type(v.y)),
