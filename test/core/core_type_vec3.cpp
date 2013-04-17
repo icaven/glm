@@ -170,10 +170,14 @@ int test_vec3_size()
 {
 	int Error = 0;
 	
+	Error += sizeof(glm::vec3) == sizeof(glm::lowp_vec3) ? 0 : 1;
 	Error += sizeof(glm::vec3) == sizeof(glm::mediump_vec3) ? 0 : 1;
+	Error += sizeof(glm::vec3) == sizeof(glm::highp_vec3) ? 0 : 1;
 	Error += 12 == sizeof(glm::mediump_vec3) ? 0 : 1;
-	Error += sizeof(glm::dvec3) == sizeof(glm::highp_vec3) ? 0 : 1;
-	Error += 24 == sizeof(glm::highp_vec3) ? 0 : 1;
+	Error += sizeof(glm::dvec3) == sizeof(glm::lowp_dvec3) ? 0 : 1;
+	Error += sizeof(glm::dvec3) == sizeof(glm::mediump_dvec3) ? 0 : 1;
+	Error += sizeof(glm::dvec3) == sizeof(glm::highp_dvec3) ? 0 : 1;
+	Error += 24 == sizeof(glm::highp_dvec3) ? 0 : 1;
 	Error += glm::vec3().length() == 3 ? 0 : 1;
 	Error += glm::dvec3().length() == 3 ? 0 : 1;
 	
@@ -211,7 +215,7 @@ int test_vec3_swizzle3_2()
     u = v.gb;       Error += (u.r == 2.0f && u.g == 3.0f) ? 0 : 1;
     u = v.br;       Error += (u.r == 3.0f && u.g == 1.0f) ? 0 : 1;
     u = v.bg;       Error += (u.r == 3.0f && u.g == 2.0f) ? 0 : 1;
-    u = v.bb;       Error += (u.r == 3.0f && u.g == 3.0f) ? 0 : 1;   
+    u = v.bb;       Error += (u.r == 3.0f && u.g == 3.0f) ? 0 : 1;
 
     u = v.ss;       Error += (u.s == 1.0f && u.t == 1.0f) ? 0 : 1;
     u = v.st;       Error += (u.s == 1.0f && u.t == 2.0f) ? 0 : 1;
@@ -350,19 +354,17 @@ int test_vec3_swizzle_operators()
 
 int test_vec3_swizzle_functions()
 {
-    int Error = 0;
+	int Error = 0;
 
-    //
-    // NOTE: template functions cannot pick up the implicit conversion from
-    // a swizzle to the unswizzled type, therefore the operator() must be 
-    // used.  E.g.:
-    //
-    // glm::dot(u.xy, v.xy);        <--- Compile error
-    // glm::dot(u.xy(), v.xy());    <--- Compiles correctly
-    //
+	// NOTE: template functions cannot pick up the implicit conversion from
+	// a swizzle to the unswizzled type, therefore the operator() must be 
+	// used.  E.g.:
+	//
+	// glm::dot(u.xy, v.xy);        <--- Compile error
+	// glm::dot(u.xy(), v.xy());    <--- Compiles correctly
 
 #if(GLM_SUPPORT_SWIZZLE_OPERATOR())
-    float r;
+	float r;
 
 	// vec2
 	glm::vec2 a(1, 2);
@@ -390,7 +392,7 @@ int test_vec3_swizzle_functions()
 	r = glm::dot(s.xyz(), t.xyz());     Error += (int(r) == 140) ? 0 : 1;
 #endif//(GLM_SUPPORT_SWIZZLE_OPERATOR())
 
-    return Error;
+	return Error;
 }
 
 int test_vec3_swizzle_partial()
@@ -426,14 +428,12 @@ int main()
 	Error += test_vec3_ctor();
 	Error += test_vec3_operators();
 	Error += test_vec3_size();
-    Error += test_vec3_swizzle3_2();
-    Error += test_vec3_swizzle3_3();
-    Error += test_vec3_swizzle_half();
+	Error += test_vec3_swizzle3_2();
+	Error += test_vec3_swizzle3_3();
+	Error += test_vec3_swizzle_half();
 	Error += test_vec3_swizzle_partial();
-    Error += test_vec3_swizzle_operators();
-    Error += test_vec3_swizzle_functions();
-	
-	printf("Errors: %d\n", Error);
+	Error += test_vec3_swizzle_operators();
+	Error += test_vec3_swizzle_functions();
 
 	return Error;
 }

@@ -3055,15 +3055,15 @@ namespace glm
 
 	/// Default double-precision floating-point 2x2 matrix.
 	/// @see gtc_type_precision
-	typedef f32mat2x2				f64mat2;
+	typedef f64mat2x2				f64mat2;
 
 	/// Default double-precision floating-point 3x3 matrix.
 	/// @see gtc_type_precision
-	typedef f32mat3x3				f64mat3;
+	typedef f64mat3x3				f64mat3;
 
 	/// Default double-precision floating-point 4x4 matrix.
 	/// @see gtc_type_precision
-	typedef f32mat4x4				f64mat4;
+	typedef f64mat4x4				f64mat4;
 
 	/// Default double-precision floating-point quaternion.
 	/// @see gtc_type_precision

@@ -204,10 +204,14 @@ int test_vec4_size()
 {
 	int Error = 0;
 	
+	Error += sizeof(glm::vec4) == sizeof(glm::lowp_vec4) ? 0 : 1;
 	Error += sizeof(glm::vec4) == sizeof(glm::mediump_vec4) ? 0 : 1;
+	Error += sizeof(glm::vec4) == sizeof(glm::highp_vec4) ? 0 : 1;
 	Error += 16 == sizeof(glm::mediump_vec4) ? 0 : 1;
-	Error += sizeof(glm::dvec4) == sizeof(glm::highp_vec4) ? 0 : 1;
-	Error += 32 == sizeof(glm::highp_vec4) ? 0 : 1;
+	Error += sizeof(glm::dvec4) == sizeof(glm::lowp_dvec4) ? 0 : 1;
+	Error += sizeof(glm::dvec4) == sizeof(glm::mediump_dvec4) ? 0 : 1;
+	Error += sizeof(glm::dvec4) == sizeof(glm::highp_dvec4) ? 0 : 1;
+	Error += 32 == sizeof(glm::highp_dvec4) ? 0 : 1;
 	Error += glm::vec4().length() == 4 ? 0 : 1;
 	Error += glm::dvec4().length() == 4 ? 0 : 1;
 	
@@ -261,7 +265,7 @@ int main()
 	Error += test_vec4_size();
 	Error += test_vec4_operators();
 	Error += test_hvec4();
-    Error += test_vec4_swizzle_partial();
+	Error += test_vec4_swizzle_partial();
 	return Error;
 }
 
