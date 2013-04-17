@@ -52,8 +52,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/lessThan.xml">GLSL lessThan man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7 Vector Relational Functions</a>
-	template <typename vecType>
-	typename vecType::bool_type lessThan(vecType const & x, vecType const & y);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	typename vecType<T, P>::bool_type lessThan(vecType<T, P> const & x, vecType<T, P> const & y);
 
 	/// Returns the component-wise comparison of result x <= y.
 	///
@@ -61,8 +61,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/lessThanEqual.xml">GLSL lessThanEqual man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7 Vector Relational Functions</a>
-	template <typename vecType> 
-	typename vecType::bool_type lessThanEqual(vecType const & x, vecType const & y);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	typename vecType<T, P>::bool_type lessThanEqual(vecType<T, P> const & x, vecType<T, P> const & y);
 
 	/// Returns the component-wise comparison of result x > y.
 	///
@@ -70,8 +70,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/greaterThan.xml">GLSL greaterThan man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7 Vector Relational Functions</a>
-	template <typename vecType> 
-	typename vecType::bool_type greaterThan(vecType const & x, vecType const & y);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	typename vecType<T, P>::bool_type greaterThan(vecType<T, P> const & x, vecType<T, P> const & y);
 
 	/// Returns the component-wise comparison of result x >= y.
 	///
@@ -79,8 +79,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/greaterThanEqual.xml">GLSL greaterThanEqual man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7 Vector Relational Functions</a>
-	template <typename vecType> 
-	typename vecType::bool_type greaterThanEqual(vecType const & x, vecType const & y);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	typename vecType<T, P>::bool_type greaterThanEqual(vecType<T, P> const & x, vecType<T, P> const & y);
 
 	/// Returns the component-wise comparison of result x == y.
 	///
@@ -88,8 +88,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/equal.xml">GLSL equal man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7 Vector Relational Functions</a>
-	template <typename vecType> 
-	typename vecType::bool_type equal(vecType const & x, vecType const & y);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	typename vecType<T, P>::bool_type equal(vecType<T, P> const & x, vecType<T, P> const & y);
 
 	/// Returns the component-wise comparison of result x != y.
 	/// 
@@ -97,8 +97,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/notEqual.xml">GLSL notEqual man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7 Vector Relational Functions</a>
-	template <typename vecType> 
-	typename vecType::bool_type notEqual(vecType const & x, vecType const & y);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	typename vecType<T, P>::bool_type notEqual(vecType<T, P> const & x, vecType<T, P> const & y);
 
 	/// Returns true if any component of x is true.
 	///
@@ -106,7 +106,7 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/any.xml">GLSL any man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7 Vector Relational Functions</a>
-	template <template <typename> class vecType> 
+	template <template <typename> class vecType>
 	bool any(vecType<bool> const & v);
 
 	/// Returns true if all components of x are true.
@@ -115,7 +115,7 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/all.xml">GLSL all man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7 Vector Relational Functions</a>
-	template <template <typename> class vecType> 
+	template <template <typename> class vecType>
 	bool all(vecType<bool> const & v);
 
 	/// Returns the component-wise logical complement of x.
@@ -125,7 +125,7 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/not.xml">GLSL not man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7 Vector Relational Functions</a>
-	template <template <typename> class vecType> 
+	template <template <typename> class vecType>
 	vecType<bool> not_(vecType<bool> const & v);
 
 	/// @}
