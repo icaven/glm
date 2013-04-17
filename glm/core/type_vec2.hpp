@@ -109,7 +109,7 @@ namespace detail
 		GLM_FUNC_DECL explicit tvec2(
 			value_type const & s);
 		GLM_FUNC_DECL explicit tvec2(
-			value_type const & s1, 
+			value_type const & s1,
 			value_type const & s2);
 
 		//////////////////////////////////////
@@ -127,7 +127,7 @@ namespace detail
 		// Convertion constructors
 
 		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename U> 
+		template <typename U>
 		GLM_FUNC_DECL explicit tvec2(
 			U const & x);
 		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)

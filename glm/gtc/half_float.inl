@@ -36,9 +36,6 @@ namespace detail
 	template <precision P>
 	GLM_FUNC_QUALIFIER typename tvec2<half, P>::size_type tvec2<half, P>::length() const{return 2;}
 
-	template <precision P>
-	GLM_FUNC_QUALIFIER typename tvec2<half, P>::size_type tvec2<half, P>::value_size(){return 2;}
-
 	//////////////////////////////////////
 	// Accesses
 
@@ -136,30 +133,30 @@ namespace detail
 	// Convertion vector constructors
 
 	template <precision P>
-	template <typename U>
+	template <typename U, precision Q>
 	GLM_FUNC_QUALIFIER tvec2<half, P>::tvec2
 	(
-		tvec2<U, P> const & v
+		tvec2<U, Q> const & v
 	) :
 		x(half(v.x)),
 		y(half(v.y))
 	{}
 
 	template <precision P>
-	template <typename U>
+	template <typename U, precision Q>
 	GLM_FUNC_QUALIFIER tvec2<half, P>::tvec2
 	(	
-		tvec3<U, P> const & v
+		tvec3<U, Q> const & v
 	) :
 		x(half(v.x)),
 		y(half(v.y))
 	{}
 
 	template <precision P>
-	template <typename U>
+	template <typename U, precision Q>
 	GLM_FUNC_QUALIFIER tvec2<half, P>::tvec2
 	(
-		tvec4<U, P> const & v
+		tvec4<U, Q> const & v
 	) :
 		x(half(v.x)),
 		y(half(v.y))
@@ -336,12 +333,6 @@ namespace detail
 		return 3;
 	}
 
-	template <precision P>
-	GLM_FUNC_QUALIFIER typename tvec3<half, P>::size_type tvec3<half, P>::value_size()
-	{
-		return 3;
-	}
-
 	//////////////////////////////////////
 	// Accesses
 
@@ -456,10 +447,10 @@ namespace detail
 	// Convertion vector constructors
 
 	template <precision P>
-	template <typename A, typename B>
+	template <typename A, typename B, precision Q>
 	GLM_FUNC_QUALIFIER tvec3<half, P>::tvec3
 	(
-		tvec2<A, P> const & v,
+		tvec2<A, Q> const & v,
 		B const & s
 	) :
 		x(half(v.x)),
@@ -468,11 +459,11 @@ namespace detail
 	{}
 
 	template <precision P>
-	template <typename A, typename B>
+	template <typename A, typename B, precision Q>
 	GLM_FUNC_QUALIFIER tvec3<half, P>::tvec3
 	(
 		A const & s,
-		tvec2<B, P> const & v
+		tvec2<B, Q> const & v
 	) :
 		x(half(s)),
 		y(half(v.x)),
@@ -480,10 +471,10 @@ namespace detail
 	{}
 
 	template <precision P>
-	template <typename U>
+	template <typename U, precision Q>
 	GLM_FUNC_QUALIFIER tvec3<half, P>::tvec3
 	(
-		tvec3<U, P> const & v
+		tvec3<U, Q> const & v
 	) :
 		x(half(v.x)),
 		y(half(v.y)),
@@ -491,10 +482,10 @@ namespace detail
 	{}
 
 	template <precision P>
-	template <typename U>
+	template <typename U, precision Q>
 	GLM_FUNC_QUALIFIER tvec3<half, P>::tvec3
 	(
-		tvec4<U, P> const & v
+		tvec4<U, Q> const & v
 	) :
 		x(half(v.x)),
 		y(half(v.y)),
@@ -683,12 +674,6 @@ namespace detail
 	{
 		return 4;
 	}
-
-	template <precision P>
-	GLM_FUNC_QUALIFIER typename tvec4<half, P>::size_type tvec4<half, P>::value_size()
-	{
-		return 4;
-	}
 	
 	//////////////////////////////////////
 	// Accesses
@@ -813,10 +798,10 @@ namespace detail
 	// Convertion vector constructors
 
 	template <precision P>
-	template <typename A, typename B, typename C>
+	template <typename A, typename B, typename C, precision Q>
 	GLM_FUNC_QUALIFIER tvec4<half, P>::tvec4
 	(
-		tvec2<A, P> const & v,
+		tvec2<A, Q> const & v,
 		B const & s1,
 		C const & s2
 	) :
@@ -827,11 +812,11 @@ namespace detail
 	{}
 
 	template <precision P>
-	template <typename A, typename B, typename C>
+	template <typename A, typename B, typename C, precision Q>
 	GLM_FUNC_QUALIFIER tvec4<half, P>::tvec4
 	(
 		A const & s1,
-		tvec2<B, P> const & v,
+		tvec2<B, Q> const & v,
 		C const & s2
 	) :
 		x(half(s1)),
@@ -841,12 +826,12 @@ namespace detail
 	{}
 
 	template <precision P>
-	template <typename A, typename B, typename C>
+	template <typename A, typename B, typename C, precision Q>
 	GLM_FUNC_QUALIFIER tvec4<half, P>::tvec4
 	(
 		A const & s1,
 		B const & s2,
-		tvec2<C, P> const & v
+		tvec2<C, Q> const & v
 	) :
 		x(half(s1)),
 		y(half(s2)),
@@ -855,10 +840,10 @@ namespace detail
 	{}
 
 	template <precision P>
-	template <typename A, typename B>
+	template <typename A, typename B, precision Q>
 	GLM_FUNC_QUALIFIER tvec4<half, P>::tvec4
 	(
-		tvec3<A, P> const & v,
+		tvec3<A, Q> const & v,
 		B const & s
 	) :
 		x(half(v.x)),
@@ -868,11 +853,11 @@ namespace detail
 	{}
 
 	template <precision P>
-	template <typename A, typename B>
+	template <typename A, typename B, precision Q>
 	GLM_FUNC_QUALIFIER tvec4<half, P>::tvec4
 	(
 		A const & s,
-		tvec3<B, P> const & v
+		tvec3<B, Q> const & v
 	) :
 		x(half(s)),
 		y(half(v.x)),
@@ -881,11 +866,11 @@ namespace detail
 	{}
 
 	template <precision P>
-	template <typename A, typename B>
+	template <typename A, typename B, precision Q>
 	GLM_FUNC_QUALIFIER tvec4<half, P>::tvec4
 	(
-		tvec2<A, P> const & v1,
-		tvec2<B, P> const & v2
+		tvec2<A, Q> const & v1,
+		tvec2<B, Q> const & v2
 	) :
 		x(half(v1.x)),
 		y(half(v1.y)),
@@ -894,10 +879,10 @@ namespace detail
 	{}
 
 	template <precision P>
-	template <typename U>
+	template <typename U, precision Q>
 	GLM_FUNC_QUALIFIER tvec4<half, P>::tvec4
 	(
-		tvec4<U, P> const & v
+		tvec4<U, Q> const & v
 	) :
 		x(half(v.x)),
 		y(half(v.y)),

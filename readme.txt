@@ -45,6 +45,8 @@ GLM 0.9.5.0: 2013-XX-XX
 - Added GTX_scalar_relational
 - Added GTX_dual_quaternion
 - Added rotation function to GTX_quaternion (#22)
+- Added precision variation of each type
+- Added quaternion comparison functions
 
 ================================================================================
 GLM 0.9.4.3: 2013-03-20

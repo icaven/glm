@@ -56,7 +56,6 @@ namespace detail
 		typedef std::size_t size_type;
 
 		GLM_FUNC_DECL size_type length() const;
-		static GLM_FUNC_DECL size_type value_size();
 
 		typedef tvec2<half, P> type;
 		typedef tvec2<bool, P> bool_type;
@@ -107,14 +106,14 @@ namespace detail
 		// Convertion vector constructors
 
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename U> 
-		explicit tvec2(tvec2<U, P> const & v);
+		template <typename U, precision Q>
+		explicit tvec2(tvec2<U, Q> const & v);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename U> 
-		explicit tvec2(tvec3<U, P> const & v);
+		template <typename U, precision Q>
+		explicit tvec2(tvec3<U, Q> const & v);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename U> 
-		explicit tvec2(tvec4<U, P> const & v);
+		template <typename U, precision Q>
+		explicit tvec2(tvec4<U, Q> const & v);
 
 		//////////////////////////////////////
 		// Unary arithmetic operators
@@ -149,7 +148,6 @@ namespace detail
 		typedef half value_type;
 		typedef std::size_t size_type;
 		GLM_FUNC_DECL size_type length() const;
-		static GLM_FUNC_DECL size_type value_size();
 
 		typedef tvec3<half, P> type;
 		typedef tvec3<bool, P> bool_type;
@@ -191,7 +189,7 @@ namespace detail
 		// Convertion scalar constructors
 
 		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename U> 
+		template <typename U>
 		explicit tvec3(U const & x);
 		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U, typename V, typename W> 
@@ -201,17 +199,17 @@ namespace detail
 		// Convertion vector constructors
 
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B> 
-		explicit tvec3(tvec2<A, P> const & v, B const & s);
+		template <typename A, typename B, precision Q>
+		explicit tvec3(tvec2<A, Q> const & v, B const & s);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B> 
-		explicit tvec3(A const & s, tvec2<B, P> const & v);
+		template <typename A, typename B, precision Q>
+		explicit tvec3(A const & s, tvec2<B, Q> const & v);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename U> 
-		explicit tvec3(tvec3<U, P> const & v);
+		template <typename U, precision Q>
+		explicit tvec3(tvec3<U, Q> const & v);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename U> 
-		explicit tvec3(tvec4<U, P> const & v);
+		template <typename U, precision Q>
+		explicit tvec3(tvec4<U, Q> const & v);
 
 		//////////////////////////////////////
 		// Unary arithmetic operators
@@ -246,7 +244,6 @@ namespace detail
 		typedef half value_type;
 		typedef std::size_t size_type;
 		GLM_FUNC_DECL size_type length() const;
-		static GLM_FUNC_DECL size_type value_size();
 
 		typedef tvec4<half, P> type;
 		typedef tvec4<bool, P> bool_type;
@@ -289,36 +286,36 @@ namespace detail
 		// Convertion scalar constructors
 
 		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename U> 
+		template <typename U>
 		explicit tvec4(U const & x);
 		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B, typename C, typename D> 
+		template <typename A, typename B, typename C, typename D>
 		explicit tvec4(A const & x, B const & y, C const & z, D const & w);			
 
 		//////////////////////////////////////
 		// Convertion vector constructors
 
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B, typename C> 
-		explicit tvec4(tvec2<A, P> const & v, B const & s1, C const & s2);
+		template <typename A, typename B, typename C, precision Q>
+		explicit tvec4(tvec2<A, Q> const & v, B const & s1, C const & s2);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B, typename C> 
-		explicit tvec4(A const & s1, tvec2<B, P> const & v, C const & s2);
+		template <typename A, typename B, typename C, precision Q>
+		explicit tvec4(A const & s1, tvec2<B, Q> const & v, C const & s2);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B, typename C> 
-		explicit tvec4(A const & s1, B const & s2, tvec2<C, P> const & v);
+		template <typename A, typename B, typename C, precision Q>
+		explicit tvec4(A const & s1, B const & s2, tvec2<C, Q> const & v);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B> 
-		explicit tvec4(tvec3<A, P> const & v, B const & s);
+		template <typename A, typename B, precision Q>
+		explicit tvec4(tvec3<A, Q> const & v, B const & s);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B> 
-		explicit tvec4(A const & s, tvec3<B, P> const & v);
+		template <typename A, typename B, precision Q>
+		explicit tvec4(A const & s, tvec3<B, Q> const & v);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B> 
-		explicit tvec4(tvec2<A, P> const & v1, tvec2<B, P> const & v2);
+		template <typename A, typename B, precision Q>
+		explicit tvec4(tvec2<A, Q> const & v1, tvec2<B, Q> const & v2);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename U> 
-		explicit tvec4(tvec4<U, P> const & v);
+		template <typename U, precision Q>
+		explicit tvec4(tvec4<U, Q> const & v);
 
 		//////////////////////////////////////
 		// Unary arithmetic operators

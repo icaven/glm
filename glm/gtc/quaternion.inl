@@ -46,6 +46,18 @@ namespace detail
 	{}
 
 	template <typename T, precision P>
+	template <typename U, precision Q>
+	GLM_FUNC_QUALIFIER tquat<T, P>::tquat
+	(
+		tquat<U, Q> const & q
+	) :
+		x(q.x),
+		y(q.y),
+		z(q.z),
+		w(q.w)
+	{}
+
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tquat<T, P>::tquat
 	(
 		T const & s,
@@ -777,4 +789,114 @@ namespace detail
 		return result;
 	}
 
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER typename detail::tquat<T, P>::bool_type lessThan
+	(
+		detail::tquat<T, P> const & x,
+		detail::tquat<T, P> const & y
+	)
+	{
+		//GLM_STATIC_ASSERT(detail::is_vector<vecType<T, P> >::_YES,
+		//	"Invalid template instantiation of 'lessThan', GLM vector types required");
+		GLM_STATIC_ASSERT(detail::is_bool<T>::_NO,
+			"Invalid template instantiation of 'lessThan', GLM vector types required floating-point or integer value types vectors");
+		assert(x.length() == y.length());
+
+		typename detail::tquat<T, P>::bool_type Result(detail::tquat<T, P>::null);
+		for(typename detail::tquat<T, P>::size_type i = 0; i < x.length(); ++i)
+			Result[i] = x[i] < y[i];
+
+		return Result;
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER typename detail::tquat<T, P>::bool_type lessThanEqual
+	(
+		detail::tquat<T, P> const & x,
+		detail::tquat<T, P> const & y
+	)
+	{
+		//GLM_STATIC_ASSERT(detail::is_vector<vecType<T, P> >::_YES,
+		//	"Invalid template instantiation of 'lessThanEqual', GLM vector types required");
+		GLM_STATIC_ASSERT(detail::is_bool<T>::_NO,
+			"Invalid template instantiation of 'lessThanEqual', GLM vector types required floating-point or integer value types vectors");
+		assert(x.length() == y.length());
+
+		typename detail::tquat<T, P>::bool_type Result(detail::tquat<T, P>::null);
+		for(typename detail::tquat<T, P>::size_type i = 0; i < x.length(); ++i)
+			Result[i] = x[i] <= y[i];
+		return Result;
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER typename detail::tquat<T, P>::bool_type greaterThan
+	(
+		detail::tquat<T, P> const & x,
+		detail::tquat<T, P> const & y
+	)
+	{
+		//GLM_STATIC_ASSERT(detail::is_vector<vecType<T, P> >::_YES,
+		//	"Invalid template instantiation of 'greaterThan', GLM vector types required");
+		GLM_STATIC_ASSERT(detail::is_bool<T>::_NO,
+			"Invalid template instantiation of 'greaterThan', GLM vector types required floating-point or integer value types vectors");
+		assert(x.length() == y.length());
+
+		typename detail::tquat<T, P>::bool_type Result(detail::tquat<T, P>::null);
+		for(typename detail::tquat<T, P>::size_type i = 0; i < x.length(); ++i)
+			Result[i] = x[i] > y[i];
+		return Result;
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER typename detail::tquat<T, P>::bool_type greaterThanEqual
+	(
+		detail::tquat<T, P> const & x,
+		detail::tquat<T, P> const & y
+	)
+	{
+		//GLM_STATIC_ASSERT(detail::is_vector<vecType<T, P> >::_YES,
+		//	"Invalid template instantiation of 'greaterThanEqual', GLM vector types required");
+		GLM_STATIC_ASSERT(detail::is_bool<T>::_NO,
+			"Invalid template instantiation of 'greaterThanEqual', GLM vector types required floating-point or integer value types vectors");
+		assert(x.length() == y.length());
+
+		typename detail::tquat<T, P>::bool_type Result(detail::tquat<T, P>::null);
+		for(typename detail::tquat<T, P>::size_type i = 0; i < x.length(); ++i)
+			Result[i] = x[i] >= y[i];
+		return Result;
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER typename detail::tquat<T, P>::bool_type equal
+	(
+		detail::tquat<T, P> const & x,
+		detail::tquat<T, P> const & y
+	)
+	{
+		//GLM_STATIC_ASSERT(detail::is_vector<vecType<T, P> >::_YES,
+		//	"Invalid template instantiation of 'equal', GLM vector types required");
+		assert(x.length() == y.length());
+
+		typename detail::tquat<T, P>::bool_type Result(detail::tquat<T, P>::null);
+		for(typename detail::tquat<T, P>::size_type i = 0; i < x.length(); ++i)
+			Result[i] = x[i] == y[i];
+		return Result;
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER typename detail::tquat<T, P>::bool_type notEqual
+	(
+		detail::tquat<T, P> const & x,
+		detail::tquat<T, P> const & y
+	)
+	{
+		//GLM_STATIC_ASSERT(detail::is_vector<vecType<T, P> >::_YES,
+		//	"Invalid template instantiation of 'notEqual', GLM vector types required");
+		assert(x.length() == y.length());
+
+		typename detail::tquat<T, P>::bool_type Result(detail::tquat<T, P>::null);
+		for(typename detail::tquat<T, P>::size_type i = 0; i < x.length(); ++i)
+			Result[i] = x[i] != y[i];
+		return Result;
+	}
 }//namespace glm

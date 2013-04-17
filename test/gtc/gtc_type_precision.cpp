@@ -9,6 +9,7 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/type_precision.hpp>
+#include <glm/gtc/quaternion.hpp>
 
 static int test_scalar_size()
 {
@@ -108,6 +109,126 @@ static int test_fvec_size()
 	return Error;
 }
 
+static int test_hvec_precision()
+{
+	int Error(0);
+
+	{
+		glm::f16vec2 v1;
+		glm::lowp_f16vec2 v2(v1);
+		glm::mediump_f16vec2 v3(v1);
+		glm::highp_f16vec2 v4(v1);
+
+		Error += glm::all(glm::equal(v1, glm::f16vec2(v2))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f16vec2(v3))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f16vec2(v4))) ? 0 : 1;
+	}
+
+	{
+		glm::f16vec3 v1;
+		glm::lowp_f16vec3 v2(v1);
+		glm::mediump_f16vec3 v3(v1);
+		glm::highp_f16vec3 v4(v1);
+
+		Error += glm::all(glm::equal(v1, glm::f16vec3(v2))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f16vec3(v3))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f16vec3(v4))) ? 0 : 1;
+	}
+	
+	{
+		glm::f16vec4 v1;
+		glm::lowp_f16vec4 v2(v1);
+		glm::mediump_f16vec4 v3(v1);
+		glm::highp_f16vec4 v4(v1);
+
+		Error += glm::all(glm::equal(v1, glm::f16vec4(v2))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f16vec4(v3))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f16vec4(v4))) ? 0 : 1;
+	}
+	
+	return Error;
+}
+
+static int test_fvec_precision()
+{
+	int Error(0);
+	
+	{
+		glm::f32vec2 v1;
+		glm::lowp_f32vec2 v2(v1);
+		glm::mediump_f32vec2 v3(v1);
+		glm::highp_f32vec2 v4(v1);
+
+		Error += glm::all(glm::equal(v1, glm::f32vec2(v2))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f32vec2(v3))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f32vec2(v4))) ? 0 : 1;
+	}
+
+	{
+		glm::f32vec3 v1;
+		glm::lowp_f32vec3 v2(v1);
+		glm::mediump_f32vec3 v3(v1);
+		glm::highp_f32vec3 v4(v1);
+
+		Error += glm::all(glm::equal(v1, glm::f32vec3(v2))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f32vec3(v3))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f32vec3(v4))) ? 0 : 1;
+	}
+	
+	{
+		glm::f32vec4 v1;
+		glm::lowp_f32vec4 v2(v1);
+		glm::mediump_f32vec4 v3(v1);
+		glm::highp_f32vec4 v4(v1);
+
+		Error += glm::all(glm::equal(v1, glm::f32vec4(v2))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f32vec4(v3))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f32vec4(v4))) ? 0 : 1;
+	}
+	
+	return Error;
+}
+
+static int test_dvec_precision()
+{
+	int Error(0);
+	
+	{
+		glm::f64vec2 v1;
+		glm::lowp_f64vec2 v2(v1);
+		glm::mediump_f64vec2 v3(v1);
+		glm::highp_f64vec2 v4(v1);
+
+		Error += glm::all(glm::equal(v1, glm::f64vec2(v2))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f64vec2(v3))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f64vec2(v4))) ? 0 : 1;
+	}
+
+	{
+		glm::f64vec3 v1;
+		glm::lowp_f64vec3 v2(v1);
+		glm::mediump_f64vec3 v3(v1);
+		glm::highp_f64vec3 v4(v1);
+
+		Error += glm::all(glm::equal(v1, glm::f64vec3(v2))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f64vec3(v3))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f64vec3(v4))) ? 0 : 1;
+	}
+	
+	{
+		glm::f64vec4 v1;
+		glm::lowp_f64vec4 v2(v1);
+		glm::mediump_f64vec4 v3(v1);
+		glm::highp_f64vec4 v4(v1);
+
+		Error += glm::all(glm::equal(v1, glm::f64vec4(v2))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f64vec4(v3))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f64vec4(v4))) ? 0 : 1;
+	}
+	
+	return Error;
+}
+
 static int test_ivec_size()
 {
 	int Error(0);
@@ -165,6 +286,46 @@ static int test_ivec_size()
 	return Error;
 }
 
+static int test_ivec_precision()
+{
+	int Error(0);
+	
+	{
+		glm::i64vec2 v1;
+		glm::lowp_i64vec2 v2(v1);
+		glm::mediump_i64vec2 v3(v1);
+		glm::highp_i64vec2 v4(v1);
+
+		Error += glm::all(glm::equal(v1, glm::i64vec2(v2))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::i64vec2(v3))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::i64vec2(v4))) ? 0 : 1;
+	}
+
+	{
+		glm::i64vec3 v1;
+		glm::lowp_i64vec3 v2(v1);
+		glm::mediump_i64vec3 v3(v1);
+		glm::highp_i64vec3 v4(v1);
+
+		Error += glm::all(glm::equal(v1, glm::i64vec3(v2))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::i64vec3(v3))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::i64vec3(v4))) ? 0 : 1;
+	}
+	
+	{
+		glm::i64vec4 v1;
+		glm::lowp_i64vec4 v2(v1);
+		glm::mediump_i64vec4 v3(v1);
+		glm::highp_i64vec4 v4(v1);
+
+		Error += glm::all(glm::equal(v1, glm::i64vec4(v2))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::i64vec4(v3))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::i64vec4(v4))) ? 0 : 1;
+	}
+	
+	return Error;
+}
+
 static int test_uvec_size()
 {
 	int Error(0);
@@ -219,6 +380,46 @@ static int test_uvec_size()
 	Error += sizeof(glm::highp_u64vec2) != 16;
 	Error += sizeof(glm::highp_u64vec3) != 24;
 	Error += sizeof(glm::highp_u64vec4) != 32;
+	return Error;
+}
+
+static int test_uvec_precision()
+{
+	int Error(0);
+	
+	{
+		glm::u64vec2 v1;
+		glm::lowp_u64vec2 v2(v1);
+		glm::mediump_u64vec2 v3(v1);
+		glm::highp_u64vec2 v4(v1);
+
+		Error += glm::all(glm::equal(v1, glm::u64vec2(v2))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::u64vec2(v3))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::u64vec2(v4))) ? 0 : 1;
+	}
+
+	{
+		glm::u64vec3 v1;
+		glm::lowp_u64vec3 v2(v1);
+		glm::mediump_u64vec3 v3(v1);
+		glm::highp_u64vec3 v4(v1);
+
+		Error += glm::all(glm::equal(v1, glm::u64vec3(v2))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::u64vec3(v3))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::u64vec3(v4))) ? 0 : 1;
+	}
+	
+	{
+		glm::u64vec4 v1;
+		glm::lowp_u64vec4 v2(v1);
+		glm::mediump_u64vec4 v3(v1);
+		glm::highp_u64vec4 v4(v1);
+
+		Error += glm::all(glm::equal(v1, glm::u64vec4(v2))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::u64vec4(v3))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::u64vec4(v4))) ? 0 : 1;
+	}
+	
 	return Error;
 }
 
@@ -504,7 +705,7 @@ static int test_dmat_size()
 static int test_quat_size()
 {
 	int Error = 0;
-	Error += sizeof(glm::lowp_f16quat) != 8;
+	Error += sizeof(glm::f16quat) != 8;
 	Error += sizeof(glm::f32quat) != 16;
 	Error += sizeof(glm::f64quat) != 32;
 	
@@ -522,16 +723,40 @@ static int test_quat_size()
 	return Error;
 }
 
+static int test_quat_precision()
+{
+	int Error(0);
+	
+	{
+		glm::f32quat q1;
+		glm::f32quat q2(glm::lowp_f32quat(q1));
+		glm::f32quat q3(glm::mediump_f32quat(q1));
+		glm::f32quat q4(glm::highp_f32quat(q1));
+		
+		//Error += glm::all(glm::equal(q1, q2)) ? 0 : 1;
+		//Error += glm::all(glm::equal(q1, q3)) ? 0 : 1;
+		//Error += glm::all(glm::equal(q1, q4)) ? 0 : 1;
+	}
+	
+	return Error;
+}
+
 int main()
 {
-	int Error = 0;
+	int Error(0);
 	Error += test_scalar_size();
 	Error += test_fvec_size();
+	Error += test_hvec_precision();
+	Error += test_fvec_precision();
+	Error += test_dvec_precision();
 	Error += test_ivec_size();
+	Error += test_ivec_precision();
 	Error += test_uvec_size();
+	Error += test_uvec_precision();
 	Error += test_hmat_size();
 	Error += test_fmat_size();
 	Error += test_dmat_size();
 	Error += test_quat_size();
+	Error += test_quat_precision();
 	return Error;
 }
