@@ -48,6 +48,7 @@ GLM 0.9.5.0: 2013-XX-XX
 - Added precision variation of each type
 - Added quaternion comparison functions
 - Fixed GTX_multiple for negative value
+- Removed GTX_ocl_type extension
 
 ================================================================================
 GLM 0.9.4.4: 2013-0X-XX

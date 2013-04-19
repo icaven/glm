@@ -112,7 +112,6 @@
 #include "./gtx/normal.hpp"
 #include "./gtx/normalize_dot.hpp"
 #include "./gtx/number_precision.hpp"
-#include "./gtx/ocl_type.hpp"
 #include "./gtx/optimum_pow.hpp"
 #include "./gtx/orthonormalize.hpp"
 #include "./gtx/perpendicular.hpp"
