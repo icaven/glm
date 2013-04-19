@@ -15,12 +15,19 @@ int test_higher()
 	int Error(0);
 
 	int Higher0 = glm::higherMultiple(-5, 4);
-	Error += Higher0 == -4 ? 0 : 1;
-	Error += glm::higherMultiple(-4, 4) == -4 ? 0 : 1;
-	Error += glm::higherMultiple(-3, 4) == -4 ? 0 : 1;
-	Error += glm::higherMultiple(-2, 4) == -4 ? 0 : 1;
-	Error += glm::higherMultiple(-1, 4) == -4 ? 0 : 1;
+	Error += Higher0 == -8 ? 0 : 1;
+	int Higher1 = glm::higherMultiple(-4, 4);
+	Error += Higher1 == -4 ? 0 : 1;
+	int Higher2 = glm::higherMultiple(-3, 4);
+	Error += Higher2 == -4 ? 0 : 1;
+	int Higher3 = glm::higherMultiple(-2, 4);
+	Error += Higher3 == -4 ? 0 : 1;
+	int Higher4 = glm::higherMultiple(-1, 4);
+	Error += Higher4 == -4 ? 0 : 1;
 	Error += glm::higherMultiple(0, 4) == 0 ? 0 : 1;
+	Error += glm::higherMultiple(1, 4) == 4 ? 0 : 1;
+	Error += glm::higherMultiple(2, 4) == 4 ? 0 : 1;
+	Error += glm::higherMultiple(3, 4) == 4 ? 0 : 1;
 	Error += glm::higherMultiple(4, 4) == 4 ? 0 : 1;
 	Error += glm::higherMultiple(5, 4) == 8 ? 0 : 1;
 	Error += glm::higherMultiple(6, 4) == 8 ? 0 : 1;
