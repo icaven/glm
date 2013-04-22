@@ -562,11 +562,11 @@ namespace detail
 			- this->value[0][0] * SubFactor14 + this->value[0][1] * SubFactor16 - this->value[0][3] * SubFactor18,
 			+ this->value[0][0] * SubFactor15 - this->value[0][1] * SubFactor17 + this->value[0][2] * SubFactor18);
 
-		value_type Determinant =
+		T Determinant = T(
 			+ this->value[0][0] * Inverse[0][0]
 			+ this->value[0][1] * Inverse[1][0]
 			+ this->value[0][2] * Inverse[2][0]
-			+ this->value[0][3] * Inverse[3][0];
+			+ this->value[0][3] * Inverse[3][0]);
 
 		Inverse /= Determinant;
 		return Inverse;
