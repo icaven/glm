@@ -70,10 +70,10 @@ namespace detail
 	) :
 		real(q),
 		dual(
-			-0.5f*( p.x*q.x + p.y*q.y + p.z*q.z),
-			 0.5f*( p.x*q.w + p.y*q.z - p.z*q.y),
-			 0.5f*(-p.x*q.z + p.y*q.w + p.z*q.x),
-			 0.5f*( p.x*q.y - p.y*q.x + p.z*q.w))
+			T(-0.5) * ( p.x*q.x + p.y*q.y + p.z*q.z),
+			T(+0.5) * ( p.x*q.w + p.y*q.z - p.z*q.y),
+			T(+0.5) * (-p.x*q.z + p.y*q.w + p.z*q.x),
+			T(+0.5) * ( p.x*q.y - p.y*q.x + p.z*q.w))
 	{}
 
 	//////////////////////////////////////////////////////////////
@@ -378,20 +378,20 @@ namespace detail
 		detail::tquat<T, P> real;
 		
 		T const trace = x[0].x + x[1].y + x[2].z;
-		if(trace > detail::tdualquat<T, P>::value_type(0))
+		if(trace > T(0))
 		{
-			T const r = sqrt(detail::tdualquat<T, P>::value_type(1) + trace);
-			T const invr = detail::tdualquat<T, P>::value_type(0.5) / r;
-			real.w = detail::tdualquat<T, P>::value_type(0.5) * r;
+			T const r = sqrt(T(1) + trace);
+			T const invr = T(0.5) / r;
+			real.w = T(0.5) * r;
 			real.x = (x[2].y - x[1].z) * invr;
 			real.y = (x[0].z - x[2].x) * invr;
 			real.z = (x[1].x - x[0].y) * invr;
 		}
 		else if(x[0].x > x[1].y && x[0].x > x[2].z)
 		{
-			T const r = sqrt(detail::tdualquat<T, P>::value_type(1) + x[0].x - x[1].y - x[2].z);
-			T const invr = detail::tdualquat<T, P>::value_type(0.5) / r;
-			real.x = detail::tdualquat<T, P>::value_type(0.5)*r;
+			T const r = sqrt(T(1) + x[0].x - x[1].y - x[2].z);
+			T const invr = T(0.5) / r;
+			real.x = T(0.5)*r;
 			real.y = (x[1].x + x[0].y) * invr;
 			real.z = (x[0].z + x[2].x) * invr;
 			real.w = (x[2].y - x[1].z) * invr;

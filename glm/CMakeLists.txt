@@ -1,4 +1,4 @@
-set(NAME glm)
+set(NAME glm_dummy)
 
 file(GLOB ROOT_SOURCE *.cpp)
 file(GLOB ROOT_INLINE *.inl)
@@ -38,8 +38,11 @@ source_group("VIRTREV Files" FILES ${VIRTREV_HEADER})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/..)
 
 add_executable(${NAME} ${ROOT_TEXT}
-	${ROOT_SOURCE}    ${ROOT_INLINE}    ${ROOT_HEADER} 
+	${ROOT_SOURCE}    ${ROOT_INLINE}    ${ROOT_HEADER}
 	${CORE_SOURCE}    ${CORE_INLINE}    ${CORE_HEADER}
-	${GTC_SOURCE}     ${GTC_INLINE}     ${GTC_HEADER} 
-	${GTX_SOURCE}     ${GTX_INLINE}     ${GTX_HEADER} 
+	${GTC_SOURCE}     ${GTC_INLINE}     ${GTC_HEADER}
+	${GTX_SOURCE}     ${GTX_INLINE}     ${GTX_HEADER}
 	${VIRTREV_SOURCE} ${VIRTREV_INLINE} ${VIRTREV_HEADER})
+
+add_library(glm STATIC glm.cpp)
+add_library(glm_shared SHARED glm.cpp)
