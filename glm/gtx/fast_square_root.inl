@@ -36,7 +36,7 @@ namespace glm
 		i = 0x5f375a86 - (i >> 1);
 		//x = *(float*)&i;
 		//x = *((float*)(char*)&i);
-		tmp = detail::uif(i).f;
+		tmp = detail::uif32(i).f;
 		tmp = tmp * (1.5f - xhalf * tmp * tmp);
 		return genType(tmp);
 	}
