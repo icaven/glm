@@ -214,37 +214,23 @@ GLM_FUNC_QUALIFIER quat quat_cast
 {
 	GLM_ALIGN(16) quat Result;
 	_mm_store_ps(&Result[0], x.Data);
+
 	return Result;
 }
 
-GLM_FUNC_QUALIFIER detail::fquatSIMD quatSIMD_cast
-(
-	detail::fmat4x4SIMD const & m
-)
+template <typename T>
+GLM_FUNC_QUALIFIER detail::fquatSIMD quatSIMD_cast_impl(const T m0[], const T m1[], const T m2[])
 {
-    // Scalar implementation for now.
-
-    GLM_ALIGN(16) float m0[4];
-    GLM_ALIGN(16) float m1[4];
-    GLM_ALIGN(16) float m2[4];
-    GLM_ALIGN(16) float m3[4];
-
-    _mm_store_ps(m0, m[0].Data);
-    _mm_store_ps(m1, m[1].Data);
-    _mm_store_ps(m2, m[2].Data);
-    _mm_store_ps(m3, m[3].Data);
-
-
-    float trace = m0[0] + m1[1] + m2[2] + 1.0f;
-    if (trace > 0)
+    T trace = m0[0] + m1[1] + m2[2] + T(1.0);
+    if (trace > T(0))
     {
-        float s = 0.5f / sqrt(trace);
+        T s = T(0.5) / sqrt(trace);
 
         return _mm_set_ps(
-            0.25f / s,
-            (m0[1] - m1[0]) * s,
-            (m2[0] - m0[2]) * s,
-            (m1[2] - m2[1]) * s);
+            static_cast<float>(T(0.25) / s),
+            static_cast<float>((m0[1] - m1[0]) * s),
+            static_cast<float>((m2[0] - m0[2]) * s),
+            static_cast<float>((m1[2] - m2[1]) * s));
     }
     else
     {
@@ -253,13 +239,13 @@ GLM_FUNC_QUALIFIER detail::fquatSIMD quatSIMD_cast
             if (m0[0] > m2[2])
             {
                 // X is biggest.
-                float s = sqrt(m0[0] - m1[1] - m2[2] + 1.0f) * 0.5f;
+                T s = sqrt(m0[0] - m1[1] - m2[2] + T(1.0)) * T(0.5);
 
                 return _mm_set_ps(
-                    (m1[2] - m2[1]) * s,
-                    (m2[0] + m0[2]) * s,
-                    (m0[1] + m1[0]) * s,
-                    0.5f            * s);
+                    static_cast<float>((m1[2] - m2[1]) * s),
+                    static_cast<float>((m2[0] + m0[2]) * s),
+                    static_cast<float>((m0[1] + m1[0]) * s),
+                    static_cast<float>(T(0.5)          * s));
             }
         }
         else
@@ -267,25 +253,60 @@ GLM_FUNC_QUALIFIER detail::fquatSIMD quatSIMD_cast
             if (m1[1] > m2[2])
             {
                 // Y is biggest.
-                float s = sqrt(m1[1] - m0[0] - m2[2] + 1.0f) * 0.5f;
+                T s = sqrt(m1[1] - m0[0] - m2[2] + T(1.0)) * T(0.5);
 
                 return _mm_set_ps(
-                    (m2[0] - m0[2]) * s,
-                    (m1[2] + m2[1]) * s,
-                    0.5f            * s,
-                    (m0[1] + m1[0]) * s);
+                    static_cast<float>((m2[0] - m0[2]) * s),
+                    static_cast<float>((m1[2] + m2[1]) * s),
+                    static_cast<float>(T(0.5)          * s),
+                    static_cast<float>((m0[1] + m1[0]) * s));
             }
         }
 
         // Z is biggest.
-        float s = sqrt(m2[2] - m0[0] - m1[1] + 1.0f) * 0.5f;
+        T s = sqrt(m2[2] - m0[0] - m1[1] + T(1.0)) * T(0.5);
 
         return _mm_set_ps(
-            (m0[1] - m1[0]) * s,
-            0.5f            * s,
-            (m1[2] + m2[1]) * s,
-            (m2[0] + m0[2]) * s);
+            static_cast<float>((m0[1] - m1[0]) * s),
+            static_cast<float>(T(0.5)          * s),
+            static_cast<float>((m1[2] + m2[1]) * s),
+            static_cast<float>((m2[0] + m0[2]) * s));
     }
+}
+
+GLM_FUNC_QUALIFIER detail::fquatSIMD quatSIMD_cast
+(
+	detail::fmat4x4SIMD const & m
+)
+{
+    // Scalar implementation for now.
+    GLM_ALIGN(16) float m0[4];
+    GLM_ALIGN(16) float m1[4];
+    GLM_ALIGN(16) float m2[4];
+
+    _mm_store_ps(m0, m[0].Data);
+    _mm_store_ps(m1, m[1].Data);
+    _mm_store_ps(m2, m[2].Data);
+
+    return quatSIMD_cast_impl(m0, m1, m2);
+}
+
+template <typename T, precision P>
+GLM_FUNC_QUALIFIER detail::fquatSIMD quatSIMD_cast
+(
+    detail::tmat4x4<T, P> const & m
+)
+{
+    return quatSIMD_cast_impl(&m[0][0], &m[1][0], &m[2][0]);
+}
+
+template <typename T, precision P>
+GLM_FUNC_QUALIFIER detail::fquatSIMD quatSIMD_cast
+(
+    detail::tmat3x3<T, P> const & m
+)
+{
+    return quatSIMD_cast_impl(&m[0][0], &m[1][0], &m[2][0]);
 }
 
 
