@@ -115,11 +115,6 @@ GLM_FUNC_QUALIFIER fquatSIMD operator* (fquatSIMD const & q1, fquatSIMD const & 
     //    8  mul
     //    8  add
     
-    // SSE3 STATS:
-    //    3 shuffle
-    //    8 mul
-    //    8 add
-
     // SSE4 STATS:
     //    3 shuffle
     //    4 mul
@@ -136,33 +131,23 @@ GLM_FUNC_QUALIFIER fquatSIMD operator* (fquatSIMD const & q1, fquatSIMD const & 
     __m128 add2 = _mm_dp_ps(mul2, _mm_set_ps(1.0f,  1.0f,  1.0f, -1.0f), 0xff);
     __m128 add3 = _mm_dp_ps(mul3, _mm_set_ps(1.0f,  1.0f, -1.0f,  1.0f), 0xff);
 #   else
-               mul0 = _mm_mul_ps(mul0, _mm_set_ps(1.0f, -1.0f, -1.0f, -1.0f));
-               mul1 = _mm_mul_ps(mul1, _mm_set_ps(1.0f, -1.0f,  1.0f,  1.0f));
-               mul2 = _mm_mul_ps(mul2, _mm_set_ps(1.0f,  1.0f,  1.0f, -1.0f));
-               mul3 = _mm_mul_ps(mul3, _mm_set_ps(1.0f,  1.0f, -1.0f,  1.0f));
+           mul0 = _mm_mul_ps(mul0, _mm_set_ps(1.0f, -1.0f, -1.0f, -1.0f));
+    __m128 add0 = _mm_add_ps(mul0, _mm_movehl_ps(mul0, mul0));
+           add0 = _mm_add_ss(add0, _mm_shuffle_ps(add0, add0, 1));
 
-#       if((GLM_ARCH & GLM_ARCH_SSE3))
-        __m128 add0 = _mm_hadd_ps(mul0, mul0);
-               add0 = _mm_hadd_ps(add0, add0);
-        __m128 add1 = _mm_hadd_ps(mul1, mul1);
-               add1 = _mm_hadd_ps(add1, add1);
-        __m128 add2 = _mm_hadd_ps(mul2, mul2);
-               add2 = _mm_hadd_ps(add2, add2);
-        __m128 add3 = _mm_hadd_ps(mul3, mul3);
-               add3 = _mm_hadd_ps(add3, add3);
-#       else
-        __m128 add0 = _mm_add_ps(mul0, _mm_movehl_ps(mul0, mul0));
-               add0 = _mm_add_ss(add0, _mm_shuffle_ps(add0, add0, 1));
-        __m128 add1 = _mm_add_ps(mul1, _mm_movehl_ps(mul1, mul1));
-               add1 = _mm_add_ss(add1, _mm_shuffle_ps(add1, add1, 1));
-        __m128 add2 = _mm_add_ps(mul2, _mm_movehl_ps(mul2, mul2));
-               add2 = _mm_add_ss(add2, _mm_shuffle_ps(add2, add2, 1));
-        __m128 add3 = _mm_add_ps(mul3, _mm_movehl_ps(mul3, mul3));
-               add3 = _mm_add_ss(add3, _mm_shuffle_ps(add3, add3, 1));
-#       endif
+           mul1 = _mm_mul_ps(mul1, _mm_set_ps(1.0f, -1.0f,  1.0f,  1.0f));
+    __m128 add1 = _mm_add_ps(mul1, _mm_movehl_ps(mul1, mul1));
+           add1 = _mm_add_ss(add1, _mm_shuffle_ps(add1, add1, 1));
+
+           mul2 = _mm_mul_ps(mul2, _mm_set_ps(1.0f,  1.0f,  1.0f, -1.0f));
+    __m128 add2 = _mm_add_ps(mul2, _mm_movehl_ps(mul2, mul2));
+           add2 = _mm_add_ss(add2, _mm_shuffle_ps(add2, add2, 1));
+
+           mul3 = _mm_mul_ps(mul3, _mm_set_ps(1.0f,  1.0f, -1.0f,  1.0f));
+    __m128 add3 = _mm_add_ps(mul3, _mm_movehl_ps(mul3, mul3));
+           add3 = _mm_add_ss(add3, _mm_shuffle_ps(add3, add3, 1));
 #endif
 
-    
 
     // I had tried something clever here using shuffles to produce the final result, but it turns out that using
     // _mm_store_* is consistently quicker in my tests. I've kept the shuffling code below just in case.
