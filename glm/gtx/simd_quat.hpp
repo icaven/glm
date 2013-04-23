@@ -189,6 +189,11 @@ namespace detail
     detail::fmat4x4SIMD mat4SIMD_cast(
         detail::fquatSIMD const & q);
 
+    //! Converts a simdQuat to a standard mat4.
+    //! (From GLM_GTX_simd_quat extension)
+    mat4 mat4_cast(
+        detail::fquatSIMD const & q);
+
 
 	/// Returns the length of the quaternion. 
 	/// 

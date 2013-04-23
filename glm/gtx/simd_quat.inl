@@ -365,6 +365,14 @@ GLM_FUNC_QUALIFIER detail::fmat4x4SIMD mat4SIMD_cast
     return result;
 }
 
+GLM_FUNC_QUALIFIER mat4 mat4_cast
+(
+	detail::fquatSIMD const & q
+)
+{
+    return mat4_cast(mat4SIMD_cast(q));
+}
+
 
 
 GLM_FUNC_QUALIFIER float length
