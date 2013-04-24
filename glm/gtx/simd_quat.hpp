@@ -41,6 +41,7 @@
 // Dependency:
 #include "../glm.hpp"
 #include "../gtc/quaternion.hpp"
+#include "../gtx/fast_trigonometry.hpp"
 
 #if(GLM_ARCH != GLM_ARCH_PURE)
 
@@ -223,7 +224,7 @@ namespace detail
 	/// @param a Interpolation factor. The interpolation is defined beyond the range [0, 1].
 	/// @tparam T Value type used to build the quaternion. Supported: half, float or double.
 	/// @see gtc_quaternion
-	/// @see - slerp(detail::tquat<T> const & x, detail::tquat<T> const & y, T const & a) 
+	/// @see - slerp(detail::fquatSIMD const & x, detail::fquatSIMD const & y, T const & a) 
 	detail::fquatSIMD mix(
 		detail::fquatSIMD const & x, 
 		detail::fquatSIMD const & y, 
@@ -254,6 +255,35 @@ namespace detail
 		detail::fquatSIMD const & x, 
 		detail::fquatSIMD const & y, 
 		float const & a);
+
+
+    /// Faster spherical linear interpolation of two unit length quaternions.
+    ///
+    /// This is the same as mix(), except for two rules:
+    ///   1) The two quaternions must be unit length.
+    ///   2) The interpolation factor (a) must be in the range [0, 1].
+    ///
+    /// This will use the equivalent to fastAcos() and fastSin().
+    ///
+	/// @see gtc_quaternion
+	/// @see - mix(detail::fquatSIMD const & x, detail::fquatSIMD const & y, T const & a) 
+	detail::fquatSIMD fastMix(
+		detail::fquatSIMD const & x, 
+		detail::fquatSIMD const & y, 
+		float const & a);
+
+    /// Identical to fastMix() except takes the shortest path.
+    ///
+    /// The same rules apply here as those in fastMix(). Both quaternions must be unit length and 'a' must be
+    /// in the range [0, 1].
+    ///
+	/// @see - fastMix(detail::fquatSIMD const & x, detail::fquatSIMD const & y, T const & a) 
+	/// @see - slerp(detail::fquatSIMD const & x, detail::fquatSIMD const & y, T const & a) 
+    detail::fquatSIMD fastSlerp(
+		detail::fquatSIMD const & x, 
+		detail::fquatSIMD const & y, 
+		float const & a);
+
 
 	/// Returns the q conjugate. 
 	/// 
@@ -290,6 +320,11 @@ namespace detail
 		float const & x, 
 		float const & y, 
 		float const & z);
+
+
+    // TODO: Move this to somewhere more appropriate. Used with fastMix() and fastSlerp().
+    /// Performs the equivalent of glm::fastSin() on each component of the given __m128.
+    __m128 fastSin(__m128 x);
 
 
 	/// @}

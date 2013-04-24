@@ -423,9 +423,6 @@ GLM_FUNC_QUALIFIER detail::fquatSIMD mix
 
         // Compared to the naive SIMD implementation below, this scalar version is consistently faster. A non-naive SSE-optimized implementation
         // will most likely be faster, but that'll need to be left to people much smarter than I.
-        //
-        // The issue, I think, is loading the __m128 variables with initial data. Can probably be replaced with an SSE-optimized approximation of
-        // glm::sin(). Maybe a fastMix() function would be better for that?
         
         float s0 = glm::sin((1.0f - a) * angle);
         float s1 = glm::sin(a * angle);
@@ -495,6 +492,73 @@ GLM_FUNC_QUALIFIER detail::fquatSIMD slerp
 	}
 }
 
+
+GLM_FUNC_QUALIFIER detail::fquatSIMD fastMix
+(
+	detail::fquatSIMD const & x, 
+	detail::fquatSIMD const & y, 
+	float const & a
+)
+{
+	float cosTheta = dot(x, y);
+
+    if (cosTheta > 1.0f - glm::epsilon<float>())
+    {
+	    return _mm_add_ps(x.Data, _mm_mul_ps(_mm_set1_ps(a), _mm_sub_ps(y.Data, x.Data)));
+    }
+    else
+    {
+        float angle = glm::fastAcos(cosTheta);
+
+
+        __m128 s  = glm::fastSin(_mm_set_ps((1.0f - a) * angle, a * angle, angle, 0.0f));
+
+        __m128 s0 =                               _mm_shuffle_ps(s, s, _MM_SHUFFLE(3, 3, 3, 3));
+        __m128 s1 =                               _mm_shuffle_ps(s, s, _MM_SHUFFLE(2, 2, 2, 2));
+        __m128 d  = _mm_div_ps(_mm_set1_ps(1.0f), _mm_shuffle_ps(s, s, _MM_SHUFFLE(1, 1, 1, 1)));
+        
+        return _mm_mul_ps(_mm_add_ps(_mm_mul_ps(s0, x.Data), _mm_mul_ps(s1, y.Data)), d);
+    }
+}
+
+GLM_FUNC_QUALIFIER detail::fquatSIMD fastSlerp
+(
+	detail::fquatSIMD const & x, 
+	detail::fquatSIMD const & y, 
+	float const & a
+)
+{
+	detail::fquatSIMD z = y;
+
+	float cosTheta = dot(x, y);
+	if (cosTheta < 0.0f)
+	{
+		z        = -y;
+		cosTheta = -cosTheta;
+	}
+
+
+	if(cosTheta > 1.0f - epsilon<float>())
+	{
+		return _mm_add_ps(x.Data, _mm_mul_ps(_mm_set1_ps(a), _mm_sub_ps(y.Data, x.Data)));
+	}
+	else
+	{
+        float angle = glm::fastAcos(cosTheta);
+
+
+        __m128 s  = glm::fastSin(_mm_set_ps((1.0f - a) * angle, a * angle, angle, 0.0f));
+
+        __m128 s0 =                               _mm_shuffle_ps(s, s, _MM_SHUFFLE(3, 3, 3, 3));
+        __m128 s1 =                               _mm_shuffle_ps(s, s, _MM_SHUFFLE(2, 2, 2, 2));
+        __m128 d  = _mm_div_ps(_mm_set1_ps(1.0f), _mm_shuffle_ps(s, s, _MM_SHUFFLE(1, 1, 1, 1)));
+        
+        return _mm_mul_ps(_mm_add_ps(_mm_mul_ps(s0, x.Data), _mm_mul_ps(s1, y.Data)), d);
+	}
+}
+
+
+
 GLM_FUNC_QUALIFIER detail::fquatSIMD conjugate
 (
 	detail::fquatSIMD const & q
@@ -541,6 +605,24 @@ GLM_FUNC_QUALIFIER detail::fquatSIMD angleAxisSIMD
 )
 {
 	return angleAxisSIMD(angle, vec3(x, y, z));
+}
+
+
+GLM_FUNC_QUALIFIER __m128 fastSin(__m128 x)
+{
+    static const __m128 c0 = _mm_set1_ps(0.16666666666666666666666666666667f);
+    static const __m128 c1 = _mm_set1_ps(0.00833333333333333333333333333333f);
+    static const __m128 c2 = _mm_set1_ps(0.00019841269841269841269841269841f);
+
+    __m128 x3 = _mm_mul_ps(x,  _mm_mul_ps(x, x));
+    __m128 x5 = _mm_mul_ps(x3, _mm_mul_ps(x, x));
+    __m128 x7 = _mm_mul_ps(x5, _mm_mul_ps(x, x));
+
+    __m128 y0 = _mm_mul_ps(x3, c0);
+    __m128 y1 = _mm_mul_ps(x5, c1);
+    __m128 y2 = _mm_mul_ps(x7, c2);
+        
+    return _mm_sub_ps(_mm_add_ps(_mm_sub_ps(x, y0), y1), y2);
 }
 
 
