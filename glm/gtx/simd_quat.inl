@@ -420,22 +420,12 @@ GLM_FUNC_QUALIFIER detail::fquatSIMD mix
     {
         float angle = glm::acos(cosTheta);
         
-
-        // Compared to the naive SIMD implementation below, this scalar version is consistently faster. A non-naive SSE-optimized implementation
-        // will most likely be faster, but that'll need to be left to people much smarter than I.
         
         float s0 = glm::sin((1.0f - a) * angle);
         float s1 = glm::sin(a * angle);
         float d  = 1.0f / glm::sin(angle);
 
         return (s0 * x + s1 * y) * d;
-
-
-        //__m128 s0 = _mm_set1_ps(glm::sin((1.0f - a) * angle));
-        //__m128 s1 = _mm_set1_ps(glm::sin(a * angle));
-        //__m128 d  = _mm_set1_ps(1.0f / glm::sin(angle));
-        //
-        //return _mm_mul_ps(_mm_add_ps(_mm_mul_ps(s0, x.Data), _mm_mul_ps(s1, y.Data)), d);
     }
 }
 
@@ -481,8 +471,6 @@ GLM_FUNC_QUALIFIER detail::fquatSIMD slerp
 	{
         float angle = glm::acos(cosTheta);
 
-
-        // See mix() above for an explanation to the rationale behind this non-SSE implementation.
 
 		float s0 = glm::sin((1.0f - a) * angle);
         float s1 = glm::sin(a * angle);
