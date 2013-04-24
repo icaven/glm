@@ -172,11 +172,22 @@ GLM_FUNC_QUALIFIER fquatSIMD operator* (fquatSIMD const & q1, fquatSIMD const & 
 
 GLM_FUNC_QUALIFIER fvec4SIMD operator* (fquatSIMD const & q, fvec4SIMD const & v)
 {
-    __m128 uv  = detail::sse_xpd_ps(q.Data, v.Data);
-    __m128 uuv = detail::sse_xpd_ps(q.Data, uv);
+    static const __m128 two = _mm_set1_ps(2.0f);
 
-    uv  = _mm_mul_ps(uv,  _mm_mul_ps(_mm_shuffle_ps(q.Data, q.Data, _MM_SHUFFLE(3, 3, 3, 3)), _mm_set1_ps(2.0f)));
-    uuv = _mm_mul_ps(uuv, _mm_set1_ps(2.0f));
+    __m128 q_wwww  = _mm_shuffle_ps(q.Data, q.Data, _MM_SHUFFLE(3, 3, 3, 3));
+    __m128 q_swp0  = _mm_shuffle_ps(q.Data, q.Data, _MM_SHUFFLE(3, 0, 2, 1));
+	__m128 q_swp1  = _mm_shuffle_ps(q.Data, q.Data, _MM_SHUFFLE(3, 1, 0, 2));
+	__m128 v_swp0  = _mm_shuffle_ps(v.Data, v.Data, _MM_SHUFFLE(3, 0, 2, 1));
+	__m128 v_swp1  = _mm_shuffle_ps(v.Data, v.Data, _MM_SHUFFLE(3, 1, 0, 2));
+	
+	__m128 uv      = _mm_sub_ps(_mm_mul_ps(q_swp0, v_swp1), _mm_mul_ps(q_swp1, v_swp0));
+    __m128 uv_swp0 = _mm_shuffle_ps(uv, uv, _MM_SHUFFLE(3, 0, 2, 1));
+    __m128 uv_swp1 = _mm_shuffle_ps(uv, uv, _MM_SHUFFLE(3, 1, 0, 2));
+    __m128 uuv     = _mm_sub_ps(_mm_mul_ps(q_swp0, uv_swp1), _mm_mul_ps(q_swp1, uv_swp0));
+
+    
+    uv  = _mm_mul_ps(uv,  _mm_mul_ps(q_wwww, two));
+    uuv = _mm_mul_ps(uuv, two);
 
     return _mm_add_ps(v.Data, _mm_add_ps(uv, uuv));
 }
