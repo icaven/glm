@@ -55,15 +55,15 @@ namespace detail
 		union 
 		{
 #		if(defined(GLM_SWIZZLE))
-			_GLM_SWIZZLE2_2_MEMBERS(T, glm::detail::tvec2<T, P>, x, y)
-			_GLM_SWIZZLE2_2_MEMBERS(T, glm::detail::tvec2<T, P>, r, g)
-			_GLM_SWIZZLE2_2_MEMBERS(T, glm::detail::tvec2<T, P>, s, t)
-			_GLM_SWIZZLE2_3_MEMBERS(T, glm::detail::tvec3<T, P>, x, y)
-			_GLM_SWIZZLE2_3_MEMBERS(T, glm::detail::tvec3<T, P>, r, g)
-			_GLM_SWIZZLE2_3_MEMBERS(T, glm::detail::tvec3<T, P>, s, t)
-			_GLM_SWIZZLE2_4_MEMBERS(T, glm::detail::tvec4<T, P>, x, y)
-			_GLM_SWIZZLE2_4_MEMBERS(T, glm::detail::tvec4<T, P>, r, g)
-			_GLM_SWIZZLE2_4_MEMBERS(T, glm::detail::tvec4<T, P>, s, t)
+			_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, x, y)
+			_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, r, g)
+			_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, s, t)
+			_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, x, y)
+			_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, r, g)
+			_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, s, t)
+			_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, x, y)
+			_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, r, g)
+			_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, s, t)
 #		endif//(defined(GLM_SWIZZLE))
 
 			struct {value_type r, g;};
@@ -118,7 +118,7 @@ namespace detail
 		tvec2(tref2<T, P> const & r);
 
 		template <int E0, int E1>
-		GLM_FUNC_DECL tvec2(const glm::detail::swizzle<2,T,tvec2<T, P>,E0,E1,-1,-2>& that)
+		GLM_FUNC_DECL tvec2(_swizzle<2,T, P, tvec2<T, P>, E0, E1,-1,-2> const & that)
 		{
 			*this = that();
 		}

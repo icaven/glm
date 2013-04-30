@@ -141,13 +141,13 @@ namespace detail
 	// tquat<T, P> accesses
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER T & tquat<T, P>::operator [](int i)
+	GLM_FUNC_QUALIFIER T & tquat<T, P>::operator[] (size_type i)
 	{
 		return (&x)[i];
 	}
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER T const & tquat<T, P>::operator [](int i) const
+	GLM_FUNC_QUALIFIER T const & tquat<T, P>::operator[] (size_type i) const
 	{
 		return (&x)[i];
 	}
@@ -796,7 +796,7 @@ namespace detail
 		detail::tquat<T, P> const & y
 	)
 	{
-		typename detail::tquat<T, P>::bool_type Result(detail::tquat<T, P>::null);
+		typename detail::tquat<T, P>::bool_type Result;
 		for(typename detail::tquat<T, P>::size_type i = 0; i < x.length(); ++i)
 			Result[i] = x[i] < y[i];
 
@@ -810,7 +810,7 @@ namespace detail
 		detail::tquat<T, P> const & y
 	)
 	{
-		typename detail::tquat<T, P>::bool_type Result(detail::tquat<T, P>::null);
+		typename detail::tquat<T, P>::bool_type Result;
 		for(typename detail::tquat<T, P>::size_type i = 0; i < x.length(); ++i)
 			Result[i] = x[i] <= y[i];
 		return Result;
@@ -823,7 +823,7 @@ namespace detail
 		detail::tquat<T, P> const & y
 	)
 	{
-		typename detail::tquat<T, P>::bool_type Result(detail::tquat<T, P>::null);
+		typename detail::tquat<T, P>::bool_type Result;
 		for(typename detail::tquat<T, P>::size_type i = 0; i < x.length(); ++i)
 			Result[i] = x[i] > y[i];
 		return Result;
@@ -836,7 +836,7 @@ namespace detail
 		detail::tquat<T, P> const & y
 	)
 	{
-		typename detail::tquat<T, P>::bool_type Result(detail::tquat<T, P>::null);
+		typename detail::tquat<T, P>::bool_type Result;
 		for(typename detail::tquat<T, P>::size_type i = 0; i < x.length(); ++i)
 			Result[i] = x[i] >= y[i];
 		return Result;
@@ -849,7 +849,7 @@ namespace detail
 		detail::tquat<T, P> const & y
 	)
 	{
-		typename detail::tquat<T, P>::bool_type Result(detail::tquat<T, P>::null);
+		typename detail::tquat<T, P>::bool_type Result;
 		for(typename detail::tquat<T, P>::size_type i = 0; i < x.length(); ++i)
 			Result[i] = x[i] == y[i];
 		return Result;
@@ -862,7 +862,7 @@ namespace detail
 		detail::tquat<T, P> const & y
 	)
 	{
-		typename detail::tquat<T, P>::bool_type Result(detail::tquat<T, P>::null);
+		typename detail::tquat<T, P>::bool_type Result;
 		for(typename detail::tquat<T, P>::size_type i = 0; i < x.length(); ++i)
 			Result[i] = x[i] != y[i];
 		return Result;

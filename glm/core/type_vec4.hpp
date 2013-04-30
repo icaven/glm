@@ -55,15 +55,15 @@ namespace detail
 		union 
 		{
 #		if(defined(GLM_SWIZZLE))
-			_GLM_SWIZZLE4_2_MEMBERS(value_type, glm::detail::tvec2<value_type>, x, y, z, w)
-			_GLM_SWIZZLE4_2_MEMBERS(value_type, glm::detail::tvec2<value_type>, r, g, b, a)
-			_GLM_SWIZZLE4_2_MEMBERS(value_type, glm::detail::tvec2<value_type>, s, t, p, q)
-			_GLM_SWIZZLE4_3_MEMBERS(value_type, glm::detail::tvec3<value_type>, x, y, z, w)
-			_GLM_SWIZZLE4_3_MEMBERS(value_type, glm::detail::tvec3<value_type>, r, g, b, a)
-			_GLM_SWIZZLE4_3_MEMBERS(value_type, glm::detail::tvec3<value_type>, s, t, p, q)
-			_GLM_SWIZZLE4_4_MEMBERS(value_type, glm::detail::tvec4<value_type>, x, y, z, w)
-			_GLM_SWIZZLE4_4_MEMBERS(value_type, glm::detail::tvec4<value_type>, r, g, b, a)
-			_GLM_SWIZZLE4_4_MEMBERS(value_type, glm::detail::tvec4<value_type>, s, t, p, q)
+			_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, x, y, z, w)
+			_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, r, g, b, a)
+			_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, s, t, p, q)
+			_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, x, y, z, w)
+			_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, r, g, b, a)
+			_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, s, t, p, q)
+			_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, x, y, z, w)
+			_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, r, g, b, a)
+			_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, s, t, p, q)
 #		endif//(defined(GLM_SWIZZLE))
 
 			struct {value_type r, g, b, a;};
@@ -157,43 +157,43 @@ namespace detail
 		GLM_FUNC_DECL explicit tvec4(tvec4<U, Q> const & v);
 
 		template <int E0, int E1, int E2, int E3>
-		GLM_FUNC_DECL tvec4(glm::detail::swizzle<4, T, tvec4<T, P>, E0, E1, E2, E3> const & that)
+		GLM_FUNC_DECL tvec4(_swizzle<4, T, P, tvec4<T, P>, E0, E1, E2, E3> const & that)
 		{
 			*this = that();
 		}
 
 		template <int E0, int E1, int F0, int F1>
-		GLM_FUNC_DECL tvec4(glm::detail::swizzle<2, T, tvec2<T, P>, E0, E1, -1, -2> const & v, glm::detail::swizzle<2, T, tvec2<T, P>, F0, F1, -1, -2> const & u)
+		GLM_FUNC_DECL tvec4(_swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v, _swizzle<2, T, P, tvec2<T, P>, F0, F1, -1, -2> const & u)
 		{
 			*this = tvec4<T, P>(v(), u());
 		}
 
 		template <int E0, int E1>
-		GLM_FUNC_DECL tvec4(T const & x, T const & y, glm::detail::swizzle<2, T, tvec2<T, P>, E0, E1, -1, -2> const & v)
+		GLM_FUNC_DECL tvec4(T const & x, T const & y, _swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v)
 		{
 			*this = tvec4<T, P>(x, y, v());
 		}
 
 		template <int E0, int E1>
-		GLM_FUNC_DECL tvec4(T const & x, glm::detail::swizzle<2, T, tvec2<T, P>, E0, E1, -1, -2> const & v, T const & w)
+		GLM_FUNC_DECL tvec4(T const & x, _swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v, T const & w)
 		{
 			*this = tvec4<T, P>(x, v(), w);
 		}
 
 		template <int E0, int E1>
-		GLM_FUNC_DECL tvec4(glm::detail::swizzle<2, T, tvec2<T, P>, E0, E1, -1, -2> const & v, T const & z, T const & w)
+		GLM_FUNC_DECL tvec4(_swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v, T const & z, T const & w)
 		{
 			*this = tvec4<T, P>(v(), z, w);
 		}
 
 		template <int E0, int E1, int E2>
-		GLM_FUNC_DECL tvec4(glm::detail::swizzle<3, T, tvec3<T, P>, E0, E1, E2, -1> const & v, T const & w)
+		GLM_FUNC_DECL tvec4(_swizzle<3, T, P, tvec3<T, P>, E0, E1, E2, -1> const & v, T const & w)
 		{
 			*this = tvec4<T, P>(v(), w);
 		}
 
 		template <int E0, int E1, int E2>
-		GLM_FUNC_DECL tvec4(T const & x, glm::detail::swizzle<3, T, tvec3<T, P>, E0, E1, E2, -1> const & v)
+		GLM_FUNC_DECL tvec4(T const & x, _swizzle<3, T, P, tvec3<T, P>, E0, E1, E2, -1> const & v)
 		{
 			*this = tvec4<T, P>(x, v());
 		}

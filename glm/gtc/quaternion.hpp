@@ -91,8 +91,8 @@ namespace detail
 			tmat4x4<T, P> const & m);
 
 		// Accesses
-		GLM_FUNC_DECL value_type & operator[](int i);
-		GLM_FUNC_DECL value_type const & operator[](int i) const;
+		GLM_FUNC_DECL value_type & operator[](size_type i);
+		GLM_FUNC_DECL value_type const & operator[](size_type i) const;
 
 		// Operators
 		GLM_FUNC_DECL tquat<T, P> & operator*=(value_type const & s);
