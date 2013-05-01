@@ -138,7 +138,7 @@ int test_ballRand()
 
 	return Error;
 }
-
+/*
 #if((GLM_LANG & GLM_LANG_CXX0X) == GLM_LANG_CXX0X)
 int test_grid()
 {
@@ -178,7 +178,7 @@ int test_grid()
 	return Error;
 }
 #endif
-
+*/
 int main()
 {
 	int Error = 0;
@@ -188,9 +188,10 @@ int main()
 	Error += test_sphericalRand();
 	Error += test_diskRand();
 	Error += test_ballRand();
+/*
 #if((GLM_LANG & GLM_LANG_CXX0X) == GLM_LANG_CXX0X)
 	Error += test_grid();
 #endif
-
+*/
 	return Error;
 }
