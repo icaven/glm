@@ -38,7 +38,7 @@ namespace detail
 	template <typename T, precision P>
 	struct tmat2x4
 	{
-		enum ctor{null};
+		enum ctor{_null};
 		typedef T value_type;
 		typedef std::size_t size_type;
 		typedef tvec4<T, P> col_type;

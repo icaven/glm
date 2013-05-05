@@ -38,7 +38,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<typename matType::value_type>::is_float, "'matrixCompMult' only accept floating-point inputs");
 
-		matType result(matType::null);
+		matType result(matType::_null);
 		for(typename matType::size_type i = 0; i < matType::row_size(); ++i)
 			result[i] = x[i] * y[i];
 		return result;
@@ -230,7 +230,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'transpose' only accept floating-point inputs");
 
-		detail::tmat2x2<T, P> result(detail::tmat2x2<T, P>::null);
+		detail::tmat2x2<T, P> result(detail::tmat2x2<T, P>::_null);
 		result[0][0] = m[0][0];
 		result[0][1] = m[1][0];
 		result[1][0] = m[0][1];
@@ -246,7 +246,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'transpose' only accept floating-point inputs");
 
-		detail::tmat3x3<T, P> result(detail::tmat3x3<T, P>::null);
+		detail::tmat3x3<T, P> result(detail::tmat3x3<T, P>::_null);
 		result[0][0] = m[0][0];
 		result[0][1] = m[1][0];
 		result[0][2] = m[2][0];
@@ -269,7 +269,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'transpose' only accept floating-point inputs");
 
-		detail::tmat4x4<T, P> result(detail::tmat4x4<T, P>::null);
+		detail::tmat4x4<T, P> result(detail::tmat4x4<T, P>::_null);
 		result[0][0] = m[0][0];
 		result[0][1] = m[1][0];
 		result[0][2] = m[2][0];
@@ -300,7 +300,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'transpose' only accept floating-point inputs");
 
-		detail::tmat2x3<T, P> result(detail::tmat2x3<T, P>::null);
+		detail::tmat2x3<T, P> result(detail::tmat2x3<T, P>::_null);
 		result[0][0] = m[0][0];
 		result[0][1] = m[1][0];
 		result[0][2] = m[2][0];
@@ -318,7 +318,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'transpose' only accept floating-point inputs");
 
-		detail::tmat3x2<T, P> result(detail::tmat3x2<T, P>::null);
+		detail::tmat3x2<T, P> result(detail::tmat3x2<T, P>::_null);
 		result[0][0] = m[0][0];
 		result[0][1] = m[1][0];
 		result[1][0] = m[0][1];
@@ -336,7 +336,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'transpose' only accept floating-point inputs");
 
-		detail::tmat2x4<T, P> result(detail::tmat2x4<T, P>::null);
+		detail::tmat2x4<T, P> result(detail::tmat2x4<T, P>::_null);
 		result[0][0] = m[0][0];
 		result[0][1] = m[1][0];
 		result[0][2] = m[2][0];
@@ -356,7 +356,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'transpose' only accept floating-point inputs");
 
-		detail::tmat4x2<T, P> result(detail::tmat4x2<T, P>::null);
+		detail::tmat4x2<T, P> result(detail::tmat4x2<T, P>::_null);
 		result[0][0] = m[0][0];
 		result[0][1] = m[1][0];
 		result[1][0] = m[0][1];
@@ -376,7 +376,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'transpose' only accept floating-point inputs");
 
-		detail::tmat3x4<T, P> result(detail::tmat3x4<T, P>::null);
+		detail::tmat3x4<T, P> result(detail::tmat3x4<T, P>::_null);
 		result[0][0] = m[0][0];
 		result[0][1] = m[1][0];
 		result[0][2] = m[2][0];
@@ -400,7 +400,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'transpose' only accept floating-point inputs");
 
-		detail::tmat4x3<T, P> result(detail::tmat4x3<T, P>::null);
+		detail::tmat4x3<T, P> result(detail::tmat4x3<T, P>::_null);
 		result[0][0] = m[0][0];
 		result[0][1] = m[1][0];
 		result[0][2] = m[2][0];
@@ -502,7 +502,7 @@ namespace glm
 
 		T Determinant = determinant(m);
 
-		detail::tmat3x3<T, P> Inverse(detail::tmat3x3<T, P>::null);
+		detail::tmat3x3<T, P> Inverse(detail::tmat3x3<T, P>::_null);
 		Inverse[0][0] = + (m[1][1] * m[2][2] - m[2][1] * m[1][2]);
 		Inverse[1][0] = - (m[1][0] * m[2][2] - m[2][0] * m[1][2]);
 		Inverse[2][0] = + (m[1][0] * m[2][1] - m[2][0] * m[1][1]);

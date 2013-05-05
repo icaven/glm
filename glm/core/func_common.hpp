@@ -50,7 +50,7 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/abs.xml">GLSL abs man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template <typename genType> 
+	template <typename genType>
 	genType abs(genType const & x);
 
 	/// Returns 1.0 if x > 0, 0.0 if x == 0, or -1.0 if x < 0. 
@@ -59,7 +59,7 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sign.xml">GLSL sign man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template <typename genType> 
+	template <typename genType>
 	genType sign(genType const & x);
 
 	/// Returns a value equal to the nearest integer that is less then or equal to x. 
@@ -68,52 +68,52 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floor.xml">GLSL floor man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template <typename genType> 
+	template <typename genType>
 	genType floor(genType const & x);
 
-	/// Returns a value equal to the nearest integer to x 
-	/// whose absolute value is not larger than the absolute value of x. 
+	/// Returns a value equal to the nearest integer to x
+	/// whose absolute value is not larger than the absolute value of x.
 	/// 
 	/// @tparam genType Floating-point scalar or vector types.
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/trunc.xml">GLSL trunc man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template <typename genType> 
+	template <typename genType>
 	genType trunc(genType const & x);
 
-	/// Returns a value equal to the nearest integer to x. 
-	/// The fraction 0.5 will round in a direction chosen by the 
-	/// implementation, presumably the direction that is fastest. 
-	/// This includes the possibility that round(x) returns the 
-	/// same value as roundEven(x) for all values of x. 
+	/// Returns a value equal to the nearest integer to x.
+	/// The fraction 0.5 will round in a direction chosen by the
+	/// implementation, presumably the direction that is fastest.
+	/// This includes the possibility that round(x) returns the
+	/// same value as roundEven(x) for all values of x.
 	/// 
 	/// @tparam genType Floating-point scalar or vector types.
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/round.xml">GLSL round man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template <typename genType> 
+	template <typename genType>
 	genType round(genType const & x);
 
 	/// Returns a value equal to the nearest integer to x.
 	/// A fractional part of 0.5 will round toward the nearest even
-	/// integer. (Both 3.5 and 4.5 for x will return 4.0.) 
+	/// integer. (Both 3.5 and 4.5 for x will return 4.0.)
 	///
 	/// @tparam genType Floating-point scalar or vector types.
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/roundEven.xml">GLSL roundEven man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
 	/// @see <a href="http://developer.amd.com/documentation/articles/pages/New-Round-to-Even-Technique.aspx">New round to even technique</a>
-	template <typename genType> 
+	template <typename genType>
 	genType roundEven(genType const & x);
 
-	/// Returns a value equal to the nearest integer 
-	/// that is greater than or equal to x. 
+	/// Returns a value equal to the nearest integer
+	/// that is greater than or equal to x.
 	/// 
 	/// @tparam genType Floating-point scalar or vector types.
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/ceil.xml">GLSL ceil man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template <typename genType> 
+	template <typename genType>
 	genType ceil(genType const & x);
 
 	/// Return x - floor(x).
