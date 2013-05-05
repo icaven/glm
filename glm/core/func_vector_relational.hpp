@@ -106,8 +106,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/any.xml">GLSL any man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7 Vector Relational Functions</a>
-	template <template <typename> class vecType>
-	bool any(vecType<bool> const & v);
+	template <precision P, template <typename, precision> class vecType>
+	bool any(vecType<bool, P> const & v);
 
 	/// Returns true if all components of x are true.
 	///
@@ -115,8 +115,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/all.xml">GLSL all man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7 Vector Relational Functions</a>
-	template <template <typename> class vecType>
-	bool all(vecType<bool> const & v);
+	template <precision P, template <typename, precision> class vecType>
+	bool all(vecType<bool, P> const & v);
 
 	/// Returns the component-wise logical complement of x.
 	/// /!\ Because of language incompatibilities between C++ and GLSL, GLM defines the function not but not_ instead.
@@ -125,8 +125,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/not.xml">GLSL not man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7 Vector Relational Functions</a>
-	template <template <typename> class vecType>
-	vecType<bool> not_(vecType<bool> const & v);
+	template <precision P, template <typename, precision> class vecType>
+	vecType<bool, P> not_(vecType<bool, P> const & v);
 
 	/// @}
 }//namespace glm
