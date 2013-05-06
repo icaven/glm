@@ -20,34 +20,75 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref core
-/// @file glm/core/_angles.hpp
-/// @date 2013-05-06 / 2013-05-06
+/// @ref gtc_angle
+/// @file glm/gtc/angle.hpp
+/// @date 2013-05-07 / 2012-05-07
 /// @author Christophe Riccio
+///
+/// @see core (dependence)
+/// @see gtc_angle (dependence)
+///
+/// @defgroup gtc_angle GLM_GTC_angle
+/// @ingroup gtc
+/// 
+/// @brief Handling angles in both radians and degrees.
+/// 
+/// <glm/gtc/angle.hpp> need to be included to use these features.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_angles
-#define glm_core_angles
+#ifndef GLM_GTC_angle
+#define GLM_GTC_angle GLM_VERSION
 
 namespace glm
 {
 	template <typename T>
-	class deg
+	class angle
 	{
 	public:
+		typedef T value_type;
 
+		angle(value_type const & x) :
+			data(x)
+		{}
 
 	private:
-		T data;
+		value_type data;
 	};
 
-	template <typename T>
-	T operator ""_deg(T const & degrees)
-	{ 
-		// returns radians
-		return degrees * T(0.01745329251994329576923690768489); 
+	typedef angle<glm::half> angle16;
+	typedef angle<float> angle32;
+	typedef angle<double> angle64;
+
+	GLM_FUNC_DECL angle<float> operator "" _rad_f(long double const radians)
+	{
+		return static_cast<float>(radians);
+	}
+
+	GLM_FUNC_DECL angle<double> operator "" _rad(long double const radians)
+	{
+		return static_cast<double>(radians);
+	}
+
+	GLM_FUNC_DECL angle<long double> operator "" _rad_l(long double const radians)
+	{
+		return radians;
+	}
+
+	GLM_FUNC_DECL angle<float> operator "" _deg_f(long double const degrees)
+	{
+		return static_cast<float>(degrees) * static_cast<float>(0.01745329251994329576923690768489L);
+	}
+
+	GLM_FUNC_DECL angle<double> operator "" _deg(long double const degrees)
+	{
+		return static_cast<double>(degrees) * static_cast<double>(0.01745329251994329576923690768489L);
+	}
+
+	GLM_FUNC_DECL angle<long double> operator "" _deg_l(long double const degrees)
+	{
+		return degrees * 0.01745329251994329576923690768489L;
 	}
 
 }//namespace glm
 
-#endif//glm_core_angles
+#endif//GLM_GTC_angle

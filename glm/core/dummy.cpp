@@ -33,53 +33,8 @@
 #include "../glm.hpp"
 
 /*
-template <typename T>
-class angle
-{
-public:
-	typedef T value_type;
 
-	angle(value_type const & x) :
-		data(x)
-	{}
-
-private:
-	value_type data;
-};
-
-typedef angle<glm::half> angle16;
-typedef angle<float> angle32;
-typedef angle<double> angle64;
-
-GLM_FUNC_DECL angle<float> operator "" _rad_f(long double const radians)
-{
-	return static_cast<float>(radians);
-}
-
-GLM_FUNC_DECL angle<double> operator "" _rad(long double const radians)
-{
-	return static_cast<double>(radians);
-}
-
-GLM_FUNC_DECL angle<long double> operator "" _rad_l(long double const radians)
-{
-	return radians;
-}
-
-GLM_FUNC_DECL angle<float> operator "" _deg_f(long double const degrees)
-{
-	return static_cast<float>(degrees) * static_cast<float>(0.01745329251994329576923690768489L);
-}
-
-GLM_FUNC_DECL angle<double> operator "" _deg(long double const degrees)
-{
-	return static_cast<double>(degrees) * static_cast<double>(0.01745329251994329576923690768489L);
-}
-
-GLM_FUNC_DECL angle<long double> operator "" _deg_l(long double const degrees)
-{
-	return degrees * 0.01745329251994329576923690768489L;
-}*/
+*/
 
 int main()
 {
