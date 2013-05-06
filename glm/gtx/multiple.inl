@@ -41,14 +41,13 @@ namespace glm
 		float Source = SourceH.toFloat();
 		float Multiple = MultipleH.toFloat();
 
-		assert(float(0) <= Multiple);
-
-		float SourceSign = sign(Source);
-		float SourceAbs = abs(Source);
-
-		int Tmp = int(float(SourceAbs)) % int(Multiple);
-		return detail::half(
-			(Tmp ? SourceAbs + Multiple - float(Tmp) : SourceAbs) * SourceSign);
+		if (Source > float(0))
+		{
+			float Tmp = Source - float(1);
+			return detail::half(Tmp + (Multiple - std::fmod(Tmp, Multiple)));
+		}
+		else
+			return detail::half(Source + std::fmod(-Source, Multiple));
 	}
 
 	template <>
@@ -58,13 +57,13 @@ namespace glm
 		float const & Multiple
 	)
 	{
-		assert(float(0) <= Multiple);
-	
-		float SourceSign = sign(Source);
-		float SourceAbs = abs(Source);
-				
-		int Tmp = int(SourceAbs) % int(Multiple);
-		return (Tmp ? SourceAbs + Multiple - float(Tmp) : SourceAbs) * SourceSign;
+		if (Source > float(0))
+		{
+			float Tmp = Source - float(1);
+			return Tmp + (Multiple - std::fmod(Tmp, Multiple));
+		}
+		else
+			return Source + std::fmod(-Source, Multiple);
 	}
 
 	template <>
@@ -74,13 +73,13 @@ namespace glm
 		double const & Multiple
 	)
 	{
-		assert(double(0) <= Multiple);
-
-		double SourceSign = sign(Source);
-		double SourceAbs = abs(Source);
-
-		long Tmp = long(SourceAbs) % long(Multiple);
-		return (Tmp ? SourceAbs + Multiple - double(Tmp) : SourceAbs) * SourceSign;
+		if (Source > double(0))
+		{
+			double Tmp = Source - double(1);
+			return Tmp + (Multiple - std::fmod(Tmp, Multiple));
+		}
+		else
+			return Source + std::fmod(-Source, Multiple);
 	}
 
 	VECTORIZE_VEC_VEC(higherMultiple)
@@ -95,11 +94,11 @@ namespace glm
 		genType const & Multiple
 	)
 	{
-		if (Source >= 0)
+		if (Source >= genType(0))
 			return Source - Source % Multiple;
 		else
 		{
-			genType Tmp = Source + 1;
+			genType Tmp = Source + genType(1);
 			return Tmp - Tmp % Multiple - Multiple;
 		}
 	}
@@ -114,10 +113,13 @@ namespace glm
 		float Source = SourceH.toFloat();
 		float Multiple = MultipleH.toFloat();
 
-		assert(float(0) <= Multiple);
-
-		int Tmp = int(float(Source)) % int(float(Multiple));
-		return detail::half(Tmp ? Source - float(Tmp) : Source);
+		if (Source >= float(0))
+			return detail::half(Source - std::fmod(Source, Multiple));
+		else
+		{
+			float Tmp = Source + float(1);
+			return detail::half(Tmp - std::fmod(Tmp, Multiple) - Multiple);
+		}
 	}
 
 	template <>
@@ -127,10 +129,13 @@ namespace glm
 		float const & Multiple
 	)
 	{
-		assert(float(0) <= Multiple);
-	
-		int Tmp = int(Source) % int(Multiple);
-		return Tmp ? Source - float(Tmp) : Source;
+		if (Source >= float(0))
+			return Source - std::fmod(Source, Multiple);
+		else
+		{
+			float Tmp = Source + float(1);
+			return Tmp - std::fmod(Tmp, Multiple) - Multiple;
+		}
 	}
 
 	template <>
@@ -140,10 +145,13 @@ namespace glm
 		double const & Multiple
 	)
 	{
-		assert(double(0) <= Multiple);
-	
-		long Tmp = long(Source) % long(Multiple);
-		return Tmp ? Source - double(Tmp) : Source;
+		if (Source >= double(0))
+			return Source - std::fmod(Source, Multiple);
+		else
+		{
+			double Tmp = Source + double(1);
+			return Tmp - std::fmod(Tmp, Multiple) - Multiple;
+		}
 	}
 
 	VECTORIZE_VEC_VEC(lowerMultiple)
