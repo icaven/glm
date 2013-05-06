@@ -21,69 +21,33 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/dummy.cpp
-/// @date 2011-01-19 / 2011-06-15
+/// @file glm/core/_angles.hpp
+/// @date 2013-05-06 / 2013-05-06
 /// @author Christophe Riccio
-///
-/// GLM is a header only library. There is nothing to compile. 
-/// dummy.cpp exist only a wordaround for CMake file.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_MESSAGES
-#include "../glm.hpp"
+#ifndef glm_core_angles
+#define glm_core_angles
 
-/*
-template <typename T>
-class angle
+namespace glm
 {
-public:
-	typedef T value_type;
+	template <typename T>
+	class deg
+	{
+	public:
 
-	angle(value_type const & x) :
-		data(x)
-	{}
 
-private:
-	value_type data;
-};
+	private:
+		T data;
+	};
 
-typedef angle<glm::half> angle16;
-typedef angle<float> angle32;
-typedef angle<double> angle64;
+	template <typename T>
+	T operator ""_deg(T const & degrees)
+	{ 
+		// returns radians
+		return degrees * T(0.01745329251994329576923690768489); 
+	}
 
-GLM_FUNC_DECL angle<float> operator "" _rad_f(long double const radians)
-{
-	return static_cast<float>(radians);
-}
+}//namespace glm
 
-GLM_FUNC_DECL angle<double> operator "" _rad(long double const radians)
-{
-	return static_cast<double>(radians);
-}
-
-GLM_FUNC_DECL angle<long double> operator "" _rad_l(long double const radians)
-{
-	return radians;
-}
-
-GLM_FUNC_DECL angle<float> operator "" _deg_f(long double const degrees)
-{
-	return static_cast<float>(degrees) * static_cast<float>(0.01745329251994329576923690768489L);
-}
-
-GLM_FUNC_DECL angle<double> operator "" _deg(long double const degrees)
-{
-	return static_cast<double>(degrees) * static_cast<double>(0.01745329251994329576923690768489L);
-}
-
-GLM_FUNC_DECL angle<long double> operator "" _deg_l(long double const degrees)
-{
-	return degrees * 0.01745329251994329576923690768489L;
-}*/
-
-int main()
-{
-	//auto d = 90.0_deg;
-
-	glm::vec3 v{0, 1, 2};
-}
+#endif//glm_core_angles
