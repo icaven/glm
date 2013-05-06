@@ -37,8 +37,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'radians' only accept floating-point input");
 
-		genType const pi = genType(3.1415926535897932384626433832795);
-		return degrees * (pi / genType(180));
+		return degrees * genType(0.01745329251994329576923690768489);
 	}
 
 	VECTORIZE_VEC(radians)
@@ -52,8 +51,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'degrees' only accept floating-point input");
 
-		const genType pi = genType(3.1415926535897932384626433832795);
-		return radians * (genType(180) / pi);
+		return radians * genType(57.295779513082320876798154814105);
 	}
 
 	VECTORIZE_VEC(degrees)
