@@ -102,6 +102,8 @@
 #include "./core/type_float.hpp"
 #include "./core/type_int.hpp"
 
+#include "./core/_literals.hpp"
+
 #include "./core/type_vec1.hpp"
 #include "./core/type_vec2.hpp"
 #include "./core/type_vec3.hpp"

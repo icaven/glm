@@ -111,7 +111,7 @@ namespace detail
 		detail::half const & y);
 
 }//namespace detail
-	
+
 	/// Low half-precision floating-point numbers.
 	typedef detail::half		lowp_half;
 	
