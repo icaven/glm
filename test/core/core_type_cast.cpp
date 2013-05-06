@@ -27,8 +27,8 @@ int test_vec2_cast()
 	glm::mediump_vec2 G = static_cast<glm::mediump_vec2>(A);
 	glm::highp_vec2 H = static_cast<glm::highp_vec2>(A);
 	
-	my_vec2 I;
-	glm::vec2 J = static_cast<glm::vec2>(I);
+	//my_vec2 I;
+	//glm::vec2 J = static_cast<glm::vec2>(I);
 
 	int Error(0);
 	

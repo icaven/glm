@@ -22,13 +22,13 @@ namespace glm
 		genType const & Multiple
 	)
 	{
-		assert(genType(0) <= Multiple);
-	
-		genType SourceSign = sign(Source);
-		genType SourceAbs = abs(Source);
-	
-		genType Tmp = SourceAbs % Multiple;
-		return (Tmp ? SourceAbs + Multiple - Tmp : SourceAbs) * SourceSign;
+		if (Source > genType(0))
+		{
+			genType Tmp = Source - genType(1);
+			return Tmp + (Multiple - (Tmp % Multiple));
+		}
+		else
+			return Source + (-Source % Multiple);
 	}
 
 	template <>
@@ -95,8 +95,13 @@ namespace glm
 		genType const & Multiple
 	)
 	{
-		genType Tmp = Source % Multiple;
-		return Tmp ? Source - Tmp : Source;
+		if (Source >= 0)
+			return Source - Source % Multiple;
+		else
+		{
+			genType Tmp = Source + 1;
+			return Tmp - Tmp % Multiple - Multiple;
+		}
 	}
 
 	template <>
