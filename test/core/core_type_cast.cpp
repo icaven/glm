@@ -9,6 +9,12 @@
 
 #include <glm/glm.hpp>
 
+struct my_vec2
+{
+	operator glm::vec2() { return glm::vec2(x, y); }
+	float x, y;
+};
+
 int test_vec2_cast()
 {
 	glm::vec2 A(1.0f, 2.0f);
@@ -21,6 +27,9 @@ int test_vec2_cast()
 	glm::mediump_vec2 G = static_cast<glm::mediump_vec2>(A);
 	glm::highp_vec2 H = static_cast<glm::highp_vec2>(A);
 	
+	my_vec2 I;
+	glm::vec2 J = static_cast<glm::vec2>(I);
+
 	int Error(0);
 	
 	Error += glm::all(glm::equal(A, E)) ? 0 : 1;
