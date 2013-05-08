@@ -349,6 +349,9 @@ namespace detail
 		return *this;
 	}
 
+	//////////////////////////////////////
+	// Increment and decrement operators
+
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec3<T, P> & tvec3<T, P>::operator++()
 	{
@@ -365,6 +368,22 @@ namespace detail
 		--this->y;
 		--this->z;
 		return *this;
+	}
+
+	template <typename T, precision P> 
+	GLM_FUNC_QUALIFIER tvec3<T, P> tvec3<T, P>::operator++(int)
+	{
+		tvec3<T, P> Result(*this);
+		++*this;
+		return Result;
+	}
+
+	template <typename T, precision P> 
+	GLM_FUNC_QUALIFIER tvec3<T, P> tvec3<T, P>::operator--(int)
+	{
+		tvec3<T, P> Result(*this);
+		--*this;
+		return Result;
 	}
 
 	//////////////////////////////////////
@@ -803,32 +822,6 @@ namespace detail
 			-v.x, 
 			-v.y, 
 			-v.z);
-	}
-
-	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER tvec3<T, P> operator++ 
-	(
-		tvec3<T, P> const & v, 
-		int
-	)
-	{
-		return tvec3<T, P>(
-			v.x + T(1), 
-			v.y + T(1), 
-			v.z + T(1));
-	}
-
-	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER tvec3<T, P> operator-- 
-	(
-		tvec3<T, P> const & v, 
-		int
-	)
-	{
-		return tvec3<T, P>(
-			v.x - T(1), 
-			v.y - T(1), 
-			v.z - T(1));
 	}
 
 	//////////////////////////////////////

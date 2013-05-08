@@ -196,8 +196,14 @@ namespace detail
 		GLM_FUNC_DECL tvec3<T, P> & operator/=(U const & s);
 		template <typename U> 
 		GLM_FUNC_DECL tvec3<T, P> & operator/=(tvec3<U, P> const & v);
+
+		//////////////////////////////////////
+		// Increment and decrement operators
+
 		GLM_FUNC_DECL tvec3<T, P> & operator++();
 		GLM_FUNC_DECL tvec3<T, P> & operator--();
+		GLM_FUNC_DECL tvec3<T, P> operator++(int);
+		GLM_FUNC_DECL tvec3<T, P> operator--(int);
 
 		//////////////////////////////////////
 		// Unary bit operators

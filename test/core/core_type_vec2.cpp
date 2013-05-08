@@ -218,6 +218,33 @@ int test_vec2_size()
 	return Error;
 }
 
+int test_operator_increment()
+{
+	int Error(0);
+
+	glm::ivec2 v0(1);
+	glm::ivec2 v1(v0);
+	glm::ivec2 v2(v0);
+	glm::ivec2 v3 = ++v1;
+	glm::ivec2 v4 = v2++;
+
+	Error += glm::all(glm::equal(v0, v4)) ? 0 : 1;
+	Error += glm::all(glm::equal(v1, v2)) ? 0 : 1;
+	Error += glm::all(glm::equal(v1, v3)) ? 0 : 1;
+
+	int i0(1);
+	int i1(i0);
+	int i2(i0);
+	int i3 = ++i1;
+	int i4 = i2++;
+
+	Error += i0 == i4 ? 0 : 1;
+	Error += i1 == i2 ? 0 : 1;
+	Error += i1 == i3 ? 0 : 1;
+
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
@@ -225,6 +252,7 @@ int main()
 	Error += test_vec2_size();
 	Error += test_vec2_ctor();
 	Error += test_vec2_operators();
+	Error += test_operator_increment();
 
 	return Error;
 }

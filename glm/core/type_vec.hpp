@@ -70,6 +70,9 @@ namespace detail
 	typedef detail::tvec1<uint, highp>		highp_uvec1_t;
 	typedef detail::tvec1<uint, mediump>	mediump_uvec1_t;
 	typedef detail::tvec1<uint, lowp>		lowp_uvec1_t;
+	typedef detail::tvec1<bool, highp>		highp_bvec1_t;
+	typedef detail::tvec1<bool, mediump>	mediump_bvec1_t;
+	typedef detail::tvec1<bool, lowp>		lowp_bvec1_t;
 	
 	/// @addtogroup core_precision
 	/// @{

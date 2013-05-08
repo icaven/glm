@@ -266,6 +266,9 @@ namespace detail
 		return *this;
 	}
 
+	//////////////////////////////////////
+	// Increment and decrement operators
+
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec1<T, P> & tvec1<T, P>::operator++()
 	{
@@ -278,6 +281,22 @@ namespace detail
 	{
 		--this->x;
 		return *this;
+	}
+
+	template <typename T, precision P> 
+	GLM_FUNC_QUALIFIER tvec1<T, P> tvec1<T, P>::operator++(int)
+	{
+		tvec1<T, P> Result(*this);
+		++*this;
+		return Result;
+	}
+
+	template <typename T, precision P> 
+	GLM_FUNC_QUALIFIER tvec1<T, P> tvec1<T, P>::operator--(int)
+	{
+		tvec1<T, P> Result(*this);
+		--*this;
+		return Result;
 	}
 
 	//////////////////////////////////////
