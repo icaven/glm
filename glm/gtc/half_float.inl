@@ -339,7 +339,7 @@ namespace detail
 	template <precision P>
 	GLM_FUNC_QUALIFIER half & tvec3<half, P>::operator[]
 	(
-		tvec3<half, P>::size_type i
+		typename tvec3<half, P>::size_type i
 	)
 	{
 		assert(i < this->length());
@@ -350,7 +350,7 @@ namespace detail
 	template <precision P>
 	GLM_FUNC_QUALIFIER half const & tvec3<half, P>::operator[]
 	(
-		tvec3<half, P>::size_type i
+		typename tvec3<half, P>::size_type i
 	) const
 	{
 		assert(i < this->length());
@@ -681,7 +681,7 @@ namespace detail
 	template <precision P>
 	GLM_FUNC_QUALIFIER half & tvec4<half, P>::operator[]
 	(
-		tvec4<half, P>::size_type i
+		typename tvec4<half, P>::size_type i
 	)
 	{
 		assert(i < this->length());
@@ -692,7 +692,7 @@ namespace detail
 	template <precision P>
 	GLM_FUNC_QUALIFIER half const & tvec4<half, P>::operator[]
 	(
-		tvec4<half, P>::size_type i
+		typename tvec4<half, P>::size_type i
 	) const
 	{
 		assert(i < this->length());
