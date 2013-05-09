@@ -51,7 +51,7 @@ namespace detail
 	template <precision P>
 	struct tvec2<half, P>
 	{
-		enum ctor{null};
+		enum ctor{_null};
 		typedef half value_type;
 		typedef std::size_t size_type;
 
@@ -80,7 +80,7 @@ namespace detail
 		//////////////////////////////////////
 		// Explicit basic constructors
 
-		explicit tvec2(ctor);
+		explicit tvec2(ctor){}
 		explicit tvec2(
 			half const & s);
 		explicit tvec2(
@@ -144,7 +144,7 @@ namespace detail
 	template <precision P>
 	struct tvec3<half, P>
 	{
-		enum ctor{null};
+		enum ctor{_null};
 		typedef half value_type;
 		typedef std::size_t size_type;
 		GLM_FUNC_DECL size_type length() const;
@@ -172,7 +172,7 @@ namespace detail
 		//////////////////////////////////////
 		// Explicit basic constructors
 
-		explicit tvec3(ctor);
+		explicit tvec3(ctor){}
 		explicit tvec3(
 			half const & s);
 		explicit tvec3(
@@ -240,7 +240,7 @@ namespace detail
 	template <precision P>
 	struct tvec4<half, P>
 	{
-		enum ctor{null};
+		enum ctor{_null};
 		typedef half value_type;
 		typedef std::size_t size_type;
 		GLM_FUNC_DECL size_type length() const;
@@ -268,7 +268,7 @@ namespace detail
 		//////////////////////////////////////
 		// Explicit basic constructors
 
-		explicit tvec4(ctor);
+		explicit tvec4(ctor){}
 		explicit tvec4(
 			half const & s);
 		explicit tvec4(
