@@ -182,7 +182,8 @@ int test_vec4_operators()
 	{
 		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
 		glm::vec4 B = A--;
-		Error += B == glm::vec4(0.0f, 1.0f, 2.0f, 3.0f) ? 0 : 1;
+		Error += B == glm::vec4(1.0f, 2.0f, 3.0f, 4.0f) ? 0 : 1;
+		Error += A == glm::vec4(0.0f, 1.0f, 2.0f, 3.0f) ? 0 : 1;
 	}
 
 	{
@@ -194,7 +195,8 @@ int test_vec4_operators()
 	{
 		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
 		glm::vec4 B = A++;
-		Error += B == glm::vec4(2.0f, 3.0f, 4.0f, 5.0f) ? 0 : 1;
+		Error += B == glm::vec4(1.0f, 2.0f, 3.0f, 4.0f) ? 0 : 1;
+		Error += A == glm::vec4(2.0f, 3.0f, 4.0f, 5.0f) ? 0 : 1;
 	}
 
 	return Error;

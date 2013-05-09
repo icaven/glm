@@ -148,7 +148,8 @@ int test_vec3_operators()
 	{
 		glm::vec3 A(1.0f, 2.0f, 3.0f);
 		glm::vec3 B = A--;
-		Error += B == glm::vec3(0.0f, 1.0f, 2.0f) ? 0 : 1;
+		Error += B == glm::vec3(1.0f, 2.0f, 3.0f) ? 0 : 1;
+		Error += A == glm::vec3(0.0f, 1.0f, 2.0f) ? 0 : 1;
 	}
 
 	{
@@ -160,7 +161,8 @@ int test_vec3_operators()
 	{
 		glm::vec3 A(1.0f, 2.0f, 3.0f);
 		glm::vec3 B = A++;
-		Error += B == glm::vec3(2.0f, 3.0f, 4.0f) ? 0 : 1;
+		Error += B == glm::vec3(1.0f, 2.0f, 3.0f) ? 0 : 1;
+		Error += A == glm::vec3(2.0f, 3.0f, 4.0f) ? 0 : 1;
 	}
 
 	return Error;
