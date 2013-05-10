@@ -426,12 +426,28 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat3x3<T, P> & tmat3x3<T, P>::operator-- ()
+	GLM_FUNC_QUALIFIER tmat3x3<T, P> & tmat3x3<T, P>::operator--()
 	{
 		--this->value[0];
 		--this->value[1];
 		--this->value[2];
 		return *this;
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tmat3x3<T, P> tmat3x3<T, P>::operator++(int)
+	{
+		tmat3x3<T, P> Result(*this);
+		++*this;
+		return Result;
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tmat3x3<T, P> tmat3x3<T, P>::operator--(int)
+	{
+		tmat3x3<T, P> Result(*this);
+		--*this;
+		return Result;
 	}
 
 	template <typename T, precision P>
@@ -757,32 +773,6 @@ namespace detail
 			-m[0], 
 			-m[1],
 			-m[2]);
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat3x3<T, P> const operator++
-	(
-		tmat3x3<T, P> const & m,
-		int
-	)
-	{
-		return tmat3x3<T, P>(
-			m[0] + T(1),
-			m[1] + T(1),
-			m[2] + T(1));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat3x3<T, P> const operator--
-	(
-		tmat3x3<T, P> const & m,
-		int
-	)
-	{
-		return tmat3x3<T, P>(
-			m[0] - T(1),
-			m[1] - T(1),
-			m[2] - T(1));
 	}
 
 	//////////////////////////////////////

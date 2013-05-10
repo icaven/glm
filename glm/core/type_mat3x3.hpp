@@ -139,8 +139,14 @@ namespace detail
 		GLM_FUNC_DECL tmat3x3<T, P>& operator/= (U const & s);
 		template <typename U>
 		GLM_FUNC_DECL tmat3x3<T, P>& operator/= (tmat3x3<U, P> const & m);
-		GLM_FUNC_DECL tmat3x3<T, P>& operator++ ();
-		GLM_FUNC_DECL tmat3x3<T, P>& operator-- ();
+
+		//////////////////////////////////////
+		// Increment and decrement operators
+
+		GLM_FUNC_DECL tmat3x3<T, P> & operator++ ();
+		GLM_FUNC_DECL tmat3x3<T, P> & operator-- ();
+		GLM_FUNC_DECL tmat3x3<T, P> operator++(int);
+		GLM_FUNC_DECL tmat3x3<T, P> operator--(int);
 	};
 
 	// Binary operators
@@ -236,18 +242,9 @@ namespace detail
 
 	// Unary constant operators
 	template <typename T, precision P>
-	tmat3x3<T, P> const operator-  (
+	tmat3x3<T, P> const operator-(
 		tmat3x3<T, P> const & m);
 
-	template <typename T, precision P>
-	tmat3x3<T, P> const operator-- (
-		tmat3x3<T, P> const & m,
-		int);
-
-	template <typename T, precision P>
-	tmat3x3<T, P> const operator++ (
-		tmat3x3<T, P> const & m,
-		int);
 }//namespace detail
 }//namespace glm
 

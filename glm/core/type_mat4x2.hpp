@@ -137,8 +137,13 @@ namespace detail
 		template <typename U> 
 		GLM_FUNC_DECL tmat4x2<T, P>& operator/= (U const & s);
 
-		GLM_FUNC_DECL tmat4x2<T, P>& operator++ ();
-		GLM_FUNC_DECL tmat4x2<T, P>& operator-- ();
+		//////////////////////////////////////
+		// Increment and decrement operators
+
+		GLM_FUNC_DECL tmat4x2<T, P> & operator++ ();
+		GLM_FUNC_DECL tmat4x2<T, P> & operator-- ();
+		GLM_FUNC_DECL tmat4x2<T, P> operator++(int);
+		GLM_FUNC_DECL tmat4x2<T, P> operator--(int);
 	};
 
 	// Binary operators
@@ -209,18 +214,9 @@ namespace detail
 
 	// Unary constant operators
 	template <typename T, precision P>
-	tmat4x2<T, P> const operator-  (
+	tmat4x2<T, P> const operator-(
 		tmat4x2<T, P> const & m);
 
-	template <typename T, precision P>
-	tmat4x2<T, P> const operator-- (
-		tmat4x2<T, P> const & m,
-		int);
-
-	template <typename T, precision P>
-	tmat4x2<T, P> const operator++ (
-		tmat4x2<T, P> const & m,
-		int);
 }//namespace detail
 }//namespace glm
 

@@ -497,6 +497,22 @@ namespace detail
 	}
 
 	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tmat4x4<T, P> tmat4x4<T, P>::operator++(int)
+	{
+		tmat4x4<T, P> Result(*this);
+		++*this;
+		return Result;
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tmat4x4<T, P> tmat4x4<T, P>::operator--(int)
+	{
+		tmat4x4<T, P> Result(*this);
+		--*this;
+		return Result;
+	}
+
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat4x4<T, P> tmat4x4<T, P>::_inverse() const
 	{
 		// Calculate all mat2 determinants

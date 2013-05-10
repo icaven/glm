@@ -710,6 +710,22 @@ namespace detail
 			m[3] - T(1));
 	}
 
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tmat4x3<T, P> tmat4x3<T, P>::operator++(int)
+	{
+		tmat4x3<T, P> Result(*this);
+		++*this;
+		return Result;
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tmat4x3<T, P> tmat4x3<T, P>::operator--(int)
+	{
+		tmat4x3<T, P> Result(*this);
+		--*this;
+		return Result;
+	}
+
 	//////////////////////////////////////
 	// Boolean operators
 

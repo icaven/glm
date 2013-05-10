@@ -349,7 +349,7 @@ int test_mat4x4_col_get()
 	glm::vec4 D = glm::column(m, 3);
 	Error += D == glm::vec4(0, 0, 0, 1) ? 0 : 1;
 
-	return Error;    
+	return Error;
 }
 
 int main()

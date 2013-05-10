@@ -421,6 +421,22 @@ namespace detail
 		return *this;
 	}
 
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tmat3x2<T, P> tmat3x2<T, P>::operator++(int)
+	{
+		tmat3x2<T, P> Result(*this);
+		++*this;
+		return Result;
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tmat3x2<T, P> tmat3x2<T, P>::operator--(int)
+	{
+		tmat3x2<T, P> Result(*this);
+		--*this;
+		return Result;
+	}
+
 	//////////////////////////////////////////////////////////////
 	// Binary operators
 
@@ -625,34 +641,6 @@ namespace detail
 			-m[0],
 			-m[1],
 			-m[2]);
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat3x2<T, P> const operator++
-	(
-		tmat3x2<T, P> const & m,
-		int
-	)
-	{
-		typename tmat3x2<T, P>::value_type One(1);
-		return tmat3x2<T, P>(
-			m[0] + One,
-			m[1] + One,
-			m[2] + One);
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat3x2<T, P> const operator--
-	(
-		tmat3x2<T, P> const & m,
-		int
-	)
-	{
-		typename tmat3x2<T, P>::value_type One(1);
-		return tmat3x2<T, P>(
-			m[0] - One,
-			m[1] - One,
-			m[2] - One);
 	}
 
 	//////////////////////////////////////
