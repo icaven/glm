@@ -169,7 +169,8 @@ int test_vec2_operators()
 	{
 		glm::vec2 A(1.0f, 2.0f);
 		glm::vec2 B = A--;
-		Error += B == glm::vec2(0.0f, 1.0f) ? 0 : 1;
+		Error += B == glm::vec2(1.0f, 2.0f) ? 0 : 1;
+		Error += A == glm::vec2(0.0f, 1.0f) ? 0 : 1;
 	}
 	
 	{
@@ -181,7 +182,8 @@ int test_vec2_operators()
 	{
 		glm::vec2 A(1.0f, 2.0f);
 		glm::vec2 B = A++;
-		Error += B == glm::vec2(2.0f, 3.0f) ? 0 : 1;
+		Error += B == glm::vec2(1.0f, 2.0f) ? 0 : 1;
+		Error += A == glm::vec2(2.0f, 3.0f) ? 0 : 1;
 	}
 	
 	return Error;

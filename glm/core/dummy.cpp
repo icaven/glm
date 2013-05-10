@@ -40,5 +40,5 @@ int main()
 {
 	//auto d = 90.0_deg;
 
-	glm::vec3 v{0, 1, 2};
+	//glm::vec3 v{0, 1, 2};
 }
