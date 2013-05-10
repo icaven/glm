@@ -1294,7 +1294,7 @@ namespace detail
 	// tref definition
 
 	template <typename T, precision P> 
-	tref4<T, P>::tref4
+	GLM_FUNC_QUALIFIER tref4<T, P>::tref4
 	(
 		T & x, 
 		T & y, 
@@ -1308,7 +1308,7 @@ namespace detail
 	{}
 
 	template <typename T, precision P> 
-	tref4<T, P>::tref4
+	GLM_FUNC_QUALIFIER tref4<T, P>::tref4
 	(
 		tref4<T, P> const & r
 	) :
@@ -1319,7 +1319,7 @@ namespace detail
 	{}
 
 	template <typename T, precision P> 
-	tref4<T, P>::tref4
+	GLM_FUNC_QUALIFIER tref4<T, P>::tref4
 	(
 		tvec4<T, P> const & v
 	) :
@@ -1330,7 +1330,7 @@ namespace detail
 	{}
 
 	template <typename T, precision P> 
-	tref4<T, P>& tref4<T, P>::operator= 
+	GLM_FUNC_QUALIFIER tref4<T, P>& tref4<T, P>::operator= 
 	(
 		tref4<T, P> const & r
 	)
@@ -1343,7 +1343,7 @@ namespace detail
 	}
 
 	template <typename T, precision P> 
-	tref4<T, P>& tref4<T, P>::operator= 
+	GLM_FUNC_QUALIFIER tref4<T, P>& tref4<T, P>::operator= 
 	(
 		tvec4<T, P> const & v
 	)

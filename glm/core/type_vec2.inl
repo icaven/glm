@@ -957,7 +957,7 @@ namespace detail
 	// tref definition
 
 	template <typename T, precision P>
-	tref2<T, P>::tref2
+	GLM_FUNC_QUALIFIER tref2<T, P>::tref2
 	(
 		T & x, 
 		T & y
@@ -967,7 +967,7 @@ namespace detail
 	{}
 
 	template <typename T, precision P>
-	tref2<T, P>::tref2
+	GLM_FUNC_QUALIFIER tref2<T, P>::tref2
 	(
 		tref2<T, P> const & r
 	) :
@@ -976,7 +976,7 @@ namespace detail
 	{}
 
 	template <typename T, precision P>
-	tref2<T, P>::tref2
+	GLM_FUNC_QUALIFIER tref2<T, P>::tref2
 	(
 		tvec2<T, P> const & v
 	) :
@@ -985,7 +985,7 @@ namespace detail
 	{}
 
 	template <typename T, precision P>
-	tref2<T, P>& tref2<T, P>::operator=
+	GLM_FUNC_QUALIFIER tref2<T, P>& tref2<T, P>::operator=
 	(
 		tref2<T, P> const & r
 	)
@@ -996,7 +996,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	tref2<T, P>& tref2<T, P>::operator=
+	GLM_FUNC_QUALIFIER tref2<T, P>& tref2<T, P>::operator=
 	(
 		tvec2<T, P> const & v
 	)
