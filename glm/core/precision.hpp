@@ -33,9 +33,9 @@ namespace glm
 {
 	enum precision
 	{
-		lowp,
+		highp,
 		mediump,
-		highp
+		lowp
 	};
 }//namespace glm
 

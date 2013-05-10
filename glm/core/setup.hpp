@@ -576,7 +576,7 @@
 // that windows.h (and maybe other headers) will silently include intrin.h, which of course causes problems.
 // To fix, we just explicitly include intrin.h here.
 #if defined(__MINGW32__) && (GLM_ARCH != GLM_ARCH_PURE)
-#   include <intrin.h>
+#	include <intrin.h>
 #endif
 
 //#if(GLM_ARCH != GLM_ARCH_PURE)

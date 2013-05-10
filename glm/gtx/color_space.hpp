@@ -52,23 +52,23 @@ namespace glm
 
 	/// Converts a color from HSV color space to its color in RGB color space.
 	/// @see gtx_color_space
-    template <typename valType> 
+	template <typename valType> 
 	detail::tvec3<valType> rgbColor(
 		detail::tvec3<valType> const & hsvValue);
 
 	/// Converts a color from RGB color space to its color in HSV color space.
 	/// @see gtx_color_space
-    template <typename valType> 
+	template <typename valType> 
 	detail::tvec3<valType> hsvColor(
 		detail::tvec3<valType> const & rgbValue);
 		
 	/// Build a saturation matrix.
 	/// @see gtx_color_space
-    template <typename valType> 
+	template <typename valType> 
 	detail::tmat4x4<valType> saturation(
 		valType const s);
 
-    /// Modify the saturation of a color.
+	/// Modify the saturation of a color.
 	/// @see gtx_color_space
 	template <typename valType> 
 	detail::tvec3<valType> saturation(
@@ -77,7 +77,7 @@ namespace glm
 		
 	/// Modify the saturation of a color.
 	/// @see gtx_color_space
-    template <typename valType> 
+	template <typename valType> 
 	detail::tvec4<valType> saturation(
 		valType const s, 
 		detail::tvec4<valType> const & color);
