@@ -32,13 +32,11 @@
 #define GLM_MESSAGES
 #include "../glm.hpp"
 
-/*
-
-*/
-
 int main()
 {
-	//auto d = 90.0_deg;
+	glm::mat4 A(1.0f);
+	glm::vec4 B(1.0f);
+	glm::vec4 C = A * B;
 
-	//glm::vec3 v{0, 1, 2};
+	return 0;
 }

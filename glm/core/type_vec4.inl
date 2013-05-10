@@ -115,6 +115,14 @@ namespace detail
 		w(s4)
 	{}
 
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
+	(
+		__m128 const & v
+	) :
+		data(v)
+	{}
+
 	//////////////////////////////////////
 	// Swizzle constructors
 

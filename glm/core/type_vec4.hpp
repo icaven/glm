@@ -69,6 +69,7 @@ namespace detail
 			struct {value_type r, g, b, a;};
 			struct {value_type s, t, p, q;};
 			struct {value_type x, y, z, w;};
+			__m128 data;
 		};
 #	elif(GLM_COMPONENT == GLM_COMPONENT_CXX98)
 		union {value_type x, r, s;};
@@ -115,6 +116,8 @@ namespace detail
 			value_type const & s1,
 			value_type const & s2,
 			value_type const & s3);
+		GLM_FUNC_DECL explicit tvec4(
+			__m128 const & v);
 
 		//////////////////////////////////////
 		// Convertion scalar constructors
