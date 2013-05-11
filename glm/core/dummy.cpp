@@ -32,6 +32,26 @@
 #define GLM_MESSAGES
 #include "../glm.hpp"
 
+struct float4
+{
+	union
+	{
+		struct {float r, g, b, a;};
+		struct {float s, t, p, q;};
+		struct {float x, y, z, w;};
+		__m128 data;
+	};
+};
+
+int test_simd()
+{
+	float4 f;
+
+
+
+	return 0;
+}
+
 int main()
 {
 	glm::mat4 A(1.0f);

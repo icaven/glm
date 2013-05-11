@@ -708,6 +708,7 @@ namespace detail
 		typename tmat4x4<T, P>::row_type const & v
 	)
 	{
+/*
 		__m128 v0 = _mm_shuffle_ps(v.data, v.data, _MM_SHUFFLE(0, 0, 0, 0));
 		__m128 v1 = _mm_shuffle_ps(v.data, v.data, _MM_SHUFFLE(1, 1, 1, 1));
 		__m128 v2 = _mm_shuffle_ps(v.data, v.data, _MM_SHUFFLE(2, 2, 2, 2));
@@ -724,7 +725,8 @@ namespace detail
 		__m128 a2 = _mm_add_ps(a0, a1);
 
 		return typename tmat4x4<T, P>::col_type(a2);
-/*
+*/
+
 		tmat4x4<T, P>::col_type const Mov0(v[0]);
 		tmat4x4<T, P>::col_type const Mov1(v[1]);
 		tmat4x4<T, P>::col_type const Mul0 = m[0] * Mov0;
@@ -737,7 +739,6 @@ namespace detail
 		tmat4x4<T, P>::col_type const Add1 = Mul2 * Mul3;
 		tmat4x4<T, P>::col_type const Add2 = Add0 * Add1;
 		return Add2;
-*/
 
 /*
 		return typename tmat4x4<T, P>::col_type(

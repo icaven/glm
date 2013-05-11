@@ -37,7 +37,7 @@ namespace glm{
 namespace detail
 {
 	template <typename T, precision P>
-	struct tvec4
+	struct __declspec(align(16)) tvec4
 	{
 		enum ctor{_null};
 
@@ -54,22 +54,21 @@ namespace detail
 #	if(GLM_COMPONENT == GLM_COMPONENT_CXXMS)
 		union 
 		{
-#		if(defined(GLM_SWIZZLE))
-			_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, x, y, z, w)
-			_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, r, g, b, a)
-			_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, s, t, p, q)
-			_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, x, y, z, w)
-			_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, r, g, b, a)
-			_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, s, t, p, q)
-			_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, x, y, z, w)
-			_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, r, g, b, a)
-			_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, s, t, p, q)
-#		endif//(defined(GLM_SWIZZLE))
+#			if(defined(GLM_SWIZZLE))
+				_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, x, y, z, w)
+				_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, r, g, b, a)
+				_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, s, t, p, q)
+				_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, x, y, z, w)
+				_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, r, g, b, a)
+				_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, s, t, p, q)
+				_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, x, y, z, w)
+				_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, r, g, b, a)
+				_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, s, t, p, q)
+#			endif//(defined(GLM_SWIZZLE))
 
 			struct {value_type r, g, b, a;};
 			struct {value_type s, t, p, q;};
 			struct {value_type x, y, z, w;};
-			__m128 data;
 		};
 #	elif(GLM_COMPONENT == GLM_COMPONENT_CXX98)
 		union {value_type x, r, s;};
@@ -116,8 +115,6 @@ namespace detail
 			value_type const & s1,
 			value_type const & s2,
 			value_type const & s3);
-		GLM_FUNC_DECL explicit tvec4(
-			__m128 const & v);
 
 		//////////////////////////////////////
 		// Convertion scalar constructors
