@@ -727,17 +727,17 @@ namespace detail
 		return typename tmat4x4<T, P>::col_type(a2);
 */
 
-		tmat4x4<T, P>::col_type const Mov0(v[0]);
-		tmat4x4<T, P>::col_type const Mov1(v[1]);
-		tmat4x4<T, P>::col_type const Mul0 = m[0] * Mov0;
-		tmat4x4<T, P>::col_type const Mul1 = m[1] * Mov1;
-		tmat4x4<T, P>::col_type const Add0 = Mul0 * Mul1;
-		tmat4x4<T, P>::col_type const Mov2(v[2]);
-		tmat4x4<T, P>::col_type const Mov3(v[3]);
-		tmat4x4<T, P>::col_type const Mul2 = m[2] * Mov2;
-		tmat4x4<T, P>::col_type const Mul3 = m[3] * Mov3;
-		tmat4x4<T, P>::col_type const Add1 = Mul2 * Mul3;
-		tmat4x4<T, P>::col_type const Add2 = Add0 * Add1;
+		typename tmat4x4<T, P>::col_type const Mov0(v[0]);
+		typename tmat4x4<T, P>::col_type const Mov1(v[1]);
+		typename tmat4x4<T, P>::col_type const Mul0 = m[0] * Mov0;
+		typename tmat4x4<T, P>::col_type const Mul1 = m[1] * Mov1;
+		typename tmat4x4<T, P>::col_type const Add0 = Mul0 * Mul1;
+		typename tmat4x4<T, P>::col_type const Mov2(v[2]);
+		typename tmat4x4<T, P>::col_type const Mov3(v[3]);
+		typename tmat4x4<T, P>::col_type const Mul2 = m[2] * Mov2;
+		typename tmat4x4<T, P>::col_type const Mul3 = m[3] * Mov3;
+		typename tmat4x4<T, P>::col_type const Add1 = Mul2 * Mul3;
+		typename tmat4x4<T, P>::col_type const Add2 = Add0 * Add1;
 		return Add2;
 
 /*

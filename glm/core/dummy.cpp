@@ -32,6 +32,7 @@
 #define GLM_MESSAGES
 #include "../glm.hpp"
 
+#if(GLM_ARCH & GLM_ARCH_SSE2)
 struct float4
 {
 	union
@@ -52,11 +53,17 @@ int test_simd()
 	return 0;
 }
 
+#endif//GLM_ARCH
+
 int main()
 {
 	glm::mat4 A(1.0f);
 	glm::vec4 B(1.0f);
 	glm::vec4 C = A * B;
+	
+#	if(GLM_ARCH & GLM_ARCH_SSE2)
+		test_simd();
+#	endif
 
 	return 0;
 }
