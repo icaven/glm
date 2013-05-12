@@ -51,16 +51,16 @@ namespace glm
 	/// @{
 
 	//! Set values to a 2 components vector.
-	//! From GLM_GTX_vector_access extension.
-    template <typename valType> 
+	/// @see gtx_vector_access extension.
+	template <typename valType> 
 	void set(
 		detail::tvec2<valType> & v, 
 		valType const & x, 
 		valType const & y);
 
 	//! Set values to a 3 components vector.
-	//! From GLM_GTX_vector_access extension.
-    template <typename valType> 
+	/// @see gtx_vector_access extension.
+	template <typename valType> 
 	void set(
 		detail::tvec3<valType> & v, 
 		valType const & x, 
@@ -68,8 +68,8 @@ namespace glm
 		valType const & z);
 
 	//! Set values to a 4 components vector.
-	//! From GLM_GTX_vector_access extension.
-    template <typename valType> 
+	/// @see gtx_vector_access extension.
+	template <typename valType> 
 	void set(
 		detail::tvec4<valType> & v, 
 		valType const & x, 

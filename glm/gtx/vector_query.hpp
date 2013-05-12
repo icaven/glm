@@ -53,7 +53,7 @@ namespace glm
 	/// @{
 
 	//! Check whether two vectors are collinears.
-	//! From GLM_GTX_vector_query extensions.
+	/// @see gtx_vector_query extensions.
 	template <typename genType>
 	bool areCollinear(
 		genType const & v0,
@@ -61,7 +61,7 @@ namespace glm
 		typename genType::value_type const & epsilon);
 		
 	//! Check whether two vectors are orthogonals.
-	//! From GLM_GTX_vector_query extensions.
+	/// @see gtx_vector_query extensions.
 	template <typename genType>
 	bool areOrthogonal(
 		genType const & v0,
@@ -69,35 +69,35 @@ namespace glm
 		typename genType::value_type const & epsilon);
 
 	//! Check whether a vector is normalized.
-	//! From GLM_GTX_vector_query extensions.
+	/// @see gtx_vector_query extensions.
 	template <typename genType, precision P, template <typename, precision> class vecType>
 	bool isNormalized(
 		vecType<genType, P> const & v,
 		genType const & epsilon);
 		
 	//! Check whether a vector is null.
-	//! From GLM_GTX_vector_query extensions.
+	/// @see gtx_vector_query extensions.
 	template <typename T, precision P>
 	bool isNull(
 		detail::tvec2<T, P> const & v,
 		T const & epsilon);
 
 	//! Check whether a vector is null.
-	//! From GLM_GTX_vector_query extensions.
+	/// @see gtx_vector_query extensions.
 	template <typename T, precision P>
 	bool isNull(
 		detail::tvec3<T, P> const & v,
 		T const & epsilon);
 
 	//! Check whether a vector is null.
-	//! From GLM_GTX_vector_query extensions.
+	/// @see gtx_vector_query extensions.
 	template <typename T, precision P>
 	bool isNull(
 		detail::tvec4<T, P> const & v,
 		T const & epsilon);
 
 	//! Check whether two vectors are orthonormal.
-	//! From GLM_GTX_vector_query extensions.
+	/// @see gtx_vector_query extensions.
 	template <typename genType>
 	bool areOrthonormal(
 		genType const & v0,

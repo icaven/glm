@@ -50,18 +50,18 @@ namespace glm
 	/// @addtogroup gtx_wrap
 	/// @{
 
-	//! Simulate GL_CLAMP OpenGL wrap mode
-	//! From GLM_GTX_wrap extension.
+	/// Simulate GL_CLAMP OpenGL wrap mode
+	/// @see gtx_wrap extension.
 	template <typename genType> 
 	genType clamp(genType const & Texcoord);
 
-	//! Simulate GL_REPEAT OpenGL wrap mode
-	//! From GLM_GTX_wrap extension.
+	/// Simulate GL_REPEAT OpenGL wrap mode
+	/// @see gtx_wrap extension.
 	template <typename genType> 
 	genType repeat(genType const & Texcoord);
 
-	//! Simulate GL_MIRROR_REPEAT OpenGL wrap mode
-	//! From GLM_GTX_wrap extension.
+	/// Simulate GL_MIRROR_REPEAT OpenGL wrap mode
+	/// @see gtx_wrap extension.
 	template <typename genType> 
 	genType mirrorRepeat(genType const & Texcoord);
 
