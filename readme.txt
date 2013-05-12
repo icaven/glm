@@ -50,10 +50,7 @@ GLM 0.9.5.0: 2013-XX-XX
 - Fixed GTX_multiple for negative value
 - Removed GTX_ocl_type extension
 - Fixed post increment and decrement operators
-
-================================================================================
-GLM 0.9.4.4: 2013-0X-XX
---------------------------------------------------------------------------------
+- Fixed perspective with zNear == 0 (#71)
 - Fixed slerp when costheta is close to 1
 - Fixed mat4x2 value_type constructor
 
