@@ -53,6 +53,7 @@ GLM 0.9.5.0: 2013-XX-XX
 - Fixed perspective with zNear == 0 (#71)
 - Fixed slerp when costheta is close to 1
 - Fixed mat4x2 value_type constructor
+- Fixed glm.natvis for Visual C++ 12 #82
 
 ================================================================================
 GLM 0.9.4.3: 2013-03-20

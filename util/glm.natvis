@@ -1,6 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <!-- GLM visualizers for Visual Studio 2012 -->
 <!-- Put them into My Documents/Visual Studio 2012/Visualizers/ -->
-<?xml version="1.0" encoding="utf-8"?>
+
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
     <Type Name="glm::detail::tvec2&lt;*&gt;">
         <DisplayString>({x}, {y})</DisplayString>
