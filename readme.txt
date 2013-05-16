@@ -54,6 +54,7 @@ GLM 0.9.5.0: 2013-XX-XX
 - Fixed slerp when costheta is close to 1
 - Fixed mat4x2 value_type constructor
 - Fixed glm.natvis for Visual C++ 12 #82
+- Added assert in inversesqrt to detect division by zero. #61
 
 ================================================================================
 GLM 0.9.4.3: 2013-03-20
