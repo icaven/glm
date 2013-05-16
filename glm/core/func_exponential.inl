@@ -146,6 +146,7 @@ namespace _detail
 	)
 	{
 		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'inversesqrt' only accept floating-point input");
+		assert(x > genType(0));
 
 		return genType(1) / ::std::sqrt(x);
 	}
