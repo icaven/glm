@@ -640,6 +640,22 @@ namespace glm
 	struct { _swizzle<4, T, P, V<T, P>, 0,2,3,1> E0 ## E2 ## E3 ## E1; }; \
 	struct { _swizzle<4, T, P, V<T, P>, 0,2,3,2> E0 ## E2 ## E3 ## E2; }; \
 	struct { _swizzle<4, T, P, V<T, P>, 0,2,3,3> E0 ## E2 ## E3 ## E3; }; \
+	struct { _swizzle<4, T, P, V<T, P>, 0,3,0,0> E0 ## E2 ## E0 ## E0; }; \
+	struct { _swizzle<4, T, P, V<T, P>, 0,3,0,1> E0 ## E2 ## E0 ## E1; }; \
+	struct { _swizzle<4, T, P, V<T, P>, 0,3,0,2> E0 ## E2 ## E0 ## E2; }; \
+	struct { _swizzle<4, T, P, V<T, P>, 0,3,0,3> E0 ## E2 ## E0 ## E3; }; \
+	struct { _swizzle<4, T, P, V<T, P>, 0,3,1,0> E0 ## E2 ## E1 ## E0; }; \
+	struct { _swizzle<4, T, P, V<T, P>, 0,3,1,1> E0 ## E2 ## E1 ## E1; }; \
+	struct { _swizzle<4, T, P, V<T, P>, 0,3,1,2> E0 ## E2 ## E1 ## E2; }; \
+	struct { _swizzle<4, T, P, V<T, P>, 0,3,1,3> E0 ## E2 ## E1 ## E3; }; \
+	struct { _swizzle<4, T, P, V<T, P>, 0,3,2,0> E0 ## E2 ## E2 ## E0; }; \
+	struct { _swizzle<4, T, P, V<T, P>, 0,3,2,1> E0 ## E2 ## E2 ## E1; }; \
+	struct { _swizzle<4, T, P, V<T, P>, 0,3,2,2> E0 ## E2 ## E2 ## E2; }; \
+	struct { _swizzle<4, T, P, V<T, P>, 0,3,2,3> E0 ## E2 ## E2 ## E3; }; \
+	struct { _swizzle<4, T, P, V<T, P>, 0,3,3,0> E0 ## E2 ## E3 ## E0; }; \
+	struct { _swizzle<4, T, P, V<T, P>, 0,3,3,1> E0 ## E2 ## E3 ## E1; }; \
+	struct { _swizzle<4, T, P, V<T, P>, 0,3,3,2> E0 ## E2 ## E3 ## E2; }; \
+	struct { _swizzle<4, T, P, V<T, P>, 0,3,3,3> E0 ## E2 ## E3 ## E3; }; \
 	struct { _swizzle<4, T, P, V<T, P>, 1,0,0,0> E1 ## E0 ## E0 ## E0; }; \
 	struct { _swizzle<4, T, P, V<T, P>, 1,0,0,1> E1 ## E0 ## E0 ## E1; }; \
 	struct { _swizzle<4, T, P, V<T, P>, 1,0,0,2> E1 ## E0 ## E0 ## E2; }; \
