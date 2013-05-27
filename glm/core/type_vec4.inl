@@ -1140,7 +1140,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator|
 	(
-		tvec4<T, P> const & v1, 
+		tvec4<T, P> const & v1,
 		tvec4<T, P> const & v2
 	)
 	{
