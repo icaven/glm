@@ -238,6 +238,9 @@ namespace glm
 		valType const & zFar
 	)
 	{
+		assert(aspect != valType(0));
+		assert(zFar != zNear);
+
 #ifdef GLM_FORCE_RADIANS
 		valType const rad = fovy;
 #else
@@ -284,8 +287,8 @@ namespace glm
 	template <typename T>
 	GLM_FUNC_QUALIFIER detail::tmat4x4<T, defaultp> infinitePerspective
 	(
-		T fovy, 
-		T aspect, 
+		T fovy,
+		T aspect,
 		T zNear
 	)
 	{
