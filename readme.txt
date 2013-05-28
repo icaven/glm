@@ -36,7 +36,7 @@ GLM is a header only library, there is nothing to build, just include it.
 More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
 
-================================================================================
+================================================================================s
 GLM 0.9.5.0: 2013-XX-XX
 --------------------------------------------------------------------------------
 - Added forward declarations (glm/fwd.hpp) for faster compilations
@@ -51,10 +51,18 @@ GLM 0.9.5.0: 2013-XX-XX
 - Removed GTX_ocl_type extension
 - Fixed post increment and decrement operators
 - Fixed perspective with zNear == 0 (#71)
-- Fixed slerp when costheta is close to 1
-- Fixed mat4x2 value_type constructor
+
+================================================================================
+GLM 0.9.4.4: 2013-05-29
+--------------------------------------------------------------------------------
+- Fixed slerp when costheta is close to 1 #65
+- Fixed mat4x2 value_type constructor #70
 - Fixed glm.natvis for Visual C++ 12 #82
-- Added assert in inversesqrt to detect division by zero. #61
+- Added assert in inversesqrt to detect division by zero #61
+- Fixed missing swizzle operators #86
+- Fixed CUDA warnings #86
+- Fixed GLM natvis for VC11 #82
+- Fixed GLM_GTX_multiple with negative values #79
 
 ================================================================================
 GLM 0.9.4.3: 2013-03-20
