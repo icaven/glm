@@ -236,21 +236,19 @@ namespace glm
 		valType const & zFar
 	)
 	{
+		assert(aspect != valType(0));
+		assert(zFar != zNear);
+
 #ifdef GLM_FORCE_RADIANS
 		valType const rad = fovy;
 #else
 		valType const rad = glm::radians(fovy);
 #endif
-        
-		valType range = tan(rad / valType(2)) * zNear;	
-		valType left = -range * aspect;
-		valType right = range * aspect;
-		valType bottom = -range;
-		valType top = range;
 
+		valType tanHalfFovy = tan(rad / valType(2));
 		detail::tmat4x4<valType> Result(valType(0));
-		Result[0][0] = (valType(2) * zNear) / (right - left);
-		Result[1][1] = (valType(2) * zNear) / (top - bottom);
+		Result[0][0] = valType(1) / (aspect * tanHalfFovy);
+		Result[1][1] = valType(1) / (tanHalfFovy);
 		Result[2][2] = - (zFar + zNear) / (zFar - zNear);
 		Result[2][3] = - valType(1);
 		Result[3][2] = - (valType(2) * zFar * zNear) / (zFar - zNear);
