@@ -37,12 +37,16 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
 
 ================================================================================
-GLM 0.9.4.4: 2013-0X-XX
+GLM 0.9.4.4: 2013-05-29
 --------------------------------------------------------------------------------
-- Fixed slerp when costheta is close to 1
-- Fixed mat4x2 value_type constructor
+- Fixed slerp when costheta is close to 1 #65
+- Fixed mat4x2 value_type constructor #70
 - Fixed glm.natvis for Visual C++ 12 #82
-- Added assert in inversesqrt to detect division by zero. #61
+- Added assert in inversesqrt to detect division by zero #61
+- Fixed missing swizzle operators #86
+- Fixed CUDA warnings #86
+- Fixed GLM natvis for VC11 #82
+- Fixed GLM_GTX_multiple with negative values #79
 
 ================================================================================
 GLM 0.9.4.3: 2013-03-20
