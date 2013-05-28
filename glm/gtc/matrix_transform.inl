@@ -248,6 +248,7 @@ namespace glm
 #endif
 
 		valType tanHalfFovy = tan(rad / valType(2));
+
 		detail::tmat4x4<valType, defaultp> Result(valType(0));
 		Result[0][0] = valType(1) / (aspect * tanHalfFovy);
 		Result[1][1] = valType(1) / (tanHalfFovy);

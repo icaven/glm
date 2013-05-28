@@ -63,6 +63,7 @@ GLM 0.9.4.4: 2013-05-29
 - Fixed CUDA warnings #86
 - Fixed GLM natvis for VC11 #82
 - Fixed GLM_GTX_multiple with negative values #79
+- Fixed glm::perspective when zNear is zero #71
 
 ================================================================================
 GLM 0.9.4.3: 2013-03-20
