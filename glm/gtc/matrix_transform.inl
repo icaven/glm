@@ -268,6 +268,10 @@ namespace glm
 		valType const & zFar
 	)
 	{
+		assert(width > valType(0));
+		assert(height > valType(0));
+		assert(fov > valType(0));
+	
 #ifdef GLM_FORCE_RADIANS
 		valType rad = fov;
 #else
