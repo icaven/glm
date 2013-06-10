@@ -37,7 +37,7 @@ namespace glm{
 namespace detail
 {
 	template <typename T, precision P>
-	struct __declspec(align(16)) tvec4
+	struct tvec4
 	{
 		enum ctor{_null};
 
