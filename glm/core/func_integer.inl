@@ -26,10 +26,12 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#if(GLM_ARCH != GLM_ARCH_PURE)
 #if(GLM_COMPILER & GLM_COMPILER_VC)
-#include <intrin.h>
-#pragma intrinsic(_BitScanReverse)
-#endif
+#	include <intrin.h>
+#	pragma intrinsic(_BitScanReverse)
+#endif//(GLM_COMPILER & GLM_COMPILER_VC)
+#endif//(GLM_ARCH != GLM_ARCH_PURE)
 
 namespace glm
 {
@@ -521,7 +523,6 @@ namespace glm
 	}
 
 	// findMSB
-/*
 #if((GLM_ARCH != GLM_ARCH_PURE) && (GLM_COMPILER & GLM_COMPILER_VC))
 
 	template <typename genIUType>
@@ -538,7 +539,7 @@ namespace glm
 		_BitScanReverse(&Result, Value); 
 		return int(Result);
 	}
-
+/*
 // __builtin_clz seems to be buggy as it crasks for some values, from 0x00200000 to 80000000
 #elif((GLM_ARCH != GLM_ARCH_PURE) && (GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC40))
 
@@ -560,8 +561,9 @@ namespace glm
 		//
 		return 31 - __builtin_clzl(Value);
 	}
-#else
 */
+#else
+
 /* SSE implementation idea
 
 		__m128i const Zero = _mm_set_epi32( 0,  0,  0,  0);
@@ -606,7 +608,7 @@ namespace glm
 			return MostSignificantBit;
 		}
 	}
-//#endif//(GLM_COMPILER)
+#endif//(GLM_COMPILER)
 
 	template <typename T>
 	GLM_FUNC_QUALIFIER detail::tvec2<int> findMSB
