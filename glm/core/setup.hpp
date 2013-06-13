@@ -447,8 +447,12 @@
 #	if(__cplusplus >= 201103L)
 #		define GLM_LANG GLM_LANG_CXX11
 //  -std=c++0x or -std=gnu++0x
-#	elif(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && defined(__GXX_EXPERIMENTAL_CXX0X__)) 
-#		define GLM_LANG GLM_LANG_CXX0X
+#	elif((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC)
+#		if defined(__GXX_EXPERIMENTAL_CXX0X__)
+#			define GLM_LANG GLM_LANG_CXX0X
+#		else
+#			define GLM_LANG GLM_LANG_CXX98
+#		endif
 #	elif(GLM_COMPILER & GLM_COMPILER_VC)
 #		if(defined(_MSC_EXTENSIONS))
 #			if(GLM_COMPILER >= GLM_COMPILER_VC2012)
