@@ -160,12 +160,18 @@ namespace detail
 
 		GLM_FUNC_QUALIFIER value_type& operator[]  (size_t i)
 		{
-			static const int offset_dst[4] = { E0, E1, E2, E3 };
+#ifndef __CUDA_ARCH__
+			static
+#endif
+				const int offset_dst[4] = { E0, E1, E2, E3 };
 			return this->elem(offset_dst[i]);
 		}
 		GLM_FUNC_QUALIFIER value_type  operator[]  (size_t i) const
 		{
-			static const int offset_dst[4] = { E0, E1, E2, E3 };
+#ifndef __CUDA_ARCH__
+			static
+#endif
+				const int offset_dst[4] = { E0, E1, E2, E3 };
 			return this->elem(offset_dst[i]);
 		}
 	protected:
@@ -195,7 +201,10 @@ namespace detail
 
 		GLM_FUNC_QUALIFIER value_type  operator[]  (size_t i) const
 		{
-			static const int offset_dst[4] = { E0, E1, E2, E3 };
+#ifndef __CUDA_ARCH__
+			static
+#endif
+				const int offset_dst[4] = { E0, E1, E2, E3 };
 			return this->elem(offset_dst[i]);
 		}
 	};
