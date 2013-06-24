@@ -78,6 +78,7 @@ namespace detail
 	)
 	{}
 
+#ifndef GLM_NO_EXPLICIT_COPY
 	template <typename T>
 	GLM_FUNC_QUALIFIER tvec4<T>::tvec4
 	(
@@ -88,6 +89,7 @@ namespace detail
 		z(v.z),
 		w(v.w)
 	{}
+#endif
 
 	//////////////////////////////////////
 	// Explicit basic constructors
@@ -367,6 +369,7 @@ namespace detail
 	//////////////////////////////////////
 	// Unary arithmetic operators
 
+#ifndef GLM_NO_EXPLICIT_COPY
 	template <typename T>
 	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator= 
 	(
@@ -379,6 +382,7 @@ namespace detail
 		this->w = v.w;
 		return *this;
 	}
+#endif
 
 	template <typename T>
 	template <typename U> 

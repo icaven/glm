@@ -107,7 +107,9 @@ namespace detail
 		// Implicit basic constructors
 
 		GLM_FUNC_DECL tvec2();
+#ifndef GLM_NO_EXPLICIT_COPY
 		GLM_FUNC_DECL tvec2(tvec2<T> const & v);
+#endif
 
 		//////////////////////////////////////
 		// Explicit basic constructors
@@ -160,7 +162,9 @@ namespace detail
 		//////////////////////////////////////
 		// Unary arithmetic operators
 
+#ifndef GLM_NO_EXPLICIT_COPY
 		GLM_FUNC_DECL tvec2<T> & operator= (tvec2<T> const & v);
+#endif
 		template <typename U> 
 		GLM_FUNC_DECL tvec2<T> & operator= (tvec2<U> const & v);
 
