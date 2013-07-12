@@ -120,7 +120,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER _swizzle_base2& operator= (const VecType& that)
 		{
 			struct op { 
-				void operator() (value_type& e, value_type& t) { e = t; } 
+				GLM_FUNC_QUALIFIER void operator() (value_type& e, value_type& t) { e = t; } 
 			};
 			_apply_op(that, op());
 			return *this;
@@ -129,7 +129,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER void operator -= (const VecType& that)
 		{
 			struct op { 
-				void operator() (value_type& e, value_type& t) { e -= t; } 
+				GLM_FUNC_QUALIFIER void operator() (value_type& e, value_type& t) { e -= t; } 
 			};
 			_apply_op(that, op());
 		}
@@ -137,7 +137,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER void operator += (const VecType& that)
 		{
 			struct op { 
-				void operator() (value_type& e, value_type& t) { e += t; } 
+				GLM_FUNC_QUALIFIER void operator() (value_type& e, value_type& t) { e += t; } 
 			};
 			_apply_op(that, op());
 		}
@@ -145,7 +145,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER void operator *= (const VecType& that)
 		{
 			struct op { 
-				void operator() (value_type& e, value_type& t) { e *= t; } 
+				GLM_FUNC_QUALIFIER void operator() (value_type& e, value_type& t) { e *= t; } 
 			};
 			_apply_op(that, op());
 		}
@@ -153,7 +153,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER void operator /= (const VecType& that)
 		{
 			struct op { 
-				void operator() (value_type& e, value_type& t) { e /= t; } 
+				GLM_FUNC_QUALIFIER void operator() (value_type& e, value_type& t) { e /= t; } 
 			};
 			_apply_op(that, op());
 		}
