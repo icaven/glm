@@ -37,10 +37,11 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
 
 ================================================================================
-GLM 0.9.4.5: 2013-06-XX
+GLM 0.9.4.5: 2013-07-XX
 --------------------------------------------------------------------------------
 - Fixed inclusion of intrinsics in "pure" mode #92 
 - Fixed language detection on GCC when the C++0x mode isn't enabled #95
+- Fixed issue #97: register is deprecated in C++11
 
 ================================================================================
 GLM 0.9.4.4: 2013-05-29
