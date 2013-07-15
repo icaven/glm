@@ -37,7 +37,7 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
 
 ================================================================================
-GLM 0.9.4.5: 2013-07-XX
+GLM 0.9.4.5: 2013-07-15
 --------------------------------------------------------------------------------
 - Fixed inclusion of intrinsics in "pure" mode #92 
 - Fixed language detection on GCC when the C++0x mode isn't enabled #95
