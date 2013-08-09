@@ -29,6 +29,7 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/half_float.hpp>
+#include <cstdio>
 
 int test_half_precision_scalar()
 {
@@ -585,10 +586,241 @@ static int test_hmat_precision()
 	return Error;
 }
 
+
+namespace detail
+{
+	glm::uint16 float2half(glm::uint32 const & f)
+	{
+		// 10 bits    =>                         EE EEEFFFFF
+		// 11 bits    =>                        EEE EEFFFFFF
+		// Half bits  =>                   SEEEEEFF FFFFFFFF
+		// Float bits => SEEEEEEE EFFFFFFF FFFFFFFF FFFFFFFF
+        
+		// 0x00007c00 => 00000000 00000000 01111100 00000000
+		// 0x000003ff => 00000000 00000000 00000011 11111111
+		// 0x38000000 => 00111000 00000000 00000000 00000000
+		// 0x7f800000 => 01111111 10000000 00000000 00000000
+		// 0x00008000 => 00000000 00000000 10000000 00000000
+		return
+        ((f >> 16) & 0x8000) | // sign
+        ((((f & 0x7f800000) - 0x38000000) >> 13) & 0x7c00) | // exponential
+        ((f >> 13) & 0x03ff); // Mantissa
+	}
+    
+	glm::uint16 float2packed11(glm::uint32 const & f)
+	{
+		// 10 bits    =>                         EE EEEFFFFF
+		// 11 bits    =>                        EEE EEFFFFFF
+		// Half bits  =>                   SEEEEEFF FFFFFFFF
+		// Float bits => SEEEEEEE EFFFFFFF FFFFFFFF FFFFFFFF
+        
+		// 0x000007c0 => 00000000 00000000 00000111 11000000
+		// 0x00007c00 => 00000000 00000000 01111100 00000000
+		// 0x000003ff => 00000000 00000000 00000011 11111111
+		// 0x38000000 => 00111000 00000000 00000000 00000000
+		// 0x7f800000 => 01111111 10000000 00000000 00000000
+		// 0x00008000 => 00000000 00000000 10000000 00000000
+		return
+        ((((f & 0x7f800000) - 0x38000000) >> 17) & 0x07c0) | // exponential
+        ((f >> 17) & 0x003f); // Mantissa
+	}
+    
+	glm::uint float2packed10(glm::uint const & f)
+	{
+		// 10 bits    =>                         EE EEEFFFFF
+		// 11 bits    =>                        EEE EEFFFFFF
+		// Half bits  =>                   SEEEEEFF FFFFFFFF
+		// Float bits => SEEEEEEE EFFFFFFF FFFFFFFF FFFFFFFF
+        
+		// 0x0000001F => 00000000 00000000 00000000 00011111
+		// 0x0000003F => 00000000 00000000 00000000 00111111
+		// 0x000003E0 => 00000000 00000000 00000011 11100000
+		// 0x000007C0 => 00000000 00000000 00000111 11000000
+		// 0x00007C00 => 00000000 00000000 01111100 00000000
+		// 0x000003FF => 00000000 00000000 00000011 11111111
+		// 0x38000000 => 00111000 00000000 00000000 00000000
+		// 0x7f800000 => 01111111 10000000 00000000 00000000
+		// 0x00008000 => 00000000 00000000 10000000 00000000
+		return
+        ((((f & 0x7f800000) - 0x38000000) >> 18) & 0x03E0) | // exponential
+        ((f >> 18) & 0x001f); // Mantissa
+	}
+    
+	glm::uint half2float(glm::uint const & h)
+	{
+		return ((h & 0x8000) << 16) | ((( h & 0x7c00) + 0x1C000) << 13) | ((h & 0x03FF) << 13);
+	}
+    
+    union uif
+    {
+        glm::uint i;
+        float f;
+    };
+    
+	glm::uint floatTo11bit(float x)
+	{
+		if(x == 0.0f)
+			return 0;
+		else if(glm::isnan(x))
+			return ~0;
+		else if(glm::isinf(x))
+			return 0x1f << 6;
+        
+		uif Union;
+		Union.f = x;
+		return float2packed11(Union.i);
+	}
+    
+	glm::uint floatTo10bit(float x)
+	{
+		if(x == 0.0f)
+			return 0;
+		else if(glm::isnan(x))
+			return ~0;
+		else if(glm::isinf(x))
+			return 0x1f << 5;
+        
+		uif Union;
+		Union.f = x;
+		return float2packed10(Union.i);
+	}
+    
+	glm::uint f11_f11_f10(float x, float y, float z)
+	{
+		return ((floatTo11bit(x) & ((1 << 11) - 1)) << 0) |  ((floatTo11bit(y) & ((1 << 11) - 1)) << 11) | ((floatTo10bit(z) & ((1 << 10) - 1)) << 22);
+	}
+}//namespace detail
+
+class f11f11f10
+{
+public:
+    f11f11f10(float x, float y, float z) :
+        x(detail::floatTo11bit(x)),
+        y(detail::floatTo11bit(y)),
+        z(detail::floatTo10bit(z))
+    {}
+    /*
+     operator glm::vec3()
+     {
+     return glm::vec3(
+     float(x) / 511.0f,
+     float(y) / 511.0f,
+     float(z) / 511.0f);
+     }
+     */
+private:
+    int x : 11;
+    int y : 11;
+    int z : 10;
+};
+
+void print_bits(glm::half const & s)
+{
+    union
+    {
+        glm::detail::hdata h;
+        unsigned short i;
+    } uif;
+    
+    uif.h = s._data();
+    
+    printf("f16: ");
+    for(std::size_t j = sizeof(s) * 8; j > 0; --j)
+    {
+        if(j == 10 || j == 15)
+            printf(" ");
+        printf("%d", (uif.i & (1 << (j - 1))) ? 1 : 0);
+    }
+}
+
+void print_bits(float const & s)
+{
+    union
+    {
+        float f;
+        unsigned int i;
+    } uif;
+    
+    uif.f = s;
+    
+    printf("f32: ");
+    for(std::size_t j = sizeof(s) * 8; j > 0; --j)
+    {
+        if(j == 23 || j == 31)
+            printf(" ");
+        printf("%d", (uif.i & (1 << (j - 1))) ? 1 : 0);
+    }
+}
+
+void print_10bits(glm::uint const & s)
+{
+    printf("10b: ");
+    for(std::size_t j = 10; j > 0; --j)
+    {
+        if(j == 5)
+            printf(" ");
+        printf("%d", (s & (1 << (j - 1))) ? 1 : 0);
+    }
+}
+
+void print_11bits(glm::uint const & s)
+{
+    printf("11b: ");
+    for(std::size_t j = 11; j > 0; --j)
+    {
+        if(j == 6)
+            printf(" ");
+        printf("%d", (s & (1 << (j - 1))) ? 1 : 0);
+    }
+}
+
+void print_value(float const & s)
+{
+    printf("%2.5f, ", s);
+    print_bits(s);
+    printf(", ");
+    print_bits(glm::half(s));
+    printf(", ");
+    print_11bits(detail::floatTo11bit(s));
+    printf(", ");
+    print_10bits(detail::floatTo10bit(s));
+    printf("\n");
+}
+
+int test_half()
+{
+    int Error = 0;
+
+    print_value(0.0);
+    print_value(0.1);
+    print_value(0.2);
+    print_value(0.3);
+    print_value(0.4);
+    print_value(0.5);
+    print_value(0.6);
+    print_value(1.0);
+    print_value(1.1);
+    print_value(1.2);
+    print_value(1.3);
+    print_value(1.4);
+    print_value(1.5);
+    print_value(1.6);
+    print_value(2.0);
+    print_value(2.1);
+    print_value(2.2);
+    print_value(2.3);
+    print_value(2.4);
+    print_value(2.5);
+    print_value(2.6);
+    
+    return Error;
+}
+
 int main()
 {
 	int Error = 0;
 
+    Error += test_half();
 	Error += test_hvec_precision();
 	Error += test_hvec2_size();
 	Error += test_hvec3_size();
