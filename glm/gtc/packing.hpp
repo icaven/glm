@@ -100,8 +100,8 @@ namespace glm
 	GLM_FUNC_DECL uint32 packI3x10I1x2(ivec4 const & v);
 	GLM_FUNC_DECL ivec4 unpackI3x10I1x2(uint32 const & v);
 
-	GLM_FUNC_DECL uint32 packU3x10U1x2(uvec4 const & v);
-	GLM_FUNC_DECL uvec4 unpackU3x10U1x2(uint32 const & v);
+	GLM_FUNC_DECL uint32 packU10U10U10U2(uvec4 const & v);
+	GLM_FUNC_DECL uvec4 unpackU10U10U10U2(uint32 const & v);
 
 	GLM_FUNC_DECL uint32 packF11F11F10(vec3 const & v);
 	GLM_FUNC_DECL vec3 unpackF11F11F10(uint32 const & v);
