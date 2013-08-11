@@ -51,23 +51,23 @@ namespace glm
 	/// @addtogroup gtc_packing
 	/// @{
 
-	uint16 packUnorm1x16(float v);
-	float unpackUnorm1x16(uint16 v);
+	GLM_FUNC_DECL uint16 packUnorm1x16(float v);
+	GLM_FUNC_DECL float unpackUnorm1x16(uint16 v);
 
-	uint64 packUnorm4x16(vec4 const & v);
-	vec4 unpackUnorm4x16(uint64 const & v);
+	GLM_FUNC_DECL uint64 packUnorm4x16(vec4 const & v);
+	GLM_FUNC_DECL vec4 unpackUnorm4x16(uint64 const & v);
 
-	uint16 packSnorm1x16(float v);
-	float unpackSnorm1x16(uint16 v);
+	GLM_FUNC_DECL uint16 packSnorm1x16(float v);
+	GLM_FUNC_DECL float unpackSnorm1x16(uint16 v);
 
-	uint64 packSnorm4x16(vec4 const & v);
-	vec4 unpackSnorm4x16(uint64 const & v);
+	GLM_FUNC_DECL uint64 packSnorm4x16(vec4 const & v);
+	GLM_FUNC_DECL vec4 unpackSnorm4x16(uint64 const & v);
 
-	uint16 packUnorm2x8(vec2 const & v);
-	vec2 unpackUnorm2x8(uint16 v);
+	GLM_FUNC_DECL uint16 packUnorm2x8(vec2 const & v);
+	GLM_FUNC_DECL vec2 unpackUnorm2x8(uint16 v);
 
-	uint16 packSnorm2x8(vec2 const & v);
-	vec2 unpackSnorm2x8(uint16 v);
+	GLM_FUNC_DECL uint16 packSnorm2x8(vec2 const & v);
+	GLM_FUNC_DECL vec2 unpackSnorm2x8(uint16 v);
 
 	GLM_FUNC_DECL uint16 packHalf1x16(float const & v);
 	GLM_FUNC_DECL float unpackHalf1x16(uint16 const & v);
@@ -93,15 +93,15 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackHalf2x16.xml">GLSL unpackHalf2x16 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	GLM_FUNC_DECL vec4 unpackHalf4x16(uint64 const & v);
-	
-	GLM_FUNC_DECL uint32 packSnorm3x10Snorm1x2(vec4 const & v);
-	GLM_FUNC_DECL vec4 unpackSnorm3x10Snorm1x2(uint32 const & v);
 
-	GLM_FUNC_DECL uint32 packI3x10I1x2(ivec4 const & v);
-	GLM_FUNC_DECL ivec4 unpackI3x10I1x2(uint32 const & v);
+	GLM_FUNC_DECL uint32 packI10I10I10I2(ivec4 const & v);
+	GLM_FUNC_DECL ivec4 unpackI10I10I10I2(uint32 const & v);
 
 	GLM_FUNC_DECL uint32 packU10U10U10U2(uvec4 const & v);
 	GLM_FUNC_DECL uvec4 unpackU10U10U10U2(uint32 const & v);
+
+	GLM_FUNC_DECL uint32 packSnorm3x10_1x2(vec4 const & v);
+	GLM_FUNC_DECL vec4 unpackSnorm3x10_1x2(uint32 const & v);
 
 	GLM_FUNC_DECL uint32 packF11F11F10(vec3 const & v);
 	GLM_FUNC_DECL vec3 unpackF11F11F10(uint32 const & v);

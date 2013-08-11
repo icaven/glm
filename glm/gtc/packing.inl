@@ -130,12 +130,270 @@ namespace detail
 	{
 		return ((floatTo11bit(x) & ((1 << 11) - 1)) << 0) |  ((floatTo11bit(y) & ((1 << 11) - 1)) << 11) | ((floatTo10bit(z) & ((1 << 10) - 1)) << 22);
 	}
+
+	union u10u10u10u2
+	{
+		struct
+		{
+			uint x : 10;
+			uint y : 10;
+			uint z : 10;
+			uint w : 2;
+		} data;
+		uint32 pack;
+	};
+
+	union i10i10i10i2
+	{
+		struct
+		{
+			int x : 10;
+			int y : 10;
+			int z : 10;
+			int w : 2;
+		} data;
+		uint32 pack;
+	};
+
+	union unorm4x16
+	{
+		struct
+		{
+			uint16 x;
+			uint16 y;
+			uint16 z;
+			uint16 w;
+		} data;
+		uint64 pack;
+	};
+
+	union snorm4x16
+	{
+		struct
+		{
+			int16 x;
+			int16 y;
+			int16 z;
+			int16 w;
+		} data;
+		uint64 pack;
+	};
+
+	union snorm1x16
+	{
+		int16 data;
+		uint16 pack;
+	};
+
+	union half1x16
+	{
+		hdata data;
+		uint16 pack;
+	};
+
+	union unorm2x8
+	{
+		struct
+		{
+			uint8 x;
+			uint8 y;
+		} data;
+		uint16 pack;
+	};
+
+	union snorm2x8
+	{
+		struct
+		{
+			int8 x;
+			int8 y;
+		} data;
+		uint16 pack;
+	};
 }//namespace detail
+
+	GLM_FUNC_QUALIFIER uint16 packUnorm1x16(float s)
+	{
+		return uint16(round(clamp(s, 0.0f, 1.0f) * 65535.0f));
+	}
+
+	GLM_FUNC_QUALIFIER float unpackUnorm1x16(uint16 p)
+	{
+		return float(p) * 1.0f / 65535.0f;
+	}
+
+	GLM_FUNC_QUALIFIER uint64 packUnorm4x16(vec4 const & v)
+	{
+		i16vec4 Scaled(round(clamp(v, 0.0f, 1.0f) * 65535.0f));
+		detail::unorm4x16 Packing;
+		Packing.data.x = Scaled[0];
+		Packing.data.y = Scaled[1];
+		Packing.data.z = Scaled[2];
+		Packing.data.w = Scaled[3];
+		return Packing.pack;
+	}
+
+	GLM_FUNC_QUALIFIER vec4 unpackUnorm4x16(uint64 const & p)
+	{
+		detail::unorm4x16 Packing;
+		vec4 Result(
+			float(Packing.data.x),
+			float(Packing.data.y),
+			float(Packing.data.z),
+			float(Packing.data.w));
+		Result *= float(1.5259021896696421759365224689097e-5); // 1.0 / 65535.0
+	}
+
+	GLM_FUNC_QUALIFIER uint16 packSnorm1x16(float v)
+	{
+		float Scaled = clamp(v ,-1.0f, 1.0f) * 32767.0f;
+		detail::snorm1x16 Packing;
+		Packing.data = detail::int16(Scaled);
+		return Packing.pack;
+	}
+
+	GLM_FUNC_QUALIFIER float unpackSnorm1x16(uint16 p)
+	{
+		detail::snorm1x16 Packing;
+		Packing.pack = p;
+		return clamp(float(Packing.data) * float(3.0518509475997192297128208258309e-5), -1.0f, 1.0f); //1.0f / 32767.0f
+	}
+
+	GLM_FUNC_QUALIFIER uint64 packSnorm4x16(vec4 const & v)
+	{
+		i16vec4 Scaled(clamp(v ,-1.0f, 1.0f) * 32767.0f);
+		detail::snorm4x16 Packing;
+		Packing.data.x = Scaled.x;
+		Packing.data.y = Scaled.y;
+		Packing.data.z = Scaled.z;
+		Packing.data.w = Scaled.w;
+		return Packing.pack;
+	}
+
+	GLM_FUNC_QUALIFIER vec4 unpackSnorm4x16(uint64 const & p)
+	{
+		detail::snorm4x16 Packing;
+		Packing.pack = p;
+		vec4 Unpacked(Packing.data.x, Packing.data.y, Packing.data.z, Packing.data.w);
+		return clamp(Unpacked * float(3.0518509475997192297128208258309e-5), -1.0f, 1.0f); //1.0f / 32767.0f
+	}
+
+	GLM_FUNC_QUALIFIER uint16 packUnorm2x8(vec2 const & v)
+	{
+		i8vec2 Scaled(round(clamp(v ,-1.0f, 1.0f) * 255.0f));
+		detail::unorm2x8 Packing;
+		Packing.data.x = Scaled.x;
+		Packing.data.y = Scaled.y;
+		return Packing.pack;
+	}
+
+	GLM_FUNC_QUALIFIER vec2 unpackUnorm2x8(uint16 p)
+	{
+		detail::unorm2x8 Packing;
+		Packing.pack = p;
+		vec2 Unpacked(Packing.data.x, Packing.data.y);
+		return Unpacked * float(0.0039215686274509803921568627451);
+	}
+
+	GLM_FUNC_QUALIFIER uint16 packSnorm2x8(vec2 const & v)
+	{
+		glm::i8vec2 Scaled(round(clamp(v ,-1.0f, 1.0f) * 127.0f));
+		detail::snorm2x8 Packing;
+		Packing.data.x = Scaled.x;
+		Packing.data.y = Scaled.y;
+		return Packing.pack;
+	}
+
+	GLM_FUNC_QUALIFIER vec2 unpackSnorm2x8(uint16 p)
+	{
+		detail::snorm2x8 Packing;
+		Packing.pack = p;
+		vec2 Unpacked(Packing.data.x, Packing.data.y);
+		return clamp(Unpacked * float(0.00787401574803149606299212598425), -1.0f, 1.0f);
+	}
+
+	GLM_FUNC_DECL uint16 packHalf1x16(float const & v)
+	{
+		detail::half1x16 Packing;
+		Packing.data = detail::toFloat16(v);
+		return Packing.pack;
+	}
+
+	GLM_FUNC_DECL float unpackHalf1x16(uint16 const & v)
+	{
+		detail::half1x16 Packing;
+		Packing.pack = v;
+		return detail::toFloat32(Packing.data);
+	}
+
+	GLM_FUNC_QUALIFIER uint32 packI10I10I10I2(ivec4 const & v)
+	{
+		detail::i10i10i10i2 Result;
+		Result.data.x = v.x;
+		Result.data.y = v.y;
+		Result.data.z = v.z;
+		Result.data.w = v.w;
+		return Result.pack; 
+	}
+
+	GLM_FUNC_QUALIFIER ivec4 unpackI10I10I10I2(uint32 const & v)
+	{
+		detail::i10i10i10i2 Unpack;
+		Unpack.pack = v;
+		return ivec4(
+			Unpack.data.x,
+			Unpack.data.y,
+			Unpack.data.z,
+			Unpack.data.w);
+	}
+
+	GLM_FUNC_QUALIFIER uint32 packU10U10U10U2(uvec4 const & v)
+	{
+		detail::u10u10u10u2 Result;
+		Result.data.x = v.x;
+		Result.data.y = v.y;
+		Result.data.z = v.z;
+		Result.data.w = v.w;
+		return Result.pack; 
+	}
+
+	GLM_FUNC_QUALIFIER uvec4 unpackU10U10U10U2(uint32 const & v)
+	{
+		detail::u10u10u10u2 Unpack;
+		Unpack.pack = v;
+		return uvec4(
+			Unpack.data.x,
+			Unpack.data.y,
+			Unpack.data.z,
+			Unpack.data.w);
+	}
+
+	GLM_FUNC_QUALIFIER uint32 packSnorm3x10_1x2(vec4 const & v)
+	{
+		detail::i10i10i10i2 Result;
+		Result.data.x = int(v.x * 511.f);
+		Result.data.y = int(v.y * 511.f);
+		Result.data.z = int(v.z * 511.f);
+		Result.data.w = int(v.w *   1.f);
+		return Result.pack;
+	}
+
+	GLM_FUNC_QUALIFIER vec4 unpackSnorm3x10_1x2(uint32 const & v)
+	{
+		detail::i10i10i10i2 Unpack;
+		Unpack.pack = v;
+		vec4 Result;
+		Result.x = float(Unpack.data.x) / 511.f;
+		Result.y = float(Unpack.data.y) / 511.f;
+		Result.z = float(Unpack.data.z) / 511.f;
+		Result.w = float(Unpack.data.w) /   1.f;
+		return Result;
+	}
 
 	GLM_FUNC_QUALIFIER uint32 packF11F11F10(vec3 const & v)
     {
         return 
-            ((detail::floatTo11bit(v.x) & ((1 << 11) - 1)) << 0) |
+            ((detail::floatTo11bit(v.x) & ((1 << 11) - 1)) <<  0) |
             ((detail::floatTo11bit(v.y) & ((1 << 11) - 1)) << 11) |
             ((detail::floatTo10bit(v.z) & ((1 << 10) - 1)) << 22);
     }
