@@ -295,6 +295,17 @@ namespace glm
 	/// Return the constant address to the data of the quaternion input.
 	/// @see gtc_type_ptr
 	template<typename T, precision P>
+	GLM_FUNC_QUALIFIER T * value_ptr
+	(
+		detail::tquat<T, P> & q
+	)
+	{
+		return &(q[0]);
+	}
+
+	//! Return the constant address to the data of the input parameter.
+	/// @see gtc_type_ptr
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T const * value_ptr
 	(
 		detail::tquat<T, P> const & q
