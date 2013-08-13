@@ -20,19 +20,6 @@ namespace glm
 
 	VECTORIZE_VEC(mask)
 
-	// extractField
-	template <typename genIType>
-	GLM_FUNC_QUALIFIER genIType extractField
-	(
-		half const & value, 
-		genIType const & first, 
-		genIType const & count
-	)
-	{
-		assert(first + count < sizeof(half));
-		return (value._data() << first) >> ((sizeof(half) << 3) - count);
-	}
-
 	template <typename genIType>
 	GLM_FUNC_QUALIFIER genIType extractField
 	(

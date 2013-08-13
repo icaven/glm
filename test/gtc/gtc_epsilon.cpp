@@ -8,7 +8,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/glm.hpp>
-#include <glm/gtc/half_float.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <glm/gtc/constants.hpp>
 
@@ -78,7 +77,6 @@ int main()
 	int Error(0);
 
 	Error += test_defined();
-	Error += test_equal<glm::half>();
 	Error += test_equal<float>();
 	Error += test_equal<double>();
 

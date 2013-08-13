@@ -44,12 +44,6 @@ namespace detail
 		}
 */
 	};
-	
-	template <>
-	GLM_FUNC_QUALIFIER half compute_linearRand::operator()<half> (half const & Min, half const & Max) const
-	{
-		return half(float(std::rand()) / float(RAND_MAX) * (float(Max) - float(Min)) + float(Min));
-	}
 
 	template <>
 	GLM_FUNC_QUALIFIER float compute_linearRand::operator()<float> (float const & Min, float const & Max) const

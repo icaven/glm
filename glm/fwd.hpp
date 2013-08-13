@@ -46,33 +46,7 @@ namespace detail
 	
 	template <typename T, precision P> struct tquat;
 }//namespace detail
-	
-	/// Quaternion of low half-precision floating-point numbers.
-	///
-	/// @see gtc_quaternion
-	typedef detail::tquat<half, lowp>		lowp_hquat;
-	
-	/// Quaternion of medium half-precision floating-point numbers.
-	///
-	/// @see gtc_quaternion
-	typedef detail::tquat<half, mediump>	mediump_hquat;
 
-	/// Quaternion of high half-precision floating-point numbers.
-	///
-	/// @see gtc_quaternion
-	typedef detail::tquat<half, highp>		highp_hquat;
-
-#if(defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
-	typedef highp_hquat			hquat;
-#elif(!defined(GLM_PRECISION_HIGHP_HALF) && defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
-	typedef mediump_hquat		hquat;
-#elif(!defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && defined(GLM_PRECISION_LOWP_HALF))
-	typedef lowp_hquat			hquat;
-#elif(!defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
-	/// Default half-precision floating-point numbers.
-	typedef highp_hquat			hquat;
-#endif
-	
 	
 	/// Quaternion of low single-precision floating-point numbers.
 	///
@@ -1356,10 +1330,6 @@ namespace glm
 	//////////////////////
 	// Float vector types
 	
-	/// Low 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef detail::float16 lowp_float16;
-	
 	/// Low 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef detail::float32 lowp_float32;
@@ -1368,10 +1338,6 @@ namespace glm
 	/// @see gtc_type_precision
 	typedef detail::float64 lowp_float64;
 	
-	/// Low 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef detail::float16 lowp_float16_t;
-	
 	/// Low 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef detail::float32 lowp_float32_t;
@@ -1379,10 +1345,6 @@ namespace glm
 	/// Low 64 bit double-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef detail::float64 lowp_float64_t;
-	
-	/// Low 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef float16 lowp_f16;
 	
 	/// Low 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
@@ -1391,10 +1353,6 @@ namespace glm
 	/// Low 64 bit double-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef float64 lowp_f64;
-
-	/// Low 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef detail::float16 lowp_float16;
 	
 	/// Low 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
@@ -1403,11 +1361,7 @@ namespace glm
 	/// Low 64 bit double-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef detail::float64 lowp_float64;
-	
-	/// Low 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef detail::float16 lowp_float16_t;
-	
+		
 	/// Low 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef detail::float32 lowp_float32_t;
@@ -1415,10 +1369,6 @@ namespace glm
 	/// Low 64 bit double-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef detail::float64 lowp_float64_t;
-	
-	/// Low 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef float16 lowp_f16;
 	
 	/// Low 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
@@ -1429,11 +1379,6 @@ namespace glm
 	typedef float64 lowp_f64;
 
 
-
-	/// Low 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef detail::float16 lowp_float16;
-	
 	/// Low 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef detail::float32 lowp_float32;
@@ -1441,11 +1386,7 @@ namespace glm
 	/// Low 64 bit double-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef detail::float64 lowp_float64;
-	
-	/// Low 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef detail::float16 lowp_float16_t;
-	
+		
 	/// Low 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef detail::float32 lowp_float32_t;
@@ -1453,11 +1394,7 @@ namespace glm
 	/// Low 64 bit double-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef detail::float64 lowp_float64_t;
-	
-	/// Low 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef float16 lowp_f16;
-	
+		
 	/// Low 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef float32 lowp_f32;
@@ -1466,10 +1403,6 @@ namespace glm
 	/// @see gtc_type_precision
 	typedef float64 lowp_f64;
 
-	
-	/// Medium 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef detail::float16 mediump_float16;
 	
 	/// Medium 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
@@ -1478,11 +1411,7 @@ namespace glm
 	/// Medium 64 bit double-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef detail::float64 mediump_float64;
-	
-	/// Medium 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef detail::float16 mediump_float16_t;
-	
+		
 	/// Medium 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef detail::float32 mediump_float32_t;
@@ -1490,10 +1419,6 @@ namespace glm
 	/// Medium 64 bit double-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef detail::float64 mediump_float64_t;
-	
-	/// Medium 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef float16 mediump_f16;
 	
 	/// Medium 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
@@ -1503,10 +1428,6 @@ namespace glm
 	/// @see gtc_type_precision
 	typedef float64 mediump_f64;
 
-
-	/// High 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef detail::float16 highp_float16;
 	
 	/// High 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
@@ -1516,10 +1437,6 @@ namespace glm
 	/// @see gtc_type_precision
 	typedef detail::float64 highp_float64;
 	
-	/// High 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef detail::float16 highp_float16_t;
-	
 	/// High 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef detail::float32 highp_float32_t;
@@ -1527,10 +1444,6 @@ namespace glm
 	/// High 64 bit double-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef detail::float64 highp_float64_t;
-	
-	/// High 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef float16 highp_f16;
 	
 	/// High 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
@@ -1542,10 +1455,6 @@ namespace glm
 
 
 #if(defined(GLM_PRECISION_LOWP_FLOAT))
-	/// Default 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef lowp_float16 float16;
-	
 	/// Default 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef lowp_float32 float32;
@@ -1554,10 +1463,6 @@ namespace glm
 	/// @see gtc_type_precision
 	typedef lowp_float64 float64;
 	
-	/// Default 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef lowp_float16 float16_t;
-	
 	/// Default 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef lowp_float32_t float32_t;
@@ -1565,10 +1470,6 @@ namespace glm
 	/// Default 64 bit double-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef lowp_float64_t float64_t;
-	
-	/// Default 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef lowp_f16 f16;
 	
 	/// Default 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
@@ -1579,9 +1480,6 @@ namespace glm
 	typedef lowp_f64 f64;
 
 #elif(defined(GLM_PRECISION_MEDIUMP_FLOAT))
-	/// Default 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef mediump_float16 float16;
 	
 	/// Default 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
@@ -1591,10 +1489,6 @@ namespace glm
 	/// @see gtc_type_precision
 	typedef mediump_float64 float64;
 	
-	/// Default 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef mediump_float16 float16_t;
-	
 	/// Default 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef mediump_float32 float32_t;
@@ -1602,10 +1496,6 @@ namespace glm
 	/// Default 64 bit double-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef mediump_float64 float64_t;
-	
-	/// Default 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef mediump_float16 f16;
 	
 	/// Default 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
@@ -1616,9 +1506,6 @@ namespace glm
 	typedef mediump_float64 f64;
 
 #else//(defined(GLM_PRECISION_HIGHP_FLOAT))
-	/// Default 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef highp_float16 float16;
 	
 	/// Default 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
@@ -1628,10 +1515,6 @@ namespace glm
 	/// @see gtc_type_precision
 	typedef highp_float64 float64;
 	
-	/// Default 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef highp_float16_t float16_t;
-	
 	/// Default 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef highp_float32_t float32_t;
@@ -1639,10 +1522,6 @@ namespace glm
 	/// Default 64 bit double-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef highp_float64_t float64_t;
-	
-	/// Default 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef highp_float16_t f16;
 	
 	/// Default 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
@@ -1755,57 +1634,6 @@ namespace glm
 	typedef detail::tvec4<float, highp> highp_fvec4;
 	
 	
-	
-	/// Low half-precision floating-point vector of 1 component.
-	/// @see gtc_type_precision
-	typedef detail::tvec1<f16, lowp> lowp_f16vec1;
-	
-	/// Low half-precision floating-point vector of 2 components.
-	/// @see gtc_type_precision
-	typedef detail::tvec2<f16, lowp> lowp_f16vec2;
-	
-	/// Low half-precision floating-point vector of 3 components.
-	/// @see gtc_type_precision
-	typedef detail::tvec3<f16, lowp> lowp_f16vec3;
-	
-	/// Low half-precision floating-point vector of 4 components.
-	/// @see gtc_type_precision
-	typedef detail::tvec4<f16, lowp> lowp_f16vec4;
-	
-	/// Medium half-precision floating-point vector of 1 component.
-	/// @see gtc_type_precision
-	typedef detail::tvec1<f16, mediump> mediump_f16vec1;
-	
-	/// Medium half-precision floating-point vector of 2 components.
-	/// @see gtc_type_precision
-	typedef detail::tvec2<f16, mediump> mediump_f16vec2;
-	
-	/// Medium half-precision floating-point vector of 3 components.
-	/// @see gtc_type_precision
-	typedef detail::tvec3<f16, mediump> mediump_f16vec3;
-	
-	/// Medium half-precision floating-point vector of 4 components.
-	/// @see gtc_type_precision
-	typedef detail::tvec4<f16, mediump> mediump_f16vec4;
-	
-	/// High half-precision floating-point vector of 1 component.
-	/// @see gtc_type_precision
-	typedef detail::tvec1<f16, highp> highp_f16vec1;
-	
-	/// High half-precision floating-point vector of 2 components.
-	/// @see gtc_type_precision
-	typedef detail::tvec2<f16, highp> highp_f16vec2;
-	
-	/// High half-precision floating-point vector of 3 components.
-	/// @see gtc_type_precision
-	typedef detail::tvec3<f16, highp> highp_f16vec3;
-	
-	/// High half-precision floating-point vector of 4 components.
-	/// @see gtc_type_precision
-	typedef detail::tvec4<f16, highp> highp_f16vec4;
-	
-	
-	
 	/// Low single-precision floating-point vector of 1 component.
 	/// @see gtc_type_precision
 	typedef detail::tvec1<f32, lowp> lowp_f32vec1;
@@ -1853,9 +1681,8 @@ namespace glm
 	/// High single-precision floating-point vector of 4 components.
 	/// @see gtc_type_precision
 	typedef detail::tvec4<f32, highp> highp_f32vec4;
+
 	
-
-
 	/// Low double-precision floating-point vector of 1 component.
 	/// @see gtc_type_precision
 	typedef detail::tvec1<f64, lowp> lowp_f64vec1;
@@ -1904,9 +1731,9 @@ namespace glm
 	/// @see gtc_type_precision
 	typedef detail::tvec4<f64, highp> highp_f64vec4;
 	
+	
 	//////////////////////
 	// Float matrix types
-
 	
 	/// Low single-precision floating-point 1x1 matrix.
 	/// @see gtc_type_precision
@@ -2078,181 +1905,6 @@ namespace glm
 	/// High single-precision floating-point 4x4 matrix.
 	/// @see gtc_type_precision
 	typedef highp_fmat4x4 highp_fmat4;
-
-	
-
-
-	/// Low half-precision floating-point 1x1 matrix.
-	/// @see gtc_type_precision
-	//typedef lowp_f16 lowp_f16mat1x1;
-	
-	/// Low half-precision floating-point 2x2 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat2x2<f16, lowp> lowp_f16mat2x2;
-	
-	/// Low half-precision floating-point 2x3 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat2x3<f16, lowp> lowp_f16mat2x3;
-	
-	/// Low half-precision floating-point 2x4 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat2x4<f16, lowp> lowp_f16mat2x4;
-	
-	/// Low half-precision floating-point 3x2 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat3x2<f16, lowp> lowp_f16mat3x2;
-	
-	/// Low half-precision floating-point 3x3 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat3x3<f16, lowp> lowp_f16mat3x3;
-	
-	/// Low half-precision floating-point 3x4 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat3x4<f16, lowp> lowp_f16mat3x4;
-	
-	/// Low half-precision floating-point 4x2 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat4x2<f16, lowp> lowp_f16mat4x2;
-	
-	/// Low half-precision floating-point 4x3 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat4x3<f16, lowp> lowp_f16mat4x3;
-	
-	/// Low half-precision floating-point 4x4 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat4x4<f16, lowp> lowp_f16mat4x4;
-	
-	/// Low half-precision floating-point 1x1 matrix.
-	/// @see gtc_type_precision
-	//typedef lowp_f16mat1x1 lowp_f16mat1;
-	
-	/// Low half-precision floating-point 2x2 matrix.
-	/// @see gtc_type_precision
-	typedef lowp_f16mat2x2 lowp_f16mat2;
-	
-	/// Low half-precision floating-point 3x3 matrix.
-	/// @see gtc_type_precision
-	typedef lowp_f16mat3x3 lowp_f16mat3;
-	
-	/// Low half-precision floating-point 4x4 matrix.
-	/// @see gtc_type_precision
-	typedef lowp_f16mat4x4 lowp_f16mat4;
-	
-	
-	/// Medium half-precision floating-point 1x1 matrix.
-	/// @see gtc_type_precision
-	//typedef mediump_f16 mediump_f16mat1x1;
-	
-	/// Medium half-precision floating-point 2x2 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat2x2<f16, mediump> mediump_f16mat2x2;
-	
-	/// Medium half-precision floating-point 2x3 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat2x3<f16, mediump> mediump_f16mat2x3;
-	
-	/// Medium half-precision floating-point 2x4 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat2x4<f16, mediump> mediump_f16mat2x4;
-	
-	/// Medium half-precision floating-point 3x2 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat3x2<f16, mediump> mediump_f16mat3x2;
-	
-	/// Medium half-precision floating-point 3x3 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat3x3<f16, mediump> mediump_f16mat3x3;
-	
-	/// Medium half-precision floating-point 3x4 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat3x4<f16, mediump> mediump_f16mat3x4;
-	
-	/// Medium half-precision floating-point 4x2 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat4x2<f16, mediump> mediump_f16mat4x2;
-	
-	/// Medium half-precision floating-point 4x3 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat4x3<f16, mediump> mediump_f16mat4x3;
-	
-	/// Medium half-precision floating-point 4x4 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat4x4<f16, mediump> mediump_f16mat4x4;
-	
-	/// Medium half-precision floating-point 1x1 matrix.
-	/// @see gtc_type_precision
-	//typedef mediump_f16mat1x1 mediump_f16mat1;
-	
-	/// Medium half-precision floating-point 2x2 matrix.
-	/// @see gtc_type_precision
-	typedef mediump_f16mat2x2 mediump_f16mat2;
-	
-	/// Medium half-precision floating-point 3x3 matrix.
-	/// @see gtc_type_precision
-	typedef mediump_f16mat3x3 mediump_f16mat3;
-	
-	/// Medium half-precision floating-point 4x4 matrix.
-	/// @see gtc_type_precision
-	typedef mediump_f16mat4x4 mediump_f16mat4;
-	
-	
-	
-	/// High half-precision floating-point 1x1 matrix.
-	/// @see gtc_type_precision
-	//typedef highp_f16 highp_f16mat1x1;
-	
-	/// High half-precision floating-point 2x2 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat2x2<f16, highp> highp_f16mat2x2;
-	
-	/// High half-precision floating-point 2x3 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat2x3<f16, highp> highp_f16mat2x3;
-	
-	/// High half-precision floating-point 2x4 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat2x4<f16, highp> highp_f16mat2x4;
-	
-	/// High half-precision floating-point 3x2 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat3x2<f16, highp> highp_f16mat3x2;
-	
-	/// High half-precision floating-point 3x3 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat3x3<f16, highp> highp_f16mat3x3;
-	
-	/// High half-precision floating-point 3x4 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat3x4<f16, highp> highp_f16mat3x4;
-	
-	/// High half-precision floating-point 4x2 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat4x2<f16, highp> highp_f16mat4x2;
-	
-	/// High half-precision floating-point 4x3 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat4x3<f16, highp> highp_f16mat4x3;
-	
-	/// High half-precision floating-point 4x4 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat4x4<f16, highp> highp_f16mat4x4;
-	
-	/// High half-precision floating-point 1x1 matrix.
-	/// @see gtc_type_precision
-	//typedef highp_f16mat1x1 highp_f16mat1;
-	
-	/// High half-precision floating-point 2x2 matrix.
-	/// @see gtc_type_precision
-	typedef highp_f16mat2x2 highp_f16mat2;
-	
-	/// High half-precision floating-point 3x3 matrix.
-	/// @see gtc_type_precision
-	typedef highp_f16mat3x3 highp_f16mat3;
-	
-	/// High half-precision floating-point 4x4 matrix.
-	/// @see gtc_type_precision
-	typedef highp_f16mat4x4 highp_f16mat4;
-	
 
 
 	/// Low single-precision floating-point 1x1 matrix.
@@ -2544,8 +2196,6 @@ namespace glm
 	/// @see gtc_type_precision
 	typedef mediump_f64mat4x4 mediump_f64mat4;
 	
-	
-	
 	/// High double-precision floating-point 1x1 matrix.
 	/// @see gtc_type_precision
 	//typedef f64 highp_f64mat1x1;
@@ -2602,15 +2252,9 @@ namespace glm
 	/// @see gtc_type_precision
 	typedef highp_f64mat4x4 highp_f64mat4;
 	
-	
-	
 	//////////////////////////
 	// Quaternion types
 
-	/// Low half-precision floating-point quaternion.
-	/// @see gtc_type_precision
-	typedef detail::tquat<f16, lowp> lowp_f16quat;
-	
 	/// Low single-precision floating-point quaternion.
 	/// @see gtc_type_precision
 	typedef detail::tquat<f32, lowp> lowp_f32quat;
@@ -2618,10 +2262,6 @@ namespace glm
 	/// Low double-precision floating-point quaternion.
 	/// @see gtc_type_precision
 	typedef detail::tquat<f64, lowp> lowp_f64quat;
-	
-	/// Medium half-precision floating-point quaternion.
-	/// @see gtc_type_precision
-	typedef detail::tquat<f16, mediump> mediump_f16quat;
 	
 	/// Medium single-precision floating-point quaternion.
 	/// @see gtc_type_precision
@@ -2631,10 +2271,6 @@ namespace glm
 	/// @see gtc_type_precision
 	typedef detail::tquat<f64, mediump> mediump_f64quat;
 	
-	/// High half-precision floating-point quaternion.
-	/// @see gtc_type_precision
-	typedef detail::tquat<f16, highp> highp_f16quat;
-	
 	/// High single-precision floating-point quaternion.
 	/// @see gtc_type_precision
 	typedef detail::tquat<f32, highp> highp_f32quat;
@@ -2643,113 +2279,6 @@ namespace glm
 	/// @see gtc_type_precision
 	typedef detail::tquat<f64, highp> highp_f64quat;
 	
-
-#if(defined(GLM_PRECISION_LOWP_HALF))
-	typedef lowp_f16vec1			f16vec1;
-	typedef lowp_f16vec2			f16vec2;
-	typedef lowp_f16vec3			f16vec3;
-	typedef lowp_f16vec4			f16vec4;
-	typedef lowp_f16mat2			f16mat2;
-	typedef lowp_f16mat3			f16mat3;
-	typedef lowp_f16mat4			f16mat4;
-	typedef lowp_f16mat2x2			f16mat2x2;
-	typedef lowp_f16mat3x2			f16mat3x2;
-	typedef lowp_f16mat4x2			f16mat4x2;
-	typedef lowp_f16mat2x3			f16mat2x3;
-	typedef lowp_f16mat3x3			f16mat3x3;
-	typedef lowp_f16mat4x3			f16mat4x3;
-	typedef lowp_f16mat2x4			f16mat2x4;
-	typedef lowp_f16mat3x4			f16mat3x4;
-	typedef lowp_f16mat4x4			f16mat4x4;
-	typedef lowp_f16quat			f16quat;
-#elif(defined(GLM_PRECISION_MEDIUMP_HALF))
-	typedef mediump_f16vec1			f16vec1;
-	typedef mediump_f16vec2			f16vec2;
-	typedef mediump_f16vec3			f16vec3;
-	typedef mediump_f16vec4			f16vec4;
-	typedef mediump_f16mat2			f16mat2;
-	typedef mediump_f16mat3			f16mat3;
-	typedef mediump_f16mat4			f16mat4;
-	typedef mediump_f16mat2x2		f16mat2x2;
-	typedef mediump_f16mat3x2		f16mat3x2;
-	typedef mediump_f16mat4x2		f16mat4x2;
-	typedef mediump_f16mat2x3		f16mat2x3;
-	typedef mediump_f16mat3x3		f16mat3x3;
-	typedef mediump_f16mat4x3		f16mat4x3;
-	typedef mediump_f16mat2x4		f16mat2x4;
-	typedef mediump_f16mat3x4		f16mat3x4;
-	typedef mediump_f16mat4x4		f16mat4x4;
-	typedef mediump_f16quat			f16quat;
-#else//if(defined(GLM_PRECISION_HIGHP_HALF))
-	/// Default half-precision floating-point vector of 1 components.
-	/// @see gtc_type_precision
-	typedef highp_f16vec1			f16vec1;
-
-	/// Default half-precision floating-point vector of 2 components.
-	/// @see gtc_type_precision
-	typedef highp_f16vec2			f16vec2;
-	
-	/// Default half-precision floating-point vector of 3 components.
-	/// @see gtc_type_precision
-	typedef highp_f16vec3			f16vec3;
-	
-	/// Default half-precision floating-point vector of 4 components.
-	/// @see gtc_type_precision
-	typedef highp_f16vec4			f16vec4;
-
-	/// Default half-precision floating-point 2x2 matrix.
-	/// @see gtc_type_precision
-	typedef highp_f16mat2x2			f16mat2x2;
-
-	/// Default half-precision floating-point 2x3 matrix.
-	/// @see gtc_type_precision
-	typedef highp_f16mat2x3			f16mat2x3;
-		
-	/// Default half-precision floating-point 2x4 matrix.
-	/// @see gtc_type_precision
-	typedef highp_f16mat2x4			f16mat2x4;
-
-	/// Default half-precision floating-point 3x2 matrix.
-	/// @see gtc_type_precision
-	typedef highp_f16mat3x2			f16mat3x2;
-
-	/// Default half-precision floating-point 3x3 matrix.
-	/// @see gtc_type_precision
-	typedef highp_f16mat3x3			f16mat3x3;
-		
-	/// Default half-precision floating-point 3x4 matrix.
-	/// @see gtc_type_precision
-	typedef highp_f16mat3x4			f16mat3x4;
-
-	/// Default half-precision floating-point 4x2 matrix.
-	/// @see gtc_type_precision
-	typedef highp_f16mat4x2			f16mat4x2;
-
-	/// Default half-precision floating-point 4x3 matrix.
-	/// @see gtc_type_precision
-	typedef highp_f16mat4x3			f16mat4x3;
-		
-	/// Default half-precision floating-point 4x4 matrix.
-	/// @see gtc_type_precision
-	typedef highp_f16mat4x4			f16mat4x4;
-
-	/// Default half-precision floating-point 2x2 matrix.
-	/// @see gtc_type_precision
-	typedef f16mat2x2				f16mat2;
-
-	/// Default half-precision floating-point 3x3 matrix.
-	/// @see gtc_type_precision
-	typedef f16mat3x3				f16mat3;
-
-	/// Default half-precision floating-point 4x4 matrix.
-	/// @see gtc_type_precision
-	typedef f16mat4x4				f16mat4;	
-	
-	/// Default half-precision floating-point quaternion.
-	/// @see gtc_type_precision
-	typedef highp_f16quat			f16quat;
-#endif
-
 	
 #if(defined(GLM_PRECISION_LOWP_FLOAT))
 	typedef lowp_f32vec1			fvec1;

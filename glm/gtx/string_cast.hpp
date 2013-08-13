@@ -43,7 +43,6 @@
 
 // Dependency:
 #include "../glm.hpp"
-#include "../gtc/half_float.hpp"
 #include "../gtx/integer.hpp"
 #include "../gtx/quaternion.hpp"
 #include <string>

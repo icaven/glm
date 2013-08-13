@@ -9,7 +9,6 @@
 
 #define GLM_SWIZZLE
 #include <glm/glm.hpp>
-#include <glm/gtc/half_float.hpp>
 #include <vector>
 
 template <int Value>
@@ -33,15 +32,6 @@ enum comp
 //	return _mm_shuffle_ps(Src, Src, mask<(int(W) << 6) | (int(Z) << 4) | (int(Y) << 2) | (int(X) << 0)>::value);
 //}
 
-int test_hvec4()
-{
-	glm::hvec4 const A = glm::hvec4(0, 1, 2, 3);
-	//glm::hvec4 B = glm::swizzle<glm::X, glm::Y, glm::Z, glm::W>(A);
-
-	//glm::vec4 B = glm::detail::tvec##(glm::vec4::_size)<float>();
-
-	return 0;
-}
 
 int test_vec4_ctor()
 {
@@ -294,7 +284,6 @@ int main()
 	Error += test_vec4_ctor();
 	Error += test_vec4_size();
 	Error += test_vec4_operators();
-	Error += test_hvec4();
 	Error += test_vec4_swizzle_partial();
 	Error += test_operator_increment();
 

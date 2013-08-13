@@ -43,7 +43,6 @@
 
 // Dependency:
 #include "../glm.hpp"
-#include "../gtc/half_float.hpp"
 #include "../gtc/constants.hpp"
 #include "../gtc/quaternion.hpp"
 
@@ -202,22 +201,6 @@ namespace detail
 	detail::tdualquat<T, P> dualquat_cast(
 		detail::tmat3x4<T, P> const & x);
 
-
-	/// Dual-quaternion of low half-precision floating-point numbers.
-	///
-	/// @see gtc_dual_quaternion
-	typedef detail::tdualquat<half, lowp>		lowp_hdualquat;
-	
-	/// Dual-quaternion of medium half-precision floating-point numbers.
-	///
-	/// @see gtc_dual_quaternion
-	typedef detail::tdualquat<half, mediump>	mediump_hdualquat;
-	
-	/// Dual-quaternion of high half-precision floating-point numbers.
-	///
-	/// @see gtc_dual_quaternion
-	typedef detail::tdualquat<half, highp>		highp_hdualquat;
-	
 	
 	/// Dual-quaternion of low single-precision floating-point numbers.
 	///
@@ -290,22 +273,6 @@ namespace detail
 #	error "GLM error: multiple default precision requested for single-precision floating-point types"
 #endif
 	
-	
-#if(!defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
-	/// Dual-quaternion of default half-precision floating-point numbers.
-	///
-	/// @see gtc_dual_quaternion
-	typedef highp_hdualquat			hdualquat;
-#elif(defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
-	typedef highp_hdualquat			hdualquat;
-#elif(!defined(GLM_PRECISION_HIGHP_HALF) && defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
-	typedef mediump_hdualquat		hdualquat;
-#elif(!defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && defined(GLM_PRECISION_LOWP_HALF))
-	typedef lowp_hdualquat			hdualquat;
-#else
-#	error "GLM error: Multiple default precision requested for half-precision floating-point types"
-#endif
-
 
 #if(!defined(GLM_PRECISION_HIGHP_DOUBLE) && !defined(GLM_PRECISION_MEDIUMP_DOUBLE) && !defined(GLM_PRECISION_LOWP_DOUBLE))
 	/// Dual-quaternion of default double-precision floating-point numbers.

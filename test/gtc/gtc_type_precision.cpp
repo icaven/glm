@@ -22,7 +22,6 @@ static int test_scalar_size()
 	Error += sizeof(glm::uint16) != 2;
 	Error += sizeof(glm::uint32) != 4;
 	Error += sizeof(glm::uint64) != 8;
-	Error += sizeof(glm::float16) != 2;
 	Error += sizeof(glm::float32) != 4;
 	Error += sizeof(glm::float64) != 8;
 	
@@ -34,7 +33,6 @@ static int test_scalar_size()
 	Error += sizeof(glm::lowp_uint16) != 2;
 	Error += sizeof(glm::lowp_uint32) != 4;
 	Error += sizeof(glm::lowp_uint64) != 8;
-	Error += sizeof(glm::lowp_float16) != 2;
 	Error += sizeof(glm::lowp_float32) != 4;
 	Error += sizeof(glm::lowp_float64) != 8;
 	
@@ -46,7 +44,6 @@ static int test_scalar_size()
 	Error += sizeof(glm::mediump_uint16) != 2;
 	Error += sizeof(glm::mediump_uint32) != 4;
 	Error += sizeof(glm::mediump_uint64) != 8;
-	Error += sizeof(glm::mediump_float16) != 2;
 	Error += sizeof(glm::mediump_float32) != 4;
 	Error += sizeof(glm::mediump_float64) != 8;
 	
@@ -58,7 +55,6 @@ static int test_scalar_size()
 	Error += sizeof(glm::highp_uint16) != 2;
 	Error += sizeof(glm::highp_uint32) != 4;
 	Error += sizeof(glm::highp_uint64) != 8;
-	Error += sizeof(glm::highp_float16) != 2;
 	Error += sizeof(glm::highp_float32) != 4;
 	Error += sizeof(glm::highp_float64) != 8;
 	return Error;
@@ -67,9 +63,6 @@ static int test_scalar_size()
 static int test_fvec_size()
 {
 	int Error(0);
-	Error += sizeof(glm::f16vec2) != 4;
-	Error += sizeof(glm::f16vec3) != 6;
-	Error += sizeof(glm::f16vec4) != 8;
 	Error += sizeof(glm::f32vec2) != 8;
 	Error += sizeof(glm::f32vec3) != 12;
 	Error += sizeof(glm::f32vec4) != 16;
@@ -77,9 +70,6 @@ static int test_fvec_size()
 	Error += sizeof(glm::f64vec3) != 24;
 	Error += sizeof(glm::f64vec4) != 32;
 	
-	Error += sizeof(glm::lowp_f16vec2) != 4;
-	Error += sizeof(glm::lowp_f16vec3) != 6;
-	Error += sizeof(glm::lowp_f16vec4) != 8;
 	Error += sizeof(glm::lowp_f32vec2) != 8;
 	Error += sizeof(glm::lowp_f32vec3) != 12;
 	Error += sizeof(glm::lowp_f32vec4) != 16;
@@ -87,9 +77,6 @@ static int test_fvec_size()
 	Error += sizeof(glm::lowp_f64vec3) != 24;
 	Error += sizeof(glm::lowp_f64vec4) != 32;
 	
-	Error += sizeof(glm::mediump_f16vec2) != 4;
-	Error += sizeof(glm::mediump_f16vec3) != 6;
-	Error += sizeof(glm::mediump_f16vec4) != 8;
 	Error += sizeof(glm::mediump_f32vec2) != 8;
 	Error += sizeof(glm::mediump_f32vec3) != 12;
 	Error += sizeof(glm::mediump_f32vec4) != 16;
@@ -97,55 +84,12 @@ static int test_fvec_size()
 	Error += sizeof(glm::mediump_f64vec3) != 24;
 	Error += sizeof(glm::mediump_f64vec4) != 32;
 	
-	Error += sizeof(glm::highp_f16vec2) != 4;
-	Error += sizeof(glm::highp_f16vec3) != 6;
-	Error += sizeof(glm::highp_f16vec4) != 8;
 	Error += sizeof(glm::highp_f32vec2) != 8;
 	Error += sizeof(glm::highp_f32vec3) != 12;
 	Error += sizeof(glm::highp_f32vec4) != 16;
 	Error += sizeof(glm::highp_f64vec2) != 16;
 	Error += sizeof(glm::highp_f64vec3) != 24;
 	Error += sizeof(glm::highp_f64vec4) != 32;
-	return Error;
-}
-
-static int test_hvec_precision()
-{
-	int Error(0);
-
-	{
-		glm::f16vec2 v1;
-		glm::lowp_f16vec2 v2(v1);
-		glm::mediump_f16vec2 v3(v1);
-		glm::highp_f16vec2 v4(v1);
-
-		Error += glm::all(glm::equal(v1, glm::f16vec2(v2))) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, glm::f16vec2(v3))) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, glm::f16vec2(v4))) ? 0 : 1;
-	}
-
-	{
-		glm::f16vec3 v1;
-		glm::lowp_f16vec3 v2(v1);
-		glm::mediump_f16vec3 v3(v1);
-		glm::highp_f16vec3 v4(v1);
-
-		Error += glm::all(glm::equal(v1, glm::f16vec3(v2))) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, glm::f16vec3(v3))) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, glm::f16vec3(v4))) ? 0 : 1;
-	}
-	
-	{
-		glm::f16vec4 v1;
-		glm::lowp_f16vec4 v2(v1);
-		glm::mediump_f16vec4 v3(v1);
-		glm::highp_f16vec4 v4(v1);
-
-		Error += glm::all(glm::equal(v1, glm::f16vec4(v2))) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, glm::f16vec4(v3))) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, glm::f16vec4(v4))) ? 0 : 1;
-	}
-	
 	return Error;
 }
 
@@ -632,63 +576,6 @@ static int test_uvec_precision()
 	return Error;
 }
 
-static int test_hmat_size()
-{
-	int Error(0);
-	Error += sizeof(glm::f16mat2) != 8;
-	Error += sizeof(glm::f16mat3) != 18;
-	Error += sizeof(glm::f16mat4) != 32;
-	Error += sizeof(glm::f16mat2x2) != 8;
-	Error += sizeof(glm::f16mat2x3) != 12;
-	Error += sizeof(glm::f16mat2x4) != 16;
-	Error += sizeof(glm::f16mat3x2) != 12;
-	Error += sizeof(glm::f16mat3x3) != 18;
-	Error += sizeof(glm::f16mat3x4) != 24;
-	Error += sizeof(glm::f16mat4x2) != 16;
-	Error += sizeof(glm::f16mat4x3) != 24;
-	Error += sizeof(glm::f16mat4x4) != 32;
-	
-	Error += sizeof(glm::lowp_f16mat2) != 8;
-	Error += sizeof(glm::lowp_f16mat3) != 18;
-	Error += sizeof(glm::lowp_f16mat4) != 32;
-	Error += sizeof(glm::lowp_f16mat2x2) != 8;
-	Error += sizeof(glm::lowp_f16mat2x3) != 12;
-	Error += sizeof(glm::lowp_f16mat2x4) != 16;
-	Error += sizeof(glm::lowp_f16mat3x2) != 12;
-	Error += sizeof(glm::lowp_f16mat3x3) != 18;
-	Error += sizeof(glm::lowp_f16mat3x4) != 24;
-	Error += sizeof(glm::lowp_f16mat4x2) != 16;
-	Error += sizeof(glm::lowp_f16mat4x3) != 24;
-	Error += sizeof(glm::lowp_f16mat4x4) != 32;
-	
-	Error += sizeof(glm::mediump_f16mat2) != 8;
-	Error += sizeof(glm::mediump_f16mat3) != 18;
-	Error += sizeof(glm::mediump_f16mat4) != 32;
-	Error += sizeof(glm::mediump_f16mat2x2) != 8;
-	Error += sizeof(glm::mediump_f16mat2x3) != 12;
-	Error += sizeof(glm::mediump_f16mat2x4) != 16;
-	Error += sizeof(glm::mediump_f16mat3x2) != 12;
-	Error += sizeof(glm::mediump_f16mat3x3) != 18;
-	Error += sizeof(glm::mediump_f16mat3x4) != 24;
-	Error += sizeof(glm::mediump_f16mat4x2) != 16;
-	Error += sizeof(glm::mediump_f16mat4x3) != 24;
-	Error += sizeof(glm::mediump_f16mat4x4) != 32;
-	
-	Error += sizeof(glm::highp_f16mat2) != 8;
-	Error += sizeof(glm::highp_f16mat3) != 18;
-	Error += sizeof(glm::highp_f16mat4) != 32;
-	Error += sizeof(glm::highp_f16mat2x2) != 8;
-	Error += sizeof(glm::highp_f16mat2x3) != 12;
-	Error += sizeof(glm::highp_f16mat2x4) != 16;
-	Error += sizeof(glm::highp_f16mat3x2) != 12;
-	Error += sizeof(glm::highp_f16mat3x3) != 18;
-	Error += sizeof(glm::highp_f16mat3x4) != 24;
-	Error += sizeof(glm::highp_f16mat4x2) != 16;
-	Error += sizeof(glm::highp_f16mat4x3) != 24;
-	Error += sizeof(glm::highp_f16mat4x4) != 32;
-	return Error;
-}
-
 static int test_fmat_size()
 {
 	int Error(0);
@@ -914,19 +801,15 @@ static int test_dmat_size()
 static int test_quat_size()
 {
 	int Error = 0;
-	Error += sizeof(glm::f16quat) != 8;
 	Error += sizeof(glm::f32quat) != 16;
 	Error += sizeof(glm::f64quat) != 32;
 	
-	Error += sizeof(glm::lowp_f16quat) != 8;
 	Error += sizeof(glm::lowp_f32quat) != 16;
 	Error += sizeof(glm::lowp_f64quat) != 32;
 	
-	Error += sizeof(glm::mediump_f16quat) != 8;
 	Error += sizeof(glm::mediump_f32quat) != 16;
 	Error += sizeof(glm::mediump_f64quat) != 32;
 	
-	Error += sizeof(glm::highp_f16quat) != 8;
 	Error += sizeof(glm::highp_f32quat) != 16;
 	Error += sizeof(glm::highp_f64quat) != 32;
 	return Error;
@@ -958,14 +841,12 @@ int main()
 	int Error(0);
 	Error += test_scalar_size();
 	Error += test_fvec_size();
-	Error += test_hvec_precision();
 	Error += test_fvec_precision();
 	Error += test_dvec_precision();
 	Error += test_ivec_size();
 	Error += test_ivec_precision();
 	Error += test_uvec_size();
 	Error += test_uvec_precision();
-	Error += test_hmat_size();
 	Error += test_fmat_size();
 	Error += test_dmat_size();
 	Error += test_quat_size();

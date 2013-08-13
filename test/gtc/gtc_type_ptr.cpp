@@ -13,22 +13,6 @@
 int test_value_ptr_vec()
 {
     int Error = 0;
-
-    {
-        glm::hvec2 v(1.0);
-        glm::half * p = glm::value_ptr(v);
-        Error += p == &v[0] ? 0 : 1;
-    }
-    {
-        glm::hvec3 v(1.0);
-        glm::half * p = glm::value_ptr(v);
-        Error += p == &v[0] ? 0 : 1;
-    }
-    {
-        glm::hvec4 v(1.0);
-        glm::half * p = glm::value_ptr(v);
-        Error += p == &v[0] ? 0 : 1;
-    }
     
     {
         glm::vec2 v(1.0);
@@ -68,22 +52,6 @@ int test_value_ptr_vec()
 int test_value_ptr_vec_const()
 {
     int Error = 0;
-    
-    {
-        glm::hvec2 const v(1.0);
-        glm::half const * p = glm::value_ptr(v);
-        Error += p == &v[0] ? 0 : 1;
-    }
-    {
-        glm::hvec3 const v(1.0);
-        glm::half const * p = glm::value_ptr(v);
-        Error += p == &v[0] ? 0 : 1;
-    }
-    {
-        glm::hvec4 const v(1.0);
-        glm::half const * p = glm::value_ptr(v);
-        Error += p == &v[0] ? 0 : 1;
-    }
     
     {
         glm::vec2 const v(1.0);

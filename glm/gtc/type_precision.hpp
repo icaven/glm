@@ -45,13 +45,12 @@
 
 // Dependency:
 #include "../glm.hpp"
-#include "../gtc/half_float.hpp"
 #include "../gtc/quaternion.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))
 #	pragma message("GLM: GLM_GTC_type_precision extension included")
 #endif
-/*
+
 namespace glm
 {
 	///////////////////////////
@@ -590,10 +589,6 @@ namespace glm
 	//////////////////////
 	// Float vector types
 
-	/// 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef detail::float16 float16;
-
 	/// 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef detail::float32 float32;
@@ -603,10 +598,6 @@ namespace glm
 	typedef detail::float64 float64;
 
 
-	/// 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef detail::float16 float16_t;
-
 	/// 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
 	typedef detail::float32 float32_t;
@@ -615,10 +606,6 @@ namespace glm
 	/// @see gtc_type_precision
 	typedef detail::float64 float64_t;
 
-
-	/// 16 bit half-precision floating-point scalar.
-	/// @see gtc_type_precision
-	typedef float16 f16;
 
 	/// 32 bit single-precision floating-point scalar.
 	/// @see gtc_type_precision
@@ -644,23 +631,6 @@ namespace glm
 	/// Single-precision floating-point vector of 4 components.
 	/// @see gtc_type_precision
 	typedef detail::tvec4<float, defaultp> fvec4;
-
-
-	/// Half-precision floating-point vector of 1 component.
-	/// @see gtc_type_precision
-	typedef detail::tvec1<f16, defaultp> f16vec1;
-
-	/// Half-precision floating-point vector of 2 components.
-	/// @see gtc_type_precision
-	typedef detail::tvec2<f16, defaultp> f16vec2;
-
-	/// Half-precision floating-point vector of 3 components.
-	/// @see gtc_type_precision
-	typedef detail::tvec3<f16, defaultp> f16vec3;
-
-	/// Half-precision floating-point vector of 4 components.
-	/// @see gtc_type_precision
-	typedef detail::tvec4<f16, defaultp> f16vec4;
 
 	
 	/// Single-precision floating-point vector of 1 component.
@@ -756,64 +726,6 @@ namespace glm
 	/// Single-precision floating-point 4x4 matrix.
 	/// @see gtc_type_precision
 	typedef detail::tmat4x4<f32, defaultp> fmat4x4;
-
-
-	/// Half-precision floating-point 1x1 matrix.
-	/// @see gtc_type_precision
-	//typedef detail::tmat1x1<f16, defaultp> f16mat1;
-
-	/// Half-precision floating-point 2x2 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat2x2<f16, defaultp> f16mat2;
-
-	/// Half-precision floating-point 3x3 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat3x3<f16, defaultp> f16mat3;
-
-	/// Half-precision floating-point 4x4 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat4x4<f16, defaultp> f16mat4;
-
-
-	/// Half-precision floating-point 1x1 matrix.
-	/// @see gtc_type_precision
-	//typedef f16 f16mat1x1;
-
-	/// Half-precision floating-point 2x2 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat2x2<f16, defaultp> f16mat2x2;
-
-	/// Half-precision floating-point 2x3 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat2x3<f16, defaultp> f16mat2x3;
-
-	/// Half-precision floating-point 2x4 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat2x4<f16, defaultp> f16mat2x4;
-
-	/// Half-precision floating-point 3x2 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat3x2<f16, defaultp> f16mat3x2;
-
-	/// Half-precision floating-point 3x3 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat3x3<f16, defaultp> f16mat3x3;
-
-	/// Half-precision floating-point 3x4 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat3x4<f16, defaultp> f16mat3x4;
-
-	/// Half-precision floating-point 4x2 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat4x2<f16, defaultp> f16mat4x2;
-
-	/// Half-precision floating-point 4x3 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat4x3<f16, defaultp> f16mat4x3;
-
-	/// Half-precision floating-point 4x4 matrix.
-	/// @see gtc_type_precision
-	typedef detail::tmat4x4<f16, defaultp> f16mat4x4;
 
 
 	/// Single-precision floating-point 1x1 matrix.
@@ -935,10 +847,6 @@ namespace glm
 	//////////////////////////
 	// Quaternion types
 
-	/// Half-precision floating-point quaternion.
-	/// @see gtc_type_precision
-	typedef detail::tquat<f16, defaultp> f16quat;
-
 	/// Single-precision floating-point quaternion.
 	/// @see gtc_type_precision
 	typedef detail::tquat<f32, defaultp> f32quat;
@@ -949,7 +857,7 @@ namespace glm
 
 	/// @}
 }//namespace glm
-*/
+
 #include "type_precision.inl"
 
 #endif//GLM_GTC_type_precision

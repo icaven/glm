@@ -41,11 +41,6 @@ namespace detail
 	////////////////////////////////
 	// Scalars
 
-	GLM_FUNC_QUALIFIER std::string to_string(half const & x)
-	{
-		return detail::format("half(%2.4f)", float(x));
-	}
-
 	GLM_FUNC_QUALIFIER std::string to_string(float x)
 	{
 		return detail::format("float(%f)", x);
@@ -103,36 +98,6 @@ namespace detail
 			v.y ? detail::True : detail::False,
 			v.z ? detail::True : detail::False,
 			v.w ? detail::True : detail::False);
-	}
-
-	////////////////////////////////
-	// Half vectors
-
-	template <precision P>
-	GLM_FUNC_QUALIFIER std::string to_string
-	(
-		detail::tvec2<half, P> const & v
-	)
-	{
-		return detail::format("hvec2(%2.4f, %2.4f)", v.x.toFloat(), v.y.toFloat());
-	}
-
-	template <precision P>
-	GLM_FUNC_QUALIFIER std::string to_string
-	(
-		detail::tvec3<half, P> const & v
-	)
-	{
-		return detail::format("hvec3(%2.4f, %2.4f, %2.4f)", v.x.toFloat(), v.y.toFloat(), v.z.toFloat());
-	}
-
-	template <precision P>
-	GLM_FUNC_QUALIFIER std::string to_string
-	(
-		detail::tvec4<half, P> const & v
-	)
-	{
-		return detail::format("hvec4(%2.4f, %2.4f, %2.4f, %2.4f)", v.x.toFloat(), v.y.toFloat(), v.z.toFloat(), v.w.toFloat());
 	}
 
 	////////////////////////////////
@@ -253,117 +218,6 @@ namespace detail
 	)
 	{
 		return detail::format("uvec4(%d, %d, %d, %d)", v.x, v.y, v.z, v.w);
-	}
-
-	////////////////////////////////
-	// Half matrices
-
-	template <precision P>
-	GLM_FUNC_QUALIFIER std::string to_string
-	(
-		detail::tmat2x2<half, P> const & m
-	)
-	{
-		return detail::format("hmat2x2((%f, %f), (%f, %f))",
-			m[0][0].toFloat(), m[0][1].toFloat(), 
-			m[1][0].toFloat(), m[1][1].toFloat());
-	}
-
-	template <precision P>
-	GLM_FUNC_QUALIFIER std::string to_string
-	(
-		detail::tmat2x3<half, P> const & x
-	)
-	{
-		return detail::format("hmat2x3((%f, %f, %f), (%f, %f, %f))", 
-			x[0][0].toFloat(), x[0][1].toFloat(), x[0][2].toFloat(), 
-			x[1][0].toFloat(), x[1][1].toFloat(), x[1][2].toFloat());
-	}
-
-	template <precision P>
-	GLM_FUNC_QUALIFIER std::string to_string
-	(
-		detail::tmat2x4<half, P> const & x
-	)
-	{
-		return detail::format("hmat2x4((%f, %f, %f, %f), (%f, %f, %f, %f))", 
-			x[0][0].toFloat(), x[0][1].toFloat(), x[0][2].toFloat(), x[0][3].toFloat(), 
-			x[1][0].toFloat(), x[1][1].toFloat(), x[1][2].toFloat(), x[1][3].toFloat());
-	}
-
-	template <precision P>
-	GLM_FUNC_QUALIFIER std::string to_string
-	(
-		detail::tmat3x2<half, P> const & x
-	)
-	{
-		return detail::format("hmat3x2((%f, %f), (%f, %f), (%f, %f))", 
-			x[0][0].toFloat(), x[0][1].toFloat(), 
-			x[1][0].toFloat(), x[1][1].toFloat(), 
-			x[2][0].toFloat(), x[2][1].toFloat());
-	}
-
-	template <precision P>
-	GLM_FUNC_QUALIFIER std::string to_string
-	(
-		detail::tmat3x3<half, P> const & x
-	)
-	{
-		return detail::format("hmat3x3((%f, %f, %f), (%f, %f, %f), (%f, %f, %f))", 
-			x[0][0].toFloat(), x[0][1].toFloat(), x[0][2].toFloat(), 
-			x[1][0].toFloat(), x[1][1].toFloat(), x[1][2].toFloat(),
-			x[2][0].toFloat(), x[2][1].toFloat(), x[2][2].toFloat());
-	}
-
-	template <precision P>
-	GLM_FUNC_QUALIFIER std::string to_string
-	(
-		detail::tmat3x4<half, P> const & x
-	)
-	{
-		return detail::format("hmat3x4((%f, %f, %f, %f), (%f, %f, %f, %f), (%f, %f, %f, %f))", 
-			x[0][0].toFloat(), x[0][1].toFloat(), x[0][2].toFloat(), x[0][3].toFloat(), 
-			x[1][0].toFloat(), x[1][1].toFloat(), x[1][2].toFloat(), x[1][3].toFloat(), 
-			x[2][0].toFloat(), x[2][1].toFloat(), x[2][2].toFloat(), x[2][3].toFloat());
-	}
-
-	template <precision P>
-	GLM_FUNC_QUALIFIER std::string to_string
-	(
-		detail::tmat4x2<half, P> const & x
-	)
-	{
-		return detail::format("hmat4x2((%f, %f), (%f, %f), (%f, %f), (%f, %f))", 
-			x[0][0].toFloat(), x[0][1].toFloat(), 
-			x[1][0].toFloat(), x[1][1].toFloat(), 
-			x[2][0].toFloat(), x[2][1].toFloat(), 
-			x[3][0].toFloat(), x[3][1].toFloat());
-	}
-
-	template <precision P>
-	GLM_FUNC_QUALIFIER std::string to_string
-	(
-		detail::tmat4x3<half, P> const & x
-	)
-	{
-		return detail::format("hmat4x3((%f, %f, %f), (%f, %f, %f), (%f, %f, %f), (%f, %f, %f))", 
-			x[0][0].toFloat(), x[0][1].toFloat(), x[0][2].toFloat(),
-			x[1][0].toFloat(), x[1][1].toFloat(), x[1][2].toFloat(), 
-			x[2][0].toFloat(), x[2][1].toFloat(), x[2][2].toFloat(),
-			x[3][0].toFloat(), x[3][1].toFloat(), x[3][2].toFloat());
-	}
-
-	template <precision P>
-	GLM_FUNC_QUALIFIER std::string to_string
-	(
-		detail::tmat4x4<half, P> const & x
-	)
-	{
-		return detail::format("hmat4x4((%f, %f, %f, %f), (%f, %f, %f, %f), (%f, %f, %f, %f), (%f, %f, %f, %f))", 
-			x[0][0].toFloat(), x[0][1].toFloat(), x[0][2].toFloat(), x[0][3].toFloat(),
-			x[1][0].toFloat(), x[1][1].toFloat(), x[1][2].toFloat(), x[1][3].toFloat(),
-			x[2][0].toFloat(), x[2][1].toFloat(), x[2][2].toFloat(), x[2][3].toFloat(),
-			x[3][0].toFloat(), x[3][1].toFloat(), x[3][2].toFloat(), x[3][3].toFloat());
 	}
 
 	////////////////////////////////

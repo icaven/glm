@@ -101,9 +101,6 @@ namespace glm
 		GLM_FUNC_QUALIFIER TYPE& swizzle(detail::tvec##SIZE<TYPE, defaultp> & v)		\
 		{return v[x];}
 
-	static_swizzle1_ref(detail::float16, 2)
-	static_swizzle1_ref(detail::float16, 3)
-	static_swizzle1_ref(detail::float16, 4)
 	static_swizzle1_ref(detail::float32, 2)
 	static_swizzle1_ref(detail::float32, 3)
 	static_swizzle1_ref(detail::float32, 4)
@@ -172,9 +169,6 @@ namespace glm
 		{return detail::tvec4<TYPE, defaultp>(v[x], v[y], v[z], v[w]);}
 
 
-	static_swizzle2_const(glm::f16, 2)
-	static_swizzle2_const(glm::f16, 3)
-	static_swizzle2_const(glm::f16, 4)
 	static_swizzle2_const(glm::f32, 2)
 	static_swizzle2_const(glm::f32, 3)
 	static_swizzle2_const(glm::f32, 4)
@@ -208,9 +202,6 @@ namespace glm
 	static_swizzle2_const(glm::u64, 3)
 	static_swizzle2_const(glm::u64, 4)
 
-	static_swizzle3_const(glm::f16, 2)
-	static_swizzle3_const(glm::f16, 3)
-	static_swizzle3_const(glm::f16, 4)
 	static_swizzle3_const(glm::f32, 2)
 	static_swizzle3_const(glm::f32, 3)
 	static_swizzle3_const(glm::f32, 4)
@@ -244,9 +235,6 @@ namespace glm
 	static_swizzle3_const(glm::u64, 3)
 	static_swizzle3_const(glm::u64, 4)
 
-	static_swizzle4_const(glm::f16, 2)
-	static_swizzle4_const(glm::f16, 3)
-	static_swizzle4_const(glm::f16, 4)
 	static_swizzle4_const(glm::f32, 2)
 	static_swizzle4_const(glm::f32, 3)
 	static_swizzle4_const(glm::f32, 4)
@@ -298,9 +286,6 @@ namespace glm
 			detail::tvec##SIZE<TYPE, defaultp> & v)							\
 		{return glm::detail::tref4<TYPE, defaultp>(v[x], v[y], v[z], v[w]);}	
 
-	static_swizzle2_ref(glm::f16, 2)
-	static_swizzle2_ref(glm::f16, 3)
-	static_swizzle2_ref(glm::f16, 4)
 	static_swizzle2_ref(glm::f32, 2)
 	static_swizzle2_ref(glm::f32, 3)
 	static_swizzle2_ref(glm::f32, 4)
@@ -334,8 +319,6 @@ namespace glm
 	static_swizzle2_ref(glm::u64, 3)
 	static_swizzle2_ref(glm::u64, 4)
 
-	static_swizzle3_ref(glm::f16, 3)
-	static_swizzle3_ref(glm::f16, 4)
 	static_swizzle3_ref(glm::f32, 3)
 	static_swizzle3_ref(glm::f32, 4)
 	static_swizzle3_ref(glm::f64, 3)
@@ -359,7 +342,6 @@ namespace glm
 	static_swizzle3_ref(glm::u64, 3)
 	static_swizzle3_ref(glm::u64, 4)
 
-	static_swizzle4_ref(glm::f16, 4)
 	static_swizzle4_ref(glm::f32, 4)
 	static_swizzle4_ref(glm::f64, 4)
 

@@ -9,7 +9,6 @@
 
 #define GLM_SWIZZLE
 #include <glm/glm.hpp>
-#include <glm/gtc/half_float.hpp>
 #include <cstdio>
 #include <vector>
 
@@ -274,46 +273,6 @@ int test_vec3_swizzle3_3()
     return Error;
 }
 
-int test_vec3_swizzle_half()
-{
-    int Error = 0;
-
-    glm::half a1(1);
-    glm::half b1(2);
-    glm::half c1(3);
-    glm::hvec3 v(a1, b1, c1);
-    glm::hvec3 u;
-
-    u = v;
-
-    Error += (u.x == glm::half(1.0f) && u.y == glm::half(2.0f) && u.z == glm::half(3.0f)) ? 0 : 1;
-    
-#if(GLM_SUPPORT_SWIZZLE_OPERATOR())
-	u = v.xyz;
-    Error += (u.x == glm::half(1.0f) && u.y == glm::half(2.0f) && u.z == glm::half(3.0f)) ? 0 : 1;
-    u = v.zyx;
-    Error += (u.x == glm::half(3.0f) && u.y == glm::half(2.0f) && u.z == glm::half(1.0f)) ? 0 : 1;
-    u.zyx = v;
-    Error += (u.x == glm::half(3.0f) && u.y == glm::half(2.0f) && u.z == glm::half(1.0f)) ? 0 : 1;
-    
-    u = v.rgb;
-    Error += (u.x == glm::half(1.0f) && u.y == glm::half(2.0f) && u.z == glm::half(3.0f)) ? 0 : 1;
-    u = v.bgr;
-    Error += (u.x == glm::half(3.0f) && u.y == glm::half(2.0f) && u.z == glm::half(1.0f)) ? 0 : 1;
-    u.bgr = v;
-    Error += (u.x == glm::half(3.0f) && u.y == glm::half(2.0f) && u.z == glm::half(1.0f)) ? 0 : 1;
-
-    u = v.stp;
-    Error += (u.x == glm::half(1.0f) && u.y == glm::half(2.0f) && u.z == glm::half(3.0f)) ? 0 : 1;
-    u = v.pts;
-    Error += (u.x == glm::half(3.0f) && u.y == glm::half(2.0f) && u.z == glm::half(1.0f)) ? 0 : 1;
-    u.pts = v;
-    Error += (u.x == glm::half(3.0f) && u.y == glm::half(2.0f) && u.z == glm::half(1.0f)) ? 0 : 1;
-#endif//(GLM_SUPPORT_SWIZZLE_OPERATOR())
-
-    return Error;
-}
-
 int test_vec3_swizzle_operators()
 {
     int Error = 0;
@@ -459,7 +418,6 @@ int main()
 	Error += test_vec3_size();
 	Error += test_vec3_swizzle3_2();
 	Error += test_vec3_swizzle3_3();
-	Error += test_vec3_swizzle_half();
 	Error += test_vec3_swizzle_partial();
 	Error += test_vec3_swizzle_operators();
 	Error += test_vec3_swizzle_functions();
