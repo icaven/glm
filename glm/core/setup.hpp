@@ -496,7 +496,9 @@
 #elif(defined(GLM_FORCE_SSE2))
 #	define GLM_ARCH (GLM_ARCH_SSE2)
 #elif((GLM_COMPILER & GLM_COMPILER_VC) && (defined(_M_IX86) || defined(_M_X64)))
-#	if(defined(_M_CEE_PURE))
+#	if(GLM_PLATFORM == GLM_PLATFORM_WINCE)
+#		define GLM_ARCH GLM_ARCH_PURE
+#	elif(defined(_M_CEE_PURE))
 #		define GLM_ARCH GLM_ARCH_PURE
 /* TODO: Explore auto detection of instruction set support
 #	elif(defined(_M_IX86_FP))
