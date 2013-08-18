@@ -54,21 +54,21 @@ namespace detail
 #	if(GLM_COMPONENT == GLM_COMPONENT_CXXMS)
 		union 
 		{
-#		if(defined(GLM_SWIZZLE))
-			_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, x, y)
-			_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, r, g)
-			_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, s, t)
-			_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, x, y)
-			_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, r, g)
-			_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, s, t)
-			_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, x, y)
-			_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, r, g)
-			_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, s, t)
-#		endif//(defined(GLM_SWIZZLE))
+			struct{value_type x, y;};
+			struct{value_type r, g;};
+			struct{value_type s, t;};
 
-			struct {value_type r, g;};
-			struct {value_type s, t;};
-			struct {value_type x, y;};
+#           if(defined(GLM_SWIZZLE))
+                _GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, x, y)
+                _GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, r, g)
+                _GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, s, t)
+                _GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, x, y)
+                _GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, r, g)
+                _GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, s, t)
+                _GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, x, y)
+                _GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, r, g)
+                _GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, s, t)
+#           endif//(defined(GLM_SWIZZLE))
 		};
 #	elif(GLM_COMPONENT == GLM_COMPONENT_CXX98)
 		union {value_type x, r, s;};
