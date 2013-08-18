@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-namespace glm
-{
+namespace glm{
 namespace detail
 {
 	glm::uint16 float2half(glm::uint32 const & f)
@@ -191,6 +190,13 @@ namespace detail
 		uint16 pack;
 	};
 
+	
+	union unorm1x8
+	{
+		uint8 data;
+		uint8 pack;
+	};
+	
 	union unorm2x8
 	{
 		struct
@@ -201,6 +207,12 @@ namespace detail
 		uint16 pack;
 	};
 
+	union snorm1x8
+	{
+		int8 data;
+		uint8 pack;
+	};
+	
 	union snorm2x8
 	{
 		struct
@@ -212,6 +224,73 @@ namespace detail
 	};
 }//namespace detail
 
+
+	GLM_FUNC_QUALIFIER uint8 packUnorm1x8(float const & v)
+	{
+		int8 Scaled(round(clamp(v ,-1.0f, 1.0f) * 255.0f));
+		detail::unorm1x8 Packing;
+		Packing.data = Scaled;
+		return Packing.pack;
+	}
+	
+	GLM_FUNC_QUALIFIER float unpackUnorm1x8(uint8 p)
+	{
+		detail::unorm1x8 Packing;
+		Packing.pack = p;
+		float Unpacked(Packing.data);
+		return Unpacked * float(0.0039215686274509803921568627451);
+	}
+	
+	GLM_FUNC_QUALIFIER uint16 packUnorm2x8(vec2 const & v)
+	{
+		i8vec2 Scaled(round(clamp(v ,-1.0f, 1.0f) * 255.0f));
+		detail::unorm2x8 Packing;
+		Packing.data.x = Scaled.x;
+		Packing.data.y = Scaled.y;
+		return Packing.pack;
+	}
+	
+	GLM_FUNC_QUALIFIER vec2 unpackUnorm2x8(uint16 p)
+	{
+		detail::unorm2x8 Packing;
+		Packing.pack = p;
+		vec2 Unpacked(Packing.data.x, Packing.data.y);
+		return Unpacked * float(0.0039215686274509803921568627451);
+	}
+
+	GLM_FUNC_QUALIFIER uint8 packSnorm1x8(float const & v)
+	{
+		glm::int8 Scaled(round(clamp(v ,-1.0f, 1.0f) * 127.0f));
+		detail::snorm1x8 Packing;
+		Packing.x = Scaled.x;
+		return Packing.pack;
+	}
+	
+	GLM_FUNC_QUALIFIER float unpackSnorm1x8(uint8 p)
+	{
+		detail::snorm1x8 Packing;
+		Packing.pack = p;
+		float Unpacked(Packing.data);
+		return clamp(Unpacked * float(0.00787401574803149606299212598425), -1.0f, 1.0f);
+	}
+	
+	GLM_FUNC_QUALIFIER uint16 packSnorm2x8(vec2 const & v)
+	{
+		glm::i8vec2 Scaled(round(clamp(v ,-1.0f, 1.0f) * 127.0f));
+		detail::snorm2x8 Packing;
+		Packing.data.x = Scaled.x;
+		Packing.data.y = Scaled.y;
+		return Packing.pack;
+	}
+	
+	GLM_FUNC_QUALIFIER vec2 unpackSnorm2x8(uint16 p)
+	{
+		detail::snorm2x8 Packing;
+		Packing.pack = p;
+		vec2 Unpacked(Packing.data.x, Packing.data.y);
+		return clamp(Unpacked * float(0.00787401574803149606299212598425), -1.0f, 1.0f);
+	}
+	
 	GLM_FUNC_QUALIFIER uint16 packUnorm1x16(float s)
 	{
 		return uint16(round(clamp(s, 0.0f, 1.0f) * 65535.0f));
@@ -276,40 +355,6 @@ namespace detail
 		Packing.pack = p;
 		vec4 Unpacked(Packing.data.x, Packing.data.y, Packing.data.z, Packing.data.w);
 		return clamp(Unpacked * float(3.0518509475997192297128208258309e-5), -1.0f, 1.0f); //1.0f / 32767.0f
-	}
-
-	GLM_FUNC_QUALIFIER uint16 packUnorm2x8(vec2 const & v)
-	{
-		i8vec2 Scaled(round(clamp(v ,-1.0f, 1.0f) * 255.0f));
-		detail::unorm2x8 Packing;
-		Packing.data.x = Scaled.x;
-		Packing.data.y = Scaled.y;
-		return Packing.pack;
-	}
-
-	GLM_FUNC_QUALIFIER vec2 unpackUnorm2x8(uint16 p)
-	{
-		detail::unorm2x8 Packing;
-		Packing.pack = p;
-		vec2 Unpacked(Packing.data.x, Packing.data.y);
-		return Unpacked * float(0.0039215686274509803921568627451);
-	}
-
-	GLM_FUNC_QUALIFIER uint16 packSnorm2x8(vec2 const & v)
-	{
-		glm::i8vec2 Scaled(round(clamp(v ,-1.0f, 1.0f) * 127.0f));
-		detail::snorm2x8 Packing;
-		Packing.data.x = Scaled.x;
-		Packing.data.y = Scaled.y;
-		return Packing.pack;
-	}
-
-	GLM_FUNC_QUALIFIER vec2 unpackSnorm2x8(uint16 p)
-	{
-		detail::snorm2x8 Packing;
-		Packing.pack = p;
-		vec2 Unpacked(Packing.data.x, Packing.data.y);
-		return clamp(Unpacked * float(0.00787401574803149606299212598425), -1.0f, 1.0f);
 	}
 
 	GLM_FUNC_DECL uint16 packHalf1x16(float const & v)

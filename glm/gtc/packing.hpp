@@ -51,43 +51,72 @@ namespace glm
 	/// @addtogroup gtc_packing
 	/// @{
 
+	GLM_FUNC_DECL uint8 packUnorm1x8(float const & v);
+	GLM_FUNC_DECL float unpackUnorm1x8(uint8 v);
+	
+	GLM_FUNC_DECL uint16 packUnorm2x8(vec2 const & v);
+	GLM_FUNC_DECL vec2 unpackUnorm2x8(uint16 v);
+
+	
+	GLM_FUNC_DECL uint8 packSnorm1x8(float const & v);
+	GLM_FUNC_DECL float unpackSnorm1x8(uint8 v);
+	
+	GLM_FUNC_DECL uint16 packSnorm2x8(vec2 const & v);
+	GLM_FUNC_DECL vec2 unpackSnorm2x8(uint16 v);
+	
+	
 	GLM_FUNC_DECL uint16 packUnorm1x16(float v);
 	GLM_FUNC_DECL float unpackUnorm1x16(uint16 v);
 
 	GLM_FUNC_DECL uint64 packUnorm4x16(vec4 const & v);
 	GLM_FUNC_DECL vec4 unpackUnorm4x16(uint64 const & v);
 
+	
 	GLM_FUNC_DECL uint16 packSnorm1x16(float v);
 	GLM_FUNC_DECL float unpackSnorm1x16(uint16 v);
 
 	GLM_FUNC_DECL uint64 packSnorm4x16(vec4 const & v);
 	GLM_FUNC_DECL vec4 unpackSnorm4x16(uint64 const & v);
 
-	GLM_FUNC_DECL uint16 packUnorm2x8(vec2 const & v);
-	GLM_FUNC_DECL vec2 unpackUnorm2x8(uint16 v);
-
-	GLM_FUNC_DECL uint16 packSnorm2x8(vec2 const & v);
-	GLM_FUNC_DECL vec2 unpackSnorm2x8(uint16 v);
-
+	
+	/// Returns an unsigned integer obtained by converting the components of a floating-point scalar
+	/// to the 16-bit floating-point representation found in the OpenGL Specification,
+	/// and then packing this 16-bit value into a 16-bit unsigned integer.
+	///
+	/// @see gtc_packing
+	/// @see uint32 packHalf2x16(vec2 const & v)
+	/// @see uint64 packHalf4x16(vec4 const & v)
+	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packHalf2x16.xml">GLSL packHalf2x16 man page</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	GLM_FUNC_DECL uint16 packHalf1x16(float const & v);
+	
+	/// Returns a floating-point scalar with components obtained by unpacking a 16-bit unsigned integer into a 16-bit value,
+	/// interpreted as a 16-bit floating-point number according to the OpenGL Specification,
+	/// and converting it to 32-bit floating-point values.
+	///
+	/// @see gtc_packing
+	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackHalf2x16.xml">GLSL unpackHalf2x16 man page</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	GLM_FUNC_DECL float unpackHalf1x16(uint16 const & v);
 
-	/// Returns an unsigned integer obtained by converting the components of a two-component floating-point vector 
+	/// Returns an unsigned integer obtained by converting the components of a four-component floating-point vector 
 	/// to the 16-bit floating-point representation found in the OpenGL Specification, 
-	/// and then packing these two 16- bit integers into a 32-bit unsigned integer.
+	/// and then packing these four 16-bit values into a 64-bit unsigned integer.
 	/// The first vector component specifies the 16 least-significant bits of the result; 
-	/// the second component specifies the 16 most-significant bits.
+	/// the forth component specifies the 16 most-significant bits.
 	/// 
 	/// @see gtc_packing
+	/// @see uint16 packHalf1x16(float const & v)
+	/// @see uint32 packHalf2x16(vec2 const & v)
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packHalf2x16.xml">GLSL packHalf2x16 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	GLM_FUNC_DECL uint64 packHalf4x16(vec4 const & v);
 	
-	/// Returns a two-component floating-point vector with components obtained by unpacking a 32-bit unsigned integer into a pair of 16-bit values, 
+	/// Returns a four-component floating-point vector with components obtained by unpacking a 64-bit unsigned integer into four 16-bit values,
 	/// interpreting those values as 16-bit floating-point numbers according to the OpenGL Specification, 
 	/// and converting them to 32-bit floating-point values.
 	/// The first component of the vector is obtained from the 16 least-significant bits of v; 
-	/// the second component is obtained from the 16 most-significant bits of v.
+	/// the forth component is obtained from the 16 most-significant bits of v.
 	/// 
 	/// @see gtc_packing
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackHalf2x16.xml">GLSL unpackHalf2x16 man page</a>
