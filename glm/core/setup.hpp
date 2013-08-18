@@ -52,6 +52,7 @@
 #define GLM_PLATFORM_CHROME_NACL	0x00200000
 #define GLM_PLATFORM_UNIX			0x00400000
 #define GLM_PLATFORM_QNXNTO			0x00800000
+#define GLM_PLATFORM_WINCE			0x01000000
 
 #ifdef GLM_FORCE_PLATFORM_UNKNOWN
 #	define GLM_PLATFORM GLM_PLATFORM_UNKNOWN
@@ -59,6 +60,8 @@
 #	define GLM_PLATFORM GLM_PLATFORM_QNXNTO
 #elif defined(__APPLE__)
 #	define GLM_PLATFORM GLM_PLATFORM_APPLE
+#elif defined(WINCE)
+#	define GLM_PLATFORM GLM_PLATFORM_WINCE
 #elif defined(_WIN32)
 #	define GLM_PLATFORM GLM_PLATFORM_WINDOWS
 #elif defined(__native_client__)
@@ -76,20 +79,24 @@
 // Report platform detection
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_PLATFORM_DISPLAYED))
 #	define GLM_MESSAGE_PLATFORM_DISPLAYED
-#	if(GLM_PLATFORM & GLM_PLATFORM_WINDOWS)
-#		pragma message("GLM: Windows platform detected")
+#	if(GLM_PLATFORM & GLM_PLATFORM_QNXNTO)
+#		pragma message("GLM: QNX platform detected")
 //#	elif(GLM_PLATFORM & GLM_PLATFORM_IOS)
 //#		pragma message("GLM: iOS platform detected")
 #	elif(GLM_PLATFORM & GLM_PLATFORM_APPLE)
 #		pragma message("GLM: Apple platform detected")
+#	elif(GLM_PLATFORM & GLM_PLATFORM_WINCE)
+#		pragma message("GLM: WinCE platform detected")
+#	elif(GLM_PLATFORM & GLM_PLATFORM_WINDOWS)
+#		pragma message("GLM: Windows platform detected")
+#	elif(GLM_PLATFORM & GLM_PLATFORM_CHROME_NACL)
+#		pragma message("GLM: Native Client detected")
+#	elif(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
+#		pragma message("GLM: Android platform detected")
 #	elif(GLM_PLATFORM & GLM_PLATFORM_LINUX)
 #		pragma message("GLM: Linux platform detected")
 #	elif(GLM_PLATFORM & GLM_PLATFORM_UNIX)
 #		pragma message("GLM: UNIX platform detected")
-#	elif(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
-#		pragma message("GLM: Android platform detected")
-#	elif(GLM_PLATFORM & GLM_PLATFORM_CHROME_NACL)
-#		pragma message("GLM: Chrone Native Client detected")
 #	elif(GLM_PLATFORM & GLM_PLATFORM_UNKNOWN)
 #		pragma message("GLM: platform unknown")
 #	else
@@ -117,6 +124,7 @@
 #define GLM_COMPILER_VC2008			0x01000080
 #define GLM_COMPILER_VC2010			0x01000090
 #define GLM_COMPILER_VC2012			0x010000A0
+#define GLM_COMPILER_VC2013			0x010000B0
 
 // GCC defines
 #define GLM_COMPILER_GCC			0x02000000
@@ -266,6 +274,8 @@
 #		define GLM_COMPILER GLM_COMPILER_VC2010
 #	elif _MSC_VER == 1700
 #		define GLM_COMPILER GLM_COMPILER_VC2012
+#	elif _MSC_VER == 1800
+#		define GLM_COMPILER GLM_COMPILER_VC2013
 #	else//_MSC_VER
 #		define GLM_COMPILER GLM_COMPILER_VC
 #	endif//_MSC_VER
