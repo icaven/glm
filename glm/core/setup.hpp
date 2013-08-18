@@ -223,7 +223,7 @@
 #		define GLM_COMPILER GLM_COMPILER_INTEL12_0
 #	elif __INTEL_COMPILER == 1210
 #		define GLM_COMPILER GLM_COMPILER_INTEL12_1
-#	elif __INTEL_COMPILER == 1300
+#	elif __INTEL_COMPILER >= 1300
 #		define GLM_COMPILER GLM_COMPILER_INTEL13_0
 #	else
 #		define GLM_COMPILER GLM_COMPILER_INTEL
@@ -231,26 +231,11 @@
 
 // CUDA
 #elif defined(__CUDACC__)
-#	define GLM_COMPILER GLM_COMPILER_CUDA
-/*
 #	if CUDA_VERSION < 3000
 #		error "GLM requires CUDA 3.0 or higher"
-#	elif CUDA_VERSION == 3000
-#		define GLM_COMPILER GLM_COMPILER_CUDA30	
-#	elif CUDA_VERSION == 3010
-#		define GLM_COMPILER GLM_COMPILER_CUDA31	
-#	elif CUDA_VERSION == 3020
-#		define GLM_COMPILER GLM_COMPILER_CUDA32	
-#	elif CUDA_VERSION == 4000
-#		define GLM_COMPILER GLM_COMPILER_CUDA40	
-#	elif CUDA_VERSION == 4010
-#		define GLM_COMPILER GLM_COMPILER_CUDA41	
-#	elif CUDA_VERSION == 4020
-#		define GLM_COMPILER GLM_COMPILER_CUDA42
 #	else
 #		define GLM_COMPILER GLM_COMPILER_CUDA
 #	endif
-*/
 
 // Visual C++
 #elif defined(_MSC_VER)
@@ -274,7 +259,7 @@
 #		define GLM_COMPILER GLM_COMPILER_VC2010
 #	elif _MSC_VER == 1700
 #		define GLM_COMPILER GLM_COMPILER_VC2012
-#	elif _MSC_VER == 1800
+#	elif _MSC_VER >= 1800
 #		define GLM_COMPILER GLM_COMPILER_VC2013
 #	else//_MSC_VER
 #		define GLM_COMPILER GLM_COMPILER_VC
@@ -304,7 +289,9 @@
 #		define GLM_COMPILER GLM_COMPILER_CLANG41
 #	elif(__clang_major__ == 4) && (__clang_minor__ == 2)
 #		define GLM_COMPILER GLM_COMPILER_CLANG42
-#	elif(__clang_major__ == 4) && (__clang_minor__ == 3)
+#	elif(__clang_major__ == 4) && (__clang_minor__ >= 3)
+#		define GLM_COMPILER GLM_COMPILER_CLANG43
+#	elif(__clang_major__ > 4)
 #		define GLM_COMPILER GLM_COMPILER_CLANG43
 #	else
 #		define GLM_COMPILER GLM_COMPILER_CLANG
@@ -338,10 +325,10 @@
 #		define GLM_COMPILER (GLM_COMPILER_GCC47)
 #	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 8)
 #		define GLM_COMPILER (GLM_COMPILER_GCC48)
-#	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 9)
+#	elif (__GNUC__ == 4) && (__GNUC_MINOR__ >= 9)
 #		define GLM_COMPILER (GLM_COMPILER_GCC49)
-#	elif (__GNUC__ == 5) && (__GNUC_MINOR__ == 0)
-#		define GLM_COMPILER (GLM_COMPILER_GCC50)
+#	elif (__GNUC__ > 4 )
+#		define GLM_COMPILER (GLM_COMPILER_GCC49)
 #	else
 #		define GLM_COMPILER (GLM_COMPILER_GCC)
 #	endif
@@ -465,17 +452,13 @@
 #		endif
 #	elif(GLM_COMPILER & GLM_COMPILER_VC)
 #		if(defined(_MSC_EXTENSIONS))
-#			if(GLM_COMPILER >= GLM_COMPILER_VC2012)
-#				define GLM_LANG (GLM_LANG_CXX11 | GLM_LANG_CXXMS_FLAG)
-#			elif(GLM_COMPILER >= GLM_COMPILER_VC2010)
+#			if(GLM_COMPILER >= GLM_COMPILER_VC2010)
 #				define GLM_LANG (GLM_LANG_CXX0X | GLM_LANG_CXXMS_FLAG)
 #			else
 #				define GLM_LANG (GLM_LANG_CXX98 | GLM_LANG_CXXMS_FLAG)
 #			endif
 #		else
-#			if(GLM_COMPILER >= GLM_COMPILER_VC2012)
-#				define GLM_LANG GLM_LANG_CXX11
-#			elif(GLM_COMPILER >= GLM_COMPILER_VC2010)
+#			if(GLM_COMPILER >= GLM_COMPILER_VC2010)
 #				define GLM_LANG GLM_LANG_CXX0X
 #			else
 #				define GLM_LANG GLM_LANG_CXX98
@@ -546,7 +529,9 @@
 #elif(defined(GLM_FORCE_SSE2))
 #	define GLM_ARCH (GLM_ARCH_SSE2)
 #elif((GLM_COMPILER & GLM_COMPILER_VC) && (defined(_M_IX86) || defined(_M_X64)))
-#	if(defined(_M_CEE_PURE))
+#	if(GLM_PLATFORM == GLM_PLATFORM_WINCE)
+#		define GLM_ARCH GLM_ARCH_PURE
+#	elif(defined(_M_CEE_PURE))
 #		define GLM_ARCH GLM_ARCH_PURE
 /* TODO: Explore auto detection of instruction set support
 #	elif(defined(_M_IX86_FP))

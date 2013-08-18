@@ -32,8 +32,7 @@
 #include "setup.hpp"
 
 #if(((GLM_LANG & GLM_LANG_CXX11) == GLM_LANG_CXX11) || (defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)))
-//#if((defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)))
-#include <cstdint>
+#	include <cstdint>
 #endif
 
 namespace glm{
@@ -78,13 +77,13 @@ namespace detail
 		typedef uint64						uint64;
 #endif//
 	
-	typedef signed short					lowp_int_t;
+	typedef signed int						lowp_int_t;
 	typedef signed int						mediump_int_t;
-	typedef int64							highp_int_t;
+	typedef signed int						highp_int_t;
 	
-	typedef unsigned short					lowp_uint_t;
+	typedef unsigned int					lowp_uint_t;
 	typedef unsigned int					mediump_uint_t;
-	typedef uint64							highp_uint_t;
+	typedef unsigned int					highp_uint_t;
 }//namespace detail
 
 	typedef detail::int8					int8;
@@ -217,7 +216,11 @@ namespace detail
 	GLM_DETAIL_IS_INT(signed short);
 	GLM_DETAIL_IS_INT(signed int);
 	GLM_DETAIL_IS_INT(signed long);
-	GLM_DETAIL_IS_INT(highp_int_t);
+#	if(GLM_LANG >= GLM_LANG_CXX0X)
+		GLM_DETAIL_IS_INT(signed long long);
+#	else
+		GLM_DETAIL_IS_INT(glm::int64);
+#	endif
 	
 	//////////////////
 	// uint
@@ -247,7 +250,11 @@ namespace detail
 	GLM_DETAIL_IS_UINT(unsigned short);
 	GLM_DETAIL_IS_UINT(unsigned int);
 	GLM_DETAIL_IS_UINT(unsigned long);
-	GLM_DETAIL_IS_UINT(highp_uint_t);
+#	if(GLM_LANG >= GLM_LANG_CXX0X)
+		GLM_DETAIL_IS_INT(unsigned long long);
+#	else
+		GLM_DETAIL_IS_INT(glm::uint64);
+#	endif
 
 	//////////////////
 	// bool
