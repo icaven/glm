@@ -40,7 +40,7 @@ http://glm.g-truc.net/glm.pdf
 GLM 0.9.4.6: 2013-08-XX
 --------------------------------------------------------------------------------
 - Fixed detection to select the last known compiler if newer version #106
-- 
+- Fixed is_int and is_uint code duplication with GCC and C++11 #107 
 
 ================================================================================
 GLM 0.9.4.5: 2013-08-12

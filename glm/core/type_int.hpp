@@ -47,13 +47,19 @@ namespace detail
 	GLM_DETAIL_IS_INT(signed short);
 	GLM_DETAIL_IS_INT(signed int);
 	GLM_DETAIL_IS_INT(signed long);
-	GLM_DETAIL_IS_INT(highp_int_t);
 
 	GLM_DETAIL_IS_UINT(unsigned char);
 	GLM_DETAIL_IS_UINT(unsigned short);
 	GLM_DETAIL_IS_UINT(unsigned int);
 	GLM_DETAIL_IS_UINT(unsigned long);
+	
+#if(GLM_LANG >= GLM_LANG_CXX0X)
+	GLM_DETAIL_IS_INT(signed long long);
+	GLM_DETAIL_IS_UINT(unsigned long long);
+#else
+	GLM_DETAIL_IS_INT(highp_int_t);
 	GLM_DETAIL_IS_UINT(highp_uint_t);
+#endif
 }//namespace detail
 
 	/// @addtogroup core_precision
