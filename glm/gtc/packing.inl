@@ -262,7 +262,7 @@ namespace detail
 	{
 		glm::int8 Scaled(round(clamp(v ,-1.0f, 1.0f) * 127.0f));
 		detail::snorm1x8 Packing;
-		Packing.x = Scaled.x;
+		Packing.data = Scaled;
 		return Packing.pack;
 	}
 	
@@ -321,6 +321,7 @@ namespace detail
 			float(Packing.data.z),
 			float(Packing.data.w));
 		Result *= float(1.5259021896696421759365224689097e-5); // 1.0 / 65535.0
+		return Result;
 	}
 
 	GLM_FUNC_QUALIFIER uint16 packSnorm1x16(float v)
@@ -445,7 +446,9 @@ namespace detail
     
 	GLM_FUNC_QUALIFIER vec3 unpackF11F11F10(uint32 const & v)
     {
-    
+    	vec3 Result;
+    	// TODO
+    	return Result;
     }
 
 }//namespace glm

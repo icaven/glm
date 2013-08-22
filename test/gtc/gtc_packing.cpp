@@ -26,7 +26,6 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-
 #include <glm/glm.hpp>
 #include <glm/gtc/packing.hpp>
 #include <cstdio>
