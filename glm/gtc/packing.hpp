@@ -57,6 +57,9 @@ namespace glm
 	/// The conversion for component c of v to fixed point is done as follows:
 	/// packUnorm1x8:	round(clamp(c, 0, +1) * 255.0)
 	///
+	/// @see gtc_packing
+	/// @see uint16 packUnorm2x8(vec2 const & v)
+	/// @see uint32 packUnorm4x8(vec4 const & v)
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packUnorm4x8.xml">GLSL packUnorm4x8 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	GLM_FUNC_DECL uint8 packUnorm1x8(float const & v);
@@ -71,6 +74,9 @@ namespace glm
 	/// The first component of the vector will be written to the least significant bits of the output;
 	/// the last component will be written to the most significant bits.
 	///
+	/// @see gtc_packing
+	/// @see uint8 packUnorm1x8(float const & v)
+	/// @see uint32 packUnorm4x8(vec4 const & v)
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packUnorm4x8.xml">GLSL packUnorm4x8 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	GLM_FUNC_DECL uint16 packUnorm2x8(vec2 const & v);
@@ -82,6 +88,9 @@ namespace glm
 	/// The conversion to fixed point is done as follows:
 	/// packSnorm1x8:	round(clamp(s, -1, +1) * 127.0)
 	///
+	/// @see gtc_packing
+	/// @see uint16 packSnorm2x8(vec2 const & v)
+	/// @see uint32 packSnorm4x8(vec4 const & v)
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packSnorm4x8.xml">GLSL packSnorm4x8 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	GLM_FUNC_DECL uint8 packSnorm1x8(float const & s);
@@ -96,6 +105,9 @@ namespace glm
 	/// The first component of the vector will be written to the least significant bits of the output;
 	/// the last component will be written to the most significant bits.
 	///
+	/// @see gtc_packing
+	/// @see uint8 packSnorm1x8(float const & v)
+	/// @see uint32 packSnorm4x8(vec4 const & v)
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packSnorm4x8.xml">GLSL packSnorm4x8 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	GLM_FUNC_DECL uint16 packSnorm2x8(vec2 const & v);
@@ -107,9 +119,21 @@ namespace glm
 	/// The conversion for component c of v to fixed point is done as follows:
 	/// packUnorm1x16:	round(clamp(c, 0, +1) * 65535.0)
 	///
+	/// @see gtc_packing
+	/// @see uint16 packSnorm1x16(float const & v)
+	/// @see uint64 packSnorm4x16(vec4 const & v)
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packUnorm4x8.xml">GLSL packUnorm4x8 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	GLM_FUNC_DECL uint16 packUnorm1x16(float v);
+
+	/// First, unpacks a single 16-bit unsigned integer p into a of 16-bit unsigned integers. 
+	/// Then, the value is converted to a normalized floating-point value to generate the returned scalar.
+	/// 
+	/// The conversion for unpacked fixed-point value f to floating point is done as follows:
+	/// unpackUnorm1x16: f / 65535.0 
+	/// 
+	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackUnorm2x16.xml">GLSL unpackUnorm2x16 man page</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	GLM_FUNC_DECL float unpackUnorm1x16(uint16 p);
 
 	/// First, converts each component of the normalized floating-point value v into 16-bit integer values.
@@ -121,9 +145,24 @@ namespace glm
 	/// The first component of the vector will be written to the least significant bits of the output;
 	/// the last component will be written to the most significant bits.
 	///
+	/// @see gtc_packing
+	/// @see uint16 packUnorm1x16(float const & v)
+	/// @see uint32 packUnorm2x16(vec2 const & v)
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packUnorm4x8.xml">GLSL packUnorm4x8 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	GLM_FUNC_DECL uint64 packUnorm4x16(vec4 const & v);
+
+	/// First, unpacks a single 64-bit unsigned integer p into four 16-bit unsigned integers. 
+	/// Then, each component is converted to a normalized floating-point value to generate the returned four-component vector.
+	/// 
+	/// The conversion for unpacked fixed-point value f to floating point is done as follows:
+	/// unpackUnormx4x16: f / 65535.0 
+	/// 
+	/// The first component of the returned vector will be extracted from the least significant bits of the input; 
+	/// the last component will be extracted from the most significant bits.
+	/// 
+	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackUnorm2x16.xml">GLSL unpackUnorm2x16 man page</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	GLM_FUNC_DECL vec4 unpackUnorm4x16(uint64 const & p);
 
 	/// First, converts the normalized floating-point value v into 16-bit integer value.
@@ -132,6 +171,9 @@ namespace glm
 	/// The conversion to fixed point is done as follows:
 	/// packSnorm1x8:	round(clamp(s, -1, +1) * 32767.0)
 	///
+	/// @see gtc_packing
+	/// @see uint32 packSnorm2x16(vec2 const & v)
+	/// @see uint64 packSnorm4x16(vec4 const & v)
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packSnorm4x8.xml">GLSL packSnorm4x8 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	GLM_FUNC_DECL uint16 packSnorm1x16(float v);
@@ -146,6 +188,9 @@ namespace glm
 	/// The first component of the vector will be written to the least significant bits of the output;
 	/// the last component will be written to the most significant bits.
 	///
+	/// @see gtc_packing
+	/// @see uint16 packSnorm1x16(float const & v)
+	/// @see uint32 packSnorm2x16(vec2 const & v)
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packSnorm4x8.xml">GLSL packSnorm4x8 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	GLM_FUNC_DECL uint64 packSnorm4x16(vec4 const & v);
