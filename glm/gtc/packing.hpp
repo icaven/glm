@@ -63,7 +63,18 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packUnorm4x8.xml">GLSL packUnorm4x8 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	GLM_FUNC_DECL uint8 packUnorm1x8(float const & v);
-	GLM_FUNC_DECL float unpackUnorm1x8(uint8 v);
+
+	/// Convert a single 8-bit integer to a normalized floating-point value.
+	/// 
+	/// The conversion for unpacked fixed-point value f to floating point is done as follows:
+	/// unpackUnorm4x8: f / 255.0
+	/// 
+	/// @see gtc_packing
+	/// @see vec2 unpackUnorm2x8(uint16 p)
+	/// @see vec4 unpackUnorm4x8(uint32 p)
+	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackUnorm4x8.xml">GLSL unpackUnorm4x8 man page</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
+	GLM_FUNC_DECL float unpackUnorm1x8(uint8 p);
 
 	/// First, converts each component of the normalized floating-point value v into 8-bit integer values.
 	/// Then, the results are packed into the returned 16-bit unsigned integer.
@@ -80,7 +91,22 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packUnorm4x8.xml">GLSL packUnorm4x8 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	GLM_FUNC_DECL uint16 packUnorm2x8(vec2 const & v);
-	GLM_FUNC_DECL vec2 unpackUnorm2x8(uint16 v);
+
+	/// First, unpacks a single 16-bit unsigned integer p into a pair of 8-bit unsigned integers. 
+	/// Then, each component is converted to a normalized floating-point value to generate the returned two-component vector.
+	/// 
+	/// The conversion for unpacked fixed-point value f to floating point is done as follows:
+	/// unpackUnorm4x8: f / 255.0
+	/// 
+	/// The first component of the returned vector will be extracted from the least significant bits of the input; 
+	/// the last component will be extracted from the most significant bits.
+	/// 
+	/// @see gtc_packing
+	/// @see float unpackUnorm1x8(uint8 v)
+	/// @see vec4 unpackUnorm4x8(uint32 p)
+	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackUnorm4x8.xml">GLSL unpackUnorm4x8 man page</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
+	GLM_FUNC_DECL vec2 unpackUnorm2x8(uint16 p);
 	
 	/// First, converts the normalized floating-point value v into 8-bit integer value.
 	/// Then, the results are packed into the returned 8-bit unsigned integer.
@@ -212,6 +238,8 @@ namespace glm
 	/// and converting it to 32-bit floating-point values.
 	///
 	/// @see gtc_packing
+	/// @see vec2 unpackHalf2x16(uint32 const & v)
+	/// @see vec4 unpackHalf4x16(uint64 const & v)
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackHalf2x16.xml">GLSL unpackHalf2x16 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	GLM_FUNC_DECL float unpackHalf1x16(uint16 const & v);
@@ -236,6 +264,8 @@ namespace glm
 	/// the forth component is obtained from the 16 most-significant bits of v.
 	/// 
 	/// @see gtc_packing
+	/// @see float unpackHalf1x16(uint16 const & v)
+	/// @see vec2 unpackHalf2x16(uint32 const & v)
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackHalf2x16.xml">GLSL unpackHalf2x16 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	GLM_FUNC_DECL vec4 unpackHalf4x16(uint64 const & v);
