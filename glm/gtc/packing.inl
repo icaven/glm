@@ -372,7 +372,7 @@ namespace detail
 		return detail::toFloat32(Packing.data);
 	}
 
-	GLM_FUNC_QUALIFIER uint32 packI10I10I10I2(ivec4 const & v)
+	GLM_FUNC_QUALIFIER uint32 packInorm3x10_1x2(ivec4 const & v)
 	{
 		detail::i10i10i10i2 Result;
 		Result.data.x = v.x;
@@ -382,7 +382,7 @@ namespace detail
 		return Result.pack; 
 	}
 
-	GLM_FUNC_QUALIFIER ivec4 unpackI10I10I10I2(uint32 const & v)
+	GLM_FUNC_QUALIFIER ivec4 unpackInorm3x10_1x2(uint32 const & v)
 	{
 		detail::i10i10i10i2 Unpack;
 		Unpack.pack = v;
@@ -393,7 +393,7 @@ namespace detail
 			Unpack.data.w);
 	}
 
-	GLM_FUNC_QUALIFIER uint32 packU10U10U10U2(uvec4 const & v)
+	GLM_FUNC_QUALIFIER uint32 packUnorm3x10_1x2(uvec4 const & v)
 	{
 		detail::u10u10u10u2 Result;
 		Result.data.x = v.x;
@@ -403,7 +403,7 @@ namespace detail
 		return Result.pack; 
 	}
 
-	GLM_FUNC_QUALIFIER uvec4 unpackU10U10U10U2(uint32 const & v)
+	GLM_FUNC_QUALIFIER uvec4 unpackUnorm3x10_1x2(uint32 const & v)
 	{
 		detail::u10u10u10u2 Unpack;
 		Unpack.pack = v;
