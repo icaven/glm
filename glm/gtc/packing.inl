@@ -372,7 +372,7 @@ namespace detail
 		return detail::toFloat32(Packing.data);
 	}
 
-	GLM_FUNC_QUALIFIER uint32 packInorm3x10_1x2(ivec4 const & v)
+	GLM_FUNC_QUALIFIER uint32 packI3x10_1x2(ivec4 const & v)
 	{
 		detail::i10i10i10i2 Result;
 		Result.data.x = v.x;
@@ -382,7 +382,7 @@ namespace detail
 		return Result.pack; 
 	}
 
-	GLM_FUNC_QUALIFIER ivec4 unpackInorm3x10_1x2(uint32 const & v)
+	GLM_FUNC_QUALIFIER ivec4 unpackI3x10_1x2(uint32 const & v)
 	{
 		detail::i10i10i10i2 Unpack;
 		Unpack.pack = v;
@@ -393,7 +393,7 @@ namespace detail
 			Unpack.data.w);
 	}
 
-	GLM_FUNC_QUALIFIER uint32 packUnorm3x10_1x2(uvec4 const & v)
+	GLM_FUNC_QUALIFIER uint32 packU3x10_1x2(uvec4 const & v)
 	{
 		detail::u10u10u10u2 Result;
 		Result.data.x = v.x;
@@ -403,7 +403,7 @@ namespace detail
 		return Result.pack; 
 	}
 
-	GLM_FUNC_QUALIFIER uvec4 unpackUnorm3x10_1x2(uint32 const & v)
+	GLM_FUNC_QUALIFIER uvec4 unpackU3x10_1x2(uint32 const & v)
 	{
 		detail::u10u10u10u2 Unpack;
 		Unpack.pack = v;
@@ -417,10 +417,10 @@ namespace detail
 	GLM_FUNC_QUALIFIER uint32 packSnorm3x10_1x2(vec4 const & v)
 	{
 		detail::i10i10i10i2 Result;
-		Result.data.x = int(v.x * 511.f);
-		Result.data.y = int(v.y * 511.f);
-		Result.data.z = int(v.z * 511.f);
-		Result.data.w = int(v.w *   1.f);
+		Result.data.x = int(round(clamp(v.x,-1.0f, 1.0f) * 511.f));
+		Result.data.y = int(round(clamp(v.y,-1.0f, 1.0f) * 511.f));
+		Result.data.z = int(round(clamp(v.z,-1.0f, 1.0f) * 511.f));
+		Result.data.w = int(round(clamp(v.w,-1.0f, 1.0f) *   1.f));
 		return Result.pack;
 	}
 
@@ -429,14 +429,36 @@ namespace detail
 		detail::i10i10i10i2 Unpack;
 		Unpack.pack = v;
 		vec4 Result;
-		Result.x = float(Unpack.data.x) / 511.f;
-		Result.y = float(Unpack.data.y) / 511.f;
-		Result.z = float(Unpack.data.z) / 511.f;
-		Result.w = float(Unpack.data.w) /   1.f;
+		Result.x = clamp(float(Unpack.data.x) / 511.f, -1.0f, 1.0f);
+		Result.y = clamp(float(Unpack.data.y) / 511.f, -1.0f, 1.0f);
+		Result.z = clamp(float(Unpack.data.z) / 511.f, -1.0f, 1.0f);
+		Result.w = clamp(float(Unpack.data.w) /   1.f, -1.0f, 1.0f);
 		return Result;
 	}
 
-	GLM_FUNC_QUALIFIER uint32 packF11F11F10(vec3 const & v)
+	GLM_FUNC_QUALIFIER uint32 packUnorm3x10_1x2(vec4 const & v)
+	{
+		detail::i10i10i10i2 Result;
+		Result.data.x = int(round(clamp(v.x, 0.0f, 1.0f) * 1023.f));
+		Result.data.y = int(round(clamp(v.y, 0.0f, 1.0f) * 1023.f));
+		Result.data.z = int(round(clamp(v.z, 0.0f, 1.0f) * 1023.f));
+		Result.data.w = int(round(clamp(v.w, 0.0f, 1.0f) *    3.f));
+		return Result.pack;
+	}
+
+	GLM_FUNC_QUALIFIER vec4 unpackUnorm3x10_1x2(uint32 const & v)
+	{
+		detail::i10i10i10i2 Unpack;
+		Unpack.pack = v;
+		vec4 Result;
+		Result.x = float(Unpack.data.x) / 1023.f;
+		Result.y = float(Unpack.data.y) / 1023.f;
+		Result.z = float(Unpack.data.z) / 1023.f;
+		Result.w = float(Unpack.data.w) /   3.f;
+		return Result;
+	}
+
+	GLM_FUNC_QUALIFIER uint32 packF2x11_1x10(vec3 const & v)
     {
         return 
             ((detail::floatTo11bit(v.x) & ((1 << 11) - 1)) <<  0) |
@@ -444,7 +466,7 @@ namespace detail
             ((detail::floatTo10bit(v.z) & ((1 << 10) - 1)) << 22);
     }
     
-	GLM_FUNC_QUALIFIER vec3 unpackF11F11F10(uint32 const & v)
+	GLM_FUNC_QUALIFIER vec3 unpackF2x11_1x10(uint32 const & v)
     {
     	vec3 Result;
     	// TODO

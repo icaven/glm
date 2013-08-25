@@ -337,12 +337,12 @@ namespace glm
 	/// the forth component specifies the 2 most-significant bits.
 	/// 
 	/// @see gtc_packing
-	/// @see uint32 packI3x10_I1x2(uvec4 const & v)
+	/// @see uint32 packI3x10_1x2(uvec4 const & v)
 	/// @see uint32 packSnorm3x10_1x2(vec4 const & v)
 	/// @see uint32 packUnorm3x10_1x2(vec4 const & v)
-	/// @see ivec4 unpackI3x10_I1x2(uint32 const & p)
-	GLM_FUNC_DECL uint32 packI3x10_I1x2(ivec4 const & v);
-	GLM_FUNC_DECL ivec4 unpackI3x10_I1x2(uint32 const & p);
+	/// @see ivec4 unpackI3x10_1x2(uint32 const & p)
+	GLM_FUNC_DECL uint32 packI3x10_1x2(ivec4 const & v);
+	GLM_FUNC_DECL ivec4 unpackI3x10_1x2(uint32 const & p);
 
 	/// Returns an unsigned integer obtained by converting the components of a four-component unsigned integer vector 
 	/// to the 10-10-10-2-bit unsigned integer representation found in the OpenGL Specification, 
@@ -351,12 +351,12 @@ namespace glm
 	/// the forth component specifies the 2 most-significant bits.
 	/// 
 	/// @see gtc_packing
-	/// @see uint32 packI3x10_I1x2(ivec4 const & v)
+	/// @see uint32 packI3x10_1x2(ivec4 const & v)
 	/// @see uint32 packSnorm3x10_1x2(vec4 const & v)
 	/// @see uint32 packUnorm3x10_1x2(vec4 const & v)
-	/// @see ivec4 unpackU3x10_U1x2(uint32 const & p)
-	GLM_FUNC_DECL uint32 packU3x10_U1x2(uvec4 const & v);
-	GLM_FUNC_DECL uvec4 unpackU3x10_U1x2(uint32 const & p);
+	/// @see ivec4 unpackU3x10_1x2(uint32 const & p)
+	GLM_FUNC_DECL uint32 packU3x10_1x2(uvec4 const & v);
+	GLM_FUNC_DECL uvec4 unpackU3x10_1x2(uint32 const & p);
 
 	/// First, converts the first three components of the normalized floating-point value v into 10-bit signed integer values.
 	/// Then, converts the forth component of the normalized floating-point value v into 2-bit signed integer values.
@@ -372,8 +372,8 @@ namespace glm
 	/// @see gtc_packing
 	/// @see vec4 unpackSnorm3x10_1x2(uint32 const & p)
 	/// @see uint32 packUnorm3x10_1x2(vec4 const & v)
-	/// @see uint32 packU3x10_U1x2(uvec4 const & v)
-	/// @see uint32 packI3x10_I1x2(ivec4 const & v)
+	/// @see uint32 packU3x10_1x2(uvec4 const & v)
+	/// @see uint32 packI3x10_1x2(ivec4 const & v)
 	GLM_FUNC_DECL uint32 packSnorm3x10_1x2(vec4 const & v);
 
 	/// First, unpacks a single 32-bit unsigned integer p into four 16-bit signed integers. 
@@ -389,8 +389,8 @@ namespace glm
 	/// @see gtc_packing
 	/// @see uint32 packSnorm3x10_1x2(vec4 const & v)
 	/// @see vec4 unpackUnorm3x10_1x2(uint32 const & p))
-	/// @see uvec4 unpackI3x10_I1x2(uint32 const & p)
-	/// @see uvec4 unpackU3x10_U1x2(uint32 const & p)
+	/// @see uvec4 unpackI3x10_1x2(uint32 const & p)
+	/// @see uvec4 unpackU3x10_1x2(uint32 const & p)
 	GLM_FUNC_DECL vec4 unpackSnorm3x10_1x2(uint32 const & p);
 
 	/// First, converts the first three components of the normalized floating-point value v into 10-bit unsigned integer values.
@@ -407,8 +407,8 @@ namespace glm
 	/// @see gtc_packing
 	/// @see vec4 unpackUnorm3x10_1x2(uint32 const & p)
 	/// @see uint32 packUnorm3x10_1x2(vec4 const & v)
-	/// @see uint32 packU3x10_U1x2(uvec4 const & v)
-	/// @see uint32 packI3x10_I1x2(ivec4 const & v)
+	/// @see uint32 packU3x10_1x2(uvec4 const & v)
+	/// @see uint32 packI3x10_1x2(ivec4 const & v)
 	GLM_FUNC_DECL uint32 packUnorm3x10_1x2(vec4 const & v);
 
 	/// First, unpacks a single 32-bit unsigned integer p into four 16-bit signed integers. 
@@ -424,8 +424,8 @@ namespace glm
 	/// @see gtc_packing
 	/// @see uint32 packSnorm3x10_1x2(vec4 const & v)
 	/// @see vec4 unpackInorm3x10_1x2(uint32 const & p))
-	/// @see uvec4 unpackI3x10_I1x2(uint32 const & p)
-	/// @see uvec4 unpackU3x10_U1x2(uint32 const & p)
+	/// @see uvec4 unpackI3x10_1x2(uint32 const & p)
+	/// @see uvec4 unpackU3x10_1x2(uint32 const & p)
 	GLM_FUNC_DECL vec4 unpackUnorm3x10_1x2(uint32 const & p);
 
 	/// First, converts the first two components of the normalized floating-point value v into 11-bit signless floating-point values.
@@ -436,8 +436,8 @@ namespace glm
 	/// the last component specifies the 10 most-significant bits.
 	///
 	/// @see gtc_packing
-	/// @see vec3 unpackF2x11_F1x10(uint32 const & p)
-	GLM_FUNC_DECL uint32 packF2x11_F1x10(vec3 const & v);
+	/// @see vec3 unpackF2x11_1x10(uint32 const & p)
+	GLM_FUNC_DECL uint32 packF2x11_1x10(vec3 const & v);
 
 	/// First, unpacks a single 32-bit unsigned integer p into two 11-bit signless floating-point values and one 10-bit signless floating-point value . 
 	/// Then, each component is converted to a normalized floating-point value to generate the returned three-component vector.
@@ -446,8 +446,8 @@ namespace glm
 	/// the last component will be extracted from the most significant bits.
 	/// 
 	/// @see gtc_packing
-	/// @see uint32 packF2x11_F1x10(vec3 const & v)
-	GLM_FUNC_DECL vec3 unpackF2x11_F1x10(uint32 const & p);
+	/// @see uint32 packF2x11_1x10(vec3 const & v)
+	GLM_FUNC_DECL vec3 unpackF2x11_1x10(uint32 const & p);
 
 	/// @}
 }// namespace glm
