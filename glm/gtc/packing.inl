@@ -65,7 +65,7 @@ namespace detail
        		((f >> 17) & 0x003f); // Mantissa
 	}
     
- 	glm::uint32 packed11Tofloat(glm::uint32 const & p)
+ 	glm::uint32 packed11ToFloat(glm::uint32 const & p)
 	{
 		// 10 bits    =>                         EE EEEFFFFF
 		// 11 bits    =>                        EEE EEFFFFFF
@@ -80,7 +80,7 @@ namespace detail
 		// 0x00008000 => 00000000 00000000 10000000 00000000
 		return
         	((((p & 0x07c0) << 17) + 0x38000000) & 0x7f800000) | // exponential
-       		((f & 0x003f) << 17); // Mantissa
+       		((p & 0x003f) << 17); // Mantissa
 	}
 
 	glm::uint32 float2packed10(glm::uint32 const & f)
@@ -122,7 +122,7 @@ namespace detail
 		// 0x00008000 => 00000000 00000000 10000000 00000000
 		return
         	((((p & 0x03E0) << 18) + 0x38000000) & 0x7f800000) | // exponential
-       		((f & 0x001f) << 18); // Mantissa
+       		((p & 0x001f) << 18); // Mantissa
 	}
 
 	glm::uint half2float(glm::uint const & h)
@@ -257,7 +257,18 @@ namespace detail
 		uint16 pack;
 	};
 
-	
+	union half4x16
+	{
+		struct
+		{
+			hdata x;
+			hdata y;
+			hdata z;
+			hdata w;
+		} data;
+		uint64 pack;
+	};
+
 	union unorm1x8
 	{
 		uint8 data;
@@ -438,18 +449,25 @@ namespace detail
 		return detail::toFloat32(Packing.data);
 	}
 
-	GLM_FUNC_DECL uint64 packHalf4x16(float const & v)
+	GLM_FUNC_DECL uint64 packHalf4x16(glm::vec4 const & v)
 	{
 		detail::half4x16 Packing;
-		Packing.data = detail::toFloat16(v);
+		Packing.data.x = detail::toFloat16(v.x);
+		Packing.data.y = detail::toFloat16(v.y);
+		Packing.data.z = detail::toFloat16(v.z);
+		Packing.data.w = detail::toFloat16(v.w);
 		return Packing.pack;
 	}
 
-	GLM_FUNC_DECL float unpackHalf4x16(uint64 const & v)
+	GLM_FUNC_DECL glm::vec4 unpackHalf4x16(uint64 const & v)
 	{
 		detail::half4x16 Packing;
 		Packing.pack = v;
-		return detail::toFloat32(Packing.data);
+		return glm::vec4(
+			detail::toFloat32(Packing.data.x),
+			detail::toFloat32(Packing.data.y),
+			detail::toFloat32(Packing.data.z),
+			detail::toFloat32(Packing.data.w));
 	}
 
 	GLM_FUNC_QUALIFIER uint32 packI3x10_1x2(ivec4 const & v)
@@ -549,9 +567,9 @@ namespace detail
 	GLM_FUNC_QUALIFIER vec3 unpackF2x11_1x10(uint32 const & v)
     {
     	return vec3(
-    		packed11bitToFloat(v >> 0), 
-    		packed11bitToFloat(v >> 11), 
-    		packed10bitToFloat(v >> 22));
+    		detail::packed11bitToFloat(v >> 0), 
+    		detail::packed11bitToFloat(v >> 11), 
+    		detail::packed10bitToFloat(v >> 22));
     }
 
 }//namespace glm
