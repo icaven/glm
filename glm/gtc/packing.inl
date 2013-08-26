@@ -47,7 +47,7 @@ namespace detail
         ((f >> 13) & 0x03ff); // Mantissa
 	}
     
-	glm::uint16 float2packed11(glm::uint32 const & f)
+	glm::uint32 float2packed11(glm::uint32 const & f)
 	{
 		// 10 bits    =>                         EE EEEFFFFF
 		// 11 bits    =>                        EEE EEFFFFFF
@@ -61,11 +61,29 @@ namespace detail
 		// 0x7f800000 => 01111111 10000000 00000000 00000000
 		// 0x00008000 => 00000000 00000000 10000000 00000000
 		return
-        ((((f & 0x7f800000) - 0x38000000) >> 17) & 0x07c0) | // exponential
-        ((f >> 17) & 0x003f); // Mantissa
+        	((((f & 0x7f800000) - 0x38000000) >> 17) & 0x07c0) | // exponential
+       		((f >> 17) & 0x003f); // Mantissa
 	}
     
-	glm::uint float2packed10(glm::uint const & f)
+ 	glm::uint32 packed11Tofloat(glm::uint32 const & p)
+	{
+		// 10 bits    =>                         EE EEEFFFFF
+		// 11 bits    =>                        EEE EEFFFFFF
+		// Half bits  =>                   SEEEEEFF FFFFFFFF
+		// Float bits => SEEEEEEE EFFFFFFF FFFFFFFF FFFFFFFF
+        
+		// 0x000007c0 => 00000000 00000000 00000111 11000000
+		// 0x00007c00 => 00000000 00000000 01111100 00000000
+		// 0x000003ff => 00000000 00000000 00000011 11111111
+		// 0x38000000 => 00111000 00000000 00000000 00000000
+		// 0x7f800000 => 01111111 10000000 00000000 00000000
+		// 0x00008000 => 00000000 00000000 10000000 00000000
+		return
+        	((((p & 0x07c0) << 17) + 0x38000000) & 0x7f800000) | // exponential
+       		((f & 0x003f) << 17); // Mantissa
+	}
+
+	glm::uint32 float2packed10(glm::uint32 const & f)
 	{
 		// 10 bits    =>                         EE EEEFFFFF
 		// 11 bits    =>                        EEE EEFFFFFF
@@ -82,10 +100,31 @@ namespace detail
 		// 0x7f800000 => 01111111 10000000 00000000 00000000
 		// 0x00008000 => 00000000 00000000 10000000 00000000
 		return
-        ((((f & 0x7f800000) - 0x38000000) >> 18) & 0x03E0) | // exponential
-        ((f >> 18) & 0x001f); // Mantissa
+        	((((f & 0x7f800000) - 0x38000000) >> 18) & 0x03E0) | // exponential
+        	((f >> 18) & 0x001f); // Mantissa
 	}
     
+	glm::uint32 packed10ToFloat(glm::uint32 const & p)
+	{
+		// 10 bits    =>                         EE EEEFFFFF
+		// 11 bits    =>                        EEE EEFFFFFF
+		// Half bits  =>                   SEEEEEFF FFFFFFFF
+		// Float bits => SEEEEEEE EFFFFFFF FFFFFFFF FFFFFFFF
+        
+		// 0x0000001F => 00000000 00000000 00000000 00011111
+		// 0x0000003F => 00000000 00000000 00000000 00111111
+		// 0x000003E0 => 00000000 00000000 00000011 11100000
+		// 0x000007C0 => 00000000 00000000 00000111 11000000
+		// 0x00007C00 => 00000000 00000000 01111100 00000000
+		// 0x000003FF => 00000000 00000000 00000011 11111111
+		// 0x38000000 => 00111000 00000000 00000000 00000000
+		// 0x7f800000 => 01111111 10000000 00000000 00000000
+		// 0x00008000 => 00000000 00000000 10000000 00000000
+		return
+        	((((p & 0x03E0) << 18) + 0x38000000) & 0x7f800000) | // exponential
+       		((f & 0x001f) << 18); // Mantissa
+	}
+
 	glm::uint half2float(glm::uint const & h)
 	{
 		return ((h & 0x8000) << 16) | ((( h & 0x7c00) + 0x1C000) << 13) | ((h & 0x03FF) << 13);
@@ -111,6 +150,20 @@ namespace detail
 		return float2packed11(Union.i);
 	}
     
+	float packed11bitToFloat(glm::uint x)
+	{
+		if(x == 0)
+			return 0.0f;
+		else if(x == ((1 << 11) - 1))
+			return ~0;//NaN
+		else if(x == (0x1f << 6))
+			return ~0;//Inf
+        
+		uif Union;
+		Union.i = packed11ToFloat(x);
+		return Union.f;
+	}
+
 	glm::uint floatTo10bit(float x)
 	{
 		if(x == 0.0f)
@@ -123,6 +176,20 @@ namespace detail
 		uif Union;
 		Union.f = x;
 		return float2packed10(Union.i);
+	}
+
+	float packed10bitToFloat(glm::uint x)
+	{
+		if(x == 0)
+			return 0.0f;
+		else if(x == ((1 << 10) - 1))
+			return ~0;//NaN
+		else if(x == (0x1f << 5))
+			return ~0;//Inf
+        
+		uif Union;
+		Union.i = packed10ToFloat(x);
+		return Union.f;
 	}
     
 	glm::uint f11_f11_f10(float x, float y, float z)
@@ -223,7 +290,6 @@ namespace detail
 		uint16 pack;
 	};
 }//namespace detail
-
 
 	GLM_FUNC_QUALIFIER uint8 packUnorm1x8(float const & v)
 	{
@@ -468,9 +534,10 @@ namespace detail
     
 	GLM_FUNC_QUALIFIER vec3 unpackF2x11_1x10(uint32 const & v)
     {
-    	vec3 Result;
-    	// TODO
-    	return Result;
+    	return vec3(
+    		packed11bitToFloat(v >> 0), 
+    		packed11bitToFloat(v >> 11), 
+    		packed10bitToFloat(v >> 22));
     }
 
 }//namespace glm
