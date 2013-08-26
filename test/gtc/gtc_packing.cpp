@@ -132,11 +132,89 @@ int test_half()
     return Error;
 }
 
+int test_F2x11_1x10()
+{
+    int Error = 0;
+
+    std::vector<glm::vec3> Tests;
+    Tests.push_back(glm::vec3(1.0));
+    Tests.push_back(glm::vec3(0.0));
+    Tests.push_back(glm::vec3(2.0));
+    Tests.push_back(glm::vec3(0.1));
+    Tests.push_back(glm::vec3(0.5));
+    Tests.push_back(glm::vec3(0.9));
+
+    for(std::size_t i = 0; i < Tests.size(); ++i)
+    {
+        glm::uint32 p0 = glm::packF2x11_1x10(Tests[i]);
+        glm::vec3 v0 = glm::unpackF2x11_1x10(p0);
+        glm::uint32 p1 = glm::packF2x11_1x10(v0);
+        glm::vec3 v1 = glm::unpackF2x11_1x10(p0);
+        Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
+    }
+
+    return Error;
+}
+
+int test_Snorm3x10_1x2()
+{
+    int Error = 0;
+
+    std::vector<glm::vec4> Tests;
+    Tests.push_back(glm::vec4(1.0));
+    Tests.push_back(glm::vec4(0.0));
+    Tests.push_back(glm::vec4(2.0));
+    Tests.push_back(glm::vec4(0.1));
+    Tests.push_back(glm::vec4(0.5));
+    Tests.push_back(glm::vec4(0.9));
+
+    for(std::size_t i = 0; i < Tests.size(); ++i)
+    {
+        glm::uint32 p0 = glm::packSnorm3x10_1x2(Tests[i]);
+        glm::vec3 v0 = glm::unpackSnorm3x10_1x2(p0);
+        glm::uint32 p1 = glm::packSnorm3x10_1x2(v0);
+        glm::vec3 v1 = glm::unpackSnorm3x10_1x2(p0);
+        Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
+    }
+
+    return Error;
+}
+
+int test_Unorm3x10_1x2()
+{
+    int Error = 0;
+
+    std::vector<glm::vec4> Tests;
+    Tests.push_back(glm::vec4(1.0));
+    Tests.push_back(glm::vec4(0.0));
+    Tests.push_back(glm::vec4(2.0));
+    Tests.push_back(glm::vec4(0.1));
+    Tests.push_back(glm::vec4(0.5));
+    Tests.push_back(glm::vec4(0.9));
+
+    for(std::size_t i = 0; i < Tests.size(); ++i)
+    {
+        glm::uint32 p0 = glm::packSnorm3x10_1x2(Tests[i]);
+        glm::vec3 v0 = glm::unpackSnorm3x10_1x2(p0);
+        glm::uint32 p1 = glm::packSnorm3x10_1x2(v0);
+        glm::vec3 v1 = glm::unpackSnorm3x10_1x2(p0);
+        Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
+    }
+
+    return Error;
+}
+
 int main()
 {
 	int Error(0);
 
-    Error += test_half();
+    Error += test_F2x11_1x10();
+    Error += test_Snorm3x10_1x2();
+    Error += test_Unorm3x10_1x2();
+    Error += test_I3x10_1x2();
+    Error += test_U3x10_1x2();
+    Error += test_Half1x16();
+    Error += test_U3x10_1x2();
 
 	return Error;
 }

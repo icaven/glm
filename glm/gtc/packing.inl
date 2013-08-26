@@ -438,6 +438,20 @@ namespace detail
 		return detail::toFloat32(Packing.data);
 	}
 
+	GLM_FUNC_DECL uint64 packHalf4x16(float const & v)
+	{
+		detail::half4x16 Packing;
+		Packing.data = detail::toFloat16(v);
+		return Packing.pack;
+	}
+
+	GLM_FUNC_DECL float unpackHalf4x16(uint64 const & v)
+	{
+		detail::half4x16 Packing;
+		Packing.pack = v;
+		return detail::toFloat32(Packing.data);
+	}
+
 	GLM_FUNC_QUALIFIER uint32 packI3x10_1x2(ivec4 const & v)
 	{
 		detail::i10i10i10i2 Result;
