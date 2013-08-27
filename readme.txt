@@ -57,6 +57,13 @@ GLM 0.9.4.6: 2013-08-XX
 --------------------------------------------------------------------------------
 - Fixed detection to select the last known compiler if newer version #106
 - Fixed is_int and is_uint code duplication with GCC and C++11 #107 
+- Fixed test suite build while using Clang in C++11 mode
+- Added c++1y mode support in CMake test suite
+- Removed ms extension mode to CMake when no using Visual C++
+- Added pedantic mode to CMake test suite for Clang and GCC
+- Added use of GCC frontend on Unix for ICC and Visual C++ fronted on Windows 
+  for ICC
+- Added compilation errors for unsupported compiler versions
 
 ================================================================================
 GLM 0.9.4.5: 2013-08-12
