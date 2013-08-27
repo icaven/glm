@@ -22,7 +22,7 @@
 ///
 /// @ref core
 /// @file glm/core/type_vec2.hpp
-/// @date 2008-08-18 / 2011-06-15
+/// @date 2008-08-18 / 2013-08-27
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -54,11 +54,10 @@ namespace detail
 		union {value_type x, r, s;};
 		union {value_type y, g, t;};
 
-#		if(defined(GLM_SWIZZLE))
-			// Defines all he swizzle operator as functions
+#		ifdef GLM_SWIZZLE
 			GLM_SWIZZLE_GEN_REF_FROM_VEC2(value_type, P, detail::tvec2, detail::tref2)
 			GLM_SWIZZLE_GEN_VEC_FROM_VEC2(value_type, P, detail::tvec2, detail::tvec2, detail::tvec3, detail::tvec4)
-#		endif//(defined(GLM_SWIZZLE))
+#		endif//GLM_SWIZZLE
 
 		//////////////////////////////////////
 		// Accesses
