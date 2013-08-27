@@ -170,15 +170,7 @@ namespace findMSB
 		{0x08000000, 27},
 		{0x10000000, 28},
 		{0x20000000, 29},
-		{0x40000000, 30},
-		{0x80000000, 30},
-		{0xffffffff, -1},
-		{0xfffffffe,  0},
-		{0xfffffffd,  1},
-		{0xfffffffc,  1},
-		{0xfffffffb,  2},
-		{0xfffffffa,  2},
-		{0xfffffff0,  3}
+		{0x40000000, 30}
 	};
 
 	int test()
@@ -209,8 +201,7 @@ namespace findLSB
 	{
 		{0x00000001,  0},
         {0x00000003,  0},
-        {0x00000002,  1},
-        {0x80000000, 31}
+        {0x00000002,  1}
 	};
     
 	int test()

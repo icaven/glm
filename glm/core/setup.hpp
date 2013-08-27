@@ -112,6 +112,17 @@
 
 #define GLM_COMPILER_UNKNOWN		0x00000000
 
+// Intel
+#define GLM_COMPILER_INTEL			0x00100000
+#define GLM_COMPILER_INTEL9			0x00100010
+#define GLM_COMPILER_INTEL10_0		0x00100020
+#define GLM_COMPILER_INTEL10_1		0x00100030
+#define GLM_COMPILER_INTEL11_0		0x00100040
+#define GLM_COMPILER_INTEL11_1		0x00100050
+#define GLM_COMPILER_INTEL12_0		0x00100060
+#define GLM_COMPILER_INTEL12_1		0x00100070
+#define GLM_COMPILER_INTEL13_0		0x00100080
+
 // Visual C++ defines
 #define GLM_COMPILER_VC				0x01000000
 #define GLM_COMPILER_VC2			0x01000010
@@ -145,8 +156,6 @@
 #define GLM_COMPILER_GCC46			0x020000D0
 #define GLM_COMPILER_GCC47			0x020000E0
 #define GLM_COMPILER_GCC48			0x020000F0
-#define GLM_COMPILER_GCC49			0x02000100
-#define GLM_COMPILER_GCC50			0x02000200
 
 // G++ command line to display defined
 // echo "" | g++ -E -dM -x c++ - | sort
@@ -189,17 +198,6 @@
 // LLVM GCC
 #define GLM_COMPILER_LLVM_GCC		0x40000000
 
-// Intel
-#define GLM_COMPILER_INTEL			0x80000000
-#define GLM_COMPILER_INTEL9			0x80000010
-#define GLM_COMPILER_INTEL10_0		0x80000020
-#define GLM_COMPILER_INTEL10_1		0x80000030
-#define GLM_COMPILER_INTEL11_0		0x80000040
-#define GLM_COMPILER_INTEL11_1		0x80000050
-#define GLM_COMPILER_INTEL12_0		0x80000060
-#define GLM_COMPILER_INTEL12_1		0x80000070
-#define GLM_COMPILER_INTEL13_0		0x80000080
-
 // Build model
 #define GLM_MODEL_32				0x00000010
 #define GLM_MODEL_64				0x00000020
@@ -239,18 +237,8 @@
 
 // Visual C++
 #elif defined(_MSC_VER)
-#	if _MSC_VER == 900
-#		define GLM_COMPILER GLM_COMPILER_VC2
-#	elif _MSC_VER == 1000
-#		define GLM_COMPILER GLM_COMPILER_VC4
-#	elif _MSC_VER == 1100
-#		define GLM_COMPILER GLM_COMPILER_VC5
-#	elif _MSC_VER == 1200
-#		define GLM_COMPILER GLM_COMPILER_VC6
-#	elif _MSC_VER == 1300
-#		define GLM_COMPILER GLM_COMPILER_VC2002
-#	elif _MSC_VER == 1310
-#		define GLM_COMPILER GLM_COMPILER_VC2003
+#	if _MSC_VER < 1400
+#		error "GLM requires Visual C++ 2005 or higher"
 #	elif _MSC_VER == 1400
 #		define GLM_COMPILER GLM_COMPILER_VC2005
 #	elif _MSC_VER == 1500
@@ -267,7 +255,9 @@
 
 // Clang
 #elif defined(__clang__)
-#	if(__clang_major__ == 2) && (__clang_minor__ == 6)
+#	if (__clang_major__ <= 1) || ((__clang_major__ == 2) && (__clang_minor__ < 6))
+#		error "GLM requires Clang 2.6 or higher"
+#	elif(__clang_major__ == 2) && (__clang_minor__ == 6)
 #		define GLM_COMPILER GLM_COMPILER_CLANG26
 #	elif(__clang_major__ == 2) && (__clang_minor__ == 7)
 #		define GLM_COMPILER GLM_COMPILER_CLANG27
@@ -335,17 +325,7 @@
 
 // Borland C++
 #elif defined(_BORLANDC_)
-#	if defined(VER125)
-#		define GLM_COMPILER GLM_COMPILER_BCB4
-#	elif defined(VER130)
-#		define GLM_COMPILER GLM_COMPILER_BCB5
-#	elif defined(VER140)
-#		define GLM_COMPILER GLM_COMPILER_BCB6
-#	elif defined(VER200)
-#		define GLM_COMPILER GLM_COMPILER_BCB2009
-#	else
-#		define GLM_COMPILER GLM_COMPILER_BC
-#	endif
+#	define GLM_COMPILER GLM_COMPILER_BC
 
 // Codewarrior
 #elif defined(__MWERKS__)
@@ -443,7 +423,19 @@
 #else
 #	if(__cplusplus >= 201103L)
 #		define GLM_LANG GLM_LANG_CXX11
-//  -std=c++0x or -std=gnu++0x
+#	elif((GLM_COMPILER & GLM_COMPILER_CLANG) == GLM_COMPILER_CLANG)
+#		if(GLM_PLATFORM == GLM_PLATFORM_APPLE)
+#			define GLM_DETAIL_MAJOR 1
+#		else
+#			define GLM_DETAIL_MAJOR 0
+#		endif
+#		if(__clang_major__ < (2 + GLM_DETAIL_MAJOR))
+#			define GLM_LANG GLM_LANG_CXX
+#		elif(__has_feature(cxx_auto_type))
+#			define GLM_LANG GLM_LANG_CXX0X
+#		else
+#			define GLM_LANG GLM_LANG_CXX98
+#		endif
 #	elif((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC)
 #		if defined(__GXX_EXPERIMENTAL_CXX0X__)
 #			define GLM_LANG GLM_LANG_CXX0X
