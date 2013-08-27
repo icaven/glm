@@ -54,6 +54,10 @@ namespace detail
 #	if(GLM_COMPONENT == GLM_COMPONENT_CXXMS)
 		union 
 		{
+			struct {value_type r, g, b, a;};
+			struct {value_type s, t, p, q;};
+			struct {value_type x, y, z, w;};
+			
 #			if(defined(GLM_SWIZZLE))
 				_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, x, y, z, w)
 				_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, r, g, b, a)
@@ -65,10 +69,6 @@ namespace detail
 				_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, r, g, b, a)
 				_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, s, t, p, q)
 #			endif//(defined(GLM_SWIZZLE))
-
-			struct {value_type r, g, b, a;};
-			struct {value_type s, t, p, q;};
-			struct {value_type x, y, z, w;};
 		};
 #	elif(GLM_COMPONENT == GLM_COMPONENT_CXX98)
 		union {value_type x, r, s;};

@@ -53,10 +53,28 @@ GLM 0.9.5.0: 2013-XX-XX
 - Fixed perspective with zNear == 0 (#71)
 
 ================================================================================
-GLM 0.9.4.5: 2013-06-XX
+GLM 0.9.4.6: 2013-08-XX
 --------------------------------------------------------------------------------
-- Fixed inclusion of intrinsics in "pure" mode #92 
+- Fixed detection to select the last known compiler if newer version #106
+- Fixed is_int and is_uint code duplication with GCC and C++11 #107 
+- Fixed test suite build while using Clang in C++11 mode
+- Added c++1y mode support in CMake test suite
+- Removed ms extension mode to CMake when no using Visual C++
+- Added pedantic mode to CMake test suite for Clang and GCC
+- Added use of GCC frontend on Unix for ICC and Visual C++ fronted on Windows 
+  for ICC
+- Added compilation errors for unsupported compiler versions
+
+================================================================================
+GLM 0.9.4.5: 2013-08-12
+--------------------------------------------------------------------------------
+- Fixed CUDA support
+- Fixed inclusion of intrinsics in "pure" mode #92
 - Fixed language detection on GCC when the C++0x mode isn't enabled #95
+- Fixed issue #97: register is deprecated in C++11
+- Fixed issue #96: CUDA issues
+- Added Windows CE detection #92
+- Added missing value_ptr for quaternions #99
 
 ================================================================================
 GLM 0.9.4.4: 2013-05-29
