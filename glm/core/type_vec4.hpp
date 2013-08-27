@@ -51,24 +51,22 @@ namespace detail
 		//////////////////////////////////////
 		// Data
 
-#		if(GLM_LANG & GLM_LANG_CXXMS_FLAG)
+#		if((GLM_LANG & GLM_LANG_CXXMS_FLAG) && defined(GLM_SWIZZLE))
 			union
 			{
 				struct { value_type r, g, b, a; };
 				struct { value_type s, t, p, q; };
 				struct { value_type x, y, z, w;};
 
-#				if(defined(GLM_SWIZZLE))
-					_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, x, y, z, w)
-					_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, r, g, b, a)
-					_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, s, t, p, q)
-					_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, x, y, z, w)
-					_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, r, g, b, a)
-					_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, s, t, p, q)
-					_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, x, y, z, w)
-					_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, r, g, b, a)
-					_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, s, t, p, q)
-#				endif//(defined(GLM_SWIZZLE))
+				_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, x, y, z, w)
+				_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, r, g, b, a)
+				_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, s, t, p, q)
+				_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, x, y, z, w)
+				_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, r, g, b, a)
+				_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, s, t, p, q)
+				_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, x, y, z, w)
+				_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, r, g, b, a)
+				_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, s, t, p, q)
 			};
 #		else
 			union { value_type x, r, s; };

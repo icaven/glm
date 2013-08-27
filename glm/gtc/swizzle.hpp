@@ -91,15 +91,25 @@ namespace glm
 		vecType<T, P> & v,
 		comp x, comp y, comp z, comp w);
 
-#	define static_swizzle1_const(TYPE, SIZE)											\
+#	define static_swizzle1_const_precision(TYPE, SIZE, PRECISION)						\
 		template <comp x>																\
-		GLM_FUNC_QUALIFIER TYPE swizzle(detail::tvec##SIZE<TYPE, defaultp> const & v)	\
+		GLM_FUNC_QUALIFIER TYPE swizzle(detail::tvec##SIZE<TYPE, PRECISION> const & v)	\
 		{return v[x];}											
 																
-#	define static_swizzle1_ref(TYPE, SIZE)												\
+#	define static_swizzle1_ref_precision(TYPE, SIZE, PRECISION)							\
 		template <comp x>																\
-		GLM_FUNC_QUALIFIER TYPE& swizzle(detail::tvec##SIZE<TYPE, defaultp> & v)		\
+		GLM_FUNC_QUALIFIER TYPE& swizzle(detail::tvec##SIZE<TYPE, PRECISION> & v)		\
 		{return v[x];}
+
+#	define static_swizzle1_const(TYPE, SIZE)									\
+		static_swizzle1_const_precision(TYPE, SIZE, glm::highp)					\
+		static_swizzle1_const_precision(TYPE, SIZE, glm::mediump)				\
+		static_swizzle1_const_precision(TYPE, SIZE, glm::lowp)
+
+#	define static_swizzle1_ref(TYPE, SIZE)									\
+		static_swizzle1_ref_precision(TYPE, SIZE, glm::highp)					\
+		static_swizzle1_ref_precision(TYPE, SIZE, glm::mediump)					\
+		static_swizzle1_ref_precision(TYPE, SIZE, glm::lowp)
 
 	static_swizzle1_ref(detail::float32, 2)
 	static_swizzle1_ref(detail::float32, 3)
@@ -150,24 +160,38 @@ namespace glm
 		{return TYPE(v[x], v[y], v[z], v[w]);}
 */
 
-#	define static_swizzle2_const(TYPE, SIZE)									\
+#	define static_swizzle2_const_precision(TYPE, SIZE, PRECISION)				\
 		template <comp x, comp y>												\
-		GLM_FUNC_QUALIFIER detail::tvec2<TYPE, defaultp> swizzle(				\
-			detail::tvec##SIZE<TYPE, defaultp> const & v)						\
-		{return detail::tvec2<TYPE, defaultp>(v[x], v[y]);}
+		GLM_FUNC_QUALIFIER detail::tvec2<TYPE, PRECISION> swizzle(				\
+			detail::tvec##SIZE<TYPE, PRECISION> const & v)						\
+		{return detail::tvec2<TYPE, PRECISION>(v[x], v[y]); }
+
+#	define static_swizzle3_const_precision(TYPE, SIZE, PRECISION)				\
+		template <comp x, comp y, comp z>										\
+		GLM_FUNC_QUALIFIER detail::tvec3<TYPE, PRECISION> swizzle(				\
+			detail::tvec##SIZE<TYPE, PRECISION> const & v)						\
+		{return detail::tvec3<TYPE, PRECISION>(v[x], v[y], v[z]); }
+
+#	define static_swizzle4_const_precision(TYPE, SIZE, PRECISION)				\
+		template <comp x, comp y, comp z, comp w>								\
+		GLM_FUNC_QUALIFIER detail::tvec4<TYPE, PRECISION> swizzle(				\
+			detail::tvec##SIZE<TYPE, PRECISION> const & v)						\
+		{return detail::tvec4<TYPE, PRECISION>(v[x], v[y], v[z], v[w]); }
+
+#	define static_swizzle2_const(TYPE, SIZE)									\
+		static_swizzle2_const_precision(TYPE, SIZE, glm::highp)					\
+		static_swizzle2_const_precision(TYPE, SIZE, glm::mediump)				\
+		static_swizzle2_const_precision(TYPE, SIZE, glm::lowp)
 
 #	define static_swizzle3_const(TYPE, SIZE)									\
-		template <comp x, comp y, comp z>										\
-		GLM_FUNC_QUALIFIER detail::tvec3<TYPE, defaultp> swizzle(				\
-			detail::tvec##SIZE<TYPE, defaultp> const & v)						\
-		{return detail::tvec3<TYPE, defaultp>(v[x], v[y], v[z]);}
+		static_swizzle3_const_precision(TYPE, SIZE, glm::highp)					\
+		static_swizzle3_const_precision(TYPE, SIZE, glm::mediump)				\
+		static_swizzle3_const_precision(TYPE, SIZE, glm::lowp)
 
 #	define static_swizzle4_const(TYPE, SIZE)									\
-		template <comp x, comp y, comp z, comp w>								\
-		GLM_FUNC_QUALIFIER detail::tvec4<TYPE, defaultp> swizzle(				\
-			detail::tvec##SIZE<TYPE, defaultp> const & v)						\
-		{return detail::tvec4<TYPE, defaultp>(v[x], v[y], v[z], v[w]);}
-
+		static_swizzle4_const_precision(TYPE, SIZE, glm::highp)					\
+		static_swizzle4_const_precision(TYPE, SIZE, glm::mediump)				\
+		static_swizzle4_const_precision(TYPE, SIZE, glm::lowp)
 
 	static_swizzle2_const(glm::f32, 2)
 	static_swizzle2_const(glm::f32, 3)
@@ -268,23 +292,38 @@ namespace glm
 	static_swizzle4_const(glm::u64, 3)
 	static_swizzle4_const(glm::u64, 4)
 
-#	define static_swizzle2_ref(TYPE, SIZE)									\
-		template <glm::comp x, glm::comp y>									\
-		GLM_FUNC_QUALIFIER glm::detail::tref2<TYPE, defaultp> swizzle(		\
-			detail::tvec##SIZE<TYPE, defaultp> & v)							\
-		{return glm::detail::tref2<TYPE, defaultp>(v[x], v[y]);}	
+#	define static_swizzle2_ref_precision(TYPE, SIZE, PRECISION)					\
+		template <glm::comp x, glm::comp y>										\
+		GLM_FUNC_QUALIFIER glm::detail::tref2<TYPE, PRECISION> swizzle(			\
+			detail::tvec##SIZE<TYPE, PRECISION> & v)							\
+		{return glm::detail::tref2<TYPE, PRECISION>(v[x], v[y]); }
 
-#	define static_swizzle3_ref(TYPE, SIZE)									\
-		template <glm::comp x, glm::comp y, glm::comp z>					\
-		GLM_FUNC_QUALIFIER glm::detail::tref3<TYPE, defaultp> swizzle(		\
-			detail::tvec##SIZE<TYPE, defaultp> & v)							\
-		{return glm::detail::tref3<TYPE, defaultp>(v[x], v[y], v[z]);}	
+#	define static_swizzle3_ref_precision(TYPE, SIZE, PRECISION)					\
+		template <glm::comp x, glm::comp y, glm::comp z>						\
+		GLM_FUNC_QUALIFIER glm::detail::tref3<TYPE, PRECISION> swizzle(			\
+			detail::tvec##SIZE<TYPE, PRECISION> & v)							\
+		{return glm::detail::tref3<TYPE, PRECISION>(v[x], v[y], v[z]); }
 
-#	define static_swizzle4_ref(TYPE, SIZE)									\
-		template <glm::comp x, glm::comp y, glm::comp z, glm::comp w>		\
-		GLM_FUNC_QUALIFIER glm::detail::tref4<TYPE, defaultp> swizzle(		\
-			detail::tvec##SIZE<TYPE, defaultp> & v)							\
-		{return glm::detail::tref4<TYPE, defaultp>(v[x], v[y], v[z], v[w]);}	
+#	define static_swizzle4_ref_precision(TYPE, SIZE, PRECISION)					\
+		template <glm::comp x, glm::comp y, glm::comp z, glm::comp w>			\
+		GLM_FUNC_QUALIFIER glm::detail::tref4<TYPE, PRECISION> swizzle(			\
+			detail::tvec##SIZE<TYPE, PRECISION> & v)							\
+		{return glm::detail::tref4<TYPE, PRECISION>(v[x], v[y], v[z], v[w]); }
+
+#	define static_swizzle2_ref(TYPE, SIZE)										\
+		static_swizzle2_ref_precision(TYPE, SIZE, glm::highp)					\
+		static_swizzle2_ref_precision(TYPE, SIZE, glm::mediump)					\
+		static_swizzle2_ref_precision(TYPE, SIZE, glm::lowp)
+
+#	define static_swizzle3_ref(TYPE, SIZE)										\
+		static_swizzle3_ref_precision(TYPE, SIZE, glm::highp)					\
+		static_swizzle3_ref_precision(TYPE, SIZE, glm::mediump)					\
+		static_swizzle3_ref_precision(TYPE, SIZE, glm::lowp)
+
+#	define static_swizzle4_ref(TYPE, SIZE)										\
+		static_swizzle4_ref_precision(TYPE, SIZE, glm::highp)					\
+		static_swizzle4_ref_precision(TYPE, SIZE, glm::mediump)					\
+		static_swizzle4_ref_precision(TYPE, SIZE, glm::lowp)
 
 	static_swizzle2_ref(glm::f32, 2)
 	static_swizzle2_ref(glm::f32, 3)
