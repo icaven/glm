@@ -51,13 +51,34 @@ namespace detail
 		//////////////////////////////////////
 		// Data
 
-		union {value_type x, r, s;};
-		union {value_type y, g, t;};
+#		if(GLM_LANG & GLM_LANG_CXXMS_FLAG)
+			union
+			{
+				struct{ value_type x, y; };
+				struct{ value_type r, g; };
+				struct{ value_type s, t; };
 
-#		ifdef GLM_SWIZZLE
-			GLM_SWIZZLE_GEN_REF_FROM_VEC2(value_type, P, detail::tvec2, detail::tref2)
-			GLM_SWIZZLE_GEN_VEC_FROM_VEC2(value_type, P, detail::tvec2, detail::tvec2, detail::tvec3, detail::tvec4)
-#		endif//GLM_SWIZZLE
+#				if(defined(GLM_SWIZZLE))
+					_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, x, y)
+					_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, r, g)
+					_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, s, t)
+					_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, x, y)
+					_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, r, g)
+					_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, s, t)
+					_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, x, y)
+					_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, r, g)
+					_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, s, t)
+#				endif//(defined(GLM_SWIZZLE))
+			};
+#		else
+			union {value_type x, r, s;};
+			union {value_type y, g, t;};
+
+#			if(defined(GLM_SWIZZLE))
+				GLM_SWIZZLE_GEN_REF_FROM_VEC2(value_type, P, detail::tvec2, detail::tref2)
+				GLM_SWIZZLE_GEN_VEC_FROM_VEC2(value_type, P, detail::tvec2, detail::tvec2, detail::tvec3, detail::tvec4)
+#			endif//(defined(GLM_SWIZZLE))
+#		endif//GLM_LANG
 
 		//////////////////////////////////////
 		// Accesses

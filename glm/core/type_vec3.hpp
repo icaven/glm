@@ -51,14 +51,35 @@ namespace detail
 		//////////////////////////////////////
 		// Data
 
-		union {value_type x, r, s;};
-		union {value_type y, g, t;};
-		union {value_type z, b, p;};
+#		if(GLM_LANG & GLM_LANG_CXXMS_FLAG)
+			union
+			{
+				struct{ value_type x, y, z; };
+				struct{ value_type r, g, b; };
+				struct{ value_type s, t, p; };
 
-#		if(defined(GLM_SWIZZLE))
-			GLM_SWIZZLE_GEN_REF_FROM_VEC3(T, P, detail::tvec3, detail::tref2, detail::tref3)
-			GLM_SWIZZLE_GEN_VEC_FROM_VEC3(T, P, detail::tvec3, detail::tvec2, detail::tvec3, detail::tvec4)
-#		endif//(defined(GLM_SWIZZLE))
+#				if(defined(GLM_SWIZZLE))
+					_GLM_SWIZZLE3_2_MEMBERS(T, P, tvec2, x, y, z)
+					_GLM_SWIZZLE3_2_MEMBERS(T, P, tvec2, r, g, b)
+					_GLM_SWIZZLE3_2_MEMBERS(T, P, tvec2, s, t, p)
+					_GLM_SWIZZLE3_3_MEMBERS(T, P, tvec3, x, y, z)
+					_GLM_SWIZZLE3_3_MEMBERS(T, P, tvec3, r, g, b)
+					_GLM_SWIZZLE3_3_MEMBERS(T, P, tvec3, s, t, p)
+					_GLM_SWIZZLE3_4_MEMBERS(T, P, tvec4, x, y, z)
+					_GLM_SWIZZLE3_4_MEMBERS(T, P, tvec4, r, g, b)
+					_GLM_SWIZZLE3_4_MEMBERS(T, P, tvec4, s, t, p)
+#				endif//(defined(GLM_SWIZZLE))
+			};
+#		else
+			union { value_type x, r, s; };
+			union { value_type y, g, t; };
+			union { value_type z, b, p; };
+
+#			if(defined(GLM_SWIZZLE))
+				GLM_SWIZZLE_GEN_REF_FROM_VEC3(T, P, detail::tvec3, detail::tref2, detail::tref3)
+				GLM_SWIZZLE_GEN_VEC_FROM_VEC3(T, P, detail::tvec3, detail::tvec2, detail::tvec3, detail::tvec4)
+#			endif//(defined(GLM_SWIZZLE))
+#		endif//GLM_LANG
 
 		//////////////////////////////////////
 		// Accesses
