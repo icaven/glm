@@ -51,26 +51,6 @@ namespace detail
 		//////////////////////////////////////
 		// Data
 
-#	if(GLM_COMPONENT == GLM_COMPONENT_CXXMS)
-		union 
-		{
-			struct {value_type r, g, b, a;};
-			struct {value_type s, t, p, q;};
-			struct {value_type x, y, z, w;};
-			
-#			if(defined(GLM_SWIZZLE))
-				_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, x, y, z, w)
-				_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, r, g, b, a)
-				_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, s, t, p, q)
-				_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, x, y, z, w)
-				_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, r, g, b, a)
-				_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, s, t, p, q)
-				_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, x, y, z, w)
-				_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, r, g, b, a)
-				_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, s, t, p, q)
-#			endif//(defined(GLM_SWIZZLE))
-		};
-#	elif(GLM_COMPONENT == GLM_COMPONENT_CXX98)
 		union {value_type x, r, s;};
 		union {value_type y, g, t;};
 		union {value_type z, b, p;};
@@ -81,15 +61,6 @@ namespace detail
 			GLM_SWIZZLE_GEN_REF_FROM_VEC4(T, P, detail::tvec4, detail::tref2, detail::tref3, detail::tref4)
 			GLM_SWIZZLE_GEN_VEC_FROM_VEC4(T, P, detail::tvec4, detail::tvec2, detail::tvec3, detail::tvec4)
 #		endif//(defined(GLM_SWIZZLE))
-#	else //(GLM_COMPONENT == GLM_COMPONENT_ONLY_XYZW)
-		value_type x, y, z, w;
-
-#		if(defined(GLM_SWIZZLE))
-			// Defines all he swizzle operator as functions
-			GLM_SWIZZLE_GEN_REF_FROM_VEC4_COMP(T, P, detail::tvec4, detail::tref2, detail::tref3, detail::tref4, x, y, z, w)
-			GLM_SWIZZLE_GEN_VEC_FROM_VEC4_COMP(T, P, detail::tvec4, detail::tvec2, detail::tvec3, detail::tvec4, x, y, z, w)
-#		endif//(defined(GLM_SWIZZLE))
-#	endif//GLM_COMPONENT
 
 		//////////////////////////////////////
 		// Accesses
