@@ -51,6 +51,7 @@ GLM 0.9.5.0: 2013-XX-XX
 - Removed GTX_ocl_type extension
 - Fixed post increment and decrement operators
 - Fixed perspective with zNear == 0 (#71)
+- Removed l-value swizzle operators
 
 ================================================================================
 GLM 0.9.4.6: 2013-08-XX

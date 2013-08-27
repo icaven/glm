@@ -393,7 +393,6 @@ namespace glm
 	static_swizzle4_ref(glm::u16, 4)
 	static_swizzle4_ref(glm::u32, 4)
 	static_swizzle4_ref(glm::u64, 4)
-
 	/// @}
 }//namespace glm
 
