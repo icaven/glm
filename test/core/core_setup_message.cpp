@@ -51,6 +51,9 @@ int test_compiler()
 		case GLM_COMPILER_VC2012:
 			std::cout << "GLM_COMPILER_VC2012" << std::endl;	
 			break;
+		case GLM_COMPILER_VC2013:
+			std::cout << "GLM_COMPILER_VC2013" << std::endl;
+			break;
 		default:
 			std::cout << "Visual C++ version not detected" << std::endl;
 			Error += 1;
@@ -108,6 +111,9 @@ int test_compiler()
 		case GLM_COMPILER_GCC48:
 			std::cout << "GLM_COMPILER_GCC48" << std::endl;	
 			break;
+		case GLM_COMPILER_GCC49:
+			std::cout << "GLM_COMPILER_GCC49" << std::endl;
+			break;
 		default:
 			std::cout << "GCC version not detected" << std::endl;
 			Error += 1;
@@ -117,26 +123,6 @@ int test_compiler()
 	else if(GLM_COMPILER & GLM_COMPILER_BC)
 	{
 		std::cout << "GLM_COMPILER_BC" << std::endl;	
-
-		switch(GLM_COMPILER)
-		{
-		case GLM_COMPILER_BCB4:
-			std::cout << "GLM_COMPILER_BCB4" << std::endl;	
-			break;
-		case GLM_COMPILER_BCB5:
-			std::cout << "GLM_COMPILER_BCB5" << std::endl;	
-			break;
-		case GLM_COMPILER_BCB6:
-			std::cout << "GLM_COMPILER_BCB6" << std::endl;	
-			break;
-		case GLM_COMPILER_BCB2009:
-			std::cout << "GLM_COMPILER_BCB2009" << std::endl;	
-			break;
-		default:
-			std::cout << "Borland C++ version not detected" << std::endl;
-			Error += 1;
-			break;
-		}
 	}
 	else if(GLM_COMPILER & GLM_COMPILER_CODEWARRIOR)
 	{
