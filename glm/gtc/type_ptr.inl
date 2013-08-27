@@ -286,21 +286,10 @@ namespace glm
 
 	//! Return the address to the data of the matrix input.
 	/// @see gtc_type_ptr
-	template<typename T>
-	GLM_FUNC_QUALIFIER T * value_ptr(detail::tmat4x3<T> & mat)
+	template<typename T, precision P>
+	GLM_FUNC_QUALIFIER T * value_ptr(detail::tmat4x3<T, P> & mat)
 	{
 		return &(mat[0].x);
-	}
-    
-	/// Return the constant address to the data of the quaternion input.
-	/// @see gtc_type_ptr
-	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER T * value_ptr
-	(
-		detail::tquat<T, P> & q
-	)
-	{
-		return &(q[0]);
 	}
 
 	//! Return the constant address to the data of the input parameter.
@@ -316,10 +305,10 @@ namespace glm
     
 	//! Return the address to the data of the quaternion input.
 	/// @see gtc_type_ptr
-	template<typename T>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T * value_ptr
 	(
-        detail::tquat<T> & q
+        detail::tquat<T, P> & q
     )
 	{
 		return &(q[0]);
