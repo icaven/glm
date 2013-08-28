@@ -41,6 +41,8 @@
 #ifndef GLM_CORE_func_vector_relational
 #define GLM_CORE_func_vector_relational GLM_VERSION
 
+#if !((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER <= GLM_COMPILER_VC10)) // Workaround a Visual C++ bug
+
 namespace glm
 {
 	/// @addtogroup core_func_vector_relational
@@ -130,6 +132,8 @@ namespace glm
 
 	/// @}
 }//namespace glm
+
+#endif
 
 #include "func_vector_relational.inl"
 
