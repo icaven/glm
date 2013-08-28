@@ -2,7 +2,7 @@
 // OpenGL Mathematics Copyright (c) 2005 - 2013 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2011-05-31
-// Updated : 2011-05-31
+// Updated : 2013-08-27
 // Licence : This source is under MIT License
 // File    : test/core/setup_message.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -21,35 +21,20 @@ int test_compiler()
 
 		switch(GLM_COMPILER)
 		{
-		case GLM_COMPILER_VC2:
-			std::cout << "GLM_COMPILER_VC2" << std::endl;	
+		case GLM_COMPILER_VC8:
+			std::cout << "GLM_COMPILER_VC8" << std::endl;	
 			break;
-		case GLM_COMPILER_VC4:
-			std::cout << "GLM_COMPILER_VC4" << std::endl;	
+		case GLM_COMPILER_VC9:
+			std::cout << "GLM_COMPILER_VC9" << std::endl;	
 			break;
-		case GLM_COMPILER_VC5:
-			std::cout << "GLM_COMPILER_VC5" << std::endl;	
+		case GLM_COMPILER_VC10:
+			std::cout << "GLM_COMPILER_VC10" << std::endl;	
 			break;
-		case GLM_COMPILER_VC6:
-			std::cout << "GLM_COMPILER_VC6" << std::endl;	
+		case GLM_COMPILER_VC11:
+			std::cout << "GLM_COMPILER_VC11" << std::endl;	
 			break;
-		case GLM_COMPILER_VC2002:
-			std::cout << "GLM_COMPILER_VC2002" << std::endl;	
-			break;
-		case GLM_COMPILER_VC2003:
-			std::cout << "GLM_COMPILER_VC2003" << std::endl;	
-			break;
-		case GLM_COMPILER_VC2005:
-			std::cout << "GLM_COMPILER_VC2005" << std::endl;	
-			break;
-		case GLM_COMPILER_VC2008:
-			std::cout << "GLM_COMPILER_VC2008" << std::endl;	
-			break;
-		case GLM_COMPILER_VC2010:
-			std::cout << "GLM_COMPILER_VC2010" << std::endl;	
-			break;
-		case GLM_COMPILER_VC2012:
-			std::cout << "GLM_COMPILER_VC2012" << std::endl;	
+		case GLM_COMPILER_VC12:
+			std::cout << "GLM_COMPILER_VC12" << std::endl;
 			break;
 		default:
 			std::cout << "Visual C++ version not detected" << std::endl;
@@ -63,18 +48,6 @@ int test_compiler()
 
 		switch(GLM_COMPILER)
 		{
-		case GLM_COMPILER_GCC30:
-			std::cout << "GLM_COMPILER_GCC30" << std::endl;	
-			break;
-		case GLM_COMPILER_GCC31:
-			std::cout << "GLM_COMPILER_GCC31" << std::endl;	
-			break;
-		case GLM_COMPILER_GCC32:
-			std::cout << "GLM_COMPILER_GCC32" << std::endl;	
-			break;
-		case GLM_COMPILER_GCC33:
-			std::cout << "GLM_COMPILER_GCC33" << std::endl;	
-			break;
 		case GLM_COMPILER_GCC34:
 			std::cout << "GLM_COMPILER_GCC34" << std::endl;	
 			break;
@@ -108,6 +81,9 @@ int test_compiler()
 		case GLM_COMPILER_GCC48:
 			std::cout << "GLM_COMPILER_GCC48" << std::endl;	
 			break;
+		case GLM_COMPILER_GCC49:
+			std::cout << "GLM_COMPILER_GCC49" << std::endl;
+			break;
 		default:
 			std::cout << "GCC version not detected" << std::endl;
 			Error += 1;
@@ -117,26 +93,6 @@ int test_compiler()
 	else if(GLM_COMPILER & GLM_COMPILER_BC)
 	{
 		std::cout << "GLM_COMPILER_BC" << std::endl;	
-
-		switch(GLM_COMPILER)
-		{
-		case GLM_COMPILER_BCB4:
-			std::cout << "GLM_COMPILER_BCB4" << std::endl;	
-			break;
-		case GLM_COMPILER_BCB5:
-			std::cout << "GLM_COMPILER_BCB5" << std::endl;	
-			break;
-		case GLM_COMPILER_BCB6:
-			std::cout << "GLM_COMPILER_BCB6" << std::endl;	
-			break;
-		case GLM_COMPILER_BCB2009:
-			std::cout << "GLM_COMPILER_BCB2009" << std::endl;	
-			break;
-		default:
-			std::cout << "Borland C++ version not detected" << std::endl;
-			Error += 1;
-			break;
-		}
 	}
 	else if(GLM_COMPILER & GLM_COMPILER_CODEWARRIOR)
 	{
