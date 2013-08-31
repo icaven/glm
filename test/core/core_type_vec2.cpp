@@ -230,7 +230,7 @@ int test_operator_increment()
 	glm::ivec2 v3 = ++v1;
 	glm::ivec2 v4 = v2++;
 
-	Error += glm::all(glm::equal(v0, v4)) ? 0 : 1;
+ 	Error += glm::all(glm::equal(v0, v4)) ? 0 : 1;
 	Error += glm::all(glm::equal(v1, v2)) ? 0 : 1;
 	Error += glm::all(glm::equal(v1, v3)) ? 0 : 1;
 
