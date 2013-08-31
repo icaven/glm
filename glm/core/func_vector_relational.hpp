@@ -54,8 +54,9 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/lessThan.xml">GLSL lessThan man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7 Vector Relational Functions</a>
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL typename vecType<T, P>::bool_type lessThan(vecType<T, P> const & x, vecType<T, P> const & y);
+	// TODO: Mismatched 
+	//template <typename T, precision P, template <typename, precision> class vecType>
+	//GLM_FUNC_DECL typename vecType<T, P>::bool_type lessThan(vecType<T, P> const & x, vecType<T, P> const & y);
 
 	/// Returns the component-wise comparison of result x <= y.
 	///
@@ -90,8 +91,9 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/equal.xml">GLSL equal man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.7 Vector Relational Functions</a>
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL typename vecType<T, P>::bool_type equal(vecType<T, P> const & x, vecType<T, P> const & y);
+	//TODO: conflicts with definision
+	//template <typename T, precision P, template <typename, precision> class vecType>
+	//GLM_FUNC_DECL typename vecType<T, P>::bool_type equal(vecType<T, P> const & x, vecType<T, P> const & y);
 
 	/// Returns the component-wise comparison of result x != y.
 	/// 

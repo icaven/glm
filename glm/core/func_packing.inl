@@ -40,9 +40,7 @@ namespace glm
 		uint32 Mask16((1 << 16) - 1);
 		uint32 A((p >>  0) & Mask16);
 		uint32 B((p >> 16) & Mask16);
-		return vec2(
-			A * 1.0f / 65535.0f,
-			B * 1.0f / 65535.0f);
+		return vec2(A, B) * float(1.5259021896696421759365224689097e-5); // 1.0 / 65535.0
 	}
 	
 	GLM_FUNC_QUALIFIER uint32 packSnorm2x16(vec2 const & v)
@@ -53,9 +51,9 @@ namespace glm
 			uint16 u;
 		} A, B;
 		
-		vec2 Unpack = clamp(v ,-1.0f, 1.0f) * 32767.0f;
-		A.i = detail::int16(round(Unpack.x));
-		B.i = detail::int16(round(Unpack.y));
+		vec2 Unpack = round(clamp(v ,-1.0f, 1.0f) * 32767.0f);
+		A.i = detail::int16(Unpack.x);
+		B.i = detail::int16(Unpack.y);
 		uint32 Pack = (uint32(B.u) << 16) | (uint32(A.u) << 0);
 		return Pack;
 	}

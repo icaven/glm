@@ -791,27 +791,27 @@ int test_half()
 {
     int Error = 0;
 
-    print_value(0.0);
-    print_value(0.1);
-    print_value(0.2);
-    print_value(0.3);
-    print_value(0.4);
-    print_value(0.5);
-    print_value(0.6);
-    print_value(1.0);
-    print_value(1.1);
-    print_value(1.2);
-    print_value(1.3);
-    print_value(1.4);
-    print_value(1.5);
-    print_value(1.6);
-    print_value(2.0);
-    print_value(2.1);
-    print_value(2.2);
-    print_value(2.3);
-    print_value(2.4);
-    print_value(2.5);
-    print_value(2.6);
+    print_value(0.0f);
+    print_value(0.1f);
+    print_value(0.2f);
+    print_value(0.3f);
+    print_value(0.4f);
+    print_value(0.5f);
+    print_value(0.6f);
+    print_value(1.0f);
+    print_value(1.1f);
+    print_value(1.2f);
+    print_value(1.3f);
+    print_value(1.4f);
+    print_value(1.5f);
+    print_value(1.6f);
+    print_value(2.0f);
+    print_value(2.1f);
+    print_value(2.2f);
+    print_value(2.3f);
+    print_value(2.4f);
+    print_value(2.5f);
+    print_value(2.6f);
     
     return Error;
 }
