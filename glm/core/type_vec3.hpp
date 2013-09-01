@@ -90,6 +90,8 @@ namespace detail
 
 		GLM_FUNC_DECL tvec3();
 		GLM_FUNC_DECL tvec3(tvec3<T, P> const & v);
+		template <precision Q>
+		GLM_FUNC_DECL tvec3(tvec3<T, Q> const & v);
 
 		//////////////////////////////////////
 		// Explicit basic constructors
@@ -104,7 +106,7 @@ namespace detail
 			value_type const & s3);
 
 		//////////////////////////////////////
-		// Convertion scalar constructors
+		// Conversion scalar constructors
 
 		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U>
@@ -118,7 +120,7 @@ namespace detail
 			W const & z);			
 
 		//////////////////////////////////////
-		// Convertion vector constructors
+		// Conversion vector constructors
 
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename A, typename B, precision Q>

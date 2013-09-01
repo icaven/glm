@@ -65,6 +65,8 @@ namespace detail
 		// Constructors
 		GLM_FUNC_DECL tmat3x3();
 		GLM_FUNC_DECL tmat3x3(tmat3x3<T, P> const & m);
+		template <precision Q>
+		GLM_FUNC_DECL tmat3x3(tmat3x3<T, Q> const & m);
 
 		GLM_FUNC_DECL explicit tmat3x3(
 			ctor Null);

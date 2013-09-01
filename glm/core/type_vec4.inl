@@ -72,14 +72,19 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
 	(
-		ctor
-	)
+		type const & v
+	) :
+		x(v.x),
+		y(v.y),
+		z(v.z),
+		w(v.w)
 	{}
 
 	template <typename T, precision P>
+	template <precision Q>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
 	(
-		type const & v
+		tvec4<T, Q> const & v
 	) :
 		x(v.x),
 		y(v.y),
@@ -89,6 +94,13 @@ namespace detail
 
 	//////////////////////////////////////
 	// Explicit basic constructors
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
+	(
+		ctor
+	)
+	{}
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
@@ -237,8 +249,8 @@ namespace detail
 	{}
 
 	//////////////////////////////////////
-	// Convertion scalar constructors
-		
+	// Conversion scalar constructors
+
 	template <typename T, precision P>
 	template <typename U>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
@@ -266,8 +278,20 @@ namespace detail
 		w(value_type(w))
 	{}
 
+	template <typename T, precision P>
+	template <typename U, precision Q>
+	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
+		(
+		tvec4<U, Q> const & v
+		) :
+		x(value_type(v.x)),
+		y(value_type(v.y)),
+		z(value_type(v.z)),
+		w(value_type(v.w))
+	{}
+
 	//////////////////////////////////////
-	// Convertion vector constructors
+	// Conversion vector constructors
 
 	template <typename T, precision P>
 	template <typename A, typename B, typename C, precision Q>
@@ -350,18 +374,6 @@ namespace detail
 		w(value_type(v2.y))
 	{}
 
-	template <typename T, precision P>
-	template <typename U, precision Q>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
-	(
-		tvec4<U, Q> const & v
-	) :
-		x(value_type(v.x)),
-		y(value_type(v.y)),
-		z(value_type(v.z)),
-		w(value_type(v.w))
-	{}
-
 	//////////////////////////////////////
 	// Unary arithmetic operators
 
@@ -379,10 +391,10 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	template <typename U> 
+	template <typename U, precision Q>
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator=
 	(
-		tvec4<U, P> const & v
+		tvec4<U, Q> const & v
 	)
 	{
 		this->x = T(v.x);

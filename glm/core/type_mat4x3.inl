@@ -87,10 +87,19 @@ namespace detail
 	}
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER tmat4x3<T, P>::tmat4x3
-	(
-		tmat4x3<T, P> const & m
-	)
+	GLM_FUNC_QUALIFIER tmat4x3<T, P>::tmat4x3(
+		tmat4x3<T, P> const & m)
+	{
+		this->value[0] = m.value[0];
+		this->value[1] = m.value[1];
+		this->value[2] = m.value[2];
+		this->value[3] = m.value[3];
+	}
+
+	template <typename T, precision P>
+	template <precision Q>
+	GLM_FUNC_QUALIFIER tmat4x3<T, P>::tmat4x3(
+		tmat4x3<T, Q> const & m)
 	{
 		this->value[0] = m.value[0];
 		this->value[1] = m.value[1];
@@ -99,17 +108,12 @@ namespace detail
 	}
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER tmat4x3<T, P>::tmat4x3
-	(
-		ctor
-	)
+	GLM_FUNC_QUALIFIER tmat4x3<T, P>::tmat4x3(ctor)
 	{}
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER tmat4x3<T, P>::tmat4x3
-	(
-		value_type const & s
-	)
+	GLM_FUNC_QUALIFIER tmat4x3<T, P>::tmat4x3(
+		value_type const & s)
 	{
 		value_type const Zero(0);
 		this->value[0] = col_type(s, Zero, Zero);
@@ -149,7 +153,7 @@ namespace detail
 	}
 
 	//////////////////////////////////////
-	// Convertion constructors
+	// Conversion constructors
 	template <typename T, precision P> 
 	template <typename U> 
 	GLM_FUNC_DECL tmat4x3<T, P>::tmat4x3

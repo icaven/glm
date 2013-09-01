@@ -89,6 +89,8 @@ namespace detail
 
 		GLM_FUNC_DECL tvec2();
 		GLM_FUNC_DECL tvec2(tvec2<T, P> const & v);
+		template <precision Q>
+		GLM_FUNC_DECL tvec2(tvec2<T, Q> const & v);
 
 		//////////////////////////////////////
 		// Explicit basic constructors
@@ -113,7 +115,7 @@ namespace detail
 		}
 
 		//////////////////////////////////////
-		// Convertion constructors
+		// Conversion constructors
 
 		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U>
@@ -126,7 +128,7 @@ namespace detail
 			V const & y);
 
 		//////////////////////////////////////
-		// Convertion vector constructors
+		// Conversion vector constructors
 
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U, precision Q>

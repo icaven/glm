@@ -91,6 +91,8 @@ namespace detail
 
 		GLM_FUNC_DECL tvec4();
 		GLM_FUNC_DECL tvec4(type const & v);
+		template <precision Q>
+		GLM_FUNC_DECL tvec4(tvec4<T, Q> const & v);
 
 		//////////////////////////////////////
 		// Explicit basic constructors
@@ -106,22 +108,22 @@ namespace detail
 			value_type const & s3);
 
 		//////////////////////////////////////
-		// Convertion scalar constructors
+		// Conversion scalar constructors
 
-		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		/// Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U>
 		GLM_FUNC_DECL explicit tvec4(
 			U const & x);
-		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		/// Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename A, typename B, typename C, typename D>
 		GLM_FUNC_DECL explicit tvec4(
 			A const & x,
 			B const & y,
 			C const & z,
-			D const & w);			
+			D const & w);
 
 		//////////////////////////////////////
-		// Convertion vector constructors
+		// Conversion vector constructors
 
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename A, typename B, typename C, precision Q>
@@ -221,8 +223,8 @@ namespace detail
 		// Unary arithmetic operators
 
 		GLM_FUNC_DECL tvec4<T, P> & operator= (tvec4<T, P> const & v);
-		template <typename U>
-		GLM_FUNC_DECL tvec4<T, P> & operator= (tvec4<U, P> const & v);
+		template <typename U, precision Q>
+		GLM_FUNC_DECL tvec4<T, P> & operator= (tvec4<U, Q> const & v);
 
 		template <typename U>
 		GLM_FUNC_DECL tvec4<T, P> & operator+=(U const & s);

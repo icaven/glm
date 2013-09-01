@@ -92,6 +92,15 @@ namespace detail
 		this->value[1] = m.value[1];
 	}
 
+	template <typename T, precision P>
+	template <precision Q>
+	GLM_FUNC_QUALIFIER tmat2x3<T, P>::tmat2x3(
+		tmat2x3<T, Q> const & m)
+	{
+		this->value[0] = m.value[0];
+		this->value[1] = m.value[1];
+	}
+
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tmat2x3<T, P>::tmat2x3
 	(
@@ -132,7 +141,7 @@ namespace detail
 	}
 
 	//////////////////////////////////////
-	// Convertion constructors
+	// Conversion constructors
 	template <typename T, precision P>
 	template <typename U>
 	GLM_FUNC_DECL tmat2x3<T, P>::tmat2x3

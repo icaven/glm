@@ -95,6 +95,16 @@ namespace detail
 	}
 
 	template <typename T, precision P>
+	template <precision Q>
+	GLM_FUNC_QUALIFIER tmat3x4<T, P>::tmat3x4(
+		tmat3x4<T, Q> const & m)
+	{
+		this->value[0] = m.value[0];
+		this->value[1] = m.value[1];
+		this->value[2] = m.value[2];
+	}
+
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat3x4<T, P>::tmat3x4
 	(
 		ctor
@@ -140,7 +150,7 @@ namespace detail
 	}
 
 	//////////////////////////////////////
-	// Convertion constructors
+	// Conversion constructors
 	template <typename T, precision P>
 	template <typename U>
 	GLM_FUNC_DECL tmat3x4<T, P>::tmat3x4
