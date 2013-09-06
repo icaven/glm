@@ -32,25 +32,6 @@ namespace glm
 	}
 
 	template <>
-	GLM_FUNC_QUALIFIER detail::half higherMultiple
-	(
-		detail::half const & SourceH,
-		detail::half const & MultipleH
-	)
-	{
-		float Source = SourceH.toFloat();
-		float Multiple = MultipleH.toFloat();
-
-		if (Source > float(0))
-		{
-			float Tmp = Source - float(1);
-			return detail::half(Tmp + (Multiple - std::fmod(Tmp, Multiple)));
-		}
-		else
-			return detail::half(Source + std::fmod(-Source, Multiple));
-	}
-
-	template <>
 	GLM_FUNC_QUALIFIER float higherMultiple
 	(	
 		float const & Source,
@@ -100,25 +81,6 @@ namespace glm
 		{
 			genType Tmp = Source + genType(1);
 			return Tmp - Tmp % Multiple - Multiple;
-		}
-	}
-
-	template <>
-	GLM_FUNC_QUALIFIER detail::half lowerMultiple
-	(
-		detail::half const & SourceH,
-		detail::half const & MultipleH
-	)
-	{
-		float Source = SourceH.toFloat();
-		float Multiple = MultipleH.toFloat();
-
-		if (Source >= float(0))
-			return detail::half(Source - std::fmod(Source, Multiple));
-		else
-		{
-			float Tmp = Source + float(1);
-			return detail::half(Tmp - std::fmod(Tmp, Multiple) - Multiple);
 		}
 	}
 

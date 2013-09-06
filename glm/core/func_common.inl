@@ -95,12 +95,6 @@ namespace detail
 	VECTORIZE_VEC(sign)
 
 	// floor
-	template <>
-	GLM_FUNC_QUALIFIER detail::half floor<detail::half>(detail::half const & x)
-	{
-		return detail::half(::std::floor(float(x)));
-	}
-
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType floor(genType const & x)
 	{

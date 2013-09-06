@@ -65,15 +65,12 @@ namespace gtx
 	//////////////////////
 	// Float vector types 
 
-	typedef f16			f16vec1;    //!< \brief Half-precision floating-point scalar. (from GLM_GTX_number_precision extension)
 	typedef f32			f32vec1;    //!< \brief Single-precision floating-point scalar. (from GLM_GTX_number_precision extension)
 	typedef f64			f64vec1;    //!< \brief Single-precision floating-point scalar. (from GLM_GTX_number_precision extension)
 
 	//////////////////////
 	// Float matrix types 
 
-	typedef f16			f16mat1;    //!< \brief Half-precision floating-point scalar. (from GLM_GTX_number_precision extension)
-	typedef f16			f16mat1x1;	//!< \brief Half-precision floating-point scalar. (from GLM_GTX_number_precision extension)
 	typedef f32			f32mat1;	//!< \brief Single-precision floating-point scalar. (from GLM_GTX_number_precision extension)
 	typedef f32			f32mat1x1;	//!< \brief Single-precision floating-point scalar. (from GLM_GTX_number_precision extension)
 	typedef f64			f64mat1;	//!< \brief Double-precision floating-point scalar. (from GLM_GTX_number_precision extension)

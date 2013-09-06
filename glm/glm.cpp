@@ -80,7 +80,6 @@ template struct tvec2<int8, lowp>;
 template struct tvec2<int16, lowp>;
 template struct tvec2<int32, lowp>;
 template struct tvec2<int64, lowp>;
-template struct tvec2<float16, lowp>;
 template struct tvec2<float32, lowp>;
 template struct tvec2<float64, lowp>;
 
@@ -92,7 +91,6 @@ template struct tvec2<int8, mediump>;
 template struct tvec2<int16, mediump>;
 template struct tvec2<int32, mediump>;
 template struct tvec2<int64, mediump>;
-template struct tvec2<float16, mediump>;
 template struct tvec2<float32, mediump>;
 template struct tvec2<float64, mediump>;
 
@@ -104,7 +102,6 @@ template struct tvec2<int8, highp>;
 template struct tvec2<int16, highp>;
 template struct tvec2<int32, highp>;
 template struct tvec2<int64, highp>;
-template struct tvec2<float16, highp>;
 template struct tvec2<float32, highp>;
 template struct tvec2<float64, highp>;
 
@@ -117,7 +114,6 @@ template struct tvec3<int8, lowp>;
 template struct tvec3<int16, lowp>;
 template struct tvec3<int32, lowp>;
 template struct tvec3<int64, lowp>;
-template struct tvec3<float16, lowp>;
 template struct tvec3<float32, lowp>;
 template struct tvec3<float64, lowp>;
 
@@ -129,7 +125,6 @@ template struct tvec3<int8, mediump>;
 template struct tvec3<int16, mediump>;
 template struct tvec3<int32, mediump>;
 template struct tvec3<int64, mediump>;
-template struct tvec3<float16, mediump>;
 template struct tvec3<float32, mediump>;
 template struct tvec3<float64, mediump>;
 
@@ -141,7 +136,6 @@ template struct tvec3<int8, highp>;
 template struct tvec3<int16, highp>;
 template struct tvec3<int32, highp>;
 template struct tvec3<int64, highp>;
-template struct tvec3<float16, highp>;
 template struct tvec3<float32, highp>;
 template struct tvec3<float64, highp>;
 
@@ -154,7 +148,6 @@ template struct tvec4<int8, lowp>;
 template struct tvec4<int16, lowp>;
 template struct tvec4<int32, lowp>;
 template struct tvec4<int64, lowp>;
-template struct tvec4<float16, lowp>;
 template struct tvec4<float32, lowp>;
 template struct tvec4<float64, lowp>;
 
@@ -166,7 +159,6 @@ template struct tvec4<int8, mediump>;
 template struct tvec4<int16, mediump>;
 template struct tvec4<int32, mediump>;
 template struct tvec4<int64, mediump>;
-template struct tvec4<float16, mediump>;
 template struct tvec4<float32, mediump>;
 template struct tvec4<float64, mediump>;
 
@@ -178,150 +170,116 @@ template struct tvec4<int8, highp>;
 template struct tvec4<int16, highp>;
 template struct tvec4<int32, highp>;
 template struct tvec4<int64, highp>;
-template struct tvec4<float16, highp>;
 template struct tvec4<float32, highp>;
 template struct tvec4<float64, highp>;
 
 // tmat2x2 type explicit instantiation
-template struct tmat2x2<float16, lowp>;
 template struct tmat2x2<float32, lowp>;
 template struct tmat2x2<float64, lowp>;
 
-template struct tmat2x2<float16, mediump>;
 template struct tmat2x2<float32, mediump>;
 template struct tmat2x2<float64, mediump>;
 
-template struct tmat2x2<float16, highp>;
 template struct tmat2x2<float32, highp>;
 template struct tmat2x2<float64, highp>;
 
 // tmat2x3 type explicit instantiation
-template struct tmat2x3<float16, lowp>;
 template struct tmat2x3<float32, lowp>;
 template struct tmat2x3<float64, lowp>;
 
-template struct tmat2x3<float16, mediump>;
 template struct tmat2x3<float32, mediump>;
 template struct tmat2x3<float64, mediump>;
 
-template struct tmat2x3<float16, highp>;
 template struct tmat2x3<float32, highp>;
 template struct tmat2x3<float64, highp>;
 
 // tmat2x4 type explicit instantiation
-template struct tmat2x4<float16, lowp>;
 template struct tmat2x4<float32, lowp>;
 template struct tmat2x4<float64, lowp>;
 
-template struct tmat2x4<float16, mediump>;
 template struct tmat2x4<float32, mediump>;
 template struct tmat2x4<float64, mediump>;
 
-template struct tmat2x4<float16, highp>;
 template struct tmat2x4<float32, highp>;
 template struct tmat2x4<float64, highp>;
 
 // tmat3x2 type explicit instantiation
-template struct tmat3x2<float16, lowp>;
 template struct tmat3x2<float32, lowp>;
 template struct tmat3x2<float64, lowp>;
 
-template struct tmat3x2<float16, mediump>;
 template struct tmat3x2<float32, mediump>;
 template struct tmat3x2<float64, mediump>;
 
-template struct tmat3x2<float16, highp>;
 template struct tmat3x2<float32, highp>;
 template struct tmat3x2<float64, highp>;
 
 // tmat3x3 type explicit instantiation
-template struct tmat3x3<float16, lowp>;
 template struct tmat3x3<float32, lowp>;
 template struct tmat3x3<float64, lowp>;
 
-template struct tmat3x3<float16, mediump>;
 template struct tmat3x3<float32, mediump>;
 template struct tmat3x3<float64, mediump>;
 
-template struct tmat3x3<float16, highp>;
 template struct tmat3x3<float32, highp>;
 template struct tmat3x3<float64, highp>;
 
 // tmat3x4 type explicit instantiation
-template struct tmat3x4<float16, lowp>;
 template struct tmat3x4<float32, lowp>;
 template struct tmat3x4<float64, lowp>;
 
-template struct tmat3x4<float16, mediump>;
 template struct tmat3x4<float32, mediump>;
 template struct tmat3x4<float64, mediump>;
 
-template struct tmat3x4<float16, highp>;
 template struct tmat3x4<float32, highp>;
 template struct tmat3x4<float64, highp>;
 
 // tmat4x2 type explicit instantiation
-template struct tmat4x2<float16, lowp>;
 template struct tmat4x2<float32, lowp>;
 template struct tmat4x2<float64, lowp>;
 
-template struct tmat4x2<float16, mediump>;
 template struct tmat4x2<float32, mediump>;
 template struct tmat4x2<float64, mediump>;
 
-template struct tmat4x2<float16, highp>;
 template struct tmat4x2<float32, highp>;
 template struct tmat4x2<float64, highp>;
 
 // tmat4x3 type explicit instantiation
-template struct tmat4x3<float16, lowp>;
 template struct tmat4x3<float32, lowp>;
 template struct tmat4x3<float64, lowp>;
 
-template struct tmat4x3<float16, mediump>;
 template struct tmat4x3<float32, mediump>;
 template struct tmat4x3<float64, mediump>;
 
-template struct tmat4x3<float16, highp>;
 template struct tmat4x3<float32, highp>;
 template struct tmat4x3<float64, highp>;
 
 // tmat4x4 type explicit instantiation
-template struct tmat4x4<float16, lowp>;
 template struct tmat4x4<float32, lowp>;
 template struct tmat4x4<float64, lowp>;
 
-template struct tmat4x4<float16, mediump>;
 template struct tmat4x4<float32, mediump>;
 template struct tmat4x4<float64, mediump>;
 
-template struct tmat4x4<float16, highp>;
 template struct tmat4x4<float32, highp>;
 template struct tmat4x4<float64, highp>;
 
 // tquat type explicit instantiation
-template struct tquat<float16, lowp>;
 template struct tquat<float32, lowp>;
 template struct tquat<float64, lowp>;
 
-template struct tquat<float16, mediump>;
 template struct tquat<float32, mediump>;
 template struct tquat<float64, mediump>;
 
-template struct tquat<float16, highp>;
 template struct tquat<float32, highp>;
 template struct tquat<float64, highp>;
 
 //tdualquat type explicit instantiation
-template struct tdualquat<float16, lowp>;
 template struct tdualquat<float32, lowp>;
 template struct tdualquat<float64, lowp>;
 
-template struct tdualquat<float16, mediump>;
 template struct tdualquat<float32, mediump>;
 template struct tdualquat<float64, mediump>;
 
-template struct tdualquat<float16, highp>;
 template struct tdualquat<float32, highp>;
 template struct tdualquat<float64, highp>;
 

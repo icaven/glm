@@ -34,20 +34,11 @@
 namespace glm{
 namespace detail
 {
-	class half;
-	
-	typedef half				float16;
 	typedef float				float32;
 	typedef double				float64;
 }//namespace detail
-
-	typedef detail::half half;
 	
-#ifdef GLM_USE_HALF_SCALAR
-	typedef detail::half		lowp_float_t;
-#else//GLM_USE_HALF_SCALAR
 	typedef float				lowp_float_t;
-#endif//GLM_USE_HALF_SCALAR
 	typedef float				mediump_float_t;
 	typedef double				highp_float_t;
 
@@ -87,7 +78,6 @@ namespace detail
 #	error "GLM error: multiple default precision requested for floating-point types"
 #endif
 
-	typedef half				float16;
 	typedef float				float32;
 	typedef double				float64;
 
@@ -121,16 +111,9 @@ namespace detail
 	
 	////////////////////
 	// Mark half to be flaot
-	GLM_DETAIL_IS_FLOAT(half);
 	GLM_DETAIL_IS_FLOAT(float);
 	GLM_DETAIL_IS_FLOAT(double);
 	GLM_DETAIL_IS_FLOAT(long double);
-
-	template <>
-	struct float_or_int_trait<float16>
-	{
-		enum{ID = float_or_int_value::GLM_FLOAT};
-	};
 
 	template <>
 	struct float_or_int_trait<float32>

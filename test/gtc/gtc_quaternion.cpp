@@ -133,14 +133,6 @@ int test_quat_euler()
 		glm::dvec3 Angles = glm::eulerAngles(q);
 	}
 
-	{
-		glm::hquat q(glm::half(1.0f), glm::half(0.0f), glm::half(0.0f), glm::half(1.0f));
-		glm::half Roll = glm::roll(q);
-		glm::half Pitch = glm::pitch(q);
-		glm::half Yaw = glm::yaw(q);
-		glm::hvec3 Angles = glm::eulerAngles(q);
-	}
-
 	return Error;
 }
 

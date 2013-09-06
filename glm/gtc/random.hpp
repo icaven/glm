@@ -42,7 +42,6 @@
 
 // Dependency:
 #include "../glm.hpp"
-#include "../gtc/half_float.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))
 #	pragma message("GLM: GLM_GTC_random extension included")

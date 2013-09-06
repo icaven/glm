@@ -39,101 +39,11 @@ namespace detail
 	GLM_FUNC_DECL float toFloat32(hdata value);
 	GLM_FUNC_DECL hdata toFloat16(float const & value);
 
-	class half
-	{
-	public: 
-		// Constructors
-		GLM_FUNC_DECL half();
-		GLM_FUNC_DECL half(half const & s);
-			
-		template <typename U>
-		GLM_FUNC_DECL explicit half(U const & s);
-
-		// Cast
-		//template <typename U>
-		//GLM_FUNC_DECL operator U() const;
-		GLM_FUNC_DECL operator float() const;
-
-		// Unary updatable operators
-		GLM_FUNC_DECL half& operator= (half const & s);
-		GLM_FUNC_DECL half& operator+=(half const & s);
-		GLM_FUNC_DECL half& operator-=(half const & s);
-		GLM_FUNC_DECL half& operator*=(half const & s);
-		GLM_FUNC_DECL half& operator/=(half const & s);
-		GLM_FUNC_DECL half& operator++();
-		GLM_FUNC_DECL half& operator--();
-	
-		GLM_FUNC_DECL float toFloat() const{return toFloat32(data);}
-
-		GLM_FUNC_DECL hdata _data() const{return data;}
-
-	private:
-		hdata data;
-	};
-
-	GLM_FUNC_DECL half operator+ (half const & s1, half const & s2);
-
-	GLM_FUNC_DECL half operator- (half const & s1, half const & s2);
-
-	GLM_FUNC_DECL half operator* (half const & s1, half const & s2);
-
-	GLM_FUNC_DECL half operator/ (half const & s1, half const & s2);
-
-	// Unary constant operators
-	GLM_FUNC_DECL half operator- (half const & s);
-
-	GLM_FUNC_DECL half operator-- (half const & s, int);
-
-	GLM_FUNC_DECL half operator++ (half const & s, int);
-
-	GLM_FUNC_DECL bool operator==(
-		detail::half const & x, 
-		detail::half const & y);
-
-	GLM_FUNC_DECL bool operator!=(
-		detail::half const & x, 
-		detail::half const & y);
-
-	GLM_FUNC_DECL bool operator<(
-		detail::half const & x, 
-		detail::half const & y);
-
-	GLM_FUNC_DECL bool operator<=(
-		detail::half const & x, 
-		detail::half const & y);
-
-	GLM_FUNC_DECL bool operator>(
-		detail::half const & x, 
-		detail::half const & y);
-
-	GLM_FUNC_DECL bool operator>=(
-		detail::half const & x, 
-		detail::half const & y);
-
 }//namespace detail
 
-	/// Low half-precision floating-point numbers.
-	typedef detail::half		lowp_half;
-	
-	/// Medium half-precision floating-point numbers.
-	typedef detail::half		mediump_half;
-	
-	/// High half-precision floating-point numbers.
-	typedef detail::half		highp_half;
-	
-#if(defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
-	typedef highp_half			half_t;
-#elif(!defined(GLM_PRECISION_HIGHP_HALF) && defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
-	typedef mediump_half		half_t;
-#elif(!defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && defined(GLM_PRECISION_LOWP_HALF))
-	typedef lowp_half			half_t;
-#elif(!defined(GLM_PRECISION_HIGHP_HALF) && !defined(GLM_PRECISION_MEDIUMP_HALF) && !defined(GLM_PRECISION_LOWP_HALF))
-	/// Default half-precision floating-point numbers.
-	typedef highp_half			half_t;
-#else
-#	error "GLM error: Multiple default precisions requested for half-precision floating-point types"
-#endif
-	
+	/// half-precision floating-point numbers.
+	//typedef detail::hdata		half;
+		
 }//namespace glm
 
 #include "type_half.inl"

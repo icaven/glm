@@ -30,16 +30,6 @@ namespace glm
 {
 	GLM_FUNC_QUALIFIER bool epsilonEqual
 	(
-		glm::half const & x,
-		glm::half const & y,
-		glm::half const & epsilon
-	)
-	{
-		return abs(x - y) < epsilon;
-	}
-
-	GLM_FUNC_QUALIFIER bool epsilonEqual
-	(
 		float const & x,
 		float const & y,
 		float const & epsilon
@@ -56,16 +46,6 @@ namespace glm
 	)
 	{
 		return abs(x - y) < epsilon;
-	}
-
-	GLM_FUNC_QUALIFIER bool epsilonNotEqual
-	(
-		glm::half const & x,
-		glm::half const & y,
-		glm::half const & epsilon
-	)
-	{
-		return abs(x - y) >= epsilon;
 	}
 
 	GLM_FUNC_QUALIFIER bool epsilonNotEqual
