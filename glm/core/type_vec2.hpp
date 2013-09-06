@@ -22,7 +22,7 @@
 ///
 /// @ref core
 /// @file glm/core/type_vec2.hpp
-/// @date 2008-08-18 / 2011-06-15
+/// @date 2008-08-18 / 2013-08-27
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -51,43 +51,32 @@ namespace detail
 		//////////////////////////////////////
 		// Data
 
-#	if(GLM_COMPONENT == GLM_COMPONENT_CXXMS)
-		union 
-		{
-			struct{value_type x, y;};
-			struct{value_type r, g;};
-			struct{value_type s, t;};
+#		if((GLM_LANG & GLM_LANG_CXXMS_FLAG) && defined(GLM_SWIZZLE))
+			union
+			{
+				struct{ value_type x, y; };
+				struct{ value_type r, g; };
+				struct{ value_type s, t; };
 
-#           if(defined(GLM_SWIZZLE))
-                _GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, x, y)
-                _GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, r, g)
-                _GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, s, t)
-                _GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, x, y)
-                _GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, r, g)
-                _GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, s, t)
-                _GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, x, y)
-                _GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, r, g)
-                _GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, s, t)
-#           endif//(defined(GLM_SWIZZLE))
-		};
-#	elif(GLM_COMPONENT == GLM_COMPONENT_CXX98)
-		union {value_type x, r, s;};
-		union {value_type y, g, t;};
+				_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, x, y)
+				_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, r, g)
+				_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, s, t)
+				_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, x, y)
+				_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, r, g)
+				_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, s, t)
+				_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, x, y)
+				_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, r, g)
+				_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, s, t)
+			};
+#		else
+			union {value_type x, r, s;};
+			union {value_type y, g, t;};
 
-#		if(defined(GLM_SWIZZLE))
-			// Defines all he swizzle operator as functions
-			GLM_SWIZZLE_GEN_REF_FROM_VEC2(value_type, P, detail::tvec2, detail::tref2)
-			GLM_SWIZZLE_GEN_VEC_FROM_VEC2(value_type, P, detail::tvec2, detail::tvec2, detail::tvec3, detail::tvec4)
-#		endif//(defined(GLM_SWIZZLE))
-#	else //(GLM_COMPONENT == GLM_COMPONENT_ONLY_XYZW)
-		value_type x, y;
-
-#		if(defined(GLM_SWIZZLE))
-			// Defines all he swizzle operator as functions
-			GLM_SWIZZLE_GEN_REF2_FROM_VEC2_SWIZZLE(value_type, P, detail::tvec2, detail::tref2, x, y)
-			GLM_SWIZZLE_GEN_VEC_FROM_VEC2_COMP(value_type, P, detail::tvec2, detail::tvec2, detail::tvec3, detail::tvec4, x, y)
-#		endif//(defined(GLM_SWIZZLE))
-#	endif//GLM_COMPONENT
+#			if(defined(GLM_SWIZZLE))
+				//GLM_SWIZZLE_GEN_REF_FROM_VEC2(value_type, P, detail::tvec2, detail::tref2)
+				GLM_SWIZZLE_GEN_VEC_FROM_VEC2(value_type, P, detail::tvec2, detail::tvec2, detail::tvec3, detail::tvec4)
+#			endif//(defined(GLM_SWIZZLE))
+#		endif//GLM_LANG
 
 		//////////////////////////////////////
 		// Accesses
@@ -100,6 +89,8 @@ namespace detail
 
 		GLM_FUNC_DECL tvec2();
 		GLM_FUNC_DECL tvec2(tvec2<T, P> const & v);
+		template <precision Q>
+		GLM_FUNC_DECL tvec2(tvec2<T, Q> const & v);
 
 		//////////////////////////////////////
 		// Explicit basic constructors
@@ -124,7 +115,7 @@ namespace detail
 		}
 
 		//////////////////////////////////////
-		// Convertion constructors
+		// Conversion constructors
 
 		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U>
@@ -137,7 +128,7 @@ namespace detail
 			V const & y);
 
 		//////////////////////////////////////
-		// Convertion vector constructors
+		// Conversion vector constructors
 
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U, precision Q>

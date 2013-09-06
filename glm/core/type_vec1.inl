@@ -69,20 +69,29 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1
 	(
-		ctor
-	)
+		tvec1<T, P> const & v
+	) :
+		x(v.x)
 	{}
 
 	template <typename T, precision P>
+	template <precision Q>
 	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1
 	(
-		tvec1<T, P> const & v
+		tvec1<T, Q> const & v
 	) :
 		x(v.x)
 	{}
 
 	//////////////////////////////////////
 	// Explicit basic constructors
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1
+	(
+		ctor
+	)
+	{}
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1
@@ -104,7 +113,7 @@ namespace detail
 	{}
 
 	//////////////////////////////////////
-	// Convertion scalar constructors
+	// Conversion scalar constructors
 		
 	template <typename T, precision P>
 	template <typename U> 
@@ -116,7 +125,7 @@ namespace detail
 	{}
 
 	//////////////////////////////////////
-	// Convertion vector constructors
+	// Conversion vector constructors
 
 	template <typename T, precision P>
 	template <typename U, precision Q>

@@ -111,7 +111,7 @@ namespace detail
 			vec4 const & v);
 
 		////////////////////////////////////////
-		//// Convertion vector constructors
+		//// Conversion vector constructors
 
 		fvec4SIMD(vec2 const & v, float const & s1, float const & s2);
 		fvec4SIMD(float const & s1, vec2 const & v, float const & s2);

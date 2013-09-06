@@ -133,8 +133,6 @@
 
 // GCC defines
 #define GLM_COMPILER_GCC			0x02000000
-#define GLM_COMPILER_GCC_LLVM		0x02000001
-#define GLM_COMPILER_GCC_CLANG		0x02000002
 #define GLM_COMPILER_GCC34			0x02000050
 #define GLM_COMPILER_GCC35			0x02000060
 #define GLM_COMPILER_GCC40			0x02000070
@@ -589,49 +587,6 @@
 #endif//GLM_MESSAGE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// Support check macros
-
-#define GLM_SUPPORT_ANONYMOUS_UNION() \
-	(GLM_LANG & GLM_LANG_CXX98_FLAG)
-
-#define GLM_SUPPORT_ANONYMOUS_UNION_OF_STRUCTURE() \
-	((GLM_LANG & GLM_LANG_CXXMS_FLAG) && (GLM_COMPILER & GLM_COMPILER_VC))
-
-#define GLM_SUPPORT_SWIZZLE_OPERATOR() \
-	(defined(GLM_SWIZZLE) && GLM_SUPPORT_ANONYMOUS_UNION_OF_STRUCTURE())
-
-#define GLM_SUPPORT_SWIZZLE_FUNCTION() defined(GLM_SWIZZLE)
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Components
-
-//#define GLM_FORCE_ONLY_XYZW
-#define GLM_COMPONENT_ONLY_XYZW				0 // To disable multiple vector component names access.
-#define GLM_COMPONENT_CXX98					1 //  
-#define GLM_COMPONENT_CXXMS					2 // To use anonymous union to provide multiple component names access for class valType. Visual C++ only.
-
-#if(GLM_SUPPORT_ANONYMOUS_UNION_OF_STRUCTURE() && !defined(GLM_FORCE_ONLY_XYZW))
-#	define GLM_COMPONENT GLM_COMPONENT_CXXMS
-#elif(GLM_SUPPORT_ANONYMOUS_UNION() && !defined(GLM_FORCE_ONLY_XYZW))
-#	define GLM_COMPONENT GLM_COMPONENT_CXX98
-#else
-#	define GLM_COMPONENT GLM_COMPONENT_ONLY_XYZW
-#endif
-
-#if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_COMPONENT_DISPLAYED))
-#	define GLM_MESSAGE_COMPONENT_DISPLAYED
-#	if(GLM_COMPONENT == GLM_COMPONENT_CXX98)
-#		pragma message("GLM: x,y,z,w; r,g,b,a; s,t,p,q component names except of half based vector types")
-#	elif(GLM_COMPONENT == GLM_COMPONENT_ONLY_XYZW)
-#		pragma message("GLM: x,y,z,w component names for all vector types")
-#	elif(GLM_COMPONENT == GLM_COMPONENT_CXXMS)
-#		pragma message("GLM: x,y,z,w; r,g,b,a; s,t,p,q component names for all vector types")
-#	else
-#		error "GLM: GLM_COMPONENT value unknown"
-#	endif//GLM_MESSAGE_COMPONENT_DISPLAYED
-#endif//GLM_MESSAGE
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 // Radians
 
 //#define GLM_FORCE_RADIANS
@@ -693,10 +648,8 @@
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_SWIZZLE_DISPLAYED))
 #	define GLM_MESSAGE_SWIZZLE_DISPLAYED
-#	if(GLM_SUPPORT_SWIZZLE_OPERATOR())
+#	if defined(GLM_SWIZZLE)
 #		pragma message("GLM: Swizzling operators enabled")
-#	elif(GLM_SUPPORT_SWIZZLE_FUNCTION())
-#		pragma message("GLM: Swizzling operators supported through swizzling functions")
 #	else
 #		pragma message("GLM: Swizzling operators disabled")
 #	endif
@@ -719,7 +672,7 @@
 #	define GLM_RESTRICT
 #	define GLM_RESTRICT_VAR __restrict
 #	define GLM_CONSTEXPR
-#elif(((GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_LLVM_GCC)) && (GLM_COMPILER >= GLM_COMPILER_GCC31)) || (GLM_COMPILER & GLM_COMPILER_CLANG))
+#elif(((GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_LLVM_GCC)) && (GLM_COMPILER >= GLM_COMPILER_GCC34)) || (GLM_COMPILER & GLM_COMPILER_CLANG))
 #	define GLM_DEPRECATED __attribute__((__deprecated__))
 #	define GLM_ALIGN(x) __attribute__((aligned(x)))
 #	define GLM_ALIGNED_STRUCT(x) struct __attribute__((aligned(x)))

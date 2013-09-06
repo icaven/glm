@@ -304,7 +304,7 @@ namespace detail
 
 	GLM_FUNC_QUALIFIER uint8 packUnorm1x8(float const & v)
 	{
-		int8 Scaled(round(clamp(v ,-1.0f, 1.0f) * 255.0f));
+		int8 Scaled(int8(round(clamp(v, -1.0f, 1.0f) * 255.0f)));
 		detail::unorm1x8 Packing;
 		Packing.data = Scaled;
 		return Packing.pack;
@@ -337,7 +337,7 @@ namespace detail
 
 	GLM_FUNC_QUALIFIER uint8 packSnorm1x8(float const & v)
 	{
-		glm::int8 Scaled(round(clamp(v ,-1.0f, 1.0f) * 127.0f));
+		glm::int8 Scaled(int8(round(clamp(v ,-1.0f, 1.0f) * 127.0f)));
 		detail::snorm1x8 Packing;
 		Packing.data = Scaled;
 		return Packing.pack;

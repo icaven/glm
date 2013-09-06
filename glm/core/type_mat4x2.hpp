@@ -58,7 +58,9 @@ namespace detail
 	public:
 		// Constructors
 		GLM_FUNC_DECL tmat4x2();
-		GLM_FUNC_DECL tmat4x2(tmat4x2 const & m);
+		GLM_FUNC_DECL tmat4x2(tmat4x2<T, P> const & m);
+		template <precision Q>
+		GLM_FUNC_DECL tmat4x2(tmat4x2<T, Q> const & m);
 
 		GLM_FUNC_DECL explicit tmat4x2(
 			ctor Null);

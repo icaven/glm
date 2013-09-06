@@ -59,7 +59,7 @@ GLM_FUNC_QUALIFIER fvec4SIMD::fvec4SIMD(float const v[4]) :
 //fvec4SIMD(ref4<float> const & r);
 
 //////////////////////////////////////
-// Convertion vector constructors
+// Conversion vector constructors
 
 GLM_FUNC_QUALIFIER fvec4SIMD::fvec4SIMD(vec2 const & v, float const & s1, float const & s2) :
 	Data(_mm_set_ps(s2, s1, v.y, v.x))

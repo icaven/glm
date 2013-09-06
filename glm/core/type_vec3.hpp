@@ -51,14 +51,13 @@ namespace detail
 		//////////////////////////////////////
 		// Data
 
-#	if(GLM_COMPONENT == GLM_COMPONENT_CXXMS)
-		union 
-		{
-			struct{value_type x, y, z;};
-			struct{value_type r, g, b;};
-			struct{value_type s, t, p;};
+#		if((GLM_LANG & GLM_LANG_CXXMS_FLAG) && defined(GLM_SWIZZLE))
+			union
+			{
+				struct{ value_type x, y, z; };
+				struct{ value_type r, g, b; };
+				struct{ value_type s, t, p; };
 
-#			if(defined(GLM_SWIZZLE))
 				_GLM_SWIZZLE3_2_MEMBERS(T, P, tvec2, x, y, z)
 				_GLM_SWIZZLE3_2_MEMBERS(T, P, tvec2, r, g, b)
 				_GLM_SWIZZLE3_2_MEMBERS(T, P, tvec2, s, t, p)
@@ -68,27 +67,17 @@ namespace detail
 				_GLM_SWIZZLE3_4_MEMBERS(T, P, tvec4, x, y, z)
 				_GLM_SWIZZLE3_4_MEMBERS(T, P, tvec4, r, g, b)
 				_GLM_SWIZZLE3_4_MEMBERS(T, P, tvec4, s, t, p)
+			};
+#		else
+			union { value_type x, r, s; };
+			union { value_type y, g, t; };
+			union { value_type z, b, p; };
+
+#			if(defined(GLM_SWIZZLE))
+				//GLM_SWIZZLE_GEN_REF_FROM_VEC3(T, P, detail::tvec3, detail::tref2, detail::tref3)
+				GLM_SWIZZLE_GEN_VEC_FROM_VEC3(T, P, detail::tvec3, detail::tvec2, detail::tvec3, detail::tvec4)
 #			endif//(defined(GLM_SWIZZLE))
-		};
-#	elif(GLM_COMPONENT == GLM_COMPONENT_CXX98)
-		union {value_type x, r, s;};
-		union {value_type y, g, t;};
-		union {value_type z, b, p;};
-
-#		if(defined(GLM_SWIZZLE))
-			// Defines all he swizzle operator as functions
-			GLM_SWIZZLE_GEN_REF_FROM_VEC3(T, P, detail::tvec3, detail::tref2, detail::tref3)
-			GLM_SWIZZLE_GEN_VEC_FROM_VEC3(T, P, detail::tvec3, detail::tvec2, detail::tvec3, detail::tvec4)
-#		endif//(defined(GLM_SWIZZLE))
-#	else //(GLM_COMPONENT == GLM_COMPONENT_ONLY_XYZW)
-		value_type x, y, z;
-
-#		if(defined(GLM_SWIZZLE))
-			// Defines all he swizzle operator as functions
-			GLM_SWIZZLE_GEN_REF_FROM_VEC3_COMP(T, P, detail::tvec3, detail::tref2, detail::tref3, x, y, z)
-			GLM_SWIZZLE_GEN_VEC_FROM_VEC3_COMP(T, P, detail::tvec3, detail::tvec2, detail::tvec3, detail::tvec4, x, y, z)
-#		endif//(defined(GLM_SWIZZLE))
-#	endif//GLM_COMPONENT
+#		endif//GLM_LANG
 
 		//////////////////////////////////////
 		// Accesses
@@ -101,6 +90,8 @@ namespace detail
 
 		GLM_FUNC_DECL tvec3();
 		GLM_FUNC_DECL tvec3(tvec3<T, P> const & v);
+		template <precision Q>
+		GLM_FUNC_DECL tvec3(tvec3<T, Q> const & v);
 
 		//////////////////////////////////////
 		// Explicit basic constructors
@@ -115,7 +106,7 @@ namespace detail
 			value_type const & s3);
 
 		//////////////////////////////////////
-		// Convertion scalar constructors
+		// Conversion scalar constructors
 
 		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U>
@@ -129,7 +120,7 @@ namespace detail
 			W const & z);			
 
 		//////////////////////////////////////
-		// Convertion vector constructors
+		// Conversion vector constructors
 
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename A, typename B, precision Q>

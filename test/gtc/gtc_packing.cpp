@@ -31,287 +31,237 @@
 #include <cstdio>
 #include <vector>
 
-void print_bits(glm::half const & s)
-{
-    union
-    {
-        glm::detail::hdata h;
-        unsigned short i;
-    } uif;
-    
-    uif.h = s._data();
-    
-    printf("f16: ");
-    for(std::size_t j = sizeof(s) * 8; j > 0; --j)
-    {
-        if(j == 10 || j == 15)
-            printf(" ");
-        printf("%d", (uif.i & (1 << (j - 1))) ? 1 : 0);
-    }
-}
-
 void print_bits(float const & s)
 {
-    union
-    {
-        float f;
-        unsigned int i;
-    } uif;
-    
-    uif.f = s;
-    
-    printf("f32: ");
-    for(std::size_t j = sizeof(s) * 8; j > 0; --j)
-    {
-        if(j == 23 || j == 31)
-            printf(" ");
-        printf("%d", (uif.i & (1 << (j - 1))) ? 1 : 0);
-    }
+	union
+	{
+		float f;
+		unsigned int i;
+	} uif;
+
+	uif.f = s;
+
+	printf("f32: ");
+	for(std::size_t j = sizeof(s) * 8; j > 0; --j)
+	{
+		if(j == 23 || j == 31)
+			printf(" ");
+		printf("%d", (uif.i & (1 << (j - 1))) ? 1 : 0);
+	}
 }
 
 void print_10bits(glm::uint const & s)
 {
-    printf("10b: ");
-    for(std::size_t j = 10; j > 0; --j)
-    {
-        if(j == 5)
-            printf(" ");
-        printf("%d", (s & (1 << (j - 1))) ? 1 : 0);
-    }
+	printf("10b: ");
+	for(std::size_t j = 10; j > 0; --j)
+	{
+		if(j == 5)
+			printf(" ");
+		printf("%d", (s & (1 << (j - 1))) ? 1 : 0);
+	}
 }
 
 void print_11bits(glm::uint const & s)
 {
-    printf("11b: ");
-    for(std::size_t j = 11; j > 0; --j)
-    {
-        if(j == 6)
-            printf(" ");
-        printf("%d", (s & (1 << (j - 1))) ? 1 : 0);
-    }
+	printf("11b: ");
+	for(std::size_t j = 11; j > 0; --j)
+	{
+		if(j == 6)
+			printf(" ");
+		printf("%d", (s & (1 << (j - 1))) ? 1 : 0);
+	}
 }
 
 void print_value(float const & s)
 {
-    printf("%2.5f, ", s);
-    print_bits(s);
-    printf(", ");
-    print_bits(glm::half(s));
-//    printf(", ");
-//    print_11bits(detail::floatTo11bit(s));
-//    printf(", ");
-//    print_10bits(detail::floatTo10bit(s));
-    printf("\n");
-}
-
-int test_half()
-{
-    int Error = 0;
-
-    print_value(0.0f);
-    print_value(0.1f);
-    print_value(0.2f);
-    print_value(0.3f);
-    print_value(0.4f);
-    print_value(0.5f);
-    print_value(0.6f);
-    print_value(1.0f);
-    print_value(1.1f);
-    print_value(1.2f);
-    print_value(1.3f);
-    print_value(1.4f);
-    print_value(1.5f);
-    print_value(1.6f);
-    print_value(2.0f);
-    print_value(2.1f);
-    print_value(2.2f);
-    print_value(2.3f);
-    print_value(2.4f);
-    print_value(2.5f);
-    print_value(2.6f);
-    
-    return Error;
+	printf("%2.5f, ", s);
+	print_bits(s);
+	printf(", ");
+//	print_11bits(detail::floatTo11bit(s));
+//	printf(", ");
+//	print_10bits(detail::floatTo10bit(s));
+	printf("\n");
 }
 
 int test_Half1x16()
 {
-    int Error = 0;
+	int Error = 0;
 
-    std::vector<float> Tests;
-    Tests.push_back(0.0f);
-    Tests.push_back(1.0f);
-    Tests.push_back(-1.0f);
-    Tests.push_back(2.0f);
-    Tests.push_back(-2.0f);
-    Tests.push_back(1.9f);
+	std::vector<float> Tests;
+	Tests.push_back(0.0f);
+	Tests.push_back(1.0f);
+	Tests.push_back(-1.0f);
+	Tests.push_back(2.0f);
+	Tests.push_back(-2.0f);
+	Tests.push_back(1.9f);
 
-    for(std::size_t i = 0; i < Tests.size(); ++i)
-    {
-        glm::uint32 p0 = glm::packHalf1x16(Tests[i]);
-        float v0 = glm::unpackHalf1x16(p0);
-        glm::uint32 p1 = glm::packHalf1x16(v0);
-        float v1 = glm::unpackHalf1x16(p0);
-        Error += (v0 == v1) ? 0 : 1;
-    }
+	for(std::size_t i = 0; i < Tests.size(); ++i)
+	{
+		glm::uint32 p0 = glm::packHalf1x16(Tests[i]);
+		float v0 = glm::unpackHalf1x16(p0);
+		glm::uint32 p1 = glm::packHalf1x16(v0);
+		float v1 = glm::unpackHalf1x16(p0);
+		Error += (v0 == v1) ? 0 : 1;
+	}
 
-    return Error;
+	return Error;
 }
 
 int test_Half4x16()
 {
-    int Error = 0;
+	int Error = 0;
 
-    std::vector<glm::vec4> Tests;
-    Tests.push_back(glm::vec4(1.0));
-    Tests.push_back(glm::vec4(0.0));
-    Tests.push_back(glm::vec4(2.0));
-    Tests.push_back(glm::vec4(0.1));
-    Tests.push_back(glm::vec4(0.5));
-    Tests.push_back(glm::vec4(-0.9));
+	std::vector<glm::vec4> Tests;
+	Tests.push_back(glm::vec4(1.0));
+	Tests.push_back(glm::vec4(0.0));
+	Tests.push_back(glm::vec4(2.0));
+	Tests.push_back(glm::vec4(0.1));
+	Tests.push_back(glm::vec4(0.5));
+	Tests.push_back(glm::vec4(-0.9));
 
-    for(std::size_t i = 0; i < Tests.size(); ++i)
-    {
-        glm::uint64 p0 = glm::packHalf4x16(Tests[i]);
-        glm::vec4 v0 = glm::unpackHalf4x16(p0);
-        glm::uint64 p1 = glm::packHalf4x16(v0);
-        glm::vec4 v1 = glm::unpackHalf4x16(p0);
-        Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
-    }
+	for(std::size_t i = 0; i < Tests.size(); ++i)
+	{
+		glm::uint64 p0 = glm::packHalf4x16(Tests[i]);
+		glm::vec4 v0 = glm::unpackHalf4x16(p0);
+		glm::uint64 p1 = glm::packHalf4x16(v0);
+		glm::vec4 v1 = glm::unpackHalf4x16(p0);
+		Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
+	}
 
-    return Error;
+	return Error;
 }
 
 int test_I3x10_1x2()
 {
-    int Error = 0;
+	int Error = 0;
 
-    std::vector<glm::ivec4> Tests;
-    Tests.push_back(glm::ivec4(0));
-    Tests.push_back(glm::ivec4(1));
-    Tests.push_back(glm::ivec4(-1));
-    Tests.push_back(glm::ivec4(2));
-    Tests.push_back(glm::ivec4(-2));
-    Tests.push_back(glm::ivec4(3));
+	std::vector<glm::ivec4> Tests;
+	Tests.push_back(glm::ivec4(0));
+	Tests.push_back(glm::ivec4(1));
+	Tests.push_back(glm::ivec4(-1));
+	Tests.push_back(glm::ivec4(2));
+	Tests.push_back(glm::ivec4(-2));
+	Tests.push_back(glm::ivec4(3));
 
-    for(std::size_t i = 0; i < Tests.size(); ++i)
-    {
-        glm::uint32 p0 = glm::packI3x10_1x2(Tests[i]);
-        glm::ivec4 v0 = glm::unpackI3x10_1x2(p0);
-        glm::uint32 p1 = glm::packI3x10_1x2(v0);
-        glm::ivec4 v1 = glm::unpackI3x10_1x2(p0);
-        Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
-    }
+	for(std::size_t i = 0; i < Tests.size(); ++i)
+	{
+		glm::uint32 p0 = glm::packI3x10_1x2(Tests[i]);
+		glm::ivec4 v0 = glm::unpackI3x10_1x2(p0);
+		glm::uint32 p1 = glm::packI3x10_1x2(v0);
+		glm::ivec4 v1 = glm::unpackI3x10_1x2(p0);
+		Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
+	}
 
-    return Error;
+	return Error;
 }
 
 int test_U3x10_1x2()
 {
-    int Error = 0;
+	int Error = 0;
 
-    std::vector<glm::uvec4> Tests;
-    Tests.push_back(glm::uvec4(0));
-    Tests.push_back(glm::uvec4(1));
-    Tests.push_back(glm::uvec4(2));
-    Tests.push_back(glm::uvec4(3));
-    Tests.push_back(glm::uvec4(4));
-    Tests.push_back(glm::uvec4(5));
+	std::vector<glm::uvec4> Tests;
+	Tests.push_back(glm::uvec4(0));
+	Tests.push_back(glm::uvec4(1));
+	Tests.push_back(glm::uvec4(2));
+	Tests.push_back(glm::uvec4(3));
+	Tests.push_back(glm::uvec4(4));
+	Tests.push_back(glm::uvec4(5));
 
-    for(std::size_t i = 0; i < Tests.size(); ++i)
-    {
-        glm::uint32 p0 = glm::packU3x10_1x2(Tests[i]);
-        glm::uvec4 v0 = glm::unpackU3x10_1x2(p0);
-        glm::uint32 p1 = glm::packU3x10_1x2(v0);
-        glm::uvec4 v1 = glm::unpackU3x10_1x2(p0);
-        Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
-    }
+	for(std::size_t i = 0; i < Tests.size(); ++i)
+	{
+		glm::uint32 p0 = glm::packU3x10_1x2(Tests[i]);
+		glm::uvec4 v0 = glm::unpackU3x10_1x2(p0);
+		glm::uint32 p1 = glm::packU3x10_1x2(v0);
+		glm::uvec4 v1 = glm::unpackU3x10_1x2(p0);
+		Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
+	}
 
-    return Error;
+	return Error;
 }
 
 int test_Snorm3x10_1x2()
 {
-    int Error = 0;
+	int Error = 0;
 
-    std::vector<glm::vec4> Tests;
-    Tests.push_back(glm::vec4(1.0));
-    Tests.push_back(glm::vec4(0.0));
-    Tests.push_back(glm::vec4(2.0));
-    Tests.push_back(glm::vec4(0.1));
-    Tests.push_back(glm::vec4(0.5));
-    Tests.push_back(glm::vec4(0.9));
+	std::vector<glm::vec4> Tests;
+	Tests.push_back(glm::vec4(1.0));
+	Tests.push_back(glm::vec4(0.0));
+	Tests.push_back(glm::vec4(2.0));
+	Tests.push_back(glm::vec4(0.1));
+	Tests.push_back(glm::vec4(0.5));
+	Tests.push_back(glm::vec4(0.9));
 
-    for(std::size_t i = 0; i < Tests.size(); ++i)
-    {
-        glm::uint32 p0 = glm::packSnorm3x10_1x2(Tests[i]);
-        glm::vec4 v0 = glm::unpackSnorm3x10_1x2(p0);
-        glm::uint32 p1 = glm::packSnorm3x10_1x2(v0);
-        glm::vec4 v1 = glm::unpackSnorm3x10_1x2(p0);
-        Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
-    }
+	for(std::size_t i = 0; i < Tests.size(); ++i)
+	{
+		glm::uint32 p0 = glm::packSnorm3x10_1x2(Tests[i]);
+		glm::vec4 v0 = glm::unpackSnorm3x10_1x2(p0);
+		glm::uint32 p1 = glm::packSnorm3x10_1x2(v0);
+		glm::vec4 v1 = glm::unpackSnorm3x10_1x2(p0);
+		Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
+	}
 
-    return Error;
+	return Error;
 }
 
 int test_Unorm3x10_1x2()
 {
-    int Error = 0;
+	int Error = 0;
 
-    std::vector<glm::vec4> Tests;
-    Tests.push_back(glm::vec4(1.0));
-    Tests.push_back(glm::vec4(0.0));
-    Tests.push_back(glm::vec4(2.0));
-    Tests.push_back(glm::vec4(0.1));
-    Tests.push_back(glm::vec4(0.5));
-    Tests.push_back(glm::vec4(0.9));
+	std::vector<glm::vec4> Tests;
+	Tests.push_back(glm::vec4(1.0));
+	Tests.push_back(glm::vec4(0.0));
+	Tests.push_back(glm::vec4(2.0));
+	Tests.push_back(glm::vec4(0.1));
+	Tests.push_back(glm::vec4(0.5));
+	Tests.push_back(glm::vec4(0.9));
 
-    for(std::size_t i = 0; i < Tests.size(); ++i)
-    {
-        glm::uint32 p0 = glm::packSnorm3x10_1x2(Tests[i]);
-        glm::vec4 v0 = glm::unpackSnorm3x10_1x2(p0);
-        glm::uint32 p1 = glm::packSnorm3x10_1x2(v0);
-        glm::vec4 v1 = glm::unpackSnorm3x10_1x2(p0);
-        Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
-    }
+	for(std::size_t i = 0; i < Tests.size(); ++i)
+	{
+		glm::uint32 p0 = glm::packSnorm3x10_1x2(Tests[i]);
+		glm::vec4 v0 = glm::unpackSnorm3x10_1x2(p0);
+		glm::uint32 p1 = glm::packSnorm3x10_1x2(v0);
+		glm::vec4 v1 = glm::unpackSnorm3x10_1x2(p0);
+		Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
+	}
 
-    return Error;
+	return Error;
 }
 
 int test_F2x11_1x10()
 {
-    int Error = 0;
+	int Error = 0;
 
-    std::vector<glm::vec3> Tests;
-    Tests.push_back(glm::vec3(1.0));
-    Tests.push_back(glm::vec3(0.0));
-    Tests.push_back(glm::vec3(2.0));
-    Tests.push_back(glm::vec3(0.1));
-    Tests.push_back(glm::vec3(0.5));
-    Tests.push_back(glm::vec3(0.9));
+	std::vector<glm::vec3> Tests;
+	Tests.push_back(glm::vec3(1.0));
+	Tests.push_back(glm::vec3(0.0));
+	Tests.push_back(glm::vec3(2.0));
+	Tests.push_back(glm::vec3(0.1));
+	Tests.push_back(glm::vec3(0.5));
+	Tests.push_back(glm::vec3(0.9));
 
-    for(std::size_t i = 0; i < Tests.size(); ++i)
-    {
-        glm::uint32 p0 = glm::packF2x11_1x10(Tests[i]);
-        glm::vec3 v0 = glm::unpackF2x11_1x10(p0);
-        glm::uint32 p1 = glm::packF2x11_1x10(v0);
-        glm::vec3 v1 = glm::unpackF2x11_1x10(p0);
-        Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
-    }
+	for(std::size_t i = 0; i < Tests.size(); ++i)
+	{
+		glm::uint32 p0 = glm::packF2x11_1x10(Tests[i]);
+		glm::vec3 v0 = glm::unpackF2x11_1x10(p0);
+		glm::uint32 p1 = glm::packF2x11_1x10(v0);
+		glm::vec3 v1 = glm::unpackF2x11_1x10(p0);
+		Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
+	}
 
-    return Error;
+	return Error;
 }
 
 int main()
 {
 	int Error(0);
 
-    Error += test_F2x11_1x10();
-    Error += test_Snorm3x10_1x2();
-    Error += test_Unorm3x10_1x2();
-    Error += test_I3x10_1x2();
-    Error += test_U3x10_1x2();
-    Error += test_Half1x16();
-    Error += test_U3x10_1x2();
+	Error += test_F2x11_1x10();
+	Error += test_Snorm3x10_1x2();
+	Error += test_Unorm3x10_1x2();
+	Error += test_I3x10_1x2();
+	Error += test_U3x10_1x2();
+	Error += test_Half1x16();
+	Error += test_U3x10_1x2();
 
 	return Error;
 }

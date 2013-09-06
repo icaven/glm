@@ -836,12 +836,31 @@ static int test_quat_precision()
 	return Error;
 }
 
+static int test_fvec_conversion()
+{
+	int Error(0);
+
+	{
+		glm::highp_vec4 a = glm::vec4(1, 2, 3, 4);
+		glm::mediump_vec4 b = glm::vec4(1, 2, 3, 4);
+		glm::lowp_vec4 c = b;
+		glm::mediump_vec4 d = c;
+		glm::lowp_ivec4 e = glm::ivec4(d);
+		glm::lowp_ivec3 f = glm::ivec3(e);
+
+		Error += glm::all(glm::equal(b, d)) ? 0 : 1;
+	}
+
+	return Error;
+}
+
 int main()
 {
 	int Error(0);
 	Error += test_scalar_size();
 	Error += test_fvec_size();
 	Error += test_fvec_precision();
+	Error += test_fvec_conversion();
 	Error += test_dvec_precision();
 	Error += test_ivec_size();
 	Error += test_ivec_precision();

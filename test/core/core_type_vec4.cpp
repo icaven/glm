@@ -216,7 +216,7 @@ int test_vec4_swizzle_partial()
 
 	glm::vec4 A(1, 2, 3, 4);
 
-#if(GLM_SUPPORT_SWIZZLE_OPERATOR())
+#	if((GLM_LANG & GLM_LANG_CXXMS_FLAG) && defined(GLM_SWIZZLE))
 	{
 		glm::vec4 B(A.xy, A.zw);
 		Error += A == B ? 0 : 1;
@@ -242,7 +242,7 @@ int test_vec4_swizzle_partial()
 		glm::vec4 B(1.0f, A.yzw);
 		Error += A == B ? 0 : 1;
 	}
-#endif//(GLM_SUPPORT_SWIZZLE_OPERATOR())
+#	endif//GLM_LANG
 
 	return Error;
 }
