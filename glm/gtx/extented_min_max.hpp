@@ -69,8 +69,8 @@ namespace glm
 	>
 	C<T> min(
 		C<T> const & x, 
-		typename C<T>::value_type const & y, 
-		typename C<T>::value_type const & z);
+		typename C<T>::T const & y, 
+		typename C<T>::T const & z);
 
 	/// Return the minimum component-wise values of 3 inputs 
 	/// @see gtx_extented_min_max
@@ -102,9 +102,9 @@ namespace glm
 	>
 	C<T> min(
 		C<T> const & x, 
-		typename C<T>::value_type const & y, 
-		typename C<T>::value_type const & z, 
-		typename C<T>::value_type const & w);
+		typename C<T>::T const & y, 
+		typename C<T>::T const & z, 
+		typename C<T>::T const & w);
 
 	/// Return the minimum component-wise values of 4 inputs
 	/// @see gtx_extented_min_max
@@ -136,8 +136,8 @@ namespace glm
 	>
 	C<T> max(
 		C<T> const & x, 
-		typename C<T>::value_type const & y, 
-		typename C<T>::value_type const & z);
+		typename C<T>::T const & y, 
+		typename C<T>::T const & z);
 
 	/// Return the maximum component-wise values of 3 inputs 
 	/// @see gtx_extented_min_max
@@ -169,9 +169,9 @@ namespace glm
 	>
 	C<T> max(
 		C<T> const & x, 
-		typename C<T>::value_type const & y, 
-		typename C<T>::value_type const & z, 
-		typename C<T>::value_type const & w);
+		typename C<T>::T const & y, 
+		typename C<T>::T const & z, 
+		typename C<T>::T const & w);
 
 	/// Return the maximum component-wise values of 4 inputs 
 	/// @see gtx_extented_min_max

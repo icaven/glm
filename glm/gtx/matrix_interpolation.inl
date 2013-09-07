@@ -30,7 +30,7 @@ namespace glm
 				axis.z = (T)0.0;
 				return;
 			}
-			angle = T(3.1415926535897932384626433832795);
+			angle = static_cast<T>(3.1415926535897932384626433832795);
 			T xx = (mat[0][0] + (T)1.0) / (T)2.0;
 			T yy = (mat[1][1] + (T)1.0) / (T)2.0;
 			T zz = (mat[2][2] + (T)1.0) / (T)2.0;
@@ -93,7 +93,7 @@ namespace glm
 	{
 		T c = cos(angle);
 		T s = sin(angle);
-		T t = T(1) - c;
+		T t = static_cast<T>(1) - c;
 		detail::tvec3<T, P> n = normalize(axis);
 
 		return detail::tmat4x4<T, P>(

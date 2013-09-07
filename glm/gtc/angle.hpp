@@ -47,7 +47,7 @@ namespace glm
 	public:
 		typedef T value_type;
 
-		angle(value_type const & x) :
+		angle(T const & x) :
 			data(x)
 		{}
 

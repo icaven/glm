@@ -16,7 +16,7 @@ GLM_FUNC_QUALIFIER genType catmullRom
 	genType const & v2, 
 	genType const & v3, 
 	genType const & v4, 
-	typename genType::value_type const & s
+	typename genType::T const & s
 )
 {
 	typename genType::value_type s1 = s;
@@ -39,7 +39,7 @@ GLM_FUNC_QUALIFIER genType hermite
 	genType const & t1, 
 	genType const & v2, 
 	genType const & t2, 
-	typename genType::value_type const & s
+	typename genType::T const & s
 )
 {
 	typename genType::value_type s1 = s;
@@ -61,7 +61,7 @@ GLM_FUNC_QUALIFIER genType cubic
 	genType const & v2, 
 	genType const & v3, 
 	genType const & v4, 
-	typename genType::value_type const & s
+	typename genType::T const & s
 )
 {
 	return ((v1 * s + v2) * s + v3) * s + v4;

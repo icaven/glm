@@ -295,7 +295,7 @@ namespace glm
 	(
 		genType const & I,
 		genType const & N,
-		typename genType::value_type const & eta
+		typename genType::T const & eta
 	)
 	{
 		//It could be a vector

@@ -128,7 +128,7 @@ namespace glm
 	GLM_FUNC_DECL genType refract(
 		genType const & I,
 		genType const & N,
-		typename genType::value_type const & eta);
+		typename genType::T const & eta);
 
 	/// @}
 }//namespace glm

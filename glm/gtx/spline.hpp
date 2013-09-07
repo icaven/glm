@@ -59,7 +59,7 @@ namespace glm
 		genType const & v2, 
 		genType const & v3, 
 		genType const & v4, 
-		typename genType::value_type const & s);
+		typename genType::T const & s);
 		
 	//! Return a point from a hermite curve.
 	/// @see gtx_spline extension.
@@ -69,7 +69,7 @@ namespace glm
 		genType const & t1, 
 		genType const & v2, 
 		genType const & t2, 
-		typename genType::value_type const & s);
+		typename genType::T const & s);
 		
 	//! Return a point from a cubic curve. 
 	/// @see gtx_spline extension.
@@ -79,7 +79,7 @@ namespace glm
 		genType const & v2, 
 		genType const & v3, 
 		genType const & v4, 
-		typename genType::value_type const & s);
+		typename genType::T const & s);
 
 	/// @}
 }//namespace glm

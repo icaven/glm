@@ -381,7 +381,7 @@ namespace detail
 	(
 		detail::tquat<T, P> const & x, 
 		detail::tquat<T, P> const & y, 
-		typename detail::tquat<T, P>::value_type const & a
+		typename detail::tquat<T, P>::T const & a
 	)
 	{
 		if(a <= typename detail::tquat<T, P>::value_type(0)) return x;
@@ -406,7 +406,7 @@ namespace detail
 		{
 			typename detail::tquat<T, P>::value_type fSin = sqrt(T(1) - fCos * fCos);
 			typename detail::tquat<T, P>::value_type fAngle = atan(fSin, fCos);
-			typename detail::tquat<T, P>::value_type fOneOverSin = T(1) / fSin;
+			typename detail::tquat<T, P>::value_type fOneOverSin = static_cast<T>(1) / fSin;
 			k0 = sin((typename detail::tquat<T, P>::value_type(1) - a) * fAngle) * fOneOverSin;
 			k1 = sin((typename detail::tquat<T, P>::value_type(0) + a) * fAngle) * fOneOverSin;
 		}
@@ -427,8 +427,8 @@ namespace detail
 	)
 	{
 		bool flip = false;
-		if(a <= T(0)) return x;
-		if(a >= T(1)) return y;
+		if(a <= static_cast<T>(0)) return x;
+		if(a >= static_cast<T>(1)) return y;
 
 		T cos_t = dot(x, y);
 		if(cos_t < T(0))
@@ -440,7 +440,7 @@ namespace detail
 		T alpha(0), beta(0);
 
 		if(T(1) - cos_t < 1e-7)
-			beta = T(1) - alpha;
+			beta = static_cast<T>(1) - alpha;
 		else
 		{
 			T theta = acos(cos_t);
@@ -493,8 +493,8 @@ namespace detail
 	)
 	{
 		// Lerp is only defined in [0, 1]
-		assert(a >= T(0));
-		assert(a <= T(1));
+		assert(a >= static_cast<T>(0));
+		assert(a <= static_cast<T>(1));
 
 		return x * (T(1) - a) + (y * a);
 	}
@@ -559,7 +559,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER detail::tquat<T, P> rotate
 	(
 		detail::tquat<T, P> const & q,
-		typename detail::tquat<T, P>::value_type const & angle,
+		typename detail::tquat<T, P>::T const & angle,
 		detail::tvec3<T, P> const & v
 	)
 	{
@@ -569,7 +569,7 @@ namespace detail
 		typename detail::tquat<T, P>::value_type len = glm::length(Tmp);
 		if(abs(len - T(1)) > T(0.001))
 		{
-			T oneOverLen = T(1) / len;
+			T oneOverLen = static_cast<T>(1) / len;
 			Tmp.x *= oneOverLen;
 			Tmp.y *= oneOverLen;
 			Tmp.z *= oneOverLen;
@@ -694,7 +694,7 @@ namespace detail
 		}
 
 		typename detail::tquat<T, P>::value_type biggestVal = sqrt(fourBiggestSquaredMinus1 + T(1)) * T(0.5);
-		typename detail::tquat<T, P>::value_type mult = T(0.25) / biggestVal;
+		typename detail::tquat<T, P>::value_type mult = static_cast<T>(0.25) / biggestVal;
 
 		detail::tquat<T, P> Result;
 		switch(biggestIndex)
@@ -759,10 +759,10 @@ namespace detail
 		detail::tquat<T, P> const & x
 	)
 	{
-		T tmp1 = T(1) - x.w * x.w;
-		if(tmp1 <= T(0))
+		T tmp1 = static_cast<T>(1) - x.w * x.w;
+		if(tmp1 <= static_cast<T>(0))
 			return detail::tvec3<T, P>(0, 0, 1);
-		T tmp2 = T(1) / sqrt(tmp1);
+		T tmp2 = static_cast<T>(1) / sqrt(tmp1);
 		return detail::tvec3<T, P>(x.x * tmp2, x.y * tmp2, x.z * tmp2);
 	}
 

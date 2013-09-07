@@ -101,14 +101,14 @@ namespace glm
 		// Gradients: 41 points uniformly over a line, mapped onto a diamond.
 		// The ring size 17*17 = 289 is close to a multiple of 41 (41*7 = 287)
 		
-		detail::tvec3<T, P> x = T(2) * fract(p * C.w) - T(1);
+		detail::tvec3<T, P> x = static_cast<T>(2) * fract(p * C.w) - T(1);
 		detail::tvec3<T, P> h = abs(x) - T(0.5);
 		detail::tvec3<T, P> ox = floor(x + T(0.5));
 		detail::tvec3<T, P> a0 = x - ox;
 		
 		// Normalise gradients implicitly by scaling m
 		// Inlined for speed: m *= taylorInvSqrt( a0*a0 + h*h );
-		m *= T(1.79284291400159) - T(0.85373472095314) * (a0 * a0 + h * h);
+		m *= static_cast<T>(1.79284291400159) - T(0.85373472095314) * (a0 * a0 + h * h);
 		
 		// Compute final noise value at P
 		detail::tvec3<T, P> g;
@@ -152,7 +152,7 @@ namespace glm
 		
 		// Gradients: 7x7 points over a square, mapped onto an octahedron.
 		// The ring size 17*17 = 289 is close to a multiple of 49 (49*6 = 294)
-		T n_ = T(0.142857142857); // 1.0/7.0
+		T n_ = static_cast<T>(0.142857142857); // 1.0/7.0
 		detail::tvec3<T, P> ns(n_ * detail::tvec3<T, P>(D.w, D.y, D.z) - detail::tvec3<T, P>(D.x, D.z, D.x));
 		
 		detail::tvec4<T, P> j(p - T(49) * floor(p * ns.z * ns.z));	// mod(p,7*7)
@@ -204,7 +204,7 @@ namespace glm
 			-0.447213595499958);	// -1 + 4 * G4
 		
 		// (sqrt(5) - 1)/4 = F4, used once below
-		T const F4 = T(0.309016994374947451);
+		T const F4 = static_cast<T>(0.309016994374947451);
 		
 		// First corner
 		detail::tvec4<T, P> i  = floor(v + dot(v, detail::tvec4<T, P>(F4)));
@@ -219,17 +219,17 @@ namespace glm
 		
 		//  i0.x = dot(isX, vec3(1.0));
 		//i0.x = isX.x + isX.y + isX.z;
-		//i0.yzw = T(1) - isX;
+		//i0.yzw = static_cast<T>(1) - isX;
 		i0 = detail::tvec4<T, P>(isX.x + isX.y + isX.z, T(1) - isX);
 		
 		//  i0.y += dot(isYZ.xy, vec2(1.0));
 		i0.y += isYZ.x + isYZ.y;
 		
 		//i0.zw += 1.0 - detail::tvec2<T, P>(isYZ.x, isYZ.y);
-		i0.z += T(1) - isYZ.x;
-		i0.w += T(1) - isYZ.y;
+		i0.z += static_cast<T>(1) - isYZ.x;
+		i0.w += static_cast<T>(1) - isYZ.y;
 		i0.z += isYZ.z;
-		i0.w += T(1) - isYZ.z;
+		i0.w += static_cast<T>(1) - isYZ.z;
 		
 		// i0 now contains the unique values 0,1,2,3 in each channel
 		detail::tvec4<T, P> i3 = clamp(i0, T(0), T(1));

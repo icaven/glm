@@ -46,7 +46,7 @@ namespace glm
 	{
 		T a = Mass * Radius * Radius / T(2);
 		detail::tmat3x3<T, P> Result(a);
-		Result[2][2] *= T(2);
+		Result[2][2] *= static_cast<T>(2);
 		return Result;
 	}
 
@@ -59,8 +59,8 @@ namespace glm
 	{
 		T a = Mass * Radius * Radius / T(2);
 		detail::tmat4x4<T, P> Result(a);
-		Result[2][2] *= T(2);
-		Result[3][3] = T(1);
+		Result[2][2] *= static_cast<T>(2);
+		Result[3][3] = static_cast<T>(1);
 		return Result;
 	}
 
@@ -71,7 +71,7 @@ namespace glm
 		T const & Radius
 	)
 	{
-		T a = T(2) * Mass * Radius * Radius / T(5);
+		T a = static_cast<T>(2) * Mass * Radius * Radius / T(5);
 		return detail::tmat3x3<T, P>(a);
 	}
 
@@ -82,9 +82,9 @@ namespace glm
 		T const & Radius
 	)
 	{
-		T a = T(2) * Mass * Radius * Radius / T(5);
+		T a = static_cast<T>(2) * Mass * Radius * Radius / T(5);
 		detail::tmat4x4<T, P> Result(a);
-		Result[3][3] = T(1);
+		Result[3][3] = static_cast<T>(1);
 		return Result;
 	}
 
@@ -95,7 +95,7 @@ namespace glm
 		T const & Radius
 	)
 	{
-		T a = T(2) * Mass * Radius * Radius / T(3);
+		T a = static_cast<T>(2) * Mass * Radius * Radius / T(3);
 		return detail::tmat3x3<T, P>(a);
 	}
 
@@ -106,9 +106,9 @@ namespace glm
 		T const & Radius
 	)
 	{
-		T a = T(2) * Mass * Radius * Radius / T(3);
+		T a = static_cast<T>(2) * Mass * Radius * Radius / T(3);
 		detail::tmat4x4<T, P> Result(a);
-		Result[3][3] = T(1);
+		Result[3][3] = static_cast<T>(1);
 		return Result;
 	}
 }//namespace glm

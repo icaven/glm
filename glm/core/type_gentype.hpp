@@ -132,7 +132,7 @@ namespace detail
 		base();
 		base(class_type const & m);
 
-		explicit base(value_type const & x);
+		explicit base(T const & x);
 		explicit base(value_type const * const x);
 		explicit base(col_type const * const x);
 
@@ -149,13 +149,13 @@ namespace detail
 		//////////////////////////////////////
 		// Unary updatable operators
 		class_type& operator=  (class_type const & x);
-		class_type& operator+= (value_type const & x);
+		class_type& operator+= (T const & x);
 		class_type& operator+= (class_type const & x);
-		class_type& operator-= (value_type const & x);
+		class_type& operator-= (T const & x);
 		class_type& operator-= (class_type const & x);
-		class_type& operator*= (value_type const & x);
+		class_type& operator*= (T const & x);
 		class_type& operator*= (class_type const & x);
-		class_type& operator/= (value_type const & x);
+		class_type& operator/= (T const & x);
 		class_type& operator/= (class_type const & x);
 		class_type& operator++ ();
 		class_type& operator-- ();

@@ -21,7 +21,7 @@ namespace glm
 	template <typename T>
 	GLM_FUNC_QUALIFIER T fastPow(const T x, int y)
 	{
-		T f = T(1);
+		T f = static_cast<T>(1);
 		for(int i = 0; i < y; ++i)
 			f *= x;
 		return f;

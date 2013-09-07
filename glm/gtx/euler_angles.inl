@@ -134,19 +134,19 @@ namespace glm
 		Result[0][0] = tmp_ch * tmp_cb + tmp_sh * tmp_sp * tmp_sb;
 		Result[0][1] = tmp_sb * tmp_cp;
 		Result[0][2] = -tmp_sh * tmp_cb + tmp_ch * tmp_sp * tmp_sb;
-		Result[0][3] = T(0);
+		Result[0][3] = static_cast<T>(0);
 		Result[1][0] = -tmp_ch * tmp_sb + tmp_sh * tmp_sp * tmp_cb;
 		Result[1][1] = tmp_cb * tmp_cp;
 		Result[1][2] = tmp_sb * tmp_sh + tmp_ch * tmp_sp * tmp_cb;
-		Result[1][3] = T(0);
+		Result[1][3] = static_cast<T>(0);
 		Result[2][0] = tmp_sh * tmp_cp;
 		Result[2][1] = -tmp_sp;
 		Result[2][2] = tmp_ch * tmp_cp;
-		Result[2][3] = T(0);
-		Result[3][0] = T(0);
-		Result[3][1] = T(0);
-		Result[3][2] = T(0);
-		Result[3][3] = T(1);
+		Result[2][3] = static_cast<T>(0);
+		Result[3][0] = static_cast<T>(0);
+		Result[3][1] = static_cast<T>(0);
+		Result[3][2] = static_cast<T>(0);
+		Result[3][3] = static_cast<T>(1);
 		return Result;
 	}
 
@@ -169,19 +169,19 @@ namespace glm
 		Result[0][0] = tmp_ch * tmp_cb + tmp_sh * tmp_sp * tmp_sb;
 		Result[0][1] = tmp_sb * tmp_cp;
 		Result[0][2] = -tmp_sh * tmp_cb + tmp_ch * tmp_sp * tmp_sb;
-		Result[0][3] = T(0);
+		Result[0][3] = static_cast<T>(0);
 		Result[1][0] = -tmp_ch * tmp_sb + tmp_sh * tmp_sp * tmp_cb;
 		Result[1][1] = tmp_cb * tmp_cp;
 		Result[1][2] = tmp_sb * tmp_sh + tmp_ch * tmp_sp * tmp_cb;
-		Result[1][3] = T(0);
+		Result[1][3] = static_cast<T>(0);
 		Result[2][0] = tmp_sh * tmp_cp;
 		Result[2][1] = -tmp_sp;
 		Result[2][2] = tmp_ch * tmp_cp;
-		Result[2][3] = T(0);
-		Result[3][0] = T(0);
-		Result[3][1] = T(0);
-		Result[3][2] = T(0);
-		Result[3][3] = T(1);
+		Result[2][3] = static_cast<T>(0);
+		Result[3][0] = static_cast<T>(0);
+		Result[3][1] = static_cast<T>(0);
+		Result[3][2] = static_cast<T>(0);
+		Result[3][3] = static_cast<T>(1);
 		return Result;
 	}
 

@@ -235,7 +235,7 @@ GLM_FUNC_QUALIFIER detail::fquatSIMD quatSIMD_cast_impl(const T m0[], const T m1
     T trace = m0[0] + m1[1] + m2[2] + T(1.0);
     if (trace > T(0))
     {
-        T s = T(0.5) / sqrt(trace);
+        T s = static_cast<T>(0.5) / sqrt(trace);
 
         return _mm_set_ps(
             static_cast<float>(T(0.25) / s),

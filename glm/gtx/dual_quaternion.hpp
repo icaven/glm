@@ -83,8 +83,8 @@ namespace detail
 		part_type const & operator[](int i) const;
 		
 		// Operators
-		tdualquat<T, P> & operator*=(value_type const & s);
-		tdualquat<T, P> & operator/=(value_type const & s);
+		tdualquat<T, P> & operator*=(T const & s);
+		tdualquat<T, P> & operator/=(T const & s);
 	};
 	
 	template <typename T, precision P>
@@ -124,17 +124,17 @@ namespace detail
 	template <typename T, precision P>
 	detail::tdualquat<T, P> operator* (
 		detail::tdualquat<T, P> const & q,
-		typename detail::tdualquat<T, P>::value_type const & s);
+		typename detail::tdualquat<T, P>::T const & s);
 	
 	template <typename T, precision P>
 	detail::tdualquat<T, P> operator* (
-		typename detail::tdualquat<T, P>::value_type const & s,
+		typename detail::tdualquat<T, P>::T const & s,
 		detail::tdualquat<T, P> const & q);
 	
 	template <typename T, precision P>
 	detail::tdualquat<T, P> operator/ (
 		detail::tdualquat<T, P> const & q,
-		typename detail::tdualquat<T, P>::value_type const & s);
+		typename detail::tdualquat<T, P>::T const & s);
 } //namespace detail
 	
 	/// @addtogroup gtc_dual_quaternion
@@ -154,7 +154,7 @@ namespace detail
 	detail::tdualquat<T, P> lerp(
 		detail::tdualquat<T, P> const & x,
 		detail::tdualquat<T, P> const & y,
-		typename detail::tdualquat<T, P>::value_type const & a);
+		typename detail::tdualquat<T, P>::T const & a);
 
 	/// Returns the q inverse.
 	///

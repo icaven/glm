@@ -346,8 +346,8 @@ namespace detail
 	GLM_FUNC_QUALIFIER detail::tvec3<T, P> clamp
 	(
 		detail::tvec3<T, P> const & x,
-		typename detail::tvec3<T, P>::value_type const & minVal,
-		typename detail::tvec3<T, P>::value_type const & maxVal
+		typename detail::tvec3<T, P>::T const & minVal,
+		typename detail::tvec3<T, P>::T const & maxVal
 	)
 	{
 		return detail::tvec3<T, P>(
@@ -360,8 +360,8 @@ namespace detail
 	GLM_FUNC_QUALIFIER detail::tvec4<T, P> clamp
 	(
 		detail::tvec4<T, P> const & x,
-		typename detail::tvec4<T, P>::value_type const & minVal,
-		typename detail::tvec4<T, P>::value_type const & maxVal
+		typename detail::tvec4<T, P>::T const & minVal,
+		typename detail::tvec4<T, P>::T const & maxVal
 	)
 	{
 		return detail::tvec4<T, P>(
@@ -656,7 +656,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tvec2<T, P> step
 	(
-		typename detail::tvec2<T, P>::value_type const & edge,
+		typename detail::tvec2<T, P>::T const & edge,
 		detail::tvec2<T, P> const & x
 	)
 	{
@@ -668,7 +668,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tvec3<T, P> step
 	(
-		typename detail::tvec3<T, P>::value_type const & edge,
+		typename detail::tvec3<T, P>::T const & edge,
 		detail::tvec3<T, P> const & x
 	)
 	{
@@ -681,7 +681,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tvec4<T, P> step
 	(
-		typename detail::tvec4<T, P>::value_type const & edge,
+		typename detail::tvec4<T, P>::T const & edge,
 		detail::tvec4<T, P> const & x
 	)
 	{
@@ -947,14 +947,7 @@ namespace detail
 
 	GLM_FUNC_QUALIFIER int floatBitsToInt(float const & value)
 	{
-		union
-		{
-			float f;
-			int i;
-		} fi;
-
-		fi.f = value;
-		return fi.i;
+		return *reinterpret_cast<int*>(const_cast<float*>(&value));
 	}
 
 	GLM_FUNC_QUALIFIER detail::tvec2<int, defaultp> floatBitsToInt
@@ -992,14 +985,7 @@ namespace detail
 
 	GLM_FUNC_QUALIFIER uint floatBitsToUint(float const & value)
 	{
-		union
-		{
-			float f;
-			uint u;
-		} fu;
-
-		fu.f = value;
-		return fu.u;
+		return *reinterpret_cast<uint*>(const_cast<float*>(&value));
 	}
 
 	GLM_FUNC_QUALIFIER detail::tvec2<uint, defaultp> floatBitsToUint
@@ -1037,14 +1023,7 @@ namespace detail
 
 	GLM_FUNC_QUALIFIER float intBitsToFloat(int const & value)
 	{
-		union
-		{
-			float f;
-			int i;
-		} fi;
-
-		fi.i = value;
-		return fi.f;
+		return *reinterpret_cast<float*>(const_cast<int*>(&value));
 	}
 
 	GLM_FUNC_QUALIFIER detail::tvec2<float, defaultp> intBitsToFloat
@@ -1083,14 +1062,7 @@ namespace detail
 
 	GLM_FUNC_QUALIFIER float uintBitsToFloat(uint const & value)
 	{
-		union
-		{
-			float f;
-			uint u;
-		} fu;
-
-		fu.u = value;
-		return fu.f;
+		return *reinterpret_cast<float*>(const_cast<uint*>(&value));
 	}
 
 	GLM_FUNC_QUALIFIER detail::tvec2<float, defaultp> uintBitsToFloat

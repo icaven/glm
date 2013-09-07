@@ -61,7 +61,7 @@ namespace _detail
 		GLM_FUNC_QUALIFIER T operator() (T const & Value) const
 		{
 #if(GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_GCC))
-			return Value <= T(1) ? T(0) : T(32) - nlz(Value - T(1));
+			return Value <= static_cast<T>(1) ? T(0) : T(32) - nlz(Value - T(1));
 #else
 			return T(32) - nlz(Value - T(1));
 #endif

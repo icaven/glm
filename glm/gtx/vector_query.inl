@@ -19,7 +19,7 @@ namespace glm
 	(
 		detail::tvec2<T, P> const & v0,
 		detail::tvec2<T, P> const & v1,
-		typename detail::tvec2<T, P>::value_type const & epsilon
+		typename detail::tvec2<T, P>::T const & epsilon
 	)
 	{
 		return length(cross(detail::tvec3<T, P>(v0, T(0)), detail::tvec3<T, P>(v1, T(0)))) < epsilon;
@@ -30,7 +30,7 @@ namespace glm
 	(
 		detail::tvec3<T, P> const & v0,
 		detail::tvec3<T, P> const & v1,
-		typename detail::tvec3<T, P>::value_type const & epsilon
+		typename detail::tvec3<T, P>::T const & epsilon
 	)
 	{
 		return length(cross(v0, v1)) < epsilon;
@@ -41,7 +41,7 @@ namespace glm
 	(
 		detail::tvec4<T, P> const & v0,
 		detail::tvec4<T, P> const & v1,
-		typename detail::tvec4<T, P>::value_type const & epsilon
+		typename detail::tvec4<T, P>::T const & epsilon
 	)
 	{
 		return length(cross(detail::tvec3<T, P>(v0), detail::tvec3<T, P>(v1))) < epsilon;
@@ -52,7 +52,7 @@ namespace glm
 	(
 		genType const & v0,
 		genType const & v1,
-		typename genType::value_type const & epsilon
+		typename genType::T const & epsilon
 	)
 	{
 		return abs(dot(v0, v1)) <= max(
@@ -155,7 +155,7 @@ namespace glm
 	(
 		genType const & v0,
 		genType const & v1,
-		typename genType::value_type const & epsilon
+		typename genType::T const & epsilon
 	)
 	{
 		return isNormalized(v0, epsilon) && isNormalized(v1, epsilon) && (abs(dot(v0, v1)) <= epsilon);

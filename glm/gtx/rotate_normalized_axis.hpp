@@ -81,7 +81,7 @@ namespace glm
 	template <typename T, precision P>
 	detail::tquat<T, P> rotateNormalizedAxis(
 		detail::tquat<T, P> const & q,
-		typename detail::tquat<T, P>::value_type const & angle,
+		typename detail::tquat<T, P>::T const & angle,
 		detail::tvec3<T, P> const & axis);
 
 	/// @}

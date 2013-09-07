@@ -53,6 +53,7 @@ GLM 0.9.5.0: 2013-XX-XX
 - Fixed perspective with zNear == 0 (#71)
 - Removed l-value swizzle operators
 - Clean up compiler detection code for unsupported compilers
+- Uses C++ casts
 
 ================================================================================
 GLM 0.9.4.6: 2013-08-XX

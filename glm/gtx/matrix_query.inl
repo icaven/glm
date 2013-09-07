@@ -54,7 +54,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER bool isIdentity
 	(
 		genType const & m,
-		typename genType::value_type const & epsilon
+		typename genType::T const & epsilon
 	)
 	{
 		bool result = true;

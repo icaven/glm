@@ -61,7 +61,7 @@ namespace glm
 	typename genType::boolType epsilonEqual(
 		genType const & x,
 		genType const & y,
-		typename genType::value_type const & epsilon);
+		typename genType::T const & epsilon);
 
 	/// Returns the component-wise comparison of |x - y| < epsilon.
 	/// True if this expression is satisfied.
@@ -81,7 +81,7 @@ namespace glm
 	typename genType::boolType epsilonNotEqual(
 		genType const & x,
 		genType const & y,
-		typename genType::value_type const & epsilon);
+		typename genType::T const & epsilon);
 
 	/// Returns the component-wise comparison of |x - y| >= epsilon.
 	/// True if this expression is not satisfied.

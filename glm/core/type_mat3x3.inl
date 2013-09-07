@@ -116,7 +116,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat3x3<T, P>::tmat3x3
 	(
-		value_type const & s
+		T const & s
 	)
 	{
 		value_type const Zero(0);
@@ -128,9 +128,9 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat3x3<T, P>::tmat3x3
 	(
-		value_type const & x0, value_type const & y0, value_type const & z0,
-		value_type const & x1, value_type const & y1, value_type const & z1,
-		value_type const & x2, value_type const & y2, value_type const & z2
+		T const & x0, T const & y0, T const & z0,
+		T const & x1, T const & y1, T const & z1,
+		T const & x2, T const & y2, T const & z2
 	)
 	{
 		this->value[0] = col_type(x0, y0, z0);
@@ -161,7 +161,7 @@ namespace detail
 	)
 	{
 		value_type const Zero(0);
-		this->value[0] = tvec3<T, P>(value_type(s), Zero, Zero);
+		this->value[0] = tvec3<T, P>(static_cast<T>(s), Zero, Zero);
 		this->value[1] = tvec3<T, P>(Zero, value_type(s), Zero);
 		this->value[2] = tvec3<T, P>(Zero, Zero, value_type(s));
 	}
@@ -178,9 +178,9 @@ namespace detail
 		X3 const & x3, Y3 const & y3, Z3 const & z3
 	)
 	{
-		this->value[0] = col_type(value_type(x1), value_type(y1), value_type(z1));
-		this->value[1] = col_type(value_type(x2), value_type(y2), value_type(z2));
-		this->value[2] = col_type(value_type(x3), value_type(y3), value_type(z3));
+		this->value[0] = col_type(static_cast<T>(x1), value_type(y1), value_type(z1));
+		this->value[1] = col_type(static_cast<T>(x2), value_type(y2), value_type(z2));
+		this->value[2] = col_type(static_cast<T>(x3), value_type(y3), value_type(z3));
 	}
 	
 	template <typename T, precision P>
@@ -512,7 +512,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> operator+ 
 	(
 		tmat3x3<T, P> const & m, 
-		typename tmat3x3<T, P>::value_type const & s
+		typename tmat3x3<T, P>::T const & s
 	)
 	{
 		return tmat3x3<T, P>(
@@ -524,7 +524,7 @@ namespace detail
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> operator+ 
 	(
-		typename tmat3x3<T, P>::value_type const & s, 
+		typename tmat3x3<T, P>::T const & s, 
 		tmat3x3<T, P> const & m
 	)
 	{
@@ -551,7 +551,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> operator- 
 	(
 		tmat3x3<T, P> const & m, 
-		typename tmat3x3<T, P>::value_type const & s
+		typename tmat3x3<T, P>::T const & s
 	)
 	{
 		return tmat3x3<T, P>(
@@ -563,7 +563,7 @@ namespace detail
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> operator- 
 	(
-		typename tmat3x3<T, P>::value_type const & s, 
+		typename tmat3x3<T, P>::T const & s, 
 		tmat3x3<T, P> const & m
 	)
 	{
@@ -590,7 +590,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> operator* 
 	(
 		tmat3x3<T, P> const & m, 
-		typename tmat3x3<T, P>::value_type const & s
+		typename tmat3x3<T, P>::T const & s
 	)
 	{
 		return tmat3x3<T, P>(
@@ -602,7 +602,7 @@ namespace detail
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> operator* 
 	(
-		typename tmat3x3<T, P>::value_type const & s, 
+		typename tmat3x3<T, P>::T const & s, 
 		tmat3x3<T, P> const & m
 	)
 	{
@@ -720,7 +720,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> operator/
 	(
 		tmat3x3<T, P> const & m,
-		typename tmat3x3<T, P>::value_type const & s
+		typename tmat3x3<T, P>::T const & s
 	)
 	{
 		return tmat3x3<T, P>(
@@ -732,7 +732,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> operator/
 	(
-		typename tmat3x3<T, P>::value_type const & s,
+		typename tmat3x3<T, P>::T const & s,
 		tmat3x3<T, P> const & m
 	)
 	{

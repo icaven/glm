@@ -65,12 +65,12 @@ namespace detail
 		GLM_FUNC_DECL explicit tmat4x2(
 			ctor Null);
 		GLM_FUNC_DECL explicit tmat4x2(
-			value_type const & x);
+			T const & x);
 		GLM_FUNC_DECL explicit tmat4x2(
-			value_type const & x0, value_type const & y0,
-			value_type const & x1, value_type const & y1,
-			value_type const & x2, value_type const & y2,
-			value_type const & x3, value_type const & y3);
+			T const & x0, T const & y0,
+			T const & x1, T const & y1,
+			T const & x2, T const & y2,
+			T const & x3, T const & y3);
 		GLM_FUNC_DECL explicit tmat4x2(
 			col_type const & v0, 
 			col_type const & v1,
@@ -150,7 +150,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x2<T, P> operator+ (
 		tmat4x2<T, P> const & m,
-		typename tmat4x2<T, P>::value_type const & s);
+		typename tmat4x2<T, P>::T const & s);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x2<T, P> operator+ (
@@ -160,7 +160,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x2<T, P> operator- (
 		tmat4x2<T, P> const & m,
-		typename tmat4x2<T, P>::value_type const & s);
+		typename tmat4x2<T, P>::T const & s);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x2<T, P> operator- (
@@ -170,11 +170,11 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x2<T, P> operator* (
 		tmat4x2<T, P> const & m,
-		typename tmat4x2<T, P>::value_type const & s);
+		typename tmat4x2<T, P>::T const & s);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x2<T, P> operator* (
-		typename tmat4x2<T, P>::value_type const & s,
+		typename tmat4x2<T, P>::T const & s,
 		tmat4x2<T, P> const & m);
 
 	template <typename T, precision P>
@@ -205,11 +205,11 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x2<T, P> operator/ (
 		tmat4x2<T, P> const & m,
-		typename tmat4x2<T, P>::value_type const & s);
+		typename tmat4x2<T, P>::T const & s);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x2<T, P> operator/ (
-		typename tmat4x2<T, P>::value_type const & s,
+		typename tmat4x2<T, P>::T const & s,
 		tmat4x2<T, P> const & m);
 
 	// Unary constant operators

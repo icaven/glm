@@ -72,7 +72,7 @@
 	GLM_FUNC_QUALIFIER detail::tvec2<T, P> func				\
 	(														\
 		detail::tvec2<T, P> const & x,						\
-		typename detail::tvec2<T, P>::value_type const & y	\
+		typename detail::tvec2<T, P>::T const & y	\
 	)														\
 	{														\
 		return detail::tvec2<T, P>(							\
@@ -85,7 +85,7 @@
 	GLM_FUNC_QUALIFIER detail::tvec3<T, P> func				\
 	(														\
 		detail::tvec3<T, P> const & x,						\
-		typename detail::tvec3<T, P>::value_type const & y	\
+		typename detail::tvec3<T, P>::T const & y	\
 	)														\
 	{														\
 		return detail::tvec3<T, P>(							\
@@ -99,7 +99,7 @@
 	GLM_FUNC_QUALIFIER detail::tvec4<T, P> func				\
 	(														\
 		detail::tvec4<T, P> const & x,						\
-		typename detail::tvec4<T, P>::value_type const & y	\
+		typename detail::tvec4<T, P>::T const & y	\
 	)														\
 	{														\
 		return detail::tvec4<T, P>(							\

@@ -47,25 +47,25 @@ int test_equal()
 
 	{
 		T A(0);
-		T B = T(0) + glm::epsilon<T>();
+		T B = static_cast<T>(0) + glm::epsilon<T>();
 		Error += glm::epsilonEqual(A, B, glm::epsilon<T>() * T(2)) ? 0 : 1;
 	}
 
 	{
 		T A(0);
-		T B = T(0) - glm::epsilon<T>();
+		T B = static_cast<T>(0) - glm::epsilon<T>();
 		Error += glm::epsilonEqual(A, B, glm::epsilon<T>() * T(2)) ? 0 : 1;
 	}
 
 	{
-		T A = T(0) + glm::epsilon<T>();
-		T B = T(0);
+		T A = static_cast<T>(0) + glm::epsilon<T>();
+		T B = static_cast<T>(0);
 		Error += glm::epsilonEqual(A, B, glm::epsilon<T>() * T(2)) ? 0 : 1;
 	}
 
 	{
-		T A = T(0) - glm::epsilon<T>();
-		T B = T(0);
+		T A = static_cast<T>(0) - glm::epsilon<T>();
+		T B = static_cast<T>(0);
 		Error += glm::epsilonEqual(A, B, glm::epsilon<T>() * T(2)) ? 0 : 1;
 	}
 

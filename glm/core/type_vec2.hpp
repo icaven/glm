@@ -82,7 +82,7 @@ namespace detail
 		// Accesses
 
 		GLM_FUNC_DECL value_type & operator[](size_type i);
-		GLM_FUNC_DECL value_type const & operator[](size_type i) const;
+		GLM_FUNC_DECL T const & operator[](size_type i) const;
 
 		//////////////////////////////////////
 		// Implicit basic constructors
@@ -98,10 +98,10 @@ namespace detail
 		GLM_FUNC_DECL explicit tvec2(
 			ctor);
 		GLM_FUNC_DECL explicit tvec2(
-			value_type const & s);
+			T const & s);
 		GLM_FUNC_DECL explicit tvec2(
-			value_type const & s1,
-			value_type const & s2);
+			T const & s1,
+			T const & s2);
 
 		//////////////////////////////////////
 		// Swizzle constructors

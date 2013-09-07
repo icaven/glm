@@ -117,7 +117,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tdualquat<T, P> & tdualquat<T, P>::operator *=
 	(
-		value_type const & s
+		T const & s
 	)
 	{
 		this->real *= s;
@@ -128,7 +128,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tdualquat<T, P> & tdualquat<T, P>::operator /=
 	(
-		value_type const & s
+		T const & s
 	)
 	{
 		this->real /= s;
@@ -215,7 +215,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER detail::tdualquat<T, P> operator*
 	(
 		detail::tdualquat<T, P> const & q,
-		typename detail::tdualquat<T, P>::value_type const & s
+		typename detail::tdualquat<T, P>::T const & s
 	)
 	{
 		return detail::tdualquat<T, P>(q.real * s, q.dual * s);
@@ -224,7 +224,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tdualquat<T, P> operator*
 	(
-		typename detail::tdualquat<T, P>::value_type const & s,
+		typename detail::tdualquat<T, P>::T const & s,
 		detail::tdualquat<T, P> const & q
 	)
 	{
@@ -235,7 +235,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER detail::tdualquat<T, P> operator/
 	(
 		detail::tdualquat<T, P> const & q,
-		typename detail::tdualquat<T, P>::value_type const & s
+		typename detail::tdualquat<T, P>::T const & s
 	)
 	{
 		return detail::tdualquat<T, P>(q.real / s, q.dual / s);
@@ -279,13 +279,13 @@ namespace detail
 	(
 		detail::tdualquat<T, P> const & x,
 		detail::tdualquat<T, P> const & y,
-		typename detail::tdualquat<T, P>::value_type const & a
+		typename detail::tdualquat<T, P>::T const & a
 	)
 	{
 		// Dual Quaternion Linear blend aka DLB:
 		// Lerp is only defined in [0, 1]
-		assert(a >= T(0));
-		assert(a <= T(1));
+		assert(a >= static_cast<T>(0));
+		assert(a <= static_cast<T>(1));
 		T const k = dot(x.real,y.real) < detail::tdualquat<T, P>::value_type(0) ? -a : a;
 		T const one(1);
 		return detail::tdualquat<T, P>(x * (one - a) + y * k);
@@ -328,7 +328,7 @@ namespace detail
 		detail::tquat<T, P> r = x.real / length2(x.real);
 		
 		detail::tquat<T, P> const rr(r.w * x.real.w, r.x * x.real.x, r.y * x.real.y, r.z * x.real.z);
-		r *= T(2);
+		r *= static_cast<T>(2);
 		
 		T const xy = r.x * x.real.y;
 		T const xz = r.x * x.real.z;
@@ -381,8 +381,8 @@ namespace detail
 		if(trace > T(0))
 		{
 			T const r = sqrt(T(1) + trace);
-			T const invr = T(0.5) / r;
-			real.w = T(0.5) * r;
+			T const invr = static_cast<T>(0.5) / r;
+			real.w = static_cast<T>(0.5) * r;
 			real.x = (x[2].y - x[1].z) * invr;
 			real.y = (x[0].z - x[2].x) * invr;
 			real.z = (x[1].x - x[0].y) * invr;
@@ -390,8 +390,8 @@ namespace detail
 		else if(x[0].x > x[1].y && x[0].x > x[2].z)
 		{
 			T const r = sqrt(T(1) + x[0].x - x[1].y - x[2].z);
-			T const invr = T(0.5) / r;
-			real.x = T(0.5)*r;
+			T const invr = static_cast<T>(0.5) / r;
+			real.x = static_cast<T>(0.5)*r;
 			real.y = (x[1].x + x[0].y) * invr;
 			real.z = (x[0].z + x[2].x) * invr;
 			real.w = (x[2].y - x[1].z) * invr;
@@ -399,19 +399,19 @@ namespace detail
 		else if(x[1].y > x[2].z)
 		{
 			T const r = sqrt(T(1) + x[1].y - x[0].x - x[2].z);
-			T const invr = T(0.5) / r;
+			T const invr = static_cast<T>(0.5) / r;
 			real.x = (x[1].x + x[0].y) * invr;
-			real.y = T(0.5) * r;
+			real.y = static_cast<T>(0.5) * r;
 			real.z = (x[2].y + x[1].z) * invr;
 			real.w = (x[0].z - x[2].x) * invr;
 		}
 		else
 		{
 			T const r = sqrt(T(1) + x[2].z - x[0].x - x[1].y);
-			T const invr = T(0.5) / r;
+			T const invr = static_cast<T>(0.5) / r;
 			real.x = (x[0].z + x[2].x) * invr;
 			real.y = (x[2].y + x[1].z) * invr;
-			real.z = T(0.5) * r;
+			real.z = static_cast<T>(0.5) * r;
 			real.w = (x[1].x - x[0].y) * invr;
 		}
 		

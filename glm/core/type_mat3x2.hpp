@@ -65,11 +65,11 @@ namespace detail
 		GLM_FUNC_DECL explicit tmat3x2(
 			ctor);
 		GLM_FUNC_DECL explicit tmat3x2(
-			value_type const & s);
+			T const & s);
 		GLM_FUNC_DECL explicit tmat3x2(
-			value_type const & x0, value_type const & y0,
-			value_type const & x1, value_type const & y1,
-			value_type const & x2, value_type const & y2);
+			T const & x0, T const & y0,
+			T const & x1, T const & y1,
+			T const & x2, T const & y2);
 		GLM_FUNC_DECL explicit tmat3x2(
 			col_type const & v0,
 			col_type const & v1,
@@ -145,7 +145,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat3x2<T, P> operator+ (
 		tmat3x2<T, P> const & m,
-		typename tmat3x2<T, P>::value_type const & s);
+		typename tmat3x2<T, P>::T const & s);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat3x2<T, P> operator+ (
@@ -155,7 +155,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat3x2<T, P> operator- (
 		tmat3x2<T, P> const & m,
-		typename tmat3x2<T, P>::value_type const & s);
+		typename tmat3x2<T, P>::T const & s);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat3x2<T, P> operator- (
@@ -165,11 +165,11 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat3x2<T, P> operator* (
 		tmat3x2<T, P> const & m,
-		typename tmat3x2<T, P>::value_type const & s);
+		typename tmat3x2<T, P>::T const & s);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat3x2<T, P> operator* (
-		typename tmat3x2<T, P>::value_type const & s,
+		typename tmat3x2<T, P>::T const & s,
 		tmat3x2<T, P> const & m);
 
 	template <typename T, precision P>
@@ -200,11 +200,11 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat3x2<T, P> operator/ (
 		tmat3x2<T, P> const & m,
-		typename tmat3x2<T, P>::value_type const & s);
+		typename tmat3x2<T, P>::T const & s);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat3x2<T, P> operator/ (
-		typename tmat3x2<T, P>::value_type const & s,
+		typename tmat3x2<T, P>::T const & s,
 		tmat3x2<T, P> const & m);
 
 	// Unary constant operators

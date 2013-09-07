@@ -26,8 +26,8 @@ namespace glm
 	GLM_FUNC_QUALIFIER C<T> min
 	(
 		C<T> const & x, 
-		typename C<T>::value_type const & y, 
-		typename C<T>::value_type const & z
+		typename C<T>::T const & y, 
+		typename C<T>::T const & z
 	)
 	{
 		return glm::min(glm::min(x, y), z);
@@ -68,9 +68,9 @@ namespace glm
 	GLM_FUNC_QUALIFIER C<T> min
 	(
 		C<T> const & x, 
-		typename C<T>::value_type const & y, 
-		typename C<T>::value_type const & z, 
-		typename C<T>::value_type const & w
+		typename C<T>::T const & y, 
+		typename C<T>::T const & z, 
+		typename C<T>::T const & w
 	)
 	{
 		return glm::min(glm::min(x, y), glm::min(z, w));
@@ -109,8 +109,8 @@ namespace glm
 	GLM_FUNC_QUALIFIER C<T> max
 	(
 		C<T> const & x, 
-		typename C<T>::value_type const & y, 
-		typename C<T>::value_type const & z
+		typename C<T>::T const & y, 
+		typename C<T>::T const & z
 	)
 	{
 		return glm::max(glm::max(x, y), z);
@@ -151,9 +151,9 @@ namespace glm
 	GLM_FUNC_QUALIFIER C<T> max
 	(
 		C<T> const & x, 
-		typename C<T>::value_type const & y, 
-		typename C<T>::value_type const & z, 
-		typename C<T>::value_type const & w
+		typename C<T>::T const & y, 
+		typename C<T>::T const & z, 
+		typename C<T>::T const & w
 	)
 	{
 		return glm::max(glm::max(x, y), glm::max(z, w));

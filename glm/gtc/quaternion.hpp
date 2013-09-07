@@ -71,13 +71,13 @@ namespace detail
 		GLM_FUNC_DECL explicit tquat(
 			tquat<U, Q> const & q);
 		GLM_FUNC_DECL explicit tquat(
-			value_type const & s,
+			T const & s,
 			glm::detail::tvec3<T, P> const & v);
 		GLM_FUNC_DECL explicit tquat(
-			value_type const & w,
-			value_type const & x,
-			value_type const & y,
-			value_type const & z);
+			T const & w,
+			T const & x,
+			T const & y,
+			T const & z);
 
 		// Convertions
 
@@ -91,11 +91,11 @@ namespace detail
 
 		// Accesses
 		GLM_FUNC_DECL value_type & operator[](size_type i);
-		GLM_FUNC_DECL value_type const & operator[](size_type i) const;
+		GLM_FUNC_DECL T const & operator[](size_type i) const;
 
 		// Operators
-		GLM_FUNC_DECL tquat<T, P> & operator*=(value_type const & s);
-		GLM_FUNC_DECL tquat<T, P> & operator/=(value_type const & s);
+		GLM_FUNC_DECL tquat<T, P> & operator*=(T const & s);
+		GLM_FUNC_DECL tquat<T, P> & operator/=(T const & s);
 	};
 
 	template <typename T, precision P>

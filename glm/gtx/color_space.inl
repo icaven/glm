@@ -15,7 +15,7 @@ namespace glm
 		detail::tvec3<T, P> hsv = hsvColor;
 		detail::tvec3<T, P> rgbColor;
 
-		if(hsv.y == T(0))
+		if(hsv.y == static_cast<T>(0))
 			// achromatic (grey)
 			rgbColor = detail::tvec3<T, P>(hsv.z);
 		else
@@ -76,20 +76,20 @@ namespace glm
 
 		hsv.z = Max;                               
     	
-		if(Max != T(0))
+		if(Max != static_cast<T>(0))
 		{
 			hsv.y = Delta / hsv.z;    
-			T h = T(0);
+			T h = static_cast<T>(0);
 
 			if(rgbColor.r == Max)
 				// between yellow & magenta
-				h = T(0) + T(60) * (rgbColor.g - rgbColor.b) / Delta;
+				h = static_cast<T>(0) + T(60) * (rgbColor.g - rgbColor.b) / Delta;
 			else if(rgbColor.g == Max)
 				// between cyan & yellow
-				h = T(120) + T(60) * (rgbColor.b - rgbColor.r) / Delta;
+				h = static_cast<T>(120) + T(60) * (rgbColor.b - rgbColor.r) / Delta;
 			else
 				// between magenta & cyan
-				h = T(240) + T(60) * (rgbColor.r - rgbColor.g) / Delta;
+				h = static_cast<T>(240) + T(60) * (rgbColor.r - rgbColor.g) / Delta;
             
 			if(h < T(0)) 
 				hsv.x = h + T(360);
@@ -99,8 +99,8 @@ namespace glm
 		else
 		{
 			// If r = g = b = 0 then s = 0, h is undefined
-			hsv.y = T(0);
-			hsv.x = T(0);
+			hsv.y = static_cast<T>(0);
+			hsv.x = static_cast<T>(0);
 		}
 
 		return hsv;

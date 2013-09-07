@@ -147,7 +147,7 @@ namespace glm
 	template <typename genType>
 	GLM_FUNC_DECL genType mod(
 		genType const & x,
-		typename genType::value_type const & y);
+		typename genType::T const & y);
 
 	/// Returns the fractional part of x and sets i to the integer
 	/// part (as a whole number floating point value). Both the
@@ -177,7 +177,7 @@ namespace glm
 	template <typename genType>
 	GLM_FUNC_DECL genType min(
 		genType const & x,
-		typename genType::value_type const & y);
+		typename genType::T const & y);
 
 	/// Returns y if x < y; otherwise, it returns x.
 	/// 
@@ -193,7 +193,7 @@ namespace glm
 	template <typename genType>
 	GLM_FUNC_DECL genType max(
 		genType const & x,
-		typename genType::value_type const & y);
+		typename genType::T const & y);
 
 	/// Returns min(max(x, minVal), maxVal) for each component in x 
 	/// using the floating-point values minVal and maxVal.
@@ -211,8 +211,8 @@ namespace glm
 	template <typename genType, precision P>
 	GLM_FUNC_DECL genType clamp(
 		genType const & x,
-		typename genType::value_type const & minVal,
-		typename genType::value_type const & maxVal);
+		typename genType::T const & minVal,
+		typename genType::T const & maxVal);
 
 	/// If genTypeU is a floating scalar or vector:
 	/// Returns x * (1.0 - a) + y * a, i.e., the linear blend of
@@ -273,7 +273,7 @@ namespace glm
 
 	template <typename genType>
 	GLM_FUNC_DECL genType step(
-		typename genType::value_type const & edge,
+		typename genType::T const & edge,
 		genType const & x);
 
 	/// Returns 0.0 if x <= edge0 and 1.0 if x >= edge1 and
@@ -298,8 +298,8 @@ namespace glm
 
 	template <typename genType>
 	GLM_FUNC_DECL genType smoothstep(
-		typename genType::value_type const & edge0,
-		typename genType::value_type const & edge1,
+		typename genType::T const & edge0,
+		typename genType::T const & edge1,
 		genType const & x);
 
 	/// Returns true if x holds a NaN (not a number)

@@ -63,7 +63,7 @@ int test_vec4_swizzle()
 	glm::vec4 A(1, 2, 3, 4);
 	glm::vec4 B = A.xyzw();
 	glm::vec4 C(0);
-	C.xyzw = B.xyzw;
+	//C.xyzw() = B.xyzw();
 
 	float f = glm::dot(C.wzyx(), C.xyzw());
 

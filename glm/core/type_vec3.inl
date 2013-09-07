@@ -57,9 +57,9 @@ namespace detail
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec3<T, P>::tvec3() :
-		x(value_type(0)),
-		y(value_type(0)),
-		z(value_type(0))
+		x(0),
+		y(0),
+		z(0)
 	{}
 
 	template <typename T, precision P>
@@ -96,7 +96,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec3<T, P>::tvec3
 	(
-		value_type const & s
+		T const & s
 	) :
 		x(s),
 		y(s),
@@ -106,9 +106,9 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec3<T, P>::tvec3
 	(
-		value_type const & s0,
-		value_type const & s1,
-		value_type const & s2
+		T const & s0,
+		T const & s1,
+		T const & s2
 	) :
 		x(s0),
 		y(s1),
@@ -135,9 +135,9 @@ namespace detail
 		tref2<A, P> const & v,
 		B const & s
 	) : 
-		x(value_type(v.x)),
-		y(value_type(v.y)),
-		z(value_type(s))
+		x(static_cast<T>(v.x)),
+		y(static_cast<T>(v.y)),
+		z(static_cast<T>(s))
 	{}
 
 	template <typename T, precision P>
@@ -147,9 +147,9 @@ namespace detail
 		A const & s,
 		tref2<B, P> const & v
 	) :
-		x(value_type(s)),
-		y(value_type(v.x)),
-		z(value_type(v.y))
+		x(static_cast<T>(s)),
+		y(static_cast<T>(v.x)),
+		z(static_cast<T>(v.y))
 	{}
 
 	//////////////////////////////////////
@@ -161,9 +161,9 @@ namespace detail
 	(
 		U const & s
 	) :
-		x(value_type(s)),
-		y(value_type(s)),
-		z(value_type(s))
+		x(static_cast<T>(s)),
+		y(static_cast<T>(s)),
+		z(static_cast<T>(s))
 	{}
 
 	template <typename T, precision P>
@@ -174,9 +174,9 @@ namespace detail
 		B const & y,
 		C const & z
 	) :
-		x(value_type(x)),
-		y(value_type(y)),
-		z(value_type(z))
+		x(static_cast<T>(x)),
+		y(static_cast<T>(y)),
+		z(static_cast<T>(z))
 	{}
 
 	//////////////////////////////////////
@@ -189,9 +189,9 @@ namespace detail
 		tvec2<A, Q> const & v,
 		B const & s
 	) :
-		x(value_type(v.x)),
-		y(value_type(v.y)),
-		z(value_type(s))
+		x(static_cast<T>(v.x)),
+		y(static_cast<T>(v.y)),
+		z(static_cast<T>(s))
 	{}
 
 	template <typename T, precision P>
@@ -201,9 +201,9 @@ namespace detail
 		A const & s,
 		tvec2<B, Q> const & v
 	) :
-		x(value_type(s)),
-		y(value_type(v.x)),
-		z(value_type(v.y))
+		x(static_cast<T>(s)),
+		y(static_cast<T>(v.x)),
+		z(static_cast<T>(v.y))
 	{}
 
 	template <typename T, precision P>
@@ -212,9 +212,9 @@ namespace detail
 	(
 		tvec3<U, Q> const & v
 	) :
-		x(value_type(v.x)),
-		y(value_type(v.y)),
-		z(value_type(v.z))
+		x(static_cast<T>(v.x)),
+		y(static_cast<T>(v.y)),
+		z(static_cast<T>(v.z))
 	{}
 
 	template <typename T, precision P>
@@ -223,9 +223,9 @@ namespace detail
 	(
 		tvec4<U, Q> const & v
 	) :
-		x(value_type(v.x)),
-		y(value_type(v.y)),
-		z(value_type(v.z))
+		x(static_cast<T>(v.x)),
+		y(static_cast<T>(v.y)),
+		z(static_cast<T>(v.z))
 	{}
 
 	//////////////////////////////////////
@@ -250,9 +250,9 @@ namespace detail
 		tvec3<U, P> const & v
 	)
 	{
-		this->x = T(v.x);
-		this->y = T(v.y);
-		this->z = T(v.z);
+		this->x = static_cast<T>(v.x);
+		this->y = static_cast<T>(v.y);
+		this->z = static_cast<T>(v.z);
 		return *this;
 	}
 
@@ -263,9 +263,9 @@ namespace detail
 		U const & s
 	)
 	{
-		this->x += T(s);
-		this->y += T(s);
-		this->z += T(s);
+		this->x += static_cast<T>(s);
+		this->y += static_cast<T>(s);
+		this->z += static_cast<T>(s);
 		return *this;
 	}
 
@@ -276,9 +276,9 @@ namespace detail
 		tvec3<U, P> const & v
 	)
 	{
-		this->x += T(v.x);
-		this->y += T(v.y);
-		this->z += T(v.z);
+		this->x += static_cast<T>(v.x);
+		this->y += static_cast<T>(v.y);
+		this->z += static_cast<T>(v.z);
 		return *this;
 	}
 
@@ -289,9 +289,9 @@ namespace detail
 		U const & s
 	)
 	{
-		this->x -= T(s);
-		this->y -= T(s);
-		this->z -= T(s);
+		this->x -= static_cast<T>(s);
+		this->y -= static_cast<T>(s);
+		this->z -= static_cast<T>(s);
 		return *this;
 	}
 
@@ -302,9 +302,9 @@ namespace detail
 		tvec3<U, P> const & v
 	)
 	{
-		this->x -= T(v.x);
-		this->y -= T(v.y);
-		this->z -= T(v.z);
+		this->x -= static_cast<T>(v.x);
+		this->y -= static_cast<T>(v.y);
+		this->z -= static_cast<T>(v.z);
 		return *this;
 	}
 
@@ -315,9 +315,9 @@ namespace detail
 		U const & s
 	)
 	{
-		this->x *= T(s);
-		this->y *= T(s);
-		this->z *= T(s);
+		this->x *= static_cast<T>(s);
+		this->y *= static_cast<T>(s);
+		this->z *= static_cast<T>(s);
 		return *this;
 	}
 
@@ -328,9 +328,9 @@ namespace detail
 		tvec3<U, P> const & v
 	)
 	{
-		this->x *= T(v.x);
-		this->y *= T(v.y);
-		this->z *= T(v.z);
+		this->x *= static_cast<T>(v.x);
+		this->y *= static_cast<T>(v.y);
+		this->z *= static_cast<T>(v.z);
 		return *this;
 	}
 
@@ -341,9 +341,9 @@ namespace detail
 		U const & s
 	)
 	{
-		this->x /= T(s);
-		this->y /= T(s);
-		this->z /= T(s);
+		this->x /= static_cast<T>(s);
+		this->y /= static_cast<T>(s);
+		this->z /= static_cast<T>(s);
 		return *this;
 	}
 
@@ -354,9 +354,9 @@ namespace detail
 		tvec3<U, P> const & v
 	)
 	{
-		this->x /= T(v.x);
-		this->y /= T(v.y);
-		this->z /= T(v.z);
+		this->x /= static_cast<T>(v.x);
+		this->y /= static_cast<T>(v.y);
+		this->z /= static_cast<T>(v.z);
 		return *this;
 	}
 
@@ -547,9 +547,9 @@ namespace detail
 		tvec3<U, P> const & v
 	)
 	{
-		this->x <<= T(v.x);
-		this->y <<= T(v.y);
-		this->z <<= T(v.z);
+		this->x <<= static_cast<T>(v.x);
+		this->y <<= static_cast<T>(v.y);
+		this->z <<= static_cast<T>(v.z);
 		return *this;
 	}
 
@@ -560,9 +560,9 @@ namespace detail
 		U const & s
 	)
 	{
-		this->x >>= T(s);
-		this->y >>= T(s);
-		this->z >>= T(s);
+		this->x >>= static_cast<T>(s);
+		this->y >>= static_cast<T>(s);
+		this->z >>= static_cast<T>(s);
 		return *this;
 	}
 
@@ -573,9 +573,9 @@ namespace detail
 		tvec3<U, P> const & v
 	)
 	{
-		this->x >>= T(v.x);
-		this->y >>= T(v.y);
-		this->z >>= T(v.z);
+		this->x >>= static_cast<T>(v.x);
+		this->y >>= static_cast<T>(v.y);
+		this->z >>= static_cast<T>(v.z);
 		return *this;
 	}
 
@@ -671,9 +671,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			v.x + T(s),
-			v.y + T(s),
-			v.z + T(s));
+			v.x + s,
+			v.y + s,
+			v.z + s);
 	}
 
 	template <typename T, precision P> 
@@ -684,9 +684,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			T(s) + v.x,
-			T(s) + v.y,
-			T(s) + v.z);
+			s + v.x,
+			s + v.y,
+			s + v.z);
 	}
 
 	template <typename T, precision P> 
@@ -697,9 +697,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			v1.x + T(v2.x),
-			v1.y + T(v2.y),
-			v1.z + T(v2.z));
+			v1.x + v2.x,
+			v1.y + v2.y,
+			v1.z + v2.z);
 	}
 
 	//operator-
@@ -711,9 +711,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			v.x - T(s),
-			v.y - T(s),
-			v.z - T(s));
+			v.x - s,
+			v.y - s,
+			v.z - s);
 	}
 
 	template <typename T, precision P> 
@@ -724,9 +724,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			T(s) - v.x,
-			T(s) - v.y,
-			T(s) - v.z);
+			s - v.x,
+			s - v.y,
+			s - v.z);
 	}
 
 	template <typename T, precision P> 
@@ -737,9 +737,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			v1.x - T(v2.x),
-			v1.y - T(v2.y),
-			v1.z - T(v2.z));
+			v1.x - v2.x,
+			v1.y - v2.y,
+			v1.z - v2.z);
 	}
 
 	//operator*
@@ -751,9 +751,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			v.x * T(s),
-			v.y * T(s),
-			v.z * T(s));
+			v.x * s,
+			v.y * s,
+			v.z * s);
 	}
 
 	template <typename T, precision P> 
@@ -764,9 +764,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			T(s) * v.x,
-			T(s) * v.y,
-			T(s) * v.z);
+			s * v.x,
+			s * v.y,
+			s * v.z);
 	}
 
 	template <typename T, precision P> 
@@ -777,9 +777,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			v1.x * T(v2.x),
-			v1.y * T(v2.y),
-			v1.z * T(v2.z));
+			v1.x * v2.x,
+			v1.y * v2.y,
+			v1.z * v2.z);
 	}
 
 	//operator/
@@ -791,9 +791,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			v.x / T(s),
-			v.y / T(s),
-			v.z / T(s));
+			v.x / s,
+			v.y / s,
+			v.z / s);
 	}
 
 	template <typename T, precision P> 
@@ -804,9 +804,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			T(s) / v.x,
-			T(s) / v.y,
-			T(s) / v.z);
+			s / v.x,
+			s / v.y,
+			s / v.z);
 	}
 
 	template <typename T, precision P> 
@@ -817,9 +817,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			v1.x / T(v2.x),
-			v1.y / T(v2.y),
-			v1.z / T(v2.z));
+			v1.x / v2.x,
+			v1.y / v2.y,
+			v1.z / v2.z);
 	}
 
 	// Unary constant operators
@@ -846,9 +846,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			v.x % T(s),
-			v.y % T(s),
-			v.z % T(s));
+			v.x % s,
+			v.y % s,
+			v.z % s);
 	}
 
 	template <typename T, precision P>
@@ -859,9 +859,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			T(s) % v.x,
-			T(s) % v.y,
-			T(s) % v.z);
+			s % v.x,
+			s % v.y,
+			s % v.z);
 	}
 
 	template <typename T, precision P>
@@ -872,9 +872,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			v1.x % T(v2.x),
-			v1.y % T(v2.y),
-			v1.z % T(v2.z));
+			v1.x % v2.x,
+			v1.y % v2.y,
+			v1.z % v2.z);
 	}
 
 	template <typename T, precision P>
@@ -885,9 +885,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			v.x & T(s),
-			v.y & T(s),
-			v.z & T(s));
+			v.x & s,
+			v.y & s,
+			v.z & s);
 	}
 
 	template <typename T, precision P>
@@ -898,9 +898,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			T(s) & v.x,
-			T(s) & v.y,
-			T(s) & v.z);
+			s & v.x,
+			s & v.y,
+			s & v.z);
 	}
 
 	template <typename T, precision P>
@@ -911,9 +911,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			v1.x & T(v2.x),
-			v1.y & T(v2.y),
-			v1.z & T(v2.z));
+			v1.x & v2.x,
+			v1.y & v2.y,
+			v1.z & v2.z);
 	}
 
 	template <typename T, precision P>
@@ -924,9 +924,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			v.x | T(s),
-			v.y | T(s),
-			v.z | T(s));
+			v.x | s,
+			v.y | s,
+			v.z | s);
 	}
 
 	template <typename T, precision P>
@@ -937,9 +937,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			T(s) | v.x,
-			T(s) | v.y,
-			T(s) | v.z);
+			s | v.x,
+			s | v.y,
+			s | v.z);
 	}
 
 	template <typename T, precision P>
@@ -950,9 +950,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			v1.x | T(v2.x),
-			v1.y | T(v2.y),
-			v1.z | T(v2.z));
+			v1.x | v2.x,
+			v1.y | v2.y,
+			v1.z | v2.z);
 	}
 		
 	template <typename T, precision P>
@@ -963,9 +963,9 @@ namespace detail
 	)
 	{
 		return tvec3<T, P>(
-			v.x ^ T(s),
-			v.y ^ T(s),
-			v.z ^ T(s));
+			v.x ^ s,
+			v.y ^ s,
+			v.z ^ s);
 	}
 
 	template <typename T, precision P>

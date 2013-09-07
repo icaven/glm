@@ -79,7 +79,7 @@ namespace glm
 	template<typename genType>
 	bool isIdentity(
 		genType const & m,
-		typename genType::value_type const & epsilon/* = std::numeric_limits<typename genType::value_type>::epsilon()*/);
+		typename genType::T const & epsilon/* = std::numeric_limits<typename genType::value_type>::epsilon()*/);
 
 	/// Return whether a matrix is a normalized matrix.
 	/// From GLM_GTX_matrix_query extension.

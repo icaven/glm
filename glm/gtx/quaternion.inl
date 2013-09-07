@@ -73,7 +73,7 @@ namespace glm
 		detail::tquat<T, P> const & q
 	)
 	{
-		if((q.x == T(0)) && (q.y == T(0)) && (q.z == T(0)))
+		if((q.x == static_cast<T>(0)) && (q.y == static_cast<T>(0)) && (q.z == static_cast<T>(0)))
 		{
 			if(q.w > T(0))
 				return detail::tquat<T, P>(log(q.w), T(0), T(0), T(0));
@@ -116,7 +116,7 @@ namespace glm
 	//	detail::tquat<T, P> const & q
 	//)
 	//{
-	//	T q0 = T(1) - dot(q, q);
+	//	T q0 = static_cast<T>(1) - dot(q, q);
 	//	return T(2) * (T(1) + q0) * q;
 	//}
 
@@ -146,7 +146,7 @@ namespace glm
 		detail::tquat<T, P> const & q
 	)
 	{
-		T w = T(1.0) - q.x * q.x - q.y * q.y - q.z * q.z;
+		T w = static_cast<T>(1.0) - q.x * q.x - q.y * q.y - q.z * q.z;
 		if(w < T(0))
 			return T(0);
 		else
@@ -185,14 +185,14 @@ namespace glm
 		T k0, k1;
 		if(fCos > T(0.9999))
 		{
-			k0 = T(1) - a;
-			k1 = T(0) + a; //BUG!!! 1.0f + a;
+			k0 = static_cast<T>(1) - a;
+			k1 = static_cast<T>(0) + a; //BUG!!! 1.0f + a;
 		}
 		else
 		{
 			T fSin = sqrt(T(1) - fCos * fCos);
 			T fAngle = atan(fSin, fCos);
-			T fOneOverSin = T(1) / fSin;
+			T fOneOverSin = static_cast<T>(1) / fSin;
 			k0 = sin((T(1) - a) * fAngle) * fOneOverSin;
 			k1 = sin((T(0) + a) * fAngle) * fOneOverSin;
 		}
@@ -244,7 +244,7 @@ namespace glm
 		rotationAxis = cross(orig, dest);
 
 		T s = sqrt((T(1) + cosTheta) * T(2));
-		T invs = T(1) / s;
+		T invs = static_cast<T>(1) / s;
 
 		return detail::tquat<T, P>(
 			s * T(0.5f), 

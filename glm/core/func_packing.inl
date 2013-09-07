@@ -45,17 +45,9 @@ namespace glm
 	
 	GLM_FUNC_QUALIFIER uint32 packSnorm2x16(vec2 const & v)
 	{
-		union iu
-		{
-			int16 i;
-			uint16 u;
-		} A, B;
-		
-		vec2 Unpack = round(clamp(v ,-1.0f, 1.0f) * 32767.0f);
-		A.i = detail::int16(Unpack.x);
-		B.i = detail::int16(Unpack.y);
-		uint32 Pack = (uint32(B.u) << 16) | (uint32(A.u) << 0);
-		return Pack;
+		i16vec2 Unpack(round(clamp(v ,-1.0f, 1.0f) * 32767.0f));
+		u32vec2 Topack(*reinterpret_cast<u16vec2*>(&Unpack));
+		return (Topack.x << 16) | (Topack.y << 0);
 	}
 
 	GLM_FUNC_QUALIFIER vec2 unpackSnorm2x16(uint32 const & p)
