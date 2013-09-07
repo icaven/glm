@@ -46,7 +46,7 @@ namespace detail
 		typedef tvec3<T, P> type;
 		typedef tvec3<bool, P> bool_type;
 
-		GLM_FUNC_DECL GLM_CONSTEXPR size_type length() const;
+		GLM_FUNC_DECL GLM_CONSTEXPR int length() const;
 
 		//////////////////////////////////////
 		// Data
