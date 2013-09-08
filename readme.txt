@@ -55,6 +55,7 @@ GLM 0.9.5.0: 2013-XX-XX
 - Clean up compiler detection code for unsupported compilers
 - Uses C++ casts
 - Fixed .length() that should return a int and not a size_t
+- Removed unnecessary conversions
 
 ================================================================================
 GLM 0.9.4.6: 2013-08-XX
