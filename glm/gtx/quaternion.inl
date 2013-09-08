@@ -170,8 +170,8 @@ namespace glm
 		T const & a
 	)
 	{
-		if(a <= typename detail::tquat<T, P>::value_type(0)) return x;
-		if(a >= typename detail::tquat<T, P>::value_type(1)) return y;
+		if(a <= T(0)) return x;
+		if(a >= T(1)) return y;
 
 		T fCos = dot(x, y);
 		detail::tquat<T, P> y2(y); //BUG!!! tquat<T> y2;

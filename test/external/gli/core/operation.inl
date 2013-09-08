@@ -75,7 +75,7 @@ namespace gli
 			for(gli::texture2D::size_type t = 0; t < TexelCount; ++t)
 			for(gli::texture2D::size_type c = 0; c < Mipmap.components(); ++c)
 			{
-				gli::texture2D::size_type IndexSrc = t * Mipmap.components() + Channel[glm::uvec4::size_type(c)];
+				gli::texture2D::size_type IndexSrc = t * Mipmap.components() + Channel[static_cast<int>(c)];
 				gli::texture2D::size_type IndexDst = t * Mipmap.components() + c;
 
 				memcpy(DataDst + IndexDst, DataSrc + IndexSrc, CompSize);

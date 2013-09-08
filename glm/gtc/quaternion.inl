@@ -32,7 +32,7 @@ namespace glm{
 namespace detail
 {
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tquat<T, P>::size_type tquat<T, P>::length() const
+	GLM_FUNC_QUALIFIER int tquat<T, P>::length() const
 	{
 		return 4;
 	}
@@ -110,8 +110,8 @@ namespace detail
 		tvec3<T, P> const & eulerAngle
 	)
 	{
-		tvec3<T, P> c = glm::cos(eulerAngle * value_type(0.5));
-		tvec3<T, P> s = glm::sin(eulerAngle * value_type(0.5));
+		tvec3<T, P> c = glm::cos(eulerAngle * T(0.5));
+		tvec3<T, P> s = glm::sin(eulerAngle * T(0.5));
 		
 		this->w = c.x * c.y * c.z + s.x * s.y * s.z;
 		this->x = s.x * c.y * c.z - c.x * s.y * s.z;
@@ -141,14 +141,16 @@ namespace detail
 	// tquat<T, P> accesses
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER T & tquat<T, P>::operator[] (size_type i)
+	GLM_FUNC_QUALIFIER T & tquat<T, P>::operator[] (int i)
 	{
+		assert(i >= 0 && i < this->length());
 		return (&x)[i];
 	}
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER T const & tquat<T, P>::operator[] (size_type i) const
+	GLM_FUNC_QUALIFIER T const & tquat<T, P>::operator[] (int i) const
 	{
+		assert(i >= 0 && i < this->length());
 		return (&x)[i];
 	}
 
@@ -229,7 +231,7 @@ namespace detail
 		detail::tvec3<T, P> const & v
 	)
 	{
-		typename detail::tquat<T, P>::value_type Two(2);
+		T Two(2);
 
 		detail::tvec3<T, P> uv, uuv;
 		detail::tvec3<T, P> QuatVector(q.x, q.y, q.z);
@@ -344,10 +346,10 @@ namespace detail
 		detail::tquat<T, P> const & q
 	)
 	{
-		typename detail::tquat<T, P>::value_type len = length(q);
-		if(len <= typename detail::tquat<T, P>::value_type(0)) // Problem
+		T len = length(q);
+		if(len <= T(0)) // Problem
 			return detail::tquat<T, P>(1, 0, 0, 0);
-		typename detail::tquat<T, P>::value_type oneOverLen = typename detail::tquat<T, P>::value_type(1) / len;
+		T oneOverLen = T(1) / len;
 		return detail::tquat<T, P>(q.w * oneOverLen, q.x * oneOverLen, q.y * oneOverLen, q.z * oneOverLen);
 	}
 
@@ -384,12 +386,12 @@ namespace detail
 		typename detail::tquat<T, P>::T const & a
 	)
 	{
-		if(a <= typename detail::tquat<T, P>::value_type(0)) return x;
-		if(a >= typename detail::tquat<T, P>::value_type(1)) return y;
+		if(a <= T(0)) return x;
+		if(a >= T(1)) return y;
 
 		float fCos = dot(x, y);
 		detail::tquat<T, P> y2(y); //BUG!!! tquat<T, P> y2;
-		if(fCos < typename detail::tquat<T, P>::value_type(0))
+		if(fCos < T(0))
 		{
 			y2 = -y;
 			fCos = -fCos;
@@ -397,18 +399,18 @@ namespace detail
 
 		//if(fCos > 1.0f) // problem
 		float k0, k1;
-		if(fCos > typename detail::tquat<T, P>::value_type(0.9999))
+		if(fCos > T(0.9999))
 		{
-			k0 = typename detail::tquat<T, P>::value_type(1) - a;
-			k1 = typename detail::tquat<T, P>::value_type(0) + a; //BUG!!! 1.0f + a;
+			k0 = T(1) - a;
+			k1 = T(0) + a; //BUG!!! 1.0f + a;
 		}
 		else
 		{
-			typename detail::tquat<T, P>::value_type fSin = sqrt(T(1) - fCos * fCos);
-			typename detail::tquat<T, P>::value_type fAngle = atan(fSin, fCos);
-			typename detail::tquat<T, P>::value_type fOneOverSin = static_cast<T>(1) / fSin;
-			k0 = sin((typename detail::tquat<T, P>::value_type(1) - a) * fAngle) * fOneOverSin;
-			k1 = sin((typename detail::tquat<T, P>::value_type(0) + a) * fAngle) * fOneOverSin;
+			T fSin = sqrt(T(1) - fCos * fCos);
+			T fAngle = atan(fSin, fCos);
+			T fOneOverSin = static_cast<T>(1) / fSin;
+			k0 = sin((T(1) - a) * fAngle) * fOneOverSin;
+			k1 = sin((T(0) + a) * fAngle) * fOneOverSin;
 		}
 
 		return detail::tquat<T, P>(
@@ -566,7 +568,7 @@ namespace detail
 		detail::tvec3<T, P> Tmp = v;
 
 		// Axis of rotation must be normalised
-		typename detail::tquat<T, P>::value_type len = glm::length(Tmp);
+		T len = glm::length(Tmp);
 		if(abs(len - T(1)) > T(0.001))
 		{
 			T oneOverLen = static_cast<T>(1) / len;
@@ -576,11 +578,11 @@ namespace detail
 		}
 
 #ifdef GLM_FORCE_RADIANS
-		typename detail::tquat<T, P>::value_type const AngleRad(angle);
+		T const AngleRad(angle);
 #else
-		typename detail::tquat<T, P>::value_type const AngleRad = radians(angle);
+		T const AngleRad = radians(angle);
 #endif
-		typename detail::tquat<T, P>::value_type const Sin = sin(AngleRad * T(0.5));
+		T const Sin = sin(AngleRad * T(0.5));
 
 		return q * detail::tquat<T, P>(cos(AngleRad * T(0.5)), Tmp.x * Sin, Tmp.y * Sin, Tmp.z * Sin);
 		//return gtc::quaternion::cross(q, detail::tquat<T, P>(cos(AngleRad * T(0.5)), Tmp.x * fSin, Tmp.y * fSin, Tmp.z * fSin));
@@ -670,13 +672,13 @@ namespace detail
 		detail::tmat3x3<T, P> const & m
 	)
 	{
-		typename detail::tquat<T, P>::value_type fourXSquaredMinus1 = m[0][0] - m[1][1] - m[2][2];
-		typename detail::tquat<T, P>::value_type fourYSquaredMinus1 = m[1][1] - m[0][0] - m[2][2];
-		typename detail::tquat<T, P>::value_type fourZSquaredMinus1 = m[2][2] - m[0][0] - m[1][1];
-		typename detail::tquat<T, P>::value_type fourWSquaredMinus1 = m[0][0] + m[1][1] + m[2][2];
+		T fourXSquaredMinus1 = m[0][0] - m[1][1] - m[2][2];
+		T fourYSquaredMinus1 = m[1][1] - m[0][0] - m[2][2];
+		T fourZSquaredMinus1 = m[2][2] - m[0][0] - m[1][1];
+		T fourWSquaredMinus1 = m[0][0] + m[1][1] + m[2][2];
 
 		int biggestIndex = 0;
-		typename detail::tquat<T, P>::value_type fourBiggestSquaredMinus1 = fourWSquaredMinus1;
+		T fourBiggestSquaredMinus1 = fourWSquaredMinus1;
 		if(fourXSquaredMinus1 > fourBiggestSquaredMinus1)
 		{
 			fourBiggestSquaredMinus1 = fourXSquaredMinus1;
@@ -693,8 +695,8 @@ namespace detail
 			biggestIndex = 3;
 		}
 
-		typename detail::tquat<T, P>::value_type biggestVal = sqrt(fourBiggestSquaredMinus1 + T(1)) * T(0.5);
-		typename detail::tquat<T, P>::value_type mult = static_cast<T>(0.25) / biggestVal;
+		T biggestVal = sqrt(fourBiggestSquaredMinus1 + T(1)) * T(0.5);
+		T mult = static_cast<T>(0.25) / biggestVal;
 
 		detail::tquat<T, P> Result;
 		switch(biggestIndex)
@@ -797,7 +799,7 @@ namespace detail
 	)
 	{
 		typename detail::tquat<T, P>::bool_type Result;
-		for(typename detail::tquat<T, P>::size_type i = 0; i < x.length(); ++i)
+		for(int i = 0; i < x.length(); ++i)
 			Result[i] = x[i] < y[i];
 
 		return Result;
@@ -811,7 +813,7 @@ namespace detail
 	)
 	{
 		typename detail::tquat<T, P>::bool_type Result;
-		for(typename detail::tquat<T, P>::size_type i = 0; i < x.length(); ++i)
+		for(int i = 0; i < x.length(); ++i)
 			Result[i] = x[i] <= y[i];
 		return Result;
 	}
@@ -824,7 +826,7 @@ namespace detail
 	)
 	{
 		typename detail::tquat<T, P>::bool_type Result;
-		for(typename detail::tquat<T, P>::size_type i = 0; i < x.length(); ++i)
+		for(int i = 0; i < x.length(); ++i)
 			Result[i] = x[i] > y[i];
 		return Result;
 	}
@@ -837,7 +839,7 @@ namespace detail
 	)
 	{
 		typename detail::tquat<T, P>::bool_type Result;
-		for(typename detail::tquat<T, P>::size_type i = 0; i < x.length(); ++i)
+		for(int i = 0; i < x.length(); ++i)
 			Result[i] = x[i] >= y[i];
 		return Result;
 	}
@@ -850,7 +852,7 @@ namespace detail
 	)
 	{
 		typename detail::tquat<T, P>::bool_type Result;
-		for(typename detail::tquat<T, P>::size_type i = 0; i < x.length(); ++i)
+		for(int i = 0; i < x.length(); ++i)
 			Result[i] = x[i] == y[i];
 		return Result;
 	}
@@ -863,7 +865,7 @@ namespace detail
 	)
 	{
 		typename detail::tquat<T, P>::bool_type Result;
-		for(typename detail::tquat<T, P>::size_type i = 0; i < x.length(); ++i)
+		for(int i = 0; i < x.length(); ++i)
 			Result[i] = x[i] != y[i];
 		return Result;
 	}

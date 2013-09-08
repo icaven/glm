@@ -80,11 +80,11 @@ namespace glm
 		detail::tvec3<T, P> Tmp = v;
 
 #ifdef GLM_FORCE_RADIANS
-		typename detail::tquat<T, P>::value_type const AngleRad(angle);
+		T const AngleRad(angle);
 #else
-		typename detail::tquat<T, P>::value_type const AngleRad = radians(angle);
+		T const AngleRad = radians(angle);
 #endif
-		typename detail::tquat<T, P>::value_type const Sin = sin(AngleRad * T(0.5));
+		T const Sin = sin(AngleRad * T(0.5));
 
 		return q * detail::tquat<T, P>(cos(AngleRad * T(0.5)), Tmp.x * Sin, Tmp.y * Sin, Tmp.z * Sin);
 		//return gtc::quaternion::cross(q, detail::tquat<T, P>(cos(AngleRad * T(0.5)), Tmp.x * fSin, Tmp.y * fSin, Tmp.z * fSin));

@@ -39,22 +39,16 @@ namespace detail
 	// Accesses
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T & tvec4<T, P>::operator[]
-	(
-		size_type i
-	)
+	GLM_FUNC_QUALIFIER T & tvec4<T, P>::operator[](int i)
 	{
-		assert(i < this->length());
+		assert(i >= 0 && i < this->length());
 		return (&x)[i];
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T const & tvec4<T, P>::operator[]
-	(
-		size_type i
-	) const
+	GLM_FUNC_QUALIFIER T const & tvec4<T, P>::operator[](int i) const
 	{
-		assert(i < this->length());
+		assert(i >= 0 && i < this->length());
 		return (&x)[i];
 	}
 
@@ -730,21 +724,13 @@ namespace detail
 	// Swizzle operators
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tvec4<T, P>::value_type 
-	tvec4<T, P>::swizzle
-	(	
-		comp x
-	) const
+	GLM_FUNC_QUALIFIER T tvec4<T, P>::swizzle(comp x) const
 	{
 		return (*this)[x];
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P> tvec4<T, P>::swizzle
-	(
-		comp x,
-		comp y
-	) const
+	GLM_FUNC_QUALIFIER tvec2<T, P> tvec4<T, P>::swizzle(comp x, comp y) const
 	{
 		return tvec2<T, P>(
 			(*this)[x],
@@ -752,12 +738,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> tvec4<T, P>::swizzle
-	(
-		comp x,
-		comp y,
-		comp z
-	) const
+	GLM_FUNC_QUALIFIER tvec3<T, P> tvec4<T, P>::swizzle(comp x, comp y, comp z) const
 	{
 		return tvec3<T, P>(
 			(*this)[x],
@@ -766,13 +747,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> tvec4<T, P>::swizzle
-	(
-		comp x,
-		comp y,
-		comp z,
-		comp w
-	) const
+	GLM_FUNC_QUALIFIER tvec4<T, P> tvec4<T, P>::swizzle(comp x, comp y,	comp z,	comp w) const
 	{
 		return tvec4<T, P>(
 			(*this)[x],
@@ -782,11 +757,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tref2<T, P> tvec4<T, P>::swizzle
-	(
-		comp x,
-		comp y
-	)
+	GLM_FUNC_QUALIFIER tref2<T, P> tvec4<T, P>::swizzle(comp x,	comp y)
 	{
 		return tref2<T, P>(
 			(*this)[x],
@@ -794,12 +765,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tref3<T, P> tvec4<T, P>::swizzle
-	(
-		comp x,
-		comp y,
-		comp z
-	)
+	GLM_FUNC_QUALIFIER tref3<T, P> tvec4<T, P>::swizzle(comp x, comp y,	comp z)
 	{
 		return tref3<T, P>(
 			(*this)[x],
@@ -808,13 +774,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tref4<T, P> tvec4<T, P>::swizzle
-	(
-		comp x,
-		comp y,
-		comp z,
-		comp w
-	)
+	GLM_FUNC_QUALIFIER tref4<T, P> tvec4<T, P>::swizzle(comp x, comp y, comp z,	comp w)
 	{
 		return tref4<T, P>(
 			(*this)[x],
@@ -830,7 +790,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator+ 
 	(
 		tvec4<T, P> const & v, 
-		typename tvec4<T, P>::T const & s
+		T const & s
 	)
 	{
 		return tvec4<T, P>(
@@ -843,7 +803,7 @@ namespace detail
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator+ 
 	(
-		typename tvec4<T, P>::T const & s, 
+		T const & s, 
 		tvec4<T, P> const & v
 	)
 	{
@@ -873,7 +833,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator- 
 	(
 		tvec4<T, P> const & v, 
-		typename tvec4<T, P>::T const & s
+		T const & s
 	)
 	{
 		return tvec4<T, P>(
@@ -886,7 +846,7 @@ namespace detail
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator- 
 	(
-		typename tvec4<T, P>::T const & s, 
+		T const & s, 
 		tvec4<T, P> const & v
 	)
 	{
@@ -916,7 +876,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator* 
 	(
 		tvec4<T, P> const & v, 
-		typename tvec4<T, P>::T const & s
+		T const & s
 	)
 	{
 		return tvec4<T, P>(
@@ -929,7 +889,7 @@ namespace detail
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator* 
 	(
-		typename tvec4<T, P>::T const & s, 
+		T const & s, 
 		tvec4<T, P> const & v
 	)
 	{
@@ -959,7 +919,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator/ 
 	(
 		tvec4<T, P> const & v, 
-		typename tvec4<T, P>::T const & s
+		T const & s
 	)
 	{
 		return tvec4<T, P>(
@@ -972,7 +932,7 @@ namespace detail
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator/ 
 	(
-		typename tvec4<T, P>::T const & s, 
+		T const & s, 
 		tvec4<T, P> const & v
 	)
 	{
@@ -1041,7 +1001,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator% 
 	(
 		tvec4<T, P> const & v, 
-		typename tvec4<T, P>::T const & s
+		T const & s
 	)
 	{
 		return tvec4<T, P>(
@@ -1054,7 +1014,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator% 
 	(
-		typename tvec4<T, P>::T const & s, 
+		T const & s, 
 		tvec4<T, P> const & v
 	)
 	{
@@ -1083,7 +1043,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator& 
 	(
 		tvec4<T, P> const & v, 
-		typename tvec4<T, P>::T const & s
+		T const & s
 	)
 	{
 		return tvec4<T, P>(
@@ -1096,7 +1056,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator& 
 	(
-		typename tvec4<T, P>::T const & s, 
+		T const & s, 
 		tvec4<T, P> const & v
 	)
 	{
@@ -1125,7 +1085,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator|
 	(
 		tvec4<T, P> const & v, 
-		typename tvec4<T, P>::T const & s
+		T const & s
 	)
 	{
 		return tvec4<T, P>(
@@ -1138,7 +1098,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator|
 	(
-		typename tvec4<T, P>::T const & s, 
+		T const & s, 
 		tvec4<T, P> const & v
 	)
 	{
@@ -1167,7 +1127,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator^
 	(
 		tvec4<T, P> const & v, 
-		typename tvec4<T, P>::T const & s
+		T const & s
 	)
 	{
 		return tvec4<T, P>(
@@ -1180,7 +1140,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator^
 	(
-		typename tvec4<T, P>::T const & s, 
+		T const & s, 
 		tvec4<T, P> const & v
 	)
 	{
@@ -1209,7 +1169,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator<<
 	(
 		tvec4<T, P> const & v,
-		typename tvec4<T, P>::T const & s
+		T const & s
 	)
 	{
 		return tvec4<T, P>(
@@ -1222,7 +1182,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator<<
 	(
-		typename tvec4<T, P>::T const & s,
+		T const & s,
 		tvec4<T, P> const & v
 	)
 	{
@@ -1251,7 +1211,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator>>
 	(
 		tvec4<T, P> const & v,
-		typename tvec4<T, P>::T const & s
+		T const & s
 	)
 	{
 		return tvec4<T, P>(
@@ -1264,7 +1224,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator>>
 	(
-		typename tvec4<T, P>::T const & s,
+		T const & s,
 		tvec4<T, P> const & v
 	)
 	{

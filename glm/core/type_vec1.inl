@@ -39,22 +39,16 @@ namespace detail
 	// Accesses
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tvec1<T, P>::value_type & tvec1<T, P>::operator[]
-	(
-		size_type i
-	)
+	GLM_FUNC_QUALIFIER T & tvec1<T, P>::operator[](int i)
 	{
-		assert(i < this->length());
+		assert(i >= 0 && i < this->length());
 		return (&x)[i];
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tvec1<T, P>::T const & tvec1<T, P>::operator[]
-	(
-		size_type i
-	) const
+	GLM_FUNC_QUALIFIER T const & tvec1<T, P>::operator[](int i) const
 	{
-		assert(i < this->length());
+		assert(i >= 0 && i < this->length());
 		return (&x)[i];
 	}
 

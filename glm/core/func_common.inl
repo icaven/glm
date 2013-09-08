@@ -346,8 +346,8 @@ namespace detail
 	GLM_FUNC_QUALIFIER detail::tvec3<T, P> clamp
 	(
 		detail::tvec3<T, P> const & x,
-		typename detail::tvec3<T, P>::T const & minVal,
-		typename detail::tvec3<T, P>::T const & maxVal
+		T const & minVal,
+		T const & maxVal
 	)
 	{
 		return detail::tvec3<T, P>(
@@ -360,8 +360,8 @@ namespace detail
 	GLM_FUNC_QUALIFIER detail::tvec4<T, P> clamp
 	(
 		detail::tvec4<T, P> const & x,
-		typename detail::tvec4<T, P>::T const & minVal,
-		typename detail::tvec4<T, P>::T const & maxVal
+		T const & minVal,
+		T const & maxVal
 	)
 	{
 		return detail::tvec4<T, P>(
@@ -585,14 +585,9 @@ namespace detail
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'mix' only accept floating-point inputs");
 
 		detail::tvec2<T, P> result;
-		for
-		(
-			typename detail::tvec2<T, P>::size_type i = 0; 
-			i < x.length(); ++i
-		)
-		{
+		for(int i = 0; i < x.length(); ++i)
 			result[i] = a[i] ? y[i] : x[i];
-		}
+
 		return result;
 	}
 
@@ -607,14 +602,9 @@ namespace detail
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'mix' only accept floating-point inputs");
 
 		detail::tvec3<T, P> result;
-		for
-		(
-			typename detail::tvec3<T, P>::size_type i = 0;
-			i < x.length(); ++i
-		)
-		{
+		for(int i = 0; i < x.length(); ++i)
 			result[i] = a[i] ? y[i] : x[i];
-		}
+
 		return result;
 	}
 
@@ -629,14 +619,9 @@ namespace detail
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'mix' only accept floating-point inputs");
 
 		detail::tvec4<T, P> result;
-		for
-		(
-			typename detail::tvec4<T, P>::size_type i = 0;
-			i < x.length(); ++i
-		)
-		{
+		for(int i = 0; i < x.length(); ++i)
 			result[i] = a[i] ? y[i] : x[i];
-		}
+
 		return result;
 	}
 

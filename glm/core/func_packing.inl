@@ -97,7 +97,7 @@ namespace glm
 			uint8 u;
 		} A, B, C, D;
 	
-		glm::vec4 Unpack = clamp(v ,-1.0f, 1.0f) * 127.0f;
+		glm::vec4 Unpack = clamp(v,-1.0f, 1.0f) * 127.0f;
 		A.i = int8(round(Unpack.x));
 		B.i = int8(round(Unpack.y));
 		C.i = int8(round(Unpack.z));

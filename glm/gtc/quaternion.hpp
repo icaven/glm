@@ -52,18 +52,16 @@ namespace glm{
 namespace detail
 {
 	template <typename T, precision P>
-	struct tquat// : public genType<T, tquat>
+	struct tquat
 	{
 		enum ctor{null};
 
-		typedef T value_type;
-		typedef std::size_t size_type;
 		typedef tvec4<bool, P> bool_type;
 
 	public:
-		value_type x, y, z, w;
+		T x, y, z, w;
 
-		GLM_FUNC_DECL size_type length() const;
+		GLM_FUNC_DECL int length() const;
 
 		// Constructors
 		tquat();
@@ -90,8 +88,8 @@ namespace detail
 			tmat4x4<T, P> const & m);
 
 		// Accesses
-		GLM_FUNC_DECL value_type & operator[](size_type i);
-		GLM_FUNC_DECL T const & operator[](size_type i) const;
+		GLM_FUNC_DECL T & operator[](int i);
+		GLM_FUNC_DECL T const & operator[](int i) const;
 
 		// Operators
 		GLM_FUNC_DECL tquat<T, P> & operator*=(T const & s);

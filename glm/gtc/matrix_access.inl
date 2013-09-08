@@ -32,14 +32,14 @@ namespace glm
 	GLM_FUNC_QUALIFIER genType row
 	(
 		genType const & m, 
-		typename genType::size_type const & index, 
+		int const & index, 
 		typename genType::row_type const & x
 	)
 	{
-		assert(index < m.col_size());
+		assert(index >= 0 && index < m.col_size());
 
 		genType Result = m;
-		for(typename genType::size_type i = 0; i < genType::row_size(); ++i)
+		for(int i = 0; i < genType::row_size(); ++i)
 			Result[i][index] = x[i];
 		return Result;
 	}
@@ -48,13 +48,13 @@ namespace glm
 	GLM_FUNC_QUALIFIER typename genType::row_type row
 	(
 		genType const & m,
-		typename genType::size_type const & index
+		int const & index
 	)
 	{
-		assert(index < m.col_size());
+		assert(index >= 0 && index < m.col_size());
 
 		typename genType::row_type Result;
-		for(typename genType::size_type i = 0; i < genType::row_size(); ++i)
+		for(int i = 0; i < genType::row_size(); ++i)
 			Result[i] = m[i][index];
 		return Result;
 	}
@@ -63,11 +63,11 @@ namespace glm
 	GLM_FUNC_QUALIFIER genType column
 	(
 		genType const & m,
-		typename genType::size_type const & index,
+		int const & index,
 		typename genType::col_type const & x
 	)
 	{
-		assert(index < m.row_size());
+		assert(index >= 0 && index < m.row_size());
 
 		genType Result = m;
 		Result[index] = x;
@@ -78,10 +78,10 @@ namespace glm
 	GLM_FUNC_QUALIFIER typename genType::col_type column
 	(
 		genType const & m,
-		typename genType::size_type const & index
+		int const & index
 	)
 	{
-		assert(index < m.row_size());
+		assert(index >= 0 && index < m.row_size());
 
 		return m[index];
 	}

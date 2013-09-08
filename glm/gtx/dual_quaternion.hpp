@@ -54,18 +54,16 @@ namespace glm{
 namespace detail
 {
 	template <typename T, precision P>
-	struct tdualquat// : public genType<T, tquat>
+	struct tdualquat
 	{
 		enum ctor{null};
 		
-		typedef T value_type;
 		typedef glm::detail::tquat<T, P> part_type;
-		typedef std::size_t size_type;
 		
 	public:
 		glm::detail::tquat<T, P> real, dual;
 		
-		GLM_FUNC_DECL GLM_CONSTEXPR size_type length() const;
+		GLM_FUNC_DECL GLM_CONSTEXPR int length() const;
 		
 		// Constructors
 		tdualquat();
@@ -124,17 +122,17 @@ namespace detail
 	template <typename T, precision P>
 	detail::tdualquat<T, P> operator* (
 		detail::tdualquat<T, P> const & q,
-		typename detail::tdualquat<T, P>::T const & s);
+		T const & s);
 	
 	template <typename T, precision P>
 	detail::tdualquat<T, P> operator* (
-		typename detail::tdualquat<T, P>::T const & s,
+		T const & s,
 		detail::tdualquat<T, P> const & q);
 	
 	template <typename T, precision P>
 	detail::tdualquat<T, P> operator/ (
 		detail::tdualquat<T, P> const & q,
-		typename detail::tdualquat<T, P>::T const & s);
+		T const & s);
 } //namespace detail
 	
 	/// @addtogroup gtc_dual_quaternion
@@ -154,7 +152,7 @@ namespace detail
 	detail::tdualquat<T, P> lerp(
 		detail::tdualquat<T, P> const & x,
 		detail::tdualquat<T, P> const & y,
-		typename detail::tdualquat<T, P>::T const & a);
+		T const & a);
 
 	/// Returns the q inverse.
 	///

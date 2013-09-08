@@ -46,7 +46,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'length' only accept floating-point inputs");
 
-		typename detail::tvec2<T, P>::value_type sqr = v.x * v.x + v.y * v.y;
+		T sqr = v.x * v.x + v.y * v.y;
 		return sqrt(sqr);
 	}
 
@@ -55,7 +55,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'length' only accept floating-point inputs");
 
-		typename detail::tvec3<T, P>::value_type sqr = v.x * v.x + v.y * v.y + v.z * v.z;
+		T sqr = v.x * v.x + v.y * v.y + v.z * v.z;
 		return sqrt(sqr);
 	}
 
@@ -64,7 +64,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'length' only accept floating-point inputs");
 
-		typename detail::tvec4<T, P>::value_type sqr = v.x * v.x + v.y * v.y + v.z * v.z + v.w * v.w;
+		T sqr = v.x * v.x + v.y * v.y + v.z * v.z + v.w * v.w;
 		return sqrt(sqr);
 	}
 
@@ -82,7 +82,7 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename detail::tvec2<T, P>::value_type distance
+	GLM_FUNC_QUALIFIER T distance
 	(
 		detail::tvec2<T, P> const & p0,
 		detail::tvec2<T, P> const & p1
@@ -94,7 +94,7 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename detail::tvec3<T, P>::value_type distance
+	GLM_FUNC_QUALIFIER T distance
 	(
 		detail::tvec3<T, P> const & p0,
 		detail::tvec3<T, P> const & p1
@@ -106,7 +106,7 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename detail::tvec4<T, P>::value_type distance
+	GLM_FUNC_QUALIFIER T distance
 	(
 		detail::tvec4<T, P> const & p0,
 		detail::tvec4<T, P> const & p1
@@ -131,7 +131,7 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename detail::tvec2<T, P>::value_type dot
+	GLM_FUNC_QUALIFIER T dot
 	(
 		detail::tvec2<T, P> const & x,
 		detail::tvec2<T, P> const & y
@@ -219,7 +219,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'normalize' only accept floating-point inputs");
 		
-		typename detail::tvec2<T, P>::value_type sqr = x.x * x.x + x.y * x.y;
+		T sqr = x.x * x.x + x.y * x.y;
 		return x * inversesqrt(sqr);
 	}
 
@@ -231,7 +231,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'normalize' only accept floating-point inputs");
 
-		typename detail::tvec3<T, P>::value_type sqr = x.x * x.x + x.y * x.y + x.z * x.z;
+		T sqr = x.x * x.x + x.y * x.y + x.z * x.z;
 		return x * inversesqrt(sqr);
 	}
 
@@ -243,7 +243,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'normalize' only accept floating-point inputs");
 		
-		typename detail::tvec4<T, P>::value_type sqr = x.x * x.x + x.y * x.y + x.z * x.z + x.w * x.w;
+		T sqr = x.x * x.x + x.y * x.y + x.z * x.z + x.w * x.w;
 		return x * inversesqrt(sqr);
 	}
 
@@ -279,8 +279,7 @@ namespace glm
 		genType const & eta
 	)
 	{
-		//It could be a vector
-		//GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'refract' only accept floating-point inputs");
 
 		genType dotValue = dot(N, I);
 		genType k = genType(1) - eta * eta * (genType(1) - dotValue * dotValue);
@@ -290,21 +289,20 @@ namespace glm
 			return eta * I - (eta * dotValue + sqrt(k)) * N;
 	}
 
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType refract
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> refract
 	(
-		genType const & I,
-		genType const & N,
-		typename genType::T const & eta
+		vecType<T, P> const & I,
+		vecType<T, P> const & N,
+		T const & eta
 	)
 	{
-		//It could be a vector
-		//GLM_STATIC_ASSERT(detail::type<genType>::is_float);
+		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'refract' only accept floating-point inputs");
 
-		typename genType::value_type dotValue = dot(N, I);
-		typename genType::value_type k = typename genType::value_type(1) - eta * eta * (typename genType::value_type(1) - dotValue * dotValue);
-		if(k < typename genType::value_type(0))
-			return genType(0);
+		T dotValue = dot(N, I);
+		T k = T(1) - eta * eta * (T(1) - dotValue * dotValue);
+		if(k < T(0))
+			return vecType<T, P>(0);
 		else
 			return eta * I - (eta * dotValue + sqrt(k)) * N;
 	}

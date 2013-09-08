@@ -39,16 +39,16 @@ namespace detail
 	// Accesses
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T & tvec2<T, P>::operator[](size_type i)
+	GLM_FUNC_QUALIFIER T & tvec2<T, P>::operator[](int i)
 	{
-		assert(i < this->length());
+		assert(i >= 0 && i < this->length());
 		return (&x)[i];
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T const & tvec2<T, P>::operator[](size_type i) const
+	GLM_FUNC_QUALIFIER T const & tvec2<T, P>::operator[](int i) const
 	{
-		assert(i < this->length());
+		assert(i >= 0 && i < this->length());
 		return (&x)[i];
 	}
 
@@ -509,7 +509,7 @@ namespace detail
 	// Swizzle operators
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tvec2<T, P>::value_type tvec2<T, P>::swizzle
+	GLM_FUNC_QUALIFIER T tvec2<T, P>::swizzle
 	(
 		comp x
 	) const

@@ -142,7 +142,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat2x4<T, P> operator+ (
 		tmat2x4<T, P> const & m,
-		typename tmat2x4<T, P>::T const & s);
+		T const & s);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat2x4<T, P> operator+ (
@@ -152,7 +152,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat2x4<T, P> operator- (
 		tmat2x4<T, P> const & m,
-		typename tmat2x4<T, P>::T const & s);
+		T const & s);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat2x4<T, P> operator- (
@@ -162,11 +162,11 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat2x4<T, P> operator* (
 		tmat2x4<T, P> const & m,
-		typename tmat2x4<T, P>::T const & s);
+		T const & s);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat2x4<T, P> operator* (
-		typename tmat2x4<T, P>::T const & s,
+		T const & s,
 		tmat2x4<T, P> const & m);
 
 	template <typename T, precision P>
@@ -197,11 +197,11 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat2x4<T, P> operator/ (
 		tmat2x4<T, P> const & m,
-		typename tmat2x4<T, P>::T const & s);
+		T const & s);
 
 	template <typename T, precision P> 
 	GLM_FUNC_DECL tmat2x4<T, P> operator/ (
-		typename tmat2x4<T, P>::T const & s,
+		T const & s,
 		tmat2x4<T, P> const & m);
 
 	// Unary constant operators

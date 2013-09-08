@@ -41,8 +41,6 @@ namespace detail
 	{
 		enum ctor{_null};
 
-		typedef T value_type;
-		typedef std::size_t size_type;
 		typedef tvec1<T, P> type;
 		typedef tvec1<bool, P> bool_type;
 
@@ -52,16 +50,16 @@ namespace detail
 		// Data
 
 #		if(GLM_COMPONENT == GLM_COMPONENT_ONLY_XYZW)
-			value_type x;
+			T x;
 #		else//(GLM_COMPONENT == GLM_COMPONENT_GLSL_NAMES)
-			union {value_type x, r, s;};
+			union {T x, r, s;};
 #		endif//GLM_COMPONENT
 
 		//////////////////////////////////////
 		// Accesses
 
-		GLM_FUNC_DECL value_type & operator[](size_type i);
-		GLM_FUNC_DECL T const & operator[](size_type i) const;
+		GLM_FUNC_DECL T & operator[](int i);
+		GLM_FUNC_DECL T const & operator[](int i) const;
 
 		//////////////////////////////////////
 		// Implicit basic constructors
@@ -170,7 +168,7 @@ namespace detail
 		//////////////////////////////////////
 		// Swizzle operators
 
-		GLM_FUNC_DECL value_type swizzle(comp X) const;
+		GLM_FUNC_DECL T swizzle(comp X) const;
 		GLM_FUNC_DECL tvec2<T, P> swizzle(comp X, comp Y) const;
 		GLM_FUNC_DECL tvec3<T, P> swizzle(comp X, comp Y, comp Z) const;
 		GLM_FUNC_DECL tvec4<T, P> swizzle(comp X, comp Y, comp Z, comp W) const;

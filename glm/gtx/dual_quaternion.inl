@@ -32,7 +32,7 @@ namespace glm{
 namespace detail
 {
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tdualquat<T, P>::size_type tdualquat<T, P>::length() const
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR int tdualquat<T, P>::length() const
 	{
 		return 8;
 	}
@@ -102,12 +102,14 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER typename tdualquat<T, P>::part_type & tdualquat<T, P>::operator [] (int i)
 	{
+		assert(i >= 0 && i < this->length());
 		return (&real)[i];
 	}
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER typename tdualquat<T, P>::part_type const & tdualquat<T, P>::operator [] (int i) const
 	{
+		assert(i >= 0 && i < this->length());
 		return (&real)[i];
 	}
 
@@ -215,7 +217,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER detail::tdualquat<T, P> operator*
 	(
 		detail::tdualquat<T, P> const & q,
-		typename detail::tdualquat<T, P>::T const & s
+		T const & s
 	)
 	{
 		return detail::tdualquat<T, P>(q.real * s, q.dual * s);
@@ -224,7 +226,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tdualquat<T, P> operator*
 	(
-		typename detail::tdualquat<T, P>::T const & s,
+		T const & s,
 		detail::tdualquat<T, P> const & q
 	)
 	{
@@ -235,7 +237,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER detail::tdualquat<T, P> operator/
 	(
 		detail::tdualquat<T, P> const & q,
-		typename detail::tdualquat<T, P>::T const & s
+		T const & s
 	)
 	{
 		return detail::tdualquat<T, P>(q.real / s, q.dual / s);
@@ -279,7 +281,7 @@ namespace detail
 	(
 		detail::tdualquat<T, P> const & x,
 		detail::tdualquat<T, P> const & y,
-		typename detail::tdualquat<T, P>::T const & a
+		T const & a
 	)
 	{
 		// Dual Quaternion Linear blend aka DLB:

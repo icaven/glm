@@ -9,13 +9,31 @@
 
 namespace glm
 {
-	template <typename genType> 
-	GLM_FUNC_QUALIFIER typename genType::value_type angle
+	template <typename T> 
+	GLM_FUNC_QUALIFIER T angle
 	(
-		genType const & x,
-		genType const & y
+		T const & x,
+		T const & y
 	)
 	{
+		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'angle' only accept floating-point inputs");
+
+#ifdef GLM_FORCE_RADIANS
+		return acos(dot(x, y));
+#else
+		return degrees(acos(dot(x, y)));
+#endif
+	}
+
+	template <typename T, precision P, template <typename, precision> class vecType> 
+	GLM_FUNC_QUALIFIER T angle
+	(
+		vecType<T, P> const & x,
+		vecType<T, P> const & y
+	)
+	{
+		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'angle' only accept floating-point inputs");
+
 #ifdef GLM_FORCE_RADIANS
 		return acos(dot(x, y));
 #else
@@ -31,6 +49,8 @@ namespace glm
 		detail::tvec2<T, P> const & y
 	)
 	{
+		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'orientedAngle' only accept floating-point inputs");
+
 #ifdef GLM_FORCE_RADIANS
 		T const Angle(acos(dot(x, y)));
 #else
@@ -51,6 +71,8 @@ namespace glm
 		detail::tvec3<T, P> const & ref
 	)
 	{
+		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'orientedAngle' only accept floating-point inputs");
+
 #ifdef GLM_FORCE_RADIANS
 		T const Angle(acos(dot(x, y)));
 #else

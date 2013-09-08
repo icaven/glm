@@ -41,8 +41,6 @@ namespace detail
 	{
 		enum ctor{_null};
 
-		typedef T value_type;
-		typedef std::size_t size_type;
 		typedef tvec2<T, P> type;
 		typedef tvec2<bool, P> bool_type;
 
@@ -54,9 +52,9 @@ namespace detail
 #		if((GLM_LANG & GLM_LANG_CXXMS_FLAG) && defined(GLM_SWIZZLE))
 			union
 			{
-				struct{ value_type x, y; };
-				struct{ value_type r, g; };
-				struct{ value_type s, t; };
+				struct{ T x, y; };
+				struct{ T r, g; };
+				struct{ T s, t; };
 
 				_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, x, y)
 				_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, r, g)
@@ -69,20 +67,20 @@ namespace detail
 				_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, s, t)
 			};
 #		else
-			union {value_type x, r, s;};
-			union {value_type y, g, t;};
+			union {T x, r, s;};
+			union {T y, g, t;};
 
 #			if(defined(GLM_SWIZZLE))
-				//GLM_SWIZZLE_GEN_REF_FROM_VEC2(value_type, P, detail::tvec2, detail::tref2)
-				GLM_SWIZZLE_GEN_VEC_FROM_VEC2(value_type, P, detail::tvec2, detail::tvec2, detail::tvec3, detail::tvec4)
+				//GLM_SWIZZLE_GEN_REF_FROM_VEC2(T, P, detail::tvec2, detail::tref2)
+				GLM_SWIZZLE_GEN_VEC_FROM_VEC2(T, P, detail::tvec2, detail::tvec2, detail::tvec3, detail::tvec4)
 #			endif//(defined(GLM_SWIZZLE))
 #		endif//GLM_LANG
 
 		//////////////////////////////////////
 		// Accesses
 
-		GLM_FUNC_DECL value_type & operator[](size_type i);
-		GLM_FUNC_DECL T const & operator[](size_type i) const;
+		GLM_FUNC_DECL T & operator[](int i);
+		GLM_FUNC_DECL T const & operator[](int i) const;
 
 		//////////////////////////////////////
 		// Implicit basic constructors
@@ -203,7 +201,7 @@ namespace detail
 		//////////////////////////////////////
 		// Swizzle operators
 
-		GLM_FUNC_DECL value_type swizzle(comp X) const;
+		GLM_FUNC_DECL T swizzle(comp X) const;
 		GLM_FUNC_DECL tvec2<T, P> swizzle(comp X, comp Y) const;
 		GLM_FUNC_DECL tvec3<T, P> swizzle(comp X, comp Y, comp Z) const;
 		GLM_FUNC_DECL tvec4<T, P> swizzle(comp X, comp Y, comp Z, comp W) const;

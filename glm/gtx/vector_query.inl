@@ -19,7 +19,7 @@ namespace glm
 	(
 		detail::tvec2<T, P> const & v0,
 		detail::tvec2<T, P> const & v1,
-		typename detail::tvec2<T, P>::T const & epsilon
+		T const & epsilon
 	)
 	{
 		return length(cross(detail::tvec3<T, P>(v0, T(0)), detail::tvec3<T, P>(v1, T(0)))) < epsilon;
@@ -30,7 +30,7 @@ namespace glm
 	(
 		detail::tvec3<T, P> const & v0,
 		detail::tvec3<T, P> const & v1,
-		typename detail::tvec3<T, P>::T const & epsilon
+		T const & epsilon
 	)
 	{
 		return length(cross(v0, v1)) < epsilon;
@@ -41,35 +41,35 @@ namespace glm
 	(
 		detail::tvec4<T, P> const & v0,
 		detail::tvec4<T, P> const & v1,
-		typename detail::tvec4<T, P>::T const & epsilon
+		T const & epsilon
 	)
 	{
 		return length(cross(detail::tvec3<T, P>(v0), detail::tvec3<T, P>(v1))) < epsilon;
 	}
 
-	template <typename genType>
+	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER bool areOrthogonal
 	(
-		genType const & v0,
-		genType const & v1,
-		typename genType::T const & epsilon
+		vecType<T, P> const & v0,
+		vecType<T, P> const & v1,
+		T const & epsilon
 	)
 	{
 		return abs(dot(v0, v1)) <= max(
-			typename genType::value_type(1),
+			T(1),
 			length(v0)) * max(
-				typename genType::value_type(1),
+				T(1),
 				length(v1)) * epsilon;
 	}
 
-	template <typename genType, precision P, template <typename, precision> class vecType>
+	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER bool isNormalized
 	(
-		vecType<genType, P> const & v,
-		genType const & epsilon
+		vecType<T, P> const & v,
+		T const & epsilon
 	)
 	{
-		return abs(length(v) - genType(1)) <= genType(2) * epsilon;
+		return abs(length(v) - T(1)) <= T(2) * epsilon;
 	}
 
 	template <typename T, precision P>
@@ -150,12 +150,12 @@ namespace glm
 			abs(v.w) < epsilon);
 	}
 
-	template <typename genType>
+	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER bool areOrthonormal
 	(
-		genType const & v0,
-		genType const & v1,
-		typename genType::T const & epsilon
+		vecType<T, P> const & v0,
+		vecType<T, P> const & v1,
+		T const & epsilon
 	)
 	{
 		return isNormalized(v0, epsilon) && isNormalized(v1, epsilon) && (abs(dot(v0, v1)) <= epsilon);
