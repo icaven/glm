@@ -56,6 +56,7 @@ GLM 0.9.5.0: 2013-XX-XX
 - Uses C++ casts
 - Fixed .length() that should return a int and not a size_t
 - Removed unnecessary conversions
+- Optimized packing and unpacking functions
 
 ================================================================================
 GLM 0.9.4.6: 2013-08-XX

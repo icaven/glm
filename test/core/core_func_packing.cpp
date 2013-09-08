@@ -41,12 +41,7 @@ int test_packUnorm2x16()
 int test_packSnorm2x16()
 {
 	int Error = 0;
-/*
-	std::vector<glm::hvec2> A;
-	A.push_back(glm::hvec2(glm::half( 1.0f), glm::half( 0.0f)));
-	A.push_back(glm::hvec2(glm::half(-0.5f), glm::half(-0.7f)));
-	A.push_back(glm::hvec2(glm::half(-0.1f), glm::half( 0.1f)));
-*/
+
 	std::vector<glm::vec2> A;
 	A.push_back(glm::vec2( 1.0f, 0.0f));
 	A.push_back(glm::vec2(-0.5f,-0.7f));

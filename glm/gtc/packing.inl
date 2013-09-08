@@ -35,7 +35,7 @@ namespace detail
 		// 11 bits    =>                        EEE EEFFFFFF
 		// Half bits  =>                   SEEEEEFF FFFFFFFF
 		// Float bits => SEEEEEEE EFFFFFFF FFFFFFFF FFFFFFFF
-        
+
 		// 0x00007c00 => 00000000 00000000 01111100 00000000
 		// 0x000003ff => 00000000 00000000 00000011 11111111
 		// 0x38000000 => 00111000 00000000 00000000 00000000

@@ -30,169 +30,80 @@ namespace glm
 {
 	GLM_FUNC_QUALIFIER uint32 packUnorm2x16(vec2 const & v)
 	{
-		uint16 A(uint16(round(clamp(v.x, 0.0f, 1.0f) * 65535.0f)));
-		uint16 B(uint16(round(clamp(v.y, 0.0f, 1.0f) * 65535.0f)));
-		return uint32((B << 16) | A);
+		u16vec2 Topack(round(clamp(v, 0.0f, 1.0f) * 65535.0f));
+		return *reinterpret_cast<uint32*>(&Topack);
 	}
 
 	GLM_FUNC_QUALIFIER vec2 unpackUnorm2x16(uint32 const & p)
 	{
-		uint32 Mask16((1 << 16) - 1);
-		uint32 A((p >>  0) & Mask16);
-		uint32 B((p >> 16) & Mask16);
-		return vec2(A, B) * float(1.5259021896696421759365224689097e-5); // 1.0 / 65535.0
+		vec2 Unpack(*reinterpret_cast<u16vec2*>(const_cast<uint32*>(&p)));
+		return Unpack * float(1.5259021896696421759365224689097e-5); // 1.0 / 65535.0
 	}
-	
+
 	GLM_FUNC_QUALIFIER uint32 packSnorm2x16(vec2 const & v)
 	{
-		i16vec2 Unpack(round(clamp(v ,-1.0f, 1.0f) * 32767.0f));
-		u32vec2 Topack(*reinterpret_cast<u16vec2*>(&Unpack));
-		return (Topack.y << 16) | (Topack.x << 0);
+		i16vec2 Topack(round(clamp(v ,-1.0f, 1.0f) * 32767.0f));
+		return *reinterpret_cast<uint32*>(&Topack);
 	}
 
 	GLM_FUNC_QUALIFIER vec2 unpackSnorm2x16(uint32 const & p)
 	{
-		union iu
-		{
-			int16 i;
-			uint16 u;
-		} A, B;
-		
-		uint32 Mask16((1 << 16) - 1);
-		A.u = uint16((p >>  0) & Mask16);
-		B.u = uint16((p >> 16) & Mask16);
-		glm::vec2 Pack(A.i, B.i);
-		
-		return clamp(Pack * 1.0f / 32767.0f, -1.0f, 1.0f);
+		vec2 Unpack(*reinterpret_cast<i16vec2*>(const_cast<uint32*>(&p)));
+		return clamp(Unpack * 1.0f / 32767.0f, -1.0f, 1.0f);
 	}
 
 	GLM_FUNC_QUALIFIER uint32 packUnorm4x8(vec4 const & v)
 	{
-		uint8 A((uint8)round(clamp(v.x, 0.0f, 1.0f) * 255.0f));
-		uint8 B((uint8)round(clamp(v.y, 0.0f, 1.0f) * 255.0f));
-		uint8 C((uint8)round(clamp(v.z, 0.0f, 1.0f) * 255.0f));
-		uint8 D((uint8)round(clamp(v.w, 0.0f, 1.0f) * 255.0f));
-		return uint32((D << 24) | (C << 16) | (B << 8) | A);
+		glm::u8vec4 Topack(round(clamp(v, 0.0f, 1.0f) * 255.0f));
+		return *reinterpret_cast<uint32*>(&Topack);
 	}
 
 	GLM_FUNC_QUALIFIER vec4 unpackUnorm4x8(uint32 const & p)
-	{	
-		uint32 Mask8((1 << 8) - 1);
-		uint32 A((p >>  0) & Mask8);
-		uint32 B((p >>  8) & Mask8);
-		uint32 C((p >> 16) & Mask8);
-		uint32 D((p >> 24) & Mask8);
-		return glm::vec4(
-			A * 1.0f / 255.0f, 
-			B * 1.0f / 255.0f, 
-			C * 1.0f / 255.0f, 
-			D * 1.0f / 255.0f);
+	{
+		glm::vec4 Unpack(*reinterpret_cast<glm::u8vec4*>(const_cast<uint32*>(&p)));
+		return Unpack * 0.003921568627451f; // 1 / 255
 	}
 	
 	GLM_FUNC_QUALIFIER uint32 packSnorm4x8(vec4 const & v)
 	{
-		union iu
-		{
-			int8 i;
-			uint8 u;
-		} A, B, C, D;
-	
-		glm::vec4 Unpack = clamp(v,-1.0f, 1.0f) * 127.0f;
-		A.i = int8(round(Unpack.x));
-		B.i = int8(round(Unpack.y));
-		C.i = int8(round(Unpack.z));
-		D.i = int8(round(Unpack.w));
-		uint32 Pack = (uint32(D.u) << 24) | (uint32(C.u) << 16) | (uint32(B.u) << 8) | (uint32(A.u) << 0);
-		return Pack;
+		glm::i8vec4 Topack(round(clamp(v ,-1.0f, 1.0f) * 127.0f));
+		return *reinterpret_cast<uint32*>(&Topack);
 	}
 	
 	GLM_FUNC_QUALIFIER glm::vec4 unpackSnorm4x8(uint32 const & p)
-	{	
-		union iu
-		{
-			int8 i;
-			uint8 u;
-		} A, B, C, D;
-	
-		uint32 Mask8((1 << 8) - 1);
-		A.u = uint8((p >>  0) & Mask8);
-		B.u = uint8((p >>  8) & Mask8);
-		C.u = uint8((p >> 16) & Mask8);
-		D.u = uint8((p >> 24) & Mask8);
-		glm::vec4 Pack(A.i, B.i, C.i, D.i);
-	
-		return clamp(Pack * 1.0f / 127.0f, -1.0f, 1.0f);
+	{
+		glm::vec4 Unpack(*reinterpret_cast<glm::i8vec4*>(const_cast<uint32*>(&p)));
+		return clamp(
+			Unpack * 0.0078740157480315f, // 1.0f / 127.0f
+			-1.0f, 1.0f);
 	}
 
 	GLM_FUNC_QUALIFIER double packDouble2x32(uvec2 const & v)
 	{
-		struct uint32_pair
-		{
-			uint32 x;
-			uint32 y;
-		};
-
-		union helper
-		{
-			uint32_pair input;
-			double output;
-		} Helper;
-
-		Helper.input.x = v.x;
-		Helper.input.y = v.y;
-
-		return Helper.output;
-		//return *(double*)&v;
+		return *reinterpret_cast<double*>(const_cast<uvec2*>(&v));
 	}
 
 	GLM_FUNC_QUALIFIER uvec2 unpackDouble2x32(double const & v)
 	{
-		struct uint32_pair
-		{
-			uint32 x;
-			uint32 y;
-		};
-
-		union helper
-		{
-			double input;
-			uint32_pair output;
-		} Helper;
-
-		Helper.input = v;
-
-		return uvec2(Helper.output.x, Helper.output.y);
+		return *reinterpret_cast<uvec2*>(const_cast<double*>(&v));
 	}
 
 	GLM_FUNC_QUALIFIER uint packHalf2x16(vec2 const & v)
 	{
-		union helper
-		{
-			uint other;
-			struct
-			{
-				detail::hdata a, b;
-			} orig;
-		} Pack;
+		i16vec2 Unpack(
+			detail::toFloat16(v.x),
+			detail::toFloat16(v.y));
 
-		Pack.orig.a = detail::toFloat16(v.x);
-		Pack.orig.b = detail::toFloat16(v.y);
-		return Pack.other;
+		return *reinterpret_cast<uint*>(&Unpack);
 	}
 
 	GLM_FUNC_QUALIFIER vec2 unpackHalf2x16(uint const & v)
 	{
-		union helper
-		{
-			uint other;
-			struct
-			{
-				detail::hdata a, b;
-			} orig;
-		} Unpack;
-		Unpack.other = v;
-
-		return vec2(detail::toFloat32(Unpack.orig.a), detail::toFloat32(Unpack.orig.b));
+		i16vec2 Unpack = *reinterpret_cast<i16vec2*>(const_cast<uint*>(&v));
+	
+		return vec2(
+			detail::toFloat32(Unpack.x), 
+			detail::toFloat32(Unpack.y));
 	}
 }//namespace glm
 
