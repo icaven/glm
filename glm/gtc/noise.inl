@@ -502,11 +502,11 @@ namespace glm
 	GLM_FUNC_QUALIFIER T perlin(detail::tvec3<T, P> const & Position, detail::tvec3<T, P> const & rep)
 	{
 		detail::tvec3<T, P> Pi0 = mod(floor(Position), rep); // Integer part, modulo period
-		detail::tvec3<T, P> Pi1 = mod(Pi0 + detail::tvec3<T, P>(1.0), rep); // Integer part + 1, mod period
+		detail::tvec3<T, P> Pi1 = mod(Pi0 + detail::tvec3<T, P>(T(1)), rep); // Integer part + 1, mod period
 		Pi0 = mod(Pi0, T(289));
 		Pi1 = mod(Pi1, T(289));
 		detail::tvec3<T, P> Pf0 = fract(Position); // Fractional part for interpolation
-		detail::tvec3<T, P> Pf1 = Pf0 - detail::tvec3<T, P>(1.0); // Fractional part - 1.0
+		detail::tvec3<T, P> Pf1 = Pf0 - detail::tvec3<T, P>(T(1)); // Fractional part - 1.0
 		detail::tvec4<T, P> ix = detail::tvec4<T, P>(Pi0.x, Pi1.x, Pi0.x, Pi1.x);
 		detail::tvec4<T, P> iy = detail::tvec4<T, P>(Pi0.y, Pi0.y, Pi1.y, Pi1.y);
 		detail::tvec4<T, P> iz0(Pi0.z);
@@ -521,16 +521,16 @@ namespace glm
 		gx0 = fract(gx0);
 		detail::tvec4<T, P> gz0 = detail::tvec4<T, P>(0.5) - abs(gx0) - abs(gy0);
 		detail::tvec4<T, P> sz0 = step(gz0, detail::tvec4<T, P>(0));
-		gx0 -= sz0 * (step(0.0, gx0) - T(0.5));
-		gy0 -= sz0 * (step(0.0, gy0) - T(0.5));
+		gx0 -= sz0 * (step(T(0), gx0) - T(0.5));
+		gy0 -= sz0 * (step(T(0), gy0) - T(0.5));
 
 		detail::tvec4<T, P> gx1 = ixy1 / T(7);
 		detail::tvec4<T, P> gy1 = fract(floor(gx1) / T(7)) - T(0.5);
 		gx1 = fract(gx1);
 		detail::tvec4<T, P> gz1 = detail::tvec4<T, P>(0.5) - abs(gx1) - abs(gy1);
-		detail::tvec4<T, P> sz1 = step(gz1, detail::tvec4<T, P>(0.0));
-		gx1 -= sz1 * (step(0.0, gx1) - T(0.5));
-		gy1 -= sz1 * (step(0.0, gy1) - T(0.5));
+		detail::tvec4<T, P> sz1 = step(gz1, detail::tvec4<T, P>(T(0)));
+		gx1 -= sz1 * (step(T(0), gx1) - T(0.5));
+		gy1 -= sz1 * (step(T(0), gy1) - T(0.5));
 
 		detail::tvec3<T, P> g000 = detail::tvec3<T, P>(gx0.x, gy0.x, gz0.x);
 		detail::tvec3<T, P> g100 = detail::tvec3<T, P>(gx0.y, gy0.y, gz0.y);
@@ -599,8 +599,8 @@ namespace glm
 		gz00 = fract(gz00) - T(0.5);
 		detail::tvec4<T, P> gw00 = detail::tvec4<T, P>(0.75) - abs(gx00) - abs(gy00) - abs(gz00);
 		detail::tvec4<T, P> sw00 = step(gw00, detail::tvec4<T, P>(0));
-		gx00 -= sw00 * (step(0.0, gx00) - T(0.5));
-		gy00 -= sw00 * (step(0.0, gy00) - T(0.5));
+		gx00 -= sw00 * (step(T(0), gx00) - T(0.5));
+		gy00 -= sw00 * (step(T(0), gy00) - T(0.5));
 
 		detail::tvec4<T, P> gx01 = ixy01 / T(7);
 		detail::tvec4<T, P> gy01 = floor(gx01) / T(7);
@@ -610,8 +610,8 @@ namespace glm
 		gz01 = fract(gz01) - T(0.5);
 		detail::tvec4<T, P> gw01 = detail::tvec4<T, P>(0.75) - abs(gx01) - abs(gy01) - abs(gz01);
 		detail::tvec4<T, P> sw01 = step(gw01, detail::tvec4<T, P>(0.0));
-		gx01 -= sw01 * (step(0.0, gx01) - T(0.5));
-		gy01 -= sw01 * (step(0.0, gy01) - T(0.5));
+		gx01 -= sw01 * (step(T(0), gx01) - T(0.5));
+		gy01 -= sw01 * (step(T(0), gy01) - T(0.5));
 
 		detail::tvec4<T, P> gx10 = ixy10 / T(7);
 		detail::tvec4<T, P> gy10 = floor(gx10) / T(7);
@@ -621,8 +621,8 @@ namespace glm
 		gz10 = fract(gz10) - T(0.5);
 		detail::tvec4<T, P> gw10 = detail::tvec4<T, P>(0.75) - abs(gx10) - abs(gy10) - abs(gz10);
 		detail::tvec4<T, P> sw10 = step(gw10, detail::tvec4<T, P>(0.0));
-		gx10 -= sw10 * (step(0.0, gx10) - T(0.5));
-		gy10 -= sw10 * (step(0.0, gy10) - T(0.5));
+		gx10 -= sw10 * (step(T(0), gx10) - T(0.5));
+		gy10 -= sw10 * (step(T(0), gy10) - T(0.5));
 
 		detail::tvec4<T, P> gx11 = ixy11 / T(7);
 		detail::tvec4<T, P> gy11 = floor(gx11) / T(7);
@@ -631,9 +631,9 @@ namespace glm
 		gy11 = fract(gy11) - T(0.5);
 		gz11 = fract(gz11) - T(0.5);
 		detail::tvec4<T, P> gw11 = detail::tvec4<T, P>(0.75) - abs(gx11) - abs(gy11) - abs(gz11);
-		detail::tvec4<T, P> sw11 = step(gw11, detail::tvec4<T, P>(0.0));
-		gx11 -= sw11 * (step(0.0, gx11) - T(0.5));
-		gy11 -= sw11 * (step(0.0, gy11) - T(0.5));
+		detail::tvec4<T, P> sw11 = step(gw11, detail::tvec4<T, P>(T(0)));
+		gx11 -= sw11 * (step(T(0), gx11) - T(0.5));
+		gy11 -= sw11 * (step(T(0), gy11) - T(0.5));
 
 		detail::tvec4<T, P> g0000(gx00.x, gy00.x, gz00.x, gw00.x);
 		detail::tvec4<T, P> g1000(gx00.y, gy00.y, gz00.y, gw00.y);
@@ -869,9 +869,9 @@ namespace glm
 		i0.w += static_cast<T>(1) - isYZ.z;
 
 		// i0 now contains the unique values 0,1,2,3 in each channel
-		detail::tvec4<T, P> i3 = clamp(i0, 0.0, 1.0);
-		detail::tvec4<T, P> i2 = clamp(i0 - 1.0, 0.0, 1.0);
-		detail::tvec4<T, P> i1 = clamp(i0 - 2.0, 0.0, 1.0);
+		detail::tvec4<T, P> i3 = clamp(i0, T(0), T(1));
+		detail::tvec4<T, P> i2 = clamp(i0 - T(1), T(0), T(1));
+		detail::tvec4<T, P> i1 = clamp(i0 - T(2), T(0), T(1));
 
 		//  x0 = x0 - 0.0 + 0.0 * C.xxxx
 		//  x1 = x0 - i1  + 0.0 * C.xxxx

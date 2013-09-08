@@ -641,7 +641,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tvec2<T, P> step
 	(
-		typename detail::tvec2<T, P>::T const & edge,
+		T const & edge,
 		detail::tvec2<T, P> const & x
 	)
 	{
@@ -653,7 +653,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tvec3<T, P> step
 	(
-		typename detail::tvec3<T, P>::T const & edge,
+		T const & edge,
 		detail::tvec3<T, P> const & x
 	)
 	{
@@ -666,7 +666,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tvec4<T, P> step
 	(
-		typename detail::tvec4<T, P>::T const & edge,
+		T const & edge,
 		detail::tvec4<T, P> const & x
 	)
 	{
