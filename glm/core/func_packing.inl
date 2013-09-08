@@ -47,7 +47,7 @@ namespace glm
 	{
 		i16vec2 Unpack(round(clamp(v ,-1.0f, 1.0f) * 32767.0f));
 		u32vec2 Topack(*reinterpret_cast<u16vec2*>(&Unpack));
-		return (Topack.x << 16) | (Topack.y << 0);
+		return (Topack.y << 16) | (Topack.x << 0);
 	}
 
 	GLM_FUNC_QUALIFIER vec2 unpackSnorm2x16(uint32 const & p)
