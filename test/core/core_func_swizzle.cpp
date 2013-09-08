@@ -70,8 +70,6 @@ int test_vec4_swizzle()
 	Error += A == B ? 0 : 1;
 	Error += A == C ? 0 : 1;
 
-
-	static_assert(sizeof(int) <= 4, "Test");
 	return Error;
 }
 
