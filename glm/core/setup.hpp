@@ -625,7 +625,7 @@
 #endif
 
 #if(defined(GLM_FORCE_INLINE))
-#	if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
+#	if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC8))
 #		define GLM_INLINE __forceinline
 #	elif((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC34))
 #		define GLM_INLINE __attribute__((always_inline))
@@ -658,7 +658,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Qualifiers
 
-#if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2005))
+#if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC8))
 #	define GLM_DEPRECATED __declspec(deprecated)
 #	define GLM_ALIGN(x) __declspec(align(x))
 #	define GLM_ALIGNED_STRUCT(x) __declspec(align(x)) struct
@@ -676,13 +676,6 @@
 #	define GLM_DEPRECATED __attribute__((__deprecated__))
 #	define GLM_ALIGN(x) __attribute__((aligned(x)))
 #	define GLM_ALIGNED_STRUCT(x) struct __attribute__((aligned(x)))
-#	if(GLM_COMPILER >= GLM_COMPILER_GCC33)
-#		define GLM_RESTRICT __restrict__
-#		define GLM_RESTRICT_VAR __restrict__
-#	else
-#		define GLM_RESTRICT
-#		define GLM_RESTRICT_VAR
-#	endif
 #	define GLM_RESTRICT __restrict__
 #	define GLM_RESTRICT_VAR __restrict__
 #	if((GLM_COMPILER >= GLM_COMPILER_GCC47) && ((GLM_LANG & GLM_LANG_CXX0X) == GLM_LANG_CXX0X))
