@@ -49,11 +49,7 @@ namespace detail
 		//////////////////////////////////////
 		// Data
 
-#		if(GLM_COMPONENT == GLM_COMPONENT_ONLY_XYZW)
-			T x;
-#		else//(GLM_COMPONENT == GLM_COMPONENT_GLSL_NAMES)
-			union {T x, r, s;};
-#		endif//GLM_COMPONENT
+		union {T x, r, s;};
 
 		//////////////////////////////////////
 		// Accesses
