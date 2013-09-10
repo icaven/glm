@@ -104,9 +104,9 @@ int test_compiler()
 	}
 	else if(GLM_COMPILER & GLM_COMPILER_CLANG)
 	{
-#       ifdef __clang_major__
-            std::cout << "GLM_COMPILER_CLANG " << __clang_major__ << "." << __clang_minor__ << std::endl;
-#       endif
+#		ifdef __clang_major__
+			std::cout << "GLM_COMPILER_CLANG " << __clang_major__ << "." << __clang_minor__ << std::endl;
+#		endif
 		switch(GLM_COMPILER)
 		{
 		case GLM_COMPILER_CLANG26:
