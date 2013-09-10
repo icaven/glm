@@ -49,7 +49,7 @@ namespace detail
 		//////////////////////////////////////
 		// Data
 
-#		if((GLM_LANG & GLM_LANG_CXXMS_FLAG) && defined(GLM_SWIZZLE))
+#		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
 			union
 			{
 				struct{ T x, y, z; };

@@ -477,6 +477,43 @@
 #	endif//GLM_MODEL
 #endif//GLM_MESSAGE
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Has of C++ features
+
+#ifndef __has_feature
+#	define __has_feature(x) 0  // Compatibility with non-clang compilers.
+#endif
+#ifndef __has_extension
+#	define __has_extension __has_feature // Compatibility with pre-3.0 compilers.
+#endif
+
+// http://clang.llvm.org/cxx_status.html
+// http://gcc.gnu.org/projects/cxx0x.html
+// http://msdn.microsoft.com/en-us/library/vstudio/hh567368(v=vs.120).aspx
+
+// N1720
+#define GLM_HAS_STATIC_ASSERT ( \
+	(GLM_LANG & GLM_LANG_CXX11_FLAG) || \
+	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2010)) || \
+	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC43)) || \
+	__has_feature(cxx_static_assert))
+
+// N1988
+#define GLM_HAS_EXTENDED_INTEGER_TYPE ( \
+	(GLM_LANG & GLM_LANG_CXX11_FLAG) || \
+	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2012)) || \
+	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC43)) || \
+	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_COMPILER >= GLM_COMPILER_CLANG29)))
+
+// N2235
+#define GLM_HAS_CONSTEXPR ( \
+	(GLM_LANG & GLM_LANG_CXX11_FLAG) || \
+	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC46)) || \
+	__has_feature(cxx_constexpr))
+
+// Not standard
+#define GLM_HAS_ANONYMOUS_UNION (GLM_LANG & GLM_LANG_CXXMS_FLAG)
+
 /////////////////
 // Platform 
 
@@ -594,7 +631,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Static assert
 
-#if((GLM_LANG & GLM_LANG_CXX0X) == GLM_LANG_CXX0X)
+#if GLM_HAS_STATIC_ASSERT
 #	define GLM_STATIC_ASSERT(x, message) static_assert(x, message)
 #elif(defined(BOOST_STATIC_ASSERT))
 #	define GLM_STATIC_ASSERT(x, message) BOOST_STATIC_ASSERT(x)
@@ -648,7 +685,7 @@
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_SWIZZLE_DISPLAYED))
 #	define GLM_MESSAGE_SWIZZLE_DISPLAYED
-#	if defined(GLM_SWIZZLE)
+#	if defined(GLM_SWIZZL)E
 #		pragma message("GLM: Swizzling operators enabled")
 #	else
 #		pragma message("GLM: Swizzling operators disabled")
@@ -664,32 +701,31 @@
 #	define GLM_ALIGNED_STRUCT(x) __declspec(align(x)) struct
 #	define GLM_RESTRICT __declspec(restrict)
 #	define GLM_RESTRICT_VAR __restrict
-#	define GLM_CONSTEXPR
 #elif(GLM_COMPILER & GLM_COMPILER_INTEL)
 #	define GLM_DEPRECATED
 #	define GLM_ALIGN(x) __declspec(align(x))
 #	define GLM_ALIGNED_STRUCT(x) __declspec(align(x)) struct
 #	define GLM_RESTRICT
 #	define GLM_RESTRICT_VAR __restrict
-#	define GLM_CONSTEXPR
-#elif(((GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_LLVM_GCC)) && (GLM_COMPILER >= GLM_COMPILER_GCC34)) || (GLM_COMPILER & GLM_COMPILER_CLANG))
+#elif(GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG))
 #	define GLM_DEPRECATED __attribute__((__deprecated__))
 #	define GLM_ALIGN(x) __attribute__((aligned(x)))
 #	define GLM_ALIGNED_STRUCT(x) struct __attribute__((aligned(x)))
 #	define GLM_RESTRICT __restrict__
 #	define GLM_RESTRICT_VAR __restrict__
-#	if((GLM_COMPILER >= GLM_COMPILER_GCC47) && ((GLM_LANG & GLM_LANG_CXX0X) == GLM_LANG_CXX0X))
-#		define GLM_CONSTEXPR constexpr
-#	else
-#		define GLM_CONSTEXPR
-#	endif
 #else
 #	define GLM_DEPRECATED
 #	define GLM_ALIGN
 #	define GLM_ALIGNED_STRUCT(x)
 #	define GLM_RESTRICT
 #	define GLM_RESTRICT_VAR
-#	define GLM_CONSTEXPR
 #endif//GLM_COMPILER
+
+#if GLM_HAS_CONSTEXPR
+#	define GLM_CONSTEXPR constexpr
+#else
+#	define GLM_CONSTEXPR
+#endif
+
 
 #endif//GLM_SETUP_INCLUDED

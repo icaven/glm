@@ -31,14 +31,14 @@
 
 #include "setup.hpp"
 
-#if(((GLM_LANG & GLM_LANG_CXX11) == GLM_LANG_CXX11) || (defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)))
+#if GLM_HAS_EXTENDED_INTEGER_TYPE
 #	include <cstdint>
 #endif
 
 namespace glm{
 namespace detail
 {
-#	if((GLM_LANG & GLM_LANG_CXX11) == GLM_LANG_CXX11)
+#	if GLM_HAS_EXTENDED_INTEGER_TYPE
 		typedef std::int8_t					int8;
 		typedef std::int16_t				int16;
 		typedef std::int32_t				int32;

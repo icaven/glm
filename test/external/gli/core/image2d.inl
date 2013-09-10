@@ -96,7 +96,7 @@ namespace gli
 			};
 
 			return Desc[Format];
-		};
+		}
 
 		inline image2D::size_type sizeBlock
 		(
