@@ -104,7 +104,7 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2 Exponential Functions</a>
 	template <typename genType> 
 	GLM_FUNC_DECL genType sqrt(genType const & x);
-    
+
 	/// Returns the reciprocal of the positive square root of x.
 	/// 
 	/// @param x inversesqrt function is defined for input values of x defined in the range [0, inf+) in the limit of the type precision.

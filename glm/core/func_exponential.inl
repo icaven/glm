@@ -153,52 +153,43 @@ namespace _detail
 
 	VECTORIZE_VEC(inversesqrt)
 
+	namespace detail
+	{
+		template <typename genType, typename genUType>
+		genType fastInversesqrt(genType const & v)
+		{
+			genType tmp(v);
+			genType xhalf(tmp * genType(0.5f));
+			genUType i = *reinterpret_cast<genUType*>(const_cast<genType*>(&v));
+			i = genUType(0x5f375a86) - (i >> genUType(1));
+			tmp = *reinterpret_cast<genType*>(&i);
+			tmp = tmp * (genType(1.5f) - xhalf * tmp * tmp);
+			return tmp;
+		}
+	}
+
 	template <>
 	GLM_FUNC_QUALIFIER lowp_vec1 inversesqrt(lowp_vec1 const & v)
 	{
-		float tmp(v.x);
-		float xhalf(0.5f * tmp);
-		uint i = *reinterpret_cast<uint*>(const_cast<lowp_vec1*>(&v));
-		i = 0x5f375a86 - (i >> 1);
-		tmp = *reinterpret_cast<float*>(i);
-		tmp = tmp * (1.5f - xhalf * tmp * tmp);
-		return lowp_vec1(tmp);
+		return detail::fastInversesqrt<lowp_vec1, uint>(v);
 	}
 
 	template <>
 	GLM_FUNC_QUALIFIER lowp_vec2 inversesqrt(lowp_vec2 const & v)
 	{
-		lowp_vec2 tmp(v);
-		lowp_vec2 xhalf(0.5f * tmp);
-		lowp_uvec2 i = *reinterpret_cast<lowp_uvec2*>(const_cast<lowp_vec2*>(&v));
-		i = lowp_uvec2(0x5f375a86) - (i >> lowp_uvec2(1));
-		tmp = *reinterpret_cast<lowp_vec2*>(&i);
-		tmp = tmp * (1.5f - xhalf * tmp * tmp);
-		return tmp;
+		return detail::fastInversesqrt<lowp_vec2, lowp_uvec2>(v);
 	}
 
 	template <>
 	GLM_FUNC_QUALIFIER lowp_vec3 inversesqrt(lowp_vec3 const & v)
 	{
-		lowp_vec3 tmp(v);
-		lowp_vec3 xhalf(0.5f * tmp);
-		lowp_uvec3 i = *reinterpret_cast<lowp_uvec3*>(const_cast<lowp_vec3*>(&v));
-		i = lowp_uvec3(0x5f375a86) - (i >> lowp_uvec3(1));
-		tmp = *reinterpret_cast<lowp_vec3*>(&i);
-		tmp = tmp * (1.5f - xhalf * tmp * tmp);
-		return tmp;
+		return detail::fastInversesqrt<lowp_vec3, lowp_uvec3>(v);
 	}
 
 	template <>
 	GLM_FUNC_QUALIFIER lowp_vec4 inversesqrt(lowp_vec4 const & v)
 	{
-		lowp_vec4 tmp(v);
-		lowp_vec4 xhalf(0.5f * tmp);
-		lowp_uvec4 i = *reinterpret_cast<lowp_uvec4*>(const_cast<lowp_vec4*>(&v));
-		i = lowp_uvec4(0x5f375a86) - (i >> lowp_uvec4(1));
-		tmp = *reinterpret_cast<lowp_vec4*>(&i);
-		tmp = tmp * (1.5f - xhalf * tmp * tmp);
-		return tmp;
+		return detail::fastInversesqrt<lowp_vec4, lowp_uvec4>(v);
 	}
 
 }//namespace glm
