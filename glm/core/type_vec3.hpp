@@ -39,11 +39,17 @@ namespace detail
 	template <typename T, precision P>
 	struct tvec3
 	{	
+		//////////////////////////////////////
+		// Implementation detail
+
 		enum ctor{_null};
 
 		typedef tvec3<T, P> type;
 		typedef tvec3<bool, P> bool_type;
 		typedef T value_type;
+
+		//////////////////////////////////////
+		// Helper
 
 		GLM_FUNC_DECL GLM_CONSTEXPR int length() const;
 
