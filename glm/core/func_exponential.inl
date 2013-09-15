@@ -153,4 +153,52 @@ namespace _detail
 
 	VECTORIZE_VEC(inversesqrt)
 
+	template <>
+	GLM_FUNC_QUALIFIER lowp_vec1 inversesqrt(lowp_vec1 const & v)
+	{
+		float tmp(v.x);
+		float xhalf(0.5f * tmp);
+		uint i = *reinterpret_cast<uint*>(const_cast<lowp_vec1*>(&v));
+		i = 0x5f375a86 - (i >> 1);
+		tmp = *reinterpret_cast<float*>(i);
+		tmp = tmp * (1.5f - xhalf * tmp * tmp);
+		return lowp_vec1(tmp);
+	}
+
+	template <>
+	GLM_FUNC_QUALIFIER lowp_vec2 inversesqrt(lowp_vec2 const & v)
+	{
+		lowp_vec2 tmp(v);
+		lowp_vec2 xhalf(0.5f * tmp);
+		lowp_uvec2 i = *reinterpret_cast<lowp_uvec2*>(const_cast<lowp_vec2*>(&v));
+		i = lowp_uvec2(0x5f375a86) - (i >> lowp_uvec2(1));
+		tmp = *reinterpret_cast<lowp_vec2*>(&i);
+		tmp = tmp * (1.5f - xhalf * tmp * tmp);
+		return tmp;
+	}
+
+	template <>
+	GLM_FUNC_QUALIFIER lowp_vec3 inversesqrt(lowp_vec3 const & v)
+	{
+		lowp_vec3 tmp(v);
+		lowp_vec3 xhalf(0.5f * tmp);
+		lowp_uvec3 i = *reinterpret_cast<lowp_uvec3*>(const_cast<lowp_vec3*>(&v));
+		i = lowp_uvec3(0x5f375a86) - (i >> lowp_uvec3(1));
+		tmp = *reinterpret_cast<lowp_vec3*>(&i);
+		tmp = tmp * (1.5f - xhalf * tmp * tmp);
+		return tmp;
+	}
+
+	template <>
+	GLM_FUNC_QUALIFIER lowp_vec4 inversesqrt(lowp_vec4 const & v)
+	{
+		lowp_vec4 tmp(v);
+		lowp_vec4 xhalf(0.5f * tmp);
+		lowp_uvec4 i = *reinterpret_cast<lowp_uvec4*>(const_cast<lowp_vec4*>(&v));
+		i = lowp_uvec4(0x5f375a86) - (i >> lowp_uvec4(1));
+		tmp = *reinterpret_cast<lowp_vec4*>(&i);
+		tmp = tmp * (1.5f - xhalf * tmp * tmp);
+		return tmp;
+	}
+
 }//namespace glm
