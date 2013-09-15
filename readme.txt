@@ -57,6 +57,7 @@ GLM 0.9.5.0: 2013-XX-XX
 - Fixed .length() that should return a int and not a size_t
 - Removed unnecessary conversions
 - Optimized packing and unpacking functions
+- Removed the normalization of the up argument of lookAt function (#114)
 
 ================================================================================
 GLM 0.9.4.6: 2013-09-15
