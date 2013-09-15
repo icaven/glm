@@ -59,7 +59,7 @@ GLM 0.9.5.0: 2013-XX-XX
 - Optimized packing and unpacking functions
 
 ================================================================================
-GLM 0.9.4.6: 2013-08-XX
+GLM 0.9.4.6: 2013-09-15
 --------------------------------------------------------------------------------
 - Fixed detection to select the last known compiler if newer version #106
 - Fixed is_int and is_uint code duplication with GCC and C++11 #107 
