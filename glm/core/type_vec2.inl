@@ -62,20 +62,14 @@ namespace detail
 	{}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2
-	(
-		tvec2<T, P> const & v
-	) :
+	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2(tvec2<T, P> const & v) :
 		x(v.x),
 		y(v.y)
 	{}
 
 	template <typename T, precision P>
 	template <precision Q>
-	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2
-	(
-		tvec2<T, Q> const & v
-	) :
+	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2(tvec2<T, Q> const & v) :
 		x(v.x),
 		y(v.y)
 	{}
@@ -84,17 +78,11 @@ namespace detail
 	// Explicit basic constructors
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2
-	(
-		ctor
-	)
+	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2(ctor)
 	{}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2
-	(
-		T const & s
-	) :
+	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2(T const & s) :
 		x(s),
 		y(s)
 	{}
@@ -107,18 +95,6 @@ namespace detail
 	) :
 		x(s1),
 		y(s2)
-	{}
-
-	//////////////////////////////////////
-	// Swizzle constructors
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2
-	(
-		tref2<T, P> const & r
-	) :
-		x(r.x),
-		y(r.y)
 	{}
 
 	//////////////////////////////////////
@@ -897,63 +873,5 @@ namespace detail
 			~v.y);
 	}
 
-	//////////////////////////////////////
-	// tref definition
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tref2<T, P>::tref2
-	(
-		T & x, 
-		T & y
-	) :
-		x(x),
-		y(y)
-	{}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tref2<T, P>::tref2
-	(
-		tref2<T, P> const & r
-	) :
-		x(r.x),
-		y(r.y)
-	{}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tref2<T, P>::tref2
-	(
-		tvec2<T, P> const & v
-	) :
-		x(v.x),
-		y(v.y)
-	{}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tref2<T, P>& tref2<T, P>::operator=
-	(
-		tref2<T, P> const & r
-	)
-	{
-		x = r.x;
-		y = r.y;
-		return *this;
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tref2<T, P>& tref2<T, P>::operator=
-	(
-		tvec2<T, P> const & v
-	)
-	{
-		x = v.x;
-		y = v.y;
-		return *this;
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P> tref2<T, P>::operator() ()
-	{
-		return tvec2<T, P>(this->x, this->y);
-	}
 }//namespace detail
 }//namespace glm

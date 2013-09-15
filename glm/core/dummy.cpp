@@ -55,16 +55,26 @@ int test_simd()
 
 #endif//GLM_ARCH
 */
+
+template <class T = int>
+class C;
+
+template <class T>
+class C
+{
+public:
+	T value;
+};
+
 int main()
 {
-	glm::mat4 A(1.0f);
-	glm::vec4 B(1.0f);
-	glm::vec4 C = A * B;
-	
 /*
 #	if(GLM_ARCH & GLM_ARCH_SSE2)
 		test_simd();
 #	endif
 */
+
+	C<> c;
+
 	return 0;
 }

@@ -36,7 +36,7 @@
 namespace glm{
 namespace detail
 {
-	template <typename T = float, precision P = defaultp>
+	template <typename T, precision P>
 	struct tvec3
 	{	
 		//////////////////////////////////////
@@ -142,14 +142,6 @@ namespace detail
 		//////////////////////////////////////
 		// Swizzle constructors
 
-		GLM_FUNC_DECL tvec3(tref3<T, P> const & r);
-
-		template <typename A, typename B> 
-		GLM_FUNC_DECL explicit tvec3(tref2<A, P> const & v, B const & s);
-
-		template <typename A, typename B> 
-		GLM_FUNC_DECL explicit tvec3(A const & s, tref2<B, P> const & v);
-
 #		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
 		template <int E0, int E1, int E2>
 		GLM_FUNC_DECL tvec3(_swizzle<3, T, P, tvec3<T, P>, E0, E1, E2, -1> const & that)
@@ -229,21 +221,6 @@ namespace detail
 		GLM_FUNC_DECL tvec3<T, P> & operator>>=(U const & s);
 		template <typename U>
 		GLM_FUNC_DECL tvec3<T, P> & operator>>=(tvec3<U, P> const & v);
-	};
-
-	template <typename T, precision P>
-	struct tref3
-	{
-		GLM_FUNC_DECL tref3(T & x, T & y, T & z);
-		GLM_FUNC_DECL tref3(tref3<T, P> const & r);
-		GLM_FUNC_DECL explicit tref3(tvec3<T, P> const & v);
-		GLM_FUNC_DECL tref3<T, P> & operator= (tref3<T, P> const & r);
-		GLM_FUNC_DECL tref3<T, P> & operator= (tvec3<T, P> const & v);
-		GLM_FUNC_DECL tvec3<T, P> operator() ();
-
-		T & x;
-		T & y;
-		T & z;
 	};
 
 	GLM_DETAIL_IS_VECTOR(tvec3);

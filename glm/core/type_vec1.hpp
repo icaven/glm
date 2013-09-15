@@ -36,7 +36,7 @@
 namespace glm{
 namespace detail
 {
-	template <typename T = float, precision P = defaultp>
+	template <typename T, precision P>
 	struct tvec1
 	{
 		//////////////////////////////////////
@@ -83,7 +83,7 @@ namespace detail
 		//////////////////////////////////////
 		// Swizzle constructors
 
-		GLM_FUNC_DECL tvec1(tref1<T, P> const & r);
+		
 
 		//////////////////////////////////////
 		// Conversion scalar constructors
@@ -167,18 +167,6 @@ namespace detail
 		GLM_FUNC_DECL tvec1<T, P> & operator>>=(U const & s);
 		template <typename U> 
 		GLM_FUNC_DECL tvec1<T, P> & operator>>=(tvec1<U, P> const & v);
-	};
-
-	template <typename T, precision P>
-	struct tref1
-	{
-		GLM_FUNC_DECL tref1(T & x);
-		GLM_FUNC_DECL tref1(tref1<T, P> const & r);
-		GLM_FUNC_DECL tref1(tvec1<T, P> const & v);
-		GLM_FUNC_DECL tref1<T, P> & operator= (tref1<T, P> const & r);
-		GLM_FUNC_DECL tref1<T, P> & operator= (tvec1<T, P> const & v);
-
-		T& x;
 	};
 
 	GLM_DETAIL_IS_VECTOR(tvec1);

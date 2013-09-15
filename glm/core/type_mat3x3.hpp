@@ -35,7 +35,7 @@
 namespace glm{
 namespace detail
 {
-	template <typename T = float, precision P = defaultp>
+	template <typename T, precision P>
 	struct tmat3x3
 	{
 		enum ctor{_null};

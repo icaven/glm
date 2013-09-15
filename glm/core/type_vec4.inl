@@ -64,10 +64,7 @@ namespace detail
 	{}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
-	(
-		type const & v
-	) :
+	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4(tvec4<T, P> const & v) :
 		x(v.x),
 		y(v.y),
 		z(v.z),
@@ -76,10 +73,7 @@ namespace detail
 
 	template <typename T, precision P>
 	template <precision Q>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
-	(
-		tvec4<T, Q> const & v
-	) :
+	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4(tvec4<T, Q> const & v) :
 		x(v.x),
 		y(v.y),
 		z(v.z),
@@ -90,17 +84,11 @@ namespace detail
 	// Explicit basic constructors
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
-	(
-		ctor
-	)
+	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4(ctor)
 	{}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
-	(
-		T const & s
-	) :
+	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4(T const & s) :
 		x(s),
 		y(s),
 		z(s),
@@ -119,127 +107,6 @@ namespace detail
 		y(s2),
 		z(s3),
 		w(s4)
-	{}
-
-	//////////////////////////////////////
-	// Swizzle constructors
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
-	(
-		tref4<T, P> const & r
-	) :
-		x(r.x),
-		y(r.y),
-		z(r.z),
-		w(r.w)
-	{}
-
-	template <typename T, precision P>
-	template <typename A, typename B, typename C>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
-	(
-		tref2<A, P> const & v,
-		B const & s1,
-		C const & s2
-	) :
-		x(static_cast<T>(v.x)),
-		y(static_cast<T>(v.y)),
-		z(static_cast<T>(s1)),
-		w(static_cast<T>(s2))
-	{}
-
-	template <typename T, precision P>
-	template <typename A, typename B, typename C>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
-	(
-		A const & s1,
-		tref2<B, P> const & v,
-		C const & s2
-	) :
-		x(static_cast<T>(s1)),
-		y(static_cast<T>(v.x)),
-		z(static_cast<T>(v.y)),
-		w(static_cast<T>(s2))
-	{}
-
-	template <typename T, precision P>
-	template <typename A, typename B, typename C>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
-	(
-		A const & s1,
-		B const & s2,
-		tref2<C, P> const & v
-	) :
-		x(static_cast<T>(s1)),
-		y(static_cast<T>(s2)),
-		z(static_cast<T>(v.x)),
-		w(static_cast<T>(v.y))
-	{}
-
-	template <typename T, precision P>
-	template <typename A, typename B>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
-	(
-		tref3<A, P> const & v,
-		B const & s
-	) :
-		x(static_cast<T>(v.x)),
-		y(static_cast<T>(v.y)),
-		z(static_cast<T>(v.z)),
-		w(static_cast<T>(s))
-	{}
-
-	template <typename T, precision P>
-	template <typename A, typename B>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
-	(
-		A const & s,
-		tref3<B, P> const & v
-	) :
-		x(static_cast<T>(s)),
-		y(static_cast<T>(v.x)),
-		z(static_cast<T>(v.y)),
-		w(static_cast<T>(v.z))
-	{}
-
-	template <typename T, precision P>
-	template <typename A, typename B>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
-	(
-		tref2<A, P> const & v1,
-		tref2<B, P> const & v2
-	) :
-		x(static_cast<T>(v1.x)),
-		y(static_cast<T>(v1.y)),
-		z(static_cast<T>(v2.x)),
-		w(static_cast<T>(v2.y))
-	{}
-
-	template <typename T, precision P>
-	template <typename A, typename B>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
-	(
-		tvec2<A, P> const & v1,
-		tref2<B, P> const & v2
-	) :
-		x(static_cast<T>(v1.x)),
-		y(static_cast<T>(v1.y)),
-		z(static_cast<T>(v2.x)),
-		w(static_cast<T>(v2.y))
-	{}
-
-	template <typename T, precision P>
-	template <typename A, typename B>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
-	(
-		tref2<A, P> const & v1,
-		tvec2<B, P> const & v2
-	) :
-		x(static_cast<T>(v1.x)),
-		y(static_cast<T>(v1.y)),
-		z(static_cast<T>(v2.x)),
-		w(static_cast<T>(v2.y))
 	{}
 
 	//////////////////////////////////////
@@ -1197,77 +1064,6 @@ namespace detail
 			~v.y,
 			~v.z,
 			~v.w);
-	}
-
-	//////////////////////////////////////
-	// tref definition
-
-	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER tref4<T, P>::tref4
-	(
-		T & x, 
-		T & y, 
-		T & z, 
-		T & w
-	) :
-		x(x),
-		y(y),
-		z(z),
-		w(w)
-	{}
-
-	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER tref4<T, P>::tref4
-	(
-		tref4<T, P> const & r
-	) :
-		x(r.x),
-		y(r.y),
-		z(r.z),
-		w(r.w)
-	{}
-
-	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER tref4<T, P>::tref4
-	(
-		tvec4<T, P> const & v
-	) :
-		x(v.x),
-		y(v.y),
-		z(v.z),
-		w(v.w)
-	{}
-
-	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER tref4<T, P>& tref4<T, P>::operator= 
-	(
-		tref4<T, P> const & r
-	)
-	{
-		x = r.x;
-		y = r.y;
-		z = r.z;
-		w = r.w;
-		return *this;
-	}
-
-	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER tref4<T, P>& tref4<T, P>::operator= 
-	(
-		tvec4<T, P> const & v
-	)
-	{
-		x = v.x;
-		y = v.y;
-		z = v.z;
-		w = v.w;
-		return *this;
-	}
-
-	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER tvec4<T, P> tref4<T, P>::operator() ()
-	{
-		return tvec4<T, P>(this->x, this->y, this->z, this->w);
 	}
 
 }//namespace detail

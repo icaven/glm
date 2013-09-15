@@ -36,7 +36,7 @@
 namespace glm{
 namespace detail
 {
-	template <typename T = float, precision P = defaultp>
+	template <typename T, precision P>
 	struct tvec2
 	{
 		//////////////////////////////////////
@@ -109,8 +109,6 @@ namespace detail
 
 		//////////////////////////////////////
 		// Swizzle constructors
-
-		GLM_FUNC_DECL tvec2(tref2<T, P> const & r);
 
 #		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
 		template <int E0, int E1>
@@ -205,20 +203,6 @@ namespace detail
 		GLM_FUNC_DECL tvec2<T, P> & operator>>=(U const & s);
 		template <typename U> 
 		GLM_FUNC_DECL tvec2<T, P> & operator>>=(tvec2<U, P> const & v);
-	};
-
-	template <typename T, precision P>
-	struct tref2
-	{
-		GLM_FUNC_DECL tref2(T & x, T & y);
-		GLM_FUNC_DECL tref2(tref2<T, P> const & r);
-		GLM_FUNC_DECL explicit tref2(tvec2<T, P> const & v);
-		GLM_FUNC_DECL tref2<T, P> & operator= (tref2<T, P> const & r);
-		GLM_FUNC_DECL tref2<T, P> & operator= (tvec2<T, P> const & v);
-		GLM_FUNC_DECL tvec2<T, P> operator() ();
-
-		T & x;
-		T & y;
 	};
 
 	GLM_DETAIL_IS_VECTOR(tvec2);

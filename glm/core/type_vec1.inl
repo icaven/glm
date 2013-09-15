@@ -61,19 +61,13 @@ namespace detail
 	{}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1
-	(
-		tvec1<T, P> const & v
-	) :
+	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1(tvec1<T, P> const & v) :
 		x(v.x)
 	{}
 
 	template <typename T, precision P>
 	template <precision Q>
-	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1
-	(
-		tvec1<T, Q> const & v
-	) :
+	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1(tvec1<T, Q> const & v) :
 		x(v.x)
 	{}
 
@@ -81,29 +75,12 @@ namespace detail
 	// Explicit basic constructors
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1
-	(
-		ctor
-	)
+	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1(ctor)
 	{}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1
-	(
-		T const & s
-	) :
+	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1(T const & s) :
 		x(s)
-	{}
-
-	//////////////////////////////////////
-	// Swizzle constructors
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1
-	(
-		tref1<T, P> const & r
-	) :
-		x(r.x)
 	{}
 
 	//////////////////////////////////////
@@ -840,53 +817,6 @@ namespace detail
 	{
 		return tvec1<T, P>(
 			~v.x);
-	}
-
-	//////////////////////////////////////
-	// tref definition
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tref1<T, P>::tref1
-	(
-		T & x
-	) :
-		x(x)
-	{}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tref1<T, P>::tref1
-	(
-		tref1<T, P> const & r
-	) :
-		x(r.x)
-	{}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tref1<T, P>::tref1
-	(
-		tvec1<T, P> const & v
-	) :
-		x(v.x)
-	{}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tref1<T, P> & tref1<T, P>::operator=
-	(
-		tref1<T, P> const & r
-	)
-	{
-		x = r.x;
-		return *this;
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tref1<T, P> & tref1<T, P>::operator=
-	(
-		tvec1<T, P> const & v
-	)
-	{
-		x = v.x;
-		return *this;
 	}
 
 }//namespace detail
