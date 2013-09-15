@@ -204,8 +204,12 @@ namespace glm
 		if(all(equal(Normal, Up)))
 			return detail::tmat4x4<T, P>(T(1));
 
-		detail::tvec3<T, P> RotationAxis = cross(Up, Normal);
-		T Angle = degrees(acos(dot(Normal, Up)));
+		detail::tvec3<T> RotationAxis = cross(Up, Normal);
+#		ifdef GLM_FORCE_RADIANS
+			T Angle = acos(dot(Normal, Up));
+#		else
+			T Angle = degrees(acos(dot(Normal, Up)));
+#		endif
 		return rotate(Angle, RotationAxis);
 	}
 }//namespace glm

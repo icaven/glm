@@ -70,6 +70,7 @@ GLM 0.9.4.6: 2013-08-XX
 - Added use of GCC frontend on Unix for ICC and Visual C++ fronted on Windows 
   for ICC
 - Added compilation errors for unsupported compiler versions
+- Fixed glm::orientation with GLM_FORCE_RADIANS defined #112
 
 ================================================================================
 GLM 0.9.4.5: 2013-08-12
