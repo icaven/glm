@@ -461,67 +461,6 @@ namespace detail
 	}
 
 	//////////////////////////////////////
-	// Swizzle operators
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T tvec1<T, P>::swizzle(comp x) const
-	{
-		return (*this)[x];
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P> tvec1<T, P>::swizzle
-	(
-		comp x, 
-		comp y
-	) const
-	{
-		return tvec2<T, P>(
-			(*this)[x],
-			(*this)[y]);
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> tvec1<T, P>::swizzle
-	(
-		comp x, 
-		comp y, 
-		comp z
-	) const
-	{
-		return tvec3<T, P>(
-			(*this)[x],
-			(*this)[y],
-			(*this)[z]);
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> tvec1<T, P>::swizzle
-	(
-		comp x, 
-		comp y, 
-		comp z, 
-		comp w
-	) const
-	{
-		return tvec4<T, P>(
-			(*this)[x],
-			(*this)[y],
-			(*this)[z],
-			(*this)[w]);
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tref1<T, P> tvec1<T, P>::swizzle
-	(
-		comp x
-	)
-	{
-		return tref1<T, P>(
-			(*this)[x]);
-	}
-
-	//////////////////////////////////////
 	// Binary arithmetic operators
 
 	template <typename T, precision P> 

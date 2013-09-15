@@ -228,16 +228,6 @@ namespace detail
 		GLM_FUNC_DECL tvec3<T, P> & operator>>=(U const & s);
 		template <typename U>
 		GLM_FUNC_DECL tvec3<T, P> & operator>>=(tvec3<U, P> const & v);
-
-		//////////////////////////////////////
-		// Swizzle operators
-
-		GLM_FUNC_DECL T swizzle(comp X) const;
-		GLM_FUNC_DECL tvec2<T, P> swizzle(comp X, comp Y) const;
-		GLM_FUNC_DECL tvec3<T, P> swizzle(comp X, comp Y, comp Z) const;
-		GLM_FUNC_DECL tvec4<T, P> swizzle(comp X, comp Y, comp Z, comp W) const;
-		GLM_FUNC_DECL tref2<T, P> swizzle(comp X, comp Y);
-		GLM_FUNC_DECL tref3<T, P> swizzle(comp X, comp Y, comp Z);
 	};
 
 	template <typename T, precision P>
