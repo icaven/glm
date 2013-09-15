@@ -152,7 +152,7 @@ namespace _detail
 	}
 
 	VECTORIZE_VEC(inversesqrt)
-
+	
 	namespace detail
 	{
 		template <typename genType, typename genUType>
@@ -167,7 +167,7 @@ namespace _detail
 			return tmp;
 		}
 	}
-
+	
 	template <>
 	GLM_FUNC_QUALIFIER lowp_vec1 inversesqrt(lowp_vec1 const & v)
 	{
@@ -191,5 +191,5 @@ namespace _detail
 	{
 		return detail::fastInversesqrt<lowp_vec4, lowp_uvec4>(v);
 	}
-
+	
 }//namespace glm

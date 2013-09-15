@@ -56,7 +56,7 @@ namespace detail
 		//////////////////////////////////////
 		// Data
 
-#		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE_RELAX))
+#		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
 			union
 			{
 				struct{ T x, y, z; };
@@ -78,7 +78,9 @@ namespace detail
 			union { T y, g, t; };
 			union { T z, b, p; };
 
-			GLM_SWIZZLE_GEN_VEC_FROM_VEC3(T, P, detail::tvec3, detail::tvec2, detail::tvec3, detail::tvec4)
+#			ifdef GLM_SWIZZLE
+				GLM_SWIZZLE_GEN_VEC_FROM_VEC3(T, P, detail::tvec3, detail::tvec2, detail::tvec3, detail::tvec4)
+#			endif
 #		endif//GLM_LANG
 
 		//////////////////////////////////////
@@ -148,6 +150,7 @@ namespace detail
 		template <typename A, typename B> 
 		GLM_FUNC_DECL explicit tvec3(A const & s, tref2<B, P> const & v);
 
+#		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
 		template <int E0, int E1, int E2>
 		GLM_FUNC_DECL tvec3(_swizzle<3, T, P, tvec3<T, P>, E0, E1, E2, -1> const & that)
 		{
@@ -165,6 +168,7 @@ namespace detail
 		{
 			*this = tvec3<T, P>(s, v());
 		}
+#		endif//(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
 
 		//////////////////////////////////////
 		// Unary arithmetic operators

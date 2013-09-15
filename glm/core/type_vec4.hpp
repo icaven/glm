@@ -56,7 +56,7 @@ namespace detail
 		//////////////////////////////////////
 		// Data
 
-#		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE_RELAX))
+#		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
 			union
 			{
 				struct { T r, g, b, a; };
@@ -79,7 +79,9 @@ namespace detail
 			union { T z, b, p; };
 			union { T w, a, q; };
 
-			GLM_SWIZZLE_GEN_VEC_FROM_VEC4(T, P, detail::tvec4, detail::tvec2, detail::tvec3, detail::tvec4)
+#			ifdef GLM_SWIZZLE
+				GLM_SWIZZLE_GEN_VEC_FROM_VEC4(T, P, detail::tvec4, detail::tvec2, detail::tvec3, detail::tvec4)
+#			endif
 #		endif//GLM_LANG
 
 		//////////////////////////////////////
@@ -149,6 +151,37 @@ namespace detail
 		template <typename U, precision Q>
 		GLM_FUNC_DECL explicit tvec4(tvec4<U, Q> const & v);
 
+		//////////////////////////////////////
+		// Swizzle constructors
+
+		GLM_FUNC_DECL tvec4(tref4<T, P> const & r);
+
+		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename A, typename B, typename C> 
+		GLM_FUNC_DECL explicit tvec4(tref2<A, P> const & v, B const & s1, C const & s2);
+		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename A, typename B, typename C> 
+		GLM_FUNC_DECL explicit tvec4(A const & s1, tref2<B, P> const & v, C const & s2);
+		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename A, typename B, typename C> 
+		GLM_FUNC_DECL explicit tvec4(A const & s1, B const & s2, tref2<C, P> const & v);
+		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename A, typename B> 
+		GLM_FUNC_DECL explicit tvec4(tref3<A, P> const & v, B const & s);
+		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename A, typename B> 
+		GLM_FUNC_DECL explicit tvec4(A const & s, tref3<B, P> const & v);
+		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename A, typename B> 
+		GLM_FUNC_DECL explicit tvec4(tref2<A, P> const & v1, tref2<B, P> const & v2);
+		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename A, typename B> 
+		GLM_FUNC_DECL explicit tvec4(tvec2<A, P> const & v1, tref2<B, P> const & v2);
+		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename A, typename B> 
+		GLM_FUNC_DECL explicit tvec4(tref2<A, P> const & v1, tvec2<B, P> const & v2);
+
+#		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
 		template <int E0, int E1, int E2, int E3>
 		GLM_FUNC_DECL tvec4(_swizzle<4, T, P, tvec4<T, P>, E0, E1, E2, E3> const & that)
 		{
@@ -190,36 +223,7 @@ namespace detail
 		{
 			*this = tvec4<T, P>(x, v());
 		}
-
-		//////////////////////////////////////
-		// Swizzle constructors
-
-		GLM_FUNC_DECL tvec4(tref4<T, P> const & r);
-
-		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B, typename C> 
-		GLM_FUNC_DECL explicit tvec4(tref2<A, P> const & v, B const & s1, C const & s2);
-		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B, typename C> 
-		GLM_FUNC_DECL explicit tvec4(A const & s1, tref2<B, P> const & v, C const & s2);
-		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B, typename C> 
-		GLM_FUNC_DECL explicit tvec4(A const & s1, B const & s2, tref2<C, P> const & v);
-		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B> 
-		GLM_FUNC_DECL explicit tvec4(tref3<A, P> const & v, B const & s);
-		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B> 
-		GLM_FUNC_DECL explicit tvec4(A const & s, tref3<B, P> const & v);
-		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B> 
-		GLM_FUNC_DECL explicit tvec4(tref2<A, P> const & v1, tref2<B, P> const & v2);
-		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B> 
-		GLM_FUNC_DECL explicit tvec4(tvec2<A, P> const & v1, tref2<B, P> const & v2);
-		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename A, typename B> 
-		GLM_FUNC_DECL explicit tvec4(tref2<A, P> const & v1, tvec2<B, P> const & v2);
+#		endif//(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
 
 		//////////////////////////////////////
 		// Unary arithmetic operators

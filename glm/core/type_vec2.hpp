@@ -56,7 +56,7 @@ namespace detail
 		//////////////////////////////////////
 		// Data
 
-#		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE_RELAX))
+#		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
 			union
 			{
 				struct{ T x, y; };
@@ -77,8 +77,10 @@ namespace detail
 			union {T x, r, s;};
 			union {T y, g, t;};
 
-			GLM_SWIZZLE_GEN_VEC_FROM_VEC2(T, P, detail::tvec2, detail::tvec2, detail::tvec3, detail::tvec4)
-#		endif//GLM_LANG
+#			ifdef GLM_SWIZZLE
+				GLM_SWIZZLE_GEN_VEC_FROM_VEC2(T, P, detail::tvec2, detail::tvec2, detail::tvec3, detail::tvec4)
+#			endif 
+#		endif
 
 		//////////////////////////////////////
 		// Accesses
@@ -110,11 +112,13 @@ namespace detail
 
 		GLM_FUNC_DECL tvec2(tref2<T, P> const & r);
 
+#		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
 		template <int E0, int E1>
 		GLM_FUNC_DECL tvec2(_swizzle<2,T, P, tvec2<T, P>, E0, E1,-1,-2> const & that)
 		{
 			*this = that();
 		}
+#		endif//(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
 
 		//////////////////////////////////////
 		// Conversion constructors
