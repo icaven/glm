@@ -419,10 +419,9 @@ namespace glm
 		detail::tvec3<T, P> const & up
 	)
 	{
-		detail::tvec3<T, P> f = normalize(center - eye);
-		detail::tvec3<T, P> u = normalize(up);
-		detail::tvec3<T, P> s = normalize(cross(f, u));
-		u = cross(s, f);
+		detail::tvec3<T, P> f(normalize(center - eye));
+		detail::tvec3<T, P> s(normalize(cross(f, up)));
+		detail::tvec3<T, P> u(cross(s, f));
 
 		detail::tmat4x4<T, P> Result(1);
 		Result[0][0] = s.x;
