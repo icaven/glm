@@ -31,7 +31,13 @@
 
 #include "../fwd.hpp"
 #include "type_vec.hpp"
-#include "_swizzle.hpp"
+#ifdef GLM_SWIZZLE
+#	if GLM_HAS_ANONYMOUS_UNION
+#		include "_swizzle.hpp"
+#	else
+#		include "_swizzle_func.hpp"
+#	endif
+#endif //GLM_SWIZZLE
 
 namespace glm{
 namespace detail
