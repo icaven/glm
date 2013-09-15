@@ -35,7 +35,7 @@
 namespace glm{
 namespace detail
 {
-	template <typename T, precision P>
+	template <typename T = float, precision P = defaultp>
 	struct tmat2x2
 	{
 		// Implementation detail
