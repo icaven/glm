@@ -7,7 +7,6 @@
 // File    : test/core/type_vec4.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_SWIZZLE
 #include <glm/glm.hpp>
 #include <vector>
 
@@ -216,7 +215,7 @@ int test_vec4_swizzle_partial()
 
 	glm::vec4 A(1, 2, 3, 4);
 
-#	if((GLM_LANG & GLM_LANG_CXXMS_FLAG) && defined(GLM_SWIZZLE))
+#	if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE_RELAX))
 	{
 		glm::vec4 B(A.xy, A.zw);
 		Error += A == B ? 0 : 1;
@@ -242,7 +241,7 @@ int test_vec4_swizzle_partial()
 		glm::vec4 B(1.0f, A.yzw);
 		Error += A == B ? 0 : 1;
 	}
-#	endif//GLM_LANG
+#	endif
 
 	return Error;
 }

@@ -56,7 +56,7 @@ namespace detail
 		//////////////////////////////////////
 		// Data
 
-#		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
+#		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE_RELAX))
 			union
 			{
 				struct{ T x, y; };
@@ -77,10 +77,7 @@ namespace detail
 			union {T x, r, s;};
 			union {T y, g, t;};
 
-#			if(defined(GLM_SWIZZLE))
-				//GLM_SWIZZLE_GEN_REF_FROM_VEC2(T, P, detail::tvec2, detail::tref2)
-				GLM_SWIZZLE_GEN_VEC_FROM_VEC2(T, P, detail::tvec2, detail::tvec2, detail::tvec3, detail::tvec4)
-#			endif//(defined(GLM_SWIZZLE))
+			GLM_SWIZZLE_GEN_VEC_FROM_VEC2(T, P, detail::tvec2, detail::tvec2, detail::tvec3, detail::tvec4)
 #		endif//GLM_LANG
 
 		//////////////////////////////////////
