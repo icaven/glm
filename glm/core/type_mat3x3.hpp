@@ -30,7 +30,9 @@
 #define glm_core_type_mat3x3
 
 #include "../fwd.hpp"
+#include "type_vec3.hpp"
 #include "type_mat.hpp"
+#include <limits>
 
 namespace glm{
 namespace detail

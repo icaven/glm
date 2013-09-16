@@ -7,7 +7,7 @@
 // File    : test/core/type_mat4x2.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
+#include <glm/core/type_mat4x2.hpp>
 
 static int test_operators()
 {

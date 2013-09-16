@@ -26,6 +26,8 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "func_geometric.hpp"
+
 namespace glm
 {
 	// matrixCompMult
@@ -573,7 +575,7 @@ namespace glm
 
 		detail::tvec4<T, P> Row0(Inverse[0][0], Inverse[1][0], Inverse[2][0], Inverse[3][0]);
 
-		T Determinant = glm::dot(m[0], Row0);
+		T Determinant = dot(m[0], Row0);
 
 		Inverse /= Determinant;
 

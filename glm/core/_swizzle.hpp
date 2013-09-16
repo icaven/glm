@@ -29,25 +29,6 @@
 #ifndef glm_core_swizzle
 #define glm_core_swizzle
 
-namespace glm
-{
-	enum comp
-	{
-		X = 0,
-		R = 0,
-		S = 0,
-		Y = 1,
-		G = 1,
-		T = 1,
-		Z = 2,
-		B = 2,
-		P = 2,
-		W = 3,
-		A = 3,
-		Q = 3
-	};
-}//namespace glm
-
 namespace glm{
 namespace detail
 {

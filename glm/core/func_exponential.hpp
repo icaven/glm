@@ -36,6 +36,11 @@
 #ifndef glm_core_func_exponential
 #define glm_core_func_exponential GLM_VERSION
 
+#include "type_vec1.hpp"
+#include "type_vec2.hpp"
+#include "type_vec3.hpp"
+#include "type_vec4.hpp"
+
 namespace glm
 {
 	/// @addtogroup core_func_exponential

@@ -7,7 +7,10 @@
 // File    : test/core/type_vec4.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
+#include <glm/core/type_vec2.hpp>
+#include <glm/core/type_vec3.hpp>
+#include <glm/core/type_vec4.hpp>
+#include <glm/core/func_vector_relational.hpp>
 #include <vector>
 
 template <int Value>

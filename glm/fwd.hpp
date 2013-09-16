@@ -39,11 +39,6 @@
 namespace glm{
 namespace detail
 {
-	template <typename T, precision P> struct tref1;
-	template <typename T, precision P> struct tref2;
-	template <typename T, precision P> struct tref3;
-	template <typename T, precision P> struct tref4;
-	
 	template <typename T, precision P> struct tquat;
 }//namespace detail
 

@@ -30,6 +30,7 @@
 #define glm_core_type_vec
 
 #include "precision.hpp"
+#include "type_int.hpp"
 
 namespace glm{
 namespace detail

@@ -40,6 +40,16 @@
 #ifndef GLM_CORE_func_matrix
 #define GLM_CORE_func_matrix GLM_VERSION
 
+#include "type_mat2x2.hpp"
+#include "type_mat2x3.hpp"
+#include "type_mat2x4.hpp"
+#include "type_mat3x2.hpp"
+#include "type_mat3x3.hpp"
+#include "type_mat3x4.hpp"
+#include "type_mat4x2.hpp"
+#include "type_mat4x3.hpp"
+#include "type_mat4x4.hpp"
+
 namespace glm
 {
 	/// @addtogroup core_func_matrix

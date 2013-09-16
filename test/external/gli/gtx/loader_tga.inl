@@ -91,9 +91,9 @@ namespace loader_tga
 
 		// TGA images are saved in BGR or BGRA format.
 		if(TexelSize == 24)
-			Image.swizzle<glm::u8vec3>(glm::B, glm::G, glm::R, glm::A);
+			Image.swizzle<glm::u8vec3>(gli::B, gli::G, gli::R, gli::A);
 		if(TexelSize == 32)
-			Image.swizzle<glm::u8vec4>(glm::B, glm::G, glm::R, glm::A);
+			Image.swizzle<glm::u8vec4>(gli::B, gli::G, gli::R, gli::A);
 
 		return Image;
 	}
@@ -124,9 +124,9 @@ namespace loader_tga
 		unsigned char Descriptor = 0;
 
 		if(TexelSize == 24)
-			Image.swizzle<glm::u8vec3>(glm::B, glm::G, glm::R, glm::A);
+			Image.swizzle<glm::u8vec3>(gli::B, gli::G, gli::R, gli::A);
 		if(TexelSize == 32)
-			Image.swizzle<glm::u8vec4>(glm::B, glm::G, glm::R, glm::A);
+			Image.swizzle<glm::u8vec4>(gli::B, gli::G, gli::R, gli::A);
 
 		FileOut.write((char*)&IdentificationFieldSize, sizeof(IdentificationFieldSize));
 		FileOut.write((char*)&ColorMapType, sizeof(ColorMapType));

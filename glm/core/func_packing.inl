@@ -26,6 +26,8 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "type_half.hpp"
+
 namespace glm
 {
 	GLM_FUNC_QUALIFIER uint32 packUnorm2x16(vec2 const & v)

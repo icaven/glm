@@ -14,6 +14,22 @@
 
 namespace gli
 {
+	enum comp
+	{
+		X = 0,
+		R = 0,
+		S = 0,
+		Y = 1,
+		G = 1,
+		T = 1,
+		Z = 2,
+		B = 2,
+		P = 2,
+		W = 3,
+		A = 3,
+		Q = 3
+	};
+
 	//template <template <typename> class mem>
 	class texture2D
 	{
@@ -45,7 +61,7 @@ namespace gli
 		void resize(level_type const & Levels);
 
 		template <typename genType>
-		void swizzle(glm::comp X, glm::comp Y, glm::comp Z, glm::comp W);
+		void swizzle(gli::comp X, gli::comp Y, gli::comp Z, gli::comp W);
 
 	private:
 		std::vector<image2D> Images;

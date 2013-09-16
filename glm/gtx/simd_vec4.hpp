@@ -58,10 +58,29 @@
 
 // Warning silencer for nameless struct/union.
 #if (GLM_COMPILER & GLM_COMPILER_VC)
-#   pragma warning(push)
-#   pragma warning(disable:4201)   // warning C4201: nonstandard extension used : nameless struct/union
+#	pragma warning(push)
+#	pragma warning(disable:4201)   // warning C4201: nonstandard extension used : nameless struct/union
 #endif
 
+namespace glm
+{
+	enum comp
+	{
+		X = 0,
+		R = 0,
+		S = 0,
+		Y = 1,
+		G = 1,
+		T = 1,
+		Z = 2,
+		B = 2,
+		P = 2,
+		W = 3,
+		A = 3,
+		Q = 3
+	};
+
+}//namespace glm
 
 namespace glm{
 namespace detail

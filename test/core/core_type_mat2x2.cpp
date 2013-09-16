@@ -7,7 +7,7 @@
 // File    : test/core/type_mat2x2.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
+#include <glm/core/type_mat2x2.hpp>
 #include <glm/gtc/epsilon.hpp>
 
 int test_operators()

@@ -26,6 +26,8 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "type_float.hpp"
+
 namespace glm
 {
 	// length
@@ -137,7 +139,7 @@ namespace glm
 		detail::tvec2<T, P> const & y
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'dot' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'dot' only accept floating-point inputs");
 
 		return x.x * y.x + x.y * y.y;
 	}

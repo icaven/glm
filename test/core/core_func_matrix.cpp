@@ -7,66 +7,66 @@
 // File    : test/core/func_matrix.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
+#include <glm/core/func_matrix.hpp>
 
 int test_matrixCompMult()
 {
-    int Error(0);
-    
-    {
-        glm::mat2 m(0, 1, 2, 3);
-        glm::mat2 n = glm::matrixCompMult(m, m);
-        Error += n == glm::mat2(0, 1, 4, 9) ? 0 : 1;
-    }
+	int Error(0);
 
-    {
-        glm::mat2x3 m(0, 1, 2, 3, 4, 5);
-        glm::mat2x3 n = glm::matrixCompMult(m, m);
-        Error += n == glm::mat2x3(0, 1, 4, 9, 16, 25) ? 0 : 1;
-    }
-  
-    {
-        glm::mat2x4 m(0, 1, 2, 3, 4, 5, 6, 7);
-        glm::mat2x4 n = glm::matrixCompMult(m, m);
-        Error += n == glm::mat2x4(0, 1, 4, 9, 16, 25, 36, 49) ? 0 : 1;
-    }
-    
-    {
-        glm::mat3 m(0, 1, 2, 3, 4, 5, 6, 7, 8);
-        glm::mat3 n = glm::matrixCompMult(m, m);
-        Error += n == glm::mat3(0, 1, 4, 9, 16, 25, 36, 49, 64) ? 0 : 1;
-    }
-    
-    {
-        glm::mat3x2 m(0, 1, 2, 3, 4, 5);
-        glm::mat3x2 n = glm::matrixCompMult(m, m);
-        Error += n == glm::mat3x2(0, 1, 4, 9, 16, 25) ? 0 : 1;
-    }
- 
-    {
-        glm::mat3x4 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
-        glm::mat3x4 n = glm::matrixCompMult(m, m);
-        Error += n == glm::mat3x4(0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121) ? 0 : 1;
-    }
-    
-    {
-        glm::mat4 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
-        glm::mat4 n = glm::matrixCompMult(m, m);
-        Error += n == glm::mat4(0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225) ? 0 : 1;
-    }
-    
-    {
-        glm::mat4x2 m(0, 1, 2, 3, 4, 5, 6, 7);
-        glm::mat4x2 n = glm::matrixCompMult(m, m);
-        Error += n == glm::mat4x2(0, 1, 4, 9, 16, 25, 36, 49) ? 0 : 1;
-    }
-    
-    {
-        glm::mat4x3 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
-        glm::mat4x3 n = glm::matrixCompMult(m, m);
-        Error += n == glm::mat4x3(0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121) ? 0 : 1;
-    }
-    
+	{
+		glm::mat2 m(0, 1, 2, 3);
+		glm::mat2 n = glm::matrixCompMult(m, m);
+		Error += n == glm::mat2(0, 1, 4, 9) ? 0 : 1;
+	}
+
+	{
+		glm::mat2x3 m(0, 1, 2, 3, 4, 5);
+		glm::mat2x3 n = glm::matrixCompMult(m, m);
+		Error += n == glm::mat2x3(0, 1, 4, 9, 16, 25) ? 0 : 1;
+	}
+
+	{
+		glm::mat2x4 m(0, 1, 2, 3, 4, 5, 6, 7);
+		glm::mat2x4 n = glm::matrixCompMult(m, m);
+		Error += n == glm::mat2x4(0, 1, 4, 9, 16, 25, 36, 49) ? 0 : 1;
+	}
+
+	{
+		glm::mat3 m(0, 1, 2, 3, 4, 5, 6, 7, 8);
+		glm::mat3 n = glm::matrixCompMult(m, m);
+		Error += n == glm::mat3(0, 1, 4, 9, 16, 25, 36, 49, 64) ? 0 : 1;
+	}
+
+	{
+		glm::mat3x2 m(0, 1, 2, 3, 4, 5);
+		glm::mat3x2 n = glm::matrixCompMult(m, m);
+		Error += n == glm::mat3x2(0, 1, 4, 9, 16, 25) ? 0 : 1;
+	}
+
+	{
+		glm::mat3x4 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+		glm::mat3x4 n = glm::matrixCompMult(m, m);
+		Error += n == glm::mat3x4(0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121) ? 0 : 1;
+	}
+
+	{
+		glm::mat4 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+		glm::mat4 n = glm::matrixCompMult(m, m);
+		Error += n == glm::mat4(0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225) ? 0 : 1;
+	}
+
+	{
+		glm::mat4x2 m(0, 1, 2, 3, 4, 5, 6, 7);
+		glm::mat4x2 n = glm::matrixCompMult(m, m);
+		Error += n == glm::mat4x2(0, 1, 4, 9, 16, 25, 36, 49) ? 0 : 1;
+	}
+
+	{
+		glm::mat4x3 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
+		glm::mat4x3 n = glm::matrixCompMult(m, m);
+		Error += n == glm::mat4x3(0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121) ? 0 : 1;
+	}
+
 	return Error;
 }
 

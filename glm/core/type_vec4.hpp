@@ -29,7 +29,8 @@
 #ifndef glm_core_type_gentype4
 #define glm_core_type_gentype4
 
-#include "../fwd.hpp"
+//#include "../fwd.hpp"
+#include "setup.hpp"
 #include "type_vec.hpp"
 #ifdef GLM_SWIZZLE
 #	if GLM_HAS_ANONYMOUS_UNION
@@ -38,6 +39,7 @@
 #		include "_swizzle_func.hpp"
 #	endif
 #endif //GLM_SWIZZLE
+#include <cstddef>
 
 namespace glm{
 namespace detail

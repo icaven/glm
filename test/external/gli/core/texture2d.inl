@@ -86,7 +86,7 @@ namespace gli
 	}
 
 	template <typename genType>
-	inline void texture2D::swizzle(glm::comp X, glm::comp Y, glm::comp Z, glm::comp W)
+	inline void texture2D::swizzle(gli::comp X, gli::comp Y, gli::comp Z, gli::comp W)
 	{
 		for(texture2D::level_type Level = 0; Level < this->levels(); ++Level)
 		{

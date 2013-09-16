@@ -31,6 +31,7 @@
 
 #define GLM_MESSAGES
 #include "../glm.hpp"
+#include <limits>
 /*
 #if(GLM_ARCH & GLM_ARCH_SSE2)
 struct float4

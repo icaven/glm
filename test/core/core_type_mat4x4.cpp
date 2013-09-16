@@ -7,8 +7,7 @@
 // File    : test/core/type_mat4x4.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-//#define GLM_PRECISION_HIGHP_FLOAT
-#include <glm/glm.hpp>
+#include <glm/core/type_mat4x4.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <cstdio>
 

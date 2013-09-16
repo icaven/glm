@@ -59,6 +59,11 @@ GLM 0.9.5.0: 2013-XX-XX
 - Optimized packing and unpacking functions
 - Removed the normalization of the up argument of lookAt function (#114)
 - Added low precision specializations of inversesqrt
+- Fixed ldexp implementation
+- Increased assert coverage
+- Increased static_assert coverage
+- Replaced GLM traits by STL traits when possible
+- Allowed including individual core feature
 
 ================================================================================
 GLM 0.9.4.6: 2013-09-15

@@ -26,6 +26,11 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "func_vector_relational.hpp"
+#include "_vectorize.hpp"
+#include <limits>
+#include <cassert>
+
 namespace glm
 {
 	// pow
@@ -36,9 +41,11 @@ namespace glm
 		genType const & y
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'pow' only accept floating-point input");
+		GLM_STATIC_ASSERT(
+			std::numeric_limits<genType>::is_iec559,
+			"'pow' only accept floating-point inputs");
 
-		return genType(::std::pow(x, y));
+		return std::pow(x, y);
 	}
 
 	VECTORIZE_VEC_VEC(pow)
@@ -50,9 +57,11 @@ namespace glm
 		genType const & x
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'exp' only accept floating-point input");
+		GLM_STATIC_ASSERT(
+			std::numeric_limits<genType>::is_iec559,
+			"'exp' only accept floating-point inputs");
 
-		return genType(::std::exp(x));
+		return std::exp(x);
 	}
 
 	VECTORIZE_VEC(exp)
@@ -64,9 +73,11 @@ namespace glm
 		genType const & x
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'log' only accept floating-point input");
+		GLM_STATIC_ASSERT(
+			std::numeric_limits<genType>::is_iec559,
+			"'log' only accept floating-point inputs");
 
-		return genType(::std::log(x));
+		return std::log(x);
 	}
 
 	VECTORIZE_VEC(log)
@@ -78,9 +89,11 @@ namespace glm
 		genType const & x
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'exp2' only accept floating-point input");
+		GLM_STATIC_ASSERT(
+			std::numeric_limits<genType>::is_iec559,
+			"'exp2' only accept floating-point inputs");
 
-		return genType(::std::exp(genType(0.69314718055994530941723212145818) * x));
+		return std::exp(genType(0.69314718055994530941723212145818) * x);
 	}
 
 	VECTORIZE_VEC(exp2)
@@ -132,9 +145,11 @@ namespace _detail
 		genType const & x
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'sqrt' only accept floating-point input");
+		GLM_STATIC_ASSERT(
+			std::numeric_limits<genType>::is_iec559,
+			"'sqrt' only accept floating-point inputs");
 
-		return genType(::std::sqrt(x));
+		return std::sqrt(x);
 	}
 
 	VECTORIZE_VEC(sqrt)
@@ -145,10 +160,13 @@ namespace _detail
 		genType const & x
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'inversesqrt' only accept floating-point input");
+		GLM_STATIC_ASSERT(
+			std::numeric_limits<genType>::is_iec559,
+			"'inversesqrt' only accept floating-point inputs");
+
 		assert(x > genType(0));
 
-		return genType(1) / ::std::sqrt(x);
+		return genType(1) / std::sqrt(x);
 	}
 
 	VECTORIZE_VEC(inversesqrt)
@@ -171,24 +189,32 @@ namespace _detail
 	template <>
 	GLM_FUNC_QUALIFIER lowp_vec1 inversesqrt(lowp_vec1 const & v)
 	{
+		assert(glm::all(glm::greaterThan(v, lowp_vec1(0))));
+
 		return detail::fastInversesqrt<lowp_vec1, uint>(v);
 	}
 
 	template <>
 	GLM_FUNC_QUALIFIER lowp_vec2 inversesqrt(lowp_vec2 const & v)
 	{
+		assert(glm::all(glm::greaterThan(v, lowp_vec2(0))));
+
 		return detail::fastInversesqrt<lowp_vec2, lowp_uvec2>(v);
 	}
 
 	template <>
 	GLM_FUNC_QUALIFIER lowp_vec3 inversesqrt(lowp_vec3 const & v)
 	{
+		assert(glm::all(glm::greaterThan(v, lowp_vec3(0))));
+
 		return detail::fastInversesqrt<lowp_vec3, lowp_uvec3>(v);
 	}
 
 	template <>
 	GLM_FUNC_QUALIFIER lowp_vec4 inversesqrt(lowp_vec4 const & v)
 	{
+		assert(glm::all(glm::greaterThan(v, lowp_vec4(0))));
+
 		return detail::fastInversesqrt<lowp_vec4, lowp_uvec4>(v);
 	}
 	

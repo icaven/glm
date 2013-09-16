@@ -7,7 +7,7 @@
 // File    : test/core/type_mat3x4.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
+#include <glm/core/type_mat3x4.hpp>
 
 static bool test_operators()
 {
