@@ -1077,7 +1077,9 @@ namespace detail
 			std::numeric_limits<genType>::is_iec559,
 			"'frexp' only accept floating-point inputs");
 
-		return std::frexp(x, exp);
+		return detail::tvec2<T, P>(
+			frexp(x.x, exp.x),
+			frexp(x.y, exp.y));
 	}
 
 	template <typename T, precision P>
@@ -1091,7 +1093,10 @@ namespace detail
 			std::numeric_limits<genType>::is_iec559,
 			"'frexp' only accept floating-point inputs");
 
-		return std::frexp(x, exp);
+		return detail::tvec3<T, P>(
+			frexp(x.x, exp.x),
+			frexp(x.y, exp.y),
+			frexp(x.z, exp.z));
 	}
 
 	template <typename T, precision P>
@@ -1105,7 +1110,11 @@ namespace detail
 			std::numeric_limits<genType>::is_iec559,
 			"'frexp' only accept floating-point inputs");
 
-		return std::frexp(x, exp);
+		return detail::tvec4<T, P>(
+			frexp(x.x, exp.x),
+			frexp(x.y, exp.y),
+			frexp(x.z, exp.z),
+			frexp(x.w, exp.w));
 	}
 
 	template <typename genType, precision P>
@@ -1133,7 +1142,9 @@ namespace detail
 			std::numeric_limits<T>::is_iec559,
 			"'ldexp' only accept floating-point inputs");
 
-		return std::ldexp(x, exp);
+		return detail::tvec2<T, P>(
+			ldexp(x.x, exp.x),
+			ldexp(x.y, exp.y));
 	}
 
 	template <typename T, precision P>
@@ -1147,7 +1158,10 @@ namespace detail
 			std::numeric_limits<T>::is_iec559,
 			"'ldexp' only accept floating-point inputs");
 
-		return std::ldexp(x, exp);
+		return detail::tvec3<T, P>(
+			ldexp(x.x, exp.x),
+			ldexp(x.y, exp.y),
+			ldexp(x.z, exp.z));
 	}
 
 	template <typename T, precision P>
@@ -1161,7 +1175,11 @@ namespace detail
 			std::numeric_limits<T>::is_iec559,
 			"'ldexp' only accept floating-point inputs");
 
-		return std::ldexp(x, exp);
+		return detail::tvec4<T, P>(
+			ldexp(x.x, exp.x),
+			ldexp(x.y, exp.y),
+			ldexp(x.z, exp.z),
+			ldexp(x.w, exp.w));
 	}
 
 }//namespace glm
