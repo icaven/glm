@@ -26,7 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#include "./core/_vectorize.hpp"
+#include "_vectorize.hpp"
 
 namespace glm
 {
