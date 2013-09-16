@@ -7,7 +7,7 @@
 // File    : test/core/func_packing.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
+#include <glm/core/func_packing.hpp>
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <vector>

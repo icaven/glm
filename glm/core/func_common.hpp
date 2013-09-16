@@ -262,7 +262,7 @@ namespace glm
 		genTypeT const & y,
 		genTypeU const & a);
 
-	/// Returns 0.0 if x < edge, otherwise it returns 1.0.
+	/// Returns 0.0 if x < edge, otherwise it returns 1.0 for each component of a genType.
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/step.xml">GLSL step man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -271,10 +271,14 @@ namespace glm
 		genType const & edge,
 		genType const & x);
 
-	template <typename genType>
-	GLM_FUNC_DECL genType step(
-		typename genType::T const & edge,
-		genType const & x);
+	/// Returns 0.0 if x < edge, otherwise it returns 1.0.
+	/// 
+	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/step.xml">GLSL step man page</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
+	template <template <typename, precision> class vecType, typename T, precision P>
+	GLM_FUNC_DECL vecType<T, P> step(
+		T const & edge,
+		vecType<T, P> const & x);
 
 	/// Returns 0.0 if x <= edge0 and 1.0 if x >= edge1 and
 	/// performs smooth Hermite interpolation between 0 and 1
@@ -331,28 +335,38 @@ namespace glm
 	GLM_FUNC_DECL typename genType::bool_type isinf(genType const & x);
 
 	/// Returns a signed integer value representing
-	/// the encoding of a floating-point value. The floatingpoint
+	/// the encoding of a floating-point value. The floating-point
 	/// value's bit-level representation is preserved.
-	///
-	/// @tparam genType Single-precision floating-point scalar or vector types.
-	/// @tparam genIType Signed integer scalar or vector types.
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floatBitsToInt.xml">GLSL floatBitsToInt man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template <typename genType, typename genIType>
-	GLM_FUNC_DECL genIType floatBitsToInt(genType const & value);
+	GLM_FUNC_DECL int floatBitsToInt(float const & v);
+
+	/// Returns a signed integer value representing
+	/// the encoding of a floating-point value. The floatingpoint
+	/// value's bit-level representation is preserved.
+	/// 
+	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floatBitsToInt.xml">GLSL floatBitsToInt man page</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
+	template <template <typename, precision> class vecType, precision P>
+	GLM_FUNC_DECL vecType<int, P> floatBitsToInt(vecType<float, P> const & v);
 
 	/// Returns a unsigned integer value representing
 	/// the encoding of a floating-point value. The floatingpoint
 	/// value's bit-level representation is preserved.
-	///
-	/// @tparam genType Single-precision floating-point scalar or vector types.
-	/// @tparam genUType Unsigned integer scalar or vector types.
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floatBitsToUint.xml">GLSL floatBitsToUint man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template <typename genType, typename genUType>
-	GLM_FUNC_DECL genUType floatBitsToUint(genType const & value);
+	GLM_FUNC_DECL uint floatBitsToUint(float const & v);
+
+	/// Returns a unsigned integer value representing
+	/// the encoding of a floating-point value. The floatingpoint
+	/// value's bit-level representation is preserved.
+	/// 
+	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floatBitsToUint.xml">GLSL floatBitsToUint man page</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
+	template <template <typename, precision> class vecType, precision P>
+	GLM_FUNC_DECL vecType<uint, P> floatBitsToUint(vecType<float, P> const & v);
 
 	/// Returns a floating-point value corresponding to a signed
 	/// integer encoding of a floating-point value.
@@ -360,15 +374,20 @@ namespace glm
 	/// resulting floating point value is unspecified. Otherwise,
 	/// the bit-level representation is preserved.
 	/// 
-	/// @tparam genType Single-precision floating-point scalar or vector types.
-	/// @tparam genIType Signed integer scalar or vector types.
+	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/intBitsToFloat.xml">GLSL intBitsToFloat man page</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
+	GLM_FUNC_DECL float intBitsToFloat(int const & v);
+
+	/// Returns a floating-point value corresponding to a signed
+	/// integer encoding of a floating-point value.
+	/// If an inf or NaN is passed in, it will not signal, and the
+	/// resulting floating point value is unspecified. Otherwise,
+	/// the bit-level representation is preserved.
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/intBitsToFloat.xml">GLSL intBitsToFloat man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	/// 
-	/// @todo Clarify this declaration, we don't need to actually specify the return type
-	template <typename genType, typename genIType>
-	GLM_FUNC_DECL genType intBitsToFloat(genIType const & value);
+	template <template <typename, precision> class vecType, precision P>
+	GLM_FUNC_DECL vecType<float, P> intBitsToFloat(vecType<int, P> const & v);
 
 	/// Returns a floating-point value corresponding to a
 	/// unsigned integer encoding of a floating-point value.
@@ -376,15 +395,20 @@ namespace glm
 	/// resulting floating point value is unspecified. Otherwise,
 	/// the bit-level representation is preserved.
 	/// 
-	/// @tparam genType Single-precision floating-point scalar or vector types.
-	/// @tparam genUType Unsigned integer scalar or vector types.
+	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/uintBitsToFloat.xml">GLSL uintBitsToFloat man page</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
+	GLM_FUNC_DECL float uintBitsToFloat(uint const & v);
+
+	/// Returns a floating-point value corresponding to a
+	/// unsigned integer encoding of a floating-point value.
+	/// If an inf or NaN is passed in, it will not signal, and the
+	/// resulting floating point value is unspecified. Otherwise,
+	/// the bit-level representation is preserved.
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/uintBitsToFloat.xml">GLSL uintBitsToFloat man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	/// 
-	/// @todo Clarify this declaration, we don't need to actually specify the return type
-	template <typename genType, typename genUType>
-	GLM_FUNC_DECL genType uintBitsToFloat(genUType const & value);
+	template <template <typename, precision> class vecType, precision P>
+	GLM_FUNC_DECL vecType<float, P> uintBitsToFloat(vecType<uint, P> const & v);
 
 	/// Computes and returns a * b + c.
 	/// 

@@ -38,6 +38,8 @@
 #ifndef glm_core_func_integer
 #define glm_core_func_integer GLM_VERSION
 
+#include "setup.hpp"
+
 namespace glm
 {
 	/// @addtogroup core_func_integer

@@ -10,7 +10,6 @@
 //#include <boost/array.hpp>
 //#include <boost/date_time/posix_time/posix_time.hpp>
 //#include <boost/thread/thread.hpp>
-#include <glm/glm.hpp>
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <cstdio>
@@ -320,6 +319,57 @@ namespace test_mix
 	}
 }//namespace test_mix
 
+namespace test_step
+{
+	template <typename EDGE, typename VEC>
+	struct test
+	{
+		EDGE edge;
+		VEC x;
+		VEC result;
+	};
+
+	test<float, glm::vec4> TestVec4Scalar [] =
+	{
+		{ 0.0f, glm::vec4(1.0f, 2.0f, 3.0f, 4.0f), glm::vec4(1.0f) },
+		{ 1.0f, glm::vec4(1.0f, 2.0f, 3.0f, 4.0f), glm::vec4(1.0f) },
+		{ 0.0f, glm::vec4(-1.0f, -2.0f, -3.0f, -4.0f), glm::vec4(0.0f) }
+	};
+
+	test<glm::vec4, glm::vec4> TestVec4Vector [] =
+	{
+		{ glm::vec4(-1.0f, -2.0f, -3.0f, -4.0f), glm::vec4(-2.0f, -3.0f, -4.0f, -5.0f), glm::vec4(0.0f) },
+		{ glm::vec4( 0.0f, 1.0f, 2.0f, 3.0f), glm::vec4( 1.0f, 2.0f, 3.0f, 4.0f), glm::vec4(1.0f) },
+		{ glm::vec4( 2.0f, 3.0f, 4.0f, 5.0f), glm::vec4( 1.0f, 2.0f, 3.0f, 4.0f), glm::vec4(0.0f) },
+		{ glm::vec4( 0.0f, 1.0f, 2.0f, 3.0f), glm::vec4(-1.0f,-2.0f,-3.0f,-4.0f), glm::vec4(0.0f) }
+	};
+
+	int run()
+	{
+		int Error = 0;
+
+		// vec4 and float
+		{
+			for (std::size_t i = 0; i < sizeof(TestVec4Scalar) / sizeof(test<float, glm::vec4>); ++i)
+			{
+				glm::vec4 Result = glm::step(TestVec4Scalar[i].edge, TestVec4Scalar[i].x);
+				Error += glm::all(glm::epsilonEqual(Result, TestVec4Scalar[i].result, glm::epsilon<float>())) ? 0 : 1;
+			}
+		}
+
+		// vec4 and vec4
+		{
+			for (std::size_t i = 0; i < sizeof(TestVec4Vector) / sizeof(test<glm::vec4, glm::vec4>); ++i)
+			{
+				glm::vec4 Result = glm::step(TestVec4Vector[i].edge, TestVec4Vector[i].x);
+				Error += glm::all(glm::epsilonEqual(Result, TestVec4Vector[i].result, glm::epsilon<float>())) ? 0 : 1;
+			}
+		}
+
+		return Error;
+	}
+}//namespace test_step
+
 int test_round()
 {
 	int Error = 0;
@@ -582,6 +632,7 @@ int main()
 	Error += test_modf();
 	Error += test_floatBitsToInt();
 	Error += test_floatBitsToUint();
+	Error += test_step::run();
 	Error += test_mix::run();
 	Error += test_round();
 	Error += test_roundEven();

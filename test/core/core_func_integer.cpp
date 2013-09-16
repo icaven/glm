@@ -7,7 +7,7 @@
 // File    : test/core/func_integer.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
+#include <glm/core/func_integer.hpp>
 #include <iostream>
 
 enum result

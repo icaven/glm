@@ -38,6 +38,11 @@
 #ifndef glm_core_func_noise
 #define glm_core_func_noise GLM_VERSION
 
+#include "type_vec1.hpp"
+#include "type_vec2.hpp"
+#include "type_vec3.hpp"
+#include "setup.hpp"
+
 namespace glm
 {
 	/// @addtogroup core_func_noise

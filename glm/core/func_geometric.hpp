@@ -36,6 +36,8 @@
 #ifndef glm_core_func_geometric
 #define glm_core_func_geometric GLM_VERSION
 
+#include "type_vec3.hpp"
+
 namespace glm
 {
 	/// @addtogroup core_func_geometric
@@ -124,11 +126,11 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/refract.xml">GLSL refract man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <typename genType>
-	GLM_FUNC_DECL genType refract(
-		genType const & I,
-		genType const & N,
-		typename genType::T const & eta);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> refract(
+		vecType<T, P> const & I,
+		vecType<T, P> const & N,
+		T const & eta);
 
 	/// @}
 }//namespace glm

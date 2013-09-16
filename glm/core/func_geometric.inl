@@ -26,6 +26,8 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "type_vec2.hpp"
+#include "type_vec4.hpp"
 #include "type_float.hpp"
 
 namespace glm

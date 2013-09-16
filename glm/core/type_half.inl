@@ -43,6 +43,24 @@ namespace detail
 		return f;
 	}
 
+	union uif32
+	{
+		GLM_FUNC_QUALIFIER uif32() :
+			i(0)
+		{}
+
+		GLM_FUNC_QUALIFIER uif32(float f) :
+			f(f)
+		{}
+
+		GLM_FUNC_QUALIFIER uif32(uint32 i) :
+			i(i)
+		{}
+
+		float f;
+		uint32 i;
+	};
+
 	GLM_FUNC_QUALIFIER float toFloat32(hdata value)
 	{
 		int s = (value >> 15) & 0x00000001;

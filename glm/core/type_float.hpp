@@ -134,24 +134,6 @@ namespace detail
 		enum{ID = float_or_int_value::GLM_FLOAT};
 	};
 	
-	union uif32
-	{
-		GLM_FUNC_QUALIFIER uif32() :
-		i(0)
-		{}
-		
-		GLM_FUNC_QUALIFIER uif32(float f) :
-		f(f)
-		{}
-		
-		GLM_FUNC_QUALIFIER uif32(uint32 i) :
-		i(i)
-		{}
-		
-		float f;
-		uint32 i;
-	};
-	
 	union uif64
 	{
 		GLM_FUNC_QUALIFIER uif64() :

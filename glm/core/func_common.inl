@@ -26,6 +26,10 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "type_vec2.hpp"
+#include "type_vec3.hpp"
+#include "type_vec4.hpp"
+#include "_vectorize.hpp"
 #include <limits>
 
 namespace glm{
@@ -708,113 +712,21 @@ namespace detail
 		genType const & x
 	)
 	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559,
-			"'step' only accept floating-point inputs");
-
-		return x < edge ? static_cast<genType>(0) : static_cast<genType>(1);
+		return mix(genType(1), genType(0), glm::lessThan(x, edge));
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<T, P> step
+	template <template <typename, precision> class vecType, typename T, precision P>
+	GLM_FUNC_QUALIFIER vecType<T, P> step
 	(
 		T const & edge,
-		detail::tvec2<T, P> const & x
+		vecType<T, P> const & x
 	)
 	{
 		GLM_STATIC_ASSERT(
 			std::numeric_limits<T>::is_iec559,
 			"'step' only accept floating-point inputs");
 
-		return detail::tvec2<T, P>(
-			x.x < edge ? T(0) : T(1),
-			x.y < edge ? T(0) : T(1));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> step
-	(
-		T const & edge,
-		detail::tvec3<T, P> const & x
-	)
-	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<T>::is_iec559,
-			"'step' only accept floating-point inputs");
-
-		return detail::tvec3<T, P>(
-			x.x < edge ? T(0) : T(1),
-			x.y < edge ? T(0) : T(1),
-			x.z < edge ? T(0) : T(1));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<T, P> step
-	(
-		T const & edge,
-		detail::tvec4<T, P> const & x
-	)
-	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<T>::is_iec559,
-			"'step' only accept floating-point inputs");
-
-		return detail::tvec4<T, P>(
-			x.x < edge ? T(0) : T(1),
-			x.y < edge ? T(0) : T(1),
-			x.z < edge ? T(0) : T(1),
-			x.w < edge ? T(0) : T(1));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<T, P> step
-	(
-		detail::tvec2<T, P> const & edge,
-		detail::tvec2<T, P> const & x
-	)
-	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<T>::is_iec559,
-			"'step' only accept floating-point inputs");
-
-		return detail::tvec2<T, P>(
-			x.x < edge.x ? T(0) : T(1),
-			x.y < edge.y ? T(0) : T(1));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> step
-	(
-		detail::tvec3<T, P> const & edge,
-		detail::tvec3<T, P> const & x
-	)
-	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<T>::is_iec559,
-			"'step' only accept floating-point inputs");
-
-		return detail::tvec3<T, P>(
-			x.x < edge.x ? T(0) : T(1),
-			x.y < edge.y ? T(0) : T(1),
-			x.z < edge.z ? T(0) : T(1));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<T, P> step
-	(
-		detail::tvec4<T, P> const & edge,
-		detail::tvec4<T, P> const & x
-	)
-	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<T>::is_iec559,
-			"'step' only accept floating-point inputs");
-
-		return detail::tvec4<T, P>(
-			x.x < edge.x ? T(0) : T(1),
-			x.y < edge.y ? T(0) : T(1),
-			x.z < edge.z ? T(0) : T(1),
-			x.w < edge.w ? T(0) : T(1));
+		return mix(vecType<T, P>(1), vecType<T, P>(0), glm::lessThan(x, vecType<T, P>(edge)));
 	}
 
 	// smoothstep
@@ -1090,28 +1002,10 @@ namespace detail
 		return *reinterpret_cast<int*>(const_cast<float*>(&v));
 	}
 
-	GLM_FUNC_QUALIFIER detail::tvec2<int, defaultp> floatBitsToInt
-	(
-		detail::tvec2<float, defaultp> const & v
-	)
+	template <template <typename, precision> class vecType, precision P>
+	GLM_FUNC_QUALIFIER vecType<int, P> floatBitsToInt(vecType<float, P> const & v)
 	{
-		return *reinterpret_cast<detail::tvec2<int, defaultp>*>(const_cast<detail::tvec2<float, defaultp>*>(&v));
-	}
-
-	GLM_FUNC_QUALIFIER detail::tvec3<int, defaultp> floatBitsToInt
-	(
-		detail::tvec3<float, defaultp> const & v
-	)
-	{
-		return *reinterpret_cast<detail::tvec3<int, defaultp>*>(const_cast<detail::tvec3<float, defaultp>*>(&v));
-	}
-
-	GLM_FUNC_QUALIFIER detail::tvec4<int, defaultp> floatBitsToInt
-	(
-		detail::tvec4<float, defaultp> const & v
-	)
-	{
-		return *reinterpret_cast<detail::tvec4<int, defaultp>*>(const_cast<detail::tvec4<float, defaultp>*>(&v));
+		return *reinterpret_cast<vecType<int, P>*>(const_cast<vecType<float, P>*>(&v));
 	}
 
 	GLM_FUNC_QUALIFIER uint floatBitsToUint(float const & v)
@@ -1119,28 +1013,10 @@ namespace detail
 		return *reinterpret_cast<uint*>(const_cast<float*>(&v));
 	}
 
-	GLM_FUNC_QUALIFIER detail::tvec2<uint, defaultp> floatBitsToUint
-	(
-		detail::tvec2<float, defaultp> const & v
-	)
+	template <template <typename, precision> class vecType, precision P>
+	GLM_FUNC_QUALIFIER vecType<uint, P> floatBitsToUint(vecType<float, P> const & v)
 	{
-		return *reinterpret_cast<detail::tvec2<uint, defaultp>*>(const_cast<detail::tvec2<float, defaultp>*>(&v));
-	}
-
-	GLM_FUNC_QUALIFIER detail::tvec3<uint, defaultp> floatBitsToUint
-	(
-		detail::tvec3<float, defaultp> const & v
-	)
-	{
-		return *reinterpret_cast<detail::tvec3<uint, defaultp>*>(const_cast<detail::tvec3<float, defaultp>*>(&v));
-	}
-
-	GLM_FUNC_QUALIFIER detail::tvec4<uint, defaultp> floatBitsToUint
-	(
-		detail::tvec4<float, defaultp> const & v
-	)
-	{
-		return *reinterpret_cast<detail::tvec4<uint, defaultp>*>(const_cast<detail::tvec4<float, defaultp>*>(&v));
+		return *reinterpret_cast<vecType<uint, P>*>(const_cast<vecType<float, P>*>(&v));
 	}
 
 	GLM_FUNC_QUALIFIER float intBitsToFloat(int const & v)
@@ -1148,28 +1024,10 @@ namespace detail
 		return *reinterpret_cast<float*>(const_cast<int*>(&v));
 	}
 
-	GLM_FUNC_QUALIFIER detail::tvec2<float, defaultp> intBitsToFloat
-	(
-		detail::tvec2<int, defaultp> const & v
-	)
+	template <template <typename, precision> class vecType, precision P>
+	GLM_FUNC_QUALIFIER vecType<float, P> intBitsToFloat(vecType<int, P> const & v)
 	{
-		return *reinterpret_cast<detail::tvec2<float, defaultp>*>(const_cast<detail::tvec2<int, defaultp>*>(&v));
-	}
-
-	GLM_FUNC_QUALIFIER detail::tvec3<float, defaultp> intBitsToFloat
-	(
-		detail::tvec3<int, defaultp> const & v
-	)
-	{
-		return *reinterpret_cast<detail::tvec3<float, defaultp>*>(const_cast<detail::tvec3<int, defaultp>*>(&v));
-	}
-
-	GLM_FUNC_QUALIFIER detail::tvec4<float, defaultp> intBitsToFloat
-	(
-		detail::tvec4<int, defaultp> const & v
-	)
-	{
-		return *reinterpret_cast<detail::tvec4<float, defaultp>*>(const_cast<detail::tvec4<int, defaultp>*>(&v));
+		return *reinterpret_cast<vecType<float, P>*>(const_cast<vecType<int, P>*>(&v));
 	}
 
 	GLM_FUNC_QUALIFIER float uintBitsToFloat(uint const & v)
@@ -1177,30 +1035,12 @@ namespace detail
 		return *reinterpret_cast<float*>(const_cast<uint*>(&v));
 	}
 
-	GLM_FUNC_QUALIFIER detail::tvec2<float, defaultp> uintBitsToFloat
-	(
-		detail::tvec2<uint, defaultp> const & v
-	)
+	template <template <typename, precision> class vecType, precision P>
+	GLM_FUNC_QUALIFIER vecType<float, P> uintBitsToFloat(vecType<uint, P> const & v)
 	{
-		return *reinterpret_cast<detail::tvec2<float, defaultp>*>(const_cast<detail::tvec2<uint, defaultp>*>(&v));
+		return *reinterpret_cast<vecType<float, P>*>(const_cast<vecType<uint, P>*>(&v));
 	}
-
-	GLM_FUNC_QUALIFIER detail::tvec3<float, defaultp> uintBitsToFloat
-	(
-		detail::tvec3<uint, defaultp> const & v
-	)
-	{
-		return *reinterpret_cast<detail::tvec3<float, defaultp>*>(const_cast<detail::tvec3<uint, defaultp>*>(&v));
-	}
-
-	GLM_FUNC_QUALIFIER detail::tvec4<float, defaultp> uintBitsToFloat
-	(
-		detail::tvec4<uint, defaultp> const & v
-	)
-	{
-		return *reinterpret_cast<detail::tvec4<float, defaultp>*>(const_cast<detail::tvec4<uint, defaultp>*>(&v));
-	}
-
+	
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType fma
 	(

@@ -26,6 +26,11 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "type_vec2.hpp"
+#include "type_vec3.hpp"
+#include "type_vec4.hpp"
+#include "type_int.hpp"
+#include "_vectorize.hpp"
 #if(GLM_ARCH != GLM_ARCH_PURE)
 #if(GLM_COMPILER & GLM_COMPILER_VC)
 #	include <intrin.h>
