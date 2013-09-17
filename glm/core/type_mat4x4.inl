@@ -387,10 +387,7 @@ namespace detail
 
 	template <typename T, precision P>
 	template <typename U>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P>& tmat4x4<T, P>::operator+=
-	(
-		U const & s
-	)
+	GLM_FUNC_QUALIFIER tmat4x4<T, P>& tmat4x4<T, P>::operator+= (U s)
 	{
 		this->value[0] += s;
 		this->value[1] += s;
@@ -401,10 +398,7 @@ namespace detail
 
 	template <typename T, precision P>
 	template <typename U>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P>& tmat4x4<T, P>::operator+=
-	(
-		tmat4x4<U, P> const & m
-	)
+	GLM_FUNC_QUALIFIER tmat4x4<T, P>& tmat4x4<T, P>::operator+= (tmat4x4<U, P> const & m)
 	{
 		this->value[0] += m[0];
 		this->value[1] += m[1];
@@ -415,10 +409,7 @@ namespace detail
 
 	template <typename T, precision P>
 	template <typename U>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P> & tmat4x4<T, P>::operator-=
-	(
-		U const & s
-	)
+	GLM_FUNC_QUALIFIER tmat4x4<T, P> & tmat4x4<T, P>::operator-= (U s)
 	{
 		this->value[0] -= s;
 		this->value[1] -= s;
@@ -429,10 +420,7 @@ namespace detail
 
 	template <typename T, precision P>
 	template <typename U>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P> & tmat4x4<T, P>::operator-=
-	(
-		tmat4x4<U, P> const & m
-	)
+	GLM_FUNC_QUALIFIER tmat4x4<T, P> & tmat4x4<T, P>::operator-= (tmat4x4<U, P> const & m)
 	{
 		this->value[0] -= m[0];
 		this->value[1] -= m[1];
@@ -443,10 +431,7 @@ namespace detail
 
 	template <typename T, precision P>
 	template <typename U>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P> & tmat4x4<T, P>::operator*=
-	(
-		U const & s
-	)
+	GLM_FUNC_QUALIFIER tmat4x4<T, P> & tmat4x4<T, P>::operator*= (U s)
 	{
 		this->value[0] *= s;
 		this->value[1] *= s;
@@ -457,20 +442,14 @@ namespace detail
 
 	template <typename T, precision P>
 	template <typename U>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P> & tmat4x4<T, P>::operator*=
-	(
-		tmat4x4<U, P> const & m
-	)
+	GLM_FUNC_QUALIFIER tmat4x4<T, P> & tmat4x4<T, P>::operator*= (tmat4x4<U, P> const & m)
 	{
 		return (*this = *this * m);
 	}
 
 	template <typename T, precision P>
 	template <typename U>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P> & tmat4x4<T, P>::operator/=
-	(
-		U const & s
-	)
+	GLM_FUNC_QUALIFIER tmat4x4<T, P> & tmat4x4<T, P>::operator/= (U s)
 	{
 		this->value[0] /= s;
 		this->value[1] /= s;
@@ -481,10 +460,7 @@ namespace detail
 
 	template <typename T, precision P>
 	template <typename U>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P> & tmat4x4<T, P>::operator/=
-	(
-		tmat4x4<U, P> const & m
-	)
+	GLM_FUNC_QUALIFIER tmat4x4<T, P> & tmat4x4<T, P>::operator/= (tmat4x4<U, P> const & m)
 	{
 		return (*this = *this / m);
 	}
