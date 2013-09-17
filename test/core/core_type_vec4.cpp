@@ -158,6 +158,12 @@ int test_vec4_operators()
 		B /= 2.0f;
 		Error += B == glm::vec4(2, 1.25, 1, 7.0f / 4.0f / 2.0f) ? 0 : 1;
 	}
+	{
+		glm::vec4 B(2.0f);
+
+		B /= B.y;
+		Error += B == glm::vec4(1.0f) ? 0 : 1;
+	}
 
 	{
 		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);

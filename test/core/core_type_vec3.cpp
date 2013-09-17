@@ -135,6 +135,12 @@ int test_vec3_operators()
 		B /= 2.0f;
 		Error += B == glm::vec3(2, 1.25, 1) ? 0 : 1;
 	}
+	{
+		glm::vec3 B(2.0f);
+
+		B /= B.y;
+		Error += B == glm::vec3(1.0f) ? 0 : 1;
+	}
 
 	{
 		glm::vec3 A(1.0f, 2.0f, 3.0f);

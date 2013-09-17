@@ -153,6 +153,12 @@ int test_vec2_operators()
 		B /= 2.0f;
 		Error += B == glm::vec2(2, 1.25) ? 0 : 1;
 	}
+	{
+		glm::vec2 B(2.0f);
+
+		B /= B.y;
+		Error += B == glm::vec2(1.0f) ? 0 : 1;
+	}
 	
 	{
 		glm::vec2 A(1.0f, 2.0f);
