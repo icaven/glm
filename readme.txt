@@ -37,7 +37,7 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
 
 ================================================================================
-GLM 0.9.4.6: 2013-09-15
+GLM 0.9.4.6: 2013-09-18
 --------------------------------------------------------------------------------
 - Fixed detection to select the last known compiler if newer version #106
 - Fixed is_int and is_uint code duplication with GCC and C++11 #107 
@@ -45,10 +45,11 @@ GLM 0.9.4.6: 2013-09-15
 - Added c++1y mode support in CMake test suite
 - Removed ms extension mode to CMake when no using Visual C++
 - Added pedantic mode to CMake test suite for Clang and GCC
-- Added use of GCC frontend on Unix for ICC and Visual C++ fronted on Windows 
+- Added use of GCC frontend on Unix for ICC and Visual C++ fronted on Windows
   for ICC
 - Added compilation errors for unsupported compiler versions
 - Fixed glm::orientation with GLM_FORCE_RADIANS defined #112
+- Fixed const ref issue on assignment operator taking a scalar parameter #116
 
 ================================================================================
 GLM 0.9.4.5: 2013-08-12

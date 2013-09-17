@@ -396,10 +396,7 @@ namespace detail
 
 	template <typename T>
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator+=
-	(
-		U const & s
-	)
+	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator+= (U s)
 	{
 		this->x += T(s);
 		this->y += T(s);
@@ -424,10 +421,7 @@ namespace detail
 
 	template <typename T>
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator-=
-	(
-		U const & s
-	)
+	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator-= (U s)
 	{
 		this->x -= T(s);
 		this->y -= T(s);
@@ -452,10 +446,7 @@ namespace detail
 
 	template <typename T>
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator*=
-	(
-		U const & s
-	)
+	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator*= (U s)
 	{
 		this->x *= T(s);
 		this->y *= T(s);
@@ -480,10 +471,7 @@ namespace detail
 
 	template <typename T>
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator/=
-	(
-		U const & s
-	)
+	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator/= (U s)
 	{
 		this->x /= T(s);
 		this->y /= T(s);
@@ -531,10 +519,7 @@ namespace detail
 
 	template <typename T>
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator%=
-	(
-		U const & s
-	)
+	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator%= (U s)
 	{
 		this->x %= T(s);
 		this->y %= T(s);
@@ -559,10 +544,7 @@ namespace detail
 
 	template <typename T>
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator&=
-	(
-		U const & s
-	)
+	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator&= (U s)
 	{
 		this->x &= T(s);
 		this->y &= T(s);
@@ -587,10 +569,7 @@ namespace detail
 
 	template <typename T>
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator|=
-	(
-		U const & s
-	)
+	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator|= (U s)
 	{
 		this->x |= T(s);
 		this->y |= T(s);
@@ -615,10 +594,7 @@ namespace detail
 
 	template <typename T>
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator^=
-	(
-		U const & s
-	)
+	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator^= (U s)
 	{
 		this->x ^= T(s);
 		this->y ^= T(s);
@@ -643,10 +619,7 @@ namespace detail
 
 	template <typename T>
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator<<=
-	(
-		U const & s
-	)
+	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator<<= (U s)
 	{
 		this->x <<= T(s);
 		this->y <<= T(s);
@@ -671,10 +644,7 @@ namespace detail
 
 	template <typename T>
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator>>=
-	(
-		U const & s
-	)
+	GLM_FUNC_QUALIFIER tvec4<T> & tvec4<T>::operator>>= (U s)
 	{
 		this->x >>= T(s);
 		this->y >>= T(s);
