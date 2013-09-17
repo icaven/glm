@@ -51,6 +51,9 @@ int test_compiler()
 		case GLM_COMPILER_VC2012:
 			std::cout << "GLM_COMPILER_VC2012" << std::endl;	
 			break;
+		case GLM_COMPILER_VC2013:
+			std::cout << "GLM_COMPILER_VC2013" << std::endl;
+			break;
 		default:
 			std::cout << "Visual C++ version not detected" << std::endl;
 			Error += 1;
@@ -107,6 +110,9 @@ int test_compiler()
 			break;
 		case GLM_COMPILER_GCC48:
 			std::cout << "GLM_COMPILER_GCC48" << std::endl;	
+			break;
+		case GLM_COMPILER_GCC49:
+			std::cout << "GLM_COMPILER_GCC49" << std::endl;
 			break;
 		default:
 			std::cout << "GCC version not detected" << std::endl;
