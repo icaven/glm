@@ -36,9 +36,6 @@ int test_compiler()
 		case GLM_COMPILER_VC12:
 			std::cout << "GLM_COMPILER_VC12" << std::endl;
 			break;
-		case GLM_COMPILER_VC2013:
-			std::cout << "GLM_COMPILER_VC2013" << std::endl;
-			break;
 		default:
 			std::cout << "Visual C++ version not detected" << std::endl;
 			Error += 1;

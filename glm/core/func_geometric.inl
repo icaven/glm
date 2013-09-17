@@ -26,6 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "func_common.hpp"
 #include "type_vec2.hpp"
 #include "type_vec4.hpp"
 #include "type_float.hpp"
@@ -308,7 +309,7 @@ namespace glm
 		if(k < T(0))
 			return vecType<T, P>(0);
 		else
-			return eta * I - (eta * dotValue + sqrt(k)) * N;
+			return eta * I - (eta * dotValue + std::sqrt(k)) * N;
 	}
 
 }//namespace glm
