@@ -136,19 +136,19 @@ namespace detail
 		template <typename U> 
 		GLM_FUNC_DECL tmat4x2<T>& operator=  (tmat4x2<U> const & m);
 		template <typename U> 
-		GLM_FUNC_DECL tmat4x2<T>& operator+= (U const & s);
+		GLM_FUNC_DECL tmat4x2<T>& operator+= (U s);
 		template <typename U> 
 		GLM_FUNC_DECL tmat4x2<T>& operator+= (tmat4x2<U> const & m);
 		template <typename U> 
-		GLM_FUNC_DECL tmat4x2<T>& operator-= (U const & s);
+		GLM_FUNC_DECL tmat4x2<T>& operator-= (U s);
 		template <typename U> 
 		GLM_FUNC_DECL tmat4x2<T>& operator-= (tmat4x2<U> const & m);
 		template <typename U> 
-		GLM_FUNC_DECL tmat4x2<T>& operator*= (U const & s);
+		GLM_FUNC_DECL tmat4x2<T>& operator*= (U s);
 		template <typename U> 
 		GLM_FUNC_DECL tmat4x2<T>& operator*= (tmat4x2<U> const & m);
 		template <typename U> 
-		GLM_FUNC_DECL tmat4x2<T>& operator/= (U const & s);
+		GLM_FUNC_DECL tmat4x2<T>& operator/= (U s);
 
 		GLM_FUNC_DECL tmat4x2<T>& operator++ ();
 		GLM_FUNC_DECL tmat4x2<T>& operator-- ();

@@ -316,10 +316,7 @@ namespace detail
 
 	template <typename T> 
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tmat3x4<T>& tmat3x4<T>::operator+= 
-	(
-		U const & s
-	)
+	GLM_FUNC_QUALIFIER tmat3x4<T>& tmat3x4<T>::operator+= (U s)
 	{
 		this->value[0] += s;
 		this->value[1] += s;
@@ -342,10 +339,7 @@ namespace detail
 
 	template <typename T> 
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tmat3x4<T>& tmat3x4<T>::operator-= 
-	(
-		U const & s
-	)
+	GLM_FUNC_QUALIFIER tmat3x4<T>& tmat3x4<T>::operator-= (U s)
 	{
 		this->value[0] -= s;
 		this->value[1] -= s;
@@ -368,10 +362,7 @@ namespace detail
 
 	template <typename T> 
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tmat3x4<T>& tmat3x4<T>::operator*= 
-	(
-		U const & s
-	)
+	GLM_FUNC_QUALIFIER tmat3x4<T>& tmat3x4<T>::operator*= (U s)
 	{
 		this->value[0] *= s;
 		this->value[1] *= s;
@@ -391,10 +382,7 @@ namespace detail
 
 	template <typename T> 
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tmat3x4<T> & tmat3x4<T>::operator/= 
-	(
-		U const & s
-	)
+	GLM_FUNC_QUALIFIER tmat3x4<T> & tmat3x4<T>::operator/= (U s)
 	{
 		this->value[0] /= s;
 		this->value[1] /= s;
