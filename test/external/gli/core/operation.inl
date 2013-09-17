@@ -123,8 +123,8 @@ namespace gli
 			glm::byte * DstData = DstMipmap.data();
 			glm::byte const * const SrcData = SrcMipmap.data();
 
-			std::size_t SizeX = std::min(std::size_t(SrcSize.x + SrcPosition.x), std::size_t(DstMipmap.dimensions().x  + DstPosition.x));
-			std::size_t SizeY = std::min(std::size_t(SrcSize.y + SrcPosition.y), std::size_t(DstMipmap.dimensions().y + DstPosition.y));
+			std::size_t SizeX = glm::min(std::size_t(SrcSize.x + SrcPosition.x), std::size_t(DstMipmap.dimensions().x  + DstPosition.x));
+			std::size_t SizeY = glm::min(std::size_t(SrcSize.y + SrcPosition.y), std::size_t(DstMipmap.dimensions().y + DstPosition.y));
 
 			for(std::size_t j = 0; j < SizeY; ++j)
 			{
