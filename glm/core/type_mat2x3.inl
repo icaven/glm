@@ -339,13 +339,6 @@ namespace detail
 		return *this;
 	}
 
-	template <typename T, precision P> 
-	template <typename U> 
-	GLM_FUNC_QUALIFIER tmat2x3<T, P> & tmat2x3<T, P>::operator*= (tmat2x3<U, P> const & m)
-	{
-		return (*this = tmat2x3<U, P>(*this * m));
-	}
-
 	template <typename T, precision P>
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tmat2x3<T, P> & tmat2x3<T, P>::operator/= (U s)

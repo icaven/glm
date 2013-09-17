@@ -131,8 +131,6 @@ namespace detail
 		template <typename U> 
 		GLM_FUNC_DECL tmat3x2<T, P> & operator*= (U s);
 		template <typename U> 
-		GLM_FUNC_DECL tmat3x2<T, P> & operator*= (tmat3x2<U, P> const & m);
-		template <typename U> 
 		GLM_FUNC_DECL tmat3x2<T, P> & operator/= (U s);
 
 		//////////////////////////////////////
