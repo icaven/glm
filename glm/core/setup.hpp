@@ -154,6 +154,7 @@
 #define GLM_COMPILER_GCC46			0x020000D0
 #define GLM_COMPILER_GCC47			0x020000E0
 #define GLM_COMPILER_GCC48			0x020000F0
+#define GLM_COMPILER_GCC49			0x02000100
 
 // G++ command line to display defined
 // echo "" | g++ -E -dM -x c++ - | sort
