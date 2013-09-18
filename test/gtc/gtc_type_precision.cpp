@@ -10,6 +10,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtc/quaternion.hpp>
+#include <vector>
 
 static int test_scalar_size()
 {
@@ -854,9 +855,33 @@ static int test_fvec_conversion()
 	return Error;
 }
 
+#include <omp.h>
+
+static int test_openmp()
+{
+	std::vector<glm::u8vec3> VectorA(1000);
+	std::vector<glm::u8vec3> VectorB(1000);
+	std::vector<glm::u8vec3> VectorC(1000);
+
+	for (std::size_t i = 0; i < VectorA.size(); ++i)
+	{
+		VectorA[i] = glm::u8vec3(1, 1, 1);
+		VectorB[i] = glm::u8vec3(1, 1, 1);
+	}
+
+	#pragma omp parallel for default(none) shared(VectorA, VectorB, VectorC)
+	for (int i = 0; i < VectorC.size(); ++i)
+	{
+		VectorC[i] = VectorA[i] + VectorB[i];
+	}
+
+	return 0;
+}
+
 int main()
 {
 	int Error(0);
+	Error += test_openmp();
 	Error += test_scalar_size();
 	Error += test_fvec_size();
 	Error += test_fvec_precision();
