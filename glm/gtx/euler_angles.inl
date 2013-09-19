@@ -35,9 +35,9 @@ namespace glm
 		valType sinY = glm::sin(angleY);
 
 		return detail::tmat4x4<valType>(
-			cosY,		valType(0),	sinY,		valType(0),
+			cosY,		valType(0),-sinY,		valType(0),
 			valType(0),	valType(1),	valType(0), valType(0),
-			-sinY,		valType(0),	cosY,		valType(0),
+			sinY,		valType(0),	cosY,		valType(0),
 			valType(0),	valType(0),	valType(0), valType(1));
 	}
 
