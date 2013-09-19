@@ -37,7 +37,7 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
 
 ================================================================================
-GLM 0.9.4.6: 2013-09-18
+GLM 0.9.4.6: 2013-09-20
 --------------------------------------------------------------------------------
 - Fixed detection to select the last known compiler if newer version #106
 - Fixed is_int and is_uint code duplication with GCC and C++11 #107 
@@ -50,6 +50,7 @@ GLM 0.9.4.6: 2013-09-18
 - Added compilation errors for unsupported compiler versions
 - Fixed glm::orientation with GLM_FORCE_RADIANS defined #112
 - Fixed const ref issue on assignment operator taking a scalar parameter #116
+- Fixed glm::eulerAngleY implementation
 
 ================================================================================
 GLM 0.9.4.5: 2013-08-12
