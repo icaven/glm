@@ -80,7 +80,7 @@ GLM 0.9.4.6: 2013-09-20
 - Added compilation errors for unsupported compiler versions
 - Fixed glm::orientation with GLM_FORCE_RADIANS defined #112
 - Fixed const ref issue on assignment operator taking a scalar parameter #116
-- Fixed glm::eulerAngleY implementation
+- Fixed glm::eulerAngleY implementation #117
 
 ================================================================================
 GLM 0.9.4.5: 2013-08-12
