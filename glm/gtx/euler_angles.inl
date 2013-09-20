@@ -35,9 +35,9 @@ namespace glm
 		T sinY = glm::sin(angleY);
 
 		return detail::tmat4x4<T, defaultp>(
-			cosY,	T(0),	sinY,	T(0),
+			cosY,	T(0),	-sinY,	T(0),
 			T(0),	T(1),	T(0),	T(0),
-			-sinY,	T(0),	cosY,	T(0),
+			sinY,	T(0),	cosY,	T(0),
 			T(0),	T(0),	T(0),	T(1));
 	}
 
