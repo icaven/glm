@@ -70,7 +70,7 @@ namespace detail
 			tquat<U, Q> const & q);
 		GLM_FUNC_DECL explicit tquat(
 			T const & s,
-			glm::detail::tvec3<T, P> const & v);
+			tvec3<T, P> const & v);
 		GLM_FUNC_DECL explicit tquat(
 			T const & w,
 			T const & x,
@@ -79,6 +79,15 @@ namespace detail
 
 		// Convertions
 
+		/// Create a quaternion from two normalized axis
+		/// 
+		/// @param u A first normalized axis
+		/// @param v A second normalized axis
+		/// @see gtc_quaternion
+		/// @see http://lolengine.net/blog/2013/09/18/beautiful-maths-quaternion-from-vectors
+		GLM_FUNC_DECL explicit tquat(
+			detail::tvec3<T, P> const & u,
+			detail::tvec3<T, P> const & v);
 		/// Build a quaternion from euler angles (pitch, yaw, roll), in radians.
 		GLM_FUNC_DECL explicit tquat(
 			tvec3<T, P> const & eulerAngles);

@@ -65,6 +65,7 @@ GLM 0.9.5.0: 2013-XX-XX
 - Replaced GLM traits by STL traits when possible
 - Allowed including individual core feature
 - Increased unit tests completness
+- Added creating of a quaternion  from two vectors
 
 ================================================================================
 GLM 0.9.4.6: 2013-09-20

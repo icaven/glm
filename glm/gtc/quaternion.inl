@@ -107,6 +107,18 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tquat<T, P>::tquat
 	(
+		detail::tvec3<T, P> const & u,
+		detail::tvec3<T, P> const & v
+	)
+	{
+		detail::tvec3<T, P> w = cross(u, v);
+		detail::tquat<T, P> q(T(1) + dot(u, v), w.x, w.y, w.z);
+		*this = normalize(q);
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tquat<T, P>::tquat
+	(
 		tvec3<T, P> const & eulerAngle
 	)
 	{

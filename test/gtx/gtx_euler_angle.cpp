@@ -11,9 +11,9 @@ using namespace glm;
 
 int main()
 { 
-	f32 first = 1.046 ;
-	f32 second = 0.52 ;
-	f32 third = -0.785;
+	f32 first =  1.046f;
+	f32 second = 0.52f;
+	f32 third = -0.785f;
 
 	fmat4 rotationEuler = eulerAngleYXZ(first, second, third); 
 
