@@ -11,6 +11,9 @@
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtc/quaternion.hpp>
 #include <vector>
+#if GLM_HAS_OPENMP
+#	include <omp.h>
+#endif
 
 static int test_scalar_size()
 {
@@ -854,8 +857,6 @@ static int test_fvec_conversion()
 
 	return Error;
 }
-
-#include <omp.h>
 
 static int test_openmp()
 {

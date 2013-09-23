@@ -511,6 +511,25 @@
 	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC46)) || \
 	__has_feature(cxx_constexpr))
 
+// OpenMP
+#ifdef _OPENMP 
+#	if(GLM_COMPILER & GLM_COMPILER_GCC)
+#		if(GLM_COMPILER > GLM_COMPILER_GCC47)
+#			define GLM_HAS_OPENMP 31
+#		elif(GLM_COMPILER > GLM_COMPILER_GCC44)
+#			define GLM_HAS_OPENMP 30
+#		elif(GLM_COMPILER > GLM_COMPILER_GCC42)
+#			define GLM_HAS_OPENMP 25
+#		endif
+#	endif//(GLM_COMPILER & GLM_COMPILER_GCC)
+
+#	if(GLM_COMPILER & GLM_COMPILER_VC)
+#		if(GLM_COMPILER > GLM_COMPILER_VC2005)
+#			define GLM_HAS_OPENMP 20
+#		endif
+#	endif//(GLM_COMPILER & GLM_COMPILER_GCC)
+#endif
+
 // Not standard
 #define GLM_HAS_ANONYMOUS_UNION (GLM_LANG & GLM_LANG_CXXMS_FLAG)
 
@@ -603,6 +622,13 @@
 #endif//GLM_ARCH
 #if(GLM_ARCH & GLM_ARCH_SSE2)
 #	include <emmintrin.h>
+#	if(GLM_COMPILER == GLM_COMPILER_VC8) // VC8 is missing some intrinsics, workaround
+		inline float _mm_cvtss_f32(__m128 A) { return A.m128_f32[0]; }
+		inline __m128 _mm_castpd_ps(__m128d PD) { union { __m128 ps; __m128d pd; } c; c.pd = PD; return c.ps; }
+		inline __m128d _mm_castps_pd(__m128 PS) { union { __m128 ps; __m128d pd; } c; c.ps = PS; return c.pd; }
+		inline __m128i _mm_castps_si128(__m128 PS) { union { __m128 ps; __m128i pi; } c; c.ps = PS; return c.pi; }
+		inline __m128 _mm_castsi128_ps(__m128i PI) { union { __m128 ps; __m128i pi; } c; c.pi = PI; return c.ps; }
+#	endif
 #endif//GLM_ARCH
 //#endif//(GLM_ARCH != GLM_ARCH_PURE)
 
@@ -726,6 +752,5 @@
 #else
 #	define GLM_CONSTEXPR
 #endif
-
 
 #endif//GLM_SETUP_INCLUDED
