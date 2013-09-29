@@ -39,6 +39,9 @@
 #		include "_swizzle_func.hpp"
 #	endif
 #endif //GLM_SWIZZLE
+#if(GLM_HAS_INITIALIZER_LISTS)
+#	include <initializer_list>
+#endif //GLM_HAS_INITIALIZER_LISTS
 #include <cstddef>
 
 namespace glm{
@@ -105,6 +108,11 @@ namespace detail
 		GLM_FUNC_DECL tvec4(type const & v);
 		template <precision Q>
 		GLM_FUNC_DECL tvec4(tvec4<T, Q> const & v);
+
+#if(GLM_HAS_INITIALIZER_LISTS)
+		template <typename U>
+		GLM_FUNC_DECL tvec4(std::initializer_list<U> const & v);
+#endif//GLM_HAS_INITIALIZER_LISTS
 
 		//////////////////////////////////////
 		// Explicit basic constructors

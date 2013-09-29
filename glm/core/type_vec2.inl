@@ -74,6 +74,17 @@ namespace detail
 		y(v.y)
 	{}
 
+#if(GLM_HAS_INITIALIZER_LISTS)
+	template <typename T, precision P>
+	template <typename U>
+	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2(std::initializer_list<U> const & v) :
+		x(static_cast<T>(v.begin()[0])),
+		y(static_cast<T>(v.begin()[1]))
+	{
+		assert(v.size() >= this->length());
+	}
+#endif//GLM_HAS_INITIALIZER_LISTS
+
 	//////////////////////////////////////
 	// Explicit basic constructors
 

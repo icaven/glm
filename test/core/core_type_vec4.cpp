@@ -11,6 +11,7 @@
 #include <glm/core/type_vec3.hpp>
 #include <glm/core/type_vec4.hpp>
 #include <glm/core/func_vector_relational.hpp>
+#include <ctime>
 #include <vector>
 
 template <int Value>
@@ -39,6 +40,10 @@ int test_vec4_ctor()
 {
 	int Error = 0;
 	
+#if(GLM_HAS_INITIALIZER_LISTS)
+	glm::vec4 v{0, 1, 2, 3};
+#endif
+
 	{
 		glm::vec4 A(1);
 		glm::vec4 B(1, 1, 1, 1);
@@ -282,6 +287,74 @@ int test_operator_increment()
 	return Error;
 }
 
+struct AoS
+{
+	glm::vec4 A;
+	glm::vec3 B;
+	glm::vec3 C;
+	glm::vec2 D;
+};
+
+int test_vec4_perf_AoS(std::size_t Size)
+{
+	int Error(0);
+
+	std::vector<AoS> In;
+	std::vector<AoS> Out;
+	In.resize(Size);
+	Out.resize(Size);
+
+	std::clock_t StartTime = std::clock();
+
+	for(std::size_t i = 0; i < In.size(); ++i)
+		Out[i] = In[i];
+
+	std::clock_t EndTime = std::clock();
+
+	printf("AoS: %d\n", EndTime - StartTime);
+
+	return Error;
+}
+
+int test_vec4_perf_SoA(std::size_t Size)
+{
+	int Error(0);
+
+	std::vector<glm::vec4> InA;
+	std::vector<glm::vec3> InB;
+	std::vector<glm::vec3> InC;
+	std::vector<glm::vec2> InD;
+	std::vector<glm::vec4> OutA;
+	std::vector<glm::vec3> OutB;
+	std::vector<glm::vec3> OutC;
+	std::vector<glm::vec2> OutD;
+
+	InA.resize(Size);
+	InB.resize(Size);
+	InC.resize(Size);
+	InD.resize(Size);
+	OutA.resize(Size);
+	OutB.resize(Size);
+	OutC.resize(Size);
+	OutD.resize(Size);
+
+	std::clock_t StartTime = std::clock();
+
+	for(std::size_t i = 0; i < InA.size(); ++i)
+	{
+		OutA[i] = InA[i];
+		OutB[i] = InB[i];
+		OutC[i] = InC[i];
+		OutD[i] = InD[i];
+	}
+
+	std::clock_t EndTime = std::clock();
+
+	printf("SoA: %d\n", EndTime - StartTime);
+
+	return Error;
+}
+
 int main()
 {
 	//__m128 DataA = swizzle<X, Y, Z, W>(glm::vec4(1.0f, 2.0f, 3.0f, 4.0f));
@@ -289,6 +362,10 @@ int main()
 
 	int Error(0);
 	
+	std::size_t const Size(100000000);
+
+	Error += test_vec4_perf_AoS(Size);
+	Error += test_vec4_perf_SoA(Size);
 	Error += test_vec4_ctor();
 	Error += test_vec4_size();
 	Error += test_vec4_operators();
