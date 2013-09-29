@@ -1075,7 +1075,7 @@ namespace detail
 	)
 	{
 		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559,
+			std::numeric_limits<T>::is_iec559,
 			"'frexp' only accept floating-point inputs");
 
 		return detail::tvec2<T, P>(
@@ -1091,7 +1091,7 @@ namespace detail
 	)
 	{
 		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559,
+			std::numeric_limits<T>::is_iec559,
 			"'frexp' only accept floating-point inputs");
 
 		return detail::tvec3<T, P>(
@@ -1108,7 +1108,7 @@ namespace detail
 	)
 	{
 		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559,
+			std::numeric_limits<T>::is_iec559,
 			"'frexp' only accept floating-point inputs");
 
 		return detail::tvec4<T, P>(
