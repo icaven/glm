@@ -32,7 +32,11 @@
 #include "../fwd.hpp"
 #include "type_vec4.hpp"
 #include "type_mat.hpp"
+#if(GLM_HAS_INITIALIZER_LISTS)
+#	include <initializer_list>
+#endif //GLM_HAS_INITIALIZER_LISTS
 #include <limits>
+#include <cstddef>
 
 namespace glm{
 namespace detail
@@ -84,6 +88,14 @@ namespace detail
 			col_type const & v1,
 			col_type const & v2,
 			col_type const & v3);
+
+#if(GLM_HAS_INITIALIZER_LISTS)
+		template <typename U>
+		GLM_FUNC_DECL tmat4x4(std::initializer_list<U> const & m);
+
+		template <typename U>
+		GLM_FUNC_DECL tmat4x4(std::initializer_list<tvec4<U, P> > const & m);
+#endif//GLM_HAS_INITIALIZER_LISTS
 
 		//////////////////////////////////////
 		// Conversions

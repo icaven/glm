@@ -10,6 +10,7 @@
 #include <glm/core/type_mat4x4.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <cstdio>
+#include <vector>
 
 void print(glm::dmat4 const & Mat0)
 {
@@ -122,10 +123,53 @@ int test_inverse()
 	return Error;
 }
 
+int test_ctr()
+{
+	int Error(0);
+
+#if(GLM_HAS_INITIALIZER_LISTS)
+	glm::mat4 m1{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+	
+	glm::mat4 m2{
+		{0, 1, 2, 3},
+		{4, 5, 6, 7},
+		{8, 9, 10, 11},
+		{12, 13, 14, 15}};
+
+	std::initializer_list<glm::mat4> m3{
+		{0, 1, 2, 3},
+		{4, 5, 6, 7},
+		{8, 9, 10, 11},
+		{12, 13, 14, 15}};
+
+	glm::mat4 m4{m3};
+
+/*	
+	std::vector<glm::mat4> v{
+		{
+			{ 0, 1, 2, 3 },
+			{ 4, 5, 6, 7 },
+			{ 8, 9, 10, 11 },
+			{ 12, 13, 14, 15 }
+		},
+		{
+			{ 0, 1, 2, 3 },
+			{ 4, 5, 6, 7 },
+			{ 8, 9, 10, 11 },
+			{ 12, 13, 14, 15 }
+		}
+	};
+*/
+#endif//GLM_HAS_INITIALIZER_LISTS
+
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
 
+	Error += test_ctr();
 	Error += test_inverse_dmat4x4();
 	Error += test_inverse_mat4x4();
 	Error += test_operators();

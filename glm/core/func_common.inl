@@ -1000,46 +1000,46 @@ namespace detail
 
 	GLM_FUNC_QUALIFIER int floatBitsToInt(float const & v)
 	{
-		return *reinterpret_cast<int*>(const_cast<float*>(&v));
+		return reinterpret_cast<int&>(const_cast<float&>(v));
 	}
 
 	template <template <typename, precision> class vecType, precision P>
 	GLM_FUNC_QUALIFIER vecType<int, P> floatBitsToInt(vecType<float, P> const & v)
 	{
-		return *reinterpret_cast<vecType<int, P>*>(const_cast<vecType<float, P>*>(&v));
+		return reinterpret_cast<vecType<int, P>&>(const_cast<vecType<float, P>&>(v));
 	}
 
 	GLM_FUNC_QUALIFIER uint floatBitsToUint(float const & v)
 	{
-		return *reinterpret_cast<uint*>(const_cast<float*>(&v));
+		return reinterpret_cast<uint&>(const_cast<float&>(v));
 	}
 
 	template <template <typename, precision> class vecType, precision P>
 	GLM_FUNC_QUALIFIER vecType<uint, P> floatBitsToUint(vecType<float, P> const & v)
 	{
-		return *reinterpret_cast<vecType<uint, P>*>(const_cast<vecType<float, P>*>(&v));
+		return reinterpret_cast<vecType<uint, P>&>(const_cast<vecType<float, P>&>(v));
 	}
 
 	GLM_FUNC_QUALIFIER float intBitsToFloat(int const & v)
 	{
-		return *reinterpret_cast<float*>(const_cast<int*>(&v));
+		return reinterpret_cast<float&>(const_cast<int&>(v));
 	}
 
 	template <template <typename, precision> class vecType, precision P>
 	GLM_FUNC_QUALIFIER vecType<float, P> intBitsToFloat(vecType<int, P> const & v)
 	{
-		return *reinterpret_cast<vecType<float, P>*>(const_cast<vecType<int, P>*>(&v));
+		return reinterpret_cast<vecType<float, P>&>(const_cast<vecType<int, P>&>(v));
 	}
 
 	GLM_FUNC_QUALIFIER float uintBitsToFloat(uint const & v)
 	{
-		return *reinterpret_cast<float*>(const_cast<uint*>(&v));
+		return reinterpret_cast<float&>(const_cast<uint&>(v));
 	}
 
 	template <template <typename, precision> class vecType, precision P>
 	GLM_FUNC_QUALIFIER vecType<float, P> uintBitsToFloat(vecType<uint, P> const & v)
 	{
-		return *reinterpret_cast<vecType<float, P>*>(const_cast<vecType<uint, P>*>(&v));
+		return reinterpret_cast<vecType<float, P>&>(const_cast<vecType<uint, P>&>(v));
 	}
 	
 	template <typename genType>

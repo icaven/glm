@@ -174,11 +174,35 @@ namespace detail
 		this->value[3] = col_type(m[3]);
 	}
 
+#if(GLM_HAS_INITIALIZER_LISTS)
+	template <typename T, precision P>
+	template <typename U>
+	GLM_FUNC_QUALIFIER tmat4x4<T, P>::tmat4x4(std::initializer_list<U> const & m)
+	{
+		assert(m.size() >= this->length());
+
+		this->value[0] = static_cast<tvec4<T, P> >(reinterpret_cast<tvec4<U, P>&>(const_cast<U&>(m.begin()[0])));
+		this->value[1] = static_cast<tvec4<T, P> >(reinterpret_cast<tvec4<U, P>&>(const_cast<U&>(m.begin()[4])));
+		this->value[2] = static_cast<tvec4<T, P> >(reinterpret_cast<tvec4<U, P>&>(const_cast<U&>(m.begin()[8])));
+		this->value[3] = static_cast<tvec4<T, P> >(reinterpret_cast<tvec4<U, P>&>(const_cast<U&>(m.begin()[12])));
+	}
+
+	template <typename T, precision P>
+	template <typename U>
+	GLM_FUNC_QUALIFIER tmat4x4<T, P>::tmat4x4(std::initializer_list<tvec4<U, P> > const & m)
+	{
+		this->value[0] = static_cast<tvec4<T, P> >(m.begin()[0]);
+		this->value[1] = static_cast<tvec4<T, P> >(m.begin()[1]);
+		this->value[2] = static_cast<tvec4<T, P> >(m.begin()[2]);
+		this->value[3] = static_cast<tvec4<T, P> >(m.begin()[3]);
+	}
+#endif//GLM_HAS_INITIALIZER_LISTS
+
 	//////////////////////////////////////
 	// Conversion constructors
 	template <typename T, precision P>
 	template <typename U>
-	GLM_FUNC_DECL tmat4x4<T, P>::tmat4x4
+	GLM_FUNC_QUALIFIER tmat4x4<T, P>::tmat4x4
 	(
 		U const & s
 	)

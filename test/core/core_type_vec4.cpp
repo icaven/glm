@@ -41,7 +41,13 @@ int test_vec4_ctor()
 	int Error = 0;
 	
 #if(GLM_HAS_INITIALIZER_LISTS)
-	glm::vec4 v{0, 1, 2, 3};
+	{
+		glm::vec4 a{ 0, 1, 2, 3 };
+		std::vector<glm::vec4> v = {
+			{0, 1, 2, 3},
+			{4, 5, 6, 7},
+			{8, 9, 0, 1}};
+	}
 #endif
 
 	{
