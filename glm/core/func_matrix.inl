@@ -38,7 +38,7 @@ namespace glm
 		matType const & y
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<typename matType::value_type>::is_float, "'matrixCompMult' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<typename matType::value_type>::is_iec559, "'matrixCompMult' only accept floating-point inputs");
 
 		matType result(matType::_null);
 		for(typename matType::size_type i = 0; i < matType::row_size(); ++i)
@@ -54,7 +54,7 @@ namespace glm
 		detail::tvec2<T, P> const & r
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'outerProduct' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'outerProduct' only accept floating-point inputs");
 
 		detail::tmat2x2<T, P> m(detail::tmat2x2<T, P>::null);
 		m[0][0] = c[0] * r[0];
@@ -71,7 +71,7 @@ namespace glm
 		detail::tvec3<T, P> const & r
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'outerProduct' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'outerProduct' only accept floating-point inputs");
 
 		detail::tmat3x3<T, P> m(detail::tmat3x3<T, P>::null);
 		for(typename detail::tmat3x3<T, P>::size_type i(0); i < m.length(); ++i)
@@ -86,7 +86,7 @@ namespace glm
 		detail::tvec4<T, P> const & r
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'outerProduct' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'outerProduct' only accept floating-point inputs");
 
 		detail::tmat4x4<T, P> m(detail::tmat4x4<T, P>::null);
 		for(typename detail::tmat4x4<T, P>::size_type i(0); i < m.length(); ++i)
@@ -101,7 +101,7 @@ namespace glm
 		detail::tvec2<T, P> const & r
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'outerProduct' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'outerProduct' only accept floating-point inputs");
 
 		detail::tmat2x3<T, P> m(detail::tmat2x3<T, P>::null);
 		m[0][0] = c.x * r.x;
@@ -120,7 +120,7 @@ namespace glm
 		detail::tvec3<T, P> const & r
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'outerProduct' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'outerProduct' only accept floating-point inputs");
 
 		detail::tmat3x2<T, P> m(detail::tmat3x2<T, P>::null);
 		m[0][0] = c.x * r.x;
@@ -139,7 +139,7 @@ namespace glm
 		detail::tvec2<T, P> const & r
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'outerProduct' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'outerProduct' only accept floating-point inputs");
 
 		detail::tmat2x4<T, P> m(detail::tmat2x4<T, P>::null);
 		m[0][0] = c.x * r.x;
@@ -160,7 +160,7 @@ namespace glm
 		detail::tvec4<T, P> const & r
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'outerProduct' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'outerProduct' only accept floating-point inputs");
 
 		detail::tmat4x2<T, P> m(detail::tmat4x2<T, P>::null);
 		m[0][0] = c.x * r.x;
@@ -181,7 +181,7 @@ namespace glm
 		detail::tvec3<T, P> const & r
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'outerProduct' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'outerProduct' only accept floating-point inputs");
 
 		detail::tmat3x4<T, P> m(detail::tmat3x4<T, P>::null);
 		m[0][0] = c.x * r.x;
@@ -206,7 +206,7 @@ namespace glm
 		detail::tvec4<T, P> const & r
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'outerProduct' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'outerProduct' only accept floating-point inputs");
 
 		detail::tmat4x3<T, P> m(detail::tmat4x3<T, P>::null);
 		m[0][0] = c.x * r.x;
@@ -230,7 +230,7 @@ namespace glm
 		detail::tmat2x2<T, P> const & m
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'transpose' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'transpose' only accept floating-point inputs");
 
 		detail::tmat2x2<T, P> result(detail::tmat2x2<T, P>::_null);
 		result[0][0] = m[0][0];
@@ -246,7 +246,7 @@ namespace glm
 		detail::tmat3x3<T, P> const & m
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'transpose' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'transpose' only accept floating-point inputs");
 
 		detail::tmat3x3<T, P> result(detail::tmat3x3<T, P>::_null);
 		result[0][0] = m[0][0];
@@ -269,7 +269,7 @@ namespace glm
 		detail::tmat4x4<T, P> const & m
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'transpose' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'transpose' only accept floating-point inputs");
 
 		detail::tmat4x4<T, P> result(detail::tmat4x4<T, P>::_null);
 		result[0][0] = m[0][0];
@@ -300,7 +300,7 @@ namespace glm
 		detail::tmat3x2<T, P> const & m
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'transpose' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'transpose' only accept floating-point inputs");
 
 		detail::tmat2x3<T, P> result(detail::tmat2x3<T, P>::_null);
 		result[0][0] = m[0][0];
@@ -318,7 +318,7 @@ namespace glm
 		detail::tmat2x3<T, P> const & m
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'transpose' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'transpose' only accept floating-point inputs");
 
 		detail::tmat3x2<T, P> result(detail::tmat3x2<T, P>::_null);
 		result[0][0] = m[0][0];
@@ -336,7 +336,7 @@ namespace glm
 		detail::tmat4x2<T, P> const & m
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'transpose' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'transpose' only accept floating-point inputs");
 
 		detail::tmat2x4<T, P> result(detail::tmat2x4<T, P>::_null);
 		result[0][0] = m[0][0];
@@ -356,7 +356,7 @@ namespace glm
 		detail::tmat2x4<T, P> const & m
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'transpose' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'transpose' only accept floating-point inputs");
 
 		detail::tmat4x2<T, P> result(detail::tmat4x2<T, P>::_null);
 		result[0][0] = m[0][0];
@@ -376,7 +376,7 @@ namespace glm
 		detail::tmat4x3<T, P> const & m
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'transpose' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'transpose' only accept floating-point inputs");
 
 		detail::tmat3x4<T, P> result(detail::tmat3x4<T, P>::_null);
 		result[0][0] = m[0][0];
@@ -400,7 +400,7 @@ namespace glm
 		detail::tmat3x4<T, P> const & m
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'transpose' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'transpose' only accept floating-point inputs");
 
 		detail::tmat4x3<T, P> result(detail::tmat4x3<T, P>::_null);
 		result[0][0] = m[0][0];
@@ -424,7 +424,7 @@ namespace glm
 		detail::tmat2x2<T, P> const & m
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'determinant' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'determinant' only accept floating-point inputs");
 
 		return m[0][0] * m[1][1] - m[1][0] * m[0][1];
 	}
@@ -435,7 +435,7 @@ namespace glm
 		detail::tmat3x3<T, P> const & m
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'determinant' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'determinant' only accept floating-point inputs");
 
 		return 
 			+ m[0][0] * (m[1][1] * m[2][2] - m[2][1] * m[1][2])
@@ -449,7 +449,7 @@ namespace glm
 		detail::tmat4x4<T, P> const & m
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'determinant' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'determinant' only accept floating-point inputs");
 
 		T SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
 		T SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
@@ -476,7 +476,7 @@ namespace glm
 		detail::tmat2x2<T, P> const & m
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'inverse' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'inverse' only accept floating-point inputs");
 			
 		//valType Determinant = m[0][0] * m[1][1] - m[1][0] * m[0][1];
 		T Determinant = determinant(m);
@@ -496,7 +496,7 @@ namespace glm
 		detail::tmat3x3<T, P> const & m
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'inverse' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'inverse' only accept floating-point inputs");
 
 		//valType Determinant = m[0][0] * (m[1][1] * m[2][2] - m[2][1] * m[1][2])
 		//					- m[1][0] * (m[0][1] * m[2][2] - m[2][1] * m[0][2])
@@ -525,7 +525,7 @@ namespace glm
 		detail::tmat4x4<T, P> const & m
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'inverse' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'inverse' only accept floating-point inputs");
 
 		T Coef00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
 		T Coef02 = m[1][2] * m[3][3] - m[3][2] * m[1][3];

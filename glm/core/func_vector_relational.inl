@@ -35,9 +35,7 @@ namespace glm
 		vecType<T, P> const & y
 	)
 	{
-		//GLM_STATIC_ASSERT(detail::is_vector<vecType<T, P> >::_YES,
-		//	"Invalid template instantiation of 'lessThan', GLM vector types required");
-		GLM_STATIC_ASSERT(detail::is_bool<T>::_NO,
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
 			"Invalid template instantiation of 'lessThan', GLM vector types required floating-point or integer value types vectors");
 		assert(x.length() == y.length());
 
@@ -55,9 +53,7 @@ namespace glm
 		vecType<T, P> const & y
 	)
 	{
-		//GLM_STATIC_ASSERT(detail::is_vector<vecType<T, P> >::_YES,
-		//	"Invalid template instantiation of 'lessThanEqual', GLM vector types required");
-		GLM_STATIC_ASSERT(detail::is_bool<T>::_NO,
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
 			"Invalid template instantiation of 'lessThanEqual', GLM vector types required floating-point or integer value types vectors");
 		assert(x.length() == y.length());
 
@@ -74,9 +70,7 @@ namespace glm
 		vecType<T, P> const & y
 	)
 	{
-		//GLM_STATIC_ASSERT(detail::is_vector<vecType<T, P> >::_YES,
-		//	"Invalid template instantiation of 'greaterThan', GLM vector types required");
-		GLM_STATIC_ASSERT(detail::is_bool<T>::_NO,
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
 			"Invalid template instantiation of 'greaterThan', GLM vector types required floating-point or integer value types vectors");
 		assert(x.length() == y.length());
 
@@ -93,9 +87,7 @@ namespace glm
 		vecType<T, P> const & y
 	)
 	{
-		//GLM_STATIC_ASSERT(detail::is_vector<vecType<T, P> >::_YES,
-		//	"Invalid template instantiation of 'greaterThanEqual', GLM vector types required");
-		GLM_STATIC_ASSERT(detail::is_bool<T>::_NO,
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
 			"Invalid template instantiation of 'greaterThanEqual', GLM vector types required floating-point or integer value types vectors");
 		assert(x.length() == y.length());
 

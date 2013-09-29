@@ -98,32 +98,26 @@ namespace glm
 
 	VECTORIZE_VEC(exp2)
 
-namespace _detail
+namespace detail
 {
-	template <int _PATH = detail::float_or_int_value::GLM_ERROR>
-	struct _compute_log2
+	template <bool T>
+	struct compute_log2
 	{
 		template <typename T>
 		T operator() (T const & Value) const;
-/*
-		{
-			GLM_STATIC_ASSERT(0, "'log2' parameter has an invalid template parameter type. GLM core features only supports floating-point types, include <glm/gtx/integer.hpp> for integer types support. Others types are not supported.");
-			return Value;
-		}
-*/
 	};
 
 	template <>
-	struct _compute_log2<detail::float_or_int_value::GLM_FLOAT>
+	struct compute_log2<true>
 	{
 		template <typename T>
 		T operator() (T const & Value) const
 		{
-			return T(::std::log(Value)) / T(0.69314718055994530941723212145818);
+			return static_cast<T>(::std::log(Value)) * static_cast<T>(1.4426950408889634073599246810019);
 		}
 	};
 
-}//namespace _detail
+}//namespace detail
 
 	// log2, ln2 = 0.69314718055994530941723212145818f
 	template <typename genType>
@@ -132,8 +126,11 @@ namespace _detail
 		genType const & x
 	)
 	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer,
+			"GLM core 'log2' only accept floating-point inputs. Include <glm/gtx/integer.hpp> for additional integer support.");
+
 		assert(x > genType(0)); // log2 is only defined on the range (0, inf]
-		return _detail::_compute_log2<detail::float_or_int_trait<genType>::ID>()(x);
+		return detail::compute_log2<std::numeric_limits<genType>::is_iec559>()(x);
 	}
 
 	VECTORIZE_VEC(log2)

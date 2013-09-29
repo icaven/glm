@@ -148,7 +148,7 @@ namespace detail
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType roundEven(genType const& x)
 	{
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'roundEven' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'roundEven' only accept floating-point inputs");
 
 		return genType(int(x + genType(int(x) % 2)));
 	}

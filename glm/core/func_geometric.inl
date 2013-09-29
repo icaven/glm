@@ -40,7 +40,7 @@ namespace glm
 		genType const & x
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'length' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'length' only accept floating-point inputs");
 
 		genType sqr = x * x;
 		return sqrt(sqr);
@@ -49,7 +49,7 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T length(detail::tvec2<T, P> const & v)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'length' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'length' only accept floating-point inputs");
 
 		T sqr = v.x * v.x + v.y * v.y;
 		return sqrt(sqr);
@@ -58,7 +58,7 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T length(detail::tvec3<T, P> const & v)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'length' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'length' only accept floating-point inputs");
 
 		T sqr = v.x * v.x + v.y * v.y + v.z * v.z;
 		return sqrt(sqr);
@@ -67,7 +67,7 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T length(detail::tvec4<T, P> const & v)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'length' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'length' only accept floating-point inputs");
 
 		T sqr = v.x * v.x + v.y * v.y + v.z * v.z + v.w * v.w;
 		return sqrt(sqr);
@@ -81,7 +81,7 @@ namespace glm
 		genType const & p1
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'distance' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'distance' only accept floating-point inputs");
 
 		return length(p1 - p0);
 	}
@@ -93,7 +93,7 @@ namespace glm
 		detail::tvec2<T, P> const & p1
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'distance' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'distance' only accept floating-point inputs");
 
 		return length(p1 - p0);
 	}
@@ -105,7 +105,7 @@ namespace glm
 		detail::tvec3<T, P> const & p1
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'distance' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'distance' only accept floating-point inputs");
 
 		return length(p1 - p0);
 	}
@@ -117,7 +117,7 @@ namespace glm
 		detail::tvec4<T, P> const & p1
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'distance' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'distance' only accept floating-point inputs");
 
 		return length(p1 - p0);
 	}
@@ -130,7 +130,7 @@ namespace glm
 		genType const & y
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'dot' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'dot' only accept floating-point inputs");
 
 		return x * y;
 	}
@@ -154,7 +154,7 @@ namespace glm
 		detail::tvec3<T, P> const & y
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'dot' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'dot' only accept floating-point inputs");
 
 		return x.x * y.x + x.y * y.y + x.z * y.z;
 	}
@@ -182,7 +182,7 @@ namespace glm
 		detail::tvec4<T, P> const & y
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'dot' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'dot' only accept floating-point inputs");
 
 		return x.x * y.x + x.y * y.y + x.z * y.z + x.w * y.w;
 	}
@@ -195,7 +195,7 @@ namespace glm
 		detail::tvec3<T, P> const & y
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'cross' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'cross' only accept floating-point inputs");
 
 		return detail::tvec3<T, P>(
 			x.y * y.z - y.y * x.z,
@@ -210,7 +210,7 @@ namespace glm
 		genType const & x
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'normalize' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'normalize' only accept floating-point inputs");
 
 		return x < genType(0) ? genType(-1) : genType(1);
 	}
@@ -222,7 +222,7 @@ namespace glm
 		detail::tvec2<T, P> const & x
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'normalize' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'normalize' only accept floating-point inputs");
 		
 		T sqr = x.x * x.x + x.y * x.y;
 		return x * inversesqrt(sqr);
@@ -234,7 +234,7 @@ namespace glm
 		detail::tvec3<T, P> const & x
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'normalize' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'normalize' only accept floating-point inputs");
 
 		T sqr = x.x * x.x + x.y * x.y + x.z * x.z;
 		return x * inversesqrt(sqr);
@@ -246,7 +246,7 @@ namespace glm
 		detail::tvec4<T, P> const & x
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'normalize' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'normalize' only accept floating-point inputs");
 		
 		T sqr = x.x * x.x + x.y * x.y + x.z * x.z + x.w * x.w;
 		return x * inversesqrt(sqr);
@@ -284,7 +284,7 @@ namespace glm
 		genType const & eta
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<genType>::is_float, "'refract' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'refract' only accept floating-point inputs");
 
 		genType dotValue = dot(N, I);
 		genType k = genType(1) - eta * eta * (genType(1) - dotValue * dotValue);
@@ -302,7 +302,7 @@ namespace glm
 		T const & eta
 	)
 	{
-		GLM_STATIC_ASSERT(detail::type<T>::is_float, "'refract' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'refract' only accept floating-point inputs");
 
 		T dotValue = dot(N, I);
 		T k = T(1) - eta * eta * (T(1) - dotValue * dotValue);
