@@ -87,8 +87,8 @@ namespace detail
 	)
 	{
 		GLM_STATIC_ASSERT(
-			std::numeric_limits<genFIType>::is_iec559 || 
-			detail::type<genFIType>::is_int, "'sign' only accept signed inputs");
+			std::numeric_limits<genFIType>::is_iec559 ||
+			std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer, "'sign' only accept signed inputs");
 
 		genFIType result;
 		if(x > genFIType(0))
@@ -326,7 +326,7 @@ namespace detail
 	)
 	{
 		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559 || detail::type<genType>::is_int || detail::type<genType>::is_uint,
+			std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer,
 			"'max' only accept floating-point or integer inputs");
 
 		return x > y ? x : y;
@@ -345,7 +345,7 @@ namespace detail
 	)
 	{
 		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559 || detail::type<genType>::is_int || detail::type<genType>::is_uint,
+			std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer,
 			"'clamp' only accept floating-point or integer inputs");
 		
 		return min(maxVal, max(minVal, x));
@@ -360,7 +360,7 @@ namespace detail
 	)
 	{
 		GLM_STATIC_ASSERT(
-			std::numeric_limits<T>::is_iec559 || detail::type<T>::is_int || detail::type<T>::is_uint,
+			std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
 			"'clamp' only accept floating-point or integer inputs");
 
 		return detail::tvec2<T, P>(
@@ -377,7 +377,7 @@ namespace detail
 	)
 	{
 		GLM_STATIC_ASSERT(
-			std::numeric_limits<T>::is_iec559 || detail::type<T>::is_int || detail::type<T>::is_uint,
+			std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
 			"'clamp' only accept floating-point or integer inputs");
 
 		return detail::tvec3<T, P>(
@@ -395,7 +395,7 @@ namespace detail
 	)
 	{
 		GLM_STATIC_ASSERT(
-			std::numeric_limits<T>::is_iec559 || detail::type<T>::is_int || detail::type<T>::is_uint,
+			std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
 			"'clamp' only accept floating-point or integer inputs");
 
 		return detail::tvec4<T, P>(
@@ -414,7 +414,7 @@ namespace detail
 	)
 	{
 		GLM_STATIC_ASSERT(
-			std::numeric_limits<T>::is_iec559 || detail::type<T>::is_int || detail::type<T>::is_uint,
+			std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
 			"'clamp' only accept floating-point or integer inputs");
 
 		return detail::tvec2<T, P>(
@@ -431,7 +431,7 @@ namespace detail
 	)
 	{
 		GLM_STATIC_ASSERT(
-			std::numeric_limits<T>::is_iec559 || detail::type<T>::is_int || detail::type<T>::is_uint,
+			std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
 			"'clamp' only accept floating-point or integer inputs");
 
 		return detail::tvec3<T, P>(
@@ -449,7 +449,7 @@ namespace detail
 	)
 	{
 		GLM_STATIC_ASSERT(
-			std::numeric_limits<T>::is_iec559 || detail::type<T>::is_int || detail::type<T>::is_uint,
+			std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
 			"'clamp' only accept floating-point or integer inputs");
 
 		return detail::tvec4<T, P>(
