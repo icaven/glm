@@ -142,7 +142,7 @@ int test_ctr()
 		{8, 9, 10, 11},
 		{12, 13, 14, 15}};
 
-	glm::mat4 m4{m3};
+	//glm::mat4 m4{m3};
 
 /*	
 	std::vector<glm::mat4> v{

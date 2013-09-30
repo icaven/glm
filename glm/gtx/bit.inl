@@ -23,25 +23,13 @@ namespace glm
 	template <typename genIType>
 	GLM_FUNC_QUALIFIER genIType extractField
 	(
-		float const & value, 
-		genIType const & first, 
+		float const & value,
+		genIType const & first,
 		genIType const & count
 	)
 	{
 		assert(first + count < sizeof(float));
 		return (detail::uif32(value).i << first) >> ((sizeof(float) << 3) - count);
-	}
-
-	template <typename genIType>
-	GLM_FUNC_QUALIFIER genIType extractField
-	(
-		double const & value, 
-		genIType const & first, 
-		genIType const & count
-	)
-	{
-		assert(first + count < sizeof(double));
-		return (detail::uif64(value).i << first) >> ((sizeof(double) << genIType(3)) - count);
 	}
 
 	template <typename genIUType, typename sizeType>

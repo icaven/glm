@@ -100,7 +100,7 @@ namespace glm
 
 namespace detail
 {
-	template <bool T>
+	template <bool isFloat>
 	struct compute_log2
 	{
 		template <typename T>

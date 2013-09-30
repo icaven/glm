@@ -26,6 +26,8 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include <limits>
+
 namespace glm
 {
 	template <typename T, precision P, template <typename, precision> class vecType>
