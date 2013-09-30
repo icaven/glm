@@ -91,10 +91,9 @@ namespace detail
 
 #if(GLM_HAS_INITIALIZER_LISTS)
 		template <typename U>
-		GLM_FUNC_DECL tmat4x4(std::initializer_list<U> const & m);
+		GLM_FUNC_DECL tmat4x4(std::initializer_list<U> m);
 
-		template <typename U>
-		GLM_FUNC_DECL tmat4x4(std::initializer_list<tvec4<U, P> > const & m);
+		GLM_FUNC_DECL tmat4x4(std::initializer_list<tvec4<T, P> > m);
 #endif//GLM_HAS_INITIALIZER_LISTS
 
 		//////////////////////////////////////

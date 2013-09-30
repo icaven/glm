@@ -131,10 +131,10 @@ int test_ctr()
 	glm::mat4 m1{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
 	
 	glm::mat4 m2{
-		glm::vec4{0, 1, 2, 3},
-		glm::vec4{4, 5, 6, 7},
-		glm::vec4{8, 9, 10, 11},
-		glm::vec4{12, 13, 14, 15}};
+		{0, 1, 2, 3},
+		{4, 5, 6, 7},
+		{8, 9, 10, 11},
+		{12, 13, 14, 15}};
 
 /*
 	std::initializer_list<glm::mat4> m3{
@@ -145,8 +145,12 @@ int test_ctr()
 */
 	//glm::mat4 m4{m3};
 
-/*	
-	std::vector<glm::mat4> v{
+	std::vector<glm::mat4> v1{
+		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
+		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}
+	};
+
+	std::vector<glm::mat4> v2{
 		{
 			{ 0, 1, 2, 3 },
 			{ 4, 5, 6, 7 },
@@ -160,7 +164,7 @@ int test_ctr()
 			{ 12, 13, 14, 15 }
 		}
 	};
-*/
+
 #endif//GLM_HAS_INITIALIZER_LISTS
 
 	return Error;

@@ -177,19 +177,20 @@ namespace detail
 #if(GLM_HAS_INITIALIZER_LISTS)
 	template <typename T, precision P>
 	template <typename U>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P>::tmat4x4(std::initializer_list<U> const & m)
+	GLM_FUNC_QUALIFIER tmat4x4<T, P>::tmat4x4(std::initializer_list<U> m)
 	{
 		assert(m.size() >= this->length());
 
-		this->value[0] = reinterpret_cast<tvec4<U, P> const &>(m.begin()[0]);
-		this->value[1] = reinterpret_cast<tvec4<U, P> const &>(m.begin()[4]);
-		this->value[2] = reinterpret_cast<tvec4<U, P> const &>(m.begin()[8]);
-		this->value[3] = reinterpret_cast<tvec4<U, P> const &>(m.begin()[12]);
+		typename std::initializer_list<U>::iterator p = m.begin();
+
+		this->value[0] = tvec4<T, P>(*(p +  0), *(p +  1), *(p +  2), *(p +  3));
+		this->value[1] = tvec4<T, P>(*(p +  4), *(p +  5), *(p +  6), *(p +  7));
+		this->value[2] = tvec4<T, P>(*(p +  8), *(p +  9), *(p + 10), *(p + 11));
+		this->value[3] = tvec4<T, P>(*(p + 12), *(p + 13), *(p + 14), *(p + 15));
 	}
 
 	template <typename T, precision P>
-	template <typename U>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P>::tmat4x4(std::initializer_list<tvec4<U, P> > const & m)
+	GLM_FUNC_QUALIFIER tmat4x4<T, P>::tmat4x4(std::initializer_list<tvec4<T, P> > m)
 	{
 		this->value[0] = m.begin()[0];
 		this->value[1] = m.begin()[1];

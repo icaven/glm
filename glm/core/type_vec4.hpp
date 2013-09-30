@@ -111,7 +111,7 @@ namespace detail
 
 #if(GLM_HAS_INITIALIZER_LISTS)
 		template <typename U>
-		GLM_FUNC_DECL tvec4(std::initializer_list<U> const & v);
+		GLM_FUNC_DECL tvec4(std::initializer_list<U> l);
 #endif//GLM_HAS_INITIALIZER_LISTS
 
 		//////////////////////////////////////
