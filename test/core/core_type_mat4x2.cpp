@@ -7,7 +7,9 @@
 // File    : test/core/type_mat4x2.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#include <glm/core/func_vector_relational.hpp>
 #include <glm/core/type_mat4x2.hpp>
+#include <vector>
 
 static int test_operators()
 {
@@ -28,10 +30,61 @@ static int test_operators()
 	return (S && !R) ? 0 : 1;
 }
 
+int test_ctr()
+{
+	int Error(0);
+
+#if(GLM_HAS_INITIALIZER_LISTS)
+	glm::mat4x2 m0(
+		glm::vec2(0, 1), 
+		glm::vec2(2, 3),
+		glm::vec2(4, 5),
+		glm::vec2(6, 7));
+
+	glm::mat4x2 m1{0, 1, 2, 3, 4, 5, 6, 7};
+
+	glm::mat4x2 m2{
+		{0, 1},
+		{2, 3},
+		{4, 5},
+		{6, 7}};
+
+	for(int i = 0; i < m0.length(); ++i)
+		Error += glm::all(glm::equal(m0[i], m2[i])) ? 0 : 1;
+
+	for(int i = 0; i < m1.length(); ++i)
+		Error += glm::all(glm::equal(m1[i], m2[i])) ? 0 : 1;
+
+	std::vector<glm::mat4x2> v1{
+		{0, 1, 2, 3, 4, 5, 6, 7},
+		{0, 1, 2, 3, 4, 5, 6, 7}
+	};
+
+	std::vector<glm::mat4x2> v2{
+		{
+			{ 0, 1},
+			{ 4, 5},
+			{ 8, 9},
+			{ 12, 13}
+		},
+		{
+			{ 0, 1},
+			{ 4, 5},
+			{ 8, 9},
+			{ 12, 13}
+		}
+	};
+
+#endif//GLM_HAS_INITIALIZER_LISTS
+
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
 
+	Error += test_ctr();
 	Error += test_operators();
 
 	return Error;
