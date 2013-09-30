@@ -7,7 +7,9 @@
 // File    : test/core/type_mat4x3.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#include <glm/core/func_vector_relational.hpp>
 #include <glm/core/type_mat4x3.hpp>
+#include <vector>
 
 static int test_operators()
 {
@@ -28,10 +30,61 @@ static int test_operators()
 	return (S && !R) ? 0 : 1;
 }
 
+int test_ctr()
+{
+	int Error(0);
+
+#if(GLM_HAS_INITIALIZER_LISTS)
+	glm::mat4x3 m0(
+		glm::vec3(0, 1, 2), 
+		glm::vec3(3, 4, 5),
+		glm::vec3(6, 7, 8),
+		glm::vec3(9, 10, 11));
+
+	glm::mat4x3 m1{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+
+	glm::mat4x3 m2{
+		{0, 1, 2},
+		{3, 4, 5},
+		{6, 7, 8},
+		{9, 10, 11}};
+
+	for(int i = 0; i < m0.length(); ++i)
+		Error += glm::all(glm::equal(m0[i], m2[i])) ? 0 : 1;
+
+	for(int i = 0; i < m1.length(); ++i)
+		Error += glm::all(glm::equal(m1[i], m2[i])) ? 0 : 1;
+
+	std::vector<glm::mat4x3> v1{
+		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11},
+		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}
+	};
+
+	std::vector<glm::mat4x3> v2{
+		{
+			{ 0, 1, 2 },
+			{ 4, 5, 6 },
+			{ 8, 9, 10 },
+			{ 12, 13, 14 }
+		},
+		{
+			{ 0, 1, 2 },
+			{ 4, 5, 6 },
+			{ 8, 9, 10 },
+			{ 12, 13, 14 }
+		}
+	};
+
+#endif//GLM_HAS_INITIALIZER_LISTS
+
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
 
+	Error += test_ctr();
 	Error += test_operators();
 
 	return Error;

@@ -206,6 +206,32 @@ namespace detail
 		this->value[3] = col_type(v4);
 	}
 
+#if(GLM_HAS_INITIALIZER_LISTS)
+	template <typename T, precision P>
+	template <typename U>
+	GLM_FUNC_QUALIFIER tmat4x2<T, P>::tmat4x2(std::initializer_list<U> m)
+	{
+		assert(m.size() >= this->length());
+
+		typename std::initializer_list<U>::iterator p = m.begin();
+
+		this->value[0] = tvec2<T, P>(*(p + 0), *(p + 1));
+		this->value[1] = tvec2<T, P>(*(p + 2), *(p + 3));
+		this->value[2] = tvec2<T, P>(*(p + 4), *(p + 5));
+		this->value[3] = tvec2<T, P>(*(p + 6), *(p + 7));
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tmat4x2<T, P>::tmat4x2(std::initializer_list<tvec2<T, P> > m)
+	{
+		this->value[0] = m.begin()[0];
+		this->value[1] = m.begin()[1];
+		this->value[2] = m.begin()[2];
+		this->value[3] = m.begin()[3];
+	}
+#endif//GLM_HAS_INITIALIZER_LISTS
+
+	//////////////////////////////////////
 	// Conversion
 	template <typename T, precision P>
 	template <typename U, precision Q>

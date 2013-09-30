@@ -151,6 +151,29 @@ namespace detail
 		this->value[2] = v2;
 	}
 
+#if(GLM_HAS_INITIALIZER_LISTS)
+	template <typename T, precision P>
+	template <typename U>
+	GLM_FUNC_QUALIFIER tmat3x3<T, P>::tmat3x3(std::initializer_list<U> m)
+	{
+		assert(m.size() >= this->length());
+
+		typename std::initializer_list<U>::iterator p = m.begin();
+
+		this->value[0] = tvec3<T, P>(*(p + 0), *(p + 1), *(p + 2));
+		this->value[1] = tvec3<T, P>(*(p + 3), *(p + 4), *(p + 5));
+		this->value[2] = tvec3<T, P>(*(p + 6), *(p + 7), *(p + 8));
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tmat3x3<T, P>::tmat3x3(std::initializer_list<tvec3<T, P> > m)
+	{
+		this->value[0] = m.begin()[0];
+		this->value[1] = m.begin()[1];
+		this->value[2] = m.begin()[2];
+	}
+#endif//GLM_HAS_INITIALIZER_LISTS
+
 	//////////////////////////////////////
 	// Conversion constructors
 	template <typename T, precision P>

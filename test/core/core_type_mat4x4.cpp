@@ -128,6 +128,12 @@ int test_ctr()
 	int Error(0);
 
 #if(GLM_HAS_INITIALIZER_LISTS)
+	glm::mat4 m0(
+		glm::vec4(0, 1, 2, 3), 
+		glm::vec4(4, 5, 6, 7),
+		glm::vec4(8, 9, 10, 11),
+		glm::vec4(12, 13, 14, 15));
+
 	glm::mat4 m1{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
 
 	glm::mat4 m2{
@@ -135,6 +141,12 @@ int test_ctr()
 		{4, 5, 6, 7},
 		{8, 9, 10, 11},
 		{12, 13, 14, 15}};
+
+	for(int i = 0; i < m0.length(); ++i)
+		Error += glm::all(glm::equal(m0[i], m2[i])) ? 0 : 1;
+
+	for(int i = 0; i < m1.length(); ++i)
+		Error += glm::all(glm::equal(m1[i], m2[i])) ? 0 : 1;
 
 	std::vector<glm::mat4> m3{
 		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},

@@ -80,6 +80,13 @@ namespace detail
 			col_type const & v2,
 			col_type const & v3);
 
+#if(GLM_HAS_INITIALIZER_LISTS)
+		template <typename U>
+		GLM_FUNC_DECL tmat4x3(std::initializer_list<U> m);
+
+		GLM_FUNC_DECL tmat4x3(std::initializer_list<tvec3<T, P> > m);
+#endif//GLM_HAS_INITIALIZER_LISTS
+
 		//////////////////////////////////////
 		// Conversions
 		template <typename U>
