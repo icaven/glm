@@ -181,20 +181,20 @@ namespace detail
 	{
 		assert(m.size() >= this->length());
 
-		this->value[0] = static_cast<tvec4<T, P> >(reinterpret_cast<tvec4<U, P>&>(const_cast<U&>(m.begin()[0])));
-		this->value[1] = static_cast<tvec4<T, P> >(reinterpret_cast<tvec4<U, P>&>(const_cast<U&>(m.begin()[4])));
-		this->value[2] = static_cast<tvec4<T, P> >(reinterpret_cast<tvec4<U, P>&>(const_cast<U&>(m.begin()[8])));
-		this->value[3] = static_cast<tvec4<T, P> >(reinterpret_cast<tvec4<U, P>&>(const_cast<U&>(m.begin()[12])));
+		this->value[0] = reinterpret_cast<tvec4<U, P> const &>(m.begin()[0]);
+		this->value[1] = reinterpret_cast<tvec4<U, P> const &>(m.begin()[4]);
+		this->value[2] = reinterpret_cast<tvec4<U, P> const &>(m.begin()[8]);
+		this->value[3] = reinterpret_cast<tvec4<U, P> const &>(m.begin()[12]);
 	}
 
 	template <typename T, precision P>
 	template <typename U>
 	GLM_FUNC_QUALIFIER tmat4x4<T, P>::tmat4x4(std::initializer_list<tvec4<U, P> > const & m)
 	{
-		this->value[0] = static_cast<tvec4<T, P> >(m.begin()[0]);
-		this->value[1] = static_cast<tvec4<T, P> >(m.begin()[1]);
-		this->value[2] = static_cast<tvec4<T, P> >(m.begin()[2]);
-		this->value[3] = static_cast<tvec4<T, P> >(m.begin()[3]);
+		this->value[0] = m.begin()[0];
+		this->value[1] = m.begin()[1];
+		this->value[2] = m.begin()[2];
+		this->value[3] = m.begin()[3];
 	}
 #endif//GLM_HAS_INITIALIZER_LISTS
 
