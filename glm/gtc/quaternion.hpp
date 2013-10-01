@@ -77,6 +77,11 @@ namespace detail
 			T const & y,
 			T const & z);
 
+#if(GLM_HAS_INITIALIZER_LISTS)
+		template <typename U>
+		GLM_FUNC_DECL tquat(std::initializer_list<U> l);
+#endif//GLM_HAS_INITIALIZER_LISTS
+
 		// Convertions
 
 		/// Create a quaternion from two normalized axis
