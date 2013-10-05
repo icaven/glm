@@ -93,7 +93,7 @@ namespace glm
 			std::numeric_limits<genType>::is_iec559,
 			"'exp2' only accept floating-point inputs");
 
-		return std::exp(genType(0.69314718055994530941723212145818) * x);
+		return std::exp(static_cast<genType>(0.69314718055994530941723212145818) * x);
 	}
 
 	VECTORIZE_VEC(exp2)
