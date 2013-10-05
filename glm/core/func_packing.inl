@@ -61,7 +61,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER uint packUnorm4x8(vec4 const & v)
 	{
 		u8vec4 Topack(round(clamp(v, 0.0f, 1.0f) * 255.0f));
-		return reinterpret_cast<uint&>(&Topack);
+		return reinterpret_cast<uint&>(Topack);
 	}
 
 	GLM_FUNC_QUALIFIER vec4 unpackUnorm4x8(uint const & p)

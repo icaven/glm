@@ -7,7 +7,9 @@
 // File    : test/core/type_mat2x3.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#include <glm/core/func_vector_relational.hpp>
 #include <glm/core/type_mat2x3.hpp>
+#include <vector>
 
 static int test_operators()
 {
@@ -34,8 +36,8 @@ int test_ctr()
 	
 #if(GLM_HAS_INITIALIZER_LISTS)
 	glm::mat2x3 m0(
-		glm::vec2(0, 1, 2),
-		glm::vec2(3, 4, 5));
+		glm::vec3(0, 1, 2),
+		glm::vec3(3, 4, 5));
 	
 	glm::mat2x3 m1{0, 1, 2, 3, 4, 5};
 	

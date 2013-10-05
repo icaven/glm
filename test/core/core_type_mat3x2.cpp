@@ -7,7 +7,9 @@
 // File    : test/core/type_mat3x2.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#include <glm/core/func_vector_relational.hpp>
 #include <glm/core/type_mat3x2.hpp>
+#include <vector>
 
 static bool test_operators()
 {

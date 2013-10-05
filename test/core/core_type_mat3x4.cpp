@@ -7,7 +7,9 @@
 // File    : test/core/type_mat3x4.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#include <glm/core/func_vector_relational.hpp>
 #include <glm/core/type_mat3x4.hpp>
+#include <vector>
 
 static bool test_operators()
 {
@@ -34,17 +36,16 @@ int test_ctr()
 	
 #if(GLM_HAS_INITIALIZER_LISTS)
 	glm::mat3x4 m0(
-		glm::vec3(0, 1, 2),
-		glm::vec3(3, 4, 5),
-		glm::vec3(6, 7, 8),
-		glm::vec3(9, 10, 11));
+		glm::vec4(0, 1, 2, 3),
+		glm::vec4(4, 5, 6, 7),
+		glm::vec4(8, 9, 10, 11));
 	
 	glm::mat3x4 m1{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
 	
 	glm::mat3x4 m2{
-		{0, 1, 2},
-		{3, 4, 5},
-		{6, 7, 8}};
+		{0, 1, 2, 3},
+		{4, 5, 6, 7},
+		{8, 9, 10, 11}};
 	
 	for(int i = 0; i < m0.length(); ++i)
 		Error += glm::all(glm::equal(m0[i], m2[i])) ? 0 : 1;
@@ -53,18 +54,20 @@ int test_ctr()
 		Error += glm::all(glm::equal(m1[i], m2[i])) ? 0 : 1;
 	
 	std::vector<glm::mat3x4> v1{
-		{0, 1, 2, 3, 4, 5, 6, 7, 8},
-		{0, 1, 2, 3, 4, 5, 6, 7, 8}
+		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11},
+		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}
 	};
 	
 	std::vector<glm::mat3x4> v2{
 		{
-			{ 0, 1, 2},
-			{ 4, 5, 6}
+			{ 0, 1, 2, 3},
+			{ 4, 5, 6, 7},
+			{ 8, 9, 10, 11}
 		},
 		{
-			{ 0, 1, 2},
-			{ 4, 5, 6}
+			{ 0, 1, 2, 3},
+			{ 4, 5, 6, 7},
+			{ 8, 9, 10, 11}
 		}
 	};
 	

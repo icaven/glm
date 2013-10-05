@@ -230,7 +230,7 @@ namespace detail
 	
 	GLM_FUNC_QUALIFIER float unpackUnorm1x8(uint8 const & p)
 	{
-		float Unpack(static_cast<float>(*const_cast<uint8*>(&p)));
+		float Unpack(static_cast<float>(p));
 		return Unpack * float(0.0039215686274509803921568627451); // 1 / 255
 	}
 	

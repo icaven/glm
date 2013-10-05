@@ -10,6 +10,7 @@
 #include <glm/core/type_mat3x3.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <cstdio>
+#include <vector>
 
 void print(glm::dmat3 const & Mat0)
 {
@@ -94,7 +95,7 @@ int test_ctr()
 	glm::mat3x3 m0(
 		glm::vec3(0, 1, 2),
 		glm::vec3(3, 4, 5),
-		glm::vec3(6, 7, 9));
+		glm::vec3(6, 7, 8));
 	
 	glm::mat3x3 m1{0, 1, 2, 3, 4, 5, 6, 7, 8};
 	
@@ -117,13 +118,13 @@ int test_ctr()
 	std::vector<glm::mat3x3> v2{
 		{
 			{ 0, 1, 2},
-			{ 4, 5, 6},
-			{ 7, 8, 9}
+			{ 3, 4, 5},
+			{ 6, 7, 8}
 		},
 		{
 			{ 0, 1, 2},
-			{ 4, 5, 6},
-			{ 7, 8, 9}
+			{ 3, 4, 5},
+			{ 6, 7, 8}
 		}
 	};
 	
