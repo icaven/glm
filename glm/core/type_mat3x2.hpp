@@ -80,9 +80,9 @@ namespace detail
 
 #if(GLM_HAS_INITIALIZER_LISTS)
 		template <typename U>
-		GLM_FUNC_DECL tmat3x2(std::initializer_list<U> m);
+		GLM_FUNC_DECL tmat3x2(std::initializer_list<U> l);
 
-		GLM_FUNC_DECL tmat3x2(std::initializer_list<tvec2<T, P> > m);
+		GLM_FUNC_DECL tmat3x2(std::initializer_list<tvec2<T, P> > l);
 #endif//GLM_HAS_INITIALIZER_LISTS
 
 		//////////////////////////////////////

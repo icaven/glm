@@ -146,21 +146,23 @@ namespace detail
 #if(GLM_HAS_INITIALIZER_LISTS)
 	template <typename T, precision P>
 	template <typename U>
-	GLM_FUNC_QUALIFIER tmat2x4<T, P>::tmat2x4(std::initializer_list<U> m)
+	GLM_FUNC_QUALIFIER tmat2x4<T, P>::tmat2x4(std::initializer_list<U> l)
 	{
-		assert(m.size() >= this->length());
+		assert(l.size() == this->length() * this->value[0].length());
 
-		typename std::initializer_list<U>::iterator p = m.begin();
+		typename std::initializer_list<U>::iterator p = l.begin();
 
 		this->value[0] = tvec4<T, P>(*(p +  0), *(p +  1), *(p +  2), *(p +  3));
 		this->value[1] = tvec4<T, P>(*(p +  4), *(p +  5), *(p +  6), *(p +  7));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat2x4<T, P>::tmat2x4(std::initializer_list<tvec4<T, P> > m)
+	GLM_FUNC_QUALIFIER tmat2x4<T, P>::tmat2x4(std::initializer_list<tvec4<T, P> > l)
 	{
-		this->value[0] = m.begin()[0];
-		this->value[1] = m.begin()[1];
+		assert(l.size() == this->length());
+
+		this->value[0] = l.begin()[0];
+		this->value[1] = l.begin()[1];
 	}
 #endif//GLM_HAS_INITIALIZER_LISTS
 
