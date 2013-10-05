@@ -146,6 +146,8 @@ namespace detail
 			std::numeric_limits<genType>::is_iec559,
 			"'sqrt' only accept floating-point inputs");
 
+		assert(x >= genType(0));
+
 		return std::sqrt(x);
 	}
 
