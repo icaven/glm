@@ -85,7 +85,7 @@ namespace detail
 		y(static_cast<T>(v.begin()[1])),
 		z(static_cast<T>(v.begin()[2]))
 	{
-		assert(v.size() >= this->length());
+		assert(v.size() == this->length());
 	}
 #endif//GLM_HAS_INITIALIZER_LISTS
 
