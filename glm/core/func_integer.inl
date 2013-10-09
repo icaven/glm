@@ -50,9 +50,11 @@ namespace glm
 		genUType & Carry
 	)
 	{
-		detail::highp_uint_t Value64 = detail::highp_uint_t(x) + detail::highp_uint_t(y);
-		genUType Result = genUType(Value64 % (detail::highp_uint_t(1) << detail::highp_uint_t(32)));
-		Carry = (Value64 % (detail::highp_uint_t(1) << detail::highp_uint_t(32))) > 1 ? 1 : 0;
+		GLM_STATIC_ASSERT(std::numeric_limits<genUType>::is_integer && !std::numeric_limits<genUType>::is_signed, "'uaddCarry' only accept unsigned integer inputs");
+
+		uint64 Value64 = static_cast<uint64>(x) + static_cast<uint64>(y);
+		genUType Result = genUType(Value64 % (static_cast<uint64>(1) << static_cast<uint64>(32)));
+		Carry = (Value64 % (static_cast<uint64>(1) << static_cast<uint64>(32))) > 1 ? static_cast<genUType>(1) : static_cast<genUType>(0);
 		return Result;
 	}
 
@@ -64,6 +66,8 @@ namespace glm
 		detail::tvec2<T, P> & Carry
 	)
 	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer && !std::numeric_limits<T>::is_signed, "'uaddCarry' only accept unsigned integer inputs");
+
 		return detail::tvec2<T, P>(
 			uaddCarry(x[0], y[0], Carry[0]),
 			uaddCarry(x[1], y[1], Carry[1]));
@@ -77,6 +81,8 @@ namespace glm
 		detail::tvec3<T, P> & Carry
 	)
 	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer && !std::numeric_limits<T>::is_signed, "'uaddCarry' only accept unsigned integer inputs");
+
 		return detail::tvec3<T, P>(
 			uaddCarry(x[0], y[0], Carry[0]),
 			uaddCarry(x[1], y[1], Carry[1]),
@@ -91,6 +97,8 @@ namespace glm
 		detail::tvec4<T, P> & Carry
 	)
 	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer && !std::numeric_limits<T>::is_signed, "'uaddCarry' only accept unsigned integer inputs");
+
 		return detail::tvec4<T, P>(
 			uaddCarry(x[0], y[0], Carry[0]),
 			uaddCarry(x[1], y[1], Carry[1]),
@@ -107,11 +115,13 @@ namespace glm
 		genUType & Borrow
 	)
 	{
-		Borrow = x >= y ? 0 : 1;
+		GLM_STATIC_ASSERT(std::numeric_limits<genUType>::is_integer && !std::numeric_limits<genUType>::is_signed, "'usubBorrow' only accept unsigned integer inputs");
+
+		Borrow = x >= y ? static_cast<genUType>(0) : static_cast<genUType>(1);
 		if(x > y)
-			return genUType(detail::highp_int_t(x) - detail::highp_int_t(y));
+			return static_cast<genUType>(static_cast<int64>(x) -static_cast<int64>(y));
 		else
-			return genUType((detail::highp_int_t(1) << detail::highp_int_t(32)) + detail::highp_int_t(x) - detail::highp_int_t(y));
+			return static_cast<genUType>((static_cast<int64>(1) << static_cast<int64>(32)) + static_cast<int64>(x) - static_cast<int64>(y));
 	}
 
 	template <typename T, precision P>
@@ -122,6 +132,8 @@ namespace glm
 		detail::tvec2<T, P> & Borrow
 	)
 	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer && !std::numeric_limits<T>::is_signed, "'usubBorrow' only accept unsigned integer inputs");
+
 		return detail::tvec2<T, P>(
 			usubBorrow(x[0], y[0], Borrow[0]),
 			usubBorrow(x[1], y[1], Borrow[1]));
@@ -135,6 +147,8 @@ namespace glm
 		detail::tvec3<T, P> & Borrow
 	)
 	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer && !std::numeric_limits<T>::is_signed, "'usubBorrow' only accept unsigned integer inputs");
+
 		return detail::tvec3<T, P>(
 			usubBorrow(x[0], y[0], Borrow[0]),
 			usubBorrow(x[1], y[1], Borrow[1]),
@@ -149,6 +163,8 @@ namespace glm
 		detail::tvec4<T, P> & Borrow
 	)
 	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer && !std::numeric_limits<T>::is_signed, "'usubBorrow' only accept unsigned integer inputs");
+
 		return detail::tvec4<T, P>(
 			usubBorrow(x[0], y[0], Borrow[0]),
 			usubBorrow(x[1], y[1], Borrow[1]),
@@ -157,127 +173,121 @@ namespace glm
 	}
 
 	// umulExtended
-	template <typename genUType>
+	template <>
 	GLM_FUNC_QUALIFIER void umulExtended
 	(
-		genUType const & x,
-		genUType const & y,
-		genUType & msb,
-		genUType & lsb
+		uint const & x,
+		uint const & y,
+		uint & msb,
+		uint & lsb
 	)
 	{
-		detail::highp_uint_t ValueX64 = x;
-		detail::highp_uint_t ValueY64 = y;
-		detail::highp_uint_t Value64 = ValueX64 * ValueY64;
-		msb = *(genUType*)&genUType(Value64 & ((detail::highp_uint_t(1) << detail::highp_uint_t(32)) - detail::highp_uint_t(1)));
-		lsb = *(genUType*)&genUType(Value64 >> detail::highp_uint_t(32));
+		GLM_STATIC_ASSERT(sizeof(uint) == sizeof(uint32), "uint and uint32 size mismatch");
+
+		uint64 Value64 = static_cast<uint64>(x) * static_cast<uint64>(y);
+		msb = *(reinterpret_cast<uint32*>(&Value64) + 1);
+		lsb = reinterpret_cast<uint32&>(Value64);
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<T, P> umulExtended
+	template <>
+	GLM_FUNC_QUALIFIER void umulExtended
 	(
-		detail::tvec2<T, P> const & x,
-		detail::tvec2<T, P> const & y,
-		detail::tvec2<T, P> & msb,
-		detail::tvec2<T, P> & lsb
+		uvec2 const & x,
+		uvec2 const & y,
+		uvec2 & msb,
+		uvec2 & lsb
 	)
 	{
-		return detail::tvec2<T, P>(
-			umulExtended(x[0], y[0], msb, lsb),
-			umulExtended(x[1], y[1], msb, lsb));
+		umulExtended(x[0], y[0], msb[0], lsb[0]);
+		umulExtended(x[1], y[1], msb[1], lsb[1]);
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> umulExtended
+	template <>
+	GLM_FUNC_QUALIFIER void umulExtended
 	(
-		detail::tvec3<T, P> const & x,
-		detail::tvec3<T, P> const & y,
-		detail::tvec3<T, P> & msb,
-		detail::tvec3<T, P> & lsb
+		uvec3 const & x,
+		uvec3 const & y,
+		uvec3 & msb,
+		uvec3 & lsb
 	)
 	{
-		return detail::tvec3<T, P>(
-			umulExtended(x[0], y[0], msb, lsb),
-			umulExtended(x[1], y[1], msb, lsb),
-			umulExtended(x[2], y[2], msb, lsb));
+		umulExtended(x[0], y[0], msb[0], lsb[0]);
+		umulExtended(x[1], y[1], msb[1], lsb[1]);
+		umulExtended(x[2], y[2], msb[2], lsb[2]);
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<T, P> umulExtended
+	template <>
+	GLM_FUNC_QUALIFIER void umulExtended
 	(
-		detail::tvec4<T, P> const & x,
-		detail::tvec4<T, P> const & y,
-		detail::tvec4<T, P> & msb,
-		detail::tvec4<T, P> & lsb
+		uvec4 const & x,
+		uvec4 const & y,
+		uvec4 & msb,
+		uvec4 & lsb
 	)
 	{
-		return detail::tvec4<T, P>(
-			umulExtended(x[0], y[0], msb, lsb),
-			umulExtended(x[1], y[1], msb, lsb),
-			umulExtended(x[2], y[2], msb, lsb),
-			umulExtended(x[3], y[3], msb, lsb));
+		umulExtended(x[0], y[0], msb[0], lsb[0]);
+		umulExtended(x[1], y[1], msb[1], lsb[1]);
+		umulExtended(x[2], y[2], msb[2], lsb[2]);
+		umulExtended(x[3], y[3], msb[3], lsb[3]);
 	}
 
 	// imulExtended
-	template <typename genIType>
+	template <>
 	GLM_FUNC_QUALIFIER void imulExtended
 	(
-		genIType const & x,
-		genIType const & y,
-		genIType & msb,
-		genIType & lsb
+		int const & x,
+		int const & y,
+		int & msb,
+		int & lsb
 	)
 	{
-		detail::highp_int_t ValueX64 = x;
-		detail::highp_int_t ValueY64 = y;
-		detail::highp_int_t Value64 = ValueX64 * ValueY64;
-		msb = *(genIType*)&genIType(Value64 & ((detail::highp_uint_t(1) << detail::highp_uint_t(32)) - detail::highp_uint_t(1)));
-		lsb = *(genIType*)&genIType(Value64 >> detail::highp_uint_t(32));
+		GLM_STATIC_ASSERT(sizeof(int) == sizeof(int32), "int and int32 size mismatch");
+
+		int64 Value64 = static_cast<int64>(x) * static_cast<int64>(y);
+		msb = *(reinterpret_cast<int32*>(&Value64) + 1);
+		lsb = reinterpret_cast<int32&>(Value64);
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<T, P> imulExtended
+	template <>
+	GLM_FUNC_QUALIFIER void imulExtended
 	(
-		detail::tvec2<T, P> const & x,
-		detail::tvec2<T, P> const & y,
-		detail::tvec2<T, P> & msb,
-		detail::tvec2<T, P> & lsb
+		ivec2 const & x,
+		ivec2 const & y,
+		ivec2 & msb,
+		ivec2 & lsb
 	)
 	{
-		return detail::tvec2<T, P>(
-			imulExtended(x[0], y[0], msb, lsb),
-			imulExtended(x[1], y[1], msb, lsb));
+		imulExtended(x[0], y[0], msb[0], lsb[0]),
+		imulExtended(x[1], y[1], msb[1], lsb[1]);
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> imulExtended
+	template <>
+	GLM_FUNC_QUALIFIER void imulExtended
 	(
-		detail::tvec3<T, P> const & x,
-		detail::tvec3<T, P> const & y,
-		detail::tvec3<T, P> & msb,
-		detail::tvec3<T, P> & lsb
+		ivec3 const & x,
+		ivec3 const & y,
+		ivec3 & msb,
+		ivec3 & lsb
 	)
 	{
-		return detail::tvec3<T, P>(
-			imulExtended(x[0], y[0], msb, lsb),
-			imulExtended(x[1], y[1], msb, lsb),
-			imulExtended(x[2], y[2], msb, lsb));
+		imulExtended(x[0], y[0], msb[0], lsb[0]),
+		imulExtended(x[1], y[1], msb[1], lsb[1]);
+		imulExtended(x[2], y[2], msb[2], lsb[2]);
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<T, P> imulExtended
+	template <>
+	GLM_FUNC_QUALIFIER void imulExtended
 	(
-		detail::tvec4<T, P> const & x,
-		detail::tvec4<T, P> const & y,
-		detail::tvec4<T, P> & msb,
-		detail::tvec4<T, P> & lsb
+		ivec4 const & x,
+		ivec4 const & y,
+		ivec4 & msb,
+		ivec4 & lsb
 	)
 	{
-		return detail::tvec4<T, P>(
-			imulExtended(x[0], y[0], msb, lsb),
-			imulExtended(x[1], y[1], msb, lsb),
-			imulExtended(x[2], y[2], msb, lsb),
-			imulExtended(x[3], y[3], msb, lsb));
+		imulExtended(x[0], y[0], msb[0], lsb[0]),
+		imulExtended(x[1], y[1], msb[1], lsb[1]);
+		imulExtended(x[2], y[2], msb[2], lsb[2]);
+		imulExtended(x[3], y[3], msb[3], lsb[3]);
 	}
 
 	// bitfieldExtract
