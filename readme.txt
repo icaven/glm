@@ -68,6 +68,7 @@ GLM 0.9.5.0: 2013-XX-XX
 - Added creating of a quaternion from two vectors
 - Added C++11 initializer lists
 - Fixed umulExtended and imulExtended implementations for vector types (#76)
+- Fixed CUDA coverage for GTC extensions
 
 ================================================================================
 GLM 0.9.4.6: 2013-09-20

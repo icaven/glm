@@ -47,7 +47,7 @@ namespace detail
 		{
 			GLM_STATIC_ASSERT(
 				std::numeric_limits<genFIType>::is_iec559 || std::numeric_limits<genFIType>::is_signed,
-				"'abs' only accept floating-point and integer inputs");
+				"'abs' only accept floating-point and integer scalar or vector inputs");
 			return x >= genFIType(0) ? x : -x;
 			// TODO, perf comp with: *(((int *) &x) + 1) &= 0x7fffffff;
 		}
@@ -60,7 +60,7 @@ namespace detail
 		{
 			GLM_STATIC_ASSERT(
 				!std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer,
-				"'abs' only accept floating-point and integer inputs");
+				"'abs' only accept floating-point and integer scalar or vector inputs");
 			return x;
 		}
 	};
