@@ -64,7 +64,7 @@ namespace detail
 		GLM_FUNC_DECL GLM_CONSTEXPR int length() const;
 
 		// Constructors
-		tquat();
+		GLM_FUNC_DECL tquat();
 		template <typename U, precision Q>
 		GLM_FUNC_DECL explicit tquat(
 			tquat<U, Q> const & q);
@@ -111,51 +111,51 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	detail::tquat<T, P> operator- (
+	GLM_FUNC_DECL detail::tquat<T, P> operator- (
 		detail::tquat<T, P> const & q);
 
 	template <typename T, precision P>
-	detail::tquat<T, P> operator+ (
+	GLM_FUNC_DECL detail::tquat<T, P> operator+ (
 		detail::tquat<T, P> const & q,
 		detail::tquat<T, P> const & p);
 
 	template <typename T, precision P>
-	detail::tquat<T, P> operator* (
+	GLM_FUNC_DECL detail::tquat<T, P> operator* (
 		detail::tquat<T, P> const & q,
 		detail::tquat<T, P> const & p);
 
 	template <typename T, precision P>
-	detail::tvec3<T, P> operator* (
+	GLM_FUNC_DECL detail::tvec3<T, P> operator* (
 		detail::tquat<T, P> const & q,
 		detail::tvec3<T, P> const & v);
 
 	template <typename T, precision P>
-	detail::tvec3<T, P> operator* (
+	GLM_FUNC_DECL detail::tvec3<T, P> operator* (
 		detail::tvec3<T, P> const & v,
 		detail::tquat<T, P> const & q);
 
 	template <typename T, precision P>
-	detail::tvec4<T, P> operator* (
+	GLM_FUNC_DECL detail::tvec4<T, P> operator* (
 		detail::tquat<T, P> const & q, 
 		detail::tvec4<T, P> const & v);
 
 	template <typename T, precision P>
-	detail::tvec4<T, P> operator* (
+	GLM_FUNC_DECL detail::tvec4<T, P> operator* (
 		detail::tvec4<T, P> const & v,
 		detail::tquat<T, P> const & q);
 
 	template <typename T, precision P>
-	detail::tquat<T, P> operator* (
+	GLM_FUNC_DECL detail::tquat<T, P> operator* (
 		detail::tquat<T, P> const & q,
 		T const & s);
 
 	template <typename T, precision P>
-	detail::tquat<T, P> operator* (
+	GLM_FUNC_DECL detail::tquat<T, P> operator* (
 		T const & s,
 		detail::tquat<T, P> const & q);
 
 	template <typename T, precision P>
-	detail::tquat<T, P> operator/ (
+	GLM_FUNC_DECL detail::tquat<T, P> operator/ (
 		detail::tquat<T, P> const & q,
 		T const & s);
 
@@ -168,21 +168,21 @@ namespace detail
 	/// 
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	T length(
+	GLM_FUNC_DECL T length(
 		detail::tquat<T, P> const & q);
 
 	/// Returns the normalized quaternion.
 	/// 
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	detail::tquat<T, P> normalize(
+	GLM_FUNC_DECL detail::tquat<T, P> normalize(
 		detail::tquat<T, P> const & q);
 		
 	/// Returns dot product of q1 and q2, i.e., q1[0] * q2[0] + q1[1] * q2[1] + ...
 	/// 
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	T dot(
+	GLM_FUNC_DECL T dot(
 		detail::tquat<T, P> const & q1,
 		detail::tquat<T, P> const & q2);
 
@@ -197,7 +197,7 @@ namespace detail
 	/// @see gtc_quaternion
 	/// @see - slerp(detail::tquat<T, P> const & x, detail::tquat<T, P> const & y, T const & a)
 	template <typename T, precision P>
-	detail::tquat<T, P> mix(
+	GLM_FUNC_DECL detail::tquat<T, P> mix(
 		detail::tquat<T, P> const & x,
 		detail::tquat<T, P> const & y,
 		T const & a);
@@ -211,7 +211,7 @@ namespace detail
 	/// @tparam T Value type used to build the quaternion. Supported: half, float or double.
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	detail::tquat<T, P> lerp(
+	GLM_FUNC_DECL detail::tquat<T, P> lerp(
 		detail::tquat<T, P> const & x,
 		detail::tquat<T, P> const & y,
 		T const & a);
@@ -225,7 +225,7 @@ namespace detail
 	/// @tparam T Value type used to build the quaternion. Supported: half, float or double.
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	detail::tquat<T, P> slerp(
+	GLM_FUNC_DECL detail::tquat<T, P> slerp(
 		detail::tquat<T, P> const & x,
 		detail::tquat<T, P> const & y,
 		T const & a);
@@ -234,14 +234,14 @@ namespace detail
 	/// 
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	detail::tquat<T, P> conjugate(
+	GLM_FUNC_DECL detail::tquat<T, P> conjugate(
 		detail::tquat<T, P> const & q);
 
 	/// Returns the q inverse.
 	/// 
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	detail::tquat<T, P> inverse(
+	GLM_FUNC_DECL detail::tquat<T, P> inverse(
 		detail::tquat<T, P> const & q);
 
 	/// Rotates a quaternion from a vector of 3 components axis and an angle.
@@ -252,7 +252,7 @@ namespace detail
 	/// 
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	detail::tquat<T, P> rotate(
+	GLM_FUNC_DECL detail::tquat<T, P> rotate(
 		detail::tquat<T, P> const & q,
 		T const & angle,
 		detail::tvec3<T, P> const & axis);
@@ -261,66 +261,66 @@ namespace detail
 	/// 
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	detail::tvec3<T, P> eulerAngles(
+	GLM_FUNC_DECL detail::tvec3<T, P> eulerAngles(
 		detail::tquat<T, P> const & x);
 
 	/// Returns roll value of euler angles expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
 	///
 	/// @see gtx_quaternion
 	template <typename T, precision P>
-	T roll(detail::tquat<T, P> const & x);
+	GLM_FUNC_DECL T roll(detail::tquat<T, P> const & x);
 
 	/// Returns pitch value of euler angles expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
 	///
 	/// @see gtx_quaternion
 	template <typename T, precision P>
-	T pitch(detail::tquat<T, P> const & x);
+	GLM_FUNC_DECL T pitch(detail::tquat<T, P> const & x);
 
 	/// Returns yaw value of euler angles expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
 	///
 	/// @see gtx_quaternion
 	template <typename T, precision P>
-	T yaw(detail::tquat<T, P> const & x);
+	GLM_FUNC_DECL T yaw(detail::tquat<T, P> const & x);
 
 	/// Converts a quaternion to a 3 * 3 matrix.
 	/// 
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	detail::tmat3x3<T, P> mat3_cast(
+	GLM_FUNC_DECL detail::tmat3x3<T, P> mat3_cast(
 		detail::tquat<T, P> const & x);
 
 	/// Converts a quaternion to a 4 * 4 matrix.
 	/// 
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	detail::tmat4x4<T, P> mat4_cast(
+	GLM_FUNC_DECL detail::tmat4x4<T, P> mat4_cast(
 		detail::tquat<T, P> const & x);
 
 	/// Converts a 3 * 3 matrix to a quaternion.
 	/// 
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	detail::tquat<T, P> quat_cast(
+	GLM_FUNC_DECL detail::tquat<T, P> quat_cast(
 		detail::tmat3x3<T, P> const & x);
 
 	/// Converts a 4 * 4 matrix to a quaternion.
 	/// 
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	detail::tquat<T, P> quat_cast(
+	GLM_FUNC_DECL detail::tquat<T, P> quat_cast(
 		detail::tmat4x4<T, P> const & x);
 
 	/// Returns the quaternion rotation angle.
 	///
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	T angle(detail::tquat<T, P> const & x);
+	GLM_FUNC_DECL T angle(detail::tquat<T, P> const & x);
 
 	/// Returns the q rotation axis.
 	///
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	detail::tvec3<T, P> axis(
+	GLM_FUNC_DECL detail::tvec3<T, P> axis(
 		detail::tquat<T, P> const & x);
 
 	/// Build a quaternion from an angle and a normalized axis.
@@ -330,7 +330,7 @@ namespace detail
 	///
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	detail::tquat<T, P> angleAxis(
+	GLM_FUNC_DECL detail::tquat<T, P> angleAxis(
 		T const & angle,
 		detail::tvec3<T, P> const & axis);
 
@@ -340,7 +340,7 @@ namespace detail
 	///
 	/// @see gtc_quaternion
 	template <typename quatType>
-	typename quatType::bool_type lessThan(quatType const & x, quatType const & y);
+	GLM_FUNC_DECL typename quatType::bool_type lessThan(quatType const & x, quatType const & y);
 
 	/// Returns the component-wise comparison of result x <= y.
 	///
@@ -348,7 +348,7 @@ namespace detail
 	///
 	/// @see gtc_quaternion
 	template <typename quatType>
-	typename quatType::bool_type lessThanEqual(quatType const & x, quatType const & y);
+	GLM_FUNC_DECL typename quatType::bool_type lessThanEqual(quatType const & x, quatType const & y);
 
 	/// Returns the component-wise comparison of result x > y.
 	///
@@ -356,7 +356,7 @@ namespace detail
 	///
 	/// @see gtc_quaternion
 	template <typename quatType>
-	typename quatType::bool_type greaterThan(quatType const & x, quatType const & y);
+	GLM_FUNC_DECL typename quatType::bool_type greaterThan(quatType const & x, quatType const & y);
 
 	/// Returns the component-wise comparison of result x >= y.
 	///
@@ -364,7 +364,7 @@ namespace detail
 	///
 	/// @see gtc_quaternion
 	template <typename quatType>
-	typename quatType::bool_type greaterThanEqual(quatType const & x, quatType const & y);
+	GLM_FUNC_DECL typename quatType::bool_type greaterThanEqual(quatType const & x, quatType const & y);
 
 	/// Returns the component-wise comparison of result x == y.
 	///
@@ -372,7 +372,7 @@ namespace detail
 	///
 	/// @see gtc_quaternion
 	template <typename quatType>
-	typename quatType::bool_type equal(quatType const & x, quatType const & y);
+	GLM_FUNC_DECL typename quatType::bool_type equal(quatType const & x, quatType const & y);
 
 	/// Returns the component-wise comparison of result x != y.
 	/// 
@@ -380,7 +380,7 @@ namespace detail
 	///
 	/// @see gtc_quaternion
 	template <typename quatType>
-	typename quatType::bool_type notEqual(quatType const & x, quatType const & y);
+	GLM_FUNC_DECL typename quatType::bool_type notEqual(quatType const & x, quatType const & y);
 
 	/// @}
 } //namespace glm

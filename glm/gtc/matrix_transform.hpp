@@ -79,7 +79,7 @@ namespace glm
 	/// @see - translate(detail::tmat4x4<T, P> const & m, T x, T y, T z)
 	/// @see - translate(detail::tvec3<T, P> const & v)
 	template <typename T, precision P>
-	detail::tmat4x4<T, P> translate(
+	GLM_FUNC_DECL detail::tmat4x4<T, P> translate(
 		detail::tmat4x4<T, P> const & m,
 		detail::tvec3<T, P> const & v);
 		
@@ -95,7 +95,7 @@ namespace glm
 	/// @see - rotate(detail::tmat4x4<T, P> const & m, T angle, T x, T y, T z) 
 	/// @see - rotate(T angle, detail::tvec3<T, P> const & v) 
 	template <typename T, precision P>
-	detail::tmat4x4<T, P> rotate(
+	GLM_FUNC_DECL detail::tmat4x4<T, P> rotate(
 		detail::tmat4x4<T, P> const & m,
 		T const & angle,
 		detail::tvec3<T, P> const & axis);
@@ -111,7 +111,7 @@ namespace glm
 	/// @see - scale(detail::tmat4x4<T, P> const & m, T x, T y, T z)
 	/// @see - scale(detail::tvec3<T, P> const & v)
 	template <typename T, precision P>
-	detail::tmat4x4<T, P> scale(
+	GLM_FUNC_DECL detail::tmat4x4<T, P> scale(
 		detail::tmat4x4<T, P> const & m,
 		detail::tvec3<T, P> const & v);
 
@@ -127,7 +127,7 @@ namespace glm
 	/// @see gtc_matrix_transform
 	/// @see - glm::ortho(T const & left, T const & right, T const & bottom, T const & top)
 	template <typename T>
-	detail::tmat4x4<T, defaultp> ortho(
+	GLM_FUNC_DECL detail::tmat4x4<T, defaultp> ortho(
 		T const & left,
 		T const & right,
 		T const & bottom,
@@ -145,7 +145,7 @@ namespace glm
 	/// @see gtc_matrix_transform
 	/// @see - glm::ortho(T const & left, T const & right, T const & bottom, T const & top, T const & zNear, T const & zFar)
 	template <typename T>
-	detail::tmat4x4<T, defaultp> ortho(
+	GLM_FUNC_DECL detail::tmat4x4<T, defaultp> ortho(
 		T const & left,
 		T const & right,
 		T const & bottom,
@@ -162,7 +162,7 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	template <typename T, precision P>
-	detail::tmat4x4<T, P> frustum(
+	GLM_FUNC_DECL detail::tmat4x4<T, P> frustum(
 		T const & left,
 		T const & right,
 		T const & bottom,
@@ -179,7 +179,7 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	template <typename T, precision P>
-	detail::tmat4x4<T, P> perspective(
+	GLM_FUNC_DECL detail::tmat4x4<T, P> perspective(
 		T const & fovy,
 		T const & aspect,
 		T const & near,
@@ -195,7 +195,7 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	template <typename T, precision P>
-	detail::tmat4x4<T, P> perspectiveFov(
+	GLM_FUNC_DECL detail::tmat4x4<T, P> perspectiveFov(
 		T const & fov,
 		T const & width,
 		T const & height,
@@ -210,7 +210,7 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	template <typename T, precision P>
-	detail::tmat4x4<T, P> infinitePerspective(
+	GLM_FUNC_DECL detail::tmat4x4<T, P> infinitePerspective(
 		T fovy, T aspect, T near);
 
 	/// Creates a matrix for a symmetric perspective-view frustum with far plane at infinite for graphics hardware that doesn't support depth clamping.
@@ -221,7 +221,7 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	template <typename T, precision P>
-	detail::tmat4x4<T, P> tweakedInfinitePerspective(
+	GLM_FUNC_DECL detail::tmat4x4<T, P> tweakedInfinitePerspective(
 		T fovy, T aspect, T near);
 
 	/// Map the specified object coordinates (obj.x, obj.y, obj.z) into window coordinates.
@@ -234,7 +234,7 @@ namespace glm
 	/// @tparam U Currently supported: Floating-point types and integer types.
 	/// @see gtc_matrix_transform
 	template <typename T, typename U, precision P>
-	detail::tvec3<T, P> project(
+	GLM_FUNC_DECL detail::tvec3<T, P> project(
 		detail::tvec3<T, P> const & obj,
 		detail::tmat4x4<T, P> const & model,
 		detail::tmat4x4<T, P> const & proj,
@@ -250,7 +250,7 @@ namespace glm
 	/// @tparam U Currently supported: Floating-point types and integer types.
 	/// @see gtc_matrix_transform
 	template <typename T, typename U, precision P>
-	detail::tvec3<T, P> unProject(
+	GLM_FUNC_DECL detail::tvec3<T, P> unProject(
 		detail::tvec3<T, P> const & win,
 		detail::tmat4x4<T, P> const & model,
 		detail::tmat4x4<T, P> const & proj,
@@ -265,7 +265,7 @@ namespace glm
 	/// @tparam U Currently supported: Floating-point types and integer types.
 	/// @see gtc_matrix_transform
 	template <typename T, precision P, typename U>
-	detail::tmat4x4<T, P> pickMatrix(
+	GLM_FUNC_DECL detail::tmat4x4<T, P> pickMatrix(
 		detail::tvec2<T, P> const & center,
 		detail::tvec2<T, P> const & delta,
 		detail::tvec4<U, P> const & viewport);
@@ -278,7 +278,7 @@ namespace glm
 	/// @see gtc_matrix_transform
 	/// @see - frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal) frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal)
 	template <typename T, precision P>
-	detail::tmat4x4<T, P> lookAt(
+	GLM_FUNC_DECL detail::tmat4x4<T, P> lookAt(
 		detail::tvec3<T, P> const & eye,
 		detail::tvec3<T, P> const & center,
 		detail::tvec3<T, P> const & up);

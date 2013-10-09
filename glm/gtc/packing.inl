@@ -29,7 +29,7 @@
 namespace glm{
 namespace detail
 {
-	glm::uint16 float2half(glm::uint32 const & f)
+	GLM_FUNC_QUALIFIER glm::uint16 float2half(glm::uint32 const & f)
 	{
 		// 10 bits    =>                         EE EEEFFFFF
 		// 11 bits    =>                        EEE EEFFFFFF
@@ -47,7 +47,7 @@ namespace detail
 		((f >> 13) & 0x03ff); // Mantissa
 	}
 
-	glm::uint32 float2packed11(glm::uint32 const & f)
+	GLM_FUNC_QUALIFIER glm::uint32 float2packed11(glm::uint32 const & f)
 	{
 		// 10 bits    =>                         EE EEEFFFFF
 		// 11 bits    =>                        EEE EEFFFFFF
@@ -65,7 +65,7 @@ namespace detail
 			((f >> 17) & 0x003f); // Mantissa
 	}
 
-	glm::uint32 packed11ToFloat(glm::uint32 const & p)
+	GLM_FUNC_QUALIFIER glm::uint32 packed11ToFloat(glm::uint32 const & p)
 	{
 		// 10 bits    =>                         EE EEEFFFFF
 		// 11 bits    =>                        EEE EEFFFFFF
@@ -83,7 +83,7 @@ namespace detail
 			((p & 0x003f) << 17); // Mantissa
 	}
 
-	glm::uint32 float2packed10(glm::uint32 const & f)
+	GLM_FUNC_QUALIFIER glm::uint32 float2packed10(glm::uint32 const & f)
 	{
 		// 10 bits    =>                         EE EEEFFFFF
 		// 11 bits    =>                        EEE EEFFFFFF
@@ -104,7 +104,7 @@ namespace detail
 			((f >> 18) & 0x001f); // Mantissa
 	}
 
-	glm::uint32 packed10ToFloat(glm::uint32 const & p)
+	GLM_FUNC_QUALIFIER glm::uint32 packed10ToFloat(glm::uint32 const & p)
 	{
 		// 10 bits    =>                         EE EEEFFFFF
 		// 11 bits    =>                        EEE EEFFFFFF
@@ -125,18 +125,12 @@ namespace detail
 			((p & 0x001f) << 18); // Mantissa
 	}
 
-	glm::uint half2float(glm::uint const & h)
+	GLM_FUNC_QUALIFIER glm::uint half2float(glm::uint const & h)
 	{
 		return ((h & 0x8000) << 16) | ((( h & 0x7c00) + 0x1C000) << 13) | ((h & 0x03FF) << 13);
 	}
 
-	union uif
-	{
-		glm::uint i;
-		float f;
-	};
-
-	glm::uint floatTo11bit(float x)
+	GLM_FUNC_QUALIFIER glm::uint floatTo11bit(float x)
 	{
 		if(x == 0.0f)
 			return 0;
@@ -145,12 +139,10 @@ namespace detail
 		else if(glm::isinf(x))
 			return 0x1f << 6;
 
-		uif Union;
-		Union.f = x;
-		return float2packed11(Union.i);
+		return float2packed11(reinterpret_cast<uint&>(x));
 	}
 
-	float packed11bitToFloat(glm::uint x)
+	GLM_FUNC_QUALIFIER float packed11bitToFloat(glm::uint x)
 	{
 		if(x == 0)
 			return 0.0f;
@@ -159,12 +151,11 @@ namespace detail
 		else if(x == (0x1f << 6))
 			return ~0;//Inf
 
-		uif Union;
-		Union.i = packed11ToFloat(x);
-		return Union.f;
+		uint result = packed11ToFloat(x);
+		return reinterpret_cast<float&>(result);
 	}
 
-	glm::uint floatTo10bit(float x)
+	GLM_FUNC_QUALIFIER glm::uint floatTo10bit(float x)
 	{
 		if(x == 0.0f)
 			return 0;
@@ -173,9 +164,7 @@ namespace detail
 		else if(glm::isinf(x))
 			return 0x1f << 5;
 
-		uif Union;
-		Union.f = x;
-		return float2packed10(Union.i);
+		return float2packed10(reinterpret_cast<uint&>(x));
 	}
 
 	float packed10bitToFloat(glm::uint x)
@@ -187,9 +176,8 @@ namespace detail
 		else if(x == (0x1f << 5))
 			return ~0;//Inf
 
-		uif Union;
-		Union.i = packed10ToFloat(x);
-		return Union.f;
+		uint result = packed10ToFloat(x);
+		return reinterpret_cast<float&>(result);
 	}
 
 	glm::uint f11_f11_f10(float x, float y, float z)
@@ -325,19 +313,19 @@ namespace detail
 			-1.0f, 1.0f);
 	}
 
-	GLM_FUNC_DECL uint16 packHalf1x16(float const & v)
+	GLM_FUNC_QUALIFIER uint16 packHalf1x16(float const & v)
 	{
 		int16 Topack = detail::toFloat16(v);
 		return *reinterpret_cast<uint16*>(&Topack);
 	}
 
-	GLM_FUNC_DECL float unpackHalf1x16(uint16 const & v)
+	GLM_FUNC_QUALIFIER float unpackHalf1x16(uint16 const & v)
 	{
 		int16 Unpack(*reinterpret_cast<int16*>(const_cast<uint16*>(&v)));
 		return detail::toFloat32(Unpack);
 	}
 
-	GLM_FUNC_DECL uint64 packHalf4x16(glm::vec4 const & v)
+	GLM_FUNC_QUALIFIER uint64 packHalf4x16(glm::vec4 const & v)
 	{
 		i16vec4 Unpack(
 			detail::toFloat16(v.x),
@@ -348,7 +336,7 @@ namespace detail
 		return *reinterpret_cast<uint64*>(&Unpack);
 	}
 
-	GLM_FUNC_DECL glm::vec4 unpackHalf4x16(uint64 const & v)
+	GLM_FUNC_QUALIFIER glm::vec4 unpackHalf4x16(uint64 const & v)
 	{
 		i16vec4 Unpack = *reinterpret_cast<i16vec4*>(const_cast<uint64*>(&v));
 	

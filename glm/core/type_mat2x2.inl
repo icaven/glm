@@ -168,7 +168,7 @@ namespace detail
 	// Conversion constructors
 	template <typename T, precision P>
 	template <typename U>
-	GLM_FUNC_DECL tmat2x2<T, P>::tmat2x2
+	GLM_FUNC_QUALIFIER tmat2x2<T, P>::tmat2x2
 	(
 		U const & s
 	)
@@ -180,7 +180,7 @@ namespace detail
 	
 	template <typename T, precision P>
 	template <typename X1, typename Y1, typename X2, typename Y2>
-	GLM_FUNC_DECL tmat2x2<T, P>::tmat2x2
+	GLM_FUNC_QUALIFIER tmat2x2<T, P>::tmat2x2
 	(
 		X1 const & x1, Y1 const & y1,
 		X2 const & x2, Y2 const & y2
@@ -192,7 +192,7 @@ namespace detail
 	
 	template <typename T, precision P>
 	template <typename V1, typename V2>
-	GLM_FUNC_DECL tmat2x2<T, P>::tmat2x2
+	GLM_FUNC_QUALIFIER tmat2x2<T, P>::tmat2x2
 	(
 		tvec2<V1, P> const & v1,
 		tvec2<V2, P> const & v2

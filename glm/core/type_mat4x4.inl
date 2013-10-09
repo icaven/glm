@@ -225,7 +225,7 @@ namespace detail
 		typename X2, typename Y2, typename Z2, typename W2,
 		typename X3, typename Y3, typename Z3, typename W3,
 		typename X4, typename Y4, typename Z4, typename W4>
-	GLM_FUNC_DECL tmat4x4<T, P>::tmat4x4
+	GLM_FUNC_QUALIFIER tmat4x4<T, P>::tmat4x4
 	(
 		X1 const & x1, Y1 const & y1, Z1 const & z1, W1 const & w1,
 		X2 const & x2, Y2 const & y2, Z2 const & z2, W2 const & w2,
@@ -261,7 +261,7 @@ namespace detail
 	
 	template <typename T, precision P>
 	template <typename V1, typename V2, typename V3, typename V4>
-	GLM_FUNC_DECL tmat4x4<T, P>::tmat4x4
+	GLM_FUNC_QUALIFIER tmat4x4<T, P>::tmat4x4
 	(
 		tvec4<V1, P> const & v1,
 		tvec4<V2, P> const & v2,

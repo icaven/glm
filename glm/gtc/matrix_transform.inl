@@ -388,7 +388,7 @@ namespace glm
 	}
 
 	template <typename T, precision P, typename U>
-	detail::tmat4x4<T, P> pickMatrix
+	GLM_FUNC_QUALIFIER detail::tmat4x4<T, P> pickMatrix
 	(
 		detail::tvec2<T, P> const & center,
 		detail::tvec2<T, P> const & delta,
