@@ -65,7 +65,7 @@ GLM 0.9.5.0: 2013-XX-XX
 - Replaced GLM traits by STL traits when possible
 - Allowed including individual core feature
 - Increased unit tests completness
-- Added creating of a quaternion  from two vectors
+- Added creating of a quaternion from two vectors
 - Added C++11 initializer lists
 - Fixed umulExtended and imulExtended implementations for vector types (#76)
 

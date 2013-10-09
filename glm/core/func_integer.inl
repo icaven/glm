@@ -42,64 +42,56 @@
 namespace glm
 {
 	// uaddCarry
-	template <typename genUType>
-	GLM_FUNC_QUALIFIER genUType uaddCarry
+	template <>
+	GLM_FUNC_QUALIFIER uint uaddCarry
 	(
-		genUType const & x,
-		genUType const & y,
-		genUType & Carry
+		uint const & x,
+		uint const & y,
+		uint & Carry
 	)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genUType>::is_integer && !std::numeric_limits<genUType>::is_signed, "'uaddCarry' only accept unsigned integer inputs");
-
 		uint64 Value64 = static_cast<uint64>(x) + static_cast<uint64>(y);
-		genUType Result = genUType(Value64 % (static_cast<uint64>(1) << static_cast<uint64>(32)));
-		Carry = (Value64 % (static_cast<uint64>(1) << static_cast<uint64>(32))) > 1 ? static_cast<genUType>(1) : static_cast<genUType>(0);
+		uint32 Result = static_cast<uint32>(Value64 % (static_cast<uint64>(1) << static_cast<uint64>(32)));
+		Carry = (Value64 % (static_cast<uint64>(1) << static_cast<uint64>(32))) > 1 ? static_cast<uint32>(1) : static_cast<uint32>(0);
 		return Result;
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<T, P> uaddCarry
+	template <>
+	GLM_FUNC_QUALIFIER uvec2 uaddCarry
 	(
-		detail::tvec2<T, P> const & x,
-		detail::tvec2<T, P> const & y,
-		detail::tvec2<T, P> & Carry
+		uvec2 const & x,
+		uvec2 const & y,
+		uvec2 & Carry
 	)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer && !std::numeric_limits<T>::is_signed, "'uaddCarry' only accept unsigned integer inputs");
-
-		return detail::tvec2<T, P>(
+		return uvec2(
 			uaddCarry(x[0], y[0], Carry[0]),
 			uaddCarry(x[1], y[1], Carry[1]));
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> uaddCarry
+	template <>
+	GLM_FUNC_QUALIFIER uvec3 uaddCarry
 	(
-		detail::tvec3<T, P> const & x,
-		detail::tvec3<T, P> const & y,
-		detail::tvec3<T, P> & Carry
+		uvec3 const & x,
+		uvec3 const & y,
+		uvec3 & Carry
 	)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer && !std::numeric_limits<T>::is_signed, "'uaddCarry' only accept unsigned integer inputs");
-
-		return detail::tvec3<T, P>(
+		return uvec3(
 			uaddCarry(x[0], y[0], Carry[0]),
 			uaddCarry(x[1], y[1], Carry[1]),
 			uaddCarry(x[2], y[2], Carry[2]));
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<T, P> uaddCarry
+	template <>
+	GLM_FUNC_QUALIFIER uvec4 uaddCarry
 	(
-		detail::tvec4<T, P> const & x,
-		detail::tvec4<T, P> const & y,
-		detail::tvec4<T, P> & Carry
+		uvec4 const & x,
+		uvec4 const & y,
+		uvec4 & Carry
 	)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer && !std::numeric_limits<T>::is_signed, "'uaddCarry' only accept unsigned integer inputs");
-
-		return detail::tvec4<T, P>(
+		return uvec4(
 			uaddCarry(x[0], y[0], Carry[0]),
 			uaddCarry(x[1], y[1], Carry[1]),
 			uaddCarry(x[2], y[2], Carry[2]),
@@ -107,65 +99,59 @@ namespace glm
 	}
 
 	// usubBorrow
-	template <typename genUType>
-	GLM_FUNC_QUALIFIER genUType usubBorrow
+	template <>
+	GLM_FUNC_QUALIFIER uint usubBorrow
 	(
-		genUType const & x,
-		genUType const & y,
-		genUType & Borrow
+		uint const & x,
+		uint const & y,
+		uint & Borrow
 	)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genUType>::is_integer && !std::numeric_limits<genUType>::is_signed, "'usubBorrow' only accept unsigned integer inputs");
+		GLM_STATIC_ASSERT(sizeof(uint) == sizeof(uint32), "uint and uint32 size mismatch");
 
-		Borrow = x >= y ? static_cast<genUType>(0) : static_cast<genUType>(1);
+		Borrow = x >= y ? static_cast<uint32>(0) : static_cast<uint32>(1);
 		if(x > y)
-			return static_cast<genUType>(static_cast<int64>(x) -static_cast<int64>(y));
+			return static_cast<uint32>(static_cast<int64>(x) -static_cast<int64>(y));
 		else
-			return static_cast<genUType>((static_cast<int64>(1) << static_cast<int64>(32)) + static_cast<int64>(x) - static_cast<int64>(y));
+			return static_cast<uint32>((static_cast<int64>(1) << static_cast<int64>(32)) + static_cast<int64>(x) - static_cast<int64>(y));
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<T, P> usubBorrow
+	template <>
+	GLM_FUNC_QUALIFIER uvec2 usubBorrow
 	(
-		detail::tvec2<T, P> const & x,
-		detail::tvec2<T, P> const & y,
-		detail::tvec2<T, P> & Borrow
+		uvec2 const & x,
+		uvec2 const & y,
+		uvec2 & Borrow
 	)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer && !std::numeric_limits<T>::is_signed, "'usubBorrow' only accept unsigned integer inputs");
-
-		return detail::tvec2<T, P>(
+		return uvec2(
 			usubBorrow(x[0], y[0], Borrow[0]),
 			usubBorrow(x[1], y[1], Borrow[1]));
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> usubBorrow
+	template <>
+	GLM_FUNC_QUALIFIER uvec3 usubBorrow
 	(
-		detail::tvec3<T, P> const & x,
-		detail::tvec3<T, P> const & y,
-		detail::tvec3<T, P> & Borrow
+		uvec3 const & x,
+		uvec3 const & y,
+		uvec3 & Borrow
 	)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer && !std::numeric_limits<T>::is_signed, "'usubBorrow' only accept unsigned integer inputs");
-
-		return detail::tvec3<T, P>(
+		return uvec3(
 			usubBorrow(x[0], y[0], Borrow[0]),
 			usubBorrow(x[1], y[1], Borrow[1]),
 			usubBorrow(x[2], y[2], Borrow[2]));
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<T, P> usubBorrow
+	template <>
+	GLM_FUNC_QUALIFIER uvec4 usubBorrow
 	(
-		detail::tvec4<T, P> const & x,
-		detail::tvec4<T, P> const & y,
-		detail::tvec4<T, P> & Borrow
+		uvec4 const & x,
+		uvec4 const & y,
+		uvec4 & Borrow
 	)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer && !std::numeric_limits<T>::is_signed, "'usubBorrow' only accept unsigned integer inputs");
-
-		return detail::tvec4<T, P>(
+		return uvec4(
 			usubBorrow(x[0], y[0], Borrow[0]),
 			usubBorrow(x[1], y[1], Borrow[1]),
 			usubBorrow(x[2], y[2], Borrow[2]),
