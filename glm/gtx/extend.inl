@@ -10,7 +10,7 @@
 namespace glm
 {
 	template <typename genType>
-	genType extend
+	GLM_FUNC_QUALIFIER genType extend
 	(
 		genType const & Origin, 
 		genType const & Source, 
@@ -21,7 +21,7 @@ namespace glm
 	}
 
 	template <typename valType>
-	detail::tvec2<valType> extend
+	GLM_FUNC_QUALIFIER detail::tvec2<valType> extend
 	(
 		detail::tvec2<valType> const & Origin, 
 		detail::tvec2<valType> const & Source, 
@@ -32,7 +32,7 @@ namespace glm
 	}
 
 	template <typename valType>
-	detail::tvec3<valType> extend
+	GLM_FUNC_QUALIFIER detail::tvec3<valType> extend
 	(
 		detail::tvec3<valType> const & Origin, 
 		detail::tvec3<valType> const & Source, 
@@ -43,7 +43,7 @@ namespace glm
 	}
 
 	template <typename valType>
-	detail::tvec4<valType> extend
+	GLM_FUNC_QUALIFIER detail::tvec4<valType> extend
 	(
 		detail::tvec4<valType> const & Origin, 
 		detail::tvec4<valType> const & Source, 

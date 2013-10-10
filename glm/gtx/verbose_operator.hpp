@@ -53,27 +53,27 @@ namespace glm
 	//! Addition of two values
 	/// @see gtx_verbose_operator extension.
 	template <typename genTypeT, typename genTypeU> 
-	genTypeT add(genTypeT const & a, genTypeU const & b);
+	GLM_DEPRECATED genTypeT add(genTypeT const & a, genTypeU const & b);
 
 	//! Substration of two values
 	/// @see gtx_verbose_operator extension.
 	template <typename genTypeT, typename genTypeU> 
-	genTypeT sub(genTypeT const & a, genTypeU const & b);
+	GLM_DEPRECATED genTypeT sub(genTypeT const & a, genTypeU const & b);
 
 	//! Multiplication of two values
 	/// @see gtx_verbose_operator extension.
 	template <typename genTypeT, typename genTypeU> 
-	genTypeT mul(genTypeT const & a, genTypeU const & b);
+	GLM_DEPRECATED genTypeT mul(genTypeT const & a, genTypeU const & b);
 
 	//! Division of two values
 	/// @see gtx_verbose_operator extension.
 	template <typename genTypeT, typename genTypeU> 
-	genTypeT div(genTypeT const & a, genTypeU const & b);
+	GLM_DEPRECATED genTypeT div(genTypeT const & a, genTypeU const & b);
 
 	//! Multiplication and addition of three values
 	/// @see gtx_verbose_operator extension.
 	template <typename genTypeT, typename genTypeU, typename genTypeV> 
-	genTypeT mad(genTypeT const & a, genTypeU const & b, genTypeV const & c);
+	GLM_DEPRECATED genTypeT mad(genTypeT const & a, genTypeU const & b, genTypeV const & c);
 
 	/// @}
 }// namespace glm
