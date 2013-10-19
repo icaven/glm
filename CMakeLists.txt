@@ -49,10 +49,10 @@ if(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC") OR (("${CMAKE_CXX_COMPILER_ID}" 
 	endif()
 endif()
 
-option(GLM_TEST_ENABLE_SSE2 "Enable SSE2 optimizations" OFF)
-option(GLM_TEST_ENABLE_SSE3 "Enable SSE3 optimizations" OFF)
-option(GLM_TEST_ENABLE_AVX "Enable AVX optimizations" OFF)
-option(GLM_TEST_ENABLE_AVX2 "Enable AVX2 optimizations" OFF)
+option(GLM_TEST_ENABLE_SIMD_SSE2 "Enable SSE2 optimizations" OFF)
+option(GLM_TEST_ENABLE_SIMD_SSE3 "Enable SSE3 optimizations" OFF)
+option(GLM_TEST_ENABLE_SIMD_AVX "Enable AVX optimizations" OFF)
+option(GLM_TEST_ENABLE_SIMD_AVX2 "Enable AVX2 optimizations" OFF)
 option(GLM_TEST_FORCE_PURE "Force 'pure' instructions" OFF)
 
 if(GLM_TEST_FORCE_PURE)
