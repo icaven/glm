@@ -53,20 +53,20 @@ namespace glm
 
 	//! Build a row major matrix from row vectors.
 	//! From GLM_GTX_matrix_major_storage extension.
-	template <typename T> 
+	template <typename T, precision P>
 	detail::tmat2x2<T, P> rowMajor2(
 		detail::tvec2<T, P> const & v1, 
 		detail::tvec2<T, P> const & v2);
 		
 	//! Build a row major matrix from other matrix.
 	//! From GLM_GTX_matrix_major_storage extension.
-	template <typename T> 
+	template <typename T, precision P>
 	detail::tmat2x2<T, P> rowMajor2(
 		detail::tmat2x2<T, P> const & m);
 
 	//! Build a row major matrix from row vectors.
 	//! From GLM_GTX_matrix_major_storage extension.
-	template <typename T> 
+	template <typename T, precision P>
 	detail::tmat3x3<T, P> rowMajor3(
 		detail::tvec3<T, P> const & v1, 
 		detail::tvec3<T, P> const & v2, 
@@ -74,13 +74,13 @@ namespace glm
 
 	//! Build a row major matrix from other matrix.
 	//! From GLM_GTX_matrix_major_storage extension.
-	template <typename T> 
+	template <typename T, precision P>
 	detail::tmat3x3<T, P> rowMajor3(
 		detail::tmat3x3<T, P> const & m);
 
 	//! Build a row major matrix from row vectors.
 	//! From GLM_GTX_matrix_major_storage extension.
-	template <typename T> 
+	template <typename T, precision P>
 	detail::tmat4x4<T, P> rowMajor4(
 		detail::tvec4<T, P> const & v1, 
 		detail::tvec4<T, P> const & v2,
@@ -89,26 +89,26 @@ namespace glm
 
 	//! Build a row major matrix from other matrix.
 	//! From GLM_GTX_matrix_major_storage extension.
-	template <typename T> 
+	template <typename T, precision P>
 	detail::tmat4x4<T, P> rowMajor4(
 		detail::tmat4x4<T, P> const & m);
 
 	//! Build a column major matrix from column vectors.
 	//! From GLM_GTX_matrix_major_storage extension.
-	template <typename T> 
+	template <typename T, precision P>
 	detail::tmat2x2<T, P> colMajor2(
 		detail::tvec2<T, P> const & v1, 
 		detail::tvec2<T, P> const & v2);
 		
 	//! Build a column major matrix from other matrix.
 	//! From GLM_GTX_matrix_major_storage extension.
-	template <typename T> 
+	template <typename T, precision P>
 	detail::tmat2x2<T, P> colMajor2(
 		detail::tmat2x2<T, P> const & m);
 
 	//! Build a column major matrix from column vectors.
 	//! From GLM_GTX_matrix_major_storage extension.
-	template <typename T> 
+	template <typename T, precision P>
 	detail::tmat3x3<T, P> colMajor3(
 		detail::tvec3<T, P> const & v1, 
 		detail::tvec3<T, P> const & v2, 
@@ -116,13 +116,13 @@ namespace glm
 		
 	//! Build a column major matrix from other matrix.
 	//! From GLM_GTX_matrix_major_storage extension.
-	template <typename T> 
+	template <typename T, precision P>
 	detail::tmat3x3<T, P> colMajor3(
 		detail::tmat3x3<T, P> const & m);
 		
 	//! Build a column major matrix from column vectors.
 	//! From GLM_GTX_matrix_major_storage extension.
-	template <typename T> 
+	template <typename T, precision P>
 	detail::tmat4x4<T, P> colMajor4(
 		detail::tvec4<T, P> const & v1, 
 		detail::tvec4<T, P> const & v2, 
@@ -131,7 +131,7 @@ namespace glm
 				
 	//! Build a column major matrix from other matrix.
 	//! From GLM_GTX_matrix_major_storage extension.
-	template <typename T> 
+	template <typename T, precision P> 
 	detail::tmat4x4<T, P> colMajor4(
 		detail::tmat4x4<T, P> const & m);
 

@@ -4,14 +4,12 @@
 // Created : 2013-10-25
 // Updated : 2013-10-25
 // Licence : This source is under MIT licence
-// File    : test/gtx/associated_min_max.cpp
+// File    : test/gtx/perpendicular.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-
-#include <emmintrin.h>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/type_precision.hpp>
-#include <glm/gtx/associated_min_max.hpp>
+#include <glm/gtx/perpendicular.hpp>
 
 int main()
 {

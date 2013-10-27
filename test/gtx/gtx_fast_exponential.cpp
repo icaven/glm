@@ -7,11 +7,9 @@
 // File    : test/gtx/associated_min_max.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <emmintrin.h>
-
 #include <glm/glm.hpp>
 #include <glm/gtc/type_precision.hpp>
-#include <glm/gtx/associated_min_max.hpp>
+#include <glm/gtx/fast_exponential.hpp>
 
 int main()
 {
