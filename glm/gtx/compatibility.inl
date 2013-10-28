@@ -10,7 +10,7 @@
 namespace glm
 {
 	// isfinite
-	template <typename genType> 
+	template <typename genType>
 	GLM_FUNC_QUALIFIER bool isfinite(
 		genType const & x)
 	{
