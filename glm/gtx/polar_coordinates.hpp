@@ -53,14 +53,14 @@ namespace glm
 	/// Convert Euclidean to Polar coordinates, x is the xz distance, y, the latitude and z the longitude.
 	///
 	/// @see gtx_polar_coordinates
-	template <typename T> 
+	template <typename T, precision P>
 	detail::tvec3<T, P> polar(
 		detail::tvec3<T, P> const & euclidean);
 
 	/// Convert Polar to Euclidean coordinates.
 	///
 	/// @see gtx_polar_coordinates
-	template <typename T> 
+	template <typename T, precision P>
 	detail::tvec3<T, P> euclidean(
 		detail::tvec2<T, P> const & polar);
 

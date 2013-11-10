@@ -9,6 +9,7 @@
 
 namespace glm
 {
+/*
 	template <typename T>
 	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> boxInertia3
 	(
@@ -111,4 +112,5 @@ namespace glm
 		Result[3][3] = static_cast<T>(1);
 		return Result;
 	}
+ */
 }//namespace glm
