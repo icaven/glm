@@ -210,6 +210,15 @@ int test_quat_mul()
 	glm::quat temp5 = glm::normalize(temp1 * temp2);
 	glm::vec3 temp6 = temp5 * glm::vec3(0.0, 1.0, 0.0) * glm::inverse(temp5);
 
+  {
+    glm::quat temp7;
+
+    temp7 *= temp5;
+    temp7 *= glm::inverse(temp5);
+
+    Error += temp7 != glm::quat();
+  }
+  
 	return Error;
 }
 

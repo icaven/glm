@@ -11,6 +11,7 @@
 #include <glm/core/type_vec3.hpp>
 #include <glm/core/type_vec4.hpp>
 #include <glm/core/func_vector_relational.hpp>
+#include <cstdio>
 #include <ctime>
 #include <vector>
 
@@ -317,7 +318,7 @@ int test_vec4_perf_AoS(std::size_t Size)
 
 	std::clock_t EndTime = std::clock();
 
-	printf("AoS: %d\n", EndTime - StartTime);
+  std::printf("AoS: %d\n", EndTime - StartTime);
 
 	return Error;
 }
@@ -356,7 +357,7 @@ int test_vec4_perf_SoA(std::size_t Size)
 
 	std::clock_t EndTime = std::clock();
 
-	printf("SoA: %d\n", EndTime - StartTime);
+  std::printf("SoA: %d\n", EndTime - StartTime);
 
 	return Error;
 }
