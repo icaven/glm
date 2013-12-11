@@ -9,7 +9,7 @@
 
 namespace glm
 {
-	template <typename T> 
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> shearX2D(
 		const detail::tmat3x3<T, P>& m, 
 		T s)
@@ -19,7 +19,7 @@ namespace glm
 		return m * r;
 	}
 
-	template <typename T> 
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> shearY2D(
 		const detail::tmat3x3<T, P>& m, 
 		T s)
@@ -29,7 +29,7 @@ namespace glm
 		return m * r;
 	}
 
-	template <typename T> 
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tmat4x4<T, P> shearX3D(
 		const detail::tmat4x4<T, P>& m, 
 		T s, 
@@ -41,7 +41,7 @@ namespace glm
 		return m * r;
 	}
 
-	template <typename T> 
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tmat4x4<T, P> shearY3D(
 		const detail::tmat4x4<T, P>& m, 
 		T s, 
@@ -53,7 +53,7 @@ namespace glm
 		return m * r;
 	}
 
-	template <typename T>     
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tmat4x4<T, P> shearZ3D(
 		const detail::tmat4x4<T, P>& m, 
 		T s, 
@@ -65,7 +65,7 @@ namespace glm
 		return m * r;
 	}
 
-	template <typename T> 
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> reflect2D(
 		const detail::tmat3x3<T, P>& m, 
 		const detail::tvec3<T, P>& normal)
@@ -78,7 +78,7 @@ namespace glm
 		return m * r;
 	}
 
-	template <typename T> 
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tmat4x4<T, P> reflect3D(
 		const detail::tmat4x4<T, P>& m, 
 		const detail::tvec3<T, P>& normal)
@@ -98,7 +98,7 @@ namespace glm
 		return m * r;
 	}
 
-	template <typename T> 
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> proj2D(
 		const detail::tmat3x3<T, P>& m, 
 		const detail::tvec3<T, P>& normal)
@@ -111,7 +111,7 @@ namespace glm
 		return m * r;
 	}
 
-	template <typename T> 
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tmat4x4<T, P> proj3D(
 		const detail::tmat4x4<T, P>& m, 
 		const detail::tvec3<T, P>& normal)
@@ -129,7 +129,7 @@ namespace glm
 		return m * r;
 	}
 
-	template <typename T> 
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tmat4x4<T, P> scaleBias(
 		T scale, 
 		T bias)
@@ -142,7 +142,7 @@ namespace glm
 		return result;
 	}
 
-	template <typename T> 
+	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER detail::tmat4x4<T, P> scaleBias(
 		const detail::tmat4x4<T, P>& m, 
 		T scale, 
