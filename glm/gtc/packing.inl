@@ -167,7 +167,7 @@ namespace detail
 		return float2packed10(reinterpret_cast<uint&>(x));
 	}
 
-	float packed10bitToFloat(glm::uint x)
+	GLM_FUNC_QUALIFIER float packed10bitToFloat(glm::uint x)
 	{
 		if(x == 0)
 			return 0.0f;
@@ -180,10 +180,10 @@ namespace detail
 		return reinterpret_cast<float&>(result);
 	}
 
-	glm::uint f11_f11_f10(float x, float y, float z)
-	{
-		return ((floatTo11bit(x) & ((1 << 11) - 1)) << 0) |  ((floatTo11bit(y) & ((1 << 11) - 1)) << 11) | ((floatTo10bit(z) & ((1 << 10) - 1)) << 22);
-	}
+//	GLM_FUNC_QUALIFIER glm::uint f11_f11_f10(float x, float y, float z)
+//	{
+//		return ((floatTo11bit(x) & ((1 << 11) - 1)) << 0) |  ((floatTo11bit(y) & ((1 << 11) - 1)) << 11) | ((floatTo10bit(z) & ((1 << 10) - 1)) << 22);
+//	}
 
 	union u10u10u10u2
 	{
