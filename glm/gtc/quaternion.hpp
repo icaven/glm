@@ -106,6 +106,8 @@ namespace detail
 		GLM_FUNC_DECL T const & operator[](int i) const;
 
 		// Operators
+    GLM_FUNC_DECL tquat<T, P> & operator+=(tquat<T, P> const & q);
+    GLM_FUNC_DECL tquat<T, P> & operator*=(tquat<T, P> const & q);
 		GLM_FUNC_DECL tquat<T, P> & operator*=(T const & s);
 		GLM_FUNC_DECL tquat<T, P> & operator/=(T const & s);
 	};

@@ -182,6 +182,34 @@ namespace detail
 	//////////////////////////////////////////////////////////////
 	// tquat<valType> operators
 
+  template <typename T, precision P>
+  GLM_FUNC_QUALIFIER tquat<T, P> & tquat<T, P>::operator +=
+  (
+   tquat<T, P> const & q
+  )
+  {
+    this->w += q.w;
+		this->x += q.x;
+		this->y += q.y;
+		this->z += q.z;
+		return *this;
+  }
+
+  template <typename T, precision P>
+  GLM_FUNC_QUALIFIER tquat<T, P> & tquat<T, P>::operator *=
+  (
+   tquat<T, P> const & q
+  )
+  {
+    tquat<T, P> const p(*this);
+    
+    this->w = p.w * q.w - p.x * q.x - p.y * q.y - p.z * q.z;
+		this->x = p.w * q.x + p.x * q.w + p.y * q.z - p.z * q.y;
+		this->y = p.w * q.y + p.y * q.w + p.z * q.x - p.x * q.z;
+		this->z = p.w * q.z + p.z * q.w + p.x * q.y - p.y * q.x;
+		return *this;
+  }
+    
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tquat<T, P> & tquat<T, P>::operator *=
 	(
@@ -194,7 +222,7 @@ namespace detail
 		this->z *= s;
 		return *this;
 	}
-
+    
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tquat<T, P> & tquat<T, P>::operator /=
 	(
@@ -227,11 +255,7 @@ namespace detail
 		detail::tquat<T, P> const & p
 	)
 	{
-		return detail::tquat<T, P>(
-			q.w + p.w,
-			q.x + p.x,
-			q.y + p.y,
-			q.z + p.z);
+		return detail::tquat<T, P>(q) += p;
 	}
 
 	template <typename T, precision P>
@@ -241,11 +265,7 @@ namespace detail
 		detail::tquat<T, P> const & p
 	)
 	{
-		return detail::tquat<T, P>(
-			q.w * p.w - q.x * p.x - q.y * p.y - q.z * p.z,
-			q.w * p.x + q.x * p.w + q.y * p.z - q.z * p.y,
-			q.w * p.y + q.y * p.w + q.z * p.x - q.x * p.z,
-			q.w * p.z + q.z * p.w + q.x * p.y - q.y * p.x);
+		return detail::tquat<T, P>(q) *= p;
 	}
 
 	// Transformation
