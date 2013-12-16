@@ -125,16 +125,16 @@ int test_io_mat(OS& os)
 int main()
 {
 	int Error(0);
-  
-  Error += test_io_vec<float,glm::highp>  (std::cout);
-  Error += test_io_vec<float,glm::highp>  (std::wcout);
-  Error += test_io_vec<int,  glm::mediump>(std::cout);
-  Error += test_io_vec<int,  glm::mediump>(std::wcout);
-  Error += test_io_vec<uint, glm::lowp>   (std::cout);
-  Error += test_io_vec<uint, glm::lowp>   (std::wcout);
 
-  Error += test_io_mat<float,glm::highp>  (std::cout);
-  Error += test_io_mat<float,glm::lowp>   (std::wcout);
-  
+	Error += test_io_vec<float, glm::highp>(std::cout);
+	Error += test_io_vec<float, glm::highp>(std::wcout);
+	Error += test_io_vec<int, glm::mediump>(std::cout);
+	Error += test_io_vec<int, glm::mediump>(std::wcout);
+	Error += test_io_vec<glm::uint, glm::lowp>(std::cout);
+	Error += test_io_vec<glm::uint, glm::lowp>(std::wcout);
+
+	Error += test_io_mat<float, glm::highp>(std::cout);
+	Error += test_io_mat<float, glm::lowp>(std::wcout);
+
 	return Error;
 }
