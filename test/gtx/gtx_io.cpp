@@ -35,6 +35,32 @@ namespace {
 } // namespace {
 
 template <typename T, glm::precision P, typename OS>
+int test_io_quat(OS& os)
+{
+  os << '\n'
+     << typeid(OS).name()
+     << '\n';
+  
+  glm::detail::tquat<T,P> const q(1, 0, 0, 0);
+
+  {
+    glm::io::basic_format_saver<typename OS::char_type> const iofs(os);
+    
+    os << glm::io::precision(2) << glm::io::width(1 + 2 + 1 + 2)
+       << "quat<" << typeid(T).name() << ',' << P << ">: " << q << '\n';
+  }
+  
+  {
+    glm::io::basic_format_saver<typename OS::char_type> const iofs(os);
+  
+    os << glm::io::unformatted()
+       << "quat<" << typeid(T).name() << ',' << P << ">: " << q << '\n';
+  }  
+
+  return 0;
+}
+
+template <typename T, glm::precision P, typename OS>
 int test_io_vec(OS& os)
 {
   os << '\n'
@@ -49,12 +75,10 @@ int test_io_vec(OS& os)
      << "vec3<" << typeid(T).name() << ',' << P << ">: " << v3 << '\n'
      << "vec4<" << typeid(T).name() << ',' << P << ">: " << v4 << '\n';
 
-  glm::io::precision_guard const iopg;
+  glm::io::basic_format_saver<typename OS::char_type> const iofs(os);
   
-  glm::io::precision()   = 2;
-  glm::io::value_width() = 1 + 2 + 1 + glm::io::precision();
-  
-  os << "vec2<" << typeid(T).name() << ',' << P << ">: " << v2 << '\n'
+  os << glm::io::precision(2) << glm::io::width(1 + 2 + 1 + 2)
+     << "vec2<" << typeid(T).name() << ',' << P << ">: " << v2 << '\n'
      << "vec3<" << typeid(T).name() << ',' << P << ">: " << v3 << '\n'
      << "vec4<" << typeid(T).name() << ',' << P << ">: " << v4 << '\n';
 
@@ -93,12 +117,10 @@ int test_io_mat(OS& os)
      << "mat4x4<" << typeid(T).name() << ',' << P << ">: " << glm::detail::tmat4x4<T,P>(v4_1, v4_2, v4_3, v4_4) << '\n';
 #endif
   
-  glm::io::precision_guard const iopg;
+  glm::io::basic_format_saver<typename OS::char_type> const iofs(os);
   
-  glm::io::precision()   = 2;
-  glm::io::value_width() = 1 + 2 + 1 + glm::io::precision();
-  
-  os << "mat2x2<" << typeid(T).name() << ',' << P << ">: " << glm::detail::tmat2x2<T,P>(v2_1, v2_2) << '\n'
+  os << glm::io::precision(2) << glm::io::width(1 + 2 + 1 + 2)
+     << "mat2x2<" << typeid(T).name() << ',' << P << ">: " << glm::detail::tmat2x2<T,P>(v2_1, v2_2) << '\n'
      << "mat2x3<" << typeid(T).name() << ',' << P << ">: " << glm::detail::tmat2x3<T,P>(v3_1, v3_2) << '\n'
      << "mat2x4<" << typeid(T).name() << ',' << P << ">: " << glm::detail::tmat2x4<T,P>(v4_1, v4_2) << '\n'
      << "mat3x2<" << typeid(T).name() << ',' << P << ">: " << glm::detail::tmat3x2<T,P>(v2_1, v2_2, v2_3) << '\n'
@@ -108,7 +130,8 @@ int test_io_mat(OS& os)
      << "mat4x3<" << typeid(T).name() << ',' << P << ">: " << glm::detail::tmat4x3<T,P>(v3_1, v3_2, v3_3, v3_4) << '\n'
      << "mat4x4<" << typeid(T).name() << ',' << P << ">: " << glm::detail::tmat4x4<T,P>(v4_1, v4_2, v4_3, v4_4) << '\n';
   
-  os << glm::io::column_major
+  os << glm::io::unformatted()
+     << glm::io::order(glm::io::order_type::column_major)
      << "mat2x2<" << typeid(T).name() << ',' << P << ">: " << glm::detail::tmat2x2<T,P>(v2_1, v2_2) << '\n'
      << "mat2x3<" << typeid(T).name() << ',' << P << ">: " << glm::detail::tmat2x3<T,P>(v3_1, v3_2) << '\n'
      << "mat2x4<" << typeid(T).name() << ',' << P << ">: " << glm::detail::tmat2x4<T,P>(v4_1, v4_2) << '\n'
@@ -125,6 +148,13 @@ int test_io_mat(OS& os)
 int main()
 {
 	int Error(0);
+
+	Error += test_io_quat<float, glm::highp>(std::cout);
+	Error += test_io_quat<float, glm::highp>(std::wcout);
+	Error += test_io_quat<int, glm::mediump>(std::cout);
+	Error += test_io_quat<int, glm::mediump>(std::wcout);
+	Error += test_io_quat<glm::uint, glm::lowp>(std::cout);
+	Error += test_io_quat<glm::uint, glm::lowp>(std::wcout);
 
 	Error += test_io_vec<float, glm::highp>(std::cout);
 	Error += test_io_vec<float, glm::highp>(std::wcout);

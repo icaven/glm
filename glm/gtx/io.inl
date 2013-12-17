@@ -2,12 +2,12 @@
 // OpenGL Mathematics Copyright (c) 2005 - 2013 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2013-11-22
-// Updated : 2013-11-22
+// Updated : 2013-12-17
 // Licence : This source is under MIT License
 // File    : glm/gtx/inl.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-// #include <boost/io/ios_state.hpp> // boost::io::ios_all_saver
+#include <boost/io/ios_state.hpp> // boost::io::ios_all_saver
 #include <iomanip>                // std::setfill<>, std::fixed, std::setprecision, std::right,
                                   // std::setw
 #include <ostream>                // std::basic_ostream<>
@@ -17,91 +17,143 @@ namespace glm
   namespace io
   {
   
+    template <typename CTy>
     /* explicit */ GLM_FUNC_QUALIFIER
-    precision_guard::precision_guard()
-      : precision_  (precision()),
-        value_width_(value_width())
+    format_punct<CTy>::format_punct(size_t a)
+      : std::locale::facet(a),
+        formatted         (true),
+        precision         (3),
+        width             (1 + 4 + 1 + precision),
+        separator         (','),
+        delim_left        ('['),
+        delim_right       (']'),
+        space             (' '),
+        newline           ('\n'),
+        order             (order_type::row_major)
     {}
 
-    GLM_FUNC_QUALIFIER
-    precision_guard::~precision_guard()
+    template <typename CTy>
+    /* explicit */ GLM_FUNC_QUALIFIER
+    format_punct<CTy>::format_punct(format_punct const& a)
+      : std::locale::facet(0),
+        formatted         (a.formatted),
+        precision         (a.precision),
+        width             (a.width),
+        separator         (a.separator),
+        delim_left        (a.delim_left),
+        delim_right       (a.delim_right),
+        space             (a.space),
+        newline           (a.newline),
+        order             (a.order)
+    {}
+    
+    template <typename CTy> std::locale::id format_punct<CTy>::id;
+
+    template <typename CTy, typename CTr>
+    /* explicit */ GLM_FUNC_QUALIFIER
+    basic_format_saver<CTy,CTr>::basic_format_saver(std::basic_ios<CTy,CTr>& a)
+      : boost::noncopyable(),
+        ias_              (a)
     {
-      value_width() = value_width_;
-      precision()   = precision_;
+      a.imbue(std::locale(a.getloc(), new format_punct<CTy>(get_facet<format_punct<CTy>>(a))));
+    }
+
+    template <typename CTy, typename CTr>
+    GLM_FUNC_QUALIFIER
+    basic_format_saver<CTy,CTr>::~basic_format_saver()
+    {}
+    
+    /* explicit */ GLM_FUNC_QUALIFIER
+    precision::precision(unsigned a)
+      : value(a)
+    {}
+
+    /* explicit */ GLM_FUNC_QUALIFIER
+    width::width(unsigned a)
+      : value(a)
+    {}
+
+    template <typename CTy>
+    /* explicit */ GLM_FUNC_QUALIFIER
+    delimeter<CTy>::delimeter(CTy a, CTy b, CTy c)
+      : value()
+    {
+      value[0] = a;
+      value[1] = b;
+      value[2] = c;
     }
 
     /* explicit */ GLM_FUNC_QUALIFIER
-    format_guard::format_guard()
-      : order_(order()),
-        cr_   (cr())
+    order::order(order_type a)
+      : value(a)
     {}
-
-    GLM_FUNC_QUALIFIER
-    format_guard::~format_guard()
-    {
-      cr()    = cr_;
-      order() = order_;
-    }
-
-    GLM_FUNC_QUALIFIER unsigned&
-    precision()
-    {
-      static unsigned p(3);
-
-      return p;
-    }
     
-    GLM_FUNC_QUALIFIER unsigned&
-    value_width()
+    template <typename FTy, typename CTy, typename CTr>
+    GLM_FUNC_QUALIFIER FTy const&
+    get_facet(std::basic_ios<CTy,CTr>& ios)
     {
-      static unsigned p(9);
+      if (!std::has_facet<FTy>(ios.getloc())) {
+        ios.imbue(std::locale(ios.getloc(), new FTy));
+      }
 
-      return p;
+      return std::use_facet<FTy>(ios.getloc());
     }
-    
-    GLM_FUNC_QUALIFIER order_t&
-    order()
-    {
-      static order_t p(order_t::row_major);
 
-      return p;
-    }
-    
-    GLM_FUNC_QUALIFIER char&
-    cr()
+    template <typename CTy, typename CTr>
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy, CTr>&
+    operator<<(std::basic_ostream<CTy, CTr>& os, formatted const&)
     {
-      static char p('\n'); return p;
-    }
-    
-    GLM_FUNC_QUALIFIER std::ios_base&
-    column_major(std::ios_base& os)
-    {
-      order() = order_t::column_major;
-      
-      return os;
-    }
-    
-    GLM_FUNC_QUALIFIER std::ios_base&
-    row_major(std::ios_base& os)
-    {
-      order() = order_t::row_major;
-      
+      const_cast<format_punct<CTy>&>(get_facet<format_punct<CTy>>(os)).formatted = true;
+
       return os;
     }
 
-    GLM_FUNC_QUALIFIER std::ios_base&
-    formatted(std::ios_base& os)
+    template <typename CTy, typename CTr>
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy, CTr>&
+    operator<<(std::basic_ostream<CTy, CTr>& os, unformatted const&)
     {
-      cr() = '\n';
-      
+      const_cast<format_punct<CTy>&>(get_facet<format_punct<CTy>>(os)).formatted = false;
+
       return os;
     }
     
-    GLM_FUNC_QUALIFIER std::ios_base&
-    unformatted(std::ios_base& os)
+    template <typename CTy, typename CTr>
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy, CTr>&
+    operator<<(std::basic_ostream<CTy, CTr>& os, precision const& a)
     {
-      cr() = ' ';
+      const_cast<format_punct<CTy>&>(get_facet<format_punct<CTy>>(os)).precision = a.value;
+
+      return os;
+    }
+
+    template <typename CTy, typename CTr>
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy, CTr>&
+    operator<<(std::basic_ostream<CTy, CTr>& os, width const& a)
+    {
+      const_cast<format_punct<CTy>&>(get_facet<format_punct<CTy>>(os)).width = a.value;
+
+      return os;
+    }
+
+    template <typename CTy, typename CTr>
+    std::basic_ostream<CTy, CTr>& operator<<(std::basic_ostream<CTy, CTr>& os,
+                                             delimeter<CTy> const& a)
+    {
+      format_punct<CTy>& fmt(const_cast<format_punct<CTy>&>(get_facet<format_punct<CTy>>(os)));
+
+      fmt.delim_left  = a.value[0];
+      fmt.delim_right = a.value[1];
+      fmt.separator   = a.value[2];
       
+      return os;
+    }
+
+    template <typename CTy, typename CTr>
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy, CTr>&
+    operator<<(std::basic_ostream<CTy, CTr>& os, order const& a)
+    {
+      const_cast<format_punct<CTy>&>(get_facet<format_punct<CTy>>(os)).order = a.value;
+
       return os;
     }
     
@@ -109,8 +161,6 @@ namespace glm
   
   namespace detail {
     
-    // functions, inlined (inline)
-
     template <typename CTy, typename CTr, typename T, precision P>
     GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>&
     operator<<(std::basic_ostream<CTy,CTr>& os, tquat<T,P> const& a)
@@ -118,17 +168,26 @@ namespace glm
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        // boost::io::ios_all_saver const ias(os);
-      
-        os << std::fixed << std::setprecision(io::precision())
-           << '['
-           << std::right << std::setfill<CTy>(' ') << std::setw(io::value_width()) << a.w << ','
-           << std::right << std::setfill<CTy>(' ') << std::setw(io::value_width()) << a.x << ','
-           << std::right << std::setfill<CTy>(' ') << std::setw(io::value_width()) << a.y << ','
-           << std::right << std::setfill<CTy>(' ') << std::setw(io::value_width()) << a.z
-           << ']';
-      }
+        io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy>>(os));
 
+        if (fmt.formatted) {
+          boost::io::basic_ios_all_saver<CTy> const ias(os);
+        
+          os << std::fixed
+             << std::right
+             << std::setprecision(fmt.precision)
+             << std::setfill(fmt.space)
+             << fmt.delim_left
+             << std::setw(fmt.width) << a.w << fmt.separator
+             << std::setw(fmt.width) << a.x << fmt.separator
+             << std::setw(fmt.width) << a.y << fmt.separator
+             << std::setw(fmt.width) << a.z
+             << fmt.delim_right;
+        } else {
+          os << a.w << fmt.space << a.x << fmt.space << a.y << fmt.space << a.z;
+        }
+      }
+      
       return os;
     }
     
@@ -139,13 +198,22 @@ namespace glm
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        // boost::io::ios_all_saver const ias(os);
-      
-        os << std::fixed << std::setprecision(io::precision())
-           << '['
-           << std::right << std::setfill<CTy>(' ') << std::setw(io::value_width()) << a.x << ','
-           << std::right << std::setfill<CTy>(' ') << std::setw(io::value_width()) << a.y
-           << ']';
+        io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy>>(os));
+
+        if (fmt.formatted) {
+          boost::io::basic_ios_all_saver<CTy> const ias(os);
+          
+          os << std::fixed
+             << std::right
+             << std::setprecision(fmt.precision)
+             << std::setfill(fmt.space)
+             << fmt.delim_left
+             << std::setw(fmt.width) << a.x << fmt.separator
+             << std::setw(fmt.width) << a.y
+             << fmt.delim_right;
+        } else {
+          os << a.x << fmt.space << a.y;
+        }
       }
 
       return os;
@@ -158,19 +226,28 @@ namespace glm
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        // boost::io::ios_all_saver const ias(os);
-      
-        os << std::fixed << std::setprecision(io::precision())
-           << '['
-           << std::right << std::setfill<CTy>(' ') << std::setw(io::value_width()) << a.x << ','
-           << std::right << std::setfill<CTy>(' ') << std::setw(io::value_width()) << a.y << ','
-           << std::right << std::setfill<CTy>(' ') << std::setw(io::value_width()) << a.z
-           << ']';
-      }
+        io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy>>(os));
 
+        if (fmt.formatted) {
+          boost::io::basic_ios_all_saver<CTy> const ias(os);
+          
+          os << std::fixed
+             << std::right
+             << std::setprecision(fmt.precision)
+             << std::setfill(fmt.space)
+             << fmt.delim_left
+             << std::setw(fmt.width) << a.x << fmt.separator
+             << std::setw(fmt.width) << a.y << fmt.separator
+             << std::setw(fmt.width) << a.z
+             << fmt.delim_right;
+        } else {
+          os << a.x << fmt.space << a.y << fmt.space << a.z;
+        }
+      }
+      
       return os;
     }
-
+    
     template <typename CTy, typename CTr, typename T, precision P>
     GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>&
     operator<<(std::basic_ostream<CTy,CTr>& os, tvec4<T,P> const& a)
@@ -178,17 +255,26 @@ namespace glm
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        // boost::io::ios_all_saver const ias(os);
-      
-        os << std::fixed << std::setprecision(io::precision())
-           << '['
-           << std::right << std::setfill<CTy>(' ') << std::setw(io::value_width()) << a.x << ','
-           << std::right << std::setfill<CTy>(' ') << std::setw(io::value_width()) << a.y << ','
-           << std::right << std::setfill<CTy>(' ') << std::setw(io::value_width()) << a.z << ','
-           << std::right << std::setfill<CTy>(' ') << std::setw(io::value_width()) << a.w
-           << ']';
-      }
+        io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy>>(os));
 
+        if (fmt.formatted) {
+          boost::io::basic_ios_all_saver<CTy> const ias(os);
+        
+          os << std::fixed
+             << std::right
+             << std::setprecision(fmt.precision)
+             << std::setfill(fmt.space)
+             << fmt.delim_left
+             << std::setw(fmt.width) << a.x << fmt.separator
+             << std::setw(fmt.width) << a.y << fmt.separator
+             << std::setw(fmt.width) << a.z << fmt.separator
+             << std::setw(fmt.width) << a.w
+             << fmt.delim_right;
+        } else {
+          os << a.x << fmt.space << a.y << fmt.space << a.z << fmt.space << a.w;
+        }
+      }
+      
       return os;
     }
 
@@ -199,15 +285,20 @@ namespace glm
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        tmat2x2<T,P> m(a);
+        io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy>>(os));
+        tmat2x2<T,P>                 m(a);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::order_type::row_major == fmt.order) {
           m = transpose(a);
         }
-        
-        os << io::cr()
-           << '[' << m[0] << io::cr()
-           << ' ' << m[1] << ']';
+
+        if (fmt.formatted) {
+          os << fmt.newline
+             << fmt.delim_left << m[0] << fmt.newline
+             << fmt.space      << m[1] << fmt.delim_right;
+        } else {
+          os << m[0] << fmt.space << m[1];
+        }
       }
 
       return os;
@@ -220,16 +311,21 @@ namespace glm
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        tmat3x2<T,P> m(a);
+        io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy>>(os));
+        tmat3x2<T,P>                 m(a);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::order_type::row_major == fmt.order) {
           m = transpose(a);
         }
 
-        os << io::cr()
-           << '[' << m[0] << io::cr()
-           << ' ' << m[1] << io::cr()
-           << ' ' << m[2] << ']';
+        if (fmt.formatted) {
+          os << fmt.newline
+             << fmt.delim_left << m[0] << fmt.newline
+             << fmt.space      << m[1] << fmt.newline
+             << fmt.space      << m[2] << fmt.delim_right;
+        } else {
+          os << m[0] << fmt.space << m[1] << fmt.space << m[2];
+        }
       }
 
       return os;
@@ -242,17 +338,22 @@ namespace glm
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        tmat4x2<T,P> m(a);
+        io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy>>(os));
+        tmat4x2<T,P>                 m(a);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::order_type::row_major == fmt.order) {
           m = transpose(a);
         }
 
-        os << io::cr()
-           << '[' << m[0] << io::cr()
-           << ' ' << m[1] << io::cr()
-           << ' ' << m[2] << io::cr()
-           << ' ' << m[3] << ']';
+        if (fmt.formatted) {
+          os << fmt.newline
+             << fmt.delim_left << m[0] << fmt.newline
+             << fmt.space      << m[1] << fmt.newline
+             << fmt.space      << m[2] << fmt.newline
+             << fmt.space      << m[3] << fmt.delim_right;
+        } else {
+          os << m[0] << fmt.space << m[1] << fmt.space << m[2] << fmt.space << m[3];
+        }
       }
 
       return os;
@@ -265,15 +366,20 @@ namespace glm
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        tmat2x3<T,P> m(a);
+        io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy>>(os));
+        tmat2x3<T,P>                 m(a);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::order_type::row_major == fmt.order) {
           m = transpose(a);
         }
 
-        os << io::cr()
-           << '[' << m[0] << io::cr()
-           << ' ' << m[1] << ']';
+        if (fmt.formatted) {
+          os << fmt.newline
+             << fmt.delim_left << m[0] << fmt.newline
+             << fmt.space      << m[1] << fmt.delim_right;
+        } else {
+          os << m[0] << fmt.space << m[1];
+        }
       }
 
       return os;
@@ -286,16 +392,21 @@ namespace glm
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        tmat3x3<T,P> m(a);
+        io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy>>(os));
+        tmat3x3<T,P>                 m(a);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::order_type::row_major == fmt.order) {
           m = transpose(a);
         }
 
-        os << io::cr()
-           << '[' << m[0] << io::cr()
-           << ' ' << m[1] << io::cr()
-           << ' ' << m[2] << ']';
+        if (fmt.formatted) {
+          os << fmt.newline
+             << fmt.delim_left << m[0] << fmt.newline
+             << fmt.space      << m[1] << fmt.newline
+             << fmt.space      << m[2] << fmt.delim_right;
+        } else {
+          os << m[0] << fmt.space << m[1] << fmt.space << m[2];
+        }
       }
 
       return os;
@@ -308,17 +419,22 @@ namespace glm
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        tmat4x3<T,P> m(a);
+        io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy>>(os));
+        tmat4x3<T,P>                 m(a);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::order_type::row_major == fmt.order) {
           m = transpose(a);
         }
 
-        os << io::cr()
-           << '[' << m[0] << io::cr()
-           << ' ' << m[1] << io::cr()
-           << ' ' << m[2] << io::cr()
-           << ' ' << m[3] << ']';
+        if (fmt.formatted) {
+          os << fmt.newline
+             << fmt.delim_left << m[0] << fmt.newline
+             << fmt.space      << m[1] << fmt.newline
+             << fmt.space      << m[2] << fmt.newline
+             << fmt.space      << m[3] << fmt.delim_right;
+        } else {
+          os << m[0] << fmt.space << m[1] << fmt.space << m[2] << fmt.space << m[3];
+        }
       }
 
       return os;
@@ -331,15 +447,20 @@ namespace glm
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        tmat2x4<T,P> m(a);
+        io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy>>(os));
+        tmat2x4<T,P>                 m(a);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::order_type::row_major == fmt.order) {
           m = transpose(a);
         }
 
-        os << io::cr()
-           << '[' << m[0] << io::cr()
-           << ' ' << m[1] << ']';
+        if (fmt.formatted) {
+          os << fmt.newline
+             << fmt.delim_left << m[0] << fmt.newline
+             << fmt.space      << m[1] << fmt.delim_right;
+        } else {
+          os << m[0] << fmt.space << m[1];
+        }
       }
 
       return os;
@@ -352,16 +473,21 @@ namespace glm
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        tmat3x4<T,P> m(a);
+        io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy>>(os));
+        tmat3x4<T,P>                 m(a);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::order_type::row_major == fmt.order) {
           m = transpose(a);
         }
 
-        os << io::cr()
-           << '[' << m[0] << io::cr()
-           << ' ' << m[1] << io::cr()
-           << ' ' << m[2] << ']';
+        if (fmt.formatted) {
+          os << fmt.newline
+             << fmt.delim_left << m[0] << fmt.newline
+             << fmt.space      << m[1] << fmt.newline
+             << fmt.space      << m[2] << fmt.delim_right;
+        } else {
+          os << m[0] << fmt.space << m[1] << fmt.space << m[2];
+        }
       }
 
       return os;
@@ -374,17 +500,22 @@ namespace glm
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        tmat4x4<T,P> m(a);
+        io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy>>(os));
+        tmat4x4<T,P>                 m(a);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::order_type::row_major == fmt.order) {
           m = transpose(a);
         }
 
-        os << io::cr()
-           << '[' << m[0] << io::cr()
-           << ' ' << m[1] << io::cr()
-           << ' ' << m[2] << io::cr()
-           << ' ' << m[3] << ']';
+        if (fmt.formatted) {
+          os << fmt.newline
+             << fmt.delim_left << m[0] << fmt.newline
+             << fmt.space      << m[1] << fmt.newline
+             << fmt.space      << m[2] << fmt.newline
+             << fmt.space      << m[3] << fmt.delim_right;
+        } else {
+          os << m[0] << fmt.space << m[1] << fmt.space << m[2] << fmt.space << m[3];
+        }
       }
 
       return os;
@@ -398,19 +529,28 @@ namespace glm
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        tmat4x4<T,P> ml(a.first);
-        tmat4x4<T,P> mr(a.second);
+        io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy>>(os));
+        tmat4x4<T,P>                 ml(a.first);
+        tmat4x4<T,P>                 mr(a.second);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::order_type::row_major == fmt.order) {
           ml = transpose(a.first);
           mr = transpose(a.second);
         }
+
+        if (fmt.formatted) {
+          CTy const& l(fmt.delim_left);
+          CTy const& r(fmt.delim_right);
+          CTy const& s(fmt.space);
         
-        os << io::cr()
-           << '[' << ml[0] << "  [" << mr[0] << io::cr()
-           << ' ' << ml[1] << "   " << mr[1] << io::cr()
-           << ' ' << ml[2] << "   " << mr[2] << io::cr()
-           << ' ' << ml[3] << "]  " << mr[3] << ']';
+          os << fmt.newline
+             << l << ml[0] << s << s << l << mr[0] << fmt.newline
+             << s << ml[1] << s << s << s << mr[1] << fmt.newline
+             << s << ml[2] << s << s << s << mr[2] << fmt.newline
+             << s << ml[3] << r << s << s << mr[3] << r;
+        } else {
+          os << ml << fmt.space << mr;
+        }
       }
 
       return os;

@@ -33,6 +33,10 @@
 /// 
 /// @brief std::[w]ostream support for glm types
 ///
+///        std::[w]ostream support for glm types + precision/width/etc. manipulators
+///        based on howard hinnant's std::chrono io proposal
+///        [http://home.roadrunner.com/~hinnant/bloomington/chrono_io.html]
+///
 /// <glm/gtx/io.hpp> needs to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -47,8 +51,11 @@
 #	pragma message("GLM: GLM_GTX_io extension included")
 #endif
 
-#include <iosfwd>  // std::basic_ostream<> (fwd)
-#include <utility> // std::pair<>
+#include <boost/io_fwd.hpp>      // basic_ios_all_saver<> (fwd)
+#include <boost/noncopyable.hpp> // boost::noncopyable
+#include <iosfwd>                // std::basic_ostream<> (fwd)
+#include <locale>                // std::locale, std::locale::facet, std::locale::id
+#include <utility>               // std::pair<>
 
 namespace glm
 {
@@ -58,60 +65,103 @@ namespace glm
   namespace io
   {
     
-    class precision_guard {
+    enum class order_type { column_major, row_major, };
+    
+    template <typename CTy>
+    class format_punct : public std::locale::facet {
 
-    public:
+      typedef CTy char_type;
       
-      GLM_FUNC_DECL explicit precision_guard();
-      GLM_FUNC_DECL         ~precision_guard();
-                
-    private:
+    public:
 
-      unsigned precision_;
-      unsigned value_width_;
+      static std::locale::id id;
+
+      bool       formatted;
+      unsigned   precision;
+      unsigned   width;
+      char_type  separator;
+      char_type  delim_left;
+      char_type  delim_right;
+      char_type  space;
+      char_type  newline;
+      order_type order;
+      
+      explicit format_punct(size_t a = 0);
+      explicit format_punct(format_punct const&);
       
     };
 
-    enum class order_t { column_major, row_major, };
-
-    class format_guard {
+    template <typename CTy, typename CTr = std::char_traits<CTy> >
+    class basic_format_saver : private boost::noncopyable {
 
     public:
 
-      GLM_FUNC_DECL explicit format_guard();
-      GLM_FUNC_DECL         ~format_guard();
-                
+      explicit basic_format_saver(std::basic_ios<CTy,CTr>&);
+              ~basic_format_saver();
+
     private:
 
-      order_t order_;
-      char    cr_;
+      boost::io::basic_ios_all_saver<CTy> const ias_;
       
     };
 
-    // decimal places (dflt: 3)
-    GLM_FUNC_DECL unsigned& precision();
+    typedef basic_format_saver<char>     format_saver;
+    typedef basic_format_saver<wchar_t> wformat_saver;
+    
+    struct formatted   { /* empty */ };
+    struct unformatted { /* empty */ };
+    
+    struct precision {
 
-    // sign + value + '.' + decimals (dflt: 1 + 4 + 1 + precision())
-    GLM_FUNC_DECL unsigned& value_width();
+      unsigned value;
+      
+      explicit precision(unsigned);
+      
+    };
 
-    // matrix output order (dflt: row_major)
-    GLM_FUNC_DECL order_t& order();
+    struct width {
 
-    // carriage/return char (dflt: '\n')
-    GLM_FUNC_DECL char& cr();
+      unsigned value;
+      
+      explicit width(unsigned);
+      
+    };
 
-    // matrix output order -> column_major
-    GLM_FUNC_DECL std::ios_base& column_major(std::ios_base&);
+    template <typename CTy>
+    struct delimeter {
 
-    // matrix output order -> row_major
-    GLM_FUNC_DECL std::ios_base& row_major   (std::ios_base&);
+      CTy value[3];
+      
+      explicit delimeter(CTy /* left */, CTy /* right */, CTy /* separator */ = ',');
+      
+    };
 
-    // carriage/return char -> '\n'
-    GLM_FUNC_DECL std::ios_base& formatted   (std::ios_base&);
+    struct order {
 
-    // carriage/return char -> ' '
-    GLM_FUNC_DECL std::ios_base& unformatted (std::ios_base&);
+      order_type value;
+      
+      explicit order(order_type);
+      
+    };
+    
+    // functions, inlined (inline)
 
+    template <typename FTy, typename CTy, typename CTr>
+    FTy const& get_facet(std::basic_ios<CTy,CTr>&);
+    
+    template <typename CTy, typename CTr>
+    std::basic_ostream<CTy, CTr>& operator<<(std::basic_ostream<CTy, CTr>&, formatted const&);
+    template <typename CTy, typename CTr>
+    std::basic_ostream<CTy, CTr>& operator<<(std::basic_ostream<CTy, CTr>&, unformatted const&);
+    template <typename CTy, typename CTr>
+    std::basic_ostream<CTy, CTr>& operator<<(std::basic_ostream<CTy, CTr>&, precision const&);
+    template <typename CTy, typename CTr>
+    std::basic_ostream<CTy, CTr>& operator<<(std::basic_ostream<CTy, CTr>&, width const&);
+    template <typename CTy, typename CTr>
+    std::basic_ostream<CTy, CTr>& operator<<(std::basic_ostream<CTy, CTr>&, delimeter<CTy> const&);
+    template <typename CTy, typename CTr>
+    std::basic_ostream<CTy, CTr>& operator<<(std::basic_ostream<CTy, CTr>&, order const&);
+    
   }//namespace io
 
   namespace detail
