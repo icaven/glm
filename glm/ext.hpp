@@ -124,10 +124,8 @@
 #include "./gtx/transform.hpp"
 #include "./gtx/transform2.hpp"
 #include "./gtx/vec1.hpp"
-#include "./gtx/vector_access.hpp"
 #include "./gtx/vector_angle.hpp"
 #include "./gtx/vector_query.hpp"
-#include "./gtx/verbose_operator.hpp"
 #include "./gtx/wrap.hpp"
 
 #if(GLM_ARCH & GLM_ARCH_SSE2)
