@@ -2,15 +2,13 @@
 // OpenGL Mathematics Copyright (c) 2005 - 2013 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2013-11-22
-// Updated : 2013-12-17
+// Updated : 2013-12-18
 // Licence : This source is under MIT License
 // File    : glm/gtx/inl.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <boost/io/ios_state.hpp> // boost::io::ios_all_saver
-#include <iomanip>                // std::setfill<>, std::fixed, std::setprecision, std::right,
-                                  // std::setw
-#include <ostream>                // std::basic_ostream<>
+#include <iomanip> // std::setfill<>, std::fixed, std::setprecision, std::right, std::setw
+#include <ostream> // std::basic_ostream<>
 
 namespace glm
 {
@@ -51,9 +49,30 @@ namespace glm
 
     template <typename CTy, typename CTr>
     /* explicit */ GLM_FUNC_QUALIFIER
+    basic_state_saver<CTy,CTr>::basic_state_saver(std::basic_ios<CTy,CTr>& a)
+      : state_    (a),
+        flags_    (a.flags()),
+        precision_(a.precision()),
+        width_    (a.width()),
+        fill_     (a.fill()),
+        locale_   (a.getloc())
+    {}
+    
+    template <typename CTy, typename CTr>
+    GLM_FUNC_QUALIFIER
+    basic_state_saver<CTy,CTr>::~basic_state_saver()
+    {
+      state_.imbue(locale_);
+      state_.fill(fill_);
+      state_.width(width_);
+      state_.precision(precision_);
+      state_.flags(flags_);
+    }
+    
+    template <typename CTy, typename CTr>
+    /* explicit */ GLM_FUNC_QUALIFIER
     basic_format_saver<CTy,CTr>::basic_format_saver(std::basic_ios<CTy,CTr>& a)
-      : boost::noncopyable(),
-        ias_              (a)
+      : bss_(a)
     {
       a.imbue(std::locale(a.getloc(), new format_punct<CTy>(get_facet<format_punct<CTy>>(a))));
     }
@@ -171,7 +190,7 @@ namespace glm
         io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy>>(os));
 
         if (fmt.formatted) {
-          boost::io::basic_ios_all_saver<CTy> const ias(os);
+          io::basic_state_saver<CTy> const bss(os);
         
           os << std::fixed
              << std::right
@@ -201,7 +220,7 @@ namespace glm
         io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy>>(os));
 
         if (fmt.formatted) {
-          boost::io::basic_ios_all_saver<CTy> const ias(os);
+          io::basic_state_saver<CTy> const bss(os);
           
           os << std::fixed
              << std::right
@@ -229,7 +248,7 @@ namespace glm
         io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy>>(os));
 
         if (fmt.formatted) {
-          boost::io::basic_ios_all_saver<CTy> const ias(os);
+          io::basic_state_saver<CTy> const bss(os);
           
           os << std::fixed
              << std::right
@@ -258,7 +277,7 @@ namespace glm
         io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy>>(os));
 
         if (fmt.formatted) {
-          boost::io::basic_ios_all_saver<CTy> const ias(os);
+          io::basic_state_saver<CTy> const bss(os);
         
           os << std::fixed
              << std::right

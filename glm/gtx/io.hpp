@@ -26,7 +26,7 @@
 /// @author Jan P Springer (regnirpsj@gmail.com)
 ///
 /// @see core (dependence)
-/// @see gtx_quaternion (dependence)
+/// @see gtc_quaternion (dependence)
 ///
 /// @defgroup gtx_io GLM_GTX_io
 /// @ingroup gtx
@@ -51,11 +51,9 @@
 #	pragma message("GLM: GLM_GTX_io extension included")
 #endif
 
-#include <boost/io_fwd.hpp>      // basic_ios_all_saver<> (fwd)
-#include <boost/noncopyable.hpp> // boost::noncopyable
-#include <iosfwd>                // std::basic_ostream<> (fwd)
-#include <locale>                // std::locale, std::locale::facet, std::locale::id
-#include <utility>               // std::pair<>
+#include <iosfwd>  // std::basic_ostream<> (fwd)
+#include <locale>  // std::locale, std::locale::facet, std::locale::id
+#include <utility> // std::pair<>
 
 namespace glm
 {
@@ -92,7 +90,37 @@ namespace glm
     };
 
     template <typename CTy, typename CTr = std::char_traits<CTy> >
-    class basic_format_saver : private boost::noncopyable {
+    class basic_state_saver {
+
+    public:
+
+      explicit basic_state_saver(std::basic_ios<CTy,CTr>&);
+              ~basic_state_saver();
+
+    private:
+
+      typedef ::std::basic_ios<CTy,CTr>      state_type;
+      typedef typename state_type::char_type char_type;
+      typedef ::std::ios_base::fmtflags      flags_type;
+      typedef ::std::streamsize              streamsize_type;
+      typedef ::std::locale const            locale_type;
+      
+      state_type&     state_;
+      flags_type      flags_;
+      streamsize_type precision_;
+      streamsize_type width_;
+      char_type       fill_;
+      locale_type     locale_;
+      
+      basic_state_saver& operator=(basic_state_saver const&);
+      
+    };
+
+    typedef basic_state_saver<char>     state_saver;
+    typedef basic_state_saver<wchar_t> wstate_saver;
+    
+    template <typename CTy, typename CTr = std::char_traits<CTy> >
+    class basic_format_saver {
 
     public:
 
@@ -101,7 +129,9 @@ namespace glm
 
     private:
 
-      boost::io::basic_ios_all_saver<CTy> const ias_;
+      basic_state_saver<CTy> const bss_;
+
+      basic_format_saver& operator=(basic_format_saver const&);
       
     };
 

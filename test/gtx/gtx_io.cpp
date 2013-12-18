@@ -11,6 +11,7 @@
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtx/io.hpp>
 #include <iostream>
+#include <sstream>
 #include <typeinfo>
 
 namespace {
@@ -32,6 +33,32 @@ namespace {
     return os;
   }
 
+  template <typename U, glm::precision P, typename T, typename CTy, typename CTr>
+  std::basic_string<CTy>
+  type_name(std::basic_ostream<CTy,CTr>& os, T const&)
+  {
+    std::basic_ostringstream<CTy,CTr> ostr;
+    
+    if      (typeid(T) == typeid(glm::detail::tquat<U,P>))   { ostr << "quat"; }
+    else if (typeid(T) == typeid(glm::detail::tvec2<U,P>))   { ostr << "vec2"; }
+    else if (typeid(T) == typeid(glm::detail::tvec3<U,P>))   { ostr << "vec3"; }
+    else if (typeid(T) == typeid(glm::detail::tvec4<U,P>))   { ostr << "vec4"; }
+    else if (typeid(T) == typeid(glm::detail::tmat2x2<U,P>)) { ostr << "mat2x2"; }
+    else if (typeid(T) == typeid(glm::detail::tmat2x3<U,P>)) { ostr << "mat2x3"; }
+    else if (typeid(T) == typeid(glm::detail::tmat2x4<U,P>)) { ostr << "mat2x4"; }
+    else if (typeid(T) == typeid(glm::detail::tmat3x2<U,P>)) { ostr << "mat3x2"; }
+    else if (typeid(T) == typeid(glm::detail::tmat3x3<U,P>)) { ostr << "mat3x3"; }
+    else if (typeid(T) == typeid(glm::detail::tmat3x4<U,P>)) { ostr << "mat3x4"; }
+    else if (typeid(T) == typeid(glm::detail::tmat4x2<U,P>)) { ostr << "mat4x2"; }
+    else if (typeid(T) == typeid(glm::detail::tmat4x3<U,P>)) { ostr << "mat4x3"; }
+    else if (typeid(T) == typeid(glm::detail::tmat4x4<U,P>)) { ostr << "mat4x4"; }
+    else                                                     { ostr << "unknown"; }
+
+    ostr << '<' << typeid(U).name() << ',' << P << '>';
+
+    return ostr.str();
+  }
+  
 } // namespace {
 
 template <typename T, glm::precision P, typename OS>
@@ -47,14 +74,14 @@ int test_io_quat(OS& os)
     glm::io::basic_format_saver<typename OS::char_type> const iofs(os);
     
     os << glm::io::precision(2) << glm::io::width(1 + 2 + 1 + 2)
-       << "quat<" << typeid(T).name() << ',' << P << ">: " << q << '\n';
+       << type_name<T,P>(os, q) << ": " << q << '\n';
   }
   
   {
     glm::io::basic_format_saver<typename OS::char_type> const iofs(os);
   
     os << glm::io::unformatted()
-       << "quat<" << typeid(T).name() << ',' << P << ">: " << q << '\n';
+       << type_name<T,P>(os, q) << ": " << q << '\n';
   }  
 
   return 0;
@@ -71,16 +98,16 @@ int test_io_vec(OS& os)
   glm::detail::tvec3<T,P> const v3(2, 3, 4);
   glm::detail::tvec4<T,P> const v4(5, 6, 7, 8);
 
-  os << "vec2<" << typeid(T).name() << ',' << P << ">: " << v2 << '\n'
-     << "vec3<" << typeid(T).name() << ',' << P << ">: " << v3 << '\n'
-     << "vec4<" << typeid(T).name() << ',' << P << ">: " << v4 << '\n';
+  os << type_name<T,P>(os, v2) << ": " << v2 << '\n'
+     << type_name<T,P>(os, v3) << ": " << v3 << '\n'
+     << type_name<T,P>(os, v4) << ": " << v4 << '\n';
 
   glm::io::basic_format_saver<typename OS::char_type> const iofs(os);
   
   os << glm::io::precision(2) << glm::io::width(1 + 2 + 1 + 2)
-     << "vec2<" << typeid(T).name() << ',' << P << ">: " << v2 << '\n'
-     << "vec3<" << typeid(T).name() << ',' << P << ">: " << v3 << '\n'
-     << "vec4<" << typeid(T).name() << ',' << P << ">: " << v4 << '\n';
+     << type_name<T,P>(os, v2) << ": " << v2 << '\n'
+     << type_name<T,P>(os, v3) << ": " << v3 << '\n'
+     << type_name<T,P>(os, v4) << ": " << v4 << '\n';
 
   return 0;
 }
