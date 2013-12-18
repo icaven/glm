@@ -9,8 +9,8 @@
 
 namespace glm
 {
-	template <typename valType> 
-	GLM_FUNC_QUALIFIER valType mixedProduct
+	template <typename T, precision P> 
+	GLM_FUNC_QUALIFIER T mixedProduct
 	(
 		detail::tvec3<T, P> const & v1, 
 		detail::tvec3<T, P> const & v2, 

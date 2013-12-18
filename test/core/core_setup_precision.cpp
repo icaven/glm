@@ -7,8 +7,10 @@
 // File    : test/core/setup_precision_highp.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_FORCE_INLINE
 #define GLM_PRECISION_HIGHP_FLOAT
 #include <glm/glm.hpp>
+#include <glm/ext.hpp>
 
 static int test_mat()
 {

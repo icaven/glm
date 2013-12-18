@@ -51,8 +51,8 @@ namespace glm
 	/// @{
 
 	/// @brief Mixed product of 3 vectors (from GLM_GTX_mixed_product extension)
-	template <typename valType> 
-	valType mixedProduct(
+	template <typename T, precision P> 
+	T mixedProduct(
 		detail::tvec3<T, P> const & v1, 
 		detail::tvec3<T, P> const & v2, 
 		detail::tvec3<T, P> const & v3);
