@@ -85,7 +85,7 @@ elseif(GLM_TEST_ENABLE_SSE3)
 	elseif(GLM_USE_INTEL)
 		add_definitions(/QxSSE3)
 	elseif(MSVC)
-		add_definitions(/arch:SSE3)	
+		add_definitions(/arch:SSE2) # VC doesn't support /arch:SSE3	
 	endif()
 elseif(GLM_TEST_ENABLE_SSE2)
 	if(CMAKE_COMPILER_IS_GNUCXX)
