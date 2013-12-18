@@ -10,8 +10,45 @@
 // - GLM core
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm
+namespace glm{
+namespace detail
 {
+	template <bool Signed>
+	struct higherMultiple
+	{
+		template <typename genType>
+		GLM_FUNC_QUALIFIER genType operator()
+		(
+			genType const & Source,
+			genType const & Multiple
+		)
+		{
+			if (Source > genType(0))
+			{
+				genType Tmp = Source - genType(1);
+				return Tmp + (Multiple - (Tmp % Multiple));
+			}
+			else
+				return Source + (-Source % Multiple);
+		}
+	};
+
+	template <>
+	struct higherMultiple<false>
+	{
+		template <typename genType>
+		GLM_FUNC_QUALIFIER genType operator()
+		(
+			genType const & Source,
+			genType const & Multiple
+		)
+		{
+			genType Tmp = Source - genType(1);
+			return Tmp + (Multiple - (Tmp % Multiple));
+		}
+	};
+}//namespace detail
+
 	//////////////////////
 	// higherMultiple
 
@@ -22,13 +59,8 @@ namespace glm
 		genType const & Multiple
 	)
 	{
-		if (Source > genType(0))
-		{
-			genType Tmp = Source - genType(1);
-			return Tmp + (Multiple - (Tmp % Multiple));
-		}
-		else
-			return Source + (-Source % Multiple);
+		detail::higherMultiple<std::numeric_limits<genType>::is_signed> Compute;
+		return Compute(Source, Multiple);
 	}
 
 	template <>

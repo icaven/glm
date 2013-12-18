@@ -1003,7 +1003,7 @@ GLM_FUNC_QUALIFIER void sse_rotate_ps(__m128 const in[4], float Angle, float con
 	__m128 Sin0 = _mm_set_ss(s);
 	__m128 SinA = _mm_shuffle_ps(Sin0, Sin0, _MM_SHUFFLE(0, 0, 0, 0));
 
-	// detail::tvec3<valType> temp = (valType(1) - c) * axis;
+	// detail::tvec3<T, P> temp = (valType(1) - c) * axis;
 	__m128 Temp0 = _mm_sub_ps(one, CosA);
 	__m128 Temp1 = _mm_mul_ps(Temp0, AxisC);
 	

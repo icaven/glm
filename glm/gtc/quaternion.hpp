@@ -106,6 +106,8 @@ namespace detail
 		GLM_FUNC_DECL T const & operator[](int i) const;
 
 		// Operators
+    GLM_FUNC_DECL tquat<T, P> & operator+=(tquat<T, P> const & q);
+    GLM_FUNC_DECL tquat<T, P> & operator*=(tquat<T, P> const & q);
 		GLM_FUNC_DECL tquat<T, P> & operator*=(T const & s);
 		GLM_FUNC_DECL tquat<T, P> & operator/=(T const & s);
 	};
@@ -258,25 +260,26 @@ namespace detail
 		detail::tvec3<T, P> const & axis);
 
 	/// Returns euler angles, yitch as x, yaw as y, roll as z.
+	/// The result is expressed in radians if GLM_FORCE_RADIANS is defined or degrees otherwise.
 	/// 
 	/// @see gtc_quaternion
 	template <typename T, precision P>
 	GLM_FUNC_DECL detail::tvec3<T, P> eulerAngles(
 		detail::tquat<T, P> const & x);
 
-	/// Returns roll value of euler angles expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
+	/// Returns roll value of euler angles expressed in radians if GLM_FORCE_RADIANS is defined or degrees otherwise.
 	///
 	/// @see gtx_quaternion
 	template <typename T, precision P>
 	GLM_FUNC_DECL T roll(detail::tquat<T, P> const & x);
 
-	/// Returns pitch value of euler angles expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
+	/// Returns pitch value of euler angles expressed in radians if GLM_FORCE_RADIANS is defined or degrees otherwise.
 	///
 	/// @see gtx_quaternion
 	template <typename T, precision P>
 	GLM_FUNC_DECL T pitch(detail::tquat<T, P> const & x);
 
-	/// Returns yaw value of euler angles expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
+	/// Returns yaw value of euler angles expressed in radians if GLM_FORCE_RADIANS is defined or degrees otherwise.
 	///
 	/// @see gtx_quaternion
 	template <typename T, precision P>

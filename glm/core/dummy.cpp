@@ -73,7 +73,7 @@ int main()
 #	if(GLM_ARCH & GLM_ARCH_SSE2)
 		test_simd();
 #	endif
-*/
+*/ 
 
 	C<> c;
 

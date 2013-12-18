@@ -10,7 +10,7 @@
 namespace glm
 {
 	// isfinite
-	template <typename genType> 
+	template <typename genType>
 	GLM_FUNC_QUALIFIER bool isfinite(
 		genType const & x)
 	{
@@ -27,30 +27,30 @@ namespace glm
 #		endif
 	}
 
-	template <typename valType> 
-	GLM_FUNC_QUALIFIER detail::tvec2<bool> isfinite(
-		detail::tvec2<valType> const & x)
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<bool, P> isfinite(
+		detail::tvec2<T, P> const & x)
 	{
-		return detail::tvec2<bool>(
+		return detail::tvec2<bool, P>(
 			isfinite(x.x),
 			isfinite(x.y));
 	}
 
-	template <typename valType> 
-	GLM_FUNC_QUALIFIER detail::tvec3<bool> isfinite(
-		detail::tvec3<valType> const & x)
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<bool, P> isfinite(
+		detail::tvec3<T, P> const & x)
 	{
-		return detail::tvec3<bool>(
+		return detail::tvec3<bool, P>(
 			isfinite(x.x),
 			isfinite(x.y),
 			isfinite(x.z));
 	}
 
-	template <typename valType> 
-	GLM_FUNC_QUALIFIER detail::tvec4<bool> isfinite(
-		detail::tvec4<valType> const & x)
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<bool, P> isfinite(
+		detail::tvec4<T, P> const & x)
 	{
-		return detail::tvec4<bool>(
+		return detail::tvec4<bool, P>(
 			isfinite(x.x),
 			isfinite(x.y),
 			isfinite(x.z),

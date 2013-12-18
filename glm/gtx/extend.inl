@@ -20,34 +20,34 @@ namespace glm
 		return Origin + (Source - Origin) * Distance;
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec2<valType> extend
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<T, P> extend
 	(
-		detail::tvec2<valType> const & Origin, 
-		detail::tvec2<valType> const & Source, 
-		valType const & Distance
+		detail::tvec2<T, P> const & Origin,
+		detail::tvec2<T, P> const & Source,
+		T const & Distance
 	)
 	{
 		return Origin + (Source - Origin) * Distance;
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec3<valType> extend
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec3<T, P> extend
 	(
-		detail::tvec3<valType> const & Origin, 
-		detail::tvec3<valType> const & Source, 
-		valType const & Distance
+		detail::tvec3<T, P> const & Origin,
+		detail::tvec3<T, P> const & Source,
+		T const & Distance
 	)
 	{
 		return Origin + (Source - Origin) * Distance;
 	}
 
-	template <typename valType>
-	GLM_FUNC_QUALIFIER detail::tvec4<valType> extend
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> extend
 	(
-		detail::tvec4<valType> const & Origin, 
-		detail::tvec4<valType> const & Source, 
-		valType const & Distance
+		detail::tvec4<T, P> const & Origin,
+		detail::tvec4<T, P> const & Source,
+		T const & Distance
 	)
 	{
 		return Origin + (Source - Origin) * Distance;

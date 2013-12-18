@@ -54,7 +54,7 @@ namespace glm
 
 	//! Transforms a matrix with a shearing on X axis.
 	//! From GLM_GTX_transform2 extension.
-	template <typename T> 
+	template <typename T, precision P>
 	detail::tmat3x3<T, P> shearX2D(
 		detail::tmat3x3<T, P> const & m, 
 		T y);

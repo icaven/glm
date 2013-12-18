@@ -718,7 +718,7 @@
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_SWIZZLE_DISPLAYED))
 #	define GLM_MESSAGE_SWIZZLE_DISPLAYED
-#	if defined(GLM_SWIZZL)
+#	if defined(GLM_SWIZZLE)
 #		pragma message("GLM: Swizzling operators enabled")
 #	else
 #		pragma message("GLM: Swizzling operators disabled")

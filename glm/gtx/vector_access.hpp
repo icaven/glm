@@ -54,7 +54,7 @@ namespace glm
 	/// @see gtx_vector_access extension.
 	template <typename valType> 
 	void set(
-		detail::tvec2<valType> & v, 
+		detail::tvec2<T, P> & v, 
 		valType const & x, 
 		valType const & y);
 
@@ -62,7 +62,7 @@ namespace glm
 	/// @see gtx_vector_access extension.
 	template <typename valType> 
 	void set(
-		detail::tvec3<valType> & v, 
+		detail::tvec3<T, P> & v, 
 		valType const & x, 
 		valType const & y, 
 		valType const & z);
@@ -71,7 +71,7 @@ namespace glm
 	/// @see gtx_vector_access extension.
 	template <typename valType> 
 	void set(
-		detail::tvec4<valType> & v, 
+		detail::tvec4<T, P> & v, 
 		valType const & x, 
 		valType const & y, 
 		valType const & z, 

@@ -65,7 +65,6 @@
 
 #include "./gtc/constants.hpp"
 #include "./gtc/epsilon.hpp"
-#include "./gtc/half_float.hpp"
 #include "./gtc/matrix_access.hpp"
 #include "./gtc/matrix_integer.hpp"
 #include "./gtc/matrix_inverse.hpp"
@@ -100,6 +99,7 @@
 #include "./gtx/int_10_10_10_2.hpp"
 #include "./gtx/integer.hpp"
 #include "./gtx/intersect.hpp"
+#include "./gtx/io.hpp"
 #include "./gtx/log_base.hpp"
 #include "./gtx/matrix_cross_product.hpp"
 #include "./gtx/matrix_interpolation.hpp"

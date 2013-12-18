@@ -28,6 +28,14 @@ int main()
 	//printf("C1(%2.3f, %2.3f, %2.3f, %2.3f)\n", C1.x, C1.y, C1.z, C1.w);
 	//printf("D1(%2.3f, %2.3f, %2.3f, %2.3f)\n", D1.x, D1.y, D1.z, D1.w);
 
+	__m128 value;
+	__m128 data = _mm_cmpeq_ps(value, value);
+	__m128 add0 = _mm_add_ps(data, data);
+
+	glm::simdVec4 GNI(add0);
+
+	printf("%f\n", GNI.Data /* .m128_f32 */);
+
 	return 0;
 }
 

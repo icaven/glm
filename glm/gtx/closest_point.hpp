@@ -52,9 +52,9 @@ namespace glm
 
 	/// Find the point on a straight line which is the closet of a point. 
 	/// @see gtx_closest_point
-	template <typename T> 
+	template <typename T, precision P>
 	detail::tvec3<T, P> closestPointOnLine(
-		detail::tvec3<T, P> const & point, 
+		detail::tvec3<T, P> const & point,
 		detail::tvec3<T, P> const & a, 
 		detail::tvec3<T, P> const & b);
 
