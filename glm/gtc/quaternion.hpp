@@ -38,13 +38,13 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_quaternion
-#define GLM_GTC_quaternion GLM_VERSION
+#define GLM_GTC_quaternion
 
 // Dependency:
 #include "../glm.hpp"
 #include "../gtc/constants.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTC_quaternion extension included")
 #endif
 

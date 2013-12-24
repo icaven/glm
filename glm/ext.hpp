@@ -55,8 +55,8 @@
 /// (http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=showprofile&User=22660).
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_ext
-#define glm_ext
+#ifndef GLM_EXT_INCLUDED
+#define GLM_EXT_INCLUDED
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_EXT_INCLUDED_DISPLAYED))
 #	define GLM_MESSAGE_EXT_INCLUDED_DISPLAYED
@@ -133,9 +133,4 @@
 #	include "./gtx/simd_mat4.hpp"
 #endif
 
-#include "./virtrev/xstream.hpp"
-
-//const float goldenRatio = 1.618033988749894848f;
-//const float pi = 3.141592653589793238f;
-
-#endif //glm_ext
+#endif //GLM_EXT_INCLUDED

@@ -7,7 +7,7 @@
 // File    : test/core/type_mat3x3.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/core/type_mat3x3.hpp>
+#include <glm/mat3x3.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <cstdio>
 #include <vector>

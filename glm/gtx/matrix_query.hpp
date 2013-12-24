@@ -37,14 +37,14 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_matrix_query
-#define GLM_GTX_matrix_query GLM_VERSION
+#define GLM_GTX_matrix_query
 
 // Dependency:
 #include "../glm.hpp"
 #include "../gtx/vector_query.hpp"
 #include <limits>
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_matrix_query extension included")
 #endif
 

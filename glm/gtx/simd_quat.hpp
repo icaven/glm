@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_simd_quat
-#define GLM_GTX_simd_quat GLM_VERSION
+#define GLM_GTX_simd_quat
 
 // Dependency:
 #include "../glm.hpp"
@@ -53,7 +53,7 @@
 #	error "GLM: GLM_GTX_simd_quat requires compiler support of SSE2 through intrinsics"
 #endif
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_simd_quat extension included")
 #endif
 

@@ -38,14 +38,14 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_rotate_normalized_axis
-#define GLM_GTX_rotate_normalized_axis GLM_VERSION
+#define GLM_GTX_rotate_normalized_axis
 
 // Dependency:
 #include "../glm.hpp"
 #include "../gtc/epsilon.hpp"
 #include "../gtc/quaternion.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_rotate_normalized_axis extension included")
 #endif
 

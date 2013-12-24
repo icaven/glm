@@ -36,14 +36,14 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_vector_query
-#define GLM_GTX_vector_query GLM_VERSION
+#define GLM_GTX_vector_query
 
 // Dependency:
 #include "../glm.hpp"
 #include <cfloat>
 #include <limits>
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_vector_query extension included")
 #endif
 

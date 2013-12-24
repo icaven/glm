@@ -29,6 +29,6 @@
 #ifndef GLM_EXPONENTIAL_INCLUDED
 #define GLM_EXPONENTIAL_INCLUDED
 
-#include "core/func_exponential.hpp"
+#include "detail/func_exponential.hpp"
 
 #endif//GLM_EXPONENTIAL_INCLUDED

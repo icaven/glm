@@ -37,13 +37,13 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_transform2
-#define GLM_GTX_transform2 GLM_VERSION
+#define GLM_GTX_transform2
 
 // Dependency:
 #include "../glm.hpp"
 #include "../gtx/transform.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_transform2 extension included")
 #endif
 

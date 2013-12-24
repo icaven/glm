@@ -29,6 +29,6 @@
 #ifndef GLM_PACKING_INCLUDED
 #define GLM_PACKING_INCLUDED
 
-#include "core/func_packing.hpp"
+#include "detail/func_packing.hpp"
 
 #endif//GLM_PACKING_INCLUDED

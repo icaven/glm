@@ -2,15 +2,15 @@
 // OpenGL Mathematics Copyright (c) 2005 - 2013 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-08-31
-// Updated : 2008-08-31
+// Updated : 2013-12-24
 // Licence : This source is under MIT License
 // File    : test/core/type_vec4.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/core/type_vec2.hpp>
-#include <glm/core/type_vec3.hpp>
-#include <glm/core/type_vec4.hpp>
-#include <glm/core/func_vector_relational.hpp>
+#include <glm/vector_relational.hpp>
+#include <glm/vec2.hpp>
+#include <glm/vec3.hpp>
+#include <glm/vec4.hpp>
 #include <cstdio>
 #include <ctime>
 #include <vector>

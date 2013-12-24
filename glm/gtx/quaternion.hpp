@@ -37,7 +37,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_quaternion
-#define GLM_GTX_quaternion GLM_VERSION
+#define GLM_GTX_quaternion
 
 // Dependency:
 #include "../glm.hpp"
@@ -45,7 +45,7 @@
 #include "../gtc/quaternion.hpp"
 #include "../gtx/norm.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_quaternion extension included")
 #endif
 

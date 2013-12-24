@@ -57,14 +57,14 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_type_ptr
-#define GLM_GTC_type_ptr GLM_VERSION
+#define GLM_GTC_type_ptr
 
 // Dependency:
 #include "../glm.hpp"
 #include "../gtc/quaternion.hpp"
 #include <cstring>
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTC_type_ptr extension included")
 #endif
 

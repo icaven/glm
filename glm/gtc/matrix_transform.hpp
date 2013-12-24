@@ -44,12 +44,12 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_matrix_transform
-#define GLM_GTC_matrix_transform GLM_VERSION
+#define GLM_GTC_matrix_transform
 
 // Dependency:
 #include "../glm.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTC_matrix_transform extension included")
 #endif
 

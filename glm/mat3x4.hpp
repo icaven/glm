@@ -29,6 +29,6 @@
 #ifndef GLM_MAT3X4_INCLUDED
 #define GLM_MAT3X4_INCLUDED
 
-#include "core/type_mat3x4.hpp"
+#include "detail/type_mat3x4.hpp"
 
 #endif//GLM_MAT3X4_INCLUDED

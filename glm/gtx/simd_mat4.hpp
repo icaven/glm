@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_simd_mat4
-#define GLM_GTX_simd_mat4 GLM_VERSION
+#define GLM_GTX_simd_mat4
 
 // Dependency:
 #include "../glm.hpp"
@@ -50,7 +50,7 @@
 #	error "GLM: GLM_GTX_simd_mat4 requires compiler support of SSE2 through intrinsics"
 #endif
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_simd_mat4 extension included")
 #endif
 

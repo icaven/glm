@@ -38,12 +38,12 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_fast_square_root
-#define GLM_GTX_fast_square_root GLM_VERSION
+#define GLM_GTX_fast_square_root
 
 // Dependency:
 #include "../glm.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_fast_square_root extension included")
 #endif
 

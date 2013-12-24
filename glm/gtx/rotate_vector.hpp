@@ -37,13 +37,13 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_rotate_vector
-#define GLM_GTX_rotate_vector GLM_VERSION
+#define GLM_GTX_rotate_vector
 
 // Dependency:
 #include "../glm.hpp"
 #include "../gtx/transform.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_rotate_vector extension included")
 #endif
 

@@ -29,6 +29,6 @@
 #ifndef GLM_COMMON_INCLUDED
 #define GLM_COMMON_INCLUDED
 
-#include "core/func_common.hpp"
+#include "detail/func_common.hpp"
 
 #endif//GLM_COMMON_INCLUDED

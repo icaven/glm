@@ -7,7 +7,7 @@
 // File    : test/core/func_geometric.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/core/func_geometric.hpp>
+#include <glm/geometric.hpp>
 #include <glm/gtc/epsilon.hpp>
 
 int test_reflect()

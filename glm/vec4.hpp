@@ -29,6 +29,6 @@
 #ifndef GLM_VEC4_INCLUDED
 #define GLM_VEC4_INCLUDED
 
-#include "core/type_vec4.hpp"
+#include "detail/type_vec4.hpp"
 
 #endif//GLM_VEC4_INCLUDED

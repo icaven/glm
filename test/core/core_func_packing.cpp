@@ -7,9 +7,9 @@
 // File    : test/core/func_packing.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/core/func_packing.hpp>
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtc/epsilon.hpp>
+#include <glm/packing.hpp>
 #include <vector>
 
 int test_packUnorm2x16()

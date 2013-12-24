@@ -29,6 +29,6 @@
 #ifndef GLM_INTEGER_INCLUDED
 #define GLM_INTEGER_INCLUDED
 
-#include "core/func_integer.hpp"
+#include "detail/func_integer.hpp"
 
 #endif//GLM_INTEGER_INCLUDED

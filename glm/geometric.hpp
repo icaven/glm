@@ -29,6 +29,6 @@
 #ifndef GLM_GEOMETRIC_INCLUDED
 #define GLM_GEOMETRIC_INCLUDED
 
-#include "core/func_geometric.hpp"
+#include "detail/func_geometric.hpp"
 
 #endif//GLM_GEOMETRIC_INCLUDED

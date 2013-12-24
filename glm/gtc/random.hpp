@@ -38,12 +38,12 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_random
-#define GLM_GTC_random GLM_VERSION
+#define GLM_GTC_random
 
 // Dependency:
 #include "../glm.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTC_random extension included")
 #endif
 

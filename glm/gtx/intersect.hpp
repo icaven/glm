@@ -37,13 +37,13 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_intersect
-#define GLM_GTX_intersect GLM_VERSION
+#define GLM_GTX_intersect
 
 // Dependency:
 #include "../glm.hpp"
 #include "../gtx/closest_point.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_closest_point extension included")
 #endif
 

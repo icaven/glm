@@ -36,12 +36,12 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_gtx_color_space_YCoCg
-#define glm_gtx_color_space_YCoCg GLM_VERSION
+#define glm_gtx_color_space_YCoCg
 
 // Dependency:
 #include "../glm.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_color_space_YCoCg extension included")
 #endif
 

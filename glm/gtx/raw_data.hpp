@@ -36,13 +36,13 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_raw_data
-#define GLM_GTX_raw_data GLM_VERSION
+#define GLM_GTX_raw_data
 
 // Dependency:
 #include "../glm.hpp"
 #include "../gtc/type_precision.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_raw_data extension included")
 #endif
 

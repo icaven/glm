@@ -30,6 +30,7 @@
 #include "_vectorize.hpp"
 #include <limits>
 #include <cassert>
+#include <cmath>
 
 namespace glm
 {

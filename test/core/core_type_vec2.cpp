@@ -7,8 +7,8 @@
 // File    : test/core/type_vec2.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/core/func_vector_relational.hpp>
-#include <glm/core/type_vec2.hpp>
+#include <glm/vector_relational.hpp>
+#include <glm/vec2.hpp>
 
 int test_vec2_operators()
 {

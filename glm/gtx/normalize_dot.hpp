@@ -37,13 +37,13 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_normalize_dot
-#define GLM_GTX_normalize_dot GLM_VERSION
+#define GLM_GTX_normalize_dot
 
 // Dependency:
 #include "../glm.hpp"
 #include "../gtx/fast_square_root.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_normalize_dot extension included")
 #endif
 

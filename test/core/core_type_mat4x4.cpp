@@ -7,7 +7,7 @@
 // File    : test/core/type_mat4x4.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/core/type_mat4x4.hpp>
+#include <glm/mat4x4.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <cstdio>
 #include <vector>

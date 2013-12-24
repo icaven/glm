@@ -75,10 +75,10 @@
 /// @ingroup core
 ///////////////////////////////////////////////////////////////////////////////////
 
-#include "core/_fixes.hpp"
+#include "detail/_fixes.hpp"
 
-#ifndef glm_glm
-#define glm_glm
+#ifndef GLM_INCLUDED
+#define GLM_INCLUDED
 
 #include <cmath>
 #include <climits>
@@ -92,14 +92,14 @@
 #	pragma message("GLM: Core library included")
 #endif//GLM_MESSAGE
 
-#include "./core/func_trigonometric.hpp"
-#include "./core/func_exponential.hpp"
-#include "./core/func_common.hpp"
-#include "./core/func_packing.hpp"
-#include "./core/func_geometric.hpp"
-#include "./core/func_matrix.hpp"
-#include "./core/func_vector_relational.hpp"
-#include "./core/func_integer.hpp"
-#include "./core/func_noise.hpp"
+#include "./detail/func_trigonometric.hpp"
+#include "./detail/func_exponential.hpp"
+#include "./detail/func_common.hpp"
+#include "./detail/func_packing.hpp"
+#include "./detail/func_geometric.hpp"
+#include "./detail/func_matrix.hpp"
+#include "./detail/func_vector_relational.hpp"
+#include "./detail/func_integer.hpp"
+#include "./detail/func_noise.hpp"
 
-#endif//glm_glm
+#endif//GLM_INCLUDED

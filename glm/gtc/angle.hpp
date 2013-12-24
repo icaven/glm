@@ -37,7 +37,11 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_angle
-#define GLM_GTC_angle GLM_VERSION
+#define GLM_GTC_angle
+
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
+#	pragma message("GLM: GLM_GTC_angle extension included")
+#endif
 
 namespace glm
 {

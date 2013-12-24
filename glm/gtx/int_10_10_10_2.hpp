@@ -22,7 +22,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_int_10_10_10_2
-#define GLM_GTX_int_10_10_10_2 GLM_VERSION
+#define GLM_GTX_int_10_10_10_2
 
 // Dependency:
 #include "../glm.hpp"

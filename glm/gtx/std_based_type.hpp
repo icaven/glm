@@ -36,13 +36,13 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_std_based_type
-#define GLM_GTX_std_based_type GLM_VERSION
+#define GLM_GTX_std_based_type
 
 // Dependency:
 #include "../glm.hpp"
 #include <cstdlib>
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_std_based_type extension included")
 #endif
 

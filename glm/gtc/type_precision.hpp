@@ -41,13 +41,13 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_type_precision
-#define GLM_GTC_type_precision GLM_VERSION
+#define GLM_GTC_type_precision
 
 // Dependency:
 #include "../glm.hpp"
 #include "../gtc/quaternion.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTC_type_precision extension included")
 #endif
 

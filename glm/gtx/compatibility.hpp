@@ -37,13 +37,13 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_compatibility
-#define GLM_GTX_compatibility GLM_VERSION
+#define GLM_GTX_compatibility
 
 // Dependency:
 #include "../glm.hpp"  
 #include "../gtc/quaternion.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_compatibility extension included")
 #endif
 

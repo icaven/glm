@@ -38,7 +38,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_vector_angle
-#define GLM_GTX_vector_angle GLM_VERSION
+#define GLM_GTX_vector_angle
 
 // Dependency:
 #include "../glm.hpp"
@@ -46,7 +46,7 @@
 #include "../gtx/quaternion.hpp"
 #include "../gtx/rotate_vector.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_vector_angle extension included")
 #endif
 

@@ -7,8 +7,8 @@
 // File    : test/core/type_mat2x4.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/core/func_vector_relational.hpp>
-#include <glm/core/type_mat2x4.hpp>
+#include <glm/vector_relational.hpp>
+#include <glm/mat2x4.hpp>
 #include <vector>
 
 static int test_operators()

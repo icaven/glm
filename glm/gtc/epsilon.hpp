@@ -38,13 +38,13 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTC_epsilon
-#define GLM_GTC_epsilon GLM_VERSION
+#define GLM_GTC_epsilon
 
 // Dependency:
 #include "../glm.hpp"
 #include "../gtc/quaternion.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTC_epsilon extension included")
 #endif
 

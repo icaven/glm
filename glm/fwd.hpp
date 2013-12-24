@@ -29,10 +29,10 @@
 #ifndef GLM_FWD_INCLUDED
 #define GLM_FWD_INCLUDED
 
-#include "core/type_int.hpp"
-#include "core/type_float.hpp"
-#include "core/type_vec.hpp"
-#include "core/type_mat.hpp"
+#include "detail/type_int.hpp"
+#include "detail/type_float.hpp"
+#include "detail/type_vec.hpp"
+#include "detail/type_mat.hpp"
 
 //////////////////////
 // GLM_GTC_quaternion

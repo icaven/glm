@@ -7,7 +7,7 @@
 // File    : test/core/func_matrix.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/core/func_matrix.hpp>
+#include <glm/matrix.hpp>
 
 int test_matrixCompMult()
 {
