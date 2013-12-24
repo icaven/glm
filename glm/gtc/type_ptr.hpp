@@ -60,8 +60,19 @@
 #define GLM_GTC_type_ptr
 
 // Dependency:
-#include "../glm.hpp"
 #include "../gtc/quaternion.hpp"
+#include "../vec2.hpp"
+#include "../vec3.hpp"
+#include "../vec4.hpp"
+#include "../mat2x2.hpp"
+#include "../mat2x3.hpp"
+#include "../mat2x4.hpp"
+#include "../mat3x2.hpp"
+#include "../mat3x3.hpp"
+#include "../mat3x4.hpp"
+#include "../mat4x2.hpp"
+#include "../mat4x3.hpp"
+#include "../mat4x4.hpp"
 #include <cstring>
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))

@@ -38,7 +38,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_CORE_func_trigonometric
-#define GLM_CORE_func_trigonometric GLM_VERSION
+#define GLM_CORE_func_trigonometric
 
 namespace glm
 {

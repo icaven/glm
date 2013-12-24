@@ -41,7 +41,10 @@
 #define GLM_GTC_quaternion
 
 // Dependency:
-#include "../glm.hpp"
+#include "../mat3x3.hpp"
+#include "../mat4x4.hpp"
+#include "../vec3.hpp"
+#include "../vec4.hpp"
 #include "../gtc/constants.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
@@ -61,7 +64,7 @@ namespace detail
 	public:
 		T x, y, z, w;
 
-		GLM_FUNC_DECL GLM_CONSTEXPR int length() const;
+		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
 
 		// Constructors
 		GLM_FUNC_DECL tquat();
@@ -102,12 +105,12 @@ namespace detail
 			tmat4x4<T, P> const & m);
 
 		// Accesses
-		GLM_FUNC_DECL T & operator[](int i);
-		GLM_FUNC_DECL T const & operator[](int i) const;
+		GLM_FUNC_DECL T & operator[](length_t i);
+		GLM_FUNC_DECL T const & operator[](length_t i) const;
 
 		// Operators
-    GLM_FUNC_DECL tquat<T, P> & operator+=(tquat<T, P> const & q);
-    GLM_FUNC_DECL tquat<T, P> & operator*=(tquat<T, P> const & q);
+		GLM_FUNC_DECL tquat<T, P> & operator+=(tquat<T, P> const & q);
+		GLM_FUNC_DECL tquat<T, P> & operator*=(tquat<T, P> const & q);
 		GLM_FUNC_DECL tquat<T, P> & operator*=(T const & s);
 		GLM_FUNC_DECL tquat<T, P> & operator/=(T const & s);
 	};

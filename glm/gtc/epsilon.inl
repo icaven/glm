@@ -26,6 +26,13 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+// Dependency:
+#include "quaternion.hpp"
+#include "../common.hpp"
+#include "../vec2.hpp"
+#include "../vec3.hpp"
+#include "../vec4.hpp"
+
 namespace glm
 {
 	GLM_FUNC_QUALIFIER bool epsilonEqual

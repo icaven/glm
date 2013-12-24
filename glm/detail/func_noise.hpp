@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_core_func_noise
-#define glm_core_func_noise GLM_VERSION
+#define glm_core_func_noise
 
 #include "type_vec1.hpp"
 #include "type_vec2.hpp"

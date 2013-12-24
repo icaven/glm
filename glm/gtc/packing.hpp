@@ -40,7 +40,7 @@
 #define GLM_GTC_packing
 
 // Dependency:
-#include "../glm.hpp"
+#include "type_precision.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTC_packing extension included")

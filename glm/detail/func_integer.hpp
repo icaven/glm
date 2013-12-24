@@ -36,7 +36,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_core_func_integer
-#define glm_core_func_integer GLM_VERSION
+#define glm_core_func_integer
 
 #include "setup.hpp"
 

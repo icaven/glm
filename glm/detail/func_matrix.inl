@@ -26,7 +26,11 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#include "func_geometric.hpp"
+#include "../geometric.hpp"
+#include "../vec2.hpp"
+#include "../vec3.hpp"
+#include "../vec4.hpp"
+#include <limits>
 
 namespace glm
 {

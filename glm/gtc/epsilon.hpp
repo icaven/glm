@@ -40,9 +40,8 @@
 #ifndef GLM_GTC_epsilon
 #define GLM_GTC_epsilon
 
-// Dependency:
-#include "../glm.hpp"
-#include "../gtc/quaternion.hpp"
+// Dependencies
+#include "../detail/setup.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTC_epsilon extension included")
@@ -58,19 +57,19 @@ namespace glm
 	///
 	/// @see gtc_epsilon
 	template <typename genType>
-	typename genType::boolType epsilonEqual(
+	typename genType::bool_type epsilonEqual(
 		genType const & x,
 		genType const & y,
-		typename genType::T const & epsilon);
+		typename genType::value_type const & epsilon);
 
 	/// Returns the component-wise comparison of |x - y| < epsilon.
 	/// True if this expression is satisfied.
 	///
 	/// @see gtc_epsilon
-	template <typename genType> 
-	typename genType::boolType epsilonEqual(
-		genType const & x, 
-		genType const & y, 
+	template <typename genType>
+	typename genType::bool_type epsilonEqual(
+		genType const & x,
+		genType const & y,
 		genType const & epsilon);
 
 	/// Returns the component-wise comparison of |x - y| < epsilon.
@@ -81,7 +80,7 @@ namespace glm
 	typename genType::boolType epsilonNotEqual(
 		genType const & x,
 		genType const & y,
-		typename genType::T const & epsilon);
+		typename genType::value_type const & epsilon);
 
 	/// Returns the component-wise comparison of |x - y| >= epsilon.
 	/// True if this expression is not satisfied.
@@ -89,8 +88,8 @@ namespace glm
 	/// @see gtc_epsilon
 	template <typename genType>
 	typename genType::boolType epsilonNotEqual(
-		genType const & x, 
-		genType const & y, 
+		genType const & x,
+		genType const & y,
 		genType const & epsilon);
 
 	/// @}

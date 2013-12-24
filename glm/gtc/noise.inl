@@ -31,109 +31,13 @@
 // http://www.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "../geometric.hpp"
+#include "../common.hpp"
+#include "../vector_relational.hpp"
+#include "../detail/_noise.hpp"
+
 namespace glm
 {
-	template <typename T>
-	GLM_FUNC_QUALIFIER T mod289(T const & x)
-	{
-		return x - floor(x * T(1.0 / 289.0)) * T(289.0);
-	}
-
-	template <typename T>
-	GLM_FUNC_QUALIFIER T permute(T const & x)
-	{
-		return mod289(((x * T(34)) + T(1)) * x);
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<T, P> permute(detail::tvec2<T, P> const & x)
-	{
-		return mod289(((x * T(34)) + T(1)) * x);
-	}
-	
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> permute(detail::tvec3<T, P> const & x)
-	{
-		return mod289(((x * T(34)) + T(1)) * x);
-	}
-	
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<T, P> permute(detail::tvec4<T, P> const & x)
-	{
-		return mod289(((x * T(34)) + T(1)) * x);
-	}
-/*
-	template <typename T, precision P, template<typename> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> permute(vecType<T, P> const & x)
-	{
-		return mod289(((x * T(34)) + T(1)) * x);
-	}
-*/
-	template <typename T>
-	GLM_FUNC_QUALIFIER T taylorInvSqrt(T const & r)
-	{
-		return T(1.79284291400159) - T(0.85373472095314) * r;
-	}
-	
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<T, P> taylorInvSqrt(detail::tvec2<T, P> const & r)
-	{
-		return T(1.79284291400159) - T(0.85373472095314) * r;
-	}
-	
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> taylorInvSqrt(detail::tvec3<T, P> const & r)
-	{
-		return T(1.79284291400159) - T(0.85373472095314) * r;
-	}
-	
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<T, P> taylorInvSqrt(detail::tvec4<T, P> const & r)
-	{
-		return T(1.79284291400159) - T(0.85373472095314) * r;
-	}
-/*
-	template <typename T, precision P, template<typename> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> taylorInvSqrt(vecType<T, P> const & r)
-	{
-		return T(1.79284291400159) - T(0.85373472095314) * r;
-	}
-*/
-	
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<T, P> fade(detail::tvec2<T, P> const & t)
-	{
-		return (t * t * t) * (t * (t * T(6) - T(15)) + T(10));
-	}
-	
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> fade(detail::tvec3<T, P> const & t)
-	{
-		return (t * t * t) * (t * (t * T(6) - T(15)) + T(10));
-	}
-	
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<T, P> fade(detail::tvec4<T, P> const & t)
-	{
-		return (t * t * t) * (t * (t * T(6) - T(15)) + T(10));
-	}
-/*
-	template <typename T, precision P, template <typename> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> fade(vecType<T, P> const & t)
-	{
-		return (t * t * t) * (t * (t * T(6) - T(15)) + T(10));
-	}
-*/
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<T, P> grad4(T const & j, detail::tvec4<T, P> const & ip)
-	{
-		detail::tvec3<T, P> pXYZ = floor(fract(detail::tvec3<T, P>(j) * detail::tvec3<T, P>(ip)) * T(7)) * ip[2] - T(1);
-		T pW = static_cast<T>(1.5) - dot(abs(pXYZ), detail::tvec3<T, P>(1));
-		detail::tvec4<T, P> s = detail::tvec4<T, P>(lessThan(detail::tvec4<T, P>(pXYZ, pW), detail::tvec4<T, P>(0.0)));
-		pXYZ = pXYZ + (detail::tvec3<T, P>(s) * T(2) - T(1)) * s.w; 
-		return detail::tvec4<T, P>(pXYZ, pW);
-	}
-
 	// Classic Perlin noise
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T perlin(detail::tvec2<T, P> const & Position)
@@ -146,7 +50,7 @@ namespace glm
 		detail::tvec4<T, P> fx(Pf.x, Pf.z, Pf.x, Pf.z);
 		detail::tvec4<T, P> fy(Pf.y, Pf.y, Pf.w, Pf.w);
 
-		detail::tvec4<T, P> i = glm::permute(glm::permute(ix) + iy);
+		detail::tvec4<T, P> i = detail::permute(detail::permute(ix) + iy);
 
 		detail::tvec4<T, P> gx = static_cast<T>(2) * glm::fract(i / T(41)) - T(1);
 		detail::tvec4<T, P> gy = glm::abs(gx) - T(0.5);
@@ -190,9 +94,9 @@ namespace glm
 		detail::tvec4<T, P> iz0(Pi0.z);
 		detail::tvec4<T, P> iz1(Pi1.z);
 
-		detail::tvec4<T, P> ixy = permute(permute(ix) + iy);
-		detail::tvec4<T, P> ixy0 = permute(ixy + iz0);
-		detail::tvec4<T, P> ixy1 = permute(ixy + iz1);
+		detail::tvec4<T, P> ixy = detail::permute(detail::permute(ix) + iy);
+		detail::tvec4<T, P> ixy0 = detail::permute(ixy + iz0);
+		detail::tvec4<T, P> ixy1 = detail::permute(ixy + iz1);
 
 		detail::tvec4<T, P> gx0 = ixy0 * T(1.0 / 7.0);
 		detail::tvec4<T, P> gy0 = fract(floor(gx0) * T(1.0 / 7.0)) - T(0.5);
@@ -219,12 +123,12 @@ namespace glm
 		detail::tvec3<T, P> g011(gx1.z, gy1.z, gz1.z);
 		detail::tvec3<T, P> g111(gx1.w, gy1.w, gz1.w);
 
-		detail::tvec4<T, P> norm0 = taylorInvSqrt(detail::tvec4<T, P>(dot(g000, g000), dot(g010, g010), dot(g100, g100), dot(g110, g110)));
+		detail::tvec4<T, P> norm0 = detail::taylorInvSqrt(detail::tvec4<T, P>(dot(g000, g000), dot(g010, g010), dot(g100, g100), dot(g110, g110)));
 		g000 *= norm0.x;
 		g010 *= norm0.y;
 		g100 *= norm0.z;
 		g110 *= norm0.w;
-		detail::tvec4<T, P> norm1 = taylorInvSqrt(detail::tvec4<T, P>(dot(g001, g001), dot(g011, g011), dot(g101, g101), dot(g111, g111)));
+		detail::tvec4<T, P> norm1 = detail::taylorInvSqrt(detail::tvec4<T, P>(dot(g001, g001), dot(g011, g011), dot(g101, g101), dot(g111, g111)));
 		g001 *= norm1.x;
 		g011 *= norm1.y;
 		g101 *= norm1.z;
@@ -336,13 +240,13 @@ namespace glm
 		detail::tvec4<T, P> iw0(Pi0.w);
 		detail::tvec4<T, P> iw1(Pi1.w);
 
-		detail::tvec4<T, P> ixy = permute(permute(ix) + iy);
-		detail::tvec4<T, P> ixy0 = permute(ixy + iz0);
-		detail::tvec4<T, P> ixy1 = permute(ixy + iz1);
-		detail::tvec4<T, P> ixy00 = permute(ixy0 + iw0);
-		detail::tvec4<T, P> ixy01 = permute(ixy0 + iw1);
-		detail::tvec4<T, P> ixy10 = permute(ixy1 + iw0);
-		detail::tvec4<T, P> ixy11 = permute(ixy1 + iw1);
+		detail::tvec4<T, P> ixy = detail::permute(detail::permute(ix) + iy);
+		detail::tvec4<T, P> ixy0 = detail::permute(ixy + iz0);
+		detail::tvec4<T, P> ixy1 = detail::permute(ixy + iz1);
+		detail::tvec4<T, P> ixy00 = detail::permute(ixy0 + iw0);
+		detail::tvec4<T, P> ixy01 = detail::permute(ixy0 + iw1);
+		detail::tvec4<T, P> ixy10 = detail::permute(ixy1 + iw0);
+		detail::tvec4<T, P> ixy11 = detail::permute(ixy1 + iw1);
 
 		detail::tvec4<T, P> gx00 = ixy00 / T(7);
 		detail::tvec4<T, P> gy00 = floor(gx00) / T(7);
@@ -405,25 +309,25 @@ namespace glm
 		detail::tvec4<T, P> g0111(gx11.z, gy11.z, gz11.z, gw11.z);
 		detail::tvec4<T, P> g1111(gx11.w, gy11.w, gz11.w, gw11.w);
 
-		detail::tvec4<T, P> norm00 = taylorInvSqrt(detail::tvec4<T, P>(dot(g0000, g0000), dot(g0100, g0100), dot(g1000, g1000), dot(g1100, g1100)));
+		detail::tvec4<T, P> norm00 = detail::taylorInvSqrt(detail::tvec4<T, P>(dot(g0000, g0000), dot(g0100, g0100), dot(g1000, g1000), dot(g1100, g1100)));
 		g0000 *= norm00.x;
 		g0100 *= norm00.y;
 		g1000 *= norm00.z;
 		g1100 *= norm00.w;
 
-		detail::tvec4<T, P> norm01 = taylorInvSqrt(detail::tvec4<T, P>(dot(g0001, g0001), dot(g0101, g0101), dot(g1001, g1001), dot(g1101, g1101)));
+		detail::tvec4<T, P> norm01 = detail::taylorInvSqrt(detail::tvec4<T, P>(dot(g0001, g0001), dot(g0101, g0101), dot(g1001, g1001), dot(g1101, g1101)));
 		g0001 *= norm01.x;
 		g0101 *= norm01.y;
 		g1001 *= norm01.z;
 		g1101 *= norm01.w;
 
-		detail::tvec4<T, P> norm10 = taylorInvSqrt(detail::tvec4<T, P>(dot(g0010, g0010), dot(g0110, g0110), dot(g1010, g1010), dot(g1110, g1110)));
+		detail::tvec4<T, P> norm10 = detail::taylorInvSqrt(detail::tvec4<T, P>(dot(g0010, g0010), dot(g0110, g0110), dot(g1010, g1010), dot(g1110, g1110)));
 		g0010 *= norm10.x;
 		g0110 *= norm10.y;
 		g1010 *= norm10.z;
 		g1110 *= norm10.w;
 
-		detail::tvec4<T, P> norm11 = taylorInvSqrt(detail::tvec4<T, P>(dot(g0011, g0011), dot(g0111, g0111), dot(g1011, g1011), dot(g1111, g1111)));
+		detail::tvec4<T, P> norm11 = detail::taylorInvSqrt(detail::tvec4<T, P>(dot(g0011, g0011), dot(g0111, g0111), dot(g1011, g1011), dot(g1111, g1111)));
 		g0011 *= norm11.x;
 		g0111 *= norm11.y;
 		g1011 *= norm11.z;
@@ -468,7 +372,7 @@ namespace glm
 		detail::tvec4<T, P> fx(Pf.x, Pf.z, Pf.x, Pf.z);
 		detail::tvec4<T, P> fy(Pf.y, Pf.y, Pf.w, Pf.w);
 
-		detail::tvec4<T, P> i = permute(permute(ix) + iy);
+		detail::tvec4<T, P> i = detail::permute(detail::permute(ix) + iy);
 
 		detail::tvec4<T, P> gx = static_cast<T>(2) * fract(i / T(41)) - T(1);
 		detail::tvec4<T, P> gy = abs(gx) - T(0.5);
@@ -480,7 +384,7 @@ namespace glm
 		detail::tvec2<T, P> g01(gx.z, gy.z);
 		detail::tvec2<T, P> g11(gx.w, gy.w);
 
-		detail::tvec4<T, P> norm = taylorInvSqrt(detail::tvec4<T, P>(dot(g00, g00), dot(g01, g01), dot(g10, g10), dot(g11, g11)));
+		detail::tvec4<T, P> norm = detail::taylorInvSqrt(detail::tvec4<T, P>(dot(g00, g00), dot(g01, g01), dot(g10, g10), dot(g11, g11)));
 		g00 *= norm.x;
 		g01 *= norm.y;
 		g10 *= norm.z;
@@ -512,9 +416,9 @@ namespace glm
 		detail::tvec4<T, P> iz0(Pi0.z);
 		detail::tvec4<T, P> iz1(Pi1.z);
 
-		detail::tvec4<T, P> ixy = permute(permute(ix) + iy);
-		detail::tvec4<T, P> ixy0 = permute(ixy + iz0);
-		detail::tvec4<T, P> ixy1 = permute(ixy + iz1);
+		detail::tvec4<T, P> ixy = detail::permute(detail::permute(ix) + iy);
+		detail::tvec4<T, P> ixy0 = detail::permute(ixy + iz0);
+		detail::tvec4<T, P> ixy1 = detail::permute(ixy + iz1);
 
 		detail::tvec4<T, P> gx0 = ixy0 / T(7);
 		detail::tvec4<T, P> gy0 = fract(floor(gx0) / T(7)) - T(0.5);
@@ -541,12 +445,12 @@ namespace glm
 		detail::tvec3<T, P> g011 = detail::tvec3<T, P>(gx1.z, gy1.z, gz1.z);
 		detail::tvec3<T, P> g111 = detail::tvec3<T, P>(gx1.w, gy1.w, gz1.w);
 
-		detail::tvec4<T, P> norm0 = taylorInvSqrt(detail::tvec4<T, P>(dot(g000, g000), dot(g010, g010), dot(g100, g100), dot(g110, g110)));
+		detail::tvec4<T, P> norm0 = detail::taylorInvSqrt(detail::tvec4<T, P>(dot(g000, g000), dot(g010, g010), dot(g100, g100), dot(g110, g110)));
 		g000 *= norm0.x;
 		g010 *= norm0.y;
 		g100 *= norm0.z;
 		g110 *= norm0.w;
-		detail::tvec4<T, P> norm1 = taylorInvSqrt(detail::tvec4<T, P>(dot(g001, g001), dot(g011, g011), dot(g101, g101), dot(g111, g111)));
+		detail::tvec4<T, P> norm1 = detail::taylorInvSqrt(detail::tvec4<T, P>(dot(g001, g001), dot(g011, g011), dot(g101, g101), dot(g111, g111)));
 		g001 *= norm1.x;
 		g011 *= norm1.y;
 		g101 *= norm1.z;
@@ -564,7 +468,7 @@ namespace glm
 		detail::tvec3<T, P> fade_xyz = fade(Pf0);
 		detail::tvec4<T, P> n_z = mix(detail::tvec4<T, P>(n000, n100, n010, n110), detail::tvec4<T, P>(n001, n101, n011, n111), fade_xyz.z);
 		detail::tvec2<T, P> n_yz = mix(detail::tvec2<T, P>(n_z.x, n_z.y), detail::tvec2<T, P>(n_z.z, n_z.w), fade_xyz.y);
-		T n_xyz = mix(n_yz.x, n_yz.y, fade_xyz.x); 
+		T n_xyz = mix(n_yz.x, n_yz.y, fade_xyz.x);
 		return T(2.2) * n_xyz;
 	}
 
@@ -583,13 +487,13 @@ namespace glm
 		detail::tvec4<T, P> iw0(Pi0.w);
 		detail::tvec4<T, P> iw1(Pi1.w);
 
-		detail::tvec4<T, P> ixy = permute(permute(ix) + iy);
-		detail::tvec4<T, P> ixy0 = permute(ixy + iz0);
-		detail::tvec4<T, P> ixy1 = permute(ixy + iz1);
-		detail::tvec4<T, P> ixy00 = permute(ixy0 + iw0);
-		detail::tvec4<T, P> ixy01 = permute(ixy0 + iw1);
-		detail::tvec4<T, P> ixy10 = permute(ixy1 + iw0);
-		detail::tvec4<T, P> ixy11 = permute(ixy1 + iw1);
+		detail::tvec4<T, P> ixy = detail::permute(detail::permute(ix) + iy);
+		detail::tvec4<T, P> ixy0 = detail::permute(ixy + iz0);
+		detail::tvec4<T, P> ixy1 = detail::permute(ixy + iz1);
+		detail::tvec4<T, P> ixy00 = detail::permute(ixy0 + iw0);
+		detail::tvec4<T, P> ixy01 = detail::permute(ixy0 + iw1);
+		detail::tvec4<T, P> ixy10 = detail::permute(ixy1 + iw0);
+		detail::tvec4<T, P> ixy11 = detail::permute(ixy1 + iw1);
 
 		detail::tvec4<T, P> gx00 = ixy00 / T(7);
 		detail::tvec4<T, P> gy00 = floor(gx00) / T(7);
@@ -652,13 +556,13 @@ namespace glm
 		detail::tvec4<T, P> g0111(gx11.z, gy11.z, gz11.z, gw11.z);
 		detail::tvec4<T, P> g1111(gx11.w, gy11.w, gz11.w, gw11.w);
 
-		detail::tvec4<T, P> norm00 = taylorInvSqrt(detail::tvec4<T, P>(dot(g0000, g0000), dot(g0100, g0100), dot(g1000, g1000), dot(g1100, g1100)));
+		detail::tvec4<T, P> norm00 = detail::taylorInvSqrt(detail::tvec4<T, P>(dot(g0000, g0000), dot(g0100, g0100), dot(g1000, g1000), dot(g1100, g1100)));
 		g0000 *= norm00.x;
 		g0100 *= norm00.y;
 		g1000 *= norm00.z;
 		g1100 *= norm00.w;
 
-		detail::tvec4<T, P> norm01 = taylorInvSqrt(detail::tvec4<T, P>(dot(g0001, g0001), dot(g0101, g0101), dot(g1001, g1001), dot(g1101, g1101)));
+		detail::tvec4<T, P> norm01 = detail::taylorInvSqrt(detail::tvec4<T, P>(dot(g0001, g0001), dot(g0101, g0101), dot(g1001, g1001), dot(g1101, g1101)));
 		g0001 *= norm01.x;
 		g0101 *= norm01.y;
 		g1001 *= norm01.z;
@@ -727,8 +631,8 @@ namespace glm
 
 		// Permutations
 		i = mod(i, T(289)); // Avoid truncation effects in permutation
-		detail::tvec3<T, P> p = permute(
-			permute(i.y + detail::tvec3<T, P>(T(0), i1.y, T(1)))
+		detail::tvec3<T, P> p = detail::permute(
+			detail::permute(i.y + detail::tvec3<T, P>(T(0), i1.y, T(1)))
 			+ i.x + detail::tvec3<T, P>(T(0), i1.x, T(1)));
 
 		detail::tvec3<T, P> m = max(T(0.5) - detail::tvec3<T, P>(
@@ -785,9 +689,9 @@ namespace glm
 
 		// Permutations
 		i = mod289(i); 
-		detail::tvec4<T, P> p(permute(permute(permute( 
-			i.z + detail::tvec4<T, P>(T(0), i1.z, i2.z, T(1))) + 
-			i.y + detail::tvec4<T, P>(T(0), i1.y, i2.y, T(1))) + 
+		detail::tvec4<T, P> p(detail::permute(detail::permute(detail::permute(
+			i.z + detail::tvec4<T, P>(T(0), i1.z, i2.z, T(1))) +
+			i.y + detail::tvec4<T, P>(T(0), i1.y, i2.y, T(1))) +
 			i.x + detail::tvec4<T, P>(T(0), i1.x, i2.x, T(1))));
 
 		// Gradients: 7x7 points over a square, mapped onto an octahedron.
@@ -822,7 +726,7 @@ namespace glm
 		detail::tvec3<T, P> p3(a1.z, a1.w, h.w);
 
 		// Normalise gradients
-		detail::tvec4<T, P> norm = taylorInvSqrt(detail::tvec4<T, P>(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
+		detail::tvec4<T, P> norm = detail::taylorInvSqrt(detail::tvec4<T, P>(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
 		p0 *= norm.x;
 		p1 *= norm.y;
 		p2 *= norm.z;
@@ -885,8 +789,8 @@ namespace glm
 
 		// Permutations
 		i = mod(i, T(289)); 
-		T j0 = permute(permute(permute(permute(i.w) + i.z) + i.y) + i.x);
-		detail::tvec4<T, P> j1 = permute(permute(permute(permute(
+		T j0 = detail::permute(detail::permute(detail::permute(detail::permute(i.w) + i.z) + i.y) + i.x);
+		detail::tvec4<T, P> j1 = detail::permute(detail::permute(detail::permute(detail::permute(
 					i.w + detail::tvec4<T, P>(i1.w, i2.w, i3.w, T(1)))
 				+ i.z + detail::tvec4<T, P>(i1.z, i2.z, i3.z, T(1)))
 				+ i.y + detail::tvec4<T, P>(i1.y, i2.y, i3.y, T(1)))
@@ -896,19 +800,19 @@ namespace glm
 		// 7*7*6 = 294, which is close to the ring size 17*17 = 289.
 		detail::tvec4<T, P> ip = detail::tvec4<T, P>(T(1) / T(294), T(1) / T(49), T(1) / T(7), T(0));
 
-		detail::tvec4<T, P> p0 = grad4(j0,   ip);
-		detail::tvec4<T, P> p1 = grad4(j1.x, ip);
-		detail::tvec4<T, P> p2 = grad4(j1.y, ip);
-		detail::tvec4<T, P> p3 = grad4(j1.z, ip);
-		detail::tvec4<T, P> p4 = grad4(j1.w, ip);
+		detail::tvec4<T, P> p0 = detail::grad4(j0,   ip);
+		detail::tvec4<T, P> p1 = detail::grad4(j1.x, ip);
+		detail::tvec4<T, P> p2 = detail::grad4(j1.y, ip);
+		detail::tvec4<T, P> p3 = detail::grad4(j1.z, ip);
+		detail::tvec4<T, P> p4 = detail::grad4(j1.w, ip);
 
 		// Normalise gradients
-		detail::tvec4<T, P> norm = taylorInvSqrt(detail::tvec4<T, P>(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
+		detail::tvec4<T, P> norm = detail::taylorInvSqrt(detail::tvec4<T, P>(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
 		p0 *= norm.x;
 		p1 *= norm.y;
 		p2 *= norm.z;
 		p3 *= norm.w;
-		p4 *= taylorInvSqrt(dot(p4, p4));
+		p4 *= detail::taylorInvSqrt(dot(p4, p4));
 
 		// Mix contributions from the five corners
 		detail::tvec3<T, P> m0 = max(T(0.6) - detail::tvec3<T, P>(dot(x0, x0), dot(x1, x1), dot(x2, x2)), T(0));

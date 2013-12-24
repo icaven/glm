@@ -39,8 +39,8 @@
 #ifndef GLM_GTC_ulp
 #define GLM_GTC_ulp
 
-// Dependency:
-#include "../glm.hpp"
+// Dependencies
+#include "../detail/setup.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTC_ulp extension included")

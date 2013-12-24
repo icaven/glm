@@ -26,6 +26,9 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "../trigonometric.hpp"
+#include <limits>
+
 namespace glm
 {
 	// sec

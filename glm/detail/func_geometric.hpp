@@ -34,7 +34,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef glm_core_func_geometric
-#define glm_core_func_geometric GLM_VERSION
+#define glm_core_func_geometric
 
 #include "type_vec3.hpp"
 

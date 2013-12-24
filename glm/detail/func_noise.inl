@@ -26,6 +26,9 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "../detail/_noise.hpp"
+#include "./func_common.hpp"
+
 namespace glm
 {
 	template <typename T>
@@ -87,8 +90,8 @@ namespace glm
 		
 		// Permutations
 		i = mod(i, T(289)); // Avoid truncation effects in permutation
-		detail::tvec3<T, P> p = permute(
-			permute(i.y + detail::tvec3<T, P>(T(0), i1.y, T(1))) + i.x + detail::tvec3<T, P>(T(0), i1.x, T(1)));
+		detail::tvec3<T, P> p = detail::permute(
+			detail::permute(i.y + detail::tvec3<T, P>(T(0), i1.y, T(1))) + i.x + detail::tvec3<T, P>(T(0), i1.x, T(1)));
 		
 		detail::tvec3<T, P> m = max(T(0.5) - detail::tvec3<T, P>(
 			dot(x0, x0),
@@ -145,7 +148,7 @@ namespace glm
 		
 		// Permutations
 		i = mod289(i); 
-		detail::tvec4<T, P> p(permute(permute(permute(
+		detail::tvec4<T, P> p(detail::permute(detail::permute(detail::permute(
 			i.z + detail::tvec4<T, P>(T(0), i1.z, i2.z, T(1))) +
 			i.y + detail::tvec4<T, P>(T(0), i1.y, i2.y, T(1))) +
 			i.x + detail::tvec4<T, P>(T(0), i1.x, i2.x, T(1))));
@@ -248,8 +251,8 @@ namespace glm
 		
 		// Permutations
 		i = mod(i, T(289));
-		T j0 = permute(permute(permute(permute(i.w) + i.z) + i.y) + i.x);
-		detail::tvec4<T, P> j1 = permute(permute(permute(permute(
+		T j0 = detail::permute(detail::permute(detail::permute(detail::permute(i.w) + i.z) + i.y) + i.x);
+		detail::tvec4<T, P> j1 = detail::permute(detail::permute(detail::permute(detail::permute(
 			i.w + detail::tvec4<T, P>(i1.w, i2.w, i3.w, T(1))) +
 			i.z + detail::tvec4<T, P>(i1.z, i2.z, i3.z, T(1))) +
 			i.y + detail::tvec4<T, P>(i1.y, i2.y, i3.y, T(1))) +
@@ -259,14 +262,14 @@ namespace glm
 		// 7*7*6 = 294, which is close to the ring size 17*17 = 289.
 		detail::tvec4<T, P> ip = detail::tvec4<T, P>(T(1) / T(294), T(1) / T(49), T(1) / T(7), T(0));
 		
-		detail::tvec4<T, P> p0 = grad4(j0,   ip);
-		detail::tvec4<T, P> p1 = grad4(j1.x, ip);
-		detail::tvec4<T, P> p2 = grad4(j1.y, ip);
-		detail::tvec4<T, P> p3 = grad4(j1.z, ip);
-		detail::tvec4<T, P> p4 = grad4(j1.w, ip);
+		detail::tvec4<T, P> p0 = detail::grad4(j0,   ip);
+		detail::tvec4<T, P> p1 = detail::grad4(j1.x, ip);
+		detail::tvec4<T, P> p2 = detail::grad4(j1.y, ip);
+		detail::tvec4<T, P> p3 = detail::grad4(j1.z, ip);
+		detail::tvec4<T, P> p4 = detail::grad4(j1.w, ip);
 		
 		// Normalise gradients
-		detail::tvec4<T, P> norm = taylorInvSqrt(detail::tvec4<T, P>(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
+		detail::tvec4<T, P> norm = detail::taylorInvSqrt(detail::tvec4<T, P>(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
 		p0 *= norm.x;
 		p1 *= norm.y;
 		p2 *= norm.z;

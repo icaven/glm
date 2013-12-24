@@ -39,7 +39,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_CORE_func_vector_relational
-#define GLM_CORE_func_vector_relational GLM_VERSION
+#define GLM_CORE_func_vector_relational
 
 #include "precision.hpp"
 #include "setup.hpp"

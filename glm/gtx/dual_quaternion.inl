@@ -26,6 +26,7 @@
 /// @author Maksim Vorobiev (msomeone@gmail.com)
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "../geometric.hpp"
 #include <limits>
 
 namespace glm{

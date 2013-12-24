@@ -26,6 +26,12 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "../common.hpp"
+#include "../vec2.hpp"
+#include "../vec3.hpp"
+#include "../vec4.hpp"
+#include "../detail/type_half.hpp"
+
 namespace glm{
 namespace detail
 {
@@ -42,9 +48,9 @@ namespace detail
 		// 0x7f800000 => 01111111 10000000 00000000 00000000
 		// 0x00008000 => 00000000 00000000 10000000 00000000
 		return
-		((f >> 16) & 0x8000) | // sign
-		((((f & 0x7f800000) - 0x38000000) >> 13) & 0x7c00) | // exponential
-		((f >> 13) & 0x03ff); // Mantissa
+			((f >> 16) & 0x8000) | // sign
+			((((f & 0x7f800000) - 0x38000000) >> 13) & 0x7c00) | // exponential
+			((f >> 13) & 0x03ff); // Mantissa
 	}
 
 	GLM_FUNC_QUALIFIER glm::uint32 float2packed11(glm::uint32 const & f)

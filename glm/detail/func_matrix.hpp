@@ -38,7 +38,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_CORE_func_matrix
-#define GLM_CORE_func_matrix GLM_VERSION
+#define GLM_CORE_func_matrix
 
 #include "type_mat2x2.hpp"
 #include "type_mat2x3.hpp"

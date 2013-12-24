@@ -47,7 +47,10 @@
 #define GLM_GTC_matrix_transform
 
 // Dependency:
-#include "../glm.hpp"
+#include "../mat4x4.hpp"
+#include "../vec2.hpp"
+#include "../vec3.hpp"
+#include "../vec4.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTC_matrix_transform extension included")

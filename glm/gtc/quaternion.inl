@@ -26,13 +26,16 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "../trigonometric.hpp"
+#include "../geometric.hpp"
+#include "../exponential.hpp"
 #include <limits>
 
 namespace glm{
 namespace detail
 {
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR int tquat<T, P>::length() const
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t tquat<T, P>::length() const
 	{
 		return 4;
 	}
@@ -166,14 +169,14 @@ namespace detail
 	// tquat<T, P> accesses
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER T & tquat<T, P>::operator[] (int i)
+	GLM_FUNC_QUALIFIER T & tquat<T, P>::operator[] (length_t i)
 	{
 		assert(i >= 0 && i < this->length());
 		return (&x)[i];
 	}
 
-	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER T const & tquat<T, P>::operator[] (int i) const
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER T const & tquat<T, P>::operator[] (length_t i) const
 	{
 		assert(i >= 0 && i < this->length());
 		return (&x)[i];
@@ -182,34 +185,34 @@ namespace detail
 	//////////////////////////////////////////////////////////////
 	// tquat<valType> operators
 
-  template <typename T, precision P>
-  GLM_FUNC_QUALIFIER tquat<T, P> & tquat<T, P>::operator +=
-  (
-   tquat<T, P> const & q
-  )
-  {
-    this->w += q.w;
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tquat<T, P> & tquat<T, P>::operator +=
+	(
+		tquat<T, P> const & q
+	)
+	{
+		this->w += q.w;
 		this->x += q.x;
 		this->y += q.y;
 		this->z += q.z;
 		return *this;
-  }
+	}
 
-  template <typename T, precision P>
-  GLM_FUNC_QUALIFIER tquat<T, P> & tquat<T, P>::operator *=
-  (
-   tquat<T, P> const & q
-  )
-  {
-    tquat<T, P> const p(*this);
-    
-    this->w = p.w * q.w - p.x * q.x - p.y * q.y - p.z * q.z;
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tquat<T, P> & tquat<T, P>::operator *=
+	(
+		tquat<T, P> const & q
+	)
+	{
+		tquat<T, P> const p(*this);
+
+		this->w = p.w * q.w - p.x * q.x - p.y * q.y - p.z * q.z;
 		this->x = p.w * q.x + p.x * q.w + p.y * q.z - p.z * q.y;
 		this->y = p.w * q.y + p.y * q.w + p.z * q.x - p.x * q.z;
 		this->z = p.w * q.z + p.z * q.w + p.x * q.y - p.y * q.x;
 		return *this;
-  }
-    
+	}
+
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tquat<T, P> & tquat<T, P>::operator *=
 	(
@@ -222,7 +225,7 @@ namespace detail
 		this->z *= s;
 		return *this;
 	}
-    
+
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tquat<T, P> & tquat<T, P>::operator /=
 	(

@@ -26,6 +26,9 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "../geometric.hpp"
+#include "../trigonometric.hpp"
+
 namespace glm
 {
 	template <typename T, precision P>

@@ -34,7 +34,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_CORE_func_packing
-#define GLM_CORE_func_packing GLM_VERSION
+#define GLM_CORE_func_packing
 
 #include "type_vec2.hpp"
 #include "type_vec4.hpp"
