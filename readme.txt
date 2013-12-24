@@ -73,6 +73,7 @@ GLM 0.9.5.0: 2013-12-25
 - Fixed CUDA coverage for GTC extensions
 - Added GTX_io extension
 - Improved GLM messages enabled when defining GLM_MESSAGES
+- Implementation detail _inverse is now private
 
 ================================================================================
 GLM 0.9.4.6: 2013-09-20

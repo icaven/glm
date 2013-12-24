@@ -31,8 +31,8 @@ namespace glm
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType row
 	(
-		genType const & m, 
-		int const & index, 
+		genType const & m,
+		int const & index,
 		typename genType::row_type const & x
 	)
 	{

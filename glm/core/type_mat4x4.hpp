@@ -57,15 +57,16 @@ namespace detail
 
 		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
 
-	public:
-		/// Implementation detail
+		friend tmat4x4<T, P> inverse(tmat4x4<T, P> const & m);
+		friend col_type operator/(tmat4x4<T, P> const & m, row_type const & v);
+		friend row_type operator/(row_type const & v, tmat4x4<T, P> const & m);
+		
+	private:
 		/// @cond DETAIL
+		col_type value[4];
+		
 		GLM_FUNC_DECL tmat4x4<T, P> _inverse() const;
 		/// @endcond
-
-	private:
-		// Data 
-		col_type value[4];
 
 	public:
 		// Constructors

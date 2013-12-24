@@ -418,7 +418,7 @@ namespace detail
 	template <typename U>
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> & tmat3x3<T, P>::operator/= (tmat3x3<U, P> const & m)
 	{
-		return (*this = *this / m);
+		return (*this = *this * m._inverse());
 	}
 
 	template <typename T, precision P>
@@ -764,7 +764,8 @@ namespace detail
 		tmat3x3<T, P> const & m2
 	)
 	{
-		return m1 * m2._inverse();
+		tmat3x3<T, P> m1_copy(m1);
+		return m1_copy /= m2;
 	}
 
 	// Unary constant operators

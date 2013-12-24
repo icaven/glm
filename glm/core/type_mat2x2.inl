@@ -395,7 +395,7 @@ namespace detail
 	template <typename U>
 	GLM_FUNC_QUALIFIER tmat2x2<T, P>& tmat2x2<T, P>::operator/= (tmat2x2<U, P> const & m)
 	{
-		return (*this = *this / m);
+		return (*this = *this * m._inverse());
 	}
 
 	template <typename T, precision P>
@@ -648,11 +648,12 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat2x2<T, P> operator/
 	(
-		tmat2x2<T, P> const & m1, 
+		tmat2x2<T, P> const & m1,
 		tmat2x2<T, P> const & m2
 	)
-	{
-		return m1 * m2._inverse();
+	{	
+		tmat2x2<T, P> m1_copy(m1);
+		return m1_copy /= m2;
 	}
 
 	// Unary constant operators

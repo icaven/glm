@@ -40,7 +40,6 @@ namespace detail
 	template <typename T, precision P>
 	struct tmat2x2
 	{
-		// Implementation detail
 		enum ctor{_null};
 		typedef T value_type;
 		typedef std::size_t size_type;
@@ -54,15 +53,17 @@ namespace detail
 
 		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
 
-	public:
-		// Implementation detail
-		GLM_FUNC_DECL tmat2x2<T, P> _inverse() const;
-
+		friend tmat2x2<T, P> inverse(tmat2x2<T, P> const & m);
+		friend col_type operator/(tmat2x2<T, P> const & m, row_type const & v);
+		friend row_type operator/(row_type const & v, tmat2x2<T, P> const & m);
+		
 	private:
-		//////////////////////////////////////
-		// Implementation detail
+		/// @cond DETAIL
 		col_type value[2];
 
+		GLM_FUNC_DECL tmat2x2<T, P> _inverse() const;
+		/// @endcond
+		
 	public:
 		//////////////////////////////////////
 		// Constructors

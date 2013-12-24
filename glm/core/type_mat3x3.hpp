@@ -53,16 +53,17 @@ namespace detail
 
 		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
 
-	public:
-		/// Implementation detail
-		/// @cond DETAIL
-		GLM_FUNC_DECL tmat3x3<T, P> _inverse() const;
-		/// @endcond
-
+		friend tmat3x3<T, P> inverse(tmat3x3<T, P> const & m);
+		friend col_type operator/(tmat3x3<T, P> const & m, row_type const & v);
+		friend row_type operator/(row_type const & v, tmat3x3<T, P> const & m);
+		
 	private:
-		// Data
+		/// @cond DETAIL
 		col_type value[3];
 
+		GLM_FUNC_DECL tmat3x3<T, P> _inverse() const;
+		/// @endcond
+		
 	public:
 		// Constructors
 		GLM_FUNC_DECL tmat3x3();
