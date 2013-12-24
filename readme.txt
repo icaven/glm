@@ -37,9 +37,10 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
 
 ================================================================================s
-GLM 0.9.5.0: 2013-XX-XX
+GLM 0.9.5.0: 2013-12-25
 --------------------------------------------------------------------------------
 - Added forward declarations (glm/fwd.hpp) for faster compilations
+- Added per feature headers
 - Improved Intel Compiler detection
 - Added bitfieldInterleave and _mm_bit_interleave_si128 functions
 - Added GTX_scalar_relational
