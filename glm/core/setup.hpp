@@ -727,6 +727,30 @@
 #endif//GLM_MESSAGE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+// Length type
+
+// User defines: GLM_FORCE_SIZE_T_LENGTH
+
+namespace glm
+{
+#if defined(GLM_FORCE_SIZE_T_LENGTH)
+	typedef std::size_t length_t;
+#else
+	typedef int length_t;
+#endif
+}//namespace glm
+
+#if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_FORCE_SIZE_T_LENGTH))
+#	define GLM_MESSAGE_FORCE_SIZE_T_LENGTH
+#	if defined(GLM_FORCE_SIZE_T_LENGTH)
+#		pragma message("GLM: .length() returns glm::length_t, a typedef of std::size_t")
+#	else
+#		pragma message("GLM: .length() returns glm::length_t, a typedef of int following the GLSL specification")
+#		pragma message("GLM: #define GLM_FORCE_SIZE_T_LENGTH for .length() to return a std::size_t")
+#	endif
+#endif//GLM_MESSAGE
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 // Qualifiers
 
 #if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC8))

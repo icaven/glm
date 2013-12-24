@@ -56,6 +56,7 @@ GLM 0.9.5.0: 2013-12-25
 - Clean up compiler detection code for unsupported compilers
 - Uses C++ casts
 - Fixed .length() that should return a int and not a size_t
+- Added GLM_FORCE_SIZE_T_LENGTH and glm::length_t
 - Removed unnecessary conversions
 - Optimized packing and unpacking functions
 - Removed the normalization of the up argument of lookAt function (#114)

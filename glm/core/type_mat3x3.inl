@@ -30,7 +30,7 @@ namespace glm{
 namespace detail
 {
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tmat3x3<T, P>::size_type tmat3x3<T, P>::length() const
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t tmat3x3<T, P>::length() const
 	{
 		return 3;
 	}

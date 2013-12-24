@@ -55,7 +55,7 @@ namespace detail
 		static GLM_FUNC_DECL size_type col_size();
 		static GLM_FUNC_DECL size_type row_size();
 
-		GLM_FUNC_DECL GLM_CONSTEXPR size_type length() const;
+		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
 
 	public:
 		/// Implementation detail

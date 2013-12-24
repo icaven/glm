@@ -30,7 +30,7 @@ namespace glm{
 namespace detail
 {
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR int tvec1<T, P>::length() const
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t tvec1<T, P>::length() const
 	{
 		return 1;
 	}
@@ -39,14 +39,14 @@ namespace detail
 	// Accesses
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T & tvec1<T, P>::operator[](int i)
+	GLM_FUNC_QUALIFIER T & tvec1<T, P>::operator[](length_t i)
 	{
 		assert(i >= 0 && i < this->length());
 		return (&x)[i];
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T const & tvec1<T, P>::operator[](int i) const
+	GLM_FUNC_QUALIFIER T const & tvec1<T, P>::operator[](length_t i) const
 	{
 		assert(i >= 0 && i < this->length());
 		return (&x)[i];

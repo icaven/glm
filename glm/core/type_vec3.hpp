@@ -62,7 +62,7 @@ namespace detail
 		//////////////////////////////////////
 		// Helper
 
-		GLM_FUNC_DECL GLM_CONSTEXPR size_type length() const;
+		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
 
 		//////////////////////////////////////
 		// Data
@@ -97,8 +97,8 @@ namespace detail
 		//////////////////////////////////////
 		// Accesses
 
-		GLM_FUNC_DECL T & operator[](int i);
-		GLM_FUNC_DECL T const & operator[](int i) const;
+		GLM_FUNC_DECL T & operator[](length_t i);
+		GLM_FUNC_DECL T const & operator[](length_t i) const;
 
 		//////////////////////////////////////
 		// Implicit basic constructors
