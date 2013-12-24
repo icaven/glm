@@ -476,6 +476,7 @@
 #	else
 #		pragma message("GLM: C++ language undetected")
 #	endif//GLM_MODEL
+#	pragma message("GLM: #define GLM_FORCE_CXX98, GLM_FORCE_CXX03, GLM_LANG_CXX11 or GLM_FORCE_CXX1Y to force using a specific version of the C++ language")
 #endif//GLM_MESSAGE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -655,6 +656,7 @@
 #	elif(GLM_ARCH & GLM_ARCH_AVX2)
 #		pragma message("GLM: AVX2 instruction set")
 #	endif//GLM_ARCH
+#	pragma message("GLM: #define GLM_FORCE_PURE to avoid using platform specific instruction sets")
 #endif//GLM_MESSAGE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -722,7 +724,7 @@
 #	if defined(GLM_SWIZZLE)
 #		pragma message("GLM: Swizzling operators enabled")
 #	else
-#		pragma message("GLM: Swizzling operators disabled")
+#		pragma message("GLM: Swizzling operators disabled, #define GLM_SWIZZLE to enable swizzle operators")
 #	endif
 #endif//GLM_MESSAGE
 

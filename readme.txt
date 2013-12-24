@@ -72,6 +72,7 @@ GLM 0.9.5.0: 2013-12-25
 - Fixed umulExtended and imulExtended implementations for vector types (#76)
 - Fixed CUDA coverage for GTC extensions
 - Added GTX_io extension
+- Improved GLM messages enabled when defining GLM_MESSAGES
 
 ================================================================================
 GLM 0.9.4.6: 2013-09-20
