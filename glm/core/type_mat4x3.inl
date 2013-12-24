@@ -35,18 +35,6 @@ namespace detail
 		return 4;
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tmat4x3<T, P>::size_type tmat4x3<T, P>::col_size()
-	{
-		return 3;
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tmat4x3<T, P>::size_type tmat4x3<T, P>::row_size()
-	{
-		return 4;
-	}
-
 	//////////////////////////////////////
 	// Accesses
 

@@ -19,7 +19,7 @@ namespace glm
 		T const & epsilon)
 	{
 		bool result = true;
-		for(int i = 0; result && i < 2 ; ++i)
+		for(length_t i = 0; result && i < 2 ; ++i)
 			result = isNull(m[i], epsilon);
 		return result;
 	}
@@ -32,7 +32,7 @@ namespace glm
 	)
 	{
 		bool result = true;
-		for(int i = 0; result && i < 3 ; ++i)
+		for(length_t i = 0; result && i < 3 ; ++i)
 			result = isNull(m[i], epsilon);
 		return result;
 	}
@@ -45,7 +45,7 @@ namespace glm
 	)
 	{
 		bool result = true;
-		for(int i = 0; result && i < 4 ; ++i)
+		for(length_t i = 0; result && i < 4 ; ++i)
 			result = isNull(m[i], epsilon);
 		return result;
 	}
@@ -58,13 +58,13 @@ namespace glm
 	)
 	{
 		bool result = true;
-		for(int i(0); result && i < matType<T, P>::col_size(); ++i)
+		for(length_t i(0); result && i < m[0].length(); ++i)
 		{
-			for(int j(0); result && j < i ; ++j)
+			for(length_t j(0); result && j < i ; ++j)
 				result = abs(m[i][j]) <= epsilon;
 			if(result)
 				result = abs(m[i][i] - 1) <= epsilon;
-			for(int j(i + 1); result && j < matType<T, P>::row_size(); ++j)
+			for(length_t j(i + 1); result && j < m.length(); ++j)
 				result = abs(m[i][j]) <= epsilon;
 		}
 		return result;
@@ -78,12 +78,12 @@ namespace glm
 	)
 	{
 		bool result(true);
-		for(int i(0); result && i < m.length(); ++i)
+		for(length_t i(0); result && i < m.length(); ++i)
 			result = isNormalized(m[i], epsilon);
-		for(int i(0); result && i < m.length(); ++i)
+		for(length_t i(0); result && i < m.length(); ++i)
 		{
 			typename detail::tmat2x2<T, P>::col_type v;
-			for(int j(0); j < m.length(); ++j)
+			for(length_t j(0); j < m.length(); ++j)
 				v[j] = m[j][i];
 			result = isNormalized(v, epsilon);
 		}
@@ -98,12 +98,12 @@ namespace glm
 	)
 	{
 		bool result(true);
-		for(int i(0); result && i < m.length(); ++i)
+		for(length_t i(0); result && i < m.length(); ++i)
 			result = isNormalized(m[i], epsilon);
-		for(int i(0); result && i < m.length(); ++i)
+		for(length_t i(0); result && i < m.length(); ++i)
 		{
 			typename detail::tmat3x3<T, P>::col_type v;
-			for(int j(0); j < m.length(); ++j)
+			for(length_t j(0); j < m.length(); ++j)
 				v[j] = m[j][i];
 			result = isNormalized(v, epsilon);
 		}
@@ -118,12 +118,12 @@ namespace glm
 	)
 	{
 		bool result(true);
-		for(int i(0); result && i < m.length(); ++i)
+		for(length_t i(0); result && i < m.length(); ++i)
 			result = isNormalized(m[i], epsilon);
-		for(int i(0); result && i < m.length(); ++i)
+		for(length_t i(0); result && i < m.length(); ++i)
 		{
 			typename detail::tmat4x4<T, P>::col_type v;
-			for(int j(0); j < m.length(); ++j)
+			for(length_t j(0); j < m.length(); ++j)
 				v[j] = m[j][i];
 			result = isNormalized(v, epsilon);
 		}
@@ -138,15 +138,15 @@ namespace glm
 	)
 	{
 		bool result(true);
-		for(int i(0); result && i < m.length() - 1; ++i)
-		for(int j(i + 1); result && j < m.length(); ++j)
+		for(length_t i(0); result && i < m.length() - 1; ++i)
+		for(length_t j(i + 1); result && j < m.length(); ++j)
 			result = areOrthogonal(m[i], m[j], epsilon);
 
 		if(result)
 		{
 			matType<T, P> tmp = transpose(m);
-			for(int i(0); result && i < m.length() - 1 ; ++i)
-			for(int j(i + 1); result && j < m.length(); ++j)
+			for(length_t i(0); result && i < m.length() - 1 ; ++i)
+			for(length_t j(i + 1); result && j < m.length(); ++j)
 				result = areOrthogonal(tmp[i], tmp[j], epsilon);
 		}
 		return result;

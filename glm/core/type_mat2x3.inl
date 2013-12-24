@@ -35,18 +35,6 @@ namespace detail
 		return 2;
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tmat2x3<T, P>::size_type tmat2x3<T, P>::col_size()
-	{
-		return 3;
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tmat2x3<T, P>::size_type tmat2x3<T, P>::row_size()
-	{
-		return 2;
-	}
-
 	//////////////////////////////////////
 	// Accesses
 
@@ -54,7 +42,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER typename tmat2x3<T, P>::col_type &
 	tmat2x3<T, P>::operator[]
 	(
-		size_type i
+		length_t i
 	)
 	{
 		assert(i < this->length());
@@ -65,7 +53,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER typename tmat2x3<T, P>::col_type const &
 	tmat2x3<T, P>::operator[]
 	(
-		size_type i
+		length_t i
 	) const
 	{
 		assert(i < this->length());

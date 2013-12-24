@@ -49,9 +49,6 @@ namespace detail
 		typedef tmat4x3<T, P> type;
 		typedef tmat3x4<T, P> transpose_type;
 
-		static GLM_FUNC_DECL size_type col_size();
-		static GLM_FUNC_DECL size_type row_size();
-
 		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
 
 	private:

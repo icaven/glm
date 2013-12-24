@@ -49,9 +49,6 @@ namespace detail
 		typedef tmat4x2<T, P> type;
 		typedef tmat2x4<T, P> transpose_type;
 
-		static GLM_FUNC_DECL size_type col_size();
-		static GLM_FUNC_DECL size_type row_size();
-
 		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
 
 	private:
@@ -125,8 +122,8 @@ namespace detail
 		GLM_FUNC_DECL explicit tmat4x2(tmat3x4<T, P> const & x);
 
 		// Accesses
-		GLM_FUNC_DECL col_type & operator[](size_type i);
-		GLM_FUNC_DECL col_type const & operator[](size_type i) const;
+		GLM_FUNC_DECL col_type & operator[](length_t i);
+		GLM_FUNC_DECL col_type const & operator[](length_t i) const;
 
 		// Unary updatable operators
 		GLM_FUNC_DECL tmat4x2<T, P>& operator=  (tmat4x2<T, P> const & m);

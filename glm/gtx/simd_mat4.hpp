@@ -68,8 +68,6 @@ namespace detail
 		typedef fvec4SIMD row_type;
 		typedef std::size_t size_type;
 		static size_type value_size();
-		static size_type col_size();
-		static size_type row_size();
 		static bool is_matrix();
 
 		fvec4SIMD Data[4];
@@ -91,8 +89,8 @@ namespace detail
 			fvec4SIMD const & v3);
 		explicit fmat4x4SIMD(
 			mat4x4 const & m);
-        explicit fmat4x4SIMD(
-            __m128 const in[4]);
+		explicit fmat4x4SIMD(
+			__m128 const in[4]);
 
 		// Conversions
 		//template <typename U> 
@@ -108,8 +106,8 @@ namespace detail
 		//explicit tmat4x4(tmat4x3<T> const & x);
 
 		// Accesses
-		fvec4SIMD & operator[](size_type i);
-		fvec4SIMD const & operator[](size_type i) const;
+		fvec4SIMD & operator[](length_t i);
+		fvec4SIMD const & operator[](length_t i) const;
 
 		// Unary updatable operators
 		fmat4x4SIMD & operator= (fmat4x4SIMD const & m);

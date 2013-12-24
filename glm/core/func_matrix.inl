@@ -41,7 +41,7 @@ namespace glm
 		GLM_STATIC_ASSERT(std::numeric_limits<typename matType::value_type>::is_iec559, "'matrixCompMult' only accept floating-point inputs");
 
 		matType result(matType::_null);
-		for(typename matType::size_type i = 0; i < matType::row_size(); ++i)
+		for(length_t i = 0; i < result.length(); ++i)
 			result[i] = x[i] * y[i];
 		return result;
 	}
@@ -74,7 +74,7 @@ namespace glm
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'outerProduct' only accept floating-point inputs");
 
 		detail::tmat3x3<T, P> m(detail::tmat3x3<T, P>::null);
-		for(typename detail::tmat3x3<T, P>::size_type i(0); i < m.length(); ++i)
+		for(length_t i(0); i < m.length(); ++i)
 			m[i] = c * r[i];
 		return m;
 	}
@@ -89,7 +89,7 @@ namespace glm
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'outerProduct' only accept floating-point inputs");
 
 		detail::tmat4x4<T, P> m(detail::tmat4x4<T, P>::null);
-		for(typename detail::tmat4x4<T, P>::size_type i(0); i < m.length(); ++i)
+		for(length_t i(0); i < m.length(); ++i)
 			m[i] = c * r[i];
 		return m;
 	}
