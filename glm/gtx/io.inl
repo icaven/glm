@@ -7,6 +7,7 @@
 // File    : glm/gtx/inl.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#include "../matrix.hpp"
 // #include <boost/io/ios_state.hpp> // boost::io::ios_all_saver
 #include <iomanip>                // std::setfill<>, std::fixed, std::setprecision, std::right,
                                   // std::setw
@@ -180,16 +181,11 @@ namespace detail
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat2x2<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat2x2<T,P> const& m)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        tmat2x2<T,P> m(a);
-
-        if (io::format_guard::row_major == io::order()) {
-          m = transpose(a);
-        }
         
         os << io::cr()
            << '[' << m[0] << io::cr()
@@ -200,12 +196,11 @@ namespace detail
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat2x3<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat2x3<T,P> const& m)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        tmat2x3<T,P> m(a);
 
         os << io::cr()
            << '[' << m[0] << io::cr()
@@ -216,12 +211,11 @@ namespace detail
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat2x4<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat2x4<T,P> const& m)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        tmat2x4<T,P> m(a);
 
         os << io::cr()
            << '[' << m[0] << io::cr()
@@ -232,12 +226,11 @@ namespace detail
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat3x2<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat3x2<T,P> const& m)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        tmat3x2<T,P> m(a);
 
         os << io::cr()
            << '[' << m[0] << io::cr()
@@ -249,16 +242,11 @@ namespace detail
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat3x3<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat3x3<T,P> const& m)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        tmat3x3<T,P> m(a);
-
-        if (io::format_guard::row_major == io::order()) {
-          m = transpose(a);
-        }
 
         os << io::cr()
            << '[' << m[0] << io::cr()
@@ -270,12 +258,11 @@ namespace detail
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat3x4<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat3x4<T,P> const& m)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        tmat3x4<T,P> m(a);
 
         os << io::cr()
            << '[' << m[0] << io::cr()
@@ -287,12 +274,11 @@ namespace detail
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat4x2<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat4x2<T,P> const& m)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        tmat4x2<T,P> m(a);
 
         os << io::cr()
            << '[' << m[0] << io::cr()
@@ -305,12 +291,11 @@ namespace detail
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat4x3<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat4x3<T,P> const& m)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        tmat4x3<T,P> m(a);
 
         os << io::cr()
            << '[' << m[0] << io::cr()
@@ -323,16 +308,11 @@ namespace detail
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat4x4<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat4x4<T,P> const& m)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
-        tmat4x4<T,P> m(a);
-
-        if (io::format_guard::row_major == io::order()) {
-          m = transpose(a);
-        }
 
         os << io::cr()
            << '[' << m[0] << io::cr()
@@ -344,30 +324,5 @@ namespace detail
       return os;
     }
 
-    template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& 
-    operator<<(std::basic_ostream<CTy,CTr>& os,
-               std::pair<tmat4x4<T,P> const, tmat4x4<T,P> const> const& a)
-    {
-      typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
-
-      if (cerberus) {
-        tmat4x4<T,P> ml(a.first);
-        tmat4x4<T,P> mr(a.second);
-
-        if (io::format_guard::row_major == io::order()) {
-          ml = transpose(a.first);
-          mr = transpose(a.second);
-        }
-        
-        os << io::cr()
-           << '[' << ml[0] << "  [" << mr[0] << io::cr()
-           << ' ' << ml[1] << "   " << mr[1] << io::cr()
-           << ' ' << ml[2] << "   " << mr[2] << io::cr()
-           << ' ' << ml[3] << "]  " << mr[3] << ']';
-      }
-
-      return os;
-    }
 }//namespace detail
 }//namespace glm

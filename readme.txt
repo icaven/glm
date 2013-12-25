@@ -41,6 +41,7 @@ GLM 0.9.5.0: 2013-12-25
 --------------------------------------------------------------------------------
 - Added forward declarations (glm/fwd.hpp) for faster compilations
 - Added per feature headers
+- Minimized GLM internal dependencies
 - Improved Intel Compiler detection
 - Added bitfieldInterleave and _mm_bit_interleave_si128 functions
 - Added GTX_scalar_relational
@@ -53,8 +54,8 @@ GLM 0.9.5.0: 2013-12-25
 - Fixed post increment and decrement operators
 - Fixed perspective with zNear == 0 (#71)
 - Removed l-value swizzle operators
-- Clean up compiler detection code for unsupported compilers
-- Uses C++ casts
+- Cleaned up compiler detection code for unsupported compilers
+- Replaced C cast by C++ casts
 - Fixed .length() that should return a int and not a size_t
 - Added GLM_FORCE_SIZE_T_LENGTH and glm::length_t
 - Removed unnecessary conversions
@@ -73,7 +74,7 @@ GLM 0.9.5.0: 2013-12-25
 - Fixed CUDA coverage for GTC extensions
 - Added GTX_io extension
 - Improved GLM messages enabled when defining GLM_MESSAGES
-- Implementation detail _inverse is now private
+- Hidden matrix _inverse function implementation detail into private section
 
 ================================================================================
 GLM 0.9.4.6: 2013-09-20
