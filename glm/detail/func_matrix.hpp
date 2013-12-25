@@ -56,10 +56,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/matrixCompMult.xml">GLSL matrixCompMult man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
-	template <typename matType>
-	GLM_FUNC_DECL matType matrixCompMult(
-		matType const & x, 
-		matType const & y);
+	template <typename T, precision P, template <typename, precision> class matType>
+	GLM_FUNC_DECL matType<T, P> matrixCompMult(matType<T, P> const & x, matType<T, P> const & y);
 
 	/// Treats the first parameter c as a column vector
 	/// and the second parameter r as a row vector
@@ -72,9 +70,7 @@ namespace glm
 	/// 
 	/// @todo Clarify the declaration to specify that matType doesn't have to be provided when used.
 	template <typename vecType, typename matType>
-	GLM_FUNC_DECL matType outerProduct(
-		vecType const & c,
-		vecType const & r);
+	GLM_FUNC_DECL matType outerProduct(vecType const & c, vecType const & r);
 
 	/// Returns the transposed matrix of x
 	/// 
@@ -83,8 +79,7 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/transpose.xml">GLSL transpose man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>	
 	template <typename matType>
-	GLM_FUNC_DECL typename matType::transpose_type transpose(
-		matType const & x);
+	GLM_FUNC_DECL typename matType::transpose_type transpose(matType const & x);
 	
 	/// Return the determinant of a squared matrix.
 	/// 
@@ -93,8 +88,7 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>	
 	template <typename T, precision P, template <typename, precision> class matType>
-	GLM_FUNC_DECL T determinant(
-		matType<T, P> const & m);
+	GLM_FUNC_DECL T determinant(matType<T, P> const & m);
 
 	/// Return the inverse of a squared matrix.
 	/// 
@@ -103,8 +97,7 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inverse.xml">GLSL inverse man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>	 
 	template <typename T, precision P, template <typename, precision> class matType>
-	GLM_FUNC_DECL matType<T, P> inverse(
-		matType<T, P> const & m);
+	GLM_FUNC_DECL matType<T, P> inverse(matType<T, P> const & m);
 
 	/// @}
 }//namespace glm

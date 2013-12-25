@@ -43,22 +43,6 @@
 
 namespace glm
 {
-	// matrixCompMult
-	template <typename matType>
-	GLM_FUNC_QUALIFIER matType matrixCompMult
-	(
-		matType const & x,
-		matType const & y
-	)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<typename matType::value_type>::is_iec559, "'matrixCompMult' only accept floating-point inputs");
-
-		matType result(matType::_null);
-		for(length_t i = 0; i < result.length(); ++i)
-			result[i] = x[i] * y[i];
-		return result;
-	}
-
 	// outerProduct
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tmat2x2<T, P> outerProduct
@@ -237,254 +221,236 @@ namespace glm
 		return m;
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tmat2x2<T, P> transpose
-	(
-		detail::tmat2x2<T, P> const & m
-	)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'transpose' only accept floating-point inputs");
-
-		detail::tmat2x2<T, P> result(detail::tmat2x2<T, P>::_null);
-		result[0][0] = m[0][0];
-		result[0][1] = m[1][0];
-		result[1][0] = m[0][1];
-		result[1][1] = m[1][1];
-		return result;
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> transpose
-	(
-		detail::tmat3x3<T, P> const & m
-	)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'transpose' only accept floating-point inputs");
-
-		detail::tmat3x3<T, P> result(detail::tmat3x3<T, P>::_null);
-		result[0][0] = m[0][0];
-		result[0][1] = m[1][0];
-		result[0][2] = m[2][0];
-
-		result[1][0] = m[0][1];
-		result[1][1] = m[1][1];
-		result[1][2] = m[2][1];
-
-		result[2][0] = m[0][2];
-		result[2][1] = m[1][2];
-		result[2][2] = m[2][2];
-		return result;
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tmat4x4<T, P> transpose
-	(
-		detail::tmat4x4<T, P> const & m
-	)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'transpose' only accept floating-point inputs");
-
-		detail::tmat4x4<T, P> result(detail::tmat4x4<T, P>::_null);
-		result[0][0] = m[0][0];
-		result[0][1] = m[1][0];
-		result[0][2] = m[2][0];
-		result[0][3] = m[3][0];
-
-		result[1][0] = m[0][1];
-		result[1][1] = m[1][1];
-		result[1][2] = m[2][1];
-		result[1][3] = m[3][1];
-
-		result[2][0] = m[0][2];
-		result[2][1] = m[1][2];
-		result[2][2] = m[2][2];
-		result[2][3] = m[3][2];
-
-		result[3][0] = m[0][3];
-		result[3][1] = m[1][3];
-		result[3][2] = m[2][3];
-		result[3][3] = m[3][3];
-		return result;
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tmat2x3<T, P> transpose
-	(
-		detail::tmat3x2<T, P> const & m
-	)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'transpose' only accept floating-point inputs");
-
-		detail::tmat2x3<T, P> result(detail::tmat2x3<T, P>::_null);
-		result[0][0] = m[0][0];
-		result[0][1] = m[1][0];
-		result[0][2] = m[2][0];
-		result[1][0] = m[0][1];
-		result[1][1] = m[1][1];
-		result[1][2] = m[2][1];
-		return result;
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tmat3x2<T, P> transpose
-	(
-		detail::tmat2x3<T, P> const & m
-	)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'transpose' only accept floating-point inputs");
-
-		detail::tmat3x2<T, P> result(detail::tmat3x2<T, P>::_null);
-		result[0][0] = m[0][0];
-		result[0][1] = m[1][0];
-		result[1][0] = m[0][1];
-		result[1][1] = m[1][1];
-		result[2][0] = m[0][2];
-		result[2][1] = m[1][2];
-		return result;
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tmat2x4<T, P> transpose
-	(
-		detail::tmat4x2<T, P> const & m
-	)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'transpose' only accept floating-point inputs");
-
-		detail::tmat2x4<T, P> result(detail::tmat2x4<T, P>::_null);
-		result[0][0] = m[0][0];
-		result[0][1] = m[1][0];
-		result[0][2] = m[2][0];
-		result[0][3] = m[3][0];
-		result[1][0] = m[0][1];
-		result[1][1] = m[1][1];
-		result[1][2] = m[2][1];
-		result[1][3] = m[3][1];
-		return result;
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tmat4x2<T, P> transpose
-	(
-		detail::tmat2x4<T, P> const & m
-	)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'transpose' only accept floating-point inputs");
-
-		detail::tmat4x2<T, P> result(detail::tmat4x2<T, P>::_null);
-		result[0][0] = m[0][0];
-		result[0][1] = m[1][0];
-		result[1][0] = m[0][1];
-		result[1][1] = m[1][1];
-		result[2][0] = m[0][2];
-		result[2][1] = m[1][2];
-		result[3][0] = m[0][3];
-		result[3][1] = m[1][3];
-		return result;
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tmat3x4<T, P> transpose
-	(
-		detail::tmat4x3<T, P> const & m
-	)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'transpose' only accept floating-point inputs");
-
-		detail::tmat3x4<T, P> result(detail::tmat3x4<T, P>::_null);
-		result[0][0] = m[0][0];
-		result[0][1] = m[1][0];
-		result[0][2] = m[2][0];
-		result[0][3] = m[3][0];
-		result[1][0] = m[0][1];
-		result[1][1] = m[1][1];
-		result[1][2] = m[2][1];
-		result[1][3] = m[3][1];
-		result[2][0] = m[0][2];
-		result[2][1] = m[1][2];
-		result[2][2] = m[2][2];
-		result[2][3] = m[3][2];
-		return result;
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tmat4x3<T, P> transpose
-	(
-		detail::tmat3x4<T, P> const & m
-	)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'transpose' only accept floating-point inputs");
-
-		detail::tmat4x3<T, P> result(detail::tmat4x3<T, P>::_null);
-		result[0][0] = m[0][0];
-		result[0][1] = m[1][0];
-		result[0][2] = m[2][0];
-		result[1][0] = m[0][1];
-		result[1][1] = m[1][1];
-		result[1][2] = m[2][1];
-		result[2][0] = m[0][2];
-		result[2][1] = m[1][2];
-		result[2][2] = m[2][2];
-		result[3][0] = m[0][3];
-		result[3][1] = m[1][3];
-		result[3][2] = m[2][3];
-		return result;
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename detail::tmat2x2<T, P>::value_type determinant
-	(
-		detail::tmat2x2<T, P> const & m
-	)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'determinant' only accept floating-point inputs");
-
-		return m[0][0] * m[1][1] - m[1][0] * m[0][1];
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename detail::tmat3x3<T, P>::value_type determinant
-	(
-		detail::tmat3x3<T, P> const & m
-	)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'determinant' only accept floating-point inputs");
-
-		return 
-			+ m[0][0] * (m[1][1] * m[2][2] - m[2][1] * m[1][2])
-			- m[1][0] * (m[0][1] * m[2][2] - m[2][1] * m[0][2])
-			+ m[2][0] * (m[0][1] * m[1][2] - m[1][1] * m[0][2]);
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename detail::tmat4x4<T, P>::value_type determinant
-	(
-		detail::tmat4x4<T, P> const & m
-	)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'determinant' only accept floating-point inputs");
-
-		T SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
-		T SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
-		T SubFactor02 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
-		T SubFactor03 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
-		T SubFactor04 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
-		T SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
-
-		detail::tvec4<T, P> DetCof(
-			+ (m[1][1] * SubFactor00 - m[1][2] * SubFactor01 + m[1][3] * SubFactor02),
-			- (m[1][0] * SubFactor00 - m[1][2] * SubFactor03 + m[1][3] * SubFactor04),
-			+ (m[1][0] * SubFactor01 - m[1][1] * SubFactor03 + m[1][3] * SubFactor05),
-			- (m[1][0] * SubFactor02 - m[1][1] * SubFactor04 + m[1][2] * SubFactor05));
-
-		return m[0][0] * DetCof[0]
-				+ m[0][1] * DetCof[1]
-				+ m[0][2] * DetCof[2]
-				+ m[0][3] * DetCof[3];
-	}
-
 namespace detail
 {
+	template <template <class, precision> class matType, typename T, precision P>
+	struct compute_transpose{};
+
+	template <typename T, precision P>
+	struct compute_transpose<detail::tmat2x2, T, P>
+	{
+		static detail::tmat2x2<T, P> call(detail::tmat2x2<T, P> const & m)
+		{
+			detail::tmat2x2<T, P> result(detail::tmat2x2<T, P>::_null);
+			result[0][0] = m[0][0];
+			result[0][1] = m[1][0];
+			result[1][0] = m[0][1];
+			result[1][1] = m[1][1];
+			return result;
+		}
+	};
+
+	template <typename T, precision P>
+	struct compute_transpose<detail::tmat2x3, T, P>
+	{
+		static detail::tmat3x2<T, P> call(detail::tmat2x3<T, P> const & m)
+		{
+			detail::tmat3x2<T, P> result(detail::tmat3x2<T, P>::_null);
+			result[0][0] = m[0][0];
+			result[0][1] = m[1][0];
+			result[1][0] = m[0][1];
+			result[1][1] = m[1][1];
+			result[2][0] = m[0][2];
+			result[2][1] = m[1][2];
+			return result;
+		}
+	};
+
+	template <typename T, precision P>
+	struct compute_transpose<detail::tmat2x4, T, P>
+	{
+		static detail::tmat4x2<T, P> call(detail::tmat2x4<T, P> const & m)
+		{
+			detail::tmat4x2<T, P> result(detail::tmat4x2<T, P>::_null);
+			result[0][0] = m[0][0];
+			result[0][1] = m[1][0];
+			result[1][0] = m[0][1];
+			result[1][1] = m[1][1];
+			result[2][0] = m[0][2];
+			result[2][1] = m[1][2];
+			result[3][0] = m[0][3];
+			result[3][1] = m[1][3];
+			return result;
+		}
+	};
+
+	template <typename T, precision P>
+	struct compute_transpose<detail::tmat3x2, T, P>
+	{
+		static detail::tmat2x3<T, P> call(detail::tmat3x2<T, P> const & m)
+		{
+			detail::tmat2x3<T, P> result(detail::tmat2x3<T, P>::_null);
+			result[0][0] = m[0][0];
+			result[0][1] = m[1][0];
+			result[0][2] = m[2][0];
+			result[1][0] = m[0][1];
+			result[1][1] = m[1][1];
+			result[1][2] = m[2][1];
+			return result;
+		}
+	};
+
+	template <typename T, precision P>
+	struct compute_transpose<detail::tmat3x3, T, P>
+	{
+		static detail::tmat3x3<T, P> call(detail::tmat3x3<T, P> const & m)
+		{
+			detail::tmat3x3<T, P> result(detail::tmat3x3<T, P>::_null);
+			result[0][0] = m[0][0];
+			result[0][1] = m[1][0];
+			result[0][2] = m[2][0];
+
+			result[1][0] = m[0][1];
+			result[1][1] = m[1][1];
+			result[1][2] = m[2][1];
+
+			result[2][0] = m[0][2];
+			result[2][1] = m[1][2];
+			result[2][2] = m[2][2];
+			return result;
+		}
+	};
+
+	template <typename T, precision P>
+	struct compute_transpose<detail::tmat3x4, T, P>
+	{
+		static detail::tmat4x3<T, P> call(detail::tmat3x4<T, P> const & m)
+		{
+			detail::tmat4x3<T, P> result(detail::tmat4x3<T, P>::_null);
+			result[0][0] = m[0][0];
+			result[0][1] = m[1][0];
+			result[0][2] = m[2][0];
+			result[1][0] = m[0][1];
+			result[1][1] = m[1][1];
+			result[1][2] = m[2][1];
+			result[2][0] = m[0][2];
+			result[2][1] = m[1][2];
+			result[2][2] = m[2][2];
+			result[3][0] = m[0][3];
+			result[3][1] = m[1][3];
+			result[3][2] = m[2][3];
+			return result;
+		}
+	};
+
+	template <typename T, precision P>
+	struct compute_transpose<detail::tmat4x2, T, P>
+	{
+		static detail::tmat2x4<T, P> call(detail::tmat4x2<T, P> const & m)
+		{
+			detail::tmat2x4<T, P> result(detail::tmat2x4<T, P>::_null);
+			result[0][0] = m[0][0];
+			result[0][1] = m[1][0];
+			result[0][2] = m[2][0];
+			result[0][3] = m[3][0];
+			result[1][0] = m[0][1];
+			result[1][1] = m[1][1];
+			result[1][2] = m[2][1];
+			result[1][3] = m[3][1];
+			return result;
+		}
+	};
+
+	template <typename T, precision P>
+	struct compute_transpose<detail::tmat4x3, T, P>
+	{
+		static detail::tmat3x4<T, P> call(detail::tmat4x3<T, P> const & m)
+		{
+			detail::tmat3x4<T, P> result(detail::tmat3x4<T, P>::_null);
+			result[0][0] = m[0][0];
+			result[0][1] = m[1][0];
+			result[0][2] = m[2][0];
+			result[0][3] = m[3][0];
+			result[1][0] = m[0][1];
+			result[1][1] = m[1][1];
+			result[1][2] = m[2][1];
+			result[1][3] = m[3][1];
+			result[2][0] = m[0][2];
+			result[2][1] = m[1][2];
+			result[2][2] = m[2][2];
+			result[2][3] = m[3][2];
+			return result;
+		}
+	};
+
+	template <typename T, precision P>
+	struct compute_transpose<detail::tmat4x4, T, P>
+	{
+		static detail::tmat4x4<T, P> call(detail::tmat4x4<T, P> const & m)
+		{
+			detail::tmat4x4<T, P> result(detail::tmat4x4<T, P>::_null);
+			result[0][0] = m[0][0];
+			result[0][1] = m[1][0];
+			result[0][2] = m[2][0];
+			result[0][3] = m[3][0];
+
+			result[1][0] = m[0][1];
+			result[1][1] = m[1][1];
+			result[1][2] = m[2][1];
+			result[1][3] = m[3][1];
+
+			result[2][0] = m[0][2];
+			result[2][1] = m[1][2];
+			result[2][2] = m[2][2];
+			result[2][3] = m[3][2];
+
+			result[3][0] = m[0][3];
+			result[3][1] = m[1][3];
+			result[3][2] = m[2][3];
+			result[3][3] = m[3][3];
+			return result;
+		}
+	};
+
+	template <template <class, precision> class matType, typename T, precision P>
+	struct compute_determinant{};
+
+	template <typename T, precision P>
+	struct compute_determinant<detail::tmat2x2, T, P>
+	{
+		static T call(detail::tmat2x2<T, P> const & m)
+		{
+			return m[0][0] * m[1][1] - m[1][0] * m[0][1];
+		}
+	};
+
+	template <typename T, precision P>
+	struct compute_determinant<detail::tmat3x3, T, P>
+	{
+		static T call(detail::tmat3x3<T, P> const & m)
+		{
+			return 
+				+ m[0][0] * (m[1][1] * m[2][2] - m[2][1] * m[1][2])
+				- m[1][0] * (m[0][1] * m[2][2] - m[2][1] * m[0][2])
+				+ m[2][0] * (m[0][1] * m[1][2] - m[1][1] * m[0][2]);
+		}
+	};
+
+	template <typename T, precision P>
+	struct compute_determinant<detail::tmat4x4, T, P>
+	{
+		static T call(detail::tmat4x4<T, P> const & m)
+		{
+			T SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
+			T SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
+			T SubFactor02 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
+			T SubFactor03 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
+			T SubFactor04 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
+			T SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
+
+			detail::tvec4<T, P> DetCof(
+				+ (m[1][1] * SubFactor00 - m[1][2] * SubFactor01 + m[1][3] * SubFactor02),
+				- (m[1][0] * SubFactor00 - m[1][2] * SubFactor03 + m[1][3] * SubFactor04),
+				+ (m[1][0] * SubFactor01 - m[1][1] * SubFactor03 + m[1][3] * SubFactor05),
+				- (m[1][0] * SubFactor02 - m[1][1] * SubFactor04 + m[1][2] * SubFactor05));
+
+			return m[0][0] * DetCof[0]
+					+ m[0][1] * DetCof[1]
+					+ m[0][2] * DetCof[2]
+					+ m[0][3] * DetCof[3];
+		}
+	};
+
 	template <template <class, precision> class matType, typename T, precision P>
 	struct compute_inverse{};
 
@@ -591,10 +557,32 @@ namespace detail
 }//namespace detail
 
 	template <typename T, precision P, template <typename, precision> class matType>
-	GLM_FUNC_DECL matType<T, P> inverse
-	(
-		matType<T, P> const & m
-	)
+	GLM_FUNC_QUALIFIER matType<T, P> matrixCompMult(matType<T, P> const & x, matType<T, P> const & y)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'matrixCompMult' only accept floating-point inputs");
+
+		matType<T, P> result(matType<T, P>::_null);
+		for(length_t i = 0; i < result.length(); ++i)
+			result[i] = x[i] * y[i];
+		return result;
+	}
+
+	template <typename T, precision P, template <typename, precision> class matType>
+	GLM_FUNC_DECL typename matType::transpose_type transpose(matType<T, P> const & m)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'transpose' only accept floating-point inputs");
+		return detail::compute_transpose<matType, T, P>::call(m);
+	}
+
+	template <typename T, precision P, template <typename, precision> class matType>
+	GLM_FUNC_DECL T determinant(matType<T, P> const & m)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'determinant' only accept floating-point inputs");
+		return detail::compute_determinant<matType, T, P>::call(m);
+	}
+
+	template <typename T, precision P, template <typename, precision> class matType>
+	GLM_FUNC_DECL matType<T, P> inverse(matType<T, P> const & m)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'inverse' only accept floating-point inputs");
 		return detail::compute_inverse<matType, T, P>::call(m);
