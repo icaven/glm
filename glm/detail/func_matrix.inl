@@ -55,7 +55,7 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_outerProduct<detail::tvec2, detail::tvec2, T, P>
 	{
-		typedef detail::tmat2x2 return_type;
+		typedef detail::tmat2x2<T, P> return_type;
 
 		static return_type call(detail::tvec2<T, P> const & c, detail::tvec2<T, P> const & r)
 		{
@@ -71,7 +71,7 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_outerProduct<detail::tvec3, detail::tvec3, T, P>
 	{
-		typedef detail::tmat3x3 return_type;
+		typedef detail::tmat3x3<T, P> return_type;
 
 		static return_type call(detail::tvec3<T, P> const & c, detail::tvec3<T, P> const & r)
 		{
@@ -85,7 +85,7 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_outerProduct<detail::tvec4, detail::tvec4, T, P>
 	{
-		typedef detail::tmat4x4 return_type;
+		typedef detail::tmat4x4<T, P> return_type;
 
 		static return_type call(detail::tvec4<T, P> const & c, detail::tvec4<T, P> const & r)
 		{
@@ -99,7 +99,7 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_outerProduct<detail::tvec3, detail::tvec2, T, P>
 	{
-		typedef detail::tmat2x3 return_type;
+		typedef detail::tmat2x3<T, P> return_type;
 
 		static return_type call(detail::tvec3<T, P> const & c, detail::tvec2<T, P> const & r)
 		{
@@ -117,7 +117,7 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_outerProduct<detail::tvec2, detail::tvec3, T, P>
 	{
-		typedef detail::tmat3x2 return_type;
+		typedef detail::tmat3x2<T, P> return_type;
 
 		static return_type call(detail::tvec2<T, P> const & c, detail::tvec3<T, P> const & r)
 		{
@@ -135,7 +135,7 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_outerProduct<detail::tvec4, detail::tvec2, T, P>
 	{
-		typedef detail::tmat2x4 return_type;
+		typedef detail::tmat2x4<T, P> return_type;
 
 		static return_type call(detail::tvec4<T, P> const & c, detail::tvec2<T, P> const & r)
 		{
@@ -155,7 +155,7 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_outerProduct<detail::tvec2, detail::tvec4, T, P>
 	{
-		typedef detail::tmat4x2 return_type;
+		typedef detail::tmat4x2<T, P> return_type;
 
 		static return_type call(detail::tvec2<T, P> const & c, detail::tvec4<T, P> const & r)
 		{
@@ -175,7 +175,7 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_outerProduct<detail::tvec4, detail::tvec3, T, P>
 	{
-		typedef detail::tmat3x4 return_type;
+		typedef detail::tmat3x4<T, P> return_type;
 
 		static return_type call(detail::tvec4<T, P> const & c, detail::tvec3<T, P> const & r)
 		{
@@ -199,7 +199,7 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_outerProduct<detail::tvec3, detail::tvec4, T, P>
 	{
-		typedef detail::tmat4x3 return_type;
+		typedef detail::tmat4x3<T, P> return_type;
 
 		static return_type call(detail::tvec3<T, P> const & c, detail::tvec4<T, P> const & r)
 		{
