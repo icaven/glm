@@ -18,12 +18,12 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'angle' only accept floating-point inputs");
 
-        genType Dot = clamp(dot(x, y), genType(0), genType(1));
+		genType const Angle(acos(clamp(dot(x, y), genType(0), genType(1))));
 
 #ifdef GLM_FORCE_RADIANS
-        return acos(Dot);
+		return Angle;
 #else
-        return degrees(acos(Dot));
+		return degrees(Angle);
 #endif
 	}
 
@@ -36,12 +36,12 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'angle' only accept floating-point inputs");
 
-        T Dot = clamp(dot(x, y), T(0), T(1));
+		genType const Angle(acos(clamp(dot(x, y), T(0), T(1)));
 
 #ifdef GLM_FORCE_RADIANS
-        return acos(Dot);
+		return Angle;
 #else
-        return degrees(acos(Dot));
+		return degrees(Angle);
 #endif
 	}
 
@@ -55,12 +55,12 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'orientedAngle' only accept floating-point inputs");
 
-        T Dot = clamp(dot(x, y), T(0), T(1));
+		T const Dot = clamp(dot(x, y), T(0), T(1));
 
 #ifdef GLM_FORCE_RADIANS
-        T const Angle(acos(Dot));
+		T const Angle(acos(Dot));
 #else
-        T const Angle(degrees(acos(Dot)));
+		T const Angle(degrees(acos(Dot)));
 #endif
 		detail::tvec2<T, P> const TransformedVector(glm::rotate(x, Angle));
 		if(all(epsilonEqual(y, TransformedVector, T(0.01))))
@@ -79,12 +79,12 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'orientedAngle' only accept floating-point inputs");
 
-        T Dot = clamp(dot(x, y), T(0), T(1));
+		T const Dot = clamp(dot(x, y), T(0), T(1));
 
 #ifdef GLM_FORCE_RADIANS
-        T const Angle(acos(Dot));
+		T const Angle(acos(Dot));
 #else
-        T const Angle(degrees(acos(Dot)));
+		T const Angle(degrees(acos(Dot)));
 #endif
 
 		if(dot(ref, cross(x, y)) < T(0))
