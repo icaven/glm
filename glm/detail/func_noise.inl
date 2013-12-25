@@ -29,8 +29,20 @@
 #include "../detail/_noise.hpp"
 #include "./func_common.hpp"
 
-namespace glm
+namespace glm{
+namespace detail
 {
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> grad4(T const & j, detail::tvec4<T, P> const & ip)
+	{
+		detail::tvec3<T, P> pXYZ = floor(fract(detail::tvec3<T, P>(j) * detail::tvec3<T, P>(ip)) * T(7)) * ip[2] - T(1);
+		T pW = static_cast<T>(1.5) - dot(abs(pXYZ), detail::tvec3<T, P>(1));
+		detail::tvec4<T, P> s = detail::tvec4<T, P>(lessThan(detail::tvec4<T, P>(pXYZ, pW), detail::tvec4<T, P>(0.0)));
+		pXYZ = pXYZ + (detail::tvec3<T, P>(s) * T(2) - T(1)) * s.w; 
+		return detail::tvec4<T, P>(pXYZ, pW);
+	}
+}//namespace detail
+
 	template <typename T>
 	GLM_FUNC_QUALIFIER T noise1(T const & x)
 	{

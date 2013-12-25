@@ -29,6 +29,10 @@
 #ifndef GLM_CORE_DETAIL_INCLUDED
 #define GLM_CORE_DETAIL_INCLUDED
 
+#include "type_vec2.hpp"
+#include "type_vec3.hpp"
+#include "type_vec4.hpp"
+
 #define VECTORIZE2_VEC(func)						\
 	template <typename T, precision P>				\
 	GLM_FUNC_QUALIFIER detail::tvec2<T, P> func(	\

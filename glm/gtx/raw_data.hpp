@@ -38,9 +38,8 @@
 #ifndef GLM_GTX_raw_data
 #define GLM_GTX_raw_data
 
-// Dependency:
-#include "../glm.hpp"
-#include "../gtc/type_precision.hpp"
+// Dependencies
+#include "../detail/setup.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_raw_data extension included")
@@ -53,19 +52,19 @@ namespace glm
 
 	//! Type for byte numbers. 
 	//! From GLM_GTX_raw_data extension.
-	typedef uint8		byte;
+	typedef detail::uint8		byte;
 
 	//! Type for word numbers. 
 	//! From GLM_GTX_raw_data extension.
-	typedef uint16		word;
+	typedef detail::uint16		word;
 
 	//! Type for dword numbers. 
 	//! From GLM_GTX_raw_data extension.
-	typedef uint32		dword;
+	typedef detail::uint32		dword;
 
 	//! Type for qword numbers. 
 	//! From GLM_GTX_raw_data extension.
-	typedef uint64		qword;
+	typedef detail::uint64		qword;
 
 	/// @}
 }// namespace glm

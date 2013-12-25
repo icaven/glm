@@ -9,6 +9,7 @@
 
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtc/epsilon.hpp>
+#include <glm/vector_relational.hpp>
 #include <glm/packing.hpp>
 #include <vector>
 

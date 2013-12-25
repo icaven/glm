@@ -36,15 +36,27 @@
 #include "../vector_relational.hpp"
 #include "../detail/_noise.hpp"
 
-namespace glm
+namespace glm{
+namespace gtc
 {
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec4<T, P> grad4(T const & j, detail::tvec4<T, P> const & ip)
+	{
+		detail::tvec3<T, P> pXYZ = floor(fract(detail::tvec3<T, P>(j) * detail::tvec3<T, P>(ip)) * T(7)) * ip[2] - T(1);
+		T pW = static_cast<T>(1.5) - dot(abs(pXYZ), detail::tvec3<T, P>(1));
+		detail::tvec4<T, P> s = detail::tvec4<T, P>(lessThan(detail::tvec4<T, P>(pXYZ, pW), detail::tvec4<T, P>(0.0)));
+		pXYZ = pXYZ + (detail::tvec3<T, P>(s) * T(2) - T(1)) * s.w; 
+		return detail::tvec4<T, P>(pXYZ, pW);
+	}
+}//namespace gtc
+
 	// Classic Perlin noise
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T perlin(detail::tvec2<T, P> const & Position)
 	{
 		detail::tvec4<T, P> Pi = glm::floor(detail::tvec4<T, P>(Position.x, Position.y, Position.x, Position.y)) + detail::tvec4<T, P>(0.0, 0.0, 1.0, 1.0);
 		detail::tvec4<T, P> Pf = glm::fract(detail::tvec4<T, P>(Position.x, Position.y, Position.x, Position.y)) - detail::tvec4<T, P>(0.0, 0.0, 1.0, 1.0);
-		Pi = mod(Pi, T(289)); // To avoid truncation effects in permutation
+		Pi = mod(Pi, detail::tvec4<T, P>(289)); // To avoid truncation effects in permutation
 		detail::tvec4<T, P> ix(Pi.x, Pi.z, Pi.x, Pi.z);
 		detail::tvec4<T, P> iy(Pi.y, Pi.y, Pi.w, Pi.w);
 		detail::tvec4<T, P> fx(Pf.x, Pf.z, Pf.x, Pf.z);
@@ -229,8 +241,8 @@ namespace glm
 	{
 		detail::tvec4<T, P> Pi0 = floor(Position);	// Integer part for indexing
 		detail::tvec4<T, P> Pi1 = Pi0 + T(1);		// Integer part + 1
-		Pi0 = mod(Pi0, T(289));
-		Pi1 = mod(Pi1, T(289));
+		Pi0 = mod(Pi0, detail::tvec4<T, P>(289));
+		Pi1 = mod(Pi1, detail::tvec4<T, P>(289));
 		detail::tvec4<T, P> Pf0 = fract(Position);	// Fractional part for interpolation
 		detail::tvec4<T, P> Pf1 = Pf0 - T(1);		// Fractional part - 1.0
 		detail::tvec4<T, P> ix(Pi0.x, Pi1.x, Pi0.x, Pi1.x);
@@ -366,7 +378,7 @@ namespace glm
 		detail::tvec4<T, P> Pi = floor(detail::tvec4<T, P>(Position.x, Position.y, Position.x, Position.y)) + detail::tvec4<T, P>(0.0, 0.0, 1.0, 1.0);
 		detail::tvec4<T, P> Pf = fract(detail::tvec4<T, P>(Position.x, Position.y, Position.x, Position.y)) - detail::tvec4<T, P>(0.0, 0.0, 1.0, 1.0);
 		Pi = mod(Pi, detail::tvec4<T, P>(rep.x, rep.y, rep.x, rep.y)); // To create noise with explicit period
-		Pi = mod(Pi, T(289)); // To avoid truncation effects in permutation
+		Pi = mod(Pi, detail::tvec4<T, P>(289)); // To avoid truncation effects in permutation
 		detail::tvec4<T, P> ix(Pi.x, Pi.z, Pi.x, Pi.z);
 		detail::tvec4<T, P> iy(Pi.y, Pi.y, Pi.w, Pi.w);
 		detail::tvec4<T, P> fx(Pf.x, Pf.z, Pf.x, Pf.z);
@@ -407,8 +419,8 @@ namespace glm
 	{
 		detail::tvec3<T, P> Pi0 = mod(floor(Position), rep); // Integer part, modulo period
 		detail::tvec3<T, P> Pi1 = mod(Pi0 + detail::tvec3<T, P>(T(1)), rep); // Integer part + 1, mod period
-		Pi0 = mod(Pi0, T(289));
-		Pi1 = mod(Pi1, T(289));
+		Pi0 = mod(Pi0, detail::tvec3<T, P>(289));
+		Pi1 = mod(Pi1, detail::tvec3<T, P>(289));
 		detail::tvec3<T, P> Pf0 = fract(Position); // Fractional part for interpolation
 		detail::tvec3<T, P> Pf1 = Pf0 - detail::tvec3<T, P>(T(1)); // Fractional part - 1.0
 		detail::tvec4<T, P> ix = detail::tvec4<T, P>(Pi0.x, Pi1.x, Pi0.x, Pi1.x);
@@ -630,15 +642,15 @@ namespace glm
 		x12 = detail::tvec4<T, P>(detail::tvec2<T, P>(x12) - i1, x12.z, x12.w);
 
 		// Permutations
-		i = mod(i, T(289)); // Avoid truncation effects in permutation
+		i = mod(i, detail::tvec2<T, P>(289)); // Avoid truncation effects in permutation
 		detail::tvec3<T, P> p = detail::permute(
 			detail::permute(i.y + detail::tvec3<T, P>(T(0), i1.y, T(1)))
 			+ i.x + detail::tvec3<T, P>(T(0), i1.x, T(1)));
 
-		detail::tvec3<T, P> m = max(T(0.5) - detail::tvec3<T, P>(
-			dot(x0, x0), 
+		detail::tvec3<T, P> m = max(detail::tvec3<T, P>(0.5) - detail::tvec3<T, P>(
+			dot(x0, x0),
 			dot(detail::tvec2<T, P>(x12.x, x12.y), detail::tvec2<T, P>(x12.x, x12.y)), 
-			dot(detail::tvec2<T, P>(x12.z, x12.w), detail::tvec2<T, P>(x12.z, x12.w))), T(0));
+			dot(detail::tvec2<T, P>(x12.z, x12.w), detail::tvec2<T, P>(x12.z, x12.w))), detail::tvec3<T, P>(0));
 		m = m * m ;
 		m = m * m ;
 
@@ -733,7 +745,7 @@ namespace glm
 		p3 *= norm.w;
 
 		// Mix final noise value
-		detail::tvec4<T, P> m = max(T(0.6) - detail::tvec4<T, P>(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3)), T(0));
+		detail::tvec4<T, P> m = max(T(0.6) - detail::tvec4<T, P>(dot(x0, x0), dot(x1, x1), dot(x2, x2), dot(x3, x3)), detail::tvec4<T, P>(0));
 		m = m * m;
 		return T(42) * dot(m * m, detail::tvec4<T, P>(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
 	}
@@ -788,23 +800,23 @@ namespace glm
 		detail::tvec4<T, P> x4 = x0 + C.w;
 
 		// Permutations
-		i = mod(i, T(289)); 
+		i = mod(i, detail::tvec4<T, P>(289)); 
 		T j0 = detail::permute(detail::permute(detail::permute(detail::permute(i.w) + i.z) + i.y) + i.x);
 		detail::tvec4<T, P> j1 = detail::permute(detail::permute(detail::permute(detail::permute(
-					i.w + detail::tvec4<T, P>(i1.w, i2.w, i3.w, T(1)))
-				+ i.z + detail::tvec4<T, P>(i1.z, i2.z, i3.z, T(1)))
-				+ i.y + detail::tvec4<T, P>(i1.y, i2.y, i3.y, T(1)))
-				+ i.x + detail::tvec4<T, P>(i1.x, i2.x, i3.x, T(1)));
+			i.w + detail::tvec4<T, P>(i1.w, i2.w, i3.w, T(1))) +
+			i.z + detail::tvec4<T, P>(i1.z, i2.z, i3.z, T(1))) +
+			i.y + detail::tvec4<T, P>(i1.y, i2.y, i3.y, T(1))) +
+			i.x + detail::tvec4<T, P>(i1.x, i2.x, i3.x, T(1)));
 
 		// Gradients: 7x7x6 points over a cube, mapped onto a 4-cross polytope
 		// 7*7*6 = 294, which is close to the ring size 17*17 = 289.
 		detail::tvec4<T, P> ip = detail::tvec4<T, P>(T(1) / T(294), T(1) / T(49), T(1) / T(7), T(0));
 
-		detail::tvec4<T, P> p0 = detail::grad4(j0,   ip);
-		detail::tvec4<T, P> p1 = detail::grad4(j1.x, ip);
-		detail::tvec4<T, P> p2 = detail::grad4(j1.y, ip);
-		detail::tvec4<T, P> p3 = detail::grad4(j1.z, ip);
-		detail::tvec4<T, P> p4 = detail::grad4(j1.w, ip);
+		detail::tvec4<T, P> p0 = gtc::grad4(j0,   ip);
+		detail::tvec4<T, P> p1 = gtc::grad4(j1.x, ip);
+		detail::tvec4<T, P> p2 = gtc::grad4(j1.y, ip);
+		detail::tvec4<T, P> p3 = gtc::grad4(j1.z, ip);
+		detail::tvec4<T, P> p4 = gtc::grad4(j1.w, ip);
 
 		// Normalise gradients
 		detail::tvec4<T, P> norm = detail::taylorInvSqrt(detail::tvec4<T, P>(dot(p0, p0), dot(p1, p1), dot(p2, p2), dot(p3, p3)));
@@ -815,8 +827,8 @@ namespace glm
 		p4 *= detail::taylorInvSqrt(dot(p4, p4));
 
 		// Mix contributions from the five corners
-		detail::tvec3<T, P> m0 = max(T(0.6) - detail::tvec3<T, P>(dot(x0, x0), dot(x1, x1), dot(x2, x2)), T(0));
-		detail::tvec2<T, P> m1 = max(T(0.6) - detail::tvec2<T, P>(dot(x3, x3), dot(x4, x4)             ), T(0));
+		detail::tvec3<T, P> m0 = max(T(0.6) - detail::tvec3<T, P>(dot(x0, x0), dot(x1, x1), dot(x2, x2)), detail::tvec3<T, P>(0));
+		detail::tvec2<T, P> m1 = max(T(0.6) - detail::tvec2<T, P>(dot(x3, x3), dot(x4, x4)             ), detail::tvec2<T, P>(0));
 		m0 = m0 * m0;
 		m1 = m1 * m1;
 		return T(49) * 

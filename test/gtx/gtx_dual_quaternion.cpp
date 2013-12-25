@@ -7,11 +7,11 @@
 // File    : test/gtc/gtc_dual_quaternion.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
 #include <glm/gtx/dual_quaternion.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <glm/gtx/euler_angles.hpp>
+#include <glm/vector_relational.hpp>
 
 #include <iostream>
 

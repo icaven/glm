@@ -31,8 +31,43 @@
 #include "type_vec4.hpp"
 #include "type_float.hpp"
 
-namespace glm
+namespace glm{
+namespace detail
 {
+	template <template <class, precision> class vecType, typename T, precision P>
+	struct compute_dot{};
+
+	template <typename T, precision P>
+	struct compute_dot<detail::tvec2, T, P>
+	{
+		static T call(detail::tvec2<T, P> const & x, detail::tvec2<T, P> const & y)
+		{
+			detail::tvec2<T, P> tmp(x * y);
+			return tmp.x + tmp.y;
+		}
+	};
+
+	template <typename T, precision P>
+	struct compute_dot<detail::tvec3, T, P>
+	{
+		static T call(detail::tvec3<T, P> const & x, detail::tvec3<T, P> const & y)
+		{
+			detail::tvec3<T, P> tmp(x * y);
+			return tmp.x + tmp.y + tmp.z;
+		}
+	};
+
+	template <typename T, precision P>
+	struct compute_dot<detail::tvec4, T, P>
+	{
+		static T call(detail::tvec4<T, P> const & x, detail::tvec4<T, P> const & y)
+		{
+			detail::tvec4<T, P> tmp(x * y);
+			return (tmp.x + tmp.y) + (tmp.z + tmp.w);
+		}
+	};
+}//namespace detail
+
 	// length
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType length
@@ -123,41 +158,35 @@ namespace glm
 	}
 
 	// dot
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType dot
+	GLM_FUNC_QUALIFIER float dot
 	(
-		genType const & x,
-		genType const & y
+		float const & x,
+		float const & y
 	)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'dot' only accept floating-point inputs");
-
 		return x * y;
 	}
 
-	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER double dot
+	(
+		double const & x,
+		double const & y
+	)
+	{
+		return x * y;
+	}
+
+	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER T dot
 	(
-		detail::tvec2<T, P> const & x,
-		detail::tvec2<T, P> const & y
+		vecType<T, P> const & x,
+		vecType<T, P> const & y
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'dot' only accept floating-point inputs");
-
-		return x.x * y.x + x.y * y.y;
+		return detail::compute_dot<vecType, T, P>::call(x, y);
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T dot
-	(
-		detail::tvec3<T, P> const & x,
-		detail::tvec3<T, P> const & y
-	)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'dot' only accept floating-point inputs");
-
-		return x.x * y.x + x.y * y.y + x.z * y.z;
-	}
 /* // SSE3
 	GLM_FUNC_QUALIFIER float dot(const tvec4<float>& x, const tvec4<float>& y)
 	{
@@ -175,18 +204,6 @@ namespace glm
 		return Result;
 	}
 */
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T dot
-	(
-		detail::tvec4<T, P> const & x,
-		detail::tvec4<T, P> const & y
-	)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'dot' only accept floating-point inputs");
-
-		return x.x * y.x + x.y * y.y + x.z * y.z + x.w * y.w;
-	}
-
 	// cross
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tvec3<T, P> cross

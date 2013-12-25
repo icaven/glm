@@ -191,7 +191,7 @@ namespace detail
 		detail::tdualquat<T, P> const & q
 	)
 	{
-		return inverse(q) * v;
+		return glm::inverse(q) * v;
 	}
 
 	template <typename T, precision P>
@@ -211,7 +211,7 @@ namespace detail
 		detail::tdualquat<T, P> const & q
 	)
 	{
-		return inverse(q) * v;
+		return glm::inverse(q) * v;
 	}
 
 	template <typename T, precision P>

@@ -7,9 +7,9 @@
 // File    : test/gtc/quaternion.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtc/epsilon.hpp>
+#include <glm/vector_relational.hpp>
 
 int test_quat_angle()
 {

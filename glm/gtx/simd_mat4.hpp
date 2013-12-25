@@ -44,7 +44,7 @@
 #if(GLM_ARCH != GLM_ARCH_PURE)
 
 #if(GLM_ARCH & GLM_ARCH_SSE2)
-#	include "../core/intrinsic_matrix.hpp"
+#	include "../detail/intrinsic_matrix.hpp"
 #	include "../gtx/simd_vec4.hpp"
 #else
 #	error "GLM: GLM_GTX_simd_mat4 requires compiler support of SSE2 through intrinsics"
@@ -127,7 +127,7 @@ namespace detail
 	fmat4x4SIMD operator+ (fmat4x4SIMD const & m, float const & s);
 	fmat4x4SIMD operator+ (float const & s, fmat4x4SIMD const & m);
 	fmat4x4SIMD operator+ (fmat4x4SIMD const & m1, fmat4x4SIMD const & m2);
-	    
+
 	fmat4x4SIMD operator- (fmat4x4SIMD const & m, float const & s);
 	fmat4x4SIMD operator- (float const & s, fmat4x4SIMD const & m);
 	fmat4x4SIMD operator- (fmat4x4SIMD const & m1, fmat4x4SIMD const & m2);

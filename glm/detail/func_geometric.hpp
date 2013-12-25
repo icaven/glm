@@ -70,11 +70,22 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/dot.xml">GLSL dot man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL T dot(
+		vecType<T, P> const & x,
+		vecType<T, P> const & y);
+/*
+	/// Returns the dot product of x and y, i.e., result = x * y.
+	///
+	/// @tparam genType Floating-point vector types.
+	/// 
+	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/dot.xml">GLSL dot man page</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
 	template <typename genType>
-	GLM_FUNC_DECL typename genType::value_type dot(
+	GLM_FUNC_DECL genType dot(
 		genType const & x,
 		genType const & y);
-
+*/
 	/// Returns the cross product of x and y.
 	///
 	/// @tparam valType Floating-point scalar types.

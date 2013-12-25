@@ -128,7 +128,9 @@ namespace detail
 	)
 	{
 		detail::tvec3<T, P> w = cross(u, v);
-		detail::tquat<T, P> q(T(1) + dot(u, v), w.x, w.y, w.z);
+		T Dot = detail::compute_dot<detail::tvec3, T, P>::call(u, v);
+		detail::tquat<T, P> q(T(1) + Dot, w.x, w.y, w.z);
+
 		*this = normalize(q);
 	}
 
@@ -181,7 +183,28 @@ namespace detail
 		assert(i >= 0 && i < this->length());
 		return (&x)[i];
 	}
+}//namespace detail
 
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tquat<T, P> conjugate
+	(
+		detail::tquat<T, P> const & q
+	)
+	{
+		return detail::tquat<T, P>(q.w, -q.x, -q.y, -q.z);
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tquat<T, P> inverse
+	(
+		detail::tquat<T, P> const & q
+	)
+	{
+		return conjugate(q) / dot(q, q);
+	}
+
+namespace detail
+{
 	//////////////////////////////////////////////////////////////
 	// tquat<valType> operators
 
@@ -240,7 +263,20 @@ namespace detail
 	}
 
 	//////////////////////////////////////////////////////////////
-	// tquat<valType> external operators
+	// tquat<T, P> external functions
+
+	template <typename T, precision P>
+	struct compute_dot<tquat, T, P>
+	{
+		static T call(tquat<T, P> const & x, tquat<T, P> const & y)
+		{
+			tvec4<T, P> tmp(x.x * y.x, x.y * y.y, x.z * y.z, x.w * y.w);
+			return (tmp.x + tmp.y) + (tmp.z + tmp.w);
+		}
+	};
+
+	//////////////////////////////////////////////////////////////
+	// tquat<T, P> external operators
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tquat<T, P> operator-
@@ -298,7 +334,7 @@ namespace detail
 		detail::tquat<T, P> const & q
 	)
 	{
-		return inverse(q) * v;
+		return glm::inverse(q) * v;
 	}
 
 	template <typename T, precision P>
@@ -318,7 +354,7 @@ namespace detail
 		detail::tquat<T, P> const & q
 	)
 	{
-		return inverse(q) * v;
+		return glm::inverse(q) * v;
 	}
 
 	template <typename T, precision P>
@@ -399,16 +435,6 @@ namespace detail
 			return detail::tquat<T, P>(1, 0, 0, 0);
 		T oneOverLen = T(1) / len;
 		return detail::tquat<T, P>(q.w * oneOverLen, q.x * oneOverLen, q.y * oneOverLen, q.z * oneOverLen);
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T dot
-	(
-		detail::tquat<T, P> const & q1,
-		detail::tquat<T, P> const & q2
-	)
-	{
-		return q1.x * q2.x + q1.y * q2.y + q1.z * q2.z + q1.w * q2.w;
 	}
 
 	template <typename T, precision P>
@@ -585,24 +611,6 @@ namespace detail
 			T angle = acos(cosTheta);
 			return (sin((T(1) - a) * angle) * x + sin(a * angle) * z) / sin(angle);
 		}
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tquat<T, P> conjugate
-	(
-		detail::tquat<T, P> const & q
-	)
-	{
-		return detail::tquat<T, P>(q.w, -q.x, -q.y, -q.z);
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tquat<T, P> inverse
-	(
-		detail::tquat<T, P> const & q
-	)
-	{
-		return conjugate(q) / dot(q, q);
 	}
 
 	template <typename T, precision P>
@@ -850,80 +858,79 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename detail::tquat<T, P>::bool_type lessThan
+	GLM_FUNC_QUALIFIER detail::tvec4<bool, P> lessThan
 	(
 		detail::tquat<T, P> const & x,
 		detail::tquat<T, P> const & y
 	)
 	{
-		typename detail::tquat<T, P>::bool_type Result;
-		for(int i = 0; i < x.length(); ++i)
+		detail::tvec4<bool, P> Result;
+		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] < y[i];
-
 		return Result;
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename detail::tquat<T, P>::bool_type lessThanEqual
+	GLM_FUNC_QUALIFIER detail::tvec4<bool, P> lessThanEqual
 	(
 		detail::tquat<T, P> const & x,
 		detail::tquat<T, P> const & y
 	)
 	{
-		typename detail::tquat<T, P>::bool_type Result;
-		for(int i = 0; i < x.length(); ++i)
+		detail::tvec4<bool, P> Result;
+		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] <= y[i];
 		return Result;
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename detail::tquat<T, P>::bool_type greaterThan
+	GLM_FUNC_QUALIFIER detail::tvec4<bool, P> greaterThan
 	(
 		detail::tquat<T, P> const & x,
 		detail::tquat<T, P> const & y
 	)
 	{
-		typename detail::tquat<T, P>::bool_type Result;
-		for(int i = 0; i < x.length(); ++i)
+		detail::tvec4<bool, P> Result;
+		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] > y[i];
 		return Result;
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename detail::tquat<T, P>::bool_type greaterThanEqual
+	GLM_FUNC_QUALIFIER detail::tvec4<bool, P> greaterThanEqual
 	(
 		detail::tquat<T, P> const & x,
 		detail::tquat<T, P> const & y
 	)
 	{
-		typename detail::tquat<T, P>::bool_type Result;
-		for(int i = 0; i < x.length(); ++i)
+		detail::tvec4<bool, P> Result;
+		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] >= y[i];
 		return Result;
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename detail::tquat<T, P>::bool_type  equal
+	GLM_FUNC_QUALIFIER detail::tvec4<bool, P> equal
 	(
 		detail::tquat<T, P> const & x,
 		detail::tquat<T, P> const & y
 	)
 	{
-		typename detail::tquat<T, P>::bool_type Result;
-		for(int i = 0; i < x.length(); ++i)
+		detail::tvec4<bool, P> Result;
+		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] == y[i];
 		return Result;
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename detail::tquat<T, P>::bool_type  notEqual
+	GLM_FUNC_QUALIFIER detail::tvec4<bool, P>  notEqual
 	(
 		detail::tquat<T, P> const & x,
 		detail::tquat<T, P> const & y
 	)
 	{
-		typename detail::tquat<T, P>::bool_type Result;
-		for(int i = 0; i < x.length(); ++i)
+		detail::tvec4<bool, P> Result;
+		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] != y[i];
 		return Result;
 	}

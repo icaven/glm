@@ -8,7 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #define GLM_MESSAGES
-#include <glm/glm.hpp>
+#include <glm/vec3.hpp>
 #include <iostream>
 
 int test_compiler()
@@ -227,8 +227,28 @@ int test_operators()
 	return (S && !R) ? 0 : 1;
 }
 
+template <typename T>
+struct vec
+{
+
+};
+
+template <template <typename> class C, typename T>
+struct Class
+{
+
+};
+
+template <typename T>
+struct Class<vec, T>
+{
+
+};
+
 int main()
 {
+	//Class<vec, float> C;
+
 	int Error = 0;
 
 	Error += test_cpp_version();

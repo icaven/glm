@@ -186,10 +186,10 @@ namespace detail
 	/// Returns dot product of q1 and q2, i.e., q1[0] * q2[0] + q1[1] * q2[1] + ...
 	/// 
 	/// @see gtc_quaternion
-	template <typename T, precision P>
+	template <typename T, precision P, template <typename, precision> class quatType>
 	GLM_FUNC_DECL T dot(
-		detail::tquat<T, P> const & q1,
-		detail::tquat<T, P> const & q2);
+		quatType<T, P> const & x,
+		quatType<T, P> const & y);
 
 	/// Spherical linear interpolation of two quaternions.
 	/// The interpolation is oriented and the rotation is performed at constant speed.
@@ -345,48 +345,60 @@ namespace detail
 	/// @tparam quatType Floating-point quaternion types.
 	///
 	/// @see gtc_quaternion
-	template <typename quatType>
-	GLM_FUNC_DECL typename quatType::bool_type lessThan(quatType const & x, quatType const & y);
+	template <typename T, precision P>
+	GLM_FUNC_DECL detail::tvec4<bool, P> lessThan(
+		detail::tquat<T, P> const & x, 
+		detail::tquat<T, P> const & y);
 
 	/// Returns the component-wise comparison of result x <= y.
 	///
 	/// @tparam quatType Floating-point quaternion types.
 	///
 	/// @see gtc_quaternion
-	template <typename quatType>
-	GLM_FUNC_DECL typename quatType::bool_type lessThanEqual(quatType const & x, quatType const & y);
+	template <typename T, precision P>
+	GLM_FUNC_DECL detail::tvec4<bool, P> lessThanEqual(
+		detail::tquat<T, P> const & x, 
+		detail::tquat<T, P> const & y);
 
 	/// Returns the component-wise comparison of result x > y.
 	///
 	/// @tparam quatType Floating-point quaternion types.
 	///
 	/// @see gtc_quaternion
-	template <typename quatType>
-	GLM_FUNC_DECL typename quatType::bool_type greaterThan(quatType const & x, quatType const & y);
+	template <typename T, precision P>
+	GLM_FUNC_DECL detail::tvec4<bool, P> greaterThan(
+		detail::tquat<T, P> const & x, 
+		detail::tquat<T, P> const & y);
 
 	/// Returns the component-wise comparison of result x >= y.
 	///
 	/// @tparam quatType Floating-point quaternion types.
 	///
 	/// @see gtc_quaternion
-	template <typename quatType>
-	GLM_FUNC_DECL typename quatType::bool_type greaterThanEqual(quatType const & x, quatType const & y);
+	template <typename T, precision P>
+	GLM_FUNC_DECL detail::tvec4<bool, P> greaterThanEqual(
+		detail::tquat<T, P> const & x, 
+		detail::tquat<T, P> const & y);
 
 	/// Returns the component-wise comparison of result x == y.
 	///
 	/// @tparam quatType Floating-point quaternion types.
 	///
 	/// @see gtc_quaternion
-	template <typename quatType>
-	GLM_FUNC_DECL typename quatType::bool_type equal(quatType const & x, quatType const & y);
+	template <typename T, precision P>
+	GLM_FUNC_DECL detail::tvec4<bool, P> equal(
+		detail::tquat<T, P> const & x, 
+		detail::tquat<T, P> const & y);
 
 	/// Returns the component-wise comparison of result x != y.
 	/// 
 	/// @tparam quatType Floating-point quaternion types.
 	///
 	/// @see gtc_quaternion
-	template <typename quatType>
-	GLM_FUNC_DECL typename quatType::bool_type notEqual(quatType const & x, quatType const & y);
+	template <typename T, precision P>
+	GLM_FUNC_DECL detail::tvec4<bool, P> notEqual(
+		detail::tquat<T, P> const & x, 
+		detail::tquat<T, P> const & y);
 
 	/// @}
 } //namespace glm
