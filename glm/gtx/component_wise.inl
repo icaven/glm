@@ -13,7 +13,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER T compAdd(vecType<T, P> const & v)
 	{
 		T result(0);
-		for(int i = 0; i < v.length(); ++i)
+		for(length_t i = 0; i < v.length(); ++i)
 			result += v[i];
 		return result;
 	}
@@ -22,7 +22,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER T compMul(vecType<T, P> const & v)
 	{
 		T result(1);
-		for(int i = 0; i < v.length(); ++i)
+		for(length_t i = 0; i < v.length(); ++i)
 			result *= v[i];
 		return result;
 	}
@@ -31,7 +31,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER T compMin(vecType<T, P> const & v)
 	{
 		T result(v[0]);
-		for(int i = 1; i < v.length(); ++i)
+		for(length_t i = 1; i < v.length(); ++i)
 			result = min(result, v[i]);
 		return result;
 	}
@@ -40,7 +40,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER T compMax(vecType<T, P> const & v)
 	{
 		T result(v[0]);
-		for(int i = 1; i < v.length(); ++i)
+		for(length_t i = 1; i < v.length(); ++i)
 			result = max(result, v[i]);
 		return result;
 	}
