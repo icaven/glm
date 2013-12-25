@@ -245,7 +245,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER T next_float(T const & x, uint const & ulps)
 	{
 		T temp = x;
-		for(length_t i = 0; i < ulps; ++i)
+		for(uint i = 0; i < ulps; ++i)
 			temp = next_float(temp);
 		return temp;
 	}
@@ -254,7 +254,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER vecType<T, P> next_float(vecType<T, P> const & x, vecType<uint, P> const & ulps)
 	{
 		vecType<T, P> Result;
-		for(length_t i = 0; i < Result.length(); ++i)
+		for(uint i = 0; i < Result.length(); ++i)
 			Result[i] = next_float(x[i], ulps[i]);
 		return Result;
 	}
@@ -263,7 +263,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER T prev_float(T const & x, uint const & ulps)
 	{
 		T temp = x;
-		for(length_t i = 0; i < ulps; ++i)
+		for(uint i = 0; i < ulps; ++i)
 			temp = prev_float(temp);
 		return temp;
 	}
