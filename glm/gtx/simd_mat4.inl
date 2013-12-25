@@ -10,10 +10,36 @@
 namespace glm{
 namespace detail{
 
-GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t fmat4x4SIMD::length() const
+GLM_FUNC_QUALIFIER length_t fmat4x4SIMD::length() const
 {
 	return 4;
 }
+
+//////////////////////////////////////
+// Accesses
+
+GLM_FUNC_QUALIFIER fvec4SIMD & fmat4x4SIMD::operator[]
+(
+	length_t i
+)
+{
+	assert(i < this->length());
+
+	return this->Data[i];
+}
+
+GLM_FUNC_QUALIFIER fvec4SIMD const & fmat4x4SIMD::operator[]
+(
+	length_t i
+) const
+{
+	assert(i < this->length());
+
+	return this->Data[i];
+}
+
+//////////////////////////////////////////////////////////////
+// Constructors
 
 GLM_FUNC_QUALIFIER fmat4x4SIMD::fmat4x4SIMD()
 {
@@ -81,29 +107,6 @@ GLM_FUNC_QUALIFIER fmat4x4SIMD::fmat4x4SIMD
 	this->Data[1] = in[1];
 	this->Data[2] = in[2];
 	this->Data[3] = in[3];
-}
-
-//////////////////////////////////////
-// Accesses
-
-GLM_FUNC_QUALIFIER fvec4SIMD & fmat4x4SIMD::operator[]
-(
-	length_t i
-)
-{
-	assert(i < this->length());
-
-	return this->Data[i];
-}
-
-GLM_FUNC_QUALIFIER fvec4SIMD const & fmat4x4SIMD::operator[]
-(
-	length_t i
-) const
-{
-	assert(i < this->length());
-
-	return this->Data[i];
 }
 
 //////////////////////////////////////////////////////////////

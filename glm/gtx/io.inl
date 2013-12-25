@@ -187,7 +187,7 @@ namespace detail
       if (cerberus) {
         tmat2x2<T,P> m(a);
 
-        if (io::format_guard::order_t::row_major == io::order()) {
+        if (io::format_guard::row_major == io::order()) {
           m = transpose(a);
         }
         
