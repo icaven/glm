@@ -701,7 +701,7 @@
 #	if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC8))
 #		define GLM_INLINE __forceinline
 #	elif((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC34))
-#		define GLM_INLINE __attribute__((always_inline))
+#		define GLM_INLINE __attribute__((always_inline)) inline
 #	elif(GLM_COMPILER & GLM_COMPILER_CLANG)
 #		define GLM_INLINE __attribute__((always_inline))
 #	else

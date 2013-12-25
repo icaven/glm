@@ -52,7 +52,7 @@
 
 namespace glm
 {
-  /// @addtogroup gtx_io
+	/// @addtogroup gtx_io
 	/// @{
   
   namespace io
@@ -72,21 +72,19 @@ namespace glm
       
     };
 
-    enum class order_t { column_major, row_major, };
+    class format_guard
+	{
+	public:
+		enum order_t { column_major, row_major, };
 
-    class format_guard {
+		GLM_FUNC_DECL explicit format_guard();
+		GLM_FUNC_DECL         ~format_guard();
 
-    public:
+	private:
 
-      GLM_FUNC_DECL explicit format_guard();
-      GLM_FUNC_DECL         ~format_guard();
-                
-    private:
-
-      order_t order_;
-      char    cr_;
-      
-    };
+		order_t order_;
+		char    cr_;
+	};
 
     // decimal places (dflt: 3)
     GLM_FUNC_DECL unsigned& precision();
@@ -95,7 +93,7 @@ namespace glm
     GLM_FUNC_DECL unsigned& value_width();
 
     // matrix output order (dflt: row_major)
-    GLM_FUNC_DECL order_t& order();
+    GLM_FUNC_DECL format_guard::order_t& order();
 
     // carriage/return char (dflt: '\n')
     GLM_FUNC_DECL char& cr();

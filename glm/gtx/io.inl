@@ -12,10 +12,9 @@
                                   // std::setw
 #include <ostream>                // std::basic_ostream<>
 
-namespace glm
+namespace glm{
+namespace io
 {
-  namespace io
-  {
   
     /* explicit */ GLM_FUNC_QUALIFIER
     precision_guard::precision_guard()
@@ -43,26 +42,23 @@ namespace glm
       order() = order_;
     }
 
-    GLM_FUNC_QUALIFIER unsigned&
-    precision()
+    GLM_FUNC_QUALIFIER unsigned& precision()
     {
       static unsigned p(3);
 
       return p;
     }
     
-    GLM_FUNC_QUALIFIER unsigned&
-    value_width()
+    GLM_FUNC_QUALIFIER unsigned& value_width()
     {
       static unsigned p(9);
 
       return p;
     }
     
-    GLM_FUNC_QUALIFIER order_t&
-    order()
+    GLM_FUNC_QUALIFIER format_guard::order_t& order()
     {
-      static order_t p(order_t::row_major);
+      static format_guard::order_t p(format_guard::row_major);
 
       return p;
     }
@@ -73,47 +69,41 @@ namespace glm
       static char p('\n'); return p;
     }
     
-    GLM_FUNC_QUALIFIER std::ios_base&
-    column_major(std::ios_base& os)
+    GLM_FUNC_QUALIFIER std::ios_base& column_major(std::ios_base& os)
     {
-      order() = order_t::column_major;
+      order() = format_guard::column_major;
       
       return os;
     }
     
-    GLM_FUNC_QUALIFIER std::ios_base&
-    row_major(std::ios_base& os)
+    GLM_FUNC_QUALIFIER std::ios_base& row_major(std::ios_base& os)
     {
-      order() = order_t::row_major;
+      order() = format_guard::row_major;
       
       return os;
     }
 
-    GLM_FUNC_QUALIFIER std::ios_base&
-    formatted(std::ios_base& os)
+    GLM_FUNC_QUALIFIER std::ios_base& formatted(std::ios_base& os)
     {
       cr() = '\n';
       
       return os;
     }
     
-    GLM_FUNC_QUALIFIER std::ios_base&
-    unformatted(std::ios_base& os)
+    GLM_FUNC_QUALIFIER std::ios_base& unformatted(std::ios_base& os)
     {
       cr() = ' ';
       
       return os;
     }
     
-  } // namespace io
-  
-  namespace detail {
-    
+} // namespace io
+namespace detail
+{
     // functions, inlined (inline)
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>&
-    operator<<(std::basic_ostream<CTy,CTr>& os, tquat<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tquat<T,P> const& a)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
@@ -133,8 +123,7 @@ namespace glm
     }
     
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>&
-    operator<<(std::basic_ostream<CTy,CTr>& os, tvec2<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tvec2<T,P> const& a)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
@@ -152,8 +141,7 @@ namespace glm
     }
   
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>&
-    operator<<(std::basic_ostream<CTy,CTr>& os, tvec3<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tvec3<T,P> const& a)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
@@ -172,8 +160,7 @@ namespace glm
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>&
-    operator<<(std::basic_ostream<CTy,CTr>& os, tvec4<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tvec4<T,P> const& a)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
@@ -193,15 +180,14 @@ namespace glm
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>&
-    operator<<(std::basic_ostream<CTy,CTr>& os, tmat2x2<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat2x2<T,P> const& a)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
         tmat2x2<T,P> m(a);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::format_guard::order_t::row_major == io::order()) {
           m = transpose(a);
         }
         
@@ -214,15 +200,14 @@ namespace glm
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>&
-    operator<<(std::basic_ostream<CTy,CTr>& os, tmat2x3<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat2x3<T,P> const& a)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
         tmat3x2<T,P> m(a);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::format_guard::row_major == io::order()) {
           m = transpose(a);
         }
 
@@ -236,15 +221,14 @@ namespace glm
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>&
-    operator<<(std::basic_ostream<CTy,CTr>& os, tmat2x4<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat2x4<T,P> const& a)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
         tmat4x2<T,P> m(a);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::format_guard::row_major == io::order()) {
           m = transpose(a);
         }
 
@@ -259,15 +243,14 @@ namespace glm
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>&
-    operator<<(std::basic_ostream<CTy,CTr>& os, tmat3x2<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat3x2<T,P> const& a)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
         tmat2x3<T,P> m(a);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::format_guard::row_major == io::order()) {
           m = transpose(a);
         }
 
@@ -280,15 +263,14 @@ namespace glm
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>&
-    operator<<(std::basic_ostream<CTy,CTr>& os, tmat3x3<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat3x3<T,P> const& a)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
         tmat3x3<T,P> m(a);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::format_guard::row_major == io::order()) {
           m = transpose(a);
         }
 
@@ -302,15 +284,14 @@ namespace glm
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>&
-    operator<<(std::basic_ostream<CTy,CTr>& os, tmat3x4<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat3x4<T,P> const& a)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
         tmat4x3<T,P> m(a);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::format_guard::row_major == io::order()) {
           m = transpose(a);
         }
 
@@ -325,15 +306,14 @@ namespace glm
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>&
-    operator<<(std::basic_ostream<CTy,CTr>& os, tmat4x2<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat4x2<T,P> const& a)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
         tmat2x4<T,P> m(a);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::format_guard::row_major == io::order()) {
           m = transpose(a);
         }
 
@@ -346,15 +326,14 @@ namespace glm
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>&
-    operator<<(std::basic_ostream<CTy,CTr>& os, tmat4x3<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat4x3<T,P> const& a)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
         tmat3x4<T,P> m(a);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::format_guard::row_major == io::order()) {
           m = transpose(a);
         }
 
@@ -368,15 +347,14 @@ namespace glm
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>&
-    operator<<(std::basic_ostream<CTy,CTr>& os, tmat4x4<T,P> const& a)
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat4x4<T,P> const& a)
     {
       typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
       if (cerberus) {
         tmat4x4<T,P> m(a);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::format_guard::row_major == io::order()) {
           m = transpose(a);
         }
 
@@ -391,7 +369,7 @@ namespace glm
     }
 
     template <typename CTy, typename CTr, typename T, precision P>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>&
+    GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& 
     operator<<(std::basic_ostream<CTy,CTr>& os,
                std::pair<tmat4x4<T,P> const, tmat4x4<T,P> const> const& a)
     {
@@ -401,7 +379,7 @@ namespace glm
         tmat4x4<T,P> ml(a.first);
         tmat4x4<T,P> mr(a.second);
 
-        if (io::order_t::row_major == io::order()) {
+        if (io::format_guard::row_major == io::order()) {
           ml = transpose(a.first);
           mr = transpose(a.second);
         }
@@ -415,6 +393,5 @@ namespace glm
 
       return os;
     }
-    
-  }//namespace detail
+}//namespace detail
 }//namespace glm

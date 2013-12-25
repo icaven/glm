@@ -38,8 +38,8 @@
 #ifndef GLM_GTX_simd_mat4
 #define GLM_GTX_simd_mat4
 
-// Dependency:
-#include "../glm.hpp"
+// Dependencies
+#include "../detail/setup.hpp"
 
 #if(GLM_ARCH != GLM_ARCH_PURE)
 
@@ -61,14 +61,15 @@ namespace detail
 	/// \ingroup gtx_simd_mat4
 	GLM_ALIGNED_STRUCT(16) fmat4x4SIMD
 	{
-		enum ctor{null};
-
+		enum ctor{_null};
 		typedef float value_type;
 		typedef fvec4SIMD col_type;
 		typedef fvec4SIMD row_type;
 		typedef std::size_t size_type;
-		static size_type value_size();
-		static bool is_matrix();
+		typedef fmat4x4SIMD type;
+		typedef fmat4x4SIMD transpose_type;
+
+		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
 
 		fvec4SIMD Data[4];
 
