@@ -54,10 +54,13 @@ namespace detail
 
 		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
 
-		friend tmat4x4<T, P> inverse(tmat4x4<T, P> const & m);
-		friend col_type operator/(tmat4x4<T, P> const & m, row_type const & v);
-		friend row_type operator/(row_type const & v, tmat4x4<T, P> const & m);
-		
+		template <typename U, precision Q>
+		friend tmat4x4<U, Q> inverse(tmat4x4<U, Q> const & m);
+		template <typename U, precision Q>
+		friend tvec4<U, Q> operator/(tmat4x4<U, Q> const & m, tvec4<U, Q> const & v);
+		template <typename U, precision Q>
+		friend tvec4<U, Q> operator/(tvec4<U, Q> const & v, tmat4x4<U, Q> const & m);
+
 	private:
 		/// @cond DETAIL
 		col_type value[4];
