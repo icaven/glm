@@ -56,8 +56,6 @@ int main()
 
 	glm::simdVec4 GNI(add0);
 
-	printf("%f\n", GNI.Data /* .m128_f32 */);
-
 	return 0;
 }
 

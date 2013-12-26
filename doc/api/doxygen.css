@@ -1,13 +1,5 @@
 /* The standard CSS for doxygen */
 
-body
-{
-	background-image:url('background.jpg');
-	background-attachment:fixed;
-	background-position:center; 
-	background-repeat:no-repeat;
-}
-
 body, table, div, p, dl 
 {
 	font-family: Lucida Grande, Calibri, Verdana;
@@ -18,7 +10,7 @@ body
 {
 	margin:0px;
 	padding:0px;
-	background-color:#000000;
+	background-color:#bf6000;
 	background-repeat:no-repeat;
 	background-position:center center;
 	background-attachment:fixed;
