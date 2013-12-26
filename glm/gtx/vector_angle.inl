@@ -36,7 +36,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'angle' only accept floating-point inputs");
 
-		genType const Angle(acos(clamp(dot(x, y), T(0), T(1)));
+		T const Angle(acos(clamp(dot(x, y), T(0), T(1))));
 
 #ifdef GLM_FORCE_RADIANS
 		return Angle;
