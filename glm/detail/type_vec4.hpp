@@ -47,6 +47,28 @@
 namespace glm{
 namespace detail
 {
+	template <typename T>
+	struct simd
+	{
+		typedef T type[4];
+	};
+
+#	if(GLM_ARCH & GLM_ARCH_SSE2)
+		template <>
+		struct simd<float>
+		{
+			typedef __m128 type;
+		};
+#	endif
+
+#	if(GLM_ARCH & GLM_ARCH_AVX)
+		template <>
+		struct simd<double>
+		{
+			typedef __m256d type;
+		};
+#	endif
+	
 	template <typename T, precision P>
 	struct tvec4
 	{
@@ -86,11 +108,25 @@ namespace detail
 				_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, s, t, p, q)
 			};
 #		else
-			union { T x, r, s; };
-			union { T y, g, t; };
-			union { T z, b, p; };
-			union { T w, a, q; };
-
+#			if(GLM_HAS_UNRESTRICTED_UNIONS)
+				union
+				{
+					typename simd<T>::type data;
+					struct
+					{
+						union { T x, r, s; };
+						union { T y, g, t; };
+						union { T z, b, p; };
+						union { T w, a, q; };
+					};
+				};
+#			else
+				union { T x, r, s; };
+				union { T y, g, t; };
+				union { T z, b, p; };
+				union { T w, a, q; };
+#			endif
+		
 #			ifdef GLM_SWIZZLE
 				GLM_SWIZZLE_GEN_VEC_FROM_VEC4(T, P, detail::tvec4, detail::tvec2, detail::tvec3, detail::tvec4)
 #			endif

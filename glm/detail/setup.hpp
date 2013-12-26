@@ -520,6 +520,13 @@
 	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC44)) || \
 	__has_feature(cxx_generalized_initializers))
 
+// N2544 Unrestricted unions
+#define GLM_HAS_UNRESTRICTED_UNIONS ( \
+	(GLM_LANG & GLM_LANG_CXX11_FLAG) || \
+	(GLM_LANG & GLM_LANG_CXXMS_FLAG) || \
+	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC46)) || \
+	__has_feature(cxx_unrestricted_unions))
+
 // OpenMP
 #ifdef _OPENMP 
 #	if(GLM_COMPILER & GLM_COMPILER_GCC)
@@ -545,14 +552,13 @@
 /////////////////
 // Platform 
 
-// User defines: GLM_FORCE_PURE GLM_FORCE_SSE2 GLM_FORCE_AVX
+// User defines: GLM_FORCE_PURE GLM_FORCE_SSE2 GLM_FORCE_SSE3 GLM_FORCE_AVX GLM_FORCE_AVX2
 
 #define GLM_ARCH_PURE		0x0000
 #define GLM_ARCH_SSE2		0x0001
 #define GLM_ARCH_SSE3		0x0002// | GLM_ARCH_SSE2
-#define GLM_ARCH_SSE4		0x0004// | GLM_ARCH_SSE3 | GLM_ARCH_SSE2
-#define GLM_ARCH_AVX		0x0008// | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2
-#define GLM_ARCH_AVX2		0x0010// | GLM_ARCH_AVX | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2
+#define GLM_ARCH_AVX		0x0004// | GLM_ARCH_SSE3 | GLM_ARCH_SSE2
+#define GLM_ARCH_AVX2		0x0008// | GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2
 
 #if(defined(GLM_FORCE_PURE))
 #	define GLM_ARCH GLM_ARCH_PURE
@@ -560,12 +566,22 @@
 #	define GLM_ARCH (GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #elif(defined(GLM_FORCE_AVX))
 #	define GLM_ARCH (GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
-#elif(defined(GLM_FORCE_SSE4))
-#	define GLM_ARCH (GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #elif(defined(GLM_FORCE_SSE3))
 #	define GLM_ARCH (GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #elif(defined(GLM_FORCE_SSE2))
 #	define GLM_ARCH (GLM_ARCH_SSE2)
+#elif((GLM_COMPILER & GLM_COMPILER_CLANG) || (GLM_COMPILER & GLM_COMPILER_GCC))
+#	if(__AVX2__)
+#		define GLM_ARCH (GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
+#	elif(__AVX__)
+#		define GLM_ARCH (GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
+#	elif(__SSE3__)
+#		define GLM_ARCH (GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
+#	elif(__SSE2__)
+#		define GLM_ARCH (GLM_ARCH_SSE2)
+#	else
+#		define GLM_ARCH GLM_ARCH_PURE
+#	endif
 #elif((GLM_COMPILER & GLM_COMPILER_VC) && (defined(_M_IX86) || defined(_M_X64)))
 #	if(GLM_PLATFORM == GLM_PLATFORM_WINCE)
 #		define GLM_ARCH GLM_ARCH_PURE
@@ -596,15 +612,6 @@
 #	else
 #		define GLM_ARCH GLM_ARCH_PURE
 #	endif
-#elif((GLM_PLATFORM & GLM_PLATFORM_APPLE) && (GLM_COMPILER & GLM_COMPILER_GCC))
-#	define GLM_ARCH GLM_ARCH_PURE
-#elif(((GLM_COMPILER & GLM_COMPILER_GCC) && (defined(__i386__) || defined(__x86_64__))) || (GLM_COMPILER & GLM_COMPILER_LLVM_GCC))
-#	define GLM_ARCH (GLM_ARCH_PURE \
-| (defined(__AVX2__) ? GLM_ARCH_AVX2 : 0) \
-| (defined(__AVX__) ? GLM_ARCH_AVX : 0) \
-| (defined(__SSE4__) ? GLM_ARCH_SSE4 : 0) \
-| (defined(__SSE3__) ? GLM_ARCH_SSE3 : 0) \
-| (defined(__SSE2__) ? GLM_ARCH_SSE2 : 0))
 #else
 #	define GLM_ARCH GLM_ARCH_PURE
 #endif
@@ -616,7 +623,6 @@
 #	include <intrin.h>
 #endif
 
-//#if(GLM_ARCH != GLM_ARCH_PURE)
 #if(GLM_ARCH & GLM_ARCH_AVX2)
 #	include <immintrin.h>
 #endif//GLM_ARCH
@@ -639,22 +645,19 @@
 		inline __m128 _mm_castsi128_ps(__m128i PI) { union { __m128 ps; __m128i pi; } c; c.pi = PI; return c.ps; }
 #	endif
 #endif//GLM_ARCH
-//#endif//(GLM_ARCH != GLM_ARCH_PURE)
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_ARCH_DISPLAYED))
 #	define GLM_MESSAGE_ARCH_DISPLAYED
 #	if(GLM_ARCH == GLM_ARCH_PURE)
 #		pragma message("GLM: Platform independent")
-#	elif(GLM_ARCH & GLM_ARCH_SSE2)
-#		pragma message("GLM: SSE2 instruction set")
-#	elif(GLM_ARCH & GLM_ARCH_SSE3)
-#		pragma message("GLM: SSE3 instruction set")
-#	elif(GLM_ARCH & GLM_ARCH_SSE4)
-#		pragma message("GLM: SSE4 instruction set")
-#	elif(GLM_ARCH & GLM_ARCH_AVX)
-#		pragma message("GLM: AVX instruction set")
 #	elif(GLM_ARCH & GLM_ARCH_AVX2)
 #		pragma message("GLM: AVX2 instruction set")
+#	elif(GLM_ARCH & GLM_ARCH_AVX)
+#		pragma message("GLM: AVX instruction set")
+#	elif(GLM_ARCH & GLM_ARCH_SSE3)
+#		pragma message("GLM: SSE3 instruction set")
+#	elif(GLM_ARCH & GLM_ARCH_SSE2)
+#		pragma message("GLM: SSE2 instruction set")
 #	endif//GLM_ARCH
 #	pragma message("GLM: #define GLM_FORCE_PURE to avoid using platform specific instruction sets")
 #endif//GLM_MESSAGE
