@@ -138,9 +138,6 @@ namespace glm
     typedef basic_format_saver<char>     format_saver;
     typedef basic_format_saver<wchar_t> wformat_saver;
     
-    struct formatted   { /* empty */ };
-    struct unformatted { /* empty */ };
-    
     struct precision {
 
       unsigned value;
@@ -178,11 +175,11 @@ namespace glm
 
     template <typename FTy, typename CTy, typename CTr>
     FTy const& get_facet(std::basic_ios<CTy,CTr>&);
+    template <typename FTy, typename CTy, typename CTr>
+    std::basic_ios<CTy,CTr>& formatted(std::basic_ios<CTy,CTr>&);
+    template <typename FTy, typename CTy, typename CTr>
+    std::basic_ios<CTy,CTr>& unformattet(std::basic_ios<CTy,CTr>&);
     
-    template <typename CTy, typename CTr>
-    std::basic_ostream<CTy, CTr>& operator<<(std::basic_ostream<CTy, CTr>&, formatted const&);
-    template <typename CTy, typename CTr>
-    std::basic_ostream<CTy, CTr>& operator<<(std::basic_ostream<CTy, CTr>&, unformatted const&);
     template <typename CTy, typename CTr>
     std::basic_ostream<CTy, CTr>& operator<<(std::basic_ostream<CTy, CTr>&, precision const&);
     template <typename CTy, typename CTr>

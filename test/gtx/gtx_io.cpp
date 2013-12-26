@@ -80,7 +80,7 @@ int test_io_quat(OS& os)
   {
     glm::io::basic_format_saver<typename OS::char_type> const iofs(os);
   
-    os << glm::io::unformatted()
+    os << glm::io::unformatted
        << type_name<T,P>(os, q) << ": " << q << '\n';
   }  
 
@@ -157,7 +157,7 @@ int test_io_mat(OS& os)
      << "mat4x3<" << typeid(T).name() << ',' << P << ">: " << glm::detail::tmat4x3<T,P>(v3_1, v3_2, v3_3, v3_4) << '\n'
      << "mat4x4<" << typeid(T).name() << ',' << P << ">: " << glm::detail::tmat4x4<T,P>(v4_1, v4_2, v4_3, v4_4) << '\n';
   
-  os << glm::io::unformatted()
+  os << glm::io::unformatted
      << glm::io::order(glm::io::order_type::column_major)
      << "mat2x2<" << typeid(T).name() << ',' << P << ">: " << glm::detail::tmat2x2<T,P>(v2_1, v2_2) << '\n'
      << "mat2x3<" << typeid(T).name() << ',' << P << ">: " << glm::detail::tmat2x3<T,P>(v3_1, v3_2) << '\n'

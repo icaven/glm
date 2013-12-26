@@ -119,21 +119,21 @@ namespace glm
     }
 
     template <typename CTy, typename CTr>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy, CTr>&
-    operator<<(std::basic_ostream<CTy, CTr>& os, formatted const&)
+    GLM_FUNC_QUALIFIER std::basic_ios<CTy,CTr>&
+    formatted(std::basic_ios<CTy,CTr>& ios)
     {
-      const_cast<format_punct<CTy>&>(get_facet<format_punct<CTy>>(os)).formatted = true;
+      const_cast<format_punct<CTy>&>(get_facet<format_punct<CTy>>(ios)).formatted = true;
 
-      return os;
+      return ios;
     }
-
+    
     template <typename CTy, typename CTr>
-    GLM_FUNC_QUALIFIER std::basic_ostream<CTy, CTr>&
-    operator<<(std::basic_ostream<CTy, CTr>& os, unformatted const&)
+    GLM_FUNC_QUALIFIER std::basic_ios<CTy,CTr>&
+    unformatted(std::basic_ios<CTy,CTr>& ios)
     {
-      const_cast<format_punct<CTy>&>(get_facet<format_punct<CTy>>(os)).formatted = false;
+      const_cast<format_punct<CTy>&>(get_facet<format_punct<CTy>>(ios)).formatted = false;
 
-      return os;
+      return ios;
     }
     
     template <typename CTy, typename CTr>
