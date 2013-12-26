@@ -37,10 +37,17 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
 
 ================================================================================
+GLM 0.9.6.0: 2014-XX-XX
+--------------------------------------------------------------------------------
+- Added transparent use of SIMD instructions for vec4 and mat4 types
+- Removed degrees for function parameters
+- Removed GLM_FORCE_RADIANS, active by default
+
+================================================================================
 GLM 0.9.5.1: 2014-XX-XX
 --------------------------------------------------------------------------------
 - Fixed angle and orientedAngle that sometimes return NaN values (#145)
-- Deprecated degrees for function parameters and display a message.
+- Deprecated degrees for function parameters and display a message
 
 ================================================================================
 GLM 0.9.5.0: 2013-12-25

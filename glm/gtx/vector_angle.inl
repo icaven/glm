@@ -17,15 +17,7 @@ namespace glm
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'angle' only accept floating-point inputs");
-
-		genType const Angle(acos(clamp(dot(x, y), genType(0), genType(1))));
-
-#ifdef GLM_FORCE_RADIANS
-		return Angle;
-#else
-#		pragma message("GLM: angle function returning degrees is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.")
-		return degrees(Angle);
-#endif
+		return acos(clamp(dot(x, y), genType(0), genType(1)));
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType> 
@@ -36,15 +28,7 @@ namespace glm
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'angle' only accept floating-point inputs");
-
-		T const Angle(acos(clamp(dot(x, y), T(0), T(1))));
-
-#ifdef GLM_FORCE_RADIANS
-		return Angle;
-#else
-#		pragma message("GLM: angle function returning degrees is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.")
-		return degrees(Angle);
-#endif
+		return acos(clamp(dot(x, y), T(0), T(1)));
 	}
 
 	//! \todo epsilon is hard coded to 0.01
@@ -56,15 +40,8 @@ namespace glm
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'orientedAngle' only accept floating-point inputs");
+		T const Angle(acos(clamp(dot(x, y), T(0), T(1))));
 
-		T const Dot = clamp(dot(x, y), T(0), T(1));
-
-#ifdef GLM_FORCE_RADIANS
-		T const Angle(acos(Dot));
-#else
-#		pragma message("GLM: orientedAngle function returning degrees is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.")
-		T const Angle(degrees(acos(Dot)));
-#endif
 		detail::tvec2<T, P> const TransformedVector(glm::rotate(x, Angle));
 		if(all(epsilonEqual(y, TransformedVector, T(0.01))))
 			return Angle;
@@ -81,19 +58,8 @@ namespace glm
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'orientedAngle' only accept floating-point inputs");
+		T const Angle(acos(clamp(dot(x, y), T(0), T(1))));
 
-		T const Dot = clamp(dot(x, y), T(0), T(1));
-
-#ifdef GLM_FORCE_RADIANS
-		T const Angle(acos(Dot));
-#else
-#		pragma message("GLM: orientedAngle function returning degrees is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.")
-		T const Angle(degrees(acos(Dot)));
-#endif
-
-		if(dot(ref, cross(x, y)) < T(0))
-			return -Angle;
-		else
-			return Angle;
+		return mix(Angle, -Angle, dot(ref, cross(x, y)) < T(0));
 	}
 }//namespace glm
