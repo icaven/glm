@@ -40,6 +40,7 @@ http://glm.g-truc.net/glm.pdf
 GLM 0.9.5.1: 2014-XX-XX
 --------------------------------------------------------------------------------
 - Fixed angle and orientedAngle that sometimes return NaN values (#145)
+- Deprecated degrees for function parameters and display a message.
 
 ================================================================================
 GLM 0.9.5.0: 2013-12-25

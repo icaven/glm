@@ -39,6 +39,7 @@ namespace glm
 #ifdef GLM_FORCE_RADIANS
 		T a = angle;
 #else
+#		pragma message("GLM: rotateNormalizedAxis function taking degrees as parameters is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.")
 		T a = radians(angle);
 #endif
 		T c = cos(a);
@@ -82,6 +83,7 @@ namespace glm
 #ifdef GLM_FORCE_RADIANS
 		T const AngleRad(angle);
 #else
+#		pragma message("GLM: rotateNormalizedAxis function taking degrees as parameters is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.")
 		T const AngleRad = radians(angle);
 #endif
 		T const Sin = sin(AngleRad * T(0.5));

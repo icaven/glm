@@ -23,6 +23,7 @@ namespace glm
 #ifdef GLM_FORCE_RADIANS
 		return Angle;
 #else
+#		pragma message("GLM: angle function returning degrees is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.")
 		return degrees(Angle);
 #endif
 	}
@@ -41,6 +42,7 @@ namespace glm
 #ifdef GLM_FORCE_RADIANS
 		return Angle;
 #else
+#		pragma message("GLM: angle function returning degrees is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.")
 		return degrees(Angle);
 #endif
 	}
@@ -60,6 +62,7 @@ namespace glm
 #ifdef GLM_FORCE_RADIANS
 		T const Angle(acos(Dot));
 #else
+#		pragma message("GLM: orientedAngle function returning degrees is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.")
 		T const Angle(degrees(acos(Dot)));
 #endif
 		detail::tvec2<T, P> const TransformedVector(glm::rotate(x, Angle));
@@ -84,6 +87,7 @@ namespace glm
 #ifdef GLM_FORCE_RADIANS
 		T const Angle(acos(Dot));
 #else
+#		pragma message("GLM: orientedAngle function returning degrees is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.")
 		T const Angle(degrees(acos(Dot)));
 #endif
 
