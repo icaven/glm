@@ -362,12 +362,28 @@ int test_vec4_perf_SoA(std::size_t Size)
 	return Error;
 }
 
+/*
+struct simd_vec4
+{
+	union
+	{
+		__m128 data;
+		union { float x, r, s; };
+		union { float y, g, t; };
+		union { float z, b, p; };
+		union { float w, a, q; };
+	};
+};
+*/
+
 int main()
 {
 	//__m128 DataA = swizzle<X, Y, Z, W>(glm::vec4(1.0f, 2.0f, 3.0f, 4.0f));
 	//__m128 DataB = swizzle<W, Z, Y, X>(glm::vec4(1.0f, 2.0f, 3.0f, 4.0f));
 
 	int Error(0);
+
+	glm::vec4 v(1.0, 0.5, 0.0, 1.0);
 	
 	std::size_t const Size(1000000);
 
