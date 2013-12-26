@@ -110,16 +110,6 @@ namespace detail
 
 	//////////////////////////////////////
 	// Conversion scalar constructors
-		
-	template <typename T, precision P>
-	template <typename U>
-	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2
-	(
-		U const & x
-	) :
-		x(static_cast<T>(x)),
-		y(static_cast<T>(x))
-	{}
 
 	template <typename T, precision P>
 	template <typename U, typename V>

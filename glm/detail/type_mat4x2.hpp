@@ -86,10 +86,7 @@ namespace detail
 
 		//////////////////////////////////////
 		// Conversions
-		template <typename U> 
-		GLM_FUNC_DECL explicit tmat4x2(
-			U const & x);
-			
+
 		template<
 			typename X1, typename Y1,
 			typename X2, typename Y2,
@@ -100,7 +97,7 @@ namespace detail
 			X2 const & x2, Y2 const & y2,
 			X3 const & x3, Y3 const & y3,
 			X4 const & x4, Y4 const & y4);
-			
+
 		template <typename V1, typename V2, typename V3, typename V4>
 		GLM_FUNC_DECL explicit tmat4x2(
 			tvec2<V1, P> const & v1,
@@ -111,7 +108,7 @@ namespace detail
 		// Matrix conversions
 		template <typename U, precision Q>
 		GLM_FUNC_DECL explicit tmat4x2(tmat4x2<U, Q> const & m);
-			
+
 		GLM_FUNC_DECL explicit tmat4x2(tmat2x2<T, P> const & x);
 		GLM_FUNC_DECL explicit tmat4x2(tmat3x3<T, P> const & x);
 		GLM_FUNC_DECL explicit tmat4x2(tmat4x4<T, P> const & x);

@@ -167,19 +167,6 @@ namespace detail
 	//////////////////////////////////////
 	// Conversion constructors
 	template <typename T, precision P>
-	template <typename U>
-	GLM_FUNC_QUALIFIER tmat3x3<T, P>::tmat3x3
-	(
-		U const & s
-	)
-	{
-		value_type const Zero(0);
-		this->value[0] = tvec3<T, P>(static_cast<T>(s), Zero, Zero);
-		this->value[1] = tvec3<T, P>(Zero, value_type(s), Zero);
-		this->value[2] = tvec3<T, P>(Zero, Zero, value_type(s));
-	}
-	
-	template <typename T, precision P>
 	template <
 		typename X1, typename Y1, typename Z1,
 		typename X2, typename Y2, typename Z2,

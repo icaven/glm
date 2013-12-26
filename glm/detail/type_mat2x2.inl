@@ -155,18 +155,6 @@ namespace detail
 	//////////////////////////////////////
 	// Conversion constructors
 	template <typename T, precision P>
-	template <typename U>
-	GLM_FUNC_QUALIFIER tmat2x2<T, P>::tmat2x2
-	(
-		U const & s
-	)
-	{
-		value_type const Zero(0);
-		this->value[0] = tvec2<T, P>(static_cast<T>(s), Zero);
-		this->value[1] = tvec2<T, P>(Zero, value_type(s));
-	}
-	
-	template <typename T, precision P>
 	template <typename X1, typename Y1, typename X2, typename Y2>
 	GLM_FUNC_QUALIFIER tmat2x2<T, P>::tmat2x2
 	(

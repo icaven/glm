@@ -138,10 +138,6 @@ namespace detail
 		// Conversion constructors
 
 		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename U>
-		GLM_FUNC_DECL explicit tvec2(
-			U const & x);
-		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U, typename V>
 		GLM_FUNC_DECL explicit tvec2(
 			U const & x,

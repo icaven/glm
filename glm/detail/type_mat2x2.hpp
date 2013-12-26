@@ -92,15 +92,11 @@ namespace detail
 
 		//////////////////////////////////////
 		// Conversions
-		template <typename U> 
-		GLM_FUNC_DECL explicit tmat2x2(
-			U const & x);
-
 		template <typename U, typename V, typename M, typename N>
 		GLM_FUNC_DECL explicit tmat2x2(
 			U const & x1, V const & y1,
 			M const & x2, N const & y2);
-			
+
 		template <typename U, typename V>
 		GLM_FUNC_DECL explicit tmat2x2(
 			tvec2<U, P> const & v1,
