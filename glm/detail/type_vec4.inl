@@ -63,6 +63,18 @@ namespace detail
 		w(0)
 	{}
 
+#if((GLM_HAS_UNRESTRICTED_UNIONS) && (GLM_ARCH & GLM_ARCH_SSE2))
+	template <>
+	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4() :
+		data(_mm_setzero_ps())
+	{}
+	
+	template <>
+	GLM_FUNC_QUALIFIER tvec4<float, mediump>::tvec4() :
+		data(_mm_setzero_ps())
+	{}
+#endif
+	
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4(tvec4<T, P> const & v) :
 		x(v.x),
@@ -70,6 +82,18 @@ namespace detail
 		z(v.z),
 		w(v.w)
 	{}
+
+#if((GLM_HAS_UNRESTRICTED_UNIONS) && (GLM_ARCH & GLM_ARCH_SSE2))
+	template <>
+	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4(tvec4<float, lowp> const & v) :
+		data(v.data)
+	{}
+	
+	template <>
+	GLM_FUNC_QUALIFIER tvec4<float, mediump>::tvec4(tvec4<float, mediump> const & v) :
+		data(v.data)
+	{}
+#endif
 
 	template <typename T, precision P>
 	template <precision Q>
@@ -80,6 +104,20 @@ namespace detail
 		w(v.w)
 	{}
 
+#if((GLM_HAS_UNRESTRICTED_UNIONS) && (GLM_ARCH & GLM_ARCH_SSE2))
+	template <>
+	template <precision Q>
+	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4(tvec4<float, Q> const & v) :
+		data(_mm_set_ps(w, z, y, x))
+	{}
+	
+	template <>
+	template <precision Q>
+	GLM_FUNC_QUALIFIER tvec4<float, mediump>::tvec4(tvec4<float, Q> const & v) :
+		data(_mm_set_ps(w, z, y, x))
+	{}
+#endif
+	
 #if(GLM_HAS_INITIALIZER_LISTS)
 	template <typename T, precision P>
 	template <typename U>
@@ -108,35 +146,64 @@ namespace detail
 		w(s)
 	{}
 
+#if((GLM_HAS_UNRESTRICTED_UNIONS) && (GLM_ARCH & GLM_ARCH_SSE2))
+	template <>
+	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4(float const & s) :
+		data(_mm_set1_ps(s))
+	{}
+	
+	template <>
+	GLM_FUNC_QUALIFIER tvec4<float, mediump>::tvec4(float const & s) :
+		data(_mm_set1_ps(s))
+	{}
+#endif
+	
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
-	(
-		T const & s1,
-		T const & s2,
-		T const & s3,
-		T const & s4
-	) :
-		x(s1),
-		y(s2),
-		z(s3),
-		w(s4)
+	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4(T const & a, T const & b, T const & c, T const & d) :
+		x(a),
+		y(b),
+		z(c),
+		w(d)
 	{}
 
+#if((GLM_HAS_UNRESTRICTED_UNIONS) && (GLM_ARCH & GLM_ARCH_SSE2))
+	template <>
+	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4(float const & a, float const & b, float const & c, float const & d) :
+		data(_mm_set_ps(d, c, b, a))
+	{}
+	
+	template <>
+	GLM_FUNC_QUALIFIER tvec4<float, mediump>::tvec4(float const & a, float const & b, float const & c, float const & d) :
+		data(_mm_set_ps(d, c, b, a))
+	{}
+#endif
+	
 	//////////////////////////////////////
 	// Conversion scalar constructors
 
 	template <typename T, precision P>
 	template <typename U>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
-	(
-		U const & x
-	) :
+	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4(U const & x) :
 		x(static_cast<T>(x)),
 		y(static_cast<T>(x)),
 		z(static_cast<T>(x)),
 		w(static_cast<T>(x))
 	{}
 
+#if((GLM_HAS_UNRESTRICTED_UNIONS) && (GLM_ARCH & GLM_ARCH_SSE2))
+	template <>
+	template <typename U>
+	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4(U const & x) :
+		data(_mm_set_ps(static_cast<float>(x), static_cast<float>(x), static_cast<float>(x), static_cast<float>(x)))
+	{}
+	
+	template <>
+	template <typename U>
+	GLM_FUNC_QUALIFIER tvec4<float, mediump>::tvec4(U const & x) :
+		data(_mm_set_ps(static_cast<float>(x), static_cast<float>(x), static_cast<float>(x), static_cast<float>(x)))
+	{}
+#endif
+	
 	template <typename T, precision P>
 	template <typename A, typename B, typename C, typename D>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4
@@ -261,6 +328,121 @@ namespace detail
 		return *this;
 	}
 
+#if((GLM_HAS_UNRESTRICTED_UNIONS) && (GLM_ARCH & GLM_ARCH_SSE2))
+	template <>
+	GLM_FUNC_QUALIFIER tvec4<float, lowp> & tvec4<float, lowp>::operator= (tvec4<float, lowp> const & v)
+	{
+		this->data = v.data;
+		return *this;
+	}
+	
+	template <>
+	GLM_FUNC_QUALIFIER tvec4<float, mediump> & tvec4<float, mediump>::operator= (tvec4<float, mediump> const & v)
+	{
+		this->data = v.data;
+		return *this;
+	}
+#endif
+	
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator+= (T s)
+	{
+		this->x += s;
+		this->y += s;
+		this->z += s;
+		this->w += s;
+		return *this;
+	}
+	
+#if((GLM_HAS_UNRESTRICTED_UNIONS) && (GLM_ARCH & GLM_ARCH_SSE2))
+	template <>
+	GLM_FUNC_QUALIFIER tvec4<float, lowp> & tvec4<float, lowp>::operator+= (float s)
+	{
+		this->data = _mm_add_ps(this->data, _mm_set_ps1(s));
+		return *this;
+	}
+	
+	template <>
+	GLM_FUNC_QUALIFIER tvec4<float, mediump> & tvec4<float, mediump>::operator+= (float s)
+	{
+		this->data = _mm_add_ps(this->data, _mm_set_ps1(s));
+		return *this;
+	}
+#endif
+	
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator+= (tvec4<T, P> const & v)
+	{
+		this->x += v.x;
+		this->y += v.y;
+		this->z += v.z;
+		this->w += v.w;
+		return *this;
+	}
+	
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator-= (T s)
+	{
+		this->x -= s;
+		this->y -= s;
+		this->z -= s;
+		this->w -= s;
+		return *this;
+	}
+	
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator-= (tvec4<T, P> const & v)
+	{
+		this->x -= v.x;
+		this->y -= v.y;
+		this->z -= v.z;
+		this->w -= v.w;
+		return *this;
+	}
+	
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator*= (T s)
+	{
+		this->x *= s;
+		this->y *= s;
+		this->z *= s;
+		this->w *= s;
+		return *this;
+	}
+	
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator*= (tvec4<T, P> const & v)
+	{
+		this->x *= v.x;
+		this->y *= v.y;
+		this->z *= v.z;
+		this->w *= v.w;
+		return *this;
+	}
+	
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator/= (T s)
+	{
+		this->x /= s;
+		this->y /= s;
+		this->z /= s;
+		this->w /= s;
+		return *this;
+	}
+	
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator/= (tvec4<T, P> const & v)
+	{
+		this->x /= v.x;
+		this->y /= v.y;
+		this->z /= v.z;
+		this->w /= v.w;
+		return *this;
+	}
+
+	
+	
+	
 	template <typename T, precision P>
 	template <typename U, precision Q>
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator= (tvec4<U, Q> const & v)
@@ -283,6 +465,24 @@ namespace detail
 		return *this;
 	}
 
+#if((GLM_HAS_UNRESTRICTED_UNIONS) && (GLM_ARCH & GLM_ARCH_SSE2))
+	template <>
+	template <typename U>
+	GLM_FUNC_QUALIFIER tvec4<float, lowp> & tvec4<float, lowp>::operator+= (U s)
+	{
+		this->data = _mm_add_ps(this->data, _mm_set_ps1(static_cast<float>(s)));
+		return *this;
+	}
+	
+	template <>
+	template <typename U>
+	GLM_FUNC_QUALIFIER tvec4<float, mediump> & tvec4<float, mediump>::operator+= (U s)
+	{
+		this->data = _mm_add_ps(this->data, _mm_set_ps1(static_cast<float>(s)));
+		return *this;
+	}
+#endif
+	
 	template <typename T, precision P>
 	template <typename U>
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator+= (tvec4<U, P> const & v)
