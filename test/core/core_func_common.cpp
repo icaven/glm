@@ -391,19 +391,19 @@ int test_round()
 		Error += G == 2.0f ? 0 : 1;
 
 #if GLM_LANG >= GLM_LANG_CXX11
-		float A1 = std::round(0.0f);
+		float A1 = glm::round(0.0f);
 		Error += A1 == A ? 0 : 1;
-		float B1 = std::round(0.5f);
+		float B1 = glm::round(0.5f);
 		Error += B1 == B ? 0 : 1;
-		float C1 = std::round(1.0f);
+		float C1 = glm::round(1.0f);
 		Error += C1 == C ? 0 : 1;
-		float D1 = std::round(0.1f);
+		float D1 = glm::round(0.1f);
 		Error += D1 == D ? 0 : 1;
-		float E1 = std::round(0.9f);
+		float E1 = glm::round(0.9f);
 		Error += E1 == E ? 0 : 1;
-		float F1 = std::round(1.5f);
+		float F1 = glm::round(1.5f);
 		Error += F == F ? 0 : 1;
-		float G1 = std::round(1.9f);
+		float G1 = glm::round(1.9f);
 		Error += G1 == G ? 0 : 1;
 #endif // GLM_LANG >= GLM_CXX0X
 	}

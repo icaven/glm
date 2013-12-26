@@ -36,7 +36,12 @@ GLM is a header only library, there is nothing to build, just include it.
 More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
 
-================================================================================s
+================================================================================
+GLM 0.9.5.1: 2014-XX-XX
+--------------------------------------------------------------------------------
+- Fixed angle and orientedAngle that sometimes return NaN values (#145)
+
+================================================================================
 GLM 0.9.5.0: 2013-12-25
 --------------------------------------------------------------------------------
 - Added forward declarations (glm/fwd.hpp) for faster compilations
