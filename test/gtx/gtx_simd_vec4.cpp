@@ -13,30 +13,8 @@
 
 #if(GLM_ARCH != GLM_ARCH_PURE)
 
-
-struct value
-{
-	value(float x, float y, float z, float w) :
-		x(x), y(y), z(z), w(w)
-	{}
-	
-	union
-	{
-		__m128 data;
-		struct
-		{
-			union { float x, r, s; };
-			union { float y, g, t; };
-			union { float z, b, p; };
-			union { float w, a, q; };
-		};
-	};
-};
-
 int main()
 {
-	value Value(1.0, 0.5, 0.0, 0.7);
-	
 	glm::simdVec4 A1(0.0f, 0.1f, 0.2f, 0.3f);
 	glm::simdVec4 B1(0.4f, 0.5f, 0.6f, 0.7f);
 	glm::simdVec4 C1 = A1 + B1;

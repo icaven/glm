@@ -93,6 +93,7 @@ namespace detail
 #		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
 			union
 			{
+				typename simd<T>::type data;
 				struct { T r, g, b, a; };
 				struct { T s, t, p, q; };
 				struct { T x, y, z, w;};

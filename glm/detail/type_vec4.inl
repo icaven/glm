@@ -108,13 +108,13 @@ namespace detail
 	template <>
 	template <precision Q>
 	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4(tvec4<float, Q> const & v) :
-		data(_mm_set_ps(w, z, y, x))
+		data(_mm_set_ps(v.w, v.z, v.y, v.x))
 	{}
 	
 	template <>
 	template <precision Q>
 	GLM_FUNC_QUALIFIER tvec4<float, mediump>::tvec4(tvec4<float, Q> const & v) :
-		data(_mm_set_ps(w, z, y, x))
+		data(_mm_set_ps(v.w, v.z, v.y, v.x))
 	{}
 #endif
 	
