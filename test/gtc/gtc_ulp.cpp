@@ -18,7 +18,7 @@ int test_ulp_float_dist()
 
 	float A = 1.0f;
 
-    float B = glm::next_float(A);
+	float B = glm::next_float(A);
 	Error += A != B ? 0 : 1;
 	float C = glm::prev_float(B);
 	Error += A == C ? 0 : 1;
@@ -59,7 +59,7 @@ int test_ulp_double_dist()
 
 	double A = 1.0;
 
-    double B = glm::next_float(A);
+	double B = glm::next_float(A);
 	Error += A != B ? 0 : 1;
 	double C = glm::prev_float(B);
 	Error += A == C ? 0 : 1;
