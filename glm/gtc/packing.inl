@@ -225,7 +225,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER float unpackUnorm1x8(uint8 const & p)
 	{
 		float Unpack(static_cast<float>(p));
-		return Unpack * float(0.0039215686274509803921568627451); // 1 / 255
+		return Unpack * static_cast<float>(0.0039215686274509803921568627451); // 1 / 255
 	}
 	
 	GLM_FUNC_QUALIFIER uint16 packUnorm2x8(vec2 const & v)
