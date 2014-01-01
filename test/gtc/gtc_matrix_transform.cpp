@@ -7,15 +7,21 @@
 // File    : test/gtc/matrix_transform.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_FORCE_RADIANS
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/constants.hpp>
 
 int main()
 {
 	int Error = 0;
 	
-	glm::mat4 Projection = glm::perspective(45.0f, 4.0f / 3.0f, 0.1f, 100.0f);
+	glm::mat4 Projection = glm::perspective(glm::pi<float>() * 0.25f, 4.0f / 3.0f, 0.1f, 100.0f);
 	glm::mat4 Pick = glm::pickMatrix(glm::vec2(1, 2), glm::vec2(3, 4), glm::ivec4(0, 0, 320, 240));
+
+	glm::lowp_vec3 v(1.0);
+	glm::lowp_mat4 m(0);
+	glm::lowp_mat4 t = glm::translate(m, v);
 
 	return Error;
 }

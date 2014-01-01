@@ -191,22 +191,6 @@ namespace detail
 
 	//////////////////////////////////////
 	// Conversion constructors
-	template <typename T, precision P>
-	template <typename U>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P>::tmat4x4
-	(
-		U const & s
-	)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<U>::is_iec559 || std::numeric_limits<U>::is_integer, "*mat4x4 constructor only takes float and integer types");
-
-		value_type const Zero(0);
-		this->value[0] = tvec4<T, P>(static_cast<T>(s), Zero, Zero, Zero);
-		this->value[1] = tvec4<T, P>(Zero, value_type(s), Zero, Zero);
-		this->value[2] = tvec4<T, P>(Zero, Zero, value_type(s), Zero);
-		this->value[3] = tvec4<T, P>(Zero, Zero, Zero, value_type(s));
-	}
-	
 	template <typename T, precision P> 
 	template <
 		typename X1, typename Y1, typename Z1, typename W1,

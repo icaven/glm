@@ -74,7 +74,7 @@ namespace glm
 	/// @see vec4 unpackUnorm4x8(uint32 p)
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackUnorm4x8.xml">GLSL unpackUnorm4x8 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
-	GLM_FUNC_DECL float unpackUnorm1x8(uint8 pdf);
+	GLM_FUNC_DECL float unpackUnorm1x8(uint8 const & p);
 
 	/// First, converts each component of the normalized floating-point value v into 8-bit integer values.
 	/// Then, the results are packed into the returned 16-bit unsigned integer.
@@ -106,7 +106,7 @@ namespace glm
 	/// @see vec4 unpackUnorm4x8(uint32 p)
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackUnorm4x8.xml">GLSL unpackUnorm4x8 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
-	GLM_FUNC_DECL vec2 unpackUnorm2x8(uint16 p);
+	GLM_FUNC_DECL vec2 unpackUnorm2x8(uint16 const & p);
 	
 	/// First, converts the normalized floating-point value v into 8-bit integer value.
 	/// Then, the results are packed into the returned 8-bit unsigned integer.
@@ -132,7 +132,7 @@ namespace glm
 	/// @see vec4 unpackSnorm4x8(uint32 p)
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackSnorm4x8.xml">GLSL unpackSnorm4x8 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
-	GLM_FUNC_DECL float unpackSnorm1x8(uint8 p);
+	GLM_FUNC_DECL float unpackSnorm1x8(uint8 const & p);
 	
 	/// First, converts each component of the normalized floating-point value v into 8-bit integer values.
 	/// Then, the results are packed into the returned 16-bit unsigned integer.
@@ -164,7 +164,7 @@ namespace glm
 	/// @see vec4 unpackSnorm4x8(uint32 p)
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackSnorm4x8.xml">GLSL unpackSnorm4x8 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
-	GLM_FUNC_DECL vec2 unpackSnorm2x8(uint16 p);
+	GLM_FUNC_DECL vec2 unpackSnorm2x8(uint16 const & p);
 	
 	/// First, converts the normalized floating-point value v into a 16-bit integer value.
 	/// Then, the results are packed into the returned 16-bit unsigned integer.
@@ -177,7 +177,7 @@ namespace glm
 	/// @see uint64 packSnorm4x16(vec4 const & v)
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packUnorm4x8.xml">GLSL packUnorm4x8 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
-	GLM_FUNC_DECL uint16 packUnorm1x16(float v);
+	GLM_FUNC_DECL uint16 packUnorm1x16(float const & v);
 
 	/// First, unpacks a single 16-bit unsigned integer p into a of 16-bit unsigned integers. 
 	/// Then, the value is converted to a normalized floating-point value to generate the returned scalar.
@@ -190,7 +190,7 @@ namespace glm
 	/// @see vec4 unpackUnorm4x16(uint64 p)
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackUnorm2x16.xml">GLSL unpackUnorm2x16 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
-	GLM_FUNC_DECL float unpackUnorm1x16(uint16 p);
+	GLM_FUNC_DECL float unpackUnorm1x16(uint16 const & p);
 
 	/// First, converts each component of the normalized floating-point value v into 16-bit integer values.
 	/// Then, the results are packed into the returned 64-bit unsigned integer.
@@ -235,7 +235,7 @@ namespace glm
 	/// @see uint64 packSnorm4x16(vec4 const & v)
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/packSnorm4x8.xml">GLSL packSnorm4x8 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
-	GLM_FUNC_DECL uint16 packSnorm1x16(float v);
+	GLM_FUNC_DECL uint16 packSnorm1x16(float const & v);
 
 	/// First, unpacks a single 16-bit unsigned integer p into a single 16-bit signed integers. 
 	/// Then, each component is converted to a normalized floating-point value to generate the returned scalar.
@@ -248,7 +248,7 @@ namespace glm
 	/// @see vec4 unpackSnorm4x16(uint64 p)
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/unpackSnorm1x16.xml">GLSL unpackSnorm4x8 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
-	GLM_FUNC_DECL float unpackSnorm1x16(uint16 p);
+	GLM_FUNC_DECL float unpackSnorm1x16(uint16 const & p);
 
 	/// First, converts each component of the normalized floating-point value v into 16-bit integer values.
 	/// Then, the results are packed into the returned 64-bit unsigned integer.

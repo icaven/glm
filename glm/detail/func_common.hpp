@@ -37,6 +37,8 @@
 #define GLM_FUNC_COMMON_INCLUDED
 
 #include "setup.hpp"
+#include "precision.hpp"
+#include "type_int.hpp"
 #include "_fixes.hpp"
 
 namespace glm

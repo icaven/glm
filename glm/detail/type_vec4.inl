@@ -180,29 +180,6 @@ namespace detail
 	
 	//////////////////////////////////////
 	// Conversion scalar constructors
-
-	template <typename T, precision P>
-	template <typename U>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4(U const & x) :
-		x(static_cast<T>(x)),
-		y(static_cast<T>(x)),
-		z(static_cast<T>(x)),
-		w(static_cast<T>(x))
-	{}
-
-#if((GLM_HAS_UNRESTRICTED_UNIONS) && (GLM_ARCH & GLM_ARCH_SSE2))
-	template <>
-	template <typename U>
-	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4(U const & x) :
-		data(_mm_set_ps(static_cast<float>(x), static_cast<float>(x), static_cast<float>(x), static_cast<float>(x)))
-	{}
-	
-	template <>
-	template <typename U>
-	GLM_FUNC_QUALIFIER tvec4<float, mediump>::tvec4(U const & x) :
-		data(_mm_set_ps(static_cast<float>(x), static_cast<float>(x), static_cast<float>(x), static_cast<float>(x)))
-	{}
-#endif
 	
 	template <typename T, precision P>
 	template <typename A, typename B, typename C, typename D>

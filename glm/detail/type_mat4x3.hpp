@@ -86,9 +86,6 @@ namespace detail
 
 		//////////////////////////////////////
 		// Conversions
-		template <typename U>
-		GLM_FUNC_DECL explicit tmat4x3(
-			U const & x);
 
 		template <
 			typename X1, typename Y1, typename Z1,
