@@ -74,7 +74,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER detail::tquat<T, P> rotateNormalizedAxis
 	(
 		detail::tquat<T, P> const & q, 
-		typename detail::tquat<T, P>::T const & angle,
+		T const & angle,
 		detail::tvec3<T, P> const & v
 	)
 	{
@@ -88,7 +88,7 @@ namespace glm
 #endif
 		T const Sin = sin(AngleRad * T(0.5));
 
-		return q * detail::tquat<T, P>(cos(AngleRad * T(0.5)), Tmp.x * Sin, Tmp.y * Sin, Tmp.z * Sin);
+		return q * detail::tquat<T, P>(cos(AngleRad * static_cast<T>(0.5)), Tmp.x * Sin, Tmp.y * Sin, Tmp.z * Sin);
 		//return gtc::quaternion::cross(q, detail::tquat<T, P>(cos(AngleRad * T(0.5)), Tmp.x * fSin, Tmp.y * fSin, Tmp.z * fSin));
 	}
 }//namespace glm

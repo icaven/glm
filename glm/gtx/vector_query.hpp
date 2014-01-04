@@ -58,7 +58,7 @@ namespace glm
 	bool areCollinear(
 		genType const & v0,
 		genType const & v1,
-		typename genType::T const & epsilon);
+		typename genType::value_type const & epsilon);
 		
 	//! Check whether two vectors are orthogonals.
 	/// @see gtx_vector_query extensions.
@@ -66,7 +66,7 @@ namespace glm
 	bool areOrthogonal(
 		genType const & v0,
 		genType const & v1,
-		typename genType::T const & epsilon);
+		typename genType::value_type const & epsilon);
 
 	//! Check whether a vector is normalized.
 	/// @see gtx_vector_query extensions.
@@ -102,7 +102,7 @@ namespace glm
 	bool areOrthonormal(
 		genType const & v0,
 		genType const & v1,
-		typename genType::T const & epsilon);
+		typename genType::value_type const & epsilon);
 
 	/// @}
 }// namespace glm

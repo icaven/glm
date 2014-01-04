@@ -275,7 +275,7 @@ namespace detail
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tmat2x2<T, P> tmat2x2<T, P>::_inverse() const
 	{
-		typename tmat2x2<T, P>::value_type Determinant = this->value[0][0] * this->value[1][1] - this->value[1][0] * this->value[0][1];
+		T Determinant = this->value[0][0] * this->value[1][1] - this->value[1][0] * this->value[0][1];
 
 		tmat2x2<T, P> Inverse(
 			+ this->value[1][1] / Determinant,

@@ -615,25 +615,25 @@ namespace detail
 		tmat3x3<T, P> const & m2
 	)
 	{
-		typename tmat3x3<T, P>::value_type const SrcA00 = m1[0][0];
-		typename tmat3x3<T, P>::value_type const SrcA01 = m1[0][1];
-		typename tmat3x3<T, P>::value_type const SrcA02 = m1[0][2];
-		typename tmat3x3<T, P>::value_type const SrcA10 = m1[1][0];
-		typename tmat3x3<T, P>::value_type const SrcA11 = m1[1][1];
-		typename tmat3x3<T, P>::value_type const SrcA12 = m1[1][2];
-		typename tmat3x3<T, P>::value_type const SrcA20 = m1[2][0];
-		typename tmat3x3<T, P>::value_type const SrcA21 = m1[2][1];
-		typename tmat3x3<T, P>::value_type const SrcA22 = m1[2][2];
+		T const SrcA00 = m1[0][0];
+		T const SrcA01 = m1[0][1];
+		T const SrcA02 = m1[0][2];
+		T const SrcA10 = m1[1][0];
+		T const SrcA11 = m1[1][1];
+		T const SrcA12 = m1[1][2];
+		T const SrcA20 = m1[2][0];
+		T const SrcA21 = m1[2][1];
+		T const SrcA22 = m1[2][2];
 
-		typename tmat3x3<T, P>::value_type const SrcB00 = m2[0][0];
-		typename tmat3x3<T, P>::value_type const SrcB01 = m2[0][1];
-		typename tmat3x3<T, P>::value_type const SrcB02 = m2[0][2];
-		typename tmat3x3<T, P>::value_type const SrcB10 = m2[1][0];
-		typename tmat3x3<T, P>::value_type const SrcB11 = m2[1][1];
-		typename tmat3x3<T, P>::value_type const SrcB12 = m2[1][2];
-		typename tmat3x3<T, P>::value_type const SrcB20 = m2[2][0];
-		typename tmat3x3<T, P>::value_type const SrcB21 = m2[2][1];
-		typename tmat3x3<T, P>::value_type const SrcB22 = m2[2][2];
+		T const SrcB00 = m2[0][0];
+		T const SrcB01 = m2[0][1];
+		T const SrcB02 = m2[0][2];
+		T const SrcB10 = m2[1][0];
+		T const SrcB11 = m2[1][1];
+		T const SrcB12 = m2[1][2];
+		T const SrcB20 = m2[2][0];
+		T const SrcB21 = m2[2][1];
+		T const SrcB22 = m2[2][2];
 
 		tmat3x3<T, P> Result(tmat3x3<T, P>::_null);
 		Result[0][0] = SrcA00 * SrcB00 + SrcA10 * SrcB01 + SrcA20 * SrcB02;

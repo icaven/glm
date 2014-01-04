@@ -897,10 +897,10 @@ namespace detail
 	)
 	{
 		return tmat4x4<T, P>(
-			m[0] + typename tmat4x4<T, P>::value_type(1),
-			m[1] + typename tmat4x4<T, P>::value_type(1),
-			m[2] + typename tmat4x4<T, P>::value_type(1),
-			m[3] + typename tmat4x4<T, P>::value_type(1));
+			m[0] + static_cast<T>(1),
+			m[1] + static_cast<T>(1),
+			m[2] + static_cast<T>(1),
+			m[3] + static_cast<T>(1));
 	}
 
 	template <typename T, precision P>
@@ -911,10 +911,10 @@ namespace detail
 	)
 	{
 		return tmat4x4<T, P>(
-			m[0] - typename tmat4x4<T, P>::value_type(1),
-			m[1] - typename tmat4x4<T, P>::value_type(1),
-			m[2] - typename tmat4x4<T, P>::value_type(1),
-			m[3] - typename tmat4x4<T, P>::value_type(1));
+			m[0] - static_cast<T>(1),
+			m[1] - static_cast<T>(1),
+			m[2] - static_cast<T>(1),
+			m[3] - static_cast<T>(1));
 	}
 
 	//////////////////////////////////////
