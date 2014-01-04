@@ -44,6 +44,7 @@ GLM 0.9.5.1: 2014-XX-XX
 - Added possible static_cast conversion of GLM types (#72)
 - Fixed error 'inverse' is not a member of 'glm' from glm::unProject (#146)
 - Fixed mismatch of GTC_packing declaration and definition prototypes
+- Fixed rotate declaration for quat rotate function
 
 ================================================================================
 GLM 0.9.5.0: 2013-12-25
