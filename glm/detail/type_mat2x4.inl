@@ -490,23 +490,23 @@ namespace detail
 		tmat4x2<T, P> const & m2
 	)
 	{
-		typename tmat2x4<T, P>::value_type SrcA00 = m1[0][0];
-		typename tmat2x4<T, P>::value_type SrcA01 = m1[0][1];
-		typename tmat2x4<T, P>::value_type SrcA02 = m1[0][2];
-		typename tmat2x4<T, P>::value_type SrcA03 = m1[0][3];
-		typename tmat2x4<T, P>::value_type SrcA10 = m1[1][0];
-		typename tmat2x4<T, P>::value_type SrcA11 = m1[1][1];
-		typename tmat2x4<T, P>::value_type SrcA12 = m1[1][2];
-		typename tmat2x4<T, P>::value_type SrcA13 = m1[1][3];
+		T SrcA00 = m1[0][0];
+		T SrcA01 = m1[0][1];
+		T SrcA02 = m1[0][2];
+		T SrcA03 = m1[0][3];
+		T SrcA10 = m1[1][0];
+		T SrcA11 = m1[1][1];
+		T SrcA12 = m1[1][2];
+		T SrcA13 = m1[1][3];
 
-		typename tmat2x4<T, P>::value_type SrcB00 = m2[0][0];
-		typename tmat2x4<T, P>::value_type SrcB01 = m2[0][1];
-		typename tmat2x4<T, P>::value_type SrcB10 = m2[1][0];
-		typename tmat2x4<T, P>::value_type SrcB11 = m2[1][1];
-		typename tmat2x4<T, P>::value_type SrcB20 = m2[2][0];
-		typename tmat2x4<T, P>::value_type SrcB21 = m2[2][1];
-		typename tmat2x4<T, P>::value_type SrcB30 = m2[3][0];
-		typename tmat2x4<T, P>::value_type SrcB31 = m2[3][1];
+		T SrcB00 = m2[0][0];
+		T SrcB01 = m2[0][1];
+		T SrcB10 = m2[1][0];
+		T SrcB11 = m2[1][1];
+		T SrcB20 = m2[2][0];
+		T SrcB21 = m2[2][1];
+		T SrcB30 = m2[3][0];
+		T SrcB31 = m2[3][1];
 
 		tmat4x4<T, P> Result(tmat4x4<T, P>::null);
 		Result[0][0] = SrcA00 * SrcB00 + SrcA10 * SrcB01;

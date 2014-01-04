@@ -457,7 +457,7 @@ namespace detail
 	(
 		detail::tquat<T, P> const & x, 
 		detail::tquat<T, P> const & y, 
-		typename detail::tquat<T, P>::T const & a
+		T const & a
 	)
 	{
 		if(a <= T(0)) return x;
@@ -617,7 +617,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER detail::tquat<T, P> rotate
 	(
 		detail::tquat<T, P> const & q,
-		typename detail::tquat<T, P>::value_type const & angle,
+		T const & angle,
 		detail::tvec3<T, P> const & v
 	)
 	{

@@ -74,7 +74,7 @@ namespace glm
 	GLM_FUNC_DECL T dot(
 		vecType<T, P> const & x,
 		vecType<T, P> const & y);
-/*
+
 	/// Returns the dot product of x and y, i.e., result = x * y.
 	///
 	/// @tparam genType Floating-point vector types.
@@ -85,7 +85,7 @@ namespace glm
 	GLM_FUNC_DECL genType dot(
 		genType const & x,
 		genType const & y);
-*/
+
 	/// Returns the cross product of x and y.
 	///
 	/// @tparam valType Floating-point scalar types.

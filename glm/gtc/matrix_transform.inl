@@ -384,14 +384,14 @@ namespace glm
 		detail::tvec4<U, P> const & viewport
 	)
 	{
-		detail::tmat4x4<T, P> inverse = glm::inverse(proj * model);
+		detail::tmat4x4<T, P> Inverse = inverse(proj * model);
 
 		detail::tvec4<T, P> tmp = detail::tvec4<T, P>(win, T(1));
 		tmp.x = (tmp.x - T(viewport[0])) / T(viewport[2]);
 		tmp.y = (tmp.y - T(viewport[1])) / T(viewport[3]);
 		tmp = tmp * T(2) - T(1);
 
-		detail::tvec4<T, P> obj = inverse * tmp;
+		detail::tvec4<T, P> obj = Inverse * tmp;
 		obj /= obj.w;
 
 		return detail::tvec3<T, P>(obj);

@@ -289,7 +289,7 @@ namespace detail
 		// Lerp is only defined in [0, 1]
 		assert(a >= static_cast<T>(0));
 		assert(a <= static_cast<T>(1));
-		T const k = dot(x.real,y.real) < detail::tdualquat<T, P>::value_type(0) ? -a : a;
+		T const k = dot(x.real,y.real) < static_cast<T>(0) ? -a : a;
 		T const one(1);
 		return detail::tdualquat<T, P>(x * (one - a) + y * k);
 	}
@@ -304,15 +304,7 @@ namespace detail
 		const glm::detail::tquat<T, P> dual = conjugate(q.dual);
 		return detail::tdualquat<T, P>(real, dual + (real * (-2.0f * dot(real,dual))));
 	}
-	/*
-	 template <typename T, precision P>
-	 GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> mat3_cast
-	 (
-	 detail::tdualquat<T, P> const & x
-	 )
-	 {
-	 }
-	 */
+
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tmat2x4<T, P> mat2x4_cast
 	(
