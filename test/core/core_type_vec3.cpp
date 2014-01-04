@@ -20,6 +20,24 @@ int test_vec3_ctor()
 {
 	int Error = 0;
 	
+#if(GLM_HAS_INITIALIZER_LISTS)
+	{
+		glm::vec3 a{ 0, 1, 2 };
+		std::vector<glm::vec3> v = {
+			{0, 1, 2},
+			{4, 5, 6},
+			{8, 9, 0}};
+	}
+
+	{
+		glm::dvec3 a{ 0, 1, 2 };
+		std::vector<glm::dvec3> v = {
+			{0, 1, 2},
+			{4, 5, 6},
+			{8, 9, 0}};
+	}
+#endif
+
 	{
 		glm::vec3 A(1);
 		glm::vec3 B(1, 1, 1);
