@@ -9,6 +9,7 @@
 
 #include <glm/vector_relational.hpp>
 #include <glm/vec2.hpp>
+#include <vector>
 
 int test_vec2_operators()
 {
@@ -198,6 +199,24 @@ int test_vec2_operators()
 int test_vec2_ctor()
 {
 	int Error = 0;
+
+#if(GLM_HAS_INITIALIZER_LISTS)
+	{
+		glm::vec2 a{ 0, 1 };
+		std::vector<glm::vec2> v = {
+			{0, 1},
+			{4, 5},
+			{8, 9}};
+	}
+
+	{
+		glm::dvec2 a{ 0, 1 };
+		std::vector<glm::dvec2> v = {
+			{0, 1},
+			{4, 5},
+			{8, 9}};
+	}
+#endif
 
 	{
 		glm::vec2 A = glm::vec2(2.0f);
