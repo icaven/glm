@@ -51,8 +51,6 @@ namespace detail
 		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
 
 		template <typename U, precision Q>
-		friend tmat2x2<U, Q> inverse(tmat2x2<U, Q> const & m);
-		template <typename U, precision Q>
 		friend tvec2<U, Q> operator/(tmat2x2<U, Q> const & m, tvec2<U, Q> const & v);
 		template <typename U, precision Q>
 		friend tvec2<U, Q> operator/(tvec2<U, Q> const & v, tmat2x2<U, Q> const & m);
@@ -60,8 +58,6 @@ namespace detail
 	private:
 		/// @cond DETAIL
 		col_type value[2];
-
-		GLM_FUNC_DECL tmat2x2<T, P> _inverse() const;
 		/// @endcond
 		
 	public:
@@ -152,8 +148,10 @@ namespace detail
 		GLM_FUNC_DECL tmat2x2<T, P> operator--(int);
 	};
 
-	// Binary operators
+	template <typename T, precision P>
+	GLM_FUNC_DECL tmat2x2<T, P> compute_inverse_mat2(tmat2x2<T, P> const & m);
 
+	// Binary operators
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat2x2<T, P> operator+ (
 		tmat2x2<T, P> const & m,

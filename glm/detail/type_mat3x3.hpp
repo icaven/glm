@@ -51,8 +51,6 @@ namespace detail
 		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
 
 		template <typename U, precision Q>
-		friend tmat3x3<U, Q> inverse(tmat3x3<U, Q> const & m);
-		template <typename U, precision Q>
 		friend tvec3<U, Q> operator/(tmat3x3<U, Q> const & m, tvec3<U, Q> const & v);
 		template <typename U, precision Q>
 		friend tvec3<U, Q> operator/(tvec3<U, Q> const & v, tmat3x3<U, Q> const & m);
@@ -60,8 +58,6 @@ namespace detail
 	private:
 		/// @cond DETAIL
 		col_type value[3];
-
-		GLM_FUNC_DECL tmat3x3<T, P> _inverse() const;
 		/// @endcond
 		
 	public:
@@ -154,6 +150,9 @@ namespace detail
 		GLM_FUNC_DECL tmat3x3<T, P> operator++(int);
 		GLM_FUNC_DECL tmat3x3<T, P> operator--(int);
 	};
+
+	template <typename T, precision P>
+	GLM_FUNC_DECL tmat3x3<T, P> compute_inverse_mat3(tmat3x3<T, P> const & m);
 
 	// Binary operators
 	template <typename T, precision P>

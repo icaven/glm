@@ -272,19 +272,6 @@ namespace detail
 		this->value[1] = col_type(m[1]);
 	}
 
-	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER tmat2x2<T, P> tmat2x2<T, P>::_inverse() const
-	{
-		T Determinant = this->value[0][0] * this->value[1][1] - this->value[1][0] * this->value[0][1];
-
-		tmat2x2<T, P> Inverse(
-			+ this->value[1][1] / Determinant,
-			- this->value[0][1] / Determinant,
-			- this->value[1][0] / Determinant,
-			+ this->value[0][0] / Determinant);
-		return Inverse;
-	}
-
 	//////////////////////////////////////////////////////////////
 	// mat2x2 operators
 
@@ -371,7 +358,7 @@ namespace detail
 	template <typename U>
 	GLM_FUNC_QUALIFIER tmat2x2<T, P>& tmat2x2<T, P>::operator/= (tmat2x2<U, P> const & m)
 	{
-		return (*this = *this * m._inverse());
+		return (*this = *this * compute_inverse_mat2(m));
 	}
 
 	template <typename T, precision P>
@@ -404,6 +391,18 @@ namespace detail
 		tmat2x2<T, P> Result(*this);
 		--*this;
 		return Result;
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tmat2x2<T, P> compute_inverse_mat2(tmat2x2<T, P> const & m)
+	{
+		T Determinant = m[0][0] * m[1][1] - m[1][0] * m[0][1];
+
+		tmat2x2<T, P> Inverse(
+			+ m[1][1] / Determinant, - m[0][1] / Determinant,
+			- m[1][0] / Determinant, + m[0][0] / Determinant);
+
+		return Inverse;
 	}
 
 	//////////////////////////////////////////////////////////////
@@ -608,7 +607,7 @@ namespace detail
 		typename tmat2x2<T, P>::row_type & v
 	)
 	{
-		return m._inverse() * v;
+		return detail::compute_inverse_mat2(m) * v;
 	}
 
 	template <typename T, precision P>
@@ -618,7 +617,7 @@ namespace detail
 		tmat2x2<T, P> const & m
 	)
 	{
-		return v * m._inverse();
+		return v * detail::compute_inverse_mat2(m);
 	}
 
 	template <typename T, precision P>

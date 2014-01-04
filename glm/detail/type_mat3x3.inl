@@ -393,7 +393,7 @@ namespace detail
 	template <typename U>
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> & tmat3x3<T, P>::operator/= (tmat3x3<U, P> const & m)
 	{
-		return (*this = *this * m._inverse());
+		return (*this = *this * detail::compute_inverse_mat3(m));
 	}
 
 	template <typename T, precision P>
@@ -431,19 +431,19 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat3x3<T, P> tmat3x3<T, P>::_inverse() const
+	GLM_FUNC_QUALIFIER tmat3x3<T, P> compute_inverse_mat3(tmat3x3<T, P> const & m)
 	{
-		T S00 = value[0][0];
-		T S01 = value[0][1];
-		T S02 = value[0][2];
+		T S00 = m[0][0];
+		T S01 = m[0][1];
+		T S02 = m[0][2];
 
-		T S10 = value[1][0];
-		T S11 = value[1][1];
-		T S12 = value[1][2];
+		T S10 = m[1][0];
+		T S11 = m[1][1];
+		T S12 = m[1][2];
 
-		T S20 = value[2][0];
-		T S21 = value[2][1];
-		T S22 = value[2][2];
+		T S20 = m[2][0];
+		T S21 = m[2][1];
+		T S22 = m[2][2];
 /*
 		tmat3x3<T, P> Inverse(
 			+ (S11 * S22 - S21 * S12),
@@ -467,9 +467,10 @@ namespace detail
 			S10 * S02 - S12 * S00,
 			S11 * S00 - S10 * S01);
 
-		T Determinant = S00 * (S11 * S22 - S21 * S12)
-						- S10 * (S01 * S22 - S21 * S02)
-						+ S20 * (S01 * S12 - S11 * S02);
+		T Determinant = 
+			+ S00 * (S11 * S22 - S21 * S12)
+			- S10 * (S01 * S22 - S21 * S02)
+			+ S20 * (S01 * S12 - S11 * S02);
 
 		Inverse /= Determinant;
 		return Inverse;
@@ -719,7 +720,7 @@ namespace detail
 		typename tmat3x3<T, P>::row_type const & v
 	)
 	{
-		return m._inverse() * v;
+		return detail::compute_inverse_mat3(m) * v;
 	}
 
 	template <typename T, precision P>
@@ -729,7 +730,7 @@ namespace detail
 		tmat3x3<T, P> const & m
 	)
 	{
-		return v * m._inverse();
+		return v * detail::compute_inverse_mat3(m);
 	}
 
 	template <typename T, precision P>
