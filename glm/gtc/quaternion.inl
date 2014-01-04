@@ -457,7 +457,7 @@ namespace detail
 	(
 		detail::tquat<T, P> const & x, 
 		detail::tquat<T, P> const & y, 
-		typename detail::tquat<T, P>::T const & a
+		T const & a
 	)
 	{
 		if(a <= T(0)) return x;

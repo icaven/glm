@@ -26,7 +26,7 @@ namespace glm
 	// fastInversesqrt
 	GLM_FUNC_QUALIFIER float fastInverseSqrt(float x)
 	{
-		return detail::compute_inversesqrt<detail::tvec1, float, lowp>::call(x).x;
+		return detail::compute_inversesqrt<detail::tvec1, float, lowp>::call(detail::tvec1<float, lowp>(x)).x;
 	}
 	
 	template <template <class, precision> class vecType, typename T, precision P>
