@@ -153,68 +153,53 @@ namespace detail
 
 	VECTORIZE_VEC(sqrt)
 
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType inversesqrt
+	namespace detail
+	{
+		template <template <class, precision> class vecType, typename T, precision P>
+		struct compute_inversesqrt
+		{
+			static vecType<T, P> call(vecType<T, P> const & x)
+			{
+				return static_cast<T>(1) / sqrt(x);
+			}
+		};
+		
+		template <template <class, precision> class vecType>
+		struct compute_inversesqrt<vecType, float, lowp>
+		{
+			static vecType<float, lowp> call(vecType<float, lowp> const & x)
+			{
+				vecType<float, lowp> tmp(x);
+				vecType<float, lowp> xhalf(tmp * 0.5f);
+				vecType<uint, lowp> i = *reinterpret_cast<vecType<uint, lowp>*>(const_cast<vecType<float, lowp>*>(&x));
+				i = vecType<uint, lowp>(0x5f375a86) - (i >> vecType<uint, lowp>(1));
+				tmp = *reinterpret_cast<vecType<float, lowp>*>(&i);
+				tmp = tmp * (1.5f - xhalf * tmp * tmp);
+				return tmp;
+			}
+		};
+	}//namespace detail
+	
+	// inversesqrt
+	GLM_FUNC_QUALIFIER float inversesqrt(float const & x)
+	{
+		return 1.0f / sqrt(x);
+	}
+	
+	GLM_FUNC_QUALIFIER double inversesqrt(double const & x)
+	{
+		return 1.0 / sqrt(x);
+	}
+	
+	template <template <class, precision> class vecType, typename T, precision P>
+	GLM_FUNC_QUALIFIER vecType<T, P> inversesqrt
 	(
-		genType const & x
+		vecType<T, P> const & x
 	)
 	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559,
-			"'inversesqrt' only accept floating-point inputs");
-
-		assert(x > genType(0));
-
-		return genType(1) / std::sqrt(x);
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'inversesqrt' only accept floating-point inputs");
+		return detail::compute_inversesqrt<vecType, T, P>::call(x);
 	}
 
 	VECTORIZE_VEC(inversesqrt)
-	
-	namespace detail
-	{
-		template <typename genType, typename genUType>
-		genType fastInversesqrt(genType const & v)
-		{
-			genType tmp(v);
-			genType xhalf(tmp * genType(0.5f));
-			genUType i = *reinterpret_cast<genUType*>(const_cast<genType*>(&v));
-			i = genUType(0x5f375a86) - (i >> genUType(1));
-			tmp = *reinterpret_cast<genType*>(&i);
-			tmp = tmp * (genType(1.5f) - xhalf * tmp * tmp);
-			return tmp;
-		}
-	}
-	
-	template <>
-	GLM_FUNC_QUALIFIER lowp_vec1 inversesqrt(lowp_vec1 const & v)
-	{
-		assert(glm::all(glm::greaterThan(v, lowp_vec1(0))));
-
-		return detail::fastInversesqrt<lowp_vec1, uint>(v);
-	}
-
-	template <>
-	GLM_FUNC_QUALIFIER lowp_vec2 inversesqrt(lowp_vec2 const & v)
-	{
-		assert(glm::all(glm::greaterThan(v, lowp_vec2(0))));
-
-		return detail::fastInversesqrt<lowp_vec2, lowp_uvec2>(v);
-	}
-
-	template <>
-	GLM_FUNC_QUALIFIER lowp_vec3 inversesqrt(lowp_vec3 const & v)
-	{
-		assert(glm::all(glm::greaterThan(v, lowp_vec3(0))));
-
-		return detail::fastInversesqrt<lowp_vec3, lowp_uvec3>(v);
-	}
-
-	template <>
-	GLM_FUNC_QUALIFIER lowp_vec4 inversesqrt(lowp_vec4 const & v)
-	{
-		assert(glm::all(glm::greaterThan(v, lowp_vec4(0))));
-
-		return detail::fastInversesqrt<lowp_vec4, lowp_uvec4>(v);
-	}
-	
 }//namespace glm

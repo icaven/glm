@@ -24,13 +24,18 @@ namespace glm
 	VECTORIZE_VEC(fastSqrt)
 
 	// fastInversesqrt
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType fastInverseSqrt
+	GLM_FUNC_QUALIFIER float fastInverseSqrt(float x)
+	{
+		return detail::compute_inversesqrt<detail::tvec1, float, lowp>::call(x).x;
+	}
+	
+	template <template <class, precision> class vecType, typename T, precision P>
+	GLM_FUNC_QUALIFIER vecType<T, P> fastInverseSqrt
 	(
-		genType const & x
+		vecType<T, P> const & x
 	)
 	{
-		return detail::fastInversesqrt<genType, uint>(x);
+		return detail::compute_inversesqrt<vecType, T, P>::call(x);
 	}
 
 	VECTORIZE_VEC(fastInverseSqrt)
