@@ -272,8 +272,6 @@ namespace detail
 		GLM_FUNC_DECL tvec4<T, P> & operator>>=(tvec4<U, P> const & v);
 	};
 
-	GLM_DETAIL_IS_VECTOR(tvec4);
-
 	template <typename T, precision P>
 	GLM_FUNC_DECL tvec4<T, P> operator+(tvec4<T, P> const & v, T const & s);
 

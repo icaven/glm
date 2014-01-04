@@ -39,27 +39,6 @@ namespace detail
 	template <typename T, precision P> struct tvec2;
 	template <typename T, precision P> struct tvec3;
 	template <typename T, precision P> struct tvec4;
-	
-	template <typename T>
-	struct is_vector
-	{
-		enum is_vector_enum
-		{
-			_YES = 0,
-			_NO = 1
-		};
-	};
-	
-#	define GLM_DETAIL_IS_VECTOR(TYPE)		\
-		template <typename T, precision P>	\
-		struct is_vector<TYPE<T, P> >		\
-		{									\
-			enum is_vector_enum				\
-			{								\
-				_YES = 1,					\
-				_NO = 0						\
-			};								\
-		}
 }//namespace detail
 	
 	typedef detail::tvec1<float, highp>		highp_vec1_t;

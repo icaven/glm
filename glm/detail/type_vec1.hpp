@@ -184,8 +184,6 @@ namespace detail
 		GLM_FUNC_DECL tvec1<T, P> & operator>>=(tvec1<U, P> const & v);
 	};
 
-	GLM_DETAIL_IS_VECTOR(tvec1);
-
 }//namespace detail
 }//namespace glm
 
