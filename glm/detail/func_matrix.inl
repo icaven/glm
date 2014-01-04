@@ -40,6 +40,7 @@
 #include "type_mat4x3.hpp"
 #include "type_mat4x4.hpp"
 #include <limits>
+#include <type_traits>
 
 namespace glm{
 namespace detail
@@ -456,13 +457,13 @@ namespace detail
 	{
 		static detail::tmat2x2<T, P> call(detail::tmat2x2<T, P> const & m)
 		{
-			T Determinant = determinant(m);
+			T OneOverDeterminant = 1 / determinant(m);
 
 			detail::tmat2x2<T, P> Inverse(
-				+ m[1][1] / Determinant,
-				- m[0][1] / Determinant,
-				- m[1][0] / Determinant,
-				+ m[0][0] / Determinant);
+				+ m[1][1] * OneOverDeterminant,
+				- m[0][1] * OneOverDeterminant,
+				- m[1][0] * OneOverDeterminant,
+				+ m[0][0] * OneOverDeterminant);
 
 			return Inverse;
 		}
@@ -473,7 +474,7 @@ namespace detail
 	{
 		static detail::tmat3x3<T, P> call(detail::tmat3x3<T, P> const & m)
 		{
-			T Determinant = determinant(m);
+			T OneOverDeterminant = 1 / determinant(m);
 
 			detail::tmat3x3<T, P> Inverse(detail::tmat3x3<T, P>::_null);
 			Inverse[0][0] = + (m[1][1] * m[2][2] - m[2][1] * m[1][2]);
@@ -485,7 +486,7 @@ namespace detail
 			Inverse[0][2] = + (m[0][1] * m[1][2] - m[1][1] * m[0][2]);
 			Inverse[1][2] = - (m[0][0] * m[1][2] - m[1][0] * m[0][2]);
 			Inverse[2][2] = + (m[0][0] * m[1][1] - m[1][0] * m[0][1]);
-			Inverse /= Determinant;
+			Inverse *= OneOverDeterminant;
 
 			return Inverse;
 		}
@@ -544,9 +545,9 @@ namespace detail
 
 			detail::tvec4<T, P> Row0(Inverse[0][0], Inverse[1][0], Inverse[2][0], Inverse[3][0]);
 
-			T Determinant = dot(m[0], Row0);
+			T OneOverDeterminant = 1 / dot(m[0], Row0);
 
-			Inverse /= Determinant;
+			Inverse *= OneOverDeterminant;
 
 			return Inverse;
 		}
