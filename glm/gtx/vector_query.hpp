@@ -54,55 +54,33 @@ namespace glm
 
 	//! Check whether two vectors are collinears.
 	/// @see gtx_vector_query extensions.
-	template <typename genType>
-	bool areCollinear(
-		genType const & v0,
-		genType const & v1,
-		typename genType::value_type const & epsilon);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	bool areCollinear(vecType<T, P> const & v0, vecType<T, P> const & v1, T const & epsilon);
 		
 	//! Check whether two vectors are orthogonals.
 	/// @see gtx_vector_query extensions.
-	template <typename genType>
-	bool areOrthogonal(
-		genType const & v0,
-		genType const & v1,
-		typename genType::value_type const & epsilon);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	bool areOrthogonal(vecType<T, P> const & v0, vecType<T, P> const & v1, T const & epsilon);
 
 	//! Check whether a vector is normalized.
 	/// @see gtx_vector_query extensions.
-	template <typename genType, precision P, template <typename, precision> class vecType>
-	bool isNormalized(
-		vecType<genType, P> const & v,
-		genType const & epsilon);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	bool isNormalized(vecType<T, P> const & v, T const & epsilon);
 		
 	//! Check whether a vector is null.
 	/// @see gtx_vector_query extensions.
-	template <typename T, precision P>
-	bool isNull(
-		detail::tvec2<T, P> const & v,
-		T const & epsilon);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	bool isNull(vecType<T, P> const & v, T const & epsilon);
 
-	//! Check whether a vector is null.
+	//! Check whether a each component of a vector is null.
 	/// @see gtx_vector_query extensions.
-	template <typename T, precision P>
-	bool isNull(
-		detail::tvec3<T, P> const & v,
-		T const & epsilon);
-
-	//! Check whether a vector is null.
-	/// @see gtx_vector_query extensions.
-	template <typename T, precision P>
-	bool isNull(
-		detail::tvec4<T, P> const & v,
-		T const & epsilon);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	vecType<bool, P> isCompNull(vecType<T, P> const & v, T const & epsilon);
 
 	//! Check whether two vectors are orthonormal.
 	/// @see gtx_vector_query extensions.
-	template <typename genType>
-	bool areOrthonormal(
-		genType const & v0,
-		genType const & v1,
-		typename genType::value_type const & epsilon);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	bool areOrthonormal(vecType<T, P> const & v0, vecType<T, P> const & v1, T const & epsilon);
 
 	/// @}
 }// namespace glm

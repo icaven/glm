@@ -184,12 +184,12 @@ int test_Snorm3x10_1x2()
 	int Error = 0;
 
 	std::vector<glm::vec4> Tests;
-	Tests.push_back(glm::vec4(1.0));
-	Tests.push_back(glm::vec4(0.0));
-	Tests.push_back(glm::vec4(2.0));
-	Tests.push_back(glm::vec4(0.1));
-	Tests.push_back(glm::vec4(0.5));
-	Tests.push_back(glm::vec4(0.9));
+	Tests.push_back(glm::vec4(1.0f));
+	Tests.push_back(glm::vec4(0.0f));
+	Tests.push_back(glm::vec4(2.0f));
+	Tests.push_back(glm::vec4(0.1f));
+	Tests.push_back(glm::vec4(0.5f));
+	Tests.push_back(glm::vec4(0.9f));
 
 	for(std::size_t i = 0; i < Tests.size(); ++i)
 	{

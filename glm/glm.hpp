@@ -92,14 +92,26 @@
 #	pragma message("GLM: Core library included")
 #endif//GLM_MESSAGE
 
-#include "./detail/func_trigonometric.hpp"
-#include "./detail/func_exponential.hpp"
-#include "./detail/func_common.hpp"
-#include "./detail/func_packing.hpp"
-#include "./detail/func_geometric.hpp"
-#include "./detail/func_matrix.hpp"
-#include "./detail/func_vector_relational.hpp"
-#include "./detail/func_integer.hpp"
-#include "./detail/func_noise.hpp"
+#include "vec2.hpp"
+#include "vec3.hpp"
+#include "vec4.hpp"
+#include "mat2x2.hpp"
+#include "mat2x3.hpp"
+#include "mat2x4.hpp"
+#include "mat3x2.hpp"
+#include "mat3x3.hpp"
+#include "mat3x4.hpp"
+#include "mat4x2.hpp"
+#include "mat4x3.hpp"
+#include "mat4x4.hpp"
+
+#include "trigonometric.hpp"
+#include "exponential.hpp"
+#include "common.hpp"
+#include "packing.hpp"
+#include "geometric.hpp"
+#include "matrix.hpp"
+#include "vector_relational.hpp"
+#include "integer.hpp"
 
 #endif//GLM_INCLUDED
