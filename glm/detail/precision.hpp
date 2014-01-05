@@ -35,10 +35,9 @@ namespace glm
 	{
 		highp,
 		mediump,
-		lowp
+		lowp,
+		defaultp = highp
 	};
 }//namespace glm
-
-#define defaultp		highp
 
 #endif//GLM_CORE_PRECISION_INCLUDED
