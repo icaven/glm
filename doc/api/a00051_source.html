@@ -66,45 +66,52 @@
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">namespace </span>glm</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genType&gt;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="a00203.html#gac8bcfc662702cc5ae4463a7f95c35ed4">intersectRayTriangle</a>(</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                genType <span class="keyword">const</span> &amp; orig, genType <span class="keyword">const</span> &amp; dir,</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                genType <span class="keyword">const</span> &amp; vert0, genType <span class="keyword">const</span> &amp; vert1, genType <span class="keyword">const</span> &amp; vert2,</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                genType &amp; baryPosition);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genType&gt;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="a00203.html#ga54942f4d0fc37afdd866e79a4b8b997f">intersectLineTriangle</a>(</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                genType <span class="keyword">const</span> &amp; orig, genType <span class="keyword">const</span> &amp; dir,</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                genType <span class="keyword">const</span> &amp; vert0, genType <span class="keyword">const</span> &amp; vert1, genType <span class="keyword">const</span> &amp; vert2,</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                genType &amp; position);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genType&gt;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="a00203.html#ga6203e3a0822575ced2b2cd500b396b0c">intersectRayPlane</a>(</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                genType <span class="keyword">const</span> &amp; orig, genType <span class="keyword">const</span> &amp; dir,</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                genType <span class="keyword">const</span> &amp; planeOrig, genType <span class="keyword">const</span> &amp; planeNormal,</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="keyword">typename</span> genType::value_type &amp; intersectionDistance);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genType&gt;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="a00203.html#gac8bcfc662702cc5ae4463a7f95c35ed4">intersectRayTriangle</a>(</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                genType <span class="keyword">const</span> &amp; orig, genType <span class="keyword">const</span> &amp; dir,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                genType <span class="keyword">const</span> &amp; vert0, genType <span class="keyword">const</span> &amp; vert1, genType <span class="keyword">const</span> &amp; vert2,</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                genType &amp; baryPosition);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genType&gt;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="a00203.html#ga916045826fbdb82ec0ec393c66065c95">intersectRaySphere</a>(</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                genType <span class="keyword">const</span> &amp; rayStarting, genType <span class="keyword">const</span> &amp; rayNormalizedDirection,</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                genType <span class="keyword">const</span> &amp; sphereCenter, <span class="keyword">const</span> <span class="keyword">typename</span> genType::value_type sphereRadiusSquered,</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keyword">typename</span> genType::value_type &amp; intersectionDistance);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="a00203.html#ga54942f4d0fc37afdd866e79a4b8b997f">intersectLineTriangle</a>(</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                genType <span class="keyword">const</span> &amp; orig, genType <span class="keyword">const</span> &amp; dir,</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                genType <span class="keyword">const</span> &amp; vert0, genType <span class="keyword">const</span> &amp; vert1, genType <span class="keyword">const</span> &amp; vert2,</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                genType &amp; position);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genType&gt;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="a00203.html#ga916045826fbdb82ec0ec393c66065c95">intersectRaySphere</a>(</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                genType <span class="keyword">const</span> &amp; rayStarting, genType <span class="keyword">const</span> &amp; rayNormalizedDirection,</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                genType <span class="keyword">const</span> &amp; sphereCenter, <span class="keyword">const</span> <span class="keyword">typename</span> genType::value_type sphereRadius,</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                genType &amp; intersectionPosition, genType &amp; intersectionNormal);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genType&gt;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="a00203.html#ga029b0fdc889428d905a6267aee1f0f25">intersectLineSphere</a>(</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                genType <span class="keyword">const</span> &amp; point0, genType <span class="keyword">const</span> &amp; point1,</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                genType <span class="keyword">const</span> &amp; sphereCenter, <span class="keyword">typename</span> genType::value_type sphereRadius,</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                genType &amp; intersectionPosition1, genType &amp; intersectionNormal1, </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                genType &amp; intersectionPosition2 = genType(), genType &amp; intersectionNormal2 = genType());</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genType&gt;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="a00203.html#ga7773a235a18acb4f06cfe358d4453375">intersectRaySphere</a>(</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                genType <span class="keyword">const</span> &amp; rayStarting, genType <span class="keyword">const</span> &amp; rayNormalizedDirection,</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                genType <span class="keyword">const</span> &amp; sphereCenter, <span class="keyword">typename</span> genType::value_type <span class="keyword">const</span> sphereRadiusSquered,</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                <span class="keyword">typename</span> genType::value_type &amp; intersectionDistance);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genType&gt;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="a00203.html#ga7773a235a18acb4f06cfe358d4453375">intersectRaySphere</a>(</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                genType <span class="keyword">const</span> &amp; rayStarting, genType <span class="keyword">const</span> &amp; rayNormalizedDirection,</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                genType <span class="keyword">const</span> &amp; sphereCenter, <span class="keyword">const</span> <span class="keyword">typename</span> genType::value_type sphereRadius,</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                genType &amp; intersectionPosition, genType &amp; intersectionNormal);</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}<span class="comment">//namespace glm</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#include &quot;intersect.inl&quot;</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif//GLM_GTX_intersect</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genType&gt;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="a00203.html#ga029b0fdc889428d905a6267aee1f0f25">intersectLineSphere</a>(</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                genType <span class="keyword">const</span> &amp; point0, genType <span class="keyword">const</span> &amp; point1,</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                genType <span class="keyword">const</span> &amp; sphereCenter, <span class="keyword">typename</span> genType::value_type sphereRadius,</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                genType &amp; intersectionPosition1, genType &amp; intersectionNormal1, </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                genType &amp; intersectionPosition2 = genType(), genType &amp; intersectionNormal2 = genType());</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}<span class="comment">//namespace glm</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#include &quot;intersect.inl&quot;</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#endif//GLM_GTX_intersect</span></div>
 <div class="ttc" id="a00203_html_ga54942f4d0fc37afdd866e79a4b8b997f"><div class="ttname"><a href="a00203.html#ga54942f4d0fc37afdd866e79a4b8b997f">glm::intersectLineTriangle</a></div><div class="ttdeci">bool intersectLineTriangle(genType const &amp;orig, genType const &amp;dir, genType const &amp;vert0, genType const &amp;vert1, genType const &amp;vert2, genType &amp;position)</div><div class="ttdoc">Compute the intersection of a line and a triangle. </div></div>
+<div class="ttc" id="a00203_html_ga6203e3a0822575ced2b2cd500b396b0c"><div class="ttname"><a href="a00203.html#ga6203e3a0822575ced2b2cd500b396b0c">glm::intersectRayPlane</a></div><div class="ttdeci">bool intersectRayPlane(genType const &amp;orig, genType const &amp;dir, genType const &amp;planeOrig, genType const &amp;planeNormal, typename genType::value_type &amp;intersectionDistance)</div><div class="ttdoc">Compute the intersection of a ray and a triangle. </div></div>
+<div class="ttc" id="a00203_html_ga7773a235a18acb4f06cfe358d4453375"><div class="ttname"><a href="a00203.html#ga7773a235a18acb4f06cfe358d4453375">glm::intersectRaySphere</a></div><div class="ttdeci">bool intersectRaySphere(genType const &amp;rayStarting, genType const &amp;rayNormalizedDirection, genType const &amp;sphereCenter, typename genType::value_type const sphereRadiusSquered, typename genType::value_type &amp;intersectionDistance)</div><div class="ttdoc">Compute the intersection distance of a ray and a sphere. </div></div>
 <div class="ttc" id="a00203_html_ga029b0fdc889428d905a6267aee1f0f25"><div class="ttname"><a href="a00203.html#ga029b0fdc889428d905a6267aee1f0f25">glm::intersectLineSphere</a></div><div class="ttdeci">bool intersectLineSphere(genType const &amp;point0, genType const &amp;point1, genType const &amp;sphereCenter, typename genType::value_type sphereRadius, genType &amp;intersectionPosition1, genType &amp;intersectionNormal1, genType &amp;intersectionPosition2=genType(), genType &amp;intersectionNormal2=genType())</div><div class="ttdoc">Compute the intersection of a line and a sphere. </div></div>
-<div class="ttc" id="a00203_html_ga916045826fbdb82ec0ec393c66065c95"><div class="ttname"><a href="a00203.html#ga916045826fbdb82ec0ec393c66065c95">glm::intersectRaySphere</a></div><div class="ttdeci">bool intersectRaySphere(genType const &amp;rayStarting, genType const &amp;rayNormalizedDirection, genType const &amp;sphereCenter, const typename genType::value_type sphereRadiusSquered, typename genType::value_type &amp;intersectionDistance)</div><div class="ttdoc">Compute the intersection distance of a ray and a sphere. </div></div>
 <div class="ttc" id="a00203_html_gac8bcfc662702cc5ae4463a7f95c35ed4"><div class="ttname"><a href="a00203.html#gac8bcfc662702cc5ae4463a7f95c35ed4">glm::intersectRayTriangle</a></div><div class="ttdeci">bool intersectRayTriangle(genType const &amp;orig, genType const &amp;dir, genType const &amp;vert0, genType const &amp;vert1, genType const &amp;vert2, genType &amp;baryPosition)</div><div class="ttdoc">Compute the intersection of a ray and a triangle. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

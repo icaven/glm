@@ -175,21 +175,21 @@
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <a class="code" href="a00168.html#gade0eb47c01f79384a6f38017ede17446">mat4</a> <a class="code" href="a00179.html#gafc4e34c836f7ccb5f3bb2a0373c831e0">mat4_cast</a>(</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                detail::fmat4x4SIMD <span class="keyword">const</span> &amp; x);</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        detail::fmat4x4SIMD <a class="code" href="a00159.html#ga4a54992e4741188ee624b21e3ba91814">matrixCompMult</a>(</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        detail::fmat4x4SIMD matrixCompMult(</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                detail::fmat4x4SIMD <span class="keyword">const</span> &amp; x,</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                detail::fmat4x4SIMD <span class="keyword">const</span> &amp; y);</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        detail::fmat4x4SIMD <a class="code" href="a00159.html#ga8ef7ab7abd0437b9cb727d9842a5ecac">outerProduct</a>(</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        detail::fmat4x4SIMD outerProduct(</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; c,</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; r);</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        detail::fmat4x4SIMD transpose(</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                detail::fmat4x4SIMD <span class="keyword">const</span> &amp; x);</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="a00159.html#ga26ea77c574802bc6fc193c40478718d2">determinant</a>(</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordtype">float</span> determinant(</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                detail::fmat4x4SIMD <span class="keyword">const</span> &amp; m);</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        detail::fmat4x4SIMD <a class="code" href="a00159.html#ga7635d3dbe5aa10ff73a0e6903bf6bea5">inverse</a>(</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        detail::fmat4x4SIMD <a class="code" href="a00179.html#ga6613ef61cb980a18f19ece5f421564da">inverse</a>(</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                detail::fmat4x4SIMD <span class="keyword">const</span> &amp; m);</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;}<span class="comment">// namespace glm</span></div>
@@ -199,14 +199,11 @@
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="preprocessor">#endif//(GLM_ARCH != GLM_ARCH_PURE)</span></div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="preprocessor">#endif//GLM_GTX_simd_mat4</span></div>
-<div class="ttc" id="a00168_html_ga089315d5a0c20ac6eaa17a854bbd2e81"><div class="ttname"><a href="a00168.html#ga089315d5a0c20ac6eaa17a854bbd2e81">glm::mat4x4</a></div><div class="ttdeci">highp_mat4x4 mat4x4</div><div class="ttdoc">4 columns of 4 components matrix of floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00437">type_mat.hpp:437</a></div></div>
-<div class="ttc" id="a00168_html_gade0eb47c01f79384a6f38017ede17446"><div class="ttname"><a href="a00168.html#gade0eb47c01f79384a6f38017ede17446">glm::mat4</a></div><div class="ttdeci">mat4x4 mat4</div><div class="ttdoc">4 columns of 4 components matrix of floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00454">type_mat.hpp:454</a></div></div>
-<div class="ttc" id="a00159_html_ga8ef7ab7abd0437b9cb727d9842a5ecac"><div class="ttname"><a href="a00159.html#ga8ef7ab7abd0437b9cb727d9842a5ecac">glm::outerProduct</a></div><div class="ttdeci">GLM_FUNC_DECL void outerProduct(vecTypeA&lt; T, P &gt; const &amp;c, vecTypeB&lt; T, P &gt; const &amp;r)</div><div class="ttdoc">Treats the first parameter c as a column vector and the second parameter r as a row vector and does a...</div></div>
-<div class="ttc" id="a00159_html_ga26ea77c574802bc6fc193c40478718d2"><div class="ttname"><a href="a00159.html#ga26ea77c574802bc6fc193c40478718d2">glm::determinant</a></div><div class="ttdeci">GLM_FUNC_DECL T determinant(matType&lt; T, P &gt; const &amp;m)</div><div class="ttdoc">Returns the transposed matrix of x. </div></div>
+<div class="ttc" id="a00168_html_ga089315d5a0c20ac6eaa17a854bbd2e81"><div class="ttname"><a href="a00168.html#ga089315d5a0c20ac6eaa17a854bbd2e81">glm::mat4x4</a></div><div class="ttdeci">highp_mat4x4 mat4x4</div><div class="ttdoc">4 columns of 4 components matrix of floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00425">type_mat.hpp:425</a></div></div>
+<div class="ttc" id="a00168_html_gade0eb47c01f79384a6f38017ede17446"><div class="ttname"><a href="a00168.html#gade0eb47c01f79384a6f38017ede17446">glm::mat4</a></div><div class="ttdeci">mat4x4 mat4</div><div class="ttdoc">4 columns of 4 components matrix of floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00442">type_mat.hpp:442</a></div></div>
 <div class="ttc" id="a00179_html_gafc4e34c836f7ccb5f3bb2a0373c831e0"><div class="ttname"><a href="a00179.html#gafc4e34c836f7ccb5f3bb2a0373c831e0">glm::mat4_cast</a></div><div class="ttdeci">GLM_FUNC_DECL detail::tmat4x4&lt; T, P &gt; mat4_cast(detail::tquat&lt; T, P &gt; const &amp;x)</div><div class="ttdoc">Converts a quaternion to a 4 * 4 matrix. </div></div>
 <div class="ttc" id="a00157_html_ga03b2831439defb8922832b540b91b8a7"><div class="ttname"><a href="a00157.html#ga03b2831439defb8922832b540b91b8a7">glm::length</a></div><div class="ttdeci">GLM_FUNC_DECL genType::value_type length(genType const &amp;x)</div><div class="ttdoc">Returns the length of x, i.e., sqrt(x * x). </div></div>
-<div class="ttc" id="a00159_html_ga7635d3dbe5aa10ff73a0e6903bf6bea5"><div class="ttname"><a href="a00159.html#ga7635d3dbe5aa10ff73a0e6903bf6bea5">glm::inverse</a></div><div class="ttdeci">GLM_FUNC_DECL matType&lt; T, P &gt; inverse(matType&lt; T, P &gt; const &amp;m)</div><div class="ttdoc">Return the inverse of a squared matrix. </div></div>
-<div class="ttc" id="a00159_html_ga4a54992e4741188ee624b21e3ba91814"><div class="ttname"><a href="a00159.html#ga4a54992e4741188ee624b21e3ba91814">glm::matrixCompMult</a></div><div class="ttdeci">GLM_FUNC_DECL matType&lt; T, P &gt; matrixCompMult(matType&lt; T, P &gt; const &amp;x, matType&lt; T, P &gt; const &amp;y)</div><div class="ttdoc">Multiply matrix x by matrix y component-wise, i.e., result[i][j] is the scalar product of x[i][j] and...</div></div>
+<div class="ttc" id="a00179_html_ga6613ef61cb980a18f19ece5f421564da"><div class="ttname"><a href="a00179.html#ga6613ef61cb980a18f19ece5f421564da">glm::inverse</a></div><div class="ttdeci">GLM_FUNC_DECL detail::tquat&lt; T, P &gt; inverse(detail::tquat&lt; T, P &gt; const &amp;q)</div><div class="ttdoc">Returns the q inverse. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
