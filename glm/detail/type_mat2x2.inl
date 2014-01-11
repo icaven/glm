@@ -358,7 +358,7 @@ namespace detail
 	template <typename U>
 	GLM_FUNC_QUALIFIER tmat2x2<T, P>& tmat2x2<T, P>::operator/= (tmat2x2<U, P> const & m)
 	{
-		return (*this = *this * compute_inverse_mat2(m));
+		return (*this = *this * detail::compute_inverse<detail::tmat2x2, T, P>::call(m));
 	}
 
 	template <typename T, precision P>
@@ -392,6 +392,23 @@ namespace detail
 		--*this;
 		return Result;
 	}
+
+	template <typename T, precision P>
+	struct compute_inverse<detail::tmat2x2, T, P>
+	{
+		static detail::tmat2x2<T, P> call(detail::tmat2x2<T, P> const & m)
+		{
+			T Determinant = determinant(m);
+
+			detail::tmat2x2<T, P> Inverse(
+				+ m[1][1] / Determinant,
+				- m[0][1] / Determinant,
+				- m[1][0] / Determinant,
+				+ m[0][0] / Determinant);
+
+			return Inverse;
+		}
+	};
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat2x2<T, P> compute_inverse_mat2(tmat2x2<T, P> const & m)
@@ -607,7 +624,7 @@ namespace detail
 		typename tmat2x2<T, P>::row_type & v
 	)
 	{
-		return detail::compute_inverse_mat2(m) * v;
+		return detail::compute_inverse<detail::tmat2x2, T, P>::call(m) * v;
 	}
 
 	template <typename T, precision P>
@@ -617,7 +634,7 @@ namespace detail
 		tmat2x2<T, P> const & m
 	)
 	{
-		return v * detail::compute_inverse_mat2(m);
+		return v * detail::compute_inverse<detail::tmat2x2, T, P>::call(m);
 	}
 
 	template <typename T, precision P>

@@ -393,7 +393,7 @@ namespace detail
 	template <typename U>
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> & tmat3x3<T, P>::operator/= (tmat3x3<U, P> const & m)
 	{
-		return (*this = *this * detail::compute_inverse_mat3(m));
+		return (*this = *this * detail::compute_inverse<detail::tmat3x3, T, P>::call(m));
 	}
 
 	template <typename T, precision P>
@@ -429,6 +429,32 @@ namespace detail
 		--*this;
 		return Result;
 	}
+
+	template <typename T, precision P>
+	struct compute_inverse<detail::tmat3x3, T, P>
+	{
+		static detail::tmat3x3<T, P> call(detail::tmat3x3<T, P> const & m)
+		{
+			T Determinant =
+				+ m[0][0] * (m[1][1] * m[2][2] - m[2][1] * m[1][2])
+				- m[1][0] * (m[0][1] * m[2][2] - m[2][1] * m[0][2])
+				+ m[2][0] * (m[0][1] * m[1][2] - m[1][1] * m[0][2]);
+
+			detail::tmat3x3<T, P> Inverse(detail::tmat3x3<T, P>::_null);
+			Inverse[0][0] = + (m[1][1] * m[2][2] - m[2][1] * m[1][2]);
+			Inverse[1][0] = - (m[1][0] * m[2][2] - m[2][0] * m[1][2]);
+			Inverse[2][0] = + (m[1][0] * m[2][1] - m[2][0] * m[1][1]);
+			Inverse[0][1] = - (m[0][1] * m[2][2] - m[2][1] * m[0][2]);
+			Inverse[1][1] = + (m[0][0] * m[2][2] - m[2][0] * m[0][2]);
+			Inverse[2][1] = - (m[0][0] * m[2][1] - m[2][0] * m[0][1]);
+			Inverse[0][2] = + (m[0][1] * m[1][2] - m[1][1] * m[0][2]);
+			Inverse[1][2] = - (m[0][0] * m[1][2] - m[1][0] * m[0][2]);
+			Inverse[2][2] = + (m[0][0] * m[1][1] - m[1][0] * m[0][1]);
+			Inverse /= Determinant;
+
+			return Inverse;
+		}
+	};
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> compute_inverse_mat3(tmat3x3<T, P> const & m)
@@ -720,7 +746,7 @@ namespace detail
 		typename tmat3x3<T, P>::row_type const & v
 	)
 	{
-		return detail::compute_inverse_mat3(m) * v;
+		return detail::compute_inverse<detail::tmat3x3, T, P>::call(m) * v;
 	}
 
 	template <typename T, precision P>
@@ -730,7 +756,7 @@ namespace detail
 		tmat3x3<T, P> const & m
 	)
 	{
-		return v * detail::compute_inverse_mat3(m);
+		return v * detail::compute_inverse<detail::tmat3x3, T, P>::call(m);
 	}
 
 	template <typename T, precision P>

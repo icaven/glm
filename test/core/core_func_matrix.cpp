@@ -8,6 +8,11 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/matrix.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/ulp.hpp>
+#include <vector>
+#include <ctime>
+#include <cstdio>
 
 using namespace glm;
 
@@ -175,18 +180,71 @@ int test_inverse()
 	glm::mat2x2 I2x2 = A2x2 * B2x2;
 	Failed += I2x2 == glm::mat2x2(1) ? 0 : 1;
 
+
+
 	return Failed;
 }
 
+std::size_t const Count(10000000);
+
+template <typename VEC3, typename MAT4>
+int test_inverse_perf(std::size_t Instance, char const * Message)
+{
+	std::vector<MAT4> TestInputs;
+	TestInputs.resize(Count);
+	std::vector<MAT4> TestOutputs;
+	TestOutputs.resize(TestInputs.size());
+
+	VEC3 Axis(glm::normalize(VEC3(1.0f, 2.0f, 3.0f)));
+
+	for(std::size_t i = 0; i < TestInputs.size(); ++i)
+	{
+		typename MAT4::value_type f = static_cast<typename MAT4::value_type>(i + Instance) * typename MAT4::value_type(0.1) + typename MAT4::value_type(0.1);
+		TestInputs[i] = glm::rotate(glm::translate(MAT4(1), Axis * f), f, Axis);
+		//TestInputs[i] = glm::translate(MAT4(1), Axis * f);
+	}
+
+	std::clock_t StartTime = std::clock();
+
+	for(std::size_t i = 0; i < TestInputs.size(); ++i)
+		TestOutputs[i] = glm::inverse(TestInputs[i]);
+
+	std::clock_t EndTime = std::clock();
+
+	for(std::size_t i = 0; i < TestInputs.size(); ++i)
+		TestOutputs[i] = TestOutputs[i] * TestInputs[i];
+
+	typename MAT4::value_type Diff(0);
+	for(std::size_t Entry = 0; Entry < TestOutputs.size(); ++Entry)
+	{
+		MAT4 i(1.0);
+		MAT4 m(TestOutputs[Entry]);
+		for(glm::length_t y = 0; y < m.length(); ++y)
+		for(glm::length_t x = 0; x < m[y].length(); ++x)
+			Diff = glm::max(m[y][x], i[y][x]);
+	}
+
+	//glm::uint Ulp = 0;
+	//Ulp = glm::max(glm::float_distance(*Dst, *Src), Ulp);
+
+	printf("inverse<%s>(%f): %d\n", Message, Diff, EndTime - StartTime);
+
+	return 0;
+};
 
 int main()
 {
-	int Failed = 0;
-	Failed += test_matrixCompMult();
-	Failed += test_outerProduct();
-	Failed += test_transpose();
-	Failed += test_determinant();
-	Failed += test_inverse();
-	return Failed;
+	int Error(0);
+	Error += test_matrixCompMult();
+	Error += test_outerProduct();
+	Error += test_transpose();
+	Error += test_determinant();
+	Error += test_inverse();
+	for(std::size_t i = 0; i < 1; ++i)
+	{
+		Error += test_inverse_perf<glm::vec3, glm::mat4>(i, "mat4");
+		Error += test_inverse_perf<glm::dvec3, glm::dmat4>(i, "dmat4");
+	}
+	return Error;
 }
 

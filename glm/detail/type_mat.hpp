@@ -44,26 +44,8 @@ namespace detail
 	template <typename T, precision P> struct tmat4x3;
 	template <typename T, precision P> struct tmat4x4;
 	
-	template <typename T>
-	struct is_matrix
-	{
-		enum is_matrix_enum
-		{
-			_YES = 0,
-			_NO = 1
-		};
-	};
-	
-	#define GLM_DETAIL_IS_MATRIX(T)	\
-		template <>					\
-		struct is_matrix			\
-		{							\
-			enum is_matrix_enum		\
-			{						\
-				_YES = 1,			\
-				_NO = 0				\
-			};						\
-		}
+	template <template <class, precision> class matType, typename T, precision P>
+	struct compute_inverse{};
 }//namespace detail
 
 	/// @addtogroup core_precision
