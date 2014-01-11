@@ -398,13 +398,15 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static detail::tmat2x2<T, P> call(detail::tmat2x2<T, P> const & m)
 		{
-			T Determinant = determinant(m);
+			T OneOverDeterminant = static_cast<>(1) / (
+				+ m[0][0] * m[1][1]
+				- m[1][0] * m[0][1]);
 
 			detail::tmat2x2<T, P> Inverse(
-				+ m[1][1] / Determinant,
-				- m[0][1] / Determinant,
-				- m[1][0] / Determinant,
-				+ m[0][0] / Determinant);
+				+ m[1][1] * OneOverDeterminant,
+				- m[0][1] * OneOverDeterminant,
+				- m[1][0] * OneOverDeterminant,
+				+ m[0][0] * OneOverDeterminant);
 
 			return Inverse;
 		}
