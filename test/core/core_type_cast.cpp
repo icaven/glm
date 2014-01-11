@@ -29,7 +29,7 @@ int test_vec2_cast()
 	
 	my_vec2 I;
 	glm::vec2 J = static_cast<glm::vec2>(I);
-	glm::vec2 K(7.8);
+	glm::vec2 K(7.8f);
 
 	int Error(0);
 	

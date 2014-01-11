@@ -92,7 +92,7 @@ namespace detail
 
 		GLM_FUNC_DECL explicit tvec1(
 			ctor);
-		GLM_FUNC_DECL explicit tvec1(
+		GLM_FUNC_DECL tvec1(
 			T const & s);
 
 		//////////////////////////////////////

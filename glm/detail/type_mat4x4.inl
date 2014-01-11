@@ -503,7 +503,7 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_inverse<detail::tmat4x4, T, P>
 	{
-		static detail::tmat4x4<T, lowp> call(detail::tmat4x4<T, P> const & m)
+		static detail::tmat4x4<T, P> call(detail::tmat4x4<T, P> const & m)
 		{
 			T Coef00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
 			T Coef02 = m[1][2] * m[3][3] - m[3][2] * m[1][3];
@@ -552,7 +552,10 @@ namespace detail
 
 			detail::tvec4<T, P> Row0(Inverse[0][0], Inverse[1][0], Inverse[2][0], Inverse[3][0]);
 
-			T OneOverDeterminant = static_cast<T>(1) / dot(m[0], Row0);
+			detail::tvec4<T, P> Dot0(m[0] * Row0);
+			T Dot1 = (Dot0.x + Dot0.y) + (Dot0.z + Dot0.w);
+
+			T OneOverDeterminant = static_cast<T>(1) / Dot1;
 
 			return Inverse * OneOverDeterminant;
 		}

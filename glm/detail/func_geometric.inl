@@ -39,6 +39,15 @@ namespace detail
 	struct compute_dot{};
 
 	template <typename T, precision P>
+	struct compute_dot<detail::tvec1, T, P>
+	{
+		static T call(detail::tvec1<T, P> const & x, detail::tvec1<T, P> const & y)
+		{
+			return detail::tvec1<T, P>(x * y).x;
+		}
+	};
+
+	template <typename T, precision P>
 	struct compute_dot<detail::tvec2, T, P>
 	{
 		static T call(detail::tvec2<T, P> const & x, detail::tvec2<T, P> const & y)
@@ -159,22 +168,15 @@ namespace detail
 	}
 
 	// dot
-	GLM_FUNC_QUALIFIER float dot
+	template <typename T>
+	GLM_FUNC_QUALIFIER T dot
 	(
-		float const & x,
-		float const & y
+		T const & x,
+		T const & y
 	)
 	{
-		return x * y;
-	}
-
-	GLM_FUNC_QUALIFIER double dot
-	(
-		double const & x,
-		double const & y
-	)
-	{
-		return x * y;
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'dot' only accept floating-point inputs");
+		return detail::compute_dot<detail::tvec1, T, highp>::call(x, y);
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
