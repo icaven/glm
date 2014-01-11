@@ -47,6 +47,7 @@ GLM 0.9.5.1: 2014-01-11
 - Fixed inverse link error when using namespace glm; (#147)
 - Optimized matrix inverse and division code (#149)
 - Added intersectRayPlane function (#153)
+- Fixed outerProduct return type (#155)
 
 ================================================================================
 GLM 0.9.5.0: 2013-12-25

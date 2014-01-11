@@ -34,6 +34,9 @@
 namespace glm{
 namespace detail
 {
+	template <typename T, precision P> struct tvec2;
+	template <typename T, precision P> struct tvec3;
+	template <typename T, precision P> struct tvec4;
 	template <typename T, precision P> struct tmat2x2;
 	template <typename T, precision P> struct tmat2x3;
 	template <typename T, precision P> struct tmat2x4;
@@ -44,8 +47,8 @@ namespace detail
 	template <typename T, precision P> struct tmat4x3;
 	template <typename T, precision P> struct tmat4x4;
 
-	template <class colType, typename rowType>
-	struct mat_trait{};
+	template <typename T, precision P, template <class, precision> class colType, template <class, precision> class rowType>
+	struct outerProduct_trait{};
 
 	template <template <class, precision> class matType, typename T, precision P>
 	struct compute_inverse{};
