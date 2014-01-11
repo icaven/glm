@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// OpenGL Mathematics (glm.g-truc.net)
 ///
-/// Copyright (c) 2005 - 2013 G-Truc Creation (www.g-truc.net)
+/// Copyright (c) 2005 - 2014 G-Truc Creation (www.g-truc.net)
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
@@ -393,7 +393,7 @@ namespace detail
 	template <typename U>
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> & tmat3x3<T, P>::operator/= (tmat3x3<U, P> const & m)
 	{
-		return (*this = *this * detail::compute_inverse_mat3(m));
+		return (*this = *this * detail::compute_inverse<detail::tmat3x3, T, P>::call(m));
 	}
 
 	template <typename T, precision P>
@@ -431,50 +431,29 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat3x3<T, P> compute_inverse_mat3(tmat3x3<T, P> const & m)
+	struct compute_inverse<detail::tmat3x3, T, P>
 	{
-		T S00 = m[0][0];
-		T S01 = m[0][1];
-		T S02 = m[0][2];
+		static detail::tmat3x3<T, P> call(detail::tmat3x3<T, P> const & m)
+		{
+			T OneOverDeterminant = static_cast<T>(1) / (
+				+ m[0][0] * (m[1][1] * m[2][2] - m[2][1] * m[1][2])
+				- m[1][0] * (m[0][1] * m[2][2] - m[2][1] * m[0][2])
+				+ m[2][0] * (m[0][1] * m[1][2] - m[1][1] * m[0][2]));
 
-		T S10 = m[1][0];
-		T S11 = m[1][1];
-		T S12 = m[1][2];
+			detail::tmat3x3<T, P> Inverse(detail::tmat3x3<T, P>::_null);
+			Inverse[0][0] = + (m[1][1] * m[2][2] - m[2][1] * m[1][2]) * OneOverDeterminant;
+			Inverse[1][0] = - (m[1][0] * m[2][2] - m[2][0] * m[1][2]) * OneOverDeterminant;
+			Inverse[2][0] = + (m[1][0] * m[2][1] - m[2][0] * m[1][1]) * OneOverDeterminant;
+			Inverse[0][1] = - (m[0][1] * m[2][2] - m[2][1] * m[0][2]) * OneOverDeterminant;
+			Inverse[1][1] = + (m[0][0] * m[2][2] - m[2][0] * m[0][2]) * OneOverDeterminant;
+			Inverse[2][1] = - (m[0][0] * m[2][1] - m[2][0] * m[0][1]) * OneOverDeterminant;
+			Inverse[0][2] = + (m[0][1] * m[1][2] - m[1][1] * m[0][2]) * OneOverDeterminant;
+			Inverse[1][2] = - (m[0][0] * m[1][2] - m[1][0] * m[0][2]) * OneOverDeterminant;
+			Inverse[2][2] = + (m[0][0] * m[1][1] - m[1][0] * m[0][1]) * OneOverDeterminant;
 
-		T S20 = m[2][0];
-		T S21 = m[2][1];
-		T S22 = m[2][2];
-/*
-		tmat3x3<T, P> Inverse(
-			+ (S11 * S22 - S21 * S12),
-			- (S10 * S22 - S20 * S12),
-			+ (S10 * S21 - S20 * S11),
-			- (S01 * S22 - S21 * S02),
-			+ (S00 * S22 - S20 * S02),
-			- (S00 * S21 - S20 * S01),
-			+ (S01 * S12 - S11 * S02),
-			- (S00 * S12 - S10 * S02),
-			+ (S00 * S11 - S10 * S01));
-*/
-		tmat3x3<T, P> Inverse(
-			S11 * S22 - S21 * S12,
-			S12 * S20 - S22 * S10,
-			S10 * S21 - S20 * S11,
-			S02 * S21 - S01 * S22,
-			S00 * S22 - S02 * S20,
-			S01 * S20 - S00 * S21,
-			S12 * S01 - S11 * S02,
-			S10 * S02 - S12 * S00,
-			S11 * S00 - S10 * S01);
-
-		T Determinant = 
-			+ S00 * (S11 * S22 - S21 * S12)
-			- S10 * (S01 * S22 - S21 * S02)
-			+ S20 * (S01 * S12 - S11 * S02);
-
-		Inverse /= Determinant;
-		return Inverse;
-	}
+			return Inverse;
+		}
+	};
 
 	//////////////////////////////////////////////////////////////
 	// Binary operators
@@ -720,7 +699,7 @@ namespace detail
 		typename tmat3x3<T, P>::row_type const & v
 	)
 	{
-		return detail::compute_inverse_mat3(m) * v;
+		return detail::compute_inverse<detail::tmat3x3, T, P>::call(m) * v;
 	}
 
 	template <typename T, precision P>
@@ -730,7 +709,7 @@ namespace detail
 		tmat3x3<T, P> const & m
 	)
 	{
-		return v * detail::compute_inverse_mat3(m);
+		return v * detail::compute_inverse<detail::tmat3x3, T, P>::call(m);
 	}
 
 	template <typename T, precision P>

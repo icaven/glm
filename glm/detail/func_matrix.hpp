@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// OpenGL Mathematics (glm.g-truc.net)
 ///
-/// Copyright (c) 2005 - 2013 G-Truc Creation (www.g-truc.net)
+/// Copyright (c) 2005 - 2014 G-Truc Creation (www.g-truc.net)
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
@@ -43,9 +43,79 @@
 // Dependencies
 #include "../detail/precision.hpp"
 #include "../detail/setup.hpp"
+#include "../detail/type_mat.hpp"
+#include "../vec2.hpp"
+#include "../vec3.hpp"
+#include "../vec4.hpp"
+#include "../mat2x2.hpp"
+#include "../mat2x3.hpp"
+#include "../mat2x4.hpp"
+#include "../mat3x2.hpp"
+#include "../mat3x3.hpp"
+#include "../mat3x4.hpp"
+#include "../mat4x2.hpp"
+#include "../mat4x3.hpp"
+#include "../mat4x4.hpp"
 
-namespace glm
+namespace glm{
+namespace detail
 {
+	template <typename T, precision P>
+	struct outerProduct_trait<T, P, tvec2, tvec2>
+	{
+		typedef tmat2x2<T, P> type;
+	};
+
+	template <typename T, precision P>
+	struct outerProduct_trait<T, P, tvec2, tvec3>
+	{
+		typedef tmat2x3<T, P> type;
+	};
+
+	template <typename T, precision P>
+	struct outerProduct_trait<T, P, tvec2, tvec4>
+	{
+		typedef tmat2x4<T, P> type;
+	};
+
+	template <typename T, precision P>
+	struct outerProduct_trait<T, P, tvec3, tvec2>
+	{
+		typedef tmat3x2<T, P> type;
+	};
+
+	template <typename T, precision P>
+	struct outerProduct_trait<T, P, tvec3, tvec3>
+	{
+		typedef tmat3x3<T, P> type;
+	};
+
+	template <typename T, precision P>
+	struct outerProduct_trait<T, P, tvec3, tvec4>
+	{
+		typedef tmat3x4<T, P> type;
+	};
+
+	template <typename T, precision P>
+	struct outerProduct_trait<T, P, tvec4, tvec2>
+	{
+		typedef tmat4x2<T, P> type;
+	};
+
+	template <typename T, precision P>
+	struct outerProduct_trait<T, P, tvec4, tvec3>
+	{
+		typedef tmat4x3<T, P> type;
+	};
+
+	template <typename T, precision P>
+	struct outerProduct_trait<T, P, tvec4, tvec4>
+	{
+		typedef tmat4x4<T, P> type;
+	};
+
+}//namespace detail
+
 	/// @addtogroup core_func_matrix
 	/// @{
 
@@ -70,7 +140,7 @@ namespace glm
 	/// 
 	/// @todo Clarify the declaration to specify that matType doesn't have to be provided when used.
 	template <typename T, precision P, template <typename, precision> class vecTypeA, template <typename, precision> class vecTypeB>
-	GLM_FUNC_DECL void outerProduct(vecTypeA<T, P> const & c, vecTypeB<T, P> const & r);
+	GLM_FUNC_DECL typename detail::outerProduct_trait<T, P, vecTypeA, vecTypeB>::type outerProduct(vecTypeA<T, P> const & c, vecTypeB<T, P> const & r);
 
 	/// Returns the transposed matrix of x
 	/// 

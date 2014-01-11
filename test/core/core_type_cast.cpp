@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2013 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2014 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2013-05-06
 // Updated : 2013-05-06
@@ -7,6 +7,7 @@
 // File    : test/core/type_cast.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_FORCE_RADIANS
 #include <glm/glm.hpp>
 
 struct my_vec2
@@ -29,7 +30,7 @@ int test_vec2_cast()
 	
 	my_vec2 I;
 	glm::vec2 J = static_cast<glm::vec2>(I);
-	glm::vec2 K(7.8);
+	glm::vec2 K(7.8f);
 
 	int Error(0);
 	

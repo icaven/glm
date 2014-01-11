@@ -47,9 +47,9 @@
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gabedf650c2fb3a6062d96dd979b809f51"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:gabedf650c2fb3a6062d96dd979b809f51"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00210.html#gabedf650c2fb3a6062d96dd979b809f51">isIdentity</a> (genType const &amp;m, typename genType::T const &amp;epsilon)</td></tr>
-<tr class="separator:gabedf650c2fb3a6062d96dd979b809f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95004e68e8d77a8b37038d96c088ec9c"><td class="memTemplParams" colspan="2">template&lt;typename T , precision P, template&lt; typename, precision &gt; class matType&gt; </td></tr>
+<tr class="memitem:ga95004e68e8d77a8b37038d96c088ec9c"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00210.html#ga95004e68e8d77a8b37038d96c088ec9c">isIdentity</a> (matType&lt; T, P &gt; const &amp;m, T const &amp;epsilon)</td></tr>
+<tr class="separator:ga95004e68e8d77a8b37038d96c088ec9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaeb6ab065655de7ae74220c893181b682"><td class="memTemplParams" colspan="2">template&lt;typename T , precision P&gt; </td></tr>
 <tr class="memitem:gaeb6ab065655de7ae74220c893181b682"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00210.html#gaeb6ab065655de7ae74220c893181b682">isNormalized</a> (detail::tmat2x2&lt; T, P &gt; const &amp;m, T const &amp;epsilon)</td></tr>
 <tr class="separator:gaeb6ab065655de7ae74220c893181b682"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -76,20 +76,20 @@ Functions</h2></td></tr>
 <p>Query to evaluate matrix properties. </p>
 <p>&lt;<a class="el" href="a00079.html" title="OpenGL Mathematics (glm.g-truc.net) ">glm/gtx/matrix_query.hpp</a>&gt; need to be included to use these functionalities. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="gabedf650c2fb3a6062d96dd979b809f51"></a>
+<a class="anchor" id="ga95004e68e8d77a8b37038d96c088ec9c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">bool glm::isIdentity </td>
           <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramtype">matType&lt; T, P &gt; const &amp;&#160;</td>
           <td class="paramname"><em>m</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">typename genType::T const &amp;&#160;</td>
+          <td class="paramtype">T const &amp;&#160;</td>
           <td class="paramname"><em>epsilon</em>&#160;</td>
         </tr>
         <tr>

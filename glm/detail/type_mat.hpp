@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// OpenGL Mathematics (glm.g-truc.net)
 ///
-/// Copyright (c) 2005 - 2013 G-Truc Creation (www.g-truc.net)
+/// Copyright (c) 2005 - 2014 G-Truc Creation (www.g-truc.net)
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
@@ -34,6 +34,9 @@
 namespace glm{
 namespace detail
 {
+	template <typename T, precision P> struct tvec2;
+	template <typename T, precision P> struct tvec3;
+	template <typename T, precision P> struct tvec4;
 	template <typename T, precision P> struct tmat2x2;
 	template <typename T, precision P> struct tmat2x3;
 	template <typename T, precision P> struct tmat2x4;
@@ -43,27 +46,12 @@ namespace detail
 	template <typename T, precision P> struct tmat4x2;
 	template <typename T, precision P> struct tmat4x3;
 	template <typename T, precision P> struct tmat4x4;
-	
-	template <typename T>
-	struct is_matrix
-	{
-		enum is_matrix_enum
-		{
-			_YES = 0,
-			_NO = 1
-		};
-	};
-	
-	#define GLM_DETAIL_IS_MATRIX(T)	\
-		template <>					\
-		struct is_matrix			\
-		{							\
-			enum is_matrix_enum		\
-			{						\
-				_YES = 1,			\
-				_NO = 0				\
-			};						\
-		}
+
+	template <typename T, precision P, template <class, precision> class colType, template <class, precision> class rowType>
+	struct outerProduct_trait{};
+
+	template <template <class, precision> class matType, typename T, precision P>
+	struct compute_inverse{};
 }//namespace detail
 
 	/// @addtogroup core_precision

@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2013 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2014 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2010-09-16
 // Updated : 2013-05-10
@@ -7,8 +7,17 @@
 // File    : test/gtc/matrix_access.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
+#define GLM_FORCE_RADIANS
 #include <glm/gtc/matrix_access.hpp>
+#include <glm/mat2x2.hpp>
+#include <glm/mat2x3.hpp>
+#include <glm/mat2x4.hpp>
+#include <glm/mat3x2.hpp>
+#include <glm/mat3x3.hpp>
+#include <glm/mat3x4.hpp>
+#include <glm/mat4x2.hpp>
+#include <glm/mat4x3.hpp>
+#include <glm/mat4x4.hpp>
 
 int test_mat2x2_row_set()
 {

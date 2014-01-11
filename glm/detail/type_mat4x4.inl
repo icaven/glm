@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// OpenGL Mathematics (glm.g-truc.net)
 ///
-/// Copyright (c) 2005 - 2013 G-Truc Creation (www.g-truc.net)
+/// Copyright (c) 2005 - 2014 G-Truc Creation (www.g-truc.net)
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
@@ -80,10 +80,10 @@ namespace detail
 		tmat4x4<T, P> const & m
 	)
 	{
-		this->value[0] = m.value[0];
-		this->value[1] = m.value[1];
-		this->value[2] = m.value[2];
-		this->value[3] = m.value[3];
+		this->value[0] = m[0];
+		this->value[1] = m[1];
+		this->value[2] = m[2];
+		this->value[3] = m[3];
 	}
 
 	template <typename T, precision P>
@@ -93,10 +93,10 @@ namespace detail
 		tmat4x4<T, Q> const & m
 	)
 	{
-		this->value[0] = m.value[0];
-		this->value[1] = m.value[1];
-		this->value[2] = m.value[2];
-		this->value[3] = m.value[3];
+		this->value[0] = m[0];
+		this->value[1] = m[1];
+		this->value[2] = m[2];
+		this->value[3] = m[3];
 	}
 
 	template <typename T, precision P>
@@ -461,7 +461,7 @@ namespace detail
 	template <typename U>
 	GLM_FUNC_QUALIFIER tmat4x4<T, P> & tmat4x4<T, P>::operator/= (tmat4x4<U, P> const & m)
 	{
-		return (*this = *this * detail::compute_inverse_mat4(m));
+		return (*this = *this * detail::compute_inverse<detail::tmat4x4, T, P>::call(m));
 	}
 
 	template <typename T, precision P>
@@ -501,52 +501,65 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P> compute_inverse_mat4(tmat4x4<T, P> const & m)
+	struct compute_inverse<detail::tmat4x4, T, P>
 	{
-		// Calculate all mat2 determinants
-		T const SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
-		T const SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
-		T const SubFactor02 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
-		T const SubFactor03 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
-		T const SubFactor04 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
-		T const SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
-		T const SubFactor06 = m[1][2] * m[3][3] - m[3][2] * m[1][3];
-		T const SubFactor07 = m[1][1] * m[3][3] - m[3][1] * m[1][3];
-		T const SubFactor08 = m[1][1] * m[3][2] - m[3][1] * m[1][2];
-		T const SubFactor09 = m[1][0] * m[3][3] - m[3][0] * m[1][3];
-		T const SubFactor10 = m[1][0] * m[3][2] - m[3][0] * m[1][2];
-		T const SubFactor11 = m[1][1] * m[3][3] - m[3][1] * m[1][3];
-		T const SubFactor12 = m[1][0] * m[3][1] - m[3][0] * m[1][1];
-		T const SubFactor13 = m[1][2] * m[2][3] - m[2][2] * m[1][3];
-		T const SubFactor14 = m[1][1] * m[2][3] - m[2][1] * m[1][3];
-		T const SubFactor15 = m[1][1] * m[2][2] - m[2][1] * m[1][2];
-		T const SubFactor16 = m[1][0] * m[2][3] - m[2][0] * m[1][3];
-		T const SubFactor17 = m[1][0] * m[2][2] - m[2][0] * m[1][2];
-		T const SubFactor18 = m[1][0] * m[2][1] - m[2][0] * m[1][1];
+		static detail::tmat4x4<T, P> call(detail::tmat4x4<T, P> const & m)
+		{
+			T Coef00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
+			T Coef02 = m[1][2] * m[3][3] - m[3][2] * m[1][3];
+			T Coef03 = m[1][2] * m[2][3] - m[2][2] * m[1][3];
 
-		tmat4x4<T, P> Inverse(
-			+ m[1][1] * SubFactor00 - m[1][2] * SubFactor01 + m[1][3] * SubFactor02,
-			- m[1][0] * SubFactor00 + m[1][2] * SubFactor03 - m[1][3] * SubFactor04,
-			+ m[1][0] * SubFactor01 - m[1][1] * SubFactor03 + m[1][3] * SubFactor05,
-			- m[1][0] * SubFactor02 + m[1][1] * SubFactor04 - m[1][2] * SubFactor05,
-			- m[0][1] * SubFactor00 + m[0][2] * SubFactor01 - m[0][3] * SubFactor02,
-			+ m[0][0] * SubFactor00 - m[0][2] * SubFactor03 + m[0][3] * SubFactor04,
-			- m[0][0] * SubFactor01 + m[0][1] * SubFactor03 - m[0][3] * SubFactor05,
-			+ m[0][0] * SubFactor02 - m[0][1] * SubFactor04 + m[0][2] * SubFactor05,
-			+ m[0][1] * SubFactor06 - m[0][2] * SubFactor07 + m[0][3] * SubFactor08,
-			- m[0][0] * SubFactor06 + m[0][2] * SubFactor09 - m[0][3] * SubFactor10,
-			+ m[0][0] * SubFactor11 - m[0][1] * SubFactor09 + m[0][3] * SubFactor12,
-			- m[0][0] * SubFactor08 + m[0][1] * SubFactor10 - m[0][2] * SubFactor12,
-			- m[0][1] * SubFactor13 + m[0][2] * SubFactor14 - m[0][3] * SubFactor15,
-			+ m[0][0] * SubFactor13 - m[0][2] * SubFactor16 + m[0][3] * SubFactor17,
-			- m[0][0] * SubFactor14 + m[0][1] * SubFactor16 - m[0][3] * SubFactor18,
-			+ m[0][0] * SubFactor15 - m[0][1] * SubFactor17 + m[0][2] * SubFactor18);
-		
-		T Determinant = static_cast<T>(+ m[0][0] * Inverse[0][0] + m[0][1] * Inverse[1][0] + m[0][2] * Inverse[2][0] + m[0][3] * Inverse[3][0]);
+			T Coef04 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
+			T Coef06 = m[1][1] * m[3][3] - m[3][1] * m[1][3];
+			T Coef07 = m[1][1] * m[2][3] - m[2][1] * m[1][3];
 
-		Inverse /= Determinant;
-		return Inverse;
-	}
+			T Coef08 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
+			T Coef10 = m[1][1] * m[3][2] - m[3][1] * m[1][2];
+			T Coef11 = m[1][1] * m[2][2] - m[2][1] * m[1][2];
+
+			T Coef12 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
+			T Coef14 = m[1][0] * m[3][3] - m[3][0] * m[1][3];
+			T Coef15 = m[1][0] * m[2][3] - m[2][0] * m[1][3];
+
+			T Coef16 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
+			T Coef18 = m[1][0] * m[3][2] - m[3][0] * m[1][2];
+			T Coef19 = m[1][0] * m[2][2] - m[2][0] * m[1][2];
+
+			T Coef20 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
+			T Coef22 = m[1][0] * m[3][1] - m[3][0] * m[1][1];
+			T Coef23 = m[1][0] * m[2][1] - m[2][0] * m[1][1];
+
+			detail::tvec4<T, P> Fac0(Coef00, Coef00, Coef02, Coef03);
+			detail::tvec4<T, P> Fac1(Coef04, Coef04, Coef06, Coef07);
+			detail::tvec4<T, P> Fac2(Coef08, Coef08, Coef10, Coef11);
+			detail::tvec4<T, P> Fac3(Coef12, Coef12, Coef14, Coef15);
+			detail::tvec4<T, P> Fac4(Coef16, Coef16, Coef18, Coef19);
+			detail::tvec4<T, P> Fac5(Coef20, Coef20, Coef22, Coef23);
+
+			detail::tvec4<T, P> Vec0(m[1][0], m[0][0], m[0][0], m[0][0]);
+			detail::tvec4<T, P> Vec1(m[1][1], m[0][1], m[0][1], m[0][1]);
+			detail::tvec4<T, P> Vec2(m[1][2], m[0][2], m[0][2], m[0][2]);
+			detail::tvec4<T, P> Vec3(m[1][3], m[0][3], m[0][3], m[0][3]);
+
+			detail::tvec4<T, P> Inv0(Vec1 * Fac0 - Vec2 * Fac1 + Vec3 * Fac2);
+			detail::tvec4<T, P> Inv1(Vec0 * Fac0 - Vec2 * Fac3 + Vec3 * Fac4);
+			detail::tvec4<T, P> Inv2(Vec0 * Fac1 - Vec1 * Fac3 + Vec3 * Fac5);
+			detail::tvec4<T, P> Inv3(Vec0 * Fac2 - Vec1 * Fac4 + Vec2 * Fac5);
+
+			detail::tvec4<T, P> SignA(+1, -1, +1, -1);
+			detail::tvec4<T, P> SignB(-1, +1, -1, +1);
+			detail::tmat4x4<T, P> Inverse(Inv0 * SignA, Inv1 * SignB, Inv2 * SignA, Inv3 * SignB);
+
+			detail::tvec4<T, P> Row0(Inverse[0][0], Inverse[1][0], Inverse[2][0], Inverse[3][0]);
+
+			detail::tvec4<T, P> Dot0(m[0] * Row0);
+			T Dot1 = (Dot0.x + Dot0.y) + (Dot0.z + Dot0.w);
+
+			T OneOverDeterminant = static_cast<T>(1) / Dot1;
+
+			return Inverse * OneOverDeterminant;
+		}
+	};
 
 	// Binary operators
 	template <typename T, precision P>
@@ -823,7 +836,7 @@ namespace detail
 		typename tmat4x4<T, P>::row_type const & v
 	)
 	{
-		return detail::compute_inverse_mat4(m) * v;
+		return detail::compute_inverse<detail::tmat4x4, T, P>::call(m) * v;
 	}
 
 	template <typename T, precision P>
@@ -833,7 +846,7 @@ namespace detail
 		tmat4x4<T, P> const & m
 	)
 	{
-		return v * detail::compute_inverse_mat4(m);
+		return v * detail::compute_inverse<detail::tmat4x4, T, P>::call(m);
 	}
 
 	template <typename T, precision P>

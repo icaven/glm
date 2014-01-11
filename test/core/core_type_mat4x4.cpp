@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2013 G-Truc Creation (www.g-truc.net)
+// OpenGL Mathematics Copyright (c) 2005 - 2014 G-Truc Creation (www.g-truc.net)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Created : 2008-08-31
 // Updated : 2008-08-31
@@ -7,6 +7,7 @@
 // File    : test/core/type_mat4x4.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_FORCE_RADIANS
 #include <glm/gtc/epsilon.hpp>
 #include <glm/matrix.hpp>
 #include <glm/mat4x4.hpp>
@@ -16,19 +17,19 @@
 void print(glm::dmat4 const & Mat0)
 {
 	printf("mat4(\n");
-	printf("\tvec4(%2.3f, %2.3f, %2.3f, %2.3f)\n", Mat0[0][0], Mat0[0][1], Mat0[0][2], Mat0[0][3]);
-	printf("\tvec4(%2.3f, %2.3f, %2.3f, %2.3f)\n", Mat0[1][0], Mat0[1][1], Mat0[1][2], Mat0[1][3]);
-	printf("\tvec4(%2.3f, %2.3f, %2.3f, %2.3f)\n", Mat0[2][0], Mat0[2][1], Mat0[2][2], Mat0[2][3]);
-	printf("\tvec4(%2.3f, %2.3f, %2.3f, %2.3f))\n\n", Mat0[3][0], Mat0[3][1], Mat0[3][2], Mat0[3][3]);
+	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f)\n", Mat0[0][0], Mat0[0][1], Mat0[0][2], Mat0[0][3]);
+	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f)\n", Mat0[1][0], Mat0[1][1], Mat0[1][2], Mat0[1][3]);
+	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f)\n", Mat0[2][0], Mat0[2][1], Mat0[2][2], Mat0[2][3]);
+	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f))\n\n", Mat0[3][0], Mat0[3][1], Mat0[3][2], Mat0[3][3]);
 }
 
 void print(glm::mat4 const & Mat0)
 {
 	printf("mat4(\n");
-	printf("\tvec4(%2.3f, %2.3f, %2.3f, %2.3f)\n", Mat0[0][0], Mat0[0][1], Mat0[0][2], Mat0[0][3]);
-	printf("\tvec4(%2.3f, %2.3f, %2.3f, %2.3f)\n", Mat0[1][0], Mat0[1][1], Mat0[1][2], Mat0[1][3]);
-	printf("\tvec4(%2.3f, %2.3f, %2.3f, %2.3f)\n", Mat0[2][0], Mat0[2][1], Mat0[2][2], Mat0[2][3]);
-	printf("\tvec4(%2.3f, %2.3f, %2.3f, %2.3f))\n\n", Mat0[3][0], Mat0[3][1], Mat0[3][2], Mat0[3][3]);
+	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f)\n", Mat0[0][0], Mat0[0][1], Mat0[0][2], Mat0[0][3]);
+	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f)\n", Mat0[1][0], Mat0[1][1], Mat0[1][2], Mat0[1][3]);
+	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f)\n", Mat0[2][0], Mat0[2][1], Mat0[2][2], Mat0[2][3]);
+	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f))\n\n", Mat0[3][0], Mat0[3][1], Mat0[3][2], Mat0[3][3]);
 }
 
 int test_inverse_mat4x4()
@@ -105,6 +106,66 @@ int test_inverse()
 		Error += glm::all(glm::epsilonEqual(Identity[1], glm::vec4(0.0f, 1.0f, 0.0f, 0.0f), glm::vec4(0.01f))) ? 0 : 1;
 		Error += glm::all(glm::epsilonEqual(Identity[2], glm::vec4(0.0f, 0.0f, 1.0f, 0.0f), glm::vec4(0.01f))) ? 0 : 1;
 		Error += glm::all(glm::epsilonEqual(Identity[3], glm::vec4(0.0f, 0.0f, 0.0f, 1.0f), glm::vec4(0.01f))) ? 0 : 1;
+	}
+
+	{
+		glm::highp_mat4 const Matrix(
+			glm::highp_vec4(0.6f, 0.2f, 0.3f, 0.4f), 
+			glm::highp_vec4(0.2f, 0.7f, 0.5f, 0.3f), 
+			glm::highp_vec4(0.3f, 0.5f, 0.7f, 0.2f), 
+			glm::highp_vec4(0.4f, 0.3f, 0.2f, 0.6f));
+		glm::highp_mat4 const Inverse = glm::inverse(Matrix);
+		glm::highp_mat4 const Identity = Matrix * Inverse;
+
+		printf("highp_mat4 inverse\n");
+		print(Matrix);
+		print(Inverse);
+		print(Identity);
+
+		Error += glm::all(glm::epsilonEqual(Identity[0], glm::highp_vec4(1.0f, 0.0f, 0.0f, 0.0f), glm::highp_vec4(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Identity[1], glm::highp_vec4(0.0f, 1.0f, 0.0f, 0.0f), glm::highp_vec4(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Identity[2], glm::highp_vec4(0.0f, 0.0f, 1.0f, 0.0f), glm::highp_vec4(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Identity[3], glm::highp_vec4(0.0f, 0.0f, 0.0f, 1.0f), glm::highp_vec4(0.01f))) ? 0 : 1;
+	}
+
+	{
+		glm::mediump_mat4 const Matrix(
+			glm::mediump_vec4(0.6f, 0.2f, 0.3f, 0.4f), 
+			glm::mediump_vec4(0.2f, 0.7f, 0.5f, 0.3f), 
+			glm::mediump_vec4(0.3f, 0.5f, 0.7f, 0.2f), 
+			glm::mediump_vec4(0.4f, 0.3f, 0.2f, 0.6f));
+		glm::mediump_mat4 const Inverse = glm::inverse(Matrix);
+		glm::mediump_mat4 const Identity = Matrix * Inverse;
+
+		printf("mediump_mat4 inverse\n");
+		print(Matrix);
+		print(Inverse);
+		print(Identity);
+
+		Error += glm::all(glm::epsilonEqual(Identity[0], glm::mediump_vec4(1.0f, 0.0f, 0.0f, 0.0f), glm::mediump_vec4(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Identity[1], glm::mediump_vec4(0.0f, 1.0f, 0.0f, 0.0f), glm::mediump_vec4(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Identity[2], glm::mediump_vec4(0.0f, 0.0f, 1.0f, 0.0f), glm::mediump_vec4(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Identity[3], glm::mediump_vec4(0.0f, 0.0f, 0.0f, 1.0f), glm::mediump_vec4(0.01f))) ? 0 : 1;
+	}
+
+	{
+		glm::lowp_mat4 const Matrix(
+			glm::lowp_vec4(0.6f, 0.2f, 0.3f, 0.4f), 
+			glm::lowp_vec4(0.2f, 0.7f, 0.5f, 0.3f), 
+			glm::lowp_vec4(0.3f, 0.5f, 0.7f, 0.2f), 
+			glm::lowp_vec4(0.4f, 0.3f, 0.2f, 0.6f));
+		glm::lowp_mat4 const Inverse = glm::inverse(Matrix);
+		glm::lowp_mat4 const Identity = Matrix * Inverse;
+
+		printf("lowp_mat4 inverse\n");
+		print(Matrix);
+		print(Inverse);
+		print(Identity);
+
+		Error += glm::all(glm::epsilonEqual(Identity[0], glm::lowp_vec4(1.0f, 0.0f, 0.0f, 0.0f), glm::lowp_vec4(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Identity[1], glm::lowp_vec4(0.0f, 1.0f, 0.0f, 0.0f), glm::lowp_vec4(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Identity[2], glm::lowp_vec4(0.0f, 0.0f, 1.0f, 0.0f), glm::lowp_vec4(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Identity[3], glm::lowp_vec4(0.0f, 0.0f, 0.0f, 1.0f), glm::lowp_vec4(0.01f))) ? 0 : 1;
 	}
 
 	{

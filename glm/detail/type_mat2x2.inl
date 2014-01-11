@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// OpenGL Mathematics (glm.g-truc.net)
 ///
-/// Copyright (c) 2005 - 2013 G-Truc Creation (www.g-truc.net)
+/// Copyright (c) 2005 - 2014 G-Truc Creation (www.g-truc.net)
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
@@ -358,7 +358,7 @@ namespace detail
 	template <typename U>
 	GLM_FUNC_QUALIFIER tmat2x2<T, P>& tmat2x2<T, P>::operator/= (tmat2x2<U, P> const & m)
 	{
-		return (*this = *this * compute_inverse_mat2(m));
+		return (*this = *this * detail::compute_inverse<detail::tmat2x2, T, P>::call(m));
 	}
 
 	template <typename T, precision P>
@@ -394,16 +394,23 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat2x2<T, P> compute_inverse_mat2(tmat2x2<T, P> const & m)
+	struct compute_inverse<detail::tmat2x2, T, P>
 	{
-		T Determinant = m[0][0] * m[1][1] - m[1][0] * m[0][1];
+		GLM_FUNC_QUALIFIER static detail::tmat2x2<T, P> call(detail::tmat2x2<T, P> const & m)
+		{
+			T OneOverDeterminant = static_cast<T>(1) / (
+				+ m[0][0] * m[1][1]
+				- m[1][0] * m[0][1]);
 
-		tmat2x2<T, P> Inverse(
-			+ m[1][1] / Determinant, - m[0][1] / Determinant,
-			- m[1][0] / Determinant, + m[0][0] / Determinant);
+			detail::tmat2x2<T, P> Inverse(
+				+ m[1][1] * OneOverDeterminant,
+				- m[0][1] * OneOverDeterminant,
+				- m[1][0] * OneOverDeterminant,
+				+ m[0][0] * OneOverDeterminant);
 
-		return Inverse;
-	}
+			return Inverse;
+		}
+	};
 
 	//////////////////////////////////////////////////////////////
 	// Binary operators
@@ -607,7 +614,7 @@ namespace detail
 		typename tmat2x2<T, P>::row_type & v
 	)
 	{
-		return detail::compute_inverse_mat2(m) * v;
+		return detail::compute_inverse<detail::tmat2x2, T, P>::call(m) * v;
 	}
 
 	template <typename T, precision P>
@@ -617,7 +624,7 @@ namespace detail
 		tmat2x2<T, P> const & m
 	)
 	{
-		return v * detail::compute_inverse_mat2(m);
+		return v * detail::compute_inverse<detail::tmat2x2, T, P>::call(m);
 	}
 
 	template <typename T, precision P>
