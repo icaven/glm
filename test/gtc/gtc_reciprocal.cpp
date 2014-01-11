@@ -7,16 +7,12 @@
 // File    : test/gtc/reciprocal.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
+#define GLM_FORCE_RADIANS
 #include <glm/gtc/reciprocal.hpp>
 
 int main()
 {
 	int Error(0);
 
-
-
 	return Error;
 }
-
-

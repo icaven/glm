@@ -7,7 +7,7 @@
 // File    : test/gtc/matrix_integer.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
+#define GLM_FORCE_RADIANS
 #include <glm/gtc/matrix_integer.hpp>
 
 int main()

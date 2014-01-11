@@ -7,7 +7,7 @@
 // File    : test/core/type_vec1.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
+#define GLM_FORCE_RADIANS
 #include <glm/gtx/vec1.hpp>
 
 int test_operators()

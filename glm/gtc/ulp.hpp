@@ -41,6 +41,8 @@
 
 // Dependencies
 #include "../detail/setup.hpp"
+#include "../detail/precision.hpp"
+#include "../detail/type_int.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTC_ulp extension included")

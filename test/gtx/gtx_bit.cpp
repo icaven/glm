@@ -7,11 +7,11 @@
 // File    : test/gtx/bit.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <emmintrin.h>
-
+#define GLM_FORCE_RADIANS
 #include <glm/gtx/bit.hpp>
 #include <glm/gtc/type_precision.hpp>
 
+#include <emmintrin.h>
 #if(GLM_ARCH != GLM_ARCH_PURE)
 #	include <glm/detail/intrinsic_integer.hpp>
 #endif

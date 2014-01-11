@@ -7,7 +7,7 @@
 // File    : test/gtx/gtx_multiple.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
+#define GLM_FORCE_RADIANS
 #include <glm/gtx/multiple.hpp>
 
 int test_higher_int()

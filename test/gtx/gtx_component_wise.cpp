@@ -7,9 +7,7 @@
 // File    : test/gtx/component_wise.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <emmintrin.h>
-
-#include <glm/glm.hpp>
+#define GLM_FORCE_RADIANS
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtx/component_wise.hpp>
 

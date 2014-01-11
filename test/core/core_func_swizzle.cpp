@@ -7,6 +7,7 @@
 // File    : test/core/core_func_swizzle.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_FORCE_RADIANS
 #define GLM_MESSAGES
 #define GLM_SWIZZLE
 #include <glm/glm.hpp>

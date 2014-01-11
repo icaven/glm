@@ -7,6 +7,7 @@
 // File    : test/core/type_mat4x3.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_FORCE_RADIANS
 #include <glm/vector_relational.hpp>
 #include <glm/mat4x3.hpp>
 #include <vector>

@@ -36,6 +36,7 @@
 #include "../detail/type_int.hpp"
 #include <cmath>
 #include <cfloat>
+#include <limits>
 
 #if(GLM_COMPILER & GLM_COMPILER_VC)
 #	pragma warning(push)

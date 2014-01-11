@@ -7,6 +7,7 @@
 // File    : test/gtx/polar_coordinates.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_FORCE_RADIANS
 #include <glm/glm.hpp>
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtx/polar_coordinates.hpp>

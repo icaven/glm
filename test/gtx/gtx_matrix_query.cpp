@@ -7,7 +7,7 @@
 // File    : test/gtx/matrix_query.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
+#define GLM_FORCE_RADIANS
 #include <glm/gtx/matrix_query.hpp>
 
 int test_isNull()

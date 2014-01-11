@@ -7,7 +7,7 @@
 // File    : test/gtx/associated_min_max.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
+#define GLM_FORCE_RADIANS
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtx/fast_exponential.hpp>
 

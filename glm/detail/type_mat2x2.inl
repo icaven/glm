@@ -396,7 +396,7 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_inverse<detail::tmat2x2, T, P>
 	{
-		static detail::tmat2x2<T, P> call(detail::tmat2x2<T, P> const & m)
+		GLM_FUNC_QUALIFIER static detail::tmat2x2<T, P> call(detail::tmat2x2<T, P> const & m)
 		{
 			T Determinant = determinant(m);
 
@@ -409,18 +409,6 @@ namespace detail
 			return Inverse;
 		}
 	};
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat2x2<T, P> compute_inverse_mat2(tmat2x2<T, P> const & m)
-	{
-		T Determinant = m[0][0] * m[1][1] - m[1][0] * m[0][1];
-
-		tmat2x2<T, P> Inverse(
-			+ m[1][1] / Determinant, - m[0][1] / Determinant,
-			- m[1][0] / Determinant, + m[0][0] / Determinant);
-
-		return Inverse;
-	}
 
 	//////////////////////////////////////////////////////////////
 	// Binary operators

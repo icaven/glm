@@ -43,7 +43,10 @@ namespace detail
 	template <typename T, precision P> struct tmat4x2;
 	template <typename T, precision P> struct tmat4x3;
 	template <typename T, precision P> struct tmat4x4;
-	
+
+	template <class colType, typename rowType>
+	struct mat_trait{};
+
 	template <template <class, precision> class matType, typename T, precision P>
 	struct compute_inverse{};
 }//namespace detail

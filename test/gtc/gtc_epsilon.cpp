@@ -7,6 +7,7 @@
 // File    : test/gtc/epsilon.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_FORCE_RADIANS
 #include <glm/gtc/epsilon.hpp>
 #include <glm/gtc/constants.hpp>
 #include <glm/vector_relational.hpp>

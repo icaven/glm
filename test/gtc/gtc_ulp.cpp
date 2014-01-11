@@ -7,7 +7,7 @@
 // File    : test/gtc/ulp.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
+#define GLM_FORCE_RADIANS
 #include <glm/gtc/ulp.hpp>
 #include <iostream>
 #include <limits>

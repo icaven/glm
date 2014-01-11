@@ -7,6 +7,7 @@
 // File    : test/gtc/gtc_dual_quaternion.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_FORCE_RADIANS
 #include <glm/gtx/dual_quaternion.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/epsilon.hpp>

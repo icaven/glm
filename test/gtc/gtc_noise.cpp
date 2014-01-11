@@ -7,7 +7,7 @@
 // File    : test/gtc/noise.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
+#define GLM_FORCE_RADIANS
 #include <glm/gtc/noise.hpp>
 #include <gli/gli.hpp>
 #include <gli/gtx/loader.hpp>

@@ -7,6 +7,7 @@
 // File    : test/core/func_geometric.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_FORCE_RADIANS
 #include <glm/geometric.hpp>
 #include <glm/gtc/epsilon.hpp>
 

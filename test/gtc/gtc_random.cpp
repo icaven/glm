@@ -7,7 +7,7 @@
 // File    : test/gtc/random.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
+#define GLM_FORCE_RADIANS
 #include <glm/gtc/random.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <iostream>

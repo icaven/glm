@@ -29,6 +29,7 @@
 /// dummy.cpp exist only a wordaround for CMake file.
 ///////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_FORCE_RADIANS
 #define GLM_MESSAGES
 #include "../glm.hpp"
 #include <limits>

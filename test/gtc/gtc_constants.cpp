@@ -7,7 +7,7 @@
 // File    : test/gtc/constants.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
+#define GLM_FORCE_RADIANS
 #include <glm/gtc/constants.hpp>
 
 int test_epsilon()

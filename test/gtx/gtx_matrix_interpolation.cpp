@@ -7,14 +7,12 @@
 // File    : test/gtx/matrix_interpolation.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/glm.hpp>
+#define GLM_FORCE_RADIANS
 #include <glm/gtx/matrix_interpolation.hpp>
 
 int main()
 {
 	int Error(0);
-
-
 
 	return Error;
 }

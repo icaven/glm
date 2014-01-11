@@ -7,6 +7,7 @@
 // File    : test/gtx/simd-vec4.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_FORCE_RADIANS
 #include <glm/glm.hpp>
 #include <glm/gtx/simd_vec4.hpp>
 #include <cstdio>
@@ -28,7 +29,7 @@ int main()
 	//printf("C1(%2.3f, %2.3f, %2.3f, %2.3f)\n", C1.x, C1.y, C1.z, C1.w);
 	//printf("D1(%2.3f, %2.3f, %2.3f, %2.3f)\n", D1.x, D1.y, D1.z, D1.w);
 
-	__m128 value;
+	__m128 value = _mm_set1_ps(0.0f);
 	__m128 data = _mm_cmpeq_ps(value, value);
 	__m128 add0 = _mm_add_ps(data, data);
 

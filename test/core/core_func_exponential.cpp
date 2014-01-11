@@ -7,6 +7,7 @@
 // File    : test/core/func_exponential.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_FORCE_RADIANS
 #include <glm/common.hpp>
 #include <glm/exponential.hpp>
 #include <glm/gtc/ulp.hpp>

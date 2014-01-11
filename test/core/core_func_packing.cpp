@@ -7,6 +7,7 @@
 // File    : test/core/func_packing.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_FORCE_RADIANS
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <glm/vector_relational.hpp>
