@@ -88,7 +88,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(
 			std::numeric_limits<genFIType>::is_iec559 ||
-			std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer, "'sign' only accept signed inputs");
+			(std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer, "'sign' only accept signed inputs"));
 
 		genFIType result;
 		if(x > genFIType(0))
