@@ -538,7 +538,7 @@ namespace detail
 		const T SrcB11 = m2[1][1];
 		const T SrcB12 = m2[1][2];
 
-		tmat2x2<T, P> Result(tmat2x2<T, P>::null);
+		tmat2x2<T, P> Result(tmat2x2<T, P>::_null);
 		Result[0][0] = SrcA00 * SrcB00 + SrcA10 * SrcB01 + SrcA20 * SrcB02;
 		Result[0][1] = SrcA01 * SrcB00 + SrcA11 * SrcB01 + SrcA21 * SrcB02;
 		Result[1][0] = SrcA00 * SrcB10 + SrcA10 * SrcB11 + SrcA20 * SrcB12;

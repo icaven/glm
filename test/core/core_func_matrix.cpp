@@ -80,7 +80,7 @@ int test_matrixCompMult()
 
 int test_outerProduct()
 {
-
+	glm::mat4 m = glm::outerProduct(glm::vec4(1.0f), glm::vec4(1.0f));
 
 	return 0;
 }

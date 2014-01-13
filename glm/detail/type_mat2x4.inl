@@ -508,7 +508,7 @@ namespace detail
 		T SrcB30 = m2[3][0];
 		T SrcB31 = m2[3][1];
 
-		tmat4x4<T, P> Result(tmat4x4<T, P>::null);
+		tmat4x4<T, P> Result(tmat4x4<T, P>::_null);
 		Result[0][0] = SrcA00 * SrcB00 + SrcA10 * SrcB01;
 		Result[0][1] = SrcA01 * SrcB00 + SrcA11 * SrcB01;
 		Result[0][2] = SrcA02 * SrcB00 + SrcA12 * SrcB01;

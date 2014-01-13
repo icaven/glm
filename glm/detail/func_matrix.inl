@@ -45,7 +45,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, detail::tvec2, detail::tvec2>::type call(detail::tvec2<T, P> const & c, detail::tvec2<T, P> const & r)
 		{
-			detail::tmat2x2<T, P> m(detail::tmat2x2<T, P>::null);
+			detail::tmat2x2<T, P> m(detail::tmat2x2<T, P>::_null);
 			m[0][0] = c[0] * r[0];
 			m[0][1] = c[1] * r[0];
 			m[1][0] = c[0] * r[1];
@@ -59,7 +59,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, detail::tvec3, detail::tvec3>::type call(detail::tvec3<T, P> const & c, detail::tvec3<T, P> const & r)
 		{
-			detail::tmat3x3<T, P> m(detail::tmat3x3<T, P>::null);
+			detail::tmat3x3<T, P> m(detail::tmat3x3<T, P>::_null);
 			for(length_t i(0); i < m.length(); ++i)
 				m[i] = c * r[i];
 			return m;
@@ -71,7 +71,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, detail::tvec4, detail::tvec4>::type call(detail::tvec4<T, P> const & c, detail::tvec4<T, P> const & r)
 		{
-			detail::tmat4x4<T, P> m(detail::tmat4x4<T, P>::null);
+			detail::tmat4x4<T, P> m(detail::tmat4x4<T, P>::_null);
 			for(length_t i(0); i < m.length(); ++i)
 				m[i] = c * r[i];
 			return m;
@@ -83,7 +83,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, detail::tvec3, detail::tvec2>::type call(detail::tvec3<T, P> const & c, detail::tvec2<T, P> const & r)
 		{
-			detail::tmat2x3<T, P> m(detail::tmat2x3<T, P>::null);
+			detail::tmat2x3<T, P> m(detail::tmat2x3<T, P>::_null);
 			m[0][0] = c.x * r.x;
 			m[0][1] = c.y * r.x;
 			m[0][2] = c.z * r.x;
@@ -99,7 +99,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, detail::tvec2, detail::tvec3>::type call(detail::tvec2<T, P> const & c, detail::tvec3<T, P> const & r)
 		{
-			detail::tmat3x2<T, P> m(detail::tmat3x2<T, P>::null);
+			detail::tmat3x2<T, P> m(detail::tmat3x2<T, P>::_null);
 			m[0][0] = c.x * r.x;
 			m[0][1] = c.y * r.x;
 			m[1][0] = c.x * r.y;
@@ -115,7 +115,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, detail::tvec4, detail::tvec2>::type call(detail::tvec4<T, P> const & c, detail::tvec2<T, P> const & r)
 		{
-			detail::tmat2x4<T, P> m(detail::tmat2x4<T, P>::null);
+			detail::tmat2x4<T, P> m(detail::tmat2x4<T, P>::_null);
 			m[0][0] = c.x * r.x;
 			m[0][1] = c.y * r.x;
 			m[0][2] = c.z * r.x;
@@ -133,7 +133,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, detail::tvec2, detail::tvec4>::type call(detail::tvec2<T, P> const & c, detail::tvec4<T, P> const & r)
 		{
-			detail::tmat4x2<T, P> m(detail::tmat4x2<T, P>::null);
+			detail::tmat4x2<T, P> m(detail::tmat4x2<T, P>::_null);
 			m[0][0] = c.x * r.x;
 			m[0][1] = c.y * r.x;
 			m[1][0] = c.x * r.y;
@@ -151,7 +151,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, detail::tvec4, detail::tvec3>::type call(detail::tvec4<T, P> const & c, detail::tvec3<T, P> const & r)
 		{
-			detail::tmat3x4<T, P> m(detail::tmat3x4<T, P>::null);
+			detail::tmat3x4<T, P> m(detail::tmat3x4<T, P>::_null);
 			m[0][0] = c.x * r.x;
 			m[0][1] = c.y * r.x;
 			m[0][2] = c.z * r.x;
@@ -173,7 +173,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, detail::tvec3, detail::tvec4>::type call(detail::tvec3<T, P> const & c, detail::tvec4<T, P> const & r)
 		{
-			detail::tmat4x3<T, P> m(detail::tmat4x3<T, P>::null);
+			detail::tmat4x3<T, P> m(detail::tmat4x3<T, P>::_null);
 			m[0][0] = c.x * r.x;
 			m[0][1] = c.y * r.x;
 			m[0][2] = c.z * r.x;
@@ -429,7 +429,7 @@ namespace detail
 		return result;
 	}
 
-	template<template <class, precision> class vecTypeA, template <class, precision> class vecTypeB, typename T, precision P>
+	template<typename T, precision P, template <typename, precision> class vecTypeA, template <typename, precision> class vecTypeB>
 	GLM_FUNC_QUALIFIER typename detail::outerProduct_trait<T, P, vecTypeA, vecTypeB>::type outerProduct(vecTypeA<T, P> const & c, vecTypeB<T, P> const & r)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'outerProduct' only accept floating-point inputs");
