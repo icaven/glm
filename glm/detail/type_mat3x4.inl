@@ -553,7 +553,7 @@ namespace detail
 		const T SrcB31 = m2[3][1];
 		const T SrcB32 = m2[3][2];
 
-		tmat4x4<T, P> Result(tmat4x4<T, P>::null);
+		tmat4x4<T, P> Result(tmat4x4<T, P>::_null);
 		Result[0][0] = SrcA00 * SrcB00 + SrcA10 * SrcB01 + SrcA20 * SrcB02;
 		Result[0][1] = SrcA01 * SrcB00 + SrcA11 * SrcB01 + SrcA21 * SrcB02;
 		Result[0][2] = SrcA02 * SrcB00 + SrcA12 * SrcB01 + SrcA22 * SrcB02;
