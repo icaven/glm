@@ -30,31 +30,20 @@ namespace glm{
 namespace detail
 {
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t tmat2x2<T, P>::length() const
-	{
-		return 2;
-	}
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t tmat2x2<T, P>::length() const {return 2;}
 
 	//////////////////////////////////////
 	// Accesses
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tmat2x2<T, P>::col_type &
-	tmat2x2<T, P>::operator[]
-	(
-		length_t i
-	)
+	GLM_FUNC_QUALIFIER typename tmat2x2<T, P>::col_type & tmat2x2<T, P>::operator[](length_t i)
 	{
 		assert(i < this->length());
 		return this->value[i];
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tmat2x2<T, P>::col_type const &
-	tmat2x2<T, P>::operator[]
-	(
-		length_t i
-	) const
+	GLM_FUNC_QUALIFIER typename tmat2x2<T, P>::col_type const & tmat2x2<T, P>::operator[](length_t i) const
 	{
 		assert(i < this->length());
 		return this->value[i];

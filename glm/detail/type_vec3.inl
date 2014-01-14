@@ -80,12 +80,12 @@ namespace detail
 #if(GLM_HAS_INITIALIZER_LISTS)
 	template <typename T, precision P>
 	template <typename U>
-	GLM_FUNC_QUALIFIER tvec3<T, P>::tvec3(std::initializer_list<U> const & v) :
-		x(static_cast<T>(v.begin()[0])),
-		y(static_cast<T>(v.begin()[1])),
-		z(static_cast<T>(v.begin()[2]))
+	GLM_FUNC_QUALIFIER tvec3<T, P>::tvec3(std::initializer_list<U> l) :
+		x(static_cast<T>(l.begin()[0])),
+		y(static_cast<T>(l.begin()[1])),
+		z(static_cast<T>(l.begin()[2]))
 	{
-		assert(v.size() == this->length());
+		assert(l.size() == this->length());
 	}
 #endif//GLM_HAS_INITIALIZER_LISTS
 

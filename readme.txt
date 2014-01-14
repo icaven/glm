@@ -42,6 +42,7 @@ GLM 0.9.6.0: 2014-XX-XX
 - Added transparent use of SIMD instructions for vec4 and mat4 types
 - Removed degrees for function parameters
 - Removed GLM_FORCE_RADIANS, active by default
+- Added move contructors and assignment operators (#141)
 
 ================================================================================
 GLM 0.9.5.2: 2014-0X-XX

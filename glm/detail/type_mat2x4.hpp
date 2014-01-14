@@ -33,7 +33,14 @@
 #include "type_vec2.hpp"
 #include "type_vec4.hpp"
 #include "type_mat.hpp"
+#if GLM_HAS_INITIALIZER_LISTS
+#	include <initializer_list>
+#endif
+#if GLM_HAS_RVALUE_REFERENCES
+#	include <algorithm>
+#endif
 #include <limits>
+#include <cstddef>
 
 namespace glm{
 namespace detail
@@ -73,12 +80,20 @@ namespace detail
 			col_type const & v0, 
 			col_type const & v1);
 
-#if(GLM_HAS_INITIALIZER_LISTS)
-		template <typename U>
-		GLM_FUNC_DECL tmat2x4(std::initializer_list<U> m);
+#		if(GLM_HAS_INITIALIZER_LISTS)
+			template <typename U>
+			GLM_FUNC_DECL tmat2x4(std::initializer_list<U> m);
 
-		GLM_FUNC_DECL tmat2x4(std::initializer_list<tvec4<T, P> > m);
-#endif//GLM_HAS_INITIALIZER_LISTS
+			GLM_FUNC_DECL tmat2x4(std::initializer_list<tvec4<T, P> > m);
+#		endif//GLM_HAS_INITIALIZER_LISTS
+
+#		if(GLM_HAS_DEFAULTED_FUNCTIONS && GLM_HAS_RVALUE_REFERENCES)
+			GLM_FUNC_DECL tmat2x4(tmat2x4<T, P> && m)
+			{
+				this->value[0] = std::move(m.value[0]);
+				this->value[1] = std::move(m.value[1]);
+			}
+#		endif//(GLM_HAS_DEFAULTED_FUNCTIONS && GLM_HAS_RVALUE_REFERENCES)
 
 		//////////////////////////////////////
 		// Conversions
@@ -113,6 +128,15 @@ namespace detail
 		GLM_FUNC_DECL col_type const & operator[](length_t i) const;
 
 		// Unary updatable operators
+#		if(GLM_HAS_DEFAULTED_FUNCTIONS && GLM_HAS_RVALUE_REFERENCES)
+			GLM_FUNC_DECL tmat2x4<T, P> & operator=(tmat2x4<T, P> && m)
+			{
+				this->value[0] = std::move(m.value[0]);
+				this->value[1] = std::move(m.value[1]);
+				return *this;
+			}
+#		endif//(GLM_HAS_DEFAULTED_FUNCTIONS && GLM_HAS_RVALUE_REFERENCES)
+
 		GLM_FUNC_DECL tmat2x4<T, P>& operator=  (tmat2x4<T, P> const & m);
 		template <typename U> 
 		GLM_FUNC_DECL tmat2x4<T, P>& operator=  (tmat2x4<U, P> const & m);

@@ -82,10 +82,10 @@ namespace detail
 		template <precision Q>
 		GLM_FUNC_DECL tvec1(tvec1<T, Q> const & v);
 
-#if(GLM_HAS_INITIALIZER_LISTS)
-		template <typename U>
-		GLM_FUNC_DECL tvec1(std::initializer_list<U> const & v);
-#endif//GLM_HAS_INITIALIZER_LISTS
+#		if(GLM_HAS_INITIALIZER_LISTS)
+			template <typename U>
+			GLM_FUNC_DECL tvec1(std::initializer_list<U> l);
+#		endif//GLM_HAS_INITIALIZER_LISTS
 
 		//////////////////////////////////////
 		// Explicit basic constructors
@@ -115,9 +115,9 @@ namespace detail
 		// Unary arithmetic operators
 
 		GLM_FUNC_DECL tvec1<T, P> & operator= (tvec1<T, P> const & v);
+
 		template <typename U> 
 		GLM_FUNC_DECL tvec1<T, P> & operator= (tvec1<U, P> const & v);
-
 		template <typename U> 
 		GLM_FUNC_DECL tvec1<T, P> & operator+=(U const & s);
 		template <typename U> 

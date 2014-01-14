@@ -107,10 +107,10 @@ namespace detail
 		template <precision Q>
 		GLM_FUNC_DECL tvec2(tvec2<T, Q> const & v);
 
-#if(GLM_HAS_INITIALIZER_LISTS)
-		template <typename U>
-		GLM_FUNC_DECL tvec2(std::initializer_list<U> const & v);
-#endif//GLM_HAS_INITIALIZER_LISTS
+#		if(GLM_HAS_INITIALIZER_LISTS)
+			template <typename U>
+			GLM_FUNC_DECL tvec2(std::initializer_list<U> l);
+#		endif//GLM_HAS_INITIALIZER_LISTS
 
 		//////////////////////////////////////
 		// Explicit basic constructors
@@ -127,11 +127,11 @@ namespace detail
 		// Swizzle constructors
 
 #		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
-		template <int E0, int E1>
-		GLM_FUNC_DECL tvec2(_swizzle<2,T, P, tvec2<T, P>, E0, E1,-1,-2> const & that)
-		{
-			*this = that();
-		}
+			template <int E0, int E1>
+			GLM_FUNC_DECL tvec2(_swizzle<2,T, P, tvec2<T, P>, E0, E1,-1,-2> const & that)
+			{
+				*this = that();
+			}
 #		endif//(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
 
 		//////////////////////////////////////
@@ -160,9 +160,9 @@ namespace detail
 		// Unary arithmetic operators
 
 		GLM_FUNC_DECL tvec2<T, P> & operator= (tvec2<T, P> const & v);
+
 		template <typename U> 
 		GLM_FUNC_DECL tvec2<T, P> & operator= (tvec2<U, P> const & v);
-
 		template <typename U> 
 		GLM_FUNC_DECL tvec2<T, P> & operator+=(U s);
 		template <typename U> 

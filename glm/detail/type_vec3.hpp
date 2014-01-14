@@ -108,10 +108,10 @@ namespace detail
 		template <precision Q>
 		GLM_FUNC_DECL tvec3(tvec3<T, Q> const & v);
 
-#if(GLM_HAS_INITIALIZER_LISTS)
-		template <typename U>
-		GLM_FUNC_DECL tvec3(std::initializer_list<U> const & v);
-#endif//GLM_HAS_INITIALIZER_LISTS
+#		if(GLM_HAS_INITIALIZER_LISTS)
+			template <typename U>
+			GLM_FUNC_DECL tvec3(std::initializer_list<U> l);
+#		endif//GLM_HAS_INITIALIZER_LISTS
 
 		//////////////////////////////////////
 		// Explicit basic constructors
@@ -155,32 +155,32 @@ namespace detail
 		// Swizzle constructors
 
 #		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
-		template <int E0, int E1, int E2>
-		GLM_FUNC_DECL tvec3(_swizzle<3, T, P, tvec3<T, P>, E0, E1, E2, -1> const & that)
-		{
-			*this = that();
-		}
+			template <int E0, int E1, int E2>
+			GLM_FUNC_DECL tvec3(_swizzle<3, T, P, tvec3<T, P>, E0, E1, E2, -1> const & that)
+			{
+				*this = that();
+			}
 
-		template <int E0, int E1>
-		GLM_FUNC_DECL tvec3(_swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v, T const & s)
-		{
-			*this = tvec3<T, P>(v(), s);
-		}
+			template <int E0, int E1>
+			GLM_FUNC_DECL tvec3(_swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v, T const & s)
+			{
+				*this = tvec3<T, P>(v(), s);
+			}
 
-		template <int E0, int E1>
-		GLM_FUNC_DECL tvec3(T const & s, _swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v)
-		{
-			*this = tvec3<T, P>(s, v());
-		}
+			template <int E0, int E1>
+			GLM_FUNC_DECL tvec3(T const & s, _swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v)
+			{
+				*this = tvec3<T, P>(s, v());
+			}
 #		endif//(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
 
 		//////////////////////////////////////
 		// Unary arithmetic operators
 
 		GLM_FUNC_DECL tvec3<T, P> & operator= (tvec3<T, P> const & v);
+
 		template <typename U> 
 		GLM_FUNC_DECL tvec3<T, P> & operator= (tvec3<U, P> const & v);
-
 		template <typename U> 
 		GLM_FUNC_DECL tvec3<T, P> & operator+=(U s);
 		template <typename U> 
