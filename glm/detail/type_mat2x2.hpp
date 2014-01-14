@@ -148,6 +148,9 @@ namespace detail
 		GLM_FUNC_DECL tmat2x2<T, P> operator--(int);
 	};
 
+	template <typename T, precision P>
+	GLM_FUNC_DECL tmat2x2<T, P> compute_inverse_mat2(tmat2x2<T, P> const & m);
+
 	// Binary operators
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat2x2<T, P> operator+ (
