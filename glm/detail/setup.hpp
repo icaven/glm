@@ -644,7 +644,7 @@
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_ARCH_DISPLAYED))
 #	define GLM_MESSAGE_ARCH_DISPLAYED
 #	if(GLM_ARCH == GLM_ARCH_PURE)
-#		pragma message("GLM: Platform independent")
+#		pragma message("GLM: Platform independent code")
 #	elif(GLM_ARCH & GLM_ARCH_SSE2)
 #		pragma message("GLM: SSE2 instruction set")
 #	elif(GLM_ARCH & GLM_ARCH_SSE3)
