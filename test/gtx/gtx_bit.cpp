@@ -11,7 +11,6 @@
 #include <glm/gtx/bit.hpp>
 #include <glm/gtc/type_precision.hpp>
 
-#include <emmintrin.h>
 #if(GLM_ARCH != GLM_ARCH_PURE)
 #	include <glm/detail/intrinsic_integer.hpp>
 #endif
@@ -152,6 +151,7 @@ namespace bitfieldInterleave
 		return REG1 | (REG2 << 1);
 	}
 
+#if(GLM_ARCH != GLM_ARCH_PURE)
 	inline glm::uint64 sseBitfieldInterleave(glm::uint32 x, glm::uint32 y)
 	{
 		GLM_ALIGN(16) glm::uint32 const Array[4] = {x, 0, y, 0};
@@ -267,6 +267,7 @@ namespace bitfieldInterleave
 
 		return Result[0];
 	}
+#endif//(GLM_ARCH != GLM_ARCH_PURE)
 
 	int test()
 	{
@@ -287,16 +288,17 @@ namespace bitfieldInterleave
 				glm::uint64 B = fastBitfieldInterleave(x, y);
 				glm::uint64 C = loopBitfieldInterleave(x, y);
 				glm::uint64 D = interleaveBitfieldInterleave(x, y);
-				glm::uint64 E = sseBitfieldInterleave(x, y);
-				glm::uint64 F = sseUnalignedBitfieldInterleave(x, y);
 
 				assert(A == B);
 				assert(A == C);
 				assert(A == D);
-				assert(A == E);
-				assert(A == F);
 
 #				if(GLM_ARCH != GLM_ARCH_PURE)
+					glm::uint64 E = sseBitfieldInterleave(x, y);
+					glm::uint64 F = sseUnalignedBitfieldInterleave(x, y);
+					assert(A == E);
+					assert(A == F);
+
 					__m128i G = glm::detail::_mm_bit_interleave_si128(_mm_set_epi32(0, y, 0, x));
 					glm::uint64 Result[2];
 					_mm_storeu_si128((__m128i*)Result, G);
@@ -366,6 +368,7 @@ namespace bitfieldInterleave
 			std::cout << "interleaveBitfieldInterleave Time " << Time << " clocks" << std::endl;
 		}
 
+#		if(GLM_ARCH != GLM_ARCH_PURE)
 		{
 			std::clock_t LastTime = std::clock();
 
@@ -387,6 +390,7 @@ namespace bitfieldInterleave
 
 			std::cout << "sseUnalignedBitfieldInterleave Time " << Time << " clocks" << std::endl;
 		}
+#		endif//(GLM_ARCH != GLM_ARCH_PURE)
 
 		{
 			std::clock_t LastTime = std::clock();
