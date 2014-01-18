@@ -41,6 +41,7 @@ GLM 0.9.5.2: 2014-0X-XX
 --------------------------------------------------------------------------------
 - Fixed warnings with the Android NDK 9c
 - Fixed non power of two matrix products
+- Fixed mix function link error
 
 ================================================================================
 GLM 0.9.5.1: 2014-01-11
