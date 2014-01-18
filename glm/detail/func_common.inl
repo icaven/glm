@@ -70,6 +70,8 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x, vecType<T, P> const & y, vecType<U, P> const & a)
 		{
+			GLM_STATIC_ASSERT(std::numeric_limits<U>::is_iec559, "'mix' only accept floating-point inputs for the interpolator a");
+
 			return vecType<T, P>(vecType<U, P>(x) + a * vecType<U, P>(y - x));
 		}
 	};
@@ -91,6 +93,8 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x, vecType<T, P> const & y, U const & a)
 		{
+			GLM_STATIC_ASSERT(std::numeric_limits<U>::is_iec559, "'mix' only accept floating-point inputs for the interpolator a");
+
 			return vecType<T, P>(vecType<U, P>(x) + a * vecType<U, P>(y - x));
 		}
 	};
@@ -109,6 +113,8 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static T call(T const & x, T const & y, U const & a)
 		{
+			GLM_STATIC_ASSERT(std::numeric_limits<U>::is_iec559, "'mix' only accept floating-point inputs for the interpolator a");
+
 			return static_cast<T>(static_cast<U>(x) + a * static_cast<U>(y - x));
 		}
 	};
