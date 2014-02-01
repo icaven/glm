@@ -18,7 +18,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'angle' only accept floating-point inputs");
 
-		genType const Angle(acos(clamp(dot(x, y), genType(0), genType(1))));
+		genType const Angle(acos(clamp(dot(x, y), genType(-1), genType(1))));
 
 #ifdef GLM_FORCE_RADIANS
 		return Angle;
@@ -37,7 +37,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'angle' only accept floating-point inputs");
 
-		T const Angle(acos(clamp(dot(x, y), T(0), T(1))));
+		T const Angle(acos(clamp(dot(x, y), T(-1), T(1))));
 
 #ifdef GLM_FORCE_RADIANS
 		return Angle;
@@ -57,7 +57,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'orientedAngle' only accept floating-point inputs");
 
-		T const Dot = clamp(dot(x, y), T(0), T(1));
+		T const Dot = clamp(dot(x, y), T(-1), T(1));
 
 #ifdef GLM_FORCE_RADIANS
 		T const Angle(acos(Dot));
@@ -82,7 +82,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'orientedAngle' only accept floating-point inputs");
 
-		T const Dot = clamp(dot(x, y), T(0), T(1));
+		T const Dot = clamp(dot(x, y), T(-1), T(1));
 
 #ifdef GLM_FORCE_RADIANS
 		T const Angle(acos(Dot));
