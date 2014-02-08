@@ -110,11 +110,6 @@ namespace detail
 		template <precision Q>
 		GLM_FUNC_DECL tvec4(tvec4<T, Q> const & v);
 
-#if(GLM_HAS_INITIALIZER_LISTS)
-		template <typename U>
-		GLM_FUNC_DECL tvec4(std::initializer_list<U> l);
-#endif//GLM_HAS_INITIALIZER_LISTS
-
 		//////////////////////////////////////
 		// Explicit basic constructors
 
@@ -122,7 +117,7 @@ namespace detail
 			ctor);
 		GLM_FUNC_DECL explicit tvec4(
 			T const & s);
-		GLM_FUNC_DECL explicit tvec4(
+		GLM_FUNC_DECL tvec4(
 			T const & s0,
 			T const & s1,
 			T const & s2,
@@ -133,7 +128,7 @@ namespace detail
 
 		/// Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename A, typename B, typename C, typename D>
-		GLM_FUNC_DECL explicit tvec4(
+		GLM_FUNC_DECL tvec4(
 			A const & x,
 			B const & y,
 			C const & z,

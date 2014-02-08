@@ -80,19 +80,6 @@ namespace detail
 		w(v.w)
 	{}
 
-#if(GLM_HAS_INITIALIZER_LISTS)
-	template <typename T, precision P>
-	template <typename U>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4(std::initializer_list<U> v) :
-		x(static_cast<T>(v.begin()[0])),
-		y(static_cast<T>(v.begin()[1])),
-		z(static_cast<T>(v.begin()[2])),
-		w(static_cast<T>(v.begin()[3]))
-	{
-		assert(v.size() == this->length());
-	}
-#endif//GLM_HAS_INITIALIZER_LISTS
-
 	//////////////////////////////////////
 	// Explicit basic constructors
 

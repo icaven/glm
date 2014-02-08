@@ -107,11 +107,6 @@ namespace detail
 		template <precision Q>
 		GLM_FUNC_DECL tvec2(tvec2<T, Q> const & v);
 
-#if(GLM_HAS_INITIALIZER_LISTS)
-		template <typename U>
-		GLM_FUNC_DECL tvec2(std::initializer_list<U> const & v);
-#endif//GLM_HAS_INITIALIZER_LISTS
-
 		//////////////////////////////////////
 		// Explicit basic constructors
 
@@ -119,7 +114,7 @@ namespace detail
 			ctor);
 		GLM_FUNC_DECL explicit tvec2(
 			T const & s);
-		GLM_FUNC_DECL explicit tvec2(
+		GLM_FUNC_DECL tvec2(
 			T const & s1,
 			T const & s2);
 
@@ -139,7 +134,7 @@ namespace detail
 
 		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U, typename V>
-		GLM_FUNC_DECL explicit tvec2(
+		GLM_FUNC_DECL tvec2(
 			U const & x,
 			V const & y);
 
@@ -148,7 +143,7 @@ namespace detail
 
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U, precision Q>
-		GLM_FUNC_DECL explicit tvec2(tvec2<U, Q> const & v);
+		GLM_FUNC_DECL tvec2(tvec2<U, Q> const & v);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U, precision Q>
 		GLM_FUNC_DECL explicit tvec2(tvec3<U, Q> const & v);

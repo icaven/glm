@@ -72,29 +72,22 @@ namespace detail
 			ctor Null);
 		GLM_FUNC_DECL explicit tmat2x2(
 			T const & x);
-		GLM_FUNC_DECL explicit tmat2x2(
+		GLM_FUNC_DECL tmat2x2(
 			T const & x1, T const & y1,
 			T const & x2, T const & y2);
-		GLM_FUNC_DECL explicit tmat2x2(
+		GLM_FUNC_DECL tmat2x2(
 			col_type const & v1,
 			col_type const & v2);
-
-#if(GLM_HAS_INITIALIZER_LISTS)
-		template <typename U>
-		GLM_FUNC_DECL tmat2x2(std::initializer_list<U> m);
-
-		GLM_FUNC_DECL tmat2x2(std::initializer_list<tvec2<T, P> > m);
-#endif//GLM_HAS_INITIALIZER_LISTS
 
 		//////////////////////////////////////
 		// Conversions
 		template <typename U, typename V, typename M, typename N>
-		GLM_FUNC_DECL explicit tmat2x2(
+		GLM_FUNC_DECL tmat2x2(
 			U const & x1, V const & y1,
 			M const & x2, N const & y2);
 
 		template <typename U, typename V>
-		GLM_FUNC_DECL explicit tmat2x2(
+		GLM_FUNC_DECL tmat2x2(
 			tvec2<U, P> const & v1,
 			tvec2<V, P> const & v2);
 

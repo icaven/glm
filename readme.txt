@@ -37,8 +37,9 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
 
 ================================================================================
-GLM 0.9.5.2: 2014-0X-XX
+GLM 0.9.5.2: 2014-02-08
 --------------------------------------------------------------------------------
+- Fixed initializer list ambiguity (#159, #160)
 - Fixed warnings with the Android NDK 9c
 - Fixed non power of two matrix products
 - Fixed mix function link error

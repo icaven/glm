@@ -189,6 +189,19 @@ int test_ctr()
 {
 	int Error(0);
 
+	{
+		glm::vec4 V{0, 1, 2, 3};
+
+		glm::mat4 M{
+			{0, 1, 2, 3},
+			{4, 5, 6, 7},
+			{8, 9, 10, 11},
+			{12, 13, 14, 15}};
+	}
+
+	glm::mat4 m4{
+		{0, 1, 2, 3}};
+
 #if(GLM_HAS_INITIALIZER_LISTS)
 	glm::mat4 m0(
 		glm::vec4(0, 1, 2, 3), 

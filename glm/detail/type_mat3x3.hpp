@@ -71,21 +71,14 @@ namespace detail
 			ctor Null);
 		GLM_FUNC_DECL explicit tmat3x3(
 			T const & s);
-		GLM_FUNC_DECL explicit tmat3x3(
+		GLM_FUNC_DECL tmat3x3(
 			T const & x0, T const & y0, T const & z0,
 			T const & x1, T const & y1, T const & z1,
 			T const & x2, T const & y2, T const & z2);
-		GLM_FUNC_DECL explicit tmat3x3(
+		GLM_FUNC_DECL tmat3x3(
 			col_type const & v0,
 			col_type const & v1,
 			col_type const & v2);
-
-#if(GLM_HAS_INITIALIZER_LISTS)
-		template <typename U>
-		GLM_FUNC_DECL tmat3x3(std::initializer_list<U> m);
-
-		GLM_FUNC_DECL tmat3x3(std::initializer_list<tvec3<T, P> > m);
-#endif//GLM_HAS_INITIALIZER_LISTS
 
 		//////////////////////////////////////
 		// Conversions
@@ -93,13 +86,13 @@ namespace detail
 			typename X1, typename Y1, typename Z1,
 			typename X2, typename Y2, typename Z2,
 			typename X3, typename Y3, typename Z3>
-		GLM_FUNC_DECL explicit tmat3x3(
+		GLM_FUNC_DECL tmat3x3(
 			X1 const & x1, Y1 const & y1, Z1 const & z1,
 			X2 const & x2, Y2 const & y2, Z2 const & z2,
 			X3 const & x3, Y3 const & y3, Z3 const & z3);
 			
 		template <typename V1, typename V2, typename V3>
-		GLM_FUNC_DECL explicit tmat3x3(
+		GLM_FUNC_DECL tmat3x3(
 			tvec3<V1, P> const & v1,
 			tvec3<V2, P> const & v2,
 			tvec3<V3, P> const & v3);
