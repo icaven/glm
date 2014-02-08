@@ -45,6 +45,7 @@ GLM 0.9.5.2: 2014-02-08
 - Fixed mix function link error
 - Fixed SSE code included in GLM tests on "pure" platforms
 - Fixed undefined reference to fastInverseSqrt (#161)
+- Fixed GLM_FORCE_RADIANS with <glm/ext.hpp> build error (#165)
 
 ================================================================================
 GLM 0.9.5.1: 2014-01-11
