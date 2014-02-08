@@ -48,6 +48,7 @@ GLM 0.9.5.2: 2014-02-08
 - Fixed GLM_FORCE_RADIANS with <glm/ext.hpp> build error (#165)
 - Fix dot product clamp range for vector angle functions. (#163)
 - Tentative fix for strict aliasing warning in GCC 4.8.1 / Android NDK 9c (#152)
+- Fixed GLM_GTC_constants description brief (#162)
 
 ================================================================================
 GLM 0.9.5.1: 2014-01-11
