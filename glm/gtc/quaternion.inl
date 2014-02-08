@@ -86,19 +86,6 @@ namespace detail
 		w(w)
 	{}
 
-#if(GLM_HAS_INITIALIZER_LISTS)
-	template <typename T, precision P>
-	template <typename U>
-	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(std::initializer_list<U> l) :
-		x(static_cast<T>(l.begin()[0])),
-		y(static_cast<T>(l.begin()[1])),
-		z(static_cast<T>(l.begin()[2])),
-		w(static_cast<T>(l.begin()[3]))
-	{
-		assert(l.size() >= this->length());
-	}
-#endif//GLM_HAS_INITIALIZER_LISTS
-
 	//////////////////////////////////////////////////////////////
 	// tquat conversions
 

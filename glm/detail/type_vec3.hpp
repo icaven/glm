@@ -38,9 +38,6 @@
 #		include "_swizzle_func.hpp"
 #	endif
 #endif //GLM_SWIZZLE
-#if(GLM_HAS_INITIALIZER_LISTS)
-#	include <initializer_list>
-#endif //GLM_HAS_INITIALIZER_LISTS
 #include <cstddef>
 
 namespace glm{
