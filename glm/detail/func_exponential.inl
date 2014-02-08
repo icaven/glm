@@ -31,8 +31,51 @@
 #include <limits>
 #include <cassert>
 
-namespace glm
+namespace glm{
+namespace detail
 {
+	template <bool isFloat>
+	struct compute_log2
+	{
+		template <typename T>
+		T operator() (T const & Value) const;
+	};
+
+	template <>
+	struct compute_log2<true>
+	{
+		template <typename T>
+		T operator() (T const & Value) const
+		{
+			return static_cast<T>(::std::log(Value)) * static_cast<T>(1.4426950408889634073599246810019);
+		}
+	};
+
+	template <template <class, precision> class vecType, typename T, precision P>
+	struct compute_inversesqrt
+	{
+		static vecType<T, P> call(vecType<T, P> const & x)
+		{
+			return static_cast<T>(1) / sqrt(x);
+		}
+	};
+		
+	template <template <class, precision> class vecType>
+	struct compute_inversesqrt<vecType, float, lowp>
+	{
+		static vecType<float, lowp> call(vecType<float, lowp> const & x)
+		{
+			vecType<float, lowp> tmp(x);
+			vecType<float, lowp> xhalf(tmp * 0.5f);
+			vecType<uint, lowp> i = *reinterpret_cast<vecType<uint, lowp>*>(const_cast<vecType<float, lowp>*>(&x));
+			i = vecType<uint, lowp>(0x5f375a86) - (i >> vecType<uint, lowp>(1));
+			tmp = *reinterpret_cast<vecType<float, lowp>*>(&i);
+			tmp = tmp * (1.5f - xhalf * tmp * tmp);
+			return tmp;
+		}
+	};
+}//namespace detail
+
 	// pow
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType pow
@@ -98,27 +141,6 @@ namespace glm
 
 	VECTORIZE_VEC(exp2)
 
-namespace detail
-{
-	template <bool isFloat>
-	struct compute_log2
-	{
-		template <typename T>
-		T operator() (T const & Value) const;
-	};
-
-	template <>
-	struct compute_log2<true>
-	{
-		template <typename T>
-		T operator() (T const & Value) const
-		{
-			return static_cast<T>(::std::log(Value)) * static_cast<T>(1.4426950408889634073599246810019);
-		}
-	};
-
-}//namespace detail
-
 	// log2, ln2 = 0.69314718055994530941723212145818f
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType log2
@@ -142,9 +164,7 @@ namespace detail
 		genType const & x
 	)
 	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559,
-			"'sqrt' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'sqrt' only accept floating-point inputs");
 
 		assert(x >= genType(0));
 
@@ -153,33 +173,6 @@ namespace detail
 
 	VECTORIZE_VEC(sqrt)
 
-	namespace detail
-	{
-		template <template <class, precision> class vecType, typename T, precision P>
-		struct compute_inversesqrt
-		{
-			static vecType<T, P> call(vecType<T, P> const & x)
-			{
-				return static_cast<T>(1) / sqrt(x);
-			}
-		};
-		
-		template <template <class, precision> class vecType>
-		struct compute_inversesqrt<vecType, float, lowp>
-		{
-			static vecType<float, lowp> call(vecType<float, lowp> const & x)
-			{
-				vecType<float, lowp> tmp(x);
-				vecType<float, lowp> xhalf(tmp * 0.5f);
-				vecType<uint, lowp> i = *reinterpret_cast<vecType<uint, lowp>*>(const_cast<vecType<float, lowp>*>(&x));
-				i = vecType<uint, lowp>(0x5f375a86) - (i >> vecType<uint, lowp>(1));
-				tmp = *reinterpret_cast<vecType<float, lowp>*>(&i);
-				tmp = tmp * (1.5f - xhalf * tmp * tmp);
-				return tmp;
-			}
-		};
-	}//namespace detail
-	
 	// inversesqrt
 	GLM_FUNC_QUALIFIER float inversesqrt(float const & x)
 	{

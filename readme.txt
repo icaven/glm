@@ -44,6 +44,7 @@ GLM 0.9.5.2: 2014-02-08
 - Fixed non power of two matrix products
 - Fixed mix function link error
 - Fixed SSE code included in GLM tests on "pure" platforms
+- Fixed undefined reference to fastInverseSqrt (#161)
 
 ================================================================================
 GLM 0.9.5.1: 2014-01-11
