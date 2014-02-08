@@ -128,10 +128,7 @@ namespace detail
 
 	//exp2, ln2 = 0.69314718055994530941723212145818f
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType exp2
-	(
-		genType const & x
-	)
+	GLM_FUNC_QUALIFIER genType exp2(genType const & x)
 	{
 		GLM_STATIC_ASSERT(
 			std::numeric_limits<genType>::is_iec559,
@@ -144,10 +141,7 @@ namespace detail
 
 	// log2, ln2 = 0.69314718055994530941723212145818f
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType log2
-	(
-		genType const & x
-	)
+	GLM_FUNC_QUALIFIER genType log2(genType x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer,
 			"GLM core 'log2' only accept floating-point inputs. Include <glm/gtx/integer.hpp> for additional integer support.");
