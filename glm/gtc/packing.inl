@@ -231,19 +231,21 @@ namespace detail
 	GLM_FUNC_QUALIFIER uint16 packUnorm2x8(vec2 const & v)
 	{
 		u8vec2 Topack(round(clamp(v, 0.0f, 1.0f) * 255.0f));
-		return *reinterpret_cast<uint16*>(&Topack);
+		uint16* Packed = reinterpret_cast<uint16*>(&Topack);
+		return *Packed;
 	}
 	
 	GLM_FUNC_QUALIFIER vec2 unpackUnorm2x8(uint16 const & p)
 	{
-		vec2 Unpack(*reinterpret_cast<u8vec2*>(const_cast<uint16*>(&p)));
-		return Unpack * float(0.0039215686274509803921568627451); // 1 / 255
+		u8vec2* Unpacked = reinterpret_cast<u8vec2*>(const_cast<uint16*>(&p));
+		return vec2(*Unpacked) * float(0.0039215686274509803921568627451); // 1 / 255
 	}
 
 	GLM_FUNC_QUALIFIER uint8 packSnorm1x8(float const & v)
 	{
 		int8 Topack(static_cast<int8>(round(clamp(v ,-1.0f, 1.0f) * 127.0f)));
-		return *reinterpret_cast<uint8*>(&Topack);
+		uint8* Packed = reinterpret_cast<uint8*>(&Topack);
+		return *Packed;
 	}
 	
 	GLM_FUNC_QUALIFIER float unpackSnorm1x8(uint8 const & p)
@@ -257,14 +259,15 @@ namespace detail
 	GLM_FUNC_QUALIFIER uint16 packSnorm2x8(vec2 const & v)
 	{
 		i8vec2 Topack(round(clamp(v ,-1.0f, 1.0f) * 127.0f));
-		return *reinterpret_cast<uint16*>(&Topack);
+		uint16* Packed = reinterpret_cast<uint16*>(&Topack);
+		return *Packed;
 	}
 	
 	GLM_FUNC_QUALIFIER vec2 unpackSnorm2x8(uint16 const & p)
 	{
-		vec2 Unpack(*reinterpret_cast<i8vec2*>(const_cast<uint16*>(&p)));
+		i8vec2* Unpack = reinterpret_cast<i8vec2*>(const_cast<uint16*>(&p));
 		return clamp(
-			Unpack * 0.00787401574803149606299212598425f, // 1.0f / 127.0f
+			vec2(*Unpack) * 0.00787401574803149606299212598425f, // 1.0f / 127.0f
 			-1.0f, 1.0f);
 	}
 	
@@ -282,19 +285,21 @@ namespace detail
 	GLM_FUNC_QUALIFIER uint64 packUnorm4x16(vec4 const & v)
 	{
 		u16vec4 Topack(round(clamp(v , 0.0f, 1.0f) * 65535.0f));
-		return *reinterpret_cast<uint64*>(&Topack);
+		uint64* Packed = reinterpret_cast<uint64*>(&Topack);
+		return *Packed;
 	}
 
 	GLM_FUNC_QUALIFIER vec4 unpackUnorm4x16(uint64 const & p)
 	{
-		vec4 Unpack(*reinterpret_cast<u16vec4*>(const_cast<uint64*>(&p)));
-		return Unpack * 1.5259021896696421759365224689097e-5f; // 1.0 / 65535.0
+		u16vec4* Unpack = reinterpret_cast<u16vec4*>(const_cast<uint64*>(&p));
+		return vec4(*Unpack) * 1.5259021896696421759365224689097e-5f; // 1.0 / 65535.0
 	}
 
 	GLM_FUNC_QUALIFIER uint16 packSnorm1x16(float const & v)
 	{
 		int16 Topack = static_cast<int16>(round(clamp(v ,-1.0f, 1.0f) * 32767.0f));
-		return *reinterpret_cast<uint16*>(&Topack);
+		uint16* Packed = reinterpret_cast<uint16*>(&Topack);
+		return *Packed;
 	}
 
 	GLM_FUNC_QUALIFIER float unpackSnorm1x16(uint16 const & p)
@@ -308,27 +313,29 @@ namespace detail
 	GLM_FUNC_QUALIFIER uint64 packSnorm4x16(vec4 const & v)
 	{
 		i16vec4 Topack = static_cast<i16vec4>(round(clamp(v ,-1.0f, 1.0f) * 32767.0f));
-		return *reinterpret_cast<uint64*>(&Topack);
+		uint64* Packed = reinterpret_cast<uint64*>(&Topack);
+		return *Packed;
 	}
 
 	GLM_FUNC_QUALIFIER vec4 unpackSnorm4x16(uint64 const & p)
 	{
-		vec4 Unpack(*reinterpret_cast<i16vec4*>(const_cast<uint64*>(&p)));
+		i16vec4* Unpack(reinterpret_cast<i16vec4*>(const_cast<uint64*>(&p)));
 		return clamp(
-			Unpack * 3.0518509475997192297128208258309e-5f, //1.0f / 32767.0f,
+			vec4(*Unpack) * 3.0518509475997192297128208258309e-5f, //1.0f / 32767.0f,
 			-1.0f, 1.0f);
 	}
 
 	GLM_FUNC_QUALIFIER uint16 packHalf1x16(float const & v)
 	{
 		int16 Topack = detail::toFloat16(v);
-		return *reinterpret_cast<uint16*>(&Topack);
+		uint16* Packed = reinterpret_cast<uint16*>(&Topack);
+		return *Packed;
 	}
 
 	GLM_FUNC_QUALIFIER float unpackHalf1x16(uint16 const & v)
 	{
-		int16 Unpack(*reinterpret_cast<int16*>(const_cast<uint16*>(&v)));
-		return detail::toFloat32(Unpack);
+		int16* Unpack = reinterpret_cast<int16*>(const_cast<uint16*>(&v));
+		return detail::toFloat32(*Unpack);
 	}
 
 	GLM_FUNC_QUALIFIER uint64 packHalf4x16(glm::vec4 const & v)
@@ -339,12 +346,14 @@ namespace detail
 			detail::toFloat16(v.z),
 			detail::toFloat16(v.w));
 
-		return *reinterpret_cast<uint64*>(&Unpack);
+		uint64* Packed = reinterpret_cast<uint64*>(&Unpack);
+		return *Packed;
 	}
 
 	GLM_FUNC_QUALIFIER glm::vec4 unpackHalf4x16(uint64 const & v)
 	{
-		i16vec4 Unpack = *reinterpret_cast<i16vec4*>(const_cast<uint64*>(&v));
+		i16vec4* p = reinterpret_cast<i16vec4*>(const_cast<uint64*>(&v));
+		i16vec4 Unpack(*p);
 	
 		return vec4(
 			detail::toFloat32(Unpack.x), 
