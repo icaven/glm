@@ -48,7 +48,7 @@ GLM_FUNC_QUALIFIER __m128 sse_dst_ps(__m128 p0, __m128 p1)
 //dot
 GLM_FUNC_QUALIFIER __m128 sse_dot_ps(__m128 v1, __m128 v2)
 {
-#   if((GLM_ARCH & GLM_ARCH_SSE4) == GLM_ARCH_SSE4)
+#   if((GLM_ARCH & GLM_ARCH_AVX) == GLM_ARCH_AVX)
         return _mm_dp_ps(v1, v2, 0xff);
 #   else
         __m128 mul0 = _mm_mul_ps(v1, v2);
