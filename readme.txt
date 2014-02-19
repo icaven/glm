@@ -41,6 +41,7 @@ GLM 0.9.5.3: 2014-0X-XX
 --------------------------------------------------------------------------------
 - Added instruction set auto detection with Visual C++ using _M_IX86_FP - /arch
   compiler argument.
+- Fixed GTX_raw_data code dependency
 
 ================================================================================
 GLM 0.9.5.2: 2014-02-08
