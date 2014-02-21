@@ -21,11 +21,12 @@
 /// THE SOFTWARE.
 ///
 /// @ref gtx_matrix_transform_2d
-/// @file glm/gtc/gtx_matrix_transform_2d.inl
+/// @file glm/gtc/matrix_transform_2d.inl
 /// @date 2014-02-20
 /// @author Miguel Ángel Pérez Martínez
 ///////////////////////////////////////////////////////////////////////////////////
 
+#include "../trigonometric.hpp"
 
 namespace glm
 {
