@@ -40,9 +40,10 @@ http://glm.g-truc.net/glm.pdf
 GLM 0.9.5.3: 2014-0X-XX
 --------------------------------------------------------------------------------
 - Added instruction set auto detection with Visual C++ using _M_IX86_FP - /arch
-  compiler argument.
+  compiler argument
 - Fixed GTX_raw_data code dependency
-- Fixed GCC instruction set detection.
+- Fixed GCC instruction set detection
+- Added GLM_GTX_matrix_transform_2d extension (#178, #176)
 
 ================================================================================
 GLM 0.9.5.2: 2014-02-08
