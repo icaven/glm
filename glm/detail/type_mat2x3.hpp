@@ -73,37 +73,22 @@ namespace detail
 			ctor);
 		GLM_FUNC_DECL explicit tmat2x3(
 			T const & s);
-		GLM_FUNC_DECL explicit tmat2x3(
+		GLM_FUNC_DECL tmat2x3(
 			T const & x0, T const & y0, T const & z0,
 			T const & x1, T const & y1, T const & z1);
-		GLM_FUNC_DECL explicit tmat2x3(
+		GLM_FUNC_DECL tmat2x3(
 			col_type const & v0,
 			col_type const & v1);
-
-#		if(GLM_HAS_INITIALIZER_LISTS)
-			template <typename U>
-			GLM_FUNC_DECL tmat2x3(std::initializer_list<U> m);
-
-			GLM_FUNC_DECL tmat2x3(std::initializer_list<tvec3<T, P> > m);
-#		endif//GLM_HAS_INITIALIZER_LISTS
-
-#		if(GLM_HAS_DEFAULTED_FUNCTIONS && GLM_HAS_RVALUE_REFERENCES)
-			GLM_FUNC_DECL tmat2x3(tmat2x3<T, P> && m)
-			{
-				this->value[0] = std::move(m.value[0]);
-				this->value[1] = std::move(m.value[1]);
-			}
-#		endif//(GLM_HAS_DEFAULTED_FUNCTIONS && GLM_HAS_RVALUE_REFERENCES)
 
 		//////////////////////////////////////
 		// Conversions
 		template <typename X1, typename Y1, typename Z1, typename X2, typename Y2, typename Z2>
-		GLM_FUNC_DECL explicit tmat2x3(
+		GLM_FUNC_DECL tmat2x3(
 			X1 const & x1, Y1 const & y1, Z1 const & z1,
 			X2 const & x2, Y2 const & y2, Z2 const & z2);
 			
 		template <typename U, typename V>
-		GLM_FUNC_DECL explicit tmat2x3(
+		GLM_FUNC_DECL tmat2x3(
 			tvec3<U, P> const & v1,
 			tvec3<V, P> const & v2);
 

@@ -576,8 +576,8 @@
 #define GLM_ARCH_PURE		0x0000
 #define GLM_ARCH_SSE2		0x0001
 #define GLM_ARCH_SSE3		0x0002// | GLM_ARCH_SSE2
-#define GLM_ARCH_AVX		0x0004// | GLM_ARCH_SSE3 | GLM_ARCH_SSE2
-#define GLM_ARCH_AVX2		0x0008// | GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2
+#define GLM_ARCH_AVX		0x0008// | GLM_ARCH_SSE3 | GLM_ARCH_SSE2
+#define GLM_ARCH_AVX2		0x0010// | GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2
 
 #if(defined(GLM_FORCE_PURE))
 #	define GLM_ARCH GLM_ARCH_PURE
@@ -601,36 +601,16 @@
 #	else
 #		define GLM_ARCH GLM_ARCH_PURE
 #	endif
-#elif((GLM_COMPILER & GLM_COMPILER_VC) && (defined(_M_IX86) || defined(_M_X64)))
-#	if(GLM_PLATFORM == GLM_PLATFORM_WINCE)
-#		define GLM_ARCH GLM_ARCH_PURE
-#	elif(defined(_M_CEE_PURE))
-#		define GLM_ARCH GLM_ARCH_PURE
-/* TODO: Explore auto detection of instruction set support
-#	elif(defined(_M_IX86_FP))
-#		if(_M_IX86_FP >= 3)
-#			define GLM_ARCH (GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
-#		elif(_M_IX86_FP >= 2)
-#			define GLM_ARCH (GLM_ARCH_SSE2)
-#		else
-#			define GLM_ARCH GLM_ARCH_PURE
-#		endif
-*/
-#	elif(GLM_COMPILER >= GLM_COMPILER_VC11)
+#elif(GLM_COMPILER & GLM_COMPILER_VC)
+#	if _M_IX86_FP == 2 && defined(__AVX__)
 #		define GLM_ARCH (GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
-#	elif(GLM_COMPILER >= GLM_COMPILER_VC10)
-#		if(_MSC_FULL_VER >= 160031118) //160031118: VC2010 SP1 beta full version
-#			define GLM_ARCH (GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)//GLM_ARCH_AVX (Require SP1)
-#		else
-#			define GLM_ARCH (GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
-#		endif
-#	elif(GLM_COMPILER >= GLM_COMPILER_VC9) 
-#		define GLM_ARCH (GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
-#	elif(GLM_COMPILER >= GLM_COMPILER_VC8)
-#		define GLM_ARCH GLM_ARCH_SSE2
+#	elif _M_IX86_FP == 2
+#		define GLM_ARCH (GLM_ARCH_SSE2)
 #	else
-#		define GLM_ARCH GLM_ARCH_PURE
+#		define GLM_ARCH (GLM_ARCH_PURE)
 #	endif
+#elif((GLM_PLATFORM & GLM_PLATFORM_APPLE) && (GLM_COMPILER & GLM_COMPILER_GCC))
+#	define GLM_ARCH GLM_ARCH_PURE
 #else
 #	define GLM_ARCH GLM_ARCH_PURE
 #endif

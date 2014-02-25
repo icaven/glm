@@ -104,33 +104,6 @@ namespace detail
 		w(v.w)
 	{}
 
-#if((GLM_HAS_UNRESTRICTED_UNIONS) && (GLM_ARCH & GLM_ARCH_SSE2))
-	template <>
-	template <precision Q>
-	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4(tvec4<float, Q> const & v) :
-		data(_mm_set_ps(v.w, v.z, v.y, v.x))
-	{}
-	
-	template <>
-	template <precision Q>
-	GLM_FUNC_QUALIFIER tvec4<float, mediump>::tvec4(tvec4<float, Q> const & v) :
-		data(_mm_set_ps(v.w, v.z, v.y, v.x))
-	{}
-#endif
-	
-#if(GLM_HAS_INITIALIZER_LISTS)
-	template <typename T, precision P>
-	template <typename U>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4(std::initializer_list<U> l) :
-		x(static_cast<T>(l.begin()[0])),
-		y(static_cast<T>(l.begin()[1])),
-		z(static_cast<T>(l.begin()[2])),
-		w(static_cast<T>(l.begin()[3]))
-	{
-		assert(l.size() == this->length());
-	}
-#endif//GLM_HAS_INITIALIZER_LISTS
-
 	//////////////////////////////////////
 	// Explicit basic constructors
 

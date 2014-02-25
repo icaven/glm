@@ -45,12 +45,27 @@ GLM 0.9.6.0: 2014-XX-XX
 - Added move contructors and assignment operators (#141)
 
 ================================================================================
-GLM 0.9.5.2: 2014-0X-XX
+GLM 0.9.5.3: 2014-0X-XX
 --------------------------------------------------------------------------------
+- Added instruction set auto detection with Visual C++ using _M_IX86_FP - /arch
+  compiler argument
+- Fixed GTX_raw_data code dependency
+- Fixed GCC instruction set detection
+- Added GLM_GTX_matrix_transform_2d extension (#178, #176)
+
+================================================================================
+GLM 0.9.5.2: 2014-02-08
+--------------------------------------------------------------------------------
+- Fixed initializer list ambiguity (#159, #160)
 - Fixed warnings with the Android NDK 9c
 - Fixed non power of two matrix products
 - Fixed mix function link error
 - Fixed SSE code included in GLM tests on "pure" platforms
+- Fixed undefined reference to fastInverseSqrt (#161)
+- Fixed GLM_FORCE_RADIANS with <glm/ext.hpp> build error (#165)
+- Fix dot product clamp range for vector angle functions. (#163)
+- Tentative fix for strict aliasing warning in GCC 4.8.1 / Android NDK 9c (#152)
+- Fixed GLM_GTC_constants description brief (#162)
 
 ================================================================================
 GLM 0.9.5.1: 2014-01-11

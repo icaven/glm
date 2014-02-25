@@ -11,6 +11,7 @@
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <glm/vector_relational.hpp>
+#include <vector>
 
 int test_quat_angle()
 {
@@ -246,10 +247,28 @@ int test_quat_type()
 	return 0;
 }
 
+int test_quat_ctr()
+{
+	int Error(0);
+
+#	if(GLM_HAS_INITIALIZER_LISTS)
+	{
+		glm::quat A{0, 1, 2, 3};
+
+		std::vector<glm::quat> B{
+			{0, 1, 2, 3},
+			{0, 1, 2, 3}};
+	}
+#	endif//GLM_HAS_INITIALIZER_LISTS
+
+	return Error;
+}
+
 int main()
 {
 	int Error(0);
 
+	Error += test_quat_ctr();
 	Error += test_quat_two_axis_ctr();
 	Error += test_quat_mul();
 	Error += test_quat_precision();

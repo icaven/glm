@@ -32,12 +32,6 @@
 #include "../fwd.hpp"
 #include "type_vec4.hpp"
 #include "type_mat.hpp"
-#if GLM_HAS_INITIALIZER_LISTS
-#	include <initializer_list>
-#endif
-#if GLM_HAS_RVALUE_REFERENCES
-#	include <algorithm>
-#endif
 #include <limits>
 #include <cstddef>
 
@@ -77,33 +71,16 @@ namespace detail
 			ctor Null);
 		GLM_FUNC_DECL explicit tmat4x4(
 			T const & x);
-		GLM_FUNC_DECL explicit tmat4x4(
+		GLM_FUNC_DECL tmat4x4(
 			T const & x0, T const & y0, T const & z0, T const & w0,
 			T const & x1, T const & y1, T const & z1, T const & w1,
 			T const & x2, T const & y2, T const & z2, T const & w2,
 			T const & x3, T const & y3, T const & z3, T const & w3);
-		GLM_FUNC_DECL explicit tmat4x4(
+		GLM_FUNC_DECL tmat4x4(
 			col_type const & v0,
 			col_type const & v1,
 			col_type const & v2,
 			col_type const & v3);
-
-#		if(GLM_HAS_INITIALIZER_LISTS)
-			template <typename U>
-			GLM_FUNC_DECL tmat4x4(std::initializer_list<U> m);
-
-			GLM_FUNC_DECL tmat4x4(std::initializer_list<tvec4<T, P> > m);
-#		endif//GLM_HAS_INITIALIZER_LISTS
-
-#		if(GLM_HAS_DEFAULTED_FUNCTIONS && GLM_HAS_RVALUE_REFERENCES)
-			GLM_FUNC_DECL tmat4x4(tmat4x4<T, P> && m)
-			{
-				this->value[0] = std::move(m.value[0]);
-				this->value[1] = std::move(m.value[1]);
-				this->value[2] = std::move(m.value[2]);
-				this->value[3] = std::move(m.value[3]);
-			}
-#		endif//(GLM_HAS_DEFAULTED_FUNCTIONS && GLM_HAS_RVALUE_REFERENCES)
 
 		//////////////////////////////////////
 		// Conversions
@@ -113,14 +90,14 @@ namespace detail
 			typename X2, typename Y2, typename Z2, typename W2,
 			typename X3, typename Y3, typename Z3, typename W3,
 			typename X4, typename Y4, typename Z4, typename W4>
-		GLM_FUNC_DECL explicit tmat4x4(
+		GLM_FUNC_DECL tmat4x4(
 			X1 const & x1, Y1 const & y1, Z1 const & z1, W1 const & w1,
 			X2 const & x2, Y2 const & y2, Z2 const & z2, W2 const & w2,
 			X3 const & x3, Y3 const & y3, Z3 const & z3, W3 const & w3,
 			X4 const & x4, Y4 const & y4, Z4 const & z4, W4 const & w4);
 			
 		template <typename V1, typename V2, typename V3, typename V4>
-		GLM_FUNC_DECL explicit tmat4x4(
+		GLM_FUNC_DECL tmat4x4(
 			tvec4<V1, P> const & v1,
 			tvec4<V2, P> const & v2,
 			tvec4<V3, P> const & v3,

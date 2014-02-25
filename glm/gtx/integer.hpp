@@ -61,7 +61,7 @@ namespace glm
 	//! Returns the log2 of x. Can be reliably using to compute mipmap count from the texture size.
 	//! From GLM_GTX_integer extension.
 	template <typename genIUType>
-	genIUType log2(genIUType const & x);
+	genIUType log2(genIUType x);
 
 	//! Returns the floor log2 of x.
 	//! From GLM_GTX_integer extension.

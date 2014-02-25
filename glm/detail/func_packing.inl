@@ -100,7 +100,8 @@ namespace glm
 			detail::toFloat16(v.x),
 			detail::toFloat16(v.y));
 
-		return *reinterpret_cast<uint*>(&Unpack);
+		uint * Result = reinterpret_cast<uint*>(&Unpack);
+		return *Result;
 	}
 
 	GLM_FUNC_QUALIFIER vec2 unpackHalf2x16(uint const & v)

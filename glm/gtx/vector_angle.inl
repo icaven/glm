@@ -17,7 +17,7 @@ namespace glm
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'angle' only accept floating-point inputs");
-		return acos(clamp(dot(x, y), genType(0), genType(1)));
+		return acos(clamp(dot(x, y), genType(-1), genType(1)));
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType> 
@@ -28,7 +28,7 @@ namespace glm
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'angle' only accept floating-point inputs");
-		return acos(clamp(dot(x, y), T(0), T(1)));
+		return acos(clamp(dot(x, y), T(-1), T(1)));
 	}
 
 	//! \todo epsilon is hard coded to 0.01
@@ -40,10 +40,9 @@ namespace glm
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'orientedAngle' only accept floating-point inputs");
-		T const Angle(acos(clamp(dot(x, y), T(0), T(1))));
+		T const Angle(acos(clamp(dot(x, y), T(-1), T(1))));
 
-		detail::tvec2<T, P> const TransformedVector(glm::rotate(x, Angle));
-		if(all(epsilonEqual(y, TransformedVector, T(0.01))))
+		if(all(epsilonEqual(y, glm::rotate(x, Angle), T(0.0001))))
 			return Angle;
 		else
 			return -Angle;
@@ -58,8 +57,8 @@ namespace glm
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'orientedAngle' only accept floating-point inputs");
-		T const Angle(acos(clamp(dot(x, y), T(0), T(1))));
 
+		T const Angle(acos(clamp(dot(x, y), T(-1), T(1))));
 		return mix(Angle, -Angle, dot(ref, cross(x, y)) < T(0));
 	}
 }//namespace glm

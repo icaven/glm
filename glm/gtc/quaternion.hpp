@@ -71,19 +71,14 @@ namespace detail
 		template <typename U, precision Q>
 		GLM_FUNC_DECL explicit tquat(
 			tquat<U, Q> const & q);
-		GLM_FUNC_DECL explicit tquat(
+		GLM_FUNC_DECL tquat(
 			T const & s,
 			tvec3<T, P> const & v);
-		GLM_FUNC_DECL explicit tquat(
+		GLM_FUNC_DECL tquat(
 			T const & w,
 			T const & x,
 			T const & y,
 			T const & z);
-
-#if(GLM_HAS_INITIALIZER_LISTS)
-		template <typename U>
-		GLM_FUNC_DECL tquat(std::initializer_list<U> l);
-#endif//GLM_HAS_INITIALIZER_LISTS
 
 		// Convertions
 

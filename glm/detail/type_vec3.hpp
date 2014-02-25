@@ -38,9 +38,6 @@
 #		include "_swizzle_func.hpp"
 #	endif
 #endif //GLM_SWIZZLE
-#if(GLM_HAS_INITIALIZER_LISTS)
-#	include <initializer_list>
-#endif //GLM_HAS_INITIALIZER_LISTS
 #include <cstddef>
 
 namespace glm{
@@ -108,11 +105,6 @@ namespace detail
 		template <precision Q>
 		GLM_FUNC_DECL tvec3(tvec3<T, Q> const & v);
 
-#		if(GLM_HAS_INITIALIZER_LISTS)
-			template <typename U>
-			GLM_FUNC_DECL tvec3(std::initializer_list<U> l);
-#		endif//GLM_HAS_INITIALIZER_LISTS
-
 		//////////////////////////////////////
 		// Explicit basic constructors
 
@@ -120,7 +112,7 @@ namespace detail
 			ctor);
 		GLM_FUNC_DECL explicit tvec3(
 			T const & s);
-		GLM_FUNC_DECL explicit tvec3(
+		GLM_FUNC_DECL tvec3(
 			T const & s1,
 			T const & s2,
 			T const & s3);
@@ -130,7 +122,7 @@ namespace detail
 
 		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U, typename V, typename W>
-		GLM_FUNC_DECL explicit tvec3(
+		GLM_FUNC_DECL tvec3(
 			U const & x,
 			V const & y,
 			W const & z);
