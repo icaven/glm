@@ -277,6 +277,9 @@ int main()
 {
 	int Error = 0;
 
+	glm::vec2 v;
+	assert(v.length() == 2);
+
 	Error += test_vec2_size();
 	Error += test_vec2_ctor();
 	Error += test_vec2_operators();
