@@ -666,7 +666,7 @@ namespace glm
 
 	inline uint32 bitfieldInterleave(uint8 x, uint8 y, uint8 z, uint8 w)
 	{
-		return detail::bitfieldInterleave<uint8, uint32>(x, y, z);
+		return detail::bitfieldInterleave<uint8, uint32>(x, y, z, w);
 	}
 
 	inline int64 bitfieldInterleave(int16 x, int16 y, int16 z, int16 w)
