@@ -255,7 +255,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER vecType<T, P> next_float(vecType<T, P> const & x, vecType<uint, P> const & ulps)
 	{
 		vecType<T, P> Result;
-		for(uint i = 0; i < Result.length(); ++i)
+		for(length_t i = 0; i < Result.length(); ++i)
 			Result[i] = next_float(x[i], ulps[i]);
 		return Result;
 	}
