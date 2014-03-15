@@ -10,7 +10,7 @@
 namespace glm
 {
 	template <typename T, precision P>
-	T radialGradient
+	GLM_FUNC_QUALIFIER T radialGradient
 	(
 		detail::tvec2<T, P> const & Center,
 		T const & Radius,
@@ -30,7 +30,7 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	T linearGradient
+	GLM_FUNC_QUALIFIER T linearGradient
 	(
 		detail::tvec2<T, P> const & Point0,
 		detail::tvec2<T, P> const & Point1,

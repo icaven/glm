@@ -59,7 +59,7 @@ namespace glm
 	///
 	/// @see gtx_multiple
 	template <typename genType>
-	genType higherMultiple(
+	GLM_FUNC_DECL genType higherMultiple(
 		genType const & Source,
 		genType const & Multiple);
 
@@ -71,7 +71,7 @@ namespace glm
 	///
 	/// @see gtx_multiple
 	template <typename genType>
-	genType lowerMultiple(
+	GLM_FUNC_DECL genType lowerMultiple(
 		genType const & Source,
 		genType const & Multiple);
 

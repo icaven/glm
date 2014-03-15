@@ -59,7 +59,7 @@ namespace glm
 	/// Create a string from a GLM type value.
 	/// @see gtx_string_cast extension.
 	template <typename genType> 
-	std::string to_string(genType const & x);
+	GLM_FUNC_DECL std::string to_string(genType const & x);
 
 	/// @}
 }//namespace glm

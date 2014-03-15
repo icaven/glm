@@ -43,7 +43,7 @@ namespace glm
 
 
 	template <typename T, precision P> 
-    	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> rotate(
+	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> rotate(
 		detail::tmat3x3<T, P> const & m,
 		T const & angle)
 	{
@@ -55,7 +55,7 @@ namespace glm
 		T c = cos(a);
 		T s = sin(a);
 
-        detail::tmat3x3<T, P> Result(detail::tmat3x3<T, P>::_null);
+		detail::tmat3x3<T, P> Result(detail::tmat3x3<T, P>::_null);
 		Result[0] = m[0] * c + m[1] * s;
 		Result[1] = m[0] * -s + m[1] * c;
 		Result[2] = m[2];
@@ -67,15 +67,15 @@ namespace glm
 		detail::tmat3x3<T, P> const & m,
 		detail::tvec2<T, P> const & v)
 	{
-        detail::tmat3x3<T, P> Result(detail::tmat3x3<T, P>::_null);
+		detail::tmat3x3<T, P> Result(detail::tmat3x3<T, P>::_null);
 		Result[0] = m[0] * v[0];
 		Result[1] = m[1] * v[1];
-        Result[2] = m[2];
+		Result[2] = m[2];
 		return Result;
 	}
 
 	template <typename T, precision P> 
-    	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> shearX(
+	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> shearX(
 		detail::tmat3x3<T, P> const & m,
 		T const & y)
 	{
@@ -85,7 +85,7 @@ namespace glm
 	}
 
 	template <typename T, precision P> 
-    	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> shearY(
+	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> shearY(
 		detail::tmat3x3<T, P> const & m,
 		T const & x)
 	{

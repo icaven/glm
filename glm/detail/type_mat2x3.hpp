@@ -137,7 +137,7 @@ namespace detail
 		T const & s);
 
 	template <typename T, precision P>
-	tmat2x3<T, P> operator+ (
+	GLM_FUNC_DECL tmat2x3<T, P> operator+ (
 		tmat2x3<T, P> const & m1,
 		tmat2x3<T, P> const & m2);
 
