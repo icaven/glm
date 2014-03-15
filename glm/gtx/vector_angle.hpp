@@ -59,7 +59,7 @@ namespace glm
 	//! Parameters need to be normalized.
 	/// @see gtx_vector_angle extension
 	template <typename vecType>
-	GLM_FUNC_QUALIFIER typename vecType::value_type angle(
+	GLM_FUNC_DECL typename vecType::value_type angle(
 		vecType const & x, 
 		vecType const & y);
 
@@ -67,7 +67,7 @@ namespace glm
 	//! Parameters need to be normalized.
 	/// @see gtx_vector_angle extension.
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T orientedAngle(
+	GLM_FUNC_DECL T orientedAngle(
 		detail::tvec2<T, P> const & x,
 		detail::tvec2<T, P> const & y);
 
@@ -75,7 +75,7 @@ namespace glm
 	//! Parameters need to be normalized.
 	/// @see gtx_vector_angle extension.
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T orientedAngle(
+	GLM_FUNC_DECL T orientedAngle(
 		detail::tvec3<T, P> const & x,
 		detail::tvec3<T, P> const & y,
 		detail::tvec3<T, P> const & ref);

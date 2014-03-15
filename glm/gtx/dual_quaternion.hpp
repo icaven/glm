@@ -66,71 +66,71 @@ namespace detail
 		GLM_FUNC_DECL GLM_CONSTEXPR int length() const;
 		
 		// Constructors
-		tdualquat();
-		explicit tdualquat(tquat<T, P> const & real);
-		tdualquat(tquat<T, P> const & real,tquat<T, P> const & dual);
-		tdualquat(tquat<T, P> const & orientation,tvec3<T, P> const& translation);
+		GLM_FUNC_DECL tdualquat();
+		GLM_FUNC_DECL explicit tdualquat(tquat<T, P> const & real);
+		GLM_FUNC_DECL tdualquat(tquat<T, P> const & real,tquat<T, P> const & dual);
+		GLM_FUNC_DECL tdualquat(tquat<T, P> const & orientation,tvec3<T, P> const& translation);
 		
 		//////////////////////////////////////////////////////////////
 		// tdualquat conversions
-		explicit tdualquat(tmat2x4<T, P> const & holder_mat);
-		explicit tdualquat(tmat3x4<T, P> const & aug_mat);
+		GLM_FUNC_DECL explicit tdualquat(tmat2x4<T, P> const & holder_mat);
+		GLM_FUNC_DECL explicit tdualquat(tmat3x4<T, P> const & aug_mat);
 		
 		// Accesses
-		part_type & operator[](int i);
-		part_type const & operator[](int i) const;
+		GLM_FUNC_DECL part_type & operator[](int i);
+		GLM_FUNC_DECL part_type const & operator[](int i) const;
 		
 		// Operators
-		tdualquat<T, P> & operator*=(T const & s);
-		tdualquat<T, P> & operator/=(T const & s);
+		GLM_FUNC_DECL tdualquat<T, P> & operator*=(T const & s);
+		GLM_FUNC_DECL tdualquat<T, P> & operator/=(T const & s);
 	};
 	
 	template <typename T, precision P>
-	detail::tquat<T, P> operator- (
+	GLM_FUNC_DECL detail::tquat<T, P> operator- (
 		detail::tquat<T, P> const & q);
 	
 	template <typename T, precision P>
-	detail::tdualquat<T, P> operator+ (
+	GLM_FUNC_DECL detail::tdualquat<T, P> operator+ (
 		detail::tdualquat<T, P> const & q,
 		detail::tdualquat<T, P> const & p);
 	
 	template <typename T, precision P>
-	detail::tdualquat<T, P> operator* (
+	GLM_FUNC_DECL detail::tdualquat<T, P> operator* (
 		detail::tdualquat<T, P> const & q,
 		detail::tdualquat<T, P> const & p);
 	
 	template <typename T, precision P>
-	detail::tvec3<T, P> operator* (
+	GLM_FUNC_DECL detail::tvec3<T, P> operator* (
 		detail::tquat<T, P> const & q,
 		detail::tvec3<T, P> const & v);
 	
 	template <typename T, precision P>
-	detail::tvec3<T, P> operator* (
+	GLM_FUNC_DECL detail::tvec3<T, P> operator* (
 		detail::tvec3<T, P> const & v,
 		detail::tquat<T, P> const & q);
 	
 	template <typename T, precision P>
-	detail::tvec4<T, P> operator* (
+	GLM_FUNC_DECL detail::tvec4<T, P> operator* (
 		detail::tquat<T, P> const & q,
 		detail::tvec4<T, P> const & v);
 	
 	template <typename T, precision P>
-	detail::tvec4<T, P> operator* (
+	GLM_FUNC_DECL detail::tvec4<T, P> operator* (
 		detail::tvec4<T, P> const & v,
 		detail::tquat<T, P> const & q);
 	
 	template <typename T, precision P>
-	detail::tdualquat<T, P> operator* (
+	GLM_FUNC_DECL detail::tdualquat<T, P> operator* (
 		detail::tdualquat<T, P> const & q,
 		T const & s);
 	
 	template <typename T, precision P>
-	detail::tdualquat<T, P> operator* (
+	GLM_FUNC_DECL detail::tdualquat<T, P> operator* (
 		T const & s,
 		detail::tdualquat<T, P> const & q);
 	
 	template <typename T, precision P>
-	detail::tdualquat<T, P> operator/ (
+	GLM_FUNC_DECL detail::tdualquat<T, P> operator/ (
 		detail::tdualquat<T, P> const & q,
 		T const & s);
 } //namespace detail

@@ -55,21 +55,21 @@ namespace glm
 	//! Transforms a matrix with a shearing on X axis.
 	//! From GLM_GTX_transform2 extension.
 	template <typename T, precision P>
-	detail::tmat3x3<T, P> shearX2D(
+	GLM_FUNC_DECL detail::tmat3x3<T, P> shearX2D(
 		detail::tmat3x3<T, P> const & m, 
 		T y);
 
 	//! Transforms a matrix with a shearing on Y axis.
 	//! From GLM_GTX_transform2 extension.
 	template <typename T, precision P> 
-	detail::tmat3x3<T, P> shearY2D(
+	GLM_FUNC_DECL detail::tmat3x3<T, P> shearY2D(
 		detail::tmat3x3<T, P> const & m, 
 		T x);
 
 	//! Transforms a matrix with a shearing on X axis
 	//! From GLM_GTX_transform2 extension.
 	template <typename T, precision P> 
-	detail::tmat4x4<T, P> shearX3D(
+	GLM_FUNC_DECL detail::tmat4x4<T, P> shearX3D(
 		const detail::tmat4x4<T, P> & m,
 		T y, 
 		T z);
@@ -77,7 +77,7 @@ namespace glm
 	//! Transforms a matrix with a shearing on Y axis.
 	//! From GLM_GTX_transform2 extension.
 	template <typename T, precision P> 
-	detail::tmat4x4<T, P> shearY3D(
+	GLM_FUNC_DECL detail::tmat4x4<T, P> shearY3D(
 		const detail::tmat4x4<T, P> & m, 
 		T x, 
 		T z);
@@ -85,7 +85,7 @@ namespace glm
 	//! Transforms a matrix with a shearing on Z axis. 
 	//! From GLM_GTX_transform2 extension.
 	template <typename T, precision P> 
-	detail::tmat4x4<T, P> shearZ3D(
+	GLM_FUNC_DECL detail::tmat4x4<T, P> shearZ3D(
 		const detail::tmat4x4<T, P> & m, 
 		T x, 
 		T y);
@@ -101,28 +101,28 @@ namespace glm
 	//! Build planar projection matrix along normal axis.
 	//! From GLM_GTX_transform2 extension.
 	template <typename T, precision P> 
-	detail::tmat3x3<T, P> proj2D(
+	GLM_FUNC_DECL detail::tmat3x3<T, P> proj2D(
 		const detail::tmat3x3<T, P> & m, 
 		const detail::tvec3<T, P>& normal);
 
 	//! Build planar projection matrix along normal axis.
 	//! From GLM_GTX_transform2 extension.
 	template <typename T, precision P> 
-	detail::tmat4x4<T, P> proj3D(
+	GLM_FUNC_DECL detail::tmat4x4<T, P> proj3D(
 		const detail::tmat4x4<T, P> & m, 
 		const detail::tvec3<T, P>& normal);
 
 	//! Build a scale bias matrix. 
 	//! From GLM_GTX_transform2 extension.
 	template <typename valType, precision P> 
-	detail::tmat4x4<valType, P> scaleBias(
+	GLM_FUNC_DECL detail::tmat4x4<valType, P> scaleBias(
 		valType scale, 
 		valType bias);
 
 	//! Build a scale bias matrix.
 	//! From GLM_GTX_transform2 extension.
 	template <typename valType, precision P> 
-	detail::tmat4x4<valType, P> scaleBias(
+	GLM_FUNC_DECL detail::tmat4x4<valType, P> scaleBias(
 		detail::tmat4x4<valType, P> const & m, 
 		valType scale, 
 		valType bias);

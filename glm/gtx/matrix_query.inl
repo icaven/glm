@@ -13,10 +13,7 @@
 namespace glm
 {
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER bool isNull
-	(
-		detail::tmat2x2<T, P> const & m,
-		T const & epsilon)
+	GLM_FUNC_QUALIFIER bool isNull(detail::tmat2x2<T, P> const & m, T const & epsilon)
 	{
 		bool result = true;
 		for(length_t i = 0; result && i < 2 ; ++i)
@@ -25,11 +22,7 @@ namespace glm
 	}
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER bool isNull
-	(
-		detail::tmat3x3<T, P> const & m,
-		T const & epsilon
-	)
+	GLM_FUNC_QUALIFIER bool isNull(detail::tmat3x3<T, P> const & m, T const & epsilon)
 	{
 		bool result = true;
 		for(length_t i = 0; result && i < 3 ; ++i)
@@ -38,11 +31,7 @@ namespace glm
 	}
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER bool isNull
-	(
-		detail::tmat4x4<T, P> const & m,
-		T const & epsilon
-	)
+	GLM_FUNC_QUALIFIER bool isNull(detail::tmat4x4<T, P> const & m, T const & epsilon)
 	{
 		bool result = true;
 		for(length_t i = 0; result && i < 4 ; ++i)
@@ -51,11 +40,7 @@ namespace glm
 	}
 
 	template<typename T, precision P, template <typename, precision> class matType>
-	GLM_FUNC_QUALIFIER bool isIdentity
-	(
-		matType<T, P> const & m,
-		T const & epsilon
-	)
+	GLM_FUNC_QUALIFIER bool isIdentity(matType<T, P> const & m, T const & epsilon)
 	{
 		bool result = true;
 		for(length_t i(0); result && i < m[0].length(); ++i)
@@ -71,11 +56,7 @@ namespace glm
 	}
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER bool isNormalized
-	(
-		detail::tmat2x2<T, P> const & m,
-		T const & epsilon
-	)
+	GLM_FUNC_QUALIFIER bool isNormalized(detail::tmat2x2<T, P> const & m, T const & epsilon)
 	{
 		bool result(true);
 		for(length_t i(0); result && i < m.length(); ++i)
@@ -91,11 +72,7 @@ namespace glm
 	}
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER bool isNormalized
-	(
-		detail::tmat3x3<T, P> const & m,
-		T const & epsilon
-	)
+	GLM_FUNC_QUALIFIER bool isNormalized(detail::tmat3x3<T, P> const & m, T const & epsilon)
 	{
 		bool result(true);
 		for(length_t i(0); result && i < m.length(); ++i)
@@ -111,11 +88,7 @@ namespace glm
 	}
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER bool isNormalized
-	(
-		detail::tmat4x4<T, P> const & m,
-		T const & epsilon
-	)
+	GLM_FUNC_QUALIFIER bool isNormalized(detail::tmat4x4<T, P> const & m, T const & epsilon)
 	{
 		bool result(true);
 		for(length_t i(0); result && i < m.length(); ++i)
@@ -131,11 +104,7 @@ namespace glm
 	}
 
 	template<typename T, precision P, template <typename, precision> class matType>
-	GLM_FUNC_QUALIFIER bool isOrthogonal
-	(
-		matType<T, P> const & m,
-		T const & epsilon
-	)
+	GLM_FUNC_QUALIFIER bool isOrthogonal(matType<T, P> const & m, T const & epsilon)
 	{
 		bool result(true);
 		for(length_t i(0); result && i < m.length() - 1; ++i)

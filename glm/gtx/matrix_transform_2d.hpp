@@ -56,17 +56,17 @@ namespace glm
 	///
 	/// @param m Input matrix multiplied by this translation matrix.
 	/// @param v Coordinates of a translation vector.		
-    template <typename T, precision P>
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> translate(
 		detail::tmat3x3<T, P> const & m,
-        detail::tvec2<T, P> const & v);
+		detail::tvec2<T, P> const & v);
 
 	/// Builds a rotation 3 * 3 matrix created from an angle. 
 	///
 	/// @param m Input matrix multiplied by this translation matrix.
 	/// @param angle Rotation angle expressed in radians if GLM_FORCE_RADIANS is defined or degrees otherwise.
 	template <typename T, precision P> 
-    	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> rotate(
+	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> rotate(
 		detail::tmat3x3<T, P> const & m,
 		T const & angle);
 
@@ -84,7 +84,7 @@ namespace glm
 	/// @param m Input matrix multiplied by this translation matrix.
 	/// @param y Shear factor.
 	template <typename T, precision P> 
-    	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> shearX(
+	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> shearX(
 		detail::tmat3x3<T, P> const & m,
 		T const & y);
 
@@ -93,7 +93,7 @@ namespace glm
 	/// @param m Input matrix multiplied by this translation matrix.
 	/// @param x Shear factor.
 	template <typename T, precision P> 
-    	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> shearY(
+	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> shearY(
 		detail::tmat3x3<T, P> const & m,
 		T const & x);
 

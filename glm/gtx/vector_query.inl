@@ -21,7 +21,7 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_areCollinear<T, P, tvec2>
 	{
-		static bool call(detail::tvec2<T, P> const & v0, detail::tvec2<T, P> const & v1, T const & epsilon)
+		GLM_FUNC_QUALIFIER static bool call(detail::tvec2<T, P> const & v0, detail::tvec2<T, P> const & v1, T const & epsilon)
 		{
 			return length(cross(detail::tvec3<T, P>(v0, static_cast<T>(0)), detail::tvec3<T, P>(v1, static_cast<T>(0)))) < epsilon;
 		}
@@ -30,7 +30,7 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_areCollinear<T, P, tvec3>
 	{
-		static bool call(detail::tvec3<T, P> const & v0, detail::tvec3<T, P> const & v1, T const & epsilon)
+		GLM_FUNC_QUALIFIER static bool call(detail::tvec3<T, P> const & v0, detail::tvec3<T, P> const & v1, T const & epsilon)
 		{
 			return length(cross(v0, v1)) < epsilon;
 		}
@@ -39,7 +39,7 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_areCollinear<T, P, tvec4>
 	{
-		static bool call(detail::tvec4<T, P> const & v0, detail::tvec4<T, P> const & v1, T const & epsilon)
+		GLM_FUNC_QUALIFIER static bool call(detail::tvec4<T, P> const & v0, detail::tvec4<T, P> const & v1, T const & epsilon)
 		{
 			return length(cross(detail::tvec3<T, P>(v0), detail::tvec3<T, P>(v1))) < epsilon;
 		}
@@ -51,7 +51,7 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_isCompNull<T, P, tvec2>
 	{
-		static detail::tvec2<bool, P> call(detail::tvec2<T, P> const & v, T const & epsilon)
+		GLM_FUNC_QUALIFIER static detail::tvec2<bool, P> call(detail::tvec2<T, P> const & v, T const & epsilon)
 		{
 			return detail::tvec2<bool, P>(
 				(abs(v.x) < epsilon),
@@ -62,7 +62,7 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_isCompNull<T, P, tvec3>
 	{
-		static detail::tvec3<bool, P> call(detail::tvec3<T, P> const & v, T const & epsilon)
+		GLM_FUNC_QUALIFIER static detail::tvec3<bool, P> call(detail::tvec3<T, P> const & v, T const & epsilon)
 		{
 			return detail::tvec3<bool, P>(
 				(abs(v.x) < epsilon),
@@ -74,7 +74,7 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_isCompNull<T, P, tvec4>
 	{
-		static detail::tvec4<bool, P> call(detail::tvec4<T, P> const & v, T const & epsilon)
+		GLM_FUNC_QUALIFIER static detail::tvec4<bool, P> call(detail::tvec4<T, P> const & v, T const & epsilon)
 		{
 			return detail::tvec4<bool, P>(
 				(abs(v.x) < epsilon),

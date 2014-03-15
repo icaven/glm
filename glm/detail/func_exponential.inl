@@ -45,7 +45,7 @@ namespace detail
 	struct compute_log2<true>
 	{
 		template <typename T>
-		T operator() (T const & Value) const
+		GLM_FUNC_QUALIFIER T operator() (T const & Value) const
 		{
 			return static_cast<T>(::std::log(Value)) * static_cast<T>(1.4426950408889634073599246810019);
 		}
@@ -54,7 +54,7 @@ namespace detail
 	template <template <class, precision> class vecType, typename T, precision P>
 	struct compute_inversesqrt
 	{
-		static vecType<T, P> call(vecType<T, P> const & x)
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x)
 		{
 			return static_cast<T>(1) / sqrt(x);
 		}
@@ -63,7 +63,7 @@ namespace detail
 	template <template <class, precision> class vecType>
 	struct compute_inversesqrt<vecType, float, lowp>
 	{
-		static vecType<float, lowp> call(vecType<float, lowp> const & x)
+		GLM_FUNC_QUALIFIER static vecType<float, lowp> call(vecType<float, lowp> const & x)
 		{
 			vecType<float, lowp> tmp(x);
 			vecType<float, lowp> xhalf(tmp * 0.5f);
