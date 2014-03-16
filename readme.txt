@@ -47,6 +47,7 @@ GLM 0.9.5.3: 2014-0X-XX
 - Fixed CUDA issues (#169, #168, #183, #182)
 - Added support for all extensions but GTX_string_cast to CUDA
 - Fixed strict aliasing warnings in GCC 4.8.1 / Android NDK 9c (#152)
+- Fixed missing bitfieldInterleave definisions
 
 ================================================================================
 GLM 0.9.5.2: 2014-02-08
