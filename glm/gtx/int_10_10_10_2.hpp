@@ -35,7 +35,7 @@
 namespace glm
 {
 	//! Deprecated, use packUnorm3x10_1x2 instead.
-	GLM_DEPRECATED dword uint10_10_10_2_cast(glm::vec4 const & v);
+	GLM_DEPRECATED GLM_FUNC_DECL dword uint10_10_10_2_cast(glm::vec4 const & v);
 
 }//namespace glm
 

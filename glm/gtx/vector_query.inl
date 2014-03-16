@@ -156,7 +156,9 @@ namespace detail
 		detail::tvec2<T, P> const & v,
 		T const & epsilon)
 	{
-
+		return detail::tvec2<bool, P>(
+			abs(v.x) < epsilon,
+			abs(v.y) < epsilon);
 	}
 
 	template <typename T, precision P>

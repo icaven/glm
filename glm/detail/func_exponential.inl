@@ -160,7 +160,7 @@ namespace detail
 		template <typename T, precision P>
 		struct compute_sqrt<detail::tvec1, T, P>
 		{
-			static detail::tvec1<T, P> call(detail::tvec1<T, P> const & x)
+			GLM_FUNC_QUALIFIER static detail::tvec1<T, P> call(detail::tvec1<T, P> const & x)
 			{
 				return detail::tvec1<T, P>(std::sqrt(x.x));
 			}
@@ -169,7 +169,7 @@ namespace detail
 		template <typename T, precision P>
 		struct compute_sqrt<detail::tvec2, T, P>
 		{
-			static detail::tvec2<T, P> call(detail::tvec2<T, P> const & x)
+			GLM_FUNC_QUALIFIER static detail::tvec2<T, P> call(detail::tvec2<T, P> const & x)
 			{
 				return detail::tvec2<T, P>(std::sqrt(x.x), std::sqrt(x.y));
 			}
@@ -178,7 +178,7 @@ namespace detail
 		template <typename T, precision P>
 		struct compute_sqrt<detail::tvec3, T, P>
 		{
-			static detail::tvec3<T, P> call(detail::tvec3<T, P> const & x)
+			GLM_FUNC_QUALIFIER static detail::tvec3<T, P> call(detail::tvec3<T, P> const & x)
 			{
 				return detail::tvec3<T, P>(std::sqrt(x.x), std::sqrt(x.y), std::sqrt(x.z));
 			}
@@ -187,7 +187,7 @@ namespace detail
 		template <typename T, precision P>
 		struct compute_sqrt<detail::tvec4, T, P>
 		{
-			static detail::tvec4<T, P> call(detail::tvec4<T, P> const & x)
+			GLM_FUNC_QUALIFIER static detail::tvec4<T, P> call(detail::tvec4<T, P> const & x)
 			{
 				return detail::tvec4<T, P>(std::sqrt(x.x), std::sqrt(x.y), std::sqrt(x.z), std::sqrt(x.w));
 			}

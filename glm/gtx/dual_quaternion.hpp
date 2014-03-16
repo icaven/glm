@@ -142,14 +142,14 @@ namespace detail
 	///
 	/// @see gtc_dual_quaternion
 	template <typename T, precision P>
-	detail::tdualquat<T, P> normalize(
+	GLM_FUNC_DECL detail::tdualquat<T, P> normalize(
 		detail::tdualquat<T, P> const & q);
 
 	/// Returns the linear interpolation of two dual quaternion.
 	///
 	/// @see gtc_dual_quaternion
 	template <typename T, precision P>
-	detail::tdualquat<T, P> lerp(
+	GLM_FUNC_DECL detail::tdualquat<T, P> lerp(
 		detail::tdualquat<T, P> const & x,
 		detail::tdualquat<T, P> const & y,
 		T const & a);
@@ -158,7 +158,7 @@ namespace detail
 	///
 	/// @see gtc_dual_quaternion
 	template <typename T, precision P>
-	detail::tdualquat<T, P> inverse(
+	GLM_FUNC_DECL detail::tdualquat<T, P> inverse(
 		detail::tdualquat<T, P> const & q);
 
 	/*
@@ -175,28 +175,28 @@ namespace detail
 	///
 	/// @see gtc_dual_quaternion
 	template <typename T, precision P>
-	detail::tmat2x4<T, P> mat2x4_cast(
+	GLM_FUNC_DECL detail::tmat2x4<T, P> mat2x4_cast(
 		detail::tdualquat<T, P> const & x);
 
 	/// Converts a quaternion to a 3 * 4 matrix.
 	///
 	/// @see gtc_dual_quaternion
 	template <typename T, precision P>
-	detail::tmat3x4<T, P> mat3x4_cast(
+	GLM_FUNC_DECL detail::tmat3x4<T, P> mat3x4_cast(
 		detail::tdualquat<T, P> const & x);
 
 	/// Converts a 2 * 4 matrix (matrix which holds real and dual parts) to a quaternion.
 	///
 	/// @see gtc_dual_quaternion
 	template <typename T, precision P>
-	detail::tdualquat<T, P> dualquat_cast(
+	GLM_FUNC_DECL detail::tdualquat<T, P> dualquat_cast(
 		detail::tmat2x4<T, P> const & x);
 
 	/// Converts a 3 * 4 matrix (augmented matrix rotation + translation) to a quaternion.
 	///
 	/// @see gtc_dual_quaternion
 	template <typename T, precision P>
-	detail::tdualquat<T, P> dualquat_cast(
+	GLM_FUNC_DECL detail::tdualquat<T, P> dualquat_cast(
 		detail::tmat3x4<T, P> const & x);
 
 	

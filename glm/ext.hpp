@@ -120,7 +120,9 @@
 #include "./gtx/rotate_vector.hpp"
 #include "./gtx/spline.hpp"
 #include "./gtx/std_based_type.hpp"
-#include "./gtx/string_cast.hpp"
+#if(!(GLM_COMPILER & GLM_COMPILER_CUDA))
+#	include "./gtx/string_cast.hpp"
+#endif
 #include "./gtx/transform.hpp"
 #include "./gtx/transform2.hpp"
 #include "./gtx/vec1.hpp"
