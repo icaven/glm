@@ -110,10 +110,10 @@ namespace glm
 		GLM_STATIC_ASSERT(sizeof(uint) == sizeof(uint32), "uint and uint32 size mismatch");
 
 		Borrow = x >= y ? static_cast<uint32>(0) : static_cast<uint32>(1);
-		if(x > y)
-			return static_cast<uint32>(static_cast<int64>(x) - static_cast<int64>(y));
+		if(y >= x)
+			return y - x;
 		else
-			return static_cast<uint32>((static_cast<int64>(1) << static_cast<int64>(32)) + static_cast<int64>(x) - static_cast<int64>(y));
+			return static_cast<uint32>((static_cast<int64>(1) << static_cast<int64>(32)) + (static_cast<int64>(y) - static_cast<int64>(x)));
 	}
 
 	template <>
