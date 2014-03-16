@@ -111,7 +111,7 @@ namespace glm
 
 		Borrow = x >= y ? static_cast<uint32>(0) : static_cast<uint32>(1);
 		if(x > y)
-			return static_cast<uint32>(static_cast<int64>(x) -static_cast<int64>(y));
+			return static_cast<uint32>(static_cast<int64>(x) - static_cast<int64>(y));
 		else
 			return static_cast<uint32>((static_cast<int64>(1) << static_cast<int64>(32)) + static_cast<int64>(x) - static_cast<int64>(y));
 	}
@@ -173,7 +173,8 @@ namespace glm
 		uint64 Value64 = static_cast<uint64>(x) * static_cast<uint64>(y);
 		uint32* PointerMSB = (reinterpret_cast<uint32*>(&Value64) + 1);
 		msb = *PointerMSB;
-		lsb = reinterpret_cast<uint32&>(Value64);
+		uint32* PointerLSB = (reinterpret_cast<uint32*>(&Value64) + 0);
+		lsb = *PointerLSB;
 	}
 
 	template <>
@@ -233,7 +234,8 @@ namespace glm
 		int64 Value64 = static_cast<int64>(x) * static_cast<int64>(y);
 		int32* PointerMSB = (reinterpret_cast<int32*>(&Value64) + 1);
 		msb = *PointerMSB;
-		lsb = reinterpret_cast<int32&>(Value64);
+		int32* PointerLSB = (reinterpret_cast<int32*>(&Value64));
+		lsb = *PointerLSB;
 	}
 
 	template <>
