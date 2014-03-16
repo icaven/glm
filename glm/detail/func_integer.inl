@@ -171,7 +171,8 @@ namespace glm
 		GLM_STATIC_ASSERT(sizeof(uint) == sizeof(uint32), "uint and uint32 size mismatch");
 
 		uint64 Value64 = static_cast<uint64>(x) * static_cast<uint64>(y);
-		msb = *(reinterpret_cast<uint32*>(&Value64) + 1);
+		uint32* PointerMSB = (reinterpret_cast<uint32*>(&Value64) + 1);
+		msb = *PointerMSB;
 		lsb = reinterpret_cast<uint32&>(Value64);
 	}
 
@@ -230,7 +231,8 @@ namespace glm
 		GLM_STATIC_ASSERT(sizeof(int) == sizeof(int32), "int and int32 size mismatch");
 
 		int64 Value64 = static_cast<int64>(x) * static_cast<int64>(y);
-		msb = *(reinterpret_cast<int32*>(&Value64) + 1);
+		int32* PointerMSB = (reinterpret_cast<int32*>(&Value64) + 1);
+		msb = *PointerMSB;
 		lsb = reinterpret_cast<int32&>(Value64);
 	}
 
