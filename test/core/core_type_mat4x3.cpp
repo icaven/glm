@@ -50,10 +50,10 @@ int test_ctr()
 		{6, 7, 8},
 		{9, 10, 11}};
 
-	for(int i = 0; i < m0.length(); ++i)
+	for(glm::length_t i = 0; i < m0.length(); ++i)
 		Error += glm::all(glm::equal(m0[i], m2[i])) ? 0 : 1;
 
-	for(int i = 0; i < m1.length(); ++i)
+	for(glm::length_t i = 0; i < m1.length(); ++i)
 		Error += glm::all(glm::equal(m1[i], m2[i])) ? 0 : 1;
 
 	std::vector<glm::mat4x3> v1{

@@ -194,24 +194,30 @@ namespace detail
 #	pragma warning(pop)
 #endif
 
-#if((GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS)))
-#	define GLM_NEXT_AFTER_FLT(x, toward) glm::detail::nextafterf((x), (toward))
-#	define GLM_NEXT_AFTER_DBL(x, toward) _nextafter((x), (toward))
-#else
-#	define GLM_NEXT_AFTER_FLT(x, toward) nextafterf((x), (toward))
-#	define GLM_NEXT_AFTER_DBL(x, toward) nextafter((x), (toward))
-#endif
-
 namespace glm
 {
+	template <>
 	GLM_FUNC_QUALIFIER float next_float(float const & x)
 	{
-		return GLM_NEXT_AFTER_FLT(x, std::numeric_limits<float>::max());
+#		if((GLM_LANG & GLM_LANG_CXX11_FLAG))
+			return std::nextafter(x, std::numeric_limits<float>::max());
+#		elif((GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS)))
+			return detail::nextafterf(x, FLT_MAX);
+#		else
+			return nextafterf(x, FLT_MAX);
+#		endif
 	}
 
+	template <>
 	GLM_FUNC_QUALIFIER double next_float(double const & x)
 	{
-		return GLM_NEXT_AFTER_DBL(x, std::numeric_limits<double>::max());
+#		if((GLM_LANG & GLM_LANG_CXX11_FLAG))
+			return std::nextafter(x, std::numeric_limits<double>::max());
+#		elif((GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS)))
+			return detail::nextafterf(x, std::numeric_limits<double>::max());
+#		else
+			return nextafter(x, DBL_MAX);
+#		endif
 	}
 
 	template<typename T, precision P, template<typename, precision> class vecType>
@@ -225,12 +231,24 @@ namespace glm
 
 	GLM_FUNC_QUALIFIER float prev_float(float const & x)
 	{
-		return GLM_NEXT_AFTER_FLT(x, std::numeric_limits<float>::min());
+#		if((GLM_LANG & GLM_LANG_CXX11_FLAG))
+			return std::nextafter(x, std::numeric_limits<float>::min());
+#		elif((GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS)))
+			return detail::nextafterf(x, FLT_MIN);
+#		else
+			return nextafterf(x, FLT_MIN);
+#		endif
 	}
 
 	GLM_FUNC_QUALIFIER double prev_float(double const & x)
 	{
-		return GLM_NEXT_AFTER_DBL(x, std::numeric_limits<double>::min());
+#		if((GLM_LANG & GLM_LANG_CXX11_FLAG))
+			return std::nextafter(x, std::numeric_limits<double>::min());
+#		elif((GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS)))
+			return _nextafter(x, DBL_MIN);
+#		else
+			return nextafter(x, DBL_MIN);
+#		endif
 	}
 
 	template<typename T, precision P, template<typename, precision> class vecType>
@@ -255,7 +273,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER vecType<T, P> next_float(vecType<T, P> const & x, vecType<uint, P> const & ulps)
 	{
 		vecType<T, P> Result;
-		for(uint i = 0; i < Result.length(); ++i)
+		for(length_t i = 0; i < Result.length(); ++i)
 			Result[i] = next_float(x[i], ulps[i]);
 		return Result;
 	}

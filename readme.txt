@@ -52,6 +52,8 @@ GLM 0.9.5.3: 2014-0X-XX
 - Fixed GTX_raw_data code dependency
 - Fixed GCC instruction set detection
 - Added GLM_GTX_matrix_transform_2d extension (#178, #176)
+- Fixed CUDA issues (#169, #168, #183, #182)
+- Added support for all extensions but GTX_string_cast to CUDA
 
 ================================================================================
 GLM 0.9.5.2: 2014-02-08

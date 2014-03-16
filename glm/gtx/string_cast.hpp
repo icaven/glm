@@ -36,6 +36,7 @@
 /// @brief Setup strings for GLM type values
 /// 
 /// <glm/gtx/string_cast.hpp> need to be included to use these functionalities.
+/// This extension is not supported with CUDA
 ///////////////////////////////////////////////////////////////////////////////////
 
 #ifndef GLM_GTX_string_cast
@@ -46,6 +47,10 @@
 #include "../gtx/integer.hpp"
 #include "../gtx/quaternion.hpp"
 #include <string>
+
+#if(GLM_COMPILER & GLM_COMPILER_CUDA)
+#	error "GLM_GTX_string_cast is not supported on CUDA compiler"
+#endif
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_string_cast extension included")
