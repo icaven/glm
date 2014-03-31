@@ -49,6 +49,8 @@ GLM 0.9.5.3: 2014-0X-XX
 - Fixed strict aliasing warnings in GCC 4.8.1 / Android NDK 9c (#152)
 - Fixed missing bitfieldInterleave definisions
 - Fixed usubBorrow (#171)
+- Fixed eulerAngle*** not consistent for right-handed coordinate system (#173)
+- Added full tests for eulerAngle*** functions (#173)
 
 ================================================================================
 GLM 0.9.5.2: 2014-02-08

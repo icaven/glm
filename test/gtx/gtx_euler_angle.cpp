@@ -69,15 +69,35 @@ namespace test_eulerAngleY
 		glm::vec3 const Y(0.0f, 1.0f, 0.0f);
 
 		glm::vec4 const X(1.0f, 0.0f, 0.0f, 1.0f);
-		glm::vec4 const X1 = glm::eulerAngleY(Angle) * X;
-		glm::vec4 const X2 = glm::rotate(glm::mat4(1.0f), Angle, Y) * X;
+		glm::vec4 const X1 = glm::rotate(glm::mat4(1.0f), Angle, Y) * X;
+		glm::vec4 const X2 = glm::eulerAngleY(Angle) * X;
+		glm::vec4 const X3 = glm::eulerAngleYX(Angle, 0.0f) * X;
+		glm::vec4 const X4 = glm::eulerAngleXY(0.0f, Angle) * X;
+		glm::vec4 const X5 = glm::eulerAngleYZ(Angle, 0.0f) * X;
+		glm::vec4 const X6 = glm::eulerAngleZY(0.0f, Angle) * X;
+		glm::vec4 const X7 = glm::eulerAngleYXZ(Angle, 0.0f, 0.0f) * X;
 		Error += glm::all(glm::epsilonEqual(X1, X2, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(X1, X3, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(X1, X4, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(X1, X5, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(X1, X6, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(X1, X7, 0.00001f)) ? 0 : 1;
 
-		glm::vec4 const Z(1.0f, 0.0f, 0.0f, 1.0f);
+		glm::vec4 const Z(0.0f, 0.0f, 1.0f, 1.0f);
 		glm::vec4 const Z1 = glm::eulerAngleY(Angle) * Z;
 		glm::vec4 const Z2 = glm::rotate(glm::mat4(1.0f), Angle, Y) * Z;
+		glm::vec4 const Z3 = glm::eulerAngleYX(Angle, 0.0f) * Z;
+		glm::vec4 const Z4 = glm::eulerAngleXY(0.0f, Angle) * Z;
+		glm::vec4 const Z5 = glm::eulerAngleYZ(Angle, 0.0f) * Z;
+		glm::vec4 const Z6 = glm::eulerAngleZY(0.0f, Angle) * Z;
+		glm::vec4 const Z7 = glm::eulerAngleYXZ(Angle, 0.0f, 0.0f) * Z;
 		Error += glm::all(glm::epsilonEqual(Z1, Z2, 0.00001f)) ? 0 : 1;
-		
+		Error += glm::all(glm::epsilonEqual(Z1, Z3, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Z1, Z4, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Z1, Z5, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Z1, Z6, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Z1, Z7, 0.00001f)) ? 0 : 1;
+
 		return Error;
 	}
 }//namespace test_eulerAngleY
@@ -92,15 +112,35 @@ namespace test_eulerAngleZ
 		glm::vec3 const Z(0.0f, 0.0f, 1.0f);
 
 		glm::vec4 const X(1.0f, 0.0f, 0.0f, 1.0f);
-		glm::vec4 const X1 = glm::eulerAngleZ(Angle) * X;
-		glm::vec4 const X2 = glm::rotate(glm::mat4(1.0f), Angle, Z) * X;
+		glm::vec4 const X1 = glm::rotate(glm::mat4(1.0f), Angle, Z) * X;
+		glm::vec4 const X2 = glm::eulerAngleZ(Angle) * X;
+		glm::vec4 const X3 = glm::eulerAngleZX(Angle, 0.0f) * X;
+		glm::vec4 const X4 = glm::eulerAngleXZ(0.0f, Angle) * X;
+		glm::vec4 const X5 = glm::eulerAngleZY(Angle, 0.0f) * X;
+		glm::vec4 const X6 = glm::eulerAngleYZ(0.0f, Angle) * X;
+		glm::vec4 const X7 = glm::eulerAngleYXZ(0.0f, 0.0f, Angle) * X;
 		Error += glm::all(glm::epsilonEqual(X1, X2, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(X1, X3, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(X1, X4, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(X1, X5, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(X1, X6, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(X1, X7, 0.00001f)) ? 0 : 1;
 
 		glm::vec4 const Y(1.0f, 0.0f, 0.0f, 1.0f);
-		glm::vec4 const Y1 = glm::eulerAngleZ(Angle) * Y;
-		glm::vec4 const Y2 = glm::rotate(glm::mat4(1.0f), Angle, Z) * Y;
-		Error += glm::all(glm::epsilonEqual(Y1, Y2, 0.00001f)) ? 0 : 1;
-		
+		glm::vec4 const Z1 = glm::rotate(glm::mat4(1.0f), Angle, Z) * Y;
+		glm::vec4 const Z2 = glm::eulerAngleZ(Angle) * Y;
+		glm::vec4 const Z3 = glm::eulerAngleZX(Angle, 0.0f) * Y;
+		glm::vec4 const Z4 = glm::eulerAngleXZ(0.0f, Angle) * Y;
+		glm::vec4 const Z5 = glm::eulerAngleZY(Angle, 0.0f) * Y;
+		glm::vec4 const Z6 = glm::eulerAngleYZ(0.0f, Angle) * Y;
+		glm::vec4 const Z7 = glm::eulerAngleYXZ(0.0f, 0.0f, Angle) * Y;
+		Error += glm::all(glm::epsilonEqual(Z1, Z2, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Z1, Z3, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Z1, Z4, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Z1, Z5, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Z1, Z6, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(Z1, Z7, 0.00001f)) ? 0 : 1;
+
 		return Error;
 	}
 }//namespace test_eulerAngleZ
@@ -109,12 +149,147 @@ namespace test_eulerAngleXY
 {
 	int test()
 	{
-		
+		int Error = 0;
 
+		glm::vec4 const V(1.0f);
 
-		return 0;
+		float const AngleX(glm::pi<float>() * 0.5f);
+		float const AngleY(glm::pi<float>() * 0.25f);
+
+		glm::vec3 const axisX(1.0f, 0.0f, 0.0f);
+		glm::vec3 const axisY(0.0f, 1.0f, 0.0f);
+
+		glm::vec4 const V1 = (glm::rotate(glm::mat4(1.0f), AngleX, axisX) * glm::rotate(glm::mat4(1.0f), AngleY, axisY)) * V;
+		glm::vec4 const V2 = glm::eulerAngleXY(AngleX, AngleY) * V;
+		glm::vec4 const V3 = glm::eulerAngleX(AngleX) * glm::eulerAngleY(AngleY) * V;
+		Error += glm::all(glm::epsilonEqual(V1, V2, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(V1, V3, 0.00001f)) ? 0 : 1;
+
+		return Error;
 	}
-}//namespace eulerAngleXY
+}//namespace test_eulerAngleXY
+
+namespace test_eulerAngleYX
+{
+	int test()
+	{
+		int Error = 0;
+
+		glm::vec4 const V(1.0f);
+
+		float const AngleX(glm::pi<float>() * 0.5f);
+		float const AngleY(glm::pi<float>() * 0.25f);
+
+		glm::vec3 const axisX(1.0f, 0.0f, 0.0f);
+		glm::vec3 const axisY(0.0f, 1.0f, 0.0f);
+
+		glm::vec4 const V1 = (glm::rotate(glm::mat4(1.0f), AngleY, axisY) * glm::rotate(glm::mat4(1.0f), AngleX, axisX)) * V;
+		glm::vec4 const V2 = glm::eulerAngleYX(AngleY, AngleX) * V;
+		glm::vec4 const V3 = glm::eulerAngleY(AngleY) * glm::eulerAngleX(AngleX) * V;
+		Error += glm::all(glm::epsilonEqual(V1, V2, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(V1, V3, 0.00001f)) ? 0 : 1;
+
+		return Error;
+	}
+}//namespace test_eulerAngleYX
+
+namespace test_eulerAngleXZ
+{
+	int test()
+	{
+		int Error = 0;
+
+		glm::vec4 const V(1.0f);
+
+		float const AngleX(glm::pi<float>() * 0.5f);
+		float const AngleZ(glm::pi<float>() * 0.25f);
+
+		glm::vec3 const axisX(1.0f, 0.0f, 0.0f);
+		glm::vec3 const axisZ(0.0f, 0.0f, 1.0f);
+
+		glm::vec4 const V1 = (glm::rotate(glm::mat4(1.0f), AngleX, axisX) * glm::rotate(glm::mat4(1.0f), AngleZ, axisZ)) * V;
+		glm::vec4 const V2 = glm::eulerAngleXZ(AngleX, AngleZ) * V;
+		glm::vec4 const V3 = glm::eulerAngleX(AngleX) * glm::eulerAngleZ(AngleZ) * V;
+		Error += glm::all(glm::epsilonEqual(V1, V2, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(V1, V3, 0.00001f)) ? 0 : 1;
+
+		return Error;
+	}
+}//namespace test_eulerAngleXZ
+
+namespace test_eulerAngleZX
+{
+	int test()
+	{
+		int Error = 0;
+
+		glm::vec4 const V(1.0f);
+
+		float const AngleX(glm::pi<float>() * 0.5f);
+		float const AngleZ(glm::pi<float>() * 0.25f);
+
+		glm::vec3 const axisX(1.0f, 0.0f, 0.0f);
+		glm::vec3 const axisZ(0.0f, 0.0f, 1.0f);
+
+		glm::vec4 const V1 = (glm::rotate(glm::mat4(1.0f), AngleZ, axisZ) * glm::rotate(glm::mat4(1.0f), AngleX, axisX)) * V;
+		glm::vec4 const V2 = glm::eulerAngleZX(AngleZ, AngleX) * V;
+		glm::vec4 const V3 = glm::eulerAngleZ(AngleZ) * glm::eulerAngleX(AngleX) * V;
+		Error += glm::all(glm::epsilonEqual(V1, V2, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(V1, V3, 0.00001f)) ? 0 : 1;
+
+		return Error;
+	}
+}//namespace test_eulerAngleZX
+
+namespace test_eulerAngleYZ
+{
+	int test()
+	{
+		int Error = 0;
+
+		glm::vec4 const V(1.0f);
+
+		float const AngleY(glm::pi<float>() * 0.5f);
+		float const AngleZ(glm::pi<float>() * 0.25f);
+
+		glm::vec3 const axisX(1.0f, 0.0f, 0.0f);
+		glm::vec3 const axisY(0.0f, 1.0f, 0.0f);
+		glm::vec3 const axisZ(0.0f, 0.0f, 1.0f);
+
+		glm::vec4 const V1 = (glm::rotate(glm::mat4(1.0f), AngleY, axisY) * glm::rotate(glm::mat4(1.0f), AngleZ, axisZ)) * V;
+		glm::vec4 const V2 = glm::eulerAngleYZ(AngleY, AngleZ) * V;
+		glm::vec4 const V3 = glm::eulerAngleY(AngleY) * glm::eulerAngleZ(AngleZ) * V;
+		Error += glm::all(glm::epsilonEqual(V1, V2, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(V1, V3, 0.00001f)) ? 0 : 1;
+
+		return Error;
+	}
+}//namespace test_eulerAngleYZ
+
+namespace test_eulerAngleZY
+{
+	int test()
+	{
+		int Error = 0;
+
+		glm::vec4 const V(1.0f);
+
+		float const AngleY(glm::pi<float>() * 0.5f);
+		float const AngleZ(glm::pi<float>() * 0.25f);
+
+		glm::vec3 const axisX(1.0f, 0.0f, 0.0f);
+		glm::vec3 const axisY(0.0f, 1.0f, 0.0f);
+		glm::vec3 const axisZ(0.0f, 0.0f, 1.0f);
+
+		glm::vec4 const V1 = (glm::rotate(glm::mat4(1.0f), AngleZ, axisZ) * glm::rotate(glm::mat4(1.0f), AngleY, axisY)) * V;
+		glm::vec4 const V2 = glm::eulerAngleZY(AngleZ, AngleY) * V;
+		glm::vec4 const V3 = glm::eulerAngleZ(AngleZ) * glm::eulerAngleY(AngleY) * V;
+		Error += glm::all(glm::epsilonEqual(V1, V2, 0.00001f)) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(V1, V3, 0.00001f)) ? 0 : 1;
+
+		return Error;
+	}
+}//namespace test_eulerAngleZY
 
 namespace test_eulerAngleYXZ
 {
@@ -152,6 +327,11 @@ int main()
 	Error += test_eulerAngleY::test();
 	Error += test_eulerAngleZ::test();
 	Error += test_eulerAngleXY::test();
+	Error += test_eulerAngleYX::test();
+	Error += test_eulerAngleXZ::test();
+	Error += test_eulerAngleZX::test();
+	Error += test_eulerAngleYZ::test();
+	Error += test_eulerAngleZY::test();
 	Error += test_eulerAngleYXZ::test();
 
 	return Error; 
