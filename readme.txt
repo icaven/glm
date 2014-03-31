@@ -51,6 +51,7 @@ GLM 0.9.5.3: 2014-0X-XX
 - Fixed usubBorrow (#171)
 - Fixed eulerAngle*** not consistent for right-handed coordinate system (#173)
 - Added full tests for eulerAngle*** functions (#173)
+- Added workaround for a CUDA compiler bug (#186, #185)
 
 ================================================================================
 GLM 0.9.5.2: 2014-02-08
