@@ -214,7 +214,7 @@ namespace glm
 #		if((GLM_LANG & GLM_LANG_CXX11_FLAG))
 			return std::nextafter(x, std::numeric_limits<double>::max());
 #		elif((GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS)))
-			return detail::nextafterf(x, std::numeric_limits<double>::max());
+			return detail::nextafter(x, std::numeric_limits<double>::max());
 #		else
 			return nextafter(x, DBL_MAX);
 #		endif

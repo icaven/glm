@@ -27,13 +27,23 @@ namespace glm
 	template <>
 	GLM_FUNC_QUALIFIER float fastInverseSqrt<float>(float const & x)
 	{
-		return detail::compute_inversesqrt<detail::tvec1, float, lowp>::call(detail::tvec1<float, lowp>(x)).x;
+#		ifdef __CUDACC__ // Wordaround for a CUDA compiler bug up to CUDA6
+			detail::tvec1<T, P> tmp(detail::compute_inversesqrt<detail::tvec1, float, lowp>::call(detail::tvec1<float, lowp>(x)));
+			return tmp.x;
+#		else
+			return detail::compute_inversesqrt<detail::tvec1, float, lowp>::call(detail::tvec1<float, lowp>(x)).x;
+#		endif
 	}
 
 	template <>
 	GLM_FUNC_QUALIFIER double fastInverseSqrt<double>(double const & x)
 	{
-		return detail::compute_inversesqrt<detail::tvec1, double, lowp>::call(detail::tvec1<double, lowp>(x)).x;
+#		ifdef __CUDACC__ // Wordaround for a CUDA compiler bug up to CUDA6
+			detail::tvec1<T, P> tmp(detail::compute_inversesqrt<detail::tvec1, double, lowp>::call(detail::tvec1<double, lowp>(x)));
+			return tmp.x;
+#		else
+			return detail::compute_inversesqrt<detail::tvec1, double, lowp>::call(detail::tvec1<double, lowp>(x)).x;
+#		endif
 	}
 
 	template <template <class, precision> class vecType, typename T, precision P>

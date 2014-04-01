@@ -43,7 +43,12 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static T call(detail::tvec1<T, P> const & x, detail::tvec1<T, P> const & y)
 		{
-			return detail::tvec1<T, P>(x * y).x;
+#			ifdef __CUDACC__ // Wordaround for a CUDA compiler bug up to CUDA6
+				detail::tvec1<T, P> tmp(x * y);
+				return tmp.x;
+#			else
+				return detail::tvec1<T, P>(x * y).x;
+#			endif
 		}
 	};
 
