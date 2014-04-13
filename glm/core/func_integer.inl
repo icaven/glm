@@ -172,7 +172,8 @@ namespace glm
 
 		uint64 Value64 = static_cast<uint64>(x) * static_cast<uint64>(y);
 		msb = *(reinterpret_cast<uint32*>(&Value64) + 1);
-		lsb = reinterpret_cast<uint32&>(Value64);
+		//lsb = reinterpret_cast<uint32&>(Value64);
+    lsb = *(reinterpret_cast<uint32*>(Value64));
 	}
 
 	template <>
@@ -231,7 +232,7 @@ namespace glm
 
 		int64 Value64 = static_cast<int64>(x) * static_cast<int64>(y);
 		msb = *(reinterpret_cast<int32*>(&Value64) + 1);
-		lsb = reinterpret_cast<int32&>(Value64);
+		// lsb = reinterpret_cast<int32&>(Value64);
 	}
 
 	template <>

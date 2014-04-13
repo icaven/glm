@@ -179,7 +179,11 @@ namespace detail
 			genType xhalf(tmp * genType(0.5f));
 			genUType i = *reinterpret_cast<genUType*>(const_cast<genType*>(&v));
 			i = genUType(0x5f375a86) - (i >> genUType(1));
-			tmp = *reinterpret_cast<genType*>(&i);
+      // tmp = *reinterpret_cast<genType*>(&i);
+      {
+        genType* ptr(reinterpret_cast<genType*>(&i));
+        tmp = *ptr;
+      }
 			tmp = tmp * (genType(1.5f) - xhalf * tmp * tmp);
 			return tmp;
 		}
