@@ -56,6 +56,7 @@ namespace detail
 	{
 		enum ctor{null};
 
+                typedef T value_type;
 		typedef tvec4<bool, P> bool_type;
 
 	public:
