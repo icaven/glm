@@ -4,11 +4,14 @@ cmake_policy(VERSION 2.6)
 project(glm)
 enable_testing()
 
+list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
+include(GNUInstallDirs)
+
 add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 
 option(GLM_TEST_ENABLE "GLM test" OFF)
 if(NOT GLM_TEST_ENABLE)
-	message(FATAL_ERROR "GLM is a header only library, no need to build it. Set the option GLM_TEST_ENABLE with ON to build and run the test bench")
+	message(STATUS "GLM is a header only library, no need to build it. Set the option GLM_TEST_ENABLE with ON to build and run the test bench")
 endif()
 
 if(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU") OR (("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel") AND UNIX))
@@ -124,10 +127,11 @@ if(CMAKE_COMPILER_IS_GNUCXX)
 	#ctest_enable_coverage()
 endif()
 
-include_directories(".")
-include_directories("./test/external")
+include_directories("${PROJECT_SOURCE_DIR}")
+include_directories("${PROJECT_SOURCE_DIR}/test/external")
 
 add_subdirectory(glm)
 add_subdirectory(test)
+add_subdirectory(util)
 
-install(DIRECTORY glm DESTINATION include)
+install(DIRECTORY glm DESTINATION ${CMAKE_INSTALL_FULL_INCLUDEDIR})
