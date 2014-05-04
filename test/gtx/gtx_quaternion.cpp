@@ -87,10 +87,22 @@ int test_rotation()
 	return Error;
 }
 
+int test_log()
+{
+	int Error(0);
+	
+	glm::quat q;
+	glm::quat p = glm::log(q);
+	glm::quat r = glm::exp(p);
+
+	return Error;
+}
+
 int main()
 {
 	int Error(0);
 
+	Error += test_log();
 	Error += test_rotation();
 	Error += test_quat_fastMix();
 	Error += test_quat_shortMix();

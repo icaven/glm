@@ -45,6 +45,13 @@ GLM 0.9.6.0: 2014-XX-XX
 - Added move contructors and assignment operators (#141)
 
 ================================================================================
+GLM 0.9.5.4: 2014-0X-XX
+--------------------------------------------------------------------------------
+- Fixed non-utf8 character #196
+- Added FindGLM install for CMake #189
+- Fixed GTX_color_space - saturation #195
+
+================================================================================
 GLM 0.9.5.3: 2014-04-02
 --------------------------------------------------------------------------------
 - Added instruction set auto detection with Visual C++ using _M_IX86_FP - /arch
