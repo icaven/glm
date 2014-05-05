@@ -42,6 +42,7 @@ GLM 0.9.5.4: 2014-0X-XX
 - Fixed non-utf8 character #196
 - Added FindGLM install for CMake #189
 - Fixed GTX_color_space - saturation #195
+- Fixed glm::isinf and glm::isnan for with Android NDK 9d #191
 
 ================================================================================
 GLM 0.9.5.3: 2014-04-02
