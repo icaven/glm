@@ -68,8 +68,6 @@
 #	define GLM_PLATFORM GLM_PLATFORM_CHROME_NACL
 #elif defined(__ANDROID__)
 #	define GLM_PLATFORM GLM_PLATFORM_ANDROID
-#	include <android/api-level.h>
-#	define GLM_PLATFORM_ANDROID_VERSION __ANDROID_API__
 #elif defined(__linux)
 #	define GLM_PLATFORM GLM_PLATFORM_LINUX
 #elif defined(__unix)
