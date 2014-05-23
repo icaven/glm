@@ -302,16 +302,11 @@ namespace detail
 		detail::tvec3<T, P> const & v
 	)
 	{
-		T Two(2);
+		detail::tvec3<T, P> u(q.x, q.y, q.z);
+		detail::tvec3<T, P> uv(glm::cross(u, v) * q.w);
+		detail::tvec3<T, P> uuv(glm::cross(u, uv));
 
-		detail::tvec3<T, P> uv, uuv;
-		detail::tvec3<T, P> QuatVector(q.x, q.y, q.z);
-		uv = glm::cross(QuatVector, v);
-		uuv = glm::cross(QuatVector, uv);
-		uv *= (Two * q.w);
-		uuv *= Two;
-
-		return v + uv + uuv;
+		return v + (uv + uuv) * static_cast<float>(2);
 	}
 
 	template <typename T, precision P>
