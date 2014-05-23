@@ -43,6 +43,7 @@ GLM 0.9.5.4: 2014-0X-XX
 - Added FindGLM install for CMake #189
 - Fixed GTX_color_space - saturation #195
 - Fixed glm::isinf and glm::isnan for with Android NDK 9d #191
+- Fixed builtin GLM_ARCH_SSE4 #204
 
 ================================================================================
 GLM 0.9.5.3: 2014-04-02
