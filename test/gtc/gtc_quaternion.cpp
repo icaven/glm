@@ -247,6 +247,16 @@ int test_quat_type()
 	return 0;
 }
 
+int test_quat_mul_vec()
+{
+	glm::quat q = glm::angleAxis(glm::pi<float>() * 0.5f, glm::vec3(0, 0, 1));
+	glm::vec3 v(1, 0, 0);
+	glm::vec3 u(q * v);
+	glm::vec3 w(u * q);
+
+	return glm::all(glm::epsilonEqual(v, w, 0.01f));
+}
+
 int test_quat_ctr()
 {
 	int Error(0);
@@ -269,6 +279,7 @@ int main()
 	int Error(0);
 
 	Error += test_quat_ctr();
+	Error += test_quat_mul_vec();
 	Error += test_quat_two_axis_ctr();
 	Error += test_quat_mul();
 	Error += test_quat_precision();
