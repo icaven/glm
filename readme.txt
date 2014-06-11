@@ -46,6 +46,7 @@ GLM 0.9.5.4: 2014-0X-XX
 - Fixed builtin GLM_ARCH_SSE4 #204
 - Optimized Quaternion vector rotation #205
 - Fixed missing doxygen @endcond tag #211
+- Fixed instruction set detection with Clang #158
 
 ================================================================================
 GLM 0.9.5.3: 2014-04-02
