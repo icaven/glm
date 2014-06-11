@@ -250,7 +250,7 @@ namespace glm
 		detail::tvec3<T, P> const & angles
 	)
 	{
-		return detail::tmat3x3<T, P>(yawPitchRoll(angles.x, angles.y, angles.z));
+		return detail::tmat3x3<T, P>(yawPitchRoll(angles.z, angles.x, angles.y));
 	}
 
 	template <typename T, precision P>
