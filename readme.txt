@@ -45,6 +45,7 @@ GLM 0.9.5.4: 2014-0X-XX
 - Fixed glm::isinf and glm::isnan for with Android NDK 9d #191
 - Fixed builtin GLM_ARCH_SSE4 #204
 - Optimized Quaternion vector rotation #205
+- Fixed missing doxygen @endcond tag #211
 
 ================================================================================
 GLM 0.9.5.3: 2014-04-02
