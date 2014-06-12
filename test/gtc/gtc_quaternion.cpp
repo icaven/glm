@@ -196,6 +196,15 @@ int test_quat_slerp()
 	// Must be 0 0.00X 0 0.99999
 	glm::quat almostid = glm::slerp(id, glm::angleAxis(0.1f, glm::vec3(0.0f, 1.0f, 0.0f)), 0.5f);
 
+	// Testing quaternions with opposite sign
+	{
+		glm::quat a(-1, 0, 0, 0);
+
+		glm::quat result = glm::slerp(a, id, 0.5f);
+
+		Error += glm::epsilonEqual(glm::pow(glm::dot(id, result), 2.f), 1.f, 0.01f) ? 0 : 1;
+	}
+
 	return Error;
 }
 
