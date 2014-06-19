@@ -49,6 +49,7 @@ GLM 0.9.5.4: 2014-0X-XX
 - Fixed instruction set detection with Clang #158
 - Fixed orientate3 function #207
 - Fixed lerp when cosTheta is close to 1 in quaternion slerp #210
+- Added GTX_io for io with <iostream> #144
 
 ================================================================================
 GLM 0.9.5.3: 2014-04-02
