@@ -9,6 +9,9 @@
 
 #define GLM_FORCE_RADIANS
 #include <glm/glm.hpp>
+#include <algorithm>
+#include <vector>
+#include <iterator>
 
 struct my_vec2
 {
@@ -86,10 +89,23 @@ int test_vec4_cast()
 	return Error;
 }
 
+int test_std_copy()
+{
+	int Error = 0;
+
+	std::vector<glm::dvec4> High;
+	std::vector<glm::vec4> Medium(High.size());
+
+	std::copy(High.begin(), Medium.end(), Medium.begin());
+
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
 
+	Error += test_std_copy();
 	Error += test_vec2_cast();
 	Error += test_vec3_cast();
 	Error += test_vec4_cast();
