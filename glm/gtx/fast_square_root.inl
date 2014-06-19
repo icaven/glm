@@ -101,8 +101,38 @@ namespace glm
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType fastDistance
 	(
-		genType const & x, 
+		genType const & x,
 		genType const & y
+	)
+	{
+		return fastLength(y - x);
+	}
+
+	template <typename valType, precision P>
+	GLM_FUNC_QUALIFIER valType fastDistance
+	(
+		detail::tvec2<valType, P> const & x,
+		detail::tvec2<valType, P> const & y
+	)
+	{
+		return fastLength(y - x);
+	}
+
+	template <typename valType, precision P>
+	GLM_FUNC_QUALIFIER valType fastDistance
+	(
+		detail::tvec3<valType, P> const & x,
+		detail::tvec3<valType, P> const & y
+	)
+	{
+		return fastLength(y - x);
+	}
+
+	template <typename valType, precision P>
+	GLM_FUNC_QUALIFIER valType fastDistance
+	(
+		detail::tvec4<valType, P> const & x,
+		detail::tvec4<valType, P> const & y
 	)
 	{
 		return fastLength(y - x);
