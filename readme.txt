@@ -50,6 +50,15 @@ GLM 0.9.5.4: 2014-0X-XX
 - Fixed non-utf8 character #196
 - Added FindGLM install for CMake #189
 - Fixed GTX_color_space - saturation #195
+- Fixed glm::isinf and glm::isnan for with Android NDK 9d #191
+- Fixed builtin GLM_ARCH_SSE4 #204
+- Optimized Quaternion vector rotation #205
+- Fixed missing doxygen @endcond tag #211
+- Fixed instruction set detection with Clang #158
+- Fixed orientate3 function #207
+- Fixed lerp when cosTheta is close to 1 in quaternion slerp #210
+- Added GTX_io for io with <iostream> #144
+- Fixed fastDistance ambiguity #215
 
 ================================================================================
 GLM 0.9.5.3: 2014-04-02
