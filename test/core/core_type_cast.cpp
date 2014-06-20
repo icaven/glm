@@ -94,28 +94,41 @@ int test_std_copy()
 	int Error = 0;
 
 	{
-		std::vector<glm::dvec4> High4;
-		std::vector<glm::vec4> Medium4(High4.size());
+		std::vector<int> High;
+		High.resize(64);
+		std::vector<int> Medium(High.size());
+		
+		std::copy(High.begin(), High.end(), Medium.begin());
 
-		std::copy(&High4.begin()[0], &High4.end()[0], Medium4.begin());
+		*Medium.begin() = *High.begin();
+	}
+
+	{
+		std::vector<glm::dvec4> High4;
+		High4.resize(64);
+		std::vector<glm::vec4> Medium4(High4.size());
+		
+		std::copy(High4.begin(), High4.end(), Medium4.begin());
 
 		*Medium4.begin() = *High4.begin();
 	}
 
 	{
 		std::vector<glm::dvec3> High3;
+		High3.resize(64);
 		std::vector<glm::vec3> Medium3(High3.size());
 
-		std::copy(&High3.begin()[0], &High3.end()[0], Medium3.begin());
+		std::copy(High3.begin(), High3.end(), Medium3.begin());
 
 		*Medium3.begin() = *High3.begin();
 	}
 
 	{
 		std::vector<glm::dvec2> High2;
+		High2.resize(64);
 		std::vector<glm::vec2> Medium2(High2.size());
 
-		std::copy(&High2.begin()[0], &High2.end()[0], Medium2.begin());
+		std::copy(High2.begin(), High2.end(), Medium2.begin());
 
 		*Medium2.begin() = *High2.begin();
 	}
