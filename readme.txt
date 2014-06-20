@@ -53,6 +53,7 @@ GLM 0.9.5.4: 2014-0X-XX
 - Fixed fastDistance ambiguity #215
 - Fixed tweakedInfinitePerspective #208 and added user-defined epsilon to
   tweakedInfinitePerspective
+- Fixed std::copy and std::vector with GLM types #214
 
 ================================================================================
 GLM 0.9.5.3: 2014-04-02
