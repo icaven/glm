@@ -145,7 +145,7 @@ namespace detail
 		else if(glm::isinf(x))
 			return 0x1f << 6;
 
-		float Copy = reinterpret_cast<uint&>(x);
+		uint Pack = reinterpret_cast<uint&>(x);
 		return float2packed11(Pack);
 	}
 
@@ -352,7 +352,7 @@ namespace detail
 		return *Packed;
 	}
 
-	GLM_FUNC_QUALIFIER glm::vec4 unpackHalf4x16(uint64 const & v)
+	GLM_FUNC_QUALIFIER glm::vec4 unpackHalf4x16(uint64 v)
 	{
 		i16vec4* p = reinterpret_cast<i16vec4*>(const_cast<uint64*>(&v));
 		i16vec4 Unpack(*p);
