@@ -145,7 +145,8 @@ namespace detail
 		else if(glm::isinf(x))
 			return 0x1f << 6;
 
-		return float2packed11(reinterpret_cast<uint&>(x));
+		uint Pack = reinterpret_cast<uint&>(x);
+		return float2packed11(Pack);
 	}
 
 	GLM_FUNC_QUALIFIER float packed11bitToFloat(glm::uint x)
@@ -170,7 +171,8 @@ namespace detail
 		else if(glm::isinf(x))
 			return 0x1f << 5;
 
-		return float2packed10(reinterpret_cast<uint&>(x));
+		uint Pack = reinterpret_cast<uint&>(x);
+		return float2packed10(Pack);
 	}
 
 	GLM_FUNC_QUALIFIER float packed10bitToFloat(glm::uint x)
