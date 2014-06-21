@@ -45,7 +45,7 @@ GLM 0.9.6.0: 2014-XX-XX
 - Added move contructors and assignment operators (#141)
 
 ================================================================================
-GLM 0.9.5.4: 2014-0X-XX
+GLM 0.9.5.4: 2014-06-21
 --------------------------------------------------------------------------------
 - Fixed non-utf8 character #196
 - Added FindGLM install for CMake #189
@@ -64,6 +64,7 @@ GLM 0.9.5.4: 2014-0X-XX
 - Fixed std::copy and std::vector with GLM types #214
 - Fixed strict aliasing issues #212, #152
 - Fixed std::nextafter not supported with C++11 on Android #213
+- Fixed corner cases in exp and log functions for quaternions #199
 
 ================================================================================
 GLM 0.9.5.3: 2014-04-02
