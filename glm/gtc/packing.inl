@@ -170,6 +170,7 @@ namespace detail
 #		if(GLM_COMPILER & GLM_COMPILER_GCC || GLM_COMPILER & GLM_COMPILER_CLANG)
 			float Temp = 0;
 			memcpy(&Temp, &Result, sizeof(Temp));
+			return Temp;
 #		else	
 			return reinterpret_cast<float&>(Result);
 #		endif
@@ -184,7 +185,13 @@ namespace detail
 		else if(glm::isinf(x))
 			return 0x1f << 5;
 
-		uint Pack = reinterpret_cast<uint&>(x);
+#		if(GLM_COMPILER & GLM_COMPILER_GCC || GLM_COMPILER & GLM_COMPILER_CLANG)
+			uint Pack = 0;
+			memcpy(&Pack, &x, sizeof(Pack));
+#		else	
+			uint Pack = reinterpret_cast<uint&>(x);
+#		endif
+
 		return float2packed10(Pack);
 	}
 
@@ -197,8 +204,15 @@ namespace detail
 		else if(x == (0x1f << 5))
 			return ~0;//Inf
 
-		uint result = packed10ToFloat(x);
-		return reinterpret_cast<float&>(result);
+		uint Result = packed10ToFloat(x);
+
+#		if(GLM_COMPILER & GLM_COMPILER_GCC || GLM_COMPILER & GLM_COMPILER_CLANG)
+			float Temp = 0;
+			memcpy(&Temp, &Result, sizeof(Temp));
+			return Temp;
+#		else	
+			return reinterpret_cast<float&>(Result);
+#		endif
 	}
 
 //	GLM_FUNC_QUALIFIER glm::uint f11_f11_f10(float x, float y, float z)
