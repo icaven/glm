@@ -231,7 +231,7 @@ int test_inverse_perf(std::size_t Instance, char const * Message)
 	printf("inverse<%s>(%f): %d\n", Message, Diff, EndTime - StartTime);
 
 	return 0;
-};
+}
 
 int main()
 {
