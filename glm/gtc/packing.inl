@@ -31,11 +31,12 @@
 #include "../vec3.hpp"
 #include "../vec4.hpp"
 #include "../detail/type_half.hpp"
+#include <cstring>
 
 namespace glm{
 namespace detail
 {
-	GLM_FUNC_QUALIFIER glm::uint16 float2half(glm::uint32 const & f)
+	GLM_FUNC_QUALIFIER glm::uint16 float2half(glm::uint32 f)
 	{
 		// 10 bits    =>                         EE EEEFFFFF
 		// 11 bits    =>                        EEE EEFFFFFF
@@ -53,7 +54,7 @@ namespace detail
 			((f >> 13) & 0x03ff); // Mantissa
 	}
 
-	GLM_FUNC_QUALIFIER glm::uint32 float2packed11(glm::uint32 const & f)
+	GLM_FUNC_QUALIFIER glm::uint32 float2packed11(glm::uint32 f)
 	{
 		// 10 bits    =>                         EE EEEFFFFF
 		// 11 bits    =>                        EEE EEFFFFFF
@@ -71,7 +72,7 @@ namespace detail
 			((f >> 17) & 0x003f); // Mantissa
 	}
 
-	GLM_FUNC_QUALIFIER glm::uint32 packed11ToFloat(glm::uint32 const & p)
+	GLM_FUNC_QUALIFIER glm::uint32 packed11ToFloat(glm::uint32 p)
 	{
 		// 10 bits    =>                         EE EEEFFFFF
 		// 11 bits    =>                        EEE EEFFFFFF
@@ -89,7 +90,7 @@ namespace detail
 			((p & 0x003f) << 17); // Mantissa
 	}
 
-	GLM_FUNC_QUALIFIER glm::uint32 float2packed10(glm::uint32 const & f)
+	GLM_FUNC_QUALIFIER glm::uint32 float2packed10(glm::uint32 f)
 	{
 		// 10 bits    =>                         EE EEEFFFFF
 		// 11 bits    =>                        EEE EEFFFFFF
@@ -110,7 +111,7 @@ namespace detail
 			((f >> 18) & 0x001f); // Mantissa
 	}
 
-	GLM_FUNC_QUALIFIER glm::uint32 packed10ToFloat(glm::uint32 const & p)
+	GLM_FUNC_QUALIFIER glm::uint32 packed10ToFloat(glm::uint32 p)
 	{
 		// 10 bits    =>                         EE EEEFFFFF
 		// 11 bits    =>                        EEE EEFFFFFF
@@ -131,7 +132,7 @@ namespace detail
 			((p & 0x001f) << 18); // Mantissa
 	}
 
-	GLM_FUNC_QUALIFIER glm::uint half2float(glm::uint const & h)
+	GLM_FUNC_QUALIFIER glm::uint half2float(glm::uint h)
 	{
 		return ((h & 0x8000) << 16) | ((( h & 0x7c00) + 0x1C000) << 13) | ((h & 0x03FF) << 13);
 	}
@@ -145,7 +146,13 @@ namespace detail
 		else if(glm::isinf(x))
 			return 0x1f << 6;
 
-		uint Pack = reinterpret_cast<uint&>(x);
+#		if(GLM_COMPILER & GLM_COMPILER_GCC || GLM_COMPILER & GLM_COMPILER_CLANG)
+			uint Pack = 0;
+			memcpy(&Pack, &x, sizeof(Pack));
+#		else	
+			uint Pack = reinterpret_cast<uint&>(x);
+#		endif
+
 		return float2packed11(Pack);
 	}
 
