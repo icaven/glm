@@ -8,6 +8,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <limits>
+#include "../gtc/constants.hpp"
 
 namespace glm
 {
@@ -62,7 +63,10 @@ namespace glm
 	)
 	{
 		detail::tvec3<T, P> u(q.x, q.y, q.z);
-		float Angle = glm::length(u);
+		T Angle = glm::length(u);
+		if (Angle < epsilon<T>())
+			return detail::tquat<T, P>();
+
 		detail::tvec3<T, P> v(u / Angle);
 		return detail::tquat<T, P>(cos(Angle), sin(Angle) * v);
 	}
@@ -73,18 +77,20 @@ namespace glm
 		detail::tquat<T, P> const & q
 	)
 	{
-		if((q.x == static_cast<T>(0)) && (q.y == static_cast<T>(0)) && (q.z == static_cast<T>(0)))
+		detail::tvec3<T, P> u(q.x, q.y, q.z);
+		T Vec3Len = length(u);
+
+		if (Vec3Len < epsilon<T>())
 		{
-			if(q.w > T(0))
-				return detail::tquat<T, P>(log(q.w), T(0), T(0), T(0));
-			else if(q.w < T(0))
-				return detail::tquat<T, P>(log(-q.w), T(3.1415926535897932384626433832795), T(0),T(0));
+			if(q.w > static_cast<T>(0))
+				return detail::tquat<T, P>(log(q.w), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0));
+			else if(q.w < static_cast<T>(0))
+				return detail::tquat<T, P>(log(-q.w), pi<T>(), static_cast<T>(0), static_cast<T>(0));
 			else
 				return detail::tquat<T, P>(std::numeric_limits<T>::infinity(), std::numeric_limits<T>::infinity(), std::numeric_limits<T>::infinity(), std::numeric_limits<T>::infinity());
 		}
 		else
 		{
-			T Vec3Len = sqrt(q.x * q.x + q.y * q.y + q.z * q.z);
 			T QuatLen = sqrt(Vec3Len * Vec3Len + q.w * q.w);
 			T t = atan(Vec3Len, T(q.w)) / Vec3Len;
 			return detail::tquat<T, P>(log(QuatLen), t * q.x, t * q.y, t * q.z);
@@ -98,11 +104,11 @@ namespace glm
 		T const & y
 	)
 	{
-		if(abs(x.w) > T(0.9999))
+		if(abs(x.w) > (static_cast<T>(1) - epsilon<T>()))
 			return x;
-		float Angle = acos(y);
-		float NewAngle = Angle * y;
-		float Div = sin(NewAngle) / sin(Angle);
+		T Angle = acos(y);
+		T NewAngle = Angle * y;
+		T Div = sin(NewAngle) / sin(Angle);
 		return detail::tquat<T, P>(
 			cos(NewAngle),
 			x.x * Div,
