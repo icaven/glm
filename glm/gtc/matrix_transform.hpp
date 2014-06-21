@@ -226,7 +226,7 @@ namespace glm
 	/// @see gtc_matrix_transform
 	template <typename T>
 	GLM_FUNC_DECL detail::tmat4x4<T, defaultp> tweakedInfinitePerspective(
-		T fovy, T aspect, T near, T epsilon = epsilon<T>());
+		T fovy, T aspect, T near, T epsilon = glm::epsilon<T>());
 
 	/// Map the specified object coordinates (obj.x, obj.y, obj.z) into window coordinates.
 	/// 
