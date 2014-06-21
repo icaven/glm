@@ -228,7 +228,7 @@ int test_inverse_perf(std::size_t Instance, char const * Message)
 	//glm::uint Ulp = 0;
 	//Ulp = glm::max(glm::float_distance(*Dst, *Src), Ulp);
 
-	printf("inverse<%s>(%f): %d\n", Message, Diff, EndTime - StartTime);
+	printf("inverse<%s>(%f): %lu\n", Message, Diff, EndTime - StartTime);
 
 	return 0;
 }
