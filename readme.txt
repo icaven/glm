@@ -54,7 +54,8 @@ GLM 0.9.5.4: 2014-0X-XX
 - Fixed tweakedInfinitePerspective #208 and added user-defined epsilon to
   tweakedInfinitePerspective
 - Fixed std::copy and std::vector with GLM types #214
-- Fixed aliasing issues #212, #152
+- Fixed strict aliasing issues #212, #152
+- Fixed std::nextafter not supported with C++11 on Android #213
 
 ================================================================================
 GLM 0.9.5.3: 2014-04-02

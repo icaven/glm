@@ -311,7 +311,7 @@ namespace glm
 		T fovy,
 		T aspect,
 		T zNear,
-		T epsilon
+		T ep
 	)
 	{
 #ifdef GLM_FORCE_RADIANS
@@ -328,10 +328,21 @@ namespace glm
 		detail::tmat4x4<T, defaultp> Result(T(0));
 		Result[0][0] = (static_cast<T>(2) * zNear) / (right - left);
 		Result[1][1] = (static_cast<T>(2) * zNear) / (top - bottom);
-		Result[2][2] = epsilon - static_cast<T>(1);
+		Result[2][2] = ep - static_cast<T>(1);
 		Result[2][3] = static_cast<T>(-1);
-		Result[3][2] = (epsilon - static_cast<T>(2)) * zNear;
+		Result[3][2] = (ep - static_cast<T>(2)) * zNear;
 		return Result;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER detail::tmat4x4<T, defaultp> tweakedInfinitePerspective
+	(
+		T fovy,
+		T aspect,
+		T zNear
+	)
+	{
+		return tweakedInfinitePerspective(fovy, aspect, zNear, epsilon<T>());
 	}
 
 	template <typename T, typename U, precision P>

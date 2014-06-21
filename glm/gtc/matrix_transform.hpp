@@ -226,7 +226,18 @@ namespace glm
 	/// @see gtc_matrix_transform
 	template <typename T>
 	GLM_FUNC_DECL detail::tmat4x4<T, defaultp> tweakedInfinitePerspective(
-		T fovy, T aspect, T near, T epsilon = glm::epsilon<T>());
+		T fovy, T aspect, T near);
+
+	/// Creates a matrix for a symmetric perspective-view frustum with far plane at infinite for graphics hardware that doesn't support depth clamping.
+	/// 
+	/// @param fovy Expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
+	/// @param aspect 
+	/// @param near 
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @see gtc_matrix_transform
+	template <typename T>
+	GLM_FUNC_DECL detail::tmat4x4<T, defaultp> tweakedInfinitePerspective(
+		T fovy, T aspect, T near, T ep);
 
 	/// Map the specified object coordinates (obj.x, obj.y, obj.z) into window coordinates.
 	/// 
