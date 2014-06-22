@@ -167,7 +167,7 @@ namespace glm
 		detail::tmat4x4<T, defaultp> Result(1);
 		Result[0][0] = static_cast<T>(2) / (right - left);
 		Result[1][1] = static_cast<T>(2) / (top - bottom);
-		Result[2][2] = - T(2) / (zFar - zNear);
+		Result[2][2] = - static_cast<T>(2) / (zFar - zNear);
 		Result[3][0] = - (right + left) / (right - left);
 		Result[3][1] = - (top + bottom) / (top - bottom);
 		Result[3][2] = - (zFar + zNear) / (zFar - zNear);
@@ -186,7 +186,7 @@ namespace glm
 		detail::tmat4x4<T, defaultp> Result(1);
 		Result[0][0] = static_cast<T>(2) / (right - left);
 		Result[1][1] = static_cast<T>(2) / (top - bottom);
-		Result[2][2] = - T(1);
+		Result[2][2] = - static_cast<T>(1);
 		Result[3][0] = - (right + left) / (right - left);
 		Result[3][1] = - (top + bottom) / (top - bottom);
 		return Result;
