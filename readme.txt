@@ -44,8 +44,14 @@ GLM 0.9.6.0: 2014-XX-XX
 - Removed GLM_FORCE_RADIANS, active by default
 - Added move contructors and assignment operators (#141)
 
+GLM 0.9.5.5: 2014-XX-XX
+--------------------------------------------------------------------------------
+- Fixed std::nextafter not supported with C++11 on Android #213
+- Fixed missing value_type for dual quaternion
+- Fixed return type of dual quaternion length
+
 ================================================================================
-GLM 0.9.5.4: 2014-0X-XX
+GLM 0.9.5.4: 2014-06-21
 --------------------------------------------------------------------------------
 - Fixed non-utf8 character #196
 - Added FindGLM install for CMake #189
@@ -59,6 +65,12 @@ GLM 0.9.5.4: 2014-0X-XX
 - Fixed lerp when cosTheta is close to 1 in quaternion slerp #210
 - Added GTX_io for io with <iostream> #144
 - Fixed fastDistance ambiguity #215
+- Fixed tweakedInfinitePerspective #208 and added user-defined epsilon to
+  tweakedInfinitePerspective
+- Fixed std::copy and std::vector with GLM types #214
+- Fixed strict aliasing issues #212, #152
+- Fixed std::nextafter not supported with C++11 on Android #213
+- Fixed corner cases in exp and log functions for quaternions #199
 
 ================================================================================
 GLM 0.9.5.3: 2014-04-02
