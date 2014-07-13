@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_type_mat4x4
-#define glm_core_type_mat4x4
+#pragma once
 
 #include "../fwd.hpp"
 #include "type_vec4.hpp"
@@ -264,5 +263,3 @@ namespace detail
 #ifndef GLM_EXTERNAL_TEMPLATE
 #include "type_mat4x4.inl"
 #endif//GLM_EXTERNAL_TEMPLATE
-
-#endif//glm_core_type_mat4x4

@@ -39,8 +39,7 @@
 /// This extension is not supported with CUDA
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_string_cast
-#define GLM_GTX_string_cast
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -70,5 +69,3 @@ namespace glm
 }//namespace glm
 
 #include "string_cast.inl"
-
-#endif//GLM_GTX_string_cast

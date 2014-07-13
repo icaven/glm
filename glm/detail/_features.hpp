@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_features
-#define glm_core_features
+#pragma once
 
 // #define GLM_CXX98_EXCEPTIONS
 // #define GLM_CXX98_RTTI
@@ -423,5 +422,3 @@
 #	endif
 
 #endif//(GLM_COMPILER & GLM_COMPILER_CLANG)
-
-#endif//glm_core_features

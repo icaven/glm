@@ -40,8 +40,7 @@
 /// <glm/gtx/io.hpp> needs to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_io
-#define GLM_GTX_io GLM_VERSION
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -222,5 +221,3 @@ namespace glm
 }//namespace glm
 
 #include "io.inl"
-
-#endif//GLM_GTX_io

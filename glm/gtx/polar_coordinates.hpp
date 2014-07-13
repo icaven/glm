@@ -35,8 +35,7 @@
 /// <glm/gtx/polar_coordinates.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_polar_coordinates
-#define GLM_GTX_polar_coordinates
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -68,5 +67,3 @@ namespace glm
 }//namespace glm
 
 #include "polar_coordinates.inl"
-
-#endif//GLM_GTX_polar_coordinates

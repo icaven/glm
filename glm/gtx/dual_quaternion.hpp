@@ -38,8 +38,7 @@
 /// <glm/gtx/dual_quaternion.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_dual_quaternion
-#define GLM_GTX_dual_quaternion
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -291,5 +290,3 @@ namespace detail
 } //namespace glm
 
 #include "dual_quaternion.inl"
-
-#endif//GLM_GTX_dual_quaternion

@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_CORE_DETAIL_INCLUDED
-#define GLM_CORE_DETAIL_INCLUDED
+#pragma once
 
 #include "type_vec1.hpp"
 #include "type_vec2.hpp"
@@ -213,5 +212,3 @@ namespace detail
 	};
 }//namespace detail
 }//namespace glm
-
-#endif//GLM_CORE_DETAIL_INCLUDED

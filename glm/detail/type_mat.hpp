@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_type_mat
-#define glm_core_type_mat
+#pragma once
 
 #include "precision.hpp"
 
@@ -791,5 +790,3 @@ namespace detail
 	
 	/// @}
 }//namespace glm
-
-#endif//glm_core_type_mat

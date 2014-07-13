@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_CORE_PRECISION_INCLUDED
-#define GLM_CORE_PRECISION_INCLUDED
+#pragma once
 
 namespace glm
 {
@@ -39,5 +38,3 @@ namespace glm
 		defaultp = highp
 	};
 }//namespace glm
-
-#endif//GLM_CORE_PRECISION_INCLUDED

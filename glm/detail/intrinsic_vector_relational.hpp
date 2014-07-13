@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_detail_intrinsic_vector_relational
-#define glm_detail_intrinsic_vector_relational
+#pragma once
 
 #include "setup.hpp"
 
@@ -45,4 +44,3 @@ namespace detail
 #include "intrinsic_vector_relational.inl"
 
 #endif//GLM_ARCH
-#endif//glm_detail_intrinsic_vector_relational

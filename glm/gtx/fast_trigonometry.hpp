@@ -35,8 +35,7 @@
 /// <glm/gtx/fast_trigonometry.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_fast_trigonometry
-#define GLM_GTX_fast_trigonometry
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -96,5 +95,3 @@ namespace glm
 }//namespace glm
 
 #include "fast_trigonometry.inl"
-
-#endif//GLM_GTX_fast_trigonometry

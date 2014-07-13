@@ -37,8 +37,7 @@
 /// <glm/gtx/rotate_normalized_axis.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_rotate_normalized_axis
-#define GLM_GTX_rotate_normalized_axis
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -88,5 +87,3 @@ namespace glm
 }//namespace glm
 
 #include "rotate_normalized_axis.inl"
-
-#endif//GLM_GTX_rotate_normalized_axis

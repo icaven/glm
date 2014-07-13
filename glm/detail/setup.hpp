@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_SETUP_INCLUDED
-#define GLM_SETUP_INCLUDED
+#pragma once
 
 #include <cassert>
 
@@ -801,5 +800,3 @@ namespace glm
 #else
 #	define GLM_CONSTEXPR
 #endif
-
-#endif//GLM_SETUP_INCLUDED

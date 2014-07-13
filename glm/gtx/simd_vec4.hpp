@@ -35,8 +35,7 @@
 /// <glm/gtx/simd_vec4.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_simd_vec4
-#define GLM_GTX_simd_vec4
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -570,5 +569,3 @@ namespace detail
 #endif
 
 #endif//(GLM_ARCH != GLM_ARCH_PURE)
-
-#endif//GLM_GTX_simd_vec4

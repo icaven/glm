@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_DETAIL_NOISE_INCLUDED
-#define GLM_DETAIL_NOISE_INCLUDED
+#pragma once
 
 namespace glm{
 namespace detail
@@ -125,6 +124,4 @@ namespace detail
 */
 }//namespace detail
 }//namespace glm
-
-#endif//GLM_DETAIL_NOISE_INCLUDED
 

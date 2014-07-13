@@ -35,8 +35,7 @@
 /// b, inclusive. The lowest-order bit is bit 0.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_func_integer
-#define glm_core_func_integer
+#pragma once
 
 #include "setup.hpp"
 
@@ -198,6 +197,3 @@ namespace glm
 }//namespace glm
 
 #include "func_integer.inl"
-
-#endif//glm_core_func_integer
-

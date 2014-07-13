@@ -37,8 +37,7 @@
 /// <glm/gtc/epsilon.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTC_epsilon
-#define GLM_GTC_epsilon
+#pragma once
 
 // Dependencies
 #include "../detail/setup.hpp"
@@ -97,5 +96,3 @@ namespace glm
 }//namespace glm
 
 #include "epsilon.inl"
-
-#endif//GLM_GTC_epsilon

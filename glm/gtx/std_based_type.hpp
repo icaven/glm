@@ -35,8 +35,7 @@
 /// <glm/gtx/std_based_type.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_std_based_type
-#define GLM_GTX_std_based_type
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -79,5 +78,3 @@ namespace glm
 }//namespace glm
 
 #include "std_based_type.inl"
-
-#endif//GLM_GTX_std_based_type

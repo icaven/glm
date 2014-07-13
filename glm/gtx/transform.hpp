@@ -38,8 +38,7 @@
 /// <glm/gtx/transform.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_transform 
-#define GLM_GTX_transform
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -80,5 +79,3 @@ namespace glm
 }// namespace glm
 
 #include "transform.inl"
-
-#endif//GLM_GTX_transform

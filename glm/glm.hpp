@@ -77,8 +77,7 @@
 
 #include "detail/_fixes.hpp"
 
-#ifndef GLM_INCLUDED
-#define GLM_INCLUDED
+#pragma once
 
 #include <cmath>
 #include <climits>
@@ -113,5 +112,3 @@
 #include "matrix.hpp"
 #include "vector_relational.hpp"
 #include "integer.hpp"
-
-#endif//GLM_INCLUDED

@@ -26,9 +26,6 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_PACKING_INCLUDED
-#define GLM_PACKING_INCLUDED
+#pragma once
 
 #include "detail/func_packing.hpp"
-
-#endif//GLM_PACKING_INCLUDED

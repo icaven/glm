@@ -37,8 +37,7 @@
 /// <glm/gtc/quaternion.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTC_quaternion
-#define GLM_GTC_quaternion
+#pragma once
 
 // Dependency:
 #include "../mat3x3.hpp"
@@ -400,5 +399,3 @@ namespace detail
 } //namespace glm
 
 #include "quaternion.inl"
-
-#endif//GLM_GTC_quaternion

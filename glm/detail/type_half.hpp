@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_type_half
-#define glm_core_type_half
+#pragma once
 
 #include "setup.hpp"
 
@@ -47,5 +46,3 @@ namespace detail
 }//namespace glm
 
 #include "type_half.inl"
-
-#endif//glm_core_type_half

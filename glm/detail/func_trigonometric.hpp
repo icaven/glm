@@ -37,8 +37,7 @@
 /// These all operate component-wise. The description is per component.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_CORE_func_trigonometric
-#define GLM_CORE_func_trigonometric
+#pragma once
 
 namespace glm
 {
@@ -197,7 +196,3 @@ namespace glm
 }//namespace glm
 
 #include "func_trigonometric.inl"
-
-#endif//GLM_CORE_func_trigonometric
-
-

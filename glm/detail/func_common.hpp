@@ -33,8 +33,7 @@
 /// These all operate component-wise. The description is per component.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_FUNC_COMMON_INCLUDED
-#define GLM_FUNC_COMMON_INCLUDED
+#pragma once
 
 #include "setup.hpp"
 #include "precision.hpp"
@@ -469,4 +468,3 @@ namespace glm
 
 #include "func_common.inl"
 
-#endif//GLM_FUNC_COMMON_INCLUDED

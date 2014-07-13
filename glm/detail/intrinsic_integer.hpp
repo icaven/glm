@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_detail_intrinsic_integer
-#define glm_detail_intrinsic_integer
+#pragma once
 
 #include "glm/glm.hpp"
 
@@ -47,4 +46,3 @@ namespace detail
 #include "intrinsic_integer.inl"
 
 #endif//GLM_ARCH
-#endif//glm_detail_intrinsic_integer

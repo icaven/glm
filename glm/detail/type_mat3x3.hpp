@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_type_mat3x3
-#define glm_core_type_mat3x3
+#pragma once
 
 #include "../fwd.hpp"
 #include "type_vec3.hpp"
@@ -263,5 +262,3 @@ namespace detail
 #ifndef GLM_EXTERNAL_TEMPLATE
 #include "type_mat3x3.inl"
 #endif
-
-#endif //glm_core_type_mat3x3
