@@ -44,6 +44,7 @@ GLM 0.9.6.0: 2014-XX-XX
 - Removed GLM_FORCE_RADIANS, active by default
 - Added move contructors and assignment operators (#141)
 - Use pragma once
+- Fixed Visual Studio 14 compiler warnings
 
 ================================================================================
 GLM 0.9.5.5: 2014-XX-XX
