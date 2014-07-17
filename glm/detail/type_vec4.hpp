@@ -244,13 +244,13 @@ namespace detail
 
 		GLM_FUNC_DECL tvec4<T, P> & operator= (tvec4<T, P> const & v);
 
-		GLM_FUNC_DECL tvec4<T, P> & operator+=(T s);
+		GLM_FUNC_DECL tvec4<T, P> & operator+=(T v);
 		GLM_FUNC_DECL tvec4<T, P> & operator+=(tvec4<T, P> const & v);
-		GLM_FUNC_DECL tvec4<T, P> & operator-=(T s);
+		GLM_FUNC_DECL tvec4<T, P> & operator-=(T v);
 		GLM_FUNC_DECL tvec4<T, P> & operator-=(tvec4<T, P> const & v);
-		GLM_FUNC_DECL tvec4<T, P> & operator*=(T s);
+		GLM_FUNC_DECL tvec4<T, P> & operator*=(T v);
 		GLM_FUNC_DECL tvec4<T, P> & operator*=(tvec4<T, P> const & v);
-		GLM_FUNC_DECL tvec4<T, P> & operator/=(T s);
+		GLM_FUNC_DECL tvec4<T, P> & operator/=(T v);
 		GLM_FUNC_DECL tvec4<T, P> & operator/=(tvec4<T, P> const & v);
 		
 		template <typename U, precision Q>
