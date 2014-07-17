@@ -35,8 +35,7 @@
 /// <glm/gtx/handed_coordinate_system.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_handed_coordinate_space
-#define GLM_GTX_handed_coordinate_space
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -70,5 +69,3 @@ namespace glm
 }// namespace glm
 
 #include "handed_coordinate_space.inl"
-
-#endif//GLM_GTX_handed_coordinate_space

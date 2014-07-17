@@ -26,9 +26,6 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_COMMON_INCLUDED
-#define GLM_COMMON_INCLUDED
+#pragma once
 
 #include "detail/func_common.hpp"
-
-#endif//GLM_COMMON_INCLUDED

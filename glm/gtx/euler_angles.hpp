@@ -36,8 +36,7 @@
 /// <glm/gtx/euler_angles.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_euler_angles
-#define GLM_GTX_euler_angles
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -151,5 +150,3 @@ namespace glm
 }//namespace glm
 
 #include "euler_angles.inl"
-
-#endif//GLM_GTX_euler_angles

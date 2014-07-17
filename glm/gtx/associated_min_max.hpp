@@ -35,8 +35,7 @@
 /// <glm/gtx/associated_min_max.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_associated_min_max
-#define GLM_GTX_associated_min_max
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -102,5 +101,3 @@ namespace glm
 } //namespace glm
 
 #include "associated_min_max.inl"
-
-#endif//GLM_GTX_associated_min_max

@@ -36,8 +36,7 @@
 /// <glm/gtx/quaternion.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_quaternion
-#define GLM_GTX_quaternion
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -209,5 +208,3 @@ namespace glm
 }//namespace glm
 
 #include "quaternion.inl"
-
-#endif//GLM_GTX_quaternion

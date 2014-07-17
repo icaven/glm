@@ -38,8 +38,7 @@
 /// call must match.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_CORE_func_vector_relational
-#define GLM_CORE_func_vector_relational
+#pragma once
 
 #include "precision.hpp"
 #include "setup.hpp"
@@ -141,5 +140,3 @@ namespace glm
 #endif
 
 #include "func_vector_relational.inl"
-
-#endif//GLM_CORE_func_vector_relational

@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_FWD_INCLUDED
-#define GLM_FWD_INCLUDED
+#pragma once
 
 #include "detail/type_int.hpp"
 #include "detail/type_float.hpp"
@@ -2594,5 +2593,3 @@ namespace glm
 	typedef highp_f64quat			f64quat;
 #endif
 }//namespace glm
-
-#endif//GLM_FWD_INCLUDED

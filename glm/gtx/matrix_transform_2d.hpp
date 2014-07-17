@@ -35,8 +35,7 @@
 /// <glm/gtx/matrix_transform_2d.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_matrix_transform_2d
-#define GLM_GTX_matrix_transform_2d
+#pragma once
 
 // Dependency:
 #include "../mat3x3.hpp"
@@ -101,5 +100,3 @@ namespace glm
 }//namespace glm
 
 #include "matrix_transform_2d.inl"
-
-#endif//GLM_GTX_matrix_transform_2d

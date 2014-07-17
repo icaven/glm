@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_type
-#define glm_core_type
+#pragma once
 
 namespace glm
 {
@@ -36,5 +35,3 @@ namespace glm
 	class nicest {};
 	class fastest {};
 }//namespace glm
-
-#endif//glm_core_type

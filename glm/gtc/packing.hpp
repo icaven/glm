@@ -36,8 +36,7 @@
 /// <glm/gtc/packing.hpp> need to be included to use these features.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTC_packing
-#define GLM_GTC_packing
+#pragma once
 
 // Dependency:
 #include "type_precision.hpp"
@@ -473,6 +472,3 @@ namespace glm
 }// namespace glm
 
 #include "packing.inl"
-
-#endif//GLM_GTC_packing
-

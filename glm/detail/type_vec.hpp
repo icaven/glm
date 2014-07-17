@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_type_vec
-#define glm_core_type_vec
+#pragma once
 
 #include "precision.hpp"
 #include "type_int.hpp"
@@ -512,5 +511,3 @@ namespace detail
 	
 	/// @}
 }//namespace glm
-
-#endif//glm_core_type_vec

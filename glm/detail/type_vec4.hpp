@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_type_gentype4
-#define glm_core_type_gentype4
+#pragma once
 
 //#include "../fwd.hpp"
 #include "setup.hpp"
@@ -245,13 +244,13 @@ namespace detail
 
 		GLM_FUNC_DECL tvec4<T, P> & operator= (tvec4<T, P> const & v);
 
-		GLM_FUNC_DECL tvec4<T, P> & operator+=(T s);
+		GLM_FUNC_DECL tvec4<T, P> & operator+=(T v);
 		GLM_FUNC_DECL tvec4<T, P> & operator+=(tvec4<T, P> const & v);
-		GLM_FUNC_DECL tvec4<T, P> & operator-=(T s);
+		GLM_FUNC_DECL tvec4<T, P> & operator-=(T v);
 		GLM_FUNC_DECL tvec4<T, P> & operator-=(tvec4<T, P> const & v);
-		GLM_FUNC_DECL tvec4<T, P> & operator*=(T s);
+		GLM_FUNC_DECL tvec4<T, P> & operator*=(T v);
 		GLM_FUNC_DECL tvec4<T, P> & operator*=(tvec4<T, P> const & v);
-		GLM_FUNC_DECL tvec4<T, P> & operator/=(T s);
+		GLM_FUNC_DECL tvec4<T, P> & operator/=(T v);
 		GLM_FUNC_DECL tvec4<T, P> & operator/=(tvec4<T, P> const & v);
 		
 		template <typename U, precision Q>
@@ -418,5 +417,3 @@ namespace detail
 #ifndef GLM_EXTERNAL_TEMPLATE
 #include "type_vec4.inl"
 #endif//GLM_EXTERNAL_TEMPLATE
-
-#endif//glm_core_type_gentype4

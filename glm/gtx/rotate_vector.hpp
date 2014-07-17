@@ -36,8 +36,7 @@
 /// <glm/gtx/rotate_vector.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_rotate_vector
-#define GLM_GTX_rotate_vector
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -128,5 +127,3 @@ namespace glm
 }//namespace glm
 
 #include "rotate_vector.inl"
-
-#endif//GLM_GTX_rotate_vector

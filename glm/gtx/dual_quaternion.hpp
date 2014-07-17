@@ -38,8 +38,7 @@
 /// <glm/gtx/dual_quaternion.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_dual_quaternion
-#define GLM_GTX_dual_quaternion
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -57,13 +56,13 @@ namespace detail
 	struct tdualquat
 	{
 		enum ctor{null};
-		
+		typedef T value_type;
 		typedef glm::detail::tquat<T, P> part_type;
 		
 	public:
 		glm::detail::tquat<T, P> real, dual;
 		
-		GLM_FUNC_DECL GLM_CONSTEXPR int length() const;
+		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
 		
 		// Constructors
 		GLM_FUNC_DECL tdualquat();
@@ -291,5 +290,3 @@ namespace detail
 } //namespace glm
 
 #include "dual_quaternion.inl"
-
-#endif//GLM_GTX_dual_quaternion

@@ -114,9 +114,9 @@ namespace detail
 		detail::tvec3<T, P> const & v
 	)
 	{
-		detail::tvec3<T, P> w = cross(u, v);
+		detail::tvec3<T, P> const LocalW(cross(u, v));
 		T Dot = detail::compute_dot<detail::tvec3, T, P>::call(u, v);
-		detail::tquat<T, P> q(T(1) + Dot, w.x, w.y, w.z);
+		detail::tquat<T, P> q(T(1) + Dot, LocalW.x, LocalW.y, LocalW.z);
 
 		*this = normalize(q);
 	}

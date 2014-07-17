@@ -35,8 +35,7 @@
 /// <glm/gtx/simd_quat.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_simd_quat
-#define GLM_GTX_simd_quat
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -114,14 +113,14 @@ namespace detail
 		//////////////////////////////////////
 		// Unary arithmetic operators
 
-        fquatSIMD& operator =(fquatSIMD const & q);
-        fquatSIMD& operator*=(float const & s);
+		fquatSIMD& operator =(fquatSIMD const & q);
+		fquatSIMD& operator*=(float const & s);
 		fquatSIMD& operator/=(float const & s);
 	};
 
 
-    //////////////////////////////////////
-    // Arithmetic operators
+	//////////////////////////////////////
+	// Arithmetic operators
 
 	detail::fquatSIMD operator- (
 		detail::fquatSIMD const & q);
@@ -161,37 +160,37 @@ namespace detail
 	/// @addtogroup gtx_simd_quat
 	/// @{
 
-    //! Convert a simdQuat to a quat.
+	//! Convert a simdQuat to a quat.
 	//! (From GLM_GTX_simd_quat extension)
 	quat quat_cast(
 		detail::fquatSIMD const & x);
 
-    //! Convert a simdMat4 to a simdQuat.
-    //! (From GLM_GTX_simd_quat extension)
-    detail::fquatSIMD quatSIMD_cast(
-        detail::fmat4x4SIMD const & m);
+	//! Convert a simdMat4 to a simdQuat.
+	//! (From GLM_GTX_simd_quat extension)
+	detail::fquatSIMD quatSIMD_cast(
+		detail::fmat4x4SIMD const & m);
 
-    //! Converts a mat4 to a simdQuat.
-    //! (From GLM_GTX_simd_quat extension)
-    template <typename T, precision P>
-    detail::fquatSIMD quatSIMD_cast(
-        detail::tmat4x4<T, P> const & m);
+	//! Converts a mat4 to a simdQuat.
+	//! (From GLM_GTX_simd_quat extension)
+	template <typename T, precision P>
+	detail::fquatSIMD quatSIMD_cast(
+		detail::tmat4x4<T, P> const & m);
 
-    //! Converts a mat3 to a simdQuat.
-    //! (From GLM_GTX_simd_quat extension)
-    template <typename T, precision P>
-    detail::fquatSIMD quatSIMD_cast(
-        detail::tmat3x3<T, P> const & m);
+	//! Converts a mat3 to a simdQuat.
+	//! (From GLM_GTX_simd_quat extension)
+	template <typename T, precision P>
+	detail::fquatSIMD quatSIMD_cast(
+		detail::tmat3x3<T, P> const & m);
 
-    //! Convert a simdQuat to a simdMat4
-    //! (From GLM_GTX_simd_quat extension)
-    detail::fmat4x4SIMD mat4SIMD_cast(
-        detail::fquatSIMD const & q);
+	//! Convert a simdQuat to a simdMat4
+	//! (From GLM_GTX_simd_quat extension)
+	detail::fmat4x4SIMD mat4SIMD_cast(
+		detail::fquatSIMD const & q);
 
-    //! Converts a simdQuat to a standard mat4.
-    //! (From GLM_GTX_simd_quat extension)
-    mat4 mat4_cast(
-        detail::fquatSIMD const & q);
+	//! Converts a simdQuat to a standard mat4.
+	//! (From GLM_GTX_simd_quat extension)
+	mat4 mat4_cast(
+		detail::fquatSIMD const & q);
 
 
 	/// Returns the length of the quaternion. 
@@ -206,14 +205,14 @@ namespace detail
 	detail::fquatSIMD normalize(
 		detail::fquatSIMD const & x);
 
-    /// Returns dot product of q1 and q2, i.e., q1[0] * q2[0] + q1[1] * q2[1] + ... 
+	/// Returns dot product of q1 and q2, i.e., q1[0] * q2[0] + q1[1] * q2[1] + ... 
 	/// 
 	/// @see gtc_quaternion
 	float dot(
 		detail::fquatSIMD const & q1, 
 		detail::fquatSIMD const & q2);
 
-    /// Spherical linear interpolation of two quaternions.
+	/// Spherical linear interpolation of two quaternions.
 	/// The interpolation is oriented and the rotation is performed at constant speed.
 	/// For short path spherical linear interpolation, use the slerp function.
 	/// 
@@ -228,7 +227,7 @@ namespace detail
 		detail::fquatSIMD const & y, 
 		float const & a);
 
-    /// Linear interpolation of two quaternions. 
+	/// Linear interpolation of two quaternions. 
 	/// The interpolation is oriented.
 	/// 
 	/// @param x A quaternion
@@ -255,14 +254,14 @@ namespace detail
 		float const & a);
 
 
-    /// Faster spherical linear interpolation of two unit length quaternions.
-    ///
-    /// This is the same as mix(), except for two rules:
-    ///   1) The two quaternions must be unit length.
-    ///   2) The interpolation factor (a) must be in the range [0, 1].
-    ///
-    /// This will use the equivalent to fastAcos() and fastSin().
-    ///
+	/// Faster spherical linear interpolation of two unit length quaternions.
+	///
+	/// This is the same as mix(), except for two rules:
+	///   1) The two quaternions must be unit length.
+	///   2) The interpolation factor (a) must be in the range [0, 1].
+	///
+	/// This will use the equivalent to fastAcos() and fastSin().
+	///
 	/// @see gtc_quaternion
 	/// @see - mix(detail::fquatSIMD const & x, detail::fquatSIMD const & y, T const & a) 
 	detail::fquatSIMD fastMix(
@@ -270,14 +269,14 @@ namespace detail
 		detail::fquatSIMD const & y, 
 		float const & a);
 
-    /// Identical to fastMix() except takes the shortest path.
-    ///
-    /// The same rules apply here as those in fastMix(). Both quaternions must be unit length and 'a' must be
-    /// in the range [0, 1].
-    ///
+	/// Identical to fastMix() except takes the shortest path.
+	///
+	/// The same rules apply here as those in fastMix(). Both quaternions must be unit length and 'a' must be
+	/// in the range [0, 1].
+	///
 	/// @see - fastMix(detail::fquatSIMD const & x, detail::fquatSIMD const & y, T const & a) 
 	/// @see - slerp(detail::fquatSIMD const & x, detail::fquatSIMD const & y, T const & a) 
-    detail::fquatSIMD fastSlerp(
+	detail::fquatSIMD fastSlerp(
 		detail::fquatSIMD const & x, 
 		detail::fquatSIMD const & y, 
 		float const & a);
@@ -295,7 +294,7 @@ namespace detail
 	detail::fquatSIMD inverse(
 		detail::fquatSIMD const & q);
 
-    /// Build a quaternion from an angle and a normalized axis.
+	/// Build a quaternion from an angle and a normalized axis.
 	///
 	/// @param angle Angle expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
 	/// @param axis Axis of the quaternion, must be normalized. 
@@ -305,7 +304,7 @@ namespace detail
 		float const & angle, 
 		vec3 const & axis);
 
-    /// Build a quaternion from an angle and a normalized axis. 
+	/// Build a quaternion from an angle and a normalized axis. 
 	///
 	/// @param angle Angle expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
 	/// @param x x component of the x-axis, x, y, z must be a normalized axis
@@ -320,9 +319,9 @@ namespace detail
 		float const & z);
 
 
-    // TODO: Move this to somewhere more appropriate. Used with fastMix() and fastSlerp().
-    /// Performs the equivalent of glm::fastSin() on each component of the given __m128.
-    __m128 fastSin(__m128 x);
+	// TODO: Move this to somewhere more appropriate. Used with fastMix() and fastSlerp().
+	/// Performs the equivalent of glm::fastSin() on each component of the given __m128.
+	__m128 fastSin(__m128 x);
 
 
 	/// @}
@@ -337,5 +336,3 @@ namespace detail
 
 
 #endif//(GLM_ARCH != GLM_ARCH_PURE)
-
-#endif//GLM_GTX_simd_quat

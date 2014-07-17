@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_swizzle
-#define glm_core_swizzle
+#pragma once
 
 namespace glm{
 namespace detail
@@ -836,5 +835,3 @@ namespace glm
 	struct { _swizzle<4, T, P, V<T, P>, 3,3,3,1> E3 ## E3 ## E3 ## E1; }; \
 	struct { _swizzle<4, T, P, V<T, P>, 3,3,3,2> E3 ## E3 ## E3 ## E2; }; \
 	struct { _swizzle<4, T, P, V<T, P>, 3,3,3,3> E3 ## E3 ## E3 ## E3; };
-
-#endif//glm_core_swizzle

@@ -56,8 +56,7 @@
 /// <glm/gtc/type_ptr.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTC_type_ptr
-#define GLM_GTC_type_ptr
+#pragma once
 
 // Dependency:
 #include "../gtc/quaternion.hpp"
@@ -174,6 +173,3 @@ namespace glm
 }//namespace glm
 
 #include "type_ptr.inl"
-
-#endif//GLM_GTC_type_ptr
-

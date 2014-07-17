@@ -43,6 +43,15 @@ GLM 0.9.6.0: 2014-XX-XX
 - Removed degrees for function parameters
 - Removed GLM_FORCE_RADIANS, active by default
 - Added move contructors and assignment operators (#141)
+- Use pragma once
+- Fixed Visual Studio 14 compiler warnings
+
+================================================================================
+GLM 0.9.5.5: 2014-XX-XX
+--------------------------------------------------------------------------------
+- Fixed std::nextafter not supported with C++11 on Android #213
+- Fixed missing value_type for dual quaternion
+- Fixed return type of dual quaternion length
 
 ================================================================================
 GLM 0.9.5.4: 2014-06-21

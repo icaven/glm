@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_swizzle_func
-#define glm_core_swizzle_func
+#pragma once
 
 #define GLM_SWIZZLE_GEN_VEC2_ENTRY(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_TYPE, CONST, A, B)	\
 	SWIZZLED_TYPE<TMPL_TYPE, PRECISION> A ## B() CONST												\
@@ -720,5 +719,3 @@
 	GLM_SWIZZLE_GEN_VEC_FROM_VEC4_COMP(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_VEC2_TYPE, SWIZZLED_VEC3_TYPE, SWIZZLED_VEC4_TYPE, s, t, p, q)
 
 //GLM_SWIZZLE_GEN_VEC_FROM_VEC4(valType, detail::vec4, detail::vec2, detail::vec3, detail::vec4)
-
-#endif//glm_core_swizzle_func

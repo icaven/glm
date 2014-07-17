@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_MAT3X3_INCLUDED
-#define GLM_MAT3X3_INCLUDED
+#pragma once
 
 #include "detail/type_mat3x3.hpp"
 
@@ -76,5 +75,3 @@ namespace glm
 	typedef detail::tmat3x3<float, highp>		highp_mat3x3;
 
 }//namespace glm
-
-#endif//GLM_MAT3X3_INCLUDED

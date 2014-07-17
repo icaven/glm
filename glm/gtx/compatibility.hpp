@@ -36,8 +36,7 @@
 /// <glm/gtx/compatibility.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_compatibility
-#define GLM_GTX_compatibility
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"  
@@ -155,6 +154,3 @@ namespace glm
 }//namespace glm
 
 #include "compatibility.inl"
-
-#endif//GLM_GTX_compatibility
-

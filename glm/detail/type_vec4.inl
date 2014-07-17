@@ -295,12 +295,12 @@ namespace detail
 #endif
 	
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator+= (T s)
+	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator+= (T v)
 	{
-		this->x += s;
-		this->y += s;
-		this->z += s;
-		this->w += s;
+		this->x += v;
+		this->y += v;
+		this->z += v;
+		this->w += v;
 		return *this;
 	}
 	
@@ -331,12 +331,12 @@ namespace detail
 	}
 	
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator-= (T s)
+	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator-= (T v)
 	{
-		this->x -= s;
-		this->y -= s;
-		this->z -= s;
-		this->w -= s;
+		this->x -= v;
+		this->y -= v;
+		this->z -= v;
+		this->w -= v;
 		return *this;
 	}
 	
@@ -351,12 +351,12 @@ namespace detail
 	}
 	
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator*= (T s)
+	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator*= (T v)
 	{
-		this->x *= s;
-		this->y *= s;
-		this->z *= s;
-		this->w *= s;
+		this->x *= v;
+		this->y *= v;
+		this->z *= v;
+		this->w *= v;
 		return *this;
 	}
 	
@@ -371,12 +371,12 @@ namespace detail
 	}
 	
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator/= (T s)
+	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator/= (T v)
 	{
-		this->x /= s;
-		this->y /= s;
-		this->z /= s;
-		this->w /= s;
+		this->x /= v;
+		this->y /= v;
+		this->z /= v;
+		this->w /= v;
 		return *this;
 	}
 	
@@ -390,9 +390,6 @@ namespace detail
 		return *this;
 	}
 
-	
-	
-	
 	template <typename T, precision P>
 	template <typename U, precision Q>
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator= (tvec4<U, Q> const & v)

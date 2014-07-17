@@ -26,9 +26,6 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GEOMETRIC_INCLUDED
-#define GLM_GEOMETRIC_INCLUDED
+#pragma once
 
 #include "detail/func_geometric.hpp"
-
-#endif//GLM_GEOMETRIC_INCLUDED

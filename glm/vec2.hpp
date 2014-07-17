@@ -26,9 +26,6 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_VEC2_INCLUDED
-#define GLM_VEC2_INCLUDED
+#pragma once
 
 #include "detail/type_vec2.hpp"
-
-#endif//GLM_VEC2_INCLUDED

@@ -35,8 +35,7 @@
 /// <glm/gtx/color_space.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_color_space
-#define GLM_GTX_color_space
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -92,5 +91,3 @@ namespace glm
 }//namespace glm
 
 #include "color_space.inl"
-
-#endif//GLM_GTX_color_space
