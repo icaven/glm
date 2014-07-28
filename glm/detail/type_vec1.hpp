@@ -77,14 +77,13 @@ namespace detail
 		GLM_FUNC_DECL tvec1(tvec1<T, P> const & v);
 		template <precision Q>
 		GLM_FUNC_DECL tvec1(tvec1<T, Q> const & v);
+		template <typename U>
+		GLM_FUNC_DECL tvec1(U const & s);
 
 		//////////////////////////////////////
 		// Explicit basic constructors
 
-		GLM_FUNC_DECL explicit tvec1(
-			ctor);
-		GLM_FUNC_DECL tvec1(
-			T const & s);
+		GLM_FUNC_DECL explicit tvec1(ctor);
 
 		//////////////////////////////////////
 		// Conversion vector constructors
