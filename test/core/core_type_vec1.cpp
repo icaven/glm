@@ -12,12 +12,30 @@
 
 int test_operators()
 {
-	glm::vec4 A(1.0f);
-	glm::vec4 B(1.0f);
-	bool R = A != B;
-	bool S = A == B;
+	int Error(0);
 
-	return (S && !R) ? 0 : 1;
+	glm::vec1 A(1.0f);
+	glm::vec1 B(1.0f);
+	{
+		bool R = A != B;
+		bool S = A == B;
+
+		Error += (S && !R) ? 0 : 1;
+	}
+
+	{
+		A *= 1.0f;
+		B *= 1.0;
+		A += 1.0f;
+		B += 1.0;
+
+		bool R = A != B;
+		bool S = A == B;
+
+		Error += (S && !R) ? 0 : 1;
+	}
+
+	return Error;
 }
 
 int test_operator_increment()
