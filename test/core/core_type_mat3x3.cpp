@@ -7,7 +7,6 @@
 // File    : test/core/type_mat3x3.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/gtc/epsilon.hpp>
 #include <glm/matrix.hpp>
 #include <glm/vector_relational.hpp>

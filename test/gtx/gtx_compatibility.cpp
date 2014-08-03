@@ -7,7 +7,6 @@
 // File    : test/gtx/compatibility.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtx/compatibility.hpp>
 

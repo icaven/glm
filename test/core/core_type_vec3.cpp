@@ -7,7 +7,6 @@
 // File    : test/core/type_vec3.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #define GLM_SWIZZLE
 #include <glm/vector_relational.hpp>
 #include <glm/geometric.hpp>

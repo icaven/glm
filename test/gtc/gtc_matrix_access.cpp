@@ -7,7 +7,6 @@
 // File    : test/gtc/matrix_access.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/gtc/matrix_access.hpp>
 #include <glm/mat2x2.hpp>
 #include <glm/mat2x3.hpp>

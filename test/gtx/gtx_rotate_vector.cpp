@@ -7,7 +7,6 @@
 // File    : test/gtx/rotate_vector.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/gtc/constants.hpp>
 #include <glm/gtx/rotate_vector.hpp>
 

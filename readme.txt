@@ -45,6 +45,7 @@ GLM 0.9.6.0: 2014-XX-XX
 - Added move contructors and assignment operators (#141)
 - Use pragma once
 - Fixed Visual Studio 14 compiler warnings
+- Added *vec1 support to *vec2 types
 
 ================================================================================
 GLM 0.9.5.5: 2014-XX-XX

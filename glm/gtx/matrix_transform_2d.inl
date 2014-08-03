@@ -47,13 +47,9 @@ namespace glm
 		detail::tmat3x3<T, P> const & m,
 		T const & angle)
 	{
-	#ifdef GLM_FORCE_RADIANS
-		T a = angle;
-	#else
-		T a = radians(angle);		
-	#endif
-		T c = cos(a);
-		T s = sin(a);
+		T const a = angle;
+		T const c = cos(a);
+		T const s = sin(a);
 
 		detail::tmat3x3<T, P> Result(detail::tmat3x3<T, P>::_null);
 		Result[0] = m[0] * c + m[1] * s;

@@ -7,7 +7,6 @@
 // File    : test/gtc/type_precision.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtc/quaternion.hpp>
 #include <vector>

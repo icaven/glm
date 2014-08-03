@@ -7,7 +7,6 @@
 // File    : test/gtx/matrix_major_storage.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtx/matrix_major_storage.hpp>
 

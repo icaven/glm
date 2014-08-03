@@ -36,18 +36,13 @@ namespace glm
 		detail::tvec3<T, P> const & v
 	)
 	{
-#ifdef GLM_FORCE_RADIANS
-		T a = angle;
-#else
-#		pragma message("GLM: rotateNormalizedAxis function taking degrees as parameters is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.")
-		T a = radians(angle);
-#endif
-		T c = cos(a);
-		T s = sin(a);
+		T const a = angle;
+		T const c = cos(a);
+		T const s = sin(a);
 
-		detail::tvec3<T, P> axis = v;
+		detail::tvec3<T, P> const axis(v);
 
-		detail::tvec3<T, P> temp = (T(1) - c) * axis;
+		detail::tvec3<T, P> const temp((static_cast<T>(1) - c) * axis);
 
 		detail::tmat4x4<T, P> Rotate(detail::tmat4x4<T, P>::_null);
 		Rotate[0][0] = c + temp[0] * axis[0];
@@ -78,14 +73,9 @@ namespace glm
 		detail::tvec3<T, P> const & v
 	)
 	{
-		detail::tvec3<T, P> Tmp = v;
+		detail::tvec3<T, P> const Tmp(v);
 
-#ifdef GLM_FORCE_RADIANS
 		T const AngleRad(angle);
-#else
-#		pragma message("GLM: rotateNormalizedAxis function taking degrees as parameters is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.")
-		T const AngleRad = radians(angle);
-#endif
 		T const Sin = sin(AngleRad * T(0.5));
 
 		return q * detail::tquat<T, P>(cos(AngleRad * static_cast<T>(0.5)), Tmp.x * Sin, Tmp.y * Sin, Tmp.z * Sin);

@@ -89,7 +89,7 @@ namespace glm
 	/// Builds a rotation 4 * 4 matrix created from an axis vector and an angle. 
 	/// 
 	/// @param m Input matrix multiplied by this rotation matrix.
-	/// @param angle Rotation angle expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
+	/// @param angle Rotation angle expressed in radians.
 	/// @param axis Rotation axis, recommanded to be normalized.
 	/// @tparam T Value type used to build the matrix. Supported: half, float or double.
 	/// @see gtc_matrix_transform
@@ -175,7 +175,7 @@ namespace glm
 
 	/// Creates a matrix for a symetric perspective-view frustum.
 	/// 
-	/// @param fovy Expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
+	/// @param fovy Expressed in radians.
 	/// @param aspect 
 	/// @param near 
 	/// @param far 
@@ -190,7 +190,7 @@ namespace glm
 
 	/// Builds a perspective projection matrix based on a field of view.
 	/// 
-	/// @param fov Expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
+	/// @param fov Expressed in radians.
 	/// @param width 
 	/// @param height 
 	/// @param near 
@@ -207,7 +207,7 @@ namespace glm
 
 	/// Creates a matrix for a symmetric perspective-view frustum with far plane at infinite.
 	/// 
-	/// @param fovy Expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
+	/// @param fovy Expressed in radians.
 	/// @param aspect 
 	/// @param near 
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
@@ -218,7 +218,7 @@ namespace glm
 
 	/// Creates a matrix for a symmetric perspective-view frustum with far plane at infinite for graphics hardware that doesn't support depth clamping.
 	/// 
-	/// @param fovy Expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
+	/// @param fovy Expressed in radians.
 	/// @param aspect 
 	/// @param near 
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
@@ -229,7 +229,7 @@ namespace glm
 
 	/// Creates a matrix for a symmetric perspective-view frustum with far plane at infinite for graphics hardware that doesn't support depth clamping.
 	/// 
-	/// @param fovy Expressed in radians if GLM_FORCE_RADIANS is define or degrees otherwise.
+	/// @param fovy Expressed in radians.
 	/// @param aspect 
 	/// @param near 
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.

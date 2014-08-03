@@ -7,7 +7,6 @@
 // File    : test/gtx/simd-vec4.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/glm.hpp>
 #include <glm/gtx/simd_vec4.hpp>
 #include <cstdio>

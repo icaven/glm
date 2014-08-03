@@ -7,7 +7,6 @@
 // File    : test/gtx/color_space_YCoCg.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtx/color_space_YCoCg.hpp>
 

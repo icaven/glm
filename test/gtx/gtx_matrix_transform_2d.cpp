@@ -7,7 +7,6 @@
 // File    : test/gtx/matrix_transform_2d.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/gtx/matrix_transform_2d.hpp>
 
 int main()

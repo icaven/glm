@@ -7,7 +7,6 @@
 // File    : test/gtx/io.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtx/io.hpp>
 #include <iostream>

@@ -10,7 +10,6 @@
 //#include <boost/array.hpp>
 //#include <boost/date_time/posix_time/posix_time.hpp>
 //#include <boost/thread/thread.hpp>
-#define GLM_FORCE_RADIANS
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <cstdio>

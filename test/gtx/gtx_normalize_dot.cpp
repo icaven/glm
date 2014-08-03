@@ -7,7 +7,6 @@
 // File    : test/gtx/normalize_dot.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtx/normalize_dot.hpp>
 

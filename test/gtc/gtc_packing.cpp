@@ -26,7 +26,6 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/gtc/packing.hpp>
 #include <cstdio>
 #include <vector>

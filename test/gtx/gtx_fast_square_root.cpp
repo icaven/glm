@@ -7,7 +7,6 @@
 // File    : test/gtx/fast_square_root.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/gtx/fast_square_root.hpp>
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtc/epsilon.hpp>

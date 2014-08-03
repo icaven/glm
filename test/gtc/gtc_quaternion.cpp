@@ -7,7 +7,6 @@
 // File    : test/gtc/quaternion.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <glm/vector_relational.hpp>

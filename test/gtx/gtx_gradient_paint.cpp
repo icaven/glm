@@ -7,7 +7,6 @@
 // File    : test/gtx/gradient_paint.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/gtx/gradient_paint.hpp>
 
 int test_radialGradient()

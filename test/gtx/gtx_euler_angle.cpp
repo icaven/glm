@@ -9,7 +9,6 @@
 
 // Code sample from Filippo Ramaciotti
 
-#define GLM_FORCE_RADIANS
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <glm/gtx/string_cast.hpp>

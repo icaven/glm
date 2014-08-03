@@ -52,14 +52,9 @@ namespace glm
 		detail::tvec3<T, P> const & v
 	)
 	{
-#ifdef GLM_FORCE_RADIANS
-		T a = angle;
-#else
-#		pragma message("GLM: rotate function taking degrees as a parameter is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.")
-		T a = radians(angle);
-#endif
-		T c = cos(a);
-		T s = sin(a);
+		T const a = angle;
+		T const c = cos(a);
+		T const s = sin(a);
 
 		detail::tvec3<T, P> axis(normalize(v));
 		detail::tvec3<T, P> temp((T(1) - c) * axis);
@@ -93,14 +88,9 @@ namespace glm
 		detail::tvec3<T, P> const & v
 	)
 	{
-#ifdef GLM_FORCE_RADIANS
 		T const a = angle;
-#else
-#		pragma message("GLM: rotate_slow function taking degrees as a parameter is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.")
-		T const a = radians(angle);
-#endif
-		T c = cos(a);
-		T s = sin(a);
+		T const c = cos(a);
+		T const s = sin(a);
 		detail::tmat4x4<T, P> Result;
 
 		detail::tvec3<T, P> axis = normalize(v);
@@ -126,10 +116,10 @@ namespace glm
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tmat4x4<T, P> scale
-		(
+	(
 		detail::tmat4x4<T, P> const & m,
 		detail::tvec3<T, P> const & v
-		)
+	)
 	{
 		detail::tmat4x4<T, P> Result(detail::tmat4x4<T, P>::_null);
 		Result[0] = m[0] * v[0];
@@ -226,14 +216,8 @@ namespace glm
 		assert(aspect != static_cast<T>(0));
 		assert(zFar != zNear);
 
-#ifdef GLM_FORCE_RADIANS
 		T const rad = fovy;
-#else
-#		pragma message("GLM: perspective function taking degrees as a parameter is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.")
-		T const rad = glm::radians(fovy);
-#endif
-
-		T tanHalfFovy = tan(rad / static_cast<T>(2));
+		T const tanHalfFovy = tan(rad / static_cast<T>(2));
 
 		detail::tmat4x4<T, defaultp> Result(static_cast<T>(0));
 		Result[0][0] = static_cast<T>(1) / (aspect * tanHalfFovy);
@@ -258,14 +242,9 @@ namespace glm
 		assert(height > static_cast<T>(0));
 		assert(fov > static_cast<T>(0));
 	
-#ifdef GLM_FORCE_RADIANS
-		T rad = fov;
-#else
-#		pragma message("GLM: perspectiveFov function taking degrees as a parameter is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.")
-		T rad = glm::radians(fov);
-#endif
-		T h = glm::cos(static_cast<T>(0.5) * rad) / glm::sin(static_cast<T>(0.5) * rad);
-		T w = h * height / width; ///todo max(width , Height) / min(width , Height)?
+		T const rad = fov;
+		T const h = glm::cos(static_cast<T>(0.5) * rad) / glm::sin(static_cast<T>(0.5) * rad);
+		T const w = h * height / width; ///todo max(width , Height) / min(width , Height)?
 
 		detail::tmat4x4<T, defaultp> Result(static_cast<T>(0));
 		Result[0][0] = w;
@@ -284,16 +263,11 @@ namespace glm
 		T zNear
 	)
 	{
-#ifdef GLM_FORCE_RADIANS
-		T const range = tan(fovy / T(2)) * zNear;	
-#else
-#		pragma message("GLM: infinitePerspective function taking degrees as a parameter is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.")
-		T const range = tan(radians(fovy / T(2))) * zNear;	
-#endif
-		T left = -range * aspect;
-		T right = range * aspect;
-		T bottom = -range;
-		T top = range;
+		T const range = tan(fovy / T(2)) * zNear;
+		T const left = -range * aspect;
+		T const right = range * aspect;
+		T const bottom = -range;
+		T const top = range;
 
 		detail::tmat4x4<T, defaultp> Result(T(0));
 		Result[0][0] = (T(2) * zNear) / (right - left);
@@ -314,16 +288,11 @@ namespace glm
 		T ep
 	)
 	{
-#ifdef GLM_FORCE_RADIANS
-		T range = tan(fovy / T(2)) * zNear;	
-#else
-#		pragma message("GLM: tweakedInfinitePerspective function taking degrees as a parameter is deprecated. #define GLM_FORCE_RADIANS before including GLM headers to remove this message.")
-		T range = tan(radians(fovy / T(2))) * zNear;	
-#endif
-		T left = -range * aspect;
-		T right = range * aspect;
-		T bottom = -range;
-		T top = range;
+		T const range = tan(fovy / T(2)) * zNear;	
+		T const left = -range * aspect;
+		T const right = range * aspect;
+		T const bottom = -range;
+		T const top = range;
 
 		detail::tmat4x4<T, defaultp> Result(T(0));
 		Result[0][0] = (static_cast<T>(2) * zNear) / (right - left);
@@ -420,9 +389,9 @@ namespace glm
 		detail::tvec3<T, P> const & up
 	)
 	{
-		detail::tvec3<T, P> f(normalize(center - eye));
-		detail::tvec3<T, P> s(normalize(cross(f, up)));
-		detail::tvec3<T, P> u(cross(s, f));
+		detail::tvec3<T, P> const f(normalize(center - eye));
+		detail::tvec3<T, P> const s(normalize(cross(f, up)));
+		detail::tvec3<T, P> const u(cross(s, f));
 
 		detail::tmat4x4<T, P> Result(1);
 		Result[0][0] = s.x;

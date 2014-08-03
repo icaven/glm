@@ -7,7 +7,6 @@
 // File    : test/gtx/gtx_integer.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/gtc/epsilon.hpp>
 #include <glm/gtx/integer.hpp>
 #include <cstdio>

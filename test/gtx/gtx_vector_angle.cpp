@@ -7,7 +7,6 @@
 // File    : test/gtx/vector_angle.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/gtc/constants.hpp>
 #include <glm/gtx/vector_angle.hpp>
 #include <iostream>

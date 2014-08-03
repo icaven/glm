@@ -7,7 +7,6 @@
 // File    : test/gtx/matrix_interpolation.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/gtx/matrix_interpolation.hpp>
 
 int main()

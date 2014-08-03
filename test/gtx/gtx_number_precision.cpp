@@ -7,7 +7,6 @@
 // File    : test/gtx/number_precision.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtx/number_precision.hpp>
 

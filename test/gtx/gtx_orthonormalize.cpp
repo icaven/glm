@@ -7,7 +7,6 @@
 // File    : test/gtx/orthonormalize.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_RADIANS
 #include <glm/glm.hpp>
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtx/orthonormalize.hpp>
