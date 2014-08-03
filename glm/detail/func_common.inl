@@ -713,7 +713,9 @@ namespace detail
 			std::numeric_limits<genType>::is_iec559,
 			"'isnan' only accept floating-point inputs");
 
-#		if(GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_INTEL))
+#		if(GLM_LANG & GLM_LANG_CXX11_FLAG)
+			return std::isnan(x);
+#		elif(GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_INTEL))
 			return _isnan(x) != 0;
 #		elif(GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG))
 #			if(GLM_PLATFORM & GLM_PLATFORM_ANDROID && __cplusplus < 201103L)
@@ -780,11 +782,11 @@ namespace detail
 	GLM_FUNC_QUALIFIER bool isinf(
 		genType const & x)
 	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559,
-			"'isinf' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'isinf' only accept floating-point inputs");
 
-#		if(GLM_COMPILER & (GLM_COMPILER_INTEL | GLM_COMPILER_VC))
+#		if(GLM_LANG & GLM_LANG_CXX11_FLAG)
+			return std::isinf(x);
+#		elif(GLM_COMPILER & (GLM_COMPILER_INTEL | GLM_COMPILER_VC))
 			return _fpclass(x) == _FPCLASS_NINF || _fpclass(x) == _FPCLASS_PINF;
 #		elif(GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG))
 #			if(GLM_PLATFORM & GLM_PLATFORM_ANDROID && __cplusplus < 201103L)
