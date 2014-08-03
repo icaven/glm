@@ -42,6 +42,7 @@ GLM 0.9.5.5: 2014-XX-XX
 - Fixed std::nextafter not supported with C++11 on Android #213
 - Fixed missing value_type for dual quaternion
 - Fixed return type of dual quaternion length
+- Fixed infinite loop in isfinite function with GCC #221
 
 ================================================================================
 GLM 0.9.5.4: 2014-06-21
