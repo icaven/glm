@@ -7,6 +7,7 @@
 // File    : test/core/type_vec4.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_SWIZZLE
 #define GLM_FORCE_RADIANS
 #include <glm/vector_relational.hpp>
 #include <glm/vec2.hpp>
@@ -59,6 +60,37 @@ int test_vec4_ctor()
 			{8, 9, 0, 1}};
 	}
 #endif
+
+#if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
+	{
+		glm::vec4 A = glm::vec4(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::vec4 B = A.xyzw;
+		glm::vec4 C(A.xyzw);
+		glm::vec4 D(A.xyzw());
+		glm::vec4 E(A.x, A.yzw);
+		glm::vec4 F(A.x, A.yzw());
+		glm::vec4 G(A.xyz, A.w);
+		glm::vec4 H(A.xyz(), A.w);
+		glm::vec4 I(A.xy, A.zw);
+		glm::vec4 J(A.xy(), A.zw());
+		glm::vec4 K(A.x, A.y, A.zw);
+		glm::vec4 L(A.x, A.yz, A.w);
+		glm::vec4 M(A.xy, A.z, A.w);
+
+		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, C)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, D)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, E)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, F)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, G)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, H)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, I)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, J)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, K)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, L)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, M)) ? 0 : 1;
+	}
+#endif//(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
 
 	{
 		glm::vec4 A(1);
