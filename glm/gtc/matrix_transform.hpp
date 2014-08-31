@@ -46,7 +46,7 @@
 #ifndef GLM_GTC_matrix_transform
 #define GLM_GTC_matrix_transform
 
-// Dependency:
+// Dependencies
 #include "../mat4x4.hpp"
 #include "../vec2.hpp"
 #include "../vec3.hpp"
