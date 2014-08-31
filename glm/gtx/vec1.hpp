@@ -34,8 +34,7 @@
 /// <glm/gtx/vec1.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_vec1
-#define GLM_GTX_vec1
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -161,6 +160,3 @@ namespace glm
 }// namespace glm
 
 #include "vec1.inl"
-
-#endif//GLM_GTX_vec1
-

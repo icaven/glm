@@ -35,8 +35,7 @@
 /// <glm/gtx/color_space_YCoCg.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_color_space_YCoCg
-#define glm_gtx_color_space_YCoCg
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -80,5 +79,3 @@ namespace glm
 }//namespace glm
 
 #include "color_space_YCoCg.inl"
-
-#endif//glm_gtx_color_space_YCoCg

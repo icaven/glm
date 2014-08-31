@@ -36,8 +36,7 @@
 /// <glm/gtx/matrix_query.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_matrix_query
-#define GLM_GTX_matrix_query
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -97,5 +96,3 @@ namespace glm
 }//namespace glm
 
 #include "matrix_query.inl"
-
-#endif//GLM_GTX_matrix_query

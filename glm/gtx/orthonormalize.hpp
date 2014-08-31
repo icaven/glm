@@ -36,8 +36,7 @@
 /// <glm/gtx/orthonormalize.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_orthonormalize
-#define GLM_GTX_orthonormalize
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -68,5 +67,3 @@ namespace glm
 }//namespace glm
 
 #include "orthonormalize.inl"
-
-#endif//GLM_GTX_orthonormalize

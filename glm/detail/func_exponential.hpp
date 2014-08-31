@@ -33,8 +33,7 @@
 /// These all operate component-wise. The description is per component.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_func_exponential
-#define glm_core_func_exponential
+#pragma once
 
 #include "type_vec1.hpp"
 #include "type_vec2.hpp"
@@ -128,5 +127,3 @@ namespace glm
 }//namespace glm
 
 #include "func_exponential.inl"
-
-#endif//glm_core_func_exponential

@@ -26,9 +26,6 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_INTEGER_INCLUDED
-#define GLM_INTEGER_INCLUDED
+#pragma once
 
 #include "detail/func_integer.hpp"
-
-#endif//GLM_INTEGER_INCLUDED

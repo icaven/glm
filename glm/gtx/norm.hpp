@@ -36,8 +36,7 @@
 /// <glm/gtx/norm.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_norm
-#define GLM_GTX_norm
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -123,5 +122,3 @@ namespace glm
 }//namespace glm
 
 #include "norm.inl"
-
-#endif//GLM_GTX_norm

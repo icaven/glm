@@ -36,8 +36,7 @@
 /// <glm/gtx/matrix_major_storage.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_matrix_major_storage
-#define GLM_GTX_matrix_major_storage
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -139,5 +138,3 @@ namespace glm
 }//namespace glm
 
 #include "matrix_major_storage.inl"
-
-#endif//GLM_GTX_matrix_major_storage

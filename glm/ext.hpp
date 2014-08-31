@@ -55,8 +55,7 @@
 /// (http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=showprofile&User=22660).
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_EXT_INCLUDED
-#define GLM_EXT_INCLUDED
+#pragma once
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_EXT_INCLUDED_DISPLAYED))
 #	define GLM_MESSAGE_EXT_INCLUDED_DISPLAYED
@@ -133,5 +132,3 @@
 #	include "./gtx/simd_vec4.hpp"
 #	include "./gtx/simd_mat4.hpp"
 #endif
-
-#endif //GLM_EXT_INCLUDED

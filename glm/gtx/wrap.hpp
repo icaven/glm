@@ -35,8 +35,7 @@
 /// <glm/gtx/wrap.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_wrap
-#define GLM_GTX_wrap
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -69,5 +68,3 @@ namespace glm
 }// namespace glm
 
 #include "wrap.inl"
-
-#endif//GLM_GTX_wrap

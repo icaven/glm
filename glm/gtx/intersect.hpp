@@ -36,8 +36,7 @@
 /// <glm/gtx/intersect.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_intersect
-#define GLM_GTX_intersect
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -107,5 +106,3 @@ namespace glm
 }//namespace glm
 
 #include "intersect.inl"
-
-#endif//GLM_GTX_intersect

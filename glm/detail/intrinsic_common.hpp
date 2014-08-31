@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_detail_intrinsic_common
-#define glm_detail_intrinsic_common
+#pragma once
 
 #include "setup.hpp"
 
@@ -86,4 +85,3 @@ namespace detail
 #include "intrinsic_common.inl"
 
 #endif//GLM_ARCH
-#endif//glm_detail_intrinsic_common

@@ -100,7 +100,7 @@ int test_Half1x16()
 		glm::uint32 p0 = glm::packHalf1x16(Tests[i]);
 		float v0 = glm::unpackHalf1x16(p0);
 		glm::uint32 p1 = glm::packHalf1x16(v0);
-		float v1 = glm::unpackHalf1x16(p0);
+		float v1 = glm::unpackHalf1x16(p1);
 		Error += (v0 == v1) ? 0 : 1;
 	}
 
@@ -124,7 +124,7 @@ int test_Half4x16()
 		glm::uint64 p0 = glm::packHalf4x16(Tests[i]);
 		glm::vec4 v0 = glm::unpackHalf4x16(p0);
 		glm::uint64 p1 = glm::packHalf4x16(v0);
-		glm::vec4 v1 = glm::unpackHalf4x16(p0);
+		glm::vec4 v1 = glm::unpackHalf4x16(p1);
 		Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
 	}
 
@@ -148,7 +148,7 @@ int test_I3x10_1x2()
 		glm::uint32 p0 = glm::packI3x10_1x2(Tests[i]);
 		glm::ivec4 v0 = glm::unpackI3x10_1x2(p0);
 		glm::uint32 p1 = glm::packI3x10_1x2(v0);
-		glm::ivec4 v1 = glm::unpackI3x10_1x2(p0);
+		glm::ivec4 v1 = glm::unpackI3x10_1x2(p1);
 		Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
 	}
 
@@ -172,7 +172,7 @@ int test_U3x10_1x2()
 		glm::uint32 p0 = glm::packU3x10_1x2(Tests[i]);
 		glm::uvec4 v0 = glm::unpackU3x10_1x2(p0);
 		glm::uint32 p1 = glm::packU3x10_1x2(v0);
-		glm::uvec4 v1 = glm::unpackU3x10_1x2(p0);
+		glm::uvec4 v1 = glm::unpackU3x10_1x2(p1);
 		Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
 	}
 
@@ -196,7 +196,7 @@ int test_Snorm3x10_1x2()
 		glm::uint32 p0 = glm::packSnorm3x10_1x2(Tests[i]);
 		glm::vec4 v0 = glm::unpackSnorm3x10_1x2(p0);
 		glm::uint32 p1 = glm::packSnorm3x10_1x2(v0);
-		glm::vec4 v1 = glm::unpackSnorm3x10_1x2(p0);
+		glm::vec4 v1 = glm::unpackSnorm3x10_1x2(p1);
 		Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
 	}
 
@@ -220,7 +220,7 @@ int test_Unorm3x10_1x2()
 		glm::uint32 p0 = glm::packSnorm3x10_1x2(Tests[i]);
 		glm::vec4 v0 = glm::unpackSnorm3x10_1x2(p0);
 		glm::uint32 p1 = glm::packSnorm3x10_1x2(v0);
-		glm::vec4 v1 = glm::unpackSnorm3x10_1x2(p0);
+		glm::vec4 v1 = glm::unpackSnorm3x10_1x2(p1);
 		Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
 	}
 
@@ -244,7 +244,7 @@ int test_F2x11_1x10()
 		glm::uint32 p0 = glm::packF2x11_1x10(Tests[i]);
 		glm::vec3 v0 = glm::unpackF2x11_1x10(p0);
 		glm::uint32 p1 = glm::packF2x11_1x10(v0);
-		glm::vec3 v1 = glm::unpackF2x11_1x10(p0);
+		glm::vec3 v1 = glm::unpackF2x11_1x10(p1);
 		Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
 	}
 

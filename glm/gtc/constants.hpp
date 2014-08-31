@@ -36,8 +36,7 @@
 /// <glm/gtc/constants.hpp> need to be included to use these features.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTC_constants
-#define GLM_GTC_constants
+#pragma once
 
 // Dependencies
 #include "../detail/setup.hpp"
@@ -181,5 +180,3 @@ namespace glm
 } //namespace glm
 
 #include "constants.inl"
-
-#endif//GLM_GTC_constants

@@ -27,11 +27,29 @@ int test_fastInverseSqrt()
 	return 0;
 }
 
+int test_fastDistance()
+{
+	int Error(0);
+
+	glm::mediump_f32 A = glm::fastDistance(glm::mediump_f32(0.0f), glm::mediump_f32(1.0f));
+	glm::mediump_f32 B = glm::fastDistance(glm::mediump_f32vec2(0.0f), glm::mediump_f32vec2(1.0f, 0.0f));
+	glm::mediump_f32 C = glm::fastDistance(glm::mediump_f32vec3(0.0f), glm::mediump_f32vec3(1.0f, 0.0f, 0.0f));
+	glm::mediump_f32 D = glm::fastDistance(glm::mediump_f32vec4(0.0f), glm::mediump_f32vec4(1.0f, 0.0f, 0.0f, 0.0f));
+
+	Error += glm::epsilonEqual(A, glm::mediump_f32(1.0f), glm::mediump_f32(0.01f)) ? 0 : 1;
+	Error += glm::epsilonEqual(B, glm::mediump_f32(1.0f), glm::mediump_f32(0.01f)) ? 0 : 1;
+	Error += glm::epsilonEqual(C, glm::mediump_f32(1.0f), glm::mediump_f32(0.01f)) ? 0 : 1;
+	Error += glm::epsilonEqual(D, glm::mediump_f32(1.0f), glm::mediump_f32(0.01f)) ? 0 : 1;
+
+	return Error;
+}
+
 int main()
 {
 	int Error(0);
 
 	Error += test_fastInverseSqrt();
+	Error += test_fastDistance();
 
 	return Error;
 }

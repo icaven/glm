@@ -33,8 +33,7 @@
 /// These operate on vectors as vectors, not component-wise.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_func_geometric
-#define glm_core_func_geometric
+#pragma once
 
 #include "type_vec3.hpp"
 
@@ -147,5 +146,3 @@ namespace glm
 }//namespace glm
 
 #include "func_geometric.inl"
-
-#endif//glm_core_func_geometric

@@ -35,8 +35,7 @@
 /// <glm/gtx/mixed_product.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_mixed_product
-#define GLM_GTX_mixed_product
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -61,5 +60,3 @@ namespace glm
 }// namespace glm
 
 #include "mixed_product.inl"
-
-#endif//GLM_GTX_mixed_product

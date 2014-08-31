@@ -199,10 +199,12 @@ namespace glm
 	template <>
 	GLM_FUNC_QUALIFIER float next_float(float const & x)
 	{
-#		if((GLM_LANG & GLM_LANG_CXX11_FLAG))
+#		if((GLM_LANG & GLM_LANG_CXX11_FLAG) && !(GLM_PLATFORM & GLM_PLATFORM_ANDROID))
 			return std::nextafter(x, std::numeric_limits<float>::max());
 #		elif((GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS)))
 			return detail::nextafterf(x, FLT_MAX);
+#		elif(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
+			return _nextafterf(x, FLT_MAX);
 #		else
 			return nextafterf(x, FLT_MAX);
 #		endif
@@ -211,7 +213,7 @@ namespace glm
 	template <>
 	GLM_FUNC_QUALIFIER double next_float(double const & x)
 	{
-#		if((GLM_LANG & GLM_LANG_CXX11_FLAG))
+#		if((GLM_LANG & GLM_LANG_CXX11_FLAG) && !(GLM_PLATFORM & GLM_PLATFORM_ANDROID))
 			return std::nextafter(x, std::numeric_limits<double>::max());
 #		elif((GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS)))
 			return detail::nextafter(x, std::numeric_limits<double>::max());
@@ -231,10 +233,12 @@ namespace glm
 
 	GLM_FUNC_QUALIFIER float prev_float(float const & x)
 	{
-#		if((GLM_LANG & GLM_LANG_CXX11_FLAG))
+#		if((GLM_LANG & GLM_LANG_CXX11_FLAG) && !(GLM_PLATFORM & GLM_PLATFORM_ANDROID))
 			return std::nextafter(x, std::numeric_limits<float>::min());
 #		elif((GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS)))
 			return detail::nextafterf(x, FLT_MIN);
+#		elif(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
+			return _nextafterf(x, FLT_MIN);
 #		else
 			return nextafterf(x, FLT_MIN);
 #		endif
@@ -242,9 +246,9 @@ namespace glm
 
 	GLM_FUNC_QUALIFIER double prev_float(double const & x)
 	{
-#		if((GLM_LANG & GLM_LANG_CXX11_FLAG))
+#		if((GLM_LANG & GLM_LANG_CXX11_FLAG) && !(GLM_PLATFORM & GLM_PLATFORM_ANDROID))
 			return std::nextafter(x, std::numeric_limits<double>::min());
-#		elif((GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS)))
+#		elif((GLM_PLATFORM & GLM_PLATFORM_ANDROID) || (GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS)))
 			return _nextafter(x, DBL_MIN);
 #		else
 			return nextafter(x, DBL_MIN);

@@ -26,9 +26,6 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_EXPONENTIAL_INCLUDED
-#define GLM_EXPONENTIAL_INCLUDED
+#pragma once
 
 #include "detail/func_exponential.hpp"
-
-#endif//GLM_EXPONENTIAL_INCLUDED

@@ -36,8 +36,7 @@
 /// <glm/gtc/ulp.hpp> need to be included to use these features.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTC_ulp
-#define GLM_GTC_ulp
+#pragma once
 
 // Dependencies
 #include "../detail/setup.hpp"
@@ -87,6 +86,3 @@ namespace glm
 }// namespace glm
 
 #include "ulp.inl"
-
-#endif//GLM_GTC_ulp
-

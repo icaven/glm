@@ -35,8 +35,7 @@
 /// <glm/gtx/matrix_interpolation.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTX_matrix_interpolation
-#define GLM_GTX_matrix_interpolation
+#pragma once
 
 // Dependency:
 #include "../glm.hpp"
@@ -84,5 +83,3 @@ namespace glm
 }//namespace glm
 
 #include "matrix_interpolation.inl"
-
-#endif//GLM_GTX_matrix_interpolation

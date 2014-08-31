@@ -34,8 +34,7 @@
 /// <glm/gtc/matrix_integer.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTC_matrix_integer
-#define GLM_GTC_matrix_integer
+#pragma once
 
 // Dependency:
 #include "../mat2x2.hpp"
@@ -510,5 +509,3 @@ namespace glm
 
 	/// @}
 }//namespace glm
-
-#endif//GLM_GTC_matrix_integer

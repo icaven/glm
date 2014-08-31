@@ -40,8 +40,7 @@
 /// <glm/gtc/type_precision.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTC_type_precision
-#define GLM_GTC_type_precision
+#pragma once
 
 // Dependency:
 #include "../gtc/quaternion.hpp"
@@ -870,5 +869,3 @@ namespace glm
 }//namespace glm
 
 #include "type_precision.inl"
-
-#endif//GLM_GTC_type_precision

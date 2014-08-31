@@ -37,8 +37,7 @@
 /// <glm/gtc/random.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTC_random
-#define GLM_GTC_random
+#pragma once
 
 // Dependency:
 #include "../vec2.hpp"
@@ -110,5 +109,3 @@ namespace glm
 }//namespace glm
 
 #include "random.inl"
-
-#endif//GLM_GTC_random

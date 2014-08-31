@@ -35,8 +35,7 @@
 /// <glm/gtc/reciprocal.hpp> need to be included to use these features.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTC_reciprocal
-#define GLM_GTC_reciprocal
+#pragma once
 
 // Dependencies
 #include "../detail/setup.hpp"
@@ -129,5 +128,3 @@ namespace glm
 }//namespace glm
 
 #include "reciprocal.inl"
-
-#endif//GLM_GTC_reciprocal

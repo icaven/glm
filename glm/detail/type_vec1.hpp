@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_type_gentype1
-#define glm_core_type_gentype1
+#pragma once
 
 #include "../fwd.hpp"
 #include "type_vec.hpp"
@@ -273,5 +272,3 @@ namespace detail
 #ifndef GLM_EXTERNAL_TEMPLATE
 #include "type_vec1.inl"
 #endif//GLM_EXTERNAL_TEMPLATE
-
-#endif//glm_core_type_gentype1

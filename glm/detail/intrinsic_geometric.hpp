@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_intrinsic_geometric
-#define glm_core_intrinsic_geometric
+#pragma once
 
 #include "setup.hpp"
 
@@ -73,4 +72,3 @@ namespace detail
 #include "intrinsic_geometric.inl"
 
 #endif//GLM_ARCH
-#endif//glm_core_intrinsic_geometric

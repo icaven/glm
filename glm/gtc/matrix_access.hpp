@@ -34,8 +34,7 @@
 /// <glm/gtc/matrix_access.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef GLM_GTC_matrix_access
-#define GLM_GTC_matrix_access
+#pragma once
 
 // Dependency:
 #include "../detail/setup.hpp"
@@ -83,5 +82,3 @@ namespace glm
 }//namespace glm
 
 #include "matrix_access.inl"
-
-#endif//GLM_GTC_matrix_access

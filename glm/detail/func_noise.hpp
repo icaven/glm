@@ -35,8 +35,7 @@
 /// appearance of randomness, but are not truly random.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_core_func_noise
-#define glm_core_func_noise
+#pragma once
 
 #include "type_vec1.hpp"
 #include "type_vec2.hpp"
@@ -88,5 +87,3 @@ namespace glm
 }//namespace glm
 
 #include "func_noise.inl"
-
-#endif//glm_core_func_noise
