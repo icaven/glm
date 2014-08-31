@@ -7,9 +7,6 @@
 // File    : glm/gtx/closest_point.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#ifndef glm_gtx_closest_point
-#define glm_gtx_closest_point
-
 namespace glm
 {
 	template <typename T, precision P>
@@ -32,5 +29,3 @@ namespace glm
 		return a + LineDirection * Distance;
 	}
 }//namespace glm
-
-#endif//glm_gtx_closest_point
