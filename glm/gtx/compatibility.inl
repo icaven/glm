@@ -7,6 +7,8 @@
 // File    : glm/gtx/compatibility.inl
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+#include <limits>
+
 namespace glm
 {
 	// isfinite
@@ -21,7 +23,7 @@ namespace glm
 #		elif(GLM_COMPILER & GLM_COMPILER_GCC && GLM_PLATFORM & GLM_PLATFORM_ANDROID)
 			return _isfinite(x) != 0;
 #		else
-			return isfinite(x) != 0;
+			return x >= std::numeric_limits<genType>::min() && x <= std::numeric_limits<genType>::max();
 #		endif
 	}
 
