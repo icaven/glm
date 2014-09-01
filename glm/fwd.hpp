@@ -287,6 +287,13 @@ namespace glm
 	/// @see gtc_type_precision
 	typedef detail::int64 int64;
 
+
+#if GLM_HAS_EXTENDED_INTEGER_TYPE
+	using std::int8_t;
+	using std::int16_t;
+	using std::int32_t;
+	using std::int64_t;
+#else
 	/// 8 bit signed integer type.
 	/// @see gtc_type_precision
 	typedef detail::int8 int8_t;
@@ -302,6 +309,7 @@ namespace glm
 	/// 64 bit signed integer type.
 	/// @see gtc_type_precision
 	typedef detail::int64 int64_t;
+#endif
 
 	/// 8 bit signed integer type.
 	/// @see gtc_type_precision
@@ -889,6 +897,12 @@ namespace glm
 	/// @see gtc_type_precision
 	typedef detail::uint64 uint64;
 	
+#if GLM_HAS_EXTENDED_INTEGER_TYPE
+	using std::uint8_t;
+	using std::uint16_t;
+	using std::uint32_t;
+	using std::uint64_t;
+#else
 	/// 8 bit unsigned integer type.
 	/// @see gtc_type_precision
 	typedef detail::uint8 uint8_t;
@@ -904,7 +918,8 @@ namespace glm
 	/// 64 bit unsigned integer type.
 	/// @see gtc_type_precision
 	typedef detail::uint64 uint64_t;
-	
+#endif
+
 	/// 8 bit unsigned integer type.
 	/// @see gtc_type_precision
 	typedef detail::uint8 u8;
