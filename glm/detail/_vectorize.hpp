@@ -141,6 +141,18 @@
 	VECTORIZE3_VEC_SCA(func)		\
 	VECTORIZE4_VEC_SCA(func)
 
+#define VECTORIZE1_VEC_VEC(func)					\
+	template <typename T, precision P>				\
+	GLM_FUNC_QUALIFIER detail::tvec1<T, P> func		\
+	(												\
+		detail::tvec1<T, P> const & x,				\
+		detail::tvec1<T, P> const & y				\
+	)												\
+	{												\
+		return detail::tvec1<T, P>(					\
+			func(x.x, y.x));						\
+	}
+
 #define VECTORIZE2_VEC_VEC(func)					\
 	template <typename T, precision P>				\
 	GLM_FUNC_QUALIFIER detail::tvec2<T, P> func		\
@@ -184,6 +196,7 @@
 	}
 
 #define VECTORIZE_VEC_VEC(func)		\
+	VECTORIZE1_VEC_VEC(func)		\
 	VECTORIZE2_VEC_VEC(func)		\
 	VECTORIZE3_VEC_VEC(func)		\
 	VECTORIZE4_VEC_VEC(func)

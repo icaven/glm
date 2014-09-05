@@ -29,6 +29,7 @@
 #include "func_vector_relational.hpp"
 #include "_vectorize.hpp"
 #include <limits>
+#include <cmath>
 #include <cassert>
 
 namespace glm{
@@ -47,7 +48,11 @@ namespace detail
 		template <typename T>
 		GLM_FUNC_QUALIFIER T operator() (T const & Value) const
 		{
-			return static_cast<T>(::std::log(Value)) * static_cast<T>(1.4426950408889634073599246810019);
+#			if(GLM_LANG & GLM_LANG_CXX11_FLAG)
+				return std::log2(Value);
+#			else
+				return std::log(Value) * static_cast<T>(1.4426950408889634073599246810019);
+#			endif
 		}
 	};
 
@@ -78,6 +83,9 @@ namespace detail
 }//namespace detail
 
 	// pow
+	using std::pow;
+
+/*
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType pow
 	(
@@ -91,10 +99,14 @@ namespace detail
 
 		return std::pow(x, y);
 	}
+*/
 
 	VECTORIZE_VEC_VEC(pow)
 
 	// exp
+	using std::exp;
+
+/*
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType exp
 	(
@@ -107,10 +119,13 @@ namespace detail
 
 		return std::exp(x);
 	}
+*/
 
 	VECTORIZE_VEC(exp)
 
 	// log
+	using std::log;
+/*
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType log
 	(
@@ -123,7 +138,7 @@ namespace detail
 
 		return std::log(x);
 	}
-
+*/
 	VECTORIZE_VEC(log)
 
 	//exp2, ln2 = 0.69314718055994530941723212145818f
@@ -195,6 +210,8 @@ namespace detail
 	}//namespace detail
 	
 	// sqrt
+	using std::sqrt;
+/*
 	GLM_FUNC_QUALIFIER float sqrt(float x)
 	{
 #		ifdef __CUDACC__ // Wordaround for a CUDA compiler bug up to CUDA6
@@ -214,7 +231,7 @@ namespace detail
 			return detail::compute_sqrt<detail::tvec1, double, highp>::call(x).x;
 #		endif
 	}
-		
+*/
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> sqrt(vecType<T, P> const & x)
 	{
