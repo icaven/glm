@@ -312,6 +312,17 @@ namespace detail
 	}
 
 	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec1<T, P> modf
+	(
+		detail::tvec1<T, P> const & x,
+		detail::tvec1<T, P> & i
+	)
+	{
+		return detail::tvec1<T, P>(
+			modf(x.x, i.x));
+	}
+
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER detail::tvec2<T, P> modf
 	(
 		detail::tvec2<T, P> const & x,

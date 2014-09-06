@@ -19,6 +19,25 @@ int test_linearRand()
 	int Error = 0;
 
 	{
+		glm::i8vec2 A = glm::linearRand(glm::i8vec2(16), glm::i8vec2(32));
+		glm::i16vec2 B = glm::linearRand(glm::i16vec2(16), glm::i16vec2(32));
+		glm::i32vec2 C = glm::linearRand(glm::i32vec2(16), glm::i32vec2(32));
+		glm::i64vec2 D = glm::linearRand(glm::i64vec2(16), glm::i64vec2(32));
+	}
+
+	{
+		glm::u8vec2 A = glm::linearRand(glm::u8vec2(16), glm::u8vec2(32));
+		glm::u16vec2 B = glm::linearRand(glm::u16vec2(16), glm::u16vec2(32));
+		glm::u32vec2 C = glm::linearRand(glm::u32vec2(16), glm::u32vec2(32));
+		glm::u64vec2 D = glm::linearRand(glm::u64vec2(16), glm::u64vec2(32));
+	}
+
+	{
+		glm::f32vec2 A = glm::linearRand(glm::f32vec2(16), glm::f32vec2(32));
+		glm::f64vec2 B = glm::linearRand(glm::f64vec2(16), glm::f64vec2(32));
+	}
+
+	{
 		float ResultFloat = 0.0f;
 		double ResultDouble = 0.0f;
 		for(std::size_t i = 0; i < 100000; ++i)

@@ -47,6 +47,7 @@ GLM 0.9.6.0: 2014-XX-XX
 - Fixed Visual Studio 14 compiler warnings
 - Added *vec1 support to *vec2 types
 - Limited extended integer type redifinition (#233)
+- Improved linearRand: support precision and integers (#230)
 
 ================================================================================
 GLM 0.9.5.5: 2014-XX-XX

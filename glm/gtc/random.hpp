@@ -58,10 +58,15 @@ namespace glm
 	/// @param Max 
 	/// @tparam genType Value type. Currently supported: half (not recommanded), float or double scalars and vectors.
 	/// @see gtc_random
-	template <typename genType>
-	GLM_FUNC_DECL genType linearRand(
-		genType const & Min,
-		genType const & Max);
+	template <typename genTYpe>
+	GLM_FUNC_DECL genTYpe linearRand(
+		genTYpe const & Min,
+		genTYpe const & Max);
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> linearRand(
+		vecType<T, P> const & Min,
+		vecType<T, P> const & Max);
 
 	/// Generate random numbers in the interval [Min, Max], according a gaussian distribution 
 	/// 
