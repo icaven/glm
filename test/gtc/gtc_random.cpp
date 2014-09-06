@@ -18,23 +18,195 @@ int test_linearRand()
 {
 	int Error = 0;
 
+	glm::int32 const Min = 16;
+	glm::int32 const Max = 32;
+
 	{
-		glm::i8vec2 A = glm::linearRand(glm::i8vec2(16), glm::i8vec2(32));
-		glm::i16vec2 B = glm::linearRand(glm::i16vec2(16), glm::i16vec2(32));
-		glm::i32vec2 C = glm::linearRand(glm::i32vec2(16), glm::i32vec2(32));
-		glm::i64vec2 D = glm::linearRand(glm::i64vec2(16), glm::i64vec2(32));
+		glm::u8vec2 AMin(std::numeric_limits<glm::u8>::max());
+		glm::u8vec2 AMax(std::numeric_limits<glm::u8>::min());
+		{
+			for(std::size_t i = 0; i < 100000; ++i)
+			{
+				glm::u8vec2 A = glm::linearRand(glm::u8vec2(Min), glm::u8vec2(Max));
+				AMin = glm::min(AMin, A);
+				AMax = glm::max(AMax, A);
+
+				if(!glm::all(glm::lessThanEqual(A, glm::u8vec2(Max))))
+					++Error;
+				if(!glm::all(glm::greaterThanEqual(A, glm::u8vec2(Min))))
+					++Error;
+				assert(!Error);
+			}
+
+			Error += glm::all(glm::equal(AMin, glm::u8vec2(Min))) ? 0 : 1;
+			Error += glm::all(glm::equal(AMax, glm::u8vec2(Max))) ? 0 : 1;
+			assert(!Error);
+		}
+
+		glm::u16vec2 BMin(std::numeric_limits<glm::u16>::max());
+		glm::u16vec2 BMax(std::numeric_limits<glm::u16>::min());
+		{
+			for(std::size_t i = 0; i < 100000; ++i)
+			{
+				glm::u16vec2 B = glm::linearRand(glm::u16vec2(Min), glm::u16vec2(Max));
+				BMin = glm::min(BMin, B);
+				BMax = glm::max(BMax, B);
+
+				if(!glm::all(glm::lessThanEqual(B, glm::u16vec2(Max))))
+					++Error;
+				if(!glm::all(glm::greaterThanEqual(B, glm::u16vec2(Min))))
+					++Error;
+				assert(!Error);
+			}
+
+			Error += glm::all(glm::equal(BMin, glm::u16vec2(Min))) ? 0 : 1;
+			Error += glm::all(glm::equal(BMax, glm::u16vec2(Max))) ? 0 : 1;
+			assert(!Error);
+		}
+
+		glm::u32vec2 CMin(std::numeric_limits<glm::u32>::max());
+		glm::u32vec2 CMax(std::numeric_limits<glm::u32>::min());
+		{
+			for(std::size_t i = 0; i < 100000; ++i)
+			{
+				glm::u32vec2 C = glm::linearRand(glm::u32vec2(Min), glm::u32vec2(Max));
+				CMin = glm::min(CMin, C);
+				CMax = glm::max(CMax, C);
+
+				if(!glm::all(glm::lessThanEqual(C, glm::u32vec2(Max))))
+					++Error;
+				if(!glm::all(glm::greaterThanEqual(C, glm::u32vec2(Min))))
+					++Error;
+				assert(!Error);
+			}
+
+			Error += glm::all(glm::equal(CMin, glm::u32vec2(Min))) ? 0 : 1;
+			Error += glm::all(glm::equal(CMax, glm::u32vec2(Max))) ? 0 : 1;
+			assert(!Error);
+		}
+
+		glm::u64vec2 DMin(std::numeric_limits<glm::u64>::max());
+		glm::u64vec2 DMax(std::numeric_limits<glm::u64>::min());
+		{
+			for(std::size_t i = 0; i < 100000; ++i)
+			{
+				glm::u64vec2 D = glm::linearRand(glm::u64vec2(Min), glm::u64vec2(Max));
+				DMin = glm::min(DMin, D);
+				DMax = glm::max(DMax, D);
+
+				if(!glm::all(glm::lessThanEqual(D, glm::u64vec2(Max))))
+					++Error;
+				if(!glm::all(glm::greaterThanEqual(D, glm::u64vec2(Min))))
+					++Error;
+				assert(!Error);
+			}
+
+			Error += glm::all(glm::equal(DMin, glm::u64vec2(Min))) ? 0 : 1;
+			Error += glm::all(glm::equal(DMax, glm::u64vec2(Max))) ? 0 : 1;
+			assert(!Error);
+		}
 	}
 
 	{
-		glm::u8vec2 A = glm::linearRand(glm::u8vec2(16), glm::u8vec2(32));
-		glm::u16vec2 B = glm::linearRand(glm::u16vec2(16), glm::u16vec2(32));
-		glm::u32vec2 C = glm::linearRand(glm::u32vec2(16), glm::u32vec2(32));
-		glm::u64vec2 D = glm::linearRand(glm::u64vec2(16), glm::u64vec2(32));
+		glm::i8vec2 AMin(std::numeric_limits<glm::i8>::max());
+		glm::i8vec2 AMax(std::numeric_limits<glm::i8>::min());
+		{
+			for(std::size_t i = 0; i < 100000; ++i)
+			{
+				glm::i8vec2 A = glm::linearRand(glm::i8vec2(Min), glm::i8vec2(Max));
+				AMin = glm::min(AMin, A);
+				AMax = glm::max(AMax, A);
+
+				if(!glm::all(glm::lessThanEqual(A, glm::i8vec2(Max))))
+					++Error;
+				if(!glm::all(glm::greaterThanEqual(A, glm::i8vec2(Min))))
+					++Error;
+				assert(!Error);
+			}
+
+			Error += glm::all(glm::equal(AMin, glm::i8vec2(Min))) ? 0 : 1;
+			Error += glm::all(glm::equal(AMax, glm::i8vec2(Max))) ? 0 : 1;
+			assert(!Error);
+		}
+
+		glm::i16vec2 BMin(std::numeric_limits<glm::i16>::max());
+		glm::i16vec2 BMax(std::numeric_limits<glm::i16>::min());
+		{
+			for(std::size_t i = 0; i < 100000; ++i)
+			{
+				glm::i16vec2 B = glm::linearRand(glm::i16vec2(Min), glm::i16vec2(Max));
+				BMin = glm::min(BMin, B);
+				BMax = glm::max(BMax, B);
+
+				if(!glm::all(glm::lessThanEqual(B, glm::i16vec2(Max))))
+					++Error;
+				if(!glm::all(glm::greaterThanEqual(B, glm::i16vec2(Min))))
+					++Error;
+				assert(!Error);
+			}
+
+			Error += glm::all(glm::equal(BMin, glm::i16vec2(Min))) ? 0 : 1;
+			Error += glm::all(glm::equal(BMax, glm::i16vec2(Max))) ? 0 : 1;
+			assert(!Error);
+		}
+
+		glm::i32vec2 CMin(std::numeric_limits<glm::i32>::max());
+		glm::i32vec2 CMax(std::numeric_limits<glm::i32>::min());
+		{
+			for(std::size_t i = 0; i < 100000; ++i)
+			{
+				glm::i32vec2 C = glm::linearRand(glm::i32vec2(Min), glm::i32vec2(Max));
+				CMin = glm::min(CMin, C);
+				CMax = glm::max(CMax, C);
+
+				if(!glm::all(glm::lessThanEqual(C, glm::i32vec2(Max))))
+					++Error;
+				if(!glm::all(glm::greaterThanEqual(C, glm::i32vec2(Min))))
+					++Error;
+				assert(!Error);
+			}
+
+			Error += glm::all(glm::equal(CMin, glm::i32vec2(Min))) ? 0 : 1;
+			Error += glm::all(glm::equal(CMax, glm::i32vec2(Max))) ? 0 : 1;
+			assert(!Error);
+		}
+
+		glm::i64vec2 DMin(std::numeric_limits<glm::i64>::max());
+		glm::i64vec2 DMax(std::numeric_limits<glm::i64>::min());
+		{
+			for(std::size_t i = 0; i < 100000; ++i)
+			{
+				glm::i64vec2 D = glm::linearRand(glm::i64vec2(Min), glm::i64vec2(Max));
+				DMin = glm::min(DMin, D);
+				DMax = glm::max(DMax, D);
+
+				if(!glm::all(glm::lessThanEqual(D, glm::i64vec2(Max))))
+					++Error;
+				if(!glm::all(glm::greaterThanEqual(D, glm::i64vec2(Min))))
+					++Error;
+				assert(!Error);
+			}
+
+			Error += glm::all(glm::equal(DMin, glm::i64vec2(Min))) ? 0 : 1;
+			Error += glm::all(glm::equal(DMax, glm::i64vec2(Max))) ? 0 : 1;
+			assert(!Error);
+		}
 	}
 
+	for(std::size_t i = 0; i < 100000; ++i)
 	{
-		glm::f32vec2 A = glm::linearRand(glm::f32vec2(16), glm::f32vec2(32));
-		glm::f64vec2 B = glm::linearRand(glm::f64vec2(16), glm::f64vec2(32));
+		glm::f32vec2 const A(glm::linearRand(glm::f32vec2(Min), glm::f32vec2(Max)));
+		if(!glm::all(glm::lessThanEqual(A, glm::f32vec2(Max))))
+			++Error;
+		if(!glm::all(glm::greaterThanEqual(A, glm::f32vec2(Min))))
+			++Error;
+
+		glm::f64vec2 const B(glm::linearRand(glm::f64vec2(Min), glm::f64vec2(Max)));
+		if(!glm::all(glm::lessThanEqual(B, glm::f64vec2(Max))))
+			++Error;
+		if(!glm::all(glm::greaterThanEqual(B, glm::f64vec2(Min))))
+			++Error;
+		assert(!Error);
 	}
 
 	{

@@ -131,7 +131,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vecType<int8, P> call(vecType<int8, P> const & Min, vecType<int8, P> const & Max)
 		{
-			return (vecType<int8, P>(compute_rand<uint8, P, vecType>::call()) % (Max - Min)) + Min;
+			return (vecType<int8, P>(compute_rand<uint8, P, vecType>::call() % vecType<uint8, P>(Max + static_cast<int8>(1) - Min))) + Min;
 		}
 	};
 
@@ -140,7 +140,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vecType<uint8, P> call(vecType<uint8, P> const & Min, vecType<uint8, P> const & Max)
 		{
-			return (compute_rand<uint8, P, vecType>::call() % (Max - Min)) + Min;
+			return (compute_rand<uint8, P, vecType>::call() % (Max + static_cast<uint8>(1) - Min)) + Min;
 		}
 	};
 
@@ -149,7 +149,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vecType<int16, P> call(vecType<int16, P> const & Min, vecType<int16, P> const & Max)
 		{
-			return (vecType<int16, P>(compute_rand<uint16, P, vecType>::call()) % (Max - Min)) + Min;
+			return (vecType<int16, P>(compute_rand<uint16, P, vecType>::call() % vecType<uint16, P>(Max + static_cast<int16>(1) - Min))) + Min;
 		}
 	};
 
@@ -158,7 +158,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vecType<uint16, P> call(vecType<uint16, P> const & Min, vecType<uint16, P> const & Max)
 		{
-			return (compute_rand<uint16, P, vecType>::call() % (Max - Min)) + Min;
+			return (compute_rand<uint16, P, vecType>::call() % (Max + static_cast<uint16>(1) - Min)) + Min;
 		}
 	};
 
@@ -167,7 +167,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vecType<int32, P> call(vecType<int32, P> const & Min, vecType<int32, P> const & Max)
 		{
-			return (vecType<int32, P>(compute_rand<uint32, P, vecType>::call()) % (Max - Min)) + Min;
+			return (vecType<int32, P>(compute_rand<uint32, P, vecType>::call() % vecType<uint32, P>(Max + static_cast<int32>(1) - Min))) + Min;
 		}
 	};
 
@@ -176,7 +176,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vecType<uint32, P> call(vecType<uint32, P> const & Min, vecType<uint32, P> const & Max)
 		{
-			return (compute_rand<uint32, P, vecType>::call() % (Max - Min)) + Min;
+			return (compute_rand<uint32, P, vecType>::call() % (Max + static_cast<uint32>(1) - Min)) + Min;
 		}
 	};
 
@@ -185,7 +185,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vecType<int64, P> call(vecType<int64, P> const & Min, vecType<int64, P> const & Max)
 		{
-			return (vecType<int64, P>(compute_rand<uint64, P, vecType>::call()) % (Max - Min)) + Min;
+			return (vecType<int64, P>(compute_rand<uint64, P, vecType>::call() % vecType<uint64, P>(Max + static_cast<int64>(1) - Min))) + Min;
 		}
 	};
 
@@ -194,7 +194,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vecType<uint64, P> call(vecType<uint64, P> const & Min, vecType<uint64, P> const & Max)
 		{
-			return (compute_rand<uint64, P, vecType>::call() % (Max - Min)) + Min;
+			return (compute_rand<uint64, P, vecType>::call() % (Max + static_cast<uint64>(1) - Min)) + Min;
 		}
 	};
 
