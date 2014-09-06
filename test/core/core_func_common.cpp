@@ -12,6 +12,7 @@
 //#include <boost/thread/thread.hpp>
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/epsilon.hpp>
+#include <glm/gtx/vec1.hpp>
 #include <cstdio>
 #include <cmath>
 
@@ -146,6 +147,61 @@ int test_floatBitsToUint()
 		Error += A == C? 0 : 1;
 	}
 	
+	return Error;
+}
+
+int test_min()
+{
+	int Error = 0;
+
+	glm::vec1 A0 = glm::min(glm::vec1(1), glm::vec1(1));
+
+	glm::vec2 B0 = glm::min(glm::vec2(1), glm::vec2(1));
+	glm::vec2 B1 = glm::min(glm::vec2(1), 1.0f);
+	bool B2 = glm::all(glm::equal(B0, B1));
+	Error += B2 ? 0 : 1;
+
+	glm::vec3 C0 = glm::min(glm::vec3(1), glm::vec3(1));
+	glm::vec3 C1 = glm::min(glm::vec3(1), 1.0f);
+	bool C2 = glm::all(glm::equal(C0, C1));
+	Error += C2 ? 0 : 1;
+
+	glm::vec4 D0 = glm::min(glm::vec4(1), glm::vec4(1));
+	glm::vec4 D1 = glm::min(glm::vec4(1), 1.0f);
+	bool D2 = glm::all(glm::equal(D0, D1));
+	Error += D2 ? 0 : 1;
+
+	return Error;
+}
+
+int test_max()
+{
+	int Error = 0;
+
+	glm::vec1 A0 = glm::max(glm::vec1(1), glm::vec1(1));
+
+	glm::vec2 B0 = glm::max(glm::vec2(1), glm::vec2(1));
+	glm::vec2 B1 = glm::max(glm::vec2(1), 1.0f);
+	bool B2 = glm::all(glm::equal(B0, B1));
+	Error += B2 ? 0 : 1;
+
+	glm::vec3 C0 = glm::max(glm::vec3(1), glm::vec3(1));
+	glm::vec3 C1 = glm::max(glm::vec3(1), 1.0f);
+	bool C2 = glm::all(glm::equal(C0, C1));
+	Error += C2 ? 0 : 1;
+
+	glm::vec4 D0 = glm::max(glm::vec4(1), glm::vec4(1));
+	glm::vec4 D1 = glm::max(glm::vec4(1), 1.0f);
+	bool D2 = glm::all(glm::equal(D0, D1));
+	Error += D2 ? 0 : 1;
+
+	return Error;
+}
+
+int test_clamp()
+{
+	int Error = 0;
+
 	return Error;
 }
 
@@ -633,6 +689,8 @@ int main()
 	Error += test_floatBitsToInt();
 	Error += test_floatBitsToUint();
 	Error += test_step::run();
+	Error += test_max();
+	Error += test_min();
 	Error += test_mix::run();
 	Error += test_round();
 	Error += test_roundEven();
