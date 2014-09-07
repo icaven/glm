@@ -42,13 +42,14 @@ GLM 0.9.6.0: 2014-XX-XX
 - Added transparent use of SIMD instructions for vec4 and mat4 types
 - Removed degrees for function parameters
 - Removed GLM_FORCE_RADIANS, active by default
-- Added move contructors and assignment operators (#141)
+- Added move contructors and assignment operators #141
 - Use pragma once
 - Fixed Visual Studio 14 compiler warnings
 - Added *vec1 support to *vec2 types
-- Limited extended integer type redifinition (#233)
-- Improved linearRand: support precision and integers (#230)
-- Added vec3 slerp (#237)
+- Limited extended integer type redifinition #233
+- Improved linearRand: support precision and integers #230
+- Added vec3 slerp #237
+- Added GTX_common with isdenomal #223
 
 ================================================================================
 GLM 0.9.5.5: 2014-XX-XX

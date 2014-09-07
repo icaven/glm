@@ -39,7 +39,7 @@
 #pragma once
 
 // Dependency:
-#include "../glm.hpp"  
+#include "../glm.hpp"
 #include "../gtc/quaternion.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
