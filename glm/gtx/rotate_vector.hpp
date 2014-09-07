@@ -51,7 +51,7 @@ namespace glm
 	/// @addtogroup gtx_rotate_vector
 	/// @{
 
-	/// Returns the length of the quaternion.
+	/// Returns Spherical interpolation between two vectors
 	/// 
 	/// @param x A first vector
 	/// @param y A second vector
