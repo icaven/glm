@@ -51,6 +51,19 @@ namespace glm
 	/// @addtogroup gtx_rotate_vector
 	/// @{
 
+	/// Returns the length of the quaternion.
+	/// 
+	/// @param x A first vector
+	/// @param y A second vector
+	/// @param a Interpolation factor. The interpolation is defined beyond the range [0, 1].
+	/// 
+	/// @see gtc_quaternion
+	template <typename T, precision P>
+	GLM_FUNC_DECL detail::tvec3<T, P> slerp(
+		detail::tvec3<T, P> const & x,
+		detail::tvec3<T, P> const & y,
+		T const & a);
+
 	//! Rotate a two dimensional vector.
 	//! From GLM_GTX_rotate_vector extension.
 	template <typename T, precision P>
