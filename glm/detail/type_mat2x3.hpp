@@ -109,16 +109,6 @@ namespace detail
 		GLM_FUNC_DECL col_type & operator[](length_t i);
 		GLM_FUNC_DECL col_type const & operator[](length_t i) const;
 
-		// Unary updatable operators
-#		if(GLM_HAS_DEFAULTED_FUNCTIONS && GLM_HAS_RVALUE_REFERENCES)
-			GLM_FUNC_DECL tmat2x3<T, P> & operator=(tmat2x3<T, P> && m)
-			{
-				this->value[0] = std::move(m.value[0]);
-				this->value[1] = std::move(m.value[1]);
-				return *this;
-			}
-#		endif//(GLM_HAS_DEFAULTED_FUNCTIONS && GLM_HAS_RVALUE_REFERENCES)
-
 		GLM_FUNC_DECL tmat2x3<T, P> & operator=  (tmat2x3<T, P> const & m);
 		template <typename U> 
 		GLM_FUNC_DECL tmat2x3<T, P> & operator=  (tmat2x3<U, P> const & m);
