@@ -28,7 +28,6 @@
 
 #include "../geometric.hpp"
 #include <limits>
-#include <type_traits>
 
 namespace glm{
 namespace detail
