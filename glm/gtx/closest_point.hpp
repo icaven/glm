@@ -56,6 +56,13 @@ namespace glm
 		detail::tvec3<T, P> const & point,
 		detail::tvec3<T, P> const & a, 
 		detail::tvec3<T, P> const & b);
+	
+	/// 2d lines work as well	
+	template <typename T, precision P>
+	GLM_FUNC_DECL detail::tvec2<T, P> closestPointOnLine(
+		detail::tvec2<T, P> const & point,
+		detail::tvec2<T, P> const & a, 
+		detail::tvec2<T, P> const & b);	
 
 	/// @}
 }// namespace glm
