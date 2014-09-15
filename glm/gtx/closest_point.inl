@@ -28,4 +28,25 @@ namespace glm
 		if(Distance >= LineLength) return b;
 		return a + LineDirection * Distance;
 	}
+	
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER detail::tvec2<T, P> closestPointOnLine
+	(
+		detail::tvec2<T, P> const & point,
+		detail::tvec2<T, P> const & a,
+		detail::tvec2<T, P> const & b
+	)
+	{
+		T LineLength = distance(a, b);
+		detail::tvec2<T, P> Vector = point - a;
+		detail::tvec2<T, P> LineDirection = (b - a) / LineLength;
+
+		// Project Vector to LineDirection to get the distance of point from a
+		T Distance = dot(Vector, LineDirection);
+
+		if(Distance <= T(0)) return a;
+		if(Distance >= LineLength) return b;
+		return a + LineDirection * Distance;
+	}
+	
 }//namespace glm
