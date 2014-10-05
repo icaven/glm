@@ -49,18 +49,20 @@
 #	pragma message("GLM: GLM_GTX_dual_quaternion extension included")
 #endif
 
-namespace glm{
-namespace detail
+namespace glm
 {
+	/// @addtogroup gtc_dual_quaternion
+	/// @{
+
 	template <typename T, precision P>
 	struct tdualquat
 	{
 		enum ctor{null};
 		typedef T value_type;
-		typedef glm::detail::tquat<T, P> part_type;
+		typedef glm::tquat<T, P> part_type;
 		
 	public:
-		glm::detail::tquat<T, P> real, dual;
+		glm::tquat<T, P> real, dual;
 		
 		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
 		
@@ -85,80 +87,76 @@ namespace detail
 	};
 	
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tquat<T, P> operator- (
-		detail::tquat<T, P> const & q);
+	GLM_FUNC_DECL tquat<T, P> operator- (
+		tquat<T, P> const & q);
 	
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tdualquat<T, P> operator+ (
-		detail::tdualquat<T, P> const & q,
-		detail::tdualquat<T, P> const & p);
+	GLM_FUNC_DECL tdualquat<T, P> operator+ (
+		tdualquat<T, P> const & q,
+		tdualquat<T, P> const & p);
 	
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tdualquat<T, P> operator* (
-		detail::tdualquat<T, P> const & q,
-		detail::tdualquat<T, P> const & p);
+	GLM_FUNC_DECL tdualquat<T, P> operator* (
+		tdualquat<T, P> const & q,
+		tdualquat<T, P> const & p);
 	
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tvec3<T, P> operator* (
-		detail::tquat<T, P> const & q,
-		detail::tvec3<T, P> const & v);
+	GLM_FUNC_DECL tvec3<T, P> operator* (
+		tquat<T, P> const & q,
+		tvec3<T, P> const & v);
 	
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tvec3<T, P> operator* (
-		detail::tvec3<T, P> const & v,
-		detail::tquat<T, P> const & q);
+	GLM_FUNC_DECL tvec3<T, P> operator* (
+		tvec3<T, P> const & v,
+		tquat<T, P> const & q);
 	
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tvec4<T, P> operator* (
-		detail::tquat<T, P> const & q,
-		detail::tvec4<T, P> const & v);
+	GLM_FUNC_DECL tvec4<T, P> operator* (
+		tquat<T, P> const & q,
+		tvec4<T, P> const & v);
 	
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tvec4<T, P> operator* (
-		detail::tvec4<T, P> const & v,
-		detail::tquat<T, P> const & q);
+	GLM_FUNC_DECL tvec4<T, P> operator* (
+		tvec4<T, P> const & v,
+		tquat<T, P> const & q);
 	
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tdualquat<T, P> operator* (
-		detail::tdualquat<T, P> const & q,
+	GLM_FUNC_DECL tdualquat<T, P> operator* (
+		tdualquat<T, P> const & q,
 		T const & s);
 	
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tdualquat<T, P> operator* (
+	GLM_FUNC_DECL tdualquat<T, P> operator* (
 		T const & s,
-		detail::tdualquat<T, P> const & q);
+		tdualquat<T, P> const & q);
 	
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tdualquat<T, P> operator/ (
-		detail::tdualquat<T, P> const & q,
+	GLM_FUNC_DECL tdualquat<T, P> operator/ (
+		tdualquat<T, P> const & q,
 		T const & s);
-} //namespace detail
-	
-	/// @addtogroup gtc_dual_quaternion
-	/// @{
 
 	/// Returns the normalized quaternion.
 	///
 	/// @see gtc_dual_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tdualquat<T, P> normalize(
-		detail::tdualquat<T, P> const & q);
+	GLM_FUNC_DECL tdualquat<T, P> normalize(
+		tdualquat<T, P> const & q);
 
 	/// Returns the linear interpolation of two dual quaternion.
 	///
 	/// @see gtc_dual_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tdualquat<T, P> lerp(
-		detail::tdualquat<T, P> const & x,
-		detail::tdualquat<T, P> const & y,
+	GLM_FUNC_DECL tdualquat<T, P> lerp(
+		tdualquat<T, P> const & x,
+		tdualquat<T, P> const & y,
 		T const & a);
 
 	/// Returns the q inverse.
 	///
 	/// @see gtc_dual_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tdualquat<T, P> inverse(
-		detail::tdualquat<T, P> const & q);
+	GLM_FUNC_DECL tdualquat<T, P> inverse(
+		tdualquat<T, P> const & q);
 
 	/*
 	/// Extracts a rotation part from dual-quaternion to a 3 * 3 matrix.
@@ -166,85 +164,85 @@ namespace detail
 	///
 	/// @see gtc_dual_quaternion
 	template <typename T, precision P>
-	detail::tmat3x3<T, P> mat3_cast(
-		detail::tdualquat<T, P> const & x);
+	tmat3x3<T, P> mat3_cast(
+		tdualquat<T, P> const & x);
 	*/
 	
 	/// Converts a quaternion to a 2 * 4 matrix.
 	///
 	/// @see gtc_dual_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tmat2x4<T, P> mat2x4_cast(
-		detail::tdualquat<T, P> const & x);
+	GLM_FUNC_DECL tmat2x4<T, P> mat2x4_cast(
+		tdualquat<T, P> const & x);
 
 	/// Converts a quaternion to a 3 * 4 matrix.
 	///
 	/// @see gtc_dual_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tmat3x4<T, P> mat3x4_cast(
-		detail::tdualquat<T, P> const & x);
+	GLM_FUNC_DECL tmat3x4<T, P> mat3x4_cast(
+		tdualquat<T, P> const & x);
 
 	/// Converts a 2 * 4 matrix (matrix which holds real and dual parts) to a quaternion.
 	///
 	/// @see gtc_dual_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tdualquat<T, P> dualquat_cast(
-		detail::tmat2x4<T, P> const & x);
+	GLM_FUNC_DECL tdualquat<T, P> dualquat_cast(
+		tmat2x4<T, P> const & x);
 
 	/// Converts a 3 * 4 matrix (augmented matrix rotation + translation) to a quaternion.
 	///
 	/// @see gtc_dual_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tdualquat<T, P> dualquat_cast(
-		detail::tmat3x4<T, P> const & x);
+	GLM_FUNC_DECL tdualquat<T, P> dualquat_cast(
+		tmat3x4<T, P> const & x);
 
 	
 	/// Dual-quaternion of low single-precision floating-point numbers.
 	///
 	/// @see gtc_dual_quaternion
-	typedef detail::tdualquat<float, lowp>		lowp_dualquat;
+	typedef tdualquat<float, lowp>		lowp_dualquat;
 	
 	/// Dual-quaternion of medium single-precision floating-point numbers.
 	///
 	/// @see gtc_dual_quaternion
-	typedef detail::tdualquat<float, mediump>	mediump_dualquat;
+	typedef tdualquat<float, mediump>	mediump_dualquat;
 	
 	/// Dual-quaternion of high single-precision floating-point numbers.
 	///
 	/// @see gtc_dual_quaternion
-	typedef detail::tdualquat<float, highp>		highp_dualquat;
+	typedef tdualquat<float, highp>		highp_dualquat;
 
 
 	/// Dual-quaternion of low single-precision floating-point numbers.
 	///
 	/// @see gtc_dual_quaternion
-	typedef detail::tdualquat<float, lowp>		lowp_fdualquat;
+	typedef tdualquat<float, lowp>		lowp_fdualquat;
 	
 	/// Dual-quaternion of medium single-precision floating-point numbers.
 	///
 	/// @see gtc_dual_quaternion
-	typedef detail::tdualquat<float, mediump>	mediump_fdualquat;
+	typedef tdualquat<float, mediump>	mediump_fdualquat;
 	
 	/// Dual-quaternion of high single-precision floating-point numbers.
 	///
 	/// @see gtc_dual_quaternion
-	typedef detail::tdualquat<float, highp>		highp_fdualquat;
+	typedef tdualquat<float, highp>		highp_fdualquat;
 	
 	
 	/// Dual-quaternion of low double-precision floating-point numbers.
 	///
 	/// @see gtc_dual_quaternion
-	typedef detail::tdualquat<double, lowp>		lowp_ddualquat;
+	typedef tdualquat<double, lowp>		lowp_ddualquat;
 	
 	/// Dual-quaternion of medium double-precision floating-point numbers.
 	///
 	/// @see gtc_dual_quaternion
-	typedef detail::tdualquat<double, mediump>	mediump_ddualquat;
+	typedef tdualquat<double, mediump>	mediump_ddualquat;
 	
 	/// Dual-quaternion of high double-precision floating-point numbers.
 	///
 	/// @see gtc_dual_quaternion
-	typedef detail::tdualquat<double, highp>	highp_ddualquat;
+	typedef tdualquat<double, highp>	highp_ddualquat;
 
 	
 #if(!defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))

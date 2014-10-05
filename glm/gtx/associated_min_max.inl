@@ -17,120 +17,120 @@ GLM_FUNC_QUALIFIER U associatedMin(T x, U a, T y, U b)
 }
 
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec2<U, P> associatedMin
 (
-	const detail::tvec2<T, P>& x, const detail::tvec2<U, P>& a,
-	const detail::tvec2<T, P>& y, const detail::tvec2<U, P>& b
+	const tvec2<T, P>& x, const tvec2<U, P>& a,
+	const tvec2<T, P>& y, const tvec2<U, P>& b
 )
 {
-	detail::tvec2<U, P> Result;
+	tvec2<U, P> Result;
 	//Result.x = x[0] < y[0] ? a[0] : b[0];
 	//Result.y = x[1] < y[1] ? a[1] : b[1];
-	for(typename detail::tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] < y[i] ? a[i] : b[i];
 	return Result;
 }
 
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec3<U, P> associatedMin
 (
-	const detail::tvec3<T, P>& x, const detail::tvec3<U, P>& a,
-	const detail::tvec3<T, P>& y, const detail::tvec3<U, P>& b
+	const tvec3<T, P>& x, const tvec3<U, P>& a,
+	const tvec3<T, P>& y, const tvec3<U, P>& b
 )
 {
-	detail::tvec3<U, P> Result;
-	for(typename detail::tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result;
+	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] < y[i] ? a[i] : b[i];
 	return Result;
 }
 
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec4<U, P> associatedMin
 (
-	const detail::tvec4<T, P>& x, const detail::tvec4<U, P>& a,
-	const detail::tvec4<T, P>& y, const detail::tvec4<U, P>& b
+	const tvec4<T, P>& x, const tvec4<U, P>& a,
+	const tvec4<T, P>& y, const tvec4<U, P>& b
 )
 {
-	detail::tvec4<U, P> Result;
-	for(typename detail::tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result;
+	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] < y[i] ? a[i] : b[i];
 	return Result;
 }
 
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec2<U, P> associatedMin
 (
-	T x, const detail::tvec2<U, P>& a,
-	T y, const detail::tvec2<U, P>& b
+	T x, const tvec2<U, P>& a,
+	T y, const tvec2<U, P>& b
 )
 {
-	detail::tvec2<U, P> Result;
-	for(typename detail::tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result;
+	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x < y ? a[i] : b[i];
 	return Result;
 }
 
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec3<U, P> associatedMin
 (
-	T x, const detail::tvec3<U, P>& a,
-	T y, const detail::tvec3<U, P>& b
+	T x, const tvec3<U, P>& a,
+	T y, const tvec3<U, P>& b
 )
 {
-	detail::tvec3<U, P> Result;
-	for(typename detail::tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result;
+	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x < y ? a[i] : b[i];
 	return Result;
 }
 
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec4<U, P> associatedMin
 (
-	T x, const detail::tvec4<U, P>& a,
-	T y, const detail::tvec4<U, P>& b
+	T x, const tvec4<U, P>& a,
+	T y, const tvec4<U, P>& b
 )
 {
-	detail::tvec4<U, P> Result;
-	for(typename detail::tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result;
+	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x < y ? a[i] : b[i];
 	return Result;
 }
 
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec2<U, P> associatedMin
 (
-	detail::tvec2<T, P> const & x, U a,
-	detail::tvec2<T, P> const & y, U b
+	tvec2<T, P> const & x, U a,
+	tvec2<T, P> const & y, U b
 )
 {
-	detail::tvec2<U, P> Result;
-	for(typename detail::tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result;
+	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] < y[i] ? a : b;
 	return Result;
 }
 
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec3<U, P> associatedMin
 (
-	const detail::tvec3<T, P>& x, U a,
-	const detail::tvec3<T, P>& y, U b
+	const tvec3<T, P>& x, U a,
+	const tvec3<T, P>& y, U b
 )
 {
-	detail::tvec3<U, P> Result;
-	for(typename detail::tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result;
+	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] < y[i] ? a : b;
 	return Result;
 }
 
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec4<U, P> associatedMin
 (
-	const detail::tvec4<T, P>& x, U a,
-	const detail::tvec4<T, P>& y, U b
+	const tvec4<T, P>& x, U a,
+	const tvec4<T, P>& y, U b
 )
 {
-	detail::tvec4<U, P> Result;
-	for(typename detail::tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result;
+	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] < y[i] ? a : b;
 	return Result;
 }
@@ -149,43 +149,43 @@ GLM_FUNC_QUALIFIER U associatedMin
 }
 
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec2<U, P> associatedMin
 (
-	const detail::tvec2<T, P>& x, const detail::tvec2<U, P>& a,
-	const detail::tvec2<T, P>& y, const detail::tvec2<U, P>& b,
-	const detail::tvec2<T, P>& z, const detail::tvec2<U, P>& c
+	const tvec2<T, P>& x, const tvec2<U, P>& a,
+	const tvec2<T, P>& y, const tvec2<U, P>& b,
+	const tvec2<T, P>& z, const tvec2<U, P>& c
 )
 {
-	detail::tvec2<U, P> Result;
-	for(typename detail::tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result;
+	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] < y[i] ? (x[i] < z[i] ? a[i] : c[i]) : (y[i] < z[i] ? b[i] : c[i]);
 	return Result;
 }
 
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec3<U, P> associatedMin
 (
-	const detail::tvec3<T, P>& x, const detail::tvec3<U, P>& a,
-	const detail::tvec3<T, P>& y, const detail::tvec3<U, P>& b,
-	const detail::tvec3<T, P>& z, const detail::tvec3<U, P>& c
+	const tvec3<T, P>& x, const tvec3<U, P>& a,
+	const tvec3<T, P>& y, const tvec3<U, P>& b,
+	const tvec3<T, P>& z, const tvec3<U, P>& c
 )
 {
-	detail::tvec3<U, P> Result;
-	for(typename detail::tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result;
+	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] < y[i] ? (x[i] < z[i] ? a[i] : c[i]) : (y[i] < z[i] ? b[i] : c[i]);
 	return Result;
 }
 
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec4<U, P> associatedMin
 (
-	const detail::tvec4<T, P>& x, const detail::tvec4<U, P>& a,
-	const detail::tvec4<T, P>& y, const detail::tvec4<U, P>& b,
-	const detail::tvec4<T, P>& z, const detail::tvec4<U, P>& c
+	const tvec4<T, P>& x, const tvec4<U, P>& a,
+	const tvec4<T, P>& y, const tvec4<U, P>& b,
+	const tvec4<T, P>& z, const tvec4<U, P>& c
 )
 {
-	detail::tvec4<U, P> Result;
-	for(typename detail::tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result;
+	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] < y[i] ? (x[i] < z[i] ? a[i] : c[i]) : (y[i] < z[i] ? b[i] : c[i]);
 	return Result;
 }
@@ -210,16 +210,16 @@ GLM_FUNC_QUALIFIER U associatedMin
 
 // Min comparison between 4 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec2<U, P> associatedMin
 (
-	const detail::tvec2<T, P>& x, const detail::tvec2<U, P>& a,
-	const detail::tvec2<T, P>& y, const detail::tvec2<U, P>& b,
-	const detail::tvec2<T, P>& z, const detail::tvec2<U, P>& c,
-	const detail::tvec2<T, P>& w, const detail::tvec2<U, P>& d
+	const tvec2<T, P>& x, const tvec2<U, P>& a,
+	const tvec2<T, P>& y, const tvec2<U, P>& b,
+	const tvec2<T, P>& z, const tvec2<U, P>& c,
+	const tvec2<T, P>& w, const tvec2<U, P>& d
 )
 {
-	detail::tvec2<U, P> Result;
-	for(typename detail::tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result;
+	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
 	{
 		T Test1 = min(x[i], y[i]);
 		T Test2 = min(z[i], w[i]);
@@ -232,16 +232,16 @@ GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMin
 
 // Min comparison between 4 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec3<U, P> associatedMin
 (
-	const detail::tvec3<T, P>& x, const detail::tvec3<U, P>& a,
-	const detail::tvec3<T, P>& y, const detail::tvec3<U, P>& b,
-	const detail::tvec3<T, P>& z, const detail::tvec3<U, P>& c,
-	const detail::tvec3<T, P>& w, const detail::tvec3<U, P>& d
+	const tvec3<T, P>& x, const tvec3<U, P>& a,
+	const tvec3<T, P>& y, const tvec3<U, P>& b,
+	const tvec3<T, P>& z, const tvec3<U, P>& c,
+	const tvec3<T, P>& w, const tvec3<U, P>& d
 )
 {
-	detail::tvec3<U, P> Result;
-	for(typename detail::tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result;
+	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
 	{
 		T Test1 = min(x[i], y[i]);
 		T Test2 = min(z[i], w[i]);
@@ -254,16 +254,16 @@ GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMin
 
 // Min comparison between 4 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec4<U, P> associatedMin
 (
-	const detail::tvec4<T, P>& x, const detail::tvec4<U, P>& a,
-	const detail::tvec4<T, P>& y, const detail::tvec4<U, P>& b,
-	const detail::tvec4<T, P>& z, const detail::tvec4<U, P>& c,
-	const detail::tvec4<T, P>& w, const detail::tvec4<U, P>& d
+	const tvec4<T, P>& x, const tvec4<U, P>& a,
+	const tvec4<T, P>& y, const tvec4<U, P>& b,
+	const tvec4<T, P>& z, const tvec4<U, P>& c,
+	const tvec4<T, P>& w, const tvec4<U, P>& d
 )
 {
-	detail::tvec4<U, P> Result;
-	for(typename detail::tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result;
+	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
 	{
 		T Test1 = min(x[i], y[i]);
 		T Test2 = min(z[i], w[i]);
@@ -276,19 +276,19 @@ GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMin
 
 // Min comparison between 4 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec2<U, P> associatedMin
 (
-	T x, const detail::tvec2<U, P>& a,
-	T y, const detail::tvec2<U, P>& b,
-	T z, const detail::tvec2<U, P>& c,
-	T w, const detail::tvec2<U, P>& d
+	T x, const tvec2<U, P>& a,
+	T y, const tvec2<U, P>& b,
+	T z, const tvec2<U, P>& c,
+	T w, const tvec2<U, P>& d
 )
 {
 	T Test1 = min(x, y);
 	T Test2 = min(z, w);
 
-	detail::tvec2<U, P> Result;
-	for(typename detail::tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result;
+	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
 	{
 		U Result1 = x < y ? a[i] : b[i];
 		U Result2 = z < w ? c[i] : d[i];
@@ -299,19 +299,19 @@ GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMin
 
 // Min comparison between 4 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec3<U, P> associatedMin
 (
-	T x, const detail::tvec3<U, P>& a,
-	T y, const detail::tvec3<U, P>& b,
-	T z, const detail::tvec3<U, P>& c,
-	T w, const detail::tvec3<U, P>& d
+	T x, const tvec3<U, P>& a,
+	T y, const tvec3<U, P>& b,
+	T z, const tvec3<U, P>& c,
+	T w, const tvec3<U, P>& d
 )
 {
 	T Test1 = min(x, y);
 	T Test2 = min(z, w);
 
-	detail::tvec3<U, P> Result;
-	for(typename detail::tvec3<U, P>::size_type i = 0; i < detail::tvec3<U, P>::value_size; ++i)
+	tvec3<U, P> Result;
+	for(typename tvec3<U, P>::size_type i = 0; i < tvec3<U, P>::value_size; ++i)
 	{
 		U Result1 = x < y ? a[i] : b[i];
 		U Result2 = z < w ? c[i] : d[i];
@@ -322,19 +322,19 @@ GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMin
 
 // Min comparison between 4 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec4<U, P> associatedMin
 (
-	T x, const detail::tvec4<U, P>& a,
-	T y, const detail::tvec4<U, P>& b,
-	T z, const detail::tvec4<U, P>& c,
-	T w, const detail::tvec4<U, P>& d
+	T x, const tvec4<U, P>& a,
+	T y, const tvec4<U, P>& b,
+	T z, const tvec4<U, P>& c,
+	T w, const tvec4<U, P>& d
 )
 {
 	T Test1 = min(x, y);
 	T Test2 = min(z, w);
 
-	detail::tvec4<U, P> Result;
-	for(typename detail::tvec4<U, P>::size_type i = 0; i < detail::tvec4<U, P>::value_size; ++i)
+	tvec4<U, P> Result;
+	for(typename tvec4<U, P>::size_type i = 0; i < tvec4<U, P>::value_size; ++i)
 	{
 		U Result1 = x < y ? a[i] : b[i];
 		U Result2 = z < w ? c[i] : d[i];
@@ -345,16 +345,16 @@ GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMin
 
 // Min comparison between 4 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec2<U, P> associatedMin
 (
-	const detail::tvec2<T, P>& x, U a,
-	const detail::tvec2<T, P>& y, U b,
-	const detail::tvec2<T, P>& z, U c,
-	const detail::tvec2<T, P>& w, U d
+	const tvec2<T, P>& x, U a,
+	const tvec2<T, P>& y, U b,
+	const tvec2<T, P>& z, U c,
+	const tvec2<T, P>& w, U d
 )
 {
-	detail::tvec2<U, P> Result;
-	for(typename detail::tvec2<T, P>::size_type i = 0; i < detail::tvec2<T, P>::value_size(); ++i)
+	tvec2<U, P> Result;
+	for(typename tvec2<T, P>::size_type i = 0; i < tvec2<T, P>::value_size(); ++i)
 	{
 		T Test1 = min(x[i], y[i]);
 		T Test2 = min(z[i], w[i]);;
@@ -367,16 +367,16 @@ GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMin
 
 // Min comparison between 4 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec3<U, P> associatedMin
 (
-	const detail::tvec3<T, P>& x, U a,
-	const detail::tvec3<T, P>& y, U b,
-	const detail::tvec3<T, P>& z, U c,
-	const detail::tvec3<T, P>& w, U d
+	const tvec3<T, P>& x, U a,
+	const tvec3<T, P>& y, U b,
+	const tvec3<T, P>& z, U c,
+	const tvec3<T, P>& w, U d
 )
 {
-	detail::tvec3<U, P> Result;
-	for(typename detail::tvec3<T, P>::size_type i = 0; i < detail::tvec3<T, P>::value_size(); ++i)
+	tvec3<U, P> Result;
+	for(typename tvec3<T, P>::size_type i = 0; i < tvec3<T, P>::value_size(); ++i)
 	{
 		T Test1 = min(x[i], y[i]);
 		T Test2 = min(z[i], w[i]);;
@@ -389,16 +389,16 @@ GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMin
 
 // Min comparison between 4 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMin
+GLM_FUNC_QUALIFIER tvec4<U, P> associatedMin
 (
-	const detail::tvec4<T, P>& x, U a,
-	const detail::tvec4<T, P>& y, U b,
-	const detail::tvec4<T, P>& z, U c,
-	const detail::tvec4<T, P>& w, U d
+	const tvec4<T, P>& x, U a,
+	const tvec4<T, P>& y, U b,
+	const tvec4<T, P>& z, U c,
+	const tvec4<T, P>& w, U d
 )
 {
-	detail::tvec4<U, P> Result;
-	for(typename detail::tvec4<T, P>::size_type i = 0; i < detail::tvec4<T, P>::value_size(); ++i)
+	tvec4<U, P> Result;
+	for(typename tvec4<T, P>::size_type i = 0; i < tvec4<T, P>::value_size(); ++i)
 	{
 		T Test1 = min(x[i], y[i]);
 		T Test2 = min(z[i], w[i]);;
@@ -418,126 +418,126 @@ GLM_FUNC_QUALIFIER U associatedMax(T x, U a, T y, U b)
 
 // Max comparison between 2 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
 (
-	const detail::tvec2<T, P>& x, const detail::tvec2<U, P>& a,
-	const detail::tvec2<T, P>& y, const detail::tvec2<U, P>& b
+	const tvec2<T, P>& x, const tvec2<U, P>& a,
+	const tvec2<T, P>& y, const tvec2<U, P>& b
 )
 {
-	detail::tvec2<U, P> Result;
-	for(typename detail::tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result;
+	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] > y[i] ? a[i] : b[i];
 	return Result;
 }
 
 // Max comparison between 2 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec3<U, P> associatedMax
 (
-	const detail::tvec3<T, P>& x, const detail::tvec3<U, P>& a,
-	const detail::tvec3<T, P>& y, const detail::tvec3<U, P>& b
+	const tvec3<T, P>& x, const tvec3<U, P>& a,
+	const tvec3<T, P>& y, const tvec3<U, P>& b
 )
 {
-	detail::tvec3<U, P> Result;
-	for(typename detail::tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result;
+	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] > y[i] ? a[i] : b[i];
 	return Result;
 }
 
 // Max comparison between 2 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec4<U, P> associatedMax
 (
-	const detail::tvec4<T, P>& x, const detail::tvec4<U, P>& a,
-	const detail::tvec4<T, P>& y, const detail::tvec4<U, P>& b
+	const tvec4<T, P>& x, const tvec4<U, P>& a,
+	const tvec4<T, P>& y, const tvec4<U, P>& b
 )
 {
-	detail::tvec4<U, P> Result;
-	for(typename detail::tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result;
+	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] > y[i] ? a[i] : b[i];
 	return Result;
 }
 
 // Max comparison between 2 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
 (
-	T x, const detail::tvec2<U, P>& a,
-	T y, const detail::tvec2<U, P>& b
+	T x, const tvec2<U, P>& a,
+	T y, const tvec2<U, P>& b
 )
 {
-	detail::tvec2<U, P> Result;
-	for(typename detail::tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result;
+	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x > y ? a[i] : b[i];
 	return Result;
 }
 
 // Max comparison between 2 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec3<U, P> associatedMax
 (
-	T x, const detail::tvec3<U, P>& a,
-	T y, const detail::tvec3<U, P>& b
+	T x, const tvec3<U, P>& a,
+	T y, const tvec3<U, P>& b
 )
 {
-	detail::tvec3<U, P> Result;
-	for(typename detail::tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result;
+	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x > y ? a[i] : b[i];
 	return Result;
 }
 
 // Max comparison between 2 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec4<U, P> associatedMax
 (
-	T x, const detail::tvec4<U, P>& a,
-	T y, const detail::tvec4<U, P>& b
+	T x, const tvec4<U, P>& a,
+	T y, const tvec4<U, P>& b
 )
 {
-	detail::tvec4<U, P> Result;
-	for(typename detail::tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result;
+	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x > y ? a[i] : b[i];
 	return Result;
 }
 
 // Max comparison between 2 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
 (
-	const detail::tvec2<T, P>& x, U a,
-	const detail::tvec2<T, P>& y, U b
+	const tvec2<T, P>& x, U a,
+	const tvec2<T, P>& y, U b
 )
 {
-	detail::tvec2<U, P> Result;
-	for(typename detail::tvec2<T, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result;
+	for(typename tvec2<T, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] > y[i] ? a : b;
 	return Result;
 }
 
 // Max comparison between 2 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec3<U, P> associatedMax
 (
-	const detail::tvec3<T, P>& x, U a,
-	const detail::tvec3<T, P>& y, U b
+	const tvec3<T, P>& x, U a,
+	const tvec3<T, P>& y, U b
 )
 {
-	detail::tvec3<U, P> Result;
-	for(typename detail::tvec3<T, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result;
+	for(typename tvec3<T, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] > y[i] ? a : b;
 	return Result;
 }
 
 // Max comparison between 2 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec4<U, P> associatedMax
 (
-	const detail::tvec4<T, P>& x, U a,
-	const detail::tvec4<T, P>& y, U b
+	const tvec4<T, P>& x, U a,
+	const tvec4<T, P>& y, U b
 )
 {
-	detail::tvec4<U, P> Result;
-	for(typename detail::tvec4<T, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result;
+	for(typename tvec4<T, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] > y[i] ? a : b;
 	return Result;
 }
@@ -557,135 +557,135 @@ GLM_FUNC_QUALIFIER U associatedMax
 
 // Max comparison between 3 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
 (
-	const detail::tvec2<T, P>& x, const detail::tvec2<U, P>& a,
-	const detail::tvec2<T, P>& y, const detail::tvec2<U, P>& b,
-	const detail::tvec2<T, P>& z, const detail::tvec2<U, P>& c
+	const tvec2<T, P>& x, const tvec2<U, P>& a,
+	const tvec2<T, P>& y, const tvec2<U, P>& b,
+	const tvec2<T, P>& z, const tvec2<U, P>& c
 )
 {
-	detail::tvec2<U, P> Result;
-	for(typename detail::tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result;
+	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] > y[i] ? (x[i] > z[i] ? a[i] : c[i]) : (y[i] > z[i] ? b[i] : c[i]);
 	return Result;
 }
 
 // Max comparison between 3 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec3<U, P> associatedMax
 (
-	const detail::tvec3<T, P>& x, const detail::tvec3<U, P>& a,
-	const detail::tvec3<T, P>& y, const detail::tvec3<U, P>& b,
-	const detail::tvec3<T, P>& z, const detail::tvec3<U, P>& c
+	const tvec3<T, P>& x, const tvec3<U, P>& a,
+	const tvec3<T, P>& y, const tvec3<U, P>& b,
+	const tvec3<T, P>& z, const tvec3<U, P>& c
 )
 {
-	detail::tvec3<U, P> Result;
-	for(typename detail::tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result;
+	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] > y[i] ? (x[i] > z[i] ? a[i] : c[i]) : (y[i] > z[i] ? b[i] : c[i]);
 	return Result;
 }
 
 // Max comparison between 3 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec4<U, P> associatedMax
 (
-	const detail::tvec4<T, P>& x, const detail::tvec4<U, P>& a,
-	const detail::tvec4<T, P>& y, const detail::tvec4<U, P>& b,
-	const detail::tvec4<T, P>& z, const detail::tvec4<U, P>& c
+	const tvec4<T, P>& x, const tvec4<U, P>& a,
+	const tvec4<T, P>& y, const tvec4<U, P>& b,
+	const tvec4<T, P>& z, const tvec4<U, P>& c
 )
 {
-	detail::tvec4<U, P> Result;
-	for(typename detail::tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result;
+	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] > y[i] ? (x[i] > z[i] ? a[i] : c[i]) : (y[i] > z[i] ? b[i] : c[i]);
 	return Result;
 }
 
 // Max comparison between 3 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
 (
-	T x, const detail::tvec2<U, P>& a,
-	T y, const detail::tvec2<U, P>& b,
-	T z, const detail::tvec2<U, P>& c
+	T x, const tvec2<U, P>& a,
+	T y, const tvec2<U, P>& b,
+	T z, const tvec2<U, P>& c
 )
 {
-	detail::tvec2<U, P> Result;
-	for(typename detail::tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result;
+	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x > y ? (x > z ? a[i] : c[i]) : (y > z ? b[i] : c[i]);
 	return Result;
 }
 
 // Max comparison between 3 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec3<U, P> associatedMax
 (
-	T x, const detail::tvec3<U, P>& a,
-	T y, const detail::tvec3<U, P>& b,
-	T z, const detail::tvec3<U, P>& c
+	T x, const tvec3<U, P>& a,
+	T y, const tvec3<U, P>& b,
+	T z, const tvec3<U, P>& c
 )
 {
-	detail::tvec3<U, P> Result;
-	for(typename detail::tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result;
+	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x > y ? (x > z ? a[i] : c[i]) : (y > z ? b[i] : c[i]);
 	return Result;
 }
 
 // Max comparison between 3 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec4<U, P> associatedMax
 (
-	T x, const detail::tvec4<U, P>& a,
-	T y, const detail::tvec4<U, P>& b,
-	T z, const detail::tvec4<U, P>& c
+	T x, const tvec4<U, P>& a,
+	T y, const tvec4<U, P>& b,
+	T z, const tvec4<U, P>& c
 )
 {
-	detail::tvec4<U, P> Result;
-	for(typename detail::tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result;
+	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x > y ? (x > z ? a[i] : c[i]) : (y > z ? b[i] : c[i]);
 	return Result;
 }
 
 // Max comparison between 3 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
 (
-	const detail::tvec2<T, P>& x, U a,
-	const detail::tvec2<T, P>& y, U b,
-	const detail::tvec2<T, P>& z, U c
+	const tvec2<T, P>& x, U a,
+	const tvec2<T, P>& y, U b,
+	const tvec2<T, P>& z, U c
 )
 {
-	detail::tvec2<U, P> Result;
-	for(typename detail::tvec2<T, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result;
+	for(typename tvec2<T, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] > y[i] ? (x[i] > z[i] ? a : c) : (y[i] > z[i] ? b : c);
 	return Result;
 }
 
 // Max comparison between 3 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec3<U, P> associatedMax
 (
-	const detail::tvec3<T, P>& x, U a,
-	const detail::tvec3<T, P>& y, U b,
-	const detail::tvec3<T, P>& z, U c
+	const tvec3<T, P>& x, U a,
+	const tvec3<T, P>& y, U b,
+	const tvec3<T, P>& z, U c
 )
 {
-	detail::tvec3<U, P> Result;
-	for(typename detail::tvec3<T, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result;
+	for(typename tvec3<T, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] > y[i] ? (x[i] > z[i] ? a : c) : (y[i] > z[i] ? b : c);
 	return Result;
 }
 
 // Max comparison between 3 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec4<U, P> associatedMax
 (
-	const detail::tvec4<T, P>& x, U a,
-	const detail::tvec4<T, P>& y, U b,
-	const detail::tvec4<T, P>& z, U c
+	const tvec4<T, P>& x, U a,
+	const tvec4<T, P>& y, U b,
+	const tvec4<T, P>& z, U c
 )
 {
-	detail::tvec4<U, P> Result;
-	for(typename detail::tvec4<T, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result;
+	for(typename tvec4<T, P>::size_type i = 0; i < Result.length(); ++i)
 		Result[i] = x[i] > y[i] ? (x[i] > z[i] ? a : c) : (y[i] > z[i] ? b : c);
 	return Result;
 }
@@ -710,16 +710,16 @@ GLM_FUNC_QUALIFIER U associatedMax
 
 // Max comparison between 4 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
 (
-	const detail::tvec2<T, P>& x, const detail::tvec2<U, P>& a,
-	const detail::tvec2<T, P>& y, const detail::tvec2<U, P>& b,
-	const detail::tvec2<T, P>& z, const detail::tvec2<U, P>& c,
-	const detail::tvec2<T, P>& w, const detail::tvec2<U, P>& d
+	const tvec2<T, P>& x, const tvec2<U, P>& a,
+	const tvec2<T, P>& y, const tvec2<U, P>& b,
+	const tvec2<T, P>& z, const tvec2<U, P>& c,
+	const tvec2<T, P>& w, const tvec2<U, P>& d
 )
 {
-	detail::tvec2<U, P> Result;
-	for(typename detail::tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result;
+	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
 	{
 		T Test1 = max(x[i], y[i]);
 		T Test2 = max(z[i], w[i]);
@@ -732,16 +732,16 @@ GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMax
 
 // Max comparison between 4 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec3<U, P> associatedMax
 (
-	const detail::tvec3<T, P>& x, const detail::tvec3<U, P>& a,
-	const detail::tvec3<T, P>& y, const detail::tvec3<U, P>& b,
-	const detail::tvec3<T, P>& z, const detail::tvec3<U, P>& c,
-	const detail::tvec3<T, P>& w, const detail::tvec3<U, P>& d
+	const tvec3<T, P>& x, const tvec3<U, P>& a,
+	const tvec3<T, P>& y, const tvec3<U, P>& b,
+	const tvec3<T, P>& z, const tvec3<U, P>& c,
+	const tvec3<T, P>& w, const tvec3<U, P>& d
 )
 {
-	detail::tvec3<U, P> Result;
-	for(typename detail::tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result;
+	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
 	{
 		T Test1 = max(x[i], y[i]);
 		T Test2 = max(z[i], w[i]);
@@ -754,16 +754,16 @@ GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMax
 
 // Max comparison between 4 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec4<U, P> associatedMax
 (
-	const detail::tvec4<T, P>& x, const detail::tvec4<U, P>& a,
-	const detail::tvec4<T, P>& y, const detail::tvec4<U, P>& b,
-	const detail::tvec4<T, P>& z, const detail::tvec4<U, P>& c,
-	const detail::tvec4<T, P>& w, const detail::tvec4<U, P>& d
+	const tvec4<T, P>& x, const tvec4<U, P>& a,
+	const tvec4<T, P>& y, const tvec4<U, P>& b,
+	const tvec4<T, P>& z, const tvec4<U, P>& c,
+	const tvec4<T, P>& w, const tvec4<U, P>& d
 )
 {
-	detail::tvec4<U, P> Result;
-	for(typename detail::tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result;
+	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
 	{
 		T Test1 = max(x[i], y[i]);
 		T Test2 = max(z[i], w[i]);
@@ -776,19 +776,19 @@ GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMax
 
 // Max comparison between 4 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
 (
-	T x, const detail::tvec2<U, P>& a,
-	T y, const detail::tvec2<U, P>& b,
-	T z, const detail::tvec2<U, P>& c,
-	T w, const detail::tvec2<U, P>& d
+	T x, const tvec2<U, P>& a,
+	T y, const tvec2<U, P>& b,
+	T z, const tvec2<U, P>& c,
+	T w, const tvec2<U, P>& d
 )
 {
 	T Test1 = max(x, y);
 	T Test2 = max(z, w);
 
-	detail::tvec2<U, P> Result;
-	for(typename detail::tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result;
+	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
 	{
 		U Result1 = x > y ? a[i] : b[i];
 		U Result2 = z > w ? c[i] : d[i];
@@ -799,19 +799,19 @@ GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMax
 
 // Max comparison between 4 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec3<U, P> associatedMax
 (
-	T x, const detail::tvec3<U, P>& a,
-	T y, const detail::tvec3<U, P>& b,
-	T z, const detail::tvec3<U, P>& c,
-	T w, const detail::tvec3<U, P>& d
+	T x, const tvec3<U, P>& a,
+	T y, const tvec3<U, P>& b,
+	T z, const tvec3<U, P>& c,
+	T w, const tvec3<U, P>& d
 )
 {
 	T Test1 = max(x, y);
 	T Test2 = max(z, w);
 
-	detail::tvec3<U, P> Result;
-	for(typename detail::tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result;
+	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
 	{
 		U Result1 = x > y ? a[i] : b[i];
 		U Result2 = z > w ? c[i] : d[i];
@@ -822,19 +822,19 @@ GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMax
 
 // Max comparison between 4 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec4<U, P> associatedMax
 (
-	T x, const detail::tvec4<U, P>& a,
-	T y, const detail::tvec4<U, P>& b,
-	T z, const detail::tvec4<U, P>& c,
-	T w, const detail::tvec4<U, P>& d
+	T x, const tvec4<U, P>& a,
+	T y, const tvec4<U, P>& b,
+	T z, const tvec4<U, P>& c,
+	T w, const tvec4<U, P>& d
 )
 {
 	T Test1 = max(x, y);
 	T Test2 = max(z, w);
 
-	detail::tvec4<U, P> Result;
-	for(typename detail::tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result;
+	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
 	{
 		U Result1 = x > y ? a[i] : b[i];
 		U Result2 = z > w ? c[i] : d[i];
@@ -845,16 +845,16 @@ GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMax
 
 // Max comparison between 4 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
 (
-	const detail::tvec2<T, P>& x, U a,
-	const detail::tvec2<T, P>& y, U b,
-	const detail::tvec2<T, P>& z, U c,
-	const detail::tvec2<T, P>& w, U d
+	const tvec2<T, P>& x, U a,
+	const tvec2<T, P>& y, U b,
+	const tvec2<T, P>& z, U c,
+	const tvec2<T, P>& w, U d
 )
 {
-	detail::tvec2<U, P> Result;
-	for(typename detail::tvec2<T, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result;
+	for(typename tvec2<T, P>::size_type i = 0; i < Result.length(); ++i)
 	{
 		T Test1 = max(x[i], y[i]);
 		T Test2 = max(z[i], w[i]);;
@@ -867,16 +867,16 @@ GLM_FUNC_QUALIFIER detail::tvec2<U, P> associatedMax
 
 // Max comparison between 4 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec3<U, P> associatedMax
 (
-	const detail::tvec3<T, P>& x, U a,
-	const detail::tvec3<T, P>& y, U b,
-	const detail::tvec3<T, P>& z, U c,
-	const detail::tvec3<T, P>& w, U d
+	const tvec3<T, P>& x, U a,
+	const tvec3<T, P>& y, U b,
+	const tvec3<T, P>& z, U c,
+	const tvec3<T, P>& w, U d
 )
 {
-	detail::tvec3<U, P> Result;
-	for(typename detail::tvec3<T, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result;
+	for(typename tvec3<T, P>::size_type i = 0; i < Result.length(); ++i)
 	{
 		T Test1 = max(x[i], y[i]);
 		T Test2 = max(z[i], w[i]);;
@@ -889,16 +889,16 @@ GLM_FUNC_QUALIFIER detail::tvec3<U, P> associatedMax
 
 // Max comparison between 4 variables
 template<typename T, typename U, precision P>
-GLM_FUNC_QUALIFIER detail::tvec4<U, P> associatedMax
+GLM_FUNC_QUALIFIER tvec4<U, P> associatedMax
 (
-	const detail::tvec4<T, P>& x, U a,
-	const detail::tvec4<T, P>& y, U b,
-	const detail::tvec4<T, P>& z, U c,
-	const detail::tvec4<T, P>& w, U d
+	const tvec4<T, P>& x, U a,
+	const tvec4<T, P>& y, U b,
+	const tvec4<T, P>& z, U c,
+	const tvec4<T, P>& w, U d
 )
 {
-	detail::tvec4<U, P> Result;
-	for(typename detail::tvec4<T, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result;
+	for(typename tvec4<T, P>::size_type i = 0; i < Result.length(); ++i)
 	{
 		T Test1 = max(x[i], y[i]);
 		T Test2 = max(z[i], w[i]);;

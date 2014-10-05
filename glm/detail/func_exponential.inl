@@ -173,38 +173,38 @@ namespace detail
 		struct compute_sqrt{};
 		
 		template <typename T, precision P>
-		struct compute_sqrt<detail::tvec1, T, P>
+		struct compute_sqrt<tvec1, T, P>
 		{
-			GLM_FUNC_QUALIFIER static detail::tvec1<T, P> call(detail::tvec1<T, P> const & x)
+			GLM_FUNC_QUALIFIER static tvec1<T, P> call(tvec1<T, P> const & x)
 			{
-				return detail::tvec1<T, P>(std::sqrt(x.x));
+				return tvec1<T, P>(std::sqrt(x.x));
 			}
 		};
 		
 		template <typename T, precision P>
-		struct compute_sqrt<detail::tvec2, T, P>
+		struct compute_sqrt<tvec2, T, P>
 		{
-			GLM_FUNC_QUALIFIER static detail::tvec2<T, P> call(detail::tvec2<T, P> const & x)
+			GLM_FUNC_QUALIFIER static tvec2<T, P> call(tvec2<T, P> const & x)
 			{
-				return detail::tvec2<T, P>(std::sqrt(x.x), std::sqrt(x.y));
+				return tvec2<T, P>(std::sqrt(x.x), std::sqrt(x.y));
 			}
 		};
 		
 		template <typename T, precision P>
-		struct compute_sqrt<detail::tvec3, T, P>
+		struct compute_sqrt<tvec3, T, P>
 		{
-			GLM_FUNC_QUALIFIER static detail::tvec3<T, P> call(detail::tvec3<T, P> const & x)
+			GLM_FUNC_QUALIFIER static tvec3<T, P> call(tvec3<T, P> const & x)
 			{
-				return detail::tvec3<T, P>(std::sqrt(x.x), std::sqrt(x.y), std::sqrt(x.z));
+				return tvec3<T, P>(std::sqrt(x.x), std::sqrt(x.y), std::sqrt(x.z));
 			}
 		};
 		
 		template <typename T, precision P>
-		struct compute_sqrt<detail::tvec4, T, P>
+		struct compute_sqrt<tvec4, T, P>
 		{
-			GLM_FUNC_QUALIFIER static detail::tvec4<T, P> call(detail::tvec4<T, P> const & x)
+			GLM_FUNC_QUALIFIER static tvec4<T, P> call(tvec4<T, P> const & x)
 			{
-				return detail::tvec4<T, P>(std::sqrt(x.x), std::sqrt(x.y), std::sqrt(x.z), std::sqrt(x.w));
+				return tvec4<T, P>(std::sqrt(x.x), std::sqrt(x.y), std::sqrt(x.z), std::sqrt(x.w));
 			}
 		};
 	}//namespace detail
@@ -215,20 +215,20 @@ namespace detail
 	GLM_FUNC_QUALIFIER float sqrt(float x)
 	{
 #		ifdef __CUDACC__ // Wordaround for a CUDA compiler bug up to CUDA6
-			detail::tvec1<float, highp> tmp(detail::compute_sqrt<detail::tvec1, float, highp>::call(x));
+			tvec1<float, highp> tmp(detail::compute_sqrt<tvec1, float, highp>::call(x));
 			return tmp.x;
 #		else
-			return detail::compute_sqrt<detail::tvec1, float, highp>::call(x).x;
+			return detail::compute_sqrt<tvec1, float, highp>::call(x).x;
 #		endif
 	}
 
 	GLM_FUNC_QUALIFIER double sqrt(double x)
 	{
 #		ifdef __CUDACC__ // Wordaround for a CUDA compiler bug up to CUDA6
-			detail::tvec1<double, highp> tmp(detail::compute_sqrt<detail::tvec1, double, highp>::call(x));
+			tvec1<double, highp> tmp(detail::compute_sqrt<tvec1, double, highp>::call(x));
 			return tmp.x;
 #		else
-			return detail::compute_sqrt<detail::tvec1, double, highp>::call(x).x;
+			return detail::compute_sqrt<tvec1, double, highp>::call(x).x;
 #		endif
 	}
 */

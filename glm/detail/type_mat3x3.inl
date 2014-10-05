@@ -30,6 +30,29 @@ namespace glm{
 namespace detail
 {
 	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tmat3x3<T, P> compute_inverse(tmat3x3<T, P> const & m)
+	{
+		T OneOverDeterminant = static_cast<T>(1) / (
+			+ m[0][0] * (m[1][1] * m[2][2] - m[2][1] * m[1][2])
+			- m[1][0] * (m[0][1] * m[2][2] - m[2][1] * m[0][2])
+			+ m[2][0] * (m[0][1] * m[1][2] - m[1][1] * m[0][2]));
+
+		tmat3x3<T, P> Inverse(tmat3x3<T, P>::_null);
+		Inverse[0][0] = + (m[1][1] * m[2][2] - m[2][1] * m[1][2]) * OneOverDeterminant;
+		Inverse[1][0] = - (m[1][0] * m[2][2] - m[2][0] * m[1][2]) * OneOverDeterminant;
+		Inverse[2][0] = + (m[1][0] * m[2][1] - m[2][0] * m[1][1]) * OneOverDeterminant;
+		Inverse[0][1] = - (m[0][1] * m[2][2] - m[2][1] * m[0][2]) * OneOverDeterminant;
+		Inverse[1][1] = + (m[0][0] * m[2][2] - m[2][0] * m[0][2]) * OneOverDeterminant;
+		Inverse[2][1] = - (m[0][0] * m[2][1] - m[2][0] * m[0][1]) * OneOverDeterminant;
+		Inverse[0][2] = + (m[0][1] * m[1][2] - m[1][1] * m[0][2]) * OneOverDeterminant;
+		Inverse[1][2] = - (m[0][0] * m[1][2] - m[1][0] * m[0][2]) * OneOverDeterminant;
+		Inverse[2][2] = + (m[0][0] * m[1][1] - m[1][0] * m[0][1]) * OneOverDeterminant;
+
+		return Inverse;
+	}
+}//namespace detail
+
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t tmat3x3<T, P>::length() const
 	{
 		return 3;
@@ -195,7 +218,7 @@ namespace detail
 	{
 		this->value[0] = col_type(m[0], value_type(0));
 		this->value[1] = col_type(m[1], value_type(0));
-		this->value[2] = col_type(detail::tvec2<T, P>(0), value_type(1));
+		this->value[2] = col_type(tvec2<T, P>(0), value_type(1));
 	}
 
 	template <typename T, precision P>
@@ -217,7 +240,7 @@ namespace detail
 	{
 		this->value[0] = m[0];
 		this->value[1] = m[1];
-		this->value[2] = col_type(detail::tvec2<T, P>(0), value_type(1));
+		this->value[2] = col_type(tvec2<T, P>(0), value_type(1));
 	}
 
 	template <typename T, precision P>
@@ -239,7 +262,7 @@ namespace detail
 	{
 		this->value[0] = col_type(m[0]);
 		this->value[1] = col_type(m[1]);
-		this->value[2] = col_type(detail::tvec2<T, P>(0), value_type(1));
+		this->value[2] = col_type(tvec2<T, P>(0), value_type(1));
 	}
 
 	template <typename T, precision P>
@@ -368,7 +391,7 @@ namespace detail
 	template <typename U>
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> & tmat3x3<T, P>::operator/= (tmat3x3<U, P> const & m)
 	{
-		return (*this = *this * detail::compute_inverse<detail::tmat3x3, T, P>::call(m));
+		return (*this = *this * detail::compute_inverse<T, P>(m));
 	}
 
 	template <typename T, precision P>
@@ -404,31 +427,6 @@ namespace detail
 		--*this;
 		return Result;
 	}
-
-	template <typename T, precision P>
-	struct compute_inverse<detail::tmat3x3, T, P>
-	{
-		static detail::tmat3x3<T, P> call(detail::tmat3x3<T, P> const & m)
-		{
-			T OneOverDeterminant = static_cast<T>(1) / (
-				+ m[0][0] * (m[1][1] * m[2][2] - m[2][1] * m[1][2])
-				- m[1][0] * (m[0][1] * m[2][2] - m[2][1] * m[0][2])
-				+ m[2][0] * (m[0][1] * m[1][2] - m[1][1] * m[0][2]));
-
-			detail::tmat3x3<T, P> Inverse(detail::tmat3x3<T, P>::_null);
-			Inverse[0][0] = + (m[1][1] * m[2][2] - m[2][1] * m[1][2]) * OneOverDeterminant;
-			Inverse[1][0] = - (m[1][0] * m[2][2] - m[2][0] * m[1][2]) * OneOverDeterminant;
-			Inverse[2][0] = + (m[1][0] * m[2][1] - m[2][0] * m[1][1]) * OneOverDeterminant;
-			Inverse[0][1] = - (m[0][1] * m[2][2] - m[2][1] * m[0][2]) * OneOverDeterminant;
-			Inverse[1][1] = + (m[0][0] * m[2][2] - m[2][0] * m[0][2]) * OneOverDeterminant;
-			Inverse[2][1] = - (m[0][0] * m[2][1] - m[2][0] * m[0][1]) * OneOverDeterminant;
-			Inverse[0][2] = + (m[0][1] * m[1][2] - m[1][1] * m[0][2]) * OneOverDeterminant;
-			Inverse[1][2] = - (m[0][0] * m[1][2] - m[1][0] * m[0][2]) * OneOverDeterminant;
-			Inverse[2][2] = + (m[0][0] * m[1][1] - m[1][0] * m[0][1]) * OneOverDeterminant;
-
-			return Inverse;
-		}
-	};
 
 	//////////////////////////////////////////////////////////////
 	// Binary operators
@@ -674,7 +672,7 @@ namespace detail
 		typename tmat3x3<T, P>::row_type const & v
 	)
 	{
-		return detail::compute_inverse<detail::tmat3x3, T, P>::call(m) * v;
+		return detail::compute_inverse<tmat3x3, T, P>::call(m) * v;
 	}
 
 	template <typename T, precision P>
@@ -684,7 +682,7 @@ namespace detail
 		tmat3x3<T, P> const & m
 	)
 	{
-		return v * detail::compute_inverse<detail::tmat3x3, T, P>::call(m);
+		return v * detail::compute_inverse<tmat3x3, T, P>::call(m);
 	}
 
 	template <typename T, precision P>
@@ -733,6 +731,4 @@ namespace detail
 	{
 		return (m1[0] != m2[0]) || (m1[1] != m2[1]) || (m1[2] != m2[2]);
 	}
-
-} //namespace detail
 } //namespace glm

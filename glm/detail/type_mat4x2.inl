@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-namespace glm{
-namespace detail
+namespace glm
 {
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t tmat4x2<T, P>::length() const
@@ -668,5 +667,4 @@ namespace detail
 	{
 		return (m1[0] != m2[0]) || (m1[1] != m2[1]) || (m1[2] != m2[2]) || (m1[3] != m2[3]);
 	}
-} //namespace detail
 } //namespace glm

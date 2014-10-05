@@ -41,8 +41,7 @@
 #include <limits>
 #include <cstddef>
 
-namespace glm{
-namespace detail
+namespace glm
 {
 	template <typename T, precision P>
 	struct tmat2x3
@@ -205,8 +204,6 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat2x3<T, P> const operator- (
 		tmat2x3<T, P> const & m);
-
-}//namespace detail
 }//namespace glm
 
 #ifndef GLM_EXTERNAL_TEMPLATE

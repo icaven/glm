@@ -9,9 +9,13 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/epsilon.hpp>
+
+#if GLM_HAS_RANGE_FOR
+
 #include <glm/gtx/range.hpp>
 
-int testVec(){
+int testVec()
+{
 	int Error(0);
 	glm::vec3 v(1, 2, 3);
 
@@ -24,7 +28,8 @@ int testVec(){
 	return Error;
 }
 
-int testMat(){
+int testMat()
+{
 	int Error(0);
 	glm::mat4x3 m(1);
 
@@ -38,9 +43,19 @@ int testMat(){
 	return Error;
 }
 
-int main(){
+int main()
+{
 	int Error(0);
 	Error += testVec();
 	Error += testMat();
 	return Error;
 }
+
+#else
+
+int main()
+{
+	return 0;
+}
+
+#endif//GLM_HAS_RANGE_FOR

@@ -28,10 +28,10 @@ namespace glm
 	GLM_FUNC_QUALIFIER float fastInverseSqrt<float>(float const & x)
 	{
 #		ifdef __CUDACC__ // Wordaround for a CUDA compiler bug up to CUDA6
-			detail::tvec1<T, P> tmp(detail::compute_inversesqrt<detail::tvec1, float, lowp>::call(detail::tvec1<float, lowp>(x)));
+			tvec1<T, P> tmp(detail::compute_inversesqrt<tvec1, float, lowp>::call(tvec1<float, lowp>(x)));
 			return tmp.x;
 #		else
-			return detail::compute_inversesqrt<detail::tvec1, float, lowp>::call(detail::tvec1<float, lowp>(x)).x;
+			return detail::compute_inversesqrt<tvec1, float, lowp>::call(tvec1<float, lowp>(x)).x;
 #		endif
 	}
 
@@ -39,10 +39,10 @@ namespace glm
 	GLM_FUNC_QUALIFIER double fastInverseSqrt<double>(double const & x)
 	{
 #		ifdef __CUDACC__ // Wordaround for a CUDA compiler bug up to CUDA6
-			detail::tvec1<T, P> tmp(detail::compute_inversesqrt<detail::tvec1, double, lowp>::call(detail::tvec1<double, lowp>(x)));
+			tvec1<T, P> tmp(detail::compute_inversesqrt<tvec1, double, lowp>::call(tvec1<double, lowp>(x)));
 			return tmp.x;
 #		else
-			return detail::compute_inversesqrt<detail::tvec1, double, lowp>::call(detail::tvec1<double, lowp>(x)).x;
+			return detail::compute_inversesqrt<tvec1, double, lowp>::call(tvec1<double, lowp>(x)).x;
 #		endif
 	}
 
@@ -70,7 +70,7 @@ namespace glm
 	template <typename valType, precision P>
 	GLM_FUNC_QUALIFIER valType fastLength
 	(
-		detail::tvec2<valType, P> const & x
+		tvec2<valType, P> const & x
 	)
 	{
 		valType sqr = x.x * x.x + x.y * x.y;
@@ -80,7 +80,7 @@ namespace glm
 	template <typename valType, precision P>
 	GLM_FUNC_QUALIFIER valType fastLength
 	(
-		detail::tvec3<valType, P> const & x
+		tvec3<valType, P> const & x
 	)
 	{
 		valType sqr = x.x * x.x + x.y * x.y + x.z * x.z;
@@ -90,7 +90,7 @@ namespace glm
 	template <typename valType, precision P>
 	GLM_FUNC_QUALIFIER valType fastLength
 	(
-		detail::tvec4<valType, P> const & x
+		tvec4<valType, P> const & x
 	)
 	{
 		valType sqr = x.x * x.x + x.y * x.y + x.z * x.z + x.w * x.w;
@@ -111,8 +111,8 @@ namespace glm
 	template <typename valType, precision P>
 	GLM_FUNC_QUALIFIER valType fastDistance
 	(
-		detail::tvec2<valType, P> const & x,
-		detail::tvec2<valType, P> const & y
+		tvec2<valType, P> const & x,
+		tvec2<valType, P> const & y
 	)
 	{
 		return fastLength(y - x);
@@ -121,8 +121,8 @@ namespace glm
 	template <typename valType, precision P>
 	GLM_FUNC_QUALIFIER valType fastDistance
 	(
-		detail::tvec3<valType, P> const & x,
-		detail::tvec3<valType, P> const & y
+		tvec3<valType, P> const & x,
+		tvec3<valType, P> const & y
 	)
 	{
 		return fastLength(y - x);
@@ -131,8 +131,8 @@ namespace glm
 	template <typename valType, precision P>
 	GLM_FUNC_QUALIFIER valType fastDistance
 	(
-		detail::tvec4<valType, P> const & x,
-		detail::tvec4<valType, P> const & y
+		tvec4<valType, P> const & x,
+		tvec4<valType, P> const & y
 	)
 	{
 		return fastLength(y - x);
@@ -149,9 +149,9 @@ namespace glm
 	}
 
 	template <typename valType, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<valType, P> fastNormalize
+	GLM_FUNC_QUALIFIER tvec2<valType, P> fastNormalize
 	(
-		detail::tvec2<valType, P> const & x
+		tvec2<valType, P> const & x
 	)
 	{
 		valType sqr = x.x * x.x + x.y * x.y;
@@ -159,9 +159,9 @@ namespace glm
 	}
 
 	template <typename valType, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<valType, P> fastNormalize
+	GLM_FUNC_QUALIFIER tvec3<valType, P> fastNormalize
 	(
-		detail::tvec3<valType, P> const & x
+		tvec3<valType, P> const & x
 	)
 	{
 		valType sqr = x.x * x.x + x.y * x.y + x.z * x.z;
@@ -169,9 +169,9 @@ namespace glm
 	}
 
 	template <typename valType, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<valType, P> fastNormalize
+	GLM_FUNC_QUALIFIER tvec4<valType, P> fastNormalize
 	(
-		detail::tvec4<valType, P> const & x
+		tvec4<valType, P> const & x
 	)
 	{
 		valType sqr = x.x * x.x + x.y * x.y + x.z * x.z + x.w * x.w;

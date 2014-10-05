@@ -30,6 +30,65 @@ namespace glm{
 namespace detail
 {
 	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tmat4x4<T, P> compute_inverse(tmat4x4<T, P> const & m)
+	{
+		T Coef00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
+		T Coef02 = m[1][2] * m[3][3] - m[3][2] * m[1][3];
+		T Coef03 = m[1][2] * m[2][3] - m[2][2] * m[1][3];
+
+		T Coef04 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
+		T Coef06 = m[1][1] * m[3][3] - m[3][1] * m[1][3];
+		T Coef07 = m[1][1] * m[2][3] - m[2][1] * m[1][3];
+
+		T Coef08 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
+		T Coef10 = m[1][1] * m[3][2] - m[3][1] * m[1][2];
+		T Coef11 = m[1][1] * m[2][2] - m[2][1] * m[1][2];
+
+		T Coef12 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
+		T Coef14 = m[1][0] * m[3][3] - m[3][0] * m[1][3];
+		T Coef15 = m[1][0] * m[2][3] - m[2][0] * m[1][3];
+
+		T Coef16 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
+		T Coef18 = m[1][0] * m[3][2] - m[3][0] * m[1][2];
+		T Coef19 = m[1][0] * m[2][2] - m[2][0] * m[1][2];
+
+		T Coef20 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
+		T Coef22 = m[1][0] * m[3][1] - m[3][0] * m[1][1];
+		T Coef23 = m[1][0] * m[2][1] - m[2][0] * m[1][1];
+
+		tvec4<T, P> Fac0(Coef00, Coef00, Coef02, Coef03);
+		tvec4<T, P> Fac1(Coef04, Coef04, Coef06, Coef07);
+		tvec4<T, P> Fac2(Coef08, Coef08, Coef10, Coef11);
+		tvec4<T, P> Fac3(Coef12, Coef12, Coef14, Coef15);
+		tvec4<T, P> Fac4(Coef16, Coef16, Coef18, Coef19);
+		tvec4<T, P> Fac5(Coef20, Coef20, Coef22, Coef23);
+
+		tvec4<T, P> Vec0(m[1][0], m[0][0], m[0][0], m[0][0]);
+		tvec4<T, P> Vec1(m[1][1], m[0][1], m[0][1], m[0][1]);
+		tvec4<T, P> Vec2(m[1][2], m[0][2], m[0][2], m[0][2]);
+		tvec4<T, P> Vec3(m[1][3], m[0][3], m[0][3], m[0][3]);
+
+		tvec4<T, P> Inv0(Vec1 * Fac0 - Vec2 * Fac1 + Vec3 * Fac2);
+		tvec4<T, P> Inv1(Vec0 * Fac0 - Vec2 * Fac3 + Vec3 * Fac4);
+		tvec4<T, P> Inv2(Vec0 * Fac1 - Vec1 * Fac3 + Vec3 * Fac5);
+		tvec4<T, P> Inv3(Vec0 * Fac2 - Vec1 * Fac4 + Vec2 * Fac5);
+
+		tvec4<T, P> SignA(+1, -1, +1, -1);
+		tvec4<T, P> SignB(-1, +1, -1, +1);
+		tmat4x4<T, P> Inverse(Inv0 * SignA, Inv1 * SignB, Inv2 * SignA, Inv3 * SignB);
+
+		tvec4<T, P> Row0(Inverse[0][0], Inverse[1][0], Inverse[2][0], Inverse[3][0]);
+
+		tvec4<T, P> Dot0(m[0] * Row0);
+		T Dot1 = (Dot0.x + Dot0.y) + (Dot0.z + Dot0.w);
+
+		T OneOverDeterminant = static_cast<T>(1) / Dot1;
+
+		return Inverse * OneOverDeterminant;
+	}
+}//namespace detail
+
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t tmat4x4<T, P>::length() const
 	{
 		return 4;
@@ -233,8 +292,8 @@ namespace detail
 		tmat2x2<T, P> const & m
 	)
 	{
-		this->value[0] = col_type(m[0], detail::tvec2<T, P>(0));
-		this->value[1] = col_type(m[1], detail::tvec2<T, P>(0));
+		this->value[0] = col_type(m[0], tvec2<T, P>(0));
+		this->value[1] = col_type(m[1], tvec2<T, P>(0));
 		this->value[2] = col_type(static_cast<T>(0));
 		this->value[3] = col_type(static_cast<T>(0), value_type(0), value_type(0), value_type(1));
 	}
@@ -269,9 +328,9 @@ namespace detail
 		tmat3x2<T, P> const & m
 	)
 	{
-		this->value[0] = col_type(m[0], detail::tvec2<T, P>(0));
-		this->value[1] = col_type(m[1], detail::tvec2<T, P>(0));
-		this->value[2] = col_type(m[2], detail::tvec2<T, P>(0));
+		this->value[0] = col_type(m[0], tvec2<T, P>(0));
+		this->value[1] = col_type(m[1], tvec2<T, P>(0));
+		this->value[2] = col_type(m[2], tvec2<T, P>(0));
 		this->value[3] = col_type(static_cast<T>(0), value_type(0), value_type(0), value_type(1));
 	}
 
@@ -293,8 +352,8 @@ namespace detail
 		tmat4x2<T, P> const & m
 	)
 	{
-		this->value[0] = col_type(m[0], detail::tvec2<T, P>(0));
-		this->value[1] = col_type(m[1], detail::tvec2<T, P>(0));
+		this->value[0] = col_type(m[0], tvec2<T, P>(0));
+		this->value[1] = col_type(m[1], tvec2<T, P>(0));
 		this->value[2] = col_type(T(0));
 		this->value[3] = col_type(T(0), T(0), T(0), T(1));
 	}
@@ -434,7 +493,7 @@ namespace detail
 	template <typename U>
 	GLM_FUNC_QUALIFIER tmat4x4<T, P> & tmat4x4<T, P>::operator/= (tmat4x4<U, P> const & m)
 	{
-		return (*this = *this * detail::compute_inverse<detail::tmat4x4, T, P>::call(m));
+		return (*this = *this * detail::compute_inverse<T, P>(m));
 	}
 
 	template <typename T, precision P>
@@ -472,67 +531,6 @@ namespace detail
 		--*this;
 		return Result;
 	}
-
-	template <typename T, precision P>
-	struct compute_inverse<detail::tmat4x4, T, P>
-	{
-		static detail::tmat4x4<T, P> call(detail::tmat4x4<T, P> const & m)
-		{
-			T Coef00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
-			T Coef02 = m[1][2] * m[3][3] - m[3][2] * m[1][3];
-			T Coef03 = m[1][2] * m[2][3] - m[2][2] * m[1][3];
-
-			T Coef04 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
-			T Coef06 = m[1][1] * m[3][3] - m[3][1] * m[1][3];
-			T Coef07 = m[1][1] * m[2][3] - m[2][1] * m[1][3];
-
-			T Coef08 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
-			T Coef10 = m[1][1] * m[3][2] - m[3][1] * m[1][2];
-			T Coef11 = m[1][1] * m[2][2] - m[2][1] * m[1][2];
-
-			T Coef12 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
-			T Coef14 = m[1][0] * m[3][3] - m[3][0] * m[1][3];
-			T Coef15 = m[1][0] * m[2][3] - m[2][0] * m[1][3];
-
-			T Coef16 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
-			T Coef18 = m[1][0] * m[3][2] - m[3][0] * m[1][2];
-			T Coef19 = m[1][0] * m[2][2] - m[2][0] * m[1][2];
-
-			T Coef20 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
-			T Coef22 = m[1][0] * m[3][1] - m[3][0] * m[1][1];
-			T Coef23 = m[1][0] * m[2][1] - m[2][0] * m[1][1];
-
-			detail::tvec4<T, P> Fac0(Coef00, Coef00, Coef02, Coef03);
-			detail::tvec4<T, P> Fac1(Coef04, Coef04, Coef06, Coef07);
-			detail::tvec4<T, P> Fac2(Coef08, Coef08, Coef10, Coef11);
-			detail::tvec4<T, P> Fac3(Coef12, Coef12, Coef14, Coef15);
-			detail::tvec4<T, P> Fac4(Coef16, Coef16, Coef18, Coef19);
-			detail::tvec4<T, P> Fac5(Coef20, Coef20, Coef22, Coef23);
-
-			detail::tvec4<T, P> Vec0(m[1][0], m[0][0], m[0][0], m[0][0]);
-			detail::tvec4<T, P> Vec1(m[1][1], m[0][1], m[0][1], m[0][1]);
-			detail::tvec4<T, P> Vec2(m[1][2], m[0][2], m[0][2], m[0][2]);
-			detail::tvec4<T, P> Vec3(m[1][3], m[0][3], m[0][3], m[0][3]);
-
-			detail::tvec4<T, P> Inv0(Vec1 * Fac0 - Vec2 * Fac1 + Vec3 * Fac2);
-			detail::tvec4<T, P> Inv1(Vec0 * Fac0 - Vec2 * Fac3 + Vec3 * Fac4);
-			detail::tvec4<T, P> Inv2(Vec0 * Fac1 - Vec1 * Fac3 + Vec3 * Fac5);
-			detail::tvec4<T, P> Inv3(Vec0 * Fac2 - Vec1 * Fac4 + Vec2 * Fac5);
-
-			detail::tvec4<T, P> SignA(+1, -1, +1, -1);
-			detail::tvec4<T, P> SignB(-1, +1, -1, +1);
-			detail::tmat4x4<T, P> Inverse(Inv0 * SignA, Inv1 * SignB, Inv2 * SignA, Inv3 * SignB);
-
-			detail::tvec4<T, P> Row0(Inverse[0][0], Inverse[1][0], Inverse[2][0], Inverse[3][0]);
-
-			detail::tvec4<T, P> Dot0(m[0] * Row0);
-			T Dot1 = (Dot0.x + Dot0.y) + (Dot0.z + Dot0.w);
-
-			T OneOverDeterminant = static_cast<T>(1) / Dot1;
-
-			return Inverse * OneOverDeterminant;
-		}
-	};
 
 	// Binary operators
 	template <typename T, precision P>
@@ -809,7 +807,7 @@ namespace detail
 		typename tmat4x4<T, P>::row_type const & v
 	)
 	{
-		return detail::compute_inverse<detail::tmat4x4, T, P>::call(m) * v;
+		return detail::compute_inverse<tmat4x4, T, P>::call(m) * v;
 	}
 
 	template <typename T, precision P>
@@ -819,7 +817,7 @@ namespace detail
 		tmat4x4<T, P> const & m
 	)
 	{
-		return v * detail::compute_inverse<detail::tmat4x4, T, P>::call(m);
+		return v * detail::compute_inverse<tmat4x4, T, P>::call(m);
 	}
 
 	template <typename T, precision P>
@@ -897,6 +895,4 @@ namespace detail
 	{
 		return (m1[0] != m2[0]) || (m1[1] != m2[1]) || (m1[2] != m2[2]) || (m1[3] != m2[3]);
 	}
-
-} //namespace detail
-} //namespace glm
+}//namespace glm

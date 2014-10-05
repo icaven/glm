@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-namespace glm{
-namespace detail
+namespace glm
 {
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t tvec2<T, P>::length() const
@@ -910,6 +909,4 @@ namespace detail
 			~v.x,
 			~v.y);
 	}
-
-}//namespace detail
 }//namespace glm

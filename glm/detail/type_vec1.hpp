@@ -39,8 +39,7 @@
 #endif //GLM_SWIZZLE
 #include <cstddef>
 
-namespace glm{
-namespace detail
+namespace glm
 {
 	template <typename T, precision P>
 	struct tvec1
@@ -264,8 +263,6 @@ namespace detail
 
 	template <typename T, precision P> 
 	GLM_FUNC_DECL tvec1<T, P> operator~(tvec1<T, P> const & v);
-
-}//namespace detail
 }//namespace glm
 
 #ifndef GLM_EXTERNAL_TEMPLATE

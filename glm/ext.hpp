@@ -128,8 +128,11 @@
 #include "./gtx/vector_query.hpp"
 #include "./gtx/wrap.hpp"
 
-#if GLM_LANG & GLM_LANG_CXX0X_FLAG
+#if GLM_HAS_TEMPLATE_ALIASES
 #	include "./gtx/scalar_multiplication.hpp"
+#endif
+
+#if GLM_HAS_RANGE_FOR
 #	include "./gtx/range.hpp"
 #endif
 

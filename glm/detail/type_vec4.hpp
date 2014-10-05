@@ -40,8 +40,7 @@
 #endif //GLM_SWIZZLE
 #include <cstddef>
 
-namespace glm{
-namespace detail
+namespace glm
 {
 	template <typename T>
 	struct simd
@@ -125,7 +124,7 @@ namespace detail
 #			endif
 		
 #			ifdef GLM_SWIZZLE
-				GLM_SWIZZLE_GEN_VEC_FROM_VEC4(T, P, detail::tvec4, detail::tvec2, detail::tvec3, detail::tvec4)
+				GLM_SWIZZLE_GEN_VEC_FROM_VEC4(T, P, tvec4, tvec2, tvec3, tvec4)
 #			endif
 #		endif//GLM_LANG
 
@@ -410,8 +409,6 @@ namespace detail
 
 	template <typename T, precision P> 
 	GLM_FUNC_DECL tvec4<T, P> operator~(tvec4<T, P> const & v);
-
-}//namespace detail
 }//namespace glm
 
 #ifndef GLM_EXTERNAL_TEMPLATE

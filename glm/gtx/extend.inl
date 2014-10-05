@@ -21,10 +21,10 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<T, P> extend
+	GLM_FUNC_QUALIFIER tvec2<T, P> extend
 	(
-		detail::tvec2<T, P> const & Origin,
-		detail::tvec2<T, P> const & Source,
+		tvec2<T, P> const & Origin,
+		tvec2<T, P> const & Source,
 		T const & Distance
 	)
 	{
@@ -32,10 +32,10 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> extend
+	GLM_FUNC_QUALIFIER tvec3<T, P> extend
 	(
-		detail::tvec3<T, P> const & Origin,
-		detail::tvec3<T, P> const & Source,
+		tvec3<T, P> const & Origin,
+		tvec3<T, P> const & Source,
 		T const & Distance
 	)
 	{
@@ -43,10 +43,10 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<T, P> extend
+	GLM_FUNC_QUALIFIER tvec4<T, P> extend
 	(
-		detail::tvec4<T, P> const & Origin,
-		detail::tvec4<T, P> const & Source,
+		tvec4<T, P> const & Origin,
+		tvec4<T, P> const & Source,
 		T const & Distance
 	)
 	{

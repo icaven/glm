@@ -26,8 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-namespace glm{
-namespace detail
+namespace glm
 {
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t tmat2x4<T, P>::length() const
@@ -179,8 +178,8 @@ namespace detail
 		tmat2x2<T, P> const & m
 	)
 	{
-		this->value[0] = col_type(m[0], detail::tvec2<T, P>(0));
-		this->value[1] = col_type(m[1], detail::tvec2<T, P>(0));
+		this->value[0] = col_type(m[0], tvec2<T, P>(0));
+		this->value[1] = col_type(m[1], tvec2<T, P>(0));
 	}
 
 	template <typename T, precision P>
@@ -219,8 +218,8 @@ namespace detail
 		tmat3x2<T, P> const & m
 	)
 	{
-		this->value[0] = col_type(m[0], detail::tvec2<T, P>(0));
-		this->value[1] = col_type(m[1], detail::tvec2<T, P>(0));
+		this->value[0] = col_type(m[0], tvec2<T, P>(0));
+		this->value[1] = col_type(m[1], tvec2<T, P>(0));
 	}
 
 	template <typename T, precision P>
@@ -239,8 +238,8 @@ namespace detail
 		tmat4x2<T, P> const & m
 	)
 	{
-		this->value[0] = col_type(m[0], detail::tvec2<T, P>(T(0)));
-		this->value[1] = col_type(m[1], detail::tvec2<T, P>(T(0)));
+		this->value[0] = col_type(m[0], tvec2<T, P>(T(0)));
+		this->value[1] = col_type(m[1], tvec2<T, P>(T(0)));
 	}
 
 	template <typename T, precision P>
@@ -603,5 +602,4 @@ namespace detail
 	{
 		return (m1[0] != m2[0]) || (m1[1] != m2[1]);
 	}
-} //namespace detail
 } //namespace glm

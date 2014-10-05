@@ -8,9 +8,9 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/glm.hpp>
-#include <glm/gtx/scalar_multiplication.hpp>
 
-#if GLM_LANG & GLM_LANG_CXX0X_FLAG
+#if GLM_HAS_TEMPLATE_ALIASES
+#include <glm/gtx/scalar_multiplication.hpp>
 
 int main()
 {

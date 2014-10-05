@@ -300,41 +300,41 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<T, P> bitfieldExtract
+	GLM_FUNC_QUALIFIER tvec2<T, P> bitfieldExtract
 	(
-		detail::tvec2<T, P> const & Value,
+		tvec2<T, P> const & Value,
 		int const & Offset,
 		int const & Bits
 	)
 	{
-		return detail::tvec2<T, P>(
+		return tvec2<T, P>(
 			bitfieldExtract(Value[0], Offset, Bits),
 			bitfieldExtract(Value[1], Offset, Bits));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> bitfieldExtract
+	GLM_FUNC_QUALIFIER tvec3<T, P> bitfieldExtract
 	(
-		detail::tvec3<T, P> const & Value,
+		tvec3<T, P> const & Value,
 		int const & Offset,
 		int const & Bits
 	)
 	{
-		return detail::tvec3<T, P>(
+		return tvec3<T, P>(
 			bitfieldExtract(Value[0], Offset, Bits),
 			bitfieldExtract(Value[1], Offset, Bits),
 			bitfieldExtract(Value[2], Offset, Bits));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<T, P> bitfieldExtract
+	GLM_FUNC_QUALIFIER tvec4<T, P> bitfieldExtract
 	(
-		detail::tvec4<T, P> const & Value,
+		tvec4<T, P> const & Value,
 		int const & Offset,
 		int const & Bits
 	)
 	{
-		return detail::tvec4<T, P>(
+		return tvec4<T, P>(
 			bitfieldExtract(Value[0], Offset, Bits),
 			bitfieldExtract(Value[1], Offset, Bits),
 			bitfieldExtract(Value[2], Offset, Bits),
@@ -365,44 +365,44 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<T, P> bitfieldInsert
+	GLM_FUNC_QUALIFIER tvec2<T, P> bitfieldInsert
 	(
-		detail::tvec2<T, P> const & Base,
-		detail::tvec2<T, P> const & Insert,
+		tvec2<T, P> const & Base,
+		tvec2<T, P> const & Insert,
 		int const & Offset,
 		int const & Bits
 	)
 	{
-		return detail::tvec2<T, P>(
+		return tvec2<T, P>(
 			bitfieldInsert(Base[0], Insert[0], Offset, Bits),
 			bitfieldInsert(Base[1], Insert[1], Offset, Bits));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> bitfieldInsert
+	GLM_FUNC_QUALIFIER tvec3<T, P> bitfieldInsert
 	(
-		detail::tvec3<T, P> const & Base,
-		detail::tvec3<T, P> const & Insert,
+		tvec3<T, P> const & Base,
+		tvec3<T, P> const & Insert,
 		int const & Offset,
 		int const & Bits
 	)
 	{
-		return detail::tvec3<T, P>(
+		return tvec3<T, P>(
 			bitfieldInsert(Base[0], Insert[0], Offset, Bits),
 			bitfieldInsert(Base[1], Insert[1], Offset, Bits),
 			bitfieldInsert(Base[2], Insert[2], Offset, Bits));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<T, P> bitfieldInsert
+	GLM_FUNC_QUALIFIER tvec4<T, P> bitfieldInsert
 	(
-		detail::tvec4<T, P> const & Base,
-		detail::tvec4<T, P> const & Insert,
+		tvec4<T, P> const & Base,
+		tvec4<T, P> const & Insert,
 		int const & Offset,
 		int const & Bits
 	)
 	{
-		return detail::tvec4<T, P>(
+		return tvec4<T, P>(
 			bitfieldInsert(Base[0], Insert[0], Offset, Bits),
 			bitfieldInsert(Base[1], Insert[1], Offset, Bits),
 			bitfieldInsert(Base[2], Insert[2], Offset, Bits),
@@ -441,35 +441,35 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<int, P> bitCount
+	GLM_FUNC_QUALIFIER tvec2<int, P> bitCount
 	(
-		detail::tvec2<T, P> const & value
+		tvec2<T, P> const & value
 	)
 	{
-		return detail::tvec2<int, P>(
+		return tvec2<int, P>(
 			bitCount(value[0]),
 			bitCount(value[1]));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<int, P> bitCount
+	GLM_FUNC_QUALIFIER tvec3<int, P> bitCount
 	(
-		detail::tvec3<T, P> const & value
+		tvec3<T, P> const & value
 	)
 	{
-		return detail::tvec3<int, P>(
+		return tvec3<int, P>(
 			bitCount(value[0]),
 			bitCount(value[1]),
 			bitCount(value[2]));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<int, P> bitCount
+	GLM_FUNC_QUALIFIER tvec4<int, P> bitCount
 	(
-		detail::tvec4<T, P> const & value
+		tvec4<T, P> const & value
 	)
 	{
-		return detail::tvec4<int, P>(
+		return tvec4<int, P>(
 			bitCount(value[0]),
 			bitCount(value[1]),
 			bitCount(value[2]),
@@ -493,35 +493,35 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<int, P> findLSB
+	GLM_FUNC_QUALIFIER tvec2<int, P> findLSB
 	(
-		detail::tvec2<T, P> const & value
+		tvec2<T, P> const & value
 	)
 	{
-		return detail::tvec2<int, P>(
+		return tvec2<int, P>(
 			findLSB(value[0]),
 			findLSB(value[1]));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<int, P> findLSB
+	GLM_FUNC_QUALIFIER tvec3<int, P> findLSB
 	(
-		detail::tvec3<T, P> const & value
+		tvec3<T, P> const & value
 	)
 	{
-		return detail::tvec3<int, P>(
+		return tvec3<int, P>(
 			findLSB(value[0]),
 			findLSB(value[1]),
 			findLSB(value[2]));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<int, P> findLSB
+	GLM_FUNC_QUALIFIER tvec4<int, P> findLSB
 	(
-		detail::tvec4<T, P> const & value
+		tvec4<T, P> const & value
 	)
 	{
-		return detail::tvec4<int, P>(
+		return tvec4<int, P>(
 			findLSB(value[0]),
 			findLSB(value[1]),
 			findLSB(value[2]),
@@ -617,35 +617,35 @@ namespace glm
 #endif//(GLM_COMPILER)
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<int, P> findMSB
+	GLM_FUNC_QUALIFIER tvec2<int, P> findMSB
 	(
-		detail::tvec2<T, P> const & value
+		tvec2<T, P> const & value
 	)
 	{
-		return detail::tvec2<int, P>(
+		return tvec2<int, P>(
 			findMSB(value[0]),
 			findMSB(value[1]));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<int, P> findMSB
+	GLM_FUNC_QUALIFIER tvec3<int, P> findMSB
 	(
-		detail::tvec3<T, P> const & value
+		tvec3<T, P> const & value
 	)
 	{
-		return detail::tvec3<int, P>(
+		return tvec3<int, P>(
 			findMSB(value[0]),
 			findMSB(value[1]),
 			findMSB(value[2]));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<int, P> findMSB
+	GLM_FUNC_QUALIFIER tvec4<int, P> findMSB
 	(
-		detail::tvec4<T, P> const & value
+		tvec4<T, P> const & value
 	)
 	{
-		return detail::tvec4<int, P>(
+		return tvec4<int, P>(
 			findMSB(value[0]),
 			findMSB(value[1]),
 			findMSB(value[2]),

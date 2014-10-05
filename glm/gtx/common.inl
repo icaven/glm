@@ -43,53 +43,53 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename detail::tvec1<T, P>::bool_type isdenormal
+	GLM_FUNC_QUALIFIER typename tvec1<T, P>::bool_type isdenormal
 	(
-		detail::tvec1<T, P> const & x
+		tvec1<T, P> const & x
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isdenormal' only accept floating-point inputs");
 
-		return typename detail::tvec1<T, P>::bool_type(
+		return typename tvec1<T, P>::bool_type(
 			isdenormal(x.x));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename detail::tvec2<T, P>::bool_type isdenormal
+	GLM_FUNC_QUALIFIER typename tvec2<T, P>::bool_type isdenormal
 	(
-		detail::tvec2<T, P> const & x
+		tvec2<T, P> const & x
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isdenormal' only accept floating-point inputs");
 
-		return typename detail::tvec2<T, P>::bool_type(
+		return typename tvec2<T, P>::bool_type(
 			isdenormal(x.x),
 			isdenormal(x.y));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename detail::tvec3<T, P>::bool_type isdenormal
+	GLM_FUNC_QUALIFIER typename tvec3<T, P>::bool_type isdenormal
 	(
-		detail::tvec3<T, P> const & x
+		tvec3<T, P> const & x
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isdenormal' only accept floating-point inputs");
 
-		return typename detail::tvec3<T, P>::bool_type(
+		return typename tvec3<T, P>::bool_type(
 			isdenormal(x.x),
 			isdenormal(x.y),
 			isdenormal(x.z));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename detail::tvec4<T, P>::bool_type isdenormal
+	GLM_FUNC_QUALIFIER typename tvec4<T, P>::bool_type isdenormal
 	(
-		detail::tvec4<T, P> const & x
+		tvec4<T, P> const & x
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isdenormal' only accept floating-point inputs");
 
-		return typename detail::tvec4<T, P>::bool_type(
+		return typename tvec4<T, P>::bool_type(
 			isdenormal(x.x),
 			isdenormal(x.y),
 			isdenormal(x.z),

@@ -125,26 +125,26 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<bool, P> epsilonEqual
+	GLM_FUNC_QUALIFIER tvec4<bool, P> epsilonEqual
 	(
-		detail::tquat<T, P> const & x,
-		detail::tquat<T, P> const & y,
+		tquat<T, P> const & x,
+		tquat<T, P> const & y,
 		T const & epsilon
 	)
 	{
-		detail::tvec4<T, P> v(x.x - y.x, x.y - y.y, x.z - y.z, x.w - y.w);
-		return lessThan(abs(v), detail::tvec4<T, P>(epsilon));
+		tvec4<T, P> v(x.x - y.x, x.y - y.y, x.z - y.z, x.w - y.w);
+		return lessThan(abs(v), tvec4<T, P>(epsilon));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<bool, P> epsilonNotEqual
+	GLM_FUNC_QUALIFIER tvec4<bool, P> epsilonNotEqual
 	(
-		detail::tquat<T, P> const & x,
-		detail::tquat<T, P> const & y,
+		tquat<T, P> const & x,
+		tquat<T, P> const & y,
 		T const & epsilon
 	)
 	{
-		detail::tvec4<T, P> v(x.x - y.x, x.y - y.y, x.z - y.z, x.w - y.w);
-		return greaterThanEqual(abs(v), detail::tvec4<T, P>(epsilon));
+		tvec4<T, P> v(x.x - y.x, x.y - y.y, x.z - y.z, x.w - y.w);
+		return greaterThanEqual(abs(v), tvec4<T, P>(epsilon));
 	}
 }//namespace glm

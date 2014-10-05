@@ -41,35 +41,35 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<int, P> highestBitValue
+	GLM_FUNC_QUALIFIER tvec2<int, P> highestBitValue
 	(
-		detail::tvec2<T, P> const & value
+		tvec2<T, P> const & value
 	)
 	{
-		return detail::tvec2<int, P>(
+		return tvec2<int, P>(
 			highestBitValue(value[0]),
 			highestBitValue(value[1]));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<int, P> highestBitValue
+	GLM_FUNC_QUALIFIER tvec3<int, P> highestBitValue
 	(
-		detail::tvec3<T, P> const & value
+		tvec3<T, P> const & value
 	)
 	{
-		return detail::tvec3<int, P>(
+		return tvec3<int, P>(
 			highestBitValue(value[0]),
 			highestBitValue(value[1]),
 			highestBitValue(value[2]));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<int, P> highestBitValue
+	GLM_FUNC_QUALIFIER tvec4<int, P> highestBitValue
 	(
-		detail::tvec4<T, P> const & value
+		tvec4<T, P> const & value
 	)
 	{
-		return detail::tvec4<int, P>(
+		return tvec4<int, P>(
 			highestBitValue(value[0]),
 			highestBitValue(value[1]),
 			highestBitValue(value[2]),
@@ -91,35 +91,35 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<bool, P> isPowerOfTwo
+	GLM_FUNC_QUALIFIER tvec2<bool, P> isPowerOfTwo
 	(
-		detail::tvec2<T, P> const & value
+		tvec2<T, P> const & value
 	)
 	{
-		return detail::tvec2<bool, P>(
+		return tvec2<bool, P>(
 			isPowerOfTwo(value[0]),
 			isPowerOfTwo(value[1]));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<bool, P> isPowerOfTwo
+	GLM_FUNC_QUALIFIER tvec3<bool, P> isPowerOfTwo
 	(
-		detail::tvec3<T, P> const & value
+		tvec3<T, P> const & value
 	)
 	{
-		return detail::tvec3<bool, P>(
+		return tvec3<bool, P>(
 			isPowerOfTwo(value[0]),
 			isPowerOfTwo(value[1]),
 			isPowerOfTwo(value[2]));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<bool, P> isPowerOfTwo
+	GLM_FUNC_QUALIFIER tvec4<bool, P> isPowerOfTwo
 	(
-		detail::tvec4<T, P> const & value
+		tvec4<T, P> const & value
 	)
 	{
-		return detail::tvec4<bool, P>(
+		return tvec4<bool, P>(
 			isPowerOfTwo(value[0]),
 			isPowerOfTwo(value[1]),
 			isPowerOfTwo(value[2]),
@@ -189,38 +189,38 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<T, P> bitRotateRight
+	GLM_FUNC_QUALIFIER tvec2<T, P> bitRotateRight
 	(
-		detail::tvec2<T, P> const & Value, 
+		tvec2<T, P> const & Value, 
 		std::size_t Shift
 	)
 	{
-		return detail::tvec2<T, P>(
+		return tvec2<T, P>(
 			bitRotateRight(Value[0], Shift),
 			bitRotateRight(Value[1], Shift));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> bitRotateRight
+	GLM_FUNC_QUALIFIER tvec3<T, P> bitRotateRight
 	(
-		detail::tvec3<T, P> const & Value, 
+		tvec3<T, P> const & Value, 
 		std::size_t Shift
 	)
 	{
-		return detail::tvec3<T, P>(
+		return tvec3<T, P>(
 			bitRotateRight(Value[0], Shift),
 			bitRotateRight(Value[1], Shift),
 			bitRotateRight(Value[2], Shift));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<T, P> bitRotateRight
+	GLM_FUNC_QUALIFIER tvec4<T, P> bitRotateRight
 	(
-		detail::tvec4<T, P> const & Value, 
+		tvec4<T, P> const & Value, 
 		std::size_t Shift
 	)
 	{
-		return detail::tvec4<T, P>(
+		return tvec4<T, P>(
 			bitRotateRight(Value[0], Shift),
 			bitRotateRight(Value[1], Shift),
 			bitRotateRight(Value[2], Shift),
@@ -237,38 +237,38 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<T, P> bitRotateLeft
+	GLM_FUNC_QUALIFIER tvec2<T, P> bitRotateLeft
 	(
-		detail::tvec2<T, P> const & Value, 
+		tvec2<T, P> const & Value, 
 		std::size_t Shift
 	)
 	{
-		return detail::tvec2<T, P>(
+		return tvec2<T, P>(
 			bitRotateLeft(Value[0], Shift),
 			bitRotateLeft(Value[1], Shift));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> bitRotateLeft
+	GLM_FUNC_QUALIFIER tvec3<T, P> bitRotateLeft
 	(
-		detail::tvec3<T, P> const & Value, 
+		tvec3<T, P> const & Value, 
 		std::size_t Shift
 	)
 	{
-		return detail::tvec3<T, P>(
+		return tvec3<T, P>(
 			bitRotateLeft(Value[0], Shift),
 			bitRotateLeft(Value[1], Shift),
 			bitRotateLeft(Value[2], Shift));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<T, P> bitRotateLeft
+	GLM_FUNC_QUALIFIER tvec4<T, P> bitRotateLeft
 	(
-		detail::tvec4<T, P> const & Value, 
+		tvec4<T, P> const & Value, 
 		std::size_t Shift
 	)
 	{
-		return detail::tvec4<T, P>(
+		return tvec4<T, P>(
 			bitRotateLeft(Value[0], Shift),
 			bitRotateLeft(Value[1], Shift),
 			bitRotateLeft(Value[2], Shift),

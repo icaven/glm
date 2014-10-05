@@ -21,7 +21,7 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T length2
 	(
-		detail::tvec2<T, P> const & x
+		tvec2<T, P> const & x
 	)
 	{
 		return dot(x, x);
@@ -30,7 +30,7 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T length2
 	(
-		detail::tvec3<T, P> const & x
+		tvec3<T, P> const & x
 	)
 	{
 		return dot(x, x);
@@ -39,7 +39,7 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T length2
 	(
-		detail::tvec4<T, P> const & x
+		tvec4<T, P> const & x
 	)
 	{
 		return dot(x, x);
@@ -58,8 +58,8 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T distance2
 	(
-		detail::tvec2<T, P> const & p0,
-		detail::tvec2<T, P> const & p1
+		tvec2<T, P> const & p0,
+		tvec2<T, P> const & p1
 	)
 	{
 		return length2(p1 - p0);
@@ -68,8 +68,8 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T distance2
 	(
-		detail::tvec3<T, P> const & p0,
-		detail::tvec3<T, P> const & p1
+		tvec3<T, P> const & p0,
+		tvec3<T, P> const & p1
 	)
 	{
 		return length2(p1 - p0);
@@ -78,8 +78,8 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T distance2
 	(
-		detail::tvec4<T, P> const & p0,
-		detail::tvec4<T, P> const & p1
+		tvec4<T, P> const & p0,
+		tvec4<T, P> const & p1
 	)
 	{
 		return length2(p1 - p0);
@@ -88,8 +88,8 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T l1Norm
 	(
-		detail::tvec3<T, P> const & a,
-		detail::tvec3<T, P> const & b
+		tvec3<T, P> const & a,
+		tvec3<T, P> const & b
 	)
 	{
 		return abs(b.x - a.x) + abs(b.y - a.y) + abs(b.z - a.z);
@@ -98,7 +98,7 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T l1Norm
 	(
-		detail::tvec3<T, P> const & v
+		tvec3<T, P> const & v
 	)
 	{
 		return abs(v.x) + abs(v.y) + abs(v.z);
@@ -107,8 +107,8 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T l2Norm
 	(
-		detail::tvec3<T, P> const & a,
-		detail::tvec3<T, P> const & b
+		tvec3<T, P> const & a,
+		tvec3<T, P> const & b
 	)
 	{
 		return length(b - a);
@@ -117,7 +117,7 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T l2Norm
 	(
-		detail::tvec3<T, P> const & v
+		tvec3<T, P> const & v
 	)
 	{
 		return length(v);
@@ -126,8 +126,8 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T lxNorm
 	(
-		detail::tvec3<T, P> const & x,
-		detail::tvec3<T, P> const & y,
+		tvec3<T, P> const & x,
+		tvec3<T, P> const & y,
 		unsigned int Depth
 	)
 	{
@@ -137,7 +137,7 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T lxNorm
 	(
-		detail::tvec3<T, P> const & v,
+		tvec3<T, P> const & v,
 		unsigned int Depth
 	)
 	{

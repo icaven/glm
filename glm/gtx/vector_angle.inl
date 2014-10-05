@@ -35,8 +35,8 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T orientedAngle
 	(
-		detail::tvec2<T, P> const & x,
-		detail::tvec2<T, P> const & y
+		tvec2<T, P> const & x,
+		tvec2<T, P> const & y
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'orientedAngle' only accept floating-point inputs");
@@ -51,9 +51,9 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T orientedAngle
 	(
-		detail::tvec3<T, P> const & x,
-		detail::tvec3<T, P> const & y,
-		detail::tvec3<T, P> const & ref
+		tvec3<T, P> const & x,
+		tvec3<T, P> const & y,
+		tvec3<T, P> const & ref
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'orientedAngle' only accept floating-point inputs");

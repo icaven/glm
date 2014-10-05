@@ -39,8 +39,8 @@
 
 #include "../detail/setup.hpp"
 
-#if !(GLM_LANG & GLM_LANG_CXX0X_FLAG)
-#	error "GLM_GTX_scalar_multiplication requires C++11 suppport"
+#if !GLM_HAS_TEMPLATE_ALIASES
+#	error "GLM_GTX_scalar_multiplication requires C++11 suppport or alias templates"
 #endif
 
 #include "../vec2.hpp"
@@ -49,8 +49,7 @@
 #include "../mat2x2.hpp"
 #include <type_traits>
 
-namespace glm{
-namespace detail
+namespace glm
 {
 	template <typename T, typename Vec>
 	using return_type_scalar_multiplication = typename std::enable_if<
@@ -92,6 +91,4 @@ GLM_IMPLEMENT_SCAL_MULT(mat4x3)
 GLM_IMPLEMENT_SCAL_MULT(mat4)
 
 #undef GLM_IMPLEMENT_SCAL_MULT
-
-} // namespace detail
 } // namespace glm

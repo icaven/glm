@@ -72,17 +72,17 @@ namespace gtx
 	//! Checks to determine if the parameter component are power of 2 numbers.
 	//! From GLM_GTX_optimum_pow extension.
 	template <precision P>
-	GLM_FUNC_DECL detail::tvec2<bool, P> powOfTwo(detail::tvec2<int, P> const & x);
+	GLM_FUNC_DECL tvec2<bool, P> powOfTwo(tvec2<int, P> const & x);
 
 	//! Checks to determine if the parameter component are power of 2 numbers.
 	//! From GLM_GTX_optimum_pow extension.
 	template <precision P>
-	GLM_FUNC_DECL detail::tvec3<bool, P> powOfTwo(detail::tvec3<int, P> const & x);
+	GLM_FUNC_DECL tvec3<bool, P> powOfTwo(tvec3<int, P> const & x);
 
 	//! Checks to determine if the parameter component are power of 2 numbers.
 	//! From GLM_GTX_optimum_pow extension.
 	template <precision P>
-	GLM_FUNC_DECL detail::tvec4<bool, P> powOfTwo(detail::tvec4<int, P> const & x);
+	GLM_FUNC_DECL tvec4<bool, P> powOfTwo(tvec4<int, P> const & x);
 
 	/// @}
 }//namespace gtx

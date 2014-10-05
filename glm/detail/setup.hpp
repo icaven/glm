@@ -22,7 +22,7 @@
 ///
 /// @ref core
 /// @file glm/core/setup.hpp
-/// @date 2006-11-13 / 2013-03-30
+/// @date 2006-11-13 / 2014-10-05
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -547,6 +547,18 @@
 	(GLM_LANG & GLM_LANG_CXX11_FLAG) || \
 	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && ((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC10))) || \
 	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC43)))
+
+#define GLM_HAS_TEMPLATE_ALIASES ( \
+	(GLM_LANG & GLM_LANG_CXX11_FLAG) || \
+	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && ((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC12))) || \
+	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC47)) || \
+	__has_feature(cxx_alias_templates))
+
+#define GLM_HAS_RANGE_FOR ( \
+	(GLM_LANG & GLM_LANG_CXX11_FLAG) || \
+	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && ((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC11))) || \
+	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC46)) || \
+	__has_feature(cxx_range_for))
 
 // OpenMP
 #ifdef _OPENMP 

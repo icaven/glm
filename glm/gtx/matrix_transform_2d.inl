@@ -32,26 +32,26 @@ namespace glm
 {
 	
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> translate(
-		detail::tmat3x3<T, P> const & m,
-		detail::tvec2<T, P> const & v)
+	GLM_FUNC_QUALIFIER tmat3x3<T, P> translate(
+		tmat3x3<T, P> const & m,
+		tvec2<T, P> const & v)
 	{
-		detail::tmat3x3<T, P> Result(m);
+		tmat3x3<T, P> Result(m);
 		Result[2] = m[0] * v[0] + m[1] * v[1] + m[2];
 		return Result;
 	}
 
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> rotate(
-		detail::tmat3x3<T, P> const & m,
+	GLM_FUNC_QUALIFIER tmat3x3<T, P> rotate(
+		tmat3x3<T, P> const & m,
 		T const & angle)
 	{
 		T const a = angle;
 		T const c = cos(a);
 		T const s = sin(a);
 
-		detail::tmat3x3<T, P> Result(detail::tmat3x3<T, P>::_null);
+		tmat3x3<T, P> Result(tmat3x3<T, P>::_null);
 		Result[0] = m[0] * c + m[1] * s;
 		Result[1] = m[0] * -s + m[1] * c;
 		Result[2] = m[2];
@@ -59,11 +59,11 @@ namespace glm
 	}
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> scale(
-		detail::tmat3x3<T, P> const & m,
-		detail::tvec2<T, P> const & v)
+	GLM_FUNC_QUALIFIER tmat3x3<T, P> scale(
+		tmat3x3<T, P> const & m,
+		tvec2<T, P> const & v)
 	{
-		detail::tmat3x3<T, P> Result(detail::tmat3x3<T, P>::_null);
+		tmat3x3<T, P> Result(tmat3x3<T, P>::_null);
 		Result[0] = m[0] * v[0];
 		Result[1] = m[1] * v[1];
 		Result[2] = m[2];
@@ -71,21 +71,21 @@ namespace glm
 	}
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> shearX(
-		detail::tmat3x3<T, P> const & m,
+	GLM_FUNC_QUALIFIER tmat3x3<T, P> shearX(
+		tmat3x3<T, P> const & m,
 		T const & y)
 	{
-		detail::tmat3x3<T, P> Result();
+		tmat3x3<T, P> Result();
 		Result[0][1] = y;
 		return m * Result;
 	}
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER detail::tmat3x3<T, P> shearY(
-		detail::tmat3x3<T, P> const & m,
+	GLM_FUNC_QUALIFIER tmat3x3<T, P> shearY(
+		tmat3x3<T, P> const & m,
 		T const & x)
 	{
-		detail::tmat3x3<T, P> Result();
+		tmat3x3<T, P> Result();
 		Result[1][0] = x;
 		return m * Result;
 	}

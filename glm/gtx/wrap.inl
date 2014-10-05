@@ -22,37 +22,37 @@ namespace glm
 	}
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER detail::tvec2<T, P> clamp
+	GLM_FUNC_QUALIFIER tvec2<T, P> clamp
 	(
-		detail::tvec2<T, P> const & Texcoord
+		tvec2<T, P> const & Texcoord
 	)
 	{
-		detail::tvec2<T, P> Result;
-		for(typename detail::tvec2<T, P>::size_type i = 0; i < detail::tvec2<T, P>::value_size(); ++i)
+		tvec2<T, P> Result;
+		for(typename tvec2<T, P>::size_type i = 0; i < tvec2<T, P>::value_size(); ++i)
 			Result[i] = clamp(Texcoord[i]);
 		return Result;
 	}
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> clamp
+	GLM_FUNC_QUALIFIER tvec3<T, P> clamp
 	(
-		detail::tvec3<T, P> const & Texcoord
+		tvec3<T, P> const & Texcoord
 	)
 	{
-		detail::tvec3<T, P> Result;
-		for(typename detail::tvec3<T, P>::size_type i = 0; i < detail::tvec3<T, P>::value_size(); ++i)
+		tvec3<T, P> Result;
+		for(typename tvec3<T, P>::size_type i = 0; i < tvec3<T, P>::value_size(); ++i)
 			Result[i] = clamp(Texcoord[i]);
 		return Result;
 	}
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER detail::tvec4<T, P> clamp
+	GLM_FUNC_QUALIFIER tvec4<T, P> clamp
 	(
-		detail::tvec4<T, P> const & Texcoord
+		tvec4<T, P> const & Texcoord
 	)
 	{
-		detail::tvec4<T, P> Result;
-		for(typename detail::tvec4<T, P>::size_type i = 0; i < detail::tvec4<T, P>::value_size(); ++i)
+		tvec4<T, P> Result;
+		for(typename tvec4<T, P>::size_type i = 0; i < tvec4<T, P>::value_size(); ++i)
 			Result[i] = clamp(Texcoord[i]);
 		return Result;
 	}
@@ -70,37 +70,37 @@ namespace glm
 	}
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER detail::tvec2<T, P> repeat
+	GLM_FUNC_QUALIFIER tvec2<T, P> repeat
 	(
-		detail::tvec2<T, P> const & Texcoord
+		tvec2<T, P> const & Texcoord
 	)
 	{
-		detail::tvec2<T, P> Result;
-		for(typename detail::tvec2<T, P>::size_type i = 0; i < detail::tvec2<T, P>::value_size(); ++i)
+		tvec2<T, P> Result;
+		for(typename tvec2<T, P>::size_type i = 0; i < tvec2<T, P>::value_size(); ++i)
 			Result[i] = repeat(Texcoord[i]);
 		return Result;
 	}
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> repeat
+	GLM_FUNC_QUALIFIER tvec3<T, P> repeat
 	(
-		detail::tvec3<T, P> const & Texcoord
+		tvec3<T, P> const & Texcoord
 	)
 	{
-		detail::tvec3<T, P> Result;
-		for(typename detail::tvec3<T, P>::size_type i = 0; i < detail::tvec3<T, P>::value_size(); ++i)
+		tvec3<T, P> Result;
+		for(typename tvec3<T, P>::size_type i = 0; i < tvec3<T, P>::value_size(); ++i)
 			Result[i] = repeat(Texcoord[i]);
 		return Result;
 	}
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER detail::tvec4<T, P> repeat
+	GLM_FUNC_QUALIFIER tvec4<T, P> repeat
 	(
-		detail::tvec4<T, P> const & Texcoord
+		tvec4<T, P> const & Texcoord
 	)
 	{
-		detail::tvec4<T, P> Result;
-		for(typename detail::tvec4<T, P>::size_type i = 0; i < detail::tvec4<T, P>::value_size(); ++i)
+		tvec4<T, P> Result;
+		for(typename tvec4<T, P>::size_type i = 0; i < tvec4<T, P>::value_size(); ++i)
 			Result[i] = repeat(Texcoord[i]);
 		return Result;
 	}
@@ -128,37 +128,37 @@ namespace glm
 	}
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER detail::tvec2<T, P> mirrorRepeat
+	GLM_FUNC_QUALIFIER tvec2<T, P> mirrorRepeat
 	(
-		detail::tvec2<T, P> const & Texcoord
+		tvec2<T, P> const & Texcoord
 	)
 	{
-		detail::tvec2<T, P> Result;
-		for(typename detail::tvec2<T, P>::size_type i = 0; i < detail::tvec2<T, P>::value_size(); ++i)
+		tvec2<T, P> Result;
+		for(typename tvec2<T, P>::size_type i = 0; i < tvec2<T, P>::value_size(); ++i)
 			Result[i] = mirrorRepeat(Texcoord[i]);
 		return Result;
 	}
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> mirrorRepeat
+	GLM_FUNC_QUALIFIER tvec3<T, P> mirrorRepeat
 	(
-		detail::tvec3<T, P> const & Texcoord
+		tvec3<T, P> const & Texcoord
 	)
 	{
-		detail::tvec3<T, P> Result;
-		for(typename detail::tvec3<T, P>::size_type i = 0; i < detail::tvec3<T, P>::value_size(); ++i)
+		tvec3<T, P> Result;
+		for(typename tvec3<T, P>::size_type i = 0; i < tvec3<T, P>::value_size(); ++i)
 			Result[i] = mirrorRepeat(Texcoord[i]);
 		return Result;
 	}
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER detail::tvec4<T, P> mirrorRepeat
+	GLM_FUNC_QUALIFIER tvec4<T, P> mirrorRepeat
 	(
-		detail::tvec4<T, P> const & Texcoord
+		tvec4<T, P> const & Texcoord
 	)
 	{
-		detail::tvec4<T, P> Result;
-		for(typename detail::tvec4<T, P>::size_type i = 0; i < detail::tvec4<T, P>::value_size(); ++i)
+		tvec4<T, P> Result;
+		for(typename tvec4<T, P>::size_type i = 0; i < tvec4<T, P>::value_size(); ++i)
 			Result[i] = mirrorRepeat(Texcoord[i]);
 		return Result;
 	}

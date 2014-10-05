@@ -39,8 +39,7 @@
 #endif //GLM_SWIZZLE
 #include <cstddef>
 
-namespace glm{
-namespace detail
+namespace glm
 {
 	template <typename T, precision P>
 	struct tvec2
@@ -85,7 +84,7 @@ namespace detail
 			union {T y, g, t;};
 
 #			ifdef GLM_SWIZZLE
-				GLM_SWIZZLE_GEN_VEC_FROM_VEC2(T, P, detail::tvec2, detail::tvec2, detail::tvec3, detail::tvec4)
+				GLM_SWIZZLE_GEN_VEC_FROM_VEC2(T, P, tvec2, tvec2, tvec3, tvec4)
 #			endif 
 #		endif
 
@@ -379,8 +378,6 @@ namespace detail
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tvec2<T, P> operator~(tvec2<T, P> const & v);
-
-}//namespace detail
 }//namespace glm
 
 #ifndef GLM_EXTERNAL_TEMPLATE

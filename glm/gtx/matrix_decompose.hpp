@@ -57,8 +57,8 @@ namespace glm
 	/// @see gtx_decomposition
 	template <typename T, precision P>
 	GLM_FUNC_DECL bool decompose(
-		detail::tmat4x4<T, P> const & modelMatrix,
-		detail::tvec3<T, P> & scale, detail::tquat<T, P> & orientation, detail::tvec3<T, P> & translation, detail::tvec3<T, P> & skew, detail::tvec4<T, P> & perspective);
+		tmat4x4<T, P> const & modelMatrix,
+		tvec3<T, P> & scale, tquat<T, P> & orientation, tvec3<T, P> & translation, tvec3<T, P> & skew, tvec4<T, P> & perspective);
 
 	/// @}
 }//namespace glm

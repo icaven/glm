@@ -33,26 +33,26 @@ namespace glm
 	}
 
 	template <precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<bool, P> powOfTwo(detail::tvec2<int, P> const & x)
+	GLM_FUNC_QUALIFIER tvec2<bool, P> powOfTwo(tvec2<int, P> const & x)
 	{
-		return detail::tvec2<bool, P>(
+		return tvec2<bool, P>(
 			powOfTwo(x.x),
 			powOfTwo(x.y));
 	}
 
 	template <precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<bool, P> powOfTwo(detail::tvec3<int, P> const & x)
+	GLM_FUNC_QUALIFIER tvec3<bool, P> powOfTwo(tvec3<int, P> const & x)
 	{
-		return detail::tvec3<bool, P>(
+		return tvec3<bool, P>(
 			powOfTwo(x.x),
 			powOfTwo(x.y),
 			powOfTwo(x.z));
 	}
 
 	template <precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<bool, P> powOfTwo(detail::tvec4<int, P> const & x)
+	GLM_FUNC_QUALIFIER tvec4<bool, P> powOfTwo(tvec4<int, P> const & x)
 	{
-		return detail::tvec4<bool, P>(
+		return tvec4<bool, P>(
 			powOfTwo(x.x),
 			powOfTwo(x.y),
 			powOfTwo(x.z),

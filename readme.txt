@@ -59,6 +59,7 @@ GLM 0.9.6.0: 2014-XX-XX
 - Added GTX_scalar_multiplication for C++ 11 compiler only #242
 - Added GTX_range for C++ 11 compiler only #240
 - Added Added closestPointOnLine function for tvec2 to GTX_closest_point #238
+- Moved template types from 'detail' to 'glm' namespace #239, #244
 
 ================================================================================
 GLM 0.9.5.4: 2014-06-21

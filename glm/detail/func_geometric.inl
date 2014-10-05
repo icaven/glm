@@ -39,45 +39,45 @@ namespace detail
 	struct compute_dot{};
 
 	template <typename T, precision P>
-	struct compute_dot<detail::tvec1, T, P>
+	struct compute_dot<tvec1, T, P>
 	{
-		GLM_FUNC_QUALIFIER static T call(detail::tvec1<T, P> const & x, detail::tvec1<T, P> const & y)
+		GLM_FUNC_QUALIFIER static T call(tvec1<T, P> const & x, tvec1<T, P> const & y)
 		{
 #			ifdef __CUDACC__ // Wordaround for a CUDA compiler bug up to CUDA6
-				detail::tvec1<T, P> tmp(x * y);
+				tvec1<T, P> tmp(x * y);
 				return tmp.x;
 #			else
-				return detail::tvec1<T, P>(x * y).x;
+				return tvec1<T, P>(x * y).x;
 #			endif
 		}
 	};
 
 	template <typename T, precision P>
-	struct compute_dot<detail::tvec2, T, P>
+	struct compute_dot<tvec2, T, P>
 	{
-		GLM_FUNC_QUALIFIER static T call(detail::tvec2<T, P> const & x, detail::tvec2<T, P> const & y)
+		GLM_FUNC_QUALIFIER static T call(tvec2<T, P> const & x, tvec2<T, P> const & y)
 		{
-			detail::tvec2<T, P> tmp(x * y);
+			tvec2<T, P> tmp(x * y);
 			return tmp.x + tmp.y;
 		}
 	};
 
 	template <typename T, precision P>
-	struct compute_dot<detail::tvec3, T, P>
+	struct compute_dot<tvec3, T, P>
 	{
-		GLM_FUNC_QUALIFIER static T call(detail::tvec3<T, P> const & x, detail::tvec3<T, P> const & y)
+		GLM_FUNC_QUALIFIER static T call(tvec3<T, P> const & x, tvec3<T, P> const & y)
 		{
-			detail::tvec3<T, P> tmp(x * y);
+			tvec3<T, P> tmp(x * y);
 			return tmp.x + tmp.y + tmp.z;
 		}
 	};
 
 	template <typename T, precision P>
-	struct compute_dot<detail::tvec4, T, P>
+	struct compute_dot<tvec4, T, P>
 	{
-		GLM_FUNC_QUALIFIER static T call(detail::tvec4<T, P> const & x, detail::tvec4<T, P> const & y)
+		GLM_FUNC_QUALIFIER static T call(tvec4<T, P> const & x, tvec4<T, P> const & y)
 		{
-			detail::tvec4<T, P> tmp(x * y);
+			tvec4<T, P> tmp(x * y);
 			return (tmp.x + tmp.y) + (tmp.z + tmp.w);
 		}
 	};
@@ -96,7 +96,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T length(detail::tvec2<T, P> const & v)
+	GLM_FUNC_QUALIFIER T length(tvec2<T, P> const & v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'length' only accept floating-point inputs");
 
@@ -105,7 +105,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T length(detail::tvec3<T, P> const & v)
+	GLM_FUNC_QUALIFIER T length(tvec3<T, P> const & v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'length' only accept floating-point inputs");
 
@@ -114,7 +114,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T length(detail::tvec4<T, P> const & v)
+	GLM_FUNC_QUALIFIER T length(tvec4<T, P> const & v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'length' only accept floating-point inputs");
 
@@ -138,8 +138,8 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T distance
 	(
-		detail::tvec2<T, P> const & p0,
-		detail::tvec2<T, P> const & p1
+		tvec2<T, P> const & p0,
+		tvec2<T, P> const & p1
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'distance' only accept floating-point inputs");
@@ -150,8 +150,8 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T distance
 	(
-		detail::tvec3<T, P> const & p0,
-		detail::tvec3<T, P> const & p1
+		tvec3<T, P> const & p0,
+		tvec3<T, P> const & p1
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'distance' only accept floating-point inputs");
@@ -162,8 +162,8 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T distance
 	(
-		detail::tvec4<T, P> const & p0,
-		detail::tvec4<T, P> const & p1
+		tvec4<T, P> const & p0,
+		tvec4<T, P> const & p1
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'distance' only accept floating-point inputs");
@@ -180,7 +180,7 @@ namespace detail
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'dot' only accept floating-point inputs");
-		return detail::compute_dot<detail::tvec1, T, highp>::call(x, y);
+		return detail::compute_dot<tvec1, T, highp>::call(x, y);
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
@@ -213,15 +213,15 @@ namespace detail
 */
 	// cross
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> cross
+	GLM_FUNC_QUALIFIER tvec3<T, P> cross
 	(
-		detail::tvec3<T, P> const & x,
-		detail::tvec3<T, P> const & y
+		tvec3<T, P> const & x,
+		tvec3<T, P> const & y
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'cross' only accept floating-point inputs");
 
-		return detail::tvec3<T, P>(
+		return tvec3<T, P>(
 			x.y * y.z - y.y * x.z,
 			x.z * y.x - y.z * x.x,
 			x.x * y.y - y.x * x.y);
@@ -241,9 +241,9 @@ namespace detail
 
 	// According to issue 10 GLSL 1.10 specification, if length(x) == 0 then result is undefine and generate an error
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec2<T, P> normalize
+	GLM_FUNC_QUALIFIER tvec2<T, P> normalize
 	(
-		detail::tvec2<T, P> const & x
+		tvec2<T, P> const & x
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'normalize' only accept floating-point inputs");
@@ -253,9 +253,9 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> normalize
+	GLM_FUNC_QUALIFIER tvec3<T, P> normalize
 	(
-		detail::tvec3<T, P> const & x
+		tvec3<T, P> const & x
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'normalize' only accept floating-point inputs");
@@ -265,9 +265,9 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec4<T, P> normalize
+	GLM_FUNC_QUALIFIER tvec4<T, P> normalize
 	(
-		detail::tvec4<T, P> const & x
+		tvec4<T, P> const & x
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'normalize' only accept floating-point inputs");

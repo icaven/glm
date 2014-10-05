@@ -174,13 +174,13 @@ namespace detail
 	//! (From GLM_GTX_simd_quat extension)
 	template <typename T, precision P>
 	detail::fquatSIMD quatSIMD_cast(
-		detail::tmat4x4<T, P> const & m);
+		tmat4x4<T, P> const & m);
 
 	//! Converts a mat3 to a simdQuat.
 	//! (From GLM_GTX_simd_quat extension)
 	template <typename T, precision P>
 	detail::fquatSIMD quatSIMD_cast(
-		detail::tmat3x3<T, P> const & m);
+		tmat3x3<T, P> const & m);
 
 	//! Convert a simdQuat to a simdMat4
 	//! (From GLM_GTX_simd_quat extension)

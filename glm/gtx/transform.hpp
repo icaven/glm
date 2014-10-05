@@ -57,23 +57,23 @@ namespace glm
 	/// - From \link gtx_transform GLM_GTX_transform \endlink extension
 	/// - See also: \link glm::translate GLM_GTC_matrix_transform \endlink
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tmat4x4<T, P> translate(
-		detail::tvec3<T, P> const & v);
+	GLM_FUNC_DECL tmat4x4<T, P> translate(
+		tvec3<T, P> const & v);
 
 	/// Builds a rotation 4 * 4 matrix created from an axis of 3 scalars and an angle expressed in degrees. 
 	/// - From \link gtx_transform GLM_GTX_transform \endlink extension
 	/// - See also: \link glm::rotate GLM_GTC_matrix_transform \endlink
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tmat4x4<T, P> rotate(
+	GLM_FUNC_DECL tmat4x4<T, P> rotate(
 		T angle, 
-		detail::tvec3<T, P> const & v);
+		tvec3<T, P> const & v);
 
 	/// Transforms a matrix with a scale 4 * 4 matrix created from a vector of 3 components.
 	/// - From \link gtx_transform GLM_GTX_transform \endlink extension
 	/// - See also: \link glm::scale GLM_GTC_matrix_transform \endlink
 	template <typename T, precision P>
-	GLM_FUNC_DECL detail::tmat4x4<T, P> scale(
-		detail::tvec3<T, P> const & v);
+	GLM_FUNC_DECL tmat4x4<T, P> scale(
+		tvec3<T, P> const & v);
 
 	/// @}
 }// namespace glm

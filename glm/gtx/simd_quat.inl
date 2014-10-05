@@ -305,7 +305,7 @@ GLM_FUNC_QUALIFIER detail::fquatSIMD quatSIMD_cast
 template <typename T, precision P>
 GLM_FUNC_QUALIFIER detail::fquatSIMD quatSIMD_cast
 (
-    detail::tmat4x4<T, P> const & m
+    tmat4x4<T, P> const & m
 )
 {
     return quatSIMD_cast_impl(&m[0][0], &m[1][0], &m[2][0]);
@@ -314,7 +314,7 @@ GLM_FUNC_QUALIFIER detail::fquatSIMD quatSIMD_cast
 template <typename T, precision P>
 GLM_FUNC_QUALIFIER detail::fquatSIMD quatSIMD_cast
 (
-    detail::tmat3x3<T, P> const & m
+    tmat3x3<T, P> const & m
 )
 {
     return quatSIMD_cast_impl(&m[0][0], &m[1][0], &m[2][0]);

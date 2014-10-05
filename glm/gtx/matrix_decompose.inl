@@ -31,16 +31,16 @@ namespace glm
 	/// Make a linear combination of two vectors and return the result.
 	// result = (a * ascl) + (b * bscl)
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER detail::tvec3<T, P> combine(
-		detail::tvec3<T, P> const & a, 
-		detail::tvec3<T, P> const & b,
+	GLM_FUNC_QUALIFIER tvec3<T, P> combine(
+		tvec3<T, P> const & a, 
+		tvec3<T, P> const & b,
 		T ascl, T bscl)
 	{
 	    return (a * ascl) + (b * bscl);
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER void v3Scale(detail::tvec3<T, P> & v, T desiredLength) 
+	GLM_FUNC_QUALIFIER void v3Scale(tvec3<T, P> & v, T desiredLength) 
 	{
 	    T len = glm::length(v);
 	    if(len != 0)
@@ -60,9 +60,9 @@ namespace glm
 	*/
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER bool decompose(detail::tmat4x4<T, P> const & ModelMatrix, detail::tvec3<T, P> & Scale, detail::tquat<T, P> & Orientation, detail::tvec3<T, P> & Translation, detail::tvec3<T, P> & Skew, detail::tvec4<T, P> & Perspective)
+	GLM_FUNC_QUALIFIER bool decompose(tmat4x4<T, P> const & ModelMatrix, tvec3<T, P> & Scale, tquat<T, P> & Orientation, tvec3<T, P> & Translation, tvec3<T, P> & Skew, tvec4<T, P> & Perspective)
 	{
-		detail::tmat4x4<T, P> LocalMatrix(ModelMatrix);
+		tmat4x4<T, P> LocalMatrix(ModelMatrix);
 
 	    // Normalize the matrix.
 	    if(LocalMatrix[3][3] == static_cast<T>(0))
@@ -74,7 +74,7 @@ namespace glm
 
 		// perspectiveMatrix is used to solve for perspective, but it also provides
 		// an easy way to test for singularity of the upper 3x3 component.
-		detail::tmat4x4<T, P> PerspectiveMatrix(LocalMatrix);
+		tmat4x4<T, P> PerspectiveMatrix(LocalMatrix);
 
 	    for(length_t i = 0; i < 3; i++)
 	        PerspectiveMatrix[i][3] = 0;
@@ -88,7 +88,7 @@ namespace glm
 	    if(LocalMatrix[0][3] != 0 || LocalMatrix[1][3] != 0 || LocalMatrix[2][3] != 0)
 	    {
 			// rightHandSide is the right hand side of the equation.
-			detail::tvec4<T, P> RightHandSide;
+			tvec4<T, P> RightHandSide;
 			RightHandSide[0] = LocalMatrix[0][3];
 			RightHandSide[1] = LocalMatrix[1][3];
 			RightHandSide[2] = LocalMatrix[2][3];
@@ -97,8 +97,8 @@ namespace glm
 			// Solve the equation by inverting PerspectiveMatrix and multiplying
 			// rightHandSide by the inverse.  (This is the easiest way, not
 			// necessarily the best.)
-			detail::tmat4x4<T, P> InversePerspectiveMatrix = glm::inverse(PerspectiveMatrix);//   inverse(PerspectiveMatrix, inversePerspectiveMatrix);
-			detail::tmat4x4<T, P> TransposedInversePerspectiveMatrix = glm::transpose(InversePerspectiveMatrix);//   transposeMatrix4(inversePerspectiveMatrix, transposedInversePerspectiveMatrix);
+			tmat4x4<T, P> InversePerspectiveMatrix = glm::inverse(PerspectiveMatrix);//   inverse(PerspectiveMatrix, inversePerspectiveMatrix);
+			tmat4x4<T, P> TransposedInversePerspectiveMatrix = glm::transpose(InversePerspectiveMatrix);//   transposeMatrix4(inversePerspectiveMatrix, transposedInversePerspectiveMatrix);
 
 			Perspective = TransposedInversePerspectiveMatrix * RightHandSide;
 			//  v4MulPointByMatrix(rightHandSide, transposedInversePerspectiveMatrix, perspectivePoint);
@@ -110,14 +110,14 @@ namespace glm
 	    else
 	    {
 			// No perspective.
-			Perspective = detail::tvec4<T, P>(0, 0, 0, 1);
+			Perspective = tvec4<T, P>(0, 0, 0, 1);
 	    }
 
 	    // Next take care of translation (easy).
-	    Translation = detail::tvec3<T, P>(LocalMatrix[3]);
-	    LocalMatrix[3] = detail::tvec4<T, P>(0, 0, 0, LocalMatrix[3].w);
+	    Translation = tvec3<T, P>(LocalMatrix[3]);
+	    LocalMatrix[3] = tvec4<T, P>(0, 0, 0, LocalMatrix[3].w);
 
-	    detail::tvec3<T, P> Row[3], Pdum3;
+	    tvec3<T, P> Row[3], Pdum3;
 
 	    // Now get scale and shear.
 	    for(length_t i = 0; i < 3; ++i)

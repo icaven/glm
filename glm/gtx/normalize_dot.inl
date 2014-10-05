@@ -25,8 +25,8 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T normalizeDot
 	(
-		detail::tvec2<T, P> const & x, 
-		detail::tvec2<T, P> const & y
+		tvec2<T, P> const & x, 
+		tvec2<T, P> const & y
 	)
 	{
 		return 
@@ -38,8 +38,8 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T normalizeDot
 	(
-		detail::tvec3<T, P> const & x, 
-		detail::tvec3<T, P> const & y
+		tvec3<T, P> const & x, 
+		tvec3<T, P> const & y
 	)
 	{
 		return 
@@ -51,8 +51,8 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T normalizeDot
 	(
-		detail::tvec4<T, P> const & x, 
-		detail::tvec4<T, P> const & y
+		tvec4<T, P> const & x, 
+		tvec4<T, P> const & y
 	)
 	{
 		return 
@@ -77,8 +77,8 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T fastNormalizeDot
 	(
-		detail::tvec2<T, P> const & x, 
-		detail::tvec2<T, P> const & y
+		tvec2<T, P> const & x, 
+		tvec2<T, P> const & y
 	)
 	{
 		return 
@@ -90,8 +90,8 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T fastNormalizeDot
 	(
-		detail::tvec3<T, P> const & x, 
-		detail::tvec3<T, P> const & y
+		tvec3<T, P> const & x, 
+		tvec3<T, P> const & y
 	)
 	{
 		return 
@@ -103,8 +103,8 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T fastNormalizeDot
 	(
-		detail::tvec4<T, P> const & x, 
-		detail::tvec4<T, P> const & y
+		tvec4<T, P> const & x, 
+		tvec4<T, P> const & y
 	)
 	{
 		return 

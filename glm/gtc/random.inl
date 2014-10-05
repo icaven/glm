@@ -42,32 +42,32 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_rand<uint8, P, detail::tvec1>
+	struct compute_rand<uint8, P, tvec1>
 	{
-		GLM_FUNC_QUALIFIER static detail::tvec1<uint8, P> call()
+		GLM_FUNC_QUALIFIER static tvec1<uint8, P> call()
 		{
-			return detail::tvec1<uint8, P>(
+			return tvec1<uint8, P>(
 				std::rand()) % std::numeric_limits<uint8>::max();
 		}
 	};
 
 	template <precision P>
-	struct compute_rand<uint8, P, detail::tvec2>
+	struct compute_rand<uint8, P, tvec2>
 	{
-		GLM_FUNC_QUALIFIER static detail::tvec2<uint8, P> call()
+		GLM_FUNC_QUALIFIER static tvec2<uint8, P> call()
 		{
-			return detail::tvec2<uint8, P>(
+			return tvec2<uint8, P>(
 				std::rand(),
 				std::rand()) % std::numeric_limits<uint8>::max();
 		}
 	};
 
 	template <precision P>
-	struct compute_rand<uint8, P, detail::tvec3>
+	struct compute_rand<uint8, P, tvec3>
 	{
-		GLM_FUNC_QUALIFIER static detail::tvec3<uint8, P> call()
+		GLM_FUNC_QUALIFIER static tvec3<uint8, P> call()
 		{
-			return detail::tvec3<uint8, P>(
+			return tvec3<uint8, P>(
 				std::rand(),
 				std::rand(),
 				std::rand()) % std::numeric_limits<uint8>::max();
@@ -75,11 +75,11 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_rand<uint8, P, detail::tvec4>
+	struct compute_rand<uint8, P, tvec4>
 	{
-		GLM_FUNC_QUALIFIER static detail::tvec4<uint8, P> call()
+		GLM_FUNC_QUALIFIER static tvec4<uint8, P> call()
 		{
-			return detail::tvec4<uint8, P>(
+			return tvec4<uint8, P>(
 				std::rand(),
 				std::rand(),
 				std::rand(),
@@ -297,9 +297,9 @@ namespace detail
 		float const & Max
 	)
 	{
-		return detail::compute_linearRand<float, highp, detail::tvec1>::call(
-			detail::tvec1<float, highp>(Min),
-			detail::tvec1<float, highp>(Max)).x;
+		return detail::compute_linearRand<float, highp, tvec1>::call(
+			tvec1<float, highp>(Min),
+			tvec1<float, highp>(Max)).x;
 	}
 
 	template <>
@@ -309,9 +309,9 @@ namespace detail
 		double const & Max
 	)
 	{
-		return detail::compute_linearRand<double, highp, detail::tvec1>::call(
-			detail::tvec1<double, highp>(Min),
-			detail::tvec1<double, highp>(Max)).x;
+		return detail::compute_linearRand<double, highp, tvec1>::call(
+			tvec1<double, highp>(Min),
+			tvec1<double, highp>(Max)).x;
 	}
 
 	template <typename genType>
@@ -337,19 +337,19 @@ namespace detail
 	VECTORIZE_VEC_VEC(gaussRand)
 
 	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec2<T, defaultp> diskRand
+	GLM_FUNC_QUALIFIER tvec2<T, defaultp> diskRand
 	(
 		T const & Radius
 	)
 	{		
-		detail::tvec2<T, defaultp> Result(T(0));
+		tvec2<T, defaultp> Result(T(0));
 		T LenRadius(T(0));
 		
 		do
 		{
 			Result = linearRand(
-				detail::tvec2<T, defaultp>(-Radius),
-				detail::tvec2<T, defaultp>(Radius));
+				tvec2<T, defaultp>(-Radius),
+				tvec2<T, defaultp>(Radius));
 			LenRadius = length(Result);
 		}
 		while(LenRadius > Radius);
@@ -358,19 +358,19 @@ namespace detail
 	}
 	
 	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<T, defaultp> ballRand
+	GLM_FUNC_QUALIFIER tvec3<T, defaultp> ballRand
 	(
 		T const & Radius
 	)
 	{		
-		detail::tvec3<T, defaultp> Result(T(0));
+		tvec3<T, defaultp> Result(T(0));
 		T LenRadius(T(0));
 		
 		do
 		{
 			Result = linearRand(
-				detail::tvec3<T, defaultp>(-Radius),
-				detail::tvec3<T, defaultp>(Radius));
+				tvec3<T, defaultp>(-Radius),
+				tvec3<T, defaultp>(Radius));
 			LenRadius = length(Result);
 		}
 		while(LenRadius > Radius);
@@ -379,17 +379,17 @@ namespace detail
 	}
 	
 	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec2<T, defaultp> circularRand
+	GLM_FUNC_QUALIFIER tvec2<T, defaultp> circularRand
 	(
 		T const & Radius
 	)
 	{
 		T a = linearRand(T(0), T(6.283185307179586476925286766559f));
-		return detail::tvec2<T, defaultp>(cos(a), sin(a)) * Radius;		
+		return tvec2<T, defaultp>(cos(a), sin(a)) * Radius;		
 	}
 	
 	template <typename T>
-	GLM_FUNC_QUALIFIER detail::tvec3<T, defaultp> sphericalRand
+	GLM_FUNC_QUALIFIER tvec3<T, defaultp> sphericalRand
 	(
 		T const & Radius
 	)
@@ -402,6 +402,6 @@ namespace detail
 		T x = r * cos(a);
 		T y = r * sin(a);
 	
-		return detail::tvec3<T, defaultp>(x, y, z) * Radius;	
+		return tvec3<T, defaultp>(x, y, z) * Radius;	
 	}
 }//namespace glm

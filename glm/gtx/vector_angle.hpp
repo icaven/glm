@@ -67,17 +67,17 @@ namespace glm
 	/// @see gtx_vector_angle extension.
 	template <typename T, precision P>
 	GLM_FUNC_DECL T orientedAngle(
-		detail::tvec2<T, P> const & x,
-		detail::tvec2<T, P> const & y);
+		tvec2<T, P> const & x,
+		tvec2<T, P> const & y);
 
 	//! Returns the oriented angle between two 3d vectors based from a reference axis.
 	//! Parameters need to be normalized.
 	/// @see gtx_vector_angle extension.
 	template <typename T, precision P>
 	GLM_FUNC_DECL T orientedAngle(
-		detail::tvec3<T, P> const & x,
-		detail::tvec3<T, P> const & y,
-		detail::tvec3<T, P> const & ref);
+		tvec3<T, P> const & x,
+		tvec3<T, P> const & y,
+		tvec3<T, P> const & ref);
 
 	/// @}
 }// namespace glm

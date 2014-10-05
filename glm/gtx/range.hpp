@@ -34,14 +34,13 @@
 
 #include "../detail/setup.hpp"
 
-#if !(GLM_LANG & GLM_LANG_CXX0X_FLAG)
-#	error "GLM_GTX_range requires C++11 suppport"
+#if !GLM_HAS_RANGE_FOR
+#	error "GLM_GTX_range requires C++11 suppport or 'range for'"
 #endif
 
 #include "../gtc/type_ptr.hpp"
 
-namespace glm{
-namespace detail
+namespace glm
 {
 	/* The glm types provide a .length() member, but for matrices
 	 this only defines the number of columns, so we need to work around this */
@@ -84,5 +83,4 @@ namespace detail
 	typename genType::value_type * end(genType& v){
 		return begin(v) + number_of_elements_(v);
 	}
-}//namespace detail
 }//namespace glm
