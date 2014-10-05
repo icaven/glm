@@ -32,12 +32,6 @@
 #include "type_vec2.hpp"
 #include "type_vec4.hpp"
 #include "type_mat.hpp"
-#if GLM_HAS_INITIALIZER_LISTS
-#	include <initializer_list>
-#endif
-#if GLM_HAS_RVALUE_REFERENCES
-#	include <algorithm>
-#endif
 #include <limits>
 #include <cstddef>
 
