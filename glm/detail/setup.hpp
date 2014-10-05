@@ -29,6 +29,7 @@
 #pragma once
 
 #include <cassert>
+#include <cstddef>
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Version
@@ -761,7 +762,8 @@
 
 namespace glm
 {
-#if defined(GLM_FORCE_SIZE_T_LENGTH)
+	typedef std::size_t size_t;
+#if defined(GLM_FORCE_SIZE_T_LENGTH) || defined(GLM_FORCE_SIZE_FUNC)
 	typedef std::size_t length_t;
 #else
 	typedef int length_t;

@@ -28,11 +28,19 @@
 
 namespace glm
 {
+#if GLM_FORCE_SIZE_FUNC
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR size_t tvec1<T, P>::size() const
+	{
+		return 1;
+	}
+#else
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t tvec1<T, P>::length() const
 	{
 		return 1;
 	}
+#endif
 
 	//////////////////////////////////////
 	// Accesses

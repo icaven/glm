@@ -31,11 +31,19 @@
 
 namespace glm
 {
+#if GLM_FORCE_SIZE_FUNC
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR size_t tdualquat<T, P>::size() const
+	{
+		return 8;
+	}
+#else
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t tdualquat<T, P>::length() const
 	{
 		return 8;
 	}
+#endif
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat() :

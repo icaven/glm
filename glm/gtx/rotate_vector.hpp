@@ -57,7 +57,7 @@ namespace glm
 	/// @param y A second vector
 	/// @param a Interpolation factor. The interpolation is defined beyond the range [0, 1].
 	/// 
-	/// @see gtc_quaternion
+	/// @see gtx_rotate_vector
 	template <typename T, precision P>
 	GLM_FUNC_DECL tvec3<T, P> slerp(
 		tvec3<T, P> const & x,

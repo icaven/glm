@@ -64,7 +64,13 @@ namespace glm
 	public:
 		glm::tquat<T, P> real, dual;
 		
+#if GLM_FORCE_SIZE_FUNC
+		/// Return the count of components of a dual quaternion
+		GLM_FUNC_DECL GLM_CONSTEXPR size_t size() const;
+#else
+		/// Return the count of components of a dual quaternion
 		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
+#endif//GLM_FORCE_SIZE_FUNC
 		
 		// Constructors
 		GLM_FUNC_DECL tdualquat();

@@ -48,7 +48,11 @@ namespace glm
 		typedef tmat2x4<T, P> type;
 		typedef tmat4x2<T, P> transpose_type;
 
+#if GLM_FORCE_SIZE_FUNC
+		GLM_FUNC_DECL GLM_CONSTEXPR size_t size() const;
+#else
 		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
+#endif//GLM_FORCE_SIZE_FUNC
 
 	private:
 		// Data 

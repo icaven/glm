@@ -45,11 +45,19 @@ namespace detail
 	};
 }//namespace detail
 
+#if GLM_FORCE_SIZE_FUNC
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR size_t tquat<T, P>::size() const
+	{
+		return 4;
+	}
+#else
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t tquat<T, P>::length() const
 	{
 		return 4;
 	}
+#endif
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tquat<T, P>::tquat() :
