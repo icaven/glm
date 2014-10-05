@@ -58,6 +58,7 @@ GLM 0.9.6.0: 2014-XX-XX
 - Fixed implicit conversion from another tvec2 type to another tvec2 #241
 - Added GTX_scalar_multiplication for C++ 11 compiler only #242
 - Added GTX_range for C++ 11 compiler only #240
+- Added Added closestPointOnLine function for tvec2 to GTX_closest_point #238
 
 ================================================================================
 GLM 0.9.5.4: 2014-06-21
