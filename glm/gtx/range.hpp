@@ -32,6 +32,12 @@
 
 #pragma once
 
+#include "../detail/setup.hpp"
+
+#if !(GLM_LANG & GLM_LANG_CXX0X_FLAG)
+#	error "GLM_GTX_range requires C++11 suppport"
+#endif
+
 #include "../gtc/type_ptr.hpp"
 
 namespace glm{
@@ -78,5 +84,5 @@ namespace detail
 	typename genType::value_type * end(genType& v){
 		return begin(v) + number_of_elements_(v);
 	}
-}
-}
+}//namespace detail
+}//namespace glm

@@ -117,9 +117,6 @@
 #include "./gtx/raw_data.hpp"
 #include "./gtx/rotate_vector.hpp"
 #include "./gtx/spline.hpp"
-#if GLM_LANG & GLM_LANG_CXX0X_FLAG
-#	include "./gtx/scalar_multiplication.hpp"
-#endif
 #include "./gtx/std_based_type.hpp"
 #if !(GLM_COMPILER & GLM_COMPILER_CUDA)
 #	include "./gtx/string_cast.hpp"
@@ -130,6 +127,11 @@
 #include "./gtx/vector_angle.hpp"
 #include "./gtx/vector_query.hpp"
 #include "./gtx/wrap.hpp"
+
+#if GLM_LANG & GLM_LANG_CXX0X_FLAG
+#	include "./gtx/scalar_multiplication.hpp"
+#	include "./gtx/range.hpp"
+#endif
 
 #if GLM_ARCH & GLM_ARCH_SSE2
 #	include "./gtx/simd_vec4.hpp"
