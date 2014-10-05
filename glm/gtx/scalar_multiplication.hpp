@@ -37,6 +37,12 @@
 
 #pragma once
 
+#include "../detail/setup.hpp"
+
+#if !(GLM_LANG & GLM_LANG_CXX0X_FLAG)
+#	error "GLM_GTX_scalar_multiplication requires C++11 suppport"
+#endif
+
 #include "../vec2.hpp"
 #include "../vec3.hpp"
 #include "../vec4.hpp"

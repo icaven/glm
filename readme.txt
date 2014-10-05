@@ -56,6 +56,7 @@ GLM 0.9.6.0: 2014-XX-XX
 - Added vec3 slerp #237
 - Added GTX_common with isdenomal #223
 - Fixed implicit conversion from another tvec2 type to another tvec2 #241
+- Added GTX_scalar_multiplication for C++ 11 compiler only #242
 
 ================================================================================
 GLM 0.9.5.4: 2014-06-21

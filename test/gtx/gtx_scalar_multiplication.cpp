@@ -10,6 +10,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtx/scalar_multiplication.hpp>
 
+#if GLM_LANG & GLM_LANG_CXX0X_FLAG
+
 int main()
 {
 	int Error(0);
@@ -30,3 +32,12 @@ int main()
 
 	return Error;
 }
+
+#else
+
+int main()
+{
+	return 0;
+}
+
+#endif
