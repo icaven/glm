@@ -39,6 +39,11 @@ http://glm.g-truc.net/glm.pdf
 ================================================================================
 GLM 0.9.6.0: 2014-XX-XX
 --------------------------------------------------------------------------------
+- Fixed std::nextafter not supported with C++11 on Android #217
+- Fixed missing value_type for dual quaternion
+- Fixed return type of dual quaternion length
+- Fixed infinite loop in isfinite function with GCC #221
+- Rely on C++11 to implement isinf and isnan
 - Added transparent use of SIMD instructions for vec4 and mat4 types
 - Removed degrees for function parameters
 - Removed GLM_FORCE_RADIANS, active by default
@@ -50,15 +55,7 @@ GLM 0.9.6.0: 2014-XX-XX
 - Improved linearRand: support precision and integers #230
 - Added vec3 slerp #237
 - Added GTX_common with isdenomal #223
-
-================================================================================
-GLM 0.9.5.5: 2014-XX-XX
---------------------------------------------------------------------------------
-- Fixed std::nextafter not supported with C++11 on Android #217
-- Fixed missing value_type for dual quaternion
-- Fixed return type of dual quaternion length
-- Fixed infinite loop in isfinite function with GCC #221
-- Rely on C++11 to implement isinf and isnan
+- Fixed implicit conversion from another tvec2 type to another tvec2 #241
 
 ================================================================================
 GLM 0.9.5.4: 2014-06-21
