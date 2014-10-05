@@ -25,7 +25,7 @@ namespace glm
 		T SinAlpha = sin(Alpha);
 		// this breaks down when SinAlpha = 0, i.e. Alpha = 0 or pi
 		T t1 = sin((static_cast<T>(1) - a) * Alpha) / SinAlpha;
-		T t2 = sin(a * Alpha) / sinAlpha;
+		T t2 = sin(a * Alpha) / SinAlpha;
 
 		// interpolate src vectors
 		return x * t1 + y * t2;
