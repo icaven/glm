@@ -84,61 +84,14 @@ namespace detail
 
 	// pow
 	using std::pow;
-
-/*
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType pow
-	(
-		genType const & x, 
-		genType const & y
-	)
-	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559,
-			"'pow' only accept floating-point inputs");
-
-		return std::pow(x, y);
-	}
-*/
-
 	VECTORIZE_VEC_VEC(pow)
 
 	// exp
 	using std::exp;
-
-/*
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType exp
-	(
-		genType const & x
-	)
-	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559,
-			"'exp' only accept floating-point inputs");
-
-		return std::exp(x);
-	}
-*/
-
 	VECTORIZE_VEC(exp)
 
 	// log
 	using std::log;
-/*
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType log
-	(
-		genType const & x
-	)
-	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559,
-			"'log' only accept floating-point inputs");
-
-		return std::log(x);
-	}
-*/
 	VECTORIZE_VEC(log)
 
 	//exp2, ln2 = 0.69314718055994530941723212145818f
@@ -211,27 +164,6 @@ namespace detail
 	
 	// sqrt
 	using std::sqrt;
-/*
-	GLM_FUNC_QUALIFIER float sqrt(float x)
-	{
-#		ifdef __CUDACC__ // Wordaround for a CUDA compiler bug up to CUDA6
-			tvec1<float, highp> tmp(detail::compute_sqrt<tvec1, float, highp>::call(x));
-			return tmp.x;
-#		else
-			return detail::compute_sqrt<tvec1, float, highp>::call(x).x;
-#		endif
-	}
-
-	GLM_FUNC_QUALIFIER double sqrt(double x)
-	{
-#		ifdef __CUDACC__ // Wordaround for a CUDA compiler bug up to CUDA6
-			tvec1<double, highp> tmp(detail::compute_sqrt<tvec1, double, highp>::call(x));
-			return tmp.x;
-#		else
-			return detail::compute_sqrt<tvec1, double, highp>::call(x).x;
-#		endif
-	}
-*/
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> sqrt(vecType<T, P> const & x)
 	{

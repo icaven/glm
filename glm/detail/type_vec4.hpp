@@ -144,7 +144,7 @@ namespace glm
 		// Implicit basic constructors
 
 		GLM_FUNC_DECL tvec4();
-		GLM_FUNC_DECL tvec4(type const & v);
+		GLM_FUNC_DECL tvec4(tvec4<T, P> const & v);
 		template <precision Q>
 		GLM_FUNC_DECL tvec4(tvec4<T, Q> const & v);
 
