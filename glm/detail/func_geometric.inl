@@ -180,7 +180,7 @@ namespace detail
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'dot' only accept floating-point inputs");
-		return detail::compute_dot<tvec1, T, highp>::call(x, y);
+		return x * y;
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>

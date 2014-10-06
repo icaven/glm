@@ -78,17 +78,16 @@ namespace glm
 		x(v.x)
 	{}
 
-	template <typename T, precision P>
-	template <typename U>
-	GLM_FUNC_QUALIFIER  tvec1<T, P>::tvec1(U const & s) :
-		x(static_cast<T>(s))
-	{}
-
 	//////////////////////////////////////
 	// Explicit basic constructors
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1(ctor)
+	{}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER  tvec1<T, P>::tvec1(T const & s) :
+		x(s)
 	{}
 
 	//////////////////////////////////////
