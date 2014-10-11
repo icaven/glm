@@ -130,6 +130,7 @@
 #define GLM_COMPILER_VC10			0x01000090
 #define GLM_COMPILER_VC11			0x010000A0
 #define GLM_COMPILER_VC12			0x010000B0
+#define GLM_COMPILER_VC13			0x010000C0
 
 // GCC defines
 #define GLM_COMPILER_GCC			0x02000000
@@ -145,6 +146,7 @@
 #define GLM_COMPILER_GCC47			0x020000E0
 #define GLM_COMPILER_GCC48			0x020000F0
 #define GLM_COMPILER_GCC49			0x02000100
+#define GLM_COMPILER_GCC50			0x02000200
 
 // Borland C++
 #define GLM_COMPILER_BC				0x04000000
@@ -232,8 +234,10 @@
 #		define GLM_COMPILER GLM_COMPILER_VC10
 #	elif _MSC_VER == 1700
 #		define GLM_COMPILER GLM_COMPILER_VC11
-#	elif _MSC_VER >= 1800
+#	elif _MSC_VER == 1800
 #		define GLM_COMPILER GLM_COMPILER_VC12
+#	elif _MSC_VER >= 1900
+#		define GLM_COMPILER GLM_COMPILER_VC13
 #	else//_MSC_VER
 #		define GLM_COMPILER GLM_COMPILER_VC
 #	endif//_MSC_VER
@@ -706,13 +710,11 @@
 #endif//GLM_LANG
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// Qualifiers 
+// Qualifiers
 
-// User defines: GLM_FORCE_INLINE GLM_FORCE_CUDA
-
-#if(defined(GLM_FORCE_CUDA) || (GLM_COMPILER & GLM_COMPILER_CUDA))
-#	define GLM_CUDA_FUNC_DEF __device__ __host__ 
-#	define GLM_CUDA_FUNC_DECL __device__ __host__ 
+#if GLM_COMPILER & GLM_COMPILER_CUDA
+#	define GLM_CUDA_FUNC_DEF __device__ __host__
+#	define GLM_CUDA_FUNC_DECL __device__ __host__
 #else
 #	define GLM_CUDA_FUNC_DEF
 #	define GLM_CUDA_FUNC_DECL
@@ -758,7 +760,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Length type
 
-// User defines: GLM_FORCE_SIZE_T_LENGTH
+// User defines: GLM_FORCE_SIZE_T_LENGTH GLM_FORCE_SIZE_FUNC
 
 namespace glm
 {
