@@ -45,32 +45,32 @@ namespace glm
 	/* The glm types provide a .length() member, but for matrices
 	 this only defines the number of columns, so we need to work around this */
 	template <typename T, precision P>
-	length_t number_of_elements_(tvec2<T, P> const & v){
-		return v.length();
+	detail::component_count_t number_of_elements_(tvec2<T, P> const & v){
+		return detail::component_count(v);
 	}
 
 	template <typename T, precision P>
-	length_t number_of_elements_(tvec3<T, P> const & v){
-		return v.length();
+	detail::component_count_t number_of_elements_(tvec3<T, P> const & v){
+		return detail::component_count(v);
 	}
 
 	template <typename T, precision P>
-	length_t number_of_elements_(tvec4<T, P> const & v){
-		return v.length();
+	detail::component_count_t number_of_elements_(tvec4<T, P> const & v){
+		return detail::component_count(v);
 	}
 
 	template <typename genType>
-	length_t number_of_elements_(genType const & v){
-		return v.length() * v[0].length();
+	detail::component_count_t number_of_elements_(genType const & m){
+		return detail::component_count(m) * detail::component_count(m[0]);
 	}
 
 	template <typename genType>
-	const typename genType::value_type * begin(const genType& v){
+	const typename genType::value_type * begin(genType const & v){
 		return value_ptr(v);
 	}
 
 	template <typename genType>
-	const typename genType::value_type * end(const genType& v){
+	const typename genType::value_type * end(genType const & v){
 		return begin(v) + number_of_elements_(v);
 	}
 

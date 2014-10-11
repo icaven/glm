@@ -60,7 +60,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec3, tvec3>::type call(tvec3<T, P> const & c, tvec3<T, P> const & r)
 		{
 			tmat3x3<T, P> m(tmat3x3<T, P>::_null);
-			for(length_t i(0); i < m.length(); ++i)
+			for(detail::component_count_t i = 0; i < detail::component_count(m); ++i)
 				m[i] = c * r[i];
 			return m;
 		}
@@ -72,7 +72,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec4, tvec4>::type call(tvec4<T, P> const & c, tvec4<T, P> const & r)
 		{
 			tmat4x4<T, P> m(tmat4x4<T, P>::_null);
-			for(length_t i(0); i < m.length(); ++i)
+			for(detail::component_count_t i = 0; i < detail::component_count(m); ++i)
 				m[i] = c * r[i];
 			return m;
 		}
@@ -424,7 +424,7 @@ namespace detail
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'matrixCompMult' only accept floating-point inputs");
 
 		matType<T, P> result(matType<T, P>::_null);
-		for(length_t i = 0; i < result.length(); ++i)
+		for(detail::component_count_t i = 0; i < detail::component_count(result); ++i)
 			result[i] = x[i] * y[i];
 		return result;
 	}

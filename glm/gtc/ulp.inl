@@ -227,8 +227,8 @@ namespace glm
 	template<typename T, precision P, template<typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> next_float(vecType<T, P> const & x)
 	{
-		vecType<T, P> Result;
-		for(length_t i = 0; i < Result.length(); ++i)
+		vecType<T, P> Result(vecType<T, P>::_null);
+		for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 			Result[i] = next_float(x[i]);
 		return Result;
 	}
@@ -262,8 +262,8 @@ namespace glm
 	template<typename T, precision P, template<typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> prev_float(vecType<T, P> const & x)
 	{
-		vecType<T, P> Result;
-		for(length_t i = 0; i < Result.length(); ++i)
+		vecType<T, P> Result(vecType<T, P>::_null);
+		for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 			Result[i] = prev_float(x[i]);
 		return Result;
 	}
@@ -280,8 +280,8 @@ namespace glm
 	template<typename T, precision P, template<typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> next_float(vecType<T, P> const & x, vecType<uint, P> const & ulps)
 	{
-		vecType<T, P> Result;
-		for(length_t i = 0; i < Result.length(); ++i)
+		vecType<T, P> Result(vecType<T, P>::_null);
+		for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 			Result[i] = next_float(x[i], ulps[i]);
 		return Result;
 	}
@@ -298,8 +298,8 @@ namespace glm
 	template<typename T, precision P, template<typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> prev_float(vecType<T, P> const & x, vecType<uint, P> const & ulps)
 	{
-		vecType<T, P> Result;
-		for(length_t i = 0; i < Result.length(); ++i)
+		vecType<T, P> Result(vecType<T, P>::_null);
+		for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 			Result[i] = prev_float(x[i], ulps[i]);
 		return Result;
 	}
@@ -338,8 +338,8 @@ namespace glm
 	template<typename T, precision P, template<typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<uint, P> float_distance(vecType<T, P> const & x, vecType<T, P> const & y)
 	{
-		vecType<uint, P> Result;
-		for(length_t i = 0; i < Result.length(); ++i)
+		vecType<uint, P> Result(vecType<T, P>::_null);
+		for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 			Result[i] = float_distance(x[i], y[i]);
 		return Result;
 	}

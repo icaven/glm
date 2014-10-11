@@ -58,7 +58,7 @@ namespace glm
 	template <typename T, precision P>
 	struct tquat
 	{
-		enum ctor{null};
+		enum ctor{_null};
 
 		typedef T value_type;
 		typedef tvec4<bool, P> bool_type;
@@ -74,19 +74,20 @@ namespace glm
 		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
 #endif//GLM_FORCE_SIZE_FUNC
 
-		// Constructors
+		//////////////////////////////////////
+		// Implicit basic constructors
+
 		GLM_FUNC_DECL tquat();
-		template <typename U, precision Q>
-		GLM_FUNC_DECL explicit tquat(
-			tquat<U, Q> const & q);
-		GLM_FUNC_DECL tquat(
-			T const & s,
-			tvec3<T, P> const & v);
-		GLM_FUNC_DECL tquat(
-			T const & w,
-			T const & x,
-			T const & y,
-			T const & z);
+		GLM_FUNC_DECL tquat(tquat<T, P> const & q);
+		template <precision Q>
+		GLM_FUNC_DECL tquat(tquat<T, Q> const & q);
+
+		//////////////////////////////////////
+		// Explicit basic constructors
+
+		GLM_FUNC_DECL explicit tquat(ctor);
+		GLM_FUNC_DECL explicit tquat(T const & s, tvec3<T, P> const & v);
+		GLM_FUNC_DECL tquat(T const & w, T const & x, T const & y, T const & z);
 
 		// Convertions
 

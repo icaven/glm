@@ -12,7 +12,7 @@
 //#include <boost/thread/thread.hpp>
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/epsilon.hpp>
-#include <glm/gtx/vec1.hpp>
+#include <glm/gtc/vec1.hpp>
 #include <cstdio>
 #include <cmath>
 

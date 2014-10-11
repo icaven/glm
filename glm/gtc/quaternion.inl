@@ -68,15 +68,30 @@ namespace detail
 	{}
 
 	template <typename T, precision P>
-	template <typename U, precision Q>
 	GLM_FUNC_QUALIFIER tquat<T, P>::tquat
 	(
-		tquat<U, Q> const & q
+		tquat<T, P> const & q
 	) :
 		x(q.x),
 		y(q.y),
 		z(q.z),
 		w(q.w)
+	{}
+
+	template <typename T, precision P>
+	template <precision Q>
+	GLM_FUNC_QUALIFIER tquat<T, P>::tquat
+	(
+		tquat<T, Q> const & q
+	) :
+		x(q.x),
+		y(q.y),
+		z(q.z),
+		w(q.w)
+	{}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(ctor)
 	{}
 
 	template <typename T, precision P>
@@ -731,7 +746,7 @@ namespace detail
 		T biggestVal = sqrt(fourBiggestSquaredMinus1 + T(1)) * T(0.5);
 		T mult = static_cast<T>(0.25) / biggestVal;
 
-		tquat<T, P> Result;
+		tquat<T, P> Result(tquat<T, P>::_null);
 		switch(biggestIndex)
 		{
 		case 0:
@@ -804,16 +819,16 @@ namespace detail
 		tvec3<T, P> const & v
 	)
 	{
-		tquat<T, P> result;
+		tquat<T, P> Result(tquat<T, P>::_null);
 
 		T const a(angle);
 		T const s = glm::sin(a * static_cast<T>(0.5));
 
-		result.w = glm::cos(a * static_cast<T>(0.5));
-		result.x = v.x * s;
-		result.y = v.y * s;
-		result.z = v.z * s;
-		return result;
+		Result.w = glm::cos(a * static_cast<T>(0.5));
+		Result.x = v.x * s;
+		Result.y = v.y * s;
+		Result.z = v.z * s;
+		return Result;
 	}
 
 	template <typename T, precision P>
@@ -823,8 +838,8 @@ namespace detail
 		tquat<T, P> const & y
 	)
 	{
-		tvec4<bool, P> Result;
-		for(length_t i = 0; i < x.length(); ++i)
+		tvec4<bool, P> Result(tvec4<bool, P>::_null);
+		for(detail::component_count_t i = 0; i < detail::component_count(x); ++i)
 			Result[i] = x[i] < y[i];
 		return Result;
 	}
@@ -836,8 +851,8 @@ namespace detail
 		tquat<T, P> const & y
 	)
 	{
-		tvec4<bool, P> Result;
-		for(length_t i = 0; i < x.length(); ++i)
+		tvec4<bool, P> Result(tvec4<bool, P>::_null);
+		for(detail::component_count_t i = 0; i < detail::component_count(x); ++i)
 			Result[i] = x[i] <= y[i];
 		return Result;
 	}
@@ -849,8 +864,8 @@ namespace detail
 		tquat<T, P> const & y
 	)
 	{
-		tvec4<bool, P> Result;
-		for(length_t i = 0; i < x.length(); ++i)
+		tvec4<bool, P> Result(tvec4<bool, P>::_null);
+		for(detail::component_count_t i = 0; i < detail::component_count(x); ++i)
 			Result[i] = x[i] > y[i];
 		return Result;
 	}
@@ -862,8 +877,8 @@ namespace detail
 		tquat<T, P> const & y
 	)
 	{
-		tvec4<bool, P> Result;
-		for(length_t i = 0; i < x.length(); ++i)
+		tvec4<bool, P> Result(tvec4<bool, P>::_null);
+		for(detail::component_count_t i = 0; i < detail::component_count(x); ++i)
 			Result[i] = x[i] >= y[i];
 		return Result;
 	}
@@ -875,8 +890,8 @@ namespace detail
 		tquat<T, P> const & y
 	)
 	{
-		tvec4<bool, P> Result;
-		for(length_t i = 0; i < x.length(); ++i)
+		tvec4<bool, P> Result(tvec4<bool, P>::_null);
+		for(detail::component_count_t i = 0; i < detail::component_count(x); ++i)
 			Result[i] = x[i] == y[i];
 		return Result;
 	}
@@ -888,8 +903,8 @@ namespace detail
 		tquat<T, P> const & y
 	)
 	{
-		tvec4<bool, P> Result;
-		for(length_t i = 0; i < x.length(); ++i)
+		tvec4<bool, P> Result(tvec4<bool, P>::_null);
+		for(detail::component_count_t i = 0; i < detail::component_count(x); ++i)
 			Result[i] = x[i] != y[i];
 		return Result;
 	}

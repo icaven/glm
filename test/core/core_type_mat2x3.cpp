@@ -34,7 +34,7 @@ int test_ctr()
 {
 	int Error(0);
 	
-#if(GLM_HAS_INITIALIZER_LISTS)
+#if GLM_HAS_INITIALIZER_LISTS
 	glm::mat2x3 m0(
 		glm::vec3(0, 1, 2),
 		glm::vec3(3, 4, 5));

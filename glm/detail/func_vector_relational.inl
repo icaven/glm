@@ -39,10 +39,10 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
 			"Invalid template instantiation of 'lessThan', GLM vector types required floating-point or integer value types vectors");
-		assert(x.length() == y.length());
+		assert(detail::component_count(x) == detail::component_count(y));
 
 		typename vecType<bool, P>::bool_type Result(vecType<bool, P>::_null);
-		for(int i = 0; i < x.length(); ++i)
+		for(detail::component_count_t i = 0; i < detail::component_count(x); ++i)
 			Result[i] = x[i] < y[i];
 
 		return Result;
@@ -57,10 +57,10 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
 			"Invalid template instantiation of 'lessThanEqual', GLM vector types required floating-point or integer value types vectors");
-		assert(x.length() == y.length());
+		assert(detail::component_count(x) == detail::component_count(y));
 
 		typename vecType<bool, P>::bool_type Result(vecType<bool, P>::_null);
-		for(int i = 0; i < x.length(); ++i)
+		for(detail::component_count_t i = 0; i < detail::component_count(x); ++i)
 			Result[i] = x[i] <= y[i];
 		return Result;
 	}
@@ -74,10 +74,10 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
 			"Invalid template instantiation of 'greaterThan', GLM vector types required floating-point or integer value types vectors");
-		assert(x.length() == y.length());
+		assert(detail::component_count(x) == detail::component_count(y));
 
 		typename vecType<bool, P>::bool_type Result(vecType<bool, P>::_null);
-		for(int i = 0; i < x.length(); ++i)
+		for(detail::component_count_t i = 0; i < detail::component_count(x); ++i)
 			Result[i] = x[i] > y[i];
 		return Result;
 	}
@@ -91,10 +91,10 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
 			"Invalid template instantiation of 'greaterThanEqual', GLM vector types required floating-point or integer value types vectors");
-		assert(x.length() == y.length());
+		assert(detail::component_count(x) == detail::component_count(y));
 
 		typename vecType<bool, P>::bool_type Result(vecType<bool, P>::_null);
-		for(int i = 0; i < x.length(); ++i)
+		for(detail::component_count_t i = 0; i < detail::component_count(x); ++i)
 			Result[i] = x[i] >= y[i];
 		return Result;
 	}
@@ -106,10 +106,10 @@ namespace glm
 		vecType<T, P> const & y
 	)
 	{
-		assert(x.length() == y.length());
+		assert(detail::component_count(x) == detail::component_count(y));
 
 		typename vecType<bool, P>::bool_type Result(vecType<bool, P>::_null);
-		for(int i = 0; i < x.length(); ++i)
+		for(detail::component_count_t i = 0; i < detail::component_count(x); ++i)
 			Result[i] = x[i] == y[i];
 		return Result;
 	}
@@ -121,10 +121,10 @@ namespace glm
 		vecType<T, P> const & y
 	)
 	{
-		assert(x.length() == y.length());
+		assert(detail::component_count(x) == detail::component_count(y));
 
 		typename vecType<bool, P>::bool_type Result(vecType<bool, P>::_null);
-		for(int i = 0; i < x.length(); ++i)
+		for(detail::component_count_t i = 0; i < detail::component_count(x); ++i)
 			Result[i] = x[i] != y[i];
 		return Result;
 	}
@@ -133,7 +133,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER bool any(vecType<bool, P> const & v)
 	{
 		bool Result = false;
-		for(int i = 0; i < v.length(); ++i)
+		for(detail::component_count_t i = 0; i < detail::component_count(v); ++i)
 			Result = Result || v[i];
 		return Result;
 	}
@@ -142,7 +142,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER bool all(vecType<bool, P> const & v)
 	{
 		bool Result = true;
-		for(int i = 0; i < v.length(); ++i)
+		for(detail::component_count_t i = 0; i < detail::component_count(v); ++i)
 			Result = Result && v[i];
 		return Result;
 	}
@@ -151,7 +151,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER vecType<bool, P> not_(vecType<bool, P> const & v)
 	{
 		typename vecType<bool, P>::bool_type Result(vecType<bool, P>::_null);
-		for(int i = 0; i < v.length(); ++i)
+		for(detail::component_count_t i = 0; i < detail::component_count(v); ++i)
 			Result[i] = !v[i];
 		return Result;
 	}

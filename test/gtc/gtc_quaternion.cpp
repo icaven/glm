@@ -273,7 +273,7 @@ int test_quat_ctr()
 {
 	int Error(0);
 
-#	if(GLM_HAS_INITIALIZER_LISTS)
+#	if GLM_HAS_INITIALIZER_LISTS
 	{
 		glm::quat A{0, 1, 2, 3};
 

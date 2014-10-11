@@ -36,10 +36,10 @@ namespace glm
 		typename genType::row_type const & x
 	)
 	{
-		assert(index >= 0 && index < m[0].length());
+		assert(index >= 0 && static_cast<detail::component_count_t>(index) < detail::component_count(m[0]));
 
 		genType Result = m;
-		for(length_t i = 0; i < m.length(); ++i)
+		for(detail::component_count_t i = 0; i < detail::component_count(m); ++i)
 			Result[i][index] = x[i];
 		return Result;
 	}
@@ -51,10 +51,10 @@ namespace glm
 		length_t const & index
 	)
 	{
-		assert(index >= 0 && index < m[0].length());
+		assert(index >= 0 && static_cast<detail::component_count_t>(index) < detail::component_count(m[0]));
 
 		typename genType::row_type Result;
-		for(length_t i = 0; i < m.length(); ++i)
+		for(detail::component_count_t i = 0; i < detail::component_count(m); ++i)
 			Result[i] = m[i][index];
 		return Result;
 	}
@@ -67,7 +67,7 @@ namespace glm
 		typename genType::col_type const & x
 	)
 	{
-		assert(index >= 0 && index < m.length());
+		assert(index >= 0 && static_cast<detail::component_count_t>(index) < detail::component_count(m));
 
 		genType Result = m;
 		Result[index] = x;
@@ -81,7 +81,7 @@ namespace glm
 		length_t const & index
 	)
 	{
-		assert(index >= 0 && index < m.length());
+		assert(index >= 0 && static_cast<detail::component_count_t>(index) < detail::component_count(m));
 
 		return m[index];
 	}

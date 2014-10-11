@@ -60,7 +60,7 @@ int test_ctr()
 {
 	int Error(0);
 
-#if(GLM_HAS_INITIALIZER_LISTS)
+#if GLM_HAS_INITIALIZER_LISTS
 	glm::mat2x2 m0(
 		glm::vec2(0, 1), 
 		glm::vec2(2, 3));

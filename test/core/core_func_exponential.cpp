@@ -10,7 +10,7 @@
 #include <glm/common.hpp>
 #include <glm/exponential.hpp>
 #include <glm/gtc/ulp.hpp>
-#include <glm/gtx/vec1.hpp>
+#include <glm/gtc/vec1.hpp>
 
 int test_pow()
 {

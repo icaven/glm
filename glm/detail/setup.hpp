@@ -758,31 +758,6 @@
 #endif//GLM_MESSAGE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-// Length type
-
-// User defines: GLM_FORCE_SIZE_T_LENGTH GLM_FORCE_SIZE_FUNC
-
-namespace glm
-{
-	typedef std::size_t size_t;
-#if defined(GLM_FORCE_SIZE_T_LENGTH) || defined(GLM_FORCE_SIZE_FUNC)
-	typedef std::size_t length_t;
-#else
-	typedef int length_t;
-#endif
-}//namespace glm
-
-#if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_FORCE_SIZE_T_LENGTH))
-#	define GLM_MESSAGE_FORCE_SIZE_T_LENGTH
-#	if defined(GLM_FORCE_SIZE_T_LENGTH)
-#		pragma message("GLM: .length() returns glm::length_t, a typedef of std::size_t")
-#	else
-#		pragma message("GLM: .length() returns glm::length_t, a typedef of int following the GLSL specification")
-#		pragma message("GLM: #define GLM_FORCE_SIZE_T_LENGTH for .length() to return a std::size_t")
-#	endif
-#endif//GLM_MESSAGE
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 // Qualifiers
 
 #if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC8))
@@ -816,3 +791,47 @@ namespace glm
 #else
 #	define GLM_CONSTEXPR
 #endif
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Length type
+
+// User defines: GLM_FORCE_SIZE_T_LENGTH GLM_FORCE_SIZE_FUNC
+
+namespace glm
+{
+	typedef std::size_t size_t;
+#if defined(GLM_FORCE_SIZE_T_LENGTH) || defined(GLM_FORCE_SIZE_FUNC)
+	typedef size_t length_t;
+#else
+	typedef int length_t;
+#endif
+
+namespace detail
+{
+	template <typename genType>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t component_count(genType const & m)
+	{
+#		if GLM_FORCE_SIZE_FUNC
+			return m.size();
+#		else
+			return m.length();
+#		endif
+	}
+
+#	if GLM_FORCE_SIZE_FUNC
+		typedef size_t component_count_t;
+#	else
+		typedef length_t component_count_t;
+#	endif
+}//namespace detail
+}//namespace glm
+
+#if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_FORCE_SIZE_T_LENGTH))
+#	define GLM_MESSAGE_FORCE_SIZE_T_LENGTH
+#	if defined(GLM_FORCE_SIZE_T_LENGTH)
+#		pragma message("GLM: .length() returns glm::length_t, a typedef of std::size_t")
+#	else
+#		pragma message("GLM: .length() returns glm::length_t, a typedef of int following the GLSL specification")
+#		pragma message("GLM: #define GLM_FORCE_SIZE_T_LENGTH for .length() to return a size_t")
+#	endif
+#endif//GLM_MESSAGE

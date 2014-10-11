@@ -82,7 +82,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x, vecType<T, P> const & y, vecType<bool, P> const & a)
 		{
 			vecType<T, P> Result;
-			for(length_t i = 0; i < x.length(); ++i)
+			for(length_t i = 0; i < detail::component_count(x); ++i)
 				Result[i] = a[i] ? y[i] : x[i];
 			return Result;
 		}

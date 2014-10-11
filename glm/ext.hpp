@@ -76,6 +76,7 @@
 #include "./gtc/type_precision.hpp"
 #include "./gtc/type_ptr.hpp"
 #include "./gtc/ulp.hpp"
+#include "./gtc/vec1.hpp"
 
 #include "./gtx/associated_min_max.hpp"
 #include "./gtx/bit.hpp"
@@ -123,7 +124,6 @@
 #endif
 #include "./gtx/transform.hpp"
 #include "./gtx/transform2.hpp"
-#include "./gtx/vec1.hpp"
 #include "./gtx/vector_angle.hpp"
 #include "./gtx/vector_query.hpp"
 #include "./gtx/wrap.hpp"

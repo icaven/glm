@@ -23,10 +23,8 @@ GLM_FUNC_QUALIFIER tvec2<U, P> associatedMin
 	const tvec2<T, P>& y, const tvec2<U, P>& b
 )
 {
-	tvec2<U, P> Result;
-	//Result.x = x[0] < y[0] ? a[0] : b[0];
-	//Result.y = x[1] < y[1] ? a[1] : b[1];
-	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result(tvec2<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] < y[i] ? a[i] : b[i];
 	return Result;
 }
@@ -38,8 +36,8 @@ GLM_FUNC_QUALIFIER tvec3<U, P> associatedMin
 	const tvec3<T, P>& y, const tvec3<U, P>& b
 )
 {
-	tvec3<U, P> Result;
-	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result(tvec3<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] < y[i] ? a[i] : b[i];
 	return Result;
 }
@@ -51,8 +49,8 @@ GLM_FUNC_QUALIFIER tvec4<U, P> associatedMin
 	const tvec4<T, P>& y, const tvec4<U, P>& b
 )
 {
-	tvec4<U, P> Result;
-	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result(tvec4<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] < y[i] ? a[i] : b[i];
 	return Result;
 }
@@ -64,8 +62,8 @@ GLM_FUNC_QUALIFIER tvec2<U, P> associatedMin
 	T y, const tvec2<U, P>& b
 )
 {
-	tvec2<U, P> Result;
-	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result(tvec2<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x < y ? a[i] : b[i];
 	return Result;
 }
@@ -77,8 +75,8 @@ GLM_FUNC_QUALIFIER tvec3<U, P> associatedMin
 	T y, const tvec3<U, P>& b
 )
 {
-	tvec3<U, P> Result;
-	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result(tvec3<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x < y ? a[i] : b[i];
 	return Result;
 }
@@ -90,8 +88,8 @@ GLM_FUNC_QUALIFIER tvec4<U, P> associatedMin
 	T y, const tvec4<U, P>& b
 )
 {
-	tvec4<U, P> Result;
-	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result(tvec4<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x < y ? a[i] : b[i];
 	return Result;
 }
@@ -103,8 +101,8 @@ GLM_FUNC_QUALIFIER tvec2<U, P> associatedMin
 	tvec2<T, P> const & y, U b
 )
 {
-	tvec2<U, P> Result;
-	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result(tvec2<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] < y[i] ? a : b;
 	return Result;
 }
@@ -112,12 +110,12 @@ GLM_FUNC_QUALIFIER tvec2<U, P> associatedMin
 template<typename T, typename U, precision P>
 GLM_FUNC_QUALIFIER tvec3<U, P> associatedMin
 (
-	const tvec3<T, P>& x, U a,
-	const tvec3<T, P>& y, U b
+	tvec3<T, P> const & x, U a,
+	tvec3<T, P> const & y, U b
 )
 {
-	tvec3<U, P> Result;
-	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result(tvec3<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] < y[i] ? a : b;
 	return Result;
 }
@@ -129,8 +127,8 @@ GLM_FUNC_QUALIFIER tvec4<U, P> associatedMin
 	const tvec4<T, P>& y, U b
 )
 {
-	tvec4<U, P> Result;
-	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result(tvec4<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] < y[i] ? a : b;
 	return Result;
 }
@@ -156,8 +154,8 @@ GLM_FUNC_QUALIFIER tvec2<U, P> associatedMin
 	const tvec2<T, P>& z, const tvec2<U, P>& c
 )
 {
-	tvec2<U, P> Result;
-	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result(tvec2<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] < y[i] ? (x[i] < z[i] ? a[i] : c[i]) : (y[i] < z[i] ? b[i] : c[i]);
 	return Result;
 }
@@ -170,8 +168,8 @@ GLM_FUNC_QUALIFIER tvec3<U, P> associatedMin
 	const tvec3<T, P>& z, const tvec3<U, P>& c
 )
 {
-	tvec3<U, P> Result;
-	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result(tvec3<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] < y[i] ? (x[i] < z[i] ? a[i] : c[i]) : (y[i] < z[i] ? b[i] : c[i]);
 	return Result;
 }
@@ -184,8 +182,8 @@ GLM_FUNC_QUALIFIER tvec4<U, P> associatedMin
 	const tvec4<T, P>& z, const tvec4<U, P>& c
 )
 {
-	tvec4<U, P> Result;
-	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result(tvec4<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] < y[i] ? (x[i] < z[i] ? a[i] : c[i]) : (y[i] < z[i] ? b[i] : c[i]);
 	return Result;
 }
@@ -218,8 +216,8 @@ GLM_FUNC_QUALIFIER tvec2<U, P> associatedMin
 	const tvec2<T, P>& w, const tvec2<U, P>& d
 )
 {
-	tvec2<U, P> Result;
-	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result(tvec2<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 	{
 		T Test1 = min(x[i], y[i]);
 		T Test2 = min(z[i], w[i]);
@@ -240,8 +238,8 @@ GLM_FUNC_QUALIFIER tvec3<U, P> associatedMin
 	const tvec3<T, P>& w, const tvec3<U, P>& d
 )
 {
-	tvec3<U, P> Result;
-	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result(tvec3<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 	{
 		T Test1 = min(x[i], y[i]);
 		T Test2 = min(z[i], w[i]);
@@ -262,8 +260,8 @@ GLM_FUNC_QUALIFIER tvec4<U, P> associatedMin
 	const tvec4<T, P>& w, const tvec4<U, P>& d
 )
 {
-	tvec4<U, P> Result;
-	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result(tvec4<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 	{
 		T Test1 = min(x[i], y[i]);
 		T Test2 = min(z[i], w[i]);
@@ -287,8 +285,8 @@ GLM_FUNC_QUALIFIER tvec2<U, P> associatedMin
 	T Test1 = min(x, y);
 	T Test2 = min(z, w);
 
-	tvec2<U, P> Result;
-	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result(tvec2<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 	{
 		U Result1 = x < y ? a[i] : b[i];
 		U Result2 = z < w ? c[i] : d[i];
@@ -310,8 +308,8 @@ GLM_FUNC_QUALIFIER tvec3<U, P> associatedMin
 	T Test1 = min(x, y);
 	T Test2 = min(z, w);
 
-	tvec3<U, P> Result;
-	for(typename tvec3<U, P>::size_type i = 0; i < tvec3<U, P>::value_size; ++i)
+	tvec3<U, P> Result(tvec3<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 	{
 		U Result1 = x < y ? a[i] : b[i];
 		U Result2 = z < w ? c[i] : d[i];
@@ -333,8 +331,8 @@ GLM_FUNC_QUALIFIER tvec4<U, P> associatedMin
 	T Test1 = min(x, y);
 	T Test2 = min(z, w);
 
-	tvec4<U, P> Result;
-	for(typename tvec4<U, P>::size_type i = 0; i < tvec4<U, P>::value_size; ++i)
+	tvec4<U, P> Result(tvec4<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 	{
 		U Result1 = x < y ? a[i] : b[i];
 		U Result2 = z < w ? c[i] : d[i];
@@ -353,8 +351,8 @@ GLM_FUNC_QUALIFIER tvec2<U, P> associatedMin
 	const tvec2<T, P>& w, U d
 )
 {
-	tvec2<U, P> Result;
-	for(typename tvec2<T, P>::size_type i = 0; i < tvec2<T, P>::value_size(); ++i)
+	tvec2<U, P> Result(tvec2<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 	{
 		T Test1 = min(x[i], y[i]);
 		T Test2 = min(z[i], w[i]);;
@@ -375,8 +373,8 @@ GLM_FUNC_QUALIFIER tvec3<U, P> associatedMin
 	const tvec3<T, P>& w, U d
 )
 {
-	tvec3<U, P> Result;
-	for(typename tvec3<T, P>::size_type i = 0; i < tvec3<T, P>::value_size(); ++i)
+	tvec3<U, P> Result(tvec3<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 	{
 		T Test1 = min(x[i], y[i]);
 		T Test2 = min(z[i], w[i]);;
@@ -397,8 +395,8 @@ GLM_FUNC_QUALIFIER tvec4<U, P> associatedMin
 	const tvec4<T, P>& w, U d
 )
 {
-	tvec4<U, P> Result;
-	for(typename tvec4<T, P>::size_type i = 0; i < tvec4<T, P>::value_size(); ++i)
+	tvec4<U, P> Result(tvec4<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 	{
 		T Test1 = min(x[i], y[i]);
 		T Test2 = min(z[i], w[i]);;
@@ -424,8 +422,8 @@ GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
 	const tvec2<T, P>& y, const tvec2<U, P>& b
 )
 {
-	tvec2<U, P> Result;
-	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result(tvec2<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] > y[i] ? a[i] : b[i];
 	return Result;
 }
@@ -438,8 +436,8 @@ GLM_FUNC_QUALIFIER tvec3<U, P> associatedMax
 	const tvec3<T, P>& y, const tvec3<U, P>& b
 )
 {
-	tvec3<U, P> Result;
-	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result(tvec3<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] > y[i] ? a[i] : b[i];
 	return Result;
 }
@@ -452,8 +450,8 @@ GLM_FUNC_QUALIFIER tvec4<U, P> associatedMax
 	const tvec4<T, P>& y, const tvec4<U, P>& b
 )
 {
-	tvec4<U, P> Result;
-	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result(tvec4<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] > y[i] ? a[i] : b[i];
 	return Result;
 }
@@ -466,8 +464,8 @@ GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
 	T y, const tvec2<U, P>& b
 )
 {
-	tvec2<U, P> Result;
-	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result(tvec2<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x > y ? a[i] : b[i];
 	return Result;
 }
@@ -480,8 +478,8 @@ GLM_FUNC_QUALIFIER tvec3<U, P> associatedMax
 	T y, const tvec3<U, P>& b
 )
 {
-	tvec3<U, P> Result;
-	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result(tvec3<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x > y ? a[i] : b[i];
 	return Result;
 }
@@ -494,8 +492,8 @@ GLM_FUNC_QUALIFIER tvec4<U, P> associatedMax
 	T y, const tvec4<U, P>& b
 )
 {
-	tvec4<U, P> Result;
-	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result(tvec4<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x > y ? a[i] : b[i];
 	return Result;
 }
@@ -508,8 +506,8 @@ GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
 	const tvec2<T, P>& y, U b
 )
 {
-	tvec2<U, P> Result;
-	for(typename tvec2<T, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result(tvec2<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] > y[i] ? a : b;
 	return Result;
 }
@@ -522,8 +520,8 @@ GLM_FUNC_QUALIFIER tvec3<U, P> associatedMax
 	const tvec3<T, P>& y, U b
 )
 {
-	tvec3<U, P> Result;
-	for(typename tvec3<T, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result(tvec3<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] > y[i] ? a : b;
 	return Result;
 }
@@ -536,8 +534,8 @@ GLM_FUNC_QUALIFIER tvec4<U, P> associatedMax
 	const tvec4<T, P>& y, U b
 )
 {
-	tvec4<U, P> Result;
-	for(typename tvec4<T, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result(tvec4<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] > y[i] ? a : b;
 	return Result;
 }
@@ -564,8 +562,8 @@ GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
 	const tvec2<T, P>& z, const tvec2<U, P>& c
 )
 {
-	tvec2<U, P> Result;
-	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result(tvec2<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] > y[i] ? (x[i] > z[i] ? a[i] : c[i]) : (y[i] > z[i] ? b[i] : c[i]);
 	return Result;
 }
@@ -579,8 +577,8 @@ GLM_FUNC_QUALIFIER tvec3<U, P> associatedMax
 	const tvec3<T, P>& z, const tvec3<U, P>& c
 )
 {
-	tvec3<U, P> Result;
-	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result(tvec3<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] > y[i] ? (x[i] > z[i] ? a[i] : c[i]) : (y[i] > z[i] ? b[i] : c[i]);
 	return Result;
 }
@@ -594,8 +592,8 @@ GLM_FUNC_QUALIFIER tvec4<U, P> associatedMax
 	const tvec4<T, P>& z, const tvec4<U, P>& c
 )
 {
-	tvec4<U, P> Result;
-	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result(tvec4<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] > y[i] ? (x[i] > z[i] ? a[i] : c[i]) : (y[i] > z[i] ? b[i] : c[i]);
 	return Result;
 }
@@ -609,8 +607,8 @@ GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
 	T z, const tvec2<U, P>& c
 )
 {
-	tvec2<U, P> Result;
-	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result(tvec2<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x > y ? (x > z ? a[i] : c[i]) : (y > z ? b[i] : c[i]);
 	return Result;
 }
@@ -624,8 +622,8 @@ GLM_FUNC_QUALIFIER tvec3<U, P> associatedMax
 	T z, const tvec3<U, P>& c
 )
 {
-	tvec3<U, P> Result;
-	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result(tvec3<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x > y ? (x > z ? a[i] : c[i]) : (y > z ? b[i] : c[i]);
 	return Result;
 }
@@ -639,8 +637,8 @@ GLM_FUNC_QUALIFIER tvec4<U, P> associatedMax
 	T z, const tvec4<U, P>& c
 )
 {
-	tvec4<U, P> Result;
-	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result(tvec4<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x > y ? (x > z ? a[i] : c[i]) : (y > z ? b[i] : c[i]);
 	return Result;
 }
@@ -654,8 +652,8 @@ GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
 	const tvec2<T, P>& z, U c
 )
 {
-	tvec2<U, P> Result;
-	for(typename tvec2<T, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result(tvec2<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] > y[i] ? (x[i] > z[i] ? a : c) : (y[i] > z[i] ? b : c);
 	return Result;
 }
@@ -669,8 +667,8 @@ GLM_FUNC_QUALIFIER tvec3<U, P> associatedMax
 	const tvec3<T, P>& z, U c
 )
 {
-	tvec3<U, P> Result;
-	for(typename tvec3<T, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result(tvec3<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] > y[i] ? (x[i] > z[i] ? a : c) : (y[i] > z[i] ? b : c);
 	return Result;
 }
@@ -684,8 +682,8 @@ GLM_FUNC_QUALIFIER tvec4<U, P> associatedMax
 	const tvec4<T, P>& z, U c
 )
 {
-	tvec4<U, P> Result;
-	for(typename tvec4<T, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result(tvec4<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 		Result[i] = x[i] > y[i] ? (x[i] > z[i] ? a : c) : (y[i] > z[i] ? b : c);
 	return Result;
 }
@@ -718,8 +716,8 @@ GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
 	const tvec2<T, P>& w, const tvec2<U, P>& d
 )
 {
-	tvec2<U, P> Result;
-	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result(tvec2<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 	{
 		T Test1 = max(x[i], y[i]);
 		T Test2 = max(z[i], w[i]);
@@ -740,8 +738,8 @@ GLM_FUNC_QUALIFIER tvec3<U, P> associatedMax
 	const tvec3<T, P>& w, const tvec3<U, P>& d
 )
 {
-	tvec3<U, P> Result;
-	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result(tvec3<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 	{
 		T Test1 = max(x[i], y[i]);
 		T Test2 = max(z[i], w[i]);
@@ -762,8 +760,8 @@ GLM_FUNC_QUALIFIER tvec4<U, P> associatedMax
 	const tvec4<T, P>& w, const tvec4<U, P>& d
 )
 {
-	tvec4<U, P> Result;
-	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result(tvec4<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 	{
 		T Test1 = max(x[i], y[i]);
 		T Test2 = max(z[i], w[i]);
@@ -787,8 +785,8 @@ GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
 	T Test1 = max(x, y);
 	T Test2 = max(z, w);
 
-	tvec2<U, P> Result;
-	for(typename tvec2<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result(tvec2<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 	{
 		U Result1 = x > y ? a[i] : b[i];
 		U Result2 = z > w ? c[i] : d[i];
@@ -810,8 +808,8 @@ GLM_FUNC_QUALIFIER tvec3<U, P> associatedMax
 	T Test1 = max(x, y);
 	T Test2 = max(z, w);
 
-	tvec3<U, P> Result;
-	for(typename tvec3<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result(tvec3<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 	{
 		U Result1 = x > y ? a[i] : b[i];
 		U Result2 = z > w ? c[i] : d[i];
@@ -833,8 +831,8 @@ GLM_FUNC_QUALIFIER tvec4<U, P> associatedMax
 	T Test1 = max(x, y);
 	T Test2 = max(z, w);
 
-	tvec4<U, P> Result;
-	for(typename tvec4<U, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result(tvec4<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 	{
 		U Result1 = x > y ? a[i] : b[i];
 		U Result2 = z > w ? c[i] : d[i];
@@ -853,8 +851,8 @@ GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
 	const tvec2<T, P>& w, U d
 )
 {
-	tvec2<U, P> Result;
-	for(typename tvec2<T, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec2<U, P> Result(tvec2<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 	{
 		T Test1 = max(x[i], y[i]);
 		T Test2 = max(z[i], w[i]);;
@@ -875,8 +873,8 @@ GLM_FUNC_QUALIFIER tvec3<U, P> associatedMax
 	const tvec3<T, P>& w, U d
 )
 {
-	tvec3<U, P> Result;
-	for(typename tvec3<T, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec3<U, P> Result(tvec3<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 	{
 		T Test1 = max(x[i], y[i]);
 		T Test2 = max(z[i], w[i]);;
@@ -897,8 +895,8 @@ GLM_FUNC_QUALIFIER tvec4<U, P> associatedMax
 	const tvec4<T, P>& w, U d
 )
 {
-	tvec4<U, P> Result;
-	for(typename tvec4<T, P>::size_type i = 0; i < Result.length(); ++i)
+	tvec4<U, P> Result(tvec4<U, P>::_null);
+	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
 	{
 		T Test1 = max(x[i], y[i]);
 		T Test2 = max(z[i], w[i]);;
