@@ -589,7 +589,7 @@ namespace detail
 		typename tmat2x2<T, P>::row_type & v
 	)
 	{
-		return detail::compute_inverse<tmat2x2, T, P>::call(m) * v;
+		return detail::compute_inverse<T, P>(m) * v;
 	}
 
 	template <typename T, precision P>
@@ -599,7 +599,7 @@ namespace detail
 		tmat2x2<T, P> const & m
 	)
 	{
-		return v * detail::compute_inverse<tmat2x2, T, P>::call(m);
+		return v * detail::compute_inverse<T, P>(m);
 	}
 
 	template <typename T, precision P>

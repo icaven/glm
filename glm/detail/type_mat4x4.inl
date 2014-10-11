@@ -815,7 +815,7 @@ namespace detail
 		typename tmat4x4<T, P>::row_type const & v
 	)
 	{
-		return detail::compute_inverse<tmat4x4, T, P>::call(m) * v;
+		return detail::compute_inverse<T, P>(m) * v;
 	}
 
 	template <typename T, precision P>
@@ -825,7 +825,7 @@ namespace detail
 		tmat4x4<T, P> const & m
 	)
 	{
-		return v * detail::compute_inverse<tmat4x4, T, P>::call(m);
+		return v * detail::compute_inverse<T, P>(m);
 	}
 
 	template <typename T, precision P>
