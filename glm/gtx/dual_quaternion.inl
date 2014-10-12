@@ -56,8 +56,8 @@ namespace glm
 	(
 		tdualquat<T, P> const & d,
 	) :
-		real(d.r),
-		dual(d.d)
+		real(d.real),
+		dual(d.dual)
 	{}
 
 	template <typename T, precision P>
@@ -66,8 +66,8 @@ namespace glm
 	(
 		tdualquat<T, Q> const & d,
 	) :
-		real(d.r),
-		dual(d.d)
+		real(d.real),
+		dual(d.dual)
 	{}
 
 	//////////////////////////////////////
