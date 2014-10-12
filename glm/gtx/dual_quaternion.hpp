@@ -57,7 +57,7 @@ namespace glm
 	template <typename T, precision P>
 	struct tdualquat
 	{
-		enum ctor{null};
+		enum ctor{_null};
 		typedef T value_type;
 		typedef glm::tquat<T, P> part_type;
 		
@@ -72,14 +72,25 @@ namespace glm
 		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
 #endif//GLM_FORCE_SIZE_FUNC
 		
-		// Constructors
+		//////////////////////////////////////
+		// Implicit basic constructors
+
 		GLM_FUNC_DECL tdualquat();
+		GLM_FUNC_DECL tdualquat(tdualquat<T, P> const & d);
+		template <precision Q>
+		GLM_FUNC_DECL tdualquat(tdualquat<T, Q> const & d);
+
+		//////////////////////////////////////
+		// Explicit basic constructors
+
+		GLM_FUNC_DECL explicit tdualquat(ctor);
 		GLM_FUNC_DECL explicit tdualquat(tquat<T, P> const & real);
-		GLM_FUNC_DECL tdualquat(tquat<T, P> const & real,tquat<T, P> const & dual);
-		GLM_FUNC_DECL tdualquat(tquat<T, P> const & orientation,tvec3<T, P> const& translation);
-		
+		GLM_FUNC_DECL tdualquat(tquat<T, P> const & orientation, tvec3<T, P> const & translation);
+		GLM_FUNC_DECL tdualquat(tquat<T, P> const & real, tquat<T, P> const & dual);
+
 		//////////////////////////////////////////////////////////////
 		// tdualquat conversions
+
 		GLM_FUNC_DECL explicit tdualquat(tmat2x4<T, P> const & holder_mat);
 		GLM_FUNC_DECL explicit tdualquat(tmat3x4<T, P> const & aug_mat);
 		

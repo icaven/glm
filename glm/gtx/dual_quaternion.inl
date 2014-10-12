@@ -54,20 +54,36 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat
 	(
-		tquat<T, P> const & r
+		tdualquat<T, P> const & d,
 	) :
-		real(r),
-		dual(tquat<T, P>(T(0), T(0), T(0), T(0)))
+		real(d.r),
+		dual(d.d)
+	{}
+
+	template <typename T, precision P>
+	template <precision Q>
+	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat
+	(
+		tdualquat<T, Q> const & d,
+	) :
+		real(d.r),
+		dual(d.d)
+	{}
+
+	//////////////////////////////////////
+	// Explicit basic constructors
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat(ctor)
 	{}
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat
 	(
-		tquat<T, P> const & r,
-		tquat<T, P> const & d
+		tquat<T, P> const & r
 	) :
 		real(r),
-		dual(d)
+		dual(tquat<T, P>(T(0), T(0), T(0), T(0)))
 	{}
 
 	template <typename T, precision P>
@@ -82,6 +98,16 @@ namespace glm
 			T(+0.5) * ( p.x*q.w + p.y*q.z - p.z*q.y),
 			T(+0.5) * (-p.x*q.z + p.y*q.w + p.z*q.x),
 			T(+0.5) * ( p.x*q.y - p.y*q.x + p.z*q.w))
+	{}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat
+	(
+		tquat<T, P> const & r,
+		tquat<T, P> const & d
+	) :
+		real(r),
+		dual(d)
 	{}
 
 	//////////////////////////////////////////////////////////////
