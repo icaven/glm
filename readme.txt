@@ -63,6 +63,7 @@ GLM 0.9.6.0: 2014-XX-XX
 - Added GLM_FORCE_SIZE_FUNC to replace .length() by .size() #245
 - Fixed GTX_string_cast to support for integer types #249
 - Removed GLM_FORCE_CUDA, Cuda is implicitly detected
+- Updated GTX_associated_min_max with vec1 support
 
 ================================================================================
 GLM 0.9.5.4: 2014-06-21
