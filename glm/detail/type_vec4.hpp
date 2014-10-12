@@ -80,18 +80,18 @@ namespace glm
 		//////////////////////////////////////
 		// Helper
 
-#if GLM_FORCE_SIZE_FUNC
-		/// Return the count of components of the vector
-		GLM_FUNC_DECL GLM_CONSTEXPR size_t size() const;
-#else
-		/// Return the count of components of the vector
-		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
-#endif//GLM_FORCE_SIZE_FUNC
+#		if GLM_FORCE_SIZE_FUNC
+			/// Return the count of components of the vector
+			GLM_FUNC_DECL GLM_CONSTEXPR size_t size() const;
+#		else
+			/// Return the count of components of the vector
+			GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
+#		endif//GLM_FORCE_SIZE_FUNC
 
 		//////////////////////////////////////
 		// Data
 
-#		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
+#		if GLM_HAS_ANONYMOUS_UNION
 			union
 			{
 				typename simd<T>::type data;
@@ -99,18 +99,20 @@ namespace glm
 				struct { T s, t, p, q; };
 				struct { T x, y, z, w;};
 
-				_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, x, y, z, w)
-				_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, r, g, b, a)
-				_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, s, t, p, q)
-				_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, x, y, z, w)
-				_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, r, g, b, a)
-				_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, s, t, p, q)
-				_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, x, y, z, w)
-				_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, r, g, b, a)
-				_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, s, t, p, q)
+#				ifdef GLM_SWIZZLE
+					_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, x, y, z, w)
+					_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, r, g, b, a)
+					_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, s, t, p, q)
+					_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, x, y, z, w)
+					_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, r, g, b, a)
+					_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, s, t, p, q)
+					_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, x, y, z, w)
+					_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, r, g, b, a)
+					_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, s, t, p, q)
+#				endif//GLM_SWIZZLE
 			};
 #		else
-#			if(GLM_HAS_UNRESTRICTED_UNIONS)
+#			if GLM_HAS_UNRESTRICTED_UNIONS
 				union
 				{
 					typename simd<T>::type data;
@@ -131,7 +133,7 @@ namespace glm
 		
 #			ifdef GLM_SWIZZLE
 				GLM_SWIZZLE_GEN_VEC_FROM_VEC4(T, P, tvec4, tvec2, tvec3, tvec4)
-#			endif
+#			endif//GLM_SWIZZLE
 #		endif//GLM_LANG
 
 		//////////////////////////////////////

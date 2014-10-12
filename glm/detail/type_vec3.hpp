@@ -57,33 +57,35 @@ namespace glm
 		//////////////////////////////////////
 		// Helper
 
-#if GLM_FORCE_SIZE_FUNC
-		/// Return the count of components of the vector
-		GLM_FUNC_DECL GLM_CONSTEXPR size_t size() const;
-#else
-		/// Return the count of components of the vector
-		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
-#endif//GLM_FORCE_SIZE_FUNC
+#		if GLM_FORCE_SIZE_FUNC
+			/// Return the count of components of the vector
+			GLM_FUNC_DECL GLM_CONSTEXPR size_t size() const;
+#		else
+			/// Return the count of components of the vector
+			GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
+#		endif//GLM_FORCE_SIZE_FUNC
 
 		//////////////////////////////////////
 		// Data
 
-#		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
+#		if GLM_HAS_ANONYMOUS_UNION
 			union
 			{
 				struct{ T x, y, z; };
 				struct{ T r, g, b; };
 				struct{ T s, t, p; };
 
-				_GLM_SWIZZLE3_2_MEMBERS(T, P, tvec2, x, y, z)
-				_GLM_SWIZZLE3_2_MEMBERS(T, P, tvec2, r, g, b)
-				_GLM_SWIZZLE3_2_MEMBERS(T, P, tvec2, s, t, p)
-				_GLM_SWIZZLE3_3_MEMBERS(T, P, tvec3, x, y, z)
-				_GLM_SWIZZLE3_3_MEMBERS(T, P, tvec3, r, g, b)
-				_GLM_SWIZZLE3_3_MEMBERS(T, P, tvec3, s, t, p)
-				_GLM_SWIZZLE3_4_MEMBERS(T, P, tvec4, x, y, z)
-				_GLM_SWIZZLE3_4_MEMBERS(T, P, tvec4, r, g, b)
-				_GLM_SWIZZLE3_4_MEMBERS(T, P, tvec4, s, t, p)
+#				ifdef GLM_SWIZZLE
+					_GLM_SWIZZLE3_2_MEMBERS(T, P, tvec2, x, y, z)
+					_GLM_SWIZZLE3_2_MEMBERS(T, P, tvec2, r, g, b)
+					_GLM_SWIZZLE3_2_MEMBERS(T, P, tvec2, s, t, p)
+					_GLM_SWIZZLE3_3_MEMBERS(T, P, tvec3, x, y, z)
+					_GLM_SWIZZLE3_3_MEMBERS(T, P, tvec3, r, g, b)
+					_GLM_SWIZZLE3_3_MEMBERS(T, P, tvec3, s, t, p)
+					_GLM_SWIZZLE3_4_MEMBERS(T, P, tvec4, x, y, z)
+					_GLM_SWIZZLE3_4_MEMBERS(T, P, tvec4, r, g, b)
+					_GLM_SWIZZLE3_4_MEMBERS(T, P, tvec4, s, t, p)
+#				endif//GLM_SWIZZLE
 			};
 #		else
 			union { T x, r, s; };
@@ -92,7 +94,7 @@ namespace glm
 
 #			ifdef GLM_SWIZZLE
 				GLM_SWIZZLE_GEN_VEC_FROM_VEC3(T, P, tvec3, tvec2, tvec3, tvec4)
-#			endif
+#			endif//GLM_SWIZZLE
 #		endif//GLM_LANG
 
 		//////////////////////////////////////

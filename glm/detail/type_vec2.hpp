@@ -57,33 +57,35 @@ namespace glm
 		//////////////////////////////////////
 		// Helper
 
-#if GLM_FORCE_SIZE_FUNC
-		/// Return the count of components of the vector
-		GLM_FUNC_DECL GLM_CONSTEXPR size_t size() const;
-#else
-		/// Return the count of components of the vector
-		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
-#endif//GLM_FORCE_SIZE_FUNC
+#		if GLM_FORCE_SIZE_FUNC
+			/// Return the count of components of the vector
+			GLM_FUNC_DECL GLM_CONSTEXPR size_t size() const;
+#		else
+			/// Return the count of components of the vector
+			GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
+#		endif//GLM_FORCE_SIZE_FUNC
 
 		//////////////////////////////////////
 		// Data
 
-#		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
+#		if GLM_HAS_ANONYMOUS_UNION
 			union
 			{
 				struct{ T x, y; };
 				struct{ T r, g; };
 				struct{ T s, t; };
 
-				_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, x, y)
-				_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, r, g)
-				_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, s, t)
-				_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, x, y)
-				_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, r, g)
-				_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, s, t)
-				_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, x, y)
-				_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, r, g)
-				_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, s, t)
+#				ifdef GLM_SWIZZLE
+					_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, x, y)
+					_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, r, g)
+					_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, s, t)
+					_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, x, y)
+					_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, r, g)
+					_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, s, t)
+					_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, x, y)
+					_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, r, g)
+					_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, s, t)
+#				endif//GLM_SWIZZLE
 			};
 #		else
 			union {T x, r, s;};
@@ -91,7 +93,7 @@ namespace glm
 
 #			ifdef GLM_SWIZZLE
 				GLM_SWIZZLE_GEN_VEC_FROM_VEC2(T, P, tvec2, tvec2, tvec3, tvec4)
-#			endif 
+#			endif//GLM_SWIZZLE
 #		endif
 
 		//////////////////////////////////////

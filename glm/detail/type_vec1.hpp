@@ -56,18 +56,43 @@ namespace glm
 		//////////////////////////////////////
 		// Helper
 
-#if GLM_FORCE_SIZE_FUNC
-		/// Return the count of components of the vector
-		GLM_FUNC_DECL GLM_CONSTEXPR size_t size() const;
-#else
-		/// Return the count of components of the vector
-		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
-#endif//GLM_FORCE_SIZE_FUNC
+#		if GLM_FORCE_SIZE_FUNC
+			/// Return the count of components of the vector
+			GLM_FUNC_DECL GLM_CONSTEXPR size_t size() const;
+#		else
+			/// Return the count of components of the vector
+			GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
+#		endif//GLM_FORCE_SIZE_FUNC
 
 		//////////////////////////////////////
 		// Data
 
-		union {T x, r, s;};
+#		if GLM_HAS_ANONYMOUS_UNION
+			union
+			{
+				T x;
+				T r;
+				T s;
+/*
+#				ifdef GLM_SWIZZLE
+					_GLM_SWIZZLE1_2_MEMBERS(T, P, tvec2, x)
+					_GLM_SWIZZLE1_2_MEMBERS(T, P, tvec2, r)
+					_GLM_SWIZZLE1_2_MEMBERS(T, P, tvec2, s)
+					_GLM_SWIZZLE1_3_MEMBERS(T, P, tvec3, x)
+					_GLM_SWIZZLE1_3_MEMBERS(T, P, tvec3, r)
+					_GLM_SWIZZLE1_3_MEMBERS(T, P, tvec3, s)
+					_GLM_SWIZZLE1_4_MEMBERS(T, P, tvec4, x)
+					_GLM_SWIZZLE1_4_MEMBERS(T, P, tvec4, r)
+					_GLM_SWIZZLE1_4_MEMBERS(T, P, tvec4, s)
+#				endif//GLM_SWIZZLE*/
+			};
+#		else
+			union {T x, r, s;};
+/*
+#			ifdef GLM_SWIZZLE
+				GLM_SWIZZLE_GEN_VEC_FROM_VEC1(T, P, tvec2, tvec2, tvec3, tvec4)
+#			endif//GLM_SWIZZLE*/
+#		endif
 
 		//////////////////////////////////////
 		// Accesses
