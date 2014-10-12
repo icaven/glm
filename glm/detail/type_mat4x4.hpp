@@ -47,11 +47,11 @@ namespace glm
 		typedef tmat4x4<T, P> type;
 		typedef tmat4x4<T, P> transpose_type;
 
-#if GLM_FORCE_SIZE_FUNC
-		GLM_FUNC_DECL GLM_CONSTEXPR size_t size() const;
-#else
-		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
-#endif//GLM_FORCE_SIZE_FUNC
+#		ifdef GLM_FORCE_SIZE_FUNC
+			GLM_FUNC_DECL GLM_CONSTEXPR size_t size() const;
+#		else
+			GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
+#		endif//GLM_FORCE_SIZE_FUNC
 
 		template <typename U, precision Q>
 		friend tvec4<U, Q> operator/(tmat4x4<U, Q> const & m, tvec4<U, Q> const & v);

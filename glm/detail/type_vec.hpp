@@ -41,6 +41,9 @@ namespace glm
 	typedef tvec1<float, highp>		highp_vec1_t;
 	typedef tvec1<float, mediump>	mediump_vec1_t;
 	typedef tvec1<float, lowp>		lowp_vec1_t;
+	typedef tvec1<double, highp>	highp_dvec1_t;
+	typedef tvec1<double, mediump>	mediump_dvec1_t;
+	typedef tvec1<double, lowp>		lowp_dvec1_t;
 	typedef tvec1<int, highp>		highp_ivec1_t;
 	typedef tvec1<int, mediump>		mediump_ivec1_t;
 	typedef tvec1<int, lowp>		lowp_ivec1_t;

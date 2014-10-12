@@ -61,6 +61,21 @@ namespace glm
 	/// @see gtx_vec1 extension.
 	typedef lowp_vec1_t				lowp_vec1;
 
+	//! 1 component vector of high precision floating-point numbers. 
+	//! There is no guarantee on the actual precision.
+	/// @see gtx_vec1 extension.
+	typedef highp_dvec1_t			highp_dvec1;
+
+	//! 1 component vector of medium precision floating-point numbers. 
+	//! There is no guarantee on the actual precision.
+	/// @see gtx_vec1 extension.
+	typedef mediump_dvec1_t			mediump_dvec1;
+
+	//! 1 component vector of low precision floating-point numbers. 
+	//! There is no guarantee on the actual precision.
+	/// @see gtx_vec1 extension.
+	typedef lowp_dvec1_t				lowp_dvec1;
+
 	//! 1 component vector of high precision signed integer numbers. 
 	//! There is no guarantee on the actual precision.
 	/// @see gtx_vec1 extension.
@@ -131,6 +146,18 @@ namespace glm
 	/// 1 component vector of floating-point numbers.
 	/// @see gtx_vec1 extension.
 	typedef highp_vec1				vec1;
+#endif//GLM_PRECISION
+
+#if(defined(GLM_PRECISION_HIGHP_DOUBLE))
+	typedef highp_dvec1				dvec1;
+#elif(defined(GLM_PRECISION_MEDIUMP_DOUBLE))
+	typedef mediump_dvec1			dvec1;
+#elif(defined(GLM_PRECISION_LOWP_DOUBLE))
+	typedef lowp_dvec1				dvec1;
+#else
+	/// 1 component vector of floating-point numbers.
+	/// @see gtx_vec1 extension.
+	typedef highp_dvec1				dvec1;
 #endif//GLM_PRECISION
 
 #if(defined(GLM_PRECISION_HIGHP_INT))

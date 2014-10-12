@@ -46,7 +46,7 @@ namespace detail
 	}
 }//namespace detail
 
-#if GLM_FORCE_SIZE_FUNC
+#ifdef GLM_FORCE_SIZE_FUNC
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR size_t tmat2x2<T, P>::size() const
 	{

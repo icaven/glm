@@ -808,21 +808,21 @@ namespace glm
 
 namespace detail
 {
+#	ifdef GLM_FORCE_SIZE_FUNC
+		typedef size_t component_count_t;
+#	else
+		typedef length_t component_count_t;
+#	endif
+
 	template <typename genType>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t component_count(genType const & m)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR component_count_t component_count(genType const & m)
 	{
-#		if GLM_FORCE_SIZE_FUNC
+#		ifdef GLM_FORCE_SIZE_FUNC
 			return m.size();
 #		else
 			return m.length();
 #		endif
 	}
-
-#	if GLM_FORCE_SIZE_FUNC
-		typedef size_t component_count_t;
-#	else
-		typedef length_t component_count_t;
-#	endif
 }//namespace detail
 }//namespace glm
 

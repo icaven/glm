@@ -28,7 +28,7 @@
 
 namespace glm
 {
-#if GLM_FORCE_SIZE_FUNC
+#ifdef GLM_FORCE_SIZE_FUNC
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR size_t tvec3<T, P>::size() const
 	{
@@ -48,14 +48,14 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T & tvec3<T, P>::operator[](length_t i)
 	{
-		assert(i >= 0 && i < this->length());
+		assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
 		return (&x)[i];
 	}
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T const & tvec3<T, P>::operator[](length_t i) const
 	{
-		assert(i >= 0 && i < this->length());
+		assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
 		return (&x)[i];
 	}
 
