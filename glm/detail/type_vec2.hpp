@@ -122,7 +122,7 @@ namespace glm
 
 #		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
 			template <int E0, int E1>
-			GLM_FUNC_DECL tvec2(_swizzle<2, T, P, tvec2<T, P>, E0, E1,-1,-2> const & that)
+			GLM_FUNC_DECL tvec2(detail::_swizzle<2, T, P, tvec2<T, P>, E0, E1,-1,-2> const & that)
 			{
 				*this = that();
 			}

@@ -116,19 +116,19 @@ namespace glm
 
 #		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
 			template <int E0, int E1, int E2>
-			GLM_FUNC_DECL tvec3(_swizzle<3, T, P, tvec3<T, P>, E0, E1, E2, -1> const & that)
+			GLM_FUNC_DECL tvec3(detail::_swizzle<3, T, P, tvec3<T, P>, E0, E1, E2, -1> const & that)
 			{
 				*this = that();
 			}
 
 			template <int E0, int E1>
-			GLM_FUNC_DECL tvec3(_swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v, T const & s)
+			GLM_FUNC_DECL tvec3(detail::_swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v, T const & s)
 			{
 				*this = tvec3<T, P>(v(), s);
 			}
 
 			template <int E0, int E1>
-			GLM_FUNC_DECL tvec3(T const & s, _swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v)
+			GLM_FUNC_DECL tvec3(T const & s, detail::_swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v)
 			{
 				*this = tvec3<T, P>(s, v());
 			}

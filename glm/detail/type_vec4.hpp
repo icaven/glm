@@ -202,49 +202,49 @@ namespace glm
 		//////////////////////////////////////
 		// Swizzle constructors
 
-#		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
+#		if GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE)
 			template <int E0, int E1, int E2, int E3>
-			GLM_FUNC_DECL tvec4(_swizzle<4, T, P, tvec4<T, P>, E0, E1, E2, E3> const & that)
+			GLM_FUNC_DECL tvec4(detail::_swizzle<4, T, P, tvec4<T, P>, E0, E1, E2, E3> const & that)
 			{
 				*this = that();
 			}
 
 			template <int E0, int E1, int F0, int F1>
-			GLM_FUNC_DECL tvec4(_swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v, _swizzle<2, T, P, tvec2<T, P>, F0, F1, -1, -2> const & u)
+			GLM_FUNC_DECL tvec4(detail::_swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v, detail::_swizzle<2, T, P, tvec2<T, P>, F0, F1, -1, -2> const & u)
 			{
 				*this = tvec4<T, P>(v(), u());
 			}
 
 			template <int E0, int E1>
-			GLM_FUNC_DECL tvec4(T const & x, T const & y, _swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v)
+			GLM_FUNC_DECL tvec4(T const & x, T const & y, detail::_swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v)
 			{
 				*this = tvec4<T, P>(x, y, v());
 			}
 
 			template <int E0, int E1>
-			GLM_FUNC_DECL tvec4(T const & x, _swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v, T const & w)
+			GLM_FUNC_DECL tvec4(T const & x, detail::_swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v, T const & w)
 			{
 				*this = tvec4<T, P>(x, v(), w);
 			}
 
 			template <int E0, int E1>
-			GLM_FUNC_DECL tvec4(_swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v, T const & z, T const & w)
+			GLM_FUNC_DECL tvec4(detail::_swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v, T const & z, T const & w)
 			{
 				*this = tvec4<T, P>(v(), z, w);
 			}
 
 			template <int E0, int E1, int E2>
-			GLM_FUNC_DECL tvec4(_swizzle<3, T, P, tvec3<T, P>, E0, E1, E2, -1> const & v, T const & w)
+			GLM_FUNC_DECL tvec4(detail::_swizzle<3, T, P, tvec3<T, P>, E0, E1, E2, -1> const & v, T const & w)
 			{
 				*this = tvec4<T, P>(v(), w);
 			}
 
 			template <int E0, int E1, int E2>
-			GLM_FUNC_DECL tvec4(T const & x, _swizzle<3, T, P, tvec3<T, P>, E0, E1, E2, -1> const & v)
+			GLM_FUNC_DECL tvec4(T const & x, detail::_swizzle<3, T, P, tvec3<T, P>, E0, E1, E2, -1> const & v)
 			{
 				*this = tvec4<T, P>(x, v());
 			}
-#		endif//(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
+#		endif// GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE)
 
 		//////////////////////////////////////
 		// Unary arithmetic operators
