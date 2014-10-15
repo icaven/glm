@@ -118,24 +118,13 @@ namespace glm
 		GLM_FUNC_DECL tvec2(T const & s1, T const & s2);
 
 		//////////////////////////////////////
-		// Swizzle constructors
-
-#		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
-			template <int E0, int E1>
-			GLM_FUNC_DECL tvec2(detail::_swizzle<2, T, P, tvec2<T, P>, E0, E1,-1,-2> const & that)
-			{
-				*this = that();
-			}
-#		endif//(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
-
-		//////////////////////////////////////
 		// Conversion constructors
 
-		//! Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename U, typename V>
-		GLM_FUNC_DECL tvec2(U const & x, V const & y);
-		template <typename U, typename V>
-		GLM_FUNC_DECL tvec2(tvec1<U, P> const & v1, tvec1<V, P> const & v2);
+		/// Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename A, typename B>
+		GLM_FUNC_DECL tvec2(A const & x, B const & y);
+		template <typename A, typename B>
+		GLM_FUNC_DECL tvec2(tvec1<A, P> const & v1, tvec1<B, P> const & v2);
 
 		//////////////////////////////////////
 		// Conversion vector constructors
@@ -149,6 +138,17 @@ namespace glm
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U, precision Q>
 		GLM_FUNC_DECL explicit tvec2(tvec4<U, Q> const & v);
+
+		//////////////////////////////////////
+		// Swizzle constructors
+
+#		if GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE)
+			template <int E0, int E1>
+			GLM_FUNC_DECL tvec2(detail::_swizzle<2, T, P, tvec2<T, P>, E0, E1,-1,-2> const & that)
+			{
+				*this = that();
+			}
+#		endif// GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE)
 
 		//////////////////////////////////////
 		// Unary arithmetic operators

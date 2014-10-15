@@ -201,7 +201,7 @@ int test_vec2_ctor()
 {
 	int Error = 0;
 
-#if(GLM_HAS_INITIALIZER_LISTS)
+#if GLM_HAS_INITIALIZER_LISTS
 	{
 		glm::vec2 a{ 0, 1 };
 		std::vector<glm::vec2> v = {
@@ -219,7 +219,7 @@ int test_vec2_ctor()
 	}
 #endif
 
-#if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
+#if GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE)
 	{
 		glm::vec2 A = glm::vec2(1.0f, 2.0f);
 		glm::vec2 B = A.xy;
@@ -230,7 +230,7 @@ int test_vec2_ctor()
 		Error += glm::all(glm::equal(A, C)) ? 0 : 1;
 		Error += glm::all(glm::equal(A, D)) ? 0 : 1;
 	}
-#endif//(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
+#endif// GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE)
 
 	{
 		glm::vec2 A = glm::vec2(2.0f);
@@ -239,7 +239,6 @@ int test_vec2_ctor()
 		//glm::vec2 D = glm::dvec2(2.0); // Build error TODO: What does the specification says?
 		glm::vec2 E(glm::dvec2(2.0));
 		glm::vec2 F(glm::ivec2(2));
-
 	}
 
 	return Error;

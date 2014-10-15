@@ -104,17 +104,17 @@ namespace glm
 	// Conversion scalar constructors
 
 	template <typename T, precision P>
-	template <typename U, typename V>
-	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2(U const & a, V const & b) :
+	template <typename A, typename B>
+	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2(A const & a, B const & b) :
 		x(static_cast<T>(a)),
 		y(static_cast<T>(b))
 	{}
 
 	template <typename T, precision P>
-	template <typename U, typename V>
-	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2(tvec1<U, P> const & v1, tvec1<V, P> const & v2) :
-		x(v1.x),
-		y(v2.x)
+	template <typename A, typename B>
+	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2(tvec1<A, P> const & a, tvec1<B, P> const & b) :
+		x(a.x),
+		y(b.x)
 	{}
 
 	//////////////////////////////////////

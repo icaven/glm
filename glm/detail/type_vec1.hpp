@@ -131,6 +131,17 @@ namespace glm
 		GLM_FUNC_DECL explicit tvec1(tvec4<U, Q> const & v);
 
 		//////////////////////////////////////
+		// Swizzle constructors
+
+#		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
+			template <int E0>
+			GLM_FUNC_DECL tvec1(detail::_swizzle<1, T, P, tvec1<T, P>, E0, -1,-2,-3> const & that)
+			{
+				*this = that();
+			}
+#		endif//(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
+
+		//////////////////////////////////////
 		// Unary arithmetic operators
 
 		GLM_FUNC_DECL tvec1<T, P> & operator= (tvec1<T, P> const & v);
