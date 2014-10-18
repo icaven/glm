@@ -19,12 +19,6 @@ int test_compiler()
 	{
 		switch(GLM_COMPILER)
 		{
-		case GLM_COMPILER_VC8:
-			std::cout << "GLM_COMPILER_VC8" << std::endl;	
-			break;
-		case GLM_COMPILER_VC9:
-			std::cout << "GLM_COMPILER_VC9" << std::endl;	
-			break;
 		case GLM_COMPILER_VC10:
 			std::cout << "GLM_COMPILER_VC10" << std::endl;	
 			break;
@@ -47,18 +41,6 @@ int test_compiler()
 	{
 		switch(GLM_COMPILER)
 		{
-		case GLM_COMPILER_GCC34:
-			std::cout << "GLM_COMPILER_GCC34" << std::endl;	
-			break;
-		case GLM_COMPILER_GCC35:
-			std::cout << "GLM_COMPILER_GCC35" << std::endl;	
-			break;
-		case GLM_COMPILER_GCC40:
-			std::cout << "GLM_COMPILER_GCC40" << std::endl;	
-			break;
-		case GLM_COMPILER_GCC41:
-			std::cout << "GLM_COMPILER_GCC41" << std::endl;	
-			break;
 		case GLM_COMPILER_GCC42:
 			std::cout << "GLM_COMPILER_GCC42" << std::endl;	
 			break;

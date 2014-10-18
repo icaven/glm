@@ -65,6 +65,13 @@ GLM 0.9.6.0: 2014-XX-XX
 - Removed GLM_FORCE_CUDA, Cuda is implicitly detected
 - Updated GTX_associated_min_max with vec1 support
 - Fixed lack of consistency of quat and dualquat constructors
+- Removed VC 2005 / 8 and 2008 / 9 support
+- Removed GCC 3.4 to 4.5 support
+- Removed LLVM GCC support
+- Removed LLVM 2.6 to 2.9 support
+- Removed CUDA 3.0 to 4.0 support
+- Undetected C++ compiler automatically compile with GLM_FORCE_CXX98 and 
+  GLM_FORCE_PURE
 
 ================================================================================
 GLM 0.9.5.4: 2014-06-21
