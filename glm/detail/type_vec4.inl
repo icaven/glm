@@ -70,7 +70,7 @@ namespace glm
 		w(0)
 	{}
 
-#if (GLM_HAS_UNRESTRICTED_UNIONS) && (GLM_ARCH & GLM_ARCH_SSE2)
+#if (GLM_HAS_UNRESTRICTED_UNIONS || GLM_HAS_ANONYMOUS_UNION) && (GLM_ARCH & GLM_ARCH_SSE2)
 	template <>
 	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4() :
 		data(_mm_setzero_ps())
@@ -90,7 +90,7 @@ namespace glm
 		w(v.w)
 	{}
 
-#if (GLM_HAS_UNRESTRICTED_UNIONS) && (GLM_ARCH & GLM_ARCH_SSE2)
+#if (GLM_HAS_UNRESTRICTED_UNIONS || GLM_HAS_ANONYMOUS_UNION) && (GLM_ARCH & GLM_ARCH_SSE2)
 	template <>
 	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4(tvec4<float, lowp> const & v) :
 		data(v.data)
@@ -126,7 +126,7 @@ namespace glm
 		w(s)
 	{}
 
-#if((GLM_HAS_UNRESTRICTED_UNIONS) && (GLM_ARCH & GLM_ARCH_SSE2))
+#if (GLM_HAS_UNRESTRICTED_UNIONS || GLM_HAS_ANONYMOUS_UNION) && (GLM_ARCH & GLM_ARCH_SSE2)
 	template <>
 	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4(float const & s) :
 		data(_mm_set1_ps(s))
@@ -146,7 +146,7 @@ namespace glm
 		w(d)
 	{}
 
-#if((GLM_HAS_UNRESTRICTED_UNIONS) && (GLM_ARCH & GLM_ARCH_SSE2))
+#if (GLM_HAS_UNRESTRICTED_UNIONS || GLM_HAS_ANONYMOUS_UNION) && (GLM_ARCH & GLM_ARCH_SSE2)
 	template <>
 	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4(float const & a, float const & b, float const & c, float const & d) :
 		data(_mm_set_ps(d, c, b, a))
@@ -303,7 +303,7 @@ namespace glm
 		return *this;
 	}
 
-#if (GLM_HAS_UNRESTRICTED_UNIONS) && (GLM_ARCH & GLM_ARCH_SSE2)
+#if (GLM_HAS_UNRESTRICTED_UNIONS || GLM_HAS_ANONYMOUS_UNION) && (GLM_ARCH & GLM_ARCH_SSE2)
 	template <>
 	GLM_FUNC_QUALIFIER tvec4<float, lowp> & tvec4<float, lowp>::operator= (tvec4<float, lowp> const & v)
 	{
@@ -341,7 +341,7 @@ namespace glm
 		return *this;
 	}
 
-#if (GLM_HAS_UNRESTRICTED_UNIONS) && (GLM_ARCH & GLM_ARCH_SSE2)
+#if (GLM_HAS_UNRESTRICTED_UNIONS || GLM_HAS_ANONYMOUS_UNION) && (GLM_ARCH & GLM_ARCH_SSE2)
 	template <>
 	template <typename U>
 	GLM_FUNC_QUALIFIER tvec4<float, lowp> & tvec4<float, lowp>::operator+=(U s)
@@ -351,10 +351,26 @@ namespace glm
 	}
 
 	template <>
+	template <>
+	GLM_FUNC_QUALIFIER tvec4<float, lowp> & tvec4<float, lowp>::operator+=<float>(float s)
+	{
+		this->data = _mm_add_ps(this->data, _mm_set_ps1(s));
+		return *this;
+	}
+
+	template <>
 	template <typename U>
 	GLM_FUNC_QUALIFIER tvec4<float, mediump> & tvec4<float, mediump>::operator+=(U s)
 	{
 		this->data = _mm_add_ps(this->data, _mm_set_ps1(static_cast<float>(s)));
+		return *this;
+	}
+
+	template <>
+	template <>
+	GLM_FUNC_QUALIFIER tvec4<float, mediump> & tvec4<float, mediump>::operator+=<float>(float s)
+	{
+		this->data = _mm_add_ps(this->data, _mm_set_ps1(s));
 		return *this;
 	}
 #endif
@@ -370,10 +386,10 @@ namespace glm
 		return *this;
 	}
 
-#if (GLM_HAS_UNRESTRICTED_UNIONS) && (GLM_ARCH & GLM_ARCH_SSE2)
+#if (GLM_HAS_UNRESTRICTED_UNIONS || GLM_HAS_ANONYMOUS_UNION) && (GLM_ARCH & GLM_ARCH_SSE2)
 	template <>
 	template <typename U>
-	GLM_FUNC_QUALIFIER tvec4<float, lowp> & tvec4<float, lowp>::operator+=(tvec1<U, P> const & s)
+	GLM_FUNC_QUALIFIER tvec4<float, lowp> & tvec4<float, lowp>::operator+=(tvec1<U, lowp> const & s)
 	{
 		this->data = _mm_add_ps(this->data, _mm_set_ps1(static_cast<float>(s)));
 		return *this;
@@ -381,7 +397,7 @@ namespace glm
 
 	template <>
 	template <typename U>
-	GLM_FUNC_QUALIFIER tvec4<float, mediump> & tvec4<float, mediump>::operator+=(tvec1<U, P> const & s)
+	GLM_FUNC_QUALIFIER tvec4<float, mediump> & tvec4<float, mediump>::operator+=(tvec1<U, mediump> const & s)
 	{
 		this->data = _mm_add_ps(this->data, _mm_set_ps1(static_cast<float>(s)));
 		return *this;
