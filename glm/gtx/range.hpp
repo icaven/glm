@@ -40,7 +40,8 @@
 
 #include "../gtc/type_ptr.hpp"
 
-namespace glm
+namespace glm{
+namespace detail
 {
 	/* The glm types provide a .length() member, but for matrices
 	 this only defines the number of columns, so we need to work around this */
@@ -63,6 +64,7 @@ namespace glm
 	detail::component_count_t number_of_elements_(genType const & m){
 		return detail::component_count(m) * detail::component_count(m[0]);
 	}
+}//namespace
 
 	template <typename genType>
 	const typename genType::value_type * begin(genType const & v){
@@ -71,7 +73,7 @@ namespace glm
 
 	template <typename genType>
 	const typename genType::value_type * end(genType const & v){
-		return begin(v) + number_of_elements_(v);
+		return begin(v) + detail::number_of_elements_(v);
 	}
 
 	template <typename genType>
@@ -81,6 +83,6 @@ namespace glm
 
 	template <typename genType>
 	typename genType::value_type * end(genType& v){
-		return begin(v) + number_of_elements_(v);
+		return begin(v) + detail::number_of_elements_(v);
 	}
 }//namespace glm
