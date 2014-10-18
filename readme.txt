@@ -72,6 +72,7 @@ GLM 0.9.6.0: 2014-XX-XX
 - Removed CUDA 3.0 to 4.0 support
 - Undetected C++ compiler automatically compile with GLM_FORCE_CXX98 and 
   GLM_FORCE_PURE
+- Separated Apple Clang and LLVM compiler detection
 
 ================================================================================
 GLM 0.9.5.4: 2014-06-21

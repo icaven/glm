@@ -31,6 +31,9 @@ int test_compiler()
 		case GLM_COMPILER_VC13:
 			std::cout << "GLM_COMPILER_VC13" << std::endl;
 			break;
+		case GLM_COMPILER_VC14:
+			std::cout << "GLM_COMPILER_VC14" << std::endl;
+			break;
 		default:
 			std::cout << "Visual C++ version not detected" << std::endl;
 			Error += 1;
@@ -78,86 +81,78 @@ int test_compiler()
 	{
 		std::cout << "GLM_COMPILER_CUDA" << std::endl;		
 	}
-	else if(GLM_COMPILER & GLM_COMPILER_CLANG)
+	else if(GLM_COMPILER & GLM_COMPILER_APPLE_CLANG)
 	{
 		switch(GLM_COMPILER)
 		{
-		case GLM_COMPILER_CLANG26:
-			std::cout << "GLM_COMPILER_CLANG26" << std::endl;		
+		case GLM_COMPILER_APPLE_CLANG40:
+			std::cout << "GLM_COMPILER_APPLE_CLANG40" << std::endl;		
 			break;
-		case GLM_COMPILER_CLANG27:
-			std::cout << "GLM_COMPILER_CLANG27" << std::endl;		
+		case GLM_COMPILER_APPLE_CLANG41:
+			std::cout << "GLM_COMPILER_APPLE_CLANG41" << std::endl;		
 			break;
-		case GLM_COMPILER_CLANG28:
-			std::cout << "GLM_COMPILER_CLANG28" << std::endl;		
+		case GLM_COMPILER_APPLE_CLANG42:
+			std::cout << "GLM_COMPILER_APPLE_CLANG42" << std::endl;		
 			break;
-		case GLM_COMPILER_CLANG29:
-			std::cout << "GLM_COMPILER_CLANG29" << std::endl;		
+		case GLM_COMPILER_APPLE_CLANG50:
+			std::cout << "GLM_COMPILER_APPLE_CLANG50" << std::endl;		
 			break;
-		case GLM_COMPILER_CLANG30:
-			std::cout << "GLM_COMPILER_CLANG30" << std::endl;		
+		case GLM_COMPILER_APPLE_CLANG51:
+			std::cout << "GLM_COMPILER_APPLE_CLANG51" << std::endl;		
 			break;
-		case GLM_COMPILER_CLANG31:
-			std::cout << "GLM_COMPILER_CLANG31" << std::endl;		
-			break;
-		case GLM_COMPILER_CLANG32:
-			std::cout << "GLM_COMPILER_CLANG32" << std::endl;
-			break;
-		case GLM_COMPILER_CLANG33:
-			std::cout << "GLM_COMPILER_CLANG33" << std::endl;
-			break;
-		case GLM_COMPILER_CLANG40:
-			std::cout << "GLM_COMPILER_CLANG40" << std::endl;
-			break;
-		case GLM_COMPILER_CLANG41:
-			std::cout << "GLM_COMPILER_CLANG41" << std::endl;
-			break;
-		case GLM_COMPILER_CLANG42:
-			std::cout << "GLM_COMPILER_CLANG42" << std::endl;
-			break;
-		case GLM_COMPILER_CLANG43:
-			std::cout << "GLM_COMPILER_CLANG43" << std::endl;
-			break;
-		case GLM_COMPILER_CLANG50:
-			std::cout << "GLM_COMPILER_CLANG50" << std::endl;
-			break;
-		case GLM_COMPILER_CLANG60:
-			std::cout << "GLM_COMPILER_CLANG60" << std::endl;
+		case GLM_COMPILER_APPLE_CLANG60:
+			std::cout << "GLM_COMPILER_APPLE_CLANG60" << std::endl;		
 			break;
 		default:
-			std::cout << "Clang version not detected" << std::endl;
+			std::cout << "Apple Clang version not detected" << std::endl;
 			break;
 		}
 	}
-	else if(GLM_COMPILER & GLM_COMPILER_LLVM_GCC)
+	else if(GLM_COMPILER & GLM_COMPILER_LLVM)
 	{
-		std::cout << "GLM_COMPILER_LLVM_GCC" << std::endl;
-
+		switch(GLM_COMPILER)
+		{
+		case GLM_COMPILER_LLVM30:
+			std::cout << "GLM_COMPILER_LLVM30" << std::endl;		
+			break;
+		case GLM_COMPILER_LLVM31:
+			std::cout << "GLM_COMPILER_LLVM31" << std::endl;		
+			break;
+		case GLM_COMPILER_LLVM32:
+			std::cout << "GLM_COMPILER_LLVM32" << std::endl;		
+			break;
+		case GLM_COMPILER_LLVM33:
+			std::cout << "GLM_COMPILER_LLVM33" << std::endl;		
+			break;
+		case GLM_COMPILER_LLVM34:
+			std::cout << "GLM_COMPILER_LLVM34" << std::endl;		
+			break;
+		case GLM_COMPILER_LLVM35:
+			std::cout << "GLM_COMPILER_LLVM35" << std::endl;		
+			break;
+		default:
+			std::cout << "LLVM version not detected" << std::endl;
+			break;
+		}
 	}
 	else if(GLM_COMPILER & GLM_COMPILER_INTEL)
 	{
 		switch(GLM_COMPILER)
 		{
-		case GLM_COMPILER_INTEL9:
-			std::cout << "GLM_COMPILER_INTEL9" << std::endl;
-			break;
-		case GLM_COMPILER_INTEL10_0:
-			std::cout << "GLM_COMPILER_INTEL10_0" << std::endl;
-			break;
-		case GLM_COMPILER_INTEL10_1:
-			std::cout << "GLM_COMPILER_INTEL10_1" << std::endl;
-			break;
-		case GLM_COMPILER_INTEL11_0:
-			std::cout << "GLM_COMPILER_INTEL11_0" << std::endl;
-			break;
-		case GLM_COMPILER_INTEL11_1:
-			std::cout << "GLM_COMPILER_INTEL11_1" << std::endl;
+		case GLM_COMPILER_INTEL12:
+			std::cout << "GLM_COMPILER_INTEL12" << std::endl;
 			break;
 		case GLM_COMPILER_INTEL12_1:
 			std::cout << "GLM_COMPILER_INTEL12_1" << std::endl;
 			break;
-		case GLM_COMPILER_INTEL13_0:
-			std::cout << "GLM_COMPILER_INTEL13_0" << std::endl;
+		case GLM_COMPILER_INTEL13:
+			std::cout << "GLM_COMPILER_INTEL13" << std::endl;
+			break;
+		case GLM_COMPILER_INTEL14:
+			std::cout << "GLM_COMPILER_INTEL14" << std::endl;
+			break;
+		case GLM_COMPILER_INTEL15:
+			std::cout << "GLM_COMPILER_INTEL15" << std::endl;
 			break;
 		default:
 			std::cout << "Intel compiler version not detected" << std::endl;
