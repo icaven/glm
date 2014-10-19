@@ -57,7 +57,6 @@ namespace glm
 	template <typename T, precision P>
 	struct tdualquat
 	{
-		enum ctor{_null};
 		typedef T value_type;
 		typedef glm::tquat<T, P> part_type;
 		

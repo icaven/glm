@@ -43,12 +43,12 @@ GLM_FUNC_QUALIFIER fvec4SIMD const & fmat4x4SIMD::operator[]
 
 GLM_FUNC_QUALIFIER fmat4x4SIMD::fmat4x4SIMD()
 {
-#ifndef GLM_SIMD_ENABLE_DEFAULT_INIT
-	this->Data[0] = fvec4SIMD(1.0f, 0, 0, 0);
-	this->Data[1] = fvec4SIMD(0, 1.0f, 0, 0);
-	this->Data[2] = fvec4SIMD(0, 0, 1.0f, 0);
-	this->Data[3] = fvec4SIMD(0, 0, 0, 1.0f);
-#endif
+#	ifndef GLM_FORCE_NO_CTOR_INIT
+		this->Data[0] = fvec4SIMD(1, 0, 0, 0);
+		this->Data[1] = fvec4SIMD(0, 1, 0, 0);
+		this->Data[2] = fvec4SIMD(0, 0, 1, 0);
+		this->Data[3] = fvec4SIMD(0, 0, 0, 1);
+#	endif
 }
 
 GLM_FUNC_QUALIFIER fmat4x4SIMD::fmat4x4SIMD(float const & s)
@@ -554,7 +554,7 @@ GLM_FUNC_QUALIFIER detail::fmat4x4SIMD outerProduct
 	__m128 Shu2 = _mm_shuffle_ps(r.Data, r.Data, _MM_SHUFFLE(2, 2, 2, 2));
 	__m128 Shu3 = _mm_shuffle_ps(r.Data, r.Data, _MM_SHUFFLE(3, 3, 3, 3));
 
-	detail::fmat4x4SIMD result(detail::fmat4x4SIMD::_null);
+	detail::fmat4x4SIMD result(uninitialize);
 	result[0].Data = _mm_mul_ps(c.Data, Shu0);
 	result[1].Data = _mm_mul_ps(c.Data, Shu1);
 	result[2].Data = _mm_mul_ps(c.Data, Shu2);

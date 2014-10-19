@@ -88,7 +88,6 @@ namespace detail
 	/// \ingroup gtx_simd_vec4
 	GLM_ALIGNED_STRUCT(16) fvec4SIMD
 	{
-		enum ctor{null};
 		typedef __m128 value_type;
 		typedef std::size_t size_type;
 		static size_type value_size();

@@ -58,8 +58,6 @@ namespace glm
 	template <typename T, precision P>
 	struct tquat
 	{
-		enum ctor{_null};
-
 		typedef T value_type;
 		typedef tvec4<bool, P> bool_type;
 

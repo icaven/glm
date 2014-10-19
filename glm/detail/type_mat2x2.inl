@@ -83,8 +83,10 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat2x2<T, P>::tmat2x2()
 	{
-		this->value[0] = col_type(1, 0);
-		this->value[1] = col_type(0, 1);
+#		ifndef GLM_FORCE_NO_CTOR_INIT 
+			this->value[0] = col_type(1, 0);
+			this->value[1] = col_type(0, 1);
+#		endif
 	}
 
 	template <typename T, precision P>

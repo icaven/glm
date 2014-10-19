@@ -60,7 +60,6 @@ namespace detail
 	/// \ingroup gtx_simd_mat4
 	GLM_ALIGNED_STRUCT(16) fmat4x4SIMD
 	{
-		enum ctor{_null};
 		typedef float value_type;
 		typedef fvec4SIMD col_type;
 		typedef fvec4SIMD row_type;

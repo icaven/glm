@@ -37,7 +37,7 @@ namespace detail
 			- m[1][0] * (m[0][1] * m[2][2] - m[2][1] * m[0][2])
 			+ m[2][0] * (m[0][1] * m[1][2] - m[1][1] * m[0][2]));
 
-		tmat3x3<T, P> Inverse(tmat3x3<T, P>::_null);
+		tmat3x3<T, P> Inverse(uninitialize);
 		Inverse[0][0] = + (m[1][1] * m[2][2] - m[2][1] * m[1][2]) * OneOverDeterminant;
 		Inverse[1][0] = - (m[1][0] * m[2][2] - m[2][0] * m[1][2]) * OneOverDeterminant;
 		Inverse[2][0] = + (m[1][0] * m[2][1] - m[2][0] * m[1][1]) * OneOverDeterminant;
@@ -97,11 +97,11 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat3x3<T, P>::tmat3x3()
 	{
-		value_type const Zero(0);
-		value_type const One(1);
-		this->value[0] = col_type(One, Zero, Zero);
-		this->value[1] = col_type(Zero, One, Zero);
-		this->value[2] = col_type(Zero, Zero, One);
+#		ifndef GLM_FORCE_NO_CTOR_INIT 
+			this->value[0] = col_type(1, 0, 0);
+			this->value[1] = col_type(0, 1, 0);
+			this->value[2] = col_type(0, 0, 1);
+#		endif
 	}
 
 	template <typename T, precision P>
@@ -596,7 +596,7 @@ namespace detail
 		T const SrcB21 = m2[2][1];
 		T const SrcB22 = m2[2][2];
 
-		tmat3x3<T, P> Result(tmat3x3<T, P>::_null);
+		tmat3x3<T, P> Result(uninitialize);
 		Result[0][0] = SrcA00 * SrcB00 + SrcA10 * SrcB01 + SrcA20 * SrcB02;
 		Result[0][1] = SrcA01 * SrcB00 + SrcA11 * SrcB01 + SrcA21 * SrcB02;
 		Result[0][2] = SrcA02 * SrcB00 + SrcA12 * SrcB01 + SrcA22 * SrcB02;

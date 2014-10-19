@@ -33,6 +33,8 @@
 
 namespace glm
 {
+	enum ctor{uninitialize};
+
 	template <typename T, precision P> struct tvec1;
 	template <typename T, precision P> struct tvec2;
 	template <typename T, precision P> struct tvec3;

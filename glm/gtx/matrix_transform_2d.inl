@@ -51,7 +51,7 @@ namespace glm
 		T const c = cos(a);
 		T const s = sin(a);
 
-		tmat3x3<T, P> Result(tmat3x3<T, P>::_null);
+		tmat3x3<T, P> Result(uninitialize);
 		Result[0] = m[0] * c + m[1] * s;
 		Result[1] = m[0] * -s + m[1] * c;
 		Result[2] = m[2];
@@ -63,7 +63,7 @@ namespace glm
 		tmat3x3<T, P> const & m,
 		tvec2<T, P> const & v)
 	{
-		tmat3x3<T, P> Result(tmat3x3<T, P>::_null);
+		tmat3x3<T, P> Result(uninitialize);
 		Result[0] = m[0] * v[0];
 		Result[1] = m[1] * v[1];
 		Result[2] = m[2];

@@ -45,7 +45,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec2, tvec2>::type call(tvec2<T, P> const & c, tvec2<T, P> const & r)
 		{
-			tmat2x2<T, P> m(tmat2x2<T, P>::_null);
+			tmat2x2<T, P> m(uninitialize);
 			m[0][0] = c[0] * r[0];
 			m[0][1] = c[1] * r[0];
 			m[1][0] = c[0] * r[1];
@@ -59,7 +59,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec3, tvec3>::type call(tvec3<T, P> const & c, tvec3<T, P> const & r)
 		{
-			tmat3x3<T, P> m(tmat3x3<T, P>::_null);
+			tmat3x3<T, P> m(uninitialize);
 			for(detail::component_count_t i = 0; i < detail::component_count(m); ++i)
 				m[i] = c * r[i];
 			return m;
@@ -71,7 +71,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec4, tvec4>::type call(tvec4<T, P> const & c, tvec4<T, P> const & r)
 		{
-			tmat4x4<T, P> m(tmat4x4<T, P>::_null);
+			tmat4x4<T, P> m(uninitialize);
 			for(detail::component_count_t i = 0; i < detail::component_count(m); ++i)
 				m[i] = c * r[i];
 			return m;
@@ -83,7 +83,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec3, tvec2>::type call(tvec3<T, P> const & c, tvec2<T, P> const & r)
 		{
-			tmat2x3<T, P> m(tmat2x3<T, P>::_null);
+			tmat2x3<T, P> m(uninitialize);
 			m[0][0] = c.x * r.x;
 			m[0][1] = c.y * r.x;
 			m[0][2] = c.z * r.x;
@@ -99,7 +99,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec2, tvec3>::type call(tvec2<T, P> const & c, tvec3<T, P> const & r)
 		{
-			tmat3x2<T, P> m(tmat3x2<T, P>::_null);
+			tmat3x2<T, P> m(uninitialize);
 			m[0][0] = c.x * r.x;
 			m[0][1] = c.y * r.x;
 			m[1][0] = c.x * r.y;
@@ -115,7 +115,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec4, tvec2>::type call(tvec4<T, P> const & c, tvec2<T, P> const & r)
 		{
-			tmat2x4<T, P> m(tmat2x4<T, P>::_null);
+			tmat2x4<T, P> m(uninitialize);
 			m[0][0] = c.x * r.x;
 			m[0][1] = c.y * r.x;
 			m[0][2] = c.z * r.x;
@@ -133,7 +133,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec2, tvec4>::type call(tvec2<T, P> const & c, tvec4<T, P> const & r)
 		{
-			tmat4x2<T, P> m(tmat4x2<T, P>::_null);
+			tmat4x2<T, P> m(uninitialize);
 			m[0][0] = c.x * r.x;
 			m[0][1] = c.y * r.x;
 			m[1][0] = c.x * r.y;
@@ -151,7 +151,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec4, tvec3>::type call(tvec4<T, P> const & c, tvec3<T, P> const & r)
 		{
-			tmat3x4<T, P> m(tmat3x4<T, P>::_null);
+			tmat3x4<T, P> m(uninitialize);
 			m[0][0] = c.x * r.x;
 			m[0][1] = c.y * r.x;
 			m[0][2] = c.z * r.x;
@@ -173,7 +173,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec3, tvec4>::type call(tvec3<T, P> const & c, tvec4<T, P> const & r)
 		{
-			tmat4x3<T, P> m(tmat4x3<T, P>::_null);
+			tmat4x3<T, P> m(uninitialize);
 			m[0][0] = c.x * r.x;
 			m[0][1] = c.y * r.x;
 			m[0][2] = c.z * r.x;
@@ -198,7 +198,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static tmat2x2<T, P> call(tmat2x2<T, P> const & m)
 		{
-			tmat2x2<T, P> result(tmat2x2<T, P>::_null);
+			tmat2x2<T, P> result(uninitialize);
 			result[0][0] = m[0][0];
 			result[0][1] = m[1][0];
 			result[1][0] = m[0][1];
@@ -212,7 +212,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static tmat3x2<T, P> call(tmat2x3<T, P> const & m)
 		{
-			tmat3x2<T, P> result(tmat3x2<T, P>::_null);
+			tmat3x2<T, P> result(uninitialize);
 			result[0][0] = m[0][0];
 			result[0][1] = m[1][0];
 			result[1][0] = m[0][1];
@@ -228,7 +228,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static tmat4x2<T, P> call(tmat2x4<T, P> const & m)
 		{
-			tmat4x2<T, P> result(tmat4x2<T, P>::_null);
+			tmat4x2<T, P> result(uninitialize);
 			result[0][0] = m[0][0];
 			result[0][1] = m[1][0];
 			result[1][0] = m[0][1];
@@ -246,7 +246,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static tmat2x3<T, P> call(tmat3x2<T, P> const & m)
 		{
-			tmat2x3<T, P> result(tmat2x3<T, P>::_null);
+			tmat2x3<T, P> result(uninitialize);
 			result[0][0] = m[0][0];
 			result[0][1] = m[1][0];
 			result[0][2] = m[2][0];
@@ -262,7 +262,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static tmat3x3<T, P> call(tmat3x3<T, P> const & m)
 		{
-			tmat3x3<T, P> result(tmat3x3<T, P>::_null);
+			tmat3x3<T, P> result(uninitialize);
 			result[0][0] = m[0][0];
 			result[0][1] = m[1][0];
 			result[0][2] = m[2][0];
@@ -283,7 +283,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static tmat4x3<T, P> call(tmat3x4<T, P> const & m)
 		{
-			tmat4x3<T, P> result(tmat4x3<T, P>::_null);
+			tmat4x3<T, P> result(uninitialize);
 			result[0][0] = m[0][0];
 			result[0][1] = m[1][0];
 			result[0][2] = m[2][0];
@@ -305,7 +305,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static tmat2x4<T, P> call(tmat4x2<T, P> const & m)
 		{
-			tmat2x4<T, P> result(tmat2x4<T, P>::_null);
+			tmat2x4<T, P> result(uninitialize);
 			result[0][0] = m[0][0];
 			result[0][1] = m[1][0];
 			result[0][2] = m[2][0];
@@ -323,7 +323,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static tmat3x4<T, P> call(tmat4x3<T, P> const & m)
 		{
-			tmat3x4<T, P> result(tmat3x4<T, P>::_null);
+			tmat3x4<T, P> result(uninitialize);
 			result[0][0] = m[0][0];
 			result[0][1] = m[1][0];
 			result[0][2] = m[2][0];
@@ -345,7 +345,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static tmat4x4<T, P> call(tmat4x4<T, P> const & m)
 		{
-			tmat4x4<T, P> result(tmat4x4<T, P>::_null);
+			tmat4x4<T, P> result(uninitialize);
 			result[0][0] = m[0][0];
 			result[0][1] = m[1][0];
 			result[0][2] = m[2][0];
@@ -423,7 +423,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'matrixCompMult' only accept floating-point inputs");
 
-		matType<T, P> result(matType<T, P>::_null);
+		matType<T, P> result(uninitialize);
 		for(detail::component_count_t i = 0; i < detail::component_count(result); ++i)
 			result[i] = x[i] * y[i];
 		return result;

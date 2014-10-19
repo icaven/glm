@@ -47,8 +47,6 @@ namespace glm
 		//////////////////////////////////////
 		// Implementation detail
 
-		enum ctor{_null};
-
 		typedef tvec3<T, P> type;
 		typedef tvec3<bool, P> bool_type;
 		typedef T value_type;

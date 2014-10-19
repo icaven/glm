@@ -46,26 +46,22 @@ namespace glm
 #endif
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat() :
-		real(tquat<T, P>()),
-		dual(tquat<T, P>(T(0), T(0), T(0), T(0)))
+	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat()
+#		ifndef GLM_FORCE_NO_CTOR_INIT 
+			: real(tquat<T, P>())
+			, dual(tquat<T, P>(0, 0, 0, 0))
+#		endif
 	{}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat
-	(
-		tdualquat<T, P> const & d
-	) :
+	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat(tdualquat<T, P> const & d) :
 		real(d.real),
 		dual(d.dual)
 	{}
 
 	template <typename T, precision P>
 	template <precision Q>
-	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat
-	(
-		tdualquat<T, Q> const & d
-	) :
+	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat(tdualquat<T, Q> const & d) :
 		real(d.real),
 		dual(d.dual)
 	{}
@@ -78,12 +74,9 @@ namespace glm
 	{}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat
-	(
-		tquat<T, P> const & r
-	) :
+	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat(tquat<T, P> const & r) :
 		real(r),
-		dual(tquat<T, P>(T(0), T(0), T(0), T(0)))
+		dual(tquat<T, P>(0, 0, 0, 0))
 	{}
 
 	template <typename T, precision P>

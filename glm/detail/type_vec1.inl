@@ -63,8 +63,10 @@ namespace glm
 	// Implicit basic constructors
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1() :
-		x(static_cast<T>(0))
+	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1()
+#		ifndef GLM_FORCE_NO_CTOR_INIT 
+			: x(0)
+#		endif
 	{}
 
 	template <typename T, precision P>

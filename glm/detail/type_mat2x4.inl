@@ -73,10 +73,10 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat2x4<T, P>::tmat2x4()
 	{
-		value_type const Zero(0);
-		value_type const One(1);
-		this->value[0] = col_type(One, Zero, Zero, Zero);
-		this->value[1] = col_type(Zero, One, Zero, Zero);
+#		ifndef GLM_FORCE_NO_CTOR_INIT 
+			this->value[0] = col_type(1, 0, 0, 0);
+			this->value[1] = col_type(0, 1, 0, 0);
+#		endif
 	}
 
 	template <typename T, precision P>
@@ -492,7 +492,7 @@ namespace glm
 		T SrcB30 = m2[3][0];
 		T SrcB31 = m2[3][1];
 
-		tmat4x4<T, P> Result(tmat4x4<T, P>::_null);
+		tmat4x4<T, P> Result(uninitialize);
 		Result[0][0] = SrcA00 * SrcB00 + SrcA10 * SrcB01;
 		Result[0][1] = SrcA01 * SrcB00 + SrcA11 * SrcB01;
 		Result[0][2] = SrcA02 * SrcB00 + SrcA12 * SrcB01;

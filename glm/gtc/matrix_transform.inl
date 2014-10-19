@@ -59,7 +59,7 @@ namespace glm
 		tvec3<T, P> axis(normalize(v));
 		tvec3<T, P> temp((T(1) - c) * axis);
 
-		tmat4x4<T, P> Rotate(tmat4x4<T, P>::_null);
+		tmat4x4<T, P> Rotate(uninitialize);
 		Rotate[0][0] = c + temp[0] * axis[0];
 		Rotate[0][1] = 0 + temp[0] * axis[1] + s * axis[2];
 		Rotate[0][2] = 0 + temp[0] * axis[2] - s * axis[1];
@@ -72,7 +72,7 @@ namespace glm
 		Rotate[2][1] = 0 + temp[2] * axis[1] - s * axis[0];
 		Rotate[2][2] = c + temp[2] * axis[2];
 
-		tmat4x4<T, P> Result(tmat4x4<T, P>::_null);
+		tmat4x4<T, P> Result(uninitialize);
 		Result[0] = m[0] * Rotate[0][0] + m[1] * Rotate[0][1] + m[2] * Rotate[0][2];
 		Result[1] = m[0] * Rotate[1][0] + m[1] * Rotate[1][1] + m[2] * Rotate[1][2];
 		Result[2] = m[0] * Rotate[2][0] + m[1] * Rotate[2][1] + m[2] * Rotate[2][2];
@@ -121,7 +121,7 @@ namespace glm
 		tvec3<T, P> const & v
 	)
 	{
-		tmat4x4<T, P> Result(tmat4x4<T, P>::_null);
+		tmat4x4<T, P> Result(uninitialize);
 		Result[0] = m[0] * v[0];
 		Result[1] = m[1] * v[1];
 		Result[2] = m[2] * v[2];

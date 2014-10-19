@@ -40,7 +40,6 @@ namespace glm
 	template <typename T, precision P>
 	struct tmat4x2
 	{
-		enum ctor{_null};
 		typedef T value_type;
 		typedef std::size_t size_type;
 		typedef tvec2<T, P> col_type;

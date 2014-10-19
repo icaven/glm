@@ -34,9 +34,9 @@ void print(const fvec4SIMD &v)
 // Implicit basic constructors
 
 GLM_FUNC_QUALIFIER fquatSIMD::fquatSIMD()
-#ifdef GLM_SIMD_ENABLE_DEFAULT_INIT
-    : Data(_mm_set_ps(1.0f, 0.0f, 0.0f, 0.0f))
-#endif
+#	ifdef GLM_FORCE_NO_CTOR_INIT
+		: Data(_mm_set_ps(1.0f, 0.0f, 0.0f, 0.0f))
+#	endif
 {}
 
 GLM_FUNC_QUALIFIER fquatSIMD::fquatSIMD(__m128 const & Data) :

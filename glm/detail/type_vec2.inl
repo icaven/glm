@@ -63,22 +63,21 @@ namespace glm
 	// Implicit basic constructors
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2() :
-		x(0),
-		y(0)
+	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2()
+#		ifndef GLM_FORCE_NO_CTOR_INIT 
+			: x(0), y(0) 
+#		endif
 	{}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2(tvec2<T, P> const & v) :
-		x(v.x),
-		y(v.y)
+	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2(tvec2<T, P> const & v)
+		: x(v.x), y(v.y)
 	{}
 
 	template <typename T, precision P>
 	template <precision Q>
-	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2(tvec2<T, Q> const & v) :
-		x(v.x),
-		y(v.y)
+	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2(tvec2<T, Q> const & v)
+		: x(v.x), y(v.y)
 	{}
 
 	//////////////////////////////////////
@@ -90,14 +89,12 @@ namespace glm
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2(T const & s) :
-		x(s),
-		y(s)
+		x(s), y(s)
 	{}
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2(T const & s1, T const & s2) :
-		x(s1),
-		y(s2)
+		x(s1), y(s2)
 	{}
 
 	//////////////////////////////////////

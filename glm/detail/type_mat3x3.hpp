@@ -39,7 +39,6 @@ namespace glm
 	template <typename T, precision P>
 	struct tmat3x3
 	{
-		enum ctor{_null};
 		typedef T value_type;
 		typedef std::size_t size_type;
 		typedef tvec3<T, P> col_type;
