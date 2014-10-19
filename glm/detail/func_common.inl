@@ -131,23 +131,21 @@ namespace detail
 
 	// abs
 	template <typename genFIType>
-	GLM_FUNC_QUALIFIER genFIType abs
-	(
-		genFIType const & x
-	)
+	GLM_FUNC_QUALIFIER genFIType abs(genFIType x)
 	{
 		return detail::compute_abs<genFIType, std::numeric_limits<genFIType>::is_signed>::call(x);
 	}
 
-	VECTORIZE_VEC(abs)
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> abs(vecType<T, P> const & x)
+	{
+		return detail::functor1<T, P, vecType>::call(abs, x);
+	}
 
 	// sign
 	//Try something like based on x >> 31 to get the sign bit
 	template <typename genFIType> 
-	GLM_FUNC_QUALIFIER genFIType sign
-	(
-		genFIType const & x
-	)
+	GLM_FUNC_QUALIFIER genFIType sign(genFIType x)
 	{
 		GLM_STATIC_ASSERT(
 			std::numeric_limits<genFIType>::is_iec559 ||
@@ -162,49 +160,59 @@ namespace detail
 			result = genFIType(0);
 		return result;
 	}
-	
-	VECTORIZE_VEC(sign)
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> sign(vecType<T, P> const & x)
+	{
+		return detail::functor1<T, P, vecType>::call(sign, x);
+	}
 
 	// floor
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType floor(genType const & x)
+	using ::std::floor;
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> floor(vecType<T, P> const & x)
 	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559,
-			"'floor' only accept floating-point inputs");
-
-		return ::std::floor(x);
+		return detail::functor1<T, P, vecType>::call(::std::floor, x);
 	}
-
-	VECTORIZE_VEC(floor)
 
 	// trunc
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType trunc(genType const & x)
+#	if GLM_LANG & GLM_LANG_CXX0X_FLAG
+		using ::std::trunc;
+#	else
+		template <typename genType>
+		GLM_FUNC_QUALIFIER genType trunc(genType x)
+		{
+			GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'trunc' only accept floating-point inputs");
+
+			return x < static_cast<genType>(0) ? -floor(-x) : floor(x);
+		}
+#	endif
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> trunc(vecType<T, P> const & x)
 	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559,
-			"'trunc' only accept floating-point inputs");
-
-		// TODO, add C++11 std::trunk
-		return x < 0 ? -floor(-x) : floor(x);
+		return detail::functor1<T, P, vecType>::call(::std::trunc, x);
 	}
-
-	VECTORIZE_VEC(trunc)
 
 	// round
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType round(genType const& x)
+#	if GLM_LANG & GLM_LANG_CXX0X_FLAG
+		using ::std::round;
+#	else
+		template <typename genType>
+		GLM_FUNC_QUALIFIER genType round(genType x)
+		{
+			GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'round' only accept floating-point inputs");
+
+			return x < static_cast<genType>(0) ? static_cast<genType>(int(x - static_cast<genType>(0.5))) : static_cast<genType>(int(x + static_cast<genType>(0.5)));
+		}
+#	endif
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> round(vecType<T, P> const & x)
 	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559,
-			"'round' only accept floating-point inputs");
-
-		// TODO, add C++11 std::round
-		return x < 0 ? genType(int(x - genType(0.5))) : genType(int(x + genType(0.5)));
+		return detail::functor1<T, P, vecType>::call(::std::round, x);
 	}
-
-	VECTORIZE_VEC(round)
 
 /*
 	// roundEven
@@ -216,14 +224,12 @@ namespace detail
 		return genType(int(x + genType(int(x) % 2)));
 	}
 */
-	
+
 	// roundEven
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType roundEven(genType const & x)
+	GLM_FUNC_QUALIFIER genType roundEven(genType x)
 	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559,
-			"'roundEven' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'roundEven' only accept floating-point inputs");
 		
 		int Integer = static_cast<int>(x);
 		genType IntegerPart = static_cast<genType>(Integer);
@@ -250,61 +256,57 @@ namespace detail
 		//	return mix(IntegerPart + genType(-1), IntegerPart + genType(1), x <= genType(0));
 		//}
 	}
-	
-	VECTORIZE_VEC(roundEven)
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> roundEven(vecType<T, P> const & x)
+	{
+		return detail::functor1<T, P, vecType>::call(roundEven, x);
+	}
 
 	// ceil
-	using std::ceil;
-/*
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType ceil(genType const & x)
-	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559,
-			"'ceil' only accept floating-point inputs");
+	using ::std::ceil;
 
-		return ::std::ceil(x);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> ceil(vecType<T, P> const & x)
+	{
+		return detail::functor1<T, P, vecType>::call(::std::ceil, x);
 	}
-*/
-	VECTORIZE_VEC(ceil)
 
 	// fract
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType fract
-	(
-		genType const & x
-	)
+	GLM_FUNC_QUALIFIER genType fract(genType x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'fract' only accept floating-point inputs");
 
 		return x - floor(x);
 	}
 
-	VECTORIZE_VEC(fract)
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> fract(vecType<T, P> const & x)
+	{
+		return detail::functor1<T, P, vecType>::call(fract, x);
+	}
 
 	// mod
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType mod
-	(
-		genType const & x,
-		genType const & y
-	)
+	GLM_FUNC_QUALIFIER genType mod(genType x, genType y)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'mod' only accept floating-point inputs");
 
 		return x - y * floor(x / y);
 	}
 
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> mod(vecType<T, P> const & a, vecType<T, P> const & b)
+	{
+		return detail::functor2<T, P, vecType>::call(mod, a, b);
+	}
+
 	VECTORIZE_VEC_SCA(mod)
-	VECTORIZE_VEC_VEC(mod)
 
 	// modf
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType modf
-	(
-		genType const & x,
-		genType & i
-	)
+	GLM_FUNC_QUALIFIER genType modf(genType const & x, genType & i)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'modf' only accept floating-point inputs");
 
@@ -312,22 +314,14 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec1<T, P> modf
-	(
-		tvec1<T, P> const & x,
-		tvec1<T, P> & i
-	)
+	GLM_FUNC_QUALIFIER tvec1<T, P> modf(tvec1<T, P> const & x, tvec1<T, P> & i)
 	{
 		return tvec1<T, P>(
 			modf(x.x, i.x));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P> modf
-	(
-		tvec2<T, P> const & x,
-		tvec2<T, P> & i
-	)
+	GLM_FUNC_QUALIFIER tvec2<T, P> modf(tvec2<T, P> const & x, tvec2<T, P> & i)
 	{
 		return tvec2<T, P>(
 			modf(x.x, i.x),
@@ -335,11 +329,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> modf
-	(
-		tvec3<T, P> const & x,
-		tvec3<T, P> & i
-	)
+	GLM_FUNC_QUALIFIER tvec3<T, P> modf(tvec3<T, P> const & x, tvec3<T, P> & i)
 	{
 		return tvec3<T, P>(
 			modf(x.x, i.x),
@@ -348,11 +338,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> modf
-	(
-		tvec4<T, P> const & x,
-		tvec4<T, P> & i
-	)
+	GLM_FUNC_QUALIFIER tvec4<T, P> modf(tvec4<T, P> const & x, tvec4<T, P> & i)
 	{
 		return tvec4<T, P>(
 			modf(x.x, i.x),
@@ -371,67 +357,51 @@ namespace detail
 
 	// min
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType min
-	(
-		genType const & x,
-		genType const & y
-	)
+	GLM_FUNC_QUALIFIER genType min(genType x, genType y)
 	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer,
-			"'min' only accept floating-point or integer inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer, "'min' only accept floating-point or integer inputs");
 
 		return x < y ? x : y;
 	}
 
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> min(vecType<T, P> const & a, vecType<T, P> const & b)
+	{
+		return detail::functor2<T, P, vecType>::call(min, a, b);
+	}
+
 	VECTORIZE_VEC_SCA(min)
-	VECTORIZE_VEC_VEC(min)
 
 	// max
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType max
-	(
-		genType const & x,
-		genType const & y
-	)
+	GLM_FUNC_QUALIFIER genType max(genType x, genType y)
 	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer,
-			"'max' only accept floating-point or integer inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer, "'max' only accept floating-point or integer inputs");
 
 		return x > y ? x : y;
 	}
 
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> max(vecType<T, P> const & a, vecType<T, P> const & b)
+	{
+		return detail::functor2<T, P, vecType>::call(max, a, b);
+	}
+
 	VECTORIZE_VEC_SCA(max)
-	VECTORIZE_VEC_VEC(max)
 
 	// clamp
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType clamp
-	(
-		genType const & x,
-		genType const & minVal,
-		genType const & maxVal
-	)
+	GLM_FUNC_QUALIFIER genType clamp(genType const & x, genType const & minVal, genType const & maxVal)
 	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer,
-			"'clamp' only accept floating-point or integer inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer, "'clamp' only accept floating-point or integer inputs");
 		
 		return min(maxVal, max(minVal, x));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P> clamp
-	(
-		tvec2<T, P> const & x,
-		T const & minVal,
-		T const & maxVal
-	)
+	GLM_FUNC_QUALIFIER tvec2<T, P> clamp(tvec2<T, P> const & x, T const & minVal, T const & maxVal)
 	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
-			"'clamp' only accept floating-point or integer inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer, "'clamp' only accept floating-point or integer inputs");
 
 		return tvec2<T, P>(
 			clamp(x.x, minVal, maxVal),
@@ -439,16 +409,9 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> clamp
-	(
-		tvec3<T, P> const & x,
-		T const & minVal,
-		T const & maxVal
-	)
+	GLM_FUNC_QUALIFIER tvec3<T, P> clamp(tvec3<T, P> const & x, T const & minVal, T const & maxVal)
 	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
-			"'clamp' only accept floating-point or integer inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer, "'clamp' only accept floating-point or integer inputs");
 
 		return tvec3<T, P>(
 			clamp(x.x, minVal, maxVal),
@@ -457,16 +420,9 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> clamp
-	(
-		tvec4<T, P> const & x,
-		T const & minVal,
-		T const & maxVal
-	)
+	GLM_FUNC_QUALIFIER tvec4<T, P> clamp(tvec4<T, P> const & x, T const & minVal, T const & maxVal)
 	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
-			"'clamp' only accept floating-point or integer inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer, "'clamp' only accept floating-point or integer inputs");
 
 		return tvec4<T, P>(
 			clamp(x.x, minVal, maxVal),
@@ -476,16 +432,9 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P> clamp
-	(
-		tvec2<T, P> const & x,
-		tvec2<T, P> const & minVal,
-		tvec2<T, P> const & maxVal
-	)
+	GLM_FUNC_QUALIFIER tvec2<T, P> clamp(tvec2<T, P> const & x, tvec2<T, P> const & minVal, tvec2<T, P> const & maxVal)
 	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
-			"'clamp' only accept floating-point or integer inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer, "'clamp' only accept floating-point or integer inputs");
 
 		return tvec2<T, P>(
 			clamp(x.x, minVal.x, maxVal.x),
@@ -493,16 +442,9 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> clamp
-	(
-		tvec3<T, P> const & x,
-		tvec3<T, P> const & minVal,
-		tvec3<T, P> const & maxVal
-	)
+	GLM_FUNC_QUALIFIER tvec3<T, P> clamp(tvec3<T, P> const & x, tvec3<T, P> const & minVal, tvec3<T, P> const & maxVal)
 	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
-			"'clamp' only accept floating-point or integer inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer, "'clamp' only accept floating-point or integer inputs");
 
 		return tvec3<T, P>(
 			clamp(x.x, minVal.x, maxVal.x),
@@ -511,16 +453,9 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> clamp
-	(
-		tvec4<T, P> const & x,
-		tvec4<T, P> const & minVal,
-		tvec4<T, P> const & maxVal
-	)
+	GLM_FUNC_QUALIFIER tvec4<T, P> clamp(tvec4<T, P> const & x, tvec4<T, P> const & minVal, tvec4<T, P> const & maxVal)
 	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
-			"'clamp' only accept floating-point or integer inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer, "'clamp' only accept floating-point or integer inputs");
 
 		return tvec4<T, P>(
 			clamp(x.x, minVal.x, maxVal.x),
@@ -530,55 +465,32 @@ namespace detail
 	}
 
 	template <typename T, typename U, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> mix
-	(
-		vecType<T, P> const & x,
-		vecType<T, P> const & y,
-		vecType<U, P> const & a
-	)
+	GLM_FUNC_QUALIFIER vecType<T, P> mix(vecType<T, P> const & x, vecType<T, P> const & y, vecType<U, P> const & a)
 	{
 		return detail::compute_mix_vector<T, U, P, vecType>::call(x, y, a);
 	}
 
 	template <typename T, typename U, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> mix
-	(
-		vecType<T, P> const & x,
-		vecType<T, P> const & y,
-		U const & a
-	)
+	GLM_FUNC_QUALIFIER vecType<T, P> mix(vecType<T, P> const & x, vecType<T, P> const & y, U const & a)
 	{
 		return detail::compute_mix_scalar<T, U, P, vecType>::call(x, y, a);
 	}
 
 	template <typename genTypeT, typename genTypeU>
-	GLM_FUNC_QUALIFIER genTypeT mix
-	(
-		genTypeT const & x,
-		genTypeT const & y,
-		genTypeU const & a
-	)
+	GLM_FUNC_QUALIFIER genTypeT mix(genTypeT const & x, genTypeT const & y, genTypeU const & a)
 	{
 		return detail::compute_mix<genTypeT, genTypeU>::call(x, y, a);
 	}
 
 	// step
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType step
-	(
-		genType const & edge,
-		genType const & x
-	)
+	GLM_FUNC_QUALIFIER genType step(genType const & edge, genType const & x)
 	{
 		return mix(genType(1), genType(0), glm::lessThan(x, edge));
 	}
 
 	template <template <typename, precision> class vecType, typename T, precision P>
-	GLM_FUNC_QUALIFIER vecType<T, P> step
-	(
-		T const & edge,
-		vecType<T, P> const & x
-	)
+	GLM_FUNC_QUALIFIER vecType<T, P> step(T const & edge, vecType<T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'step' only accept floating-point inputs");
 
@@ -587,12 +499,7 @@ namespace detail
 
 	// smoothstep
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType smoothstep
-	(
-		genType const & edge0,
-		genType const & edge1,
-		genType const & x
-	)
+	GLM_FUNC_QUALIFIER genType smoothstep(genType const & edge0, genType const & edge1, genType const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'smoothstep' only accept floating-point inputs");
 
@@ -601,12 +508,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P> smoothstep
-	(
-		T const & edge0,
-		T const & edge1,
-		tvec2<T, P> const & x
-	)
+	GLM_FUNC_QUALIFIER tvec2<T, P> smoothstep(T const & edge0, T const & edge1, tvec2<T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'smoothstep' only accept floating-point inputs");
 
@@ -616,12 +518,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> smoothstep
-	(
-		T const & edge0,
-		T const & edge1,
-		tvec3<T, P> const & x
-	)
+	GLM_FUNC_QUALIFIER tvec3<T, P> smoothstep(T const & edge0, T const & edge1, tvec3<T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'smoothstep' only accept floating-point inputs");
 
@@ -632,12 +529,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> smoothstep
-	(
-		T const & edge0,
-		T const & edge1,
-		tvec4<T, P> const & x
-	)
+	GLM_FUNC_QUALIFIER tvec4<T, P> smoothstep(T const & edge0, T const & edge1, tvec4<T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'smoothstep' only accept floating-point inputs");
 
@@ -649,12 +541,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P> smoothstep
-	(
-		tvec2<T, P> const & edge0,
-		tvec2<T, P> const & edge1,
-		tvec2<T, P> const & x
-	)
+	GLM_FUNC_QUALIFIER tvec2<T, P> smoothstep(tvec2<T, P> const & edge0, tvec2<T, P> const & edge1, tvec2<T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'smoothstep' only accept floating-point inputs");
 
@@ -664,12 +551,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> smoothstep
-	(
-		tvec3<T, P> const & edge0,
-		tvec3<T, P> const & edge1,
-		tvec3<T, P> const & x
-	)
+	GLM_FUNC_QUALIFIER tvec3<T, P> smoothstep(tvec3<T, P> const & edge0, tvec3<T, P> const & edge1, tvec3<T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'smoothstep' only accept floating-point inputs");
 
@@ -680,12 +562,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> smoothstep
-	(
-		tvec4<T, P> const & edge0,
-		tvec4<T, P> const & edge1,
-		tvec4<T, P> const & x
-	)
+	GLM_FUNC_QUALIFIER tvec4<T, P> smoothstep(tvec4<T, P> const & edge0, tvec4<T, P> const & edge1, tvec4<T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'smoothstep' only accept floating-point inputs");
 
@@ -720,10 +597,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tvec1<T, P>::bool_type isnan
-	(
-		tvec1<T, P> const & x
-	)
+	GLM_FUNC_QUALIFIER typename tvec1<T, P>::bool_type isnan(tvec1<T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isnan' only accept floating-point inputs");
 
@@ -732,10 +606,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tvec2<T, P>::bool_type isnan
-	(
-		tvec2<T, P> const & x
-	)
+	GLM_FUNC_QUALIFIER typename tvec2<T, P>::bool_type isnan(tvec2<T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isnan' only accept floating-point inputs");
 
@@ -745,10 +616,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tvec3<T, P>::bool_type isnan
-	(
-		tvec3<T, P> const & x
-	)
+	GLM_FUNC_QUALIFIER typename tvec3<T, P>::bool_type isnan(tvec3<T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isnan' only accept floating-point inputs");
 
@@ -759,10 +627,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tvec4<T, P>::bool_type isnan
-	(
-		tvec4<T, P> const & x
-	)
+	GLM_FUNC_QUALIFIER typename tvec4<T, P>::bool_type isnan(tvec4<T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isnan' only accept floating-point inputs");
 
@@ -774,8 +639,7 @@ namespace detail
 	}
 
 	template <typename genType> 
-	GLM_FUNC_QUALIFIER bool isinf(
-		genType const & x)
+	GLM_FUNC_QUALIFIER bool isinf(genType const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'isinf' only accept floating-point inputs");
 
@@ -798,10 +662,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tvec1<T, P>::bool_type isinf
-	(
-		tvec1<T, P> const & x
-	)
+	GLM_FUNC_QUALIFIER typename tvec1<T, P>::bool_type isinf(tvec1<T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isinf' only accept floating-point inputs");
 
@@ -810,10 +671,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tvec2<T, P>::bool_type isinf
-	(
-		tvec2<T, P> const & x
-	)
+	GLM_FUNC_QUALIFIER typename tvec2<T, P>::bool_type isinf(tvec2<T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isinf' only accept floating-point inputs");
 
@@ -823,10 +681,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tvec3<T, P>::bool_type isinf
-	(
-		tvec3<T, P> const & x
-	)
+	GLM_FUNC_QUALIFIER typename tvec3<T, P>::bool_type isinf(tvec3<T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isinf' only accept floating-point inputs");
 
@@ -837,10 +692,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tvec4<T, P>::bool_type isinf
-	(
-		tvec4<T, P> const & x
-	)
+	GLM_FUNC_QUALIFIER typename tvec4<T, P>::bool_type isinf(tvec4<T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isinf' only accept floating-point inputs");
 
@@ -896,22 +748,13 @@ namespace detail
 	}
 	
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType fma
-	(
-		genType const & a,
-		genType const & b,
-		genType const & c
-	)
+	GLM_FUNC_QUALIFIER genType fma(genType const & a, genType const & b, genType const & c)
 	{
 		return a * b + c;
 	}
 
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType frexp
-	(
-		genType const & x,
-		int & exp
-	)
+	GLM_FUNC_QUALIFIER genType frexp(genType const & x, int & exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'frexp' only accept floating-point inputs");
 
@@ -919,11 +762,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec1<T, P> frexp
-	(
-		tvec1<T, P> const & x,
-		tvec1<int, P> & exp
-	)
+	GLM_FUNC_QUALIFIER tvec1<T, P> frexp(tvec1<T, P> const & x, tvec1<int, P> & exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'frexp' only accept floating-point inputs");
 
@@ -931,11 +770,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P> frexp
-	(
-		tvec2<T, P> const & x,
-		tvec2<int, P> & exp
-	)
+	GLM_FUNC_QUALIFIER tvec2<T, P> frexp(tvec2<T, P> const & x, tvec2<int, P> & exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'frexp' only accept floating-point inputs");
 
@@ -945,11 +780,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> frexp
-	(
-		tvec3<T, P> const & x,
-		tvec3<int, P> & exp
-	)
+	GLM_FUNC_QUALIFIER tvec3<T, P> frexp(tvec3<T, P> const & x, tvec3<int, P> & exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'frexp' only accept floating-point inputs");
 
@@ -960,11 +791,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> frexp
-	(
-		tvec4<T, P> const & x,
-		tvec4<int, P> & exp
-	)
+	GLM_FUNC_QUALIFIER tvec4<T, P> frexp(tvec4<T, P> const & x, tvec4<int, P> & exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'frexp' only accept floating-point inputs");
 
@@ -976,11 +803,7 @@ namespace detail
 	}
 
 	template <typename genType, precision P>
-	GLM_FUNC_QUALIFIER genType ldexp
-	(
-		genType const & x,
-		int const & exp
-	)
+	GLM_FUNC_QUALIFIER genType ldexp(genType const & x, int const & exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'ldexp' only accept floating-point inputs");
 
@@ -988,11 +811,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec1<T, P> ldexp
-	(
-		tvec1<T, P> const & x,
-		tvec1<int, P> const & exp
-	)
+	GLM_FUNC_QUALIFIER tvec1<T, P> ldexp(tvec1<T, P> const & x, tvec1<int, P> const & exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'ldexp' only accept floating-point inputs");
 
@@ -1001,11 +820,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P> ldexp
-	(
-		tvec2<T, P> const & x,
-		tvec2<int, P> const & exp
-	)
+	GLM_FUNC_QUALIFIER tvec2<T, P> ldexp(tvec2<T, P> const & x, tvec2<int, P> const & exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'ldexp' only accept floating-point inputs");
 
@@ -1015,11 +830,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> ldexp
-	(
-		tvec3<T, P> const & x,
-		tvec3<int, P> const & exp
-	)
+	GLM_FUNC_QUALIFIER tvec3<T, P> ldexp(tvec3<T, P> const & x, tvec3<int, P> const & exps)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'ldexp' only accept floating-point inputs");
 
@@ -1030,11 +841,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> ldexp
-	(
-		tvec4<T, P> const & x,
-		tvec4<int, P> const & exp
-	)
+	GLM_FUNC_QUALIFIER tvec4<T, P> ldexp(tvec4<T, P> const & x, tvec4<int, P> const & exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'ldexp' only accept floating-point inputs");
 
@@ -1044,5 +851,4 @@ namespace detail
 			ldexp(x.z, exp.z),
 			ldexp(x.w, exp.w));
 	}
-
 }//namespace glm

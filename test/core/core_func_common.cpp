@@ -16,6 +16,79 @@
 #include <cstdio>
 #include <cmath>
 
+int test_floor()
+{
+	int Error(0);
+
+	{
+		float A(1.1f);
+		float B = glm::floor(A);
+	}
+
+	{
+		double A(1.1f);
+		double B = glm::floor(A);
+	}
+
+	{
+		glm::vec1 A(1.1f);
+		glm::vec1 B = glm::floor(A);
+
+		Error += glm::all(glm::epsilonEqual(B, glm::vec1(1.0), 0.0001f)) ? 0 : 1;
+	}
+
+	{
+		glm::dvec1 A(1.1f);
+		glm::dvec1 B = glm::floor(A);
+
+		Error += glm::all(glm::epsilonEqual(B, glm::dvec1(1.0), 0.0001)) ? 0 : 1;
+	}
+
+	{
+		glm::vec2 A(1.1f);
+		glm::vec2 B = glm::floor(A);
+
+		Error += glm::all(glm::epsilonEqual(B, glm::vec2(1.0), 0.0001f)) ? 0 : 1;
+	}
+
+	{
+		glm::dvec2 A(1.1f);
+		glm::dvec2 B = glm::floor(A);
+
+		Error += glm::all(glm::epsilonEqual(B, glm::dvec2(1.0), 0.0001)) ? 0 : 1;
+	}
+
+	{
+		glm::vec3 A(1.1f);
+		glm::vec3 B = glm::floor(A);
+
+		Error += glm::all(glm::epsilonEqual(B, glm::vec3(1.0), 0.0001f)) ? 0 : 1;
+	}
+
+	{
+		glm::dvec3 A(1.1f);
+		glm::dvec3 B = glm::floor(A);
+
+		Error += glm::all(glm::epsilonEqual(B, glm::dvec3(1.0), 0.0001)) ? 0 : 1;
+	}
+
+	{
+		glm::vec4 A(1.1f);
+		glm::vec4 B = glm::floor(A);
+
+		Error += glm::all(glm::epsilonEqual(B, glm::vec4(1.0), 0.0001f)) ? 0 : 1;
+	}
+
+	{
+		glm::dvec4 A(1.1f);
+		glm::dvec4 B = glm::floor(A);
+
+		Error += glm::all(glm::epsilonEqual(B, glm::dvec4(1.0), 0.0001)) ? 0 : 1;
+	}
+
+	return Error;
+}
+
 int test_modf()
 {
 	int Error(0);
@@ -685,6 +758,7 @@ int main()
 {
 	int Error(0);
 
+	Error += test_floor();
 	Error += test_modf();
 	Error += test_floatBitsToInt();
 	Error += test_floatBitsToUint();
