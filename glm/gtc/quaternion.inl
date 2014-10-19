@@ -65,14 +65,14 @@ namespace detail
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER T & tquat<T, P>::operator[] (length_t i)
 	{
-		assert(i >= 0 && i < this->length());
+		assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
 		return (&x)[i];
 	}
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T const & tquat<T, P>::operator[] (length_t i) const
 	{
-		assert(i >= 0 && i < this->length());
+		assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
 		return (&x)[i];
 	}
 
@@ -94,7 +94,7 @@ namespace detail
 	template <typename T, precision P>
 	template <precision Q>
 	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(tquat<T, Q> const & q)
-		: x(q.x), y(q.y),	z(q.z),	w(q.w)
+		: x(q.x), y(q.y), z(q.z), w(q.w)
 	{}
 
 	//////////////////////////////////////
