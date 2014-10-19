@@ -61,7 +61,7 @@ namespace glm
 		/// @cond DETAIL
 		col_type value[3];
 		/// @endcond
-		
+
 	public:
 		// Constructors
 		GLM_FUNC_DECL tmat3x3();
@@ -69,10 +69,8 @@ namespace glm
 		template <precision Q>
 		GLM_FUNC_DECL tmat3x3(tmat3x3<T, Q> const & m);
 
-		GLM_FUNC_DECL explicit tmat3x3(
-			ctor Null);
-		GLM_FUNC_DECL explicit tmat3x3(
-			T const & s);
+		GLM_FUNC_DECL explicit tmat3x3(ctor);
+		GLM_FUNC_DECL explicit tmat3x3(T const & s);
 		GLM_FUNC_DECL tmat3x3(
 			T const & x0, T const & y0, T const & z0,
 			T const & x1, T const & y1, T const & z1,

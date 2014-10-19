@@ -54,9 +54,10 @@ namespace glm
 #		endif//GLM_FORCE_SIZE_FUNC
 
 	private:
-		// Data
+		/// @cond DETAIL
 		col_type value[3];
-
+		/// @endcond
+		
 	public:
 		// Constructors
 		GLM_FUNC_DECL tmat3x2();
@@ -64,10 +65,8 @@ namespace glm
 		template <precision Q>
 		GLM_FUNC_DECL tmat3x2(tmat3x2<T, Q> const & m);
 
-		GLM_FUNC_DECL explicit tmat3x2(
-			ctor);
-		GLM_FUNC_DECL explicit tmat3x2(
-			T const & s);
+		GLM_FUNC_DECL explicit tmat3x2(ctor);
+		GLM_FUNC_DECL explicit tmat3x2(T const & s);
 		GLM_FUNC_DECL tmat3x2(
 			T const & x0, T const & y0,
 			T const & x1, T const & y1,
