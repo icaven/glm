@@ -40,7 +40,8 @@
 #endif //GLM_SWIZZLE
 #include <cstddef>
 
-namespace glm
+namespace glm{
+namespace detail
 {
 	template <typename T>
 	struct simd
@@ -63,7 +64,8 @@ namespace glm
 			typedef __m256d type;
 		};
 #	endif
-	
+}//namespace detail
+
 	template <typename T, precision P>
 	struct tvec4
 	{
@@ -92,7 +94,7 @@ namespace glm
 #		if GLM_HAS_ANONYMOUS_UNION
 			union
 			{
-				typename simd<T>::type data;
+				typename detail::simd<T>::type data;
 				struct { T r, g, b, a; };
 				struct { T s, t, p, q; };
 				struct { T x, y, z, w;};
@@ -113,7 +115,7 @@ namespace glm
 #			if GLM_HAS_UNRESTRICTED_UNIONS
 				union
 				{
-					typename simd<T>::type data;
+					typename detail::simd<T>::type data;
 					struct
 					{
 						union { T x, r, s; };
