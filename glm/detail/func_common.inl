@@ -211,7 +211,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> round(vecType<T, P> const & x)
 	{
-		return detail::functor1<T, P, vecType>::call(::std::round, x);
+		return detail::functor1<T, P, vecType>::call(round, x);
 	}
 
 /*
