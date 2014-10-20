@@ -37,7 +37,7 @@
 
 namespace glm
 {
-	template <typename T, precision P>
+	template <typename T, precision P = defaultp>
 	struct tmat3x4
 	{
 		typedef T value_type;

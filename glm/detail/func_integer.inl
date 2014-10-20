@@ -410,78 +410,57 @@ namespace glm
 	}
 
 	// bitfieldReverse
-	template <typename genIUType>
-	GLM_FUNC_QUALIFIER genIUType bitfieldReverse(genIUType const & Value)
+	template <typename T>
+	GLM_FUNC_QUALIFIER T bitfieldReverse(T v)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'bitfieldReverse' only accept integer values");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldReverse' only accept integer values");
 
-		genIUType Out = 0;
-		std::size_t BitSize = sizeof(genIUType) * 8;
-		for(std::size_t i = 0; i < BitSize; ++i)
-			if(Value & (genIUType(1) << i))
-				Out |= genIUType(1) << (BitSize - 1 - i);
-		return Out;
-	}	
+		return bitfieldReverse(tvec1<T>(v)).x;
+	}
 
-	VECTORIZE_VEC(bitfieldReverse)
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> bitfieldReverse(vecType<T, P> const & v)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldReverse' only accept integer values");
+
+		vecType<T, P> Result(0);
+		vecType<T, P> const Null(0);
+		T const BitSize = static_cast<T>(sizeof(T) * 8);
+		for(T i = 0; i < BitSize; ++i)
+		{
+			vecType<T, P> const BitSet(v & (static_cast<T>(1) << i));
+			vecType<T, P> const BitFirst(BitSet >> i);
+			Result |= BitFirst << (BitSize - 1 - i);
+		}
+		return Result;
+	}
 
 	// bitCount
 	template <typename genIUType>
-	GLM_FUNC_QUALIFIER int bitCount(genIUType const & Value)
+	GLM_FUNC_QUALIFIER int bitCount(genIUType x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'bitCount' only accept integer values");
 
-		int Count = 0;
-		for(std::size_t i = 0; i < sizeof(genIUType) * std::size_t(8); ++i)
+		return bitCount(tvec1(x)).x;
+	}
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<int, P> bitCount(vecType<T, P> const & v)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitCount' only accept integer values");
+
+		vecType<int, P> Count(0);
+		for(std::size_t i = 0; i < sizeof(T) * std::size_t(8); ++i)
 		{
-			if(Value & (1 << i))
+			if(v & (static_cast<T>(1) << i))
 				++Count;
 		}
 		return Count;
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<int, P> bitCount
-	(
-		tvec2<T, P> const & value
-	)
-	{
-		return tvec2<int, P>(
-			bitCount(value[0]),
-			bitCount(value[1]));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<int, P> bitCount
-	(
-		tvec3<T, P> const & value
-	)
-	{
-		return tvec3<int, P>(
-			bitCount(value[0]),
-			bitCount(value[1]),
-			bitCount(value[2]));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<int, P> bitCount
-	(
-		tvec4<T, P> const & value
-	)
-	{
-		return tvec4<int, P>(
-			bitCount(value[0]),
-			bitCount(value[1]),
-			bitCount(value[2]),
-			bitCount(value[3]));
-	}
-
 	// findLSB
 	template <typename genIUType>
-	GLM_FUNC_QUALIFIER int findLSB
-	(
-		genIUType const & Value
-	)
+	GLM_FUNC_QUALIFIER int findLSB(genIUType Value)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findLSB' only accept integer values");
 		if(Value == 0)
@@ -492,50 +471,19 @@ namespace glm
 		return Bit;
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<int, P> findLSB
-	(
-		tvec2<T, P> const & value
-	)
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<int, P> findLSB(vecType<T, P> const & x)
 	{
-		return tvec2<int, P>(
-			findLSB(value[0]),
-			findLSB(value[1]));
-	}
+		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findLSB' only accept integer values");
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<int, P> findLSB
-	(
-		tvec3<T, P> const & value
-	)
-	{
-		return tvec3<int, P>(
-			findLSB(value[0]),
-			findLSB(value[1]),
-			findLSB(value[2]));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<int, P> findLSB
-	(
-		tvec4<T, P> const & value
-	)
-	{
-		return tvec4<int, P>(
-			findLSB(value[0]),
-			findLSB(value[1]),
-			findLSB(value[2]),
-			findLSB(value[3]));
+		return detail::functor1<int, T, P, vecType>::call(findLSB, x);
 	}
 
 	// findMSB
-#if((GLM_ARCH != GLM_ARCH_PURE) && (GLM_COMPILER & GLM_COMPILER_VC))
+#if (GLM_ARCH != GLM_ARCH_PURE) && (GLM_COMPILER & GLM_COMPILER_VC)
 
 	template <typename genIUType>
-	GLM_FUNC_QUALIFIER int findMSB
-	(
-		genIUType const & Value
-	)
+	GLM_FUNC_QUALIFIER int findMSB(genIUType Value)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findMSB' only accept integer values");
 		if(Value == 0)
@@ -585,14 +533,10 @@ namespace glm
 			Mmi = _mm_and_si128(Mmi, One);
 		}
 		return Bit;
-
 */
 
 	template <typename genIUType>
-	GLM_FUNC_QUALIFIER int findMSB
-	(
-		genIUType const & Value
-	)
+	GLM_FUNC_QUALIFIER int findMSB(genIUType Value)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findMSB' only accept integer values");
 		
@@ -616,39 +560,9 @@ namespace glm
 	}
 #endif//(GLM_COMPILER)
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<int, P> findMSB
-	(
-		tvec2<T, P> const & value
-	)
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<int, P> findMSB(vecType<T, P> const & x)
 	{
-		return tvec2<int, P>(
-			findMSB(value[0]),
-			findMSB(value[1]));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<int, P> findMSB
-	(
-		tvec3<T, P> const & value
-	)
-	{
-		return tvec3<int, P>(
-			findMSB(value[0]),
-			findMSB(value[1]),
-			findMSB(value[2]));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<int, P> findMSB
-	(
-		tvec4<T, P> const & value
-	)
-	{
-		return tvec4<int, P>(
-			findMSB(value[0]),
-			findMSB(value[1]),
-			findMSB(value[2]),
-			findMSB(value[3]));
+		return detail::functor1<int, T, P, vecType>::call(findMSB, x);
 	}
 }//namespace glm

@@ -41,7 +41,7 @@
 
 namespace glm
 {
-	template <typename T, precision P>
+	template <typename T, precision P = defaultp>
 	struct tvec1
 	{
 		//////////////////////////////////////

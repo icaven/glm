@@ -38,6 +38,9 @@
 #pragma once
 
 #include "setup.hpp"
+#include "precision.hpp"
+#include "func_common.hpp"
+#include "func_vector_relational.hpp"
 
 namespace glm
 {
@@ -113,13 +116,13 @@ namespace glm
 	/// offset and bits is greater than the number of bits used
 	/// to store the operand.
 	///
-	/// @tparam genIUType Signed or unsigned integer scalar or vector types.
+	/// @tparam T Signed or unsigned integer scalar or vector types.
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitfieldExtract.xml">GLSL bitfieldExtract man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a>
-	template <typename genIUType>
-	GLM_FUNC_DECL genIUType bitfieldExtract(
-		genIUType const & Value,
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> bitfieldExtract(
+		vecType<T, P> const & Value,
 		int const & Offset,
 		int const & Bits);
 
@@ -133,14 +136,14 @@ namespace glm
 	/// offset and bits is greater than the number of bits used to
 	/// store the operand.
 	///
-	/// @tparam genIUType Signed or unsigned integer scalar or vector types.
+	/// @tparam T Signed or unsigned integer scalar or vector types.
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitfieldInsert.xml">GLSL bitfieldInsert man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a>
-	template <typename genIUType>
-	GLM_FUNC_DECL genIUType bitfieldInsert(
-		genIUType const & Base,
-		genIUType const & Insert,
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> bitfieldInsert(
+		vecType<T, P> const & Base,
+		vecType<T, P> const & Insert,
 		int const & Offset,
 		int const & Bits);
 
@@ -148,50 +151,50 @@ namespace glm
 	/// The bit numbered n of the result will be taken from bit (bits - 1) - n of value, 
 	/// where bits is the total number of bits used to represent value.
 	///
-	/// @tparam genIUType Signed or unsigned integer scalar or vector types.
+	/// @tparam T Signed or unsigned integer scalar or vector types.
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitfieldReverse.xml">GLSL bitfieldReverse man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a>
-	template <typename genIUType>
-	GLM_FUNC_DECL genIUType bitfieldReverse(genIUType const & Value);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> bitfieldReverse(vecType<T, P> const & v);
 		
 	/// Returns the number of bits set to 1 in the binary representation of value.
 	///
-	/// @tparam genIUType Signed or unsigned integer scalar or vector types.
+	/// @tparam T Signed or unsigned integer scalar or vector types.
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitCount.xml">GLSL bitCount man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a>
 	///
 	/// @todo Clarify the declaration to specify that scalars are suported.
-	template <typename T, template <typename> class genIUType>
-	GLM_FUNC_DECL typename genIUType<T>::signed_type bitCount(genIUType<T> const & Value);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<int, P> bitCount(vecType<T, P> const & v);
 
 	/// Returns the bit number of the least significant bit set to
 	/// 1 in the binary representation of value. 
 	/// If value is zero, -1 will be returned.
 	///
-	/// @tparam genIUType Signed or unsigned integer scalar or vector types.
+	/// @tparam T Signed or unsigned integer scalar or vector types.
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/findLSB.xml">GLSL findLSB man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a>
 	///
 	/// @todo Clarify the declaration to specify that scalars are suported.
-	template <typename T, template <typename> class genIUType>
-	GLM_FUNC_DECL typename genIUType<T>::signed_type findLSB(genIUType<T> const & Value);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<int, P> findLSB(vecType<T, P> const & v);
 
 	/// Returns the bit number of the most significant bit in the binary representation of value.
 	/// For positive integers, the result will be the bit number of the most significant bit set to 1. 
 	/// For negative integers, the result will be the bit number of the most significant
 	/// bit set to 0. For a value of zero or negative one, -1 will be returned.
 	///
-	/// @tparam genIUType Signed or unsigned integer scalar or vector types.
+	/// @tparam T Signed or unsigned integer scalar or vector types.
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/findMSB.xml">GLSL findMSB man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a>
 	///
 	/// @todo Clarify the declaration to specify that scalars are suported.
-	template <typename T, template <typename> class genIUType>
-	GLM_FUNC_DECL typename genIUType<T>::signed_type findMSB(genIUType<T> const & Value);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<int, P> findMSB(vecType<T, P> const & v);
 
 	/// @}
 }//namespace glm
