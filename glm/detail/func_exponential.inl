@@ -91,7 +91,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> exp(vecType<T, P> const & x)
 	{
-		return detail::functor1<T, P, vecType>::call(::std::exp, x);
+		return detail::functor1<T, T, P, vecType>::call(::std::exp, x);
 	}
 
 	// log
@@ -99,7 +99,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> log(vecType<T, P> const & x)
 	{
-		return detail::functor1<T, P, vecType>::call(::std::log, x);
+		return detail::functor1<T, T, P, vecType>::call(::std::log, x);
 	}
 
 	//exp2, ln2 = 0.69314718055994530941723212145818f
@@ -114,7 +114,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> exp2(vecType<T, P> const & x)
 	{
-		return detail::functor1<T, P, vecType>::call(exp2, x);
+		return detail::functor1<T, T, P, vecType>::call(exp2, x);
 	}
 
 	// log2, ln2 = 0.69314718055994530941723212145818f
@@ -131,7 +131,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> log2(vecType<T, P> const & x)
 	{
-		return detail::functor1<T, P, vecType>::call(log2, x);
+		return detail::functor1<T, T, P, vecType>::call(log2, x);
 	}
 
 	// sqrt
@@ -140,7 +140,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER vecType<T, P> sqrt(vecType<T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'sqrt' only accept floating-point inputs");
-		return detail::functor1<T, P, vecType>::call(sqrt, x);
+		return detail::functor1<T, T, P, vecType>::call(sqrt, x);
 	}
 
 	// inversesqrt

@@ -139,7 +139,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> abs(vecType<T, P> const & x)
 	{
-		return detail::functor1<T, P, vecType>::call(abs, x);
+		return detail::functor1<T, T, P, vecType>::call(abs, x);
 	}
 
 	// sign
@@ -164,7 +164,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> sign(vecType<T, P> const & x)
 	{
-		return detail::functor1<T, P, vecType>::call(sign, x);
+		return detail::functor1<T, T, P, vecType>::call(sign, x);
 	}
 
 	// floor
@@ -173,7 +173,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> floor(vecType<T, P> const & x)
 	{
-		return detail::functor1<T, P, vecType>::call(::std::floor, x);
+		return detail::functor1<T, T, P, vecType>::call(::std::floor, x);
 	}
 
 	// trunc
@@ -192,7 +192,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> trunc(vecType<T, P> const & x)
 	{
-		return detail::functor1<T, P, vecType>::call(::std::trunc, x);
+		return detail::functor1<T, T, P, vecType>::call(::std::trunc, x);
 	}
 
 	// round
@@ -211,7 +211,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> round(vecType<T, P> const & x)
 	{
-		return detail::functor1<T, P, vecType>::call(round, x);
+		return detail::functor1<T, T, P, vecType>::call(round, x);
 	}
 
 /*
@@ -260,7 +260,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> roundEven(vecType<T, P> const & x)
 	{
-		return detail::functor1<T, P, vecType>::call(roundEven, x);
+		return detail::functor1<T, T, P, vecType>::call(roundEven, x);
 	}
 
 	// ceil
@@ -269,7 +269,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> ceil(vecType<T, P> const & x)
 	{
-		return detail::functor1<T, P, vecType>::call(::std::ceil, x);
+		return detail::functor1<T, T, P, vecType>::call(::std::ceil, x);
 	}
 
 	// fract
@@ -284,7 +284,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> fract(vecType<T, P> const & x)
 	{
-		return detail::functor1<T, P, vecType>::call(fract, x);
+		return detail::functor1<T, T, P, vecType>::call(fract, x);
 	}
 
 	// mod
