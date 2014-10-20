@@ -116,7 +116,7 @@ namespace glm
 		Borrow = mix(vecType<uint, P>(1), vecType<uint, P>(0), greaterThanEqual(x, y));
 		vecType<uint, P> const YgeX(y - x);
 		vecType<uint, P> const XgeY(vecType<uint32, P>((static_cast<int64>(1) << static_cast<int64>(32)) + (vecType<int64, P>(y) - vecType<int64, P>(x))));
-		return mix(XgeY, YgeX, y >= x);
+		return mix(XgeY, YgeX, greaterThanEqual(y, x));
 	}
 
 	// umulExtended
