@@ -99,13 +99,7 @@ namespace glm
 	}
 
 	// usubBorrow
-	template <>
-	GLM_FUNC_QUALIFIER uint usubBorrow
-	(
-		uint const & x,
-		uint const & y,
-		uint & Borrow
-	)
+	GLM_FUNC_QUALIFIER uint usubBorrow(uint const & x, uint const & y, uint & Borrow)
 	{
 		GLM_STATIC_ASSERT(sizeof(uint) == sizeof(uint32), "uint and uint32 size mismatch");
 
@@ -116,57 +110,17 @@ namespace glm
 			return static_cast<uint32>((static_cast<int64>(1) << static_cast<int64>(32)) + (static_cast<int64>(y) - static_cast<int64>(x)));
 	}
 
-	template <>
-	GLM_FUNC_QUALIFIER uvec2 usubBorrow
-	(
-		uvec2 const & x,
-		uvec2 const & y,
-		uvec2 & Borrow
-	)
+	template <precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<uint, P> usubBorrow(vecType<uint, P> const & x, vecType<uint, P> const & y, vecType<uint, P> & Borrow)
 	{
-		return uvec2(
-			usubBorrow(x[0], y[0], Borrow[0]),
-			usubBorrow(x[1], y[1], Borrow[1]));
-	}
-
-	template <>
-	GLM_FUNC_QUALIFIER uvec3 usubBorrow
-	(
-		uvec3 const & x,
-		uvec3 const & y,
-		uvec3 & Borrow
-	)
-	{
-		return uvec3(
-			usubBorrow(x[0], y[0], Borrow[0]),
-			usubBorrow(x[1], y[1], Borrow[1]),
-			usubBorrow(x[2], y[2], Borrow[2]));
-	}
-
-	template <>
-	GLM_FUNC_QUALIFIER uvec4 usubBorrow
-	(
-		uvec4 const & x,
-		uvec4 const & y,
-		uvec4 & Borrow
-	)
-	{
-		return uvec4(
-			usubBorrow(x[0], y[0], Borrow[0]),
-			usubBorrow(x[1], y[1], Borrow[1]),
-			usubBorrow(x[2], y[2], Borrow[2]),
-			usubBorrow(x[3], y[3], Borrow[3]));
+		Borrow = mix(vecType<uint, P>(1), vecType<uint, P>(0), greaterThanEqual(x, y));
+		vecType<uint, P> const YgeX(y - x);
+		vecType<uint, P> const XgeY(vecType<uint32, P>((static_cast<int64>(1) << static_cast<int64>(32)) + (vecType<int64, P>(y) - vecType<int64, P>(x))));
+		return mix(XgeY, YgeX, y >= x);
 	}
 
 	// umulExtended
-	template <>
-	GLM_FUNC_QUALIFIER void umulExtended
-	(
-		uint const & x,
-		uint const & y,
-		uint & msb,
-		uint & lsb
-	)
+	GLM_FUNC_QUALIFIER void umulExtended(uint const & x, uint const & y, uint & msb, uint & lsb)
 	{
 		GLM_STATIC_ASSERT(sizeof(uint) == sizeof(uint32), "uint and uint32 size mismatch");
 
@@ -177,46 +131,14 @@ namespace glm
 		lsb = *PointerLSB;
 	}
 
-	template <>
-	GLM_FUNC_QUALIFIER void umulExtended
-	(
-		uvec2 const & x,
-		uvec2 const & y,
-		uvec2 & msb,
-		uvec2 & lsb
-	)
+	template <precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER void umulExtended(vecType<uint, P> const & x, vecType<uint, P> const & y, vecType<uint, P> & msb, vecType<uint, P> & lsb)
 	{
-		umulExtended(x[0], y[0], msb[0], lsb[0]);
-		umulExtended(x[1], y[1], msb[1], lsb[1]);
-	}
+		GLM_STATIC_ASSERT(sizeof(uint) == sizeof(uint32), "uint and uint32 size mismatch");
 
-	template <>
-	GLM_FUNC_QUALIFIER void umulExtended
-	(
-		uvec3 const & x,
-		uvec3 const & y,
-		uvec3 & msb,
-		uvec3 & lsb
-	)
-	{
-		umulExtended(x[0], y[0], msb[0], lsb[0]);
-		umulExtended(x[1], y[1], msb[1], lsb[1]);
-		umulExtended(x[2], y[2], msb[2], lsb[2]);
-	}
-
-	template <>
-	GLM_FUNC_QUALIFIER void umulExtended
-	(
-		uvec4 const & x,
-		uvec4 const & y,
-		uvec4 & msb,
-		uvec4 & lsb
-	)
-	{
-		umulExtended(x[0], y[0], msb[0], lsb[0]);
-		umulExtended(x[1], y[1], msb[1], lsb[1]);
-		umulExtended(x[2], y[2], msb[2], lsb[2]);
-		umulExtended(x[3], y[3], msb[3], lsb[3]);
+		vecType<uint64, P> Value64(vecType<uint64, P>(x) * vecType<uint64, P>(y));
+		msb = vecType<uint32, P>(Value64 >> static_cast<uint64>(32));
+		lsb = vecType<uint32, P>(Value64);
 	}
 
 	// imulExtended

@@ -69,12 +69,12 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/usubBorrow.xml">GLSL usubBorrow man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a>
-	template <typename genUType>
-	GLM_FUNC_DECL genUType usubBorrow(
-		genUType const & x,
-		genUType const & y,
-		genUType & borrow);
-		
+	template <precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<uint, P> usubBorrow(
+		vecType<uint, P> const & x,
+		vecType<uint, P> const & y,
+		vecType<uint, P> & borrow);
+
 	/// Multiplies 32-bit integers x and y, producing a 64-bit
 	/// result. The 32 least-significant bits are returned in lsb.
 	/// The 32 most-significant bits are returned in msb.
@@ -83,12 +83,12 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/umulExtended.xml">GLSL umulExtended man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a>
-	template <typename genUType>
+	template <precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL void umulExtended(
-		genUType const & x,
-		genUType const & y,
-		genUType & msb,
-		genUType & lsb);
+		vecType<uint, P> const & x,
+		vecType<uint, P> const & y,
+		vecType<uint, P> & msb,
+		vecType<uint, P> & lsb);
 		
 	/// Multiplies 32-bit integers x and y, producing a 64-bit
 	/// result. The 32 least-significant bits are returned in lsb.
