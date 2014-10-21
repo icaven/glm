@@ -55,11 +55,11 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/uaddCarry.xml">GLSL uaddCarry man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a>
-	template <typename genUType>
-	GLM_FUNC_DECL genUType uaddCarry(
-		genUType const & x,
-		genUType const & y,
-		genUType & carry);
+	template <precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<uint, P> uaddCarry(
+		vecType<uint, P> const & x,
+		vecType<uint, P> const & y,
+		vecType<uint, P> & carry);
 
 	/// Subtracts the 32-bit unsigned integer y from x, returning
 	/// the difference if non-negative, or pow(2, 32) plus the difference
@@ -98,12 +98,12 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/imulExtended.xml">GLSL imulExtended man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a>
-	template <typename genIType>
+	template <precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL void imulExtended(
-		genIType const & x,
-		genIType const & y,
-		genIType & msb,
-		genIType & lsb);
+		vecType<int, P> const & x,
+		vecType<int, P> const & y,
+		vecType<int, P> & msb,
+		vecType<int, P> & lsb);
 
 	/// Extracts bits [offset, offset + bits - 1] from value,
 	/// returning them in the least significant bits of the result.

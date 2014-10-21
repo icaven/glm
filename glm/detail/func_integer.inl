@@ -42,13 +42,7 @@
 namespace glm
 {
 	// uaddCarry
-	template <>
-	GLM_FUNC_QUALIFIER uint uaddCarry
-	(
-		uint const & x,
-		uint const & y,
-		uint & Carry
-	)
+	GLM_FUNC_QUALIFIER uint uaddCarry(uint const & x, uint const & y, uint & Carry)
 	{
 		uint64 Value64 = static_cast<uint64>(x) + static_cast<uint64>(y);
 		uint32 Result = static_cast<uint32>(Value64 % (static_cast<uint64>(1) << static_cast<uint64>(32)));
@@ -56,46 +50,16 @@ namespace glm
 		return Result;
 	}
 
-	template <>
-	GLM_FUNC_QUALIFIER uvec2 uaddCarry
-	(
-		uvec2 const & x,
-		uvec2 const & y,
-		uvec2 & Carry
-	)
+	template <precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<uint, P> uaddCarry(vecType<uint, P> const & x, vecType<uint, P> const & y, vecType<uint, P> & Carry)
 	{
-		return uvec2(
-			uaddCarry(x[0], y[0], Carry[0]),
-			uaddCarry(x[1], y[1], Carry[1]));
-	}
+		vecType<uint64, P> Value64(vecType<uint64, P>(x) + vecType<uint64, P>(y));
+		vecType<uint32, P> Result(Value64 % (static_cast<uint64>(1) << static_cast<uint64>(32)));
 
-	template <>
-	GLM_FUNC_QUALIFIER uvec3 uaddCarry
-	(
-		uvec3 const & x,
-		uvec3 const & y,
-		uvec3 & Carry
-	)
-	{
-		return uvec3(
-			uaddCarry(x[0], y[0], Carry[0]),
-			uaddCarry(x[1], y[1], Carry[1]),
-			uaddCarry(x[2], y[2], Carry[2]));
-	}
+		vecType<bool, P> DoCarry(greaterThan(Value64 % (static_cast<uint64>(1) << static_cast<uint64>(32)), vecType<uint64, P>(1)));
+		Carry = mix(vecType<uint32, P>(0), vecType<uint32, P>(1), DoCarry);
 
-	template <>
-	GLM_FUNC_QUALIFIER uvec4 uaddCarry
-	(
-		uvec4 const & x,
-		uvec4 const & y,
-		uvec4 & Carry
-	)
-	{
-		return uvec4(
-			uaddCarry(x[0], y[0], Carry[0]),
-			uaddCarry(x[1], y[1], Carry[1]),
-			uaddCarry(x[2], y[2], Carry[2]),
-			uaddCarry(x[3], y[3], Carry[3]));
+		return Result;
 	}
 
 	// usubBorrow
@@ -142,14 +106,7 @@ namespace glm
 	}
 
 	// imulExtended
-	template <>
-	GLM_FUNC_QUALIFIER void imulExtended
-	(
-		int const & x,
-		int const & y,
-		int & msb,
-		int & lsb
-	)
+	GLM_FUNC_QUALIFIER void imulExtended(int x, int y, int & msb, int & lsb)
 	{
 		GLM_STATIC_ASSERT(sizeof(int) == sizeof(int32), "int and int32 size mismatch");
 
@@ -160,107 +117,38 @@ namespace glm
 		lsb = *PointerLSB;
 	}
 
-	template <>
-	GLM_FUNC_QUALIFIER void imulExtended
-	(
-		ivec2 const & x,
-		ivec2 const & y,
-		ivec2 & msb,
-		ivec2 & lsb
-	)
+	template <precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER void imulExtended(vecType<int, P> const & x, vecType<int, P> const & y, vecType<int, P> & msb, vecType<int, P> & lsb)
 	{
-		imulExtended(x[0], y[0], msb[0], lsb[0]),
-		imulExtended(x[1], y[1], msb[1], lsb[1]);
-	}
+		GLM_STATIC_ASSERT(sizeof(int) == sizeof(int32), "int and int32 size mismatch");
 
-	template <>
-	GLM_FUNC_QUALIFIER void imulExtended
-	(
-		ivec3 const & x,
-		ivec3 const & y,
-		ivec3 & msb,
-		ivec3 & lsb
-	)
-	{
-		imulExtended(x[0], y[0], msb[0], lsb[0]),
-		imulExtended(x[1], y[1], msb[1], lsb[1]);
-		imulExtended(x[2], y[2], msb[2], lsb[2]);
-	}
-
-	template <>
-	GLM_FUNC_QUALIFIER void imulExtended
-	(
-		ivec4 const & x,
-		ivec4 const & y,
-		ivec4 & msb,
-		ivec4 & lsb
-	)
-	{
-		imulExtended(x[0], y[0], msb[0], lsb[0]),
-		imulExtended(x[1], y[1], msb[1], lsb[1]);
-		imulExtended(x[2], y[2], msb[2], lsb[2]);
-		imulExtended(x[3], y[3], msb[3], lsb[3]);
+		vecType<int64, P> Value64(vecType<int64, P>(x) * vecType<int64, P>(y));
+		lsb = vecType<int32, P>(Value64 & static_cast<int64>(0xFFFFFFFF));
+		msb = vecType<int32, P>((Value64 >> static_cast<int64>(32)) & static_cast<int64>(0xFFFFFFFF));
 	}
 
 	// bitfieldExtract
 	template <typename genIUType>
-	GLM_FUNC_QUALIFIER genIUType bitfieldExtract
-	(
-		genIUType const & Value,
-		int const & Offset,
-		int const & Bits
-	)
+	GLM_FUNC_QUALIFIER genIUType bitfieldExtract(genIUType Value, int Offset, int Bits)
 	{
-		int GenSize = int(sizeof(genIUType)) << int(3);
+		return bitfieldExtract(tvec1<genIUType>(Value), Offset, Bits).x;
+	}
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> bitfieldExtract(vecType<T, P> const & Value, int const & Offset, int const & Bits)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldExtract' only accept integer inputs");
+
+		int GenSize = int(sizeof(T)) << int(3);
 
 		assert(Offset + Bits <= GenSize);
 
-		genIUType ShiftLeft = Bits ? Value << (GenSize - (Bits + Offset)) : genIUType(0);
-		genIUType ShiftBack = ShiftLeft >> genIUType(GenSize - Bits);
+		vecType<T, P> ShiftLeft(0);
+		if(Bits)
+			ShiftLeft = Value << static_cast<T>(GenSize - (Bits + Offset));
+		vecType<T, P> const ShiftBack = ShiftLeft >> static_cast<T>(GenSize - Bits);
 
 		return ShiftBack;
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P> bitfieldExtract
-	(
-		tvec2<T, P> const & Value,
-		int const & Offset,
-		int const & Bits
-	)
-	{
-		return tvec2<T, P>(
-			bitfieldExtract(Value[0], Offset, Bits),
-			bitfieldExtract(Value[1], Offset, Bits));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> bitfieldExtract
-	(
-		tvec3<T, P> const & Value,
-		int const & Offset,
-		int const & Bits
-	)
-	{
-		return tvec3<T, P>(
-			bitfieldExtract(Value[0], Offset, Bits),
-			bitfieldExtract(Value[1], Offset, Bits),
-			bitfieldExtract(Value[2], Offset, Bits));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> bitfieldExtract
-	(
-		tvec4<T, P> const & Value,
-		int const & Offset,
-		int const & Bits
-	)
-	{
-		return tvec4<T, P>(
-			bitfieldExtract(Value[0], Offset, Bits),
-			bitfieldExtract(Value[1], Offset, Bits),
-			bitfieldExtract(Value[2], Offset, Bits),
-			bitfieldExtract(Value[3], Offset, Bits));
 	}
 
 	// bitfieldInsert

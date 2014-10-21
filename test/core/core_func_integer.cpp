@@ -220,6 +220,66 @@ namespace findLSB
 	}
 }//findLSB
 
+namespace uaddCarry
+{
+	int test()
+	{
+		int Error(0);
+		
+		{
+			glm::uint x = 16;
+			glm::uint y = 17;
+			glm::uint Carry = 0;
+			glm::uint Result = glm::uaddCarry(x, y, Carry);
+
+			Error += Carry == 1 ? 0 : 1;
+			Error += Result == 33 ? 0 : 1;
+		}
+
+		{
+			glm::uvec1 x(16);
+			glm::uvec1 y(17);
+			glm::uvec1 Carry(0);
+			glm::uvec1 Result(glm::uaddCarry(x, y, Carry));
+
+			Error += glm::all(glm::equal(Carry, glm::uvec1(1))) ? 0 : 1;
+			Error += glm::all(glm::equal(Result, glm::uvec1(33))) ? 0 : 1;
+		}
+
+		{
+			glm::uvec2 x(16);
+			glm::uvec2 y(17);
+			glm::uvec2 Carry(0);
+			glm::uvec2 Result(glm::uaddCarry(x, y, Carry));
+
+			Error += glm::all(glm::equal(Carry, glm::uvec2(1))) ? 0 : 1;
+			Error += glm::all(glm::equal(Result, glm::uvec2(33))) ? 0 : 1;
+		}
+
+		{
+			glm::uvec3 x(16);
+			glm::uvec3 y(17);
+			glm::uvec3 Carry(0);
+			glm::uvec3 Result(glm::uaddCarry(x, y, Carry));
+
+			Error += glm::all(glm::equal(Carry, glm::uvec3(1))) ? 0 : 1;
+			Error += glm::all(glm::equal(Result, glm::uvec3(33))) ? 0 : 1;
+		}
+
+		{
+			glm::uvec4 x(16);
+			glm::uvec4 y(17);
+			glm::uvec4 Carry(0);
+			glm::uvec4 Result(glm::uaddCarry(x, y, Carry));
+
+			Error += glm::all(glm::equal(Carry, glm::uvec4(1))) ? 0 : 1;
+			Error += glm::all(glm::equal(Result, glm::uvec4(33))) ? 0 : 1;
+		}
+
+		return Error;
+	}
+}//namespace uaddCarry
+
 namespace usubBorrow
 {
 	int test()
@@ -280,12 +340,145 @@ namespace usubBorrow
 	}
 }//namespace usubBorrow
 
+namespace umulExtended
+{
+	int test()
+	{
+		int Error(0);
+		
+		{
+			glm::uint x = 2;
+			glm::uint y = 3;
+			glm::uint msb = 0;
+			glm::uint lsb = 0;
+			glm::umulExtended(x, y, msb, lsb);
+
+			Error += msb == 0 ? 0 : 1;
+			Error += lsb == 6 ? 0 : 1;
+		}
+
+		{
+			glm::uvec1 x(2);
+			glm::uvec1 y(3);
+			glm::uvec1 msb(0);
+			glm::uvec1 lsb(0);
+			glm::umulExtended(x, y, msb, lsb);
+
+			Error += glm::all(glm::equal(msb, glm::uvec1(0))) ? 0 : 1;
+			Error += glm::all(glm::equal(lsb, glm::uvec1(6))) ? 0 : 1;
+		}
+
+		{
+			glm::uvec2 x(2);
+			glm::uvec2 y(3);
+			glm::uvec2 msb(0);
+			glm::uvec2 lsb(0);
+			glm::umulExtended(x, y, msb, lsb);
+
+			Error += glm::all(glm::equal(msb, glm::uvec2(0))) ? 0 : 1;
+			Error += glm::all(glm::equal(lsb, glm::uvec2(6))) ? 0 : 1;
+		}
+
+		{
+			glm::uvec3 x(2);
+			glm::uvec3 y(3);
+			glm::uvec3 msb(0);
+			glm::uvec3 lsb(0);
+			glm::umulExtended(x, y, msb, lsb);
+
+			Error += glm::all(glm::equal(msb, glm::uvec3(0))) ? 0 : 1;
+			Error += glm::all(glm::equal(lsb, glm::uvec3(6))) ? 0 : 1;
+		}
+
+		{
+			glm::uvec4 x(2);
+			glm::uvec4 y(3);
+			glm::uvec4 msb(0);
+			glm::uvec4 lsb(0);
+			glm::umulExtended(x, y, msb, lsb);
+
+			Error += glm::all(glm::equal(msb, glm::uvec4(0))) ? 0 : 1;
+			Error += glm::all(glm::equal(lsb, glm::uvec4(6))) ? 0 : 1;
+		}
+
+		return Error;
+	}
+}//namespace umulExtended
+
+namespace imulExtended
+{
+	int test()
+	{
+		int Error(0);
+		
+		{
+			int x = 2;
+			int y = 3;
+			int msb = 0;
+			int lsb = 0;
+			glm::imulExtended(x, y, msb, lsb);
+
+			Error += msb == 0 ? 0 : 1;
+			Error += lsb == 6 ? 0 : 1;
+		}
+
+		{
+			glm::ivec1 x(2);
+			glm::ivec1 y(3);
+			glm::ivec1 msb(0);
+			glm::ivec1 lsb(0);
+			glm::imulExtended(x, y, msb, lsb);
+
+			Error += glm::all(glm::equal(msb, glm::ivec1(0))) ? 0 : 1;
+			Error += glm::all(glm::equal(lsb, glm::ivec1(6))) ? 0 : 1;
+		}
+
+		{
+			glm::ivec2 x(2);
+			glm::ivec2 y(3);
+			glm::ivec2 msb(0);
+			glm::ivec2 lsb(0);
+			glm::imulExtended(x, y, msb, lsb);
+
+			Error += glm::all(glm::equal(msb, glm::ivec2(0))) ? 0 : 1;
+			Error += glm::all(glm::equal(lsb, glm::ivec2(6))) ? 0 : 1;
+		}
+
+		{
+			glm::ivec3 x(2);
+			glm::ivec3 y(3);
+			glm::ivec3 msb(0);
+			glm::ivec3 lsb(0);
+			glm::imulExtended(x, y, msb, lsb);
+
+			Error += glm::all(glm::equal(msb, glm::ivec3(0))) ? 0 : 1;
+			Error += glm::all(glm::equal(lsb, glm::ivec3(6))) ? 0 : 1;
+		}
+
+		{
+			glm::ivec4 x(2);
+			glm::ivec4 y(3);
+			glm::ivec4 msb(0);
+			glm::ivec4 lsb(0);
+			glm::imulExtended(x, y, msb, lsb);
+
+			Error += glm::all(glm::equal(msb, glm::ivec4(0))) ? 0 : 1;
+			Error += glm::all(glm::equal(lsb, glm::ivec4(6))) ? 0 : 1;
+		}
+
+		return Error;
+	}
+}//namespace imulExtended
+
 int main()
 {
 	int Error = 0;
 
 	std::cout << "sizeof(glm::uint64): " << sizeof(glm::detail::uint64) << std::endl;
 
+	Error += ::umulExtended::test();
+	Error += ::imulExtended::test();
+	Error += ::uaddCarry::test();
 	Error += ::usubBorrow::test();
 	Error += ::bitfieldExtract::test();
 	Error += ::bitfieldReverse::test();
