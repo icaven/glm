@@ -251,7 +251,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'bitCount' only accept integer values");
 
-		return bitCount(tvec1(x)).x;
+		return bitCount(tvec1<genIUType>(x)).x;
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
