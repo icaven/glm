@@ -391,7 +391,7 @@
 #				define GLM_LANG (GLM_LANG_CXX98 | GLM_LANG_CXXMS_FLAG)
 #			endif
 #		else
-#			if(GLM_COMPILER >= GLM_COMPILER_VC10
+#			if GLM_COMPILER >= GLM_COMPILER_VC10
 #				define GLM_LANG GLM_LANG_CXX0X
 #			else
 #				define GLM_LANG GLM_LANG_CXX98

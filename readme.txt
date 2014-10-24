@@ -75,6 +75,7 @@ GLM 0.9.6.0: 2014-XX-XX
 - Separated Apple Clang and LLVM compiler detection
 - Added GLM_FORCE_NO_CTOR_INIT
 - Added 'uninitialize' to explicitly not initialize a GLM type
+- Added not function (from GLSL specification) on VC12
 
 ================================================================================
 GLM 0.9.5.4: 2014-06-21

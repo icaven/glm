@@ -33,8 +33,6 @@ namespace glm
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<bool, P> lessThan(vecType<T, P> const & x, vecType<T, P> const & y)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
-			"Invalid template instantiation of 'lessThan', GLM vector types required floating-point or integer value types vectors");
 		assert(detail::component_count(x) == detail::component_count(y));
 
 		vecType<bool, P> Result(uninitialize);
@@ -47,8 +45,6 @@ namespace glm
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<bool, P> lessThanEqual(vecType<T, P> const & x, vecType<T, P> const & y)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
-			"Invalid template instantiation of 'lessThanEqual', GLM vector types required floating-point or integer value types vectors");
 		assert(detail::component_count(x) == detail::component_count(y));
 
 		vecType<bool, P> Result(uninitialize);
@@ -60,8 +56,6 @@ namespace glm
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<bool, P> greaterThan(vecType<T, P> const & x, vecType<T, P> const & y)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
-			"Invalid template instantiation of 'greaterThan', GLM vector types required floating-point or integer value types vectors");
 		assert(detail::component_count(x) == detail::component_count(y));
 
 		vecType<bool, P> Result(uninitialize);
@@ -73,8 +67,6 @@ namespace glm
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<bool, P> greaterThanEqual(vecType<T, P> const & x, vecType<T, P> const & y)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer,
-			"Invalid template instantiation of 'greaterThanEqual', GLM vector types required floating-point or integer value types vectors");
 		assert(detail::component_count(x) == detail::component_count(y));
 
 		vecType<bool, P> Result(uninitialize);
