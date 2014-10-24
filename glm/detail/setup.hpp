@@ -798,3 +798,11 @@ namespace detail
 #		pragma message("GLM: #define GLM_FORCE_SIZE_T_LENGTH for .length() to return a size_t")
 #	endif
 #endif//GLM_MESSAGE
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+// Uninitialize constructors
+
+namespace glm
+{
+	enum ctor{uninitialize};
+}//namespace glm
