@@ -132,7 +132,7 @@ namespace glm
 	template <precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL vecType<bool, P> not_(vecType<bool, P> const & v);
 
-#	if GLM_COMPILER & GLM_COMPILER_VC && GLM_COMPILER >= GLM_COMPILER_VC12
+#	if (GLM_COMPILER & GLM_COMPILER_VC && GLM_COMPILER >= GLM_COMPILER_VC12)// || (GLM_COMPILER & GLM_COMPILER_APPLE_CLANG && GLM_COMPILER >= GLM_COMPILER_APPLE_CLANG60)
 
 	/// Returns the component-wise logical complement of x.
 	/// /!\ Because of language incompatibilities between C++ and GLSL, GLM defines the function not but not_ instead.

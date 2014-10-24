@@ -32,164 +32,6 @@
 namespace glm{
 namespace detail
 {
-	template
-	<
-		template <class, precision> class vecTypeA,
-		template <class, precision> class vecTypeB,
-		typename T, precision P
-	>
-	struct compute_outerProduct{};
-
-	template <typename T, precision P>
-	struct compute_outerProduct<tvec2, tvec2, T, P>
-	{
-		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec2, tvec2>::type call(tvec2<T, P> const & c, tvec2<T, P> const & r)
-		{
-			tmat2x2<T, P> m(uninitialize);
-			m[0][0] = c[0] * r[0];
-			m[0][1] = c[1] * r[0];
-			m[1][0] = c[0] * r[1];
-			m[1][1] = c[1] * r[1];
-			return m;
-		}
-	};
-
-	template <typename T, precision P>
-	struct compute_outerProduct<tvec3, tvec3, T, P>
-	{
-		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec3, tvec3>::type call(tvec3<T, P> const & c, tvec3<T, P> const & r)
-		{
-			tmat3x3<T, P> m(uninitialize);
-			for(detail::component_count_t i = 0; i < detail::component_count(m); ++i)
-				m[i] = c * r[i];
-			return m;
-		}
-	};
-
-	template <typename T, precision P>
-	struct compute_outerProduct<tvec4, tvec4, T, P>
-	{
-		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec4, tvec4>::type call(tvec4<T, P> const & c, tvec4<T, P> const & r)
-		{
-			tmat4x4<T, P> m(uninitialize);
-			for(detail::component_count_t i = 0; i < detail::component_count(m); ++i)
-				m[i] = c * r[i];
-			return m;
-		}
-	};
-
-	template <typename T, precision P>
-	struct compute_outerProduct<tvec3, tvec2, T, P>
-	{
-		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec3, tvec2>::type call(tvec3<T, P> const & c, tvec2<T, P> const & r)
-		{
-			tmat2x3<T, P> m(uninitialize);
-			m[0][0] = c.x * r.x;
-			m[0][1] = c.y * r.x;
-			m[0][2] = c.z * r.x;
-			m[1][0] = c.x * r.y;
-			m[1][1] = c.y * r.y;
-			m[1][2] = c.z * r.y;
-			return m;
-		}
-	};
-
-	template <typename T, precision P>
-	struct compute_outerProduct<tvec2, tvec3, T, P>
-	{
-		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec2, tvec3>::type call(tvec2<T, P> const & c, tvec3<T, P> const & r)
-		{
-			tmat3x2<T, P> m(uninitialize);
-			m[0][0] = c.x * r.x;
-			m[0][1] = c.y * r.x;
-			m[1][0] = c.x * r.y;
-			m[1][1] = c.y * r.y;
-			m[2][0] = c.x * r.z;
-			m[2][1] = c.y * r.z;
-			return m;
-		}
-	};
-
-	template <typename T, precision P>
-	struct compute_outerProduct<tvec4, tvec2, T, P>
-	{
-		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec4, tvec2>::type call(tvec4<T, P> const & c, tvec2<T, P> const & r)
-		{
-			tmat2x4<T, P> m(uninitialize);
-			m[0][0] = c.x * r.x;
-			m[0][1] = c.y * r.x;
-			m[0][2] = c.z * r.x;
-			m[0][3] = c.w * r.x;
-			m[1][0] = c.x * r.y;
-			m[1][1] = c.y * r.y;
-			m[1][2] = c.z * r.y;
-			m[1][3] = c.w * r.y;
-			return m;
-		}
-	};
-
-	template <typename T, precision P>
-	struct compute_outerProduct<tvec2, tvec4, T, P>
-	{
-		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec2, tvec4>::type call(tvec2<T, P> const & c, tvec4<T, P> const & r)
-		{
-			tmat4x2<T, P> m(uninitialize);
-			m[0][0] = c.x * r.x;
-			m[0][1] = c.y * r.x;
-			m[1][0] = c.x * r.y;
-			m[1][1] = c.y * r.y;
-			m[2][0] = c.x * r.z;
-			m[2][1] = c.y * r.z;
-			m[3][0] = c.x * r.w;
-			m[3][1] = c.y * r.w;
-			return m;
-		}
-	};
-
-	template <typename T, precision P>
-	struct compute_outerProduct<tvec4, tvec3, T, P>
-	{
-		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec4, tvec3>::type call(tvec4<T, P> const & c, tvec3<T, P> const & r)
-		{
-			tmat3x4<T, P> m(uninitialize);
-			m[0][0] = c.x * r.x;
-			m[0][1] = c.y * r.x;
-			m[0][2] = c.z * r.x;
-			m[0][3] = c.w * r.x;
-			m[1][0] = c.x * r.y;
-			m[1][1] = c.y * r.y;
-			m[1][2] = c.z * r.y;
-			m[1][3] = c.w * r.y;
-			m[2][0] = c.x * r.z;
-			m[2][1] = c.y * r.z;
-			m[2][2] = c.z * r.z;
-			m[2][3] = c.w * r.z;
-			return m;
-		}
-	};
-
-	template <typename T, precision P>
-	struct compute_outerProduct<tvec3, tvec4, T, P>
-	{
-		GLM_FUNC_QUALIFIER static typename detail::outerProduct_trait<T, P, tvec3, tvec4>::type call(tvec3<T, P> const & c, tvec4<T, P> const & r)
-		{
-			tmat4x3<T, P> m(uninitialize);
-			m[0][0] = c.x * r.x;
-			m[0][1] = c.y * r.x;
-			m[0][2] = c.z * r.x;
-			m[1][0] = c.x * r.y;
-			m[1][1] = c.y * r.y;
-			m[1][2] = c.z * r.y;
-			m[2][0] = c.x * r.z;
-			m[2][1] = c.y * r.z;
-			m[2][2] = c.z * r.z;
-			m[3][0] = c.x * r.w;
-			m[3][1] = c.y * r.w;
-			m[3][2] = c.z * r.w;
-			return m;
-		}
-	};
-
 	template <template <class, precision> class matType, typename T, precision P>
 	struct compute_transpose{};
 
@@ -433,7 +275,11 @@ namespace detail
 	GLM_FUNC_QUALIFIER typename detail::outerProduct_trait<T, P, vecTypeA, vecTypeB>::type outerProduct(vecTypeA<T, P> const & c, vecTypeB<T, P> const & r)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'outerProduct' only accept floating-point inputs");
-		return detail::compute_outerProduct<vecTypeA, vecTypeB, T, P>::call(c, r);
+
+		typename detail::outerProduct_trait<T, P, vecTypeA, vecTypeB>::type m(uninitialize);
+		for(detail::component_count_t i = 0; i < detail::component_count(m); ++i)
+			m[i] = c * r[i];
+		return m;
 	}
 
 	template <typename T, precision P, template <typename, precision> class matType>
