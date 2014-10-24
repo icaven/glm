@@ -135,7 +135,7 @@ namespace glm
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> bitfieldExtract(vecType<T, P> const & Value, int const & Offset, int const & Bits)
+	GLM_FUNC_QUALIFIER vecType<T, P> bitfieldExtract(vecType<T, P> const & Value, int Offset, int Bits)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldExtract' only accept integer inputs");
 
@@ -153,78 +153,30 @@ namespace glm
 
 	// bitfieldInsert
 	template <typename genIUType>
-	GLM_FUNC_QUALIFIER genIUType bitfieldInsert
-	(
-		genIUType const & Base,
-		genIUType const & Insert,
-		int const & Offset,
-		int const & Bits
-	)
+	GLM_FUNC_QUALIFIER genIUType bitfieldInsert(genIUType const & Base, genIUType const & Insert, int Offset, int Bits)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'bitfieldInsert' only accept integer values");
-		assert(Offset + Bits <= sizeof(genIUType));
+		return bitfieldInsert(tvec1<genIUType>(Base), tvec1<genIUType>(Insert), Offset, Bits).x;
+	}
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> bitfieldInsert(vecType<T, P> const & Base, vecType<T, P> const & Insert, int Offset, int Bits)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldInsert' only accept integer values");
 
 		if(Bits == 0)
 			return Base;
 
-		genIUType Mask = 0;
+		vecType<T, P> Mask(0);
 		for(int Bit = Offset; Bit < Offset + Bits; ++Bit)
-			Mask |= (1 << Bit);
+			Mask |= (static_cast<int>(1) << Bit);
 
 		return (Base & ~Mask) | (Insert & Mask);
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P> bitfieldInsert
-	(
-		tvec2<T, P> const & Base,
-		tvec2<T, P> const & Insert,
-		int const & Offset,
-		int const & Bits
-	)
-	{
-		return tvec2<T, P>(
-			bitfieldInsert(Base[0], Insert[0], Offset, Bits),
-			bitfieldInsert(Base[1], Insert[1], Offset, Bits));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> bitfieldInsert
-	(
-		tvec3<T, P> const & Base,
-		tvec3<T, P> const & Insert,
-		int const & Offset,
-		int const & Bits
-	)
-	{
-		return tvec3<T, P>(
-			bitfieldInsert(Base[0], Insert[0], Offset, Bits),
-			bitfieldInsert(Base[1], Insert[1], Offset, Bits),
-			bitfieldInsert(Base[2], Insert[2], Offset, Bits));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> bitfieldInsert
-	(
-		tvec4<T, P> const & Base,
-		tvec4<T, P> const & Insert,
-		int const & Offset,
-		int const & Bits
-	)
-	{
-		return tvec4<T, P>(
-			bitfieldInsert(Base[0], Insert[0], Offset, Bits),
-			bitfieldInsert(Base[1], Insert[1], Offset, Bits),
-			bitfieldInsert(Base[2], Insert[2], Offset, Bits),
-			bitfieldInsert(Base[3], Insert[3], Offset, Bits));
 	}
 
 	// bitfieldReverse
 	template <typename T>
 	GLM_FUNC_QUALIFIER T bitfieldReverse(T v)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldReverse' only accept integer values");
-
 		return bitfieldReverse(tvec1<T>(v)).x;
 	}
 
@@ -249,8 +201,6 @@ namespace glm
 	template <typename genIUType>
 	GLM_FUNC_QUALIFIER int bitCount(genIUType x)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'bitCount' only accept integer values");
-
 		return bitCount(tvec1<genIUType>(x)).x;
 	}
 

@@ -123,8 +123,8 @@ namespace glm
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL vecType<T, P> bitfieldExtract(
 		vecType<T, P> const & Value,
-		int const & Offset,
-		int const & Bits);
+		int Offset,
+		int Bits);
 
 	/// Returns the insertion the bits least-significant bits of insert into base.
 	///
@@ -144,8 +144,8 @@ namespace glm
 	GLM_FUNC_DECL vecType<T, P> bitfieldInsert(
 		vecType<T, P> const & Base,
 		vecType<T, P> const & Insert,
-		int const & Offset,
-		int const & Bits);
+		int Offset,
+		int Bits);
 
 	/// Returns the reversal of the bits of value. 
 	/// The bit numbered n of the result will be taken from bit (bits - 1) - n of value, 

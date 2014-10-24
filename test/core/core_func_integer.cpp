@@ -19,6 +19,53 @@ enum result
 	STATIC_ASSERT
 };
 
+namespace bitfieldInsert
+{
+	template <typename genType, typename sizeType>
+	struct type
+	{
+		genType		Base;
+		genType		Insert;
+		sizeType	Offset;
+		sizeType	Bits;
+		genType		Return;
+		result		Result;
+	};
+
+	typedef type<glm::uint, glm::uint> typeU32;
+
+	typeU32 const Data32[] =
+	{
+		{0xffffffff, 8,24, 0xffffff00, SUCCESS},
+	};
+
+	int test()
+	{
+		glm::uint count = sizeof(Data32) / sizeof(typeU32);
+		
+		for(glm::uint i = 0; i < count; ++i)
+		{
+			glm::uint Return = glm::bitfieldInsert(
+				Data32[i].Base,
+				Data32[i].Insert,
+				Data32[i].Offset,
+				Data32[i].Bits);
+			
+			bool Compare = Data32[i].Return == Return;
+			
+			if(Data32[i].Result == SUCCESS && Compare)
+				continue;
+			else if(Data32[i].Result == FAIL && !Compare)
+				continue;
+			
+			std::cout << "glm::bitfieldInsert test fail on test " << i << std::endl;
+			return 1;
+		}
+		
+		return 0;
+	}
+}//bitfieldInsert
+
 namespace bitfieldExtract
 {
 	template <typename genType, typename sizeType>
@@ -480,6 +527,7 @@ int main()
 	Error += ::imulExtended::test();
 	Error += ::uaddCarry::test();
 	Error += ::usubBorrow::test();
+	Error += ::bitfieldInsert::test();
 	Error += ::bitfieldExtract::test();
 	Error += ::bitfieldReverse::test();
 	Error += ::findMSB::test();
