@@ -278,7 +278,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'fract' only accept floating-point inputs");
 
-		return tvec1<genType>(x).x;
+		return fract(tvec1<genType>(x)).x;
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>

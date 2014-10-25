@@ -518,23 +518,6 @@ int test_round()
 		Error += F == 2.0f ? 0 : 1;
 		float G = glm::round(1.9f);
 		Error += G == 2.0f ? 0 : 1;
-
-#if GLM_LANG >= GLM_LANG_CXX11
-		float A1 = glm::round(0.0f);
-		Error += A1 == A ? 0 : 1;
-		float B1 = glm::round(0.5f);
-		Error += B1 == B ? 0 : 1;
-		float C1 = glm::round(1.0f);
-		Error += C1 == C ? 0 : 1;
-		float D1 = glm::round(0.1f);
-		Error += D1 == D ? 0 : 1;
-		float E1 = glm::round(0.9f);
-		Error += E1 == E ? 0 : 1;
-		float F1 = glm::round(1.5f);
-		Error += F == F ? 0 : 1;
-		float G1 = glm::round(1.9f);
-		Error += G1 == G ? 0 : 1;
-#endif // GLM_LANG >= GLM_CXX0X
 	}
 	
 	{
@@ -562,68 +545,70 @@ int test_roundEven()
 	int Error = 0;
 
 	{
-		float A = glm::roundEven(-1.5f);
-		Error += glm::epsilonEqual(A, -2.0f, 0.0001f) ? 0 : 1;
-		Error += 0;
-	}
-	{
-		float A = glm::roundEven(1.5f);
-		Error += glm::epsilonEqual(A, 2.0f, 0.0001f) ? 0 : 1;
+		float A1 = glm::roundEven(-1.5f);
+		Error += glm::epsilonEqual(A1, -2.0f, 0.0001f) ? 0 : 1;
+
+		float A2 = glm::roundEven(1.5f);
+		Error += glm::epsilonEqual(A2, 2.0f, 0.0001f) ? 0 : 1;
+
+		float A5 = glm::roundEven(-2.5f);
+		Error += glm::epsilonEqual(A5, -2.0f, 0.0001f) ? 0 : 1;
+
+		float A6 = glm::roundEven(2.5f);
+		Error += glm::epsilonEqual(A6, 2.0f, 0.0001f) ? 0 : 1;
+
+		float A3 = glm::roundEven(-3.5f);
+		Error += glm::epsilonEqual(A3, -4.0f, 0.0001f) ? 0 : 1;
+
+		float A4 = glm::roundEven(3.5f);
+		Error += glm::epsilonEqual(A4, 4.0f, 0.0001f) ? 0 : 1;
+
+		float C7 = glm::roundEven(-4.5f);
+		Error += glm::epsilonEqual(C7, -4.0f, 0.0001f) ? 0 : 1;
+
+		float C8 = glm::roundEven(4.5f);
+		Error += glm::epsilonEqual(C8, 4.0f, 0.0001f) ? 0 : 1;
+
+		float C1 = glm::roundEven(-5.5f);
+		Error += glm::epsilonEqual(C1, -6.0f, 0.0001f) ? 0 : 1;
+
+		float C2 = glm::roundEven(5.5f);
+		Error += glm::epsilonEqual(C2, 6.0f, 0.0001f) ? 0 : 1;
+
+		float C3 = glm::roundEven(-6.5f);
+		Error += glm::epsilonEqual(C3, -6.0f, 0.0001f) ? 0 : 1;
+
+		float C4 = glm::roundEven(6.5f);
+		Error += glm::epsilonEqual(C4, 6.0f, 0.0001f) ? 0 : 1;
+
+		float C5 = glm::roundEven(-7.5f);
+		Error += glm::epsilonEqual(C5, -8.0f, 0.0001f) ? 0 : 1;
+
+		float C6 = glm::roundEven(7.5f);
+		Error += glm::epsilonEqual(C6, 8.0f, 0.0001f) ? 0 : 1;
+
 		Error += 0;
 	}
 
 	{
-		float A = glm::roundEven(-3.5f);
-		Error += glm::epsilonEqual(A, -4.0f, 0.0001f) ? 0 : 1;
-		Error += 0;
-	}
-	{
-		float A = glm::roundEven(3.5f);
-		Error += glm::epsilonEqual(A, 4.0f, 0.0001f) ? 0 : 1;
-		Error += 0;
-	}
+		float A7 = glm::roundEven(-2.4f);
+		Error += glm::epsilonEqual(A7, -2.0f, 0.0001f) ? 0 : 1;
 
-	{
-		float A = glm::roundEven(-2.5f);
-		Error += glm::epsilonEqual(A, -2.0f, 0.0001f) ? 0 : 1;
-		Error += 0;
-	}
-	{
-		float A = glm::roundEven(2.5f);
-		Error += glm::epsilonEqual(A, 2.0f, 0.0001f) ? 0 : 1;
-		Error += 0;
-	}
+		float A8 = glm::roundEven(2.4f);
+		Error += glm::epsilonEqual(A8, 2.0f, 0.0001f) ? 0 : 1;
 
-	{
-		float A = glm::roundEven(-2.4f);
-		Error += glm::epsilonEqual(A, -2.0f, 0.0001f) ? 0 : 1;
-		Error += 0;
-	}
-	{
-		float A = glm::roundEven(2.4f);
-		Error += glm::epsilonEqual(A, 2.0f, 0.0001f) ? 0 : 1;
-		Error += 0;
-	}
+		float B1 = glm::roundEven(-2.6f);
+		Error += glm::epsilonEqual(B1, -3.0f, 0.0001f) ? 0 : 1;
 
-	{
-		float A = glm::roundEven(-2.6f);
-		Error += glm::epsilonEqual(A, -3.0f, 0.0001f) ? 0 : 1;
-		Error += 0;
-	}
-	{
-		float A = glm::roundEven(2.6f);
-		Error += glm::epsilonEqual(A, 3.0f, 0.0001f) ? 0 : 1;
-		Error += 0;
-	}
+		float B2 = glm::roundEven(2.6f);
+		Error += glm::epsilonEqual(B2, 3.0f, 0.0001f) ? 0 : 1;
 
-	{
-		float A = glm::roundEven(-2.0f);
-		Error += glm::epsilonEqual(A, -2.0f, 0.0001f) ? 0 : 1;
-		Error += 0;
-	}
-	{
-		float A = glm::roundEven(2.0f);
-		Error += glm::epsilonEqual(A, 2.0f, 0.0001f) ? 0 : 1;
+		float B3 = glm::roundEven(-2.0f);
+		Error += glm::epsilonEqual(B3, -2.0f, 0.0001f) ? 0 : 1;
+
+		float B4 = glm::roundEven(2.0f);
+		Error += glm::epsilonEqual(B4, 2.0f, 0.0001f) ? 0 : 1;
+
 		Error += 0;
 	}
 
@@ -769,7 +754,7 @@ int main()
 	Error += test_round();
 	Error += test_roundEven();
 	Error += test_isnan();
-	//Error += test_isinf();
+	Error += test_isinf();
 
 	return Error;
 }
