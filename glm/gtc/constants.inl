@@ -20,9 +20,9 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_constants
-/// @file glm/gtx/constants.inl
-/// @date 2011-10-14 / 2012-01-25
+/// @ref gtc_constants
+/// @file glm/gtc/constants.inl
+/// @date 2011-10-14 / 2014-10-25
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
