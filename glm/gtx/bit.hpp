@@ -41,6 +41,7 @@
 // Dependencies
 #include "../detail/type_int.hpp"
 #include "../detail/setup.hpp"
+#include "../detail/precision.hpp"
 #include <cstddef>
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
@@ -54,8 +55,10 @@ namespace glm
 
 	/// Build a mask of 'count' bits
 	/// @see gtx_bit
-	template <typename genIType>
-	GLM_FUNC_DECL genIType mask(genIType const & count);
+	GLM_FUNC_DECL int mask(int Bits);
+
+	template <precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<int, P> mask(vecType<int, P> const & v);
 
 	//! Find the highest bit set to 1 in a integer variable and return its value. 
 	/// @see gtx_bit

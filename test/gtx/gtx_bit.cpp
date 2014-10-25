@@ -501,10 +501,71 @@ namespace bitfieldInterleave4
 	}
 }
 
+namespace mask
+{
+	inline int mask_mix(int Bits)
+	{
+		return Bits >= 32 ? 0xffffffff : (static_cast<int>(1) << Bits) - static_cast<int>(1);
+	}
+
+	inline int mask_loop(int Bits)
+	{
+		int Mask = 0;
+		for(int Bit = 0; Bit < Bits; ++Bit)
+			Mask |= (static_cast<int>(1) << Bit);
+		return Mask;
+	}
+
+	int perf()
+	{
+		int const Count = 100000000;
+
+		std::clock_t Timestamp1 = std::clock();
+
+		{
+			std::vector<int> Mask;
+			Mask.resize(Count);
+			for(int i = 0; i < Count; ++i)
+				Mask[i] = mask_mix(i % 32);
+		}
+
+		std::clock_t Timestamp2 = std::clock();
+
+		{
+			std::vector<int> Mask;
+			Mask.resize(Count);
+			for(int i = 0; i < Count; ++i)
+				Mask[i] = mask_loop(i % 32);
+		}
+
+		std::clock_t Timestamp3 = std::clock();
+
+		{
+			std::vector<int> Mask;
+			Mask.resize(Count);
+			for(int i = 0; i < Count; ++i)
+				Mask[i] = glm::mask(i % 32);
+		}
+
+		std::clock_t Timestamp4 = std::clock();
+
+		std::clock_t TimeMix = Timestamp2 - Timestamp1;
+		std::clock_t TimeLoop = Timestamp3 - Timestamp2;
+		std::clock_t TimeDefault = Timestamp4 - Timestamp3;
+
+		printf("mask[mix]: %d\n", TimeMix);
+		printf("mask[loop]: %d\n", TimeLoop);
+		printf("mask[default]: %d\n", TimeDefault);
+
+		return TimeDefault < TimeLoop ? 0 : 1;
+	}
+}//namespace mask
+
 int main()
 {
 	int Error(0);
 
+	Error += ::mask::perf();
 	Error += ::bitfieldInterleave3::test();
 	Error += ::bitfieldInterleave4::test();
 	Error += ::bitfieldInterleave::test();

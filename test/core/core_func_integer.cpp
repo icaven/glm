@@ -10,6 +10,8 @@
 #include <glm/integer.hpp>
 #include <glm/gtc/vec1.hpp>
 #include <iostream>
+#include <vector>
+#include <ctime>
 
 enum result
 {
@@ -29,18 +31,22 @@ namespace bitfieldInsert
 		sizeType	Offset;
 		sizeType	Bits;
 		genType		Return;
-		result		Result;
 	};
 
 	typedef type<glm::uint, glm::uint> typeU32;
 
 	typeU32 const Data32[] =
 	{
-		{0xffffffff, 8,24, 0xffffff00, SUCCESS},
+		{0xff000000, 0x0000ff00,  8,  8, 0xff00ff00},
+		{0xffff0000, 0x0000ffff, 16, 16, 0x00000000},
+		{0x0000ffff, 0xffff0000, 16, 16, 0xffffffff},
+		{0x00000000, 0xffffffff,  0, 32, 0xffffffff},
+		{0x00000000, 0xffffffff,  0,  0, 0x00000000}
 	};
 
 	int test()
 	{
+		int Error = 0;
 		glm::uint count = sizeof(Data32) / sizeof(typeU32);
 		
 		for(glm::uint i = 0; i < count; ++i)
@@ -50,19 +56,11 @@ namespace bitfieldInsert
 				Data32[i].Insert,
 				Data32[i].Offset,
 				Data32[i].Bits);
-			
-			bool Compare = Data32[i].Return == Return;
-			
-			if(Data32[i].Result == SUCCESS && Compare)
-				continue;
-			else if(Data32[i].Result == FAIL && !Compare)
-				continue;
-			
-			std::cout << "glm::bitfieldInsert test fail on test " << i << std::endl;
-			return 1;
+
+			Error += Data32[i].Return == Return ? 0 : 1;
 		}
 		
-		return 0;
+		return Error;
 	}
 }//bitfieldInsert
 
@@ -72,8 +70,8 @@ namespace bitfieldExtract
 	struct type
 	{
 		genType		Value;
-		sizeType	BitFirst;
-		sizeType	BitCount;
+		sizeType	Offset;
+		sizeType	Bits;
 		genType		Return;
 		result		Result;
 	};
@@ -82,9 +80,9 @@ namespace bitfieldExtract
 
 	typeU32 const Data32[] =
 	{
+		{0xffffffff, 0,32, 0xffffffff, SUCCESS},
 		{0xffffffff, 8, 0, 0x00000000, SUCCESS},
 		{0x00000000, 0,32, 0x00000000, SUCCESS},
-		{0xffffffff, 0,32, 0xffffffff, SUCCESS},
 		{0x0f0f0f0f, 0,32, 0x0f0f0f0f, SUCCESS},
 		{0x00000000, 8, 0, 0x00000000, SUCCESS},
 		{0x80000000,31, 1, 0x00000001, SUCCESS},
@@ -106,27 +104,28 @@ namespace bitfieldExtract
 
 	int test()
 	{
+		int Error = 0;
+
 		glm::uint count = sizeof(Data32) / sizeof(typeU32);
-		
+
 		for(glm::uint i = 0; i < count; ++i)
 		{
 			glm::uint Return = glm::bitfieldExtract(
 				Data32[i].Value, 
-				Data32[i].BitFirst, 
-				Data32[i].BitCount);
+				Data32[i].Offset, 
+				Data32[i].Bits);
 			
 			bool Compare = Data32[i].Return == Return;
-			
+
 			if(Data32[i].Result == SUCCESS && Compare)
 				continue;
 			else if(Data32[i].Result == FAIL && !Compare)
 				continue;
-			
-			std::cout << "glm::bitfieldExtract test fail on test " << i << std::endl;
-			return 1;
+
+			Error += 1;
 		}
-		
-		return 0;
+
+		return Error;
 	}
 }//extractField
 
@@ -517,6 +516,115 @@ namespace imulExtended
 	}
 }//namespace imulExtended
 
+namespace bitCount
+{
+	template <typename genType>
+	struct type
+	{
+		genType		Value;
+		genType		Return;
+	};
+
+	type<int> const DataI32[] =
+	{
+		{0x00000001,  1},
+		{0x00000003,  2},
+		{0x00000002,  1},
+		{0xffffffff, 32},
+		{0x00000000,  0}
+	};
+
+	template <typename T>
+	int bitCount_if(T v)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitCount' only accept integer values");
+
+		int Count(0);
+		for(T i = 0, n = static_cast<T>(sizeof(T) * 8); i < n; ++i)
+		{
+			if(v & static_cast<T>(1 << i))
+				++Count;
+		}
+		return Count;
+	}
+
+	template <typename T>
+	int bitCount_vec(T v)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitCount' only accept integer values");
+
+		int Count(0);
+		for(T i = 0, n = static_cast<T>(sizeof(T) * 8); i < n; ++i)
+		{
+			Count += static_cast<int>((v >> i) & static_cast<T>(1));
+		}
+		return Count;
+	}
+
+	int perf()
+	{
+		int Error(0);
+
+		std::size_t Size = 10000000;
+
+		std::clock_t TimestampsA = std::clock();
+
+		{
+			std::vector<int> v;
+			v.resize(Size);
+
+			for(std::size_t i = 0, n = v.size(); i < n; ++i)
+				v[i] = bitCount_if(i);
+		}
+
+		std::clock_t TimestampsB = std::clock();
+
+		{
+			std::vector<int> v;
+			v.resize(Size);
+
+			for(std::size_t i = 0, n = v.size(); i < n; ++i)
+				v[i] = bitCount_vec(i);
+		}
+
+		std::clock_t TimestampsC = std::clock();
+
+		{
+			std::vector<int> v;
+			v.resize(Size);
+
+			for(std::size_t i = 0, n = v.size(); i < n; ++i)
+				v[i] = glm::bitCount(i);
+		}
+
+		std::clock_t TimestampsD = std::clock();
+
+		std::clock_t TimeIf = TimestampsB - TimestampsA;
+		std::clock_t TimeVec = TimestampsC - TimestampsB;
+		std::clock_t TimeDefault = TimestampsD - TimestampsC;
+
+		printf("TimeIf %d\n", TimeIf);
+		printf("TimeVec %d\n", TimeVec);
+		printf("TimeDefault %d\n", TimeDefault);
+
+		return Error;
+	}
+
+	int test()
+	{
+		int Error(0);
+
+		for(std::size_t i = 0, n = sizeof(DataI32) / sizeof(type<int>); i < n; ++i)
+		{
+			int Result = glm::bitCount(DataI32[i].Value);
+			Error += DataI32[i].Return == Result ? 0 : 1;
+			assert(!Error);
+		}
+
+		return Error;
+	}
+}//bitCount
+
 int main()
 {
 	int Error = 0;
@@ -530,6 +638,8 @@ int main()
 	Error += ::bitfieldInsert::test();
 	Error += ::bitfieldExtract::test();
 	Error += ::bitfieldReverse::test();
+	Error += ::bitCount::test();
+	Error += ::bitCount::perf();
 	Error += ::findMSB::test();
 	Error += ::findLSB::test();
 

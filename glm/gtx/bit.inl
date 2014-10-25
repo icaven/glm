@@ -12,16 +12,16 @@
 
 namespace glm
 {
-	template <typename genIType>
-	GLM_FUNC_QUALIFIER genIType mask
-	(
-		genIType const & count
-	)
+	GLM_FUNC_QUALIFIER int mask(int Bits)
 	{
-		return ((genIType(1) << (count)) - genIType(1));
+		return Bits >= sizeof(Bits) * 8 ? ~static_cast<int>(0) : (static_cast<int>(1) << Bits) - static_cast<int>(1);
 	}
 
-	VECTORIZE_VEC(mask)
+	template <precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<int, P> mask(vecType<int, P> const & v)
+	{
+		return detail::functor1<int, int, P, vecType>::call(mask, v);
+	}
 
 	// highestBitValue
 	template <typename genType>

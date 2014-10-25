@@ -39,8 +39,15 @@
 #endif//(GLM_ARCH != GLM_ARCH_PURE)
 #include <limits>
 
-namespace glm
+namespace glm{
+namespace detail
 {
+	GLM_FUNC_QUALIFIER int mask(int Bits)
+	{
+		return Bits >= 32 ? 0xffffffff : (static_cast<int>(1) << Bits) - static_cast<int>(1);
+	}
+}//namespace detail
+
 	// uaddCarry
 	GLM_FUNC_QUALIFIER uint uaddCarry(uint const & x, uint const & y, uint & Carry)
 	{
@@ -139,16 +146,8 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldExtract' only accept integer inputs");
 
-		int GenSize = int(sizeof(T)) << int(3);
-
-		assert(Offset + Bits <= GenSize);
-
-		vecType<T, P> ShiftLeft(0);
-		if(Bits)
-			ShiftLeft = Value << static_cast<T>(GenSize - (Bits + Offset));
-		vecType<T, P> const ShiftBack = ShiftLeft >> static_cast<T>(GenSize - Bits);
-
-		return ShiftBack;
+		int const Mask = detail::mask(Bits);
+		return (Value >> static_cast<T>(Offset)) & static_cast<T>(Mask);
 	}
 
 	// bitfieldInsert
@@ -163,13 +162,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldInsert' only accept integer values");
 
-		if(Bits == 0)
-			return Base;
-
-		vecType<T, P> Mask(0);
-		for(int Bit = Offset; Bit < Offset + Bits; ++Bit)
-			Mask |= (static_cast<int>(1) << Bit);
-
+		T Mask = static_cast<T>(detail::mask(Bits) << Offset);
 		return (Base & ~Mask) | (Insert & Mask);
 	}
 
@@ -186,7 +179,6 @@ namespace glm
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldReverse' only accept integer values");
 
 		vecType<T, P> Result(0);
-		vecType<T, P> const Null(0);
 		T const BitSize = static_cast<T>(sizeof(T) * 8);
 		for(T i = 0; i < BitSize; ++i)
 		{
@@ -210,11 +202,8 @@ namespace glm
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitCount' only accept integer values");
 
 		vecType<int, P> Count(0);
-		for(std::size_t i = 0; i < sizeof(T) * std::size_t(8); ++i)
-		{
-			if(v & (static_cast<T>(1) << i))
-				++Count;
-		}
+		for(T i = 0, n = static_cast<T>(sizeof(T) * 8); i < n; ++i)
+			Count += vecType<int, P>((v >> i) & static_cast<T>(1));
 		return Count;
 	}
 
