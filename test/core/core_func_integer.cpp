@@ -530,12 +530,12 @@ namespace bitCount
 		{0x00000001,  1},
 		{0x00000003,  2},
 		{0x00000002,  1},
-		{0xffffffff, 32},
+		{0x7fffffff, 31},
 		{0x00000000,  0}
 	};
 
 	template <typename T>
-	int bitCount_if(T v)
+	inline int bitCount_if(T v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitCount' only accept integer values");
 
@@ -549,7 +549,7 @@ namespace bitCount
 	}
 
 	template <typename T>
-	int bitCount_vec(T v)
+	inline int bitCount_vec(T v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitCount' only accept integer values");
 
@@ -566,46 +566,56 @@ namespace bitCount
 		int Error(0);
 
 		std::size_t Size = 10000000;
+		std::vector<int> v;
+		v.resize(Size);
+
+		std::vector<glm::ivec4> w;
+		w.resize(Size);
+
 
 		std::clock_t TimestampsA = std::clock();
 
+		// bitCount - TimeIf
 		{
-			std::vector<int> v;
-			v.resize(Size);
-
 			for(std::size_t i = 0, n = v.size(); i < n; ++i)
 				v[i] = bitCount_if(i);
 		}
 
 		std::clock_t TimestampsB = std::clock();
 
+		// bitCount - TimeVec
 		{
-			std::vector<int> v;
-			v.resize(Size);
-
 			for(std::size_t i = 0, n = v.size(); i < n; ++i)
 				v[i] = bitCount_vec(i);
 		}
 
 		std::clock_t TimestampsC = std::clock();
 
+		// bitCount - TimeDefault
 		{
-			std::vector<int> v;
-			v.resize(Size);
-
 			for(std::size_t i = 0, n = v.size(); i < n; ++i)
 				v[i] = glm::bitCount(i);
 		}
 
 		std::clock_t TimestampsD = std::clock();
 
+		// bitCount - TimeVec4
+		{
+			for(std::size_t i = 0, n = v.size(); i < n; ++i)
+				w[i] = glm::bitCount(glm::ivec4(i));
+		}
+
+		std::clock_t TimestampsE = std::clock();
+
 		std::clock_t TimeIf = TimestampsB - TimestampsA;
 		std::clock_t TimeVec = TimestampsC - TimestampsB;
 		std::clock_t TimeDefault = TimestampsD - TimestampsC;
+		std::clock_t TimeVec4 = TimestampsE - TimestampsD;
 
-		printf("TimeIf %d\n", TimeIf);
-		printf("TimeVec %d\n", TimeVec);
-		printf("TimeDefault %d\n", TimeDefault);
+		printf("bitCount - TimeIf %d\n", TimeIf);
+		printf("bitCount - TimeVec %d\n", TimeVec);
+		printf("bitCount - TimeDefault %d\n", TimeDefault);
+		printf("bitCount - TimeVec4 %d\n", TimeVec4);
 
 		return Error;
 	}
