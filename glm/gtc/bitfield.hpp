@@ -42,6 +42,8 @@
 #include "../detail/setup.hpp"
 #include "../detail/precision.hpp"
 #include "../detail/type_int.hpp"
+#include "../detail/_vectorize.hpp"
+#include <limits>
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTC_bitfield extension included")

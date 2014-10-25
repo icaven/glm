@@ -256,17 +256,17 @@ namespace detail
 		return detail::functor1<int, int, P, vecType>::call(mask, v);
 	}
 
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType bitRotateRight(genType In, int Shift)
+	template <typename genIType>
+	GLM_FUNC_QUALIFIER genIType bitRotateRight(genIType In, int Shift)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_integer, "'bitRotateRight' only accept integer values");
+		GLM_STATIC_ASSERT(std::numeric_limits<genIType>::is_integer, "'bitRotateRight' only accept integer values");
 
-		int const BitSize = static_cast<genType>(sizeof(T) * 8);
-		return (In << static_cast<T>(Shift)) | (In >> static_cast<T>(BitSize - Shift));
+		int const BitSize = static_cast<genIType>(sizeof(genIType) * 8);
+		return (In << static_cast<genIType>(Shift)) | (In >> static_cast<genIType>(BitSize - Shift));
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> bitRotateRight(vecType<T, P> const & Value, int Shift)
+	GLM_FUNC_QUALIFIER vecType<T, P> bitRotateRight(vecType<T, P> const & In, int Shift)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitRotateRight' only accept integer values");
 
@@ -274,13 +274,13 @@ namespace detail
 		return (In << static_cast<T>(Shift)) | (In >> static_cast<T>(BitSize - Shift));
 	}
 
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType bitRotateLeft(genType In, int Shift)
+	template <typename genIType>
+	GLM_FUNC_QUALIFIER genIType bitRotateLeft(genIType In, int Shift)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_integer, "'bitRotateLeft' only accept integer values");
+		GLM_STATIC_ASSERT(std::numeric_limits<genIType>::is_integer, "'bitRotateLeft' only accept integer values");
 
-		int const BitSize = static_cast<genType>(sizeof(T) * 8);
-		return (In >> static_cast<genType>(Shift)) | (In << static_cast<genType>(BitSize - Shift));
+		int const BitSize = static_cast<genIType>(sizeof(genIType) * 8);
+		return (In >> static_cast<genIType>(Shift)) | (In << static_cast<genIType>(BitSize - Shift));
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
