@@ -1,5 +1,4 @@
 glmCreateTestGTC(gtx_associated_min_max)
-glmCreateTestGTC(gtx_bit)
 glmCreateTestGTC(gtx_closest_point)
 glmCreateTestGTC(gtx_color_space_YCoCg)
 glmCreateTestGTC(gtx_color_space)

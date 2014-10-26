@@ -20,28 +20,28 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_bit
-/// @file glm/gtx/bit.hpp
-/// @date 2007-03-14 / 2011-06-07
+/// @ref gtc_integer
+/// @file glm/gtc/integer.inl
+/// @date 2014-10-25 / 2014-10-25
 /// @author Christophe Riccio
-///
-/// @see core (dependence)
-/// @see gtc_half_float (dependence)
-///
-/// @defgroup gtx_bit GLM_GTX_bit
-/// @ingroup gtx
-/// 
-/// @brief Allow to perform bit operations on integer values
-/// 
-/// <glm/gtx/bit.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
-#pragma once
+namespace glm
+{
+	////////////////
+	// isPowerOfTwo
 
-// Dependencies
-#include "../gtc/bitfield.hpp"
-#include "../gtc/integer.hpp"
+	template <typename genType>
+	GLM_FUNC_QUALIFIER bool isPowerOfTwo(genType Value)
+	{
+		genType Result = glm::abs(Value);
+		return !(Result & (Result - 1));
+	}
 
-#if(defined(GLM_MESSAGES))
-#	pragma message("GLM: GLM_GTX_bit extension is deprecated, include GLM_GTC_bitfield and GLM_GTC_integer instead")
-#endif
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<bool, P> isPowerOfTwo(vecType<T, P> const & value)
+	{
+		genType Result = glm::abs(Value);
+		return !(Result & (Result - 1));
+	}
+}//namespace glm

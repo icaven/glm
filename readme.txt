@@ -78,6 +78,7 @@ GLM 0.9.6.0: 2014-XX-XX
 - Added not function (from GLSL specification) on VC12
 - Optimized bitfield operations
 - Added GTC_bitfield extension, promoted GTX_bit
+- Added GTC_integer extension, promoted GTX_bit
 
 ================================================================================
 GLM 0.9.5.4: 2014-06-21
