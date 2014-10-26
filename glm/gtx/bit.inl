@@ -153,21 +153,6 @@ namespace glm
 
 	VECTORIZE_VEC(powerOfTwoNearest)
 
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType bitRevert(genType const & In)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_integer, "'bitRevert' only accept integer values");
-
-		genType Out = 0;
-		std::size_t BitSize = sizeof(genType) * 8;
-		for(std::size_t i = 0; i < BitSize; ++i)
-			if(In & (genType(1) << i))
-				Out |= genType(1) << (BitSize - 1 - i);
-		return Out;
-	}
-
-	VECTORIZE_VEC(bitRevert)
-
 	template <typename genIUType>
 	GLM_FUNC_QUALIFIER genIUType fillBitfieldWithOne
 	(

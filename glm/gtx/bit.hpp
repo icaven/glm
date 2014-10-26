@@ -76,11 +76,6 @@ namespace glm
 	template <typename genType> 
 	GLM_FUNC_DECL genType powerOfTwoNearest(genType const & value);
 
-	//! Revert all bits of any integer based type. 
-	/// @see gtx_bit
-	template <typename genType> 
-	GLM_DEPRECATED GLM_FUNC_DECL genType bitRevert(genType const & value);
-
 	//! Set to 1 a range of bits.
 	/// @see gtx_bit
 	template <typename genIUType>

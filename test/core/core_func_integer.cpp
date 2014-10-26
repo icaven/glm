@@ -9,9 +9,9 @@
 
 #include <glm/integer.hpp>
 #include <glm/gtc/vec1.hpp>
-#include <iostream>
 #include <vector>
 #include <ctime>
+#include <cstdio>
 
 enum result
 {
@@ -148,7 +148,25 @@ namespace bitfieldReverse
 		{0xf0000000, 0x0000000f, SUCCESS},
 	};
 
-	int test()
+	typedef type<glm::uint64> typeU64;
+
+#if(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && (GLM_COMPILER < GLM_COMPILER_GCC44))
+	typeU64 const Data64[] =
+	{
+		{0xffffffffffffffffLLU, 0xffffffffffffffffLLU, SUCCESS},
+		{0x0000000000000000LLU, 0x0000000000000000LLU, SUCCESS},
+		{0xf000000000000000LLU, 0x000000000000000fLLU, SUCCESS},
+	};
+#else
+	typeU64 const Data64[] =
+	{
+		{0xffffffffffffffff, 0xffffffffffffffff, SUCCESS},
+		{0x0000000000000000, 0x0000000000000000, SUCCESS},
+		{0xf000000000000000, 0x000000000000000f, SUCCESS},
+	};
+#endif
+
+	int test32()
 	{
 		glm::uint count = sizeof(Data32) / sizeof(typeU32);
 		
@@ -164,13 +182,46 @@ namespace bitfieldReverse
 			else if(Data32[i].Result == FAIL && !Compare)
 				continue;
 			
-			std::cout << "glm::bitfieldReverse test fail on test " << i << std::endl;
+			printf("glm::bitfieldReverse test fail on test %d\n", i);
 			return 1;
 		}
 		
 		return 0;
 	}
-}//bitRevert
+
+	int test64()
+	{
+		glm::uint32 count = sizeof(Data64) / sizeof(typeU64);
+		
+		for(glm::uint32 i = 0; i < count; ++i)
+		{
+			glm::uint64 Return = glm::bitfieldReverse(
+				Data64[i].Value);
+			
+			bool Compare = Data64[i].Return == Return;
+			
+			if(Data64[i].Result == SUCCESS && Compare)
+				continue;
+			else if(Data64[i].Result == FAIL && !Compare)
+				continue;
+			
+			printf("glm::extractfield test fail on test %d\n", i);
+			return 1;
+		}
+		
+		return 0;
+	}
+
+	int test()
+	{
+		int Error = 0;
+
+		Error += test32();
+		Error += test64();
+
+		return Error;
+	}
+}//bitfieldReverse
 
 namespace findMSB
 {
@@ -638,8 +689,6 @@ namespace bitCount
 int main()
 {
 	int Error = 0;
-
-	std::cout << "sizeof(glm::uint64): " << sizeof(glm::detail::uint64) << std::endl;
 
 	Error += ::umulExtended::test();
 	Error += ::imulExtended::test();
