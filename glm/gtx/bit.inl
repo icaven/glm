@@ -152,38 +152,4 @@ namespace glm
 	}
 
 	VECTORIZE_VEC(powerOfTwoNearest)
-
-	template <typename genIUType>
-	GLM_FUNC_QUALIFIER genIUType fillBitfieldWithOne
-	(
-		genIUType const & Value,
-		int const & FromBit, 
-		int const & ToBit
-	)
-	{
-		assert(FromBit <= ToBit);
-		assert(ToBit <= sizeof(genIUType) * std::size_t(8));
-
-		genIUType Result = Value;
-		for(signed i = 0; i <= ToBit; ++i)
-			Result |= (1 << i);
-		return Result;
-	}
-
-	template <typename genIUType>
-	GLM_FUNC_QUALIFIER genIUType fillBitfieldWithZero
-	(
-		genIUType const & Value,
-		int const & FromBit, 
-		int const & ToBit
-	)
-	{
-		assert(FromBit <= ToBit);
-		assert(ToBit <= sizeof(genIUType) * std::size_t(8));
-
-		genIUType Result = Value;
-		for(signed i = 0; i <= ToBit; ++i)
-			Result &= ~(1 << i);
-		return Result;
-	}
 }//namespace glm

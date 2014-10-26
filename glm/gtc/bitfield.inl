@@ -257,39 +257,63 @@ namespace detail
 	}
 
 	template <typename genIType>
-	GLM_FUNC_QUALIFIER genIType bitRotateRight(genIType In, int Shift)
+	GLM_FUNC_QUALIFIER genIType bitfieldRotateRight(genIType In, int Shift)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genIType>::is_integer, "'bitRotateRight' only accept integer values");
+		GLM_STATIC_ASSERT(std::numeric_limits<genIType>::is_integer, "'bitfieldRotateRight' only accept integer values");
 
 		int const BitSize = static_cast<genIType>(sizeof(genIType) * 8);
 		return (In << static_cast<genIType>(Shift)) | (In >> static_cast<genIType>(BitSize - Shift));
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> bitRotateRight(vecType<T, P> const & In, int Shift)
+	GLM_FUNC_QUALIFIER vecType<T, P> bitfieldRotateRight(vecType<T, P> const & In, int Shift)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitRotateRight' only accept integer values");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldRotateRight' only accept integer values");
 
 		int const BitSize = static_cast<int>(sizeof(T) * 8);
 		return (In << static_cast<T>(Shift)) | (In >> static_cast<T>(BitSize - Shift));
 	}
 
 	template <typename genIType>
-	GLM_FUNC_QUALIFIER genIType bitRotateLeft(genIType In, int Shift)
+	GLM_FUNC_QUALIFIER genIType bitfieldRotateLeft(genIType In, int Shift)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genIType>::is_integer, "'bitRotateLeft' only accept integer values");
+		GLM_STATIC_ASSERT(std::numeric_limits<genIType>::is_integer, "'bitfieldRotateLeft' only accept integer values");
 
 		int const BitSize = static_cast<genIType>(sizeof(genIType) * 8);
 		return (In >> static_cast<genIType>(Shift)) | (In << static_cast<genIType>(BitSize - Shift));
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> bitRotateLeft(vecType<T, P> const & In, int Shift)
+	GLM_FUNC_QUALIFIER vecType<T, P> bitfieldRotateLeft(vecType<T, P> const & In, int Shift)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitRotateLeft' only accept integer values");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldRotateLeft' only accept integer values");
 
 		int const BitSize = static_cast<int>(sizeof(T) * 8);
 		return (In >> static_cast<T>(Shift)) | (In << static_cast<T>(BitSize - Shift));
+	}
+
+	template <typename genIUType>
+	GLM_FUNC_QUALIFIER genIUType bitfieldFillOne(genIUType Value, int FirstBit, int BitCount)
+	{
+		return Value | static_cast<genIUType>(mask(BitCount) << FirstBit);
+	}
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> bitfieldFillOne(vecType<T, P> const & Value, int FirstBit, int BitCount)
+	{
+		return Value | static_cast<T>(mask(BitCount) << FirstBit);
+	}
+
+	template <typename genIUType>
+	GLM_FUNC_QUALIFIER genIUType bitfieldFillZero(genIUType Value, int FirstBit, int BitCount)
+	{
+		return Value & static_cast<genIUType>(~(mask(BitCount) << FirstBit));
+	}
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> bitfieldFillZero(vecType<T, P> const & Value, int FirstBit, int BitCount)
+	{
+		return Value & static_cast<T>(~(mask(BitCount) << FirstBit));
 	}
 
 	GLM_FUNC_QUALIFIER int16 bitfieldInterleave(int8 x, int8 y)

@@ -76,22 +76,6 @@ namespace glm
 	template <typename genType> 
 	GLM_FUNC_DECL genType powerOfTwoNearest(genType const & value);
 
-	//! Set to 1 a range of bits.
-	/// @see gtx_bit
-	template <typename genIUType>
-	GLM_FUNC_DECL genIUType fillBitfieldWithOne(
-		genIUType const & Value,
-		int const & FromBit, 
-		int const & ToBit);
-
-	//! Set to 0 a range of bits.
-	/// @see gtx_bit
-	template <typename genIUType>
-	GLM_FUNC_DECL genIUType fillBitfieldWithZero(
-		genIUType const & Value,
-		int const & FromBit, 
-		int const & ToBit);
-
 	/// @}
 } //namespace glm
 
