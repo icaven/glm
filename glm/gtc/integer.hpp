@@ -41,6 +41,7 @@
 // Dependencies
 #include "../detail/setup.hpp"
 #include "../detail/precision.hpp"
+#include "../vector_relational.hpp"
 #include <limits>
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
@@ -55,8 +56,8 @@ namespace glm
 	/// Return true if the value is a power of two number.
 	///
 	/// @see gtc_integer
-	template <typename genType>
-	GLM_FUNC_DECL bool isPowerOfTwo(genType Value);
+	template <typename genIUType>
+	GLM_FUNC_DECL bool isPowerOfTwo(genIUType Value);
 
 	/// Return true if the value is a power of two number.
 	///
@@ -64,29 +65,53 @@ namespace glm
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL vecType<bool, P> isPowerOfTwo(vecType<T, P> const & value);
 
-	/// Find the highest bit set to 1 in a integer variable and return its value. 
+	/// Find the highest bit set to 1 in a integer variable and return its value.
 	///
 	/// @see gtc_integer
-	template <typename genType> 
-	GLM_FUNC_DECL genType highestBitValue(genType const & value);
+	template <typename genIUType>
+	GLM_FUNC_DECL genIUType highestBitValue(genIUType Value);
+
+	/// Find the highest bit set to 1 in a integer variable and return its value.
+	///
+	/// @see gtc_integer
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> highestBitValue(vecType<T, P> const & value);
 
 	/// Return the power of two number which value is just higher the input value.
 	///
 	/// @see gtc_integer
-	template <typename genType> 
-	GLM_FUNC_DECL genType powerOfTwoAbove(genType const & value);
+	template <typename genIUType>
+	GLM_FUNC_DECL genIUType powerOfTwoAbove(genIUType Value);
 
-	/// Return the power of two number which value is just lower the input value. 
+	/// Return the power of two number which value is just higher the input value.
 	///
 	/// @see gtc_integer
-	template <typename genType> 
-	GLM_FUNC_DECL genType powerOfTwoBelow(genType const & value);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> powerOfTwoAbove(vecType<T, P> const & value);
 
-	/// Return the power of two number which value is the closet to the input value. 
+	/// Return the power of two number which value is just lower the input value.
 	///
 	/// @see gtc_integer
-	template <typename genType> 
-	GLM_FUNC_DECL genType powerOfTwoNearest(genType const & value);
+	template <typename genIUType>
+	GLM_FUNC_DECL genIUType powerOfTwoBelow(genIUType Value);
+
+	/// Return the power of two number which value is just lower the input value.
+	///
+	/// @see gtc_integer
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> powerOfTwoBelow(vecType<T, P> const & value);
+
+	/// Return the power of two number which value is the closet to the input value.
+	///
+	/// @see gtc_integer
+	template <typename genIUType>
+	GLM_FUNC_DECL genIUType powerOfTwoNearest(genIUType Value);
+
+	/// Return the power of two number which value is the closet to the input value.
+	///
+	/// @see gtc_integer
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> powerOfTwoNearest(vecType<T, P> const & value);
 
 	/// @}
 } //namespace glm
