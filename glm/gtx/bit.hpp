@@ -45,3 +45,61 @@
 #if(defined(GLM_MESSAGES))
 #	pragma message("GLM: GLM_GTX_bit extension is deprecated, include GLM_GTC_bitfield and GLM_GTC_integer instead")
 #endif
+
+namespace glm
+{
+	/// @addtogroup gtx_bit
+	/// @{
+
+	/// @see gtx_bit
+	template <typename genIUType>
+	GLM_FUNC_DECL genIUType highestBitValue(genIUType Value);
+
+	/// Find the highest bit set to 1 in a integer variable and return its value.
+	///
+	/// @see gtx_bit
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> highestBitValue(vecType<T, P> const & value);
+
+	/// Return the power of two number which value is just higher the input value.
+	///
+	/// @see gtx_bit
+	template <typename genIUType>
+	GLM_FUNC_DECL genIUType powerOfTwoAbove(genIUType Value);
+
+	/// Return the power of two number which value is just higher the input value.
+	///
+	/// @see gtx_bit
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> powerOfTwoAbove(vecType<T, P> const & value);
+
+	/// Return the power of two number which value is just lower the input value.
+	///
+	/// @see gtx_bit
+	template <typename genIUType>
+	GLM_FUNC_DECL genIUType powerOfTwoBelow(genIUType Value);
+
+	/// Return the power of two number which value is just lower the input value.
+	///
+	/// @see gtx_bit
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> powerOfTwoBelow(vecType<T, P> const & value);
+
+	/// Return the power of two number which value is the closet to the input value.
+	///
+	/// @see gtx_bit
+	template <typename genIUType>
+	GLM_FUNC_DECL genIUType powerOfTwoNearest(genIUType Value);
+
+	/// Return the power of two number which value is the closet to the input value.
+	///
+	/// @see gtx_bit
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> powerOfTwoNearest(vecType<T, P> const & value);
+
+	/// @}
+} //namespace glm
+
+
+#include "bit.inl"
+
