@@ -48,7 +48,26 @@ namespace detail
 	};
 
 	template <typename T, precision P, template <typename, precision> class vecType, bool isSigned = true>
-	struct compute_ceilPowerOfTwo{};
+	struct compute_ceilPowerOfTwo
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x)
+		{
+			GLM_STATIC_ASSERT(!std::numeric_limits<T>::is_iec559, "'ceilPowerOfTwo' only accept integer scalar or vector inputs");
+
+			vecType<T, P> const Sign(sign(x));
+
+			vecType<T, P> v(abs(x));
+
+			v = v - static_cast<T>(1);
+			v = v | (v >> static_cast<T>(1));
+			v = v | (v >> static_cast<T>(2));
+			v = v | (v >> static_cast<T>(4));
+			v = compute_ceilShift<T, P, vecType, sizeof(T) >= 2>::call(v, 8);
+			v = compute_ceilShift<T, P, vecType, sizeof(T) >= 4>::call(v, 16);
+			v = compute_ceilShift<T, P, vecType, sizeof(T) >= 8>::call(v, 32);
+			return (v + static_cast<T>(1)) * Sign;
+		}
+	};
 
 	template <typename T, precision P, template <typename, precision> class vecType>
 	struct compute_ceilPowerOfTwo<T, P, vecType, false>

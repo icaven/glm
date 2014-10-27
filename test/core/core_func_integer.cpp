@@ -526,7 +526,7 @@ namespace findMSB
 		int Error(0);
 
 		Error += test_findMSB();
-		Error += test_nlz1();
+		//Error += test_nlz1();
 
 		return Error;
 	}

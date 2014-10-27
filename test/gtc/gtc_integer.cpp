@@ -179,6 +179,35 @@ namespace ceilPowerOfTwo
 		genType		Return;
 	};
 
+	int test_int32()
+	{
+		type<glm::int32> const Data[] =
+		{
+			{0x0000ffff, 0x00010000},
+			{-3, -4},
+			{-8, -8},
+			{0x00000001, 0x00000001},
+			{0x00000002, 0x00000002},
+			{0x00000004, 0x00000004},
+			{0x00000007, 0x00000008},
+			{0x0000fff0, 0x00010000},
+			{0x0000f000, 0x00010000},
+			{0x08000000, 0x08000000},
+			{0x00000000, 0x00000000},
+			{0x00000003, 0x00000004}
+		};
+
+		int Error(0);
+
+		for(std::size_t i = 0, n = sizeof(Data) / sizeof(type<glm::int32>); i < n; ++i)
+		{
+			glm::int32 Result = glm::ceilPowerOfTwo(Data[i].Value);
+			Error += Data[i].Return == Result ? 0 : 1;
+		}
+
+		return Error;
+	}
+
 	int test_uint32()
 	{
 		type<glm::uint32> const Data[] =
@@ -235,6 +264,7 @@ namespace ceilPowerOfTwo
 	{
 		int Error(0);
 
+		Error += test_int32();
 		Error += test_uint32();
 
 		return Error;
