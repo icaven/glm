@@ -73,7 +73,7 @@ namespace isPowerOfTwo
 			{0x00000001, true},
 			{0x00000002, true},
 			{0x00000004, true},
-			{0xffffffff, true},
+			{0x0000000f, false},
 			{0x00000000, true},
 			{0x00000003, false}
 		};

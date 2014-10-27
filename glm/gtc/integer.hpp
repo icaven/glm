@@ -41,7 +41,9 @@
 // Dependencies
 #include "../detail/setup.hpp"
 #include "../detail/precision.hpp"
+#include "../detail/_vectorize.hpp"
 #include "../vector_relational.hpp"
+#include "../common.hpp"
 #include <limits>
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
