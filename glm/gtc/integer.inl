@@ -26,82 +26,103 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-namespace glm
+namespace glm{
+namespace detail
 {
+	template <typename T, precision P, template <class, precision> class vecType, bool isSigned = true>
+	struct compute_ceilPowerOfTwo{};
+
+	template <typename T, precision P, template <class, precision> class vecType>
+	struct compute_ceilPowerOfTwo<T, P, vecType, false>
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & v)
+		{
+			GLM_STATIC_ASSERT(
+				!std::numeric_limits<genFIType>::is_iec559,
+				"'ceilPowerOfTwo' only accept integer scalar or vector inputs");
+
+			template <typename T, precision P, template <class, precision> class vecType, bool compute = false>
+			struct compute_ceil_shift
+			{
+				GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & v, T)
+				{
+					return v;
+				}
+			};
+
+			template <typename T, precision P, template <class, precision> class vecType, bool compute = true>
+			struct compute_ceil_shift
+			{
+				GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & v, T Shift)
+				{
+					return v | (v >> Shift);
+				}
+			};
+
+			v = v - static_cast<T>(1);
+			v = v | (v >> static_cast<T>(1));
+			v = v | (v >> static_cast<T>(2));
+			v = v | (v >> static_cast<T>(4));
+			v = compute_ceil_shift<T, P, vecType, sizeof(T) >= 2>::call(v, 8);
+			v = compute_ceil_shift<T, P, vecType, sizeof(T) >= 4>::call(v, 16);
+			v = compute_ceil_shift<T, P, vecType, sizeof(T) >= 8>::call(v, 32);
+			return v + static_cast<T>(1);
+		}
+	};
+}//namespace detail
+
 	////////////////
 	// isPowerOfTwo
 
 	template <typename genType>
 	GLM_FUNC_QUALIFIER bool isPowerOfTwo(genType Value)
 	{
-		genType Result = glm::abs(Value);
+		genType const Result = glm::abs(Value);
 		return !(Result & (Result - 1));
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<bool, P> isPowerOfTwo(vecType<T, P> const & Value)
 	{
-		vecType<T, P> Result(abs(Value));
+		vecType<T, P> const Result(abs(Value));
 		return equal(Result & (Result - 1), vecType<T, P>(0));
 	}
 
-	///////////////////
-	// highestBitValue
-
-	template <typename genIUType>
-	GLM_FUNC_QUALIFIER genIUType highestBitValue(genIUType Value)
-	{
-		genIUType tmp = Value;
-		genIUType result = genIUType(0);
-		while(tmp)
-		{
-			result = (tmp & (~tmp + 1)); // grab lowest bit
-			tmp &= ~result; // clear lowest bit
-		}
-		return result;
-	}
-
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> highestBitValue(vecType<T, P> const & v)
-	{
-		return detail::functor1<T, T, P, vecType>::call(highestBitValue, v);
-	}
-
-	///////////////////
-	// powerOfTwoAbove
+	//////////////////
+	// ceilPowerOfTwo
 
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType powerOfTwoAbove(genType value)
+	GLM_FUNC_QUALIFIER genType ceilPowerOfTwo(genType value)
 	{
 		return isPowerOfTwo(value) ? value : highestBitValue(value) << 1;
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> powerOfTwoAbove(vecType<T, P> const & v)
+	GLM_FUNC_QUALIFIER vecType<T, P> ceilPowerOfTwo(vecType<T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(powerOfTwoAbove, v);
+		return detail::functor1<T, T, P, vecType>::call(ceilPowerOfTwo, v);
 	}
 
 	///////////////////
-	// powerOfTwoBelow
+	// floorPowerOfTwo
 
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType powerOfTwoBelow(genType value)
+	GLM_FUNC_QUALIFIER genType floorPowerOfTwo(genType value)
 	{
 		return isPowerOfTwo(value) ? value : highestBitValue(value);
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> powerOfTwoBelow(vecType<T, P> const & v)
+	GLM_FUNC_QUALIFIER vecType<T, P> floorPowerOfTwo(vecType<T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(powerOfTwoBelow, v);
+		return detail::functor1<T, T, P, vecType>::call(floorPowerOfTwo, v);
 	}
 
-	/////////////////////
-	// powerOfTwoNearest
+	///////////////////
+	// roundPowerOfTwo
 
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType powerOfTwoNearest(genType value)
+	GLM_FUNC_QUALIFIER genType roundPowerOfTwo(genType value)
 	{
 		if(isPowerOfTwo(value))
 			return value;
@@ -112,8 +133,8 @@ namespace glm
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> powerOfTwoNearest(vecType<T, P> const & v)
+	GLM_FUNC_QUALIFIER vecType<T, P> roundPowerOfTwo(vecType<T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(powerOfTwoNearest, v);
+		return detail::functor1<T, T, P, vecType>::call(roundPowerOfTwo, v);
 	}
 }//namespace glm

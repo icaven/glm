@@ -67,53 +67,45 @@ namespace glm
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL vecType<bool, P> isPowerOfTwo(vecType<T, P> const & value);
 
-	/// Find the highest bit set to 1 in a integer variable and return its value.
+	/// Return the power of two number which value is just higher the input value,
+	/// round up to a power of two.
 	///
 	/// @see gtc_integer
 	template <typename genIUType>
-	GLM_FUNC_DECL genIUType highestBitValue(genIUType Value);
+	GLM_FUNC_DECL genIUType ceilPowerOfTwo(genIUType Value);
 
-	/// Find the highest bit set to 1 in a integer variable and return its value.
+	/// Return the power of two number which value is just higher the input value,
+	/// round up to a power of two.
 	///
 	/// @see gtc_integer
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> highestBitValue(vecType<T, P> const & value);
+	GLM_FUNC_DECL vecType<T, P> ceilPowerOfTwo(vecType<T, P> const & value);
 
-	/// Return the power of two number which value is just higher the input value.
+	/// Return the power of two number which value is just lower the input value,
+	/// round down to a power of two.
 	///
 	/// @see gtc_integer
 	template <typename genIUType>
-	GLM_FUNC_DECL genIUType powerOfTwoAbove(genIUType Value);
+	GLM_FUNC_DECL genIUType floorPowerOfTwo(genIUType Value);
 
-	/// Return the power of two number which value is just higher the input value.
+	/// Return the power of two number which value is just lower the input value,
+	/// round down to a power of two.
 	///
 	/// @see gtc_integer
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> powerOfTwoAbove(vecType<T, P> const & value);
-
-	/// Return the power of two number which value is just lower the input value.
-	///
-	/// @see gtc_integer
-	template <typename genIUType>
-	GLM_FUNC_DECL genIUType powerOfTwoBelow(genIUType Value);
-
-	/// Return the power of two number which value is just lower the input value.
-	///
-	/// @see gtc_integer
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> powerOfTwoBelow(vecType<T, P> const & value);
+	GLM_FUNC_DECL vecType<T, P> floorPowerOfTwo(vecType<T, P> const & value);
 
 	/// Return the power of two number which value is the closet to the input value.
 	///
 	/// @see gtc_integer
 	template <typename genIUType>
-	GLM_FUNC_DECL genIUType powerOfTwoNearest(genIUType Value);
+	GLM_FUNC_DECL genIUType roundPowerOfTwo(genIUType Value);
 
 	/// Return the power of two number which value is the closet to the input value.
 	///
 	/// @see gtc_integer
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> powerOfTwoNearest(vecType<T, P> const & value);
+	GLM_FUNC_DECL vecType<T, P> roundPowerOfTwo(vecType<T, P> const & value);
 
 	/// @}
 } //namespace glm
