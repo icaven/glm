@@ -10,6 +10,8 @@
 #include <glm/gtc/integer.hpp>
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtc/vec1.hpp>
+#include <ctime>
+#include <vector>
 
 namespace isPowerOfTwo
 {
@@ -149,11 +151,103 @@ namespace isPowerOfTwo
 	}
 }//isPowerOfTwo
 
+namespace ceilPowerOfTwo
+{
+	template <typename genIUType>
+	GLM_FUNC_QUALIFIER genIUType highestBitValue(genIUType Value)
+	{
+		genIUType tmp = Value;
+		genIUType result = genIUType(0);
+		while(tmp)
+		{
+			result = (tmp & (~tmp + 1)); // grab lowest bit
+			tmp &= ~result; // clear lowest bit
+		}
+		return result;
+	}
+
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType ceilPowerOfTwo_loop(genType value)
+	{
+		return glm::isPowerOfTwo(value) ? value : highestBitValue(value) << 1;
+	}
+
+	template <typename genType>
+	struct type
+	{
+		genType		Value;
+		genType		Return;
+	};
+
+	int test_uint32()
+	{
+		type<glm::uint32> const Data[] =
+		{
+			{0x00000001, 0x00000001},
+			{0x00000002, 0x00000002},
+			{0x00000004, 0x00000004},
+			{0x00000007, 0x00000008},
+			{0x0000ffff, 0x00010000},
+			{0x0000fff0, 0x00010000},
+			{0x0000f000, 0x00010000},
+			{0x80000000, 0x80000000},
+			{0x00000000, 0x00000000},
+			{0x00000003, 0x00000004}
+		};
+
+		int Error(0);
+
+		for(std::size_t i = 0, n = sizeof(Data) / sizeof(type<glm::uint32>); i < n; ++i)
+		{
+			glm::uint32 Result = glm::ceilPowerOfTwo(Data[i].Value);
+			Error += Data[i].Return == Result ? 0 : 1;
+		}
+
+		return Error;
+	}
+
+	int perf()
+	{
+		int Error(0);
+
+		std::vector<glm::uint> v;
+		v.resize(100000000);
+
+		std::clock_t Timestramp0 = std::clock();
+
+		for(glm::uint32 i = 0, n = static_cast<glm::uint>(v.size()); i < n; ++i)
+			v[i] = ceilPowerOfTwo_loop(i);
+
+		std::clock_t Timestramp1 = std::clock();
+
+		for(glm::uint32 i = 0, n = static_cast<glm::uint>(v.size()); i < n; ++i)
+			v[i] = glm::ceilPowerOfTwo(i);
+
+		std::clock_t Timestramp2 = std::clock();
+
+		printf("ceilPowerOfTwo_loop: %d clocks\n", Timestramp1 - Timestramp0);
+		printf("glm::ceilPowerOfTwo: %d clocks\n", Timestramp2 - Timestramp1);
+
+		return Error;
+	}
+
+	int test()
+	{
+		int Error(0);
+
+		Error += test_uint32();
+
+		return Error;
+	}
+}//namespace ceilPowerOfTwo
+
 int main()
 {
 	int Error(0);
 
 	Error += isPowerOfTwo::test();
+	Error += ceilPowerOfTwo::test();
+	Error += ceilPowerOfTwo::perf();
 
 	return Error;
 }

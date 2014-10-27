@@ -29,43 +29,43 @@
 namespace glm{
 namespace detail
 {
-	template <typename T, precision P, template <class, precision> class vecType, bool isSigned = true>
+	template <typename T, precision P, template <typename, precision> class vecType, bool compute = false>
+	struct compute_ceilShift
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & v, T)
+		{
+			return v;
+		}
+	};
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	struct compute_ceilShift<T, P, vecType, true>
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & v, T Shift)
+		{
+			return v | (v >> Shift);
+		}
+	};
+
+	template <typename T, precision P, template <typename, precision> class vecType, bool isSigned = true>
 	struct compute_ceilPowerOfTwo{};
 
-	template <typename T, precision P, template <class, precision> class vecType>
+	template <typename T, precision P, template <typename, precision> class vecType>
 	struct compute_ceilPowerOfTwo<T, P, vecType, false>
 	{
-		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & v)
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x)
 		{
-			GLM_STATIC_ASSERT(
-				!std::numeric_limits<genFIType>::is_iec559,
-				"'ceilPowerOfTwo' only accept integer scalar or vector inputs");
+			GLM_STATIC_ASSERT(!std::numeric_limits<T>::is_iec559, "'ceilPowerOfTwo' only accept integer scalar or vector inputs");
 
-			template <typename T, precision P, template <class, precision> class vecType, bool compute = false>
-			struct compute_ceil_shift
-			{
-				GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & v, T)
-				{
-					return v;
-				}
-			};
-
-			template <typename T, precision P, template <class, precision> class vecType, bool compute = true>
-			struct compute_ceil_shift
-			{
-				GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & v, T Shift)
-				{
-					return v | (v >> Shift);
-				}
-			};
+			vecType<T, P> v(x);
 
 			v = v - static_cast<T>(1);
 			v = v | (v >> static_cast<T>(1));
 			v = v | (v >> static_cast<T>(2));
 			v = v | (v >> static_cast<T>(4));
-			v = compute_ceil_shift<T, P, vecType, sizeof(T) >= 2>::call(v, 8);
-			v = compute_ceil_shift<T, P, vecType, sizeof(T) >= 4>::call(v, 16);
-			v = compute_ceil_shift<T, P, vecType, sizeof(T) >= 8>::call(v, 32);
+			v = compute_ceilShift<T, P, vecType, sizeof(T) >= 2>::call(v, 8);
+			v = compute_ceilShift<T, P, vecType, sizeof(T) >= 4>::call(v, 16);
+			v = compute_ceilShift<T, P, vecType, sizeof(T) >= 8>::call(v, 32);
 			return v + static_cast<T>(1);
 		}
 	};
@@ -94,13 +94,13 @@ namespace detail
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType ceilPowerOfTwo(genType value)
 	{
-		return isPowerOfTwo(value) ? value : highestBitValue(value) << 1;
+		return detail::compute_ceilPowerOfTwo<genType, defaultp, tvec1, std::numeric_limits<genType>::is_signed>::call(tvec1<genType, defaultp>(value)).x;
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> ceilPowerOfTwo(vecType<T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(ceilPowerOfTwo, v);
+		return detail::compute_ceilPowerOfTwo<T, P, vecType, std::numeric_limits<T>::is_signed>::call(v);
 	}
 
 	///////////////////

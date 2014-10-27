@@ -232,55 +232,311 @@ namespace findMSB
 		genType		Return;
 	};
 
-	type<int> const DataI32[] =
+	template <typename genIUType>
+	GLM_FUNC_QUALIFIER int findMSB_095(genIUType Value)
 	{
-		{0x00000000, -1},
-		{0x00000001,  0},
-		{0x00000002,  1},
-		{0x00000003,  1},
-		{0x00000004,  2},
-		{0x00000005,  2},
-		{0x00000007,  2},
-		{0x00000008,  3},
-		{0x00000010,  4},
-		{0x00000020,  5},
-		{0x00000040,  6},
-		{0x00000080,  7},
-		{0x00000100,  8},
-		{0x00000200,  9},
-		{0x00000400, 10},
-		{0x00000800, 11},
-		{0x00001000, 12},
-		{0x00002000, 13},
-		{0x00004000, 14},
-		{0x00008000, 15},
-		{0x00010000, 16},
-		{0x00020000, 17},
-		{0x00040000, 18},
-		{0x00080000, 19},
-		{0x00100000, 20},
-		{0x00200000, 21},
-		{0x00400000, 22},
-		{0x00800000, 23},
-		{0x01000000, 24},
-		{0x02000000, 25},
-		{0x04000000, 26},
-		{0x08000000, 27},
-		{0x10000000, 28},
-		{0x20000000, 29},
-		{0x40000000, 30}
-	};
+		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findMSB' only accept integer values");
+		
+		if(Value == genIUType(0) || Value == genIUType(-1))
+			return -1;
+		else if(Value > 0)
+		{
+			genIUType Bit = genIUType(-1);
+			for(genIUType tmp = Value; tmp > 0; tmp >>= 1, ++Bit){}
+			return Bit;
+		}
+		else //if(Value < 0)
+		{
+			int const BitCount(sizeof(genIUType) * 8);
+			int MostSignificantBit(-1);
+			for(int BitIndex(0); BitIndex < BitCount; ++BitIndex)
+				MostSignificantBit = (Value & (1 << BitIndex)) ? MostSignificantBit : BitIndex;
+			assert(MostSignificantBit >= 0);
+			return MostSignificantBit;
+		}
+	}
+
+	template <typename genIUType>
+	GLM_FUNC_QUALIFIER int findMSB_nlz1(genIUType x)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findMSB' only accept integer values");
+/*
+		int Result = 0;
+		for(std::size_t i = 0, n = sizeof(genIUType) * 8; i < n; ++i)
+			Result = Value & static_cast<genIUType>(1 << i) ? static_cast<int>(i) : Result;
+		return Result;
+*/
+/*
+		genIUType Bit = genIUType(-1);
+		for(genIUType tmp = Value; tmp > 0; tmp >>= 1, ++Bit){}
+		return Bit;
+*/
+		int n;
+
+		if (x == 0) return(32);
+		n = 0;
+		if (x <= 0x0000FFFF) {n = n +16; x = x <<16;}
+		if (x <= 0x00FFFFFF) {n = n + 8; x = x << 8;}
+		if (x <= 0x0FFFFFFF) {n = n + 4; x = x << 4;}
+		if (x <= 0x3FFFFFFF) {n = n + 2; x = x << 2;}
+		if (x <= 0x7FFFFFFF) {n = n + 1;}
+		return n;
+	}
+
+	int findMSB_nlz2(unsigned int x)
+	{
+		unsigned y;
+		int n;
+
+		n = 32;
+		y = x >>16;  if (y != 0) {n = n -16;  x = y;}
+		y = x >> 8;  if (y != 0) {n = n - 8;  x = y;}
+		y = x >> 4;  if (y != 0) {n = n - 4;  x = y;}
+		y = x >> 2;  if (y != 0) {n = n - 2;  x = y;}
+		y = x >> 1;  if (y != 0) return n - 2;
+		return n - x;
+	}
+
+	int perf_950()
+	{
+		type<glm::uint> const Data[] =
+		{
+			{0x00000000, -1},
+			{0x00000001,  0},
+			{0x00000002,  1},
+			{0x00000003,  1},
+			{0x00000004,  2},
+			{0x00000005,  2},
+			{0x00000007,  2},
+			{0x00000008,  3},
+			{0x00000010,  4},
+			{0x00000020,  5},
+			{0x00000040,  6},
+			{0x00000080,  7},
+			{0x00000100,  8},
+			{0x00000200,  9},
+			{0x00000400, 10},
+			{0x00000800, 11},
+			{0x00001000, 12},
+			{0x00002000, 13},
+			{0x00004000, 14},
+			{0x00008000, 15},
+			{0x00010000, 16},
+			{0x00020000, 17},
+			{0x00040000, 18},
+			{0x00080000, 19},
+			{0x00100000, 20},
+			{0x00200000, 21},
+			{0x00400000, 22},
+			{0x00800000, 23},
+			{0x01000000, 24},
+			{0x02000000, 25},
+			{0x04000000, 26},
+			{0x08000000, 27},
+			{0x10000000, 28},
+			{0x20000000, 29},
+			{0x40000000, 30}
+		};
+
+		int Error(0);
+
+		std::clock_t Timestamps1 = std::clock();
+
+		for(std::size_t k = 0; k < 10000000; ++k)
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+		{
+			int Result = findMSB_095(Data[i].Value);
+			Error += Data[i].Return == Result ? 0 : 1;
+		}
+
+		std::clock_t Timestamps2 = std::clock();
+
+		printf("findMSB - 0.9.5: %d clocks\n", Timestamps2 - Timestamps1);
+
+		return Error;
+	}
+
+	int perf_ops()
+	{
+		type<int> const Data[] =
+		{
+			{0x00000000, -1},
+			{0x00000001,  0},
+			{0x00000002,  1},
+			{0x00000003,  1},
+			{0x00000004,  2},
+			{0x00000005,  2},
+			{0x00000007,  2},
+			{0x00000008,  3},
+			{0x00000010,  4},
+			{0x00000020,  5},
+			{0x00000040,  6},
+			{0x00000080,  7},
+			{0x00000100,  8},
+			{0x00000200,  9},
+			{0x00000400, 10},
+			{0x00000800, 11},
+			{0x00001000, 12},
+			{0x00002000, 13},
+			{0x00004000, 14},
+			{0x00008000, 15},
+			{0x00010000, 16},
+			{0x00020000, 17},
+			{0x00040000, 18},
+			{0x00080000, 19},
+			{0x00100000, 20},
+			{0x00200000, 21},
+			{0x00400000, 22},
+			{0x00800000, 23},
+			{0x01000000, 24},
+			{0x02000000, 25},
+			{0x04000000, 26},
+			{0x08000000, 27},
+			{0x10000000, 28},
+			{0x20000000, 29},
+			{0x40000000, 30}
+		};
+
+		int Error(0);
+
+		std::clock_t Timestamps1 = std::clock();
+
+		for(std::size_t k = 0; k < 10000000; ++k)
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+		{
+			int Result = findMSB_nlz1(Data[i].Value);
+			Error += Data[i].Return == Result ? 0 : 1;
+		}
+
+		std::clock_t Timestamps2 = std::clock();
+
+		printf("findMSB - nlz1: %d clocks\n", Timestamps2 - Timestamps1);
+
+		return Error;
+	}
+
+
+	int test_findMSB()
+	{
+		type<glm::uint> const Data[] =
+		{
+			{0x00000000, -1},
+			{0x00000001,  0},
+			{0x00000002,  1},
+			{0x00000003,  1},
+			{0x00000004,  2},
+			{0x00000005,  2},
+			{0x00000007,  2},
+			{0x00000008,  3},
+			{0x00000010,  4},
+			{0x00000020,  5},
+			{0x00000040,  6},
+			{0x00000080,  7},
+			{0x00000100,  8},
+			{0x00000200,  9},
+			{0x00000400, 10},
+			{0x00000800, 11},
+			{0x00001000, 12},
+			{0x00002000, 13},
+			{0x00004000, 14},
+			{0x00008000, 15},
+			{0x00010000, 16},
+			{0x00020000, 17},
+			{0x00040000, 18},
+			{0x00080000, 19},
+			{0x00100000, 20},
+			{0x00200000, 21},
+			{0x00400000, 22},
+			{0x00800000, 23},
+			{0x01000000, 24},
+			{0x02000000, 25},
+			{0x04000000, 26},
+			{0x08000000, 27},
+			{0x10000000, 28},
+			{0x20000000, 29},
+			{0x40000000, 30}
+		};
+
+		int Error(0);
+
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+		{
+			int Result = glm::findMSB(Data[i].Value);
+			Error += Data[i].Return == Result ? 0 : 1;
+			assert(!Error);
+		}
+
+		return Error;
+	}
+
+	int test_nlz1()
+	{
+		type<glm::uint> const Data[] =
+		{
+			{0x00000000, -1},
+			{0x00000001,  0},
+			{0x00000002,  1},
+			{0x00000003,  1},
+			{0x00000004,  2},
+			{0x00000005,  2},
+			{0x00000007,  2},
+			{0x00000008,  3},
+			{0x00000010,  4},
+			{0x00000020,  5},
+			{0x00000040,  6},
+			{0x00000080,  7},
+			{0x00000100,  8},
+			{0x00000200,  9},
+			{0x00000400, 10},
+			{0x00000800, 11},
+			{0x00001000, 12},
+			{0x00002000, 13},
+			{0x00004000, 14},
+			{0x00008000, 15},
+			{0x00010000, 16},
+			{0x00020000, 17},
+			{0x00040000, 18},
+			{0x00080000, 19},
+			{0x00100000, 20},
+			{0x00200000, 21},
+			{0x00400000, 22},
+			{0x00800000, 23},
+			{0x01000000, 24},
+			{0x02000000, 25},
+			{0x04000000, 26},
+			{0x08000000, 27},
+			{0x10000000, 28},
+			{0x20000000, 29},
+			{0x40000000, 30}
+		};
+
+		int Error(0);
+
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+		{
+			int Result = findMSB_nlz2(Data[i].Value);
+			Error += Data[i].Return == Result ? 0 : 1;
+		}
+
+		return Error;
+	}
 
 	int test()
 	{
 		int Error(0);
 
-		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(type<int>); ++i)
-		{
-			int Result = glm::findMSB(DataI32[i].Value);
-			Error += DataI32[i].Return == Result ? 0 : 1;
-			assert(!Error);
-		}
+		Error += test_findMSB();
+		Error += test_nlz1();
+
+		return Error;
+	}
+
+	int perf()
+	{
+		int Error(0);
+
+		Error += perf_950();
+		Error += perf_ops();
 
 		return Error;
 	}
@@ -690,6 +946,9 @@ int main()
 {
 	int Error = 0;
 
+	Error += ::findMSB::test();
+	Error += ::findMSB::perf();
+	Error += ::findLSB::test();
 	Error += ::umulExtended::test();
 	Error += ::imulExtended::test();
 	Error += ::uaddCarry::test();
@@ -699,8 +958,6 @@ int main()
 	Error += ::bitfieldReverse::test();
 	Error += ::bitCount::test();
 	Error += ::bitCount::perf();
-	Error += ::findMSB::test();
-	Error += ::findLSB::test();
 
 	return Error;
 }
