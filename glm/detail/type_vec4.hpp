@@ -67,7 +67,7 @@ namespace detail
 }//namespace detail
 
 	template <typename T, precision P = defaultp>
-	struct tvec4
+	GLM_ALIGNED_STRUCT(16) tvec4
 	{
 		//////////////////////////////////////
 		// Implementation detail

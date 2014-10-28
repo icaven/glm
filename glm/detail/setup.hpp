@@ -735,7 +735,7 @@
 #	define GLM_ALIGNED_STRUCT(x) __declspec(align(x)) struct
 #	define GLM_RESTRICT
 #	define GLM_RESTRICT_VAR __restrict
-#elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG)
+#elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG | GLM_COMPILER_CUDA)
 #	define GLM_DEPRECATED __attribute__((__deprecated__))
 #	define GLM_ALIGN(x) __attribute__((aligned(x)))
 #	define GLM_ALIGNED_STRUCT(x) struct __attribute__((aligned(x)))
