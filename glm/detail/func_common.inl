@@ -43,11 +43,12 @@ namespace detail
 	template <typename genFIType>
 	struct compute_abs<genFIType, true>
 	{
-		GLM_FUNC_QUALIFIER static genFIType call(genFIType const & x)
+		GLM_FUNC_QUALIFIER static genFIType call(genFIType x)
 		{
 			GLM_STATIC_ASSERT(
 				std::numeric_limits<genFIType>::is_iec559 || std::numeric_limits<genFIType>::is_signed,
 				"'abs' only accept floating-point and integer scalar or vector inputs");
+
 			return x >= genFIType(0) ? x : -x;
 			// TODO, perf comp with: *(((int *) &x) + 1) &= 0x7fffffff;
 		}
@@ -56,7 +57,7 @@ namespace detail
 	template <typename genFIType>
 	struct compute_abs<genFIType, false>
 	{
-		GLM_FUNC_QUALIFIER static genFIType call(genFIType const & x)
+		GLM_FUNC_QUALIFIER static genFIType call(genFIType x)
 		{
 			GLM_STATIC_ASSERT(
 				!std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer,
@@ -130,6 +131,13 @@ namespace detail
 }//namespace detail
 
 	// abs
+	template <>
+	GLM_FUNC_QUALIFIER int32 abs(int32 x)
+	{
+		int32 const y = x >> 31;
+		return (x ^ y) - y;
+	}
+
 	template <typename genFIType>
 	GLM_FUNC_QUALIFIER genFIType abs(genFIType x)
 	{

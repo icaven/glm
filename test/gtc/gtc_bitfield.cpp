@@ -168,7 +168,6 @@ namespace mask
 	}
 }//namespace mask
 
-
 namespace bitfieldInterleave3
 {
 	template <typename PARAM, typename RET>

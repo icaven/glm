@@ -245,16 +245,16 @@ namespace detail
 	}
 }//namespace detail
 
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType mask(genType Bits)
+	template <typename genIUType>
+	GLM_FUNC_QUALIFIER genIUType mask(genIUType Bits)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genIType>::is_integer, "'mask' accepts only integer values");
+		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'mask' accepts only integer values");
 
-		return ~((~static_cast<genType>(0)) << Bits);
+		return ~((~static_cast<genIUType>(0)) << Bits);
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> mask(vecType<T, P> const & v)
+	template <typename T, precision P, template <typename, precision> class vecIUType>
+	GLM_FUNC_QUALIFIER vecIUType<T, P> mask(vecIUType<T, P> const & v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'mask' accepts only integer values");
 

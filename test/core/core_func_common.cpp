@@ -7,14 +7,14 @@
 // File    : test/core/func_common.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-//#include <boost/array.hpp>
-//#include <boost/date_time/posix_time/posix_time.hpp>
-//#include <boost/thread/thread.hpp>
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <glm/gtc/vec1.hpp>
+#include <glm/gtc/random.hpp>
+#include <vector>
 #include <cstdio>
 #include <cmath>
+#include <ctime>
 
 int test_floor()
 {
@@ -765,7 +765,7 @@ namespace sign
 			std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer, 
 			"'sign' only accept integer inputs");
 
-		return (x >> 31) | (-x >> 31);
+		return (x >> 31) | ((unsigned)-x >> 31);
 	}
 
 	template <typename genFIType> 
@@ -775,19 +775,239 @@ namespace sign
 			std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer, 
 			"'sign' only accept integer inputs");
 
-		return -(x >> 31) | (-x >> 31);
+		return -((unsigned)x >> 31) | (-(unsigned)x >> 31);
+	}
+
+	template <typename genFIType> 
+	GLM_FUNC_QUALIFIER genFIType sign_sub(genFIType x)
+	{
+		GLM_STATIC_ASSERT(
+			std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer, 
+			"'sign' only accept integer inputs");
+
+		return ((unsigned)-x >> 31) - ((unsigned)x >> 31);
+	}
+
+	template <typename genFIType> 
+	GLM_FUNC_QUALIFIER genFIType sign_cmp(genFIType x)
+	{
+		GLM_STATIC_ASSERT(
+			std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer, 
+			"'sign' only accept integer inputs");
+
+		return (x > 0) - (x < 0);
+	}
+
+	template <typename genType>
+	struct type
+	{
+		genType		Value;
+		genType		Return;
+	};
+
+	int test_int32()
+	{
+		type<glm::int32> const Data[] =
+		{
+			{ 0, 0},
+			{ 1, 1},
+			{ 2, 1},
+			{ 3, 1},
+			{-1,-1},
+			{-2,-1},
+			{-3,-1}
+		};
+
+		int Error = 0;
+
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<glm::int32>); ++i)
+		{
+			glm::int32 Result = sign_cmp(Data[i].Value);
+			Error += Data[i].Return == Result ? 0 : 1;
+		}
+
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<glm::int32>); ++i)
+		{
+			glm::int32 Result = sign_if(Data[i].Value);
+			Error += Data[i].Return == Result ? 0 : 1;
+		}
+
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<glm::int32>); ++i)
+		{
+			glm::int32 Result = sign_alu1(Data[i].Value);
+			Error += Data[i].Return == Result ? 0 : 1;
+		}
+
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<glm::int32>); ++i)
+		{
+			glm::int32 Result = sign_alu2(Data[i].Value);
+			Error += Data[i].Return == Result ? 0 : 1;
+		}
+
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<glm::int32>); ++i)
+		{
+			glm::int32 Result = sign_sub(Data[i].Value);
+			Error += Data[i].Return == Result ? 0 : 1;
+		}
+
+		return Error;
 	}
 
 	int test()
 	{
 		int Error = 0;
 
+		Error += test_int32();
+
+		return Error;
+	}
+
+	int perf_rand()
+	{
+		int Error = 0;
+
+		std::size_t const Count = 1000000000;
+		std::vector<glm::int32> Input, Output;
+		Input.resize(Count);
+		Output.resize(Count);
+		for(std::size_t i = 0; i < Count; ++i)
+			Input[i] = static_cast<glm::int32>(glm::linearRand(-65536.f, 65536.f));
+
+		std::clock_t Timestamp0 = std::clock();
+
+		for(std::size_t i = 0; i < Count; ++i)
+			Output[i] = sign_cmp(Input[i]);
+
+		std::clock_t Timestamp1 = std::clock();
+
+		for(std::size_t i = 0; i < Count; ++i)
+			Output[i] = sign_if(Input[i]);
+
+		std::clock_t Timestamp2 = std::clock();
+
+		for(std::size_t i = 0; i < Count; ++i)
+			Output[i] = sign_alu1(Input[i]);
+
+		std::clock_t Timestamp3 = std::clock();
+
+		for(std::size_t i = 0; i < Count; ++i)
+			Output[i] = sign_alu2(Input[i]);
+
+		std::clock_t Timestamp4 = std::clock();
+
+		for(std::size_t i = 0; i < Count; ++i)
+			Output[i] = sign_sub(Input[i]);
+
+		std::clock_t Timestamp5 = std::clock();
+
+		std::printf("sign_cmp(rand) Time %d clocks\n", Timestamp1 - Timestamp0);
+		std::printf("sign_if(rand) Time %d clocks\n", Timestamp2 - Timestamp1);
+		std::printf("sign_alu1(rand) Time %d clocks\n", Timestamp3 - Timestamp2);
+		std::printf("sign_alu2(rand) Time %d clocks\n", Timestamp4 - Timestamp3);
+		std::printf("sign_sub(rand) Time %d clocks\n", Timestamp5 - Timestamp4);
+
+		return Error;
+	}
+
+	int perf_linear()
+	{
+		int Error = 0;
+
+		std::size_t const Count = 1000000000;
+		std::vector<glm::int32> Input, Output;
+		Input.resize(Count);
+		Output.resize(Count);
+		for(std::size_t i = 0; i < Count; ++i)
+			Input[i] = static_cast<glm::int32>(i);
+
+		std::clock_t Timestamp0 = std::clock();
+
+		for(std::size_t i = 0; i < Count; ++i)
+			Output[i] = sign_cmp(Input[i]);
+
+		std::clock_t Timestamp1 = std::clock();
+
+		for(std::size_t i = 0; i < Count; ++i)
+			Output[i] = sign_if(Input[i]);
+
+		std::clock_t Timestamp2 = std::clock();
+
+		for(std::size_t i = 0; i < Count; ++i)
+			Output[i] = sign_alu1(Input[i]);
+
+		std::clock_t Timestamp3 = std::clock();
+
+		for(std::size_t i = 0; i < Count; ++i)
+			Output[i] = sign_alu2(Input[i]);
+
+		std::clock_t Timestamp4 = std::clock();
+
+		for(std::size_t i = 0; i < Count; ++i)
+			Output[i] = sign_sub(Input[i]);
+
+		std::clock_t Timestamp5 = std::clock();
+
+		std::printf("sign_cmp(linear) Time %d clocks\n", Timestamp1 - Timestamp0);
+		std::printf("sign_if(linear) Time %d clocks\n", Timestamp2 - Timestamp1);
+		std::printf("sign_alu1(linear) Time %d clocks\n", Timestamp3 - Timestamp2);
+		std::printf("sign_alu2(linear) Time %d clocks\n", Timestamp4 - Timestamp3);
+		std::printf("sign_sub(linear) Time %d clocks\n", Timestamp5 - Timestamp4);
+
+		return Error;
+	}
+
+	int perf_linear_cal()
+	{
+		int Error = 0;
+
+		glm::uint32 const Count = 1000000000;
+
+		std::clock_t Timestamp0 = std::clock();
+		glm::int32 Sum = 0;
+
+		for(glm::int32 i = 1; i < Count; ++i)
+			Sum += sign_cmp(i);
+
+		std::clock_t Timestamp1 = std::clock();
+
+		for(glm::int32 i = 1; i < Count; ++i)
+			Sum += sign_if(i);
+
+		std::clock_t Timestamp2 = std::clock();
+
+		for(glm::int32 i = 1; i < Count; ++i)
+			Sum += sign_alu1(i);
+
+		std::clock_t Timestamp3 = std::clock();
+
+		for(glm::int32 i = 1; i < Count; ++i)
+			Sum += sign_alu2(i);
+
+		std::clock_t Timestamp4 = std::clock();
+
+		for(glm::int32 i = 1; i < Count; ++i)
+			Sum += sign_sub(i);
+
+		std::clock_t Timestamp5 = std::clock();
+
+		std::printf("Sum %d\n", Sum);
+
+		std::printf("sign_cmp(linear_cal) Time %d clocks\n", Timestamp1 - Timestamp0);
+		std::printf("sign_if(linear_cal) Time %d clocks\n", Timestamp2 - Timestamp1);
+		std::printf("sign_alu1(linear_cal) Time %d clocks\n", Timestamp3 - Timestamp2);
+		std::printf("sign_alu2(linear_cal) Time %d clocks\n", Timestamp4 - Timestamp3);
+		std::printf("sign_sub(linear_cal) Time %d clocks\n", Timestamp5 - Timestamp4);
+
 		return Error;
 	}
 
 	int perf()
 	{
-		int Error = 0;
+		int Error(0);
+
+		Error += perf_linear_cal();
+		Error += perf_linear();
+		Error += perf_rand();
 
 		return Error;
 	}
@@ -797,6 +1017,8 @@ int main()
 {
 	int Error(0);
 
+	Error += sign::test();
+	Error += sign::perf();
 	Error += test_floor();
 	Error += test_modf();
 	Error += test_floatBitsToInt();
