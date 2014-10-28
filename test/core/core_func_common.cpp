@@ -739,6 +739,60 @@ int test_isinf()
 	return Error;
 }
 
+namespace sign
+{
+	template <typename genFIType> 
+	GLM_FUNC_QUALIFIER genFIType sign_if(genFIType x)
+	{
+		GLM_STATIC_ASSERT(
+			std::numeric_limits<genFIType>::is_iec559 ||
+			(std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer), "'sign' only accept signed inputs");
+
+		genFIType result;
+		if(x > genFIType(0))
+			result = genFIType(1);
+		else if(x < genFIType(0))
+			result = genFIType(-1);
+		else
+			result = genFIType(0);
+		return result;
+	}
+
+	template <typename genFIType> 
+	GLM_FUNC_QUALIFIER genFIType sign_alu1(genFIType x)
+	{
+		GLM_STATIC_ASSERT(
+			std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer, 
+			"'sign' only accept integer inputs");
+
+		return (x >> 31) | (-x >> 31);
+	}
+
+	template <typename genFIType> 
+	GLM_FUNC_QUALIFIER genFIType sign_alu2(genFIType x)
+	{
+		GLM_STATIC_ASSERT(
+			std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer, 
+			"'sign' only accept integer inputs");
+
+		return -(x >> 31) | (-x >> 31);
+	}
+
+	int test()
+	{
+		int Error = 0;
+
+		return Error;
+	}
+
+	int perf()
+	{
+		int Error = 0;
+
+		return Error;
+	}
+}//namespace sign
+
 int main()
 {
 	int Error(0);
