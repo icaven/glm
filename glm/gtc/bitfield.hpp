@@ -57,13 +57,14 @@ namespace glm
 	/// Build a mask of 'count' bits
 	///
 	/// @see gtc_bitfield
-	GLM_FUNC_DECL int mask(int Bits);
+	template <typename genType>
+	GLM_FUNC_DECL genType mask(genType Bits);
 	
 	/// Build a mask of 'count' bits
 	///
 	/// @see gtc_bitfield
-	template <precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<int, P> mask(vecType<int, P> const & v);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> mask(vecType<T, P> const & v);
 
 	/// Rotate all bits to the right. All the bits dropped in the right side are inserted back on the left side.
 	///
