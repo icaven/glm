@@ -9,6 +9,7 @@
 
 #include <glm/gtc/bitfield.hpp>
 #include <glm/gtc/type_precision.hpp>
+#include <glm/vector_relational.hpp>
 //#include <glm/vec2.hpp>
 #include <ctime>
 #include <cstdio>
@@ -16,6 +17,18 @@
 
 namespace mask
 {
+	template <typename genType>
+	struct type
+	{
+		genType		Value;
+		genType		Return;
+	};
+
+	inline int mask_zero(int Bits)
+	{
+		return ~((~0) << Bits);
+	}
+
 	inline int mask_mix(int Bits)
 	{
 		return Bits >= 32 ? 0xffffffff : (static_cast<int>(1) << Bits) - static_cast<int>(1);
@@ -62,15 +75,96 @@ namespace mask
 
 		std::clock_t Timestamp4 = std::clock();
 
+		{
+			std::vector<int> Mask;
+			Mask.resize(Count);
+			for(int i = 0; i < Count; ++i)
+				Mask[i] = mask_zero(i % 32);
+		}
+
+		std::clock_t Timestamp5 = std::clock();
+
 		std::clock_t TimeMix = Timestamp2 - Timestamp1;
 		std::clock_t TimeLoop = Timestamp3 - Timestamp2;
 		std::clock_t TimeDefault = Timestamp4 - Timestamp3;
+		std::clock_t TimeZero = Timestamp5 - Timestamp4;
 
 		printf("mask[mix]: %d\n", TimeMix);
 		printf("mask[loop]: %d\n", TimeLoop);
 		printf("mask[default]: %d\n", TimeDefault);
+		printf("mask[zero]: %d\n", TimeZero);
 
 		return TimeDefault < TimeLoop ? 0 : 1;
+	}
+
+	int test_uint()
+	{
+		type<glm::uint> const Data[] =
+		{
+			{0, 0x00000000},
+			{1, 0x00000001},
+			{2, 0x00000003},
+			{3, 0x00000007}
+		};
+
+		int Error(0);
+
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+		{
+			int Result = mask_zero(Data[i].Value);
+			Error += Data[i].Return == Result ? 0 : 1;
+		}
+
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+		{
+			int Result = mask_mix(Data[i].Value);
+			Error += Data[i].Return == Result ? 0 : 1;
+		}
+
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+		{
+			int Result = mask_loop(Data[i].Value);
+			Error += Data[i].Return == Result ? 0 : 1;
+		}
+
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+		{
+			int Result = glm::mask(Data[i].Value);
+			Error += Data[i].Return == Result ? 0 : 1;
+		}
+
+		return Error;
+	}
+
+	int test_uvec4()
+	{
+		type<glm::ivec4> const Data[] =
+		{
+			{glm::ivec4(0), glm::ivec4(0x00000000)},
+			{glm::ivec4(1), glm::ivec4(0x00000001)},
+			{glm::ivec4(2), glm::ivec4(0x00000003)},
+			{glm::ivec4(3), glm::ivec4(0x00000007)}
+		};
+
+		int Error(0);
+
+		for(std::size_t i = 0, n = sizeof(Data) / sizeof(type<glm::ivec4>); i < n; ++i)
+		{
+			glm::ivec4 Result = glm::mask(Data[i].Value);
+			Error += glm::all(glm::equal(Data[i].Return, Result)) ? 0 : 1;
+		}
+
+		return Error;
+	}
+
+	int test()
+	{
+		int Error(0);
+
+		Error += test_uint();
+		Error += test_uvec4();
+
+		return Error;
 	}
 }//namespace mask
 
@@ -502,11 +596,13 @@ int main()
 {
 	int Error(0);
 
-	Error += ::mask::perf();
+	Error += ::mask::test();
 	Error += ::bitfieldInterleave3::test();
 	Error += ::bitfieldInterleave4::test();
 	Error += ::bitfieldInterleave::test();
 	//Error += ::bitRevert::test();
+
+	Error += ::mask::perf();
 
 	return Error;
 }
