@@ -182,7 +182,7 @@ namespace bitfieldReverse
 			else if(Data32[i].Result == FAIL && !Compare)
 				continue;
 			
-			printf("glm::bitfieldReverse test fail on test %d\n", i);
+			std::printf("glm::bitfieldReverse test fail on test %d\n", static_cast<unsigned int>(i));
 			return 1;
 		}
 		
@@ -205,7 +205,7 @@ namespace bitfieldReverse
 			else if(Data64[i].Result == FAIL && !Compare)
 				continue;
 			
-			printf("glm::extractfield test fail on test %d\n", i);
+			std::printf("glm::extractfield test fail on test %d\n", static_cast<unsigned int>(i));
 			return 1;
 		}
 		
@@ -351,7 +351,7 @@ namespace findMSB
 
 		std::clock_t Timestamps2 = std::clock();
 
-		printf("findMSB - 0.9.5: %d clocks\n", Timestamps2 - Timestamps1);
+		std::printf("findMSB - 0.9.5: %d clocks\n", static_cast<unsigned int>(Timestamps2 - Timestamps1));
 
 		return Error;
 	}
@@ -410,7 +410,7 @@ namespace findMSB
 
 		std::clock_t Timestamps2 = std::clock();
 
-		printf("findMSB - nlz1: %d clocks\n", Timestamps2 - Timestamps1);
+		std::printf("findMSB - nlz1: %d clocks\n", static_cast<unsigned int>(Timestamps2 - Timestamps1));
 
 		return Error;
 	}
@@ -919,10 +919,10 @@ namespace bitCount
 		std::clock_t TimeDefault = TimestampsD - TimestampsC;
 		std::clock_t TimeVec4 = TimestampsE - TimestampsD;
 
-		printf("bitCount - TimeIf %d\n", TimeIf);
-		printf("bitCount - TimeVec %d\n", TimeVec);
-		printf("bitCount - TimeDefault %d\n", TimeDefault);
-		printf("bitCount - TimeVec4 %d\n", TimeVec4);
+		std::printf("bitCount - TimeIf %d\n", static_cast<unsigned int>(TimeIf));
+		std::printf("bitCount - TimeVec %d\n", static_cast<unsigned int>(TimeVec));
+		std::printf("bitCount - TimeDefault %d\n", static_cast<unsigned int>(TimeDefault));
+		std::printf("bitCount - TimeVec4 %d\n", static_cast<unsigned int>(TimeVec4));
 
 		return Error;
 	}
