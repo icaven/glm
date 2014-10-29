@@ -19,11 +19,6 @@ if(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang") OR ("${CMAKE_CXX_COMPILER_ID}" 
 	option(GLM_TEST_ENABLE_CXX_0X "Enable C++ 0x" OFF)
 	option(GLM_TEST_ENABLE_CXX_11 "Enable C++ 11" OFF)
 	option(GLM_TEST_ENABLE_CXX_1Y "Enable C++ 1y" OFF)
-	option(GLM_TEST_ENABLE_CXX_PEDANTIC "Pedantic" ON)
-
-	if(GLM_TEST_ENABLE_CXX_PEDANTIC)
-		add_definitions(-pedantic)
-	endif()
 
 	if(GLM_TEST_ENABLE_CXX_1Y)
 		set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++1y")
@@ -44,11 +39,18 @@ if(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang") OR ("${CMAKE_CXX_COMPILER_ID}" 
 	endif()
 endif()
 
-if(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC") OR (("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel") AND WIN32))
-	option(GLM_TEST_ENABLE_MS_EXTENSIONS "Enable MS extensions" OFF)
+option(GLM_TEST_ENABLE_MS_EXTENSIONS "Enable MS extensions" OFF)
 
-	if(NOT GLM_TEST_ENABLE_MS_EXTENSIONS)
+if(GLM_TEST_ENABLE_MS_EXTENSIONS)
+	if(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU"))
+		add_definitions(-Wgnu-anonymous-struct)
+		add_definitions(-Wnested-anon-types)
+	endif()	
+elseif()	
+	if(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC") OR (("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel") AND WIN32))
 		add_definitions(/Za)
+	elseif(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU"))
+		add_definitions(-pedantic)
 	endif()
 endif()
 

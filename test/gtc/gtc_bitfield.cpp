@@ -89,10 +89,10 @@ namespace mask
 		std::clock_t TimeDefault = Timestamp4 - Timestamp3;
 		std::clock_t TimeZero = Timestamp5 - Timestamp4;
 
-		printf("mask[mix]: %d\n", TimeMix);
-		printf("mask[loop]: %d\n", TimeLoop);
-		printf("mask[default]: %d\n", TimeDefault);
-		printf("mask[zero]: %d\n", TimeZero);
+		printf("mask[mix]: %d\n", static_cast<unsigned int>(TimeMix));
+		printf("mask[loop]: %d\n", static_cast<unsigned int>(TimeLoop));
+		printf("mask[default]: %d\n", static_cast<unsigned int>(TimeDefault));
+		printf("mask[zero]: %d\n", static_cast<unsigned int>(TimeZero));
 
 		return TimeDefault < TimeLoop ? 0 : 1;
 	}
@@ -497,7 +497,7 @@ namespace bitfieldInterleave
 
 			std::clock_t Time = std::clock() - LastTime;
 
-			std::printf("glm::bitfieldInterleave Time %d clocks\n", Time);
+			std::printf("glm::bitfieldInterleave Time %d clocks\n", static_cast<unsigned int>(Time));
 		}
 
 		{
@@ -508,7 +508,7 @@ namespace bitfieldInterleave
 
 			std::clock_t Time = std::clock() - LastTime;
 
-			std::printf("fastBitfieldInterleave Time %d clocks\n", Time);
+			std::printf("fastBitfieldInterleave Time %d clocks\n", static_cast<unsigned int>(Time));
 		}
 
 		{
@@ -519,7 +519,7 @@ namespace bitfieldInterleave
 
 			std::clock_t Time = std::clock() - LastTime;
 
-			std::printf("loopBitfieldInterleave Time %d clocks\n", Time);
+			std::printf("loopBitfieldInterleave Time %d clocks\n", static_cast<unsigned int>(Time));
 		}
 
 		{
@@ -530,7 +530,7 @@ namespace bitfieldInterleave
 
 			std::clock_t Time = std::clock() - LastTime;
 
-			std::printf("interleaveBitfieldInterleave Time %d clocks\n", Time);
+			std::printf("interleaveBitfieldInterleave Time %d clocks\n", static_cast<unsigned int>(Time));
 		}
 
 #		if(GLM_ARCH != GLM_ARCH_PURE)
@@ -542,7 +542,7 @@ namespace bitfieldInterleave
 
 			std::clock_t Time = std::clock() - LastTime;
 
-			std::printf("sseBitfieldInterleave Time %d clocks\n", Time);
+			std::printf("sseBitfieldInterleave Time %d clocks\n", static_cast<unsigned int>(Time));
 		}
 
 		{
@@ -553,7 +553,7 @@ namespace bitfieldInterleave
 
 			std::clock_t Time = std::clock() - LastTime;
 
-			std::printf("sseUnalignedBitfieldInterleave Time %d clocks\n", Time);
+			std::printf("sseUnalignedBitfieldInterleave Time %d clocks\n", static_cast<unsigned int>(Time));
 		}
 #		endif//(GLM_ARCH != GLM_ARCH_PURE)
 
@@ -565,7 +565,7 @@ namespace bitfieldInterleave
 
 			std::clock_t Time = std::clock() - LastTime;
 
-			std::printf("glm::detail::bitfieldInterleave Time %d clocks\n", Time);
+			std::printf("glm::detail::bitfieldInterleave Time %d clocks\n", static_cast<unsigned int>(Time));
 		}
 
 #		if(GLM_ARCH != GLM_ARCH_PURE)
@@ -583,7 +583,7 @@ namespace bitfieldInterleave
 
 			std::clock_t Time = std::clock() - LastTime;
 
-			std::printf("_mm_bit_interleave_si128 Time %d clocks\n", Time);
+			std::printf("_mm_bit_interleave_si128 Time %d clocks\n", static_cast<unsigned int>(Time));
 		}
 #		endif//(GLM_ARCH != GLM_ARCH_PURE)
 
