@@ -744,7 +744,7 @@
 #else
 #	define GLM_DEPRECATED
 #	define GLM_ALIGN
-#	define GLM_ALIGNED_STRUCT(x)
+#	define GLM_ALIGNED_STRUCT(x) struct
 #	define GLM_RESTRICT
 #	define GLM_RESTRICT_VAR
 #endif//GLM_COMPILER
