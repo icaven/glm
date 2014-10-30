@@ -726,13 +726,13 @@
 #if GLM_COMPILER & GLM_COMPILER_VC
 #	define GLM_DEPRECATED __declspec(deprecated)
 #	define GLM_ALIGN(x) __declspec(align(x))
-#	define GLM_ALIGNED_STRUCT(x) __declspec(align(x)) struct
+#	define GLM_ALIGNED_STRUCT(x) struct __declspec(align(x))
 #	define GLM_RESTRICT __declspec(restrict)
 #	define GLM_RESTRICT_VAR __restrict
 #elif GLM_COMPILER & GLM_COMPILER_INTEL
 #	define GLM_DEPRECATED
 #	define GLM_ALIGN(x) __declspec(align(x))
-#	define GLM_ALIGNED_STRUCT(x) __declspec(align(x)) struct
+#	define GLM_ALIGNED_STRUCT(x) struct __declspec(align(x))
 #	define GLM_RESTRICT
 #	define GLM_RESTRICT_VAR __restrict
 #elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG | GLM_COMPILER_CUDA)
