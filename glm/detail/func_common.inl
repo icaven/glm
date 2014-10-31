@@ -177,7 +177,7 @@ namespace detail
 	}
 
 	// trunc
-#	if GLM_LANG & GLM_LANG_CXX0X_FLAG
+#	if GLM_HAS_CXX11_STL
 		using ::std::trunc;
 #	else
 		template <typename genType>
@@ -196,7 +196,7 @@ namespace detail
 	}
 
 	// round
-#	if GLM_LANG & GLM_LANG_CXX0X_FLAG
+#	if GLM_HAS_CXX11_STL
 		using ::std::round;
 #	else
 		template <typename genType>
