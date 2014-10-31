@@ -10,15 +10,15 @@
 namespace glm
 {
 	template <typename genType> 
-	GLM_FUNC_QUALIFIER genType log(
-		genType const & x, 
-		genType const & base)
+	GLM_FUNC_QUALIFIER genType log(genType const & x, genType const & base)
 	{
 		assert(x != genType(0));
-
 		return glm::log(x) / glm::log(base);
 	}
 
-	VECTORIZE_VEC_SCA(log)
-	VECTORIZE_VEC_VEC(log)
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> log(vecType<T, P> const & x, vecType<T, P> const & base)
+	{
+		return glm::log(x) / glm::log(base);
+	}
 }//namespace glm
