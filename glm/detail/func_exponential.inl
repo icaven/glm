@@ -83,7 +83,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> pow(vecType<T, P> const & base, vecType<T, P> const & exponent)
 	{
-		return detail::functor2<T, P, vecType>::call(::std::pow, base, exponent);
+		return detail::functor2<T, P, vecType>::call(pow, base, exponent);
 	}
 
 	// exp
@@ -91,7 +91,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> exp(vecType<T, P> const & x)
 	{
-		return detail::functor1<T, T, P, vecType>::call(::std::exp, x);
+		return detail::functor1<T, T, P, vecType>::call(exp, x);
 	}
 
 	// log
@@ -99,7 +99,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> log(vecType<T, P> const & x)
 	{
-		return detail::functor1<T, T, P, vecType>::call(::std::log, x);
+		return detail::functor1<T, T, P, vecType>::call(log, x);
 	}
 
 	//exp2, ln2 = 0.69314718055994530941723212145818f
