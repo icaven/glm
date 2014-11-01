@@ -214,28 +214,3 @@ namespace detail
 	VECTORIZE2_VEC_SCA(func)		\
 	VECTORIZE3_VEC_SCA(func)		\
 	VECTORIZE4_VEC_SCA(func)
-
-namespace glm{
-namespace detail
-{
-	template<bool C>
-	struct If
-	{
-		template<typename F, typename T>
-		static GLM_FUNC_QUALIFIER T apply(F functor, const T& val)
-		{
-			return functor(val);
-		}
-	};
-
-	template<>
-	struct If<false>
-	{
-		template<typename F, typename T>
-		static GLM_FUNC_QUALIFIER T apply(F, const T& val)
-		{
-			return val;
-		}
-	};
-}//namespace detail
-}//namespace glm
