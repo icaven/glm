@@ -43,8 +43,6 @@
 #include "precision.hpp"
 #include "setup.hpp"
 
-#if !((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER <= GLM_COMPILER_VC10)) // Workaround a Visual C++ bug
-
 namespace glm
 {
 	/// @addtogroup core_func_vector_relational
@@ -148,7 +146,5 @@ namespace glm
 
 	/// @}
 }//namespace glm
-
-#endif
 
 #include "func_vector_relational.inl"
