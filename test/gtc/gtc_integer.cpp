@@ -10,8 +10,9 @@
 #include <glm/gtc/integer.hpp>
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtc/vec1.hpp>
-#include <ctime>
 #include <vector>
+#include <ctime>
+#include <cstdio>
 
 namespace isPowerOfTwo
 {
@@ -254,8 +255,8 @@ namespace ceilPowerOfTwo
 
 		std::clock_t Timestramp2 = std::clock();
 
-		printf("ceilPowerOfTwo_loop: %d clocks\n", Timestramp1 - Timestramp0);
-		printf("glm::ceilPowerOfTwo: %d clocks\n", Timestramp2 - Timestramp1);
+		std::printf("ceilPowerOfTwo_loop: %d clocks\n", static_cast<unsigned int>(Timestramp1 - Timestramp0));
+		std::printf("glm::ceilPowerOfTwo: %d clocks\n", static_cast<unsigned int>(Timestramp2 - Timestramp1));
 
 		return Error;
 	}

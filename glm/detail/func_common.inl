@@ -177,7 +177,6 @@ namespace detail
 
 	// floor
 	using ::std::floor;
-
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> floor(vecType<T, P> const & x)
 	{
@@ -273,7 +272,6 @@ namespace detail
 
 	// ceil
 	using ::std::ceil;
-
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> ceil(vecType<T, P> const & x)
 	{

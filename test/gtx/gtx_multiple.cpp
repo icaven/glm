@@ -9,6 +9,42 @@
 
 #include <glm/gtx/multiple.hpp>
 
+int test_higher_uint()
+{
+	int Error(0);
+
+	Error += glm::all(glm::equal(glm::higherMultiple(glm::uvec4(0), glm::uvec4(4)), glm::uvec4(0))) ? 0 : 1;
+	Error += glm::all(glm::equal(glm::higherMultiple(glm::uvec4(1), glm::uvec4(4)), glm::uvec4(4))) ? 0 : 1;
+	Error += glm::all(glm::equal(glm::higherMultiple(glm::uvec4(2), glm::uvec4(4)), glm::uvec4(4))) ? 0 : 1;
+	Error += glm::all(glm::equal(glm::higherMultiple(glm::uvec4(3), glm::uvec4(4)), glm::uvec4(4))) ? 0 : 1;
+	Error += glm::all(glm::equal(glm::higherMultiple(glm::uvec4(4), glm::uvec4(4)), glm::uvec4(4))) ? 0 : 1;
+	Error += glm::all(glm::equal(glm::higherMultiple(glm::uvec4(5), glm::uvec4(4)), glm::uvec4(8))) ? 0 : 1;
+	Error += glm::all(glm::equal(glm::higherMultiple(glm::uvec4(6), glm::uvec4(4)), glm::uvec4(8))) ? 0 : 1;
+	Error += glm::all(glm::equal(glm::higherMultiple(glm::uvec4(7), glm::uvec4(4)), glm::uvec4(8))) ? 0 : 1;
+	Error += glm::all(glm::equal(glm::higherMultiple(glm::uvec4(8), glm::uvec4(4)), glm::uvec4(8))) ? 0 : 1;
+	Error += glm::all(glm::equal(glm::higherMultiple(glm::uvec4(9), glm::uvec4(4)), glm::uvec4(12))) ? 0 : 1;
+
+	return Error;
+}
+
+int test_Lower_uint()
+{
+	int Error(0);
+
+	Error += glm::all(glm::equal(glm::lowerMultiple(glm::uvec4(0), glm::uvec4(4)), glm::uvec4(0))) ? 0 : 1;
+	Error += glm::all(glm::equal(glm::lowerMultiple(glm::uvec4(1), glm::uvec4(4)), glm::uvec4(0))) ? 0 : 1;
+	Error += glm::all(glm::equal(glm::lowerMultiple(glm::uvec4(2), glm::uvec4(4)), glm::uvec4(0))) ? 0 : 1;
+	Error += glm::all(glm::equal(glm::lowerMultiple(glm::uvec4(3), glm::uvec4(4)), glm::uvec4(0))) ? 0 : 1;
+	Error += glm::all(glm::equal(glm::lowerMultiple(glm::uvec4(4), glm::uvec4(4)), glm::uvec4(4))) ? 0 : 1;
+	Error += glm::all(glm::equal(glm::lowerMultiple(glm::uvec4(5), glm::uvec4(4)), glm::uvec4(4))) ? 0 : 1;
+	Error += glm::all(glm::equal(glm::lowerMultiple(glm::uvec4(6), glm::uvec4(4)), glm::uvec4(4))) ? 0 : 1;
+	Error += glm::all(glm::equal(glm::lowerMultiple(glm::uvec4(7), glm::uvec4(4)), glm::uvec4(4))) ? 0 : 1;
+	Error += glm::all(glm::equal(glm::lowerMultiple(glm::uvec4(8), glm::uvec4(4)), glm::uvec4(8))) ? 0 : 1;
+	Error += glm::all(glm::equal(glm::lowerMultiple(glm::uvec4(9), glm::uvec4(4)), glm::uvec4(8))) ? 0 : 1;
+
+	return Error;
+}
+
 int test_higher_int()
 {
 	int Error(0);
@@ -108,6 +144,8 @@ int main()
 
 	Error += test_higher_int();
 	Error += test_Lower_int();
+	Error += test_higher_uint();
+	Error += test_Lower_uint();
 	Error += test_higher_double();
 	Error += test_Lower_double();
 

@@ -69,7 +69,7 @@ namespace glm
 #		endif
 	{}
 
-#if (GLM_HAS_UNRESTRICTED_UNIONS || GLM_HAS_ANONYMOUS_UNION) && (GLM_ARCH & GLM_ARCH_SSE2)
+#if GLM_HAS_ANONYMOUS_UNION && (GLM_ARCH & GLM_ARCH_SSE2)
 	template <>
 	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4()
 #		ifndef GLM_FORCE_NO_CTOR_INIT 
@@ -90,7 +90,7 @@ namespace glm
 		: x(v.x), y(v.y), z(v.z), w(v.w)
 	{}
 
-#if (GLM_HAS_UNRESTRICTED_UNIONS || GLM_HAS_ANONYMOUS_UNION) && (GLM_ARCH & GLM_ARCH_SSE2)
+#if GLM_HAS_ANONYMOUS_UNION && (GLM_ARCH & GLM_ARCH_SSE2)
 	template <>
 	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4(tvec4<float, lowp> const & v)
 		: data(v.data)
@@ -120,7 +120,7 @@ namespace glm
 		: x(s), y(s), z(s), w(s)
 	{}
 
-#if (GLM_HAS_UNRESTRICTED_UNIONS || GLM_HAS_ANONYMOUS_UNION) && (GLM_ARCH & GLM_ARCH_SSE2)
+#if GLM_HAS_ANONYMOUS_UNION && (GLM_ARCH & GLM_ARCH_SSE2)
 	template <>
 	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4(float const & s) :
 		data(_mm_set1_ps(s))
@@ -137,7 +137,7 @@ namespace glm
 		: x(a), y(b), z(c),	w(d)
 	{}
 
-#if (GLM_HAS_UNRESTRICTED_UNIONS || GLM_HAS_ANONYMOUS_UNION) && (GLM_ARCH & GLM_ARCH_SSE2)
+#if GLM_HAS_ANONYMOUS_UNION && (GLM_ARCH & GLM_ARCH_SSE2)
 	template <>
 	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4(float const & a, float const & b, float const & c, float const & d) :
 		data(_mm_set_ps(d, c, b, a))
@@ -294,7 +294,7 @@ namespace glm
 		return *this;
 	}
 
-#if (GLM_HAS_UNRESTRICTED_UNIONS || GLM_HAS_ANONYMOUS_UNION) && (GLM_ARCH & GLM_ARCH_SSE2)
+#if GLM_HAS_ANONYMOUS_UNION && (GLM_ARCH & GLM_ARCH_SSE2)
 	template <>
 	GLM_FUNC_QUALIFIER tvec4<float, lowp> & tvec4<float, lowp>::operator= (tvec4<float, lowp> const & v)
 	{
@@ -332,7 +332,7 @@ namespace glm
 		return *this;
 	}
 
-#if (GLM_HAS_UNRESTRICTED_UNIONS || GLM_HAS_ANONYMOUS_UNION) && (GLM_ARCH & GLM_ARCH_SSE2)
+#if GLM_HAS_ANONYMOUS_UNION && (GLM_ARCH & GLM_ARCH_SSE2)
 	template <>
 	template <typename U>
 	GLM_FUNC_QUALIFIER tvec4<float, lowp> & tvec4<float, lowp>::operator+=(U s)
@@ -377,7 +377,7 @@ namespace glm
 		return *this;
 	}
 
-#if (GLM_HAS_UNRESTRICTED_UNIONS || GLM_HAS_ANONYMOUS_UNION) && (GLM_ARCH & GLM_ARCH_SSE2)
+#if GLM_HAS_ANONYMOUS_UNION && (GLM_ARCH & GLM_ARCH_SSE2)
 	template <>
 	template <typename U>
 	GLM_FUNC_QUALIFIER tvec4<float, lowp> & tvec4<float, lowp>::operator+=(tvec1<U, lowp> const & s)

@@ -123,7 +123,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> higherMultiple(vecType<T, P> const & Source, vecType<T, P> const & Multiple)
 	{
-		return detail::functor2<T, T, P, vecType>::call(higherMultiple, Source, Multiple);
+		return detail::functor2<T, P, vecType>::call(higherMultiple, Source, Multiple);
 	}
 
 	//////////////////////
@@ -138,6 +138,6 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> lowerMultiple(vecType<T, P> const & Source, vecType<T, P> const & Multiple)
 	{
-		return detail::functor2<T, T, P, vecType>::call(lowerMultiple, Source, Multiple);
+		return detail::functor2<T, P, vecType>::call(lowerMultiple, Source, Multiple);
 	}
 }//namespace glm

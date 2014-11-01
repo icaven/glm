@@ -85,7 +85,7 @@ namespace glm
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> fastAtan(vecType<T, P> const & y, vecType<T, P> const & x)
 	{
-		return detail::functor2<T, T, P, vecType>::call(fastAtan, y, x);
+		return detail::functor2<T, P, vecType>::call(fastAtan, y, x);
 	}
 
 	template <typename T> 

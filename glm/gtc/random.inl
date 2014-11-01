@@ -313,7 +313,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> gaussRand(vecType<T, P> const & Mean, vecType<T, P> const & Deviation)
 	{
-		return detail::functor2<T, T, P, vecType>::call(gaussRand, Mean, Deviation);
+		return detail::functor2<T, P, vecType>::call(gaussRand, Mean, Deviation);
 	}
 
 	template <typename T>
