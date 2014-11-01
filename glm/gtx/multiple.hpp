@@ -62,6 +62,18 @@ namespace glm
 		genType Source,
 		genType Multiple);
 
+	/// Higher multiple number of Source.
+	///
+	/// @tparam genType Floating-point or integer scalar or vector types.
+	/// @param Source 
+	/// @param Multiple Must be a null or positive value
+	///
+	/// @see gtx_multiple
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> higherMultiple(
+		vecType<T, P> const & Source,
+		vecType<T, P> const & Multiple);
+
 	/// Lower multiple number of Source.
 	///
 	/// @tparam genType Floating-point or integer scalar or vector types.
@@ -73,6 +85,18 @@ namespace glm
 	GLM_FUNC_DECL genType lowerMultiple(
 		genType Source,
 		genType Multiple);
+
+	/// Lower multiple number of Source.
+	///
+	/// @tparam genType Floating-point or integer scalar or vector types.
+	/// @param Source 
+	/// @param Multiple Must be a null or positive value
+	///
+	/// @see gtx_multiple
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<T, P> lowerMultiple(
+		vecType<T, P> const & Source,
+		vecType<T, P> const & Multiple);
 
 	/// @}
 }//namespace glm
