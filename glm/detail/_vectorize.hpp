@@ -155,54 +155,6 @@ namespace detail
 }//namespace detail
 }//namespace glm
 
-#define VECTORIZE1_VEC(func)						\
-	template <typename T, precision P>				\
-	GLM_FUNC_QUALIFIER tvec1<T, P> func(	\
-		tvec1<T, P> const & v)				\
-	{												\
-		return tvec1<T, P>(					\
-			func(v.x));								\
-	}
-
-#define VECTORIZE2_VEC(func)						\
-	template <typename T, precision P>				\
-	GLM_FUNC_QUALIFIER tvec2<T, P> func(	\
-		tvec2<T, P> const & v)				\
-	{												\
-		return tvec2<T, P>(					\
-			func(v.x),								\
-			func(v.y));								\
-	}
-
-#define VECTORIZE3_VEC(func)						\
-	template <typename T, precision P>				\
-	GLM_FUNC_QUALIFIER tvec3<T, P> func(	\
-		tvec3<T, P> const & v)				\
-	{												\
-		return tvec3<T, P>(					\
-			func(v.x),								\
-			func(v.y),								\
-			func(v.z));								\
-	}
-
-#define VECTORIZE4_VEC(func)						\
-	template <typename T, precision P>				\
-	GLM_FUNC_QUALIFIER tvec4<T, P> func(	\
-		tvec4<T, P> const & v)				\
-	{												\
-		return tvec4<T, P>(					\
-			func(v.x),								\
-			func(v.y),								\
-			func(v.z),								\
-			func(v.w));								\
-	}
-
-#define VECTORIZE_VEC(func)		\
-	VECTORIZE1_VEC(func)		\
-	VECTORIZE2_VEC(func)		\
-	VECTORIZE3_VEC(func)		\
-	VECTORIZE4_VEC(func)
-
 #define VECTORIZE1_VEC_SCA(func)							\
 	template <typename T, precision P>						\
 	GLM_FUNC_QUALIFIER tvec1<T, P> func				\
@@ -262,66 +214,6 @@ namespace detail
 	VECTORIZE2_VEC_SCA(func)		\
 	VECTORIZE3_VEC_SCA(func)		\
 	VECTORIZE4_VEC_SCA(func)
-
-#define VECTORIZE1_VEC_VEC(func)					\
-	template <typename T, precision P>				\
-	GLM_FUNC_QUALIFIER tvec1<T, P> func		\
-	(												\
-		tvec1<T, P> const & x,				\
-		tvec1<T, P> const & y				\
-	)												\
-	{												\
-		return tvec1<T, P>(					\
-			func(x.x, y.x));						\
-	}
-
-#define VECTORIZE2_VEC_VEC(func)					\
-	template <typename T, precision P>				\
-	GLM_FUNC_QUALIFIER tvec2<T, P> func		\
-	(												\
-		tvec2<T, P> const & x,				\
-		tvec2<T, P> const & y				\
-	)												\
-	{												\
-		return tvec2<T, P>(					\
-			func(x.x, y.x),							\
-			func(x.y, y.y));						\
-	}
-
-#define VECTORIZE3_VEC_VEC(func)					\
-	template <typename T, precision P>				\
-	GLM_FUNC_QUALIFIER tvec3<T, P> func		\
-	(												\
-		tvec3<T, P> const & x,				\
-		tvec3<T, P> const & y				\
-	)												\
-	{												\
-		return tvec3<T, P>(					\
-			func(x.x, y.x),							\
-			func(x.y, y.y),							\
-			func(x.z, y.z));						\
-	}
-
-#define VECTORIZE4_VEC_VEC(func)				\
-	template <typename T, precision P>			\
-	GLM_FUNC_QUALIFIER tvec4<T, P> func	\
-	(											\
-		tvec4<T, P> const & x,			\
-		tvec4<T, P> const & y			\
-	)											\
-	{											\
-		return tvec4<T, P>(				\
-			func(x.x, y.x),						\
-			func(x.y, y.y),						\
-			func(x.z, y.z),						\
-			func(x.w, y.w));					\
-	}
-
-#define VECTORIZE_VEC_VEC(func)		\
-	VECTORIZE1_VEC_VEC(func)		\
-	VECTORIZE2_VEC_VEC(func)		\
-	VECTORIZE3_VEC_VEC(func)		\
-	VECTORIZE4_VEC_VEC(func)
 
 namespace glm{
 namespace detail

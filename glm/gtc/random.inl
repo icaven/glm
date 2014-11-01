@@ -280,46 +280,22 @@ namespace detail
 	};
 }//namespace detail
 
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType linearRand(genType Min, genType Max)
+	{
+		return detail::compute_linearRand<genType, highp, tvec1>::call(
+			tvec1<genType, highp>(Min),
+			tvec1<genType, highp>(Max)).x;
+	}
+
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> linearRand
-	(
-		vecType<T, P> const & Min,
-		vecType<T, P> const & Max
-	)
+	GLM_FUNC_QUALIFIER vecType<T, P> linearRand(vecType<T, P> const & Min, vecType<T, P> const & Max)
 	{
 		return detail::compute_linearRand<T, P, vecType>::call(Min, Max);
 	}
 
-	template <>
-	GLM_FUNC_QUALIFIER float linearRand<float>
-	(
-		float const & Min,
-		float const & Max
-	)
-	{
-		return detail::compute_linearRand<float, highp, tvec1>::call(
-			tvec1<float, highp>(Min),
-			tvec1<float, highp>(Max)).x;
-	}
-
-	template <>
-	GLM_FUNC_QUALIFIER double linearRand<double>
-	(
-		double const & Min,
-		double const & Max
-	)
-	{
-		return detail::compute_linearRand<double, highp, tvec1>::call(
-			tvec1<double, highp>(Min),
-			tvec1<double, highp>(Max)).x;
-	}
-
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType gaussRand
-	(
-		genType const & Mean,
-		genType const & Deviation
-	)
+	GLM_FUNC_QUALIFIER genType gaussRand(genType Mean, genType Deviation)
 	{
 		genType w, x1, x2;
 	
@@ -334,13 +310,14 @@ namespace detail
 		return x2 * Deviation * Deviation * sqrt((genType(-2) * log(w)) / w) + Mean;
 	}
 
-	VECTORIZE_VEC_VEC(gaussRand)
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> gaussRand(vecType<T, P> const & Mean, vecType<T, P> const & Deviation)
+	{
+		return detail::functor2<T, T, P, vecType>::call(gaussRand, Mean, Deviation);
+	}
 
 	template <typename T>
-	GLM_FUNC_QUALIFIER tvec2<T, defaultp> diskRand
-	(
-		T const & Radius
-	)
+	GLM_FUNC_QUALIFIER tvec2<T, defaultp> diskRand(T Radius)
 	{		
 		tvec2<T, defaultp> Result(T(0));
 		T LenRadius(T(0));
@@ -358,10 +335,7 @@ namespace detail
 	}
 	
 	template <typename T>
-	GLM_FUNC_QUALIFIER tvec3<T, defaultp> ballRand
-	(
-		T const & Radius
-	)
+	GLM_FUNC_QUALIFIER tvec3<T, defaultp> ballRand(T Radius)
 	{		
 		tvec3<T, defaultp> Result(T(0));
 		T LenRadius(T(0));
@@ -379,20 +353,14 @@ namespace detail
 	}
 	
 	template <typename T>
-	GLM_FUNC_QUALIFIER tvec2<T, defaultp> circularRand
-	(
-		T const & Radius
-	)
+	GLM_FUNC_QUALIFIER tvec2<T, defaultp> circularRand(T Radius)
 	{
 		T a = linearRand(T(0), T(6.283185307179586476925286766559f));
 		return tvec2<T, defaultp>(cos(a), sin(a)) * Radius;		
 	}
 	
 	template <typename T>
-	GLM_FUNC_QUALIFIER tvec3<T, defaultp> sphericalRand
-	(
-		T const & Radius
-	)
+	GLM_FUNC_QUALIFIER tvec3<T, defaultp> sphericalRand(T Radius)
 	{
 		T z = linearRand(T(-1), T(1));
 		T a = linearRand(T(0), T(6.283185307179586476925286766559f));

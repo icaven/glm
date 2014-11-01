@@ -11,170 +11,77 @@ namespace glm
 {
 	// fastSqrt
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType fastSqrt
-	(
-		genType const & x
-	)
+	GLM_FUNC_QUALIFIER genType fastSqrt(genType x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'fastSqrt' only accept floating-point input");
 
 		return genType(1) / fastInverseSqrt(x);
 	}
 
-	VECTORIZE_VEC(fastSqrt)
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> fastSqrt(vecType<T, P> const & x)
+	{
+		return detail::functor1<T, T, P, vecType>::call(fastSqrt, x);
+	}
 
 	// fastInversesqrt
-	template <>
-	GLM_FUNC_QUALIFIER float fastInverseSqrt<float>(float const & x)
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType fastInverseSqrt(genType x)
 	{
 #		ifdef __CUDACC__ // Wordaround for a CUDA compiler bug up to CUDA6
-			tvec1<T, P> tmp(detail::compute_inversesqrt<tvec1, float, lowp>::call(tvec1<float, lowp>(x)));
+			tvec1<T, P> tmp(detail::compute_inversesqrt<tvec1, genType, lowp>::call(tvec1<genType, lowp>(x)));
 			return tmp.x;
 #		else
-			return detail::compute_inversesqrt<tvec1, float, lowp>::call(tvec1<float, lowp>(x)).x;
+			return detail::compute_inversesqrt<tvec1, genType, lowp>::call(tvec1<genType, lowp>(x)).x;
 #		endif
 	}
 
-	template <>
-	GLM_FUNC_QUALIFIER double fastInverseSqrt<double>(double const & x)
-	{
-#		ifdef __CUDACC__ // Wordaround for a CUDA compiler bug up to CUDA6
-			tvec1<T, P> tmp(detail::compute_inversesqrt<tvec1, double, lowp>::call(tvec1<double, lowp>(x)));
-			return tmp.x;
-#		else
-			return detail::compute_inversesqrt<tvec1, double, lowp>::call(tvec1<double, lowp>(x)).x;
-#		endif
-	}
-
-	template <template <class, precision> class vecType, typename T, precision P>
-	GLM_FUNC_QUALIFIER vecType<T, P> fastInverseSqrt
-	(
-		vecType<T, P> const & x
-	)
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> fastInverseSqrt(vecType<T, P> const & x)
 	{
 		return detail::compute_inversesqrt<vecType, T, P>::call(x);
 	}
 
-	VECTORIZE_VEC(fastInverseSqrt)
-
 	// fastLength
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType fastLength
-	(
-		genType const & x
-	)
+	GLM_FUNC_QUALIFIER genType fastLength(genType x)
 	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'fastLength' only accept floating-point inputs");
+
 		return abs(x);
 	}
 
-	template <typename valType, precision P>
-	GLM_FUNC_QUALIFIER valType fastLength
-	(
-		tvec2<valType, P> const & x
-	)
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER T fastLength(vecType<T, P> const & x)
 	{
-		valType sqr = x.x * x.x + x.y * x.y;
-		return fastSqrt(sqr);
-	}
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'fastLength' only accept floating-point inputs");
 
-	template <typename valType, precision P>
-	GLM_FUNC_QUALIFIER valType fastLength
-	(
-		tvec3<valType, P> const & x
-	)
-	{
-		valType sqr = x.x * x.x + x.y * x.y + x.z * x.z;
-		return fastSqrt(sqr);
-	}
-
-	template <typename valType, precision P>
-	GLM_FUNC_QUALIFIER valType fastLength
-	(
-		tvec4<valType, P> const & x
-	)
-	{
-		valType sqr = x.x * x.x + x.y * x.y + x.z * x.z + x.w * x.w;
-		return fastSqrt(sqr);
+		return fastSqrt(dot(x, x));
 	}
 
 	// fastDistance
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType fastDistance
-	(
-		genType const & x,
-		genType const & y
-	)
+	GLM_FUNC_QUALIFIER genType fastDistance(genType x, genType y)
 	{
 		return fastLength(y - x);
 	}
 
-	template <typename valType, precision P>
-	GLM_FUNC_QUALIFIER valType fastDistance
-	(
-		tvec2<valType, P> const & x,
-		tvec2<valType, P> const & y
-	)
-	{
-		return fastLength(y - x);
-	}
-
-	template <typename valType, precision P>
-	GLM_FUNC_QUALIFIER valType fastDistance
-	(
-		tvec3<valType, P> const & x,
-		tvec3<valType, P> const & y
-	)
-	{
-		return fastLength(y - x);
-	}
-
-	template <typename valType, precision P>
-	GLM_FUNC_QUALIFIER valType fastDistance
-	(
-		tvec4<valType, P> const & x,
-		tvec4<valType, P> const & y
-	)
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER T fastDistance(vecType<T, P> const & x, vecType<T, P> const & y)
 	{
 		return fastLength(y - x);
 	}
 
 	// fastNormalize
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType fastNormalize
-	(
-		genType const & x
-	)
+	GLM_FUNC_QUALIFIER genType fastNormalize(genType x)
 	{
 		return x > genType(0) ? genType(1) : -genType(1);
 	}
 
-	template <typename valType, precision P>
-	GLM_FUNC_QUALIFIER tvec2<valType, P> fastNormalize
-	(
-		tvec2<valType, P> const & x
-	)
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> fastNormalize(vecType<T, P> const & x)
 	{
-		valType sqr = x.x * x.x + x.y * x.y;
-		return x * fastInverseSqrt(sqr);
-	}
-
-	template <typename valType, precision P>
-	GLM_FUNC_QUALIFIER tvec3<valType, P> fastNormalize
-	(
-		tvec3<valType, P> const & x
-	)
-	{
-		valType sqr = x.x * x.x + x.y * x.y + x.z * x.z;
-		return x * fastInverseSqrt(sqr);
-	}
-
-	template <typename valType, precision P>
-	GLM_FUNC_QUALIFIER tvec4<valType, P> fastNormalize
-	(
-		tvec4<valType, P> const & x
-	)
-	{
-		valType sqr = x.x * x.x + x.y * x.y + x.z * x.z + x.w * x.w;
-		return x * fastInverseSqrt(sqr);
+		return x * fastInverseSqrt(dot(x, x));
 	}
 }//namespace glm
