@@ -131,6 +131,115 @@ namespace bitfieldExtract
 
 namespace bitfieldReverse
 {
+/*
+	GLM_FUNC_QUALIFIER unsigned int bitfieldReverseLoop(unsigned int v)
+	{
+		unsigned int Result(0);
+		unsigned int const BitSize = static_cast<unsigned int>(sizeof(unsigned int) * 8);
+		for(unsigned int i = 0; i < BitSize; ++i)
+		{
+			unsigned int const BitSet(v & (static_cast<unsigned int>(1) << i));
+			unsigned int const BitFirst(BitSet >> i);
+			Result |= BitFirst << (BitSize - 1 - i);
+		}
+		return Result;
+	}
+
+	GLM_FUNC_QUALIFIER glm::uint64_t bitfieldReverseLoop(glm::uint64_t v)
+	{
+		glm::uint64_t Result(0);
+		glm::uint64_t const BitSize = static_cast<glm::uint64_t>(sizeof(unsigned int) * 8);
+		for(glm::uint64_t i = 0; i < BitSize; ++i)
+		{
+			glm::uint64_t const BitSet(v & (static_cast<glm::uint64_t>(1) << i));
+			glm::uint64_t const BitFirst(BitSet >> i);
+			Result |= BitFirst << (BitSize - 1 - i);
+		}
+		return Result;
+	}
+*/
+	template <typename T, glm::precision P, template <typename, glm::precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> bitfieldReverseLoop(vecType<T, P> const & v)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldReverse' only accept integer values");
+
+		vecType<T, P> Result(0);
+		T const BitSize = static_cast<T>(sizeof(T) * 8);
+		for(T i = 0; i < BitSize; ++i)
+		{
+			vecType<T, P> const BitSet(v & (static_cast<T>(1) << i));
+			vecType<T, P> const BitFirst(BitSet >> i);
+			Result |= BitFirst << (BitSize - 1 - i);
+		}
+		return Result;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER T bitfieldReverseLoop(T v)
+	{
+		return bitfieldReverseLoop(glm::tvec1<T>(v)).x;
+	}
+
+	GLM_FUNC_QUALIFIER uint32_t bitfieldReverseUint32(uint32_t x)
+	{
+		x = (x & 0x55555555) <<  1 | (x & 0xAAAAAAAA) >>  1;
+		x = (x & 0x33333333) <<  2 | (x & 0xCCCCCCCC) >>  2;
+		x = (x & 0x0F0F0F0F) <<  4 | (x & 0xF0F0F0F0) >>  4;
+		x = (x & 0x00FF00FF) <<  8 | (x & 0xFF00FF00) >>  8;
+		x = (x & 0x0000FFFF) << 16 | (x & 0xFFFF0000) >> 16;
+		return x;
+	}
+
+	GLM_FUNC_QUALIFIER uint64_t bitfieldReverseUint64(uint64_t x)
+	{
+		x = (x & 0x5555555555555555) <<  1 | (x & 0xAAAAAAAAAAAAAAAA) >>  1;
+		x = (x & 0x3333333333333333) <<  2 | (x & 0xCCCCCCCCCCCCCCCC) >>  2;
+		x = (x & 0x0F0F0F0F0F0F0F0F) <<  4 | (x & 0xF0F0F0F0F0F0F0F0) >>  4;
+		x = (x & 0x00FF00FF00FF00FF) <<  8 | (x & 0xFF00FF00FF00FF00) >>  8;
+		x = (x & 0x0000FFFF0000FFFF) << 16 | (x & 0xFFFF0000FFFF0000) >> 16;
+		x = (x & 0x00000000FFFFFFFF) << 32 | (x & 0xFFFFFFFF00000000) >> 32;
+		return x;
+	}
+
+	template <bool EXEC = false>
+	struct compute_bitfieldReverseStep
+	{
+		template <typename T, glm::precision P, template <class, glm::precision> class vecType>
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & v, T, T)
+		{
+			return v;
+		}
+	};
+
+	template <>
+	struct compute_bitfieldReverseStep<true>
+	{
+		template <typename T, glm::precision P, template <class, glm::precision> class vecType>
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & v, T Mask, T Shift)
+		{
+			return (v & Mask) << Shift | (v & (~Mask)) >> Shift;
+		}
+	};
+
+	template <typename T, glm::precision P, template <typename, glm::precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> bitfieldReverseOps(vecType<T, P> const & v)
+	{
+		vecType<T, P> x(v);
+		x = compute_bitfieldReverseStep<sizeof(T) * 8 >=  2>::call<T, P, vecType>(x, T(0x5555555555555555ull), static_cast<T>( 1));
+		x = compute_bitfieldReverseStep<sizeof(T) * 8 >=  4>::call<T, P, vecType>(x, T(0x3333333333333333ull), static_cast<T>( 2));
+		x = compute_bitfieldReverseStep<sizeof(T) * 8 >=  8>::call<T, P, vecType>(x, T(0x0F0F0F0F0F0F0F0Full), static_cast<T>( 4));
+		x = compute_bitfieldReverseStep<sizeof(T) * 8 >= 16>::call<T, P, vecType>(x, T(0x00FF00FF00FF00FFull), static_cast<T>( 8));
+		x = compute_bitfieldReverseStep<sizeof(T) * 8 >= 32>::call<T, P, vecType>(x, T(0x0000FFFF0000FFFFull), static_cast<T>(16));
+		x = compute_bitfieldReverseStep<sizeof(T) * 8 >= 64>::call<T, P, vecType>(x, T(0x00000000FFFFFFFFull), static_cast<T>(32));
+		return x;
+	}
+
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType bitfieldReverseOps(genType x)
+	{
+		return bitfieldReverseOps(glm::tvec1<genType, glm::defaultp>(x)).x;
+	}
+
 	template <typename genType>
 	struct type
 	{
@@ -143,9 +252,13 @@ namespace bitfieldReverse
 
 	typeU32 const Data32[] =
 	{
-		{0xffffffff, 0xffffffff, SUCCESS},
-		{0x00000000, 0x00000000, SUCCESS},
+		{0x00000001, 0x80000000, SUCCESS},
+		{0x0000000f, 0xf0000000, SUCCESS},
+		{0x000000ff, 0xff000000, SUCCESS},
 		{0xf0000000, 0x0000000f, SUCCESS},
+		{0xff000000, 0x000000ff, SUCCESS},
+		{0xffffffff, 0xffffffff, SUCCESS},
+		{0x00000000, 0x00000000, SUCCESS}
 	};
 
 	typedef type<glm::uint64> typeU64;
@@ -153,71 +266,280 @@ namespace bitfieldReverse
 #if(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && (GLM_COMPILER < GLM_COMPILER_GCC44))
 	typeU64 const Data64[] =
 	{
-		{0xffffffffffffffffLLU, 0xffffffffffffffffLLU, SUCCESS},
-		{0x0000000000000000LLU, 0x0000000000000000LLU, SUCCESS},
 		{0xf000000000000000LLU, 0x000000000000000fLLU, SUCCESS},
+		{0xffffffffffffffffLLU, 0xffffffffffffffffLLU, SUCCESS},
+		{0x0000000000000000LLU, 0x0000000000000000LLU, SUCCESS}
 	};
 #else
 	typeU64 const Data64[] =
 	{
-		{0xffffffffffffffff, 0xffffffffffffffff, SUCCESS},
-		{0x0000000000000000, 0x0000000000000000, SUCCESS},
+		{0x00000000000000ff, 0xff00000000000000, SUCCESS},
+		{0x000000000000000f, 0xf000000000000000, SUCCESS},
 		{0xf000000000000000, 0x000000000000000f, SUCCESS},
+		{0xffffffffffffffff, 0xffffffffffffffff, SUCCESS},
+		{0x0000000000000000, 0x0000000000000000, SUCCESS}
 	};
 #endif
 
-	int test32()
+	int test32_bitfieldReverse()
 	{
-		glm::uint count = sizeof(Data32) / sizeof(typeU32);
+		int Error = 0;
+		std::size_t const Count = sizeof(Data32) / sizeof(typeU32);
 		
-		for(glm::uint i = 0; i < count; ++i)
+		for(std::size_t i = 0; i < Count; ++i)
 		{
-			glm::uint Return = glm::bitfieldReverse(
-				Data32[i].Value);
+			glm::uint Return = glm::bitfieldReverse(Data32[i].Value);
 			
 			bool Compare = Data32[i].Return == Return;
 			
-			if(Data32[i].Result == SUCCESS && Compare)
-				continue;
-			else if(Data32[i].Result == FAIL && !Compare)
-				continue;
-			
-			std::printf("glm::bitfieldReverse test fail on test %d\n", static_cast<unsigned int>(i));
-			return 1;
+			if(Data32[i].Result == SUCCESS)
+				Error += Compare ? 0 : 1;
+			else
+				Error += Compare ? 1 : 0;
 		}
 		
-		return 0;
+		return Error;
 	}
 
-	int test64()
+	int test32_bitfieldReverseLoop()
 	{
-		glm::uint32 count = sizeof(Data64) / sizeof(typeU64);
+		int Error = 0;
+		std::size_t const Count = sizeof(Data32) / sizeof(typeU32);
 		
-		for(glm::uint32 i = 0; i < count; ++i)
+		for(std::size_t i = 0; i < Count; ++i)
 		{
-			glm::uint64 Return = glm::bitfieldReverse(
-				Data64[i].Value);
+			glm::uint Return = bitfieldReverseLoop(Data32[i].Value);
+			
+			bool Compare = Data32[i].Return == Return;
+			
+			if(Data32[i].Result == SUCCESS)
+				Error += Compare ? 0 : 1;
+			else
+				Error += Compare ? 1 : 0;
+		}
+		
+		return Error;
+	}
+
+	int test32_bitfieldReverseUint32()
+	{
+		int Error = 0;
+		std::size_t const Count = sizeof(Data32) / sizeof(typeU32);
+		
+		for(std::size_t i = 0; i < Count; ++i)
+		{
+			glm::uint Return = bitfieldReverseUint32(Data32[i].Value);
+			
+			bool Compare = Data32[i].Return == Return;
+			
+			if(Data32[i].Result == SUCCESS)
+				Error += Compare ? 0 : 1;
+			else
+				Error += Compare ? 1 : 0;
+		}
+		
+		return Error;
+	}
+
+	int test32_bitfieldReverseOps()
+	{
+		int Error = 0;
+		std::size_t const Count = sizeof(Data32) / sizeof(typeU32);
+		
+		for(std::size_t i = 0; i < Count; ++i)
+		{
+			glm::uint Return = bitfieldReverseOps(Data32[i].Value);
+			
+			bool Compare = Data32[i].Return == Return;
+			
+			if(Data32[i].Result == SUCCESS)
+				Error += Compare ? 0 : 1;
+			else
+				Error += Compare ? 1 : 0;
+		}
+		
+		return Error;
+	}
+
+	int test64_bitfieldReverse()
+	{
+		int Error = 0;
+		std::size_t const Count = sizeof(Data64) / sizeof(typeU64);
+		
+		for(std::size_t i = 0; i < Count; ++i)
+		{
+			glm::uint64 Return = glm::bitfieldReverse(Data64[i].Value);
 			
 			bool Compare = Data64[i].Return == Return;
 			
-			if(Data64[i].Result == SUCCESS && Compare)
-				continue;
-			else if(Data64[i].Result == FAIL && !Compare)
-				continue;
-			
-			std::printf("glm::extractfield test fail on test %d\n", static_cast<unsigned int>(i));
-			return 1;
+			if(Data64[i].Result == SUCCESS)
+				Error += Compare ? 0 : 1;
+			else
+				Error += Compare ? 1 : 0;
 		}
 		
-		return 0;
+		return Error;
+	}
+
+	int test64_bitfieldReverseLoop()
+	{
+		int Error = 0;
+		std::size_t const Count = sizeof(Data64) / sizeof(typeU64);
+		
+		for(std::size_t i = 0; i < Count; ++i)
+		{
+			glm::uint64 Return = bitfieldReverseLoop(Data64[i].Value);
+			
+			bool Compare = Data64[i].Return == Return;
+			
+			if(Data32[i].Result == SUCCESS)
+				Error += Compare ? 0 : 1;
+			else
+				Error += Compare ? 1 : 0;
+		}
+		
+		return Error;
+	}
+
+	int test64_bitfieldReverseUint64()
+	{
+		int Error = 0;
+		std::size_t const Count = sizeof(Data64) / sizeof(typeU64);
+		
+		for(std::size_t i = 0; i < Count; ++i)
+		{
+			glm::uint64 Return = bitfieldReverseUint64(Data64[i].Value);
+			
+			bool Compare = Data64[i].Return == Return;
+			
+			if(Data64[i].Result == SUCCESS)
+				Error += Compare ? 0 : 1;
+			else
+				Error += Compare ? 1 : 0;
+		}
+		
+		return Error;
+	}
+
+	int test64_bitfieldReverseOps()
+	{
+		int Error = 0;
+		std::size_t const Count = sizeof(Data64) / sizeof(typeU64);
+		
+		for(std::size_t i = 0; i < Count; ++i)
+		{
+			glm::uint64 Return = bitfieldReverseOps(Data64[i].Value);
+			
+			bool Compare = Data64[i].Return == Return;
+			
+			if(Data64[i].Result == SUCCESS)
+				Error += Compare ? 0 : 1;
+			else
+				Error += Compare ? 1 : 0;
+		}
+		
+		return Error;
 	}
 
 	int test()
 	{
 		int Error = 0;
 
-		Error += test32();
-		Error += test64();
+		Error += test32_bitfieldReverse();
+		Error += test32_bitfieldReverseLoop();
+		Error += test32_bitfieldReverseUint32();
+		Error += test32_bitfieldReverseOps();
+
+		Error += test64_bitfieldReverse();
+		Error += test64_bitfieldReverseLoop();
+		Error += test64_bitfieldReverseUint64();
+		Error += test64_bitfieldReverseOps();
+
+		return Error;
+	}
+
+	int perf32()
+	{
+		int Error = 0;
+
+		glm::uint32 Count = 10000000;
+		std::vector<glm::uint32> Data;
+		Data.resize(static_cast<std::size_t>(Count));
+
+		std::clock_t Timestamps0 = std::clock();
+
+		for(glm::uint32 k = 0; k < Count; ++k)
+			Data[k] = glm::bitfieldReverse(k);
+
+		std::clock_t Timestamps1 = std::clock();
+
+		for(glm::uint32 k = 0; k < Count; ++k)
+			Data[k] = bitfieldReverseLoop(k);
+
+		std::clock_t Timestamps2 = std::clock();
+
+		for(glm::uint32 k = 0; k < Count; ++k)
+			Data[k] = bitfieldReverseUint32(k);
+
+		std::clock_t Timestamps3 = std::clock();
+
+		for(glm::uint32 k = 0; k < Count; ++k)
+			Data[k] = bitfieldReverseOps(k);
+
+		std::clock_t Timestamps4 = std::clock();
+
+		std::printf("glm::bitfieldReverse: %d clocks\n", static_cast<unsigned int>(Timestamps1 - Timestamps0));
+		std::printf("bitfieldReverseLoop: %d clocks\n", static_cast<unsigned int>(Timestamps2 - Timestamps1));
+		std::printf("bitfieldReverseUint32: %d clocks\n", static_cast<unsigned int>(Timestamps3 - Timestamps2));
+		std::printf("bitfieldReverseOps: %d clocks\n", static_cast<unsigned int>(Timestamps4 - Timestamps3));
+
+		return Error;
+	}
+
+	int perf64()
+	{
+		int Error = 0;
+
+		glm::uint64 Count = 10000000;
+		std::vector<glm::uint64> Data;
+		Data.resize(static_cast<std::size_t>(Count));
+
+		std::clock_t Timestamps0 = std::clock();
+
+		for(glm::uint32 k = 0; k < Count; ++k)
+			Data[k] = glm::bitfieldReverse(k);
+
+		std::clock_t Timestamps1 = std::clock();
+
+		for(glm::uint64 k = 0; k < Count; ++k)
+			Data[k] = bitfieldReverseLoop(k);
+
+		std::clock_t Timestamps2 = std::clock();
+
+		for(glm::uint64 k = 0; k < Count; ++k)
+			Data[k] = bitfieldReverseUint64(k);
+
+		std::clock_t Timestamps3 = std::clock();
+
+		for(glm::uint64 k = 0; k < Count; ++k)
+			Data[k] = bitfieldReverseOps(k);
+
+		std::clock_t Timestamps4 = std::clock();
+
+		std::printf("glm::bitfieldReverse - 64: %d clocks\n", static_cast<unsigned int>(Timestamps1 - Timestamps0));
+		std::printf("bitfieldReverseLoop - 64: %d clocks\n", static_cast<unsigned int>(Timestamps2 - Timestamps1));
+		std::printf("bitfieldReverseUint - 64: %d clocks\n", static_cast<unsigned int>(Timestamps3 - Timestamps2));
+		std::printf("bitfieldReverseOps - 64: %d clocks\n", static_cast<unsigned int>(Timestamps4 - Timestamps3));
+
+		return Error;
+	}
+
+	int perf()
+	{
+		int Error = 0;
+
+		Error += perf32();
+		Error += perf64();
 
 		return Error;
 	}
@@ -909,7 +1231,7 @@ namespace bitCount
 		// bitCount - TimeVec4
 		{
 			for(std::size_t i = 0, n = v.size(); i < n; ++i)
-				w[i] = glm::bitCount(glm::ivec4(i));
+				w[i] = glm::bitCount(glm::ivec4(static_cast<int>(i)));
 		}
 
 		std::clock_t TimestampsE = std::clock();
@@ -946,6 +1268,8 @@ int main()
 {
 	int Error = 0;
 
+	Error += ::bitfieldReverse::test();
+	Error += ::bitfieldReverse::perf();
 	Error += ::findMSB::test();
 	Error += ::findMSB::perf();
 	Error += ::findLSB::test();
@@ -955,7 +1279,6 @@ int main()
 	Error += ::usubBorrow::test();
 	Error += ::bitfieldInsert::test();
 	Error += ::bitfieldExtract::test();
-	Error += ::bitfieldReverse::test();
 	Error += ::bitCount::test();
 	Error += ::bitCount::perf();
 
