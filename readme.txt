@@ -58,7 +58,7 @@ GLM 0.9.6.0: 2014-XX-XX
 - Fixed implicit conversion from another tvec2 type to another tvec2 #241
 - Added GTX_scalar_multiplication for C++ 11 compiler only #242
 - Added GTX_range for C++ 11 compiler only #240
-- Added Added closestPointOnLine function for tvec2 to GTX_closest_point #238
+- Added closestPointOnLine function for tvec2 to GTX_closest_point #238
 - Moved template types from 'detail' to 'glm' namespace #239, #244
 - Added GLM_FORCE_SIZE_FUNC to replace .length() by .size() #245
 - Fixed GTX_string_cast to support for integer types #249
@@ -80,6 +80,7 @@ GLM 0.9.6.0: 2014-XX-XX
 - Added GTC_bitfield extension, promoted GTX_bit
 - Added GTC_integer extension, promoted GTX_bit
 - Fixed bad matrix-vector multiple performance with Cuda #257, #258
+- Optimized bitfieldReverse function
 
 ================================================================================
 GLM 0.9.5.4: 2014-06-21
