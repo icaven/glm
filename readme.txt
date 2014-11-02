@@ -80,7 +80,7 @@ GLM 0.9.6.0: 2014-XX-XX
 - Added GTC_bitfield extension, promoted GTX_bit
 - Added GTC_integer extension, promoted GTX_bit
 - Fixed bad matrix-vector multiple performance with Cuda #257, #258
-- Optimized bitfieldReverse function
+- Optimized bitfieldReverse and bitCount functions
 
 ================================================================================
 GLM 0.9.5.4: 2014-06-21

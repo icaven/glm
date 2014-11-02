@@ -66,6 +66,26 @@ namespace detail
 			return (v & Mask) << Shift | (v & (~Mask)) >> Shift;
 		}
 	};
+
+	template <bool EXEC = false>
+	struct compute_bitfieldBitCountStep
+	{
+		template <typename T, glm::precision P, template <class, glm::precision> class vecType>
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & v, T, T)
+		{
+			return v;
+		}
+	};
+
+	template <>
+	struct compute_bitfieldBitCountStep<true>
+	{
+		template <typename T, glm::precision P, template <class, glm::precision> class vecType>
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & v, T Mask, T Shift)
+		{
+			return (v & Mask) + ((v >> Shift) & Mask);
+		}
+	};
 }//namespace detail
 
 	// uaddCarry
@@ -207,21 +227,24 @@ namespace detail
 	}
 
 	// bitCount
-	template <typename genIUType>
-	GLM_FUNC_QUALIFIER int bitCount(genIUType x)
+	template <typename genType>
+	GLM_FUNC_QUALIFIER int bitCount(genType x)
 	{
-		return bitCount(tvec1<genIUType>(x)).x;
+		return bitCount(glm::tvec1<genType, glm::defaultp>(x)).x;
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
+	template <typename T, glm::precision P, template <typename, glm::precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<int, P> bitCount(vecType<T, P> const & v)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitCount' only accept integer values");
-
-		vecType<int, P> Count(0);
-		for(T i = 0, n = static_cast<T>(sizeof(T) * 8); i < n; ++i)
-			Count += vecType<int, P>((v >> i) & static_cast<T>(1));
-		return Count;
+		typedef glm::detail::make_unsigned<T>::type U;
+		vecType<U, P> x(*reinterpret_cast<vecType<U, P> const *>(&v));
+		x = detail::compute_bitfieldBitCountStep<sizeof(T) * 8 >=  2>::call<U, P, vecType>(x, U(0x5555555555555555ull), static_cast<U>( 1));
+		x = detail::compute_bitfieldBitCountStep<sizeof(T) * 8 >=  4>::call<U, P, vecType>(x, U(0x3333333333333333ull), static_cast<U>( 2));
+		x = detail::compute_bitfieldBitCountStep<sizeof(T) * 8 >=  8>::call<U, P, vecType>(x, U(0x0F0F0F0F0F0F0F0Full), static_cast<U>( 4));
+		x = detail::compute_bitfieldBitCountStep<sizeof(T) * 8 >= 16>::call<U, P, vecType>(x, U(0x00FF00FF00FF00FFull), static_cast<U>( 8));
+		x = detail::compute_bitfieldBitCountStep<sizeof(T) * 8 >= 32>::call<U, P, vecType>(x, U(0x0000FFFF0000FFFFull), static_cast<U>(16));
+		x = detail::compute_bitfieldBitCountStep<sizeof(T) * 8 >= 64>::call<U, P, vecType>(x, U(0x00000000FFFFFFFFull), static_cast<U>(32));
+		return vecType<int, P>(x);
 	}
 
 	// findLSB

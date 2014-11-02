@@ -858,7 +858,7 @@ namespace findMSB
 		int Error(0);
 
 		Error += perf_950();
-		Error += perf_ops();
+		//Error += perf_ops();
 
 		return Error;
 	}
@@ -1190,17 +1190,44 @@ namespace bitCount
 		return Count;
 	}
 
-	template <typename T>
-	inline int bitCount_bits(T v)
+	template <bool EXEC = false>
+	struct compute_bitfieldBitCountStep
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitCount' only accept integer values");
-
-		int Count(0);
-		for(T i = 0, n = static_cast<T>(sizeof(T) * 8); i < n; ++i)
+		template <typename T, glm::precision P, template <class, glm::precision> class vecType>
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & v, T, T)
 		{
-			Count += static_cast<int>((v >> i) & static_cast<T>(1));
+			return v;
 		}
-		return Count;
+	};
+
+	template <>
+	struct compute_bitfieldBitCountStep<true>
+	{
+		template <typename T, glm::precision P, template <class, glm::precision> class vecType>
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & v, T Mask, T Shift)
+		{
+			return (v & Mask) + ((v >> Shift) & Mask);
+		}
+	};
+
+	template <typename T, glm::precision P, template <typename, glm::precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<int, P> bitCount_bitfield(vecType<T, P> const & v)
+	{
+		typedef glm::detail::make_unsigned<T>::type U;
+		vecType<U, P> x(*reinterpret_cast<vecType<U, P> const *>(&v));
+		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >=  2>::call<U, P, vecType>(x, U(0x5555555555555555ull), static_cast<U>( 1));
+		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >=  4>::call<U, P, vecType>(x, U(0x3333333333333333ull), static_cast<U>( 2));
+		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >=  8>::call<U, P, vecType>(x, U(0x0F0F0F0F0F0F0F0Full), static_cast<U>( 4));
+		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >= 16>::call<U, P, vecType>(x, U(0x00FF00FF00FF00FFull), static_cast<U>( 8));
+		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >= 32>::call<U, P, vecType>(x, U(0x0000FFFF0000FFFFull), static_cast<U>(16));
+		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >= 64>::call<U, P, vecType>(x, U(0x00000000FFFFFFFFull), static_cast<U>(32));
+		return vecType<int, P>(x);
+	}
+
+	template <typename genType>
+	GLM_FUNC_QUALIFIER int bitCount_bitfield(genType x)
+	{
+		return bitCount_bitfield(glm::tvec1<genType, glm::defaultp>(x)).x;
 	}
 
 	int perf()
@@ -1249,15 +1276,18 @@ namespace bitCount
 
 		std::clock_t TimestampsE = std::clock();
 
-		std::clock_t TimeIf = TimestampsB - TimestampsA;
-		std::clock_t TimeVec = TimestampsC - TimestampsB;
-		std::clock_t TimeDefault = TimestampsD - TimestampsC;
-		std::clock_t TimeVec4 = TimestampsE - TimestampsD;
+		{
+			for(std::size_t i = 0, n = v.size(); i < n; ++i)
+				v[i] = bitCount_bitfield(static_cast<int>(i));
+		}
 
-		std::printf("bitCount - TimeIf %d\n", static_cast<unsigned int>(TimeIf));
-		std::printf("bitCount - TimeVec %d\n", static_cast<unsigned int>(TimeVec));
-		std::printf("bitCount - TimeDefault %d\n", static_cast<unsigned int>(TimeDefault));
-		std::printf("bitCount - TimeVec4 %d\n", static_cast<unsigned int>(TimeVec4));
+		std::clock_t TimestampsF = std::clock();
+
+		std::printf("bitCount - TimeIf %d\n", static_cast<unsigned int>(TimestampsB - TimestampsA));
+		std::printf("bitCount - TimeVec %d\n", static_cast<unsigned int>(TimestampsC - TimestampsB));
+		std::printf("bitCount - TimeDefault %d\n", static_cast<unsigned int>(TimestampsD - TimestampsC));
+		std::printf("bitCount - TimeVec4 %d\n", static_cast<unsigned int>(TimestampsE - TimestampsD));
+		std::printf("bitCount - bitfield %d\n", static_cast<unsigned int>(TimestampsF - TimestampsE));
 
 		return Error;
 	}
@@ -1268,8 +1298,16 @@ namespace bitCount
 
 		for(std::size_t i = 0, n = sizeof(DataI32) / sizeof(type<int>); i < n; ++i)
 		{
-			int Result = glm::bitCount(DataI32[i].Value);
-			Error += DataI32[i].Return == Result ? 0 : 1;
+			int ResultA = glm::bitCount(DataI32[i].Value);
+			int ResultB = bitCount_if(DataI32[i].Value);
+			int ResultC = bitCount_vec(DataI32[i].Value);
+			int ResultE = bitCount_bitfield(DataI32[i].Value);
+
+			Error += DataI32[i].Return == ResultA ? 0 : 1;
+			Error += DataI32[i].Return == ResultB ? 0 : 1;
+			Error += DataI32[i].Return == ResultC ? 0 : 1;
+			Error += DataI32[i].Return == ResultE ? 0 : 1;
+
 			assert(!Error);
 		}
 
@@ -1281,6 +1319,8 @@ int main()
 {
 	int Error = 0;
 
+	Error += ::bitCount::test();
+	Error += ::bitCount::perf();
 	Error += ::bitfieldReverse::test();
 	Error += ::bitfieldReverse::perf();
 	Error += ::findMSB::test();
@@ -1292,8 +1332,6 @@ int main()
 	Error += ::usubBorrow::test();
 	Error += ::bitfieldInsert::test();
 	Error += ::bitfieldExtract::test();
-	Error += ::bitCount::test();
-	Error += ::bitCount::perf();
 
 	return Error;
 }

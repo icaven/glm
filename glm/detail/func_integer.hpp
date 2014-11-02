@@ -157,7 +157,18 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a>
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL vecType<T, P> bitfieldReverse(vecType<T, P> const & v);
-		
+
+	/// Returns the number of bits set to 1 in the binary representation of value.
+	///
+	/// @tparam T Signed or unsigned integer scalar or vector types.
+	///
+	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitCount.xml">GLSL bitCount man page</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a>
+	///
+	/// @todo Clarify the declaration to specify that scalars are suported.
+	template <typename genType>
+	GLM_FUNC_DECL int bitCount(genType v);
+
 	/// Returns the number of bits set to 1 in the binary representation of value.
 	///
 	/// @tparam T Signed or unsigned integer scalar or vector types.

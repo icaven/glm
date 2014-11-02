@@ -83,6 +83,110 @@ namespace detail
 	typedef unsigned int					lowp_uint_t;
 	typedef unsigned int					mediump_uint_t;
 	typedef unsigned int					highp_uint_t;
+
+	template <typename genType>
+	struct make_signed
+	{};
+
+	template <>
+	struct make_signed<int8>
+	{
+		typedef int8 type;
+	};
+
+	template <>
+	struct make_signed<uint8>
+	{
+		typedef int8 type;
+	};
+
+	template <>
+	struct make_signed<int16>
+	{
+		typedef int16 type;
+	};
+
+	template <>
+	struct make_signed<uint16>
+	{
+		typedef int16 type;
+	};
+
+	template <>
+	struct make_signed<int32>
+	{
+		typedef int32 type;
+	};
+
+	template <>
+	struct make_signed<uint32>
+	{
+		typedef int32 type;
+	};
+
+	template <>
+	struct make_signed<int64>
+	{
+		typedef int64 type;
+	};
+
+	template <>
+	struct make_signed<uint64>
+	{
+		typedef int64 type;
+	};
+
+	template <typename genType>
+	struct make_unsigned
+	{};
+
+	template <>
+	struct make_unsigned<int8>
+	{
+		typedef uint8 type;
+	};
+
+	template <>
+	struct make_unsigned<uint8>
+	{
+		typedef uint8 type;
+	};
+
+	template <>
+	struct make_unsigned<int16>
+	{
+		typedef uint16 type;
+	};
+
+	template <>
+	struct make_unsigned<uint16>
+	{
+		typedef uint16 type;
+	};
+
+	template <>
+	struct make_unsigned<int32>
+	{
+		typedef uint32 type;
+	};
+
+	template <>
+	struct make_unsigned<uint32>
+	{
+		typedef uint32 type;
+	};
+
+	template <>
+	struct make_unsigned<int64>
+	{
+		typedef uint64 type;
+	};
+
+	template <>
+	struct make_unsigned<uint64>
+	{
+		typedef uint64 type;
+	};
 }//namespace detail
 
 	typedef detail::int8					int8;
