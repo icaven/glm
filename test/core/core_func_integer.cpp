@@ -1190,6 +1190,19 @@ namespace bitCount
 		return Count;
 	}
 
+	template <typename T>
+	inline int bitCount_bits(T v)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitCount' only accept integer values");
+
+		int Count(0);
+		for(T i = 0, n = static_cast<T>(sizeof(T) * 8); i < n; ++i)
+		{
+			Count += static_cast<int>((v >> i) & static_cast<T>(1));
+		}
+		return Count;
+	}
+
 	int perf()
 	{
 		int Error(0);
