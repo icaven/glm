@@ -39,48 +39,54 @@ http://glm.g-truc.net/glm.pdf
 ================================================================================
 GLM 0.9.6.0: 2014-XX-XX
 --------------------------------------------------------------------------------
-- Fixed std::nextafter not supported with C++11 on Android #217
-- Fixed missing value_type for dual quaternion
-- Fixed return type of dual quaternion length
-- Fixed infinite loop in isfinite function with GCC #221
-- Rely on C++11 to implement isinf and isnan
+Features:
 - Added transparent use of SIMD instructions for vec4 and mat4 types
-- Removed degrees for function parameters
-- Removed GLM_FORCE_RADIANS, active by default
-- Added move contructors and assignment operators #141
-- Use pragma once
-- Fixed Visual Studio 14 compiler warnings
-- Added GTC_vec1 extension, *vec1 support to *vec2 and *vec3 types
-- Limited extended integer type redifinition #233
-- Improved linearRand: support precision and integers #230
-- Added vec3 slerp #237
-- Added GTX_common with isdenomal #223
-- Fixed implicit conversion from another tvec2 type to another tvec2 #241
+- Exposed template vector and matrix types in 'glm' namespace #239, #244
 - Added GTX_scalar_multiplication for C++ 11 compiler only #242
 - Added GTX_range for C++ 11 compiler only #240
 - Added closestPointOnLine function for tvec2 to GTX_closest_point #238
-- Moved template types from 'detail' to 'glm' namespace #239, #244
-- Added GLM_FORCE_SIZE_FUNC to replace .length() by .size() #245
-- Fixed GTX_string_cast to support for integer types #249
-- Removed GLM_FORCE_CUDA, Cuda is implicitly detected
+- Added GTC_vec1 extension, *vec1 support to *vec* types
 - Updated GTX_associated_min_max with vec1 support
-- Fixed lack of consistency of quat and dualquat constructors
+- Added support of precision and integers to linearRand #230
+- Added Integer types support to GTX_string_cast #249
+- Added vec3 slerp #237
+- Added GTX_common with isdenomal #223
+- Added GLM_FORCE_SIZE_FUNC to replace .length() by .size() #245
+- Added GLM_FORCE_NO_CTOR_INIT
+- Added 'uninitialize' to explicitly not initialize a GLM type
+- Added GTC_bitfield extension, promoted GTX_bit
+- Added GTC_integer extension, promoted GTX_bit
+
+Deprecation:
+- Removed degrees for function parameters
+- Removed GLM_FORCE_RADIANS, active by default
 - Removed VC 2005 / 8 and 2008 / 9 support
 - Removed GCC 3.4 to 4.5 support
 - Removed LLVM GCC support
 - Removed LLVM 2.6 to 2.9 support
 - Removed CUDA 3.0 to 4.0 support
+
+Improvements:
+- Rely on C++11 to implement isinf and isnan
+- Removed GLM_FORCE_CUDA, Cuda is implicitly detected
+- Separated Apple Clang and LLVM compiler detection
+- Used pragma once
 - Undetected C++ compiler automatically compile with GLM_FORCE_CXX98 and 
   GLM_FORCE_PURE
-- Separated Apple Clang and LLVM compiler detection
-- Added GLM_FORCE_NO_CTOR_INIT
-- Added 'uninitialize' to explicitly not initialize a GLM type
 - Added not function (from GLSL specification) on VC12
 - Optimized bitfield operations
-- Added GTC_bitfield extension, promoted GTX_bit
-- Added GTC_integer extension, promoted GTX_bit
-- Fixed bad matrix-vector multiple performance with Cuda #257, #258
 - Optimized bitfieldReverse and bitCount functions
+- Optimized matrix-vector multiple performance with Cuda #257, #258
+- Reduced integer type redifinitions #233
+
+Fixes:
+- Fixed std::nextafter not supported with C++11 on Android #217
+- Fixed missing value_type for dual quaternion
+- Fixed return type of dual quaternion length
+- Fixed infinite loop in isfinite function with GCC #221
+- Fixed Visual Studio 14 compiler warnings
+- Fixed implicit conversion from another tvec2 type to another tvec2 #241
+- Fixed lack of consistency of quat and dualquat constructors
 
 ================================================================================
 GLM 0.9.5.4: 2014-06-21
