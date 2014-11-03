@@ -39,11 +39,9 @@
 #pragma once
 
 // Dependency:
-#include "../glm.hpp"
+#include "../gtc/round.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
-#	pragma message("GLM: GLM_GTX_multiple extension included")
-#endif
+#pragma message("GLM: GLM_GTX_multiple extension is deprecated, use GLM_GTC_round instead.")
 
 namespace glm
 {
@@ -58,7 +56,7 @@ namespace glm
 	///
 	/// @see gtx_multiple
 	template <typename genType>
-	GLM_FUNC_DECL genType higherMultiple(
+	GLM_DEPRECATED GLM_FUNC_DECL genType higherMultiple(
 		genType Source,
 		genType Multiple);
 
@@ -70,7 +68,7 @@ namespace glm
 	///
 	/// @see gtx_multiple
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> higherMultiple(
+	GLM_DEPRECATED GLM_FUNC_DECL vecType<T, P> higherMultiple(
 		vecType<T, P> const & Source,
 		vecType<T, P> const & Multiple);
 
@@ -82,7 +80,7 @@ namespace glm
 	///
 	/// @see gtx_multiple
 	template <typename genType>
-	GLM_FUNC_DECL genType lowerMultiple(
+	GLM_DEPRECATED GLM_FUNC_DECL genType lowerMultiple(
 		genType Source,
 		genType Multiple);
 
@@ -94,7 +92,7 @@ namespace glm
 	///
 	/// @see gtx_multiple
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> lowerMultiple(
+	GLM_DEPRECATED GLM_FUNC_DECL vecType<T, P> lowerMultiple(
 		vecType<T, P> const & Source,
 		vecType<T, P> const & Multiple);
 

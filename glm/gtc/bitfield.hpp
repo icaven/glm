@@ -20,7 +20,7 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtc_bit
+/// @ref gtc_bitfield
 /// @file glm/gtc/bitfield.hpp
 /// @date 2014-10-25 / 2014-10-25
 /// @author Christophe Riccio

@@ -62,8 +62,10 @@
 #	pragma message("GLM: All extensions included (not recommanded)")
 #endif//GLM_MESSAGES
 
+#include "./gtc/bitfield.hpp"
 #include "./gtc/constants.hpp"
 #include "./gtc/epsilon.hpp"
+#include "./gtc/integer.hpp"
 #include "./gtc/matrix_access.hpp"
 #include "./gtc/matrix_integer.hpp"
 #include "./gtc/matrix_inverse.hpp"
@@ -73,6 +75,7 @@
 #include "./gtc/quaternion.hpp"
 #include "./gtc/random.hpp"
 #include "./gtc/reciprocal.hpp"
+#include "./gtc/round.hpp"
 #include "./gtc/type_precision.hpp"
 #include "./gtc/type_ptr.hpp"
 #include "./gtc/ulp.hpp"
@@ -104,7 +107,6 @@
 #include "./gtx/matrix_operation.hpp"
 #include "./gtx/matrix_query.hpp"
 #include "./gtx/mixed_product.hpp"
-#include "./gtx/multiple.hpp"
 #include "./gtx/norm.hpp"
 #include "./gtx/normal.hpp"
 #include "./gtx/normalize_dot.hpp"

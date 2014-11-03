@@ -56,6 +56,7 @@ Features:
 - Added 'uninitialize' to explicitly not initialize a GLM type
 - Added GTC_bitfield extension, promoted GTX_bit
 - Added GTC_integer extension, promoted GTX_bit
+- Added GTC_round extension, promoted GTX_bit
 
 Deprecation:
 - Removed degrees for function parameters
