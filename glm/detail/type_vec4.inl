@@ -84,7 +84,7 @@ namespace glm
 #		endif
 	{}
 #endif
-	
+/*
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4(tvec4<T, P> const & v)
 		: x(v.x), y(v.y), z(v.z), w(v.w)
@@ -101,7 +101,7 @@ namespace glm
 		: data(v.data)
 	{}
 #endif
-
+*/
 	template <typename T, precision P>
 	template <precision Q>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4(tvec4<T, Q> const & v)
@@ -283,7 +283,7 @@ namespace glm
 
 	//////////////////////////////////////
 	// Unary arithmetic operators
-
+/*
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator=(tvec4<T, P> const & v)
 	{
@@ -309,7 +309,7 @@ namespace glm
 		return *this;
 	}
 #endif
-
+*/
 	template <typename T, precision P>
 	template <typename U>
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator=(tvec4<U, P> const & v)

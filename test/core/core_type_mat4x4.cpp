@@ -188,6 +188,8 @@ int test_ctr()
 {
 	int Error(0);
 
+	Error += std::is_copy_constructible<glm::mat4>::value ? 0 : 1;
+
 #if(GLM_HAS_INITIALIZER_LISTS)
 	glm::mat4 m0(
 		glm::vec4(0, 1, 2, 3), 
