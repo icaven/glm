@@ -47,6 +47,7 @@ int test_vec4_ctor()
 	glm::ivec4 B(A);
 	Error += glm::all(glm::equal(A, B)) ? 0 : 1;
 
+	Error += std::is_trivially_default_constructible<glm::vec4>::value ? 0 : 1;
 	Error += std::is_trivially_copy_assignable<glm::vec4>::value ? 0 : 1;
 	Error += std::is_trivially_copyable<glm::vec4>::value ? 0 : 1;
 	Error += std::is_trivially_copy_assignable<glm::vec3>::value ? 0 : 1;

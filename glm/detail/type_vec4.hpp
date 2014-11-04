@@ -158,6 +158,7 @@ namespace detail
 		GLM_FUNC_DECL explicit tvec4(ctor);
 		GLM_FUNC_DECL explicit tvec4(T const & s);
 		GLM_FUNC_DECL tvec4(T const & s0, T const & s1, T const & s2, T const & s3);
+		GLM_FUNC_DECL ~tvec4(){}
 
 		//////////////////////////////////////
 		// Conversion scalar constructors
