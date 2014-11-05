@@ -25,11 +25,11 @@ namespace fastCos{
 		for(float i=begin; i<end; i = nextafterf(i, end))
 			result = glm::cos(i);
 		const std::clock_t timestamp3 = std::clock();
-		const std::clock_t time_fastCos = timestamp2 - timestamp1;
-		const std::clock_t time_cos = timestamp3 - timestamp2;
-		std::printf("fastCos Time %d clocks\n", static_cast<unsigned int>(time_fastCos));
-		std::printf("cos Time %d clocks\n", static_cast<unsigned int>(time_cos));
-		return time_fastCos < time_cos ? 0 : 1;
+		const std::clock_t time_fast = timestamp2 - timestamp1;
+		const std::clock_t time_default = timestamp3 - timestamp2;
+		std::printf("fastCos Time %d clocks\n", static_cast<unsigned int>(time_fast));
+		std::printf("cos Time %d clocks\n", static_cast<unsigned int>(time_default));
+		return time_fast < time_default ? 0 : 1;
 	}
 }
 
