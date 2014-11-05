@@ -39,6 +39,7 @@
 
 // Dependency:
 #include "../glm.hpp"
+#include "../gtc/constants.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_fast_trigonometry extension included")
@@ -49,14 +50,17 @@ namespace glm
 	/// @addtogroup gtx_fast_trigonometry
 	/// @{
 
-	//! Faster than the common sin function but less accurate. 
-	//! Defined between -2pi and 2pi. 
+	//! Wrap an angle to [0 2pi[
 	//! From GLM_GTX_fast_trigonometry extension.
 	template <typename T> 
+	GLM_FUNC_DECL T wrapAngle(const T& angle);
+
+	//! Faster than the common sin function but less accurate.
+	//! From GLM_GTX_fast_trigonometry extension.
+	template <typename T>
 	GLM_FUNC_DECL T fastSin(const T& angle);
 
 	//! Faster than the common cos function but less accurate.
-	//! Defined between -2pi and 2pi.
 	//! From GLM_GTX_fast_trigonometry extension.
 	template <typename T> 
 	GLM_FUNC_DECL T fastCos(const T& angle);

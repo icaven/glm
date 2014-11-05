@@ -9,23 +9,46 @@
 
 namespace glm
 {
-	// sin
 	template <typename T> 
-	GLM_FUNC_QUALIFIER T fastSin(T const & x)
+	GLM_FUNC_QUALIFIER T wrapAngle(T const & angle)
 	{
-		return x - ((x * x * x) / T(6)) + ((x * x * x * x * x) / T(120)) - ((x * x * x * x * x * x * x) / T(5040));
+		T result = angle - floor<T>(angle * one_over_two_pi<T>()) * two_pi<T>();
+		result = result > T(0) ? result : -result;
+		return result;
 	}
 
-	VECTORIZE_VEC(fastSin)
+	VECTORIZE_VEC(wrapAngle)
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER T cos_52s(T const &  x)
+	{
+		T const xx(x * x);
+		return (T(0.9999932946) + xx * (T(-0.4999124376) + xx * (T(0.0414877472) + xx * T(-0.0012712095))));
+	}
+
+	VECTORIZE_VEC(cos_52s)
 
 	// cos
 	template <typename T> 
 	GLM_FUNC_QUALIFIER T fastCos(T const & x)
 	{
-		return T(1) - (x * x * T(0.5)) + (x * x * x * x * T(0.041666666666)) - (x * x * x * x * x * x * T(0.00138888888888));
+		T const angle(wrapAngle<T>(x));
+		if(angle<half_pi<T>()) return cos_52s(angle);
+		if(angle<pi<T>()) return -cos_52s(pi<T>() - angle);
+		if(angle<(T(3) * half_pi<T>())) return -cos_52s(angle - pi<T>());
+		return cos_52s(two_pi<T>() - angle);
 	}
 
 	VECTORIZE_VEC(fastCos)
+
+	// sin
+	template <typename T>
+	GLM_FUNC_QUALIFIER T fastSin(T const & x)
+	{
+		return fastCos<T>(half_pi<T>() - x);
+	}
+
+	VECTORIZE_VEC(fastSin)
 
 	// tan
 	template <typename T> 
