@@ -117,6 +117,27 @@ namespace fastAsin{
 	}
 }
 
+namespace fastAtan{
+	int perf()
+	{
+		const float begin = -glm::pi<float>();
+		const float end = glm::pi<float>();
+		float result = 0.f;
+		const std::clock_t timestamp1 = std::clock();
+		for (float i = begin; i<end; i = nextafterf(i, end))
+			result = glm::fastAtan(i);
+		const std::clock_t timestamp2 = std::clock();
+		for (float i = begin; i<end; i = nextafterf(i, end))
+			result = glm::atan(i);
+		const std::clock_t timestamp3 = std::clock();
+		const std::clock_t time_fast = timestamp2 - timestamp1;
+		const std::clock_t time_default = timestamp3 - timestamp2;
+		std::printf("fastAtan Time %d clocks\n", static_cast<unsigned int>(time_fast));
+		std::printf("atan Time %d clocks\n", static_cast<unsigned int>(time_default));
+		return time_fast < time_default ? 0 : 1;
+	}
+}
+
 
 int main()
 {
@@ -127,6 +148,7 @@ int main()
 	Error += ::fastTan::perf();
 	Error += ::fastAcos::perf();
 	Error += ::fastAsin::perf();
+	Error += ::fastAtan::perf();
 
 	return Error;
 }
