@@ -89,7 +89,7 @@ namespace glm
 	/// Return pi / 2 * 3.
 	/// @see gtc_constants
 	template <typename genType>
-	GLM_FUNC_DECL genType three_half_pi();
+	GLM_FUNC_DECL genType three_over_two_pi();
 
 	/// Return pi / 4.
 	/// @see gtc_constants

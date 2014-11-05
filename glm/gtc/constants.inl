@@ -73,7 +73,7 @@ namespace glm
 	}
 
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType three_half_pi()
+	GLM_FUNC_QUALIFIER genType three_over_two_pi()
 	{
 		return genType(4.71238898038468985769396507491925432);           
 	}
