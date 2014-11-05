@@ -9,12 +9,10 @@
 
 namespace glm
 {
-	template <typename T> 
+	template <typename T>
 	GLM_FUNC_QUALIFIER T wrapAngle(T const & angle)
 	{
-		T result = angle - floor<T>(angle * one_over_two_pi<T>()) * two_pi<T>();
-		result = result > T(0) ? result : -result;
-		return result;
+		return abs<T>(mod<T>(angle, two_pi<T>()));
 	}
 
 	VECTORIZE_VEC(wrapAngle)
