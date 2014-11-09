@@ -64,14 +64,9 @@ namespace glm
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2()
-#		ifndef GLM_FORCE_NO_CTOR_INIT 
+#		ifndef GLM_FORCE_NO_CTOR_INIT
 			: x(0), y(0) 
 #		endif
-	{}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2(tvec2<T, P> const & v)
-		: x(v.x), y(v.y)
 	{}
 
 	template <typename T, precision P>
@@ -140,14 +135,6 @@ namespace glm
 
 	//////////////////////////////////////
 	// Unary arithmetic operators
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P> & tvec2<T, P>::operator=(tvec2<T, P> const & v)
-	{
-		this->x = v.x;
-		this->y = v.y;
-		return *this;
-	}
 
 	template <typename T, precision P>
 	template <typename U>
