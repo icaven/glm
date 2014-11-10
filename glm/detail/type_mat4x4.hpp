@@ -65,7 +65,7 @@ namespace glm
 	public:
 		// Constructors
 		GLM_FUNC_DECL tmat4x4();
-		GLM_FUNC_DECL tmat4x4(tmat4x4<T, P> const & m);
+		//GLM_FUNC_DECL tmat4x4(tmat4x4<T, P> const & m);
 		template <precision Q>
 		GLM_FUNC_DECL tmat4x4(tmat4x4<T, Q> const & m);
 
@@ -120,7 +120,7 @@ namespace glm
 		GLM_FUNC_DECL col_type & operator[](length_t i);
 		GLM_FUNC_DECL col_type const & operator[](length_t i) const;
 
-		GLM_FUNC_DECL tmat4x4<T, P> & operator=(tmat4x4<T, P> const & m);
+		//GLM_FUNC_DECL tmat4x4<T, P> & operator=(tmat4x4<T, P> const & m);
 		template <typename U>
 		GLM_FUNC_DECL tmat4x4<T, P> & operator=(tmat4x4<U, P> const & m);
 		template <typename U>
