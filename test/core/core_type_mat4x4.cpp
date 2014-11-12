@@ -188,11 +188,13 @@ int test_ctr()
 {
 	int Error(0);
 
+#if (GLM_LANG & GLM_LANG_CXX11_FLAG) || (GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC12)
 	//Error += std::is_trivially_default_constructible<glm::mat4>::value ? 0 : 1;
 	//Error += std::is_trivially_copy_assignable<glm::mat4>::value ? 0 : 1;
 	Error += std::is_trivially_copyable<glm::mat4>::value ? 0 : 1;
 	//Error += std::is_copy_constructible<glm::mat4>::value ? 0 : 1;
 	//Error += std::has_trivial_copy_constructor<glm::mat4>::value ? 0 : 1;
+#endif
 
 #if(GLM_HAS_INITIALIZER_LISTS)
 	glm::mat4 m0(
