@@ -61,7 +61,6 @@ namespace glm
 	public:
 		// Constructors
 		GLM_FUNC_DECL tmat3x2();
-		GLM_FUNC_DECL tmat3x2(tmat3x2<T, P> const & m);
 		template <precision Q>
 		GLM_FUNC_DECL tmat3x2(tmat3x2<T, Q> const & m);
 
@@ -110,7 +109,6 @@ namespace glm
 		GLM_FUNC_DECL col_type & operator[](length_t i);
 		GLM_FUNC_DECL col_type const & operator[](length_t i) const;
 
-		GLM_FUNC_DECL tmat3x2<T, P> & operator=  (tmat3x2<T, P> const & m);
 		template <typename U> 
 		GLM_FUNC_DECL tmat3x2<T, P> & operator=  (tmat3x2<U, P> const & m);
 		template <typename U> 

@@ -44,6 +44,18 @@ int test_vec1_ctor()
 {
 	int Error = 0;
 
+#if (GLM_LANG & GLM_LANG_CXX11_FLAG) || (GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC12)
+//	Error += std::is_trivially_default_constructible<glm::vec1>::value ? 0 : 1;
+//	Error += std::is_trivially_copy_assignable<glm::vec1>::value ? 0 : 1;
+	Error += std::is_trivially_copyable<glm::vec1>::value ? 0 : 1;
+	Error += std::is_trivially_copyable<glm::dvec1>::value ? 0 : 1;
+	Error += std::is_trivially_copyable<glm::ivec1>::value ? 0 : 1;
+	Error += std::is_trivially_copyable<glm::uvec1>::value ? 0 : 1;
+
+	Error += std::has_trivial_copy_constructor<glm::vec1>::value ? 0 : 1;
+	Error += std::is_copy_constructible<glm::vec1>::value ? 0 : 1;
+#endif
+
 /*
 #if GLM_HAS_INITIALIZER_LISTS
 	{

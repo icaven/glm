@@ -70,11 +70,6 @@ namespace glm
 	{}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1(tvec1<T, P> const & v)
-		: x(v.x)
-	{}
-
-	template <typename T, precision P>
 	template <precision Q>
 	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1(tvec1<T, Q> const & v)
 		: x(v.x)
@@ -121,13 +116,6 @@ namespace glm
 
 	//////////////////////////////////////
 	// Unary arithmetic operators
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec1<T, P> & tvec1<T, P>::operator=(tvec1<T, P> const & v)
-	{
-		this->x = v.x;
-		return *this;
-	}
 
 	template <typename T, precision P>
 	template <typename U> 

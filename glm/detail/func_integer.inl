@@ -44,7 +44,7 @@ namespace detail
 {
 	GLM_FUNC_QUALIFIER int mask(int Bits)
 	{
-		return ~((~0) << Bits);
+		return Bits >= 32 ? 0xffffffff : (static_cast<int>(1) << Bits) - static_cast<int>(1);
 	}
 
 	template <bool EXEC = false>

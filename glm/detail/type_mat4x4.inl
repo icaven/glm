@@ -132,15 +132,6 @@ namespace detail
 			this->value[3] = col_type(0, 0, 0, 1);
 #		endif
 	}
-	
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P>::tmat4x4(tmat4x4<T, P> const & m)
-	{
-		this->value[0] = m[0];
-		this->value[1] = m[1];
-		this->value[2] = m[2];
-		this->value[3] = m[3];
-	}
 
 	template <typename T, precision P>
 	template <precision Q>
@@ -347,18 +338,6 @@ namespace detail
 
 	//////////////////////////////////////////////////////////////
 	// Operators
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P>& tmat4x4<T, P>::operator=(tmat4x4<T, P> const & m)
-	{
-		//memcpy could be faster
-		//memcpy(&this->value, &m.value, 16 * sizeof(valType));
-		this->value[0] = m[0];
-		this->value[1] = m[1];
-		this->value[2] = m[2];
-		this->value[3] = m[3];
-		return *this;
-	}
 
 	template <typename T, precision P> 
 	template <typename U> 

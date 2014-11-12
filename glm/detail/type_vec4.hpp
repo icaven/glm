@@ -67,7 +67,7 @@ namespace detail
 }//namespace detail
 
 	template <typename T, precision P = defaultp>
-	GLM_ALIGNED_STRUCT(16) tvec4
+	struct tvec4
 	{
 		//////////////////////////////////////
 		// Implementation detail
@@ -148,7 +148,6 @@ namespace detail
 		// Implicit basic constructors
 
 		GLM_FUNC_DECL tvec4();
-		GLM_FUNC_DECL tvec4(tvec4<T, P> const & v);
 		template <precision Q>
 		GLM_FUNC_DECL tvec4(tvec4<T, Q> const & v);
 
@@ -158,6 +157,7 @@ namespace detail
 		GLM_FUNC_DECL explicit tvec4(ctor);
 		GLM_FUNC_DECL explicit tvec4(T const & s);
 		GLM_FUNC_DECL tvec4(T const & s0, T const & s1, T const & s2, T const & s3);
+		GLM_FUNC_DECL ~tvec4(){}
 
 		//////////////////////////////////////
 		// Conversion scalar constructors
@@ -257,8 +257,6 @@ namespace detail
 
 		//////////////////////////////////////
 		// Unary arithmetic operators
-
-		GLM_FUNC_DECL tvec4<T, P> & operator=(tvec4<T, P> const & v);
 
 		template <typename U>
 		GLM_FUNC_DECL tvec4<T, P> & operator=(tvec4<U, P> const & v);

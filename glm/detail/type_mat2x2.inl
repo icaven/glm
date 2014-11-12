@@ -90,13 +90,6 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat2x2<T, P>::tmat2x2(tmat2x2<T, P> const & m)
-	{
-		this->value[0] = m.value[0];
-		this->value[1] = m.value[1];
-	}
-
-	template <typename T, precision P>
 	template <precision Q>
 	GLM_FUNC_QUALIFIER tmat2x2<T, P>::tmat2x2(tmat2x2<T, Q> const & m)
 	{
@@ -224,15 +217,6 @@ namespace detail
 
 	//////////////////////////////////////////////////////////////
 	// mat2x2 operators
-
-	// This function shouldn't required but it seems that VC7.1 have an optimisation bug if this operator wasn't declared
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat2x2<T, P>& tmat2x2<T, P>::operator=(tmat2x2<T, P> const & m)
-	{
-		this->value[0] = m[0];
-		this->value[1] = m[1];
-		return *this;
-	}
 
 	template <typename T, precision P>
 	template <typename U>
