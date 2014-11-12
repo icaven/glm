@@ -37,11 +37,12 @@ namespace bitfieldInsert
 
 	typeU32 const Data32[] =
 	{
+		{0x00000000, 0xffffffff,  0, 31, 0x7fffffff},
+		{0x00000000, 0xffffffff,  0, 32, 0xffffffff},
+		{0x00000000, 0xffffffff,  0,  0, 0x00000000},
 		{0xff000000, 0x0000ff00,  8,  8, 0xff00ff00},
 		{0xffff0000, 0x0000ffff, 16, 16, 0x00000000},
-		{0x0000ffff, 0xffff0000, 16, 16, 0xffffffff},
-		{0x00000000, 0xffffffff,  0, 32, 0xffffffff},
-		{0x00000000, 0xffffffff,  0,  0, 0x00000000}
+		{0x0000ffff, 0xffff0000, 16, 16, 0xffffffff}
 	};
 
 	int test()
@@ -342,7 +343,7 @@ namespace findMSB
 
 		std::clock_t Timestamps1 = std::clock();
 
-		for(std::size_t k = 0; k < 10000000; ++k)
+		for(std::size_t k = 0; k < 1000000; ++k)
 		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
 		{
 			int Result = findMSB_095(Data[i].Value);
@@ -401,7 +402,7 @@ namespace findMSB
 
 		std::clock_t Timestamps1 = std::clock();
 
-		for(std::size_t k = 0; k < 10000000; ++k)
+		for(std::size_t k = 0; k < 1000000; ++k)
 		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
 		{
 			int Result = findMSB_nlz1(Data[i].Value);
@@ -536,7 +537,7 @@ namespace findMSB
 		int Error(0);
 
 		Error += perf_950();
-		Error += perf_ops();
+		//Error += perf_ops();
 
 		return Error;
 	}

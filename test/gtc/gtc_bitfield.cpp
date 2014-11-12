@@ -103,10 +103,12 @@ namespace mask
 	{
 		type<glm::uint> const Data[] =
 		{
-			{0, 0x00000000},
-			{1, 0x00000001},
-			{2, 0x00000003},
-			{3, 0x00000007}
+			{ 0, 0x00000000},
+			{ 1, 0x00000001},
+			{ 2, 0x00000003},
+			{ 3, 0x00000007},
+			{31, 0x7fffffff},
+			{32, 0xffffffff}
 		};
 
 		int Error(0);
@@ -142,10 +144,12 @@ namespace mask
 	{
 		type<glm::ivec4> const Data[] =
 		{
-			{glm::ivec4(0), glm::ivec4(0x00000000)},
-			{glm::ivec4(1), glm::ivec4(0x00000001)},
-			{glm::ivec4(2), glm::ivec4(0x00000003)},
-			{glm::ivec4(3), glm::ivec4(0x00000007)}
+			{glm::ivec4( 0), glm::ivec4(0x00000000)},
+			{glm::ivec4( 1), glm::ivec4(0x00000001)},
+			{glm::ivec4( 2), glm::ivec4(0x00000003)},
+			{glm::ivec4( 3), glm::ivec4(0x00000007)},
+			{glm::ivec4(31), glm::ivec4(0x7fffffff)},
+			{glm::ivec4(32), glm::ivec4(0xffffffff)}
 		};
 
 		int Error(0);

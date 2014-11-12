@@ -866,7 +866,7 @@ namespace sign
 	{
 		int Error = 0;
 
-		std::size_t const Count = 1000000000;
+		std::size_t const Count = 10000000;
 		std::vector<glm::int32> Input, Output;
 		Input.resize(Count);
 		Output.resize(Count);
@@ -913,7 +913,7 @@ namespace sign
 	{
 		int Error = 0;
 
-		std::size_t const Count = 1000000000;
+		std::size_t const Count = 10000000;
 		std::vector<glm::int32> Input, Output;
 		Input.resize(Count);
 		Output.resize(Count);
@@ -960,7 +960,7 @@ namespace sign
 	{
 		int Error = 0;
 
-		glm::uint32 const Count = 1000000000;
+		glm::uint32 const Count = 10000000;
 
 		std::clock_t Timestamp0 = std::clock();
 		glm::int32 Sum = 0;
