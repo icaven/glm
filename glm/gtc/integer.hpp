@@ -55,58 +55,6 @@ namespace glm
 	/// @addtogroup gtc_integer
 	/// @{
 
-	/// Return true if the value is a power of two number.
-	///
-	/// @see gtc_integer
-	template <typename genIUType>
-	GLM_FUNC_DECL bool isPowerOfTwo(genIUType Value);
-
-	/// Return true if the value is a power of two number.
-	///
-	/// @see gtc_integer
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<bool, P> isPowerOfTwo(vecType<T, P> const & value);
-
-	/// Return the power of two number which value is just higher the input value,
-	/// round up to a power of two.
-	///
-	/// @see gtc_integer
-	template <typename genIUType>
-	GLM_FUNC_DECL genIUType ceilPowerOfTwo(genIUType Value);
-
-	/// Return the power of two number which value is just higher the input value,
-	/// round up to a power of two.
-	///
-	/// @see gtc_integer
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> ceilPowerOfTwo(vecType<T, P> const & value);
-
-	/// Return the power of two number which value is just lower the input value,
-	/// round down to a power of two.
-	///
-	/// @see gtc_integer
-	template <typename genIUType>
-	GLM_FUNC_DECL genIUType floorPowerOfTwo(genIUType Value);
-
-	/// Return the power of two number which value is just lower the input value,
-	/// round down to a power of two.
-	///
-	/// @see gtc_integer
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> floorPowerOfTwo(vecType<T, P> const & value);
-
-	/// Return the power of two number which value is the closet to the input value.
-	///
-	/// @see gtc_integer
-	template <typename genIUType>
-	GLM_FUNC_DECL genIUType roundPowerOfTwo(genIUType Value);
-
-	/// Return the power of two number which value is the closet to the input value.
-	///
-	/// @see gtc_integer
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> roundPowerOfTwo(vecType<T, P> const & value);
-
 	/// @}
 } //namespace glm
 

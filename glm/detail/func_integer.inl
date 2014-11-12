@@ -42,9 +42,12 @@
 namespace glm{
 namespace detail
 {
-	GLM_FUNC_QUALIFIER int mask(int Bits)
+	template <typename T>
+	GLM_FUNC_QUALIFIER T mask(T Bits)
 	{
-		return Bits >= 32 ? 0xffffffff : (static_cast<int>(1) << Bits) - static_cast<int>(1);
+		GLM_STATIC_ASSERT(!std::numeric_limits<T>::is_signed, "'Bits' type must be unsigned");
+
+		return ~((~static_cast<T>(0)) << Bits);
 	}
 
 	template <bool EXEC = false>
@@ -186,7 +189,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldExtract' only accept integer inputs");
 
-		int const Mask = detail::mask(Bits);
+		T const Mask = static_cast<T>(detail::mask(detail::make_unsigned<T>::type(Bits)));
 		return (Value >> static_cast<T>(Offset)) & static_cast<T>(Mask);
 	}
 
@@ -202,7 +205,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldInsert' only accept integer values");
 
-		T Mask = static_cast<T>(detail::mask(Bits) << Offset);
+		T Mask = static_cast<T>(detail::mask(detail::make_unsigned<T>::type(Bits)) << Offset);
 		return (Base & ~Mask) | (Insert & Mask);
 	}
 

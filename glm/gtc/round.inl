@@ -289,8 +289,8 @@ namespace detail
 	///////////////////
 	// roundPowerOfTwo
 
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType roundPowerOfTwo(genType value)
+	template <typename genIUType>
+	GLM_FUNC_QUALIFIER genIUType roundPowerOfTwo(genIUType value)
 	{
 		if(isPowerOfTwo(value))
 			return value;
