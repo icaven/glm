@@ -13,7 +13,6 @@
 #include <glm/gtc/random.hpp>
 #include <glm/gtx/simd_vec4.hpp>
 #include <glm/gtx/simd_mat4.hpp>
-#include <iostream>
 #include <cstdio>
 #include <ctime>
 #include <vector>

@@ -72,6 +72,7 @@ Improvements:
 - Reduced integer type redifinitions #233
 - Rewrited of GTX_fast_trigonometry #264 #265
 - Made types trivially copyable #263
+- Removed <iostream> in GLM tests
 
 Fixes:
 - Fixed std::nextafter not supported with C++11 on Android #217

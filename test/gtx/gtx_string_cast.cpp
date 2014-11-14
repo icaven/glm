@@ -9,7 +9,6 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtx/string_cast.hpp>
-#include <iostream>
 #include <limits>
 
 int test_string_cast_vector()
@@ -131,8 +130,6 @@ int main()
 	int Error = 0;
 	Error += test_string_cast_vector();
 	Error += test_string_cast_matrix();
-
-	printf("GNI");
 
 	return Error;
 }

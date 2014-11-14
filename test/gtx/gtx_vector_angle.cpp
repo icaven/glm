@@ -9,7 +9,6 @@
 
 #include <glm/gtc/constants.hpp>
 #include <glm/gtx/vector_angle.hpp>
-#include <iostream>
 #include <limits>
 
 int test_angle()

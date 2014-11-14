@@ -12,8 +12,7 @@
 #include <glm/gtc/epsilon.hpp>
 #include <glm/gtx/euler_angles.hpp>
 #include <glm/vector_relational.hpp>
-
-#include <iostream>
+#include <type_traits>
 
 int myrand()
 {

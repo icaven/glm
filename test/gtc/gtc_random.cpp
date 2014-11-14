@@ -9,7 +9,6 @@
 
 #include <glm/gtc/random.hpp>
 #include <glm/gtc/epsilon.hpp>
-#include <iostream>
 #if(GLM_LANG & GLM_LANG_CXX0X_FLAG)
 #	include <array>
 #endif
