@@ -105,7 +105,7 @@ namespace detail
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> distance(vecType<T, P> const & p0, vecType<T, P> const & p1)
+	GLM_FUNC_QUALIFIER T distance(vecType<T, P> const & p0, vecType<T, P> const & p1)
 	{
 		return length(p1 - p0);
 	}
