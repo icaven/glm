@@ -79,6 +79,7 @@ Improvements:
 - Optimized bitfieldReverse and bitCount functions
 - Optimized matrix-vector multiple performance with Cuda #257, #258
 - Reduced integer type redifinitions #233
+- Rewrite of GTX_fast_trigonometry #264 #265
 
 Fixes:
 - Fixed std::nextafter not supported with C++11 on Android #217
