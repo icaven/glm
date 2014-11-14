@@ -31,6 +31,7 @@ namespace fastCos
 		const std::clock_t time_default = timestamp3 - timestamp2;
 		std::printf("fastCos Time %d clocks\n", static_cast<unsigned int>(time_fast));
 		std::printf("cos Time %d clocks\n", static_cast<unsigned int>(time_default));
+
 		return time_fast < time_default ? 0 : 1;
 	}
 }//namespace fastCos
@@ -53,6 +54,7 @@ namespace fastSin
 		const std::clock_t time_default = timestamp3 - timestamp2;
 		std::printf("fastSin Time %d clocks\n", static_cast<unsigned int>(time_fast));
 		std::printf("sin Time %d clocks\n", static_cast<unsigned int>(time_default));
+
 		return time_fast < time_default ? 0 : 1;
 	}
 }//namespace fastSin
@@ -75,6 +77,7 @@ namespace fastTan
 		const std::clock_t time_default = timestamp3 - timestamp2;
 		std::printf("fastTan Time %d clocks\n", static_cast<unsigned int>(time_fast));
 		std::printf("tan Time %d clocks\n", static_cast<unsigned int>(time_default));
+
 		return time_fast < time_default ? 0 : 1;
 	}
 }//namespace fastTan
@@ -97,6 +100,7 @@ namespace fastAcos
 		const std::clock_t time_default = timestamp3 - timestamp2;
 		std::printf("fastAcos Time %d clocks\n", static_cast<unsigned int>(time_fast));
 		std::printf("acos Time %d clocks\n", static_cast<unsigned int>(time_default));
+
 		return time_fast < time_default ? 0 : 1;
 	}
 }//namespace fastAcos
@@ -119,6 +123,7 @@ namespace fastAsin
 		const std::clock_t time_default = timestamp3 - timestamp2;
 		std::printf("fastAsin Time %d clocks\n", static_cast<unsigned int>(time_fast));
 		std::printf("asin Time %d clocks\n", static_cast<unsigned int>(time_default));
+
 		return time_fast < time_default ? 0 : 1;
 	}
 }//namespace fastAsin
@@ -141,6 +146,7 @@ namespace fastAtan
 		const std::clock_t time_default = timestamp3 - timestamp2;
 		std::printf("fastAtan Time %d clocks\n", static_cast<unsigned int>(time_fast));
 		std::printf("atan Time %d clocks\n", static_cast<unsigned int>(time_default));
+
 		return time_fast < time_default ? 0 : 1;
 	}
 }//namespace fastAtan
@@ -149,12 +155,14 @@ int main()
 {
 	int Error(0);
 
-	Error += ::fastCos::perf();
-	Error += ::fastSin::perf();
-	Error += ::fastTan::perf();
-	Error += ::fastAcos::perf();
-	Error += ::fastAsin::perf();
-	Error += ::fastAtan::perf();
+#	ifdef GLM_TEST_ENABLE_PERF
+		Error += ::fastCos::perf();
+		Error += ::fastSin::perf();
+		Error += ::fastTan::perf();
+		Error += ::fastAcos::perf();
+		Error += ::fastAsin::perf();
+		Error += ::fastAtan::perf();
+#	endif
 
 	return Error;
 }

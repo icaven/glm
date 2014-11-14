@@ -58,15 +58,6 @@ Features:
 - Added GTC_integer extension, promoted GTX_bit
 - Added GTC_round extension, promoted GTX_bit
 
-Deprecation:
-- Removed degrees for function parameters
-- Removed GLM_FORCE_RADIANS, active by default
-- Removed VC 2005 / 8 and 2008 / 9 support
-- Removed GCC 3.4 to 4.5 support
-- Removed LLVM GCC support
-- Removed LLVM 2.6 to 2.9 support
-- Removed CUDA 3.0 to 4.0 support
-
 Improvements:
 - Rely on C++11 to implement isinf and isnan
 - Removed GLM_FORCE_CUDA, Cuda is implicitly detected
@@ -79,7 +70,8 @@ Improvements:
 - Optimized bitfieldReverse and bitCount functions
 - Optimized matrix-vector multiple performance with Cuda #257, #258
 - Reduced integer type redifinitions #233
-- Rewrite of GTX_fast_trigonometry #264 #265
+- Rewrited of GTX_fast_trigonometry #264 #265
+- Made types trivially copyable #263
 
 Fixes:
 - Fixed std::nextafter not supported with C++11 on Android #217
@@ -89,6 +81,15 @@ Fixes:
 - Fixed Visual Studio 14 compiler warnings
 - Fixed implicit conversion from another tvec2 type to another tvec2 #241
 - Fixed lack of consistency of quat and dualquat constructors
+
+Deprecation:
+- Removed degrees for function parameters
+- Removed GLM_FORCE_RADIANS, active by default
+- Removed VC 2005 / 8 and 2008 / 9 support
+- Removed GCC 3.4 to 4.5 support
+- Removed LLVM GCC support
+- Removed LLVM 2.6 to 2.9 support
+- Removed CUDA 3.0 to 4.0 support
 
 ================================================================================
 GLM 0.9.5.4: 2014-06-21

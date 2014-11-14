@@ -87,11 +87,6 @@ namespace detail
 	{}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(tquat<T, P> const & q)
-		: x(q.x), y(q.y), z(q.z), w(q.w)
-	{}
-
-	template <typename T, precision P>
 	template <precision Q>
 	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(tquat<T, Q> const & q)
 		: x(q.x), y(q.y), z(q.z), w(q.w)

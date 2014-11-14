@@ -240,11 +240,15 @@ int main()
 	Error += test_transpose();
 	Error += test_determinant();
 	Error += test_inverse();
+
+#	ifdef GLM_TEST_ENABLE_PERF
 	for(std::size_t i = 0; i < 1; ++i)
 	{
 		Error += test_inverse_perf<glm::vec3, glm::mat4>(i, "mat4");
 		Error += test_inverse_perf<glm::dvec3, glm::dmat4>(i, "dmat4");
 	}
+#	endif
+
 	return Error;
 }
 

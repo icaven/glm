@@ -299,7 +299,10 @@ int main()
 
 	Error += isPowerOfTwo::test();
 	Error += ceilPowerOfTwo::test();
-	Error += ceilPowerOfTwo::perf();
+
+#	ifdef GLM_TEST_ENABLE_PERF
+		Error += ceilPowerOfTwo::perf();
+#	endif
 
 	return Error;
 }

@@ -637,7 +637,9 @@ int main()
 	Error += ::bitfieldInterleave::test();
 	//Error += ::bitRevert::test();
 
-	Error += ::mask::perf();
+#	ifdef GLM_TEST_ENABLE_PERF
+		Error += ::mask::perf();
+#	endif
 
 	return Error;
 }

@@ -1018,7 +1018,6 @@ int main()
 	int Error(0);
 
 	Error += sign::test();
-	Error += sign::perf();
 	Error += test_floor();
 	Error += test_modf();
 	Error += test_floatBitsToInt();
@@ -1031,6 +1030,10 @@ int main()
 	Error += test_roundEven();
 	Error += test_isnan();
 	Error += test_isinf();
+
+#	ifdef GLM_TEST_ENABLE_PERF
+		Error += sign::perf();
+#	endif
 
 	return Error;
 }

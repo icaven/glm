@@ -425,8 +425,11 @@ int main()
 
 	std::size_t const Size(1000000);
 
-	Error += test_vec4_perf_AoS(Size);
-	Error += test_vec4_perf_SoA(Size);
+#	ifdef GLM_TEST_ENABLE_PERF
+		Error += test_vec4_perf_AoS(Size);
+		Error += test_vec4_perf_SoA(Size);
+#	endif
+
 	Error += test_vec4_ctor();
 	Error += test_vec4_size();
 	Error += test_vec4_operators();

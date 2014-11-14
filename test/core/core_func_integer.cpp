@@ -1321,11 +1321,8 @@ int main()
 	int Error = 0;
 
 	Error += ::bitCount::test();
-	Error += ::bitCount::perf();
 	Error += ::bitfieldReverse::test();
-	Error += ::bitfieldReverse::perf();
 	Error += ::findMSB::test();
-	Error += ::findMSB::perf();
 	Error += ::findLSB::test();
 	Error += ::umulExtended::test();
 	Error += ::imulExtended::test();
@@ -1333,6 +1330,12 @@ int main()
 	Error += ::usubBorrow::test();
 	Error += ::bitfieldInsert::test();
 	Error += ::bitfieldExtract::test();
+
+#	ifdef GLM_TEST_ENABLE_PERF
+		Error += ::bitCount::perf();
+		Error += ::bitfieldReverse::perf();
+		Error += ::findMSB::perf();
+#	endif
 
 	return Error;
 }

@@ -75,7 +75,6 @@ namespace glm
 		// Implicit basic constructors
 
 		GLM_FUNC_DECL tdualquat();
-		GLM_FUNC_DECL tdualquat(tdualquat<T, P> const & d);
 		template <precision Q>
 		GLM_FUNC_DECL tdualquat(tdualquat<T, Q> const & d);
 

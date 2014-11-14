@@ -54,11 +54,6 @@ namespace glm
 	{}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat(tdualquat<T, P> const & d)
-		: real(d.real), dual(d.dual)
-	{}
-
-	template <typename T, precision P>
 	template <precision Q>
 	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat(tdualquat<T, Q> const & d)
 		: real(d.real), dual(d.dual)
