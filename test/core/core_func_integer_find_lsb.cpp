@@ -310,6 +310,8 @@ void error(int x, int y) {
 
 int main()
 {
+#	ifdef GLM_TEST_ENABLE_PERF
+
 	int i, n;
 	static unsigned test[] = {0,32, 1,31, 2,30, 3,30, 4,29, 5,29, 6,29,
 		7,29, 8,28, 9,28, 16,27, 32,26, 64,25, 128,24, 255,24, 256,23,
@@ -440,4 +442,6 @@ int main()
 
 	if (errors == 0)
 		printf("Passed all %d cases.\n", sizeof(test)/8);
+
+#	endif//GLM_TEST_ENABLE_PERF
 }

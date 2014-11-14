@@ -472,15 +472,6 @@ namespace bitfieldInterleave
 
 	int test()
 	{
-		glm::uint32 x_max = 1 << 11;
-		glm::uint32 y_max = 1 << 10;
-
-		// ALU
-		std::vector<glm::uint64> Data(x_max * y_max);
-		std::vector<glm::u32vec2> Param(x_max * y_max);
-		for(glm::uint32 i = 0; i < Param.size(); ++i)
-			Param[i] = glm::u32vec2(i % x_max, i / y_max);
-
 		{
 			for(glm::uint32 y = 0; y < (1 << 10); ++y)
 			for(glm::uint32 x = 0; x < (1 << 10); ++x)
@@ -524,6 +515,20 @@ namespace bitfieldInterleave
 				assert(D == F);
 			}
 		}
+
+		return 0;
+	}
+
+	int perf()
+	{
+		glm::uint32 x_max = 1 << 11;
+		glm::uint32 y_max = 1 << 10;
+
+		// ALU
+		std::vector<glm::uint64> Data(x_max * y_max);
+		std::vector<glm::u32vec2> Param(x_max * y_max);
+		for(glm::uint32 i = 0; i < Param.size(); ++i)
+			Param[i] = glm::u32vec2(i % x_max, i / y_max);
 
 		{
 			std::clock_t LastTime = std::clock();
@@ -625,7 +630,7 @@ namespace bitfieldInterleave
 
 		return 0;
 	}
-}
+}//namespace bitfieldInterleave
 
 int main()
 {
@@ -639,6 +644,7 @@ int main()
 
 #	ifdef GLM_TEST_ENABLE_PERF
 		Error += ::mask::perf();
+		Error += ::bitfieldInterleave::perf();
 #	endif
 
 	return Error;
