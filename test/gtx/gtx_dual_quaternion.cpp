@@ -160,15 +160,37 @@ int test_mul()
     return Error;
 }
 
+int test_dual_quat_ctr()
+{
+	int Error(0);
+
+#if (GLM_LANG & GLM_LANG_CXX11_FLAG) || (GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC12)
+//	Error += std::is_trivially_default_constructible<glm::dualquat>::value ? 0 : 1;
+//	Error += std::is_trivially_default_constructible<glm::ddualquat>::value ? 0 : 1;
+//	Error += std::is_trivially_copy_assignable<glm::dualquat>::value ? 0 : 1;
+//	Error += std::is_trivially_copy_assignable<glm::ddualquat>::value ? 0 : 1;
+	Error += std::is_trivially_copyable<glm::dualquat>::value ? 0 : 1;
+	Error += std::is_trivially_copyable<glm::ddualquat>::value ? 0 : 1;
+
+	Error += std::has_trivial_copy_constructor<glm::dualquat>::value ? 0 : 1;
+	Error += std::has_trivial_copy_constructor<glm::ddualquat>::value ? 0 : 1;
+	Error += std::is_copy_constructible<glm::dualquat>::value ? 0 : 1;
+	Error += std::is_copy_constructible<glm::ddualquat>::value ? 0 : 1;
+#endif
+
+	return Error;
+}
+
 int main()
 {
-    int Error(0);
+	int Error(0);
 
-    Error += test_dquat_type();
-    Error += test_scalars();
-    Error += test_inverse();
-    Error += test_mul();
+	Error += test_dual_quat_ctr();
+	Error += test_dquat_type();
+	Error += test_scalars();
+	Error += test_inverse();
+	Error += test_mul();
 
-    //std::cout << "Errors count: " << Error << std::endl;
-    return Error;
+	//std::cout << "Errors count: " << Error << std::endl;
+	return Error;
 }
