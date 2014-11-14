@@ -33,7 +33,20 @@ namespace mask
 
 	inline int mask_mix(int Bits)
 	{
-		return Bits >= 32 ? 0xffffffff : (static_cast<int>(1) << Bits) - static_cast<int>(1);
+		return Bits >= sizeof(int) * 8 ? 0xffffffff : (static_cast<int>(1) << Bits) - static_cast<int>(1);
+	}
+
+	inline int mask_half(int Bits)
+	{
+		// We do the shift in two steps because 1 << 32 on an int is undefined.
+
+		int const Half = Bits >> 1;
+		int const Fill = ~0;
+		int const ShiftHaft = (Fill << Half);
+		int const Rest = Bits - Half;
+		int const Reversed = ShiftHaft << Rest;
+
+		return ~Reversed;
 	}
 
 	inline int mask_loop(int Bits)
@@ -86,15 +99,26 @@ namespace mask
 
 		std::clock_t Timestamp5 = std::clock();
 
+		{
+			std::vector<int> Mask;
+			Mask.resize(Count);
+			for(int i = 0; i < Count; ++i)
+				Mask[i] = mask_half(i % 32);
+		}
+
+		std::clock_t Timestamp6 = std::clock();
+
 		std::clock_t TimeMix = Timestamp2 - Timestamp1;
 		std::clock_t TimeLoop = Timestamp3 - Timestamp2;
 		std::clock_t TimeDefault = Timestamp4 - Timestamp3;
 		std::clock_t TimeZero = Timestamp5 - Timestamp4;
+		std::clock_t TimeHalf = Timestamp6 - Timestamp5;
 
 		printf("mask[mix]: %d\n", static_cast<unsigned int>(TimeMix));
 		printf("mask[loop]: %d\n", static_cast<unsigned int>(TimeLoop));
 		printf("mask[default]: %d\n", static_cast<unsigned int>(TimeDefault));
 		printf("mask[zero]: %d\n", static_cast<unsigned int>(TimeZero));
+		printf("mask[half]: %d\n", static_cast<unsigned int>(TimeHalf));
 
 		return TimeDefault < TimeLoop ? 0 : 1;
 	}
@@ -112,16 +136,22 @@ namespace mask
 		};
 
 		int Error(0);
-
+/* mask_zero is sadly not a correct code
 		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
 		{
 			int Result = mask_zero(Data[i].Value);
 			Error += Data[i].Return == Result ? 0 : 1;
 		}
-
+*/
 		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
 		{
 			int Result = mask_mix(Data[i].Value);
+			Error += Data[i].Return == Result ? 0 : 1;
+		}
+
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+		{
+			int Result = mask_half(Data[i].Value);
 			Error += Data[i].Return == Result ? 0 : 1;
 		}
 

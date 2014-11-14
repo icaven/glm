@@ -250,7 +250,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'mask' accepts only integer values");
 
-		return ~((~static_cast<genIUType>(0)) << Bits);
+		return Bits >= sizeof(genIUType) * 8 ? ~static_cast<genIUType>(0) : (static_cast<genIUType>(1) << Bits) - static_cast<genIUType>(1);
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecIUType>
@@ -258,7 +258,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'mask' accepts only integer values");
 
-		return ~((~static_cast<T>(0)) << v);
+		return detail::functor1<T, T, P, vecIUType>::call(mask, v);
 	}
 
 	template <typename genIType>
