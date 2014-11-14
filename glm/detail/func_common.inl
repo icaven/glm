@@ -297,7 +297,7 @@ namespace detail
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType mod(genType x, genType y)
 	{
-		return tvec1<genType>(x, y).x;
+		return mod(tvec1<genType>(x), y).x;
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>

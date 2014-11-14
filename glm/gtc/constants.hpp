@@ -71,6 +71,11 @@ namespace glm
 	template <typename genType>
 	GLM_FUNC_DECL genType pi();
 
+	/// Return pi * 2.
+	/// @see gtc_constants
+	template <typename genType>
+	GLM_FUNC_DECL genType two_pi();
+
 	/// Return square root of pi.
 	/// @see gtc_constants
 	template <typename genType>
@@ -80,6 +85,11 @@ namespace glm
 	/// @see gtc_constants
 	template <typename genType>
 	GLM_FUNC_DECL genType half_pi();
+
+	/// Return pi / 2 * 3.
+	/// @see gtc_constants
+	template <typename genType>
+	GLM_FUNC_DECL genType three_over_two_pi();
 
 	/// Return pi / 4.
 	/// @see gtc_constants
@@ -91,10 +101,20 @@ namespace glm
 	template <typename genType>
 	GLM_FUNC_DECL genType one_over_pi();
 
+	/// Return 1 / (pi * 2).
+	/// @see gtc_constants
+	template <typename genType>
+	GLM_FUNC_DECL genType one_over_two_pi();
+
 	/// Return 2 / pi.
 	/// @see gtc_constants
 	template <typename genType>
 	GLM_FUNC_DECL genType two_over_pi();
+
+	/// Return 4 / pi.
+	/// @see gtc_constants
+	template <typename genType>
+	GLM_FUNC_DECL genType four_over_pi();
 
 	/// Return 2 / sqrt(pi).
 	/// @see gtc_constants
