@@ -64,7 +64,7 @@ namespace glm
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4()
-#		ifndef GLM_FORCE_NO_CTOR_INIT 
+#		ifndef GLM_FORCE_NO_CTOR_INIT
 			: x(0), y(0), z(0), w(0)
 #		endif
 	{}
@@ -72,36 +72,19 @@ namespace glm
 #if GLM_HAS_ANONYMOUS_UNION && (GLM_ARCH & GLM_ARCH_SSE2)
 	template <>
 	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4()
-#		ifndef GLM_FORCE_NO_CTOR_INIT 
+#		ifndef GLM_FORCE_NO_CTOR_INIT
 			: data(_mm_setzero_ps())
 #		endif
 	{}
 	
 	template <>
 	GLM_FUNC_QUALIFIER tvec4<float, mediump>::tvec4()
-#		ifndef GLM_FORCE_NO_CTOR_INIT 
+#		ifndef GLM_FORCE_NO_CTOR_INIT
 			: data(_mm_setzero_ps())
 #		endif
 	{}
 #endif
-/*
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4(tvec4<T, P> const & v)
-		: x(v.x), y(v.y), z(v.z), w(v.w)
-	{}
 
-#if GLM_HAS_ANONYMOUS_UNION && (GLM_ARCH & GLM_ARCH_SSE2)
-	template <>
-	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4(tvec4<float, lowp> const & v)
-		: data(v.data)
-	{}
-	
-	template <>
-	GLM_FUNC_QUALIFIER tvec4<float, mediump>::tvec4(tvec4<float, mediump> const & v)
-		: data(v.data)
-	{}
-#endif
-*/
 	template <typename T, precision P>
 	template <precision Q>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4(tvec4<T, Q> const & v)
@@ -134,7 +117,7 @@ namespace glm
 	
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4(T const & a, T const & b, T const & c, T const & d)
-		: x(a), y(b), z(c),	w(d)
+		: x(a), y(b), z(c), w(d)
 	{}
 
 #if GLM_HAS_ANONYMOUS_UNION && (GLM_ARCH & GLM_ARCH_SSE2)
