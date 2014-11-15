@@ -189,11 +189,11 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat2x4<T, P> operator/ (
 		tmat2x4<T, P> const & m,
-		T const & s);
+		T s);
 
 	template <typename T, precision P> 
 	GLM_FUNC_DECL tmat2x4<T, P> operator/ (
-		T const & s,
+		T s,
 		tmat2x4<T, P> const & m);
 
 	// Unary constant operators

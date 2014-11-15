@@ -20,8 +20,8 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_vec1
-/// @file glm/gtx/vec1.inl
+/// @ref gtc_vec1
+/// @file glm/gtc/vec1.inl
 /// @date 2013-03-16 / 2013-03-16
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////

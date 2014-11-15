@@ -20,18 +20,18 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_vec1
-/// @file glm/gtx/vec1.hpp
+/// @ref gtc_vec1
+/// @file glm/gtc/vec1.hpp
 /// @date 2010-02-08 / 2011-06-07
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_vec1 GLM_GTX_vec1
+/// @defgroup gtc_vec1 GLM_GTX_vec1
 /// @ingroup gtx
 /// 
 /// @brief Add vec1, ivec1, uvec1 and bvec1 types.
-/// <glm/gtx/vec1.hpp> need to be included to use these functionalities.
+/// <glm/gtc/vec1.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
 #pragma once
@@ -41,84 +41,84 @@
 #include "../detail/type_vec1.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
-#	pragma message("GLM: GLM_GTX_vec1 extension included")
+#	pragma message("GLM: GLM_GTC_vec1 extension included")
 #endif
 
 namespace glm
 {
-	//! 1 component vector of high precision floating-point numbers. 
-	//! There is no guarantee on the actual precision.
-	/// @see gtx_vec1 extension.
+	/// 1 component vector of high precision floating-point numbers. 
+	/// There is no guarantee on the actual precision.
+	/// @see gtc_vec1 extension.
 	typedef highp_vec1_t			highp_vec1;
 
-	//! 1 component vector of medium precision floating-point numbers. 
-	//! There is no guarantee on the actual precision.
-	/// @see gtx_vec1 extension.
+	/// 1 component vector of medium precision floating-point numbers. 
+	/// There is no guarantee on the actual precision.
+	/// @see gtc_vec1 extension.
 	typedef mediump_vec1_t			mediump_vec1;
 
-	//! 1 component vector of low precision floating-point numbers. 
-	//! There is no guarantee on the actual precision.
-	/// @see gtx_vec1 extension.
+	/// 1 component vector of low precision floating-point numbers. 
+	/// There is no guarantee on the actual precision.
+	/// @see gtc_vec1 extension.
 	typedef lowp_vec1_t				lowp_vec1;
 
-	//! 1 component vector of high precision floating-point numbers. 
-	//! There is no guarantee on the actual precision.
-	/// @see gtx_vec1 extension.
+	/// 1 component vector of high precision floating-point numbers. 
+	/// There is no guarantee on the actual precision.
+	/// @see gtc_vec1 extension.
 	typedef highp_dvec1_t			highp_dvec1;
 
-	//! 1 component vector of medium precision floating-point numbers. 
-	//! There is no guarantee on the actual precision.
-	/// @see gtx_vec1 extension.
+	/// 1 component vector of medium precision floating-point numbers. 
+	/// There is no guarantee on the actual precision.
+	/// @see gtc_vec1 extension.
 	typedef mediump_dvec1_t			mediump_dvec1;
 
-	//! 1 component vector of low precision floating-point numbers. 
-	//! There is no guarantee on the actual precision.
-	/// @see gtx_vec1 extension.
+	/// 1 component vector of low precision floating-point numbers. 
+	/// There is no guarantee on the actual precision.
+	/// @see gtc_vec1 extension.
 	typedef lowp_dvec1_t				lowp_dvec1;
 
-	//! 1 component vector of high precision signed integer numbers. 
-	//! There is no guarantee on the actual precision.
-	/// @see gtx_vec1 extension.
+	/// 1 component vector of high precision signed integer numbers. 
+	/// There is no guarantee on the actual precision.
+	/// @see gtc_vec1 extension.
 	typedef highp_ivec1_t			highp_ivec1;
 
-	//! 1 component vector of medium precision signed integer numbers. 
-	//! There is no guarantee on the actual precision.
-	/// @see gtx_vec1 extension.
+	/// 1 component vector of medium precision signed integer numbers. 
+	/// There is no guarantee on the actual precision.
+	/// @see gtc_vec1 extension.
 	typedef mediump_ivec1_t			mediump_ivec1;
 
-	//! 1 component vector of low precision signed integer numbers. 
-	//! There is no guarantee on the actual precision.
-	/// @see gtx_vec1 extension.
+	/// 1 component vector of low precision signed integer numbers. 
+	/// There is no guarantee on the actual precision.
+	/// @see gtc_vec1 extension.
 	typedef lowp_ivec1_t			lowp_ivec1;
 
-	//! 1 component vector of high precision unsigned integer numbers. 
-	//! There is no guarantee on the actual precision.
-	/// @see gtx_vec1 extension.
+	/// 1 component vector of high precision unsigned integer numbers. 
+	/// There is no guarantee on the actual precision.
+	/// @see gtc_vec1 extension.
 	typedef highp_uvec1_t			highp_uvec1;
 
-	//! 1 component vector of medium precision unsigned integer numbers. 
-	//! There is no guarantee on the actual precision.
-	/// @see gtx_vec1 extension.
+	/// 1 component vector of medium precision unsigned integer numbers. 
+	/// There is no guarantee on the actual precision.
+	/// @see gtc_vec1 extension.
 	typedef mediump_uvec1_t			mediump_uvec1;
 
-	//! 1 component vector of low precision unsigned integer numbers. 
-	//! There is no guarantee on the actual precision.
-	/// @see gtx_vec1 extension.
+	/// 1 component vector of low precision unsigned integer numbers. 
+	/// There is no guarantee on the actual precision.
+	/// @see gtc_vec1 extension.
 	typedef lowp_uvec1_t			lowp_uvec1;
 
-	//! 1 component vector of high precision boolean. 
-	//! There is no guarantee on the actual precision.
-	/// @see gtx_vec1 extension.
+	/// 1 component vector of high precision boolean. 
+	/// There is no guarantee on the actual precision.
+	/// @see gtc_vec1 extension.
 	typedef highp_bvec1_t			highp_bvec1;
 
-	//! 1 component vector of medium precision boolean.
-	//! There is no guarantee on the actual precision.
-	/// @see gtx_vec1 extension.
+	/// 1 component vector of medium precision boolean.
+	/// There is no guarantee on the actual precision.
+	/// @see gtc_vec1 extension.
 	typedef mediump_bvec1_t			mediump_bvec1;
 
-	//! 1 component vector of low precision boolean.
-	//! There is no guarantee on the actual precision.
-	/// @see gtx_vec1 extension.
+	/// 1 component vector of low precision boolean.
+	/// There is no guarantee on the actual precision.
+	/// @see gtc_vec1 extension.
 	typedef lowp_bvec1_t			lowp_bvec1;
 
 	//////////////////////////
@@ -132,7 +132,7 @@ namespace glm
 	typedef lowp_bvec1				bvec1;
 #else
 	/// 1 component vector of boolean.
-	/// @see gtx_vec1 extension.
+	/// @see gtc_vec1 extension.
 	typedef highp_bvec1				bvec1;
 #endif//GLM_PRECISION
 
@@ -144,7 +144,7 @@ namespace glm
 	typedef lowp_vec1				vec1;
 #else
 	/// 1 component vector of floating-point numbers.
-	/// @see gtx_vec1 extension.
+	/// @see gtc_vec1 extension.
 	typedef highp_vec1				vec1;
 #endif//GLM_PRECISION
 
@@ -156,7 +156,7 @@ namespace glm
 	typedef lowp_dvec1				dvec1;
 #else
 	/// 1 component vector of floating-point numbers.
-	/// @see gtx_vec1 extension.
+	/// @see gtc_vec1 extension.
 	typedef highp_dvec1				dvec1;
 #endif//GLM_PRECISION
 
@@ -168,7 +168,7 @@ namespace glm
 	typedef lowp_ivec1			ivec1;
 #else
 	/// 1 component vector of signed integer numbers. 
-	/// @see gtx_vec1 extension.
+	/// @see gtc_vec1 extension.
 	typedef highp_ivec1			ivec1;
 #endif//GLM_PRECISION
 
@@ -180,7 +180,7 @@ namespace glm
 	typedef lowp_uvec1			uvec1;
 #else
 	/// 1 component vector of unsigned integer numbers. 
-	/// @see gtx_vec1 extension.
+	/// @see gtc_vec1 extension.
 	typedef highp_uvec1			uvec1;
 #endif//GLM_PRECISION
 
