@@ -28,6 +28,7 @@ glmCreateTestGTC(core_func_packing)
 glmCreateTestGTC(core_func_trigonometric)
 glmCreateTestGTC(core_func_vector_relational)
 glmCreateTestGTC(core_func_swizzle)
+glmCreateTestGTC(core_setup_force_cxx98)
 glmCreateTestGTC(core_setup_message)
 glmCreateTestGTC(core_setup_precision)
 
