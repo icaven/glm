@@ -112,27 +112,11 @@ namespace detail
 #				endif//GLM_SWIZZLE
 			};
 #		else
-/*
-#			if GLM_HAS_UNRESTRICTED_UNIONS
-				union
-				{
-					typename detail::simd<T>::type data;
-					struct
-					{
-						union { T x, r, s; };
-						union { T y, g, t; };
-						union { T z, b, p; };
-						union { T w, a, q; };
-					};
-				};
-#			else
-*/
-				union { T x, r, s; };
-				union { T y, g, t; };
-				union { T z, b, p; };
-				union { T w, a, q; };
-//s#			endif
-		
+			union { T x, r, s; };
+			union { T y, g, t; };
+			union { T z, b, p; };
+			union { T w, a, q; };
+
 #			ifdef GLM_SWIZZLE
 				GLM_SWIZZLE_GEN_VEC_FROM_VEC4(T, P, tvec4, tvec2, tvec3, tvec4)
 #			endif//GLM_SWIZZLE
