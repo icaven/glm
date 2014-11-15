@@ -130,7 +130,7 @@ namespace glm
 	GLM_FUNC_DECL vecType<T, P> refract(
 		vecType<T, P> const & I,
 		vecType<T, P> const & N,
-		T const & eta);
+		T eta);
 
 	/// @}
 }//namespace glm

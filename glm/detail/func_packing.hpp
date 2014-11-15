@@ -26,6 +26,7 @@
 /// @author Christophe Riccio
 ///
 /// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
+/// @see gtc_packing
 /// 
 /// @defgroup core_func_packing Floating-Point Pack and Unpack Functions
 /// @ingroup core

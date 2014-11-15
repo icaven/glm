@@ -136,8 +136,7 @@ namespace glm
 	/// Build a matrix from a pointer.
 	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_DECL tmat4x2<T, defaultp> make_mat4x2(
-		T const * const ptr);
+	GLM_FUNC_DECL tmat4x2<T, defaultp> make_mat4x2(T const * const ptr);
 
 	/// Build a matrix from a pointer.
 	/// @see gtc_type_ptr
