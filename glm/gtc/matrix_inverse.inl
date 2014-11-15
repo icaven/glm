@@ -88,7 +88,7 @@ namespace glm
 			- m[0][1] * (m[1][0] * m[2][2] - m[1][2] * m[2][0])
 			+ m[0][2] * (m[1][0] * m[2][1] - m[1][1] * m[2][0]);
 
-		tmat3x3<T, P> Inverse;
+		tmat3x3<T, P> Inverse(uninitialize);
 		Inverse[0][0] = + (m[1][1] * m[2][2] - m[2][1] * m[1][2]);
 		Inverse[0][1] = - (m[1][0] * m[2][2] - m[2][0] * m[1][2]);
 		Inverse[0][2] = + (m[1][0] * m[2][1] - m[2][0] * m[1][1]);
@@ -129,7 +129,7 @@ namespace glm
 		T SubFactor17 = m[1][0] * m[2][2] - m[2][0] * m[1][2];
 		T SubFactor18 = m[1][0] * m[2][1] - m[2][0] * m[1][1];
 
-		tmat4x4<T, P> Inverse;
+		tmat4x4<T, P> Inverse(uninitialize);
 		Inverse[0][0] = + (m[1][1] * SubFactor00 - m[1][2] * SubFactor01 + m[1][3] * SubFactor02);
 		Inverse[0][1] = - (m[1][0] * SubFactor00 - m[1][2] * SubFactor03 + m[1][3] * SubFactor04);
 		Inverse[0][2] = + (m[1][0] * SubFactor01 - m[1][1] * SubFactor03 + m[1][3] * SubFactor05);
