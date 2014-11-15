@@ -67,7 +67,7 @@ namespace glm
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> rotate(
 		tmat3x3<T, P> const & m,
-		T const & angle);
+		T angle);
 
 	/// Builds a scale 3 * 3 matrix created from a vector of 2 components.
 	///
@@ -85,7 +85,7 @@ namespace glm
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> shearX(
 		tmat3x3<T, P> const & m,
-		T const & y);
+		T y);
 
 	/// Builds a vertical (parallel to the y axis) shear 3 * 3 matrix. 
 	///
@@ -94,7 +94,7 @@ namespace glm
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> shearY(
 		tmat3x3<T, P> const & m,
-		T const & x);
+		T x);
 
 	/// @}
 }//namespace glm
