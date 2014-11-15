@@ -136,6 +136,30 @@ namespace detail
 		typedef int64 type;
 	};
 
+	template <>
+	struct make_signed<long>
+	{
+		typedef long type;
+	};
+
+	template <>
+	struct make_signed<long long>
+	{
+		typedef long long type;
+	};
+
+	template <>
+	struct make_signed<unsigned long>
+	{
+		typedef long type;
+	};
+
+	template <>
+	struct make_signed<unsigned long long>
+	{
+		typedef long long type;
+	};
+
 	template <typename genType>
 	struct make_unsigned
 	{};
@@ -186,6 +210,30 @@ namespace detail
 	struct make_unsigned<uint64>
 	{
 		typedef uint64 type;
+	};
+
+	template <>
+	struct make_unsigned<long>
+	{
+		typedef unsigned long type;
+	};
+
+	template <>
+	struct make_unsigned<long long>
+	{
+		typedef unsigned long long type;
+	};
+
+	template <>
+	struct make_unsigned<unsigned long>
+	{
+		typedef unsigned long type;
+	};
+
+	template <>
+	struct make_unsigned<unsigned long long>
+	{
+		typedef unsigned long long type;
 	};
 }//namespace detail
 
