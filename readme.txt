@@ -82,6 +82,7 @@ Fixes:
 - Fixed Visual Studio 14 compiler warnings
 - Fixed implicit conversion from another tvec2 type to another tvec2 #241
 - Fixed lack of consistency of quat and dualquat constructors
+- Fixed uaddCarray #253
 
 Deprecation:
 - Removed degrees for function parameters

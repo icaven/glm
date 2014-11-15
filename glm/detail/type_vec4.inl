@@ -1060,7 +1060,7 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> operator<<(tvec4<T, P> const & left, T scalar)
+	GLM_FUNC_QUALIFIER tvec4<T, P> operator<<(tvec4<T, P> const & v, T scalar)
 	{
 		return tvec4<T, P>(
 			v.x << scalar,
