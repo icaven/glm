@@ -273,17 +273,17 @@ int test_quat_ctr()
 {
 	int Error(0);
 
-#if (GLM_LANG & GLM_LANG_CXX11_FLAG) || (GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC12)
-//	Error += std::is_trivially_default_constructible<glm::quat>::value ? 0 : 1;
-//	Error += std::is_trivially_default_constructible<glm::dquat>::value ? 0 : 1;
-//	Error += std::is_trivially_copy_assignable<glm::quat>::value ? 0 : 1;
-//	Error += std::is_trivially_copy_assignable<glm::dquat>::value ? 0 : 1;
-	Error += std::is_trivially_copyable<glm::quat>::value ? 0 : 1;
-	Error += std::is_trivially_copyable<glm::dquat>::value ? 0 : 1;
+#	if GLM_HAS_TRIVIAL_QUERIES
+	//	Error += std::is_trivially_default_constructible<glm::quat>::value ? 0 : 1;
+	//	Error += std::is_trivially_default_constructible<glm::dquat>::value ? 0 : 1;
+	//	Error += std::is_trivially_copy_assignable<glm::quat>::value ? 0 : 1;
+	//	Error += std::is_trivially_copy_assignable<glm::dquat>::value ? 0 : 1;
+		Error += std::is_trivially_copyable<glm::quat>::value ? 0 : 1;
+		Error += std::is_trivially_copyable<glm::dquat>::value ? 0 : 1;
 
-	Error += std::is_copy_constructible<glm::quat>::value ? 0 : 1;
-	Error += std::is_copy_constructible<glm::dquat>::value ? 0 : 1;
-#endif
+		Error += std::is_copy_constructible<glm::quat>::value ? 0 : 1;
+		Error += std::is_copy_constructible<glm::dquat>::value ? 0 : 1;
+#	endif
 
 #	if GLM_HAS_INITIALIZER_LISTS
 	{

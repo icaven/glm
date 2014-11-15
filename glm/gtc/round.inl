@@ -295,8 +295,8 @@ namespace detail
 		if(isPowerOfTwo(value))
 			return value;
 
-		genType const prev = highestBitValue(value);
-		genType const next = prev << 1;
+		genIUType const prev = highestBitValue(value);
+		genIUType const next = prev << 1;
 		return (next - value) < (value - prev) ? next : prev;
 	}
 
