@@ -95,7 +95,7 @@ namespace detail
 		uint64 const Value64(static_cast<uint64>(x) + static_cast<uint64>(y));
 		uint64 const Max32(static_cast<uint64>(std::numeric_limits<uint>::max()));
 		Carry = Value64 > Max32 ? 1 : 0;
-		return static_cast<uint32>(Value64 % Max32);
+		return static_cast<uint32>(Value64 % (Max32 + static_cast<uint64>(1)));
 	}
 
 	template <precision P, template <typename, precision> class vecType>
@@ -104,7 +104,7 @@ namespace detail
 		vecType<uint64, P> Value64(vecType<uint64, P>(x) + vecType<uint64, P>(y));
 		vecType<uint64, P> Max32(static_cast<uint64>(std::numeric_limits<uint>::max()));
 		Carry = mix(vecType<uint32, P>(0), vecType<uint32, P>(1), greaterThan(Value64, Max32));
-		return vecType<uint32,P>(Value64 % Max32);
+		return vecType<uint32,P>(Value64 % (Max32 + static_cast<uint64>(1)));
 	}
 
 	// usubBorrow

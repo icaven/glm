@@ -898,71 +898,48 @@ namespace findLSB
 
 namespace uaddCarry
 {
-	void test_instance(unsigned int n)
-	{
-		glm::uint a = std::numeric_limits<glm::uint>::max() - 4,
-			b = n,
-			carry = 0;
-		glm::uint result = glm::uaddCarry(a, b, carry);
-	}
-
 	int test()
 	{
 		int Error(0);
 		
 		{
-			glm::uint x = 16;
-			glm::uint y = 17;
+			glm::uint x = std::numeric_limits<glm::uint>::max();
+			glm::uint y = 0;
+			glm::uint Carry = 0;
+			glm::uint Result = glm::uaddCarry(x, y, Carry);
+
+			Error += Carry == 0 ? 0 : 1;
+			Error += Result == std::numeric_limits<glm::uint>::max() ? 0 : 1;
+		}
+
+		{
+			glm::uint x = std::numeric_limits<glm::uint>::max();
+			glm::uint y = 1;
 			glm::uint Carry = 0;
 			glm::uint Result = glm::uaddCarry(x, y, Carry);
 
 			Error += Carry == 1 ? 0 : 1;
-			Error += Result == 33 ? 0 : 1;
+			Error += Result == 0 ? 0 : 1;
 		}
 
 		{
-			glm::uvec1 x(16);
-			glm::uvec1 y(17);
+			glm::uvec1 x(std::numeric_limits<glm::uint>::max());
+			glm::uvec1 y(0);
+			glm::uvec1 Carry(0);
+			glm::uvec1 Result(glm::uaddCarry(x, y, Carry));
+
+			Error += glm::all(glm::equal(Carry, glm::uvec1(0))) ? 0 : 1;
+			Error += glm::all(glm::equal(Result, glm::uvec1(std::numeric_limits<glm::uint>::max()))) ? 0 : 1;
+		}
+
+		{
+			glm::uvec1 x(std::numeric_limits<glm::uint>::max());
+			glm::uvec1 y(1);
 			glm::uvec1 Carry(0);
 			glm::uvec1 Result(glm::uaddCarry(x, y, Carry));
 
 			Error += glm::all(glm::equal(Carry, glm::uvec1(1))) ? 0 : 1;
-			Error += glm::all(glm::equal(Result, glm::uvec1(33))) ? 0 : 1;
-		}
-
-		{
-			glm::uvec2 x(16);
-			glm::uvec2 y(17);
-			glm::uvec2 Carry(0);
-			glm::uvec2 Result(glm::uaddCarry(x, y, Carry));
-
-			Error += glm::all(glm::equal(Carry, glm::uvec2(1))) ? 0 : 1;
-			Error += glm::all(glm::equal(Result, glm::uvec2(33))) ? 0 : 1;
-		}
-
-		{
-			glm::uvec3 x(16);
-			glm::uvec3 y(17);
-			glm::uvec3 Carry(0);
-			glm::uvec3 Result(glm::uaddCarry(x, y, Carry));
-
-			Error += glm::all(glm::equal(Carry, glm::uvec3(1))) ? 0 : 1;
-			Error += glm::all(glm::equal(Result, glm::uvec3(33))) ? 0 : 1;
-		}
-
-		{
-			glm::uvec4 x(16);
-			glm::uvec4 y(17);
-			glm::uvec4 Carry(0);
-			glm::uvec4 Result(glm::uaddCarry(x, y, Carry));
-
-			Error += glm::all(glm::equal(Carry, glm::uvec4(1))) ? 0 : 1;
-			Error += glm::all(glm::equal(Result, glm::uvec4(33))) ? 0 : 1;
-		}
-
-		{
-			for(unsigned int i = 0; i < 10; ++i)
-				test_instance(i);
+			Error += glm::all(glm::equal(Result, glm::uvec1(0))) ? 0 : 1;
 		}
 
 		return Error;
