@@ -5,9 +5,10 @@
 #include <stdlib.h>     //To define "exit", req'd by XLC.
 #include <ctime>
 
-unsigned rotatel(unsigned x, int n) {
-   if ((unsigned)n > 63) {printf("rotatel, n out of range.\n"); exit(1);}
-   return (x << n) | (x >> (32 - n));
+unsigned rotatel(unsigned x, int n)
+{
+	if ((unsigned)n > 63) {printf("rotatel, n out of range.\n"); exit(1);}
+	return (x << n) | (x >> (32 - n));
 }
 
 int pop0(unsigned x)
@@ -20,45 +21,49 @@ int pop0(unsigned x)
 	return x;
 }
 
-int pop1(unsigned x) {
-   x = x - ((x >> 1) & 0x55555555);
-   x = (x & 0x33333333) + ((x >> 2) & 0x33333333);
-   x = (x + (x >> 4)) & 0x0F0F0F0F;
-   x = x + (x >> 8);
-   x = x + (x >> 16);
-   return x & 0x0000003F;
+int pop1(unsigned x)
+{
+	x = x - ((x >> 1) & 0x55555555);
+	x = (x & 0x33333333) + ((x >> 2) & 0x33333333);
+	x = (x + (x >> 4)) & 0x0F0F0F0F;
+	x = x + (x >> 8);
+	x = x + (x >> 16);
+	return x & 0x0000003F;
 }
 /* Note: an alternative to the last three executable lines above is:
    return x*0x01010101 >> 24;
 if your machine has a fast multiplier (suggested by Jari Kirma). */
 
-int pop2(unsigned x) {
-   unsigned n;
+int pop2(unsigned x)
+{
+	unsigned n;
 
-   n = (x >> 1) & 033333333333;       // Count bits in
-   x = x - n;                         // each 3-bit
-   n = (n >> 1) & 033333333333;       // field.
-   x = x - n;
-   x = (x + (x >> 3)) & 030707070707; // 6-bit sums.
-   return x%63;                       // Add 6-bit sums.
+	n = (x >> 1) & 033333333333;       // Count bits in
+	x = x - n;                         // each 3-bit
+	n = (n >> 1) & 033333333333;       // field.
+	x = x - n;
+	x = (x + (x >> 3)) & 030707070707; // 6-bit sums.
+	return x%63;                       // Add 6-bit sums.
 }
+
 /* An alternative to the "return" statement above is:
    return ((x * 0404040404) >> 26) +  // Add 6-bit sums.
            (x >> 30);
 which runs faster on most machines (suggested by Norbert Juffa). */
 
-int pop3(unsigned x) {
-   unsigned n;
+int pop3(unsigned x)
+{
+	unsigned n;
 
-   n = (x >> 1) & 0x77777777;        // Count bits in
-   x = x - n;                        // each 4-bit
-   n = (n >> 1) & 0x77777777;        // field.
-   x = x - n;
-   n = (n >> 1) & 0x77777777;
-   x = x - n;
-   x = (x + (x >> 4)) & 0x0F0F0F0F;  // Get byte sums.
-   x = x*0x01010101;                 // Add the bytes.
-   return x >> 24;
+	n = (x >> 1) & 0x77777777;        // Count bits in
+	x = x - n;                        // each 4-bit
+	n = (n >> 1) & 0x77777777;        // field.
+	x = x - n;
+	n = (n >> 1) & 0x77777777;
+	x = x - n;
+	x = (x + (x >> 4)) & 0x0F0F0F0F;  // Get byte sums.
+	x = x*0x01010101;                 // Add the bytes.
+	return x >> 24;
 }
 
 int pop4(unsigned x)
@@ -101,67 +106,72 @@ int pop5a(unsigned x)
 	return sum;
 }
 
-int pop6(unsigned x) {               // Table lookup.
-   static char table[256] = {
-      0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4,
-      1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
-      1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
-      2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+int pop6(unsigned x)
+{ // Table lookup.
+	static char table[256] = {
+		0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4,
+		1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
+		1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
+		2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
 
-      1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
-      2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
-      2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
-      3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
+		1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
+		2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+		2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+		3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
 
-      1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
-      2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
-      2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
-      3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
+		1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
+		2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+		2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+		3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
 
-      2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
-      3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
-      3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
-      4, 5, 5, 6, 5, 6, 6, 7, 5, 6, 6, 7, 6, 7, 7, 8};
+		2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
+		3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
+		3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7,
+		4, 5, 5, 6, 5, 6, 6, 7, 5, 6, 6, 7, 6, 7, 7, 8};
 
-   return table[x         & 0xFF] +
-          table[(x >>  8) & 0xFF] +
-          table[(x >> 16) & 0xFF] +
-          table[(x >> 24)];
+	return table[x         & 0xFF] +
+			table[(x >>  8) & 0xFF] +
+			table[(x >> 16) & 0xFF] +
+			table[(x >> 24)];
 }
 
 // The following works only for 8-bit quantities.
-int pop7(unsigned x) {
-   x = x*0x08040201;    // Make 4 copies.
-   x = x >> 3;          // So next step hits proper bits.
-   x = x & 0x11111111;  // Every 4th bit.
-   x = x*0x11111111;    // Sum the digits (each 0 or 1).
-   x = x >> 28;         // Position the result.
-   return x;
+int pop7(unsigned x)
+{
+	x = x*0x08040201;    // Make 4 copies.
+	x = x >> 3;          // So next step hits proper bits.
+	x = x & 0x11111111;  // Every 4th bit.
+	x = x*0x11111111;    // Sum the digits (each 0 or 1).
+	x = x >> 28;         // Position the result.
+	return x;
 }
 
 // The following works only for 7-bit quantities.
-int pop8(unsigned x) {
-   x = x*0x02040810;    // Make 4 copies, left-adjusted.
-   x = x & 0x11111111;  // Every 4th bit.
-   x = x*0x11111111;    // Sum the digits (each 0 or 1).
-   x = x >> 28;         // Position the result.
-   return x;
+int pop8(unsigned x)
+{
+	x = x*0x02040810;    // Make 4 copies, left-adjusted.
+	x = x & 0x11111111;  // Every 4th bit.
+	x = x*0x11111111;    // Sum the digits (each 0 or 1).
+	x = x >> 28;         // Position the result.
+	return x;
 }
 
 // The following works only for 15-bit quantities.
-int pop9(unsigned x) {
-   unsigned long long y;
-   y = x * 0x0002000400080010ULL;
-   y = y & 0x1111111111111111ULL;
-   y = y * 0x1111111111111111ULL;
-   y = y >> 60;
-   return y;
+int pop9(unsigned x)
+{
+	unsigned long long y;
+	y = x * 0x0002000400080010ULL;
+	y = y & 0x1111111111111111ULL;
+	y = y * 0x1111111111111111ULL;
+	y = y >> 60;
+	return y;
 }
 
 int errors;
-void error(int x, int y) {
-   errors = errors + 1;
-   printf("Error for x = %08x, got %08x\n", x, y);
+void error(int x, int y)
+{
+	errors = errors + 1;
+	printf("Error for x = %08x, got %08x\n", x, y);
 }
 
 int main()

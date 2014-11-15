@@ -43,9 +43,11 @@ int test_vec4_ctor()
 {
 	int Error = 0;
 
-	glm::ivec4 A(1, 2, 3, 4);
-	glm::ivec4 B(A);
-	Error += glm::all(glm::equal(A, B)) ? 0 : 1;
+	{
+		glm::ivec4 A(1, 2, 3, 4);
+		glm::ivec4 B(A);
+		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
+	}
 
 #if (GLM_LANG & GLM_LANG_CXX11_FLAG) || (GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC12)
 //	Error += std::is_trivially_default_constructible<glm::vec4>::value ? 0 : 1;
@@ -55,7 +57,6 @@ int test_vec4_ctor()
 	Error += std::is_trivially_copyable<glm::ivec4>::value ? 0 : 1;
 	Error += std::is_trivially_copyable<glm::uvec4>::value ? 0 : 1;
 
-	Error += std::has_trivial_copy_constructor<glm::vec4>::value ? 0 : 1;
 	Error += std::is_copy_constructible<glm::vec4>::value ? 0 : 1;
 #endif
 

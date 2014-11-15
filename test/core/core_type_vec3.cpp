@@ -28,7 +28,6 @@ int test_vec3_ctor()
 	Error += std::is_trivially_copyable<glm::ivec3>::value ? 0 : 1;
 	Error += std::is_trivially_copyable<glm::uvec3>::value ? 0 : 1;
 
-	Error += std::has_trivial_copy_constructor<glm::vec3>::value ? 0 : 1;
 	Error += std::is_copy_constructible<glm::vec3>::value ? 0 : 1;
 #endif
 

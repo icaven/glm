@@ -11,6 +11,7 @@
 #include <glm/vector_relational.hpp>
 #include <glm/vec2.hpp>
 #include <vector>
+#include <type_traits>
 
 int test_vec2_operators()
 {
@@ -209,7 +210,6 @@ int test_vec2_ctor()
 	Error += std::is_trivially_copyable<glm::ivec2>::value ? 0 : 1;
 	Error += std::is_trivially_copyable<glm::uvec2>::value ? 0 : 1;
 
-	Error += std::has_trivial_copy_constructor<glm::vec2>::value ? 0 : 1;
 	Error += std::is_copy_constructible<glm::vec2>::value ? 0 : 1;
 #endif
 

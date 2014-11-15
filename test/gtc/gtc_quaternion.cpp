@@ -281,8 +281,6 @@ int test_quat_ctr()
 	Error += std::is_trivially_copyable<glm::quat>::value ? 0 : 1;
 	Error += std::is_trivially_copyable<glm::dquat>::value ? 0 : 1;
 
-	Error += std::has_trivial_copy_constructor<glm::quat>::value ? 0 : 1;
-	Error += std::has_trivial_copy_constructor<glm::dquat>::value ? 0 : 1;
 	Error += std::is_copy_constructible<glm::quat>::value ? 0 : 1;
 	Error += std::is_copy_constructible<glm::dquat>::value ? 0 : 1;
 #endif

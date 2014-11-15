@@ -174,8 +174,6 @@ int test_dual_quat_ctr()
 	Error += std::is_trivially_copyable<glm::dualquat>::value ? 0 : 1;
 	Error += std::is_trivially_copyable<glm::ddualquat>::value ? 0 : 1;
 
-	Error += std::has_trivial_copy_constructor<glm::dualquat>::value ? 0 : 1;
-	Error += std::has_trivial_copy_constructor<glm::ddualquat>::value ? 0 : 1;
 	Error += std::is_copy_constructible<glm::dualquat>::value ? 0 : 1;
 	Error += std::is_copy_constructible<glm::ddualquat>::value ? 0 : 1;
 #endif

@@ -74,7 +74,7 @@ namespace glm
 	/// 1 component vector of low precision floating-point numbers. 
 	/// There is no guarantee on the actual precision.
 	/// @see gtc_vec1 extension.
-	typedef lowp_dvec1_t				lowp_dvec1;
+	typedef lowp_dvec1_t			lowp_dvec1;
 
 	/// 1 component vector of high precision signed integer numbers. 
 	/// There is no guarantee on the actual precision.

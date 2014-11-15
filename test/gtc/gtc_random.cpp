@@ -194,10 +194,10 @@ int test_linearRand()
 
 	for(std::size_t i = 0; i < 100000; ++i)
 	{
-		glm::f32vec2 const A(glm::linearRand(glm::f32vec2(Min), glm::f32vec2(Max)));
-		if(!glm::all(glm::lessThanEqual(A, glm::f32vec2(Max))))
+		glm::f32vec2 const A(glm::linearRand(glm::f32vec2(static_cast<float>(Min)), glm::f32vec2(static_cast<float>(Max))));
+		if(!glm::all(glm::lessThanEqual(A, glm::f32vec2(static_cast<float>(Max)))))
 			++Error;
-		if(!glm::all(glm::greaterThanEqual(A, glm::f32vec2(Min))))
+		if(!glm::all(glm::greaterThanEqual(A, glm::f32vec2(static_cast<float>(Min)))))
 			++Error;
 
 		glm::f64vec2 const B(glm::linearRand(glm::f64vec2(Min), glm::f64vec2(Max)));
