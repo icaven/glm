@@ -48,7 +48,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER tmat4x4<T, P> rotate
 	(
 		tmat4x4<T, P> const & m,
-		T const & angle,
+		T angle,
 		tvec3<T, P> const & v
 	)
 	{
@@ -84,7 +84,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER tmat4x4<T, P> rotate_slow
 	(
 		tmat4x4<T, P> const & m,
-		T const & angle, 
+		T angle, 
 		tvec3<T, P> const & v
 	)
 	{
@@ -146,12 +146,12 @@ namespace glm
 	template <typename T>
 	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> ortho
 	(
-		T const & left,
-		T const & right,
-		T const & bottom,
-		T const & top,
-		T const & zNear,
-		T const & zFar
+		T left,
+		T right,
+		T bottom,
+		T top,
+		T zNear,
+		T zFar
 	)
 	{
 		tmat4x4<T, defaultp> Result(1);
@@ -167,10 +167,10 @@ namespace glm
 	template <typename T>
 	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> ortho
 	(
-		T const & left,
-		T const & right,
-		T const & bottom,
-		T const & top
+		T left,
+		T right,
+		T bottom,
+		T top
 	)
 	{
 		tmat4x4<T, defaultp> Result(1);
@@ -185,12 +185,12 @@ namespace glm
 	template <typename T>
 	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> frustum
 	(
-		T const & left,
-		T const & right,
-		T const & bottom,
-		T const & top,
-		T const & nearVal,
-		T const & farVal
+		T left,
+		T right,
+		T bottom,
+		T top,
+		T nearVal,
+		T farVal
 	)
 	{
 		tmat4x4<T, defaultp> Result(0);
@@ -207,10 +207,10 @@ namespace glm
 	template <typename T>
 	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> perspective
 	(
-		T const & fovy,
-		T const & aspect,
-		T const & zNear,
-		T const & zFar
+		T fovy,
+		T aspect,
+		T zNear,
+		T zFar
 	)
 	{
 		assert(aspect != static_cast<T>(0));
@@ -230,11 +230,11 @@ namespace glm
 	template <typename T>
 	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> perspectiveFov
 	(
-		T const & fov,
-		T const & width,
-		T const & height,
-		T const & zNear,
-		T const & zFar
+		T fov,
+		T width,
+		T height,
+		T zNear,
+		T zFar
 	)
 	{
 		assert(width > static_cast<T>(0));

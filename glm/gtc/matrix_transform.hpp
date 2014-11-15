@@ -100,7 +100,7 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x4<T, P> rotate(
 		tmat4x4<T, P> const & m,
-		T const & angle,
+		T angle,
 		tvec3<T, P> const & axis);
 
 	/// Builds a scale 4 * 4 matrix created from 3 scalars. 
@@ -131,12 +131,12 @@ namespace glm
 	/// @see - glm::ortho(T const & left, T const & right, T const & bottom, T const & top)
 	template <typename T>
 	GLM_FUNC_DECL tmat4x4<T, defaultp> ortho(
-		T const & left,
-		T const & right,
-		T const & bottom,
-		T const & top,
-		T const & zNear,
-		T const & zFar);
+		T left,
+		T right,
+		T bottom,
+		T top,
+		T zNear,
+		T zFar);
 
 	/// Creates a matrix for projecting two-dimensional coordinates onto the screen.
 	/// 
@@ -149,10 +149,10 @@ namespace glm
 	/// @see - glm::ortho(T const & left, T const & right, T const & bottom, T const & top, T const & zNear, T const & zFar)
 	template <typename T>
 	GLM_FUNC_DECL tmat4x4<T, defaultp> ortho(
-		T const & left,
-		T const & right,
-		T const & bottom,
-		T const & top);
+		T left,
+		T right,
+		T bottom,
+		T top);
 
 	/// Creates a frustum matrix.
 	/// 
@@ -166,12 +166,12 @@ namespace glm
 	/// @see gtc_matrix_transform
 	template <typename T>
 	GLM_FUNC_DECL tmat4x4<T, defaultp> frustum(
-		T const & left,
-		T const & right,
-		T const & bottom,
-		T const & top,
-		T const & near,
-		T const & far);
+		T left,
+		T right,
+		T bottom,
+		T top,
+		T near,
+		T far);
 
 	/// Creates a matrix for a symetric perspective-view frustum.
 	/// 
@@ -183,10 +183,10 @@ namespace glm
 	/// @see gtc_matrix_transform
 	template <typename T>
 	GLM_FUNC_DECL tmat4x4<T, defaultp> perspective(
-		T const & fovy,
-		T const & aspect,
-		T const & near,
-		T const & far);
+		T fovy,
+		T aspect,
+		T near,
+		T far);
 
 	/// Builds a perspective projection matrix based on a field of view.
 	/// 
@@ -199,11 +199,11 @@ namespace glm
 	/// @see gtc_matrix_transform
 	template <typename T>
 	GLM_FUNC_DECL tmat4x4<T, defaultp> perspectiveFov(
-		T const & fov,
-		T const & width,
-		T const & height,
-		T const & near,
-		T const & far);
+		T fov,
+		T width,
+		T height,
+		T near,
+		T far);
 
 	/// Creates a matrix for a symmetric perspective-view frustum with far plane at infinite.
 	/// 
