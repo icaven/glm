@@ -32,7 +32,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER genType row
 	(
 		genType const & m,
-		length_t const & index,
+		length_t index,
 		typename genType::row_type const & x
 	)
 	{
@@ -48,7 +48,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER typename genType::row_type row
 	(
 		genType const & m,
-		length_t const & index
+		length_t index
 	)
 	{
 		assert(index >= 0 && static_cast<detail::component_count_t>(index) < detail::component_count(m[0]));
@@ -63,7 +63,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER genType column
 	(
 		genType const & m,
-		length_t const & index,
+		length_t index,
 		typename genType::col_type const & x
 	)
 	{
@@ -78,7 +78,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER typename genType::col_type column
 	(
 		genType const & m,
-		length_t const & index
+		length_t index
 	)
 	{
 		assert(index >= 0 && static_cast<detail::component_count_t>(index) < detail::component_count(m));
