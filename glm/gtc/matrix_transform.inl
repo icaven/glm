@@ -216,8 +216,7 @@ namespace glm
 		assert(aspect != static_cast<T>(0));
 		assert(zFar != zNear);
 
-		T const rad = fovy;
-		T const tanHalfFovy = tan(rad / static_cast<T>(2));
+		T const tanHalfFovy = tan(fovy / static_cast<T>(2));
 
 		tmat4x4<T, defaultp> Result(static_cast<T>(0));
 		Result[0][0] = static_cast<T>(1) / (aspect * tanHalfFovy);
