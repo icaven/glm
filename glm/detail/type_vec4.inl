@@ -266,33 +266,7 @@ namespace glm
 
 	//////////////////////////////////////
 	// Unary arithmetic operators
-/*
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator=(tvec4<T, P> const & v)
-	{
-		this->x = v.x;
-		this->y = v.y;
-		this->z = v.z;
-		this->w = v.w;
-		return *this;
-	}
 
-#if GLM_HAS_ANONYMOUS_UNION && (GLM_ARCH & GLM_ARCH_SSE2)
-	template <>
-	GLM_FUNC_QUALIFIER tvec4<float, lowp> & tvec4<float, lowp>::operator= (tvec4<float, lowp> const & v)
-	{
-		this->data = v.data;
-		return *this;
-	}
-	
-	template <>
-	GLM_FUNC_QUALIFIER tvec4<float, mediump> & tvec4<float, mediump>::operator= (tvec4<float, mediump> const & v)
-	{
-		this->data = v.data;
-		return *this;
-	}
-#endif
-*/
 	template <typename T, precision P>
 	template <typename U>
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator=(tvec4<U, P> const & v)
