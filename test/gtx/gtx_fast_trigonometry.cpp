@@ -10,6 +10,7 @@
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtx/fast_trigonometry.hpp>
 #include <glm/gtc/constants.hpp>
+#include <glm/gtc/ulp.hpp>
 #include <ctime>
 #include <cstdio>
 
@@ -21,10 +22,10 @@ namespace fastCos
 		const float end = glm::pi<float>();
 		float result = 0.f;
 		const std::clock_t timestamp1 = std::clock();
-		for(float i=begin; i<end; i = nextafterf(i, end))
+		for(float i=begin; i<end; i = glm::next_float(i, end))
 			result = glm::fastCos(i);
 		const std::clock_t timestamp2 = std::clock();
-		for(float i=begin; i<end; i = nextafterf(i, end))
+		for(float i=begin; i<end; i = glm::next_float(i, end))
 			result = glm::cos(i);
 		const std::clock_t timestamp3 = std::clock();
 		const std::clock_t time_fast = timestamp2 - timestamp1;
@@ -44,10 +45,10 @@ namespace fastSin
 		const float end = glm::pi<float>();
 		float result = 0.f;
 		const std::clock_t timestamp1 = std::clock();
-		for (float i = begin; i<end; i = nextafterf(i, end))
+		for (float i = begin; i<end; i = glm::next_float(i, end))
 			result = glm::fastSin(i);
 		const std::clock_t timestamp2 = std::clock();
-		for (float i = begin; i<end; i = nextafterf(i, end))
+		for (float i = begin; i<end; i = glm::next_float(i, end))
 			result = glm::sin(i);
 		const std::clock_t timestamp3 = std::clock();
 		const std::clock_t time_fast = timestamp2 - timestamp1;
@@ -67,10 +68,10 @@ namespace fastTan
 		const float end = glm::pi<float>();
 		float result = 0.f;
 		const std::clock_t timestamp1 = std::clock();
-		for (float i = begin; i<end; i = nextafterf(i, end))
+		for (float i = begin; i<end; i = glm::next_float(i, end))
 			result = glm::fastTan(i);
 		const std::clock_t timestamp2 = std::clock();
-		for (float i = begin; i<end; i = nextafterf(i, end))
+		for (float i = begin; i<end; i = glm::next_float(i, end))
 			result = glm::tan(i);
 		const std::clock_t timestamp3 = std::clock();
 		const std::clock_t time_fast = timestamp2 - timestamp1;
@@ -90,10 +91,10 @@ namespace fastAcos
 		const float end = glm::pi<float>();
 		float result = 0.f;
 		const std::clock_t timestamp1 = std::clock();
-		for (float i = begin; i<end; i = nextafterf(i, end))
+		for (float i = begin; i<end; i = glm::next_float(i, end))
 			result = glm::fastAcos(i);
 		const std::clock_t timestamp2 = std::clock();
-		for (float i = begin; i<end; i = nextafterf(i, end))
+		for (float i = begin; i<end; i = glm::next_float(i, end))
 			result = glm::acos(i);
 		const std::clock_t timestamp3 = std::clock();
 		const std::clock_t time_fast = timestamp2 - timestamp1;
@@ -113,10 +114,10 @@ namespace fastAsin
 		const float end = glm::pi<float>();
 		float result = 0.f;
 		const std::clock_t timestamp1 = std::clock();
-		for (float i = begin; i<end; i = nextafterf(i, end))
+		for (float i = begin; i<end; i = glm::next_float(i, end))
 			result = glm::fastAsin(i);
 		const std::clock_t timestamp2 = std::clock();
-		for (float i = begin; i<end; i = nextafterf(i, end))
+		for (float i = begin; i<end; i = glm::next_float(i, end))
 			result = glm::asin(i);
 		const std::clock_t timestamp3 = std::clock();
 		const std::clock_t time_fast = timestamp2 - timestamp1;
@@ -136,10 +137,10 @@ namespace fastAtan
 		const float end = glm::pi<float>();
 		float result = 0.f;
 		const std::clock_t timestamp1 = std::clock();
-		for (float i = begin; i<end; i = nextafterf(i, end))
+		for (float i = begin; i<end; i = glm::next_float(i, end))
 			result = glm::fastAtan(i);
 		const std::clock_t timestamp2 = std::clock();
-		for (float i = begin; i<end; i = nextafterf(i, end))
+		for (float i = begin; i<end; i = glm::next_float(i, end))
 			result = glm::atan(i);
 		const std::clock_t timestamp3 = std::clock();
 		const std::clock_t time_fast = timestamp2 - timestamp1;
