@@ -65,7 +65,6 @@
 #include "./gtc/bitfield.hpp"
 #include "./gtc/constants.hpp"
 #include "./gtc/epsilon.hpp"
-#include "./gtc/integer.hpp"
 #include "./gtc/matrix_access.hpp"
 #include "./gtc/matrix_integer.hpp"
 #include "./gtc/matrix_inverse.hpp"
