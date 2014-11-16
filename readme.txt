@@ -37,7 +37,7 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
 
 ================================================================================
-GLM 0.9.6.0: 2014-XX-XX
+GLM 0.9.6.0: 2014-11-XX
 --------------------------------------------------------------------------------
 Features:
 - Added transparent use of SIMD instructions for vec4 and mat4 types
