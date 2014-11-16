@@ -40,7 +40,6 @@
 
 // Dependencies
 #include "../gtc/bitfield.hpp"
-#include "../gtc/integer.hpp"
 
 #if(defined(GLM_MESSAGES))
 #	pragma message("GLM: GLM_GTX_bit extension is deprecated, include GLM_GTC_bitfield and GLM_GTC_integer instead")
