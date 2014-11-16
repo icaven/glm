@@ -19,20 +19,17 @@ int test_compiler()
 	{
 		switch(GLM_COMPILER)
 		{
-		case GLM_COMPILER_VC10:
-			std::printf("GLM_COMPILER_VC10\n");
+		case GLM_COMPILER_VC2010:
+			std::printf("GLM_COMPILER_VC2010\n");
 			break;
-		case GLM_COMPILER_VC11:
-			std::printf("GLM_COMPILER_VC11\n");
+		case GLM_COMPILER_VC2012:
+			std::printf("GLM_COMPILER_VC2012\n");
 			break;
-		case GLM_COMPILER_VC12:
-			std::printf("GLM_COMPILER_VC12\n");
+		case GLM_COMPILER_VC2013:
+			std::printf("GLM_COMPILER_VC2013\n");
 			break;
-		case GLM_COMPILER_VC13:
-			std::printf("GLM_COMPILER_VC13\n");
-			break;
-		case GLM_COMPILER_VC14:
-			std::printf("GLM_COMPILER_VC14\n");
+		case GLM_COMPILER_VC2015:
+			std::printf("GLM_COMPILER_VC2015\n");
 			break;
 		default:
 			std::printf("Visual C++ version not detected\n");

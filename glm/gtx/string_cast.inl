@@ -23,7 +23,7 @@ namespace detail
 			return std::string();
 
 		va_start(list, msg);
-#		if((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC8))
+#		if(GLM_COMPILER & GLM_COMPILER_VC)
 			vsprintf_s(text, STRING_BUFFER, msg, list);
 #		else//
 			vsprintf(text, msg, list);
