@@ -1,7 +1,6 @@
 glmCreateTestGTC(gtc_bitfield)
 glmCreateTestGTC(gtc_constants)
 glmCreateTestGTC(gtc_epsilon)
-glmCreateTestGTC(gtc_integer)
 glmCreateTestGTC(gtc_matrix_access)
 glmCreateTestGTC(gtc_matrix_integer)
 glmCreateTestGTC(gtc_matrix_inverse)
