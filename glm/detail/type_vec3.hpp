@@ -141,10 +141,17 @@ namespace glm
 		GLM_FUNC_DECL explicit tvec3(tvec1<A, Q> const & a, tvec2<B, Q> const & b);
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U, precision Q>
-		GLM_FUNC_DECL explicit tvec3(tvec3<U, Q> const & v);
-		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-		template <typename U, precision Q>
 		GLM_FUNC_DECL explicit tvec3(tvec4<U, Q> const & v);
+
+#		ifdef GLM_FORCE_EXPLICIT_CTOR
+			//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+			template <typename U, precision Q>
+			GLM_FUNC_DECL explicit tvec3(tvec3<U, Q> const & v);
+#		else
+			//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+			template <typename U, precision Q>
+			GLM_FUNC_DECL tvec3(tvec3<U, Q> const & v);
+#		endif
 
 		//////////////////////////////////////
 		// Swizzle constructors
