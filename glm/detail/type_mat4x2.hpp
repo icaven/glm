@@ -98,9 +98,16 @@ namespace glm
 			tvec2<V3, P> const & v3,
 			tvec2<V4, P> const & v4);
 
+		//////////////////////////////////////
 		// Matrix conversions
-		template <typename U, precision Q>
-		GLM_FUNC_DECL explicit tmat4x2(tmat4x2<U, Q> const & m);
+
+#		ifdef GLM_FORCE_EXPLICIT_CTOR
+			template <typename U, precision Q>
+			GLM_FUNC_DECL explicit tmat4x2(tmat4x2<U, Q> const & m);
+#		else
+			template <typename U, precision Q>
+			GLM_FUNC_DECL tmat4x2(tmat4x2<U, Q> const & m);
+#		endif
 
 		GLM_FUNC_DECL explicit tmat4x2(tmat2x2<T, P> const & x);
 		GLM_FUNC_DECL explicit tmat4x2(tmat3x3<T, P> const & x);

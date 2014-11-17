@@ -95,17 +95,24 @@ namespace glm
 			X2 const & x2, Y2 const & y2, Z2 const & z2, W2 const & w2,
 			X3 const & x3, Y3 const & y3, Z3 const & z3, W3 const & w3,
 			X4 const & x4, Y4 const & y4, Z4 const & z4, W4 const & w4);
-			
+
 		template <typename V1, typename V2, typename V3, typename V4>
 		GLM_FUNC_DECL tmat4x4(
 			tvec4<V1, P> const & v1,
 			tvec4<V2, P> const & v2,
 			tvec4<V3, P> const & v3,
 			tvec4<V4, P> const & v4);
-	
+
+		//////////////////////////////////////
 		// Matrix conversions
-		template <typename U, precision Q>
-		GLM_FUNC_DECL explicit tmat4x4(tmat4x4<U, Q> const & m);
+
+#		ifdef GLM_FORCE_EXPLICIT_CTOR
+			template <typename U, precision Q>
+			GLM_FUNC_DECL explicit tmat4x4(tmat4x4<U, Q> const & m);
+#		else
+			template <typename U, precision Q>
+			GLM_FUNC_DECL tmat4x4(tmat4x4<U, Q> const & m);
+#		endif
 
 		GLM_FUNC_DECL explicit tmat4x4(tmat2x2<T, P> const & x);
 		GLM_FUNC_DECL explicit tmat4x4(tmat3x3<T, P> const & x);
@@ -179,7 +186,7 @@ namespace glm
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL typename tmat4x4<T, P>::row_type operator*(typename tmat4x4<T, P>::col_type const & v, tmat4x4<T, P> const & m);
-		
+
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat2x4<T, P> operator*(tmat4x4<T, P> const & m1, tmat2x4<T, P> const & m2);
 

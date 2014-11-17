@@ -106,11 +106,20 @@ namespace detail
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(T const & w, T const & x, T const & y, T const & z)
-		: x(x), y(y), z(z),	w(w)
+		: x(x), y(y), z(z), w(w)
 	{}
 
 	//////////////////////////////////////////////////////////////
 	// Conversions
+
+	template <typename T, precision P>
+	template <typename U, precision Q>
+	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(tquat<U, Q> const & q)
+		: x(static_cast<T>(q.x))
+		, y(static_cast<T>(q.y))
+		, z(static_cast<T>(q.z))
+		, w(static_cast<T>(q.w))
+	{}
 
 	//template <typename valType> 
 	//GLM_FUNC_QUALIFIER tquat<valType>::tquat

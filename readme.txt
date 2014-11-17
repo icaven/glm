@@ -57,6 +57,7 @@ Features:
 - Added GTC_bitfield extension, promoted GTX_bit
 - Added GTC_integer extension, promoted GTX_bit
 - Added GTC_round extension, promoted GTX_bit
+- Added GLM_FORCE_EXPLICIT_CTOR to require explicit type conversions #269
 
 Improvements:
 - Rely on C++11 to implement isinf and isnan

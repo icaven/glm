@@ -75,6 +75,7 @@ namespace glm
 
 		//////////////////////////////////////
 		// Conversions
+
 		template <typename X1, typename Y1, typename Z1, typename X2, typename Y2, typename Z2>
 		GLM_FUNC_DECL tmat2x3(
 			X1 const & x1, Y1 const & y1, Z1 const & z1,
@@ -87,8 +88,14 @@ namespace glm
 
 		//////////////////////////////////////
 		// Matrix conversion
-		template <typename U, precision Q>
-		GLM_FUNC_DECL explicit tmat2x3(tmat2x3<U, Q> const & m);
+
+#		ifdef GLM_FORCE_EXPLICIT_CTOR
+			template <typename U, precision Q>
+			GLM_FUNC_DECL explicit tmat2x3(tmat2x3<U, Q> const & m);
+#		else
+			template <typename U, precision Q>
+			GLM_FUNC_DECL tmat2x3(tmat2x3<U, Q> const & m);
+#		endif
 
 		GLM_FUNC_DECL explicit tmat2x3(tmat2x2<T, P> const & x);
 		GLM_FUNC_DECL explicit tmat2x3(tmat3x3<T, P> const & x);

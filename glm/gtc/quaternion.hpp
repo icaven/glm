@@ -95,6 +95,14 @@ namespace glm
 		//////////////////////////////////////
 		// Convertions
 
+#		ifdef GLM_FORCE_EXPLICIT_CTOR
+			template <typename U, precision Q>
+			GLM_FUNC_DECL explicit tquat(tquat<U, Q> const & q);
+#		else
+			template <typename U, precision Q>
+			GLM_FUNC_DECL tquat(tquat<U, Q> const & q);
+#		endif
+
 		/// Create a quaternion from two normalized axis
 		/// 
 		/// @param u A first normalized axis
@@ -102,6 +110,7 @@ namespace glm
 		/// @see gtc_quaternion
 		/// @see http://lolengine.net/blog/2013/09/18/beautiful-maths-quaternion-from-vectors
 		GLM_FUNC_DECL explicit tquat(tvec3<T, P> const & u,	tvec3<T, P> const & v);
+
 		/// Build a quaternion from euler angles (pitch, yaw, roll), in radians.
 		GLM_FUNC_DECL explicit tquat(tvec3<T, P> const & eulerAngles);
 		GLM_FUNC_DECL explicit tquat(tmat3x3<T, P> const & m);
