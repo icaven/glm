@@ -67,7 +67,7 @@ namespace detail
 #endif
 		}
 	};
-}//namespace _detail
+}//namespace detail
 
 	// Henry Gordon Dietz: http://aggregate.org/MAGIC/
 /*
