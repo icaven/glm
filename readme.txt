@@ -84,6 +84,7 @@ Fixes:
 - Fixed implicit conversion from another tvec2 type to another tvec2 #241
 - Fixed lack of consistency of quat and dualquat constructors
 - Fixed uaddCarray #253
+- Fixed float comparison warnings #270
 
 Deprecation:
 - Removed degrees for function parameters
