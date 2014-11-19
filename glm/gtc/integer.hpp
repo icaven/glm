@@ -41,8 +41,8 @@
 // Dependencies
 #include "../detail/setup.hpp"
 #include "../detail/precision.hpp"
-#include "../detail/type_int.hpp"
-#include "../detail/_vectorize.hpp"
+#include "../detail/func_integer.hpp"
+#include "../detail/func_exponential.hpp"
 #include <limits>
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
@@ -54,7 +54,10 @@ namespace glm
 	/// @addtogroup gtc_integer
 	/// @{
 
-
+	/// Returns the log2 of x. Can be reliably using to compute mipmap count from the texture size.
+	/// From GLM_GTC_integer extension.
+	template <typename genIUType>
+	GLM_FUNC_DECL genIUType log2(genIUType x);
 
 	/// @}
 } //namespace glm

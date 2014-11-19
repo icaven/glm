@@ -29,9 +29,19 @@
 namespace glm{
 namespace detail
 {
+	GLM_FUNC_QUALIFIER unsigned int nlz(unsigned int x) 
+	{
+		return 31u - findMSB(x);
+	}
 
+	template <>
+	struct compute_log2<false>
+	{
+		template <typename T>
+		GLM_FUNC_QUALIFIER T operator() (T const & Value) const
+		{
+			return Value <= static_cast<T>(1) ? T(0) : T(32) - nlz(Value - T(1));
+		}
+	};
 }//namespace detail
-
-
-
 }//namespace glm
