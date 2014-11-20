@@ -151,22 +151,15 @@ namespace detail
 	}
 
 	// sign
-	//Try something like based on x >> 31 to get the sign bit
+	// fast and works for any type
 	template <typename genFIType> 
 	GLM_FUNC_QUALIFIER genFIType sign(genFIType x)
 	{
 		GLM_STATIC_ASSERT(
 			std::numeric_limits<genFIType>::is_iec559 ||
 			(std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer), "'sign' only accept signed inputs");
-
-		genFIType result;
-		if(x > genFIType(0))
-			result = genFIType(1);
-		else if(x < genFIType(0))
-			result = genFIType(-1);
-		else
-			result = genFIType(0);
-		return result;
+		
+		return genFIType(genFIType(0) < x) - (x < genFIType(0));
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
