@@ -128,6 +128,36 @@ namespace detail
 			return a ? y : x;
 		}
 	};
+
+	template <typename T, precision P, template <class, precision> class vecType, bool isFloat = true, bool isSigned = true>
+	struct compute_sign
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x)
+		{
+			return vecType<T, P>(glm::lessThan(vecType<T, P>(0), x)) - vecType<T, P>(glm::lessThan(x, vecType<T, P>(0)));
+		}
+	};
+
+	template <typename T, precision P, template <class, precision> class vecType>
+	struct compute_sign<T, P, vecType, false, false>
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x)
+		{
+			return glm::abs(x);
+		}
+	};
+
+	template <typename T, precision P, template <class, precision> class vecType>
+	struct compute_sign<T, P, vecType, false, true>
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x)
+		{
+			T const Shift(static_cast<T>(sizeof(T) * 8 - 1));
+			vecType<T, P> const y(vecType<typename make_unsigned<T>::type, P>(-x) >> typename make_unsigned<T>::type(Shift));
+
+			return (x >> Shift) | y;
+		}
+	};
 }//namespace detail
 
 	// abs
@@ -159,7 +189,7 @@ namespace detail
 			std::numeric_limits<genFIType>::is_iec559 || (std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer),
 			"'sign' only accept signed inputs");
 		
-		return static_cast<genFIType>(static_cast<genFIType>(0) < x) - static_cast<genFIType>(x < static_cast<genFIType>(0));
+		return detail::compute_sign<genFIType, defaultp, tvec1, std::numeric_limits<genFIType>::is_iec559>::call(tvec1<genFIType>(x)).x;
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
@@ -169,7 +199,9 @@ namespace detail
 			std::numeric_limits<T>::is_iec559 || (std::numeric_limits<T>::is_signed && std::numeric_limits<T>::is_integer),
 			"'sign' only accept signed inputs");
 
-		return vecType<T, P>(glm::lessThan(vecType<T, P>(0), x)) - vecType<T, P>(glm::lessThan(x, vecType<T, P>(0)));
+		return detail::compute_sign<T, P, vecType, std::numeric_limits<T>::is_iec559>::call(x);
+
+		//return vecType<T, P>(glm::lessThan(vecType<T, P>(0), x)) - vecType<T, P>(glm::lessThan(x, vecType<T, P>(0)));
 	}
 
 	// floor

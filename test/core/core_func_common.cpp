@@ -844,6 +844,8 @@ namespace sign
 	{
 		type<glm::int32> const Data[] =
 		{
+			{ std::numeric_limits<glm::int32>::max(),  1},
+			{ std::numeric_limits<glm::int32>::min(), -1},
 			{ 0, 0},
 			{ 1, 1},
 			{ 2, 1},

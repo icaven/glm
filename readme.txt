@@ -76,6 +76,7 @@ Improvements:
 - Removed <iostream> in GLM tests
 - Used std features within GLM without redeclaring
 - Optimized glm::cot #272
+- Optimized glm::sign #272
 
 Fixes:
 - Fixed std::nextafter not supported with C++11 on Android #217
