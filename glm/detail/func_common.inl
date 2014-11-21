@@ -156,16 +156,20 @@ namespace detail
 	GLM_FUNC_QUALIFIER genFIType sign(genFIType x)
 	{
 		GLM_STATIC_ASSERT(
-			std::numeric_limits<genFIType>::is_iec559 ||
-			(std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer), "'sign' only accept signed inputs");
+			std::numeric_limits<genFIType>::is_iec559 || (std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer),
+			"'sign' only accept signed inputs");
 		
-		return genFIType(genFIType(0) < x) - (x < genFIType(0));
+		return static_cast<genFIType>(static_cast<genFIType>(0) < x) - static_cast<genFIType>(x < static_cast<genFIType>(0));
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> sign(vecType<T, P> const & x)
 	{
-		return detail::functor1<T, T, P, vecType>::call(sign, x);
+		GLM_STATIC_ASSERT(
+			std::numeric_limits<T>::is_iec559 || (std::numeric_limits<T>::is_signed && std::numeric_limits<T>::is_integer),
+			"'sign' only accept signed inputs");
+
+		return vecType<T, P>(glm::lessThan(vecType<T, P>(0), x)) - vecType<T, P>(glm::lessThan(x, vecType<T, P>(0)));
 	}
 
 	// floor

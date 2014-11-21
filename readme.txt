@@ -55,7 +55,7 @@ Features:
 - Added GLM_FORCE_NO_CTOR_INIT
 - Added 'uninitialize' to explicitly not initialize a GLM type
 - Added GTC_bitfield extension, promoted GTX_bit
-- Added GTC_integer extension, promoted GTX_bit
+- Added GTC_integer extension, promoted GTX_bit and GTX_integer
 - Added GTC_round extension, promoted GTX_bit
 - Added GLM_FORCE_EXPLICIT_CTOR to require explicit type conversions #269
 

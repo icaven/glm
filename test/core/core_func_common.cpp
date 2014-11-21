@@ -857,6 +857,12 @@ namespace sign
 
 		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<glm::int32>); ++i)
 		{
+			glm::int32 Result = glm::sign(Data[i].Value);
+			Error += Data[i].Return == Result ? 0 : 1;
+		}
+
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<glm::int32>); ++i)
+		{
 			glm::int32 Result = sign_cmp(Data[i].Value);
 			Error += Data[i].Return == Result ? 0 : 1;
 		}
@@ -888,11 +894,36 @@ namespace sign
 		return Error;
 	}
 
+	int test_i32vec4()
+	{
+		type<glm::i32vec4> const Data[] =
+		{
+			{glm::i32vec4( 1), glm::i32vec4( 1)},
+			{glm::i32vec4( 0), glm::i32vec4( 0)},
+			{glm::i32vec4( 2), glm::i32vec4( 1)},
+			{glm::i32vec4( 3), glm::i32vec4( 1)},
+			{glm::i32vec4(-1), glm::i32vec4(-1)},
+			{glm::i32vec4(-2), glm::i32vec4(-1)},
+			{glm::i32vec4(-3), glm::i32vec4(-1)}
+		};
+
+		int Error = 0;
+
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<glm::i32vec4>); ++i)
+		{
+			glm::i32vec4 Result = glm::sign(Data[i].Value);
+			Error += glm::all(glm::equal(Data[i].Return, Result)) ? 0 : 1;
+		}
+
+		return Error;
+	}
+
 	int test()
 	{
 		int Error = 0;
 
 		Error += test_int32();
+		Error += test_i32vec4();
 
 		return Error;
 	}
