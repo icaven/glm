@@ -174,12 +174,9 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'refract' only accept floating-point inputs");
 
-		genType dotValue = dot(N, I);
-		genType k = static_cast<genType>(1) - eta * eta * (static_cast<genType>(1) - dotValue * dotValue);
-		if(k < static_cast<genType>(0))
-			return static_cast<genType>(0);
-		else
-			return eta * I - (eta * dotValue + sqrt(k)) * N;
+		genType const dotValue(dot(N, I));
+		genType const k(static_cast<genType>(1) - eta * eta * (static_cast<genType>(1) - dotValue * dotValue));
+		return (eta * I - (eta * dotValue + sqrt(k)) * N) * static_cast<genType>(k >= static_cast<genType>(0));
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
@@ -187,11 +184,8 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'refract' only accept floating-point inputs");
 
-		T dotValue = dot(N, I);
-		T k = static_cast<T>(1) - eta * eta * (static_cast<T>(1) - dotValue * dotValue);
-		if(k < static_cast<T>(0))
-			return vecType<T, P>(0);
-		else
-			return eta * I - (eta * dotValue + std::sqrt(k)) * N;
+		T const dotValue(dot(N, I));
+		T const k(static_cast<T>(1) - eta * eta * (static_cast<T>(1) - dotValue * dotValue));
+		return (eta * I - (eta * dotValue + std::sqrt(k)) * N) * static_cast<genType>(k >= static_cast<genType>(0));
 	}
 }//namespace glm

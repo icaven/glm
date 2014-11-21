@@ -200,8 +200,6 @@ namespace detail
 			"'sign' only accept signed inputs");
 
 		return detail::compute_sign<T, P, vecType, std::numeric_limits<T>::is_iec559>::call(x);
-
-		//return vecType<T, P>(glm::lessThan(vecType<T, P>(0), x)) - vecType<T, P>(glm::lessThan(x, vecType<T, P>(0)));
 	}
 
 	// floor
@@ -506,7 +504,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'smoothstep' only accept floating-point inputs");
 
-		genType tmp = clamp((x - edge0) / (edge1 - edge0), genType(0), genType(1));
+		genType const tmp(clamp((x - edge0) / (edge1 - edge0), genType(0), genType(1)));
 		return tmp * tmp * (genType(3) - genType(2) * tmp);
 	}
 
@@ -515,7 +513,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'smoothstep' only accept floating-point inputs");
 
-		vecType<T, P> tmp = clamp((x - edge0) / (edge1 - edge0), static_cast<T>(0), static_cast<T>(1));
+		vecType<T, P> const tmp(clamp((x - edge0) / (edge1 - edge0), static_cast<T>(0), static_cast<T>(1)));
 		return tmp * tmp * (static_cast<T>(3) - static_cast<T>(2) * tmp);
 	}
 
@@ -524,32 +522,36 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'smoothstep' only accept floating-point inputs");
 
-		vecType<T, P> tmp = clamp((x - edge0) / (edge1 - edge0), static_cast<T>(0), static_cast<T>(1));
+		vecType<T, P> const tmp(clamp((x - edge0) / (edge1 - edge0), static_cast<T>(0), static_cast<T>(1)));
 		return tmp * tmp * (static_cast<T>(3) - static_cast<T>(2) * tmp);
 	}
 
 	// TODO: Not working on MinGW...
-	template <typename genType> 
-	GLM_FUNC_QUALIFIER bool isnan(genType x)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'isnan' only accept floating-point inputs");
+#	if GLM_HAS_CXX11_STL
+		usign std::isnan;
+#	else
+		template <typename genType> 
+		GLM_FUNC_QUALIFIER bool isnan(genType x)
+		{
+			GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'isnan' only accept floating-point inputs");
 
-#		if GLM_LANG & GLM_LANG_CXX11_FLAG
-			return std::isnan(x);
-#		elif GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_INTEL)
-			return _isnan(x) != 0;
-#		elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG)
-#			if GLM_PLATFORM & GLM_PLATFORM_ANDROID && __cplusplus < 201103L
+#			if GLM_LANG & GLM_LANG_CXX11_FLAG
+				return std::isnan(x);
+#			elif GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_INTEL)
 				return _isnan(x) != 0;
+#			elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG)
+#				if GLM_PLATFORM & GLM_PLATFORM_ANDROID && __cplusplus < 201103L
+					return _isnan(x) != 0;
+#				else
+					return std::isnan(x);
+#				endif
+#			elif GLM_COMPILER & GLM_COMPILER_CUDA
+				return isnan(x) != 0;
 #			else
 				return std::isnan(x);
 #			endif
-#		elif GLM_COMPILER & GLM_COMPILER_CUDA
-			return isnan(x) != 0;
-#		else
-			return std::isnan(x);
-#		endif
-	}
+		}
+#	endif
 
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<bool, P> isnan(vecType<T, P> const & x)
@@ -559,28 +561,32 @@ namespace detail
 		return detail::functor1<bool, T, P, vecType>::call(isnan, x);
 	}
 
-	template <typename genType> 
-	GLM_FUNC_QUALIFIER bool isinf(genType x)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'isinf' only accept floating-point inputs");
+#	if GLM_HAS_CXX11_STL
+		using std::isinf;
+#	else
+		template <typename genType> 
+		GLM_FUNC_QUALIFIER bool isinf(genType x)
+		{
+			GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'isinf' only accept floating-point inputs");
 
-#		if(GLM_LANG & GLM_LANG_CXX11_FLAG)
-			return std::isinf(x);
-#		elif(GLM_COMPILER & (GLM_COMPILER_INTEL | GLM_COMPILER_VC))
-			return _fpclass(x) == _FPCLASS_NINF || _fpclass(x) == _FPCLASS_PINF;
-#		elif(GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG))
-#			if(GLM_PLATFORM & GLM_PLATFORM_ANDROID && __cplusplus < 201103L)
-				return _isinf(x) != 0;
+#			if(GLM_LANG & GLM_LANG_CXX11_FLAG)
+				return std::isinf(x);
+#			elif(GLM_COMPILER & (GLM_COMPILER_INTEL | GLM_COMPILER_VC))
+				return _fpclass(x) == _FPCLASS_NINF || _fpclass(x) == _FPCLASS_PINF;
+#			elif(GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG))
+#				if(GLM_PLATFORM & GLM_PLATFORM_ANDROID && __cplusplus < 201103L)
+					return _isinf(x) != 0;
+#				else
+					return std::isinf(x);
+#				endif
+#			elif(GLM_COMPILER & GLM_COMPILER_CUDA)
+				// http://developer.download.nvidia.com/compute/cuda/4_2/rel/toolkit/docs/online/group__CUDA__MATH__DOUBLE_g13431dd2b40b51f9139cbb7f50c18fab.html#g13431dd2b40b51f9139cbb7f50c18fab
+				return isinf(double(x)) != 0;
 #			else
 				return std::isinf(x);
 #			endif
-#		elif(GLM_COMPILER & GLM_COMPILER_CUDA)
-			// http://developer.download.nvidia.com/compute/cuda/4_2/rel/toolkit/docs/online/group__CUDA__MATH__DOUBLE_g13431dd2b40b51f9139cbb7f50c18fab.html#g13431dd2b40b51f9139cbb7f50c18fab
-			return isinf(double(x)) != 0;
-#		else
-			return std::isinf(x);
-#		endif
 	}
+#	endif
 
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<bool, P> isinf(vecType<T, P> const & x)
