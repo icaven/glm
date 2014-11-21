@@ -773,7 +773,7 @@
 
 namespace glm
 {
-	typedef std::size_t size_t;
+	using std::size_t;
 #if defined(GLM_FORCE_SIZE_T_LENGTH) || defined(GLM_FORCE_SIZE_FUNC)
 	typedef size_t length_t;
 #else
