@@ -143,7 +143,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x)
 		{
-			return glm::abs(x);
+			return vecType<T, P>(glm::greaterThan(x , vecType<T, P>(0)));
 		}
 	};
 
