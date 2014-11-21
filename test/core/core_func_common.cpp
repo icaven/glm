@@ -901,7 +901,7 @@ namespace sign
 	{
 		int Error = 0;
 
-		std::size_t const Count = 10000000;
+		std::size_t const Count = 100000000;
 		std::vector<glm::int32> Input, Output;
 		Input.resize(Count);
 		Output.resize(Count);
@@ -935,11 +935,17 @@ namespace sign
 
 		std::clock_t Timestamp5 = std::clock();
 
+		for(std::size_t i = 0; i < Count; ++i)
+			Output[i] = glm::sign(Input[i]);
+
+		std::clock_t Timestamp6 = std::clock();
+
 		std::printf("sign_cmp(rand) Time %d clocks\n", static_cast<unsigned int>(Timestamp1 - Timestamp0));
 		std::printf("sign_if(rand) Time %d clocks\n", static_cast<unsigned int>(Timestamp2 - Timestamp1));
 		std::printf("sign_alu1(rand) Time %d clocks\n", static_cast<unsigned int>(Timestamp3 - Timestamp2));
 		std::printf("sign_alu2(rand) Time %d clocks\n", static_cast<unsigned int>(Timestamp4 - Timestamp3));
 		std::printf("sign_sub(rand) Time %d clocks\n", static_cast<unsigned int>(Timestamp5 - Timestamp4));
+		std::printf("glm::sign(rand) Time %d clocks\n", static_cast<unsigned int>(Timestamp6 - Timestamp5));
 
 		return Error;
 	}
