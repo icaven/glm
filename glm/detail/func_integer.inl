@@ -133,7 +133,7 @@ namespace detail
 		}
 	};
 
-	template <typename T, glm::precision P, template <class, glm::precision> class vecType>
+	template <typename T, glm::precision P, template <typename, glm::precision> class vecType>
 	struct compute_findMSB_step_vec<T, P, vecType, false>
 	{
 		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x, T)
@@ -142,7 +142,7 @@ namespace detail
 		}
 	};
 
-	template <typename T, glm::precision P, template <class, glm::precision> class vecType, std::size_t>
+	template <typename T, glm::precision P, template <typename, glm::precision> class vecType, int>
 	struct compute_findMSB_vec
 	{
 		GLM_FUNC_QUALIFIER static vecType<int, P> call(vecType<T, P> const & vec)
@@ -178,7 +178,7 @@ namespace detail
 		template <typename T, glm::precision P, template <class, glm::precision> class vecType>
 		struct compute_findMSB_vec<T, P, vecType, 32>
 		{
-			GLM_FUNC_QUALIFIER static int call(vecType<T, P> const & x)
+			GLM_FUNC_QUALIFIER static vecType<int, P> call(vecType<T, P> const & x)
 			{
 				return detail::functor1<int, T, P, vecType>::call(compute_findMSB_32, x);
 			}
@@ -187,7 +187,7 @@ namespace detail
 		template <typename T, glm::precision P, template <class, glm::precision> class vecType>
 		struct compute_findMSB_vec<T, P, vecType, 64>
 		{
-			GLM_FUNC_QUALIFIER static int call(vecType<T, P> const & x)
+			GLM_FUNC_QUALIFIER static vecType<int, P> call(vecType<T, P> const & x)
 			{
 				return detail::functor1<int, T, P, vecType>::call(compute_findMSB_64, x);
 			}
