@@ -67,16 +67,16 @@ Improvements:
 - Undetected C++ compiler automatically compile with GLM_FORCE_CXX98 and 
   GLM_FORCE_PURE
 - Added not function (from GLSL specification) on VC12
-- Optimized bitfield operations
 - Optimized bitfieldReverse and bitCount functions
+- Optimized findLSB and findMSB functions.
 - Optimized matrix-vector multiple performance with Cuda #257, #258
 - Reduced integer type redifinitions #233
 - Rewrited of GTX_fast_trigonometry #264 #265
 - Made types trivially copyable #263
 - Removed <iostream> in GLM tests
 - Used std features within GLM without redeclaring
-- Optimized glm::cot #272
-- Optimized glm::sign #272
+- Optimized cot function #272
+- Optimized sign function #272
 
 Fixes:
 - Fixed std::nextafter not supported with C++11 on Android #217

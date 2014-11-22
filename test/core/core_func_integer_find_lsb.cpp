@@ -7,123 +7,14 @@
 // File    : test/core/func_integer_find_lsb.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-// This has the programs for computing the number of leading zeros
+// This has the programs for computing the number of trailing zeros
 // in a word.
 // Max line length is 57, to fit in hacker.book.
-// Compile with g++, not gcc.
 #include <cstdio>
-#include <cstdlib>     // To define "exit", req'd by XLC.
+#include <cstdlib>     //To define "exit", req'd by XLC.
 #include <ctime>
 
-#define LE 1            // 1 for little-endian, 0 for big-endian.
-
-int pop(unsigned x) {
-   x = x - ((x >> 1) & 0x55555555);
-   x = (x & 0x33333333) + ((x >> 2) & 0x33333333);
-   x = (x + (x >> 4)) & 0x0F0F0F0F;
-   x = x + (x << 8);
-   x = x + (x << 16);
-   return x >> 24;
-}
-
-int nlz1(unsigned x) {
-   int n;
-
-   if (x == 0) return(32);
-   n = 0;
-   if (x <= 0x0000FFFF) {n = n +16; x = x <<16;}
-   if (x <= 0x00FFFFFF) {n = n + 8; x = x << 8;}
-   if (x <= 0x0FFFFFFF) {n = n + 4; x = x << 4;}
-   if (x <= 0x3FFFFFFF) {n = n + 2; x = x << 2;}
-   if (x <= 0x7FFFFFFF) {n = n + 1;}
-   return n;
-}
-
-int nlz1a(unsigned x) {
-   int n;
-
-/* if (x == 0) return(32); */
-   if ((int)x <= 0) return (~x >> 26) & 32;
-   n = 1;
-   if ((x >> 16) == 0) {n = n +16; x = x <<16;}
-   if ((x >> 24) == 0) {n = n + 8; x = x << 8;}
-   if ((x >> 28) == 0) {n = n + 4; x = x << 4;}
-   if ((x >> 30) == 0) {n = n + 2; x = x << 2;}
-   n = n - (x >> 31);
-   return n;
-}
-// On basic Risc, 12 to 20 instructions.
-
-int nlz2(unsigned x) {
-   unsigned y;
-   int n;
-
-   n = 32;
-   y = x >>16;  if (y != 0) {n = n -16;  x = y;}
-   y = x >> 8;  if (y != 0) {n = n - 8;  x = y;}
-   y = x >> 4;  if (y != 0) {n = n - 4;  x = y;}
-   y = x >> 2;  if (y != 0) {n = n - 2;  x = y;}
-   y = x >> 1;  if (y != 0) return n - 2;
-   return n - x;
-}
-
-// As above but coded as a loop for compactness:
-// 23 to 33 basic Risc instructions.
-int nlz2a(unsigned x) {
-   unsigned y;
-   int n, c;
-
-   n = 32;
-   c = 16;
-   do {
-      y = x >> c;  if (y != 0) {n = n - c;  x = y;}
-      c = c >> 1;
-   } while (c != 0);
-   return n - x;
-}
-
-int nlz3(int x) {
-   int y, n;
-
-   n = 0;
-   y = x;
-L: if (x < 0) return n;
-   if (y == 0) return 32 - n;
-   n = n + 1;
-   x = x << 1;
-   y = y >> 1;
-   goto L;
-}
-
-int nlz4(unsigned x) {
-   int y, m, n;
-
-   y = -(x >> 16);      // If left half of x is 0,
-   m = (y >> 16) & 16;  // set n = 16.  If left half
-   n = 16 - m;          // is nonzero, set n = 0 and
-   x = x >> m;          // shift x right 16.
-                        // Now x is of the form 0000xxxx.
-   y = x - 0x100;       // If positions 8-15 are 0,
-   m = (y >> 16) & 8;   // add 8 to n and shift x left 8.
-   n = n + m;
-   x = x << m;
-
-   y = x - 0x1000;      // If positions 12-15 are 0,
-   m = (y >> 16) & 4;   // add 4 to n and shift x left 4.
-   n = n + m;
-   x = x << m;
-
-   y = x - 0x4000;      // If positions 14-15 are 0,
-   m = (y >> 16) & 2;   // add 2 to n and shift x left 2.
-   n = n + m;
-   x = x << m;
-
-   y = x >> 14;         // Set y = 0, 1, 2, or 3.
-   m = y & ~(y >> 1);   // Set m = 0, 1, 2, or 2 resp.
-   return n + 2 - m;
-}
-
-int nlz5(unsigned x) {
+int nlz(unsigned x) {
    int pop(unsigned x);
 
    x = x | (x >> 1);
@@ -134,172 +25,239 @@ int nlz5(unsigned x) {
    return pop(~x);
 }
 
-/* The four programs below are not valid ANSI C programs.  This is
-because they refer to the same storage locations as two different types.
-However, they work with xlc/AIX, gcc/AIX, and gcc/NT.  If you try to
-code them more compactly by declaring a variable xx to be "double," and
-then using
+int pop(unsigned x) {
+   x = x - ((x >> 1) & 0x55555555);
+   x = (x & 0x33333333) + ((x >> 2) & 0x33333333);
+   x = (x + (x >> 4)) & 0x0F0F0F0F;
+   x = x + (x << 8);
+   x = x + (x << 16);
+   return x >> 24;
+}
 
-   n = 1054 - (*((unsigned *)&xx + LE) >> 20);
+int ntz1(unsigned x) {
+   return 32 - nlz(~x & (x-1));
+}
 
-then you are violating not only the rule above, but also the ANSI C
-rule that pointer arithmetic can be performed only on pointers to
-array elements.
-   When coded with the above statement, the program fails with xlc,
-gcc/AIX, and gcc/NT, at some optimization levels.
-   BTW, these programs use the "anonymous union" feature of C++, not
-available in C. */
+int ntz2(unsigned x) {
+   return pop(~x & (x - 1));
+}
 
-int nlz6(unsigned k) {
-   union {
-      unsigned asInt[2];
-      double asDouble;
-   };
+int ntz3(unsigned x) {
    int n;
 
-   asDouble = (double)k + 0.5;
-   n = 1054 - (asInt[LE] >> 20);
+   if (x == 0) return(32);
+   n = 1;
+   if ((x & 0x0000FFFF) == 0) {n = n +16; x = x >>16;}
+   if ((x & 0x000000FF) == 0) {n = n + 8; x = x >> 8;}
+   if ((x & 0x0000000F) == 0) {n = n + 4; x = x >> 4;}
+   if ((x & 0x00000003) == 0) {n = n + 2; x = x >> 2;}
+   return n - (x & 1);
+}
+
+int ntz4(unsigned x) {
+   unsigned y;
+   int n;
+
+   if (x == 0) return 32;
+   n = 31;
+   y = x <<16;  if (y != 0) {n = n -16;  x = y;}
+   y = x << 8;  if (y != 0) {n = n - 8;  x = y;}
+   y = x << 4;  if (y != 0) {n = n - 4;  x = y;}
+   y = x << 2;  if (y != 0) {n = n - 2;  x = y;}
+   y = x << 1;  if (y != 0) {n = n - 1;}
    return n;
 }
 
-int nlz7(unsigned k) {
-   union {
-      unsigned asInt[2];
-      double asDouble;
-   };
+int ntz4a(unsigned x) {
+   unsigned y;
    int n;
 
-   asDouble = (double)k;
-   n = 1054 - (asInt[LE] >> 20);
-   n = (n & 31) + (n >> 9);
+   if (x == 0) return 32;
+   n = 31;
+   y = x <<16;  if (y != 0) {n = n -16;  x = y;}
+   y = x << 8;  if (y != 0) {n = n - 8;  x = y;}
+   y = x << 4;  if (y != 0) {n = n - 4;  x = y;}
+   y = x << 2;  if (y != 0) {n = n - 2;  x = y;}
+   n = n - ((x << 1) >> 31);
    return n;
 }
 
-   /* In single precision, round-to-nearest mode, the basic method fails for:
-   k = 0, k = 01FFFFFF, 03FFFFFE <= k <= 03FFFFFF,
-                        07FFFFFC <= k <= 07FFFFFF,
-                        0FFFFFF8 <= k <= 0FFFFFFF,
-                                   ...
-                        7FFFFFC0 <= k <= 7FFFFFFF.
-                        FFFFFF80 <= k <= FFFFFFFF.
-   For k = 0 it gives 158, and for the other values it is too low by 1. */
-
-int nlz8(unsigned k) {
-   union {
-      unsigned asInt;
-      float asFloat;
-   };
-   int n;
-
-   k = k & ~(k >> 1);           /* Fix problem with rounding. */
-   asFloat = (float)k + 0.5f;
-   n = 158 - (asInt >> 23);
-   return n;
+int ntz5(char x)
+{
+	if (x & 15) {
+		if (x & 3) {
+			if (x & 1) return 0;
+			else return 1;
+		}
+		else if (x & 4) return 2;
+		else return 3;
+	}
+	else if (x & 0x30) {
+		if (x & 0x10) return 4;
+		else return 5;
+	}
+	else if (x & 0x40) return 6;
+	else if (x) return 7;
+	else return 8;
 }
 
-/* The example below shows how to make a macro for nlz.  It uses an
-extension to the C and C++ languages that is provided by the GNU C/C++
-compiler, namely, that of allowing statements and declarations in
-expressions (see "Using and Porting GNU CC", by Richard M. Stallman
-(1998).  The underscores are necessary to protect against the
-possibility that the macro argument will conflict with one of its local
-variables, e.g., NLZ(k). */
-
-int nlz9(unsigned k) {
-   union {
-      unsigned asInt;
-      float asFloat;
-   };
+int ntz6(unsigned x) {
    int n;
 
-   k = k & ~(k >> 1);           /* Fix problem with rounding. */
-   asFloat = (float)k;
-   n = 158 - (asInt >> 23);
-   n = (n & 31) + (n >> 6);     /* Fix problem with k = 0. */
-   return n;
+   x = ~x & (x - 1);
+   n = 0;                       // n = 32;
+   while(x != 0) {              // while (x != 0) {
+      n = n + 1;                //    n = n - 1;
+      x = x >> 1;               //    x = x + x;
+   }                            // }
+   return n;                    // return n;
 }
 
-/* Below are three nearly equivalent programs for computing the number
-of leading zeros in a word. This material is not in HD, but may be in a
-future edition.
-   Immediately below is Robert Harley's algorithm, found at the
-comp.arch newsgroup entry dated 7/12/96, pointed out to me by Norbert
-Juffa.
-   Table entries marked "u" are unused. 14 ops including a multiply,
-plus an indexed load.
-   The smallest multiplier that works is 0x045BCED1 = 17*65*129*513 (all
-of form 2**k + 1). There are no multipliers of three terms of the form
-2**k +- 1 that work, with a table size of 64 or 128. There are some,
-with a table size of 64, if you precede the multiplication with x = x -
-(x >> 1), but that seems less elegant. There are also some if you use a
-table size of 256, the smallest is 0x01033CBF = 65*255*1025 (this would
-save two instructions in the form of this algorithm with the
-multiplication expanded into shifts and adds, but the table size is
-getting a bit large). */
+int ntz6a(unsigned x)
+{
+	int n = 32;
+
+	while (x != 0) {
+		n = n - 1;
+		x = x + x;
+	}
+	return n;
+}
+
+/* Dean Gaudet's algorithm. To be most useful there must be a good way
+to evaluate the C "conditional expression" (a?b:c construction) without
+branching. The result of a?b:c is b if a is true (nonzero), and c if a
+is false (0).
+   For example, a compare to zero op that sets a target GPR to 1 if the
+operand is 0, and to 0 if the operand is nonzero, will do it. With this
+instruction, the algorithm is entirely branch-free. But the most
+interesting thing about it is the high degree of parallelism. All six
+lines with conditional expressions can be executed in parallel (on a
+machine with sufficient computational units).
+   Although the instruction count is 30 measured statically, it could
+execute in only 10 cycles on a machine with sufficient parallelism.
+   The first two uses of y can instead be x, which would increase the
+useful parallelism on most machines (the assignments to y, bz, and b4
+could then all run in parallel). */
+
+int ntz7(unsigned x)
+{
+	unsigned y, bz, b4, b3, b2, b1, b0;
+
+	y = x & -x;               // Isolate rightmost 1-bit.
+	bz = y ? 0 : 1;           // 1 if y = 0.
+	b4 = (y & 0x0000FFFF) ? 0 : 16;
+	b3 = (y & 0x00FF00FF) ? 0 : 8;
+	b2 = (y & 0x0F0F0F0F) ? 0 : 4;
+	b1 = (y & 0x33333333) ? 0 : 2;
+	b0 = (y & 0x55555555) ? 0 : 1;
+	return bz + b4 + b3 + b2 + b1 + b0;
+}
+
+int ntz7_christophe(unsigned x)
+{
+	unsigned y, bz, b4, b3, b2, b1, b0;
+
+	y = x & -x;               // Isolate rightmost 1-bit.
+	bz = unsigned(!bool(y));           // 1 if y = 0.
+	b4 = unsigned(!bool(y & 0x0000FFFF)) * 16;
+	b3 = unsigned(!bool(y & 0x00FF00FF)) * 8;
+	b2 = unsigned(!bool(y & 0x0F0F0F0F)) * 4;
+	b1 = unsigned(!bool(y & 0x33333333)) * 2;
+	b0 = unsigned(!bool(y & 0x55555555)) * 1;
+	return bz + b4 + b3 + b2 + b1 + b0;
+}
+
+/* Below is David Seal's algorithm, found at
+http://www.ciphersbyritter.com/NEWS4/BITCT.HTM Table
+entries marked "u" are unused. 6 ops including a
+multiply, plus an indexed load. */
 
 #define u 99
-int nlz10(unsigned x) {
+int ntz8(unsigned x)
+{
+	static char table[64] =
+		{32, 0, 1,12, 2, 6, u,13,   3, u, 7, u, u, u, u,14,
+		10, 4, u, u, 8, u, u,25,   u, u, u, u, u,21,27,15,
+		31,11, 5, u, u, u, u, u,   9, u, u,24, u, u,20,26,
+		30, u, u, u, u,23, u,19,  29, u,22,18,28,17,16, u};
 
-   static char table[64] =
-     {32,31, u,16, u,30, 3, u,  15, u, u, u,29,10, 2, u,
-       u, u,12,14,21, u,19, u,   u,28, u,25, u, 9, 1, u,
-      17, u, 4, u, u, u,11, u,  13,22,20, u,26, u, u,18,
-       5, u, u,23, u,27, u, 6,   u,24, 7, u, 8, u, 0, u};
-
-   x = x | (x >> 1);    // Propagate leftmost
-   x = x | (x >> 2);    // 1-bit to the right.
-   x = x | (x >> 4);
-   x = x | (x >> 8);
-   x = x | (x >>16);
-   x = x*0x06EB14F9;    // Multiplier is 7*255**3.
-   return table[x >> 26];
+	x = (x & -x)*0x0450FBAF;
+	return table[x >> 26];
 }
 
-/* Harley's algorithm with multiply expanded.
-19 elementary ops plus an indexed load. */
+/* Seal's algorithm with multiply expanded.
+9 elementary ops plus an indexed load. */
 
-int nlz10a(unsigned x) {
+int ntz8a(unsigned x)
+{
+	static char table[64] =
+		{32, 0, 1,12, 2, 6, u,13,   3, u, 7, u, u, u, u,14,
+		10, 4, u, u, 8, u, u,25,   u, u, u, u, u,21,27,15,
+		31,11, 5, u, u, u, u, u,   9, u, u,24, u, u,20,26,
+		30, u, u, u, u,23, u,19,  29, u,22,18,28,17,16, u};
 
-   static char table[64] =
-     {32,31, u,16, u,30, 3, u,  15, u, u, u,29,10, 2, u,
-       u, u,12,14,21, u,19, u,   u,28, u,25, u, 9, 1, u,
-      17, u, 4, u, u, u,11, u,  13,22,20, u,26, u, u,18,
-       5, u, u,23, u,27, u, 6,   u,24, 7, u, 8, u, 0, u};
-
-   x = x | (x >> 1);    // Propagate leftmost
-   x = x | (x >> 2);    // 1-bit to the right.
-   x = x | (x >> 4);
-   x = x | (x >> 8);
-   x = x | (x >> 16);
-   x = (x << 3) - x;    // Multiply by 7.
-   x = (x << 8) - x;    // Multiply by 255.
-   x = (x << 8) - x;    // Again.
-   x = (x << 8) - x;    // Again.
-   return table[x >> 26];
+	x = (x & -x);
+	x = (x << 4) + x;    // x = x*17.
+	x = (x << 6) + x;    // x = x*65.
+	x = (x << 16) - x;   // x = x*65535.
+	return table[x >> 26];
 }
 
-/* Julius Goryavsky's version of Harley's algorithm.
-17 elementary ops plus an indexed load, if the machine
-has "and not." */
+/* Reiser's algorithm. Three ops including a "remainder,"
+plus an indexed load. */
 
-int nlz10b(unsigned x) {
+int ntz9(unsigned x) {
 
-   static char table[64] =
-     {32,20,19, u, u,18, u, 7,  10,17, u, u,14, u, 6, u,
-       u, 9, u,16, u, u, 1,26,   u,13, u, u,24, 5, u, u,
-       u,21, u, 8,11, u,15, u,   u, u, u, 2,27, 0,25, u,
-      22, u,12, u, u, 3,28, u,  23, u, 4,29, u, u,30,31};
+   static char table[37] = {32,  0,  1, 26,  2, 23, 27,
+                 u,  3, 16, 24, 30, 28, 11,  u, 13,  4,
+                 7, 17,  u, 25, 22, 31, 15, 29, 10, 12,
+                 6,  u, 21, 14,  9,  5, 20,  8, 19, 18};
 
-   x = x | (x >> 1);    // Propagate leftmost
-   x = x | (x >> 2);    // 1-bit to the right.
-   x = x | (x >> 4);
-   x = x | (x >> 8);
-   x = x & ~(x >> 16);
-   x = x*0xFD7049FF;    // Activate this line or the following 3.
-// x = (x << 9) - x;    // Multiply by 511.
-// x = (x << 11) - x;   // Multiply by 2047.
-// x = (x << 14) - x;   // Multiply by 16383.
-   return table[x >> 26];
+   x = (x & -x)%37;
+   return table[x];
+}
+
+/* Using a de Bruijn sequence. This is a table lookup with a 32-entry
+table. The de Bruijn sequence used here is
+                0000 0100 1101 0111 0110 0101 0001 1111,
+obtained from Danny Dube's October 3, 1997, posting in
+comp.compression.research. Thanks to Norbert Juffa for this reference. */
+
+int ntz10(unsigned x) {
+
+   static char table[32] =
+     { 0, 1, 2,24, 3,19, 6,25,  22, 4,20,10,16, 7,12,26,
+      31,23,18, 5,21, 9,15,11,  30,17, 8,14,29,13,28,27};
+
+   if (x == 0) return 32;
+   x = (x & -x)*0x04D7651F;
+   return table[x >> 27];
+}
+
+/* Norbert Juffa's code, answer to exercise 1 of Chapter 5 (2nd ed). */
+
+#define SLOW_MUL
+int ntz11 (unsigned int n) {
+
+   static unsigned char tab[32] =
+   {   0,  1,  2, 24,  3, 19, 6,  25,
+      22,  4, 20, 10, 16,  7, 12, 26,
+      31, 23, 18,  5, 21,  9, 15, 11,
+      30, 17,  8, 14, 29, 13, 28, 27
+   };
+   unsigned int k;
+   n = n & (-n);        /* isolate lsb */
+   printf("n = %d\n", n);
+#if defined(SLOW_MUL)
+   k = (n << 11) - n;
+   k = (k <<  2) + k;
+   k = (k <<  8) + n;
+   k = (k <<  5) - k;
+#else
+   k = n * 0x4d7651f;
+#endif
+   return n ? tab[k>>27] : 32;
 }
 
 int errors;
@@ -308,19 +266,22 @@ void error(int x, int y) {
    printf("Error for x = %08x, got %d\n", x, y);
 }
 
+/* ------------------------------ main ------------------------------ */
+
 int main()
 {
 #	ifdef GLM_TEST_ENABLE_PERF
 
-	int i, n;
-	static unsigned test[] = {0,32, 1,31, 2,30, 3,30, 4,29, 5,29, 6,29,
-		7,29, 8,28, 9,28, 16,27, 32,26, 64,25, 128,24, 255,24, 256,23,
-		512,22, 1024,21, 2048,20, 4096,19, 8192,18, 16384,17, 32768,16,
-		65536,15, 0x20000,14, 0x40000,13, 0x80000,12, 0x100000,11,
-		0x200000,10, 0x400000,9, 0x800000,8, 0x1000000,7, 0x2000000,6,
-		0x4000000,5, 0x8000000,4, 0x0FFFFFFF,4, 0x10000000,3,
-		0x3000FFFF,2, 0x50003333,1, 0x7FFFFFFF,1, 0x80000000,0,
-		0xFFFFFFFF,0};
+	int i, m, n;
+	static unsigned test[] = {0,32, 1,0, 2,1, 3,0, 4,2, 5,0, 6,1,  7,0,
+		8,3, 9,0, 16,4, 32,5, 64,6, 128,7, 255,0, 256,8, 512,9, 1024,10,
+		2048,11, 4096,12, 8192,13, 16384,14, 32768,15, 65536,16,
+		0x20000,17, 0x40000,18, 0x80000,19, 0x100000,20, 0x200000,21,
+		0x400000,22, 0x800000,23, 0x1000000,24, 0x2000000,25,
+		0x4000000,26, 0x8000000,27, 0x10000000,28, 0x20000000,29,
+		0x40000000,30, 0x80000000,31, 0xFFFFFFF0,4, 0x3000FF00,8,
+		0xC0000000,30, 0x60000000,29, 0x00011000, 12};
+
 	std::size_t const Count = 10000000;
 
 	n = sizeof(test)/4;
@@ -331,114 +292,115 @@ int main()
 	TimestampBeg = std::clock();
 	for (std::size_t k = 0; k < Count; ++k)
 	for (i = 0; i < n; i += 2) {
-		if (nlz1(test[i]) != test[i+1]) error(test[i], nlz1(test[i]));}
+		if (ntz1(test[i]) != test[i+1]) error(test[i], ntz1(test[i]));}
 	TimestampEnd = std::clock();
 
-	printf("nlz1: %d clocks\n", TimestampEnd - TimestampBeg);
+	printf("ntz1: %d clocks\n", TimestampEnd - TimestampBeg);
 
 	TimestampBeg = std::clock();
 	for (std::size_t k = 0; k < Count; ++k)
 	for (i = 0; i < n; i += 2) {
-		if (nlz1a(test[i]) != test[i+1]) error(test[i], nlz1a(test[i]));}
+		if (ntz2(test[i]) != test[i+1]) error(test[i], ntz2(test[i]));}
 	TimestampEnd = std::clock();
 
-	printf("nlz1a: %d clocks\n", TimestampEnd - TimestampBeg);
+	printf("ntz2: %d clocks\n", TimestampEnd - TimestampBeg);
 
 	TimestampBeg = std::clock();
 	for (std::size_t k = 0; k < Count; ++k)
 	for (i = 0; i < n; i += 2) {
-		if (nlz2(test[i]) != test[i+1]) error(test[i], nlz2(test[i]));}
+		if (ntz3(test[i]) != test[i+1]) error(test[i], ntz3(test[i]));}
 	TimestampEnd = std::clock();
 
-	printf("nlz2: %d clocks\n", TimestampEnd - TimestampBeg);
+	printf("ntz3: %d clocks\n", TimestampEnd - TimestampBeg);
 
 	TimestampBeg = std::clock();
 	for (std::size_t k = 0; k < Count; ++k)
 	for (i = 0; i < n; i += 2) {
-		if (nlz2a(test[i]) != test[i+1]) error(test[i], nlz2a(test[i]));}
+		if (ntz4(test[i]) != test[i+1]) error(test[i], ntz4(test[i]));}
 	TimestampEnd = std::clock();
 
-	printf("nlz2a: %d clocks\n", TimestampEnd - TimestampBeg);
+	printf("ntz4: %d clocks\n", TimestampEnd - TimestampBeg);
 
 	TimestampBeg = std::clock();
 	for (std::size_t k = 0; k < Count; ++k)
 	for (i = 0; i < n; i += 2) {
-		if (nlz3(test[i]) != test[i+1]) error(test[i], nlz3(test[i]));}
+		if (ntz4a(test[i]) != test[i+1]) error(test[i], ntz4a(test[i]));}
 	TimestampEnd = std::clock();
 
-	printf("nlz3: %d clocks\n", TimestampEnd - TimestampBeg);
+	printf("ntz4a: %d clocks\n", TimestampEnd - TimestampBeg);
 
 	TimestampBeg = std::clock();
 	for (std::size_t k = 0; k < Count; ++k)
 	for (i = 0; i < n; i += 2) {
-		if (nlz4(test[i]) != test[i+1]) error(test[i], nlz4(test[i]));}
+		m = test[i+1]; if (m > 8) m = 8;
+		if (ntz5(test[i]) != m) error(test[i], ntz5(test[i]));}
 	TimestampEnd = std::clock();
 
-	printf("nlz4: %d clocks\n", TimestampEnd - TimestampBeg);
+	printf("ntz5: %d clocks\n", TimestampEnd - TimestampBeg);
 
 	TimestampBeg = std::clock();
 	for (std::size_t k = 0; k < Count; ++k)
 	for (i = 0; i < n; i += 2) {
-		if (nlz5(test[i]) != test[i+1]) error(test[i], nlz5(test[i]));}
+		if (ntz6(test[i]) != test[i+1]) error(test[i], ntz6(test[i]));}
 	TimestampEnd = std::clock();
 
-	printf("nlz5: %d clocks\n", TimestampEnd - TimestampBeg);
+	printf("ntz6: %d clocks\n", TimestampEnd - TimestampBeg);
 
 	TimestampBeg = std::clock();
 	for (std::size_t k = 0; k < Count; ++k)
 	for (i = 0; i < n; i += 2) {
-		if (nlz6(test[i]) != test[i+1]) error(test[i], nlz6(test[i]));}
+		if (ntz6a(test[i]) != test[i+1]) error(test[i], ntz6a(test[i]));}
 	TimestampEnd = std::clock();
 
-	printf("nlz6: %d clocks\n", TimestampEnd - TimestampBeg);
+	printf("ntz6a: %d clocks\n", TimestampEnd - TimestampBeg);
 
 	TimestampBeg = std::clock();
 	for (std::size_t k = 0; k < Count; ++k)
 	for (i = 0; i < n; i += 2) {
-		if (nlz7(test[i]) != test[i+1]) error(test[i], nlz7(test[i]));}
+		if (ntz7(test[i]) != test[i+1]) error(test[i], ntz7(test[i]));}
 	TimestampEnd = std::clock();
 
-	printf("nlz7: %d clocks\n", TimestampEnd - TimestampBeg);
+	printf("ntz7: %d clocks\n", TimestampEnd - TimestampBeg);
 
 	TimestampBeg = std::clock();
 	for (std::size_t k = 0; k < Count; ++k)
 	for (i = 0; i < n; i += 2) {
-		if (nlz8(test[i]) != test[i+1]) error(test[i], nlz8(test[i]));}
+		if (ntz7_christophe(test[i]) != test[i+1]) error(test[i], ntz7(test[i]));}
 	TimestampEnd = std::clock();
 
-	printf("nlz8: %d clocks\n", TimestampEnd - TimestampBeg);
+	printf("ntz7_christophe: %d clocks\n", TimestampEnd - TimestampBeg);
 
 	TimestampBeg = std::clock();
 	for (std::size_t k = 0; k < Count; ++k)
 	for (i = 0; i < n; i += 2) {
-		if (nlz9(test[i]) != test[i+1]) error(test[i], nlz9(test[i]));}
+		if (ntz8(test[i]) != test[i+1]) error(test[i], ntz8(test[i]));}
 	TimestampEnd = std::clock();
 
-	printf("nlz9: %d clocks\n", TimestampEnd - TimestampBeg);
+	printf("ntz8: %d clocks\n", TimestampEnd - TimestampBeg);
 
 	TimestampBeg = std::clock();
 	for (std::size_t k = 0; k < Count; ++k)
 	for (i = 0; i < n; i += 2) {
-		if (nlz10(test[i]) != test[i+1]) error(test[i], nlz10(test[i]));}
+		if (ntz8a(test[i]) != test[i+1]) error(test[i], ntz8a(test[i]));}
 	TimestampEnd = std::clock();
 
-	printf("nlz10: %d clocks\n", TimestampEnd - TimestampBeg);
+	printf("ntz8a: %d clocks\n", TimestampEnd - TimestampBeg);
 
 	TimestampBeg = std::clock();
 	for (std::size_t k = 0; k < Count; ++k)
 	for (i = 0; i < n; i += 2) {
-		if (nlz10a(test[i]) != test[i+1]) error(test[i], nlz10a(test[i]));}
+		if (ntz9(test[i]) != test[i+1]) error(test[i], ntz9(test[i]));}
 	TimestampEnd = std::clock();
 
-	printf("nlz10a: %d clocks\n", TimestampEnd - TimestampBeg);
+	printf("ntz9: %d clocks\n", TimestampEnd - TimestampBeg);
 
 	TimestampBeg = std::clock();
 	for (std::size_t k = 0; k < Count; ++k)
 	for (i = 0; i < n; i += 2) {
-		if (nlz10b(test[i]) != test[i+1]) error(test[i], nlz10b(test[i]));}
+		if (ntz10(test[i]) != test[i+1]) error(test[i], ntz10(test[i]));}
 	TimestampEnd = std::clock();
 
-	printf("nlz10b: %d clocks\n", TimestampEnd - TimestampBeg);
+	printf("ntz10: %d clocks\n", TimestampEnd - TimestampBeg);
 
 	if (errors == 0)
 		printf("Passed all %d cases.\n", sizeof(test)/8);

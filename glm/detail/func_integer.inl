@@ -87,6 +87,117 @@ namespace detail
 			return (v & Mask) + ((v >> Shift) & Mask);
 		}
 	};
+
+	template <typename genIUType, size_t Bits>
+	struct compute_findLSB
+	{
+		GLM_FUNC_QUALIFIER static int call(genIUType Value)
+		{
+			if(Value == 0)
+				return -1;
+
+			return glm::bitCount(~Value & (Value - static_cast<genIUType>(1)));
+		}
+	};
+
+#	if (GLM_ARCH != GLM_ARCH_PURE) && (GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))
+
+	template <typename genIUType>
+	struct compute_findLSB<genIUType, 32>
+	{
+		GLM_FUNC_QUALIFIER static int call(genIUType Value)
+		{
+			unsigned long Result(0);
+			unsigned char IsNotNull = _BitScanForward(&Result, *reinterpret_cast<unsigned long*>(&Value));
+			return IsNotNull ? int(Result) : -1;
+		}
+	};
+
+	template <typename genIUType>
+	struct compute_findLSB<genIUType, 64>
+	{
+		GLM_FUNC_QUALIFIER static int call(genIUType Value)
+		{
+			unsigned long Result(0);
+			unsigned char IsNotNull = _BitScanForward64(&Result, *reinterpret_cast<unsigned __int64*>(&Value));
+			return IsNotNull ? int(Result) : -1;
+		}
+	};
+
+#	endif
+
+	template <typename T, glm::precision P, template <class, glm::precision> class vecType, bool EXEC = true>
+	struct compute_findMSB_step_vec
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x, T Shift)
+		{
+			return x | (x >> Shift);
+		}
+	};
+
+	template <typename T, glm::precision P, template <class, glm::precision> class vecType>
+	struct compute_findMSB_step_vec<T, P, vecType, false>
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x, T)
+		{
+			return x;
+		}
+	};
+
+	template <typename T, glm::precision P, template <class, glm::precision> class vecType, std::size_t>
+	struct compute_findMSB_vec
+	{
+		GLM_FUNC_QUALIFIER static vecType<int, P> call(vecType<T, P> const & vec)
+		{
+			vecType<T, P> x(vec);
+			x = compute_findMSB_step_vec<T, P, vecType, sizeof(T) * 8 >=  8>::call(x, static_cast<T>( 1));
+			x = compute_findMSB_step_vec<T, P, vecType, sizeof(T) * 8 >=  8>::call(x, static_cast<T>( 2));
+			x = compute_findMSB_step_vec<T, P, vecType, sizeof(T) * 8 >=  8>::call(x, static_cast<T>( 4));
+			x = compute_findMSB_step_vec<T, P, vecType, sizeof(T) * 8 >= 16>::call(x, static_cast<T>( 8));
+			x = compute_findMSB_step_vec<T, P, vecType, sizeof(T) * 8 >= 32>::call(x, static_cast<T>(16));
+			x = compute_findMSB_step_vec<T, P, vecType, sizeof(T) * 8 >= 64>::call(x, static_cast<T>(32));
+			return vecType<int, P>(sizeof(T) * 8 - 1) - glm::bitCount(~x);
+		}
+	};
+
+#	if (GLM_ARCH != GLM_ARCH_PURE) && (GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))
+
+	template <typename genIUType>
+	GLM_FUNC_QUALIFIER int compute_findMSB_32(genIUType Value)
+	{
+		unsigned long Result(0);
+		unsigned char IsNotNull = _BitScanReverse(&Result, *reinterpret_cast<unsigned long*>(&Value));
+		return IsNotNull ? int(Result) : -1;
+	}
+
+	template <typename genIUType>
+	GLM_FUNC_QUALIFIER int compute_findMSB_64(genIUType Value)
+	{
+		unsigned long Result(0);
+		unsigned char IsNotNull = _BitScanReverse64(&Result, *reinterpret_cast<unsigned __int64*>(&Value));
+		return IsNotNull ? int(Result) : -1;
+	}
+
+	template <typename T, glm::precision P, template <class, glm::precision> class vecType>
+	struct compute_findMSB_vec<T, P, vecType, 32>
+	{
+		GLM_FUNC_QUALIFIER static int call(vecType<T, P> const & x)
+		{
+			return detail::functor1<int, T, P, vecType>::call(compute_findMSB_32, x);
+		}
+	};
+
+	template <typename T, glm::precision P, template <class, glm::precision> class vecType>
+	struct compute_findMSB_vec<T, P, vecType, 64>
+	{
+		GLM_FUNC_QUALIFIER static int call(vecType<T, P> const & x)
+		{
+			return detail::functor1<int, T, P, vecType>::call(compute_findMSB_64, x);
+		}
+	};
+
+#	endif
+
 }//namespace detail
 
 	// uaddCarry
@@ -248,12 +359,8 @@ namespace detail
 	GLM_FUNC_QUALIFIER int findLSB(genIUType Value)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findLSB' only accept integer values");
-		if(Value == 0)
-			return -1;
 
-		genIUType Bit;
-		for(Bit = genIUType(0); !(Value & (1 << Bit)); ++Bit){}
-		return Bit;
+		return detail::compute_findLSB<genIUType, sizeof(genIUType) * 8>::call(Value);
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
@@ -265,89 +372,19 @@ namespace detail
 	}
 
 	// findMSB
-#if (GLM_ARCH != GLM_ARCH_PURE) && (GLM_COMPILER & GLM_COMPILER_VC)
-
 	template <typename genIUType>
-	GLM_FUNC_QUALIFIER int findMSB(genIUType Value)
+	GLM_FUNC_QUALIFIER int findMSB(genIUType x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findMSB' only accept integer values");
-		if(Value == 0)
-			return -1;
 
-		unsigned long Result(0);
-		_BitScanReverse(&Result, Value);
-		return int(Result);
+		return findMSB(tvec1<genIUType>(x)).x;
 	}
-/*
-// __builtin_clz seems to be buggy as it crasks for some values, from 0x00200000 to 80000000
-#elif((GLM_ARCH != GLM_ARCH_PURE) && (GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC40))
-
-	template <typename genIUType>
-	GLM_FUNC_QUALIFIER int findMSB
-	(
-		genIUType const & Value
-	)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findMSB' only accept integer values");
-		if(Value == 0)
-			return -1;
-
-		// clz returns the number or trailing 0-bits; see
-		// http://gcc.gnu.org/onlinedocs/gcc-4.7.1/gcc/Other-Builtins.html
-		//
-		// NoteBecause __builtin_clz only works for unsigned ints, this
-		// implementation will not work for 64-bit integers.
-		//
-		return 31 - __builtin_clzl(Value);
-	}
-*/
-#else
-
-/* SSE implementation idea
-
-		__m128i const Zero = _mm_set_epi32( 0,  0,  0,  0);
-		__m128i const One = _mm_set_epi32( 1,  1,  1,  1);
-		__m128i Bit = _mm_set_epi32(-1, -1, -1, -1);
-		__m128i Tmp = _mm_set_epi32(Value, Value, Value, Value);
-		__m128i Mmi = Zero;
-		for(int i = 0; i < 32; ++i)
-		{
-			__m128i Shilt = _mm_and_si128(_mm_cmpgt_epi32(Tmp, One), One);
-			Tmp = _mm_srai_epi32(Tmp, One);
-			Bit = _mm_add_epi32(Bit, _mm_and_si128(Shilt, i));
-			Mmi = _mm_and_si128(Mmi, One);
-		}
-		return Bit;
-*/
-
-	template <typename genIUType>
-	GLM_FUNC_QUALIFIER int findMSB(genIUType Value)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findMSB' only accept integer values");
-		
-		if(Value == genIUType(0) || Value == genIUType(-1))
-			return -1;
-		else if(Value > 0)
-		{
-			genIUType Bit = genIUType(-1);
-			for(genIUType tmp = Value; tmp > 0; tmp >>= 1, ++Bit){}
-			return Bit;
-		}
-		else //if(Value < 0)
-		{
-			int const BitCount(sizeof(genIUType) * 8);
-			int MostSignificantBit(-1);
-			for(int BitIndex(0); BitIndex < BitCount; ++BitIndex)
-				MostSignificantBit = (Value & (1 << BitIndex)) ? MostSignificantBit : BitIndex;
-			assert(MostSignificantBit >= 0);
-			return MostSignificantBit;
-		}
-	}
-#endif//(GLM_COMPILER)
 
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<int, P> findMSB(vecType<T, P> const & x)
 	{
-		return detail::functor1<int, T, P, vecType>::call(findMSB, x);
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'findMSB' only accept integer values");
+
+		return detail::compute_findMSB_vec<T, P, vecType, sizeof(T) * 8>::call(x);
 	}
 }//namespace glm
