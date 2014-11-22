@@ -100,31 +100,29 @@ namespace detail
 		}
 	};
 
-#	if (GLM_ARCH != GLM_ARCH_PURE) && (GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))
-
-	template <typename genIUType>
-	struct compute_findLSB<genIUType, 32>
-	{
-		GLM_FUNC_QUALIFIER static int call(genIUType Value)
+#	if(GLM_ARCH != GLM_ARCH_PURE) && (GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))
+		template <typename genIUType>
+		struct compute_findLSB<genIUType, 32>
 		{
-			unsigned long Result(0);
-			unsigned char IsNotNull = _BitScanForward(&Result, *reinterpret_cast<unsigned long*>(&Value));
-			return IsNotNull ? int(Result) : -1;
-		}
-	};
+			GLM_FUNC_QUALIFIER static int call(genIUType Value)
+			{
+				unsigned long Result(0);
+				unsigned char IsNotNull = _BitScanForward(&Result, *reinterpret_cast<unsigned long*>(&Value));
+				return IsNotNull ? int(Result) : -1;
+			}
+		};
 
-	template <typename genIUType>
-	struct compute_findLSB<genIUType, 64>
-	{
-		GLM_FUNC_QUALIFIER static int call(genIUType Value)
+		template <typename genIUType>
+		struct compute_findLSB<genIUType, 64>
 		{
-			unsigned long Result(0);
-			unsigned char IsNotNull = _BitScanForward64(&Result, *reinterpret_cast<unsigned __int64*>(&Value));
-			return IsNotNull ? int(Result) : -1;
-		}
-	};
-
-#	endif
+			GLM_FUNC_QUALIFIER static int call(genIUType Value)
+			{
+				unsigned long Result(0);
+				unsigned char IsNotNull = _BitScanForward64(&Result, *reinterpret_cast<unsigned __int64*>(&Value));
+				return IsNotNull ? int(Result) : -1;
+			}
+		};
+#	endif//GLM_ARCH != GLM_ARCH_PURE
 
 	template <typename T, glm::precision P, template <class, glm::precision> class vecType, bool EXEC = true>
 	struct compute_findMSB_step_vec
@@ -160,44 +158,41 @@ namespace detail
 		}
 	};
 
-#	if (GLM_ARCH != GLM_ARCH_PURE) && (GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))
-
-	template <typename genIUType>
-	GLM_FUNC_QUALIFIER int compute_findMSB_32(genIUType Value)
-	{
-		unsigned long Result(0);
-		unsigned char IsNotNull = _BitScanReverse(&Result, *reinterpret_cast<unsigned long*>(&Value));
-		return IsNotNull ? int(Result) : -1;
-	}
-
-	template <typename genIUType>
-	GLM_FUNC_QUALIFIER int compute_findMSB_64(genIUType Value)
-	{
-		unsigned long Result(0);
-		unsigned char IsNotNull = _BitScanReverse64(&Result, *reinterpret_cast<unsigned __int64*>(&Value));
-		return IsNotNull ? int(Result) : -1;
-	}
-
-	template <typename T, glm::precision P, template <class, glm::precision> class vecType>
-	struct compute_findMSB_vec<T, P, vecType, 32>
-	{
-		GLM_FUNC_QUALIFIER static int call(vecType<T, P> const & x)
+#	if(GLM_ARCH != GLM_ARCH_PURE) && (GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))
+		template <typename genIUType>
+		GLM_FUNC_QUALIFIER int compute_findMSB_32(genIUType Value)
 		{
-			return detail::functor1<int, T, P, vecType>::call(compute_findMSB_32, x);
+			unsigned long Result(0);
+			unsigned char IsNotNull = _BitScanReverse(&Result, *reinterpret_cast<unsigned long*>(&Value));
+			return IsNotNull ? int(Result) : -1;
 		}
-	};
 
-	template <typename T, glm::precision P, template <class, glm::precision> class vecType>
-	struct compute_findMSB_vec<T, P, vecType, 64>
-	{
-		GLM_FUNC_QUALIFIER static int call(vecType<T, P> const & x)
+		template <typename genIUType>
+		GLM_FUNC_QUALIFIER int compute_findMSB_64(genIUType Value)
 		{
-			return detail::functor1<int, T, P, vecType>::call(compute_findMSB_64, x);
+			unsigned long Result(0);
+			unsigned char IsNotNull = _BitScanReverse64(&Result, *reinterpret_cast<unsigned __int64*>(&Value));
+			return IsNotNull ? int(Result) : -1;
 		}
-	};
 
-#	endif
+		template <typename T, glm::precision P, template <class, glm::precision> class vecType>
+		struct compute_findMSB_vec<T, P, vecType, 32>
+		{
+			GLM_FUNC_QUALIFIER static int call(vecType<T, P> const & x)
+			{
+				return detail::functor1<int, T, P, vecType>::call(compute_findMSB_32, x);
+			}
+		};
 
+		template <typename T, glm::precision P, template <class, glm::precision> class vecType>
+		struct compute_findMSB_vec<T, P, vecType, 64>
+		{
+			GLM_FUNC_QUALIFIER static int call(vecType<T, P> const & x)
+			{
+				return detail::functor1<int, T, P, vecType>::call(compute_findMSB_64, x);
+			}
+		};
+#	endif//GLM_ARCH != GLM_ARCH_PURE
 }//namespace detail
 
 	// uaddCarry
