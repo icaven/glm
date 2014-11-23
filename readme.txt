@@ -58,6 +58,7 @@ Features:
 - Added GTC_integer extension, promoted GTX_bit and GTX_integer
 - Added GTC_round extension, promoted GTX_bit
 - Added GLM_FORCE_EXPLICIT_CTOR to require explicit type conversions #269
+- Added GTC_type_aligned for aligned vector and matrix types
 
 Improvements:
 - Rely on C++11 to implement isinf and isnan
