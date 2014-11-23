@@ -259,6 +259,23 @@ namespace glm
 	GLM_ALIGNED_TYPEDEF(i64, aligned_i64, 8);
 
 
+	/// Default precision 32 bit signed integer scalar type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(ivec1, aligned_ivec1, 4);
+	
+	/// Default precision 32 bit signed integer vector of 2 components type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(ivec2, aligned_ivec2, 8);
+
+	/// Default precision 32 bit signed integer vector of 3 components type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(ivec3, aligned_ivec3, 12);
+
+	/// Default precision 32 bit signed integer vector of 4 components type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(ivec4, aligned_ivec4, 16);
+
+
 	/// Default precision 8 bit signed integer scalar type.
 	/// @see gtc_type_aligned
 	GLM_ALIGNED_TYPEDEF(i8vec1, aligned_i8vec1, 1);
@@ -534,6 +551,23 @@ namespace glm
 	GLM_ALIGNED_TYPEDEF(u64, aligned_u64, 8);
 
 
+	/// Default precision 32 bit unsigned integer scalar type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(uvec1, aligned_uvec1, 4);
+	
+	/// Default precision 32 bit unsigned integer vector of 2 components type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(uvec2, aligned_uvec2, 8);
+
+	/// Default precision 32 bit unsigned integer vector of 3 components type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(uvec3, aligned_uvec3, 12);
+
+	/// Default precision 32 bit unsigned integer vector of 4 components type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(uvec4, aligned_uvec4, 16);
+
+
 	/// Default precision 8 bit unsigned integer scalar type.
 	/// @see gtc_type_aligned
 	GLM_ALIGNED_TYPEDEF(u8vec1, aligned_u8vec1, 1);
@@ -634,6 +668,23 @@ namespace glm
 
 	/// Single-precision floating-point vector of 1 component.
 	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(vec1, aligned_vec1, 4);
+
+	/// Single-precision floating-point vector of 2 components.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(vec2, aligned_vec2, 8);
+
+	/// Single-precision floating-point vector of 3 components.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(vec3, aligned_vec3, 12);
+
+	/// Single-precision floating-point vector of 4 components.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(vec4, aligned_vec4, 16);
+
+
+	/// Single-precision floating-point vector of 1 component.
+	/// @see gtc_type_aligned
 	GLM_ALIGNED_TYPEDEF(fvec1, aligned_fvec1, 4);
 
 	/// Single-precision floating-point vector of 2 components.
@@ -668,6 +719,23 @@ namespace glm
 
 	/// Double-precision floating-point vector of 1 component.
 	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(dvec1, aligned_dvec1, 8);
+
+	/// Double-precision floating-point vector of 2 components.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(dvec2, aligned_dvec2, 16);
+
+	/// Double-precision floating-point vector of 3 components.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(dvec3, aligned_dvec3, 24);
+
+	/// Double-precision floating-point vector of 4 components.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(dvec4, aligned_dvec4, 32);
+
+
+	/// Double-precision floating-point vector of 1 component.
+	/// @see gtc_type_aligned
 	GLM_ALIGNED_TYPEDEF(f64vec1, aligned_f64vec1, 8);
 
 	/// Double-precision floating-point vector of 2 components.
@@ -685,6 +753,40 @@ namespace glm
 
 	//////////////////////
 	// Float matrix types 
+
+	/// Single-precision floating-point 1x1 matrix.
+	/// @see gtc_type_aligned
+	//typedef detail::tmat1<f32> mat1;
+
+	/// Single-precision floating-point 2x2 matrix.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(mat2, aligned_mat2, 16);
+
+	/// Single-precision floating-point 3x3 matrix.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(mat3, aligned_mat3, 16);
+
+	/// Single-precision floating-point 4x4 matrix.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(mat4, aligned_mat4, 16);
+
+
+	/// Single-precision floating-point 1x1 matrix.
+	/// @see gtc_type_aligned
+	//typedef detail::tmat1x1<f32> mat1;
+
+	/// Single-precision floating-point 2x2 matrix.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(mat2x2, aligned_mat2x2, 16);
+
+	/// Single-precision floating-point 3x3 matrix.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(mat3x3, aligned_mat3x3, 16);
+
+	/// Single-precision floating-point 4x4 matrix.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(mat4x4, aligned_mat4x4, 16);
+
 
 	/// Single-precision floating-point 1x1 matrix.
 	/// @see gtc_type_aligned
