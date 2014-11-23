@@ -57,271 +57,274 @@ namespace glm
 
 	/// Low precision 8 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int8 lowp_int8;
-	
+	GLM_ALIGNED_TYPEDEF(lowp_int8, aligned_lowp_int8, 1);
+
 	/// Low precision 16 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int16 lowp_int16;
+	GLM_ALIGNED_TYPEDEF(lowp_int16, aligned_lowp_int16, 2);
 
 	/// Low precision 32 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int32 lowp_int32;
+	GLM_ALIGNED_TYPEDEF(lowp_int32, aligned_lowp_int32, 4);
 
 	/// Low precision 64 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int64 lowp_int64;
+	GLM_ALIGNED_TYPEDEF(lowp_int64, aligned_lowp_int64, 8);
+
 
 	/// Low precision 8 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int8 lowp_int8_t;
-	
+	GLM_ALIGNED_TYPEDEF(lowp_int8_t, aligned_lowp_int8_t, 1);
+
 	/// Low precision 16 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int16 lowp_int16_t;
+	GLM_ALIGNED_TYPEDEF(lowp_int16_t, aligned_lowp_int16_t, 2);
 
 	/// Low precision 32 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int32 lowp_int32_t;
+	GLM_ALIGNED_TYPEDEF(lowp_int32_t, aligned_lowp_int32_t, 4);
 
 	/// Low precision 64 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int64 lowp_int64_t;
+	GLM_ALIGNED_TYPEDEF(lowp_int64_t, aligned_lowp_int64_t, 8);
+
 
 	/// Low precision 8 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int8 lowp_i8;
-	
+	GLM_ALIGNED_TYPEDEF(lowp_i8, aligned_lowp_i8, 1);
+
 	/// Low precision 16 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int16 lowp_i16;
+	GLM_ALIGNED_TYPEDEF(lowp_i16, aligned_lowp_i16, 2);
 
 	/// Low precision 32 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int32 lowp_i32;
+	GLM_ALIGNED_TYPEDEF(lowp_i32, aligned_lowp_i32, 4);
 
 	/// Low precision 64 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int64 lowp_i64;
+	GLM_ALIGNED_TYPEDEF(lowp_i64, aligned_lowp_i64, 8);
+
 
 	/// Medium precision 8 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int8 mediump_int8;
-	
+	GLM_ALIGNED_TYPEDEF(mediump_int8, aligned_mediump_int8, 1);
+
 	/// Medium precision 16 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int16 mediump_int16;
+	GLM_ALIGNED_TYPEDEF(mediump_int16, aligned_mediump_int16, 2);
 
 	/// Medium precision 32 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int32 mediump_int32;
+	GLM_ALIGNED_TYPEDEF(mediump_int32, aligned_mediump_int32, 4);
 
 	/// Medium precision 64 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int64 mediump_int64;
+	GLM_ALIGNED_TYPEDEF(mediump_int64, aligned_mediump_int64, 8);
+
 
 	/// Medium precision 8 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int8 mediump_int8_t;
-	
+	GLM_ALIGNED_TYPEDEF(mediump_int8_t, aligned_mediump_int8_t, 1);
+
 	/// Medium precision 16 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int16 mediump_int16_t;
+	GLM_ALIGNED_TYPEDEF(mediump_int16_t, aligned_mediump_int16_t, 2);
 
 	/// Medium precision 32 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int32 mediump_int32_t;
+	GLM_ALIGNED_TYPEDEF(mediump_int32_t, aligned_mediump_int32_t, 4);
 
 	/// Medium precision 64 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int64 mediump_int64_t;
+	GLM_ALIGNED_TYPEDEF(mediump_int64_t, aligned_mediump_int64_t, 8);
+
 
 	/// Medium precision 8 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int8 mediump_i8;
-	
+	GLM_ALIGNED_TYPEDEF(mediump_i8, aligned_mediump_i8, 1);
+
 	/// Medium precision 16 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int16 mediump_i16;
+	GLM_ALIGNED_TYPEDEF(mediump_i16, aligned_mediump_i16, 2);
 
 	/// Medium precision 32 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int32 mediump_i32;
+	GLM_ALIGNED_TYPEDEF(mediump_i32, aligned_mediump_i32, 4);
 
 	/// Medium precision 64 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int64 mediump_i64;
+	GLM_ALIGNED_TYPEDEF(mediump_i64, aligned_mediump_i64, 8);
+
 
 	/// High precision 8 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int8 highp_int8;
-	
+	GLM_ALIGNED_TYPEDEF(highp_int8, aligned_highp_int8, 1);
+
 	/// High precision 16 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int16 highp_int16;
+	GLM_ALIGNED_TYPEDEF(highp_int16, aligned_highp_int16, 2);
 
 	/// High precision 32 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int32 highp_int32;
+	GLM_ALIGNED_TYPEDEF(highp_int32, aligned_highp_int32, 4);
 
 	/// High precision 64 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int64 highp_int64;
+	GLM_ALIGNED_TYPEDEF(highp_int64, aligned_highp_int64, 8);
+
 
 	/// High precision 8 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int8 highp_int8_t;
-	
+	GLM_ALIGNED_TYPEDEF(highp_int8_t, aligned_highp_int8_t, 1);
+
 	/// High precision 16 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int16 highp_int16_t;
-
-	/// 32 bit signed integer type.
-	/// @see gtc_type_aligned
-	typedef detail::int32 highp_int32_t;
-
-	/// High precision 64 bit signed integer type.
-	/// @see gtc_type_aligned
-	typedef detail::int64 highp_int64_t;
-
-	/// High precision 8 bit signed integer type.
-	/// @see gtc_type_aligned
-	typedef detail::int8 highp_i8;
-	
-	/// High precision 16 bit signed integer type.
-	/// @see gtc_type_aligned
-	typedef detail::int16 highp_i16;
+	GLM_ALIGNED_TYPEDEF(highp_int16_t, aligned_highp_int16_t, 2);
 
 	/// High precision 32 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int32 highp_i32;
+	GLM_ALIGNED_TYPEDEF(highp_int32_t, aligned_highp_int32_t, 4);
 
 	/// High precision 64 bit signed integer type.
 	/// @see gtc_type_aligned
-	typedef detail::int64 highp_i64;
+	GLM_ALIGNED_TYPEDEF(highp_int64_t, aligned_highp_int64_t, 8);
+
+
+	/// High precision 8 bit signed integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(highp_i8, aligned_highp_i8, 1);
+
+	/// High precision 16 bit signed integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(highp_i16, aligned_highp_i16, 2);
+
+	/// High precision 32 bit signed integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(highp_i32, aligned_highp_i32, 4);
+
+	/// High precision 64 bit signed integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(highp_i64, aligned_highp_i64, 8);
+
+
+	/// Default precision 8 bit signed integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(int8, aligned_int8, 1);
+
+	/// Default precision 16 bit signed integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(int16, aligned_int16, 2);
+
+	/// Default precision 32 bit signed integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(int32, aligned_int32, 4);
+
+	/// Default precision 64 bit signed integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(int64, aligned_int64, 8);
+
+
+	/// Default precision 8 bit signed integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(int8_t, aligned_int8_t, 1);
+
+	/// Default precision 16 bit signed integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(int16_t, aligned_int16_t, 2);
+
+	/// Default precision 32 bit signed integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(int32_t, aligned_int32_t, 4);
+
+	/// Default precision 64 bit signed integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(int64_t, aligned_int64_t, 8);
+
+
+	/// Default precision 8 bit signed integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(i8, aligned_i8, 1);
+
+	/// Default precision 16 bit signed integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(i16, aligned_i16, 2);
+
+	/// Default precision 32 bit signed integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(i32, aligned_i32, 4);
+
+	/// Default precision 64 bit signed integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(i64, aligned_i64, 8);
+
+
+	/// Default precision 8 bit signed integer scalar type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(i8vec1, aligned_i8vec1, 1);
+
+	/// Default precision 8 bit signed integer vector of 2 components type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(i8vec2, aligned_i8vec2, 2);
+
+	/// Default precision 8 bit signed integer vector of 3 components type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(i8vec3, aligned_i8vec3, 3);
+
+	/// Default precision 8 bit signed integer vector of 4 components type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(i8vec4, aligned_i8vec4, 4);
+
+
+	/// Default precision 16 bit signed integer scalar type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(i16vec1, aligned_i16vec1, 2);
 	
-
-	/// 8 bit signed integer type.
+	/// Default precision 16 bit signed integer vector of 2 components type.
 	/// @see gtc_type_aligned
-	typedef detail::int8 int8;
+	GLM_ALIGNED_TYPEDEF(i16vec2, aligned_i16vec2, 4);
+
+	/// Default precision 16 bit signed integer vector of 3 components type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(i16vec3, aligned_i16vec3, 6);
+
+	/// Default precision 16 bit signed integer vector of 4 components type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(i16vec4, aligned_i16vec4, 8);
+
+
+	/// Default precision 32 bit signed integer scalar type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(i32vec1, aligned_i32vec1, 4);
 	
-	/// 16 bit signed integer type.
+	/// Default precision 32 bit signed integer vector of 2 components type.
 	/// @see gtc_type_aligned
-	typedef detail::int16 int16;
+	GLM_ALIGNED_TYPEDEF(i32vec2, aligned_i32vec2, 8);
 
-	/// 32 bit signed integer type.
+	/// Default precision 32 bit signed integer vector of 3 components type.
 	/// @see gtc_type_aligned
-	typedef detail::int32 int32;
+	GLM_ALIGNED_TYPEDEF(i32vec3, aligned_i32vec3, 12);
 
-	/// 64 bit signed integer type.
+	/// Default precision 32 bit signed integer vector of 4 components type.
 	/// @see gtc_type_aligned
-	typedef detail::int64 int64;
+	GLM_ALIGNED_TYPEDEF(i32vec4, aligned_i32vec4, 16);
 
-#if GLM_HAS_EXTENDED_INTEGER_TYPE
-	using std::int8_t;
-	using std::int16_t;
-	using std::int32_t;
-	using std::int64_t;
-#else
-	/// 8 bit signed integer type.
+
+	/// Default precision 64 bit signed integer scalar type.
 	/// @see gtc_type_aligned
-	typedef detail::int8 int8_t;
+	GLM_ALIGNED_TYPEDEF(i64vec1, aligned_i64vec1, 8);
 	
-	/// 16 bit signed integer type.
+	/// Default precision 64 bit signed integer vector of 2 components type.
 	/// @see gtc_type_aligned
-	typedef detail::int16 int16_t;
+	GLM_ALIGNED_TYPEDEF(i64vec2, aligned_i64vec2, 16);
 
-	/// 32 bit signed integer type.
+	/// Default precision 64 bit signed integer vector of 3 components type.
 	/// @see gtc_type_aligned
-	typedef detail::int32 int32_t;
+	GLM_ALIGNED_TYPEDEF(i64vec3, aligned_i64vec3, 24);
 
-	/// 64 bit signed integer type.
+	/// Default precision 64 bit signed integer vector of 4 components type.
 	/// @see gtc_type_aligned
-	typedef detail::int64 int64_t;
-#endif
-
-	/// 8 bit signed integer type.
-	/// @see gtc_type_aligned
-	typedef detail::int8 i8;
-	
-	/// 16 bit signed integer type.
-	/// @see gtc_type_aligned
-	typedef detail::int16 i16;
-
-	/// 32 bit signed integer type.
-	/// @see gtc_type_aligned
-	typedef detail::int32 i32;
-
-	/// 64 bit signed integer type.
-	/// @see gtc_type_aligned
-	typedef detail::int64 i64;
-
-
-	/// 8 bit signed integer scalar type.
-	/// @see gtc_type_aligned
-	typedef tvec1<i8, defaultp> i8vec1;
-	
-	/// 8 bit signed integer vector of 2 components type.
-	/// @see gtc_type_aligned
-	typedef tvec2<i8, defaultp> i8vec2;
-
-	/// 8 bit signed integer vector of 3 components type.
-	/// @see gtc_type_aligned
-	typedef tvec3<i8, defaultp> i8vec3;
-
-	/// 8 bit signed integer vector of 4 components type.
-	/// @see gtc_type_aligned
-	typedef tvec4<i8, defaultp> i8vec4;
-
-
-	/// 16 bit signed integer scalar type.
-	/// @see gtc_type_aligned
-	typedef tvec1<i16, defaultp> i16vec1;
-	
-	/// 16 bit signed integer vector of 2 components type.
-	/// @see gtc_type_aligned
-	typedef tvec2<i16, defaultp> i16vec2;
-
-	/// 16 bit signed integer vector of 3 components type.
-	/// @see gtc_type_aligned
-	typedef tvec3<i16, defaultp> i16vec3;
-
-	/// 16 bit signed integer vector of 4 components type.
-	/// @see gtc_type_aligned
-	typedef tvec4<i16, defaultp> i16vec4;
-
-
-	/// 32 bit signed integer scalar type.
-	/// @see gtc_type_aligned
-	typedef tvec1<i32, defaultp> i32vec1;
-	
-	/// 32 bit signed integer vector of 2 components type.
-	/// @see gtc_type_aligned
-	typedef tvec2<i32, defaultp> i32vec2;
-
-	/// 32 bit signed integer vector of 3 components type.
-	/// @see gtc_type_aligned
-	typedef tvec3<i32, defaultp> i32vec3;
-
-	/// 32 bit signed integer vector of 4 components type.
-	/// @see gtc_type_aligned
-	typedef tvec4<i32, defaultp> i32vec4;
-
-
-	/// 64 bit signed integer scalar type.
-	/// @see gtc_type_aligned
-	typedef tvec1<i64, defaultp> i64vec1;
-	
-	/// 64 bit signed integer vector of 2 components type.
-	/// @see gtc_type_aligned
-	typedef tvec2<i64, defaultp> i64vec2;
-
-	/// 64 bit signed integer vector of 3 components type.
-	/// @see gtc_type_aligned
-	typedef tvec3<i64, defaultp> i64vec3;
-
-	/// 64 bit signed integer vector of 4 components type.
-	/// @see gtc_type_aligned
-	typedef tvec4<i64, defaultp> i64vec4;
+	GLM_ALIGNED_TYPEDEF(i64vec4, aligned_i64vec4, 32);
 
 
 	/////////////////////////////
@@ -329,270 +332,274 @@ namespace glm
 
 	/// Low precision 8 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint8 lowp_uint8;
-	
+	GLM_ALIGNED_TYPEDEF(lowp_uint8, aligned_lowp_uint8, 1);
+
 	/// Low precision 16 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint16 lowp_uint16;
+	GLM_ALIGNED_TYPEDEF(lowp_uint16, aligned_lowp_uint16, 2);
 
 	/// Low precision 32 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint32 lowp_uint32;
+	GLM_ALIGNED_TYPEDEF(lowp_uint32, aligned_lowp_uint32, 4);
 
 	/// Low precision 64 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint64 lowp_uint64;
+	GLM_ALIGNED_TYPEDEF(lowp_uint64, aligned_lowp_uint64, 8);
+
 
 	/// Low precision 8 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint8 lowp_uint8_t;
-	
+	GLM_ALIGNED_TYPEDEF(lowp_uint8_t, aligned_lowp_uint8_t, 1);
+
 	/// Low precision 16 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint16 lowp_uint16_t;
+	GLM_ALIGNED_TYPEDEF(lowp_uint16_t, aligned_lowp_uint16_t, 2);
 
 	/// Low precision 32 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint32 lowp_uint32_t;
+	GLM_ALIGNED_TYPEDEF(lowp_uint32_t, aligned_lowp_uint32_t, 4);
 
 	/// Low precision 64 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint64 lowp_uint64_t;
+	GLM_ALIGNED_TYPEDEF(lowp_uint64_t, aligned_lowp_uint64_t, 8);
+
 
 	/// Low precision 8 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint8 lowp_u8;
-	
+	GLM_ALIGNED_TYPEDEF(lowp_u8, aligned_lowp_u8, 1);
+
 	/// Low precision 16 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint16 lowp_u16;
+	GLM_ALIGNED_TYPEDEF(lowp_u16, aligned_lowp_u16, 2);
 
 	/// Low precision 32 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint32 lowp_u32;
+	GLM_ALIGNED_TYPEDEF(lowp_u32, aligned_lowp_u32, 4);
 
 	/// Low precision 64 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint64 lowp_u64;
-	
-	/// Medium precision 8 bit unsigned integer type.
-	/// @see gtc_type_aligned
-	typedef detail::uint8 mediump_uint8;
-	
-	/// Medium precision 16 bit unsigned integer type.
-	/// @see gtc_type_aligned
-	typedef detail::uint16 mediump_uint16;
+	GLM_ALIGNED_TYPEDEF(lowp_u64, aligned_lowp_u64, 8);
 
-	/// Medium precision 32 bit unsigned integer type.
-	/// @see gtc_type_aligned
-	typedef detail::uint32 mediump_uint32;
-
-	/// Medium precision 64 bit unsigned integer type.
-	/// @see gtc_type_aligned
-	typedef detail::uint64 mediump_uint64;
 
 	/// Medium precision 8 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint8 mediump_uint8_t;
-	
+	GLM_ALIGNED_TYPEDEF(mediump_uint8, aligned_mediump_uint8, 1);
+
 	/// Medium precision 16 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint16 mediump_uint16_t;
+	GLM_ALIGNED_TYPEDEF(mediump_uint16, aligned_mediump_uint16, 2);
 
 	/// Medium precision 32 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint32 mediump_uint32_t;
+	GLM_ALIGNED_TYPEDEF(mediump_uint32, aligned_mediump_uint32, 4);
 
 	/// Medium precision 64 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint64 mediump_uint64_t;
+	GLM_ALIGNED_TYPEDEF(mediump_uint64, aligned_mediump_uint64, 8);
+
 
 	/// Medium precision 8 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint8 mediump_u8;
-	
+	GLM_ALIGNED_TYPEDEF(mediump_uint8_t, aligned_mediump_uint8_t, 1);
+
 	/// Medium precision 16 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint16 mediump_u16;
+	GLM_ALIGNED_TYPEDEF(mediump_uint16_t, aligned_mediump_uint16_t, 2);
 
 	/// Medium precision 32 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint32 mediump_u32;
+	GLM_ALIGNED_TYPEDEF(mediump_uint32_t, aligned_mediump_uint32_t, 4);
 
 	/// Medium precision 64 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint64 mediump_u64;
-	
-	/// High precision 8 bit unsigned integer type.
-	/// @see gtc_type_aligned
-	typedef detail::uint8 highp_uint8;
-	
-	/// High precision 16 bit unsigned integer type.
-	/// @see gtc_type_aligned
-	typedef detail::uint16 highp_uint16;
+	GLM_ALIGNED_TYPEDEF(mediump_uint64_t, aligned_mediump_uint64_t, 8);
 
-	/// High precision 32 bit unsigned integer type.
-	/// @see gtc_type_aligned
-	typedef detail::uint32 highp_uint32;
 
-	/// High precision 64 bit unsigned integer type.
+	/// Medium precision 8 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint64 highp_uint64;
+	GLM_ALIGNED_TYPEDEF(mediump_u8, aligned_mediump_u8, 1);
 
-	/// High precision 8 bit unsigned integer type.
+	/// Medium precision 16 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint8 highp_uint8_t;
-	
-	/// High precision 16 bit unsigned integer type.
-	/// @see gtc_type_aligned
-	typedef detail::uint16 highp_uint16_t;
+	GLM_ALIGNED_TYPEDEF(mediump_u16, aligned_mediump_u16, 2);
 
-	/// High precision 32 bit unsigned integer type.
+	/// Medium precision 32 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint32 highp_uint32_t;
+	GLM_ALIGNED_TYPEDEF(mediump_u32, aligned_mediump_u32, 4);
 
-	/// High precision 64 bit unsigned integer type.
+	/// Medium precision 64 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint64 highp_uint64_t;
+	GLM_ALIGNED_TYPEDEF(mediump_u64, aligned_mediump_u64, 8);
+
 
 	/// High precision 8 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint8 highp_u8;
-	
+	GLM_ALIGNED_TYPEDEF(highp_uint8, aligned_highp_uint8, 1);
+
 	/// High precision 16 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint16 highp_u16;
+	GLM_ALIGNED_TYPEDEF(highp_uint16, aligned_highp_uint16, 2);
 
 	/// High precision 32 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint32 highp_u32;
+	GLM_ALIGNED_TYPEDEF(highp_uint32, aligned_highp_uint32, 4);
 
 	/// High precision 64 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint64 highp_u64;
+	GLM_ALIGNED_TYPEDEF(highp_uint64, aligned_highp_uint64, 8);
+
+
+	/// High precision 8 bit unsigned integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(highp_uint8_t, aligned_highp_uint8_t, 1);
+
+	/// High precision 16 bit unsigned integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(highp_uint16_t, aligned_highp_uint16_t, 2);
+
+	/// High precision 32 bit unsigned integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(highp_uint32_t, aligned_highp_uint32_t, 4);
+
+	/// High precision 64 bit unsigned integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(highp_uint64_t, aligned_highp_uint64_t, 8);
+
+
+	/// High precision 8 bit unsigned integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(highp_u8, aligned_highp_u8, 1);
+
+	/// High precision 16 bit unsigned integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(highp_u16, aligned_highp_u16, 2);
+
+	/// High precision 32 bit unsigned integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(highp_u32, aligned_highp_u32, 4);
+
+	/// High precision 64 bit unsigned integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(highp_u64, aligned_highp_u64, 8);
+
 
 	/// Default precision 8 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint8 uint8;
-	
+	GLM_ALIGNED_TYPEDEF(uint8, aligned_uint8, 1);
+
 	/// Default precision 16 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint16 uint16;
+	GLM_ALIGNED_TYPEDEF(uint16, aligned_uint16, 2);
 
 	/// Default precision 32 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint32 uint32;
+	GLM_ALIGNED_TYPEDEF(uint32, aligned_uint32, 4);
 
 	/// Default precision 64 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint64 uint64;
+	GLM_ALIGNED_TYPEDEF(uint64, aligned_uint64, 8);
 
-#if GLM_HAS_EXTENDED_INTEGER_TYPE
-	using std::uint8_t;
-	using std::uint16_t;
-	using std::uint32_t;
-	using std::uint64_t;
-#else
-	/// Default precision 8 bit unsigned integer type.
-	/// @see gtc_type_aligned
-	typedef detail::uint8 uint8_t;
-	
-	/// Default precision 16 bit unsigned integer type.
-	/// @see gtc_type_aligned
-	typedef detail::uint16 uint16_t;
-
-	/// Default precision 32 bit unsigned integer type.
-	/// @see gtc_type_aligned
-	typedef detail::uint32 uint32_t;
-
-	/// Default precision 64 bit unsigned integer type.
-	/// @see gtc_type_aligned
-	typedef detail::uint64 uint64_t;
-#endif
 
 	/// Default precision 8 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint8 u8;
-	
+	GLM_ALIGNED_TYPEDEF(uint8_t, aligned_uint8_t, 1);
+
 	/// Default precision 16 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint16 u16;
+	GLM_ALIGNED_TYPEDEF(uint16_t, aligned_uint16_t, 2);
 
 	/// Default precision 32 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint32 u32;
+	GLM_ALIGNED_TYPEDEF(uint32_t, aligned_uint32_t, 4);
 
 	/// Default precision 64 bit unsigned integer type.
 	/// @see gtc_type_aligned
-	typedef detail::uint64 u64;
+	GLM_ALIGNED_TYPEDEF(uint64_t, aligned_uint64_t, 8);
+
+
+	/// Default precision 8 bit unsigned integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(u8, aligned_u8, 1);
+
+	/// Default precision 16 bit unsigned integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(u16, aligned_u16, 2);
+
+	/// Default precision 32 bit unsigned integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(u32, aligned_u32, 4);
+
+	/// Default precision 64 bit unsigned integer type.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(u64, aligned_u64, 8);
 
 
 	/// Default precision 8 bit unsigned integer scalar type.
 	/// @see gtc_type_aligned
-	typedef tvec1<u8, defaultp> u8vec1;
-	
+	GLM_ALIGNED_TYPEDEF(u8vec1, aligned_u8vec1, 1);
+
 	/// Default precision 8 bit unsigned integer vector of 2 components type.
 	/// @see gtc_type_aligned
-	typedef tvec2<u8, defaultp> u8vec2;
+	GLM_ALIGNED_TYPEDEF(u8vec2, aligned_u8vec2, 2);
 
 	/// Default precision 8 bit unsigned integer vector of 3 components type.
 	/// @see gtc_type_aligned
-	typedef tvec3<u8, defaultp> u8vec3;
+	GLM_ALIGNED_TYPEDEF(u8vec3, aligned_u8vec3, 3);
 
 	/// Default precision 8 bit unsigned integer vector of 4 components type.
 	/// @see gtc_type_aligned
-	typedef tvec4<u8, defaultp> u8vec4;
+	GLM_ALIGNED_TYPEDEF(u8vec4, aligned_u8vec4, 4);
 
 
 	/// Default precision 16 bit unsigned integer scalar type.
 	/// @see gtc_type_aligned
-	typedef tvec1<u16, defaultp> u16vec1;
+	GLM_ALIGNED_TYPEDEF(u16vec1, aligned_u16vec1, 2);
 	
 	/// Default precision 16 bit unsigned integer vector of 2 components type.
 	/// @see gtc_type_aligned
-	typedef tvec2<u16, defaultp> u16vec2;
+	GLM_ALIGNED_TYPEDEF(u16vec2, aligned_u16vec2, 4);
 
 	/// Default precision 16 bit unsigned integer vector of 3 components type.
 	/// @see gtc_type_aligned
-	typedef tvec3<u16, defaultp> u16vec3;
+	GLM_ALIGNED_TYPEDEF(u16vec3, aligned_u16vec3, 6);
 
 	/// Default precision 16 bit unsigned integer vector of 4 components type.
 	/// @see gtc_type_aligned
-	typedef tvec4<u16, defaultp> u16vec4;
+	GLM_ALIGNED_TYPEDEF(u16vec4, aligned_u16vec4, 8);
 
 
 	/// Default precision 32 bit unsigned integer scalar type.
 	/// @see gtc_type_aligned
-	typedef tvec1<u32, defaultp> u32vec1;
+	GLM_ALIGNED_TYPEDEF(u32vec1, aligned_u32vec1, 4);
 	
 	/// Default precision 32 bit unsigned integer vector of 2 components type.
 	/// @see gtc_type_aligned
-	typedef tvec2<u32, defaultp> u32vec2;
+	GLM_ALIGNED_TYPEDEF(u32vec2, aligned_u32vec2, 8);
 
 	/// Default precision 32 bit unsigned integer vector of 3 components type.
 	/// @see gtc_type_aligned
-	typedef tvec3<u32, defaultp> u32vec3;
+	GLM_ALIGNED_TYPEDEF(u32vec3, aligned_u32vec3, 12);
 
 	/// Default precision 32 bit unsigned integer vector of 4 components type.
 	/// @see gtc_type_aligned
-	typedef tvec4<u32, defaultp> u32vec4;
+	GLM_ALIGNED_TYPEDEF(u32vec4, aligned_u32vec4, 16);
 
 
 	/// Default precision 64 bit unsigned integer scalar type.
 	/// @see gtc_type_aligned
-	typedef tvec1<u64, defaultp> u64vec1;
+	GLM_ALIGNED_TYPEDEF(u64vec1, aligned_u64vec1, 8);
 	
 	/// Default precision 64 bit unsigned integer vector of 2 components type.
 	/// @see gtc_type_aligned
-	typedef tvec2<u64, defaultp> u64vec2;
+	GLM_ALIGNED_TYPEDEF(u64vec2, aligned_u64vec2, 16);
 
 	/// Default precision 64 bit unsigned integer vector of 3 components type.
 	/// @see gtc_type_aligned
-	typedef tvec3<u64, defaultp> u64vec3;
+	GLM_ALIGNED_TYPEDEF(u64vec3, aligned_u64vec3, 24);
 
 	/// Default precision 64 bit unsigned integer vector of 4 components type.
 	/// @see gtc_type_aligned
-	typedef tvec4<u64, defaultp> u64vec4;
+	GLM_ALIGNED_TYPEDEF(u64vec4, aligned_u64vec4, 32);
 
 
 	//////////////////////
@@ -855,6 +862,18 @@ namespace glm
 
 	//////////////////////////
 	// Quaternion types
+
+	/// Single-precision floating-point quaternion.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(quat, aligned_quat, 16);
+
+	/// Single-precision floating-point quaternion.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(fquat, aligned_fquat, 16);
+
+	/// Double-precision floating-point quaternion.
+	/// @see gtc_type_aligned
+	GLM_ALIGNED_TYPEDEF(dquat, aligned_dquat, 32);
 
 	/// Single-precision floating-point quaternion.
 	/// @see gtc_type_aligned
