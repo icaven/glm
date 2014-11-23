@@ -292,8 +292,10 @@
 #		pragma message("GLM: CUDA compiler detected")
 #	elif GLM_COMPILER & GLM_COMPILER_VC
 #		pragma message("GLM: Visual C++ compiler detected")
-#	elif GLM_COMPILER & GLM_COMPILER_CLANG
+#	elif GLM_COMPILER & GLM_COMPILER_APPLE_CLANG
 #		pragma message("GLM: Clang compiler detected")
+#	elif GLM_COMPILER & GLM_COMPILER_LLVM
+#		pragma message("GLM: LLVM compiler detected")
 #	elif GLM_COMPILER & GLM_COMPILER_INTEL
 #		pragma message("GLM: Intel Compiler detected")
 #	elif GLM_COMPILER & GLM_COMPILER_GCC
@@ -470,7 +472,8 @@
 	(GLM_LANG & GLM_LANG_CXX11_FLAG) || \
 	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2012)) || \
 	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC43)) || \
-	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_COMPILER >= GLM_COMPILER_CLANG29)))
+	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_LLVM) && (GLM_COMPILER >= GLM_COMPILER_LLVM30)) || \
+	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_APPLE_CLANG) && (GLM_COMPILER >= GLM_COMPILER_APPLE_CLANG40)))
 
 // N2235
 #define GLM_HAS_CONSTEXPR ( \
@@ -579,7 +582,7 @@
 #	define GLM_ARCH (GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #elif defined(GLM_FORCE_SSE2)
 #	define GLM_ARCH (GLM_ARCH_SSE2)
-#elif (GLM_COMPILER & GLM_COMPILER_CLANG) || (GLM_COMPILER & GLM_COMPILER_GCC)
+#elif GLM_COMPILER & (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM | GLM_COMPILER_GCC)
 #	if(__AVX2__)
 #		define GLM_ARCH (GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #	elif(__AVX__)
@@ -703,7 +706,7 @@
 #	elif GLM_COMPILER & GLM_COMPILER_GCC
 #		define GLM_INLINE inline __attribute__((__always_inline__))
 #		define GLM_NEVER_INLINE __attribute__((__noinline__))
-#	elif GLM_COMPILER & GLM_COMPILER_CLANG
+#	elif GLM_COMPILER & (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM)
 #		define GLM_INLINE __attribute__((__always_inline__))
 #		define GLM_NEVER_INLINE __attribute__((__noinline__))
 #	else
@@ -742,7 +745,7 @@
 #	define GLM_ALIGNED_TYPEDEF(type, name, alignment) typedef __declspec(align(alignment)) type name
 #	define GLM_RESTRICT __declspec(restrict)
 #	define GLM_RESTRICT_VAR __restrict
-#elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG | GLM_COMPILER_CUDA | GLM_COMPILER_INTEL)
+#elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM | GLM_COMPILER_CUDA | GLM_COMPILER_INTEL)
 #	define GLM_DEPRECATED __attribute__((__deprecated__))
 #	define GLM_ALIGN(x) __attribute__((aligned(x)))
 #	define GLM_ALIGNED_STRUCT(x) struct __attribute__((aligned(x)))

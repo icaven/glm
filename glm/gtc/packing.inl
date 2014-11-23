@@ -146,7 +146,7 @@ namespace detail
 		else if(glm::isinf(x))
 			return 0x1f << 6;
 
-#		if(GLM_COMPILER & GLM_COMPILER_GCC || GLM_COMPILER & GLM_COMPILER_CLANG)
+#		if(GLM_COMPILER & GLM_COMPILER_GCC || GLM_COMPILER & (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))
 			uint Pack = 0;
 			memcpy(&Pack, &x, sizeof(Pack));
 #		else	
@@ -167,7 +167,7 @@ namespace detail
 
 		uint Result = packed11ToFloat(x);
 
-#		if(GLM_COMPILER & GLM_COMPILER_GCC || GLM_COMPILER & GLM_COMPILER_CLANG)
+#		if(GLM_COMPILER & GLM_COMPILER_GCC || GLM_COMPILER & (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))
 			float Temp = 0;
 			memcpy(&Temp, &Result, sizeof(Temp));
 			return Temp;
@@ -185,7 +185,7 @@ namespace detail
 		else if(glm::isinf(x))
 			return 0x1f << 5;
 
-#		if(GLM_COMPILER & GLM_COMPILER_GCC || GLM_COMPILER & GLM_COMPILER_CLANG)
+#		if(GLM_COMPILER & GLM_COMPILER_GCC || GLM_COMPILER & (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))
 			uint Pack = 0;
 			memcpy(&Pack, &x, sizeof(Pack));
 #		else	
@@ -206,7 +206,7 @@ namespace detail
 
 		uint Result = packed10ToFloat(x);
 
-#		if(GLM_COMPILER & GLM_COMPILER_GCC || GLM_COMPILER & GLM_COMPILER_CLANG)
+#		if(GLM_COMPILER & GLM_COMPILER_GCC || GLM_COMPILER & (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))
 			float Temp = 0;
 			memcpy(&Temp, &Result, sizeof(Temp));
 			return Temp;

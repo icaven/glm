@@ -52,15 +52,12 @@ namespace detail
 #		if(defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)) // C99 detected, 64 bit types available
 			typedef int64_t					sint64;
 			typedef uint64_t				uint64;
-#		elif(GLM_COMPILER & GLM_COMPILER_VC)
+#		elif GLM_COMPILER & GLM_COMPILER_VC
 			typedef signed __int64			sint64;
 			typedef unsigned __int64		uint64;
-#		elif(GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_LLVM_GCC | GLM_COMPILER_CLANG))
+#		elif GLM_COMPILER & GLM_COMPILER_GCC
 			__extension__ typedef signed long long		sint64;
 			__extension__ typedef unsigned long long	uint64;
-#		elif(GLM_COMPILER & GLM_COMPILER_BC)
-			typedef Int64					sint64;
-			typedef Uint64					uint64;
 #		else//unknown compiler
 			typedef signed long	long		sint64;
 			typedef unsigned long long		uint64;
