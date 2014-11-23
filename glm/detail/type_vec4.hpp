@@ -49,21 +49,48 @@ namespace detail
 		typedef T type[4];
 	};
 
-#	if(GLM_ARCH & GLM_ARCH_SSE2)
+#	if GLM_ARCH & GLM_ARCH_SSE2
 		template <>
 		struct simd<float>
 		{
 			typedef __m128 type;
 		};
+
+		template <>
+		struct simd<int>
+		{
+			typedef __m128i type;
+		};
+
+		template <>
+		struct simd<unsigned int>
+		{
+			typedef __m128i type;
+		};
 #	endif
 
-#	if(GLM_ARCH & GLM_ARCH_AVX)
+#	if GLM_ARCH & GLM_ARCH_AVX
 		template <>
 		struct simd<double>
 		{
 			typedef __m256d type;
 		};
 #	endif
+
+#	if GLM_ARCH & GLM_ARCH_AVX2
+		template <>
+		struct simd<int64>
+		{
+			typedef __m256i type;
+		};
+
+		template <>
+		struct simd<uint64>
+		{
+			typedef __m256i type;
+		};
+#	endif
+
 }//namespace detail
 
 	template <typename T, precision P = defaultp>

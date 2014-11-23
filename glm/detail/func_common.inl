@@ -526,9 +526,8 @@ namespace detail
 		return tmp * tmp * (static_cast<T>(3) - static_cast<T>(2) * tmp);
 	}
 
-	// TODO: Not working on MinGW...
 #	if GLM_HAS_CXX11_STL
-		usign std::isnan;
+		using std::isnan;
 #	else
 		template <typename genType> 
 		GLM_FUNC_QUALIFIER bool isnan(genType x)
