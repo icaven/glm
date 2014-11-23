@@ -125,6 +125,7 @@
 #endif
 #include "./gtx/transform.hpp"
 #include "./gtx/transform2.hpp"
+#include "./gtx/type_aligned.hpp"
 #include "./gtx/vector_angle.hpp"
 #include "./gtx/vector_query.hpp"
 #include "./gtx/wrap.hpp"

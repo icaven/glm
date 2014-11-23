@@ -7,10 +7,8 @@
 // File    : test/gtc/type_aligned.cpp
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/gtc/type_aligned.hpp>
+#include <glm/gtx/type_aligned.hpp>
 #include <cstdio>
-
-typedef __declspec(align(1)) glm::vec3 unaligned_vec3;
 
 int test_decl()
 {
@@ -45,25 +43,7 @@ int test_decl()
 			glm::aligned_vec3 B;
 		};
 
-		struct S3
-		{
-			bool A;
-			unaligned_vec3 B;
-		};
-
-		struct S4
-		{
-			short B;
-			bool A;
-		};
-
-		struct S5
-		{
-			bool A;
-			float B[3];
-		};
-
-		printf("vec3: %d, aligned: %d, unaligned: %d, bool: %d, array: %d\n", sizeof(S1), sizeof(S2), sizeof(S3), sizeof(S4), sizeof(S5));
+		printf("vec3: %d, aligned: %d\n", sizeof(S1), sizeof(S2));
 
 		Error += sizeof(S1) <= sizeof(S2) ? 0 : 1;
 	}
