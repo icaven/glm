@@ -735,21 +735,14 @@
 ///////////////////////////////////////////////////////////////////////////////////
 // Qualifiers
 
-#if GLM_COMPILER & GLM_COMPILER_VC
+#if (GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS))
 #	define GLM_DEPRECATED __declspec(deprecated)
 #	define GLM_ALIGN(x) __declspec(align(x))
 #	define GLM_ALIGNED_STRUCT(x) struct __declspec(align(x))
-#	define GLM_ALIGNED_TYPEDEF(type, name, alignment) typedef type name
+#	define GLM_ALIGNED_TYPEDEF(type, name, alignment) typedef __declspec(align(alignment)) type name
 #	define GLM_RESTRICT __declspec(restrict)
 #	define GLM_RESTRICT_VAR __restrict
-#elif GLM_COMPILER & GLM_COMPILER_INTEL
-#	define GLM_DEPRECATED
-#	define GLM_ALIGN(x) __declspec(align(x))
-#	define GLM_ALIGNED_STRUCT(x) struct __declspec(align(x))
-#	define GLM_ALIGNED_TYPEDEF(type, name, alignment) typedef __declspec(align(alignment)) type name
-#	define GLM_RESTRICT
-#	define GLM_RESTRICT_VAR __restrict
-#elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG | GLM_COMPILER_CUDA)
+#elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG | GLM_COMPILER_CUDA | GLM_COMPILER_INTEL)
 #	define GLM_DEPRECATED __attribute__((__deprecated__))
 #	define GLM_ALIGN(x) __attribute__((aligned(x)))
 #	define GLM_ALIGNED_STRUCT(x) struct __attribute__((aligned(x)))

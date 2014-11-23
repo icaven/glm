@@ -269,7 +269,7 @@ namespace glm
 
 	/// Default precision 32 bit signed integer vector of 3 components type.
 	/// @see gtc_type_aligned
-	GLM_ALIGNED_TYPEDEF(ivec3, aligned_ivec3, 12);
+	GLM_ALIGNED_TYPEDEF(ivec3, aligned_ivec3, 16);
 
 	/// Default precision 32 bit signed integer vector of 4 components type.
 	/// @see gtc_type_aligned
@@ -286,7 +286,7 @@ namespace glm
 
 	/// Default precision 8 bit signed integer vector of 3 components type.
 	/// @see gtc_type_aligned
-	GLM_ALIGNED_TYPEDEF(i8vec3, aligned_i8vec3, 3);
+	GLM_ALIGNED_TYPEDEF(i8vec3, aligned_i8vec3, 4);
 
 	/// Default precision 8 bit signed integer vector of 4 components type.
 	/// @see gtc_type_aligned
@@ -303,7 +303,7 @@ namespace glm
 
 	/// Default precision 16 bit signed integer vector of 3 components type.
 	/// @see gtc_type_aligned
-	GLM_ALIGNED_TYPEDEF(i16vec3, aligned_i16vec3, 6);
+	GLM_ALIGNED_TYPEDEF(i16vec3, aligned_i16vec3, 8);
 
 	/// Default precision 16 bit signed integer vector of 4 components type.
 	/// @see gtc_type_aligned
@@ -320,7 +320,7 @@ namespace glm
 
 	/// Default precision 32 bit signed integer vector of 3 components type.
 	/// @see gtc_type_aligned
-	GLM_ALIGNED_TYPEDEF(i32vec3, aligned_i32vec3, 12);
+	GLM_ALIGNED_TYPEDEF(i32vec3, aligned_i32vec3, 16);
 
 	/// Default precision 32 bit signed integer vector of 4 components type.
 	/// @see gtc_type_aligned
@@ -337,7 +337,7 @@ namespace glm
 
 	/// Default precision 64 bit signed integer vector of 3 components type.
 	/// @see gtc_type_aligned
-	GLM_ALIGNED_TYPEDEF(i64vec3, aligned_i64vec3, 24);
+	GLM_ALIGNED_TYPEDEF(i64vec3, aligned_i64vec3, 32);
 
 	/// Default precision 64 bit signed integer vector of 4 components type.
 	/// @see gtc_type_aligned
@@ -561,7 +561,7 @@ namespace glm
 
 	/// Default precision 32 bit unsigned integer vector of 3 components type.
 	/// @see gtc_type_aligned
-	GLM_ALIGNED_TYPEDEF(uvec3, aligned_uvec3, 12);
+	GLM_ALIGNED_TYPEDEF(uvec3, aligned_uvec3, 16);
 
 	/// Default precision 32 bit unsigned integer vector of 4 components type.
 	/// @see gtc_type_aligned
@@ -578,7 +578,7 @@ namespace glm
 
 	/// Default precision 8 bit unsigned integer vector of 3 components type.
 	/// @see gtc_type_aligned
-	GLM_ALIGNED_TYPEDEF(u8vec3, aligned_u8vec3, 3);
+	GLM_ALIGNED_TYPEDEF(u8vec3, aligned_u8vec3, 4);
 
 	/// Default precision 8 bit unsigned integer vector of 4 components type.
 	/// @see gtc_type_aligned
@@ -595,7 +595,7 @@ namespace glm
 
 	/// Default precision 16 bit unsigned integer vector of 3 components type.
 	/// @see gtc_type_aligned
-	GLM_ALIGNED_TYPEDEF(u16vec3, aligned_u16vec3, 6);
+	GLM_ALIGNED_TYPEDEF(u16vec3, aligned_u16vec3, 8);
 
 	/// Default precision 16 bit unsigned integer vector of 4 components type.
 	/// @see gtc_type_aligned
@@ -612,7 +612,7 @@ namespace glm
 
 	/// Default precision 32 bit unsigned integer vector of 3 components type.
 	/// @see gtc_type_aligned
-	GLM_ALIGNED_TYPEDEF(u32vec3, aligned_u32vec3, 12);
+	GLM_ALIGNED_TYPEDEF(u32vec3, aligned_u32vec3, 16);
 
 	/// Default precision 32 bit unsigned integer vector of 4 components type.
 	/// @see gtc_type_aligned
@@ -629,7 +629,7 @@ namespace glm
 
 	/// Default precision 64 bit unsigned integer vector of 3 components type.
 	/// @see gtc_type_aligned
-	GLM_ALIGNED_TYPEDEF(u64vec3, aligned_u64vec3, 24);
+	GLM_ALIGNED_TYPEDEF(u64vec3, aligned_u64vec3, 32);
 
 	/// Default precision 64 bit unsigned integer vector of 4 components type.
 	/// @see gtc_type_aligned
@@ -676,7 +676,7 @@ namespace glm
 
 	/// Single-precision floating-point vector of 3 components.
 	/// @see gtc_type_aligned
-	GLM_ALIGNED_TYPEDEF(vec3, aligned_vec3, 12);
+	GLM_ALIGNED_TYPEDEF(vec3, aligned_vec3, 16);
 
 	/// Single-precision floating-point vector of 4 components.
 	/// @see gtc_type_aligned
@@ -693,7 +693,7 @@ namespace glm
 
 	/// Single-precision floating-point vector of 3 components.
 	/// @see gtc_type_aligned
-	GLM_ALIGNED_TYPEDEF(fvec3, aligned_fvec3, 12);
+	GLM_ALIGNED_TYPEDEF(fvec3, aligned_fvec3, 16);
 
 	/// Single-precision floating-point vector of 4 components.
 	/// @see gtc_type_aligned
@@ -710,7 +710,7 @@ namespace glm
 
 	/// Single-precision floating-point vector of 3 components.
 	/// @see gtc_type_aligned
-	GLM_ALIGNED_TYPEDEF(f32vec3, aligned_f32vec3, 12);
+	GLM_ALIGNED_TYPEDEF(f32vec3, aligned_f32vec3, 16);
 
 	/// Single-precision floating-point vector of 4 components.
 	/// @see gtc_type_aligned
@@ -727,7 +727,7 @@ namespace glm
 
 	/// Double-precision floating-point vector of 3 components.
 	/// @see gtc_type_aligned
-	GLM_ALIGNED_TYPEDEF(dvec3, aligned_dvec3, 24);
+	GLM_ALIGNED_TYPEDEF(dvec3, aligned_dvec3, 32);
 
 	/// Double-precision floating-point vector of 4 components.
 	/// @see gtc_type_aligned
@@ -744,7 +744,7 @@ namespace glm
 
 	/// Double-precision floating-point vector of 3 components.
 	/// @see gtc_type_aligned
-	GLM_ALIGNED_TYPEDEF(f64vec3, aligned_f64vec3, 24);
+	GLM_ALIGNED_TYPEDEF(f64vec3, aligned_f64vec3, 32);
 
 	/// Double-precision floating-point vector of 4 components.
 	/// @see gtc_type_aligned

@@ -9,10 +9,6 @@
 
 #include <glm/gtc/type_aligned.hpp>
 
-#define GLM_ALIGNED_TYPEDEF(type, name, alignment) typedef type name
-
-GLM_ALIGNED_TYPEDEF(glm::lowp_vec4, aligned_lowp_vec4, 16);
-
 int test_decl()
 {
 	
