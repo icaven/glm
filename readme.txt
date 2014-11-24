@@ -78,6 +78,7 @@ Improvements:
 - Used std features within GLM without redeclaring
 - Optimized cot function #272
 - Optimized sign function #272
+- Added explicit cast from quat to mat3 and mat4 #275
 
 Fixes:
 - Fixed std::nextafter not supported with C++11 on Android #217
