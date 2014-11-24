@@ -21,7 +21,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/func_matrix.hpp
+/// @file glm/detail/func_matrix.hpp
 /// @date 2008-08-03 / 2011-06-15
 /// @author Christophe Riccio
 ///

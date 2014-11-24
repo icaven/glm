@@ -21,7 +21,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/_vectorize.hpp
+/// @file glm/detail/_vectorize.hpp
 /// @date 2011-10-14 / 2011-10-14
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////

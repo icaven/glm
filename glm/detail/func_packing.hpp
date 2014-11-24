@@ -21,7 +21,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/func_packing.hpp
+/// @file glm/detail/func_packing.hpp
 /// @date 2010-03-17 / 2011-06-15
 /// @author Christophe Riccio
 ///

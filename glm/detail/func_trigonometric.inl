@@ -21,7 +21,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/func_trigonometric.inl
+/// @file glm/detail/func_trigonometric.inl
 /// @date 2008-08-03 / 2011-06-15
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////

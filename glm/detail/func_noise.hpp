@@ -21,7 +21,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/func_noise.hpp
+/// @file glm/detail/func_noise.hpp
 /// @date 2008-08-01 / 2011-06-18
 /// @author Christophe Riccio
 ///

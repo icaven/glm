@@ -21,7 +21,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/func_geometric.hpp
+/// @file glm/detail/func_geometric.hpp
 /// @date 2008-08-03 / 2011-06-14
 /// @author Christophe Riccio
 ///

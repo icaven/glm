@@ -21,7 +21,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/_swizzle.hpp
+/// @file glm/detail/_swizzle.hpp
 /// @date 2006-04-20 / 2011-02-16
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////

@@ -21,7 +21,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/func_integer.hpp
+/// @file glm/detail/func_integer.hpp
 /// @date 2010-03-17 / 2011-06-18
 /// @author Christophe Riccio
 ///

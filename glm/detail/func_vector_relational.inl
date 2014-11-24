@@ -21,7 +21,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/func_vector_relational.inl
+/// @file glm/detail/func_vector_relational.inl
 /// @date 2008-08-03 / 2011-09-09
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////

@@ -21,7 +21,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/func_common.hpp
+/// @file glm/detail/func_common.hpp
 /// @date 2008-03-08 / 2010-01-26
 /// @author Christophe Riccio
 /// 

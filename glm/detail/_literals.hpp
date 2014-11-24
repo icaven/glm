@@ -21,7 +21,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/_literals.hpp
+/// @file glm/detail/_literals.hpp
 /// @date 2013-05-06 / 2013-05-06
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
