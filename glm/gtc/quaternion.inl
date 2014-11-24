@@ -172,6 +172,18 @@ namespace detail
 	{
 		*this = quat_cast(m);
 	}
+	
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tquat<T, P>::operator tmat3x3<T, P>()
+	{
+		return mat3_cast(*this);
+	}
+	
+	template <typename T, precision P>	
+	GLM_FUNC_QUALIFIER tquat<T, P>::operator tmat4x4<T, P>()
+	{
+		return mat4_cast(*this);
+	}
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tquat<T, P> conjugate(tquat<T, P> const & q)
