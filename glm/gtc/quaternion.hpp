@@ -102,7 +102,11 @@ namespace glm
 			template <typename U, precision Q>
 			GLM_FUNC_DECL tquat(tquat<U, Q> const & q);
 #		endif
-
+		
+		// explicit conversion operators
+		GLM_FUNC_DECL explicit operator tmat3<T, P>();
+		GLM_FUNC_DECL explicit operator tmat4<T, P>();
+		
 		/// Create a quaternion from two normalized axis
 		/// 
 		/// @param u A first normalized axis
