@@ -30,7 +30,7 @@
 /// @see gtc_quaternion
 /// 
 /// @defgroup gtx_rotate_normalized_axis GLM_GTX_rotate_normalized_axis
-/// @ingroup gtc
+/// @ingroup gtx
 /// 
 /// @brief Quaternions and matrices rotations around normalized axis.
 /// 

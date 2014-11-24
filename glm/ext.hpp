@@ -48,11 +48,6 @@
 /// Even if it's highly unrecommended, it's possible to include all the extensions 
 /// at once by including <glm/ext.hpp>. Otherwise, each extension needs to be 
 /// included  a specific file.
-/// 
-/// @defgroup virtrev VIRTREV Extensions
-/// 
-/// @brief Extensions develop and maintain by Mathieu [matrem] Roumillac
-/// (http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=showprofile&User=22660).
 ///////////////////////////////////////////////////////////////////////////////////
 
 #pragma once
@@ -65,6 +60,7 @@
 #include "./gtc/bitfield.hpp"
 #include "./gtc/constants.hpp"
 #include "./gtc/epsilon.hpp"
+#include "./gtc/integer.hpp"
 #include "./gtc/matrix_access.hpp"
 #include "./gtc/matrix_integer.hpp"
 #include "./gtc/matrix_inverse.hpp"

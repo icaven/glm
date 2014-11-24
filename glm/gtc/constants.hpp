@@ -51,7 +51,6 @@ namespace glm
 	/// @{
 
 	/// Return the epsilon constant for floating point types.
-	/// @todo Implement epsilon for half-precision floating point type.
 	/// @see gtc_constants
 	template <typename genType>
 	GLM_FUNC_DECL genType epsilon();

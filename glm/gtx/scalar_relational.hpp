@@ -27,7 +27,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_extend GLM_GTX_scalar_relational
+/// @defgroup gtx_scalar_relational GLM_GTX_scalar_relational
 /// @ingroup gtx
 /// 
 /// @brief Extend a position from a source to a position at a defined length.

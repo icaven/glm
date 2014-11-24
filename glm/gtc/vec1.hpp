@@ -27,8 +27,8 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtc_vec1 GLM_GTX_vec1
-/// @ingroup gtx
+/// @defgroup gtc_vec1 GLM_GTC_vec1
+/// @ingroup gtc
 /// 
 /// @brief Add vec1, ivec1, uvec1 and bvec1 types.
 /// <glm/gtc/vec1.hpp> need to be included to use these functionalities.
