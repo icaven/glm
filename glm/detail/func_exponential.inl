@@ -35,20 +35,22 @@
 namespace glm{
 namespace detail
 {
-	template <bool isFloat>
-	struct compute_log2{};
-
-	template <>
-	struct compute_log2<true>
-	{
-		template <typename T>
-		GLM_FUNC_QUALIFIER T operator() (T Value) const
+#	if GLM_LANG & GLM_LANG_CXX11_FLAG
+		using std::log2;
+#	else
+		template <typename genType>
+		genType log2(genType Value)
 		{
-#			if GLM_LANG & GLM_LANG_CXX11_FLAG
-				return std::log2(Value);
-#			else
-				return std::log(Value) * static_cast<T>(1.4426950408889634073599246810019);
-#			endif
+			return std::log(Value) * static_cast<genType>(1.4426950408889634073599246810019);
+		}
+#	endif
+
+	template <typename T, precision P, template <class, precision> class vecType, bool isFloat = true>
+	struct compute_log2
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & vec)
+		{
+			return detail::functor1<T, T, P, vecType>::call(log2, vec);
 		}
 	};
 
@@ -121,17 +123,13 @@ namespace detail
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType log2(genType x)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer,
-			"GLM core 'log2' only accept floating-point inputs. Include <glm/gtx/integer.hpp> for additional integer support.");
-
-		assert(x > genType(0)); // log2 is only defined on the range (0, inf]
-		return detail::compute_log2<std::numeric_limits<genType>::is_iec559>()(x);
+		return log2(tvec1<genType>(x)).x;
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> log2(vecType<T, P> const & x)
 	{
-		return detail::functor1<T, T, P, vecType>::call(log2, x);
+		return detail::compute_log2<T, P, vecType, std::numeric_limits<T>::is_iec559>::call(x);
 	}
 
 	// sqrt

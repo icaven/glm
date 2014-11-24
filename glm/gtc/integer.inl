@@ -29,19 +29,35 @@
 namespace glm{
 namespace detail
 {
-	GLM_FUNC_QUALIFIER unsigned int nlz(unsigned int x) 
+	template <typename T, precision P, template <class, precision> class vecType>
+	struct compute_log2<T, P, vecType, false>
 	{
-		return 31u - findMSB(x);
-	}
-
-	template <>
-	struct compute_log2<false>
-	{
-		template <typename T>
-		GLM_FUNC_QUALIFIER T operator() (T const & Value) const
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & vec)
 		{
-			return Value <= static_cast<T>(1) ? T(0) : T(32) - nlz(Value - T(1));
+			//Equivalent to return findMSB(vec); but save one function call in ASM with VC
+			//return findMSB(vec);
+			return detail::compute_findMSB_vec<T, P, vecType, sizeof(T) * 8>::call(vec);
 		}
 	};
+
+#	if(GLM_ARCH != GLM_ARCH_PURE) && (GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))
+
+	template <precision P>
+	struct compute_log2<int, P, tvec4, false>
+	{
+		GLM_FUNC_QUALIFIER static tvec4<int, P> call(tvec4<int, P> const & vec)
+		{
+			tvec4<int, P> Result(glm::uninitialize);
+
+			_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.x), vec.x);
+			_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.y), vec.y);
+			_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.z), vec.z);
+			_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.w), vec.w);
+
+			return Result;
+		}
+	};
+
+#	endif//GLM_ARCH != GLM_ARCH_PURE
 }//namespace detail
 }//namespace glm

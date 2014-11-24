@@ -887,12 +887,6 @@ namespace sign
 			Error += Data[i].Return == Result ? 0 : 1;
 		}
 
-		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<glm::int32>); ++i)
-		{
-			glm::int32 Result = sign_sub(Data[i].Value);
-			Error += Data[i].Return == Result ? 0 : 1;
-		}
-
 		return Error;
 	}
 
