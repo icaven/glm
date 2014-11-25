@@ -87,11 +87,36 @@ int test_decl()
 	return Error;
 }
 
+template <typename genType>
+void print(genType const & Mat0)
+{
+	printf("mat4(\n");
+	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f)\n", Mat0[0][0], Mat0[0][1], Mat0[0][2], Mat0[0][3]);
+	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f)\n", Mat0[1][0], Mat0[1][1], Mat0[1][2], Mat0[1][3]);
+	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f)\n", Mat0[2][0], Mat0[2][1], Mat0[2][2], Mat0[2][3]);
+	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f))\n\n", Mat0[3][0], Mat0[3][1], Mat0[3][2], Mat0[3][3]);
+}
+
+int perf_mul()
+{
+	int Error = 0;
+
+	glm::mat4 A(1.0f);
+	glm::mat4 B(1.0f);
+
+	glm::mat4 C = A * B;
+
+	print(C);
+
+	return Error;
+}
+
 int main()
 {
 	int Error(0);
 
 	Error += test_decl();
+	Error += perf_mul();
 
 	return Error;
 }

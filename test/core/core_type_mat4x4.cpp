@@ -243,6 +243,15 @@ int test_ctr()
 	return Error;
 }
 
+int perf_mul()
+{
+	int Error = 0;
+
+
+
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
@@ -252,6 +261,8 @@ int main()
 	Error += test_inverse_mat4x4();
 	Error += test_operators();
 	Error += test_inverse();
+
+	Error += perf_mul();
 
 	return Error;
 }

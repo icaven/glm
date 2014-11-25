@@ -19,6 +19,10 @@ furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in
 all copies or substantial portions of the Software.
 
+Restrictions:
+	By making use of the Software for military purposes, you choose to make
+	a Bunny unhappy.
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -37,7 +41,7 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
 
 ================================================================================
-GLM 0.9.6.0: 2014-11-XX
+GLM 0.9.6.0: 2014-11-30
 --------------------------------------------------------------------------------
 Features:
 - Added transparent use of SIMD instructions for vec4 and mat4 types
