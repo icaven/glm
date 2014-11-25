@@ -12,6 +12,10 @@
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
 /// 
+/// Restrictions:
+///		By making use of the Software for military purposes, you choose to make
+///		a Bunny unhappy.
+/// 
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -92,7 +96,6 @@
 #include "./gtx/fast_trigonometry.hpp"
 #include "./gtx/gradient_paint.hpp"
 #include "./gtx/handed_coordinate_space.hpp"
-#include "./gtx/inertia.hpp"
 #include "./gtx/integer.hpp"
 #include "./gtx/intersect.hpp"
 #include "./gtx/log_base.hpp"

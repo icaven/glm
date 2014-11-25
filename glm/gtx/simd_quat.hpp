@@ -12,6 +12,10 @@
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
 /// 
+/// Restrictions:
+///		By making use of the Software for military purposes, you choose to make
+///		a Bunny unhappy.
+/// 
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -22,7 +26,7 @@
 ///
 /// @ref gtx_simd_quat
 /// @file glm/gtx/simd_quat.hpp
-/// @date 2009-05-07 / 2011-06-07
+/// @date 2013-04-22 / 2014-11-25
 /// @author Christophe Riccio
 ///
 /// @see core (dependence)
