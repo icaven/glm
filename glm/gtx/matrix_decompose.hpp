@@ -20,14 +20,14 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_decomposition
-/// @file glm/gtx/decomposition.hpp
+/// @ref gtx_matrix_decompose
+/// @file glm/gtx/matrix_decompose.hpp
 /// @date 2014-08-29 / 2014-08-29
 /// @author Christophe Riccio
 /// 
 /// @see core (dependence)
 ///
-/// @defgroup gtx_decomposition GLM_GTX_decomposition
+/// @defgroup gtx_matrix_decompose GLM_GTX_matrix_decompose
 /// @ingroup gtx
 /// 
 /// @brief Decomposes a model matrix to translations, rotation and scale components
@@ -45,16 +45,16 @@
 #include "../gtc/matrix_transform.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
-#	pragma message("GLM: GLM_GTX_decomposition extension included")
+#	pragma message("GLM: GLM_GTX_matrix_decompose extension included")
 #endif
 
 namespace glm
 {
-	/// @addtogroup gtx_decomposition
+	/// @addtogroup gtx_matrix_decompose
 	/// @{
 
 	/// Decomposes a model matrix to translations, rotation and scale components 
-	/// @see gtx_decomposition
+	/// @see gtx_matrix_decompose
 	template <typename T, precision P>
 	GLM_FUNC_DECL bool decompose(
 		tmat4x4<T, P> const & modelMatrix,

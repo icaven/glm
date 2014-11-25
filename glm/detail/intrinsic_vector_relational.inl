@@ -21,7 +21,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/intrinsic_vector_relational.inl
+/// @file glm/detail/intrinsic_vector_relational.inl
 /// @date 2009-06-09 / 2011-06-15
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////

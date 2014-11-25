@@ -21,7 +21,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/precision.hpp
+/// @file glm/detail/precision.hpp
 /// @date 2013-04-01 / 2013-04-01
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////

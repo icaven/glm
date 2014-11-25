@@ -21,7 +21,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/type_vec.hpp
+/// @file glm/detail/type_vec.hpp
 /// @date 2010-01-26 / 2014-10-05
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////

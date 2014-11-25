@@ -21,7 +21,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/type_half.hpp
+/// @file glm/detail/type_half.hpp
 /// @date 2008-08-17 / 2011-09-20
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
@@ -39,10 +39,6 @@ namespace detail
 	GLM_FUNC_DECL hdata toFloat16(float const & value);
 
 }//namespace detail
-
-	/// half-precision floating-point numbers.
-	//typedef detail::hdata		half;
-		
 }//namespace glm
 
 #include "type_half.inl"

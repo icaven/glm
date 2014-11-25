@@ -21,7 +21,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/type_mat2x3.hpp
+/// @file glm/detail/type_mat2x3.hpp
 /// @date 2006-10-01 / 2011-06-15
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////

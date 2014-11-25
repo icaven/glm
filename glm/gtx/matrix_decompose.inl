@@ -20,8 +20,8 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtx_decomposition
-/// @file glm/gtx/decomposition.inl
+/// @ref gtx_matrix_decompose
+/// @file glm/gtx/matrix_decompose.inl
 /// @date 2014-08-29 / 2014-08-29
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////

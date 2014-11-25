@@ -21,7 +21,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/setup.hpp
+/// @file glm/detail/setup.hpp
 /// @date 2006-11-13 / 2014-10-05
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
