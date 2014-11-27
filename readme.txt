@@ -98,10 +98,10 @@ Deprecation:
 - Removed degrees for function parameters
 - Removed GLM_FORCE_RADIANS, active by default
 - Removed VC 2005 / 8 and 2008 / 9 support
-- Removed GCC 3.4 to 4.5 support
+- Removed GCC 3.4 to 4.3 support
 - Removed LLVM GCC support
-- Removed LLVM 2.6 to 2.9 support
-- Removed CUDA 3.0 to 4.0 support
+- Removed LLVM 2.6 to 3.1 support
+- Removed CUDA 3.0 to 3.2 support
 
 ================================================================================
 GLM 0.9.5.4: 2014-06-21
