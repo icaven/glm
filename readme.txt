@@ -44,7 +44,6 @@ http://glm.g-truc.net/glm.pdf
 GLM 0.9.6.0: 2014-11-30
 --------------------------------------------------------------------------------
 Features:
-- Added transparent use of SIMD instructions for vec4 and mat4 types
 - Exposed template vector and matrix types in 'glm' namespace #239, #244
 - Added GTX_scalar_multiplication for C++ 11 compiler only #242
 - Added GTX_range for C++ 11 compiler only #240
