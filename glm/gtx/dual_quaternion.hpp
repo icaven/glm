@@ -67,14 +67,25 @@ namespace glm
 	public:
 		glm::tquat<T, P> real, dual;
 		
-#if GLM_FORCE_SIZE_FUNC
-		/// Return the count of components of a dual quaternion
-		GLM_FUNC_DECL GLM_CONSTEXPR size_t size() const;
-#else
-		/// Return the count of components of a dual quaternion
-		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
-#endif//GLM_FORCE_SIZE_FUNC
-		
+		//////////////////////////////////////
+		// Component accesses
+
+#		ifdef GLM_FORCE_SIZE_FUNC
+			typedef size_t size_type;
+			/// Return the count of components of a dual quaternion
+			GLM_FUNC_DECL GLM_CONSTEXPR size_type size() const;
+
+			GLM_FUNC_DECL part_type & operator[](size_type i);
+			GLM_FUNC_DECL part_type const & operator[](size_type i) const;
+#		else
+			typedef length_t length_type;
+			/// Return the count of components of a dual quaternion
+			GLM_FUNC_DECL GLM_CONSTEXPR length_type length() const;
+
+			GLM_FUNC_DECL part_type & operator[](length_type i);
+			GLM_FUNC_DECL part_type const & operator[](length_type i) const;
+#		endif//GLM_FORCE_SIZE_FUNC
+
 		//////////////////////////////////////
 		// Implicit basic constructors
 
@@ -103,10 +114,6 @@ namespace glm
 
 		GLM_FUNC_DECL explicit tdualquat(tmat2x4<T, P> const & holder_mat);
 		GLM_FUNC_DECL explicit tdualquat(tmat3x4<T, P> const & aug_mat);
-		
-		// Accesses
-		GLM_FUNC_DECL part_type & operator[](int i);
-		GLM_FUNC_DECL part_type const & operator[](int i) const;
 		
 		// Operators
 		GLM_FUNC_DECL tdualquat<T, P> & operator*=(T const & s);

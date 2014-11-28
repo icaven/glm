@@ -32,37 +32,6 @@
 
 namespace glm
 {
-#ifdef GLM_FORCE_SIZE_FUNC
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR size_t tvec4<T, P>::size() const
-	{
-		return 4;
-	}
-#else
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t tvec4<T, P>::length() const
-	{
-		return 4;
-	}
-#endif
-
-	//////////////////////////////////////
-	// Accesses
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T & tvec4<T, P>::operator[](length_t i)
-	{
-		assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
-		return (&x)[i];
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T const & tvec4<T, P>::operator[](length_t i) const
-	{
-		assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
-		return (&x)[i];
-	}
-
 	//////////////////////////////////////
 	// Implicit basic constructors
 
@@ -267,6 +236,51 @@ namespace glm
 		z(static_cast<T>(v.z)),
 		w(static_cast<T>(v.w))
 	{}
+
+	//////////////////////////////////////
+	// Component accesses
+
+#	ifdef GLM_FORCE_SIZE_FUNC
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tvec4<T, P>::size_type tvec4<T, P>::size() const
+		{
+			return 4;
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER T & tvec4<T, P>::operator[](typename tvec4<T, P>::size_type i)
+		{
+			assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
+			return (&x)[i];
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER T const & tvec4<T, P>::operator[](typename tvec4<T, P>::size_type i) const
+		{
+			assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
+			return (&x)[i];
+		}
+#	else
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tvec4<T, P>::length_type tvec4<T, P>::length() const
+		{
+			return 4;
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER T & tvec4<T, P>::operator[](typename tvec4<T, P>::length_type i)
+		{
+			assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
+			return (&x)[i];
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER T const & tvec4<T, P>::operator[](typename tvec4<T, P>::length_type i) const
+		{
+			assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
+			return (&x)[i];
+		}
+#	endif//GLM_FORCE_SIZE_FUNC
 
 	//////////////////////////////////////
 	// Unary arithmetic operators

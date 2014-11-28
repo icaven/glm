@@ -43,18 +43,11 @@ namespace glm
 	template <typename T, precision P = defaultp>
 	struct tmat4x4
 	{
-		typedef T value_type;
-		typedef std::size_t size_type;
 		typedef tvec4<T, P> col_type;
 		typedef tvec4<T, P> row_type;
 		typedef tmat4x4<T, P> type;
 		typedef tmat4x4<T, P> transpose_type;
-
-#		ifdef GLM_FORCE_SIZE_FUNC
-			GLM_FUNC_DECL GLM_CONSTEXPR size_t size() const;
-#		else
-			GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
-#		endif//GLM_FORCE_SIZE_FUNC
+		typedef T value_type;
 
 		template <typename U, precision Q>
 		friend tvec4<U, Q> operator/(tmat4x4<U, Q> const & m, tvec4<U, Q> const & v);
@@ -69,7 +62,6 @@ namespace glm
 	public:
 		// Constructors
 		GLM_FUNC_DECL tmat4x4();
-		//GLM_FUNC_DECL tmat4x4(tmat4x4<T, P> const & m);
 		template <precision Q>
 		GLM_FUNC_DECL tmat4x4(tmat4x4<T, Q> const & m);
 
@@ -127,11 +119,26 @@ namespace glm
 		GLM_FUNC_DECL explicit tmat4x4(tmat3x4<T, P> const & x);
 		GLM_FUNC_DECL explicit tmat4x4(tmat4x3<T, P> const & x);
 
+		//////////////////////////////////////
 		// Accesses
-		GLM_FUNC_DECL col_type & operator[](length_t i);
-		GLM_FUNC_DECL col_type const & operator[](length_t i) const;
 
-		//GLM_FUNC_DECL tmat4x4<T, P> & operator=(tmat4x4<T, P> const & m);
+#		ifdef GLM_FORCE_SIZE_FUNC
+			typedef size_t size_type;
+			GLM_FUNC_DECL GLM_CONSTEXPR size_t size() const;
+
+			GLM_FUNC_DECL col_type & operator[](size_type i);
+			GLM_FUNC_DECL col_type const & operator[](size_type i) const;
+#		else
+			typedef length_t length_type;
+			GLM_FUNC_DECL GLM_CONSTEXPR length_type length() const;
+
+			GLM_FUNC_DECL col_type & operator[](length_type i);
+			GLM_FUNC_DECL col_type const & operator[](length_type i) const;
+#		endif//GLM_FORCE_SIZE_FUNC
+
+		//////////////////////////////////////
+		// Unary arithmetic operators
+
 		template <typename U>
 		GLM_FUNC_DECL tmat4x4<T, P> & operator=(tmat4x4<U, P> const & m);
 		template <typename U>

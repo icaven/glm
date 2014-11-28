@@ -56,17 +56,6 @@ namespace glm
 		typedef T value_type;
 
 		//////////////////////////////////////
-		// Helper
-
-#		ifdef GLM_FORCE_SIZE_FUNC
-			/// Return the count of components of the vector
-			GLM_FUNC_DECL GLM_CONSTEXPR size_t size() const;
-#		else
-			/// Return the count of components of the vector
-			GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
-#		endif//GLM_FORCE_SIZE_FUNC
-
-		//////////////////////////////////////
 		// Data
 
 #		if GLM_HAS_ANONYMOUS_UNION
@@ -99,8 +88,21 @@ namespace glm
 		//////////////////////////////////////
 		// Accesses
 
-		GLM_FUNC_DECL T & operator[](length_t i);
-		GLM_FUNC_DECL T const & operator[](length_t i) const;
+#		ifdef GLM_FORCE_SIZE_FUNC
+			/// Return the count of components of the vector
+			typedef size_t size_type;
+			GLM_FUNC_DECL GLM_CONSTEXPR size_type size() const;
+
+			GLM_FUNC_DECL T & operator[](size_type i);
+			GLM_FUNC_DECL T const & operator[](size_type i) const;
+#		else
+			/// Return the count of components of the vector
+			typedef length_t length_type;
+			GLM_FUNC_DECL GLM_CONSTEXPR length_type length() const;
+
+			GLM_FUNC_DECL T & operator[](length_type i);
+			GLM_FUNC_DECL T const & operator[](length_type i) const;
+#		endif//GLM_FORCE_SIZE_FUNC
 
 		//////////////////////////////////////
 		// Implicit basic constructors

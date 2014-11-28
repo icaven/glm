@@ -32,37 +32,6 @@
 
 namespace glm
 {
-#ifdef GLM_FORCE_SIZE_FUNC
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR size_t tmat4x3<T, P>::size() const
-	{
-		return 4;
-	}
-#else
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t tmat4x3<T, P>::length() const
-	{
-		return 4;
-	}
-#endif
-
-	//////////////////////////////////////
-	// Accesses
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tmat4x3<T, P>::col_type & tmat4x3<T, P>::operator[](size_type i)
-	{
-		assert(i < this->length());
-		return this->value[i];
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tmat4x3<T, P>::col_type const & tmat4x3<T, P>::operator[](size_type i) const
-	{
-		assert(i < this->length());
-		return this->value[i];
-	}
-
 	//////////////////////////////////////////////////////////////
 	// Constructors
 
@@ -253,6 +222,51 @@ namespace glm
 		this->value[2] = col_type(m[2]);
 		this->value[3] = col_type(0);
 	}
+
+	//////////////////////////////////////
+	// Accesses
+
+#	ifdef GLM_FORCE_SIZE_FUNC
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tmat4x3<T, P>::size_type tmat4x3<T, P>::size() const
+		{
+			return 4;
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER typename tmat4x3<T, P>::col_type & tmat4x3<T, P>::operator[](typename tmat4x3<T, P>::size_type i)
+		{
+			assert(i < this->size());
+			return this->value[i];
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER typename tmat4x3<T, P>::col_type const & tmat4x3<T, P>::operator[](typename tmat4x3<T, P>::size_type i) const
+		{
+			assert(i < this->size());
+			return this->value[i];
+		}
+#	else
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tmat4x3<T, P>::length_type tmat4x3<T, P>::length() const
+		{
+			return 4;
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER typename tmat4x3<T, P>::col_type & tmat4x3<T, P>::operator[](typename tmat4x3<T, P>::length_type i)
+		{
+			assert(i < this->length());
+			return this->value[i];
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER typename tmat4x3<T, P>::col_type const & tmat4x3<T, P>::operator[](typename tmat4x3<T, P>::length_type i) const
+		{
+			assert(i < this->length());
+			return this->value[i];
+		}
+#	endif//GLM_FORCE_SIZE_FUNC
 
 	//////////////////////////////////////////////////////////////
 	// Unary updatable operators

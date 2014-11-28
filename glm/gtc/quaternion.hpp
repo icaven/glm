@@ -62,25 +62,30 @@ namespace glm
 	template <typename T, precision P>
 	struct tquat
 	{
+		typedef tquat<T, P> type;
 		typedef T value_type;
-		typedef tvec4<bool, P> bool_type;
 
 	public:
 		T x, y, z, w;
 
-#if GLM_FORCE_SIZE_FUNC
-		/// Return the count of components of a quaternion
-		GLM_FUNC_DECL GLM_CONSTEXPR size_t size() const;
-#else
-		/// Return the count of components of a quaternion
-		GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
-#endif//GLM_FORCE_SIZE_FUNC
-
 		//////////////////////////////////////
-		// Accesses
+		// Component accesses
 
-		GLM_FUNC_DECL T & operator[](length_t i);
-		GLM_FUNC_DECL T const & operator[](length_t i) const;
+#		ifdef GLM_FORCE_SIZE_FUNC
+			typedef size_t size_type;
+			/// Return the count of components of a quaternion
+			GLM_FUNC_DECL GLM_CONSTEXPR size_type size() const;
+
+			GLM_FUNC_DECL T & operator[](size_type i);
+			GLM_FUNC_DECL T const & operator[](size_type i) const;
+#		else
+			typedef length_t length_type;
+			/// Return the count of components of a quaternion
+			GLM_FUNC_DECL GLM_CONSTEXPR length_type length() const;
+
+			GLM_FUNC_DECL T & operator[](length_type i);
+			GLM_FUNC_DECL T const & operator[](length_type i) const;
+#		endif//GLM_FORCE_SIZE_FUNC
 
 		//////////////////////////////////////
 		// Implicit basic constructors
