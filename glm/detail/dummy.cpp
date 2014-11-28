@@ -189,7 +189,34 @@ glm::vec3 lighting
 	return Color;
 }
 */
+
+
+template <typename T, glm::precision P, template<typename, glm::precision> class vecType>
+T normalizeDotA(vecType<T, P> const & x, vecType<T, P> const & y)
+{
+	return glm::dot(x, y) * glm::inversesqrt(glm::dot(x, x) * glm::dot(y, y));
+}
+
+#define GLM_TEMPLATE_GENTYPE typename T, glm::precision P, template<typename, glm::precision> class
+
+template <GLM_TEMPLATE_GENTYPE vecType>
+T normalizeDotB(vecType<T, P> const & x, vecType<T, P> const & y)
+{
+	return glm::dot(x, y) * glm::inversesqrt(glm::dot(x, x) * glm::dot(y, y));
+}
+
+template <typename vecType>
+typename vecType::value_type normalizeDotC(vecType const & a, vecType const & b)
+{
+	return glm::dot(a, b) * glm::inversesqrt(glm::dot(a, a) * glm::dot(b, b));
+}
+
 int main()
 {
+	glm::vec4 v(1);
+	float a = normalizeDotA(v, v);
+	float b = normalizeDotB(v, v);
+	float c = normalizeDotC(v, v);
+
 	return 0;
 }
