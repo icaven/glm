@@ -857,7 +857,7 @@ namespace findMSB
 	{
 		type<glm::uint> const Data[] =
 		{
-			{0x00000000, -1},
+			//{0x00000000, -1}, // Clang generates an error with this
 			{0x00000001,  0},
 			{0x00000002,  1},
 			{0x00000003,  1},
