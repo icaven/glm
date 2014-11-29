@@ -43,7 +43,9 @@
 #pragma once
 
 // Dependency:
-#include "../glm.hpp"
+#include "../vec3.hpp"
+#include "../mat3x3.hpp"
+#include "../geometric.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_orthonormalize extension included")
@@ -54,18 +56,17 @@ namespace glm
 	/// @addtogroup gtx_orthonormalize
 	/// @{
 
-	//! Returns the orthonormalized matrix of m.
-	//! From GLM_GTX_orthonormalize extension.
+	/// Returns the orthonormalized matrix of m.
+	///
+	/// @see gtx_orthonormalize
 	template <typename T, precision P> 
-	GLM_FUNC_DECL tmat3x3<T, P> orthonormalize(
-		const tmat3x3<T, P>& m);
+	GLM_FUNC_DECL tmat3x3<T, P> orthonormalize(tmat3x3<T, P> const & m);
 		
-	//! Orthonormalizes x according y.
-	//! From GLM_GTX_orthonormalize extension.
+	/// Orthonormalizes x according y.
+	///
+	/// @see gtx_orthonormalize
 	template <typename T, precision P> 
-	GLM_FUNC_DECL tvec3<T, P> orthonormalize(
-		const tvec3<T, P>& x, 
-		const tvec3<T, P>& y);
+	GLM_FUNC_DECL tvec3<T, P> orthonormalize(tvec3<T, P> const & x, tvec3<T, P> const & y);
 
 	/// @}
 }//namespace glm

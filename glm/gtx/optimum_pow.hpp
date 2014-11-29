@@ -54,39 +54,23 @@ namespace gtx
 	/// @addtogroup gtx_optimum_pow
 	/// @{
 
-	//! Returns x raised to the power of 2.
-	//! From GLM_GTX_optimum_pow extension.
+	/// Returns x raised to the power of 2.
+	///
+	/// @see gtx_optimum_pow
 	template <typename genType>
-	GLM_FUNC_DECL genType pow2(const genType& x);
+	GLM_FUNC_DECL genType pow2(genType const & x);
 
-	//! Returns x raised to the power of 3.
-	//! From GLM_GTX_optimum_pow extension.
+	/// Returns x raised to the power of 3.
+	///
+	/// @see gtx_optimum_pow
 	template <typename genType>
-	GLM_FUNC_DECL genType pow3(const genType& x);
+	GLM_FUNC_DECL genType pow3(genType const & x);
 
-	//! Returns x raised to the power of 4.
-	//! From GLM_GTX_optimum_pow extension.
+	/// Returns x raised to the power of 4.
+	///
+	/// @see gtx_optimum_pow
 	template <typename genType>
-	GLM_FUNC_DECL genType pow4(const genType& x);
-
-	//! Checks if the parameter is a power of 2 number.
-	//! From GLM_GTX_optimum_pow extension.
-	GLM_FUNC_DECL bool powOfTwo(int num);
-
-	//! Checks to determine if the parameter component are power of 2 numbers.
-	//! From GLM_GTX_optimum_pow extension.
-	template <precision P>
-	GLM_FUNC_DECL tvec2<bool, P> powOfTwo(tvec2<int, P> const & x);
-
-	//! Checks to determine if the parameter component are power of 2 numbers.
-	//! From GLM_GTX_optimum_pow extension.
-	template <precision P>
-	GLM_FUNC_DECL tvec3<bool, P> powOfTwo(tvec3<int, P> const & x);
-
-	//! Checks to determine if the parameter component are power of 2 numbers.
-	//! From GLM_GTX_optimum_pow extension.
-	template <precision P>
-	GLM_FUNC_DECL tvec4<bool, P> powOfTwo(tvec4<int, P> const & x);
+	GLM_FUNC_DECL genType pow4(genType const & x);
 
 	/// @}
 }//namespace gtx

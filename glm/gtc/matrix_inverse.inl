@@ -30,10 +30,6 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#include "../mat2x2.hpp"
-#include "../mat3x3.hpp"
-#include "../mat4x4.hpp"
-
 namespace glm
 {
 	template <typename T, precision P>

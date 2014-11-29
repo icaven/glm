@@ -49,36 +49,4 @@ namespace glm
 	{
 		return (x * x) * (x * x);
 	}
-
-	GLM_FUNC_QUALIFIER bool powOfTwo(int x)
-	{
-		return !(x & (x - 1));
-	}
-
-	template <precision P>
-	GLM_FUNC_QUALIFIER tvec2<bool, P> powOfTwo(tvec2<int, P> const & x)
-	{
-		return tvec2<bool, P>(
-			powOfTwo(x.x),
-			powOfTwo(x.y));
-	}
-
-	template <precision P>
-	GLM_FUNC_QUALIFIER tvec3<bool, P> powOfTwo(tvec3<int, P> const & x)
-	{
-		return tvec3<bool, P>(
-			powOfTwo(x.x),
-			powOfTwo(x.y),
-			powOfTwo(x.z));
-	}
-
-	template <precision P>
-	GLM_FUNC_QUALIFIER tvec4<bool, P> powOfTwo(tvec4<int, P> const & x)
-	{
-		return tvec4<bool, P>(
-			powOfTwo(x.x),
-			powOfTwo(x.y),
-			powOfTwo(x.z),
-			powOfTwo(x.w));
-	}
 }//namespace glm

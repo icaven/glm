@@ -35,11 +35,6 @@
 // http://www.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf
 ///////////////////////////////////////////////////////////////////////////////////
 
-#include "../geometric.hpp"
-#include "../common.hpp"
-#include "../vector_relational.hpp"
-#include "../detail/_noise.hpp"
-
 namespace glm{
 namespace gtc
 {
