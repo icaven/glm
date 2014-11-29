@@ -579,31 +579,31 @@ namespace findMSB
 	};
 
 #	if GLM_HAS_BITSCAN_WINDOWS
-	template <typename genIUType>
-	GLM_FUNC_QUALIFIER int findMSB_intrinsic(genIUType Value)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findMSB' only accept integer values");
+		template <typename genIUType>
+		GLM_FUNC_QUALIFIER int findMSB_intrinsic(genIUType Value)
+		{
+			GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findMSB' only accept integer values");
 
-		if(Value == 0)
-			return -1;
+			if(Value == 0)
+				return -1;
 
-		unsigned long Result(0);
-		_BitScanReverse(&Result, Value);
-		return int(Result);
-	}
+			unsigned long Result(0);
+			_BitScanReverse(&Result, Value);
+			return int(Result);
+		}
 #	endif//GLM_HAS_BITSCAN_WINDOWS
 
 #	if GLM_ARCH & GLM_ARCH_AVX && GLM_COMPILER & GLM_COMPILER_VC
-	template <typename genIUType>
-	GLM_FUNC_QUALIFIER int findMSB_avx(genIUType Value)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findMSB' only accept integer values");
+		template <typename genIUType>
+		GLM_FUNC_QUALIFIER int findMSB_avx(genIUType Value)
+		{
+			GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findMSB' only accept integer values");
 
-		if(Value == 0)
-			return -1;
+			if(Value == 0)
+				return -1;
 
-		return int(_tzcnt_u32(Value));
-	}
+			return int(_tzcnt_u32(Value));
+		}
 #	endif//GLM_ARCH & GLM_ARCH_AVX && GLM_PLATFORM & GLM_PLATFORM_WINDOWS
 
 	template <typename genIUType>
@@ -979,18 +979,20 @@ namespace findLSB
 		{0x00000000, -1}
 	};
 
-	template <typename genIUType>
-	GLM_FUNC_QUALIFIER int findLSB_intrinsic(genIUType Value)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findLSB' only accept integer values");
+#	if GLM_HAS_BITSCAN_WINDOWS
+		template <typename genIUType>
+		GLM_FUNC_QUALIFIER int findLSB_intrinsic(genIUType Value)
+		{
+			GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findLSB' only accept integer values");
 
-		if(Value == 0)
-			return -1;
+			if(Value == 0)
+				return -1;
 
-		unsigned long Result(0);
-		_BitScanForward(&Result, Value);
-		return int(Result);
-	}
+			unsigned long Result(0);
+			_BitScanForward(&Result, Value);
+			return int(Result);
+		}
+#	endif
 
 	template <typename genIUType>
 	GLM_FUNC_QUALIFIER int findLSB_095(genIUType Value)
@@ -1039,11 +1041,13 @@ namespace findLSB
 			Error += DataI32[i].Return == Result ? 0 : 1;
 		}
 
-		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(type<int>); ++i)
-		{
-			int Result = findLSB_intrinsic(DataI32[i].Value);
-			Error += DataI32[i].Return == Result ? 0 : 1;
-		}
+#		if GLM_HAS_BITSCAN_WINDOWS
+			for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(type<int>); ++i)
+			{
+				int Result = findLSB_intrinsic(DataI32[i].Value);
+				Error += DataI32[i].Return == Result ? 0 : 1;
+			}
+#		endif
 
 		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(type<int>); ++i)
 		{
@@ -1094,12 +1098,14 @@ namespace findLSB
 
 		std::clock_t Timestamps2 = std::clock();
 
-		for(std::size_t k = 0; k < Count; ++k)
-		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(type<int>); ++i)
-		{
-			int Result = findLSB_intrinsic(DataI32[i].Value);
-			Error += DataI32[i].Return == Result ? 0 : 1;
-		}
+#		if GLM_HAS_BITSCAN_WINDOWS
+			for(std::size_t k = 0; k < Count; ++k)
+			for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(type<int>); ++i)
+			{
+				int Result = findLSB_intrinsic(DataI32[i].Value);
+				Error += DataI32[i].Return == Result ? 0 : 1;
+			}
+#		endif
 
 		std::clock_t Timestamps3 = std::clock();
 
@@ -1123,7 +1129,11 @@ namespace findLSB
 
 		std::printf("glm::findLSB: %d clocks\n", static_cast<unsigned int>(Timestamps1 - Timestamps0));
 		std::printf("findLSB - 0.9.5: %d clocks\n", static_cast<unsigned int>(Timestamps2 - Timestamps1));
-		std::printf("findLSB - intrinsics: %d clocks\n", static_cast<unsigned int>(Timestamps3 - Timestamps2));
+
+#		if GLM_HAS_BITSCAN_WINDOWS
+			std::printf("findLSB - intrinsics: %d clocks\n", static_cast<unsigned int>(Timestamps3 - Timestamps2));
+#		endif
+
 		std::printf("findLSB - ntz2: %d clocks\n", static_cast<unsigned int>(Timestamps4 - Timestamps3));
 		std::printf("findLSB - branchfree: %d clocks\n", static_cast<unsigned int>(Timestamps5 - Timestamps4));
 
