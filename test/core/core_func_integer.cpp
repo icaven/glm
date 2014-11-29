@@ -593,7 +593,7 @@ namespace findMSB
 	}
 #	endif//GLM_HAS_BITSCAN_WINDOWS
 
-#	if GLM_ARCH & GLM_ARCH_AVX
+#	if GLM_ARCH & GLM_ARCH_AVX && GLM_COMPILER & GLM_COMPILER_VC
 	template <typename genIUType>
 	GLM_FUNC_QUALIFIER int findMSB_avx(genIUType Value)
 	{
@@ -604,7 +604,7 @@ namespace findMSB
 
 		return int(_tzcnt_u32(Value));
 	}
-#	endif
+#	endif//GLM_ARCH & GLM_ARCH_AVX && GLM_PLATFORM & GLM_PLATFORM_WINDOWS
 
 	template <typename genIUType>
 	GLM_FUNC_QUALIFIER int findMSB_095(genIUType Value)
@@ -794,9 +794,9 @@ namespace findMSB
 #		endif//GLM_HAS_BITSCAN_WINDOWS
 		std::printf("findMSB - pop: %d clocks\n", static_cast<unsigned int>(Timestamps6 - Timestamps5));
 
-#		if GLM_ARCH & GLM_ARCH_AVX
+#		if GLM_ARCH & GLM_ARCH_AVX && GLM_COMPILER & GLM_COMPILER_VC
 			std::printf("findMSB - avx tzcnt: %d clocks\n", static_cast<unsigned int>(Timestamps7 - Timestamps6));
-#		endif
+#		endif//GLM_ARCH & GLM_ARCH_AVX && GLM_PLATFORM & GLM_PLATFORM_WINDOWS
 
 		return Error;
 	}
