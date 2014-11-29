@@ -104,7 +104,7 @@ namespace detail
 		}
 	};
 
-#	if(GLM_ARCH != GLM_ARCH_PURE) && ((GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & (GLM_COMPILER_LLVM | GLM_COMPILER_INTEL)) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS)))
+#	if GLM_HAS_BITSCAN_WINDOWS
 		template <typename genIUType>
 		struct compute_findLSB<genIUType, 32>
 		{
@@ -126,7 +126,7 @@ namespace detail
 				return IsNotNull ? int(Result) : -1;
 			}
 		};
-#	endif//GLM_ARCH != GLM_ARCH_PURE
+#	endif//GLM_HAS_BITSCAN_WINDOWS
 
 	template <typename T, glm::precision P, template <class, glm::precision> class vecType, bool EXEC = true>
 	struct compute_findMSB_step_vec
@@ -162,7 +162,7 @@ namespace detail
 		}
 	};
 
-#	if(GLM_ARCH != GLM_ARCH_PURE) && ((GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & (GLM_COMPILER_LLVM | GLM_COMPILER_INTEL)) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS)))
+#	if GLM_HAS_BITSCAN_WINDOWS
 		template <typename genIUType>
 		GLM_FUNC_QUALIFIER int compute_findMSB_32(genIUType Value)
 		{
@@ -196,7 +196,7 @@ namespace detail
 				return detail::functor1<int, T, P, vecType>::call(compute_findMSB_64, x);
 			}
 		};
-#	endif//GLM_ARCH != GLM_ARCH_PURE
+#	endif//GLM_HAS_BITSCAN_WINDOWS
 }//namespace detail
 
 	// uaddCarry

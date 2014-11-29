@@ -578,6 +578,7 @@ namespace findMSB
 		genType		Return;
 	};
 
+#	if GLM_HAS_BITSCAN_WINDOWS
 	template <typename genIUType>
 	GLM_FUNC_QUALIFIER int findMSB_intrinsic(genIUType Value)
 	{
@@ -590,6 +591,20 @@ namespace findMSB
 		_BitScanReverse(&Result, Value);
 		return int(Result);
 	}
+#	endif//GLM_HAS_BITSCAN_WINDOWS
+
+#	if GLM_ARCH & GLM_ARCH_AVX
+	template <typename genIUType>
+	GLM_FUNC_QUALIFIER int findMSB_avx(genIUType Value)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findMSB' only accept integer values");
+
+		if(Value == 0)
+			return -1;
+
+		return int(_tzcnt_u32(Value));
+	}
+#	endif
 
 	template <typename genIUType>
 	GLM_FUNC_QUALIFIER int findMSB_095(genIUType Value)
@@ -698,7 +713,7 @@ namespace findMSB
 		};
 
 		int Error(0);
-		std::size_t const Count(1000000);
+		std::size_t const Count(10000000);
 
 		std::clock_t Timestamps0 = std::clock();
 
@@ -738,12 +753,14 @@ namespace findMSB
 
 		std::clock_t Timestamps4 = std::clock();
 
-		for(std::size_t k = 0; k < Count; ++k)
-		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
-		{
-			int Result = findMSB_intrinsic(Data[i].Value);
-			Error += Data[i].Return == Result ? 0 : 1;
-		}
+#		if GLM_HAS_BITSCAN_WINDOWS
+			for(std::size_t k = 0; k < Count; ++k)
+			for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+			{
+				int Result = findMSB_intrinsic(Data[i].Value);
+				Error += Data[i].Return == Result ? 0 : 1;
+			}
+#		endif//GLM_HAS_BITSCAN_WINDOWS
 
 		std::clock_t Timestamps5 = std::clock();
 
@@ -756,12 +773,30 @@ namespace findMSB
 
 		std::clock_t Timestamps6 = std::clock();
 
+#		if GLM_ARCH & GLM_ARCH_AVX
+			for(std::size_t k = 0; k < Count; ++k)
+			for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+			{
+				int Result = findMSB_avx(Data[i].Value);
+				Error += Data[i].Return == Result ? 0 : 1;
+			}
+#		endif
+
+		std::clock_t Timestamps7 = std::clock();
+
 		std::printf("glm::findMSB: %d clocks\n", static_cast<unsigned int>(Timestamps1 - Timestamps0));
 		std::printf("findMSB - nlz1: %d clocks\n", static_cast<unsigned int>(Timestamps2 - Timestamps1));
 		std::printf("findMSB - nlz2: %d clocks\n", static_cast<unsigned int>(Timestamps3 - Timestamps2));
 		std::printf("findMSB - 0.9.5: %d clocks\n", static_cast<unsigned int>(Timestamps4 - Timestamps3));
-		std::printf("findMSB - intrinsics: %d clocks\n", static_cast<unsigned int>(Timestamps5 - Timestamps4));
+
+#		if GLM_HAS_BITSCAN_WINDOWS
+			std::printf("findMSB - intrinsics: %d clocks\n", static_cast<unsigned int>(Timestamps5 - Timestamps4));
+#		endif//GLM_HAS_BITSCAN_WINDOWS
 		std::printf("findMSB - pop: %d clocks\n", static_cast<unsigned int>(Timestamps6 - Timestamps5));
+
+#		if GLM_ARCH & GLM_ARCH_AVX
+			std::printf("findMSB - avx tzcnt: %d clocks\n", static_cast<unsigned int>(Timestamps7 - Timestamps6));
+#		endif
 
 		return Error;
 	}
@@ -888,6 +923,8 @@ namespace findMSB
 		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
 		{
 			int Result0 = findMSB_intrinsic(Data[i].Value);
+			//unsigned int A = _lzcnt_u32(Data[i].Value);
+			//unsigned int B = _tzcnt_u32(Data[i].Value);
 			Error += Data[i].Return == Result0 ? 0 : 1;
 		}
 
@@ -1526,6 +1563,8 @@ int main()
 	Error += ::usubBorrow::test();
 	Error += ::bitfieldInsert::test();
 	Error += ::bitfieldExtract::test();
+
+	Error += ::findMSB::perf();
 
 #	ifdef GLM_TEST_ENABLE_PERF
 		Error += ::bitCount::perf();

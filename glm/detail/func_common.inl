@@ -162,6 +162,16 @@ namespace detail
 			return (x >> Shift) | y;
 		}
 	};
+
+	template <typename T, precision P, template <class, precision> class vecType, typename genType, bool isFloat = true>
+	struct compute_mod
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & a, genType const & b)
+		{
+			GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'mod' only accept floating-point inputs. Include <glm/gtc/integer.hpp> for integer inputs.");
+			return a - b * floor(a / b);
+		}
+	};
 }//namespace detail
 
 	// abs
@@ -334,15 +344,13 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> mod(vecType<T, P> const & x, T y)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'mod' only accept floating-point inputs");
-		return x - y * floor(x / y);
+		return detail::compute_mod<T, P, vecType, T, std::numeric_limits<T>::is_iec559>::call(x, y);
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> mod(vecType<T, P> const & x, vecType<T, P> const & y)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'mod' only accept floating-point inputs");
-		return x - y * floor(x / y);
+		return detail::compute_mod<T, P, vecType, vecType<T, P>, std::numeric_limits<T>::is_iec559>::call(x, y);
 	}
 
 	// modf

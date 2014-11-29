@@ -162,6 +162,40 @@ namespace modf_
 	}
 }//namespace modf
 
+namespace mod_
+{
+	int test()
+	{
+		int Error(0);
+
+		{
+			float A(3.0);
+			float B(2.0f);
+			float C = glm::mod(A, B);
+
+			Error += glm::abs(C - 1.0f) < 0.00001f ? 0 : 1;
+		}
+
+		{
+			glm::vec4 A(3.0);
+			float B(2.0f);
+			glm::vec4 C = glm::mod(A, B);
+
+			Error += glm::all(glm::epsilonEqual(C, glm::vec4(1.0f), 0.00001f)) ? 0 : 1;
+		}
+
+		{
+			glm::vec4 A(3.0);
+			glm::vec4 B(2.0f);
+			glm::vec4 C = glm::mod(A, B);
+
+			Error += glm::all(glm::epsilonEqual(C, glm::vec4(1.0f), 0.00001f)) ? 0 : 1;
+		}
+
+		return Error;
+	}
+}//namespace mod_
+
 namespace floatBitsToInt
 {
 	int test()
@@ -1109,6 +1143,7 @@ int main()
 
 	Error += sign::test();
 	Error += floor_::test();
+	Error += mod_::test();
 	Error += modf_::test();
 	Error += floatBitsToInt::test();
 	Error += floatBitsToUint::test();
