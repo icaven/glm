@@ -42,7 +42,6 @@
 #pragma once
 
 // Dependency:
-#include "../glm.hpp"
 #include "../gtc/constants.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))

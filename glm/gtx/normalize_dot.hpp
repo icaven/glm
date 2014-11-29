@@ -43,7 +43,6 @@
 #pragma once
 
 // Dependency:
-#include "../glm.hpp"
 #include "../gtx/fast_square_root.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
@@ -55,21 +54,19 @@ namespace glm
 	/// @addtogroup gtx_normalize_dot
 	/// @{
 
-	//! Normalize parameters and returns the dot product of x and y.
-	//! It's faster that dot(normalize(x), normalize(y)).
-	//! From GLM_GTX_normalize_dot extension.
-	template <typename genType> 
-	GLM_FUNC_DECL typename genType::value_type normalizeDot(
-		genType const & x, 
-		genType const & y);
+	/// Normalize parameters and returns the dot product of x and y.
+	/// It's faster that dot(normalize(x), normalize(y)).
+	///
+	/// @see gtx_normalize_dot extension.
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL T normalizeDot(vecType<T, P> const & x, vecType<T, P> const & y);
 
-	//! Normalize parameters and returns the dot product of x and y.
-	//! Faster that dot(fastNormalize(x), fastNormalize(y)).
-	//! From GLM_GTX_normalize_dot extension.
-	template <typename genType> 
-	GLM_FUNC_DECL typename genType::value_type fastNormalizeDot(
-		genType const & x, 
-		genType const & y);
+	/// Normalize parameters and returns the dot product of x and y.
+	/// Faster that dot(fastNormalize(x), fastNormalize(y)).
+	///
+	/// @see gtx_normalize_dot extension.
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL T fastNormalizeDot(vecType<T, P> const & x, vecType<T, P> const & y);
 
 	/// @}
 }//namespace glm

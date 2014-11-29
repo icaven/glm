@@ -32,101 +32,15 @@
 
 namespace glm
 {
-	template <typename genType> 
-	GLM_FUNC_QUALIFIER genType normalizeDot
-	(
-		genType const & x, 
-		genType const & y
-	)
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER T normalizeDot(vecType<T, P> const & x, vecType<T, P> const & y)
 	{
 		return glm::dot(x, y) * glm::inversesqrt(glm::dot(x, x) * glm::dot(y, y));
 	}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T normalizeDot
-	(
-		tvec2<T, P> const & x, 
-		tvec2<T, P> const & y
-	)
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER T fastNormalizeDot(vecType<T, P> const & x, vecType<T, P> const & y)
 	{
-		return glm::dot(x, y) * glm::inversesqrt(glm::dot(x, x) * glm::dot(y, y));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T normalizeDot
-	(
-		tvec3<T, P> const & x, 
-		tvec3<T, P> const & y
-	)
-	{
-		return 
-			glm::dot(x, y) * 
-			glm::inversesqrt(glm::dot(x, x) * 
-			glm::dot(y, y));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T normalizeDot
-	(
-		tvec4<T, P> const & x, 
-		tvec4<T, P> const & y
-	)
-	{
-		return 
-			glm::dot(x, y) * 
-			glm::inversesqrt(glm::dot(x, x) * 
-			glm::dot(y, y));
-	}
-
-	template <typename genType> 
-	GLM_FUNC_QUALIFIER genType fastNormalizeDot
-	(
-		genType const & x, 
-		genType const & y
-	)
-	{
-		return 
-			glm::dot(x, y) * 
-			fastInverseSqrt(glm::dot(x, x) * 
-			glm::dot(y, y));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T fastNormalizeDot
-	(
-		tvec2<T, P> const & x, 
-		tvec2<T, P> const & y
-	)
-	{
-		return 
-			glm::dot(x, y) * 
-			fastInverseSqrt(glm::dot(x, x) * 
-			glm::dot(y, y));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T fastNormalizeDot
-	(
-		tvec3<T, P> const & x, 
-		tvec3<T, P> const & y
-	)
-	{
-		return 
-			glm::dot(x, y) * 
-			fastInverseSqrt(glm::dot(x, x) * 
-			glm::dot(y, y));
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER T fastNormalizeDot
-	(
-		tvec4<T, P> const & x, 
-		tvec4<T, P> const & y
-	)
-	{
-		return 
-			glm::dot(x, y) * 
-			fastInverseSqrt(glm::dot(x, x) * 
-			glm::dot(y, y));
+		return glm::dot(x, y) * glm::fastInverseSqrt(glm::dot(x, x) * glm::dot(y, y));
 	}
 }//namespace glm
