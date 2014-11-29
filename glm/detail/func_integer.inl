@@ -212,7 +212,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER vecType<uint, P> uaddCarry(vecType<uint, P> const & x, vecType<uint, P> const & y, vecType<uint, P> & Carry)
 	{
 		vecType<uint64, P> Value64(vecType<uint64, P>(x) + vecType<uint64, P>(y));
-		vecType<uint64, P> Max32(static_cast<uint64>(std::numeric_limits<uint>::max()));
+		vecType<uint64, P> Max32(static_cast<uint64>(1) << static_cast<uint64>(32) - static_cast<uint64>(1));
 		Carry = mix(vecType<uint32, P>(0), vecType<uint32, P>(1), greaterThan(Value64, Max32));
 		return vecType<uint32,P>(Value64 % (Max32 + static_cast<uint64>(1)));
 	}
