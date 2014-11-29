@@ -977,9 +977,9 @@ namespace findLSB
 		{0x00000002,  1},
 		// {0x80000000, 31}, // Clang generates an error with this
 		{0x00010000, 16},
-		{0xFFFF0000, 16},
-		{0xFF000000, 24},
-		{0xFF00FF00,  8},
+		{0x7FFF0000, 16},
+		{0x7F000000, 24},
+		{0x7F00FF00,  8},
 		{0x00000000, -1}
 	};
 
