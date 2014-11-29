@@ -571,11 +571,11 @@ namespace bitfieldReverse
 
 namespace findMSB
 {
-	template <typename genType>
+	template <typename genType, typename retType>
 	struct type
 	{
 		genType		Value;
-		genType		Return;
+		retType		Return;
 	};
 
 #	if GLM_HAS_BITSCAN_WINDOWS
@@ -673,7 +673,7 @@ namespace findMSB
 
 	int perf_int()
 	{
-		type<int> const Data[] =
+		type<int, int> const Data[] =
 		{
 			{0x00000000, -1},
 			{0x00000001,  0},
@@ -718,7 +718,7 @@ namespace findMSB
 		std::clock_t Timestamps0 = std::clock();
 
 		for(std::size_t k = 0; k < Count; ++k)
-		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int, int>); ++i)
 		{
 			int Result = glm::findMSB(Data[i].Value);
 			Error += Data[i].Return == Result ? 0 : 1;
@@ -727,7 +727,7 @@ namespace findMSB
 		std::clock_t Timestamps1 = std::clock();
 
 		for(std::size_t k = 0; k < Count; ++k)
-		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int, int>); ++i)
 		{
 			int Result = findMSB_nlz1(Data[i].Value);
 			Error += Data[i].Return == Result ? 0 : 1;
@@ -736,7 +736,7 @@ namespace findMSB
 		std::clock_t Timestamps2 = std::clock();
 
 		for(std::size_t k = 0; k < Count; ++k)
-		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int, int>); ++i)
 		{
 			int Result = findMSB_nlz2(Data[i].Value);
 			Error += Data[i].Return == Result ? 0 : 1;
@@ -745,7 +745,7 @@ namespace findMSB
 		std::clock_t Timestamps3 = std::clock();
 
 		for(std::size_t k = 0; k < Count; ++k)
-		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int, int>); ++i)
 		{
 			int Result = findMSB_095(Data[i].Value);
 			Error += Data[i].Return == Result ? 0 : 1;
@@ -755,7 +755,7 @@ namespace findMSB
 
 #		if GLM_HAS_BITSCAN_WINDOWS
 			for(std::size_t k = 0; k < Count; ++k)
-			for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+			for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int, int>); ++i)
 			{
 				int Result = findMSB_intrinsic(Data[i].Value);
 				Error += Data[i].Return == Result ? 0 : 1;
@@ -765,7 +765,7 @@ namespace findMSB
 		std::clock_t Timestamps5 = std::clock();
 
 		for(std::size_t k = 0; k < Count; ++k)
-		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int, int>); ++i)
 		{
 			int Result = findMSB_pop(Data[i].Value);
 			Error += Data[i].Return == Result ? 0 : 1;
@@ -775,7 +775,7 @@ namespace findMSB
 
 #		if GLM_ARCH & GLM_ARCH_AVX && GLM_COMPILER & GLM_COMPILER_VC
 			for(std::size_t k = 0; k < Count; ++k)
-			for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+			for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int, int>); ++i)
 			{
 				int Result = findMSB_avx(Data[i].Value);
 				Error += Data[i].Return == Result ? 0 : 1;
@@ -803,7 +803,7 @@ namespace findMSB
 
 	int test_ivec4()
 	{
-		type<glm::ivec4> const Data[] =
+		type<glm::ivec4, glm::ivec4> const Data[] =
 		{
 			{glm::ivec4(0x00000000), glm::ivec4(-1)},
 			{glm::ivec4(0x00000001), glm::ivec4( 0)},
@@ -844,7 +844,7 @@ namespace findMSB
 
 		int Error(0);
 
-		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<glm::ivec4>); ++i)
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<glm::ivec4, glm::ivec4>); ++i)
 		{
 			glm::ivec4 Result0 = glm::findMSB(Data[i].Value);
 			Error += glm::all(glm::equal(Data[i].Return, Result0)) ? 0 : 1;
@@ -855,9 +855,11 @@ namespace findMSB
 
 	int test_int()
 	{
-		type<glm::uint> const Data[] =
+		typedef type<glm::uint, int> entry;
+
+		entry const Data[] =
 		{
-			//{0x00000000, -1}, // Clang generates an error with this
+			{0x00000000, -1},
 			{0x00000001,  0},
 			{0x00000002,  1},
 			{0x00000003,  1},
@@ -896,39 +898,39 @@ namespace findMSB
 
 		int Error(0);
 
-		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(entry); ++i)
 		{
 			int Result0 = glm::findMSB(Data[i].Value);
 			Error += Data[i].Return == Result0 ? 0 : 1;
 		}
 
-		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(entry); ++i)
 		{
 			int Result0 = findMSB_nlz1(Data[i].Value);
 			Error += Data[i].Return == Result0 ? 0 : 1;
 		}
 /*
-		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(entry); ++i)
 		{
 			int Result0 = findMSB_nlz2(Data[i].Value);
 			Error += Data[i].Return == Result0 ? 0 : 1;
 		}
 */
-		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(entry); ++i)
 		{
 			int Result0 = findMSB_095(Data[i].Value);
 			Error += Data[i].Return == Result0 ? 0 : 1;
 		}
 
 #		if GLM_HAS_BITSCAN_WINDOWS
-			for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+			for(std::size_t i = 0; i < sizeof(Data) / sizeof(entry); ++i)
 			{
 				int Result0 = findMSB_intrinsic(Data[i].Value);
 				Error += Data[i].Return == Result0 ? 0 : 1;
 			}
 #		endif//GLM_HAS_BITSCAN_WINDOWS
 
-		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(entry); ++i)
 		{
 			int Result0 = findMSB_pop(Data[i].Value);
 			Error += Data[i].Return == Result0 ? 0 : 1;
@@ -959,19 +961,21 @@ namespace findMSB
 
 namespace findLSB
 {
-	template <typename genType>
+	template <typename genType, typename retType>
 	struct type
 	{
 		genType		Value;
-		genType		Return;
+		retType		Return;
 	};
 
-	type<int> const DataI32[] =
+	typedef type<int, int> entry;
+
+	entry const DataI32[] =
 	{
 		{0x00000001,  0},
 		{0x00000003,  0},
 		{0x00000002,  1},
-		{0x80000000, 31},
+		// {0x80000000, 31}, // Clang generates an error with this
 		{0x00010000, 16},
 		{0xFFFF0000, 16},
 		{0xFF000000, 24},
@@ -1029,33 +1033,33 @@ namespace findLSB
 	{
 		int Error(0);
 
-		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(type<int>); ++i)
+		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(entry); ++i)
 		{
 			int Result = glm::findLSB(DataI32[i].Value);
 			Error += DataI32[i].Return == Result ? 0 : 1;
 		}
 
-		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(type<int>); ++i)
+		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(entry); ++i)
 		{
 			int Result = findLSB_095(DataI32[i].Value);
 			Error += DataI32[i].Return == Result ? 0 : 1;
 		}
 
 #		if GLM_HAS_BITSCAN_WINDOWS
-			for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(type<int>); ++i)
+			for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(entry); ++i)
 			{
 				int Result = findLSB_intrinsic(DataI32[i].Value);
 				Error += DataI32[i].Return == Result ? 0 : 1;
 			}
 #		endif
 
-		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(type<int>); ++i)
+		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(entry); ++i)
 		{
 			int Result = findLSB_ntz2(DataI32[i].Value);
 			Error += DataI32[i].Return == Result ? 0 : 1;
 		}
 
-		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(type<int>); ++i)
+		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(entry); ++i)
 		{
 			int Result = findLSB_branchfree(DataI32[i].Value);
 			Error += DataI32[i].Return == Result ? 0 : 1;
@@ -1081,7 +1085,7 @@ namespace findLSB
 		std::clock_t Timestamps0 = std::clock();
 
 		for(std::size_t k = 0; k < Count; ++k)
-		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(type<int>); ++i)
+		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(entry); ++i)
 		{
 			int Result = glm::findLSB(DataI32[i].Value);
 			Error += DataI32[i].Return == Result ? 0 : 1;
@@ -1090,7 +1094,7 @@ namespace findLSB
 		std::clock_t Timestamps1 = std::clock();
 
 		for(std::size_t k = 0; k < Count; ++k)
-		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(type<int>); ++i)
+		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(entry); ++i)
 		{
 			int Result = findLSB_095(DataI32[i].Value);
 			Error += DataI32[i].Return == Result ? 0 : 1;
@@ -1100,7 +1104,7 @@ namespace findLSB
 
 #		if GLM_HAS_BITSCAN_WINDOWS
 			for(std::size_t k = 0; k < Count; ++k)
-			for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(type<int>); ++i)
+			for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(entry); ++i)
 			{
 				int Result = findLSB_intrinsic(DataI32[i].Value);
 				Error += DataI32[i].Return == Result ? 0 : 1;
@@ -1110,7 +1114,7 @@ namespace findLSB
 		std::clock_t Timestamps3 = std::clock();
 
 		for(std::size_t k = 0; k < Count; ++k)
-		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(type<int>); ++i)
+		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(entry); ++i)
 		{
 			int Result = findLSB_ntz2(DataI32[i].Value);
 			Error += DataI32[i].Return == Result ? 0 : 1;
@@ -1119,7 +1123,7 @@ namespace findLSB
 		std::clock_t Timestamps4 = std::clock();
 
 		for(std::size_t k = 0; k < Count; ++k)
-		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(type<int>); ++i)
+		for(std::size_t i = 0; i < sizeof(DataI32) / sizeof(entry); ++i)
 		{
 			int Result = findLSB_branchfree(DataI32[i].Value);
 			Error += DataI32[i].Return == Result ? 0 : 1;
@@ -1573,8 +1577,6 @@ int main()
 	Error += ::usubBorrow::test();
 	Error += ::bitfieldInsert::test();
 	Error += ::bitfieldExtract::test();
-
-	Error += ::findMSB::perf();
 
 #	ifdef GLM_TEST_ENABLE_PERF
 		Error += ::bitCount::perf();
