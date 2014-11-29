@@ -664,10 +664,10 @@ int main()
 	Error += ::bitfieldInterleave::test();
 	//Error += ::bitRevert::test();
 
-#	ifdef GLM_TEST_ENABLE_PERF
+#	ifdef NDEBUG
 		Error += ::mask::perf();
 		Error += ::bitfieldInterleave::perf();
-#	endif
+#	endif//NDEBUG
 
 	return Error;
 }

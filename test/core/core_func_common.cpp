@@ -1156,7 +1156,7 @@ int main()
 	Error += isnan_::test();
 	Error += isinf_::test();
 
-#	ifdef GLM_TEST_ENABLE_PERF
+#	ifdef NDEBUG
 		Error += sign::perf();
 #	endif
 

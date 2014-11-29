@@ -178,14 +178,14 @@ int main()
 {
 	int Error(0);
 
-#	ifdef GLM_TEST_ENABLE_PERF
+#	ifdef NDEBUG
 		Error += ::fastCos::perf();
 		Error += ::fastSin::perf();
 		Error += ::fastTan::perf();
 		Error += ::fastAcos::perf();
 		Error += ::fastAsin::perf();
 		Error += ::fastAtan::perf();
-#	endif
+#	endif//NDEBUG
 
 	return Error;
 }

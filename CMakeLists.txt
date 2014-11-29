@@ -13,11 +13,6 @@ if(NOT GLM_TEST_ENABLE)
 	message(STATUS "GLM is a header only library, no need to build it. Set the option GLM_TEST_ENABLE with ON to build and run the test bench")
 endif()
 
-option(GLM_PERF_ENABLE "GLM perf" OFF)
-if(GLM_PERF_ENABLE)
-	add_definitions(-DGLM_TEST_ENABLE_PERF)
-endif()
-
 if(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU") OR (("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel") AND UNIX))
 	option(GLM_TEST_ENABLE_CXX_98 "Enable C++ 98" OFF)
 	option(GLM_TEST_ENABLE_CXX_0X "Enable C++ 0x" OFF)

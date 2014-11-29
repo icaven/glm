@@ -263,9 +263,9 @@ int main()
 	Error += ::log2_::test();
 	Error += ::mod_::test();
 
-#	ifdef GLM_TEST_ENABLE_PERF
+#	ifdef NDEBUG
 		Error += ::log2_::perf();
-#	endif
+#	endif//NDEBUG
 
 	return Error;
 }

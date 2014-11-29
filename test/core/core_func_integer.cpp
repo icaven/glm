@@ -1578,7 +1578,7 @@ int main()
 	Error += ::bitfieldInsert::test();
 	Error += ::bitfieldExtract::test();
 
-#	ifdef GLM_TEST_ENABLE_PERF
+#	ifdef NDEBUG
 		Error += ::bitCount::perf();
 		Error += ::bitfieldReverse::perf();
 		Error += ::findMSB::perf();

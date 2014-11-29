@@ -448,10 +448,10 @@ int main()
 
 	std::size_t const Size(1000000);
 
-#	ifdef GLM_TEST_ENABLE_PERF
+#	ifdef NDEBUG
 		Error += test_vec4_perf_AoS(Size);
 		Error += test_vec4_perf_SoA(Size);
-#	endif
+#	endif//NDEBUG
 
 	Error += test_vec4_ctor();
 	Error += test_vec4_size();
