@@ -773,7 +773,7 @@ namespace findMSB
 
 		std::clock_t Timestamps6 = std::clock();
 
-#		if GLM_ARCH & GLM_ARCH_AVX
+#		if GLM_ARCH & GLM_ARCH_AVX && GLM_COMPILER & GLM_COMPILER_VC
 			for(std::size_t k = 0; k < Count; ++k)
 			for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
 			{
@@ -920,13 +920,13 @@ namespace findMSB
 			Error += Data[i].Return == Result0 ? 0 : 1;
 		}
 
-		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
-		{
-			int Result0 = findMSB_intrinsic(Data[i].Value);
-			//unsigned int A = _lzcnt_u32(Data[i].Value);
-			//unsigned int B = _tzcnt_u32(Data[i].Value);
-			Error += Data[i].Return == Result0 ? 0 : 1;
-		}
+#		if GLM_HAS_BITSCAN_WINDOWS
+			for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
+			{
+				int Result0 = findMSB_intrinsic(Data[i].Value);
+				Error += Data[i].Return == Result0 ? 0 : 1;
+			}
+#		endif//GLM_HAS_BITSCAN_WINDOWS
 
 		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
 		{
