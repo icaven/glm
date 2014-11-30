@@ -38,11 +38,11 @@
 ///////////////////////////////////////////////////////////////////////////////////
 // Version
 
-#define GLM_VERSION					96
+#define GLM_VERSION					97
 #define GLM_VERSION_MAJOR			0
 #define GLM_VERSION_MINOR			9
-#define GLM_VERSION_PATCH			6
-#define GLM_VERSION_REVISION		1
+#define GLM_VERSION_PATCH			7
+#define GLM_VERSION_REVISION		0
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Platform
