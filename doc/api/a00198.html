@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>0.9.6: GLM_GTX_gradient_paint</title>
+<title>0.9.6: GLM_GTX_handed_coordinate_space</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -39,44 +39,44 @@
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_gradient_paint<div class="ingroups"><a class="el" href="a00160.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_handed_coordinate_space<div class="ingroups"><a class="el" href="a00159.html">GTX Extensions (Experimental)</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gacde26d5e0c4a1856467bded9dfad9040"><td class="memTemplParams" colspan="2">template&lt;typename T , precision P&gt; </td></tr>
-<tr class="memitem:gacde26d5e0c4a1856467bded9dfad9040"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#gacde26d5e0c4a1856467bded9dfad9040">linearGradient</a> (tvec2&lt; T, P &gt; const &amp;Point0, tvec2&lt; T, P &gt; const &amp;Point1, tvec2&lt; T, P &gt; const &amp;Position)</td></tr>
-<tr class="separator:gacde26d5e0c4a1856467bded9dfad9040"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga166d43d567a4cf150579a92f69b0dc9f"><td class="memTemplParams" colspan="2">template&lt;typename T , precision P&gt; </td></tr>
-<tr class="memitem:ga166d43d567a4cf150579a92f69b0dc9f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#ga166d43d567a4cf150579a92f69b0dc9f">radialGradient</a> (tvec2&lt; T, P &gt; const &amp;Center, T const &amp;Radius, tvec2&lt; T, P &gt; const &amp;Focal, tvec2&lt; T, P &gt; const &amp;Position)</td></tr>
-<tr class="separator:ga166d43d567a4cf150579a92f69b0dc9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7425e0ebfe6a56919900a072ae1f8017"><td class="memTemplParams" colspan="2">template&lt;typename T , precision P&gt; </td></tr>
+<tr class="memitem:ga7425e0ebfe6a56919900a072ae1f8017"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#ga7425e0ebfe6a56919900a072ae1f8017">leftHanded</a> (tvec3&lt; T, P &gt; const &amp;tangent, tvec3&lt; T, P &gt; const &amp;binormal, tvec3&lt; T, P &gt; const &amp;normal)</td></tr>
+<tr class="separator:ga7425e0ebfe6a56919900a072ae1f8017"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga17cd83888de8755c0435c589fafd3603"><td class="memTemplParams" colspan="2">template&lt;typename T , precision P&gt; </td></tr>
+<tr class="memitem:ga17cd83888de8755c0435c589fafd3603"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#ga17cd83888de8755c0435c589fafd3603">rightHanded</a> (tvec3&lt; T, P &gt; const &amp;tangent, tvec3&lt; T, P &gt; const &amp;binormal, tvec3&lt; T, P &gt; const &amp;normal)</td></tr>
+<tr class="separator:ga17cd83888de8755c0435c589fafd3603"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Functions that return the color of procedural gradient for specific coordinates. </p>
-<p>&lt;<a class="el" href="a00040.html" title="OpenGL Mathematics (glm.g-truc.net) ">glm/gtx/gradient_paint.hpp</a>&gt; need to be included to use these functionalities. </p>
+<p>To know if a set of three basis vectors defines a right or left-handed coordinate system. </p>
+<p>&lt;glm/gtx/handed_coordinate_system.hpp&gt; need to be included to use these functionalities. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="gacde26d5e0c4a1856467bded9dfad9040"></a>
+<a class="anchor" id="ga7425e0ebfe6a56919900a072ae1f8017"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::linearGradient </td>
+          <td class="memname">GLM_FUNC_DECL bool glm::leftHanded </td>
           <td>(</td>
-          <td class="paramtype">tvec2&lt; T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>Point0</em>, </td>
+          <td class="paramtype">tvec3&lt; T, P &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>tangent</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">tvec2&lt; T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>Point1</em>, </td>
+          <td class="paramtype">tvec3&lt; T, P &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>binormal</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">tvec2&lt; T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>Position</em>&#160;</td>
+          <td class="paramtype">tvec3&lt; T, P &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>normal</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -86,38 +86,32 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return a color from a linear gradient. </p>
-<dl class="section see"><dt>See also</dt><dd>- <a class="el" href="a00198.html" title="Functions that return the color of procedural gradient for specific coordinates. ">GLM_GTX_gradient_paint</a> </dd></dl>
+<p>Return if a trihedron left handed or not. </p>
+<p>From GLM_GTX_handed_coordinate_space extension. </p>
 
 </div>
 </div>
-<a class="anchor" id="ga166d43d567a4cf150579a92f69b0dc9f"></a>
+<a class="anchor" id="ga17cd83888de8755c0435c589fafd3603"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::radialGradient </td>
+          <td class="memname">GLM_FUNC_DECL bool glm::rightHanded </td>
           <td>(</td>
-          <td class="paramtype">tvec2&lt; T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>Center</em>, </td>
+          <td class="paramtype">tvec3&lt; T, P &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>tangent</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">T const &amp;&#160;</td>
-          <td class="paramname"><em>Radius</em>, </td>
+          <td class="paramtype">tvec3&lt; T, P &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>binormal</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">tvec2&lt; T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>Focal</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">tvec2&lt; T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>Position</em>&#160;</td>
+          <td class="paramtype">tvec3&lt; T, P &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>normal</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -127,8 +121,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return a color from a radial gradient. </p>
-<dl class="section see"><dt>See also</dt><dd>- <a class="el" href="a00198.html" title="Functions that return the color of procedural gradient for specific coordinates. ">GLM_GTX_gradient_paint</a> </dd></dl>
+<p>Return if a trihedron right handed or not. </p>
+<p>From GLM_GTX_handed_coordinate_space extension. </p>
 
 </div>
 </div>

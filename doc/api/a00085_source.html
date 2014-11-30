@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>0.9.6: optimum_pow.hpp Source File</title>
+<title>0.9.6: orthonormalize.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -46,52 +46,35 @@
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">optimum_pow.hpp</div>  </div>
+<div class="title">orthonormalize.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00085.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">// Dependency:</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;../glm.hpp&quot;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#if(defined(GLM_MESSAGES) &amp;&amp; !defined(GLM_EXT_INCLUDED))</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#       pragma message(&quot;GLM: GLM_GTX_optimum_pow extension included&quot;)</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00146.html">glm</a>{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">namespace </span>gtx</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genType&gt;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        GLM_FUNC_DECL genType <a class="code" href="a00218.html#gad18baedb0f3eaea4b4544771e19574f5">pow2</a>(<span class="keyword">const</span> genType&amp; x);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genType&gt;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        GLM_FUNC_DECL genType <a class="code" href="a00218.html#ga47dbbd973d7ad8be1b135d57281e16cf">pow3</a>(<span class="keyword">const</span> genType&amp; x);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genType&gt;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        GLM_FUNC_DECL genType <a class="code" href="a00218.html#gabae007bac8e442a2601db03de5827107">pow4</a>(<span class="keyword">const</span> genType&amp; x);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        GLM_FUNC_DECL <span class="keywordtype">bool</span> <a class="code" href="a00218.html#ga3505315881732f38f68192fddb7f2971">powOfTwo</a>(<span class="keywordtype">int</span> num);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">template</span> &lt;precision P&gt;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        GLM_FUNC_DECL tvec2&lt;bool, P&gt; <a class="code" href="a00218.html#ga3505315881732f38f68192fddb7f2971">powOfTwo</a>(tvec2&lt;int, P&gt; <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">template</span> &lt;precision P&gt;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        GLM_FUNC_DECL tvec3&lt;bool, P&gt; <a class="code" href="a00218.html#ga3505315881732f38f68192fddb7f2971">powOfTwo</a>(tvec3&lt;int, P&gt; <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keyword">template</span> &lt;precision P&gt;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        GLM_FUNC_DECL tvec4&lt;bool, P&gt; <a class="code" href="a00218.html#ga3505315881732f38f68192fddb7f2971">powOfTwo</a>(tvec4&lt;int, P&gt; <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}<span class="comment">//namespace gtx</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}<span class="comment">//namespace glm</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#include &quot;optimum_pow.inl&quot;</span></div>
-<div class="ttc" id="a00218_html_ga47dbbd973d7ad8be1b135d57281e16cf"><div class="ttname"><a href="a00218.html#ga47dbbd973d7ad8be1b135d57281e16cf">glm::gtx::pow3</a></div><div class="ttdeci">GLM_FUNC_DECL genType pow3(const genType &amp;x)</div><div class="ttdoc">Returns x raised to the power of 3. </div></div>
-<div class="ttc" id="a00218_html_gabae007bac8e442a2601db03de5827107"><div class="ttname"><a href="a00218.html#gabae007bac8e442a2601db03de5827107">glm::gtx::pow4</a></div><div class="ttdeci">GLM_FUNC_DECL genType pow4(const genType &amp;x)</div><div class="ttdoc">Returns x raised to the power of 4. </div></div>
-<div class="ttc" id="a00218_html_ga3505315881732f38f68192fddb7f2971"><div class="ttname"><a href="a00218.html#ga3505315881732f38f68192fddb7f2971">glm::gtx::powOfTwo</a></div><div class="ttdeci">GLM_FUNC_DECL tvec4&lt; bool, P &gt; powOfTwo(tvec4&lt; int, P &gt; const &amp;x)</div><div class="ttdoc">Checks to determine if the parameter component are power of 2 numbers. </div></div>
-<div class="ttc" id="a00218_html_gad18baedb0f3eaea4b4544771e19574f5"><div class="ttname"><a href="a00218.html#gad18baedb0f3eaea4b4544771e19574f5">glm::gtx::pow2</a></div><div class="ttdeci">GLM_FUNC_DECL genType pow2(const genType &amp;x)</div><div class="ttdoc">Returns x raised to the power of 2. </div></div>
-<div class="ttc" id="a00146_html"><div class="ttname"><a href="a00146.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00003_source.html#l00031">_noise.hpp:31</a></div></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// Dependency:</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;../vec3.hpp&quot;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#include &quot;../mat3x3.hpp&quot;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &quot;../geometric.hpp&quot;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#if(defined(GLM_MESSAGES) &amp;&amp; !defined(GLM_EXT_INCLUDED))</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#       pragma message(&quot;GLM: GLM_GTX_orthonormalize extension included&quot;)</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00145.html">glm</a></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        GLM_FUNC_DECL tmat3x3&lt;T, P&gt; <a class="code" href="a00217.html#gad7afff30d7323fdc7aed7f5a16a0c596">orthonormalize</a>(tmat3x3&lt;T, P&gt; <span class="keyword">const</span> &amp; m);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        GLM_FUNC_DECL tvec3&lt;T, P&gt; <a class="code" href="a00217.html#gad7afff30d7323fdc7aed7f5a16a0c596">orthonormalize</a>(tvec3&lt;T, P&gt; <span class="keyword">const</span> &amp; x, tvec3&lt;T, P&gt; <span class="keyword">const</span> &amp; y);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}<span class="comment">//namespace glm</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#include &quot;orthonormalize.inl&quot;</span></div>
+<div class="ttc" id="a00217_html_gad7afff30d7323fdc7aed7f5a16a0c596"><div class="ttname"><a href="a00217.html#gad7afff30d7323fdc7aed7f5a16a0c596">glm::orthonormalize</a></div><div class="ttdeci">GLM_FUNC_DECL tvec3&lt; T, P &gt; orthonormalize(tvec3&lt; T, P &gt; const &amp;x, tvec3&lt; T, P &gt; const &amp;y)</div><div class="ttdoc">Orthonormalizes x according y. </div></div>
+<div class="ttc" id="a00145_html"><div class="ttname"><a href="a00145.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00003_source.html#l00039">_noise.hpp:39</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

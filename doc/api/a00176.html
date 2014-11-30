@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>0.9.6: GLM_GTC_random</title>
+<title>0.9.6: GLM_GTC_reciprocal</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -39,210 +39,281 @@
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTC_random<div class="ingroups"><a class="el" href="a00159.html">GTC Extensions (Stable)</a></div></div>  </div>
+<div class="title">GLM_GTC_reciprocal<div class="ingroups"><a class="el" href="a00158.html">GTC Extensions (Stable)</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga5506dee301160e3a06aef9b9bc7a0a83"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga5506dee301160e3a06aef9b9bc7a0a83"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL tvec3&lt; T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00176.html#ga5506dee301160e3a06aef9b9bc7a0a83">ballRand</a> (T Radius)</td></tr>
-<tr class="separator:ga5506dee301160e3a06aef9b9bc7a0a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae989c26a2899b2fb7444abe7c275c29c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:gae989c26a2899b2fb7444abe7c275c29c"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL tvec2&lt; T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00176.html#gae989c26a2899b2fb7444abe7c275c29c">circularRand</a> (T Radius)</td></tr>
-<tr class="separator:gae989c26a2899b2fb7444abe7c275c29c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad3a3ee7d26502a31ba552cb627a68606"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:gad3a3ee7d26502a31ba552cb627a68606"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL tvec2&lt; T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00176.html#gad3a3ee7d26502a31ba552cb627a68606">diskRand</a> (T Radius)</td></tr>
-<tr class="separator:gad3a3ee7d26502a31ba552cb627a68606"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5193a83e49e4fdc5652c084711083574"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:ga5193a83e49e4fdc5652c084711083574"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00176.html#ga5193a83e49e4fdc5652c084711083574">gaussRand</a> (genType Mean, genType Deviation)</td></tr>
-<tr class="separator:ga5193a83e49e4fdc5652c084711083574"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga12aebc19b85a8c736f5801c2f7b9b716"><td class="memTemplParams" colspan="2">template&lt;typename genTYpe &gt; </td></tr>
-<tr class="memitem:ga12aebc19b85a8c736f5801c2f7b9b716"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genTYpe&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00176.html#ga12aebc19b85a8c736f5801c2f7b9b716">linearRand</a> (genTYpe Min, genTYpe Max)</td></tr>
-<tr class="separator:ga12aebc19b85a8c736f5801c2f7b9b716"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa9a6fc2d7a295b3857f7db23b1053d9d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:gaa9a6fc2d7a295b3857f7db23b1053d9d"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL tvec3&lt; T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00176.html#gaa9a6fc2d7a295b3857f7db23b1053d9d">sphericalRand</a> (T Radius)</td></tr>
-<tr class="separator:gaa9a6fc2d7a295b3857f7db23b1053d9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga97d029f989f849b62915b068c264246b"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga97d029f989f849b62915b068c264246b"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00176.html#ga97d029f989f849b62915b068c264246b">acot</a> (genType const &amp;x)</td></tr>
+<tr class="separator:ga97d029f989f849b62915b068c264246b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad73911994e6bb6a06cc3ea1bd89201ab"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gad73911994e6bb6a06cc3ea1bd89201ab"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00176.html#gad73911994e6bb6a06cc3ea1bd89201ab">acoth</a> (genType const &amp;x)</td></tr>
+<tr class="separator:gad73911994e6bb6a06cc3ea1bd89201ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga135e8f6b36bb85b5f7d8067e6b890e4d"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga135e8f6b36bb85b5f7d8067e6b890e4d"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00176.html#ga135e8f6b36bb85b5f7d8067e6b890e4d">acsc</a> (genType const &amp;x)</td></tr>
+<tr class="separator:ga135e8f6b36bb85b5f7d8067e6b890e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga418b31539e1a69c262712f2c7a4f27eb"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga418b31539e1a69c262712f2c7a4f27eb"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00176.html#ga418b31539e1a69c262712f2c7a4f27eb">acsch</a> (genType const &amp;x)</td></tr>
+<tr class="separator:ga418b31539e1a69c262712f2c7a4f27eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac9761980e09149002a466ca131a4bcac"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gac9761980e09149002a466ca131a4bcac"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00176.html#gac9761980e09149002a466ca131a4bcac">asec</a> (genType const &amp;x)</td></tr>
+<tr class="separator:gac9761980e09149002a466ca131a4bcac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga450f3bf1c04751198994d26d92ac2a63"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga450f3bf1c04751198994d26d92ac2a63"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00176.html#ga450f3bf1c04751198994d26d92ac2a63">asech</a> (genType const &amp;x)</td></tr>
+<tr class="separator:ga450f3bf1c04751198994d26d92ac2a63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2f49e28c2634ae1a212e2fc38c42ad42"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga2f49e28c2634ae1a212e2fc38c42ad42"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00176.html#ga2f49e28c2634ae1a212e2fc38c42ad42">cot</a> (genType const &amp;angle)</td></tr>
+<tr class="separator:ga2f49e28c2634ae1a212e2fc38c42ad42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae2f1e6f7c360dda452b88e0c492d6f4d"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gae2f1e6f7c360dda452b88e0c492d6f4d"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00176.html#gae2f1e6f7c360dda452b88e0c492d6f4d">coth</a> (genType const &amp;angle)</td></tr>
+<tr class="separator:gae2f1e6f7c360dda452b88e0c492d6f4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5df75de99f63e854087a06f538907b2c"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga5df75de99f63e854087a06f538907b2c"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00176.html#ga5df75de99f63e854087a06f538907b2c">csc</a> (genType const &amp;angle)</td></tr>
+<tr class="separator:ga5df75de99f63e854087a06f538907b2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga00404a9cdf62023792d1d0afedd7f896"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga00404a9cdf62023792d1d0afedd7f896"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00176.html#ga00404a9cdf62023792d1d0afedd7f896">csch</a> (genType const &amp;angle)</td></tr>
+<tr class="separator:ga00404a9cdf62023792d1d0afedd7f896"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabb6829a472da1cc94d88afa6396bed1f"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gabb6829a472da1cc94d88afa6396bed1f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00176.html#gabb6829a472da1cc94d88afa6396bed1f">sec</a> (genType const &amp;angle)</td></tr>
+<tr class="separator:gabb6829a472da1cc94d88afa6396bed1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa698b992c63f454a3a1a1baa2773a3c"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gaaa698b992c63f454a3a1a1baa2773a3c"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00176.html#gaaa698b992c63f454a3a1a1baa2773a3c">sech</a> (genType const &amp;angle)</td></tr>
+<tr class="separator:gaaa698b992c63f454a3a1a1baa2773a3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Generate random number from various distribution methods. </p>
-<p>&lt;<a class="el" href="a00096.html" title="OpenGL Mathematics (glm.g-truc.net) ">glm/gtc/random.hpp</a>&gt; need to be included to use these functionalities. </p>
+<p>Define secant, cosecant and cotangent functions. </p>
+<p>&lt;<a class="el" href="a00098.html" title="OpenGL Mathematics (glm.g-truc.net) ">glm/gtc/reciprocal.hpp</a>&gt; need to be included to use these features. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga5506dee301160e3a06aef9b9bc7a0a83"></a>
+<a class="anchor" id="ga97d029f989f849b62915b068c264246b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL tvec3&lt;T, defaultp&gt; glm::ballRand </td>
+          <td class="memname">GLM_FUNC_DECL genType glm::acot </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>Radius</em></td><td>)</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generate a random 3D vector which coordinates are regulary distributed within the volume of a ball of a given radius. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Radius</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00176.html" title="Generate random number from various distribution methods. ">GLM_GTC_random</a> </dd></dl>
+<p>Inverse cotangent function. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00176.html" title="Define secant, cosecant and cotangent functions. ">GLM_GTC_reciprocal</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gae989c26a2899b2fb7444abe7c275c29c"></a>
+<a class="anchor" id="gad73911994e6bb6a06cc3ea1bd89201ab"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL tvec2&lt;T, defaultp&gt; glm::circularRand </td>
+          <td class="memname">GLM_FUNC_DECL genType glm::acoth </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>Radius</em></td><td>)</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generate a random 2D vector which coordinates are regulary distributed on a circle of a given radius. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Radius</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00176.html" title="Generate random number from various distribution methods. ">GLM_GTC_random</a> </dd></dl>
+<p>Inverse cotangent hyperbolic function. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00176.html" title="Define secant, cosecant and cotangent functions. ">GLM_GTC_reciprocal</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gad3a3ee7d26502a31ba552cb627a68606"></a>
+<a class="anchor" id="ga135e8f6b36bb85b5f7d8067e6b890e4d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL tvec2&lt;T, defaultp&gt; glm::diskRand </td>
+          <td class="memname">GLM_FUNC_DECL genType glm::acsc </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>Radius</em></td><td>)</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generate a random 2D vector which coordinates are regulary distributed within the area of a disk of a given radius. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Radius</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00176.html" title="Generate random number from various distribution methods. ">GLM_GTC_random</a> </dd></dl>
+<p>Inverse cosecant function. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00176.html" title="Define secant, cosecant and cotangent functions. ">GLM_GTC_reciprocal</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga5193a83e49e4fdc5652c084711083574"></a>
+<a class="anchor" id="ga418b31539e1a69c262712f2c7a4f27eb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::gaussRand </td>
+          <td class="memname">GLM_FUNC_DECL genType glm::acsch </td>
           <td>(</td>
-          <td class="paramtype">genType&#160;</td>
-          <td class="paramname"><em>Mean</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType&#160;</td>
-          <td class="paramname"><em>Deviation</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Generate random numbers in the interval [Min, Max], according a gaussian distribution. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Mean</td><td></td></tr>
-    <tr><td class="paramname">Deviation</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00176.html" title="Generate random number from various distribution methods. ">GLM_GTC_random</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga12aebc19b85a8c736f5801c2f7b9b716"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL genTYpe glm::linearRand </td>
-          <td>(</td>
-          <td class="paramtype">genTYpe&#160;</td>
-          <td class="paramname"><em>Min</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genTYpe&#160;</td>
-          <td class="paramname"><em>Max</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Generate random numbers in the interval [Min, Max], according a linear distribution. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Min</td><td></td></tr>
-    <tr><td class="paramname">Max</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">genType</td><td>Value type. Currently supported: half (not recommanded), float or double scalars and vectors. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00176.html" title="Generate random number from various distribution methods. ">GLM_GTC_random</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gaa9a6fc2d7a295b3857f7db23b1053d9d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL tvec3&lt;T, defaultp&gt; glm::sphericalRand </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>Radius</em></td><td>)</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generate a random 3D vector which coordinates are regulary distributed on a sphere of a given radius. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Radius</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00176.html" title="Generate random number from various distribution methods. ">GLM_GTC_random</a> </dd></dl>
+<p>Inverse cosecant hyperbolic function. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00176.html" title="Define secant, cosecant and cotangent functions. ">GLM_GTC_reciprocal</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gac9761980e09149002a466ca131a4bcac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL genType glm::asec </td>
+          <td>(</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inverse secant function. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00176.html" title="Define secant, cosecant and cotangent functions. ">GLM_GTC_reciprocal</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga450f3bf1c04751198994d26d92ac2a63"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL genType glm::asech </td>
+          <td>(</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inverse secant hyperbolic function. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00176.html" title="Define secant, cosecant and cotangent functions. ">GLM_GTC_reciprocal</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga2f49e28c2634ae1a212e2fc38c42ad42"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL genType glm::cot </td>
+          <td>(</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>angle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cotangent function. </p>
+<p>adjacent / opposite or 1 / tan(x)</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00176.html" title="Define secant, cosecant and cotangent functions. ">GLM_GTC_reciprocal</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gae2f1e6f7c360dda452b88e0c492d6f4d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL genType glm::coth </td>
+          <td>(</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>angle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cotangent hyperbolic function. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00176.html" title="Define secant, cosecant and cotangent functions. ">GLM_GTC_reciprocal</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga5df75de99f63e854087a06f538907b2c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL genType glm::csc </td>
+          <td>(</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>angle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cosecant function. </p>
+<p>hypotenuse / opposite or 1 / sin(x)</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00176.html" title="Define secant, cosecant and cotangent functions. ">GLM_GTC_reciprocal</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga00404a9cdf62023792d1d0afedd7f896"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL genType glm::csch </td>
+          <td>(</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>angle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cosecant hyperbolic function. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00176.html" title="Define secant, cosecant and cotangent functions. ">GLM_GTC_reciprocal</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gabb6829a472da1cc94d88afa6396bed1f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL genType glm::sec </td>
+          <td>(</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>angle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Secant function. </p>
+<p>hypotenuse / adjacent or 1 / cos(x)</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00176.html" title="Define secant, cosecant and cotangent functions. ">GLM_GTC_reciprocal</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaaa698b992c63f454a3a1a1baa2773a3c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL genType glm::sech </td>
+          <td>(</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>angle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Secant hyperbolic function. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00176.html" title="Define secant, cosecant and cotangent functions. ">GLM_GTC_reciprocal</a> </dd></dl>
 
 </div>
 </div>

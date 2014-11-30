@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>0.9.6: number_precision.hpp Source File</title>
+<title>0.9.6: optimum_pow.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -46,64 +46,40 @@
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">number_precision.hpp</div>  </div>
+<div class="title">optimum_pow.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00084.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">// Dependency:</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &quot;../glm.hpp&quot;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#include &quot;../gtc/type_precision.hpp&quot;</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#if(defined(GLM_MESSAGES) &amp;&amp; !defined(GLM_EXT_INCLUDED))</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#       pragma message(&quot;GLM: GLM_GTX_number_precision extension included&quot;)</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00146.html">glm</a>{</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">namespace </span>gtx</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="comment">// Unsigned int vector types </span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="a00217.html#ga5853fe457f4c8a6bc09343d0e9833980">   59</a></span>&#160;        <span class="keyword">typedef</span> <a class="code" href="a00179.html#gaecc7082561fc9028b844b6cf3d305d36">u8</a>                      <a class="code" href="a00217.html#ga5853fe457f4c8a6bc09343d0e9833980">u8vec1</a>;         </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="a00217.html#ga52cc069a92e126c3a8dcde93424d2ef0">   60</a></span>&#160;        <span class="keyword">typedef</span> <a class="code" href="a00179.html#gaa2d7acc0adb536fab71fe261232a40ff">u16</a>                     <a class="code" href="a00217.html#ga52cc069a92e126c3a8dcde93424d2ef0">u16vec1</a>;    </div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="a00217.html#ga9bbc1e14aea65cba5e2dcfef6a67d9f3">   61</a></span>&#160;        <span class="keyword">typedef</span> <a class="code" href="a00179.html#ga8165913e068444f7842302d40ba897b9">u32</a>                     <a class="code" href="a00217.html#ga9bbc1e14aea65cba5e2dcfef6a67d9f3">u32vec1</a>;    </div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="a00217.html#ga818de170e2584ab037130f2881925974">   62</a></span>&#160;        <span class="keyword">typedef</span> <a class="code" href="a00179.html#gaf3f312156984c365e9f65620354da70b">u64</a>                     <a class="code" href="a00217.html#ga818de170e2584ab037130f2881925974">u64vec1</a>;    </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="comment">// Float vector types </span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="a00217.html#ga07f8d7348eb7ae059a84c118fdfeb943">   67</a></span>&#160;        <span class="keyword">typedef</span> <a class="code" href="a00179.html#gabe6a542dd6c1d5ffd847f1b9b4c9c9b7">f32</a>                     <a class="code" href="a00217.html#ga07f8d7348eb7ae059a84c118fdfeb943">f32vec1</a>;    </div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="a00217.html#gae5987a61b8c03d5c432a9e62f0b3efe1">   68</a></span>&#160;        <span class="keyword">typedef</span> <a class="code" href="a00179.html#ga1d794d240091678f602e8de225b8d8c9">f64</a>                     <a class="code" href="a00217.html#gae5987a61b8c03d5c432a9e62f0b3efe1">f64vec1</a>;    </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="comment">// Float matrix types </span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="a00217.html#ga145ad477a2a3e152855511c3b52469a6">   73</a></span>&#160;        <span class="keyword">typedef</span> <a class="code" href="a00179.html#gabe6a542dd6c1d5ffd847f1b9b4c9c9b7">f32</a>                     <a class="code" href="a00217.html#ga145ad477a2a3e152855511c3b52469a6">f32mat1</a>;        </div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="a00217.html#gac88c6a4dbfc380aa26e3adbbade36348">   74</a></span>&#160;        <span class="keyword">typedef</span> <a class="code" href="a00179.html#gabe6a542dd6c1d5ffd847f1b9b4c9c9b7">f32</a>                     <a class="code" href="a00217.html#gac88c6a4dbfc380aa26e3adbbade36348">f32mat1x1</a>;      </div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="a00217.html#ga59bfa589419b5265d01314fcecd33435">   75</a></span>&#160;        <span class="keyword">typedef</span> <a class="code" href="a00179.html#ga1d794d240091678f602e8de225b8d8c9">f64</a>                     <a class="code" href="a00217.html#ga59bfa589419b5265d01314fcecd33435">f64mat1</a>;        </div>
-<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="a00217.html#ga448eeb08d0b7d8c43a8b292c981955fd">   76</a></span>&#160;        <span class="keyword">typedef</span> <a class="code" href="a00179.html#ga1d794d240091678f602e8de225b8d8c9">f64</a>                     <a class="code" href="a00217.html#ga448eeb08d0b7d8c43a8b292c981955fd">f64mat1x1</a>;      </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}<span class="comment">//namespace gtx</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}<span class="comment">//namespace glm</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#include &quot;number_precision.inl&quot;</span></div>
-<div class="ttc" id="a00179_html_gaf3f312156984c365e9f65620354da70b"><div class="ttname"><a href="a00179.html#gaf3f312156984c365e9f65620354da70b">glm::u64</a></div><div class="ttdeci">detail::uint64 u64</div><div class="ttdoc">64 bit unsigned integer type. </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00934">fwd.hpp:934</a></div></div>
-<div class="ttc" id="a00179_html_ga8165913e068444f7842302d40ba897b9"><div class="ttname"><a href="a00179.html#ga8165913e068444f7842302d40ba897b9">glm::u32</a></div><div class="ttdeci">detail::uint32 u32</div><div class="ttdoc">32 bit unsigned integer type. </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00930">fwd.hpp:930</a></div></div>
-<div class="ttc" id="a00179_html_gaa2d7acc0adb536fab71fe261232a40ff"><div class="ttname"><a href="a00179.html#gaa2d7acc0adb536fab71fe261232a40ff">glm::u16</a></div><div class="ttdeci">detail::uint16 u16</div><div class="ttdoc">16 bit unsigned integer type. </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00926">fwd.hpp:926</a></div></div>
-<div class="ttc" id="a00179_html_ga1d794d240091678f602e8de225b8d8c9"><div class="ttname"><a href="a00179.html#ga1d794d240091678f602e8de225b8d8c9">glm::f64</a></div><div class="ttdeci">highp_float64_t f64</div><div class="ttdoc">Default 64 bit double-precision floating-point scalar. </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l01537">fwd.hpp:1537</a></div></div>
-<div class="ttc" id="a00217_html_ga52cc069a92e126c3a8dcde93424d2ef0"><div class="ttname"><a href="a00217.html#ga52cc069a92e126c3a8dcde93424d2ef0">glm::gtx::u16vec1</a></div><div class="ttdeci">u16 u16vec1</div><div class="ttdoc">16bit unsigned integer scalar. (from GLM_GTX_number_precision extension) </div><div class="ttdef"><b>Definition:</b> <a href="a00084_source.html#l00060">number_precision.hpp:60</a></div></div>
-<div class="ttc" id="a00179_html_gaecc7082561fc9028b844b6cf3d305d36"><div class="ttname"><a href="a00179.html#gaecc7082561fc9028b844b6cf3d305d36">glm::u8</a></div><div class="ttdeci">detail::uint8 u8</div><div class="ttdoc">8 bit unsigned integer type. </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l00922">fwd.hpp:922</a></div></div>
-<div class="ttc" id="a00217_html_ga5853fe457f4c8a6bc09343d0e9833980"><div class="ttname"><a href="a00217.html#ga5853fe457f4c8a6bc09343d0e9833980">glm::gtx::u8vec1</a></div><div class="ttdeci">u8 u8vec1</div><div class="ttdoc">8bit unsigned integer scalar. (from GLM_GTX_number_precision extension) </div><div class="ttdef"><b>Definition:</b> <a href="a00084_source.html#l00059">number_precision.hpp:59</a></div></div>
-<div class="ttc" id="a00146_html"><div class="ttname"><a href="a00146.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00003_source.html#l00031">_noise.hpp:31</a></div></div>
-<div class="ttc" id="a00217_html_ga818de170e2584ab037130f2881925974"><div class="ttname"><a href="a00217.html#ga818de170e2584ab037130f2881925974">glm::gtx::u64vec1</a></div><div class="ttdeci">u64 u64vec1</div><div class="ttdoc">64bit unsigned integer scalar. (from GLM_GTX_number_precision extension) </div><div class="ttdef"><b>Definition:</b> <a href="a00084_source.html#l00062">number_precision.hpp:62</a></div></div>
-<div class="ttc" id="a00217_html_gac88c6a4dbfc380aa26e3adbbade36348"><div class="ttname"><a href="a00217.html#gac88c6a4dbfc380aa26e3adbbade36348">glm::gtx::f32mat1x1</a></div><div class="ttdeci">f32 f32mat1x1</div><div class="ttdoc">Single-precision floating-point scalar. (from GLM_GTX_number_precision extension) ...</div><div class="ttdef"><b>Definition:</b> <a href="a00084_source.html#l00074">number_precision.hpp:74</a></div></div>
-<div class="ttc" id="a00217_html_ga9bbc1e14aea65cba5e2dcfef6a67d9f3"><div class="ttname"><a href="a00217.html#ga9bbc1e14aea65cba5e2dcfef6a67d9f3">glm::gtx::u32vec1</a></div><div class="ttdeci">u32 u32vec1</div><div class="ttdoc">32bit unsigned integer scalar. (from GLM_GTX_number_precision extension) </div><div class="ttdef"><b>Definition:</b> <a href="a00084_source.html#l00061">number_precision.hpp:61</a></div></div>
-<div class="ttc" id="a00217_html_ga145ad477a2a3e152855511c3b52469a6"><div class="ttname"><a href="a00217.html#ga145ad477a2a3e152855511c3b52469a6">glm::gtx::f32mat1</a></div><div class="ttdeci">f32 f32mat1</div><div class="ttdoc">Single-precision floating-point scalar. (from GLM_GTX_number_precision extension) ...</div><div class="ttdef"><b>Definition:</b> <a href="a00084_source.html#l00073">number_precision.hpp:73</a></div></div>
-<div class="ttc" id="a00217_html_ga07f8d7348eb7ae059a84c118fdfeb943"><div class="ttname"><a href="a00217.html#ga07f8d7348eb7ae059a84c118fdfeb943">glm::gtx::f32vec1</a></div><div class="ttdeci">f32 f32vec1</div><div class="ttdoc">Single-precision floating-point scalar. (from GLM_GTX_number_precision extension) ...</div><div class="ttdef"><b>Definition:</b> <a href="a00084_source.html#l00067">number_precision.hpp:67</a></div></div>
-<div class="ttc" id="a00217_html_ga59bfa589419b5265d01314fcecd33435"><div class="ttname"><a href="a00217.html#ga59bfa589419b5265d01314fcecd33435">glm::gtx::f64mat1</a></div><div class="ttdeci">f64 f64mat1</div><div class="ttdoc">Double-precision floating-point scalar. (from GLM_GTX_number_precision extension) ...</div><div class="ttdef"><b>Definition:</b> <a href="a00084_source.html#l00075">number_precision.hpp:75</a></div></div>
-<div class="ttc" id="a00217_html_gae5987a61b8c03d5c432a9e62f0b3efe1"><div class="ttname"><a href="a00217.html#gae5987a61b8c03d5c432a9e62f0b3efe1">glm::gtx::f64vec1</a></div><div class="ttdeci">f64 f64vec1</div><div class="ttdoc">Single-precision floating-point scalar. (from GLM_GTX_number_precision extension) ...</div><div class="ttdef"><b>Definition:</b> <a href="a00084_source.html#l00068">number_precision.hpp:68</a></div></div>
-<div class="ttc" id="a00217_html_ga448eeb08d0b7d8c43a8b292c981955fd"><div class="ttname"><a href="a00217.html#ga448eeb08d0b7d8c43a8b292c981955fd">glm::gtx::f64mat1x1</a></div><div class="ttdeci">f64 f64mat1x1</div><div class="ttdoc">Double-precision floating-point scalar. (from GLM_GTX_number_precision extension) ...</div><div class="ttdef"><b>Definition:</b> <a href="a00084_source.html#l00076">number_precision.hpp:76</a></div></div>
-<div class="ttc" id="a00179_html_gabe6a542dd6c1d5ffd847f1b9b4c9c9b7"><div class="ttname"><a href="a00179.html#gabe6a542dd6c1d5ffd847f1b9b4c9c9b7">glm::f32</a></div><div class="ttdeci">highp_float32_t f32</div><div class="ttdoc">Default 32 bit single-precision floating-point scalar. </div><div class="ttdef"><b>Definition:</b> <a href="a00037_source.html#l01533">fwd.hpp:1533</a></div></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">// Dependency:</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &quot;../glm.hpp&quot;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#if(defined(GLM_MESSAGES) &amp;&amp; !defined(GLM_EXT_INCLUDED))</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#       pragma message(&quot;GLM: GLM_GTX_optimum_pow extension included&quot;)</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00145.html">glm</a>{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">namespace </span>gtx</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genType&gt;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        GLM_FUNC_DECL genType <a class="code" href="a00216.html#ga19aaff3213bf23bdec3ef124ace237e9">pow2</a>(genType <span class="keyword">const</span> &amp; x);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genType&gt;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        GLM_FUNC_DECL genType <a class="code" href="a00216.html#ga35689d03cd434d6ea819f1942d3bf82e">pow3</a>(genType <span class="keyword">const</span> &amp; x);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genType&gt;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        GLM_FUNC_DECL genType <a class="code" href="a00216.html#gacef0968763026e180e53e735007dbf5a">pow4</a>(genType <span class="keyword">const</span> &amp; x);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}<span class="comment">//namespace gtx</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}<span class="comment">//namespace glm</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#include &quot;optimum_pow.inl&quot;</span></div>
+<div class="ttc" id="a00216_html_ga35689d03cd434d6ea819f1942d3bf82e"><div class="ttname"><a href="a00216.html#ga35689d03cd434d6ea819f1942d3bf82e">glm::gtx::pow3</a></div><div class="ttdeci">GLM_FUNC_DECL genType pow3(genType const &amp;x)</div><div class="ttdoc">Returns x raised to the power of 3. </div></div>
+<div class="ttc" id="a00216_html_gacef0968763026e180e53e735007dbf5a"><div class="ttname"><a href="a00216.html#gacef0968763026e180e53e735007dbf5a">glm::gtx::pow4</a></div><div class="ttdeci">GLM_FUNC_DECL genType pow4(genType const &amp;x)</div><div class="ttdoc">Returns x raised to the power of 4. </div></div>
+<div class="ttc" id="a00216_html_ga19aaff3213bf23bdec3ef124ace237e9"><div class="ttname"><a href="a00216.html#ga19aaff3213bf23bdec3ef124ace237e9">glm::gtx::pow2</a></div><div class="ttdeci">GLM_FUNC_DECL genType pow2(genType const &amp;x)</div><div class="ttdoc">Returns x raised to the power of 2. </div></div>
+<div class="ttc" id="a00145_html"><div class="ttname"><a href="a00145.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00003_source.html#l00039">_noise.hpp:39</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

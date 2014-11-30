@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>0.9.6: vector_query.hpp Source File</title>
+<title>0.9.6: vector_relational.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -41,58 +41,19 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_885cc87fac2d91e269af0a5a959fa5f6.html">E:</a></li><li class="navelem"><a class="el" href="dir_153b03dd71a7bff437c38ec53cb2e014.html">Source</a></li><li class="navelem"><a class="el" href="dir_0c6652232a835be54bedd6cfd7502504.html">G-Truc</a></li><li class="navelem"><a class="el" href="dir_e2c7faa62a52820b5be8795affd6e495.html">glm</a></li><li class="navelem"><a class="el" href="dir_5cf96241cdcf6779b80e104875f9716f.html">glm</a></li><li class="navelem"><a class="el" href="dir_5d3642ea3c7f2dae4a957f2cf472c9ae.html">gtx</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_885cc87fac2d91e269af0a5a959fa5f6.html">E:</a></li><li class="navelem"><a class="el" href="dir_153b03dd71a7bff437c38ec53cb2e014.html">Source</a></li><li class="navelem"><a class="el" href="dir_0c6652232a835be54bedd6cfd7502504.html">G-Truc</a></li><li class="navelem"><a class="el" href="dir_e2c7faa62a52820b5be8795affd6e495.html">glm</a></li><li class="navelem"><a class="el" href="dir_5cf96241cdcf6779b80e104875f9716f.html">glm</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">vector_query.hpp</div>  </div>
+<div class="title">vector_relational.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00143.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">// Dependency:</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;../glm.hpp&quot;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &lt;cfloat&gt;</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#if(defined(GLM_MESSAGES) &amp;&amp; !defined(GLM_EXT_INCLUDED))</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#       pragma message(&quot;GLM: GLM_GTX_vector_query extension included&quot;)</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00146.html">glm</a></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>, precision&gt; <span class="keyword">class </span>vecType&gt;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        GLM_FUNC_DECL <span class="keywordtype">bool</span> <a class="code" href="a00239.html#ga465b844190d1740051e45d780832ea4c">areCollinear</a>(vecType&lt;T, P&gt; <span class="keyword">const</span> &amp; v0, vecType&lt;T, P&gt; <span class="keyword">const</span> &amp; v1, T <span class="keyword">const</span> &amp; <a class="code" href="a00166.html#gacb41049b8d22c8aa90e362b96c524feb">epsilon</a>);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>, precision&gt; <span class="keyword">class </span>vecType&gt;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        GLM_FUNC_DECL <span class="keywordtype">bool</span> <a class="code" href="a00239.html#gaee10acefed397c11e01f2862e837754c">areOrthogonal</a>(vecType&lt;T, P&gt; <span class="keyword">const</span> &amp; v0, vecType&lt;T, P&gt; <span class="keyword">const</span> &amp; v1, T <span class="keyword">const</span> &amp; <a class="code" href="a00166.html#gacb41049b8d22c8aa90e362b96c524feb">epsilon</a>);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>, precision&gt; <span class="keyword">class </span>vecType&gt;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        GLM_FUNC_DECL <span class="keywordtype">bool</span> <a class="code" href="a00239.html#ga6fa5fa2af67d14c205d24c49aad03270">isNormalized</a>(vecType&lt;T, P&gt; <span class="keyword">const</span> &amp; v, T <span class="keyword">const</span> &amp; <a class="code" href="a00166.html#gacb41049b8d22c8aa90e362b96c524feb">epsilon</a>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>, precision&gt; <span class="keyword">class </span>vecType&gt;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        GLM_FUNC_DECL <span class="keywordtype">bool</span> <a class="code" href="a00239.html#ga81a64edc1a2b470b82896592e89c523b">isNull</a>(vecType&lt;T, P&gt; <span class="keyword">const</span> &amp; v, T <span class="keyword">const</span> &amp; <a class="code" href="a00166.html#gacb41049b8d22c8aa90e362b96c524feb">epsilon</a>);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>, precision&gt; <span class="keyword">class </span>vecType&gt;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        GLM_FUNC_DECL vecType&lt;bool, P&gt; <a class="code" href="a00239.html#ga93ecd4137480483ce1af0de8bbbf6546">isCompNull</a>(vecType&lt;T, P&gt; <span class="keyword">const</span> &amp; v, T <span class="keyword">const</span> &amp; <a class="code" href="a00166.html#gacb41049b8d22c8aa90e362b96c524feb">epsilon</a>);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>, precision&gt; <span class="keyword">class </span>vecType&gt;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        GLM_FUNC_DECL <span class="keywordtype">bool</span> <a class="code" href="a00239.html#ga89c82bc60e5b84e4489b74c15a134caf">areOrthonormal</a>(vecType&lt;T, P&gt; <span class="keyword">const</span> &amp; v0, vecType&lt;T, P&gt; <span class="keyword">const</span> &amp; v1, T <span class="keyword">const</span> &amp; <a class="code" href="a00166.html#gacb41049b8d22c8aa90e362b96c524feb">epsilon</a>);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}<span class="comment">// namespace glm</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#include &quot;vector_query.inl&quot;</span></div>
-<div class="ttc" id="a00239_html_ga6fa5fa2af67d14c205d24c49aad03270"><div class="ttname"><a href="a00239.html#ga6fa5fa2af67d14c205d24c49aad03270">glm::isNormalized</a></div><div class="ttdeci">GLM_FUNC_DECL bool isNormalized(vecType&lt; T, P &gt; const &amp;v, T const &amp;epsilon)</div><div class="ttdoc">Check whether a vector is normalized. </div></div>
-<div class="ttc" id="a00166_html_gacb41049b8d22c8aa90e362b96c524feb"><div class="ttname"><a href="a00166.html#gacb41049b8d22c8aa90e362b96c524feb">glm::epsilon</a></div><div class="ttdeci">GLM_FUNC_DECL genType epsilon()</div><div class="ttdoc">Return the epsilon constant for floating point types. </div></div>
-<div class="ttc" id="a00239_html_ga89c82bc60e5b84e4489b74c15a134caf"><div class="ttname"><a href="a00239.html#ga89c82bc60e5b84e4489b74c15a134caf">glm::areOrthonormal</a></div><div class="ttdeci">GLM_FUNC_DECL bool areOrthonormal(vecType&lt; T, P &gt; const &amp;v0, vecType&lt; T, P &gt; const &amp;v1, T const &amp;epsilon)</div><div class="ttdoc">Check whether two vectors are orthonormal. </div></div>
-<div class="ttc" id="a00239_html_ga93ecd4137480483ce1af0de8bbbf6546"><div class="ttname"><a href="a00239.html#ga93ecd4137480483ce1af0de8bbbf6546">glm::isCompNull</a></div><div class="ttdeci">GLM_FUNC_DECL vecType&lt; bool, P &gt; isCompNull(vecType&lt; T, P &gt; const &amp;v, T const &amp;epsilon)</div><div class="ttdoc">Check whether a each component of a vector is null. </div></div>
-<div class="ttc" id="a00146_html"><div class="ttname"><a href="a00146.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00003_source.html#l00031">_noise.hpp:31</a></div></div>
-<div class="ttc" id="a00239_html_gaee10acefed397c11e01f2862e837754c"><div class="ttname"><a href="a00239.html#gaee10acefed397c11e01f2862e837754c">glm::areOrthogonal</a></div><div class="ttdeci">GLM_FUNC_DECL bool areOrthogonal(vecType&lt; T, P &gt; const &amp;v0, vecType&lt; T, P &gt; const &amp;v1, T const &amp;epsilon)</div><div class="ttdoc">Check whether two vectors are orthogonals. </div></div>
-<div class="ttc" id="a00239_html_ga465b844190d1740051e45d780832ea4c"><div class="ttname"><a href="a00239.html#ga465b844190d1740051e45d780832ea4c">glm::areCollinear</a></div><div class="ttdeci">GLM_FUNC_DECL bool areCollinear(vecType&lt; T, P &gt; const &amp;v0, vecType&lt; T, P &gt; const &amp;v1, T const &amp;epsilon)</div><div class="ttdoc">Check whether two vectors are collinears. </div></div>
-<div class="ttc" id="a00239_html_ga81a64edc1a2b470b82896592e89c523b"><div class="ttname"><a href="a00239.html#ga81a64edc1a2b470b82896592e89c523b">glm::isNull</a></div><div class="ttdeci">GLM_FUNC_DECL bool isNull(vecType&lt; T, P &gt; const &amp;v, T const &amp;epsilon)</div><div class="ttdoc">Check whether a vector is null. </div></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00036.html">detail/func_vector_relational.hpp</a>&quot;</span></div>
+<div class="ttc" id="a00036_html"><div class="ttname"><a href="a00036.html">func_vector_relational.hpp</a></div><div class="ttdoc">OpenGL Mathematics (glm.g-truc.net) </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

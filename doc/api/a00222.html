@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>0.9.6: GLM_GTX_projection</title>
+<title>0.9.6: GLM_GTX_range</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -36,52 +36,14 @@
   </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_projection<div class="ingroups"><a class="el" href="a00160.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_range<div class="ingroups"><a class="el" href="a00159.html">GTX Extensions (Experimental)</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:gadf29123bcf748fc9d6fb0998192184cf"><td class="memTemplParams" colspan="2">template&lt;typename vecType &gt; </td></tr>
-<tr class="memitem:gadf29123bcf748fc9d6fb0998192184cf"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vecType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00222.html#gadf29123bcf748fc9d6fb0998192184cf">proj</a> (vecType const &amp;x, vecType const &amp;Normal)</td></tr>
-<tr class="separator:gadf29123bcf748fc9d6fb0998192184cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Projection of a vector to other one. </p>
-<p>&lt;<a class="el" href="a00093.html" title="OpenGL Mathematics (glm.g-truc.net) ">glm/gtx/projection.hpp</a>&gt; need to be included to use these functionalities. </p>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="gadf29123bcf748fc9d6fb0998192184cf"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vecType glm::proj </td>
-          <td>(</td>
-          <td class="paramtype">vecType const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vecType const &amp;&#160;</td>
-          <td class="paramname"><em>Normal</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Projects x on Normal. </p>
-<p>From GLM_GTX_projection extension. </p>
-
-</div>
-</div>
+<p>Defines begin and end for vectors and matrices. </p>
+<p>Useful for range-based for loop. The range is defined over the elements, not over columns or rows (e.g. mat4 has 16 elements).</p>
+<p>&lt;<a class="el" href="a00096.html" title="OpenGL Mathematics (glm.g-truc.net) ">glm/gtx/range.hpp</a>&gt; need to be included to use these functionalities. </p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>0.9.6: GLM_GTX_color_space_YCoCg</title>
+<title>0.9.6: GLM_GTX_common</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -39,106 +39,45 @@
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_color_space_YCoCg<div class="ingroups"><a class="el" href="a00160.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_common<div class="ingroups"><a class="el" href="a00159.html">GTX Extensions (Experimental)</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga19481f6947c5b5482debd41e71b8c941"><td class="memTemplParams" colspan="2">template&lt;typename T , precision P&gt; </td></tr>
-<tr class="memitem:ga19481f6947c5b5482debd41e71b8c941"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL tvec3&lt; T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00187.html#ga19481f6947c5b5482debd41e71b8c941">rgb2YCoCg</a> (tvec3&lt; T, P &gt; const &amp;rgbColor)</td></tr>
-<tr class="separator:ga19481f6947c5b5482debd41e71b8c941"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2e534594cc8ad252d23b14fb363ae9e2"><td class="memTemplParams" colspan="2">template&lt;typename T , precision P&gt; </td></tr>
-<tr class="memitem:ga2e534594cc8ad252d23b14fb363ae9e2"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL tvec3&lt; T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00187.html#ga2e534594cc8ad252d23b14fb363ae9e2">rgb2YCoCgR</a> (tvec3&lt; T, P &gt; const &amp;rgbColor)</td></tr>
-<tr class="separator:ga2e534594cc8ad252d23b14fb363ae9e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6d7e988a79b299ca1fa59f537e13800b"><td class="memTemplParams" colspan="2">template&lt;typename T , precision P&gt; </td></tr>
-<tr class="memitem:ga6d7e988a79b299ca1fa59f537e13800b"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL tvec3&lt; T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00187.html#ga6d7e988a79b299ca1fa59f537e13800b">YCoCg2rgb</a> (tvec3&lt; T, P &gt; const &amp;YCoCgColor)</td></tr>
-<tr class="separator:ga6d7e988a79b299ca1fa59f537e13800b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4bac5462c00df0ae89242ecdbbe5dbad"><td class="memTemplParams" colspan="2">template&lt;typename T , precision P&gt; </td></tr>
-<tr class="memitem:ga4bac5462c00df0ae89242ecdbbe5dbad"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL tvec3&lt; T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00187.html#ga4bac5462c00df0ae89242ecdbbe5dbad">YCoCgR2rgb</a> (tvec3&lt; T, P &gt; const &amp;YCoCgColor)</td></tr>
-<tr class="separator:ga4bac5462c00df0ae89242ecdbbe5dbad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga74aa7c7462245d83bd5a9edf9c6c2d91"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga74aa7c7462245d83bd5a9edf9c6c2d91"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType::bool_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00187.html#ga74aa7c7462245d83bd5a9edf9c6c2d91">isdenormal</a> (genType const &amp;x)</td></tr>
+<tr class="separator:ga74aa7c7462245d83bd5a9edf9c6c2d91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>RGB to YCoCg conversions and operations. </p>
-<p>&lt;<a class="el" href="a00012.html" title="OpenGL Mathematics (glm.g-truc.net) ">glm/gtx/color_space_YCoCg.hpp</a>&gt; need to be included to use these functionalities. </p>
+<p>Provide functions to increase the compatibility with Cg and HLSL languages. </p>
+<p>&lt;<a class="el" href="a00014.html" title="OpenGL Mathematics (glm.g-truc.net) ">glm/gtx/common.hpp</a>&gt; need to be included to use these functionalities. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga19481f6947c5b5482debd41e71b8c941"></a>
+<a class="anchor" id="ga74aa7c7462245d83bd5a9edf9c6c2d91"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL tvec3&lt;T, P&gt; glm::rgb2YCoCg </td>
+          <td class="memname">GLM_FUNC_DECL genType::bool_type glm::isdenormal </td>
           <td>(</td>
-          <td class="paramtype">tvec3&lt; T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>rgbColor</em></td><td>)</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Convert a color from RGB color space to YCoCg color space. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00187.html" title="RGB to YCoCg conversions and operations. ">GLM_GTX_color_space_YCoCg</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga2e534594cc8ad252d23b14fb363ae9e2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL tvec3&lt;T, P&gt; glm::rgb2YCoCgR </td>
-          <td>(</td>
-          <td class="paramtype">tvec3&lt; T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>rgbColor</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Convert a color from RGB color space to YCoCgR color space. </p>
-<dl class="section see"><dt>See also</dt><dd>"YCoCg-R: A Color Space with RGB Reversibility and Low Dynamic Range" </dd>
+<p>Returns true if x is a denormalized number Numbers whose absolute value is too small to be represented in the normal format are represented in an alternate, denormalized format. </p>
+<p>This format is less precise but can represent values closer to zero.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">genType</td><td>Floating-point scalar or vector types.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/isnan.xml">GLSL isnan man page</a> </dd>
 <dd>
-<a class="el" href="a00187.html" title="RGB to YCoCg conversions and operations. ">GLM_GTX_color_space_YCoCg</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga6d7e988a79b299ca1fa59f537e13800b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL tvec3&lt;T, P&gt; glm::YCoCg2rgb </td>
-          <td>(</td>
-          <td class="paramtype">tvec3&lt; T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>YCoCgColor</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Convert a color from YCoCg color space to RGB color space. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00187.html" title="RGB to YCoCg conversions and operations. ">GLM_GTX_color_space_YCoCg</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga4bac5462c00df0ae89242ecdbbe5dbad"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL tvec3&lt;T, P&gt; glm::YCoCgR2rgb </td>
-          <td>(</td>
-          <td class="paramtype">tvec3&lt; T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>YCoCgColor</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Convert a color from YCoCgR color space to RGB color space. </p>
-<dl class="section see"><dt>See also</dt><dd>"YCoCg-R: A Color Space with RGB Reversibility and Low Dynamic Range" </dd>
-<dd>
-<a class="el" href="a00187.html" title="RGB to YCoCg conversions and operations. ">GLM_GTX_color_space_YCoCg</a> </dd></dl>
+<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a> </dd></dl>
 
 </div>
 </div>

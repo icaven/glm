@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>0.9.6: simd_vec4.hpp Source File</title>
+<title>0.9.6: spline.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -46,350 +46,54 @@
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">simd_vec4.hpp</div>  </div>
+<div class="title">spline.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00108.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">// Dependency:</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;../glm.hpp&quot;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#if(GLM_ARCH != GLM_ARCH_PURE)</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#if(GLM_ARCH &amp; GLM_ARCH_SSE2)</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#       include &quot;../detail/intrinsic_common.hpp&quot;</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#       include &quot;../detail/intrinsic_geometric.hpp&quot;</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#       include &quot;../detail/intrinsic_integer.hpp&quot;</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#       error &quot;GLM: GLM_GTX_simd_vec4 requires compiler support of SSE2 through intrinsics&quot;</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#if(defined(GLM_MESSAGES) &amp;&amp; !defined(GLM_EXT_INCLUDED))</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#       pragma message(&quot;GLM: GLM_GTX_simd_vec4 extension included&quot;)</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">// Dependency:</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &quot;../glm.hpp&quot;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;../gtx/optimum_pow.hpp&quot;</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#if(defined(GLM_MESSAGES) &amp;&amp; !defined(GLM_EXT_INCLUDED))</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#       pragma message(&quot;GLM: GLM_GTX_spline extension included&quot;)</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00145.html">glm</a></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">// Warning silencer for nameless struct/union.</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#if (GLM_COMPILER &amp; GLM_COMPILER_VC)</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#       pragma warning(push)</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#       pragma warning(disable:4201)   // warning C4201: nonstandard extension used : nameless struct/union</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00146.html">glm</a></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">enum</span> comp</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                X = 0,</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                R = 0,</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                S = 0,</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                Y = 1,</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                G = 1,</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                T = 1,</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                Z = 2,</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                B = 2,</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                P = 2,</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                W = 3,</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                A = 3,</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                Q = 3</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        };</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}<span class="comment">//namespace glm</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00146.html">glm</a>{</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">namespace </span>detail</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        GLM_ALIGNED_STRUCT(16) fvec4SIMD</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                <span class="keyword">typedef</span> __m128 value_type;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                <span class="keyword">typedef</span> std::size_t size_type;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                <span class="keyword">static</span> size_type value_size();</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                <span class="keyword">typedef</span> fvec4SIMD type;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                <span class="keyword">typedef</span> tvec4&lt;bool, highp&gt; bool_type;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#ifdef GLM_SIMD_ENABLE_XYZW_UNION</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                <span class="keyword">union</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                        __m128 Data;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                        <span class="keyword">struct </span>{<span class="keywordtype">float</span> x, y, z, w;};</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                };</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                __m128 Data;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <span class="comment">// Implicit basic constructors</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                fvec4SIMD();</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                fvec4SIMD(__m128 <span class="keyword">const</span> &amp; Data);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                fvec4SIMD(fvec4SIMD <span class="keyword">const</span> &amp; v);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                <span class="comment">// Explicit basic constructors</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                <span class="keyword">explicit</span> fvec4SIMD(</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                        ctor);</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                <span class="keyword">explicit</span> fvec4SIMD(</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                        <span class="keywordtype">float</span> <span class="keyword">const</span> &amp; s);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                <span class="keyword">explicit</span> fvec4SIMD(</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                        <span class="keywordtype">float</span> <span class="keyword">const</span> &amp; x, </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                        <span class="keywordtype">float</span> <span class="keyword">const</span> &amp; y, </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                        <span class="keywordtype">float</span> <span class="keyword">const</span> &amp; z, </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                        <span class="keywordtype">float</span> <span class="keyword">const</span> &amp; w);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                <span class="keyword">explicit</span> fvec4SIMD(</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                        <a class="code" href="a00162.html#gafbab23070ca47932487d25332adc7d7c">vec4</a> <span class="keyword">const</span> &amp; v);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                fvec4SIMD(<a class="code" href="a00162.html#ga09d0200e8ff86391d8804b4fefd5f1da">vec2</a> <span class="keyword">const</span> &amp; v, <span class="keywordtype">float</span> <span class="keyword">const</span> &amp; s1, <span class="keywordtype">float</span> <span class="keyword">const</span> &amp; s2);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                fvec4SIMD(<span class="keywordtype">float</span> <span class="keyword">const</span> &amp; s1, <a class="code" href="a00162.html#ga09d0200e8ff86391d8804b4fefd5f1da">vec2</a> <span class="keyword">const</span> &amp; v, <span class="keywordtype">float</span> <span class="keyword">const</span> &amp; s2);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                fvec4SIMD(<span class="keywordtype">float</span> <span class="keyword">const</span> &amp; s1, <span class="keywordtype">float</span> <span class="keyword">const</span> &amp; s2, <a class="code" href="a00162.html#ga09d0200e8ff86391d8804b4fefd5f1da">vec2</a> <span class="keyword">const</span> &amp; v);</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                fvec4SIMD(<a class="code" href="a00162.html#gaa8ea2429bb3cb41a715258a447f39897">vec3</a> <span class="keyword">const</span> &amp; v, <span class="keywordtype">float</span> <span class="keyword">const</span> &amp; s);</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                fvec4SIMD(<span class="keywordtype">float</span> <span class="keyword">const</span> &amp; s, <a class="code" href="a00162.html#gaa8ea2429bb3cb41a715258a447f39897">vec3</a> <span class="keyword">const</span> &amp; v);</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                fvec4SIMD(<a class="code" href="a00162.html#ga09d0200e8ff86391d8804b4fefd5f1da">vec2</a> <span class="keyword">const</span> &amp; v1, <a class="code" href="a00162.html#ga09d0200e8ff86391d8804b4fefd5f1da">vec2</a> <span class="keyword">const</span> &amp; v2);</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                <span class="comment">//fvec4SIMD(ivec4SIMD const &amp; v);</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                <span class="comment">// Unary arithmetic operators</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                fvec4SIMD&amp; operator= (fvec4SIMD <span class="keyword">const</span> &amp; v);</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                fvec4SIMD&amp; operator+=(fvec4SIMD <span class="keyword">const</span> &amp; v);</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                fvec4SIMD&amp; operator-=(fvec4SIMD <span class="keyword">const</span> &amp; v);</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                fvec4SIMD&amp; operator*=(fvec4SIMD <span class="keyword">const</span> &amp; v);</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                fvec4SIMD&amp; operator/=(fvec4SIMD <span class="keyword">const</span> &amp; v);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                fvec4SIMD&amp; operator+=(<span class="keywordtype">float</span> <span class="keyword">const</span> &amp; s);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                fvec4SIMD&amp; operator-=(<span class="keywordtype">float</span> <span class="keyword">const</span> &amp; s);</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                fvec4SIMD&amp; operator*=(<span class="keywordtype">float</span> <span class="keyword">const</span> &amp; s);</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                fvec4SIMD&amp; operator/=(<span class="keywordtype">float</span> <span class="keyword">const</span> &amp; s);</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                fvec4SIMD&amp; operator++();</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                fvec4SIMD&amp; operator--();</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                <span class="comment">// Swizzle operators</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                <span class="keyword">template</span> &lt;comp X, comp Y, comp Z, comp W&gt;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                fvec4SIMD&amp; swizzle();</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                <span class="keyword">template</span> &lt;comp X, comp Y, comp Z, comp W&gt;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                fvec4SIMD swizzle() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                <span class="keyword">template</span> &lt;comp X, comp Y, comp Z&gt;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                fvec4SIMD swizzle() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                <span class="keyword">template</span> &lt;comp X, comp Y&gt;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                fvec4SIMD swizzle() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                <span class="keyword">template</span> &lt;comp X&gt;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                fvec4SIMD swizzle() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        };</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;}<span class="comment">//namespace detail</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keyword">typedef</span> glm::detail::fvec4SIMD simdVec4;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <a class="code" href="a00162.html#gafbab23070ca47932487d25332adc7d7c">vec4</a> vec4_cast(</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#ga693d77696ff36572a0da79efec965acd">abs</a>(detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#gac3446b4138e0b8757561c07cd19f084d">sign</a>(detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#ga568b822b78f045f77c3325e165b44d5d">floor</a>(detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#ga634cdbf8b37edca03f2248450570fd54">trunc</a>(detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#gada0165544c0618d634c8056a88082ce9">round</a>(detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="comment">//detail::fvec4SIMD roundEven(detail::fvec4SIMD const &amp; x);</span></div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#ga9189b2bec45ff301923ea8f8dd157fb8">ceil</a>(detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#ga8ba89e40e55ae5cdf228548f9b7639c7">fract</a>(detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#ga12201563ef902e3b07e0d1d7656efdb1">mod</a>(</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x, </div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; y);</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#ga12201563ef902e3b07e0d1d7656efdb1">mod</a>(</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x, </div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;                <span class="keywordtype">float</span> <span class="keyword">const</span> &amp; y);</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <span class="comment">//detail::fvec4SIMD modf(</span></div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        <span class="comment">//      detail::fvec4SIMD const &amp; x, </span></div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <span class="comment">//      detail::fvec4SIMD &amp; i);</span></div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#ga2c2bde1cec025b7ddff83c74a1113719">min</a>(</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x, </div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; y);</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#ga2c2bde1cec025b7ddff83c74a1113719">min</a>(</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x, </div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                <span class="keywordtype">float</span> <span class="keyword">const</span> &amp; y);</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#ga98caa7f95a94c86a86ebce893a45326c">max</a>(</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x, </div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; y);</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#ga98caa7f95a94c86a86ebce893a45326c">max</a>(</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x, </div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                <span class="keywordtype">float</span> <span class="keyword">const</span> &amp; y);</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#ga93bce26c7d80d30a62f5c508f8498a6c">clamp</a>(</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x, </div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; minVal, </div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; maxVal); </div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#ga93bce26c7d80d30a62f5c508f8498a6c">clamp</a>(</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x, </div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;                <span class="keywordtype">float</span> <span class="keyword">const</span> &amp; minVal, </div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;                <span class="keywordtype">float</span> <span class="keyword">const</span> &amp; maxVal); </div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#gadccbaffe46f369cf1a96b2aef92cbfdd">mix</a>(</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x, </div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; y, </div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; a);</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#ga015a1261ff23e12650211aa872863cce">step</a>(</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; edge, </div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#ga015a1261ff23e12650211aa872863cce">step</a>(</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;                <span class="keywordtype">float</span> <span class="keyword">const</span> &amp; edge, </div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#ga562edf7eca082cc5b7a0aaf180436daf">smoothstep</a>(</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; edge0, </div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; edge1, </div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#ga562edf7eca082cc5b7a0aaf180436daf">smoothstep</a>(</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                <span class="keywordtype">float</span> <span class="keyword">const</span> &amp; edge0, </div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;                <span class="keywordtype">float</span> <span class="keyword">const</span> &amp; edge1, </div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        <span class="comment">//bvec4 isnan(detail::fvec4SIMD const &amp; x);</span></div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        <span class="comment">//bvec4 isinf(detail::fvec4SIMD const &amp; x);</span></div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        <span class="comment">//detail::ivec4SIMD floatBitsToInt(detail::fvec4SIMD const &amp; value);</span></div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;        <span class="comment">//detail::fvec4SIMD intBitsToFloat(detail::ivec4SIMD const &amp; value);</span></div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        detail::fvec4SIMD <a class="code" href="a00150.html#gad0f444d4b81cc53c3b6edf5aa25078c2">fma</a>(</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; a, </div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; b, </div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; c);</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        <span class="comment">//detail::fvec4SIMD frexp(detail::fvec4SIMD const &amp; x, detail::ivec4SIMD &amp; exp);</span></div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        <span class="comment">//detail::fvec4SIMD ldexp(detail::fvec4SIMD const &amp; x, detail::ivec4SIMD const &amp; exp);</span></div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="a00152.html#ga18d45e3d4c7705e67ccfabd99e521604">length</a>(</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="a00196.html#ga70aa3c80d8bb22e021c6c3ebdcf8e3ee">fastLength</a>(</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        <span class="keywordtype">float</span> niceLength(</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        detail::fvec4SIMD length4(</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;        detail::fvec4SIMD fastLength4(</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;        detail::fvec4SIMD niceLength4(</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        <span class="keywordtype">float</span> <a class="code" href="a00152.html#ga7ca317dde0d7e94d920153554d4a02a8">distance</a>(</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; p0,</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; p1);</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;        detail::fvec4SIMD distance4(</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; p0,</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; p1);</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;        <span class="keywordtype">float</span> simdDot(</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x,</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; y);</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;        detail::fvec4SIMD dot4(</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x,</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; y);</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;</div>
-<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;        detail::fvec4SIMD <a class="code" href="a00152.html#gafe2cae8cb26fd44be62aee97369d0af8">cross</a>(</div>
-<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x,</div>
-<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; y);</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;        detail::fvec4SIMD <a class="code" href="a00152.html#gada9451ec170a36fe53552812b9c03a68">normalize</a>(</div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;        detail::fvec4SIMD <a class="code" href="a00196.html#ga3b02c1d6e0c754144e2f1e110bf9f16c">fastNormalize</a>(</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;        detail::fvec4SIMD simdFaceforward(</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; N,</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; I,</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; Nref);</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;        detail::fvec4SIMD <a class="code" href="a00152.html#gab63646fc36b81cf69d3ce123a72f76f2">reflect</a>(</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; I,</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; N);</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;</div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;        detail::fvec4SIMD <a class="code" href="a00152.html#gab7e7cdf4403931a5f7b74560ad64159b">refract</a>(</div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; I,</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; N,</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;                <span class="keywordtype">float</span> <span class="keyword">const</span> &amp; eta);</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;        detail::fvec4SIMD <a class="code" href="a00151.html#gae7ac2e44c14d4e8004098d0bfba6e2b8">sqrt</a>(</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;        detail::fvec4SIMD niceSqrt(</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;        detail::fvec4SIMD <a class="code" href="a00196.html#ga6c460e9414a50b2fc455c8f64c86cdc9">fastSqrt</a>(</div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;        detail::fvec4SIMD <a class="code" href="a00151.html#ga599103d4fe4ef2234761ba8da7268627">inversesqrt</a>(</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;</div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;        detail::fvec4SIMD fastInversesqrt(</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;                detail::fvec4SIMD <span class="keyword">const</span> &amp; x);</div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;}<span class="comment">//namespace glm</span></div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;<span class="preprocessor">#include &quot;simd_vec4.inl&quot;</span></div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;<span class="preprocessor">#if (GLM_COMPILER &amp; GLM_COMPILER_VC)</span></div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;<span class="preprocessor">#       pragma warning(pop)</span></div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;</div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;<span class="preprocessor">#endif//(GLM_ARCH != GLM_ARCH_PURE)</span></div>
-<div class="ttc" id="a00152_html_ga18d45e3d4c7705e67ccfabd99e521604"><div class="ttname"><a href="a00152.html#ga18d45e3d4c7705e67ccfabd99e521604">glm::length</a></div><div class="ttdeci">GLM_FUNC_DECL T length(vecType&lt; T, P &gt; const &amp;x)</div><div class="ttdoc">Returns the length of x, i.e., sqrt(x * x). </div></div>
-<div class="ttc" id="a00152_html_gada9451ec170a36fe53552812b9c03a68"><div class="ttname"><a href="a00152.html#gada9451ec170a36fe53552812b9c03a68">glm::normalize</a></div><div class="ttdeci">GLM_FUNC_DECL vecType&lt; T, P &gt; normalize(vecType&lt; T, P &gt; const &amp;x)</div><div class="ttdoc">Returns a vector in the same direction as x but with length of 1. </div></div>
-<div class="ttc" id="a00150_html_ga12201563ef902e3b07e0d1d7656efdb1"><div class="ttname"><a href="a00150.html#ga12201563ef902e3b07e0d1d7656efdb1">glm::mod</a></div><div class="ttdeci">GLM_FUNC_DECL genType mod(genType x, genType y)</div><div class="ttdoc">Modulus. </div></div>
-<div class="ttc" id="a00196_html_ga3b02c1d6e0c754144e2f1e110bf9f16c"><div class="ttname"><a href="a00196.html#ga3b02c1d6e0c754144e2f1e110bf9f16c">glm::fastNormalize</a></div><div class="ttdeci">GLM_FUNC_DECL genType fastNormalize(genType const &amp;x)</div><div class="ttdoc">Faster than the common normalize function but less accurate. </div></div>
-<div class="ttc" id="a00150_html_ga015a1261ff23e12650211aa872863cce"><div class="ttname"><a href="a00150.html#ga015a1261ff23e12650211aa872863cce">glm::step</a></div><div class="ttdeci">GLM_FUNC_DECL genType step(genType edge, genType x)</div><div class="ttdoc">Returns 0.0 if x < edge, otherwise it returns 1.0 for each component of a genType. </div></div>
-<div class="ttc" id="a00162_html_ga09d0200e8ff86391d8804b4fefd5f1da"><div class="ttname"><a href="a00162.html#ga09d0200e8ff86391d8804b4fefd5f1da">glm::vec2</a></div><div class="ttdeci">highp_vec2 vec2</div><div class="ttdoc">2 components vector of floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00132_source.html#l00388">type_vec.hpp:388</a></div></div>
-<div class="ttc" id="a00150_html_ga98caa7f95a94c86a86ebce893a45326c"><div class="ttname"><a href="a00150.html#ga98caa7f95a94c86a86ebce893a45326c">glm::max</a></div><div class="ttdeci">GLM_FUNC_DECL genType max(genType x, genType y)</div><div class="ttdoc">Returns y if x < y; otherwise, it returns x. </div></div>
-<div class="ttc" id="a00162_html_gaa8ea2429bb3cb41a715258a447f39897"><div class="ttname"><a href="a00162.html#gaa8ea2429bb3cb41a715258a447f39897">glm::vec3</a></div><div class="ttdeci">highp_vec3 vec3</div><div class="ttdoc">3 components vector of floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00132_source.html#l00393">type_vec.hpp:393</a></div></div>
-<div class="ttc" id="a00196_html_ga70aa3c80d8bb22e021c6c3ebdcf8e3ee"><div class="ttname"><a href="a00196.html#ga70aa3c80d8bb22e021c6c3ebdcf8e3ee">glm::fastLength</a></div><div class="ttdeci">GLM_FUNC_DECL genType::value_type fastLength(genType const &amp;x)</div><div class="ttdoc">Faster than the common length function but less accurate. </div></div>
-<div class="ttc" id="a00150_html_ga693d77696ff36572a0da79efec965acd"><div class="ttname"><a href="a00150.html#ga693d77696ff36572a0da79efec965acd">glm::abs</a></div><div class="ttdeci">GLM_FUNC_DECL genType abs(genType x)</div><div class="ttdoc">Returns x if x >= 0; otherwise, it returns -x. </div></div>
-<div class="ttc" id="a00151_html_ga599103d4fe4ef2234761ba8da7268627"><div class="ttname"><a href="a00151.html#ga599103d4fe4ef2234761ba8da7268627">glm::inversesqrt</a></div><div class="ttdeci">GLM_FUNC_DECL vecType&lt; T, P &gt; inversesqrt(vecType&lt; T, P &gt; const &amp;v)</div><div class="ttdoc">Returns the reciprocal of the positive square root of v. </div></div>
-<div class="ttc" id="a00151_html_gae7ac2e44c14d4e8004098d0bfba6e2b8"><div class="ttname"><a href="a00151.html#gae7ac2e44c14d4e8004098d0bfba6e2b8">glm::sqrt</a></div><div class="ttdeci">GLM_FUNC_DECL vecType&lt; T, P &gt; sqrt(vecType&lt; T, P &gt; const &amp;v)</div><div class="ttdoc">Returns the positive square root of v. </div></div>
-<div class="ttc" id="a00162_html_gafbab23070ca47932487d25332adc7d7c"><div class="ttname"><a href="a00162.html#gafbab23070ca47932487d25332adc7d7c">glm::vec4</a></div><div class="ttdeci">highp_vec4 vec4</div><div class="ttdoc">4 components vector of floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00132_source.html#l00398">type_vec.hpp:398</a></div></div>
-<div class="ttc" id="a00150_html_ga2c2bde1cec025b7ddff83c74a1113719"><div class="ttname"><a href="a00150.html#ga2c2bde1cec025b7ddff83c74a1113719">glm::min</a></div><div class="ttdeci">GLM_FUNC_DECL genType min(genType x, genType y)</div><div class="ttdoc">Returns y if y < x; otherwise, it returns x. </div></div>
-<div class="ttc" id="a00152_html_gab7e7cdf4403931a5f7b74560ad64159b"><div class="ttname"><a href="a00152.html#gab7e7cdf4403931a5f7b74560ad64159b">glm::refract</a></div><div class="ttdeci">GLM_FUNC_DECL vecType&lt; T, P &gt; refract(vecType&lt; T, P &gt; const &amp;I, vecType&lt; T, P &gt; const &amp;N, T eta)</div><div class="ttdoc">For the incident vector I and surface normal N, and the ratio of indices of refraction eta...</div></div>
-<div class="ttc" id="a00146_html"><div class="ttname"><a href="a00146.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00003_source.html#l00031">_noise.hpp:31</a></div></div>
-<div class="ttc" id="a00150_html_gad0f444d4b81cc53c3b6edf5aa25078c2"><div class="ttname"><a href="a00150.html#gad0f444d4b81cc53c3b6edf5aa25078c2">glm::fma</a></div><div class="ttdeci">GLM_FUNC_DECL genType fma(genType const &amp;a, genType const &amp;b, genType const &amp;c)</div><div class="ttdoc">Computes and returns a * b + c. </div></div>
-<div class="ttc" id="a00150_html_gadccbaffe46f369cf1a96b2aef92cbfdd"><div class="ttname"><a href="a00150.html#gadccbaffe46f369cf1a96b2aef92cbfdd">glm::mix</a></div><div class="ttdeci">GLM_FUNC_DECL vecType&lt; T, P &gt; mix(vecType&lt; T, P &gt; const &amp;x, vecType&lt; T, P &gt; const &amp;y, vecType&lt; U, P &gt; const &amp;a)</div><div class="ttdoc">If genTypeU is a floating scalar or vector: Returns x * (1.0 - a) + y * a, i.e., the linear blend of ...</div></div>
-<div class="ttc" id="a00150_html_ga634cdbf8b37edca03f2248450570fd54"><div class="ttname"><a href="a00150.html#ga634cdbf8b37edca03f2248450570fd54">glm::trunc</a></div><div class="ttdeci">GLM_FUNC_DECL vecType&lt; T, P &gt; trunc(vecType&lt; T, P &gt; const &amp;x)</div><div class="ttdoc">Returns a value equal to the nearest integer to x whose absolute value is not larger than the absolut...</div></div>
-<div class="ttc" id="a00150_html_ga9189b2bec45ff301923ea8f8dd157fb8"><div class="ttname"><a href="a00150.html#ga9189b2bec45ff301923ea8f8dd157fb8">glm::ceil</a></div><div class="ttdeci">GLM_FUNC_DECL vecType&lt; T, P &gt; ceil(vecType&lt; T, P &gt; const &amp;x)</div><div class="ttdoc">Returns a value equal to the nearest integer that is greater than or equal to x. </div></div>
-<div class="ttc" id="a00196_html_ga6c460e9414a50b2fc455c8f64c86cdc9"><div class="ttname"><a href="a00196.html#ga6c460e9414a50b2fc455c8f64c86cdc9">glm::fastSqrt</a></div><div class="ttdeci">GLM_FUNC_DECL genType fastSqrt(genType x)</div><div class="ttdoc">Faster than the common sqrt function but less accurate. </div></div>
-<div class="ttc" id="a00150_html_ga93bce26c7d80d30a62f5c508f8498a6c"><div class="ttname"><a href="a00150.html#ga93bce26c7d80d30a62f5c508f8498a6c">glm::clamp</a></div><div class="ttdeci">GLM_FUNC_DECL genType clamp(genType x, genType minVal, genType maxVal)</div><div class="ttdoc">Returns min(max(x, minVal), maxVal) for each component in x using the floating-point values minVal an...</div></div>
-<div class="ttc" id="a00150_html_gada0165544c0618d634c8056a88082ce9"><div class="ttname"><a href="a00150.html#gada0165544c0618d634c8056a88082ce9">glm::round</a></div><div class="ttdeci">GLM_FUNC_DECL vecType&lt; T, P &gt; round(vecType&lt; T, P &gt; const &amp;x)</div><div class="ttdoc">Returns a value equal to the nearest integer to x. </div></div>
-<div class="ttc" id="a00150_html_gac3446b4138e0b8757561c07cd19f084d"><div class="ttname"><a href="a00150.html#gac3446b4138e0b8757561c07cd19f084d">glm::sign</a></div><div class="ttdeci">GLM_FUNC_DECL vecType&lt; T, P &gt; sign(vecType&lt; T, P &gt; const &amp;x)</div><div class="ttdoc">Returns 1.0 if x > 0, 0.0 if x == 0, or -1.0 if x < 0. </div></div>
-<div class="ttc" id="a00152_html_gab63646fc36b81cf69d3ce123a72f76f2"><div class="ttname"><a href="a00152.html#gab63646fc36b81cf69d3ce123a72f76f2">glm::reflect</a></div><div class="ttdeci">GLM_FUNC_DECL genType reflect(genType const &amp;I, genType const &amp;N)</div><div class="ttdoc">For the incident vector I and surface orientation N, returns the reflection direction : result = I - ...</div></div>
-<div class="ttc" id="a00150_html_ga568b822b78f045f77c3325e165b44d5d"><div class="ttname"><a href="a00150.html#ga568b822b78f045f77c3325e165b44d5d">glm::floor</a></div><div class="ttdeci">GLM_FUNC_DECL vecType&lt; T, P &gt; floor(vecType&lt; T, P &gt; const &amp;x)</div><div class="ttdoc">Returns a value equal to the nearest integer that is less then or equal to x. </div></div>
-<div class="ttc" id="a00152_html_ga7ca317dde0d7e94d920153554d4a02a8"><div class="ttname"><a href="a00152.html#ga7ca317dde0d7e94d920153554d4a02a8">glm::distance</a></div><div class="ttdeci">GLM_FUNC_DECL T distance(vecType&lt; T, P &gt; const &amp;p0, vecType&lt; T, P &gt; const &amp;p1)</div><div class="ttdoc">Returns the distance betwwen p0 and p1, i.e., length(p0 - p1). </div></div>
-<div class="ttc" id="a00150_html_ga8ba89e40e55ae5cdf228548f9b7639c7"><div class="ttname"><a href="a00150.html#ga8ba89e40e55ae5cdf228548f9b7639c7">glm::fract</a></div><div class="ttdeci">GLM_FUNC_DECL genType fract(genType x)</div><div class="ttdoc">Return x - floor(x). </div></div>
-<div class="ttc" id="a00150_html_ga562edf7eca082cc5b7a0aaf180436daf"><div class="ttname"><a href="a00150.html#ga562edf7eca082cc5b7a0aaf180436daf">glm::smoothstep</a></div><div class="ttdeci">GLM_FUNC_DECL genType smoothstep(genType edge0, genType edge1, genType x)</div><div class="ttdoc">Returns 0.0 if x <= edge0 and 1.0 if x >= edge1 and performs smooth Hermite interpolation between 0 a...</div></div>
-<div class="ttc" id="a00152_html_gafe2cae8cb26fd44be62aee97369d0af8"><div class="ttname"><a href="a00152.html#gafe2cae8cb26fd44be62aee97369d0af8">glm::cross</a></div><div class="ttdeci">GLM_FUNC_DECL tvec3&lt; T, P &gt; cross(tvec3&lt; T, P &gt; const &amp;x, tvec3&lt; T, P &gt; const &amp;y)</div><div class="ttdoc">Returns the cross product of x and y. </div></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genType&gt; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        GLM_FUNC_DECL genType <a class="code" href="a00230.html#ga8119c04f8210fd0d292757565cd6918d">catmullRom</a>(</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                genType <span class="keyword">const</span> &amp; v1, </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                genType <span class="keyword">const</span> &amp; v2, </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                genType <span class="keyword">const</span> &amp; v3, </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                genType <span class="keyword">const</span> &amp; v4, </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keyword">typename</span> genType::value_type <span class="keyword">const</span> &amp; s);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genType&gt; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        GLM_FUNC_DECL genType <a class="code" href="a00230.html#gaa69e143f6374d32f934a8edeaa50bac9">hermite</a>(</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                genType <span class="keyword">const</span> &amp; v1, </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                genType <span class="keyword">const</span> &amp; t1, </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                genType <span class="keyword">const</span> &amp; v2, </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                genType <span class="keyword">const</span> &amp; t2, </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <span class="keyword">typename</span> genType::value_type <span class="keyword">const</span> &amp; s);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genType&gt; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        GLM_FUNC_DECL genType <a class="code" href="a00230.html#ga6b867eb52e2fc933d2e0bf26aabc9a70">cubic</a>(</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                genType <span class="keyword">const</span> &amp; v1, </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                genType <span class="keyword">const</span> &amp; v2, </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                genType <span class="keyword">const</span> &amp; v3, </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                genType <span class="keyword">const</span> &amp; v4, </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="keyword">typename</span> genType::value_type <span class="keyword">const</span> &amp; s);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}<span class="comment">//namespace glm</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#include &quot;spline.inl&quot;</span></div>
+<div class="ttc" id="a00230_html_ga8119c04f8210fd0d292757565cd6918d"><div class="ttname"><a href="a00230.html#ga8119c04f8210fd0d292757565cd6918d">glm::catmullRom</a></div><div class="ttdeci">GLM_FUNC_DECL genType catmullRom(genType const &amp;v1, genType const &amp;v2, genType const &amp;v3, genType const &amp;v4, typename genType::value_type const &amp;s)</div><div class="ttdoc">Return a point from a catmull rom curve. </div></div>
+<div class="ttc" id="a00230_html_ga6b867eb52e2fc933d2e0bf26aabc9a70"><div class="ttname"><a href="a00230.html#ga6b867eb52e2fc933d2e0bf26aabc9a70">glm::cubic</a></div><div class="ttdeci">GLM_FUNC_DECL genType cubic(genType const &amp;v1, genType const &amp;v2, genType const &amp;v3, genType const &amp;v4, typename genType::value_type const &amp;s)</div><div class="ttdoc">Return a point from a cubic curve. </div></div>
+<div class="ttc" id="a00145_html"><div class="ttname"><a href="a00145.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00003_source.html#l00039">_noise.hpp:39</a></div></div>
+<div class="ttc" id="a00230_html_gaa69e143f6374d32f934a8edeaa50bac9"><div class="ttname"><a href="a00230.html#gaa69e143f6374d32f934a8edeaa50bac9">glm::hermite</a></div><div class="ttdeci">GLM_FUNC_DECL genType hermite(genType const &amp;v1, genType const &amp;t1, genType const &amp;v2, genType const &amp;t2, typename genType::value_type const &amp;s)</div><div class="ttdoc">Return a point from a hermite curve. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

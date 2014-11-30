@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>0.9.6: matrix_transform.hpp Source File</title>
+<title>0.9.6: matrix_transform_2d.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -41,145 +41,64 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_885cc87fac2d91e269af0a5a959fa5f6.html">E:</a></li><li class="navelem"><a class="el" href="dir_153b03dd71a7bff437c38ec53cb2e014.html">Source</a></li><li class="navelem"><a class="el" href="dir_0c6652232a835be54bedd6cfd7502504.html">G-Truc</a></li><li class="navelem"><a class="el" href="dir_e2c7faa62a52820b5be8795affd6e495.html">glm</a></li><li class="navelem"><a class="el" href="dir_5cf96241cdcf6779b80e104875f9716f.html">glm</a></li><li class="navelem"><a class="el" href="dir_8aa733b201d3a9f98631fbccc86ae6c7.html">gtc</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_885cc87fac2d91e269af0a5a959fa5f6.html">E:</a></li><li class="navelem"><a class="el" href="dir_153b03dd71a7bff437c38ec53cb2e014.html">Source</a></li><li class="navelem"><a class="el" href="dir_0c6652232a835be54bedd6cfd7502504.html">G-Truc</a></li><li class="navelem"><a class="el" href="dir_e2c7faa62a52820b5be8795affd6e495.html">glm</a></li><li class="navelem"><a class="el" href="dir_5cf96241cdcf6779b80e104875f9716f.html">glm</a></li><li class="navelem"><a class="el" href="dir_5d3642ea3c7f2dae4a957f2cf472c9ae.html">gtx</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">matrix_transform.hpp</div>  </div>
+<div class="title">matrix_transform_2d.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00076.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">// Dependency:</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &quot;../mat3x3.hpp&quot;</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;../vec2.hpp&quot;</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">// Dependencies</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#include &quot;../mat4x4.hpp&quot;</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#include &quot;../vec2.hpp&quot;</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#include &quot;../vec3.hpp&quot;</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#include &quot;../vec4.hpp&quot;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#include &quot;../gtc/constants.hpp&quot;</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#if(defined(GLM_MESSAGES) &amp;&amp; !defined(GLM_EXT_INCLUDED))</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#       pragma message(&quot;GLM: GLM_GTC_matrix_transform extension included&quot;)</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00146.html">glm</a></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        GLM_FUNC_DECL tmat4x4&lt;T, P&gt; <a class="code" href="a00172.html#gaee134ab77c6c5548a6ebf4e8e476c6ed">translate</a>(</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                tmat4x4&lt;T, P&gt; <span class="keyword">const</span> &amp; m,</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                tvec3&lt;T, P&gt; <span class="keyword">const</span> &amp; v);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        GLM_FUNC_DECL tmat4x4&lt;T, P&gt; <a class="code" href="a00172.html#ga161b1df124348f232d994ba7958e4815">rotate</a>(</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                tmat4x4&lt;T, P&gt; <span class="keyword">const</span> &amp; m,</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                T <a class="code" href="a00175.html#gad4a4448baedb198b2b1e7880d2544dc9">angle</a>,</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                tvec3&lt;T, P&gt; <span class="keyword">const</span> &amp; <a class="code" href="a00175.html#ga0b3e87a13b2708154b72259e50789a19">axis</a>);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        GLM_FUNC_DECL tmat4x4&lt;T, P&gt; <a class="code" href="a00172.html#ga8f062fcc07e2445500793f2803afebb0">scale</a>(</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                tmat4x4&lt;T, P&gt; <span class="keyword">const</span> &amp; m,</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                tvec3&lt;T, P&gt; <span class="keyword">const</span> &amp; v);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        GLM_FUNC_DECL tmat4x4&lt;T, defaultp&gt; <a class="code" href="a00172.html#ga45b1b64f99255c07119b4f1aaed04dd7">ortho</a>(</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                T left,</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                T right,</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                T bottom,</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                T top,</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                T zNear,</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                T zFar);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        GLM_FUNC_DECL tmat4x4&lt;T, defaultp&gt; <a class="code" href="a00172.html#ga45b1b64f99255c07119b4f1aaed04dd7">ortho</a>(</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                T left,</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                T right,</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                T bottom,</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                T top);</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        GLM_FUNC_DECL tmat4x4&lt;T, defaultp&gt; <a class="code" href="a00172.html#gada6deb989d4b553fe0f7e3279f3afae1">frustum</a>(</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                T left,</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                T right,</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                T bottom,</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                T top,</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                T near,</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                T far);</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        GLM_FUNC_DECL tmat4x4&lt;T, defaultp&gt; <a class="code" href="a00172.html#gac3613dcb6c6916465ad5b7ad5a786175">perspective</a>(</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                T fovy,</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                T aspect,</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                T near,</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                T far);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        GLM_FUNC_DECL tmat4x4&lt;T, defaultp&gt; <a class="code" href="a00172.html#gae9146e2c550fc8646299e4b900238145">perspectiveFov</a>(</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                T fov,</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                T width,</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                T height,</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                T near,</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                T far);</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        GLM_FUNC_DECL tmat4x4&lt;T, defaultp&gt; <a class="code" href="a00172.html#ga79f704ad91a5f0d68abd88c66c8186e5">infinitePerspective</a>(</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;                T fovy, T aspect, T near);</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        GLM_FUNC_DECL tmat4x4&lt;T, defaultp&gt; <a class="code" href="a00172.html#gaa50fce7f50b5d5da881ed30f5532a921">tweakedInfinitePerspective</a>(</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;                T fovy, T aspect, T near);</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        GLM_FUNC_DECL tmat4x4&lt;T, defaultp&gt; <a class="code" href="a00172.html#gaa50fce7f50b5d5da881ed30f5532a921">tweakedInfinitePerspective</a>(</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                T fovy, T aspect, T near, T ep);</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U, precision P&gt;</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        GLM_FUNC_DECL tvec3&lt;T, P&gt; <a class="code" href="a00172.html#gad743556abd138264d4f06f4ca27f1d7e">project</a>(</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                tvec3&lt;T, P&gt; <span class="keyword">const</span> &amp; obj,</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                tmat4x4&lt;T, P&gt; <span class="keyword">const</span> &amp; model,</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                tmat4x4&lt;T, P&gt; <span class="keyword">const</span> &amp; <a class="code" href="a00222.html#gadf29123bcf748fc9d6fb0998192184cf">proj</a>,</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                tvec4&lt;U, P&gt; <span class="keyword">const</span> &amp; viewport);</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U, precision P&gt;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        GLM_FUNC_DECL tvec3&lt;T, P&gt; <a class="code" href="a00172.html#ga82a558de3ce42cbeed0f6ec292a4e1b3">unProject</a>(</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                tvec3&lt;T, P&gt; <span class="keyword">const</span> &amp; win,</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                tmat4x4&lt;T, P&gt; <span class="keyword">const</span> &amp; model,</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                tmat4x4&lt;T, P&gt; <span class="keyword">const</span> &amp; <a class="code" href="a00222.html#gadf29123bcf748fc9d6fb0998192184cf">proj</a>,</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                tvec4&lt;U, P&gt; <span class="keyword">const</span> &amp; viewport);</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P, <span class="keyword">typename</span> U&gt;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        GLM_FUNC_DECL tmat4x4&lt;T, P&gt; <a class="code" href="a00172.html#ga9026c77505b99990f68826f27c267dc5">pickMatrix</a>(</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;                tvec2&lt;T, P&gt; <span class="keyword">const</span> &amp; center,</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;                tvec2&lt;T, P&gt; <span class="keyword">const</span> &amp; delta,</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;                tvec4&lt;U, P&gt; <span class="keyword">const</span> &amp; viewport);</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        GLM_FUNC_DECL tmat4x4&lt;T, P&gt; <a class="code" href="a00172.html#gaf8eef81da1ad09f6a8920101c01eaae4">lookAt</a>(</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;                tvec3&lt;T, P&gt; <span class="keyword">const</span> &amp; eye,</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;                tvec3&lt;T, P&gt; <span class="keyword">const</span> &amp; center,</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;                tvec3&lt;T, P&gt; <span class="keyword">const</span> &amp; up);</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;}<span class="comment">//namespace glm</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="preprocessor">#include &quot;matrix_transform.inl&quot;</span></div>
-<div class="ttc" id="a00172_html_ga82a558de3ce42cbeed0f6ec292a4e1b3"><div class="ttname"><a href="a00172.html#ga82a558de3ce42cbeed0f6ec292a4e1b3">glm::unProject</a></div><div class="ttdeci">GLM_FUNC_DECL tvec3&lt; T, P &gt; unProject(tvec3&lt; T, P &gt; const &amp;win, tmat4x4&lt; T, P &gt; const &amp;model, tmat4x4&lt; T, P &gt; const &amp;proj, tvec4&lt; U, P &gt; const &amp;viewport)</div><div class="ttdoc">Map the specified window coordinates (win.x, win.y, win.z) into object coordinates. </div></div>
-<div class="ttc" id="a00172_html_gaf8eef81da1ad09f6a8920101c01eaae4"><div class="ttname"><a href="a00172.html#gaf8eef81da1ad09f6a8920101c01eaae4">glm::lookAt</a></div><div class="ttdeci">GLM_FUNC_DECL tmat4x4&lt; T, P &gt; lookAt(tvec3&lt; T, P &gt; const &amp;eye, tvec3&lt; T, P &gt; const &amp;center, tvec3&lt; T, P &gt; const &amp;up)</div><div class="ttdoc">Build a look at view matrix. </div></div>
-<div class="ttc" id="a00172_html_gaee134ab77c6c5548a6ebf4e8e476c6ed"><div class="ttname"><a href="a00172.html#gaee134ab77c6c5548a6ebf4e8e476c6ed">glm::translate</a></div><div class="ttdeci">GLM_FUNC_DECL tmat4x4&lt; T, P &gt; translate(tmat4x4&lt; T, P &gt; const &amp;m, tvec3&lt; T, P &gt; const &amp;v)</div><div class="ttdoc">Builds a translation 4 * 4 matrix created from a vector of 3 components. </div></div>
-<div class="ttc" id="a00172_html_gada6deb989d4b553fe0f7e3279f3afae1"><div class="ttname"><a href="a00172.html#gada6deb989d4b553fe0f7e3279f3afae1">glm::frustum</a></div><div class="ttdeci">GLM_FUNC_DECL tmat4x4&lt; T, defaultp &gt; frustum(T left, T right, T bottom, T top, T near, T far)</div><div class="ttdoc">Creates a frustum matrix. </div></div>
-<div class="ttc" id="a00172_html_gaa50fce7f50b5d5da881ed30f5532a921"><div class="ttname"><a href="a00172.html#gaa50fce7f50b5d5da881ed30f5532a921">glm::tweakedInfinitePerspective</a></div><div class="ttdeci">GLM_FUNC_DECL tmat4x4&lt; T, defaultp &gt; tweakedInfinitePerspective(T fovy, T aspect, T near, T ep)</div><div class="ttdoc">Creates a matrix for a symmetric perspective-view frustum with far plane at infinite for graphics har...</div></div>
-<div class="ttc" id="a00172_html_ga79f704ad91a5f0d68abd88c66c8186e5"><div class="ttname"><a href="a00172.html#ga79f704ad91a5f0d68abd88c66c8186e5">glm::infinitePerspective</a></div><div class="ttdeci">GLM_FUNC_DECL tmat4x4&lt; T, defaultp &gt; infinitePerspective(T fovy, T aspect, T near)</div><div class="ttdoc">Creates a matrix for a symmetric perspective-view frustum with far plane at infinite. </div></div>
-<div class="ttc" id="a00172_html_gac3613dcb6c6916465ad5b7ad5a786175"><div class="ttname"><a href="a00172.html#gac3613dcb6c6916465ad5b7ad5a786175">glm::perspective</a></div><div class="ttdeci">GLM_FUNC_DECL tmat4x4&lt; T, defaultp &gt; perspective(T fovy, T aspect, T near, T far)</div><div class="ttdoc">Creates a matrix for a symetric perspective-view frustum. </div></div>
-<div class="ttc" id="a00172_html_ga161b1df124348f232d994ba7958e4815"><div class="ttname"><a href="a00172.html#ga161b1df124348f232d994ba7958e4815">glm::rotate</a></div><div class="ttdeci">GLM_FUNC_DECL tmat4x4&lt; T, P &gt; rotate(tmat4x4&lt; T, P &gt; const &amp;m, T angle, tvec3&lt; T, P &gt; const &amp;axis)</div><div class="ttdoc">Builds a rotation 4 * 4 matrix created from an axis vector and an angle. </div></div>
-<div class="ttc" id="a00172_html_ga45b1b64f99255c07119b4f1aaed04dd7"><div class="ttname"><a href="a00172.html#ga45b1b64f99255c07119b4f1aaed04dd7">glm::ortho</a></div><div class="ttdeci">GLM_FUNC_DECL tmat4x4&lt; T, defaultp &gt; ortho(T left, T right, T bottom, T top)</div><div class="ttdoc">Creates a matrix for projecting two-dimensional coordinates onto the screen. </div></div>
-<div class="ttc" id="a00222_html_gadf29123bcf748fc9d6fb0998192184cf"><div class="ttname"><a href="a00222.html#gadf29123bcf748fc9d6fb0998192184cf">glm::proj</a></div><div class="ttdeci">GLM_FUNC_DECL vecType proj(vecType const &amp;x, vecType const &amp;Normal)</div><div class="ttdoc">Projects x on Normal. </div></div>
-<div class="ttc" id="a00172_html_ga9026c77505b99990f68826f27c267dc5"><div class="ttname"><a href="a00172.html#ga9026c77505b99990f68826f27c267dc5">glm::pickMatrix</a></div><div class="ttdeci">GLM_FUNC_DECL tmat4x4&lt; T, P &gt; pickMatrix(tvec2&lt; T, P &gt; const &amp;center, tvec2&lt; T, P &gt; const &amp;delta, tvec4&lt; U, P &gt; const &amp;viewport)</div><div class="ttdoc">Define a picking region. </div></div>
-<div class="ttc" id="a00146_html"><div class="ttname"><a href="a00146.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00003_source.html#l00031">_noise.hpp:31</a></div></div>
-<div class="ttc" id="a00172_html_gad743556abd138264d4f06f4ca27f1d7e"><div class="ttname"><a href="a00172.html#gad743556abd138264d4f06f4ca27f1d7e">glm::project</a></div><div class="ttdeci">GLM_FUNC_DECL tvec3&lt; T, P &gt; project(tvec3&lt; T, P &gt; const &amp;obj, tmat4x4&lt; T, P &gt; const &amp;model, tmat4x4&lt; T, P &gt; const &amp;proj, tvec4&lt; U, P &gt; const &amp;viewport)</div><div class="ttdoc">Map the specified object coordinates (obj.x, obj.y, obj.z) into window coordinates. </div></div>
-<div class="ttc" id="a00172_html_ga8f062fcc07e2445500793f2803afebb0"><div class="ttname"><a href="a00172.html#ga8f062fcc07e2445500793f2803afebb0">glm::scale</a></div><div class="ttdeci">GLM_FUNC_DECL tmat4x4&lt; T, P &gt; scale(tmat4x4&lt; T, P &gt; const &amp;m, tvec3&lt; T, P &gt; const &amp;v)</div><div class="ttdoc">Builds a scale 4 * 4 matrix created from 3 scalars. </div></div>
-<div class="ttc" id="a00175_html_gad4a4448baedb198b2b1e7880d2544dc9"><div class="ttname"><a href="a00175.html#gad4a4448baedb198b2b1e7880d2544dc9">glm::angle</a></div><div class="ttdeci">GLM_FUNC_DECL T angle(tquat&lt; T, P &gt; const &amp;x)</div><div class="ttdoc">Returns the quaternion rotation angle. </div></div>
-<div class="ttc" id="a00175_html_ga0b3e87a13b2708154b72259e50789a19"><div class="ttname"><a href="a00175.html#ga0b3e87a13b2708154b72259e50789a19">glm::axis</a></div><div class="ttdeci">GLM_FUNC_DECL tvec3&lt; T, P &gt; axis(tquat&lt; T, P &gt; const &amp;x)</div><div class="ttdoc">Returns the q rotation axis. </div></div>
-<div class="ttc" id="a00172_html_gae9146e2c550fc8646299e4b900238145"><div class="ttname"><a href="a00172.html#gae9146e2c550fc8646299e4b900238145">glm::perspectiveFov</a></div><div class="ttdeci">GLM_FUNC_DECL tmat4x4&lt; T, defaultp &gt; perspectiveFov(T fov, T width, T height, T near, T far)</div><div class="ttdoc">Builds a perspective projection matrix based on a field of view. </div></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#if(defined(GLM_MESSAGES) &amp;&amp; !defined(GLM_EXT_INCLUDED))</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#       pragma message(&quot;GLM: GLM_GTX_matrix_transform_2d extension included&quot;)</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00145.html">glm</a></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        GLM_FUNC_QUALIFIER tmat3x3&lt;T, P&gt; <a class="code" href="a00209.html#ga22b5e806a6d2e2be54ebd29100d11c51">translate</a>(</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                tmat3x3&lt;T, P&gt; <span class="keyword">const</span> &amp; m,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                tvec2&lt;T, P&gt; <span class="keyword">const</span> &amp; v);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        GLM_FUNC_QUALIFIER tmat3x3&lt;T, P&gt; <a class="code" href="a00209.html#gab4f798c6048db91a6d0686812fd54022">rotate</a>(</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                tmat3x3&lt;T, P&gt; <span class="keyword">const</span> &amp; m,</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                T <a class="code" href="a00174.html#gad4a4448baedb198b2b1e7880d2544dc9">angle</a>);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        GLM_FUNC_QUALIFIER tmat3x3&lt;T, P&gt; <a class="code" href="a00209.html#ga5a608eaf1fdfd0a349a30181cb6a0240">scale</a>(</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                tmat3x3&lt;T, P&gt; <span class="keyword">const</span> &amp; m,</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                tvec2&lt;T, P&gt; <span class="keyword">const</span> &amp; v);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        GLM_FUNC_QUALIFIER tmat3x3&lt;T, P&gt; <a class="code" href="a00209.html#ga3da9ea234fdb2a96c75a97a18c903489">shearX</a>(</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                tmat3x3&lt;T, P&gt; <span class="keyword">const</span> &amp; m,</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                T y);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        GLM_FUNC_QUALIFIER tmat3x3&lt;T, P&gt; <a class="code" href="a00209.html#ga93bb348e7d251bcc2c17bfc11bd82e91">shearY</a>(</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                tmat3x3&lt;T, P&gt; <span class="keyword">const</span> &amp; m,</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                T x);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}<span class="comment">//namespace glm</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#include &quot;matrix_transform_2d.inl&quot;</span></div>
+<div class="ttc" id="a00209_html_gab4f798c6048db91a6d0686812fd54022"><div class="ttname"><a href="a00209.html#gab4f798c6048db91a6d0686812fd54022">glm::rotate</a></div><div class="ttdeci">GLM_FUNC_QUALIFIER tmat3x3&lt; T, P &gt; rotate(tmat3x3&lt; T, P &gt; const &amp;m, T angle)</div><div class="ttdoc">Builds a rotation 3 * 3 matrix created from an angle. </div></div>
+<div class="ttc" id="a00209_html_ga93bb348e7d251bcc2c17bfc11bd82e91"><div class="ttname"><a href="a00209.html#ga93bb348e7d251bcc2c17bfc11bd82e91">glm::shearY</a></div><div class="ttdeci">GLM_FUNC_QUALIFIER tmat3x3&lt; T, P &gt; shearY(tmat3x3&lt; T, P &gt; const &amp;m, T x)</div><div class="ttdoc">Builds a vertical (parallel to the y axis) shear 3 * 3 matrix. </div></div>
+<div class="ttc" id="a00174_html_gad4a4448baedb198b2b1e7880d2544dc9"><div class="ttname"><a href="a00174.html#gad4a4448baedb198b2b1e7880d2544dc9">glm::angle</a></div><div class="ttdeci">GLM_FUNC_DECL T angle(tquat&lt; T, P &gt; const &amp;x)</div><div class="ttdoc">Returns the quaternion rotation angle. </div></div>
+<div class="ttc" id="a00209_html_ga5a608eaf1fdfd0a349a30181cb6a0240"><div class="ttname"><a href="a00209.html#ga5a608eaf1fdfd0a349a30181cb6a0240">glm::scale</a></div><div class="ttdeci">GLM_FUNC_QUALIFIER tmat3x3&lt; T, P &gt; scale(tmat3x3&lt; T, P &gt; const &amp;m, tvec2&lt; T, P &gt; const &amp;v)</div><div class="ttdoc">Builds a scale 3 * 3 matrix created from a vector of 2 components. </div></div>
+<div class="ttc" id="a00209_html_ga3da9ea234fdb2a96c75a97a18c903489"><div class="ttname"><a href="a00209.html#ga3da9ea234fdb2a96c75a97a18c903489">glm::shearX</a></div><div class="ttdeci">GLM_FUNC_QUALIFIER tmat3x3&lt; T, P &gt; shearX(tmat3x3&lt; T, P &gt; const &amp;m, T y)</div><div class="ttdoc">Builds an horizontal (parallel to the x axis) shear 3 * 3 matrix. </div></div>
+<div class="ttc" id="a00145_html"><div class="ttname"><a href="a00145.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00003_source.html#l00039">_noise.hpp:39</a></div></div>
+<div class="ttc" id="a00209_html_ga22b5e806a6d2e2be54ebd29100d11c51"><div class="ttname"><a href="a00209.html#ga22b5e806a6d2e2be54ebd29100d11c51">glm::translate</a></div><div class="ttdeci">GLM_FUNC_QUALIFIER tmat3x3&lt; T, P &gt; translate(tmat3x3&lt; T, P &gt; const &amp;m, tvec2&lt; T, P &gt; const &amp;v)</div><div class="ttdoc">Builds a translation 3 * 3 matrix created from a vector of 2 components. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

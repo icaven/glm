@@ -50,52 +50,52 @@
 </div><!--header-->
 <div class="contents">
 <a href="a00011.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">// Dependency:</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;../glm.hpp&quot;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#if(defined(GLM_MESSAGES) &amp;&amp; !defined(GLM_EXT_INCLUDED))</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#       pragma message(&quot;GLM: GLM_GTX_color_space extension included&quot;)</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">// Dependency:</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#include &quot;../glm.hpp&quot;</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00146.html">glm</a></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        GLM_FUNC_DECL tvec3&lt;T, P&gt; <a class="code" href="a00186.html#ga36b0619e31daf57bc4a54dac2dcf34b7">rgbColor</a>(</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                tvec3&lt;T, P&gt; <span class="keyword">const</span> &amp; hsvValue);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        GLM_FUNC_DECL tvec3&lt;T, P&gt; <a class="code" href="a00186.html#gae72039c00a7be2f03a3b94b37a54349a">hsvColor</a>(</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                tvec3&lt;T, P&gt; <span class="keyword">const</span> &amp; rgbValue);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        GLM_FUNC_DECL tmat4x4&lt;T, defaultp&gt; <a class="code" href="a00186.html#ga2033e0566c595230714af396744e8a61">saturation</a>(</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                T <span class="keyword">const</span> s);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        GLM_FUNC_DECL tvec3&lt;T, P&gt; <a class="code" href="a00186.html#ga2033e0566c595230714af396744e8a61">saturation</a>(</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                T <span class="keyword">const</span> s,</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                tvec3&lt;T, P&gt; <span class="keyword">const</span> &amp; color);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        GLM_FUNC_DECL tvec4&lt;T, P&gt; <a class="code" href="a00186.html#ga2033e0566c595230714af396744e8a61">saturation</a>(</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                T <span class="keyword">const</span> s,</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                tvec4&lt;T, P&gt; <span class="keyword">const</span> &amp; color);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        GLM_FUNC_DECL T <a class="code" href="a00186.html#gaa2f38a5100c3e1c7d39920df43bd8cbe">luminosity</a>(</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                tvec3&lt;T, P&gt; <span class="keyword">const</span> &amp; color);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}<span class="comment">//namespace glm</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#include &quot;color_space.inl&quot;</span></div>
-<div class="ttc" id="a00146_html"><div class="ttname"><a href="a00146.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00003_source.html#l00031">_noise.hpp:31</a></div></div>
-<div class="ttc" id="a00186_html_ga36b0619e31daf57bc4a54dac2dcf34b7"><div class="ttname"><a href="a00186.html#ga36b0619e31daf57bc4a54dac2dcf34b7">glm::rgbColor</a></div><div class="ttdeci">GLM_FUNC_DECL tvec3&lt; T, P &gt; rgbColor(tvec3&lt; T, P &gt; const &amp;hsvValue)</div><div class="ttdoc">Converts a color from HSV color space to its color in RGB color space. </div></div>
-<div class="ttc" id="a00186_html_gaa2f38a5100c3e1c7d39920df43bd8cbe"><div class="ttname"><a href="a00186.html#gaa2f38a5100c3e1c7d39920df43bd8cbe">glm::luminosity</a></div><div class="ttdeci">GLM_FUNC_DECL T luminosity(tvec3&lt; T, P &gt; const &amp;color)</div><div class="ttdoc">Compute color luminosity associating ratios (0.33, 0.59, 0.11) to RGB canals. </div></div>
-<div class="ttc" id="a00186_html_ga2033e0566c595230714af396744e8a61"><div class="ttname"><a href="a00186.html#ga2033e0566c595230714af396744e8a61">glm::saturation</a></div><div class="ttdeci">GLM_FUNC_DECL tvec4&lt; T, P &gt; saturation(T const s, tvec4&lt; T, P &gt; const &amp;color)</div><div class="ttdoc">Modify the saturation of a color. </div></div>
-<div class="ttc" id="a00186_html_gae72039c00a7be2f03a3b94b37a54349a"><div class="ttname"><a href="a00186.html#gae72039c00a7be2f03a3b94b37a54349a">glm::hsvColor</a></div><div class="ttdeci">GLM_FUNC_DECL tvec3&lt; T, P &gt; hsvColor(tvec3&lt; T, P &gt; const &amp;rgbValue)</div><div class="ttdoc">Converts a color from RGB color space to its color in HSV color space. </div></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#if(defined(GLM_MESSAGES) &amp;&amp; !defined(GLM_EXT_INCLUDED))</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#       pragma message(&quot;GLM: GLM_GTX_color_space extension included&quot;)</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00145.html">glm</a></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        GLM_FUNC_DECL tvec3&lt;T, P&gt; <a class="code" href="a00185.html#ga36b0619e31daf57bc4a54dac2dcf34b7">rgbColor</a>(</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                tvec3&lt;T, P&gt; <span class="keyword">const</span> &amp; hsvValue);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        GLM_FUNC_DECL tvec3&lt;T, P&gt; <a class="code" href="a00185.html#gae72039c00a7be2f03a3b94b37a54349a">hsvColor</a>(</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                tvec3&lt;T, P&gt; <span class="keyword">const</span> &amp; rgbValue);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        GLM_FUNC_DECL tmat4x4&lt;T, defaultp&gt; <a class="code" href="a00185.html#ga2033e0566c595230714af396744e8a61">saturation</a>(</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                T <span class="keyword">const</span> s);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        GLM_FUNC_DECL tvec3&lt;T, P&gt; <a class="code" href="a00185.html#ga2033e0566c595230714af396744e8a61">saturation</a>(</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                T <span class="keyword">const</span> s,</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                tvec3&lt;T, P&gt; <span class="keyword">const</span> &amp; color);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        GLM_FUNC_DECL tvec4&lt;T, P&gt; <a class="code" href="a00185.html#ga2033e0566c595230714af396744e8a61">saturation</a>(</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                T <span class="keyword">const</span> s,</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                tvec4&lt;T, P&gt; <span class="keyword">const</span> &amp; color);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P&gt;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        GLM_FUNC_DECL T <a class="code" href="a00185.html#gaa2f38a5100c3e1c7d39920df43bd8cbe">luminosity</a>(</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                tvec3&lt;T, P&gt; <span class="keyword">const</span> &amp; color);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}<span class="comment">//namespace glm</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#include &quot;color_space.inl&quot;</span></div>
+<div class="ttc" id="a00185_html_gaa2f38a5100c3e1c7d39920df43bd8cbe"><div class="ttname"><a href="a00185.html#gaa2f38a5100c3e1c7d39920df43bd8cbe">glm::luminosity</a></div><div class="ttdeci">GLM_FUNC_DECL T luminosity(tvec3&lt; T, P &gt; const &amp;color)</div><div class="ttdoc">Compute color luminosity associating ratios (0.33, 0.59, 0.11) to RGB canals. </div></div>
+<div class="ttc" id="a00185_html_gae72039c00a7be2f03a3b94b37a54349a"><div class="ttname"><a href="a00185.html#gae72039c00a7be2f03a3b94b37a54349a">glm::hsvColor</a></div><div class="ttdeci">GLM_FUNC_DECL tvec3&lt; T, P &gt; hsvColor(tvec3&lt; T, P &gt; const &amp;rgbValue)</div><div class="ttdoc">Converts a color from RGB color space to its color in HSV color space. </div></div>
+<div class="ttc" id="a00185_html_ga36b0619e31daf57bc4a54dac2dcf34b7"><div class="ttname"><a href="a00185.html#ga36b0619e31daf57bc4a54dac2dcf34b7">glm::rgbColor</a></div><div class="ttdeci">GLM_FUNC_DECL tvec3&lt; T, P &gt; rgbColor(tvec3&lt; T, P &gt; const &amp;hsvValue)</div><div class="ttdoc">Converts a color from HSV color space to its color in RGB color space. </div></div>
+<div class="ttc" id="a00185_html_ga2033e0566c595230714af396744e8a61"><div class="ttname"><a href="a00185.html#ga2033e0566c595230714af396744e8a61">glm::saturation</a></div><div class="ttdeci">GLM_FUNC_DECL tvec4&lt; T, P &gt; saturation(T const s, tvec4&lt; T, P &gt; const &amp;color)</div><div class="ttdoc">Modify the saturation of a color. </div></div>
+<div class="ttc" id="a00145_html"><div class="ttname"><a href="a00145.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00003_source.html#l00039">_noise.hpp:39</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

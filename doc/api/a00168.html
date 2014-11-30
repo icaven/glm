@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>0.9.6: GLM_GTC_integer</title>
+<title>0.9.6: GLM_GTC_matrix_access</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -39,36 +39,154 @@
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTC_integer<div class="ingroups"><a class="el" href="a00159.html">GTC Extensions (Stable)</a></div></div>  </div>
+<div class="title">GLM_GTC_matrix_access<div class="ingroups"><a class="el" href="a00158.html">GTC Extensions (Stable)</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga9bd682e74bfacb005c735305207ec417"><td class="memTemplParams" colspan="2">template&lt;typename genIUType &gt; </td></tr>
-<tr class="memitem:ga9bd682e74bfacb005c735305207ec417"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genIUType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00168.html#ga9bd682e74bfacb005c735305207ec417">log2</a> (genIUType x)</td></tr>
-<tr class="separator:ga9bd682e74bfacb005c735305207ec417"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga96022eb0d3fae39d89fc7a954e59b374"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga96022eb0d3fae39d89fc7a954e59b374"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType::col_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00168.html#ga96022eb0d3fae39d89fc7a954e59b374">column</a> (genType const &amp;m, length_t index)</td></tr>
+<tr class="separator:ga96022eb0d3fae39d89fc7a954e59b374"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9e757377523890e8b80c5843dbe4dd15"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga9e757377523890e8b80c5843dbe4dd15"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00168.html#ga9e757377523890e8b80c5843dbe4dd15">column</a> (genType const &amp;m, length_t index, typename genType::col_type const &amp;x)</td></tr>
+<tr class="separator:ga9e757377523890e8b80c5843dbe4dd15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga259e5ebd0f31ec3f83440f8cae7f5dba"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga259e5ebd0f31ec3f83440f8cae7f5dba"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType::row_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00168.html#ga259e5ebd0f31ec3f83440f8cae7f5dba">row</a> (genType const &amp;m, length_t index)</td></tr>
+<tr class="separator:ga259e5ebd0f31ec3f83440f8cae7f5dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaadcc64829aadf4103477679e48c7594f"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gaadcc64829aadf4103477679e48c7594f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00168.html#gaadcc64829aadf4103477679e48c7594f">row</a> (genType const &amp;m, length_t index, typename genType::row_type const &amp;x)</td></tr>
+<tr class="separator:gaadcc64829aadf4103477679e48c7594f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Allow to perform bit operations on integer values. </p>
-<p>&lt;<a class="el" href="a00043.html" title="OpenGL Mathematics (glm.g-truc.net) ">glm/gtc/integer.hpp</a>&gt; need to be included to use these functionalities. </p>
+<p>Defines functions to access rows or columns of a matrix easily. </p>
+<p>&lt;<a class="el" href="a00066.html" title="OpenGL Mathematics (glm.g-truc.net) ">glm/gtc/matrix_access.hpp</a>&gt; need to be included to use these functionalities. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga9bd682e74bfacb005c735305207ec417"></a>
+<a class="anchor" id="ga96022eb0d3fae39d89fc7a954e59b374"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genIUType glm::log2 </td>
+          <td class="memname">GLM_FUNC_DECL genType::col_type glm::column </td>
           <td>(</td>
-          <td class="paramtype">genIUType&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">length_t&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the log2 of x. </p>
-<p>Can be reliably using to compute mipmap count from the texture size. From GLM_GTC_integer extension. </p>
+<p>Get a specific column of a matrix. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00168.html" title="Defines functions to access rows or columns of a matrix easily. ">GLM_GTC_matrix_access</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga9e757377523890e8b80c5843dbe4dd15"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL genType glm::column </td>
+          <td>(</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">length_t&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename genType::col_type const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set a specific column to a matrix. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00168.html" title="Defines functions to access rows or columns of a matrix easily. ">GLM_GTC_matrix_access</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga259e5ebd0f31ec3f83440f8cae7f5dba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL genType::row_type glm::row </td>
+          <td>(</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">length_t&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get a specific row of a matrix. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00168.html" title="Defines functions to access rows or columns of a matrix easily. ">GLM_GTC_matrix_access</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaadcc64829aadf4103477679e48c7594f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL genType glm::row </td>
+          <td>(</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">length_t&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename genType::row_type const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set a specific row to a matrix. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00168.html" title="Defines functions to access rows or columns of a matrix easily. ">GLM_GTC_matrix_access</a> </dd></dl>
 
 </div>
 </div>

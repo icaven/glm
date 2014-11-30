@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>0.9.6: GLM_GTX_normalize_dot</title>
+<title>0.9.6: GLM_GTX_optimum_pow</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -39,78 +39,80 @@
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_normalize_dot<div class="ingroups"><a class="el" href="a00160.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_optimum_pow<div class="ingroups"><a class="el" href="a00159.html">GTX Extensions (Experimental)</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaeb26ec35a51c30dbd0d91f9da45eeafe"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:gaeb26ec35a51c30dbd0d91f9da45eeafe"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType::value_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#gaeb26ec35a51c30dbd0d91f9da45eeafe">fastNormalizeDot</a> (genType const &amp;x, genType const &amp;y)</td></tr>
-<tr class="separator:gaeb26ec35a51c30dbd0d91f9da45eeafe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga13b81f0882c1811cb6c99a5864b9c152"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:ga13b81f0882c1811cb6c99a5864b9c152"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType::value_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#ga13b81f0882c1811cb6c99a5864b9c152">normalizeDot</a> (genType const &amp;x, genType const &amp;y)</td></tr>
-<tr class="separator:ga13b81f0882c1811cb6c99a5864b9c152"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga19aaff3213bf23bdec3ef124ace237e9"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga19aaff3213bf23bdec3ef124ace237e9"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#ga19aaff3213bf23bdec3ef124ace237e9">pow2</a> (genType const &amp;x)</td></tr>
+<tr class="separator:ga19aaff3213bf23bdec3ef124ace237e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga35689d03cd434d6ea819f1942d3bf82e"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga35689d03cd434d6ea819f1942d3bf82e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#ga35689d03cd434d6ea819f1942d3bf82e">pow3</a> (genType const &amp;x)</td></tr>
+<tr class="separator:ga35689d03cd434d6ea819f1942d3bf82e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacef0968763026e180e53e735007dbf5a"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gacef0968763026e180e53e735007dbf5a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#gacef0968763026e180e53e735007dbf5a">pow4</a> (genType const &amp;x)</td></tr>
+<tr class="separator:gacef0968763026e180e53e735007dbf5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Dot product of vectors that need to be normalize with a single square root. </p>
-<p>&lt;glm/gtx/normalized_dot.hpp&gt; need to be included to use these functionalities. </p>
+<p>Integer exponentiation of power functions. </p>
+<p>&lt;<a class="el" href="a00084.html" title="OpenGL Mathematics (glm.g-truc.net) ">glm/gtx/optimum_pow.hpp</a>&gt; need to be included to use these functionalities. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="gaeb26ec35a51c30dbd0d91f9da45eeafe"></a>
+<a class="anchor" id="ga19aaff3213bf23bdec3ef124ace237e9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genType::value_type glm::fastNormalizeDot </td>
+          <td class="memname">GLM_FUNC_DECL genType glm::gtx::pow2 </td>
           <td>(</td>
           <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>x</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Normalize parameters and returns the dot product of x and y. </p>
-<p>Faster that dot(fastNormalize(x), fastNormalize(y)). From GLM_GTX_normalize_dot extension. </p>
+<p>Returns x raised to the power of 2. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00216.html" title="Integer exponentiation of power functions. ">GLM_GTX_optimum_pow</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga13b81f0882c1811cb6c99a5864b9c152"></a>
+<a class="anchor" id="ga35689d03cd434d6ea819f1942d3bf82e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genType::value_type glm::normalizeDot </td>
+          <td class="memname">GLM_FUNC_DECL genType glm::gtx::pow3 </td>
           <td>(</td>
           <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>x</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Normalize parameters and returns the dot product of x and y. </p>
-<p>It's faster that dot(normalize(x), normalize(y)). From GLM_GTX_normalize_dot extension. </p>
+<p>Returns x raised to the power of 3. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00216.html" title="Integer exponentiation of power functions. ">GLM_GTX_optimum_pow</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gacef0968763026e180e53e735007dbf5a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL genType glm::gtx::pow4 </td>
+          <td>(</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns x raised to the power of 4. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00216.html" title="Integer exponentiation of power functions. ">GLM_GTX_optimum_pow</a> </dd></dl>
 
 </div>
 </div>

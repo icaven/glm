@@ -50,52 +50,52 @@
 </div><!--header-->
 <div class="contents">
 <a href="a00008.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">// Dependencies</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;../gtc/bitfield.hpp&quot;</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#if(defined(GLM_MESSAGES))</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#       pragma message(&quot;GLM: GLM_GTX_bit extension is deprecated, include GLM_GTC_bitfield and GLM_GTC_integer instead&quot;)</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// Dependencies</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#include &quot;../gtc/bitfield.hpp&quot;</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00146.html">glm</a></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genIUType&gt;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        GLM_FUNC_DECL genIUType <a class="code" href="a00184.html#ga5eea3a4d429040af13d39a7d7cd84d73">highestBitValue</a>(genIUType Value);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#if(defined(GLM_MESSAGES))</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#       pragma message(&quot;GLM: GLM_GTX_bit extension is deprecated, include GLM_GTC_bitfield and GLM_GTC_integer instead&quot;)</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00145.html">glm</a></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>, precision&gt; <span class="keyword">class </span>vecType&gt;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        GLM_FUNC_DECL vecType&lt;T, P&gt; <a class="code" href="a00184.html#ga5eea3a4d429040af13d39a7d7cd84d73">highestBitValue</a>(vecType&lt;T, P&gt; <span class="keyword">const</span> &amp; value);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genIUType&gt;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        GLM_FUNC_DECL genIUType <a class="code" href="a00184.html#gaeaafc0666a197b7175ab9fe2bac9b76c">powerOfTwoAbove</a>(genIUType Value);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>, precision&gt; <span class="keyword">class </span>vecType&gt;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        GLM_FUNC_DECL vecType&lt;T, P&gt; <a class="code" href="a00184.html#gaeaafc0666a197b7175ab9fe2bac9b76c">powerOfTwoAbove</a>(vecType&lt;T, P&gt; <span class="keyword">const</span> &amp; value);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genIUType&gt;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        GLM_FUNC_DECL genIUType <a class="code" href="a00183.html#ga5eea3a4d429040af13d39a7d7cd84d73">highestBitValue</a>(genIUType Value);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>, precision&gt; <span class="keyword">class </span>vecType&gt;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        GLM_FUNC_DECL vecType&lt;T, P&gt; <a class="code" href="a00183.html#ga5eea3a4d429040af13d39a7d7cd84d73">highestBitValue</a>(vecType&lt;T, P&gt; <span class="keyword">const</span> &amp; value);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genIUType&gt;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        GLM_DEPRECATED GLM_FUNC_DECL genIUType <a class="code" href="a00183.html#gafe08808a50226b75b50e640a08b32ddc">powerOfTwoAbove</a>(genIUType Value);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genIUType&gt;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        GLM_FUNC_DECL genIUType <a class="code" href="a00184.html#gac1a4b469276f2f1e34e515a74e495cc9">powerOfTwoBelow</a>(genIUType Value);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>, precision&gt; <span class="keyword">class </span>vecType&gt;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        GLM_FUNC_DECL vecType&lt;T, P&gt; <a class="code" href="a00184.html#gac1a4b469276f2f1e34e515a74e495cc9">powerOfTwoBelow</a>(vecType&lt;T, P&gt; <span class="keyword">const</span> &amp; value);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genIUType&gt;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        GLM_FUNC_DECL genIUType <a class="code" href="a00184.html#ga6f3ce56c9f85dbd45a157f668cd49a63">powerOfTwoNearest</a>(genIUType Value);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>, precision&gt; <span class="keyword">class </span>vecType&gt;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        GLM_DEPRECATED GLM_FUNC_DECL vecType&lt;T, P&gt; <a class="code" href="a00183.html#gafe08808a50226b75b50e640a08b32ddc">powerOfTwoAbove</a>(vecType&lt;T, P&gt; <span class="keyword">const</span> &amp; value);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genIUType&gt;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        GLM_DEPRECATED GLM_FUNC_DECL genIUType <a class="code" href="a00183.html#gae33bb1ca2b55846b23a0f0796a679195">powerOfTwoBelow</a>(genIUType Value);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>, precision&gt; <span class="keyword">class </span>vecType&gt;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        GLM_FUNC_DECL vecType&lt;T, P&gt; <a class="code" href="a00184.html#ga6f3ce56c9f85dbd45a157f668cd49a63">powerOfTwoNearest</a>(vecType&lt;T, P&gt; <span class="keyword">const</span> &amp; value);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        GLM_DEPRECATED GLM_FUNC_DECL vecType&lt;T, P&gt; <a class="code" href="a00183.html#gae33bb1ca2b55846b23a0f0796a679195">powerOfTwoBelow</a>(vecType&lt;T, P&gt; <span class="keyword">const</span> &amp; value);</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;} <span class="comment">//namespace glm</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#include &quot;bit.inl&quot;</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="ttc" id="a00184_html_ga6f3ce56c9f85dbd45a157f668cd49a63"><div class="ttname"><a href="a00184.html#ga6f3ce56c9f85dbd45a157f668cd49a63">glm::powerOfTwoNearest</a></div><div class="ttdeci">GLM_FUNC_DECL vecType&lt; T, P &gt; powerOfTwoNearest(vecType&lt; T, P &gt; const &amp;value)</div><div class="ttdoc">Return the power of two number which value is the closet to the input value. </div></div>
-<div class="ttc" id="a00146_html"><div class="ttname"><a href="a00146.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00003_source.html#l00031">_noise.hpp:31</a></div></div>
-<div class="ttc" id="a00184_html_ga5eea3a4d429040af13d39a7d7cd84d73"><div class="ttname"><a href="a00184.html#ga5eea3a4d429040af13d39a7d7cd84d73">glm::highestBitValue</a></div><div class="ttdeci">GLM_FUNC_DECL vecType&lt; T, P &gt; highestBitValue(vecType&lt; T, P &gt; const &amp;value)</div><div class="ttdoc">Find the highest bit set to 1 in a integer variable and return its value. </div></div>
-<div class="ttc" id="a00184_html_gaeaafc0666a197b7175ab9fe2bac9b76c"><div class="ttname"><a href="a00184.html#gaeaafc0666a197b7175ab9fe2bac9b76c">glm::powerOfTwoAbove</a></div><div class="ttdeci">GLM_FUNC_DECL vecType&lt; T, P &gt; powerOfTwoAbove(vecType&lt; T, P &gt; const &amp;value)</div><div class="ttdoc">Return the power of two number which value is just higher the input value. </div></div>
-<div class="ttc" id="a00184_html_gac1a4b469276f2f1e34e515a74e495cc9"><div class="ttname"><a href="a00184.html#gac1a4b469276f2f1e34e515a74e495cc9">glm::powerOfTwoBelow</a></div><div class="ttdeci">GLM_FUNC_DECL vecType&lt; T, P &gt; powerOfTwoBelow(vecType&lt; T, P &gt; const &amp;value)</div><div class="ttdoc">Return the power of two number which value is just lower the input value. </div></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> genIUType&gt;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        GLM_DEPRECATED GLM_FUNC_DECL genIUType <a class="code" href="a00183.html#ga2d7e85995d097518b8d70cd409bda39e">powerOfTwoNearest</a>(genIUType Value);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, precision P, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>, precision&gt; <span class="keyword">class </span>vecType&gt;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        GLM_DEPRECATED GLM_FUNC_DECL vecType&lt;T, P&gt; <a class="code" href="a00183.html#ga2d7e85995d097518b8d70cd409bda39e">powerOfTwoNearest</a>(vecType&lt;T, P&gt; <span class="keyword">const</span> &amp; value);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;} <span class="comment">//namespace glm</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#include &quot;bit.inl&quot;</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="ttc" id="a00183_html_ga2d7e85995d097518b8d70cd409bda39e"><div class="ttname"><a href="a00183.html#ga2d7e85995d097518b8d70cd409bda39e">glm::powerOfTwoNearest</a></div><div class="ttdeci">GLM_DEPRECATED GLM_FUNC_DECL vecType&lt; T, P &gt; powerOfTwoNearest(vecType&lt; T, P &gt; const &amp;value)</div><div class="ttdoc">Return the power of two number which value is the closet to the input value. </div></div>
+<div class="ttc" id="a00145_html"><div class="ttname"><a href="a00145.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00003_source.html#l00039">_noise.hpp:39</a></div></div>
+<div class="ttc" id="a00183_html_ga5eea3a4d429040af13d39a7d7cd84d73"><div class="ttname"><a href="a00183.html#ga5eea3a4d429040af13d39a7d7cd84d73">glm::highestBitValue</a></div><div class="ttdeci">GLM_FUNC_DECL vecType&lt; T, P &gt; highestBitValue(vecType&lt; T, P &gt; const &amp;value)</div><div class="ttdoc">Find the highest bit set to 1 in a integer variable and return its value. </div></div>
+<div class="ttc" id="a00183_html_gafe08808a50226b75b50e640a08b32ddc"><div class="ttname"><a href="a00183.html#gafe08808a50226b75b50e640a08b32ddc">glm::powerOfTwoAbove</a></div><div class="ttdeci">GLM_DEPRECATED GLM_FUNC_DECL vecType&lt; T, P &gt; powerOfTwoAbove(vecType&lt; T, P &gt; const &amp;value)</div><div class="ttdoc">Return the power of two number which value is just higher the input value. </div></div>
+<div class="ttc" id="a00183_html_gae33bb1ca2b55846b23a0f0796a679195"><div class="ttname"><a href="a00183.html#gae33bb1ca2b55846b23a0f0796a679195">glm::powerOfTwoBelow</a></div><div class="ttdeci">GLM_DEPRECATED GLM_FUNC_DECL vecType&lt; T, P &gt; powerOfTwoBelow(vecType&lt; T, P &gt; const &amp;value)</div><div class="ttdoc">Return the power of two number which value is just lower the input value. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

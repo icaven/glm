@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>0.9.6: GLM_GTX_vector_angle</title>
+<title>0.9.6: GLM_GTX_wrap</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -39,116 +39,80 @@
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_vector_angle<div class="ingroups"><a class="el" href="a00160.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_wrap<div class="ingroups"><a class="el" href="a00159.html">GTX Extensions (Experimental)</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gab8691008a2536b681b711211816c14f7"><td class="memTemplParams" colspan="2">template&lt;typename vecType &gt; </td></tr>
-<tr class="memitem:gab8691008a2536b681b711211816c14f7"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vecType::value_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00238.html#gab8691008a2536b681b711211816c14f7">angle</a> (vecType const &amp;x, vecType const &amp;y)</td></tr>
-<tr class="separator:gab8691008a2536b681b711211816c14f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga82a19d474be13c92c7b10caab42a5a72"><td class="memTemplParams" colspan="2">template&lt;typename T , precision P&gt; </td></tr>
-<tr class="memitem:ga82a19d474be13c92c7b10caab42a5a72"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00238.html#ga82a19d474be13c92c7b10caab42a5a72">orientedAngle</a> (tvec2&lt; T, P &gt; const &amp;x, tvec2&lt; T, P &gt; const &amp;y)</td></tr>
-<tr class="separator:ga82a19d474be13c92c7b10caab42a5a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7254dba112eff55f55f9544f41cb9ece"><td class="memTemplParams" colspan="2">template&lt;typename T , precision P&gt; </td></tr>
-<tr class="memitem:ga7254dba112eff55f55f9544f41cb9ece"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00238.html#ga7254dba112eff55f55f9544f41cb9ece">orientedAngle</a> (tvec3&lt; T, P &gt; const &amp;x, tvec3&lt; T, P &gt; const &amp;y, tvec3&lt; T, P &gt; const &amp;ref)</td></tr>
-<tr class="separator:ga7254dba112eff55f55f9544f41cb9ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6c0cc6bd1d67ea1008d2592e998bad33"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga6c0cc6bd1d67ea1008d2592e998bad33"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00238.html#ga6c0cc6bd1d67ea1008d2592e998bad33">clamp</a> (genType const &amp;Texcoord)</td></tr>
+<tr class="separator:ga6c0cc6bd1d67ea1008d2592e998bad33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga16a89b0661b60d5bea85137bbae74d73"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga16a89b0661b60d5bea85137bbae74d73"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00238.html#ga16a89b0661b60d5bea85137bbae74d73">mirrorRepeat</a> (genType const &amp;Texcoord)</td></tr>
+<tr class="separator:ga16a89b0661b60d5bea85137bbae74d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga809650c6310ea7c42666e918c117fb6f"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga809650c6310ea7c42666e918c117fb6f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00238.html#ga809650c6310ea7c42666e918c117fb6f">repeat</a> (genType const &amp;Texcoord)</td></tr>
+<tr class="separator:ga809650c6310ea7c42666e918c117fb6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Compute angle between vectors. </p>
-<p>&lt;<a class="el" href="a00142.html" title="OpenGL Mathematics (glm.g-truc.net) ">glm/gtx/vector_angle.hpp</a>&gt; need to be included to use these functionalities. </p>
+<p>Wrapping mode of texture coordinates. </p>
+<p>&lt;<a class="el" href="a00144.html" title="OpenGL Mathematics (glm.g-truc.net) ">glm/gtx/wrap.hpp</a>&gt; need to be included to use these functionalities. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="gab8691008a2536b681b711211816c14f7"></a>
+<a class="anchor" id="ga6c0cc6bd1d67ea1008d2592e998bad33"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vecType::value_type glm::angle </td>
+          <td class="memname">GLM_FUNC_DECL genType glm::clamp </td>
           <td>(</td>
-          <td class="paramtype">vecType const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>Texcoord</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">vecType const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the absolute angle between two vectors Parameters need to be normalized. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00238.html" title="Compute angle between vectors. ">GLM_GTX_vector_angle</a> extension </dd></dl>
+<p>Simulate GL_CLAMP OpenGL wrap mode. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00238.html" title="Wrapping mode of texture coordinates. ">GLM_GTX_wrap</a> extension. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga82a19d474be13c92c7b10caab42a5a72"></a>
+<a class="anchor" id="ga16a89b0661b60d5bea85137bbae74d73"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::orientedAngle </td>
+          <td class="memname">GLM_FUNC_DECL genType glm::mirrorRepeat </td>
           <td>(</td>
-          <td class="paramtype">tvec2&lt; T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>Texcoord</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">tvec2&lt; T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the oriented angle between two 2d vectors Parameters need to be normalized. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00238.html" title="Compute angle between vectors. ">GLM_GTX_vector_angle</a> extension. </dd></dl>
+<p>Simulate GL_MIRROR_REPEAT OpenGL wrap mode. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00238.html" title="Wrapping mode of texture coordinates. ">GLM_GTX_wrap</a> extension. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga7254dba112eff55f55f9544f41cb9ece"></a>
+<a class="anchor" id="ga809650c6310ea7c42666e918c117fb6f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::orientedAngle </td>
+          <td class="memname">GLM_FUNC_DECL genType glm::repeat </td>
           <td>(</td>
-          <td class="paramtype">tvec3&lt; T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>Texcoord</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">tvec3&lt; T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">tvec3&lt; T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>ref</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the oriented angle between two 3d vectors based from a reference axis. </p>
-<p>Parameters need to be normalized. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="a00238.html" title="Compute angle between vectors. ">GLM_GTX_vector_angle</a> extension. </dd></dl>
+<p>Simulate GL_REPEAT OpenGL wrap mode. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00238.html" title="Wrapping mode of texture coordinates. ">GLM_GTX_wrap</a> extension. </dd></dl>
 
 </div>
 </div>
