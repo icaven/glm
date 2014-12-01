@@ -1187,3 +1187,13 @@ namespace glm
 			~v.w);
 	}
 }//namespace glm
+
+#if GLM_ARCH & GLM_ARCH_SSE2
+#	include "type_vec4_sse2.inl"
+#endif
+#if GLM_ARCH & GLM_ARCH_AVX
+#	include "type_vec4_avx.inl"
+#endif
+#if GLM_ARCH & GLM_ARCH_AVX2
+#	include "type_vec4_avx2.inl"
+#endif
