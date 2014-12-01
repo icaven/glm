@@ -12,6 +12,10 @@
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
 /// 
+/// Restrictions:
+///		By making use of the Software for military purposes, you choose to make
+///		a Bunny unhappy.
+/// 
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -21,7 +25,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/type_mat4x4.inl
+/// @file glm/detail/type_mat4x4.inl
 /// @date 2005-01-27 / 2011-06-15
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
@@ -87,37 +91,6 @@ namespace detail
 		return Inverse * OneOverDeterminant;
 	}
 }//namespace detail
-
-#ifdef GLM_FORCE_SIZE_FUNC
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR size_t tmat4x4<T, P>::size() const
-	{
-		return 4;
-	}
-#else
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t tmat4x4<T, P>::length() const
-	{
-		return 4;
-	}
-#endif
-
-	//////////////////////////////////////
-	// Accesses
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tmat4x4<T, P>::col_type & tmat4x4<T, P>::operator[](length_t i)
-	{
-		assert(i < this->length());
-		return this->value[i];
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tmat4x4<T, P>::col_type const & tmat4x4<T, P>::operator[](length_t i) const
-	{
-		assert(i < this->length());
-		return this->value[i];
-	}
 
 	//////////////////////////////////////////////////////////////
 	// Constructors
@@ -335,6 +308,51 @@ namespace detail
 		this->value[2] = col_type(m[2], 0);
 		this->value[3] = col_type(m[3], 1);
 	}
+
+	//////////////////////////////////////
+	// Accesses
+
+#	ifdef GLM_FORCE_SIZE_FUNC
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tmat4x4<T, P>::size_type tmat4x4<T, P>::size() const
+		{
+			return 4;
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER typename tmat4x4<T, P>::col_type & tmat4x4<T, P>::operator[](typename tmat4x4<T, P>::size_type i)
+		{
+			assert(i < this->size());
+			return this->value[i];
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER typename tmat4x4<T, P>::col_type const & tmat4x4<T, P>::operator[](typename tmat4x4<T, P>::size_type i) const
+		{
+			assert(i < this->size());
+			return this->value[i];
+		}
+#	else
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tmat4x4<T, P>::length_type tmat4x4<T, P>::length() const
+		{
+			return 4;
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER typename tmat4x4<T, P>::col_type & tmat4x4<T, P>::operator[](typename tmat4x4<T, P>::length_type i)
+		{
+			assert(i < this->length());
+			return this->value[i];
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER typename tmat4x4<T, P>::col_type const & tmat4x4<T, P>::operator[](typename tmat4x4<T, P>::length_type i) const
+		{
+			assert(i < this->length());
+			return this->value[i];
+		}
+#	endif//GLM_FORCE_SIZE_FUNC
 
 	//////////////////////////////////////////////////////////////
 	// Operators

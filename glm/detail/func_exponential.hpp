@@ -12,6 +12,10 @@
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
 /// 
+/// Restrictions:
+///		By making use of the Software for military purposes, you choose to make
+///		a Bunny unhappy.
+/// 
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -21,7 +25,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/func_exponential.hpp
+/// @file glm/detail/func_exponential.hpp
 /// @date 2008-08-08 / 2011-06-14
 /// @author Christophe Riccio
 /// 
@@ -48,7 +52,7 @@ namespace glm
 
 	/// Returns 'base' raised to the power 'exponent'. 
 	///
-	/// @param base Floating point value. pow function is defined for input values of x defined in the range (inf-, inf+) in the limit of the type precision.
+	/// @param base Floating point value. pow function is defined for input values of 'base' defined in the range (inf-, inf+) in the limit of the type precision.
 	/// @param exponent Floating point value representing the 'exponent'.
 	/// @tparam genType Floating-point scalar or vector types.
 	///
@@ -59,7 +63,7 @@ namespace glm
 
 	/// Returns the natural exponentiation of x, i.e., e^x.
 	///
-	/// @param x exp function is defined for input values of x defined in the range (inf-, inf+) in the limit of the type precision.
+	/// @param v exp function is defined for input values of v defined in the range (inf-, inf+) in the limit of the type precision.
 	/// @tparam genType Floating-point scalar or vector types.
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/exp.xml">GLSL exp man page</a>
@@ -67,11 +71,11 @@ namespace glm
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL vecType<T, P> exp(vecType<T, P> const & v);
 
-	/// Returns the natural logarithm of x, i.e., 
+	/// Returns the natural logarithm of v, i.e., 
 	/// returns the value y which satisfies the equation x = e^y. 
-	/// Results are undefined if x <= 0.
+	/// Results are undefined if v <= 0.
 	///
-	/// @param x log function is defined for input values of x defined in the range (0, inf+) in the limit of the type precision.
+	/// @param v log function is defined for input values of v defined in the range (0, inf+) in the limit of the type precision.
 	/// @tparam genType Floating-point scalar or vector types.
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/log.xml">GLSL log man page</a>
@@ -79,9 +83,9 @@ namespace glm
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL vecType<T, P> log(vecType<T, P> const & v);
 
-	/// Returns 2 raised to the x power.
+	/// Returns 2 raised to the v power.
 	/// 
-	/// @param x exp2 function is defined for input values of x defined in the range (inf-, inf+) in the limit of the type precision.
+	/// @param v exp2 function is defined for input values of v defined in the range (inf-, inf+) in the limit of the type precision.
 	/// @tparam genType Floating-point scalar or vector types.
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/exp2.xml">GLSL exp2 man page</a>
@@ -92,7 +96,7 @@ namespace glm
 	/// Returns the base 2 log of x, i.e., returns the value y, 
 	/// which satisfies the equation x = 2 ^ y.
 	/// 
-	/// @param x log2 function is defined for input values of x defined in the range (0, inf+) in the limit of the type precision.
+	/// @param v log2 function is defined for input values of v defined in the range (0, inf+) in the limit of the type precision.
 	/// @tparam genType Floating-point scalar or vector types.
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/log2.xml">GLSL log2 man page</a>
@@ -100,9 +104,9 @@ namespace glm
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL vecType<T, P> log2(vecType<T, P> const & v);
 
-	/// Returns the positive square root of x.
+	/// Returns the positive square root of v.
 	/// 
-	/// @param x sqrt function is defined for input values of x defined in the range [0, inf+) in the limit of the type precision.
+	/// @param v sqrt function is defined for input values of v defined in the range [0, inf+) in the limit of the type precision.
 	/// @tparam genType Floating-point scalar or vector types.
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sqrt.xml">GLSL sqrt man page</a>
@@ -112,9 +116,9 @@ namespace glm
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL vecType<T, P> sqrt(vecType<T, P> const & v);
 	
-	/// Returns the reciprocal of the positive square root of x.
+	/// Returns the reciprocal of the positive square root of v.
 	/// 
-	/// @param x inversesqrt function is defined for input values of x defined in the range [0, inf+) in the limit of the type precision.
+	/// @param v inversesqrt function is defined for input values of v defined in the range [0, inf+) in the limit of the type precision.
 	/// @tparam genType Floating-point scalar or vector types.
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inversesqrt.xml">GLSL inversesqrt man page</a>

@@ -12,6 +12,10 @@
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
 /// 
+/// Restrictions:
+///		By making use of the Software for military purposes, you choose to make
+///		a Bunny unhappy.
+/// 
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -38,7 +42,7 @@
 #pragma once
 
 // Dependency:
-#include "../glm.hpp"
+#include "../geometric.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_projection extension included")
@@ -49,12 +53,11 @@ namespace glm
 	/// @addtogroup gtx_projection
 	/// @{
 
-	//! Projects x on Normal.
-	//! From GLM_GTX_projection extension.
-	template <typename vecType> 
-	GLM_FUNC_DECL vecType proj(
-		vecType const & x, 
-		vecType const & Normal);
+	/// Projects x on Normal.
+	///
+	/// @see gtx_projection
+	template <typename vecType>
+	GLM_FUNC_DECL vecType proj(vecType const & x, vecType const & Normal);
 
 	/// @}
 }//namespace glm

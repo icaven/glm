@@ -12,6 +12,10 @@
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
 /// 
+/// Restrictions:
+///		By making use of the Software for military purposes, you choose to make
+///		a Bunny unhappy.
+/// 
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -53,24 +57,24 @@ namespace glm
 	/// @addtogroup gtx_transform
 	/// @{
 
-	/// Transforms a matrix with a translation 4 * 4 matrix created from 3 scalars. 
-	/// - From \link gtx_transform GLM_GTX_transform \endlink extension
-	/// - See also: \link glm::translate GLM_GTC_matrix_transform \endlink
+	/// Transforms a matrix with a translation 4 * 4 matrix created from 3 scalars.
+	/// @see gtc_matrix_transform
+	/// @see gtx_transform
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x4<T, P> translate(
 		tvec3<T, P> const & v);
 
 	/// Builds a rotation 4 * 4 matrix created from an axis of 3 scalars and an angle expressed in degrees. 
-	/// - From \link gtx_transform GLM_GTX_transform \endlink extension
-	/// - See also: \link glm::rotate GLM_GTC_matrix_transform \endlink
+	/// @see gtc_matrix_transform
+	/// @see gtx_transform
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x4<T, P> rotate(
 		T angle, 
 		tvec3<T, P> const & v);
 
 	/// Transforms a matrix with a scale 4 * 4 matrix created from a vector of 3 components.
-	/// - From \link gtx_transform GLM_GTX_transform \endlink extension
-	/// - See also: \link glm::scale GLM_GTC_matrix_transform \endlink
+	/// @see gtc_matrix_transform
+	/// @see gtx_transform
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x4<T, P> scale(
 		tvec3<T, P> const & v);

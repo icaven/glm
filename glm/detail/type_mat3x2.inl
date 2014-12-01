@@ -12,6 +12,10 @@
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
 /// 
+/// Restrictions:
+///		By making use of the Software for military purposes, you choose to make
+///		a Bunny unhappy.
+/// 
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -21,44 +25,13 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/type_mat3x2.inl
+/// @file glm/detail/type_mat3x2.inl
 /// @date 2006-08-05 / 2011-06-15
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
 namespace glm
 {
-#ifdef GLM_FORCE_SIZE_FUNC
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR size_t tmat3x2<T, P>::size() const
-	{
-		return 3;
-	}
-#else
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t tmat3x2<T, P>::length() const
-	{
-		return 3;
-	}
-#endif
-
-	//////////////////////////////////////
-	// Accesses
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tmat3x2<T, P>::col_type & tmat3x2<T, P>::operator[](length_t i)
-	{
-		assert(i < this->length());
-		return this->value[i];
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tmat3x2<T, P>::col_type const & tmat3x2<T, P>::operator[](length_t i) const
-	{
-		assert(i < this->length());
-		return this->value[i];
-	}
-
 	//////////////////////////////////////////////////////////////
 	// Constructors
 
@@ -227,6 +200,51 @@ namespace glm
 		this->value[1] = col_type(m[1]);
 		this->value[2] = col_type(m[2]);
 	}
+
+	//////////////////////////////////////
+	// Accesses
+
+#	ifdef GLM_FORCE_SIZE_FUNC
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tmat3x2<T, P>::size_type tmat3x2<T, P>::size() const
+		{
+			return 3;
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER typename tmat3x2<T, P>::col_type & tmat3x2<T, P>::operator[](typename tmat3x2<T, P>::size_type i)
+		{
+			assert(i < this->size());
+			return this->value[i];
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER typename tmat3x2<T, P>::col_type const & tmat3x2<T, P>::operator[](typename tmat3x2<T, P>::size_type i) const
+		{
+			assert(i < this->size());
+			return this->value[i];
+		}
+#	else
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tmat3x2<T, P>::length_type tmat3x2<T, P>::length() const
+		{
+			return 3;
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER typename tmat3x2<T, P>::col_type & tmat3x2<T, P>::operator[](typename tmat3x2<T, P>::length_type i)
+		{
+			assert(i < this->length());
+			return this->value[i];
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER typename tmat3x2<T, P>::col_type const & tmat3x2<T, P>::operator[](typename tmat3x2<T, P>::length_type i) const
+		{
+			assert(i < this->length());
+			return this->value[i];
+		}
+#	endif//GLM_FORCE_SIZE_FUNC
 
 	//////////////////////////////////////////////////////////////
 	// Unary updatable operators

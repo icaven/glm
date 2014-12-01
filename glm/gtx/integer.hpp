@@ -12,6 +12,10 @@
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
 /// 
+/// Restrictions:
+///		By making use of the Software for military purposes, you choose to make
+///		a Bunny unhappy.
+/// 
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -39,6 +43,7 @@
 
 // Dependency:
 #include "../glm.hpp"
+#include "../gtc/integer.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_integer extension included")
@@ -56,11 +61,6 @@ namespace glm
 	//! Returns the positive square root of x.
 	//! From GLM_GTX_integer extension.
 	GLM_FUNC_DECL int sqrt(int x);
-
-	//! Returns the log2 of x. Can be reliably using to compute mipmap count from the texture size.
-	//! From GLM_GTX_integer extension.
-	template <typename genIUType>
-	GLM_FUNC_DECL genIUType log2(genIUType x);
 
 	//! Returns the floor log2 of x.
 	//! From GLM_GTX_integer extension.

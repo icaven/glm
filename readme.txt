@@ -1,13 +1,39 @@
 ================================================================================
 OpenGL Mathematics (GLM)
 --------------------------------------------------------------------------------
-glm.g-truc.net
-glm@g-truc.net
+GLM is licensed under The Happy Bunny License and MIT License
+
+================================================================================
+The Happy Bunny License (Modified MIT License)
+--------------------------------------------------------------------------------
+Copyright (c) 2005 - 2014 G-Truc Creation
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+Restrictions:
+ By making use of the Software for military purposes, you choose to make a
+ Bunny unhappy.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
 ================================================================================
 The MIT License
 --------------------------------------------------------------------------------
-Copyright (c) 2005 - 2014 G-Truc Creation (www.g-truc.net)
+Copyright (c) 2005 - 2014 G-Truc Creation
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -37,10 +63,9 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
 
 ================================================================================
-GLM 0.9.6.0: 2014-11-XX
+GLM 0.9.6.0: 2014-11-30
 --------------------------------------------------------------------------------
 Features:
-- Added transparent use of SIMD instructions for vec4 and mat4 types
 - Exposed template vector and matrix types in 'glm' namespace #239, #244
 - Added GTX_scalar_multiplication for C++ 11 compiler only #242
 - Added GTX_range for C++ 11 compiler only #240
@@ -55,9 +80,10 @@ Features:
 - Added GLM_FORCE_NO_CTOR_INIT
 - Added 'uninitialize' to explicitly not initialize a GLM type
 - Added GTC_bitfield extension, promoted GTX_bit
-- Added GTC_integer extension, promoted GTX_bit
+- Added GTC_integer extension, promoted GTX_bit and GTX_integer
 - Added GTC_round extension, promoted GTX_bit
 - Added GLM_FORCE_EXPLICIT_CTOR to require explicit type conversions #269
+- Added GTX_type_aligned for aligned vector, matrix and quaternion types
 
 Improvements:
 - Rely on C++11 to implement isinf and isnan
@@ -67,13 +93,17 @@ Improvements:
 - Undetected C++ compiler automatically compile with GLM_FORCE_CXX98 and 
   GLM_FORCE_PURE
 - Added not function (from GLSL specification) on VC12
-- Optimized bitfield operations
 - Optimized bitfieldReverse and bitCount functions
+- Optimized findLSB and findMSB functions.
 - Optimized matrix-vector multiple performance with Cuda #257, #258
 - Reduced integer type redifinitions #233
 - Rewrited of GTX_fast_trigonometry #264 #265
 - Made types trivially copyable #263
 - Removed <iostream> in GLM tests
+- Used std features within GLM without redeclaring
+- Optimized cot function #272
+- Optimized sign function #272
+- Added explicit cast from quat to mat3 and mat4 #275
 
 Fixes:
 - Fixed std::nextafter not supported with C++11 on Android #217
@@ -90,10 +120,10 @@ Deprecation:
 - Removed degrees for function parameters
 - Removed GLM_FORCE_RADIANS, active by default
 - Removed VC 2005 / 8 and 2008 / 9 support
-- Removed GCC 3.4 to 4.5 support
+- Removed GCC 3.4 to 4.3 support
 - Removed LLVM GCC support
-- Removed LLVM 2.6 to 2.9 support
-- Removed CUDA 3.0 to 4.0 support
+- Removed LLVM 2.6 to 3.1 support
+- Removed CUDA 3.0 to 3.2 support
 
 ================================================================================
 GLM 0.9.5.4: 2014-06-21

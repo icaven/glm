@@ -12,6 +12,10 @@
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
 /// 
+/// Restrictions:
+///		By making use of the Software for military purposes, you choose to make
+///		a Bunny unhappy.
+/// 
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -50,7 +54,7 @@ namespace glm
 	/// @addtogroup gtx_spline
 	/// @{
 
-	//! Return a point from a catmull rom curve.
+	/// Return a point from a catmull rom curve.
 	/// @see gtx_spline extension.
 	template <typename genType> 
 	GLM_FUNC_DECL genType catmullRom(
@@ -60,7 +64,7 @@ namespace glm
 		genType const & v4, 
 		typename genType::value_type const & s);
 		
-	//! Return a point from a hermite curve.
+	/// Return a point from a hermite curve.
 	/// @see gtx_spline extension.
 	template <typename genType> 
 	GLM_FUNC_DECL genType hermite(
@@ -70,7 +74,7 @@ namespace glm
 		genType const & t2, 
 		typename genType::value_type const & s);
 		
-	//! Return a point from a cubic curve. 
+	/// Return a point from a cubic curve. 
 	/// @see gtx_spline extension.
 	template <typename genType> 
 	GLM_FUNC_DECL genType cubic(

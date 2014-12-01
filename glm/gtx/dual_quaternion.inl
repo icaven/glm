@@ -12,6 +12,10 @@
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
 /// 
+/// Restrictions:
+///		By making use of the Software for military purposes, you choose to make
+///		a Bunny unhappy.
+/// 
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -31,19 +35,53 @@
 
 namespace glm
 {
-#if GLM_FORCE_SIZE_FUNC
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR size_t tdualquat<T, P>::size() const
-	{
-		return 2;
-	}
-#else
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR length_t tdualquat<T, P>::length() const
-	{
-		return 2;
-	}
-#endif
+	//////////////////////////////////////
+	// Component accesses
+
+#	ifdef GLM_FORCE_SIZE_FUNC
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tdualquat<T, P>::size_type tdualquat<T, P>::size() const
+		{
+			return 2;
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER typename tdualquat<T, P>::part_type & tdualquat<T, P>::operator[](typename tdualquat<T, P>::size_type i)
+		{
+			assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
+			return (&real)[i];
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER typename tdualquat<T, P>::part_type const & tdualquat<T, P>::operator[](typename tdualquat<T, P>::size_type i) const
+		{
+			assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
+			return (&real)[i];
+		}
+#	else
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tdualquat<T, P>::length_type tdualquat<T, P>::length() const
+		{
+			return 2;
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER typename tdualquat<T, P>::part_type & tdualquat<T, P>::operator[](typename tdualquat<T, P>::length_type i)
+		{
+			assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
+			return (&real)[i];
+		}
+
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER typename tdualquat<T, P>::part_type const & tdualquat<T, P>::operator[](typename tdualquat<T, P>::length_type i) const
+		{
+			assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
+			return (&real)[i];
+		}
+#	endif//GLM_FORCE_SIZE_FUNC
+
+	//////////////////////////////////////
+	// Implicit basic constructors
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat()
@@ -109,24 +147,7 @@ namespace glm
 	}
 
 	//////////////////////////////////////////////////////////////
-	// tdualquat<T, P> accesses
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tdualquat<T, P>::part_type & tdualquat<T, P>::operator[](length_t i)
-	{
-		assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
-		return (&real)[i];
-	}
-
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tdualquat<T, P>::part_type const & tdualquat<T, P>::operator[](length_t i) const
-	{
-		assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
-		return (&real)[i];
-	}
-
-	//////////////////////////////////////////////////////////////
-	// tdualquat<valType> operators
+	// tdualquat operators
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tdualquat<T, P> & tdualquat<T, P>::operator*=(T const & s)

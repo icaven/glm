@@ -12,6 +12,10 @@
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
 ///
+/// Restrictions:
+///		By making use of the Software for military purposes, you choose to make
+///		a Bunny unhappy.
+/// 
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -25,13 +29,18 @@
 /// @date 2014-09-19 / 2014-09-19
 /// @author Joshua Moerman
 ///
+/// @defgroup gtx_range GLM_GTX_range
+/// @ingroup gtx
+///
 /// @brief Defines begin and end for vectors and matrices. Useful for range-based for loop.
 /// The range is defined over the elements, not over columns or rows (e.g. mat4 has 16 elements).
 ///
+/// <glm/gtx/range.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
 #pragma once
 
+// Dependencies
 #include "../detail/setup.hpp"
 
 #if !GLM_HAS_RANGE_FOR
@@ -66,6 +75,9 @@ namespace detail
 	}
 }//namespace
 
+	/// @addtogroup gtx_range
+	/// @{
+
 	template <typename genType>
 	const typename genType::value_type * begin(genType const & v){
 		return value_ptr(v);
@@ -85,4 +97,6 @@ namespace detail
 	typename genType::value_type * end(genType& v){
 		return begin(v) + detail::number_of_elements_(v);
 	}
+
+	/// @}
 }//namespace glm

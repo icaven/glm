@@ -12,6 +12,10 @@
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
 /// 
+/// Restrictions:
+///		By making use of the Software for military purposes, you choose to make
+///		a Bunny unhappy.
+/// 
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -21,7 +25,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/func_integer.hpp
+/// @file glm/detail/func_integer.hpp
 /// @date 2010-03-17 / 2011-06-18
 /// @author Christophe Riccio
 ///
@@ -164,8 +168,6 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitCount.xml">GLSL bitCount man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a>
-	///
-	/// @todo Clarify the declaration to specify that scalars are suported.
 	template <typename genType>
 	GLM_FUNC_DECL int bitCount(genType v);
 
@@ -175,8 +177,6 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitCount.xml">GLSL bitCount man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a>
-	///
-	/// @todo Clarify the declaration to specify that scalars are suported.
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL vecType<int, P> bitCount(vecType<T, P> const & v);
 
@@ -184,12 +184,21 @@ namespace glm
 	/// 1 in the binary representation of value. 
 	/// If value is zero, -1 will be returned.
 	///
-	/// @tparam T Signed or unsigned integer scalar or vector types.
+	/// @tparam T Signed or unsigned integer scalar types.
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/findLSB.xml">GLSL findLSB man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a>
+	template <typename genIUType>
+	GLM_FUNC_DECL int findLSB(genIUType x);
+
+	/// Returns the bit number of the least significant bit set to
+	/// 1 in the binary representation of value. 
+	/// If value is zero, -1 will be returned.
 	///
-	/// @todo Clarify the declaration to specify that scalars are suported.
+	/// @tparam T Signed or unsigned integer scalar types.
+	///
+	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/findLSB.xml">GLSL findLSB man page</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a>
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL vecType<int, P> findLSB(vecType<T, P> const & v);
 
@@ -198,12 +207,22 @@ namespace glm
 	/// For negative integers, the result will be the bit number of the most significant
 	/// bit set to 0. For a value of zero or negative one, -1 will be returned.
 	///
-	/// @tparam T Signed or unsigned integer scalar or vector types.
+	/// @tparam T Signed or unsigned integer scalar types.
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/findMSB.xml">GLSL findMSB man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a>
+	template <typename genIUType>
+	GLM_FUNC_DECL int findMSB(genIUType x);
+
+	/// Returns the bit number of the most significant bit in the binary representation of value.
+	/// For positive integers, the result will be the bit number of the most significant bit set to 1. 
+	/// For negative integers, the result will be the bit number of the most significant
+	/// bit set to 0. For a value of zero or negative one, -1 will be returned.
 	///
-	/// @todo Clarify the declaration to specify that scalars are suported.
+	/// @tparam T Signed or unsigned integer scalar types.
+	///
+	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/findMSB.xml">GLSL findMSB man page</a>
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a>
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL vecType<int, P> findMSB(vecType<T, P> const & v);
 

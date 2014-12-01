@@ -12,6 +12,10 @@
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
 /// 
+/// Restrictions:
+///		By making use of the Software for military purposes, you choose to make
+///		a Bunny unhappy.
+/// 
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -21,7 +25,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/type_vec4.hpp
+/// @file glm/detail/type_vec4.hpp
 /// @date 2008-08-22 / 2011-06-15
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
@@ -49,21 +53,48 @@ namespace detail
 		typedef T type[4];
 	};
 
-#	if(GLM_ARCH & GLM_ARCH_SSE2)
+#	if GLM_ARCH & GLM_ARCH_SSE2
 		template <>
 		struct simd<float>
 		{
 			typedef __m128 type;
 		};
+
+		template <>
+		struct simd<int>
+		{
+			typedef __m128i type;
+		};
+
+		template <>
+		struct simd<unsigned int>
+		{
+			typedef __m128i type;
+		};
 #	endif
 
-#	if(GLM_ARCH & GLM_ARCH_AVX)
+#	if GLM_ARCH & GLM_ARCH_AVX
 		template <>
 		struct simd<double>
 		{
 			typedef __m256d type;
 		};
 #	endif
+
+#	if GLM_ARCH & GLM_ARCH_AVX2
+		template <>
+		struct simd<int64>
+		{
+			typedef __m256i type;
+		};
+
+		template <>
+		struct simd<uint64>
+		{
+			typedef __m256i type;
+		};
+#	endif
+
 }//namespace detail
 
 	template <typename T, precision P = defaultp>
@@ -75,18 +106,6 @@ namespace detail
 		typedef tvec4<T, P> type;
 		typedef tvec4<bool, P> bool_type;
 		typedef T value_type;
-		typedef int size_type;
-
-		//////////////////////////////////////
-		// Helper
-
-#		ifdef GLM_FORCE_SIZE_FUNC
-			/// Return the count of components of the vector
-			GLM_FUNC_DECL GLM_CONSTEXPR size_t size() const;
-#		else
-			/// Return the count of components of the vector
-			GLM_FUNC_DECL GLM_CONSTEXPR length_t length() const;
-#		endif//GLM_FORCE_SIZE_FUNC
 
 		//////////////////////////////////////
 		// Data
@@ -123,10 +142,23 @@ namespace detail
 #		endif//GLM_LANG
 
 		//////////////////////////////////////
-		// Accesses
+		// Component accesses
 
-		GLM_FUNC_DECL T & operator[](length_t i);
-		GLM_FUNC_DECL T const & operator[](length_t i) const;
+#		ifdef GLM_FORCE_SIZE_FUNC
+			/// Return the count of components of the vector
+			typedef size_t size_type;
+			GLM_FUNC_DECL GLM_CONSTEXPR size_type size() const;
+
+			GLM_FUNC_DECL T & operator[](size_type i);
+			GLM_FUNC_DECL T const & operator[](size_type i) const;
+#		else
+			/// Return the count of components of the vector
+			typedef length_t length_type;
+			GLM_FUNC_DECL GLM_CONSTEXPR length_type length() const;
+
+			GLM_FUNC_DECL T & operator[](length_type i);
+			GLM_FUNC_DECL T const & operator[](length_type i) const;
+#		endif//GLM_FORCE_SIZE_FUNC
 
 		//////////////////////////////////////
 		// Implicit basic constructors

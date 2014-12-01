@@ -12,6 +12,10 @@
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
 /// 
+/// Restrictions:
+///		By making use of the Software for military purposes, you choose to make
+///		a Bunny unhappy.
+/// 
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -21,7 +25,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/_features.hpp
+/// @file glm/detail/_features.hpp
 /// @date 2013-02-20 / 2013-02-20
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
@@ -280,7 +284,7 @@
 #		define GLM_CXX11_STATIC_ASSERT
 #	endif
 
-#elif(GLM_COMPILER & GLM_COMPILER_CLANG)
+#elif(GLM_COMPILER & (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))
 #	if(__has_feature(cxx_exceptions))
 #		define GLM_CXX98_EXCEPTIONS
 #	endif
@@ -421,4 +425,4 @@
 #		define GLM_CXX11_VARIADIC_TEMPLATES
 #	endif
 
-#endif//(GLM_COMPILER & GLM_COMPILER_CLANG)
+#endif//(GLM_COMPILER & (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))

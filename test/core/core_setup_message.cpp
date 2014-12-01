@@ -41,12 +41,6 @@ int test_compiler()
 	{
 		switch(GLM_COMPILER)
 		{
-		case GLM_COMPILER_GCC42:
-			std::printf("GLM_COMPILER_GCC42\n");
-			break;
-		case GLM_COMPILER_GCC43:
-			std::printf("GLM_COMPILER_GCC43\n");
-			break;
 		case GLM_COMPILER_GCC44:
 			std::printf("GLM_COMPILER_GCC44\n");
 			break;
@@ -109,12 +103,6 @@ int test_compiler()
 	{
 		switch(GLM_COMPILER)
 		{
-		case GLM_COMPILER_LLVM30:
-			std::printf("GLM_COMPILER_LLVM30\n");
-			break;
-		case GLM_COMPILER_LLVM31:
-			std::printf("GLM_COMPILER_LLVM31\n");
-			break;
 		case GLM_COMPILER_LLVM32:
 			std::printf("GLM_COMPILER_LLVM32\n");
 			break;

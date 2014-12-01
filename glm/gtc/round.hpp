@@ -12,6 +12,10 @@
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
 /// 
+/// Restrictions:
+///		By making use of the Software for military purposes, you choose to make
+///		a Bunny unhappy.
+/// 
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -107,19 +111,19 @@ namespace glm
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL vecType<T, P> roundPowerOfTwo(vecType<T, P> const & value);
 
-	/// Return true if the <Value> is a multiple of <Multiple>.
+	/// Return true if the 'Value' is a multiple of 'Multiple'.
 	///
 	/// @see gtc_round
 	template <typename genIUType>
 	GLM_FUNC_DECL bool isMultiple(genIUType Value, genIUType Multiple);
 
-	/// Return true if the <Value> is a multiple of <Multiple>.
+	/// Return true if the 'Value' is a multiple of 'Multiple'.
 	///
 	/// @see gtc_round
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL vecType<bool, P> isMultiple(vecType<T, P> const & Value, T Multiple);
 
-	/// Return true if the <Value> is a multiple of <Multiple>.
+	/// Return true if the 'Value' is a multiple of 'Multiple'.
 	///
 	/// @see gtc_round
 	template <typename T, precision P, template <typename, precision> class vecType>

@@ -1,11 +1,33 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2014 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2011-01-15
-// Updated : 2011-09-13
-// Licence : This source is under MIT licence
-// File    : test/core/func_common.cpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+/// OpenGL Mathematics (glm.g-truc.net)
+///
+/// Copyright (c) 2005 - 2014 G-Truc Creation (www.g-truc.net)
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+/// 
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+/// 
+/// Restrictions:
+///		By making use of the Software for military purposes, you choose to make
+///		a Bunny unhappy.
+/// 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
+///
+/// @file test/core/func_common.cpp
+/// @date 2011-01-15 / 2011-09-13
+/// @author Christophe Riccio
+///////////////////////////////////////////////////////////////////////////////////
 
 #define GLM_FORCE_EXPLICIT_CTOR
 #include <glm/common.hpp>
@@ -139,6 +161,40 @@ namespace modf_
 		return Error;
 	}
 }//namespace modf
+
+namespace mod_
+{
+	int test()
+	{
+		int Error(0);
+
+		{
+			float A(3.0);
+			float B(2.0f);
+			float C = glm::mod(A, B);
+
+			Error += glm::abs(C - 1.0f) < 0.00001f ? 0 : 1;
+		}
+
+		{
+			glm::vec4 A(3.0);
+			float B(2.0f);
+			glm::vec4 C = glm::mod(A, B);
+
+			Error += glm::all(glm::epsilonEqual(C, glm::vec4(1.0f), 0.00001f)) ? 0 : 1;
+		}
+
+		{
+			glm::vec4 A(3.0);
+			glm::vec4 B(2.0f);
+			glm::vec4 C = glm::mod(A, B);
+
+			Error += glm::all(glm::epsilonEqual(C, glm::vec4(1.0f), 0.00001f)) ? 0 : 1;
+		}
+
+		return Error;
+	}
+}//namespace mod_
 
 namespace floatBitsToInt
 {
@@ -844,6 +900,8 @@ namespace sign
 	{
 		type<glm::int32> const Data[] =
 		{
+			{ std::numeric_limits<glm::int32>::max(),  1},
+			{ std::numeric_limits<glm::int32>::min(), -1},
 			{ 0, 0},
 			{ 1, 1},
 			{ 2, 1},
@@ -854,6 +912,12 @@ namespace sign
 		};
 
 		int Error = 0;
+
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<glm::int32>); ++i)
+		{
+			glm::int32 Result = glm::sign(Data[i].Value);
+			Error += Data[i].Return == Result ? 0 : 1;
+		}
 
 		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<glm::int32>); ++i)
 		{
@@ -879,10 +943,28 @@ namespace sign
 			Error += Data[i].Return == Result ? 0 : 1;
 		}
 
-		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<glm::int32>); ++i)
+		return Error;
+	}
+
+	int test_i32vec4()
+	{
+		type<glm::i32vec4> const Data[] =
 		{
-			glm::int32 Result = sign_sub(Data[i].Value);
-			Error += Data[i].Return == Result ? 0 : 1;
+			{glm::i32vec4( 1), glm::i32vec4( 1)},
+			{glm::i32vec4( 0), glm::i32vec4( 0)},
+			{glm::i32vec4( 2), glm::i32vec4( 1)},
+			{glm::i32vec4( 3), glm::i32vec4( 1)},
+			{glm::i32vec4(-1), glm::i32vec4(-1)},
+			{glm::i32vec4(-2), glm::i32vec4(-1)},
+			{glm::i32vec4(-3), glm::i32vec4(-1)}
+		};
+
+		int Error = 0;
+
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<glm::i32vec4>); ++i)
+		{
+			glm::i32vec4 Result = glm::sign(Data[i].Value);
+			Error += glm::all(glm::equal(Data[i].Return, Result)) ? 0 : 1;
 		}
 
 		return Error;
@@ -893,6 +975,7 @@ namespace sign
 		int Error = 0;
 
 		Error += test_int32();
+		Error += test_i32vec4();
 
 		return Error;
 	}
@@ -901,7 +984,7 @@ namespace sign
 	{
 		int Error = 0;
 
-		std::size_t const Count = 10000000;
+		std::size_t const Count = 100000000;
 		std::vector<glm::int32> Input, Output;
 		Input.resize(Count);
 		Output.resize(Count);
@@ -935,11 +1018,17 @@ namespace sign
 
 		std::clock_t Timestamp5 = std::clock();
 
+		for(std::size_t i = 0; i < Count; ++i)
+			Output[i] = glm::sign(Input[i]);
+
+		std::clock_t Timestamp6 = std::clock();
+
 		std::printf("sign_cmp(rand) Time %d clocks\n", static_cast<unsigned int>(Timestamp1 - Timestamp0));
 		std::printf("sign_if(rand) Time %d clocks\n", static_cast<unsigned int>(Timestamp2 - Timestamp1));
 		std::printf("sign_alu1(rand) Time %d clocks\n", static_cast<unsigned int>(Timestamp3 - Timestamp2));
 		std::printf("sign_alu2(rand) Time %d clocks\n", static_cast<unsigned int>(Timestamp4 - Timestamp3));
 		std::printf("sign_sub(rand) Time %d clocks\n", static_cast<unsigned int>(Timestamp5 - Timestamp4));
+		std::printf("glm::sign(rand) Time %d clocks\n", static_cast<unsigned int>(Timestamp6 - Timestamp5));
 
 		return Error;
 	}
@@ -1054,6 +1143,7 @@ int main()
 
 	Error += sign::test();
 	Error += floor_::test();
+	Error += mod_::test();
 	Error += modf_::test();
 	Error += floatBitsToInt::test();
 	Error += floatBitsToUint::test();
@@ -1066,7 +1156,7 @@ int main()
 	Error += isnan_::test();
 	Error += isinf_::test();
 
-#	ifdef GLM_TEST_ENABLE_PERF
+#	ifdef NDEBUG
 		Error += sign::perf();
 #	endif
 

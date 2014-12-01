@@ -12,6 +12,10 @@
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
 /// 
+/// Restrictions:
+///		By making use of the Software for military purposes, you choose to make
+///		a Bunny unhappy.
+/// 
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -21,7 +25,7 @@
 /// THE SOFTWARE.
 ///
 /// @ref core
-/// @file glm/core/setup.hpp
+/// @file glm/detail/setup.hpp
 /// @date 2006-11-13 / 2014-10-05
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
@@ -34,10 +38,10 @@
 ///////////////////////////////////////////////////////////////////////////////////
 // Version
 
-#define GLM_VERSION					96
+#define GLM_VERSION					97
 #define GLM_VERSION_MAJOR			0
 #define GLM_VERSION_MINOR			9
-#define GLM_VERSION_PATCH			6
+#define GLM_VERSION_PATCH			7
 #define GLM_VERSION_REVISION		0
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -129,8 +133,6 @@
 
 // GCC defines
 #define GLM_COMPILER_GCC			0x02000000
-#define GLM_COMPILER_GCC42			0x02000090
-#define GLM_COMPILER_GCC43			0x020000A0
 #define GLM_COMPILER_GCC44			0x020000B0
 #define GLM_COMPILER_GCC45			0x020000C0
 #define GLM_COMPILER_GCC46			0x020000D0
@@ -141,9 +143,6 @@
 
 // CUDA
 #define GLM_COMPILER_CUDA			0x10000000
-#define GLM_COMPILER_CUDA30			0x10000010
-#define GLM_COMPILER_CUDA31			0x10000020
-#define GLM_COMPILER_CUDA32			0x10000030
 #define GLM_COMPILER_CUDA40			0x10000040
 #define GLM_COMPILER_CUDA41			0x10000050
 #define GLM_COMPILER_CUDA42			0x10000060
@@ -153,8 +152,6 @@
 
 // LLVM
 #define GLM_COMPILER_LLVM			0x20000000
-#define GLM_COMPILER_LLVM30			0x20000010
-#define GLM_COMPILER_LLVM31			0x20000020
 #define GLM_COMPILER_LLVM32			0x20000030
 #define GLM_COMPILER_LLVM33			0x20000040
 #define GLM_COMPILER_LLVM34			0x20000050
@@ -292,8 +289,10 @@
 #		pragma message("GLM: CUDA compiler detected")
 #	elif GLM_COMPILER & GLM_COMPILER_VC
 #		pragma message("GLM: Visual C++ compiler detected")
-#	elif GLM_COMPILER & GLM_COMPILER_CLANG
+#	elif GLM_COMPILER & GLM_COMPILER_APPLE_CLANG
 #		pragma message("GLM: Clang compiler detected")
+#	elif GLM_COMPILER & GLM_COMPILER_LLVM
+#		pragma message("GLM: LLVM compiler detected")
 #	elif GLM_COMPILER & GLM_COMPILER_INTEL
 #		pragma message("GLM: Intel Compiler detected")
 #	elif GLM_COMPILER & GLM_COMPILER_GCC
@@ -470,7 +469,8 @@
 	(GLM_LANG & GLM_LANG_CXX11_FLAG) || \
 	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2012)) || \
 	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC43)) || \
-	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_COMPILER >= GLM_COMPILER_CLANG29)))
+	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_LLVM) && (GLM_COMPILER >= GLM_COMPILER_LLVM30)) || \
+	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_APPLE_CLANG) && (GLM_COMPILER >= GLM_COMPILER_APPLE_CLANG40)))
 
 // N2235
 #define GLM_HAS_CONSTEXPR ( \
@@ -514,7 +514,6 @@
 #define GLM_HAS_TEMPLATE_ALIASES ( \
 	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && ((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2013))) || \
 	__has_feature(cxx_alias_templates))
-	//((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC47)) || \
 
 #define GLM_HAS_RANGE_FOR ( \
 	(GLM_LANG & GLM_LANG_CXX11_FLAG) || \
@@ -526,13 +525,17 @@
 	(GLM_LANG & GLM_LANG_CXX11_FLAG) || \
 	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC49)))
 
-#define GLM_HAS_TRIVIAL_QUERIES (\
-	((GLM_LANG & GLM_LANG_CXX11_FLAG) && !(GLM_COMPILER & GLM_COMPILER_GCC)) || \
+#define GLM_HAS_TRIVIAL_QUERIES ( \
 	((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2013)))
 
-#define GLM_HAS_MAKE_SIGNED (\
+#define GLM_HAS_MAKE_SIGNED ( \
 	(GLM_LANG & GLM_LANG_CXX11_FLAG) || \
 	((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2013)))
+
+#define GLM_HAS_BITSCAN_WINDOWS ( \
+	(GLM_ARCH != GLM_ARCH_PURE) && \
+	(GLM_PLATFORM & GLM_PLATFORM_WINDOWS) && \
+	(GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_LLVM | GLM_COMPILER_INTEL)))
 
 // OpenMP
 #ifdef _OPENMP 
@@ -562,11 +565,12 @@
 // User defines: GLM_FORCE_PURE GLM_FORCE_SSE2 GLM_FORCE_SSE3 GLM_FORCE_AVX GLM_FORCE_AVX2
 
 #define GLM_ARCH_PURE		0x0000
-#define GLM_ARCH_SSE2		0x0001
-#define GLM_ARCH_SSE3		0x0002
-#define GLM_ARCH_SSE4		0x0004
-#define GLM_ARCH_AVX		0x0008
-#define GLM_ARCH_AVX2		0x0010
+#define GLM_ARCH_X86		0x0001
+#define GLM_ARCH_SSE2		0x0002
+#define GLM_ARCH_SSE3		0x0004
+#define GLM_ARCH_SSE4		0x0008
+#define GLM_ARCH_AVX		0x0010
+#define GLM_ARCH_AVX2		0x0020
 
 #if defined(GLM_FORCE_PURE)
 #	define GLM_ARCH GLM_ARCH_PURE
@@ -580,7 +584,7 @@
 #	define GLM_ARCH (GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #elif defined(GLM_FORCE_SSE2)
 #	define GLM_ARCH (GLM_ARCH_SSE2)
-#elif (GLM_COMPILER & GLM_COMPILER_CLANG) || (GLM_COMPILER & GLM_COMPILER_GCC)
+#elif (GLM_COMPILER & (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM | GLM_COMPILER_GCC)) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_LINUX))
 #	if(__AVX2__)
 #		define GLM_ARCH (GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #	elif(__AVX__)
@@ -592,8 +596,10 @@
 #	else
 #		define GLM_ARCH GLM_ARCH_PURE
 #	endif
-#elif GLM_COMPILER & GLM_COMPILER_VC
-#	if _M_IX86_FP == 2 && defined(__AVX__)
+#elif (GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS))
+#	if defined(__AVX2__)
+#		define GLM_ARCH (GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
+#	elif defined(__AVX__)
 #		define GLM_ARCH (GLM_ARCH_AVX | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #	elif _M_IX86_FP == 2
 #		define GLM_ARCH (GLM_ARCH_SSE2)
@@ -702,7 +708,7 @@
 #	elif GLM_COMPILER & GLM_COMPILER_GCC
 #		define GLM_INLINE inline __attribute__((__always_inline__))
 #		define GLM_NEVER_INLINE __attribute__((__noinline__))
-#	elif GLM_COMPILER & GLM_COMPILER_CLANG
+#	elif GLM_COMPILER & (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM)
 #		define GLM_INLINE __attribute__((__always_inline__))
 #		define GLM_NEVER_INLINE __attribute__((__noinline__))
 #	else
@@ -734,28 +740,25 @@
 ///////////////////////////////////////////////////////////////////////////////////
 // Qualifiers
 
-#if GLM_COMPILER & GLM_COMPILER_VC
+#if (GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS))
 #	define GLM_DEPRECATED __declspec(deprecated)
 #	define GLM_ALIGN(x) __declspec(align(x))
 #	define GLM_ALIGNED_STRUCT(x) struct __declspec(align(x))
+#	define GLM_ALIGNED_TYPEDEF(type, name, alignment) typedef __declspec(align(alignment)) type name
 #	define GLM_RESTRICT __declspec(restrict)
 #	define GLM_RESTRICT_VAR __restrict
-#elif GLM_COMPILER & GLM_COMPILER_INTEL
-#	define GLM_DEPRECATED
-#	define GLM_ALIGN(x) __declspec(align(x))
-#	define GLM_ALIGNED_STRUCT(x) struct __declspec(align(x))
-#	define GLM_RESTRICT
-#	define GLM_RESTRICT_VAR __restrict
-#elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG | GLM_COMPILER_CUDA)
+#elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM | GLM_COMPILER_CUDA | GLM_COMPILER_INTEL)
 #	define GLM_DEPRECATED __attribute__((__deprecated__))
 #	define GLM_ALIGN(x) __attribute__((aligned(x)))
 #	define GLM_ALIGNED_STRUCT(x) struct __attribute__((aligned(x)))
+#	define GLM_ALIGNED_TYPEDEF(type, name, alignment) typedef type name __attribute__((aligned(alignment)))
 #	define GLM_RESTRICT __restrict__
 #	define GLM_RESTRICT_VAR __restrict__
 #else
 #	define GLM_DEPRECATED
 #	define GLM_ALIGN
 #	define GLM_ALIGNED_STRUCT(x) struct
+#	define GLM_ALIGNED_TYPEDEF(type, name, alignment) typedef type name
 #	define GLM_RESTRICT
 #	define GLM_RESTRICT_VAR
 #endif//GLM_COMPILER
@@ -773,7 +776,7 @@
 
 namespace glm
 {
-	typedef std::size_t size_t;
+	using std::size_t;
 #if defined(GLM_FORCE_SIZE_T_LENGTH) || defined(GLM_FORCE_SIZE_FUNC)
 	typedef size_t length_t;
 #else
