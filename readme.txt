@@ -66,7 +66,7 @@ http://glm.g-truc.net/glm.pdf
 GLM 0.9.6.1: 2014-12-XX
 --------------------------------------------------------------------------------
 Fixes:
-- Fixed uaddCarry error for Cuda build #276
+- Fixed scalar uaddCarry build error with Cuda #276
 
 ================================================================================
 GLM 0.9.6.0: 2014-11-30

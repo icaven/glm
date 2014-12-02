@@ -67,6 +67,18 @@ namespace log2_
 		Error += glm::all(glm::equal(D0, D1)) ? 0 : 1;
 		Error += glm::all(glm::equal(E0, E1)) ? 0 : 1;
 
+		glm::uint64 A2 = glm::log2(glm::uint64(10.f));
+		glm::u64vec1 B2 = glm::log2(glm::u64vec1(10.f));
+		glm::u64vec2 C2 = glm::log2(glm::u64vec2(10.f));
+		glm::u64vec3 D2 = glm::log2(glm::u64vec3(10.f));
+		glm::u64vec4 E2 = glm::log2(glm::u64vec4(10.f));
+
+		Error += A2 == glm::uint64(1) ? 0 : 1;
+		Error += glm::all(glm::equal(B2, glm::u64vec1(1))) ? 0 : 1;
+		Error += glm::all(glm::equal(C2, glm::u64vec2(1))) ? 0 : 1;
+		Error += glm::all(glm::equal(D2, glm::u64vec3(1))) ? 0 : 1;
+		Error += glm::all(glm::equal(E2, glm::u64vec4(1))) ? 0 : 1;
+
 		return Error;
 	}
 
