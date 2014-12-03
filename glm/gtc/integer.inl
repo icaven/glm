@@ -40,7 +40,7 @@ namespace detail
 		{
 			//Equivalent to return findMSB(vec); but save one function call in ASM with VC
 			//return findMSB(vec);
-			return detail::compute_findMSB_vec<T, P, vecType, sizeof(T) * 8>::call(vec);
+			return vecType<T, P>(detail::compute_findMSB_vec<T, P, vecType, sizeof(T) * 8>::call(vec));
 		}
 	};
 

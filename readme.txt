@@ -68,6 +68,7 @@ GLM 0.9.6.1: 2014-12-XX
 Fixes:
 - Fixed scalar uaddCarry build error with Cuda #276
 - Fixed C++11 explicit conversion operators detection #282
+- Fixed missing explicit convertion when using integer log2 with *vec1 types
 
 ================================================================================
 GLM 0.9.6.0: 2014-11-30
