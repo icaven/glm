@@ -69,6 +69,7 @@ Fixes:
 - Fixed scalar uaddCarry build error with Cuda #276
 - Fixed C++11 explicit conversion operators detection #282
 - Fixed missing explicit convertion when using integer log2 with *vec1 types
+- Fixed 64 bits integer GTX_string_cast to_string on VC 32 bit compiler 
 
 ================================================================================
 GLM 0.9.6.0: 2014-11-30

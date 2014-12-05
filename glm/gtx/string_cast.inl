@@ -59,73 +59,99 @@ namespace detail
 	static const char* True = "true";
 	static const char* False = "false";
 
+	template <typename T, bool isFloat = false>
+	struct literal
+	{
+		GLM_FUNC_QUALIFIER static char const * value() {return "%d";};
+	};
+
+	template <typename T>
+	struct literal<T, true>
+	{
+		GLM_FUNC_QUALIFIER static char const * value() {return "%f";};
+	};
+
+#	if GLM_MODEL == GLM_MODEL_32 && GLM_COMPILER && GLM_COMPILER_VC
+	template <>
+	struct literal<uint64_t, false>
+	{
+		GLM_FUNC_QUALIFIER static char const * value() {return "%lld";};
+	};
+
+	template <>
+	struct literal<int64_t, false>
+	{
+		GLM_FUNC_QUALIFIER static char const * value() {return "%lld";};
+	};
+#	endif//GLM_MODEL == GLM_MODEL_32 && GLM_COMPILER && GLM_COMPILER_VC
+
 	template <typename T>
 	struct prefix{};
 
 	template <>
 	struct prefix<float>
 	{
-		static char const * value() {return "";};
+		GLM_FUNC_QUALIFIER static char const * value() {return "";};
 	};
 
 	template <>
 	struct prefix<double>
 	{
-		static char const * value() {return "d";};
+		GLM_FUNC_QUALIFIER static char const * value() {return "d";};
 	};
 
 	template <>
 	struct prefix<bool>
 	{
-		static char const * value() {return "b";};
+		GLM_FUNC_QUALIFIER static char const * value() {return "b";};
 	};
 
 	template <>
 	struct prefix<uint8_t>
 	{
-		static char const * value() {return "u8";};
+		GLM_FUNC_QUALIFIER static char const * value() {return "u8";};
 	};
 
 	template <>
 	struct prefix<int8_t>
 	{
-		static char const * value() {return "i8";};
+		GLM_FUNC_QUALIFIER static char const * value() {return "i8";};
 	};
 
 	template <>
 	struct prefix<uint16_t>
 	{
-		static char const * value() {return "u16";};
+		GLM_FUNC_QUALIFIER static char const * value() {return "u16";};
 	};
 
 	template <>
 	struct prefix<int16_t>
 	{
-		static char const * value() {return "i16";};
+		GLM_FUNC_QUALIFIER static char const * value() {return "i16";};
 	};
 
 	template <>
 	struct prefix<uint32_t>
 	{
-		static char const * value() {return "u";};
+		GLM_FUNC_QUALIFIER static char const * value() {return "u";};
 	};
 
 	template <>
 	struct prefix<int32_t>
 	{
-		static char const * value() {return "i";};
+		GLM_FUNC_QUALIFIER static char const * value() {return "i";};
 	};
 
 	template <>
 	struct prefix<uint64_t>
 	{
-		static char const * value() {return "u64";};
+		GLM_FUNC_QUALIFIER static char const * value() {return "u64";};
 	};
 
 	template <>
 	struct prefix<int64_t>
 	{
-		static char const * value() {return "i64";};
+		GLM_FUNC_QUALIFIER static char const * value() {return "i64";};
 	};
 
 	template <template <typename, precision> class matType, typename T, precision P>
@@ -184,7 +210,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static std::string call(tvec1<T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
-			char const * LiteralStr = std::numeric_limits<T>::is_iec559 ? "%f" : "%d";
+			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
 			std::string FormatStr(detail::format("%svec1(%s)",
 				PrefixStr,
 				LiteralStr));
@@ -199,7 +225,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static std::string call(tvec2<T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
-			char const * LiteralStr = std::numeric_limits<T>::is_iec559 ? "%f" : "%d";
+			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
 			std::string FormatStr(detail::format("%svec2(%s, %s)",
 				PrefixStr,
 				LiteralStr, LiteralStr));
@@ -214,7 +240,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static std::string call(tvec3<T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
-			char const * LiteralStr = std::numeric_limits<T>::is_iec559 ? "%f" : "%d";
+			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
 			std::string FormatStr(detail::format("%svec3(%s, %s, %s)",
 				PrefixStr,
 				LiteralStr, LiteralStr, LiteralStr));
@@ -229,7 +255,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static std::string call(tvec4<T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
-			char const * LiteralStr = std::numeric_limits<T>::is_iec559 ? "%f" : "%d";
+			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
 			std::string FormatStr(detail::format("%svec4(%s, %s, %s, %s)",
 				PrefixStr,
 				LiteralStr, LiteralStr, LiteralStr, LiteralStr));
@@ -245,7 +271,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static std::string call(tmat2x2<T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
-			char const * LiteralStr = std::numeric_limits<T>::is_iec559 ? "%f" : "%d";
+			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
 			std::string FormatStr(detail::format("%smat2x2((%s, %s), (%s, %s))",
 				PrefixStr,
 				LiteralStr, LiteralStr,
@@ -263,7 +289,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static std::string call(tmat2x3<T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
-			char const * LiteralStr = std::numeric_limits<T>::is_iec559 ? "%f" : "%d";
+			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
 			std::string FormatStr(detail::format("%smat2x3((%s, %s, %s), (%s, %s, %s))",
 				PrefixStr,
 				LiteralStr, LiteralStr, LiteralStr,
@@ -281,7 +307,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static std::string call(tmat2x4<T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
-			char const * LiteralStr = std::numeric_limits<T>::is_iec559 ? "%f" : "%d";
+			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
 			std::string FormatStr(detail::format("%smat2x4((%s, %s, %s, %s), (%s, %s, %s, %s))",
 				PrefixStr,
 				LiteralStr, LiteralStr, LiteralStr, LiteralStr,
@@ -299,7 +325,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static std::string call(tmat3x2<T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
-			char const * LiteralStr = std::numeric_limits<T>::is_iec559 ? "%f" : "%d";
+			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
 			std::string FormatStr(detail::format("%smat3x2((%s, %s), (%s, %s), (%s, %s))",
 				PrefixStr,
 				LiteralStr, LiteralStr,
@@ -319,7 +345,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static std::string call(tmat3x3<T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
-			char const * LiteralStr = std::numeric_limits<T>::is_iec559 ? "%f" : "%d";
+			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
 			std::string FormatStr(detail::format("%smat3x3((%s, %s, %s), (%s, %s, %s), (%s, %s, %s))",
 				PrefixStr,
 				LiteralStr, LiteralStr, LiteralStr,
@@ -339,7 +365,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static std::string call(tmat3x4<T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
-			char const * LiteralStr = std::numeric_limits<T>::is_iec559 ? "%f" : "%d";
+			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
 			std::string FormatStr(detail::format("%smat3x4((%s, %s, %s, %s), (%s, %s, %s, %s), (%s, %s, %s, %s))",
 				PrefixStr,
 				LiteralStr, LiteralStr, LiteralStr, LiteralStr,
@@ -359,7 +385,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static std::string call(tmat4x2<T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
-			char const * LiteralStr = std::numeric_limits<T>::is_iec559 ? "%f" : "%d";
+			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
 			std::string FormatStr(detail::format("%smat4x2((%s, %s), (%s, %s), (%s, %s), (%s, %s))",
 				PrefixStr,
 				LiteralStr, LiteralStr,
@@ -381,7 +407,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static std::string call(tmat4x3<T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
-			char const * LiteralStr = std::numeric_limits<T>::is_iec559 ? "%f" : "%d";
+			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
 			std::string FormatStr(detail::format("%smat4x3((%s, %s, %s), (%s, %s, %s), (%s, %s, %s), (%s, %s, %s))",
 				PrefixStr,
 				LiteralStr, LiteralStr, LiteralStr,
@@ -403,7 +429,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static std::string call(tmat4x4<T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
-			char const * LiteralStr = std::numeric_limits<T>::is_iec559 ? "%f" : "%d";
+			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
 			std::string FormatStr(detail::format("%smat4x4((%s, %s, %s, %s), (%s, %s, %s, %s), (%s, %s, %s, %s), (%s, %s, %s, %s))",
 				PrefixStr,
 				LiteralStr, LiteralStr, LiteralStr, LiteralStr,
