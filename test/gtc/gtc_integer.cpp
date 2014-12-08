@@ -49,23 +49,35 @@ namespace log2_
 	{
 		int Error = 0;
 
-		int A0(glm::log2(10.f));
-		glm::ivec1 B0(glm::log2(glm::vec1(10.f)));
-		glm::ivec2 C0(glm::log2(glm::vec2(10.f)));
-		glm::ivec3 D0(glm::log2(glm::vec3(10.f)));
-		glm::ivec4 E0(glm::log2(glm::vec4(10.f)));
+		int A0 = static_cast<int>(glm::log2(16.f));
+		glm::ivec1 B0(glm::log2(glm::vec1(16.f)));
+		glm::ivec2 C0(glm::log2(glm::vec2(16.f)));
+		glm::ivec3 D0(glm::log2(glm::vec3(16.f)));
+		glm::ivec4 E0(glm::log2(glm::vec4(16.f)));
 
-		int A1 = glm::log2(int(10.f));
-		glm::ivec1 B1 = glm::log2(glm::ivec1(10.f));
-		glm::ivec2 C1 = glm::log2(glm::ivec2(10.f));
-		glm::ivec3 D1 = glm::log2(glm::ivec3(10.f));
-		glm::ivec4 E1 = glm::log2(glm::ivec4(10.f));
+		int A1 = glm::log2(int(16));
+		glm::ivec1 B1 = glm::log2(glm::ivec1(16));
+		glm::ivec2 C1 = glm::log2(glm::ivec2(16));
+		glm::ivec3 D1 = glm::log2(glm::ivec3(16));
+		glm::ivec4 E1 = glm::log2(glm::ivec4(16));
 
 		Error += A0 == A1 ? 0 : 1;
 		Error += glm::all(glm::equal(B0, B1)) ? 0 : 1;
 		Error += glm::all(glm::equal(C0, C1)) ? 0 : 1;
 		Error += glm::all(glm::equal(D0, D1)) ? 0 : 1;
 		Error += glm::all(glm::equal(E0, E1)) ? 0 : 1;
+
+		glm::uint64 A2 = glm::log2(glm::uint64(16));
+		glm::u64vec1 B2 = glm::log2(glm::u64vec1(16));
+		glm::u64vec2 C2 = glm::log2(glm::u64vec2(16));
+		glm::u64vec3 D2 = glm::log2(glm::u64vec3(16));
+		glm::u64vec4 E2 = glm::log2(glm::u64vec4(16));
+
+		Error += A2 == glm::uint64(4) ? 0 : 1;
+		Error += glm::all(glm::equal(B2, glm::u64vec1(4))) ? 0 : 1;
+		Error += glm::all(glm::equal(C2, glm::u64vec2(4))) ? 0 : 1;
+		Error += glm::all(glm::equal(D2, glm::u64vec3(4))) ? 0 : 1;
+		Error += glm::all(glm::equal(E2, glm::u64vec4(4))) ? 0 : 1;
 
 		return Error;
 	}
@@ -81,7 +93,7 @@ namespace log2_
 
 			std::clock_t Begin = clock();
 
-			for(std::size_t i = 0; i < Count; ++i)
+			for(int i = 0; i < static_cast<int>(Count); ++i)
 				Result[i] = glm::log2(static_cast<int>(i));
 
 			std::clock_t End = clock();
@@ -95,7 +107,7 @@ namespace log2_
 
 			std::clock_t Begin = clock();
 
-			for(std::size_t i = 0; i < Count; ++i)
+			for(int i = 0; i < static_cast<int>(Count); ++i)
 				Result[i] = glm::log2(glm::ivec4(i));
 
 			std::clock_t End = clock();
@@ -186,7 +198,7 @@ namespace log2_
 
 			std::clock_t Begin = clock();
 
-			for(std::size_t i = 0; i < Count; ++i)
+			for(int i = 0; i < static_cast<int>(Count); ++i)
 				Result[i] = glm::log2(glm::vec4(i));
 
 			std::clock_t End = clock();

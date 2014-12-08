@@ -190,7 +190,8 @@ namespace detail
 	{
 		*this = quat_cast(m);
 	}
-	
+
+#	if GLM_HAS_EXPLICIT_CONVERSION_OPERATORS
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tquat<T, P>::operator tmat3x3<T, P>()
 	{
@@ -202,6 +203,7 @@ namespace detail
 	{
 		return mat4_cast(*this);
 	}
+#	endif//GLM_HAS_EXPLICIT_CONVERSION_OPERATORS
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tquat<T, P> conjugate(tquat<T, P> const & q)

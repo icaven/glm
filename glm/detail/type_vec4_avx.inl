@@ -24,51 +24,18 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 ///
-/// @ref gtc_integer
-/// @file glm/gtc/integer.inl
-/// @date 2014-11-17 / 2014-11-17
+/// @ref core
+/// @file glm/detail/type_tvec4_avx.inl
+/// @date 2014-12-01 / 2014-12-01
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
 namespace glm{
 namespace detail
 {
-	template <typename T, precision P, template <class, precision> class vecType>
-	struct compute_log2<T, P, vecType, false>
-	{
-		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & vec)
-		{
-			//Equivalent to return findMSB(vec); but save one function call in ASM with VC
-			//return findMSB(vec);
-			return vecType<T, P>(detail::compute_findMSB_vec<T, P, vecType, sizeof(T) * 8>::call(vec));
-		}
-	};
 
-#	if GLM_HAS_BITSCAN_WINDOWS
-		template <precision P>
-		struct compute_log2<int, P, tvec4, false>
-		{
-			GLM_FUNC_QUALIFIER static tvec4<int, P> call(tvec4<int, P> const & vec)
-			{
-				tvec4<int, P> Result(glm::uninitialize);
-
-				_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.x), vec.x);
-				_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.y), vec.y);
-				_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.z), vec.z);
-				_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.w), vec.w);
-
-				return Result;
-			}
-		};
-#	endif//GLM_HAS_BITSCAN_WINDOWS
-
-	template <typename T, precision P, template <class, precision> class vecType, typename genType>
-	struct compute_mod<T, P, vecType, genType, false>
-	{
-		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & a, genType const & b)
-		{
-			return a % b;
-		}
-	};
 }//namespace detail
+
+	
+
 }//namespace glm
