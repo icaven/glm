@@ -453,9 +453,11 @@
 // http://msdn.microsoft.com/en-us/library/vstudio/hh567368(v=vs.120).aspx
 
 // N1720
-#define GLM_HAS_CXX11_STL ( \
-	(GLM_LANG & GLM_LANG_CXX11_FLAG) || \
-	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2015)))
+#if GLM_COMPILER & GLM_COMPILER_CLANG
+#	define GLM_HAS_CXX11_STL (GLM_LANG & GLM_LANG_CXX11_FLAG) && __has_include(<__config>)
+#else
+#	define GLM_HAS_CXX11_STL (GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2015)
+#endif
 
 // N1720
 #define GLM_HAS_STATIC_ASSERT ( \
