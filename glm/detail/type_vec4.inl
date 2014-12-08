@@ -42,22 +42,6 @@ namespace glm
 #		endif
 	{}
 
-#if GLM_HAS_ANONYMOUS_UNION && (GLM_ARCH & GLM_ARCH_SSE2)
-	template <>
-	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4()
-#		ifndef GLM_FORCE_NO_CTOR_INIT
-			: data(_mm_setzero_ps())
-#		endif
-	{}
-	
-	template <>
-	GLM_FUNC_QUALIFIER tvec4<float, mediump>::tvec4()
-#		ifndef GLM_FORCE_NO_CTOR_INIT
-			: data(_mm_setzero_ps())
-#		endif
-	{}
-#endif
-
 	template <typename T, precision P>
 	template <precision Q>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4(tvec4<T, Q> const & v)
@@ -76,35 +60,11 @@ namespace glm
 		: x(s), y(s), z(s), w(s)
 	{}
 
-#if GLM_HAS_ANONYMOUS_UNION && (GLM_ARCH & GLM_ARCH_SSE2)
-	template <>
-	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4(float s) :
-		data(_mm_set1_ps(s))
-	{}
-	
-	template <>
-	GLM_FUNC_QUALIFIER tvec4<float, mediump>::tvec4(float s) :
-		data(_mm_set1_ps(s))
-	{}
-#endif
-	
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P>::tvec4(T a, T b, T c, T d)
 		: x(a), y(b), z(c), w(d)
 	{}
 
-#if GLM_HAS_ANONYMOUS_UNION && (GLM_ARCH & GLM_ARCH_SSE2)
-	template <>
-	GLM_FUNC_QUALIFIER tvec4<float, lowp>::tvec4(float a, float b, float c, float d) :
-		data(_mm_set_ps(d, c, b, a))
-	{}
-	
-	template <>
-	GLM_FUNC_QUALIFIER tvec4<float, mediump>::tvec4(float a, float b, float c, float d) :
-		data(_mm_set_ps(d, c, b, a))
-	{}
-#endif
-	
 	//////////////////////////////////////
 	// Conversion scalar constructors
 
@@ -307,40 +267,6 @@ namespace glm
 		return *this;
 	}
 
-#if GLM_HAS_ANONYMOUS_UNION && (GLM_ARCH & GLM_ARCH_SSE2)
-	template <>
-	template <typename U>
-	GLM_FUNC_QUALIFIER tvec4<float, lowp> & tvec4<float, lowp>::operator+=(U scalar)
-	{
-		this->data = _mm_add_ps(this->data, _mm_set_ps1(static_cast<float>(scalar)));
-		return *this;
-	}
-
-	template <>
-	template <>
-	GLM_FUNC_QUALIFIER tvec4<float, lowp> & tvec4<float, lowp>::operator+=<float>(float scalar)
-	{
-		this->data = _mm_add_ps(this->data, _mm_set_ps1(scalar));
-		return *this;
-	}
-
-	template <>
-	template <typename U>
-	GLM_FUNC_QUALIFIER tvec4<float, mediump> & tvec4<float, mediump>::operator+=(U scalar)
-	{
-		this->data = _mm_add_ps(this->data, _mm_set_ps1(static_cast<float>(scalar)));
-		return *this;
-	}
-
-	template <>
-	template <>
-	GLM_FUNC_QUALIFIER tvec4<float, mediump> & tvec4<float, mediump>::operator+=<float>(float scalar)
-	{
-		this->data = _mm_add_ps(this->data, _mm_set_ps1(scalar));
-		return *this;
-	}
-#endif
-
 	template <typename T, precision P>
 	template <typename U>
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator+=(tvec1<U, P> const & v)
@@ -352,24 +278,6 @@ namespace glm
 		this->w += scalar;
 		return *this;
 	}
-
-#if GLM_HAS_ANONYMOUS_UNION && (GLM_ARCH & GLM_ARCH_SSE2)
-	template <>
-	template <typename U>
-	GLM_FUNC_QUALIFIER tvec4<float, lowp> & tvec4<float, lowp>::operator+=(tvec1<U, lowp> const & v)
-	{
-		this->data = _mm_add_ps(this->data, _mm_set_ps1(static_cast<float>(v.x)));
-		return *this;
-	}
-
-	template <>
-	template <typename U>
-	GLM_FUNC_QUALIFIER tvec4<float, mediump> & tvec4<float, mediump>::operator+=(tvec1<U, mediump> const & v)
-	{
-		this->data = _mm_add_ps(this->data, _mm_set_ps1(static_cast<float>(v.x)));
-		return *this;
-	}
-#endif
 
 	template <typename T, precision P>
 	template <typename U>
@@ -1188,6 +1096,7 @@ namespace glm
 	}
 }//namespace glm
 
+#if GLM_HAS_ANONYMOUS_UNION && GLM_NOT_BUGGY_VC32BITS
 #if GLM_ARCH & GLM_ARCH_SSE2
 #	include "type_vec4_sse2.inl"
 #endif
@@ -1197,3 +1106,4 @@ namespace glm
 #if GLM_ARCH & GLM_ARCH_AVX2
 #	include "type_vec4_avx2.inl"
 #endif
+#endif//
