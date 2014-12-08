@@ -69,6 +69,7 @@ Fixes:
 - Fixed scalar uaddCarry build error with Cuda #276
 - Fixed C++11 explicit conversion operators detection #282
 - Fixed missing explicit convertion when using integer log2 with *vec1 types
+- Fixed Android build issue, STL C++11 is not supported by the NDK #284
 
 ================================================================================
 GLM 0.9.6.0: 2014-11-30
