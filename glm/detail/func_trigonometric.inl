@@ -162,7 +162,7 @@ namespace glm
 	}
 
 	// asinh
-#	if GLM_LANG & GLM_LANG_CXX11_FLAG
+#	if GLM_HAS_CXX11_STL
 		using std::asinh;
 #	else
 		template <typename genType> 
@@ -181,7 +181,7 @@ namespace glm
 	}
 
 	// acosh
-#	if GLM_LANG & GLM_LANG_CXX11_FLAG
+#	if GLM_HAS_CXX11_STL
 		using std::acosh;
 #	else
 		template <typename genType> 
@@ -202,7 +202,7 @@ namespace glm
 	}
 
 	// atanh
-#	if GLM_LANG & GLM_LANG_CXX11_FLAG
+#	if GLM_HAS_CXX11_STL
 		using std::atanh;
 #	else
 		template <typename genType>

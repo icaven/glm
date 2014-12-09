@@ -39,7 +39,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isdenormal' only accept floating-point inputs");
 
-#		if(GLM_LANG & GLM_LANG_CXX11_FLAG)
+#		if GLM_HAS_CXX11_STL
 			return std::fpclassify(x) == FP_SUBNORMAL;
 #		else
 			return x != static_cast<T>(0) && std::fabs(x) < std::numeric_limits<T>::min();

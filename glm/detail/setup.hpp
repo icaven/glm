@@ -420,17 +420,17 @@
 
 #if defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_LANG_DISPLAYED)
 #	define GLM_MESSAGE_LANG_DISPLAYED
-#	if(GLM_LANG & GLM_LANG_CXXGNU_FLAG)
+#	if GLM_LANG & GLM_LANG_CXXGNU_FLAG
 #		pragma message("GLM: C++ with language extensions")
-#	elif(GLM_LANG & GLM_LANG_CXXMS_FLAG)
+#	elif GLM_LANG & GLM_LANG_CXXMS_FLAG
 #		pragma message("GLM: C++ with language extensions")
-#	elif(GLM_LANG & GLM_LANG_CXX11_FLAG)
+#	elif GLM_LANG & GLM_LANG_CXX11_FLAG
 #		pragma message("GLM: C++11")
-#	elif(GLM_LANG & GLM_LANG_CXX0X_FLAG)
+#	elif GLM_LANG & GLM_LANG_CXX0X_FLAG
 #		pragma message("GLM: C++0x")
-#	elif(GLM_LANG & GLM_LANG_CXX03_FLAG)
+#	elif GLM_LANG & GLM_LANG_CXX03_FLAG
 #		pragma message("GLM: C++03")
-#	elif(GLM_LANG & GLM_LANG_CXX98_FLAG)
+#	elif GLM_LANG & GLM_LANG_CXX98_FLAG
 #		pragma message("GLM: C++98")
 #	else
 #		pragma message("GLM: C++ language undetected")
