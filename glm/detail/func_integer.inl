@@ -116,6 +116,7 @@ namespace detail
 			}
 		};
 
+#		if !((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER < GLM_COMPILER_VC2013) && (GLM_MODEL == GLM_MODEL_32))
 		template <typename genIUType>
 		struct compute_findLSB<genIUType, 64>
 		{
@@ -126,6 +127,7 @@ namespace detail
 				return IsNotNull ? int(Result) : -1;
 			}
 		};
+#		endif
 #	endif//GLM_HAS_BITSCAN_WINDOWS
 
 	template <typename T, glm::precision P, template <class, glm::precision> class vecType, bool EXEC = true>
@@ -171,14 +173,6 @@ namespace detail
 			return IsNotNull ? int(Result) : -1;
 		}
 
-		template <typename genIUType>
-		GLM_FUNC_QUALIFIER int compute_findMSB_64(genIUType Value)
-		{
-			unsigned long Result(0);
-			unsigned char IsNotNull = _BitScanReverse64(&Result, *reinterpret_cast<unsigned __int64*>(&Value));
-			return IsNotNull ? int(Result) : -1;
-		}
-
 		template <typename T, glm::precision P, template <class, glm::precision> class vecType>
 		struct compute_findMSB_vec<T, P, vecType, 32>
 		{
@@ -188,6 +182,15 @@ namespace detail
 			}
 		};
 
+#		if !((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER < GLM_COMPILER_VC2013) && (GLM_MODEL == GLM_MODEL_32))
+		template <typename genIUType>
+		GLM_FUNC_QUALIFIER int compute_findMSB_64(genIUType Value)
+		{
+			unsigned long Result(0);
+			unsigned char IsNotNull = _BitScanReverse64(&Result, *reinterpret_cast<unsigned __int64*>(&Value));
+			return IsNotNull ? int(Result) : -1;
+		}
+
 		template <typename T, glm::precision P, template <class, glm::precision> class vecType>
 		struct compute_findMSB_vec<T, P, vecType, 64>
 		{
@@ -196,6 +199,7 @@ namespace detail
 				return detail::functor1<int, T, P, vecType>::call(compute_findMSB_64, x);
 			}
 		};
+#		endif
 #	endif//GLM_HAS_BITSCAN_WINDOWS
 }//namespace detail
 
