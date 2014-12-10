@@ -329,7 +329,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 // C++ Version
 
-// User defines: GLM_FORCE_CXX98
+// User defines: GLM_FORCE_CXX98, GLM_FORCE_CXX11, GLM_FORCE_CXX14
 
 #define GLM_LANG_CXX98_FLAG			(1 << 1)
 #define GLM_LANG_CXX03_FLAG			(1 << 2)
@@ -462,10 +462,13 @@
 
 #if defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_LANG_DISPLAYED)
 #	define GLM_MESSAGE_LANG_DISPLAYED
-#	if GLM_LANG & GLM_LANG_CXXGNU_FLAG
-#		pragma message("GLM: C++ with language extensions")
-#	elif GLM_LANG & GLM_LANG_CXXMS_FLAG
-#		pragma message("GLM: C++ with language extensions")
+
+#	if GLM_LANG & GLM_LANG_CXX1Z_FLAG
+#		pragma message("GLM: C++1z")
+#	elif GLM_LANG & GLM_LANG_CXX14_FLAG
+#		pragma message("GLM: C++14")
+#	elif GLM_LANG & GLM_LANG_CXX1Y_FLAG
+#		pragma message("GLM: C++1y")
 #	elif GLM_LANG & GLM_LANG_CXX11_FLAG
 #		pragma message("GLM: C++11")
 #	elif GLM_LANG & GLM_LANG_CXX0X_FLAG
@@ -476,8 +479,11 @@
 #		pragma message("GLM: C++98")
 #	else
 #		pragma message("GLM: C++ language undetected")
-#	endif//GLM_MODEL
-#	pragma message("GLM: #define GLM_FORCE_CXX98, GLM_FORCE_CXX03, GLM_LANG_CXX11 or GLM_FORCE_CXX1Y to force using a specific version of the C++ language")
+#	endif//GLM_LANG
+
+#	if GLM_LANG & (GLM_LANG_CXXGNU_FLAG | GLM_LANG_CXXMS_FLAG)
+#		pragma message("GLM: Language extensions enabled")
+#	endif//GLM_LANG
 #endif//GLM_MESSAGE
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -721,7 +727,6 @@
 #	elif(GLM_ARCH & GLM_ARCH_SSE2)
 #		pragma message("GLM: SSE2 instruction set")
 #	endif//GLM_ARCH
-#	pragma message("GLM: #define GLM_FORCE_PURE to avoid using platform specific instruction sets")
 #endif//GLM_MESSAGE
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -831,11 +836,11 @@
 namespace glm
 {
 	using std::size_t;
-#if defined(GLM_FORCE_SIZE_T_LENGTH) || defined(GLM_FORCE_SIZE_FUNC)
-	typedef size_t length_t;
-#else
-	typedef int length_t;
-#endif
+#	if defined(GLM_FORCE_SIZE_T_LENGTH) || defined(GLM_FORCE_SIZE_FUNC)
+		typedef size_t length_t;
+#	else
+		typedef int length_t;
+#	endif
 
 namespace detail
 {
@@ -859,11 +864,12 @@ namespace detail
 
 #if defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_FORCE_SIZE_T_LENGTH)
 #	define GLM_MESSAGE_FORCE_SIZE_T_LENGTH
-#	if defined(GLM_FORCE_SIZE_T_LENGTH)
+#	if defined GLM_FORCE_SIZE_FUNC
+#		pragma message("GLM: .length() is replaced by .size() and returns a std::size_t")
+#	elif defined GLM_FORCE_SIZE_T_LENGTH
 #		pragma message("GLM: .length() returns glm::length_t, a typedef of std::size_t")
 #	else
 #		pragma message("GLM: .length() returns glm::length_t, a typedef of int following the GLSL specification")
-#		pragma message("GLM: #define GLM_FORCE_SIZE_T_LENGTH for .length() to return a size_t")
 #	endif
 #endif//GLM_MESSAGE
 

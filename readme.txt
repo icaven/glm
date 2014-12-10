@@ -69,6 +69,9 @@ Features:
 - Added GLM_LANG_CXX14_FLAG and GLM_LANG_CXX1Z_FLAG language feature flags
 - Added C++14 detection
 
+Improvements:
+- Clean up GLM_MESSAGES compilation log to report only detected capabilities
+
 Fixes:
 - Fixed scalar uaddCarry build error with Cuda #276
 - Fixed C++11 explicit conversion operators detection #282
@@ -77,6 +80,7 @@ Fixes:
 - Fixed Android build issue, STL C++11 is not supported by the NDK #284
 - Fixed unsupported _BitScanForward64 and _BitScanReverse64 in VC10
 - Fixed Visual C++ 32 bit build #283
+- Fixed GLM_FORCE_SIZE_FUNC pragma message
 
 ================================================================================
 GLM 0.9.6.0: 2014-11-30

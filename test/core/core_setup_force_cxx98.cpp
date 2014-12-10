@@ -30,7 +30,6 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_FORCE_PURE
 #define GLM_FORCE_CXX98
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
