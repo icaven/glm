@@ -116,7 +116,7 @@ namespace detail
 			}
 		};
 
-#		if !((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER < GLM_COMPILER_VC2013) && (GLM_MODEL == GLM_MODEL_32))
+#		if !((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_MODEL == GLM_MODEL_32))
 		template <typename genIUType>
 		struct compute_findLSB<genIUType, 64>
 		{
@@ -182,7 +182,7 @@ namespace detail
 			}
 		};
 
-#		if !((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER < GLM_COMPILER_VC2013) && (GLM_MODEL == GLM_MODEL_32))
+#		if !((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_MODEL == GLM_MODEL_32))
 		template <typename genIUType>
 		GLM_FUNC_QUALIFIER int compute_findMSB_64(genIUType Value)
 		{
