@@ -74,8 +74,6 @@ if(GLM_TEST_FORCE_PURE)
 
 	if(CMAKE_COMPILER_IS_GNUCXX)
 		add_definitions(-mfpmath=387)
-	elseif(MSVC)
-		add_definitions(/arch:IA32)
 	endif()
 elseif(GLM_TEST_ENABLE_SIMD_AVX2)
 	if(CMAKE_COMPILER_IS_GNUCXX)
