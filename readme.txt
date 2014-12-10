@@ -63,7 +63,7 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
 
 ================================================================================
-GLM 0.9.6.1: 2014-12-XX
+GLM 0.9.6.1: 2014-12-10
 --------------------------------------------------------------------------------
 Features:
 - Added GLM_LANG_CXX14_FLAG and GLM_LANG_CXX1Z_FLAG language feature flags
@@ -83,6 +83,7 @@ Fixes:
 - Fixed GLM_FORCE_SIZE_FUNC pragma message
 - Fixed C++98 only build
 - Fixed conflict between GTX_compatibility and GTC_quaternion #286
+- Fixed C++ language restriction using GLM_FORCE_CXX**
 
 ================================================================================
 GLM 0.9.6.0: 2014-11-30
