@@ -65,6 +65,10 @@ http://glm.g-truc.net/glm.pdf
 ================================================================================
 GLM 0.9.6.1: 2014-12-XX
 --------------------------------------------------------------------------------
+Features:
+- Added GLM_LANG_CXX14_FLAG and GLM_LANG_CXX1Z_FLAG language feature flags
+- Added C++14 detection
+
 Fixes:
 - Fixed scalar uaddCarry build error with Cuda #276
 - Fixed C++11 explicit conversion operators detection #282
