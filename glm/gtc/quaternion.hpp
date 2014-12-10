@@ -198,7 +198,7 @@ namespace glm
 	/// @see gtc_quaternion
 	/// @see - slerp(tquat<T, P> const & x, tquat<T, P> const & y, T const & a)
 	template <typename T, precision P>
-	GLM_FUNC_DECL tquat<T, P> mix(tquat<T, P> const & x, tquat<T, P> const & y,	T const & a);
+	GLM_FUNC_DECL tquat<T, P> mix(tquat<T, P> const & x, tquat<T, P> const & y, T a);
 
 	/// Linear interpolation of two quaternions.
 	/// The interpolation is oriented.
@@ -209,7 +209,7 @@ namespace glm
 	/// @tparam T Value type used to build the quaternion. Supported: half, float or double.
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tquat<T, P> lerp(tquat<T, P> const & x, tquat<T, P> const & y, T const & a);
+	GLM_FUNC_DECL tquat<T, P> lerp(tquat<T, P> const & x, tquat<T, P> const & y, T a);
 
 	/// Spherical linear interpolation of two quaternions.
 	/// The interpolation always take the short path and the rotation is performed at constant speed.
@@ -220,7 +220,7 @@ namespace glm
 	/// @tparam T Value type used to build the quaternion. Supported: half, float or double.
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tquat<T, P> slerp(tquat<T, P> const & x, tquat<T, P> const & y, T const & a);
+	GLM_FUNC_DECL tquat<T, P> slerp(tquat<T, P> const & x, tquat<T, P> const & y, T a);
 
 	/// Returns the q conjugate.
 	/// 

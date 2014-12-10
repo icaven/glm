@@ -73,8 +73,6 @@ namespace glm
 	template <typename T, precision P> GLM_FUNC_QUALIFIER tvec3<T, P> lerp(const tvec3<T, P>& x, const tvec3<T, P>& y, const tvec3<T, P>& a){return mix(x, y, a);}	//!< \brief Returns the component-wise result of x * (1.0 - a) + y * a, i.e., the linear blend of x and y using vector a. The value for a is not restricted to the range [0, 1]. (From GLM_GTX_compatibility)
 	template <typename T, precision P> GLM_FUNC_QUALIFIER tvec4<T, P> lerp(const tvec4<T, P>& x, const tvec4<T, P>& y, const tvec4<T, P>& a){return mix(x, y, a);}	//!< \brief Returns the component-wise result of x * (1.0 - a) + y * a, i.e., the linear blend of x and y using vector a. The value for a is not restricted to the range [0, 1]. (From GLM_GTX_compatibility)
 
-	template <typename T, precision P> GLM_FUNC_QUALIFIER T slerp(tquat<T, P> const & x, tquat<T, P> const & y, T const & a){return mix(x, y, a);} //!< \brief Returns the slurp interpolation between two quaternions.
-
 	template <typename T, precision P> GLM_FUNC_QUALIFIER T saturate(T x){return clamp(x, T(0), T(1));}														//!< \brief Returns clamp(x, 0, 1) for each component in x. (From GLM_GTX_compatibility)
 	template <typename T, precision P> GLM_FUNC_QUALIFIER tvec2<T, P> saturate(const tvec2<T, P>& x){return clamp(x, T(0), T(1));}					//!< \brief Returns clamp(x, 0, 1) for each component in x. (From GLM_GTX_compatibility)
 	template <typename T, precision P> GLM_FUNC_QUALIFIER tvec3<T, P> saturate(const tvec3<T, P>& x){return clamp(x, T(0), T(1));}					//!< \brief Returns clamp(x, 0, 1) for each component in x. (From GLM_GTX_compatibility)

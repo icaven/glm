@@ -82,6 +82,7 @@ Fixes:
 - Fixed Visual C++ 32 bit build #283
 - Fixed GLM_FORCE_SIZE_FUNC pragma message
 - Fixed C++98 only build
+- Fixed conflict between GTX_compatibility and GTC_quaternion #286
 
 ================================================================================
 GLM 0.9.6.0: 2014-11-30
