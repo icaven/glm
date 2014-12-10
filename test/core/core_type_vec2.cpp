@@ -33,7 +33,9 @@
 #include <glm/vector_relational.hpp>
 #include <glm/vec2.hpp>
 #include <vector>
-#include <type_traits>
+#if GLM_HAS_TRIVIAL_QUERIES
+#	include <type_traits>
+#endif
 
 int test_vec2_operators()
 {

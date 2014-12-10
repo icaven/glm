@@ -34,7 +34,9 @@
 #include <glm/gtc/epsilon.hpp>
 #include <glm/gtx/euler_angles.hpp>
 #include <glm/vector_relational.hpp>
-#include <type_traits>
+#if GLM_HAS_TRIVIAL_QUERIES
+#	include <type_traits>
+#endif
 
 int myrand()
 {
@@ -164,7 +166,7 @@ int test_mul()
 			// test both multiplication orders        
 			glm::vec4 dst_pt_m3  = m3 * src_pt; 
 			glm::vec4 dst_pt_dq3 = dq3 * src_pt;
-         
+
 			glm::vec4 dst_pt_m3_i  = glm::inverse(m3) * src_pt;
 			glm::vec4 dst_pt_dq3_i = src_pt * dq3;
 

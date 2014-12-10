@@ -81,6 +81,7 @@ Fixes:
 - Fixed unsupported _BitScanForward64 and _BitScanReverse64 in VC10
 - Fixed Visual C++ 32 bit build #283
 - Fixed GLM_FORCE_SIZE_FUNC pragma message
+- Fixed C++98 only build
 
 ================================================================================
 GLM 0.9.6.0: 2014-11-30

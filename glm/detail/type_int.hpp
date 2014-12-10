@@ -33,7 +33,9 @@
 #pragma once
 
 #include "setup.hpp"
-#include <type_traits>
+#if GLM_HAS_MAKE_SIGNED
+#	include <type_traits>
+#endif
 
 #if GLM_HAS_EXTENDED_INTEGER_TYPE
 #	include <cstdint>
