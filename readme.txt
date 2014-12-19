@@ -6,7 +6,7 @@ GLM is licensed under The Happy Bunny License and MIT License
 ================================================================================
 The Happy Bunny License (Modified MIT License)
 --------------------------------------------------------------------------------
-Copyright (c) 2005 - 2014 G-Truc Creation
+Copyright (c) 2005 - 2015 G-Truc Creation
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -33,7 +33,7 @@ THE SOFTWARE.
 ================================================================================
 The MIT License
 --------------------------------------------------------------------------------
-Copyright (c) 2005 - 2014 G-Truc Creation
+Copyright (c) 2005 - 2015 G-Truc Creation
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -63,15 +63,36 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
 
 ================================================================================
-GLM 0.9.6.1: 2014-12-XX
+GLM 0.9.6.2: 2015-01-XX
 --------------------------------------------------------------------------------
+Features:
+- Added display of GLM version with other GLM_MESSAGES
+
+Fixes:
+- Fixed faceforward build #289
+
+================================================================================
+GLM 0.9.6.1: 2014-12-10
+--------------------------------------------------------------------------------
+Features:
+- Added GLM_LANG_CXX14_FLAG and GLM_LANG_CXX1Z_FLAG language feature flags
+- Added C++14 detection
+
+Improvements:
+- Clean up GLM_MESSAGES compilation log to report only detected capabilities
+
 Fixes:
 - Fixed scalar uaddCarry build error with Cuda #276
 - Fixed C++11 explicit conversion operators detection #282
 - Fixed missing explicit convertion when using integer log2 with *vec1 types
+- Fixed 64 bits integer GTX_string_cast to_string on VC 32 bit compiler
 - Fixed Android build issue, STL C++11 is not supported by the NDK #284
 - Fixed unsupported _BitScanForward64 and _BitScanReverse64 in VC10
 - Fixed Visual C++ 32 bit build #283
+- Fixed GLM_FORCE_SIZE_FUNC pragma message
+- Fixed C++98 only build
+- Fixed conflict between GTX_compatibility and GTC_quaternion #286
+- Fixed C++ language restriction using GLM_FORCE_CXX**
 
 ================================================================================
 GLM 0.9.6.0: 2014-11-30

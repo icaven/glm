@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// OpenGL Mathematics (glm.g-truc.net)
 ///
-/// Copyright (c) 2005 - 2014 G-Truc Creation (www.g-truc.net)
+/// Copyright (c) 2005 - 2015 G-Truc Creation (www.g-truc.net)
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
@@ -162,7 +162,7 @@ namespace glm
 	}
 
 	// asinh
-#	if GLM_LANG & GLM_LANG_CXX11_FLAG
+#	if GLM_HAS_CXX11_STL
 		using std::asinh;
 #	else
 		template <typename genType> 
@@ -181,7 +181,7 @@ namespace glm
 	}
 
 	// acosh
-#	if GLM_LANG & GLM_LANG_CXX11_FLAG
+#	if GLM_HAS_CXX11_STL
 		using std::acosh;
 #	else
 		template <typename genType> 
@@ -202,7 +202,7 @@ namespace glm
 	}
 
 	// atanh
-#	if GLM_LANG & GLM_LANG_CXX11_FLAG
+#	if GLM_HAS_CXX11_STL
 		using std::atanh;
 #	else
 		template <typename genType>

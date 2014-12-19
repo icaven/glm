@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// OpenGL Mathematics (glm.g-truc.net)
 ///
-/// Copyright (c) 2005 - 2014 G-Truc Creation (www.g-truc.net)
+/// Copyright (c) 2005 - 2015 G-Truc Creation (www.g-truc.net)
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
@@ -39,11 +39,11 @@ namespace glm
 	GLM_FUNC_QUALIFIER bool isfinite(
 		genType const & x)
 	{
-#		if(GLM_LANG & GLM_LANG_CXX11_FLAG)
+#		if GLM_HAS_CXX11_STL
 			return std::isfinite(x) != 0;
-#		elif(GLM_COMPILER & GLM_COMPILER_VC)
+#		elif GLM_COMPILER & GLM_COMPILER_VC
 			return _finite(x);
-#		elif(GLM_COMPILER & GLM_COMPILER_GCC && GLM_PLATFORM & GLM_PLATFORM_ANDROID)
+#		elif GLM_COMPILER & GLM_COMPILER_GCC && GLM_PLATFORM & GLM_PLATFORM_ANDROID
 			return _isfinite(x) != 0;
 #		else
 			return x >= std::numeric_limits<genType>::min() && x <= std::numeric_limits<genType>::max();
