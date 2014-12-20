@@ -67,6 +67,7 @@ GLM 0.9.6.2: 2015-01-XX
 --------------------------------------------------------------------------------
 Features:
 - Added display of GLM version with other GLM_MESSAGES
+- Added ARM instruction set detection
 
 Fixes:
 - Fixed faceforward build #289
