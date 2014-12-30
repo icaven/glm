@@ -70,6 +70,7 @@ Features:
 
 Fixes:
 - Fixed faceforward build #289
+- Fixed conflict with Xlib #define True 1 #293
 
 ================================================================================
 GLM 0.9.6.1: 2014-12-10
