@@ -75,6 +75,7 @@ Improvements:
 
 Fixes:
 - Fixed faceforward build #289
+- Fixed conflict with Xlib #define True 1 #293
 - Fixed decompose function VS2010 templating issues #294
 - Fixed mat4x3 = mat2x3 * mat4x2 operator #297
 - Fixed warnings in F2x11_1x10 packing function in GTC_packing #295
