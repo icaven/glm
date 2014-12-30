@@ -253,10 +253,54 @@ int test_F2x11_1x10()
 	return Error;
 }
 
+int test_packUnorm1x16()
+{
+	int Error = 0;
+
+	std::vector<float> A;
+	A.push_back(1.0f);
+	A.push_back(0.5f);
+	A.push_back(0.1f);
+
+	for(std::size_t i = 0; i < A.size(); ++i)
+	{
+		float B(A[i]);
+		glm::uint16 C = glm::packUnorm1x16(B);
+		float D = glm::unpackUnorm1x16(C);
+		Error += glm::abs(B - D) < 1.0f / 65535.f ? 0 : 1;
+		assert(!Error);
+	}
+	
+	return Error;
+}
+
+int test_packSnorm1x16()
+{
+	int Error = 0;
+
+	std::vector<float> A;
+	A.push_back( 1.0f);
+	A.push_back(-0.5f);
+	A.push_back(-0.1f);
+
+	for(std::size_t i = 0; i < A.size(); ++i)
+	{
+		float B(A[i]);
+		glm::uint16 C = glm::packSnorm1x16(B);
+		float D = glm::unpackSnorm1x16(C);
+		Error += glm::abs(B - D) < 1.0f / 32767.0f * 2.0f ? 0 : 1;
+		assert(!Error);
+	}
+	
+	return Error;
+}
+
 int main()
 {
 	int Error(0);
 
+	Error += test_packUnorm1x16();
+	Error += test_packSnorm1x16();
 	Error += test_F2x11_1x10();
 	Error += test_Snorm3x10_1x2();
 	Error += test_Unorm3x10_1x2();
