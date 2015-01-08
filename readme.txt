@@ -75,6 +75,7 @@ Improvements:
 Fixes:
 - Fixed faceforward build #289
 - Fixed decompose function VS2010 templating issues #294
+- Fixed mat4x3 = mat2x3 * mat4x2 #297
 
 ================================================================================
 GLM 0.9.6.1: 2014-12-10
