@@ -69,8 +69,12 @@ Features:
 - Added display of GLM version with other GLM_MESSAGES
 - Added ARM instruction set detection
 
+Improvements:
+- Removed assert for perspective with zFar < zNear #298
+
 Fixes:
 - Fixed faceforward build #289
+- Fixed decompose function VS2010 templating issues #294
 
 ================================================================================
 GLM 0.9.6.1: 2014-12-10
