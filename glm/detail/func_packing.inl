@@ -40,8 +40,8 @@ namespace glm
 	{
 		u16vec2 Topack(round(clamp(v, 0.0f, 1.0f) * 65535.0f));
 		// return reinterpret_cast<uint&>(Topack);
-    uint* ptr(reinterpret_cast<uint*>(&Topack));
-    return *ptr;
+		uint* ptr(reinterpret_cast<uint*>(&Topack));
+		return *ptr;
 	}
 
 	GLM_FUNC_QUALIFIER vec2 unpackUnorm2x16(uint const & p)
@@ -52,15 +52,13 @@ namespace glm
 
 	GLM_FUNC_QUALIFIER uint packSnorm2x16(vec2 const & v)
 	{
-		i16vec2 Topack(round(clamp(v ,-1.0f, 1.0f) * 32767.0f));
-		// return reinterpret_cast<uint32&>(Topack);
-    uint* ptr(reinterpret_cast<uint*>(&Topack));
-    return *ptr;
+		i16vec2 const Topack(round(clamp(v ,-1.0f, 1.0f) * 32767.0f));
+		return reinterpret_cast<uint const &>(Topack);
 	}
 
 	GLM_FUNC_QUALIFIER vec2 unpackSnorm2x16(uint const & p)
 	{
-		vec2 Unpack(reinterpret_cast<i16vec2 const &>(p));
+		vec2 const Unpack(reinterpret_cast<i16vec2 const &>(p));
 		return clamp(
 			Unpack * 3.0518509475997192297128208258309e-5f, //1.0f / 32767.0f,
 			-1.0f, 1.0f);
@@ -68,13 +66,13 @@ namespace glm
 
 	GLM_FUNC_QUALIFIER uint packUnorm4x8(vec4 const & v)
 	{
-		u8vec4 Topack(round(clamp(v, 0.0f, 1.0f) * 255.0f));
-		return reinterpret_cast<uint&>(Topack);
+		u8vec4 const Topack(round(clamp(v, 0.0f, 1.0f) * 255.0f));
+		return reinterpret_cast<uint const &>(Topack);
 	}
 
 	GLM_FUNC_QUALIFIER vec4 unpackUnorm4x8(uint const & p)
 	{
-		vec4 Unpack(reinterpret_cast<u8vec4 const&>(p));
+		vec4 const Unpack(reinterpret_cast<u8vec4 const&>(p));
 		return Unpack * float(0.0039215686274509803921568627451); // 1 / 255
 	}
 	

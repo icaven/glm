@@ -80,6 +80,7 @@ Fixes:
 - Fixed mat4x3 = mat2x3 * mat4x2 operator #297
 - Fixed warnings in F2x11_1x10 packing function in GTC_packing #295
 - Fixed Visual Studio natvis support for vec4 #288
+- Fixed GTC_packing *pack*norm*x* build and added tests #292
 
 ================================================================================
 GLM 0.9.6.1: 2014-12-10
