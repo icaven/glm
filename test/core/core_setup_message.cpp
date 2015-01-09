@@ -176,6 +176,8 @@ int test_instruction_set()
 
 	if(GLM_ARCH == GLM_ARCH_PURE)
 		std::printf("GLM_ARCH_PURE ");
+	if(GLM_ARCH & GLM_ARCH_ARM)
+		std::printf("GLM_ARCH_ARM ");
 	if(GLM_ARCH & GLM_ARCH_AVX2)
 		std::printf("GLM_ARCH_AVX2 ");
 	if(GLM_ARCH & GLM_ARCH_AVX)

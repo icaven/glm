@@ -115,10 +115,11 @@ namespace detail
 #		if GLM_HAS_ANONYMOUS_UNION
 			union
 			{
-				typename detail::simd<T>::type data;
+				struct { T x, y, z, w;};
 				struct { T r, g, b, a; };
 				struct { T s, t, p, q; };
-				struct { T x, y, z, w;};
+
+				typename detail::simd<T>::type data;
 
 #				ifdef GLM_SWIZZLE
 					_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, x, y, z, w)

@@ -144,14 +144,14 @@ namespace detail
 	GLM_FUNC_QUALIFIER glm::uint floatTo11bit(float x)
 	{
 		if(x == 0.0f)
-			return 0;
+			return 0u;
 		else if(glm::isnan(x))
-			return ~0;
+			return ~0u;
 		else if(glm::isinf(x))
-			return 0x1f << 6;
+			return 0x1Fu << 6u;
 
 #		if(GLM_COMPILER & GLM_COMPILER_GCC || GLM_COMPILER & (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))
-			uint Pack = 0;
+			uint Pack = 0u;
 			memcpy(&Pack, &x, sizeof(Pack));
 #		else	
 			uint Pack = reinterpret_cast<uint&>(x);
@@ -183,11 +183,11 @@ namespace detail
 	GLM_FUNC_QUALIFIER glm::uint floatTo10bit(float x)
 	{
 		if(x == 0.0f)
-			return 0;
+			return 0u;
 		else if(glm::isnan(x))
-			return ~0;
+			return ~0u;
 		else if(glm::isinf(x))
-			return 0x1f << 5;
+			return 0x1Fu << 5u;
 
 #		if(GLM_COMPILER & GLM_COMPILER_GCC || GLM_COMPILER & (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))
 			uint Pack = 0;

@@ -432,7 +432,7 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat4x3<T, P> operator*(tmat2x3<T, P> const & m1, tmat3x2<T, P> const & m2)
+	GLM_FUNC_QUALIFIER tmat4x3<T, P> operator*(tmat2x3<T, P> const & m1, tmat4x2<T, P> const & m2)
 	{
 		return tmat4x3<T, P>(
 			m1[0][0] * m2[0][0] + m1[1][0] * m2[0][1],
