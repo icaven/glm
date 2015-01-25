@@ -82,7 +82,8 @@ Fixes:
 - Fixed warnings in F2x11_1x10 packing function in GTC_packing #295
 - Fixed Visual Studio natvis support for vec4 #288
 - Fixed GTC_packing *pack*norm*x* build and added tests #292
-- Disabled GTX_scalar_multiplication for GCC #242
+- Disabled GTX_scalar_multiplication for GCC, failing to build tests #242
+- Fixed Visual C++ 2015 constexpr errors: Disabled only partial support
 
 ================================================================================
 GLM 0.9.6.1: 2014-12-10
