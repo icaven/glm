@@ -31,7 +31,7 @@
 
 #include <glm/glm.hpp>
 
-#if GLM_HAS_TEMPLATE_ALIASES
+#if GLM_HAS_TEMPLATE_ALIASES & !(GLM_COMPILER & GLM_COMPILER_GCC)
 #include <glm/gtx/scalar_multiplication.hpp>
 
 int main()

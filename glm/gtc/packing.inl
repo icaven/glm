@@ -263,7 +263,7 @@ namespace detail
 	
 	GLM_FUNC_QUALIFIER uint16 packUnorm2x8(vec2 const & v)
 	{
-		u8vec2 Topack(round(clamp(v, 0.0f, 1.0f) * 255.0f));
+		u8vec2 const Topack(round(clamp(v, 0.0f, 1.0f) * 255.0f));
 		return reinterpret_cast<uint16 const &>(Topack);
 	}
 	
@@ -354,15 +354,13 @@ namespace detail
 
 	GLM_FUNC_QUALIFIER uint16 packHalf1x16(float v)
 	{
-		int16 Topack = detail::toFloat16(v);
-		uint16* Packed = reinterpret_cast<uint16*>(&Topack);
-		return *Packed;
+		int16 const Topack(detail::toFloat16(v));
+		return reinterpret_cast<uint16 const &>(Topack);
 	}
 
 	GLM_FUNC_QUALIFIER float unpackHalf1x16(uint16 v)
 	{
-		int16* Unpack = reinterpret_cast<int16*>(const_cast<uint16*>(&v));
-		return detail::toFloat32(*Unpack);
+		return detail::toFloat32(reinterpret_cast<int16 const &>(v));
 	}
 
 	GLM_FUNC_QUALIFIER uint64 packHalf4x16(glm::vec4 const & v)
