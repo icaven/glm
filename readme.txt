@@ -1,7 +1,8 @@
 ================================================================================
 OpenGL Mathematics (GLM)
 --------------------------------------------------------------------------------
-GLM is licensed under The Happy Bunny License and MIT License
+GLM can be distributed and/or modified under the terms of either
+a) The Happy Bunny License, or b) the MIT License.
 
 ================================================================================
 The Happy Bunny License (Modified MIT License)
@@ -73,6 +74,7 @@ Improvements:
 - Removed assert for perspective with zFar < zNear #298
 - Added Visual Studio natvis support for vec1, quat and dualqual types
 - Cleaned up C++11 feature detections
+- Clarify GLM licensing
 
 Fixes:
 - Fixed faceforward build #289
