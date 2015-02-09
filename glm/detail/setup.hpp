@@ -824,11 +824,8 @@
 #	if GLM_COMPILER & GLM_COMPILER_VC
 #		define GLM_INLINE __forceinline
 #		define GLM_NEVER_INLINE __declspec((noinline))
-#	elif GLM_COMPILER & GLM_COMPILER_GCC
+#	elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM)
 #		define GLM_INLINE inline __attribute__((__always_inline__))
-#		define GLM_NEVER_INLINE __attribute__((__noinline__))
-#	elif GLM_COMPILER & (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM)
-#		define GLM_INLINE __attribute__((__always_inline__))
 #		define GLM_NEVER_INLINE __attribute__((__noinline__))
 #	else
 #		define GLM_INLINE inline
