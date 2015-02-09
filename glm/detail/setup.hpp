@@ -535,11 +535,14 @@
 // N2235
 #if GLM_COMPILER & (GLM_COMPILER_LLVM | GLM_COMPILER_APPLE_CLANG)
 #	define GLM_HAS_CONSTEXPR __has_feature(cxx_constexpr)
+#	define GLM_HAS_CONSTEXPR_PARTIAL GLM_HAS_CONSTEXPR
 #elif GLM_LANG & GLM_LANG_CXX11_FLAG
 #	define GLM_HAS_CONSTEXPR 1
+#	define GLM_HAS_CONSTEXPR_PARTIAL GLM_HAS_CONSTEXPR
 #else
 #	define GLM_HAS_CONSTEXPR (GLM_LANG & GLM_LANG_CXX0X_FLAG) && (\
 		((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC46)))
+#	define GLM_HAS_CONSTEXPR_PARTIAL GLM_HAS_CONSTEXPR || ((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2015))
 #endif
 
 // N2672
@@ -929,6 +932,29 @@ namespace detail
 #		pragma message("GLM: .length() returns glm::length_t, a typedef of int following the GLSL specification")
 #	endif
 #endif//GLM_MESSAGE
+
+///////////////////////////////////////////////////////////////////////////////////
+// countof
+
+#ifndef __has_feature
+#	define __has_feature(x) 0 // Compatibility with non-clang compilers.
+#endif
+
+#if GLM_HAS_CONSTEXPR_PARTIAL
+	namespace glm
+	{
+		template <typename T, std::size_t N>
+		constexpr std::size_t countof(T const (&)[N])
+		{
+			return N;
+		}
+	}//namespace glm
+#	define GLM_COUNTOF(arr) glm::countof(arr)
+#elif _MSC_VER
+#	define GLM_COUNTOF(arr) _countof(arr)
+#else
+#	define GLM_COUNTOF(arr) sizeof(arr) / sizeof(arr[0])
+#endif
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Uninitialize constructors
