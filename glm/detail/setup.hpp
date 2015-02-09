@@ -514,7 +514,7 @@
 #define GLM_HAS_CXX11_STL !defined(GLM_FORCE_CXX98) && !defined(GLM_FORCE_CXX03) && ((GLM_PLATFORM != GLM_PLATFORM_ANDROID) && (\
 	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC48)) || \
 	((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2013)) || \
-	__has_include(<__config>)))
+	__has_include("__config")))
 
 // N1720
 #define GLM_HAS_STATIC_ASSERT !defined(GLM_FORCE_CXX98) && !defined(GLM_FORCE_CXX03) && ( \
