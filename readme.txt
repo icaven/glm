@@ -86,6 +86,7 @@ Fixes:
 - Fixed GTC_packing *pack*norm*x* build and added tests #292
 - Disabled GTX_scalar_multiplication for GCC, failing to build tests #242
 - Fixed Visual C++ 2015 constexpr errors: Disabled only partial support
+- Fixed functions not inlined with Clang #302
 
 ================================================================================
 GLM 0.9.6.1: 2014-12-10
