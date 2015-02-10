@@ -66,6 +66,9 @@ http://glm.g-truc.net/glm.pdf
 ================================================================================
 GLM 0.9.7.0: 2015-XX-XX
 --------------------------------------------------------------------------------
+Features:
+- Added GTC_color: rgbToSrgb and srgbToRgb functions
+
 Improvements:
 - Changed usage of __has_include to support Intel compiler #307
 
