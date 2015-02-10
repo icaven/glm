@@ -36,12 +36,12 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	struct compute_rgbToSrgb
 	{
-		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & ColorRGB, T InverseGamma)
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & ColorRGB, T GammaCorrection)
 		{
 			vecType<T, P> const ClampedColor(clamp(ColorRGB, static_cast<T>(0), static_cast<T>(1)));
 
 			return mix(
-				pow(ClampedColor, vecType<T, P>(InverseGamma)) * static_cast<T>(1.055) - static_cast<T>(0.055),
+				pow(ClampedColor, vecType<T, P>(GammaCorrection)) * static_cast<T>(1.055) - static_cast<T>(0.055),
 				ClampedColor * static_cast<T>(12.92),
 				lessThan(ClampedColor, vecType<T, P>(static_cast<T>(0.0031308))));
 		}
@@ -50,9 +50,9 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_rgbToSrgb<T, P, tvec4>
 	{
-		GLM_FUNC_QUALIFIER static tvec4<T, P> call(tvec4<T, P> const & ColorRGB, T InverseGamma)
+		GLM_FUNC_QUALIFIER static tvec4<T, P> call(tvec4<T, P> const & ColorRGB, T GammaCorrection)
 		{
-			return tvec4<T, P>(compute_rgbToSrgb<T, P, tvec3>::call(tvec3<T, P>(ColorRGB), InverseGamma), ColorRGB.a);
+			return tvec4<T, P>(compute_rgbToSrgb<T, P, tvec3>::call(tvec3<T, P>(ColorRGB), GammaCorrection), ColorRGB.a);
 		}
 	};
 
