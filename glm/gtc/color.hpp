@@ -61,19 +61,19 @@ namespace glm
 
 	/// Convert a RGB color to sRGB color using a standard gamma correction
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> rgbToSrgb(vecType<T, P> const & ColorRGB);
+	GLM_FUNC_DECL vecType<T, P> convertRgbToSrgb(vecType<T, P> const & ColorRGB);
 
 	/// Convert a RGB color to sRGB color using a custom gamma correction	
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> rgbToSrgb(vecType<T, P> const & ColorRGB, T Gamma);
+	GLM_FUNC_DECL vecType<T, P> convertRgbToSrgb(vecType<T, P> const & ColorRGB, T Gamma);
 
 	/// Convert a sRGB color to RGB color using a standard gamma correction
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> srgbToRgb(vecType<T, P> const & ColorSRGB);
+	GLM_FUNC_DECL vecType<T, P> convertSrgbToRgb(vecType<T, P> const & ColorSRGB);
 
 	/// Convert a sRGB color to RGB color using a custom gamma correction
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> srgbToRgb(vecType<T, P> const & ColorSRGB, T Gamma);
+	GLM_FUNC_DECL vecType<T, P> convertSrgbToRgb(vecType<T, P> const & ColorSRGB, T Gamma);
 
 	/// @}
 } //namespace glm

@@ -42,14 +42,14 @@ namespace srgb
 		glm::vec4 const ColorSourceRGB(1.0, 0.5, 0.0, 1.0);
 
 		{
-			glm::vec4 const ColorSRGB = glm::rgbToSrgb(ColorSourceRGB);
-			glm::vec4 const ColorRGB = glm::srgbToRgb(ColorSRGB);
+			glm::vec4 const ColorSRGB = glm::convertRgbToSrgb(ColorSourceRGB);
+			glm::vec4 const ColorRGB = glm::convertSrgbToRgb(ColorSRGB);
 			Error += glm::all(glm::epsilonEqual(ColorSourceRGB, ColorRGB, 0.00001f)) ? 0 : 1;
 		}
 
 		{
-			glm::vec4 const ColorSRGB = glm::rgbToSrgb(ColorSourceRGB, 2.8f);
-			glm::vec4 const ColorRGB = glm::srgbToRgb(ColorSRGB, 2.8f);
+			glm::vec4 const ColorSRGB = glm::convertRgbToSrgb(ColorSourceRGB, 2.8f);
+			glm::vec4 const ColorRGB = glm::convertSrgbToRgb(ColorSRGB, 2.8f);
 			Error += glm::all(glm::epsilonEqual(ColorSourceRGB, ColorRGB, 0.00001f)) ? 0 : 1;
 		}
 

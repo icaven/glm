@@ -79,25 +79,25 @@ namespace detail
 }//namespace detail
 
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> rgbToSrgb(vecType<T, P> const & ColorRGB)
+	GLM_FUNC_QUALIFIER vecType<T, P> convertRgbToSrgb(vecType<T, P> const & ColorRGB)
 	{
 		return detail::compute_rgbToSrgb<T, P, vecType>::call(ColorRGB, static_cast<T>(0.41666));
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> rgbToSrgb(vecType<T, P> const & ColorRGB, T Gamma)
+	GLM_FUNC_QUALIFIER vecType<T, P> convertRgbToSrgb(vecType<T, P> const & ColorRGB, T Gamma)
 	{
 		return detail::compute_rgbToSrgb<T, P, vecType>::call(ColorRGB, static_cast<T>(1) / Gamma);
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> srgbToRgb(vecType<T, P> const & ColorSRGB)
+	GLM_FUNC_QUALIFIER vecType<T, P> convertSrgbToRgb(vecType<T, P> const & ColorSRGB)
 	{
 		return detail::compute_srgbToRgb<T, P, vecType>::call(ColorSRGB, static_cast<T>(2.4));
 	}
 	
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> srgbToRgb(vecType<T, P> const & ColorSRGB, T Gamma)
+	GLM_FUNC_QUALIFIER vecType<T, P> convertSrgbToRgb(vecType<T, P> const & ColorSRGB, T Gamma)
 	{
 		return detail::compute_srgbToRgb<T, P, vecType>::call(ColorSRGB, Gamma);
 	}
