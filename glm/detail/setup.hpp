@@ -633,8 +633,8 @@
 #endif
 
 // 
-#define GLM_HAS_TRIVIAL_QUERIES ( \
-	((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2013)))
+#define GLM_HAS_TRIVIAL_QUERIES 0//( \
+	//((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2013)))
 
 // 
 #if GLM_LANG & GLM_LANG_CXX11_FLAG
@@ -745,7 +745,7 @@
 // With MinGW-W64, including intrinsic headers before intrin.h will produce some errors. The problem is
 // that windows.h (and maybe other headers) will silently include intrin.h, which of course causes problems.
 // To fix, we just explicitly include intrin.h here.
-#if defined(__MINGW32__) && (GLM_ARCH != GLM_ARCH_PURE)
+#if defined(__MINGW64__) && (GLM_ARCH != GLM_ARCH_PURE)
 #	include <intrin.h>
 #endif
 
@@ -824,11 +824,8 @@
 #	if GLM_COMPILER & GLM_COMPILER_VC
 #		define GLM_INLINE __forceinline
 #		define GLM_NEVER_INLINE __declspec((noinline))
-#	elif GLM_COMPILER & GLM_COMPILER_GCC
+#	elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM)
 #		define GLM_INLINE inline __attribute__((__always_inline__))
-#		define GLM_NEVER_INLINE __attribute__((__noinline__))
-#	elif GLM_COMPILER & (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM)
-#		define GLM_INLINE __attribute__((__always_inline__))
 #		define GLM_NEVER_INLINE __attribute__((__noinline__))
 #	else
 #		define GLM_INLINE inline
