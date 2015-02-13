@@ -71,6 +71,7 @@ Features:
 
 Improvements:
 - Changed usage of __has_include to support Intel compiler #307
+- Specialized integer implementation of YCoCg-R #310
 
 ================================================================================
 GLM 0.9.6.2: 2015-01-XX
