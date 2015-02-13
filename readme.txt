@@ -64,7 +64,7 @@ More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
 
 ================================================================================
-GLM 0.9.6.2: 2015-01-XX
+GLM 0.9.6.2: 2015-02-15
 --------------------------------------------------------------------------------
 Features:
 - Added display of GLM version with other GLM_MESSAGES
