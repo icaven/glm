@@ -86,7 +86,7 @@ namespace glm
 			return result;
 		}
 	};
-#if 0
+
 	template <typename T, precision P>
 	class compute_YCoCgR<T, P, true> {
 	public:
@@ -116,7 +116,7 @@ namespace glm
 			return result;
 		}
 	};
-#endif  
+
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec3<T, P> rgb2YCoCgR
 	(
