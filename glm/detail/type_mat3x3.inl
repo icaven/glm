@@ -74,6 +74,14 @@ namespace detail
 	{}
 
 	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tmat3x3<T, P>::tmat3x3(tmat3x3<T, P> const & m)
+	{
+		this->value[0] = m.value[0];
+		this->value[1] = m.value[1];
+		this->value[2] = m.value[2];
+	}
+
+	template <typename T, precision P>
 	template <precision Q>
 	GLM_FUNC_QUALIFIER tmat3x3<T, P>::tmat3x3(tmat3x3<T, Q> const & m)
 	{
@@ -272,6 +280,15 @@ namespace detail
 
 	//////////////////////////////////////////////////////////////
 	// Operators
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tmat3x3<T, P> & tmat3x3<T, P>::operator=(tmat3x3<T, P> const & m)
+	{
+		this->value[0] = m[0];
+		this->value[1] = m[1];
+		this->value[2] = m[2];
+		return *this;
+	}
 
 	template <typename T, precision P>
 	template <typename U>

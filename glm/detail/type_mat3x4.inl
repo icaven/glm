@@ -46,6 +46,14 @@ namespace glm
 	}
 
 	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tmat3x4<T, P>::tmat3x4(tmat3x4<T, P> const & m)
+	{
+		this->value[0] = m.value[0];
+		this->value[1] = m.value[1];
+		this->value[2] = m.value[2];
+	}
+
+	template <typename T, precision P>
 	template <precision Q>
 	GLM_FUNC_QUALIFIER tmat3x4<T, P>::tmat3x4(tmat3x4<T, Q> const & m)
 	{
@@ -247,6 +255,15 @@ namespace glm
 
 	//////////////////////////////////////////////////////////////
 	// Unary updatable operators
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tmat3x4<T, P>& tmat3x4<T, P>::operator=(tmat3x4<T, P> const & m)
+	{
+		this->value[0] = m[0];
+		this->value[1] = m[1];
+		this->value[2] = m[2];
+		return *this;
+	}
 
 	template <typename T, precision P> 
 	template <typename U> 

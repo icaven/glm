@@ -63,6 +63,7 @@ namespace glm
 		//////////////////////////////////////
 		// Constructors
 		GLM_FUNC_DECL tmat2x2();
+		GLM_FUNC_DECL tmat2x2(tmat2x2<T, P> const & m);
 		template <precision Q>
 		GLM_FUNC_DECL tmat2x2(tmat2x2<T, Q> const & m);
 
@@ -126,6 +127,8 @@ namespace glm
 
 		//////////////////////////////////////
 		// Unary arithmetic operators
+
+		GLM_FUNC_DECL tmat2x2<T, P> & operator=(tmat2x2<T, P> const & v);
 
 		template <typename U> 
 		GLM_FUNC_DECL tmat2x2<T, P> & operator=(tmat2x2<U, P> const & m);

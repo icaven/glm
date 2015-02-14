@@ -91,6 +91,7 @@ namespace glm
 		// Implicit basic constructors
 
 		GLM_FUNC_DECL tquat();
+		GLM_FUNC_DECL tquat(tquat<T, P> const & q);
 		template <precision Q>
 		GLM_FUNC_DECL tquat(tquat<T, Q> const & q);
 
@@ -133,10 +134,19 @@ namespace glm
 
 		//////////////////////////////////////
 		// Operators
-		GLM_FUNC_DECL tquat<T, P> & operator+=(tquat<T, P> const & q);
-		GLM_FUNC_DECL tquat<T, P> & operator*=(tquat<T, P> const & q);
-		GLM_FUNC_DECL tquat<T, P> & operator*=(T const & s);
-		GLM_FUNC_DECL tquat<T, P> & operator/=(T const & s);
+
+		GLM_FUNC_DECL tquat<T, P> & operator=(tquat<T, P> const & m);
+
+		template <typename U>
+		GLM_FUNC_DECL tquat<T, P> & operator=(tquat<U, P> const & m);
+		template <typename U>
+		GLM_FUNC_DECL tquat<T, P> & operator+=(tquat<U, P> const & q);
+		template <typename U>
+		GLM_FUNC_DECL tquat<T, P> & operator*=(tquat<U, P> const & q);
+		template <typename U>
+		GLM_FUNC_DECL tquat<T, P> & operator*=(U s);
+		template <typename U>
+		GLM_FUNC_DECL tquat<T, P> & operator/=(U s);
 	};
 
 	template <typename T, precision P>
