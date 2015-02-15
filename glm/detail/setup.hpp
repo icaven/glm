@@ -500,7 +500,7 @@
 // http://gcc.gnu.org/projects/cxx0x.html
 // http://msdn.microsoft.com/en-us/library/vstudio/hh567368(v=vs.120).aspx
 
-#if GLM_PLATFORM != GLM_PLATFORM_ANDROID
+#if GLM_PLATFORM == GLM_PLATFORM_ANDROID
 #	define GLM_HAS_CXX11_STL 0
 #elif GLM_COMPILER & (GLM_COMPILER_LLVM | GLM_COMPILER_APPLE_CLANG)
 #	define GLM_HAS_CXX11_STL __has_include(<__config>)
