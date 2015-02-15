@@ -42,6 +42,7 @@
 #include <ctime>
 #include <cstdio>
 #include <vector>
+#include <cmath>
 
 namespace log2_
 {
@@ -210,70 +211,11 @@ namespace log2_
 	}
 }//namespace log2_
 
-namespace mod_
-{
-	int test()
-	{
-		int Error(0);
-
-		{
-			float A(3.0);
-			float B(2.0f);
-			float C = glm::mod(A, B);
-
-			Error += glm::abs(C - 1.0f) < 0.00001f ? 0 : 1;
-		}
-
-		{
-			glm::vec4 A(3.0);
-			float B(2.0f);
-			glm::vec4 C = glm::mod(A, B);
-
-			Error += glm::all(glm::epsilonEqual(C, glm::vec4(1.0f), 0.00001f)) ? 0 : 1;
-		}
-
-		{
-			glm::vec4 A(3.0);
-			glm::vec4 B(2.0f);
-			glm::vec4 C = glm::mod(A, B);
-
-			Error += glm::all(glm::epsilonEqual(C, glm::vec4(1.0f), 0.00001f)) ? 0 : 1;
-		}
-
-		{
-			int A(3);
-			int B(2);
-			int C = glm::mod(A, B);
-
-			Error += C == 1 ? 0 : 1;
-		}
-
-		{
-			glm::ivec4 A(3);
-			int B(2);
-			glm::ivec4 C = glm::mod(A, B);
-
-			Error += glm::all(glm::equal(C, glm::ivec4(1))) ? 0 : 1;
-		}
-
-		{
-			glm::ivec4 A(3);
-			glm::ivec4 B(2);
-			glm::ivec4 C = glm::mod(A, B);
-
-			Error += glm::all(glm::equal(C, glm::ivec4(1))) ? 0 : 1;
-		}
-
-		return Error;
-	}
-}//namespace mod_
-
 int main()
 {
 	int Error(0);
 
 	Error += ::log2_::test();
-	Error += ::mod_::test();
 
 #	ifdef NDEBUG
 		Error += ::log2_::perf();

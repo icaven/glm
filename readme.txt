@@ -67,11 +67,15 @@ http://glm.g-truc.net/glm.pdf
 GLM 0.9.7.0: 2015-XX-XX
 --------------------------------------------------------------------------------
 Features:
-- Added GTC_color: rgbToSrgb and srgbToRgb functions
+- Added GTC_color: convertRgbToSrgb and convertSrgbToRgb functions
+- Added 'fmod' overload to GTX_common with tests #308
 
 Improvements:
 - Changed usage of __has_include to support Intel compiler #307
 - Specialized integer implementation of YCoCg-R #310
+
+Deprecation:
+- Removed integer specification for 'mod' in GTC_integer #308
 
 ================================================================================
 GLM 0.9.6.2: 2015-02-15

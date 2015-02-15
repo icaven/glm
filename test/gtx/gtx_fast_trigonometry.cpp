@@ -61,6 +61,14 @@ namespace fastCos
 
 namespace fastSin
 {
+	/*
+	float sin(float x) {
+	float temp;
+	temp = (x + M_PI) / ((2 * M_PI) - M_PI);
+	return limited_sin((x + M_PI) - ((2 * M_PI) - M_PI) * temp));
+	}
+	*/
+
 	int perf()
 	{
 		const float begin = -glm::pi<float>();
