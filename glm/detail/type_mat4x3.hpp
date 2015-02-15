@@ -57,6 +57,7 @@ namespace glm
 	public:
 		// Constructors
 		GLM_FUNC_DECL tmat4x3();
+		GLM_FUNC_DECL tmat4x3(tmat4x3<T, P> const & m);
 		template <precision Q>
 		GLM_FUNC_DECL tmat4x3(tmat4x3<T, Q> const & m);
 
@@ -133,6 +134,8 @@ namespace glm
 
 		//////////////////////////////////////
 		// Unary arithmetic operators
+
+		GLM_FUNC_DECL tmat4x3<T, P> & operator=(tmat4x3<T, P> const & m);
 
 		template <typename U>
 		GLM_FUNC_DECL tmat4x3<T, P> & operator=(tmat4x3<U, P> const & m);
