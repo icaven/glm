@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// OpenGL Mathematics (glm.g-truc.net)
 ///
-/// Copyright (c) 2005 - 2014 G-Truc Creation (www.g-truc.net)
+/// Copyright (c) 2005 - 2015 G-Truc Creation (www.g-truc.net)
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
@@ -546,7 +546,7 @@ namespace detail
 		{
 			GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'isnan' only accept floating-point inputs");
 
-#			if GLM_LANG & GLM_LANG_CXX11_FLAG
+#			if GLM_HAS_CXX11_STL
 				return std::isnan(x);
 #			elif GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_INTEL)
 				return _isnan(x) != 0;
@@ -580,17 +580,17 @@ namespace detail
 		{
 			GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'isinf' only accept floating-point inputs");
 
-#			if(GLM_LANG & GLM_LANG_CXX11_FLAG)
+#			if GLM_HAS_CXX11_STL
 				return std::isinf(x);
-#			elif(GLM_COMPILER & (GLM_COMPILER_INTEL | GLM_COMPILER_VC))
+#			elif GLM_COMPILER & (GLM_COMPILER_INTEL | GLM_COMPILER_VC)
 				return _fpclass(x) == _FPCLASS_NINF || _fpclass(x) == _FPCLASS_PINF;
-#			elif(GLM_COMPILER & (GLM_COMPILER_GCC | (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM)))
+#			elif GLM_COMPILER & (GLM_COMPILER_GCC | (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))
 #				if(GLM_PLATFORM & GLM_PLATFORM_ANDROID && __cplusplus < 201103L)
 					return _isinf(x) != 0;
 #				else
 					return std::isinf(x);
 #				endif
-#			elif(GLM_COMPILER & GLM_COMPILER_CUDA)
+#			elif GLM_COMPILER & GLM_COMPILER_CUDA
 				// http://developer.download.nvidia.com/compute/cuda/4_2/rel/toolkit/docs/online/group__CUDA__MATH__DOUBLE_g13431dd2b40b51f9139cbb7f50c18fab.html#g13431dd2b40b51f9139cbb7f50c18fab
 				return isinf(double(x)) != 0;
 #			else

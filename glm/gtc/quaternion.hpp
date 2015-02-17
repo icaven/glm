@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// OpenGL Mathematics (glm.g-truc.net)
 ///
-/// Copyright (c) 2005 - 2014 G-Truc Creation (www.g-truc.net)
+/// Copyright (c) 2005 - 2015 G-Truc Creation (www.g-truc.net)
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
@@ -91,6 +91,7 @@ namespace glm
 		// Implicit basic constructors
 
 		GLM_FUNC_DECL tquat();
+		GLM_FUNC_DECL tquat(tquat<T, P> const & q);
 		template <precision Q>
 		GLM_FUNC_DECL tquat(tquat<T, Q> const & q);
 
@@ -113,8 +114,10 @@ namespace glm
 #		endif
 		
 		// explicit conversion operators
-		GLM_FUNC_DECL explicit operator tmat3x3<T, P>();
-		GLM_FUNC_DECL explicit operator tmat4x4<T, P>();
+#		if GLM_HAS_EXPLICIT_CONVERSION_OPERATORS
+			GLM_FUNC_DECL explicit operator tmat3x3<T, P>();
+			GLM_FUNC_DECL explicit operator tmat4x4<T, P>();
+#		endif
 		
 		/// Create a quaternion from two normalized axis
 		/// 
@@ -131,10 +134,19 @@ namespace glm
 
 		//////////////////////////////////////
 		// Operators
-		GLM_FUNC_DECL tquat<T, P> & operator+=(tquat<T, P> const & q);
-		GLM_FUNC_DECL tquat<T, P> & operator*=(tquat<T, P> const & q);
-		GLM_FUNC_DECL tquat<T, P> & operator*=(T const & s);
-		GLM_FUNC_DECL tquat<T, P> & operator/=(T const & s);
+
+		GLM_FUNC_DECL tquat<T, P> & operator=(tquat<T, P> const & m);
+
+		template <typename U>
+		GLM_FUNC_DECL tquat<T, P> & operator=(tquat<U, P> const & m);
+		template <typename U>
+		GLM_FUNC_DECL tquat<T, P> & operator+=(tquat<U, P> const & q);
+		template <typename U>
+		GLM_FUNC_DECL tquat<T, P> & operator*=(tquat<U, P> const & q);
+		template <typename U>
+		GLM_FUNC_DECL tquat<T, P> & operator*=(U s);
+		template <typename U>
+		GLM_FUNC_DECL tquat<T, P> & operator/=(U s);
 	};
 
 	template <typename T, precision P>
@@ -196,7 +208,7 @@ namespace glm
 	/// @see gtc_quaternion
 	/// @see - slerp(tquat<T, P> const & x, tquat<T, P> const & y, T const & a)
 	template <typename T, precision P>
-	GLM_FUNC_DECL tquat<T, P> mix(tquat<T, P> const & x, tquat<T, P> const & y,	T const & a);
+	GLM_FUNC_DECL tquat<T, P> mix(tquat<T, P> const & x, tquat<T, P> const & y, T a);
 
 	/// Linear interpolation of two quaternions.
 	/// The interpolation is oriented.
@@ -207,7 +219,7 @@ namespace glm
 	/// @tparam T Value type used to build the quaternion. Supported: half, float or double.
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tquat<T, P> lerp(tquat<T, P> const & x, tquat<T, P> const & y, T const & a);
+	GLM_FUNC_DECL tquat<T, P> lerp(tquat<T, P> const & x, tquat<T, P> const & y, T a);
 
 	/// Spherical linear interpolation of two quaternions.
 	/// The interpolation always take the short path and the rotation is performed at constant speed.
@@ -218,7 +230,7 @@ namespace glm
 	/// @tparam T Value type used to build the quaternion. Supported: half, float or double.
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tquat<T, P> slerp(tquat<T, P> const & x, tquat<T, P> const & y, T const & a);
+	GLM_FUNC_DECL tquat<T, P> slerp(tquat<T, P> const & x, tquat<T, P> const & y, T a);
 
 	/// Returns the q conjugate.
 	/// 

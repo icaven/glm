@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// OpenGL Mathematics (glm.g-truc.net)
 ///
-/// Copyright (c) 2005 - 2014 G-Truc Creation (www.g-truc.net)
+/// Copyright (c) 2005 - 2015 G-Truc Creation (www.g-truc.net)
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
@@ -203,7 +203,7 @@ namespace glm
 	template <>
 	GLM_FUNC_QUALIFIER float next_float(float const & x)
 	{
-#		if((GLM_LANG & GLM_LANG_CXX11_FLAG) && !(GLM_PLATFORM & GLM_PLATFORM_ANDROID))
+#		if GLM_HAS_CXX11_STL
 			return std::nextafter(x, std::numeric_limits<float>::max());
 #		elif((GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS)))
 			return detail::nextafterf(x, FLT_MAX);
@@ -217,7 +217,7 @@ namespace glm
 	template <>
 	GLM_FUNC_QUALIFIER double next_float(double const & x)
 	{
-#		if((GLM_LANG & GLM_LANG_CXX11_FLAG) && !(GLM_PLATFORM & GLM_PLATFORM_ANDROID))
+#		if GLM_HAS_CXX11_STL
 			return std::nextafter(x, std::numeric_limits<double>::max());
 #		elif((GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS)))
 			return detail::nextafter(x, std::numeric_limits<double>::max());
@@ -239,7 +239,7 @@ namespace glm
 
 	GLM_FUNC_QUALIFIER float prev_float(float const & x)
 	{
-#		if((GLM_LANG & GLM_LANG_CXX11_FLAG) && !(GLM_PLATFORM & GLM_PLATFORM_ANDROID))
+#		if GLM_HAS_CXX11_STL
 			return std::nextafter(x, std::numeric_limits<float>::min());
 #		elif((GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS)))
 			return detail::nextafterf(x, FLT_MIN);
@@ -252,7 +252,7 @@ namespace glm
 
 	GLM_FUNC_QUALIFIER double prev_float(double const & x)
 	{
-#		if((GLM_LANG & GLM_LANG_CXX11_FLAG) && !(GLM_PLATFORM & GLM_PLATFORM_ANDROID))
+#		if GLM_HAS_CXX11_STL
 			return std::nextafter(x, std::numeric_limits<double>::min());
 #		elif((GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS)))
 			return _nextafter(x, DBL_MIN);

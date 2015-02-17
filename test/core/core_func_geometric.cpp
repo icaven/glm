@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// OpenGL Mathematics (glm.g-truc.net)
 ///
-/// Copyright (c) 2005 - 2014 G-Truc Creation (www.g-truc.net)
+/// Copyright (c) 2005 - 2015 G-Truc Creation (www.g-truc.net)
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
@@ -131,7 +131,16 @@ namespace faceforward
 {
 	int test()
 	{
-		return 0;
+		int Error = 0;
+
+		{
+			glm::vec3 N(0.0f, 0.0f, 1.0f);
+			glm::vec3 I(1.0f, 0.0f, 1.0f);
+			glm::vec3 Nref(0.0f, 0.0f, 1.0f);
+			glm::vec3 F = glm::faceforward(N, I, Nref);
+		}
+
+		return Error;
 	}
 }//namespace faceforward
 

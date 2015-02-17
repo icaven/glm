@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// OpenGL Mathematics (glm.g-truc.net)
 ///
-/// Copyright (c) 2005 - 2014 G-Truc Creation (www.g-truc.net)
+/// Copyright (c) 2005 - 2015 G-Truc Creation (www.g-truc.net)
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
@@ -38,12 +38,7 @@
 int test_packUnorm2x16()
 {
 	int Error = 0;
-/*	
-	std::vector<glm::hvec2> A;
-	A.push_back(glm::hvec2(glm::half( 1.0f), glm::half( 0.0f)));
-	A.push_back(glm::hvec2(glm::half( 0.5f), glm::half( 0.7f)));
-	A.push_back(glm::hvec2(glm::half( 0.1f), glm::half( 0.2f)));
-*/
+
 	std::vector<glm::vec2> A;
 	A.push_back(glm::vec2(1.0f, 0.0f));
 	A.push_back(glm::vec2(0.5f, 0.7f));

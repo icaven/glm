@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// OpenGL Mathematics (glm.g-truc.net)
 ///
-/// Copyright (c) 2005 - 2014 G-Truc Creation (www.g-truc.net)
+/// Copyright (c) 2005 - 2015 G-Truc Creation (www.g-truc.net)
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
@@ -34,7 +34,9 @@
 #include <glm/gtc/epsilon.hpp>
 #include <glm/gtx/euler_angles.hpp>
 #include <glm/vector_relational.hpp>
-#include <type_traits>
+#if GLM_HAS_TRIVIAL_QUERIES
+#	include <type_traits>
+#endif
 
 int myrand()
 {
@@ -164,7 +166,7 @@ int test_mul()
 			// test both multiplication orders        
 			glm::vec4 dst_pt_m3  = m3 * src_pt; 
 			glm::vec4 dst_pt_dq3 = dq3 * src_pt;
-         
+
 			glm::vec4 dst_pt_m3_i  = glm::inverse(m3) * src_pt;
 			glm::vec4 dst_pt_dq3_i = src_pt * dq3;
 

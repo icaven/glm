@@ -1,12 +1,13 @@
 ================================================================================
 OpenGL Mathematics (GLM)
 --------------------------------------------------------------------------------
-GLM is licensed under The Happy Bunny License and MIT License
+GLM can be distributed and/or modified under the terms of either
+a) The Happy Bunny License, or b) the MIT License.
 
 ================================================================================
 The Happy Bunny License (Modified MIT License)
 --------------------------------------------------------------------------------
-Copyright (c) 2005 - 2014 G-Truc Creation
+Copyright (c) 2005 - 2015 G-Truc Creation
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -33,7 +34,7 @@ THE SOFTWARE.
 ================================================================================
 The MIT License
 --------------------------------------------------------------------------------
-Copyright (c) 2005 - 2014 G-Truc Creation
+Copyright (c) 2005 - 2015 G-Truc Creation
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -61,6 +62,79 @@ GLM is a header only library, there is nothing to build, just include it.
 
 More informations in GLM manual:
 http://glm.g-truc.net/glm.pdf
+
+================================================================================
+GLM 0.9.7.0: 2015-XX-XX
+--------------------------------------------------------------------------------
+Features:
+- Added GTC_color: convertRgbToSrgb and convertSrgbToRgb functions
+- Added 'fmod' overload to GTX_common with tests #308
+
+Improvements:
+- Changed usage of __has_include to support Intel compiler #307
+- Specialized integer implementation of YCoCg-R #310
+
+Deprecation:
+- Removed integer specification for 'mod' in GTC_integer #308
+
+================================================================================
+GLM 0.9.6.4: 2015-0X-XX
+--------------------------------------------------------------------------------
+Fixes:
+
+================================================================================
+GLM 0.9.6.3: 2015-02-15
+--------------------------------------------------------------------------------
+- Fixed Android doesn't have C++ 11 STL #284
+
+================================================================================
+GLM 0.9.6.2: 2015-02-15
+--------------------------------------------------------------------------------
+Features:
+- Added display of GLM version with other GLM_MESSAGES
+- Added ARM instruction set detection
+
+Improvements:
+- Removed assert for perspective with zFar < zNear #298
+- Added Visual Studio natvis support for vec1, quat and dualqual types
+- Cleaned up C++11 feature detections
+- Clarify GLM licensing
+
+Fixes:
+- Fixed faceforward build #289
+- Fixed conflict with Xlib #define True 1 #293
+- Fixed decompose function VS2010 templating issues #294
+- Fixed mat4x3 = mat2x3 * mat4x2 operator #297
+- Fixed warnings in F2x11_1x10 packing function in GTC_packing #295
+- Fixed Visual Studio natvis support for vec4 #288
+- Fixed GTC_packing *pack*norm*x* build and added tests #292
+- Disabled GTX_scalar_multiplication for GCC, failing to build tests #242
+- Fixed Visual C++ 2015 constexpr errors: Disabled only partial support
+- Fixed functions not inlined with Clang #302
+- Fixed memory corruption (undefined behaviour) #303
+
+================================================================================
+GLM 0.9.6.1: 2014-12-10
+--------------------------------------------------------------------------------
+Features:
+- Added GLM_LANG_CXX14_FLAG and GLM_LANG_CXX1Z_FLAG language feature flags
+- Added C++14 detection
+
+Improvements:
+- Clean up GLM_MESSAGES compilation log to report only detected capabilities
+
+Fixes:
+- Fixed scalar uaddCarry build error with Cuda #276
+- Fixed C++11 explicit conversion operators detection #282
+- Fixed missing explicit convertion when using integer log2 with *vec1 types
+- Fixed 64 bits integer GTX_string_cast to_string on VC 32 bit compiler
+- Fixed Android build issue, STL C++11 is not supported by the NDK #284
+- Fixed unsupported _BitScanForward64 and _BitScanReverse64 in VC10
+- Fixed Visual C++ 32 bit build #283
+- Fixed GLM_FORCE_SIZE_FUNC pragma message
+- Fixed C++98 only build
+- Fixed conflict between GTX_compatibility and GTC_quaternion #286
+- Fixed C++ language restriction using GLM_FORCE_CXX**
 
 ================================================================================
 GLM 0.9.6.0: 2014-11-30
