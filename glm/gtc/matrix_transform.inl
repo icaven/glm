@@ -99,7 +99,7 @@ namespace glm
 
 		tvec3<T, P> axis = normalize(v);
 
-		Result[0][0] = c + (1 - c)	  * axis.x	 * axis.x;
+		Result[0][0] = c + (1 - c)      * axis.x     * axis.x;
 		Result[0][1] = (1 - c) * axis.x * axis.y + s * axis.z;
 		Result[0][2] = (1 - c) * axis.x * axis.z - s * axis.y;
 		Result[0][3] = 0;
