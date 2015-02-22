@@ -69,6 +69,7 @@ GLM 0.9.7.0: 2015-XX-XX
 Features:
 - Added GTC_color: convertRgbToSrgb and convertSrgbToRgb functions
 - Added 'fmod' overload to GTX_common with tests #308
+- Left handed perspective and lookAt functions #314
 
 Improvements:
 - Changed usage of __has_include to support Intel compiler #307
