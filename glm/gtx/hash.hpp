@@ -34,7 +34,7 @@
 /// @defgroup gtx_hash GLM_GTX_hash
 /// @ingroup gtx
 /// 
-/// @brief Allow to perform std::hash operation on glm types
+/// @brief Add std::hash support for glm types
 /// 
 /// <glm/gtx/hash.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
