@@ -69,6 +69,7 @@ GLM 0.9.7.0: 2015-XX-XX
 Features:
 - Added GTC_color: convertRgbToSrgb and convertSrgbToRgb functions
 - Added 'fmod' overload to GTX_common with tests #308
+- Left handed perspective and lookAt functions #314
 
 Improvements:
 - Changed usage of __has_include to support Intel compiler #307
@@ -81,6 +82,7 @@ Deprecation:
 GLM 0.9.6.4: 2015-0X-XX
 --------------------------------------------------------------------------------
 Fixes:
+- Fixed default precision for quat and dual_quat type #312
 
 ================================================================================
 GLM 0.9.6.3: 2015-02-15
