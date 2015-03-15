@@ -78,6 +78,7 @@ Improvements:
 
 Fixes:
 - Fixed (u)int64 MSB/LSB handling on BE archs #306
+- Fixed multi-line comment warning in g++. #315
 
 Deprecation:
 - Removed integer specification for 'mod' in GTC_integer #308
