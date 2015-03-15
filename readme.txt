@@ -71,6 +71,7 @@ Features:
 - Added 'fmod' overload to GTX_common with tests #308
 - Left handed perspective and lookAt functions #314
 - Added functions eulerAngleXYZ and extractEulerAngleXYZ #311
+- Added <glm/gtx/hash.hpp> to perform to perform std::hash on GLM types #320
 
 Improvements:
 - Changed usage of __has_include to support Intel compiler #307
