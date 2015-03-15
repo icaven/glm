@@ -75,6 +75,9 @@ Improvements:
 - Changed usage of __has_include to support Intel compiler #307
 - Specialized integer implementation of YCoCg-R #310
 
+Fixes:
+- Fixed (u)int64 MSB/LSB handling on BE archs #306
+
 Deprecation:
 - Removed integer specification for 'mod' in GTC_integer #308
 
