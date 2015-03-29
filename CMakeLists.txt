@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 
 project(glm)
+set(GLM_VERSION "0.9.6")
+
 enable_testing()
 
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
@@ -144,3 +146,36 @@ add_subdirectory(test)
 add_subdirectory(util)
 
 install(DIRECTORY glm DESTINATION ${CMAKE_INSTALL_FULL_INCLUDEDIR})
+
+if (NOT CMAKE_VERSION VERSION_LESS "2.8.12")
+    add_library(glm INTERFACE)
+    target_include_directories(glm INTERFACE
+        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+    )
+    install(TARGETS glm EXPORT glmTargets)
+
+    set(GLM_INSTALL_CONFIG_DIR "${CMAKE_INSTALL_LIBDIR}/cmake/glm")
+
+    include(CMakePackageConfigHelpers)
+    write_basic_package_version_file(
+        "${CMAKE_CURRENT_BINARY_DIR}/glmVersion.cmake"
+        VERSION ${GLM_VERSION}
+        COMPATIBILITY AnyNewerVersion
+    )
+
+    export(
+        EXPORT glmTargets
+        FILE "${CMAKE_CURRENT_BINARY_DIR}/glmTargets.cmake"
+    )
+    install(
+        EXPORT glmTargets FILE glmTargets.cmake
+        DESTINATION ${GLM_INSTALL_CONFIG_DIR}
+    )
+
+    install(
+        FILES 
+            cmake/glmConfig.cmake
+            "${CMAKE_CURRENT_BINARY_DIR}/glmVersion.cmake"
+        DESTINATION ${GLM_INSTALL_CONFIG_DIR}
+    )
+endif()
