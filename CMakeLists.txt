@@ -155,12 +155,10 @@ write_basic_package_version_file(
 )
 
 # build tree package config
-configure_package_config_file(
-    cmake/glmConfig.cmake.in
+configure_file(
+    cmake/glmBuildConfig.cmake.in
     glmConfig.cmake
-    INSTALL_DESTINATION ${CMAKE_CURRENT_BINARY_DIR}
-    PATH_VARS CMAKE_INSTALL_INCLUDEDIR
-    NO_CHECK_REQUIRED_COMPONENTS_MACRO
+    COPYONLY
 )
 
 # install tree package config
