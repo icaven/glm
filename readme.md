@@ -18,9 +18,12 @@ This library works perfectly with *[OpenGL](https://www.opengl.org)* but it also
 - Any conform C++98 or C++11 compiler
 
 For more information about *GLM*, please have a look at the [manual](http://glm.g-truc.net/0.9.6/glm-0.9.6.pdf) and the [API reference documentation](http://glm.g-truc.net/0.9.6/api/index.html).
-The source code and the documentation are licensed under the [Happy Bunny License (Modified MIT) and the MIT License](./copying.txt).
+The source code and the documentation are licensed under the [Happy Bunny License (Modified MIT) or the MIT License](./copying.txt).
 
 Thanks for contributing to the project by [submitting issues](https://github.com/g-truc/glm/issues) for bug reports and feature requests. Any feedback is welcome at [glm@g-truc.net](mailto://glm@g-truc.net).
+
+[Download lastest release](https://github.com/g-truc/glm/releases/latest)
+
 
 ```c++
 #include <glm/vec3.hpp> // glm::vec3
