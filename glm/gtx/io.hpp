@@ -224,7 +224,7 @@ namespace glm
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr> & operator<<(
 		std::basic_ostream<CTy,CTr> &,
 		std::pair<tmat4x4<T,P>,
-		tmat4x4<T,P>> const &);
+		tmat4x4<T,P> > const &);
 
 	/// @}
 }//namespace glm
