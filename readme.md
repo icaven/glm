@@ -47,27 +47,27 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 ## Release notes
 
-##### GLM 0.9.7.0: 2015-XX-XX
-Features:
+### GLM 0.9.7.0: 2015-XX-XX
+##### Features:
 - Added GTC_color: convertRgbToSrgb and convertSrgbToRgb functions
 - Added 'fmod' overload to GTX_common with tests #308
 - Left handed perspective and lookAt functions #314
 - Added functions eulerAngleXYZ and extractEulerAngleXYZ #311
 - Added <glm/gtx/hash.hpp> to perform to perform std::hash on GLM types #320
 
-Improvements:
+##### Improvements:
 - Changed usage of __has_include to support Intel compiler #307
 - Specialized integer implementation of YCoCg-R #310
 - Don't show status message in 'FindGLM' if 'QUIET' option is set. #317
 
-Fixes:
+##### Fixes:
 - Fixed (u)int64 MSB/LSB handling on BE archs #306
 - Fixed multi-line comment warning in g++. #315
 
-Deprecation:
+##### Deprecation:
 - Removed integer specification for 'mod' in GTC_integer #308
 
-##### GLM 0.9.6.4: 2015-0X-XX
+### GLM 0.9.6.4: 2015-0X-XX
 Fixes:
 - Fixed default precision for quat and dual_quat type #312
 
