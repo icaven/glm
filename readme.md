@@ -1,19 +1,25 @@
 ![glm](doc/logo.png)
 
 OpenGL Mathematics (*GLM*) is a header only C++ mathematics library for graphics software based on the [OpenGL Shading Language (GLSL) specifications](https://www.opengl.org/registry/doc/GLSLangSpec.4.50.diff.pdf).
+
 *GLM* provides classes and functions designed and implemented with the same naming conventions and functionalities than GLSL so that anyone who knows GLSL, can use GLM as well in C++.
+
 This project isn't limited to GLSL features. An extension system, based on the GLSL extension conventions, provides extended capabilities: matrix transformations, quaternions, data packing, random numbers, noise, etc...
+
 This library works perfectly with OpenGL but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing / rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
+
 *GLM* is written in C++98 but can take advantage of C++11 when supported by the compiler. It is a platform independent library with no dependence and it officially supports the following compilers:
-- Apple Clang 4.0 and higher
-- GCC 4.2 and higher
-- Intel C++ Composer XE 2013 and higher
-- LLVM 3.0 and higher
-- Visual C++ 2010 and higher
-- CUDA 4.0 and higher (experimental)
+- [Apple Clang 4.0](https://developer.apple.com/library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html) and higher
+- [GCC](http://gcc.gnu.org/) 4.2 and higher
+- [Intel C++ Composer](https://software.intel.com/en-us/intel-compilers) XE 2013 and higher
+- [LLVM](http://llvm.org/) 3.0 and higher
+- [Visual C++](http://www.visualstudio.com/) 2010 and higher
+- [CUDA](https://developer.nvidia.com/about-cuda) 4.0 and higher (experimental)
 - Any conform C++98 or C++11 compiler
-For more information about *GLM*, please have a look at the manual and the API reference documentation.
-The source code and the documentation, including this manual, are licensed under the [Happy Bunny License (Modified MIT) and the MIT License](./copying.txt).
+
+For more information about *GLM*, please have a look at the [manual](http://glm.g-truc.net/0.9.6/glm-0.9.6.pdf) and the [API reference documentation](http://glm.g-truc.net/0.9.6/api/index.html).
+The source code and the documentation are licensed under the [Happy Bunny License (Modified MIT) and the MIT License](./copying.txt).
+
 Thanks for contributing to the project by [submitting issues](https://github.com/g-truc/glm/issues) for bug reports and feature requests. Any feedback is welcome at [glm@g-truc.net](mailto://glm@g-truc.net).
 
 ```c++
@@ -33,15 +39,6 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 }
 ```
 
-================================================================================
-GLM Usage
---------------------------------------------------------------------------------
-GLM is a header only library, there is nothing to build, just include it.
-#include <glm/glm.hpp>
-
-More informations in GLM manual:
-http://glm.g-truc.net/glm.pdf
-
 ## Project Health
 
 | Service | System | Compiler | Options | Status |
@@ -50,9 +47,7 @@ http://glm.g-truc.net/glm.pdf
 
 ## Release notes
 
-================================================================================
-GLM 0.9.7.0: 2015-XX-XX
---------------------------------------------------------------------------------
+##### GLM 0.9.7.0: 2015-XX-XX
 Features:
 - Added GTC_color: convertRgbToSrgb and convertSrgbToRgb functions
 - Added 'fmod' overload to GTX_common with tests #308
