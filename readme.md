@@ -77,7 +77,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed default precision for quat and dual_quat type #312
 
 --------------------------------------------------------------------------------
-#### GLM 0.9.6.3 - 2015-02-15
+#### [GLM 0.9.6.3 - 2015-02-15](https://github.com/g-truc/glm/releases/tag/0.9.6.3)
 - Fixed Android doesn't have C++ 11 STL #284
 
 --------------------------------------------------------------------------------
@@ -191,7 +191,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Removed CUDA 3.0 to 3.2 support
 
 --------------------------------------------------------------------------------
-#### GLM 0.9.5.4 - 2014-06-21
+#### [GLM 0.9.5.4 - 2014-06-21](https://github.com/g-truc/glm/releases/tag/0.9.5.4)
 - Fixed non-utf8 character #196
 - Added FindGLM install for CMake #189
 - Fixed GTX_color_space - saturation #195
@@ -292,7 +292,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Hidden matrix _inverse function implementation detail into private section
 
 --------------------------------------------------------------------------------
-#### GLM 0.9.4.6 - 2013-09-20
+#### [GLM 0.9.4.6 - 2013-09-20](https://github.com/g-truc/glm/releases/tag/0.9.4.6)
 - Fixed detection to select the last known compiler if newer version #106
 - Fixed is_int and is_uint code duplication with GCC and C++11 #107 
 - Fixed test suite build while using Clang in C++11 mode
@@ -378,7 +378,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added debugger visualizers for Visual C++ 2012
 
 --------------------------------------------------------------------------------
-#### GLM 0.9.3.4 - 2012-06-30
+#### [GLM 0.9.3.4 - 2012-06-30](https://github.com/g-truc/glm/releases/tag/0.9.3.4)
 - Added SSE4 and AVX2 detection.
 - Removed VIRTREV_xstream and the incompatibility generated with GCC
 - Fixed C++11 compiler option for GCC
