@@ -63,6 +63,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Specialized integer implementation of YCoCg-R #310
 - Don't show status message in 'FindGLM' if 'QUIET' option is set. #317
 - Added master branch continuous integration service on Linux 64 #332
+- Clarified manual regarding angle unit in GLM, added FAQ 11 #336
 
 ##### Fixes:
 - Fixed (u)int64 MSB/LSB handling on BE archs #306
