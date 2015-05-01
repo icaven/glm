@@ -62,6 +62,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Changed usage of __has_include to support Intel compiler #307
 - Specialized integer implementation of YCoCg-R #310
 - Don't show status message in 'FindGLM' if 'QUIET' option is set. #317
+- Added master branch continuous integration service on Linux 64 #332
 
 ##### Fixes:
 - Fixed (u)int64 MSB/LSB handling on BE archs #306
