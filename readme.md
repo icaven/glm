@@ -67,20 +67,14 @@ Fixes:
 Deprecation:
 - Removed integer specification for 'mod' in GTC_integer #308
 
-================================================================================
-GLM 0.9.6.4: 2015-0X-XX
---------------------------------------------------------------------------------
+##### GLM 0.9.6.4: 2015-0X-XX
 Fixes:
 - Fixed default precision for quat and dual_quat type #312
 
-================================================================================
-GLM 0.9.6.3: 2015-02-15
---------------------------------------------------------------------------------
+##### GLM 0.9.6.3: 2015-02-15
 - Fixed Android doesn't have C++ 11 STL #284
 
-================================================================================
-GLM 0.9.6.2: 2015-02-15
---------------------------------------------------------------------------------
+##### GLM 0.9.6.2: 2015-02-15
 Features:
 - Added display of GLM version with other GLM_MESSAGES
 - Added ARM instruction set detection
@@ -104,9 +98,7 @@ Fixes:
 - Fixed functions not inlined with Clang #302
 - Fixed memory corruption (undefined behaviour) #303
 
-================================================================================
-GLM 0.9.6.1: 2014-12-10
---------------------------------------------------------------------------------
+##### GLM 0.9.6.1: 2014-12-10
 Features:
 - Added GLM_LANG_CXX14_FLAG and GLM_LANG_CXX1Z_FLAG language feature flags
 - Added C++14 detection
@@ -127,9 +119,7 @@ Fixes:
 - Fixed conflict between GTX_compatibility and GTC_quaternion #286
 - Fixed C++ language restriction using GLM_FORCE_CXX**
 
-================================================================================
-GLM 0.9.6.0: 2014-11-30
---------------------------------------------------------------------------------
+##### GLM 0.9.6.0: 2014-11-30
 Features:
 - Exposed template vector and matrix types in 'glm' namespace #239, #244
 - Added GTX_scalar_multiplication for C++ 11 compiler only #242
@@ -190,9 +180,7 @@ Deprecation:
 - Removed LLVM 2.6 to 3.1 support
 - Removed CUDA 3.0 to 3.2 support
 
-================================================================================
-GLM 0.9.5.4: 2014-06-21
---------------------------------------------------------------------------------
+##### GLM 0.9.5.4: 2014-06-21
 - Fixed non-utf8 character #196
 - Added FindGLM install for CMake #189
 - Fixed GTX_color_space - saturation #195
