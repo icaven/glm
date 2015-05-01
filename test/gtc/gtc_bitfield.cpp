@@ -631,7 +631,7 @@ namespace bitfieldInterleave
 			std::printf("glm::detail::bitfieldInterleave Time %d clocks\n", static_cast<unsigned int>(Time));
 		}
 
-#		if(GLM_ARCH != GLM_ARCH_PURE)
+#		if(GLM_ARCH != GLM_ARCH_PURE && !(GLM_COMPILER & GLM_COMPILER_GCC))
 		{
 			// SIMD
 			std::vector<__m128i> SimdData;
