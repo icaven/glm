@@ -22,8 +22,6 @@ The source code and the documentation are licensed under the [Happy Bunny Licens
 
 Thanks for contributing to the project by [submitting issues](https://github.com/g-truc/glm/issues) for bug reports and feature requests. Any feedback is welcome at [glm@g-truc.net](mailto://glm@g-truc.net).
 
-[Download lastest release](https://github.com/g-truc/glm/releases/latest)
-
 
 ```c++
 #include <glm/vec3.hpp> // glm::vec3
@@ -47,6 +45,8 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 | Service | System | Compiler | Status |
 | ------- | ------ | -------- | ------ |
 | [Drone](https://drone.io/github.com/g-truc/glm) | Ubuntu 12.04 | GCC 4.6.3 | [![Build Status](https://drone.io/github.com/g-truc/glm/status.png)](https://drone.io/github.com/g-truc/glm/latest) |
+
+## [Download lastest release](https://github.com/g-truc/glm/releases/latest)
 
 ## Release notes
 
