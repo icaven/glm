@@ -68,6 +68,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed (u)int64 MSB/LSB handling on BE archs #306
 - Fixed multi-line comment warning in g++. #315
 - Fixed specifier removal by 'std::make_pair<>' #333
+- Fixed perspective fovy argument documentation #327
 
 ##### Deprecation:
 - Removed integer specification for 'mod' in GTC_integer #308
