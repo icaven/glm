@@ -131,7 +131,6 @@ endif()
 if(CMAKE_COMPILER_IS_GNUCXX)
 	#add_definitions(-S)
 	#add_definitions(-s)
-	add_definitions(-m64)
 	add_definitions(-O2)
 
 	#add_definitions(-fprofile-arcs -ftest-coverage) gcov
