@@ -1,12 +1,14 @@
 cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 
 project(glm)
-set(GLM_VERSION "0.9.6")
+set(GLM_VERSION "0.9.7")
+
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+
+include(GNUInstallDirs)
+include(CMakePackageConfigHelpers)
 
 enable_testing()
-
-list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
-include(GNUInstallDirs)
 
 add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 
@@ -146,37 +148,36 @@ add_subdirectory(test)
 set(GLM_INSTALL_CONFIGDIR "${CMAKE_INSTALL_LIBDIR}/cmake/glm")
 install(DIRECTORY glm DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
+write_basic_package_version_file(
+    "${CMAKE_CURRENT_BINARY_DIR}/glmVersion.cmake"
+    VERSION ${GLM_VERSION}
+    COMPATIBILITY AnyNewerVersion
+)
+
+# build tree package config
+configure_file(
+    cmake/glmBuildConfig.cmake.in
+    glmConfig.cmake
+    @ONLY
+)
+
+# install tree package config
+configure_package_config_file(
+    cmake/glmConfig.cmake.in
+    ${GLM_INSTALL_CONFIGDIR}/glmConfig.cmake
+    INSTALL_DESTINATION ${GLM_INSTALL_CONFIGDIR}
+    PATH_VARS CMAKE_INSTALL_INCLUDEDIR
+    NO_CHECK_REQUIRED_COMPONENTS_MACRO
+)
+
+install(
+    FILES 
+        "${CMAKE_CURRENT_BINARY_DIR}/${GLM_INSTALL_CONFIGDIR}/glmConfig.cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/glmVersion.cmake"
+    DESTINATION ${GLM_INSTALL_CONFIGDIR}
+)
+
 if (NOT CMAKE_VERSION VERSION_LESS "2.8.12")
-	include(CMakePackageConfigHelpers)
-	write_basic_package_version_file(
-	    "${CMAKE_CURRENT_BINARY_DIR}/glmVersion.cmake"
-	    VERSION ${GLM_VERSION}
-	    COMPATIBILITY AnyNewerVersion
-	)
-
-	# build tree package config
-	configure_file(
-	    cmake/glmBuildConfig.cmake.in
-	    glmConfig.cmake
-	    COPYONLY
-	)
-
-	# install tree package config
-	configure_package_config_file(
-	    cmake/glmConfig.cmake.in
-	    ${GLM_INSTALL_CONFIGDIR}/glmConfig.cmake
-	    INSTALL_DESTINATION ${GLM_INSTALL_CONFIGDIR}
-	    PATH_VARS CMAKE_INSTALL_INCLUDEDIR
-	    NO_CHECK_REQUIRED_COMPONENTS_MACRO
-	)
-
-	install(
-	    FILES 
-	        "${CMAKE_CURRENT_BINARY_DIR}/glmConfig.cmake"
-	        "${CMAKE_CURRENT_BINARY_DIR}/glmVersion.cmake"
-	    DESTINATION ${GLM_INSTALL_CONFIGDIR}
-	)
-
     add_library(glm INTERFACE)
     target_include_directories(glm INTERFACE
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
