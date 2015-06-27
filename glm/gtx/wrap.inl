@@ -99,6 +99,40 @@ namespace glm
 	}
 
 	template <typename genType>
+	GLM_FUNC_QUALIFIER genType mirrorClamp(genType const & Texcoord)
+	{
+		return glm::fract(glm::abs(Texcoord));
+		//return glm::mod(glm::abs(Texcoord), 1.0f);
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec2<T, P> mirrorClamp(tvec2<T, P> const & Texcoord)
+	{
+		tvec2<T, P> Result;
+		for(typename tvec2<T, P>::size_type i = 0; i < tvec2<T, P>::value_size(); ++i)
+			Result[i] = mirrorClamp(Texcoord[i]);
+		return Result;
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec3<T, P> mirrorClamp(tvec3<T, P> const & Texcoord)
+	{
+		tvec3<T, P> Result;
+		for(typename tvec3<T, P>::size_type i = 0; i < tvec3<T, P>::value_size(); ++i)
+			Result[i] = mirrorClamp(Texcoord[i]);
+		return Result;
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec4<T, P> mirrorClamp(tvec4<T, P> const & Texcoord)
+	{
+		tvec4<T, P> Result;
+		for(typename tvec4<T, P>::size_type i = 0; i < tvec4<T, P>::value_size(); ++i)
+			Result[i] = mirrorClamp(Texcoord[i]);
+		return Result;
+	}
+
+	template <typename genType>
 	GLM_FUNC_QUALIFIER genType mirrorRepeat(genType const & Texcoord)
 	{
 		genType const Abs = glm::abs(Texcoord);
