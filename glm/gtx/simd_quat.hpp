@@ -75,6 +75,13 @@ namespace detail
 
 		typedef fquatSIMD type;
 		typedef tquat<bool, defaultp> bool_type;
+#		if GLM_HAS_CONSTEXPR
+		static GLM_CONSTEXPR length_t components = 1;
+		static GLM_CONSTEXPR precision prec = defaultp;
+#		else
+		static const length_t components = 1;
+		static const precision prec = defaultp;
+#		endif
 
 #ifdef GLM_SIMD_ENABLE_XYZW_UNION
 		union

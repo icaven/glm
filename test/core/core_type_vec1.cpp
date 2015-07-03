@@ -131,6 +131,7 @@ int test_vec1_size()
 	Error += 8 == sizeof(glm::highp_dvec1) ? 0 : 1;
 	Error += glm::vec1().length() == 1 ? 0 : 1;
 	Error += glm::dvec1().length() == 1 ? 0 : 1;
+	Error += glm::vec1::components == 1 ? 0 : 1;
 	
 	return Error;
 }
@@ -168,6 +169,7 @@ int main()
 
 	glm::vec1 v;
 	assert(v.length() == 1);
+	assert(glm::vec1::components == 1);
 
 	Error += test_vec1_size();
 	Error += test_vec1_ctor();
