@@ -8,14 +8,14 @@
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-/// 
+///
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-/// 
+///
 /// Restrictions:
 ///		By making use of the Software for military purposes, you choose to make
 ///		a Bunny unhappy.
-/// 
+///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -50,11 +50,23 @@ namespace glm
 		typedef tmat2x3<T, P> transpose_type;
 		typedef T value_type;
 
+#		if GLM_HAS_CONSTEXPR
+		static GLM_CONSTEXPR length_t components = 3;
+		static GLM_CONSTEXPR length_t cols = 2;
+		static GLM_CONSTEXPR length_t rows = 3;
+		static GLM_CONSTEXPR precision prec = P;
+#		else
+		static const length_t components = 3;
+		static const length_t cols = 2;
+		static const length_t rows = 3;
+		static const precision prec = P;
+#		endif
+
 	private:
 		/// @cond DETAIL
 		col_type value[3];
 		/// @endcond
-		
+
 	public:
 		// Constructors
 		GLM_FUNC_DECL tmat3x2();
@@ -84,7 +96,7 @@ namespace glm
 			X1 const & x1, Y1 const & y1,
 			X2 const & x2, Y2 const & y2,
 			X3 const & x3, Y3 const & y3);
-			
+
 		template <typename V1, typename V2, typename V3>
 		GLM_FUNC_DECL tmat3x2(
 			tvec2<V1, P> const & v1,
@@ -133,19 +145,19 @@ namespace glm
 
 		GLM_FUNC_DECL tmat3x2<T, P> & operator=(tmat3x2<T, P> const & m);
 
-		template <typename U> 
+		template <typename U>
 		GLM_FUNC_DECL tmat3x2<T, P> & operator=(tmat3x2<U, P> const & m);
-		template <typename U> 
+		template <typename U>
 		GLM_FUNC_DECL tmat3x2<T, P> & operator+=(U s);
-		template <typename U> 
+		template <typename U>
 		GLM_FUNC_DECL tmat3x2<T, P> & operator+=(tmat3x2<U, P> const & m);
-		template <typename U> 
+		template <typename U>
 		GLM_FUNC_DECL tmat3x2<T, P> & operator-=(U s);
-		template <typename U> 
+		template <typename U>
 		GLM_FUNC_DECL tmat3x2<T, P> & operator-=(tmat3x2<U, P> const & m);
-		template <typename U> 
+		template <typename U>
 		GLM_FUNC_DECL tmat3x2<T, P> & operator*=(U s);
-		template <typename U> 
+		template <typename U>
 		GLM_FUNC_DECL tmat3x2<T, P> & operator/=(U s);
 
 		//////////////////////////////////////
@@ -184,10 +196,10 @@ namespace glm
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat2x2<T, P> operator*(tmat3x2<T, P> const & m1, tmat2x3<T, P> const & m2);
-		
+
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat3x2<T, P> operator*(tmat3x2<T, P> const & m1, tmat3x3<T, P> const & m2);
-		
+
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x2<T, P> operator*(tmat3x2<T, P> const & m1, tmat4x3<T, P> const & m2);
 
