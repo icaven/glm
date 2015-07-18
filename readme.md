@@ -58,6 +58,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added functions eulerAngleXYZ and extractEulerAngleXYZ #311
 - Added <glm/gtx/hash.hpp> to perform std::hash on GLM types #320
 - Added <glm/gtx/wrap.hpp> for texcoord wrapping
+- Added static components and precision members to all vector and quat types #350
 
 ##### Improvements:
 - Changed usage of __has_include to support Intel compiler #307

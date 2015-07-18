@@ -54,13 +54,17 @@ namespace glm
 		typedef tvec1<T, P> type;
 		typedef tvec1<bool, P> bool_type;
 		typedef T value_type;
-#   if GLM_HAS_CONSTEXPR
-		static GLM_CONSTEXPR length_t components = 1;
-		static GLM_CONSTEXPR precision prec = P;
-#   else
-		static const length_t components = 1;
-		static const precision prec = P;
-#   endif
+
+#		if GLM_META_PROG_HELPERS
+#			if GLM_HAS_CONSTEXPR
+				static GLM_CONSTEXPR length_t components = 1;
+				static GLM_CONSTEXPR precision precision = P;
+#			else
+				static const length_t components = 1;
+				static const precision precision = P;
+#			endif
+#		endif//GLM_META_PROG_HELPERS
+
 		//////////////////////////////////////
 		// Data
 

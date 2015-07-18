@@ -50,17 +50,19 @@ namespace glm
 		typedef tmat3x4<T, P> transpose_type;
 		typedef T value_type;
 
-#		if GLM_HAS_CONSTEXPR
-		static GLM_CONSTEXPR length_t components = 4;
-		static GLM_CONSTEXPR length_t cols = 3;
-		static GLM_CONSTEXPR length_t rows = 4;
-		static GLM_CONSTEXPR precision prec = P;
-#		else
-		static const length_t components = 4;
-		static const length_t cols = 3;
-		static const length_t rows = 4;
-		static const precision prec = P;
-#		endif
+#		if GLM_META_PROG_HELPERS
+#			if GLM_HAS_CONSTEXPR
+				static GLM_CONSTEXPR length_t components = 4;
+				static GLM_CONSTEXPR length_t cols = 3;
+				static GLM_CONSTEXPR length_t rows = 4;
+				static GLM_CONSTEXPR precision prec = P;
+#			else
+				static const length_t components = 4;
+				static const length_t cols = 3;
+				static const length_t rows = 4;
+				static const precision prec = P;
+#			endif//GLM_HAS_CONSTEXPR
+#		endif//GLM_META_PROG_HELPERS
 
 	private:
 		// Data
