@@ -59,6 +59,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added <glm/gtx/hash.hpp> to perform std::hash on GLM types #320
 - Added <glm/gtx/wrap.hpp> for texcoord wrapping
 - Added static components and precision members to all vector and quat types #350
+- Added .gitignore #349 
 
 ##### Improvements:
 - Changed usage of __has_include to support Intel compiler #307
