@@ -108,6 +108,13 @@ namespace detail
 		typedef tvec4<T, P> type;
 		typedef tvec4<bool, P> bool_type;
 		typedef T value_type;
+#		if GLM_HAS_CONSTEXPR
+		static GLM_CONSTEXPR length_t components = 4;
+		static GLM_CONSTEXPR precision prec = P;
+#		else
+		static const length_t components = 4;
+		static const precision prec = P;
+#		endif
 
 		//////////////////////////////////////
 		// Data

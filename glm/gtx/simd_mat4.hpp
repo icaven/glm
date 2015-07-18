@@ -8,14 +8,14 @@
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-/// 
+///
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-/// 
+///
 /// Restrictions:
 ///		By making use of the Software for military purposes, you choose to make
 ///		a Bunny unhappy.
-/// 
+///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -33,9 +33,9 @@
 ///
 /// @defgroup gtx_simd_mat4 GLM_GTX_simd_mat4
 /// @ingroup gtx
-/// 
+///
 /// @brief SIMD implementation of mat4 type.
-/// 
+///
 /// <glm/gtx/simd_mat4.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -71,6 +71,18 @@ namespace detail
 		typedef fmat4x4SIMD type;
 		typedef fmat4x4SIMD transpose_type;
 
+#		if GLM_HAS_CONSTEXPR
+		static GLM_CONSTEXPR length_t components = 4;
+		static GLM_CONSTEXPR length_t cols = 4;
+		static GLM_CONSTEXPR length_t rows = 4;
+		static GLM_CONSTEXPR precision prec = defaultp;
+#		else
+		static const length_t components = 4;
+		static const length_t cols = 4;
+		static const length_t rows = 4;
+		static const precision prec = defaultp;
+#		endif
+
 		GLM_FUNC_DECL length_t length() const;
 
 		fvec4SIMD Data[4];
@@ -96,7 +108,7 @@ namespace detail
 			__m128 const in[4]);
 
 		// Conversions
-		//template <typename U> 
+		//template <typename U>
 		//explicit tmat4x4(tmat4x4<U> const & m);
 
 		//explicit tmat4x4(tmat2x2<T> const & x);

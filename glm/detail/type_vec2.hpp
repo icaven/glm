@@ -54,6 +54,13 @@ namespace glm
 		typedef tvec2<T, P> type;
 		typedef tvec2<bool, P> bool_type;
 		typedef T value_type;
+#		if GLM_HAS_CONSTEXPR
+		static GLM_CONSTEXPR length_t components = 2;
+		static GLM_CONSTEXPR precision prec = P;
+#		else
+		static const length_t components = 2;
+		static const precision prec = P;
+#		endif
 
 		//////////////////////////////////////
 		// Data

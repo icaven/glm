@@ -446,9 +446,12 @@ int main()
 {
 	int Error(0);
 
-	std::size_t const Size(1000000);
+	glm::vec4 v;
+	assert(v.length() == 4);
+	assert(glm::vec4::components == 4);
 
 #	ifdef NDEBUG
+		std::size_t const Size(1000000);
 		Error += test_vec4_perf_AoS(Size);
 		Error += test_vec4_perf_SoA(Size);
 #	endif//NDEBUG
