@@ -30,6 +30,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 #define GLM_SWIZZLE
+#define GLM_META_PROG_HELPERS
 #include <glm/vector_relational.hpp>
 #include <glm/gtc/vec1.hpp>
 #include <vector>
