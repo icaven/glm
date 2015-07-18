@@ -398,7 +398,7 @@ int test_vec4_perf_AoS(std::size_t Size)
 
 	std::clock_t EndTime = std::clock();
 
-  std::printf("AoS: %d\n", EndTime - StartTime);
+  std::printf("AoS: %ld\n", EndTime - StartTime);
 
 	return Error;
 }
@@ -437,7 +437,7 @@ int test_vec4_perf_SoA(std::size_t Size)
 
 	std::clock_t EndTime = std::clock();
 
-	std::printf("SoA: %d\n", EndTime - StartTime);
+	std::printf("SoA: %ld\n", EndTime - StartTime);
 
 	return Error;
 }
