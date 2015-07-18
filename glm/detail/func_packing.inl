@@ -44,8 +44,10 @@ namespace glm
 			uint out;
 		} u;
 
-		u.in[0] = round(clamp(v[0], 0.0f, 1.0f) * 65535.0f);
-		u.in[1] = round(clamp(v[1], 0.0f, 1.0f) * 65535.0f);
+		u16vec2 result(round(clamp(v, 0.0f, 1.0f) * 65535.0f));
+
+		u.in[0] = result[0];
+		u.in[1] = result[1];
 
 		return u.out;
 	}
@@ -60,9 +62,7 @@ namespace glm
 
 		u.in = p;
 
-		return vec2(
-			u.out[0] * 1.5259021896696421759365224689097e-5f,
-			u.out[1] * 1.5259021896696421759365224689097e-5f);
+		return vec2(u.out[0], u.out[1]) * 1.5259021896696421759365224689097e-5f;
 	}
 
 	GLM_FUNC_QUALIFIER uint packSnorm2x16(vec2 const & v)
@@ -73,8 +73,10 @@ namespace glm
 			uint out;
 		} u;
 
-		u.in[0] = round(clamp(v[0], -1.0f, 1.0f) * 32767.0f);
-		u.in[1] = round(clamp(v[1], -1.0f, 1.0f) * 32767.0f);
+		i16vec2 result(round(clamp(v, -1.0f, 1.0f) * 32767.0f));
+
+		u.in[0] = result[0];
+		u.in[1] = result[1];
 
 		return u.out;
 	}
@@ -89,11 +91,7 @@ namespace glm
 
 		u.in = p;
 
-		return vec2(
-			clamp(u.out[0] * 3.0518509475997192297128208258309e-5f,
-				-1.0f, 1.0f),
-			clamp(u.out[1] * 3.0518509475997192297128208258309e-5f,
-				-1.0f, 1.0f));
+		return clamp(vec2(u.out[0], u.out[1]) * 3.0518509475997192297128208258309e-5f, -1.0f, 1.0f);
 	}
 
 	GLM_FUNC_QUALIFIER uint packUnorm4x8(vec4 const & v)
@@ -104,10 +102,12 @@ namespace glm
 			uint out;
 		} u;
 
-		u.in[0] = round(clamp(v[0], 0.0f, 1.0f) * 255.0f);
-		u.in[1] = round(clamp(v[1], 0.0f, 1.0f) * 255.0f);
-		u.in[2] = round(clamp(v[2], 0.0f, 1.0f) * 255.0f);
-		u.in[3] = round(clamp(v[3], 0.0f, 1.0f) * 255.0f);
+		u8vec4 result(round(clamp(v, 0.0f, 1.0f) * 255.0f));
+
+		u.in[0] = result[0];
+		u.in[1] = result[1];
+		u.in[2] = result[2];
+		u.in[3] = result[3];
 
 		return u.out;
 	}
@@ -122,11 +122,7 @@ namespace glm
 
 		u.in = p;
 
-		return vec4(
-			u.out[0] * 0.0039215686274509803921568627451f,
-			u.out[1] * 0.0039215686274509803921568627451f,
-			u.out[2] * 0.0039215686274509803921568627451f,
-			u.out[3] * 0.0039215686274509803921568627451f);
+		return vec4(u.out[0], u.out[1], u.out[2], u.out[3]) * 0.0039215686274509803921568627451f;
 	}
 	
 	GLM_FUNC_QUALIFIER uint packSnorm4x8(vec4 const & v)
@@ -137,10 +133,12 @@ namespace glm
 			uint out;
 		} u;
 
-		u.in[0] = round(clamp(v[0], -1.0f, 1.0f) * 127.0f);
-		u.in[1] = round(clamp(v[1], -1.0f, 1.0f) * 127.0f);
-		u.in[2] = round(clamp(v[2], -1.0f, 1.0f) * 127.0f);
-		u.in[3] = round(clamp(v[3], -1.0f, 1.0f) * 127.0f);
+		i8vec4 result(round(clamp(v, -1.0f, 1.0f) * 127.0f));
+
+		u.in[0] = result[0];
+		u.in[1] = result[1];
+		u.in[2] = result[2];
+		u.in[3] = result[3];
 
 		return u.out;
 	}
@@ -155,11 +153,7 @@ namespace glm
 
 		u.in = p;
 
-		return vec4(
-			clamp(u.out[0] * 0.0078740157480315f, -1.0f, 1.0f),
-			clamp(u.out[1] * 0.0078740157480315f, -1.0f, 1.0f),
-			clamp(u.out[2] * 0.0078740157480315f, -1.0f, 1.0f),
-			clamp(u.out[3] * 0.0078740157480315f, -1.0f, 1.0f));
+		return clamp(vec4(u.out[0], u.out[1], u.out[2], u.out[3]) * 0.0078740157480315f, -1.0f, 1.0f);
 	}
 
 	GLM_FUNC_QUALIFIER double packDouble2x32(uvec2 const & v)
