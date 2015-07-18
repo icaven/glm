@@ -76,7 +76,7 @@ namespace detail
 		typedef fquatSIMD type;
 		typedef tquat<bool, defaultp> bool_type;
 
-#		if GLM_META_PROG_HELPERS
+#		ifdef GLM_META_PROG_HELPERS
 #			if GLM_HAS_CONSTEXPR
 				static GLM_CONSTEXPR length_t components = 4;
 				static GLM_CONSTEXPR precision prec = defaultp;

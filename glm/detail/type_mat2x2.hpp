@@ -54,7 +54,7 @@ namespace glm
 		template <typename U, precision Q>
 		friend tvec2<U, Q> operator/(tvec2<U, Q> const & v, tmat2x2<U, Q> const & m);
 
-#		if GLM_META_PROG_HELPERS
+#		ifdef GLM_META_PROG_HELPERS
 #			if GLM_HAS_CONSTEXPR
 				static GLM_CONSTEXPR length_t components = 2;
 				static GLM_CONSTEXPR length_t columns = 2;

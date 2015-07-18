@@ -55,7 +55,7 @@ namespace glm
 		typedef tvec2<bool, P> bool_type;
 		typedef T value_type;
 
-#		if GLM_META_PROG_HELPERS
+#		ifdef GLM_META_PROG_HELPERS
 #			if GLM_HAS_CONSTEXPR
 				static GLM_CONSTEXPR length_t components = 2;
 				static GLM_CONSTEXPR precision prec = P;
