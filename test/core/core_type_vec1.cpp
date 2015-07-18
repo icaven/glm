@@ -29,8 +29,10 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#if !(GLM_COMPILER & GLM_COMPILER_GCC)
+#	define GLM_META_PROG_HELPERS
+#endif
 #define GLM_SWIZZLE
-#define GLM_META_PROG_HELPERS
 #include <glm/vector_relational.hpp>
 #include <glm/gtc/vec1.hpp>
 #include <vector>
@@ -170,7 +172,10 @@ int main()
 
 	glm::vec1 v;
 	assert(v.length() == 1);
-	assert(glm::vec1::components == 1);
+
+#	ifdef GLM_META_PROG_HELPERS
+		assert(glm::vec1::components == 1);
+#	endif
 
 	Error += test_vec1_size();
 	Error += test_vec1_ctor();

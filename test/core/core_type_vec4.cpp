@@ -30,7 +30,9 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 //#define GLM_FORCE_AVX2
-#define GLM_META_PROG_HELPERS
+#if !(GLM_COMPILER & GLM_COMPILER_GCC)
+#	define GLM_META_PROG_HELPERS
+#endif
 #define GLM_SWIZZLE
 #include <glm/vector_relational.hpp>
 #include <glm/vec2.hpp>
@@ -449,7 +451,10 @@ int main()
 
 	glm::vec4 v;
 	assert(v.length() == 4);
-	assert(glm::vec4::components == 4);
+
+#	ifdef GLM_META_PROG_HELPERS
+		assert(glm::vec4::components == 4);
+#	endif
 
 #	ifdef NDEBUG
 		std::size_t const Size(1000000);

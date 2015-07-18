@@ -29,7 +29,9 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_META_PROG_HELPERS
+#if !(GLM_COMPILER & GLM_COMPILER_GCC)
+#	define GLM_META_PROG_HELPERS
+#endif
 #define GLM_SWIZZLE
 #include <glm/vector_relational.hpp>
 #include <glm/vec2.hpp>
@@ -329,7 +331,10 @@ int main()
 
 	glm::vec2 v;
 	assert(v.length() == 2);
-	assert(glm::vec2::components == 2);
+
+#	ifdef GLM_META_PROG_HELPERS
+		assert(glm::vec2::components == 2);
+#	endif
 
 	Error += test_vec2_size();
 	Error += test_vec2_ctor();
