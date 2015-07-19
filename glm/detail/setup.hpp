@@ -538,7 +538,16 @@
 #if GLM_PLATFORM == GLM_PLATFORM_ANDROID
 #	define GLM_HAS_CXX11_STL 0
 #elif GLM_COMPILER & (GLM_COMPILER_LLVM | GLM_COMPILER_APPLE_CLANG)
-#	define GLM_HAS_CXX11_STL __has_include("__config")
+#	if __has_include(<__config>) // libc++
+#		include <__config>
+//#	else // libstdc++
+//#		include <bits/c++config.h>
+#	endif
+#	if defined(_LIBCPP_VERSION)// || defined(__GLIBCXX__)
+#		define GLM_HAS_CXX11_STL 1
+#	else
+#		define GLM_HAS_CXX11_STL 0
+#	endif
 #else
 #	define GLM_HAS_CXX11_STL ((GLM_LANG & GLM_LANG_CXX0X_FLAG) && \
 		((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC48)) || \
