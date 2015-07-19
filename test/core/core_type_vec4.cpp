@@ -401,7 +401,7 @@ int test_vec4_perf_AoS(std::size_t Size)
 
 	std::clock_t EndTime = std::clock();
 
-  std::printf("AoS: %ld\n", EndTime - StartTime);
+	std::printf("AoS: %ld\n", EndTime - StartTime);
 
 	return Error;
 }
@@ -445,6 +445,27 @@ int test_vec4_perf_SoA(std::size_t Size)
 	return Error;
 }
 
+namespace heap
+{
+	class A
+	{};
+
+	class B : public A
+	{
+		glm::vec4 v;
+	};
+
+	int test()
+	{
+		int Error(0);
+
+		A* p = new B;
+		delete p;
+
+		return Error;
+	}
+}//namespace heap
+
 int main()
 {
 	int Error(0);
@@ -467,6 +488,7 @@ int main()
 	Error += test_vec4_operators();
 	Error += test_vec4_swizzle_partial();
 	Error += test_operator_increment();
+	Error += heap::test();
 
 	return Error;
 }
