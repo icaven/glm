@@ -58,7 +58,7 @@ namespace glm
 #		ifdef GLM_META_PROG_HELPERS
 #			if GLM_HAS_CONSTEXPR
 				static GLM_CONSTEXPR length_t components = 1;
-				static GLM_CONSTEXPR precision precision = P;
+				static GLM_CONSTEXPR precision prec = P;
 #			else
 				static const length_t components = 1;
 				static const precision prec = P;
