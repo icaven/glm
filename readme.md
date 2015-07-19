@@ -59,7 +59,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added <glm/gtx/hash.hpp> to perform std::hash on GLM types #320
 - Added <glm/gtx/wrap.hpp> for texcoord wrapping
 - Added static components and precision members to all vector and quat types #350
-- Added .gitignore #349 
+- Added .gitignore #349
 
 ##### Improvements:
 - Changed usage of __has_include to support Intel compiler #307
@@ -75,6 +75,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed specifier removal by 'std::make_pair<>' #333
 - Fixed perspective fovy argument documentation #327
 - Removed -m64 causing build issues on Linux 32 #331
+- Fixed isfinite with C++98 compilers #343
 
 ##### Deprecation:
 - Removed integer specification for 'mod' in GTC_integer #308
