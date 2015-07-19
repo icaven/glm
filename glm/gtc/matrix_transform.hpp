@@ -92,7 +92,7 @@ namespace glm
 	/// 
 	/// @param m Input matrix multiplied by this rotation matrix.
 	/// @param angle Rotation angle expressed in radians.
-	/// @param axis Rotation axis, recommanded to be normalized.
+	/// @param axis Rotation axis, recommended to be normalized.
 	/// @tparam T Value type used to build the matrix. Supported: half, float or double.
 	/// @see gtc_matrix_transform
 	/// @see - rotate(tmat4x4<T, P> const & m, T angle, T x, T y, T z) 
