@@ -229,16 +229,10 @@ namespace detail
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename A, typename B, precision Q>
 		GLM_FUNC_DECL explicit tvec4(tvec2<A, Q> const & a, tvec2<B, Q> const & b);
-		
-#		ifdef GLM_FORCE_EXPLICIT_CTOR
-			//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-			template <typename U, precision Q>
-			GLM_FUNC_DECL explicit tvec4(tvec4<U, Q> const & v);
-#		else
-			//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-			template <typename U, precision Q>
-			GLM_FUNC_DECL tvec4(tvec4<U, Q> const & v);
-#		endif
+
+		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename U, precision Q>
+		GLM_FUNC_DECL GLM_EXPLICIT_CTOR_MAYBE tvec4(tvec4<U, Q> const & v);
 
 		//////////////////////////////////////
 		// Swizzle constructors
