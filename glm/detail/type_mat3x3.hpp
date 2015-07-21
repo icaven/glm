@@ -49,17 +49,12 @@ namespace glm
 		typedef tmat3x3<T, P> transpose_type;
 		typedef T value_type;
 
-#		if GLM_HAS_CONSTEXPR
-		static GLM_CONSTEXPR length_t components = 3;
-		static GLM_CONSTEXPR length_t cols = 3;
-		static GLM_CONSTEXPR length_t rows = 3;
-		static GLM_CONSTEXPR precision prec = P;
-#		else
-		static const length_t components = 3;
-		static const length_t cols = 3;
-		static const length_t rows = 3;
-		static const precision prec = P;
-#		endif
+#		ifdef GLM_META_PROG_HELPERS
+			static GLM_CONSTEXPR_MAYBE length_t components = 3;
+			static GLM_CONSTEXPR_MAYBE length_t cols = 3;
+			static GLM_CONSTEXPR_MAYBE length_t rows = 3;
+			static GLM_CONSTEXPR_MAYBE precision prec = P;
+#		endif//GLM_META_PROG_HELPERS
 
 		template <typename U, precision Q>
 		friend tvec3<U, Q> operator/(tmat3x3<U, Q> const & m, tvec3<U, Q> const & v);
