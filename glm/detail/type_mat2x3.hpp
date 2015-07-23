@@ -51,17 +51,10 @@ namespace glm
 		typedef T value_type;
 
 #		ifdef GLM_META_PROG_HELPERS
-#			if GLM_HAS_CONSTEXPR
-				static GLM_CONSTEXPR length_t components = 2;
-				static GLM_CONSTEXPR length_t cols = 3;
-				static GLM_CONSTEXPR length_t rows = 2;
-				static GLM_CONSTEXPR precision prec = P;
-#			else
-				static const length_t components = 2;
-				static const length_t cols = 3;
-				static const length_t rows = 2;
-				static const precision prec = P;
-#			endif//GLM_HAS_CONSTEXPR
+			static GLM_CONSTEXPR_MAYBE length_t components = 2;
+			static GLM_CONSTEXPR_MAYBE length_t cols = 3;
+			static GLM_CONSTEXPR_MAYBE length_t rows = 2;
+			static GLM_CONSTEXPR_MAYBE precision prec = P;
 #		endif//GLM_META_PROG_HELPERS
 
 	private:
@@ -101,13 +94,8 @@ namespace glm
 		//////////////////////////////////////
 		// Matrix conversion
 
-#		ifdef GLM_FORCE_EXPLICIT_CTOR
-			template <typename U, precision Q>
-			GLM_FUNC_DECL explicit tmat2x3(tmat2x3<U, Q> const & m);
-#		else
-			template <typename U, precision Q>
-			GLM_FUNC_DECL tmat2x3(tmat2x3<U, Q> const & m);
-#		endif
+		template <typename U, precision Q>
+		GLM_FUNC_DECL GLM_EXPLICIT_CTOR_MAYBE tmat2x3(tmat2x3<U, Q> const & m);
 
 		GLM_FUNC_DECL explicit tmat2x3(tmat2x2<T, P> const & x);
 		GLM_FUNC_DECL explicit tmat2x3(tmat3x3<T, P> const & x);

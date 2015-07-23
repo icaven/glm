@@ -47,7 +47,7 @@ namespace glm
 {
 	template <typename T, precision P = defaultp>
 	struct tvec3
-	{	
+	{
 		//////////////////////////////////////
 		// Implementation detail
 
@@ -56,13 +56,8 @@ namespace glm
 		typedef T value_type;
 
 #		ifdef GLM_META_PROG_HELPERS
-#			if GLM_HAS_CONSTEXPR
-				static GLM_CONSTEXPR length_t components = 3;
-				static GLM_CONSTEXPR precision prec = P;
-#			else
-				static const length_t components = 3;
-				static const precision prec = P;
-#			endif//GLM_HAS_CONSTEXPR
+			static GLM_CONSTEXPR_MAYBE length_t components = 3;
+			static GLM_CONSTEXPR_MAYBE precision prec = P;
 #		endif//GLM_META_PROG_HELPERS
 
 		//////////////////////////////////////
@@ -159,15 +154,9 @@ namespace glm
 		template <typename U, precision Q>
 		GLM_FUNC_DECL explicit tvec3(tvec4<U, Q> const & v);
 
-#		ifdef GLM_FORCE_EXPLICIT_CTOR
-			//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-			template <typename U, precision Q>
-			GLM_FUNC_DECL explicit tvec3(tvec3<U, Q> const & v);
-#		else
-			//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-			template <typename U, precision Q>
-			GLM_FUNC_DECL tvec3(tvec3<U, Q> const & v);
-#		endif
+		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename U, precision Q>
+		GLM_FUNC_DECL GLM_EXPLICIT_CTOR_MAYBE tvec3(tvec3<U, Q> const & v);
 
 		//////////////////////////////////////
 		// Swizzle constructors
