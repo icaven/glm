@@ -270,7 +270,7 @@ namespace taylorCos
 		std::clock_t const TimeStampBegin = std::clock();
 
 		for(std::size_t i = 0; i < Samples; ++i)
-			Results[i] = taylorCos::fastCosNew(AngleShift + glm::vec4(Begin + Steps * i));
+			Results[i] = fastCosNew(AngleShift + glm::vec4(Begin + Steps * i));
 
 		std::clock_t const TimeStampEnd = std::clock();
 
@@ -425,7 +425,7 @@ namespace taylorCos
 		Error += perf_cos(Begin, End, Samples);
 		Error += perf_fastCosOld(Begin, End, Samples);
 		Error += perf_fastCosRef(Begin, End, Samples);
-		//Error += perf_fastCosNew(Begin, End, Samples);
+		Error += perf_fastCosNew(Begin, End, Samples);
 		Error += perf_fastCosDeterminisctic(Begin, End, Samples);
 
 		return Error;
