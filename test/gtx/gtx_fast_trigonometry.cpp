@@ -237,10 +237,10 @@ namespace taylorCos
 	GLM_FUNC_QUALIFIER vecType<float, P> fastAbs(vecType<float, P> x)
 	{
 		int* Pointer = reinterpret_cast<int*>(&x[0]);
-		*(((int *) &Pointer[0]) + 1) &= 0x7fffffff;
-		*(((int *) &Pointer[1]) + 1) &= 0x7fffffff;
-		*(((int *) &Pointer[2]) + 1) &= 0x7fffffff;
-		*(((int *) &Pointer[3]) + 1) &= 0x7fffffff;
+		Pointer[0] &= 0x7fffffff;
+		Pointer[1] &= 0x7fffffff;
+		Pointer[2] &= 0x7fffffff;
+		Pointer[3] &= 0x7fffffff;
 		return x;
 	}
 
@@ -425,7 +425,7 @@ namespace taylorCos
 		Error += perf_cos(Begin, End, Samples);
 		Error += perf_fastCosOld(Begin, End, Samples);
 		Error += perf_fastCosRef(Begin, End, Samples);
-		Error += perf_fastCosNew(Begin, End, Samples);
+		//Error += perf_fastCosNew(Begin, End, Samples);
 		Error += perf_fastCosDeterminisctic(Begin, End, Samples);
 
 		return Error;
