@@ -33,3 +33,15 @@ CMakeFiles
 Makefile
 cmake_install.cmake
 install_manifest.txt
+*.cmake
+# ^ May need to add future .cmake files as exceptions
+
+# Test logs
+Testing/*
+
+# Test input
+test/gtc/*.dds
+
+# Project Files
+*.cbp
+*.user
