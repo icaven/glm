@@ -112,8 +112,8 @@ namespace glm
 		//////////////////////////////////////
 		// Implicit basic constructors
 
-		GLM_FUNC_DECL tvec1();
-		GLM_FUNC_DECL tvec1(tvec1<T, P> const & v);
+		GLM_FUNC_DECL tvec1() GLM_DEFAULT;
+		GLM_FUNC_DECL tvec1(tvec1<T, P> const & v) GLM_DEFAULT;
 		template <precision Q>
 		GLM_FUNC_DECL tvec1(tvec1<T, Q> const & v);
 
@@ -154,7 +154,7 @@ namespace glm
 		//////////////////////////////////////
 		// Unary arithmetic operators
 
-		GLM_FUNC_DECL tvec1<T, P> & operator=(tvec1<T, P> const & v);
+		GLM_FUNC_DECL tvec1<T, P> & operator=(tvec1<T, P> const & v) GLM_DEFAULT;
 
 		template <typename U>
 		GLM_FUNC_DECL tvec1<T, P> & operator=(tvec1<U, P> const & v);

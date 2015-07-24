@@ -35,17 +35,19 @@ namespace glm
 	//////////////////////////////////////
 	// Implicit basic constructors
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1()
-#		ifndef GLM_FORCE_NO_CTOR_INIT
-			: x(0)
-#		endif
-	{}
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1()
+#			ifndef GLM_FORCE_NO_CTOR_INIT
+				: x(0)
+#			endif
+		{}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1(tvec1<T, P> const & v)
-		: x(v.x)
-	{}
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER tvec1<T, P>::tvec1(tvec1<T, P> const & v)
+			: x(v.x)
+		{}
+#	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
 	template <typename T, precision P>
 	template <precision Q>
@@ -140,12 +142,14 @@ namespace glm
 	//////////////////////////////////////
 	// Unary arithmetic operators
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec1<T, P> & tvec1<T, P>::operator=(tvec1<T, P> const & v)
-	{
-		this->x = v.x;
-		return *this;
-	}
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER tvec1<T, P> & tvec1<T, P>::operator=(tvec1<T, P> const & v)
+		{
+			this->x = v.x;
+			return *this;
+		}
+#	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
 	template <typename T, precision P>
 	template <typename U> 

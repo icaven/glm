@@ -229,6 +229,22 @@ int test_vec2_ctor()
 {
 	int Error = 0;
 
+#	if GLM_HAS_DEFAULTED_FUNCTIONS
+	{
+		union pack
+		{
+			glm::vec2 f;
+			glm::ivec2 i;
+		} A, B;
+
+		A.f = glm::vec2(0);
+		Error += glm::all(glm::equal(A.i, glm::ivec2(0))) ? 0 : 1;
+
+		B.f = glm::vec2(1);
+		Error += glm::all(glm::equal(B.i, glm::ivec2(1065353216))) ? 0 : 1;
+	}
+#	endif//GLM_HAS_DEFAULTED_FUNCTIONS
+
 #	if GLM_HAS_TRIVIAL_QUERIES
 	//	Error += std::is_trivially_default_constructible<glm::vec2>::value ? 0 : 1;
 	//	Error += std::is_trivially_copy_assignable<glm::vec2>::value ? 0 : 1;

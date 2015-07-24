@@ -171,8 +171,8 @@ namespace detail
 		//////////////////////////////////////
 		// Implicit basic constructors
 
-		GLM_FUNC_DECL tvec4();
-		GLM_FUNC_DECL tvec4(tvec4<T, P> const & v);
+		GLM_FUNC_DECL tvec4() GLM_DEFAULT;
+		GLM_FUNC_DECL tvec4(tvec4<T, P> const & v) GLM_DEFAULT;
 		template <precision Q>
 		GLM_FUNC_DECL tvec4(tvec4<T, Q> const & v);
 
@@ -182,7 +182,6 @@ namespace detail
 		GLM_FUNC_DECL explicit tvec4(ctor);
 		GLM_FUNC_DECL explicit tvec4(T s);
 		GLM_FUNC_DECL tvec4(T a, T b, T c, T d);
-		GLM_FUNC_DECL ~tvec4(){}
 
 		//////////////////////////////////////
 		// Conversion scalar constructors
@@ -284,7 +283,7 @@ namespace detail
 		//////////////////////////////////////
 		// Unary arithmetic operators
 
-		GLM_FUNC_DECL tvec4<T, P> & operator=(tvec4<T, P> const & v);
+		GLM_FUNC_DECL tvec4<T, P> & operator=(tvec4<T, P> const & v) GLM_DEFAULT;
 
 		template <typename U>
 		GLM_FUNC_DECL tvec4<T, P> & operator=(tvec4<U, P> const & v);
