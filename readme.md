@@ -78,6 +78,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed isfinite with C++98 compilers #343
 - Fixed Intel compiler build error on Linux #354
 - Fixed use of libstdc++ with Clang #351
+- Fixed quaternion pow #346
 
 ##### Deprecation:
 - Removed integer specification for 'mod' in GTC_integer #308
