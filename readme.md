@@ -56,7 +56,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added 'fmod' overload to GTX_common with tests #308
 - Left handed perspective and lookAt functions #314
 - Added functions eulerAngleXYZ and extractEulerAngleXYZ #311
-- Added <glm/gtx/hash.hpp> to perform std::hash on GLM types #320
+- Added <glm/gtx/hash.hpp> to perform std::hash on GLM types #320 #367
 - Added <glm/gtx/wrap.hpp> for texcoord wrapping
 - Added static components and precision members to all vector and quat types #350
 - Added .gitignore #349
