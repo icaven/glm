@@ -53,6 +53,7 @@
 #include "../gtc/vec1.hpp"
 
 #include "../gtc/quaternion.hpp"
+#include "../gtx/dual_quaternion.hpp"
 
 #include "../mat2x2.hpp"
 #include "../mat2x3.hpp"
@@ -96,6 +97,12 @@ namespace std
 	struct hash<glm::tquat<T,P>>
 	{
 		GLM_FUNC_DECL size_t operator()(const glm::tquat<T,P> &q) const;
+	};
+
+	template <typename T, glm::precision P>
+	struct hash<glm::tdualquat<T,P>>
+	{
+		GLM_FUNC_DECL size_t operator()(const glm::tdualquat<T,P> &q) const;
 	};
 
 	template <typename T, glm::precision P>

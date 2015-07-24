@@ -110,6 +110,17 @@ namespace std
 
 	template <typename T, glm::precision P>
 	GLM_FUNC_QUALIFIER size_t
+	hash<glm::tdualquat<T,P>>::operator()(const glm::tdualquat<T,P> &q) const
+	{
+		size_t seed = 0;
+		hash<glm::tquat<T,P>> hasher;
+		glm::detail::hash_combine(seed, hasher(q.real));
+		glm::detail::hash_combine(seed, hasher(q.dual));
+		return seed;
+	}
+
+	template <typename T, glm::precision P>
+	GLM_FUNC_QUALIFIER size_t
 	hash<glm::tmat2x2<T,P>>::operator()(const glm::tmat2x2<T,P> &m) const
 	{
 		size_t seed = 0;
