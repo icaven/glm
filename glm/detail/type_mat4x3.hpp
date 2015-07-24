@@ -51,10 +51,10 @@ namespace glm
 		typedef T value_type;
 
 #		ifdef GLM_META_PROG_HELPERS
-			static GLM_CONSTEXPR_MAYBE length_t components = 4;
-			static GLM_CONSTEXPR_MAYBE length_t cols = 3;
-			static GLM_CONSTEXPR_MAYBE length_t rows = 4;
-			static GLM_CONSTEXPR_MAYBE precision prec = P;
+			static GLM_RELAXED_CONSTEXPR length_t components = 4;
+			static GLM_RELAXED_CONSTEXPR length_t cols = 3;
+			static GLM_RELAXED_CONSTEXPR length_t rows = 4;
+			static GLM_RELAXED_CONSTEXPR precision prec = P;
 #		endif//GLM_META_PROG_HELPERS
 
 	private:
@@ -106,7 +106,7 @@ namespace glm
 		// Matrix conversions
 
 		template <typename U, precision Q>
-		GLM_FUNC_DECL GLM_EXPLICIT_CTOR_MAYBE tmat4x3(tmat4x3<U, Q> const & m);
+		GLM_FUNC_DECL GLM_EXPLICIT tmat4x3(tmat4x3<U, Q> const & m);
 
 		GLM_FUNC_DECL explicit tmat4x3(tmat2x2<T, P> const & x);
 		GLM_FUNC_DECL explicit tmat4x3(tmat3x3<T, P> const & x);

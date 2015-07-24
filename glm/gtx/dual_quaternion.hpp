@@ -65,8 +65,8 @@ namespace glm
 		typedef glm::tquat<T, P> part_type;
 
 #		ifdef GLM_META_PROG_HELPERS
-			static GLM_CONSTEXPR_MAYBE length_t components = 8;
-			static GLM_CONSTEXPR_MAYBE precision prec = P;
+			static GLM_RELAXED_CONSTEXPR length_t components = 8;
+			static GLM_RELAXED_CONSTEXPR precision prec = P;
 #		endif//GLM_META_PROG_HELPERS
 
 	public:
@@ -111,7 +111,7 @@ namespace glm
 		// tdualquat conversions
 
 		template <typename U, precision Q>
-		GLM_FUNC_DECL GLM_EXPLICIT_CTOR_MAYBE tdualquat(tdualquat<U, Q> const & q);
+		GLM_FUNC_DECL GLM_EXPLICIT tdualquat(tdualquat<U, Q> const & q);
 
 		GLM_FUNC_DECL explicit tdualquat(tmat2x4<T, P> const & holder_mat);
 		GLM_FUNC_DECL explicit tdualquat(tmat3x4<T, P> const & aug_mat);

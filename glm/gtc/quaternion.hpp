@@ -66,8 +66,8 @@ namespace glm
 		typedef T value_type;
 
 #		ifdef GLM_META_PROG_HELPERS
-			static GLM_CONSTEXPR_MAYBE length_t components = 4;
-			static GLM_CONSTEXPR_MAYBE precision prec = P;
+			static GLM_RELAXED_CONSTEXPR length_t components = 4;
+			static GLM_RELAXED_CONSTEXPR precision prec = P;
 #		endif//GLM_META_PROG_HELPERS
 
 	public:
@@ -111,7 +111,7 @@ namespace glm
 		// Conversions
 
 		template <typename U, precision Q>
-		GLM_FUNC_DECL GLM_EXPLICIT_CTOR_MAYBE tquat(tquat<U, Q> const & q);
+		GLM_FUNC_DECL GLM_EXPLICIT tquat(tquat<U, Q> const & q);
 
 		// explicit conversion operators
 #		if GLM_HAS_EXPLICIT_CONVERSION_OPERATORS

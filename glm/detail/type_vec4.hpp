@@ -110,8 +110,8 @@ namespace detail
 		typedef T value_type;
 
 #		ifdef GLM_META_PROG_HELPERS
-			static GLM_CONSTEXPR_MAYBE length_t components = 4;
-			static GLM_CONSTEXPR_MAYBE precision prec = P;
+			static GLM_RELAXED_CONSTEXPR length_t components = 4;
+			static GLM_RELAXED_CONSTEXPR precision prec = P;
 #		endif//GLM_META_PROG_HELPERS
 
 		//////////////////////////////////////
@@ -232,7 +232,7 @@ namespace detail
 
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U, precision Q>
-		GLM_FUNC_DECL GLM_EXPLICIT_CTOR_MAYBE tvec4(tvec4<U, Q> const & v);
+		GLM_FUNC_DECL GLM_EXPLICIT tvec4(tvec4<U, Q> const & v);
 
 		//////////////////////////////////////
 		// Swizzle constructors

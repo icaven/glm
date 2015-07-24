@@ -925,16 +925,16 @@
 
 #if GLM_HAS_CONSTEXPR
 #	define GLM_CONSTEXPR constexpr
-# define GLM_CONSTEXPR_MAYBE constexpr
+#	define GLM_RELAXED_CONSTEXPR constexpr
 #else
 #	define GLM_CONSTEXPR
-# define GLM_CONSTEXPR_MAYBE const
+#	define GLM_RELAXED_CONSTEXPR const
 #endif
 
 #ifdef GLM_FORCE_EXPLICIT_CTOR
-# define GLM_EXPLICIT_CTOR_MAYBE explicit
+#	define GLM_EXPLICIT explicit
 #else
-# define GLM_EXPLICIT_CTOR_MAYBE
+#	define GLM_EXPLICIT
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////

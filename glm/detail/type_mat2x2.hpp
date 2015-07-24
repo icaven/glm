@@ -55,10 +55,10 @@ namespace glm
 		friend tvec2<U, Q> operator/(tvec2<U, Q> const & v, tmat2x2<U, Q> const & m);
 
 #		ifdef GLM_META_PROG_HELPERS
-			static GLM_CONSTEXPR_MAYBE length_t components = 2;
-			static GLM_CONSTEXPR_MAYBE length_t columns = 2;
-			static GLM_CONSTEXPR_MAYBE length_t rows = 2;
-			static GLM_CONSTEXPR_MAYBE precision prec = P;
+			static GLM_RELAXED_CONSTEXPR length_t components = 2;
+			static GLM_RELAXED_CONSTEXPR length_t columns = 2;
+			static GLM_RELAXED_CONSTEXPR length_t rows = 2;
+			static GLM_RELAXED_CONSTEXPR precision prec = P;
 #		endif//GLM_META_PROG_HELPERS
 
 	private:
@@ -99,7 +99,7 @@ namespace glm
 		// Matrix conversions
 
 		template <typename U, precision Q>
-		GLM_FUNC_DECL GLM_EXPLICIT_CTOR_MAYBE tmat2x2(tmat2x2<U, Q> const & m);
+		GLM_FUNC_DECL GLM_EXPLICIT tmat2x2(tmat2x2<U, Q> const & m);
 
 		GLM_FUNC_DECL explicit tmat2x2(tmat3x3<T, P> const & x);
 		GLM_FUNC_DECL explicit tmat2x2(tmat4x4<T, P> const & x);

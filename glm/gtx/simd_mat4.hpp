@@ -72,10 +72,10 @@ namespace detail
 		typedef fmat4x4SIMD transpose_type;
 
 #		ifdef GLM_META_PROG_HELPERS
-			static GLM_CONSTEXPR_MAYBE length_t components = 4;
-			static GLM_CONSTEXPR_MAYBE length_t cols = 4;
-			static GLM_CONSTEXPR_MAYBE length_t rows = 4;
-			static GLM_CONSTEXPR_MAYBE precision prec = defaultp;
+			static GLM_RELAXED_CONSTEXPR length_t components = 4;
+			static GLM_RELAXED_CONSTEXPR length_t cols = 4;
+			static GLM_RELAXED_CONSTEXPR length_t rows = 4;
+			static GLM_RELAXED_CONSTEXPR precision prec = defaultp;
 #		endif//GLM_META_PROG_HELPERS
 
 		GLM_FUNC_DECL length_t length() const;

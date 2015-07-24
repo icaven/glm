@@ -100,8 +100,8 @@ namespace detail
 		typedef tvec4<bool, highp> bool_type;
 
 #		ifdef GLM_META_PROG_HELPERS
-			static GLM_CONSTEXPR_MAYBE length_t components = 4;
-			static GLM_CONSTEXPR_MAYBE precision prec = defaultp;
+			static GLM_RELAXED_CONSTEXPR length_t components = 4;
+			static GLM_RELAXED_CONSTEXPR precision prec = defaultp;
 #		endif//GLM_META_PROG_HELPERS
 
 #ifdef GLM_SIMD_ENABLE_XYZW_UNION
