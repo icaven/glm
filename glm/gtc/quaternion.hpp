@@ -65,6 +65,11 @@ namespace glm
 		typedef tquat<T, P> type;
 		typedef T value_type;
 
+#		ifdef GLM_META_PROG_HELPERS
+			static GLM_RELAXED_CONSTEXPR length_t components = 4;
+			static GLM_RELAXED_CONSTEXPR precision prec = P;
+#		endif//GLM_META_PROG_HELPERS
+
 	public:
 		T x, y, z, w;
 
@@ -103,24 +108,19 @@ namespace glm
 		GLM_FUNC_DECL tquat(T const & w, T const & x, T const & y, T const & z);
 
 		//////////////////////////////////////
-		// Convertions
+		// Conversions
 
-#		ifdef GLM_FORCE_EXPLICIT_CTOR
-			template <typename U, precision Q>
-			GLM_FUNC_DECL explicit tquat(tquat<U, Q> const & q);
-#		else
-			template <typename U, precision Q>
-			GLM_FUNC_DECL tquat(tquat<U, Q> const & q);
-#		endif
-		
+		template <typename U, precision Q>
+		GLM_FUNC_DECL GLM_EXPLICIT tquat(tquat<U, Q> const & q);
+
 		// explicit conversion operators
 #		if GLM_HAS_EXPLICIT_CONVERSION_OPERATORS
 			GLM_FUNC_DECL explicit operator tmat3x3<T, P>();
 			GLM_FUNC_DECL explicit operator tmat4x4<T, P>();
 #		endif
-		
+
 		/// Create a quaternion from two normalized axis
-		/// 
+		///
 		/// @param u A first normalized axis
 		/// @param v A second normalized axis
 		/// @see gtc_quaternion

@@ -109,6 +109,11 @@ namespace detail
 		typedef tvec4<bool, P> bool_type;
 		typedef T value_type;
 
+#		ifdef GLM_META_PROG_HELPERS
+			static GLM_RELAXED_CONSTEXPR length_t components = 4;
+			static GLM_RELAXED_CONSTEXPR precision prec = P;
+#		endif//GLM_META_PROG_HELPERS
+
 		//////////////////////////////////////
 		// Data
 
@@ -224,16 +229,10 @@ namespace detail
 		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename A, typename B, precision Q>
 		GLM_FUNC_DECL explicit tvec4(tvec2<A, Q> const & a, tvec2<B, Q> const & b);
-		
-#		ifdef GLM_FORCE_EXPLICIT_CTOR
-			//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-			template <typename U, precision Q>
-			GLM_FUNC_DECL explicit tvec4(tvec4<U, Q> const & v);
-#		else
-			//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
-			template <typename U, precision Q>
-			GLM_FUNC_DECL tvec4(tvec4<U, Q> const & v);
-#		endif
+
+		//! Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template <typename U, precision Q>
+		GLM_FUNC_DECL GLM_EXPLICIT tvec4(tvec4<U, Q> const & v);
 
 		//////////////////////////////////////
 		// Swizzle constructors

@@ -30,6 +30,9 @@
 ///////////////////////////////////////////////////////////////////////////////////
 
 //#define GLM_FORCE_AVX2
+#if !(GLM_COMPILER & GLM_COMPILER_GCC)
+#	define GLM_META_PROG_HELPERS
+#endif
 #define GLM_SWIZZLE
 #include <glm/vector_relational.hpp>
 #include <glm/vec2.hpp>
@@ -398,7 +401,7 @@ int test_vec4_perf_AoS(std::size_t Size)
 
 	std::clock_t EndTime = std::clock();
 
-  std::printf("AoS: %d\n", EndTime - StartTime);
+	std::printf("AoS: %ld\n", EndTime - StartTime);
 
 	return Error;
 }
@@ -437,18 +440,48 @@ int test_vec4_perf_SoA(std::size_t Size)
 
 	std::clock_t EndTime = std::clock();
 
-	std::printf("SoA: %d\n", EndTime - StartTime);
+	std::printf("SoA: %ld\n", EndTime - StartTime);
 
 	return Error;
 }
+
+namespace heap
+{
+	class A
+	{
+		float f;
+	};
+
+	class B : public A
+	{
+		float g;
+		glm::vec4 v;
+	};
+
+	int test()
+	{
+		int Error(0);
+
+		A* p = new B;
+		delete p;
+
+		return Error;
+	}
+}//namespace heap
 
 int main()
 {
 	int Error(0);
 
-	std::size_t const Size(1000000);
+	glm::vec4 v;
+	assert(v.length() == 4);
+
+#	ifdef GLM_META_PROG_HELPERS
+		assert(glm::vec4::components == 4);
+#	endif
 
 #	ifdef NDEBUG
+		std::size_t const Size(1000000);
 		Error += test_vec4_perf_AoS(Size);
 		Error += test_vec4_perf_SoA(Size);
 #	endif//NDEBUG
@@ -458,6 +491,7 @@ int main()
 	Error += test_vec4_operators();
 	Error += test_vec4_swizzle_partial();
 	Error += test_operator_increment();
+	Error += heap::test();
 
 	return Error;
 }

@@ -8,14 +8,14 @@
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-/// 
+///
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-/// 
+///
 /// Restrictions:
 ///		By making use of the Software for military purposes, you choose to make
 ///		a Bunny unhappy.
-/// 
+///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -50,11 +50,18 @@ namespace glm
 		typedef tmat4x2<T, P> transpose_type;
 		typedef T value_type;
 
+#		ifdef GLM_META_PROG_HELPERS
+			static GLM_RELAXED_CONSTEXPR length_t components = 2;
+			static GLM_RELAXED_CONSTEXPR length_t cols = 4;
+			static GLM_RELAXED_CONSTEXPR length_t rows = 2;
+			static GLM_RELAXED_CONSTEXPR precision prec = P;
+#		endif//GLM_META_PROG_HELPERS
+
 	private:
 		/// @cond DETAIL
 		col_type value[2];
 		/// @endcond
-		
+
 	public:
 		// Constructors
 		GLM_FUNC_DECL tmat2x4();
@@ -68,7 +75,7 @@ namespace glm
 			T const & x0, T const & y0, T const & z0, T const & w0,
 			T const & x1, T const & y1, T const & z1, T const & w1);
 		GLM_FUNC_DECL tmat2x4(
-			col_type const & v0, 
+			col_type const & v0,
 			col_type const & v1);
 
 		//////////////////////////////////////
@@ -88,13 +95,8 @@ namespace glm
 		//////////////////////////////////////
 		// Matrix conversions
 
-#		ifdef GLM_FORCE_EXPLICIT_CTOR
-			template <typename U, precision Q>
-			GLM_FUNC_DECL explicit tmat2x4(tmat2x4<U, Q> const & m);
-#		else
-			template <typename U, precision Q>
-			GLM_FUNC_DECL tmat2x4(tmat2x4<U, Q> const & m);
-#		endif
+		template <typename U, precision Q>
+		GLM_FUNC_DECL GLM_EXPLICIT tmat2x4(tmat2x4<U, Q> const & m);
 
 		GLM_FUNC_DECL explicit tmat2x4(tmat2x2<T, P> const & x);
 		GLM_FUNC_DECL explicit tmat2x4(tmat3x3<T, P> const & x);
@@ -127,19 +129,19 @@ namespace glm
 
 		GLM_FUNC_DECL tmat2x4<T, P> & operator=(tmat2x4<T, P> const & m);
 
-		template <typename U> 
+		template <typename U>
 		GLM_FUNC_DECL tmat2x4<T, P> & operator=(tmat2x4<U, P> const & m);
-		template <typename U> 
+		template <typename U>
 		GLM_FUNC_DECL tmat2x4<T, P> & operator+=(U s);
-		template <typename U> 
+		template <typename U>
 		GLM_FUNC_DECL tmat2x4<T, P> & operator+=(tmat2x4<U, P> const & m);
-		template <typename U> 
+		template <typename U>
 		GLM_FUNC_DECL tmat2x4<T, P> & operator-=(U s);
-		template <typename U> 
+		template <typename U>
 		GLM_FUNC_DECL tmat2x4<T, P> & operator-=(tmat2x4<U, P> const & m);
-		template <typename U> 
+		template <typename U>
 		GLM_FUNC_DECL tmat2x4<T, P> & operator*=(U s);
-		template <typename U> 
+		template <typename U>
 		GLM_FUNC_DECL tmat2x4<T, P> & operator/=(U s);
 
 		//////////////////////////////////////
@@ -179,7 +181,7 @@ namespace glm
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x4<T, P> operator*(tmat2x4<T, P> const & m1, tmat4x2<T, P> const & m2);
-		
+
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat2x4<T, P> operator*(tmat2x4<T, P> const & m1, tmat2x2<T, P> const & m2);
 
@@ -189,7 +191,7 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat2x4<T, P> operator/(tmat2x4<T, P> const & m, T s);
 
-	template <typename T, precision P> 
+	template <typename T, precision P>
 	GLM_FUNC_DECL tmat2x4<T, P> operator/(T s, tmat2x4<T, P> const & m);
 
 	// Unary constant operators

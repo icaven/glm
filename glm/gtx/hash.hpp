@@ -41,6 +41,10 @@
 
 #pragma once
 
+#if !GLM_HAS_CXX11_STL
+#	error "GLM_GTX_hash requires C++11 standard library support"
+#endif
+
 #include <functional>
 
 #include "../vec2.hpp"
