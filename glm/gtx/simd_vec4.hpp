@@ -96,6 +96,7 @@ namespace detail
 		typedef std::size_t size_type;
 
 		typedef fvec4SIMD type;
+		typedef tvec4<float, defaultp> pure_type;
 		typedef tvec4<bool, highp> bool_type;
 
 #		ifdef GLM_META_PROG_HELPERS

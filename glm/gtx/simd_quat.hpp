@@ -74,6 +74,7 @@ namespace detail
 
 		typedef fquatSIMD type;
 		typedef tquat<bool, defaultp> bool_type;
+		typedef tquat<float, defaultp> pure_type;
 
 #		ifdef GLM_META_PROG_HELPERS
 			static GLM_RELAXED_CONSTEXPR length_t components = 4;

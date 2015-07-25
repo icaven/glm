@@ -71,6 +71,11 @@ namespace detail
 		typedef fmat4x4SIMD type;
 		typedef fmat4x4SIMD transpose_type;
 
+		typedef tmat4x4<float, defaultp> pure_type;
+		typedef tvec4<float, defaultp> pure_row_type;
+		typedef tvec4<float, defaultp> pure_col_type;
+		typedef tmat4x4<float, defaultp> pure_transpose_type;
+
 #		ifdef GLM_META_PROG_HELPERS
 			static GLM_RELAXED_CONSTEXPR length_t components = 4;
 			static GLM_RELAXED_CONSTEXPR length_t cols = 4;
