@@ -62,14 +62,12 @@ namespace glm
 		friend tvec4<U, Q> operator/(tvec4<U, Q> const & v, tmat4x4<U, Q> const & m);
 
 	private:
-		/// @cond DETAIL
 		col_type value[4];
-		/// @endcond
 
 	public:
 		// Constructors
-		GLM_FUNC_DECL tmat4x4();
-		GLM_FUNC_DECL tmat4x4(tmat4x4<T, P> const & m);
+		GLM_FUNC_DECL tmat4x4() GLM_DEFAULT;
+		GLM_FUNC_DECL tmat4x4(tmat4x4<T, P> const & m) GLM_DEFAULT;
 		template <precision Q>
 		GLM_FUNC_DECL tmat4x4(tmat4x4<T, Q> const & m);
 
@@ -142,7 +140,7 @@ namespace glm
 		//////////////////////////////////////
 		// Unary arithmetic operators
 
-		GLM_FUNC_DECL tmat4x4<T, P> & operator=(tmat4x4<T, P> const & m);
+		GLM_FUNC_DECL tmat4x4<T, P> & operator=(tmat4x4<T, P> const & m) GLM_DEFAULT;
 
 		template <typename U>
 		GLM_FUNC_DECL tmat4x4<T, P> & operator=(tmat4x4<U, P> const & m);

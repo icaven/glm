@@ -64,8 +64,9 @@ namespace glm
 
 	public:
 		// Constructors
-		GLM_FUNC_DECL tmat3x2();
-		GLM_FUNC_DECL tmat3x2(tmat3x2<T, P> const & m);
+
+		GLM_FUNC_DECL tmat3x2() GLM_DEFAULT;
+		GLM_FUNC_DECL tmat3x2(tmat3x2<T, P> const & m) GLM_DEFAULT;
 		template <precision Q>
 		GLM_FUNC_DECL tmat3x2(tmat3x2<T, Q> const & m);
 
@@ -133,7 +134,7 @@ namespace glm
 		//////////////////////////////////////
 		// Unary arithmetic operators
 
-		GLM_FUNC_DECL tmat3x2<T, P> & operator=(tmat3x2<T, P> const & m);
+		GLM_FUNC_DECL tmat3x2<T, P> & operator=(tmat3x2<T, P> const & m) GLM_DEFAULT;
 
 		template <typename U>
 		GLM_FUNC_DECL tmat3x2<T, P> & operator=(tmat3x2<U, P> const & m);

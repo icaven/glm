@@ -203,6 +203,22 @@ int test_ctr()
 {
 	int Error(0);
 
+#	if GLM_HAS_DEFAULTED_FUNCTIONS
+	{
+		union pack
+		{
+			glm::mat4 f;
+			glm::mat4 i;
+		} A, B;
+
+		A.f = glm::mat4(0);
+		Error += glm::all(glm::equal(A.i[0], glm::vec4(0))) ? 0 : 1;
+
+		B.f = glm::mat4(1);
+		Error += glm::all(glm::equal(B.i[0], glm::vec4(1, 0, 0, 0))) ? 0 : 1;
+	}
+#	endif//GLM_HAS_DEFAULTED_FUNCTIONS
+
 #if GLM_HAS_TRIVIAL_QUERIES
 	//Error += std::is_trivially_default_constructible<glm::mat4>::value ? 0 : 1;
 	//Error += std::is_trivially_copy_assignable<glm::mat4>::value ? 0 : 1;

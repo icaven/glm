@@ -94,8 +94,8 @@ namespace glm
 		//////////////////////////////////////
 		// Implicit basic constructors
 
-		GLM_FUNC_DECL tdualquat();
-		GLM_FUNC_DECL tdualquat(tdualquat<T, P> const & d);
+		GLM_FUNC_DECL tdualquat() GLM_DEFAULT;
+		GLM_FUNC_DECL tdualquat(tdualquat<T, P> const & d) GLM_DEFAULT;
 		template <precision Q>
 		GLM_FUNC_DECL tdualquat(tdualquat<T, Q> const & d);
 
@@ -117,7 +117,7 @@ namespace glm
 		GLM_FUNC_DECL explicit tdualquat(tmat3x4<T, P> const & aug_mat);
 
 		// Operators
-		GLM_FUNC_DECL tdualquat<T, P> & operator=(tdualquat<T, P> const & m);
+		GLM_FUNC_DECL tdualquat<T, P> & operator=(tdualquat<T, P> const & m) GLM_DEFAULT;
 
 		template <typename U>
 		GLM_FUNC_DECL tdualquat<T, P> & operator=(tdualquat<U, P> const & m);

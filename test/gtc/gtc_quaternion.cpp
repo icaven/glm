@@ -296,6 +296,22 @@ int test_quat_ctr()
 {
 	int Error(0);
 
+#	if GLM_HAS_DEFAULTED_FUNCTIONS
+	{
+		union pack
+		{
+			glm::quat f;
+			glm::quat i;
+		} A, B;
+
+		A.f = glm::quat(0, 0, 0, 0);
+		Error += glm::all(glm::equal(A.i, glm::quat(0, 0, 0, 0))) ? 0 : 1;
+
+		B.f = glm::quat(1, 1, 1, 1);
+		Error += glm::all(glm::equal(B.i, glm::quat(1, 1, 1, 1))) ? 0 : 1;
+	}
+#	endif//GLM_HAS_DEFAULTED_FUNCTIONS
+
 #	if GLM_HAS_TRIVIAL_QUERIES
 	//	Error += std::is_trivially_default_constructible<glm::quat>::value ? 0 : 1;
 	//	Error += std::is_trivially_default_constructible<glm::dquat>::value ? 0 : 1;

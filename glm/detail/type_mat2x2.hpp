@@ -62,15 +62,14 @@ namespace glm
 #		endif//GLM_META_PROG_HELPERS
 
 	private:
-		/// @cond DETAIL
 		col_type value[2];
-		/// @endcond
 
 	public:
 		//////////////////////////////////////
 		// Constructors
-		GLM_FUNC_DECL tmat2x2();
-		GLM_FUNC_DECL tmat2x2(tmat2x2<T, P> const & m);
+
+		GLM_FUNC_DECL tmat2x2() GLM_DEFAULT;
+		GLM_FUNC_DECL tmat2x2(tmat2x2<T, P> const & m) GLM_DEFAULT;
 		template <precision Q>
 		GLM_FUNC_DECL tmat2x2(tmat2x2<T, Q> const & m);
 
@@ -85,6 +84,7 @@ namespace glm
 
 		//////////////////////////////////////
 		// Conversions
+
 		template <typename U, typename V, typename M, typename N>
 		GLM_FUNC_DECL tmat2x2(
 			U const & x1, V const & y1,
@@ -130,7 +130,7 @@ namespace glm
 		//////////////////////////////////////
 		// Unary arithmetic operators
 
-		GLM_FUNC_DECL tmat2x2<T, P> & operator=(tmat2x2<T, P> const & v);
+		GLM_FUNC_DECL tmat2x2<T, P> & operator=(tmat2x2<T, P> const & v) GLM_DEFAULT;;
 
 		template <typename U>
 		GLM_FUNC_DECL tmat2x2<T, P> & operator=(tmat2x2<U, P> const & m);

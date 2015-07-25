@@ -83,19 +83,21 @@ namespace glm
 	//////////////////////////////////////
 	// Implicit basic constructors
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat()
-#		ifndef GLM_FORCE_NO_CTOR_INIT 
-			: real(tquat<T, P>())
-			, dual(tquat<T, P>(0, 0, 0, 0))
-#		endif
-	{}
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat()
+#			ifndef GLM_FORCE_NO_CTOR_INIT 
+				: real(tquat<T, P>())
+				, dual(tquat<T, P>(0, 0, 0, 0))
+#			endif
+		{}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat(tdualquat<T, P> const & d)
-		: real(d.real)
-		, dual(d.dual)
-	{}
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat(tdualquat<T, P> const & d)
+			: real(d.real)
+			, dual(d.dual)
+		{}
+#	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
 	template <typename T, precision P>
 	template <precision Q>
@@ -155,13 +157,15 @@ namespace glm
 	//////////////////////////////////////////////////////////////
 	// tdualquat operators
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tdualquat<T, P> & tdualquat<T, P>::operator=(tdualquat<T, P> const & q)
-	{
-		this->real = q.real;
-		this->dual = q.dual;
-		return *this;
-	}
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER tdualquat<T, P> & tdualquat<T, P>::operator=(tdualquat<T, P> const & q)
+		{
+			this->real = q.real;
+			this->dual = q.dual;
+			return *this;
+		}
+#	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
 	template <typename T, precision P>
 	template <typename U>

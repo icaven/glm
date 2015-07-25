@@ -60,6 +60,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added <glm/gtx/wrap.hpp> for texcoord wrapping
 - Added static components and precision members to all vector and quat types #350
 - Added .gitignore #349
+- Added support of defaulted functions to GLM types, to use them in unions #366
 
 ##### Improvements:
 - Changed usage of __has_include to support Intel compiler #307

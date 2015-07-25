@@ -35,23 +35,25 @@ namespace glm
 	//////////////////////////////////////////////////////////////
 	// Constructors
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat3x4<T, P>::tmat3x4()
-	{
-#		ifndef GLM_FORCE_NO_CTOR_INIT 
-			this->value[0] = col_type(1, 0, 0, 0);
-			this->value[1] = col_type(0, 1, 0, 0);
-			this->value[2] = col_type(0, 0, 1, 0);
-#		endif
-	}
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER tmat3x4<T, P>::tmat3x4()
+		{
+#			ifndef GLM_FORCE_NO_CTOR_INIT 
+				this->value[0] = col_type(1, 0, 0, 0);
+				this->value[1] = col_type(0, 1, 0, 0);
+				this->value[2] = col_type(0, 0, 1, 0);
+#			endif
+		}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat3x4<T, P>::tmat3x4(tmat3x4<T, P> const & m)
-	{
-		this->value[0] = m.value[0];
-		this->value[1] = m.value[1];
-		this->value[2] = m.value[2];
-	}
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER tmat3x4<T, P>::tmat3x4(tmat3x4<T, P> const & m)
+		{
+			this->value[0] = m.value[0];
+			this->value[1] = m.value[1];
+			this->value[2] = m.value[2];
+		}
+#	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
 	template <typename T, precision P>
 	template <precision Q>
@@ -103,6 +105,7 @@ namespace glm
 
 	//////////////////////////////////////
 	// Conversion constructors
+
 	template <typename T, precision P>
 	template <
 		typename X1, typename Y1, typename Z1, typename W1,
@@ -256,14 +259,16 @@ namespace glm
 	//////////////////////////////////////////////////////////////
 	// Unary updatable operators
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat3x4<T, P>& tmat3x4<T, P>::operator=(tmat3x4<T, P> const & m)
-	{
-		this->value[0] = m[0];
-		this->value[1] = m[1];
-		this->value[2] = m[2];
-		return *this;
-	}
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER tmat3x4<T, P>& tmat3x4<T, P>::operator=(tmat3x4<T, P> const & m)
+		{
+			this->value[0] = m[0];
+			this->value[1] = m[1];
+			this->value[2] = m[2];
+			return *this;
+		}
+#	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
 	template <typename T, precision P> 
 	template <typename U> 

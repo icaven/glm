@@ -97,17 +97,19 @@ namespace detail
 	//////////////////////////////////////
 	// Implicit basic constructors
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P>::tquat()
-#		ifndef GLM_FORCE_NO_CTOR_INIT
-			: x(0), y(0), z(0), w(1)
-#		endif
-	{}
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER tquat<T, P>::tquat()
+#			ifndef GLM_FORCE_NO_CTOR_INIT
+				: x(0), y(0), z(0), w(1)
+#			endif
+		{}
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(tquat<T, P> const & q)
-		: x(q.x), y(q.y), z(q.z), w(q.w)
-	{}
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER tquat<T, P>::tquat(tquat<T, P> const & q)
+			: x(q.x), y(q.y), z(q.z), w(q.w)
+		{}
+#	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
 	template <typename T, precision P>
 	template <precision Q>
@@ -225,15 +227,17 @@ namespace detail
 	//////////////////////////////////////////////////////////////
 	// tquat<valType> operators
 
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P> & tquat<T, P>::operator=(tquat<T, P> const & q)
-	{
-		this->w = q.w;
-		this->x = q.x;
-		this->y = q.y;
-		this->z = q.z;
-		return *this;
-	}
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS
+		template <typename T, precision P>
+		GLM_FUNC_QUALIFIER tquat<T, P> & tquat<T, P>::operator=(tquat<T, P> const & q)
+		{
+			this->w = q.w;
+			this->x = q.x;
+			this->y = q.y;
+			this->z = q.z;
+			return *this;
+		}
+#	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
 	template <typename T, precision P>
 	template <typename U>

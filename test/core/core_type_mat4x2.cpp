@@ -56,6 +56,22 @@ int test_ctr()
 {
 	int Error(0);
 
+#	if GLM_HAS_DEFAULTED_FUNCTIONS
+	{
+		union pack
+		{
+			glm::mat4x2 f;
+			glm::mat4x2 i;
+		} A, B;
+
+		A.f = glm::mat4x2(0);
+		Error += glm::all(glm::equal(A.i[0], glm::vec2(0))) ? 0 : 1;
+
+		B.f = glm::mat4x2(1);
+		Error += glm::all(glm::equal(B.i[0], glm::vec2(1, 0))) ? 0 : 1;
+	}
+#	endif//GLM_HAS_DEFAULTED_FUNCTIONS
+
 #if(GLM_HAS_INITIALIZER_LISTS)
 	glm::mat4x2 m0(
 		glm::vec2(0, 1), 

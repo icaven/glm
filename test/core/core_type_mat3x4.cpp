@@ -55,7 +55,23 @@ static bool test_operators()
 int test_ctr()
 {
 	int Error(0);
-	
+
+#	if GLM_HAS_DEFAULTED_FUNCTIONS
+	{
+		union pack
+		{
+			glm::mat3x4 f;
+			glm::mat3x4 i;
+		} A, B;
+
+		A.f = glm::mat3x4(0);
+		Error += glm::all(glm::equal(A.i[0], glm::vec4(0))) ? 0 : 1;
+
+		B.f = glm::mat3x4(1);
+		Error += glm::all(glm::equal(B.i[0], glm::vec4(1, 0, 0, 0))) ? 0 : 1;
+	}
+#	endif//GLM_HAS_DEFAULTED_FUNCTIONS
+
 #if(GLM_HAS_INITIALIZER_LISTS)
 	glm::mat3x4 m0(
 		glm::vec4(0, 1, 2, 3),

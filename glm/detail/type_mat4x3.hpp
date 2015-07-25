@@ -58,13 +58,13 @@ namespace glm
 #		endif//GLM_META_PROG_HELPERS
 
 	private:
-		// Data
 		col_type value[4];
 
 	public:
 		// Constructors
-		GLM_FUNC_DECL tmat4x3();
-		GLM_FUNC_DECL tmat4x3(tmat4x3<T, P> const & m);
+
+		GLM_FUNC_DECL tmat4x3() GLM_DEFAULT;
+		GLM_FUNC_DECL tmat4x3(tmat4x3<T, P> const & m) GLM_DEFAULT;
 		template <precision Q>
 		GLM_FUNC_DECL tmat4x3(tmat4x3<T, Q> const & m);
 
@@ -137,7 +137,7 @@ namespace glm
 		//////////////////////////////////////
 		// Unary arithmetic operators
 
-		GLM_FUNC_DECL tmat4x3<T, P> & operator=(tmat4x3<T, P> const & m);
+		GLM_FUNC_DECL tmat4x3<T, P> & operator=(tmat4x3<T, P> const & m) GLM_DEFAULT;
 
 		template <typename U>
 		GLM_FUNC_DECL tmat4x3<T, P> & operator=(tmat4x3<U, P> const & m);
