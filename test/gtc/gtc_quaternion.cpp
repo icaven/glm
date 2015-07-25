@@ -243,6 +243,7 @@ int test_quat_mul()
 	glm::quat temp5 = glm::normalize(temp1 * temp2);
 	glm::vec3 temp6 = temp5 * glm::vec3(0.0, 1.0, 0.0) * glm::inverse(temp5);
 
+#	ifndef GLM_FORCE_NO_CTOR_INIT
 	{
 		glm::quat temp7;
 
@@ -251,6 +252,7 @@ int test_quat_mul()
 
 		Error += temp7 != glm::quat();
 	}
+#	endif
 
 	return Error;
 }
@@ -295,22 +297,6 @@ int test_quat_mul_vec()
 int test_quat_ctr()
 {
 	int Error(0);
-
-#	if GLM_HAS_DEFAULTED_FUNCTIONS
-	{
-		union pack
-		{
-			glm::quat f;
-			glm::quat i;
-		} A, B;
-
-		A.f = glm::quat(0, 0, 0, 0);
-		Error += glm::all(glm::equal(A.i, glm::quat(0, 0, 0, 0))) ? 0 : 1;
-
-		B.f = glm::quat(1, 1, 1, 1);
-		Error += glm::all(glm::equal(B.i, glm::quat(1, 1, 1, 1))) ? 0 : 1;
-	}
-#	endif//GLM_HAS_DEFAULTED_FUNCTIONS
 
 #	if GLM_HAS_TRIVIAL_QUERIES
 	//	Error += std::is_trivially_default_constructible<glm::quat>::value ? 0 : 1;

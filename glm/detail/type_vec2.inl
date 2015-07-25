@@ -31,14 +31,16 @@ namespace glm
 	//////////////////////////////////////
 	// Implicit basic constructors
 
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS || !defined(GLM_FORCE_NO_CTOR_INIT)
 		template <typename T, precision P>
 		GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2()
 #			ifndef GLM_FORCE_NO_CTOR_INIT
 				: x(0), y(0)
 #			endif
 		{}
+#	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template <typename T, precision P>
 		GLM_FUNC_QUALIFIER tvec2<T, P>::tvec2(tvec2<T, P> const & v)
 			: x(v.x), y(v.y)

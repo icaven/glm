@@ -115,22 +115,6 @@ int test_ctr()
 {
 	int Error(0);
 
-#	if GLM_HAS_DEFAULTED_FUNCTIONS
-	{
-		union pack
-		{
-			glm::mat3x3 f;
-			glm::mat3x3 i;
-		} A, B;
-
-		A.f = glm::mat3x3(0);
-		Error += glm::all(glm::equal(A.i[0], glm::vec3(0))) ? 0 : 1;
-
-		B.f = glm::mat3x3(1);
-		Error += glm::all(glm::equal(B.i[0], glm::vec3(1, 0, 0))) ? 0 : 1;
-	}
-#	endif//GLM_HAS_DEFAULTED_FUNCTIONS
-
 #if(GLM_HAS_INITIALIZER_LISTS)
 	glm::mat3x3 m0(
 		glm::vec3(0, 1, 2),

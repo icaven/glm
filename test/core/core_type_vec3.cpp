@@ -45,22 +45,6 @@ int test_vec3_ctor()
 {
 	int Error = 0;
 
-#	if GLM_HAS_DEFAULTED_FUNCTIONS
-	{
-		union pack
-		{
-			glm::vec3 f;
-			glm::ivec3 i;
-		} A, B;
-
-		A.f = glm::vec3(0);
-		Error += glm::all(glm::equal(A.i, glm::ivec3(0))) ? 0 : 1;
-
-		B.f = glm::vec3(1);
-		Error += glm::all(glm::equal(B.i, glm::ivec3(1065353216))) ? 0 : 1;
-	}
-#	endif//GLM_HAS_DEFAULTED_FUNCTIONS
-
 #	if GLM_HAS_TRIVIAL_QUERIES
 	//	Error += std::is_trivially_default_constructible<glm::vec3>::value ? 0 : 1;
 	//	Error += std::is_trivially_copy_assignable<glm::vec3>::value ? 0 : 1;

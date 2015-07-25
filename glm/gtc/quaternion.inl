@@ -97,14 +97,16 @@ namespace detail
 	//////////////////////////////////////
 	// Implicit basic constructors
 
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS || !defined(GLM_FORCE_NO_CTOR_INIT)
 		template <typename T, precision P>
 		GLM_FUNC_QUALIFIER tquat<T, P>::tquat()
 #			ifndef GLM_FORCE_NO_CTOR_INIT
 				: x(0), y(0), z(0), w(1)
 #			endif
 		{}
+#	endif
 
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template <typename T, precision P>
 		GLM_FUNC_QUALIFIER tquat<T, P>::tquat(tquat<T, P> const & q)
 			: x(q.x), y(q.y), z(q.z), w(q.w)

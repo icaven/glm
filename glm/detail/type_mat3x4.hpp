@@ -65,7 +65,7 @@ namespace glm
 	public:
 		// Constructors
 
-		GLM_FUNC_DECL tmat3x4() GLM_DEFAULT;
+		GLM_FUNC_DECL tmat3x4() GLM_DEFAULT_CTOR;
 		GLM_FUNC_DECL tmat3x4(tmat3x4<T, P> const & m) GLM_DEFAULT;
 		template <precision Q>
 		GLM_FUNC_DECL tmat3x4(tmat3x4<T, Q> const & m);

@@ -114,7 +114,7 @@ namespace glm
 		//////////////////////////////////////
 		// Implicit basic constructors
 
-		GLM_FUNC_DECL tvec3() GLM_DEFAULT;
+		GLM_FUNC_DECL tvec3() GLM_DEFAULT_CTOR;
 		GLM_FUNC_DECL tvec3(tvec3<T, P> const & v) GLM_DEFAULT;
 		template <precision Q>
 		GLM_FUNC_DECL tvec3(tvec3<T, Q> const & v);

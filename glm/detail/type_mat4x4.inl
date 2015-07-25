@@ -95,7 +95,7 @@ namespace detail
 	//////////////////////////////////////////////////////////////
 	// Constructors
 
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS || !defined(GLM_FORCE_NO_CTOR_INIT)
 		template <typename T, precision P>
 		GLM_FUNC_QUALIFIER tmat4x4<T, P>::tmat4x4()
 		{
@@ -106,7 +106,9 @@ namespace detail
 				this->value[3] = col_type(0, 0, 0, 1);
 #			endif
 		}
+#	endif
 
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template <typename T, precision P>
 		GLM_FUNC_QUALIFIER tmat4x4<T, P>::tmat4x4(tmat4x4<T, P> const & m)
 		{

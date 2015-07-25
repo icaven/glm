@@ -68,7 +68,7 @@ namespace glm
 		//////////////////////////////////////
 		// Constructors
 
-		GLM_FUNC_DECL tmat2x2() GLM_DEFAULT;
+		GLM_FUNC_DECL tmat2x2() GLM_DEFAULT_CTOR;
 		GLM_FUNC_DECL tmat2x2(tmat2x2<T, P> const & m) GLM_DEFAULT;
 		template <precision Q>
 		GLM_FUNC_DECL tmat2x2(tmat2x2<T, Q> const & m);

@@ -94,9 +94,9 @@ namespace detail
 		//////////////////////////////////////
 		// Implicit basic constructors
 
-		fquatSIMD();
+		fquatSIMD() GLM_DEFAULT_CTOR;
+		fquatSIMD(fquatSIMD const & q) GLM_DEFAULT;
 		fquatSIMD(__m128 const & Data);
-		fquatSIMD(fquatSIMD const & q);
 
 		//////////////////////////////////////
 		// Explicit basic constructors
@@ -117,7 +117,7 @@ namespace detail
 		//////////////////////////////////////
 		// Unary arithmetic operators
 
-		fquatSIMD& operator =(fquatSIMD const & q);
+		fquatSIMD& operator= (fquatSIMD const & q) GLM_DEFAULT;
 		fquatSIMD& operator*=(float const & s);
 		fquatSIMD& operator/=(float const & s);
 	};

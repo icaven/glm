@@ -68,22 +68,6 @@ int test_vec4_ctor()
 {
 	int Error = 0;
 
-#	if GLM_HAS_DEFAULTED_FUNCTIONS
-	{
-		union pack
-		{
-			glm::vec4 f;
-			glm::ivec4 i;
-		} A, B;
-
-		A.f = glm::vec4(0);
-		Error += glm::all(glm::equal(A.i, glm::ivec4(0))) ? 0 : 1;
-
-		B.f = glm::vec4(1);
-		Error += glm::all(glm::equal(B.i, glm::ivec4(1065353216))) ? 0 : 1;
-	}
-#	endif//GLM_HAS_DEFAULTED_FUNCTIONS
-
 	{
 		glm::ivec4 A(1, 2, 3, 4);
 		glm::ivec4 B(A);

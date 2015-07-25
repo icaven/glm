@@ -85,7 +85,7 @@ namespace detail
 		//////////////////////////////////////
 		// Constructors
 
-		fmat4x4SIMD();
+		fmat4x4SIMD() GLM_DEFAULT_CTOR;
 		explicit fmat4x4SIMD(float const & s);
 		explicit fmat4x4SIMD(
 			float const & x0, float const & y0, float const & z0, float const & w0,
@@ -120,7 +120,7 @@ namespace detail
 		fvec4SIMD const & operator[](length_t i) const;
 
 		// Unary updatable operators
-		fmat4x4SIMD & operator= (fmat4x4SIMD const & m);
+		fmat4x4SIMD & operator= (fmat4x4SIMD const & m) GLM_DEFAULT;
 		fmat4x4SIMD & operator+= (float const & s);
 		fmat4x4SIMD & operator+= (fmat4x4SIMD const & m);
 		fmat4x4SIMD & operator-= (float const & s);

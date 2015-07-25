@@ -117,9 +117,9 @@ namespace detail
 		//////////////////////////////////////
 		// Implicit basic constructors
 
-		fvec4SIMD();
+		fvec4SIMD() GLM_DEFAULT_CTOR;
+		fvec4SIMD(fvec4SIMD const & v) GLM_DEFAULT;
 		fvec4SIMD(__m128 const & Data);
-		fvec4SIMD(fvec4SIMD const & v);
 
 		//////////////////////////////////////
 		// Explicit basic constructors
@@ -150,7 +150,7 @@ namespace detail
 		//////////////////////////////////////
 		// Unary arithmetic operators
 
-		fvec4SIMD& operator= (fvec4SIMD const & v);
+		fvec4SIMD& operator= (fvec4SIMD const & v) GLM_DEFAULT;
 		fvec4SIMD& operator+=(fvec4SIMD const & v);
 		fvec4SIMD& operator-=(fvec4SIMD const & v);
 		fvec4SIMD& operator*=(fvec4SIMD const & v);

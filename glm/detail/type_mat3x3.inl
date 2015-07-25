@@ -59,7 +59,7 @@ namespace detail
 	//////////////////////////////////////////////////////////////
 	// Constructors
 
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS || !defined(GLM_FORCE_NO_CTOR_INIT)
 		template <typename T, precision P>
 		GLM_FUNC_QUALIFIER tmat3x3<T, P>::tmat3x3()
 		{
@@ -69,7 +69,9 @@ namespace detail
 				this->value[2] = col_type(0, 0, 1);
 #			endif
 		}
+#	endif
 
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template <typename T, precision P>
 		GLM_FUNC_QUALIFIER tmat3x3<T, P>::tmat3x3(tmat3x3<T, P> const & m)
 		{
