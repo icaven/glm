@@ -124,6 +124,11 @@ int main()
 {
 	int Error(0);
 
+#ifdef GLM_META_PROG_HELPERS
+		assert(glm::mat2::rows == glm::mat2::row_type::components);
+		assert(glm::mat2::cols == glm::mat2::col_type::components);
+#endif
+
 	Error += test_ctr();
 	Error += test_operators();
 	Error += test_inverse();

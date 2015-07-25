@@ -493,6 +493,7 @@ int main()
 	assert(v.length() == 4);
 
 #	ifdef GLM_META_PROG_HELPERS
+		assert(glm::vec4::components == glm::vec4().length());
 		assert(glm::vec4::components == 4);
 #	endif
 

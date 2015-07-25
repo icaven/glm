@@ -278,6 +278,11 @@ int main()
 {
 	int Error = 0;
 
+#ifdef GLM_META_PROG_HELPERS
+		assert(glm::mat4::rows == glm::mat4::row_type::components);
+		assert(glm::mat4::cols == glm::mat4::col_type::components);
+#endif
+
 	Error += test_ctr();
 	Error += test_inverse_dmat4x4();
 	Error += test_inverse_mat4x4();

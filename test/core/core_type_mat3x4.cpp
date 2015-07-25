@@ -101,7 +101,12 @@ int test_ctr()
 int main()
 {
 	int Error = 0;
-	
+
+#ifdef GLM_META_PROG_HELPERS
+		assert(glm::mat3x4::rows == glm::mat3x4::row_type::components);
+		assert(glm::mat3x4::cols == glm::mat3x4::col_type::components);
+#endif
+
 	Error += test_ctr();
 	Error += test_operators();
 

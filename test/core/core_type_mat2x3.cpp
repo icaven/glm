@@ -98,6 +98,11 @@ int main()
 {
 	int Error = 0;
 
+#ifdef GLM_META_PROG_HELPERS
+		assert(glm::mat2x3::rows == glm::mat2x3::row_type::components);
+		assert(glm::mat2x3::cols == glm::mat2x3::col_type::components);
+#endif
+
 	Error += test_ctr();
 	Error += test_operators();
 
