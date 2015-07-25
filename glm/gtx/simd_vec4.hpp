@@ -94,7 +94,6 @@ namespace detail
 	{
 		typedef float value_type;
 		typedef std::size_t size_type;
-		static size_type value_size();
 
 		typedef fvec4SIMD type;
 		typedef tvec4<bool, highp> bool_type;

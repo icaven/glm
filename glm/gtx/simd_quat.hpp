@@ -71,7 +71,6 @@ namespace detail
 	{
 		typedef float value_type;
 		typedef std::size_t size_type;
-		static size_type value_size();
 
 		typedef fquatSIMD type;
 		typedef tquat<bool, defaultp> bool_type;
