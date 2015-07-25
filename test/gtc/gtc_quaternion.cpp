@@ -327,7 +327,10 @@ int main()
 {
 	int Error(0);
 
-	assert(glm::quat::components == 4);
+#ifdef GLM_META_PROG_HELPERS
+		assert(glm::quat::components == 4);
+		assert(glm::quat::components == glm::quat().length());
+#endif
 
 	Error += test_quat_ctr();
 	Error += test_quat_mul_vec();

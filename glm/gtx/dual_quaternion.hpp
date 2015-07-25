@@ -65,7 +65,7 @@ namespace glm
 		typedef glm::tquat<T, P> part_type;
 
 #		ifdef GLM_META_PROG_HELPERS
-			static GLM_RELAXED_CONSTEXPR length_t components = 8;
+			static GLM_RELAXED_CONSTEXPR length_t components = 2;
 			static GLM_RELAXED_CONSTEXPR precision prec = P;
 #		endif//GLM_META_PROG_HELPERS
 

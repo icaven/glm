@@ -92,11 +92,11 @@ namespace detail
 	/// \ingroup gtx_simd_vec4
 	GLM_ALIGNED_STRUCT(16) fvec4SIMD
 	{
-		typedef __m128 value_type;
+		typedef float value_type;
 		typedef std::size_t size_type;
-		static size_type value_size();
 
 		typedef fvec4SIMD type;
+		typedef tvec4<float, defaultp> pure_type;
 		typedef tvec4<bool, highp> bool_type;
 
 #		ifdef GLM_META_PROG_HELPERS

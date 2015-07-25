@@ -52,8 +52,8 @@ namespace glm
 
 #		ifdef GLM_META_PROG_HELPERS
 			static GLM_RELAXED_CONSTEXPR length_t components = 3;
-			static GLM_RELAXED_CONSTEXPR length_t cols = 4;
-			static GLM_RELAXED_CONSTEXPR length_t rows = 3;
+			static GLM_RELAXED_CONSTEXPR length_t cols = 3;
+			static GLM_RELAXED_CONSTEXPR length_t rows = 4;
 			static GLM_RELAXED_CONSTEXPR precision prec = P;
 #		endif//GLM_META_PROG_HELPERS
 

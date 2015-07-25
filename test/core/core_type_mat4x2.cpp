@@ -106,6 +106,11 @@ int main()
 {
 	int Error = 0;
 
+#ifdef GLM_META_PROG_HELPERS
+		assert(glm::mat4x2::rows == glm::mat4x2::row_type::components);
+		assert(glm::mat4x2::cols == glm::mat4x2::col_type::components);
+#endif
+
 	Error += test_ctr();
 	Error += test_operators();
 
