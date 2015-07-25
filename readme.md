@@ -83,6 +83,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 ##### Deprecation:
 - Removed integer specification for 'mod' in GTC_integer #308
+- Removed GTX_multiple, replaced by GTC_round
 
 --------------------------------------------------------------------------------
 #### GLM 0.9.6.4 - 2015-0X-XX
