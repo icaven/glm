@@ -50,9 +50,9 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 ## Release notes
 
-#### GLM 0.9.7.0 - 2015-XX-XX
+#### GLM 0.9.7.0 - 2015-08-02
 ##### Features:
-- Added GTC_color: convertRgbToSrgb and convertSrgbToRgb functions
+- Added GTC_color_space: convertLinearToSRGB and convertSRGBToLinear functions
 - Added 'fmod' overload to GTX_common with tests #308
 - Left handed perspective and lookAt functions #314
 - Added functions eulerAngleXYZ and extractEulerAngleXYZ #311
@@ -71,6 +71,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Updated list of compiler versions
 
 ##### Fixes:
+- Fixed default precision for quat and dual_quat type #312
 - Fixed (u)int64 MSB/LSB handling on BE archs #306
 - Fixed multi-line comment warning in g++. #315
 - Fixed specifier removal by 'std::make_pair<>' #333
@@ -86,11 +87,6 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 ##### Deprecation:
 - Removed integer specification for 'mod' in GTC_integer #308
 - Removed GTX_multiple, replaced by GTC_round
-
---------------------------------------------------------------------------------
-#### GLM 0.9.6.4 - 2015-0X-XX
-##### Fixes:
-- Fixed default precision for quat and dual_quat type #312
 
 --------------------------------------------------------------------------------
 #### [GLM 0.9.6.3 - 2015-02-15](https://github.com/g-truc/glm/releases/tag/0.9.6.3)
