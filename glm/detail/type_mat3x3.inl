@@ -56,8 +56,7 @@ namespace detail
 	}
 }//namespace detail
 
-	//////////////////////////////////////////////////////////////
-	// Constructors
+	// -- Constructors --
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS || !defined(GLM_FORCE_NO_CTOR_INIT)
 		template <typename T, precision P>
@@ -128,8 +127,8 @@ namespace detail
 		this->value[2] = v2;
 	}
 
-	//////////////////////////////////////
-	// Conversion constructors
+	// -- Conversion constructors --
+
 	template <typename T, precision P>
 	template <
 		typename X1, typename Y1, typename Z1,
@@ -161,8 +160,7 @@ namespace detail
 		this->value[2] = col_type(v3);
 	}
 
-	//////////////////////////////////////////////////////////////
-	// Conversions
+	// -- Matrix conversions --
 
 	template <typename T, precision P>
 	template <typename U, precision Q>
@@ -237,8 +235,7 @@ namespace detail
 		this->value[2] = m[2];
 	}
 
-	//////////////////////////////////////
-	// Accesses
+	// -- Accesses --
 
 #	ifdef GLM_FORCE_SIZE_FUNC
 		template <typename T, precision P>
@@ -282,8 +279,7 @@ namespace detail
 		}
 #	endif//GLM_FORCE_SIZE_FUNC
 
-	//////////////////////////////////////////////////////////////
-	// Operators
+	// -- Unary updatable operators --
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template <typename T, precision P>
@@ -380,6 +376,8 @@ namespace detail
 		return (*this = *this * detail::compute_inverse<T, P>(m));
 	}
 
+	// -- Increment and decrement operators --
+
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> & tmat3x3<T, P>::operator++()
 	{
@@ -414,8 +412,18 @@ namespace detail
 		return Result;
 	}
 
-	//////////////////////////////////////////////////////////////
-	// Binary operators
+	// -- Unary arithmetic operators --
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tmat3x3<T, P> const operator-(tmat3x3<T, P> const & m)
+	{
+		return tmat3x3<T, P>(
+			-m[0], 
+			-m[1],
+			-m[2]);
+	}
+
+	// -- Binary arithmetic operators --
 
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> operator+(tmat3x3<T, P> const & m, T const & s)
@@ -610,18 +618,7 @@ namespace detail
 		return m1_copy /= m2;
 	}
 
-	// Unary constant operators
-	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat3x3<T, P> const operator-(tmat3x3<T, P> const & m)
-	{
-		return tmat3x3<T, P>(
-			-m[0], 
-			-m[1],
-			-m[2]);
-	}
-
-	//////////////////////////////////////
-	// Boolean operators
+	// -- Boolean operators --
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER bool operator==(tmat3x3<T, P> const & m1, tmat3x3<T, P> const & m2)

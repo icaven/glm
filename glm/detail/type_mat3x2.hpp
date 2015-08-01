@@ -61,7 +61,7 @@ namespace glm
 		col_type value[3];
 
 	public:
-		// Constructors
+		// -- Constructors --
 
 		GLM_FUNC_DECL tmat3x2() GLM_DEFAULT_CTOR;
 		GLM_FUNC_DECL tmat3x2(tmat3x2<T, P> const & m) GLM_DEFAULT;
@@ -79,8 +79,7 @@ namespace glm
 			col_type const & v1,
 			col_type const & v2);
 
-		//////////////////////////////////////
-		// Conversions
+		// -- Conversions --
 
 		template<
 			typename X1, typename Y1,
@@ -97,8 +96,7 @@ namespace glm
 			tvec2<V2, P> const & v2,
 			tvec2<V3, P> const & v3);
 
-		//////////////////////////////////////
-		// Matrix conversions
+		// -- Matrix conversions --
 
 		template <typename U, precision Q>
 		GLM_FUNC_DECL GLM_EXPLICIT tmat3x2(tmat3x2<U, Q> const & m);
@@ -112,8 +110,7 @@ namespace glm
 		GLM_FUNC_DECL explicit tmat3x2(tmat4x2<T, P> const & x);
 		GLM_FUNC_DECL explicit tmat3x2(tmat4x3<T, P> const & x);
 
-		//////////////////////////////////////
-		// Accesses
+		// -- Accesses --
 
 #		ifdef GLM_FORCE_SIZE_FUNC
 			typedef size_t size_type;
@@ -129,8 +126,7 @@ namespace glm
 			GLM_FUNC_DECL col_type const & operator[](length_type i) const;
 #		endif//GLM_FORCE_SIZE_FUNC
 
-		//////////////////////////////////////
-		// Unary arithmetic operators
+		// -- Unary arithmetic operators --
 
 		GLM_FUNC_DECL tmat3x2<T, P> & operator=(tmat3x2<T, P> const & m) GLM_DEFAULT;
 
@@ -149,8 +145,7 @@ namespace glm
 		template <typename U>
 		GLM_FUNC_DECL tmat3x2<T, P> & operator/=(U s);
 
-		//////////////////////////////////////
-		// Increment and decrement operators
+		// -- Increment and decrement operators --
 
 		GLM_FUNC_DECL tmat3x2<T, P> & operator++ ();
 		GLM_FUNC_DECL tmat3x2<T, P> & operator-- ();
@@ -158,7 +153,13 @@ namespace glm
 		GLM_FUNC_DECL tmat3x2<T, P> operator--(int);
 	};
 
-	// Binary operators
+	// -- Unary operators --
+
+	template <typename T, precision P>
+	GLM_FUNC_DECL tmat3x2<T, P> const operator-(tmat3x2<T, P> const & m);
+
+	// -- Binary operators --
+
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat3x2<T, P> operator+(tmat3x2<T, P> const & m, T const & s);
 
@@ -198,9 +199,13 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat3x2<T, P> operator/(T const & s, tmat3x2<T, P> const & m);
 
-	// Unary constant operators
+	// -- Boolean operators --
+
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat3x2<T, P> const operator-(tmat3x2<T, P> const & m);
+	GLM_FUNC_DECL bool operator==(tmat3x2<T, P> const & m1, tmat3x2<T, P> const & m2);
+
+	template <typename T, precision P>
+	GLM_FUNC_DECL bool operator!=(tmat3x2<T, P> const & m1, tmat3x2<T, P> const & m2);
 }//namespace glm
 
 #ifndef GLM_EXTERNAL_TEMPLATE
