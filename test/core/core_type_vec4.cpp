@@ -29,7 +29,6 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-//#define GLM_FORCE_AVX2
 #if !(GLM_COMPILER & GLM_COMPILER_GCC)
 #	define GLM_META_PROG_HELPERS
 #endif

@@ -53,9 +53,9 @@ namespace detail
 		typedef T type[4];
 	};
 
-#	define GLM_NOT_BUGGY_VC32BITS !(GLM_MODEL == GLM_MODEL_32 && GLM_COMPILER & GLM_COMPILER_VC && GLM_COMPILER < GLM_COMPILER_VC2013)
+#	define GLM_NOT_BUGGY_VC32BITS !(GLM_MODEL == GLM_MODEL_32 && (GLM_COMPILER & GLM_COMPILER_VC) && GLM_COMPILER < GLM_COMPILER_VC2013)
 
-#	if GLM_ARCH & GLM_ARCH_SSE2 && GLM_NOT_BUGGY_VC32BITS
+#	if (GLM_ARCH & GLM_ARCH_SSE2) && GLM_NOT_BUGGY_VC32BITS
 		template <>
 		struct simd<float>
 		{
@@ -75,7 +75,7 @@ namespace detail
 		};
 #	endif
 
-#	if GLM_ARCH & GLM_ARCH_AVX && GLM_NOT_BUGGY_VC32BITS
+#	if (GLM_ARCH & GLM_ARCH_AVX) && GLM_NOT_BUGGY_VC32BITS
 		template <>
 		struct simd<double>
 		{
@@ -83,7 +83,7 @@ namespace detail
 		};
 #	endif
 
-#	if GLM_ARCH & GLM_ARCH_AVX2 && GLM_NOT_BUGGY_VC32BITS
+#	if (GLM_ARCH & GLM_ARCH_AVX2) && GLM_NOT_BUGGY_VC32BITS
 		template <>
 		struct simd<int64>
 		{
