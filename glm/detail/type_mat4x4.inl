@@ -256,7 +256,7 @@ namespace detail
 	{
 		this->value[0] = col_type(m[0], 0, 0);
 		this->value[1] = col_type(m[1], 0, 0);
-		this->value[2] = col_type(0);
+		this->value[2] = col_type(0, 0, 1, 0);
 		this->value[3] = col_type(0, 0, 0, 1);
 	}
 
@@ -274,7 +274,7 @@ namespace detail
 	{
 		this->value[0] = col_type(m[0], 0);
 		this->value[1] = col_type(m[1], 0);
-		this->value[2] = col_type(0);
+		this->value[2] = col_type(0, 0, 1, 0);
 		this->value[3] = col_type(0, 0, 0, 1);
 	}
 
@@ -283,7 +283,7 @@ namespace detail
 	{
 		this->value[0] = col_type(m[0], 0, 0);
 		this->value[1] = col_type(m[1], 0, 0);
-		this->value[2] = col_type(m[2], 0, 0);
+		this->value[2] = col_type(m[2], 1, 0);
 		this->value[3] = col_type(0, 0, 0, 1);
 	}
 
@@ -292,7 +292,7 @@ namespace detail
 	{
 		this->value[0] = m[0];
 		this->value[1] = m[1];
-		this->value[2] = col_type(0);
+		this->value[2] = col_type(0, 0, 1, 0);
 		this->value[3] = col_type(0, 0, 0, 1);
 	}
 
@@ -301,7 +301,7 @@ namespace detail
 	{
 		this->value[0] = col_type(m[0], 0, 0);
 		this->value[1] = col_type(m[1], 0, 0);
-		this->value[2] = col_type(0);
+		this->value[2] = col_type(0, 0, 1, 0);
 		this->value[3] = col_type(0, 0, 0, 1);
 	}
 

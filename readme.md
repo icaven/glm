@@ -81,6 +81,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed use of libstdc++ with Clang #351
 - Fixed quaternion pow #346
 - Fixed decompose warnings #373
+- Fixed matrix conversions #371
 
 ##### Deprecation:
 - Removed integer specification for 'mod' in GTC_integer #308

@@ -76,11 +76,10 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat4x2<T, P>::tmat4x2(T const & s)
 	{
-		value_type const Zero(0);
-		this->value[0] = col_type(s, Zero);
-		this->value[1] = col_type(Zero, s);
-		this->value[2] = col_type(Zero, Zero);
-		this->value[3] = col_type(Zero, Zero);
+		this->value[0] = col_type(s, 0);
+		this->value[1] = col_type(0, s);
+		this->value[2] = col_type(0, 0);
+		this->value[3] = col_type(0, 0);
 	}
 
 	template <typename T, precision P>
