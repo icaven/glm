@@ -46,7 +46,7 @@
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_VERSION_DISPLAYED))
 #	define GLM_MESSAGE_VERSION_DISPLAYED
-#	pragma message ("GLM: version 0.9.7")
+#	pragma message ("GLM: version 0.9.7.0")
 #endif//GLM_MESSAGE
 
 ///////////////////////////////////////////////////////////////////////////////////
