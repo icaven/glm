@@ -50,7 +50,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 ## Release notes
 
-#### GLM 0.9.7.0 - 2015-08-02
+#### [GLM 0.9.7.0](https://github.com/g-truc/glm/releases/tag/0.9.7.0) - 2015-08-02
 ##### Features:
 - Added GTC_color_space: convertLinearToSRGB and convertSRGBToLinear functions
 - Added 'fmod' overload to GTX_common with tests #308
@@ -89,11 +89,11 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Removed GTX_multiple, replaced by GTC_round
 
 --------------------------------------------------------------------------------
-#### [GLM 0.9.6.3 - 2015-02-15](https://github.com/g-truc/glm/releases/tag/0.9.6.3)
+#### [GLM 0.9.6.3](https://github.com/g-truc/glm/releases/tag/0.9.6.3) - 2015-02-15
 - Fixed Android doesn't have C++ 11 STL #284
 
 --------------------------------------------------------------------------------
-#### GLM 0.9.6.2 - 2015-02-15
+#### [GLM 0.9.6.2](https://github.com/g-truc/glm/releases/tag/0.9.6.2) - 2015-02-15
 ##### Features:
 - Added display of GLM version with other GLM_MESSAGES
 - Added ARM instruction set detection
@@ -119,7 +119,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed memory corruption (undefined behaviour) #303
 
 --------------------------------------------------------------------------------
-#### GLM 0.9.6.1 - 2014-12-10
+#### [GLM 0.9.6.1](https://github.com/g-truc/glm/releases/tag/0.9.6.1) - 2014-12-10
 ##### Features:
 - Added GLM_LANG_CXX14_FLAG and GLM_LANG_CXX1Z_FLAG language feature flags
 - Added C++14 detection
@@ -141,7 +141,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed C++ language restriction using GLM_FORCE_CXX**
 
 --------------------------------------------------------------------------------
-#### GLM 0.9.6.0 - 2014-11-30
+#### [GLM 0.9.6.0](https://github.com/g-truc/glm/releases/tag/0.9.6.0) - 2014-11-30
 ##### Features:
 - Exposed template vector and matrix types in 'glm' namespace #239, #244
 - Added GTX_scalar_multiplication for C++ 11 compiler only #242
@@ -304,7 +304,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Hidden matrix _inverse function implementation detail into private section
 
 --------------------------------------------------------------------------------
-#### [GLM 0.9.4.6 - 2013-09-20](https://github.com/g-truc/glm/releases/tag/0.9.4.6)
+#### [GLM 0.9.4.6](https://github.com/g-truc/glm/releases/tag/0.9.4.6) - 2013-09-20
 - Fixed detection to select the last known compiler if newer version #106
 - Fixed is_int and is_uint code duplication with GCC and C++11 #107 
 - Fixed test suite build while using Clang in C++11 mode
@@ -390,7 +390,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added debugger visualizers for Visual C++ 2012
 
 --------------------------------------------------------------------------------
-#### [GLM 0.9.3.4 - 2012-06-30](https://github.com/g-truc/glm/releases/tag/0.9.3.4)
+#### [GLM 0.9.3.4](https://github.com/g-truc/glm/releases/tag/0.9.3.4) - 2012-06-30
 - Added SSE4 and AVX2 detection.
 - Removed VIRTREV_xstream and the incompatibility generated with GCC
 - Fixed C++11 compiler option for GCC
@@ -458,12 +458,12 @@ generation distribution
 - Added GLSL core noise functions
 
 --------------------------------------------------------------------------------
-#### GLM 0.9.2.7 - 2011-10-24
+#### [GLM 0.9.2.7](https://github.com/g-truc/glm/releases/tag/0.9.2.7) - 2011-10-24
 - Added more swizzling constructors
 - Added missing none-squared matrix products
 
 --------------------------------------------------------------------------------
-#### GLM 0.9.2.6 - 2011-10-01
+#### [GLM 0.9.2.6](https://github.com/g-truc/glm/releases/tag/0.9.2.6) - 2011-10-01
 - Fixed half based type build on old GCC
 - Fixed /W4 warnings on Visual C++
 - Fixed some missing l-value swizzle operators
@@ -506,7 +506,7 @@ generation distribution
 - Updated quaternion slerp interpolation
 
 --------------------------------------------------------------------------------
-#### GLM 0.9.1.3 - 2011-05-07
+#### [GLM 0.9.1.3](https://github.com/g-truc/glm/releases/tag/0.9.1.3) - 2011-05-07
 - Fixed bugs
 
 --------------------------------------------------------------------------------
@@ -528,7 +528,7 @@ generation distribution
 - Fixed Linux build
 
 --------------------------------------------------------------------------------
-#### GLM 0.9.0.8 - 2011-02-13
+#### [GLM 0.9.0.8](https://github.com/g-truc/glm/releases/tag/0.9.0.8) - 2011-02-13
 - Added quaternion product operator.
 - Clarify that GLM is a header only library.
 
@@ -542,7 +542,7 @@ generation distribution
 - Fixed trunc implementation
 
 --------------------------------------------------------------------------------
-#### GLM 0.9.0.7 - 2011-01-30
+#### [GLM 0.9.0.7](https://github.com/g-truc/glm/releases/tag/0.9.0.7) - 2011-01-30
 - Added GLSL 4.10 packing functions
 - Added == and != operators for every types.
 
