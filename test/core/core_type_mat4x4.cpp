@@ -29,6 +29,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_SIMD
 #include <glm/gtc/epsilon.hpp>
 #include <glm/matrix.hpp>
 #include <glm/mat2x2.hpp>
