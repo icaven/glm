@@ -41,10 +41,6 @@
 
 #pragma once
 
-#if !GLM_HAS_CXX11_STL
-#	error "GLM_GTX_hash requires C++11 standard library support"
-#endif
-
 #include <functional>
 
 #include "../vec2.hpp"
@@ -66,6 +62,10 @@
 #include "../mat4x2.hpp"
 #include "../mat4x3.hpp"
 #include "../mat4x4.hpp"
+
+#if !GLM_HAS_CXX11_STL
+#	error "GLM_GTX_hash requires C++11 standard library support"
+#endif
 
 namespace std
 {
