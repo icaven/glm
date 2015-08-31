@@ -46,8 +46,8 @@
 namespace glm{
 namespace detail
 {
-	template <typename T>
-	struct simd
+	template <typename T, precision P = defaultp>
+	struct simd_data
 	{
 		typedef T type[4];
 	};
@@ -56,19 +56,19 @@ namespace detail
 
 #	if (GLM_ARCH & GLM_ARCH_SSE2) && GLM_NOT_BUGGY_VC32BITS
 		template <>
-		struct simd<float>
+		struct simd_data<float, simd>
 		{
 			typedef __m128 type;
 		};
 
 		template <>
-		struct simd<int>
+		struct simd_data<int, simd>
 		{
 			typedef __m128i type;
 		};
 
 		template <>
-		struct simd<unsigned int>
+		struct simd_data<unsigned int, simd>
 		{
 			typedef __m128i type;
 		};
@@ -76,7 +76,7 @@ namespace detail
 
 #	if (GLM_ARCH & GLM_ARCH_AVX) && GLM_NOT_BUGGY_VC32BITS
 		template <>
-		struct simd<double>
+		struct simd_data<double, simd>
 		{
 			typedef __m256d type;
 		};
@@ -84,13 +84,13 @@ namespace detail
 
 #	if (GLM_ARCH & GLM_ARCH_AVX2) && GLM_NOT_BUGGY_VC32BITS
 		template <>
-		struct simd<int64>
+		struct simd_data<int64, simd>
 		{
 			typedef __m256i type;
 		};
 
 		template <>
-		struct simd<uint64>
+		struct simd_data<uint64, simd>
 		{
 			typedef __m256i type;
 		};
@@ -121,9 +121,7 @@ namespace detail
 				struct { T r, g, b, a; };
 				struct { T s, t, p, q; };
 
-#				ifdef GLM_SIMD
-					typename detail::simd<T>::type data;
-#				endif
+				typename detail::simd_data<T, P>::type data;
 
 #				ifdef GLM_SWIZZLE
 					_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, x, y, z, w)

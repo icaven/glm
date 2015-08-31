@@ -1104,7 +1104,7 @@ namespace glm
 	}
 }//namespace glm
 
-#if GLM_HAS_ANONYMOUS_UNION && defined(GLM_SIMD) && GLM_NOT_BUGGY_VC32BITS
+#if GLM_HAS_ANONYMOUS_UNION && GLM_NOT_BUGGY_VC32BITS
 #if GLM_ARCH & GLM_ARCH_SSE2
 #	include "type_vec4_sse2.inl"
 #endif
