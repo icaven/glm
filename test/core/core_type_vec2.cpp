@@ -229,6 +229,12 @@ int test_vec2_ctor()
 {
 	int Error = 0;
 
+	{
+		glm::vec2 A(1);
+		glm::vec2 B(A);
+		Error += A == B ? 0 : 1;
+	}
+
 #	if GLM_HAS_TRIVIAL_QUERIES
 	//	Error += std::is_trivially_default_constructible<glm::vec2>::value ? 0 : 1;
 	//	Error += std::is_trivially_copy_assignable<glm::vec2>::value ? 0 : 1;
