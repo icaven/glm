@@ -54,6 +54,9 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 ##### Features:
 - Added GLM_SIMD to enable automatic SIMD code generation for generic GLM types #235 #370
 
+##### Fixes:
+- Fixed link errors on compilers not supported default function #377
+
 #### [GLM 0.9.7.0](https://github.com/g-truc/glm/releases/tag/0.9.7.0) - 2015-08-02
 ##### Features:
 - Added GTC_color_space: convertLinearToSRGB and convertSRGBToLinear functions
