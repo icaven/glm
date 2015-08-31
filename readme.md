@@ -55,6 +55,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed strict alignment warnings #235 #370
 - Fixed link errors on compilers not supported default function #377
 - Fixed compilation warnings in vec4
+- Fixed non-identity quaternions for equal vectors #234
 
 #### [GLM 0.9.7.0](https://github.com/g-truc/glm/releases/tag/0.9.7.0) - 2015-08-02
 ##### Features:
