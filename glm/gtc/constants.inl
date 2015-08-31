@@ -185,7 +185,7 @@ namespace glm
 	}
 
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType ln_ln_two()
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR genType ln_ln_two()
 	{
 		return genType(-0.3665129205816643);
 	}
