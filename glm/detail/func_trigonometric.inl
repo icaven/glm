@@ -53,7 +53,7 @@ namespace glm
 	
 	// degrees
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType degrees(genType radians)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR genType degrees(genType radians)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'degrees' only accept floating-point input");
 
@@ -61,7 +61,7 @@ namespace glm
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> degrees(vecType<T, P> const & v)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vecType<T, P> degrees(vecType<T, P> const & v)
 	{
 		return detail::functor1<T, T, P, vecType>::call(degrees, v);
 	}
