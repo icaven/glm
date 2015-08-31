@@ -53,6 +53,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 #### [GLM 0.9.7.1](https://github.com/g-truc/glm/releases/latest) - 2015-XX-XX
 ##### Improvements:
 - Improved constexpr for constant functions coverage #198
+- Added to_string for quat and dual_quat in GTX_string_cast #375
 
 ##### Fixes:
 - Fixed strict alignment warnings #235 #370
