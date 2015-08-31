@@ -56,6 +56,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 ##### Fixes:
 - Fixed link errors on compilers not supported default function #377
+- Fixed compilation warnings in vec4
 
 #### [GLM 0.9.7.0](https://github.com/g-truc/glm/releases/tag/0.9.7.0) - 2015-08-02
 ##### Features:
