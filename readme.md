@@ -65,6 +65,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed excessive GTX_fast_trigonometry execution time #396
 - Fixed Visual Studio 2015 'hides class member' warnings #394
 - Fixed builtin bitscan never being used #392
+- Removed unused func_noise.* files #398
 
 #### [GLM 0.9.7.0](https://github.com/g-truc/glm/releases/tag/0.9.7.0) - 2015-08-02
 ##### Features:
