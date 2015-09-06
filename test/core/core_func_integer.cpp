@@ -482,11 +482,10 @@ namespace bitfieldReverse
 		return Error;
 	}
 
-	int perf32()
+	int perf32(glm::uint32 Count)
 	{
 		int Error = 0;
 
-		glm::uint32 Count = 10000000;
 		std::vector<glm::uint32> Data;
 		Data.resize(static_cast<std::size_t>(Count));
 
@@ -520,11 +519,10 @@ namespace bitfieldReverse
 		return Error;
 	}
 
-	int perf64()
+	int perf64(glm::uint64 Count)
 	{
 		int Error = 0;
 
-		glm::uint64 Count = 10000000;
 		std::vector<glm::uint64> Data;
 		Data.resize(static_cast<std::size_t>(Count));
 
@@ -558,12 +556,12 @@ namespace bitfieldReverse
 		return Error;
 	}
 
-	int perf()
+	int perf(std::size_t Samples)
 	{
 		int Error = 0;
 
-		Error += perf32();
-		Error += perf64();
+		Error += perf32(Samples);
+		Error += perf64(Samples);
 
 		return Error;
 	}
@@ -1478,11 +1476,10 @@ namespace bitCount
 		return bitCount_bitfield(glm::tvec1<genType, glm::defaultp>(x)).x;
 	}
 
-	int perf()
+	int perf(std::size_t Size)
 	{
 		int Error(0);
 
-		std::size_t Size = 10000000;
 		std::vector<int> v;
 		v.resize(Size);
 
@@ -1579,10 +1576,11 @@ int main()
 	Error += ::bitfieldExtract::test();
 
 #	ifdef NDEBUG
-		Error += ::bitCount::perf();
-		Error += ::bitfieldReverse::perf();
-		Error += ::findMSB::perf();
-		Error += ::findLSB::perf();
+		std::size_t const Samples = 1000;
+		::bitCount::perf(Samples);
+		::bitfieldReverse::perf(Samples);
+		::findMSB::perf();
+		::findLSB::perf();
 #	endif
 
 	return Error;
