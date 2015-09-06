@@ -64,7 +64,7 @@ namespace fastCos
 		std::printf("fastCos Time %d clocks\n", static_cast<unsigned int>(time_fast));
 		std::printf("cos Time %d clocks\n", static_cast<unsigned int>(time_default));
 
-		return time_fast < time_default ? 0 : 1;
+		return time_fast <= time_default ? 0 : 1;
 	}
 }//namespace fastCos
 
@@ -98,7 +98,7 @@ namespace fastSin
 		std::printf("fastSin Time %d clocks\n", static_cast<unsigned int>(time_fast));
 		std::printf("sin Time %d clocks\n", static_cast<unsigned int>(time_default));
 
-		return time_fast < time_default ? 0 : 1;
+		return time_fast <= time_default ? 0 : 1;
 	}
 }//namespace fastSin
 
@@ -124,7 +124,7 @@ namespace fastTan
 		std::printf("fastTan Time %d clocks\n", static_cast<unsigned int>(time_fast));
 		std::printf("tan Time %d clocks\n", static_cast<unsigned int>(time_default));
 
-		return time_fast < time_default ? 0 : 1;
+		return time_fast <= time_default ? 0 : 1;
 	}
 }//namespace fastTan
 
@@ -151,7 +151,7 @@ namespace fastAcos
 		std::printf("fastAcos Time %d clocks\n", static_cast<unsigned int>(time_fast));
 		std::printf("acos Time %d clocks\n", static_cast<unsigned int>(time_default));
 
-		return time_fast < time_default ? 0 : 1;
+		return time_fast <= time_default ? 0 : 1;
 	}
 }//namespace fastAcos
 
@@ -174,7 +174,7 @@ namespace fastAsin
 		std::printf("fastAsin Time %d clocks\n", static_cast<unsigned int>(time_fast));
 		std::printf("asin Time %d clocks\n", static_cast<unsigned int>(time_default));
 
-		return time_fast < time_default ? 0 : 1;
+		return time_fast <= time_default ? 0 : 1;
 	}
 }//namespace fastAsin
 
@@ -197,7 +197,7 @@ namespace fastAtan
 		std::printf("fastAtan Time %d clocks\n", static_cast<unsigned int>(time_fast));
 		std::printf("atan Time %d clocks\n", static_cast<unsigned int>(time_default));
 
-		return time_fast < time_default ? 0 : 1;
+		return time_fast <= time_default ? 0 : 1;
 	}
 }//namespace fastAtan
 
@@ -464,12 +464,12 @@ int main()
 	Error += ::taylorCos::perf(1000);
 
 #	ifdef NDEBUG
-		Error += ::fastCos::perf(false);
-		Error += ::fastSin::perf(false);
-		Error += ::fastTan::perf(false);
-		Error += ::fastAcos::perf(false);
-		Error += ::fastAsin::perf(false);
-		Error += ::fastAtan::perf(false);
+		::fastCos::perf(false);
+		::fastSin::perf(false);
+		::fastTan::perf(false);
+		::fastAcos::perf(false);
+		::fastAsin::perf(false);
+		::fastAtan::perf(false);
 #	endif//NDEBUG
 
 	return Error;
