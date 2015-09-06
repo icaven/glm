@@ -669,7 +669,7 @@ namespace findMSB
 		return 31 - glm::bitCount(~x);
 	}
 
-	int perf_int()
+	int perf_int(std::size_t Count)
 	{
 		type<int, int> const Data[] =
 		{
@@ -711,7 +711,6 @@ namespace findMSB
 		};
 
 		int Error(0);
-		std::size_t const Count(10000000);
 
 		std::clock_t Timestamps0 = std::clock();
 
@@ -947,11 +946,11 @@ namespace findMSB
 		return Error;
 	}
 
-	int perf()
+	int perf(std::size_t Samples)
 	{
 		int Error(0);
 
-		Error += perf_int();
+		Error += perf_int(Samples);
 
 		return Error;
 	}
@@ -1075,10 +1074,9 @@ namespace findLSB
 		return Error;
 	}
 
-	int perf_int()
+	int perf_int(std::size_t Count)
 	{
 		int Error(0);
-		std::size_t const Count(10000000);
 
 		std::clock_t Timestamps0 = std::clock();
 
@@ -1142,11 +1140,11 @@ namespace findLSB
 		return Error;
 	}
 
-	int perf()
+	int perf(std::size_t Samples)
 	{
 		int Error(0);
 
-		Error += perf_int();
+		Error += perf_int(Samples);
 
 		return Error;
 	}
@@ -1579,8 +1577,8 @@ int main()
 		std::size_t const Samples = 1000;
 		::bitCount::perf(Samples);
 		::bitfieldReverse::perf(Samples);
-		::findMSB::perf();
-		::findLSB::perf();
+		::findMSB::perf(Samples);
+		::findLSB::perf(Samples);
 #	endif
 
 	return Error;
