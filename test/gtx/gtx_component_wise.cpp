@@ -25,15 +25,86 @@
 /// THE SOFTWARE.
 ///
 /// @file test/gtx/gtx_component_wise.cpp
-/// @date 2013-10-25 / 2014-11-25
+/// @date 2013-10-25 / 2015-09-25
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/gtx/component_wise.hpp>
+#include <glm/gtc/type_precision.hpp>
+#include <glm/gtc/epsilon.hpp>
+#include <glm/gtc/constants.hpp>
+#include <limits>
+
+namespace integer_8bit_test
+{
+	int run()
+	{
+		int Error(0);
+
+		{
+			glm::vec4 const A = glm::compNormalize<float>(glm::u8vec4(0, 127, 128, 255));
+
+			Error += glm::epsilonEqual(A.x, 0.0f, glm::epsilon<float>()) ? 0 : 1;
+			Error += A.y < 0.5f ? 0 : 1;
+			Error += A.z > 0.5f ? 0 : 1;
+			Error += glm::epsilonEqual(A.w, 1.0f, glm::epsilon<float>()) ? 0 : 1;
+		}
+
+		{
+			glm::vec4 const A = glm::compNormalize<float>(glm::i8vec4(-128, -1, 0, 127));
+
+			Error += glm::epsilonEqual(A.x,-1.0f, glm::epsilon<float>()) ? 0 : 1;
+			Error += A.y < 0.0f ? 0 : 1;
+			Error += A.z > 0.0f ? 0 : 1;
+			Error += glm::epsilonEqual(A.w, 1.0f, glm::epsilon<float>()) ? 0 : 1;
+		}
+
+		return Error;
+	}
+}//namespace integer_8bit_test
+
+namespace integer_16bit_test
+{
+	int run()
+	{
+		int Error(0);
+
+		{
+			glm::vec4 const A = glm::compNormalize<float>(glm::u16vec4(
+				std::numeric_limits<glm::u16>::min(),
+				(std::numeric_limits<glm::u16>::max() >> 1) + 0,
+				(std::numeric_limits<glm::u16>::max() >> 1) + 1,
+				std::numeric_limits<glm::u16>::max()));
+
+			Error += glm::epsilonEqual(A.x, 0.0f, glm::epsilon<float>()) ? 0 : 1;
+			Error += A.y < 0.5f ? 0 : 1;
+			Error += A.z > 0.5f ? 0 : 1;
+			Error += glm::epsilonEqual(A.w, 1.0f, glm::epsilon<float>()) ? 0 : 1;
+		}
+
+		{
+			glm::vec4 const A = glm::compNormalize<float>(glm::i16vec4(
+				std::numeric_limits<glm::i16>::min(),
+				static_cast<glm::i16>(-1),
+				static_cast<glm::i16>(0),
+				std::numeric_limits<glm::i16>::max()));
+
+			Error += glm::epsilonEqual(A.x,-1.0f, glm::epsilon<float>()) ? 0 : 1;
+			Error += A.y < 0.0f ? 0 : 1;
+			Error += A.z > 0.0f ? 0 : 1;
+			Error += glm::epsilonEqual(A.w, 1.0f, glm::epsilon<float>()) ? 0 : 1;
+		}
+
+		return Error;
+	}
+}//namespace integer_16bit_test
 
 int main()
 {
 	int Error(0);
+
+	Error += integer_8bit_test::run();
+	Error += integer_16bit_test::run();
 
 	return Error;
 }

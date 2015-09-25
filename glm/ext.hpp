@@ -94,7 +94,6 @@
 #include "./gtx/fast_exponential.hpp"
 #include "./gtx/fast_square_root.hpp"
 #include "./gtx/fast_trigonometry.hpp"
-#include "./gtx/float_normalize.hpp"
 #include "./gtx/gradient_paint.hpp"
 #include "./gtx/handed_coordinate_space.hpp"
 #include "./gtx/integer.hpp"

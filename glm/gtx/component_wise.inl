@@ -30,8 +30,51 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-namespace glm
+namespace glm{
+namespace detail
 {
+	template <typename T, typename floatType, precision P, template <typename, precision> class vecType, bool isInteger, bool signedType>
+	struct compute_compNormalize
+	{};
+
+	template <typename T, typename floatType, precision P, template <typename, precision> class vecType>
+	struct compute_compNormalize<T, floatType, P, vecType, true, true>
+	{
+		GLM_FUNC_QUALIFIER static vecType<floatType, P> call(vecType<T, P> const & v)
+		{
+			floatType const Min = static_cast<floatType>(std::numeric_limits<T>::min());
+			floatType const Max = static_cast<floatType>(std::numeric_limits<T>::max());
+			return (vecType<floatType, P>(v) - Min) / (Max - Min) * static_cast<floatType>(2) - static_cast<floatType>(1);
+		}
+	};
+
+	template <typename T, typename floatType, precision P, template <typename, precision> class vecType>
+	struct compute_compNormalize<T, floatType, P, vecType, true, false>
+	{
+		GLM_FUNC_QUALIFIER static vecType<floatType, P> call(vecType<T, P> const & v)
+		{
+			return vecType<floatType, P>(v) / static_cast<floatType>(std::numeric_limits<T>::max());
+		}
+	};
+
+	template <typename T, typename floatType, precision P, template <typename, precision> class vecType>
+	struct compute_compNormalize<T, floatType, P, vecType, false, true>
+	{
+		GLM_FUNC_QUALIFIER static vecType<floatType, P> call(vecType<T, P> const & v)
+		{
+			return v;
+		}
+	};
+}//namespace detail
+
+	template <typename floatType, typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<floatType, P> compNormalize(vecType<T, P> const & v)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<floatType>::is_iec559, "'compNormalize' accepts only floating-point types for 'floatType' template parameter");
+
+		return detail::compute_compNormalize<T, floatType, P, vecType, std::numeric_limits<T>::is_integer, std::numeric_limits<T>::is_signed>::call(v);
+	}
+
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER T compAdd(vecType<T, P> const & v)
 	{
