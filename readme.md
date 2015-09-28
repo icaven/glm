@@ -51,6 +51,10 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 ## Release notes
 
+#### [GLM 0.9.7.2](https://github.com/g-truc/glm/tree/0.9.7) - 2015-XX-XX
+##### Fixes:
+- Fixed GTC_round floorMultiple/ceilMultiple #412
+
 #### [GLM 0.9.7.1](https://github.com/g-truc/glm/releases/tag/0.9.7.1) - 2015-09-07
 ##### Improvements:
 - Improved constexpr for constant functions coverage #198
