@@ -99,18 +99,18 @@ namespace compScale
 			glm::u8vec4 const A = glm::compScale<glm::u8>(glm::vec4(0.0f, 0.2f, 0.5f, 1.0f));
 
 			Error += A.x == std::numeric_limits<glm::u8>::min() ? 0 : 1;
-			Error += A.y > (std::numeric_limits<glm::u8>::max() >> 1) ? 0 : 1;
-			Error += A.z < (std::numeric_limits<glm::u8>::max() >> 2) ? 0 : 1;
-			Error += A.x == std::numeric_limits<glm::u8>::max() ? 0 : 1;
+			Error += A.y < (std::numeric_limits<glm::u8>::max() >> 2) ? 0 : 1;
+			Error += A.z == 127 ? 0 : 1;
+			Error += A.w == 255 ? 0 : 1;
 		}
 
 		{
 			glm::u16vec4 const A = glm::compScale<glm::u16>(glm::vec4(0.0f, 0.2f, 0.5f, 1.0f));
 
 			Error += A.x == std::numeric_limits<glm::u16>::min() ? 0 : 1;
-			Error += A.y > (std::numeric_limits<glm::u16>::max() >> 1) ? 0 : 1;
-			Error += A.z < (std::numeric_limits<glm::u16>::max() >> 2) ? 0 : 1;
-			Error += A.x == std::numeric_limits<glm::u16>::max() ? 0 : 1;
+			Error += A.y < (std::numeric_limits<glm::u16>::max() >> 2) ? 0 : 1;
+			Error += A.z == 32767 ? 0 : 1;
+			Error += A.w == 65535 ? 0 : 1;
 		}
 
 		return Error;
