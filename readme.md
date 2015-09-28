@@ -55,6 +55,9 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 ##### Improvements:
 - Added compNormalize function to GTX_component_wise
 
+##### Fixes:
+- Fixed GTC_round floorMultiple/ceilMultiple #412
+
 #### [GLM 0.9.7.1](https://github.com/g-truc/glm/releases/tag/0.9.7.1) - 2015-09-07
 ##### Improvements:
 - Improved constexpr for constant functions coverage #198
