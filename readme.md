@@ -53,7 +53,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 #### [GLM 0.9.7.2](https://github.com/g-truc/glm/releases/latest) - 2015-XX-XX
 ##### Improvements:
-- Added compNormalize function to GTX_component_wise
+- Added compNormalize and compScale functions to GTX_component_wise
 
 ##### Fixes:
 - Fixed GTC_round floorMultiple/ceilMultiple #412
