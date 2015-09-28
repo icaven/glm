@@ -451,7 +451,7 @@ namespace detail
 
 	GLM_FUNC_QUALIFIER uint32 packUnorm3x10_1x2(vec4 const & v)
 	{
-		uvec4 const Unpack(round(clamp(v, 0.0f, 1.0f) * vec4(1.0f / 1023.f, 1.0f / 1023.f, 1.0f / 1023.f, 1.0f / 3.f)));
+		uvec4 const Unpack(round(clamp(v, 0.0f, 1.0f) * vec4(1023.f, 1023.f, 1023.f, 3.f)));
 
 		detail::u10u10u10u2 Result;
 		Result.data.x = Unpack.x;
