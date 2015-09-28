@@ -113,7 +113,7 @@ namespace detail
 	template <typename T, typename floatType, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> compScale(vecType<floatType, P> const & v)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<floatType>::is_iec559, "'compNormalize' accepts only floating-point types for 'floatType' template parameter");
+		GLM_STATIC_ASSERT(std::numeric_limits<floatType>::is_iec559, "'compScale' accepts only floating-point types for 'floatType' template parameter");
 
 		return detail::compute_compScale<T, floatType, P, vecType, std::numeric_limits<T>::is_integer, std::numeric_limits<T>::is_signed>::call(v);
 	}

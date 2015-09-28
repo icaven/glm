@@ -60,7 +60,10 @@ namespace glm
 	template <typename floatType, typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL vecType<floatType, P> compNormalize(vecType<T, P> const & v);
 
-	template <typename floatType, typename T, precision P, template <typename, precision> class vecType>
+	/// Convert a normalized float vector to an integer vector.
+	/// If the parameter value type is already a floating precision type, the value is passed through.
+	/// @see gtx_component_wise
+	template <typename T, typename floatType, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL vecType<T, P> compScale(vecType<floatType, P> const & v);
 
 	/// Add all vector components together. 
