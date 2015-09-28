@@ -35,7 +35,7 @@
 #include <glm/gtc/constants.hpp>
 #include <limits>
 
-namespace integer_8bit_test
+namespace compNormalize
 {
 	int run()
 	{
@@ -58,16 +58,6 @@ namespace integer_8bit_test
 			Error += A.z > 0.0f ? 0 : 1;
 			Error += glm::epsilonEqual(A.w, 1.0f, glm::epsilon<float>()) ? 0 : 1;
 		}
-
-		return Error;
-	}
-}//namespace integer_8bit_test
-
-namespace integer_16bit_test
-{
-	int run()
-	{
-		int Error(0);
 
 		{
 			glm::vec4 const A = glm::compNormalize<float>(glm::u16vec4(
@@ -97,14 +87,42 @@ namespace integer_16bit_test
 
 		return Error;
 	}
-}//namespace integer_16bit_test
+}//namespace compNormalize
+
+namespace compScale
+{
+	int run()
+	{
+		int Error(0);
+
+		{
+			glm::u8vec4 const A = glm::compScale<glm::u8>(glm::vec4(0.0f, 0.2f, 0.5f, 1.0f));
+
+			Error += A.x == std::numeric_limits<glm::u8>::min() ? 0 : 1;
+			Error += A.y > (std::numeric_limits<glm::u8>::max() >> 1) ? 0 : 1;
+			Error += A.z < (std::numeric_limits<glm::u8>::max() >> 2) ? 0 : 1;
+			Error += A.x == std::numeric_limits<glm::u8>::max() ? 0 : 1;
+		}
+
+		{
+			glm::u16vec4 const A = glm::compScale<glm::u16>(glm::vec4(0.0f, 0.2f, 0.5f, 1.0f));
+
+			Error += A.x == std::numeric_limits<glm::u16>::min() ? 0 : 1;
+			Error += A.y > (std::numeric_limits<glm::u16>::max() >> 1) ? 0 : 1;
+			Error += A.z < (std::numeric_limits<glm::u16>::max() >> 2) ? 0 : 1;
+			Error += A.x == std::numeric_limits<glm::u16>::max() ? 0 : 1;
+		}
+
+		return Error;
+	}
+}// compScale
 
 int main()
 {
 	int Error(0);
 
-	Error += integer_8bit_test::run();
-	Error += integer_16bit_test::run();
+	Error += compNormalize::run();
+	Error += compScale::run();
 
 	return Error;
 }

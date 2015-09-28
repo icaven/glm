@@ -67,6 +67,39 @@ namespace detail
 			return v;
 		}
 	};
+
+	template <typename T, typename floatType, precision P, template <typename, precision> class vecType, bool isInteger, bool signedType>
+	struct compute_compScale
+	{};
+
+	template <typename T, typename floatType, precision P, template <typename, precision> class vecType>
+	struct compute_compScale<T, floatType, P, vecType, true, true>
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<floatType, P> const & v)
+		{
+			floatType const Min = static_cast<floatType>(std::numeric_limits<T>::min());
+			floatType const Max = static_cast<floatType>(std::numeric_limits<T>::max());
+			return (vecType<floatType, P>(v) + Min) * (Max - Min) * static_cast<floatType>(2) - static_cast<floatType>(1);
+		}
+	};
+
+	template <typename T, typename floatType, precision P, template <typename, precision> class vecType>
+	struct compute_compScale<T, floatType, P, vecType, true, false>
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<floatType, P> const & v)
+		{
+			return vecType<T, P>(vecType<floatType, P>(v) * static_cast<floatType>(std::numeric_limits<T>::max()));
+		}
+	};
+
+	template <typename T, typename floatType, precision P, template <typename, precision> class vecType>
+	struct compute_compScale<T, floatType, P, vecType, false, true>
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<floatType, P> const & v)
+		{
+			return v;
+		}
+	};
 }//namespace detail
 
 	template <typename floatType, typename T, precision P, template <typename, precision> class vecType>
@@ -75,6 +108,14 @@ namespace detail
 		GLM_STATIC_ASSERT(std::numeric_limits<floatType>::is_iec559, "'compNormalize' accepts only floating-point types for 'floatType' template parameter");
 
 		return detail::compute_compNormalize<T, floatType, P, vecType, std::numeric_limits<T>::is_integer, std::numeric_limits<T>::is_signed>::call(v);
+	}
+
+	template <typename T, typename floatType, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> compScale(vecType<floatType, P> const & v)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<floatType>::is_iec559, "'compNormalize' accepts only floating-point types for 'floatType' template parameter");
+
+		return detail::compute_compScale<T, floatType, P, vecType, std::numeric_limits<T>::is_integer, std::numeric_limits<T>::is_signed>::call(v);
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
