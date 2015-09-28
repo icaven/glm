@@ -220,10 +220,10 @@ int test_Unorm3x10_1x2()
 
 	for(std::size_t i = 0; i < Tests.size(); ++i)
 	{
-		glm::uint32 p0 = glm::packSnorm3x10_1x2(Tests[i]);
-		glm::vec4 v0 = glm::unpackSnorm3x10_1x2(p0);
-		glm::uint32 p1 = glm::packSnorm3x10_1x2(v0);
-		glm::vec4 v1 = glm::unpackSnorm3x10_1x2(p1);
+		glm::uint32 p0 = glm::packUnorm3x10_1x2(Tests[i]);
+		glm::vec4 v0 = glm::unpackUnorm3x10_1x2(p0);
+		glm::uint32 p1 = glm::packUnorm3x10_1x2(v0);
+		glm::vec4 v1 = glm::unpackUnorm3x10_1x2(p1);
 		Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
 	}
 
@@ -394,7 +394,7 @@ int test_packUnorm1x8()
 	for(std::size_t i = 0; i < A.size(); ++i)
 	{
 		glm::vec1 B(A[i]);
-		glm::uint16 C = glm::packUnorm1x8(B.x);
+		glm::uint8 C = glm::packUnorm1x8(B.x);
 		glm::vec1 D(glm::unpackUnorm1x8(C));
 		Error += glm::all(glm::epsilonEqual(B, D, 1.0f / 255.f)) ? 0 : 1;
 		assert(!Error);
@@ -414,7 +414,7 @@ int test_packSnorm1x8()
 	for(std::size_t i = 0; i < A.size(); ++i)
 	{
 		glm::vec1 B(A[i]);
-		glm::uint16 C = glm::packSnorm1x8(B.x);
+		glm::uint8 C = glm::packSnorm1x8(B.x);
 		glm::vec1 D(glm::unpackSnorm1x8(C));
 		Error += glm::all(glm::epsilonEqual(B, D, 1.0f / 127.f)) ? 0 : 1;
 	}
