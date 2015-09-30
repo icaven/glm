@@ -248,6 +248,18 @@ namespace detail
 		uint32 pack;
 	};
 
+	union u9u9u9e5
+	{
+		struct
+		{
+			uint x : 9;
+			uint y : 9;
+			uint z : 9;
+			uint w : 5;
+		} data;
+		uint32 pack;
+	};
+
 }//namespace detail
 
 	GLM_FUNC_QUALIFIER uint8 packUnorm1x8(float v)
@@ -486,4 +498,31 @@ namespace detail
 			detail::packed10bitToFloat(v >> 22));
 	}
 
+	GLM_FUNC_QUALIFIER uint32 packF3x9_E1x5(vec3 const & v)
+	{
+		float const SharedExpMax = (pow(2.0f, 9.0f - 1.0f) / pow(2.0f, 9.0f)) * pow(2.0f, 31.f - 15.f);
+		vec3 const Color = clamp(v, 0.0f, SharedExpMax);
+		float const MaxColor = max(Color.x, max(Color.y, Color.z));
+
+		float const ExpSharedP = max(-15.f - 1.f, floor(log2(MaxColor))) + 1.0f + 15.f;
+		float const MaxShared = floor(MaxColor / pow(2.0f, (ExpSharedP - 16.f - 9.f)) + 0.5f);
+		float const ExpShared = MaxShared == pow(2.0f, 9.0f) ? ExpSharedP + 1.0f : ExpSharedP;
+
+		uvec3 const ColorComp(floor(Color / pow(2.f, (ExpShared - 15.f - 9.f)) + 0.5f));
+
+		detail::u9u9u9e5 Unpack;
+		Unpack.data.x = ColorComp.x;
+		Unpack.data.y = ColorComp.y;
+		Unpack.data.z = ColorComp.z;
+		Unpack.data.w = uint(ExpShared);
+		return Unpack.pack;
+	}
+
+	GLM_FUNC_QUALIFIER vec3 unpackF3x9_E1x5(uint32 v)
+	{
+		detail::u9u9u9e5 Unpack;
+		Unpack.pack = v;
+
+		return vec3(Unpack.data.x, Unpack.data.y, Unpack.data.z) * pow(2.0f, Unpack.data.w - 15.f - 9.f);
+	}
 }//namespace glm

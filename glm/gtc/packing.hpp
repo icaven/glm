@@ -472,6 +472,28 @@ namespace glm
 	/// @see uint32 packF2x11_1x10(vec3 const & v)
 	GLM_FUNC_DECL vec3 unpackF2x11_1x10(uint32 p);
 
+
+	/// First, converts the first two components of the normalized floating-point value v into 11-bit signless floating-point values.
+	/// Then, converts the third component of the normalized floating-point value v into a 10-bit signless floating-point value.
+	/// Then, the results are packed into the returned 32-bit unsigned integer.
+	///
+	/// The first vector component specifies the 11 least-significant bits of the result; 
+	/// the last component specifies the 10 most-significant bits.
+	///
+	/// @see gtc_packing
+	/// @see vec3 unpackF3x9_E1x5(uint32 const & p)
+	GLM_FUNC_DECL uint32 packF3x9_E1x5(vec3 const & v);
+
+	/// First, unpacks a single 32-bit unsigned integer p into two 11-bit signless floating-point values and one 10-bit signless floating-point value . 
+	/// Then, each component is converted to a normalized floating-point value to generate the returned three-component vector.
+	/// 
+	/// The first component of the returned vector will be extracted from the least significant bits of the input; 
+	/// the last component will be extracted from the most significant bits.
+	/// 
+	/// @see gtc_packing
+	/// @see uint32 packF3x9_E1x5(vec3 const & v)
+	GLM_FUNC_DECL vec3 unpackF3x9_E1x5(uint32 p);
+
 	/// @}
 }// namespace glm
 
