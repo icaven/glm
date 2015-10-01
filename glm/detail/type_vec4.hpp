@@ -522,6 +522,16 @@ namespace detail
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL bool operator!=(tvec4<T, P> const & v1, tvec4<T, P> const & v2);
+
+	// -- Is type --
+
+	template <typename T, precision P>
+	struct type<T, P, tvec4>
+	{
+		static bool const is_vec = true;
+		static bool const is_mat = false;
+		static bool const is_quat = false;
+	};
 }//namespace glm
 
 #ifndef GLM_EXTERNAL_TEMPLATE

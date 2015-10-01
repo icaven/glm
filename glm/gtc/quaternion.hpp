@@ -374,6 +374,16 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_DECL tvec4<bool, P> notEqual(tquat<T, P> const & x, tquat<T, P> const & y);
 	/// @}
+
+	// -- Is type --
+
+	template <typename T, precision P>
+	struct type<T, P, tquat>
+	{
+		static bool const is_vec = false;
+		static bool const is_mat = false;
+		static bool const is_quat = true;
+	};
 } //namespace glm
 
 #include "quaternion.inl"

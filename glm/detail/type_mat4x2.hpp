@@ -211,6 +211,16 @@ namespace glm
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL bool operator!=(tmat4x2<T, P> const & m1, tmat4x2<T, P> const & m2);
+
+	// -- Is type --
+
+	template <typename T, precision P>
+	struct type<T, P, tmat4x2>
+	{
+		static bool const is_vec = false;
+		static bool const is_mat = true;
+		static bool const is_quat = false;
+	};
 }//namespace glm
 
 #ifndef GLM_EXTERNAL_TEMPLATE
