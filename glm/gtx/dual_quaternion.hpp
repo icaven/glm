@@ -295,12 +295,12 @@ namespace glm
 
 	// -- Is type --
 
-	template <typename T, precision P, template <typename, precision> class genType>
+	template <typename T, precision P>
 	struct type<T, P, tdualquat>
 	{
-		static bool is_vec = false;
-		static bool is_mat = false;
-		static bool is_quat = true;
+		static bool const is_vec = false;
+		static bool const is_mat = false;
+		static bool const is_quat = true;
 	};
 } //namespace glm
 
