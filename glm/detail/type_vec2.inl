@@ -28,6 +28,17 @@
 
 namespace glm
 {
+	template <typename T, precision P>
+	const tvec2<T, P> tvec2<T, P>::ZERO = tvec2<T, P>(static_cast<T>(0), static_cast<T>(0));
+
+	template <typename T, precision P>
+	const tvec2<T, P> tvec2<T, P>::X = tvec2<T, P>(static_cast<T>(1), static_cast<T>(0));
+
+	template <typename T, precision P>
+	const tvec2<T, P> tvec2<T, P>::Y = tvec2<T, P>(static_cast<T>(0), static_cast<T>(1));
+
+	template <typename T, precision P>
+	const tvec2<T, P> tvec2<T, P>::XY = tvec2<T, P>(static_cast<T>(1), static_cast<T>(1));
 	// -- Implicit basic constructors --
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS || !defined(GLM_FORCE_NO_CTOR_INIT)

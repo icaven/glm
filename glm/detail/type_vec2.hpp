@@ -58,6 +58,10 @@ namespace glm
 			static GLM_RELAXED_CONSTEXPR precision prec = P;
 #		endif//GLM_META_PROG_HELPERS
 
+		static const type ZERO;
+		static const type X;
+		static const type Y;
+		static const type XY;
 		// -- Data --
 
 #		if GLM_HAS_ANONYMOUS_UNION

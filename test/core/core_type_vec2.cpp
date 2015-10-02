@@ -331,6 +331,17 @@ int test_operator_increment()
 	return Error;
 }
 
+int test_vec2_static_const() {
+	int Error(0);
+
+	Error += (glm::ivec2(0, 0) == glm::ivec2::ZERO) ? 0 : 1;
+	Error += (glm::vec2(1, 0) == glm::vec2::X) ? 0 : 1;
+	Error += (glm::bvec2(false, true) == glm::bvec2::Y) ? 0 : 1;
+	Error += (glm::dvec2(1, 1) == glm::dvec2::XY) ? 0 : 1;
+
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
@@ -343,6 +354,7 @@ int main()
 		assert(glm::vec2::components == 2);
 #	endif
 
+	Error += test_vec2_static_const();
 	Error += test_vec2_size();
 	Error += test_vec2_ctor();
 	Error += test_vec2_operators();
