@@ -32,6 +32,30 @@
 
 namespace glm
 {
+template <typename T, precision P>
+const tvec3<T, P> tvec3<T, P>::ZERO = tvec3<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(0));
+
+template <typename T, precision P>
+const tvec3<T, P> tvec3<T, P>::X = tvec3<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(0));
+
+template <typename T, precision P>
+const tvec3<T, P> tvec3<T, P>::Y = tvec3<T, P>(static_cast<T>(0), static_cast<T>(1), static_cast<T>(0));
+
+template <typename T, precision P>
+const tvec3<T, P> tvec3<T, P>::Z = tvec3<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(1));
+
+template <typename T, precision P>
+const tvec3<T, P> tvec3<T, P>::XY = tvec3<T, P>(static_cast<T>(1), static_cast<T>(1), static_cast<T>(0));
+
+template <typename T, precision P>
+const tvec3<T, P> tvec3<T, P>::XZ = tvec3<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(1));
+
+template <typename T, precision P>
+const tvec3<T, P> tvec3<T, P>::YZ = tvec3<T, P>(static_cast<T>(0), static_cast<T>(1), static_cast<T>(1));
+
+template <typename T, precision P>
+const tvec3<T, P> tvec3<T, P>::XYZ = tvec3<T, P>(static_cast<T>(1), static_cast<T>(1), static_cast<T>(1));
+
 	// -- Implicit basic constructors --
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS || !defined(GLM_FORCE_NO_CTOR_INIT)
