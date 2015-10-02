@@ -16,6 +16,23 @@ struct shuffle_mask
 	enum{value = Value};
 };
 
+const fvec4SIMD fvec4SIMD::ZERO = fvec4SIMD(0, 0, 0, 0);
+const fvec4SIMD fvec4SIMD::X = fvec4SIMD(1, 0, 0, 0);
+const fvec4SIMD fvec4SIMD::Y = fvec4SIMD(0, 1, 0, 0);
+const fvec4SIMD fvec4SIMD::Z = fvec4SIMD(0, 0, 1, 0);
+const fvec4SIMD fvec4SIMD::W = fvec4SIMD(0, 0, 0, 1);
+const fvec4SIMD fvec4SIMD::XY = fvec4SIMD(1, 1, 0, 0);
+const fvec4SIMD fvec4SIMD::XZ = fvec4SIMD(1, 0, 1, 0);
+const fvec4SIMD fvec4SIMD::XW = fvec4SIMD(1, 0, 0, 1);
+const fvec4SIMD fvec4SIMD::YZ = fvec4SIMD(0, 1, 1, 0);
+const fvec4SIMD fvec4SIMD::YW = fvec4SIMD(0, 1, 0, 1);
+const fvec4SIMD fvec4SIMD::ZW = fvec4SIMD(0, 0, 1, 1);
+const fvec4SIMD fvec4SIMD::XYZ = fvec4SIMD(1, 1, 1, 0);
+const fvec4SIMD fvec4SIMD::XYW = fvec4SIMD(1, 1, 0, 1);
+const fvec4SIMD fvec4SIMD::XZW = fvec4SIMD(1, 0, 1, 1);
+const fvec4SIMD fvec4SIMD::YZW = fvec4SIMD(0, 1, 1, 1);
+const fvec4SIMD fvec4SIMD::XYZW = fvec4SIMD(1, 1, 1, 1);
+
 //////////////////////////////////////
 // Implicit basic constructors
 

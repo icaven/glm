@@ -51,6 +51,23 @@ void print(const fvec4SIMD &v)
 }
 #endif
 
+const fquatSIMD fquatSIMD::ZERO = fquatSIMD(0, 0, 0, 0);
+const fquatSIMD fquatSIMD::X = fquatSIMD(0, 1, 0, 0);
+const fquatSIMD fquatSIMD::Y = fquatSIMD(0, 0, 1, 0);
+const fquatSIMD fquatSIMD::Z = fquatSIMD(0, 0, 0, 1);
+const fquatSIMD fquatSIMD::W = fquatSIMD(1, 0, 0, 0);
+const fquatSIMD fquatSIMD::XY = fquatSIMD(0, 1, 1, 0);
+const fquatSIMD fquatSIMD::XZ = fquatSIMD(0, 1, 0, 1);
+const fquatSIMD fquatSIMD::XW = fquatSIMD(1, 1, 0, 0);
+const fquatSIMD fquatSIMD::YZ = fquatSIMD(0, 0, 1, 1);
+const fquatSIMD fquatSIMD::YW = fquatSIMD(1, 0, 1, 0);
+const fquatSIMD fquatSIMD::ZW = fquatSIMD(1, 0, 0, 1);
+const fquatSIMD fquatSIMD::XYZ = fquatSIMD(0, 1, 1, 1);
+const fquatSIMD fquatSIMD::XYW = fquatSIMD(1, 1, 1, 0);
+const fquatSIMD fquatSIMD::XZW = fquatSIMD(1, 1, 0, 1);
+const fquatSIMD fquatSIMD::YZW = fquatSIMD(1, 0, 1, 1);
+const fquatSIMD fquatSIMD::XYZW = fquatSIMD(1, 1, 1, 1);
+
 
 //////////////////////////////////////
 // Implicit basic constructors

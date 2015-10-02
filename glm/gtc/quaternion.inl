@@ -49,6 +49,69 @@ namespace detail
 	};
 }//namespace detail
 
+template <typename T, precision P>
+const tquat<T, P> tquat<T, P>::ZERO =
+		tquat<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0));
+
+template <typename T, precision P>
+const tquat<T, P> tquat<T, P>::X =
+		tquat<T, P>(static_cast<T>(0), static_cast<T>(1), static_cast<T>(0), static_cast<T>(0));
+
+template <typename T, precision P>
+const tquat<T, P> tquat<T, P>::Y =
+		tquat<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(1), static_cast<T>(0));
+
+template <typename T, precision P>
+const tquat<T, P> tquat<T, P>::Z =
+		tquat<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), static_cast<T>(1));
+
+template <typename T, precision P>
+const tquat<T, P> tquat<T, P>::W =
+		tquat<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0));
+
+template <typename T, precision P>
+const tquat<T, P> tquat<T, P>::XY =
+		tquat<T, P>(static_cast<T>(0), static_cast<T>(1), static_cast<T>(1), static_cast<T>(0));
+
+template <typename T, precision P>
+const tquat<T, P> tquat<T, P>::XZ =
+		tquat<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(1), static_cast<T>(1));
+
+template <typename T, precision P>
+const tquat<T, P> tquat<T, P>::XW =
+		tquat<T, P>(static_cast<T>(1), static_cast<T>(1), static_cast<T>(0), static_cast<T>(0));
+
+template <typename T, precision P>
+const tquat<T, P> tquat<T, P>::YZ =
+		tquat<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(1), static_cast<T>(1));
+
+template <typename T, precision P>
+const tquat<T, P> tquat<T, P>::YW =
+		tquat<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(1), static_cast<T>(0));
+
+template <typename T, precision P>
+const tquat<T, P> tquat<T, P>::ZW =
+		tquat<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), static_cast<T>(1));
+
+template <typename T, precision P>
+const tquat<T, P> tquat<T, P>::XYZ =
+		tquat<T, P>(static_cast<T>(0), static_cast<T>(1), static_cast<T>(1), static_cast<T>(1));
+
+template <typename T, precision P>
+const tquat<T, P> tquat<T, P>::XYW =
+		tquat<T, P>(static_cast<T>(1), static_cast<T>(1), static_cast<T>(1), static_cast<T>(0));
+
+template <typename T, precision P>
+const tquat<T, P> tquat<T, P>::XZW =
+		tquat<T, P>(static_cast<T>(1), static_cast<T>(1), static_cast<T>(0), static_cast<T>(1));
+
+template <typename T, precision P>
+const tquat<T, P> tquat<T, P>::YZW =
+		tquat<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(1), static_cast<T>(1));
+
+template <typename T, precision P>
+const tquat<T, P> tquat<T, P>::XYZW =
+		tquat<T, P>(static_cast<T>(1), static_cast<T>(1), static_cast<T>(1), static_cast<T>(1));
 	// -- Component accesses --
 
 #	ifdef GLM_FORCE_SIZE_FUNC
