@@ -42,6 +42,10 @@ Testing/*
 # Test input
 test/gtc/*.dds
 
+# Test binaries
+test/*/test-*
+glm/glm_dummy
+
 # Project Files
 *.cbp
 *.user
