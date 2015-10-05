@@ -53,6 +53,7 @@ void print(const fvec4SIMD &v)
 
 #	ifdef GLM_STATIC_CONST_MEMBERS
 	const fquatSIMD fquatSIMD::ZERO(0, 0, 0, 0);
+	const fquatSIMD fquatSIMD::IDENTITY(1, 0, 0, 0);
 	const fquatSIMD fquatSIMD::X(0, 1, 0, 0);
 	const fquatSIMD fquatSIMD::Y(0, 0, 1, 0);
 	const fquatSIMD fquatSIMD::Z(0, 0, 0, 1);

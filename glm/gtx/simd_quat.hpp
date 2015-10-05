@@ -93,6 +93,7 @@ namespace detail
 
 #		ifdef GLM_STATIC_CONST_MEMBERS
 		static const type ZERO;
+		static const type IDENTITY;
 		static const type X;
 		static const type Y;
 		static const type Z;

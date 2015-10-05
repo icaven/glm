@@ -54,6 +54,8 @@ namespace detail
 	const tquat<T, P> tquat<T, P>::ZERO
 			(static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0));
 
+	template <typename T, precision P> const tquat<T, P> tquat<T, P>::IDENTITY;
+
 	template <typename T, precision P>
 	const tquat<T, P> tquat<T, P>::X
 			(static_cast<T>(0), static_cast<T>(1), static_cast<T>(0), static_cast<T>(0));
