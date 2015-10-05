@@ -57,6 +57,11 @@ namespace glm
 			static GLM_RELAXED_CONSTEXPR precision prec = P;
 #		endif//GLM_META_PROG_HELPERS
 
+#		ifdef GLM_STATIC_CONST_MEMBERS
+			static const type ZERO;
+			static const type IDENTITY;
+#		endif
+
 	private:
 		col_type value[2];
 
