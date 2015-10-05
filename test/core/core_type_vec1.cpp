@@ -32,6 +32,7 @@
 #if !(GLM_COMPILER & GLM_COMPILER_GCC)
 #	define GLM_META_PROG_HELPERS
 #endif
+#define GLM_STATIC_CONST_MEMBERS
 #define GLM_SWIZZLE
 #include <glm/vector_relational.hpp>
 #include <glm/gtc/vec1.hpp>
