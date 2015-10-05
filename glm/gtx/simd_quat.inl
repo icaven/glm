@@ -52,22 +52,22 @@ void print(const fvec4SIMD &v)
 #endif
 
 #	ifdef GLM_STATIC_CONST_MEMBERS
-	const fquatSIMD fquatSIMD::ZERO = fquatSIMD(0, 0, 0, 0);
-	const fquatSIMD fquatSIMD::X = fquatSIMD(0, 1, 0, 0);
-	const fquatSIMD fquatSIMD::Y = fquatSIMD(0, 0, 1, 0);
-	const fquatSIMD fquatSIMD::Z = fquatSIMD(0, 0, 0, 1);
-	const fquatSIMD fquatSIMD::W = fquatSIMD(1, 0, 0, 0);
-	const fquatSIMD fquatSIMD::XY = fquatSIMD(0, 1, 1, 0);
-	const fquatSIMD fquatSIMD::XZ = fquatSIMD(0, 1, 0, 1);
-	const fquatSIMD fquatSIMD::XW = fquatSIMD(1, 1, 0, 0);
-	const fquatSIMD fquatSIMD::YZ = fquatSIMD(0, 0, 1, 1);
-	const fquatSIMD fquatSIMD::YW = fquatSIMD(1, 0, 1, 0);
-	const fquatSIMD fquatSIMD::ZW = fquatSIMD(1, 0, 0, 1);
-	const fquatSIMD fquatSIMD::XYZ = fquatSIMD(0, 1, 1, 1);
-	const fquatSIMD fquatSIMD::XYW = fquatSIMD(1, 1, 1, 0);
-	const fquatSIMD fquatSIMD::XZW = fquatSIMD(1, 1, 0, 1);
-	const fquatSIMD fquatSIMD::YZW = fquatSIMD(1, 0, 1, 1);
-	const fquatSIMD fquatSIMD::XYZW = fquatSIMD(1, 1, 1, 1);
+	const fquatSIMD fquatSIMD::ZERO(0, 0, 0, 0);
+	const fquatSIMD fquatSIMD::X(0, 1, 0, 0);
+	const fquatSIMD fquatSIMD::Y(0, 0, 1, 0);
+	const fquatSIMD fquatSIMD::Z(0, 0, 0, 1);
+	const fquatSIMD fquatSIMD::W(1, 0, 0, 0);
+	const fquatSIMD fquatSIMD::XY(0, 1, 1, 0);
+	const fquatSIMD fquatSIMD::XZ(0, 1, 0, 1);
+	const fquatSIMD fquatSIMD::XW(1, 1, 0, 0);
+	const fquatSIMD fquatSIMD::YZ(0, 0, 1, 1);
+	const fquatSIMD fquatSIMD::YW(1, 0, 1, 0);
+	const fquatSIMD fquatSIMD::ZW(1, 0, 0, 1);
+	const fquatSIMD fquatSIMD::XYZ(0, 1, 1, 1);
+	const fquatSIMD fquatSIMD::XYW(1, 1, 1, 0);
+	const fquatSIMD fquatSIMD::XZW(1, 1, 0, 1);
+	const fquatSIMD fquatSIMD::YZW(1, 0, 1, 1);
+	const fquatSIMD fquatSIMD::XYZW(1, 1, 1, 1);
 #	endif
 
 //////////////////////////////////////

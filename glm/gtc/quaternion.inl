@@ -51,68 +51,68 @@ namespace detail
 
 #	ifdef GLM_STATIC_CONST_MEMBERS
 	template <typename T, precision P>
-	const tquat<T, P> tquat<T, P>::ZERO =
-			tquat<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0));
+	const tquat<T, P> tquat<T, P>::ZERO
+			(static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0));
 
 	template <typename T, precision P>
-	const tquat<T, P> tquat<T, P>::X =
-			tquat<T, P>(static_cast<T>(0), static_cast<T>(1), static_cast<T>(0), static_cast<T>(0));
+	const tquat<T, P> tquat<T, P>::X
+			(static_cast<T>(0), static_cast<T>(1), static_cast<T>(0), static_cast<T>(0));
 
 	template <typename T, precision P>
-	const tquat<T, P> tquat<T, P>::Y =
-			tquat<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(1), static_cast<T>(0));
+	const tquat<T, P> tquat<T, P>::Y
+			(static_cast<T>(0), static_cast<T>(0), static_cast<T>(1), static_cast<T>(0));
 
 	template <typename T, precision P>
-	const tquat<T, P> tquat<T, P>::Z =
-			tquat<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), static_cast<T>(1));
+	const tquat<T, P> tquat<T, P>::Z
+			(static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), static_cast<T>(1));
 
 	template <typename T, precision P>
-	const tquat<T, P> tquat<T, P>::W =
-			tquat<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0));
+	const tquat<T, P> tquat<T, P>::W
+			(static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0));
 
 	template <typename T, precision P>
-	const tquat<T, P> tquat<T, P>::XY =
-			tquat<T, P>(static_cast<T>(0), static_cast<T>(1), static_cast<T>(1), static_cast<T>(0));
+	const tquat<T, P> tquat<T, P>::XY
+			(static_cast<T>(0), static_cast<T>(1), static_cast<T>(1), static_cast<T>(0));
 
 	template <typename T, precision P>
-	const tquat<T, P> tquat<T, P>::XZ =
-			tquat<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(1), static_cast<T>(1));
+	const tquat<T, P> tquat<T, P>::XZ
+			(static_cast<T>(0), static_cast<T>(0), static_cast<T>(1), static_cast<T>(1));
 
 	template <typename T, precision P>
-	const tquat<T, P> tquat<T, P>::XW =
-			tquat<T, P>(static_cast<T>(1), static_cast<T>(1), static_cast<T>(0), static_cast<T>(0));
+	const tquat<T, P> tquat<T, P>::XW
+			(static_cast<T>(1), static_cast<T>(1), static_cast<T>(0), static_cast<T>(0));
 
 	template <typename T, precision P>
-	const tquat<T, P> tquat<T, P>::YZ =
-			tquat<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(1), static_cast<T>(1));
+	const tquat<T, P> tquat<T, P>::YZ
+			(static_cast<T>(0), static_cast<T>(0), static_cast<T>(1), static_cast<T>(1));
 
 	template <typename T, precision P>
-	const tquat<T, P> tquat<T, P>::YW =
-			tquat<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(1), static_cast<T>(0));
+	const tquat<T, P> tquat<T, P>::YW
+			(static_cast<T>(1), static_cast<T>(0), static_cast<T>(1), static_cast<T>(0));
 
 	template <typename T, precision P>
-	const tquat<T, P> tquat<T, P>::ZW =
-			tquat<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), static_cast<T>(1));
+	const tquat<T, P> tquat<T, P>::ZW
+			(static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), static_cast<T>(1));
 
 	template <typename T, precision P>
-	const tquat<T, P> tquat<T, P>::XYZ =
-			tquat<T, P>(static_cast<T>(0), static_cast<T>(1), static_cast<T>(1), static_cast<T>(1));
+	const tquat<T, P> tquat<T, P>::XYZ
+			(static_cast<T>(0), static_cast<T>(1), static_cast<T>(1), static_cast<T>(1));
 
 	template <typename T, precision P>
-	const tquat<T, P> tquat<T, P>::XYW =
-			tquat<T, P>(static_cast<T>(1), static_cast<T>(1), static_cast<T>(1), static_cast<T>(0));
+	const tquat<T, P> tquat<T, P>::XYW
+			(static_cast<T>(1), static_cast<T>(1), static_cast<T>(1), static_cast<T>(0));
 
 	template <typename T, precision P>
-	const tquat<T, P> tquat<T, P>::XZW =
-			tquat<T, P>(static_cast<T>(1), static_cast<T>(1), static_cast<T>(0), static_cast<T>(1));
+	const tquat<T, P> tquat<T, P>::XZW
+			(static_cast<T>(1), static_cast<T>(1), static_cast<T>(0), static_cast<T>(1));
 
 	template <typename T, precision P>
-	const tquat<T, P> tquat<T, P>::YZW =
-			tquat<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(1), static_cast<T>(1));
+	const tquat<T, P> tquat<T, P>::YZW
+			(static_cast<T>(1), static_cast<T>(0), static_cast<T>(1), static_cast<T>(1));
 
 	template <typename T, precision P>
-	const tquat<T, P> tquat<T, P>::XYZW =
-			tquat<T, P>(static_cast<T>(1), static_cast<T>(1), static_cast<T>(1), static_cast<T>(1));
+	const tquat<T, P> tquat<T, P>::XYZW
+			(static_cast<T>(1), static_cast<T>(1), static_cast<T>(1), static_cast<T>(1));
 #	endif
 	// -- Component accesses --
 

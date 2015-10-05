@@ -30,16 +30,16 @@ namespace glm
 {
 #	ifdef GLM_STATIC_CONST_MEMBERS
 	template <typename T, precision P>
-	const tvec2<T, P> tvec2<T, P>::ZERO = tvec2<T, P>(static_cast<T>(0), static_cast<T>(0));
+	const tvec2<T, P> tvec2<T, P>::ZERO(static_cast<T>(0), static_cast<T>(0));
 
 	template <typename T, precision P>
-	const tvec2<T, P> tvec2<T, P>::X = tvec2<T, P>(static_cast<T>(1), static_cast<T>(0));
+	const tvec2<T, P> tvec2<T, P>::X(static_cast<T>(1), static_cast<T>(0));
 
 	template <typename T, precision P>
-	const tvec2<T, P> tvec2<T, P>::Y = tvec2<T, P>(static_cast<T>(0), static_cast<T>(1));
+	const tvec2<T, P> tvec2<T, P>::Y(static_cast<T>(0), static_cast<T>(1));
 
 	template <typename T, precision P>
-	const tvec2<T, P> tvec2<T, P>::XY = tvec2<T, P>(static_cast<T>(1), static_cast<T>(1));
+	const tvec2<T, P> tvec2<T, P>::XY(static_cast<T>(1), static_cast<T>(1));
 #	endif
 	// -- Implicit basic constructors --
 
