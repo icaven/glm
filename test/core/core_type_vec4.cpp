@@ -33,6 +33,7 @@
 #	define GLM_META_PROG_HELPERS
 #endif
 #define GLM_SWIZZLE
+#define GLM_STATIC_CONST_MEMBERS
 #include <glm/vector_relational.hpp>
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>

@@ -112,6 +112,7 @@ namespace detail
 			static GLM_RELAXED_CONSTEXPR precision prec = P;
 #		endif//GLM_META_PROG_HELPERS
 
+#		ifdef GLM_STATIC_CONST_MEMBERS
 		static const type ZERO;
 		static const type X;
 		static const type Y;
@@ -128,6 +129,8 @@ namespace detail
 		static const type XZW;
 		static const type YZW;
 		static const type XYZW;
+#		endif
+
 		// -- Data --
 
 #		if GLM_HAS_ANONYMOUS_UNION && GLM_NOT_BUGGY_VC32BITS

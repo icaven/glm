@@ -32,70 +32,72 @@
 
 namespace glm
 {
-template <typename T, precision P>
-const tvec4<T, P> tvec4<T, P>::ZERO =
-		tvec4<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0));
 
-template <typename T, precision P>
-const tvec4<T, P> tvec4<T, P>::X =
-		tvec4<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0));
+#	ifdef GLM_STATIC_CONST_MEMBERS
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::ZERO =
+			tvec4<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0));
 
-template <typename T, precision P>
-const tvec4<T, P> tvec4<T, P>::Y =
-		tvec4<T, P>(static_cast<T>(0), static_cast<T>(1), static_cast<T>(0), static_cast<T>(0));
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::X =
+			tvec4<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0));
 
-template <typename T, precision P>
-const tvec4<T, P> tvec4<T, P>::Z =
-		tvec4<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(1), static_cast<T>(0));
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::Y =
+			tvec4<T, P>(static_cast<T>(0), static_cast<T>(1), static_cast<T>(0), static_cast<T>(0));
 
-template <typename T, precision P>
-const tvec4<T, P> tvec4<T, P>::W =
-		tvec4<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), static_cast<T>(1));
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::Z =
+			tvec4<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(1), static_cast<T>(0));
 
-template <typename T, precision P>
-const tvec4<T, P> tvec4<T, P>::XY =
-		tvec4<T, P>(static_cast<T>(1), static_cast<T>(1), static_cast<T>(0), static_cast<T>(0));
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::W =
+			tvec4<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), static_cast<T>(1));
 
-template <typename T, precision P>
-const tvec4<T, P> tvec4<T, P>::XZ =
-		tvec4<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(1), static_cast<T>(0));
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::XY =
+			tvec4<T, P>(static_cast<T>(1), static_cast<T>(1), static_cast<T>(0), static_cast<T>(0));
 
-template <typename T, precision P>
-const tvec4<T, P> tvec4<T, P>::XW =
-		tvec4<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), static_cast<T>(1));
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::XZ =
+			tvec4<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(1), static_cast<T>(0));
 
-template <typename T, precision P>
-const tvec4<T, P> tvec4<T, P>::YZ =
-		tvec4<T, P>(static_cast<T>(0), static_cast<T>(1), static_cast<T>(1), static_cast<T>(0));
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::XW =
+			tvec4<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), static_cast<T>(1));
 
-template <typename T, precision P>
-const tvec4<T, P> tvec4<T, P>::YW =
-		tvec4<T, P>(static_cast<T>(0), static_cast<T>(1), static_cast<T>(0), static_cast<T>(1));
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::YZ =
+			tvec4<T, P>(static_cast<T>(0), static_cast<T>(1), static_cast<T>(1), static_cast<T>(0));
 
-template <typename T, precision P>
-const tvec4<T, P> tvec4<T, P>::ZW =
-		tvec4<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(1), static_cast<T>(1));
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::YW =
+			tvec4<T, P>(static_cast<T>(0), static_cast<T>(1), static_cast<T>(0), static_cast<T>(1));
 
-template <typename T, precision P>
-const tvec4<T, P> tvec4<T, P>::XYZ =
-		tvec4<T, P>(static_cast<T>(1), static_cast<T>(1), static_cast<T>(1), static_cast<T>(0));
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::ZW =
+			tvec4<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(1), static_cast<T>(1));
 
-template <typename T, precision P>
-const tvec4<T, P> tvec4<T, P>::XYW =
-		tvec4<T, P>(static_cast<T>(1), static_cast<T>(1), static_cast<T>(0), static_cast<T>(1));
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::XYZ =
+			tvec4<T, P>(static_cast<T>(1), static_cast<T>(1), static_cast<T>(1), static_cast<T>(0));
 
-template <typename T, precision P>
-const tvec4<T, P> tvec4<T, P>::XZW =
-		tvec4<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(1), static_cast<T>(1));
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::XYW =
+			tvec4<T, P>(static_cast<T>(1), static_cast<T>(1), static_cast<T>(0), static_cast<T>(1));
 
-template <typename T, precision P>
-const tvec4<T, P> tvec4<T, P>::YZW =
-		tvec4<T, P>(static_cast<T>(0), static_cast<T>(1), static_cast<T>(1), static_cast<T>(1));
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::XZW =
+			tvec4<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(1), static_cast<T>(1));
 
-template <typename T, precision P>
-const tvec4<T, P> tvec4<T, P>::XYZW =
-		tvec4<T, P>(static_cast<T>(1), static_cast<T>(1), static_cast<T>(1), static_cast<T>(1));
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::YZW =
+			tvec4<T, P>(static_cast<T>(0), static_cast<T>(1), static_cast<T>(1), static_cast<T>(1));
 
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::XYZW =
+			tvec4<T, P>(static_cast<T>(1), static_cast<T>(1), static_cast<T>(1), static_cast<T>(1));
+#	endif
 	// -- Implicit basic constructors --
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS || !defined(GLM_FORCE_NO_CTOR_INIT)
