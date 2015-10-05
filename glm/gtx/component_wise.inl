@@ -79,7 +79,7 @@ namespace detail
 		{
 			floatType const Min = static_cast<floatType>(std::numeric_limits<T>::min());
 			floatType const Max = static_cast<floatType>(std::numeric_limits<T>::max());
-			return (vecType<floatType, P>(v) + Min) * (Max - Min) * static_cast<floatType>(2) - static_cast<floatType>(1);
+			return vecType<T, P>((vecType<floatType, P>(v) + Min) * (Max - Min) * static_cast<floatType>(2) - static_cast<floatType>(1));
 		}
 	};
 
