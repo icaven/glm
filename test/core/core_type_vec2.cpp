@@ -29,6 +29,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_STATIC_CONST_MEMBERS
 #if !(GLM_COMPILER & GLM_COMPILER_GCC)
 #	define GLM_META_PROG_HELPERS
 #endif
@@ -39,6 +40,7 @@
 #if GLM_HAS_TRIVIAL_QUERIES
 #	include <type_traits>
 #endif
+
 
 int test_vec2_operators()
 {
