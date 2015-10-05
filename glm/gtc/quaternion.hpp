@@ -76,6 +76,7 @@ namespace glm
 
 		T x, y, z, w;
 
+#		ifdef GLM_STATIC_CONST_MEMBERS
 		static const type ZERO;
 		static const type X;
 		static const type Y;
@@ -92,6 +93,7 @@ namespace glm
 		static const type XZW;
 		static const type YZW;
 		static const type XYZW;
+#		endif
 
 		// -- Component accesses --
 

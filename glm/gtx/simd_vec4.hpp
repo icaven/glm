@@ -114,6 +114,7 @@ namespace detail
 		__m128 Data;
 #endif
 
+#		ifdef GLM_STATIC_CONST_MEMBERS
 		static const type ZERO;
 		static const type X;
 		static const type Y;
@@ -130,6 +131,7 @@ namespace detail
 		static const type XZW;
 		static const type YZW;
 		static const type XYZW;
+#		endif
 
 		//////////////////////////////////////
 		// Implicit basic constructors
