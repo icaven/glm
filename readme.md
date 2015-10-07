@@ -52,9 +52,12 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 ## Release notes
 
 #### [GLM 0.9.8.0](https://github.com/g-truc/glm/releases/latest) - 201X-XX-XX
-##### Improvements:
+##### Features:
 - Added compNormalize and compScale functions to GTX_component_wise
 - Added packF3x9_E1x5 and unpackF3x9_E1x5 to GTC_packing for RGB9E5 #416
+
+##### Improvements:
+- Improved GTC_random linearRand documentations
 
 #### [GLM 0.9.7.2](https://github.com/g-truc/glm/tree/0.9.7) - 2015-XX-XX
 ##### Fixes:
