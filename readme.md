@@ -57,7 +57,8 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added packF3x9_E1x5 and unpackF3x9_E1x5 to GTC_packing for RGB9E5 #416
 
 ##### Improvements:
-- Improved GTC_random linearRand documentations
+- Improved GTC_random linearRand documentation
+- Improved GTC_reciprocal documentation
 
 #### [GLM 0.9.7.2](https://github.com/g-truc/glm/tree/0.9.7) - 2015-XX-XX
 ##### Fixes:
