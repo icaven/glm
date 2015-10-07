@@ -256,8 +256,8 @@ int test_compute_gtx()
 int test_static_const() {
 	int Error(0);
 
-	Error += glm::simdMat4(1) == glm::simdMat4::IDENTITY ? 0 : 1;
-	Error += glm::simdMat4(0) == glm::simdMat4::ZERO ? 0 : 1;
+	Error += glm::mat4_cast(glm::simdMat4(static_cast<float>(1))) == glm::mat4_cast(glm::simdMat4::IDENTITY) ? 0 : 1;
+	Error += glm::mat4_cast(glm::simdMat4(static_cast<float>(0))) == glm::mat4_cast(glm::simdMat4::ZERO) ? 0 : 1;
 
 	return Error;
 }

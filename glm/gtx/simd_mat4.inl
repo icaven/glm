@@ -62,8 +62,8 @@ GLM_FUNC_QUALIFIER fvec4SIMD const & fmat4x4SIMD::operator[]
 }
 
 #ifdef GLM_STATIC_CONST_MEMBERS
-	const fmat4x4SIMD fmat4x4SIMD::ZERO(0);
-	const fmat4x4SIMD fmat4x4SIMD::IDENTITY(1);
+	const fmat4x4SIMD fmat4x4SIMD::ZERO(static_cast<float>(0));
+	const fmat4x4SIMD fmat4x4SIMD::IDENTITY(static_cast<float>(1));
 #endif
 
 //////////////////////////////////////////////////////////////
