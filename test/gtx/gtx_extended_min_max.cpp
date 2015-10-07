@@ -29,7 +29,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#include <glm/gtx/extented_min_max.hpp>
+#include <glm/gtx/extended_min_max.hpp>
 
 int main()
 {
