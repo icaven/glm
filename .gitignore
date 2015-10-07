@@ -36,11 +36,11 @@ install_manifest.txt
 *.cmake
 # ^ May need to add future .cmake files as exceptions
 
-# Test logs
+# Test output
 Testing/*
-
-# Test input
+test/*/test-*
 test/gtc/*.dds
+glm/glm_dummy
 
 # Project Files
 *.cbp
