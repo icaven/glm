@@ -30,7 +30,6 @@
 # CMake
 CMakeCache.txt
 CMakeFiles
-Makefile
 cmake_install.cmake
 install_manifest.txt
 *.cmake
@@ -43,5 +42,9 @@ test/gtc/*.dds
 glm/glm_dummy
 
 # Project Files
+Makefile
 *.cbp
 *.user
+
+# Misc.
+*.log
