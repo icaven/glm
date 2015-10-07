@@ -60,6 +60,9 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Improved GTC_random linearRand documentation
 - Improved GTC_reciprocal documentation
 
+##### Fixes:
+- Fixed GTX_extended_min_max filename typo #386
+
 #### [GLM 0.9.7.2](https://github.com/g-truc/glm/tree/0.9.7) - 2015-XX-XX
 ##### Fixes:
 - Fixed GTC_round floorMultiple/ceilMultiple #412
