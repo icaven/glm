@@ -186,15 +186,15 @@ namespace detail
 		//////////////////////////////////////
 		// Swizzle operators
 
-		template <comp X, comp Y, comp Z, comp W>
+		template <comp X_, comp Y_, comp Z_, comp W_>
 		fvec4SIMD& swizzle();
-		template <comp X, comp Y, comp Z, comp W>
+		template <comp X_, comp Y_, comp Z_, comp W_>
 		fvec4SIMD swizzle() const;
-		template <comp X, comp Y, comp Z>
+		template <comp X_, comp Y_, comp Z_>
 		fvec4SIMD swizzle() const;
-		template <comp X, comp Y>
+		template <comp X_, comp Y_>
 		fvec4SIMD swizzle() const;
-		template <comp X>
+		template <comp X_>
 		fvec4SIMD swizzle() const;
 	};
 }//namespace detail
