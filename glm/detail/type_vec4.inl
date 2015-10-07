@@ -32,6 +32,72 @@
 
 namespace glm
 {
+
+#	ifdef GLM_STATIC_CONST_MEMBERS
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::ZERO
+			(static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0));
+
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::X
+			(static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0));
+
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::Y
+			(static_cast<T>(0), static_cast<T>(1), static_cast<T>(0), static_cast<T>(0));
+
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::Z
+			(static_cast<T>(0), static_cast<T>(0), static_cast<T>(1), static_cast<T>(0));
+
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::W
+			(static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), static_cast<T>(1));
+
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::XY
+			(static_cast<T>(1), static_cast<T>(1), static_cast<T>(0), static_cast<T>(0));
+
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::XZ
+			(static_cast<T>(1), static_cast<T>(0), static_cast<T>(1), static_cast<T>(0));
+
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::XW
+			(static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), static_cast<T>(1));
+
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::YZ
+			(static_cast<T>(0), static_cast<T>(1), static_cast<T>(1), static_cast<T>(0));
+
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::YW
+			(static_cast<T>(0), static_cast<T>(1), static_cast<T>(0), static_cast<T>(1));
+
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::ZW
+			(static_cast<T>(0), static_cast<T>(0), static_cast<T>(1), static_cast<T>(1));
+
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::XYZ
+			(static_cast<T>(1), static_cast<T>(1), static_cast<T>(1), static_cast<T>(0));
+
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::XYW
+			(static_cast<T>(1), static_cast<T>(1), static_cast<T>(0), static_cast<T>(1));
+
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::XZW
+			(static_cast<T>(1), static_cast<T>(0), static_cast<T>(1), static_cast<T>(1));
+
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::YZW
+			(static_cast<T>(0), static_cast<T>(1), static_cast<T>(1), static_cast<T>(1));
+
+	template <typename T, precision P>
+	const tvec4<T, P> tvec4<T, P>::XYZW
+			(static_cast<T>(1), static_cast<T>(1), static_cast<T>(1), static_cast<T>(1));
+#	endif
 	// -- Implicit basic constructors --
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS || !defined(GLM_FORCE_NO_CTOR_INIT)
