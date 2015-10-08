@@ -77,9 +77,10 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<floatType, P> const & v)
 		{
-			floatType const Min = static_cast<floatType>(std::numeric_limits<T>::min());
-			floatType const Max = static_cast<floatType>(std::numeric_limits<T>::max());
-			return (vecType<floatType, P>(v) + Min) * (Max - Min) * static_cast<floatType>(2) - static_cast<floatType>(1);
+			floatType const Max = static_cast<floatType>(std::numeric_limits<T>::max()) + static_cast<floatType>(0.5);
+			vecType<floatType, P> const Scaled(v * Max);
+			vecType<T, P> const Result(Scaled - static_cast<floatType>(0.5));
+			return Result;
 		}
 	};
 

@@ -105,12 +105,30 @@ namespace compScale
 		}
 
 		{
+			glm::i8vec4 const A = glm::compScale<glm::i8>(glm::vec4(0.0f,-1.0f, 0.5f, 1.0f));
+
+			Error += A.x == 0 ? 0 : 1;
+			Error += A.y == -128 ? 0 : 1;
+			Error += A.z == 63 ? 0 : 1;
+			Error += A.w == 127 ? 0 : 1;
+		}
+
+		{
 			glm::u16vec4 const A = glm::compScale<glm::u16>(glm::vec4(0.0f, 0.2f, 0.5f, 1.0f));
 
 			Error += A.x == std::numeric_limits<glm::u16>::min() ? 0 : 1;
 			Error += A.y < (std::numeric_limits<glm::u16>::max() >> 2) ? 0 : 1;
 			Error += A.z == 32767 ? 0 : 1;
 			Error += A.w == 65535 ? 0 : 1;
+		}
+
+		{
+			glm::i16vec4 const A = glm::compScale<glm::i16>(glm::vec4(0.0f,-1.0f, 0.5f, 1.0f));
+
+			Error += A.x == 0 ? 0 : 1;
+			Error += A.y == -32768 ? 0 : 1;
+			Error += A.z == 16383 ? 0 : 1;
+			Error += A.w == 32767 ? 0 : 1;
 		}
 
 		return Error;
