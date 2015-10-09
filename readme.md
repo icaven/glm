@@ -55,6 +55,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 ##### Features:
 - Added compNormalize and compScale functions to GTX_component_wise
 - Added packF3x9_E1x5 and unpackF3x9_E1x5 to GTC_packing for RGB9E5 #416
+- Added packHalf and unpackHalf to GTC_packing
 
 ##### Improvements:
 - Improved GTC_random linearRand documentation

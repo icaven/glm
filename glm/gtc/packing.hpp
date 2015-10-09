@@ -494,6 +494,27 @@ namespace glm
 	/// @see uint32 packF3x9_E1x5(vec3 const & v)
 	GLM_FUNC_DECL vec3 unpackF3x9_E1x5(uint32 p);
 
+	/// Returns an unsigned integer vector obtained by converting the components of a floating-point vector
+	/// to the 16-bit floating-point representation found in the OpenGL Specification.
+	/// The first vector component specifies the 16 least-significant bits of the result; 
+	/// the forth component specifies the 16 most-significant bits.
+	/// 
+	/// @see gtc_packing
+	/// @see vecType<float, P> unpackHalf(vecType<uint16, P> const & p)
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
+	template <precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<uint16, P> packHalf(vecType<float, P> const & v);
+
+	/// Returns a floating-point vector with components obtained by reinterpreting an integer vector as 16-bit floating-point numbers and converting them to 32-bit floating-point values.
+	/// The first component of the vector is obtained from the 16 least-significant bits of v;
+	/// the forth component is obtained from the 16 most-significant bits of v.
+	/// 
+	/// @see gtc_packing
+	/// @see vecType<uint16, P> packHalf(vecType<float, P> const & v)
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
+	template <precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<float, P> unpackHalf(vecType<uint16, P> const & p);
+
 	/// @}
 }// namespace glm
 

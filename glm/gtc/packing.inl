@@ -260,6 +260,85 @@ namespace detail
 		uint32 pack;
 	};
 
+	template <precision P, template <typename, precision> class vecType>
+	struct compute_half
+	{};
+
+	template <precision P>
+	struct compute_half<P, tvec1>
+	{
+		GLM_FUNC_QUALIFIER static tvec1<uint16, P> pack(tvec1<float, P> const & v)
+		{
+			int16 const Topack(detail::toFloat16(v.x));
+			return tvec1<uint16, P>(reinterpret_cast<uint16 const &>(Topack));
+		}
+
+		GLM_FUNC_QUALIFIER static tvec1<float, P> unpack(tvec1<uint16, P> const & v)
+		{
+			return tvec1<float, P>(detail::toFloat32(reinterpret_cast<int16 const &>(v.x)));
+		}
+	};
+
+	template <precision P>
+	struct compute_half<P, tvec2>
+	{
+		GLM_FUNC_QUALIFIER static tvec2<uint16, P> pack(tvec2<float, P> const & v)
+		{
+			return tvec2<uint16, P>(
+				reinterpret_cast<uint16 const &>(detail::toFloat16(v.x)),
+				reinterpret_cast<uint16 const &>(detail::toFloat16(v.x)));
+		}
+
+		GLM_FUNC_QUALIFIER static tvec2<float, P> unpack(tvec2<uint16, P> const & v)
+		{
+			return tvec2<float, P>(
+				detail::toFloat32(reinterpret_cast<int16 const &>(v.x)),
+				detail::toFloat32(reinterpret_cast<int16 const &>(v.y)));
+		}
+	};
+
+	template <precision P>
+	struct compute_half<P, tvec3>
+	{
+		GLM_FUNC_QUALIFIER static tvec3<uint16, P> pack(tvec3<float, P> const & v)
+		{
+			return tvec3<uint16, P>(
+				reinterpret_cast<uint16 const &>(detail::toFloat16(v.x)),
+				reinterpret_cast<uint16 const &>(detail::toFloat16(v.y)),
+				reinterpret_cast<uint16 const &>(detail::toFloat16(v.z)));
+		}
+
+		GLM_FUNC_QUALIFIER static tvec3<float, P> unpack(tvec3<uint16, P> const & v)
+		{
+			return tvec3<float, P>(
+				detail::toFloat32(reinterpret_cast<int16 const &>(v.x)),
+				detail::toFloat32(reinterpret_cast<int16 const &>(v.y)),
+				detail::toFloat32(reinterpret_cast<int16 const &>(v.z)));
+		}
+	};
+
+	template <precision P>
+	struct compute_half<P, tvec4>
+	{
+		GLM_FUNC_QUALIFIER static tvec4<uint16, P> pack(tvec4<float, P> const & v)
+		{
+			tvec4<int16, P> unpacked(detail::toFloat16(v.x), detail::toFloat16(v.y), detail::toFloat16(v.z), detail::toFloat16(v.w));
+			return tvec4<uint16, P>(
+				reinterpret_cast<uint16 const &>(unpacked.x),
+				reinterpret_cast<uint16 const &>(unpacked.y),
+				reinterpret_cast<uint16 const &>(unpacked.z),
+				reinterpret_cast<uint16 const &>(unpacked.w));
+		}
+
+		GLM_FUNC_QUALIFIER static tvec4<float, P> unpack(tvec4<uint16, P> const & v)
+		{
+			return tvec4<float, P>(
+				detail::toFloat32(reinterpret_cast<int16 const &>(v.x)),
+				detail::toFloat32(reinterpret_cast<int16 const &>(v.y)),
+				detail::toFloat32(reinterpret_cast<int16 const &>(v.z)),
+				detail::toFloat32(reinterpret_cast<int16 const &>(v.w)));
+		}
+	};
 }//namespace detail
 
 	GLM_FUNC_QUALIFIER uint8 packUnorm1x8(float v)
@@ -524,5 +603,17 @@ namespace detail
 		Unpack.pack = v;
 
 		return vec3(Unpack.data.x, Unpack.data.y, Unpack.data.z) * pow(2.0f, Unpack.data.w - 15.f - 9.f);
+	}
+
+	template <precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<uint16, P> packHalf(vecType<float, P> const & v)
+	{
+		return detail::compute_half<P, vecType>::pack(v);
+	}
+
+	template <precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<float, P> unpackHalf(vecType<uint16, P> const & v)
+	{
+		return detail::compute_half<P, vecType>::unpack(v);
 	}
 }//namespace glm

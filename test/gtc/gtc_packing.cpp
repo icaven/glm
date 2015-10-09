@@ -128,7 +128,11 @@ int test_Half4x16()
 		glm::vec4 v0 = glm::unpackHalf4x16(p0);
 		glm::uint64 p1 = glm::packHalf4x16(v0);
 		glm::vec4 v1 = glm::unpackHalf4x16(p1);
+		glm::u16vec4 p2 = glm::packHalf(v0);
+		glm::vec4 v2 = glm::unpackHalf(p2);
+
 		Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
+		Error += glm::all(glm::equal(v0, v2)) ? 0 : 1;
 	}
 
 	return Error;
@@ -552,7 +556,7 @@ int main()
 	Error += test_I3x10_1x2();
 	Error += test_U3x10_1x2();
 	Error += test_Half1x16();
-	Error += test_U3x10_1x2();
+	Error += test_Half4x16();
 
 	return Error;
 }
