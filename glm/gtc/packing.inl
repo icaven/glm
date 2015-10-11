@@ -270,8 +270,8 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static tvec1<uint16, P> pack(tvec1<float, P> const & v)
 		{
-			int16 const Topack(detail::toFloat16(v.x));
-			return tvec1<uint16, P>(reinterpret_cast<uint16 const &>(Topack));
+			int16 const Unpacked(detail::toFloat16(v.x));
+			return tvec1<uint16, P>(reinterpret_cast<uint16 const &>(Unpacked));
 		}
 
 		GLM_FUNC_QUALIFIER static tvec1<float, P> unpack(tvec1<uint16, P> const & v)
@@ -285,9 +285,10 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static tvec2<uint16, P> pack(tvec2<float, P> const & v)
 		{
+			tvec2<int16, P> const Unpacked(detail::toFloat16(v.x), detail::toFloat16(v.y));
 			return tvec2<uint16, P>(
-				reinterpret_cast<uint16 const &>(detail::toFloat16(v.x)),
-				reinterpret_cast<uint16 const &>(detail::toFloat16(v.x)));
+				reinterpret_cast<uint16 const &>(Unpacked.x),
+				reinterpret_cast<uint16 const &>(Unpacked.y));
 		}
 
 		GLM_FUNC_QUALIFIER static tvec2<float, P> unpack(tvec2<uint16, P> const & v)
@@ -303,10 +304,11 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static tvec3<uint16, P> pack(tvec3<float, P> const & v)
 		{
+			tvec3<int16, P> const Unpacked(detail::toFloat16(v.x), detail::toFloat16(v.y), detail::toFloat16(v.z));
 			return tvec3<uint16, P>(
-				reinterpret_cast<uint16 const &>(detail::toFloat16(v.x)),
-				reinterpret_cast<uint16 const &>(detail::toFloat16(v.y)),
-				reinterpret_cast<uint16 const &>(detail::toFloat16(v.z)));
+				reinterpret_cast<uint16 const &>(Unpacked.x),
+				reinterpret_cast<uint16 const &>(Unpacked.y),
+				reinterpret_cast<uint16 const &>(Unpacked.z));
 		}
 
 		GLM_FUNC_QUALIFIER static tvec3<float, P> unpack(tvec3<uint16, P> const & v)
@@ -323,12 +325,12 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static tvec4<uint16, P> pack(tvec4<float, P> const & v)
 		{
-			tvec4<int16, P> unpacked(detail::toFloat16(v.x), detail::toFloat16(v.y), detail::toFloat16(v.z), detail::toFloat16(v.w));
+			tvec4<int16, P> const Unpacked(detail::toFloat16(v.x), detail::toFloat16(v.y), detail::toFloat16(v.z), detail::toFloat16(v.w));
 			return tvec4<uint16, P>(
-				reinterpret_cast<uint16 const &>(unpacked.x),
-				reinterpret_cast<uint16 const &>(unpacked.y),
-				reinterpret_cast<uint16 const &>(unpacked.z),
-				reinterpret_cast<uint16 const &>(unpacked.w));
+				reinterpret_cast<uint16 const &>(Unpacked.x),
+				reinterpret_cast<uint16 const &>(Unpacked.y),
+				reinterpret_cast<uint16 const &>(Unpacked.z),
+				reinterpret_cast<uint16 const &>(Unpacked.w));
 		}
 
 		GLM_FUNC_QUALIFIER static tvec4<float, P> unpack(tvec4<uint16, P> const & v)
