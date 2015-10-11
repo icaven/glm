@@ -225,6 +225,17 @@ namespace detail
 //		return ((floatTo11bit(x) & ((1 << 11) - 1)) << 0) |  ((floatTo11bit(y) & ((1 << 11) - 1)) << 11) | ((floatTo10bit(z) & ((1 << 10) - 1)) << 22);
 //	}
 
+	union u3u3u2
+	{
+		struct
+		{
+			uint x : 3;
+			uint y : 3;
+			uint z : 2;
+		} data;
+		uint8 pack;
+	};
+
 	union u4u4
 	{
 		struct
@@ -772,6 +783,24 @@ namespace detail
 		detail::u5u5u5u1 Unpack;
 		Unpack.pack = v;
 		return vec4(Unpack.data.x, Unpack.data.y, Unpack.data.z, Unpack.data.w) * ScaleFactor;
+	}
+
+	GLM_FUNC_QUALIFIER uint8 packUnorm2x3_1x2(vec3 const & v)
+	{
+		u32vec3 const Unpack(round(clamp(v, 0.0f, 1.0f) * vec3(7.f, 7.f, 3.f)));
+		detail::u3u3u2 Result;
+		Result.data.x = Unpack.x;
+		Result.data.y = Unpack.y;
+		Result.data.z = Unpack.z;
+		return Result.pack;
+	}
+
+	GLM_FUNC_QUALIFIER vec3 unpackUnorm2x3_1x2(uint8 v)
+	{
+		vec3 const ScaleFactor(1.f / 7.f, 1.f / 7.f, 1.f / 3.f);
+		detail::u3u3u2 Unpack;
+		Unpack.pack = v;
+		return vec3(Unpack.data.x, Unpack.data.y, Unpack.data.z) * ScaleFactor;
 	}
 }//namespace glm
 

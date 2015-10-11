@@ -591,6 +591,17 @@ namespace glm
 	/// @see uint16 packUnorm3x5_1x1(vec4 const & v)
 	GLM_FUNC_DECL vec4 unpackUnorm3x5_1x1(uint16 p);
 
+	/// Convert each component of the normalized floating-point vector into unsigned integer values.
+	///
+	/// @see gtc_packing
+	/// @see vec3 unpackUnorm2x3_1x2(uint8 p)
+	GLM_FUNC_DECL uint8 packUnorm2x3_1x2(vec3 const & v);
+
+	/// Convert each unsigned integer components of a vector to normalized floating-point values.
+	/// 
+	/// @see gtc_packing
+	/// @see uint8 packUnorm2x3_1x2(vec3 const & v)
+	GLM_FUNC_DECL vec3 unpackUnorm2x3_1x2(uint8 p);
 	/// @}
 }// namespace glm
 
