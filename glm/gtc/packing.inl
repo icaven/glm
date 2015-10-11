@@ -225,6 +225,51 @@ namespace detail
 //		return ((floatTo11bit(x) & ((1 << 11) - 1)) << 0) |  ((floatTo11bit(y) & ((1 << 11) - 1)) << 11) | ((floatTo10bit(z) & ((1 << 10) - 1)) << 22);
 //	}
 
+	union u4u4
+	{
+		struct
+		{
+			uint x : 4;
+			uint y : 4;
+		} data;
+		uint8 pack;
+	};
+
+	union u4u4u4u4
+	{
+		struct
+		{
+			uint x : 4;
+			uint y : 4;
+			uint z : 4;
+			uint w : 4;
+		} data;
+		uint16 pack;
+	};
+
+	union u5u6u5
+	{
+		struct
+		{
+			uint x : 5;
+			uint y : 6;
+			uint z : 5;
+		} data;
+		uint16 pack;
+	};
+
+	union u5u5u5u1
+	{
+		struct
+		{
+			uint x : 5;
+			uint y : 5;
+			uint z : 5;
+			uint w : 1;
+		} data;
+		uint16 pack;
+	};
+
 	union u10u10u10u2
 	{
 		struct
@@ -655,4 +700,78 @@ namespace detail
 
 		return clamp(vecType<floatType, P>(v) * (static_cast<floatType>(1) / static_cast<floatType>(std::numeric_limits<intType>::max())), static_cast<floatType>(-1), static_cast<floatType>(1));
 	}
+
+	GLM_FUNC_QUALIFIER uint8 packUnorm2x4(vec2 const & v)
+	{
+		u32vec2 const Unpack(round(clamp(v, 0.0f, 1.0f) * 15.0f));
+		detail::u4u4 Result;
+		Result.data.x = Unpack.x;
+		Result.data.y = Unpack.y;
+		return Result.pack;
+	}
+
+	GLM_FUNC_QUALIFIER vec2 unpackUnorm2x4(uint8 v)
+	{
+		float const ScaleFactor(1.f / 15.f);
+		detail::u4u4 Unpack;
+		Unpack.pack = v;
+		return vec2(Unpack.data.x, Unpack.data.y) * ScaleFactor;
+	}
+
+	GLM_FUNC_QUALIFIER uint16 packUnorm4x4(vec4 const & v)
+	{
+		u32vec4 const Unpack(round(clamp(v, 0.0f, 1.0f) * 15.0f));
+		detail::u4u4u4u4 Result;
+		Result.data.x = Unpack.x;
+		Result.data.y = Unpack.y;
+		Result.data.z = Unpack.z;
+		Result.data.w = Unpack.w;
+		return Result.pack;
+	}
+
+	GLM_FUNC_QUALIFIER vec4 unpackUnorm4x4(uint16 v)
+	{
+		float const ScaleFactor(1.f / 15.f);
+		detail::u4u4u4u4 Unpack;
+		Unpack.pack = v;
+		return vec4(Unpack.data.x, Unpack.data.y, Unpack.data.z, Unpack.data.w) * ScaleFactor;
+	}
+
+	GLM_FUNC_QUALIFIER uint16 packUnorm1x5_1x6_1x5(vec3 const & v)
+	{
+		u32vec3 const Unpack(round(clamp(v, 0.0f, 1.0f) * vec3(15.f, 31.f, 15.f)));
+		detail::u5u6u5 Result;
+		Result.data.x = Unpack.x;
+		Result.data.y = Unpack.y;
+		Result.data.z = Unpack.z;
+		return Result.pack;
+	}
+
+	GLM_FUNC_QUALIFIER vec3 unpackUnorm1x5_1x6_1x5(uint16 v)
+	{
+		vec3 const ScaleFactor(1.f / 15.f, 1.f / 31.f, 1.f / 15.f);
+		detail::u5u6u5 Unpack;
+		Unpack.pack = v;
+		return vec3(Unpack.data.x, Unpack.data.y, Unpack.data.z) * ScaleFactor;
+	}
+
+	GLM_FUNC_QUALIFIER uint16 packUnorm3x5_1x1(vec4 const & v)
+	{
+		u32vec4 const Unpack(round(clamp(v, 0.0f, 1.0f) * vec4(15.f, 15.f, 15.f, 1.f)));
+		detail::u5u5u5u1 Result;
+		Result.data.x = Unpack.x;
+		Result.data.y = Unpack.y;
+		Result.data.z = Unpack.z;
+		Result.data.w = Unpack.w;
+		return Result.pack;
+	}
+
+	GLM_FUNC_QUALIFIER vec4 unpackUnorm3x5_1x1(uint16 v)
+	{
+		vec4 const ScaleFactor(1.f / 15.f, 1.f / 15.f, 1.f / 15.f, 1.f);
+		detail::u5u5u5u1 Unpack;
+		Unpack.pack = v;
+		return vec4(Unpack.data.x, Unpack.data.y, Unpack.data.z, Unpack.data.w) * ScaleFactor;
+	}
 }//namespace glm
+

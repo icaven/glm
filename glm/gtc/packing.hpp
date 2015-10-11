@@ -543,6 +543,54 @@ namespace glm
 	template <typename intType, typename floatType, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL vecType<floatType, P> unpackSnorm(vecType<intType, P> const & v);
 
+	/// Convert each component of the normalized floating-point vector into unsigned integer values.
+	///
+	/// @see gtc_packing
+	/// @see vec2 unpackUnorm2x4(uint8 p)
+	GLM_FUNC_DECL uint8 packUnorm2x4(vec2 const & v);
+
+	/// Convert each unsigned integer components of a vector to normalized floating-point values.
+	/// 
+	/// @see gtc_packing
+	/// @see uint8 packUnorm2x4(vec2 const & v)
+	GLM_FUNC_DECL vec2 unpackUnorm2x4(uint8 p);
+
+	/// Convert each component of the normalized floating-point vector into unsigned integer values.
+	///
+	/// @see gtc_packing
+	/// @see vec4 unpackUnorm4x4(uint16 p)
+	GLM_FUNC_DECL uint16 packUnorm4x4(vec4 const & v);
+
+	/// Convert each unsigned integer components of a vector to normalized floating-point values.
+	/// 
+	/// @see gtc_packing
+	/// @see uint16 packUnorm4x4(vec4 const & v)
+	GLM_FUNC_DECL vec4 unpackUnorm4x4(uint16 p);
+
+	/// Convert each component of the normalized floating-point vector into unsigned integer values.
+	///
+	/// @see gtc_packing
+	/// @see vec3 unpackUnorm1x5_1x6_1x5(uint16 p)
+	GLM_FUNC_DECL uint16 packUnorm1x5_1x6_1x5(vec3 const & v);
+
+	/// Convert each unsigned integer components of a vector to normalized floating-point values.
+	/// 
+	/// @see gtc_packing
+	/// @see uint16 packUnorm1x5_1x6_1x5(vec3 const & v)
+	GLM_FUNC_DECL vec3 unpackUnorm1x5_1x6_1x5(uint16 p);
+
+	/// Convert each component of the normalized floating-point vector into unsigned integer values.
+	///
+	/// @see gtc_packing
+	/// @see vec4 unpackUnorm3x5_1x1(uint16 p)
+	GLM_FUNC_DECL uint16 packUnorm3x5_1x1(vec4 const & v);
+
+	/// Convert each unsigned integer components of a vector to normalized floating-point values.
+	/// 
+	/// @see gtc_packing
+	/// @see uint16 packUnorm3x5_1x1(vec4 const & v)
+	GLM_FUNC_DECL vec4 unpackUnorm3x5_1x1(uint16 p);
+
 	/// @}
 }// namespace glm
 

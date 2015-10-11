@@ -57,6 +57,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added packF3x9_E1x5 and unpackF3x9_E1x5 to GTC_packing for RGB9E5 #416
 - Added (un)packHalf to GTC_packing
 - Added (un)packUnorm and (un)packSnorm to GTC_packing
+- Added 16bit pack and unpack to GTC_packing
 
 ##### Improvements:
 - Improved GTC_random linearRand documentation

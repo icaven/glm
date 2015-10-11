@@ -570,9 +570,89 @@ int test_packSnorm()
 	return Error;
 }
 
+int test_packUnorm2x4()
+{
+	int Error = 0;
+
+	std::vector<glm::vec2> A;
+	A.push_back(glm::vec2(1.0f, 0.7f));
+	A.push_back(glm::vec2(0.5f, 0.0f));
+
+	for(std::size_t i = 0; i < A.size(); ++i)
+	{
+		glm::vec2 B(A[i]);
+		glm::uint8 C = glm::packUnorm2x4(B);
+		glm::vec2 D = glm::unpackUnorm2x4(C);
+		Error += glm::all(glm::epsilonEqual(B, D, 1.0f / 15.f)) ? 0 : 1;
+		assert(!Error);
+	}
+
+	return Error;
+}
+
+int test_packUnorm4x4()
+{
+	int Error = 0;
+
+	std::vector<glm::vec4> A;
+	A.push_back(glm::vec4(1.0f, 0.7f, 0.5f, 0.0f));
+	A.push_back(glm::vec4(0.5f, 0.1f, 0.0f, 1.0f));
+
+	for(std::size_t i = 0; i < A.size(); ++i)
+	{
+		glm::vec4 B(A[i]);
+		glm::uint16 C = glm::packUnorm4x4(B);
+		glm::vec4 D = glm::unpackUnorm4x4(C);
+		Error += glm::all(glm::epsilonEqual(B, D, 1.0f / 15.f)) ? 0 : 1;
+		assert(!Error);
+	}
+
+	return Error;
+}
+
+int test_packUnorm3x5_1x1()
+{
+	int Error = 0;
+
+	std::vector<glm::vec4> A;
+	A.push_back(glm::vec4(1.0f, 0.7f, 0.5f, 0.0f));
+	A.push_back(glm::vec4(0.5f, 0.1f, 0.0f, 1.0f));
+
+	for(std::size_t i = 0; i < A.size(); ++i)
+	{
+		glm::vec4 B(A[i]);
+		glm::uint16 C = glm::packUnorm3x5_1x1(B);
+		glm::vec4 D = glm::unpackUnorm3x5_1x1(C);
+		Error += glm::all(glm::epsilonEqual(B, D, 1.0f / 15.f)) ? 0 : 1;
+		assert(!Error);
+	}
+
+	return Error;
+}
+
+int test_packUnorm1x5_1x6_1x5()
+{
+	int Error = 0;
+
+	std::vector<glm::vec3> A;
+	A.push_back(glm::vec3(1.0f, 0.7f, 0.5f));
+	A.push_back(glm::vec3(0.5f, 0.1f, 0.0f));
+
+	for(std::size_t i = 0; i < A.size(); ++i)
+	{
+		glm::vec3 B(A[i]);
+		glm::uint16 C = glm::packUnorm1x5_1x6_1x5(B);
+		glm::vec3 D = glm::unpackUnorm1x5_1x6_1x5(C);
+		Error += glm::all(glm::epsilonEqual(B, D, 1.0f / 15.f)) ? 0 : 1;
+		assert(!Error);
+	}
+
+	return Error;
+}
+
 int main()
 {
-	int Error(0);
+	int Error = 0;
 
 	Error += test_packUnorm();
 	Error += test_packSnorm();
@@ -592,6 +672,11 @@ int main()
 	Error += test_packUnorm1x8();
 	Error += test_packUnorm2x8();
 	Error += test_packUnorm4x8();
+
+	Error += test_packUnorm2x4();
+	Error += test_packUnorm4x4();
+	Error += test_packUnorm3x5_1x1();
+	Error += test_packUnorm1x5_1x6_1x5();
 
 	Error += test_F2x11_1x10();
 	Error += test_F3x9_E1x5();
