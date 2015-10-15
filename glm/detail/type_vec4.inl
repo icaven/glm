@@ -1168,6 +1168,18 @@ namespace glm
 	{
 		return (v1.x != v2.x) || (v1.y != v2.y) || (v1.z != v2.z) || (v1.w != v2.w);
 	}
+
+	template <precision P>
+	GLM_FUNC_QUALIFIER tvec4<bool, P> operator&&(tvec4<bool, P> const & v1, tvec4<bool, P> const & v2)
+	{
+		return tvec4<bool, P>(v1.x && v2.x, v1.y && v2.y, v1.z && v2.z, v1.w && v2.w);
+	}
+
+	template <precision P>
+	GLM_FUNC_QUALIFIER tvec4<bool, P> operator||(tvec4<bool, P> const & v1, tvec4<bool, P> const & v2)
+	{
+		return tvec4<bool, P>(v1.x || v2.x, v1.y || v2.y, v1.z || v2.z, v1.w || v2.w);
+	}
 }//namespace glm
 
 #if GLM_HAS_ANONYMOUS_UNION && GLM_NOT_BUGGY_VC32BITS

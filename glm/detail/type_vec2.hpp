@@ -406,6 +406,12 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_DECL bool operator!=(tvec2<T, P> const & v1, tvec2<T, P> const & v2);
 
+	template <precision P>
+	GLM_FUNC_DECL bool operator&&(tvec2<bool, P> const & v1, tvec2<bool, P> const & v2);
+
+	template <precision P>
+	GLM_FUNC_DECL bool operator||(tvec2<bool, P> const & v1, tvec2<bool, P> const & v2);
+
 	// -- Is type --
 
 	template <typename T, precision P>

@@ -59,6 +59,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added (un)packUnorm and (un)packSnorm to GTC_packing
 - Added 16bit pack and unpack to GTC_packing
 - Added 8bit pack and unpack to GTC_packing
+- Added missing bvec* && and || operators
 
 ##### Improvements:
 - Improved GTC_random linearRand documentation

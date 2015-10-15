@@ -601,4 +601,16 @@ namespace glm
 	{
 		return (v1.x != v2.x);
 	}
+
+	template <precision P>
+	GLM_FUNC_QUALIFIER tvec1<bool, P> operator&&(tvec1<bool, P> const & v1, tvec1<bool, P> const & v2)
+	{
+		return tvec1<bool, P>(v1.x && v2.x);
+	}
+
+	template <precision P>
+	GLM_FUNC_QUALIFIER tvec1<bool, P> operator||(tvec1<bool, P> const & v1, tvec1<bool, P> const & v2)
+	{
+		return tvec1<bool, P>(v1.x || v2.x);
+	}
 }//namespace glm
