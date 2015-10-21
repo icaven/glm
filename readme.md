@@ -56,6 +56,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed GTC_round floorMultiple/ceilMultiple #412
 - Fixed GTC_packing unpackUnorm3x10_1x2 #414
 - Fixed GTC_matrix_inverse affineInverse #192
+- Fixed Cygwin build errors when using C++11 #405
 
 #### [GLM 0.9.7.1](https://github.com/g-truc/glm/releases/tag/0.9.7.1) - 2015-09-07
 ##### Improvements:
