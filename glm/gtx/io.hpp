@@ -30,6 +30,7 @@
 /// @author Jan P Springer (regnirpsj@gmail.com)
 ///
 /// @see core (dependence)
+/// @see gtc_matrix_access (dependence)
 /// @see gtc_quaternion (dependence)
 ///
 /// @defgroup gtx_io GLM_GTX_io
@@ -41,7 +42,10 @@
 ///        based on howard hinnant's std::chrono io proposal
 ///        [http://home.roadrunner.com/~hinnant/bloomington/chrono_io.html]
 ///
-/// <glm/gtx/io.hpp> needs to be included to use these functionalities.
+///        <glm/gtx/io.hpp> needs to be included to use these functionalities.
+///
+///        GLM_META_PROG_HELPERS must be defined before including this and any other
+///        glm header file.
 ///////////////////////////////////////////////////////////////////////////////////
 
 #pragma once
@@ -215,16 +219,8 @@ namespace glm
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>&, tmat4x4<T,P> const&);
 
   template <typename CTy, typename CTr, typename T, precision P>
-	GLM_FUNC_DECL std::basic_ostream<CTy,CTr> & operator<<(
-		std::basic_ostream<CTy,CTr> &,
-		std::pair<tmat4x4<T,P> const,
-		tmat4x4<T,P> const> const &);
-
-	template <typename CTy, typename CTr, typename T, precision P>
-	GLM_FUNC_DECL std::basic_ostream<CTy,CTr> & operator<<(
-		std::basic_ostream<CTy,CTr> &,
-		std::pair<tmat4x4<T,P>,
-		tmat4x4<T,P> > const &);
+	GLM_FUNC_DECL std::basic_ostream<CTy,CTr> & operator<<(std::basic_ostream<CTy,CTr> &,
+                                                         std::pair<tmat4x4<T,P> const, tmat4x4<T,P> const> const &);
 
 	/// @}
 }//namespace glm

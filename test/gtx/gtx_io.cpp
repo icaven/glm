@@ -29,6 +29,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_META_PROG_HELPERS
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtx/io.hpp>
 #include <iostream>
@@ -128,7 +129,7 @@ int test_io_vec(OS& os)
 }
 
 template <typename T, glm::precision P, typename OS>
-int test_io_mat(OS& os)
+int test_io_mat(OS& os, glm::io::order_type otype)
 {
 	os << '\n' << typeid(OS).name() << '\n';
 
@@ -145,21 +146,10 @@ int test_io_mat(OS& os)
 	glm::tvec4<T,P> const v4_3(28, 29, 30, 31);
 	glm::tvec4<T,P> const v4_4(32, 33, 34, 35);
 
-#if 0
-	os << "mat2x2<" << typeid(T).name() << ',' << P << ">: " << glm::tmat2x2<T,P>(v2_1, v2_2) << '\n'
-		<< "mat2x3<" << typeid(T).name() << ',' << P << ">: " << glm::tmat2x3<T,P>(v3_1, v3_2) << '\n'
-		<< "mat2x4<" << typeid(T).name() << ',' << P << ">: " << glm::tmat2x4<T,P>(v4_1, v4_2) << '\n'
-		<< "mat3x2<" << typeid(T).name() << ',' << P << ">: " << glm::tmat3x2<T,P>(v2_1, v2_2, v2_3) << '\n'
-		<< "mat3x3<" << typeid(T).name() << ',' << P << ">: " << glm::tmat3x3<T,P>(v3_1, v3_2, v3_3) << '\n'
-		<< "mat3x4<" << typeid(T).name() << ',' << P << ">: " << glm::tmat3x4<T,P>(v4_1, v4_2, v4_3) << '\n'
-		<< "mat4x2<" << typeid(T).name() << ',' << P << ">: " << glm::tmat4x2<T,P>(v2_1, v2_2, v2_3, v2_4) << '\n'
-		<< "mat4x3<" << typeid(T).name() << ',' << P << ">: " << glm::tmat4x3<T,P>(v3_1, v3_2, v3_3, v3_4) << '\n'
-		<< "mat4x4<" << typeid(T).name() << ',' << P << ">: " << glm::tmat4x4<T,P>(v4_1, v4_2, v4_3, v4_4) << '\n';
-#endif
-
 	glm::io::basic_format_saver<typename OS::char_type> const iofs(os);
 
 	os << glm::io::precision(2) << glm::io::width(1 + 2 + 1 + 2)
+		<< glm::io::order(otype)
 		<< "mat2x2<" << typeid(T).name() << ',' << P << ">: " << glm::tmat2x2<T,P>(v2_1, v2_2) << '\n'
 		<< "mat2x3<" << typeid(T).name() << ',' << P << ">: " << glm::tmat2x3<T,P>(v3_1, v3_2) << '\n'
 		<< "mat2x4<" << typeid(T).name() << ',' << P << ">: " << glm::tmat2x4<T,P>(v4_1, v4_2) << '\n'
@@ -171,7 +161,7 @@ int test_io_mat(OS& os)
 		<< "mat4x4<" << typeid(T).name() << ',' << P << ">: " << glm::tmat4x4<T,P>(v4_1, v4_2, v4_3, v4_4) << '\n';
 
 	os << glm::io::unformatted
-		<< glm::io::order(glm::io::column_major)
+		<< glm::io::order(otype)
 		<< "mat2x2<" << typeid(T).name() << ',' << P << ">: " << glm::tmat2x2<T,P>(v2_1, v2_2) << '\n'
 		<< "mat2x3<" << typeid(T).name() << ',' << P << ">: " << glm::tmat2x3<T,P>(v3_1, v3_2) << '\n'
 		<< "mat2x4<" << typeid(T).name() << ',' << P << ">: " << glm::tmat2x4<T,P>(v4_1, v4_2) << '\n'
@@ -203,8 +193,10 @@ int main()
 	Error += test_io_vec<glm::uint, glm::lowp>(std::cout);
 	Error += test_io_vec<glm::uint, glm::lowp>(std::wcout);
 
-	Error += test_io_mat<float, glm::highp>(std::cout);
-	Error += test_io_mat<float, glm::lowp>(std::wcout);
+	Error += test_io_mat<float, glm::highp>(std::cout, glm::io::column_major);
+	Error += test_io_mat<float, glm::lowp>(std::wcout, glm::io::column_major);
+	Error += test_io_mat<float, glm::highp>(std::cout, glm::io::row_major);
+        Error += test_io_mat<float, glm::lowp>(std::wcout, glm::io::row_major);
 
 	return Error;
 }
