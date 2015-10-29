@@ -29,8 +29,11 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-//#define GLM_FORCE_AVX2
+#if !(GLM_COMPILER & GLM_COMPILER_GCC)
+#	define GLM_META_PROG_HELPERS
+#endif
 #define GLM_SWIZZLE
+#define GLM_STATIC_CONST_MEMBERS
 #include <glm/vector_relational.hpp>
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
@@ -153,6 +156,26 @@ int test_vec4_ctor()
 			Error += Tests[i] == glm::vec4(1, 2, 3, 4) ? 0 : 1;
 	}
 	
+	return Error;
+}
+
+int test_bvec4_ctor()
+{
+	int Error = 0;
+
+	glm::bvec4 const A(true);
+	glm::bvec4 const B(true);
+	glm::bvec4 const C(false);
+	glm::bvec4 const D = A && B;
+	glm::bvec4 const E = A && C;
+	glm::bvec4 const F = A || C;
+	bool const G = A == C;
+	bool const H = A != C;
+
+	Error += D == glm::bvec4(true) ? 0 : 1;
+	Error += E == glm::bvec4(false) ? 0 : 1;
+	Error += F == glm::bvec4(true) ? 0 : 1;
+
 	return Error;
 }
 
@@ -374,6 +397,28 @@ int test_operator_increment()
 	return Error;
 }
 
+int test_vec4_static_const() {
+	int Error(0);
+
+	Error += (glm::ivec4(0, 0, 0, 0) == glm::ivec4::ZERO) ? 0 : 1;
+	Error += (glm::vec4(1, 0, 0, 0) == glm::vec4::X) ? 0 : 1;
+	Error += (glm::bvec4(false, true, false, false) == glm::bvec4::Y) ? 0 : 1;
+	Error += (glm::bvec4(false, false, true, false) == glm::bvec4::Z) ? 0 : 1;
+	Error += (glm::uvec4(0u, 0u, 0u, 1u) == glm::uvec4::W) ? 0 : 1;
+	Error += (glm::dvec4(1, 1, 0, 0) == glm::dvec4::XY) ? 0 : 1;
+	Error += (glm::vec4(1, 0, 1, 0) == glm::vec4::XZ) ? 0 : 1;
+	Error += (glm::vec4(1, 0, 0, 1) == glm::vec4::XW) ? 0 : 1;
+	Error += (glm::uvec4(0u, 1u, 1u, 0u) == glm::uvec4::YZ) ? 0 : 1;
+	Error += (glm::vec4(0, 1, 0, 1) == glm::vec4::YW) ? 0 : 1;
+	Error += (glm::dvec4(1, 1, 1, 0) == glm::dvec4::XYZ) ? 0 : 1;
+	Error += (glm::vec4(1, 1, 0, 1) == glm::vec4::XYW) ? 0 : 1;
+	Error += (glm::vec4(1, 0, 1, 1) == glm::vec4::XZW) ? 0 : 1;
+	Error += (glm::vec4(0, 1, 1, 1) == glm::vec4::YZW) ? 0 : 1;
+	Error += (glm::vec4(1, 1, 1, 1) == glm::vec4::XYZW) ? 0 : 1;
+
+	return Error;
+}
+
 struct AoS
 {
 	glm::vec4 A;
@@ -398,7 +443,7 @@ int test_vec4_perf_AoS(std::size_t Size)
 
 	std::clock_t EndTime = std::clock();
 
-  std::printf("AoS: %d\n", EndTime - StartTime);
+	std::printf("AoS: %ld\n", EndTime - StartTime);
 
 	return Error;
 }
@@ -437,27 +482,61 @@ int test_vec4_perf_SoA(std::size_t Size)
 
 	std::clock_t EndTime = std::clock();
 
-	std::printf("SoA: %d\n", EndTime - StartTime);
+	std::printf("SoA: %ld\n", EndTime - StartTime);
 
 	return Error;
 }
+
+namespace heap
+{
+	class A
+	{
+		float f;
+	};
+
+	class B : public A
+	{
+		float g;
+		glm::vec4 v;
+	};
+
+	int test()
+	{
+		int Error(0);
+
+		A* p = new B;
+		delete p;
+
+		return Error;
+	}
+}//namespace heap
 
 int main()
 {
 	int Error(0);
 
-	std::size_t const Size(1000000);
+	glm::vec4 v;
+	assert(v.length() == 4);
+
+#	ifdef GLM_META_PROG_HELPERS
+		assert(glm::vec4::components == glm::vec4().length());
+		assert(glm::vec4::components == 4);
+#	endif
 
 #	ifdef NDEBUG
+		std::size_t const Size(1000000);
 		Error += test_vec4_perf_AoS(Size);
 		Error += test_vec4_perf_SoA(Size);
 #	endif//NDEBUG
 
+	Error += test_vec4_static_const();
 	Error += test_vec4_ctor();
+	Error += test_bvec4_ctor();
 	Error += test_vec4_size();
 	Error += test_vec4_operators();
 	Error += test_vec4_swizzle_partial();
 	Error += test_operator_increment();
+	Error += heap::test();
 
 	return Error;
 }

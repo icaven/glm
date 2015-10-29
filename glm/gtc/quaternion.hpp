@@ -62,14 +62,41 @@ namespace glm
 	template <typename T, precision P = defaultp>
 	struct tquat
 	{
+		// -- Implementation detail --
+
 		typedef tquat<T, P> type;
 		typedef T value_type;
 
-	public:
+#		ifdef GLM_META_PROG_HELPERS
+			static GLM_RELAXED_CONSTEXPR length_t components = 4;
+			static GLM_RELAXED_CONSTEXPR precision prec = P;
+#		endif//GLM_META_PROG_HELPERS
+
+		// -- Data --
+
 		T x, y, z, w;
 
-		//////////////////////////////////////
-		// Component accesses
+#		ifdef GLM_STATIC_CONST_MEMBERS
+		static const type ZERO;
+		static const type IDENTITY;
+		static const type X;
+		static const type Y;
+		static const type Z;
+		static const type W;
+		static const type XY;
+		static const type XZ;
+		static const type XW;
+		static const type YZ;
+		static const type YW;
+		static const type ZW;
+		static const type XYZ;
+		static const type XYW;
+		static const type XZW;
+		static const type YZW;
+		static const type XYZW;
+#		endif
+
+		// -- Component accesses --
 
 #		ifdef GLM_FORCE_SIZE_FUNC
 			typedef size_t size_type;
@@ -87,40 +114,32 @@ namespace glm
 			GLM_FUNC_DECL T const & operator[](length_type i) const;
 #		endif//GLM_FORCE_SIZE_FUNC
 
-		//////////////////////////////////////
-		// Implicit basic constructors
+		// -- Implicit basic constructors --
 
-		GLM_FUNC_DECL tquat();
-		GLM_FUNC_DECL tquat(tquat<T, P> const & q);
+		GLM_FUNC_DECL tquat() GLM_DEFAULT_CTOR;
+		GLM_FUNC_DECL tquat(tquat<T, P> const & q) GLM_DEFAULT;
 		template <precision Q>
 		GLM_FUNC_DECL tquat(tquat<T, Q> const & q);
 
-		//////////////////////////////////////
-		// Explicit basic constructors
+		// -- Explicit basic constructors --
 
 		GLM_FUNC_DECL explicit tquat(ctor);
 		GLM_FUNC_DECL explicit tquat(T const & s, tvec3<T, P> const & v);
 		GLM_FUNC_DECL tquat(T const & w, T const & x, T const & y, T const & z);
 
-		//////////////////////////////////////
-		// Convertions
+		// -- Conversion constructors --
 
-#		ifdef GLM_FORCE_EXPLICIT_CTOR
-			template <typename U, precision Q>
-			GLM_FUNC_DECL explicit tquat(tquat<U, Q> const & q);
-#		else
-			template <typename U, precision Q>
-			GLM_FUNC_DECL tquat(tquat<U, Q> const & q);
-#		endif
-		
-		// explicit conversion operators
+		template <typename U, precision Q>
+		GLM_FUNC_DECL GLM_EXPLICIT tquat(tquat<U, Q> const & q);
+
+		/// Explicit conversion operators
 #		if GLM_HAS_EXPLICIT_CONVERSION_OPERATORS
 			GLM_FUNC_DECL explicit operator tmat3x3<T, P>();
 			GLM_FUNC_DECL explicit operator tmat4x4<T, P>();
 #		endif
-		
+
 		/// Create a quaternion from two normalized axis
-		/// 
+		///
 		/// @param u A first normalized axis
 		/// @param v A second normalized axis
 		/// @see gtc_quaternion
@@ -132,10 +151,9 @@ namespace glm
 		GLM_FUNC_DECL explicit tquat(tmat3x3<T, P> const & m);
 		GLM_FUNC_DECL explicit tquat(tmat4x4<T, P> const & m);
 
-		//////////////////////////////////////
-		// Operators
+		// -- Unary arithmetic operators --
 
-		GLM_FUNC_DECL tquat<T, P> & operator=(tquat<T, P> const & m);
+		GLM_FUNC_DECL tquat<T, P> & operator=(tquat<T, P> const & m) GLM_DEFAULT;
 
 		template <typename U>
 		GLM_FUNC_DECL tquat<T, P> & operator=(tquat<U, P> const & m);
@@ -149,8 +167,15 @@ namespace glm
 		GLM_FUNC_DECL tquat<T, P> & operator/=(U s);
 	};
 
+	// -- Unary bit operators --
+
+	template <typename T, precision P>
+	GLM_FUNC_DECL tquat<T, P> operator+(tquat<T, P> const & q);
+
 	template <typename T, precision P>
 	GLM_FUNC_DECL tquat<T, P> operator-(tquat<T, P> const & q);
+
+	// -- Binary operators --
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tquat<T, P> operator+(tquat<T, P> const & q, tquat<T, P> const & p);
@@ -372,6 +397,16 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_DECL tvec4<bool, P> notEqual(tquat<T, P> const & x, tquat<T, P> const & y);
 	/// @}
+
+	// -- Is type --
+
+	template <typename T, precision P>
+	struct type<T, P, tquat>
+	{
+		static bool const is_vec = false;
+		static bool const is_mat = false;
+		static bool const is_quat = true;
+	};
 } //namespace glm
 
 #include "quaternion.inl"

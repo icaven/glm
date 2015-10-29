@@ -62,6 +62,15 @@ int test_compiler()
 		case GLM_COMPILER_GCC50:
 			std::printf("GLM_COMPILER_GCC50\n");
 			break;
+		case GLM_COMPILER_GCC51:
+			std::printf("GLM_COMPILER_GCC51\n");
+			break;
+		case GLM_COMPILER_GCC52:
+			std::printf("GLM_COMPILER_GCC52\n");
+			break;
+		case GLM_COMPILER_GCC53:
+			std::printf("GLM_COMPILER_GCC53\n");
+			break;
 		default:
 			std::printf("GCC version not detected\n");
 			Error += 1;
@@ -94,6 +103,9 @@ int test_compiler()
 		case GLM_COMPILER_APPLE_CLANG60:
 			std::printf("GLM_COMPILER_APPLE_CLANG60\n");	
 			break;
+		case GLM_COMPILER_APPLE_CLANG61:
+			std::printf("GLM_COMPILER_APPLE_CLANG61\n");	
+			break;
 		default:
 			std::printf("Apple Clang version not detected\n");
 			break;
@@ -114,6 +126,18 @@ int test_compiler()
 			break;
 		case GLM_COMPILER_LLVM35:
 			std::printf("GLM_COMPILER_LLVM35\n");
+			break;
+		case GLM_COMPILER_LLVM36:
+			std::printf("GLM_COMPILER_LLVM36\n");
+			break;
+		case GLM_COMPILER_LLVM37:
+			std::printf("GLM_COMPILER_LLVM37\n");
+			break;
+		case GLM_COMPILER_LLVM38:
+			std::printf("GLM_COMPILER_LLVM38\n");
+			break;
+		case GLM_COMPILER_LLVM39:
+			std::printf("GLM_COMPILER_LLVM39\n");
 			break;
 		default:
 			std::printf("LLVM version not detected\n");
@@ -138,6 +162,9 @@ int test_compiler()
 			break;
 		case GLM_COMPILER_INTEL15:
 			std::printf("GLM_COMPILER_INTEL15\n");
+			break;
+		case GLM_COMPILER_INTEL16:
+			std::printf("GLM_COMPILER_INTEL16\n");
 			break;
 		default:
 			std::printf("Intel compiler version not detected\n");
@@ -196,7 +223,7 @@ int test_instruction_set()
 
 int test_cpp_version()
 {
-	std::printf("__cplusplus: %d\n", __cplusplus);
+	std::printf("__cplusplus: %ld\n", __cplusplus);
 	
 	return 0;
 }

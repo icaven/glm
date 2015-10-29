@@ -8,14 +8,14 @@
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-/// 
+///
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-/// 
+///
 /// Restrictions:
 ///		By making use of the Software for military purposes, you choose to make
 ///		a Bunny unhappy.
-/// 
+///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -29,6 +29,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+#define GLM_META_PROG_HELPERS
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <glm/vector_relational.hpp>
@@ -242,6 +243,7 @@ int test_quat_mul()
 	glm::quat temp5 = glm::normalize(temp1 * temp2);
 	glm::vec3 temp6 = temp5 * glm::vec3(0.0, 1.0, 0.0) * glm::inverse(temp5);
 
+#	ifndef GLM_FORCE_NO_CTOR_INIT
 	{
 		glm::quat temp7;
 
@@ -250,6 +252,7 @@ int test_quat_mul()
 
 		Error += temp7 != glm::quat();
 	}
+#	endif
 
 	return Error;
 }
@@ -323,6 +326,11 @@ int test_quat_ctr()
 int main()
 {
 	int Error(0);
+
+#ifdef GLM_META_PROG_HELPERS
+		assert(glm::quat::components == 4);
+		assert(glm::quat::components == glm::quat().length());
+#endif
 
 	Error += test_quat_ctr();
 	Error += test_quat_mul_vec();

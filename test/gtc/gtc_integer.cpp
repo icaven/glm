@@ -83,10 +83,9 @@ namespace log2_
 		return Error;
 	}
 
-	int perf()
+	int perf(std::size_t Count)
 	{
 		int Error = 0;
-		std::size_t const Count(100000000);
 
 		{
 			std::vector<int> Result;
@@ -99,7 +98,7 @@ namespace log2_
 
 			std::clock_t End = clock();
 
-			printf("glm::log2<int>: %d clocks\n", End - Begin);
+			printf("glm::log2<int>: %ld clocks\n", End - Begin);
 		}
 
 		{
@@ -113,7 +112,7 @@ namespace log2_
 
 			std::clock_t End = clock();
 
-			printf("glm::log2<ivec4>: %d clocks\n", End - Begin);
+			printf("glm::log2<ivec4>: %ld clocks\n", End - Begin);
 		}
 
 #		if GLM_HAS_BITSCAN_WINDOWS
@@ -135,7 +134,7 @@ namespace log2_
 
 			std::clock_t End = clock();
 
-			printf("glm::log2<ivec4> inlined: %d clocks\n", End - Begin);
+			printf("glm::log2<ivec4> inlined: %ld clocks\n", End - Begin);
 		}
 
 
@@ -155,7 +154,7 @@ namespace log2_
 
 			std::clock_t End = clock();
 
-			printf("glm::log2<ivec4> inlined no cast: %d clocks\n", End - Begin);
+			printf("glm::log2<ivec4> inlined no cast: %ld clocks\n", End - Begin);
 		}
 
 
@@ -175,7 +174,7 @@ namespace log2_
 
 			std::clock_t End = clock();
 
-			printf("glm::log2<ivec4> reinterpret: %d clocks\n", End - Begin);
+			printf("glm::log2<ivec4> reinterpret: %ld clocks\n", End - Begin);
 		}
 #		endif//GLM_HAS_BITSCAN_WINDOWS
 
@@ -190,7 +189,7 @@ namespace log2_
 
 			std::clock_t End = clock();
 
-			printf("glm::log2<float>: %d clocks\n", End - Begin);
+			printf("glm::log2<float>: %ld clocks\n", End - Begin);
 		}
 
 		{
@@ -204,7 +203,7 @@ namespace log2_
 
 			std::clock_t End = clock();
 
-			printf("glm::log2<vec4>: %d clocks\n", End - Begin);
+			printf("glm::log2<vec4>: %ld clocks\n", End - Begin);
 		}
 
 		return Error;
@@ -218,7 +217,8 @@ int main()
 	Error += ::log2_::test();
 
 #	ifdef NDEBUG
-		Error += ::log2_::perf();
+		std::size_t const Samples(1000);
+		Error += ::log2_::perf(Samples);
 #	endif//NDEBUG
 
 	return Error;

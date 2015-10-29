@@ -169,6 +169,22 @@ namespace mod_
 		int Error(0);
 
 		{
+			float A(1.5f);
+			float B(1.0f);
+			float C = glm::mod(A, B);
+
+			Error += glm::abs(C - 0.5f) < 0.00001f ? 0 : 1;
+		}
+
+		{
+			float A(-0.2f);
+			float B(1.0f);
+			float C = glm::mod(A, B);
+
+			Error += glm::abs(C - 0.8f) < 0.00001f ? 0 : 1;
+		}
+
+		{
 			float A(3.0);
 			float B(2.0f);
 			float C = glm::mod(A, B);
@@ -980,11 +996,11 @@ namespace sign
 		return Error;
 	}
 
-	int perf_rand()
+	int perf_rand(std::size_t Samples)
 	{
 		int Error = 0;
 
-		std::size_t const Count = 100000000;
+		std::size_t const Count = Samples;
 		std::vector<glm::int32> Input, Output;
 		Input.resize(Count);
 		Output.resize(Count);
@@ -1033,11 +1049,11 @@ namespace sign
 		return Error;
 	}
 
-	int perf_linear()
+	int perf_linear(std::size_t Samples)
 	{
 		int Error = 0;
 
-		std::size_t const Count = 10000000;
+		std::size_t const Count = Samples;
 		std::vector<glm::int32> Input, Output;
 		Input.resize(Count);
 		Output.resize(Count);
@@ -1080,11 +1096,11 @@ namespace sign
 		return Error;
 	}
 
-	int perf_linear_cal()
+	int perf_linear_cal(std::size_t Samples)
 	{
 		int Error = 0;
 
-		glm::uint32 const Count = 10000000;
+		glm::int32 const Count = static_cast<glm::int32>(Samples);
 
 		std::clock_t Timestamp0 = std::clock();
 		glm::int32 Sum = 0;
@@ -1125,13 +1141,13 @@ namespace sign
 		return Error;
 	}
 
-	int perf()
+	int perf(std::size_t Samples)
 	{
 		int Error(0);
 
-		Error += perf_linear_cal();
-		Error += perf_linear();
-		Error += perf_rand();
+		Error += perf_linear_cal(Samples);
+		Error += perf_linear(Samples);
+		Error += perf_rand(Samples);
 
 		return Error;
 	}
@@ -1157,7 +1173,8 @@ int main()
 	Error += isinf_::test();
 
 #	ifdef NDEBUG
-		Error += sign::perf();
+		std::size_t Samples = 1000;
+		Error += sign::perf(Samples);
 #	endif
 
 	return Error;
