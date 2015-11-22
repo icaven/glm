@@ -158,13 +158,64 @@ namespace glm
 		T zFar
 	)
 	{
+		#ifdef GLM_LEFT_HANDED
+			return orthoLH(left, right, bottom, top, zNear, zFar);
+		#else
+			return orthoRH(left, right, bottom, top, zNear, zFar);
+		#endif
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> orthoLH
+	(
+		T left,
+		T right,
+		T bottom,
+		T top,
+		T zNear,
+		T zFar
+	)
+	{
 		tmat4x4<T, defaultp> Result(1);
 		Result[0][0] = static_cast<T>(2) / (right - left);
 		Result[1][1] = static_cast<T>(2) / (top - bottom);
-		Result[2][2] = - static_cast<T>(2) / (zFar - zNear);
 		Result[3][0] = - (right + left) / (right - left);
 		Result[3][1] = - (top + bottom) / (top - bottom);
+
+#ifdef GLM_DEPTH_ZERO_TO_ONE
+		Result[2][2] = static_cast<T>(1) / (zFar - zNear);
+		Result[3][2] = - zNear / (zFar - zNear);
+#else
+		Result[2][2] = static_cast<T>(2) / (zFar - zNear);
 		Result[3][2] = - (zFar + zNear) / (zFar - zNear);
+#endif
+		return Result;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> orthoRH
+	(
+		T left,
+		T right,
+		T bottom,
+		T top,
+		T zNear,
+		T zFar
+	)
+	{
+		tmat4x4<T, defaultp> Result(1);
+		Result[0][0] = static_cast<T>(2) / (right - left);
+		Result[1][1] = static_cast<T>(2) / (top - bottom);
+		Result[3][0] = - (right + left) / (right - left);
+		Result[3][1] = - (top + bottom) / (top - bottom);
+
+#ifdef GLM_DEPTH_ZERO_TO_ONE
+		Result[2][2] = - static_cast<T>(1) / (zFar - zNear);
+		Result[3][2] = - zNear / (zFar - zNear);
+#else
+		Result[2][2] = - static_cast<T>(2) / (zFar - zNear);
+		Result[3][2] = - (zFar + zNear) / (zFar - zNear);
+#endif
 		return Result;
 	}
 
@@ -177,17 +228,35 @@ namespace glm
 		T top
 	)
 	{
-		tmat4x4<T, defaultp> Result(1);
-		Result[0][0] = static_cast<T>(2) / (right - left);
-		Result[1][1] = static_cast<T>(2) / (top - bottom);
-		Result[2][2] = - static_cast<T>(1);
-		Result[3][0] = - (right + left) / (right - left);
-		Result[3][1] = - (top + bottom) / (top - bottom);
-		return Result;
+	    tmat4x4<T, defaultp> Result(1);
+	    Result[0][0] = static_cast<T>(2) / (right - left);
+	    Result[1][1] = static_cast<T>(2) / (top - bottom);
+	    Result[2][2] = - static_cast<T>(1);
+	    Result[3][0] = - (right + left) / (right - left);
+	    Result[3][1] = - (top + bottom) / (top - bottom);
+	    return Result;
 	}
 
 	template <typename T>
 	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> frustum
+	(
+		T left,
+		T right,
+		T bottom,
+		T top,
+		T nearVal,
+		T farVal
+	)
+	{
+#ifdef GLM_LEFT_HANDED
+	return frustumLH(left, right, bottom, top, nearVal, farVal);
+#else
+	return frustumRH(left, right, bottom, top, nearVal, farVal);
+#endif
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> frustumLH
 	(
 		T left,
 		T right,
@@ -202,9 +271,43 @@ namespace glm
 		Result[1][1] = (static_cast<T>(2) * nearVal) / (top - bottom);
 		Result[2][0] = (right + left) / (right - left);
 		Result[2][1] = (top + bottom) / (top - bottom);
-		Result[2][2] = -(farVal + nearVal) / (farVal - nearVal);
+		Result[2][3] = static_cast<T>(1);
+
+#ifdef GLM_DEPTH_ZERO_TO_ONE
+		Result[2][2] = farVal / (zFar - nearVal);
+		Result[3][2] = -(farVal * nearVal) / (zFar - nearVal);
+#else
+		Result[2][2] = (farVal + nearVal) / (farVal - nearVal);
+		Result[3][2] = - (static_cast<T>(2) * farVal * nearVal) / (farVal - nearVal);
+#endif
+		return Result;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> frustumRH
+	(
+		T left,
+		T right,
+		T bottom,
+		T top,
+		T nearVal,
+		T farVal
+	)
+	{
+		tmat4x4<T, defaultp> Result(0);
+		Result[0][0] = (static_cast<T>(2) * nearVal) / (right - left);
+		Result[1][1] = (static_cast<T>(2) * nearVal) / (top - bottom);
+		Result[2][0] = (right + left) / (right - left);
+		Result[2][1] = (top + bottom) / (top - bottom);
 		Result[2][3] = static_cast<T>(-1);
-		Result[3][2] = -(static_cast<T>(2) * farVal * nearVal) / (farVal - nearVal);
+
+#ifdef GLM_DEPTH_ZERO_TO_ONE
+		Result[2][2] = farVal / (nearVal - farVal);
+		Result[3][2] = -(farVal * nearVal) / (farVal - nearVal);
+#else
+		Result[2][2] = - (farVal + nearVal) / (farVal - nearVal);
+		Result[3][2] = - (static_cast<T>(2) * farVal * nearVal) / (farVal - nearVal);
+#endif
 		return Result;
 	}
 
@@ -240,9 +343,15 @@ namespace glm
 		tmat4x4<T, defaultp> Result(static_cast<T>(0));
 		Result[0][0] = static_cast<T>(1) / (aspect * tanHalfFovy);
 		Result[1][1] = static_cast<T>(1) / (tanHalfFovy);
-		Result[2][2] = - (zFar + zNear) / (zFar - zNear);
 		Result[2][3] = - static_cast<T>(1);
+
+#ifdef GLM_DEPTH_ZERO_TO_ONE
+		Result[2][2] = zFar / (zNear - zFar);
+		Result[3][2] = -(zFar * zNear) / (zFar - zNear);
+#else
+		Result[2][2] = - (zFar + zNear) / (zFar - zNear);
 		Result[3][2] = - (static_cast<T>(2) * zFar * zNear) / (zFar - zNear);
+#endif
 		return Result;
 	}
 	
@@ -262,9 +371,15 @@ namespace glm
 		tmat4x4<T, defaultp> Result(static_cast<T>(0));
 		Result[0][0] = static_cast<T>(1) / (aspect * tanHalfFovy);
 		Result[1][1] = static_cast<T>(1) / (tanHalfFovy);
-		Result[2][2] = (zFar + zNear) / (zFar - zNear);
 		Result[2][3] = static_cast<T>(1);
-		Result[3][2] = -(static_cast<T>(2) * zFar * zNear) / (zFar - zNear);
+
+#ifdef GLM_DEPTH_ZERO_TO_ONE
+		Result[2][2] = zFar / (zFar - zNear);
+		Result[3][2] = -(zFar * zNear) / (zFar - zNear);
+#else
+		Result[2][2] = (zFar + zNear) / (zFar - zNear);
+		Result[3][2] = - (static_cast<T>(2) * zFar * zNear) / (zFar - zNear);
+#endif
 		return Result;
 	}
 
@@ -306,9 +421,15 @@ namespace glm
 		tmat4x4<T, defaultp> Result(static_cast<T>(0));
 		Result[0][0] = w;
 		Result[1][1] = h;
-		Result[2][2] = - (zFar + zNear) / (zFar - zNear);
 		Result[2][3] = - static_cast<T>(1);
+
+#ifdef GLM_DEPTH_ZERO_TO_ONE
+		Result[2][2] = zFar / (zNear - zFar);
+		Result[3][2] = -(zFar * zNear) / (zFar - zNear);
+#else
+		Result[2][2] = - (zFar + zNear) / (zFar - zNear);
 		Result[3][2] = - (static_cast<T>(2) * zFar * zNear) / (zFar - zNear);
+#endif
 		return Result;
 	}
 
@@ -333,14 +454,36 @@ namespace glm
 		tmat4x4<T, defaultp> Result(static_cast<T>(0));
 		Result[0][0] = w;
 		Result[1][1] = h;
-		Result[2][2] = (zFar + zNear) / (zFar - zNear);
 		Result[2][3] = static_cast<T>(1);
+
+#ifdef GLM_DEPTH_ZERO_TO_ONE
+		Result[2][2] = zFar / (zFar - zNear);
+		Result[3][2] = -(zFar * zNear) / (zFar - zNear);
+#else
+		Result[2][2] = (zFar + zNear) / (zFar - zNear);
 		Result[3][2] = - (static_cast<T>(2) * zFar * zNear) / (zFar - zNear);
+#endif
+
 		return Result;
 	}
 
 	template <typename T>
 	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> infinitePerspective
+	(
+		T fovy,
+		T aspect,
+		T zNear
+	)
+	{
+#ifdef GLM_LEFT_HANDED
+	return infinitePerspectiveLH(fovy, aspect, zNear);
+#else
+	return infinitePerspectiveRH(fovy, aspect, zNear);
+#endif
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> infinitePerspectiveRH
 	(
 		T fovy,
 		T aspect,
@@ -358,6 +501,29 @@ namespace glm
 		Result[1][1] = (T(2) * zNear) / (top - bottom);
 		Result[2][2] = - T(1);
 		Result[2][3] = - T(1);
+		Result[3][2] = - T(2) * zNear;
+		return Result;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> infinitePerspectiveLH
+	(
+		T fovy,
+		T aspect,
+		T zNear
+	)
+	{
+		T const range = tan(fovy / T(2)) * zNear;
+		T const left = -range * aspect;
+		T const right = range * aspect;
+		T const bottom = -range;
+		T const top = range;
+
+		tmat4x4<T, defaultp> Result(T(0));
+		Result[0][0] = (T(2) * zNear) / (right - left);
+		Result[1][1] = (T(2) * zNear) / (top - bottom);
+		Result[2][2] = T(1);
+		Result[2][3] = T(1);
 		Result[3][2] = - T(2) * zNear;
 		return Result;
 	}
