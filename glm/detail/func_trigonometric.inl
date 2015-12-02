@@ -123,7 +123,7 @@ namespace glm
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> atan(vecType<T, P> const & a, vecType<T, P> const & b)
 	{
-		return detail::functor2<T, P, vecType>::call(atan2, a, b);
+		return detail::functor2<T, P, vecType>::call(::std::atan2, a, b);
 	}
 
 	using std::atan;
