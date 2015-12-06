@@ -274,8 +274,8 @@ namespace glm
 		Result[2][3] = static_cast<T>(1);
 
 #ifdef GLM_DEPTH_ZERO_TO_ONE
-		Result[2][2] = farVal / (zFar - nearVal);
-		Result[3][2] = -(farVal * nearVal) / (zFar - nearVal);
+		Result[2][2] = farVal / (farVal - nearVal);
+		Result[3][2] = -(farVal * nearVal) / (farVal - nearVal);
 #else
 		Result[2][2] = (farVal + nearVal) / (farVal - nearVal);
 		Result[3][2] = - (static_cast<T>(2) * farVal * nearVal) / (farVal - nearVal);
