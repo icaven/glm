@@ -597,7 +597,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T yaw(tquat<T, P> const & q)
 	{
-		return asin(T(-2) * (q.x * q.z - q.w * q.y));
+		return asin(clamp(T(-2) * (q.x * q.z - q.w * q.y), T(-1), T(1)));
 	}
 
 	template <typename T, precision P>
