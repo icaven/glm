@@ -706,7 +706,7 @@ namespace detail
 			frexp(x.w, exp.w));
 	}
 
-	template <typename genType, precision P>
+	template <typename genType>
 	GLM_FUNC_QUALIFIER genType ldexp(genType const & x, int const & exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'ldexp' only accept floating-point inputs");
