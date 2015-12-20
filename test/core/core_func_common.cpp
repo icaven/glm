@@ -1229,15 +1229,6 @@ namespace ldexp_
 			Error += glm::all(glm::epsilonEqual(x, glm::vec4(1024, .24, 0, -1.33),0.00001f)) ? 0 : 1;
 		}
 
-
-		{
-			glm::vec4 x(1024, 0.24, 0, -1.33);
-			glm::ivec4 exp;
-			glm::vec4 A = glm::frexp(x, exp);
-			Error += glm::all(glm::epsilonEqual(A, glm::vec4(0.5, 0.96, 0.0, -0.665), 0.00001f)) ? 0 : 1;
-			Error += glm::all(glm::equal(exp, glm::ivec4(11, -2, 0, 1))) ? 0 : 1;
-		}
-
 		return Error;
 	}
 }//namespace ldexp_
