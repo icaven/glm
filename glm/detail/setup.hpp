@@ -455,13 +455,6 @@
 #endif//GLM_ARCH
 #if GLM_ARCH & GLM_ARCH_SSE2
 #	include <emmintrin.h>
-#	if(GLM_COMPILER == GLM_COMPILER_VC2005) // VC2005 is missing some intrinsics, workaround
-		inline float _mm_cvtss_f32(__m128 A) { return A.m128_f32[0]; }
-		inline __m128 _mm_castpd_ps(__m128d PD) { union { __m128 ps; __m128d pd; } c; c.pd = PD; return c.ps; }
-		inline __m128d _mm_castps_pd(__m128 PS) { union { __m128 ps; __m128d pd; } c; c.ps = PS; return c.pd; }
-		inline __m128i _mm_castps_si128(__m128 PS) { union { __m128 ps; __m128i pi; } c; c.ps = PS; return c.pi; }
-		inline __m128 _mm_castsi128_ps(__m128i PI) { union { __m128 ps; __m128i pi; } c; c.pi = PI; return c.ps; }
-#	endif
 #endif//GLM_ARCH
 
 #if defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_ARCH_DISPLAYED)
