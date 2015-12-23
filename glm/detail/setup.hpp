@@ -395,13 +395,13 @@
 #elif defined(GLM_FORCE_SSE2)
 #	define GLM_ARCH (GLM_ARCH_SSE2)
 #elif (GLM_COMPILER & (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM | GLM_COMPILER_GCC)) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_LINUX))
-#	if(__AVX2__)
+#	if defined(__AVX2__)
 #		define GLM_ARCH (GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
-#	elif(__AVX__)
+#	elif defined(__AVX__)
 #		define GLM_ARCH (GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
-#	elif(__SSE3__)
+#	elif defined(__SSE3__)
 #		define GLM_ARCH (GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
-#	elif(__SSE2__)
+#	elif defined(__SSE2__)
 #		define GLM_ARCH (GLM_ARCH_SSE2)
 #	else
 #		define GLM_ARCH GLM_ARCH_PURE
@@ -1001,7 +1001,7 @@ namespace detail
 		}
 	}//namespace glm
 #	define GLM_COUNTOF(arr) glm::countof(arr)
-#elif _MSC_VER
+#elif defined(_MSC_VER)
 #	define GLM_COUNTOF(arr) _countof(arr)
 #else
 #	define GLM_COUNTOF(arr) sizeof(arr) / sizeof(arr[0])
