@@ -662,7 +662,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'frexp' only accept floating-point inputs");
 
-		return std::frexp(x, exp);
+		return std::frexp(x, &exp);
 	}
 
 	template <typename T, precision P>
@@ -670,7 +670,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'frexp' only accept floating-point inputs");
 
-		return tvec1<T, P>(std::frexp(x.x, exp.x));
+		return tvec1<T, P>(std::frexp(x.x, &exp.x));
 	}
 
 	template <typename T, precision P>

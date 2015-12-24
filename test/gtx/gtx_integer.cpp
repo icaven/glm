@@ -63,10 +63,10 @@ int test_log2()
 		Error += glm::abs(double(A) - B) <= 24 ? 0 : 1;
 		assert(!Error);
 
-		printf("Log2(%d) Error: %d, %d\n", 1 << i, A, B);
+		printf("Log2(%d) error A=%d, B=%d\n", 1 << i, A, B);
 	}
 
-	printf("log2 error: %d\n", Error);
+	printf("log2 error=%d\n", Error);
 
 	return Error;
 }
