@@ -1195,6 +1195,44 @@ namespace frexp_
 	}
 }//namespace frexp_
 
+namespace ldexp_
+{
+	int test()
+	{
+		int Error(0);
+
+		{
+			glm::vec1 A = glm::vec1(0.5);
+			glm::ivec1 exp = glm::ivec1(11);
+			glm::vec1 x = glm::ldexp(A, exp);
+			Error += glm::all(glm::epsilonEqual(x, glm::vec1(1024),0.00001f)) ? 0 : 1;
+		}
+
+		{
+			glm::vec2 A = glm::vec2(0.5, 0.96);
+			glm::ivec2 exp = glm::ivec2(11, -2);
+			glm::vec2 x = glm::ldexp(A, exp);
+			Error += glm::all(glm::epsilonEqual(x, glm::vec2(1024, .24),0.00001f)) ? 0 : 1;
+		}
+
+		{
+			glm::vec3 A = glm::vec3(0.5, 0.96, 0.0);
+			glm::ivec3 exp = glm::ivec3(11, -2, 0);
+			glm::vec3 x = glm::ldexp(A, exp);
+			Error += glm::all(glm::epsilonEqual(x, glm::vec3(1024, .24, 0),0.00001f)) ? 0 : 1;
+		}
+
+		{
+			glm::vec4 A = glm::vec4(0.5, 0.96, 0.0, -0.665);
+			glm::ivec4 exp = glm::ivec4(11, -2, 0, 1);
+			glm::vec4 x = glm::ldexp(A, exp);
+			Error += glm::all(glm::epsilonEqual(x, glm::vec4(1024, .24, 0, -1.33),0.00001f)) ? 0 : 1;
+		}
+
+		return Error;
+	}
+}//namespace ldexp_
+
 int main()
 {
 	int Error(0);
@@ -1214,6 +1252,7 @@ int main()
 	Error += isnan_::test();
 	Error += isinf_::test();
 	Error += frexp_::test();
+	Error += ldexp_::test();
 
 #	ifdef NDEBUG
 		std::size_t Samples = 1000;
