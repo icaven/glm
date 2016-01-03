@@ -577,29 +577,20 @@
 #		endif
 #	elif GLM_COMPILER & GLM_COMPILER_INTEL
 #		ifdef _MSC_EXTENSIONS
-#			if __cplusplus >= 201402L
-#				define GLM_LANG (GLM_LANG_CXX14 | GLM_LANG_CXXMS_FLAG)
-#			elif __cplusplus >= 201103L
-#				define GLM_LANG (GLM_LANG_CXX11 | GLM_LANG_CXXMS_FLAG)
-#			elif GLM_COMPILER >= GLM_COMPILER_INTEL13
-#				define GLM_LANG (GLM_LANG_CXX0X | GLM_LANG_CXXMS_FLAG)
-#			elif __cplusplus >= 199711L
-#				define GLM_LANG (GLM_LANG_CXX98 | GLM_LANG_CXXMS_FLAG)
-#			else
-#				define GLM_LANG (GLM_LANG_CXX | GLM_LANG_CXXMS_FLAG)
-#			endif
+#			define GLM_MSC_EXT GLM_LANG_CXXMS_FLAG
 #		else
-#			if __cplusplus >= 201402L
-#				define GLM_LANG (GLM_LANG_CXX14 | GLM_LANG_CXXMS_FLAG)
-#			elif __cplusplus >= 201103L
-#				define GLM_LANG (GLM_LANG_CXX11 | GLM_LANG_CXXMS_FLAG)
-#			elif GLM_COMPILER >= GLM_COMPILER_INTEL13
-#				define GLM_LANG (GLM_LANG_CXX0X | GLM_LANG_CXXMS_FLAG)
-#			elif __cplusplus >= 199711L
-#				define GLM_LANG (GLM_LANG_CXX98 | GLM_LANG_CXXMS_FLAG)
-#			else
-#				define GLM_LANG (GLM_LANG_CXX | GLM_LANG_CXXMS_FLAG)
-#			endif
+#			define GLM_MSC_EXT 0
+#		endif
+#		if __cplusplus >= 201402L
+#			define GLM_LANG (GLM_LANG_CXX14 | GLM_MSC_EXT)
+#		elif __cplusplus >= 201103L
+#			define GLM_LANG (GLM_LANG_CXX11 | GLM_MSC_EXT)
+#		elif __INTEL_CXX11_MODE__
+#			define GLM_LANG (GLM_LANG_CXX0X | GLM_MSC_EXT)
+#		elif __cplusplus >= 199711L
+#			define GLM_LANG (GLM_LANG_CXX98 | GLM_MSC_EXT)
+#		else
+#			define GLM_LANG (GLM_LANG_CXX | GLM_MSC_EXT)
 #		endif
 #	else // Unkown compiler
 #		if __cplusplus >= 201402L
