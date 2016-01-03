@@ -575,7 +575,7 @@
 #			define GLM_MSC_EXT GLM_LANG_CXXMS_FLAG
 #		else
 #			define GLM_MSC_EXT 0
-#		endif 
+#		endif
 #		if __cplusplus >= 201402L
 #			define GLM_LANG (GLM_LANG_CXX14 | GLM_MSC_EXT)
 #		elif __cplusplus >= 201103L
