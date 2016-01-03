@@ -548,14 +548,16 @@ namespace detail
 
 #			if GLM_HAS_CXX11_STL
 				return std::isnan(x);
-#			elif GLM_COMPILER & (GLM_COMPILER_VC | GLM_COMPILER_INTEL)
+#			elif GLM_COMPILER & GLM_COMPILER_VC
 				return _isnan(x) != 0;
-#			elif GLM_COMPILER & (GLM_COMPILER_GCC | (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))
-#				if GLM_PLATFORM & GLM_PLATFORM_ANDROID && __cplusplus < 201103L
+#			elif GLM_COMPILER & GLM_COMPILER_INTEL
+#				if GLM_PLATFORM & GLM_PLATFORM_WINDOWS
 					return _isnan(x) != 0;
 #				else
-					return std::isnan(x);
+					return ::isnan(x) != 0;
 #				endif
+#			elif (GLM_COMPILER & (GLM_COMPILER_GCC | (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))) && (GLM_PLATFORM & GLM_PLATFORM_ANDROID) && __cplusplus < 201103L
+				return _isnan(x) != 0;
 #			elif GLM_COMPILER & GLM_COMPILER_CUDA
 				return isnan(x) != 0;
 #			else
@@ -583,7 +585,11 @@ namespace detail
 #			if GLM_HAS_CXX11_STL
 				return std::isinf(x);
 #			elif GLM_COMPILER & (GLM_COMPILER_INTEL | GLM_COMPILER_VC)
-				return _fpclass(x) == _FPCLASS_NINF || _fpclass(x) == _FPCLASS_PINF;
+#				if(GLM_PLATFORM & GLM_PLATFORM_WINDOWS)
+					return _fpclass(x) == _FPCLASS_NINF || _fpclass(x) == _FPCLASS_PINF;
+#				else
+					return ::isinf(x);
+#				endif
 #			elif GLM_COMPILER & (GLM_COMPILER_GCC | (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))
 #				if(GLM_PLATFORM & GLM_PLATFORM_ANDROID && __cplusplus < 201103L)
 					return _isinf(x) != 0;
