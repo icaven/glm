@@ -42,11 +42,11 @@
 #define GLM_VERSION_MAJOR			0
 #define GLM_VERSION_MINOR			9
 #define GLM_VERSION_PATCH			7
-#define GLM_VERSION_REVISION		2
+#define GLM_VERSION_REVISION		3
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_VERSION_DISPLAYED))
 #	define GLM_MESSAGE_VERSION_DISPLAYED
-#	pragma message ("GLM: version 0.9.7.2")
+#	pragma message ("GLM: version 0.9.7.3")
 #endif//GLM_MESSAGE
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -313,7 +313,7 @@
 #		define GLM_COMPILER (GLM_COMPILER_GCC52)
 #	elif (__GNUC__ == 5) && (__GNUC_MINOR__ >= 3)
 #		define GLM_COMPILER (GLM_COMPILER_GCC53)
-#	elif (__GNUC__ == 6) && (__GNUC_MINOR__ >= 0)
+#	elif (__GNUC__ >= 6)
 #		define GLM_COMPILER (GLM_COMPILER_GCC60)
 #	else
 #		define GLM_COMPILER (GLM_COMPILER_GCC)
