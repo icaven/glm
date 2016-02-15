@@ -202,7 +202,7 @@
 #		define GLM_COMPILER GLM_COMPILER_INTEL13
 #	elif __INTEL_COMPILER == 1400
 #		define GLM_COMPILER GLM_COMPILER_INTEL14
-#	elif __INTEL_COMPILER >= 1500
+#	elif __INTEL_COMPILER == 1500
 #		define GLM_COMPILER GLM_COMPILER_INTEL15
 #	elif __INTEL_COMPILER >= 1600
 #		define GLM_COMPILER GLM_COMPILER_INTEL16
@@ -313,7 +313,11 @@
 #		define GLM_COMPILER (GLM_COMPILER_GCC52)
 #	elif (__GNUC__ == 5) && (__GNUC_MINOR__ >= 3)
 #		define GLM_COMPILER (GLM_COMPILER_GCC53)
+<<<<<<< HEAD
 #	elif (__GNUC__ == 6) && (__GNUC_MINOR__ >= 0)
+=======
+#	elif (__GNUC__ >= 6)
+>>>>>>> 0.9.7
 #		define GLM_COMPILER (GLM_COMPILER_GCC60)
 #	else
 #		define GLM_COMPILER (GLM_COMPILER_GCC)
@@ -374,7 +378,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 // Platform
 
-// User defines: GLM_FORCE_PURE GLM_FORCE_SSE2 GLM_FORCE_SSE3 GLM_FORCE_AVX GLM_FORCE_AVX2
+// User defines: GLM_FORCE_PURE GLM_FORCE_SSE2 GLM_FORCE_SSE3 GLM_FORCE_AVX GLM_FORCE_AVX2 GLM_FORCE_AVX2
 
 #define GLM_ARCH_PURE		0x0000
 #define GLM_ARCH_ARM		0x0001
@@ -384,9 +388,12 @@
 #define GLM_ARCH_SSE4		0x0010
 #define GLM_ARCH_AVX		0x0020
 #define GLM_ARCH_AVX2		0x0040
+#define GLM_ARCH_AVX512		0x0080 // Skylake set
 
 #if defined(GLM_FORCE_PURE)
 #	define GLM_ARCH GLM_ARCH_PURE
+#elif defined(GLM_FORCE_AVX512)
+#	define GLM_ARCH (GLM_ARCH_AVX512 | GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #elif defined(GLM_FORCE_AVX2)
 #	define GLM_ARCH (GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #elif defined(GLM_FORCE_AVX)
@@ -398,7 +405,10 @@
 #elif defined(GLM_FORCE_SSE2)
 #	define GLM_ARCH (GLM_ARCH_SSE2)
 #elif (GLM_COMPILER & (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM | GLM_COMPILER_GCC)) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_LINUX))
-#	if defined(__AVX2__)
+//	This is Skylake set of instruction set
+#	if defined(__AVX512BW__) && defined(__AVX512F__) && defined(__AVX512CD__) && defined(__AVX512VL__) && defined(__AVX512DQ__)
+#		define GLM_ARCH (GLM_ARCH_AVX512 | GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
+#	elif defined(__AVX2__)
 #		define GLM_ARCH (GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #	elif defined(__AVX__)
 #		define GLM_ARCH (GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
