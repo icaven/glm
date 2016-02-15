@@ -52,6 +52,9 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 ## Release notes
 
 #### [GLM 0.9.7.3](https://github.com/g-truc/glm/tree/0.9.7) - 2016-XX-XX
+##### Improvements:
+- Added AVX512 detection
+
 ##### Fixes:
 - Fixed CMake policy warning
 - Fixed GCC 6.0 detection
