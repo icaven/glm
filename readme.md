@@ -51,6 +51,10 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 ## Release notes
 
+#### [GLM 0.9.7.4](https://github.com/g-truc/glm/tree/0.9.7) - 2016-XX-XX
+##### Fixes:
+- Fixed asinh warning with C++98 STL #484
+
 #### [GLM 0.9.7.3](https://github.com/g-truc/glm/releases/tag/0.9.7.3) - 2016-02-21
 ##### Improvements:
 - Added AVX512 detection
