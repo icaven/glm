@@ -313,11 +313,7 @@
 #		define GLM_COMPILER (GLM_COMPILER_GCC52)
 #	elif (__GNUC__ == 5) && (__GNUC_MINOR__ >= 3)
 #		define GLM_COMPILER (GLM_COMPILER_GCC53)
-<<<<<<< HEAD
-#	elif (__GNUC__ == 6) && (__GNUC_MINOR__ >= 0)
-=======
 #	elif (__GNUC__ >= 6)
->>>>>>> 0.9.7
 #		define GLM_COMPILER (GLM_COMPILER_GCC60)
 #	else
 #		define GLM_COMPILER (GLM_COMPILER_GCC)
