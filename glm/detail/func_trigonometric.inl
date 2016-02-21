@@ -210,7 +210,7 @@ namespace glm
 		{
 			GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'atanh' only accept floating-point input");
 		
-			if(abs(x) >= static_cast<genType>(1))
+			if(std::abs(x) >= static_cast<genType>(1))
 				return 0;
 			return static_cast<genType>(0.5) * log((static_cast<genType>(1) + x) / (static_cast<genType>(1) - x));
 		}
