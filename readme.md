@@ -425,7 +425,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed isnan and isinf for CUDA compiler
 - Fixed GLM_FORCE_RADIANS on glm::perspective
 - Fixed GCC warnings
-- Fixed packDouble2x32 on XCode
+- Fixed packDouble2x32 on Xcode
 - Fixed mix for vec4 SSE implementation
 - Fixed 0x2013 dash character in comments that cause issue in Windows 
   Japanese mode
