@@ -500,7 +500,7 @@ namespace glm
 	}
 
 	template <typename T, precision P> 
-	GLM_FUNC_QUALIFIER tmat2x4<T, P> operator/(tmat2x4<T, P> const & m, T s)
+	GLM_FUNC_QUALIFIER tmat2x4<T, P> operator/(tmat2x4<T, P> const & m, const T& s)
 	{
 		return tmat2x4<T, P>(
 			m[0] / s,
