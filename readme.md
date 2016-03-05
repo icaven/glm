@@ -56,6 +56,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed asinh and atanh warning with C++98 STL #484
 - Fixed polar coordinates function latitude #485
 - Fixed outerProduct defintions and operator signatures for mat2x4 and vec4 #475
+- Fixed eulerAngles precision error, returns NaN  #451
 
 #### [GLM 0.9.7.3](https://github.com/g-truc/glm/releases/tag/0.9.7.3) - 2016-02-21
 ##### Improvements:
