@@ -64,6 +64,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 ##### Improvements:
 - Improved GTC_random linearRand documentation
 - Improved GTC_reciprocal documentation
+- Improved GLM_FORCE_EXPLICIT_CTOR coverage #481
 
 ##### Fixes:
 - Fixed GTX_extended_min_max filename typo #386
