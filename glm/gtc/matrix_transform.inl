@@ -578,7 +578,12 @@ namespace glm
 		tmp = proj * tmp;
 
 		tmp /= tmp.w;
+#ifdef GLM_DEPTH_ZERO_TO_ONE
+		tmp.x = tmp.x * T(0.5) + T(0.5);
+		tmp.y = tmp.y * T(0.5) + T(0.5);
+#else
 		tmp = tmp * T(0.5) + T(0.5);
+#endif
 		tmp[0] = tmp[0] * T(viewport[2]) + T(viewport[0]);
 		tmp[1] = tmp[1] * T(viewport[3]) + T(viewport[1]);
 
@@ -599,7 +604,12 @@ namespace glm
 		tvec4<T, P> tmp = tvec4<T, P>(win, T(1));
 		tmp.x = (tmp.x - T(viewport[0])) / T(viewport[2]);
 		tmp.y = (tmp.y - T(viewport[1])) / T(viewport[3]);
+#ifdef GLM_DEPTH_ZERO_TO_ONE
+		tmp.x = tmp.x * T(2) - T(1);
+		tmp.y = tmp.y * T(2) - T(1);
+#else
 		tmp = tmp * T(2) - T(1);
+#endif
 
 		tvec4<T, P> obj = Inverse * tmp;
 		obj /= obj.w;
