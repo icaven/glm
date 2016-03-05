@@ -70,6 +70,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed GTX_extended_min_max filename typo #386
 - Fixed intersectRayTriangle to not do any unintentional backface culling
 - Fixed long long warnings when using C++98 on GCC and Clang #482
+- Fixed outerProduct defintions and operator signatures for mat2x4 and vec4 #475
 
 #### [GLM 0.9.7.4](https://github.com/g-truc/glm/tree/0.9.7) - 2016-XX-XX
 ##### Fixes:
