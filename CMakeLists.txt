@@ -53,6 +53,12 @@ if(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang") OR ("${CMAKE_CXX_COMPILER_ID}" 
 		set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++98")
 		set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libc++")
 		set(CMAKE_CXX_FLAGS "-std=c++98")
+		if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU"))
+			# GLM is using GCC 64 bits integer extension
+			add_definitions(-Wno-long-long)
+		elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+			add_definitions(-Wno-c++11-long-long)
+		endif()
 	endif()
 endif()
 
