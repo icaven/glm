@@ -155,7 +155,7 @@ namespace glm
 		T zNear, T zFar
 	)
 	{
-#		ifdef GLM_LEFT_HANDED
+#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
 			return orthoLH(left, right, bottom, top, zNear, zFar);
 #		else
 			return orthoRH(left, right, bottom, top, zNear, zFar);
@@ -176,7 +176,7 @@ namespace glm
 		Result[3][0] = - (right + left) / (right - left);
 		Result[3][1] = - (top + bottom) / (top - bottom);
 
-#		ifdef GLM_DEPTH_ZERO_TO_ONE
+#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
 			Result[2][2] = static_cast<T>(1) / (zFar - zNear);
 			Result[3][2] = - zNear / (zFar - zNear);
 #		else
@@ -201,7 +201,7 @@ namespace glm
 		Result[3][0] = - (right + left) / (right - left);
 		Result[3][1] = - (top + bottom) / (top - bottom);
 
-#		ifdef GLM_DEPTH_ZERO_TO_ONE
+#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
 			Result[2][2] = - static_cast<T>(1) / (zFar - zNear);
 			Result[3][2] = - zNear / (zFar - zNear);
 #		else
@@ -236,7 +236,7 @@ namespace glm
 		T nearVal, T farVal
 	)
 	{
-#		ifdef GLM_LEFT_HANDED
+#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
 			return frustumLH(left, right, bottom, top, nearVal, farVal);
 #		else
 			return frustumRH(left, right, bottom, top, nearVal, farVal);
@@ -258,7 +258,7 @@ namespace glm
 		Result[2][1] = (top + bottom) / (top - bottom);
 		Result[2][3] = static_cast<T>(1);
 
-#		ifdef GLM_DEPTH_ZERO_TO_ONE
+#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
 			Result[2][2] = farVal / (farVal - nearVal);
 			Result[3][2] = -(farVal * nearVal) / (farVal - nearVal);
 #		else
@@ -284,7 +284,7 @@ namespace glm
 		Result[2][1] = (top + bottom) / (top - bottom);
 		Result[2][3] = static_cast<T>(-1);
 
-#		ifdef GLM_DEPTH_ZERO_TO_ONE
+#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
 			Result[2][2] = farVal / (nearVal - farVal);
 			Result[3][2] = -(farVal * nearVal) / (farVal - nearVal);
 #		else
@@ -304,7 +304,7 @@ namespace glm
 		T zFar
 	)
 	{
-#		ifdef GLM_LEFT_HANDED
+#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
 			return perspectiveLH(fovy, aspect, zNear, zFar);
 #		else
 			return perspectiveRH(fovy, aspect, zNear, zFar);
@@ -328,7 +328,7 @@ namespace glm
 		Result[1][1] = static_cast<T>(1) / (tanHalfFovy);
 		Result[2][3] = - static_cast<T>(1);
 
-#		ifdef GLM_DEPTH_ZERO_TO_ONE
+#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
 			Result[2][2] = zFar / (zNear - zFar);
 			Result[3][2] = -(zFar * zNear) / (zFar - zNear);
 #		else
@@ -356,7 +356,7 @@ namespace glm
 		Result[1][1] = static_cast<T>(1) / (tanHalfFovy);
 		Result[2][3] = static_cast<T>(1);
 
-#		ifdef GLM_DEPTH_ZERO_TO_ONE
+#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
 			Result[2][2] = zFar / (zFar - zNear);
 			Result[3][2] = -(zFar * zNear) / (zFar - zNear);
 #		else
@@ -375,7 +375,7 @@ namespace glm
 		T zNear, T zFar
 	)
 	{
-#		ifdef GLM_LEFT_HANDED
+#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
 			return perspectiveFovLH(fov, width, height, zNear, zFar);
 #		else
 			return perspectiveFovRH(fov, width, height, zNear, zFar);
@@ -403,7 +403,7 @@ namespace glm
 		Result[1][1] = h;
 		Result[2][3] = - static_cast<T>(1);
 
-#		ifdef GLM_DEPTH_ZERO_TO_ONE
+#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
 			Result[2][2] = zFar / (zNear - zFar);
 			Result[3][2] = -(zFar * zNear) / (zFar - zNear);
 #		else
@@ -435,7 +435,7 @@ namespace glm
 		Result[1][1] = h;
 		Result[2][3] = static_cast<T>(1);
 
-#		ifdef GLM_DEPTH_ZERO_TO_ONE
+#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
 			Result[2][2] = zFar / (zFar - zNear);
 			Result[3][2] = -(zFar * zNear) / (zFar - zNear);
 #		else
@@ -454,7 +454,7 @@ namespace glm
 		T zNear
 	)
 	{
-#		ifdef GLM_LEFT_HANDED
+#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
 			return infinitePerspectiveLH(fovy, aspect, zNear);
 #		else
 			return infinitePerspectiveRH(fovy, aspect, zNear);
@@ -557,7 +557,7 @@ namespace glm
 		tmp = proj * tmp;
 
 		tmp /= tmp.w;
-#		ifdef GLM_DEPTH_ZERO_TO_ONE
+#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
 			tmp.x = tmp.x * T(0.5) + T(0.5);
 			tmp.y = tmp.y * T(0.5) + T(0.5);
 #		else
@@ -583,7 +583,7 @@ namespace glm
 		tvec4<T, P> tmp = tvec4<T, P>(win, T(1));
 		tmp.x = (tmp.x - T(viewport[0])) / T(viewport[2]);
 		tmp.y = (tmp.y - T(viewport[1])) / T(viewport[3]);
-#		ifdef GLM_DEPTH_ZERO_TO_ONE
+#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
 			tmp.x = tmp.x * T(2) - T(1);
 			tmp.y = tmp.y * T(2) - T(1);
 #		else
@@ -628,7 +628,7 @@ namespace glm
 		tvec3<T, P> const & up
 	)
 	{
-#		ifdef GLM_LEFT_HANDED
+#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
 			return lookAtLH(eye, center, up);
 #		else
 			return lookAtRH(eye, center, up);

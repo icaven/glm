@@ -893,6 +893,39 @@
 #endif//GLM_MESSAGE
 
 ///////////////////////////////////////////////////////////////////////////////////
+// Clip control
+
+#ifdef GLM_DEPTH_ZERO_TO_ONE // Legacy 0.9.8 development
+#	error Define GLM_FORECE_DEPTH_ZERO_TO_ONE instead of GLM_DEPTH_ZERO_TO_ONE to use 0 to 1 clip space.
+#endif
+
+#define GLM_DEPTH_ZERO_TO_ONE				0x00000001
+#define GLM_DEPTH_NEGATIVE_ONE_TO_ONE		0x00000002
+
+#ifdef GLM_FORCE_DEPTH_ZERO_TO_ONE
+#	define GLM_DEPTH_CLIP_SPACE GLM_DEPTH_ZERO_TO_ONE
+#else
+#	define GLM_DEPTH_CLIP_SPACE GLM_DEPTH_NEGATIVE_ONE_TO_ONE
+#endif
+
+///////////////////////////////////////////////////////////////////////////////////
+// Coordinate system, define GLM_FORCE_LEFT_HANDED before including GLM
+// to use left handed coordinate system by default.
+
+#ifdef GLM_LEFT_HANDED // Legacy 0.9.8 development
+#	error Define GLM_FORCE_LEFT_HANDED instead of GLM_LEFT_HANDED left handed coordinate system by default.
+#endif
+
+#define GLM_LEFT_HANDED				0x00000001	// For DirectX, Metal, Vulkan
+#define GLM_RIGHT_HANDED			0x00000002	// For OpenGL, default in GLM
+
+#ifdef GLM_FORCE_LEFT_HANDED
+#	define GLM_COORDINATE_SYSTEM GLM_LEFT_HANDED
+#else
+#	define GLM_COORDINATE_SYSTEM GLM_RIGHT_HANDED
+#endif 
+
+///////////////////////////////////////////////////////////////////////////////////
 // Qualifiers
 
 #if (GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS))
