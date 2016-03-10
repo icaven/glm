@@ -210,6 +210,24 @@ namespace log2_
 	}
 }//namespace log2_
 
+namespace iround
+{
+	int test()
+	{
+		int Error = 0;
+
+		for(float f = 0.0f; f < 3.1f; f += 0.05f)
+		{
+			int RoundFast = glm::iround(f);
+			int RoundSTD = glm::round(f);
+			Error += RoundFast == RoundSTD ? 0 : 1;
+			assert(!Error);
+		}
+
+		return Error;
+	}
+}//namespace iround
+
 namespace uround
 {
 	int test()
@@ -233,6 +251,7 @@ int main()
 	int Error(0);
 
 	Error += ::log2_::test();
+	Error += ::iround::test();
 	Error += ::uround::test();
 
 #	ifdef NDEBUG

@@ -110,6 +110,19 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/round.xml">GLSL round man page</a>
 	/// @see gtc_integer
 	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<int, P> iround(vecType<T, P> const & x);
+
+	/// Returns a value equal to the nearest integer to x.
+	/// The fraction 0.5 will round in a direction chosen by the
+	/// implementation, presumably the direction that is fastest.
+	/// 
+	/// @param x The values of the argument must be greater or equal to zero.
+	/// @tparam T floating point scalar types.
+	/// @tparam vecType vector types.
+	/// 
+	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/round.xml">GLSL round man page</a>
+	/// @see gtc_integer
+	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_DECL vecType<uint, P> uround(vecType<T, P> const & x);
 
 	/// @}

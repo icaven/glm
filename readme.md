@@ -61,7 +61,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added 16bit pack and unpack to GTC_packing
 - Added 8bit pack and unpack to GTC_packing
 - Added missing bvec* && and || operators
-- Added uround to GTC_integer, fast round on positive values
+- Added iround and uround to GTC_integer, fast round on positive values
 
 ##### Improvements:
 - Improved GTC_random linearRand documentation
