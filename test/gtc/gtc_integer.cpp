@@ -219,7 +219,7 @@ namespace uround
 		for(float f = 0.0f; f < 3.1f; f += 0.05f)
 		{
 			int RoundFast = glm::uround(f);
-			int RoundSTD = std::round(f);
+			int RoundSTD = glm::round(f);
 			Error += RoundFast == RoundSTD ? 0 : 1;
 			assert(!Error);
 		}
