@@ -599,7 +599,7 @@ namespace round_
 	int test()
 	{
 		int Error = 0;
-	
+
 		{
 			float A = glm::round(0.0f);
 			Error += A == 0.0f ? 0 : 1;

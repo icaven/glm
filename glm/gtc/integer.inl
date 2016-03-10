@@ -62,4 +62,22 @@ namespace detail
 		};
 #	endif//GLM_HAS_BITSCAN_WINDOWS
 }//namespace detail
+
+	template <typename genType>
+	GLM_FUNC_QUALIFIER uint uround(genType x)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'round' only accept floating-point inputs");
+		assert(static_cast<genType>(0.0) <= x);
+
+		return static_cast<uint>(x + static_cast<genType>(0.5));
+	}
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<uint, P> uround(vecType<T, P> const& x)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'uround' only accept floating-point inputs");
+		assert(all(lessThanEqual(vecType<T, P>(0), x)));
+
+		return vecType<uint, P>(x + static_cast<T>(0.5));
+	}
 }//namespace glm
