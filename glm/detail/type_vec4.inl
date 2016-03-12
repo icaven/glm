@@ -740,6 +740,16 @@ namespace glm
 	}
 
 	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec4<T, P> operator+(tvec4<T, P> const & v1, tvec1<T, P> const & v2)
+	{
+		return tvec4<T, P>(
+			v1.x + v2.x,
+			v1.y + v2.x,
+			v1.z + v2.x,
+			v1.w + v2.x);
+	}
+
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator+(T scalar, tvec4<T, P> const & v)
 	{
 		return tvec4<T, P>(
@@ -747,6 +757,16 @@ namespace glm
 			scalar + v.y,
 			scalar + v.z,
 			scalar + v.w);
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec4<T, P> operator+(tvec1<T, P> const & v1, tvec4<T, P> const & v2)
+	{
+		return tvec4<T, P>(
+			v1.x + v2.x,
+			v1.x + v2.y,
+			v1.x + v2.z,
+			v1.x + v2.w);
 	}
 
 	template <typename T, precision P>
@@ -770,6 +790,16 @@ namespace glm
 	}
 
 	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec4<T, P> operator-(tvec4<T, P> const & v1, tvec1<T, P> const & v2)
+	{
+		return tvec4<T, P>(
+			v1.x - v2.x,
+			v1.y - v2.x,
+			v1.z - v2.x,
+			v1.w - v2.x);
+	}
+
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator-(T scalar, tvec4<T, P> const & v)
 	{
 		return tvec4<T, P>(
@@ -777,6 +807,16 @@ namespace glm
 			scalar - v.y,
 			scalar - v.z,
 			scalar - v.w);
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_DECL tvec4<T, P> operator-(tvec1<T, P> const & v1, tvec4<T, P> const & v2)
+	{
+		return tvec4<T, P>(
+			v1.x - v2.x,
+			v1.x - v2.y,
+			v1.x - v2.z,
+			v1.x - v2.w);
 	}
 
 	template <typename T, precision P>
@@ -800,6 +840,16 @@ namespace glm
 	}
 
 	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec4<T, P> operator*(tvec4<T, P> const & v1, tvec1<T, P> const & v2)
+	{
+		return tvec4<T, P>(
+			v1.x * v2.x,
+			v1.y * v2.x,
+			v1.z * v2.x,
+			v1.w * v2.x);
+	}
+
+	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator*(T scalar, tvec4<T, P> const & v)
 	{
 		return tvec4<T, P>(
@@ -807,6 +857,16 @@ namespace glm
 			scalar * v.y,
 			scalar * v.z,
 			scalar * v.w);
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_DECL tvec4<T, P> operator*(tvec1<T, P> const & v1, tvec4<T, P> const & v2)
+	{
+		return tvec4<T, P>(
+			v1.x * v2.x,
+			v1.x * v2.y,
+			v1.x * v2.z,
+			v1.x * v2.w);
 	}
 
 	template <typename T, precision P>
