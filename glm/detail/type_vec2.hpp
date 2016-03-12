@@ -299,9 +299,6 @@ namespace glm
 	GLM_FUNC_DECL tvec2<T, P> operator/(tvec2<T, P> const & v1, tvec2<T, P> const & v2);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec2<T, P> operator-(tvec2<T, P> const & v);
-
-	template <typename T, precision P>
 	GLM_FUNC_DECL tvec2<T, P> operator%(tvec2<T, P> const & v, T const & scalar);
 
 	template <typename T, precision P>
