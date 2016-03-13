@@ -49,11 +49,6 @@ namespace glm
 		typedef tmat3x3<T, P> transpose_type;
 		typedef T value_type;
 
-		template <typename U, precision Q>
-		friend tvec3<U, Q> operator/(tmat3x3<U, Q> const & m, tvec3<U, Q> const & v);
-		template <typename U, precision Q>
-		friend tvec3<U, Q> operator/(tvec3<U, Q> const & v, tmat3x3<U, Q> const & m);
-
 	private:
 		col_type value[3];
 
