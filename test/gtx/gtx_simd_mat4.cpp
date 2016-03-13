@@ -29,7 +29,6 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_STATIC_CONST_MEMBERS
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/quaternion.hpp>
@@ -265,15 +264,6 @@ int test_static_const() {
 int main()
 {
 	int Error = 0;
-
-#ifdef GLM_META_PROG_HELPERS
-		assert(glm::simdMat4::rows == glm::simdMat4::row_type::components);
-		assert(glm::simdMat4::cols == glm::simdMat4::col_type::components);
-
-		assert(glm::simdMat4::components == glm::simdMat4::pure_type::components);
-		assert(glm::simdMat4::rows == glm::simdMat4::pure_row_type::components);
-		assert(glm::simdMat4::cols == glm::simdMat4::pure_col_type::components);
-#endif
 
 	std::vector<glm::mat4> Data(64 * 64 * 1);
 	for(std::size_t i = 0; i < Data.size(); ++i)

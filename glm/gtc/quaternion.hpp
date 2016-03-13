@@ -67,52 +67,18 @@ namespace glm
 		typedef tquat<T, P> type;
 		typedef T value_type;
 
-#		ifdef GLM_META_PROG_HELPERS
-			static GLM_RELAXED_CONSTEXPR length_t components = 4;
-			static GLM_RELAXED_CONSTEXPR precision prec = P;
-#		endif//GLM_META_PROG_HELPERS
-
 		// -- Data --
 
 		T x, y, z, w;
 
-#		ifdef GLM_STATIC_CONST_MEMBERS
-		static const type ZERO;
-		static const type IDENTITY;
-		static const type X;
-		static const type Y;
-		static const type Z;
-		static const type W;
-		static const type XY;
-		static const type XZ;
-		static const type XW;
-		static const type YZ;
-		static const type YW;
-		static const type ZW;
-		static const type XYZ;
-		static const type XYW;
-		static const type XZW;
-		static const type YZW;
-		static const type XYZW;
-#		endif
-
 		// -- Component accesses --
 
-#		ifdef GLM_FORCE_SIZE_FUNC
-			typedef size_t size_type;
-			/// Return the count of components of a quaternion
-			GLM_FUNC_DECL GLM_CONSTEXPR size_type size() const;
+		typedef length_t length_type;
+		/// Return the count of components of a quaternion
+		GLM_FUNC_DECL GLM_CONSTEXPR length_type length() const;
 
-			GLM_FUNC_DECL T & operator[](size_type i);
-			GLM_FUNC_DECL T const & operator[](size_type i) const;
-#		else
-			typedef length_t length_type;
-			/// Return the count of components of a quaternion
-			GLM_FUNC_DECL GLM_CONSTEXPR length_type length() const;
-
-			GLM_FUNC_DECL T & operator[](length_type i);
-			GLM_FUNC_DECL T const & operator[](length_type i) const;
-#		endif//GLM_FORCE_SIZE_FUNC
+		GLM_FUNC_DECL T & operator[](length_type i);
+		GLM_FUNC_DECL T const & operator[](length_type i) const;
 
 		// -- Implicit basic constructors --
 
@@ -397,16 +363,6 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_DECL tvec4<bool, P> notEqual(tquat<T, P> const & x, tquat<T, P> const & y);
 	/// @}
-
-	// -- Is type --
-
-	template <typename T, precision P>
-	struct type<T, P, tquat>
-	{
-		static bool const is_vec = false;
-		static bool const is_mat = false;
-		static bool const is_quat = true;
-	};
 } //namespace glm
 
 #include "quaternion.inl"

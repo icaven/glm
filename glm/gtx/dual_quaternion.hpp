@@ -66,32 +66,18 @@ namespace glm
 		typedef T value_type;
 		typedef glm::tquat<T, P> part_type;
 
-#		ifdef GLM_META_PROG_HELPERS
-			static GLM_RELAXED_CONSTEXPR length_t components = 2;
-			static GLM_RELAXED_CONSTEXPR precision prec = P;
-#		endif//GLM_META_PROG_HELPERS
-
 		// -- Data --
 
 		glm::tquat<T, P> real, dual;
 
 		// -- Component accesses --
 
-#		ifdef GLM_FORCE_SIZE_FUNC
-			typedef size_t size_type;
-			/// Return the count of components of a dual quaternion
-			GLM_FUNC_DECL GLM_CONSTEXPR size_type size() const;
+		typedef length_t length_type;
+		/// Return the count of components of a dual quaternion
+		GLM_FUNC_DECL GLM_CONSTEXPR length_type length() const;
 
-			GLM_FUNC_DECL part_type & operator[](size_type i);
-			GLM_FUNC_DECL part_type const & operator[](size_type i) const;
-#		else
-			typedef length_t length_type;
-			/// Return the count of components of a dual quaternion
-			GLM_FUNC_DECL GLM_CONSTEXPR length_type length() const;
-
-			GLM_FUNC_DECL part_type & operator[](length_type i);
-			GLM_FUNC_DECL part_type const & operator[](length_type i) const;
-#		endif//GLM_FORCE_SIZE_FUNC
+		GLM_FUNC_DECL part_type & operator[](length_type i);
+		GLM_FUNC_DECL part_type const & operator[](length_type i) const;
 
 		// -- Implicit basic constructors --
 
@@ -295,16 +281,6 @@ namespace glm
 #endif
 
 	/// @}
-
-	// -- Is type --
-
-	template <typename T, precision P>
-	struct type<T, P, tdualquat>
-	{
-		static bool const is_vec = false;
-		static bool const is_mat = false;
-		static bool const is_quat = true;
-	};
 } //namespace glm
 
 #include "dual_quaternion.inl"

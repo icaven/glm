@@ -54,15 +54,6 @@ namespace glm
 		typedef tvec1<bool, P> bool_type;
 		typedef T value_type;
 
-#		ifdef GLM_META_PROG_HELPERS
-			static GLM_RELAXED_CONSTEXPR length_t components = 1;
-			static GLM_RELAXED_CONSTEXPR precision prec = P;
-#		endif//GLM_META_PROG_HELPERS
-
-#		ifdef GLM_STATIC_CONST_MEMBERS
-		static const type ZERO;
-		static const type X;
-#		endif
 		// -- Data --
 
 #		if GLM_HAS_ANONYMOUS_UNION
@@ -94,21 +85,12 @@ namespace glm
 
 		// -- Component accesses --
 
-#		ifdef GLM_FORCE_SIZE_FUNC
-			/// Return the count of components of the vector
-			typedef size_t size_type;
-			GLM_FUNC_DECL GLM_CONSTEXPR size_type size() const;
+		/// Return the count of components of the vector
+		typedef length_t length_type;
+		GLM_FUNC_DECL GLM_CONSTEXPR length_type length() const;
 
-			GLM_FUNC_DECL T & operator[](size_type i);
-			GLM_FUNC_DECL T const & operator[](size_type i) const;
-#		else
-			/// Return the count of components of the vector
-			typedef length_t length_type;
-			GLM_FUNC_DECL GLM_CONSTEXPR length_type length() const;
-
-			GLM_FUNC_DECL T & operator[](length_type i);
-			GLM_FUNC_DECL T const & operator[](length_type i) const;
-#		endif//GLM_FORCE_SIZE_FUNC
+		GLM_FUNC_DECL T & operator[](length_type i);
+		GLM_FUNC_DECL T const & operator[](length_type i) const;
 
 		// -- Implicit basic constructors --
 
@@ -322,16 +304,6 @@ namespace glm
 
 	template <precision P>
 	GLM_FUNC_DECL tvec1<bool, P> operator||(tvec1<bool, P> const & v1, tvec1<bool, P> const & v2);
-
-	// -- Is type --
-
-	template <typename T, precision P>
-	struct type<T, P, tvec1>
-	{
-		static bool const is_vec = true;
-		static bool const is_mat = false;
-		static bool const is_quat = false;
-	};
 }//namespace glm
 
 #ifndef GLM_EXTERNAL_TEMPLATE
