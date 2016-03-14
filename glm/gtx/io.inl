@@ -30,9 +30,11 @@
 /// @author Jan P Springer (regnirpsj@gmail.com)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <iomanip>                  // std::fixed, std::setfill<>, std::setprecision, std::right, std::setw
+#include <iomanip>                  // std::fixed, std::setfill<>, std::setprecision, std::right,
+                                    // std::setw
 #include <ostream>                  // std::basic_ostream<>
 #include "../gtc/matrix_access.hpp" // glm::col, glm::row
+#include "../gtx/type_trait.hpp"    // glm::type<>
 
 #if !defined(GLM_META_PROG_HELPERS)
 # pragma error("Please define 'GLM_META_PROG_HELPERS' before using GLM_GTX_io")
@@ -201,6 +203,8 @@ namespace glm{
         {
           io::format_punct<CTy> const & fmt(io::get_facet<io::format_punct<CTy> >(os));
 
+          length_t const& components(type<V>::components);
+          
           if(fmt.formatted)
             {
               io::basic_state_saver<CTy> const bss(os);
@@ -211,20 +215,20 @@ namespace glm{
                  << std::setfill(fmt.space)
                  << fmt.delim_left;
 
-              for (unsigned i(0); i < V<T,P>::components; ++i) {
+              for (unsigned i(0); i < components; ++i) {
                 os << std::setw(fmt.width) << a[i];
 
-                if (V<T,P>::components-1 != i) { os << fmt.separator; }
+                if (components-1 != i) { os << fmt.separator; }
               }
           
               os << fmt.delim_right;
             }
           else
             {
-              for (unsigned i(0); i < V<T,P>::components; ++i) {
+              for (unsigned i(0); i < components; ++i) {
                 os << a[i];
 
-                if (V<T,P>::components-1 != i) { os << fmt.space; }
+                if (components-1 != i) { os << fmt.space; }
               }
             }
         }
@@ -276,6 +280,9 @@ namespace glm{
         {
           io::format_punct<CTy> const & fmt(io::get_facet<io::format_punct<CTy> >(os));
 
+          length_t const& cols(type<M>::cols);
+          length_t const& rows(type<M>::rows);
+          
           if(fmt.formatted) {
             os << fmt.newline
                << fmt.delim_left;
@@ -283,24 +290,24 @@ namespace glm{
             switch (fmt.order) {
             case io::column_major:
               {
-                for (unsigned i(0); i < M<T,P>::rows; ++i) {
+                for (unsigned i(0); i < rows; ++i) {
                   if (0 != i) { os << fmt.space; }
 
                   os << row(a, i);
 
-                  if (M<T,P>::rows-1 != i) { os << fmt.newline; }
+                  if (rows-1 != i) { os << fmt.newline; }
                 }
               }
               break;
 
             case io::row_major:
               {
-                for (unsigned i(0); i < M<T,P>::cols; ++i) {
+                for (unsigned i(0); i < cols; ++i) {
                   if (0 != i) { os << fmt.space; }
                   
                   os << column(a, i);
 
-                  if (M<T,P>::cols-1 != i) { os << fmt.newline; }
+                  if (cols-1 != i) { os << fmt.newline; }
                 }
               }
               break;
@@ -311,20 +318,20 @@ namespace glm{
             switch (fmt.order) {
             case io::column_major:
               {
-                for (unsigned i(0); i < M<T,P>::cols; ++i) {
+                for (unsigned i(0); i < cols; ++i) {
                   os << column(a, i);
 
-                  if (M<T,P>::cols-1 != i) { os << fmt.space; }
+                  if (cols-1 != i) { os << fmt.space; }
                 }
               }
               break;
 
             case io::row_major:
               {
-                for (unsigned i(0); i < M<T,P>::rows; ++i) {
+                for (unsigned i(0); i < rows; ++i) {
                   os << row(a, i);
 
-                  if (M<T,P>::rows-1 != i) { os << fmt.space; }
+                  if (rows-1 != i) { os << fmt.space; }
                 }
               }
               break;
@@ -401,9 +408,11 @@ namespace glm{
 
       if(cerberus)
       {
-        io::format_punct<CTy> const & fmt(io::get_facet<io::format_punct<CTy> >(os));
-        M<T,P> const& ml(a.first);
-        M<T,P> const& mr(a.second);
+        io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy> >(os));
+        M<T,P> const&                ml(a.first);
+        M<T,P> const&                mr(a.second);
+        length_t const&              cols(type<M>::cols);
+        length_t const&              rows(type<M>::rows);
           
         if(fmt.formatted) {
           os << fmt.newline
@@ -412,32 +421,32 @@ namespace glm{
           switch (fmt.order) {
           case io::column_major:
             {
-              for (unsigned i(0); i < M<T,P>::rows; ++i) {
+              for (unsigned i(0); i < rows; ++i) {
                 if (0 != i) { os << fmt.space; }
 
                 os << row(ml, i)
-                   << ((M<T,P>::rows-1 != i) ? fmt.space : fmt.delim_right)
+                   << ((rows-1 != i) ? fmt.space : fmt.delim_right)
                    << fmt.space
                    << ((0 != i) ? fmt.space : fmt.delim_left)
                    << row(mr, i);
 
-                if (M<T,P>::rows-1 != i) { os << fmt.newline; }
+                if (rows-1 != i) { os << fmt.newline; }
               }
             }
             break;
 
           case io::row_major:
             {
-              for (unsigned i(0); i < M<T,P>::cols; ++i) {
+              for (unsigned i(0); i < cols; ++i) {
                 if (0 != i) { os << fmt.space; }
 
                 os << column(ml, i)
-                   << ((M<T,P>::cols-1 != i) ? fmt.space : fmt.delim_right)
+                   << ((cols-1 != i) ? fmt.space : fmt.delim_right)
                    << fmt.space
                    << ((0 != i) ? fmt.space : fmt.delim_left)
                    << column(mr, i);
 
-                if (M<T,P>::cols-1 != i) { os << fmt.newline; }
+                if (cols-1 != i) { os << fmt.newline; }
               }
             }
             break;
