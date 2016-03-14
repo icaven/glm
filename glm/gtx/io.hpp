@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// OpenGL Mathematics (glm.g-truc.net)
 ///
-/// Copyright (c) 2005 - 2013 G-Truc Creation (www.g-truc.net)
+/// Copyright (c) 2005 - 2016 G-Truc Creation (www.g-truc.net)
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
@@ -26,7 +26,7 @@
 ///
 /// @ref gtx_io
 /// @file glm/gtx/io.hpp
-/// @date 2013-11-22 / 2014-11-25
+/// @date 2013-11-22 / 2016-03-14
 /// @author Jan P Springer (regnirpsj@gmail.com)
 ///
 /// @see core (dependence)
@@ -43,9 +43,6 @@
 ///        [http://home.roadrunner.com/~hinnant/bloomington/chrono_io.html]
 ///
 ///        <glm/gtx/io.hpp> needs to be included to use these functionalities.
-///
-///        GLM_META_PROG_HELPERS must be defined before including this and any other
-///        glm header file.
 ///////////////////////////////////////////////////////////////////////////////////
 
 #pragma once
