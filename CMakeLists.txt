@@ -17,12 +17,12 @@ enable_testing()
 add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 
 option(GLM_STATIC_LIBRARY_ENABLE "GLM static library" OFF)
-if(NOT GLM_STATIC_LIBRARY_ENABLE)
+if(GLM_STATIC_LIBRARY_ENABLE)
 	message(STATUS "GLM is a header only library, no need to build it. Set the option GLM_STATIC_LIBRARY_ENABLE with ON to build an optional static library")
 endif()
 
 option(GLM_DYNAMIC_LIBRARY_ENABLE "GLM static library" OFF)
-if(NOT GLM_DYNAMIC_LIBRARY_ENABLE)
+if(GLM_DYNAMIC_LIBRARY_ENABLE)
 	message(STATUS "GLM is a header only library, no need to build it. Set the option GLM_DYNAMIC_LIBRARY_ENABLE with ON to build an optional dynamic library")
 endif()
 
