@@ -79,6 +79,8 @@ namespace glm
 		static bool const is_mat = false;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 0;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 0;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 0;
 	};
 
 	template <>
@@ -88,6 +90,8 @@ namespace glm
 		static bool const is_mat = false;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 1;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 1;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 1;
 	};
 
 	template <>
@@ -124,6 +128,8 @@ namespace glm
 		static bool const is_mat = true;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 2;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 2;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 2;
 	};
 
 	template <>
@@ -133,6 +139,8 @@ namespace glm
 		static bool const is_mat = true;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 2;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 2;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 3;
 	};
 
 	template <>
@@ -142,6 +150,8 @@ namespace glm
 		static bool const is_mat = true;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 2;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 2;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 4;
 	};
 
 	template <>
@@ -162,6 +172,8 @@ namespace glm
 		static bool const is_mat = true;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 3;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 3;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 3;
 	};
 
 	template <>
@@ -171,6 +183,8 @@ namespace glm
 		static bool const is_mat = true;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 3;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 3;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 4;
 	};
 
 	template <>
@@ -180,6 +194,8 @@ namespace glm
 		static bool const is_mat = true;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 4;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 4;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 2;
 	};
 
 	template <>
@@ -189,6 +205,8 @@ namespace glm
 		static bool const is_mat = true;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 4;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 4;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 3;
 	};
 
 	template <>
@@ -198,6 +216,8 @@ namespace glm
 		static bool const is_mat = true;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 4;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 4;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 4;
 	};
 
 	template <>
