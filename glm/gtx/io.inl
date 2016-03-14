@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// OpenGL Mathematics (glm.g-truc.net)
 ///
-/// Copyright (c) 2005 - 2013 G-Truc Creation (www.g-truc.net)
+/// Copyright (c) 2005 - 2016 G-Truc Creation (www.g-truc.net)
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
@@ -26,19 +26,14 @@
 ///
 /// @ref gtx_io
 /// @file glm/gtx/io.inl
-/// @date 2013-11-22 / 2014-11-25
+/// @date 2013-11-22 / 2016-03-14
 /// @author Jan P Springer (regnirpsj@gmail.com)
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-#include <iomanip>                  // std::fixed, std::setfill<>, std::setprecision, std::right,
-                                    // std::setw
+#include <iomanip>                  // std::fixed, std::setfill<>, std::setprecision, std::right, std::setw
 #include <ostream>                  // std::basic_ostream<>
 #include "../gtc/matrix_access.hpp" // glm::col, glm::row
 #include "../gtx/type_trait.hpp"    // glm::type<>
-
-#if !defined(GLM_META_PROG_HELPERS)
-# pragma error("Please define 'GLM_META_PROG_HELPERS' before using GLM_GTX_io")
-#endif
 
 namespace glm{
   namespace io

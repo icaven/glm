@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 /// OpenGL Mathematics (glm.g-truc.net)
 ///
-/// Copyright (c) 2005 - 2015 G-Truc Creation (www.g-truc.net)
+/// Copyright (c) 2005 - 2016 G-Truc Creation (www.g-truc.net)
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
@@ -25,11 +25,10 @@
 /// THE SOFTWARE.
 ///
 /// @file test/gtx/gtx_io.cpp
-/// @date 2013-11-22 / 2014-11-25
-/// @author Christophe Riccio
+/// @date 2013-11-22 / 2016-03-14
+/// @author Jan P Springer (regnirpsj@gmail.com)
 ///////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_META_PROG_HELPERS
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtx/io.hpp>
 #include <iostream>
