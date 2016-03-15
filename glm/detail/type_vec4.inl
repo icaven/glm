@@ -642,7 +642,7 @@ namespace glm
 	// -- Binary arithmetic operators --
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> operator+(tvec4<T, P> const & v, const T& scalar)
+	GLM_FUNC_QUALIFIER tvec4<T, P> operator+(tvec4<T, P> const & v, T scalar)
 	{
 		return tvec4<T, P>(
 			v.x + scalar,
@@ -692,7 +692,7 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> operator-(tvec4<T, P> const & v, const T& scalar)
+	GLM_FUNC_QUALIFIER tvec4<T, P> operator-(tvec4<T, P> const & v, T scalar)
 	{
 		return tvec4<T, P>(
 			v.x - scalar,
@@ -742,7 +742,7 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> operator*(tvec4<T, P> const & v, const T& scalar)
+	GLM_FUNC_QUALIFIER tvec4<T, P> operator*(tvec4<T, P> const & v, T scalar)
 	{
 		return tvec4<T, P>(
 			v.x * scalar,
@@ -792,7 +792,7 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> operator/(tvec4<T, P> const & v, const T& scalar)
+	GLM_FUNC_QUALIFIER tvec4<T, P> operator/(tvec4<T, P> const & v, T scalar)
 	{
 		return tvec4<T, P>(
 			v.x / scalar,
