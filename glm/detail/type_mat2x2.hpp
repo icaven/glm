@@ -49,11 +49,6 @@ namespace glm
 		typedef tmat2x2<T, P> transpose_type;
 		typedef T value_type;
 
-		template <typename U, precision Q>
-		friend tvec2<U, Q> operator/(tmat2x2<U, Q> const & m, tvec2<U, Q> const & v);
-		template <typename U, precision Q>
-		friend tvec2<U, Q> operator/(tvec2<U, Q> const & v, tmat2x2<U, Q> const & m);
-
 	private:
 		col_type value[2];
 

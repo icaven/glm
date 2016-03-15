@@ -130,16 +130,16 @@ namespace glm
 	GLM_FUNC_DECL tdualquat<T, P> operator*(tdualquat<T, P> const & q, tdualquat<T, P> const & p);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> operator*(tquat<T, P> const & q, tvec3<T, P> const & v);
+	GLM_FUNC_DECL tvec3<T, P> operator*(tdualquat<T, P> const & q, tvec3<T, P> const & v);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> operator*(tvec3<T, P> const & v, tquat<T, P> const & q);
+	GLM_FUNC_DECL tvec3<T, P> operator*(tvec3<T, P> const & v, tdualquat<T, P> const & q);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec4<T, P> operator*(tquat<T, P> const & q, tvec4<T, P> const & v);
+	GLM_FUNC_DECL tvec4<T, P> operator*(tdualquat<T, P> const & q, tvec4<T, P> const & v);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec4<T, P> operator*(tvec4<T, P> const & v, tquat<T, P> const & q);
+	GLM_FUNC_DECL tvec4<T, P> operator*(tvec4<T, P> const & v, tdualquat<T, P> const & q);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tdualquat<T, P> operator*(tdualquat<T, P> const & q, T const & s);
@@ -149,6 +149,14 @@ namespace glm
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tdualquat<T, P> operator/(tdualquat<T, P> const & q, T const & s);
+
+	// -- Boolean operators --
+
+	template <typename T, precision P>
+	GLM_FUNC_DECL bool operator==(tdualquat<T, P> const & q1, tdualquat<T, P> const & q2);
+
+	template <typename T, precision P>
+	GLM_FUNC_DECL bool operator!=(tdualquat<T, P> const & q1, tdualquat<T, P> const & q2);
 
 	/// Returns the normalized quaternion.
 	///

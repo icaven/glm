@@ -49,11 +49,6 @@ namespace glm
 		typedef tmat4x4<T, P> transpose_type;
 		typedef T value_type;
 
-		template <typename U, precision Q>
-		friend tvec4<U, Q> operator/(tmat4x4<U, Q> const & m, tvec4<U, Q> const & v);
-		template <typename U, precision Q>
-		friend tvec4<U, Q> operator/(tvec4<U, Q> const & v, tmat4x4<U, Q> const & m);
-
 	private:
 		col_type value[4];
 
@@ -210,7 +205,7 @@ namespace glm
 	GLM_FUNC_DECL typename tmat4x4<T, P>::col_type operator/(tmat4x4<T, P> const & m, typename tmat4x4<T, P>::row_type const & v);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL typename tmat4x4<T, P>::row_type operator/(typename tmat4x4<T, P>::col_type & v, tmat4x4<T, P> const & m);
+	GLM_FUNC_DECL typename tmat4x4<T, P>::row_type operator/(typename tmat4x4<T, P>::col_type const & v, tmat4x4<T, P> const & m);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x4<T, P> operator/(tmat4x4<T, P> const & m1,	tmat4x4<T, P> const & m2);
