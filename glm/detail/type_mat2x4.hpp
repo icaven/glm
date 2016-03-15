@@ -177,10 +177,10 @@ namespace glm
 	GLM_FUNC_DECL tmat3x4<T, P> operator*(tmat2x4<T, P> const & m1, tmat3x2<T, P> const & m2);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat2x4<T, P> operator/(tmat2x4<T, P> const & m, const T& s);
+	GLM_FUNC_DECL tmat2x4<T, P> operator/(tmat2x4<T, P> const & m, T const & s);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat2x4<T, P> operator/(T s, tmat2x4<T, P> const & m);
+	GLM_FUNC_DECL tmat2x4<T, P> operator/(T const & s, tmat2x4<T, P> const & m);
 
 	// -- Boolean operators --
 
