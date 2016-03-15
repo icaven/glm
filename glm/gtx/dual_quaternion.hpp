@@ -150,6 +150,14 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_DECL tdualquat<T, P> operator/(tdualquat<T, P> const & q, T const & s);
 
+	// -- Boolean operators --
+
+	template <typename T, precision P>
+	GLM_FUNC_DECL bool operator==(tdualquat<T, P> const & q1, tdualquat<T, P> const & q2);
+
+	template <typename T, precision P>
+	GLM_FUNC_DECL bool operator!=(tdualquat<T, P> const & q1, tdualquat<T, P> const & q2);
+
 	/// Returns the normalized quaternion.
 	///
 	/// @see gtx_dual_quaternion
