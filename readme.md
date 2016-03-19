@@ -51,7 +51,6 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 ## Release notes
 
-<<<<<<< HEAD
 #### [GLM 0.9.8.0](https://github.com/g-truc/glm/releases/latest) - 2016-XX-XX
 ##### Features:
 - Added right and left handed projection and clip control support #447 #415 #119
@@ -77,10 +76,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 ##### Deprecation:
 - Removed GLM_FORCE_SIZE_FUNC define
 
-#### [GLM 0.9.7.4](https://github.com/g-truc/glm/tree/0.9.7) - 2016-XX-XX
-=======
 #### [GLM 0.9.7.4](https://github.com/g-truc/glm/releases/tag/0.9.7.4) - 2016-03-19
->>>>>>> 0.9.7
 ##### Fixes:
 - Fixed asinh and atanh warning with C++98 STL #484
 - Fixed polar coordinates function latitude #485
