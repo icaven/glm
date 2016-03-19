@@ -58,6 +58,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed outerProduct defintions and operator signatures for mat2x4 and vec4 #475
 - Fixed eulerAngles precision error, returns NaN  #451
 - Fixed undefined reference errors #489
+- Fixed missing GLM_PLATFORM_CYGWIN declaration #495
 
 #### [GLM 0.9.7.3](https://github.com/g-truc/glm/releases/tag/0.9.7.3) - 2016-02-21
 ##### Improvements:
