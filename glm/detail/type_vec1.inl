@@ -104,14 +104,14 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T & tvec1<T, P>::operator[](typename tvec1<T, P>::length_type i)
 	{
-		assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
+		assert(i >= 0 && i < this->length());
 		return (&x)[i];
 	}
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T const & tvec1<T, P>::operator[](typename tvec1<T, P>::length_type i) const
 	{
-		assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
+		assert(i >= 0 && i < this->length());
 		return (&x)[i];
 	}
 

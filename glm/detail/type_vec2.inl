@@ -122,47 +122,25 @@ namespace glm
 
 	// -- Component accesses --
 
-#	ifdef GLM_FORCE_SIZE_FUNC
-		template <typename T, precision P>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tvec2<T, P>::size_type tvec2<T, P>::size() const
-		{
-			return 2;
-		}
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tvec2<T, P>::length_type tvec2<T, P>::length() const
+	{
+		return 2;
+	}
 
-		template <typename T, precision P>
-		GLM_FUNC_QUALIFIER T & tvec2<T, P>::operator[](typename tvec2<T, P>::size_type i)
-		{
-			assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
-			return (&x)[i];
-		}
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER T & tvec2<T, P>::operator[](typename tvec2<T, P>::length_type i)
+	{
+		assert(i >= 0 && i < this->length());
+		return (&x)[i];
+	}
 
-		template <typename T, precision P>
-		GLM_FUNC_QUALIFIER T const & tvec2<T, P>::operator[](typename tvec2<T, P>::size_type i) const
-		{
-			assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
-			return (&x)[i];
-		}
-#	else
-		template <typename T, precision P>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tvec2<T, P>::length_type tvec2<T, P>::length() const
-		{
-			return 2;
-		}
-
-		template <typename T, precision P>
-		GLM_FUNC_QUALIFIER T & tvec2<T, P>::operator[](typename tvec2<T, P>::length_type i)
-		{
-			assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
-			return (&x)[i];
-		}
-
-		template <typename T, precision P>
-		GLM_FUNC_QUALIFIER T const & tvec2<T, P>::operator[](typename tvec2<T, P>::length_type i) const
-		{
-			assert(i >= 0 && static_cast<detail::component_count_t>(i) < detail::component_count(*this));
-			return (&x)[i];
-		}
-#	endif//GLM_FORCE_SIZE_FUNC
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER T const & tvec2<T, P>::operator[](typename tvec2<T, P>::length_type i) const
+	{
+		assert(i >= 0 && i < this->length());
+		return (&x)[i];
+	}
 
 	// -- Unary arithmetic operators --
 
