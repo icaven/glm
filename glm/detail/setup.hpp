@@ -597,7 +597,7 @@
 #		else
 #			define GLM_LANG (GLM_LANG_CXX | GLM_MSC_EXT)
 #		endif
-#	else // Unkown compiler
+#	else // Unknown compiler
 #		if __cplusplus >= 201402L
 #			define GLM_LANG GLM_LANG_CXX14
 #		elif __cplusplus >= 201103L

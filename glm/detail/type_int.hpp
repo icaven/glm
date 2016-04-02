@@ -287,7 +287,7 @@ namespace detail
 #elif(!defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && defined(GLM_PRECISION_LOWP_INT))
 	typedef lowp_int					int_t;
 #else
-#	error "GLM error: multiple default precision requested for signed interger types"
+#	error "GLM error: multiple default precision requested for signed integer types"
 #endif
 
 #if(!defined(GLM_PRECISION_HIGHP_UINT) && !defined(GLM_PRECISION_MEDIUMP_UINT) && !defined(GLM_PRECISION_LOWP_UINT))
@@ -299,7 +299,7 @@ namespace detail
 #elif(!defined(GLM_PRECISION_HIGHP_UINT) && !defined(GLM_PRECISION_MEDIUMP_UINT) && defined(GLM_PRECISION_LOWP_UINT))
 	typedef lowp_uint					uint_t;
 #else
-#	error "GLM error: multiple default precision requested for unsigned interger types"
+#	error "GLM error: multiple default precision requested for unsigned integer types"
 #endif
 
 	/// Unsigned integer type.

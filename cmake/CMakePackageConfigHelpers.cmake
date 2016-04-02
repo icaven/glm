@@ -97,7 +97,7 @@
 # own custom ConfigVersion.cmake file instead of using this macro.
 #
 # Internally, this macro executes configure_file() to create the resulting
-# version file. Depending on the COMPATIBLITY, either the file
+# version file. Depending on the COMPATIBILITY, either the file
 # BasicConfigVersion-SameMajorVersion.cmake.in or BasicConfigVersion-AnyNewerVersion.cmake.in
 # is used. Please note that these two files are internal to CMake and you should
 # not call configure_file() on them yourself, but they can be used as starting
