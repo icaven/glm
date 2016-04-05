@@ -323,47 +323,25 @@ namespace detail
 
 	// -- Accesses --
 
-#	ifdef GLM_FORCE_SIZE_FUNC
-		template <typename T, precision P>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tmat4x4<T, P>::size_type tmat4x4<T, P>::size() const
-		{
-			return 4;
-		}
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tmat4x4<T, P>::length_type tmat4x4<T, P>::length() const
+	{
+		return 4;
+	}
 
-		template <typename T, precision P>
-		GLM_FUNC_QUALIFIER typename tmat4x4<T, P>::col_type & tmat4x4<T, P>::operator[](typename tmat4x4<T, P>::size_type i)
-		{
-			assert(i < this->size());
-			return this->value[i];
-		}
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER typename tmat4x4<T, P>::col_type & tmat4x4<T, P>::operator[](typename tmat4x4<T, P>::length_type i)
+	{
+		assert(i < this->length());
+		return this->value[i];
+	}
 
-		template <typename T, precision P>
-		GLM_FUNC_QUALIFIER typename tmat4x4<T, P>::col_type const & tmat4x4<T, P>::operator[](typename tmat4x4<T, P>::size_type i) const
-		{
-			assert(i < this->size());
-			return this->value[i];
-		}
-#	else
-		template <typename T, precision P>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR typename tmat4x4<T, P>::length_type tmat4x4<T, P>::length() const
-		{
-			return 4;
-		}
-
-		template <typename T, precision P>
-		GLM_FUNC_QUALIFIER typename tmat4x4<T, P>::col_type & tmat4x4<T, P>::operator[](typename tmat4x4<T, P>::length_type i)
-		{
-			assert(i < this->length());
-			return this->value[i];
-		}
-
-		template <typename T, precision P>
-		GLM_FUNC_QUALIFIER typename tmat4x4<T, P>::col_type const & tmat4x4<T, P>::operator[](typename tmat4x4<T, P>::length_type i) const
-		{
-			assert(i < this->length());
-			return this->value[i];
-		}
-#	endif//GLM_FORCE_SIZE_FUNC
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER typename tmat4x4<T, P>::col_type const & tmat4x4<T, P>::operator[](typename tmat4x4<T, P>::length_type i) const
+	{
+		assert(i < this->length());
+		return this->value[i];
+	}
 
 	// -- Unary arithmetic operators --
 

@@ -232,7 +232,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER vecType<T, P> next_float(vecType<T, P> const & x)
 	{
 		vecType<T, P> Result(uninitialize);
-		for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = next_float(x[i]);
 		return Result;
 	}
@@ -267,7 +267,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER vecType<T, P> prev_float(vecType<T, P> const & x)
 	{
 		vecType<T, P> Result(uninitialize);
-		for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = prev_float(x[i]);
 		return Result;
 	}
@@ -285,7 +285,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER vecType<T, P> next_float(vecType<T, P> const & x, vecType<uint, P> const & ulps)
 	{
 		vecType<T, P> Result(uninitialize);
-		for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = next_float(x[i], ulps[i]);
 		return Result;
 	}
@@ -303,7 +303,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER vecType<T, P> prev_float(vecType<T, P> const & x, vecType<uint, P> const & ulps)
 	{
 		vecType<T, P> Result(uninitialize);
-		for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = prev_float(x[i], ulps[i]);
 		return Result;
 	}
@@ -343,7 +343,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER vecType<uint, P> float_distance(vecType<T, P> const & x, vecType<T, P> const & y)
 	{
 		vecType<uint, P> Result(uninitialize);
-		for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = float_distance(x[i], y[i]);
 		return Result;
 	}

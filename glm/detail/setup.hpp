@@ -62,6 +62,7 @@
 #define GLM_PLATFORM_UNIX			0x00400000
 #define GLM_PLATFORM_QNXNTO			0x00800000
 #define GLM_PLATFORM_WINCE			0x01000000
+#define GLM_PLATFORM_CYGWIN			0x02000000
 
 #ifdef GLM_FORCE_PLATFORM_UNKNOWN
 #	define GLM_PLATFORM GLM_PLATFORM_UNKNOWN
@@ -985,37 +986,16 @@
 namespace glm
 {
 	using std::size_t;
-#	if defined(GLM_FORCE_SIZE_T_LENGTH) || defined(GLM_FORCE_SIZE_FUNC)
+#	if defined(GLM_FORCE_SIZE_T_LENGTH)
 		typedef size_t length_t;
 #	else
 		typedef int length_t;
 #	endif
-
-namespace detail
-{
-#	ifdef GLM_FORCE_SIZE_FUNC
-		typedef size_t component_count_t;
-#	else
-		typedef length_t component_count_t;
-#	endif
-
-	template <typename genType>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR component_count_t component_count(genType const & m)
-	{
-#		ifdef GLM_FORCE_SIZE_FUNC
-			return m.size();
-#		else
-			return m.length();
-#		endif
-	}
-}//namespace detail
 }//namespace glm
 
 #if defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_FORCE_SIZE_T_LENGTH)
 #	define GLM_MESSAGE_FORCE_SIZE_T_LENGTH
-#	if defined GLM_FORCE_SIZE_FUNC
-#		pragma message("GLM: .length() is replaced by .size() and returns a std::size_t")
-#	elif defined GLM_FORCE_SIZE_T_LENGTH
+#	if defined GLM_FORCE_SIZE_T_LENGTH
 #		pragma message("GLM: .length() returns glm::length_t, a typedef of std::size_t")
 #	else
 #		pragma message("GLM: .length() returns glm::length_t, a typedef of int following the GLSL specification")

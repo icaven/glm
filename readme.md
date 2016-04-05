@@ -76,13 +76,15 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 ##### Deprecation:
 - Removed GLM_FORCE_SIZE_FUNC define
 
-#### [GLM 0.9.7.4](https://github.com/g-truc/glm/tree/0.9.7) - 2016-XX-XX
+#### [GLM 0.9.7.4](https://github.com/g-truc/glm/releases/tag/0.9.7.4) - 2016-03-19
 ##### Fixes:
 - Fixed asinh and atanh warning with C++98 STL #484
 - Fixed polar coordinates function latitude #485
 - Fixed outerProduct defintions and operator signatures for mat2x4 and vec4 #475
 - Fixed eulerAngles precision error, returns NaN  #451
 - Fixed undefined reference errors #489
+- Fixed missing GLM_PLATFORM_CYGWIN declaration #495
+- Fixed various undefined reference errors #490
 
 #### [GLM 0.9.7.3](https://github.com/g-truc/glm/releases/tag/0.9.7.3) - 2016-02-21
 ##### Improvements:

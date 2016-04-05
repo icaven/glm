@@ -58,7 +58,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER vecType<T, P> fastPow(vecType<T, P> const & x, vecType<int, P> const & y)
 	{
 		vecType<T, P> Result(uninitialize);
-		for(detail::component_count_t i = 0; i < detail::component_count(x); ++i)
+		for(length_t i = 0, n = x.length(); i < n; ++i)
 			Result[i] = fastPow(x[i], y[i]);
 		return Result;
 	}

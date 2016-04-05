@@ -49,11 +49,6 @@ namespace glm
 		typedef tmat2x2<T, P> transpose_type;
 		typedef T value_type;
 
-		template <typename U, precision Q>
-		friend tvec2<U, Q> operator/(tmat2x2<U, Q> const & m, tvec2<U, Q> const & v);
-		template <typename U, precision Q>
-		friend tvec2<U, Q> operator/(tvec2<U, Q> const & v, tmat2x2<U, Q> const & m);
-
 	private:
 		col_type value[2];
 
@@ -66,7 +61,7 @@ namespace glm
 		GLM_FUNC_DECL tmat2x2(tmat2x2<T, Q> const & m);
 
 		GLM_FUNC_DECL explicit tmat2x2(ctor);
-		GLM_FUNC_DECL explicit tmat2x2(T const & x);
+		GLM_FUNC_DECL explicit tmat2x2(T scalar);
 		GLM_FUNC_DECL tmat2x2(
 			T const & x1, T const & y1,
 			T const & x2, T const & y2);
@@ -150,28 +145,28 @@ namespace glm
 	// -- Binary operators --
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat2x2<T, P> operator+(tmat2x2<T, P> const & m, T const & s);
+	GLM_FUNC_DECL tmat2x2<T, P> operator+(tmat2x2<T, P> const & m, T scalar);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat2x2<T, P> operator+(T const & s, tmat2x2<T, P> const & m);
+	GLM_FUNC_DECL tmat2x2<T, P> operator+(T scalar, tmat2x2<T, P> const & m);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat2x2<T, P> operator+(tmat2x2<T, P> const & m1,	tmat2x2<T, P> const & m2);
+	GLM_FUNC_DECL tmat2x2<T, P> operator+(tmat2x2<T, P> const & m1, tmat2x2<T, P> const & m2);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat2x2<T, P> operator-(tmat2x2<T, P> const & m, T const & s);
+	GLM_FUNC_DECL tmat2x2<T, P> operator-(tmat2x2<T, P> const & m, T scalar);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat2x2<T, P> operator-(T const & s, tmat2x2<T, P> const & m);
+	GLM_FUNC_DECL tmat2x2<T, P> operator-(T scalar, tmat2x2<T, P> const & m);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat2x2<T, P> operator-(tmat2x2<T, P> const & m1,	tmat2x2<T, P> const & m2);
+	GLM_FUNC_DECL tmat2x2<T, P> operator-(tmat2x2<T, P> const & m1, tmat2x2<T, P> const & m2);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat2x2<T, P> operator*(tmat2x2<T, P> const & m, T const & s);
+	GLM_FUNC_DECL tmat2x2<T, P> operator*(tmat2x2<T, P> const & m, T scalar);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat2x2<T, P> operator*(T const & s, tmat2x2<T, P> const & m);
+	GLM_FUNC_DECL tmat2x2<T, P> operator*(T scalar, tmat2x2<T, P> const & m);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL typename tmat2x2<T, P>::col_type operator*(tmat2x2<T, P> const & m, typename tmat2x2<T, P>::row_type const & v);
@@ -180,7 +175,7 @@ namespace glm
 	GLM_FUNC_DECL typename tmat2x2<T, P>::row_type operator*(typename tmat2x2<T, P>::col_type const & v, tmat2x2<T, P> const & m);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat2x2<T, P> operator*(tmat2x2<T, P> const & m1,	tmat2x2<T, P> const & m2);
+	GLM_FUNC_DECL tmat2x2<T, P> operator*(tmat2x2<T, P> const & m1, tmat2x2<T, P> const & m2);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat3x2<T, P> operator*(tmat2x2<T, P> const & m1, tmat3x2<T, P> const & m2);
@@ -189,10 +184,10 @@ namespace glm
 	GLM_FUNC_DECL tmat4x2<T, P> operator*(tmat2x2<T, P> const & m1, tmat4x2<T, P> const & m2);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat2x2<T, P> operator/(tmat2x2<T, P> const & m, T const & s);
+	GLM_FUNC_DECL tmat2x2<T, P> operator/(tmat2x2<T, P> const & m, T scalar);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat2x2<T, P> operator/(T const & s, tmat2x2<T, P> const & m);
+	GLM_FUNC_DECL tmat2x2<T, P> operator/(T scalar, tmat2x2<T, P> const & m);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL typename tmat2x2<T, P>::col_type operator/(tmat2x2<T, P> const & m, typename tmat2x2<T, P>::row_type const & v);

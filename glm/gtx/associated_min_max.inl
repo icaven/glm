@@ -47,7 +47,7 @@ GLM_FUNC_QUALIFIER tvec2<U, P> associatedMin
 )
 {
 	vecType<U, P> Result(uninitialize);
-	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+	for(length_t i = 0, n = Result.length(); i < n; ++i)
 		Result[i] = x[i] < y[i] ? a[i] : b[i];
 	return Result;
 }
@@ -60,7 +60,7 @@ GLM_FUNC_QUALIFIER vecType<U, P> associatedMin
 )
 {
 	vecType<U, P> Result(uninitialize);
-	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+	for(length_t i = 0, n = Result.length(); i < n; ++i)
 		Result[i] = x < y ? a[i] : b[i];
 	return Result;
 }
@@ -73,7 +73,7 @@ GLM_FUNC_QUALIFIER vecType<U, P> associatedMin
 )
 {
 	vecType<U, P> Result(uninitialize);
-	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+	for(length_t i = 0, n = Result.length(); i < n; ++i)
 		Result[i] = x[i] < y[i] ? a : b;
 	return Result;
 }
@@ -100,7 +100,7 @@ GLM_FUNC_QUALIFIER vecType<U, P> associatedMin
 )
 {
 	vecType<U, P> Result(uninitialize);
-	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+	for(length_t i = 0, n = Result.length(); i < n; ++i)
 		Result[i] = x[i] < y[i] ? (x[i] < z[i] ? a[i] : c[i]) : (y[i] < z[i] ? b[i] : c[i]);
 	return Result;
 }
@@ -134,7 +134,7 @@ GLM_FUNC_QUALIFIER vecType<U, P> associatedMin
 )
 {
 	vecType<U, P> Result(uninitialize);
-	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+	for(length_t i = 0, n = Result.length(); i < n; ++i)
 	{
 		T Test1 = min(x[i], y[i]);
 		T Test2 = min(z[i], w[i]);
@@ -159,7 +159,7 @@ GLM_FUNC_QUALIFIER vecType<U, P> associatedMin
 	T Test2 = min(z, w);
 
 	vecType<U, P> Result(uninitialize);
-	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+	for(length_t i = 0, n = Result.length(); i < n; ++i)
 	{
 		U Result1 = x < y ? a[i] : b[i];
 		U Result2 = z < w ? c[i] : d[i];
@@ -179,7 +179,7 @@ GLM_FUNC_QUALIFIER vecType<U, P> associatedMin
 )
 {
 	vecType<U, P> Result(uninitialize);
-	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+	for(length_t i = 0, n = Result.length(); i < n; ++i)
 	{
 		T Test1 = min(x[i], y[i]);
 		T Test2 = min(z[i], w[i]);;
@@ -206,7 +206,7 @@ GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
 )
 {
 	vecType<U, P> Result(uninitialize);
-	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+	for(length_t i = 0, n = Result.length(); i < n; ++i)
 		Result[i] = x[i] > y[i] ? a[i] : b[i];
 	return Result;
 }
@@ -220,7 +220,7 @@ GLM_FUNC_QUALIFIER vecType<T, P> associatedMax
 )
 {
 	vecType<U, P> Result(uninitialize);
-	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+	for(length_t i = 0, n = Result.length(); i < n; ++i)
 		Result[i] = x > y ? a[i] : b[i];
 	return Result;
 }
@@ -234,7 +234,7 @@ GLM_FUNC_QUALIFIER vecType<U, P> associatedMax
 )
 {
 	vecType<T, P> Result(uninitialize);
-	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+	for(length_t i = 0, n = Result.length(); i < n; ++i)
 		Result[i] = x[i] > y[i] ? a : b;
 	return Result;
 }
@@ -262,7 +262,7 @@ GLM_FUNC_QUALIFIER vecType<U, P> associatedMax
 )
 {
 	vecType<U, P> Result(uninitialize);
-	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+	for(length_t i = 0, n = Result.length(); i < n; ++i)
 		Result[i] = x[i] > y[i] ? (x[i] > z[i] ? a[i] : c[i]) : (y[i] > z[i] ? b[i] : c[i]);
 	return Result;
 }
@@ -277,7 +277,7 @@ GLM_FUNC_QUALIFIER vecType<T, P> associatedMax
 )
 {
 	vecType<U, P> Result(uninitialize);
-	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+	for(length_t i = 0, n = Result.length(); i < n; ++i)
 		Result[i] = x > y ? (x > z ? a[i] : c[i]) : (y > z ? b[i] : c[i]);
 	return Result;
 }
@@ -292,7 +292,7 @@ GLM_FUNC_QUALIFIER vecType<U, P> associatedMax
 )
 {
 	vecType<T, P> Result(uninitialize);
-	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+	for(length_t i = 0, n = Result.length(); i < n; ++i)
 		Result[i] = x[i] > y[i] ? (x[i] > z[i] ? a : c) : (y[i] > z[i] ? b : c);
 	return Result;
 }
@@ -326,7 +326,7 @@ GLM_FUNC_QUALIFIER vecType<U, P> associatedMax
 )
 {
 	vecType<U, P> Result(uninitialize);
-	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+	for(length_t i = 0, n = Result.length(); i < n; ++i)
 	{
 		T Test1 = max(x[i], y[i]);
 		T Test2 = max(z[i], w[i]);
@@ -351,7 +351,7 @@ GLM_FUNC_QUALIFIER vecType<U, P> associatedMax
 	T Test2 = max(z, w);
 
 	vecType<U, P> Result(uninitialize);
-	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+	for(length_t i = 0, n = Result.length(); i < n; ++i)
 	{
 		U Result1 = x > y ? a[i] : b[i];
 		U Result2 = z > w ? c[i] : d[i];
@@ -371,7 +371,7 @@ GLM_FUNC_QUALIFIER vecType<U, P> associatedMax
 )
 {
 	vecType<U, P> Result(uninitialize);
-	for(detail::component_count_t i = 0; i < detail::component_count(Result); ++i)
+	for(length_t i = 0, n = Result.length(); i < n; ++i)
 	{
 		T Test1 = max(x[i], y[i]);
 		T Test2 = max(z[i], w[i]);;

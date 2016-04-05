@@ -17,7 +17,7 @@ struct type_gni<vecType, T, P>
 	static bool const is_quat = false;
 };
 */
-
+/*
 namespace detail
 {
 	template <template <typename, glm::precision> class vec_type>
@@ -55,7 +55,7 @@ namespace detail
 		//static GLM_RELAXED_CONSTEXPR glm::length_t components = 4;
 	};
 }//namespace detail
-/*
+
 template <class gen_type>
 struct vec_type
 {
