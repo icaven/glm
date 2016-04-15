@@ -68,7 +68,7 @@ namespace glm
 	template <typename genType> 
 	GLM_FUNC_DECL typename genType::bool_type isdenormal(genType const & x);
 
-	/// Similiar to 'mod' but with a different rounding and integer support.
+	/// Similar to 'mod' but with a different rounding and integer support.
 	/// Returns 'x - y * trunc(x/y)' instead of 'x - y * floor(x/y)'
 	/// 
 	/// @see <a href="http://stackoverflow.com/questions/7610631/glsl-mod-vs-hlsl-fmod">GLSL mod vs HLSL fmod</a>

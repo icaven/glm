@@ -48,7 +48,7 @@
 /// 
 /// @brief The standard types defined by the specification.
 /// 
-/// These types are all typedefs of more generalized, template types. To see the definiton
+/// These types are all typedefs of more generalized, template types. To see the definition
 /// of these template types, go to @ref core_template.
 /// 
 /// @ingroup core
