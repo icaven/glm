@@ -208,7 +208,7 @@ namespace detail
 	{
 		uint64 const Value64(static_cast<uint64>(x) + static_cast<uint64>(y));
 		uint64 const Max32((static_cast<uint64>(1) << static_cast<uint64>(32)) - static_cast<uint64>(1));
-		Carry = Value64 > Max32 ? 1 : 0;
+		Carry = Value64 > Max32 ? 1u : 0u;
 		return static_cast<uint32>(Value64 % (Max32 + static_cast<uint64>(1)));
 	}
 
