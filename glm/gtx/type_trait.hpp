@@ -24,19 +24,19 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 /// 
-/// @ref gtx_type_info
-/// @file glm/gtx/type_info.hpp
+/// @ref gtx_type_trait
+/// @file glm/gtx/type_trait.hpp
 /// @date 2016-03-12 / 2016-03-12
 /// @author Christophe Riccio
 /// 
 /// @see core (dependence)
 /// 
-/// @defgroup gtx_type_info GLM_GTX_type_info
+/// @defgroup gtx_type_trait GLM_GTX_type_trait
 /// @ingroup gtx
 /// 
-/// @brief Defines aligned types.
+/// @brief Defines traits for each type.
 /// 
-/// <glm/gtx/type_aligned.hpp> need to be included to use these functionalities.
+/// <glm/gtx/type_trait.hpp> need to be included to use these functionalities.
 ///////////////////////////////////////////////////////////////////////////////////
 
 #pragma once
@@ -46,12 +46,12 @@
 #include "../detail/setup.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
-#	pragma message("GLM: GLM_GTX_type_info extension included")
+#	pragma message("GLM: GLM_GTX_type_trait extension included")
 #endif
 
 namespace glm
 {
-	/// @addtogroup gtx_type_info
+	/// @addtogroup gtx_type_trait
 	/// @{
 
 	template <typename T, precision P> struct tvec1;
@@ -79,6 +79,8 @@ namespace glm
 		static bool const is_mat = false;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 0;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 0;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 0;
 	};
 
 	template <>
@@ -88,6 +90,8 @@ namespace glm
 		static bool const is_mat = false;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 1;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 1;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 1;
 	};
 
 	template <>
@@ -124,6 +128,8 @@ namespace glm
 		static bool const is_mat = true;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 2;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 2;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 2;
 	};
 
 	template <>
@@ -133,6 +139,8 @@ namespace glm
 		static bool const is_mat = true;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 2;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 2;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 3;
 	};
 
 	template <>
@@ -142,6 +150,8 @@ namespace glm
 		static bool const is_mat = true;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 2;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 2;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 4;
 	};
 
 	template <>
@@ -162,6 +172,8 @@ namespace glm
 		static bool const is_mat = true;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 3;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 3;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 3;
 	};
 
 	template <>
@@ -171,6 +183,8 @@ namespace glm
 		static bool const is_mat = true;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 3;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 3;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 4;
 	};
 
 	template <>
@@ -180,6 +194,8 @@ namespace glm
 		static bool const is_mat = true;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 4;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 4;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 2;
 	};
 
 	template <>
@@ -189,6 +205,8 @@ namespace glm
 		static bool const is_mat = true;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 4;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 4;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 3;
 	};
 
 	template <>
@@ -198,6 +216,8 @@ namespace glm
 		static bool const is_mat = true;
 		static bool const is_quat = false;
 		static GLM_RELAXED_CONSTEXPR length_t components = 4;
+		static GLM_RELAXED_CONSTEXPR length_t cols = 4;
+		static GLM_RELAXED_CONSTEXPR length_t rows = 4;
 	};
 
 	template <>
