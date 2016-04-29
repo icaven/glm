@@ -276,7 +276,7 @@ namespace detail
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType floorPowerOfTwo(genType value)
 	{
-		return isPowerOfTwo(value) ? value : findMSB(value);
+		return isPowerOfTwo(value) ? value : static_cast<genType>(1) << findMSB(value);
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
@@ -294,8 +294,8 @@ namespace detail
 		if(isPowerOfTwo(value))
 			return value;
 
-		genIUType const prev = findMSB(value);
-		genIUType const next = prev << 1;
+		genIUType const prev = static_cast<genIUType>(1) << findMSB(value);
+		genIUType const next = prev << static_cast<genIUType>(1);
 		return (next - value) < (value - prev) ? next : prev;
 	}
 

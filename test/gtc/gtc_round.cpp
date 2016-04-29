@@ -303,6 +303,21 @@ namespace roundPowerOfTwo
 		glm::uint32 const A = glm::roundPowerOfTwo(7u);
 		Error += A == 8u ? 0 : 1;
 		
+		glm::uint32 const B = glm::roundPowerOfTwo(15u);
+		Error += B == 16u ? 0 : 1;
+
+		glm::uint32 const C = glm::roundPowerOfTwo(31u);
+		Error += C == 32u ? 0 : 1;
+		
+		glm::uint32 const D = glm::roundPowerOfTwo(9u);
+		Error += D == 8u ? 0 : 1;
+		
+		glm::uint32 const E = glm::roundPowerOfTwo(17u);
+		Error += E == 16u ? 0 : 1;
+		
+		glm::uint32 const F = glm::roundPowerOfTwo(33u);
+		Error += F == 32u ? 0 : 1;
+		
 		return Error;
 	}
 }//namespace roundPowerOfTwo
@@ -315,6 +330,12 @@ namespace floorPowerOfTwo
 		
 		glm::uint32 const A = glm::floorPowerOfTwo(7u);
 		Error += A == 4u ? 0 : 1;
+		
+		glm::uint32 const B = glm::floorPowerOfTwo(15u);
+		Error += B == 8u ? 0 : 1;
+		
+		glm::uint32 const C = glm::floorPowerOfTwo(31u);
+		Error += C == 16u ? 0 : 1;
 		
 		return Error;
 	}
