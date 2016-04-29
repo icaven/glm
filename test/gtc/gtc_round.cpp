@@ -174,7 +174,7 @@ namespace isPowerOfTwo
 	}
 }//isPowerOfTwo
 
-namespace ceilPowerOfTwo
+namespace ceilPowerOfTwo_advanced
 {
 	template <typename genIUType>
 	GLM_FUNC_QUALIFIER genIUType highestBitValue(genIUType Value)
@@ -292,7 +292,7 @@ namespace ceilPowerOfTwo
 
 		return Error;
 	}
-}//namespace ceilPowerOfTwo
+}//namespace ceilPowerOfTwo_advanced
 
 namespace roundPowerOfTwo
 {
@@ -340,6 +340,25 @@ namespace floorPowerOfTwo
 		return Error;
 	}
 }//namespace floorPowerOfTwo
+
+namespace ceilPowerOfTwo
+{
+	int test()
+	{
+		int Error = 0;
+		
+		glm::uint32 const A = glm::ceilPowerOfTwo(7u);
+		Error += A == 8u ? 0 : 1;
+		
+		glm::uint32 const B = glm::ceilPowerOfTwo(15u);
+		Error += B == 16u ? 0 : 1;
+		
+		glm::uint32 const C = glm::ceilPowerOfTwo(31u);
+		Error += C == 32u ? 0 : 1;
+		
+		return Error;
+	}
+}//namespace ceilPowerOfTwo
 
 namespace floorMultiple
 {
@@ -426,10 +445,11 @@ int main()
 	int Error(0);
 
 	Error += isPowerOfTwo::test();
-	Error += ceilPowerOfTwo::test();
 	Error += floorPowerOfTwo::test();
 	Error += roundPowerOfTwo::test();
-
+	Error += ceilPowerOfTwo::test();
+	Error += ceilPowerOfTwo_advanced::test();
+	
 #	ifdef NDEBUG
 		Error += ceilPowerOfTwo::perf();
 #	endif//NDEBUG
