@@ -294,6 +294,32 @@ namespace ceilPowerOfTwo
 	}
 }//namespace ceilPowerOfTwo
 
+namespace roundPowerOfTwo
+{
+	int test()
+	{
+		int Error = 0;
+		
+		glm::uint32 const A = glm::roundPowerOfTwo(7u);
+		Error += A == 8u ? 0 : 1;
+		
+		return Error;
+	}
+}//namespace roundPowerOfTwo
+
+namespace floorPowerOfTwo
+{
+	int test()
+	{
+		int Error = 0;
+		
+		glm::uint32 const A = glm::floorPowerOfTwo(7u);
+		Error += A == 4u ? 0 : 1;
+		
+		return Error;
+	}
+}//namespace floorPowerOfTwo
+
 namespace floorMultiple
 {
 	template <typename genType>
@@ -380,6 +406,8 @@ int main()
 
 	Error += isPowerOfTwo::test();
 	Error += ceilPowerOfTwo::test();
+	Error += floorPowerOfTwo::test();
+	Error += roundPowerOfTwo::test();
 
 #	ifdef NDEBUG
 		Error += ceilPowerOfTwo::perf();
