@@ -954,7 +954,7 @@
 #	define GLM_ALIGNED_TYPEDEF(type, name, alignment) typedef type name __attribute__((aligned(alignment)))
 #	define GLM_RESTRICT_FUNC __restrict__
 #	define GLM_RESTRICT __restrict__
-#	ifdef GLM_COMPILER & GLM_COMPILER_LLVM
+#	if GLM_COMPILER & GLM_COMPILER_LLVM
 #		if GLM_COMPILER >= GLM_COMPILER_LLVM37
 #			define GLM_VECTOR_CALL __vectorcall
 #		else
