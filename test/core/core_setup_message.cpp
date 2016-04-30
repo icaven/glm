@@ -226,7 +226,7 @@ int test_instruction_set()
 
 int test_cpp_version()
 {
-	std::printf("__cplusplus: %ld\n", __cplusplus);
+	std::printf("__cplusplus: %lld\n", __cplusplus);
 	
 	return 0;
 }
