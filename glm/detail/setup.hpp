@@ -934,22 +934,22 @@
 #	define GLM_ALIGN(x) __declspec(align(x))
 #	define GLM_ALIGNED_STRUCT(x) struct __declspec(align(x))
 #	define GLM_ALIGNED_TYPEDEF(type, name, alignment) typedef __declspec(align(alignment)) type name
-#	define GLM_RESTRICT __declspec(restrict)
-#	define GLM_RESTRICT_VAR __restrict
+#	define GLM_RESTRICT_FUNC __declspec(restrict)
+#	define GLM_RESTRICT __restrict
 #elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM | GLM_COMPILER_CUDA | GLM_COMPILER_INTEL)
 #	define GLM_DEPRECATED __attribute__((__deprecated__))
 #	define GLM_ALIGN(x) __attribute__((aligned(x)))
 #	define GLM_ALIGNED_STRUCT(x) struct __attribute__((aligned(x)))
 #	define GLM_ALIGNED_TYPEDEF(type, name, alignment) typedef type name __attribute__((aligned(alignment)))
+#	define GLM_RESTRICT_FUNC __restrict__
 #	define GLM_RESTRICT __restrict__
-#	define GLM_RESTRICT_VAR __restrict__
 #else
 #	define GLM_DEPRECATED
 #	define GLM_ALIGN
 #	define GLM_ALIGNED_STRUCT(x) struct
 #	define GLM_ALIGNED_TYPEDEF(type, name, alignment) typedef type name
+#	define GLM_RESTRICT_FUNC
 #	define GLM_RESTRICT
-#	define GLM_RESTRICT_VAR
 #endif//GLM_COMPILER
 
 #if GLM_HAS_DEFAULTED_FUNCTIONS
