@@ -758,3 +758,9 @@ namespace detail
 		return (m1[0] != m2[0]) || (m1[1] != m2[1]) || (m1[2] != m2[2]) || (m1[3] != m2[3]);
 	}
 }//namespace glm
+
+#if GLM_HAS_ANONYMOUS_UNION && GLM_NOT_BUGGY_VC32BITS
+#if GLM_ARCH & GLM_ARCH_SSE2
+#	include "type_mat4x4_sse2.inl"
+#endif
+#endif//

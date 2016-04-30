@@ -608,7 +608,7 @@ GLM_FUNC_QUALIFIER void sse_inverse_ps(__m128 const in[4], __m128 out[4])
 		__m128 Mul00 = _mm_mul_ps(Swp00, Swp01);
 		__m128 Mul01 = _mm_mul_ps(Swp02, Swp03);
 		Fac2 = _mm_sub_ps(Mul00, Mul01);
-    }
+	}
 
 	__m128 Fac3;
 	{

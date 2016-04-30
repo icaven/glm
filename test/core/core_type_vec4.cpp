@@ -59,7 +59,6 @@ enum comp
 //	return _mm_shuffle_ps(Src, Src, mask<(int(W) << 6) | (int(Z) << 4) | (int(Y) << 2) | (int(X) << 0)>::value);
 //}
 
-
 int test_vec4_ctor()
 {
 	int Error = 0;
@@ -485,6 +484,21 @@ namespace heap
 	}
 }//namespace heap
 
+int test_vec4_simd()
+{
+	int Error = 0;
+
+	glm::tvec4<float, glm::simd> a(std::clock(), std::clock(), std::clock(), std::clock());
+	glm::tvec4<float, glm::simd> b(std::clock(), std::clock(), std::clock(), std::clock());
+
+	glm::tvec4<float, glm::simd> c(b * a);
+	glm::tvec4<float, glm::simd> d(a + c);
+
+	Error += glm::all(glm::greaterThan(d, glm::tvec4<float, glm::simd>(0))) ? 0 : 1;
+
+	return Error;
+}
+
 int main()
 {
 	int Error(0);
@@ -503,6 +517,7 @@ int main()
 	Error += test_vec4_size();
 	Error += test_vec4_operators();
 	Error += test_vec4_swizzle_partial();
+	Error += test_vec4_simd();
 	Error += test_operator_increment();
 	Error += heap::test();
 

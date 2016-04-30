@@ -30,8 +30,8 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-namespace glm{
-
+namespace glm
+{
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template <>
 		GLM_FUNC_QUALIFIER tvec4<float, simd>::tvec4()
@@ -73,5 +73,21 @@ namespace glm{
 	{
 		this->data = _mm_add_ps(this->data, _mm_set_ps1(static_cast<float>(v.x)));
 		return *this;
+	}
+
+	template <>
+	GLM_FUNC_QUALIFIER tvec4<float, simd> __vectorcall operator+(tvec4<float, simd> const & v1, tvec4<float, simd> const & v2)
+	{
+		tvec4<float, glm::simd> Result(uninitialize);
+		Result.data = _mm_add_ps(v1.data, v2.data);
+		return Result;
+	}
+
+	template <>
+	GLM_FUNC_QUALIFIER tvec4<float, simd> __vectorcall operator*(tvec4<float, simd> const & v1, tvec4<float, simd> const & v2)
+	{
+		tvec4<float, glm::simd> Result(uninitialize);
+		Result.data = _mm_mul_ps(v1.data, v2.data);
+		return Result;
 	}
 }//namespace glm

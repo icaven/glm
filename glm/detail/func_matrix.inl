@@ -306,5 +306,11 @@ namespace detail
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'inverse' only accept floating-point inputs");
 		return detail::compute_inverse(m);
 	}
-
 }//namespace glm
+
+#if GLM_HAS_ANONYMOUS_UNION && GLM_NOT_BUGGY_VC32BITS
+#if GLM_ARCH & GLM_ARCH_SSE2
+#	include "func_matrix_sse2.inl"
+#endif
+#endif//
+

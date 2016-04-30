@@ -228,7 +228,7 @@ namespace glm
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template <typename T, precision P>
-		GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator=(tvec4<T, P> const & v)
+		GLM_FUNC_QUALIFIER tvec4<T, P> & __vectorcall tvec4<T, P>::operator=(tvec4<T, P> const & v)
 		{
 			this->x = v.x;
 			this->y = v.y;
@@ -240,7 +240,7 @@ namespace glm
 
 	template <typename T, precision P>
 	template <typename U>
-	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator=(tvec4<U, P> const & v)
+	GLM_FUNC_QUALIFIER tvec4<T, P> & __vectorcall tvec4<T, P>::operator=(tvec4<U, P> const & v)
 	{
 		this->x = static_cast<T>(v.x);
 		this->y = static_cast<T>(v.y);
@@ -682,7 +682,7 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> operator+(tvec4<T, P> const & v1, tvec4<T, P> const & v2)
+	GLM_FUNC_QUALIFIER tvec4<T, P> __vectorcall operator+(tvec4<T, P> const & v1, tvec4<T, P> const & v2)
 	{
 		return tvec4<T, P>(
 			v1.x + v2.x,
@@ -782,7 +782,7 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> operator*(tvec4<T, P> const & v1, tvec4<T, P> const & v2)
+	GLM_FUNC_QUALIFIER tvec4<T, P> __vectorcall operator*(tvec4<T, P> const & v1, tvec4<T, P> const & v2)
 	{
 		return tvec4<T, P>(
 			v1.x * v2.x,
@@ -1181,13 +1181,11 @@ namespace glm
 }//namespace glm
 
 #if GLM_HAS_ANONYMOUS_UNION && GLM_NOT_BUGGY_VC32BITS
-#if GLM_ARCH & GLM_ARCH_SSE2
-#	include "type_vec4_sse2.inl"
-#endif
-#if GLM_ARCH & GLM_ARCH_AVX
-#	include "type_vec4_avx.inl"
-#endif
-#if GLM_ARCH & GLM_ARCH_AVX2
-#	include "type_vec4_avx2.inl"
-#endif
-#endif//
+#	if GLM_ARCH & GLM_ARCH_AVX2
+#		include "type_vec4_avx2.inl"
+#	elif GLM_ARCH & GLM_ARCH_AVX
+#		include "type_vec4_avx.inl"
+#	elif GLM_ARCH & GLM_ARCH_SSE2
+#		include "type_vec4_sse2.inl"
+#	endif
+#endif//GLM_HAS_ANONYMOUS_UNION && GLM_NOT_BUGGY_VC32BITS

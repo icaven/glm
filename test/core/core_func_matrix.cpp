@@ -32,6 +32,7 @@
 #include <glm/matrix.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/ulp.hpp>
+#include <glm/gtc/epsilon.hpp>
 #include <vector>
 #include <ctime>
 #include <cstdio>
@@ -105,14 +106,14 @@ int test_outerProduct()
 	{ glm::mat3 m = glm::outerProduct(glm::vec3(1.0f), glm::vec3(1.0f)); }
 	{ glm::mat4 m = glm::outerProduct(glm::vec4(1.0f), glm::vec4(1.0f)); }
 
-  { glm::mat2x3 m = glm::outerProduct(glm::vec3(1.0f), glm::vec2(1.0f)); }
-  { glm::mat2x4 m = glm::outerProduct(glm::vec4(1.0f), glm::vec2(1.0f)); }
+	{ glm::mat2x3 m = glm::outerProduct(glm::vec3(1.0f), glm::vec2(1.0f)); }
+	{ glm::mat2x4 m = glm::outerProduct(glm::vec4(1.0f), glm::vec2(1.0f)); }
 
-  { glm::mat3x2 m = glm::outerProduct(glm::vec2(1.0f), glm::vec3(1.0f)); }
-  { glm::mat3x4 m = glm::outerProduct(glm::vec4(1.0f), glm::vec3(1.0f)); }
+	{ glm::mat3x2 m = glm::outerProduct(glm::vec2(1.0f), glm::vec3(1.0f)); }
+	{ glm::mat3x4 m = glm::outerProduct(glm::vec4(1.0f), glm::vec3(1.0f)); }
   
-  { glm::mat4x2 m = glm::outerProduct(glm::vec2(1.0f), glm::vec4(1.0f)); }
-  { glm::mat4x3 m = glm::outerProduct(glm::vec3(1.0f), glm::vec4(1.0f)); }
+	{ glm::mat4x2 m = glm::outerProduct(glm::vec2(1.0f), glm::vec4(1.0f)); }
+	{ glm::mat4x3 m = glm::outerProduct(glm::vec3(1.0f), glm::vec4(1.0f)); }
 
 	return 0;
 }
@@ -213,7 +214,27 @@ int test_inverse()
 	glm::mat2x2 I2x2 = A2x2 * B2x2;
 	Failed += I2x2 == glm::mat2x2(1) ? 0 : 1;
 
+	return Failed;
+}
 
+int test_inverse_simd()
+{
+	int Failed(0);
+
+	glm::tmat4x4<float, glm::simd> const Identity(1);
+
+	glm::tmat4x4<float, glm::simd> const A4x4(
+		glm::tvec4<float, glm::simd>(1, 0, 1, 0),
+		glm::tvec4<float, glm::simd>(0, 1, 0, 0),
+		glm::tvec4<float, glm::simd>(0, 0, 1, 0),
+		glm::tvec4<float, glm::simd>(0, 0, 0, 1));
+	glm::tmat4x4<float, glm::simd> const B4x4 = glm::inverse(A4x4);
+	glm::tmat4x4<float, glm::simd> const I4x4 = A4x4 * B4x4;
+
+	Failed += glm::all(glm::epsilonEqual(I4x4[0], Identity[0], 0.001f)) ? 0 : 1;
+	Failed += glm::all(glm::epsilonEqual(I4x4[1], Identity[1], 0.001f)) ? 0 : 1;
+	Failed += glm::all(glm::epsilonEqual(I4x4[2], Identity[2], 0.001f)) ? 0 : 1;
+	Failed += glm::all(glm::epsilonEqual(I4x4[3], Identity[3], 0.001f)) ? 0 : 1;
 
 	return Failed;
 }
@@ -271,6 +292,7 @@ int main()
 	Error += test_transpose();
 	Error += test_determinant();
 	Error += test_inverse();
+	Error += test_inverse_simd();
 
 #	ifdef NDEBUG
 	std::size_t const Samples(1000);

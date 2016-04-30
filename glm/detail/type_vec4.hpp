@@ -259,10 +259,10 @@ namespace detail
 
 		// -- Unary arithmetic operators --
 
-		GLM_FUNC_DECL tvec4<T, P> & operator=(tvec4<T, P> const & v) GLM_DEFAULT;
+		GLM_FUNC_DECL tvec4<T, P> & __vectorcall operator=(tvec4<T, P> const & v) GLM_DEFAULT;
 
 		template <typename U>
-		GLM_FUNC_DECL tvec4<T, P> & operator=(tvec4<U, P> const & v);
+		GLM_FUNC_DECL tvec4<T, P> & __vectorcall operator=(tvec4<U, P> const & v);
 		template <typename U>
 		GLM_FUNC_DECL tvec4<T, P> & operator+=(U scalar);
 		template <typename U>
@@ -358,7 +358,7 @@ namespace detail
 	GLM_FUNC_DECL tvec4<T, P> operator+(tvec1<T, P> const & v1, tvec4<T, P> const & v2);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec4<T, P> operator+(tvec4<T, P> const & v1, tvec4<T, P> const & v2);
+	GLM_FUNC_DECL tvec4<T, P> __vectorcall operator+(tvec4<T, P> const & v1, tvec4<T, P> const & v2);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tvec4<T, P> operator-(tvec4<T, P> const & v, T scalar);
@@ -388,7 +388,7 @@ namespace detail
 	GLM_FUNC_DECL tvec4<T, P> operator*(tvec1<T, P> const & v1, tvec4<T, P> const & v2);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec4<T, P> operator*(tvec4<T, P> const & v1, tvec4<T, P> const & v2);
+	GLM_FUNC_DECL tvec4<T, P> __vectorcall operator*(tvec4<T, P> const & v1, tvec4<T, P> const & v2);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tvec4<T, P> operator/(tvec4<T, P> const & v, T scalar);
