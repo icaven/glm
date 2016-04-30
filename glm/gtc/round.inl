@@ -30,8 +30,9 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
-namespace glm
-{
+#include "../detail/func_integer.hpp"
+
+namespace glm{
 namespace detail
 {
 	template <typename T, precision P, template <typename, precision> class vecType, bool compute = false>
@@ -275,7 +276,7 @@ namespace detail
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType floorPowerOfTwo(genType value)
 	{
-		return isPowerOfTwo(value) ? value : highestBitValue(value);
+		return isPowerOfTwo(value) ? value : static_cast<genType>(1) << findMSB(value);
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
@@ -293,8 +294,8 @@ namespace detail
 		if(isPowerOfTwo(value))
 			return value;
 
-		genIUType const prev = highestBitValue(value);
-		genIUType const next = prev << 1;
+		genIUType const prev = static_cast<genIUType>(1) << findMSB(value);
+		genIUType const next = prev << static_cast<genIUType>(1);
 		return (next - value) < (value - prev) ? next : prev;
 	}
 
