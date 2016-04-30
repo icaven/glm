@@ -76,7 +76,7 @@ namespace glm
 	}
 
 	template <>
-	GLM_FUNC_QUALIFIER tvec4<float, simd> __vectorcall operator+(tvec4<float, simd> const & v1, tvec4<float, simd> const & v2)
+	GLM_FUNC_QUALIFIER tvec4<float, simd> operator+(tvec4<float, simd> const & v1, tvec4<float, simd> const & v2)
 	{
 		tvec4<float, glm::simd> Result(uninitialize);
 		Result.data = _mm_add_ps(v1.data, v2.data);
@@ -84,7 +84,7 @@ namespace glm
 	}
 
 	template <>
-	GLM_FUNC_QUALIFIER tvec4<float, simd> __vectorcall operator*(tvec4<float, simd> const & v1, tvec4<float, simd> const & v2)
+	GLM_FUNC_QUALIFIER tvec4<float, simd> operator*(tvec4<float, simd> const & v1, tvec4<float, simd> const & v2)
 	{
 		tvec4<float, glm::simd> Result(uninitialize);
 		Result.data = _mm_mul_ps(v1.data, v2.data);
