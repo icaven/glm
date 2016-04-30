@@ -494,7 +494,7 @@ int test_vec4_simd()
 	glm::tvec4<float, glm::simd> c(b * a);
 	glm::tvec4<float, glm::simd> d(a + c);
 
-	Error += glm::all(glm::greaterThan(d, glm::tvec4<float, glm::simd>(0))) ? 0 : 1;
+	Error += glm::all(glm::greaterThanEqual(d, glm::tvec4<float, glm::simd>(0))) ? 0 : 1;
 
 	return Error;
 }
