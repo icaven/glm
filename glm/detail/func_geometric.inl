@@ -200,10 +200,6 @@ namespace detail
 	}
 }//namespace glm
 
-#if GLM_HAS_ANONYMOUS_UNION && GLM_NOT_BUGGY_VC32BITS
-#	if GLM_ARCH & GLM_ARCH_AVX
-#		include "func_geometric_avx.inl"
-#	elif GLM_ARCH & GLM_ARCH_SSE2
-#		include "func_geometric_sse2.inl"
-#	endif
-#endif//
+#if GLM_ARCH != GLM_FORCE_PURE && GLM_HAS_ANONYMOUS_UNION && GLM_NOT_BUGGY_VC32BITS
+#	include "func_geometric_simd.inl"
+#endif

@@ -26,6 +26,7 @@
 /// @author Christophe Riccio
 ///////////////////////////////////////////////////////////////////////////////////
 
+/*
 namespace glm{
 namespace detail{
 
@@ -48,7 +49,6 @@ GLM_FUNC_QUALIFIER __m128 sse_dst_ps(__m128 p0, __m128 p1)
 //dot
 GLM_FUNC_QUALIFIER __m128 sse_dot_ps(__m128 v1, __m128 v2)
 {
-
 #	if(GLM_ARCH & GLM_ARCH_AVX)
 		return _mm_dp_ps(v1, v2, 0xff);
 #	else
@@ -145,3 +145,5 @@ GLM_FUNC_QUALIFIER __m128 sse_rfa_ps(__m128 I, __m128 N, __m128 eta)
 
 }//namespace detail
 }//namespace glm
+*/
+

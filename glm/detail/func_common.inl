@@ -762,3 +762,7 @@ namespace detail
 			ldexp(x.w, exp.w));
 	}
 }//namespace glm
+
+#if GLM_ARCH != GLM_FORCE_PURE && GLM_HAS_ANONYMOUS_UNION && GLM_NOT_BUGGY_VC32BITS
+#	include "func_common_simd.inl"
+#endif

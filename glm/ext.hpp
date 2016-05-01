@@ -136,8 +136,3 @@
 #if GLM_HAS_RANGE_FOR
 #	include "./gtx/range.hpp"
 #endif
-
-#if GLM_ARCH & GLM_ARCH_SSE2
-#	include "./gtx/simd_vec4.hpp"
-#	include "./gtx/simd_mat4.hpp"
-#endif
