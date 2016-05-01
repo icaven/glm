@@ -32,9 +32,7 @@
 #include <glm/gtc/bitfield.hpp>
 #include <glm/gtc/type_precision.hpp>
 #include <glm/vector_relational.hpp>
-#if GLM_ARCH != GLM_ARCH_PURE
-#	include <glm/detail/intrinsic_integer.hpp>
-#endif
+#include <glm/integer.hpp>
 #include <ctime>
 #include <cstdio>
 #include <vector>

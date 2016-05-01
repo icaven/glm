@@ -1180,12 +1180,6 @@ namespace glm
 	}
 }//namespace glm
 
-#if GLM_HAS_ANONYMOUS_UNION && GLM_NOT_BUGGY_VC32BITS
-#	if GLM_ARCH & GLM_ARCH_AVX2
-#		include "type_vec4_avx2.inl"
-#	elif GLM_ARCH & GLM_ARCH_AVX
-#		include "type_vec4_avx.inl"
-#	elif GLM_ARCH & GLM_ARCH_SSE2
-#		include "type_vec4_sse2.inl"
-#	endif
-#endif//GLM_HAS_ANONYMOUS_UNION && GLM_NOT_BUGGY_VC32BITS
+#if GLM_ARCH != GLM_FORCE_PURE && GLM_HAS_ANONYMOUS_UNION && GLM_NOT_BUGGY_VC32BITS
+#	include "type_vec4_simd.inl"
+#endif

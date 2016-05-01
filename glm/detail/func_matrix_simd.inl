@@ -389,7 +389,7 @@ namespace detail
 		//						+ m[0][1] * Inverse[1][0]
 		//						+ m[0][2] * Inverse[2][0]
 		//						+ m[0][3] * Inverse[3][0];
-		__m128 Det0 = sse_dot_ps(in[0], Row2);
+		__m128 Det0 = dot_ps(in[0], Row2);
 		return Det0;
 	}
 
@@ -456,7 +456,7 @@ namespace detail
 		//	 + m[0][2] * DetCof[2]
 		//	 + m[0][3] * DetCof[3];
 
-		return sse_dot_ps(m[0], DetCof);
+		return dot_ps(m[0], DetCof);
 	}
 
 	GLM_FUNC_QUALIFIER __m128 sse_det_ps
@@ -522,7 +522,7 @@ namespace detail
 		//	 + m[0][2] * DetCof[2]
 		//	 + m[0][3] * DetCof[3];
 
-		return sse_dot_ps(m[0], DetCof);
+		return dot_ps(m[0], DetCof);
 	}
 
 	GLM_FUNC_QUALIFIER void sse_inverse_ps(__m128 const in[4], __m128 out[4])
@@ -735,7 +735,7 @@ namespace detail
 		//						+ m[0][1] * Inverse[1][0] 
 		//						+ m[0][2] * Inverse[2][0] 
 		//						+ m[0][3] * Inverse[3][0];
-		__m128 Det0 = sse_dot_ps(in[0], Row2);
+		__m128 Det0 = dot_ps(in[0], Row2);
 		__m128 Rcp0 = _mm_div_ps(one, Det0);
 		//__m128 Rcp0 = _mm_rcp_ps(Det0);
 
@@ -956,7 +956,7 @@ namespace detail
 		//						+ m[0][1] * Inverse[1][0] 
 		//						+ m[0][2] * Inverse[2][0] 
 		//						+ m[0][3] * Inverse[3][0];
-		__m128 Det0 = sse_dot_ps(in[0], Row2);
+		__m128 Det0 = dot_ps(in[0], Row2);
 		__m128 Rcp0 = _mm_rcp_ps(Det0);
 		//__m128 Rcp0 = _mm_div_ps(one, Det0);
 		//	Inverse /= Determinant;
