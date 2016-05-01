@@ -478,7 +478,7 @@ int main()
 	Error += ceilPowerOfTwo_advanced::test();
 	
 #	ifdef NDEBUG
-		Error += ceilPowerOfTwo::perf();
+		Error += ceilPowerOfTwo_advanced::perf();
 #	endif//NDEBUG
 
 	Error += floorMultiple::test();

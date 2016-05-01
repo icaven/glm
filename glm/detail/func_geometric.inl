@@ -199,3 +199,11 @@ namespace detail
 		return (eta * I - (eta * dotValue + std::sqrt(k)) * N) * static_cast<T>(k >= static_cast<T>(0));
 	}
 }//namespace glm
+
+#if GLM_HAS_ANONYMOUS_UNION && GLM_NOT_BUGGY_VC32BITS
+#	if GLM_ARCH & GLM_ARCH_AVX
+#		include "func_geometric_avx.inl"
+#	elif GLM_ARCH & GLM_ARCH_SSE2
+#		include "func_geometric_sse2.inl"
+#	endif
+#endif//

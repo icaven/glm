@@ -153,9 +153,9 @@ namespace detail
 		// -- Implicit basic constructors --
 
 		GLM_FUNC_DECL tvec4() GLM_DEFAULT_CTOR;
-		GLM_FUNC_DECL tvec4(tvec4<T, P> const & v) GLM_DEFAULT;
+		GLM_FUNC_DECL tvec4(tvec4<T, P> const& v) GLM_DEFAULT;
 		template <precision Q>
-		GLM_FUNC_DECL tvec4(tvec4<T, Q> const & v);
+		GLM_FUNC_DECL tvec4(tvec4<T, Q> const& v);
 
 		// -- Explicit basic constructors --
 
@@ -169,7 +169,7 @@ namespace detail
 		template <typename A, typename B, typename C, typename D>
 		GLM_FUNC_DECL tvec4(A a, B b, C c, D d);
 		template <typename A, typename B, typename C, typename D>
-		GLM_FUNC_DECL tvec4(tvec1<A, P> const & a, tvec1<B, P> const & b, tvec1<C, P> const & c, tvec1<D, P> const & d);
+		GLM_FUNC_DECL tvec4(tvec1<A, P> const& a, tvec1<B, P> const& b, tvec1<C, P> const& c, tvec1<D, P> const& d);
 
 		// -- Conversion vector constructors --
 
@@ -209,7 +209,7 @@ namespace detail
 
 		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename U, precision Q>
-		GLM_FUNC_DECL GLM_EXPLICIT tvec4(tvec4<U, Q> const & v);
+		GLM_FUNC_DECL GLM_EXPLICIT tvec4(tvec4<U, Q> const& v);
 
 		// -- Swizzle constructors --
 
@@ -278,9 +278,9 @@ namespace detail
 		template <typename U>
 		GLM_FUNC_DECL tvec4<T, P> & operator*=(U scalar);
 		template <typename U>
-		GLM_FUNC_DECL tvec4<T, P> & operator*=(tvec1<U, P> const & v);
+		GLM_FUNC_DECL tvec4<T, P> & operator*=(tvec1<U, P> const& v);
 		template <typename U>
-		GLM_FUNC_DECL tvec4<T, P> & operator*=(tvec4<U, P> const & v);
+		GLM_FUNC_DECL tvec4<T, P> & operator*=(tvec4<U, P> const& v);
 		template <typename U>
 		GLM_FUNC_DECL tvec4<T, P> & operator/=(U scalar);
 		template <typename U>

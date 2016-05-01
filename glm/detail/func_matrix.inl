@@ -309,8 +309,8 @@ namespace detail
 }//namespace glm
 
 #if GLM_HAS_ANONYMOUS_UNION && GLM_NOT_BUGGY_VC32BITS
-#if GLM_ARCH & GLM_ARCH_SSE2
-#	include "func_matrix_sse2.inl"
-#endif
+#	if GLM_ARCH & GLM_ARCH_SSE2
+#		include "func_matrix_sse2.inl"
+#	endif
 #endif//
 
