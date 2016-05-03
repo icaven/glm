@@ -759,8 +759,6 @@ namespace detail
 	}
 }//namespace glm
 
-#if GLM_HAS_ANONYMOUS_UNION && GLM_NOT_BUGGY_VC32BITS
-#if GLM_ARCH & GLM_ARCH_SSE2
-#	include "type_mat4x4_sse2.inl"
+#if GLM_ARCH != GLM_FORCE_PURE
+#	include "type_mat4x4_simd.inl"
 #endif
-#endif//

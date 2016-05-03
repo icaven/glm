@@ -32,6 +32,8 @@
 
 namespace glm
 {
+#	if GLM_HAS_UNRESTRICTED_UNIONS
+
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template <>
 		GLM_FUNC_QUALIFIER tvec4<float, simd>::tvec4()
@@ -90,4 +92,5 @@ namespace glm
 		Result.data = _mm_mul_ps(v1.data, v2.data);
 		return Result;
 	}
+#endif//GLM_HAS_UNRESTRICTED_UNIONS
 }//namespace glm

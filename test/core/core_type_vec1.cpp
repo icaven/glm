@@ -96,7 +96,7 @@ int test_vec1_ctor()
 	}
 #endif
 */
-#if GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE)
+#if GLM_HAS_UNRESTRICTED_UNIONS && defined(GLM_SWIZZLE)
 	{
 		glm::vec2 A = glm::vec2(1.0f, 2.0f);
 		glm::vec2 B = A.xy;
@@ -107,7 +107,7 @@ int test_vec1_ctor()
 		Error += glm::all(glm::equal(A, C)) ? 0 : 1;
 		Error += glm::all(glm::equal(A, D)) ? 0 : 1;
 	}
-#endif// GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE)
+#endif//GLM_HAS_UNRESTRICTED_UNIONS && defined(GLM_SWIZZLE)
 
 	{
 		glm::vec2 A = glm::vec2(2.0f);

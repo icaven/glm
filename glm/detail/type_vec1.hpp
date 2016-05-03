@@ -35,7 +35,7 @@
 #include "../fwd.hpp"
 #include "type_vec.hpp"
 #ifdef GLM_SWIZZLE
-#	if GLM_HAS_ANONYMOUS_UNION
+#	if GLM_HAS_UNRESTRICTED_UNIONS
 #		include "_swizzle.hpp"
 #	else
 #		include "_swizzle_func.hpp"
@@ -56,7 +56,7 @@ namespace glm
 
 		// -- Data --
 
-#		if GLM_HAS_ANONYMOUS_UNION
+#		if GLM_HAS_UNRESTRICTED_UNIONS
 			union
 			{
 				T x;
@@ -122,13 +122,13 @@ namespace glm
 
 		// -- Swizzle constructors --
 
-#		if(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
+#		if(GLM_HAS_UNRESTRICTED_UNIONS && defined(GLM_SWIZZLE))
 			template <int E0>
 			GLM_FUNC_DECL tvec1(detail::_swizzle<1, T, P, tvec1<T, P>, E0, -1,-2,-3> const & that)
 			{
 				*this = that();
 			}
-#		endif//(GLM_HAS_ANONYMOUS_UNION && defined(GLM_SWIZZLE))
+#		endif//(GLM_HAS_UNRESTRICTED_UNIONS && defined(GLM_SWIZZLE))
 
 		// -- Unary arithmetic operators --
 

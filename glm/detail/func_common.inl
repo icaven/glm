@@ -734,6 +734,6 @@ namespace detail
 	}
 }//namespace glm
 
-#if GLM_ARCH != GLM_FORCE_PURE && GLM_HAS_ANONYMOUS_UNION && GLM_NOT_BUGGY_VC32BITS
+#if GLM_ARCH != GLM_FORCE_PURE
 #	include "func_common_simd.inl"
 #endif
