@@ -67,6 +67,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Improved GTC_random linearRand documentation
 - Improved GTC_reciprocal documentation
 - Improved GLM_FORCE_EXPLICIT_CTOR coverage #481
+- Improved OpenMP support detection for Clang, GCC, ICC and VC
 
 ##### Fixes:
 - Fixed GTX_extended_min_max filename typo #386
