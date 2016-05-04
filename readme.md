@@ -62,8 +62,10 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added 8bit pack and unpack to GTC_packing
 - Added missing bvec* && and || operators
 - Added iround and uround to GTC_integer, fast round on positive values
+- Added raw SIMD API
 
 ##### Improvements:
+- Improved SIMD and swizzle operators interactions with GCC and Clang
 - Improved GTC_random linearRand documentation
 - Improved GTC_reciprocal documentation
 - Improved GLM_FORCE_EXPLICIT_CTOR coverage #481
