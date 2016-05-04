@@ -1180,6 +1180,6 @@ namespace glm
 	}
 }//namespace glm
 
-#if GLM_ARCH != GLM_FORCE_PURE
+#if GLM_ARCH != GLM_ARCH_PURE
 #	include "type_vec4_simd.inl"
 #endif

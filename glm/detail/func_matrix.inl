@@ -279,7 +279,7 @@ namespace detail
 	}
 }//namespace glm
 
-#if GLM_ARCH != GLM_FORCE_PURE
+#if GLM_ARCH != GLM_ARCH_PURE
 #	include "func_matrix_simd.inl"
 #endif
 

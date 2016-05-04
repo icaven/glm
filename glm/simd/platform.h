@@ -127,16 +127,6 @@
 #define GLM_COMPILER_LLVM38			0x20000090
 #define GLM_COMPILER_LLVM39			0x200000A0
 
-// Apple Clang
-#define GLM_COMPILER_APPLE_CLANG	0x40000000
-#define GLM_COMPILER_APPLE_CLANG40	0x40000010
-#define GLM_COMPILER_APPLE_CLANG41	0x40000020
-#define GLM_COMPILER_APPLE_CLANG42	0x40000030
-#define GLM_COMPILER_APPLE_CLANG50	0x40000040
-#define GLM_COMPILER_APPLE_CLANG51	0x40000050
-#define GLM_COMPILER_APPLE_CLANG60	0x40000060
-#define GLM_COMPILER_APPLE_CLANG61	0x40000070
-
 // Build model
 #define GLM_MODEL_32				0x00000010
 #define GLM_MODEL_64				0x00000020
@@ -192,24 +182,18 @@
 // Clang
 #elif defined(__clang__)
 #	if GLM_PLATFORM & GLM_PLATFORM_APPLE
-#		if __clang_major__ == 4 && __clang_minor__ == 0
-#			define GLM_COMPILER GLM_COMPILER_APPLE_CLANG40
-#		elif __clang_major__ == 4 && __clang_minor__ == 1
-#			define GLM_COMPILER GLM_COMPILER_APPLE_CLANG41
-#		elif __clang_major__ == 4 && __clang_minor__ == 2
-#			define GLM_COMPILER GLM_COMPILER_APPLE_CLANG42
-#		elif __clang_major__ == 5 && __clang_minor__ == 0
-#			define GLM_COMPILER GLM_COMPILER_APPLE_CLANG50
+#		if __clang_major__ == 5 && __clang_minor__ == 0
+#			define GLM_COMPILER GLM_COMPILER_LLVM33
 #		elif __clang_major__ == 5 && __clang_minor__ == 1
-#			define GLM_COMPILER GLM_COMPILER_APPLE_CLANG51
+#			define GLM_COMPILER GLM_COMPILER_LLVM34
 #		elif __clang_major__ == 6 && __clang_minor__ == 0
-#			define GLM_COMPILER GLM_COMPILER_APPLE_CLANG60
+#			define GLM_COMPILER GLM_COMPILER_LLVM35
 #		elif __clang_major__ == 6 && __clang_minor__ >= 1
-#			define GLM_COMPILER GLM_COMPILER_APPLE_CLANG61
+#			define GLM_COMPILER GLM_COMPILER_LLVM36
 #		elif __clang_major__ >= 7
-#			define GLM_COMPILER GLM_COMPILER_APPLE_CLANG61
+#			define GLM_COMPILER GLM_COMPILER_LLVM37
 #		else
-#			define GLM_COMPILER GLM_COMPILER_APPLE_CLANG
+#			define GLM_COMPILER GLM_COMPILER_LLVM
 #		endif
 #	else
 #		if __clang_major__ == 3 && __clang_minor__ == 0
