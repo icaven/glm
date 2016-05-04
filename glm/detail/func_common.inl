@@ -527,7 +527,7 @@ namespace detail
 #				else
 					return ::isnan(x) != 0;
 #				endif
-#			elif (GLM_COMPILER & (GLM_COMPILER_GCC | (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))) && (GLM_PLATFORM & GLM_PLATFORM_ANDROID) && __cplusplus < 201103L
+#			elif (GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_LLVM)) && (GLM_PLATFORM & GLM_PLATFORM_ANDROID) && __cplusplus < 201103L
 				return _isnan(x) != 0;
 #			elif GLM_COMPILER & GLM_COMPILER_CUDA
 				return isnan(x) != 0;
@@ -561,7 +561,7 @@ namespace detail
 #				else
 					return ::isinf(x);
 #				endif
-#			elif GLM_COMPILER & (GLM_COMPILER_GCC | (GLM_COMPILER_APPLE_CLANG | GLM_COMPILER_LLVM))
+#			elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_LLVM)
 #				if(GLM_PLATFORM & GLM_PLATFORM_ANDROID && __cplusplus < 201103L)
 					return _isinf(x) != 0;
 #				else
