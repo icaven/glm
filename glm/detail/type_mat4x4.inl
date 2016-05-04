@@ -759,6 +759,6 @@ namespace detail
 	}
 }//namespace glm
 
-#if GLM_ARCH != GLM_FORCE_PURE
+#if GLM_ARCH != GLM_ARCH_PURE
 #	include "type_mat4x4_simd.inl"
 #endif

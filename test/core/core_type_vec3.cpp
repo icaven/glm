@@ -113,6 +113,13 @@ int test_vec3_ctor()
 	return Error;
 }
 
+float foo()
+{
+	glm::vec3 bar = glm::vec3(0.0f, 1.0f, 1.0f);
+
+	return glm::length(bar);
+}
+
 int test_vec3_operators()
 {
 	int Error = 0;
