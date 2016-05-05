@@ -44,7 +44,7 @@ namespace glm
 #	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tvec4<float, simd>::tvec4(float s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_GCC tvec4<float, simd>::tvec4(float s) :
 		data(_mm_set1_ps(s))
 	{}
 
