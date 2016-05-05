@@ -102,7 +102,15 @@ namespace glm
 		// -- Explicit basic constructors --
 
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR explicit tvec1(ctor);
-		GLM_FUNC_DECL GLM_CONSTEXPR explicit tvec1(T scalar);
+
+		// GCC 4.6 has a bug causing a compiler crash
+#		if GLM_COMPILER & GLM_COMPILER_GCC
+#			define	GLM_CONSTEXPR_GCC
+#		else
+#			define	GLM_CONSTEXPR_GCC GLM_CONSTEXPR
+#		endif
+
+		GLM_FUNC_DECL GLM_CONSTEXPR_GCC explicit tvec1(T scalar);
 
 		// -- Conversion vector constructors --
 
