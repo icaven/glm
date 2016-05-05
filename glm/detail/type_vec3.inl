@@ -89,7 +89,7 @@ namespace glm
 	{}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tvec3<T, P>::tvec3(T scalar)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_GCC tvec3<T, P>::tvec3(T scalar)
 		: x(scalar), y(scalar), z(scalar)
 	{}
 

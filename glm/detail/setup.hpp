@@ -737,6 +737,13 @@
 #	define GLM_RELAXED_CONSTEXPR const
 #endif
 
+// GCC 4.6 has a bug causing a compiler crash
+#if GLM_COMPILER & GLM_COMPILER_GCC
+#	define	GLM_CONSTEXPR_GCC
+#else
+#	define	GLM_CONSTEXPR_GCC GLM_CONSTEXPR
+#endif
+
 #ifdef GLM_FORCE_EXPLICIT_CTOR
 #	define GLM_EXPLICIT explicit
 #else
