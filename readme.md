@@ -65,11 +65,12 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added raw SIMD API
 
 ##### Improvements:
-- Improved SIMD and swizzle operators interactions with GCC and Clang
+- Improved SIMD and swizzle operators interactions with GCC and Clang #474
 - Improved GTC_random linearRand documentation
 - Improved GTC_reciprocal documentation
 - Improved GLM_FORCE_EXPLICIT_CTOR coverage #481
 - Improved OpenMP support detection for Clang, GCC, ICC and VC
+- Added constexpr for *vec*, *mat*, *quat* and *dual_quat* types #493
 
 ##### Fixes:
 - Fixed GTX_extended_min_max filename typo #386
