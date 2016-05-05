@@ -55,45 +55,45 @@ namespace glm
 	public:
 		// -- Constructors --
 
-		GLM_FUNC_DECL GLM_CONSTEXPR tmat2x2() GLM_DEFAULT_CTOR;
-		GLM_FUNC_DECL GLM_CONSTEXPR tmat2x2(tmat2x2<T, P> const & m) GLM_DEFAULT;
+		GLM_FUNC_DECL tmat2x2() GLM_DEFAULT_CTOR;
+		GLM_FUNC_DECL tmat2x2(tmat2x2<T, P> const & m) GLM_DEFAULT;
 		template <precision Q>
-		GLM_FUNC_DECL GLM_CONSTEXPR tmat2x2(tmat2x2<T, Q> const & m);
+		GLM_FUNC_DECL tmat2x2(tmat2x2<T, Q> const & m);
 
 		GLM_FUNC_DECL GLM_CONSTEXPR explicit tmat2x2(ctor);
-		GLM_FUNC_DECL GLM_CONSTEXPR explicit tmat2x2(T scalar);
-		GLM_FUNC_DECL GLM_CONSTEXPR tmat2x2(
+		GLM_FUNC_DECL explicit tmat2x2(T scalar);
+		GLM_FUNC_DECL tmat2x2(
 			T const & x1, T const & y1,
 			T const & x2, T const & y2);
-		GLM_FUNC_DECL GLM_CONSTEXPR tmat2x2(
+		GLM_FUNC_DECL tmat2x2(
 			col_type const & v1,
 			col_type const & v2);
 
 		// -- Conversions --
 
 		template <typename U, typename V, typename M, typename N>
-		GLM_FUNC_DECL GLM_CONSTEXPR tmat2x2(
+		GLM_FUNC_DECL tmat2x2(
 			U const & x1, V const & y1,
 			M const & x2, N const & y2);
 
 		template <typename U, typename V>
-		GLM_FUNC_DECL GLM_CONSTEXPR tmat2x2(
+		GLM_FUNC_DECL tmat2x2(
 			tvec2<U, P> const & v1,
 			tvec2<V, P> const & v2);
 
 		// -- Matrix conversions --
 
 		template <typename U, precision Q>
-		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tmat2x2(tmat2x2<U, Q> const & m);
+		GLM_FUNC_DECL GLM_EXPLICIT tmat2x2(tmat2x2<U, Q> const & m);
 
-		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tmat2x2(tmat3x3<T, P> const & x);
-		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tmat2x2(tmat4x4<T, P> const & x);
-		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tmat2x2(tmat2x3<T, P> const & x);
-		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tmat2x2(tmat3x2<T, P> const & x);
-		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tmat2x2(tmat2x4<T, P> const & x);
-		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tmat2x2(tmat4x2<T, P> const & x);
-		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tmat2x2(tmat3x4<T, P> const & x);
-		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tmat2x2(tmat4x3<T, P> const & x);
+		GLM_FUNC_DECL GLM_EXPLICIT tmat2x2(tmat3x3<T, P> const & x);
+		GLM_FUNC_DECL GLM_EXPLICIT tmat2x2(tmat4x4<T, P> const & x);
+		GLM_FUNC_DECL GLM_EXPLICIT tmat2x2(tmat2x3<T, P> const & x);
+		GLM_FUNC_DECL GLM_EXPLICIT tmat2x2(tmat3x2<T, P> const & x);
+		GLM_FUNC_DECL GLM_EXPLICIT tmat2x2(tmat2x4<T, P> const & x);
+		GLM_FUNC_DECL GLM_EXPLICIT tmat2x2(tmat4x2<T, P> const & x);
+		GLM_FUNC_DECL GLM_EXPLICIT tmat2x2(tmat3x4<T, P> const & x);
+		GLM_FUNC_DECL GLM_EXPLICIT tmat2x2(tmat4x3<T, P> const & x);
 
 		// -- Accesses --
 
