@@ -87,7 +87,7 @@ namespace glm
 	// -- Explicit basic constructors --
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, P>::tdualquat(ctor)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR tdualquat<T, P>::tdualquat(ctor)
 	{}
 
 	template <typename T, precision P>
