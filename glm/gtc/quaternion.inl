@@ -141,7 +141,7 @@ namespace detail
 	//}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, P>::tquat(tvec3<T, P> const & u, tvec3<T, P> const & v)
+	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(tvec3<T, P> const & u, tvec3<T, P> const & v)
 	{
 		tvec3<T, P> const LocalW(cross(u, v));
 		T Dot = detail::compute_dot<tvec3, T, P>::call(u, v);
@@ -151,7 +151,7 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, P>::tquat(tvec3<T, P> const & eulerAngle)
+	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(tvec3<T, P> const & eulerAngle)
 	{
 		tvec3<T, P> c = glm::cos(eulerAngle * T(0.5));
 		tvec3<T, P> s = glm::sin(eulerAngle * T(0.5));
@@ -163,13 +163,13 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, P>::tquat(tmat3x3<T, P> const & m)
+	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(tmat3x3<T, P> const & m)
 	{
 		*this = quat_cast(m);
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, P>::tquat(tmat4x4<T, P> const & m)
+	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(tmat4x4<T, P> const & m)
 	{
 		*this = quat_cast(m);
 	}

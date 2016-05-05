@@ -110,12 +110,12 @@ namespace glm
 		/// @param v A second normalized axis
 		/// @see gtc_quaternion
 		/// @see http://lolengine.net/blog/2013/09/18/beautiful-maths-quaternion-from-vectors
-		GLM_FUNC_DECL GLM_CONSTEXPR tquat(tvec3<T, P> const & u, tvec3<T, P> const & v);
+		GLM_FUNC_DECL tquat(tvec3<T, P> const & u, tvec3<T, P> const & v);
 
 		/// Build a quaternion from euler angles (pitch, yaw, roll), in radians.
-		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tquat(tvec3<T, P> const & eulerAngles);
-		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tquat(tmat3x3<T, P> const & m);
-		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tquat(tmat4x4<T, P> const & m);
+		GLM_FUNC_DECL GLM_EXPLICIT tquat(tvec3<T, P> const & eulerAngles);
+		GLM_FUNC_DECL GLM_EXPLICIT tquat(tmat3x3<T, P> const & m);
+		GLM_FUNC_DECL GLM_EXPLICIT tquat(tmat4x4<T, P> const & m);
 
 		// -- Unary arithmetic operators --
 
