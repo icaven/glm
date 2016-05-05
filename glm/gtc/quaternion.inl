@@ -75,7 +75,7 @@ namespace detail
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS || !defined(GLM_FORCE_NO_CTOR_INIT)
 		template <typename T, precision P>
-		GLM_FUNC_QUALIFIER tquat<T, P>::tquat()
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, P>::tquat()
 #			ifndef GLM_FORCE_NO_CTOR_INIT
 				: x(0), y(0), z(0), w(1)
 #			endif

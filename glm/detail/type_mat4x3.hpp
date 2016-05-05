@@ -61,7 +61,7 @@ namespace glm
 		template <precision Q>
 		GLM_FUNC_DECL tmat4x3(tmat4x3<T, Q> const & m);
 
-		GLM_FUNC_DECL explicit tmat4x3(ctor);
+		GLM_FUNC_DECL GLM_CONSTEXPR explicit tmat4x3(ctor);
 		GLM_FUNC_DECL explicit tmat4x3(T const & x);
 		GLM_FUNC_DECL tmat4x3(
 			T const & x0, T const & y0, T const & z0,

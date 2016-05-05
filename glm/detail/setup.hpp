@@ -723,11 +723,15 @@
 #	define GLM_DEFAULT_CTOR
 #endif
 
-#if GLM_HAS_CONSTEXPR
+#if GLM_HAS_CONSTEXPR_PARTIAL
 #	define GLM_CONSTEXPR constexpr
-#	define GLM_RELAXED_CONSTEXPR constexpr
 #else
 #	define GLM_CONSTEXPR
+#endif
+
+#if GLM_HAS_CONSTEXPR
+#	define GLM_RELAXED_CONSTEXPR constexpr
+#else
 #	define GLM_RELAXED_CONSTEXPR const
 #endif
 
