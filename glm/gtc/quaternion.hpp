@@ -82,21 +82,21 @@ namespace glm
 
 		// -- Implicit basic constructors --
 
-		GLM_FUNC_DECL tquat() GLM_DEFAULT_CTOR;
-		GLM_FUNC_DECL tquat(tquat<T, P> const & q) GLM_DEFAULT;
+		GLM_FUNC_DECL GLM_CONSTEXPR tquat() GLM_DEFAULT_CTOR;
+		GLM_FUNC_DECL GLM_CONSTEXPR tquat(tquat<T, P> const & q) GLM_DEFAULT;
 		template <precision Q>
-		GLM_FUNC_DECL tquat(tquat<T, Q> const & q);
+		GLM_FUNC_DECL GLM_CONSTEXPR tquat(tquat<T, Q> const & q);
 
 		// -- Explicit basic constructors --
 
-		GLM_FUNC_DECL explicit tquat(ctor);
-		GLM_FUNC_DECL tquat(T const & s, tvec3<T, P> const & v);
-		GLM_FUNC_DECL tquat(T const & w, T const & x, T const & y, T const & z);
+		GLM_FUNC_DECL GLM_CONSTEXPR explicit tquat(ctor);
+		GLM_FUNC_DECL GLM_CONSTEXPR tquat(T const & s, tvec3<T, P> const & v);
+		GLM_FUNC_DECL GLM_CONSTEXPR tquat(T const & w, T const & x, T const & y, T const & z);
 
 		// -- Conversion constructors --
 
 		template <typename U, precision Q>
-		GLM_FUNC_DECL GLM_EXPLICIT tquat(tquat<U, Q> const & q);
+		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tquat(tquat<U, Q> const & q);
 
 		/// Explicit conversion operators
 #		if GLM_HAS_EXPLICIT_CONVERSION_OPERATORS
@@ -110,12 +110,12 @@ namespace glm
 		/// @param v A second normalized axis
 		/// @see gtc_quaternion
 		/// @see http://lolengine.net/blog/2013/09/18/beautiful-maths-quaternion-from-vectors
-		GLM_FUNC_DECL tquat(tvec3<T, P> const & u, tvec3<T, P> const & v);
+		GLM_FUNC_DECL GLM_CONSTEXPR tquat(tvec3<T, P> const & u, tvec3<T, P> const & v);
 
 		/// Build a quaternion from euler angles (pitch, yaw, roll), in radians.
-		GLM_FUNC_DECL GLM_EXPLICIT tquat(tvec3<T, P> const & eulerAngles);
-		GLM_FUNC_DECL GLM_EXPLICIT tquat(tmat3x3<T, P> const & m);
-		GLM_FUNC_DECL GLM_EXPLICIT tquat(tmat4x4<T, P> const & m);
+		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tquat(tvec3<T, P> const & eulerAngles);
+		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tquat(tmat3x3<T, P> const & m);
+		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tquat(tmat4x4<T, P> const & m);
 
 		// -- Unary arithmetic operators --
 
