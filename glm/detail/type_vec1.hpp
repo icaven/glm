@@ -102,7 +102,7 @@ namespace glm
 		// -- Explicit basic constructors --
 
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR explicit tvec1(ctor);
-		GLM_FUNC_DECL GLM_CONSTEXPR_GCC explicit tvec1(T scalar);
+		GLM_FUNC_DECL GLM_CONSTEXPR explicit tvec1(T scalar);
 
 		// -- Conversion vector constructors --
 
