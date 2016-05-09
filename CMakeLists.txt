@@ -87,6 +87,10 @@ else()
 	endif()
 endif()
 
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+	add_definitions(/FAs)
+endif()
+
 option(GLM_TEST_ENABLE_SIMD_SSE2 "Enable SSE2 optimizations" OFF)
 option(GLM_TEST_ENABLE_SIMD_SSE3 "Enable SSE3 optimizations" OFF)
 option(GLM_TEST_ENABLE_SIMD_AVX "Enable AVX optimizations" OFF)
