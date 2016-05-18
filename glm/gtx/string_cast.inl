@@ -479,7 +479,7 @@ namespace detail
 }//namespace detail
 
 template <template <typename, precision> class matType, typename T, precision P>
-GLM_FUNC_DECL std::string to_string(matType<T, P> const & x)
+GLM_FUNC_QUALIFIER std::string to_string(matType<T, P> const & x)
 {
 	return detail::compute_to_string<matType, T, P>::call(x);
 }
