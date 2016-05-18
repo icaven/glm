@@ -57,6 +57,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed roundPowerOfTwo and floorPowerOfTwo #503
 - Fixed Visual C++ SIMD instruction set automatic detection in 64 bits
 - Fixed to_string when used with GLM_FORCE_INLINE #506
+- Fixed GLM_FORCE_INLINE with binary vec4 operators
 
 #### [GLM 0.9.7.4](https://github.com/g-truc/glm/releases/tag/0.9.7.4) - 2016-03-19
 ##### Fixes:
