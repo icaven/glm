@@ -60,6 +60,62 @@ namespace detail
 			return Result;
 		}
 	};
+
+	template <precision P>
+	struct compute_vec4_and<int, P>
+	{
+		static tvec4<int, P> call(tvec4<int, P> const& a, tvec4<int, P> const& b)
+		{
+			tvec4<int, P> Result(uninitialize);
+			Result.data = _mm_and_si128(a.data, b.data);
+			return Result;
+		}
+	};
+
+	template <precision P>
+	struct compute_vec4_or<int, P>
+	{
+		static tvec4<int, P> call(tvec4<int, P> const& a, tvec4<int, P> const& b)
+		{
+			tvec4<int, P> Result(uninitialize);
+			Result.data = _mm_or_si128(a.data, b.data);
+			return Result;
+		}
+	};
+
+	template <precision P>
+	struct compute_vec4_xor<int, P>
+	{
+		static tvec4<int, P> call(tvec4<int, P> const& a, tvec4<int, P> const& b)
+		{
+			tvec4<int, P> Result(uninitialize);
+			Result.data = _mm_xor_si128(a.data, b.data);
+			return Result;
+		}
+	};
+/*
+	template <precision P>
+	struct compute_vec4_shift_left<int, P>
+	{
+		static tvec4<int, P> call(tvec4<int, P> const& a, tvec4<int, P> const& b)
+		{
+			tvec4<int, P> Result(uninitialize);
+			Result.data = _mm_sll_epi32(a.data, b.data);
+			return Result;
+		}
+	};
+
+	template <precision P>
+	struct compute_vec4_shift_right<int, P>
+	{
+		static tvec4<int, P> call(tvec4<int, P> const& a, tvec4<int, P> const& b)
+		{
+			tvec4<int, P> Result(uninitialize);
+			Result.data = _mm_srl_epi32(a.data, b.data);
+			return Result;
+		}
+	};
+*/
 }//namespace detail
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS
