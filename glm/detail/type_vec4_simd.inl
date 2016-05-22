@@ -16,6 +16,50 @@ namespace detail
 			return Result;
 		}
 	};
+
+	template <precision P>
+	struct compute_vec4_sub<float, P>
+	{
+		static tvec4<float, P> call(tvec4<float, P> const & a, tvec4<float, P> const & b)
+		{
+			tvec4<float, P> Result(uninitialize);
+			Result.data = _mm_sub_ps(a.data, b.data);
+			return Result;
+		}
+	};
+
+	template <precision P>
+	struct compute_vec4_mul<float, P>
+	{
+		static tvec4<float, P> call(tvec4<float, P> const & a, tvec4<float, P> const & b)
+		{
+			tvec4<float, P> Result(uninitialize);
+			Result.data = _mm_mul_ps(a.data, b.data);
+			return Result;
+		}
+	};
+
+	template <precision P>
+	struct compute_vec4_div<float, P>
+	{
+		static tvec4<float, P> call(tvec4<float, P> const & a, tvec4<float, P> const & b)
+		{
+			tvec4<float, P> Result(uninitialize);
+			Result.data = _mm_div_ps(a.data, b.data);
+			return Result;
+		}
+	};
+
+	template <>
+	struct compute_vec4_div<float, lowp>
+	{
+		static tvec4<float, lowp> call(tvec4<float, lowp> const & a, tvec4<float, lowp> const & b)
+		{
+			tvec4<float, lowp> Result(uninitialize);
+			Result.data = _mm_mul_ps(a.data, _mm_rcp_ps(b.data));
+			return Result;
+		}
+	};
 }//namespace detail
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS
