@@ -488,13 +488,13 @@ int test_vec4_simd()
 {
 	int Error = 0;
 
-	glm::tvec4<float, glm::simd> a(std::clock(), std::clock(), std::clock(), std::clock());
-	glm::tvec4<float, glm::simd> b(std::clock(), std::clock(), std::clock(), std::clock());
+	glm::vec4 const a(std::clock(), std::clock(), std::clock(), std::clock());
+	glm::vec4 const b(std::clock(), std::clock(), std::clock(), std::clock());
 
-	glm::tvec4<float, glm::simd> c(b * a);
-	glm::tvec4<float, glm::simd> d(a + c);
+	glm::vec4 const c(b * a);
+	glm::vec4 const d(a + c);
 
-	Error += glm::all(glm::greaterThanEqual(d, glm::tvec4<float, glm::simd>(0))) ? 0 : 1;
+	Error += glm::all(glm::greaterThanEqual(d, glm::vec4(0))) ? 0 : 1;
 
 	return Error;
 }

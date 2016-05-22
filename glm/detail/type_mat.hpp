@@ -54,6 +54,9 @@ namespace detail
 	template <typename T, precision P> struct tmat4x3;
 	template <typename T, precision P> struct tmat4x4;
 
+	template <typename T, precision P, template <typename, precision> class matType>
+	GLM_FUNC_DECL matType<T, P> inverse(matType<T, P> const & m);
+
 	/// @addtogroup core_precision
 	/// @{
 	

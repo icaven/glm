@@ -219,24 +219,24 @@ int test_inverse()
 
 int test_inverse_simd()
 {
-	int Failed(0);
+	int Error = 0;
 
-	glm::tmat4x4<float, glm::simd> const Identity(1);
+	glm::mat4x4 const Identity(1);
 
-	glm::tmat4x4<float, glm::simd> const A4x4(
-		glm::tvec4<float, glm::simd>(1, 0, 1, 0),
-		glm::tvec4<float, glm::simd>(0, 1, 0, 0),
-		glm::tvec4<float, glm::simd>(0, 0, 1, 0),
-		glm::tvec4<float, glm::simd>(0, 0, 0, 1));
-	glm::tmat4x4<float, glm::simd> const B4x4 = glm::inverse(A4x4);
-	glm::tmat4x4<float, glm::simd> const I4x4 = A4x4 * B4x4;
+	glm::mat4x4 const A4x4(
+		glm::vec4(1, 0, 1, 0),
+		glm::vec4(0, 1, 0, 0),
+		glm::vec4(0, 0, 1, 0),
+		glm::vec4(0, 0, 0, 1));
+	glm::mat4x4 const B4x4 = glm::inverse(A4x4);
+	glm::mat4x4 const I4x4 = A4x4 * B4x4;
 
-	Failed += glm::all(glm::epsilonEqual(I4x4[0], Identity[0], 0.001f)) ? 0 : 1;
-	Failed += glm::all(glm::epsilonEqual(I4x4[1], Identity[1], 0.001f)) ? 0 : 1;
-	Failed += glm::all(glm::epsilonEqual(I4x4[2], Identity[2], 0.001f)) ? 0 : 1;
-	Failed += glm::all(glm::epsilonEqual(I4x4[3], Identity[3], 0.001f)) ? 0 : 1;
+	Error += glm::all(glm::epsilonEqual(I4x4[0], Identity[0], 0.001f)) ? 0 : 1;
+	Error += glm::all(glm::epsilonEqual(I4x4[1], Identity[1], 0.001f)) ? 0 : 1;
+	Error += glm::all(glm::epsilonEqual(I4x4[2], Identity[2], 0.001f)) ? 0 : 1;
+	Error += glm::all(glm::epsilonEqual(I4x4[3], Identity[3], 0.001f)) ? 0 : 1;
 
-	return Failed;
+	return Error;
 }
 
 template <typename VEC3, typename MAT4>

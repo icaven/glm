@@ -186,7 +186,7 @@ namespace detail
 		}
 	};
 
-	template <template <class, precision> class matType, typename T, precision P>
+	template <template <typename, precision> class matType, typename T, precision P>
 	struct compute_determinant{};
 
 	template <typename T, precision P>
@@ -233,6 +233,114 @@ namespace detail
 				m[0][2] * DetCof[2] + m[0][3] * DetCof[3];
 		}
 	};
+
+	template <template <typename, precision> class matType, typename T, precision P>
+	struct compute_inverse{};
+
+	template <typename T, precision P>
+	struct compute_inverse<tmat2x2, T, P>
+	{
+		GLM_FUNC_QUALIFIER static tmat2x2<T, P> call(tmat2x2<T, P> const& m)
+		{
+			T OneOverDeterminant = static_cast<T>(1) / (
+				+ m[0][0] * m[1][1]
+				- m[1][0] * m[0][1]);
+
+			tmat2x2<T, P> Inverse(
+				+ m[1][1] * OneOverDeterminant,
+				- m[0][1] * OneOverDeterminant,
+				- m[1][0] * OneOverDeterminant,
+				+ m[0][0] * OneOverDeterminant);
+
+			return Inverse;
+		}
+	};
+
+	template <typename T, precision P>
+	struct compute_inverse<tmat3x3, T, P>
+	{
+		GLM_FUNC_QUALIFIER static tmat3x3<T, P> call(tmat3x3<T, P> const& m)
+		{
+			T OneOverDeterminant = static_cast<T>(1) / (
+				+ m[0][0] * (m[1][1] * m[2][2] - m[2][1] * m[1][2])
+				- m[1][0] * (m[0][1] * m[2][2] - m[2][1] * m[0][2])
+				+ m[2][0] * (m[0][1] * m[1][2] - m[1][1] * m[0][2]));
+
+			tmat3x3<T, P> Inverse(uninitialize);
+			Inverse[0][0] = + (m[1][1] * m[2][2] - m[2][1] * m[1][2]) * OneOverDeterminant;
+			Inverse[1][0] = - (m[1][0] * m[2][2] - m[2][0] * m[1][2]) * OneOverDeterminant;
+			Inverse[2][0] = + (m[1][0] * m[2][1] - m[2][0] * m[1][1]) * OneOverDeterminant;
+			Inverse[0][1] = - (m[0][1] * m[2][2] - m[2][1] * m[0][2]) * OneOverDeterminant;
+			Inverse[1][1] = + (m[0][0] * m[2][2] - m[2][0] * m[0][2]) * OneOverDeterminant;
+			Inverse[2][1] = - (m[0][0] * m[2][1] - m[2][0] * m[0][1]) * OneOverDeterminant;
+			Inverse[0][2] = + (m[0][1] * m[1][2] - m[1][1] * m[0][2]) * OneOverDeterminant;
+			Inverse[1][2] = - (m[0][0] * m[1][2] - m[1][0] * m[0][2]) * OneOverDeterminant;
+			Inverse[2][2] = + (m[0][0] * m[1][1] - m[1][0] * m[0][1]) * OneOverDeterminant;
+
+			return Inverse;
+		}
+	};
+
+	template <typename T, precision P>
+	struct compute_inverse<tmat4x4, T, P>
+	{
+		GLM_FUNC_QUALIFIER static tmat4x4<T, P> call(tmat4x4<T, P> const& m)
+		{
+			T Coef00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
+			T Coef02 = m[1][2] * m[3][3] - m[3][2] * m[1][3];
+			T Coef03 = m[1][2] * m[2][3] - m[2][2] * m[1][3];
+
+			T Coef04 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
+			T Coef06 = m[1][1] * m[3][3] - m[3][1] * m[1][3];
+			T Coef07 = m[1][1] * m[2][3] - m[2][1] * m[1][3];
+
+			T Coef08 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
+			T Coef10 = m[1][1] * m[3][2] - m[3][1] * m[1][2];
+			T Coef11 = m[1][1] * m[2][2] - m[2][1] * m[1][2];
+
+			T Coef12 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
+			T Coef14 = m[1][0] * m[3][3] - m[3][0] * m[1][3];
+			T Coef15 = m[1][0] * m[2][3] - m[2][0] * m[1][3];
+
+			T Coef16 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
+			T Coef18 = m[1][0] * m[3][2] - m[3][0] * m[1][2];
+			T Coef19 = m[1][0] * m[2][2] - m[2][0] * m[1][2];
+
+			T Coef20 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
+			T Coef22 = m[1][0] * m[3][1] - m[3][0] * m[1][1];
+			T Coef23 = m[1][0] * m[2][1] - m[2][0] * m[1][1];
+
+			tvec4<T, P> Fac0(Coef00, Coef00, Coef02, Coef03);
+			tvec4<T, P> Fac1(Coef04, Coef04, Coef06, Coef07);
+			tvec4<T, P> Fac2(Coef08, Coef08, Coef10, Coef11);
+			tvec4<T, P> Fac3(Coef12, Coef12, Coef14, Coef15);
+			tvec4<T, P> Fac4(Coef16, Coef16, Coef18, Coef19);
+			tvec4<T, P> Fac5(Coef20, Coef20, Coef22, Coef23);
+
+			tvec4<T, P> Vec0(m[1][0], m[0][0], m[0][0], m[0][0]);
+			tvec4<T, P> Vec1(m[1][1], m[0][1], m[0][1], m[0][1]);
+			tvec4<T, P> Vec2(m[1][2], m[0][2], m[0][2], m[0][2]);
+			tvec4<T, P> Vec3(m[1][3], m[0][3], m[0][3], m[0][3]);
+
+			tvec4<T, P> Inv0(Vec1 * Fac0 - Vec2 * Fac1 + Vec3 * Fac2);
+			tvec4<T, P> Inv1(Vec0 * Fac0 - Vec2 * Fac3 + Vec3 * Fac4);
+			tvec4<T, P> Inv2(Vec0 * Fac1 - Vec1 * Fac3 + Vec3 * Fac5);
+			tvec4<T, P> Inv3(Vec0 * Fac2 - Vec1 * Fac4 + Vec2 * Fac5);
+
+			tvec4<T, P> SignA(+1, -1, +1, -1);
+			tvec4<T, P> SignB(-1, +1, -1, +1);
+			tmat4x4<T, P> Inverse(Inv0 * SignA, Inv1 * SignB, Inv2 * SignA, Inv3 * SignB);
+
+			tvec4<T, P> Row0(Inverse[0][0], Inverse[1][0], Inverse[2][0], Inverse[3][0]);
+
+			tvec4<T, P> Dot0(m[0] * Row0);
+			T Dot1 = (Dot0.x + Dot0.y) + (Dot0.z + Dot0.w);
+
+			T OneOverDeterminant = static_cast<T>(1) / Dot1;
+
+			return Inverse * OneOverDeterminant;
+		}
+	};
 }//namespace detail
 
 	template <typename T, precision P, template <typename, precision> class matType>
@@ -275,11 +383,11 @@ namespace detail
 	GLM_FUNC_QUALIFIER matType<T, P> inverse(matType<T, P> const & m)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'inverse' only accept floating-point inputs");
-		return detail::compute_inverse(m);
+		return detail::compute_inverse<matType, T, P>::call(m);
 	}
 }//namespace glm
 
-#if GLM_ARCH != GLM_ARCH_PURE
+#if GLM_ARCH != GLM_ARCH_PURE && GLM_HAS_UNRESTRICTED_UNIONS
 #	include "func_matrix_simd.inl"
 #endif
 
