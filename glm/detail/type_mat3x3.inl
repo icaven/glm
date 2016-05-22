@@ -564,13 +564,13 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER typename tmat3x3<T, P>::col_type operator/(tmat3x3<T, P> const & m, typename tmat3x3<T, P>::row_type const & v)
 	{
-		return detail::compute_inverse<tmat3x3, T, P>::call(m) * v;
+		return  inverse(m) * v;
 	}
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER typename tmat3x3<T, P>::row_type operator/(typename tmat3x3<T, P>::col_type const & v, tmat3x3<T, P> const & m)
 	{
-		return v * detail::compute_inverse<tmat3x3, T, P>::call(m);
+		return v * inverse(m);
 	}
 
 	template <typename T, precision P>

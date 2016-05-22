@@ -487,13 +487,13 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER typename tmat2x2<T, P>::col_type operator/(tmat2x2<T, P> const & m, typename tmat2x2<T, P>::row_type const & v)
 	{
-		return detail::compute_inverse<tmat2x2, T, P>::call(m) * v;
+		return inverse(m) * v;
 	}
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER typename tmat2x2<T, P>::row_type operator/(typename tmat2x2<T, P>::col_type const & v, tmat2x2<T, P> const & m)
 	{
-		return v * detail::compute_inverse<tmat2x2, T, P>::call(m);
+		return v *  inverse(m);
 	}
 
 	template <typename T, precision P>
