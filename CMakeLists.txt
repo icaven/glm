@@ -140,11 +140,11 @@ if(GLM_TEST_ENABLE_FAST_MATH)
 	endif()
 
 	if(MSVC)
-		add_definitions(/fp:fast)	
+		add_definitions(/fp:fast)
 	endif()
 elseif(NOT GLM_TEST_ENABLE_FAST_MATH)
 	if(MSVC)
-		add_definitions(/fp:precise)	
+		add_definitions(/fp:precise)
 	endif()
 endif()
 
