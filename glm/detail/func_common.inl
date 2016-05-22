@@ -29,6 +29,17 @@ namespace detail
 		}
 	};
 
+	#if GLM_COMPILER & GLM_COMPILER_CUDA
+	template <>
+	struct compute_abs<float, true>
+	{
+		GLM_FUNC_QUALIFIER static float call(float x)
+		{
+			return fabsf(x);
+		}
+	};
+	#endif
+
 	template <typename genFIType>
 	struct compute_abs<genFIType, false>
 	{
