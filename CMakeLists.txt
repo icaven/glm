@@ -157,6 +157,10 @@ if(CMAKE_COMPILER_IS_GNUCXX)
 	#ctest_enable_coverage()
 endif()
 
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+	add_definitions(/FAs)
+endif()
+
 include_directories("${PROJECT_SOURCE_DIR}")
 include_directories("${PROJECT_SOURCE_DIR}/test/external")
 
