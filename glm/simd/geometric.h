@@ -1,3 +1,6 @@
+/// @ref simd
+/// @file glm/simd/geometric.h
+
 #pragma once
 
 #include "common.h"
