@@ -83,6 +83,10 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Removed GLM_FORCE_SIZE_FUNC define
 
 #### [GLM 0.9.7.5](https://github.com/g-truc/glm/tree/0.9.7) - 2016-0X-XX
+
+##### Improvements:
+- Added Visual C++ Clang toolset detection
+
 ##### Fixes:
 - Fixed uaddCarry warning #497
 - Fixed roundPowerOfTwo and floorPowerOfTwo #503
