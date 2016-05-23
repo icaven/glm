@@ -68,74 +68,81 @@
 
 // User defines: GLM_FORCE_PURE GLM_FORCE_SSE2 GLM_FORCE_SSE3 GLM_FORCE_AVX GLM_FORCE_AVX2 GLM_FORCE_AVX2
 
-#define GLM_ARCH_PURE		0x0000
-#define GLM_ARCH_ARM		0x0001
-#define GLM_ARCH_X86		0x0002
-#define GLM_ARCH_SSE2		0x0004
-#define GLM_ARCH_SSE3		0x0008
-#define GLM_ARCH_SSE4		0x0010
-#define GLM_ARCH_AVX		0x0020
-#define GLM_ARCH_AVX2		0x0040
-#define GLM_ARCH_AVX512		0x0080 // Skylake set
+#define GLM_ARCH_PURE		0x00000000
+#define GLM_ARCH_X86		0x00000001
+#define GLM_ARCH_SSE2		0x00000002
+#define GLM_ARCH_SSE3		0x00000004
+#define GLM_ARCH_SSE4		0x00000008
+#define GLM_ARCH_AVX		0x00000010
+#define GLM_ARCH_AVX2		0x00000020
+#define GLM_ARCH_AVX512		0x00000040 // Skylake subset
+#define GLM_ARCH_ARM		0x00000100
+#define GLM_ARCH_NEON		0x00000200
+#define GLM_ARCH_MIPS		0x00010000
+#define GLM_ARCH_PPC		0x01000000
 
 #if defined(GLM_FORCE_PURE)
 #	define GLM_ARCH GLM_ARCH_PURE
+#elif defined(GLM_FORCE_MIPS)
+#	define GLM_ARCH (GLM_ARCH_MIPS)
+#elif defined(GLM_FORCE_PPC)
+#	define GLM_ARCH (GLM_ARCH_PPC)
+#elif defined(GLM_FORCE_NEON)
+#	define GLM_ARCH (GLM_ARCH_ARM | GLM_ARCH_NEON)
 #elif defined(GLM_FORCE_AVX512)
-#	define GLM_ARCH (GLM_ARCH_AVX512 | GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
+#	define GLM_ARCH (GLM_ARCH_X86 | GLM_ARCH_AVX512 | GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #elif defined(GLM_FORCE_AVX2)
-#	define GLM_ARCH (GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
+#	define GLM_ARCH (GLM_ARCH_X86 | GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #elif defined(GLM_FORCE_AVX)
-#	define GLM_ARCH (GLM_ARCH_AVX | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
+#	define GLM_ARCH (GLM_ARCH_X86 | GLM_ARCH_AVX | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #elif defined(GLM_FORCE_SSE4)
-#	define GLM_ARCH (GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
+#	define GLM_ARCH (GLM_ARCH_X86 | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #elif defined(GLM_FORCE_SSE3)
-#	define GLM_ARCH (GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
+#	define GLM_ARCH (GLM_ARCH_X86 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #elif defined(GLM_FORCE_SSE2)
-#	define GLM_ARCH (GLM_ARCH_SSE2)
+#	define GLM_ARCH (GLM_ARCH_X86 | GLM_ARCH_SSE2)
 #elif (GLM_COMPILER & (GLM_COMPILER_LLVM | GLM_COMPILER_GCC)) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_LINUX))
 //	This is Skylake set of instruction set
 #	if defined(__AVX512BW__) && defined(__AVX512F__) && defined(__AVX512CD__) && defined(__AVX512VL__) && defined(__AVX512DQ__)
-#		define GLM_ARCH (GLM_ARCH_AVX512 | GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
+#		define GLM_ARCH (GLM_ARCH_X86 | GLM_ARCH_AVX512 | GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #	elif defined(__AVX2__)
-#		define GLM_ARCH (GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
+#		define GLM_ARCH (GLM_ARCH_X86 | GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #	elif defined(__AVX__)
-#		define GLM_ARCH (GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
+#		define GLM_ARCH (GLM_ARCH_X86 | GLM_ARCH_AVX | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #	elif defined(__SSE3__)
-#		define GLM_ARCH (GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
+#		define GLM_ARCH (GLM_ARCH_X86 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #	elif defined(__SSE2__)
-#		define GLM_ARCH (GLM_ARCH_SSE2)
-#	else
-#		define GLM_ARCH GLM_ARCH_PURE
-#	endif
-#elif (GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS))
-#	if defined(_M_ARM_FP)
+#		define GLM_ARCH (GLM_ARCH_X86 | GLM_ARCH_SSE2)
+#	elif defined(__i386__) || defined(__x86_64__)
+#		define GLM_ARCH (GLM_ARCH_X86)
+#	elif defined(__ARM_NEON)
+#		define GLM_ARCH (GLM_ARCH_ARM | GLM_ARCH_NEON)
+#	elif defined(__arm__ )
 #		define GLM_ARCH (GLM_ARCH_ARM)
-#	elif defined(__AVX2__)
-#		define GLM_ARCH (GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
-#	elif defined(__AVX__)
-#		define GLM_ARCH (GLM_ARCH_AVX | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
-#	elif defined(_M_X64)
-#		define GLM_ARCH (GLM_ARCH_SSE2)
-#	elif defined(_M_IX86_FP)
-#		if _M_IX86_FP >= 2
-#			define GLM_ARCH (GLM_ARCH_SSE2)
-#		else
-#			define GLM_ARCH (GLM_ARCH_PURE)
-#		endif
+#	elif defined(__mips__ )
+#		define GLM_ARCH (GLM_ARCH_MIPS)
+#	elif defined(__powerpc__ )
+#		define GLM_ARCH (GLM_ARCH_PPC)
 #	else
 #		define GLM_ARCH (GLM_ARCH_PURE)
 #	endif
-#elif (GLM_COMPILER & GLM_COMPILER_GCC) && (defined(__i386__) || defined(__x86_64__))
-#	if defined(__AVX2__)
-#		define GLM_ARCH (GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
+#elif (GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS))
+#	if defined(_M_ARM)
+#		define GLM_ARCH (GLM_ARCH_ARM)
+#	elif defined(__AVX2__)
+#		define GLM_ARCH (GLM_ARCH_X86 | GLM_ARCH_AVX2 | GLM_ARCH_AVX | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
 #	elif defined(__AVX__)
-#		define GLM_ARCH (GLM_ARCH_AVX | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
-#	elif defined(__SSE4_1__ )
-#		define GLM_ARCH (GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
-#	elif defined(__SSE3__)
-#		define GLM_ARCH (GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
-#	elif defined(__SSE2__)
-#		define GLM_ARCH (GLM_ARCH_SSE2)
+#		define GLM_ARCH (GLM_ARCH_X86 | GLM_ARCH_AVX | GLM_ARCH_SSE4 | GLM_ARCH_SSE3 | GLM_ARCH_SSE2)
+#	elif defined(_M_X64)
+#		define GLM_ARCH (GLM_ARCH_X86 | GLM_ARCH_SSE2)
+#	elif defined(_M_IX86_FP)
+#		if _M_IX86_FP >= 2
+#			define GLM_ARCH (GLM_ARCH_X86 | GLM_ARCH_SSE2)
+#		else
+#			define GLM_ARCH (GLM_ARCH_PURE)
+#		endif
+#	elif defined(_M_PPC)
+#		define GLM_ARCH (GLM_ARCH_PPC)
 #	else
 #		define GLM_ARCH (GLM_ARCH_PURE)
 #	endif
@@ -180,6 +187,16 @@
 #		pragma message("GLM: SSE3 instruction set")
 #	elif(GLM_ARCH & GLM_ARCH_SSE2)
 #		pragma message("GLM: SSE2 instruction set")
+#	elif(GLM_ARCH & GLM_ARCH_X86)
+#		pragma message("GLM: x86 instruction set")
+#	elif(GLM_ARCH & GLM_ARCH_NEON)
+#		pragma message("GLM: NEON instruction set")
+#	elif(GLM_ARCH & GLM_ARCH_ARM)
+#		pragma message("GLM: ARM instruction set")
+#	elif(GLM_ARCH & GLM_ARCH_MIPS)
+#		pragma message("GLM: MIPS instruction set")
+#	elif(GLM_ARCH & GLM_ARCH_PPC)
+#		pragma message("GLM: PowerPC architechture")
 #	endif//GLM_ARCH
 #endif//GLM_MESSAGE
 
@@ -265,8 +282,6 @@
 #		else
 #			if __cplusplus >= 201402L
 #				define GLM_LANG GLM_LANG_CXX14
-//#			elif GLM_COMPILER >= GLM_COMPILER_VC2015
-//#				define GLM_LANG GLM_LANG_CXX1Y
 #			elif __cplusplus >= 201103L
 #				define GLM_LANG GLM_LANG_CXX11
 #			elif GLM_COMPILER >= GLM_COMPILER_VC2010

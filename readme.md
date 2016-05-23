@@ -71,6 +71,9 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Improved GLM_FORCE_EXPLICIT_CTOR coverage #481
 - Improved OpenMP support detection for Clang, GCC, ICC and VC
 - Added constexpr for *vec*, *mat*, *quat* and *dual_quat* types #493
+- Added NEON instruction set detection
+- Added MIPS CPUs detection
+- Added PowerPC CPUs detection
 - Use Cuda built-in function for abs function implementation with Cuda compiler
 
 ##### Fixes:
