@@ -41,6 +41,33 @@ namespace detail
 			return tvec4<T, P>(a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w);
 		}
 	};
+
+	template <typename T, precision P>
+	struct compute_vec4_sub
+	{
+		static tvec4<T, P> call(tvec4<T, P> const & a, tvec4<T, P> const & b)
+		{
+			return tvec4<T, P>(a.x - b.x, a.y - b.y, a.z - b.z, a.w - b.w);
+		}
+	};
+
+	template <typename T, precision P>
+	struct compute_vec4_mul
+	{
+		static tvec4<T, P> call(tvec4<T, P> const & a, tvec4<T, P> const & b)
+		{
+			return tvec4<T, P>(a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w);
+		}
+	};
+
+	template <typename T, precision P>
+	struct compute_vec4_div
+	{
+		static tvec4<T, P> call(tvec4<T, P> const & a, tvec4<T, P> const & b)
+		{
+			return tvec4<T, P>(a.x / b.x, a.y / b.y, a.z / b.z, a.w / b.w);
+		}
+	};
 }//namespace detail
 
 	// -- Implicit basic constructors --
@@ -264,131 +291,84 @@ namespace detail
 	template <typename U>
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator+=(U scalar)
 	{
-		this->x += static_cast<T>(scalar);
-		this->y += static_cast<T>(scalar);
-		this->z += static_cast<T>(scalar);
-		this->w += static_cast<T>(scalar);
-		return *this;
+		return (*this = detail::compute_vec4_add<T, P>::call(*this, tvec4<T, P>(scalar)));
 	}
 
 	template <typename T, precision P>
 	template <typename U>
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator+=(tvec1<U, P> const & v)
 	{
-		T const scalar = static_cast<T>(v.x);
-		this->x += scalar;
-		this->y += scalar;
-		this->z += scalar;
-		this->w += scalar;
-		return *this;
+		return (*this = detail::compute_vec4_add<T, P>::call(*this, tvec4<T, P>(v.x)));
 	}
 
 	template <typename T, precision P>
 	template <typename U>
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator+=(tvec4<U, P> const & v)
 	{
-		*this = detail::compute_vec4_add<T, P>::call(*this, tvec4<T, P>(v));
-		return *this;
+		return (*this = detail::compute_vec4_add<T, P>::call(*this, tvec4<T, P>(v)));
 	}
 
 	template <typename T, precision P>
 	template <typename U>
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator-=(U scalar)
 	{
-		this->x -= static_cast<T>(scalar);
-		this->y -= static_cast<T>(scalar);
-		this->z -= static_cast<T>(scalar);
-		this->w -= static_cast<T>(scalar);
-		return *this;
+		return (*this = detail::compute_vec4_sub<T, P>::call(*this, tvec4<T, P>(scalar)));
 	}
 
 	template <typename T, precision P>
 	template <typename U>
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator-=(tvec1<U, P> const & v)
 	{
-		T const scalar = static_cast<T>(v.x);
-		this->x -= scalar;
-		this->y -= scalar;
-		this->z -= scalar;
-		this->w -= scalar;
-		return *this;
+		return (*this = detail::compute_vec4_sub<T, P>::call(*this, tvec4<T, P>(v.x)));
 	}
 
 	template <typename T, precision P>
 	template <typename U>
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator-=(tvec4<U, P> const & v)
 	{
-		this->x -= static_cast<T>(v.x);
-		this->y -= static_cast<T>(v.y);
-		this->z -= static_cast<T>(v.z);
-		this->w -= static_cast<T>(v.w);
-		return *this;
+		return (*this = detail::compute_vec4_sub<T, P>::call(*this, tvec4<T, P>(v)));
 	}
 
 	template <typename T, precision P>
 	template <typename U>
-	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator*=(U v)
+	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator*=(U scalar)
 	{
-		this->x *= static_cast<T>(v);
-		this->y *= static_cast<T>(v);
-		this->z *= static_cast<T>(v);
-		this->w *= static_cast<T>(v);
-		return *this;
+		return (*this = detail::compute_vec4_mul<T, P>::call(*this, tvec4<T, P>(scalar)));
 	}
 
 	template <typename T, precision P>
 	template <typename U>
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator*=(tvec1<U, P> const & v)
 	{
-		this->x *= static_cast<T>(v.x);
-		this->y *= static_cast<T>(v.x);
-		this->z *= static_cast<T>(v.x);
-		this->w *= static_cast<T>(v.x);
-		return *this;
+		return (*this = detail::compute_vec4_mul<T, P>::call(*this, tvec4<T, P>(v.x)));
 	}
 
 	template <typename T, precision P>
 	template <typename U>
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator*=(tvec4<U, P> const & v)
 	{
-		this->x *= static_cast<T>(v.x);
-		this->y *= static_cast<T>(v.y);
-		this->z *= static_cast<T>(v.z);
-		this->w *= static_cast<T>(v.w);
-		return *this;
+		return (*this = detail::compute_vec4_mul<T, P>::call(*this, tvec4<T, P>(v)));
 	}
 
 	template <typename T, precision P>
 	template <typename U> 
-	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator/=(U v)
+	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator/=(U scalar)
 	{
-		this->x /= static_cast<T>(v);
-		this->y /= static_cast<T>(v);
-		this->z /= static_cast<T>(v);
-		this->w /= static_cast<T>(v);
-		return *this;
+		return (*this = detail::compute_vec4_div<T, P>::call(*this, tvec4<T, P>(scalar)));
 	}
 
 	template <typename T, precision P>
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator/=(tvec1<U, P> const & v)
 	{
-		this->x /= static_cast<T>(v.x);
-		this->y /= static_cast<T>(v.x);
-		this->z /= static_cast<T>(v.x);
-		this->w /= static_cast<T>(v.x);
-		return *this;
+		return (*this = detail::compute_vec4_div<T, P>::call(*this, tvec4<T, P>(v.x)));
 	}
 
 	template <typename T, precision P>
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator/=(tvec4<U, P> const & v)
 	{
-		this->x /= static_cast<T>(v.x);
-		this->y /= static_cast<T>(v.y);
-		this->z /= static_cast<T>(v.z);
-		this->w /= static_cast<T>(v.w);
-		return *this;
+		return (*this = detail::compute_vec4_div<T, P>::call(*this, tvec4<T, P>(v)));
 	}
 
 	// -- Increment and decrement operators --
