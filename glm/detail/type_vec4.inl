@@ -68,7 +68,6 @@ namespace detail
 			return tvec4<T, P>(a.x / b.x, a.y / b.y, a.z / b.z, a.w / b.w);
 		}
 	};
-<<<<<<< HEAD
 
 	template <typename T, precision P>
 	struct compute_vec4_mod
@@ -123,8 +122,6 @@ namespace detail
 			return tvec4<T, P>(a.x >> b.x, a.y >> b.y, a.z >> b.z, a.w >> b.w);
 		}
 	};
-=======
->>>>>>> simd
 }//namespace detail
 
 	// -- Implicit basic constructors --
