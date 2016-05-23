@@ -163,22 +163,6 @@
 #		define GLM_COMPILER GLM_COMPILER_CUDA
 #	endif
 
-// Visual C++
-#elif defined(_MSC_VER)
-#	if _MSC_VER < 1600
-#		error "GLM requires Visual C++ 2010 or higher"
-#	elif _MSC_VER == 1600
-#		define GLM_COMPILER GLM_COMPILER_VC2010
-#	elif _MSC_VER == 1700
-#		define GLM_COMPILER GLM_COMPILER_VC2012
-#	elif _MSC_VER == 1800
-#		define GLM_COMPILER GLM_COMPILER_VC2013
-#	elif _MSC_VER >= 1900
-#		define GLM_COMPILER GLM_COMPILER_VC2015
-#	else//_MSC_VER
-#		define GLM_COMPILER GLM_COMPILER_VC
-#	endif//_MSC_VER
-
 // Clang
 #elif defined(__clang__)
 #	if GLM_PLATFORM & GLM_PLATFORM_APPLE
@@ -222,6 +206,22 @@
 #			define GLM_COMPILER GLM_COMPILER_LLVM
 #		endif
 #	endif
+
+// Visual C++
+#elif defined(_MSC_VER)
+#	if _MSC_VER < 1600
+#		error "GLM requires Visual C++ 2010 or higher"
+#	elif _MSC_VER == 1600
+#		define GLM_COMPILER GLM_COMPILER_VC2010
+#	elif _MSC_VER == 1700
+#		define GLM_COMPILER GLM_COMPILER_VC2012
+#	elif _MSC_VER == 1800
+#		define GLM_COMPILER GLM_COMPILER_VC2013
+#	elif _MSC_VER >= 1900
+#		define GLM_COMPILER GLM_COMPILER_VC2015
+#	else//_MSC_VER
+#		define GLM_COMPILER GLM_COMPILER_VC
+#	endif//_MSC_VER
 
 // G++
 #elif defined(__GNUC__) || defined(__MINGW32__)
