@@ -373,11 +373,7 @@ namespace detail
 	template <typename U>
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator-=(tvec1<U, P> const & v)
 	{
-<<<<<<< HEAD
-		return (*this = detail::compute_vec4_sub<T, P>::call(*this, tvec4<T, P>(v)));
-=======
 		return (*this = detail::compute_vec4_sub<T, P>::call(*this, tvec4<T, P>(v.x)));
->>>>>>> simd
 	}
 
 	template <typename T, precision P>
@@ -398,11 +394,7 @@ namespace detail
 	template <typename U>
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator*=(tvec1<U, P> const & v)
 	{
-<<<<<<< HEAD
-		return (*this = detail::compute_vec4_mul<T, P>::call(*this, tvec4<T, P>(v)));
-=======
 		return (*this = detail::compute_vec4_mul<T, P>::call(*this, tvec4<T, P>(v.x)));
->>>>>>> simd
 	}
 
 	template <typename T, precision P>
@@ -423,22 +415,14 @@ namespace detail
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator/=(tvec1<U, P> const & v)
 	{
-<<<<<<< HEAD
-		return (*this = (detail::compute_vec4_div<T, P>::call(*this, tvec4<T, P>(v))));
-=======
 		return (*this = detail::compute_vec4_div<T, P>::call(*this, tvec4<T, P>(v.x)));
->>>>>>> simd
 	}
 
 	template <typename T, precision P>
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator/=(tvec4<U, P> const & v)
 	{
-<<<<<<< HEAD
-		return (*this = (detail::compute_vec4_div<T, P>::call(*this, tvec4<T, P>(v))));
-=======
 		return (*this = detail::compute_vec4_div<T, P>::call(*this, tvec4<T, P>(v)));
->>>>>>> simd
 	}
 
 	// -- Increment and decrement operators --
