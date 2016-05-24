@@ -62,60 +62,114 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_vec4_and<int, P>
+	struct compute_vec4_and<int32, P>
 	{
-		static tvec4<int, P> call(tvec4<int, P> const& a, tvec4<int, P> const& b)
+		static tvec4<int32, P> call(tvec4<int32, P> const& a, tvec4<int32, P> const& b)
 		{
-			tvec4<int, P> Result(uninitialize);
+			tvec4<int32, P> Result(uninitialize);
 			Result.data = _mm_and_si128(a.data, b.data);
 			return Result;
 		}
 	};
 
 	template <precision P>
-	struct compute_vec4_or<int, P>
+	struct compute_vec4_and<uint32, P>
 	{
-		static tvec4<int, P> call(tvec4<int, P> const& a, tvec4<int, P> const& b)
+		static tvec4<uint32, P> call(tvec4<uint32, P> const& a, tvec4<uint32, P> const& b)
 		{
-			tvec4<int, P> Result(uninitialize);
+			tvec4<uint32, P> Result(uninitialize);
+			Result.data = _mm_and_si128(a.data, b.data);
+			return Result;
+		}
+	};
+
+	template <precision P>
+	struct compute_vec4_or<int32, P>
+	{
+		static tvec4<int32, P> call(tvec4<int32, P> const& a, tvec4<int32, P> const& b)
+		{
+			tvec4<int32, P> Result(uninitialize);
 			Result.data = _mm_or_si128(a.data, b.data);
 			return Result;
 		}
 	};
 
 	template <precision P>
-	struct compute_vec4_xor<int, P>
+	struct compute_vec4_or<uint32, P>
 	{
-		static tvec4<int, P> call(tvec4<int, P> const& a, tvec4<int, P> const& b)
+		static tvec4<uint32, P> call(tvec4<uint32, P> const& a, tvec4<uint32, P> const& b)
 		{
-			tvec4<int, P> Result(uninitialize);
+			tvec4<uint32, P> Result(uninitialize);
+			Result.data = _mm_or_si128(a.data, b.data);
+			return Result;
+		}
+	};
+
+	template <precision P>
+	struct compute_vec4_xor<int32, P>
+	{
+		static tvec4<int32, P> call(tvec4<int32, P> const& a, tvec4<int32, P> const& b)
+		{
+			tvec4<int32, P> Result(uninitialize);
 			Result.data = _mm_xor_si128(a.data, b.data);
 			return Result;
 		}
 	};
-/*
+
 	template <precision P>
-	struct compute_vec4_shift_left<int, P>
+	struct compute_vec4_xor<uint32, P>
 	{
-		static tvec4<int, P> call(tvec4<int, P> const& a, tvec4<int, P> const& b)
+		static tvec4<uint32, P> call(tvec4<uint32, P> const& a, tvec4<uint32, P> const& b)
 		{
-			tvec4<int, P> Result(uninitialize);
+			tvec4<uint32, P> Result(uninitialize);
+			Result.data = _mm_xor_si128(a.data, b.data);
+			return Result;
+		}
+	};
+
+	template <precision P>
+	struct compute_vec4_shift_left<int32, P>
+	{
+		static tvec4<int32, P> call(tvec4<int32, P> const& a, tvec4<int32, P> const& b)
+		{
+			tvec4<int32, P> Result(uninitialize);
 			Result.data = _mm_sll_epi32(a.data, b.data);
 			return Result;
 		}
 	};
 
 	template <precision P>
-	struct compute_vec4_shift_right<int, P>
+	struct compute_vec4_shift_left<uint32, P>
 	{
-		static tvec4<int, P> call(tvec4<int, P> const& a, tvec4<int, P> const& b)
+		static tvec4<uint32, P> call(tvec4<uint32, P> const& a, tvec4<uint32, P> const& b)
 		{
-			tvec4<int, P> Result(uninitialize);
+			tvec4<uint32, P> Result(uninitialize);
+			Result.data = _mm_sll_epi32(a.data, b.data);
+			return Result;
+		}
+	};
+
+	template <precision P>
+	struct compute_vec4_shift_right<int32, P>
+	{
+		static tvec4<int32, P> call(tvec4<int32, P> const& a, tvec4<int32, P> const& b)
+		{
+			tvec4<int32, P> Result(uninitialize);
 			Result.data = _mm_srl_epi32(a.data, b.data);
 			return Result;
 		}
 	};
-*/
+
+	template <precision P>
+	struct compute_vec4_shift_right<uint32, P>
+	{
+		static tvec4<uint32, P> call(tvec4<uint32, P> const& a, tvec4<uint32, P> const& b)
+		{
+			tvec4<uint32, P> Result(uninitialize);
+			Result.data = _mm_srl_epi32(a.data, b.data);
+			return Result;
+		}
+	};
 }//namespace detail
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS

@@ -502,7 +502,47 @@ int test_vec4_simd()
 int main()
 {
 	int Error(0);
+/*
+	{
+		glm::ivec4 const a1(2);
+		glm::ivec4 const b1 = a1 >> 1;
 
+		__m128i const e1 = _mm_set1_epi32(2);
+		__m128i const f1 = _mm_srli_epi32(e1, 1);
+
+		glm::ivec4 const g1 = *reinterpret_cast<glm::ivec4 const* const>(&f1);
+
+		glm::ivec4 const a2(-2);
+		glm::ivec4 const b2 = a2 >> 1;
+
+		__m128i const e2 = _mm_set1_epi32(-1);
+		__m128i const f2 = _mm_srli_epi32(e2, 1);
+
+		glm::ivec4 const g2 = *reinterpret_cast<glm::ivec4 const* const>(&f2);
+
+		printf("GNI\n");
+	}
+
+	{
+		glm::uvec4 const a1(2);
+		glm::uvec4 const b1 = a1 >> 1u;
+
+		__m128i const e1 = _mm_set1_epi32(2);
+		__m128i const f1 = _mm_srli_epi32(e1, 1);
+
+		glm::uvec4 const g1 = *reinterpret_cast<glm::uvec4 const* const>(&f1);
+
+		glm::uvec4 const a2(-1);
+		glm::uvec4 const b2 = a2 >> 1u;
+
+		__m128i const e2 = _mm_set1_epi32(-1);
+		__m128i const f2 = _mm_srli_epi32(e2, 1);
+
+		glm::uvec4 const g2 = *reinterpret_cast<glm::uvec4 const* const>(&f2);
+
+		printf("GNI\n");
+	}
+*/
 	glm::vec4 v;
 	assert(v.length() == 4);
 

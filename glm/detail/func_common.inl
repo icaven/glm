@@ -115,7 +115,7 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P, template <class, precision> class vecType, bool isFloat = true, bool isSigned = true>
+	template <typename T, precision P, template <class, precision> class vecType, bool isFloat = true>
 	struct compute_sign
 	{
 		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x)
@@ -124,17 +124,9 @@ namespace detail
 		}
 	};
 
+#	if GLM_ARCH == GLM_ARCH_X86
 	template <typename T, precision P, template <class, precision> class vecType>
-	struct compute_sign<T, P, vecType, false, false>
-	{
-		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x)
-		{
-			return vecType<T, P>(glm::greaterThan(x , vecType<T, P>(0)));
-		}
-	};
-
-	template <typename T, precision P, template <class, precision> class vecType>
-	struct compute_sign<T, P, vecType, false, true>
+	struct compute_sign<T, P, vecType, false>
 	{
 		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x)
 		{
@@ -144,6 +136,7 @@ namespace detail
 			return (x >> Shift) | y;
 		}
 	};
+#	endif
 
 	template <typename T, precision P, template <class, precision> class vecType, typename genType, bool isFloat = true>
 	struct compute_mod

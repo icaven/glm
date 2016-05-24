@@ -1235,7 +1235,7 @@ namespace ldexp_
 
 int main()
 {
-	int Error(0);
+	int Error = 0;
 
 	Error += sign::test();
 	Error += floor_::test();
