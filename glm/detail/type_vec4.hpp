@@ -17,6 +17,12 @@
 namespace glm{
 namespace detail
 {
+	template <int Value>
+	struct shuffle_mask
+	{
+		enum{value = Value};
+	};
+
 	template <typename T>
 	struct simd_data
 	{

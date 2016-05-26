@@ -1,6 +1,33 @@
+/// @ref core
+/// @file glm/detail/func_common_simd.inl
+
+#if GLM_ARCH & GLM_ARCH_SSE2
+
+#include "../simd/common.h"
+
+#include <immintrin.h>
+
 namespace glm{
 namespace detail
 {
+	template <precision P>
+	struct compute_mix_vector<float, bool, P, tvec4>
+	{
+		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & x, tvec4<float, P> const & y, tvec4<bool, P> const & a)
+		{
+			__m128i const Load = _mm_set_epi32(-(int)a.w, -(int)a.z, -(int)a.y, -(int)a.x);
+			__m128 const Mask = _mm_castsi128_ps(Load);
+
+			tvec4<float, P> Result(uninitialize);
+#			if 0 && GLM_ARCH & GLM_ARCH_AVX
+				Result.data = _mm_blendv_ps(x.data, y.data, Mask);
+#			else
+				Result.data = _mm_or_ps(_mm_and_ps(Mask, y.data), _mm_andnot_ps(Mask, x.data));
+#			endif
+			return Result;
+		}
+	};
+
 /*
 	static const __m128 GLM_VAR_USED zero = _mm_setzero_ps();
 	static const __m128 GLM_VAR_USED one = _mm_set_ps1(1.0f);
@@ -107,3 +134,5 @@ namespace detail
 
 }//namespace detail
 }//namespace glm
+
+#endif//GLM_ARCH & GLM_ARCH_SSE2

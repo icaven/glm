@@ -1,6 +1,8 @@
 /// @ref simd
 /// @file glm/simd/common.h
 
+#pragma once
+
 #if(GLM_COMPILER & GLM_COMPILER_VC)
 #pragma warning(push)
 #pragma warning(disable : 4510 4512 4610)

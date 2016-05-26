@@ -444,7 +444,7 @@ namespace mix_
 
 	entry<glm::vec4, glm::bvec4> TestBVec4[] = 
 	{
-		{glm::vec4(0.0f), glm::vec4(1.0f), glm::bvec4(false), glm::vec4(0.0f)},
+		{glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec4(2.0f, 2.0f, 3.0f, 3.0f), glm::bvec4(false, true, false, true), glm::vec4(0.0f, 2.0f, 1.0f, 3.0f)},
 		{glm::vec4(0.0f), glm::vec4(1.0f), glm::bvec4(true), glm::vec4(1.0f)},
 		{glm::vec4(-1.0f), glm::vec4(1.0f), glm::bvec4(false), glm::vec4(-1.0f)},
 		{glm::vec4(-1.0f), glm::vec4(1.0f), glm::bvec4(true), glm::vec4(1.0f)},
@@ -1243,10 +1243,10 @@ int main()
 	Error += modf_::test();
 	Error += floatBitsToInt::test();
 	Error += floatBitsToUint::test();
+	Error += mix_::test();
 	Error += step_::test();
 	Error += max_::test();
 	Error += min_::test();
-	Error += mix_::test();
 	Error += round_::test();
 	Error += roundEven::test();
 	Error += isnan_::test();

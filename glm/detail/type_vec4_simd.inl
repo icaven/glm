@@ -1,5 +1,5 @@
 /// @ref core
-/// @file glm/detail/type_tvec4_sse2.inl
+/// @file glm/detail/type_tvec4_simd.inl
 
 #if GLM_ARCH & GLM_ARCH_SSE2
 

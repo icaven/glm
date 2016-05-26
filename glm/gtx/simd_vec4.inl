@@ -4,12 +4,6 @@
 namespace glm{
 namespace detail{
 
-template <int Value>
-struct shuffle_mask
-{
-	enum{value = Value};
-};
-
 //////////////////////////////////////
 // Implicit basic constructors
 
