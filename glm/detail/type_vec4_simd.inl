@@ -182,7 +182,7 @@ namespace detail
 #	endif
 
 	template <typename T, precision P>
-	struct compute_vec4_logical_not<T, P, true, 32>
+	struct compute_vec4_bitwise_not<T, P, true, 32>
 	{
 		static tvec4<T, P> call(tvec4<T, P> const & v)
 		{
@@ -194,7 +194,7 @@ namespace detail
 
 #	if GLM_ARCH & GLM_ARCH_AVX2
 	template <typename T, precision P>
-	struct compute_vec4_logical_not<T, P, true, 64>
+	struct compute_vec4_bitwise_not<T, P, true, 64>
 	{
 		static tvec4<T, P> call(tvec4<T, P> const & v)
 		{
@@ -230,6 +230,55 @@ namespace detail
 		data(_mm_set1_ps(s))
 	{}
 
+#	if GLM_ARCH & GLM_ARCH_AVX
+	template <>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<double, lowp>::tvec4(double s) :
+		data(_mm256_set1_pd(s))
+	{}
+
+	template <>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<double, mediump>::tvec4(double s) :
+		data(_mm256_set1_pd(s))
+	{}
+
+	template <>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<double, highp>::tvec4(double s) :
+		data(_mm256_set1_pd(s))
+	{}
+#	endif
+
+	template <>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, lowp>::tvec4(int32 s) :
+		data(_mm_set1_epi32(s))
+	{}
+
+	template <>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, mediump>::tvec4(int32 s) :
+		data(_mm_set1_epi32(s))
+	{}
+
+	template <>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, highp>::tvec4(int32 s) :
+		data(_mm_set1_epi32(s))
+	{}
+
+#	if GLM_ARCH & GLM_ARCH_AVX2
+	template <>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int64, lowp>::tvec4(int64 s) :
+		data(_mm256_set1_epi64x(s))
+	{}
+
+	template <>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int64, mediump>::tvec4(int64 s) :
+		data(_mm256_set1_epi64x(s))
+	{}
+
+	template <>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int64, highp>::tvec4(int64 s) :
+		data(_mm256_set1_epi64x(s))
+	{}
+#	endif
+
 	template <>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, lowp>::tvec4(float a, float b, float c, float d) :
 		data(_mm_set_ps(d, c, b, a))
@@ -244,6 +293,43 @@ namespace detail
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, highp>::tvec4(float a, float b, float c, float d) :
 		data(_mm_set_ps(d, c, b, a))
 	{}
+
+	template <>
+	template <>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, lowp>::tvec4(int32 a, int32 b, int32 c, int32 d) :
+		data(_mm_set_epi32(d, c, b, a))
+	{}
+
+	template <>
+	template <>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, mediump>::tvec4(int32 a, int32 b, int32 c, int32 d) :
+		data(_mm_set_epi32(d, c, b, a))
+	{}
+
+	template <>
+	template <>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, highp>::tvec4(int32 a, int32 b, int32 c, int32 d) :
+		data(_mm_set_epi32(d, c, b, a))
+	{}
+/*
+	template <>
+	template <>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, lowp>::tvec4(int32 a, int32 b, int32 c, int32 d) :
+		data(_mm_castsi128_ps(_mm_set_epi32(d, c, b, a)))
+	{}
+
+	template <>
+	template <>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, mediump>::tvec4(int32 a, int32 b, int32 c, int32 d) :
+		data(_mm_castsi128_ps(_mm_set_epi32(d, c, b, a)))
+	{}
+
+	template <>
+	template <>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, highp>::tvec4(int32 a, int32 b, int32 c, int32 d) :
+		data(_mm_castsi128_ps(_mm_set_epi32(d, c, b, a)))
+	{}
+*/
 }//namespace glm
 
 #endif//GLM_ARCH & GLM_ARCH_SSE2

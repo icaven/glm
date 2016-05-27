@@ -193,10 +193,12 @@ int test_mat2x4_ctor()
 		} A, B;
 
 		A.f = glm::mat2x4(0);
-		Error += glm::all(glm::equal(A.i[0], glm::vec4(0))) ? 0 : 1;
+		glm::vec4 const C(0, 0, 0, 0);
+		Error += glm::all(glm::equal(A.i[0], C)) ? 0 : 1;
 
 		B.f = glm::mat2x4(1);
-		Error += glm::all(glm::equal(B.i[0], glm::vec4(1, 0, 0, 0))) ? 0 : 1;
+		glm::vec4 const D(1, 0, 0, 0);
+		Error += glm::all(glm::equal(B.i[0], D)) ? 0 : 1;
 	}
 #	endif//GLM_HAS_DEFAULTED_FUNCTIONS
 

@@ -125,7 +125,25 @@ namespace detail
 	};
 
 	template <typename T, precision P, int IsInt, std::size_t Size>
-	struct compute_vec4_logical_not
+	struct compute_vec4_equal
+	{
+		static bool call(tvec4<T, P> const & v1, tvec4<T, P> const & v2)
+		{
+			return (v1.x == v2.x) && (v1.y == v2.y) && (v1.z == v2.z) && (v1.w == v2.w);
+		}
+	};
+
+	template <typename T, precision P, int IsInt, std::size_t Size>
+	struct compute_vec4_nequal
+	{
+		static bool call(tvec4<T, P> const & v1, tvec4<T, P> const & v2)
+		{
+			return (v1.x != v2.x) || (v1.y != v2.y) || (v1.z != v2.z) || (v1.w != v2.w);
+		}
+	};
+
+	template <typename T, precision P, int IsInt, std::size_t Size>
+	struct compute_vec4_bitwise_not
 	{
 		static tvec4<T, P> call(tvec4<T, P> const & v)
 		{
@@ -922,7 +940,7 @@ namespace detail
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator~(tvec4<T, P> const & v)
 	{
-		return detail::compute_vec4_logical_not<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(v);
+		return detail::compute_vec4_bitwise_not<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(v);
 	}
 
 	// -- Boolean operators --
@@ -930,13 +948,13 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER bool operator==(tvec4<T, P> const & v1, tvec4<T, P> const & v2)
 	{
-		return (v1.x == v2.x) && (v1.y == v2.y) && (v1.z == v2.z) && (v1.w == v2.w);
+		return detail::compute_vec4_equal<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(v1, v2);
 	}
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER bool operator!=(tvec4<T, P> const & v1, tvec4<T, P> const & v2)
 	{
-		return (v1.x != v2.x) || (v1.y != v2.y) || (v1.z != v2.z) || (v1.w != v2.w);
+		return detail::compute_vec4_nequal<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(v1, v2);
 	}
 
 	template <precision P>
