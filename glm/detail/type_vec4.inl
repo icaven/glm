@@ -5,19 +5,31 @@ namespace glm{
 namespace detail
 {
 	template <typename T>
-	struct is_int32
+	struct is_int
 	{
 		enum test {value = 0};
 	};
 
 	template <>
-	struct is_int32<uint32>
+	struct is_int<uint32>
 	{
 		enum test {value = ~0};
 	};
 
 	template <>
-	struct is_int32<int32>
+	struct is_int<int32>
+	{
+		enum test {value = ~0};
+	};
+
+	template <>
+	struct is_int<uint64>
+	{
+		enum test {value = ~0};
+	};
+
+	template <>
+	struct is_int<int64>
 	{
 		enum test {value = ~0};
 	};
@@ -67,7 +79,7 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P>
+	template <typename T, precision P, int IsInt, std::size_t Size>
 	struct compute_vec4_and
 	{
 		static tvec4<T, P> call(tvec4<T, P> const & a, tvec4<T, P> const & b)
@@ -76,7 +88,7 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P>
+	template <typename T, precision P, int IsInt, std::size_t Size>
 	struct compute_vec4_or
 	{
 		static tvec4<T, P> call(tvec4<T, P> const & a, tvec4<T, P> const & b)
@@ -85,7 +97,7 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P, int IsInt32>
+	template <typename T, precision P, int IsInt, std::size_t Size>
 	struct compute_vec4_xor
 	{
 		static tvec4<T, P> call(tvec4<T, P> const & a, tvec4<T, P> const & b)
@@ -94,7 +106,7 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P, int IsInt32>
+	template <typename T, precision P, int IsInt, std::size_t Size>
 	struct compute_vec4_shift_left
 	{
 		static tvec4<T, P> call(tvec4<T, P> const & a, tvec4<T, P> const & b)
@@ -103,7 +115,7 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P, int IsInt32>
+	template <typename T, precision P, int IsInt, std::size_t Size>
 	struct compute_vec4_shift_right
 	{
 		static tvec4<T, P> call(tvec4<T, P> const & a, tvec4<T, P> const & b)
@@ -112,7 +124,7 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P, int IsInt32>
+	template <typename T, precision P, int IsInt, std::size_t Size>
 	struct compute_vec4_logical_not
 	{
 		static tvec4<T, P> call(tvec4<T, P> const & v)
@@ -488,105 +500,105 @@ namespace detail
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator&=(U scalar)
 	{
-		return (*this = detail::compute_vec4_and<T, P>::call(*this, tvec4<T, P>(scalar)));
+		return (*this = detail::compute_vec4_and<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(*this, tvec4<T, P>(scalar)));
 	}
 
 	template <typename T, precision P>
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator&=(tvec1<U, P> const & v)
 	{
-		return (*this = detail::compute_vec4_and<T, P>::call(*this, tvec4<T, P>(v)));
+		return (*this = detail::compute_vec4_and<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(*this, tvec4<T, P>(v)));
 	}
 
 	template <typename T, precision P>
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator&=(tvec4<U, P> const & v)
 	{
-		return (*this = detail::compute_vec4_and<T, P>::call(*this, tvec4<T, P>(v)));
+		return (*this = detail::compute_vec4_and<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(*this, tvec4<T, P>(v)));
 	}
 
 	template <typename T, precision P>
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator|=(U scalar)
 	{
-		return (*this = detail::compute_vec4_or<T, P>::call(*this, tvec4<T, P>(scalar)));
+		return (*this = detail::compute_vec4_or<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(*this, tvec4<T, P>(scalar)));
 	}
 
 	template <typename T, precision P>
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator|=(tvec1<U, P> const & v)
 	{
-		return (*this = detail::compute_vec4_or<T, P>::call(*this, tvec4<T, P>(v)));
+		return (*this = detail::compute_vec4_or<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(*this, tvec4<T, P>(v)));
 	}
 
 	template <typename T, precision P>
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator|=(tvec4<U, P> const & v)
 	{
-		return (*this = detail::compute_vec4_or<T, P>::call(*this, tvec4<T, P>(v)));
+		return (*this = detail::compute_vec4_or<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(*this, tvec4<T, P>(v)));
 	}
 
 	template <typename T, precision P>
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator^=(U scalar)
 	{
-		return (*this = detail::compute_vec4_xor<T, P>::call(*this, tvec4<T, P>(scalar)));
+		return (*this = detail::compute_vec4_xor<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(*this, tvec4<T, P>(scalar)));
 	}
 
 	template <typename T, precision P>
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator^=(tvec1<U, P> const & v)
 	{
-		return (*this = detail::compute_vec4_xor<T, P>::call(*this, tvec4<T, P>(v)));
+		return (*this = detail::compute_vec4_xor<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(*this, tvec4<T, P>(v)));
 	}
 
 	template <typename T, precision P>
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator^=(tvec4<U, P> const & v)
 	{
-		return (*this = detail::compute_vec4_xor<T, P>::call(*this, tvec4<T, P>(v)));
+		return (*this = detail::compute_vec4_xor<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(*this, tvec4<T, P>(v)));
 	}
 
 	template <typename T, precision P>
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator<<=(U scalar)
 	{
-		return (*this = detail::compute_vec4_shift_left<T, P>::call(*this, tvec4<T, P>(scalar)));
+		return (*this = detail::compute_vec4_shift_left<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(*this, tvec4<T, P>(scalar)));
 	}
 
 	template <typename T, precision P>
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator<<=(tvec1<U, P> const & v)
 	{
-		return (*this = detail::compute_vec4_shift_left<T, P>::call(*this, tvec4<T, P>(v)));
+		return (*this = detail::compute_vec4_shift_left<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(*this, tvec4<T, P>(v)));
 	}
 
 	template <typename T, precision P>
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator<<=(tvec4<U, P> const & v)
 	{
-		return (*this = detail::compute_vec4_shift_left<T, P>::call(*this, tvec4<T, P>(v)));
+		return (*this = detail::compute_vec4_shift_left<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(*this, tvec4<T, P>(v)));
 	}
 
 	template <typename T, precision P>
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator>>=(U scalar)
 	{
-		return (*this = detail::compute_vec4_shift_right<T, P>::call(*this, tvec4<T, P>(scalar)));
+		return (*this = detail::compute_vec4_shift_right<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(*this, tvec4<T, P>(scalar)));
 	}
 
 	template <typename T, precision P>
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator>>=(tvec1<U, P> const & v)
 	{
-		return (*this = detail::compute_vec4_shift_right<T, P>::call(*this, tvec4<T, P>(v)));
+		return (*this = detail::compute_vec4_shift_right<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(*this, tvec4<T, P>(v)));
 	}
 
 	template <typename T, precision P>
 	template <typename U> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> & tvec4<T, P>::operator>>=(tvec4<U, P> const & v)
 	{
-		return (*this = detail::compute_vec4_shift_right<T, P>::call(*this, tvec4<T, P>(v)));
+		return (*this = detail::compute_vec4_shift_right<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(*this, tvec4<T, P>(v)));
 	}
 
 	// -- Unary constant operators --
@@ -910,7 +922,7 @@ namespace detail
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator~(tvec4<T, P> const & v)
 	{
-		return detail::compute_vec4_logical_not<T, P, detail::is_int32<T>::value>::call(v);
+		return detail::compute_vec4_logical_not<T, P, detail::is_int<T>::value, sizeof(T) * 8>::call(v);
 	}
 
 	// -- Boolean operators --

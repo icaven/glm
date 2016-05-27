@@ -70,7 +70,6 @@ namespace detail
 			typedef __m256i type;
 		};
 #	endif
-
 }//namespace detail
 
 	template <typename T, precision P = defaultp>
