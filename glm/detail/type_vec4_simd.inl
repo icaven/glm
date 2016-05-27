@@ -105,68 +105,46 @@ namespace detail
 		}
 	};
 
-	template <precision P>
-	struct compute_vec4_xor<int32, P>
+	template <typename T, precision P>
+	struct compute_vec4_xor<T, P, true>
 	{
-		static tvec4<int32, P> call(tvec4<int32, P> const& a, tvec4<int32, P> const& b)
+		static tvec4<T, P> call(tvec4<T, P> const& a, tvec4<T, P> const& b)
 		{
-			tvec4<int32, P> Result(uninitialize);
+			tvec4<T, P> Result(uninitialize);
 			Result.data = _mm_xor_si128(a.data, b.data);
 			return Result;
 		}
 	};
 
-	template <precision P>
-	struct compute_vec4_xor<uint32, P>
+	template <typename T, precision P>
+	struct compute_vec4_shift_left<T, P, true>
 	{
-		static tvec4<uint32, P> call(tvec4<uint32, P> const& a, tvec4<uint32, P> const& b)
+		static tvec4<T, P> call(tvec4<T, P> const& a, tvec4<T, P> const& b)
 		{
-			tvec4<uint32, P> Result(uninitialize);
-			Result.data = _mm_xor_si128(a.data, b.data);
-			return Result;
-		}
-	};
-
-	template <precision P>
-	struct compute_vec4_shift_left<int32, P>
-	{
-		static tvec4<int32, P> call(tvec4<int32, P> const& a, tvec4<int32, P> const& b)
-		{
-			tvec4<int32, P> Result(uninitialize);
+			tvec4<T, P> Result(uninitialize);
 			Result.data = _mm_sll_epi32(a.data, b.data);
 			return Result;
 		}
 	};
 
-	template <precision P>
-	struct compute_vec4_shift_left<uint32, P>
+	template <typename T, precision P>
+	struct compute_vec4_shift_right<T, P, true>
 	{
-		static tvec4<uint32, P> call(tvec4<uint32, P> const& a, tvec4<uint32, P> const& b)
+		static tvec4<T, P> call(tvec4<T, P> const& a, tvec4<T, P> const& b)
 		{
-			tvec4<uint32, P> Result(uninitialize);
-			Result.data = _mm_sll_epi32(a.data, b.data);
-			return Result;
-		}
-	};
-
-	template <precision P>
-	struct compute_vec4_shift_right<int32, P>
-	{
-		static tvec4<int32, P> call(tvec4<int32, P> const& a, tvec4<int32, P> const& b)
-		{
-			tvec4<int32, P> Result(uninitialize);
+			tvec4<T, P> Result(uninitialize);
 			Result.data = _mm_srl_epi32(a.data, b.data);
 			return Result;
 		}
 	};
 
-	template <precision P>
-	struct compute_vec4_shift_right<uint32, P>
+	template <typename T, precision P>
+	struct compute_vec4_logical_not<T, P, true>
 	{
-		static tvec4<uint32, P> call(tvec4<uint32, P> const& a, tvec4<uint32, P> const& b)
+		static tvec4<T, P> call(tvec4<T, P> const & v)
 		{
-			tvec4<uint32, P> Result(uninitialize);
-			Result.data = _mm_srl_epi32(a.data, b.data);
+			tvec4<T, P> Result(uninitialize);
+			Result.data = _mm_xor_si128(v.data, _mm_set1_epi32(-1));
 			return Result;
 		}
 	};

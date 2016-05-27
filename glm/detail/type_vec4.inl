@@ -4,6 +4,24 @@
 namespace glm{
 namespace detail
 {
+	template <typename T>
+	struct is_int32
+	{
+		enum test {value = 0};
+	};
+
+	template <>
+	struct is_int32<uint32>
+	{
+		enum test {value = ~0};
+	};
+
+	template <>
+	struct is_int32<int32>
+	{
+		enum test {value = ~0};
+	};
+
 	template <typename T, precision P>
 	struct compute_vec4_add
 	{
@@ -67,7 +85,7 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P>
+	template <typename T, precision P, int IsInt32>
 	struct compute_vec4_xor
 	{
 		static tvec4<T, P> call(tvec4<T, P> const & a, tvec4<T, P> const & b)
@@ -76,7 +94,7 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P>
+	template <typename T, precision P, int IsInt32>
 	struct compute_vec4_shift_left
 	{
 		static tvec4<T, P> call(tvec4<T, P> const & a, tvec4<T, P> const & b)
@@ -85,12 +103,21 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P>
+	template <typename T, precision P, int IsInt32>
 	struct compute_vec4_shift_right
 	{
 		static tvec4<T, P> call(tvec4<T, P> const & a, tvec4<T, P> const & b)
 		{
 			return tvec4<T, P>(a.x >> b.x, a.y >> b.y, a.z >> b.z, a.w >> b.w);
+		}
+	};
+
+	template <typename T, precision P, int IsInt32>
+	struct compute_vec4_logical_not
+	{
+		static tvec4<T, P> call(tvec4<T, P> const & v)
+		{
+			return tvec4<T, P>(~v.x, ~v.y, ~v.z, ~v.w);
 		}
 	};
 }//namespace detail
@@ -883,7 +910,7 @@ namespace detail
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator~(tvec4<T, P> const & v)
 	{
-		return tvec4<T, P>(~v.x, ~v.y, ~v.z, ~v.w);
+		return detail::compute_vec4_logical_not<T, P, detail::is_int32<T>::value>::call(v);
 	}
 
 	// -- Boolean operators --

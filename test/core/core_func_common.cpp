@@ -1237,6 +1237,12 @@ int main()
 {
 	int Error = 0;
 
+	glm::ivec4 const a(1);
+	glm::ivec4 const b = ~a;
+
+	glm::int32 const c(1);
+	glm::int32 const d = ~c;
+
 	Error += sign::test();
 	Error += floor_::test();
 	Error += mod_::test();
