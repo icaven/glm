@@ -130,3 +130,8 @@ namespace detail
 		return detail::compute_inversesqrt<vecType, T, P>::call(x);
 	}
 }//namespace glm
+
+#if GLM_ARCH != GLM_ARCH_PURE && GLM_HAS_UNRESTRICTED_UNIONS
+#	include "func_exponential_simd.inl"
+#endif
+

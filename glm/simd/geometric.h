@@ -5,6 +5,8 @@
 
 #include "common.h"
 
+#if GLM_ARCH & GLM_ARCH_SSE2
+
 GLM_FUNC_QUALIFIER __m128 glm_f32v4_dot(__m128 v1, __m128 v2)
 {
 #	if GLM_ARCH & GLM_ARCH_AVX
@@ -29,9 +31,9 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v1_dot(__m128 v1, __m128 v2)
 #	if GLM_ARCH & GLM_ARCH_AVX
 		return _mm_dp_ps(v1, v2, 0xff);
 #	elif GLM_ARCH & GLM_ARCH_SSE3
-		__m128 const Mul0 = _mm_mul_ps(v1, v2);
-		__m128 const Hadd0 = _mm_hadd_ps(Mul0, Mul0);
-		__m128 const Hadd1 = _mm_hadd_ps(Hadd0, Hadd0);
+		__m128 const mul0 = _mm_mul_ps(v1, v2);
+		__m128 const had0 = _mm_hadd_ps(mul0, mul0);
+		__m128 const had1 = _mm_hadd_ps(had0, had0);
 		return Hadd1;
 #	else
 		__m128 const mul0 = _mm_mul_ps(v1, v2);
@@ -81,7 +83,7 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v4_ffd(__m128 N, __m128 I, __m128 Nref)
 {
 	__m128 dot0 = glm_f32v4_dot(Nref, I);
 	__m128 sgn0 = glm_f32v4_sgn(dot0);
-	__m128 mul0 = _mm_mul_ps(sgn0, glm_minus_one);
+	__m128 mul0 = _mm_mul_ps(sgn0, _mm_set1_ps(-1.0f));
 	__m128 mul1 = _mm_mul_ps(N, mul0);
 	return mul1;
 }
@@ -90,7 +92,7 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v4_rfe(__m128 I, __m128 N)
 {
 	__m128 dot0 = glm_f32v4_dot(N, I);
 	__m128 mul0 = _mm_mul_ps(N, dot0);
-	__m128 mul1 = _mm_mul_ps(mul0, glm_two);
+	__m128 mul1 = _mm_mul_ps(mul0, _mm_set1_ps(2.0f));
 	__m128 sub0 = _mm_sub_ps(I, mul1);
 	return sub0;
 }
@@ -100,8 +102,8 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v4_rfa(__m128 I, __m128 N, __m128 eta)
 	__m128 dot0 = glm_f32v4_dot(N, I);
 	__m128 mul0 = _mm_mul_ps(eta, eta);
 	__m128 mul1 = _mm_mul_ps(dot0, dot0);
-	__m128 sub0 = _mm_sub_ps(glm_one, mul0);
-	__m128 sub1 = _mm_sub_ps(glm_one, mul1);
+	__m128 sub0 = _mm_sub_ps(_mm_set1_ps(1.0f), mul0);
+	__m128 sub1 = _mm_sub_ps(_mm_set1_ps(1.0f), mul1);
 	__m128 mul2 = _mm_mul_ps(sub0, sub1);
 	
 	if(_mm_movemask_ps(_mm_cmplt_ss(mul2, _mm_set1_ps(0.0f))) == 0)
@@ -116,3 +118,5 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v4_rfa(__m128 I, __m128 N, __m128 eta)
 
 	return sub2;
 }
+
+#endif//GLM_ARCH & GLM_ARCH_SSE2

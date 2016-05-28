@@ -15,7 +15,7 @@ namespace detail
 			GLM_FUNC_QUALIFIER static tmat4x4<float, P> call(tmat4x4<float, P> const& m)
 			{
 				tmat4x4<float, P> Result(uninitialize);
-				glm_f32m4_inverse(*reinterpret_cast<__m128 const(*)[4]>(&m[0].data), *reinterpret_cast<__m128(*)[4]>(&Result[0].data));
+				glm_f32m4_inv(*reinterpret_cast<__m128 const(*)[4]>(&m[0].data), *reinterpret_cast<__m128(*)[4]>(&Result[0].data));
 				return Result;
 			}
 		};

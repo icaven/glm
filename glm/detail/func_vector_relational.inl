@@ -100,3 +100,6 @@ namespace glm
 	}
 }//namespace glm
 
+#if GLM_ARCH != GLM_ARCH_PURE && GLM_HAS_UNRESTRICTED_UNIONS
+#	include "func_vector_relational_simd.inl"
+#endif

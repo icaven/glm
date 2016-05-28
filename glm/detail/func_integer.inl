@@ -6,12 +6,10 @@
 #include "type_vec4.hpp"
 #include "type_int.hpp"
 #include "_vectorize.hpp"
-#if(GLM_ARCH != GLM_ARCH_PURE)
-#if(GLM_COMPILER & GLM_COMPILER_VC)
+#if(GLM_ARCH & GLM_ARCH_X86 && GLM_COMPILER & GLM_COMPILER_VC)
 #	include <intrin.h>
 #	pragma intrinsic(_BitScanReverse)
-#endif//(GLM_COMPILER & GLM_COMPILER_VC)
-#endif//(GLM_ARCH != GLM_ARCH_PURE)
+#endif//(GLM_ARCH & GLM_ARCH_X86 && GLM_COMPILER & GLM_COMPILER_VC)
 #include <limits>
 
 namespace glm{
@@ -359,7 +357,7 @@ namespace detail
 	}
 }//namespace glm
 
-#if GLM_ARCH != GLM_ARCH_PURE
+#if GLM_ARCH != GLM_ARCH_PURE && GLM_HAS_UNRESTRICTED_UNIONS
 #	include "func_integer_simd.inl"
 #endif
 

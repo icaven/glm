@@ -1237,8 +1237,6 @@ int main()
 {
 	int Error = 0;
 
-	__m128 const flr0 = glm_f32v4_flr(_mm_set_ps(1.1f, 1.9f, -1.1f, -1.9f));
-
 	glm::ivec4 const a(1);
 	glm::ivec4 const b = ~a;
 
