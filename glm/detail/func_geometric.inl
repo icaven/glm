@@ -183,6 +183,12 @@ namespace detail
 	}
 
 	// reflect
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType reflect(genType const & I, genType const & N)
+	{
+		return I - N * dot(N, I) * genType(2);
+	}
+
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> reflect(vecType<T, P> const & I, vecType<T, P> const & N)
 	{
