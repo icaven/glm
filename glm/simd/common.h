@@ -3,26 +3,6 @@
 
 #pragma once
 
-#if(GLM_COMPILER & GLM_COMPILER_VC)
-#pragma warning(push)
-#pragma warning(disable : 4510 4512 4610)
-#endif
-
-	union ieee754_QNAN
-	{
-		const float f;
-		struct i
-		{
-			const unsigned int mantissa:23, exp:8, sign:1;
-		};
-
-		ieee754_QNAN() : f(0.0)/*, mantissa(0x7FFFFF), exp(0xFF), sign(0x0)*/ {}
-	};
-
-#if(GLM_COMPILER & GLM_COMPILER_VC)
-#pragma warning(pop)
-#endif
-
 static const __m128 GLM_VAR_USED glm_zero = _mm_setzero_ps();
 static const __m128 GLM_VAR_USED glm_one = _mm_set_ps1(1.0f);
 static const __m128 GLM_VAR_USED glm_half = _mm_set_ps1(0.5f);
@@ -30,15 +10,13 @@ static const __m128 GLM_VAR_USED glm_minus_one = _mm_set_ps1(-1.0f);
 static const __m128 GLM_VAR_USED glm_two = _mm_set_ps1(2.0f);
 static const __m128 GLM_VAR_USED glm_three = _mm_set_ps1(3.0f);
 
-static const ieee754_QNAN glm_abs_mask;
-static const __m128 GLM_VAR_USED glm_abs4_mask = _mm_set_ps1(glm_abs_mask.f);
 static const __m128 GLM_VAR_USED glm_epi32_sign_mask = _mm_castsi128_ps(_mm_set1_epi32(static_cast<int>(0x80000000)));
 static const __m128 GLM_VAR_USED glm_ps_2pow23 = _mm_set_ps1(8388608.0f);
 static const __m128 GLM_VAR_USED glm_ps_1 = _mm_set_ps1(1.0f);
 
 GLM_FUNC_QUALIFIER __m128 glm_abs_ps(__m128 x)
 {
-	return _mm_and_ps(glm_abs4_mask, x);
+	return _mm_and_ps(x, _mm_castsi128_ps(_mm_set1_epi32(0x7FFFFFFF)));
 }
 
 //sign

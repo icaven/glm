@@ -9,6 +9,11 @@ GLM_FUNC_QUALIFIER __m128 glm_dot_ps(__m128 v1, __m128 v2)
 {
 #	if GLM_ARCH & GLM_ARCH_AVX
 		return _mm_dp_ps(v1, v2, 0xff);
+#	elif GLM_ARCH & GLM_ARCH_SSE3
+		__m128 const Mul0 = _mm_mul_ps(v1, v2);
+		__m128 const Hadd0 = _mm_hadd_ps(Mul0, Mul0);
+		__m128 const Hadd1 = _mm_hadd_ps(Hadd0, Hadd0);
+		return Hadd1;
 #	else
 		__m128 const mul0 = _mm_mul_ps(v1, v2);
 		__m128 const swp0 = _mm_shuffle_ps(mul0, mul0, _MM_SHUFFLE(2, 3, 0, 1));
@@ -21,12 +26,21 @@ GLM_FUNC_QUALIFIER __m128 glm_dot_ps(__m128 v1, __m128 v2)
 
 GLM_FUNC_QUALIFIER __m128 glm_dot_ss(__m128 v1, __m128 v2)
 {
-	__m128 const mul0 = _mm_mul_ps(v1, v2);
-	__m128 const mov0 = _mm_movehl_ps(mul0, mul0);
-	__m128 const add0 = _mm_add_ps(mov0, mul0);
-	__m128 const swp1 = _mm_shuffle_ps(add0, add0, 1);
-	__m128 const add1 = _mm_add_ss(add0, swp1);
-	return add1;
+#	if GLM_ARCH & GLM_ARCH_AVX
+		return _mm_dp_ps(v1, v2, 0xff);
+#	elif GLM_ARCH & GLM_ARCH_SSE3
+		__m128 const Mul0 = _mm_mul_ps(v1, v2);
+		__m128 const Hadd0 = _mm_hadd_ps(Mul0, Mul0);
+		__m128 const Hadd1 = _mm_hadd_ps(Hadd0, Hadd0);
+		return Hadd1;
+#	else
+		__m128 const mul0 = _mm_mul_ps(v1, v2);
+		__m128 const mov0 = _mm_movehl_ps(mul0, mul0);
+		__m128 const add0 = _mm_add_ps(mov0, mul0);
+		__m128 const swp1 = _mm_shuffle_ps(add0, add0, 1);
+		__m128 const add1 = _mm_add_ss(add0, swp1);
+		return add1;
+#	endif
 }
 
 GLM_FUNC_QUALIFIER __m128 glm_len_ps(__m128 x)
