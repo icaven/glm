@@ -29,7 +29,7 @@ namespace detail
 		typedef T type[4];
 	};
 
-#	if (GLM_ARCH & GLM_ARCH_SSE2)
+#	if (GLM_ARCH & GLM_ARCH_SSE2_FLAG)
 		template <>
 		struct simd_data<float>
 		{
