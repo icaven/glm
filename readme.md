@@ -84,6 +84,9 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 ##### Deprecation:
 - Removed GLM_FORCE_SIZE_FUNC define
+- Deprecated GLM_GTX_simd_vec4 extension
+- Deprecated GLM_GTX_simd_mat4 extension
+- Deprecated GLM_GTX_simd_quat extension
 
 #### [GLM 0.9.7.5](https://github.com/g-truc/glm/releases/tag/0.9.7.5) - 2016-05-24
 ##### Improvements:

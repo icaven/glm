@@ -26,6 +26,7 @@
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_simd_mat4 extension included")
+#	pragma message("GLM: GLM_GTX_simd_mat4 extension is deprecated and will be removed in GLM 0.9.9. Use mat4 instead and use compiler SIMD arguments.")
 #endif
 
 namespace glm{

@@ -27,6 +27,7 @@
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
 #	pragma message("GLM: GLM_GTX_simd_quat extension included")
+#	pragma message("GLM: GLM_GTX_simd_quat extension is deprecated and will be removed in GLM 0.9.9. Use GLM_GTC_quaternion instead and use compiler SIMD arguments.")
 #endif
 
 // Warning silencer for nameless struct/union.
