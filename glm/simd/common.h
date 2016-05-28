@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include "platform.h"
+
 #if GLM_ARCH & GLM_ARCH_SSE2_FLAG
 
 //mad

@@ -262,3 +262,139 @@
 #ifndef GLM_COMPILER
 #	error "GLM_COMPILER undefined, your compiler may not be supported by GLM. Add #define GLM_COMPILER 0 to ignore this message."
 #endif//GLM_COMPILER
+
+///////////////////////////////////////////////////////////////////////////////////
+// Instruction sets
+
+// User defines: GLM_FORCE_PURE GLM_FORCE_SSE2 GLM_FORCE_SSE3 GLM_FORCE_AVX GLM_FORCE_AVX2 GLM_FORCE_AVX2
+
+#define GLM_ARCH_X86_FLAG		0x00000001
+#define GLM_ARCH_SSE2_FLAG		0x00000002
+#define GLM_ARCH_SSE3_FLAG		0x00000004
+#define GLM_ARCH_SSSE3_FLAG		0x00000008
+#define GLM_ARCH_SSE41_FLAG		0x00000010
+#define GLM_ARCH_SSE42_FLAG		0x00000020
+#define GLM_ARCH_AVX_FLAG		0x00000040
+#define GLM_ARCH_AVX2_FLAG		0x00000080
+#define GLM_ARCH_AVX512_FLAG	0x00000100 // Skylake subset
+#define GLM_ARCH_ARM_FLAG		0x00000100
+#define GLM_ARCH_NEON_FLAG		0x00000200
+#define GLM_ARCH_MIPS_FLAG		0x00010000
+#define GLM_ARCH_PPC_FLAG		0x01000000
+
+#define GLM_ARCH_PURE		(0x00000000)
+#define GLM_ARCH_X86		(GLM_ARCH_X86_FLAG)
+#define GLM_ARCH_SSE2		(GLM_ARCH_SSE2_FLAG | GLM_ARCH_X86)
+#define GLM_ARCH_SSE3		(GLM_ARCH_SSE3_FLAG | GLM_ARCH_SSE2)
+#define GLM_ARCH_SSSE3		(GLM_ARCH_SSSE3_FLAG | GLM_ARCH_SSE3)
+#define GLM_ARCH_SSE41		(GLM_ARCH_SSE41_FLAG | GLM_ARCH_SSSE3)
+#define GLM_ARCH_SSE42		(GLM_ARCH_SSE42_FLAG | GLM_ARCH_SSE41)
+#define GLM_ARCH_AVX		(GLM_ARCH_AVX_FLAG | GLM_ARCH_SSE42)
+#define GLM_ARCH_AVX2		(GLM_ARCH_AVX2_FLAG | GLM_ARCH_AVX)
+#define GLM_ARCH_AVX512		(GLM_ARCH_AVX512_FLAG | GLM_ARCH_AVX2) // Skylake subset
+#define GLM_ARCH_ARM		(GLM_ARCH_ARM_FLAG)
+#define GLM_ARCH_NEON		(GLM_ARCH_NEON_FLAG | GLM_ARCH_ARM)
+#define GLM_ARCH_MIPS		(GLM_ARCH_MIPS_FLAG)
+#define GLM_ARCH_PPC		(GLM_ARCH_PPC_FLAG)
+
+#if defined(GLM_FORCE_PURE)
+#	define GLM_ARCH GLM_ARCH_PURE
+#elif defined(GLM_FORCE_MIPS)
+#	define GLM_ARCH (GLM_ARCH_MIPS)
+#elif defined(GLM_FORCE_PPC)
+#	define GLM_ARCH (GLM_ARCH_PPC)
+#elif defined(GLM_FORCE_NEON)
+#	define GLM_ARCH (GLM_ARCH_NEON)
+#elif defined(GLM_FORCE_AVX512)
+#	define GLM_ARCH (GLM_ARCH_AVX512)
+#elif defined(GLM_FORCE_AVX2)
+#	define GLM_ARCH (GLM_ARCH_AVX2)
+#elif defined(GLM_FORCE_AVX)
+#	define GLM_ARCH (GLM_ARCH_AVX)
+#elif defined(GLM_FORCE_SSE42)
+#	define GLM_ARCH (GLM_ARCH_SSE42)
+#elif defined(GLM_FORCE_SSE41)
+#	define GLM_ARCH (GLM_ARCH_SSE41)
+#elif defined(GLM_FORCE_SSSE3)
+#	define GLM_ARCH (GLM_ARCH_SSSE3)
+#elif defined(GLM_FORCE_SSE3)
+#	define GLM_ARCH (GLM_ARCH_SSE3)
+#elif defined(GLM_FORCE_SSE2)
+#	define GLM_ARCH (GLM_ARCH_SSE2)
+#elif (GLM_COMPILER & (GLM_COMPILER_LLVM | GLM_COMPILER_GCC)) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_LINUX))
+//	This is Skylake set of instruction set
+#	if defined(__AVX512BW__) && defined(__AVX512F__) && defined(__AVX512CD__) && defined(__AVX512VL__) && defined(__AVX512DQ__)
+#		define GLM_ARCH (GLM_ARCH_AVX512)
+#	elif defined(__AVX2__)
+#		define GLM_ARCH (GLM_ARCH_AVX2)
+#	elif defined(__AVX__)
+#		define GLM_ARCH (GLM_ARCH_AVX)
+#	elif defined(__SSE4_2__)
+#		define GLM_ARCH (GLM_ARCH_SSE42)
+#	elif defined(__SSE4_1__)
+#		define GLM_ARCH (GLM_ARCH_SSE41)
+#	elif defined(__SSSE3__)
+#		define GLM_ARCH (GLM_ARCH_SSSE3)
+#	elif defined(__SSE3__)
+#		define GLM_ARCH (GLM_ARCH_SSE3)
+#	elif defined(__SSE2__)
+#		define GLM_ARCH (GLM_ARCH_SSE2)
+#	elif defined(__i386__) || defined(__x86_64__)
+#		define GLM_ARCH (GLM_ARCH_X86)
+#	elif defined(__ARM_NEON)
+#		define GLM_ARCH (GLM_ARCH_ARM | GLM_ARCH_NEON)
+#	elif defined(__arm__ )
+#		define GLM_ARCH (GLM_ARCH_ARM)
+#	elif defined(__mips__ )
+#		define GLM_ARCH (GLM_ARCH_MIPS)
+#	elif defined(__powerpc__ )
+#		define GLM_ARCH (GLM_ARCH_PPC)
+#	else
+#		define GLM_ARCH (GLM_ARCH_PURE)
+#	endif
+#elif (GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS))
+#	if defined(_M_ARM)
+#		define GLM_ARCH (GLM_ARCH_ARM)
+#	elif defined(__AVX2__)
+#		define GLM_ARCH (GLM_ARCH_AVX2)
+#	elif defined(__AVX__)
+#		define GLM_ARCH (GLM_ARCH_AVX)
+#	elif defined(_M_X64)
+#		define GLM_ARCH (GLM_ARCH_SSE2)
+#	elif defined(_M_IX86_FP)
+#		if _M_IX86_FP >= 2
+#			define GLM_ARCH (GLM_ARCH_SSE2)
+#		else
+#			define GLM_ARCH (GLM_ARCH_PURE)
+#		endif
+#	elif defined(_M_PPC)
+#		define GLM_ARCH (GLM_ARCH_PPC)
+#	else
+#		define GLM_ARCH (GLM_ARCH_PURE)
+#	endif
+#else
+#	define GLM_ARCH GLM_ARCH_PURE
+#endif
+
+// With MinGW-W64, including intrinsic headers before intrin.h will produce some errors. The problem is
+// that windows.h (and maybe other headers) will silently include intrin.h, which of course causes problems.
+// To fix, we just explicitly include intrin.h here.
+#if defined(__MINGW64__) && (GLM_ARCH != GLM_ARCH_PURE)
+#	include <intrin.h>
+#endif
+
+#if GLM_ARCH & GLM_ARCH_AVX2_FLAG
+#	include <immintrin.h>
+#elif GLM_ARCH & GLM_ARCH_AVX_FLAG
+#	include <immintrin.h>
+#elif GLM_ARCH & GLM_ARCH_SSE42_FLAG
+#	include <nmmintrin.h>
+#elif GLM_ARCH & GLM_ARCH_SSE41_FLAG
+#	include <smmintrin.h>
+#elif GLM_ARCH & GLM_ARCH_SSSE3_FLAG
+#	include <tmmintrin.h>
+#elif GLM_ARCH & GLM_ARCH_SSE3_FLAG
+#	include <pmmintrin.h>
+#elif GLM_ARCH & GLM_ARCH_SSE2_FLAG
+#	include <emmintrin.h>
+#endif//GLM_ARCH
