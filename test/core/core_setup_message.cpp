@@ -176,23 +176,23 @@ int test_instruction_set()
 
 	if(GLM_ARCH == GLM_ARCH_PURE)
 		std::printf("GLM_ARCH_PURE ");
-	if(GLM_ARCH & GLM_ARCH_ARM_FLAG)
+	if(GLM_ARCH & GLM_ARCH_ARM_BIT)
 		std::printf("ARM ");
-	if(GLM_ARCH & GLM_ARCH_NEON_FLAG)
+	if(GLM_ARCH & GLM_ARCH_NEON_BIT)
 		std::printf("NEON ");
 	if(GLM_ARCH & GLM_ARCH_AVX2)
 		std::printf("AVX2 ");
 	if(GLM_ARCH & GLM_ARCH_AVX)
 		std::printf("AVX ");
-	if(GLM_ARCH & GLM_ARCH_SSE42_FLAG)
+	if(GLM_ARCH & GLM_ARCH_SSE42_BIT)
 		std::printf("SSE4.2 ");
-	if(GLM_ARCH & GLM_ARCH_SSE41_FLAG)
+	if(GLM_ARCH & GLM_ARCH_SSE41_BIT)
 		std::printf("SSE4.1 ");
-	if(GLM_ARCH & GLM_ARCH_SSSE3_FLAG)
+	if(GLM_ARCH & GLM_ARCH_SSSE3_BIT)
 		std::printf("SSSE3 ");
-	if(GLM_ARCH & GLM_ARCH_SSE3_FLAG)
+	if(GLM_ARCH & GLM_ARCH_SSE3_BIT)
 		std::printf("SSE3 ");
-	if(GLM_ARCH & GLM_ARCH_SSE2_FLAG)
+	if(GLM_ARCH & GLM_ARCH_SSE2_BIT)
 		std::printf("SSE2 ");
 
 	std::printf("\n");

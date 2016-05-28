@@ -122,7 +122,7 @@ GLM_FUNC_QUALIFIER fquatSIMD operator* (fquatSIMD const & q1, fquatSIMD const & 
     __m128 mul2 = _mm_mul_ps(q1.Data, _mm_shuffle_ps(q2.Data, q2.Data, _MM_SHUFFLE(2, 3, 0, 1)));
     __m128 mul3 = _mm_mul_ps(q1.Data, q2.Data);
 
-#   if(GLM_ARCH & GLM_ARCH_SSE41_FLAG)
+#   if(GLM_ARCH & GLM_ARCH_SSE41_BIT)
     __m128 add0 = _mm_dp_ps(mul0, _mm_set_ps(1.0f, -1.0f,  1.0f,  1.0f), 0xff);
     __m128 add1 = _mm_dp_ps(mul1, _mm_set_ps(1.0f,  1.0f,  1.0f, -1.0f), 0xff);
     __m128 add2 = _mm_dp_ps(mul2, _mm_set_ps(1.0f,  1.0f, -1.0f,  1.0f), 0xff);

@@ -8,7 +8,7 @@
 namespace glm{
 namespace detail
 {
-#	if GLM_ARCH & GLM_ARCH_SSE2_FLAG
+#	if GLM_ARCH & GLM_ARCH_SSE2_BIT
 		template <precision P>
 		struct compute_inverse<tmat4x4, float, P>
 		{

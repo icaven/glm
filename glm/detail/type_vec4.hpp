@@ -29,7 +29,7 @@ namespace detail
 		typedef T type[4];
 	};
 
-#	if (GLM_ARCH & GLM_ARCH_SSE2_FLAG)
+#	if (GLM_ARCH & GLM_ARCH_SSE2_BIT)
 		template <>
 		struct simd_data<float>
 		{
@@ -49,7 +49,7 @@ namespace detail
 		};
 #	endif
 
-#	if (GLM_ARCH & GLM_ARCH_AVX_FLAG)
+#	if (GLM_ARCH & GLM_ARCH_AVX_BIT)
 		template <>
 		struct simd_data<double>
 		{
@@ -57,7 +57,7 @@ namespace detail
 		};
 #	endif
 
-#	if (GLM_ARCH & GLM_ARCH_AVX2_FLAG)
+#	if (GLM_ARCH & GLM_ARCH_AVX2_BIT)
 		template <>
 		struct simd_data<int64>
 		{

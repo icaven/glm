@@ -505,7 +505,7 @@ namespace bitfieldInterleave
 				assert(A == C);
 				assert(A == D);
 
-#				if GLM_ARCH & GLM_ARCH_SSE2_FLAG
+#				if GLM_ARCH & GLM_ARCH_SSE2_BIT
 					glm::uint64 E = sseBitfieldInterleave(x, y);
 					glm::uint64 F = sseUnalignedBitfieldInterleave(x, y);
 					assert(A == E);
@@ -515,7 +515,7 @@ namespace bitfieldInterleave
 					glm::uint64 Result[2];
 					_mm_storeu_si128((__m128i*)Result, G);
 					assert(A == Result[0]);
-#				endif//GLM_ARCH & GLM_ARCH_SSE2_FLAG
+#				endif//GLM_ARCH & GLM_ARCH_SSE2_BIT
 			}
 		}
 
@@ -629,7 +629,7 @@ namespace bitfieldInterleave
 			std::printf("glm::detail::bitfieldInterleave Time %d clocks\n", static_cast<unsigned int>(Time));
 		}
 
-#		if(GLM_ARCH & GLM_ARCH_SSE2_FLAG && !(GLM_COMPILER & GLM_COMPILER_GCC))
+#		if(GLM_ARCH & GLM_ARCH_SSE2_BIT && !(GLM_COMPILER & GLM_COMPILER_GCC))
 		{
 			// SIMD
 			std::vector<__m128i> SimdData;
@@ -648,7 +648,7 @@ namespace bitfieldInterleave
 
 			std::printf("_mm_bit_interleave_si128 Time %d clocks\n", static_cast<unsigned int>(Time));
 		}
-#		endif//GLM_ARCH & GLM_ARCH_SSE2_FLAG
+#		endif//GLM_ARCH & GLM_ARCH_SSE2_BIT
 
 		return 0;
 	}
