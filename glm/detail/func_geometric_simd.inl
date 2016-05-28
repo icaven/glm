@@ -6,6 +6,24 @@ namespace glm{
 namespace detail
 {
 	template <precision P>
+	struct compute_length<tvec4, float, P>
+	{
+		GLM_FUNC_QUALIFIER static float call(tvec4<float, P> const & v)
+		{
+			return _mm_cvtss_f32(glm_f32v4_len(v.data));
+		}
+	};
+
+	template <precision P>
+	struct compute_distance<tvec4, float, P>
+	{
+		GLM_FUNC_QUALIFIER static float call(tvec4<float, P> const & p0, tvec4<float, P> const & p1)
+		{
+			return _mm_cvtss_f32(glm_f32v4_dst(p0.data, p1.data));
+		}
+	};
+
+	template <precision P>
 	struct compute_dot<tvec4, float, P>
 	{
 		GLM_FUNC_QUALIFIER static float call(tvec4<float, P> const& x, tvec4<float, P> const& y)
