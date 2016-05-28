@@ -204,6 +204,24 @@ namespace detail
 		}
 	};
 #	endif
+
+	template <precision P>
+	struct compute_vec4_equal<float, P, false, 32>
+	{
+		static bool call(tvec4<float, P> const & v1, tvec4<float, P> const & v2)
+		{
+			return _mm_movemask_ps(_mm_cmpeq_ps(v1.data, v2.data)) != 0;
+		}
+	};
+
+	template <precision P>
+	struct compute_vec4_nequal<float, P, false, 32>
+	{
+		static bool call(tvec4<float, P> const & v1, tvec4<float, P> const & v2)
+		{
+			return _mm_movemask_ps(_mm_cmpneq_ps(v1.data, v2.data)) != 0;
+		}
+	};
 }//namespace detail
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS
