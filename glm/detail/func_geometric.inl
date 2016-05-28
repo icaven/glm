@@ -10,6 +10,24 @@
 namespace glm{
 namespace detail
 {
+	template <template <typename, precision> class vecType, typename T, precision P>
+	struct compute_length
+	{
+		GLM_FUNC_QUALIFIER static T call(vecType<T, P> const & v)
+		{
+			return sqrt(dot(v, v));
+		}
+	};
+
+	template <template <typename, precision> class vecType, typename T, precision P>
+	struct compute_distance
+	{
+		GLM_FUNC_QUALIFIER static T call(vecType<T, P> const & p0, vecType<T, P> const & p1)
+		{
+			return length(p1 - p0);
+		}
+	};
+
 	template <template <class, precision> class vecType, typename T, precision P>
 	struct compute_dot{};
 
@@ -112,7 +130,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'length' accepts only floating-point inputs");
 
-		return sqrt(dot(v, v));
+		return detail::compute_length<vecType, T, P>::call(v);
 	}
 
 	// distance
@@ -127,7 +145,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER T distance(vecType<T, P> const & p0, vecType<T, P> const & p1)
 	{
-		return length(p1 - p0);
+		return detail::compute_distance<vecType, T, P>::call(p0, p1);
 	}
 
 	// dot
