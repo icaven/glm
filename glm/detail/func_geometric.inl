@@ -87,6 +87,15 @@ namespace detail
 			return dot(Nref, I) < static_cast<T>(0) ? N : -N;
 		}
 	};
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	struct compute_reflect
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & I, vecType<T, P> const & N)
+		{
+			return I - N * dot(N, I) * static_cast<T>(2);
+		}
+	};
 }//namespace detail
 
 	// length
@@ -174,10 +183,10 @@ namespace detail
 	}
 
 	// reflect
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType reflect(genType const & I, genType const & N)
+	template <typename T, precision P, template <typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<T, P> reflect(vecType<T, P> const & I, vecType<T, P> const & N)
 	{
-		return I - N * dot(N, I) * static_cast<genType>(2);
+		return detail::compute_reflect<T, P, vecType>::call(I, N);
 	}
 
 	// refract
