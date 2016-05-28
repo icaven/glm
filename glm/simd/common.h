@@ -127,19 +127,27 @@ GLM_FUNC_QUALIFIER __m128 glm_ssp_ps(__m128 edge0, __m128 edge1, __m128 x)
 	return mul2;
 }
 
-/// \todo
-//GLM_FUNC_QUALIFIER __m128 glm_nan_ps(__m128 x)
-//{
-//	__m128 empty;
-//	return empty;
-//}
+// Agner Fog method
+GLM_FUNC_QUALIFIER __m128 glm_nan_ps(__m128 x)
+{
+	__m128i const t1 = _mm_castps_si128(x);						// reinterpret as 32-bit integer
+	__m128i const t2 = _mm_sll_epi32(t1, _mm_cvtsi32_si128(1));	// shift out sign bit
+	__m128i const t3 = _mm_set1_epi32(0xFF000000);				// exponent mask
+	__m128i const t4 = _mm_and_si128(t2, t3);					// exponent
+	__m128i const t5 = _mm_andnot_si128(t3, t2);				// fraction
+	__m128i const Equal = _mm_cmpeq_epi32(t3, t4);
+	__m128i const Nequal = _mm_cmpeq_epi32(t5, _mm_set1_epi32(0));
+	__m128i const And = _mm_and_si128(Equal, Nequal);
+	return _mm_castsi128_ps(And);								// exponent = all 1s and fraction != 0
+}
 
-/// \todo
-//GLM_FUNC_QUALIFIER __m128 glm_inf_ps(__m128 x)
-//{
-//	__m128 empty;
-//	return empty;
-//}
+// Agner Fog method
+GLM_FUNC_QUALIFIER __m128 glm_inf_ps(__m128 x)
+{
+	__m128i const t1 = _mm_castps_si128(x);											// reinterpret as 32-bit integer
+	__m128i const t2 = _mm_sll_epi32(t1, _mm_cvtsi32_si128(1));						// shift out sign bit
+	return _mm_castsi128_ps(_mm_cmpeq_epi32(t2, _mm_set1_epi32(0xFF000000)));		// exponent is all 1s, fraction is 0
+}
 
 // SSE scalar reciprocal sqrt using rsqrt op, plus one Newton-Rhaphson iteration
 // By Elan Ruskin, http://assemblyrequired.crashworks.org/
