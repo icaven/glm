@@ -5,7 +5,7 @@
 
 #include "geometric.h"
 
-#if GLM_ARCH & GLM_ARCH_SSE2
+#if GLM_ARCH & GLM_ARCH_SSE2_FLAG
 
 static const __m128 GLM_VAR_USED _m128_rad_ps = _mm_set_ps1(3.141592653589793238462643383279f / 180.f);
 static const __m128 GLM_VAR_USED _m128_deg_ps = _mm_set_ps1(180.f / 3.141592653589793238462643383279f);
@@ -1029,4 +1029,4 @@ GLM_FUNC_QUALIFIER void glm_f32m4_outer(__m128 const & c, __m128 const & r, __m1
 	out[3] = _mm_mul_ps(c, _mm_shuffle_ps(r, r, _MM_SHUFFLE(3, 3, 3, 3)));
 }
 
-#endif//GLM_ARCH & GLM_ARCH_SSE2
+#endif//GLM_ARCH & GLM_ARCH_SSE2_FLAG

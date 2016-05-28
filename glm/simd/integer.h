@@ -3,7 +3,7 @@
 
 #pragma once
 
-#if GLM_ARCH & GLM_ARCH_SSE2
+#if GLM_ARCH & GLM_ARCH_SSE2_FLAG
 
 GLM_FUNC_QUALIFIER __m128i glm_i128_interleave(__m128i x)
 {
@@ -112,4 +112,4 @@ GLM_FUNC_QUALIFIER __m128i glm_i128_interleave2(__m128i x, __m128i y)
 	return Reg1;
 }
 
-#endif//GLM_ARCH & GLM_ARCH_SSE2
+#endif//GLM_ARCH & GLM_ARCH_SSE2_FLAG

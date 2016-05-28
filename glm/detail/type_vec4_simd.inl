@@ -1,7 +1,7 @@
 /// @ref core
 /// @file glm/detail/type_tvec4_simd.inl
 
-#if GLM_ARCH & GLM_ARCH_SSE2
+#if GLM_ARCH & GLM_ARCH_SSE2_FLAG
 
 namespace glm{
 namespace detail
@@ -72,7 +72,7 @@ namespace detail
 		}
 	};
 
-#	if GLM_ARCH & GLM_ARCH_AVX2
+#	if GLM_ARCH & GLM_ARCH_AVX2_FLAG
 	template <typename T, precision P>
 	struct compute_vec4_and<T, P, true, 64>
 	{
@@ -96,7 +96,7 @@ namespace detail
 		}
 	};
 
-#	if GLM_ARCH & GLM_ARCH_AVX2
+#	if GLM_ARCH & GLM_ARCH_AVX2_FLAG
 	template <typename T, precision P>
 	struct compute_vec4_or<T, P, true, 64>
 	{
@@ -120,7 +120,7 @@ namespace detail
 		}
 	};
 
-#	if GLM_ARCH & GLM_ARCH_AVX2
+#	if GLM_ARCH & GLM_ARCH_AVX2_FLAG
 	template <typename T, precision P>
 	struct compute_vec4_xor<T, P, true, 64>
 	{
@@ -144,7 +144,7 @@ namespace detail
 		}
 	};
 
-#	if GLM_ARCH & GLM_ARCH_AVX2
+#	if GLM_ARCH & GLM_ARCH_AVX2_FLAG
 	template <typename T, precision P>
 	struct compute_vec4_shift_left<T, P, true, 64>
 	{
@@ -168,7 +168,7 @@ namespace detail
 		}
 	};
 
-#	if GLM_ARCH & GLM_ARCH_AVX2
+#	if GLM_ARCH & GLM_ARCH_AVX2_FLAG
 	template <typename T, precision P>
 	struct compute_vec4_shift_right<T, P, true, 64>
 	{
@@ -192,7 +192,7 @@ namespace detail
 		}
 	};
 
-#	if GLM_ARCH & GLM_ARCH_AVX2
+#	if GLM_ARCH & GLM_ARCH_AVX2_FLAG
 	template <typename T, precision P>
 	struct compute_vec4_bitwise_not<T, P, true, 64>
 	{
@@ -248,7 +248,7 @@ namespace detail
 		data(_mm_set1_ps(s))
 	{}
 
-#	if GLM_ARCH & GLM_ARCH_AVX
+#	if GLM_ARCH & GLM_ARCH_AVX_FLAG
 	template <>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<double, lowp>::tvec4(double s) :
 		data(_mm256_set1_pd(s))
@@ -280,7 +280,7 @@ namespace detail
 		data(_mm_set1_epi32(s))
 	{}
 
-#	if GLM_ARCH & GLM_ARCH_AVX2
+#	if GLM_ARCH & GLM_ARCH_AVX2_FLAG
 	template <>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int64, lowp>::tvec4(int64 s) :
 		data(_mm256_set1_epi64x(s))
@@ -350,4 +350,4 @@ namespace detail
 */
 }//namespace glm
 
-#endif//GLM_ARCH & GLM_ARCH_SSE2
+#endif//GLM_ARCH & GLM_ARCH_SSE2_FLAG

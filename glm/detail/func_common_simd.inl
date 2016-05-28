@@ -1,7 +1,7 @@
 /// @ref core
 /// @file glm/detail/func_common_simd.inl
 
-#if GLM_ARCH & GLM_ARCH_SSE2
+#if GLM_ARCH & GLM_ARCH_SSE2_FLAG
 
 #include "../simd/common.h"
 
@@ -135,4 +135,4 @@ namespace detail
 }//namespace detail
 }//namespace glm
 
-#endif//GLM_ARCH & GLM_ARCH_SSE2
+#endif//GLM_ARCH & GLM_ARCH_SSE2_FLAG

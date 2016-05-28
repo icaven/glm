@@ -1,5 +1,7 @@
 #include "../simd/geometric.h"
 
+#if GLM_ARCH & GLM_ARCH_SSE2_FLAG
+
 namespace glm{
 namespace detail
 {
@@ -15,3 +17,4 @@ namespace detail
 }//namespace detail
 }//namespace glm
 
+#endif//GLM_ARCH & GLM_ARCH_SSE2_FLAG

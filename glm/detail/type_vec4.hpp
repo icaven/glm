@@ -49,7 +49,7 @@ namespace detail
 		};
 #	endif
 
-#	if (GLM_ARCH & GLM_ARCH_AVX)
+#	if (GLM_ARCH & GLM_ARCH_AVX_FLAG)
 		template <>
 		struct simd_data<double>
 		{
@@ -57,7 +57,7 @@ namespace detail
 		};
 #	endif
 
-#	if (GLM_ARCH & GLM_ARCH_AVX2)
+#	if (GLM_ARCH & GLM_ARCH_AVX2_FLAG)
 		template <>
 		struct simd_data<int64>
 		{

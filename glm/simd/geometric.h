@@ -5,13 +5,13 @@
 
 #include "common.h"
 
-#if GLM_ARCH & GLM_ARCH_SSE2
+#if GLM_ARCH & GLM_ARCH_SSE2_FLAG
 
 GLM_FUNC_QUALIFIER __m128 glm_f32v4_dot(__m128 v1, __m128 v2)
 {
-#	if GLM_ARCH & GLM_ARCH_AVX
+#	if GLM_ARCH & GLM_ARCH_AVX_FLAG
 		return _mm_dp_ps(v1, v2, 0xff);
-#	elif GLM_ARCH & GLM_ARCH_SSE3
+#	elif GLM_ARCH & GLM_ARCH_SSE3_FLAG
 		__m128 const Mul0 = _mm_mul_ps(v1, v2);
 		__m128 const Hadd0 = _mm_hadd_ps(Mul0, Mul0);
 		__m128 const Hadd1 = _mm_hadd_ps(Hadd0, Hadd0);
@@ -28,9 +28,9 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v4_dot(__m128 v1, __m128 v2)
 
 GLM_FUNC_QUALIFIER __m128 glm_f32v1_dot(__m128 v1, __m128 v2)
 {
-#	if GLM_ARCH & GLM_ARCH_AVX
+#	if GLM_ARCH & GLM_ARCH_AVX_FLAG
 		return _mm_dp_ps(v1, v2, 0xff);
-#	elif GLM_ARCH & GLM_ARCH_SSE3
+#	elif GLM_ARCH & GLM_ARCH_SSE3_FLAG
 		__m128 const mul0 = _mm_mul_ps(v1, v2);
 		__m128 const had0 = _mm_hadd_ps(mul0, mul0);
 		__m128 const had1 = _mm_hadd_ps(had0, had0);

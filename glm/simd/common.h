@@ -3,12 +3,12 @@
 
 #pragma once
 
-#if GLM_ARCH & GLM_ARCH_SSE2
+#if GLM_ARCH & GLM_ARCH_SSE2_FLAG
 
 //mad
 GLM_FUNC_QUALIFIER __m128 glm_f32v1_mad(__m128 a, __m128 b, __m128 c)
 {
-#	if GLM_ARCH & GLM_ARCH_AVX2
+#	if GLM_ARCH & GLM_ARCH_AVX2_FLAG
 		return _mm_fmadd_ss(a, b, c);
 #	else
 		return _mm_add_ss(_mm_mul_ss(a, b), c);
@@ -18,7 +18,7 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v1_mad(__m128 a, __m128 b, __m128 c)
 //mad
 GLM_FUNC_QUALIFIER __m128 glm_f32v4_mad(__m128 a, __m128 b, __m128 c)
 {
-#	if GLM_ARCH & GLM_ARCH_AVX2
+#	if GLM_ARCH & GLM_ARCH_AVX2_FLAG
 		return _mm_fmadd_ps(a, b, c);
 #	else
 		return _mm_add_ps(_mm_mul_ps(a, b), c);
@@ -33,7 +33,7 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v4_abs(__m128 x)
 
 GLM_FUNC_QUALIFIER __m128i glm_i32v4_abs(__m128i x)
 {
-#	if GLM_ARCH & GLM_ARCH_SSSE3
+#	if GLM_ARCH & GLM_ARCH_SSSE3_FLAG
 		return _mm_sign_epi32(x, x);
 #	else
 		__m128i const sgn0 = _mm_srai_epi32(x, 31);
@@ -202,4 +202,4 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v4_sqrt_wip(__m128 x)
 	return Mul3;
 }
 
-#endif//GLM_ARCH & GLM_ARCH_SSE2
+#endif//GLM_ARCH & GLM_ARCH_SSE2_FLAG
