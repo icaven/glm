@@ -17,7 +17,7 @@
 
 #if(GLM_ARCH != GLM_ARCH_PURE)
 
-#if(GLM_ARCH & GLM_ARCH_SSE2)
+#if(GLM_ARCH & GLM_ARCH_SSE2_FLAG)
 #	include "../detail/intrinsic_common.hpp"
 #	include "../detail/intrinsic_geometric.hpp"
 #	include "../detail/intrinsic_integer.hpp"

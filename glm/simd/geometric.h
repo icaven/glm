@@ -119,4 +119,4 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v4_rfa(__m128 I, __m128 N, __m128 eta)
 	return sub2;
 }
 
-#endif//GLM_ARCH & GLM_ARCH_SSE2
+#endif//GLM_ARCH & GLM_ARCH_SSE2_FLAG

@@ -19,7 +19,7 @@
 
 #if(GLM_ARCH != GLM_ARCH_PURE)
 
-#if(GLM_ARCH & GLM_ARCH_SSE2)
+#if(GLM_ARCH & GLM_ARCH_SSE2_FLAG)
 #   include "../gtx/simd_mat4.hpp"
 #else
 #	error "GLM: GLM_GTX_simd_quat requires compiler support of SSE2 through intrinsics"

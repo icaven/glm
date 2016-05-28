@@ -17,7 +17,7 @@
 
 #if(GLM_ARCH != GLM_ARCH_PURE)
 
-#if(GLM_ARCH & GLM_ARCH_SSE2)
+#if(GLM_ARCH & GLM_ARCH_SSE2_FLAG)
 #	include "../detail/intrinsic_matrix.hpp"
 #	include "../gtx/simd_vec4.hpp"
 #else

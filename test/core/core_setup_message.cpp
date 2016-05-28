@@ -176,18 +176,24 @@ int test_instruction_set()
 
 	if(GLM_ARCH == GLM_ARCH_PURE)
 		std::printf("GLM_ARCH_PURE ");
-	if(GLM_ARCH & GLM_ARCH_ARM)
-		std::printf("GLM_ARCH_ARM ");
+	if(GLM_ARCH & GLM_ARCH_ARM_FLAG)
+		std::printf("ARM ");
+	if(GLM_ARCH & GLM_ARCH_NEON_FLAG)
+		std::printf("NEON ");
 	if(GLM_ARCH & GLM_ARCH_AVX2)
-		std::printf("GLM_ARCH_AVX2 ");
+		std::printf("AVX2 ");
 	if(GLM_ARCH & GLM_ARCH_AVX)
-		std::printf("GLM_ARCH_AVX ");
-	if(GLM_ARCH & GLM_ARCH_AVX)
-		std::printf("GLM_ARCH_SSE4 ");
-	if(GLM_ARCH & GLM_ARCH_SSE3)
-		std::printf("GLM_ARCH_SSE3 ");
-	if(GLM_ARCH & GLM_ARCH_SSE2)
-		std::printf("GLM_ARCH_SSE2 ");
+		std::printf("AVX ");
+	if(GLM_ARCH & GLM_ARCH_SSE42_FLAG)
+		std::printf("SSE4.2 ");
+	if(GLM_ARCH & GLM_ARCH_SSE41_FLAG)
+		std::printf("SSE4.1 ");
+	if(GLM_ARCH & GLM_ARCH_SSSE3_FLAG)
+		std::printf("SSSE3 ");
+	if(GLM_ARCH & GLM_ARCH_SSE3_FLAG)
+		std::printf("SSE3 ");
+	if(GLM_ARCH & GLM_ARCH_SSE2_FLAG)
+		std::printf("SSE2 ");
 
 	std::printf("\n");
 
