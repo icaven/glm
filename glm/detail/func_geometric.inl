@@ -76,6 +76,17 @@ namespace detail
 			return v * inversesqrt(dot(v, v));
 		}
 	};
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	struct compute_faceforward
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & N, vecType<T, P> const & I, vecType<T, P> const & Nref)
+		{
+			GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'normalize' accepts only floating-point inputs");
+
+			return dot(Nref, I) < static_cast<T>(0) ? N : -N;
+		}
+	};
 }//namespace detail
 
 	// length
@@ -146,7 +157,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'normalize' accepts only floating-point inputs");
 
-		return x * inversesqrt(dot(x, x));
+		return detail::compute_normalize<T, P, vecType>::call(x);
 	}
 
 	// faceforward
@@ -159,7 +170,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> faceforward(vecType<T, P> const & N, vecType<T, P> const & I, vecType<T, P> const & Nref)
 	{
-		return dot(Nref, I) < static_cast<T>(0) ? N : -N;
+		return detail::compute_faceforward<T, P, vecType>::call(N, I, Nref);
 	}
 
 	// reflect

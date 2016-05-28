@@ -42,6 +42,18 @@ namespace detail
 			return result;
 		}
 	};
+
+	template <precision P>
+	struct compute_faceforward<float, P, tvec4>
+	{
+		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & N, tvec4<float, P> const & I, tvec4<float, P> const & Nref)
+		{
+			__m128 const ffd0 = glm_f32v4_ffd(v.data);
+			tvec4<float, P> result(uninitialize);
+			result.data = ffd0;
+			return result;
+		}
+	};
 }//namespace detail
 }//namespace glm
 
