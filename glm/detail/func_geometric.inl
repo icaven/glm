@@ -51,6 +51,31 @@ namespace detail
 			return (tmp.x + tmp.y) + (tmp.z + tmp.w);
 		}
 	};
+
+	template <typename T, precision P>
+	struct compute_cross
+	{
+		GLM_FUNC_QUALIFIER static tvec3<T, P> call(tvec3<T, P> const & x, tvec3<T, P> const & y)
+		{
+			GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'cross' accepts only floating-point inputs");
+
+			return tvec3<T, P>(
+				x.y * y.z - y.y * x.z,
+				x.z * y.x - y.z * x.x,
+				x.x * y.y - y.x * x.y);
+		}
+	};
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	struct compute_normalize
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & v)
+		{
+			GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'normalize' accepts only floating-point inputs");
+
+			return v * inversesqrt(dot(v, v));
+		}
+	};
 }//namespace detail
 
 	// length
@@ -104,12 +129,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec3<T, P> cross(tvec3<T, P> const & x, tvec3<T, P> const & y)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'cross' accepts only floating-point inputs");
-
-		return tvec3<T, P>(
-			x.y * y.z - y.y * x.z,
-			x.z * y.x - y.z * x.x,
-			x.x * y.y - y.x * x.y);
+		return detail::compute_cross<T, P>::call(x, y);
 	}
 
 	// normalize
