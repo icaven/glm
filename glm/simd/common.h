@@ -12,9 +12,22 @@ static const __m128 GLM_VAR_USED glm_three = _mm_set_ps1(3.0f);
 
 static const __m128 GLM_VAR_USED glm_ps_2pow23 = _mm_set_ps1(8388608.0f);
 
+//abs
 GLM_FUNC_QUALIFIER __m128 glm_f32v4_abs(__m128 x)
 {
 	return _mm_and_ps(x, _mm_castsi128_ps(_mm_set1_epi32(0x7FFFFFFF)));
+}
+
+GLM_FUNC_QUALIFIER __m128i glm_i32v4_abs(__m128i x)
+{
+#	if GLM_ARCH & GLM_ARCH_SSSE3
+		return _mm_sign_epi32(x, x);
+#	else
+		__m128i const sgn0 = _mm_srai_epi32(x, 31);
+		__m128i const inv0 = _mm_xor_si128(x, sgn0);
+		__m128i const sub0 = _mm_sub_epi32(inv0, sgn0);
+		return sub0;
+#	endif
 }
 
 //sign
