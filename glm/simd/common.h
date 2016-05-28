@@ -162,6 +162,24 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v4_inf(__m128 x)
 	return _mm_castsi128_ps(_mm_cmpeq_epi32(t2, _mm_set1_epi32(0xFF000000)));		// exponent is all 1s, fraction is 0
 }
 
+GLM_FUNC_QUALIFIER __m128 glm_f32v1_fma(__m128 a, __m128 b, __m128 c)
+{
+#	if GLM_ARCH & GLM_ARCH_AVX2
+		return _mm_fmadd_ss(a, b, c);
+#	else
+		return _mm_add_ss(_mm_mul_ss(a, b), c);
+#	endif
+}
+
+GLM_FUNC_QUALIFIER __m128 glm_f32v4_fma(__m128 a, __m128 b, __m128 c)
+{
+#	if GLM_ARCH & GLM_ARCH_AVX2
+		return _mm_fmadd_ps(a, b, c);
+#	else
+		return _mm_add_ps(_mm_mul_ps(a, b), c);
+#	endif
+}
+
 // SSE scalar reciprocal sqrt using rsqrt op, plus one Newton-Rhaphson iteration
 // By Elan Ruskin, http://assemblyrequired.crashworks.org/
 GLM_FUNC_QUALIFIER __m128 glm_f32v1_sqrt_wip(__m128 x)
@@ -187,4 +205,5 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v4_sqrt_wip(__m128 x)
 	__m128 const Mul3 = _mm_mul_ps(Mul0, Sub0);
 	return Mul3;
 }
+
 
