@@ -283,6 +283,26 @@ namespace detail
 			return min(max(x, minVal), maxVal);
 		}
 	};
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	struct compute_step_vector
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & edge, vecType<T, P> const & x)
+		{
+			return mix(vecType<T, P>(1), vecType<T, P>(0), glm::lessThan(x, edge));
+		}
+	};
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	struct compute_smoothstep_vector
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & edge0, vecType<T, P> const & edge1, vecType<T, P> const & x)
+		{
+			GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'step' only accept floating-point inputs");
+			vecType<T, P> const tmp(clamp((x - edge0) / (edge1 - edge0), static_cast<T>(0), static_cast<T>(1)));
+			return tmp * tmp * (static_cast<T>(3) - static_cast<T>(2) * tmp);
+		}
+	};
 }//namespace detail
 
 	template <typename genFIType>
@@ -561,15 +581,13 @@ namespace detail
 	template <template <typename, precision> class vecType, typename T, precision P>
 	GLM_FUNC_QUALIFIER vecType<T, P> step(T edge, vecType<T, P> const & x)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'step' only accept floating-point inputs");
-
-		return mix(vecType<T, P>(1), vecType<T, P>(0), glm::lessThan(x, vecType<T, P>(edge)));
+		return detail::compute_step_vector<T, P, vecType>::call(vecType<T, P>(edge), x);
 	}
 
 	template <template <typename, precision> class vecType, typename T, precision P>
 	GLM_FUNC_QUALIFIER vecType<T, P> step(vecType<T, P> const & edge, vecType<T, P> const & x)
 	{
-		return mix(vecType<T, P>(1), vecType<T, P>(0), glm::lessThan(x, edge));
+		return detail::compute_step_vector<T, P, vecType>::call(edge, x);
 	}
 
 	// smoothstep
@@ -585,19 +603,13 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> smoothstep(T edge0, T edge1, vecType<T, P> const & x)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'smoothstep' only accept floating-point inputs");
-
-		vecType<T, P> const tmp(clamp((x - edge0) / (edge1 - edge0), static_cast<T>(0), static_cast<T>(1)));
-		return tmp * tmp * (static_cast<T>(3) - static_cast<T>(2) * tmp);
+		return detail::compute_smoothstep_vector<T, P, vecType>::call(vecType<T, P>(edge0), vecType<T, P>(edge1), x);
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> smoothstep(vecType<T, P> const & edge0, vecType<T, P> const & edge1, vecType<T, P> const & x)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'smoothstep' only accept floating-point inputs");
-
-		vecType<T, P> const tmp(clamp((x - edge0) / (edge1 - edge0), static_cast<T>(0), static_cast<T>(1)));
-		return tmp * tmp * (static_cast<T>(3) - static_cast<T>(2) * tmp);
+		return detail::compute_smoothstep_vector<T, P, vecType>::call(edge0, edge1, x);
 	}
 
 #	if GLM_HAS_CXX11_STL

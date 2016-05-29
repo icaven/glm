@@ -203,8 +203,28 @@ namespace detail
 			return Result;
 		}
 	};
-
-
+/* FIXME
+	template <precision P>
+	struct compute_step_vector<float, P, tvec4>
+	{
+		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const& edge, tvec4<float, P> const& x)
+		{
+			tvec4<float, P> result(uninitialize);
+			result.data = glm_f32v4_stp(edge.data, x.data);
+			return result;
+		}
+	};
+*/
+	template <precision P>
+	struct compute_smoothstep_vector<float, P, tvec4>
+	{
+		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const& edge0, tvec4<float, P> const& edge1, tvec4<float, P> const& x)
+		{
+			tvec4<float, P> result(uninitialize);
+			result.data = glm_f32v4_ssp(edge0.data, edge1.data, x.data);
+			return result;
+		}
+	};
 }//namespace detail
 }//namespace glm
 
