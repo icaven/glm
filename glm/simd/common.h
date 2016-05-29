@@ -86,11 +86,12 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v4_flr(__m128 x)
 #	endif
 }
 
-//trunc
+/* trunc TODO
 GLM_FUNC_QUALIFIER __m128 glm_f32v4_trc(__m128 x)
 {
 	return __m128();
 }
+*/
 
 //roundEven
 GLM_FUNC_QUALIFIER __m128 glm_f32v4_rde(__m128 x)
