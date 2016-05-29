@@ -10,6 +10,23 @@
 
 namespace glm
 {
+	// min
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType min(genType x, genType y)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer, "'min' only accept floating-point or integer inputs");
+		return x < y ? x : y;
+	}
+
+	// max
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType max(genType x, genType y)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer, "'max' only accept floating-point or integer inputs");
+
+		return x > y ? x : y;
+	}
+
 	// abs
 	template <>
 	GLM_FUNC_QUALIFIER int32 abs(int32 x)
@@ -239,6 +256,33 @@ namespace detail
 			return a - b * floor(a / b);
 		}
 	};
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	struct compute_min_vector
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x, vecType<T, P> const & y)
+		{
+			return detail::functor2<T, P, vecType>::call(min, x, y);
+		}
+	};
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	struct compute_max_vector
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x, vecType<T, P> const & y)
+		{
+			return detail::functor2<T, P, vecType>::call(max, x, y);
+		}
+	};
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	struct compute_clamp_vector
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x, vecType<T, P> const & minVal, vecType<T, P> const & maxVal)
+		{
+			return min(max(x, minVal), maxVal);
+		}
+	};
 }//namespace detail
 
 	template <typename genFIType>
@@ -441,45 +485,30 @@ namespace detail
 	//CHAR_BIT - 1)));
 
 	// min
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType min(genType x, genType y)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer, "'min' only accept floating-point or integer inputs");
-
-		return x < y ? x : y;
-	}
-
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> min(vecType<T, P> const & a, T b)
 	{
-		return detail::functor2_vec_sca<T, P, vecType>::call(min, a, b);
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'min' only accept floating-point inputs for the interpolator a");
+		return detail::compute_min_vector<T, P, vecType>::call(a, vecType<T, P>(b));
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> min(vecType<T, P> const & a, vecType<T, P> const & b)
 	{
-		return detail::functor2<T, P, vecType>::call(min, a, b);
+		return detail::compute_min_vector<T, P, vecType>::call(a, b);
 	}
 
 	// max
-	template <typename genType>
-	GLM_FUNC_QUALIFIER genType max(genType x, genType y)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer, "'max' only accept floating-point or integer inputs");
-
-		return x > y ? x : y;
-	}
-
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> max(vecType<T, P> const & a, T b)
 	{
-		return detail::functor2_vec_sca<T, P, vecType>::call(max, a, b);
+		return detail::compute_max_vector<T, P, vecType>::call(a, vecType<T, P>(b));
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> max(vecType<T, P> const & a, vecType<T, P> const & b)
 	{
-		return detail::functor2<T, P, vecType>::call(max, a, b);
+		return detail::compute_max_vector<T, P, vecType>::call(a, b);
 	}
 
 	// clamp
@@ -487,7 +516,6 @@ namespace detail
 	GLM_FUNC_QUALIFIER genType clamp(genType x, genType minVal, genType maxVal)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer, "'clamp' only accept floating-point or integer inputs");
-		
 		return min(max(x, minVal), maxVal);
 	}
 
@@ -495,16 +523,14 @@ namespace detail
 	GLM_FUNC_QUALIFIER vecType<T, P> clamp(vecType<T, P> const & x, T minVal, T maxVal)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer, "'clamp' only accept floating-point or integer inputs");
-
-		return min(max(x, minVal), maxVal);
+		return detail::compute_clamp_vector<T, P, vecType>::call(x, vecType<T, P>(minVal), vecType<T, P>(maxVal));
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> clamp(vecType<T, P> const & x, vecType<T, P> const & minVal, vecType<T, P> const & maxVal)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer, "'clamp' only accept floating-point or integer inputs");
-
-		return min(max(x, minVal), maxVal);
+		return detail::compute_clamp_vector<T, P, vecType>::call(x, minVal, maxVal);
 	}
 
 	template <typename genTypeT, typename genTypeU>
