@@ -60,29 +60,37 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v4_sgn(__m128 x)
 //round
 GLM_FUNC_QUALIFIER __m128 glm_f32v4_rnd(__m128 x)
 {
-	__m128 const sgn0 = _mm_castsi128_ps(_mm_set1_epi32(0x80000000));
-	__m128 const and0 = _mm_and_ps(sgn0, x);
-	__m128 const or0 = _mm_or_ps(and0, _mm_set_ps1(8388608.0f));
-	__m128 const add0 = _mm_add_ps(x, or0);
-	__m128 const sub0 = _mm_sub_ps(add0, or0);
-	return sub0;
+#	if GLM_ARCH & GLM_ARCH_SSE41_BIT
+		return _mm_round_ps(x, _MM_FROUND_TO_NEAREST_INT);
+#	else
+		__m128 const sgn0 = _mm_castsi128_ps(_mm_set1_epi32(0x80000000));
+		__m128 const and0 = _mm_and_ps(sgn0, x);
+		__m128 const or0 = _mm_or_ps(and0, _mm_set_ps1(8388608.0f));
+		__m128 const add0 = _mm_add_ps(x, or0);
+		__m128 const sub0 = _mm_sub_ps(add0, or0);
+		return sub0;
+#	endif
 }
 
 //floor
 GLM_FUNC_QUALIFIER __m128 glm_f32v4_flr(__m128 x)
 {
-	__m128 const rnd0 = glm_f32v4_rnd(x);
-	__m128 const cmp0 = _mm_cmplt_ps(x, rnd0);
-	__m128 const and0 = _mm_and_ps(cmp0, _mm_set1_ps(1.0f));
-	__m128 const sub0 = _mm_sub_ps(rnd0, and0);
-	return sub0;
+#	if GLM_ARCH & GLM_ARCH_SSE41_BIT
+		return _mm_floor_ps(x);
+#	else
+		__m128 const rnd0 = glm_f32v4_rnd(x);
+		__m128 const cmp0 = _mm_cmplt_ps(x, rnd0);
+		__m128 const and0 = _mm_and_ps(cmp0, _mm_set1_ps(1.0f));
+		__m128 const sub0 = _mm_sub_ps(rnd0, and0);
+		return sub0;
+#	endif
 }
 
 //trunc
-//GLM_FUNC_QUALIFIER __m128 _mm_trc_ps(__m128 v)
-//{
-//	return __m128();
-//}
+GLM_FUNC_QUALIFIER __m128 glm_f32v4_trc(__m128 x)
+{
+	return __m128();
+}
 
 //roundEven
 GLM_FUNC_QUALIFIER __m128 glm_f32v4_rde(__m128 x)
@@ -97,11 +105,15 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v4_rde(__m128 x)
 
 GLM_FUNC_QUALIFIER __m128 glm_f32v4_ceil(__m128 x)
 {
-	__m128 const rnd0 = glm_f32v4_rnd(x);
-	__m128 const cmp0 = _mm_cmpgt_ps(x, rnd0);
-	__m128 const and0 = _mm_and_ps(cmp0, _mm_set1_ps(1.0f));
-	__m128 const add0 = _mm_add_ps(rnd0, and0);
-	return add0;
+#	if GLM_ARCH & GLM_ARCH_SSE41_BIT
+		return _mm_ceil_ps(x);
+#	else
+		__m128 const rnd0 = glm_f32v4_rnd(x);
+		__m128 const cmp0 = _mm_cmpgt_ps(x, rnd0);
+		__m128 const and0 = _mm_and_ps(cmp0, _mm_set1_ps(1.0f));
+		__m128 const add0 = _mm_add_ps(rnd0, and0);
+		return add0;
+#	endif
 }
 
 GLM_FUNC_QUALIFIER __m128 glm_f32v4_frc(__m128 x)
