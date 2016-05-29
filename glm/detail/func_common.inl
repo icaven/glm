@@ -40,7 +40,7 @@ namespace glm
 		{
 			GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'trunc' only accept floating-point inputs");
 
-			return x < static_cast<genType>(0) ? -floor(-x) : floor(x);
+			return x < static_cast<genType>(0) ? -std::floor(-x) : std::floor(x);
 		}
 #	endif
 
