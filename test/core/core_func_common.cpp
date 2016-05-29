@@ -1243,6 +1243,12 @@ int main()
 	glm::int32 const c(1);
 	glm::int32 const d = ~c;
 
+	glm_vec4 const A = _mm_set_ps(4, 3, 2, 1);
+	glm_vec4 const B = glm_vec4_swizzle_xyzw(A);
+	glm_vec4 const C = _mm_permute_ps(A, _MM_SHUFFLE(3, 2, 1, 0));
+	glm_vec4 const D = _mm_permute_ps(A, _MM_SHUFFLE(0, 1, 2, 3));
+	glm_vec4 const E = _mm_shuffle_ps(A, A, _MM_SHUFFLE(0, 1, 2, 3));
+
 	Error += sign::test();
 	Error += floor_::test();
 	Error += mod_::test();

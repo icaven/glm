@@ -502,6 +502,7 @@ int test_vec4_simd()
 int main()
 {
 	int Error(0);
+
 /*
 	{
 		glm::ivec4 const a1(2);

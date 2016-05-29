@@ -34,15 +34,15 @@ namespace glm
 				struct{ T s, t, p; };
 
 #				ifdef GLM_SWIZZLE
-					_GLM_SWIZZLE3_2_MEMBERS(T, P, tvec2, x, y, z)
-					_GLM_SWIZZLE3_2_MEMBERS(T, P, tvec2, r, g, b)
-					_GLM_SWIZZLE3_2_MEMBERS(T, P, tvec2, s, t, p)
-					_GLM_SWIZZLE3_3_MEMBERS(T, P, tvec3, x, y, z)
-					_GLM_SWIZZLE3_3_MEMBERS(T, P, tvec3, r, g, b)
-					_GLM_SWIZZLE3_3_MEMBERS(T, P, tvec3, s, t, p)
-					_GLM_SWIZZLE3_4_MEMBERS(T, P, tvec4, x, y, z)
-					_GLM_SWIZZLE3_4_MEMBERS(T, P, tvec4, r, g, b)
-					_GLM_SWIZZLE3_4_MEMBERS(T, P, tvec4, s, t, p)
+					_GLM_SWIZZLE3_2_MEMBERS(T, P, glm::tvec2, x, y, z)
+					_GLM_SWIZZLE3_2_MEMBERS(T, P, glm::tvec2, r, g, b)
+					_GLM_SWIZZLE3_2_MEMBERS(T, P, glm::tvec2, s, t, p)
+					_GLM_SWIZZLE3_3_MEMBERS(T, P, glm::tvec3, x, y, z)
+					_GLM_SWIZZLE3_3_MEMBERS(T, P, glm::tvec3, r, g, b)
+					_GLM_SWIZZLE3_3_MEMBERS(T, P, glm::tvec3, s, t, p)
+					_GLM_SWIZZLE3_4_MEMBERS(T, P, glm::tvec4, x, y, z)
+					_GLM_SWIZZLE3_4_MEMBERS(T, P, glm::tvec4, r, g, b)
+					_GLM_SWIZZLE3_4_MEMBERS(T, P, glm::tvec4, s, t, p)
 #				endif//GLM_SWIZZLE
 			};
 #		else
@@ -108,22 +108,21 @@ namespace glm
 		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tvec3(tvec3<U, Q> const & v);
 
 		// -- Swizzle constructors --
-
 #		if GLM_HAS_UNRESTRICTED_UNIONS && defined(GLM_SWIZZLE)
 			template <int E0, int E1, int E2>
-			GLM_FUNC_DECL tvec3(detail::_swizzle<3, T, P, tvec3<T, P>, E0, E1, E2, -1> const & that)
+			GLM_FUNC_DECL tvec3(detail::_swizzle<3, T, P, glm::tvec3, E0, E1, E2, -1> const & that)
 			{
 				*this = that();
 			}
 
 			template <int E0, int E1>
-			GLM_FUNC_DECL tvec3(detail::_swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v, T const & scalar)
+			GLM_FUNC_DECL tvec3(detail::_swizzle<2, T, P, glm::tvec2, E0, E1, -1, -2> const & v, T const & scalar)
 			{
 				*this = tvec3<T, P>(v(), scalar);
 			}
 
 			template <int E0, int E1>
-			GLM_FUNC_DECL tvec3(T const & scalar, detail::_swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v)
+			GLM_FUNC_DECL tvec3(T const & scalar, detail::_swizzle<2, T, P, glm::tvec2, E0, E1, -1, -2> const & v)
 			{
 				*this = tvec3<T, P>(scalar, v());
 			}

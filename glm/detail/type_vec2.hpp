@@ -34,16 +34,17 @@ namespace glm
 				struct{ T s, t; };
 
 #				ifdef GLM_SWIZZLE
-					_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, x, y)
-					_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, r, g)
-					_GLM_SWIZZLE2_2_MEMBERS(T, P, tvec2, s, t)
-					_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, x, y)
-					_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, r, g)
-					_GLM_SWIZZLE2_3_MEMBERS(T, P, tvec3, s, t)
-					_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, x, y)
-					_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, r, g)
-					_GLM_SWIZZLE2_4_MEMBERS(T, P, tvec4, s, t)
+					_GLM_SWIZZLE2_2_MEMBERS(T, P, glm::tvec2, x, y)
+					_GLM_SWIZZLE2_2_MEMBERS(T, P, glm::tvec2, r, g)
+					_GLM_SWIZZLE2_2_MEMBERS(T, P, glm::tvec2, s, t)
+					_GLM_SWIZZLE2_3_MEMBERS(T, P, glm::tvec3, x, y)
+					_GLM_SWIZZLE2_3_MEMBERS(T, P, glm::tvec3, r, g)
+					_GLM_SWIZZLE2_3_MEMBERS(T, P, glm::tvec3, s, t)
+					_GLM_SWIZZLE2_4_MEMBERS(T, P, glm::tvec4, x, y)
+					_GLM_SWIZZLE2_4_MEMBERS(T, P, glm::tvec4, r, g)
+					_GLM_SWIZZLE2_4_MEMBERS(T, P, glm::tvec4, s, t)
 #				endif//GLM_SWIZZLE
+
 			};
 #		else
 			union {T x, r, s;};
@@ -98,10 +99,9 @@ namespace glm
 		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tvec2(tvec2<U, Q> const & v);
 
 		// -- Swizzle constructors --
-
 #		if GLM_HAS_UNRESTRICTED_UNIONS && defined(GLM_SWIZZLE)
 			template <int E0, int E1>
-			GLM_FUNC_DECL tvec2(detail::_swizzle<2, T, P, tvec2<T, P>, E0, E1,-1,-2> const & that)
+			GLM_FUNC_DECL tvec2(detail::_swizzle<2, T, P, glm::tvec2, E0, E1,-1,-2> const& that)
 			{
 				*this = that();
 			}

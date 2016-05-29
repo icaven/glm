@@ -93,15 +93,15 @@ namespace detail
 				typename detail::simd_data<T>::type data;
 
 #				ifdef GLM_SWIZZLE
-					_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, x, y, z, w)
-					_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, r, g, b, a)
-					_GLM_SWIZZLE4_2_MEMBERS(T, P, tvec2, s, t, p, q)
-					_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, x, y, z, w)
-					_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, r, g, b, a)
-					_GLM_SWIZZLE4_3_MEMBERS(T, P, tvec3, s, t, p, q)
-					_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, x, y, z, w)
-					_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, r, g, b, a)
-					_GLM_SWIZZLE4_4_MEMBERS(T, P, tvec4, s, t, p, q)
+					_GLM_SWIZZLE4_2_MEMBERS(T, P, glm::tvec2, x, y, z, w)
+					_GLM_SWIZZLE4_2_MEMBERS(T, P, glm::tvec2, r, g, b, a)
+					_GLM_SWIZZLE4_2_MEMBERS(T, P, glm::tvec2, s, t, p, q)
+					_GLM_SWIZZLE4_3_MEMBERS(T, P, glm::tvec3, x, y, z, w)
+					_GLM_SWIZZLE4_3_MEMBERS(T, P, glm::tvec3, r, g, b, a)
+					_GLM_SWIZZLE4_3_MEMBERS(T, P, glm::tvec3, s, t, p, q)
+					_GLM_SWIZZLE4_4_MEMBERS(T, P, glm::tvec4, x, y, z, w)
+					_GLM_SWIZZLE4_4_MEMBERS(T, P, glm::tvec4, r, g, b, a)
+					_GLM_SWIZZLE4_4_MEMBERS(T, P, glm::tvec4, s, t, p, q)
 #				endif//GLM_SWIZZLE
 			};
 #		else
@@ -186,46 +186,45 @@ namespace detail
 		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tvec4(tvec4<U, Q> const& v);
 
 		// -- Swizzle constructors --
-
 #		if GLM_HAS_UNRESTRICTED_UNIONS && defined(GLM_SWIZZLE)
 			template <int E0, int E1, int E2, int E3>
-			GLM_FUNC_DECL tvec4(detail::_swizzle<4, T, P, tvec4<T, P>, E0, E1, E2, E3> const & that)
+			GLM_FUNC_DECL tvec4(detail::_swizzle<4, T, P, glm::tvec4, E0, E1, E2, E3> const & that)
 			{
 				*this = that();
 			}
 
 			template <int E0, int E1, int F0, int F1>
-			GLM_FUNC_DECL tvec4(detail::_swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v, detail::_swizzle<2, T, P, tvec2<T, P>, F0, F1, -1, -2> const & u)
+			GLM_FUNC_DECL tvec4(detail::_swizzle<2, T, P, glm::tvec2, E0, E1, -1, -2> const & v, detail::_swizzle<2, T, P, glm::tvec2, F0, F1, -1, -2> const & u)
 			{
 				*this = tvec4<T, P>(v(), u());
 			}
 
 			template <int E0, int E1>
-			GLM_FUNC_DECL tvec4(T const & x, T const & y, detail::_swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v)
+			GLM_FUNC_DECL tvec4(T const & x, T const & y, detail::_swizzle<2, T, P, glm::tvec2, E0, E1, -1, -2> const & v)
 			{
 				*this = tvec4<T, P>(x, y, v());
 			}
 
 			template <int E0, int E1>
-			GLM_FUNC_DECL tvec4(T const & x, detail::_swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v, T const & w)
+			GLM_FUNC_DECL tvec4(T const & x, detail::_swizzle<2, T, P, glm::tvec2, E0, E1, -1, -2> const & v, T const & w)
 			{
 				*this = tvec4<T, P>(x, v(), w);
 			}
 
 			template <int E0, int E1>
-			GLM_FUNC_DECL tvec4(detail::_swizzle<2, T, P, tvec2<T, P>, E0, E1, -1, -2> const & v, T const & z, T const & w)
+			GLM_FUNC_DECL tvec4(detail::_swizzle<2, T, P, glm::tvec2, E0, E1, -1, -2> const & v, T const & z, T const & w)
 			{
 				*this = tvec4<T, P>(v(), z, w);
 			}
 
 			template <int E0, int E1, int E2>
-			GLM_FUNC_DECL tvec4(detail::_swizzle<3, T, P, tvec3<T, P>, E0, E1, E2, -1> const & v, T const & w)
+			GLM_FUNC_DECL tvec4(detail::_swizzle<3, T, P, glm::tvec3, E0, E1, E2, -1> const & v, T const & w)
 			{
 				*this = tvec4<T, P>(v(), w);
 			}
 
 			template <int E0, int E1, int E2>
-			GLM_FUNC_DECL tvec4(T const & x, detail::_swizzle<3, T, P, tvec3<T, P>, E0, E1, E2, -1> const & v)
+			GLM_FUNC_DECL tvec4(T const & x, detail::_swizzle<3, T, P, glm::tvec3, E0, E1, E2, -1> const & v)
 			{
 				*this = tvec4<T, P>(x, v());
 			}
@@ -485,6 +484,20 @@ namespace detail
 
 	template <precision P>
 	GLM_FUNC_DECL tvec4<bool, P> operator||(tvec4<bool, P> const & v1, tvec4<bool, P> const & v2);
+
+/*
+namespace detail
+{
+	template <precision P, int E0, int E1, int E2, int E3>
+	struct _swizzle_base1<4, float, P, glm::tvec4, E0,E1,E2,E3> : public _swizzle_base0<float, 4>
+	{ 
+		GLM_FUNC_QUALIFIER tvec4<float, P> operator ()()  const
+		{
+			return tvec4<float, P>(this->elem(E0), this->elem(E1), this->elem(E2), this->elem(E3));
+		}
+	};
+}//namespace detail
+*/
 }//namespace glm
 
 #ifndef GLM_EXTERNAL_TEMPLATE

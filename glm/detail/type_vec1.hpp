@@ -92,15 +92,15 @@ namespace glm
 		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tvec1(tvec1<U, Q> const & v);
 
 		// -- Swizzle constructors --
-
+/*
 #		if(GLM_HAS_UNRESTRICTED_UNIONS && defined(GLM_SWIZZLE))
 			template <int E0>
-			GLM_FUNC_DECL tvec1(detail::_swizzle<1, T, P, tvec1<T, P>, E0, -1,-2,-3> const & that)
+			GLM_FUNC_DECL tvec1(detail::_swizzle<1, T, P, tvec1, E0, -1,-2,-3> const & that)
 			{
 				*this = that();
 			}
 #		endif//(GLM_HAS_UNRESTRICTED_UNIONS && defined(GLM_SWIZZLE))
-
+*/
 		// -- Unary arithmetic operators --
 
 		GLM_FUNC_DECL tvec1<T, P> & operator=(tvec1<T, P> const & v) GLM_DEFAULT;

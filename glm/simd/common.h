@@ -52,6 +52,15 @@ GLM_FUNC_QUALIFIER glm_vec4 glm_vec4_div_lowp(glm_vec4 a, glm_vec4 b)
 	return glm_vec4_mul(a, _mm_rcp_ps(b));
 }
 
+GLM_FUNC_QUALIFIER glm_vec4 glm_vec4_swizzle_xyzw(glm_vec4 a)
+{
+#	if GLM_ARCH & GLM_ARCH_AVX2_BIT
+		return _mm_permute_ps(a, _MM_SHUFFLE(3, 2, 1, 0));
+#	else
+		return _mm_shuffle_ps(a, a, _MM_SHUFFLE(3, 2, 1, 0));
+#	endif
+}
+
 GLM_FUNC_QUALIFIER glm_vec4 glm_vec1_fma(glm_vec4 a, glm_vec4 b, glm_vec4 c)
 {
 #	if GLM_ARCH & GLM_ARCH_AVX2_BIT
