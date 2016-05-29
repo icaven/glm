@@ -25,7 +25,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static tvec4<float, lowp> call(tvec4<float, lowp> const & v)
 		{
 			tvec4<float, lowp> result(uninitialize);
-			result.data = glm_f32v4_sqrt_lowp(v.data);
+			result.data = glm_vec4_sqrt_lowp(v.data);
 			return result;
 		}
 	};

@@ -380,7 +380,7 @@ GLM_FUNC_QUALIFIER __m128 glm_f32m4_det_highp(__m128 const in[4])
 	//						+ m[0][1] * Inverse[1][0]
 	//						+ m[0][2] * Inverse[2][0]
 	//						+ m[0][3] * Inverse[3][0];
-	__m128 Det0 = glm_f32v4_dot(in[0], Row2);
+	__m128 Det0 = glm_vec4_dot(in[0], Row2);
 	return Det0;
 }
 
@@ -444,7 +444,7 @@ GLM_FUNC_QUALIFIER __m128 glm_f32m4_detd(__m128 const m[4])
 	//	 + m[0][2] * DetCof[2]
 	//	 + m[0][3] * DetCof[3];
 
-	return glm_f32v4_dot(m[0], DetCof);
+	return glm_vec4_dot(m[0], DetCof);
 }
 
 GLM_FUNC_QUALIFIER __m128 glm_f32m4_det(__m128 const m[4])
@@ -507,7 +507,7 @@ GLM_FUNC_QUALIFIER __m128 glm_f32m4_det(__m128 const m[4])
 	//	 + m[0][2] * DetCof[2]
 	//	 + m[0][3] * DetCof[3];
 
-	return glm_f32v4_dot(m[0], DetCof);
+	return glm_vec4_dot(m[0], DetCof);
 }
 
 GLM_FUNC_QUALIFIER void glm_f32m4_inv(__m128 const in[4], __m128 out[4])
@@ -720,7 +720,7 @@ GLM_FUNC_QUALIFIER void glm_f32m4_inv(__m128 const in[4], __m128 out[4])
 	//						+ m[0][1] * Inverse[1][0] 
 	//						+ m[0][2] * Inverse[2][0] 
 	//						+ m[0][3] * Inverse[3][0];
-	__m128 Det0 = glm_f32v4_dot(in[0], Row2);
+	__m128 Det0 = glm_vec4_dot(in[0], Row2);
 	__m128 Rcp0 = _mm_div_ps(_mm_set1_ps(1.0f), Det0);
 	//__m128 Rcp0 = _mm_rcp_ps(Det0);
 
@@ -941,7 +941,7 @@ GLM_FUNC_QUALIFIER void glm_f32m4_inv_lowp(__m128 const in[4], __m128 out[4])
 	//						+ m[0][1] * Inverse[1][0] 
 	//						+ m[0][2] * Inverse[2][0] 
 	//						+ m[0][3] * Inverse[3][0];
-	__m128 Det0 = glm_f32v4_dot(in[0], Row2);
+	__m128 Det0 = glm_vec4_dot(in[0], Row2);
 	__m128 Rcp0 = _mm_rcp_ps(Det0);
 	//__m128 Rcp0 = _mm_div_ps(one, Det0);
 	//	Inverse /= Determinant;

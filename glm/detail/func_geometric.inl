@@ -114,6 +114,17 @@ namespace detail
 			return I - N * dot(N, I) * static_cast<T>(2);
 		}
 	};
+
+	template <typename T, precision P, template <typename, precision> class vecType>
+	struct compute_refract
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & I, vecType<T, P> const & N, T eta)
+		{
+			T const dotValue(dot(N, I));
+			T const k(static_cast<T>(1) - eta * eta * (static_cast<T>(1) - dotValue * dotValue));
+			return (eta * I - (eta * dotValue + std::sqrt(k)) * N) * static_cast<T>(k >= static_cast<T>(0));
+		}
+	};
 }//namespace detail
 
 	// length
@@ -215,10 +226,9 @@ namespace detail
 
 	// refract
 	template <typename genType>
-	GLM_FUNC_QUALIFIER genType refract(genType const & I, genType const & N, genType const & eta)
+	GLM_FUNC_QUALIFIER genType refract(genType const & I, genType const & N, genType eta)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'refract' accepts only floating-point inputs");
-
 		genType const dotValue(dot(N, I));
 		genType const k(static_cast<genType>(1) - eta * eta * (static_cast<genType>(1) - dotValue * dotValue));
 		return (eta * I - (eta * dotValue + sqrt(k)) * N) * static_cast<genType>(k >= static_cast<genType>(0));
@@ -228,10 +238,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER vecType<T, P> refract(vecType<T, P> const & I, vecType<T, P> const & N, T eta)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'refract' accepts only floating-point inputs");
-
-		T const dotValue(dot(N, I));
-		T const k(static_cast<T>(1) - eta * eta * (static_cast<T>(1) - dotValue * dotValue));
-		return (eta * I - (eta * dotValue + std::sqrt(k)) * N) * static_cast<T>(k >= static_cast<T>(0));
+		return detail::compute_refract<T, P, vecType>::call(I, N, eta);
 	}
 }//namespace glm
 

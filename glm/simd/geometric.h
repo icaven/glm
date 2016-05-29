@@ -7,7 +7,24 @@
 
 #if GLM_ARCH & GLM_ARCH_SSE2_BIT
 
-GLM_FUNC_QUALIFIER __m128 glm_f32v4_dot(__m128 v1, __m128 v2)
+GLM_FUNC_DECL __m128 glm_vec4_dot(__m128 v1, __m128 v2);
+GLM_FUNC_DECL __m128 glm_vec1_dot(__m128 v1, __m128 v2);
+
+GLM_FUNC_QUALIFIER __m128 glm_vec4_length(__m128 x)
+{
+	__m128 const dot0 = glm_vec4_dot(x, x);
+	__m128 const sqt0 = _mm_sqrt_ps(dot0);
+	return sqt0;
+}
+
+GLM_FUNC_QUALIFIER __m128 glm_vec4_distance(__m128 p0, __m128 p1)
+{
+	__m128 const sub0 = _mm_sub_ps(p0, p1);
+	__m128 const len0 = glm_vec4_length(sub0);
+	return len0;
+}
+
+GLM_FUNC_QUALIFIER __m128 glm_vec4_dot(__m128 v1, __m128 v2)
 {
 #	if GLM_ARCH & GLM_ARCH_AVX_BIT
 		return _mm_dp_ps(v1, v2, 0xff);
@@ -26,7 +43,7 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v4_dot(__m128 v1, __m128 v2)
 #	endif
 }
 
-GLM_FUNC_QUALIFIER __m128 glm_f32v1_dot(__m128 v1, __m128 v2)
+GLM_FUNC_QUALIFIER __m128 glm_vec1_dot(__m128 v1, __m128 v2)
 {
 #	if GLM_ARCH & GLM_ARCH_AVX_BIT
 		return _mm_dp_ps(v1, v2, 0xff);
@@ -45,21 +62,7 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v1_dot(__m128 v1, __m128 v2)
 #	endif
 }
 
-GLM_FUNC_QUALIFIER __m128 glm_f32v4_len(__m128 x)
-{
-	__m128 const dot0 = glm_f32v4_dot(x, x);
-	__m128 const sqt0 = _mm_sqrt_ps(dot0);
-	return sqt0;
-}
-
-GLM_FUNC_QUALIFIER __m128 glm_f32v4_dst(__m128 p0, __m128 p1)
-{
-	__m128 const sub0 = _mm_sub_ps(p0, p1);
-	__m128 const len0 = glm_f32v4_len(sub0);
-	return len0;
-}
-
-GLM_FUNC_QUALIFIER __m128 glm_f32v4_xpd(__m128 v1, __m128 v2)
+GLM_FUNC_QUALIFIER __m128 glm_vec4_cross(__m128 v1, __m128 v2)
 {
 	__m128 const swp0 = _mm_shuffle_ps(v1, v1, _MM_SHUFFLE(3, 0, 2, 1));
 	__m128 const swp1 = _mm_shuffle_ps(v1, v1, _MM_SHUFFLE(3, 1, 0, 2));
@@ -71,35 +74,35 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v4_xpd(__m128 v1, __m128 v2)
 	return sub0;
 }
 
-GLM_FUNC_QUALIFIER __m128 glm_f32v4_nrm(__m128 v)
+GLM_FUNC_QUALIFIER __m128 glm_vec4_normalize(__m128 v)
 {
-	__m128 const dot0 = glm_f32v4_dot(v, v);
+	__m128 const dot0 = glm_vec4_dot(v, v);
 	__m128 const isr0 = _mm_rsqrt_ps(dot0);
 	__m128 const mul0 = _mm_mul_ps(v, isr0);
 	return mul0;
 }
 
-GLM_FUNC_QUALIFIER __m128 glm_f32v4_ffd(__m128 N, __m128 I, __m128 Nref)
+GLM_FUNC_QUALIFIER __m128 glm_vec4_faceforward(__m128 N, __m128 I, __m128 Nref)
 {
-	__m128 const dot0 = glm_f32v4_dot(Nref, I);
-	__m128 const sgn0 = glm_f32v4_sgn(dot0);
+	__m128 const dot0 = glm_vec4_dot(Nref, I);
+	__m128 const sgn0 = glm_vec4_sign(dot0);
 	__m128 const mul0 = _mm_mul_ps(sgn0, _mm_set1_ps(-1.0f));
 	__m128 const mul1 = _mm_mul_ps(N, mul0);
 	return mul1;
 }
 
-GLM_FUNC_QUALIFIER __m128 glm_f32v4_rfe(__m128 I, __m128 N)
+GLM_FUNC_QUALIFIER __m128 glm_vec4_reflect(__m128 I, __m128 N)
 {
-	__m128 const dot0 = glm_f32v4_dot(N, I);
+	__m128 const dot0 = glm_vec4_dot(N, I);
 	__m128 const mul0 = _mm_mul_ps(N, dot0);
 	__m128 const mul1 = _mm_mul_ps(mul0, _mm_set1_ps(2.0f));
 	__m128 const sub0 = _mm_sub_ps(I, mul1);
 	return sub0;
 }
 
-GLM_FUNC_QUALIFIER __m128 glm_f32v4_rfa(__m128 I, __m128 N, __m128 eta)
+GLM_FUNC_QUALIFIER __m128 glm_vec4_refract(__m128 I, __m128 N, __m128 eta)
 {
-	__m128 const dot0 = glm_f32v4_dot(N, I);
+	__m128 const dot0 = glm_vec4_dot(N, I);
 	__m128 const mul0 = _mm_mul_ps(eta, eta);
 	__m128 const mul1 = _mm_mul_ps(dot0, dot0);
 	__m128 const sub0 = _mm_sub_ps(_mm_set1_ps(1.0f), mul0);
@@ -110,7 +113,7 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v4_rfa(__m128 I, __m128 N, __m128 eta)
 		return _mm_set1_ps(0.0f);
 
 	__m128 const sqt0 = _mm_sqrt_ps(mul2);
-	__m128 const mad0 = glm_f32v4_mad(eta, dot0, sqt0);
+	__m128 const mad0 = glm_vec4_fma(eta, dot0, sqt0);
 	__m128 const mul4 = _mm_mul_ps(mad0, N);
 	__m128 const mul5 = _mm_mul_ps(eta, I);
 	__m128 const sub2 = _mm_sub_ps(mul5, mul4);

@@ -16,7 +16,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & v)
 		{
 			tvec4<float, P> result(uninitialize);
-			result.data = glm_f32v4_abs(v.data);
+			result.data = glm_vec4_abs(v.data);
 			return result;
 		}
 	};
@@ -27,7 +27,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static tvec4<int, P> call(tvec4<int, P> const & v)
 		{
 			tvec4<int, P> result(uninitialize);
-			result.data = glm_i32v4_abs(v.data);
+			result.data = glm_ivec4_abs(v.data);
 			return result;
 		}
 	};
@@ -38,7 +38,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & v)
 		{
 			tvec4<float, P> result(uninitialize);
-			result.data = glm_f32v4_flr(v.data);
+			result.data = glm_vec4_floor(v.data);
 			return result;
 		}
 	};
@@ -49,7 +49,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & v)
 		{
 			tvec4<float, P> result(uninitialize);
-			result.data = glm_f32v4_ceil(v.data);
+			result.data = glm_vec4_ceil(v.data);
 			return result;
 		}
 	};
@@ -60,7 +60,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & v)
 		{
 			tvec4<float, P> result(uninitialize);
-			result.data = glm_f32v4_frc(v.data);
+			result.data = glm_vec4_fract(v.data);
 			return result;
 		}
 	};
@@ -71,7 +71,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & v)
 		{
 			tvec4<float, P> result(uninitialize);
-			result.data = glm_f32v4_rnd(v.data);
+			result.data = glm_vec4_round(v.data);
 			return result;
 		}
 	};
@@ -82,7 +82,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & x, tvec4<float, P> const & y)
 		{
 			tvec4<float, P> result(uninitialize);
-			result.data = glm_f32v4_mod(x.data, y.data);
+			result.data = glm_vec4_mod(x.data, y.data);
 			return result;
 		}
 	};
