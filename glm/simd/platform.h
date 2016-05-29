@@ -398,3 +398,18 @@
 #elif GLM_ARCH & GLM_ARCH_SSE2_BIT
 #	include <emmintrin.h>
 #endif//GLM_ARCH
+
+#if GLM_ARCH & GLM_ARCH_SSE2_BIT
+	typedef __m128		glm_vec4;
+	typedef __m128i		glm_ivec4;
+	typedef __m128i		glm_uvec4;
+#endif
+
+#if GLM_ARCH & GLM_ARCH_AVX_BIT
+	typedef __m256d		glm_dvec4;
+#endif
+
+#if GLM_ARCH & GLM_ARCH_AVX2_BIT
+	typedef __m256i		glm_i64vec4;
+	typedef __m256i		glm_u64vec4;
+#endif

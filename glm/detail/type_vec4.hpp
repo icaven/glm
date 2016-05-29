@@ -33,19 +33,19 @@ namespace detail
 		template <>
 		struct simd_data<float>
 		{
-			typedef __m128 type;
+			typedef glm_vec4 type;
 		};
 
 		template <>
 		struct simd_data<int>
 		{
-			typedef __m128i type;
+			typedef glm_ivec4 type;
 		};
 
 		template <>
 		struct simd_data<unsigned int>
 		{
-			typedef __m128i type;
+			typedef glm_uvec4 type;
 		};
 #	endif
 
@@ -53,7 +53,7 @@ namespace detail
 		template <>
 		struct simd_data<double>
 		{
-			typedef __m256d type;
+			typedef glm_dvec4 type;
 		};
 #	endif
 
@@ -61,13 +61,13 @@ namespace detail
 		template <>
 		struct simd_data<int64>
 		{
-			typedef __m256i type;
+			typedef glm_i64vec4 type;
 		};
 
 		template <>
 		struct simd_data<uint64>
 		{
-			typedef __m256i type;
+			typedef glm_u64vec4 type;
 		};
 #	endif
 }//namespace detail

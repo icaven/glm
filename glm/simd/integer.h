@@ -5,16 +5,16 @@
 
 #if GLM_ARCH & GLM_ARCH_SSE2_BIT
 
-GLM_FUNC_QUALIFIER __m128i glm_i128_interleave(__m128i x)
+GLM_FUNC_QUALIFIER glm_uvec4 glm_i128_interleave(glm_uvec4 x)
 {
-	__m128i const Mask4 = _mm_set1_epi32(0x0000FFFF);
-	__m128i const Mask3 = _mm_set1_epi32(0x00FF00FF);
-	__m128i const Mask2 = _mm_set1_epi32(0x0F0F0F0F);
-	__m128i const Mask1 = _mm_set1_epi32(0x33333333);
-	__m128i const Mask0 = _mm_set1_epi32(0x55555555);
+	glm_uvec4 const Mask4 = _mm_set1_epi32(0x0000FFFF);
+	glm_uvec4 const Mask3 = _mm_set1_epi32(0x00FF00FF);
+	glm_uvec4 const Mask2 = _mm_set1_epi32(0x0F0F0F0F);
+	glm_uvec4 const Mask1 = _mm_set1_epi32(0x33333333);
+	glm_uvec4 const Mask0 = _mm_set1_epi32(0x55555555);
 
-	__m128i Reg1;
-	__m128i Reg2;
+	glm_uvec4 Reg1;
+	glm_uvec4 Reg2;
 
 	// REG1 = x;
 	// REG2 = y;
@@ -59,16 +59,16 @@ GLM_FUNC_QUALIFIER __m128i glm_i128_interleave(__m128i x)
 	return Reg1;
 }
 
-GLM_FUNC_QUALIFIER __m128i glm_i128_interleave2(__m128i x, __m128i y)
+GLM_FUNC_QUALIFIER glm_uvec4 glm_i128_interleave2(glm_uvec4 x, glm_uvec4 y)
 {
-	__m128i const Mask4 = _mm_set1_epi32(0x0000FFFF);
-	__m128i const Mask3 = _mm_set1_epi32(0x00FF00FF);
-	__m128i const Mask2 = _mm_set1_epi32(0x0F0F0F0F);
-	__m128i const Mask1 = _mm_set1_epi32(0x33333333);
-	__m128i const Mask0 = _mm_set1_epi32(0x55555555);
+	glm_uvec4 const Mask4 = _mm_set1_epi32(0x0000FFFF);
+	glm_uvec4 const Mask3 = _mm_set1_epi32(0x00FF00FF);
+	glm_uvec4 const Mask2 = _mm_set1_epi32(0x0F0F0F0F);
+	glm_uvec4 const Mask1 = _mm_set1_epi32(0x33333333);
+	glm_uvec4 const Mask0 = _mm_set1_epi32(0x55555555);
 
-	__m128i Reg1;
-	__m128i Reg2;
+	glm_uvec4 Reg1;
+	glm_uvec4 Reg2;
 
 	// REG1 = x;
 	// REG2 = y;
