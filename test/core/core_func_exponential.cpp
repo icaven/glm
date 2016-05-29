@@ -78,10 +78,8 @@ int test_sqrt()
 #	if GLM_ARCH & GLM_ARCH_SSE2_BIT
 	for(float f = 0.1f; f < 30.0f; f += 0.1f)
 	{
-		float q = _mm_cvtss_f32(_mm_sqrt_ps(_mm_set1_ps(f)));
-		float r = _mm_cvtss_f32(glm_f32v4_sqrt_lowp(_mm_set1_ps(f)));
+		float r = _mm_cvtss_f32(_mm_sqrt_ps(_mm_set1_ps(f)));
 		float s = std::sqrt(f);
-		Error += glm::abs(q - s) < 0.01f ? 0 : 1;
 		Error += glm::abs(r - s) < 0.01f ? 0 : 1;
 		assert(!Error);
 	}
