@@ -30,6 +30,15 @@ namespace detail
 	};
 
 	template <template <class, precision> class vecType, typename T, precision P>
+	struct compute_sqrt
+	{
+		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x)
+		{
+			return detail::functor1<T, T, P, vecType>::call(std::sqrt, x);
+		}
+	};
+
+	template <template <class, precision> class vecType, typename T, precision P>
 	struct compute_inversesqrt
 	{
 		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x)
@@ -113,7 +122,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER vecType<T, P> sqrt(vecType<T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'sqrt' only accept floating-point inputs");
-		return detail::functor1<T, T, P, vecType>::call(sqrt, x);
+		return detail::compute_sqrt<vecType, T, P>::call(x);
 	}
 
 	// inversesqrt

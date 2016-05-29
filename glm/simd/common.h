@@ -178,30 +178,4 @@ GLM_FUNC_QUALIFIER __m128 glm_f32v4_inf(__m128 x)
 	return _mm_castsi128_ps(_mm_cmpeq_epi32(t2, _mm_set1_epi32(0xFF000000)));		// exponent is all 1s, fraction is 0
 }
 
-// SSE scalar reciprocal sqrt using rsqrt op, plus one Newton-Rhaphson iteration
-// By Elan Ruskin, http://assemblyrequired.crashworks.org/
-GLM_FUNC_QUALIFIER __m128 glm_f32v1_sqrt_wip(__m128 x)
-{
-	__m128 const Rcp0 = _mm_rsqrt_ss(x);  // "estimate" opcode
-	__m128 const Mul0 = _mm_mul_ss(_mm_set1_ps(0.5f), Rcp0);
-	__m128 const Mul1 = _mm_mul_ss(Rcp0, Rcp0);
-	__m128 const Mul2 = _mm_mul_ss(x, Mul1);
-	__m128 const Sub0 = _mm_sub_ss(_mm_set1_ps(3.0f), Mul2);
-	__m128 const Mul3 = _mm_mul_ss(Mul0, Sub0);
-	return Mul3;
-}
-
-// SSE scalar reciprocal sqrt using rsqrt op, plus one Newton-Rhaphson iteration
-// By Elan Ruskin, http://assemblyrequired.crashworks.org/
-GLM_FUNC_QUALIFIER __m128 glm_f32v4_sqrt_wip(__m128 x)
-{
-	__m128 const Rcp0 = _mm_rsqrt_ps(x);  // "estimate" opcode
-	__m128 const Mul0 = _mm_mul_ps(_mm_set1_ps(0.5f), Rcp0);
-	__m128 const Mul1 = _mm_mul_ps(Mul0, Mul0);
-	__m128 const Mul2 = _mm_mul_ps(x, Mul1);
-	__m128 const Sub0 = _mm_sub_ps(_mm_set1_ps(3.0f), Mul2);
-	__m128 const Mul3 = _mm_mul_ps(Mul0, Sub0);
-	return Mul3;
-}
-
 #endif//GLM_ARCH & GLM_ARCH_SSE2_BIT
