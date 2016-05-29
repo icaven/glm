@@ -8,6 +8,44 @@
 #include "_vectorize.hpp"
 #include <limits>
 
+namespace glm
+{
+	// abs
+	template <>
+	GLM_FUNC_QUALIFIER int32 abs(int32 x)
+	{
+		int32 const y = x >> 31;
+		return (x ^ y) - y;
+	}
+
+	// round
+#	if GLM_HAS_CXX11_STL
+		using ::std::round;
+#	else
+		template <typename genType>
+		GLM_FUNC_QUALIFIER genType round(genType x)
+		{
+			GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'round' only accept floating-point inputs");
+
+			return x < static_cast<genType>(0) ? static_cast<genType>(int(x - static_cast<genType>(0.5))) : static_cast<genType>(int(x + static_cast<genType>(0.5)));
+		}
+#	endif
+
+	// trunc
+#	if GLM_HAS_CXX11_STL
+		using ::std::trunc;
+#	else
+		template <typename genType>
+		GLM_FUNC_QUALIFIER genType trunc(genType x)
+		{
+			GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'trunc' only accept floating-point inputs");
+
+			return x < static_cast<genType>(0) ? -floor(-x) : floor(x);
+		}
+#	endif
+
+}//namespace glm
+
 namespace glm{
 namespace detail
 {
@@ -152,7 +190,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x)
 		{
-			return detail::functor1<T, T, P, vecType>::call(floor, x);
+			return detail::functor1<T, T, P, vecType>::call(std::floor, x);
 		}
 	};
 
@@ -161,7 +199,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x)
 		{
-			return detail::functor1<T, T, P, vecType>::call(ceil, x);
+			return detail::functor1<T, T, P, vecType>::call(std::ceil, x);
 		}
 	};
 
@@ -202,14 +240,6 @@ namespace detail
 		}
 	};
 }//namespace detail
-
-	// abs
-	template <>
-	GLM_FUNC_QUALIFIER int32 abs(int32 x)
-	{
-		int32 const y = x >> 31;
-		return (x ^ y) - y;
-	}
 
 	template <typename genFIType>
 	GLM_FUNC_QUALIFIER genFIType abs(genFIType x)
@@ -254,38 +284,12 @@ namespace detail
 		return detail::compute_floor<T, P, vecType>::call(x);
 	}
 
-	// trunc
-#	if GLM_HAS_CXX11_STL
-		using ::std::trunc;
-#	else
-		template <typename genType>
-		GLM_FUNC_QUALIFIER genType trunc(genType x)
-		{
-			GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'trunc' only accept floating-point inputs");
-
-			return x < static_cast<genType>(0) ? -floor(-x) : floor(x);
-		}
-#	endif
-
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> trunc(vecType<T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'trunc' only accept floating-point inputs");
 		return detail::compute_trunc<T, P, vecType>::call(x);
 	}
-
-	// round
-#	if GLM_HAS_CXX11_STL
-		using ::std::round;
-#	else
-		template <typename genType>
-		GLM_FUNC_QUALIFIER genType round(genType x)
-		{
-			GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'round' only accept floating-point inputs");
-
-			return x < static_cast<genType>(0) ? static_cast<genType>(int(x - static_cast<genType>(0.5))) : static_cast<genType>(int(x + static_cast<genType>(0.5)));
-		}
-#	endif
 
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> round(vecType<T, P> const & x)
