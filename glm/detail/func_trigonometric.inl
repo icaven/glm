@@ -193,3 +193,8 @@ namespace glm
 		return detail::functor1<T, T, P, vecType>::call(atanh, v);
 	}
 }//namespace glm
+
+#if GLM_ARCH != GLM_ARCH_PURE && GLM_HAS_UNRESTRICTED_UNIONS
+#	include "func_trigonometric_simd.inl"
+#endif
+

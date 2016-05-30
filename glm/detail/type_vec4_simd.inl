@@ -62,6 +62,19 @@ namespace detail
 		}
 	};
 
+#	if GLM_ARCH & GLM_ARCH_AVX_BIT
+	template <precision P>
+	struct compute_vec4_add<double, P>
+	{
+		static tvec4<double, P> call(tvec4<double, P> const & a, tvec4<double, P> const & b)
+		{
+			tvec4<double, P> Result(uninitialize);
+			Result.data = _mm256_add_pd(a.data, b.data);
+			return Result;
+		}
+	};
+#	endif
+
 	template <precision P>
 	struct compute_vec4_sub<float, P>
 	{
@@ -72,6 +85,19 @@ namespace detail
 			return Result;
 		}
 	};
+
+#	if GLM_ARCH & GLM_ARCH_AVX_BIT
+	template <precision P>
+	struct compute_vec4_sub<double, P>
+	{
+		static tvec4<double, P> call(tvec4<double, P> const & a, tvec4<double, P> const & b)
+		{
+			tvec4<double, P> Result(uninitialize);
+			Result.data = _mm256_sub_pd(a.data, b.data);
+			return Result;
+		}
+	};
+#	endif
 
 	template <precision P>
 	struct compute_vec4_mul<float, P>
@@ -84,6 +110,19 @@ namespace detail
 		}
 	};
 
+#	if GLM_ARCH & GLM_ARCH_AVX_BIT
+	template <precision P>
+	struct compute_vec4_mul<double, P>
+	{
+		static tvec4<double, P> call(tvec4<double, P> const & a, tvec4<double, P> const & b)
+		{
+			tvec4<double, P> Result(uninitialize);
+			Result.data = _mm256_mul_pd(a.data, b.data);
+			return Result;
+		}
+	};
+#	endif
+
 	template <precision P>
 	struct compute_vec4_div<float, P>
 	{
@@ -94,6 +133,19 @@ namespace detail
 			return Result;
 		}
 	};
+
+	#	if GLM_ARCH & GLM_ARCH_AVX_BIT
+	template <precision P>
+	struct compute_vec4_div<double, P>
+	{
+		static tvec4<double, P> call(tvec4<double, P> const & a, tvec4<double, P> const & b)
+		{
+			tvec4<double, P> Result(uninitialize);
+			Result.data = _mm256_div_pd(a.data, b.data);
+			return Result;
+		}
+	};
+#	endif
 
 	template <>
 	struct compute_vec4_div<float, lowp>
@@ -124,7 +176,7 @@ namespace detail
 		static tvec4<T, P> call(tvec4<T, P> const& a, tvec4<T, P> const& b)
 		{
 			tvec4<T, P> Result(uninitialize);
-			Result.data = _mm_and_si256(a.data, b.data);
+			Result.data = _mm256_and_si256(a.data, b.data);
 			return Result;
 		}
 	};
@@ -148,7 +200,7 @@ namespace detail
 		static tvec4<T, P> call(tvec4<T, P> const& a, tvec4<T, P> const& b)
 		{
 			tvec4<T, P> Result(uninitialize);
-			Result.data = _mm_or_si256(a.data, b.data);
+			Result.data = _mm256_or_si256(a.data, b.data);
 			return Result;
 		}
 	};
@@ -260,11 +312,29 @@ namespace detail
 	};
 
 	template <precision P>
+	struct compute_vec4_equal<int32, P, true, 32>
+	{
+		static bool call(tvec4<int32, P> const & v1, tvec4<int32, P> const & v2)
+		{
+			return _mm_movemask_epi8(_mm_cmpeq_epi32(v1.data, v2.data)) != 0;
+		}
+	};
+
+	template <precision P>
 	struct compute_vec4_nequal<float, P, false, 32>
 	{
 		static bool call(tvec4<float, P> const & v1, tvec4<float, P> const & v2)
 		{
 			return _mm_movemask_ps(_mm_cmpneq_ps(v1.data, v2.data)) != 0;
+		}
+	};
+
+	template <precision P>
+	struct compute_vec4_nequal<int32, P, true, 32>
+	{
+		static bool call(tvec4<int32, P> const & v1, tvec4<int32, P> const & v2)
+		{
+			return _mm_movemask_epi8(_mm_cmpneq_epi32(v1.data, v2.data)) != 0;
 		}
 	};
 }//namespace detail

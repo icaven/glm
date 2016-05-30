@@ -310,6 +310,27 @@ int test_vec4_operators()
 	return Error;
 }
 
+int test_vec4_equal()
+{
+	int Error = 0;
+
+	{
+		glm::vec4 const A(1, 2, 3, 4);
+		glm::vec4 const B(1, 2, 3, 4);
+		Error += A == B ? 0 : 1;
+		Error += A != B ? 1 : 0;
+	}
+
+	{
+		glm::ivec4 const A(1, 2, 3, 4);
+		glm::ivec4 const B(1, 2, 3, 4);
+		Error += A == B ? 0 : 1;
+		Error += A != B ? 1 : 0;
+	}
+
+	return Error;
+}
+
 int test_vec4_size()
 {
 	int Error = 0;
@@ -557,6 +578,7 @@ int main()
 	Error += test_bvec4_ctor();
 	Error += test_vec4_size();
 	Error += test_vec4_operators();
+	Error += test_vec4_equal();
 	Error += test_vec4_swizzle_partial();
 	Error += test_vec4_simd();
 	Error += test_operator_increment();
