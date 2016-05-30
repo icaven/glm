@@ -484,20 +484,6 @@ namespace detail
 
 	template <precision P>
 	GLM_FUNC_DECL tvec4<bool, P> operator||(tvec4<bool, P> const & v1, tvec4<bool, P> const & v2);
-
-/*
-namespace detail
-{
-	template <precision P, int E0, int E1, int E2, int E3>
-	struct _swizzle_base1<4, float, P, glm::tvec4, E0,E1,E2,E3> : public _swizzle_base0<float, 4>
-	{ 
-		GLM_FUNC_QUALIFIER tvec4<float, P> operator ()()  const
-		{
-			return tvec4<float, P>(this->elem(E0), this->elem(E1), this->elem(E2), this->elem(E3));
-		}
-	};
-}//namespace detail
-*/
 }//namespace glm
 
 #ifndef GLM_EXTERNAL_TEMPLATE

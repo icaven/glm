@@ -6,6 +6,51 @@
 namespace glm{
 namespace detail
 {
+#	ifdef GLM_SWIZZLE
+	template <precision P, int E0, int E1, int E2, int E3>
+	struct _swizzle_base1<4, float, P, glm::tvec4, E0,E1,E2,E3> : public _swizzle_base0<float, 4>
+	{ 
+		GLM_FUNC_QUALIFIER tvec4<float, P> operator ()()  const
+		{
+			__m128 data = *reinterpret_cast<__m128 const*>(&this->_buffer);
+
+			tvec4<float, P> Result(uninitialize);
+#			if GLM_ARCH & GLM_ARCH_AVX_BIT
+				Result.data = _mm_permute_ps(data, _MM_SHUFFLE(E3, E2, E1, E0));
+#			else
+				Result.data = _mm_shuffle_ps(data, data, _MM_SHUFFLE(E3, E2, E1, E0));
+#			endif
+			return Result;
+		}
+	};
+
+	template <precision P, int E0, int E1, int E2, int E3>
+	struct _swizzle_base1<4, int32, P, glm::tvec4, E0,E1,E2,E3> : public _swizzle_base0<int32, 4>
+	{ 
+		GLM_FUNC_QUALIFIER tvec4<int32, P> operator ()()  const
+		{
+			__m128i data = *reinterpret_cast<__m128i const*>(&this->_buffer);
+
+			tvec4<int32, P> Result(uninitialize);
+			Result.data = _mm_shuffle_epi32(data, _MM_SHUFFLE(E3, E2, E1, E0));
+			return Result;
+		}
+	};
+
+	template <precision P, int E0, int E1, int E2, int E3>
+	struct _swizzle_base1<4, uint32, P, glm::tvec4, E0,E1,E2,E3> : public _swizzle_base0<uint32, 4>
+	{ 
+		GLM_FUNC_QUALIFIER tvec4<uint32, P> operator ()()  const
+		{
+			__m128i data = *reinterpret_cast<__m128i const*>(&this->_buffer);
+
+			tvec4<uint32, P> Result(uninitialize);
+			Result.data = _mm_shuffle_epi32(data, _MM_SHUFFLE(E3, E2, E1, E0));
+			return Result;
+		}
+	};
+#	endif
+
 	template <precision P>
 	struct compute_vec4_add<float, P>
 	{
