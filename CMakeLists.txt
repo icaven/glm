@@ -220,7 +220,7 @@ endif()
 
 # build pkg-config file
 configure_file(
-    "glm.pc.in"
+    "./cmake/glm.pc.in"
     "glm.pc"
     @ONLY
 )
