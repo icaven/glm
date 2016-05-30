@@ -947,7 +947,7 @@ GLM_FUNC_QUALIFIER void glm_mat4_inverse_lowp(glm_vec4 const in[4], glm_vec4 out
 	out[3] = _mm_mul_ps(Inv3, Rcp0);
 }
 /*
-GLM_FUNC_QUALIFIER void glm_f32m4_rotate(__m128 const in[4], float Angle, float const v[3], __m128 out[4])
+GLM_FUNC_QUALIFIER void glm_mat4_rotate(__m128 const in[4], float Angle, float const v[3], __m128 out[4])
 {
 	float a = glm::radians(Angle);
 	float c = cos(a);
@@ -1017,7 +1017,7 @@ GLM_FUNC_QUALIFIER void glm_f32m4_rotate(__m128 const in[4], float Angle, float 
 	sse_mul_ps(in, Result, out);
 }
 */
-GLM_FUNC_QUALIFIER void glm_f32m4_outer(__m128 const & c, __m128 const & r, __m128 out[4])
+GLM_FUNC_QUALIFIER void glm_mat4_outerProduct(__m128 const & c, __m128 const & r, __m128 out[4])
 {
 	out[0] = _mm_mul_ps(c, _mm_shuffle_ps(r, r, _MM_SHUFFLE(0, 0, 0, 0)));
 	out[1] = _mm_mul_ps(c, _mm_shuffle_ps(r, r, _MM_SHUFFLE(1, 1, 1, 1)));

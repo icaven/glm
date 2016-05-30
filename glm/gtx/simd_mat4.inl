@@ -563,14 +563,14 @@ GLM_FUNC_QUALIFIER detail::fmat4x4SIMD outerProduct
 GLM_FUNC_QUALIFIER detail::fmat4x4SIMD transpose(detail::fmat4x4SIMD const & m)
 {
 	detail::fmat4x4SIMD result;
-	detail::sse_transpose_ps(&m[0].Data, &result[0].Data);
+	glm_mat4_transpose(&m[0].Data, &result[0].Data);
 	return result;
 }
 
 GLM_FUNC_QUALIFIER float determinant(detail::fmat4x4SIMD const & m)
 {
 	float Result;
-	_mm_store_ss(&Result, detail::sse_det_ps(&m[0].Data));
+	_mm_store_ss(&Result, glm_mat4_determinant(&m[0].Data));
 	return Result;
 }
 

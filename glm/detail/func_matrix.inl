@@ -7,6 +7,18 @@
 namespace glm{
 namespace detail
 {
+	template <template <typename, precision> class matType, typename T, precision P>
+	struct compute_matrixCompMult
+	{
+		GLM_FUNC_QUALIFIER static matType<T, P> call(matType<T, P> const& x, matType<T, P> const& y)
+		{
+			matType<T, P> result(uninitialize);
+			for(length_t i = 0; i < result.length(); ++i)
+				result[i] = x[i] * y[i];
+			return result;
+		}
+	};
+
 	template <template <class, precision> class matType, typename T, precision P>
 	struct compute_transpose{};
 
@@ -347,11 +359,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER matType<T, P> matrixCompMult(matType<T, P> const & x, matType<T, P> const & y)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'matrixCompMult' only accept floating-point inputs");
-
-		matType<T, P> result(uninitialize);
-		for(length_t i = 0; i < result.length(); ++i)
-			result[i] = x[i] * y[i];
-		return result;
+		return detail::compute_matrixCompMult<matType, T, P>::call(x, y);
 	}
 
 	template<typename T, precision P, template <typename, precision> class vecTypeA, template <typename, precision> class vecTypeB>
