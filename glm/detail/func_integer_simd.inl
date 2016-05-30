@@ -32,7 +32,6 @@ namespace detail
 	template <glm::precision P>
 	struct compute_bitfieldBitCountStep<uint32, P, tvec4, true>
 	{
-		template <glm::precision P>
 		GLM_FUNC_QUALIFIER static tvec4<uint32, P> call(tvec4<uint32, P> const & v, uint32 Mask, uint32 Shift)
 		{
 			__m128i const set0 = v.data;
