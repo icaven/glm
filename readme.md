@@ -51,6 +51,10 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 ## Release notes
 
+#### [GLM 0.9.7.6](https://github.com/g-truc/glm/tree/0.9.7) - 2016-0X-XX
+##### Improvements:
+- Added pkg-config file #509
+
 #### [GLM 0.9.7.5](https://github.com/g-truc/glm/releases/tag/0.9.7.5) - 2016-05-24
 ##### Improvements:
 - Added Visual C++ Clang toolset detection

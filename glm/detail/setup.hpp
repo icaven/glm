@@ -42,11 +42,11 @@
 #define GLM_VERSION_MAJOR			0
 #define GLM_VERSION_MINOR			9
 #define GLM_VERSION_PATCH			7
-#define GLM_VERSION_REVISION		5
+#define GLM_VERSION_REVISION		6
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_VERSION_DISPLAYED))
 #	define GLM_MESSAGE_VERSION_DISPLAYED
-#	pragma message ("GLM: version 0.9.7.5")
+#	pragma message ("GLM: version 0.9.7.6")
 #endif//GLM_MESSAGE
 
 ///////////////////////////////////////////////////////////////////////////////////
