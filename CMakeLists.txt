@@ -218,4 +218,17 @@ if (NOT CMAKE_VERSION VERSION_LESS "3.0")
     )
 endif()
 
+# build pkg-config file
+configure_file(
+    "glm.pc.in"
+    "glm.pc"
+    @ONLY
+)
+
+# install pkg-config file
+install(
+    FILES "${CMAKE_CURRENT_BINARY_DIR}/glm.pc"
+    DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig"
+)
+
 export(PACKAGE glm)
