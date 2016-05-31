@@ -4,8 +4,8 @@
 namespace glm{
 namespace detail
 {
-	template <typename T, precision P, template <class, precision> class vecType>
-	struct compute_log2<T, P, vecType, false>
+	template <typename T, precision P, template <typename, precision> class vecType, bool Aligned>
+	struct compute_log2<T, P, vecType, false, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & vec)
 		{
@@ -16,8 +16,8 @@ namespace detail
 	};
 
 #	if GLM_HAS_BITSCAN_WINDOWS
-		template <precision P>
-		struct compute_log2<int, P, tvec4, false>
+		template <precision P, bool Aligned>
+		struct compute_log2<int, P, tvec4, false, Aligned>
 		{
 			GLM_FUNC_QUALIFIER static tvec4<int, P> call(tvec4<int, P> const & vec)
 			{

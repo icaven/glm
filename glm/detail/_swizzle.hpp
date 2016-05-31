@@ -20,25 +20,25 @@ namespace detail
 		char    _buffer[1];
 	};
 
-	template <int N, typename T, precision P, template <typename, precision> class vecType, int E0, int E1, int E2, int E3>
+	template <int N, typename T, precision P, template <typename, precision> class vecType, int E0, int E1, int E2, int E3, bool Aligned>
 	struct _swizzle_base1 : public _swizzle_base0<T, N>
 	{
 	};
 
-	template <typename T, precision P, template <typename, precision> class vecType, int E0, int E1>
-	struct _swizzle_base1<2, T, P, vecType, E0,E1,-1,-2> : public _swizzle_base0<T, 2>
+	template <typename T, precision P, template <typename, precision> class vecType, int E0, int E1, bool Aligned>
+	struct _swizzle_base1<2, T, P, vecType, E0,E1,-1,-2, Aligned> : public _swizzle_base0<T, 2>
 	{
 		GLM_FUNC_QUALIFIER vecType<T, P> operator ()()  const { return vecType<T, P>(this->elem(E0), this->elem(E1)); }
 	};
 
-	template <typename T, precision P, template <typename, precision> class vecType, int E0, int E1, int E2>
-	struct _swizzle_base1<3, T, P, vecType, E0,E1,E2,-1> : public _swizzle_base0<T, 3>
+	template <typename T, precision P, template <typename, precision> class vecType, int E0, int E1, int E2, bool Aligned>
+	struct _swizzle_base1<3, T, P, vecType, E0,E1,E2,-1, Aligned> : public _swizzle_base0<T, 3>
 	{
 		GLM_FUNC_QUALIFIER vecType<T, P> operator ()()  const { return vecType<T, P>(this->elem(E0), this->elem(E1), this->elem(E2)); }
 	};
 
-	template <typename T, precision P, template <typename, precision> class vecType, int E0, int E1, int E2, int E3>
-	struct _swizzle_base1<4, T, P, vecType, E0,E1,E2,E3> : public _swizzle_base0<T, 4>
+	template <typename T, precision P, template <typename, precision> class vecType, int E0, int E1, int E2, int E3, bool Aligned>
+	struct _swizzle_base1<4, T, P, vecType, E0,E1,E2,E3, Aligned> : public _swizzle_base0<T, 4>
 	{ 
 		GLM_FUNC_QUALIFIER vecType<T, P> operator ()()  const { return vecType<T, P>(this->elem(E0), this->elem(E1), this->elem(E2), this->elem(E3)); }
 	};
@@ -56,7 +56,7 @@ namespace detail
 			containing duplicate elements so that they cannot be used as r-values).            
 	*/
 	template <int N, typename T, precision P, template <typename, precision> class vecType, int E0, int E1, int E2, int E3, int DUPLICATE_ELEMENTS>
-	struct _swizzle_base2 : public _swizzle_base1<N, T, P, vecType, E0,E1,E2,E3>
+	struct _swizzle_base2 : public _swizzle_base1<N, T, P, vecType, E0,E1,E2,E3, detail::is_aligned<P>::value>
 	{
 		GLM_FUNC_QUALIFIER _swizzle_base2& operator= (const T& t)
 		{
@@ -134,7 +134,7 @@ namespace detail
 
 	// Specialization for swizzles containing duplicate elements.  These cannot be modified.
 	template <int N, typename T, precision P, template <typename, precision> class vecType, int E0, int E1, int E2, int E3>
-	struct _swizzle_base2<N, T, P, vecType, E0,E1,E2,E3, 1> : public _swizzle_base1<N, T, P, vecType, E0,E1,E2,E3>
+	struct _swizzle_base2<N, T, P, vecType, E0,E1,E2,E3, 1> : public _swizzle_base1<N, T, P, vecType, E0,E1,E2,E3, detail::is_aligned<P>::value>
 	{
 		struct Stub {};
 

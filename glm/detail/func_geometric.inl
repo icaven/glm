@@ -10,7 +10,7 @@
 namespace glm{
 namespace detail
 {
-	template <template <typename, precision> class vecType, typename T, precision P>
+	template <template <typename, precision> class vecType, typename T, precision P, bool Aligned>
 	struct compute_length
 	{
 		GLM_FUNC_QUALIFIER static T call(vecType<T, P> const & v)
@@ -19,7 +19,7 @@ namespace detail
 		}
 	};
 
-	template <template <typename, precision> class vecType, typename T, precision P>
+	template <template <typename, precision> class vecType, typename T, precision P, bool Aligned>
 	struct compute_distance
 	{
 		GLM_FUNC_QUALIFIER static T call(vecType<T, P> const & p0, vecType<T, P> const & p1)
@@ -28,11 +28,11 @@ namespace detail
 		}
 	};
 
-	template <template <class, precision> class vecType, typename T, precision P>
+	template <template <class, precision> class vecType, typename T, precision P, bool Aligned>
 	struct compute_dot{};
 
-	template <typename T, precision P>
-	struct compute_dot<tvec1, T, P>
+	template <typename T, precision P, bool Aligned>
+	struct compute_dot<tvec1, T, P, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static T call(tvec1<T, P> const & a, tvec1<T, P> const & b)
 		{
@@ -40,8 +40,8 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P>
-	struct compute_dot<tvec2, T, P>
+	template <typename T, precision P, bool Aligned>
+	struct compute_dot<tvec2, T, P, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static T call(tvec2<T, P> const & x, tvec2<T, P> const & y)
 		{
@@ -50,8 +50,8 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P>
-	struct compute_dot<tvec3, T, P>
+	template <typename T, precision P, bool Aligned>
+	struct compute_dot<tvec3, T, P, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static T call(tvec3<T, P> const & x, tvec3<T, P> const & y)
 		{
@@ -60,8 +60,8 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P>
-	struct compute_dot<tvec4, T, P>
+	template <typename T, precision P, bool Aligned>
+	struct compute_dot<tvec4, T, P, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static T call(tvec4<T, P> const & x, tvec4<T, P> const & y)
 		{
@@ -70,7 +70,7 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P>
+	template <typename T, precision P, bool Aligned>
 	struct compute_cross
 	{
 		GLM_FUNC_QUALIFIER static tvec3<T, P> call(tvec3<T, P> const & x, tvec3<T, P> const & y)
@@ -84,7 +84,7 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P, template <typename, precision> class vecType>
+	template <typename T, precision P, template <typename, precision> class vecType, bool Aligned>
 	struct compute_normalize
 	{
 		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & v)
@@ -95,7 +95,7 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P, template <typename, precision> class vecType>
+	template <typename T, precision P, template <typename, precision> class vecType, bool Aligned>
 	struct compute_faceforward
 	{
 		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & N, vecType<T, P> const & I, vecType<T, P> const & Nref)
@@ -106,7 +106,7 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P, template <typename, precision> class vecType>
+	template <typename T, precision P, template <typename, precision> class vecType, bool Aligned>
 	struct compute_reflect
 	{
 		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & I, vecType<T, P> const & N)
@@ -115,7 +115,7 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P, template <typename, precision> class vecType>
+	template <typename T, precision P, template <typename, precision> class vecType, bool Aligned>
 	struct compute_refract
 	{
 		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & I, vecType<T, P> const & N, T eta)
@@ -141,7 +141,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'length' accepts only floating-point inputs");
 
-		return detail::compute_length<vecType, T, P>::call(v);
+		return detail::compute_length<vecType, T, P, detail::is_aligned<P>::value>::call(v);
 	}
 
 	// distance
@@ -156,7 +156,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER T distance(vecType<T, P> const & p0, vecType<T, P> const & p1)
 	{
-		return detail::compute_distance<vecType, T, P>::call(p0, p1);
+		return detail::compute_distance<vecType, T, P, detail::is_aligned<P>::value>::call(p0, p1);
 	}
 
 	// dot
@@ -171,14 +171,14 @@ namespace detail
 	GLM_FUNC_QUALIFIER T dot(vecType<T, P> const & x, vecType<T, P> const & y)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'dot' accepts only floating-point inputs");
-		return detail::compute_dot<vecType, T, P>::call(x, y);
+		return detail::compute_dot<vecType, T, P, detail::is_aligned<P>::value>::call(x, y);
 	}
 
 	// cross
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec3<T, P> cross(tvec3<T, P> const & x, tvec3<T, P> const & y)
 	{
-		return detail::compute_cross<T, P>::call(x, y);
+		return detail::compute_cross<T, P, detail::is_aligned<P>::value>::call(x, y);
 	}
 
 	// normalize
@@ -195,7 +195,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'normalize' accepts only floating-point inputs");
 
-		return detail::compute_normalize<T, P, vecType>::call(x);
+		return detail::compute_normalize<T, P, vecType, detail::is_aligned<P>::value>::call(x);
 	}
 
 	// faceforward
@@ -208,7 +208,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> faceforward(vecType<T, P> const & N, vecType<T, P> const & I, vecType<T, P> const & Nref)
 	{
-		return detail::compute_faceforward<T, P, vecType>::call(N, I, Nref);
+		return detail::compute_faceforward<T, P, vecType, detail::is_aligned<P>::value>::call(N, I, Nref);
 	}
 
 	// reflect
@@ -221,7 +221,7 @@ namespace detail
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> reflect(vecType<T, P> const & I, vecType<T, P> const & N)
 	{
-		return detail::compute_reflect<T, P, vecType>::call(I, N);
+		return detail::compute_reflect<T, P, vecType, detail::is_aligned<P>::value>::call(I, N);
 	}
 
 	// refract
@@ -238,7 +238,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER vecType<T, P> refract(vecType<T, P> const & I, vecType<T, P> const & N, T eta)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'refract' accepts only floating-point inputs");
-		return detail::compute_refract<T, P, vecType>::call(I, N, eta);
+		return detail::compute_refract<T, P, vecType, detail::is_aligned<P>::value>::call(I, N, eta);
 	}
 }//namespace glm
 

@@ -11,7 +11,7 @@ namespace glm{
 namespace detail
 {
 	template <precision P>
-	struct compute_abs_vector<float, P, tvec4>
+	struct compute_abs_vector<float, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & v)
 		{
@@ -22,7 +22,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_abs_vector<int, P, tvec4>
+	struct compute_abs_vector<int, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<int, P> call(tvec4<int, P> const & v)
 		{
@@ -33,7 +33,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_floor<float, P, tvec4>
+	struct compute_floor<float, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & v)
 		{
@@ -44,7 +44,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_ceil<float, P, tvec4>
+	struct compute_ceil<float, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & v)
 		{
@@ -55,7 +55,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_fract<float, P, tvec4>
+	struct compute_fract<float, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & v)
 		{
@@ -66,7 +66,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_round<float, P, tvec4>
+	struct compute_round<float, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & v)
 		{
@@ -77,7 +77,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_mod<float, P, tvec4>
+	struct compute_mod<float, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & x, tvec4<float, P> const & y)
 		{
@@ -88,7 +88,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_min_vector<float, P, tvec4>
+	struct compute_min_vector<float, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & v1, tvec4<float, P> const & v2)
 		{
@@ -99,7 +99,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_min_vector<int32, P, tvec4>
+	struct compute_min_vector<int32, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<int32, P> call(tvec4<int32, P> const & v1, tvec4<int32, P> const & v2)
 		{
@@ -110,7 +110,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_min_vector<uint32, P, tvec4>
+	struct compute_min_vector<uint32, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<int32, P> call(tvec4<uint32, P> const & v1, tvec4<uint32, P> const & v2)
 		{
@@ -121,7 +121,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_max_vector<float, P, tvec4>
+	struct compute_max_vector<float, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & v1, tvec4<float, P> const & v2)
 		{
@@ -132,7 +132,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_max_vector<int32, P, tvec4>
+	struct compute_max_vector<int32, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<int32, P> call(tvec4<int32, P> const & v1, tvec4<int32, P> const & v2)
 		{
@@ -143,7 +143,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_max_vector<uint32, P, tvec4>
+	struct compute_max_vector<uint32, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<uint32, P> call(tvec4<uint32, P> const & v1, tvec4<uint32, P> const & v2)
 		{
@@ -154,7 +154,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_clamp_vector<float, P, tvec4>
+	struct compute_clamp_vector<float, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & x, tvec4<float, P> const & minVal, tvec4<float, P> const & maxVal)
 		{
@@ -165,7 +165,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_clamp_vector<int32, P, tvec4>
+	struct compute_clamp_vector<int32, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<int32, P> call(tvec4<int32, P> const & x, tvec4<int32, P> const & minVal, tvec4<int32, P> const & maxVal)
 		{
@@ -176,7 +176,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_clamp_vector<uint32, P, tvec4>
+	struct compute_clamp_vector<uint32, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<uint32, P> call(tvec4<uint32, P> const & x, tvec4<uint32, P> const & minVal, tvec4<uint32, P> const & maxVal)
 		{
@@ -187,7 +187,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_mix_vector<float, bool, P, tvec4>
+	struct compute_mix_vector<float, bool, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & x, tvec4<float, P> const & y, tvec4<bool, P> const & a)
 		{
@@ -210,18 +210,18 @@ namespace detail
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const& edge, tvec4<float, P> const& x)
 		{
 			tvec4<float, P> result(uninitialize);
-			result.data = glm_f32v4_stp(edge.data, x.data);
+			result.data = glm_vec4_step(edge.data, x.data);
 			return result;
 		}
 	};
 */
 	template <precision P>
-	struct compute_smoothstep_vector<float, P, tvec4>
+	struct compute_smoothstep_vector<float, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const& edge0, tvec4<float, P> const& edge1, tvec4<float, P> const& x)
 		{
 			tvec4<float, P> result(uninitialize);
-			result.data = glm_f32v4_ssp(edge0.data, edge1.data, x.data);
+			result.data = glm_vec4_smoothstep(edge0.data, edge1.data, x.data);
 			return result;
 		}
 	};
