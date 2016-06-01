@@ -347,13 +347,6 @@ int test_vec4_size()
 	Error += glm::vec4().length() == 4 ? 0 : 1;
 	Error += glm::dvec4().length() == 4 ? 0 : 1;
 
-	struct my_struct
-	{
-		glm::uint32 a;
-		glm::vec4 b;
-	};
-	GLM_STATIC_ASSERT(sizeof(my_struct) == sizeof(glm::uint32) + sizeof(glm::vec4), "glm::vec4 alignment is not correct");
-
 	return Error;
 }
 

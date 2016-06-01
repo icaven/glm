@@ -14,64 +14,8 @@
 #endif //GLM_SWIZZLE
 #include <cstddef>
 
-namespace glm{
-namespace detail
+namespace glm
 {
-	template <typename T, bool aligned>
-	struct simd_data
-	{
-		typedef T type[4];
-	};
-/*
-	template <typename T>
-	GLM_ALIGNED_STRUCT(16) struct simd_data<T, true>
-	{
-		typedef T type[4];
-	};
-*/
-#	if (GLM_ARCH & GLM_ARCH_SSE2_BIT)
-		template <>
-		struct simd_data<float, true>
-		{
-			typedef glm_vec4 type;
-		};
-
-		template <>
-		struct simd_data<int, true>
-		{
-			typedef glm_ivec4 type;
-		};
-
-		template <>
-		struct simd_data<unsigned int, true>
-		{
-			typedef glm_uvec4 type;
-		};
-#	endif
-
-#	if (GLM_ARCH & GLM_ARCH_AVX_BIT)
-		template <>
-		struct simd_data<double, true>
-		{
-			typedef glm_dvec4 type;
-		};
-#	endif
-
-#	if (GLM_ARCH & GLM_ARCH_AVX2_BIT)
-		template <>
-		struct simd_data<int64, true>
-		{
-			typedef glm_i64vec4 type;
-		};
-
-		template <>
-		struct simd_data<uint64, true>
-		{
-			typedef glm_u64vec4 type;
-		};
-#	endif
-}//namespace detail
-
 	template <typename T, precision P = defaultp>
 	struct tvec4
 	{
@@ -90,7 +34,7 @@ namespace detail
 				struct { T r, g, b, a; };
 				struct { T s, t, p, q; };
 
-				typename detail::simd_data<T, detail::is_aligned<P>::value>::type data;
+				typename detail::simd_data<T, sizeof(T) * 4, detail::is_aligned<P>::value>::type data;
 
 #				ifdef GLM_SWIZZLE
 					_GLM_SWIZZLE4_2_MEMBERS(T, P, glm::tvec2, x, y, z, w)
