@@ -418,7 +418,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER vecType<T, P> ceil(vecType<T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'ceil' only accept floating-point inputs");
-		return detail::compute_ceil<T, P, vecType>::call(x);
+		return detail::compute_ceil<T, P, vecType, detail::is_aligned<P>::value>::call(x);
 	}
 
 	// fract
