@@ -8,7 +8,7 @@ namespace detail
 {
 #	ifdef GLM_SWIZZLE
 	template <precision P, int E0, int E1, int E2, int E3>
-	struct _swizzle_base1<4, float, P, glm::tvec4, E0,E1,E2,E3> : public _swizzle_base0<float, 4>
+	struct _swizzle_base1<4, float, P, glm::tvec4, E0,E1,E2,E3, true> : public _swizzle_base0<float, 4>
 	{ 
 		GLM_FUNC_QUALIFIER tvec4<float, P> operator ()()  const
 		{
@@ -25,7 +25,7 @@ namespace detail
 	};
 
 	template <precision P, int E0, int E1, int E2, int E3>
-	struct _swizzle_base1<4, int32, P, glm::tvec4, E0,E1,E2,E3> : public _swizzle_base0<int32, 4>
+	struct _swizzle_base1<4, int32, P, glm::tvec4, E0,E1,E2,E3, true> : public _swizzle_base0<int32, 4>
 	{ 
 		GLM_FUNC_QUALIFIER tvec4<int32, P> operator ()()  const
 		{
@@ -38,7 +38,7 @@ namespace detail
 	};
 
 	template <precision P, int E0, int E1, int E2, int E3>
-	struct _swizzle_base1<4, uint32, P, glm::tvec4, E0,E1,E2,E3> : public _swizzle_base0<uint32, 4>
+	struct _swizzle_base1<4, uint32, P, glm::tvec4, E0,E1,E2,E3, true> : public _swizzle_base0<uint32, 4>
 	{ 
 		GLM_FUNC_QUALIFIER tvec4<uint32, P> operator ()()  const
 		{
@@ -52,7 +52,7 @@ namespace detail
 #	endif
 
 	template <precision P>
-	struct compute_vec4_add<float, P>
+	struct compute_vec4_add<float, P, true>
 	{
 		static tvec4<float, P> call(tvec4<float, P> const & a, tvec4<float, P> const & b)
 		{
@@ -64,7 +64,7 @@ namespace detail
 
 #	if GLM_ARCH & GLM_ARCH_AVX_BIT
 	template <precision P>
-	struct compute_vec4_add<double, P>
+	struct compute_vec4_add<double, P, true>
 	{
 		static tvec4<double, P> call(tvec4<double, P> const & a, tvec4<double, P> const & b)
 		{
@@ -76,7 +76,7 @@ namespace detail
 #	endif
 
 	template <precision P>
-	struct compute_vec4_sub<float, P>
+	struct compute_vec4_sub<float, P, true>
 	{
 		static tvec4<float, P> call(tvec4<float, P> const & a, tvec4<float, P> const & b)
 		{
@@ -88,7 +88,7 @@ namespace detail
 
 #	if GLM_ARCH & GLM_ARCH_AVX_BIT
 	template <precision P>
-	struct compute_vec4_sub<double, P>
+	struct compute_vec4_sub<double, P, true>
 	{
 		static tvec4<double, P> call(tvec4<double, P> const & a, tvec4<double, P> const & b)
 		{
@@ -100,7 +100,7 @@ namespace detail
 #	endif
 
 	template <precision P>
-	struct compute_vec4_mul<float, P>
+	struct compute_vec4_mul<float, P, true>
 	{
 		static tvec4<float, P> call(tvec4<float, P> const & a, tvec4<float, P> const & b)
 		{
@@ -112,7 +112,7 @@ namespace detail
 
 #	if GLM_ARCH & GLM_ARCH_AVX_BIT
 	template <precision P>
-	struct compute_vec4_mul<double, P>
+	struct compute_vec4_mul<double, P, true>
 	{
 		static tvec4<double, P> call(tvec4<double, P> const & a, tvec4<double, P> const & b)
 		{
@@ -124,7 +124,7 @@ namespace detail
 #	endif
 
 	template <precision P>
-	struct compute_vec4_div<float, P>
+	struct compute_vec4_div<float, P, true>
 	{
 		static tvec4<float, P> call(tvec4<float, P> const & a, tvec4<float, P> const & b)
 		{
@@ -136,7 +136,7 @@ namespace detail
 
 	#	if GLM_ARCH & GLM_ARCH_AVX_BIT
 	template <precision P>
-	struct compute_vec4_div<double, P>
+	struct compute_vec4_div<double, P, true>
 	{
 		static tvec4<double, P> call(tvec4<double, P> const & a, tvec4<double, P> const & b)
 		{
@@ -148,18 +148,18 @@ namespace detail
 #	endif
 
 	template <>
-	struct compute_vec4_div<float, lowp>
+	struct compute_vec4_div<float, aligned_lowp, true>
 	{
-		static tvec4<float, lowp> call(tvec4<float, lowp> const & a, tvec4<float, lowp> const & b)
+		static tvec4<float, aligned_lowp> call(tvec4<float, aligned_lowp> const & a, tvec4<float, aligned_lowp> const & b)
 		{
-			tvec4<float, lowp> Result(uninitialize);
+			tvec4<float, aligned_lowp> Result(uninitialize);
 			Result.data = _mm_mul_ps(a.data, _mm_rcp_ps(b.data));
 			return Result;
 		}
 	};
 
 	template <typename T, precision P>
-	struct compute_vec4_and<T, P, true, 32>
+	struct compute_vec4_and<T, P, true, 32, true>
 	{
 		static tvec4<T, P> call(tvec4<T, P> const& a, tvec4<T, P> const& b)
 		{
@@ -171,7 +171,7 @@ namespace detail
 
 #	if GLM_ARCH & GLM_ARCH_AVX2_BIT
 	template <typename T, precision P>
-	struct compute_vec4_and<T, P, true, 64>
+	struct compute_vec4_and<T, P, true, 64, true>
 	{
 		static tvec4<T, P> call(tvec4<T, P> const& a, tvec4<T, P> const& b)
 		{
@@ -183,7 +183,7 @@ namespace detail
 #	endif
 
 	template <typename T, precision P>
-	struct compute_vec4_or<T, P, true, 32>
+	struct compute_vec4_or<T, P, true, 32, true>
 	{
 		static tvec4<T, P> call(tvec4<T, P> const& a, tvec4<T, P> const& b)
 		{
@@ -195,7 +195,7 @@ namespace detail
 
 #	if GLM_ARCH & GLM_ARCH_AVX2_BIT
 	template <typename T, precision P>
-	struct compute_vec4_or<T, P, true, 64>
+	struct compute_vec4_or<T, P, true, 64, true>
 	{
 		static tvec4<T, P> call(tvec4<T, P> const& a, tvec4<T, P> const& b)
 		{
@@ -207,7 +207,7 @@ namespace detail
 #	endif
 
 	template <typename T, precision P>
-	struct compute_vec4_xor<T, P, true, 32>
+	struct compute_vec4_xor<T, P, true, 32, true>
 	{
 		static tvec4<T, P> call(tvec4<T, P> const& a, tvec4<T, P> const& b)
 		{
@@ -219,7 +219,7 @@ namespace detail
 
 #	if GLM_ARCH & GLM_ARCH_AVX2_BIT
 	template <typename T, precision P>
-	struct compute_vec4_xor<T, P, true, 64>
+	struct compute_vec4_xor<T, P, true, 64, true>
 	{
 		static tvec4<T, P> call(tvec4<T, P> const& a, tvec4<T, P> const& b)
 		{
@@ -231,7 +231,7 @@ namespace detail
 #	endif
 
 	template <typename T, precision P>
-	struct compute_vec4_shift_left<T, P, true, 32>
+	struct compute_vec4_shift_left<T, P, true, 32, true>
 	{
 		static tvec4<T, P> call(tvec4<T, P> const& a, tvec4<T, P> const& b)
 		{
@@ -243,7 +243,7 @@ namespace detail
 
 #	if GLM_ARCH & GLM_ARCH_AVX2_BIT
 	template <typename T, precision P>
-	struct compute_vec4_shift_left<T, P, true, 64>
+	struct compute_vec4_shift_left<T, P, true, 64, true>
 	{
 		static tvec4<T, P> call(tvec4<T, P> const& a, tvec4<T, P> const& b)
 		{
@@ -255,7 +255,7 @@ namespace detail
 #	endif
 
 	template <typename T, precision P>
-	struct compute_vec4_shift_right<T, P, true, 32>
+	struct compute_vec4_shift_right<T, P, true, 32, true>
 	{
 		static tvec4<T, P> call(tvec4<T, P> const& a, tvec4<T, P> const& b)
 		{
@@ -267,7 +267,7 @@ namespace detail
 
 #	if GLM_ARCH & GLM_ARCH_AVX2_BIT
 	template <typename T, precision P>
-	struct compute_vec4_shift_right<T, P, true, 64>
+	struct compute_vec4_shift_right<T, P, true, 64, true>
 	{
 		static tvec4<T, P> call(tvec4<T, P> const& a, tvec4<T, P> const& b)
 		{
@@ -279,7 +279,7 @@ namespace detail
 #	endif
 
 	template <typename T, precision P>
-	struct compute_vec4_bitwise_not<T, P, true, 32>
+	struct compute_vec4_bitwise_not<T, P, true, 32, true>
 	{
 		static tvec4<T, P> call(tvec4<T, P> const & v)
 		{
@@ -291,7 +291,7 @@ namespace detail
 
 #	if GLM_ARCH & GLM_ARCH_AVX2_BIT
 	template <typename T, precision P>
-	struct compute_vec4_bitwise_not<T, P, true, 64>
+	struct compute_vec4_bitwise_not<T, P, true, 64, true>
 	{
 		static tvec4<T, P> call(tvec4<T, P> const & v)
 		{
@@ -303,7 +303,7 @@ namespace detail
 #	endif
 
 	template <precision P>
-	struct compute_vec4_equal<float, P, false, 32>
+	struct compute_vec4_equal<float, P, false, 32, true>
 	{
 		static bool call(tvec4<float, P> const & v1, tvec4<float, P> const & v2)
 		{
@@ -312,7 +312,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_vec4_equal<int32, P, true, 32>
+	struct compute_vec4_equal<int32, P, true, 32, true>
 	{
 		static bool call(tvec4<int32, P> const & v1, tvec4<int32, P> const & v2)
 		{
@@ -321,7 +321,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_vec4_nequal<float, P, false, 32>
+	struct compute_vec4_nequal<float, P, false, 32, true>
 	{
 		static bool call(tvec4<float, P> const & v1, tvec4<float, P> const & v2)
 		{
@@ -330,7 +330,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_vec4_nequal<int32, P, true, 32>
+	struct compute_vec4_nequal<int32, P, true, 32, true>
 	{
 		static bool call(tvec4<int32, P> const & v1, tvec4<int32, P> const & v2)
 		{
@@ -349,117 +349,117 @@ namespace detail
 #	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, lowp>::tvec4(float s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_lowp>::tvec4(float s) :
 		data(_mm_set1_ps(s))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, mediump>::tvec4(float s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_mediump>::tvec4(float s) :
 		data(_mm_set1_ps(s))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, highp>::tvec4(float s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_highp>::tvec4(float s) :
 		data(_mm_set1_ps(s))
 	{}
 
 #	if GLM_ARCH & GLM_ARCH_AVX_BIT
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<double, lowp>::tvec4(double s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<double, aligned_lowp>::tvec4(double s) :
 		data(_mm256_set1_pd(s))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<double, mediump>::tvec4(double s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<double, aligned_mediump>::tvec4(double s) :
 		data(_mm256_set1_pd(s))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<double, highp>::tvec4(double s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<double, aligned_highp>::tvec4(double s) :
 		data(_mm256_set1_pd(s))
 	{}
 #	endif
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, lowp>::tvec4(int32 s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, aligned_lowp>::tvec4(int32 s) :
 		data(_mm_set1_epi32(s))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, mediump>::tvec4(int32 s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, aligned_mediump>::tvec4(int32 s) :
 		data(_mm_set1_epi32(s))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, highp>::tvec4(int32 s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, aligned_highp>::tvec4(int32 s) :
 		data(_mm_set1_epi32(s))
 	{}
 
 #	if GLM_ARCH & GLM_ARCH_AVX2_BIT
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int64, lowp>::tvec4(int64 s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int64, aligned_lowp>::tvec4(int64 s) :
 		data(_mm256_set1_epi64x(s))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int64, mediump>::tvec4(int64 s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int64, aligned_mediump>::tvec4(int64 s) :
 		data(_mm256_set1_epi64x(s))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int64, highp>::tvec4(int64 s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int64, aligned_highp>::tvec4(int64 s) :
 		data(_mm256_set1_epi64x(s))
 	{}
 #	endif
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, lowp>::tvec4(float a, float b, float c, float d) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_lowp>::tvec4(float a, float b, float c, float d) :
 		data(_mm_set_ps(d, c, b, a))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, mediump>::tvec4(float a, float b, float c, float d) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_mediump>::tvec4(float a, float b, float c, float d) :
 		data(_mm_set_ps(d, c, b, a))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, highp>::tvec4(float a, float b, float c, float d) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_highp>::tvec4(float a, float b, float c, float d) :
 		data(_mm_set_ps(d, c, b, a))
 	{}
 
 	template <>
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, lowp>::tvec4(int32 a, int32 b, int32 c, int32 d) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, aligned_lowp>::tvec4(int32 a, int32 b, int32 c, int32 d) :
 		data(_mm_set_epi32(d, c, b, a))
 	{}
 
 	template <>
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, mediump>::tvec4(int32 a, int32 b, int32 c, int32 d) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, aligned_mediump>::tvec4(int32 a, int32 b, int32 c, int32 d) :
 		data(_mm_set_epi32(d, c, b, a))
 	{}
 
 	template <>
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, highp>::tvec4(int32 a, int32 b, int32 c, int32 d) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, aligned_highp>::tvec4(int32 a, int32 b, int32 c, int32 d) :
 		data(_mm_set_epi32(d, c, b, a))
 	{}
 /*
 	template <>
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, lowp>::tvec4(int32 a, int32 b, int32 c, int32 d) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_lowp>::tvec4(int32 a, int32 b, int32 c, int32 d) :
 		data(_mm_castsi128_ps(_mm_set_epi32(d, c, b, a)))
 	{}
 
 	template <>
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, mediump>::tvec4(int32 a, int32 b, int32 c, int32 d) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_mediump>::tvec4(int32 a, int32 b, int32 c, int32 d) :
 		data(_mm_castsi128_ps(_mm_set_epi32(d, c, b, a)))
 	{}
 
 	template <>
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, highp>::tvec4(int32 a, int32 b, int32 c, int32 d) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_highp>::tvec4(int32 a, int32 b, int32 c, int32 d) :
 		data(_mm_castsi128_ps(_mm_set_epi32(d, c, b, a)))
 	{}
 */

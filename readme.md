@@ -63,6 +63,8 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added missing bvec* && and || operators
 - Added iround and uround to GTC_integer, fast round on positive values
 - Added raw SIMD API
+- Added 'aligned' qualifiers
+- Added GTC_type_aligned with aligned *vec* types
 
 ##### Improvements:
 - Improved SIMD and swizzle operators interactions with GCC and Clang #474

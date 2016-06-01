@@ -138,7 +138,7 @@ namespace detail
 			return IsNotNull ? int(Result) : -1;
 		}
 
-		template <typename T, glm::precision P, template <class, glm::precision> class vecType>
+		template <typename T, glm::precision P, template<typename, glm::precision> class vecType>
 		struct compute_findMSB_vec<T, P, vecType, 32>
 		{
 			GLM_FUNC_QUALIFIER static vecType<int, P> call(vecType<T, P> const & x)

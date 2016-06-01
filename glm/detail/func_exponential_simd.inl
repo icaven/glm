@@ -9,7 +9,7 @@ namespace glm{
 namespace detail
 {
 	template <precision P>
-	struct compute_sqrt<tvec4, float, P>
+	struct compute_sqrt<tvec4, float, P, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & v)
 		{
@@ -20,11 +20,11 @@ namespace detail
 	};
 
 	template <>
-	struct compute_sqrt<tvec4, float, lowp>
+	struct compute_sqrt<tvec4, float, aligned_lowp, true>
 	{
-		GLM_FUNC_QUALIFIER static tvec4<float, lowp> call(tvec4<float, lowp> const & v)
+		GLM_FUNC_QUALIFIER static tvec4<float, aligned_lowp> call(tvec4<float, aligned_lowp> const & v)
 		{
-			tvec4<float, lowp> result(uninitialize);
+			tvec4<float, aligned_lowp> result(uninitialize);
 			result.data = glm_vec4_sqrt_lowp(v.data);
 			return result;
 		}

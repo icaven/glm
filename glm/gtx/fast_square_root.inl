@@ -23,17 +23,17 @@ namespace glm
 	GLM_FUNC_QUALIFIER genType fastInverseSqrt(genType x)
 	{
 #		ifdef __CUDACC__ // Wordaround for a CUDA compiler bug up to CUDA6
-			tvec1<T, P> tmp(detail::compute_inversesqrt<tvec1, genType, lowp>::call(tvec1<genType, lowp>(x)));
+			tvec1<T, P> tmp(detail::compute_inversesqrt<tvec1, genType, lowp, detail::is_aligned<lowp>::value>::call(tvec1<genType, lowp>(x)));
 			return tmp.x;
 #		else
-			return detail::compute_inversesqrt<tvec1, genType, lowp>::call(tvec1<genType, lowp>(x)).x;
+			return detail::compute_inversesqrt<tvec1, genType, highp, detail::is_aligned<highp>::value>::call(tvec1<genType, lowp>(x)).x;
 #		endif
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<T, P> fastInverseSqrt(vecType<T, P> const & x)
 	{
-		return detail::compute_inversesqrt<vecType, T, P>::call(x);
+		return detail::compute_inversesqrt<vecType, T, P, detail::is_aligned<P>::value>::call(x);
 	}
 
 	// fastLength

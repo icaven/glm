@@ -9,7 +9,7 @@ namespace glm{
 namespace detail
 {
 	template <precision P>
-	struct compute_length<tvec4, float, P>
+	struct compute_length<tvec4, float, P, true>
 	{
 		GLM_FUNC_QUALIFIER static float call(tvec4<float, P> const & v)
 		{
@@ -18,7 +18,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_distance<tvec4, float, P>
+	struct compute_distance<tvec4, float, P, true>
 	{
 		GLM_FUNC_QUALIFIER static float call(tvec4<float, P> const & p0, tvec4<float, P> const & p1)
 		{
@@ -27,7 +27,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_dot<tvec4, float, P>
+	struct compute_dot<tvec4, float, P, true>
 	{
 		GLM_FUNC_QUALIFIER static float call(tvec4<float, P> const& x, tvec4<float, P> const& y)
 		{
@@ -36,7 +36,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_cross<float, P>
+	struct compute_cross<float, P, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec3<float, P> call(tvec3<float, P> const & a, tvec3<float, P> const & b)
 		{
@@ -51,7 +51,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_normalize<float, P, tvec4>
+	struct compute_normalize<float, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & v)
 		{
@@ -62,7 +62,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_faceforward<float, P, tvec4>
+	struct compute_faceforward<float, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const& N, tvec4<float, P> const& I, tvec4<float, P> const& Nref)
 		{
@@ -73,7 +73,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_reflect<float, P, tvec4>
+	struct compute_reflect<float, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const& I, tvec4<float, P> const& N)
 		{
@@ -84,7 +84,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_refract<float, P, tvec4>
+	struct compute_refract<float, P, tvec4, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const& I, tvec4<float, P> const& N, float eta)
 		{
