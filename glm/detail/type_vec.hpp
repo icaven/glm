@@ -10,7 +10,7 @@ namespace glm{
 namespace detail
 {
 	template <typename T, std::size_t size, bool aligned>
-	struct simd_data
+	struct storage
 	{
 		typedef struct type {
 			uint8 data[size];
@@ -18,7 +18,7 @@ namespace detail
 	};
 
 	template <typename T, std::size_t size>
-	struct simd_data<T, size, true>
+	struct storage<T, size, true>
 	{
 		typedef GLM_ALIGNED_STRUCT(size) type {
 			uint8 data[size];
@@ -27,19 +27,19 @@ namespace detail
 
 #	if GLM_ARCH & GLM_ARCH_SSE2_BIT
 		template <>
-		struct simd_data<float, 16, true>
+		struct storage<float, 16, true>
 		{
 			typedef glm_vec4 type;
 		};
 
 		template <>
-		struct simd_data<int, 16, true>
+		struct storage<int, 16, true>
 		{
 			typedef glm_ivec4 type;
 		};
 
 		template <>
-		struct simd_data<unsigned int, 16, true>
+		struct storage<unsigned int, 16, true>
 		{
 			typedef glm_uvec4 type;
 		};
@@ -47,7 +47,7 @@ namespace detail
 
 #	if (GLM_ARCH & GLM_ARCH_AVX_BIT)
 		template <>
-		struct simd_data<double, 32, true>
+		struct storage<double, 32, true>
 		{
 			typedef glm_dvec4 type;
 		};
@@ -55,13 +55,13 @@ namespace detail
 
 #	if (GLM_ARCH & GLM_ARCH_AVX2_BIT)
 		template <>
-		struct simd_data<int64, 32, true>
+		struct storage<int64, 32, true>
 		{
 			typedef glm_i64vec4 type;
 		};
 
 		template <>
-		struct simd_data<uint64, 32, true>
+		struct storage<uint64, 32, true>
 		{
 			typedef glm_u64vec4 type;
 		};

@@ -34,7 +34,7 @@ namespace glm
 				struct { T r, g, b, a; };
 				struct { T s, t, p, q; };
 
-				typename detail::simd_data<T, sizeof(T) * 4, detail::is_aligned<P>::value>::type data;
+				typename detail::storage<T, sizeof(T) * 4, detail::is_aligned<P>::value>::type data;
 
 #				ifdef GLM_SWIZZLE
 					_GLM_SWIZZLE4_2_MEMBERS(T, P, glm::tvec2, x, y, z, w)

@@ -52,6 +52,37 @@ struct my_u8vec4_packed
 };
 GLM_STATIC_ASSERT(sizeof(my_u8vec4_packed) == sizeof(glm::uint32) + sizeof(glm::u8vec4), "glm::u8vec4 packed is not correct");
 
+int test_copy()
+{
+	int Error = 0;
+
+	{
+		glm::aligned_ivec4 const a(1);
+		glm::ivec4 const u(a);
+
+		Error += a.x == u.x ? 0 : 1;
+		Error += a.y == u.y ? 0 : 1;
+		Error += a.z == u.z ? 0 : 1;
+		Error += a.w == u.w ? 0 : 1;
+	}
+
+	{
+		my_ivec4_aligned a;
+		a.b = glm::ivec4(1);
+
+		my_ivec4_packed u;
+		u.b = glm::ivec4(1);
+
+		Error += a.b.x == u.b.x ? 0 : 1;
+		Error += a.b.y == u.b.y ? 0 : 1;
+		Error += a.b.z == u.b.z ? 0 : 1;
+		Error += a.b.w == u.b.w ? 0 : 1;
+	}
+
+	return Error;
+}
+
+
 int main()
 {
 	int Error = 0;
