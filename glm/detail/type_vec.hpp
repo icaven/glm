@@ -16,7 +16,7 @@ namespace detail
 			uint8 data[size];
 		} type;
 	};
-
+/*
 	template <typename T, std::size_t size>
 	struct storage<T, size, true>
 	{
@@ -24,7 +24,7 @@ namespace detail
 			uint8 data[size];
 		} type;
 	};
-
+*/
 #	if GLM_ARCH & GLM_ARCH_SSE2_BIT
 		template <>
 		struct storage<float, 16, true>

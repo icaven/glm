@@ -57,7 +57,7 @@ int test_copy()
 	int Error = 0;
 
 	{
-		glm::aligned_ivec4 const a(1);
+		glm::aligned_ivec4 const a(1, 2, 3, 4);
 		glm::ivec4 const u(a);
 
 		Error += a.x == u.x ? 0 : 1;
@@ -68,10 +68,10 @@ int test_copy()
 
 	{
 		my_ivec4_aligned a;
-		a.b = glm::ivec4(1);
+		a.b = glm::ivec4(1, 2, 3, 4);
 
 		my_ivec4_packed u;
-		u.b = glm::ivec4(1);
+		u.b = a.b;
 
 		Error += a.b.x == u.b.x ? 0 : 1;
 		Error += a.b.y == u.b.y ? 0 : 1;
