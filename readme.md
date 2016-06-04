@@ -55,6 +55,9 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 ##### Improvements:
 - Added pkg-config file #509
 
+##### Fixes:
+- Fixed STL for C++11 detection on ICC #510
+
 #### [GLM 0.9.7.5](https://github.com/g-truc/glm/releases/tag/0.9.7.5) - 2016-05-24
 ##### Improvements:
 - Added Visual C++ Clang toolset detection
