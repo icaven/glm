@@ -1,6 +1,3 @@
-/// @file test/core/func_exponential.cpp
-/// @date 2011-01-15 / 2011-09-13
-
 #include <glm/common.hpp>
 #include <glm/exponential.hpp>
 #include <glm/gtc/ulp.hpp>

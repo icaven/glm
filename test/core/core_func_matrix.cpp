@@ -1,6 +1,3 @@
-/// @file test/core/func_matrix.cpp
-/// @date 2007-01-25 / 2011-06-07
-
 #include <glm/matrix.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/ulp.hpp>

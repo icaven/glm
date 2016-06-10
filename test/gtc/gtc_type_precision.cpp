@@ -1,5 +1,3 @@
-/// @file test/gtc/gtc_type_precision.cpp
-
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtc/quaternion.hpp>
 #include <vector>

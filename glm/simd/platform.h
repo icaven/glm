@@ -68,7 +68,7 @@
 #	else
 #		pragma message("GLM: platform not detected")
 #	endif
-#endif//GLM_MESSAGE
+#endif//GLM_MESSAGES
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Compiler

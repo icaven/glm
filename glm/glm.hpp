@@ -63,7 +63,7 @@
 #if(defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_CORE_INCLUDED_DISPLAYED))
 #	define GLM_MESSAGE_CORE_INCLUDED_DISPLAYED
 #	pragma message("GLM: Core library included")
-#endif//GLM_MESSAGE
+#endif//GLM_MESSAGES
 
 #include "vec2.hpp"
 #include "vec3.hpp"
