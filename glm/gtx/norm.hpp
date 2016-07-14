@@ -14,7 +14,7 @@
 #pragma once
 
 // Dependency:
-#include "../glm.hpp"
+#include "../detail/func_geometric.hpp"
 #include "../gtx/quaternion.hpp"
 
 #if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
