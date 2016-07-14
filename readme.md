@@ -65,6 +65,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added raw SIMD API
 - Added 'aligned' qualifiers
 - Added GTC_type_aligned with aligned *vec* types
+- Added GTC_functions extension
 
 ##### Improvements:
 - Improved SIMD and swizzle operators interactions with GCC and Clang #474
