@@ -57,7 +57,7 @@ namespace glm
 #			ifdef GLM_SWIZZLE
 				GLM_SWIZZLE_GEN_VEC_FROM_VEC4(T, P, tvec4, tvec2, tvec3, tvec4)
 #			endif//GLM_SWIZZLE
-#		endif//GLM_LANG
+#		endif
 
 		// -- Component accesses --
 

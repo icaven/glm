@@ -40,7 +40,15 @@ namespace glm
 
 		// -- Data --
 
-		T x, y, z, w;
+#		if GLM_HAS_UNRESTRICTED_UNIONS
+			union
+			{
+				struct { T x, y, z, w;};
+				typename detail::storage<T, sizeof(T) * 4, detail::is_aligned<P>::value>::type data;
+			};
+#		else
+			T x, y, z, w;
+#		endif
 
 		// -- Component accesses --
 
@@ -96,6 +104,8 @@ namespace glm
 		GLM_FUNC_DECL tquat<T, P> & operator=(tquat<U, P> const & m);
 		template <typename U>
 		GLM_FUNC_DECL tquat<T, P> & operator+=(tquat<U, P> const & q);
+		template <typename U>
+		GLM_FUNC_DECL tquat<T, P> & operator-=(tquat<U, P> const & q);
 		template <typename U>
 		GLM_FUNC_DECL tquat<T, P> & operator*=(tquat<U, P> const & q);
 		template <typename U>

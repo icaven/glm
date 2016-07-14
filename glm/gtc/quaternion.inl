@@ -12,10 +12,55 @@ namespace detail
 	template <typename T, precision P, bool Aligned>
 	struct compute_dot<tquat, T, P, Aligned>
 	{
-		static GLM_FUNC_QUALIFIER T call(tquat<T, P> const & x, tquat<T, P> const & y)
+		static GLM_FUNC_QUALIFIER T call(tquat<T, P> const& x, tquat<T, P> const& y)
 		{
 			tvec4<T, P> tmp(x.x * y.x, x.y * y.y, x.z * y.z, x.w * y.w);
 			return (tmp.x + tmp.y) + (tmp.z + tmp.w);
+		}
+	};
+
+	template <typename T, precision P, bool Aligned>
+	struct compute_quat_add
+	{
+		static tquat<T, P> call(tquat<T, P> const& q, tquat<T, P> const& p)
+		{
+			return tquat<T, P>(q.w + p.w, q.x + p.x, q.y + p.y, q.z + p.z);
+		}
+	};
+
+	template <typename T, precision P, bool Aligned>
+	struct compute_quat_sub
+	{
+		static tquat<T, P> call(tquat<T, P> const& q, tquat<T, P> const& p)
+		{
+			return tquat<T, P>(q.w - p.w, q.x - p.x, q.y - p.y, q.z - p.z);
+		}
+	};
+
+	template <typename T, precision P, bool Aligned>
+	struct compute_quat_mul_scalar
+	{
+		static tquat<T, P> call(tquat<T, P> const& q, T s)
+		{
+			return tquat<T, P>(q.w * s, q.x * s, q.y * s, q.z * s);
+		}
+	};
+
+	template <typename T, precision P, bool Aligned>
+	struct compute_quat_div_scalar
+	{
+		static tquat<T, P> call(tquat<T, P> const& q, T s)
+		{
+			return tquat<T, P>(q.w / s, q.x / s, q.y / s, q.z / s);
+		}
+	};
+
+	template <typename T, precision P, bool Aligned>
+	struct compute_quat_mul_vec4
+	{
+		static tvec4<T, P> call(tquat<T, P> const & q, tvec4<T, P> const & v)
+		{
+			return tvec4<T, P>(q * tvec3<T, P>(v), v.w);
 		}
 	};
 }//namespace detail
@@ -198,13 +243,16 @@ namespace detail
 
 	template <typename T, precision P>
 	template <typename U>
-	GLM_FUNC_QUALIFIER tquat<T, P> & tquat<T, P>::operator+=(tquat<U, P> const & q)
+	GLM_FUNC_QUALIFIER tquat<T, P> & tquat<T, P>::operator+=(tquat<U, P> const& q)
 	{
-		this->w += static_cast<T>(q.w);
-		this->x += static_cast<T>(q.x);
-		this->y += static_cast<T>(q.y);
-		this->z += static_cast<T>(q.z);
-		return *this;
+		return (*this = detail::compute_quat_add<T, P, detail::is_aligned<P>::value>::call(*this, tquat<T, P>(q)));
+	}
+
+	template <typename T, precision P>
+	template <typename U>
+	GLM_FUNC_QUALIFIER tquat<T, P> & tquat<T, P>::operator-=(tquat<U, P> const& q)
+	{
+		return (*this = detail::compute_quat_sub<T, P, detail::is_aligned<P>::value>::call(*this, tquat<T, P>(q)));
 	}
 
 	template <typename T, precision P>
@@ -225,22 +273,14 @@ namespace detail
 	template <typename U>
 	GLM_FUNC_QUALIFIER tquat<T, P> & tquat<T, P>::operator*=(U s)
 	{
-		this->w *= static_cast<U>(s);
-		this->x *= static_cast<U>(s);
-		this->y *= static_cast<U>(s);
-		this->z *= static_cast<U>(s);
-		return *this;
+		return (*this = detail::compute_quat_mul_scalar<T, P, detail::is_aligned<P>::value>::call(*this, static_cast<U>(s)));
 	}
 
 	template <typename T, precision P>
 	template <typename U>
 	GLM_FUNC_QUALIFIER tquat<T, P> & tquat<T, P>::operator/=(U s)
 	{
-		this->w /= static_cast<U>(s);
-		this->x /= static_cast<U>(s);
-		this->y /= static_cast<U>(s);
-		this->z /= static_cast<U>(s);
-		return *this;
+		return (*this = detail::compute_quat_div_scalar<T, P, detail::is_aligned<P>::value>::call(*this, static_cast<U>(s)));
 	}
 
 	// -- Unary bit operators --
@@ -288,9 +328,9 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> operator*(tquat<T, P> const & q,	tvec4<T, P> const & v)
+	GLM_FUNC_QUALIFIER tvec4<T, P> operator*(tquat<T, P> const& q, tvec4<T, P> const& v)
 	{
-		return tvec4<T, P>(q * tvec3<T, P>(v), v.w);
+		return detail::compute_quat_mul_vec4<T, P, detail::is_aligned<P>::value>::call(q, v);
 	}
 
 	template <typename T, precision P>
@@ -738,3 +778,8 @@ namespace detail
 		return Result;
 	}
 }//namespace glm
+
+#if GLM_ARCH != GLM_ARCH_PURE && GLM_HAS_UNRESTRICTED_UNIONS
+#	include "quaternion_simd.inl"
+#endif
+
