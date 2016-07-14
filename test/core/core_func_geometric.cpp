@@ -87,6 +87,13 @@ namespace normalize
 		glm::vec3 Normalize1 = glm::normalize(glm::vec3(1, 0, 0));
 		glm::vec3 Normalize2 = glm::normalize(glm::vec3(2, 0, 0));
 
+		glm::vec3 Normalize3 = glm::normalize(glm::vec3(-0.6, 0.7, -0.5));
+
+		glm::vec3 ro = glm::vec3(glm::cos(5.f) * 3.f, 2.f, glm::sin(5.f) * 3.f);
+		glm::vec3 w = glm::normalize(glm::vec3(0, -0.2f, 0) - ro);
+		glm::vec3 u = glm::normalize(glm::cross(w, glm::vec3(0, 1, 0)));
+		glm::vec3 v = glm::cross(u, w);
+
 		int Error = 0;
 
 		Error += glm::all(glm::lessThan(glm::abs(Normalize1 - glm::vec3(1, 0, 0)), glm::vec3(std::numeric_limits<float>::epsilon()))) ? 0 : 1;
