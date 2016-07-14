@@ -6,7 +6,7 @@
 namespace glm{
 namespace detail
 {
-	template <template <typename, precision> class vecType, typename T, precision P>
+	template <template <typename, precision> class vecType, typename T, precision P, bool Aligned>
 	struct compute_length2
 	{
 		GLM_FUNC_QUALIFIER static T call(vecType<T, P> const & v)
@@ -27,7 +27,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER T length2(vecType<T, P> const & v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'length2' accepts only floating-point inputs");
-		return detail::compute_length2<vecType, T, P>::call(v);
+		return detail::compute_length2<vecType, T, P, detail::is_aligned<P>::value>::call(v);
 	}
 
 	template <typename T>
