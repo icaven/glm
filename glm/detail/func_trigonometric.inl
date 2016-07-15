@@ -165,7 +165,7 @@ namespace glm
 #	if GLM_HAS_CXX11_STL
 		using std::asinh;
 #	else
-		template <typename genType> 
+		template <typename genType>
 		GLM_FUNC_QUALIFIER genType asinh(genType const & x)
 		{
 			GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'asinh' only accept floating-point input");

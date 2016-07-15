@@ -59,6 +59,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed STL for C++11 detection on ICC #510
 - Fixed missing vec1 overload to length2 and distance2 functions #431
 - Fixed long long warnings when using C++98 on GCC and Clang #482
+- Fixed scalar reciprocal functions (GTC_reciprocal) #520
 
 #### [GLM 0.9.7.5](https://github.com/g-truc/glm/releases/tag/0.9.7.5) - 2016-05-24
 ##### Improvements:
