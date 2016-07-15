@@ -28,7 +28,7 @@
 #		pragma message("GLM: CUDA compiler detected")
 #	elif GLM_COMPILER & GLM_COMPILER_VC
 #		pragma message("GLM: Visual C++ compiler detected")
-#	elif GLM_COMPILER & GLM_COMPILER_LLVM
+#	elif GLM_COMPILER & GLM_COMPILER_CLANG
 #		pragma message("GLM: Clang compiler detected")
 #	elif GLM_COMPILER & GLM_COMPILER_INTEL
 #		pragma message("GLM: Intel Compiler detected")
@@ -134,14 +134,14 @@
 #elif defined(GLM_FORCE_CXX98)
 #	define GLM_LANG GLM_LANG_CXX98
 #else
-#	if GLM_COMPILER & GLM_COMPILER_LLVM
-#		if __cplusplus >= 201402L // GLM_COMPILER_LLVM34 + -std=c++14
+#	if GLM_COMPILER & GLM_COMPILER_CLANG
+#		if __cplusplus >= 201402L // GLM_COMPILER_CLANG34 + -std=c++14
 #			define GLM_LANG GLM_LANG_CXX14
-#		elif __has_feature(cxx_decltype_auto) && __has_feature(cxx_aggregate_nsdmi) // GLM_COMPILER_LLVM33 + -std=c++1y
+#		elif __has_feature(cxx_decltype_auto) && __has_feature(cxx_aggregate_nsdmi) // GLM_COMPILER_CLANG33 + -std=c++1y
 #			define GLM_LANG GLM_LANG_CXX1Y
-#		elif __cplusplus >= 201103L // GLM_COMPILER_LLVM33 + -std=c++11
+#		elif __cplusplus >= 201103L // GLM_COMPILER_CLANG33 + -std=c++11
 #			define GLM_LANG GLM_LANG_CXX11
-#		elif __has_feature(cxx_static_assert) // GLM_COMPILER_LLVM29 + -std=c++11
+#		elif __has_feature(cxx_static_assert) // GLM_COMPILER_CLANG29 + -std=c++11
 #			define GLM_LANG GLM_LANG_CXX0X
 #		elif __cplusplus >= 199711L
 #			define GLM_LANG GLM_LANG_CXX98
@@ -263,15 +263,8 @@
 // http://gcc.gnu.org/projects/cxx0x.html
 // http://msdn.microsoft.com/en-us/library/vstudio/hh567368(v=vs.120).aspx
 
-#if GLM_PLATFORM == GLM_PLATFORM_ANDROID || GLM_PLATFORM == GLM_PLATFORM_CYGWIN
-#	define GLM_HAS_CXX11_STL 0
-#elif GLM_COMPILER & GLM_COMPILER_LLVM
-#	if __has_include(<__config>) // libc++
-#		include <__config>
-//#	else // libstdc++
-//#		include <bits/c++config.h>
-#	endif
-#	if defined(_LIBCPP_VERSION)// || defined(__GLIBCXX__)
+#if GLM_COMPILER & (GLM_COMPILER_CLANG | GLM_COMPILER_APPLE_CLANG)
+#	if defined(_LIBCPP_VERSION) && GLM_LANG & GLM_LANG_CXX11_FLAG
 #		define GLM_HAS_CXX11_STL 1
 #	else
 #		define GLM_HAS_CXX11_STL 0
@@ -284,7 +277,7 @@
 #endif
 
 // N1720
-#if GLM_COMPILER & GLM_COMPILER_LLVM
+#if GLM_COMPILER & GLM_COMPILER_CLANG
 #	define GLM_HAS_STATIC_ASSERT __has_feature(cxx_static_assert)
 #elif GLM_LANG & GLM_LANG_CXX11_FLAG
 #	define GLM_HAS_STATIC_ASSERT 1
@@ -303,11 +296,11 @@
 		((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC2012)) || \
 		((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_CUDA)) || \
 		((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC43)) || \
-		((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_LLVM) && (GLM_COMPILER >= GLM_COMPILER_LLVM30)))
+		((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_COMPILER >= GLM_COMPILER_CLANG30)))
 #endif
 
 // N2235
-#if GLM_COMPILER & GLM_COMPILER_LLVM
+#if GLM_COMPILER & GLM_COMPILER_CLANG
 #	define GLM_HAS_CONSTEXPR __has_feature(cxx_constexpr)
 #	define GLM_HAS_CONSTEXPR_PARTIAL GLM_HAS_CONSTEXPR
 #elif GLM_LANG & GLM_LANG_CXX11_FLAG
@@ -320,7 +313,7 @@
 #endif
 
 // N2672
-#if GLM_COMPILER & GLM_COMPILER_LLVM
+#if GLM_COMPILER & GLM_COMPILER_CLANG
 #	define GLM_HAS_INITIALIZER_LISTS __has_feature(cxx_generalized_initializers)
 #elif GLM_LANG & GLM_LANG_CXX11_FLAG
 #	define GLM_HAS_INITIALIZER_LISTS 1
@@ -332,7 +325,7 @@
 #endif
 
 // N2544 Unrestricted unions http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2544.pdf
-#if GLM_COMPILER & GLM_COMPILER_LLVM
+#if GLM_COMPILER & GLM_COMPILER_CLANG
 #	define GLM_HAS_UNRESTRICTED_UNIONS __has_feature(cxx_unrestricted_unions)
 #elif GLM_LANG & (GLM_LANG_CXX11_FLAG | GLM_LANG_CXXMS_FLAG)
 #	define GLM_HAS_UNRESTRICTED_UNIONS 1
@@ -344,7 +337,7 @@
 #endif
 
 // N2346
-#if GLM_COMPILER & GLM_COMPILER_LLVM
+#if GLM_COMPILER & GLM_COMPILER_CLANG
 #	define GLM_HAS_DEFAULTED_FUNCTIONS __has_feature(cxx_defaulted_functions)
 #elif GLM_LANG & GLM_LANG_CXX11_FLAG
 #	define GLM_HAS_DEFAULTED_FUNCTIONS 1
@@ -357,7 +350,7 @@
 #endif
 
 // N2118
-#if GLM_COMPILER & GLM_COMPILER_LLVM
+#if GLM_COMPILER & GLM_COMPILER_CLANG
 #	define GLM_HAS_RVALUE_REFERENCES __has_feature(cxx_rvalue_references)
 #elif GLM_LANG & GLM_LANG_CXX11_FLAG
 #	define GLM_HAS_RVALUE_REFERENCES 1
@@ -369,7 +362,7 @@
 #endif
 
 // N2437 http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2437.pdf
-#if GLM_COMPILER & GLM_COMPILER_LLVM
+#if GLM_COMPILER & GLM_COMPILER_CLANG
 #	define GLM_HAS_EXPLICIT_CONVERSION_OPERATORS __has_feature(cxx_explicit_conversions)
 #elif GLM_LANG & GLM_LANG_CXX11_FLAG
 #	define GLM_HAS_EXPLICIT_CONVERSION_OPERATORS 1
@@ -382,7 +375,7 @@
 #endif
 
 // N2258 http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2258.pdf
-#if GLM_COMPILER & GLM_COMPILER_LLVM
+#if GLM_COMPILER & GLM_COMPILER_CLANG
 #	define GLM_HAS_TEMPLATE_ALIASES __has_feature(cxx_alias_templates)
 #elif GLM_LANG & GLM_LANG_CXX11_FLAG
 #	define GLM_HAS_TEMPLATE_ALIASES 1
@@ -395,7 +388,7 @@
 #endif
 
 // N2930 http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2009/n2930.html
-#if GLM_COMPILER & GLM_COMPILER_LLVM
+#if GLM_COMPILER & GLM_COMPILER_CLANG
 #	define GLM_HAS_RANGE_FOR __has_feature(cxx_range_for)
 #elif GLM_LANG & GLM_LANG_CXX11_FLAG
 #	define GLM_HAS_RANGE_FOR 1
@@ -450,8 +443,8 @@
 #		else
 #			define GLM_HAS_OPENMP 0
 #		endif
-#	elif GLM_COMPILER & GLM_COMPILER_LLVM
-#		if GLM_COMPILER >= GLM_COMPILER_LLVM38
+#	elif GLM_COMPILER & GLM_COMPILER_CLANG
+#		if GLM_COMPILER >= GLM_COMPILER_CLANG38
 #			define GLM_HAS_OPENMP 31
 #		else
 #			define GLM_HAS_OPENMP 0
@@ -510,7 +503,7 @@
 #	if GLM_COMPILER & GLM_COMPILER_VC
 #		define GLM_INLINE __forceinline
 #		define GLM_NEVER_INLINE __declspec((noinline))
-#	elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_LLVM)
+#	elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG)
 #		define GLM_INLINE inline __attribute__((__always_inline__))
 #		define GLM_NEVER_INLINE __attribute__((__noinline__))
 #	elif GLM_COMPILER & GLM_COMPILER_CUDA
@@ -590,15 +583,15 @@
 #	else
 #		define GLM_VECTOR_CALL
 #	endif
-#elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_LLVM | GLM_COMPILER_CUDA | GLM_COMPILER_INTEL)
+#elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG | GLM_COMPILER_CUDA | GLM_COMPILER_INTEL)
 #	define GLM_DEPRECATED __attribute__((__deprecated__))
 #	define GLM_ALIGN(x) __attribute__((aligned(x)))
 #	define GLM_ALIGNED_STRUCT(x) struct __attribute__((aligned(x)))
 #	define GLM_ALIGNED_TYPEDEF(type, name, alignment) typedef type name __attribute__((aligned(alignment)))
 #	define GLM_RESTRICT_FUNC __restrict__
 #	define GLM_RESTRICT __restrict__
-#	if GLM_COMPILER & GLM_COMPILER_LLVM
-#		if GLM_COMPILER >= GLM_COMPILER_LLVM37
+#	if GLM_COMPILER & GLM_COMPILER_CLANG
+#		if GLM_COMPILER >= GLM_COMPILER_CLANG37
 #			define GLM_VECTOR_CALL __vectorcall
 #		else
 #			define GLM_VECTOR_CALL

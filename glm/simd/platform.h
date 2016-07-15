@@ -103,7 +103,14 @@
 #define GLM_COMPILER_GCC51			0x02000300
 #define GLM_COMPILER_GCC52			0x02000400
 #define GLM_COMPILER_GCC53			0x02000500
-#define GLM_COMPILER_GCC60			0x02000600
+#define GLM_COMPILER_GCC54			0x02000600
+#define GLM_COMPILER_GCC60			0x02000700
+#define GLM_COMPILER_GCC61			0x02000800
+#define GLM_COMPILER_GCC62			0x02000900
+#define GLM_COMPILER_GCC70			0x02000A00
+#define GLM_COMPILER_GCC71			0x02000B00
+#define GLM_COMPILER_GCC72			0x02000C00
+#define GLM_COMPILER_GCC80			0x02000D00
 
 // CUDA
 #define GLM_COMPILER_CUDA			0x10000000
@@ -115,17 +122,18 @@
 #define GLM_COMPILER_CUDA65			0x10000090
 #define GLM_COMPILER_CUDA70			0x100000A0
 #define GLM_COMPILER_CUDA75			0x100000B0
+#define GLM_COMPILER_CUDA80			0x100000C0
 
-// LLVM
-#define GLM_COMPILER_LLVM			0x20000000
-#define GLM_COMPILER_LLVM32			0x20000030
-#define GLM_COMPILER_LLVM33			0x20000040
-#define GLM_COMPILER_LLVM34			0x20000050
-#define GLM_COMPILER_LLVM35			0x20000060
-#define GLM_COMPILER_LLVM36			0x20000070
-#define GLM_COMPILER_LLVM37			0x20000080
-#define GLM_COMPILER_LLVM38			0x20000090
-#define GLM_COMPILER_LLVM39			0x200000A0
+// Clang
+#define GLM_COMPILER_CLANG			0x20000000
+#define GLM_COMPILER_CLANG32			0x20000030
+#define GLM_COMPILER_CLANG33			0x20000040
+#define GLM_COMPILER_CLANG34			0x20000050
+#define GLM_COMPILER_CLANG35			0x20000060
+#define GLM_COMPILER_CLANG36			0x20000070
+#define GLM_COMPILER_CLANG37			0x20000080
+#define GLM_COMPILER_CLANG38			0x20000090
+#define GLM_COMPILER_CLANG39			0x200000A0
 
 // Build model
 #define GLM_MODEL_32				0x00000010
@@ -167,43 +175,43 @@
 #elif defined(__clang__)
 #	if GLM_PLATFORM & GLM_PLATFORM_APPLE
 #		if __clang_major__ == 5 && __clang_minor__ == 0
-#			define GLM_COMPILER GLM_COMPILER_LLVM33
+#			define GLM_COMPILER GLM_COMPILER_CLANG33
 #		elif __clang_major__ == 5 && __clang_minor__ == 1
-#			define GLM_COMPILER GLM_COMPILER_LLVM34
+#			define GLM_COMPILER GLM_COMPILER_CLANG34
 #		elif __clang_major__ == 6 && __clang_minor__ == 0
-#			define GLM_COMPILER GLM_COMPILER_LLVM35
+#			define GLM_COMPILER GLM_COMPILER_CLANG35
 #		elif __clang_major__ == 6 && __clang_minor__ >= 1
-#			define GLM_COMPILER GLM_COMPILER_LLVM36
+#			define GLM_COMPILER GLM_COMPILER_CLANG36
 #		elif __clang_major__ >= 7
-#			define GLM_COMPILER GLM_COMPILER_LLVM37
+#			define GLM_COMPILER GLM_COMPILER_CLANG37
 #		else
-#			define GLM_COMPILER GLM_COMPILER_LLVM
+#			define GLM_COMPILER GLM_COMPILER_CLANG
 #		endif
 #	else
 #		if __clang_major__ == 3 && __clang_minor__ == 0
-#			define GLM_COMPILER GLM_COMPILER_LLVM30
+#			define GLM_COMPILER GLM_COMPILER_CLANG30
 #		elif __clang_major__ == 3 && __clang_minor__ == 1
-#			define GLM_COMPILER GLM_COMPILER_LLVM31
+#			define GLM_COMPILER GLM_COMPILER_CLANG31
 #		elif __clang_major__ == 3 && __clang_minor__ == 2
-#			define GLM_COMPILER GLM_COMPILER_LLVM32
+#			define GLM_COMPILER GLM_COMPILER_CLANG32
 #		elif __clang_major__ == 3 && __clang_minor__ == 3
-#			define GLM_COMPILER GLM_COMPILER_LLVM33
+#			define GLM_COMPILER GLM_COMPILER_CLANG33
 #		elif __clang_major__ == 3 && __clang_minor__ == 4
-#			define GLM_COMPILER GLM_COMPILER_LLVM34
+#			define GLM_COMPILER GLM_COMPILER_CLANG34
 #		elif __clang_major__ == 3 && __clang_minor__ == 5
-#			define GLM_COMPILER GLM_COMPILER_LLVM35
+#			define GLM_COMPILER GLM_COMPILER_CLANG35
 #		elif __clang_major__ == 3 && __clang_minor__ == 6
-#			define GLM_COMPILER GLM_COMPILER_LLVM36
+#			define GLM_COMPILER GLM_COMPILER_CLANG36
 #		elif __clang_major__ == 3 && __clang_minor__ == 7
-#			define GLM_COMPILER GLM_COMPILER_LLVM37
+#			define GLM_COMPILER GLM_COMPILER_CLANG37
 #		elif __clang_major__ == 3 && __clang_minor__ == 8
-#			define GLM_COMPILER GLM_COMPILER_LLVM38
+#			define GLM_COMPILER GLM_COMPILER_CLANG38
 #		elif __clang_major__ == 3 && __clang_minor__ >= 9
-#			define GLM_COMPILER GLM_COMPILER_LLVM39
+#			define GLM_COMPILER GLM_COMPILER_CLANG39
 #		elif __clang_major__ >= 4
-#			define GLM_COMPILER GLM_COMPILER_LLVM39
+#			define GLM_COMPILER GLM_COMPILER_CLANG39
 #		else
-#			define GLM_COMPILER GLM_COMPILER_LLVM
+#			define GLM_COMPILER GLM_COMPILER_CLANG
 #		endif
 #	endif
 
@@ -247,10 +255,24 @@
 #		define GLM_COMPILER (GLM_COMPILER_GCC51)
 #	elif (__GNUC__ == 5) && (__GNUC_MINOR__ == 2)
 #		define GLM_COMPILER (GLM_COMPILER_GCC52)
-#	elif (__GNUC__ == 5) && (__GNUC_MINOR__ >= 3)
+#	elif (__GNUC__ == 5) && (__GNUC_MINOR__ == 3)
 #		define GLM_COMPILER (GLM_COMPILER_GCC53)
-#	elif (__GNUC__ >= 6)
+#	elif (__GNUC__ == 5) && (__GNUC_MINOR__ >= 4)
+#		define GLM_COMPILER (GLM_COMPILER_GCC54)
+#	elif (__GNUC__ == 6) && (__GNUC_MINOR__ == 0)
 #		define GLM_COMPILER (GLM_COMPILER_GCC60)
+#	elif (__GNUC__ == 6) && (__GNUC_MINOR__ == 1)
+#		define GLM_COMPILER (GLM_COMPILER_GCC61)
+#	elif (__GNUC__ == 6) && (__GNUC_MINOR__ >= 2)
+#		define GLM_COMPILER (GLM_COMPILER_GCC62)
+#	elif (__GNUC__ == 7) && (__GNUC_MINOR__ == 0)
+#		define GLM_COMPILER (GLM_COMPILER_GCC70)
+#	elif (__GNUC__ == 7) && (__GNUC_MINOR__ == 1)
+#		define GLM_COMPILER (GLM_COMPILER_GCC71)
+#	elif (__GNUC__ == 7) && (__GNUC_MINOR__ == 2)
+#		define GLM_COMPILER (GLM_COMPILER_GCC72)
+#	elif (__GNUC__ >= 8)
+#		define GLM_COMPILER (GLM_COMPILER_GCC80)
 #	else
 #		define GLM_COMPILER (GLM_COMPILER_GCC)
 #	endif
@@ -321,7 +343,7 @@
 #	define GLM_ARCH (GLM_ARCH_SSE3)
 #elif defined(GLM_FORCE_SSE2)
 #	define GLM_ARCH (GLM_ARCH_SSE2)
-#elif (GLM_COMPILER & (GLM_COMPILER_LLVM | GLM_COMPILER_GCC)) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_LINUX))
+#elif (GLM_COMPILER & (GLM_COMPILER_CLANG | GLM_COMPILER_GCC)) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_LINUX))
 //	This is Skylake set of instruction set
 #	if defined(__AVX512BW__) && defined(__AVX512F__) && defined(__AVX512CD__) && defined(__AVX512VL__) && defined(__AVX512DQ__)
 #		define GLM_ARCH (GLM_ARCH_AVX512)

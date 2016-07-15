@@ -78,6 +78,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added MIPS CPUs detection
 - Added PowerPC CPUs detection
 - Use Cuda built-in function for abs function implementation with Cuda compiler
+- Factorized GLM_COMPILER_LLVM and GLM_COMPILER_APPLE_CLANG into GLM_COMPILER_CLANG
 
 ##### Fixes:
 - Fixed GTX_extended_min_max filename typo #386
@@ -96,11 +97,14 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 #### [GLM 0.9.7.6](https://github.com/g-truc/glm/tree/0.9.7) - 2016-0X-XX
 ##### Improvements:
 - Added pkg-config file #509
+- Updated list of compiler versions detected
+- Improved C++ 11 STL detection #523
 
 ##### Fixes:
 - Fixed STL for C++11 detection on ICC #510
 - Fixed missing vec1 overload to length2 and distance2 functions #431
 - Fixed long long warnings when using C++98 on GCC and Clang #482
+- Fixed scalar reciprocal functions (GTC_reciprocal) #520
 
 #### [GLM 0.9.7.5](https://github.com/g-truc/glm/releases/tag/0.9.7.5) - 2016-05-24
 ##### Improvements:

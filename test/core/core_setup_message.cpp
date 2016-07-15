@@ -62,8 +62,29 @@ int test_compiler()
 		case GLM_COMPILER_GCC53:
 			std::printf("GLM_COMPILER_GCC53\n");
 			break;
+		case GLM_COMPILER_GCC54:
+			std::printf("GLM_COMPILER_GCC54\n");
+			break;
 		case GLM_COMPILER_GCC60:
 			std::printf("GLM_COMPILER_GCC60\n");
+			break;
+		case GLM_COMPILER_GCC61:
+			std::printf("GLM_COMPILER_GCC61\n");
+			break;
+		case GLM_COMPILER_GCC62:
+			std::printf("GLM_COMPILER_GCC62\n");
+			break;
+		case GLM_COMPILER_GCC70:
+			std::printf("GLM_COMPILER_GCC70\n");
+			break;
+		case GLM_COMPILER_GCC71:
+			std::printf("GLM_COMPILER_GCC71\n");
+			break;
+		case GLM_COMPILER_GCC72:
+			std::printf("GLM_COMPILER_GCC72\n");
+			break;
+		case GLM_COMPILER_GCC80:
+			std::printf("GLM_COMPILER_GCC80\n");
 			break;
 		default:
 			std::printf("GCC version not detected\n");
@@ -75,33 +96,33 @@ int test_compiler()
 	{
 		std::printf("GLM_COMPILER_CUDA\n");
 	}
-	else if(GLM_COMPILER & GLM_COMPILER_LLVM)
+	else if(GLM_COMPILER & GLM_COMPILER_CLANG)
 	{
 		switch(GLM_COMPILER)
 		{
-		case GLM_COMPILER_LLVM32:
-			std::printf("GLM_COMPILER_LLVM32\n");
+		case GLM_COMPILER_CLANG32:
+			std::printf("GLM_COMPILER_CLANG32\n");
 			break;
-		case GLM_COMPILER_LLVM33:
-			std::printf("GLM_COMPILER_LLVM33\n");
+		case GLM_COMPILER_CLANG33:
+			std::printf("GLM_COMPILER_CLANG33\n");
 			break;
-		case GLM_COMPILER_LLVM34:
-			std::printf("GLM_COMPILER_LLVM34\n");
+		case GLM_COMPILER_CLANG34:
+			std::printf("GLM_COMPILER_CLANG34\n");
 			break;
-		case GLM_COMPILER_LLVM35:
-			std::printf("GLM_COMPILER_LLVM35\n");
+		case GLM_COMPILER_CLANG35:
+			std::printf("GLM_COMPILER_CLANG35\n");
 			break;
-		case GLM_COMPILER_LLVM36:
-			std::printf("GLM_COMPILER_LLVM36\n");
+		case GLM_COMPILER_CLANG36:
+			std::printf("GLM_COMPILER_CLANG36\n");
 			break;
-		case GLM_COMPILER_LLVM37:
-			std::printf("GLM_COMPILER_LLVM37\n");
+		case GLM_COMPILER_CLANG37:
+			std::printf("GLM_COMPILER_CLANG37\n");
 			break;
-		case GLM_COMPILER_LLVM38:
-			std::printf("GLM_COMPILER_LLVM38\n");
+		case GLM_COMPILER_CLANG38:
+			std::printf("GLM_COMPILER_CLANG38\n");
 			break;
-		case GLM_COMPILER_LLVM39:
-			std::printf("GLM_COMPILER_LLVM39\n");
+		case GLM_COMPILER_CLANG39:
+			std::printf("GLM_COMPILER_CLANG39\n");
 			break;
 		default:
 			std::printf("LLVM version not detected\n");
