@@ -71,8 +71,29 @@ int test_compiler()
 		case GLM_COMPILER_GCC53:
 			std::printf("GLM_COMPILER_GCC53\n");
 			break;
+		case GLM_COMPILER_GCC54:
+			std::printf("GLM_COMPILER_GCC54\n");
+			break;
 		case GLM_COMPILER_GCC60:
 			std::printf("GLM_COMPILER_GCC60\n");
+			break;
+		case GLM_COMPILER_GCC61:
+			std::printf("GLM_COMPILER_GCC61\n");
+			break;
+		case GLM_COMPILER_GCC62:
+			std::printf("GLM_COMPILER_GCC62\n");
+			break;
+		case GLM_COMPILER_GCC70:
+			std::printf("GLM_COMPILER_GCC70\n");
+			break;
+		case GLM_COMPILER_GCC71:
+			std::printf("GLM_COMPILER_GCC71\n");
+			break;
+		case GLM_COMPILER_GCC72:
+			std::printf("GLM_COMPILER_GCC72\n");
+			break;
+		case GLM_COMPILER_GCC80:
+			std::printf("GLM_COMPILER_GCC80\n");
 			break;
 		default:
 			std::printf("GCC version not detected\n");
@@ -108,6 +129,12 @@ int test_compiler()
 			break;
 		case GLM_COMPILER_APPLE_CLANG61:
 			std::printf("GLM_COMPILER_APPLE_CLANG61\n");	
+			break;
+		case GLM_COMPILER_APPLE_CLANG70:
+			std::printf("GLM_COMPILER_APPLE_CLANG70\n");	
+			break;
+		case GLM_COMPILER_APPLE_CLANG73:
+			std::printf("GLM_COMPILER_APPLE_CLANG73\n");	
 			break;
 		default:
 			std::printf("Apple Clang version not detected\n");

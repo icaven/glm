@@ -152,7 +152,14 @@
 #define GLM_COMPILER_GCC51			0x02000300
 #define GLM_COMPILER_GCC52			0x02000400
 #define GLM_COMPILER_GCC53			0x02000500
-#define GLM_COMPILER_GCC60			0x02000600
+#define GLM_COMPILER_GCC54			0x02000600
+#define GLM_COMPILER_GCC60			0x02000700
+#define GLM_COMPILER_GCC61			0x02000800
+#define GLM_COMPILER_GCC62			0x02000900
+#define GLM_COMPILER_GCC70			0x02000A00
+#define GLM_COMPILER_GCC71			0x02000B00
+#define GLM_COMPILER_GCC72			0x02000C00
+#define GLM_COMPILER_GCC80			0x02000D00
 
 // CUDA
 #define GLM_COMPILER_CUDA			0x10000000
@@ -164,6 +171,7 @@
 #define GLM_COMPILER_CUDA65			0x10000090
 #define GLM_COMPILER_CUDA70			0x100000A0
 #define GLM_COMPILER_CUDA75			0x100000B0
+#define GLM_COMPILER_CUDA80			0x100000C0
 
 // LLVM
 #define GLM_COMPILER_LLVM			0x20000000
@@ -185,6 +193,9 @@
 #define GLM_COMPILER_APPLE_CLANG51	0x40000050
 #define GLM_COMPILER_APPLE_CLANG60	0x40000060
 #define GLM_COMPILER_APPLE_CLANG61	0x40000070
+#define GLM_COMPILER_APPLE_CLANG70	0x40000080
+#define GLM_COMPILER_APPLE_CLANG73	0x40000090
+#define GLM_COMPILER_APPLE_CLANG80	0x400000A0
 
 // Build model
 #define GLM_MODEL_32				0x00000010
@@ -255,8 +266,12 @@
 #			define GLM_COMPILER GLM_COMPILER_APPLE_CLANG60
 #		elif __clang_major__ == 6 && __clang_minor__ >= 1
 #			define GLM_COMPILER GLM_COMPILER_APPLE_CLANG61
-#		elif __clang_major__ >= 7
-#			define GLM_COMPILER GLM_COMPILER_APPLE_CLANG61
+#		elif __clang_major__ == 7 && __clang_minor__ == 0
+#			define GLM_COMPILER GLM_COMPILER_APPLE_CLANG70
+#		elif __clang_major__ == 7 && __clang_minor__ >= 3
+#			define GLM_COMPILER GLM_COMPILER_APPLE_CLANG73
+#		elif __clang_major__ >= 8
+#			define GLM_COMPILER GLM_COMPILER_APPLE_CLANG80
 #		else
 #			define GLM_COMPILER GLM_COMPILER_APPLE_CLANG
 #		endif
@@ -312,10 +327,24 @@
 #		define GLM_COMPILER (GLM_COMPILER_GCC51)
 #	elif (__GNUC__ == 5) && (__GNUC_MINOR__ == 2)
 #		define GLM_COMPILER (GLM_COMPILER_GCC52)
-#	elif (__GNUC__ == 5) && (__GNUC_MINOR__ >= 3)
+#	elif (__GNUC__ == 5) && (__GNUC_MINOR__ == 3)
 #		define GLM_COMPILER (GLM_COMPILER_GCC53)
-#	elif (__GNUC__ >= 6)
+#	elif (__GNUC__ == 5) && (__GNUC_MINOR__ >= 4)
+#		define GLM_COMPILER (GLM_COMPILER_GCC54)
+#	elif (__GNUC__ == 6) && (__GNUC_MINOR__ == 0)
 #		define GLM_COMPILER (GLM_COMPILER_GCC60)
+#	elif (__GNUC__ == 6) && (__GNUC_MINOR__ == 1)
+#		define GLM_COMPILER (GLM_COMPILER_GCC61)
+#	elif (__GNUC__ == 6) && (__GNUC_MINOR__ >= 2)
+#		define GLM_COMPILER (GLM_COMPILER_GCC62)
+#	elif (__GNUC__ == 7) && (__GNUC_MINOR__ == 0)
+#		define GLM_COMPILER (GLM_COMPILER_GCC70)
+#	elif (__GNUC__ == 7) && (__GNUC_MINOR__ == 1)
+#		define GLM_COMPILER (GLM_COMPILER_GCC71)
+#	elif (__GNUC__ == 7) && (__GNUC_MINOR__ == 2)
+#		define GLM_COMPILER (GLM_COMPILER_GCC72)
+#	elif (__GNUC__ >= 8)
+#		define GLM_COMPILER (GLM_COMPILER_GCC80)
 #	else
 #		define GLM_COMPILER (GLM_COMPILER_GCC)
 #	endif
