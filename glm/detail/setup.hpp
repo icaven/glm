@@ -681,15 +681,8 @@
 // http://gcc.gnu.org/projects/cxx0x.html
 // http://msdn.microsoft.com/en-us/library/vstudio/hh567368(v=vs.120).aspx
 
-#if GLM_PLATFORM == GLM_PLATFORM_ANDROID || GLM_PLATFORM == GLM_PLATFORM_CYGWIN
-#	define GLM_HAS_CXX11_STL 0
-#elif GLM_COMPILER & (GLM_COMPILER_LLVM | GLM_COMPILER_APPLE_CLANG)
-#	if __has_include(<__config>) // libc++
-#		include <__config>
-//#	else // libstdc++
-//#		include <bits/c++config.h>
-#	endif
-#	if defined(_LIBCPP_VERSION)// || defined(__GLIBCXX__)
+#if GLM_COMPILER & (GLM_COMPILER_LLVM | GLM_COMPILER_APPLE_CLANG)
+#	if defined(_LIBCPP_VERSION) && GLM_LANG & GLM_LANG_CXX11_FLAG
 #		define GLM_HAS_CXX11_STL 1
 #	else
 #		define GLM_HAS_CXX11_STL 0

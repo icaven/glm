@@ -55,6 +55,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 ##### Improvements:
 - Added pkg-config file #509
 - Updated list of compiler versions detected
+- Improved C++ 11 STL detection #523
 
 ##### Fixes:
 - Fixed STL for C++11 detection on ICC #510
