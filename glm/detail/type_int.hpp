@@ -29,12 +29,29 @@ namespace detail
 #		if(defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)) // C99 detected, 64 bit types available
 			typedef int64_t					sint64;
 			typedef uint64_t				uint64;
+	
 #		elif GLM_COMPILER & GLM_COMPILER_VC
 			typedef signed __int64			sint64;
 			typedef unsigned __int64		uint64;
+	
 #		elif GLM_COMPILER & GLM_COMPILER_GCC
+#			pragma GCC diagnostic push
+#			pragma GCC diagnostic ignored "-Wno-long-long"
+	
 			__extension__ typedef signed long long		sint64;
 			__extension__ typedef unsigned long long	uint64;
+		
+#			pragma GCC diagnostic pop
+	
+#		elif GLM_COMPILER & GLM_COMPILER_CLANG
+#			pragma clang diagnostic push
+#			pragma clang diagnostic ignored "-Wno-c++11-long-long"
+
+			typedef signed long	long		sint64;
+			typedef unsigned long long		uint64;
+	
+#			pragma clang diagnostic pop
+	
 #		else//unknown compiler
 			typedef signed long	long		sint64;
 			typedef unsigned long long		uint64;
