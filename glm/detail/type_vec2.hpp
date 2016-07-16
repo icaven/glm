@@ -27,6 +27,16 @@ namespace glm
 		// -- Data --
 
 #		if GLM_HAS_UNRESTRICTED_UNIONS
+#			if GLM_COMPILER & GLM_COMPILER_GCC
+#				pragma GCC diagnostic push
+#				pragma GCC diagnostic ignored "-Wpedantic"
+#			endif
+#			if GLM_COMPILER & GLM_COMPILER_CLANG
+#				pragma clang diagnostic push
+#				pragma clang diagnostic ignored "-Wgnu-anonymous-struct"
+#				pragma clang diagnostic ignored "-Wnested-anon-types"
+#			endif
+		
 			union
 			{
 				struct{ T x, y; };
@@ -46,6 +56,13 @@ namespace glm
 #				endif//GLM_SWIZZLE
 
 			};
+		
+#			if GLM_COMPILER & GLM_COMPILER_CLANG
+#				pragma clang diagnostic pop
+#			endif
+#			if GLM_COMPILER & GLM_COMPILER_GCC
+#				pragma GCC diagnostic pop
+#			endif
 #		else
 			union {T x, r, s;};
 			union {T y, g, t;};
