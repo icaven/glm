@@ -35,22 +35,14 @@ namespace detail
 			typedef unsigned __int64		uint64;
 	
 #		elif GLM_COMPILER & GLM_COMPILER_GCC
-#			pragma GCC diagnostic push
 #			pragma GCC diagnostic ignored "-Wno-long-long"
-	
 			__extension__ typedef signed long long		sint64;
 			__extension__ typedef unsigned long long	uint64;
-		
-#			pragma GCC diagnostic pop
 	
 #		elif (GLM_COMPILER & GLM_COMPILER_CLANG)
-#			pragma clang diagnostic push
 #			pragma clang diagnostic ignored "-Wc++11-long-long"
-
 			typedef signed long	long		sint64;
 			typedef unsigned long long		uint64;
-	
-#			pragma clang diagnostic pop
 	
 #		else//unknown compiler
 			typedef signed long	long		sint64;
@@ -184,16 +176,6 @@ namespace detail
 		{
 			typedef unsigned long type;
 		};
-	
-#		if GLM_COMPILER & GLM_COMPILER_GCC
-#			pragma GCC diagnostic push
-#			pragma GCC diagnostic ignored "-Wno-long-long"
-#		endif
-	
-#		if GLM_COMPILER & GLM_COMPILER_CLANG
-#			pragma clang diagnostic push
-#			pragma clang diagnostic ignored "-Wc++11-long-long"
-#		endif
 
 		template <>
 		struct make_signed<long long>
@@ -218,15 +200,6 @@ namespace detail
 		{
 			typedef unsigned long long type;
 		};
-
-#		if GLM_COMPILER & GLM_COMPILER_GCC
-#			pragma GCC diagnostic pop
-#		endif
-	
-#		if GLM_COMPILER & GLM_COMPILER_CLANG
-#			pragma clang diagnostic pop
-#		endif
-	
 #	endif//GLM_HAS_MAKE_SIGNED
 }//namespace detail
 

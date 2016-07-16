@@ -14,9 +14,12 @@ namespace
 		if (cerberus)
 		{
 			switch (a) {
-			case glm::highp:   os << "hi"; break;
-			case glm::mediump: os << "md"; break;
-			case glm::lowp:    os << "lo"; break;
+			case glm::highp:			os << "uhi"; break;
+			case glm::mediump:			os << "umd"; break;
+			case glm::lowp:				os << "ulo"; break;
+			case glm::aligned_highp:	os << "ahi"; break;
+			case glm::aligned_mediump:	os << "amd"; break;
+			case glm::aligned_lowp:		os << "alo"; break;
 			}
 		}
 

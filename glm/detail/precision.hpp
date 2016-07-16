@@ -10,13 +10,13 @@ namespace glm
 		highp,
 		mediump,
 		lowp,
+		aligned_highp,
+		aligned_mediump,
+		aligned_lowp,
 		packed_highp = highp,
 		packed_mediump = mediump,
 		packed_lowp = lowp,
 		packed = packed_highp,
-		aligned_highp,
-		aligned_mediump,
-		aligned_lowp,
 		aligned = aligned_highp,
 #		ifdef GLM_FORCE_ALIGNED
 			defaultp = aligned_highp
