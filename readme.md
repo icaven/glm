@@ -94,7 +94,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Deprecated GLM_GTX_simd_mat4 extension
 - Deprecated GLM_GTX_simd_quat extension
 
-#### [GLM 0.9.7.6](https://github.com/g-truc/glm/tree/0.9.7) - 2016-0X-XX
+#### [GLM 0.9.7.6](https://github.com/g-truc/glm/releases/tag/0.9.7.6) - 2016-07-16
 ##### Improvements:
 - Added pkg-config file #509
 - Updated list of compiler versions detected
