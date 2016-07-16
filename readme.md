@@ -52,6 +52,16 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 ## Release notes
 
 #### [GLM 0.9.9.0](https://github.com/g-truc/glm/releases/latest) - 2017-XX-XX
+##### Features:
+
+##### Improvements:
+
+##### Fixes:
+
+##### Deprecation:
+- Removed GLM_GTX_simd_vec4 extension
+- Removed GLM_GTX_simd_mat4 extension
+- Removed GLM_GTX_simd_quat extension
 
 #### [GLM 0.9.8.0](https://github.com/g-truc/glm/tree/0.9.8) - 2016-XX-XX
 ##### Features:
