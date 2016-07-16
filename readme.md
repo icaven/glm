@@ -51,7 +51,9 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 ## Release notes
 
-#### [GLM 0.9.8.0](https://github.com/g-truc/glm/releases/latest) - 2016-XX-XX
+#### [GLM 0.9.9.0](https://github.com/g-truc/glm/releases/latest) - 2017-XX-XX
+
+#### [GLM 0.9.8.0](https://github.com/g-truc/glm/tree/0.9.8) - 2016-XX-XX
 ##### Features:
 - Added right and left handed projection and clip control support #447 #415 #119
 - Added compNormalize and compScale functions to GTX_component_wise
