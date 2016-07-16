@@ -368,6 +368,29 @@ namespace glm
 	/// @see gtc_quaternion
 	template <typename T, precision P>
 	GLM_FUNC_DECL tvec4<bool, P> notEqual(tquat<T, P> const & x, tquat<T, P> const & y);
+
+	/// Returns true if x holds a NaN (not a number)
+	/// representation in the underlying implementation's set of
+	/// floating point representations. Returns false otherwise,
+	/// including for implementations with no NaN
+	/// representations.
+	/// 
+	/// /!\ When using compiler fast math, this function may fail.
+	/// 
+	/// @tparam genType Floating-point scalar or vector types.
+	template <typename T, precision P>
+	GLM_FUNC_DECL tvec4<bool, P> isnan(tquat<T, P> const & x);
+
+	/// Returns true if x holds a positive infinity or negative
+	/// infinity representation in the underlying implementation's
+	/// set of floating point representations. Returns false
+	/// otherwise, including for implementations with no infinity
+	/// representations.
+	/// 
+	/// @tparam genType Floating-point scalar or vector types.
+	template <typename T, precision P>
+	GLM_FUNC_DECL tvec4<bool, P> isinf(tquat<T, P> const & x);
+
 	/// @}
 } //namespace glm
 
