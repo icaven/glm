@@ -686,7 +686,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P> operator-(tvec1<T, P> const & v1, tvec4<T, P> const & v2)
 	{
-		return tvec4<T, P>(v1) -= v2;
+		return tvec4<T, P>(v1.x) -= v2;
 	}
 
 	template <typename T, precision P>
