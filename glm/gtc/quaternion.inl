@@ -777,6 +777,22 @@ namespace detail
 			Result[i] = x[i] != y[i];
 		return Result;
 	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec4<bool, P> isnan(tquat<T, P> const& q)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isnan' only accept floating-point inputs");
+
+		return tvec4<bool, P>(isnan(q.x), isnan(q.y), isnan(q.z), isnan(q.w));
+	}
+
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER tvec4<bool, P> isinf(tquat<T, P> const& q)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isinf' only accept floating-point inputs");
+
+		return tvec4<bool, P>(isinf(q.x), isinf(q.y), isinf(q.z), isinf(q.w));
+	}
 }//namespace glm
 
 #if GLM_ARCH != GLM_ARCH_PURE && GLM_HAS_UNRESTRICTED_UNIONS

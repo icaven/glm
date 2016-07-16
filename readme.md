@@ -66,6 +66,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added 'aligned' qualifiers
 - Added GTC_type_aligned with aligned *vec* types
 - Added GTC_functions extension
+- Added quaternion version of isnan and isinf #521
 
 ##### Improvements:
 - Improved SIMD and swizzle operators interactions with GCC and Clang #474
