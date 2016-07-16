@@ -100,6 +100,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed sign with signed integer function on non-x86 architecture
 - Fixed strict aliasing warnings #473
 - Fixed missing vec1 overload to length2 and distance2 functions #431
+- Fixed GLM test '/fp:fast' and '/Za' command-line options are incompatible
 
 ##### Deprecation:
 - Removed GLM_FORCE_SIZE_FUNC define
