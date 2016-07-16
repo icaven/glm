@@ -79,6 +79,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added PowerPC CPUs detection
 - Use Cuda built-in function for abs function implementation with Cuda compiler
 - Factorized GLM_COMPILER_LLVM and GLM_COMPILER_APPLE_CLANG into GLM_COMPILER_CLANG
+- No more warnings for use of long long
 
 ##### Fixes:
 - Fixed GTX_extended_min_max filename typo #386

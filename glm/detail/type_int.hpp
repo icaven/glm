@@ -43,9 +43,9 @@ namespace detail
 		
 #			pragma GCC diagnostic pop
 	
-#		elif GLM_COMPILER & GLM_COMPILER_CLANG
+#		elif (GLM_COMPILER & GLM_COMPILER_CLANG)
 #			pragma clang diagnostic push
-#			pragma clang diagnostic ignored "-Wno-c++11-long-long"
+#			pragma clang diagnostic ignored "-Wc++11-long-long"
 
 			typedef signed long	long		sint64;
 			typedef unsigned long long		uint64;
@@ -108,13 +108,7 @@ namespace detail
 		{
 			typedef long type;
 		};
-
-		template <>
-		struct make_signed<long long>
-		{
-			typedef long long type;
-		};
-
+	
 		template <>
 		struct make_signed<unsigned char>
 		{
@@ -137,12 +131,6 @@ namespace detail
 		struct make_signed<unsigned long>
 		{
 			typedef long type;
-		};
-
-		template <>
-		struct make_signed<unsigned long long>
-		{
-			typedef long long type;
 		};
 
 		template <typename genType>
@@ -174,12 +162,6 @@ namespace detail
 		};
 
 		template <>
-		struct make_unsigned<long long>
-		{
-			typedef unsigned long long type;
-		};
-
-		template <>
 		struct make_unsigned<unsigned char>
 		{
 			typedef unsigned char type;
@@ -202,12 +184,49 @@ namespace detail
 		{
 			typedef unsigned long type;
 		};
+	
+#		if GLM_COMPILER & GLM_COMPILER_GCC
+#			pragma GCC diagnostic push
+#			pragma GCC diagnostic ignored "-Wno-long-long"
+#		endif
+	
+#		if GLM_COMPILER & GLM_COMPILER_CLANG
+#			pragma clang diagnostic push
+#			pragma clang diagnostic ignored "-Wc++11-long-long"
+#		endif
 
+		template <>
+		struct make_signed<long long>
+		{
+			typedef long long type;
+		};
+	
+		template <>
+		struct make_signed<unsigned long long>
+		{
+			typedef long long type;
+		};
+	
+		template <>
+		struct make_unsigned<long long>
+		{
+			typedef unsigned long long type;
+		};
+	
 		template <>
 		struct make_unsigned<unsigned long long>
 		{
 			typedef unsigned long long type;
 		};
+
+#		if GLM_COMPILER & GLM_COMPILER_GCC
+#			pragma GCC diagnostic pop
+#		endif
+	
+#		if GLM_COMPILER & GLM_COMPILER_CLANG
+#			pragma clang diagnostic pop
+#		endif
+	
 #	endif//GLM_HAS_MAKE_SIGNED
 }//namespace detail
 
