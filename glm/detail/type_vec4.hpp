@@ -5,7 +5,7 @@
 
 #include "type_vec.hpp"
 #ifdef GLM_SWIZZLE
-#	if GLM_HAS_ANONYMOUS_UNION
+#	if GLM_HAS_UNRESTRICTED_UNIONS
 #		include "_swizzle.hpp"
 #	else
 #		include "_swizzle_func.hpp"
