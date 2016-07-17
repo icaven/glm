@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include "setup.hpp"
+
 namespace glm
 {
 	enum precision
@@ -29,7 +31,7 @@ namespace glm
 			defaultp = highp
 #		endif
 	};
-
+	
 namespace detail
 {
 	template <glm::precision P>

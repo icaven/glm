@@ -21,9 +21,9 @@ namespace glm
 	{
 		// -- Implementation detail --
 
+		typedef T value_type;
 		typedef tvec1<T, P> type;
 		typedef tvec1<bool, P> bool_type;
-		typedef T value_type;
 
 		// -- Data --
 

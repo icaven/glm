@@ -49,7 +49,7 @@ namespace detail
 			return Result;
 		}
 	};
-#	endif
+#	endif//GLM_SWIZZLE
 
 	template <precision P>
 	struct compute_vec4_add<float, P, true>
