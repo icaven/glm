@@ -89,6 +89,7 @@ else()
 		add_definitions(/Za)
 	elseif(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang") OR ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU"))
 		add_definitions(-pedantic)
+		add_definitions(-pedantic)
 	endif()
 endif()
 
