@@ -7,18 +7,23 @@ namespace glm
 {
 	enum precision
 	{
-		aligned_highp,
-		aligned_mediump,
-		aligned_lowp,
 		packed_highp,
 		packed_mediump,
 		packed_lowp,
-		aligned = aligned_highp,
-		packed = packed_highp,
+
+#		if GLM_HAS_ALIGNED_TYPE
+			aligned_highp,
+			aligned_mediump,
+			aligned_lowp,
+			aligned = aligned_highp,
+#		endif
+
 		highp = packed_highp,
 		mediump = packed_mediump,
 		lowp = packed_lowp,
-#		ifdef GLM_FORCE_ALIGNED
+		packed = packed_highp,
+
+#		if GLM_HAS_ALIGNED_TYPE && defined(GLM_FORCE_ALIGNED)
 			defaultp = aligned_highp
 #		else
 			defaultp = highp
@@ -33,22 +38,24 @@ namespace detail
 		static const bool value = false;
 	};
 
-	template<>
-	struct is_aligned<glm::aligned_lowp>
-	{
-		static const bool value = true;
-	};
+#	if GLM_HAS_ALIGNED_TYPE
+		template<>
+		struct is_aligned<glm::aligned_lowp>
+		{
+			static const bool value = true;
+		};
 
-	template<>
-	struct is_aligned<glm::aligned_mediump>
-	{
-		static const bool value = true;
-	};
+		template<>
+		struct is_aligned<glm::aligned_mediump>
+		{
+			static const bool value = true;
+		};
 
-	template<>
-	struct is_aligned<glm::aligned_highp>
-	{
-		static const bool value = true;
-	};
+		template<>
+		struct is_aligned<glm::aligned_highp>
+		{
+			static const bool value = true;
+		};
+#	endif
 }//namespace detail
 }//namespace glm

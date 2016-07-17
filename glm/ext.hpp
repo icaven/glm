@@ -50,6 +50,9 @@
 #include "./gtc/type_ptr.hpp"
 #include "./gtc/ulp.hpp"
 #include "./gtc/vec1.hpp"
+#if GLM_HAS_ALIGNED_TYPE
+#	include "./gtc/type_aligned.hpp"
+#endif
 
 #include "./gtx/associated_min_max.hpp"
 #include "./gtx/bit.hpp"
@@ -95,7 +98,6 @@
 #endif
 #include "./gtx/transform.hpp"
 #include "./gtx/transform2.hpp"
-#include "./gtx/type_aligned.hpp"
 #include "./gtx/vector_angle.hpp"
 #include "./gtx/vector_query.hpp"
 #include "./gtx/wrap.hpp"
