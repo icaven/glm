@@ -1,5 +1,15 @@
-#define GLM_FORCE_ALIGNED
+#define GLM_MESSAGES
+#include <glm/glm.hpp>
+
+#if GLM_HAS_ALIGNED_TYPE
 #include <glm/gtc/type_aligned.hpp>
+
+GLM_STATIC_ASSERT(glm::detail::is_aligned<glm::aligned_lowp>::value, "aligned_lowp is not aligned");
+GLM_STATIC_ASSERT(glm::detail::is_aligned<glm::aligned_mediump>::value, "aligned_mediump is not aligned");
+GLM_STATIC_ASSERT(glm::detail::is_aligned<glm::aligned_highp>::value, "aligned_highp is not aligned");
+GLM_STATIC_ASSERT(!glm::detail::is_aligned<glm::packed_highp>::value, "packed_highp is aligned");
+GLM_STATIC_ASSERT(!glm::detail::is_aligned<glm::packed_mediump>::value, "packed_mediump is aligned");
+GLM_STATIC_ASSERT(!glm::detail::is_aligned<glm::packed_lowp>::value, "packed_lowp is aligned");
 
 struct my_vec4_packed
 {
@@ -27,7 +37,6 @@ struct my_dvec4_aligned
 	glm::uint64 a;
 	glm::aligned_dvec4 b;
 };
-//FIXME
 //GLM_STATIC_ASSERT(sizeof(my_dvec4_aligned) == sizeof(glm::aligned_dvec4) * 2, "glm::dvec4 aligned is not correct");
 
 struct my_ivec4_packed
@@ -81,7 +90,6 @@ int test_copy()
 	return Error;
 }
 
-
 int main()
 {
 	int Error = 0;
@@ -99,3 +107,12 @@ int main()
 
 	return Error;
 }
+
+#else
+
+int main()
+{
+	return 0;
+}
+
+#endif//GLM_HAS_ALIGNED_TYPE

@@ -1,5 +1,21 @@
 /// @ref gtc_type_aligned
 /// @file glm/gtc/type_aligned.hpp
+///
+/// @see core (dependence)
+///
+/// @defgroup gtc_type_aligned GLM_GTC_type_aligned
+/// @ingroup gtc
+///
+/// @brief Aligned types.
+/// <glm/gtc/type_aligned.hpp> need to be included to use these features.
+
+#if !GLM_HAS_ALIGNED_TYPE
+#	error "GLM: Aligned types are not supported on this platform"
+#endif
+
+#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+# pragma message("GLM: GLM_GTC_type_aligned extension included")
+#endif
 
 #pragma once
 

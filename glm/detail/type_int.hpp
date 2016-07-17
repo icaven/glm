@@ -35,7 +35,7 @@ namespace detail
 			typedef unsigned __int64		uint64;
 	
 #		elif GLM_COMPILER & GLM_COMPILER_GCC
-#			pragma GCC diagnostic ignored "-Wno-long-long"
+#			pragma GCC diagnostic ignored "-Wlong-long"
 			__extension__ typedef signed long long		sint64;
 			__extension__ typedef unsigned long long	uint64;
 	

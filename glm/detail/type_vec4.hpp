@@ -3,7 +3,6 @@
 
 #pragma once
 
-#include "setup.hpp"
 #include "type_vec.hpp"
 #ifdef GLM_SWIZZLE
 #	if GLM_HAS_ANONYMOUS_UNION
@@ -27,10 +26,10 @@ namespace glm
 
 		// -- Data --
 
-#		if GLM_HAS_UNRESTRICTED_UNIONS && (defined(GLM_SWIZZLE) || (GLM_ARCH & (GLM_ARCH_SSE2_BIT | GLM_ARCH_NEON_BIT)))
+#		if GLM_HAS_ALIGNED_TYPE
 #			if GLM_COMPILER & GLM_COMPILER_GCC
 #				pragma GCC diagnostic push
-#				pragma GCC diagnostic ignored "-Wpedantic"
+#				pragma GCC diagnostic ignored "-pedantic"
 #			endif
 #			if GLM_COMPILER & GLM_COMPILER_CLANG
 #				pragma clang diagnostic push

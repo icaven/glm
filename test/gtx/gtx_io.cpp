@@ -17,9 +17,11 @@ namespace
 			case glm::highp:			os << "uhi"; break;
 			case glm::mediump:			os << "umd"; break;
 			case glm::lowp:				os << "ulo"; break;
-			case glm::aligned_highp:	os << "ahi"; break;
-			case glm::aligned_mediump:	os << "amd"; break;
-			case glm::aligned_lowp:		os << "alo"; break;
+#			if GLM_HAS_ALIGNED_TYPE
+				case glm::aligned_highp:	os << "ahi"; break;
+				case glm::aligned_mediump:	os << "amd"; break;
+				case glm::aligned_lowp:		os << "alo"; break;
+#			endif
 			}
 		}
 
