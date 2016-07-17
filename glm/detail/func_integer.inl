@@ -12,11 +12,13 @@
 #endif//(GLM_ARCH & GLM_ARCH_X86 && GLM_COMPILER & GLM_COMPILER_VC)
 #include <limits>
 
-#if GLM_COMPILER & GLM_COMPILER_GCC
-#	pragma GCC diagnostic ignored "-Wlong-long"
-#endif
-#if (GLM_COMPILER & GLM_COMPILER_CLANG)
-#	pragma clang diagnostic ignored "-Wc++11-long-long"
+#if !GLM_HAS_EXTENDED_INTEGER_TYPE
+#	if GLM_COMPILER & GLM_COMPILER_GCC
+#		pragma GCC diagnostic ignored "-Wlong-long"
+#	endif
+#	if (GLM_COMPILER & GLM_COMPILER_CLANG)
+#		pragma clang diagnostic ignored "-Wc++11-long-long"
+#	endif
 #endif
 
 namespace glm{
