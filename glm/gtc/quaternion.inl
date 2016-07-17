@@ -795,7 +795,7 @@ namespace detail
 	}
 }//namespace glm
 
-#if GLM_ARCH != GLM_ARCH_PURE && GLM_HAS_UNRESTRICTED_UNIONS
+#if GLM_ARCH != GLM_ARCH_PURE && GLM_HAS_ALIGNED_TYPE
 #	include "quaternion_simd.inl"
 #endif
 
