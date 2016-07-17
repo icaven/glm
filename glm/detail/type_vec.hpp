@@ -16,7 +16,7 @@ namespace detail
 			uint8 data[size];
 		} type;
 	};
-/*
+
 	template <typename T, std::size_t size>
 	struct storage<T, size, true>
 	{
@@ -24,7 +24,7 @@ namespace detail
 			uint8 data[size];
 		} type;
 	};
-*/
+
 #	if GLM_ARCH & GLM_ARCH_SSE2_BIT
 		template <>
 		struct storage<float, 16, true>
@@ -43,6 +43,31 @@ namespace detail
 		{
 			typedef glm_uvec4 type;
 		};
+/*
+#	else
+		typedef union __declspec(align(16)) glm_128
+		{
+			unsigned __int8 data[16];
+		} glm_128;
+
+		template <>
+		struct storage<float, 16, true>
+		{
+			typedef glm_128 type;
+		};
+
+		template <>
+		struct storage<int, 16, true>
+		{
+			typedef glm_128 type;
+		};
+
+		template <>
+		struct storage<unsigned int, 16, true>
+		{
+			typedef glm_128 type;
+		};
+*/
 #	endif
 
 #	if (GLM_ARCH & GLM_ARCH_AVX_BIT)

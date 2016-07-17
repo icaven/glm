@@ -21,7 +21,9 @@ struct my_vec4_aligned
 	glm::uint32 a;
 	glm::aligned_vec4 b;
 };
-GLM_STATIC_ASSERT(sizeof(my_vec4_aligned) == sizeof(glm::aligned_vec4) * 2, "glm::vec4 aligned is not correct");
+#if GLM_HAS_ALIGNED_TYPE
+	GLM_STATIC_ASSERT(sizeof(my_vec4_aligned) == sizeof(glm::aligned_vec4) * 2, "glm::vec4 aligned is not correct");
+#endif
 
 struct my_dvec4_packed
 {
@@ -35,7 +37,6 @@ struct my_dvec4_aligned
 	glm::uint64 a;
 	glm::aligned_dvec4 b;
 };
-//FIXME
 //GLM_STATIC_ASSERT(sizeof(my_dvec4_aligned) == sizeof(glm::aligned_dvec4) * 2, "glm::dvec4 aligned is not correct");
 
 struct my_ivec4_packed
@@ -50,7 +51,9 @@ struct my_ivec4_aligned
 	glm::uint32 a;
 	glm::aligned_ivec4 b;
 };
-GLM_STATIC_ASSERT(sizeof(my_ivec4_aligned) == sizeof(glm::aligned_ivec4) * 2, "glm::ivec4 aligned is not correct");
+#if GLM_HAS_ALIGNED_TYPE
+	GLM_STATIC_ASSERT(sizeof(my_ivec4_aligned) == sizeof(glm::aligned_ivec4) * 2, "glm::ivec4 aligned is not correct");
+#endif
 
 struct my_u8vec4_packed
 {
