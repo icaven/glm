@@ -439,7 +439,13 @@ namespace detail
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType mod(genType x, genType y)
 	{
-		return mod(tvec1<genType, defaultp>(x), y).x;
+#		if GLM_COMPILER & GLM_COMPILER_CUDA
+			// Another Cuda compiler bug https://github.com/g-truc/glm/issues/530
+			tvec1<genType, defaultp> Result(mod(tvec1<genType, defaultp>(x), y));
+			return Result.x;
+#		else
+			return mod(tvec1<genType, defaultp>(x), y).x;
+#		endif
 	}
 
 	template <typename T, precision P, template <typename, precision> class vecType>
