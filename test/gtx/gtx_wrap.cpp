@@ -22,6 +22,18 @@ namespace clamp
 		float E = glm::clamp(1.5f);
 		Error += glm::epsilonEqual(E, 1.0f, 0.00001f) ? 0 : 1;
 
+		glm::vec2 K = glm::clamp(glm::vec2(0.5f));
+		Error += glm::all(glm::epsilonEqual(K, glm::vec2(0.5f), glm::vec2(0.00001f))) ? 0 : 1;
+
+		glm::vec3 L = glm::clamp(glm::vec3(0.5f));
+		Error += glm::all(glm::epsilonEqual(L, glm::vec3(0.5f), glm::vec3(0.00001f))) ? 0 : 1;
+
+		glm::vec4 M = glm::clamp(glm::vec4(0.5f));
+		Error += glm::all(glm::epsilonEqual(M, glm::vec4(0.5f), glm::vec4(0.00001f))) ? 0 : 1;
+
+		glm::vec1 N = glm::clamp(glm::vec1(0.5f));
+		Error += glm::all(glm::epsilonEqual(N, glm::vec1(0.5f), glm::vec1(0.00001f))) ? 0 : 1;
+
 		return Error;
 	}
 }//namespace clamp
@@ -49,6 +61,18 @@ namespace repeat
 
 		float F = glm::repeat(0.9f);
 		Error += glm::epsilonEqual(F, 0.9f, 0.00001f) ? 0 : 1;
+
+		glm::vec2 K = glm::repeat(glm::vec2(0.5f));
+		Error += glm::all(glm::epsilonEqual(K, glm::vec2(0.5f), glm::vec2(0.00001f))) ? 0 : 1;
+
+		glm::vec3 L = glm::repeat(glm::vec3(0.5f));
+		Error += glm::all(glm::epsilonEqual(L, glm::vec3(0.5f), glm::vec3(0.00001f))) ? 0 : 1;
+
+		glm::vec4 M = glm::repeat(glm::vec4(0.5f));
+		Error += glm::all(glm::epsilonEqual(M, glm::vec4(0.5f), glm::vec4(0.00001f))) ? 0 : 1;
+
+		glm::vec1 N = glm::repeat(glm::vec1(0.5f));
+		Error += glm::all(glm::epsilonEqual(N, glm::vec1(0.5f), glm::vec1(0.00001f))) ? 0 : 1;
 
 		return Error;
 	}
@@ -87,6 +111,18 @@ namespace mirrorClamp
 		float I = glm::mirrorClamp(-0.9f);
 		Error += glm::epsilonEqual(I, 0.9f, 0.00001f) ? 0 : 1;
 
+		glm::vec2 K = glm::mirrorClamp(glm::vec2(0.5f));
+		Error += glm::all(glm::epsilonEqual(K, glm::vec2(0.5f), glm::vec2(0.00001f))) ? 0 : 1;
+
+		glm::vec3 L = glm::mirrorClamp(glm::vec3(0.5f));
+		Error += glm::all(glm::epsilonEqual(L, glm::vec3(0.5f), glm::vec3(0.00001f))) ? 0 : 1;
+
+		glm::vec4 M = glm::mirrorClamp(glm::vec4(0.5f));
+		Error += glm::all(glm::epsilonEqual(M, glm::vec4(0.5f), glm::vec4(0.00001f))) ? 0 : 1;
+
+		glm::vec1 N = glm::mirrorClamp(glm::vec1(0.5f));
+		Error += glm::all(glm::epsilonEqual(N, glm::vec1(0.5f), glm::vec1(0.00001f))) ? 0 : 1;
+
 		return Error;
 	}
 }//namespace mirrorClamp
@@ -123,6 +159,18 @@ namespace mirrorRepeat
 
 		float I = glm::mirrorRepeat(-1.0f);
 		Error += glm::epsilonEqual(I, 1.0f, 0.00001f) ? 0 : 1;
+
+		glm::vec2 K = glm::mirrorRepeat(glm::vec2(0.5f));
+		Error += glm::all(glm::epsilonEqual(K, glm::vec2(0.5f), glm::vec2(0.00001f))) ? 0 : 1;
+
+		glm::vec3 L = glm::mirrorRepeat(glm::vec3(0.5f));
+		Error += glm::all(glm::epsilonEqual(L, glm::vec3(0.5f), glm::vec3(0.00001f))) ? 0 : 1;
+
+		glm::vec4 M = glm::mirrorRepeat(glm::vec4(0.5f));
+		Error += glm::all(glm::epsilonEqual(M, glm::vec4(0.5f), glm::vec4(0.00001f))) ? 0 : 1;
+
+		glm::vec1 N = glm::mirrorRepeat(glm::vec1(0.5f));
+		Error += glm::all(glm::epsilonEqual(N, glm::vec1(0.5f), glm::vec1(0.00001f))) ? 0 : 1;
 
 		return Error;
 	}

@@ -86,6 +86,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Improved GTC_reciprocal documentation
 - Improved GLM_FORCE_EXPLICIT_CTOR coverage #481
 - Improved OpenMP support detection for Clang, GCC, ICC and VC
+- Improved GTX_wrap for SIMD friendliness
 - Added constexpr for *vec*, *mat*, *quat* and *dual_quat* types #493
 - Added NEON instruction set detection
 - Added MIPS CPUs detection
