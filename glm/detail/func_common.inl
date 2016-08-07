@@ -190,7 +190,7 @@ namespace detail
 
 #	if GLM_ARCH == GLM_ARCH_X86
 	template <typename T, precision P, template <typename, precision> class vecType, bool Aligned>
-	struct compute_sign<T, P, vecType, Aligned>
+	struct compute_sign<T, P, vecType, false, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<T, P> const & x)
 		{

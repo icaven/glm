@@ -318,7 +318,7 @@ namespace bitfieldInterleave
 
 		return REG1 | (REG2 << 1);
 	}
-
+/*
 	inline glm::uint64 loopBitfieldInterleave(glm::uint32 x, glm::uint32 y)
 	{
 		static glm::uint64 const Mask[5] = 
@@ -340,7 +340,7 @@ namespace bitfieldInterleave
 
 		return REG1 | (REG2 << 1);
 	}
-
+*/
 #if(GLM_ARCH != GLM_ARCH_PURE)
 	inline glm::uint64 sseBitfieldInterleave(glm::uint32 x, glm::uint32 y)
 	{
@@ -467,11 +467,11 @@ namespace bitfieldInterleave
 			{
 				glm::uint64 A = glm::bitfieldInterleave(x, y);
 				glm::uint64 B = fastBitfieldInterleave(x, y);
-				glm::uint64 C = loopBitfieldInterleave(x, y);
+				//glm::uint64 C = loopBitfieldInterleave(x, y);
 				glm::uint64 D = interleaveBitfieldInterleave(x, y);
 
 				assert(A == B);
-				assert(A == C);
+				//assert(A == C);
 				assert(A == D);
 
 #				if GLM_ARCH & GLM_ARCH_SSE2_BIT
@@ -540,7 +540,7 @@ namespace bitfieldInterleave
 
 			std::printf("fastBitfieldInterleave Time %d clocks\n", static_cast<unsigned int>(Time));
 		}
-
+/*
 		{
 			std::clock_t LastTime = std::clock();
 
@@ -551,7 +551,7 @@ namespace bitfieldInterleave
 
 			std::printf("loopBitfieldInterleave Time %d clocks\n", static_cast<unsigned int>(Time));
 		}
-
+*/
 		{
 			std::clock_t LastTime = std::clock();
 

@@ -955,12 +955,37 @@ namespace sign
 		return Error;
 	}
 
+	int test_f32vec4()
+	{
+		type<glm::vec4> const Data[] =
+		{
+			{glm::vec4( 1), glm::vec4( 1)},
+			{glm::vec4( 0), glm::vec4( 0)},
+			{glm::vec4( 2), glm::vec4( 1)},
+			{glm::vec4( 3), glm::vec4( 1)},
+			{glm::vec4(-1), glm::vec4(-1)},
+			{glm::vec4(-2), glm::vec4(-1)},
+			{glm::vec4(-3), glm::vec4(-1)}
+		};
+
+		int Error = 0;
+
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<glm::vec4>); ++i)
+		{
+			glm::vec4 Result = glm::sign(Data[i].Value);
+			Error += glm::all(glm::equal(Data[i].Return, Result)) ? 0 : 1;
+		}
+
+		return Error;
+	}
+
 	int test()
 	{
 		int Error = 0;
 
 		Error += test_int32();
 		Error += test_i32vec4();
+		Error += test_f32vec4();
 
 		return Error;
 	}
