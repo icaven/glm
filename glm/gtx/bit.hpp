@@ -29,6 +29,10 @@ namespace glm
 	template <typename genIUType>
 	GLM_FUNC_DECL genIUType highestBitValue(genIUType Value);
 
+	/// @see gtx_bit
+	template <typename genIUType>
+	GLM_FUNC_DECL genIUType lowestBitValue(genIUType Value);
+
 	/// Find the highest bit set to 1 in a integer variable and return its value.
 	///
 	/// @see gtx_bit
