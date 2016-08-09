@@ -17,6 +17,8 @@ namespace detail
 		} type;
 	};
 
+// Cuda doesn't support __declspec(align(x)), no aligned types for Cuda
+#	if GLM_COMPILER & GLM_COMPILER_CUDA
 	template <typename T, std::size_t size>
 	struct storage<T, size, true>
 	{
@@ -24,6 +26,7 @@ namespace detail
 			uint8 data[size];
 		} type;
 	};
+#	endif
 
 #	if GLM_ARCH & GLM_ARCH_SSE2_BIT
 		template <>
