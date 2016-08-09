@@ -12,10 +12,6 @@
 #if !GLM_HAS_ALIGNED_TYPE
 #	error "GLM: Aligned types are not supported on this platform"
 #endif
-#if GLM_COMPILER & GLM_COMPILER_CUDA
-#	error "GLM: GTC_type_aligned is not supported on Cuda due to lack of __declspec(align(alignment)) support, issue #539"
-#endif
-
 #if(defined(GLM_MESSAGES) && !defined(glm_ext))
 # pragma message("GLM: GLM_GTC_type_aligned extension included")
 #endif

@@ -583,7 +583,7 @@
 #	else
 #		define GLM_VECTOR_CALL
 #	endif
-#elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG | GLM_COMPILER_CUDA | GLM_COMPILER_INTEL)
+#elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG | GLM_COMPILER_INTEL)
 #	define GLM_DEPRECATED __attribute__((__deprecated__))
 #	define GLM_ALIGN(x) __attribute__((aligned(x)))
 #	define GLM_ALIGNED_STRUCT(x) struct __attribute__((aligned(x)))
@@ -599,6 +599,14 @@
 #	else
 #		define GLM_VECTOR_CALL
 #	endif
+#elif GLM_COMPILER & GLM_COMPILER_CUDA
+#	define GLM_DEPRECATED
+#	define GLM_ALIGN(x) __align__(x)
+#	define GLM_ALIGNED_STRUCT(x) struct __align__(x)
+#	define GLM_ALIGNED_TYPEDEF(type, name, alignment) typedef type name __align__(x)
+#	define GLM_RESTRICT_FUNC __restrict__
+#	define GLM_RESTRICT __restrict__
+#	define GLM_VECTOR_CALL
 #else
 #	define GLM_DEPRECATED
 #	define GLM_ALIGN

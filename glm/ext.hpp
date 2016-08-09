@@ -50,7 +50,7 @@
 #include "./gtc/type_ptr.hpp"
 #include "./gtc/ulp.hpp"
 #include "./gtc/vec1.hpp"
-#if GLM_HAS_ALIGNED_TYPE && !(GLM_COMPILER & GLM_COMPILER_CUDA)
+#if GLM_HAS_ALIGNED_TYPE
 #	include "./gtc/type_aligned.hpp"
 #endif
 
