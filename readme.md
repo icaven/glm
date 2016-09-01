@@ -80,6 +80,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added GTC_functions extension
 - Added quaternion version of isnan and isinf #521
 - Added lowestBitValue to GTX_bit #536
+- Added GLM_FORCE_UNRESTRICTED_GENTYPE allowing non basic genType #543
 
 ##### Improvements:
 - Improved SIMD and swizzle operators interactions with GCC and Clang #474
@@ -95,6 +96,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Use Cuda built-in function for abs function implementation with Cuda compiler
 - Factorized GLM_COMPILER_LLVM and GLM_COMPILER_APPLE_CLANG into GLM_COMPILER_CLANG
 - No more warnings for use of long long
+- Added more information to build messages
 
 ##### Fixes:
 - Fixed GTX_extended_min_max filename typo #386
@@ -111,6 +113,8 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Deprecated GLM_GTX_simd_vec4 extension
 - Deprecated GLM_GTX_simd_mat4 extension
 - Deprecated GLM_GTX_simd_quat extension
+- Deprecated GLM_SWIZZLE, use GLM_FORCE_SWIZZLE instead
+- Deprecated GLM_MESSAGES, use GLM_FORCE_MESSAGES instead
 
 --------------------------------------------------------------------------------
 #### [GLM 0.9.7.6](https://github.com/g-truc/glm/releases/tag/0.9.7.6) - 2016-07-16

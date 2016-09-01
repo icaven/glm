@@ -9,14 +9,14 @@
 /// @brief Aligned types.
 /// <glm/gtc/type_aligned.hpp> need to be included to use these features.
 
+#pragma once
+
 #if !GLM_HAS_ALIGNED_TYPE
 #	error "GLM: Aligned types are not supported on this platform"
 #endif
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
 # pragma message("GLM: GLM_GTC_type_aligned extension included")
 #endif
-
-#pragma once
 
 #include "../vec2.hpp"
 #include "../vec3.hpp"

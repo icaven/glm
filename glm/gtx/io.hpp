@@ -23,7 +23,7 @@
 #include "../glm.hpp"
 #include "../gtx/quaternion.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
 # pragma message("GLM: GLM_GTX_io extension included")
 #endif
 
