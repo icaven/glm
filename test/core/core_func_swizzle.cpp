@@ -1,4 +1,4 @@
-#define GLM_MESSAGES
+#define GLM_FORCE_MESSAGES
 #define GLM_FORCE_SWIZZLE
 #include <glm/glm.hpp>
 

@@ -25,7 +25,7 @@
 #	error "GLM: GLM_GTX_simd_vec4 requires compiler support of SSE2 through intrinsics"
 #endif
 
-#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
+#if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
 #	pragma message("GLM: GLM_GTX_simd_vec4 extension included")
 #	pragma message("GLM: GLM_GTX_simd_vec4 extension is deprecated and will be removed in GLM 0.9.9. Use *vec4 types instead and use compiler SIMD arguments.")
 #endif

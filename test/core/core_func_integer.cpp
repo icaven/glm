@@ -529,8 +529,8 @@ namespace bitfieldReverse
 	{
 		int Error = 0;
 
-		Error += perf32(Samples);
-		Error += perf64(Samples);
+		Error += perf32(static_cast<glm::uint32>(Samples));
+		Error += perf64(static_cast<glm::uint64>(Samples));
 
 		return Error;
 	}
@@ -1459,7 +1459,7 @@ namespace bitCount
 		// bitCount - TimeIf
 		{
 			for(std::size_t i = 0, n = v.size(); i < n; ++i)
-				v[i] = bitCount_if(i);
+				v[i] = bitCount_if(static_cast<int>(i));
 		}
 
 		std::clock_t TimestampsB = std::clock();

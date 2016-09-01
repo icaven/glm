@@ -1,4 +1,4 @@
-#define GLM_MESSAGES
+#define GLM_FORCE_MESSAGES
 #include <glm/glm.hpp>
 
 #if GLM_HAS_ALIGNED_TYPE

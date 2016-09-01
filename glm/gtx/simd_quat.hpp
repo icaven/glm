@@ -17,15 +17,15 @@
 #include "../gtc/quaternion.hpp"
 #include "../gtx/fast_trigonometry.hpp"
 
-#if(GLM_ARCH != GLM_ARCH_PURE)
+#if GLM_ARCH != GLM_ARCH_PURE
 
-#if(GLM_ARCH & GLM_ARCH_SSE2_BIT)
-#   include "../gtx/simd_mat4.hpp"
+#if GLM_ARCH & GLM_ARCH_SSE2_BIT
+#	include "../gtx/simd_mat4.hpp"
 #else
 #	error "GLM: GLM_GTX_simd_quat requires compiler support of SSE2 through intrinsics"
 #endif
 
-#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
+#if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
 #	pragma message("GLM: GLM_GTX_simd_quat extension included")
 #	pragma message("GLM: GLM_GTX_simd_quat extension is deprecated and will be removed in GLM 0.9.9. Use GLM_GTC_quaternion instead and use compiler SIMD arguments.")
 #endif
