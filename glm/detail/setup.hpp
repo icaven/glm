@@ -524,11 +524,21 @@
 ///////////////////////////////////////////////////////////////////////////////////
 // Swizzle operators
 
-// User defines: GLM_SWIZZLE
+// User defines: GLM_FORCE_SWIZZLE
+
+#define GLM_SWIZZLE_ENABLED 1
+#define GLM_SWIZZLE_DISABLE 0
+#if defined(GLM_FORCE_SWIZZLE) || defined(GLM_SWIZZLE)
+#undef GLM_SWIZZLE
+#define GLM_SWIZZLE GLM_SWIZZLE_ENABLED
+#else
+#undef GLM_SWIZZLE
+#define GLM_SWIZZLE GLM_SWIZZLE_DISABLE
+#endif
 
 #if defined(GLM_MESSAGES) && !defined(GLM_MESSAGE_SWIZZLE_DISPLAYED)
 #	define GLM_MESSAGE_SWIZZLE_DISPLAYED
-#	if defined(GLM_SWIZZLE)
+#	if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
 #		pragma message("GLM: Swizzling operators enabled")
 #	else
 #		pragma message("GLM: Swizzling operators disabled, #define GLM_SWIZZLE to enable swizzle operators")
@@ -550,6 +560,11 @@
 #else
 #	define GLM_DEPTH_CLIP_SPACE GLM_DEPTH_NEGATIVE_ONE_TO_ONE
 #endif
+
+///////////////////////////////////////////////////////////////////////////////////
+// Allows using not basic types as genType
+
+// #define GLM_FORCE_UNRESTRICTED_GENTYPE
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Coordinate system, define GLM_FORCE_LEFT_HANDED before including GLM
@@ -617,7 +632,7 @@
 #	define GLM_VECTOR_CALL
 #endif//GLM_COMPILER
 
-#if GLM_HAS_DEFAULTED_FUNCTIONS
+#if GLM_HAS_DEFAULTED_FUNCTIONS && !defined(GLM_FORCE_UNRESTRICTED_GENTYPE)
 #	define GLM_DEFAULT = default
 #	ifdef GLM_FORCE_NO_CTOR_INIT
 #		define GLM_DEFAULT_CTOR = default
