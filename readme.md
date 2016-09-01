@@ -62,6 +62,10 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Removed GLM_GTX_simd_vec4 extension
 - Removed GLM_GTX_simd_mat4 extension
 - Removed GLM_GTX_simd_quat extension
+- Removed GLM_SWIZZLE, use GLM_FORCE_SWIZZLE instead
+- Removed GLM_MESSAGES, use GLM_FORCE_MESSAGES instead
+- Removed GLM_DEPTH_ZERO_TO_ONE, use GLM_FORCE_DEPTH_ZERO_TO_ONE instead
+- Removed GLM_LEFT_HANDED, use GLM_FORCE_LEFT_HANDED instead
 
 #### [GLM 0.9.8.0](https://github.com/g-truc/glm/tree/0.9.8) - 2016-XX-XX
 ##### Features:
