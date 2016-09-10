@@ -67,7 +67,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Removed GLM_DEPTH_ZERO_TO_ONE, use GLM_FORCE_DEPTH_ZERO_TO_ONE instead
 - Removed GLM_LEFT_HANDED, use GLM_FORCE_LEFT_HANDED instead
 
-#### [GLM 0.9.8.0](https://github.com/g-truc/glm/tree/0.9.8) - 2016-XX-XX
+#### [GLM 0.9.8.0](https://github.com/g-truc/glm/tree/0.9.8) - 2016-09-11
 ##### Features:
 - Added right and left handed projection and clip control support #447 #415 #119
 - Added compNormalize and compScale functions to GTX_component_wise
