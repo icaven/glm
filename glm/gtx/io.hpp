@@ -59,8 +59,8 @@ namespace glm
 			char_type  newline;
 			order_type order;
 
-			explicit format_punct(size_t a = 0);
-			explicit format_punct(format_punct const&);
+			GLM_FUNC_DECL explicit format_punct(size_t a = 0);
+			GLM_FUNC_DECL explicit format_punct(format_punct const&);
 		};
 
 		template <typename CTy, typename CTr = std::char_traits<CTy> >
