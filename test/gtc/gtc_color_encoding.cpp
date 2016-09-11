@@ -10,13 +10,13 @@ namespace srgb
 		int Error(0);
 
 		glm::vec3 const ColorSourceRGB(1.0, 0.5, 0.0);
-
+/*
 		{
 			glm::vec3 const ColorSRGB = glm::convertLinearSRGBToD65XYZ(ColorSourceRGB);
 			glm::vec3 const ColorRGB = glm::convertD65XYZToLinearSRGB(ColorSRGB);
 			Error += glm::all(glm::epsilonEqual(ColorSourceRGB, ColorRGB, 0.00001f)) ? 0 : 1;
 		}
-
+*/
 		{
 			glm::vec3 const ColorSRGB = glm::convertLinearToSRGB(ColorSourceRGB, 2.8f);
 			glm::vec3 const ColorRGB = glm::convertSRGBToLinear(ColorSRGB, 2.8f);
