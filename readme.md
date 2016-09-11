@@ -51,8 +51,9 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 ## Release notes
 
-#### [GLM 0.9.8.1](https://github.com/g-truc/glm/tree/0.9.8) - 201X-XX-XX
+#### [GLM 0.9.8.1](https://github.com/g-truc/glm/tree/0.9.8) - 2016-XX-XX
 ##### Fixes:
+- Fixed GCC warning filtering, replaced -pedantic by -Wpedantic
 
 #### [GLM 0.9.8.0](https://github.com/g-truc/glm/releases/tag/0.9.8.0) - 2016-09-11
 ##### Features:
