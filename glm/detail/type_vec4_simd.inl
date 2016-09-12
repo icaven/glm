@@ -458,7 +458,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, aligned_highp>::tvec4(int32 a, int32 b, int32 c, int32 d) :
 		data(_mm_set_epi32(d, c, b, a))
 	{}
-/*
+
 	template <>
 	template <>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_lowp>::tvec4(int32 a, int32 b, int32 c, int32 d) :
@@ -476,7 +476,6 @@ namespace detail
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_highp>::tvec4(int32 a, int32 b, int32 c, int32 d) :
 		data(_mm_castsi128_ps(_mm_set_epi32(d, c, b, a)))
 	{}
-*/
 }//namespace glm
 
 #endif//GLM_ARCH & GLM_ARCH_SSE2_BIT

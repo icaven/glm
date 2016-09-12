@@ -196,7 +196,7 @@ namespace detail
 
 	template <typename T, precision P>
 	template <typename A, typename B, typename C, typename D>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tvec4<T, P>::tvec4(A a, B b, C c, D d) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<T, P>::tvec4(A a, B b, C c, D d) :
 		x(static_cast<T>(a)),
 		y(static_cast<T>(b)),
 		z(static_cast<T>(c)),
