@@ -317,7 +317,7 @@ namespace detail
 	template <typename T, glm::precision P, template <typename, glm::precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<int, P> bitCount(vecType<T, P> const & v)
 	{
-	#ifdef GLM_COMPILER_VC
+	#if GLM_COMPILER & GLM_COMPILER_VC
 	#pragma warning(push)
 	#pragma warning(disable : 4310) //cast truncates constant value
 	#endif
@@ -329,7 +329,7 @@ namespace detail
 		x = detail::compute_bitfieldBitCountStep<typename detail::make_unsigned<T>::type, P, vecType, detail::is_aligned<P>::value, sizeof(T) * 8>= 32>::call(x, typename detail::make_unsigned<T>::type(0x0000FFFF0000FFFFull), typename detail::make_unsigned<T>::type(16));
 		x = detail::compute_bitfieldBitCountStep<typename detail::make_unsigned<T>::type, P, vecType, detail::is_aligned<P>::value, sizeof(T) * 8>= 64>::call(x, typename detail::make_unsigned<T>::type(0x00000000FFFFFFFFull), typename detail::make_unsigned<T>::type(32));
 		return vecType<int, P>(x);
-	#ifdef GLM_COMPILER_VC
+	#if GLM_COMPILER & GLM_COMPILER_VC
 	#pragma warning(pop)
 	#endif
 	}

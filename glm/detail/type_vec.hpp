@@ -9,7 +9,7 @@
 namespace glm{
 namespace detail
 {
-#ifdef GLM_COMPILER_VC
+#if GLM_COMPILER & GLM_COMPILER_VC
 #pragma warning(push)
 #pragma warning(disable : 4324) // structure was padded due to alignment specifier
 #endif
@@ -21,9 +21,10 @@ namespace detail
 	template<> GLM_ALIGNED_STRUCT(16) aligned<16>{};
 	template<> GLM_ALIGNED_STRUCT(32) aligned<32>{};
 	template<> GLM_ALIGNED_STRUCT(64) aligned<64>{};
-#ifdef GLM_COMPILER_VC
+#if GLM_COMPILER & GLM_COMPILER_VC
 #pragma warning(pop)
 #endif
+
 	template <typename T, std::size_t size, bool aligned>
 	struct storage
 	{
