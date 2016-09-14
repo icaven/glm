@@ -21,7 +21,7 @@ namespace detail
 		template <typename T> \
 		struct storage<T, x, true> { \
 			GLM_ALIGNED_STRUCT(x) type { \
-				uint8_t data[x]; \
+				uint8 data[x]; \
 			}; \
 		};
 
