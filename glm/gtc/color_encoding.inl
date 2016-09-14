@@ -40,7 +40,7 @@ namespace glm
 		tvec3<T, P> const N();
 		tvec3<T, P> const O();
 
-		return M * ColorD65XYZ + N * ColorD65XYZ + O * ColorD65XYZ;
+		return M * ColorD50XYZ + N * ColorD50XYZ + O * ColorD50XYZ;
 	}
 
 	template <typename T, precision P>

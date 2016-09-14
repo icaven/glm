@@ -5,7 +5,7 @@ if (NOT CMAKE_VERSION VERSION_LESS "3.1")
 endif()
 
 project(glm)
-set(GLM_VERSION "0.9.8")
+set(GLM_VERSION "0.9.9")
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 

@@ -3,25 +3,19 @@
 
 #pragma once
 
-#if (defined(GLM_FORCE_SWIZZLE) || defined(GLM_SWIZZLE)) && defined(GLM_FORCE_UNRESTRICTED_GENTYPE)
+#if defined(GLM_FORCE_SWIZZLE) && defined(GLM_FORCE_UNRESTRICTED_GENTYPE)
 #	error "Both GLM_FORCE_SWIZZLE and GLM_FORCE_UNRESTRICTED_GENTYPE can't be defined at the same time"
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Messages
 
-#ifdef GLM_MESSAGES
-#	pragma message("GLM: GLM_MESSAGES is deprecated, use GLM_FORCE_MESSAGES instead")
-#endif
-
 #define GLM_MESSAGES_ENABLED 1
 #define GLM_MESSAGES_DISABLE 0
 
-#if defined(GLM_FORCE_MESSAGES) || defined(GLM_MESSAGES)
-#	undef GLM_MESSAGES
+#if defined(GLM_FORCE_MESSAGES)
 #	define GLM_MESSAGES GLM_MESSAGES_ENABLED
 #else
-#	undef GLM_MESSAGES
 #	define GLM_MESSAGES GLM_MESSAGES_DISABLE
 #endif
 
@@ -32,15 +26,15 @@
 ///////////////////////////////////////////////////////////////////////////////////
 // Version
 
-#define GLM_VERSION					98
+#define GLM_VERSION					99
 #define GLM_VERSION_MAJOR			0
 #define GLM_VERSION_MINOR			9
-#define GLM_VERSION_PATCH			8
-#define GLM_VERSION_REVISION		1
+#define GLM_VERSION_PATCH			9
+#define GLM_VERSION_REVISION		0
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_VERSION_DISPLAYED)
 #	define GLM_MESSAGE_VERSION_DISPLAYED
-#	pragma message ("GLM: version 0.9.8.0")
+#	pragma message ("GLM: version 0.9.9.0")
 #endif//GLM_MESSAGES
 
 // Report compiler detection
@@ -550,18 +544,12 @@
 
 // User defines: GLM_FORCE_SWIZZLE
 
-#ifdef GLM_SWIZZLE
-#	pragma message("GLM: GLM_SWIZZLE is deprecated, use GLM_FORCE_SWIZZLE instead")
-#endif
-
 #define GLM_SWIZZLE_ENABLED 1
 #define GLM_SWIZZLE_DISABLE 0
 
-#if defined(GLM_FORCE_SWIZZLE) || defined(GLM_SWIZZLE)
-#	undef GLM_SWIZZLE
+#if defined(GLM_FORCE_SWIZZLE)
 #	define GLM_SWIZZLE GLM_SWIZZLE_ENABLED
 #else
-#	undef GLM_SWIZZLE
 #	define GLM_SWIZZLE GLM_SWIZZLE_DISABLE
 #endif
 
@@ -589,10 +577,6 @@
 ///////////////////////////////////////////////////////////////////////////////////
 // Clip control
 
-#ifdef GLM_DEPTH_ZERO_TO_ONE // Legacy 0.9.8 development
-#	error Define GLM_FORCE_DEPTH_ZERO_TO_ONE instead of GLM_DEPTH_ZERO_TO_ONE to use 0 to 1 clip space.
-#endif
-
 #define GLM_DEPTH_ZERO_TO_ONE				0x00000001
 #define GLM_DEPTH_NEGATIVE_ONE_TO_ONE		0x00000002
 
@@ -614,10 +598,6 @@
 ///////////////////////////////////////////////////////////////////////////////////
 // Coordinate system, define GLM_FORCE_LEFT_HANDED before including GLM
 // to use left handed coordinate system by default.
-
-#ifdef GLM_LEFT_HANDED // Legacy 0.9.8 development
-#	error Define GLM_FORCE_LEFT_HANDED instead of GLM_LEFT_HANDED left handed coordinate system by default.
-#endif
 
 #define GLM_LEFT_HANDED				0x00000001	// For DirectX, Metal, Vulkan
 #define GLM_RIGHT_HANDED			0x00000002	// For OpenGL, default in GLM
