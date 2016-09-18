@@ -101,7 +101,7 @@ namespace glm
 
 		/// Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename A, typename B, typename C, typename D>
-		GLM_FUNC_DECL GLM_CONSTEXPR tvec4(A a, B b, C c, D d);
+		GLM_FUNC_DECL GLM_CONSTEXPR_SIMD tvec4(A a, B b, C c, D d);
 		template <typename A, typename B, typename C, typename D>
 		GLM_FUNC_DECL GLM_CONSTEXPR tvec4(tvec1<A, P> const& a, tvec1<B, P> const& b, tvec1<C, P> const& c, tvec1<D, P> const& d);
 
