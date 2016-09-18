@@ -56,6 +56,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed GCC warning filtering, replaced -pedantic by -Wpedantic
 - Fixed SIMD faceforward bug. #549
 - Fixed GCC 4.8 with C++11 compilation option #550
+- Fixed Visual Studio aligned type W4 warning #548
 
 #### [GLM 0.9.8.0](https://github.com/g-truc/glm/releases/tag/0.9.8.0) - 2016-09-11
 ##### Features:
