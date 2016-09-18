@@ -57,6 +57,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed SIMD faceforward bug. #549
 - Fixed GCC 4.8 with C++11 compilation option #550
 - Fixed Visual Studio aligned type W4 warning #548
+- Fixed packing/unpacking function fixed for 5_6_5 and 5_5_5_1 #552
 
 #### [GLM 0.9.8.0](https://github.com/g-truc/glm/releases/tag/0.9.8.0) - 2016-09-11
 ##### Features:
