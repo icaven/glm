@@ -1,3 +1,4 @@
+glmCreateTestGTC(core_type_aligned)
 glmCreateTestGTC(core_type_cast)
 glmCreateTestGTC(core_type_ctor)
 glmCreateTestGTC(core_type_float)
