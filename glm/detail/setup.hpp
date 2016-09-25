@@ -36,11 +36,11 @@
 #define GLM_VERSION_MAJOR			0
 #define GLM_VERSION_MINOR			9
 #define GLM_VERSION_PATCH			8
-#define GLM_VERSION_REVISION		1
+#define GLM_VERSION_REVISION		2
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_VERSION_DISPLAYED)
 #	define GLM_MESSAGE_VERSION_DISPLAYED
-#	pragma message ("GLM: version 0.9.8.1")
+#	pragma message ("GLM: version 0.9.8.2")
 #endif//GLM_MESSAGES
 
 // Report compiler detection
