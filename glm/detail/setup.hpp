@@ -40,7 +40,7 @@
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_VERSION_DISPLAYED)
 #	define GLM_MESSAGE_VERSION_DISPLAYED
-#	pragma message ("GLM: version 0.9.8.0")
+#	pragma message ("GLM: version 0.9.8.1")
 #endif//GLM_MESSAGES
 
 // Report compiler detection
