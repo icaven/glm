@@ -68,7 +68,11 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Removed GLM_DEPTH_ZERO_TO_ONE, use GLM_FORCE_DEPTH_ZERO_TO_ONE instead
 - Removed GLM_LEFT_HANDED, use GLM_FORCE_LEFT_HANDED instead
 
-#### [GLM 0.9.8.1](https://github.com/g-truc/glm/tree/0.9.8) - 2016-09-25
+#### [GLM 0.9.8.2](https://github.com/g-truc/glm/tree/0.9.8) - 2016-09-25
+##### Fixes:
+
+
+#### [GLM 0.9.8.1](https://github.com/g-truc/glm/releases/tag/0.9.8.1) - 2016-09-25
 ##### Improvements:
 - Optimized quaternion log function #554
 
