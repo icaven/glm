@@ -51,7 +51,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 ## Release notes
 
-#### [GLM 0.9.8.1](https://github.com/g-truc/glm/tree/0.9.8) - 2016-XX-XX
+#### [GLM 0.9.8.1](https://github.com/g-truc/glm/tree/0.9.8) - 2016-09-25
 ##### Improvements:
 - Optimized quaternion log function #554
 

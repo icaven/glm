@@ -10,5 +10,5 @@ glm::vec2 Foo::Bar = glm::vec2(1.f, 1.f);
 
 int main()
 {
-	return 1;
+	return 0;
 }

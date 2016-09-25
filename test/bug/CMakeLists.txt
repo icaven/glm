@@ -1,1 +1,1 @@
-glmCreateTestGTC(ms_vec2)
+glmCreateTestGTC(bug_ms_vec_static)
