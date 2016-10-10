@@ -693,7 +693,11 @@
 
 #if GLM_HAS_CONSTEXPR
 #	define GLM_CONSTEXPR constexpr
-#	define GLM_CONSTEXPR_CTOR constexpr
+//#	if GLM_ARCH == GLM_ARCH_PURE
+#		define GLM_CONSTEXPR_CTOR constexpr
+//#	else
+//#		define GLM_CONSTEXPR_CTOR
+//#	endif
 #	define GLM_RELAXED_CONSTEXPR constexpr
 #elif GLM_HAS_CONSTEXPR_PARTIAL
 #	define GLM_CONSTEXPR constexpr
@@ -703,12 +707,6 @@
 #	define GLM_CONSTEXPR
 #	define GLM_CONSTEXPR_CTOR
 #	define GLM_RELAXED_CONSTEXPR const
-#endif
-
-#if GLM_ARCH == GLM_ARCH_PURE
-#	define GLM_CONSTEXPR_SIMD GLM_CONSTEXPR
-#else
-#	define GLM_CONSTEXPR_SIMD
 #endif
 
 #ifdef GLM_FORCE_EXPLICIT_CTOR
