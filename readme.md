@@ -69,6 +69,11 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Removed GLM_LEFT_HANDED, use GLM_FORCE_LEFT_HANDED instead
 
 #### [GLM 0.9.8.2](https://github.com/g-truc/glm/tree/0.9.8) - 2016-09-25
+##### Improvements:
+- Added Visual C++ 15 detection
+- Added Clang 4.0 detection
+- Refactored GLM_COMPILER_VC values
+
 ##### Fixes:
 - Fixed Visual C++ constexpr build error #555, #556
 
