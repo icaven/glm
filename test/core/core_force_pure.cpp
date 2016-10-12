@@ -1,4 +1,6 @@
-#define GLM_FORCE_PURE
+#ifndef GLM_FORCE_PURE
+#	define GLM_FORCE_PURE
+#endif//GLM_FORCE_PURE
 #define GLM_FORCE_ALIGNED
 #define GLM_FORCE_SWIZZLE
 #include <glm/vector_relational.hpp>
