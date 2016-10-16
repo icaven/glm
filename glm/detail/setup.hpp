@@ -136,16 +136,24 @@
 #define GLM_LANG_CXXGNU			GLM_LANG_CXXGNU_FLAG
 
 #if defined(GLM_FORCE_CXX14)
-#	undef GLM_FORCE_CXX11
-#	undef GLM_FORCE_CXX03
-#	undef GLM_FORCE_CXX98
+#	if((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER <= GLM_COMPILER_GCC50)) || ((GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_COMPILER <= GLM_COMPILER_CLANG34))
+#			pragma message("GLM: Using GLM_FORCE_CXX14 with a compiler that doesn't fully support C++14")
+#	elif GLM_COMPILER & GLM_COMPILER_VC
+#			pragma message("GLM: Using GLM_FORCE_CXX14 but there is no known version of Visual C++ compiler that fully supports C++14")
+#	elif GLM_COMPILER & GLM_COMPILER_INTEL
+#			pragma message("GLM: Using GLM_FORCE_CXX14 but there is no known version of ICC compiler that fully supports C++14")
+#	endif
 #	define GLM_LANG GLM_LANG_CXX14
 #elif defined(GLM_FORCE_CXX11)
-#	undef GLM_FORCE_CXX03
-#	undef GLM_FORCE_CXX98
+#	if((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER <= GLM_COMPILER_GCC48)) || ((GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_COMPILER <= GLM_COMPILER_CLANG33))
+#			pragma message("GLM: Using GLM_FORCE_CXX11 with a compiler that doesn't fully support C++11")
+#	elif GLM_COMPILER & GLM_COMPILER_VC
+#			pragma message("GLM: Using GLM_FORCE_CXX11 but there is no known version of Visual C++ compiler that fully supports C++11")
+#	elif GLM_COMPILER & GLM_COMPILER_INTEL
+#			pragma message("GLM: Using GLM_FORCE_CXX11 but there is no known version of ICC compiler that fully supports C++11")
+#	endif
 #	define GLM_LANG GLM_LANG_CXX11
 #elif defined(GLM_FORCE_CXX03)
-#	undef GLM_FORCE_CXX98
 #	define GLM_LANG GLM_LANG_CXX03
 #elif defined(GLM_FORCE_CXX98)
 #	define GLM_LANG GLM_LANG_CXX98

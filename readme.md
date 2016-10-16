@@ -72,6 +72,8 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 ##### Improvements:
 - Added Visual C++ 15 detection
 - Added Clang 4.0 detection
+- Added warning messages when using GLM_FORCE_CXX** but the compiler
+  is known to not fully support the requested C++ version #555
 - Refactored GLM_COMPILER_VC values
 
 ##### Fixes:
