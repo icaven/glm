@@ -639,7 +639,7 @@ namespace detail
 		return vec3(Unpack.data.x, Unpack.data.y, Unpack.data.z) * pow(2.0f, Unpack.data.w - 15.f - 9.f);
 	}
 
-	// From http://graphicrants.blogspot.fr/2009/04/rgbm-color-encoding.html
+	// Based on Brian Karis http://graphicrants.blogspot.fr/2009/04/rgbm-color-encoding.html
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tvec4<T, P> packRGBM(tvec3<T, P> const & rgb)
 	{

@@ -57,6 +57,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added GTC_color_encoding extension
 
 ##### Improvements:
+- Added lowp variant of GTC_colorspace convertLinearToSRGB #419
 
 ##### Fixes:
 
