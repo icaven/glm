@@ -1,51 +1,22 @@
-///////////////////////////////////////////////////////////////////////////////////
-/// OpenGL Mathematics (glm.g-truc.net)
-///
-/// Copyright (c) 2005 - 2015 G-Truc Creation (www.g-truc.net)
-/// Permission is hereby granted, free of charge, to any person obtaining a copy
-/// of this software and associated documentation files (the "Software"), to deal
-/// in the Software without restriction, including without limitation the rights
-/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-/// copies of the Software, and to permit persons to whom the Software is
-/// furnished to do so, subject to the following conditions:
-/// 
-/// The above copyright notice and this permission notice shall be included in
-/// all copies or substantial portions of the Software.
-/// 
-/// Restrictions:
-///		By making use of the Software for military purposes, you choose to make
-///		a Bunny unhappy.
-/// 
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-/// THE SOFTWARE.
-///
 /// @ref gtc_packing
 /// @file glm/gtc/packing.hpp
-/// @date 2013-08-08 / 2013-08-08
-/// @author Christophe Riccio
 ///
 /// @see core (dependence)
 ///
 /// @defgroup gtc_packing GLM_GTC_packing
 /// @ingroup gtc
-/// 
+///
 /// @brief This extension provides a set of function to convert vertors to packed
 /// formats.
-/// 
+///
 /// <glm/gtc/packing.hpp> need to be included to use these features.
-///////////////////////////////////////////////////////////////////////////////////
 
 #pragma once
 
 // Dependency:
 #include "type_precision.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(GLM_EXT_INCLUDED))
+#if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
 #	pragma message("GLM: GLM_GTC_packing extension included")
 #endif
 
@@ -480,6 +451,8 @@ namespace glm
 	/// The first vector component specifies the 11 least-significant bits of the result; 
 	/// the last component specifies the 10 most-significant bits.
 	///
+	/// packF3x9_E1x5 allows encoding into RGBE / RGB9E5 format
+	///
 	/// @see gtc_packing
 	/// @see vec3 unpackF3x9_E1x5(uint32 const & p)
 	GLM_FUNC_DECL uint32 packF3x9_E1x5(vec3 const & v);
@@ -489,10 +462,33 @@ namespace glm
 	/// 
 	/// The first component of the returned vector will be extracted from the least significant bits of the input; 
 	/// the last component will be extracted from the most significant bits.
-	/// 
+	///
+	/// unpackF3x9_E1x5 allows decoding RGBE / RGB9E5 data
+	///
 	/// @see gtc_packing
 	/// @see uint32 packF3x9_E1x5(vec3 const & v)
 	GLM_FUNC_DECL vec3 unpackF3x9_E1x5(uint32 p);
+
+	/// Returns an unsigned integer vector obtained by converting the components of a floating-point vector
+	/// to the 16-bit floating-point representation found in the OpenGL Specification.
+	/// The first vector component specifies the 16 least-significant bits of the result; 
+	/// the forth component specifies the 16 most-significant bits.
+	/// 
+	/// @see gtc_packing
+	/// @see tvec3<T, P> unpackRGBM(tvec4<T, P> const & p)
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
+	template <typename T, precision P>
+	GLM_FUNC_DECL tvec4<T, P> packRGBM(tvec3<T, P> const & rgb);
+
+	/// Returns a floating-point vector with components obtained by reinterpreting an integer vector as 16-bit floating-point numbers and converting them to 32-bit floating-point values.
+	/// The first component of the vector is obtained from the 16 least-significant bits of v;
+	/// the forth component is obtained from the 16 most-significant bits of v.
+	/// 
+	/// @see gtc_packing
+	/// @see tvec4<T, P> packRGBM(tvec3<float, P> const & v)
+	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
+	template <typename T, precision P>
+	GLM_FUNC_DECL tvec3<T, P> unpackRGBM(tvec4<T, P> const & rgbm);
 
 	/// Returns an unsigned integer vector obtained by converting the components of a floating-point vector
 	/// to the 16-bit floating-point representation found in the OpenGL Specification.
