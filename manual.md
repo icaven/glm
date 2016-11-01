@@ -113,26 +113,28 @@ GLM.
 
 Core GLM features can be included using individual headers to allow faster user program compilations.
 
-* &lt;glm/vec2.hpp&gt;: vec2, bvec2, dvec2, ivec2 and uvec2
-* &lt;glm/vec3.hpp&gt;: vec3, bvec3, dvec3, ivec3 and uvec3
-* &lt;glm/vec4.hpp&gt;: vec4, bvec4, dvec4, ivec4 and uvec4
-* &lt;glm/mat2x2.hpp&gt;: mat2, dmat2
-* &lt;glm/mat2x3.hpp&gt;: mat2x3, dmat2x3
-* &lt;glm/mat2x4.hpp&gt;: mat2x4, dmat2x4
-* &lt;glm/mat3x2.hpp&gt;: mat3x2, dmat3x2
-* &lt;glm/mat3x3.hpp&gt;: mat3, dmat3
-* &lt;glm/mat3x4.hpp&gt;: mat3x4, dmat2
-* &lt;glm/mat4x2.hpp&gt;: mat4x2, dmat4x2
-* &lt;glm/mat4x3.hpp&gt;: mat4x3, dmat4x3
-* &lt;glm/mat4x4.hpp&gt;: mat4, dmat4
-* &lt;glm/common.hpp&gt;: all the GLSL common functions
-* &lt;glm/exponential.hpp&gt;: all the GLSL exponential functions
-* &lt;glm/geometry.hpp&gt;: all the GLSL geometry functions
-* &lt;glm/integer.hpp&gt;: all the GLSL integer functions
-* &lt;glm/matrix.hpp&gt;: all the GLSL matrix functions
-* &lt;glm/packing.hpp&gt;: all the GLSL packing functions
-* &lt;glm/trigonometric.hpp&gt;: all the GLSL trigonometric functions
-* &lt;glm/vector\_relational.hpp&gt;: all the GLSL vector relational functions
+```cpp
+#include <glm/vec2.hpp> // vec2, bvec2, dvec2, ivec2 and uvec2
+#include <glm/vec3.hpp> // vec3, bvec3, dvec3, ivec3 and uvec3
+#include <glm/vec4.hpp> // vec4, bvec4, dvec4, ivec4 and uvec4
+#include <glm/mat2x2.hpp> // mat2, dmat2
+#include <glm/mat2x3.hpp> // mat2x3, dmat2x3
+#include <glm/mat2x4.hpp> // mat2x4, dmat2x4
+#include <glm/mat3x2.hpp> // mat3x2, dmat3x2
+#include <glm/mat3x3.hpp> // mat3, dmat3
+#include <glm/mat3x4.hpp> // mat3x4, dmat2
+#include <glm/mat4x2.hpp> // mat4x2, dmat4x2
+#include <glm/mat4x3.hpp> // mat4x3, dmat4x3
+#include <glm/mat4x4.hpp> // mat4, dmat4
+#include <glm/common.hpp> // all the GLSL common functions
+#include <glm/exponential.hpp> // all the GLSL exponential functions
+#include <glm/geometry.hpp> // all the GLSL geometry functions
+#include <glm/integer.hpp> // all the GLSL integer functions
+#include <glm/matrix.hpp> // all the GLSL matrix functions
+#include <glm/packing.hpp> // all the GLSL packing functions
+#include <glm/trigonometric.hpp> // all the GLSL trigonometric functions
+#include <glm/vector\_relational.hpp> // all the GLSL vector relational functions
+```
 
 ### 1.2. Faster program compilation
 
@@ -140,8 +142,7 @@ GLM is a header only library that makes a heavy usage of C++ templates.
 This design may significantly increase the compile time for files that use GLM. Hence, it is important to limit GLM inclusion to header and source files that actually use it. Likewise, GLM extensions should be
 included only in program sources using them. 
 
-To further help compilation time, GLM 0.9.5 introduced
-&lt;glm/fwd.hpp&gt; that provides forward declarations of GLM types.
+To further help compilation time, GLM 0.9.5 introduced &lt;glm/fwd.hpp&gt; that provides forward declarations of GLM types.
 
 ```cpp
 // Header file
@@ -298,66 +299,46 @@ functions so that the programmer must convert a swizzle operators to a
 vector type or call the () operator on a swizzle objects to pass it to
 another C++ functions.
 
-  ---------------------------------------------------------------------------
-  \#define GLM\_FORCE\_SWIZZLE
+```cpp
+#define GLM_FORCE_SWIZZLE
+#include <glm/glm.hpp>
 
-  \#include &lt;glm/glm.hpp&gt;
+void foo()
+{
+    glm::vec4 Color(1.0f, 0.5f, 0.0f, 1.0f);
+    ...
 
-  void foo()
+    // Generates compiler errors. Color.rgba is not a vector type.
+    glm::vec4 ClampedA = glm::clamp(Color.rgba, 0.f, 1.f); // ERROR
 
-  {
+    // We need to cast the swizzle operator into glm::vec4
+    // With by using a constructor
+    glm::vec4 ClampedB = glm::clamp(glm::vec4(Color.rgba), 0.f, 1.f); // OK
 
-  > glm::vec4 Color(1.0f, 0.5f, 0.0f, 1.0f);
-  >
-  > …
+    // Or by using the () operator
+    glm::vec4 ClampedC = glm::clamp(Color.rgba(), 0.f, 1.f); // OK
+    ...
+}
+```
 
-  // Generates compiler errors. Color.rgba is not a vector type.
+## 3. Preprocessor options
 
-  > glm::vec4 ClampedA = glm::clamp(Color.rgba, 0.f, 1.f); // ERROR
+### 3.1. Default precision
 
-  // We need to cast the swizzle operator into glm::vec4
+In C++, it is not possible to implement GLSL default precision (GLSL 4.10 specification section 4.5.3) using GLSL syntax.
 
-  // With by using a constructor
+```cpp
+precision mediump int;
+precision highp float;
+```
 
-  > glm::vec4 ClampedB = glm::clamp(glm::vec4(Color.rgba), 0.f, 1.f); // OK
+To use the default precision functionality, GLM provides some defines that need to add before any include of glm.hpp:
 
-  // Or by using the () operator
-
-  > glm::vec4 ClampedC = glm::clamp(Color.rgba(), 0.f, 1.f); // OK
-  >
-  > …
-
-  }
-  ---------------------------------------------------------------------------
-  ---------------------------------------------------------------------------
-
-3. Preprocessor options {#preprocessor-options .HeadingA}
-=======================
-
-3.1. Default precision {#default-precision .HeadingB}
-----------------------
-
-In C++, it is not possible to implement GLSL default precision (GLSL
-4.10 specification section 4.5.3) using GLSL syntax.
-
-  ------------------------
-  precision mediump int;
-
-  precision highp float;
-  ------------------------
-  ------------------------
-
-To use the default precision functionality, GLM provides some defines
-that need to add before any include of glm.hpp:
-
-  ----------------------------------------
-  \#define GLM\_PRECISION\_MEDIUMP\_INT;
-
-  \#define GLM\_PRECISION\_HIGHP\_FLOAT;
-
-  \#include &lt;glm/glm.hpp&gt;
-  ----------------------------------------
-  ----------------------------------------
+```cpp
+#define GLM_PRECISION_MEDIUMP_INT
+#define GLM_PRECISION_HIGHP_FLOAT
+#include <glm/glm.hpp>
+```
 
 Available defines for floating point types (glm::vec\*, glm::mat\*):
 
@@ -374,53 +355,36 @@ GLM\_PRECISION\_HIGHP\_DOUBLE: High precision (default)
 Available defines for signed integer types (glm::ivec\*):
 
 GLM\_PRECISION\_LOWP\_INT: Low precision
-
 GLM\_PRECISION\_MEDIUMP\_INT: Medium precision
-
 GLM\_PRECISION\_HIGHP\_INT: High precision (default)
 
 Available defines for unsigned integer types (glm::uvec\*):
 
 GLM\_PRECISION\_LOWP\_UINT: Low precision
-
 GLM\_PRECISION\_MEDIUMP\_UINT: Medium precision
-
 GLM\_PRECISION\_HIGHP\_UINT: High precision (default)
 
-3.2. Compile-time message system {#compile-time-message-system .HeadingB}
---------------------------------
+### 3.2. Compile-time message system {#compile-time-message-system .HeadingB}
 
-GLM includes a notification system which can display some information at
-build time:
+GLM includes a notification system which can display some information at build time:
 
-- Platform: Windows, Linux, Native Client, QNX, etc.
+* Platform: Windows, Linux, Native Client, QNX, etc.
+* Compiler: Visual C++, Clang, GCC, ICC, etc.
+* Build model: 32bits or 64 bits
+* C++ version : C++98, C++11, MS extensions, etc.
+* Architecture: x86, SSE, AVX, etc.
+* Included extensions
+* etc.
 
-- Compiler: Visual C++, Clang, GCC, ICC, etc.
-
-- Build model: 32bits or 64 bits
-
-- C++ version : C++98, C++11, MS extensions, etc.
-
-- Architecture: x86, SSE, AVX, etc.
-
-- Included extensions
-
-- etc.
-
-This system is disabled by default. To enable this system, define
-GLM\_FORCE\_MESSAGES before any inclusion of &lt;glm/glm.hpp&gt;. The
-messages are generated only by compiler supporting \#program message and
+This system is disabled by default. To enable this system, define GLM\_FORCE\_MESSAGES before any inclusion of &lt;glm/glm.hpp&gt;. The messages are generated only by compiler supporting \#program message and
 only once per project build.
 
-  -------------------------------
-  \#define GLM\_FORCE\_MESSAGES
+```cpp
+#define GLM_FORCE_MESSAGES
+#include <glm/glm.hpp>
+```
 
-  \#include &lt;glm/glm.hpp&gt;
-  -------------------------------
-  -------------------------------
-
-3.3. C++ language detection {#c-language-detection .HeadingB}
----------------------------
+### 3.3. C++ language detection
 
 GLM will automatically take advantage of compilers’ language extensions
 when enabled. To increase cross platform compatibility and to avoid
@@ -428,128 +392,96 @@ compiler extensions, a programmer can define GLM\_FORCE\_CXX98 before
 any inclusion of &lt;glm/glm.hpp&gt; to restrict the language feature
 set C++98:
 
-  -------------------------------
-  \#define GLM\_FORCE\_CXX98
-
-  \#include &lt;glm/glm.hpp&gt;
-  -------------------------------
-  -------------------------------
+```cpp
+#define GLM_FORCE_CXX98
+#include <glm/glm.hpp>
+```
 
 For C++11 and C++14, equivalent defines are available:
 GLM\_FORCE\_CXX11, GLM\_FORCE\_CXX14.
 
-  -------------------------------
-  \#define GLM\_FORCE\_CXX11
+```cpp
+#define GLM_FORCE_CXX11
+#include <glm/glm.hpp>
 
-  \#include &lt;glm/glm.hpp&gt;
-  -------------------------------
-  -------------------------------
+// If the compiler doesn’t support C++11, compiler errors will happen.
+```
 
 GLM\_FORCE\_CXX14 overrides GLM\_FORCE\_CXX11 and GLM\_FORCE\_CXX11
 overrides GLM\_FORCE\_CXX98 defines.
 
-3.4. SIMD support {#simd-support .HeadingB}
------------------
+### 3.4. SIMD support
 
-GLM provides some SIMD optimizations based on [compiler
-intrinsics](https://msdn.microsoft.com/en-us/library/26td21ds.aspx).
+GLM provides some SIMD optimizations based on [compiler intrinsics](https://msdn.microsoft.com/en-us/library/26td21ds.aspx).
 These optimizations will be automatically thanks to compiler arguments.
 For example, if a program is compiled with Visual Studio using
 /arch:AVX, GLM will detect this argument and generate code using AVX
 instructions automatically when available.
 
-It’s possible to avoid the instruction set detection by forcing the use
-of a specific instruction set with one of the fallowing define:
-GLM\_FORCE\_SSE2, GLM\_FORCE\_SSE3, GLM\_FORCE\_SSSE3,
-GLM\_FORCE\_SSE41, GLM\_FORCE\_SSE42, GLM\_FORCE\_AVX, GLM\_FORCE\_AVX2
-or GLM\_FORCE\_AVX512.
+It’s possible to avoid the instruction set detection by forcing the use of a specific instruction set with one of the fallowing define:
+GLM\_FORCE\_SSE2, GLM\_FORCE\_SSE3, GLM\_FORCE\_SSSE3, GLM\_FORCE\_SSE41, GLM\_FORCE\_SSE42, GLM\_FORCE\_AVX, GLM\_FORCE\_AVX2 or GLM\_FORCE\_AVX512.
 
 The use of intrinsic functions by GLM implementation can be avoided
 using the define GLM\_FORCE\_PURE before any inclusion of GLM headers.
 
-+--------------------------------------------------------------------------+
-| \#define GLM\_FORCE\_PURE                                                |
-|                                                                          |
-| \#include &lt;glm/glm.hpp&gt;\                                           |
-| \                                                                        |
-| // GLM code will be compiled using pure C++ code                         |
-+==========================================================================+
-+--------------------------------------------------------------------------+
+```cpp
+#define GLM_FORCE_PURE
+#include <glm/glm.hpp>
 
-+--------------------------------------------------------------------------+
-| \#define GLM\_FORCE\_AVX2                                                |
-|                                                                          |
-| \#include &lt;glm/glm.hpp&gt;\                                           |
-| \                                                                        |
-| // If the compiler doesn’t support AVX2 instrinsics,\                    |
-| // compiler errors will happen.                                          |
-+==========================================================================+
-+--------------------------------------------------------------------------+
+// GLM code will be compiled using pure C++ code without any intrinsics
+```
+
+```cpp
+#define GLM_FORCE_AVX2
+#include <glm/glm.hpp>
+
+// If the compiler doesn’t support AVX2 instrinsics, compiler errors will happen.
+```
 
 Additionally, GLM provides a low level SIMD API in glm/simd directory
 for users who are really interested in writing fast algorithms.
 
-3.5. Force inline {#force-inline .HeadingB}
------------------
+### 3.5. Force inline
 
 To push further the software performance, a programmer can define
 GLM\_FORCE\_INLINE before any inclusion of &lt;glm/glm.hpp&gt; to force
 the compiler to inline GLM code.
 
-  -------------------------------
-  \#define GLM\_FORCE\_INLINE
+```cpp
+#define GLM_FORCE_INLINE
+#include <glm/glm.hpp>
+```
 
-  \#include &lt;glm/glm.hpp&gt;
-  -------------------------------
-  -------------------------------
+### 3.6. Vector and matrix static size
 
-3.6. Vector and matrix static size {#vector-and-matrix-static-size .HeadingB}
-----------------------------------
+GLSL supports the member function .length() for all vector and matrix types.
 
-GLSL supports the member function .length() for all vector and matrix
-types.
+```cpp
+#include <glm/glm.hpp>
 
-  -------------------------------
-  \#include &lt;glm/glm.hpp&gt;
+void foo(vec4 const & v)
+{
+    int Length = v.length();
+    ...
+}
+```
 
-  void foo(vec4 const & v)
+This function returns a int however this function typically interacts with STL size\_t based code. GLM provides GLM\_FORCE\_SIZE\_T\_LENGTH pre-processor option so that member functions length() return a size\_t.
 
-  {
+Additionally, GLM defines the type glm::length\_t to identify length() returned type, independently from GLM\_FORCE\_SIZE\_T\_LENGTH.
 
-  > int Length = v.length();
-  >
-  > …
+```cpp
+#define GLM_FORCE_SIZE_T_LENGTH
+#include <glm/glm.hpp>
 
-  }
-  -------------------------------
-  -------------------------------
+void foo(vec4 const & v)
+{
+    glm::size_t Length = v.length();
+    ...
+}
+```
 
-This function returns a int however this function typically interacts
-with STL size\_t based code. GLM provides GLM\_FORCE\_SIZE\_T\_LENGTH
-pre-processor option so that member functions length() return a size\_t.
-
-Additionally, GLM defines the type glm::length\_t to identify length()
-returned type, independently from GLM\_FORCE\_SIZE\_T\_LENGTH.
-
-  --------------------------------------
-  \#define GLM\_FORCE\_SIZE\_T\_LENGTH
-
-  \#include &lt;glm/glm.hpp&gt;
-
-  void foo(vec4 const & v)
-
-  {
-
-  > glm::size\_t Length = v.length();
-  >
-  > …
-
-  }
-  --------------------------------------
-  --------------------------------------
-
-3.7. Disabling default constructor initialization {#disabling-default-constructor-initialization .HeadingB}
--------------------------------------------------
+### 3.7. Disabling default constructor initialization
 
 By default and following GLSL specifications, vector and matrix default
 constructors initialize the components to zero. This is a reliable
@@ -560,232 +492,171 @@ or other GLM include.
 
 GLM default behavior:
 
-  -------------------------------------------------
-  \#include &lt;glm/glm.hpp&gt;
+```cpp
+#include <glm/glm.hpp>
 
-  void foo()
-
-  {
-
-  > glm::vec4 v; // v is (0.0f, 0.0f, 0.0f, 0.0f)
-  >
-  > …
-
-  }
-  -------------------------------------------------
-  -------------------------------------------------
+void foo()
+{
+    glm::vec4 v; // v is (0.0f, 0.0f, 0.0f, 0.0f)
+    ...
+}
+```
 
 GLM behavior using GLM\_FORCE\_NO\_CTOR\_INIT:
 
-  ------------------------------------------
-  \#define GLM\_FORCE\_NO\_CTOR\_INIT
+```cpp
+#define GLM_FORCE_NO_CTOR_INIT
+#include <glm/glm.hpp>
 
-  \#include &lt;glm/glm.hpp&gt;
-
-  void foo()
-
-  {
-
-  > glm::vec4 v; // v is fill with garbage
-  >
-  > …
-
-  }
-  ------------------------------------------
-  ------------------------------------------
+void foo()
+{
+    glm::vec4 v; // v is fill with garbage
+    ...
+}
+```
 
 Alternatively, GLM allows to explicitly not initialize a variable:
 
-  -----------------------------------
-  \#include &lt;glm/glm.hpp&gt;
+```cpp
+#include <glm/glm.hpp>
 
-  void foo()
+void foo()
+{
+    glm::vec4 v(glm::uninitialize);
+    ...
+}
+```
 
-  {
+### 3.8. Require explicit conversions
 
-  > glm::vec4 v(glm::uninitialize);
-  >
-  > …
+GLSL supports implicit conversions of vector and matrix types. For example, an ivec4 can be implicitly converted into vec4.
 
-  }
-  -----------------------------------
-  -----------------------------------
-
-3.8. Require explicit conversions {#require-explicit-conversions .HeadingB}
----------------------------------
-
-GLSL supports implicit conversions of vector and matrix types. For
-example, an ivec4 can be implicitly converted into vec4.
-
-Often, this behaviour is not desirable but following the spirit of the
-library, this behavior is supported in GLM. However, GLM 0.9.6
-introduced the define GLM\_FORCE\_EXPLICIT\_CTOR to require explicit
+Often, this behaviour is not desirable but following the spirit of the library, this behavior is supported in GLM. However, GLM 0.9.6 introduced the define GLM\_FORCE\_EXPLICIT\_CTOR to require explicit
 conversion for GLM types.
 
-+--------------------------------------------------------------------------+
-| \#include &lt;glm/glm.hpp&gt;                                            |
-|                                                                          |
-| void foo()                                                               |
-|                                                                          |
-| {                                                                        |
-|                                                                          |
-| > glm::ivec4 a;\                                                         |
-| > …                                                                      |
-| >                                                                        |
-| > glm::vec4 b(a); // Explicit conversion, OK\                            |
-| > glm::vec4 c = a; // Implicit conversion, OK                            |
-| >                                                                        |
-| > …                                                                      |
-|                                                                          |
-| }                                                                        |
-+==========================================================================+
-+--------------------------------------------------------------------------+
+```cpp
+#include <glm/glm.hpp>
 
-With GLM\_FORCE\_EXPLICIT\_CTOR define, implicit conversions are not
-allowed:
+void foo()
+{
+    glm::ivec4 a;
+    ...
 
-+--------------------------------------------------------------------------+
-| \#define GLM\_FORCE\_EXPLICIT\_CTOR                                      |
-|                                                                          |
-| \#include &lt;glm/glm.hpp&gt;                                            |
-|                                                                          |
-| void foo()                                                               |
-|                                                                          |
-| {                                                                        |
-|                                                                          |
-| > glm::ivec4 a;\                                                         |
-| > …                                                                      |
-| >                                                                        |
-| > glm::vec4 b(a); // Explicit conversion, OK\                            |
-| > glm::vec4 c = a; // Implicit conversion, ERROR                         |
-| >                                                                        |
-| > …                                                                      |
-|                                                                          |
-| }                                                                        |
-+==========================================================================+
-+--------------------------------------------------------------------------+
+    glm::vec4 b(a); // Explicit conversion, OK
+    glm::vec4 c = a; // Implicit conversion, OK
+    ...
+}
+```
 
-3.9. Removing genType restriction {#removing-gentype-restriction .HeadingB}
----------------------------------
+With GLM\_FORCE\_EXPLICIT\_CTOR define, implicit conversions are not allowed:
 
-By default GLM only supports basic types as genType for vector, matrix
-and quaternion types:
+```cpp
+#define GLM_FORCE_EXPLICIT_CTOR
+#include <glm/glm.hpp>
 
-  --------------------------------------------
-  \#include &lt;glm/glm.hpp&gt;
+void foo()
+{
+    glm::ivec4 a;
+    {
+        glm::vec4 b(a); // Explicit conversion, OK
+        glm::vec4 c = a; // Implicit conversion, ERROR
+        ...
+}
+```
 
-  typedef glm::tvec4&lt;float&gt; my\_fvec4;
-  --------------------------------------------
-  --------------------------------------------
+### 3.9. Removing genType restriction
 
-GLM 0.9.8 introduced GLM\_FORCE\_UNRESTRICTED\_GENTYPE define to relax
-this restriction:
+By default GLM only supports basic types as genType for vector, matrix and quaternion types:
 
-+--------------------------------------------------------------------------+
-| \#define GLM\_FORCE\_UNRESTRICTED\_GENTYPE\                              |
-| \#include &lt;glm/glm.hpp&gt;                                            |
-|                                                                          |
-| \#include "half.hpp" // Define “half” class with equivalent behavior     |
-| than “float”                                                             |
-|                                                                          |
-| typedef glm::tvec4&lt;half&gt; my\_hvec4;                                |
-+==========================================================================+
-+--------------------------------------------------------------------------+
+```cpp
+#include <glm/glm.hpp>
 
-However, defining GLM\_FORCE\_UNRESTRICTED\_GENTYPE is not compatible
-with GLM\_FORCE\_SWIZZLE and will generate a compilation error if both
-are defined at the same time.
+typedef glm::tvec4<float> my_fvec4;
+```
 
-4. Stable extensions {#stable-extensions .HeadingA}
-====================
+GLM 0.9.8 introduced GLM\_FORCE\_UNRESTRICTED\_GENTYPE define to relax this restriction:
 
-GLM extends the core GLSL feature set with extensions. These extensions
-include: quaternion, transformation, spline, matrix inverse, color
-spaces, etc.
+```cpp
+#define GLM_FORCE_UNRESTRICTED_GENTYPE
+#include <glm/glm.hpp>
 
-To include an extension, we only need to include the dedicated header
-file. Once included, the features are added to the GLM namespace.
+#include "half.hpp" // Define “half” class with equivalent behavior than “float”
 
-  ---------------------------------------------------------
-  \#include &lt;glm/glm.hpp&gt;
+typedef glm::tvec4<half> my_hvec4;
+```
 
-  \#include &lt;glm/gtc/matrix\_transform.hpp&gt;
+However, defining GLM\_FORCE\_UNRESTRICTED\_GENTYPE is not compatible with GLM\_FORCE\_SWIZZLE and will generate a compilation error if both are defined at the same time.
 
-  int foo()
+## 4. Stable extensions
 
-  {
+GLM extends the core GLSL feature set with extensions. These extensions include: quaternion, transformation, spline, matrix inverse, color spaces, etc.
 
-  glm::vec4 Position = glm::vec4(glm:: vec3(0.0f), 1.0f);
+To include an extension, we only need to include the dedicated header file. Once included, the features are added to the GLM namespace.
 
-  glm::mat4 Model = glm::translate(
+```cpp
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
-  > glm::mat4(1.0f), glm::vec3(1.0f));
+int foo()
+{
+    glm::vec4 Position = glm::vec4(glm:: vec3(0.0f), 1.0f);
+    glm::mat4 Model = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f));
 
-  glm::vec4 Transformed = Model \* Position;
+    glm::vec4 Transformed = Model * Position;
+    ...
 
-  …
-
-  return 0;
-
-  }
-  ---------------------------------------------------------
-  ---------------------------------------------------------
+    return 0;
+}
+```
 
 When an extension is included, all the dependent core functionalities
 and extensions will be included as well.
 
-4.1. GLM\_GTC\_bitfield {#glm_gtc_bitfield .HeadingB}
------------------------
+### 4.1. GLM_GTC_bitfield
 
 Fast bitfield operations on scalar and vector variables.
 
 &lt;glm/gtc/bitfield.hpp&gt; need to be included to use these features.
 
-4.2. GLM\_GTC\_color\_space {#glm_gtc_color_space .HeadingB}
----------------------------
+### 4.2. GLM_GTC_color_space
 
 Conversion between linear RGB to sRGB and sRGB to linear RGB.
 
 &lt;glm/gtc/color\_space.hpp&gt; need to be included to use these
 features.
 
-4.3. GLM\_GTC\_constants {#glm_gtc_constants .HeadingB}
-------------------------
+### 4.3. GLM\_GTC\_constants
 
 Provide a list of built-in constants.
 
 &lt;glm/gtc/constants.hpp&gt; need to be included to use these features.
 
-4.4. GLM\_GTC\_epsilon {#glm_gtc_epsilon .HeadingB}
-----------------------
+### 4.4. GLM\_GTC\_epsilon
 
 Approximate equal and not equal comparisons with selectable epsilon.
 
 &lt;glm/gtc/epsilon.hpp&gt; need to be included to use these features.
 
-4.5. GLM\_GTC\_functions {#glm_gtc_functions .HeadingB}
-------------------------
+### 4.5. GLM\_GTC\_functions
 
 Useful functions.
 
 &lt;glm/gtc/functions.hpp&gt; need to be included to use these features.
 
-4.6. GLM\_GTC\_integer {#glm_gtc_integer .HeadingB}
-----------------------
+### 4.6. GLM\_GTC\_integer
 
 Provide integer variants of GLM core functions.
 
 &lt;glm/gtc/integer.hpp&gt; need to be included to use these features.
 
-4.7. GLM\_GTC\_matrix\_access {#glm_gtc_matrix_access .HeadingB}
------------------------------
+### 4.7. GLM\_GTC\_matrix\_access
 
 Define functions to access rows or columns of a matrix easily.
 
 &lt;glm/gtc/matrix\_access.hpp&gt; need to be included to use these
 features.
 
-4.8. GLM\_GTC\_matrix\_integer {#glm_gtc_matrix_integer .HeadingB}
+### 4.8. GLM\_GTC\_matrix\_integer {#glm_gtc_matrix_integer .HeadingB}
 ------------------------------
 
 Provide integer matrix types. Inverse and determinant functions are not
@@ -794,7 +665,7 @@ supported for these types.
 &lt;glm/gtc/matrix\_integer.hpp&gt; need to be included to use these
 features.
 
-4.9. GLM\_GTC\_matrix\_inverse {#glm_gtc_matrix_inverse .HeadingB}
+### 4.9. GLM\_GTC\_matrix\_inverse {#glm_gtc_matrix_inverse .HeadingB}
 ------------------------------
 
 Define additional matrix inverting functions.
@@ -802,7 +673,7 @@ Define additional matrix inverting functions.
 &lt;glm/gtc/matrix\_inverse.hpp&gt; need to be included to use these
 features.
 
-4.10. GLM\_GTC\_matrix\_transform {#glm_gtc_matrix_transform .HeadingB}
+### 4.10. GLM\_GTC\_matrix\_transform {#glm_gtc_matrix_transform .HeadingB}
 ---------------------------------
 
 Define functions that generate common transformation matrices.
@@ -817,7 +688,7 @@ layout of this eye space.
 &lt;glm/gtc/matrix\_transform.hpp&gt; need to be included to use these
 features.
 
-4.11. GLM\_GTC\_noise {#glm_gtc_noise .HeadingB}
+### 4.11. GLM\_GTC\_noise {#glm_gtc_noise .HeadingB}
 ---------------------
 
 Define 2D, 3D and 4D procedural noise functions.
@@ -872,7 +743,7 @@ height="2.6666666666666665in"}
 Figure 4.11.9: glm::perlin(glm::vec4(x / 16.f, y / 16.f,
 glm::vec2(0.5f)), glm::vec4(2.0f));
 
-4.12. GLM\_GTC\_packing {#glm_gtc_packing .HeadingB}
+### 4.12. GLM\_GTC\_packing {#glm_gtc_packing .HeadingB}
 -----------------------
 
 Convert scalar and vector types to packed formats. This extension can
@@ -883,7 +754,7 @@ will be perform loselessly.
 
 &lt;glm/gtc/packing.hpp&gt; need to be included to use these features.
 
-4.13. GLM\_GTC\_quaternion {#glm_gtc_quaternion .HeadingB}
+### 4.13. GLM\_GTC\_quaternion {#glm_gtc_quaternion .HeadingB}
 --------------------------
 
 Define a quaternion type and several quaternion operations.
@@ -891,7 +762,7 @@ Define a quaternion type and several quaternion operations.
 &lt;glm/gtc/quaternion.hpp&gt; need to be included to use these
 features.
 
-4.14. GLM\_GTC\_random {#glm_gtc_random .HeadingB}
+### 4.14. GLM\_GTC\_random {#glm_gtc_random .HeadingB}
 ----------------------
 
 Generate random number from various distribution methods.
@@ -925,7 +796,7 @@ height="2.7395833333333335in"}
 
 Figure 4.14.6: glm::vec4(glm::gaussRand(glm::vec3(0), glm::vec3(1)), 1);
 
-4.15. GLM\_GTC\_reciprocal {#glm_gtc_reciprocal .HeadingB}
+### 4.15. GLM\_GTC\_reciprocal {#glm_gtc_reciprocal .HeadingB}
 --------------------------
 
 Provide hyperbolic functions: secant, cosecant, cotangent, etc.
@@ -933,7 +804,7 @@ Provide hyperbolic functions: secant, cosecant, cotangent, etc.
 &lt;glm/gtc/reciprocal.hpp&gt; need to be included to use these
 functionalities.
 
-4.16. GLM\_GTC\_round {#glm_gtc_round .HeadingB}
+### 4.16. GLM\_GTC\_round {#glm_gtc_round .HeadingB}
 ---------------------
 
 Rounding operation on power of two and multiple values.
@@ -941,7 +812,7 @@ Rounding operation on power of two and multiple values.
 &lt;glm/gtc/round.hpp&gt; need to be included to use these
 functionalities.
 
-4.17. GLM\_GTC\_type\_aligned {#glm_gtc_type_aligned .HeadingB}
+### 4.17. GLM\_GTC\_type\_aligned {#glm_gtc_type_aligned .HeadingB}
 -----------------------------
 
 Aligned vector types.
@@ -949,7 +820,7 @@ Aligned vector types.
 &lt;glm/gtc/type\_aligned.hpp&gt; need to be included to use these
 functionalities.
 
-4.18. GLM\_GTC\_type\_precision {#glm_gtc_type_precision .HeadingB}
+### 4.18. GLM\_GTC\_type\_precision {#glm_gtc_type_precision .HeadingB}
 -------------------------------
 
 Add vector and matrix types with defined precisions. Eg, i8vec4: vector
@@ -1043,7 +914,7 @@ GLM\_PRECISION\_HIGHP\_FLOAT64: High precision (default)
 &lt;glm/gtc/type\_precision.hpp&gt; need to be included to use these
 functionalities.
 
-4.19. GLM\_GTC\_type\_ptr {#glm_gtc_type_ptr .HeadingB}
+### 4.19. GLM\_GTC\_type\_ptr {#glm_gtc_type_ptr .HeadingB}
 -------------------------
 
 Handle the interaction between pointers and vector, matrix types.
@@ -1109,7 +980,7 @@ form of notification. *
 
 &lt;glm/gtc/type\_ptr.hpp&gt; need to be included to use these features.
 
-4.20. GLM\_GTC\_ulp {#glm_gtc_ulp .HeadingB}
+### 4.20. GLM\_GTC\_ulp {#glm_gtc_ulp .HeadingB}
 -------------------
 
 Allow the measurement of the accuracy of a function against a reference
@@ -1119,18 +990,16 @@ results in
 
 &lt;glm/gtc/ulp.hpp&gt; need to be included to use these features.
 
-4.21. GLM\_GTC\_vec1 {#glm_gtc_vec1 .HeadingB}
+### 4.21. GLM\_GTC\_vec1 {#glm_gtc_vec1 .HeadingB}
 --------------------
 
 Add \*vec1 types.
 
 &lt;glm/gtc/vec1.hpp&gt; need to be included to use these features.
 
-5. OpenGL interoperability {#opengl-interoperability .HeadingA}
-==========================
+## 5. OpenGL interoperability
 
-5.1. GLM replacements for deprecated OpenGL functions  {#glm-replacements-for-deprecated-opengl-functions .HeadingB}
-------------------------------------------------------
+### 5.1. GLM replacements for deprecated OpenGL functions
 
 OpenGL 3.1 specification has deprecated some features that have been
 removed from OpenGL 3.2 core profile specification. GLM provides some
