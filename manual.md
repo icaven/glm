@@ -104,108 +104,68 @@ reports](https://github.com/g-truc/glm/issues) for bugs and feature
 requests. Any feedback is welcome at
 [*glm@g-truc.net*](mailto:glm@g-truc.net).
 
-1. Getting started {#getting-started .HeadingA}
-==================
+---
+## 1. Getting started
+### 1.1. Setup
 
-1.1. Setup {#setup .HeadingB}
-----------
-
-GLM is a header only library. Hence, there is nothing to build to use
-it. To use GLM, a programmer only has to include &lt;glm/glm.hpp&gt; in
-his program. This include provides all the GLSL features implemented by
+GLM is a header only library. Hence, there is nothing to build to use it. To use GLM, a programmer only has to include &lt;glm/glm.hpp&gt; in his program. This include provides all the GLSL features implemented by
 GLM.
 
-Core GLM features can be included using individual headers to allow
-faster user program compilations.
+Core GLM features can be included using individual headers to allow faster user program compilations.
 
-&lt;glm/vec2.hpp&gt;: vec2, bvec2, dvec2, ivec2 and uvec2
+* &lt;glm/vec2.hpp&gt;: vec2, bvec2, dvec2, ivec2 and uvec2
+* &lt;glm/vec3.hpp&gt;: vec3, bvec3, dvec3, ivec3 and uvec3
+* &lt;glm/vec4.hpp&gt;: vec4, bvec4, dvec4, ivec4 and uvec4
+* &lt;glm/mat2x2.hpp&gt;: mat2, dmat2
+* &lt;glm/mat2x3.hpp&gt;: mat2x3, dmat2x3
+* &lt;glm/mat2x4.hpp&gt;: mat2x4, dmat2x4
+* &lt;glm/mat3x2.hpp&gt;: mat3x2, dmat3x2
+* &lt;glm/mat3x3.hpp&gt;: mat3, dmat3
+* &lt;glm/mat3x4.hpp&gt;: mat3x4, dmat2
+* &lt;glm/mat4x2.hpp&gt;: mat4x2, dmat4x2
+* &lt;glm/mat4x3.hpp&gt;: mat4x3, dmat4x3
+* &lt;glm/mat4x4.hpp&gt;: mat4, dmat4
+* &lt;glm/common.hpp&gt;: all the GLSL common functions
+* &lt;glm/exponential.hpp&gt;: all the GLSL exponential functions
+* &lt;glm/geometry.hpp&gt;: all the GLSL geometry functions
+* &lt;glm/integer.hpp&gt;: all the GLSL integer functions
+* &lt;glm/matrix.hpp&gt;: all the GLSL matrix functions
+* &lt;glm/packing.hpp&gt;: all the GLSL packing functions
+* &lt;glm/trigonometric.hpp&gt;: all the GLSL trigonometric functions
+* &lt;glm/vector\_relational.hpp&gt;: all the GLSL vector relational functions
 
-&lt;glm/vec3.hpp&gt;: vec3, bvec3, dvec3, ivec3 and uvec3
-
-&lt;glm/vec4.hpp&gt;: vec4, bvec4, dvec4, ivec4 and uvec4
-
-&lt;glm/mat2x2.hpp&gt;: mat2, dmat2
-
-&lt;glm/mat2x3.hpp&gt;: mat2x3, dmat2x3
-
-&lt;glm/mat2x4.hpp&gt;: mat2x4, dmat2x4
-
-&lt;glm/mat3x2.hpp&gt;: mat3x2, dmat3x2
-
-&lt;glm/mat3x3.hpp&gt;: mat3, dmat3
-
-&lt;glm/mat3x4.hpp&gt;: mat3x4, dmat2
-
-&lt;glm/mat4x2.hpp&gt;: mat4x2, dmat4x2
-
-&lt;glm/mat4x3.hpp&gt;: mat4x3, dmat4x3
-
-&lt;glm/mat4x4.hpp&gt;: mat4, dmat4
-
-&lt;glm/common.hpp&gt;: all the GLSL common functions
-
-&lt;glm/exponential.hpp&gt;: all the GLSL exponential functions
-
-&lt;glm/geometry.hpp&gt;: all the GLSL geometry functions
-
-&lt;glm/integer.hpp&gt;: all the GLSL integer functions
-
-&lt;glm/matrix.hpp&gt;: all the GLSL matrix functions
-
-&lt;glm/packing.hpp&gt;: all the GLSL packing functions
-
-&lt;glm/trigonometric.hpp&gt;: all the GLSL trigonometric functions
-
-&lt;glm/vector\_relational.hpp&gt;: all the GLSL vector relational
-functions
-
-1.2. Faster program compilation {#faster-program-compilation .HeadingB}
--------------------------------
+### 1.2. Faster program compilation
 
 GLM is a header only library that makes a heavy usage of C++ templates.
-This design may significantly increase the compile time for files that
-use GLM. Hence, it is important to limit GLM inclusion to header and
-source files that actually use it. Likewise, GLM extensions should be
-included only in program sources using them.
+This design may significantly increase the compile time for files that use GLM. Hence, it is important to limit GLM inclusion to header and source files that actually use it. Likewise, GLM extensions should be
+included only in program sources using them. 
 
 To further help compilation time, GLM 0.9.5 introduced
 &lt;glm/fwd.hpp&gt; that provides forward declarations of GLM types.
 
-  -------------------------------
-  // Header file
+```cpp
+// Header file
+#include <glm/fwd.hpp>
 
-  \#include &lt;glm/fwd.hpp&gt;
+// Source file
+#include <glm/glm.hpp>;
+```
 
-  // Source file
+### 1.3. Use sample of GLM core
 
-  \#include &lt;glm/glm.hpp&gt;
-  -------------------------------
-  -------------------------------
+```cpp
+// Include GLM core features
+\#include &lt;glm/vec3.hpp&gt;
+\#include &lt;glm/vec4.hpp&gt;
+\#include &lt;glm/mat4x4.hpp&gt;
+\#include &lt;glm/trigonometric.hpp&gt;
 
-1.3. Use sample of GLM core {#use-sample-of-glm-core .HeadingB}
----------------------------
+// Include GLM extensions
+\#include &lt;glm/gtc/matrix\_transform.hpp&gt;
 
-  ---------------------------------------------------------------------------
-  // Include GLM core features
-
-  \#include &lt;glm/vec3.hpp&gt;
-
-  \#include &lt;glm/vec4.hpp&gt;
-
-  \#include &lt;glm/mat4x4.hpp&gt;
-
-  \#include &lt;glm/trigonometric.hpp&gt;
-
-  // Include GLM extensions
-
-  \#include &lt;glm/gtc/matrix\_transform.hpp&gt;
-
-  glm::mat4 transform(
-
+glm::mat4 transform(
   glm::vec2 const& Orientation,
-
   glm::vec3 const& Translate,
-
   glm::vec3 const& Up)
 
   {
@@ -223,10 +183,9 @@ To further help compilation time, GLM 0.9.5 introduced
   return Proj \* View \* Model;
 
   }
-  ---------------------------------------------------------------------------
-  ---------------------------------------------------------------------------
+```
 
-1.4. Dependencies {#dependencies .HeadingB}
+### 1.4. Dependencies {#dependencies .HeadingB}
 -----------------
 
 When &lt;glm/glm.hpp&gt; is included, GLM provides all the GLSL features
