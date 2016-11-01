@@ -656,8 +656,7 @@ Define functions to access rows or columns of a matrix easily.
 &lt;glm/gtc/matrix\_access.hpp&gt; need to be included to use these
 features.
 
-### 4.8. GLM\_GTC\_matrix\_integer {#glm_gtc_matrix_integer .HeadingB}
-------------------------------
+### 4.8. GLM\_GTC\_matrix\_integer
 
 Provide integer matrix types. Inverse and determinant functions are not
 supported for these types.
@@ -665,16 +664,14 @@ supported for these types.
 &lt;glm/gtc/matrix\_integer.hpp&gt; need to be included to use these
 features.
 
-### 4.9. GLM\_GTC\_matrix\_inverse {#glm_gtc_matrix_inverse .HeadingB}
-------------------------------
+### 4.9. GLM\_GTC\_matrix\_inverse
 
 Define additional matrix inverting functions.
 
 &lt;glm/gtc/matrix\_inverse.hpp&gt; need to be included to use these
 features.
 
-### 4.10. GLM\_GTC\_matrix\_transform {#glm_gtc_matrix_transform .HeadingB}
----------------------------------
+### 4.10. GLM\_GTC\_matrix\_transform
 
 Define functions that generate common transformation matrices.
 
@@ -688,8 +685,7 @@ layout of this eye space.
 &lt;glm/gtc/matrix\_transform.hpp&gt; need to be included to use these
 features.
 
-### 4.11. GLM\_GTC\_noise {#glm_gtc_noise .HeadingB}
----------------------
+### 4.11. GLM\_GTC\_noise
 
 Define 2D, 3D and 4D procedural noise functions.
 
@@ -743,8 +739,7 @@ height="2.6666666666666665in"}
 Figure 4.11.9: glm::perlin(glm::vec4(x / 16.f, y / 16.f,
 glm::vec2(0.5f)), glm::vec4(2.0f));
 
-### 4.12. GLM\_GTC\_packing {#glm_gtc_packing .HeadingB}
------------------------
+### 4.12. GLM\_GTC\_packing
 
 Convert scalar and vector types to packed formats. This extension can
 also unpack packed data to the original format. The use of packing
@@ -754,16 +749,14 @@ will be perform loselessly.
 
 &lt;glm/gtc/packing.hpp&gt; need to be included to use these features.
 
-### 4.13. GLM\_GTC\_quaternion {#glm_gtc_quaternion .HeadingB}
---------------------------
+### 4.13. GLM\_GTC\_quaternion
 
 Define a quaternion type and several quaternion operations.
 
 &lt;glm/gtc/quaternion.hpp&gt; need to be included to use these
 features.
 
-### 4.14. GLM\_GTC\_random {#glm_gtc_random .HeadingB}
-----------------------
+### 4.14. GLM\_GTC\_random
 
 Generate random number from various distribution methods.
 
@@ -796,32 +789,28 @@ height="2.7395833333333335in"}
 
 Figure 4.14.6: glm::vec4(glm::gaussRand(glm::vec3(0), glm::vec3(1)), 1);
 
-### 4.15. GLM\_GTC\_reciprocal {#glm_gtc_reciprocal .HeadingB}
---------------------------
+### 4.15. GLM\_GTC\_reciprocal
 
 Provide hyperbolic functions: secant, cosecant, cotangent, etc.
 
 &lt;glm/gtc/reciprocal.hpp&gt; need to be included to use these
 functionalities.
 
-### 4.16. GLM\_GTC\_round {#glm_gtc_round .HeadingB}
----------------------
+### 4.16. GLM\_GTC\_round
 
 Rounding operation on power of two and multiple values.
 
 &lt;glm/gtc/round.hpp&gt; need to be included to use these
 functionalities.
 
-### 4.17. GLM\_GTC\_type\_aligned {#glm_gtc_type_aligned .HeadingB}
------------------------------
+### 4.17. GLM\_GTC\_type\_aligned
 
 Aligned vector types.
 
 &lt;glm/gtc/type\_aligned.hpp&gt; need to be included to use these
 functionalities.
 
-### 4.18. GLM\_GTC\_type\_precision {#glm_gtc_type_precision .HeadingB}
--------------------------------
+### 4.18. GLM\_GTC\_type\_precision
 
 Add vector and matrix types with defined precisions. Eg, i8vec4: vector
 of 4 signed integer of 8 bits.
@@ -831,91 +820,67 @@ of types added:
 
 Available defines for signed 8-bit integer types (glm::i8vec\*):
 
-GLM\_PRECISION\_LOWP\_INT8: Low precision
-
-GLM\_PRECISION\_MEDIUMP\_INT8: Medium precision
-
-GLM\_PRECISION\_HIGHP\_INT8: High precision (default)
+* GLM\_PRECISION\_LOWP\_INT8: Low precision
+* GLM\_PRECISION\_MEDIUMP\_INT8: Medium precision
+* GLM\_PRECISION\_HIGHP\_INT8: High precision (default)
 
 Available defines for unsigned 8-bit integer types (glm::u8vec\*):
 
-GLM\_PRECISION\_LOWP\_UINT8: Low precision
-
-GLM\_PRECISION\_MEDIUMP\_UINT8: Medium precision
-
-GLM\_PRECISION\_HIGHP\_UINT8: High precision (default)
+* GLM\_PRECISION\_LOWP\_UINT8: Low precision
+* GLM\_PRECISION\_MEDIUMP\_UINT8: Medium precision
+* GLM\_PRECISION\_HIGHP\_UINT8: High precision (default)
 
 Available defines for signed 16-bit integer types (glm::i16vec\*):
 
-GLM\_PRECISION\_LOWP\_INT16: Low precision
-
-GLM\_PRECISION\_MEDIUMP\_INT16: Medium precision
-
-GLM\_PRECISION\_HIGHP\_INT16: High precision (default)
+* GLM\_PRECISION\_LOWP\_INT16: Low precision
+* GLM\_PRECISION\_MEDIUMP\_INT16: Medium precision
+* GLM\_PRECISION\_HIGHP\_INT16: High precision (default)
 
 Available defines for unsigned 16-bit integer types (glm::u16vec\*):
 
-GLM\_PRECISION\_LOWP\_UINT16: Low precision
-
-GLM\_PRECISION\_MEDIUMP\_UINT16: Medium precision
-
-GLM\_PRECISION\_HIGHP\_UINT16: High precision (default)
+* GLM\_PRECISION\_LOWP\_UINT16: Low precision
+* GLM\_PRECISION\_MEDIUMP\_UINT16: Medium precision
+* GLM\_PRECISION\_HIGHP\_UINT16: High precision (default)
 
 Available defines for signed 32-bit integer types (glm::i32vec\*):
 
-GLM\_PRECISION\_LOWP\_INT32: Low precision
-
-GLM\_PRECISION\_MEDIUMP\_INT32: Medium precision
-
-GLM\_PRECISION\_HIGHP\_INT32: High precision (default)
+* GLM\_PRECISION\_LOWP\_INT32: Low precision
+* GLM\_PRECISION\_MEDIUMP\_INT32: Medium precision
+* GLM\_PRECISION\_HIGHP\_INT32: High precision (default)
 
 Available defines for unsigned 32-bit integer types (glm::u32vec\*):
 
-GLM\_PRECISION\_LOWP\_UINT32: Low precision
-
-GLM\_PRECISION\_MEDIUMP\_UINT32: Medium precision
-
-GLM\_PRECISION\_HIGHP\_UINT32: High precision (default)
+* GLM\_PRECISION\_LOWP\_UINT32: Low precision
+* GLM\_PRECISION\_MEDIUMP\_UINT32: Medium precision
+* GLM\_PRECISION\_HIGHP\_UINT32: High precision (default)
 
 Available defines for signed 64-bit integer types (glm::i64vec\*):
 
-GLM\_PRECISION\_LOWP\_INT64: Low precision
-
-GLM\_PRECISION\_MEDIUMP\_INT64: Medium precision
-
-GLM\_PRECISION\_HIGHP\_INT64: High precision (default)
+* GLM\_PRECISION\_LOWP\_INT64: Low precision
+* GLM\_PRECISION\_MEDIUMP\_INT64: Medium precision
+* GLM\_PRECISION\_HIGHP\_INT64: High precision (default)
 
 Available defines for unsigned 64-bit integer types (glm::u64vec\*):
 
-GLM\_PRECISION\_LOWP\_UINT64: Low precision
+* GLM\_PRECISION\_LOWP\_UINT64: Low precision
+* GLM\_PRECISION\_MEDIUMP\_UINT64: Medium precision
+* GLM\_PRECISION\_HIGHP\_UINT64: High precision (default)
 
-GLM\_PRECISION\_MEDIUMP\_UINT64: Medium precision
+Available defines for 32-bit floating-point types (glm::f32vec\*, glm::f32mat\*, glm::f32quat):
 
-GLM\_PRECISION\_HIGHP\_UINT64: High precision (default)
+* GLM\_PRECISION\_LOWP\_FLOAT32: Low precision
+* GLM\_PRECISION\_MEDIUMP\_FLOAT32: Medium precision
+* GLM\_PRECISION\_HIGHP\_FLOAT32: High precision (default)
 
-Available defines for 32-bit floating-point types (glm::f32vec\*,
-glm::f32mat\*, glm::f32quat):
+Available defines for 64-bit floating-point types (glm::f64vec\*, glm::f64mat\*, glm::f64quat):
 
-GLM\_PRECISION\_LOWP\_FLOAT32: Low precision
+* GLM\_PRECISION\_LOWP\_FLOAT64: Low precision
+* GLM\_PRECISION\_MEDIUMP\_FLOAT64: Medium precision
+* GLM\_PRECISION\_HIGHP\_FLOAT64: High precision (default)
 
-GLM\_PRECISION\_MEDIUMP\_FLOAT32: Medium precision
+&lt;glm/gtc/type\_precision.hpp&gt; need to be included to use these functionalities.
 
-GLM\_PRECISION\_HIGHP\_FLOAT32: High precision (default)
-
-Available defines for 64-bit floating-point types (glm::f64vec\*,
-glm::f64mat\*, glm::f64quat):
-
-GLM\_PRECISION\_LOWP\_FLOAT64: Low precision
-
-GLM\_PRECISION\_MEDIUMP\_FLOAT64: Medium precision
-
-GLM\_PRECISION\_HIGHP\_FLOAT64: High precision (default)
-
-&lt;glm/gtc/type\_precision.hpp&gt; need to be included to use these
-functionalities.
-
-### 4.19. GLM\_GTC\_type\_ptr {#glm_gtc_type_ptr .HeadingB}
--------------------------
+### 4.19. GLM\_GTC\_type\_ptr
 
 Handle the interaction between pointers and vector, matrix types.
 
@@ -980,8 +945,7 @@ form of notification. *
 
 &lt;glm/gtc/type\_ptr.hpp&gt; need to be included to use these features.
 
-### 4.20. GLM\_GTC\_ulp {#glm_gtc_ulp .HeadingB}
--------------------
+### 4.20. GLM\_GTC\_ulp
 
 Allow the measurement of the accuracy of a function against a reference
 implementation. This extension works on floating-point data and provides
@@ -990,8 +954,7 @@ results in
 
 &lt;glm/gtc/ulp.hpp&gt; need to be included to use these features.
 
-### 4.21. GLM\_GTC\_vec1 {#glm_gtc_vec1 .HeadingB}
---------------------
+### 4.21. GLM\_GTC\_vec1
 
 Add \*vec1 types.
 
@@ -1029,8 +992,7 @@ replacement functions.
 From GLM\_GTC\_matrix\_transform extension:
 &lt;glm/gtc/matrix\_transform.hpp&gt;
 
-[***glScale{f, d}:
-***](http://www.opengl.org/sdk/docs/man2/xhtml/glScale.xml)
+[***glScale{f, d}: ***](http://www.opengl.org/sdk/docs/man2/xhtml/glScale.xml)
 
   --------------------------------
   glm::mat4 glm::scale(
@@ -1114,8 +1076,7 @@ From GLM core library: &lt;glm/glm.hpp&gt;
 
 From GLM core library: &lt;glm/glm.hpp&gt;
 
-[***glFrustum:
-***](http://www.opengl.org/sdk/docs/man2/xhtml/glFrustum.xml)
+[***glFrustum:***](http://www.opengl.org/sdk/docs/man2/xhtml/glFrustum.xml)
 
   -------------------------------
   glm::mat4 glm::frustum(
@@ -1163,8 +1124,7 @@ From GLM\_GTC\_matrix\_transform extension:
 From GLM\_GTC\_matrix\_transform extension:
 &lt;glm/gtc/matrix\_transform.hpp&gt;
 
-5.2. GLM replacements for GLU functions {#glm-replacements-for-glu-functions .HeadingB}
----------------------------------------
+### 5.2. GLM replacements for GLU functions
 
 ***gluLookAt: ***
 
@@ -1305,20 +1265,17 @@ From GLM\_GTC\_matrix\_transform extension:
 From GLM\_GTC\_matrix\_transform extension:
 &lt;glm/gtc/matrix\_transform.hpp&gt;
 
-6. Known issues {#known-issues .HeadingA}
-===============
+## 6. Known issues
 
 This section reports the divergences of GLM with GLSL.
 
-6.1. not function {#not-function .HeadingB}
------------------
+### 6.1. not function
 
 The GLSL keyword not is also a keyword in C++. To prevent name
 collisions, ensure cross compiler support and a high API consistency,
 the GLSL not function has been implemented with the name not\_.
 
-6.2. Precision qualifiers support {#precision-qualifiers-support .HeadingB}
----------------------------------
+### 6.2. Precision qualifiers support
 
 GLM supports GLSL precision qualifiers through prefixes instead of
 qualifiers. For example, additionally to vec4, GLM exposes lowp\_vec4,
@@ -1367,11 +1324,9 @@ By default, all the types use high precision.
   ---------------------------------------
   ---------------------------------------
 
-7. FAQ {#faq .HeadingA}
-======
+## 7. FAQ
 
-7.1 Why GLM follows GLSL specification and conventions? {#why-glm-follows-glsl-specification-and-conventions .HeadingB}
--------------------------------------------------------
+### 7.1 Why GLM follows GLSL specification and conventions?
 
 Following GLSL conventions is a really strict policy of GLM. It has been
 designed following the idea that everyone does its own math library with
@@ -1380,18 +1335,15 @@ ARB) worked together and agreed to make GLSL. Following GLSL conventions
 is a way to find consensus. Moreover, basically when a developer knows
 GLSL, he knows GLM.
 
-7.2. Does GLM run GLSL program? {#does-glm-run-glsl-program .HeadingB}
--------------------------------
+### 7.2. Does GLM run GLSL program?
 
 No, GLM is a C++ implementation of a subset of GLSL.
 
-7.3. Does a GLSL compiler build GLM codes? {#does-a-glsl-compiler-build-glm-codes .HeadingB}
-------------------------------------------
+### 7.3. Does a GLSL compiler build GLM codes?
 
 No, this is not what GLM attends to do.
 
-7.4. Should I use ‘GTX’ extensions? {#should-i-use-gtx-extensions .HeadingB}
------------------------------------
+### 7.4. Should I use ‘GTX’ extensions?
 
 GTX extensions are qualified to be experimental extensions. In GLM this
 means that these extensions might change from version to version without
@@ -1402,31 +1354,25 @@ features and implementations and APIs and then are promoted to GTC
 extensions. This is fairly the way OpenGL features are developed;
 through extensions.
 
-7.5. Where can I ask my questions? {#where-can-i-ask-my-questions .HeadingB}
-----------------------------------
+### 7.5. Where can I ask my questions?
 
-A good place is the *[OpenGL
-Toolkits](http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&Board=10&page=1)
-forum* on [OpenGL.org](http://www.opengl.org/).
+A good place is [stackoverflow](http://stackoverflow.com/search?q=GLM) using the GLM tag.
 
-7.6. Where can I find the documentation of extensions? {#where-can-i-find-the-documentation-of-extensions .HeadingB}
-------------------------------------------------------
+### 7.6. Where can I find the documentation of extensions?
 
 The Doxygen generated documentation includes a complete list of all
 extensions available. Explore this [*API
 documentation*](http://glm.g-truc.net/html/index.html) to get a complete
 view of all GLM capabilities!
 
-7.7. Should I use ‘using namespace glm;’? {#should-i-use-using-namespace-glm .HeadingB}
------------------------------------------
+### 7.7. Should I use ‘using namespace glm;’?
 
 NO! Chances are that if using namespace glm; is called, especially in a
 header file, name collisions will happen as GLM is based on GLSL which
 uses common tokens for types and functions. Avoiding using namespace
 glm; will a higher compatibility with third party library and SDKs.
 
-7.8. Is GLM fast? {#is-glm-fast .HeadingB}
------------------
+### 7.8. Is GLM fast?
 
 GLM is mainly designed to be convenient and that's why it is written
 against the GLSL specification.
@@ -1441,8 +1387,7 @@ optimized code for functions of its implementation.
 However, on performance critical code paths, we should expect that
 dedicated algorithms should be written to reach peak performance.
 
-7.9. When I build with Visual C++ with /W4 warning level, I have warnings... {#when-i-build-with-visual-c-with-w4-warning-level-i-have-warnings... .HeadingB}
-----------------------------------------------------------------------------
+###  7.9. When I build with Visual C++ with /W4 warning level, I have warnings...
 
 You should not have any warnings even in /W4 mode. However, if you
 expect such level for your code, then you should ask for the same level
@@ -1451,29 +1396,23 @@ to the compiler by at least disabling the Visual C++ language extensions
 enabled, then GLM will take advantage of them and the compiler will
 generate warnings.
 
-7.10. Why some GLM functions can crash because of division by zero? {#why-some-glm-functions-can-crash-because-of-division-by-zero .HeadingB}
--------------------------------------------------------------------
+### 7.10. Why some GLM functions can crash because of division by zero?
 
 GLM functions crashing is the result of a domain error that follows the
 precedent given by C and C++ libraries. For example, it’s a domain error
 to pass a null vector to glm::normalize function.
 
-7.11. What unit for angles is used in GLM? {#what-unit-for-angles-is-used-in-glm .HeadingB}
-------------------------------------------
+### 7.11. What unit for angles is used in GLM?
 
-GLSL is using radians but GLU is using degrees to express angles. This
-has caused GLM to use inconsistent units for angles. Starting with GLM
-0.9.6, all GLM functions are using radians. For more information, follow
+GLSL is using radians but GLU is using degrees to express angles. This has caused GLM to use inconsistent units for angles. Starting with GLM 0.9.6, all GLM functions are using radians. For more information, follow
 the [link](http://www.g-truc.net/post-0693.html#menu).
 
-8. Code samples {#code-samples .HeadingA}
-===============
+## 8. Code samples
 
 This series of samples only shows various GLM features without
 consideration of any sort.
 
-8.1. Compute a triangle normal {#compute-a-triangle-normal .HeadingB}
-------------------------------
+### 8.1. Compute a triangle normal
 
   -------------------------------------------------------------------
   \#include &lt;glm/glm.hpp&gt; // vec3 normalize cross
@@ -1522,8 +1461,7 @@ consideration of any sort.
   -------------------------------------------------------------------
   -------------------------------------------------------------------
 
-8.2. Matrix transform {#matrix-transform .HeadingB}
----------------------
+### 8.2. Matrix transform
 
   ---------------------------------------------------------------------
   // vec3, vec4, ivec4, mat4
@@ -1588,8 +1526,7 @@ consideration of any sort.
   ---------------------------------------------------------------------
   ---------------------------------------------------------------------
 
-8.3. Vector types {#vector-types .HeadingB}
------------------
+### 8.3. Vector types
 
   ---------------------------------------------------------------------------
   \#include &lt;glm/glm.hpp&gt; //vec2
@@ -1672,8 +1609,7 @@ consideration of any sort.
   ---------------------------------------------------------------------------
   ---------------------------------------------------------------------------
 
-8.4. Lighting {#lighting .HeadingB}
--------------
+### 8.4. Lighting
 
   -----------------------------------------------------------------
   \#include &lt;glm/glm.hpp&gt; // vec3 normalize reflect dot pow
@@ -1754,44 +1690,29 @@ consideration of any sort.
   -----------------------------------------------------------------
   -----------------------------------------------------------------
 
-9. References {#references .HeadingA}
-=============
+## 9. References
 
-9.1. GLM development {#glm-development .HeadingB}
---------------------
+### 9.1. GLM development
 
-- [GLM website](http://glm.g-truc.net)
+* [GLM website](http://glm.g-truc.net)
 
 ![](media/image20.png){width="2.870138888888889in"
 height="1.6145833333333333in"}- [GLM HEAD
 snapshot](https://github.com/g-truc/glm/archive/master.zip)
 
-- GLM bug report and feature request
+* GLM bug report and feature request
 
-- [G-Truc Creation’s page](http://www.g-truc.net/project-0016.html)
+### 9.2. OpenGL specifications
 
-9.2. OpenGL specifications {#opengl-specifications .HeadingB}
---------------------------
+* OpenGL 4.3 core specification
+* [GLSL 4.30 specification](http://www.opengl.org/registry/doc/GLSLangSpec.4.30.7.diff.pdf)
+![](media/image21.png){width="2.859722222222222in" height="1.6083333333333334in"}- [*GLU 1.3 specification*](http://www.opengl.org/documentation/specs/glu/glu1_3.pdf)
 
-- OpenGL 4.3 core specification
+### 9.3. External links
 
-- [GLSL 4.30
-specification](http://www.opengl.org/registry/doc/GLSLangSpec.4.30.7.diff.pdf)
+* [GLM on stackoverflow](http://stackoverflow.com/search?q=GLM)
 
-![](media/image21.png){width="2.859722222222222in"
-height="1.6083333333333334in"}- [*GLU 1.3
-specification*](http://www.opengl.org/documentation/specs/glu/glu1_3.pdf)
-
-9.3. External links {#external-links .HeadingB}
--------------------
-
-- [*The OpenGL Toolkits forum to ask questions about
-GLM*](http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&Board=10&page=1)
-
-- [GLM on stackoverflow](http://stackoverflow.com/search?q=GLM)
-
-![](media/image22.png){width="2.870138888888889in" height="1.6145833333333333in"}9.4. Projects using GLM  {#projects-using-glm .HeadingB}
----------------------------------------------------------------------------------------------------------
+### 9.4. Projects using GLM
 
 ***[Leo’s Forture](http://www.leosfortune.com/) ***
 
