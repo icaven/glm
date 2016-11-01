@@ -10,7 +10,7 @@ Christophe Riccio
 
 <glm@g-truc.net>
 
-![](media/image2.png){width="0.8333333333333334in"
+![](https://github.com/g-truc/glm/blob/manual/doc/manual/g-truc.png){width="0.8333333333333334in"
 height="0.8333333333333334in"}
 
 The Happy Bunny License (Modified MIT License)
@@ -39,7 +39,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-![](media/image3.jpg){width="7.256956474190726in"
+![](https://github.com/g-truc/glm/blob/manual/doc/manual/frontpage1.png){width="7.256956474190726in"
 height="4.839622703412074in"}
 
 The MIT License
@@ -65,7 +65,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-![](media/image4.jpeg){width="7.2268416447944in"
+![](https://github.com/g-truc/glm/blob/manual/doc/manual/frontpage2.png){width="7.2268416447944in"
 height="4.811321084864392in"}
 
 Introduction {#introduction .HeadingA}
