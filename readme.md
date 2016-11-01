@@ -72,6 +72,9 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Removed GLM_LEFT_HANDED, use GLM_FORCE_LEFT_HANDED instead
 
 #### [GLM 0.9.8.3](https://github.com/g-truc/glm/tree/0.9.8) - 2016-XX-XX
+##### Improvements:
+- Broader support of GLM_FORCE_UNRESTRICTED_GENTYPE #378
+
 ##### Fixes:
 - Fixed Android build error with C++11 compiler but C++98 STL #284 #564
 
