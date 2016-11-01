@@ -239,6 +239,9 @@ int test_vec3_size()
 	Error += 24 == sizeof(glm::highp_dvec3) ? 0 : 1;
 	Error += glm::vec3().length() == 3 ? 0 : 1;
 	Error += glm::dvec3().length() == 3 ? 0 : 1;
+	Error += glm::vec3::length() == 3 ? 0 : 1;
+	Error += glm::dvec3::length() == 3 ? 0 : 1;
+
 	return Error;
 }
 
