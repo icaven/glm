@@ -706,30 +706,39 @@ Define 2D, 3D and 4D procedural noise functions.
 &lt;glm/gtc/noise.hpp&gt; need to be included to use these features.
 
 ![](/doc/manual/noise-simplex1.jpg)
+
 Figure 4.11.1: glm::simplex(glm::vec2(x / 16.f, y / 16.f));
 
 ![](/doc/manual/noise-simplex2.jpg)
+
 Figure 4.11.2: glm::simplex(glm::vec3(x / 16.f, y / 16.f, 0.5f));
 
 ![](/doc/manual/noise-simplex3.jpg)
+
 Figure 4.11.3: glm::simplex(glm::vec4(x / 16.f, y / 16.f, 0.5f, 0.5f));
 
 ![](/doc/manual/noise-perlin1.jpg)
+
 Figure 4.11.4: glm::perlin(glm::vec2(x / 16.f, y / 16.f));
 
 ![](/doc/manual/noise-perlin2.jpg)
+
 Figure 4.11.5: glm::perlin(glm::vec3(x / 16.f, y / 16.f, 0.5f));
 
 ![](/doc/manual/noise-perlin3.jpg)
+
 Figure 4.11.6: glm::perlin(glm::vec4(x / 16.f, y / 16.f, 0.5f, 0.5f)));
 
-![](/doc/manual/noise-perlin4.jpg)
+![](/doc/manual/noise-perlin4.png)
+
 Figure 4.11.7: glm::perlin(glm::vec2(x / 16.f, y / 16.f), glm::vec2(2.0f));
 
-![](/doc/manual/noise-perlin5.jpg)
+![](/doc/manual/noise-perlin5.png)
+
 Figure 4.11.8: glm::perlin(glm::vec3(x / 16.f, y / 16.f, 0.5f), glm::vec3(2.0f));
 
-![](/doc/manual/noise-perlin6.jpg)
+![](/doc/manual/noise-perlin6.png)
+
 Figure 4.11.9: glm::perlin(glm::vec4(x / 16.f, y / 16.f, glm::vec2(0.5f)), glm::vec4(2.0f));
 
 ### 4.12. GLM\_GTC\_packing <a name="section4_12"></a>
@@ -752,21 +761,27 @@ Generate random number from various distribution methods.
 &lt;glm/gtc/random.hpp&gt; need to be included to use these features.
 
 ![](/doc/manual/random-linearrand.png)
+
 Figure 4.14.1: glm::vec4(glm::linearRand(glm::vec2(-1), glm::vec2(1)), 0, 1);
 
 ![](/doc/manual/random-circularrand.png)
+
 Figure 4.14.2: glm::vec4(glm::circularRand(1.0f), 0, 1);
 
 ![](/doc/manual/random-sphericalrand.png)
+
 Figure 4.14.3: glm::vec4(glm::sphericalRand(1.0f), 1);
 
 ![](/doc/manual/random-diskrand.png)
+
 Figure 4.14.4: glm::vec4(glm::diskRand(1.0f), 0, 1);
 
 ![](/doc/manual/random-ballrand.png)
+
 Figure 4.14.5: glm::vec4(glm::ballRand(1.0f), 1);
 
 ![](/doc/manual/random-gaussrand.png)
+
 Figure 4.14.6: glm::vec4(glm::gaussRand(glm::vec3(0), glm::vec3(1)), 1);
 
 ### 4.15. GLM\_GTC\_reciprocal <a name="section4_15"></a>
