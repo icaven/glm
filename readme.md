@@ -9,12 +9,12 @@ This project isn't limited to *GLSL* features. An extension system, based on the
 This library works perfectly with *[OpenGL](https://www.opengl.org)* but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing / rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
 
 *GLM* is written in C++98 but can take advantage of C++11 when supported by the compiler. It is a platform independent library with no dependence and it officially supports the following compilers:
-- [Apple Clang 4.0](https://developer.apple.com/library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html) and higher
-- [GCC](http://gcc.gnu.org/) 4.2 and higher
+- [Apple Clang 5.0](https://developer.apple.com/library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html) and higher
+- [GCC](http://gcc.gnu.org/) 4.6 and higher
 - [Intel C++ Composer](https://software.intel.com/en-us/intel-compilers) XE 2013 and higher
-- [LLVM](http://llvm.org/) 3.0 and higher
+- [LLVM](http://llvm.org/) 3.2 and higher
 - [Visual C++](http://www.visualstudio.com/) 2010 and higher
-- [CUDA](https://developer.nvidia.com/about-cuda) 4.0 and higher (experimental)
+- [CUDA](https://developer.nvidia.com/about-cuda) 7.0 and higher (experimental)
 - Any conform C++98 or C++11 compiler
 
 For more information about *GLM*, please have a look at the [manual](http://glm.g-truc.net/0.9.7/glm-0.9.7.pdf) and the [API reference documentation](http://glm.g-truc.net/0.9.7/api/index.html).

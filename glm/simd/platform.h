@@ -169,8 +169,8 @@
 #	if !defined(CUDA_VERSION) && !defined(GLM_FORCE_CUDA)
 #		include <cuda.h>  // make sure version is defined since nvcc does not define it itself!
 #	endif
-#	if CUDA_VERSION < 3000
-#		error "GLM requires CUDA 3.0 or higher"
+#	if CUDA_VERSION < 7000
+#		error "GLM requires CUDA 7.0 or higher"
 #	else
 #		define GLM_COMPILER GLM_COMPILER_CUDA
 #	endif
