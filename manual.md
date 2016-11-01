@@ -1861,131 +1861,58 @@ License](http://opensource.org/licenses/BSD-2-Clause).
 
 [***opencloth***](http://code.google.com/p/opencloth/)
 
-A collection of source codes implementing cloth simulation algorithms in
-OpenGL.
+A collection of source codes implementing cloth simulation algorithms in OpenGL.
 
-![](media/image30.png){width="2.5in"
-height="3.2291666666666665in"}Simple, easy-to-follow examples with GLSL
-source code, as well as a basic description of the theory behind each
-technique.
+Simple, easy-to-follow examples with GLSL source code, as well as a basic description of the theory behind each technique.
+![](/doc/manual/references-opencloth1.png)
+![](/doc/manual/references-opencloth3.png)
 
 [***Are you using GLM in a project?***](mailto:glm@g-truc.net)
 
-9.5. OpenGL tutorials using GLM  {#opengl-tutorials-using-glm .HeadingB}
---------------------------------
+### 9.5. OpenGL tutorials using GLM
 
-- [*The OpenGL Samples
-Pack*](http://www.g-truc.net/project-0026.html#menu), samples that show
-how to set up all the different new features
+* [*The OpenGL Samples Pack*](http://www.g-truc.net/project-0026.html#menu), samples that show how to set up all the different new features
+* [*Learning Modern 3D Graphics programming*](http://www.arcsynthesis.org/gltut/), a great OpenGL tutorial using GLM by Jason L. McKesson
+* [*Morten Nobel-Jørgensen’s*](http://blog.nobel-joergensen.com/2011/04/02/glm-brilliant-math-library-for-opengl/) review and use an [*OpenGL renderer*](https://github.com/mortennobel/RenderE)
+* [*Swiftless’ OpenGL tutorial*](http://www.swiftless.com/opengltuts.html) using GLM by Donald Urquhart
+* [*Rastergrid*](http://rastergrid.com/blog/), many technical articles with companion programs using GLM by Daniel Rákos\
+* [*OpenGL Tutorial*](http://www.opengl-tutorial.org), tutorials for OpenGL 3.1 and later
+* [*OpenGL Programming on Wikibooks*](http://en.wikibooks.org/wiki/OpenGL_Programming): For beginners who are discovering OpenGL.
+* [*3D Game Engine Programming*](http://3dgep.com/): Learning the latest 3D Game Engine Programming techniques.
+* [Game Tutorials](mailto:http://www.gametutorials.com/opengl-4-matrices-and-glm/), graphics and game programming.
+* [open.gl](mailto:https://open.gl/), OpenGL tutorial
+* [c-jump](mailto:http://www.c-jump.com/bcc/common/Talk3/Math/GLM/GLM.html), GLM tutorial
+* [Learn OpenGL](mailto:http://learnopengl.com/), OpenGL tutorial
+** [Are you using GLM in a tutorial?](mailto:glm@g-truc.net)*
 
-- [*Learning Modern 3D Graphics
-rogramming*](http://www.arcsynthesis.org/gltut/), a great OpenGL
-tutorial using GLM by Jason L. McKesson
+### 9.6. Equivalent for other languages
 
-- [*Morten
-Nobel-Jørgensen’s*](http://blog.nobel-joergensen.com/2011/04/02/glm-brilliant-math-library-for-opengl/)
-review and use an [*OpenGL
-renderer*](https://github.com/mortennobel/RenderE)
+* [*GlmSharp*](https://github.com/Philip-Trettner/GlmSharp): Open-source semi-generated GLM-flavored math library for .NET/C\#.
+* [glm-js](https://github.com/humbletim/glm-js): JavaScript adaptation of the OpenGL Mathematics (GLM) C++ library interfaces
+* [Java OpenGL Mathematics (GLM)](https://github.com/java-graphics/glm)
+* [JGLM](https://github.com/jroyalty/jglm) - Java OpenGL Mathematics Library
+* [SwiftGL Math Library](https://github.com/SwiftGL/Math/blob/master/Sources/glm.swift)
+* [glm-go](https://github.com/jbowtie/glm-go): Simple linear algebra library similar in spirit to GLM
+* [openll](https://github.com/Polkm/openll): Lua bindings for OpenGL, GLM, GLFW, OpenAL, SOIL and PhysicsFS
+* [glm-rs](https://github.com/dche/glm-rs): GLSL mathematics for Rust programming language
 
-- [*Swiftless’ OpenGL
-tutorial*](http://www.swiftless.com/opengltuts.html) using GLM by Donald
-Urquhart
+### 9.7. Alternatives to GLM
 
-- [*Rastergrid*](http://rastergrid.com/blog/), many technical articles
-with companion programs using GLM by Daniel Rákos\
-- [*OpenGL Tutorial*](http://www.opengl-tutorial.org), tutorials for
-OpenGL 3.1 and later
+* [*CML*](http://cmldev.net/): The CML (Configurable Math Library) is a free C++ math library for games and graphics.
+* [*Eigen*](http://eigen.tuxfamily.org/): A more heavy weight math library for general linear algebra in C++.
+* [*glhlib*](http://glhlib.sourceforge.net/): A much more than glu C library.
+* Are you using or working on an alternative library to GLM?
 
-- [*OpenGL Programming on
-Wikibooks*](http://en.wikibooks.org/wiki/OpenGL_Programming): For
-beginners who are discovering OpenGL.
+### 9.8. Acknowledgements
 
-- [*3D Game Engine Programming*](http://3dgep.com/): Learning the latest
-3D Game Engine Programming techniques.
-
-- [Game
-Tutorials](mailto:http://www.gametutorials.com/opengl-4-matrices-and-glm/),
-graphics and game programming.
-
-- [open.gl](mailto:https://open.gl/), OpenGL tutorial
-
--
-[c-jump](mailto:http://www.c-jump.com/bcc/common/Talk3/Math/GLM/GLM.html),
-GLM tutorial
-
-- [Learn OpenGL](mailto:http://learnopengl.com/), OpenGL tutorial
-
-*- [Are you using GLM in a tutorial?](mailto:glm@g-truc.net)*
-
-9.6. Equivalent for other languages {#equivalent-for-other-languages .HeadingB}
------------------------------------
-
-- [*GlmSharp*](https://github.com/Philip-Trettner/GlmSharp): Open-source
-semi-generated GLM-flavored math library for .NET/C\#.
-
-- [glm-js](https://github.com/humbletim/glm-js): JavaScript adaptation
-of the OpenGL Mathematics (GLM) C++ library interfaces
-
-- [Java OpenGL Mathematics (GLM)](https://github.com/java-graphics/glm)
-
-- [JGLM](https://github.com/jroyalty/jglm) - Java OpenGL Mathematics
-Library
-
-- [SwiftGL Math
-Library](https://github.com/SwiftGL/Math/blob/master/Sources/glm.swift)
-
-- [glm-go](https://github.com/jbowtie/glm-go): Simple linear algebra
-library similar in spirit to GLM
-
-- [openll](https://github.com/Polkm/openll): Lua bindings for OpenGL,
-GLM, GLFW, OpenAL, SOIL and PhysicsFS
-
-- [glm-rs](https://github.com/dche/glm-rs): GLSL mathematics for Rust
-programming language
-
-9.7. Alternatives to GLM {#alternatives-to-glm .HeadingB}
-------------------------
-
-- [*CML*](http://cmldev.net/): The CML (Configurable Math Library) is a
-free C++ math library for games and graphics.
-
-- [*Eigen*](http://eigen.tuxfamily.org/): A more heavy weight math
-library for general linear algebra in C++.
-
-- [*glhlib*](http://glhlib.sourceforge.net/): A much more than glu C
-library.
-
-- Are you using or working on an alternative library to GLM?
-
-9.8. Acknowledgements {#acknowledgements .HeadingB}
----------------------
-
-GLM is developed and maintained by [*Christophe
-Riccio*](http://www.g-truc.net) but many contributors have made this
-project what it is.
+GLM is developed and maintained by [*Christophe Riccio*](http://www.g-truc.net) but many contributors have made this project what it is.
 
 Special thanks to:
-
-- Ashima Arts and Stefan Gustavson for their work on
-[*webgl-noise*](https://github.com/ashima/webgl-noise) which has been
-used for GLM noises implementation.
-
-- [*Arthur
-Winters*](http://athile.net/library/wiki/index.php?title=Athile_Technologies)
-for the C++11 and Visual C++ swizzle operators implementation and tests.
-
-- Joshua Smith and Christoph Schied for the discussions and the
-experiments around the swizzle operator implementation issues.
-
-- Guillaume Chevallereau for providing and maintaining the [*nightlight
-build system*](http://my.cdash.org/index.php?project=GLM).
-
-- Ghenadii Ursachi for GLM\_GTX\_matrix\_interpolation implementation.
-
-- Mathieu Roumillac for providing some implementation ideas.
-
-- [*Grant James*](http://www.zeuscmd.com/) for the implementation of all
-combination of none-squared matrix products.
-
-- All the GLM users that have report bugs and hence help GLM to become a
-great library!
+* Ashima Arts and Stefan Gustavson for their work on [*webgl-noise*](https://github.com/ashima/webgl-noise) which has been used for GLM noises implementation.
+* [*Arthur Winters*](http://athile.net/library/wiki/index.php?title=Athile_Technologies) for the C++11 and Visual C++ swizzle operators implementation and tests.
+* Joshua Smith and Christoph Schied for the discussions and the experiments around the swizzle operator implementation issues.
+* Guillaume Chevallereau for providing and maintaining the [*nightlight build system*](http://my.cdash.org/index.php?project=GLM).
+* Ghenadii Ursachi for GLM\_GTX\_matrix\_interpolation implementation.
+* Mathieu Roumillac for providing some implementation ideas.
+* [*Grant James*](http://www.zeuscmd.com/) for the implementation of all combination of none-squared matrix products.
+* All the GLM users that have report bugs and hence help GLM to become a great library!
