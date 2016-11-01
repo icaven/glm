@@ -1,19 +1,13 @@
-![](media/image1.png){width="3.2006944444444443in" height="1.725in"}
+![Alt](/doc/logo.png "GLM Logo")
 
-Manual
+# GLM 0.9.9 Manual
 
-Version 0.9.8
+---
+##Licenses
 
-10 September 2016
+![Alt](/doc/manual/g-truc.png "G-Truc Logo")
 
-Christophe Riccio
-
-<glm@g-truc.net>
-
-![](https://github.com/g-truc/glm/blob/manual/doc/manual/g-truc.png){width="0.8333333333333334in"
-height="0.8333333333333334in"}
-
-The Happy Bunny License (Modified MIT License)
+### The Happy Bunny License (Modified MIT License)
 
 Copyright (c) 2005 - 2016 G-Truc Creation
 
@@ -39,10 +33,9 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-![](https://github.com/g-truc/glm/blob/manual/doc/manual/frontpage1.png){width="7.256956474190726in"
-height="4.839622703412074in"}
+![](https://github.com/g-truc/glm/blob/manual/doc/manual/frontpage1.png)
 
-The MIT License
+### The MIT License
 
 Copyright (c) 2005 - 2016 G-Truc Creation
 
@@ -65,11 +58,10 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-![](https://github.com/g-truc/glm/blob/manual/doc/manual/frontpage2.png){width="7.2268416447944in"
-height="4.811321084864392in"}
+![](https://github.com/g-truc/glm/blob/manual/doc/manual/frontpage2.png)
 
-Introduction {#introduction .HeadingA}
-============
+---
+## Introduction
 
 OpenGL Mathematics (GLM) is a C++ mathematics library for graphics C++
 programs based on the [*OpenGL Shading
@@ -95,21 +87,13 @@ GLM is written in C++98 but can take advantage of C++11 when supported
 by the compiler. It is a platform independent library with no dependence
 and it officially supports the following compilers:
 
-- [Apple
-Clang](https://developer.apple.com/Library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html)
-4.0 and higher\
-- [GCC](http://gcc.gnu.org/) 4.2 and higher
-
-- [Intel C++ Composer](https://software.intel.com/en-us/intel-compilers)
-XE 2013 and higher\
-- [LLVM](http://llvm.org/) 3.0 and higher
-
-- [Visual C++](http://www.visualstudio.com/) 2010 and higher
-
-- [CUDA](https://developer.nvidia.com/about-cuda) 4.0 and higher
-(experimental)
-
-- Any conform C++98 or C++11 compiler
+* [Apple Clang](https://developer.apple.com/Library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html) 5.0 and higher\
+* [GCC](http://gcc.gnu.org/) 4.6 and higher
+* [Intel C++ Composer](https://software.intel.com/en-us/intel-compilers) XE 2013 and higher\
+* [LLVM](http://llvm.org/) 3.2 and higher
+* [Visual C++](http://www.visualstudio.com/) 2010 and higher
+* [CUDA](https://developer.nvidia.com/about-cuda) 4.0 and higher (experimental)
+* Any conform C++98 or C++11 compiler
 
 The source code and the documentation, including this manual, are
 licensed under [the Happy Bunny License (Modified MIT) and the MIT
