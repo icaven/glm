@@ -2,10 +2,10 @@
 
 # GLM 0.9.9 Manual
 
----
-##Licenses
-
 ![Alt](/doc/manual/g-truc.png "G-Truc Logo")
+
+---
+## Licenses
 
 ### The Happy Bunny License (Modified MIT License)
 
@@ -63,29 +63,18 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ---
 ## Introduction
 
-OpenGL Mathematics (GLM) is a C++ mathematics library for graphics C++
-programs based on the [*OpenGL Shading
-Language*](http://www.opengl.org/registry/) (GLSL) specifications.
+OpenGL Mathematics (GLM) is a C++ mathematics library for graphics C++ programs based on the [*OpenGL Shading Language*](http://www.opengl.org/registry/) (GLSL) specifications.
 
-GLM provides classes and functions designed and implemented with the
-same naming conventions and functionalities than GLSL so that when a
-programmer knows GLSL, he knows GLM as well which makes it really easy
+GLM provides classes and functions designed and implemented with the same naming conventions and functionalities than GLSL so that when a programmer knows GLSL, he knows GLM as well which makes it really easy
 to use.
 
-This project isn't limited to GLSL features. An extension system, based
-on the GLSL extension conventions, provides extended capabilities:
-matrix transformations, quaternions, data packing, random numbers,
+This project isn't limited to GLSL features. An extension system, based on the GLSL extension conventions, provides extended capabilities: matrix transformations, quaternions, data packing, random numbers,
 noise, etc...
 
-This library works perfectly with [*OpenGL*](http://www.opengl.org) but
-it also ensures interoperability with other third party libraries and
-SDK. It is a good candidate for software rendering (raytracing /
-rasterisation), image processing, physic simulations and any development
-context that requires a simple and convenient mathematics library.
+This library works perfectly with [*OpenGL*](http://www.opengl.org) but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing /
+rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
 
-GLM is written in C++98 but can take advantage of C++11 when supported
-by the compiler. It is a platform independent library with no dependence
-and it officially supports the following compilers:
+GLM is written in C++98 but can take advantage of C++11 when supported by the compiler. It is a platform independent library with no dependence and it officially supports the following compilers:
 
 * [Apple Clang](https://developer.apple.com/Library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html) 5.0 and higher\
 * [GCC](http://gcc.gnu.org/) 4.6 and higher
@@ -95,13 +84,9 @@ and it officially supports the following compilers:
 * [CUDA](https://developer.nvidia.com/about-cuda) 4.0 and higher (experimental)
 * Any conform C++98 or C++11 compiler
 
-The source code and the documentation, including this manual, are
-licensed under [the Happy Bunny License (Modified MIT) and the MIT
-License](http://glm.g-truc.net/copying.txt).
+The source code and the documentation, including this manual, are licensed under [the Happy Bunny License (Modified MIT) and the MIT License](http://glm.g-truc.net/copying.txt).
 
-Thanks for contributing to the project by [submitting
-reports](https://github.com/g-truc/glm/issues) for bugs and feature
-requests. Any feedback is welcome at
+Thanks for contributing to the project by [submitting reports](https://github.com/g-truc/glm/issues) for bugs and feature requests. Any feedback is welcome at
 [*glm@g-truc.net*](mailto:glm@g-truc.net).
 
 ---
@@ -133,7 +118,7 @@ Core GLM features can be included using individual headers to allow faster user 
 #include <glm/matrix.hpp> // all the GLSL matrix functions
 #include <glm/packing.hpp> // all the GLSL packing functions
 #include <glm/trigonometric.hpp> // all the GLSL trigonometric functions
-#include <glm/vector\_relational.hpp> // all the GLSL vector relational functions
+#include <glm/vector_relational.hpp> // all the GLSL vector relational functions
 ```
 
 ### 1.2. Faster program compilation
@@ -177,29 +162,17 @@ glm::mat4 transform(glm::vec2 const& Orientation, glm::vec3 const& Translate, gl
 
 ### 1.4. Dependencies
 
-When &lt;glm/glm.hpp&gt; is included, GLM provides all the GLSL features
-it implements in C++.
+When &lt;glm/glm.hpp&gt; is included, GLM provides all the GLSL features it implements in C++.
 
-There is no dependence with external libraries or external headers such
-as gl.h,
-[*glcorearb.h*](http://www.opengl.org/registry/api/GL/glcorearb.h),
-gl3.h, glu.h or windows.h. However, if &lt;boost/static\_assert.hpp&gt;
-is included, [*Boost static
-assert*](http://www.boost.org/doc/libs/1_52_0/doc/html/boost_staticassert.html)
-will be used all over GLM code to provide compiled time errors unless
-GLM is built with a C++ 11 compiler in which case
-[static\_assert](http://en.cppreference.com/w/cpp/language/static_assert).
-If neither are detected, GLM will rely on its own implementation of
-static assert.
+There is no dependence with external libraries or external headers such as gl.h, [*glcorearb.h*](http://www.opengl.org/registry/api/GL/glcorearb.h), gl3.h, glu.h or windows.h. However, if &lt;boost/static\_assert.hpp&gt;
+is included, [*Boost static assert*](http://www.boost.org/doc/libs/1_52_0/doc/html/boost_staticassert.html) will be used all over GLM code to provide compiled time errors unless
+GLM is built with a C++ 11 compiler in which case [static\_assert](http://en.cppreference.com/w/cpp/language/static_assert).
+If neither are detected, GLM will rely on its own implementation of static assert.
 
 ## 2. Swizzle operators
 
-A common feature of shader languages like GLSL is the swizzle operators.
-Those allow selecting multiple components of a vector and change their
-order. For example, “variable.x”, “variable.xzy” and “variable.zxyy”
-form respectively a scalar, a three components vector and a four
-components vector. With GLSL, swizzle operators can be both R-values and
-L-values. Finally, vector components can be accessed using “xyzw”,
+A common feature of shader languages like GLSL is the swizzle operators. Those allow selecting multiple components of a vector and change their order. For example, “variable.x”, “variable.xzy” and “variable.zxyy”
+form respectively a scalar, a three components vector and a four components vector. With GLSL, swizzle operators can be both R-values and L-values. Finally, vector components can be accessed using “xyzw”,
 “rgba” or “stpq”.
 
 ```cpp
@@ -213,16 +186,12 @@ B = A.xx;
 vec3 C = A.bgr;
 ```
 
-GLM supports a subset of this functionality as described in the
-following sub-sections. Swizzle operators are disabled by default. To
-enable them GLM\_SWIZZLE must be defined before any inclusion of
-&lt;glm/glm.hpp&gt;. Enabling swizzle operators will massively increase
-the size of compiled files and the compilation time.
+GLM supports a subset of this functionality as described in the following sub-sections. Swizzle operators are disabled by default. To enable them GLM\_SWIZZLE must be defined before any inclusion of
+&lt;glm/glm.hpp&gt;. Enabling swizzle operators will massively increase the size of compiled files and the compilation time.
 
-### 2.1. Default C++98 implementation {#default-c98-implementation .HeadingB}
+### 2.1. Default C++98 implementation
 
-The C++98 implementation exposes the R-value swizzle operators as member
-functions of vector types.
+The C++98 implementation exposes the R-value swizzle operators as member functions of vector types.
 
 ```cpp
 #define GLM_SWIZZLE
@@ -244,8 +213,7 @@ void foo()
 }
 ```
 
-Swizzle operators return a copy of the component values hence they can’t
-be used as L-values to change the value of the variables.
+Swizzle operators return a copy of the component values hence they can’t be used as L-values to change the value of the variables.
 
 ```cpp
 #define GLM_FORCE_SWIZZLE
@@ -264,12 +232,8 @@ void foo()
 
 ### 2.2. Anonymous union member implementation
 
-Visual C++ supports anonymous structures in union, which is a
-non-standard language extension, but it enables a very powerful
-implementation of swizzle operators on Windows supporting both L-value
-swizzle operators and a syntax that doesn’t require parentheses in some
-cases. This implementation is only enabled when the language extension
-is enabled and GLM\_SWIZZLE is defined.
+Visual C++ supports anonymous structures in union, which is a non-standard language extension, but it enables a very powerful implementation of swizzle operators on Windows supporting both L-value
+swizzle operators and a syntax that doesn’t require parentheses in some cases. This implementation is only enabled when the language extension is enabled and GLM\_SWIZZLE is defined.
 
 ```cpp
 #define GLM_FORCE_SWIZZLE
@@ -291,13 +255,8 @@ void foo()
 }
 ```
 
-Anonymous union member swizzle operators don’t return vector types
-(glm::vec2, glm::vec3 and glm::vec4) but implementation specific objects
-that can be automatically interpreted by other swizzle operators and
-vector constructors. Unfortunately, those can’t be interpreted by GLM
-functions so that the programmer must convert a swizzle operators to a
-vector type or call the () operator on a swizzle objects to pass it to
-another C++ functions.
+Anonymous union member swizzle operators don’t return vector types (glm::vec2, glm::vec3 and glm::vec4) but implementation specific objects that can be automatically interpreted by other swizzle operators and
+vector constructors. Unfortunately, those can’t be interpreted by GLM functions so that the programmer must convert a swizzle operators to a vector type or call the () operator on a swizzle objects to pass it to another C++ functions.
 
 ```cpp
 #define GLM_FORCE_SWIZZLE
@@ -386,11 +345,8 @@ only once per project build.
 
 ### 3.3. C++ language detection
 
-GLM will automatically take advantage of compilers’ language extensions
-when enabled. To increase cross platform compatibility and to avoid
-compiler extensions, a programmer can define GLM\_FORCE\_CXX98 before
-any inclusion of &lt;glm/glm.hpp&gt; to restrict the language feature
-set C++98:
+GLM will automatically take advantage of compilers’ language extensions when enabled. To increase cross platform compatibility and to avoid compiler extensions, a programmer can define GLM\_FORCE\_CXX98 before
+any inclusion of &lt;glm/glm.hpp&gt; to restrict the language feature set C++98:
 
 ```cpp
 #define GLM_FORCE_CXX98
@@ -414,15 +370,12 @@ overrides GLM\_FORCE\_CXX98 defines.
 
 GLM provides some SIMD optimizations based on [compiler intrinsics](https://msdn.microsoft.com/en-us/library/26td21ds.aspx).
 These optimizations will be automatically thanks to compiler arguments.
-For example, if a program is compiled with Visual Studio using
-/arch:AVX, GLM will detect this argument and generate code using AVX
-instructions automatically when available.
+For example, if a program is compiled with Visual Studio using /arch:AVX, GLM will detect this argument and generate code using AVX instructions automatically when available.
 
 It’s possible to avoid the instruction set detection by forcing the use of a specific instruction set with one of the fallowing define:
 GLM\_FORCE\_SSE2, GLM\_FORCE\_SSE3, GLM\_FORCE\_SSSE3, GLM\_FORCE\_SSE41, GLM\_FORCE\_SSE42, GLM\_FORCE\_AVX, GLM\_FORCE\_AVX2 or GLM\_FORCE\_AVX512.
 
-The use of intrinsic functions by GLM implementation can be avoided
-using the define GLM\_FORCE\_PURE before any inclusion of GLM headers.
+The use of intrinsic functions by GLM implementation can be avoided using the define GLM\_FORCE\_PURE before any inclusion of GLM headers.
 
 ```cpp
 #define GLM_FORCE_PURE
@@ -438,14 +391,11 @@ using the define GLM\_FORCE\_PURE before any inclusion of GLM headers.
 // If the compiler doesn’t support AVX2 instrinsics, compiler errors will happen.
 ```
 
-Additionally, GLM provides a low level SIMD API in glm/simd directory
-for users who are really interested in writing fast algorithms.
+Additionally, GLM provides a low level SIMD API in glm/simd directory for users who are really interested in writing fast algorithms.
 
 ### 3.5. Force inline
 
-To push further the software performance, a programmer can define
-GLM\_FORCE\_INLINE before any inclusion of &lt;glm/glm.hpp&gt; to force
-the compiler to inline GLM code.
+To push further the software performance, a programmer can define GLM\_FORCE\_INLINE before any inclusion of &lt;glm/glm.hpp&gt; to force the compiler to inline GLM code.
 
 ```cpp
 #define GLM_FORCE_INLINE
@@ -483,12 +433,8 @@ void foo(vec4 const & v)
 
 ### 3.7. Disabling default constructor initialization
 
-By default and following GLSL specifications, vector and matrix default
-constructors initialize the components to zero. This is a reliable
-behavior but initialization has a cost and it’s not always necessary.
-This behavior can be disable at compilation time by define
-GLM\_FORCE\_NO\_CTOR\_INIT before any inclusion of &lt;glm/glm.hpp&gt;
-or other GLM include.
+By default and following GLSL specifications, vector and matrix default constructors initialize the components to zero. This is a reliable behavior but initialization has a cost and it’s not always necessary.
+This behavior can be disable at compilation time by define GLM\_FORCE\_NO\_CTOR\_INIT before any inclusion of &lt;glm/glm.hpp&gt; or other GLM include.
 
 GLM default behavior:
 
@@ -609,8 +555,7 @@ int foo()
 }
 ```
 
-When an extension is included, all the dependent core functionalities
-and extensions will be included as well.
+When an extension is included, all the dependent core functionalities and extensions will be included as well.
 
 ### 4.1. GLM_GTC_bitfield
 
@@ -622,8 +567,7 @@ Fast bitfield operations on scalar and vector variables.
 
 Conversion between linear RGB to sRGB and sRGB to linear RGB.
 
-&lt;glm/gtc/color\_space.hpp&gt; need to be included to use these
-features.
+&lt;glm/gtc/color\_space.hpp&gt; need to be included to use these features.
 
 ### 4.3. GLM\_GTC\_constants
 
@@ -653,37 +597,28 @@ Provide integer variants of GLM core functions.
 
 Define functions to access rows or columns of a matrix easily.
 
-&lt;glm/gtc/matrix\_access.hpp&gt; need to be included to use these
-features.
+&lt;glm/gtc/matrix\_access.hpp&gt; need to be included to use these features.
 
 ### 4.8. GLM\_GTC\_matrix\_integer
 
-Provide integer matrix types. Inverse and determinant functions are not
-supported for these types.
+Provide integer matrix types. Inverse and determinant functions are not supported for these types.
 
-&lt;glm/gtc/matrix\_integer.hpp&gt; need to be included to use these
-features.
+&lt;glm/gtc/matrix\_integer.hpp&gt; need to be included to use these features.
 
 ### 4.9. GLM\_GTC\_matrix\_inverse
 
 Define additional matrix inverting functions.
 
-&lt;glm/gtc/matrix\_inverse.hpp&gt; need to be included to use these
-features.
+&lt;glm/gtc/matrix\_inverse.hpp&gt; need to be included to use these features.
 
 ### 4.10. GLM\_GTC\_matrix\_transform
 
 Define functions that generate common transformation matrices.
 
-The matrices generated by this extension use standard OpenGL
-fixed-function conventions. For example, the lookAt function generates a
-transform from world space into the specific eye space that the
-projective matrix functions (perspective, ortho, etc) are designed to
-expect. The OpenGL compatibility specifications define the particular
-layout of this eye space.
+The matrices generated by this extension use standard OpenGL fixed-function conventions. For example, the lookAt function generates a transform from world space into the specific eye space that the
+projective matrix functions (perspective, ortho, etc) are designed to expect. The OpenGL compatibility specifications define the particular layout of this eye space.
 
-&lt;glm/gtc/matrix\_transform.hpp&gt; need to be included to use these
-features.
+&lt;glm/gtc/matrix\_transform.hpp&gt; need to be included to use these features.
 
 ### 4.11. GLM\_GTC\_noise
 
@@ -691,61 +626,37 @@ Define 2D, 3D and 4D procedural noise functions.
 
 &lt;glm/gtc/noise.hpp&gt; need to be included to use these features.
 
-![](media/image5.png){width="2.6666666666666665in"
-height="2.6666666666666665in"}
-
+![](/doc/manual/noise-simplex1.jpg)
 Figure 4.11.1: glm::simplex(glm::vec2(x / 16.f, y / 16.f));
 
-![](media/image6.png){width="2.6666666666666665in"
-height="2.6666666666666665in"}
-
+![](/doc/manual/noise-simplex2.jpg)
 Figure 4.11.2: glm::simplex(glm::vec3(x / 16.f, y / 16.f, 0.5f));
 
-![](media/image7.png){width="2.6666666666666665in"
-height="2.6666666666666665in"}
-
+![](/doc/manual/noise-simplex3.jpg)
 Figure 4.11.3: glm::simplex(glm::vec4(x / 16.f, y / 16.f, 0.5f, 0.5f));
 
-![](media/image8.png){width="2.6666666666666665in"
-height="2.6666666666666665in"}
-
+![](/doc/manual/noise-perlin1.jpg)
 Figure 4.11.4: glm::perlin(glm::vec2(x / 16.f, y / 16.f));
 
-![](media/image9.png){width="2.6666666666666665in"
-height="2.6666666666666665in"}
-
+![](/doc/manual/noise-perlin2.jpg)
 Figure 4.11.5: glm::perlin(glm::vec3(x / 16.f, y / 16.f, 0.5f));
 
-![](media/image10.png){width="2.6666666666666665in"
-height="2.6666666666666665in"}
-
+![](/doc/manual/noise-perlin3.jpg)
 Figure 4.11.6: glm::perlin(glm::vec4(x / 16.f, y / 16.f, 0.5f, 0.5f)));
 
-![](media/image11.png){width="2.6666666666666665in"
-height="2.6666666666666665in"}
+![](/doc/manual/noise-perlin4.jpg)
+Figure 4.11.7: glm::perlin(glm::vec2(x / 16.f, y / 16.f), glm::vec2(2.0f));
 
-Figure 4.11.7: glm::perlin(glm::vec2(x / 16.f, y / 16.f),
-glm::vec2(2.0f));
+![](/doc/manual/noise-perlin5.jpg)
+Figure 4.11.8: glm::perlin(glm::vec3(x / 16.f, y / 16.f, 0.5f), glm::vec3(2.0f));
 
-![](media/image12.png){width="2.6666666666666665in"
-height="2.6666666666666665in"}
-
-Figure 4.11.8: glm::perlin(glm::vec3(x / 16.f, y / 16.f, 0.5f),
-glm::vec3(2.0f));
-
-![](media/image13.png){width="2.6666666666666665in"
-height="2.6666666666666665in"}
-
-Figure 4.11.9: glm::perlin(glm::vec4(x / 16.f, y / 16.f,
-glm::vec2(0.5f)), glm::vec4(2.0f));
+![](/doc/manual/noise-perlin6.jpg)
+Figure 4.11.9: glm::perlin(glm::vec4(x / 16.f, y / 16.f, glm::vec2(0.5f)), glm::vec4(2.0f));
 
 ### 4.12. GLM\_GTC\_packing
 
-Convert scalar and vector types to packed formats. This extension can
-also unpack packed data to the original format. The use of packing
-functions will results in precision lost. However, the extension
-guarantee that packing a value previously unpacked from the same format
-will be perform loselessly.
+Convert scalar and vector types to packed formats. This extension can also unpack packed data to the original format. The use of packing functions will results in precision lost. However, the extension
+guarantee that packing a value previously unpacked from the same format will be perform loselessly.
 
 &lt;glm/gtc/packing.hpp&gt; need to be included to use these features.
 
@@ -753,8 +664,7 @@ will be perform loselessly.
 
 Define a quaternion type and several quaternion operations.
 
-&lt;glm/gtc/quaternion.hpp&gt; need to be included to use these
-features.
+&lt;glm/gtc/quaternion.hpp&gt; need to be included to use these features.
 
 ### 4.14. GLM\_GTC\_random
 
@@ -762,61 +672,47 @@ Generate random number from various distribution methods.
 
 &lt;glm/gtc/random.hpp&gt; need to be included to use these features.
 
-![](media/image14.png){width="3.5625in" height="2.6666666666666665in"}
+![](/doc/manual/random-linearrand.png)
+Figure 4.14.1: glm::vec4(glm::linearRand(glm::vec2(-1), glm::vec2(1)), 0, 1);
 
-Figure 4.14.1: glm::vec4(glm::linearRand(glm::vec2(-1), glm::vec2(1)),
-0, 1);
-
-![](media/image15.png){width="3.6041666666666665in"
-height="2.6979166666666665in"}
-
+![](/doc/manual/random-circularrand.png)
 Figure 4.14.2: glm::vec4(glm::circularRand(1.0f), 0, 1);
 
-![](media/image16.png){width="3.625in" height="2.7291666666666665in"}\
+![](/doc/manual/random-sphericalrand.png)
 Figure 4.14.3: glm::vec4(glm::sphericalRand(1.0f), 1);
 
-![](media/image17.png){width="3.6354166666666665in"
-height="2.7395833333333335in"}
-
+![](/doc/manual/random-diskrand.png)
 Figure 4.14.4: glm::vec4(glm::diskRand(1.0f), 0, 1);
 
-![](media/image18.png){width="3.625in" height="2.71875in"}
-
+![](/doc/manual/random-ballrand.png)
 Figure 4.14.5: glm::vec4(glm::ballRand(1.0f), 1);
 
-![](media/image19.png){width="3.6458333333333335in"
-height="2.7395833333333335in"}
-
+![](/doc/manual/random-gaussrand.png)
 Figure 4.14.6: glm::vec4(glm::gaussRand(glm::vec3(0), glm::vec3(1)), 1);
 
 ### 4.15. GLM\_GTC\_reciprocal
 
 Provide hyperbolic functions: secant, cosecant, cotangent, etc.
 
-&lt;glm/gtc/reciprocal.hpp&gt; need to be included to use these
-functionalities.
+&lt;glm/gtc/reciprocal.hpp&gt; need to be included to use these functionalities.
 
 ### 4.16. GLM\_GTC\_round
 
 Rounding operation on power of two and multiple values.
 
-&lt;glm/gtc/round.hpp&gt; need to be included to use these
-functionalities.
+&lt;glm/gtc/round.hpp&gt; need to be included to use these functionalities.
 
 ### 4.17. GLM\_GTC\_type\_aligned
 
 Aligned vector types.
 
-&lt;glm/gtc/type\_aligned.hpp&gt; need to be included to use these
-functionalities.
+&lt;glm/gtc/type\_aligned.hpp&gt; need to be included to use these functionalities.
 
 ### 4.18. GLM\_GTC\_type\_precision
 
-Add vector and matrix types with defined precisions. Eg, i8vec4: vector
-of 4 signed integer of 8 bits.
+Add vector and matrix types with defined precisions. Eg, i8vec4: vector of 4 signed integer of 8 bits.
 
-This extension adds defines to set the default precision of each class
-of types added:
+This extension adds defines to set the default precision of each class of types added:
 
 Available defines for signed 8-bit integer types (glm::i8vec\*):
 
@@ -892,65 +788,41 @@ values in column-major order.
 This is useful for uploading data to matrices or copying data to buffer
 objects.
 
-+--------------------------------------------------------------------------+
-| // GLM\_GTC\_type\_ptr extension provides a safe solution:\              |
-| \#include &lt;glm/glm.hpp&gt;                                            |
-|                                                                          |
-| \#include &lt;glm/gtc/type\_ptr.hpp&gt;                                  |
-|                                                                          |
-| void foo()                                                               |
-|                                                                          |
-| {                                                                        |
-|                                                                          |
-| > glm::vec4 v(0.0f);                                                     |
-| >                                                                        |
-| > glm::mat4 m(1.0f);                                                     |
-| >                                                                        |
-| > ...                                                                    |
-| >                                                                        |
-| > glVertex3fv(glm::value\_ptr(v))                                        |
-| >                                                                        |
-| > glLoadMatrixfv(glm::value\_ptr(m));                                    |
-|                                                                          |
-| }                                                                        |
-|                                                                          |
-| // Another solution inspired by STL:                                     |
-|                                                                          |
-| \#include &lt;glm/glm.hpp&gt;                                            |
-|                                                                          |
-| void foo()                                                               |
-|                                                                          |
-| {                                                                        |
-|                                                                          |
-| > glm::vec4 v(0.0f);                                                     |
-| >                                                                        |
-| > glm::mat4 m(1.0f);                                                     |
-| >                                                                        |
-| > ...                                                                    |
-| >                                                                        |
-| > glVertex3fv(&v\[0\]);                                                  |
-| >                                                                        |
-| > glLoadMatrixfv(&m\[0\]\[0\]);                                          |
-|                                                                          |
-| }                                                                        |
-+==========================================================================+
-+--------------------------------------------------------------------------+
+```cpp
+// GLM\_GTC\_type\_ptr extension provides a safe solution:
+#include <glm/glm.hpp>
+#include &lt;glm/gtc/type\_ptr.hpp&gt;
 
-*Note: It would be possible to implement
-[*glVertex3fv*](http://www.opengl.org/sdk/docs/man2/xhtml/glVertex.xml)(glm::vec3(0))
-in C++ with the appropriate cast operator that would result as an
-implicit cast in this example. However cast operators may produce
-programs running with unexpected behaviours without build error or any
-form of notification. *
+void foo()
+{
+    glm::vec4 v(0.0f);
+    glm::mat4 m(1.0f);
+    ...
+    glVertex3fv(glm::value_ptr(v))
+    glLoadMatrixfv(glm::value_ptr(m));
+}
+
+// Another solution inspired by STL:
+#include <glm/glm.hpp>
+
+void foo()
+{
+    glm::vec4 v(0.0f);
+    glm::mat4 m(1.0f);
+    ...
+    glVertex3fv(&v\[0\]);
+    glLoadMatrixfv(&m\[0\]\[0\]);
+}
+```
+
+*Note: It would be possible to implement [*glVertex3fv*](http://www.opengl.org/sdk/docs/man2/xhtml/glVertex.xml)(glm::vec3(0)) in C++ with the appropriate cast operator that would result as an
+implicit cast in this example. However cast operators may produce programs running with unexpected behaviours without build error or any form of notification. *
 
 &lt;glm/gtc/type\_ptr.hpp&gt; need to be included to use these features.
 
 ### 4.20. GLM\_GTC\_ulp
 
-Allow the measurement of the accuracy of a function against a reference
-implementation. This extension works on floating-point data and provides
-results in
-[ULP](http://ljk.imag.fr/membres/Carine.Lucas/TPScilab/JMMuller/ulp-toms.pdf).
+Allow the measurement of the accuracy of a function against a reference implementation. This extension works on floating-point data and provides results in [ULP](http://ljk.imag.fr/membres/Carine.Lucas/TPScilab/JMMuller/ulp-toms.pdf).
 
 &lt;glm/gtc/ulp.hpp&gt; need to be included to use these features.
 
@@ -964,13 +836,11 @@ Add \*vec1 types.
 
 ### 5.1. GLM replacements for deprecated OpenGL functions
 
-OpenGL 3.1 specification has deprecated some features that have been
-removed from OpenGL 3.2 core profile specification. GLM provides some
-replacement functions.
+OpenGL 3.1 specification has deprecated some features that have been removed from OpenGL 3.2 core profile specification. GLM provides some replacement functions.
 
 ***glRotate{f, d}:***
 
-  -----------------------------
+```cpp
   glm::mat4 glm::rotate(
 
   > glm::mat4 const & m,
@@ -986,15 +856,14 @@ replacement functions.
   > double angle,
   >
   > glm::dvec3 const & axis);
-  -----------------------------
-  -----------------------------
+```
 
 From GLM\_GTC\_matrix\_transform extension:
 &lt;glm/gtc/matrix\_transform.hpp&gt;
 
 [***glScale{f, d}: ***](http://www.opengl.org/sdk/docs/man2/xhtml/glScale.xml)
 
-  --------------------------------
+```cpp
   glm::mat4 glm::scale(
 
   > glm::mat4 const & m,
@@ -1006,15 +875,14 @@ From GLM\_GTC\_matrix\_transform extension:
   > glm::dmat4 const & m,
   >
   > glm::dvec3 const & factors);
-  --------------------------------
-  --------------------------------
+```
 
 From GLM\_GTC\_matrix\_transform extension:
 &lt;glm/gtc/matrix\_transform.hpp&gt;
 
 ***glTranslate{f, d}:***
 
-  ------------------------------------
+```cpp
   glm::mat4 glm::translate(
 
   > glm::mat4 const & m,
@@ -1026,59 +894,50 @@ From GLM\_GTC\_matrix\_transform extension:
   > glm::dmat4 const & m,
   >
   > glm::dvec3 const & translation);
-  ------------------------------------
-  ------------------------------------
+```
 
 From GLM\_GTC\_matrix\_transform extension:
 &lt;glm/gtc/matrix\_transform.hpp&gt;
 
 ***glLoadIdentity:***
 
-  ----------------------------------
-  glm::mat4(1.0) or glm::mat4();
-
-  glm::dmat4(1.0) or glm::dmat4();
-  ----------------------------------
-  ----------------------------------
+```cpp
+    glm::mat4(1.0) or glm::mat4();
+    glm::dmat4(1.0) or glm::dmat4();
+```
 
 From GLM core library: &lt;glm/glm.hpp&gt;
 
 ***glMultMatrix{f, d}: ***
 
-  -------------------------------
-  glm::mat4() \* glm::mat4();
-
-  glm::dmat4() \* glm::dmat4();
-  -------------------------------
-  -------------------------------
+```cpp
+    glm::mat4() * glm::mat4();
+    glm::dmat4() * glm::dmat4();
+```
 
 From GLM core library: &lt;glm/glm.hpp&gt;
 
 ***glLoadTransposeMatrix{f, d}: ***
 
-  -------------------------------
-  glm::transpose(glm::mat4());
-
-  glm::transpose(glm::dmat4());
-  -------------------------------
-  -------------------------------
+```cpp
+    glm::transpose(glm::mat4());
+    glm::transpose(glm::dmat4());
+```
 
 From GLM core library: &lt;glm/glm.hpp&gt;
 
 ***glMultTransposeMatrix{f, d}: ***
 
-  -----------------------------------------------
-  glm::mat4() \* glm::transpose(glm::mat4());
-
-  glm::dmat4() \* glm::transpose(glm::dmat4());
-  -----------------------------------------------
-  -----------------------------------------------
+```cpp
+    glm::mat4() * glm::transpose(glm::mat4());
+    glm::dmat4() * glm::transpose(glm::dmat4());
+```
 
 From GLM core library: &lt;glm/glm.hpp&gt;
 
 [***glFrustum:***](http://www.opengl.org/sdk/docs/man2/xhtml/glFrustum.xml)
 
-  -------------------------------
+```cpp
   glm::mat4 glm::frustum(
 
   > float left, float right,
@@ -1094,15 +953,14 @@ From GLM core library: &lt;glm/glm.hpp&gt;
   > double bottom, double top,
   >
   > double zNear, double zFar);
-  -------------------------------
-  -------------------------------
+```
 
 From GLM\_GTC\_matrix\_transform extension:
 &lt;glm/gtc/matrix\_transform.hpp&gt;
 
 ***glOrtho: ***
 
-  -------------------------------
+```cpp
   glm::mat4 glm::ortho(
 
   > float left, float right,
@@ -1118,8 +976,7 @@ From GLM\_GTC\_matrix\_transform extension:
   > double bottom, double top,
   >
   > double zNear, double zFar);
-  -------------------------------
-  -------------------------------
+```
 
 From GLM\_GTC\_matrix\_transform extension:
 &lt;glm/gtc/matrix\_transform.hpp&gt;
@@ -1128,7 +985,7 @@ From GLM\_GTC\_matrix\_transform extension:
 
 ***gluLookAt: ***
 
-  ------------------------------
+```cpp
   glm::mat4 glm::lookAt(
 
   > glm::vec3 const & eye,
@@ -1144,15 +1001,14 @@ From GLM\_GTC\_matrix\_transform extension:
   > glm::dvec3 const & center,
   >
   > glm::dvec3 const & up);
-  ------------------------------
-  ------------------------------
+```
 
 From GLM\_GTC\_matrix\_transform extension:
 &lt;glm/gtc/matrix\_transform.hpp&gt;
 
 ***gluOrtho2D: ***
 
-  --------------------------------------------------------
+```cpp
   glm::mat4 glm::ortho(
 
   float left, float right, float bottom, float top);
@@ -1160,15 +1016,14 @@ From GLM\_GTC\_matrix\_transform extension:
   glm::dmat4 glm::ortho(
 
   double left, double right, double bottom, double top);
-  --------------------------------------------------------
-  --------------------------------------------------------
+```
 
 From GLM\_GTC\_matrix\_transform extension:
 &lt;glm/gtc/matrix\_transform.hpp&gt;
 
 ***gluPerspective: ***
 
-  ---------------------------------------------------------
+```cpp
   glm::mat4 perspective(
 
   float fovy, float aspect, float zNear, float zFar);
@@ -1176,8 +1031,7 @@ From GLM\_GTC\_matrix\_transform extension:
   glm::dmat4 perspective(
 
   double fovy, double aspect, double zNear, double zFar);
-  ---------------------------------------------------------
-  ---------------------------------------------------------
+```
 
 One difference between GLM and GLU is that fovy is expressed in radians
 in GLM instead of degrees.
@@ -1187,7 +1041,7 @@ From GLM\_GTC\_matrix\_transform extension:
 
 ***gluPickMatrix:***
 
-  ---------------------------------
+```cpp
   glm::mat4 pickMatrix(
 
   > glm::vec2 const & center,
@@ -1203,15 +1057,14 @@ From GLM\_GTC\_matrix\_transform extension:
   > glm::dvec2 const & delta,
   >
   > glm::ivec4 const & viewport);
-  ---------------------------------
-  ---------------------------------
+```
 
 From GLM\_GTC\_matrix\_transform extension:
 &lt;glm/gtc/matrix\_transform.hpp&gt;
 
 [**gluProject:**](http://www.opengl.org/sdk/docs/man2/xhtml/gluProject.xml)
 
-  -------------------------------------------
+```cpp
   glm::vec3 project(
 
   > glm::vec3 const & obj,
@@ -1231,15 +1084,14 @@ From GLM\_GTC\_matrix\_transform extension:
   > glm::dmat4 const & proj,
   >
   > glm::{i, ' ', d}vec4 const & viewport);
-  -------------------------------------------
-  -------------------------------------------
+```
 
 From GLM\_GTC\_matrix\_transform extension:
 &lt;glm/gtc/matrix\_transform.hpp&gt;
 
 ***gluUnProject: ***
 
-  -------------------------------------------
+```cpp
   glm::vec3 unProject(
 
   > glm::vec3 const & win,
@@ -1259,8 +1111,7 @@ From GLM\_GTC\_matrix\_transform extension:
   > glm::dmat4 const & proj,
   >
   > glm::{i, ' ', d}vec4 const & viewport);
-  -------------------------------------------
-  -------------------------------------------
+```
 
 From GLM\_GTC\_matrix\_transform extension:
 &lt;glm/gtc/matrix\_transform.hpp&gt;
@@ -1271,69 +1122,46 @@ This section reports the divergences of GLM with GLSL.
 
 ### 6.1. not function
 
-The GLSL keyword not is also a keyword in C++. To prevent name
-collisions, ensure cross compiler support and a high API consistency,
-the GLSL not function has been implemented with the name not\_.
+The GLSL keyword not is also a keyword in C++. To prevent name collisions, ensure cross compiler support and a high API consistency, the GLSL not function has been implemented with the name not\_.
 
 ### 6.2. Precision qualifiers support
 
-GLM supports GLSL precision qualifiers through prefixes instead of
-qualifiers. For example, additionally to vec4, GLM exposes lowp\_vec4,
-mediump\_vec4 and highp\_vec4 types.
+GLM supports GLSL precision qualifiers through prefixes instead of qualifiers. For example, additionally to vec4, GLM exposes lowp\_vec4, mediump\_vec4 and highp\_vec4 types.
 
-Similarly to GLSL, GLM precision qualifiers are used to handle trade-off
-between performances and precisions of operations in term of
-[ULPs](http://en.wikipedia.org/wiki/Unit_in_the_last_place).
+Similarly to GLSL, GLM precision qualifiers are used to handle trade-off between performances and precisions of operations in term of [ULPs](http://en.wikipedia.org/wiki/Unit_in_the_last_place).
 
 By default, all the types use high precision.
 
-  ---------------------------------------
-  // Using precision qualifier in GLSL:
+```cpp
+// Using precision qualifier in GLSL:
 
-  ivec3 foo(in vec4 v)
+ivec3 foo(in vec4 v)
+{
+    highp vec4 a = v;
+    mediump vec4 b = a;
+    lowp ivec3 c = ivec3(b);
+    return c;
+}
 
-  {
+// Using precision qualifier in GLM:
 
-  > highp vec4 a = v;
-  >
-  > mediump vec4 b = a;
-  >
-  > lowp ivec3 c = ivec3(b);
-  >
-  > return c;
+#include <glm/glm.hpp>
 
-  }
-
-  // Using precision qualifier in GLM:
-
-  \#include &lt;glm/glm.hpp&gt;
-
-  ivec3 foo(const vec4 & v)
-
-  {
-
-  > highp\_vec4 a = v;
-  >
-  > medium\_vec4 b = a;
-  >
-  > lowp\_ivec3 c = glm::ivec3(b);
-  >
-  > return c;
-
-  }
-  ---------------------------------------
-  ---------------------------------------
+ivec3 foo(const vec4 & v)
+{
+    highp_vec4 a = v;
+    medium_vec4 b = a;
+    lowp_ivec3 c = glm::ivec3(b);
+    return c;
+}
+```
 
 ## 7. FAQ
 
 ### 7.1 Why GLM follows GLSL specification and conventions?
 
-Following GLSL conventions is a really strict policy of GLM. It has been
-designed following the idea that everyone does its own math library with
-his own conventions. The idea is that brilliant developers (the OpenGL
-ARB) worked together and agreed to make GLSL. Following GLSL conventions
-is a way to find consensus. Moreover, basically when a developer knows
-GLSL, he knows GLM.
+Following GLSL conventions is a really strict policy of GLM. It has been designed following the idea that everyone does its own math library with his own conventions. The idea is that brilliant developers (the OpenGL ARB) worked together and agreed to make GLSL. Following GLSL conventions
+is a way to find consensus. Moreover, basically when a developer knows GLSL, he knows GLM.
 
 ### 7.2. Does GLM run GLSL program?
 
@@ -1345,14 +1173,9 @@ No, this is not what GLM attends to do.
 
 ### 7.4. Should I use ‘GTX’ extensions?
 
-GTX extensions are qualified to be experimental extensions. In GLM this
-means that these extensions might change from version to version without
-any restriction. In practice, it doesn’t really change except time to
-time. GTC extensions are stabled, tested and perfectly reliable in time.
-Many GTX extensions extend GTC extensions and provide a way to explore
-features and implementations and APIs and then are promoted to GTC
-extensions. This is fairly the way OpenGL features are developed;
-through extensions.
+GTX extensions are qualified to be experimental extensions. In GLM this means that these extensions might change from version to version without any restriction. In practice, it doesn’t really change except time to
+time. GTC extensions are stabled, tested and perfectly reliable in time. Many GTX extensions extend GTC extensions and provide a way to explore features and implementations and APIs and then are promoted to GTC
+extensions. This is fairly the way OpenGL features are developed; through extensions.
 
 ### 7.5. Where can I ask my questions?
 
@@ -1360,47 +1183,31 @@ A good place is [stackoverflow](http://stackoverflow.com/search?q=GLM) using the
 
 ### 7.6. Where can I find the documentation of extensions?
 
-The Doxygen generated documentation includes a complete list of all
-extensions available. Explore this [*API
-documentation*](http://glm.g-truc.net/html/index.html) to get a complete
+The Doxygen generated documentation includes a complete list of all extensions available. Explore this [*API documentation*](http://glm.g-truc.net/html/index.html) to get a complete
 view of all GLM capabilities!
 
 ### 7.7. Should I use ‘using namespace glm;’?
 
-NO! Chances are that if using namespace glm; is called, especially in a
-header file, name collisions will happen as GLM is based on GLSL which
-uses common tokens for types and functions. Avoiding using namespace
+NO! Chances are that if using namespace glm; is called, especially in a header file, name collisions will happen as GLM is based on GLSL which uses common tokens for types and functions. Avoiding using namespace
 glm; will a higher compatibility with third party library and SDKs.
 
 ### 7.8. Is GLM fast?
 
-GLM is mainly designed to be convenient and that's why it is written
-against the GLSL specification.
+GLM is mainly designed to be convenient and that's why it is written against the GLSL specification.
 
-Following the Pareto principle where 20% of the code consumes 80% of the
-execution time, GLM operates perfectly on the 80% of the code that
-consumes 20% of the performances. Furthermore, thanks to the lowp,
-mediump and highp qualifiers, GLM provides approximations which trade
-precision for performance. Finally, GLM can automatically produce SIMD
-optimized code for functions of its implementation.
+Following the Pareto principle where 20% of the code consumes 80% of the execution time, GLM operates perfectly on the 80% of the code that consumes 20% of the performances. Furthermore, thanks to the lowp,
+mediump and highp qualifiers, GLM provides approximations which trade precision for performance. Finally, GLM can automatically produce SIMD optimized code for functions of its implementation.
 
-However, on performance critical code paths, we should expect that
-dedicated algorithms should be written to reach peak performance.
+However, on performance critical code paths, we should expect that dedicated algorithms should be written to reach peak performance.
 
 ###  7.9. When I build with Visual C++ with /W4 warning level, I have warnings...
 
-You should not have any warnings even in /W4 mode. However, if you
-expect such level for your code, then you should ask for the same level
-to the compiler by at least disabling the Visual C++ language extensions
-(/Za) which generates warnings when used. If these extensions are
-enabled, then GLM will take advantage of them and the compiler will
-generate warnings.
+You should not have any warnings even in /W4 mode. However, if you expect such level for your code, then you should ask for the same level to the compiler by at least disabling the Visual C++ language extensions
+(/Za) which generates warnings when used. If these extensions are enabled, then GLM will take advantage of them and the compiler will generate warnings.
 
 ### 7.10. Why some GLM functions can crash because of division by zero?
 
-GLM functions crashing is the result of a domain error that follows the
-precedent given by C and C++ libraries. For example, it’s a domain error
-to pass a null vector to glm::normalize function.
+GLM functions crashing is the result of a domain error that follows the precedent given by C and C++ libraries. For example, it’s a domain error to pass a null vector to glm::normalize function.
 
 ### 7.11. What unit for angles is used in GLM?
 
@@ -1409,388 +1216,218 @@ the [link](http://www.g-truc.net/post-0693.html#menu).
 
 ## 8. Code samples
 
-This series of samples only shows various GLM features without
-consideration of any sort.
+This series of samples only shows various GLM features without consideration of any sort.
 
 ### 8.1. Compute a triangle normal
 
-  -------------------------------------------------------------------
-  \#include &lt;glm/glm.hpp&gt; // vec3 normalize cross
+```cpp
+#include <glm/glm.hpp> // vec3 normalize cross
 
-  glm::vec3 computeNormal
+glm::vec3 computeNormal(glm::vec3 const& a, glm::vec3 const& b, glm::vec3 const& c)
+{
+    return glm::normalize(glm::cross(c - a, b - a));
+}
 
-  (
+// A much faster but less accurate alternative:
+#include <glm/glm.hpp> // vec3 cross
+#include <glm/gtx/fast_square_root.hpp> // fastNormalize
 
-  > glm::vec3 const & a,
-  >
-  > glm::vec3 const & b,
-  >
-  > glm::vec3 const & c
-
-  )
-
-  {
-
-  return glm::normalize(glm::cross(c - a, b - a));
-
-  }
-
-  // A much faster but less accurate alternative:
-
-  \#include &lt;glm/glm.hpp&gt; // vec3 cross
-
-  \#include &lt;glm/gtx/fast\_square\_root.hpp&gt; // fastNormalize
-
-  glm::vec3 computeNormal
-
-  (
-
-  > glm::vec3 const & a,
-  >
-  > glm::vec3 const & b,
-  >
-  > glm::vec3 const & c
-
-  )
-
-  {
-
-  return glm::fastNormalize(glm::cross(c - a, b - a));
-
-  }
-  -------------------------------------------------------------------
-  -------------------------------------------------------------------
+glm::vec3 computeNormal(glm::vec3 const& a, glm::vec3 const& b, glm::vec3 const& c)
+{
+    return glm::fastNormalize(glm::cross(c - a, b - a));
+}
+```
 
 ### 8.2. Matrix transform
 
-  ---------------------------------------------------------------------
-  // vec3, vec4, ivec4, mat4
+```cpp
+#include <glm/glm.hpp> // vec3, vec4, ivec4, mat4
+#include <glm/gtc/matrix_transform.hpp> // translate, rotate, scale, perspective
+#include <glm/gtc/type_ptr.hpp> // value_ptr
 
-  \#include &lt;glm/glm.hpp&gt;
-
-  // translate, rotate, scale, perspective
-
-  \#include &lt;glm/gtc/matrix\_transform.hpp&gt;
-
-  // value\_ptr
-
-  \#include &lt;glm/gtc/type\_ptr.hpp&gt;
-
-  void setUniformMVP
-
-  (
-
-  > GLuint Location,
-  >
-  > glm::vec3 const & Translate,
-  >
-  > glm::vec3 const & Rotate
-
-  )
-
-  {
-
-  > glm::mat4 Projection =
-  >
-  > glm::perspective(45.0f, 4.0f / 3.0f, 0.1f, 100.f);
-  >
-  > glm::mat4 ViewTranslate = glm::translate(
-  >
-  > glm::mat4(1.0f),
-  >
-  > Translate);
-  >
-  > glm::mat4 ViewRotateX = glm::rotate(
-  >
-  > ViewTranslate,
-  >
-  > Rotate.y, glm::vec3(-1.0f, 0.0f, 0.0f));
-  >
-  > glm::mat4 View = glm::rotate(
-  >
-  > ViewRotateX,
-  >
-  > Rotate.x, glm::vec3(0.0f, 1.0f, 0.0f));
-  >
-  > glm::mat4 Model = glm::scale(
-  >
-  > glm::mat4(1.0f),
-  >
-  > glm::vec3(0.5f));
-  >
-  > glm::mat4 MVP = Projection \* View \* Model;
-  >
-  > glUniformMatrix4fv(Location, 1, GL\_FALSE, glm::value\_ptr(MVP));
-
-  }
-  ---------------------------------------------------------------------
-  ---------------------------------------------------------------------
+void setUniformMVP(GLuint Location, glm::vec3 const& Translate, glm::vec3 const& Rotate)
+{
+    glm::mat4 Projection = glm::perspective(45.0f, 4.0f / 3.0f, 0.1f, 100.f);
+    glm::mat4 ViewTranslate = glm::translate(
+        glm::mat4(1.0f), Translate);
+    glm::mat4 ViewRotateX = glm::rotate(
+        ViewTranslate, Rotate.y, glm::vec3(-1.0f, 0.0f, 0.0f));
+    glm::mat4 View = glm::rotate(ViewRotateX,
+        Rotate.x, glm::vec3(0.0f, 1.0f, 0.0f));
+    glm::mat4 Model = glm::scale(
+        glm::mat4(1.0f), glm::vec3(0.5f));
+    glm::mat4 MVP = Projection * View * Model;
+    glUniformMatrix4fv(Location, 1, GL_FALSE, glm::value_ptr(MVP));
+}
+```
 
 ### 8.3. Vector types
 
-  ---------------------------------------------------------------------------
-  \#include &lt;glm/glm.hpp&gt; //vec2
+```cpp
+#include <glm/glm.hpp> // vec2
+#include <glm/gtc/type_precision.hpp> // hvec2, i8vec2, i32vec2
 
-  \#include &lt;glm/gtc/type\_precision.hpp&gt; //hvec2, i8vec2, i32vec2
+std::size_t const VertexCount = 4;
 
-  std::size\_t const VertexCount = 4;
+// Float quad geometry
+std::size_t const PositionSizeF32 = VertexCount * sizeof(glm::vec2);
+glm::vec2 const PositionDataF32[VertexCount] =
+{
+    glm::vec2(-1.0f,-1.0f),
+    glm::vec2( 1.0f,-1.0f),
+    glm::vec2( 1.0f, 1.0f),
+    glm::vec2(-1.0f, 1.0f)
+};
 
-  // Float quad geometry
+// Half-float quad geometry
+std::size_t const PositionSizeF16 = VertexCount * sizeof(glm::hvec2);
+glm::hvec2 const PositionDataF16[VertexCount] =
+{
+    glm::hvec2(-1.0f, -1.0f),
+    glm::hvec2( 1.0f, -1.0f),
+    glm::hvec2( 1.0f, 1.0f),
+    glm::hvec2(-1.0f, 1.0f)
+};
 
-  std::size\_t const PositionSizeF32 = VertexCount \* sizeof(glm::vec2);
+// 8 bits signed integer quad geometry
+std::size_t const PositionSizeI8 = VertexCount * sizeof(glm::i8vec2);
+glm::i8vec2 const PositionDataI8[VertexCount] =
+{
+    glm::i8vec2(-1,-1),
+    glm::i8vec2( 1,-1),
+    glm::i8vec2( 1, 1),
+    glm::i8vec2(-1, 1)
+};
 
-  glm::vec2 const PositionDataF32\[VertexCount\] =
-
-  {
-
-  glm::vec2(-1.0f,-1.0f),
-
-  glm::vec2( 1.0f,-1.0f),
-
-  glm::vec2( 1.0f, 1.0f),
-
-  glm::vec2(-1.0f, 1.0f)
-
-  };
-
-  // Half-float quad geometry
-
-  std::size\_t const PositionSizeF16 = VertexCount \* sizeof(glm::hvec2);
-
-  glm::hvec2 const PositionDataF16\[VertexCount\] =
-
-  {
-
-  glm::hvec2(-1.0f, -1.0f),
-
-  glm::hvec2( 1.0f, -1.0f),
-
-  glm::hvec2( 1.0f, 1.0f),
-
-  glm::hvec2(-1.0f, 1.0f)
-
-  };
-
-  // 8 bits signed integer quad geometry
-
-  std::size\_t const PositionSizeI8 = VertexCount \* sizeof(glm::i8vec2);
-
-  glm::i8vec2 const PositionDataI8\[VertexCount\] =
-
-  {
-
-  glm::i8vec2(-1,-1),
-
-  glm::i8vec2( 1,-1),
-
-  glm::i8vec2( 1, 1),
-
-  glm::i8vec2(-1, 1)
-
-  };
-
-  // 32 bits signed integer quad geometry
-
-  std::size\_t const PositionSizeI32 = VertexCount \* sizeof(glm::i32vec2);
-
-  glm::i32vec2 const PositionDataI32\[VertexCount\] =
-
-  {
-
-  > glm::i32vec2(-1,-1),
-  >
-  > glm::i32vec2( 1,-1),
-  >
-  > glm::i32vec2( 1, 1),
-  >
-  > glm::i32vec2(-1, 1)
-
-  };
-  ---------------------------------------------------------------------------
-  ---------------------------------------------------------------------------
+// 32 bits signed integer quad geometry
+std::size_t const PositionSizeI32 = VertexCount * sizeof(glm::i32vec2);
+glm::i32vec2 const PositionDataI32[VertexCount] =
+{
+    glm::i32vec2(-1,-1),
+    glm::i32vec2( 1,-1),
+    glm::i32vec2( 1, 1),
+    glm::i32vec2(-1, 1)
+};
+```
 
 ### 8.4. Lighting
 
-  -----------------------------------------------------------------
-  \#include &lt;glm/glm.hpp&gt; // vec3 normalize reflect dot pow
+```cpp
+#include <glm/glm.hpp> // vec3 normalize reflect dot pow
+#include <glm/gtc/random.hpp> // ballRand
 
-  \#include &lt;glm/gtx/random.hpp&gt; // vecRand3
+// vecRand3, generate a random and equiprobable normalized vec3
+glm::vec3 lighting(intersection const& Intersection, material const& Material, light const& Light, glm::vec3 const& View)
+{
+    glm::vec3 Color = glm::vec3(0.0f);
+    glm::vec3 LightVertor = glm::normalize(
+        Light.position() - Intersection.globalPosition() +
+        glm::ballRand(0.0f, Light.inaccuracy());
 
-  // vecRand3, generate a random and equiprobable normalized vec3
+    if(!shadow(Intersection.globalPosition(), Light.position(), LightVertor))
+    {
+        float Diffuse = glm::dot(Intersection.normal(), LightVector);
+        if(Diffuse &lt;= 0.0f)
+            return Color;
 
-  glm::vec3 lighting
+        if(Material.isDiffuse())
+            Color += Light.color() * Material.diffuse() * Diffuse;
 
-  (
+        if(Material.isSpecular())
+        {
+            glm::vec3 Reflect = glm::reflect(-LightVector, Intersection.normal());
+            float Dot = glm::dot(Reflect, View);
+            float Base = Dot &gt; 0.0f ? Dot : 0.0f;
+            float Specular = glm::pow(Base, Material.exponent());
+            Color += Material.specular() \* Specular;
+        }
+    }
 
-  > intersection const & Intersection,
-  >
-  > material const & Material,
-  >
-  > light const & Light,
-  >
-  > glm::vec3 const & View
-
-  )
-
-  {
-
-  > glm::vec3 Color = glm::vec3(0.0f);
-  >
-  > glm::vec3 LightVertor = glm::normalize(
-  >
-  > Light.position() - Intersection.globalPosition() +
-  >
-  > glm::vecRand3(0.0f, Light.inaccuracy());
-  >
-  > if(!shadow(
-  >
-  > Intersection.globalPosition(),
-  >
-  > Light.position(),
-  >
-  > LightVertor))
-  >
-  > {
-  >
-  > float Diffuse = glm::dot(Intersection.normal(), LightVector);
-  >
-  > if(Diffuse &lt;= 0.0f)
-  >
-  > return Color;
-  >
-  > if(Material.isDiffuse())
-  >
-  > Color += Light.color() \* Material.diffuse() \* Diffuse;
-  >
-  > if(Material.isSpecular())
-  >
-  > {
-  >
-  > glm::vec3 Reflect = glm::reflect(
-  >
-  > -LightVector,
-  >
-  > Intersection.normal());
-  >
-  > float Dot = glm::dot(Reflect, View);
-  >
-  > float Base = Dot &gt; 0.0f ? Dot : 0.0f;
-  >
-  > float Specular = glm::pow(Base, Material.exponent());
-  >
-  > Color += Material.specular() \* Specular;
-  >
-  > }
-
-  }
-
-  return Color;
-
-  }
-  -----------------------------------------------------------------
-  -----------------------------------------------------------------
+    return Color;
+}
+```
 
 ## 9. References
 
-### 9.1. GLM development
-
-* [GLM website](http://glm.g-truc.net)
-
-![](media/image20.png){width="2.870138888888889in"
-height="1.6145833333333333in"}- [GLM HEAD
-snapshot](https://github.com/g-truc/glm/archive/master.zip)
-
-* GLM bug report and feature request
-
-### 9.2. OpenGL specifications
+### 9.1. OpenGL specifications
 
 * OpenGL 4.3 core specification
 * [GLSL 4.30 specification](http://www.opengl.org/registry/doc/GLSLangSpec.4.30.7.diff.pdf)
 ![](media/image21.png){width="2.859722222222222in" height="1.6083333333333334in"}- [*GLU 1.3 specification*](http://www.opengl.org/documentation/specs/glu/glu1_3.pdf)
 
-### 9.3. External links
+### 9.2. External links
 
 * [GLM on stackoverflow](http://stackoverflow.com/search?q=GLM)
 
-### 9.4. Projects using GLM
+### 9.3. Projects using GLM
 
 ***[Leo’s Forture](http://www.leosfortune.com/) ***
 
-Leo’s Fortune is a platform adventure game where you hunt down the
-cunning and mysterious thief that stole your gold. Available on PS4,
-Xbox One, PC, Mac, iOS and Android.
+Leo’s Fortune is a platform adventure game where you hunt down the cunning and mysterious thief that stole your gold. Available on PS4, Xbox One, PC, Mac, iOS and Android.
 
-Beautifully hand-crafted levels bring the story of Leo to life in this
-epic adventure.
+Beautifully hand-crafted levels bring the story of Leo to life in this epic adventure.
 
-“I just returned home to find all my gold has been stolen! For some
-devious purpose, the thief has dropped pieces of my gold like
-breadcrumbs through the woods.”
+“I just returned home to find all my gold has been stolen! For some devious purpose, the thief has dropped pieces of my gold like breadcrumbs through the woods.”
 
-“Despite this pickle of a trap, I am left with no choice but to follow
-the trail.”
+“Despite this pickle of a trap, I am left with no choice but to follow the trail.”
 
 “Whatever lies ahead, I must recover my fortune.” -Leopold
 
-![](media/image23.jpg){width="1.9270833333333333in"
-height="2.375in"}[***OpenGL 4.0 Shading Language
-Cookbook***](http://www.packtpub.com/opengl-4-0-shading-language-cookbook/book?tag=rk/opengl4-abr1/0811)
+![](/doc/manual/references-leosfortune.jpeg)
 
-A full set of recipes demonstrating simple and advanced techniques for
-producing high-quality, real-time 3D graphics using GLSL 4.0.
+![](/doc/manual/references-leosfortune2.jpg)
 
-How to use the OpenGL Shading Language to implement lighting and shading
-techniques.
+[***OpenGL 4.0 Shading Language Cookbook***](http://www.packtpub.com/opengl-4-0-shading-language-cookbook/book?tag=rk/opengl4-abr1/0811)
 
-Use the new features of GLSL 4.0 including tessellation and geometry
-shaders.
+A full set of recipes demonstrating simple and advanced techniques for producing high-quality, real-time 3D graphics using GLSL 4.0.
 
-How to use textures in GLSL as part of a wide variety of techniques from
-basic texture mapping to deferred shading.
+How to use the OpenGL Shading Language to implement lighting and shading techniques.
 
-![](media/image24.jpg){width="2.5in"
-height="1.40625in"}![](media/image25.jpg){width="2.5in"
-height="1.40625in"}[***Outerra***](http://outerra.com/)
+Use the new features of GLSL 4.0 including tessellation and geometry shaders.
 
-![](media/image26.jpg){width="2.5in"
-height="1.40625in"}![](media/image27.jpg){width="2.5in"
-height="1.40625in"}3D planetary engine for seamless planet rendering
-from space down to the surface. Can use arbitrary resolution of
-elevation data, refining it to centimetre resolution using fractal
-algorithms.
+How to use textures in GLSL as part of a wide variety of techniques from basic texture mapping to deferred shading.
+
+![](/doc/manual/references-glsl4book.jpg)
+
+[***Outerra***](http://outerra.com/)
+
+3D planetary engine for seamless planet rendering from space down to the surface. Can use arbitrary resolution of elevation data, refining it to centimetre resolution using fractal algorithms.
+
+![](/doc/manual/references-outerra1.jpg)
+
+![](/doc/manual/references-outerra2.jpg)
+
+![](/doc/manual/references-outerra3.jpg)
+
+![](/doc/manual/references-outerra4.jpg)
 
 ***Falcor***
 
 Real-time rendering research framework by NVIDIA.
 
-![](media/image28.png){width="4.0005588363954505in"
-height="1.9273523622047244in"}***Cinder***
+***Cinder***
 
-Cinder is a free and open source library for professional-quality
-creative coding in C++.
+Cinder is a free and open source library for professional-quality creative coding in C++.
 
-Cinder is a C++ library for programming with aesthetic intent - the sort
-of development often called creative coding. This includes domains like
-graphics, audio, video, and computational geometry. Cinder is
-cross-platform, with official support for OS X, Windows, iOS, and WinRT.
+Cinder is a C++ library for programming with aesthetic intent - the sort of development often called creative coding. This includes domains like graphics, audio, video, and computational geometry. Cinder is cross-platform, with official support for OS X, Windows, iOS, and WinRT.
 
-![](media/image29.png){width="2.5in" height="1.875in"}Cinder is
-production-proven, powerful enough to be the primary tool for
-professionals, but still suitable for learning and experimentation.
-Cinder is released under the [2-Clause BSD
-License](http://opensource.org/licenses/BSD-2-Clause).
+Cinder is production-proven, powerful enough to be the primary tool for professionals, but still suitable for learning and experimentation. Cinder is released under the [2-Clause BSD License](http://opensource.org/licenses/BSD-2-Clause).
+
+![](/doc/manual/references-cinder.png)
 
 [***opencloth***](http://code.google.com/p/opencloth/)
 
 A collection of source codes implementing cloth simulation algorithms in OpenGL.
 
 Simple, easy-to-follow examples with GLSL source code, as well as a basic description of the theory behind each technique.
+
 ![](/doc/manual/references-opencloth1.png)
+
 ![](/doc/manual/references-opencloth3.png)
 
 [***Are you using GLM in a project?***](mailto:glm@g-truc.net)
 
-### 9.5. OpenGL tutorials using GLM
+### 9.4. OpenGL tutorials using GLM
 
 * [*The OpenGL Samples Pack*](http://www.g-truc.net/project-0026.html#menu), samples that show how to set up all the different new features
 * [*Learning Modern 3D Graphics programming*](http://www.arcsynthesis.org/gltut/), a great OpenGL tutorial using GLM by Jason L. McKesson
@@ -1806,7 +1443,7 @@ Simple, easy-to-follow examples with GLSL source code, as well as a basic descri
 * [Learn OpenGL](mailto:http://learnopengl.com/), OpenGL tutorial
 ** [Are you using GLM in a tutorial?](mailto:glm@g-truc.net)*
 
-### 9.6. Equivalent for other languages
+### 9.5. Equivalent for other languages
 
 * [*GlmSharp*](https://github.com/Philip-Trettner/GlmSharp): Open-source semi-generated GLM-flavored math library for .NET/C\#.
 * [glm-js](https://github.com/humbletim/glm-js): JavaScript adaptation of the OpenGL Mathematics (GLM) C++ library interfaces
@@ -1817,14 +1454,14 @@ Simple, easy-to-follow examples with GLSL source code, as well as a basic descri
 * [openll](https://github.com/Polkm/openll): Lua bindings for OpenGL, GLM, GLFW, OpenAL, SOIL and PhysicsFS
 * [glm-rs](https://github.com/dche/glm-rs): GLSL mathematics for Rust programming language
 
-### 9.7. Alternatives to GLM
+### 9.6. Alternatives to GLM
 
 * [*CML*](http://cmldev.net/): The CML (Configurable Math Library) is a free C++ math library for games and graphics.
 * [*Eigen*](http://eigen.tuxfamily.org/): A more heavy weight math library for general linear algebra in C++.
 * [*glhlib*](http://glhlib.sourceforge.net/): A much more than glu C library.
 * Are you using or working on an alternative library to GLM?
 
-### 9.8. Acknowledgements
+### 9.7. Acknowledgements
 
 GLM is developed and maintained by [*Christophe Riccio*](http://www.g-truc.net) but many contributors have made this project what it is.
 
