@@ -51,6 +51,9 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 ## Release notes
 
+#### [GLM 0.9.8.3](https://github.com/g-truc/glm/tree/0.9.8) - 2016-XX-XX
+##### Fixes:
+
 #### [GLM 0.9.8.2](https://github.com/g-truc/glm/releases/tag/0.9.8.2) - 2016-11-01
 ##### Improvements:
 - Added Visual C++ 15 detection
