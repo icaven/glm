@@ -54,6 +54,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 ##### Features:
 - Added RGBM encoding in GTC_packing #420
 - Added GTC_color_encoding extension
+- Added GTX_vec_swizzle, faster compile time swizzling then swizzle operator #558
 
 ##### Improvements:
 - Added lowp variant of GTC_colorspace convertLinearToSRGB #419
