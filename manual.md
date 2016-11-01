@@ -5,35 +5,6 @@
 ![Alt](/doc/manual/g-truc.png "G-Truc Logo")
 
 ---
-## Introduction
-
-OpenGL Mathematics (GLM) is a C++ mathematics library for graphics C++ programs based on the [*OpenGL Shading Language*](http://www.opengl.org/registry/) (GLSL) specifications.
-
-GLM provides classes and functions designed and implemented with the same naming conventions and functionalities than GLSL so that when a programmer knows GLSL, he knows GLM as well which makes it really easy
-to use.
-
-This project isn't limited to GLSL features. An extension system, based on the GLSL extension conventions, provides extended capabilities: matrix transformations, quaternions, data packing, random numbers,
-noise, etc...
-
-This library works perfectly with [*OpenGL*](http://www.opengl.org) but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing /
-rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
-
-GLM is written in C++98 but can take advantage of C++11 when supported by the compiler. It is a platform independent library with no dependence and it officially supports the following compilers:
-
-* [Apple Clang](https://developer.apple.com/Library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html) 5.0 and higher\
-* [GCC](http://gcc.gnu.org/) 4.6 and higher
-* [Intel C++ Composer](https://software.intel.com/en-us/intel-compilers) XE 2013 and higher\
-* [LLVM](http://llvm.org/) 3.2 and higher
-* [Visual C++](http://www.visualstudio.com/) 2010 and higher
-* [CUDA](https://developer.nvidia.com/about-cuda) 4.0 and higher (experimental)
-* Any conform C++98 or C++11 compiler
-
-The source code and the documentation, including this manual, are licensed under [the Happy Bunny License (Modified MIT) and the MIT License](http://glm.g-truc.net/copying.txt).
-
-Thanks for contributing to the project by [submitting reports](https://github.com/g-truc/glm/issues) for bugs and feature requests. Any feedback is welcome at
-[*glm@g-truc.net*](mailto:glm@g-truc.net).
-
----
 ## Table of Contents
 + [0. Licenses](#section0)
 + [1. Getting started](#section1)
