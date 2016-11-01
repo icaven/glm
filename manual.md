@@ -5,7 +5,112 @@
 ![Alt](/doc/manual/g-truc.png "G-Truc Logo")
 
 ---
-## Licenses
+## Introduction
+
+OpenGL Mathematics (GLM) is a C++ mathematics library for graphics C++ programs based on the [*OpenGL Shading Language*](http://www.opengl.org/registry/) (GLSL) specifications.
+
+GLM provides classes and functions designed and implemented with the same naming conventions and functionalities than GLSL so that when a programmer knows GLSL, he knows GLM as well which makes it really easy
+to use.
+
+This project isn't limited to GLSL features. An extension system, based on the GLSL extension conventions, provides extended capabilities: matrix transformations, quaternions, data packing, random numbers,
+noise, etc...
+
+This library works perfectly with [*OpenGL*](http://www.opengl.org) but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing /
+rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
+
+GLM is written in C++98 but can take advantage of C++11 when supported by the compiler. It is a platform independent library with no dependence and it officially supports the following compilers:
+
+* [Apple Clang](https://developer.apple.com/Library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html) 5.0 and higher\
+* [GCC](http://gcc.gnu.org/) 4.6 and higher
+* [Intel C++ Composer](https://software.intel.com/en-us/intel-compilers) XE 2013 and higher\
+* [LLVM](http://llvm.org/) 3.2 and higher
+* [Visual C++](http://www.visualstudio.com/) 2010 and higher
+* [CUDA](https://developer.nvidia.com/about-cuda) 4.0 and higher (experimental)
+* Any conform C++98 or C++11 compiler
+
+The source code and the documentation, including this manual, are licensed under [the Happy Bunny License (Modified MIT) and the MIT License](http://glm.g-truc.net/copying.txt).
+
+Thanks for contributing to the project by [submitting reports](https://github.com/g-truc/glm/issues) for bugs and feature requests. Any feedback is welcome at
+[*glm@g-truc.net*](mailto:glm@g-truc.net).
+
+---
+## Table of Contents
++ [0. Licenses](#section0)
++ [1. Getting started](#section1)
++ [1.1. Setup](#section1_1)
++ [1.2. Faster program compilation](#section1_2)
++ [1.3. Use sample of GLM core](#section1_3)
++ [1.4. Dependencies](#section1_4)
++ [2. Swizzle operators](#section2)
++ [2.1. Standard C++98 implementation](#section2_1)
++ [2.2. Anonynous union member implementation](#section2_2)
++ [3. Preprocessor options](#section3)
++ [3.1. Default precision](#section3_1)
++ [3.2. Compile-time message system](#section3_2)
++ [3.3. C++ language detection](#section3_3)
++ [3.4. SIMD support](#section3_4)
++ [3.5. Force inline](#section3_5)
++ [3.6. Vector and matrix static size](#section3_6)
++ [3.7. Disabling default constructor initialization](#section3_7)
++ [3.8. Requiring explicit conversions](#section3_8)
++ [3.9. Removing genType restriction](#section3_9)
++ [4. Stable extensions](#section4)
++ [4.1. GLM_GTC_bitfield](#section4_1)
++ [4.2. GLM_GTC_color_space](#section4_2)
++ [4.3. GLM_GTC_constants](#section4_3)
++ [4.4. GLM_GTC_epsilon](#section4_4)
++ [4.5. GLM_GTC_functions](#section4_5)
++ [4.6. GLM_GTC_integer](#section4_6)
++ [4.7. GLM_GTC_matrix_access](#section4_7)
++ [4.8. GLM_GTC_matrix_integer](#section4_8)
++ [4.9. GLM_GTC_matrix_inverse](#section4_9)
++ [4.10. GLM_GTC_matrix_transform](#section4_10)
++ [4.11. GLM_GTC_noise](#section4_11)
++ [4.12. GLM_GTC_packing](#section4_12)
++ [4.13. GLM_GTC_quaternion](#section4_13)
++ [4.14. GLM_GTC_random](#section4_14)
++ [4.15. GLM_GTC_reciprocal](#section4_15)
++ [4.16. GLM_GTC_round](#section4_16)
++ [4.17. GLM_GTC_type_alignment](#section4_17)
++ [4.18. GLM_GTC_type_precision](#section4_18)
++ [4.19. GLM_GTC_type_ptr](#section4_19)
++ [4.20. GLM_GTC_ulp](#section4_20)
++ [4.21. GLM_GTC_vec1](#section4_21)
++ [5. OpenGL interoperability](#section5)
++ [5.1. GLM Replacements for deprecated OpenGL functions](#section5_1)
++ [5.2. GLM Replacements for GPU functions](#section5_2)
++ [6. Known issues](#section6)
++ [6.1. NOT FUNCTION](#section6_1)
++ [6.2. PRECISION QUALIFIERS SUPPORT](#section6_2)
++ [7. FAQ](#section7)
++ [7.1 WHY GLM FOLLOWS GLSL SPECIFICATION AND CONVENTIONS?](#section7_1)
++ [7.2. DOES GLM RUN GLSL PROGRAM?](#section7_2)
++ [7.3. DOES A GLSL COMPILER BUILD GLM CODES?](#section7_3)
++ [7.4. SHOULD I USE ‘GTX’ EXTENSIONS?](#section7_4)
++ [7.5. WHERE CAN I ASK MY QUESTIONS?](#section7_5)
++ [7.6. WHERE CAN I FIND THE DOCUMENTATION OF EXTENSIONS?](#section7_6)
++ [7.7. SHOULD I USE ‘USING NAMESPACE GLM;’?](#section7_7)
++ [7.8. IS GLM FAST?](#section7_8)
++ [7.9. WHEN I BUILD WITH VISUAL C++ WITH /W4 WARNING LEVEL, I HAVE WARNINGS...](#section7_9)
++ [7.10. WHY SOME GLM FUNCTIONS CAN CRASH BECAUSE OF DIVISION BY ZERO?](#section7_10)
++ [7.11. WHAT UNIT FOR ANGLES IS USED IN GLM?](#section7_11)
++ [8. CODE SAMPLES](#section8)
++ [8.1. COMPUTE A TRIANGLE NORMAL](#section8_1)
++ [8.2. MATRIX TRANSFORM](#section8_2)
++ [8.3. VECTOR TYPES](#section8_3)
++ [8.4. LIGHTING](#section8_4)
++ [9. REFERENCES](#section9)
++ [9.1. GLM DEVELOPMENT](#section9_1)
++ [9.2. OpenGL specifications](#section9_2)
++ [9.3. EXTERNAL LINKS](#section9_3)
++ [9.4. PROJECTS USING GLM](#section9_4)
++ [9.5. OPENGL TUTORIALS USING GLM](#section9_5)
++ [9.6. EQUIVALENT FOR OTHER LANGUAGES](#section9_6)
++ [9.7. ALTERNATIVES TO GLM](#section9_7)
++ [9.8. Acknowledgements](#section9_8)
+
+---
+## Licenses <a name="section0"></a>
 
 ### The Happy Bunny License (Modified MIT License)
 
@@ -61,37 +166,8 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ![](https://github.com/g-truc/glm/blob/manual/doc/manual/frontpage2.png)
 
 ---
-## Introduction
-
-OpenGL Mathematics (GLM) is a C++ mathematics library for graphics C++ programs based on the [*OpenGL Shading Language*](http://www.opengl.org/registry/) (GLSL) specifications.
-
-GLM provides classes and functions designed and implemented with the same naming conventions and functionalities than GLSL so that when a programmer knows GLSL, he knows GLM as well which makes it really easy
-to use.
-
-This project isn't limited to GLSL features. An extension system, based on the GLSL extension conventions, provides extended capabilities: matrix transformations, quaternions, data packing, random numbers,
-noise, etc...
-
-This library works perfectly with [*OpenGL*](http://www.opengl.org) but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing /
-rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
-
-GLM is written in C++98 but can take advantage of C++11 when supported by the compiler. It is a platform independent library with no dependence and it officially supports the following compilers:
-
-* [Apple Clang](https://developer.apple.com/Library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html) 5.0 and higher\
-* [GCC](http://gcc.gnu.org/) 4.6 and higher
-* [Intel C++ Composer](https://software.intel.com/en-us/intel-compilers) XE 2013 and higher\
-* [LLVM](http://llvm.org/) 3.2 and higher
-* [Visual C++](http://www.visualstudio.com/) 2010 and higher
-* [CUDA](https://developer.nvidia.com/about-cuda) 4.0 and higher (experimental)
-* Any conform C++98 or C++11 compiler
-
-The source code and the documentation, including this manual, are licensed under [the Happy Bunny License (Modified MIT) and the MIT License](http://glm.g-truc.net/copying.txt).
-
-Thanks for contributing to the project by [submitting reports](https://github.com/g-truc/glm/issues) for bugs and feature requests. Any feedback is welcome at
-[*glm@g-truc.net*](mailto:glm@g-truc.net).
-
----
-## 1. Getting started
-### 1.1. Setup
+## 1. Getting started <a name="section1"></a>
+### 1.1. Setup <a name="section1_1"></a>
 
 GLM is a header only library. Hence, there is nothing to build to use it. To use GLM, a programmer only has to include &lt;glm/glm.hpp&gt; in his program. This include provides all the GLSL features implemented by
 GLM.
@@ -121,7 +197,7 @@ Core GLM features can be included using individual headers to allow faster user 
 #include <glm/vector_relational.hpp> // all the GLSL vector relational functions
 ```
 
-### 1.2. Faster program compilation
+### 1.2. Faster program compilation <a name="section1_2"></a>
 
 GLM is a header only library that makes a heavy usage of C++ templates.
 This design may significantly increase the compile time for files that use GLM. Hence, it is important to limit GLM inclusion to header and source files that actually use it. Likewise, GLM extensions should be
@@ -169,6 +245,7 @@ is included, [*Boost static assert*](http://www.boost.org/doc/libs/1_52_0/doc/ht
 GLM is built with a C++ 11 compiler in which case [static\_assert](http://en.cppreference.com/w/cpp/language/static_assert).
 If neither are detected, GLM will rely on its own implementation of static assert.
 
+---
 ## 2. Swizzle operators
 
 A common feature of shader languages like GLSL is the swizzle operators. Those allow selecting multiple components of a vector and change their order. For example, “variable.x”, “variable.xzy” and “variable.zxyy”
@@ -189,7 +266,7 @@ vec3 C = A.bgr;
 GLM supports a subset of this functionality as described in the following sub-sections. Swizzle operators are disabled by default. To enable them GLM\_SWIZZLE must be defined before any inclusion of
 &lt;glm/glm.hpp&gt;. Enabling swizzle operators will massively increase the size of compiled files and the compilation time.
 
-### 2.1. Default C++98 implementation
+### 2.1. Standard C++98 implementation
 
 The C++98 implementation exposes the R-value swizzle operators as member functions of vector types.
 
@@ -280,6 +357,7 @@ void foo()
 }
 ```
 
+---
 ## 3. Preprocessor options
 
 ### 3.1. Default precision
@@ -533,6 +611,7 @@ typedef glm::tvec4<half> my_hvec4;
 
 However, defining GLM\_FORCE\_UNRESTRICTED\_GENTYPE is not compatible with GLM\_FORCE\_SWIZZLE and will generate a compilation error if both are defined at the same time.
 
+---
 ## 4. Stable extensions
 
 GLM extends the core GLSL feature set with extensions. These extensions include: quaternion, transformation, spline, matrix inverse, color spaces, etc.
@@ -832,6 +911,7 @@ Add \*vec1 types.
 
 &lt;glm/gtc/vec1.hpp&gt; need to be included to use these features.
 
+---
 ## 5. OpenGL interoperability
 
 ### 5.1. GLM replacements for deprecated OpenGL functions
@@ -1116,6 +1196,7 @@ From GLM\_GTC\_matrix\_transform extension:
 From GLM\_GTC\_matrix\_transform extension:
 &lt;glm/gtc/matrix\_transform.hpp&gt;
 
+---
 ## 6. Known issues
 
 This section reports the divergences of GLM with GLSL.
@@ -1156,6 +1237,7 @@ ivec3 foo(const vec4 & v)
 }
 ```
 
+---
 ## 7. FAQ
 
 ### 7.1 Why GLM follows GLSL specification and conventions?
@@ -1214,6 +1296,7 @@ GLM functions crashing is the result of a domain error that follows the preceden
 GLSL is using radians but GLU is using degrees to express angles. This has caused GLM to use inconsistent units for angles. Starting with GLM 0.9.6, all GLM functions are using radians. For more information, follow
 the [link](http://www.g-truc.net/post-0693.html#menu).
 
+---
 ## 8. Code samples
 
 This series of samples only shows various GLM features without consideration of any sort.
@@ -1347,6 +1430,7 @@ glm::vec3 lighting(intersection const& Intersection, material const& Material, l
 }
 ```
 
+---
 ## 9. References
 
 ### 9.1. OpenGL specifications
