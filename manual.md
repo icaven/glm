@@ -933,7 +933,7 @@ Add \*vec1 types.
 
 OpenGL 3.1 specification has deprecated some features that have been removed from OpenGL 3.2 core profile specification. GLM provides some replacement functions.
 
-***glRotate{f, d}:***
+[***glRotate{f, d}:***](https://www.opengl.org/sdk/docs/man2/xhtml/glRotate.xml)
 
 ```cpp
 glm::mat4 glm::rotate(glm::mat4 const& m, float angle, glm::vec3 const& axis);
@@ -951,7 +951,7 @@ glm::dmat4 glm::scale(glm::dmat4 const& m, glm::dvec3 const& factors);
 
 From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
-***glTranslate{f, d}:***
+[***glTranslate{f, d}:***](https://www.opengl.org/sdk/docs/man2/xhtml/glTranslate.xml)
 
 ```cpp
 glm::mat4 glm::translate(glm::mat4 const& m, glm::vec3 const& translation);
@@ -960,7 +960,7 @@ glm::dmat4 glm::translate(glm::dmat4 const& m, glm::dvec3 const& translation);
 
 From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
-***glLoadIdentity:***
+[***glLoadIdentity:***](https://www.opengl.org/sdk/docs/man2/xhtml/glLoadIdentity.xml)
 
 ```cpp
 glm::mat4(1.0) or glm::mat4();
@@ -969,7 +969,7 @@ glm::dmat4(1.0) or glm::dmat4();
 
 From GLM core library: &lt;glm/glm.hpp&gt;
 
-***glMultMatrix{f, d}: ***
+[***glMultMatrix{f, d}: ***](https://www.opengl.org/sdk/docs/man2/xhtml/glMultMatrix.xml)
 
 ```cpp
 glm::mat4() * glm::mat4();
@@ -978,7 +978,7 @@ glm::dmat4() * glm::dmat4();
 
 From GLM core library: &lt;glm/glm.hpp&gt;
 
-***glLoadTransposeMatrix{f, d}: ***
+[***glLoadTransposeMatrix{f, d}: ***](https://www.opengl.org/sdk/docs/man2/xhtml/glLoadTransposeMatrix.xml)
 
 ```cpp
 glm::transpose(glm::mat4());
@@ -987,7 +987,7 @@ glm::transpose(glm::dmat4());
 
 From GLM core library: &lt;glm/glm.hpp&gt;
 
-***glMultTransposeMatrix{f, d}: ***
+[***glMultTransposeMatrix{f, d}: ***](https://www.opengl.org/sdk/docs/man2/xhtml/glMultTransposeMatrix.xml)
 
 ```cpp
 glm::mat4() * glm::transpose(glm::mat4());
@@ -1005,7 +1005,7 @@ glm::dmat4 glm::frustum(double left, double right, double bottom, double top, do
 
 From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
-***glOrtho: ***
+[***glOrtho: ***](https://www.opengl.org/sdk/docs/man2/xhtml/glOrtho.xml)
 
 ```cpp
 glm::mat4 glm::ortho(float left, float right, float bottom, float top, float zNear, float zFar);
@@ -1016,7 +1016,7 @@ From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt
 
 ### 5.2. GLM replacements for GLU functions <a name="section5_2"></a>
 
-***gluLookAt: ***
+[***gluLookAt: ***](https://www.opengl.org/sdk/docs/man2/xhtml/gluLookAt.xml)
 
 ```cpp
 glm::mat4 glm::lookAt(glm::vec3 const& eye, glm::vec3 const& center, glm::vec3 const& up);
@@ -1025,7 +1025,7 @@ glm::dmat4 glm::lookAt(glm::dvec3 const& eye, glm::dvec3 const& center, glm::dve
 
 From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
-***gluOrtho2D: ***
+[***gluOrtho2D: ***](https://www.opengl.org/sdk/docs/man2/xhtml/gluOrtho2D.xml)
 
 ```cpp
 glm::mat4 glm::ortho(float left, float right, float bottom, float top);
@@ -1034,7 +1034,7 @@ glm::dmat4 glm::ortho(double left, double right, double bottom, double top);
 
 From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
-***gluPerspective: ***
+[***gluPerspective: ***](https://www.opengl.org/sdk/docs/man2/xhtml/gluPerspective.xml)
 
 ```cpp
 glm::mat4 perspective(float fovy, float aspect, float zNear, float zFar);
@@ -1045,7 +1045,7 @@ One difference between GLM and GLU is that fovy is expressed in radians in GLM i
 
 From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
-***gluPickMatrix:***
+[***gluPickMatrix:***](https://www.opengl.org/sdk/docs/man2/xhtml/gluPickMatrix.xml)
 
 ```cpp
 glm::mat4 pickMatrix(glm::vec2 const& center, glm::vec2 const& delta, glm::ivec4 const& viewport);
@@ -1063,7 +1063,7 @@ glm::dvec3 project(glm::dvec3 const& obj, glm::dmat4 const & model, glm::dmat4 c
 
 From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
-***gluUnProject: ***
+[***gluUnProject: ***](https://www.opengl.org/sdk/docs/man2/xhtml/gluUnProject.xml)
 
 ```cpp
 glm::vec3 unProject(glm::vec3 const& win, glm::mat4 const& model, glm::mat4 const& proj, glm::ivec4 const& viewport);
