@@ -936,69 +936,35 @@ OpenGL 3.1 specification has deprecated some features that have been removed fro
 ***glRotate{f, d}:***
 
 ```cpp
-  glm::mat4 glm::rotate(
-
-  > glm::mat4 const & m,
-  >
-  > float angle,
-  >
-  > glm::vec3 const & axis);
-
-  glm::dmat4 glm::rotate(
-
-  > glm::dmat4 const & m,
-  >
-  > double angle,
-  >
-  > glm::dvec3 const & axis);
+glm::mat4 glm::rotate(glm::mat4 const& m, float angle, glm::vec3 const& axis);
+glm::dmat4 glm::rotate(glm::dmat4 const& m, double angle, glm::dvec3 const& axis);
 ```
 
-From GLM\_GTC\_matrix\_transform extension:
-&lt;glm/gtc/matrix\_transform.hpp&gt;
+From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
 [***glScale{f, d}: ***](http://www.opengl.org/sdk/docs/man2/xhtml/glScale.xml)
 
 ```cpp
-  glm::mat4 glm::scale(
-
-  > glm::mat4 const & m,
-  >
-  > glm::vec3 const & factors);
-
-  glm::dmat4 glm::scale(
-
-  > glm::dmat4 const & m,
-  >
-  > glm::dvec3 const & factors);
+glm::mat4 glm::scale(glm::mat4 const& m, glm::vec3 const& factors);
+glm::dmat4 glm::scale(glm::dmat4 const& m, glm::dvec3 const& factors);
 ```
 
-From GLM\_GTC\_matrix\_transform extension:
-&lt;glm/gtc/matrix\_transform.hpp&gt;
+From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
 ***glTranslate{f, d}:***
 
 ```cpp
-  glm::mat4 glm::translate(
-
-  > glm::mat4 const & m,
-  >
-  > glm::vec3 const & translation);
-
-  glm::dmat4 glm::translate(
-
-  > glm::dmat4 const & m,
-  >
-  > glm::dvec3 const & translation);
+glm::mat4 glm::translate(glm::mat4 const& m, glm::vec3 const& translation);
+glm::dmat4 glm::translate(glm::dmat4 const& m, glm::dvec3 const& translation);
 ```
 
-From GLM\_GTC\_matrix\_transform extension:
-&lt;glm/gtc/matrix\_transform.hpp&gt;
+From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
 ***glLoadIdentity:***
 
 ```cpp
-    glm::mat4(1.0) or glm::mat4();
-    glm::dmat4(1.0) or glm::dmat4();
+glm::mat4(1.0) or glm::mat4();
+glm::dmat4(1.0) or glm::dmat4();
 ```
 
 From GLM core library: &lt;glm/glm.hpp&gt;
@@ -1006,8 +972,8 @@ From GLM core library: &lt;glm/glm.hpp&gt;
 ***glMultMatrix{f, d}: ***
 
 ```cpp
-    glm::mat4() * glm::mat4();
-    glm::dmat4() * glm::dmat4();
+glm::mat4() * glm::mat4();
+glm::dmat4() * glm::dmat4();
 ```
 
 From GLM core library: &lt;glm/glm.hpp&gt;
@@ -1015,8 +981,8 @@ From GLM core library: &lt;glm/glm.hpp&gt;
 ***glLoadTransposeMatrix{f, d}: ***
 
 ```cpp
-    glm::transpose(glm::mat4());
-    glm::transpose(glm::dmat4());
+glm::transpose(glm::mat4());
+glm::transpose(glm::dmat4());
 ```
 
 From GLM core library: &lt;glm/glm.hpp&gt;
@@ -1024,8 +990,8 @@ From GLM core library: &lt;glm/glm.hpp&gt;
 ***glMultTransposeMatrix{f, d}: ***
 
 ```cpp
-    glm::mat4() * glm::transpose(glm::mat4());
-    glm::dmat4() * glm::transpose(glm::dmat4());
+glm::mat4() * glm::transpose(glm::mat4());
+glm::dmat4() * glm::transpose(glm::dmat4());
 ```
 
 From GLM core library: &lt;glm/glm.hpp&gt;
@@ -1033,183 +999,78 @@ From GLM core library: &lt;glm/glm.hpp&gt;
 [***glFrustum:***](http://www.opengl.org/sdk/docs/man2/xhtml/glFrustum.xml)
 
 ```cpp
-  glm::mat4 glm::frustum(
-
-  > float left, float right,
-  >
-  > float bottom, float top,
-  >
-  > float zNear, float zFar);
-
-  glm::dmat4 glm::frustum(
-
-  > double left, double right,
-  >
-  > double bottom, double top,
-  >
-  > double zNear, double zFar);
+glm::mat4 glm::frustum(float left, float right, float bottom, float top, float zNear, float zFar);
+glm::dmat4 glm::frustum(double left, double right, double bottom, double top, double zNear, double zFar);
 ```
 
-From GLM\_GTC\_matrix\_transform extension:
-&lt;glm/gtc/matrix\_transform.hpp&gt;
+From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
 ***glOrtho: ***
 
 ```cpp
-  glm::mat4 glm::ortho(
-
-  > float left, float right,
-  >
-  > float bottom, float top,
-  >
-  > float zNear, float zFar);
-
-  glm::dmat4 glm::ortho(
-
-  > double left, double right,
-  >
-  > double bottom, double top,
-  >
-  > double zNear, double zFar);
+glm::mat4 glm::ortho(float left, float right, float bottom, float top, float zNear, float zFar);
+glm::dmat4 glm::ortho(double left, double right, double bottom, double top, double zNear, double zFar);
 ```
 
-From GLM\_GTC\_matrix\_transform extension:
-&lt;glm/gtc/matrix\_transform.hpp&gt;
+From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
 ### 5.2. GLM replacements for GLU functions <a name="section5_2"></a>
 
 ***gluLookAt: ***
 
 ```cpp
-  glm::mat4 glm::lookAt(
-
-  > glm::vec3 const & eye,
-  >
-  > glm::vec3 const & center,
-  >
-  > glm::vec3 const & up);
-
-  glm::dmat4 glm::lookAt(
-
-  > glm::dvec3 const & eye,
-  >
-  > glm::dvec3 const & center,
-  >
-  > glm::dvec3 const & up);
+glm::mat4 glm::lookAt(glm::vec3 const& eye, glm::vec3 const& center, glm::vec3 const& up);
+glm::dmat4 glm::lookAt(glm::dvec3 const& eye, glm::dvec3 const& center, glm::dvec3 const& up);
 ```
 
-From GLM\_GTC\_matrix\_transform extension:
-&lt;glm/gtc/matrix\_transform.hpp&gt;
+From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
 ***gluOrtho2D: ***
 
 ```cpp
-  glm::mat4 glm::ortho(
-
-  float left, float right, float bottom, float top);
-
-  glm::dmat4 glm::ortho(
-
-  double left, double right, double bottom, double top);
+glm::mat4 glm::ortho(float left, float right, float bottom, float top);
+glm::dmat4 glm::ortho(double left, double right, double bottom, double top);
 ```
 
-From GLM\_GTC\_matrix\_transform extension:
-&lt;glm/gtc/matrix\_transform.hpp&gt;
+From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
 ***gluPerspective: ***
 
 ```cpp
-  glm::mat4 perspective(
-
-  float fovy, float aspect, float zNear, float zFar);
-
-  glm::dmat4 perspective(
-
-  double fovy, double aspect, double zNear, double zFar);
+glm::mat4 perspective(float fovy, float aspect, float zNear, float zFar);
+glm::dmat4 perspective(double fovy, double aspect, double zNear, double zFar);
 ```
 
-One difference between GLM and GLU is that fovy is expressed in radians
-in GLM instead of degrees.
+One difference between GLM and GLU is that fovy is expressed in radians in GLM instead of degrees.
 
-From GLM\_GTC\_matrix\_transform extension:
-&lt;glm/gtc/matrix\_transform.hpp&gt;
+From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
 ***gluPickMatrix:***
 
 ```cpp
-  glm::mat4 pickMatrix(
-
-  > glm::vec2 const & center,
-  >
-  > glm::vec2 const & delta,
-  >
-  > glm::ivec4 const & viewport);
-
-  glm::dmat4 pickMatrix(
-
-  > glm::dvec2 const & center,
-  >
-  > glm::dvec2 const & delta,
-  >
-  > glm::ivec4 const & viewport);
+glm::mat4 pickMatrix(glm::vec2 const& center, glm::vec2 const& delta, glm::ivec4 const& viewport);
+glm::dmat4 pickMatrix(glm::dvec2 const& center, glm::dvec2 const& delta, glm::ivec4 const& viewport);
 ```
 
-From GLM\_GTC\_matrix\_transform extension:
-&lt;glm/gtc/matrix\_transform.hpp&gt;
+From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
 [**gluProject:**](http://www.opengl.org/sdk/docs/man2/xhtml/gluProject.xml)
 
 ```cpp
-  glm::vec3 project(
-
-  > glm::vec3 const & obj,
-  >
-  > glm::mat4 const & model,
-  >
-  > glm::mat4 const & proj,
-  >
-  > glm::{i, ' '}vec4 const & viewport);
-
-  glm::dvec3 project(
-
-  > glm::dvec3 const & obj,
-  >
-  > glm::dmat4 const & model,
-  >
-  > glm::dmat4 const & proj,
-  >
-  > glm::{i, ' ', d}vec4 const & viewport);
+glm::vec3 project(glm::vec3 const& obj, glm::mat4 const& model, glm::mat4 const & proj, glm::ivec4 const& viewport);
+glm::dvec3 project(glm::dvec3 const& obj, glm::dmat4 const & model, glm::dmat4 const & proj, glm::ivec4 const& viewport);
 ```
 
-From GLM\_GTC\_matrix\_transform extension:
-&lt;glm/gtc/matrix\_transform.hpp&gt;
+From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
 ***gluUnProject: ***
 
 ```cpp
-  glm::vec3 unProject(
-
-  > glm::vec3 const & win,
-  >
-  > glm::mat4 const & model,
-  >
-  > glm::mat4 const & proj,
-  >
-  > glm::{i, ' '}vec4 const & viewport);
-
-  glm::dvec3 unProject(
-
-  > glm::dvec3 const & win,
-  >
-  > glm::dmat4 const & model,
-  >
-  > glm::dmat4 const & proj,
-  >
-  > glm::{i, ' ', d}vec4 const & viewport);
+glm::vec3 unProject(glm::vec3 const& win, glm::mat4 const& model, glm::mat4 const& proj, glm::ivec4 const& viewport);
+glm::dvec3 unProject(glm::dvec3 const& win, glm::dmat4 const& model, glm::dmat4 const& proj, glm::ivec4 const & viewport);
 ```
 
-From GLM\_GTC\_matrix\_transform extension:
-&lt;glm/gtc/matrix\_transform.hpp&gt;
+From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
 ---
 ## 6. Known issues <a name="section6"></a>
