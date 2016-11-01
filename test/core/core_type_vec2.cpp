@@ -265,6 +265,8 @@ int test_vec2_size()
 	Error += 16 == sizeof(glm::highp_dvec2) ? 0 : 1;
 	Error += glm::vec2().length() == 2 ? 0 : 1;
 	Error += glm::dvec2().length() == 2 ? 0 : 1;
+	Error += glm::vec2::length() == 2 ? 0 : 1;
+	Error += glm::dvec2::length() == 2 ? 0 : 1;
 
 	return Error;
 }

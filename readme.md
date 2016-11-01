@@ -70,13 +70,14 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Removed GLM_DEPTH_ZERO_TO_ONE, use GLM_FORCE_DEPTH_ZERO_TO_ONE instead
 - Removed GLM_LEFT_HANDED, use GLM_FORCE_LEFT_HANDED instead
 
-#### [GLM 0.9.8.2](https://github.com/g-truc/glm/tree/0.9.8) - 2016-XX-XX
+#### [GLM 0.9.8.2](https://github.com/g-truc/glm/releases/tag/0.9.8.2) - 2016-11-01
 ##### Improvements:
 - Added Visual C++ 15 detection
 - Added Clang 4.0 detection
 - Added warning messages when using GLM_FORCE_CXX** but the compiler
   is known to not fully support the requested C++ version #555
 - Refactored GLM_COMPILER_VC values
+- Made quat, vec, mat type component length() static #565
 
 ##### Fixes:
 - Fixed Visual C++ constexpr build error #555, #556

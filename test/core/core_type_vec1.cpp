@@ -93,14 +93,16 @@ int test_vec1_ctor()
 int test_vec1_size()
 {
 	int Error = 0;
-	
+
 	Error += sizeof(glm::vec1) == sizeof(glm::mediump_vec1) ? 0 : 1;
 	Error += 4 == sizeof(glm::mediump_vec1) ? 0 : 1;
 	Error += sizeof(glm::dvec1) == sizeof(glm::highp_dvec1) ? 0 : 1;
 	Error += 8 == sizeof(glm::highp_dvec1) ? 0 : 1;
 	Error += glm::vec1().length() == 1 ? 0 : 1;
 	Error += glm::dvec1().length() == 1 ? 0 : 1;
-	
+	Error += glm::vec1::length() == 1 ? 0 : 1;
+	Error += glm::dvec1::length() == 1 ? 0 : 1;
+
 	return Error;
 }
 
