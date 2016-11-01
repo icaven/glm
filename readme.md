@@ -53,6 +53,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 #### [GLM 0.9.8.3](https://github.com/g-truc/glm/tree/0.9.8) - 2016-XX-XX
 ##### Fixes:
+- Fixed Android build error with C++11 compiler but C++98 STL #284 #564
 
 #### [GLM 0.9.8.2](https://github.com/g-truc/glm/releases/tag/0.9.8.2) - 2016-11-01
 ##### Improvements:
