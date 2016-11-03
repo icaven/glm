@@ -42,14 +42,12 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 ## [Lastest release](https://github.com/g-truc/glm/releases/latest)
 
----
 ## Project Health
 
 | Service | System | Compiler | Status |
 | ------- | ------ | -------- | ------ |
 | [Drone](https://drone.io/github.com/g-truc/glm) | Linux 64 bits | GCC 4.6.3 | [![Build Status](https://drone.io/github.com/g-truc/glm/status.png)](https://drone.io/github.com/g-truc/glm/latest) |
 
----
 ## Release notes
 
 ### [GLM 0.9.9.0](https://github.com/g-truc/glm/releases/latest) - 2017-XX-XX
