@@ -2,7 +2,6 @@
 /// @file glm/gtx/bit.hpp
 ///
 /// @see core (dependence)
-/// @see gtc_half_float (dependence)
 ///
 /// @defgroup gtx_bit GLM_GTX_bit
 /// @ingroup gtx

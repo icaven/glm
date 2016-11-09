@@ -2,7 +2,6 @@
 /// @file glm/gtx/string_cast.hpp
 ///
 /// @see core (dependence)
-/// @see gtc_half_float (dependence)
 /// @see gtx_integer (dependence)
 /// @see gtx_quaternion (dependence)
 ///

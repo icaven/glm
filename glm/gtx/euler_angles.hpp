@@ -2,7 +2,6 @@
 /// @file glm/gtx/euler_angles.hpp
 ///
 /// @see core (dependence)
-/// @see gtc_half_float (dependence)
 ///
 /// @defgroup gtx_euler_angles GLM_GTX_euler_angles
 /// @ingroup gtx

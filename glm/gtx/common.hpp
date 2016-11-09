@@ -2,7 +2,6 @@
 /// @file glm/gtx/common.hpp
 ///
 /// @see core (dependence)
-/// @see gtc_half_float (dependence)
 ///
 /// @defgroup gtx_common GLM_GTX_common
 /// @ingroup gtx

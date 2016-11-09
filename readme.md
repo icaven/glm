@@ -61,6 +61,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Replaced the manual by a markdown version #458
 
 #### Fixes:
+- Removed doxygen references to GTC_half_float which was removed in 0.9.4
 
 #### Deprecation:
 - Removed GLM_GTX_simd_vec4 extension

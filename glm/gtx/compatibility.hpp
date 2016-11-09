@@ -2,7 +2,6 @@
 /// @file glm/gtx/compatibility.hpp
 ///
 /// @see core (dependence)
-/// @see gtc_half_float (dependence)
 ///
 /// @defgroup gtx_compatibility GLM_GTX_compatibility
 /// @ingroup gtx

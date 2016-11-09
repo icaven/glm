@@ -3,7 +3,6 @@
 /// @author Maksim Vorobiev (msomeone@gmail.com)
 ///
 /// @see core (dependence)
-/// @see gtc_half_float (dependence)
 /// @see gtc_constants (dependence)
 /// @see gtc_quaternion (dependence)
 ///
