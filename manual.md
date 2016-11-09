@@ -1325,11 +1325,11 @@ A 3D planetary engine for seamless planet rendering from space down to the surfa
 
 ![](/doc/manual/references-outerra4.jpg)
 
-***Falcor***
+[***Falcor***](https://github.com/NVIDIA/Falcor)
 
 Real-time rendering research framework by NVIDIA.
 
-***Cinder***
+[***Cinder***](https://libcinder.org/)
 
 Cinder is a free and open source library for professional-quality creative coding in C++.
 
@@ -1348,6 +1348,10 @@ Simple, easy-to-follow examples with GLSL source code, as well as a basic descri
 ![](/doc/manual/references-opencloth1.png)
 
 ![](/doc/manual/references-opencloth3.png)
+
+[***LibreOffice***](https://www.libreoffice.org/)
+
+LibreOffice includes several applications that make it the most powerful Free and Open Source office suite on the market.
 
 [***Are you using GLM in a project?***](mailto:glm@g-truc.net)
 
