@@ -59,6 +59,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed Android build error with C++11 compiler but C++98 STL #284 #564
 - Fixed GTX_transform2 shear* functions #403
 - Fixed interaction between GLM_FORCE_UNRESTRICTED_GENTYPE and ortho function #568
+- Fixed bitCount with AVX on 32 bit builds #567
 
 #### [GLM 0.9.8.2](https://github.com/g-truc/glm/releases/tag/0.9.8.2) - 2016-11-01
 ##### Improvements:
