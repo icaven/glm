@@ -74,7 +74,7 @@
 + [9.1. OpenGL specifications](#section9_1)
 + [9.2. External links](#section9_2)
 + [9.3. Projects using GLM](#section9_3)
-+ [9.4. OpenGL tutorials using GLM](#section9_4)
++ [9.4. Tutorials using GLM](#section9_4)
 + [9.5. Equivalent for other languages](#section9_5)
 + [9.6. Alternatives to GLM](#section9_6)
 + [9.8. Acknowledgements](#section9_8)
@@ -1355,8 +1355,10 @@ LibreOffice includes several applications that make it the most powerful Free an
 
 [***Are you using GLM in a project?***](mailto:glm@g-truc.net)
 
-### 9.4. OpenGL tutorials using GLM <a name="section9_4"></a>
+### 9.4. Tutorials using GLM <a name="section9_4"></a>
 
+* [Sascha Willems' Vulkan examples](https://github.com/SaschaWillems/Vulkan), Examples and demos for the new Vulkan API
+* [VKTS](https://github.com/McNopper/Vulkan) Vulkan examples using VulKan ToolS (VKTS)
 * [*The OpenGL Samples Pack*](http://www.g-truc.net/project-0026.html#menu), samples that show how to set up all the different new features
 * [*Learning Modern 3D Graphics programming*](http://www.arcsynthesis.org/gltut/), a great OpenGL tutorial using GLM by Jason L. McKesson
 * [*Morten Nobel-Jørgensen’s*](http://blog.nobel-joergensen.com/2011/04/02/glm-brilliant-math-library-for-opengl/) review and use an [*OpenGL renderer*](https://github.com/mortennobel/RenderE)
@@ -1377,10 +1379,11 @@ LibreOffice includes several applications that make it the most powerful Free an
 * [glm-js](https://github.com/humbletim/glm-js): JavaScript adaptation of the OpenGL Mathematics (GLM) C++ library interfaces
 * [Java OpenGL Mathematics (GLM)](https://github.com/java-graphics/glm)
 * [JGLM](https://github.com/jroyalty/jglm) - Java OpenGL Mathematics Library
-* [SwiftGL Math Library](https://github.com/SwiftGL/Math/blob/master/Sources/glm.swift)
+* [SwiftGL Math Library](https://github.com/SwiftGL/Math/blob/master/Sources/glm.swift) GLM for Swift
 * [glm-go](https://github.com/jbowtie/glm-go): Simple linear algebra library similar in spirit to GLM
 * [openll](https://github.com/Polkm/openll): Lua bindings for OpenGL, GLM, GLFW, OpenAL, SOIL and PhysicsFS
 * [glm-rs](https://github.com/dche/glm-rs): GLSL mathematics for Rust programming language
+* [glmpython](https://github.com/Queatz/glmpython): GLM math library for Python
 
 ### 9.6. Alternatives to GLM <a name="section9_6"></a>
 
