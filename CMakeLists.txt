@@ -164,7 +164,7 @@ set(GLM_INSTALL_CONFIGDIR "${CMAKE_INSTALL_LIBDIR}/cmake/glm")
 install(DIRECTORY glm DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 write_basic_package_version_file(
-    "${CMAKE_CURRENT_BINARY_DIR}/glmVersion.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/glmConfigVersion.cmake"
     VERSION ${GLM_VERSION}
     COMPATIBILITY AnyNewerVersion
 )
@@ -188,7 +188,7 @@ configure_package_config_file(
 install(
     FILES 
         "${CMAKE_CURRENT_BINARY_DIR}/${GLM_INSTALL_CONFIGDIR}/glmConfig.cmake"
-        "${CMAKE_CURRENT_BINARY_DIR}/glmVersion.cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/glmConfigVersion.cmake"
     DESTINATION ${GLM_INSTALL_CONFIGDIR}
 )
 
