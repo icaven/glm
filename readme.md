@@ -55,12 +55,14 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added RGBM encoding in GTC_packing #420
 - Added GTC_color_encoding extension
 - Added GTX_vec_swizzle, faster compile time swizzling then swizzle operator #558
+- Added [GLM_ENABLE_EXPERIMENTAL](manual.md#section7_4) to enable experimental features.
 
 #### Improvements:
 - Added lowp variant of GTC_colorspace convertLinearToSRGB #419
 - Replaced the manual by a markdown version #458
 
 #### Fixes:
+- Removed doxygen references to GTC_half_float which was removed in 0.9.4
 
 #### Deprecation:
 - Removed GLM_GTX_simd_vec4 extension
@@ -72,13 +74,19 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Removed GLM_LEFT_HANDED, use GLM_FORCE_LEFT_HANDED instead
 
 ---
-### [GLM 0.9.8.3](https://github.com/g-truc/glm/tree/0.9.8) - 2016-XX-XX
+### [GLM 0.9.8.4](https://github.com/g-truc/glm/tree/0.9.8) - 201X-XX-XX
+
+---
+### [GLM 0.9.8.3](https://github.com/g-truc/glm/releases/tag/0.9.8.3) - 2016-11-12
 #### Improvements:
 - Broader support of GLM_FORCE_UNRESTRICTED_GENTYPE #378
 
 #### Fixes:
 - Fixed Android build error with C++11 compiler but C++98 STL #284 #564
 - Fixed GTX_transform2 shear* functions #403
+- Fixed interaction between GLM_FORCE_UNRESTRICTED_GENTYPE and ortho function #568
+- Fixed bitCount with AVX on 32 bit builds #567
+- Fixed CMake find_package with version specification #572 #573
 
 ---
 ### [GLM 0.9.8.2](https://github.com/g-truc/glm/releases/tag/0.9.8.2) - 2016-11-01
