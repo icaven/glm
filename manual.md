@@ -140,7 +140,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ## <a name="section1"></a> 1. Getting started
 ### <a name="section1_1"></a> 1.1. Setup
 
-GLM is a header-only library, and thus does not need to be compiled.  To use GLM, merely include the `<glm/glm.hpp>` header, which provides GLSL's mathematics functionality.
+GLM is a header-only library, and thus does not need to be compiled.  We can use GLM's implementation of GLSL's mathematics functionality by including the `<glm/glm.hpp>` header.  The library can also be installed with CMake, though the details of doing so will differ depending on the target build system.
 
 Features can also be included individually to shorten compilation times.
 
@@ -176,9 +176,12 @@ To reduce compilation time, we can include `<glm/fwd.hpp>`, which forward-declar
 // Header file (forward declarations only)
 #include <glm/fwd.hpp>
 
-// Source file (actual implementation)
-#include <glm/glm.hpp>
+// At this point, we don't care what exactly makes up a vec2; that won't matter
+// until we write this function's implementation.
+glm::vec2 functionDeclaration(const glm::vec2& input);
 ```
+
+Precompiled headers will also be helpful, though are not covered by this manual.
 
 ### <a name="section1_3"></a> 1.3. Example usage
 
