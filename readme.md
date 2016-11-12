@@ -50,7 +50,6 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 ## Release notes
 
-<<<<<<< HEAD
 ### [GLM 0.9.9.0](https://github.com/g-truc/glm/releases/latest) - 2017-XX-XX
 #### Features:
 - Added RGBM encoding in GTC_packing #420
@@ -74,15 +73,11 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Removed GLM_LEFT_HANDED, use GLM_FORCE_LEFT_HANDED instead
 
 ---
-### [GLM 0.9.8.3](https://github.com/g-truc/glm/tree/0.9.8) - 2016-XX-XX
+### [GLM 0.9.8.4](https://github.com/g-truc/glm/tree/0.9.8) - 201X-XX-XX
+
+---
+### [GLM 0.9.8.3](https://github.com/g-truc/glm/releases/tag/0.9.8.3) - 2016-11-12
 #### Improvements:
-=======
-#### [GLM 0.9.8.4](https://github.com/g-truc/glm/tree/0.9.8) - 201X-XX-XX
-
-
-#### [GLM 0.9.8.3](https://github.com/g-truc/glm/releases/tag/0.9.8.3) - 2016-11-12
-##### Improvements:
->>>>>>> 0.9.8
 - Broader support of GLM_FORCE_UNRESTRICTED_GENTYPE #378
 
 #### Fixes:
