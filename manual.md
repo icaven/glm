@@ -80,8 +80,7 @@
 + [9.8. Acknowledgements](#section9_8)
 
 ---
-<a name="section0"></a>
-## Licenses
+## <a name="section0"></a> Licenses
 
 ### The Happy Bunny License (Modified MIT License)
 
