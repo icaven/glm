@@ -207,8 +207,6 @@ glm::mat4 transform(glm::vec2 const& Orientation, glm::vec3 const& Translate, gl
 
 ### <a name="section1_4"></a> 1.4. Dependencies
 
-The `<glm/glm.hpp>` header provides all standard GLSL features.
-
 GLM does not depend on external libraries or external headers such as `<GL/gl.h>`, [`<GL/glcorearb.h>`](http://www.opengl.org/registry/api/GL/glcorearb.h), `<GLES3/gl3.h>`, `<GL/glu.h>`, or `<windows.h>`. However, if `<boost/static_assert.hpp>` is included, then [`Boost.StaticAssert`](http://www.boost.org/doc/libs/release/libs/static_assert) will be used to provide compile-time errors.  Otherwise, if using a C++11 compiler, the standard `static_assert` will be used instead. If neither is available, GLM will use its own implementation of `static_assert`.
 
 ---
