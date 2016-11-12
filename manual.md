@@ -7,10 +7,10 @@
 ---
 ## Table of Contents
 + [0. Licenses](#section0)
-+ [1. Getting Started](#section1)
++ [1. Getting started](#section1)
 + [1.1. Setup](#section1_1)
-+ [1.2. Faster Compilation](#section1_2)
-+ [1.3. Example Usage](#section1_3)
++ [1.2. Faster compilation](#section1_2)
++ [1.3. Example usage](#section1_3)
 + [1.4. Dependencies](#section1_4)
 + [2. Swizzle operators](#section2)
 + [2.1. Standard C++98 implementation](#section2_1)
@@ -137,7 +137,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ---
 
-## <a name="section1"></a> 1. Getting Started
+## <a name="section1"></a> 1. Getting started
 ### <a name="section1_1"></a> 1.1. Setup
 
 GLM is a header-only library, and thus does not need to be compiled.  To use GLM, merely include the `<glm/glm.hpp>` header, which provides GLSL's mathematics functionality.
@@ -167,7 +167,7 @@ Core GLM features can be included using individual headers to allow faster user 
 #include <glm/trigonometric.hpp> // all the GLSL trigonometric functions
 #include <glm/vector_relational.hpp> // all the GLSL vector relational functions
 ```
-### <a name="section1_2"></a> 1.2. Faster Compilation
+### <a name="section1_2"></a> 1.2. Faster compilation
 
 GLM makes heavy use of C++ templates, which may significantly increase the compile time for projects that use GLM.  Hence, source files should only include the GLM headers they actually use.
 
@@ -181,7 +181,7 @@ To further reduce compilation time, include `<glm/fwd.hpp>`, which provides forw
 #include <glm/glm.hpp>
 ```
 
-### <a name="section1_3"></a> 1.3. Example Usage
+### <a name="section1_3"></a> 1.3. Example usage
 
 
 ```cpp
