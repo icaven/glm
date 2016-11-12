@@ -1,3 +1,4 @@
+#define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtc/noise.hpp>
 #include <gli/gli.hpp>
 #include <gli/gtx/loader.hpp>

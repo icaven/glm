@@ -1099,6 +1099,8 @@ GTX extensions are qualified to be experimental extensions. In GLM this means th
 time. GTC extensions are stabled, tested and perfectly reliable in time. Many GTX extensions extend GTC extensions and provide a way to explore features and implementations and APIs and then are promoted to GTC
 extensions. This is fairly the way OpenGL features are developed; through extensions.
 
+Stating with GLM 0.9.9, to use experimental extensions, an application but define GLM_ENABLE_EXPERIMENTAL.
+
 ### 7.5. Where can I ask my questions? <a name="section7_5"></a>
 
 A good place is [stackoverflow](http://stackoverflow.com/search?q=GLM) using the GLM tag.

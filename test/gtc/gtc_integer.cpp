@@ -1,3 +1,4 @@
+#define GLM_ENABLE_EXPERIMENTAL
 #define GLM_FORCE_INLINE
 #include <glm/gtc/epsilon.hpp>
 #include <glm/gtc/integer.hpp>
