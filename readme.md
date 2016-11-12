@@ -51,6 +51,9 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 ## Release notes
 
+#### [GLM 0.9.8.4](https://github.com/g-truc/glm/tree/0.9.8) - 201X-XX-XX
+
+
 #### [GLM 0.9.8.3](https://github.com/g-truc/glm/releases/tag/0.9.8.3) - 2016-11-12
 ##### Improvements:
 - Broader support of GLM_FORCE_UNRESTRICTED_GENTYPE #378
