@@ -9,8 +9,8 @@
 + [0. Licenses](#section0)
 + [1. Getting started](#section1)
 + [1.1. Setup](#section1_1)
-+ [1.2. Faster program compilation](#section1_2)
-+ [1.3. Use sample of GLM core](#section1_3)
++ [1.2. Faster compilation](#section1_2)
++ [1.3. Example usage](#section1_3)
 + [1.4. Dependencies](#section1_4)
 + [2. Swizzle operators](#section2)
 + [2.1. Standard C++98 implementation](#section2_1)
@@ -136,12 +136,13 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ![](https://github.com/g-truc/glm/blob/manual/doc/manual/frontpage2.png)
 
 ---
+
 ## <a name="section1"></a> 1. Getting started
 ### <a name="section1_1"></a> 1.1. Setup
 
-GLM is a header only library. Hence, there is nothing to build to use it. To use GLM, merely include &lt;glm/glm.hpp&gt; header. This include provides all the GLSL features implemented by GLM.
+GLM is a header-only library, and thus does not need to be compiled.  We can use GLM's implementation of GLSL's mathematics functionality by including the `<glm/glm.hpp>` header.  The library can also be installed with CMake, though the details of doing so will differ depending on the target build system.
 
-Core GLM features can be included using individual headers to allow faster user program compilations.
+Features can also be included individually to shorten compilation times.
 
 ```cpp
 #include <glm/vec2.hpp> // vec2, bvec2, dvec2, ivec2 and uvec2
@@ -165,24 +166,25 @@ Core GLM features can be included using individual headers to allow faster user 
 #include <glm/trigonometric.hpp> // all the GLSL trigonometric functions
 #include <glm/vector_relational.hpp> // all the GLSL vector relational functions
 ```
+### <a name="section1_2"></a> 1.2. Faster compilation
 
-### <a name="section1_2"></a> 1.2. Faster program compilation
+GLM uses C++ templates heavily, and may significantly increase compilation times for projects that use it.  Hence, source files should only include the headers they actually use.
 
-GLM is a header only library that makes a heavy usage of C++ templates.
-This design may significantly increase the compile time for files that use GLM. Hence, it is important to limit GLM inclusion to header and source files that actually use it. Likewise, GLM extensions should be
-included only in program sources using them. 
-
-To further help compilation time, GLM 0.9.5 introduced &lt;glm/fwd.hpp&gt; that provides forward declarations of GLM types.
+To reduce compilation time, we can include `<glm/fwd.hpp>`, which forward-declares all types should their definitions not be needed.
 
 ```cpp
 // Header file (forward declarations only)
 #include <glm/fwd.hpp>
 
-// Source file (actual implementation)
-#include <glm/glm.hpp>;
+// At this point, we don't care what exactly makes up a vec2; that won't matter
+// until we write this function's implementation.
+glm::vec2 functionDeclaration(const glm::vec2& input);
 ```
 
-### <a name="section1_3"></a> 1.3. Use sample of GLM core
+Precompiled headers will also be helpful, though are not covered by this manual.
+
+### <a name="section1_3"></a> 1.3. Example usage
+
 
 ```cpp
 // Include GLM core features
@@ -207,12 +209,7 @@ glm::mat4 transform(glm::vec2 const& Orientation, glm::vec3 const& Translate, gl
 
 ### <a name="section1_4"></a> 1.4. Dependencies
 
-When &lt;glm/glm.hpp&gt; is included, GLM provides all the GLSL features it implements in C++.
-
-There is no dependence with external libraries or external headers such as gl.h, [*glcorearb.h*](http://www.opengl.org/registry/api/GL/glcorearb.h), gl3.h, glu.h or windows.h. However, if &lt;boost/static\_assert.hpp&gt;
-is included, [*Boost static assert*](http://www.boost.org/doc/libs/1_52_0/doc/html/boost_staticassert.html) will be used all over GLM code to provide compiled time errors unless
-GLM is built with a C++ 11 compiler in which case [static\_assert](http://en.cppreference.com/w/cpp/language/static_assert).
-If neither are detected, GLM will rely on its own implementation of static assert.
+GLM does not depend on external libraries or headers such as `<GL/gl.h>`, [`<GL/glcorearb.h>`](http://www.opengl.org/registry/api/GL/glcorearb.h), `<GLES3/gl3.h>`, `<GL/glu.h>`, or `<windows.h>`. However, if we include `<boost/static_assert.hpp>`, then [`Boost.StaticAssert`](http://www.boost.org/doc/libs/release/libs/static_assert) will be used to provide compile-time errors.  Otherwise, if using a C++11 compiler, the standard `static_assert` will be used instead. If neither is available, GLM will use its own implementation of `static_assert`.
 
 ---
 ## <a name="section2"></a> 2. Swizzle operators
