@@ -1,4 +1,4 @@
-![Alt](/doc/logo.png "GLM Logo")
+![Alt](/doc/manual/logo-mini.png "GLM Logo")
 
 # GLM 0.9.9 Manual
 
