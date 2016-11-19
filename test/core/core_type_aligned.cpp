@@ -94,7 +94,7 @@ int test_unaligned()
 	size_t align64_unaligned = alignof(glm::detail::storage<int, 64, false>::type);
 	Error += align64_unaligned == 1 ? 0 : 1;
 
-#	else
+#	elif GLM_COMPILER & GLM_COMPILER_GCC
 
 	size_t align1_unaligned = __alignof__(glm::detail::storage<int, 1, false>::type);
 	Error += align1_unaligned == 1 ? 0 : 1;
