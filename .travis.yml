@@ -16,8 +16,8 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - g++-5.3
-      env: COMPILER=g++-5.3
+            - g++-5.2
+      env: COMPILER=g++-5.2
     - compiler: clang
       addons:
         apt:

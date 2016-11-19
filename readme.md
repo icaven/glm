@@ -47,7 +47,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 | Service | System | Compiler | Status |
 | ------- | ------ | -------- | ------ |
 | [Drone](https://drone.io/github.com/g-truc/glm) | Linux 64 bits | GCC 4.6.3 | [![Build Status](https://drone.io/github.com/g-truc/glm/status.png)](https://drone.io/github.com/g-truc/glm/latest) |
-| [Travis CI](https://travis-ci.org/g-truc/glm)| Linux 64 bits | Clang 3.4, Clang 3.8, GCC 4.9, GCC 5.3   | [![Travis CI](https://travis-ci.org/g-truc/glm.svg?branch=master)](https://travis-ci.org/g-truc/glm)
+| [Travis CI](https://travis-ci.org/g-truc/glm)| Linux 64 bits | Clang 3.4, Clang 3.8, GCC 4.9, GCC 5.2   | [![Travis CI](https://travis-ci.org/g-truc/glm.svg?branch=master)](https://travis-ci.org/g-truc/glm)
 
 ## Release notes
 
