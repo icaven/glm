@@ -11,14 +11,14 @@ platform:
 build_script:
 - md build_pure_11
 - cd build_pure_11
-- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_FORCE_PURE=ON ..
+- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_FORCE_PURE=ON ..
 - cmake --build . --config Debug
 - cmake --build . --config Release
 - ctest
 - cd ..
 - md build_simd_11
 - cd build_simd_11
-- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON ..
+- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON ..
 - cmake --build . --config Debug
 - cmake --build . --config Release
 - ctest
