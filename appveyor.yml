@@ -1,0 +1,9 @@
+before_build:
+- mkdir ./build
+- cd ./build
+- cmake -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON ..
+
+build_script:
+  - cmake --build .
+  - ctest
+
