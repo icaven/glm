@@ -9,10 +9,28 @@ compiler:
   - clang
 
 before_script: 
-- mkdir ./build
-- cd ./build
-- cmake -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON ..
 
 script:
-  - cmake --build .
-  - ctest
+- mkdir ./build_98_pure
+- cd ./build_98_pure
+- cmake -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_FORCE_PURE=ON ..
+- cmake --build_98_pure .
+- ctest
+- cd ..
+- mkdir ./build_98_simd
+- cd ./build_98_simd
+- cmake -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON ..
+- cmake --build_98_simd .
+- ctest
+- cd ..
+- mkdir ./build_11_simd
+- cd ./build_11_simd
+- cmake -DGLM_TEST_ENABLE=ON ..
+- cmake --build_11_simd .
+- ctest
+- cd ..
+
+
+
+
+
