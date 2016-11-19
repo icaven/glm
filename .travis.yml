@@ -16,17 +16,8 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - g++-5.4
-      env: COMPILER=g++-5.4
-    - compiler: clang
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise-3.6
-          packages:
-            - clang-3.6
-      env: COMPILER=clang++-3.6
+            - g++-5.3
+      env: COMPILER=g++-5.3
     - compiler: clang
       addons:
         apt:
