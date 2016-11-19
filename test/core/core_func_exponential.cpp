@@ -115,6 +115,8 @@ int main()
 {
 	int Error(0);
 
+#if !(GLM_COMPILER & GLM_COMPILER_GCC)
+
 	Error += test_pow();
 	Error += test_exp();
 	Error += test_log();
@@ -122,6 +124,8 @@ int main()
 	Error += test_log2();
 	Error += test_sqrt();
 	Error += test_inversesqrt();
+
+#endif//GLM_COMPILER & GLM_COMPILER_GCC
 
 	return Error;
 }
