@@ -1,5 +1,7 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtc/noise.hpp>
+
+#if GLM_LANG & GLM_LANG_CXX11_FLAG
 #include <gli/gli.hpp>
 
 int test_simplex()
@@ -149,13 +151,17 @@ int test_perlin_pedioric()
 	return 0;
 }
 
+#endif//GLM_LANG & GLM_LANG_CXX11_FLAG
+
 int main()
 {
 	int Error = 0;
 
-	Error += test_simplex();
-	Error += test_perlin();
-	Error += test_perlin_pedioric();
+#	if GLM_LANG & GLM_LANG_CXX11_FLAG
+		Error += test_simplex();
+		Error += test_perlin();
+		Error += test_perlin_pedioric();
+#	endif
 
 	return Error;
 }
