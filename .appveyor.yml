@@ -4,6 +4,12 @@ os:
   - Visual Studio 2013
   - Visual Studio 2015
 
+matrix:
+  - vc_arch: amd64
+    target_arch: x86_64
+  - vc_arch: amd64_x86
+    target_arch: x86
+
 build_script:
 - md build_pure_11
 - cd build_pure_11
