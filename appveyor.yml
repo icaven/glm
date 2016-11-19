@@ -1,7 +1,37 @@
-before_build:
-- cmake -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON .
+clone_folder: c:\dev\glm-cmake
+
+os:
+  - Visual Studio 2010
+  - Visual Studio 2012
+  - Visual Studio 2013
+  - Visual Studio 2015
 
 build_script:
-- cmake --build .
+- md ./build_pure_11
+- cd ./build_pure_11
+- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_FORCE_PURE=ON ..
+- cmake --build . --config Debug
+- cmake --build . --config Release
 - ctest
-
+- cd ..
+- md ./build_simd_11
+- cd ./build_simd_11
+- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON ..
+- cmake --build . --config Debug
+- cmake --build . --config Release
+- ctest
+- cd ..
+- md ./build_pure_98
+- cd ./build_pure_98
+- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_FORCE_PURE=ON ..
+- cmake --build . --config Debug
+- cmake --build . --config Release
+- ctest
+- cd ..
+- md ./build_simd_98
+- cd ./build_simd_98
+- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON ..
+- cmake --build . --config Debug
+- cmake --build . --config Release
+- ctest
+- cd ..
