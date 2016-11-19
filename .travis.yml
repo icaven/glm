@@ -1,8 +1,41 @@
 language: cpp
 
-os:
-  - linux
-  - osx
+matrix:
+  include:
+    - compiler: gcc
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-4.9
+      env: COMPILER=g++-4.9
+    - compiler: gcc
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-6.1
+      env: COMPILER=g++-6.1
+    - compiler: clang
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.4
+          packages:
+            - clang-3.4
+      env: COMPILER=clang++-3.4
+    - compiler: clang
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.9
+          packages:
+            - clang-3.9
+      env: COMPILER=clang++-3.9
 
 compiler:
   - clang
@@ -10,24 +43,19 @@ compiler:
 before_script: 
 
 script:
-- mkdir ./build_98_pure
-- cd ./build_98_pure
-- cmake -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_FORCE_PURE=ON ..
+- mkdir ./build_pure
+- cd ./build_pure
+- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_FORCE_PURE=ON ..
 - cmake --build .
 - ctest
 - cd ..
-- mkdir ./build_98_simd
-- cd ./build_98_simd
-- cmake -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON ..
+- mkdir ./build_simd
+- cd ./build_simd
+- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON ..
 - cmake --build .
 - ctest
 - cd ..
-- mkdir ./build_11_simd
-- cd ./build_11_simd
-- cmake -DGLM_TEST_ENABLE=ON ..
-- cmake --build .
-- ctest
-- cd ..
+
 
 
 
