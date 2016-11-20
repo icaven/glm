@@ -65,6 +65,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Optimized GTC_packing implementation
 - Optimized GTC_noise functions
 - Optimized GTC_color_space HSV to RGB conversions
+- Optimised GTX_color_space_YCoCg YCoCgR conversions
 - Optimized GTX_matrix_interpolation axisAngle function
 - Added FAQ 12: Windows headers cause build errors... #557
 
