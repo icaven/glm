@@ -687,13 +687,13 @@ int main()
 
 	Error += test_F2x11_1x10();
 	Error += test_F3x9_E1x5();
+	Error += test_RGBM();
 
 // It looks like GLM has a but that travis CI shows in this configuration #577
 #if !((GLM_ARCH == GLM_ARCH_PURE) && (GLM_COMPILER & GLM_COMPILER_GCC))
-	Error += test_RGBM();
-#endif
 	Error += test_Snorm3x10_1x2();
 	Error += test_Unorm3x10_1x2();
+#endif
 
 	Error += test_I3x10_1x2();
 	Error += test_U3x10_1x2();
