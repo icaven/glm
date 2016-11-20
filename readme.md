@@ -63,6 +63,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added lowp variant of GTC_colorspace convertLinearToSRGB #419
 - Replaced the manual by a markdown version #458
 - Optimized GTC_packing implementation
+- Optimized noise functions
 - Added FAQ 12: Windows headers cause build errors... #557
 
 #### Fixes:
