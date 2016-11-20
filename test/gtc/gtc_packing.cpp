@@ -679,14 +679,14 @@ int main()
 	Error += test_packUnorm2x8();
 	Error += test_packUnorm4x8();
 
-// It looks like GLM has a but that travis CI shows in this configuration #577
-#if !((GLM_ARCH == GLM_ARCH_PURE) && (GLM_COMPILER & GLM_COMPILER_GCC))
 	Error += test_packUnorm2x4();
 	Error += test_packUnorm4x4();
 	Error += test_packUnorm3x5_1x1();
 	Error += test_packUnorm1x5_1x6_1x5();
 	Error += test_packUnorm2x3_1x2();
 
+// It looks like GLM has a but that travis CI shows in this configuration #577
+#if !((GLM_ARCH == GLM_ARCH_PURE) && (GLM_COMPILER & GLM_COMPILER_GCC))
 	Error += test_F2x11_1x10();
 	Error += test_F3x9_E1x5();
 	Error += test_RGBM();
