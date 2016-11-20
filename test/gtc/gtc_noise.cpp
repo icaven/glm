@@ -4,10 +4,10 @@
 #if GLM_LANG & GLM_LANG_CXX11_FLAG
 #include <gli/gli.hpp>
 
+std::size_t const Size = 64;
+
 int test_simplex()
 {
-	std::size_t const Size = 256;
-
 	{
 		gli::texture2d Texture(gli::FORMAT_RGBA8_UNORM_PACK8, gli::texture2d::extent_type(Size), 1);
 		
@@ -55,8 +55,6 @@ int test_simplex()
 
 int test_perlin()
 {
-	std::size_t const Size = 256;
-
 	{
 		gli::texture2d Texture(gli::FORMAT_RGBA8_UNORM_PACK8, gli::texture2d::extent_type(Size), 1);
 
@@ -104,8 +102,6 @@ int test_perlin()
 
 int test_perlin_pedioric()
 {
-	std::size_t const Size = 256;
-
 	{
 		gli::texture2d Texture(gli::FORMAT_RGBA8_UNORM_PACK8, gli::texture2d::extent_type(Size), 1);
 
