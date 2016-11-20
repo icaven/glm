@@ -1,5 +1,4 @@
 glmCreateTestGTC(gtc_bitfield)
-glmCreateTestGTC(gtc_color_encoding)
 glmCreateTestGTC(gtc_color_space)
 glmCreateTestGTC(gtc_constants)
 glmCreateTestGTC(gtc_epsilon)

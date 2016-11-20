@@ -35,7 +35,6 @@
 #endif//GLM_MESSAGES
 
 #include "./gtc/bitfield.hpp"
-#include "./gtc/color_encoding.hpp"
 #include "./gtc/color_space.hpp"
 #include "./gtc/constants.hpp"
 #include "./gtc/epsilon.hpp"
@@ -64,6 +63,7 @@
 #include "./gtx/associated_min_max.hpp"
 #include "./gtx/bit.hpp"
 #include "./gtx/closest_point.hpp"
+#include "./gtx/color_encoding.hpp"
 #include "./gtx/color_space.hpp"
 #include "./gtx/color_space_YCoCg.hpp"
 #include "./gtx/compatibility.hpp"

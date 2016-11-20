@@ -55,7 +55,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 ### [GLM 0.9.9.0](https://github.com/g-truc/glm/releases/latest) - 2017-XX-XX
 #### Features:
 - Added RGBM encoding in GTC_packing #420
-- Added GTC_color_encoding extension
+- Added GTX_color_encoding extension
 - Added GTX_vec_swizzle, faster compile time swizzling then swizzle operator #558
 - Added [GLM_ENABLE_EXPERIMENTAL](manual.md#section7_4) to enable experimental features.
 
