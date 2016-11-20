@@ -174,6 +174,13 @@ int test_Snorm3x10_1x2()
 		glm::uint32 p1 = glm::packSnorm3x10_1x2(v0);
 		glm::vec4 v1 = glm::unpackSnorm3x10_1x2(p1);
 
+<<<<<<< HEAD
+=======
+		printf("Snorm3x10_1x2: p0: %x; v0: %3.2f, %3.2f, %3.2f, %3.2f; p1: %x; v1: %3.2f, %3.2f, %3.2f, %3.2f\n",
+			p0, v0.x, v0.y, v0.z, v0.w,
+			p1, v1.x, v1.y, v1.z, v1.w);
+
+>>>>>>> 0.9.8
 		Error += glm::all(glm::epsilonEqual(v0, v1, 0.01f)) ? 0 : 1;
 	}
 
@@ -199,6 +206,13 @@ int test_Unorm3x10_1x2()
 		glm::uint32 p1 = glm::packUnorm3x10_1x2(v0);
 		glm::vec4 v1 = glm::unpackUnorm3x10_1x2(p1);
 
+<<<<<<< HEAD
+=======
+		printf("Unorm3x10_1x2: p0: %x; v0: %3.2f, %3.2f, %3.2f, %3.2f; p1: %x; v1: %3.2f, %3.2f, %3.2f, %3.2f\n", 
+			p0, v0.x, v0.y, v0.z, v0.w, 
+			p1, v1.x, v1.y, v1.z, v1.w);
+
+>>>>>>> 0.9.8
 		Error += glm::all(glm::epsilonEqual(v0, v1, 0.001f)) ? 0 : 1;
 	}
 
@@ -691,7 +705,10 @@ int main()
 	Error += test_F3x9_E1x5();
 	Error += test_RGBM();
 	Error += test_Unorm3x10_1x2();
+<<<<<<< HEAD
 	Error += test_Snorm3x10_1x2();
+=======
+>>>>>>> 0.9.8
 
 	Error += test_I3x10_1x2();
 	Error += test_U3x10_1x2();
