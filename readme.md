@@ -60,10 +60,12 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added [GLM_ENABLE_EXPERIMENTAL](manual.md#section7_4) to enable experimental features.
 
 #### Improvements:
-- Added lowp variant of GTC_colorspace convertLinearToSRGB #419
+- Added lowp variant of GTC_color_space convertLinearToSRGB #419
 - Replaced the manual by a markdown version #458
 - Optimized GTC_packing implementation
-- Optimized noise functions
+- Optimized GTC_noise functions
+- Optimized GTC_color_space HSV to RGB conversions
+- Optimized GTX_matrix_interpolation axisAngle function
 - Added FAQ 12: Windows headers cause build errors... #557
 
 #### Fixes:
