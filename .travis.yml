@@ -1,0 +1,58 @@
+language: cpp
+
+matrix:
+  include:
+    - compiler: gcc
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-4.9
+      env: COMPILER=g++-4.9
+    - compiler: clang
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.8
+          packages:
+            - clang-3.8
+      env: COMPILER=clang++-3.8
+
+compiler:
+  - clang
+
+before_script: 
+
+script:
+- mkdir ./build_pure_11
+- cd ./build_pure_11
+- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_FORCE_PURE=ON ..
+- cmake --build .
+- ctest
+- cd ..
+- mkdir ./build_simd_11
+- cd ./build_simd_11
+- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON ..
+- cmake --build .
+- ctest
+- cd ..
+- mkdir ./build_pure_98
+- cd ./build_pure_98
+- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_FORCE_PURE=ON ..
+- cmake --build .
+- ctest
+- cd ..
+- mkdir ./build_simd_98
+- cd ./build_simd_98
+- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON ..
+- cmake --build .
+- ctest
+- cd ..
+
+
+
+
+
+
