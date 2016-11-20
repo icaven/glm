@@ -426,10 +426,124 @@ namespace taylorCos
 	}
 }//namespace taylorCos
 
+namespace taylor2
+{
+	glm::vec4 const AngleShift(0.0f, glm::pi<float>() * 0.5f, glm::pi<float>() * 1.0f, glm::pi<float>() * 1.5f);
+
+	float taylorCosA(float x)
+	{
+		return 1.f
+			- (x * x) * (1.f / 2.f)
+			+ (x * x * x * x) * (1.f / 24.f)
+			- (x * x * x * x * x * x) * (1.f / 720.f)
+			+ (x * x * x * x * x * x * x * x) * (1.f / 40320.f);
+	}
+
+	float taylorCosB(float x)
+	{
+		return 1.f
+			- (x * x) * (1.f / 2.f)
+			+ (x * x * x * x) * (1.f / 24.f)
+			- (x * x * x * x * x * x) * (1.f / 720.f)
+			+ (x * x * x * x * x * x * x * x) * (1.f / 40320.f);
+	}
+
+	float taylorCosC(float x)
+	{
+		return 1.f
+			- (x * x) * (1.f / 2.f)
+			+ ((x * x) * (x * x)) * (1.f / 24.f)
+			- (((x * x) * (x * x)) * (x * x)) * (1.f / 720.f)
+			+ (((x * x) * (x * x)) * ((x * x) * (x * x))) * (1.f / 40320.f);
+	}
+
+	int perf_taylorCosA(float Begin, float End, std::size_t Samples)
+	{
+		std::vector<float> Results;
+		Results.resize(Samples);
+
+		float Steps = (End - Begin) / Samples;
+
+		std::clock_t const TimeStampBegin = std::clock();
+
+		for(std::size_t i = 0; i < Samples; ++i)
+			Results[i] = taylorCosA(AngleShift.x + Begin + Steps * i);
+
+		std::clock_t const TimeStampEnd = std::clock();
+
+		std::printf("taylorCosA %ld clocks\n", TimeStampEnd - TimeStampBegin);
+
+		int Error = 0;
+		for(std::size_t i = 0; i < Samples; ++i)
+			Error += Results[i] >= -1.0f && Results[i] <= 1.0f ? 0 : 1;
+		return Error;
+	}
+
+	int perf_taylorCosB(float Begin, float End, std::size_t Samples)
+	{
+		std::vector<float> Results;
+		Results.resize(Samples);
+
+		float Steps = (End - Begin) / Samples;
+
+		std::clock_t const TimeStampBegin = std::clock();
+
+		for(std::size_t i = 0; i < Samples; ++i)
+			Results[i] = taylorCosB(AngleShift.x + Begin + Steps * i);
+
+		std::clock_t const TimeStampEnd = std::clock();
+
+		std::printf("taylorCosB %ld clocks\n", TimeStampEnd - TimeStampBegin);
+
+		int Error = 0;
+		for(std::size_t i = 0; i < Samples; ++i)
+			Error += Results[i] >= -1.0f && Results[i] <= 1.0f ? 0 : 1;
+		return Error;
+	}
+
+	int perf_taylorCosC(float Begin, float End, std::size_t Samples)
+	{
+		std::vector<float> Results;
+		Results.resize(Samples);
+
+		float Steps = (End - Begin) / Samples;
+
+		std::clock_t const TimeStampBegin = std::clock();
+
+		for(std::size_t i = 0; i < Samples; ++i)
+			Results[i] = taylorCosC(AngleShift.x + Begin + Steps * i);
+
+		std::clock_t const TimeStampEnd = std::clock();
+
+		std::printf("taylorCosC %ld clocks\n", TimeStampEnd - TimeStampBegin);
+
+		int Error = 0;
+		for(std::size_t i = 0; i < Samples; ++i)
+			Error += Results[i] >= -1.0f && Results[i] <= 1.0f ? 0 : 1;
+		return Error;
+	}
+
+	int perf(std::size_t Samples)
+	{
+		int Error = 0;
+
+		float const Begin = -glm::pi<float>();
+		float const End = glm::pi<float>();
+
+		Error += perf_taylorCosA(Begin, End, Samples);
+		Error += perf_taylorCosB(Begin, End, Samples);
+		Error += perf_taylorCosC(Begin, End, Samples);
+
+		return Error;
+	}
+
+}//namespace taylor2
+
 int main()
 {
 	int Error(0);
 
+	Error += ::taylor2::perf(1000);
 	Error += ::taylorCos::test();
 	Error += ::taylorCos::perf(1000);
 

@@ -9,9 +9,9 @@ namespace detail
 	{
 		return static_cast<T>(1)
 			- (x * x) * (1.f / 2.f)
-			+ (x * x * x * x) * (1.f / 24.f)
-			- (x * x * x * x * x * x) * (1.f / 720.f)
-			+ (x * x * x * x * x * x * x * x) (1.f / 40320.f);
+			+ ((x * x) * (x * x)) * (1.f / 24.f)
+			- (((x * x) * (x * x)) * (x * x)) * (1.f / 720.f)
+			+ (((x * x) * (x * x)) * ((x * x) * (x * x))) * (1.f / 40320.f);
 	}
 
 	template <typename T>
