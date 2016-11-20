@@ -65,6 +65,7 @@
 + [7.9. When I build with Visual C++ with /w4 warning level, I have warnings...](#section7_9)
 + [7.10. Why some GLM functions can crash because of division by zero?](#section7_10)
 + [7.11. What unit for angles us used in GLM?](#section7_11)
++ [7.12. Windows headers cause build errors...](#section7_12)
 + [8. Code samples](#section8)
 + [8.1. Compute a triangle normal](#section8_1)
 + [8.2. Matrix transform](#section8_2)
@@ -1134,6 +1135,12 @@ GLM functions crashing is the result of a domain error. Such behavior follows th
 
 GLSL is using radians but GLU is using degrees to express angles. This has caused GLM to use inconsistent units for angles. Starting with GLM 0.9.6, all GLM functions are using radians. For more information, follow
 the [link](http://www.g-truc.net/post-0693.html#menu).
+
+### <a name="section7_12"></a> 7.12. Windows headers cause build errors...
+
+Some Windows headers define min and max as macros which may cause compatibility with third party libraries such as GLM.
+It is highly recommanded to [define NOMINMAX](http://stackoverflow.com/questions/4913922/possible-problems-with-nominmax-on-visual-c) before including Windows headers to workaround this issue.
+To workaround the incompatibility with these macros, GLM will systematically undef these macros if they are defined.
 
 ---
 ## <a name="section8"></a> 8. Code samples

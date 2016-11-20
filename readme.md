@@ -63,6 +63,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added lowp variant of GTC_colorspace convertLinearToSRGB #419
 - Replaced the manual by a markdown version #458
 - Optimized GTC_packing implementation
+- Added FAQ 12: Windows headers cause build errors... #557
 
 #### Fixes:
 - Removed doxygen references to GTC_half_float which was removed in 0.9.4
@@ -82,8 +83,8 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed GTC_packing test failing on GCC x86 due to denorms #212 #577
 
 ---
-#### [GLM 0.9.8.3](https://github.com/g-truc/glm/releases/tag/0.9.8.3) - 2016-11-12
-##### Improvements:
+### [GLM 0.9.8.3](https://github.com/g-truc/glm/releases/tag/0.9.8.3) - 2016-11-12
+#### Improvements:
 - Broader support of GLM_FORCE_UNRESTRICTED_GENTYPE #378
 
 #### Fixes:
