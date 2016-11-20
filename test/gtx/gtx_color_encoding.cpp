@@ -1,4 +1,4 @@
-#include <glm/gtc/color_encoding.hpp>
+#include <glm/gtx/color_encoding.hpp>
 #include <glm/gtc/color_space.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <glm/gtc/constants.hpp>
