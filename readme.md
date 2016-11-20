@@ -62,6 +62,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 #### Improvements:
 - Added lowp variant of GTC_colorspace convertLinearToSRGB #419
 - Replaced the manual by a markdown version #458
+- Optimized GTC_packing implementation
 
 #### Fixes:
 - Removed doxygen references to GTC_half_float which was removed in 0.9.4
