@@ -34,7 +34,7 @@ script:
 - cd ..
 - mkdir ./build_simd_11
 - cd ./build_simd_11
-- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON ..
+- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON ..
 - cmake --build .
 - ctest
 - cd ..
@@ -46,7 +46,7 @@ script:
 - cd ..
 - mkdir ./build_simd_98
 - cd ./build_simd_98
-- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON ..
+- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON ..
 - cmake --build .
 - ctest
 - cd ..
