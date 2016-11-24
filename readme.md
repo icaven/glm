@@ -88,6 +88,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed GTC_packing test failing on GCC x86 due to denorms #212 #577
 - Fixed POPCNT optimization build in Clang #512
 - Fixed intersectRayPlane returns true in parallel case #578
+- Fixed GCC 6.2 compiler warnings #580
 
 ---
 ### [GLM 0.9.8.3](https://github.com/g-truc/glm/releases/tag/0.9.8.3) - 2016-11-12
