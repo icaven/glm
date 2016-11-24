@@ -84,7 +84,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 
 ---
 ### [GLM 0.9.8.4](https://github.com/g-truc/glm/tree/0.9.8) - 201X-XX-XX
-##### Fixes:
+#### Fixes:
 - Fixed GTC_packing test failing on GCC x86 due to denorms #212 #577
 - Fixed POPCNT optimization build in Clang #512
 
