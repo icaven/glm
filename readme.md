@@ -72,6 +72,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 #### Fixes:
 - Removed doxygen references to GTC_half_float which was removed in 0.9.4
 - Fixed glm::decompose #448
+- Fixed intersectRayTriangle #6
 
 #### Deprecation:
 - Removed GLM_GTX_simd_vec4 extension
