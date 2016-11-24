@@ -12,8 +12,8 @@
 + [1.2. Faster compilation](#section1_2)
 + [1.3. Example usage](#section1_3)
 + [1.4. Dependencies](#section1_4)
-+ [2. Swizzle operators](#section2)
-+ [2.1. Standard C++98 implementation](#section2_1)
++ [2. Swizzling](#section2)
++ [2.1. Default C++98 implementation](#section2_1)
 + [2.2. Anonynous union member implementation](#section2_2)
 + [3. Preprocessor options](#section3)
 + [3.1. Default precision](#section3_1)
@@ -213,29 +213,47 @@ glm::mat4 transform(glm::vec2 const& Orientation, glm::vec3 const& Translate, gl
 GLM does not depend on external libraries or headers such as `<GL/gl.h>`, [`<GL/glcorearb.h>`](http://www.opengl.org/registry/api/GL/glcorearb.h), `<GLES3/gl3.h>`, `<GL/glu.h>`, or `<windows.h>`. However, if we include `<boost/static_assert.hpp>`, then [`Boost.StaticAssert`](http://www.boost.org/doc/libs/release/libs/static_assert) will be used to provide compile-time errors.  Otherwise, if using a C++11 compiler, the standard `static_assert` will be used instead. If neither is available, GLM will use its own implementation of `static_assert`.
 
 ---
-## <a name="section2"></a> 2. Swizzle operators
+## <a name="section2"></a> 2. Swizzling
 
-A common feature of shader languages like GLSL is the swizzle operators. Those allow selecting multiple components of a vector and change their order. For example, “variable.x”, “variable.xzy” and “variable.zxyy”
-form respectively a scalar, a three components vector and a four components vector. With GLSL, swizzle operators can be both R-values and L-values. Finally, vector components can be accessed using “xyzw”,
-“rgba” or “stpq”.
+Shader languages like GLSL often feature so-called swizzle expressions, which may be used to freely select and arrange a vector's components. For example, `variable.x`, `variable.xzy` and `variable.zxyy` respectively form a scalar, a 3D vector and a 4D vector.  The result of a swizzle expression in GLSL can be either an R-value or an L-value. Swizzle expressions can be written with characters from exactly one of `xyzw` (usually for positions), `rgba` (usually for colors), and `stpq` (usually for texture coordinates).
 
-```cpp
+```glsl
 vec4 A;
 vec2 B;
-...
 
 B.yx = A.wy;
 B = A.xx;
-
 vec3 C = A.bgr;
+vec3 D = B.rsz; // Invalid, won't compile
 ```
 
-GLM supports a subset of this functionality as described in the following sub-sections. Swizzle operators are disabled by default. To enable them GLM\_SWIZZLE must be defined before any inclusion of
-&lt;glm/glm.hpp&gt;. Enabling swizzle operators will massively increase the size of compiled files and the compilation time.
+GLM optionally supports some of this functionality via the methods described in the following sections. Swizzling can be enabled by defining `GLM_SWIZZLE` before including any GLM header files, or as part of a project's build process.
 
-### <a name="section2_1"></a> 2.1. Standard C++98 implementation
+*Note that enabling swizzle expressions will massively increase the size of your binaries and the time it takes to compile them!*
 
-The C++98 implementation exposes the R-value swizzle operators as member functions of vector types.
+### <a name="section2_1"></a> 2.1. Default C++98 implementation
+
+When compiling GLM as C++98, R-value swizzle expressions are simulated through member functions of each vector type.
+
+```cpp
+#define GLM_SWIZZLE // Or defined when building (e.g. -DGLM_SWIZZLE)
+#include <glm/glm.hpp>
+
+void foo()
+{
+  glm::vec4 ColorRGBA(1.0f, 0.5f, 0.0f, 1.0f);
+  glm::vec3 ColorBGR = ColorRGBA.bgr();
+
+  glm::vec3 PositionA(1.0f, 0.5f, 0.0f, 1.0f);
+  glm::vec3 PositionB = PositionXYZ.xyz() * 2.0f;
+
+  glm::vec2 TexcoordST(1.0f, 0.5f);
+  glm::vec4 TexcoordSTPQ = TexcoordST.stst();
+}
+```
+
+Swizzle operators return a **copy** of the component values, and thus *can't* be used as L-values to change a vector's values.
+
 
 ```cpp
 #define GLM_SWIZZLE
@@ -243,84 +261,59 @@ The C++98 implementation exposes the R-value swizzle operators as member functio
 
 void foo()
 {
-    glm::vec4 ColorRGBA(1.0f, 0.5f, 0.0f, 1.0f);
-    glm::vec3 ColorBGR = ColorRGBA.bgr();
-    ...
+  glm::vec3 A(1.0f, 0.5f, 0.0f);
 
-    glm::vec3 PositionA(1.0f, 0.5f, 0.0f, 1.0f);
-    glm::vec3 PositionB = PositionXYZ.xyz() \* 2.0f;
-    ...
-
-    glm::vec2 TexcoordST(1.0f, 0.5f);
-    glm::vec4 TexcoordSTPQ = TexcoordST.stst();
-    ...
-}
-```
-
-Swizzle operators return a copy of the component values hence they can’t be used as L-values to change the value of the variables.
-
-```cpp
-#define GLM_FORCE_SWIZZLE
-#include <glm/glm.hpp>
-
-void foo()
-{
-    glm::vec3 A(1.0f, 0.5f, 0.0f);
-
-    // /!\\ No compiler error but A is not affected
-    // This code modify the components of an anonymous copy.
-    A.bgr() = glm::vec3(2.0f, 1.5f, 1.0f); // A is not modified!
-    ...
+  // No compiler error, but A is not modified.
+  // An anonymous copy is being modified (and then discarded).
+  A.bgr() = glm::vec3(2.0f, 1.5f, 1.0f); // A is not modified!
 }
 ```
 
 ### <a name="section2_2"></a> 2.2. Anonymous union member implementation
 
-Visual C++ supports anonymous structures in union, which is a non-standard language extension, but it enables a very powerful implementation of swizzle operators on Windows supporting both L-value
-swizzle operators and a syntax that doesn’t require parentheses in some cases. This implementation is only enabled when the language extension is enabled and GLM\_SWIZZLE is defined.
+Visual C++ supports, as a _non-standard language extension_, anonymous `struct`s as `union` members. This permits a powerful swizzling implementation that both allows L-value swizzle expressions and GLSL-like syntax.  To use this feature, the language extension must be enabled by a supporting compiler and `GLM_SWIZZLE` must be `#define`d.
 
 ```cpp
-#define GLM_FORCE_SWIZZLE
+#define GLM_SWIZZLE
 #include <glm/glm.hpp>
 
+// Only guaranteed to work with Visual C++!
+// Some compilers that support Microsoft extensions may compile this.
 void foo()
 {
-    glm::vec4 ColorRGBA(1.0f, 0.5f, 0.0f, 1.0f);
+  glm::vec4 ColorRGBA(1.0f, 0.5f, 0.0f, 1.0f);
 
-    // l-value:
-    glm::vec4 ColorBGRA = ColorRGBA.bgra;
+  // l-value:
+  glm::vec4 ColorBGRA = ColorRGBA.bgra;
 
-    // r-value:
-    ColorRGBA.bgra = ColorRGBA;
+  // r-value:
+  ColorRGBA.bgra = ColorRGBA;
 
-    // Both l-value and r-value
-    ColorRGBA.bgra = ColorRGBA.rgba;
-    ...
+  // Both l-value and r-value
+  ColorRGBA.bgra = ColorRGBA.rgba;
 }
 ```
 
-Anonymous union member swizzle operators don’t return vector types (glm::vec2, glm::vec3 and glm::vec4) but implementation specific objects that can be automatically interpreted by other swizzle operators and
-vector constructors. Unfortunately, those can’t be interpreted by GLM functions so that the programmer must convert a swizzle operators to a vector type or call the () operator on a swizzle objects to pass it to another C++ functions.
+This version returns implementation-specific objects that _implicitly convert_ to their respective vector types.  As a consequence of this design, these extra types **can't be directly used** by GLM functions; they must be converted through constructors or `operator()`.
 
 ```cpp
-#define GLM_FORCE_SWIZZLE
+#define GLM_SWIZZLE
 #include <glm/glm.hpp>
+
+using glm::vec4;
 
 void foo()
 {
-    glm::vec4 Color(1.0f, 0.5f, 0.0f, 1.0f);
-    ...
+  vec4 Color(1.0f, 0.5f, 0.0f, 1.0f);
 
-    // Generates compiler errors. Color.rgba is not a vector type.
-    glm::vec4 ClampedA = glm::clamp(Color.rgba, 0.f, 1.f); // ERROR
+  // Generates compiler errors. Color.rgba is not a vector type.
+  vec4 ClampedA = glm::clamp(Color.rgba, 0.f, 1.f); // ERROR
 
-    // We need to cast the swizzle operator into glm::vec4
-    // With by using a constructor
-    glm::vec4 ClampedB = glm::clamp(glm::vec4(Color.rgba), 0.f, 1.f); // OK
+  // Explicit conversion through a constructor
+  vec4 ClampedB = glm::clamp(vec4(Color.rgba), 0.f, 1.f); // OK
 
-    // Or by using the () operator
-    glm::vec4 ClampedC = glm::clamp(Color.rgba(), 0.f, 1.f); // OK
-    ...
+  // Explicit conversion through operator()
+  vec4 ClampedC = glm::clamp(Color.rgba(), 0.f, 1.f); // OK
 }
 ```
 
