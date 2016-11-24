@@ -217,7 +217,7 @@ GLM does not depend on external libraries or headers such as `<GL/gl.h>`, [`<GL/
 
 Shader languages like GLSL often feature so-called swizzle expressions, which may be used to freely select and arrange a vector's components. For example, `variable.x`, `variable.xzy` and `variable.zxyy` respectively form a scalar, a 3D vector and a 4D vector.  The result of a swizzle expression in GLSL can be either an R-value or an L-value. Swizzle expressions can be written with characters from exactly one of `xyzw` (usually for positions), `rgba` (usually for colors), and `stpq` (usually for texture coordinates).
 
-```glsl
+```cpp
 vec4 A;
 vec2 B;
 
@@ -227,7 +227,7 @@ vec3 C = A.bgr;
 vec3 D = B.rsz; // Invalid, won't compile
 ```
 
-GLM optionally supports some of this functionality via the methods described in the following sections. Swizzling can be enabled by defining `GLM_SWIZZLE` before including any GLM header files, or as part of a project's build process.
+GLM optionally supports some of this functionality via the methods described in the following sections. Swizzling can be enabled by defining `GLM_FORCE_SWIZZLE` before including any GLM header files, or as part of a project's build process.
 
 *Note that enabling swizzle expressions will massively increase the size of your binaries and the time it takes to compile them!*
 
@@ -236,19 +236,19 @@ GLM optionally supports some of this functionality via the methods described in 
 When compiling GLM as C++98, R-value swizzle expressions are simulated through member functions of each vector type.
 
 ```cpp
-#define GLM_SWIZZLE // Or defined when building (e.g. -DGLM_SWIZZLE)
+#define GLM_FORCE_SWIZZLE // Or defined when building (e.g. -DGLM_FORCE_SWIZZLE)
 #include <glm/glm.hpp>
 
 void foo()
 {
-  glm::vec4 ColorRGBA(1.0f, 0.5f, 0.0f, 1.0f);
-  glm::vec3 ColorBGR = ColorRGBA.bgr();
+    glm::vec4 ColorRGBA(1.0f, 0.5f, 0.0f, 1.0f);
+    glm::vec3 ColorBGR = ColorRGBA.bgr();
 
-  glm::vec3 PositionA(1.0f, 0.5f, 0.0f, 1.0f);
-  glm::vec3 PositionB = PositionXYZ.xyz() * 2.0f;
+    glm::vec3 PositionA(1.0f, 0.5f, 0.0f, 1.0f);
+    glm::vec3 PositionB = PositionXYZ.xyz() * 2.0f;
 
-  glm::vec2 TexcoordST(1.0f, 0.5f);
-  glm::vec4 TexcoordSTPQ = TexcoordST.stst();
+    glm::vec2 TexcoordST(1.0f, 0.5f);
+    glm::vec4 TexcoordSTPQ = TexcoordST.stst();
 }
 ```
 
@@ -256,7 +256,7 @@ Swizzle operators return a **copy** of the component values, and thus *can't* be
 
 
 ```cpp
-#define GLM_SWIZZLE
+#define GLM_FORCE_SWIZZLE
 #include <glm/glm.hpp>
 
 void foo()
@@ -271,10 +271,10 @@ void foo()
 
 ### <a name="section2_2"></a> 2.2. Anonymous union member implementation
 
-Visual C++ supports, as a _non-standard language extension_, anonymous `struct`s as `union` members. This permits a powerful swizzling implementation that both allows L-value swizzle expressions and GLSL-like syntax.  To use this feature, the language extension must be enabled by a supporting compiler and `GLM_SWIZZLE` must be `#define`d.
+Visual C++ supports, as a _non-standard language extension_, anonymous `struct`s as `union` members. This permits a powerful swizzling implementation that both allows L-value swizzle expressions and GLSL-like syntax.  To use this feature, the language extension must be enabled by a supporting compiler and `GLM_FORCE_SWIZZLE` must be `#define`d.
 
 ```cpp
-#define GLM_SWIZZLE
+#define GLM_FORCE_SWIZZLE
 #include <glm/glm.hpp>
 
 // Only guaranteed to work with Visual C++!
@@ -297,7 +297,7 @@ void foo()
 This version returns implementation-specific objects that _implicitly convert_ to their respective vector types.  As a consequence of this design, these extra types **can't be directly used** by GLM functions; they must be converted through constructors or `operator()`.
 
 ```cpp
-#define GLM_SWIZZLE
+#define GLM_FORCE_SWIZZLE
 #include <glm/glm.hpp>
 
 using glm::vec4;
