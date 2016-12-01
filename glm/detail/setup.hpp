@@ -451,6 +451,11 @@
 		((GLM_COMPILER & GLM_COMPILER_CUDA) && (GLM_COMPILER >= GLM_COMPILER_CUDA70))))
 #endif
 
+#define GLM_HAS_ONLY_XYZW ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER < GLM_COMPILER_GCC46))
+#if GLM_HAS_ONLY_XYZW
+#	pragma message("GLM: GCC older than 4.6 has a bug presenting the use of rgba and stpq components")
+#endif
+
 //
 #if GLM_LANG & GLM_LANG_CXX11_FLAG
 #	define GLM_HAS_ASSIGNABLE 1

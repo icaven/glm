@@ -334,6 +334,7 @@ int test_vec3_swizzle3_3()
 	return Error;
 }
 
+#if !GLM_HAS_ONLY_XYZW
 int test_vec3_swizzle_operators()
 {
 	int Error = 0;
@@ -440,6 +441,7 @@ int test_vec3_swizzle_partial()
 
 	return Error;
 }
+#endif//!GLM_HAS_ONLY_XYZW
 
 int test_operator_increment()
 {
@@ -480,10 +482,13 @@ int main()
 	Error += test_vec3_size();
 	Error += test_vec3_swizzle3_2();
 	Error += test_vec3_swizzle3_3();
-	Error += test_vec3_swizzle_partial();
-	Error += test_vec3_swizzle_operators();
-	Error += test_vec3_swizzle_functions();
 	Error += test_operator_increment();
+
+#	if !GLM_HAS_ONLY_XYZW
+		Error += test_vec3_swizzle_partial();
+		Error += test_vec3_swizzle_operators();
+		Error += test_vec3_swizzle_functions();
+#	endif//!GLM_HAS_ONLY_XYZW
 
 	return Error;
 }

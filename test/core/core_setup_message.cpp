@@ -226,7 +226,7 @@ int test_instruction_set()
 
 int test_cpp_version()
 {
-	std::printf("__cplusplus: %lld\n", __cplusplus);
+	std::printf("__cplusplus: %d\n", static_cast<int>(__cplusplus));
 	
 	return 0;
 }
