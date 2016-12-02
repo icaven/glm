@@ -9,13 +9,13 @@ This project isn't limited to *GLSL* features. An extension system, based on the
 This library works perfectly with *[OpenGL](https://www.opengl.org)* but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing / rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
 
 *GLM* is written in C++98 but can take advantage of C++11 when supported by the compiler. It is a platform independent library with no dependence and it officially supports the following compilers:
-- [Apple Clang 5.0](https://developer.apple.com/library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html) and higher
-- [GCC](http://gcc.gnu.org/) 4.6 and higher
+- [Apple Clang 6.0](https://developer.apple.com/library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html) and higher
+- [GCC](http://gcc.gnu.org/) 4.7 and higher
 - [Intel C++ Composer](https://software.intel.com/en-us/intel-compilers) XE 2013 and higher
-- [LLVM](http://llvm.org/) 3.2 and higher
-- [Visual C++](http://www.visualstudio.com/) 2010 and higher
+- [LLVM](http://llvm.org/) 3.4 and higher
+- [Visual C++](http://www.visualstudio.com/) 2013 and higher
 - [CUDA](https://developer.nvidia.com/about-cuda) 7.0 and higher (experimental)
-- Any conform C++98 or C++11 compiler
+- Any C++11 compiler
 
 For more information about *GLM*, please have a look at the [manual](manual.md) and the [API reference documentation](http://glm.g-truc.net/0.9.8/api/index.html).
 The source code and the documentation are licensed under both the [Happy Bunny License (Modified MIT) or the MIT License](manual.md#section0).
@@ -75,6 +75,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed intersectRayTriangle #6
 
 #### Deprecation:
+- Requires Visual Studio 2013, GCC 4.7, Clang 3.4, Cuda 7, ICC 2013 or a C++11 compiler
 - Removed GLM_GTX_simd_vec4 extension
 - Removed GLM_GTX_simd_mat4 extension
 - Removed GLM_GTX_simd_quat extension
@@ -408,6 +409,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed float comparison warnings #270
 
 #### Deprecation:
+- Requires Visual Studio 2010, GCC 4.2, Apple Clang 4.0, LLVM 3.0, Cuda 4, ICC 2013 or a C++98 compiler
 - Removed degrees for function parameters
 - Removed GLM_FORCE_RADIANS, active by default
 - Removed VC 2005 / 8 and 2008 / 9 support
@@ -602,6 +604,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added GLM_FORCE_RADIANS so that all functions takes radians for arguments
 - Fixed detection of Clang and LLVM GCC on MacOS X
 - Added debugger visualizers for Visual C++ 2012
+- Requires Visual Studio 2005, GCC 4.2, Clang 2.6, Cuda 3, ICC 2013 or a C++98 compiler
 
 ---
 ### [GLM 0.9.3.4](https://github.com/g-truc/glm/releases/tag/0.9.3.4) - 2012-06-30
