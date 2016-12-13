@@ -1,3 +1,4 @@
+#define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/common.hpp>
 #include <glm/gtc/integer.hpp>
 #include <glm/gtc/epsilon.hpp>

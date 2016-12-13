@@ -2,7 +2,6 @@
 /// @file glm/gtc/quaternion.hpp
 ///
 /// @see core (dependence)
-/// @see gtc_half_float (dependence)
 /// @see gtc_constants (dependence)
 ///
 /// @defgroup gtc_quaternion GLM_GTC_quaternion
@@ -71,7 +70,7 @@ namespace glm
 
 		typedef length_t length_type;
 		/// Return the count of components of a quaternion
-		GLM_FUNC_DECL GLM_CONSTEXPR length_type length() const;
+		GLM_FUNC_DECL static length_type length(){return 4;}
 
 		GLM_FUNC_DECL T & operator[](length_type i);
 		GLM_FUNC_DECL T const & operator[](length_type i) const;

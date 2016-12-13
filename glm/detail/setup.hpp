@@ -144,6 +144,7 @@
 #			pragma message("GLM: Using GLM_FORCE_CXX14 but there is no known version of ICC compiler that fully supports C++14")
 #	endif
 #	define GLM_LANG GLM_LANG_CXX14
+#	define GLM_LANG_STL11_FORCED
 #elif defined(GLM_FORCE_CXX11)
 #	if((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER <= GLM_COMPILER_GCC48)) || ((GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_COMPILER <= GLM_COMPILER_CLANG33))
 #			pragma message("GLM: Using GLM_FORCE_CXX11 with a compiler that doesn't fully support C++11")
@@ -153,6 +154,7 @@
 #			pragma message("GLM: Using GLM_FORCE_CXX11 but there is no known version of ICC compiler that fully supports C++11")
 #	endif
 #	define GLM_LANG GLM_LANG_CXX11
+#	define GLM_LANG_STL11_FORCED
 #elif defined(GLM_FORCE_CXX03)
 #	define GLM_LANG GLM_LANG_CXX03
 #elif defined(GLM_FORCE_CXX98)
@@ -287,7 +289,10 @@
 // http://gcc.gnu.org/projects/cxx0x.html
 // http://msdn.microsoft.com/en-us/library/vstudio/hh567368(v=vs.120).aspx
 
-#if GLM_COMPILER & GLM_COMPILER_CLANG
+// Android has multiple STLs but C++11 STL detection doesn't always work #284 #564
+#if GLM_PLATFORM == GLM_PLATFORM_ANDROID && !defined(GLM_LANG_STL11_FORCED)
+#	define GLM_HAS_CXX11_STL 0
+#elif GLM_COMPILER & GLM_COMPILER_CLANG
 #	if defined(_LIBCPP_VERSION) && GLM_LANG & GLM_LANG_CXX11_FLAG
 #		define GLM_HAS_CXX11_STL 1
 #	else
@@ -590,6 +595,12 @@
 // Allows using not basic types as genType
 
 // #define GLM_FORCE_UNRESTRICTED_GENTYPE
+
+#ifdef GLM_FORCE_UNRESTRICTED_GENTYPE
+#	define GLM_UNRESTRICTED_GENTYPE 1
+#else
+#	define GLM_UNRESTRICTED_GENTYPE 0
+#endif
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_UNRESTRICTED_GENTYPE_DISPLAYED)
 #	define GLM_MESSAGE_UNRESTRICTED_GENTYPE_DISPLAYED

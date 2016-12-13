@@ -21,6 +21,10 @@
 #include "../gtx/closest_point.hpp"
 #include "../gtx/vector_query.hpp"
 
+#ifndef GLM_ENABLE_EXPERIMENTAL
+#	error "GLM: GLM_GTX_closest_point is an experimental extension and may change in the future. Use #define GLM_ENABLE_EXPERIMENTAL before including it, if you really want to use it."
+#endif
+
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
 #	pragma message("GLM: GLM_GTX_closest_point extension included")
 #endif
@@ -40,12 +44,13 @@ namespace glm
 		typename genType::value_type & intersectionDistance);
 
 	//! Compute the intersection of a ray and a triangle.
+	/// Based om Tomas Möller implementation http://fileadmin.cs.lth.se/cs/Personal/Tomas_Akenine-Moller/raytri/
 	//! From GLM_GTX_intersect extension.
-	template <typename genType>
+	template <typename T, precision P>
 	GLM_FUNC_DECL bool intersectRayTriangle(
-		genType const & orig, genType const & dir,
-		genType const & vert0, genType const & vert1, genType const & vert2,
-		genType & baryPosition);
+		tvec3<T, P> const& orig, tvec3<T, P> const& dir,
+		tvec3<T, P> const& v0, tvec3<T, P> const& v1, tvec3<T, P> const& v2,
+		tvec3<T, P>& baryPosition, T& distance);
 
 	//! Compute the intersection of a line and a triangle.
 	//! From GLM_GTX_intersect extension.

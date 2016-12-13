@@ -3,7 +3,6 @@
 /// @author Maksim Vorobiev (msomeone@gmail.com)
 ///
 /// @see core (dependence)
-/// @see gtc_half_float (dependence)
 /// @see gtc_constants (dependence)
 /// @see gtc_quaternion (dependence)
 ///
@@ -20,6 +19,10 @@
 #include "../glm.hpp"
 #include "../gtc/constants.hpp"
 #include "../gtc/quaternion.hpp"
+
+#ifndef GLM_ENABLE_EXPERIMENTAL
+#	error "GLM: GLM_GTX_dual_quaternion is an experimental extension and may change in the future. Use #define GLM_ENABLE_EXPERIMENTAL before including it, if you really want to use it."
+#endif
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
 #	pragma message("GLM: GLM_GTX_dual_quaternion extension included")
@@ -46,7 +49,7 @@ namespace glm
 
 		typedef length_t length_type;
 		/// Return the count of components of a dual quaternion
-		GLM_FUNC_DECL GLM_CONSTEXPR length_type length() const;
+		GLM_FUNC_DECL static length_type length(){return 2;}
 
 		GLM_FUNC_DECL part_type & operator[](length_type i);
 		GLM_FUNC_DECL part_type const & operator[](length_type i) const;
