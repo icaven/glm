@@ -21,10 +21,12 @@ if(GLM_STATIC_LIBRARY_ENABLE)
 	message(STATUS "GLM is a header only library, no need to build it. Set the option GLM_STATIC_LIBRARY_ENABLE with ON to build an optional static library")
 endif()
 
-option(GLM_DYNAMIC_LIBRARY_ENABLE "GLM static library" OFF)
+option(GLM_DYNAMIC_LIBRARY_ENABLE "GLM dynamic library" OFF)
 if(GLM_DYNAMIC_LIBRARY_ENABLE)
 	message(STATUS "GLM is a header only library, no need to build it. Set the option GLM_DYNAMIC_LIBRARY_ENABLE with ON to build an optional dynamic library")
 endif()
+
+option(GLM_INSTALL_ENABLE "GLM install" ON)
 
 option(GLM_TEST_ENABLE "GLM test" OFF)
 if(NOT GLM_TEST_ENABLE)
@@ -166,7 +168,9 @@ add_subdirectory(glm)
 add_subdirectory(test)
 
 set(GLM_INSTALL_CONFIGDIR "${CMAKE_INSTALL_LIBDIR}/cmake/glm")
-install(DIRECTORY glm DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+if (GLM_INSTALL_ENABLE)
+    install(DIRECTORY glm DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+endif()
 
 write_basic_package_version_file(
     "${CMAKE_CURRENT_BINARY_DIR}/glmConfigVersion.cmake"
@@ -190,12 +194,14 @@ configure_package_config_file(
     NO_CHECK_REQUIRED_COMPONENTS_MACRO
 )
 
-install(
-    FILES 
-        "${CMAKE_CURRENT_BINARY_DIR}/${GLM_INSTALL_CONFIGDIR}/glmConfig.cmake"
-        "${CMAKE_CURRENT_BINARY_DIR}/glmConfigVersion.cmake"
-    DESTINATION ${GLM_INSTALL_CONFIGDIR}
-)
+if (GLM_INSTALL_ENABLE)
+    install(
+        FILES
+            "${CMAKE_CURRENT_BINARY_DIR}/${GLM_INSTALL_CONFIGDIR}/glmConfig.cmake"
+            "${CMAKE_CURRENT_BINARY_DIR}/glmConfigVersion.cmake"
+        DESTINATION ${GLM_INSTALL_CONFIGDIR}
+    )
+endif()
 
 if (NOT CMAKE_VERSION VERSION_LESS "3.0")
     add_library(glm INTERFACE)
@@ -209,11 +215,13 @@ if (NOT CMAKE_VERSION VERSION_LESS "3.0")
         EXPORT glmTargets
         FILE "${CMAKE_CURRENT_BINARY_DIR}/glmTargets.cmake"
     )
-    
-    install(
-        EXPORT glmTargets FILE glmTargets.cmake
-        DESTINATION ${GLM_INSTALL_CONFIGDIR}
-    )
+
+    if (GLM_INSTALL_ENABLE)
+        install(
+            EXPORT glmTargets FILE glmTargets.cmake
+            DESTINATION ${GLM_INSTALL_CONFIGDIR}
+        )
+    endif()
 endif()
 
 # build pkg-config file
@@ -224,9 +232,11 @@ configure_file(
 )
 
 # install pkg-config file
-install(
-    FILES "${CMAKE_CURRENT_BINARY_DIR}/glm.pc"
-    DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig"
-)
+if (GLM_INSTALL_ENABLE)
+    install(
+        FILES "${CMAKE_CURRENT_BINARY_DIR}/glm.pc"
+        DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig"
+    )
+endif()
 
 export(PACKAGE glm)
