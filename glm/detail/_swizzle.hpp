@@ -28,19 +28,19 @@ namespace detail
 	template <typename T, precision P, int E0, int E1, bool Aligned>
 	struct _swizzle_base1<2, T, P, E0,E1,-1,-2, Aligned> : public _swizzle_base0<T, 2>
 	{
-		GLM_FUNC_QUALIFIER tvec<2, T, P> operator ()()  const { return tvec<2, T, P>(this->elem(E0), this->elem(E1)); }
+		GLM_FUNC_QUALIFIER vec<2, T, P> operator ()()  const { return vec<2, T, P>(this->elem(E0), this->elem(E1)); }
 	};
 
 	template <typename T, precision P, int E0, int E1, int E2, bool Aligned>
 	struct _swizzle_base1<3, T, P, E0,E1,E2,-1, Aligned> : public _swizzle_base0<T, 3>
 	{
-		GLM_FUNC_QUALIFIER tvec<3, T, P> operator ()()  const { return tvec<3, T, P>(this->elem(E0), this->elem(E1), this->elem(E2)); }
+		GLM_FUNC_QUALIFIER vec<3, T, P> operator ()()  const { return vec<3, T, P>(this->elem(E0), this->elem(E1), this->elem(E2)); }
 	};
 
 	template <typename T, precision P, int E0, int E1, int E2, int E3, bool Aligned>
 	struct _swizzle_base1<4, T, P, E0,E1,E2,E3, Aligned> : public _swizzle_base0<T, 4>
 	{ 
-		GLM_FUNC_QUALIFIER tvec<4, T, P> operator ()()  const { return tvec<4, T, P>(this->elem(E0), this->elem(E1), this->elem(E2), this->elem(E3)); }
+		GLM_FUNC_QUALIFIER vec<4, T, P> operator ()()  const { return vec<4, T, P>(this->elem(E0), this->elem(E1), this->elem(E2), this->elem(E3)); }
 	};
 
 	// Internal class for implementing swizzle operators
@@ -65,7 +65,7 @@ namespace detail
 			return *this;
 		}
 
-		GLM_FUNC_QUALIFIER _swizzle_base2& operator= (tvec<N, T, P> const& that)
+		GLM_FUNC_QUALIFIER _swizzle_base2& operator= (vec<N, T, P> const& that)
 		{
 			struct op { 
 				GLM_FUNC_QUALIFIER void operator() (T& e, T& t) { e = t; } 
@@ -74,7 +74,7 @@ namespace detail
 			return *this;
 		}
 
-		GLM_FUNC_QUALIFIER void operator -= (tvec<N, T, P> const& that)
+		GLM_FUNC_QUALIFIER void operator -= (vec<N, T, P> const& that)
 		{
 			struct op { 
 				GLM_FUNC_QUALIFIER void operator() (T& e, T& t) { e -= t; } 
@@ -82,7 +82,7 @@ namespace detail
 			_apply_op(that, op());
 		}
 
-		GLM_FUNC_QUALIFIER void operator += (tvec<N, T, P> const& that)
+		GLM_FUNC_QUALIFIER void operator += (vec<N, T, P> const& that)
 		{
 			struct op { 
 				GLM_FUNC_QUALIFIER void operator() (T& e, T& t) { e += t; } 
@@ -90,7 +90,7 @@ namespace detail
 			_apply_op(that, op());
 		}
 
-		GLM_FUNC_QUALIFIER void operator *= (tvec<N, T, P> const& that)
+		GLM_FUNC_QUALIFIER void operator *= (vec<N, T, P> const& that)
 		{
 			struct op { 
 				GLM_FUNC_QUALIFIER void operator() (T& e, T& t) { e *= t; } 
@@ -98,7 +98,7 @@ namespace detail
 			_apply_op(that, op());
 		}
 
-		GLM_FUNC_QUALIFIER void operator /= (tvec<N, T, P> const& that)
+		GLM_FUNC_QUALIFIER void operator /= (vec<N, T, P> const& that)
 		{
 			struct op { 
 				GLM_FUNC_QUALIFIER void operator() (T& e, T& t) { e /= t; } 
@@ -119,7 +119,7 @@ namespace detail
 
 	protected:
 		template <typename U>
-		GLM_FUNC_QUALIFIER void _apply_op(tvec<N, T, P> const& that, U op)
+		GLM_FUNC_QUALIFIER void _apply_op(vec<N, T, P> const& that, U op)
 		{
 			// Make a copy of the data in this == &that.
 			// The copier should optimize out the copy in cases where the function is
@@ -154,7 +154,7 @@ namespace detail
 
 		using base_type::operator=;
 
-		GLM_FUNC_QUALIFIER operator tvec<N, T, P> () const { return (*this)(); }
+		GLM_FUNC_QUALIFIER operator vec<N, T, P> () const { return (*this)(); }
 	};
 
 //
@@ -170,17 +170,17 @@ namespace detail
 //
 #define _GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)                 \
 	_GLM_SWIZZLE_TEMPLATE2                                                          \
-	GLM_FUNC_QUALIFIER tvec<N, T, P> operator OPERAND ( const _GLM_SWIZZLE_TYPE1& a, const _GLM_SWIZZLE_TYPE2& b)  \
+	GLM_FUNC_QUALIFIER vec<N, T, P> operator OPERAND ( const _GLM_SWIZZLE_TYPE1& a, const _GLM_SWIZZLE_TYPE2& b)  \
 	{                                                                               \
 		return a() OPERAND b();                                                     \
 	}                                                                               \
 	_GLM_SWIZZLE_TEMPLATE1                                                          \
-	GLM_FUNC_QUALIFIER tvec<N, T, P> operator OPERAND ( const _GLM_SWIZZLE_TYPE1& a, const tvec<N, T, P>& b)                   \
+	GLM_FUNC_QUALIFIER vec<N, T, P> operator OPERAND ( const _GLM_SWIZZLE_TYPE1& a, const vec<N, T, P>& b)                   \
 	{                                                                               \
 		return a() OPERAND b;                                                       \
 	}                                                                               \
 	_GLM_SWIZZLE_TEMPLATE1                                                          \
-	GLM_FUNC_QUALIFIER tvec<N, T, P> operator OPERAND ( const tvec<N, T, P>& a, const _GLM_SWIZZLE_TYPE1& b)                   \
+	GLM_FUNC_QUALIFIER vec<N, T, P> operator OPERAND ( const vec<N, T, P>& a, const _GLM_SWIZZLE_TYPE1& b)                   \
 	{                                                                               \
 		return a OPERAND b();                                                       \
 	}
@@ -190,12 +190,12 @@ namespace detail
 //
 #define _GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)                 \
 	_GLM_SWIZZLE_TEMPLATE1                                                          \
-	GLM_FUNC_QUALIFIER tvec<N, T, P> operator OPERAND ( const _GLM_SWIZZLE_TYPE1& a, const T& b)                   \
+	GLM_FUNC_QUALIFIER vec<N, T, P> operator OPERAND ( const _GLM_SWIZZLE_TYPE1& a, const T& b)                   \
 	{                                                                               \
 		return a() OPERAND b;                                                       \
 	}                                                                               \
 	_GLM_SWIZZLE_TEMPLATE1                                                          \
-	GLM_FUNC_QUALIFIER tvec<N, T, P> operator OPERAND ( const T& a, const _GLM_SWIZZLE_TYPE1& b)                   \
+	GLM_FUNC_QUALIFIER vec<N, T, P> operator OPERAND ( const T& a, const _GLM_SWIZZLE_TYPE1& b)                   \
 	{                                                                               \
 		return a OPERAND b();                                                       \
 	}

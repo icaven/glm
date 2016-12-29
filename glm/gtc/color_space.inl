@@ -19,11 +19,11 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct compute_rgbToSrgb<4, T, P, tvec>
+	struct compute_rgbToSrgb<4, T, P, vec>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<T, P> call(tvec4<T, P> const& ColorRGB, T GammaCorrection)
 		{
-			return tvec4<T, P>(compute_rgbToSrgb<3, T, P, tvec>::call(tvec3<T, P>(ColorRGB), GammaCorrection), ColorRGB.a);
+			return tvec4<T, P>(compute_rgbToSrgb<3, T, P, vec>::call(tvec3<T, P>(ColorRGB), GammaCorrection), ColorRGB.a);
 		}
 	};
 
@@ -40,11 +40,11 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct compute_srgbToRgb<4, T, P, tvec>
+	struct compute_srgbToRgb<4, T, P, vec>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<T, P> call(tvec4<T, P> const& ColorSRGB, T Gamma)
 		{
-			return tvec4<T, P>(compute_srgbToRgb<3, T, P, tvec>::call(tvec3<T, P>(ColorSRGB), Gamma), ColorSRGB.a);
+			return tvec4<T, P>(compute_srgbToRgb<3, T, P, vec>::call(tvec3<T, P>(ColorSRGB), Gamma), ColorSRGB.a);
 		}
 	};
 }//namespace detail

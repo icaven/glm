@@ -53,7 +53,7 @@ namespace glm
 	};
 
 	template <int D, typename T, precision P>
-	struct type<tvec<D, T, P>>
+	struct type<vec<D, T, P>>
 	{
 		static bool const is_vec = true;
 		static bool const is_mat = false;

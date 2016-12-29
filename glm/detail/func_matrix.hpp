@@ -35,55 +35,55 @@ namespace glm{
 namespace detail
 {
 	template <typename T, precision P>
-	struct outerProduct_trait<2, 2, T, P, tvec, tvec>
+	struct outerProduct_trait<2, 2, T, P, vec, vec>
 	{
 		typedef tmat2x2<T, P> type;
 	};
 
 	template <typename T, precision P>
-	struct outerProduct_trait<2, 3, T, P, tvec, tvec>
+	struct outerProduct_trait<2, 3, T, P, vec, vec>
 	{
 		typedef tmat3x2<T, P> type;
 	};
 
 	template <typename T, precision P>
-	struct outerProduct_trait<2, 4, T, P, tvec, tvec>
+	struct outerProduct_trait<2, 4, T, P, vec, vec>
 	{
 		typedef tmat4x2<T, P> type;
 	};
 
 	template <typename T, precision P>
-	struct outerProduct_trait<3, 2, T, P, tvec, tvec>
+	struct outerProduct_trait<3, 2, T, P, vec, vec>
 	{
 		typedef tmat2x3<T, P> type;
 	};
 
 	template <typename T, precision P>
-	struct outerProduct_trait<3, 3, T, P, tvec, tvec>
+	struct outerProduct_trait<3, 3, T, P, vec, vec>
 	{
 		typedef tmat3x3<T, P> type;
 	};
 
 	template <typename T, precision P>
-	struct outerProduct_trait<3, 4, T, P, tvec, tvec>
+	struct outerProduct_trait<3, 4, T, P, vec, vec>
 	{
 		typedef tmat4x3<T, P> type;
 	};
 
 	template <typename T, precision P>
-	struct outerProduct_trait<4, 2, T, P, tvec, tvec>
+	struct outerProduct_trait<4, 2, T, P, vec, vec>
 	{
 		typedef tmat2x4<T, P> type;
 	};
 
 	template <typename T, precision P>
-	struct outerProduct_trait<4, 3, T, P, tvec, tvec>
+	struct outerProduct_trait<4, 3, T, P, vec, vec>
 	{
 		typedef tmat3x4<T, P> type;
 	};
 
 	template <typename T, precision P>
-	struct outerProduct_trait<4, 4, T, P, tvec, tvec>
+	struct outerProduct_trait<4, 4, T, P, vec, vec>
 	{
 		typedef tmat4x4<T, P> type;
 	};

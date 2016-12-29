@@ -326,7 +326,7 @@ namespace detail
 			std::numeric_limits<genFIType>::is_iec559 || (std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer),
 			"'sign' only accept signed inputs");
 		
-		return detail::compute_sign<1, genFIType, defaultp, tvec, std::numeric_limits<genFIType>::is_iec559, highp>::call(tvec1<genFIType>(x)).x;
+		return detail::compute_sign<1, genFIType, defaultp, vec, std::numeric_limits<genFIType>::is_iec559, highp>::call(tvec1<genFIType>(x)).x;
 	}
 
 	template <int D, typename T, precision P, template <int, typename, precision> class vecType>

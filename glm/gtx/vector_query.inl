@@ -10,7 +10,7 @@ namespace detail
 	struct compute_areCollinear{};
 
 	template <typename T, precision P>
-	struct compute_areCollinear<2, T, P, tvec>
+	struct compute_areCollinear<2, T, P, vec>
 	{
 		GLM_FUNC_QUALIFIER static bool call(tvec2<T, P> const & v0, tvec2<T, P> const & v1, T const & epsilon)
 		{
@@ -19,7 +19,7 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct compute_areCollinear<3, T, P, tvec>
+	struct compute_areCollinear<3, T, P, vec>
 	{
 		GLM_FUNC_QUALIFIER static bool call(tvec3<T, P> const & v0, tvec3<T, P> const & v1, T const & epsilon)
 		{
@@ -28,7 +28,7 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct compute_areCollinear<4, T, P, tvec>
+	struct compute_areCollinear<4, T, P, vec>
 	{
 		GLM_FUNC_QUALIFIER static bool call(tvec4<T, P> const & v0, tvec4<T, P> const & v1, T const & epsilon)
 		{
@@ -40,7 +40,7 @@ namespace detail
 	struct compute_isCompNull{};
 
 	template <typename T, precision P>
-	struct compute_isCompNull<2, T, P, tvec>
+	struct compute_isCompNull<2, T, P, vec>
 	{
 		GLM_FUNC_QUALIFIER static tvec2<bool, P> call(tvec2<T, P> const & v, T const & epsilon)
 		{
@@ -51,7 +51,7 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct compute_isCompNull<3, T, P, tvec>
+	struct compute_isCompNull<3, T, P, vec>
 	{
 		GLM_FUNC_QUALIFIER static tvec3<bool, P> call(tvec3<T, P> const & v, T const & epsilon)
 		{
@@ -63,7 +63,7 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct compute_isCompNull<4, T, P, tvec>
+	struct compute_isCompNull<4, T, P, vec>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<bool, P> call(tvec4<T, P> const & v, T const & epsilon)
 		{

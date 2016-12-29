@@ -232,7 +232,7 @@ namespace detail
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType ceilPowerOfTwo(genType value)
 	{
-		return detail::compute_ceilPowerOfTwo<1, genType, defaultp, tvec, std::numeric_limits<genType>::is_signed>::call(tvec1<genType, defaultp>(value)).x;
+		return detail::compute_ceilPowerOfTwo<1, genType, defaultp, vec, std::numeric_limits<genType>::is_signed>::call(tvec1<genType, defaultp>(value)).x;
 	}
 
 	template <int D, typename T, precision P, template <int, typename, precision> class vecType>

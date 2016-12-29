@@ -275,9 +275,9 @@ namespace detail
 	{};
 
 	template <precision P>
-	struct compute_half<1, P, tvec>
+	struct compute_half<1, P, vec>
 	{
-		GLM_FUNC_QUALIFIER static tvec<1, uint16, P> pack(tvec<1, float, P> const & v)
+		GLM_FUNC_QUALIFIER static vec<1, uint16, P> pack(vec<1, float, P> const & v)
 		{
 			int16 const Unpack(detail::toFloat16(v.x));
 			u16vec1 Packed(uninitialize);
@@ -285,68 +285,68 @@ namespace detail
 			return Packed;
 		}
 
-		GLM_FUNC_QUALIFIER static tvec<1, float, P> unpack(tvec<1, uint16, P> const & v)
+		GLM_FUNC_QUALIFIER static vec<1, float, P> unpack(vec<1, uint16, P> const & v)
 		{
 			i16vec1 Unpack(uninitialize);
 			memcpy(&Unpack, &v, sizeof(Unpack));
-			return tvec<1, float, P>(detail::toFloat32(v.x));
+			return vec<1, float, P>(detail::toFloat32(v.x));
 		}
 	};
 
 	template <precision P>
-	struct compute_half<2, P, tvec>
+	struct compute_half<2, P, vec>
 	{
-		GLM_FUNC_QUALIFIER static tvec<2, uint16, P> pack(tvec<2, float, P> const & v)
+		GLM_FUNC_QUALIFIER static vec<2, uint16, P> pack(vec<2, float, P> const & v)
 		{
-			tvec<2, int16, P> const Unpack(detail::toFloat16(v.x), detail::toFloat16(v.y));
+			vec<2, int16, P> const Unpack(detail::toFloat16(v.x), detail::toFloat16(v.y));
 			u16vec2 Packed(uninitialize);
 			memcpy(&Packed, &Unpack, sizeof(Packed));
 			return Packed;
 		}
 
-		GLM_FUNC_QUALIFIER static tvec<2, float, P> unpack(tvec<2, uint16, P> const & v)
+		GLM_FUNC_QUALIFIER static vec<2, float, P> unpack(vec<2, uint16, P> const & v)
 		{
 			i16vec2 Unpack(uninitialize);
 			memcpy(&Unpack, &v, sizeof(Unpack));
-			return tvec<2, float, P>(detail::toFloat32(v.x), detail::toFloat32(v.y));
+			return vec<2, float, P>(detail::toFloat32(v.x), detail::toFloat32(v.y));
 		}
 	};
 
 	template <precision P>
-	struct compute_half<3, P, tvec>
+	struct compute_half<3, P, vec>
 	{
-		GLM_FUNC_QUALIFIER static tvec<3, uint16, P> pack(tvec<3, float, P> const & v)
+		GLM_FUNC_QUALIFIER static vec<3, uint16, P> pack(vec<3, float, P> const & v)
 		{
-			tvec<3, int16, P> const Unpack(detail::toFloat16(v.x), detail::toFloat16(v.y), detail::toFloat16(v.z));
+			vec<3, int16, P> const Unpack(detail::toFloat16(v.x), detail::toFloat16(v.y), detail::toFloat16(v.z));
 			u16vec3 Packed(uninitialize);
 			memcpy(&Packed, &Unpack, sizeof(Packed));
 			return Packed;
 		}
 
-		GLM_FUNC_QUALIFIER static tvec<3, float, P> unpack(tvec<3, uint16, P> const & v)
+		GLM_FUNC_QUALIFIER static vec<3, float, P> unpack(vec<3, uint16, P> const & v)
 		{
 			i16vec3 Unpack(uninitialize);
 			memcpy(&Unpack, &v, sizeof(Unpack));
-			return tvec<3, float, P>(detail::toFloat32(v.x), detail::toFloat32(v.y), detail::toFloat32(v.z));
+			return vec<3, float, P>(detail::toFloat32(v.x), detail::toFloat32(v.y), detail::toFloat32(v.z));
 		}
 	};
 
 	template <precision P>
-	struct compute_half<4, P, tvec>
+	struct compute_half<4, P, vec>
 	{
-		GLM_FUNC_QUALIFIER static tvec<4, uint16, P> pack(tvec<4, float, P> const & v)
+		GLM_FUNC_QUALIFIER static vec<4, uint16, P> pack(vec<4, float, P> const & v)
 		{
-			tvec<4, int16, P> const Unpack(detail::toFloat16(v.x), detail::toFloat16(v.y), detail::toFloat16(v.z), detail::toFloat16(v.w));
+			vec<4, int16, P> const Unpack(detail::toFloat16(v.x), detail::toFloat16(v.y), detail::toFloat16(v.z), detail::toFloat16(v.w));
 			u16vec4 Packed(uninitialize);
 			memcpy(&Packed, &Unpack, sizeof(Packed));
 			return Packed;
 		}
 
-		GLM_FUNC_QUALIFIER static tvec<4, float, P> unpack(tvec<4, uint16, P> const & v)
+		GLM_FUNC_QUALIFIER static vec<4, float, P> unpack(vec<4, uint16, P> const & v)
 		{
 			i16vec4 Unpack(uninitialize);
 			memcpy(&Unpack, &v, sizeof(Unpack));
-			return tvec<4, float, P>(detail::toFloat32(v.x), detail::toFloat32(v.y), detail::toFloat32(v.z), detail::toFloat32(v.w));
+			return vec<4, float, P>(detail::toFloat32(v.x), detail::toFloat32(v.y), detail::toFloat32(v.z), detail::toFloat32(v.w));
 		}
 	};
 }//namespace detail
@@ -641,18 +641,18 @@ namespace detail
 
 	// Based on Brian Karis http://graphicrants.blogspot.fr/2009/04/rgbm-color-encoding.html
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec<4, T, P> packRGBM(tvec<3, T, P> const & rgb)
+	GLM_FUNC_QUALIFIER vec<4, T, P> packRGBM(vec<3, T, P> const & rgb)
 	{
-		tvec<3, T, P> const Color(rgb * static_cast<T>(1.0 / 6.0));
+		vec<3, T, P> const Color(rgb * static_cast<T>(1.0 / 6.0));
 		T Alpha = clamp(max(max(Color.x, Color.y), max(Color.z, static_cast<T>(1e-6))), static_cast<T>(0), static_cast<T>(1));
 		Alpha = ceil(Alpha * static_cast<T>(255.0)) / static_cast<T>(255.0);
-		return tvec<4, T, P>(Color / Alpha, Alpha);
+		return vec<4, T, P>(Color / Alpha, Alpha);
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec<3, T, P> unpackRGBM(tvec<4, T, P> const & rgbm)
+	GLM_FUNC_QUALIFIER vec<3, T, P> unpackRGBM(vec<4, T, P> const & rgbm)
 	{
-		return tvec<3, T, P>(rgbm.x, rgbm.y, rgbm.z) * rgbm.w * static_cast<T>(6);
+		return vec<3, T, P>(rgbm.x, rgbm.y, rgbm.z) * rgbm.w * static_cast<T>(6);
 	}
 
 	template <int D, precision P, template <int, typename, precision> class vecType>

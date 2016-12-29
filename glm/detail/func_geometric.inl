@@ -32,28 +32,28 @@ namespace detail
 	struct compute_dot{};
 
 	template <typename T, precision P, bool Aligned>
-	struct compute_dot<tvec<1, T, P>, T, Aligned>
+	struct compute_dot<vec<1, T, P>, T, Aligned>
 	{
-		GLM_FUNC_QUALIFIER static T call(tvec<1, T, P> const & a, tvec<1, T, P> const & b)
+		GLM_FUNC_QUALIFIER static T call(vec<1, T, P> const & a, vec<1, T, P> const & b)
 		{
 			return a.x * b.x;
 		}
 	};
 
 	template <typename T, precision P, bool Aligned>
-	struct compute_dot<tvec<2, T, P>, T, Aligned>
+	struct compute_dot<vec<2, T, P>, T, Aligned>
 	{
-		GLM_FUNC_QUALIFIER static T call(tvec<2, T, P> const & a, tvec<2, T, P> const & b)
+		GLM_FUNC_QUALIFIER static T call(vec<2, T, P> const & a, vec<2, T, P> const & b)
 		{
-			tvec<2, T, P> tmp(a * b);
+			vec<2, T, P> tmp(a * b);
 			return tmp.x + tmp.y;
 		}
 	};
 
 	template <typename T, precision P, bool Aligned>
-	struct compute_dot<tvec<3, T, P>, T, Aligned>
+	struct compute_dot<vec<3, T, P>, T, Aligned>
 	{
-		GLM_FUNC_QUALIFIER static T call(tvec<3, T, P> const & a, tvec<3, T, P> const & b)
+		GLM_FUNC_QUALIFIER static T call(vec<3, T, P> const & a, vec<3, T, P> const & b)
 		{
 			tvec3<T, P> tmp(a * b);
 			return tmp.x + tmp.y + tmp.z;
@@ -61,11 +61,11 @@ namespace detail
 	};
 
 	template <typename T, precision P, bool Aligned>
-	struct compute_dot<tvec<4, T, P>, T, Aligned>
+	struct compute_dot<vec<4, T, P>, T, Aligned>
 	{
-		GLM_FUNC_QUALIFIER static T call(tvec<4, T, P> const & a, tvec<4, T, P> const & b)
+		GLM_FUNC_QUALIFIER static T call(vec<4, T, P> const & a, vec<4, T, P> const & b)
 		{
-			tvec<4, T, P> tmp(a * b);
+			vec<4, T, P> tmp(a * b);
 			return (tmp.x + tmp.y) + (tmp.z + tmp.w);
 		}
 	};
@@ -168,10 +168,10 @@ namespace detail
 	}
 
 	template <int D, typename T, precision P>
-	GLM_FUNC_QUALIFIER T dot(tvec<D, T, P> const & x, tvec<D, T, P> const & y)
+	GLM_FUNC_QUALIFIER T dot(vec<D, T, P> const & x, vec<D, T, P> const & y)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'dot' accepts only floating-point inputs");
-		return detail::compute_dot<tvec<D, T, P>, T, detail::is_aligned<P>::value>::call(x, y);
+		return detail::compute_dot<vec<D, T, P>, T, detail::is_aligned<P>::value>::call(x, y);
 	}
 
 	template <typename T, precision P>

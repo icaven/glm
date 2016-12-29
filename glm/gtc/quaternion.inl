@@ -154,7 +154,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(tvec3<T, P> const & u, tvec3<T, P> const & v)
 	{
 		tvec3<T, P> const LocalW(cross(u, v));
-		T Dot = detail::compute_dot<tvec<3, T, P>, T, detail::is_aligned<P>::value>::call(u, v);
+		T Dot = detail::compute_dot<vec<3, T, P>, T, detail::is_aligned<P>::value>::call(u, v);
 		tquat<T, P> q(T(1) + Dot, LocalW.x, LocalW.y, LocalW.z);
 
 		*this = normalize(q);

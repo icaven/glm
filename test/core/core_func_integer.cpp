@@ -170,7 +170,7 @@ namespace bitfieldReverse
 	template <typename T>
 	GLM_FUNC_QUALIFIER T bitfieldReverseLoop(T v)
 	{
-		return bitfieldReverseLoop(glm::tvec<1, T>(v)).x;
+		return bitfieldReverseLoop(glm::vec<1, T>(v)).x;
 	}
 
 	GLM_FUNC_QUALIFIER glm::uint32_t bitfieldReverseUint32(glm::uint32_t x)
@@ -230,7 +230,7 @@ namespace bitfieldReverse
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType bitfieldReverseOps(genType x)
 	{
-		return bitfieldReverseOps(glm::tvec<1, genType, glm::defaultp>(x)).x;
+		return bitfieldReverseOps(glm::vec<1, genType, glm::defaultp>(x)).x;
 	}
 
 	template <typename genType>
@@ -1440,7 +1440,7 @@ namespace bitCount
 	template <typename genType>
 	GLM_FUNC_QUALIFIER int bitCount_bitfield(genType x)
 	{
-		return bitCount_bitfield(glm::tvec<1, genType, glm::defaultp>(x)).x;
+		return bitCount_bitfield(glm::vec<1, genType, glm::defaultp>(x)).x;
 	}
 
 	int perf(std::size_t Size)

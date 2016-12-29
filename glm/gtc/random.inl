@@ -17,7 +17,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_rand<1, uint8, P, tvec>
+	struct compute_rand<1, uint8, P, vec>
 	{
 		GLM_FUNC_QUALIFIER static tvec1<uint8, P> call()
 		{
@@ -27,7 +27,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_rand<2, uint8, P, tvec>
+	struct compute_rand<2, uint8, P, vec>
 	{
 		GLM_FUNC_QUALIFIER static tvec2<uint8, P> call()
 		{
@@ -38,7 +38,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_rand<3, uint8, P, tvec>
+	struct compute_rand<3, uint8, P, vec>
 	{
 		GLM_FUNC_QUALIFIER static tvec3<uint8, P> call()
 		{
@@ -50,7 +50,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_rand<4, uint8, P, tvec>
+	struct compute_rand<4, uint8, P, vec>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<uint8, P> call()
 		{
@@ -258,7 +258,7 @@ namespace detail
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType linearRand(genType Min, genType Max)
 	{
-		return detail::compute_linearRand<1, genType, highp, tvec>::call(
+		return detail::compute_linearRand<1, genType, highp, vec>::call(
 			tvec1<genType, highp>(Min),
 			tvec1<genType, highp>(Max)).x;
 	}

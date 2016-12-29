@@ -12,7 +12,7 @@ namespace detail
 	struct outerProduct_trait{};
 }//namespace detail
 
-	template <int D, typename T, precision P> struct tvec;
+	template <int D, typename T, precision P> struct vec;
 	template <typename T, precision P> struct tmat2x2;
 	template <typename T, precision P> struct tmat2x3;
 	template <typename T, precision P> struct tmat2x4;

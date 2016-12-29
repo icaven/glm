@@ -23,7 +23,7 @@ namespace detail
 	template <int D, typename T, precision P, template <int, class, precision> class vecType, bool isFloat, bool Aligned>
 	struct compute_log2
 	{
-		GLM_FUNC_QUALIFIER static tvec<D, T, P> call(tvec<D, T, P> const & vec)
+		GLM_FUNC_QUALIFIER static vec<D, T, P> call(vec<D, T, P> const & vec)
 		{
 			return detail::functor1<D, T, T, P>::call(log2, vec);
 		}
@@ -32,7 +32,7 @@ namespace detail
 	template <int D, typename T, precision P, bool Aligned>
 	struct compute_sqrt
 	{
-		GLM_FUNC_QUALIFIER static tvec<D, T, P> call(tvec<D, T, P> const & x)
+		GLM_FUNC_QUALIFIER static vec<D, T, P> call(vec<D, T, P> const & x)
 		{
 			return detail::functor1<D, T, T, P>::call(std::sqrt, x);
 		}
@@ -41,7 +41,7 @@ namespace detail
 	template <int D, typename T, precision P, bool Aligned>
 	struct compute_inversesqrt
 	{
-		GLM_FUNC_QUALIFIER static tvec<D, T, P> call(tvec<D, T, P> const & x)
+		GLM_FUNC_QUALIFIER static vec<D, T, P> call(vec<D, T, P> const & x)
 		{
 			return static_cast<T>(1) / sqrt(x);
 		}
@@ -50,13 +50,13 @@ namespace detail
 	template <int D, bool Aligned>
 	struct compute_inversesqrt<D, float, lowp, Aligned>
 	{
-		GLM_FUNC_QUALIFIER static tvec<D, float, lowp> call(tvec<D, float, lowp> const & x)
+		GLM_FUNC_QUALIFIER static vec<D, float, lowp> call(vec<D, float, lowp> const & x)
 		{
-			tvec<D, float, lowp> tmp(x);
-			tvec<D, float, lowp> xhalf(tmp * 0.5f);
-			tvec<D, uint, lowp>* p = reinterpret_cast<tvec<D, uint, lowp>*>(const_cast<tvec<D, float, lowp>*>(&x));
-			tvec<D, uint, lowp> i = tvec<D, uint, lowp>(0x5f375a86) - (*p >> tvec<D, uint, lowp>(1));
-			tvec<D, float, lowp>* ptmp = reinterpret_cast<tvec<D, float, lowp>*>(&i);
+			vec<D, float, lowp> tmp(x);
+			vec<D, float, lowp> xhalf(tmp * 0.5f);
+			vec<D, uint, lowp>* p = reinterpret_cast<vec<D, uint, lowp>*>(const_cast<vec<D, float, lowp>*>(&x));
+			vec<D, uint, lowp> i = vec<D, uint, lowp>(0x5f375a86) - (*p >> vec<D, uint, lowp>(1));
+			vec<D, float, lowp>* ptmp = reinterpret_cast<vec<D, float, lowp>*>(&i);
 			tmp = *ptmp;
 			tmp = tmp * (1.5f - xhalf * tmp * tmp);
 			return tmp;

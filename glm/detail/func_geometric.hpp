@@ -46,8 +46,8 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
 	template <int D, typename T, precision P>
 	GLM_FUNC_DECL T dot(
-		tvec<D, T, P> const & x,
-		tvec<D, T, P> const & y);
+		vec<D, T, P> const & x,
+		vec<D, T, P> const & y);
 
 	/// Returns the cross product of x and y.
 	///

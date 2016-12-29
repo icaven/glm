@@ -341,21 +341,21 @@ namespace detail
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template <>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_lowp>::tvec()
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_lowp>::vec()
 #			ifndef GLM_FORCE_NO_CTOR_INIT
 				: data(_mm_setzero_ps())
 #			endif
 		{}
 
 		template <>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_mediump>::tvec()
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_mediump>::vec()
 #			ifndef GLM_FORCE_NO_CTOR_INIT
 			: data(_mm_setzero_ps())
 #			endif
 		{}
 
 		template <>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_highp>::tvec()
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_highp>::vec()
 #			ifndef GLM_FORCE_NO_CTOR_INIT
 			: data(_mm_setzero_ps())
 #			endif
@@ -363,117 +363,117 @@ namespace detail
 #	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_lowp>::tvec(float s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_lowp>::vec(float s) :
 		data(_mm_set1_ps(s))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_mediump>::tvec(float s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_mediump>::vec(float s) :
 		data(_mm_set1_ps(s))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_highp>::tvec(float s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_highp>::vec(float s) :
 		data(_mm_set1_ps(s))
 	{}
 
 #	if GLM_ARCH & GLM_ARCH_AVX_BIT
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<double, aligned_lowp>::tvec(double s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<double, aligned_lowp>::vec(double s) :
 		data(_mm256_set1_pd(s))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<double, aligned_mediump>::tvec(double s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<double, aligned_mediump>::vec(double s) :
 		data(_mm256_set1_pd(s))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<double, aligned_highp>::tvec(double s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<double, aligned_highp>::vec(double s) :
 		data(_mm256_set1_pd(s))
 	{}
 #	endif
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, aligned_lowp>::tvec(int32 s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, aligned_lowp>::vec(int32 s) :
 		data(_mm_set1_epi32(s))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, aligned_mediump>::tvec(int32 s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, aligned_mediump>::vec(int32 s) :
 		data(_mm_set1_epi32(s))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, aligned_highp>::tvec(int32 s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, aligned_highp>::vec(int32 s) :
 		data(_mm_set1_epi32(s))
 	{}
 
 #	if GLM_ARCH & GLM_ARCH_AVX2_BIT
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int64, aligned_lowp>::tvec(int64 s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int64, aligned_lowp>::vec(int64 s) :
 		data(_mm256_set1_epi64x(s))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int64, aligned_mediump>::tvec(int64 s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int64, aligned_mediump>::vec(int64 s) :
 		data(_mm256_set1_epi64x(s))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int64, aligned_highp>::tvec(int64 s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int64, aligned_highp>::vec(int64 s) :
 		data(_mm256_set1_epi64x(s))
 	{}
 #	endif
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_lowp>::tvec(float a, float b, float c, float d) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_lowp>::vec(float a, float b, float c, float d) :
 		data(_mm_set_ps(d, c, b, a))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_mediump>::tvec(float a, float b, float c, float d) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_mediump>::vec(float a, float b, float c, float d) :
 		data(_mm_set_ps(d, c, b, a))
 	{}
 
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_highp>::tvec(float a, float b, float c, float d) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_highp>::vec(float a, float b, float c, float d) :
 		data(_mm_set_ps(d, c, b, a))
 	{}
 
 	template <>
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, aligned_lowp>::tvec(int32 a, int32 b, int32 c, int32 d) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, aligned_lowp>::vec(int32 a, int32 b, int32 c, int32 d) :
 		data(_mm_set_epi32(d, c, b, a))
 	{}
 
 	template <>
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, aligned_mediump>::tvec(int32 a, int32 b, int32 c, int32 d) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, aligned_mediump>::vec(int32 a, int32 b, int32 c, int32 d) :
 		data(_mm_set_epi32(d, c, b, a))
 	{}
 
 	template <>
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, aligned_highp>::tvec(int32 a, int32 b, int32 c, int32 d) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<int32, aligned_highp>::vec(int32 a, int32 b, int32 c, int32 d) :
 		data(_mm_set_epi32(d, c, b, a))
 	{}
 
 	template <>
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_lowp>::tvec(int32 a, int32 b, int32 c, int32 d) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_lowp>::vec(int32 a, int32 b, int32 c, int32 d) :
 		data(_mm_castsi128_ps(_mm_set_epi32(d, c, b, a)))
 	{}
 
 	template <>
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_mediump>::tvec(int32 a, int32 b, int32 c, int32 d) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_mediump>::vec(int32 a, int32 b, int32 c, int32 d) :
 		data(_mm_castsi128_ps(_mm_set_epi32(d, c, b, a)))
 	{}
 
 	template <>
 	template <>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_highp>::tvec(int32 a, int32 b, int32 c, int32 d) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD tvec4<float, aligned_highp>::vec(int32 a, int32 b, int32 c, int32 d) :
 		data(_mm_castsi128_ps(_mm_set_epi32(d, c, b, a)))
 	{}
 }//namespace glm

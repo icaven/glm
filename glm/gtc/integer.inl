@@ -17,7 +17,7 @@ namespace detail
 
 #	if GLM_HAS_BITSCAN_WINDOWS
 		template <precision P, bool Aligned>
-		struct compute_log2<4, int, P, tvec, false, Aligned>
+		struct compute_log2<4, int, P, vec, false, Aligned>
 		{
 			GLM_FUNC_QUALIFIER static tvec4<int, P> call(tvec4<int, P> const & vec)
 			{
