@@ -9,16 +9,16 @@ namespace glm{
 namespace detail
 {
 	template <precision P>
-	struct compute_length<tvec4, float, P, true>
+	struct compute_length<tvec, 4, float, P, true>
 	{
-		GLM_FUNC_QUALIFIER static float call(tvec4<float, P> const & v)
+		GLM_FUNC_QUALIFIER static float call(tvec<4, float, P> const & v)
 		{
 			return _mm_cvtss_f32(glm_vec4_length(v.data));
 		}
 	};
 
 	template <precision P>
-	struct compute_distance<tvec4, float, P, true>
+	struct compute_distance<tvec, 4, float, P, true>
 	{
 		GLM_FUNC_QUALIFIER static float call(tvec4<float, P> const & p0, tvec4<float, P> const & p1)
 		{
@@ -27,9 +27,9 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_dot<tvec4, float, P, true>
+	struct compute_dot<tvec<4, float, P>, float, true>
 	{
-		GLM_FUNC_QUALIFIER static float call(tvec4<float, P> const& x, tvec4<float, P> const& y)
+		GLM_FUNC_QUALIFIER static float call(tvec<4, float, P> const& x, tvec<4, float, P> const& y)
 		{
 			return _mm_cvtss_f32(glm_vec1_dot(x.data, y.data));
 		}
@@ -51,7 +51,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_normalize<float, P, tvec4, true>
+	struct compute_normalize<4, float, P, tvec, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const & v)
 		{
@@ -62,7 +62,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_faceforward<float, P, tvec4, true>
+	struct compute_faceforward<4, float, P, tvec, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const& N, tvec4<float, P> const& I, tvec4<float, P> const& Nref)
 		{
@@ -73,7 +73,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_reflect<float, P, tvec4, true>
+	struct compute_reflect<4, float, P, tvec, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const& I, tvec4<float, P> const& N)
 		{
@@ -84,7 +84,7 @@ namespace detail
 	};
 
 	template <precision P>
-	struct compute_refract<float, P, tvec4, true>
+	struct compute_refract<4, float, P, tvec, true>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<float, P> call(tvec4<float, P> const& I, tvec4<float, P> const& N, float eta)
 		{

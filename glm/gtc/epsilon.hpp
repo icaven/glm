@@ -30,10 +30,10 @@ namespace glm
 	/// True if this expression is satisfied.
 	///
 	/// @see gtc_epsilon
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<bool, P> epsilonEqual(
-		vecType<T, P> const & x,
-		vecType<T, P> const & y,
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, bool, P> epsilonEqual(
+		vecType<D, T, P> const & x,
+		vecType<D, T, P> const & y,
 		T const & epsilon);
 
 	/// Returns the component-wise comparison of |x - y| < epsilon.

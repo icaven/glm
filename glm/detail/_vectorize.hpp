@@ -11,11 +11,11 @@
 namespace glm{
 namespace detail
 {
-	template <typename R, typename T, precision P, template <typename, precision> class vecType>
+	template <int D, typename R, typename T, precision P>
 	struct functor1{};
 
 	template <typename R, typename T, precision P>
-	struct functor1<R, T, P, tvec1>
+	struct functor1<1, R, T, P>
 	{
 		GLM_FUNC_QUALIFIER static tvec1<R, P> call(R (*Func) (T x), tvec1<T, P> const & v)
 		{
@@ -24,7 +24,7 @@ namespace detail
 	};
 
 	template <typename R, typename T, precision P>
-	struct functor1<R, T, P, tvec2>
+	struct functor1<2, R, T, P>
 	{
 		GLM_FUNC_QUALIFIER static tvec2<R, P> call(R (*Func) (T x), tvec2<T, P> const & v)
 		{
@@ -33,7 +33,7 @@ namespace detail
 	};
 
 	template <typename R, typename T, precision P>
-	struct functor1<R, T, P, tvec3>
+	struct functor1<3, R, T, P>
 	{
 		GLM_FUNC_QUALIFIER static tvec3<R, P> call(R (*Func) (T x), tvec3<T, P> const & v)
 		{
@@ -42,7 +42,7 @@ namespace detail
 	};
 
 	template <typename R, typename T, precision P>
-	struct functor1<R, T, P, tvec4>
+	struct functor1<4, R, T, P>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<R, P> call(R (*Func) (T x), tvec4<T, P> const & v)
 		{
@@ -50,11 +50,11 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P, template <typename, precision> class vecType>
+	template <int D, typename T, precision P>
 	struct functor2{};
 
 	template <typename T, precision P>
-	struct functor2<T, P, tvec1>
+	struct functor2<1, T, P>
 	{
 		GLM_FUNC_QUALIFIER static tvec1<T, P> call(T (*Func) (T x, T y), tvec1<T, P> const & a, tvec1<T, P> const & b)
 		{
@@ -63,7 +63,7 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct functor2<T, P, tvec2>
+	struct functor2<2, T, P>
 	{
 		GLM_FUNC_QUALIFIER static tvec2<T, P> call(T (*Func) (T x, T y), tvec2<T, P> const & a, tvec2<T, P> const & b)
 		{
@@ -72,7 +72,7 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct functor2<T, P, tvec3>
+	struct functor2<3, T, P>
 	{
 		GLM_FUNC_QUALIFIER static tvec3<T, P> call(T (*Func) (T x, T y), tvec3<T, P> const & a, tvec3<T, P> const & b)
 		{
@@ -81,7 +81,7 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct functor2<T, P, tvec4>
+	struct functor2<4, T, P>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<T, P> call(T (*Func) (T x, T y), tvec4<T, P> const & a, tvec4<T, P> const & b)
 		{
@@ -89,11 +89,11 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P, template <typename, precision> class vecType>
+	template <int D, typename T, precision P>
 	struct functor2_vec_sca{};
 
 	template <typename T, precision P>
-	struct functor2_vec_sca<T, P, tvec1>
+	struct functor2_vec_sca<1, T, P>
 	{
 		GLM_FUNC_QUALIFIER static tvec1<T, P> call(T (*Func) (T x, T y), tvec1<T, P> const & a, T b)
 		{
@@ -102,7 +102,7 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct functor2_vec_sca<T, P, tvec2>
+	struct functor2_vec_sca<2, T, P>
 	{
 		GLM_FUNC_QUALIFIER static tvec2<T, P> call(T (*Func) (T x, T y), tvec2<T, P> const & a, T b)
 		{
@@ -111,7 +111,7 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct functor2_vec_sca<T, P, tvec3>
+	struct functor2_vec_sca<3, T, P>
 	{
 		GLM_FUNC_QUALIFIER static tvec3<T, P> call(T (*Func) (T x, T y), tvec3<T, P> const & a, T b)
 		{
@@ -120,7 +120,7 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct functor2_vec_sca<T, P, tvec4>
+	struct functor2_vec_sca<4, T, P>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<T, P> call(T (*Func) (T x, T y), tvec4<T, P> const & a, T b)
 		{

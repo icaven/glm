@@ -5,10 +5,10 @@
 
 namespace glm
 {
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<float, P> floatNormalize(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, float, P> floatNormalize(vecType<D, T, P> const & v)
 	{
-		return vecType<float, P>(v) / static_cast<float>(std::numeric_limits<T>::max());
+		return vecType<D, float, P>(v) / static_cast<float>(std::numeric_limits<T>::max());
 	}
 
 }//namespace glm

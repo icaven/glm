@@ -14,11 +14,11 @@ namespace glm
 		return acos(clamp(dot(x, y), genType(-1), genType(1)));
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType> 
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER T angle
 	(
-		vecType<T, P> const & x,
-		vecType<T, P> const & y
+		vecType<D, T, P> const & x,
+		vecType<D, T, P> const & y
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'angle' only accept floating-point inputs");

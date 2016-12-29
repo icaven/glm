@@ -55,48 +55,48 @@ namespace glm
 		return abs(x - y) >= epsilon;
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<bool, P> epsilonEqual
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, bool, P> epsilonEqual
 	(
-		vecType<T, P> const & x,
-		vecType<T, P> const & y,
+		vecType<D, T, P> const & x,
+		vecType<D, T, P> const & y,
 		T const & epsilon
 	)
 	{
-		return lessThan(abs(x - y), vecType<T, P>(epsilon));
+		return lessThan(abs(x - y), vecType<D, T, P>(epsilon));
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<bool, P> epsilonEqual
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, bool, P> epsilonEqual
 	(
-		vecType<T, P> const & x,
-		vecType<T, P> const & y,
-		vecType<T, P> const & epsilon
+		vecType<D, T, P> const & x,
+		vecType<D, T, P> const & y,
+		vecType<D, T, P> const & epsilon
 	)
 	{
-		return lessThan(abs(x - y), vecType<T, P>(epsilon));
+		return lessThan(abs(x - y), vecType<D, T, P>(epsilon));
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<bool, P> epsilonNotEqual
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, bool, P> epsilonNotEqual
 	(
-		vecType<T, P> const & x,
-		vecType<T, P> const & y,
+		vecType<D, T, P> const & x,
+		vecType<D, T, P> const & y,
 		T const & epsilon
 	)
 	{
-		return greaterThanEqual(abs(x - y), vecType<T, P>(epsilon));
+		return greaterThanEqual(abs(x - y), vecType<D, T, P>(epsilon));
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<bool, P> epsilonNotEqual
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, bool, P> epsilonNotEqual
 	(
-		vecType<T, P> const & x,
-		vecType<T, P> const & y,
-		vecType<T, P> const & epsilon
+		vecType<D, T, P> const & x,
+		vecType<D, T, P> const & y,
+		vecType<D, T, P> const & epsilon
 	)
 	{
-		return greaterThanEqual(abs(x - y), vecType<T, P>(epsilon));
+		return greaterThanEqual(abs(x - y), vecType<D, T, P>(epsilon));
 	}
 
 	template <typename T, precision P>

@@ -39,8 +39,8 @@ namespace glm
 	/// Return true if the value is a power of two number.
 	///
 	/// @see gtc_round
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<bool, P> isPowerOfTwo(vecType<T, P> const & value);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, bool, P> isPowerOfTwo(vecType<D, T, P> const & value);
 
 	/// Return the power of two number which value is just higher the input value,
 	/// round up to a power of two.
@@ -53,8 +53,8 @@ namespace glm
 	/// round up to a power of two.
 	///
 	/// @see gtc_round
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> ceilPowerOfTwo(vecType<T, P> const & value);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> ceilPowerOfTwo(vecType<D, T, P> const & value);
 
 	/// Return the power of two number which value is just lower the input value,
 	/// round down to a power of two.
@@ -67,8 +67,8 @@ namespace glm
 	/// round down to a power of two.
 	///
 	/// @see gtc_round
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> floorPowerOfTwo(vecType<T, P> const & value);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> floorPowerOfTwo(vecType<D, T, P> const & value);
 
 	/// Return the power of two number which value is the closet to the input value.
 	///
@@ -79,8 +79,8 @@ namespace glm
 	/// Return the power of two number which value is the closet to the input value.
 	///
 	/// @see gtc_round
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> roundPowerOfTwo(vecType<T, P> const & value);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> roundPowerOfTwo(vecType<D, T, P> const & value);
 
 	/// Return true if the 'Value' is a multiple of 'Multiple'.
 	///
@@ -91,14 +91,14 @@ namespace glm
 	/// Return true if the 'Value' is a multiple of 'Multiple'.
 	///
 	/// @see gtc_round
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<bool, P> isMultiple(vecType<T, P> const & Value, T Multiple);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, bool, P> isMultiple(vecType<D, T, P> const & Value, T Multiple);
 
 	/// Return true if the 'Value' is a multiple of 'Multiple'.
 	///
 	/// @see gtc_round
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<bool, P> isMultiple(vecType<T, P> const & Value, vecType<T, P> const & Multiple);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, bool, P> isMultiple(vecType<D, T, P> const & Value, vecType<D, T, P> const & Multiple);
 
 	/// Higher multiple number of Source.
 	///
@@ -117,8 +117,8 @@ namespace glm
 	/// @param Multiple Must be a null or positive value
 	///
 	/// @see gtc_round
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> ceilMultiple(vecType<T, P> const & Source, vecType<T, P> const & Multiple);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> ceilMultiple(vecType<D, T, P> const & Source, vecType<D, T, P> const & Multiple);
 
 	/// Lower multiple number of Source.
 	///
@@ -139,10 +139,10 @@ namespace glm
 	/// @param Multiple Must be a null or positive value
 	///
 	/// @see gtc_round
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> floorMultiple(
-		vecType<T, P> const & Source,
-		vecType<T, P> const & Multiple);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> floorMultiple(
+		vecType<D, T, P> const & Source,
+		vecType<D, T, P> const & Multiple);
 
 	/// Lower multiple number of Source.
 	///
@@ -163,10 +163,10 @@ namespace glm
 	/// @param Multiple Must be a null or positive value
 	///
 	/// @see gtc_round
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> roundMultiple(
-		vecType<T, P> const & Source,
-		vecType<T, P> const & Multiple);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> roundMultiple(
+		vecType<D, T, P> const & Source,
+		vecType<D, T, P> const & Multiple);
 
 	/// @}
 } //namespace glm

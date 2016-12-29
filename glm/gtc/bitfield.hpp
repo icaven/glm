@@ -50,8 +50,8 @@ namespace glm
 	/// Rotate all bits to the right. All the bits dropped in the right side are inserted back on the left side.
 	///
 	/// @see gtc_bitfield
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> bitfieldRotateRight(vecType<T, P> const & In, int Shift);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> bitfieldRotateRight(vecType<D, T, P> const & In, int Shift);
 
 	/// Rotate all bits to the left. All the bits dropped in the left side are inserted back on the right side.
 	///
@@ -62,8 +62,8 @@ namespace glm
 	/// Rotate all bits to the left. All the bits dropped in the left side are inserted back on the right side.
 	///
 	/// @see gtc_bitfield
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> bitfieldRotateLeft(vecType<T, P> const & In, int Shift);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> bitfieldRotateLeft(vecType<D, T, P> const & In, int Shift);
 
 	/// Set to 1 a range of bits.
 	///
@@ -74,8 +74,8 @@ namespace glm
 	/// Set to 1 a range of bits.
 	///
 	/// @see gtc_bitfield
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> bitfieldFillOne(vecType<T, P> const & Value, int FirstBit, int BitCount);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> bitfieldFillOne(vecType<D, T, P> const & Value, int FirstBit, int BitCount);
 
 	/// Set to 0 a range of bits.
 	///
@@ -86,8 +86,8 @@ namespace glm
 	/// Set to 0 a range of bits.
 	///
 	/// @see gtc_bitfield
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> bitfieldFillZero(vecType<T, P> const & Value, int FirstBit, int BitCount);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> bitfieldFillZero(vecType<D, T, P> const & Value, int FirstBit, int BitCount);
 
 	/// Interleaves the bits of x and y.
 	/// The first bit is the first bit of x followed by the first bit of y.

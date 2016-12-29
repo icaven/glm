@@ -47,8 +47,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://stackoverflow.com/questions/7610631/glsl-mod-vs-hlsl-fmod">GLSL mod vs HLSL fmod</a>
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml">GLSL mod man page</a>
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> fmod(vecType<T, P> const & v);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> fmod(vecType<D, T, P> const & v);
 
 	/// @}
 }//namespace glm

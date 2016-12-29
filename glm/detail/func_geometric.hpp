@@ -23,9 +23,9 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/length.xml">GLSL length man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <typename T, precision P, template <typename, precision> class vecType>
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
 	GLM_FUNC_DECL T length(
-		vecType<T, P> const & x);
+		vecType<D, T, P> const & x);
 
 	/// Returns the distance betwwen p0 and p1, i.e., length(p0 - p1).
 	///
@@ -33,10 +33,10 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/distance.xml">GLSL distance man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <typename T, precision P, template <typename, precision> class vecType>
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
 	GLM_FUNC_DECL T distance(
-		vecType<T, P> const & p0,
-		vecType<T, P> const & p1);
+		vecType<D, T, P> const & p0,
+		vecType<D, T, P> const & p1);
 
 	/// Returns the dot product of x and y, i.e., result = x * y.
 	///
@@ -44,10 +44,10 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/dot.xml">GLSL dot man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <typename T, precision P, template <typename, precision> class vecType>
+	template <int D, typename T, precision P>
 	GLM_FUNC_DECL T dot(
-		vecType<T, P> const & x,
-		vecType<T, P> const & y);
+		tvec<D, T, P> const & x,
+		tvec<D, T, P> const & y);
 
 	/// Returns the cross product of x and y.
 	///
@@ -65,9 +65,9 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/normalize.xml">GLSL normalize man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> normalize(
-		vecType<T, P> const & x);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> normalize(
+		vecType<D, T, P> const & x);
 
 	/// If dot(Nref, I) < 0.0, return N, otherwise, return -N.
 	///
@@ -75,11 +75,11 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/faceforward.xml">GLSL faceforward man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> faceforward(
-		vecType<T, P> const & N,
-		vecType<T, P> const & I,
-		vecType<T, P> const & Nref);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> faceforward(
+		vecType<D, T, P> const & N,
+		vecType<D, T, P> const & I,
+		vecType<D, T, P> const & Nref);
 
 	/// For the incident vector I and surface orientation N, 
 	/// returns the reflection direction : result = I - 2.0 * dot(N, I) * N.
@@ -101,10 +101,10 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/refract.xml">GLSL refract man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> refract(
-		vecType<T, P> const & I,
-		vecType<T, P> const & N,
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> refract(
+		vecType<D, T, P> const & I,
+		vecType<D, T, P> const & N,
 		T eta);
 
 	/// @}

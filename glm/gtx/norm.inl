@@ -6,10 +6,10 @@
 namespace glm{
 namespace detail
 {
-	template <template <typename, precision> class vecType, typename T, precision P, bool Aligned>
+	template <template <int, typename, precision> class vecType, int D, typename T, precision P, bool Aligned>
 	struct compute_length2
 	{
-		GLM_FUNC_QUALIFIER static T call(vecType<T, P> const & v)
+		GLM_FUNC_QUALIFIER static T call(vecType<D, T, P> const & v)
 		{
 			return dot(v, v);
 		}
@@ -23,11 +23,11 @@ namespace detail
 		return x * x;
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER T length2(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER T length2(vecType<D, T, P> const & v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'length2' accepts only floating-point inputs");
-		return detail::compute_length2<vecType, T, P, detail::is_aligned<P>::value>::call(v);
+		return detail::compute_length2<vecType, D, T, P, detail::is_aligned<P>::value>::call(v);
 	}
 
 	template <typename T>
@@ -37,8 +37,8 @@ namespace detail
 		return length2(p1 - p0);
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER T distance2(vecType<T, P> const & p0, vecType<T, P> const & p1)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER T distance2(vecType<D, T, P> const & p0, vecType<D, T, P> const & p1)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'distance2' accepts only floating-point inputs");
 		return length2(p1 - p0);

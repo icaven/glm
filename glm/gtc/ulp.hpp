@@ -54,8 +54,8 @@ namespace glm
 
 	/// Return the distance in the number of ULP between 2 vectors.
 	/// @see gtc_ulp
-	template<typename T, template<typename> class vecType>
-	GLM_FUNC_DECL vecType<uint> float_distance(vecType<T> const & x, vecType<T> const & y);
+	template<typename T, template<int, typename> class vecType>
+	GLM_FUNC_DECL vecType<2, uint> float_distance(vecType<2, T> const & x, vecType<2, T> const & y);
 	
 	/// @}
 }// namespace glm

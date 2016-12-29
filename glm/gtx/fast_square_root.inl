@@ -12,10 +12,10 @@ namespace glm
 		return genType(1) / fastInverseSqrt(x);
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> fastSqrt(vecType<T, P> const & x)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> fastSqrt(vecType<D, T, P> const & x)
 	{
-		return detail::functor1<T, T, P, vecType>::call(fastSqrt, x);
+		return detail::functor1<D, T, T, P>::call(fastSqrt, x);
 	}
 
 	// fastInversesqrt
@@ -26,14 +26,14 @@ namespace glm
 			tvec1<T, P> tmp(detail::compute_inversesqrt<tvec1, genType, lowp, detail::is_aligned<lowp>::value>::call(tvec1<genType, lowp>(x)));
 			return tmp.x;
 #		else
-			return detail::compute_inversesqrt<tvec1, genType, highp, detail::is_aligned<highp>::value>::call(tvec1<genType, lowp>(x)).x;
+			return detail::compute_inversesqrt<1, genType, highp, detail::is_aligned<highp>::value>::call(tvec1<genType, lowp>(x)).x;
 #		endif
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> fastInverseSqrt(vecType<T, P> const & x)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> fastInverseSqrt(vecType<D, T, P> const & x)
 	{
-		return detail::compute_inversesqrt<vecType, T, P, detail::is_aligned<P>::value>::call(x);
+		return detail::compute_inversesqrt<D, T, P, detail::is_aligned<P>::value>::call(x);
 	}
 
 	// fastLength
@@ -45,8 +45,8 @@ namespace glm
 		return abs(x);
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER T fastLength(vecType<T, P> const & x)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER T fastLength(vecType<D, T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'fastLength' only accept floating-point inputs");
 
@@ -60,8 +60,8 @@ namespace glm
 		return fastLength(y - x);
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER T fastDistance(vecType<T, P> const & x, vecType<T, P> const & y)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER T fastDistance(vecType<D, T, P> const & x, vecType<D, T, P> const & y)
 	{
 		return fastLength(y - x);
 	}
@@ -73,8 +73,8 @@ namespace glm
 		return x > genType(0) ? genType(1) : -genType(1);
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> fastNormalize(vecType<T, P> const & x)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> fastNormalize(vecType<D, T, P> const & x)
 	{
 		return x * fastInverseSqrt(dot(x, x));
 	}

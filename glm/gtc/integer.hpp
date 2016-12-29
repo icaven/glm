@@ -55,8 +55,8 @@ namespace glm
 	/// @see gtc_integer
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml">GLSL mod man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> mod(vecType<T, P> const & x, T y);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> mod(vecType<D, T, P> const & x, T y);
 
 	/// Modulus. Returns x % y
 	/// for each component in x using the floating point value y.
@@ -67,8 +67,8 @@ namespace glm
 	/// @see gtc_integer
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml">GLSL mod man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> mod(vecType<T, P> const & x, vecType<T, P> const & y);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> mod(vecType<D, T, P> const & x, vecType<D, T, P> const & y);
 
 	/// Returns a value equal to the nearest integer to x.
 	/// The fraction 0.5 will round in a direction chosen by the
@@ -80,8 +80,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/round.xml">GLSL round man page</a>
 	/// @see gtc_integer
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<int, P> iround(vecType<T, P> const & x);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, int, P> iround(vecType<D, T, P> const & x);
 
 	/// Returns a value equal to the nearest integer to x.
 	/// The fraction 0.5 will round in a direction chosen by the
@@ -93,8 +93,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/round.xml">GLSL round man page</a>
 	/// @see gtc_integer
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<uint, P> uround(vecType<T, P> const & x);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, uint, P> uround(vecType<D, T, P> const & x);
 
 	/// @}
 } //namespace glm

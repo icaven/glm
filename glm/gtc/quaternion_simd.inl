@@ -62,7 +62,7 @@ namespace detail
 */
 
 	template <precision P>
-	struct compute_dot<tquat, float, P, true>
+	struct compute_dot<tquat<float, P>, float, true>
 	{
 		static GLM_FUNC_QUALIFIER float call(tquat<float, P> const& x, tquat<float, P> const& y)
 		{

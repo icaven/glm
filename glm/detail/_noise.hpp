@@ -42,7 +42,7 @@ namespace detail
 	}
 /*
 	template <typename T, precision P, template<typename> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> permute(vecType<T, P> const & x)
+	GLM_FUNC_QUALIFIER vecType<D, T, P> permute(vecType<D, T, P> const & x)
 	{
 		return mod289(((x * T(34)) + T(1)) * x);
 	}
@@ -72,7 +72,7 @@ namespace detail
 	}
 /*
 	template <typename T, precision P, template<typename> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> taylorInvSqrt(vecType<T, P> const & r)
+	GLM_FUNC_QUALIFIER vecType<D, T, P> taylorInvSqrt(vecType<D, T, P> const & r)
 	{
 		return T(1.79284291400159) - T(0.85373472095314) * r;
 	}
@@ -97,7 +97,7 @@ namespace detail
 	}
 /*
 	template <typename T, precision P, template <typename> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> fade(vecType<T, P> const & t)
+	GLM_FUNC_QUALIFIER vecType<D, T, P> fade(vecType<D, T, P> const & t)
 	{
 		return (t * t * t) * (t * (t * T(6) - T(15)) + T(10));
 	}

@@ -33,15 +33,15 @@ namespace glm
 	/// It's faster that dot(normalize(x), normalize(y)).
 	///
 	/// @see gtx_normalize_dot extension.
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL T normalizeDot(vecType<T, P> const & x, vecType<T, P> const & y);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL T normalizeDot(vecType<D, T, P> const & x, vecType<D, T, P> const & y);
 
 	/// Normalize parameters and returns the dot product of x and y.
 	/// Faster that dot(fastNormalize(x), fastNormalize(y)).
 	///
 	/// @see gtx_normalize_dot extension.
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL T fastNormalizeDot(vecType<T, P> const & x, vecType<T, P> const & y);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL T fastNormalizeDot(vecType<D, T, P> const & x, vecType<D, T, P> const & y);
 
 	/// @}
 }//namespace glm

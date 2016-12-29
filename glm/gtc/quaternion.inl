@@ -10,11 +10,11 @@ namespace glm{
 namespace detail
 {
 	template <typename T, precision P, bool Aligned>
-	struct compute_dot<tquat, T, P, Aligned>
+	struct compute_dot<tquat<T, P>, T, Aligned>
 	{
-		static GLM_FUNC_QUALIFIER T call(tquat<T, P> const& x, tquat<T, P> const& y)
+		static GLM_FUNC_QUALIFIER T call(tquat<T, P> const& a, tquat<T, P> const& b)
 		{
-			tvec4<T, P> tmp(x.x * y.x, x.y * y.y, x.z * y.z, x.w * y.w);
+			tvec4<T, P> tmp(a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w);
 			return (tmp.x + tmp.y) + (tmp.z + tmp.w);
 		}
 	};
@@ -154,7 +154,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(tvec3<T, P> const & u, tvec3<T, P> const & v)
 	{
 		tvec3<T, P> const LocalW(cross(u, v));
-		T Dot = detail::compute_dot<tvec3, T, P, detail::is_aligned<P>::value>::call(u, v);
+		T Dot = detail::compute_dot<tvec<3, T, P>, T, detail::is_aligned<P>::value>::call(u, v);
 		tquat<T, P> q(T(1) + Dot, LocalW.x, LocalW.y, LocalW.z);
 
 		*this = normalize(q);

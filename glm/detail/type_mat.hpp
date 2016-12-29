@@ -8,13 +8,11 @@
 namespace glm{
 namespace detail
 {
-	template <typename T, precision P, template <class, precision> class colType, template <class, precision> class rowType>
+	template <int Columns, int Rows, typename T, precision P, template <int, class, precision> class colType, template <int, class, precision> class rowType>
 	struct outerProduct_trait{};
 }//namespace detail
 
-	template <typename T, precision P> struct tvec2;
-	template <typename T, precision P> struct tvec3;
-	template <typename T, precision P> struct tvec4;
+	template <int D, typename T, precision P> struct tvec;
 	template <typename T, precision P> struct tmat2x2;
 	template <typename T, precision P> struct tmat2x3;
 	template <typename T, precision P> struct tmat2x4;

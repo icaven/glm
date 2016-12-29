@@ -3,8 +3,8 @@
 
 namespace gli
 {
-	template <typename T, precision P, template <typename, precision> class vecType>
-	inline T levels(vecType<T, P> const& Extent)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	inline T levels(vecType<D, T, P> const& Extent)
 	{
 		return glm::log2(compMax(Extent)) + static_cast<T>(1);
 	}

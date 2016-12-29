@@ -61,7 +61,7 @@ namespace detail
 }//namespace detail
 
 	template<>
-	GLM_FUNC_QUALIFIER tmat4x4<float, aligned_lowp> outerProduct<float, aligned_lowp, tvec4, tvec4>(tvec4<float, aligned_lowp> const & c, tvec4<float, aligned_lowp> const & r)
+	GLM_FUNC_QUALIFIER tmat4x4<float, aligned_lowp> outerProduct<4, 4, float, aligned_lowp, tvec, tvec>(tvec4<float, aligned_lowp> const & c, tvec4<float, aligned_lowp> const & r)
 	{
 		tmat4x4<float, aligned_lowp> m(uninitialize);
 		glm_mat4_outerProduct(c.data, r.data, *reinterpret_cast<__m128(*)[4]>(&m[0].data));
@@ -69,7 +69,7 @@ namespace detail
 	}
 
 	template<>
-	GLM_FUNC_QUALIFIER tmat4x4<float, aligned_mediump> outerProduct<float, aligned_mediump, tvec4, tvec4>(tvec4<float, aligned_mediump> const & c, tvec4<float, aligned_mediump> const & r)
+	GLM_FUNC_QUALIFIER tmat4x4<float, aligned_mediump> outerProduct<4, 4, float, aligned_mediump, tvec, tvec>(tvec4<float, aligned_mediump> const & c, tvec4<float, aligned_mediump> const & r)
 	{
 		tmat4x4<float, aligned_mediump> m(uninitialize);
 		glm_mat4_outerProduct(c.data, r.data, *reinterpret_cast<__m128(*)[4]>(&m[0].data));
@@ -77,7 +77,7 @@ namespace detail
 	}
 
 	template<>
-	GLM_FUNC_QUALIFIER tmat4x4<float, aligned_highp> outerProduct<float, aligned_highp, tvec4, tvec4>(tvec4<float, aligned_highp> const & c, tvec4<float, aligned_highp> const & r)
+	GLM_FUNC_QUALIFIER tmat4x4<float, aligned_highp> outerProduct<4, 4, float, aligned_highp, tvec, tvec>(tvec4<float, aligned_highp> const & c, tvec4<float, aligned_highp> const & r)
 	{
 		tmat4x4<float, aligned_highp> m(uninitialize);
 		glm_mat4_outerProduct(c.data, r.data, *reinterpret_cast<__m128(*)[4]>(&m[0].data));

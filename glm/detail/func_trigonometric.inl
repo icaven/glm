@@ -16,10 +16,10 @@ namespace glm
 		return degrees * static_cast<genType>(0.01745329251994329576923690768489);
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vecType<T, P> radians(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vecType<D, T, P> radians(vecType<D, T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(radians, v);
+		return detail::functor1<D, T, T, P>::call(radians, v);
 	}
 	
 	// degrees
@@ -31,55 +31,55 @@ namespace glm
 		return radians * static_cast<genType>(57.295779513082320876798154814105);
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vecType<T, P> degrees(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vecType<D, T, P> degrees(vecType<D, T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(degrees, v);
+		return detail::functor1<D, T, T, P>::call(degrees, v);
 	}
 
 	// sin
 	using ::std::sin;
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> sin(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> sin(vecType<D, T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(sin, v);
+		return detail::functor1<D, T, T, P>::call(sin, v);
 	}
 
 	// cos
 	using std::cos;
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> cos(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> cos(vecType<D, T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(cos, v);
+		return detail::functor1<D, T, T, P>::call(cos, v);
 	}
 
 	// tan
 	using std::tan;
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> tan(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> tan(vecType<D, T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(tan, v);
+		return detail::functor1<D, T, T, P>::call(tan, v);
 	}
 
 	// asin
 	using std::asin;
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> asin(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> asin(vecType<D, T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(asin, v);
+		return detail::functor1<D, T, T, P>::call(asin, v);
 	}
 
 	// acos
 	using std::acos;
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> acos(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> acos(vecType<D, T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(acos, v);
+		return detail::functor1<D, T, T, P>::call(acos, v);
 	}
 
 	// atan
@@ -91,45 +91,45 @@ namespace glm
 		return ::std::atan2(y, x);
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> atan(vecType<T, P> const & a, vecType<T, P> const & b)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> atan(vecType<D, T, P> const & a, vecType<D, T, P> const & b)
 	{
-		return detail::functor2<T, P, vecType>::call(::std::atan2, a, b);
+		return detail::functor2<D, T, P>::call(::std::atan2, a, b);
 	}
 
 	using std::atan;
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> atan(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> atan(vecType<D, T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(atan, v);
+		return detail::functor1<D, T, T, P>::call(atan, v);
 	}
 
 	// sinh
 	using std::sinh;
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> sinh(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> sinh(vecType<D, T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(sinh, v);
+		return detail::functor1<D, T, T, P>::call(sinh, v);
 	}
 
 	// cosh
 	using std::cosh;
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> cosh(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> cosh(vecType<D, T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(cosh, v);
+		return detail::functor1<D, T, T, P>::call(cosh, v);
 	}
 
 	// tanh
 	using std::tanh;
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> tanh(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> tanh(vecType<D, T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(tanh, v);
+		return detail::functor1<D, T, T, P>::call(tanh, v);
 	}
 
 	// asinh
@@ -145,10 +145,10 @@ namespace glm
 		}
 #	endif
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> asinh(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> asinh(vecType<D, T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(asinh, v);
+		return detail::functor1<D, T, T, P>::call(asinh, v);
 	}
 
 	// acosh
@@ -166,10 +166,10 @@ namespace glm
 		}
 #	endif
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> acosh(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> acosh(vecType<D, T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(acosh, v);
+		return detail::functor1<D, T, T, P>::call(acosh, v);
 	}
 
 	// atanh
@@ -187,10 +187,10 @@ namespace glm
 		}
 #	endif
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> atanh(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> atanh(vecType<D, T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(atanh, v);
+		return detail::functor1<D, T, T, P>::call(atanh, v);
 	}
 }//namespace glm
 

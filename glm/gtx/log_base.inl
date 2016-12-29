@@ -10,8 +10,8 @@ namespace glm
 		return glm::log(x) / glm::log(base);
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> log(vecType<T, P> const & x, vecType<T, P> const & base)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> log(vecType<D, T, P> const & x, vecType<D, T, P> const & base)
 	{
 		return glm::log(x) / glm::log(base);
 	}

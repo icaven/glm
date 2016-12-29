@@ -35,55 +35,55 @@ namespace glm{
 namespace detail
 {
 	template <typename T, precision P>
-	struct outerProduct_trait<T, P, tvec2, tvec2>
+	struct outerProduct_trait<2, 2, T, P, tvec, tvec>
 	{
 		typedef tmat2x2<T, P> type;
 	};
 
 	template <typename T, precision P>
-	struct outerProduct_trait<T, P, tvec2, tvec3>
+	struct outerProduct_trait<2, 3, T, P, tvec, tvec>
 	{
 		typedef tmat3x2<T, P> type;
 	};
 
 	template <typename T, precision P>
-	struct outerProduct_trait<T, P, tvec2, tvec4>
+	struct outerProduct_trait<2, 4, T, P, tvec, tvec>
 	{
 		typedef tmat4x2<T, P> type;
 	};
 
 	template <typename T, precision P>
-	struct outerProduct_trait<T, P, tvec3, tvec2>
+	struct outerProduct_trait<3, 2, T, P, tvec, tvec>
 	{
 		typedef tmat2x3<T, P> type;
 	};
 
 	template <typename T, precision P>
-	struct outerProduct_trait<T, P, tvec3, tvec3>
+	struct outerProduct_trait<3, 3, T, P, tvec, tvec>
 	{
 		typedef tmat3x3<T, P> type;
 	};
 
 	template <typename T, precision P>
-	struct outerProduct_trait<T, P, tvec3, tvec4>
+	struct outerProduct_trait<3, 4, T, P, tvec, tvec>
 	{
 		typedef tmat4x3<T, P> type;
 	};
 
 	template <typename T, precision P>
-	struct outerProduct_trait<T, P, tvec4, tvec2>
+	struct outerProduct_trait<4, 2, T, P, tvec, tvec>
 	{
 		typedef tmat2x4<T, P> type;
 	};
 
 	template <typename T, precision P>
-	struct outerProduct_trait<T, P, tvec4, tvec3>
+	struct outerProduct_trait<4, 3, T, P, tvec, tvec>
 	{
 		typedef tmat3x4<T, P> type;
 	};
 
 	template <typename T, precision P>
-	struct outerProduct_trait<T, P, tvec4, tvec4>
+	struct outerProduct_trait<4, 4, T, P, tvec, tvec>
 	{
 		typedef tmat4x4<T, P> type;
 	};
@@ -111,8 +111,8 @@ namespace detail
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/outerProduct.xml">GLSL outerProduct man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
-	template <typename T, precision P, template <typename, precision> class vecTypeA, template <typename, precision> class vecTypeB>
-	GLM_FUNC_DECL typename detail::outerProduct_trait<T, P, vecTypeA, vecTypeB>::type outerProduct(vecTypeA<T, P> const & c, vecTypeB<T, P> const & r);
+	template <int DA, int DB, typename T, precision P, template <int, typename, precision> class vecTypeA, template <int, typename, precision> class vecTypeB>
+	GLM_FUNC_DECL typename detail::outerProduct_trait<DA, DB, T, P, vecTypeA, vecTypeB>::type outerProduct(vecTypeA<DA, T, P> const & c, vecTypeB<DB, T, P> const & r);
 
 	/// Returns the transposed matrix of x
 	/// 

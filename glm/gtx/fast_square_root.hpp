@@ -41,8 +41,8 @@ namespace glm
 	/// Faster than the common sqrt function but less accurate.
 	///
 	/// @see gtx_fast_square_root extension.
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> fastSqrt(vecType<T, P> const & x);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> fastSqrt(vecType<D, T, P> const & x);
 
 	/// Faster than the common inversesqrt function but less accurate.
 	///
@@ -53,8 +53,8 @@ namespace glm
 	/// Faster than the common inversesqrt function but less accurate.
 	///
 	/// @see gtx_fast_square_root extension.
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> fastInverseSqrt(vecType<T, P> const & x);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> fastInverseSqrt(vecType<D, T, P> const & x);
 
 	/// Faster than the common length function but less accurate.
 	///
@@ -65,8 +65,8 @@ namespace glm
 	/// Faster than the common length function but less accurate.
 	///
 	/// @see gtx_fast_square_root extension.
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL T fastLength(vecType<T, P> const & x);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL T fastLength(vecType<D, T, P> const & x);
 
 	/// Faster than the common distance function but less accurate.
 	///
@@ -77,8 +77,8 @@ namespace glm
 	/// Faster than the common distance function but less accurate.
 	///
 	/// @see gtx_fast_square_root extension.
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL T fastDistance(vecType<T, P> const & x, vecType<T, P> const & y);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL T fastDistance(vecType<D, T, P> const & x, vecType<D, T, P> const & y);
 
 	/// Faster than the common normalize function but less accurate.
 	///

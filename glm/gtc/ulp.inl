@@ -199,10 +199,10 @@ namespace glm
 #		endif
 	}
 
-	template<typename T, precision P, template<typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> next_float(vecType<T, P> const & x)
+	template<int D, typename T, precision P, template<int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> next_float(vecType<D, T, P> const & x)
 	{
-		vecType<T, P> Result(uninitialize);
+		vecType<D, T, P> Result(uninitialize);
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = next_float(x[i]);
 		return Result;
@@ -234,10 +234,10 @@ namespace glm
 #		endif
 	}
 
-	template<typename T, precision P, template<typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> prev_float(vecType<T, P> const & x)
+	template<int D, typename T, precision P, template<int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> prev_float(vecType<D, T, P> const & x)
 	{
-		vecType<T, P> Result(uninitialize);
+		vecType<D, T, P> Result(uninitialize);
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = prev_float(x[i]);
 		return Result;
@@ -252,10 +252,10 @@ namespace glm
 		return temp;
 	}
 
-	template<typename T, precision P, template<typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> next_float(vecType<T, P> const & x, vecType<uint, P> const & ulps)
+	template<int D, typename T, precision P, template<int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> next_float(vecType<D, T, P> const & x, vecType<D, uint, P> const & ulps)
 	{
-		vecType<T, P> Result(uninitialize);
+		vecType<D, T, P> Result(uninitialize);
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = next_float(x[i], ulps[i]);
 		return Result;
@@ -270,10 +270,10 @@ namespace glm
 		return temp;
 	}
 
-	template<typename T, precision P, template<typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> prev_float(vecType<T, P> const & x, vecType<uint, P> const & ulps)
+	template<int D, typename T, precision P, template<int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> prev_float(vecType<D, T, P> const & x, vecType<D, uint, P> const & ulps)
 	{
-		vecType<T, P> Result(uninitialize);
+		vecType<D, T, P> Result(uninitialize);
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = prev_float(x[i], ulps[i]);
 		return Result;
@@ -310,10 +310,10 @@ namespace glm
 		return ulp;
 	}
 
-	template<typename T, precision P, template<typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<uint, P> float_distance(vecType<T, P> const & x, vecType<T, P> const & y)
+	template<int D, typename T, precision P, template<int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, uint, P> float_distance(vecType<D, T, P> const & x, vecType<D, T, P> const & y)
 	{
-		vecType<uint, P> Result(uninitialize);
+		vecType<D, uint, P> Result(uninitialize);
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = float_distance(x[i], y[i]);
 		return Result;

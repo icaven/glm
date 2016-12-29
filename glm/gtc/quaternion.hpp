@@ -190,8 +190,8 @@ namespace glm
 	/// Returns dot product of q1 and q2, i.e., q1[0] * q2[0] + q1[1] * q2[1] + ...
 	/// 
 	/// @see gtc_quaternion
-	template <typename T, precision P, template <typename, precision> class quatType>
-	GLM_FUNC_DECL T dot(quatType<T, P> const & x, quatType<T, P> const & y);
+	template <typename T, precision P>
+	GLM_FUNC_DECL T dot(tquat<T, P> const & x, tquat<T, P> const & y);
 
 	/// Spherical linear interpolation of two quaternions.
 	/// The interpolation is oriented and the rotation is performed at constant speed.

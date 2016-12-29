@@ -19,10 +19,10 @@ namespace glm
 		return result;
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> highestBitValue(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> highestBitValue(vecType<D, T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(highestBitValue, v);
+		return detail::functor1<D, T, T, P>::call(highestBitValue, v);
 	}
 
 	///////////////////
@@ -34,10 +34,10 @@ namespace glm
 		return (Value & (~Value + 1));
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> lowestBitValue(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> lowestBitValue(vecType<D, T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(lowestBitValue, v);
+		return detail::functor1<D, T, T, P>::call(lowestBitValue, v);
 	}
 
 	///////////////////
@@ -49,10 +49,10 @@ namespace glm
 		return isPowerOfTwo(value) ? value : highestBitValue(value) << 1;
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> powerOfTwoAbove(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> powerOfTwoAbove(vecType<D, T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(powerOfTwoAbove, v);
+		return detail::functor1<D, T, T, P>::call(powerOfTwoAbove, v);
 	}
 
 	///////////////////
@@ -64,10 +64,10 @@ namespace glm
 		return isPowerOfTwo(value) ? value : highestBitValue(value);
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> powerOfTwoBelow(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> powerOfTwoBelow(vecType<D, T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(powerOfTwoBelow, v);
+		return detail::functor1<D, T, T, P>::call(powerOfTwoBelow, v);
 	}
 
 	/////////////////////
@@ -84,10 +84,10 @@ namespace glm
 		return (next - value) < (value - prev) ? next : prev;
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> powerOfTwoNearest(vecType<T, P> const & v)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> powerOfTwoNearest(vecType<D, T, P> const & v)
 	{
-		return detail::functor1<T, T, P, vecType>::call(powerOfTwoNearest, v);
+		return detail::functor1<D, T, T, P>::call(powerOfTwoNearest, v);
 	}
 
 }//namespace glm

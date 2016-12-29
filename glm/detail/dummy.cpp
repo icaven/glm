@@ -167,7 +167,7 @@ glm::vec3 lighting
 
 /*
 template <typename T, glm::precision P, template<typename, glm::precision> class vecType>
-T normalizeDotA(vecType<T, P> const & x, vecType<T, P> const & y)
+T normalizeDotA(vecType<D, T, P> const & x, vecType<D, T, P> const & y)
 {
 	return glm::dot(x, y) * glm::inversesqrt(glm::dot(x, x) * glm::dot(y, y));
 }
@@ -175,7 +175,7 @@ T normalizeDotA(vecType<T, P> const & x, vecType<T, P> const & y)
 #define GLM_TEMPLATE_GENTYPE typename T, glm::precision P, template<typename, glm::precision> class
 
 template <GLM_TEMPLATE_GENTYPE vecType>
-T normalizeDotB(vecType<T, P> const & x, vecType<T, P> const & y)
+T normalizeDotB(vecType<D, T, P> const & x, vecType<D, T, P> const & y)
 {
 	return glm::dot(x, y) * glm::inversesqrt(glm::dot(x, x) * glm::dot(y, y));
 }

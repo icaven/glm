@@ -6,11 +6,11 @@
 namespace glm{
 namespace detail
 {
-	template <typename T, precision P, template <typename, precision> class vecType>
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
 	struct compute_areCollinear{};
 
 	template <typename T, precision P>
-	struct compute_areCollinear<T, P, tvec2>
+	struct compute_areCollinear<2, T, P, tvec>
 	{
 		GLM_FUNC_QUALIFIER static bool call(tvec2<T, P> const & v0, tvec2<T, P> const & v1, T const & epsilon)
 		{
@@ -19,7 +19,7 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct compute_areCollinear<T, P, tvec3>
+	struct compute_areCollinear<3, T, P, tvec>
 	{
 		GLM_FUNC_QUALIFIER static bool call(tvec3<T, P> const & v0, tvec3<T, P> const & v1, T const & epsilon)
 		{
@@ -28,7 +28,7 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct compute_areCollinear<T, P, tvec4>
+	struct compute_areCollinear<4, T, P, tvec>
 	{
 		GLM_FUNC_QUALIFIER static bool call(tvec4<T, P> const & v0, tvec4<T, P> const & v1, T const & epsilon)
 		{
@@ -36,11 +36,11 @@ namespace detail
 		}
 	};
 
-	template <typename T, precision P, template <typename, precision> class vecType>
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
 	struct compute_isCompNull{};
 
 	template <typename T, precision P>
-	struct compute_isCompNull<T, P, tvec2>
+	struct compute_isCompNull<2, T, P, tvec>
 	{
 		GLM_FUNC_QUALIFIER static tvec2<bool, P> call(tvec2<T, P> const & v, T const & epsilon)
 		{
@@ -51,7 +51,7 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct compute_isCompNull<T, P, tvec3>
+	struct compute_isCompNull<3, T, P, tvec>
 	{
 		GLM_FUNC_QUALIFIER static tvec3<bool, P> call(tvec3<T, P> const & v, T const & epsilon)
 		{
@@ -63,7 +63,7 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct compute_isCompNull<T, P, tvec4>
+	struct compute_isCompNull<4, T, P, tvec>
 	{
 		GLM_FUNC_QUALIFIER static tvec4<bool, P> call(tvec4<T, P> const & v, T const & epsilon)
 		{
@@ -77,24 +77,24 @@ namespace detail
 
 }//namespace detail
 
-	template <typename T, precision P, template <typename, precision> class vecType>
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER bool areCollinear
 	(
-		vecType<T, P> const & v0,
-		vecType<T, P> const & v1,
+		vecType<D, T, P> const & v0,
+		vecType<D, T, P> const & v1,
 		T const & epsilon
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'areCollinear' only accept floating-point inputs");
 
-		return detail::compute_areCollinear<T, P, vecType>::call(v0, v1, epsilon);
+		return detail::compute_areCollinear<D, T, P, vecType>::call(v0, v1, epsilon);
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER bool areOrthogonal
 	(
-		vecType<T, P> const & v0,
-		vecType<T, P> const & v1,
+		vecType<D, T, P> const & v0,
+		vecType<D, T, P> const & v1,
 		T const & epsilon
 	)
 	{
@@ -105,10 +105,10 @@ namespace detail
 			length(v0)) * max(static_cast<T>(1), length(v1)) * epsilon;
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER bool isNormalized
 	(
-		vecType<T, P> const & v,
+		vecType<D, T, P> const & v,
 		T const & epsilon
 	)
 	{
@@ -117,10 +117,10 @@ namespace detail
 		return abs(length(v) - static_cast<T>(1)) <= static_cast<T>(2) * epsilon;
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER bool isNull
 	(
-		vecType<T, P> const & v,
+		vecType<D, T, P> const & v,
 		T const & epsilon
 	)
 	{
@@ -129,16 +129,16 @@ namespace detail
 		return length(v) <= epsilon;
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<bool, P> isCompNull
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, bool, P> isCompNull
 	(
-		vecType<T, P> const & v,
+		vecType<D, T, P> const & v,
 		T const & epsilon
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isCompNull' only accept floating-point inputs");
 
-		return detail::compute_isCompNull<T, P, vecType>::call(v, epsilon);
+		return detail::compute_isCompNull<D, T, P, vecType>::call(v, epsilon);
 	}
 
 	template <typename T, precision P>
@@ -179,11 +179,11 @@ namespace detail
 			abs(v.w) < epsilon);
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER bool areOrthonormal
 	(
-		vecType<T, P> const & v0,
-		vecType<T, P> const & v1,
+		vecType<D, T, P> const & v0,
+		vecType<D, T, P> const & v1,
 		T const & epsilon
 	)
 	{

@@ -44,10 +44,10 @@ namespace glm
 	/// @tparam T Value type. Currently supported: float or double.
 	/// @tparam vecType A vertor type: tvec1, tvec2, tvec3, tvec4 or compatible
 	/// @see gtc_random
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> linearRand(
-		vecType<T, P> const & Min,
-		vecType<T, P> const & Max);
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> linearRand(
+		vecType<D, T, P> const & Min,
+		vecType<D, T, P> const & Max);
 
 	/// Generate random numbers in the interval [Min, Max], according a gaussian distribution 
 	/// 

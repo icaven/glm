@@ -101,10 +101,12 @@ namespace detail
 #	endif
 }//namespace detail
 
-	template <typename T, precision P> struct tvec1;
-	template <typename T, precision P> struct tvec2;
-	template <typename T, precision P> struct tvec3;
-	template <typename T, precision P> struct tvec4;
+	template <int D, typename T, precision P = defaultp> struct tvec;
+
+	template <typename T, precision P = defaultp> using tvec1 = tvec<1, T, P>;
+	template <typename T, precision P = defaultp> using tvec2 = tvec<2, T, P>;
+	template <typename T, precision P = defaultp> using tvec3 = tvec<3, T, P>;
+	template <typename T, precision P = defaultp> using tvec4 = tvec<4, T, P>;
 
 	typedef tvec1<float, highp>		highp_vec1_t;
 	typedef tvec1<float, mediump>	mediump_vec1_t;

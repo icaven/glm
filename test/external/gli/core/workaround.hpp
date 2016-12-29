@@ -73,14 +73,14 @@ namespace detail
 		uint32 pack;
 	};
 
-	template <typename T, typename floatType, precision P, template <typename, precision> class vecType, bool isInteger, bool signedType>
+	template <typename T, typename floatType, precision P, template <int, typename, precision> class vecType, bool isInteger, bool signedType>
 	struct compute_compNormalize
 	{};
 
-	template <typename T, typename floatType, precision P, template <typename, precision> class vecType>
+	template <typename T, typename floatType, precision P, template <int, typename, precision> class vecType>
 	struct compute_compNormalize<T, floatType, P, vecType, true, true>
 	{
-		GLM_FUNC_QUALIFIER static vecType<floatType, P> call(vecType<T, P> const & v)
+		GLM_FUNC_QUALIFIER static vecType<floatType, P> call(vecType<D, T, P> const & v)
 		{
 			floatType const Min = static_cast<floatType>(std::numeric_limits<T>::min());
 			floatType const Max = static_cast<floatType>(std::numeric_limits<T>::max());
@@ -88,59 +88,59 @@ namespace detail
 		}
 	};
 
-	template <typename T, typename floatType, precision P, template <typename, precision> class vecType>
+	template <typename T, typename floatType, precision P, template <int, typename, precision> class vecType>
 	struct compute_compNormalize<T, floatType, P, vecType, true, false>
 	{
-		GLM_FUNC_QUALIFIER static vecType<floatType, P> call(vecType<T, P> const & v)
+		GLM_FUNC_QUALIFIER static vecType<floatType, P> call(vecType<D, T, P> const & v)
 		{
 			return vecType<floatType, P>(v) / static_cast<floatType>(std::numeric_limits<T>::max());
 		}
 	};
 
-	template <typename T, typename floatType, precision P, template <typename, precision> class vecType>
+	template <typename T, typename floatType, precision P, template <int, typename, precision> class vecType>
 	struct compute_compNormalize<T, floatType, P, vecType, false, true>
 	{
-		GLM_FUNC_QUALIFIER static vecType<floatType, P> call(vecType<T, P> const & v)
+		GLM_FUNC_QUALIFIER static vecType<floatType, P> call(vecType<D, T, P> const & v)
 		{
 			return v;
 		}
 	};
 
-	template <typename T, typename floatType, precision P, template <typename, precision> class vecType, bool isInteger, bool signedType>
+	template <typename T, typename floatType, precision P, template <int, typename, precision> class vecType, bool isInteger, bool signedType>
 	struct compute_compScale
 	{};
 
-	template <typename T, typename floatType, precision P, template <typename, precision> class vecType>
+	template <typename T, typename floatType, precision P, template <int, typename, precision> class vecType>
 	struct compute_compScale<T, floatType, P, vecType, true, true>
 	{
-		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<floatType, P> const & v)
+		GLM_FUNC_QUALIFIER static vecType<D, T, P> call(vecType<floatType, P> const & v)
 		{
 			floatType const Max = static_cast<floatType>(std::numeric_limits<T>::max()) + static_cast<floatType>(0.5);
 			vecType<floatType, P> const Scaled(v * Max);
-			vecType<T, P> const Result(Scaled - static_cast<floatType>(0.5));
+			vecType<D, T, P> const Result(Scaled - static_cast<floatType>(0.5));
 			return Result;
 		}
 	};
 
-	template <typename T, typename floatType, precision P, template <typename, precision> class vecType>
+	template <typename T, typename floatType, precision P, template <int, typename, precision> class vecType>
 	struct compute_compScale<T, floatType, P, vecType, true, false>
 	{
-		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<floatType, P> const & v)
+		GLM_FUNC_QUALIFIER static vecType<D, T, P> call(vecType<floatType, P> const & v)
 		{
-			return vecType<T, P>(vecType<floatType, P>(v) * static_cast<floatType>(std::numeric_limits<T>::max()));
+			return vecType<D, T, P>(vecType<floatType, P>(v) * static_cast<floatType>(std::numeric_limits<T>::max()));
 		}
 	};
 
-	template <typename T, typename floatType, precision P, template <typename, precision> class vecType>
+	template <typename T, typename floatType, precision P, template <int, typename, precision> class vecType>
 	struct compute_compScale<T, floatType, P, vecType, false, true>
 	{
-		GLM_FUNC_QUALIFIER static vecType<T, P> call(vecType<floatType, P> const & v)
+		GLM_FUNC_QUALIFIER static vecType<D, T, P> call(vecType<floatType, P> const & v)
 		{
 			return v;
 		}
 	};
 
-	template <precision P, template <typename, precision> class vecType>
+	template <int D, precision P, template <int, typename, precision> class vecType>
 	struct compute_half
 	{};
 
@@ -223,38 +223,38 @@ namespace detail
 	};
 }//namespace detail
 
-	template <typename floatType, typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<floatType, P> compNormalize(vecType<T, P> const & v)
+	template <typename floatType, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<floatType, P> compNormalize(vecType<D, T, P> const & v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<floatType>::is_iec559, "'compNormalize' accepts only floating-point types for 'floatType' template parameter");
 
 		return detail::compute_compNormalize<T, floatType, P, vecType, std::numeric_limits<T>::is_integer, std::numeric_limits<T>::is_signed>::call(v);
 	}
 
-	template <typename T, typename floatType, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> compScale(vecType<floatType, P> const & v)
+	template <typename T, typename floatType, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> compScale(vecType<floatType, P> const & v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<floatType>::is_iec559, "'compScale' accepts only floating-point types for 'floatType' template parameter");
 
 		return detail::compute_compScale<T, floatType, P, vecType, std::numeric_limits<T>::is_integer, std::numeric_limits<T>::is_signed>::call(v);
 	}
 
-	template <typename uintType, typename floatType, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<uintType, P> packUnorm(vecType<floatType, P> const & v)
+	template <typename uintType, typename floatType, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, uintType, P> packUnorm(vecType<floatType, P> const & v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<uintType>::is_integer, "uintType must be an integer type");
 		GLM_STATIC_ASSERT(std::numeric_limits<floatType>::is_iec559, "floatType must be a floating point type");
 
-		return vecType<uintType, P>(round(clamp(v, static_cast<floatType>(0), static_cast<floatType>(1)) * static_cast<floatType>(std::numeric_limits<uintType>::max())));
+		return vecType<D, uintType, P>(round(clamp(v, static_cast<floatType>(0), static_cast<floatType>(1)) * static_cast<floatType>(std::numeric_limits<uintType>::max())));
 	}
 
-	template <typename uintType, typename floatType, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<floatType, P> unpackUnorm(vecType<uintType, P> const & v)
+	template <typename uintType, typename floatType, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<floatType, P> unpackUnorm(vecType<D, uintType, P> const & v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<uintType>::is_integer, "uintType must be an integer type");
 		GLM_STATIC_ASSERT(std::numeric_limits<floatType>::is_iec559, "floatType must be a floating point type");
 
-		return vecType<float, P>(v) * (static_cast<floatType>(1) / static_cast<floatType>(std::numeric_limits<uintType>::max()));
+		return vecType<D, float, P>(v) * (static_cast<floatType>(1) / static_cast<floatType>(std::numeric_limits<uintType>::max()));
 	}
 
 	GLM_FUNC_QUALIFIER uint8 packUnorm2x3_1x2(vec3 const & v)
@@ -376,14 +376,14 @@ namespace detail
 		return vec3(Unpack.data.x, Unpack.data.y, Unpack.data.z) * pow(2.0f, Unpack.data.w - 15.f - 9.f);
 	}
 
-	template <precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<uint16, P> packHalf(vecType<float, P> const & v)
+	template <int D, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, uint16, P> packHalf(vecType<D, float, P> const & v)
 	{
 		return detail::compute_half<P, vecType>::pack(v);
 	}
 
-	template <precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<float, P> unpackHalf(vecType<uint16, P> const & v)
+	template <int D, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, float, P> unpackHalf(vecType<D, uint16, P> const & v)
 	{
 		return detail::compute_half<P, vecType>::unpack(v);
 	}

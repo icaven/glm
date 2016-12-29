@@ -34,14 +34,14 @@ namespace glm
 	/// Convert an integer vector to a normalized float vector.
 	/// If the parameter value type is already a floating precision type, the value is passed through.
 	/// @see gtx_component_wise
-	template <typename floatType, typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<floatType, P> compNormalize(vecType<T, P> const & v);
+	template <typename floatType, int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, floatType, P> compNormalize(vecType<D, T, P> const & v);
 
 	/// Convert a normalized float vector to an integer vector.
 	/// If the parameter value type is already a floating precision type, the value is passed through.
 	/// @see gtx_component_wise
-	template <typename T, typename floatType, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<T, P> compScale(vecType<floatType, P> const & v);
+	template <int D, typename T, typename floatType, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<D, T, P> compScale(vecType<D, floatType, P> const & v);
 
 	/// Add all vector components together. 
 	/// @see gtx_component_wise

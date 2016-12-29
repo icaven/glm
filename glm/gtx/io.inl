@@ -152,9 +152,9 @@ namespace io
 
 namespace detail
 {
-	template <typename CTy, typename CTr, template <typename, precision> class V, typename T, precision P>
+	template <typename CTy, typename CTr, typename V>
 	GLM_FUNC_QUALIFIER std::basic_ostream<CTy, CTr>&
-	print_vector_on(std::basic_ostream<CTy, CTr>& os, V<T,P> const& a)
+	print_vector_on(std::basic_ostream<CTy, CTr>& os, V const& a)
 	{
 		typename std::basic_ostream<CTy, CTr>::sentry const cerberus(os);
 
@@ -162,7 +162,7 @@ namespace detail
 		{
 			io::format_punct<CTy> const & fmt(io::get_facet<io::format_punct<CTy> >(os));
 
-			length_t const& components(type<V, T, P>::components);
+			length_t const& components(type<V>::components);
 
 			if(fmt.formatted)
 			{
@@ -236,8 +236,8 @@ namespace detail
 		{
 			io::format_punct<CTy> const & fmt(io::get_facet<io::format_punct<CTy> >(os));
 
-			length_t const& cols(type<M, T, P>::cols);
-			length_t const& rows(type<M, T, P>::rows);
+			length_t const& cols(type<M<T, P>>::cols);
+			length_t const& rows(type<M<T, P>>::rows);
 
 			if(fmt.formatted)
 			{
@@ -379,8 +379,8 @@ namespace detail
 			io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy> >(os));
 			M<T,P> const& ml(a.first);
 			M<T,P> const& mr(a.second);
-			length_t const& cols(type<M, T, P>::cols);
-			length_t const& rows(type<M, T, P>::rows);
+			length_t const& cols(type<M<T, P>>::cols);
+			length_t const& rows(type<M<T, P>>::rows);
 
 			if(fmt.formatted)
 			{

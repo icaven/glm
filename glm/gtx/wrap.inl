@@ -3,10 +3,10 @@
 
 namespace glm
 {
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> clamp(vecType<T, P> const& Texcoord)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> clamp(vecType<D, T, P> const& Texcoord)
 	{
-		return glm::clamp(Texcoord, vecType<T, P>(0), vecType<T, P>(1));
+		return glm::clamp(Texcoord, vecType<D, T, P>(0), vecType<D, T, P>(1));
 	}
 
 	template <typename genType>
@@ -15,8 +15,8 @@ namespace glm
 		return clamp(tvec1<genType, defaultp>(Texcoord)).x;
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> repeat(vecType<T, P> const& Texcoord)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> repeat(vecType<D, T, P> const& Texcoord)
 	{
 		return glm::fract(Texcoord);
 	}
@@ -27,8 +27,8 @@ namespace glm
 		return repeat(tvec1<genType, defaultp>(Texcoord)).x;
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> mirrorClamp(vecType<T, P> const& Texcoord)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> mirrorClamp(vecType<D, T, P> const& Texcoord)
 	{
 		return glm::fract(glm::abs(Texcoord));
 	}
@@ -39,15 +39,15 @@ namespace glm
 		return mirrorClamp(tvec1<genType, defaultp>(Texcoord)).x;
 	}
 
-	template <typename T, precision P, template <typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> mirrorRepeat(vecType<T, P> const& Texcoord)
+	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<D, T, P> mirrorRepeat(vecType<D, T, P> const& Texcoord)
 	{
-		vecType<T, P> const Abs = glm::abs(Texcoord);
-		vecType<T, P> const Clamp = glm::mod(glm::floor(Abs), vecType<T, P>(2));
-		vecType<T, P> const Floor = glm::floor(Abs);
-		vecType<T, P> const Rest = Abs - Floor;
-		vecType<T, P> const Mirror = Clamp + Rest;
-		return mix(Rest, vecType<T, P>(1) - Rest, glm::greaterThanEqual(Mirror, vecType<T, P>(1)));
+		vecType<D, T, P> const Abs = glm::abs(Texcoord);
+		vecType<D, T, P> const Clamp = glm::mod(glm::floor(Abs), vecType<D, T, P>(2));
+		vecType<D, T, P> const Floor = glm::floor(Abs);
+		vecType<D, T, P> const Rest = Abs - Floor;
+		vecType<D, T, P> const Mirror = Clamp + Rest;
+		return mix(Rest, vecType<D, T, P>(1) - Rest, glm::greaterThanEqual(Mirror, vecType<D, T, P>(1)));
 	}
 
 	template <typename genType>
