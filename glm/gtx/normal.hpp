@@ -31,7 +31,7 @@ namespace glm
 
 	//! Computes triangle normal from triangle points. 
 	//! From GLM_GTX_normal extension.
-	template <typename T, precision P> 
+	template<typename T, precision P> 
 	GLM_FUNC_DECL vec<3, T, P> triangleNormal(
 		vec<3, T, P> const & p1, 
 		vec<3, T, P> const & p2, 

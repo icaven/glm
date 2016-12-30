@@ -3,7 +3,7 @@
 
 namespace glm
 {
-	template <typename genType>
+	template<typename genType>
 	GLM_FUNC_QUALIFIER bool intersectRayPlane
 	(
 		genType const & orig, genType const & dir,
@@ -23,7 +23,7 @@ namespace glm
 		return false;
 	}
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER bool intersectRayTriangle
 	(
 		vec<3, T, P> const& orig, vec<3, T, P> const& dir,
@@ -118,7 +118,7 @@ namespace glm
 	}
 */
 
-	template <typename genType>
+	template<typename genType>
 	GLM_FUNC_QUALIFIER bool intersectLineTriangle
 	(
 		genType const & orig, genType const & dir,
@@ -156,7 +156,7 @@ namespace glm
 		return true;
 	}
 
-	template <typename genType>
+	template<typename genType>
 	GLM_FUNC_QUALIFIER bool intersectRaySphere
 	(
 		genType const & rayStarting, genType const & rayNormalizedDirection,
@@ -177,7 +177,7 @@ namespace glm
 		return intersectionDistance > Epsilon;
 	}
 
-	template <typename genType>
+	template<typename genType>
 	GLM_FUNC_QUALIFIER bool intersectRaySphere
 	(
 		genType const & rayStarting, genType const & rayNormalizedDirection,
@@ -195,7 +195,7 @@ namespace glm
 		return false;
 	}
 
-	template <typename genType>
+	template<typename genType>
 	GLM_FUNC_QUALIFIER bool intersectLineSphere
 	(
 		genType const & point0, genType const & point1,

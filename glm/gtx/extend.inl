@@ -3,7 +3,7 @@
 
 namespace glm
 {
-	template <typename genType>
+	template<typename genType>
 	GLM_FUNC_QUALIFIER genType extend
 	(
 		genType const & Origin, 
@@ -14,7 +14,7 @@ namespace glm
 		return Origin + (Source - Origin) * Distance;
 	}
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER vec<2, T, P> extend
 	(
 		vec<2, T, P> const & Origin,
@@ -25,7 +25,7 @@ namespace glm
 		return Origin + (Source - Origin) * Distance;
 	}
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> extend
 	(
 		vec<3, T, P> const & Origin,
@@ -36,7 +36,7 @@ namespace glm
 		return Origin + (Source - Origin) * Distance;
 	}
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER vec<4, T, P> extend
 	(
 		vec<4, T, P> const & Origin,

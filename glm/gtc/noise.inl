@@ -9,7 +9,7 @@
 namespace glm{
 namespace gtc
 {
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER vec<4, T, P> grad4(T const & j, vec<4, T, P> const & ip)
 	{
 		vec<3, T, P> pXYZ = floor(fract(vec<3, T, P>(j) * vec<3, T, P>(ip)) * T(7)) * ip[2] - T(1);
@@ -21,7 +21,7 @@ namespace gtc
 }//namespace gtc
 
 	// Classic Perlin noise
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T perlin(vec<2, T, P> const & Position)
 	{
 		vec<4, T, P> Pi = glm::floor(vec<4, T, P>(Position.x, Position.y, Position.x, Position.y)) + vec<4, T, P>(0.0, 0.0, 1.0, 1.0);
@@ -62,7 +62,7 @@ namespace gtc
 	}
 
 	// Classic Perlin noise
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T perlin(vec<3, T, P> const & Position)
 	{
 		vec<3, T, P> Pi0 = floor(Position); // Integer part for indexing
@@ -133,7 +133,7 @@ namespace gtc
 	}
 	/*
 	// Classic Perlin noise
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T perlin(vec<3, T, P> const & P)
 	{
 		vec<3, T, P> Pi0 = floor(P); // Integer part for indexing
@@ -206,7 +206,7 @@ namespace gtc
 	}
 	*/
 	// Classic Perlin noise
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T perlin(vec<4, T, P> const & Position)
 	{
 		vec<4, T, P> Pi0 = floor(Position);	// Integer part for indexing
@@ -342,7 +342,7 @@ namespace gtc
 	}
 
 	// Classic Perlin noise, periodic variant
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T perlin(vec<2, T, P> const & Position, vec<2, T, P> const & rep)
 	{
 		vec<4, T, P> Pi = floor(vec<4, T, P>(Position.x, Position.y, Position.x, Position.y)) + vec<4, T, P>(0.0, 0.0, 1.0, 1.0);
@@ -384,7 +384,7 @@ namespace gtc
 	}
 
 	// Classic Perlin noise, periodic variant
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T perlin(vec<3, T, P> const & Position, vec<3, T, P> const & rep)
 	{
 		vec<3, T, P> Pi0 = mod(floor(Position), rep); // Integer part, modulo period
@@ -455,7 +455,7 @@ namespace gtc
 	}
 
 	// Classic Perlin noise, periodic version
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T perlin(vec<4, T, P> const & Position, vec<4, T, P> const & rep)
 	{
 		vec<4, T, P> Pi0 = mod(floor(Position), rep); // Integer part modulo rep
@@ -588,7 +588,7 @@ namespace gtc
 		return T(2.2) * n_xyzw;
 	}
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T simplex(glm::vec<2, T, P> const & v)
 	{
 		vec<4, T, P> const C = vec<4, T, P>(
@@ -645,7 +645,7 @@ namespace gtc
 		return T(130) * dot(m, g);
 	}
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T simplex(vec<3, T, P> const & v)
 	{
 		vec<2, T, P> const C(1.0 / 6.0, 1.0 / 3.0);
@@ -720,7 +720,7 @@ namespace gtc
 		return T(42) * dot(m * m, vec<4, T, P>(dot(p0, x0), dot(p1, x1), dot(p2, x2), dot(p3, x3)));
 	}
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T simplex(vec<4, T, P> const & v)
 	{
 		vec<4, T, P> const C(

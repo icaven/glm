@@ -30,7 +30,7 @@ namespace glm
 
 	//! Return if a trihedron right handed or not.
 	//! From GLM_GTX_handed_coordinate_space extension.
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_DECL bool rightHanded(
 		vec<3, T, P> const & tangent,
 		vec<3, T, P> const & binormal,
@@ -38,7 +38,7 @@ namespace glm
 
 	//! Return if a trihedron left handed or not.
 	//! From GLM_GTX_handed_coordinate_space extension.
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_DECL bool leftHanded(
 		vec<3, T, P> const & tangent,
 		vec<3, T, P> const & binormal,

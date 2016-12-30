@@ -3,7 +3,7 @@
 
 namespace glm
 {
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> rgb2YCoCg
 	(
 		vec<3, T, P> const & rgbColor
@@ -16,7 +16,7 @@ namespace glm
 		return result;
 	}
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> YCoCg2rgb
 	(
 		vec<3, T, P> const & YCoCgColor
@@ -29,7 +29,7 @@ namespace glm
 		return result;
 	}
 
-	template <typename T, precision P, bool isInteger>
+	template<typename T, precision P, bool isInteger>
 	class compute_YCoCgR {
 	public:
 		static GLM_FUNC_QUALIFIER vec<3, T, P> rgb2YCoCgR
@@ -58,7 +58,7 @@ namespace glm
 		}
 	};
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	class compute_YCoCgR<T, P, true> {
 	public:
 		static GLM_FUNC_QUALIFIER vec<3, T, P> rgb2YCoCgR
@@ -88,7 +88,7 @@ namespace glm
 		}
 	};
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> rgb2YCoCgR
 	(
 		vec<3, T, P> const & rgbColor
@@ -97,7 +97,7 @@ namespace glm
 		return compute_YCoCgR<T, P, std::numeric_limits<T>::is_integer>::rgb2YCoCgR(rgbColor);
 	}
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> YCoCgR2rgb
 	(
 		vec<3, T, P> const & YCoCgRColor

@@ -8,7 +8,7 @@
 #include <ctime>
 #include <vector>
 
-template <int Value>
+template<int Value>
 struct mask
 {
 	enum{value = Value};

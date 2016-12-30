@@ -34,13 +34,13 @@ namespace glm
 	/// Returns the orthonormalized matrix of m.
 	///
 	/// @see gtx_orthonormalize
-	template <typename T, precision P> 
+	template<typename T, precision P> 
 	GLM_FUNC_DECL mat<3, 3, T, P> orthonormalize(mat<3, 3, T, P> const & m);
 		
 	/// Orthonormalizes x according y.
 	///
 	/// @see gtx_orthonormalize
-	template <typename T, precision P> 
+	template<typename T, precision P> 
 	GLM_FUNC_DECL vec<3, T, P> orthonormalize(vec<3, T, P> const & x, vec<3, T, P> const & y);
 
 	/// @}

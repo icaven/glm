@@ -29,7 +29,7 @@ namespace glm
 	/// @{
 
 	/// @brief Mixed product of 3 vectors (from GLM_GTX_mixed_product extension)
-	template <typename T, precision P> 
+	template<typename T, precision P> 
 	GLM_FUNC_DECL T mixedProduct(
 		vec<3, T, P> const & v1, 
 		vec<3, T, P> const & v2, 

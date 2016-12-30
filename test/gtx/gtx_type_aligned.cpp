@@ -79,7 +79,7 @@ int test_decl()
 	return Error;
 }
 
-template <typename genType>
+template<typename genType>
 void print(genType const & Mat0)
 {
 	printf("mat4(\n");

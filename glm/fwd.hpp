@@ -12,7 +12,7 @@
 // GLM_GTC_quaternion
 namespace glm
 {
-	template <typename T, precision P> struct tquat;
+	template<typename T, precision P> struct tquat;
 
 	/// Quaternion of low single-precision floating-point numbers.
 	///

@@ -8,11 +8,11 @@
 namespace glm{
 namespace detail
 {
-	template <int Columns, int Rows, typename T, precision P, template <int, class, precision> class colType, template <int, class, precision> class rowType>
+	template<int Columns, int Rows, typename T, precision P, template<int, class, precision> class colType, template<int, class, precision> class rowType>
 	struct outerProduct_trait{};
 }//namespace detail
 
-	template <typename T, precision P, template <typename, precision> class matType>
+	template<typename T, precision P, template<typename, precision> class matType>
 	GLM_FUNC_DECL matType<T, P> inverse(matType<T, P> const & m);
 
 	/// @addtogroup core_precision

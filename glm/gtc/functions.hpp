@@ -30,7 +30,7 @@ namespace glm
 	/// 1D gauss function
 	///
 	/// @see gtc_epsilon
-	template <typename T>
+	template<typename T>
 	GLM_FUNC_DECL T gauss(
 		T x,
 		T ExpectedValue,
@@ -39,7 +39,7 @@ namespace glm
 	/// 2D gauss function
 	///
 	/// @see gtc_epsilon
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_DECL T gauss(
 		vec<2, T, P> const& Coord,
 		vec<2, T, P> const& ExpectedValue,

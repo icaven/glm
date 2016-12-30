@@ -42,7 +42,7 @@ namespace glm
 
 	/// Create a string from a GLM vector or matrix typed variable.
 	/// @see gtx_string_cast extension.
-	template <typename genType>
+	template<typename genType>
 	GLM_FUNC_DECL std::string to_string(genType const& x);
 
 	/// @}

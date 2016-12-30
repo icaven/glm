@@ -23,9 +23,9 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/length.xml">GLSL length man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
 	GLM_FUNC_DECL T length(
-		vecType<D, T, P> const & x);
+		vecType<L, T, P> const& x);
 
 	/// Returns the distance betwwen p0 and p1, i.e., length(p0 - p1).
 	///
@@ -33,10 +33,10 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/distance.xml">GLSL distance man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
 	GLM_FUNC_DECL T distance(
-		vecType<D, T, P> const & p0,
-		vecType<D, T, P> const & p1);
+		vecType<L, T, P> const& p0,
+		vecType<L, T, P> const& p1);
 
 	/// Returns the dot product of x and y, i.e., result = x * y.
 	///
@@ -44,10 +44,10 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/dot.xml">GLSL dot man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <int D, typename T, precision P>
+	template<length_t L, typename T, precision P>
 	GLM_FUNC_DECL T dot(
-		vec<D, T, P> const & x,
-		vec<D, T, P> const & y);
+		vec<L, T, P> const & x,
+		vec<L, T, P> const & y);
 
 	/// Returns the cross product of x and y.
 	///
@@ -55,7 +55,7 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/cross.xml">GLSL cross man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_DECL vec<3, T, P> cross(
 		vec<3, T, P> const & x,
 		vec<3, T, P> const & y);
@@ -65,9 +65,9 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/normalize.xml">GLSL normalize man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<D, T, P> normalize(
-		vecType<D, T, P> const & x);
+	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<L, T, P> normalize(
+		vecType<L, T, P> const& x);
 
 	/// If dot(Nref, I) < 0.0, return N, otherwise, return -N.
 	///
@@ -75,11 +75,11 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/faceforward.xml">GLSL faceforward man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<D, T, P> faceforward(
-		vecType<D, T, P> const & N,
-		vecType<D, T, P> const & I,
-		vecType<D, T, P> const & Nref);
+	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<L, T, P> faceforward(
+		vecType<L, T, P> const& N,
+		vecType<L, T, P> const& I,
+		vecType<L, T, P> const& Nref);
 
 	/// For the incident vector I and surface orientation N, 
 	/// returns the reflection direction : result = I - 2.0 * dot(N, I) * N.
@@ -88,7 +88,7 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/reflect.xml">GLSL reflect man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <typename genType>
+	template<typename genType>
 	GLM_FUNC_DECL genType reflect(
 		genType const & I,
 		genType const & N);
@@ -101,10 +101,10 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/refract.xml">GLSL refract man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
-	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<D, T, P> refract(
-		vecType<D, T, P> const & I,
-		vecType<D, T, P> const & N,
+	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<L, T, P> refract(
+		vecType<L, T, P> const& I,
+		vecType<L, T, P> const& N,
 		T eta);
 
 	/// @}

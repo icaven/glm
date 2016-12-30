@@ -3,7 +3,7 @@
 
 namespace glm
 {
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> polar
 	(
 		vec<3, T, P> const & euclidean
@@ -19,7 +19,7 @@ namespace glm
 			xz_dist);				// xz distance
 	}
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> euclidean
 	(
 		vec<2, T, P> const & polar

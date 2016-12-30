@@ -29,8 +29,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/pow.xml">GLSL pow man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2 Exponential Functions</a>
-	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<D, T, P> pow(vecType<D, T, P> const & base, vecType<D, T, P> const & exponent);
+	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<L, T, P> pow(vecType<L, T, P> const & base, vecType<L, T, P> const & exponent);
 
 	/// Returns the natural exponentiation of x, i.e., e^x.
 	///
@@ -39,8 +39,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/exp.xml">GLSL exp man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2 Exponential Functions</a>
-	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<D, T, P> exp(vecType<D, T, P> const & v);
+	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<L, T, P> exp(vecType<L, T, P> const & v);
 
 	/// Returns the natural logarithm of v, i.e., 
 	/// returns the value y which satisfies the equation x = e^y. 
@@ -51,8 +51,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/log.xml">GLSL log man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2 Exponential Functions</a>
-	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<D, T, P> log(vecType<D, T, P> const & v);
+	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<L, T, P> log(vecType<L, T, P> const & v);
 
 	/// Returns 2 raised to the v power.
 	/// 
@@ -61,8 +61,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/exp2.xml">GLSL exp2 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2 Exponential Functions</a>
-	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<D, T, P> exp2(vecType<D, T, P> const & v);
+	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<L, T, P> exp2(vecType<L, T, P> const & v);
 
 	/// Returns the base 2 log of x, i.e., returns the value y, 
 	/// which satisfies the equation x = 2 ^ y.
@@ -72,8 +72,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/log2.xml">GLSL log2 man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2 Exponential Functions</a>
-	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<D, T, P> log2(vecType<D, T, P> const & v);
+	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<L, T, P> log2(vecType<L, T, P> const & v);
 
 	/// Returns the positive square root of v.
 	/// 
@@ -82,10 +82,10 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sqrt.xml">GLSL sqrt man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2 Exponential Functions</a>
-	//template <typename genType>
+	//template<typename genType>
 	//GLM_FUNC_DECL genType sqrt(genType const & x);
-	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<D, T, P> sqrt(vecType<D, T, P> const & v);
+	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<L, T, P> sqrt(vecType<L, T, P> const & v);
 	
 	/// Returns the reciprocal of the positive square root of v.
 	/// 
@@ -94,8 +94,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inversesqrt.xml">GLSL inversesqrt man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2 Exponential Functions</a>
-	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<D, T, P> inversesqrt(vecType<D, T, P> const & v);
+	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<L, T, P> inversesqrt(vecType<L, T, P> const & v);
 
 	/// @}
 }//namespace glm

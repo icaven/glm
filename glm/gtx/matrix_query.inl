@@ -30,7 +30,7 @@ namespace glm
 		return result;
 	}
 
-	template<length_t C, length_t R, typename T, precision P, template <length_t, length_t, typename, precision> class matType>
+	template<length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
 	GLM_FUNC_QUALIFIER bool isIdentity(matType<C, R, T, P> const & m, T const & epsilon)
 	{
 		bool result = true;
@@ -94,7 +94,7 @@ namespace glm
 		return result;
 	}
 
-	template<length_t C, length_t R, typename T, precision P, template <length_t, length_t, typename, precision> class matType>
+	template<length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
 	GLM_FUNC_QUALIFIER bool isOrthogonal(matType<C, R, T, P> const & m, T const & epsilon)
 	{
 		bool result(true);

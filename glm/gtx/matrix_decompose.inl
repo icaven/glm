@@ -6,7 +6,7 @@ namespace detail
 {
 	/// Make a linear combination of two vectors and return the result.
 	// result = (a * ascl) + (b * bscl)
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> combine(
 		vec<3, T, P> const & a, 
 		vec<3, T, P> const & b,
@@ -15,7 +15,7 @@ namespace detail
 		return (a * ascl) + (b * bscl);
 	}
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> scale(vec<3, T, P> const& v, T desiredLength)
 	{
 		return v * desiredLength / length(v);
@@ -26,7 +26,7 @@ namespace detail
 	// http://www.opensource.apple.com/source/WebCore/WebCore-514/platform/graphics/transforms/TransformationMatrix.cpp
 	// Decomposes the mode matrix to translations,rotation scale components
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER bool decompose(mat<4, 4, T, P> const & ModelMatrix, vec<3, T, P> & Scale, tquat<T, P> & Orientation, vec<3, T, P> & Translation, vec<3, T, P> & Skew, vec<4, T, P> & Perspective)
 	{
 		mat<4, 4, T, P> LocalMatrix(ModelMatrix);

@@ -32,7 +32,7 @@ namespace glm
 	/// @param Max 
 	/// @tparam genType Value type. Currently supported: float or double scalars.
 	/// @see gtc_random
-	template <typename genTYpe>
+	template<typename genTYpe>
 	GLM_FUNC_DECL genTYpe linearRand(
 		genTYpe Min,
 		genTYpe Max);
@@ -44,17 +44,17 @@ namespace glm
 	/// @tparam T Value type. Currently supported: float or double.
 	/// @tparam vecType A vertor type: tvec1, tvec2, tvec3, tvec4 or compatible
 	/// @see gtc_random
-	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<D, T, P> linearRand(
-		vecType<D, T, P> const & Min,
-		vecType<D, T, P> const & Max);
+	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
+	GLM_FUNC_DECL vecType<L, T, P> linearRand(
+		vecType<L, T, P> const& Min,
+		vecType<L, T, P> const& Max);
 
 	/// Generate random numbers in the interval [Min, Max], according a gaussian distribution 
 	/// 
 	/// @param Mean
 	/// @param Deviation
 	/// @see gtc_random
-	template <typename genType>
+	template<typename genType>
 	GLM_FUNC_DECL genType gaussRand(
 		genType Mean,
 		genType Deviation);
@@ -63,7 +63,7 @@ namespace glm
 	/// 
 	/// @param Radius 
 	/// @see gtc_random
-	template <typename T>
+	template<typename T>
 	GLM_FUNC_DECL vec<2, T, defaultp> circularRand(
 		T Radius);
 	
@@ -71,7 +71,7 @@ namespace glm
 	/// 
 	/// @param Radius
 	/// @see gtc_random
-	template <typename T>
+	template<typename T>
 	GLM_FUNC_DECL vec<3, T, defaultp> sphericalRand(
 		T Radius);
 	
@@ -79,7 +79,7 @@ namespace glm
 	/// 
 	/// @param Radius
 	/// @see gtc_random
-	template <typename T>
+	template<typename T>
 	GLM_FUNC_DECL vec<2, T, defaultp> diskRand(
 		T Radius);
 	
@@ -87,7 +87,7 @@ namespace glm
 	/// 
 	/// @param Radius
 	/// @see gtc_random
-	template <typename T>
+	template<typename T>
 	GLM_FUNC_DECL vec<3, T, defaultp> ballRand(
 		T Radius);
 	

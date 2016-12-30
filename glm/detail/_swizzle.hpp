@@ -7,7 +7,7 @@ namespace glm{
 namespace detail
 {
 	// Internal class for implementing swizzle operators
-	template <typename T, int N>
+	template<typename T, int N>
 	struct _swizzle_base0
 	{
 	protected:
@@ -20,24 +20,24 @@ namespace detail
 		char    _buffer[1];
 	};
 
-	template <int N, typename T, precision P, int E0, int E1, int E2, int E3, bool Aligned>
+	template<int N, typename T, precision P, int E0, int E1, int E2, int E3, bool Aligned>
 	struct _swizzle_base1 : public _swizzle_base0<T, N>
 	{
 	};
 
-	template <typename T, precision P, int E0, int E1, bool Aligned>
+	template<typename T, precision P, int E0, int E1, bool Aligned>
 	struct _swizzle_base1<2, T, P, E0,E1,-1,-2, Aligned> : public _swizzle_base0<T, 2>
 	{
 		GLM_FUNC_QUALIFIER vec<2, T, P> operator ()()  const { return vec<2, T, P>(this->elem(E0), this->elem(E1)); }
 	};
 
-	template <typename T, precision P, int E0, int E1, int E2, bool Aligned>
+	template<typename T, precision P, int E0, int E1, int E2, bool Aligned>
 	struct _swizzle_base1<3, T, P, E0,E1,E2,-1, Aligned> : public _swizzle_base0<T, 3>
 	{
 		GLM_FUNC_QUALIFIER vec<3, T, P> operator ()()  const { return vec<3, T, P>(this->elem(E0), this->elem(E1), this->elem(E2)); }
 	};
 
-	template <typename T, precision P, int E0, int E1, int E2, int E3, bool Aligned>
+	template<typename T, precision P, int E0, int E1, int E2, int E3, bool Aligned>
 	struct _swizzle_base1<4, T, P, E0,E1,E2,E3, Aligned> : public _swizzle_base0<T, 4>
 	{ 
 		GLM_FUNC_QUALIFIER vec<4, T, P> operator ()()  const { return vec<4, T, P>(this->elem(E0), this->elem(E1), this->elem(E2), this->elem(E3)); }
@@ -55,7 +55,7 @@ namespace detail
 		DUPLICATE_ELEMENTS = 1 if there is a repeated element, 0 otherwise (used to specialize swizzles
 			containing duplicate elements so that they cannot be used as r-values).            
 	*/
-	template <int N, typename T, precision P, int E0, int E1, int E2, int E3, int DUPLICATE_ELEMENTS>
+	template<int N, typename T, precision P, int E0, int E1, int E2, int E3, int DUPLICATE_ELEMENTS>
 	struct _swizzle_base2 : public _swizzle_base1<N, T, P, E0,E1,E2,E3, detail::is_aligned<P>::value>
 	{
 		GLM_FUNC_QUALIFIER _swizzle_base2& operator= (const T& t)
@@ -118,7 +118,7 @@ namespace detail
 		}
 
 	protected:
-		template <typename U>
+		template<typename U>
 		GLM_FUNC_QUALIFIER void _apply_op(vec<N, T, P> const& that, U op)
 		{
 			// Make a copy of the data in this == &that.
@@ -133,7 +133,7 @@ namespace detail
 	};
 
 	// Specialization for swizzles containing duplicate elements.  These cannot be modified.
-	template <int N, typename T, precision P, int E0, int E1, int E2, int E3>
+	template<int N, typename T, precision P, int E0, int E1, int E2, int E3>
 	struct _swizzle_base2<N, T, P, E0,E1,E2,E3, 1> : public _swizzle_base1<N, T, P, E0,E1,E2,E3, detail::is_aligned<P>::value>
 	{
 		struct Stub {};
@@ -147,7 +147,7 @@ namespace detail
 		}
 	};
 
-	template <int N, typename T, precision P, int E0, int E1, int E2, int E3>
+	template<int N, typename T, precision P, int E0, int E1, int E2, int E3>
 	struct _swizzle : public _swizzle_base2<N, T, P, E0, E1, E2, E3, (E0 == E1 || E0 == E2 || E0 == E3 || E1 == E2 || E1 == E3 || E2 == E3)>
 	{
 		typedef _swizzle_base2<N, T, P, E0, E1, E2, E3, (E0 == E1 || E0 == E2 || E0 == E3 || E1 == E2 || E1 == E3 || E2 == E3)> base_type;
@@ -160,8 +160,8 @@ namespace detail
 //
 // To prevent the C++ syntax from getting entirely overwhelming, define some alias macros
 //
-#define _GLM_SWIZZLE_TEMPLATE1   template <int N, typename T, precision P, int E0, int E1, int E2, int E3>
-#define _GLM_SWIZZLE_TEMPLATE2   template <int N, typename T, precision P, int E0, int E1, int E2, int E3, int F0, int F1, int F2, int F3>
+#define _GLM_SWIZZLE_TEMPLATE1   template<int N, typename T, precision P, int E0, int E1, int E2, int E3>
+#define _GLM_SWIZZLE_TEMPLATE2   template<int N, typename T, precision P, int E0, int E1, int E2, int E3, int F0, int F1, int F2, int F3>
 #define _GLM_SWIZZLE_TYPE1       _swizzle<N, T, P, E0, E1, E2, E3>
 #define _GLM_SWIZZLE_TYPE2       _swizzle<N, T, P, F0, F1, F2, F3>
 

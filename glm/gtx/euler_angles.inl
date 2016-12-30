@@ -5,7 +5,7 @@
 
 namespace glm
 {
-	template <typename T>
+	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleX
 	(
 		T const & angleX
@@ -21,7 +21,7 @@ namespace glm
 			T(0), T(0), T(0), T(1));
 	}
 
-	template <typename T>
+	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleY
 	(
 		T const & angleY
@@ -37,7 +37,7 @@ namespace glm
 			T(0),	T(0),	T(0),	T(1));
 	}
 
-	template <typename T>
+	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZ
 	(
 		T const & angleZ
@@ -53,7 +53,7 @@ namespace glm
 			T(0),	T(0),	T(0), T(1));
 	}
 
-	template <typename T>
+	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXY
 	(
 		T const & angleX,
@@ -72,7 +72,7 @@ namespace glm
 			T(0),   T(0),           T(0),           T(1));
 	}
 
-	template <typename T>
+	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYX
 	(
 		T const & angleY,
@@ -91,7 +91,7 @@ namespace glm
 			T(0),         T(0),     T(0),    T(1));
 	}
 
-	template <typename T>
+	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXZ
 	(
 		T const & angleX,
@@ -101,7 +101,7 @@ namespace glm
 		return eulerAngleX(angleX) * eulerAngleZ(angleZ);
 	}
 
-	template <typename T>
+	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZX
 	(
 		T const & angleZ,
@@ -111,7 +111,7 @@ namespace glm
 		return eulerAngleZ(angleZ) * eulerAngleX(angleX);
 	}
 
-	template <typename T>
+	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYZ
 	(
 		T const & angleY,
@@ -121,7 +121,7 @@ namespace glm
 		return eulerAngleY(angleY) * eulerAngleZ(angleZ);
 	}
 
-	template <typename T>
+	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZY
 	(
 		T const & angleZ,
@@ -131,7 +131,7 @@ namespace glm
 		return eulerAngleZ(angleZ) * eulerAngleY(angleY);
 	}
     
-    template <typename T>
+    template<typename T>
     GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXYZ
     (
      T const & t1,
@@ -166,7 +166,7 @@ namespace glm
         return Result;
     }
     
-	template <typename T>
+	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYXZ
 	(
 		T const & yaw,
@@ -201,7 +201,7 @@ namespace glm
 		return Result;
 	}
 
-	template <typename T>
+	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> yawPitchRoll
 	(
 		T const & yaw,
@@ -236,7 +236,7 @@ namespace glm
 		return Result;
 	}
 
-	template <typename T>
+	template<typename T>
 	GLM_FUNC_QUALIFIER mat<2, 2, T, defaultp> orientate2
 	(
 		T const & angle
@@ -253,7 +253,7 @@ namespace glm
 		return Result;
 	}
 
-	template <typename T>
+	template<typename T>
 	GLM_FUNC_QUALIFIER mat<3, 3, T, defaultp> orientate3
 	(
 		T const & angle
@@ -275,7 +275,7 @@ namespace glm
 		return Result;
 	}
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER mat<3, 3, T, P> orientate3
 	(
 		vec<3, T, P> const & angles
@@ -284,7 +284,7 @@ namespace glm
 		return mat<3, 3, T, P>(yawPitchRoll(angles.z, angles.x, angles.y));
 	}
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> orientate4
 	(
 		vec<3, T, P> const & angles
@@ -293,7 +293,7 @@ namespace glm
 		return yawPitchRoll(angles.z, angles.x, angles.y);
 	}
     
-    template <typename T>
+    template<typename T>
     GLM_FUNC_DECL void extractEulerAngleXYZ(mat<4, 4, T, defaultp> const & M,
                                             T & t1,
                                             T & t2,

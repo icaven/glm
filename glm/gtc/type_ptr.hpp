@@ -60,7 +60,7 @@ namespace glm
 	/// Return the constant address to the data of the input parameter.
 	/// @see gtc_type_ptr
 	template<typename genType>
-	GLM_FUNC_DECL typename genType::value_type const * value_ptr(genType const & vec);
+	GLM_FUNC_DECL typename genType::value_type const * value_ptr(genType const& v);
 
 	/// Build a vector from a pointer.
 	/// @see gtc_type_ptr

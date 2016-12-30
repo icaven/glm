@@ -3,7 +3,7 @@
 
 namespace glm
 {
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER void axisAngle
 	(
 		mat<4, 4, T, P> const& mat,
@@ -78,7 +78,7 @@ namespace glm
 		axis.z = (mat[0][1] - mat[1][0]) / s;
 	}
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> axisAngleMatrix
 	(
 		vec<3, T, P> const & axis,
@@ -98,7 +98,7 @@ namespace glm
 		);
 	}
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> extractMatrixRotation
 	(
 		mat<4, 4, T, P> const& mat
@@ -112,7 +112,7 @@ namespace glm
 		);
 	}
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> interpolate
 	(
 		mat<4, 4, T, P> const& m1,

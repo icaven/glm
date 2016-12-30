@@ -3,7 +3,7 @@
 
 namespace glm
 {
-	template <typename genType> 
+	template<typename genType> 
 	GLM_FUNC_QUALIFIER genType angle
 	(
 		genType const & x,
@@ -14,11 +14,11 @@ namespace glm
 		return acos(clamp(dot(x, y), genType(-1), genType(1)));
 	}
 
-	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
+	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER T angle
 	(
-		vecType<D, T, P> const & x,
-		vecType<D, T, P> const & y
+		vecType<L, T, P> const& x,
+		vecType<L, T, P> const& y
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'angle' only accept floating-point inputs");
@@ -26,7 +26,7 @@ namespace glm
 	}
 
 	//! \todo epsilon is hard coded to 0.01
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T orientedAngle
 	(
 		vec<2, T, P> const & x,
@@ -42,7 +42,7 @@ namespace glm
 			return -Angle;
 	}
 
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T orientedAngle
 	(
 		vec<3, T, P> const & x,

@@ -3,7 +3,7 @@
 
 namespace glm
 {
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> closestPointOnLine
 	(
 		vec<3, T, P> const & point,
@@ -23,7 +23,7 @@ namespace glm
 		return a + LineDirection * Distance;
 	}
 	
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER vec<2, T, P> closestPointOnLine
 	(
 		vec<2, T, P> const & point,

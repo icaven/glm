@@ -9,7 +9,7 @@
 namespace glm{
 namespace detail
 {
-	template <typename T, std::size_t size, bool aligned>
+	template<typename T, std::size_t size, bool aligned>
 	struct storage
 	{
 		typedef struct type {
@@ -18,7 +18,7 @@ namespace detail
 	};
 
 	#define GLM_ALIGNED_STORAGE_TYPE_STRUCT(x) \
-		template <typename T> \
+		template<typename T> \
 		struct storage<T, x, true> { \
 			GLM_ALIGNED_STRUCT(x) type { \
 				uint8 data[x]; \
@@ -34,19 +34,19 @@ namespace detail
 	GLM_ALIGNED_STORAGE_TYPE_STRUCT(64)
 		
 #	if GLM_ARCH & GLM_ARCH_SSE2_BIT
-		template <>
+		template<>
 		struct storage<float, 16, true>
 		{
 			typedef glm_vec4 type;
 		};
 
-		template <>
+		template<>
 		struct storage<int, 16, true>
 		{
 			typedef glm_ivec4 type;
 		};
 
-		template <>
+		template<>
 		struct storage<unsigned int, 16, true>
 		{
 			typedef glm_uvec4 type;
@@ -58,19 +58,19 @@ namespace detail
 			unsigned __int8 data[16];
 		} glm_128;
 
-		template <>
+		template<>
 		struct storage<float, 16, true>
 		{
 			typedef glm_128 type;
 		};
 
-		template <>
+		template<>
 		struct storage<int, 16, true>
 		{
 			typedef glm_128 type;
 		};
 
-		template <>
+		template<>
 		struct storage<unsigned int, 16, true>
 		{
 			typedef glm_128 type;
@@ -79,7 +79,7 @@ namespace detail
 #	endif
 
 #	if (GLM_ARCH & GLM_ARCH_AVX_BIT)
-		template <>
+		template<>
 		struct storage<double, 32, true>
 		{
 			typedef glm_dvec4 type;
@@ -87,13 +87,13 @@ namespace detail
 #	endif
 
 #	if (GLM_ARCH & GLM_ARCH_AVX2_BIT)
-		template <>
+		template<>
 		struct storage<int64, 32, true>
 		{
 			typedef glm_i64vec4 type;
 		};
 
-		template <>
+		template<>
 		struct storage<uint64, 32, true>
 		{
 			typedef glm_u64vec4 type;
