@@ -34,31 +34,31 @@ namespace gli
 
 	using std::size_t;
 
-	typedef tvec1<int> extent1d;
-	typedef tvec2<int> extent2d;
-	typedef tvec3<int> extent3d;
-	typedef tvec4<int> extent4d;
+	typedef vec<1, int> extent1d;
+	typedef vec<2, int> extent2d;
+	typedef vec<3, int> extent3d;
+	typedef vec<4, int> extent4d;
 
 	template <typename T, precision P>
-	inline tvec4<T, P> make_vec4(tvec1<T, P> const & v)
+	inline vec<4, T, P> make_vec4(vec<1, T, P> const& v)
 	{
-		return tvec4<T, P>(v.x, static_cast<T>(0), static_cast<T>(0), static_cast<T>(1));
+		return vec<4, T, P>(v.x, static_cast<T>(0), static_cast<T>(0), static_cast<T>(1));
 	}
 
 	template <typename T, precision P>
-	inline tvec4<T, P> make_vec4(tvec2<T, P> const & v)
+	inline vec<4, T, P> make_vec4(vec<2, T, P> const& v)
 	{
-		return tvec4<T, P>(v.x, v.y, static_cast<T>(0), static_cast<T>(1));
+		return vec<4, T, P>(v.x, v.y, static_cast<T>(0), static_cast<T>(1));
 	}
 
 	template <typename T, precision P>
-	inline tvec4<T, P> make_vec4(tvec3<T, P> const & v)
+	inline vec<4, T, P> make_vec4(vec<3, T, P> const& v)
 	{
-		return tvec4<T, P>(v.x, v.y, v.z, static_cast<T>(1));
+		return vec<4, T, P>(v.x, v.y, v.z, static_cast<T>(1));
 	}
 
 	template <typename T, precision P>
-	inline tvec4<T, P> make_vec4(tvec4<T, P> const & v)
+	inline vec<4, T, P> make_vec4(vec<4, T, P> const& v)
 	{
 		return v;
 	}
