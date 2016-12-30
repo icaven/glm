@@ -373,21 +373,21 @@ namespace detail
 		return m;
 	}
 
-	template<length_t C, length_t R, typename T, precision P, template<length_t C, length_t R, typename, precision> class matType>
+	template<length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
 	GLM_FUNC_QUALIFIER typename matType<C, R, T, P>::transpose_type transpose(matType<C, R, T, P> const & m)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'transpose' only accept floating-point inputs");
 		return detail::compute_transpose<matType, C, R, T, P, detail::is_aligned<P>::value>::call(m);
 	}
 
-	template<length_t C, length_t R, typename T, precision P, template<length_t C, length_t R, typename, precision> class matType>
+	template<length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
 	GLM_FUNC_QUALIFIER T determinant(matType<C, R, T, P> const & m)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'determinant' only accept floating-point inputs");
 		return detail::compute_determinant<matType, C, R, T, P, detail::is_aligned<P>::value>::call(m);
 	}
 
-	template<length_t C, length_t R, typename T, precision P, template<length_t C, length_t R, typename, precision> class matType>
+	template<length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
 	GLM_FUNC_QUALIFIER matType<C, R, T, P> inverse(matType<C, R, T, P> const & m)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'inverse' only accept floating-point inputs");
