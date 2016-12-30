@@ -78,15 +78,15 @@ namespace glm
 
 	/// 2 components vector of high double-precision floating-point numbers.
 	/// There is no guarantee on the actual precision.
-	typedef vec<2double, aligned_highp>	aligned_highp_dvec2;
+	typedef vec<2, double, aligned_highp>	aligned_highp_dvec2;
 
 	/// 2 components vector of medium double-precision floating-point numbers.
 	/// There is no guarantee on the actual precision.
-	typedef vec<2double, aligned_mediump>	aligned_mediump_dvec2;
+	typedef vec<2, double, aligned_mediump>	aligned_mediump_dvec2;
 
 	/// 2 components vector of low double-precision floating-point numbers.
 	/// There is no guarantee on the actual precision.
-	typedef vec<2double, aligned_lowp>		aligned_lowp_dvec2;
+	typedef vec<2, double, aligned_lowp>		aligned_lowp_dvec2;
 
 	/// 2 components vector of high precision signed integer numbers.
 	/// There is no guarantee on the actual precision.
@@ -114,15 +114,15 @@ namespace glm
 
 	/// 2 components vector of high precision bool numbers.
 	/// There is no guarantee on the actual precision.
-	typedef vec<2bool, aligned_highp>		aligned_highp_bvec2;
+	typedef vec<2, bool, aligned_highp>		aligned_highp_bvec2;
 
 	/// 2 components vector of medium precision bool numbers.
 	/// There is no guarantee on the actual precision.
-	typedef vec<2bool, aligned_mediump>	aligned_mediump_bvec2;
+	typedef vec<2, bool, aligned_mediump>	aligned_mediump_bvec2;
 
 	/// 2 components vector of low precision bool numbers.
 	/// There is no guarantee on the actual precision.
-	typedef vec<2bool, aligned_lowp>		aligned_lowp_bvec2;
+	typedef vec<2, bool, aligned_lowp>		aligned_lowp_bvec2;
 
 	// -- *vec3 --
 
