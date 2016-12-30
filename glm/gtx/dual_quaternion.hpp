@@ -73,8 +73,8 @@ namespace glm
 		template <typename U, precision Q>
 		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tdualquat(tdualquat<U, Q> const & q);
 
-		GLM_FUNC_DECL GLM_EXPLICIT tdualquat(tmat2x4<T, P> const & holder_mat);
-		GLM_FUNC_DECL GLM_EXPLICIT tdualquat(tmat3x4<T, P> const & aug_mat);
+		GLM_FUNC_DECL GLM_EXPLICIT tdualquat(mat<2, 4, T, P> const & holder_mat);
+		GLM_FUNC_DECL GLM_EXPLICIT tdualquat(mat<3, 4, T, P> const & aug_mat);
 
 		// -- Unary arithmetic operators --
 
@@ -155,25 +155,25 @@ namespace glm
 	///
 	/// @see gtx_dual_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat2x4<T, P> mat2x4_cast(tdualquat<T, P> const & x);
+	GLM_FUNC_DECL mat<2, 4, T, P> mat2x4_cast(tdualquat<T, P> const & x);
 
 	/// Converts a quaternion to a 3 * 4 matrix.
 	///
 	/// @see gtx_dual_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat3x4<T, P> mat3x4_cast(tdualquat<T, P> const & x);
+	GLM_FUNC_DECL mat<3, 4, T, P> mat3x4_cast(tdualquat<T, P> const & x);
 
 	/// Converts a 2 * 4 matrix (matrix which holds real and dual parts) to a quaternion.
 	///
 	/// @see gtx_dual_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tdualquat<T, P> dualquat_cast(tmat2x4<T, P> const & x);
+	GLM_FUNC_DECL tdualquat<T, P> dualquat_cast(mat<2, 4, T, P> const & x);
 
 	/// Converts a 3 * 4 matrix (augmented matrix rotation + translation) to a quaternion.
 	///
 	/// @see gtx_dual_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tdualquat<T, P> dualquat_cast(tmat3x4<T, P> const & x);
+	GLM_FUNC_DECL tdualquat<T, P> dualquat_cast(mat<3, 4, T, P> const & x);
 
 
 	/// Dual-quaternion of low single-precision floating-point numbers.

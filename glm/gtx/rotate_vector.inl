@@ -49,7 +49,7 @@ namespace glm
 		vec<3, T, P> const & normal
 	)
 	{
-		return tmat3x3<T, P>(glm::rotate(angle, normal)) * v;
+		return mat<3, 3, T, P>(glm::rotate(angle, normal)) * v;
 	}
 	/*
 	template <typename T, precision P>
@@ -171,14 +171,14 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P> orientation
+	GLM_FUNC_QUALIFIER mat<4, 4, T, P> orientation
 	(
 		vec<3, T, P> const & Normal,
 		vec<3, T, P> const & Up
 	)
 	{
 		if(all(equal(Normal, Up)))
-			return tmat4x4<T, P>(T(1));
+			return mat<4, 4, T, P>(T(1));
 
 		vec<3, T, P> RotationAxis = cross(Up, Normal);
 		T Angle = acos(dot(Normal, Up));

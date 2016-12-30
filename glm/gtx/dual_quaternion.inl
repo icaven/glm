@@ -84,13 +84,13 @@ namespace glm
 	{}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat(tmat2x4<T, P> const & m)
+	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat(mat<2, 4, T, P> const & m)
 	{
 		*this = dualquat_cast(m);
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat(tmat3x4<T, P> const & m)
+	GLM_FUNC_QUALIFIER tdualquat<T, P>::tdualquat(mat<3, 4, T, P> const & m)
 	{
 		*this = dualquat_cast(m);
 	}
@@ -249,13 +249,13 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat2x4<T, P> mat2x4_cast(tdualquat<T, P> const & x)
+	GLM_FUNC_QUALIFIER mat<2, 4, T, P> mat2x4_cast(tdualquat<T, P> const & x)
 	{
-		return tmat2x4<T, P>( x[0].x, x[0].y, x[0].z, x[0].w, x[1].x, x[1].y, x[1].z, x[1].w );
+		return mat<2, 4, T, P>( x[0].x, x[0].y, x[0].z, x[0].w, x[1].x, x[1].y, x[1].z, x[1].w );
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat3x4<T, P> mat3x4_cast(tdualquat<T, P> const & x)
+	GLM_FUNC_QUALIFIER mat<3, 4, T, P> mat3x4_cast(tdualquat<T, P> const & x)
 	{
 		tquat<T, P> r = x.real / length2(x.real);
 		
@@ -287,11 +287,11 @@ namespace glm
 			rr.w + rr.z - rr.x - rr.y,
 			-(x.dual.w * r.z + x.dual.x * r.y - x.dual.y * r.x - x.dual.z * r.w));
 		
-		return tmat3x4<T, P>(a, b, c);
+		return mat<3, 4, T, P>(a, b, c);
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tdualquat<T, P> dualquat_cast(tmat2x4<T, P> const & x)
+	GLM_FUNC_QUALIFIER tdualquat<T, P> dualquat_cast(mat<2, 4, T, P> const & x)
 	{
 		return tdualquat<T, P>(
 			tquat<T, P>( x[0].w, x[0].x, x[0].y, x[0].z ),
@@ -299,7 +299,7 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tdualquat<T, P> dualquat_cast(tmat3x4<T, P> const & x)
+	GLM_FUNC_QUALIFIER tdualquat<T, P> dualquat_cast(mat<3, 4, T, P> const & x)
 	{
 		tquat<T, P> real(uninitialize);
 		

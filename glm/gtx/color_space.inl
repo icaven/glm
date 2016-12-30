@@ -101,7 +101,7 @@ namespace glm
 	}
 
 	template <typename T>
-	GLM_FUNC_QUALIFIER tmat4x4<T, defaultp> saturation(T const s)
+	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> saturation(T const s)
 	{
 		vec<3, T, defaultp> rgbw = vec<3, T, defaultp>(T(0.2126), T(0.7152), T(0.0722));
 
@@ -109,7 +109,7 @@ namespace glm
 		T col1 = (T(1) - s) * rgbw.g;
 		T col2 = (T(1) - s) * rgbw.b;
 
-		tmat4x4<T, defaultp> result(T(1));
+		mat<4, 4, T, defaultp> result(T(1));
 		result[0][0] = col0 + s;
 		result[0][1] = col0;
 		result[0][2] = col0;

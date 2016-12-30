@@ -27,9 +27,9 @@ namespace detail
 	// Decomposes the mode matrix to translations,rotation scale components
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER bool decompose(tmat4x4<T, P> const & ModelMatrix, vec<3, T, P> & Scale, tquat<T, P> & Orientation, vec<3, T, P> & Translation, vec<3, T, P> & Skew, vec<4, T, P> & Perspective)
+	GLM_FUNC_QUALIFIER bool decompose(mat<4, 4, T, P> const & ModelMatrix, vec<3, T, P> & Scale, tquat<T, P> & Orientation, vec<3, T, P> & Translation, vec<3, T, P> & Skew, vec<4, T, P> & Perspective)
 	{
-		tmat4x4<T, P> LocalMatrix(ModelMatrix);
+		mat<4, 4, T, P> LocalMatrix(ModelMatrix);
 
 		// Normalize the matrix.
 		if(LocalMatrix[3][3] == static_cast<T>(0))
@@ -41,7 +41,7 @@ namespace detail
 
 		// perspectiveMatrix is used to solve for perspective, but it also provides
 		// an easy way to test for singularity of the upper 3x3 component.
-		tmat4x4<T, P> PerspectiveMatrix(LocalMatrix);
+		mat<4, 4, T, P> PerspectiveMatrix(LocalMatrix);
 
 		for(length_t i = 0; i < 3; i++)
 			PerspectiveMatrix[i][3] = static_cast<T>(0);
@@ -64,8 +64,8 @@ namespace detail
 			// Solve the equation by inverting PerspectiveMatrix and multiplying
 			// rightHandSide by the inverse.  (This is the easiest way, not
 			// necessarily the best.)
-			tmat4x4<T, P> InversePerspectiveMatrix = glm::inverse(PerspectiveMatrix);//   inverse(PerspectiveMatrix, inversePerspectiveMatrix);
-			tmat4x4<T, P> TransposedInversePerspectiveMatrix = glm::transpose(InversePerspectiveMatrix);//   transposeMatrix4(inversePerspectiveMatrix, transposedInversePerspectiveMatrix);
+			mat<4, 4, T, P> InversePerspectiveMatrix = glm::inverse(PerspectiveMatrix);//   inverse(PerspectiveMatrix, inversePerspectiveMatrix);
+			mat<4, 4, T, P> TransposedInversePerspectiveMatrix = glm::transpose(InversePerspectiveMatrix);//   transposeMatrix4(inversePerspectiveMatrix, transposedInversePerspectiveMatrix);
 
 			Perspective = TransposedInversePerspectiveMatrix * RightHandSide;
 			//  v4MulPointByMatrix(rightHandSide, transposedInversePerspectiveMatrix, perspectivePoint);

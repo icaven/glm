@@ -95,8 +95,8 @@ namespace glm
 
 		/// Explicit conversion operators
 #		if GLM_HAS_EXPLICIT_CONVERSION_OPERATORS
-			GLM_FUNC_DECL explicit operator tmat3x3<T, P>();
-			GLM_FUNC_DECL explicit operator tmat4x4<T, P>();
+			GLM_FUNC_DECL explicit operator mat<3, 3, T, P>();
+			GLM_FUNC_DECL explicit operator mat<4, 4, T, P>();
 #		endif
 
 		/// Create a quaternion from two normalized axis
@@ -109,8 +109,8 @@ namespace glm
 
 		/// Build a quaternion from euler angles (pitch, yaw, roll), in radians.
 		GLM_FUNC_DECL GLM_EXPLICIT tquat(vec<3, T, P> const & eulerAngles);
-		GLM_FUNC_DECL GLM_EXPLICIT tquat(tmat3x3<T, P> const & m);
-		GLM_FUNC_DECL GLM_EXPLICIT tquat(tmat4x4<T, P> const & m);
+		GLM_FUNC_DECL GLM_EXPLICIT tquat(mat<3, 3, T, P> const & m);
+		GLM_FUNC_DECL GLM_EXPLICIT tquat(mat<4, 4, T, P> const & m);
 
 		// -- Unary arithmetic operators --
 
@@ -279,25 +279,25 @@ namespace glm
 	/// 
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat3x3<T, P> mat3_cast(tquat<T, P> const & x);
+	GLM_FUNC_DECL mat<3, 3, T, P> mat3_cast(tquat<T, P> const & x);
 
 	/// Converts a quaternion to a 4 * 4 matrix.
 	/// 
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat4x4<T, P> mat4_cast(tquat<T, P> const & x);
+	GLM_FUNC_DECL mat<4, 4, T, P> mat4_cast(tquat<T, P> const & x);
 
 	/// Converts a 3 * 3 matrix to a quaternion.
 	/// 
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tquat<T, P> quat_cast(tmat3x3<T, P> const & x);
+	GLM_FUNC_DECL tquat<T, P> quat_cast(mat<3, 3, T, P> const & x);
 
 	/// Converts a 4 * 4 matrix to a quaternion.
 	/// 
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tquat<T, P> quat_cast(tmat4x4<T, P> const & x);
+	GLM_FUNC_DECL tquat<T, P> quat_cast(mat<4, 4, T, P> const & x);
 
 	/// Returns the quaternion rotation angle.
 	///

@@ -237,9 +237,9 @@ namespace detail
 
 
 	template <typename T, precision P>
-	struct compute_to_string<tmat2x2<T, P> >
+	struct compute_to_string<mat<2, 2, T, P> >
 	{
-		GLM_FUNC_QUALIFIER static std::string call(tmat2x2<T, P> const & x)
+		GLM_FUNC_QUALIFIER static std::string call(mat<2, 2, T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
 			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
@@ -255,9 +255,9 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct compute_to_string<tmat2x3<T, P> >
+	struct compute_to_string<mat<2, 3, T, P> >
 	{
-		GLM_FUNC_QUALIFIER static std::string call(tmat2x3<T, P> const & x)
+		GLM_FUNC_QUALIFIER static std::string call(mat<2, 3, T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
 			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
@@ -273,9 +273,9 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct compute_to_string<tmat2x4<T, P> >
+	struct compute_to_string<mat<2, 4, T, P> >
 	{
-		GLM_FUNC_QUALIFIER static std::string call(tmat2x4<T, P> const & x)
+		GLM_FUNC_QUALIFIER static std::string call(mat<2, 4, T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
 			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
@@ -291,9 +291,9 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct compute_to_string<tmat3x2<T, P> >
+	struct compute_to_string<mat<3, 2, T, P> >
 	{
-		GLM_FUNC_QUALIFIER static std::string call(tmat3x2<T, P> const & x)
+		GLM_FUNC_QUALIFIER static std::string call(mat<3, 2, T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
 			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
@@ -311,9 +311,9 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct compute_to_string<tmat3x3<T, P> >
+	struct compute_to_string<mat<3, 3, T, P> >
 	{
-		GLM_FUNC_QUALIFIER static std::string call(tmat3x3<T, P> const & x)
+		GLM_FUNC_QUALIFIER static std::string call(mat<3, 3, T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
 			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
@@ -331,9 +331,9 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct compute_to_string<tmat3x4<T, P> >
+	struct compute_to_string<mat<3, 4, T, P> >
 	{
-		GLM_FUNC_QUALIFIER static std::string call(tmat3x4<T, P> const & x)
+		GLM_FUNC_QUALIFIER static std::string call(mat<3, 4, T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
 			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
@@ -351,9 +351,9 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct compute_to_string<tmat4x2<T, P> >
+	struct compute_to_string<mat<4, 2, T, P> >
 	{
-		GLM_FUNC_QUALIFIER static std::string call(tmat4x2<T, P> const & x)
+		GLM_FUNC_QUALIFIER static std::string call(mat<4, 2, T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
 			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
@@ -373,9 +373,9 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct compute_to_string<tmat4x3<T, P> >
+	struct compute_to_string<mat<4, 3, T, P> >
 	{
-		GLM_FUNC_QUALIFIER static std::string call(tmat4x3<T, P> const & x)
+		GLM_FUNC_QUALIFIER static std::string call(mat<4, 3, T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
 			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();
@@ -395,9 +395,9 @@ namespace detail
 	};
 
 	template <typename T, precision P>
-	struct compute_to_string<tmat4x4<T, P> >
+	struct compute_to_string<mat<4, 4, T, P> >
 	{
-		GLM_FUNC_QUALIFIER static std::string call(tmat4x4<T, P> const & x)
+		GLM_FUNC_QUALIFIER static std::string call(mat<4, 4, T, P> const & x)
 		{
 			char const * PrefixStr = prefix<T>::value();
 			char const * LiteralStr = literal<T, std::numeric_limits<T>::is_iec559>::value();

@@ -43,7 +43,7 @@ namespace glm
 	/// Build a saturation matrix.
 	/// @see gtx_color_space
 	template <typename T>
-	GLM_FUNC_DECL tmat4x4<T, defaultp> saturation(
+	GLM_FUNC_DECL mat<4, 4, T, defaultp> saturation(
 		T const s);
 
 	/// Modify the saturation of a color.

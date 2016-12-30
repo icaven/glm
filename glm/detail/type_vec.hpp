@@ -101,8 +101,6 @@ namespace detail
 #	endif
 }//namespace detail
 
-	template <int S, typename T, precision P = defaultp> struct vec;
-
 	typedef vec<1, float, highp>		highp_vec1_t;
 	typedef vec<1, float, mediump>	mediump_vec1_t;
 	typedef vec<1, float, lowp>		lowp_vec1_t;

@@ -35,7 +35,7 @@ namespace glm
 	///
 	/// @see gtx_orthonormalize
 	template <typename T, precision P> 
-	GLM_FUNC_DECL tmat3x3<T, P> orthonormalize(tmat3x3<T, P> const & m);
+	GLM_FUNC_DECL mat<3, 3, T, P> orthonormalize(mat<3, 3, T, P> const & m);
 		
 	/// Orthonormalizes x according y.
 	///

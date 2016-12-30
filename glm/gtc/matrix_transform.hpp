@@ -52,11 +52,11 @@ namespace glm
 	/// // m[3][0] == 1.0f, m[3][1] == 1.0f, m[3][2] == 1.0f, m[3][3] == 1.0f
 	/// @endcode
 	/// @see gtc_matrix_transform
-	/// @see - translate(tmat4x4<T, P> const & m, T x, T y, T z)
+	/// @see - translate(mat<4, 4, T, P> const & m, T x, T y, T z)
 	/// @see - translate(vec<3, T, P> const & v)
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat4x4<T, P> translate(
-		tmat4x4<T, P> const & m,
+	GLM_FUNC_DECL mat<4, 4, T, P> translate(
+		mat<4, 4, T, P> const& m,
 		vec<3, T, P> const & v);
 		
 	/// Builds a rotation 4 * 4 matrix created from an axis vector and an angle. 
@@ -66,11 +66,11 @@ namespace glm
 	/// @param axis Rotation axis, recommended to be normalized.
 	/// @tparam T Value type used to build the matrix. Supported: half, float or double.
 	/// @see gtc_matrix_transform
-	/// @see - rotate(tmat4x4<T, P> const & m, T angle, T x, T y, T z) 
+	/// @see - rotate(mat<4, 4, T, P> const & m, T angle, T x, T y, T z) 
 	/// @see - rotate(T angle, vec<3, T, P> const & v) 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat4x4<T, P> rotate(
-		tmat4x4<T, P> const & m,
+	GLM_FUNC_DECL mat<4, 4, T, P> rotate(
+		mat<4, 4, T, P> const& m,
 		T angle,
 		vec<3, T, P> const & axis);
 
@@ -80,11 +80,11 @@ namespace glm
 	/// @param v Ratio of scaling for each axis.
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
-	/// @see - scale(tmat4x4<T, P> const & m, T x, T y, T z)
+	/// @see - scale(mat<4, 4, T, P> const & m, T x, T y, T z)
 	/// @see - scale(vec<3, T, P> const & v)
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat4x4<T, P> scale(
-		tmat4x4<T, P> const & m,
+	GLM_FUNC_DECL mat<4, 4, T, P> scale(
+		mat<4, 4, T, P> const& m,
 		vec<3, T, P> const & v);
 
 	/// Creates a matrix for an orthographic parallel viewing volume, using the default handedness.
@@ -99,7 +99,7 @@ namespace glm
 	/// @see gtc_matrix_transform
 	/// @see - glm::ortho(T const & left, T const & right, T const & bottom, T const & top)
 	template <typename T>
-	GLM_FUNC_DECL tmat4x4<T, defaultp> ortho(
+	GLM_FUNC_DECL mat<4, 4, T, defaultp> ortho(
 		T left,
 		T right,
 		T bottom,
@@ -119,7 +119,7 @@ namespace glm
 	/// @see gtc_matrix_transform
 	/// @see - glm::ortho(T const & left, T const & right, T const & bottom, T const & top)
 	template <typename T>
-	GLM_FUNC_DECL tmat4x4<T, defaultp> orthoLH(
+	GLM_FUNC_DECL mat<4, 4, T, defaultp> orthoLH(
 		T left,
 		T right,
 		T bottom,
@@ -139,7 +139,7 @@ namespace glm
 	/// @see gtc_matrix_transform
 	/// @see - glm::ortho(T const & left, T const & right, T const & bottom, T const & top)
 	template <typename T>
-	GLM_FUNC_DECL tmat4x4<T, defaultp> orthoRH(
+	GLM_FUNC_DECL mat<4, 4, T, defaultp> orthoRH(
 		T left,
 		T right,
 		T bottom,
@@ -157,7 +157,7 @@ namespace glm
 	/// @see gtc_matrix_transform
 	/// @see - glm::ortho(T const & left, T const & right, T const & bottom, T const & top, T const & zNear, T const & zFar)
 	template <typename T>
-	GLM_FUNC_DECL tmat4x4<T, defaultp> ortho(
+	GLM_FUNC_DECL mat<4, 4, T, defaultp> ortho(
 		T left,
 		T right,
 		T bottom,
@@ -174,7 +174,7 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	template <typename T>
-	GLM_FUNC_DECL tmat4x4<T, defaultp> frustum(
+	GLM_FUNC_DECL mat<4, 4, T, defaultp> frustum(
 		T left,
 		T right,
 		T bottom,
@@ -193,7 +193,7 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	template <typename T>
-	GLM_FUNC_DECL tmat4x4<T, defaultp> frustumLH(
+	GLM_FUNC_DECL mat<4, 4, T, defaultp> frustumLH(
 		T left,
 		T right,
 		T bottom,
@@ -212,7 +212,7 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	template <typename T>
-	GLM_FUNC_DECL tmat4x4<T, defaultp> frustumRH(
+	GLM_FUNC_DECL mat<4, 4, T, defaultp> frustumRH(
 		T left,
 		T right,
 		T bottom,
@@ -229,7 +229,7 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	template <typename T>
-	GLM_FUNC_DECL tmat4x4<T, defaultp> perspective(
+	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspective(
 		T fovy,
 		T aspect,
 		T near,
@@ -244,7 +244,7 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	template <typename T>
-	GLM_FUNC_DECL tmat4x4<T, defaultp> perspectiveRH(
+	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveRH(
 		T fovy,
 		T aspect,
 		T near,
@@ -259,7 +259,7 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	template <typename T>
-	GLM_FUNC_DECL tmat4x4<T, defaultp> perspectiveLH(
+	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveLH(
 		T fovy,
 		T aspect,
 		T near,
@@ -275,7 +275,7 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	template <typename T>
-	GLM_FUNC_DECL tmat4x4<T, defaultp> perspectiveFov(
+	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveFov(
 		T fov,
 		T width,
 		T height,
@@ -292,7 +292,7 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	template <typename T>
-	GLM_FUNC_DECL tmat4x4<T, defaultp> perspectiveFovRH(
+	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveFovRH(
 		T fov,
 		T width,
 		T height,
@@ -309,7 +309,7 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	template <typename T>
-	GLM_FUNC_DECL tmat4x4<T, defaultp> perspectiveFovLH(
+	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveFovLH(
 		T fov,
 		T width,
 		T height,
@@ -324,7 +324,7 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	template <typename T>
-	GLM_FUNC_DECL tmat4x4<T, defaultp> infinitePerspective(
+	GLM_FUNC_DECL mat<4, 4, T, defaultp> infinitePerspective(
 		T fovy, T aspect, T near);
 
 	/// Creates a matrix for a left handed, symmetric perspective-view frustum with far plane at infinite.
@@ -335,7 +335,7 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	template <typename T>
-	GLM_FUNC_DECL tmat4x4<T, defaultp> infinitePerspectiveLH(
+	GLM_FUNC_DECL mat<4, 4, T, defaultp> infinitePerspectiveLH(
 		T fovy, T aspect, T near);
 
 	/// Creates a matrix for a right handed, symmetric perspective-view frustum with far plane at infinite.
@@ -346,7 +346,7 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	template <typename T>
-	GLM_FUNC_DECL tmat4x4<T, defaultp> infinitePerspectiveRH(
+	GLM_FUNC_DECL mat<4, 4, T, defaultp> infinitePerspectiveRH(
 		T fovy, T aspect, T near);
 
 	/// Creates a matrix for a symmetric perspective-view frustum with far plane at infinite for graphics hardware that doesn't support depth clamping.
@@ -357,7 +357,7 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	template <typename T>
-	GLM_FUNC_DECL tmat4x4<T, defaultp> tweakedInfinitePerspective(
+	GLM_FUNC_DECL mat<4, 4, T, defaultp> tweakedInfinitePerspective(
 		T fovy, T aspect, T near);
 
 	/// Creates a matrix for a symmetric perspective-view frustum with far plane at infinite for graphics hardware that doesn't support depth clamping.
@@ -369,7 +369,7 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
 	template <typename T>
-	GLM_FUNC_DECL tmat4x4<T, defaultp> tweakedInfinitePerspective(
+	GLM_FUNC_DECL mat<4, 4, T, defaultp> tweakedInfinitePerspective(
 		T fovy, T aspect, T near, T ep);
 
 	/// Map the specified object coordinates (obj.x, obj.y, obj.z) into window coordinates.
@@ -385,8 +385,8 @@ namespace glm
 	template <typename T, typename U, precision P>
 	GLM_FUNC_DECL vec<3, T, P> project(
 		vec<3, T, P> const & obj,
-		tmat4x4<T, P> const & model,
-		tmat4x4<T, P> const & proj,
+		mat<4, 4, T, P> const& model,
+		mat<4, 4, T, P> const& proj,
 		vec<4, U, P> const & viewport);
 
 	/// Map the specified window coordinates (win.x, win.y, win.z) into object coordinates.
@@ -402,8 +402,8 @@ namespace glm
 	template <typename T, typename U, precision P>
 	GLM_FUNC_DECL vec<3, T, P> unProject(
 		vec<3, T, P> const & win,
-		tmat4x4<T, P> const & model,
-		tmat4x4<T, P> const & proj,
+		mat<4, 4, T, P> const& model,
+		mat<4, 4, T, P> const& proj,
 		vec<4, U, P> const & viewport);
 
 	/// Define a picking region
@@ -415,7 +415,7 @@ namespace glm
 	/// @tparam U Currently supported: Floating-point types and integer types.
 	/// @see gtc_matrix_transform
 	template <typename T, precision P, typename U>
-	GLM_FUNC_DECL tmat4x4<T, P> pickMatrix(
+	GLM_FUNC_DECL mat<4, 4, T, P> pickMatrix(
 		vec<2, T, P> const & center,
 		vec<2, T, P> const & delta,
 		vec<4, U, P> const & viewport);
@@ -428,7 +428,7 @@ namespace glm
 	/// @see gtc_matrix_transform
 	/// @see - frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal) frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal)
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat4x4<T, P> lookAt(
+	GLM_FUNC_DECL mat<4, 4, T, P> lookAt(
 		vec<3, T, P> const & eye,
 		vec<3, T, P> const & center,
 		vec<3, T, P> const & up);
@@ -441,7 +441,7 @@ namespace glm
 	/// @see gtc_matrix_transform
 	/// @see - frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal) frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal)
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat4x4<T, P> lookAtRH(
+	GLM_FUNC_DECL mat<4, 4, T, P> lookAtRH(
 		vec<3, T, P> const & eye,
 		vec<3, T, P> const & center,
 		vec<3, T, P> const & up);
@@ -454,7 +454,7 @@ namespace glm
 	/// @see gtc_matrix_transform
 	/// @see - frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal) frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal)
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat4x4<T, P> lookAtLH(
+	GLM_FUNC_DECL mat<4, 4, T, P> lookAtLH(
 		vec<3, T, P> const & eye,
 		vec<3, T, P> const & center,
 		vec<3, T, P> const & up);

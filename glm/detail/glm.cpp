@@ -145,94 +145,94 @@ template struct vec<4, float32, highp>;
 template struct vec<4, float64, highp>;
 
 // tmat2x2 type explicit instantiation
-template struct tmat2x2<float32, lowp>;
-template struct tmat2x2<float64, lowp>;
+template struct mat<2, 2, float32, lowp>;
+template struct mat<2, 2, float64, lowp>;
 
-template struct tmat2x2<float32, mediump>;
-template struct tmat2x2<float64, mediump>;
+template struct mat<2, 2, float32, mediump>;
+template struct mat<2, 2, float64, mediump>;
 
-template struct tmat2x2<float32, highp>;
-template struct tmat2x2<float64, highp>;
+template struct mat<2, 2, float32, highp>;
+template struct mat<2, 2, float64, highp>;
 
 // tmat2x3 type explicit instantiation
-template struct tmat2x3<float32, lowp>;
-template struct tmat2x3<float64, lowp>;
+template struct mat<2, 3, float32, lowp>;
+template struct mat<2, 3, float64, lowp>;
 
-template struct tmat2x3<float32, mediump>;
-template struct tmat2x3<float64, mediump>;
+template struct mat<2, 3, float32, mediump>;
+template struct mat<2, 3, float64, mediump>;
 
-template struct tmat2x3<float32, highp>;
-template struct tmat2x3<float64, highp>;
+template struct mat<2, 3, float32, highp>;
+template struct mat<2, 3, float64, highp>;
 
 // tmat2x4 type explicit instantiation
-template struct tmat2x4<float32, lowp>;
-template struct tmat2x4<float64, lowp>;
+template struct mat<2, 4, float32, lowp>;
+template struct mat<2, 4, float64, lowp>;
 
-template struct tmat2x4<float32, mediump>;
-template struct tmat2x4<float64, mediump>;
+template struct mat<2, 4, float32, mediump>;
+template struct mat<2, 4, float64, mediump>;
 
-template struct tmat2x4<float32, highp>;
-template struct tmat2x4<float64, highp>;
+template struct mat<2, 4, float32, highp>;
+template struct mat<2, 4, float64, highp>;
 
 // tmat3x2 type explicit instantiation
-template struct tmat3x2<float32, lowp>;
-template struct tmat3x2<float64, lowp>;
+template struct mat<3, 2, float32, lowp>;
+template struct mat<3, 2, float64, lowp>;
 
-template struct tmat3x2<float32, mediump>;
-template struct tmat3x2<float64, mediump>;
+template struct mat<3, 2, float32, mediump>;
+template struct mat<3, 2, float64, mediump>;
 
-template struct tmat3x2<float32, highp>;
-template struct tmat3x2<float64, highp>;
+template struct mat<3, 2, float32, highp>;
+template struct mat<3, 2, float64, highp>;
 
 // tmat3x3 type explicit instantiation
-template struct tmat3x3<float32, lowp>;
-template struct tmat3x3<float64, lowp>;
+template struct mat<3, 3, float32, lowp>;
+template struct mat<3, 3, float64, lowp>;
 
-template struct tmat3x3<float32, mediump>;
-template struct tmat3x3<float64, mediump>;
+template struct mat<3, 3, float32, mediump>;
+template struct mat<3, 3, float64, mediump>;
 
-template struct tmat3x3<float32, highp>;
-template struct tmat3x3<float64, highp>;
+template struct mat<3, 3, float32, highp>;
+template struct mat<3, 3, float64, highp>;
 
 // tmat3x4 type explicit instantiation
-template struct tmat3x4<float32, lowp>;
-template struct tmat3x4<float64, lowp>;
+template struct mat<3, 4, float32, lowp>;
+template struct mat<3, 4, float64, lowp>;
 
-template struct tmat3x4<float32, mediump>;
-template struct tmat3x4<float64, mediump>;
+template struct mat<3, 4, float32, mediump>;
+template struct mat<3, 4, float64, mediump>;
 
-template struct tmat3x4<float32, highp>;
-template struct tmat3x4<float64, highp>;
+template struct mat<3, 4, float32, highp>;
+template struct mat<3, 4, float64, highp>;
 
 // tmat4x2 type explicit instantiation
-template struct tmat4x2<float32, lowp>;
-template struct tmat4x2<float64, lowp>;
+template struct mat<4, 2, float32, lowp>;
+template struct mat<4, 2, float64, lowp>;
 
-template struct tmat4x2<float32, mediump>;
-template struct tmat4x2<float64, mediump>;
+template struct mat<4, 2, float32, mediump>;
+template struct mat<4, 2, float64, mediump>;
 
-template struct tmat4x2<float32, highp>;
-template struct tmat4x2<float64, highp>;
+template struct mat<4, 2, float32, highp>;
+template struct mat<4, 2, float64, highp>;
 
 // tmat4x3 type explicit instantiation
-template struct tmat4x3<float32, lowp>;
-template struct tmat4x3<float64, lowp>;
+template struct mat<4, 3, float32, lowp>;
+template struct mat<4, 3, float64, lowp>;
 
-template struct tmat4x3<float32, mediump>;
-template struct tmat4x3<float64, mediump>;
+template struct mat<4, 3, float32, mediump>;
+template struct mat<4, 3, float64, mediump>;
 
-template struct tmat4x3<float32, highp>;
-template struct tmat4x3<float64, highp>;
+template struct mat<4, 3, float32, highp>;
+template struct mat<4, 3, float64, highp>;
 
 // tmat4x4 type explicit instantiation
-template struct tmat4x4<float32, lowp>;
-template struct tmat4x4<float64, lowp>;
+template struct mat<4, 4, float32, lowp>;
+template struct mat<4, 4, float64, lowp>;
 
-template struct tmat4x4<float32, mediump>;
-template struct tmat4x4<float64, mediump>;
+template struct mat<4, 4, float32, mediump>;
+template struct mat<4, 4, float64, mediump>;
 
-template struct tmat4x4<float32, highp>;
-template struct tmat4x4<float64, highp>;
+template struct mat<4, 4, float32, highp>;
+template struct mat<4, 4, float64, highp>;
 
 // tquat type explicit instantiation
 template struct tquat<float32, lowp>;

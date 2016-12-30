@@ -227,8 +227,8 @@ namespace detail
 
 namespace detail
 {
-	template <typename CTy, typename CTr, template <typename, precision> class M, typename T, precision P>
-	GLM_FUNC_QUALIFIER std::basic_ostream<CTy, CTr>& print_matrix_on(std::basic_ostream<CTy, CTr>& os, M<T,P> const& a)
+	template <typename CTy, typename CTr, template <length_t, length_t, typename, precision> class M, length_t C, length_t R, typename T, precision P>
+	GLM_FUNC_QUALIFIER std::basic_ostream<CTy, CTr>& print_matrix_on(std::basic_ostream<CTy, CTr>& os, M<C, R, T, P> const& a)
 	{
 		typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
@@ -236,8 +236,8 @@ namespace detail
 		{
 			io::format_punct<CTy> const & fmt(io::get_facet<io::format_punct<CTy> >(os));
 
-			length_t const& cols(type<M<T, P>>::cols);
-			length_t const& rows(type<M<T, P>>::rows);
+			length_t const& cols(type<M<C, R, T, P> >::cols);
+			length_t const& rows(type<M<C, R, T, P> >::rows);
 
 			if(fmt.formatted)
 			{
@@ -314,73 +314,73 @@ namespace detail
 }//namespace detail
 
 	template <typename CTy, typename CTr, typename T, precision P>
-	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat2x2<T,P> const& a)
+	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, mat<2, 2, T, P> const& a)
 	{
 		return detail::print_matrix_on(os, a);
 	}
 
 	template <typename CTy, typename CTr, typename T, precision P>
-	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat2x3<T,P> const& a)
+	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, mat<2, 3, T, P> const& a)
 	{
 		return detail::print_matrix_on(os, a);
 	}
 
 	template <typename CTy, typename CTr, typename T, precision P>
-	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat2x4<T,P> const& a)
+	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, mat<2, 4, T, P> const& a)
 	{
 		return detail::print_matrix_on(os, a);
 	}
 
 	template <typename CTy, typename CTr, typename T, precision P>
-	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat3x2<T,P> const& a)
+	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, mat<3, 2, T,P> const& a)
 	{
 		return detail::print_matrix_on(os, a);
 	}
 
 	template <typename CTy, typename CTr, typename T, precision P>
-	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tmat3x3<T,P> const& a)
+	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, mat<3, 3, T,P> const& a)
 	{
 		return detail::print_matrix_on(os, a);
 	}
 
 	template <typename CTy, typename CTr, typename T, precision P>
-	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr> & operator<<(std::basic_ostream<CTy,CTr>& os, tmat3x4<T,P> const& a)
+	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr> & operator<<(std::basic_ostream<CTy,CTr>& os, mat<3, 4, T,P> const& a)
 	{
 		return detail::print_matrix_on(os, a);
 	}
 
 	template <typename CTy, typename CTr, typename T, precision P>
-	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr> & operator<<(std::basic_ostream<CTy,CTr>& os, tmat4x2<T,P> const& a)
+	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr> & operator<<(std::basic_ostream<CTy,CTr>& os, mat<4, 2, T,P> const& a)
 	{
 		return detail::print_matrix_on(os, a);
 	}
 
 	template <typename CTy, typename CTr, typename T, precision P>
-	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr> & operator<<(std::basic_ostream<CTy,CTr>& os, tmat4x3<T,P> const& a)
+	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr> & operator<<(std::basic_ostream<CTy,CTr>& os, mat<4, 3, T,P> const& a)
 	{
 		return detail::print_matrix_on(os, a);
 	}
 
 	template <typename CTy, typename CTr, typename T, precision P>
-	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr> & operator<<(std::basic_ostream<CTy,CTr>& os, tmat4x4<T,P> const& a)
+	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr> & operator<<(std::basic_ostream<CTy,CTr>& os, mat<4, 4, T,P> const& a)
 	{
 		return detail::print_matrix_on(os, a);
 	}
 
 namespace detail
 {
-	template <typename CTy, typename CTr, template <typename, precision> class M, typename T, precision P>
-	GLM_FUNC_QUALIFIER std::basic_ostream<CTy, CTr>& print_matrix_pair_on(std::basic_ostream<CTy, CTr>& os, std::pair<M<T, P> const, M<T, P> const> const& a)
+	template <typename CTy, typename CTr, template <length_t, length_t, typename, precision> class M, length_t C, length_t R, typename T, precision P>
+	GLM_FUNC_QUALIFIER std::basic_ostream<CTy, CTr>& print_matrix_pair_on(std::basic_ostream<CTy, CTr>& os, std::pair<M<C, R, T, P> const, M<C, R, T, P> const> const& a)
 	{
 		typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
 		if(cerberus)
 		{
 			io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy> >(os));
-			M<T,P> const& ml(a.first);
-			M<T,P> const& mr(a.second);
-			length_t const& cols(type<M<T, P>>::cols);
-			length_t const& rows(type<M<T, P>>::rows);
+			M<C, R, T,P> const& ml(a.first);
+			M<C, R, T,P> const& mr(a.second);
+			length_t const& cols(type<M<C, R, T, P>>::cols);
+			length_t const& rows(type<M<C, R, T, P>>::rows);
 
 			if(fmt.formatted)
 			{
@@ -433,8 +433,8 @@ namespace detail
 	template <typename CTy, typename CTr, typename T, precision P>
 	GLM_FUNC_QUALIFIER std::basic_ostream<CTy, CTr>& operator<<(
 		std::basic_ostream<CTy, CTr> & os,
-		std::pair<tmat4x4<T, P> const,
-		tmat4x4<T, P> const> const& a)
+		std::pair<mat<4, 4, T, P> const,
+		mat<4, 4, T, P> const> const& a)
 	{
 		return detail::print_matrix_pair_on(os, a);
 	}

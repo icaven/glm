@@ -1716,39 +1716,39 @@ namespace glm
 
 	/// Low single-precision floating-point 2x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x2<f32, lowp> lowp_fmat2x2;
+	typedef mat<2, 2, f32, lowp> lowp_fmat2x2;
 
 	/// Low single-precision floating-point 2x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x3<f32, lowp> lowp_fmat2x3;
+	typedef mat<2, 3, f32, lowp> lowp_fmat2x3;
 
 	/// Low single-precision floating-point 2x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x4<f32, lowp> lowp_fmat2x4;
+	typedef mat<2, 4, f32, lowp> lowp_fmat2x4;
 
 	/// Low single-precision floating-point 3x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x2<f32, lowp> lowp_fmat3x2;
+	typedef mat<3, 2, f32, lowp> lowp_fmat3x2;
 
 	/// Low single-precision floating-point 3x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x3<f32, lowp> lowp_fmat3x3;
+	typedef mat<3, 3, f32, lowp> lowp_fmat3x3;
 
 	/// Low single-precision floating-point 3x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x4<f32, lowp> lowp_fmat3x4;
+	typedef mat<3, 4, f32, lowp> lowp_fmat3x4;
 
 	/// Low single-precision floating-point 4x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x2<f32, lowp> lowp_fmat4x2;
+	typedef mat<4, 2, f32, lowp> lowp_fmat4x2;
 
 	/// Low single-precision floating-point 4x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x3<f32, lowp> lowp_fmat4x3;
+	typedef mat<4, 3, f32, lowp> lowp_fmat4x3;
 
 	/// Low single-precision floating-point 4x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x4<f32, lowp> lowp_fmat4x4;
+	typedef mat<4, 4, f32, lowp> lowp_fmat4x4;
 
 	/// Low single-precision floating-point 1x1 matrix.
 	/// @see gtc_type_precision
@@ -1773,39 +1773,39 @@ namespace glm
 
 	/// Medium single-precision floating-point 2x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x2<f32, mediump> mediump_fmat2x2;
+	typedef mat<2, 2, f32, mediump> mediump_fmat2x2;
 
 	/// Medium single-precision floating-point 2x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x3<f32, mediump> mediump_fmat2x3;
+	typedef mat<2, 3, f32, mediump> mediump_fmat2x3;
 
 	/// Medium single-precision floating-point 2x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x4<f32, mediump> mediump_fmat2x4;
+	typedef mat<2, 4, f32, mediump> mediump_fmat2x4;
 
 	/// Medium single-precision floating-point 3x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x2<f32, mediump> mediump_fmat3x2;
+	typedef mat<3, 2, f32, mediump> mediump_fmat3x2;
 
 	/// Medium single-precision floating-point 3x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x3<f32, mediump> mediump_fmat3x3;
+	typedef mat<3, 3, f32, mediump> mediump_fmat3x3;
 
 	/// Medium single-precision floating-point 3x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x4<f32, mediump> mediump_fmat3x4;
+	typedef mat<3, 4, f32, mediump> mediump_fmat3x4;
 
 	/// Medium single-precision floating-point 4x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x2<f32, mediump> mediump_fmat4x2;
+	typedef mat<4, 2, f32, mediump> mediump_fmat4x2;
 
 	/// Medium single-precision floating-point 4x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x3<f32, mediump> mediump_fmat4x3;
+	typedef mat<4, 3, f32, mediump> mediump_fmat4x3;
 
 	/// Medium single-precision floating-point 4x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x4<f32, mediump> mediump_fmat4x4;
+	typedef mat<4, 4, f32, mediump> mediump_fmat4x4;
 
 	/// Medium single-precision floating-point 1x1 matrix.
 	/// @see gtc_type_precision
@@ -1830,39 +1830,39 @@ namespace glm
 
 	/// High single-precision floating-point 2x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x2<f32, highp> highp_fmat2x2;
+	typedef mat<2, 2, f32, highp> highp_fmat2x2;
 
 	/// High single-precision floating-point 2x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x3<f32, highp> highp_fmat2x3;
+	typedef mat<2, 3, f32, highp> highp_fmat2x3;
 
 	/// High single-precision floating-point 2x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x4<f32, highp> highp_fmat2x4;
+	typedef mat<2, 4, f32, highp> highp_fmat2x4;
 
 	/// High single-precision floating-point 3x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x2<f32, highp> highp_fmat3x2;
+	typedef mat<3, 2, f32, highp> highp_fmat3x2;
 
 	/// High single-precision floating-point 3x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x3<f32, highp> highp_fmat3x3;
+	typedef mat<3, 3, f32, highp> highp_fmat3x3;
 
 	/// High single-precision floating-point 3x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x4<f32, highp> highp_fmat3x4;
+	typedef mat<3, 4, f32, highp> highp_fmat3x4;
 
 	/// High single-precision floating-point 4x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x2<f32, highp> highp_fmat4x2;
+	typedef mat<4, 2, f32, highp> highp_fmat4x2;
 
 	/// High single-precision floating-point 4x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x3<f32, highp> highp_fmat4x3;
+	typedef mat<4, 3, f32, highp> highp_fmat4x3;
 
 	/// High single-precision floating-point 4x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x4<f32, highp> highp_fmat4x4;
+	typedef mat<4, 4, f32, highp> highp_fmat4x4;
 
 	/// High single-precision floating-point 1x1 matrix.
 	/// @see gtc_type_precision
@@ -1887,39 +1887,39 @@ namespace glm
 
 	/// Low single-precision floating-point 2x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x2<f32, lowp> lowp_f32mat2x2;
+	typedef mat<2, 2, f32, lowp> lowp_f32mat2x2;
 
 	/// Low single-precision floating-point 2x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x3<f32, lowp> lowp_f32mat2x3;
+	typedef mat<2, 3, f32, lowp> lowp_f32mat2x3;
 
 	/// Low single-precision floating-point 2x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x4<f32, lowp> lowp_f32mat2x4;
+	typedef mat<2, 4, f32, lowp> lowp_f32mat2x4;
 
 	/// Low single-precision floating-point 3x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x2<f32, lowp> lowp_f32mat3x2;
+	typedef mat<3, 2, f32, lowp> lowp_f32mat3x2;
 
 	/// Low single-precision floating-point 3x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x3<f32, lowp> lowp_f32mat3x3;
+	typedef mat<3, 3, f32, lowp> lowp_f32mat3x3;
 
 	/// Low single-precision floating-point 3x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x4<f32, lowp> lowp_f32mat3x4;
+	typedef mat<3, 4, f32, lowp> lowp_f32mat3x4;
 
 	/// Low single-precision floating-point 4x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x2<f32, lowp> lowp_f32mat4x2;
+	typedef mat<4, 2, f32, lowp> lowp_f32mat4x2;
 
 	/// Low single-precision floating-point 4x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x3<f32, lowp> lowp_f32mat4x3;
+	typedef mat<4, 3, f32, lowp> lowp_f32mat4x3;
 
 	/// Low single-precision floating-point 4x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x4<f32, lowp> lowp_f32mat4x4;
+	typedef mat<4, 4, f32, lowp> lowp_f32mat4x4;
 
 	/// Low single-precision floating-point 1x1 matrix.
 	/// @see gtc_type_precision
@@ -1944,39 +1944,39 @@ namespace glm
 
 	/// Low single-precision floating-point 2x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x2<f32, mediump> mediump_f32mat2x2;
+	typedef mat<2, 2, f32, mediump> mediump_f32mat2x2;
 
 	/// Medium single-precision floating-point 2x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x3<f32, mediump> mediump_f32mat2x3;
+	typedef mat<2, 3, f32, mediump> mediump_f32mat2x3;
 
 	/// Medium single-precision floating-point 2x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x4<f32, mediump> mediump_f32mat2x4;
+	typedef mat<2, 4, f32, mediump> mediump_f32mat2x4;
 
 	/// Medium single-precision floating-point 3x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x2<f32, mediump> mediump_f32mat3x2;
+	typedef mat<3, 2, f32, mediump> mediump_f32mat3x2;
 
 	/// Medium single-precision floating-point 3x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x3<f32, mediump> mediump_f32mat3x3;
+	typedef mat<3, 3, f32, mediump> mediump_f32mat3x3;
 
 	/// Medium single-precision floating-point 3x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x4<f32, mediump> mediump_f32mat3x4;
+	typedef mat<3, 4, f32, mediump> mediump_f32mat3x4;
 
 	/// Medium single-precision floating-point 4x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x2<f32, mediump> mediump_f32mat4x2;
+	typedef mat<4, 2, f32, mediump> mediump_f32mat4x2;
 
 	/// Medium single-precision floating-point 4x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x3<f32, mediump> mediump_f32mat4x3;
+	typedef mat<4, 3, f32, mediump> mediump_f32mat4x3;
 
 	/// Medium single-precision floating-point 4x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x4<f32, mediump> mediump_f32mat4x4;
+	typedef mat<4, 4, f32, mediump> mediump_f32mat4x4;
 
 	/// Medium single-precision floating-point 1x1 matrix.
 	/// @see gtc_type_precision
@@ -2001,39 +2001,39 @@ namespace glm
 
 	/// High single-precision floating-point 2x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x2<f32, highp> highp_f32mat2x2;
+	typedef mat<2, 2, f32, highp> highp_f32mat2x2;
 
 	/// High single-precision floating-point 2x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x3<f32, highp> highp_f32mat2x3;
+	typedef mat<2, 3, f32, highp> highp_f32mat2x3;
 
 	/// High single-precision floating-point 2x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x4<f32, highp> highp_f32mat2x4;
+	typedef mat<2, 4, f32, highp> highp_f32mat2x4;
 
 	/// High single-precision floating-point 3x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x2<f32, highp> highp_f32mat3x2;
+	typedef mat<3, 2, f32, highp> highp_f32mat3x2;
 
 	/// High single-precision floating-point 3x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x3<f32, highp> highp_f32mat3x3;
+	typedef mat<3, 3, f32, highp> highp_f32mat3x3;
 
 	/// High single-precision floating-point 3x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x4<f32, highp> highp_f32mat3x4;
+	typedef mat<3, 4, f32, highp> highp_f32mat3x4;
 
 	/// High single-precision floating-point 4x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x2<f32, highp> highp_f32mat4x2;
+	typedef mat<4, 2, f32, highp> highp_f32mat4x2;
 
 	/// High single-precision floating-point 4x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x3<f32, highp> highp_f32mat4x3;
+	typedef mat<4, 3, f32, highp> highp_f32mat4x3;
 
 	/// High single-precision floating-point 4x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x4<f32, highp> highp_f32mat4x4;
+	typedef mat<4, 4, f32, highp> highp_f32mat4x4;
 
 	/// High single-precision floating-point 1x1 matrix.
 	/// @see gtc_type_precision
@@ -2058,39 +2058,39 @@ namespace glm
 
 	/// Low double-precision floating-point 2x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x2<f64, lowp> lowp_f64mat2x2;
+	typedef mat<2, 2, f64, lowp> lowp_f64mat2x2;
 
 	/// Low double-precision floating-point 2x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x3<f64, lowp> lowp_f64mat2x3;
+	typedef mat<2, 3, f64, lowp> lowp_f64mat2x3;
 
 	/// Low double-precision floating-point 2x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x4<f64, lowp> lowp_f64mat2x4;
+	typedef mat<2, 4, f64, lowp> lowp_f64mat2x4;
 
 	/// Low double-precision floating-point 3x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x2<f64, lowp> lowp_f64mat3x2;
+	typedef mat<3, 2, f64, lowp> lowp_f64mat3x2;
 
 	/// Low double-precision floating-point 3x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x3<f64, lowp> lowp_f64mat3x3;
+	typedef mat<3, 3, f64, lowp> lowp_f64mat3x3;
 
 	/// Low double-precision floating-point 3x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x4<f64, lowp> lowp_f64mat3x4;
+	typedef mat<3, 4, f64, lowp> lowp_f64mat3x4;
 
 	/// Low double-precision floating-point 4x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x2<f64, lowp> lowp_f64mat4x2;
+	typedef mat<4, 2, f64, lowp> lowp_f64mat4x2;
 
 	/// Low double-precision floating-point 4x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x3<f64, lowp> lowp_f64mat4x3;
+	typedef mat<4, 3, f64, lowp> lowp_f64mat4x3;
 	
 	/// Low double-precision floating-point 4x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x4<f64, lowp> lowp_f64mat4x4;
+	typedef mat<4, 4, f64, lowp> lowp_f64mat4x4;
 
 	/// Low double-precision floating-point 1x1 matrix.
 	/// @see gtc_type_precision
@@ -2115,39 +2115,39 @@ namespace glm
 
 	/// Medium double-precision floating-point 2x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x2<f64, mediump> mediump_f64mat2x2;
+	typedef mat<2, 2, f64, mediump> mediump_f64mat2x2;
 
 	/// Medium double-precision floating-point 2x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x3<f64, mediump> mediump_f64mat2x3;
+	typedef mat<2, 3, f64, mediump> mediump_f64mat2x3;
 
 	/// Medium double-precision floating-point 2x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x4<f64, mediump> mediump_f64mat2x4;
+	typedef mat<2, 4, f64, mediump> mediump_f64mat2x4;
 
 	/// Medium double-precision floating-point 3x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x2<f64, mediump> mediump_f64mat3x2;
+	typedef mat<3, 2, f64, mediump> mediump_f64mat3x2;
 
 	/// Medium double-precision floating-point 3x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x3<f64, mediump> mediump_f64mat3x3;
+	typedef mat<3, 3, f64, mediump> mediump_f64mat3x3;
 
 	/// Medium double-precision floating-point 3x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x4<f64, mediump> mediump_f64mat3x4;
+	typedef mat<3, 4, f64, mediump> mediump_f64mat3x4;
 
 	/// Medium double-precision floating-point 4x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x2<f64, mediump> mediump_f64mat4x2;
+	typedef mat<4, 2, f64, mediump> mediump_f64mat4x2;
 
 	/// Medium double-precision floating-point 4x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x3<f64, mediump> mediump_f64mat4x3;
+	typedef mat<4, 3, f64, mediump> mediump_f64mat4x3;
 
 	/// Medium double-precision floating-point 4x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x4<f64, mediump> mediump_f64mat4x4;
+	typedef mat<4, 4, f64, mediump> mediump_f64mat4x4;
 
 	/// Medium double-precision floating-point 1x1 matrix.
 	/// @see gtc_type_precision
@@ -2171,39 +2171,39 @@ namespace glm
 
 	/// High double-precision floating-point 2x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x2<f64, highp> highp_f64mat2x2;
+	typedef mat<2, 2, f64, highp> highp_f64mat2x2;
 
 	/// High double-precision floating-point 2x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x3<f64, highp> highp_f64mat2x3;
+	typedef mat<2, 3, f64, highp> highp_f64mat2x3;
 
 	/// High double-precision floating-point 2x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat2x4<f64, highp> highp_f64mat2x4;
+	typedef mat<2, 4, f64, highp> highp_f64mat2x4;
 
 	/// High double-precision floating-point 3x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x2<f64, highp> highp_f64mat3x2;
+	typedef mat<3, 2, f64, highp> highp_f64mat3x2;
 
 	/// High double-precision floating-point 3x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x3<f64, highp> highp_f64mat3x3;
+	typedef mat<3, 3, f64, highp> highp_f64mat3x3;
 
 	/// High double-precision floating-point 3x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat3x4<f64, highp> highp_f64mat3x4;
+	typedef mat<3, 4, f64, highp> highp_f64mat3x4;
 
 	/// High double-precision floating-point 4x2 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x2<f64, highp> highp_f64mat4x2;
+	typedef mat<4, 2, f64, highp> highp_f64mat4x2;
 
 	/// High double-precision floating-point 4x3 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x3<f64, highp> highp_f64mat4x3;
+	typedef mat<4, 3, f64, highp> highp_f64mat4x3;
 
 	/// High double-precision floating-point 4x4 matrix.
 	/// @see gtc_type_precision
-	typedef tmat4x4<f64, highp> highp_f64mat4x4;
+	typedef mat<4, 4, f64, highp> highp_f64mat4x4;
 
 	/// High double-precision floating-point 1x1 matrix.
 	/// @see gtc_type_precision

@@ -36,14 +36,14 @@ namespace glm
 	/// @see gtc_matrix_transform
 	/// @see gtx_transform
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat4x4<T, P> translate(
+	GLM_FUNC_DECL mat<4, 4, T, P> translate(
 		vec<3, T, P> const & v);
 
 	/// Builds a rotation 4 * 4 matrix created from an axis of 3 scalars and an angle expressed in radians. 
 	/// @see gtc_matrix_transform
 	/// @see gtx_transform
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat4x4<T, P> rotate(
+	GLM_FUNC_DECL mat<4, 4, T, P> rotate(
 		T angle, 
 		vec<3, T, P> const & v);
 
@@ -51,7 +51,7 @@ namespace glm
 	/// @see gtc_matrix_transform
 	/// @see gtx_transform
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat4x4<T, P> scale(
+	GLM_FUNC_DECL mat<4, 4, T, P> scale(
 		vec<3, T, P> const & v);
 
 	/// @}

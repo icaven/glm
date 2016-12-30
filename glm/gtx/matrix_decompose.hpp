@@ -37,7 +37,7 @@ namespace glm
 	/// @see gtx_matrix_decompose
 	template <typename T, precision P>
 	GLM_FUNC_DECL bool decompose(
-		tmat4x4<T, P> const & modelMatrix,
+		mat<4, 4, T, P> const& modelMatrix,
 		vec<3, T, P> & scale, tquat<T, P> & orientation, vec<3, T, P> & translation, vec<3, T, P> & skew, vec<4, T, P> & perspective);
 
 	/// @}

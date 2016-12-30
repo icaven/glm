@@ -38,15 +38,15 @@ namespace
 		else if (typeid(T) == typeid(glm::vec<2, U,P>))   { ostr << "vec2"; }
 		else if (typeid(T) == typeid(glm::vec<3, U,P>))   { ostr << "vec3"; }
 		else if (typeid(T) == typeid(glm::vec<4, U,P>))   { ostr << "vec4"; }
-		else if (typeid(T) == typeid(glm::tmat2x2<U,P>)) { ostr << "mat2x2"; }
-		else if (typeid(T) == typeid(glm::tmat2x3<U,P>)) { ostr << "mat2x3"; }
-		else if (typeid(T) == typeid(glm::tmat2x4<U,P>)) { ostr << "mat2x4"; }
-		else if (typeid(T) == typeid(glm::tmat3x2<U,P>)) { ostr << "mat3x2"; }
-		else if (typeid(T) == typeid(glm::tmat3x3<U,P>)) { ostr << "mat3x3"; }
-		else if (typeid(T) == typeid(glm::tmat3x4<U,P>)) { ostr << "mat3x4"; }
-		else if (typeid(T) == typeid(glm::tmat4x2<U,P>)) { ostr << "mat4x2"; }
-		else if (typeid(T) == typeid(glm::tmat4x3<U,P>)) { ostr << "mat4x3"; }
-		else if (typeid(T) == typeid(glm::tmat4x4<U,P>)) { ostr << "mat4x4"; }
+		else if (typeid(T) == typeid(glm::mat<2, 2, U,P>)) { ostr << "mat2x2"; }
+		else if (typeid(T) == typeid(glm::mat<2, 3, U,P>)) { ostr << "mat2x3"; }
+		else if (typeid(T) == typeid(glm::mat<2, 4, U,P>)) { ostr << "mat2x4"; }
+		else if (typeid(T) == typeid(glm::mat<3, 2, U,P>)) { ostr << "mat3x2"; }
+		else if (typeid(T) == typeid(glm::mat<3, 3, U,P>)) { ostr << "mat3x3"; }
+		else if (typeid(T) == typeid(glm::mat<3, 4, U,P>)) { ostr << "mat3x4"; }
+		else if (typeid(T) == typeid(glm::mat<4, 2, U,P>)) { ostr << "mat4x2"; }
+		else if (typeid(T) == typeid(glm::mat<4, 3, U,P>)) { ostr << "mat4x3"; }
+		else if (typeid(T) == typeid(glm::mat<4, 4, U,P>)) { ostr << "mat4x4"; }
 		else                                             { ostr << "unknown"; }
 
 		ostr << '<' << typeid(U).name() << ',' << P << '>';
@@ -124,27 +124,27 @@ int test_io_mat(OS& os, glm::io::order_type otype)
 
 	os << glm::io::precision(2) << glm::io::width(1 + 2 + 1 + 2)
 		<< glm::io::order(otype)
-		<< "mat2x2<" << typeid(T).name() << ',' << P << ">: " << glm::tmat2x2<T,P>(v2_1, v2_2) << '\n'
-		<< "mat2x3<" << typeid(T).name() << ',' << P << ">: " << glm::tmat2x3<T,P>(v3_1, v3_2) << '\n'
-		<< "mat2x4<" << typeid(T).name() << ',' << P << ">: " << glm::tmat2x4<T,P>(v4_1, v4_2) << '\n'
-		<< "mat3x2<" << typeid(T).name() << ',' << P << ">: " << glm::tmat3x2<T,P>(v2_1, v2_2, v2_3) << '\n'
-		<< "mat3x3<" << typeid(T).name() << ',' << P << ">: " << glm::tmat3x3<T,P>(v3_1, v3_2, v3_3) << '\n'
-		<< "mat3x4<" << typeid(T).name() << ',' << P << ">: " << glm::tmat3x4<T,P>(v4_1, v4_2, v4_3) << '\n'
-		<< "mat4x2<" << typeid(T).name() << ',' << P << ">: " << glm::tmat4x2<T,P>(v2_1, v2_2, v2_3, v2_4) << '\n'
-		<< "mat4x3<" << typeid(T).name() << ',' << P << ">: " << glm::tmat4x3<T,P>(v3_1, v3_2, v3_3, v3_4) << '\n'
-		<< "mat4x4<" << typeid(T).name() << ',' << P << ">: " << glm::tmat4x4<T,P>(v4_1, v4_2, v4_3, v4_4) << '\n';
+		<< "mat2x2<" << typeid(T).name() << ',' << P << ">: " << glm::mat<2, 2, T,P>(v2_1, v2_2) << '\n'
+		<< "mat2x3<" << typeid(T).name() << ',' << P << ">: " << glm::mat<2, 3, T,P>(v3_1, v3_2) << '\n'
+		<< "mat2x4<" << typeid(T).name() << ',' << P << ">: " << glm::mat<2, 4, T,P>(v4_1, v4_2) << '\n'
+		<< "mat3x2<" << typeid(T).name() << ',' << P << ">: " << glm::mat<3, 2, T,P>(v2_1, v2_2, v2_3) << '\n'
+		<< "mat3x3<" << typeid(T).name() << ',' << P << ">: " << glm::mat<3, 3, T,P>(v3_1, v3_2, v3_3) << '\n'
+		<< "mat3x4<" << typeid(T).name() << ',' << P << ">: " << glm::mat<3, 4, T,P>(v4_1, v4_2, v4_3) << '\n'
+		<< "mat4x2<" << typeid(T).name() << ',' << P << ">: " << glm::mat<4, 2, T,P>(v2_1, v2_2, v2_3, v2_4) << '\n'
+		<< "mat4x3<" << typeid(T).name() << ',' << P << ">: " << glm::mat<4, 3, T,P>(v3_1, v3_2, v3_3, v3_4) << '\n'
+		<< "mat4x4<" << typeid(T).name() << ',' << P << ">: " << glm::mat<4, 4, T,P>(v4_1, v4_2, v4_3, v4_4) << '\n';
 
 	os << glm::io::unformatted
 		<< glm::io::order(otype)
-		<< "mat2x2<" << typeid(T).name() << ',' << P << ">: " << glm::tmat2x2<T,P>(v2_1, v2_2) << '\n'
-		<< "mat2x3<" << typeid(T).name() << ',' << P << ">: " << glm::tmat2x3<T,P>(v3_1, v3_2) << '\n'
-		<< "mat2x4<" << typeid(T).name() << ',' << P << ">: " << glm::tmat2x4<T,P>(v4_1, v4_2) << '\n'
-		<< "mat3x2<" << typeid(T).name() << ',' << P << ">: " << glm::tmat3x2<T,P>(v2_1, v2_2, v2_3) << '\n'
-		<< "mat3x3<" << typeid(T).name() << ',' << P << ">: " << glm::tmat3x3<T,P>(v3_1, v3_2, v3_3) << '\n'
-		<< "mat3x4<" << typeid(T).name() << ',' << P << ">: " << glm::tmat3x4<T,P>(v4_1, v4_2, v4_3) << '\n'
-		<< "mat4x2<" << typeid(T).name() << ',' << P << ">: " << glm::tmat4x2<T,P>(v2_1, v2_2, v2_3, v2_4) << '\n'
-		<< "mat4x3<" << typeid(T).name() << ',' << P << ">: " << glm::tmat4x3<T,P>(v3_1, v3_2, v3_3, v3_4) << '\n'
-		<< "mat4x4<" << typeid(T).name() << ',' << P << ">: " << glm::tmat4x4<T,P>(v4_1, v4_2, v4_3, v4_4) << '\n';
+		<< "mat2x2<" << typeid(T).name() << ',' << P << ">: " << glm::mat<2, 2, T,P>(v2_1, v2_2) << '\n'
+		<< "mat2x3<" << typeid(T).name() << ',' << P << ">: " << glm::mat<2, 3, T,P>(v3_1, v3_2) << '\n'
+		<< "mat2x4<" << typeid(T).name() << ',' << P << ">: " << glm::mat<2, 4, T,P>(v4_1, v4_2) << '\n'
+		<< "mat3x2<" << typeid(T).name() << ',' << P << ">: " << glm::mat<3, 2, T,P>(v2_1, v2_2, v2_3) << '\n'
+		<< "mat3x3<" << typeid(T).name() << ',' << P << ">: " << glm::mat<3, 3, T,P>(v3_1, v3_2, v3_3) << '\n'
+		<< "mat3x4<" << typeid(T).name() << ',' << P << ">: " << glm::mat<3, 4, T,P>(v4_1, v4_2, v4_3) << '\n'
+		<< "mat4x2<" << typeid(T).name() << ',' << P << ">: " << glm::mat<4, 2, T,P>(v2_1, v2_2, v2_3, v2_4) << '\n'
+		<< "mat4x3<" << typeid(T).name() << ',' << P << ">: " << glm::mat<4, 3, T,P>(v3_1, v3_2, v3_3, v3_4) << '\n'
+		<< "mat4x4<" << typeid(T).name() << ',' << P << ">: " << glm::mat<4, 4, T,P>(v4_1, v4_2, v4_3, v4_4) << '\n';
   
 	return 0;
 }

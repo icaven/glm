@@ -111,7 +111,7 @@ namespace glm
 	//! Build a rotation matrix from a normal and a up vector.
 	//! From GLM_GTX_rotate_vector extension.
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat4x4<T, P> orientation(
+	GLM_FUNC_DECL mat<4, 4, T, P> orientation(
 		vec<3, T, P> const & Normal,
 		vec<3, T, P> const & Up);
 

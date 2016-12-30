@@ -41,11 +41,11 @@ namespace glm
 	/// 
 	/// @see gtx_rotate_normalized_axis
 	/// @see - rotate(T angle, T x, T y, T z) 
-	/// @see - rotate(tmat4x4<T, P> const & m, T angle, T x, T y, T z) 
+	/// @see - rotate(mat<4, 4, T, P> const & m, T angle, T x, T y, T z) 
 	/// @see - rotate(T angle, vec<3, T, P> const & v) 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tmat4x4<T, P> rotateNormalizedAxis(
-		tmat4x4<T, P> const & m,
+	GLM_FUNC_DECL mat<4, 4, T, P> rotateNormalizedAxis(
+		mat<4, 4, T, P> const& m,
 		T const & angle,
 		vec<3, T, P> const & axis);
 

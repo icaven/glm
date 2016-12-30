@@ -173,26 +173,26 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(tmat3x3<T, P> const & m)
+	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(mat<3, 3, T, P> const & m)
 	{
 		*this = quat_cast(m);
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(tmat4x4<T, P> const & m)
+	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(mat<4, 4, T, P> const & m)
 	{
 		*this = quat_cast(m);
 	}
 
 #	if GLM_HAS_EXPLICIT_CONVERSION_OPERATORS
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P>::operator tmat3x3<T, P>()
+	GLM_FUNC_QUALIFIER tquat<T, P>::operator mat<3, 3, T, P>()
 	{
 		return mat3_cast(*this);
 	}
 	
 	template <typename T, precision P>	
-	GLM_FUNC_QUALIFIER tquat<T, P>::operator tmat4x4<T, P>()
+	GLM_FUNC_QUALIFIER tquat<T, P>::operator mat<4, 4, T, P>()
 	{
 		return mat4_cast(*this);
 	}
@@ -584,9 +584,9 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat3x3<T, P> mat3_cast(tquat<T, P> const & q)
+	GLM_FUNC_QUALIFIER mat<3, 3, T, P> mat3_cast(tquat<T, P> const & q)
 	{
-		tmat3x3<T, P> Result(T(1));
+		mat<3, 3, T, P> Result(T(1));
 		T qxx(q.x * q.x);
 		T qyy(q.y * q.y);
 		T qzz(q.z * q.z);
@@ -612,13 +612,13 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P> mat4_cast(tquat<T, P> const & q)
+	GLM_FUNC_QUALIFIER mat<4, 4, T, P> mat4_cast(tquat<T, P> const & q)
 	{
-		return tmat4x4<T, P>(mat3_cast(q));
+		return mat<4, 4, T, P>(mat3_cast(q));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P> quat_cast(tmat3x3<T, P> const & m)
+	GLM_FUNC_QUALIFIER tquat<T, P> quat_cast(mat<3, 3, T, P> const & m)
 	{
 		T fourXSquaredMinus1 = m[0][0] - m[1][1] - m[2][2];
 		T fourYSquaredMinus1 = m[1][1] - m[0][0] - m[2][2];
@@ -682,9 +682,9 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P> quat_cast(tmat4x4<T, P> const & m4)
+	GLM_FUNC_QUALIFIER tquat<T, P> quat_cast(mat<4, 4, T, P> const & m4)
 	{
-		return quat_cast(tmat3x3<T, P>(m4));
+		return quat_cast(mat<3, 3, T, P>(m4));
 	}
 
 	template <typename T, precision P>
