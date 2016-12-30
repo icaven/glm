@@ -21,23 +21,23 @@
 		return vec<4, T, P>(this->A, this->B, this->C, this->D);			\
 	}
 
-#define GLM_SWIZZLE_GEN_VEC2_ENTRY_DEF(T, P, S, CONST, A, B)	\
+#define GLM_SWIZZLE_GEN_VEC2_ENTRY_DEF(T, P, L, CONST, A, B)	\
 	template <typename T>										\
-	vec<S, T, P> vec<S, T, P>::A ## B() CONST					\
+	vec<L, T, P> vec<L, T, P>::A ## B() CONST					\
 	{															\
 		return vec<2, T, P>(this->A, this->B);					\
 	}
 
-#define GLM_SWIZZLE_GEN_VEC3_ENTRY_DEF(T, P, S, CONST, A, B, C)		\
+#define GLM_SWIZZLE_GEN_VEC3_ENTRY_DEF(T, P, L, CONST, A, B, C)		\
 	template <typename T>											\
-	vec<3, T, P> vec<S, T, P>::A ## B ## C() CONST					\
+	vec<3, T, P> vec<L, T, P>::A ## B ## C() CONST					\
 	{																\
-		return vec<S, T, P>(this->A, this->B, this->C);				\
+		return vec<3, T, P>(this->A, this->B, this->C);				\
 	}
 
-#define GLM_SWIZZLE_GEN_VEC4_ENTRY_DEF(T, P, S, CONST, A, B, C, D)		\
+#define GLM_SWIZZLE_GEN_VEC4_ENTRY_DEF(T, P, L, CONST, A, B, C, D)		\
 	template <typename T>												\
-	vec<4, T, P> vec<S, T, P>::A ## B ## C ## D() CONST					\
+	vec<4, T, P> vec<L, T, P>::A ## B ## C ## D() CONST					\
 	{																	\
 		return vec<4, T, P>(this->A, this->B, this->C, this->D);		\
 	}

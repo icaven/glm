@@ -99,7 +99,7 @@ namespace glm
 
 		// -- Conversion scalar constructors --
 
-		/// Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template <typename A, typename B, typename C, typename D>
 		GLM_FUNC_DECL GLM_CONSTEXPR_SIMD vec(A a, B b, C c, D d);
 		template <typename A, typename B, typename C, typename D>
