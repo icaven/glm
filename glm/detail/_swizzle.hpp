@@ -48,7 +48,7 @@ namespace detail
 		Template parameters:
 
 		ValueType = type of scalar values (e.g. float, double)
-		VecType   = class the swizzle is applies to (e.g. tvec3<float>)
+		VecType   = class the swizzle is applies to (e.g. vec<3, float>)
 		N         = number of components in the vector (e.g. 3)
 		E0...3    = what index the n-th element of this swizzle refers to in the unswizzled vec
 

@@ -107,7 +107,7 @@ namespace detail
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType log2(genType x)
 	{
-		return log2(tvec1<genType>(x)).x;
+		return log2(vec<1, genType>(x)).x;
 	}
 
 	template <int D, typename T, precision P, template <int, typename, precision> class vecType>

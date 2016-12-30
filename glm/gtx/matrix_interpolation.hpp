@@ -34,14 +34,14 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_DECL void axisAngle(
 		tmat4x4<T, P> const & mat,
-		tvec3<T, P> & axis,
+		vec<3, T, P> & axis,
 		T & angle);
 
 	/// Build a matrix from axis and angle.
 	/// From GLM_GTX_matrix_interpolation extension.
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x4<T, P> axisAngleMatrix(
-		tvec3<T, P> const & axis,
+		vec<3, T, P> const & axis,
 		T const angle);
 
 	/// Extracts the rotation part of a matrix.

@@ -234,7 +234,7 @@ namespace detail
 			T SubFactor04 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
 			T SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
 
-			tvec4<T, P> DetCof(
+			vec<4, T, P> DetCof(
 				+ (m[1][1] * SubFactor00 - m[1][2] * SubFactor01 + m[1][3] * SubFactor02),
 				- (m[1][0] * SubFactor00 - m[1][2] * SubFactor03 + m[1][3] * SubFactor04),
 				+ (m[1][0] * SubFactor01 - m[1][1] * SubFactor03 + m[1][3] * SubFactor05),
@@ -322,30 +322,30 @@ namespace detail
 			T Coef22 = m[1][0] * m[3][1] - m[3][0] * m[1][1];
 			T Coef23 = m[1][0] * m[2][1] - m[2][0] * m[1][1];
 
-			tvec4<T, P> Fac0(Coef00, Coef00, Coef02, Coef03);
-			tvec4<T, P> Fac1(Coef04, Coef04, Coef06, Coef07);
-			tvec4<T, P> Fac2(Coef08, Coef08, Coef10, Coef11);
-			tvec4<T, P> Fac3(Coef12, Coef12, Coef14, Coef15);
-			tvec4<T, P> Fac4(Coef16, Coef16, Coef18, Coef19);
-			tvec4<T, P> Fac5(Coef20, Coef20, Coef22, Coef23);
+			vec<4, T, P> Fac0(Coef00, Coef00, Coef02, Coef03);
+			vec<4, T, P> Fac1(Coef04, Coef04, Coef06, Coef07);
+			vec<4, T, P> Fac2(Coef08, Coef08, Coef10, Coef11);
+			vec<4, T, P> Fac3(Coef12, Coef12, Coef14, Coef15);
+			vec<4, T, P> Fac4(Coef16, Coef16, Coef18, Coef19);
+			vec<4, T, P> Fac5(Coef20, Coef20, Coef22, Coef23);
 
-			tvec4<T, P> Vec0(m[1][0], m[0][0], m[0][0], m[0][0]);
-			tvec4<T, P> Vec1(m[1][1], m[0][1], m[0][1], m[0][1]);
-			tvec4<T, P> Vec2(m[1][2], m[0][2], m[0][2], m[0][2]);
-			tvec4<T, P> Vec3(m[1][3], m[0][3], m[0][3], m[0][3]);
+			vec<4, T, P> Vec0(m[1][0], m[0][0], m[0][0], m[0][0]);
+			vec<4, T, P> Vec1(m[1][1], m[0][1], m[0][1], m[0][1]);
+			vec<4, T, P> Vec2(m[1][2], m[0][2], m[0][2], m[0][2]);
+			vec<4, T, P> Vec3(m[1][3], m[0][3], m[0][3], m[0][3]);
 
-			tvec4<T, P> Inv0(Vec1 * Fac0 - Vec2 * Fac1 + Vec3 * Fac2);
-			tvec4<T, P> Inv1(Vec0 * Fac0 - Vec2 * Fac3 + Vec3 * Fac4);
-			tvec4<T, P> Inv2(Vec0 * Fac1 - Vec1 * Fac3 + Vec3 * Fac5);
-			tvec4<T, P> Inv3(Vec0 * Fac2 - Vec1 * Fac4 + Vec2 * Fac5);
+			vec<4, T, P> Inv0(Vec1 * Fac0 - Vec2 * Fac1 + Vec3 * Fac2);
+			vec<4, T, P> Inv1(Vec0 * Fac0 - Vec2 * Fac3 + Vec3 * Fac4);
+			vec<4, T, P> Inv2(Vec0 * Fac1 - Vec1 * Fac3 + Vec3 * Fac5);
+			vec<4, T, P> Inv3(Vec0 * Fac2 - Vec1 * Fac4 + Vec2 * Fac5);
 
-			tvec4<T, P> SignA(+1, -1, +1, -1);
-			tvec4<T, P> SignB(-1, +1, -1, +1);
+			vec<4, T, P> SignA(+1, -1, +1, -1);
+			vec<4, T, P> SignB(-1, +1, -1, +1);
 			tmat4x4<T, P> Inverse(Inv0 * SignA, Inv1 * SignB, Inv2 * SignA, Inv3 * SignB);
 
-			tvec4<T, P> Row0(Inverse[0][0], Inverse[1][0], Inverse[2][0], Inverse[3][0]);
+			vec<4, T, P> Row0(Inverse[0][0], Inverse[1][0], Inverse[2][0], Inverse[3][0]);
 
-			tvec4<T, P> Dot0(m[0] * Row0);
+			vec<4, T, P> Dot0(m[0] * Row0);
 			T Dot1 = (Dot0.x + Dot0.y) + (Dot0.z + Dot0.w);
 
 			T OneOverDeterminant = static_cast<T>(1) / Dot1;

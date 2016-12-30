@@ -56,9 +56,9 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/cross.xml">GLSL cross man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> cross(
-		tvec3<T, P> const & x,
-		tvec3<T, P> const & y);
+	GLM_FUNC_DECL vec<3, T, P> cross(
+		vec<3, T, P> const & x,
+		vec<3, T, P> const & y);
 
 	/// Returns a vector in the same direction as x but with length of 1.
 	/// According to issue 10 GLSL 1.10 specification, if length(x) == 0 then result is undefined and generate an error.

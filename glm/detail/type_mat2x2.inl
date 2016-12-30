@@ -80,7 +80,7 @@ namespace glm
 	
 	template <typename T, precision P>
 	template <typename V1, typename V2>
-	GLM_FUNC_QUALIFIER tmat2x2<T, P>::tmat2x2(tvec2<V1, P> const & v1, tvec2<V2, P> const & v2)
+	GLM_FUNC_QUALIFIER tmat2x2<T, P>::tmat2x2(vec<2, V1, P> const & v1, vec<2, V2, P> const & v2)
 	{
 		this->value[0] = col_type(v1);
 		this->value[1] = col_type(v2);
@@ -380,7 +380,7 @@ namespace glm
 		typename tmat2x2<T, P>::row_type const & v
 	)
 	{
-		return tvec2<T, P>(
+		return vec<2, T, P>(
 			m[0][0] * v.x + m[1][0] * v.y,
 			m[0][1] * v.x + m[1][1] * v.y);
 	}
@@ -392,7 +392,7 @@ namespace glm
 		tmat2x2<T, P> const & m
 	)
 	{
-		return tvec2<T, P>(
+		return vec<2, T, P>(
 			v.x * m[0][0] + v.y * m[0][1],
 			v.x * m[1][0] + v.y * m[1][1]);
 	}

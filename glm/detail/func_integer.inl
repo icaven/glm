@@ -260,7 +260,7 @@ namespace detail
 	template <typename genIUType>
 	GLM_FUNC_QUALIFIER genIUType bitfieldExtract(genIUType Value, int Offset, int Bits)
 	{
-		return bitfieldExtract(tvec1<genIUType>(Value), Offset, Bits).x;
+		return bitfieldExtract(vec<1, genIUType>(Value), Offset, Bits).x;
 	}
 
 	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
@@ -275,7 +275,7 @@ namespace detail
 	template <typename genIUType>
 	GLM_FUNC_QUALIFIER genIUType bitfieldInsert(genIUType const & Base, genIUType const & Insert, int Offset, int Bits)
 	{
-		return bitfieldInsert(tvec1<genIUType>(Base), tvec1<genIUType>(Insert), Offset, Bits).x;
+		return bitfieldInsert(vec<1, genIUType>(Base), vec<1, genIUType>(Insert), Offset, Bits).x;
 	}
 
 	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
@@ -291,7 +291,7 @@ namespace detail
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType bitfieldReverse(genType x)
 	{
-		return bitfieldReverse(glm::tvec1<genType, glm::defaultp>(x)).x;
+		return bitfieldReverse(glm::vec<1, genType, glm::defaultp>(x)).x;
 	}
 
 	template <int D, typename T, glm::precision P, template <int, typename, precision> class vecType>
@@ -311,7 +311,7 @@ namespace detail
 	template <typename genType>
 	GLM_FUNC_QUALIFIER int bitCount(genType x)
 	{
-		return bitCount(glm::tvec1<genType, glm::defaultp>(x)).x;
+		return bitCount(glm::vec<1, genType, glm::defaultp>(x)).x;
 	}
 
 	template <int D, typename T, glm::precision P, template <int, typename, glm::precision> class vecType>
@@ -357,7 +357,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findMSB' only accept integer values");
 
-		return findMSB(tvec1<genIUType>(x)).x;
+		return findMSB(vec<1, genIUType>(x)).x;
 	}
 
 	template <int D, typename T, precision P, template <int, typename, precision> class vecType>

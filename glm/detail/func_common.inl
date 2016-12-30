@@ -326,7 +326,7 @@ namespace detail
 			std::numeric_limits<genFIType>::is_iec559 || (std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer),
 			"'sign' only accept signed inputs");
 		
-		return detail::compute_sign<1, genFIType, defaultp, vec, std::numeric_limits<genFIType>::is_iec559, highp>::call(tvec1<genFIType>(x)).x;
+		return detail::compute_sign<1, genFIType, defaultp, vec, std::numeric_limits<genFIType>::is_iec559, highp>::call(vec<1, genFIType>(x)).x;
 	}
 
 	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
@@ -425,7 +425,7 @@ namespace detail
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType fract(genType x)
 	{
-		return fract(tvec1<genType>(x)).x;
+		return fract(vec<1, genType>(x)).x;
 	}
 
 	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
@@ -441,10 +441,10 @@ namespace detail
 	{
 #		if GLM_COMPILER & GLM_COMPILER_CUDA
 			// Another Cuda compiler bug https://github.com/g-truc/glm/issues/530
-			tvec1<genType, defaultp> Result(mod(tvec1<genType, defaultp>(x), y));
+			vec<1, genType, defaultp> Result(mod(vec<1, genType, defaultp>(x), y));
 			return Result.x;
 #		else
-			return mod(tvec1<genType, defaultp>(x), y).x;
+			return mod(vec<1, genType, defaultp>(x), y).x;
 #		endif
 	}
 
@@ -469,33 +469,33 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec1<T, P> modf(tvec1<T, P> const & x, tvec1<T, P> & i)
+	GLM_FUNC_QUALIFIER vec<1, T, P> modf(vec<1, T, P> const & x, vec<1, T, P> & i)
 	{
-		return tvec1<T, P>(
+		return vec<1, T, P>(
 			modf(x.x, i.x));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P> modf(tvec2<T, P> const & x, tvec2<T, P> & i)
+	GLM_FUNC_QUALIFIER vec<2, T, P> modf(vec<2, T, P> const & x, vec<2, T, P> & i)
 	{
-		return tvec2<T, P>(
+		return vec<2, T, P>(
 			modf(x.x, i.x),
 			modf(x.y, i.y));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> modf(tvec3<T, P> const & x, tvec3<T, P> & i)
+	GLM_FUNC_QUALIFIER vec<3, T, P> modf(vec<3, T, P> const & x, vec<3, T, P> & i)
 	{
-		return tvec3<T, P>(
+		return vec<3, T, P>(
 			modf(x.x, i.x),
 			modf(x.y, i.y),
 			modf(x.z, i.z));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> modf(tvec4<T, P> const & x, tvec4<T, P> & i)
+	GLM_FUNC_QUALIFIER vec<4, T, P> modf(vec<4, T, P> const & x, vec<4, T, P> & i)
 	{
-		return tvec4<T, P>(
+		return vec<4, T, P>(
 			modf(x.x, i.x),
 			modf(x.y, i.y),
 			modf(x.z, i.z),
@@ -753,40 +753,40 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec1<T, P> frexp(tvec1<T, P> const & x, tvec1<int, P> & exp)
+	GLM_FUNC_QUALIFIER vec<1, T, P> frexp(vec<1, T, P> const & x, vec<1, int, P> & exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'frexp' only accept floating-point inputs");
 
-		return tvec1<T, P>(std::frexp(x.x, &exp.x));
+		return vec<1, T, P>(std::frexp(x.x, &exp.x));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P> frexp(tvec2<T, P> const & x, tvec2<int, P> & exp)
+	GLM_FUNC_QUALIFIER vec<2, T, P> frexp(vec<2, T, P> const & x, vec<2, int, P> & exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'frexp' only accept floating-point inputs");
 
-		return tvec2<T, P>(
+		return vec<2, T, P>(
 			frexp(x.x, exp.x),
 			frexp(x.y, exp.y));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> frexp(tvec3<T, P> const & x, tvec3<int, P> & exp)
+	GLM_FUNC_QUALIFIER vec<3, T, P> frexp(vec<3, T, P> const & x, vec<3, int, P> & exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'frexp' only accept floating-point inputs");
 
-		return tvec3<T, P>(
+		return vec<3, T, P>(
 			frexp(x.x, exp.x),
 			frexp(x.y, exp.y),
 			frexp(x.z, exp.z));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> frexp(tvec4<T, P> const & x, tvec4<int, P> & exp)
+	GLM_FUNC_QUALIFIER vec<4, T, P> frexp(vec<4, T, P> const & x, vec<4, int, P> & exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'frexp' only accept floating-point inputs");
 
-		return tvec4<T, P>(
+		return vec<4, T, P>(
 			frexp(x.x, exp.x),
 			frexp(x.y, exp.y),
 			frexp(x.z, exp.z),
@@ -802,41 +802,41 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec1<T, P> ldexp(tvec1<T, P> const & x, tvec1<int, P> const & exp)
+	GLM_FUNC_QUALIFIER vec<1, T, P> ldexp(vec<1, T, P> const & x, vec<1, int, P> const & exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'ldexp' only accept floating-point inputs");
 
-		return tvec1<T, P>(
+		return vec<1, T, P>(
 			ldexp(x.x, exp.x));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<T, P> ldexp(tvec2<T, P> const & x, tvec2<int, P> const & exp)
+	GLM_FUNC_QUALIFIER vec<2, T, P> ldexp(vec<2, T, P> const & x, vec<2, int, P> const & exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'ldexp' only accept floating-point inputs");
 
-		return tvec2<T, P>(
+		return vec<2, T, P>(
 			ldexp(x.x, exp.x),
 			ldexp(x.y, exp.y));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> ldexp(tvec3<T, P> const & x, tvec3<int, P> const & exp)
+	GLM_FUNC_QUALIFIER vec<3, T, P> ldexp(vec<3, T, P> const & x, vec<3, int, P> const & exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'ldexp' only accept floating-point inputs");
 
-		return tvec3<T, P>(
+		return vec<3, T, P>(
 			ldexp(x.x, exp.x),
 			ldexp(x.y, exp.y),
 			ldexp(x.z, exp.z));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> ldexp(tvec4<T, P> const & x, tvec4<int, P> const & exp)
+	GLM_FUNC_QUALIFIER vec<4, T, P> ldexp(vec<4, T, P> const & x, vec<4, int, P> const & exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'ldexp' only accept floating-point inputs");
 
-		return tvec4<T, P>(
+		return vec<4, T, P>(
 			ldexp(x.x, exp.x),
 			ldexp(x.y, exp.y),
 			ldexp(x.z, exp.z),

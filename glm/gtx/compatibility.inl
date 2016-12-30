@@ -25,37 +25,37 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec1<bool, P> isfinite(
-		tvec1<T, P> const & x)
+	GLM_FUNC_QUALIFIER vec<1, bool, P> isfinite(
+		vec<1, T, P> const & x)
 	{
-		return tvec1<bool, P>(
+		return vec<1, bool, P>(
 			isfinite(x.x));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec2<bool, P> isfinite(
-		tvec2<T, P> const & x)
+	GLM_FUNC_QUALIFIER vec<2, bool, P> isfinite(
+		vec<2, T, P> const & x)
 	{
-		return tvec2<bool, P>(
+		return vec<2, bool, P>(
 			isfinite(x.x),
 			isfinite(x.y));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<bool, P> isfinite(
-		tvec3<T, P> const & x)
+	GLM_FUNC_QUALIFIER vec<3, bool, P> isfinite(
+		vec<3, T, P> const & x)
 	{
-		return tvec3<bool, P>(
+		return vec<3, bool, P>(
 			isfinite(x.x),
 			isfinite(x.y),
 			isfinite(x.z));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<bool, P> isfinite(
-		tvec4<T, P> const & x)
+	GLM_FUNC_QUALIFIER vec<4, bool, P> isfinite(
+		vec<4, T, P> const & x)
 	{
-		return tvec4<bool, P>(
+		return vec<4, bool, P>(
 			isfinite(x.x),
 			isfinite(x.y),
 			isfinite(x.z),

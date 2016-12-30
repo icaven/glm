@@ -48,9 +48,9 @@ namespace glm
 	//! From GLM_GTX_intersect extension.
 	template <typename T, precision P>
 	GLM_FUNC_DECL bool intersectRayTriangle(
-		tvec3<T, P> const& orig, tvec3<T, P> const& dir,
-		tvec3<T, P> const& v0, tvec3<T, P> const& v1, tvec3<T, P> const& v2,
-		tvec3<T, P>& baryPosition, T& distance);
+		vec<3, T, P> const& orig, vec<3, T, P> const& dir,
+		vec<3, T, P> const& v0, vec<3, T, P> const& v1, vec<3, T, P> const& v2,
+		vec<3, T, P>& baryPosition, T& distance);
 
 	//! Compute the intersection of a line and a triangle.
 	//! From GLM_GTX_intersect extension.

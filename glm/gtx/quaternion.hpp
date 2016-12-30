@@ -36,16 +36,16 @@ namespace glm
 	///
 	/// @see gtx_quaternion
 	template<typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> cross(
+	GLM_FUNC_DECL vec<3, T, P> cross(
 		tquat<T, P> const & q,
-		tvec3<T, P> const & v);
+		vec<3, T, P> const & v);
 
 	//! Compute a cross product between a vector and a quaternion.
 	///
 	/// @see gtx_quaternion
 	template<typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> cross(
-		tvec3<T, P> const & v,
+	GLM_FUNC_DECL vec<3, T, P> cross(
+		vec<3, T, P> const & v,
 		tquat<T, P> const & q);
 
 	//! Compute a point on a path according squad equation. 
@@ -102,17 +102,17 @@ namespace glm
 	///
 	/// @see gtx_quaternion
 	template<typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> rotate(
+	GLM_FUNC_DECL vec<3, T, P> rotate(
 		tquat<T, P> const & q,
-		tvec3<T, P> const & v);
+		vec<3, T, P> const & v);
 
 	/// Rotates a 4 components vector by a quaternion.
 	///
 	/// @see gtx_quaternion
 	template<typename T, precision P>
-	GLM_FUNC_DECL tvec4<T, P> rotate(
+	GLM_FUNC_DECL vec<4, T, P> rotate(
 		tquat<T, P> const & q,
-		tvec4<T, P> const & v);
+		vec<4, T, P> const & v);
 
 	/// Extract the real component of a quaternion.
 	///
@@ -174,8 +174,8 @@ namespace glm
 	/// @see gtx_quaternion
 	template<typename T, precision P>
 	GLM_FUNC_DECL tquat<T, P> rotation(
-		tvec3<T, P> const & orig, 
-		tvec3<T, P> const & dest);
+		vec<3, T, P> const & orig, 
+		vec<3, T, P> const & dest);
 
 	/// Returns the squared length of x.
 	/// 

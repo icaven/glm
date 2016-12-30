@@ -13,7 +13,7 @@ namespace glm
 	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T const * value_ptr
 	(
-		tvec2<T, P> const & vec
+		vec<2, T, P> const & vec
 	)
 	{
 		return &(vec.x);
@@ -24,7 +24,7 @@ namespace glm
 	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T * value_ptr
 	(
-		tvec2<T, P> & vec
+		vec<2, T, P> & vec
 	)
 	{
 		return &(vec.x);
@@ -35,7 +35,7 @@ namespace glm
 	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T const * value_ptr
 	(
-		tvec3<T, P> const & vec
+		vec<3, T, P> const & vec
 	)
 	{
 		return &(vec.x);
@@ -46,7 +46,7 @@ namespace glm
 	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T * value_ptr
 	(
-		tvec3<T, P> & vec
+		vec<3, T, P> & vec
 	)
 	{
 		return &(vec.x);
@@ -57,7 +57,7 @@ namespace glm
 	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T const * value_ptr
 	(	
-		tvec4<T, P> const & vec
+		vec<4, T, P> const & vec
 	)
 	{
 		return &(vec.x);
@@ -68,7 +68,7 @@ namespace glm
 	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T * value_ptr
 	(	
-		tvec4<T, P> & vec
+		vec<4, T, P> & vec
 	)
 	{
 		return &(vec.x);
@@ -294,30 +294,30 @@ namespace glm
 	/// Build a vector from a pointer.
 	/// @see gtc_type_ptr
 	template <typename T>
-	GLM_FUNC_QUALIFIER tvec2<T, defaultp> make_vec2(T const * const ptr)
+	GLM_FUNC_QUALIFIER vec<2, T, defaultp> make_vec2(T const * const ptr)
 	{
-		tvec2<T, defaultp> Result;
-		memcpy(value_ptr(Result), ptr, sizeof(tvec2<T, defaultp>));
+		vec<2, T, defaultp> Result;
+		memcpy(value_ptr(Result), ptr, sizeof(vec<2, T, defaultp>));
 		return Result;
 	}
 
 	/// Build a vector from a pointer.
 	/// @see gtc_type_ptr
 	template <typename T>
-	GLM_FUNC_QUALIFIER tvec3<T, defaultp> make_vec3(T const * const ptr)
+	GLM_FUNC_QUALIFIER vec<3, T, defaultp> make_vec3(T const * const ptr)
 	{
-		tvec3<T, defaultp> Result;
-		memcpy(value_ptr(Result), ptr, sizeof(tvec3<T, defaultp>));
+		vec<3, T, defaultp> Result;
+		memcpy(value_ptr(Result), ptr, sizeof(vec<3, T, defaultp>));
 		return Result;
 	}
 
 	/// Build a vector from a pointer.
 	/// @see gtc_type_ptr
 	template <typename T>
-	GLM_FUNC_QUALIFIER tvec4<T, defaultp> make_vec4(T const * const ptr)
+	GLM_FUNC_QUALIFIER vec<4, T, defaultp> make_vec4(T const * const ptr)
 	{
-		tvec4<T, defaultp> Result;
-		memcpy(value_ptr(Result), ptr, sizeof(tvec4<T, defaultp>));
+		vec<4, T, defaultp> Result;
+		memcpy(value_ptr(Result), ptr, sizeof(vec<4, T, defaultp>));
 		return Result;
 	}
 

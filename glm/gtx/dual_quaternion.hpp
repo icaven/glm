@@ -65,7 +65,7 @@ namespace glm
 
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR explicit tdualquat(ctor);
 		GLM_FUNC_DECL GLM_CONSTEXPR tdualquat(tquat<T, P> const & real);
-		GLM_FUNC_DECL GLM_CONSTEXPR tdualquat(tquat<T, P> const & orientation, tvec3<T, P> const & translation);
+		GLM_FUNC_DECL GLM_CONSTEXPR tdualquat(tquat<T, P> const & orientation, vec<3, T, P> const & translation);
 		GLM_FUNC_DECL GLM_CONSTEXPR tdualquat(tquat<T, P> const & real, tquat<T, P> const & dual);
 
 		// -- Conversion constructors --
@@ -105,16 +105,16 @@ namespace glm
 	GLM_FUNC_DECL tdualquat<T, P> operator*(tdualquat<T, P> const & q, tdualquat<T, P> const & p);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> operator*(tdualquat<T, P> const & q, tvec3<T, P> const & v);
+	GLM_FUNC_DECL vec<3, T, P> operator*(tdualquat<T, P> const & q, vec<3, T, P> const & v);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> operator*(tvec3<T, P> const & v, tdualquat<T, P> const & q);
+	GLM_FUNC_DECL vec<3, T, P> operator*(vec<3, T, P> const & v, tdualquat<T, P> const & q);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec4<T, P> operator*(tdualquat<T, P> const & q, tvec4<T, P> const & v);
+	GLM_FUNC_DECL vec<4, T, P> operator*(tdualquat<T, P> const & q, vec<4, T, P> const & v);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec4<T, P> operator*(tvec4<T, P> const & v, tdualquat<T, P> const & q);
+	GLM_FUNC_DECL vec<4, T, P> operator*(vec<4, T, P> const & v, tdualquat<T, P> const & q);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tdualquat<T, P> operator*(tdualquat<T, P> const & q, T const & s);

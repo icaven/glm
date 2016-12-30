@@ -53,11 +53,11 @@ namespace glm
 	/// @endcode
 	/// @see gtc_matrix_transform
 	/// @see - translate(tmat4x4<T, P> const & m, T x, T y, T z)
-	/// @see - translate(tvec3<T, P> const & v)
+	/// @see - translate(vec<3, T, P> const & v)
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x4<T, P> translate(
 		tmat4x4<T, P> const & m,
-		tvec3<T, P> const & v);
+		vec<3, T, P> const & v);
 		
 	/// Builds a rotation 4 * 4 matrix created from an axis vector and an angle. 
 	/// 
@@ -67,12 +67,12 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Supported: half, float or double.
 	/// @see gtc_matrix_transform
 	/// @see - rotate(tmat4x4<T, P> const & m, T angle, T x, T y, T z) 
-	/// @see - rotate(T angle, tvec3<T, P> const & v) 
+	/// @see - rotate(T angle, vec<3, T, P> const & v) 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x4<T, P> rotate(
 		tmat4x4<T, P> const & m,
 		T angle,
-		tvec3<T, P> const & axis);
+		vec<3, T, P> const & axis);
 
 	/// Builds a scale 4 * 4 matrix created from 3 scalars. 
 	/// 
@@ -81,11 +81,11 @@ namespace glm
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	/// @see - scale(tmat4x4<T, P> const & m, T x, T y, T z)
-	/// @see - scale(tvec3<T, P> const & v)
+	/// @see - scale(vec<3, T, P> const & v)
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x4<T, P> scale(
 		tmat4x4<T, P> const & m,
-		tvec3<T, P> const & v);
+		vec<3, T, P> const & v);
 
 	/// Creates a matrix for an orthographic parallel viewing volume, using the default handedness.
 	///
@@ -383,11 +383,11 @@ namespace glm
 	/// @tparam U Currently supported: Floating-point types and integer types.
 	/// @see gtc_matrix_transform
 	template <typename T, typename U, precision P>
-	GLM_FUNC_DECL tvec3<T, P> project(
-		tvec3<T, P> const & obj,
+	GLM_FUNC_DECL vec<3, T, P> project(
+		vec<3, T, P> const & obj,
 		tmat4x4<T, P> const & model,
 		tmat4x4<T, P> const & proj,
-		tvec4<U, P> const & viewport);
+		vec<4, U, P> const & viewport);
 
 	/// Map the specified window coordinates (win.x, win.y, win.z) into object coordinates.
 	///
@@ -400,11 +400,11 @@ namespace glm
 	/// @tparam U Currently supported: Floating-point types and integer types.
 	/// @see gtc_matrix_transform
 	template <typename T, typename U, precision P>
-	GLM_FUNC_DECL tvec3<T, P> unProject(
-		tvec3<T, P> const & win,
+	GLM_FUNC_DECL vec<3, T, P> unProject(
+		vec<3, T, P> const & win,
 		tmat4x4<T, P> const & model,
 		tmat4x4<T, P> const & proj,
-		tvec4<U, P> const & viewport);
+		vec<4, U, P> const & viewport);
 
 	/// Define a picking region
 	///
@@ -416,9 +416,9 @@ namespace glm
 	/// @see gtc_matrix_transform
 	template <typename T, precision P, typename U>
 	GLM_FUNC_DECL tmat4x4<T, P> pickMatrix(
-		tvec2<T, P> const & center,
-		tvec2<T, P> const & delta,
-		tvec4<U, P> const & viewport);
+		vec<2, T, P> const & center,
+		vec<2, T, P> const & delta,
+		vec<4, U, P> const & viewport);
 
 	/// Build a look at view matrix based on the default handedness.
 	///
@@ -429,9 +429,9 @@ namespace glm
 	/// @see - frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal) frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal)
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x4<T, P> lookAt(
-		tvec3<T, P> const & eye,
-		tvec3<T, P> const & center,
-		tvec3<T, P> const & up);
+		vec<3, T, P> const & eye,
+		vec<3, T, P> const & center,
+		vec<3, T, P> const & up);
 
 	/// Build a right handed look at view matrix.
 	///
@@ -442,9 +442,9 @@ namespace glm
 	/// @see - frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal) frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal)
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x4<T, P> lookAtRH(
-		tvec3<T, P> const & eye,
-		tvec3<T, P> const & center,
-		tvec3<T, P> const & up);
+		vec<3, T, P> const & eye,
+		vec<3, T, P> const & center,
+		vec<3, T, P> const & up);
 
 	/// Build a left handed look at view matrix.
 	///
@@ -455,9 +455,9 @@ namespace glm
 	/// @see - frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal) frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal)
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x4<T, P> lookAtLH(
-		tvec3<T, P> const & eye,
-		tvec3<T, P> const & center,
-		tvec3<T, P> const & up);
+		vec<3, T, P> const & eye,
+		vec<3, T, P> const & center,
+		vec<3, T, P> const & up);
 
 	/// @}
 }//namespace glm

@@ -12,7 +12,7 @@ namespace glm
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType clamp(genType const & Texcoord)
 	{
-		return clamp(tvec1<genType, defaultp>(Texcoord)).x;
+		return clamp(vec<1, genType, defaultp>(Texcoord)).x;
 	}
 
 	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
@@ -24,7 +24,7 @@ namespace glm
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType repeat(genType const & Texcoord)
 	{
-		return repeat(tvec1<genType, defaultp>(Texcoord)).x;
+		return repeat(vec<1, genType, defaultp>(Texcoord)).x;
 	}
 
 	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
@@ -36,7 +36,7 @@ namespace glm
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType mirrorClamp(genType const & Texcoord)
 	{
-		return mirrorClamp(tvec1<genType, defaultp>(Texcoord)).x;
+		return mirrorClamp(vec<1, genType, defaultp>(Texcoord)).x;
 	}
 
 	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
@@ -53,6 +53,6 @@ namespace glm
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType mirrorRepeat(genType const& Texcoord)
 	{
-		return mirrorRepeat(tvec1<genType, defaultp>(Texcoord)).x;
+		return mirrorRepeat(vec<1, genType, defaultp>(Texcoord)).x;
 	}
 }//namespace glm

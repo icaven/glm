@@ -61,7 +61,7 @@ namespace glm
 	{}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, P>::tdualquat(tquat<T, P> const & q, tvec3<T, P> const& p)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, P>::tdualquat(tquat<T, P> const & q, vec<3, T, P> const& p)
 		: real(q), dual(
 			T(-0.5) * ( p.x*q.x + p.y*q.y + p.z*q.z),
 			T(+0.5) * ( p.x*q.w + p.y*q.z - p.z*q.y),
@@ -163,27 +163,27 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> operator*(tdualquat<T, P> const & q, tvec3<T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator*(tdualquat<T, P> const & q, vec<3, T, P> const & v)
 	{
-		tvec3<T, P> const real_v3(q.real.x,q.real.y,q.real.z);
-		tvec3<T, P> const dual_v3(q.dual.x,q.dual.y,q.dual.z);
+		vec<3, T, P> const real_v3(q.real.x,q.real.y,q.real.z);
+		vec<3, T, P> const dual_v3(q.dual.x,q.dual.y,q.dual.z);
 		return (cross(real_v3, cross(real_v3,v) + v * q.real.w + dual_v3) + dual_v3 * q.real.w - real_v3 * q.dual.w) * T(2) + v;
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> operator*(tvec3<T, P> const & v,	tdualquat<T, P> const & q)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator*(vec<3, T, P> const & v,	tdualquat<T, P> const & q)
 	{
 		return glm::inverse(q) * v;
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> operator*(tdualquat<T, P> const & q, tvec4<T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<4, T, P> operator*(tdualquat<T, P> const & q, vec<4, T, P> const & v)
 	{
-		return tvec4<T, P>(q * tvec3<T, P>(v), v.w);
+		return vec<4, T, P>(q * vec<3, T, P>(v), v.w);
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> operator*(tvec4<T, P> const & v,	tdualquat<T, P> const & q)
+	GLM_FUNC_QUALIFIER vec<4, T, P> operator*(vec<4, T, P> const & v,	tdualquat<T, P> const & q)
 	{
 		return glm::inverse(q) * v;
 	}
@@ -269,19 +269,19 @@ namespace glm
 		T const wy = r.w * x.real.y;
 		T const wz = r.w * x.real.z;
 		
-		tvec4<T, P> const a(
+		vec<4, T, P> const a(
 			rr.w + rr.x - rr.y - rr.z,
 			xy - wz,
 			xz + wy,
 			-(x.dual.w * r.x - x.dual.x * r.w + x.dual.y * r.z - x.dual.z * r.y));
 		
-		tvec4<T, P> const b(
+		vec<4, T, P> const b(
 			xy + wz,
 			rr.w + rr.y - rr.x - rr.z,
 			yz - wx,
 			-(x.dual.w * r.y - x.dual.x * r.z - x.dual.y * r.w + x.dual.z * r.x));
 		
-		tvec4<T, P> const c(
+		vec<4, T, P> const c(
 			xz - wy,
 			yz + wx,
 			rr.w + rr.z - rr.x - rr.y,

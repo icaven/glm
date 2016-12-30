@@ -11,7 +11,7 @@ GLM_FUNC_QUALIFIER U associatedMin(T x, U a, T y, U b)
 }
 
 template<int D, typename T, typename U, precision P, template <int, typename, precision> class vecType>
-GLM_FUNC_QUALIFIER tvec2<U, P> associatedMin
+GLM_FUNC_QUALIFIER vec<2, U, P> associatedMin
 (
 	vecType<D, T, P> const & x, vecType<D, U, P> const & a,
 	vecType<D, T, P> const & y, vecType<D, U, P> const & b
@@ -170,7 +170,7 @@ GLM_FUNC_QUALIFIER U associatedMax(T x, U a, T y, U b)
 
 // Max comparison between 2 variables
 template<int D, typename T, typename U, precision P, template <int, typename, precision> class vecType>
-GLM_FUNC_QUALIFIER tvec2<U, P> associatedMax
+GLM_FUNC_QUALIFIER vec<2, U, P> associatedMax
 (
 	vecType<D, T, P> const & x, vecType<D, U, P> const & a,
 	vecType<D, T, P> const & y, vecType<D, U, P> const & b

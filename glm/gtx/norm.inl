@@ -47,8 +47,8 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T l1Norm
 	(
-		tvec3<T, P> const & a,
-		tvec3<T, P> const & b
+		vec<3, T, P> const & a,
+		vec<3, T, P> const & b
 	)
 	{
 		return abs(b.x - a.x) + abs(b.y - a.y) + abs(b.z - a.z);
@@ -57,7 +57,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T l1Norm
 	(
-		tvec3<T, P> const & v
+		vec<3, T, P> const & v
 	)
 	{
 		return abs(v.x) + abs(v.y) + abs(v.z);
@@ -66,8 +66,8 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T l2Norm
 	(
-		tvec3<T, P> const & a,
-		tvec3<T, P> const & b
+		vec<3, T, P> const & a,
+		vec<3, T, P> const & b
 	)
 	{
 		return length(b - a);
@@ -76,7 +76,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T l2Norm
 	(
-		tvec3<T, P> const & v
+		vec<3, T, P> const & v
 	)
 	{
 		return length(v);
@@ -85,8 +85,8 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T lxNorm
 	(
-		tvec3<T, P> const & x,
-		tvec3<T, P> const & y,
+		vec<3, T, P> const & x,
+		vec<3, T, P> const & y,
 		unsigned int Depth
 	)
 	{
@@ -96,7 +96,7 @@ namespace detail
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T lxNorm
 	(
-		tvec3<T, P> const & v,
+		vec<3, T, P> const & v,
 		unsigned int Depth
 	)
 	{

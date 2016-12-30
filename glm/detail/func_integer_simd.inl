@@ -11,7 +11,7 @@ namespace detail
 	template <glm::precision P>
 	struct compute_bitfieldReverseStep<4, uint32, P, vec, true, true>
 	{
-		GLM_FUNC_QUALIFIER static tvec4<uint32, P> call(tvec4<uint32, P> const & v, uint32 Mask, uint32 Shift)
+		GLM_FUNC_QUALIFIER static vec<4, uint32, P> call(vec<4, uint32, P> const & v, uint32 Mask, uint32 Shift)
 		{
 			__m128i const set0 = v.data;
 
@@ -32,7 +32,7 @@ namespace detail
 	template <glm::precision P>
 	struct compute_bitfieldBitCountStep<4, uint32, P, vec, true, true>
 	{
-		GLM_FUNC_QUALIFIER static tvec4<uint32, P> call(tvec4<uint32, P> const & v, uint32 Mask, uint32 Shift)
+		GLM_FUNC_QUALIFIER static vec<4, uint32, P> call(vec<4, uint32, P> const & v, uint32 Mask, uint32 Shift)
 		{
 			__m128i const set0 = v.data;
 

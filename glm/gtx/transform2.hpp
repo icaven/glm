@@ -73,22 +73,22 @@ namespace glm
 	// - dot(PointOnPlane, normal) * OnPlaneVector              1
 
 	// Reflect functions seem to don't work
-	//template <typename T> tmat3x3<T, P> reflect2D(const tmat3x3<T, P> & m, const tvec3<T, P>& normal){return reflect2DGTX(m, normal);}									//!< \brief Build a reflection matrix (from GLM_GTX_transform2 extension)
-	//template <typename T> tmat4x4<T, P> reflect3D(const tmat4x4<T, P> & m, const tvec3<T, P>& normal){return reflect3DGTX(m, normal);}									//!< \brief Build a reflection matrix (from GLM_GTX_transform2 extension)
+	//template <typename T> tmat3x3<T, P> reflect2D(const tmat3x3<T, P> & m, const vec<3, T, P>& normal){return reflect2DGTX(m, normal);}									//!< \brief Build a reflection matrix (from GLM_GTX_transform2 extension)
+	//template <typename T> tmat4x4<T, P> reflect3D(const tmat4x4<T, P> & m, const vec<3, T, P>& normal){return reflect3DGTX(m, normal);}									//!< \brief Build a reflection matrix (from GLM_GTX_transform2 extension)
 		
 	//! Build planar projection matrix along normal axis.
 	//! From GLM_GTX_transform2 extension.
 	template <typename T, precision P> 
 	GLM_FUNC_DECL tmat3x3<T, P> proj2D(
 		const tmat3x3<T, P> & m, 
-		const tvec3<T, P>& normal);
+		const vec<3, T, P>& normal);
 
 	//! Build planar projection matrix along normal axis.
 	//! From GLM_GTX_transform2 extension.
 	template <typename T, precision P> 
 	GLM_FUNC_DECL tmat4x4<T, P> proj3D(
 		const tmat4x4<T, P> & m, 
-		const tvec3<T, P>& normal);
+		const vec<3, T, P>& normal);
 
 	//! Build a scale bias matrix. 
 	//! From GLM_GTX_transform2 extension.

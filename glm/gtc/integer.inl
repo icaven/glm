@@ -19,14 +19,14 @@ namespace detail
 		template <precision P, bool Aligned>
 		struct compute_log2<4, int, P, vec, false, Aligned>
 		{
-			GLM_FUNC_QUALIFIER static tvec4<int, P> call(tvec4<int, P> const & vec)
+			GLM_FUNC_QUALIFIER static vec<4, int, P> call(vec<4, int, P> const& v)
 			{
-				tvec4<int, P> Result(glm::uninitialize);
+				vec<4, int, P> Result(glm::uninitialize);
 
-				_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.x), vec.x);
-				_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.y), vec.y);
-				_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.z), vec.z);
-				_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.w), vec.w);
+				_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.x), v.x);
+				_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.y), v.y);
+				_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.z), v.z);
+				_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.w), v.w);
 
 				return Result;
 			}

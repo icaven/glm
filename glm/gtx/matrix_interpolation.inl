@@ -7,7 +7,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER void axisAngle
 	(
 		tmat4x4<T, P> const & mat,
-		tvec3<T, P> & axis,
+		vec<3, T, P> & axis,
 		T & angle
 	)
 	{
@@ -81,14 +81,14 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat4x4<T, P> axisAngleMatrix
 	(
-		tvec3<T, P> const & axis,
+		vec<3, T, P> const & axis,
 		T const angle
 	)
 	{
 		T c = cos(angle);
 		T s = sin(angle);
 		T t = static_cast<T>(1) - c;
-		tvec3<T, P> n = normalize(axis);
+		vec<3, T, P> n = normalize(axis);
 
 		return tmat4x4<T, P>(
 			t * n.x * n.x + c,          t * n.x * n.y + n.z * s,    t * n.x * n.z - n.y * s,    T(0),
@@ -122,7 +122,7 @@ namespace glm
 	{
 		tmat4x4<T, P> m1rot = extractMatrixRotation(m1);
 		tmat4x4<T, P> dltRotation = m2 * transpose(m1rot);
-		tvec3<T, P> dltAxis;
+		vec<3, T, P> dltAxis;
 		T dltAngle;
 		axisAngle(dltRotation, dltAxis, dltAngle);
 		tmat4x4<T, P> out = axisAngleMatrix(dltAxis, dltAngle * delta) * m1rot;

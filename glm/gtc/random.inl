@@ -19,9 +19,9 @@ namespace detail
 	template <precision P>
 	struct compute_rand<1, uint8, P, vec>
 	{
-		GLM_FUNC_QUALIFIER static tvec1<uint8, P> call()
+		GLM_FUNC_QUALIFIER static vec<1, uint8, P> call()
 		{
-			return tvec1<uint8, P>(
+			return vec<1, uint8, P>(
 				std::rand() % std::numeric_limits<uint8>::max());
 		}
 	};
@@ -29,9 +29,9 @@ namespace detail
 	template <precision P>
 	struct compute_rand<2, uint8, P, vec>
 	{
-		GLM_FUNC_QUALIFIER static tvec2<uint8, P> call()
+		GLM_FUNC_QUALIFIER static vec<2, uint8, P> call()
 		{
-			return tvec2<uint8, P>(
+			return vec<2, uint8, P>(
 				std::rand() % std::numeric_limits<uint8>::max(),
 				std::rand() % std::numeric_limits<uint8>::max());
 		}
@@ -40,9 +40,9 @@ namespace detail
 	template <precision P>
 	struct compute_rand<3, uint8, P, vec>
 	{
-		GLM_FUNC_QUALIFIER static tvec3<uint8, P> call()
+		GLM_FUNC_QUALIFIER static vec<3, uint8, P> call()
 		{
-			return tvec3<uint8, P>(
+			return vec<3, uint8, P>(
 				std::rand() % std::numeric_limits<uint8>::max(),
 				std::rand() % std::numeric_limits<uint8>::max(),
 				std::rand() % std::numeric_limits<uint8>::max());
@@ -52,9 +52,9 @@ namespace detail
 	template <precision P>
 	struct compute_rand<4, uint8, P, vec>
 	{
-		GLM_FUNC_QUALIFIER static tvec4<uint8, P> call()
+		GLM_FUNC_QUALIFIER static vec<4, uint8, P> call()
 		{
-			return tvec4<uint8, P>(
+			return vec<4, uint8, P>(
 				std::rand() % std::numeric_limits<uint8>::max(),
 				std::rand() % std::numeric_limits<uint8>::max(),
 				std::rand() % std::numeric_limits<uint8>::max(),
@@ -259,8 +259,8 @@ namespace detail
 	GLM_FUNC_QUALIFIER genType linearRand(genType Min, genType Max)
 	{
 		return detail::compute_linearRand<1, genType, highp, vec>::call(
-			tvec1<genType, highp>(Min),
-			tvec1<genType, highp>(Max)).x;
+			vec<1, genType, highp>(Min),
+			vec<1, genType, highp>(Max)).x;
 	}
 
 	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
@@ -292,16 +292,16 @@ namespace detail
 	}
 
 	template <typename T>
-	GLM_FUNC_QUALIFIER tvec2<T, defaultp> diskRand(T Radius)
+	GLM_FUNC_QUALIFIER vec<2, T, defaultp> diskRand(T Radius)
 	{		
-		tvec2<T, defaultp> Result(T(0));
+		vec<2, T, defaultp> Result(T(0));
 		T LenRadius(T(0));
 		
 		do
 		{
 			Result = linearRand(
-				tvec2<T, defaultp>(-Radius),
-				tvec2<T, defaultp>(Radius));
+				vec<2, T, defaultp>(-Radius),
+				vec<2, T, defaultp>(Radius));
 			LenRadius = length(Result);
 		}
 		while(LenRadius > Radius);
@@ -310,16 +310,16 @@ namespace detail
 	}
 	
 	template <typename T>
-	GLM_FUNC_QUALIFIER tvec3<T, defaultp> ballRand(T Radius)
+	GLM_FUNC_QUALIFIER vec<3, T, defaultp> ballRand(T Radius)
 	{		
-		tvec3<T, defaultp> Result(T(0));
+		vec<3, T, defaultp> Result(T(0));
 		T LenRadius(T(0));
 		
 		do
 		{
 			Result = linearRand(
-				tvec3<T, defaultp>(-Radius),
-				tvec3<T, defaultp>(Radius));
+				vec<3, T, defaultp>(-Radius),
+				vec<3, T, defaultp>(Radius));
 			LenRadius = length(Result);
 		}
 		while(LenRadius > Radius);
@@ -328,14 +328,14 @@ namespace detail
 	}
 	
 	template <typename T>
-	GLM_FUNC_QUALIFIER tvec2<T, defaultp> circularRand(T Radius)
+	GLM_FUNC_QUALIFIER vec<2, T, defaultp> circularRand(T Radius)
 	{
 		T a = linearRand(T(0), T(6.283185307179586476925286766559f));
-		return tvec2<T, defaultp>(cos(a), sin(a)) * Radius;		
+		return vec<2, T, defaultp>(cos(a), sin(a)) * Radius;		
 	}
 	
 	template <typename T>
-	GLM_FUNC_QUALIFIER tvec3<T, defaultp> sphericalRand(T Radius)
+	GLM_FUNC_QUALIFIER vec<3, T, defaultp> sphericalRand(T Radius)
 	{
 		T z = linearRand(T(-1), T(1));
 		T a = linearRand(T(0), T(6.283185307179586476925286766559f));
@@ -345,6 +345,6 @@ namespace detail
 		T x = r * cos(a);
 		T y = r * sin(a);
 	
-		return tvec3<T, defaultp>(x, y, z) * Radius;	
+		return vec<3, T, defaultp>(x, y, z) * Radius;	
 	}
 }//namespace glm

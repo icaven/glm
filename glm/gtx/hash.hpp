@@ -45,27 +45,27 @@
 namespace std
 {
 	template <typename T, glm::precision P>
-	struct hash<glm::tvec1<T,P> >
+	struct hash<glm::vec<1, T,P> >
 	{
-		GLM_FUNC_DECL size_t operator()(glm::tvec1<T, P> const & v) const;
+		GLM_FUNC_DECL size_t operator()(glm::vec<1, T, P> const & v) const;
 	};
 
 	template <typename T, glm::precision P>
-	struct hash<glm::tvec2<T,P> >
+	struct hash<glm::vec<2, T,P> >
 	{
-		GLM_FUNC_DECL size_t operator()(glm::tvec2<T, P> const & v) const;
+		GLM_FUNC_DECL size_t operator()(glm::vec<2, T, P> const & v) const;
 	};
 
 	template <typename T, glm::precision P>
-	struct hash<glm::tvec3<T,P> >
+	struct hash<glm::vec<3, T,P> >
 	{
-		GLM_FUNC_DECL size_t operator()(glm::tvec3<T, P> const & v) const;
+		GLM_FUNC_DECL size_t operator()(glm::vec<3, T, P> const & v) const;
 	};
 
 	template <typename T, glm::precision P>
-	struct hash<glm::tvec4<T,P> >
+	struct hash<glm::vec<4, T,P> >
 	{
-		GLM_FUNC_DECL size_t operator()(glm::tvec4<T, P> const & v) const;
+		GLM_FUNC_DECL size_t operator()(glm::vec<4, T, P> const & v) const;
 	};
 
 	template <typename T, glm::precision P>

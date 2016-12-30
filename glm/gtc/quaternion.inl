@@ -14,7 +14,7 @@ namespace detail
 	{
 		static GLM_FUNC_QUALIFIER T call(tquat<T, P> const& a, tquat<T, P> const& b)
 		{
-			tvec4<T, P> tmp(a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w);
+			vec<4, T, P> tmp(a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w);
 			return (tmp.x + tmp.y) + (tmp.z + tmp.w);
 		}
 	};
@@ -58,9 +58,9 @@ namespace detail
 	template <typename T, precision P, bool Aligned>
 	struct compute_quat_mul_vec4
 	{
-		static tvec4<T, P> call(tquat<T, P> const & q, tvec4<T, P> const & v)
+		static vec<4, T, P> call(tquat<T, P> const & q, vec<4, T, P> const & v)
 		{
-			return tvec4<T, P>(q * tvec3<T, P>(v), v.w);
+			return vec<4, T, P>(q * vec<3, T, P>(v), v.w);
 		}
 	};
 }//namespace detail
@@ -112,7 +112,7 @@ namespace detail
 	{}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, P>::tquat(T const & s, tvec3<T, P> const & v)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, P>::tquat(T const & s, vec<3, T, P> const & v)
 		: x(v.x), y(v.y), z(v.z), w(s)
 	{}
 
@@ -140,9 +140,9 @@ namespace detail
 	//	valType const & roll
 	//)
 	//{
-	//	tvec3<valType> eulerAngle(pitch * valType(0.5), yaw * valType(0.5), roll * valType(0.5));
-	//	tvec3<valType> c = glm::cos(eulerAngle * valType(0.5));
-	//	tvec3<valType> s = glm::sin(eulerAngle * valType(0.5));
+	//	vec<3, valType> eulerAngle(pitch * valType(0.5), yaw * valType(0.5), roll * valType(0.5));
+	//	vec<3, valType> c = glm::cos(eulerAngle * valType(0.5));
+	//	vec<3, valType> s = glm::sin(eulerAngle * valType(0.5));
 	//	
 	//	this->w = c.x * c.y * c.z + s.x * s.y * s.z;
 	//	this->x = s.x * c.y * c.z - c.x * s.y * s.z;
@@ -151,9 +151,9 @@ namespace detail
 	//}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(tvec3<T, P> const & u, tvec3<T, P> const & v)
+	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(vec<3, T, P> const & u, vec<3, T, P> const & v)
 	{
-		tvec3<T, P> const LocalW(cross(u, v));
+		vec<3, T, P> const LocalW(cross(u, v));
 		T Dot = detail::compute_dot<vec<3, T, P>, T, detail::is_aligned<P>::value>::call(u, v);
 		tquat<T, P> q(T(1) + Dot, LocalW.x, LocalW.y, LocalW.z);
 
@@ -161,10 +161,10 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(tvec3<T, P> const & eulerAngle)
+	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(vec<3, T, P> const & eulerAngle)
 	{
-		tvec3<T, P> c = glm::cos(eulerAngle * T(0.5));
-		tvec3<T, P> s = glm::sin(eulerAngle * T(0.5));
+		vec<3, T, P> c = glm::cos(eulerAngle * T(0.5));
+		vec<3, T, P> s = glm::sin(eulerAngle * T(0.5));
 		
 		this->w = c.x * c.y * c.z + s.x * s.y * s.z;
 		this->x = s.x * c.y * c.z - c.x * s.y * s.z;
@@ -306,29 +306,29 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> operator*(tquat<T, P> const & q,	tvec3<T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator*(tquat<T, P> const & q,	vec<3, T, P> const & v)
 	{
-		tvec3<T, P> const QuatVector(q.x, q.y, q.z);
-		tvec3<T, P> const uv(glm::cross(QuatVector, v));
-		tvec3<T, P> const uuv(glm::cross(QuatVector, uv));
+		vec<3, T, P> const QuatVector(q.x, q.y, q.z);
+		vec<3, T, P> const uv(glm::cross(QuatVector, v));
+		vec<3, T, P> const uuv(glm::cross(QuatVector, uv));
 
 		return v + ((uv * q.w) + uuv) * static_cast<T>(2);
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> operator*(tvec3<T, P> const & v, tquat<T, P> const & q)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator*(vec<3, T, P> const & v, tquat<T, P> const & q)
 	{
 		return glm::inverse(q) * v;
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> operator*(tquat<T, P> const& q, tvec4<T, P> const& v)
+	GLM_FUNC_QUALIFIER vec<4, T, P> operator*(tquat<T, P> const& q, vec<4, T, P> const& v)
 	{
 		return detail::compute_quat_mul_vec4<T, P, detail::is_aligned<P>::value>::call(q, v);
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> operator*(tvec4<T, P> const & v, tquat<T, P> const & q)
+	GLM_FUNC_QUALIFIER vec<4, T, P> operator*(vec<4, T, P> const & v, tquat<T, P> const & q)
 	{
 		return glm::inverse(q) * v;
 	}
@@ -538,9 +538,9 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P> rotate(tquat<T, P> const & q, T const & angle, tvec3<T, P> const & v)
+	GLM_FUNC_QUALIFIER tquat<T, P> rotate(tquat<T, P> const & q, T const & angle, vec<3, T, P> const & v)
 	{
-		tvec3<T, P> Tmp = v;
+		vec<3, T, P> Tmp = v;
 
 		// Axis of rotation must be normalised
 		T len = glm::length(Tmp);
@@ -560,9 +560,9 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> eulerAngles(tquat<T, P> const & x)
+	GLM_FUNC_QUALIFIER vec<3, T, P> eulerAngles(tquat<T, P> const & x)
 	{
-		return tvec3<T, P>(pitch(x), yaw(x), roll(x));
+		return vec<3, T, P>(pitch(x), yaw(x), roll(x));
 	}
 
 	template <typename T, precision P>
@@ -694,17 +694,17 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> axis(tquat<T, P> const & x)
+	GLM_FUNC_QUALIFIER vec<3, T, P> axis(tquat<T, P> const & x)
 	{
 		T tmp1 = static_cast<T>(1) - x.w * x.w;
 		if(tmp1 <= static_cast<T>(0))
-			return tvec3<T, P>(0, 0, 1);
+			return vec<3, T, P>(0, 0, 1);
 		T tmp2 = static_cast<T>(1) / sqrt(tmp1);
-		return tvec3<T, P>(x.x * tmp2, x.y * tmp2, x.z * tmp2);
+		return vec<3, T, P>(x.x * tmp2, x.y * tmp2, x.z * tmp2);
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P> angleAxis(T const & angle, tvec3<T, P> const & v)
+	GLM_FUNC_QUALIFIER tquat<T, P> angleAxis(T const & angle, vec<3, T, P> const & v)
 	{
 		tquat<T, P> Result(uninitialize);
 
@@ -719,73 +719,73 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<bool, P> lessThan(tquat<T, P> const & x, tquat<T, P> const & y)
+	GLM_FUNC_QUALIFIER vec<4, bool, P> lessThan(tquat<T, P> const & x, tquat<T, P> const & y)
 	{
-		tvec4<bool, P> Result(uninitialize);
+		vec<4, bool, P> Result(uninitialize);
 		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] < y[i];
 		return Result;
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<bool, P> lessThanEqual(tquat<T, P> const & x, tquat<T, P> const & y)
+	GLM_FUNC_QUALIFIER vec<4, bool, P> lessThanEqual(tquat<T, P> const & x, tquat<T, P> const & y)
 	{
-		tvec4<bool, P> Result(uninitialize);
+		vec<4, bool, P> Result(uninitialize);
 		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] <= y[i];
 		return Result;
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<bool, P> greaterThan(tquat<T, P> const & x, tquat<T, P> const & y)
+	GLM_FUNC_QUALIFIER vec<4, bool, P> greaterThan(tquat<T, P> const & x, tquat<T, P> const & y)
 	{
-		tvec4<bool, P> Result(uninitialize);
+		vec<4, bool, P> Result(uninitialize);
 		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] > y[i];
 		return Result;
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<bool, P> greaterThanEqual(tquat<T, P> const & x, tquat<T, P> const & y)
+	GLM_FUNC_QUALIFIER vec<4, bool, P> greaterThanEqual(tquat<T, P> const & x, tquat<T, P> const & y)
 	{
-		tvec4<bool, P> Result(uninitialize);
+		vec<4, bool, P> Result(uninitialize);
 		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] >= y[i];
 		return Result;
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<bool, P> equal(tquat<T, P> const & x, tquat<T, P> const & y)
+	GLM_FUNC_QUALIFIER vec<4, bool, P> equal(tquat<T, P> const & x, tquat<T, P> const & y)
 	{
-		tvec4<bool, P> Result(uninitialize);
+		vec<4, bool, P> Result(uninitialize);
 		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] == y[i];
 		return Result;
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<bool, P> notEqual(tquat<T, P> const & x, tquat<T, P> const & y)
+	GLM_FUNC_QUALIFIER vec<4, bool, P> notEqual(tquat<T, P> const & x, tquat<T, P> const & y)
 	{
-		tvec4<bool, P> Result(uninitialize);
+		vec<4, bool, P> Result(uninitialize);
 		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] != y[i];
 		return Result;
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<bool, P> isnan(tquat<T, P> const& q)
+	GLM_FUNC_QUALIFIER vec<4, bool, P> isnan(tquat<T, P> const& q)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isnan' only accept floating-point inputs");
 
-		return tvec4<bool, P>(isnan(q.x), isnan(q.y), isnan(q.z), isnan(q.w));
+		return vec<4, bool, P>(isnan(q.x), isnan(q.y), isnan(q.z), isnan(q.w));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<bool, P> isinf(tquat<T, P> const& q)
+	GLM_FUNC_QUALIFIER vec<4, bool, P> isinf(tquat<T, P> const& q)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isinf' only accept floating-point inputs");
 
-		return tvec4<bool, P>(isinf(q.x), isinf(q.y), isinf(q.z), isinf(q.w));
+		return vec<4, bool, P>(isinf(q.x), isinf(q.y), isinf(q.z), isinf(q.w));
 	}
 }//namespace glm
 

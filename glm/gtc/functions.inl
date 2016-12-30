@@ -19,12 +19,12 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER T gauss
 	(
-		tvec2<T, P> const& Coord,
-		tvec2<T, P> const& ExpectedValue,
-		tvec2<T, P> const& StandardDeviation
+		vec<2, T, P> const& Coord,
+		vec<2, T, P> const& ExpectedValue,
+		vec<2, T, P> const& StandardDeviation
 	)
 	{
-		tvec2<T, P> const Squared = ((Coord - ExpectedValue) * (Coord - ExpectedValue)) / (static_cast<T>(2) * StandardDeviation * StandardDeviation);
+		vec<2, T, P> const Squared = ((Coord - ExpectedValue) * (Coord - ExpectedValue)) / (static_cast<T>(2) * StandardDeviation * StandardDeviation);
 		return exp(-(Squared.x + Squared.y));
 	}
 }//namespace glm

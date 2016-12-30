@@ -30,19 +30,19 @@ namespace glm
 
 	/// Convert a linear sRGB color to D65 YUV.
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> convertLinearSRGBToD65XYZ(tvec3<T, P> const& ColorLinearSRGB);
+	GLM_FUNC_DECL vec<3, T, P> convertLinearSRGBToD65XYZ(vec<3, T, P> const& ColorLinearSRGB);
 
 	/// Convert a linear sRGB color to D50 YUV.
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> convertLinearSRGBToD50XYZ(tvec3<T, P> const& ColorLinearSRGB);
+	GLM_FUNC_DECL vec<3, T, P> convertLinearSRGBToD50XYZ(vec<3, T, P> const& ColorLinearSRGB);
 
 	/// Convert a D65 YUV color to linear sRGB.
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> convertD65XYZToLinearSRGB(tvec3<T, P> const& ColorD65XYZ);
+	GLM_FUNC_DECL vec<3, T, P> convertD65XYZToLinearSRGB(vec<3, T, P> const& ColorD65XYZ);
 
 	/// Convert a D65 YUV color to D50 YUV.
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> convertD65XYZToD50XYZ(tvec3<T, P> const& ColorD65XYZ);
+	GLM_FUNC_DECL vec<3, T, P> convertD65XYZToD50XYZ(vec<3, T, P> const& ColorD65XYZ);
 
 	/// @}
 } //namespace glm

@@ -15,8 +15,8 @@ namespace glm
 	template <typename T, precision P = defaultp>
 	struct tmat4x3
 	{
-		typedef tvec3<T, P> col_type;
-		typedef tvec4<T, P> row_type;
+		typedef vec<3, T, P> col_type;
+		typedef vec<4, T, P> row_type;
 		typedef tmat4x3<T, P> type;
 		typedef tmat3x4<T, P> transpose_type;
 		typedef T value_type;
@@ -60,10 +60,10 @@ namespace glm
 
 		template <typename V1, typename V2, typename V3, typename V4>
 		GLM_FUNC_DECL tmat4x3(
-			tvec3<V1, P> const & v1,
-			tvec3<V2, P> const & v2,
-			tvec3<V3, P> const & v3,
-			tvec3<V4, P> const & v4);
+			vec<3, V1, P> const & v1,
+			vec<3, V2, P> const & v2,
+			vec<3, V3, P> const & v3,
+			vec<3, V4, P> const & v4);
 
 		// -- Matrix conversions --
 

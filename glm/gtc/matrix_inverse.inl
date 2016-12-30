@@ -9,9 +9,9 @@ namespace glm
 		tmat2x2<T, P> const Inv(inverse(tmat2x2<T, P>(m)));
 
 		return tmat3x3<T, P>(
-			tvec3<T, P>(Inv[0], static_cast<T>(0)),
-			tvec3<T, P>(Inv[1], static_cast<T>(0)),
-			tvec3<T, P>(-Inv * tvec2<T, P>(m[2]), static_cast<T>(1)));
+			vec<3, T, P>(Inv[0], static_cast<T>(0)),
+			vec<3, T, P>(Inv[1], static_cast<T>(0)),
+			vec<3, T, P>(-Inv * vec<2, T, P>(m[2]), static_cast<T>(1)));
 	}
 
 	template <typename T, precision P>
@@ -20,10 +20,10 @@ namespace glm
 		tmat3x3<T, P> const Inv(inverse(tmat3x3<T, P>(m)));
 
 		return tmat4x4<T, P>(
-			tvec4<T, P>(Inv[0], static_cast<T>(0)),
-			tvec4<T, P>(Inv[1], static_cast<T>(0)),
-			tvec4<T, P>(Inv[2], static_cast<T>(0)),
-			tvec4<T, P>(-Inv * tvec3<T, P>(m[3]), static_cast<T>(1)));
+			vec<4, T, P>(Inv[0], static_cast<T>(0)),
+			vec<4, T, P>(Inv[1], static_cast<T>(0)),
+			vec<4, T, P>(Inv[2], static_cast<T>(0)),
+			vec<4, T, P>(-Inv * vec<3, T, P>(m[3]), static_cast<T>(1)));
 	}
 
 	template <typename T, precision P>

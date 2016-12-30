@@ -33,8 +33,8 @@ namespace glm
 	//! From GLM_GTX_matrix_major_storage extension.
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat2x2<T, P> rowMajor2(
-		tvec2<T, P> const & v1, 
-		tvec2<T, P> const & v2);
+		vec<2, T, P> const & v1, 
+		vec<2, T, P> const & v2);
 		
 	//! Build a row major matrix from other matrix.
 	//! From GLM_GTX_matrix_major_storage extension.
@@ -46,9 +46,9 @@ namespace glm
 	//! From GLM_GTX_matrix_major_storage extension.
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat3x3<T, P> rowMajor3(
-		tvec3<T, P> const & v1, 
-		tvec3<T, P> const & v2, 
-		tvec3<T, P> const & v3);
+		vec<3, T, P> const & v1, 
+		vec<3, T, P> const & v2, 
+		vec<3, T, P> const & v3);
 
 	//! Build a row major matrix from other matrix.
 	//! From GLM_GTX_matrix_major_storage extension.
@@ -60,10 +60,10 @@ namespace glm
 	//! From GLM_GTX_matrix_major_storage extension.
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x4<T, P> rowMajor4(
-		tvec4<T, P> const & v1, 
-		tvec4<T, P> const & v2,
-		tvec4<T, P> const & v3, 
-		tvec4<T, P> const & v4);
+		vec<4, T, P> const & v1, 
+		vec<4, T, P> const & v2,
+		vec<4, T, P> const & v3, 
+		vec<4, T, P> const & v4);
 
 	//! Build a row major matrix from other matrix.
 	//! From GLM_GTX_matrix_major_storage extension.
@@ -75,8 +75,8 @@ namespace glm
 	//! From GLM_GTX_matrix_major_storage extension.
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat2x2<T, P> colMajor2(
-		tvec2<T, P> const & v1, 
-		tvec2<T, P> const & v2);
+		vec<2, T, P> const & v1, 
+		vec<2, T, P> const & v2);
 		
 	//! Build a column major matrix from other matrix.
 	//! From GLM_GTX_matrix_major_storage extension.
@@ -88,9 +88,9 @@ namespace glm
 	//! From GLM_GTX_matrix_major_storage extension.
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat3x3<T, P> colMajor3(
-		tvec3<T, P> const & v1, 
-		tvec3<T, P> const & v2, 
-		tvec3<T, P> const & v3);
+		vec<3, T, P> const & v1, 
+		vec<3, T, P> const & v2, 
+		vec<3, T, P> const & v3);
 		
 	//! Build a column major matrix from other matrix.
 	//! From GLM_GTX_matrix_major_storage extension.
@@ -102,10 +102,10 @@ namespace glm
 	//! From GLM_GTX_matrix_major_storage extension.
 	template <typename T, precision P>
 	GLM_FUNC_DECL tmat4x4<T, P> colMajor4(
-		tvec4<T, P> const & v1, 
-		tvec4<T, P> const & v2, 
-		tvec4<T, P> const & v3, 
-		tvec4<T, P> const & v4);
+		vec<4, T, P> const & v1, 
+		vec<4, T, P> const & v2, 
+		vec<4, T, P> const & v3, 
+		vec<4, T, P> const & v4);
 				
 	//! Build a column major matrix from other matrix.
 	//! From GLM_GTX_matrix_major_storage extension.

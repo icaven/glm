@@ -7,13 +7,13 @@
 namespace glm
 {
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> cross(tvec3<T, P> const& v, tquat<T, P> const& q)
+	GLM_FUNC_QUALIFIER vec<3, T, P> cross(vec<3, T, P> const& v, tquat<T, P> const& q)
 	{
 		return inverse(q) * v;
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> cross(tquat<T, P> const& q, tvec3<T, P> const& v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> cross(tquat<T, P> const& q, vec<3, T, P> const& v)
 	{
 		return q * v;
 	}
@@ -45,19 +45,19 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tquat<T, P> exp(tquat<T, P> const& q)
 	{
-		tvec3<T, P> u(q.x, q.y, q.z);
+		vec<3, T, P> u(q.x, q.y, q.z);
 		T const Angle = glm::length(u);
 		if (Angle < epsilon<T>())
 			return tquat<T, P>();
 
-		tvec3<T, P> const v(u / Angle);
+		vec<3, T, P> const v(u / Angle);
 		return tquat<T, P>(cos(Angle), sin(Angle) * v);
 	}
 
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tquat<T, P> log(tquat<T, P> const& q)
 	{
-		tvec3<T, P> u(q.x, q.y, q.z);
+		vec<3, T, P> u(q.x, q.y, q.z);
 		T Vec3Len = length(u);
 
 		if (Vec3Len < epsilon<T>())
@@ -102,13 +102,13 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> rotate(tquat<T, P> const& q, tvec3<T, P> const& v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> rotate(tquat<T, P> const& q, vec<3, T, P> const& v)
 	{
 		return q * v;
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec4<T, P> rotate(tquat<T, P> const& q, tvec4<T, P> const& v)
+	GLM_FUNC_QUALIFIER vec<4, T, P> rotate(tquat<T, P> const& q, vec<4, T, P> const& v)
 	{
 		return q * v;
 	}
@@ -173,10 +173,10 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P> rotation(tvec3<T, P> const& orig, tvec3<T, P> const& dest)
+	GLM_FUNC_QUALIFIER tquat<T, P> rotation(vec<3, T, P> const& orig, vec<3, T, P> const& dest)
 	{
 		T cosTheta = dot(orig, dest);
-		tvec3<T, P> rotationAxis;
+		vec<3, T, P> rotationAxis;
 
 		if(cosTheta >= static_cast<T>(1) - epsilon<T>())
 			return quat();
@@ -188,9 +188,9 @@ namespace glm
 			// So guess one; any will do as long as it's perpendicular to start
 			// This implementation favors a rotation around the Up axis (Y),
 			// since it's often what you want to do.
-			rotationAxis = cross(tvec3<T, P>(0, 0, 1), orig);
+			rotationAxis = cross(vec<3, T, P>(0, 0, 1), orig);
 			if(length2(rotationAxis) < epsilon<T>()) // bad luck, they were parallel, try again!
-				rotationAxis = cross(tvec3<T, P>(1, 0, 0), orig);
+				rotationAxis = cross(vec<3, T, P>(1, 0, 0), orig);
 
 			rotationAxis = normalize(rotationAxis);
 			return angleAxis(pi<T>(), rotationAxis);

@@ -21,9 +21,9 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_rgbToSrgb<4, T, P, vec>
 	{
-		GLM_FUNC_QUALIFIER static tvec4<T, P> call(tvec4<T, P> const& ColorRGB, T GammaCorrection)
+		GLM_FUNC_QUALIFIER static vec<4, T, P> call(vec<4, T, P> const& ColorRGB, T GammaCorrection)
 		{
-			return tvec4<T, P>(compute_rgbToSrgb<3, T, P, vec>::call(tvec3<T, P>(ColorRGB), GammaCorrection), ColorRGB.a);
+			return vec<4, T, P>(compute_rgbToSrgb<3, T, P, vec>::call(vec<3, T, P>(ColorRGB), GammaCorrection), ColorRGB.a);
 		}
 	};
 
@@ -42,9 +42,9 @@ namespace detail
 	template <typename T, precision P>
 	struct compute_srgbToRgb<4, T, P, vec>
 	{
-		GLM_FUNC_QUALIFIER static tvec4<T, P> call(tvec4<T, P> const& ColorSRGB, T Gamma)
+		GLM_FUNC_QUALIFIER static vec<4, T, P> call(vec<4, T, P> const& ColorSRGB, T Gamma)
 		{
-			return tvec4<T, P>(compute_srgbToRgb<3, T, P, vec>::call(tvec3<T, P>(ColorSRGB), Gamma), ColorSRGB.a);
+			return vec<4, T, P>(compute_srgbToRgb<3, T, P, vec>::call(vec<3, T, P>(ColorSRGB), Gamma), ColorSRGB.a);
 		}
 	};
 }//namespace detail
@@ -57,11 +57,11 @@ namespace detail
 
 	// Based on Ian Taylor http://chilliant.blogspot.fr/2012/08/srgb-approximations-for-hlsl.html
 	template <>
-	GLM_FUNC_QUALIFIER tvec3<float, lowp> convertLinearToSRGB(tvec3<float, lowp> const& ColorLinear)
+	GLM_FUNC_QUALIFIER vec<3, float, lowp> convertLinearToSRGB(vec<3, float, lowp> const& ColorLinear)
 	{
-		tvec3<float, lowp> S1 = sqrt(ColorLinear);
-		tvec3<float, lowp> S2 = sqrt(S1);
-		tvec3<float, lowp> S3 = sqrt(S2);
+		vec<3, float, lowp> S1 = sqrt(ColorLinear);
+		vec<3, float, lowp> S2 = sqrt(S1);
+		vec<3, float, lowp> S3 = sqrt(S2);
 		return 0.662002687f * S1 + 0.684122060f * S2 - 0.323583601f * S3 - 0.0225411470f * ColorLinear;
 	}
 

@@ -64,7 +64,7 @@ namespace glm
 	/// @param Radius 
 	/// @see gtc_random
 	template <typename T>
-	GLM_FUNC_DECL tvec2<T, defaultp> circularRand(
+	GLM_FUNC_DECL vec<2, T, defaultp> circularRand(
 		T Radius);
 	
 	/// Generate a random 3D vector which coordinates are regulary distributed on a sphere of a given radius
@@ -72,7 +72,7 @@ namespace glm
 	/// @param Radius
 	/// @see gtc_random
 	template <typename T>
-	GLM_FUNC_DECL tvec3<T, defaultp> sphericalRand(
+	GLM_FUNC_DECL vec<3, T, defaultp> sphericalRand(
 		T Radius);
 	
 	/// Generate a random 2D vector which coordinates are regulary distributed within the area of a disk of a given radius
@@ -80,7 +80,7 @@ namespace glm
 	/// @param Radius
 	/// @see gtc_random
 	template <typename T>
-	GLM_FUNC_DECL tvec2<T, defaultp> diskRand(
+	GLM_FUNC_DECL vec<2, T, defaultp> diskRand(
 		T Radius);
 	
 	/// Generate a random 3D vector which coordinates are regulary distributed within the volume of a ball of a given radius
@@ -88,7 +88,7 @@ namespace glm
 	/// @param Radius
 	/// @see gtc_random
 	template <typename T>
-	GLM_FUNC_DECL tvec3<T, defaultp> ballRand(
+	GLM_FUNC_DECL vec<3, T, defaultp> ballRand(
 		T Radius);
 	
 	/// @}

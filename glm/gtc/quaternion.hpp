@@ -85,7 +85,7 @@ namespace glm
 		// -- Explicit basic constructors --
 
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR explicit tquat(ctor);
-		GLM_FUNC_DECL GLM_CONSTEXPR tquat(T const & s, tvec3<T, P> const & v);
+		GLM_FUNC_DECL GLM_CONSTEXPR tquat(T const & s, vec<3, T, P> const & v);
 		GLM_FUNC_DECL GLM_CONSTEXPR tquat(T const & w, T const & x, T const & y, T const & z);
 
 		// -- Conversion constructors --
@@ -105,10 +105,10 @@ namespace glm
 		/// @param v A second normalized axis
 		/// @see gtc_quaternion
 		/// @see http://lolengine.net/blog/2013/09/18/beautiful-maths-quaternion-from-vectors
-		GLM_FUNC_DECL tquat(tvec3<T, P> const & u, tvec3<T, P> const & v);
+		GLM_FUNC_DECL tquat(vec<3, T, P> const & u, vec<3, T, P> const & v);
 
 		/// Build a quaternion from euler angles (pitch, yaw, roll), in radians.
-		GLM_FUNC_DECL GLM_EXPLICIT tquat(tvec3<T, P> const & eulerAngles);
+		GLM_FUNC_DECL GLM_EXPLICIT tquat(vec<3, T, P> const & eulerAngles);
 		GLM_FUNC_DECL GLM_EXPLICIT tquat(tmat3x3<T, P> const & m);
 		GLM_FUNC_DECL GLM_EXPLICIT tquat(tmat4x4<T, P> const & m);
 
@@ -147,16 +147,16 @@ namespace glm
 	GLM_FUNC_DECL tquat<T, P> operator*(tquat<T, P> const & q, tquat<T, P> const & p);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> operator*(tquat<T, P> const & q, tvec3<T, P> const & v);
+	GLM_FUNC_DECL vec<3, T, P> operator*(tquat<T, P> const & q, vec<3, T, P> const & v);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> operator*(tvec3<T, P> const & v, tquat<T, P> const & q);
+	GLM_FUNC_DECL vec<3, T, P> operator*(vec<3, T, P> const & v, tquat<T, P> const & q);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec4<T, P> operator*(tquat<T, P> const & q, tvec4<T, P> const & v);
+	GLM_FUNC_DECL vec<4, T, P> operator*(tquat<T, P> const & q, vec<4, T, P> const & v);
 
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec4<T, P> operator*(tvec4<T, P> const & v, tquat<T, P> const & q);
+	GLM_FUNC_DECL vec<4, T, P> operator*(vec<4, T, P> const & v, tquat<T, P> const & q);
 
 	template <typename T, precision P>
 	GLM_FUNC_DECL tquat<T, P> operator*(tquat<T, P> const & q, T const & s);
@@ -248,14 +248,14 @@ namespace glm
 	/// 
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tquat<T, P> rotate(tquat<T, P> const & q, T const & angle, tvec3<T, P> const & axis);
+	GLM_FUNC_DECL tquat<T, P> rotate(tquat<T, P> const & q, T const & angle, vec<3, T, P> const & axis);
 
 	/// Returns euler angles, pitch as x, yaw as y, roll as z.
 	/// The result is expressed in radians if GLM_FORCE_RADIANS is defined or degrees otherwise.
 	/// 
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> eulerAngles(tquat<T, P> const & x);
+	GLM_FUNC_DECL vec<3, T, P> eulerAngles(tquat<T, P> const & x);
 
 	/// Returns roll value of euler angles expressed in radians.
 	///
@@ -309,7 +309,7 @@ namespace glm
 	///
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> axis(tquat<T, P> const & x);
+	GLM_FUNC_DECL vec<3, T, P> axis(tquat<T, P> const & x);
 
 	/// Build a quaternion from an angle and a normalized axis.
 	///
@@ -318,7 +318,7 @@ namespace glm
 	///
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tquat<T, P> angleAxis(T const & angle, tvec3<T, P> const & axis);
+	GLM_FUNC_DECL tquat<T, P> angleAxis(T const & angle, vec<3, T, P> const & axis);
 
 	/// Returns the component-wise comparison result of x < y.
 	/// 
@@ -326,7 +326,7 @@ namespace glm
 	///
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec4<bool, P> lessThan(tquat<T, P> const & x, tquat<T, P> const & y);
+	GLM_FUNC_DECL vec<4, bool, P> lessThan(tquat<T, P> const & x, tquat<T, P> const & y);
 
 	/// Returns the component-wise comparison of result x <= y.
 	///
@@ -334,7 +334,7 @@ namespace glm
 	///
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec4<bool, P> lessThanEqual(tquat<T, P> const & x, tquat<T, P> const & y);
+	GLM_FUNC_DECL vec<4, bool, P> lessThanEqual(tquat<T, P> const & x, tquat<T, P> const & y);
 
 	/// Returns the component-wise comparison of result x > y.
 	///
@@ -342,7 +342,7 @@ namespace glm
 	///
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec4<bool, P> greaterThan(tquat<T, P> const & x, tquat<T, P> const & y);
+	GLM_FUNC_DECL vec<4, bool, P> greaterThan(tquat<T, P> const & x, tquat<T, P> const & y);
 
 	/// Returns the component-wise comparison of result x >= y.
 	///
@@ -350,7 +350,7 @@ namespace glm
 	///
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec4<bool, P> greaterThanEqual(tquat<T, P> const & x, tquat<T, P> const & y);
+	GLM_FUNC_DECL vec<4, bool, P> greaterThanEqual(tquat<T, P> const & x, tquat<T, P> const & y);
 
 	/// Returns the component-wise comparison of result x == y.
 	///
@@ -358,7 +358,7 @@ namespace glm
 	///
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec4<bool, P> equal(tquat<T, P> const & x, tquat<T, P> const & y);
+	GLM_FUNC_DECL vec<4, bool, P> equal(tquat<T, P> const & x, tquat<T, P> const & y);
 
 	/// Returns the component-wise comparison of result x != y.
 	/// 
@@ -366,7 +366,7 @@ namespace glm
 	///
 	/// @see gtc_quaternion
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec4<bool, P> notEqual(tquat<T, P> const & x, tquat<T, P> const & y);
+	GLM_FUNC_DECL vec<4, bool, P> notEqual(tquat<T, P> const & x, tquat<T, P> const & y);
 
 	/// Returns true if x holds a NaN (not a number)
 	/// representation in the underlying implementation's set of
@@ -378,7 +378,7 @@ namespace glm
 	/// 
 	/// @tparam genType Floating-point scalar or vector types.
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec4<bool, P> isnan(tquat<T, P> const & x);
+	GLM_FUNC_DECL vec<4, bool, P> isnan(tquat<T, P> const & x);
 
 	/// Returns true if x holds a positive infinity or negative
 	/// infinity representation in the underlying implementation's
@@ -388,7 +388,7 @@ namespace glm
 	/// 
 	/// @tparam genType Floating-point scalar or vector types.
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec4<bool, P> isinf(tquat<T, P> const & x);
+	GLM_FUNC_DECL vec<4, bool, P> isinf(tquat<T, P> const & x);
 
 	/// @}
 } //namespace glm

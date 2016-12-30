@@ -35,9 +35,9 @@ namespace
 		std::basic_ostringstream<CTy,CTr> ostr;
 
 		if      (typeid(T) == typeid(glm::tquat<U,P>))   { ostr << "quat"; }
-		else if (typeid(T) == typeid(glm::tvec2<U,P>))   { ostr << "vec2"; }
-		else if (typeid(T) == typeid(glm::tvec3<U,P>))   { ostr << "vec3"; }
-		else if (typeid(T) == typeid(glm::tvec4<U,P>))   { ostr << "vec4"; }
+		else if (typeid(T) == typeid(glm::vec<2, U,P>))   { ostr << "vec2"; }
+		else if (typeid(T) == typeid(glm::vec<3, U,P>))   { ostr << "vec3"; }
+		else if (typeid(T) == typeid(glm::vec<4, U,P>))   { ostr << "vec4"; }
 		else if (typeid(T) == typeid(glm::tmat2x2<U,P>)) { ostr << "mat2x2"; }
 		else if (typeid(T) == typeid(glm::tmat2x3<U,P>)) { ostr << "mat2x3"; }
 		else if (typeid(T) == typeid(glm::tmat2x4<U,P>)) { ostr << "mat2x4"; }
@@ -84,9 +84,9 @@ int test_io_vec(OS& os)
 {
 	os << '\n' << typeid(OS).name() << '\n';
 
-	glm::tvec2<T,P> const v2(0, 1);
-	glm::tvec3<T,P> const v3(2, 3, 4);
-	glm::tvec4<T,P> const v4(5, 6, 7, 8);
+	glm::vec<2, T,P> const v2(0, 1);
+	glm::vec<3, T,P> const v3(2, 3, 4);
+	glm::vec<4, T,P> const v4(5, 6, 7, 8);
 
 	os << type_name<T,P>(os, v2) << ": " << v2 << '\n'
 		<< type_name<T,P>(os, v3) << ": " << v3 << '\n'
@@ -107,18 +107,18 @@ int test_io_mat(OS& os, glm::io::order_type otype)
 {
 	os << '\n' << typeid(OS).name() << '\n';
 
-	glm::tvec2<T,P> const v2_1( 0,  1);
-	glm::tvec2<T,P> const v2_2( 2,  3);
-	glm::tvec2<T,P> const v2_3( 4,  5);
-	glm::tvec2<T,P> const v2_4( 6,  7);
-	glm::tvec3<T,P> const v3_1( 8,  9, 10);
-	glm::tvec3<T,P> const v3_2(11, 12, 13);
-	glm::tvec3<T,P> const v3_3(14, 15, 16);
-	glm::tvec3<T,P> const v3_4(17, 18, 19);
-	glm::tvec4<T,P> const v4_1(20, 21, 22, 23);
-	glm::tvec4<T,P> const v4_2(24, 25, 26, 27);
-	glm::tvec4<T,P> const v4_3(28, 29, 30, 31);
-	glm::tvec4<T,P> const v4_4(32, 33, 34, 35);
+	glm::vec<2, T,P> const v2_1( 0,  1);
+	glm::vec<2, T,P> const v2_2( 2,  3);
+	glm::vec<2, T,P> const v2_3( 4,  5);
+	glm::vec<2, T,P> const v2_4( 6,  7);
+	glm::vec<3, T,P> const v3_1( 8,  9, 10);
+	glm::vec<3, T,P> const v3_2(11, 12, 13);
+	glm::vec<3, T,P> const v3_3(14, 15, 16);
+	glm::vec<3, T,P> const v3_4(17, 18, 19);
+	glm::vec<4, T,P> const v4_1(20, 21, 22, 23);
+	glm::vec<4, T,P> const v4_2(24, 25, 26, 27);
+	glm::vec<4, T,P> const v4_3(28, 29, 30, 31);
+	glm::vec<4, T,P> const v4_4(32, 33, 34, 35);
 
 	glm::io::basic_format_saver<typename OS::char_type> const iofs(os);
 

@@ -68,7 +68,7 @@ namespace glm
 			union {T y, g, t;};
 
 #			if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
-				GLM_SWIZZLE_GEN_VEC_FROM_VEC2(T, P, tvec2, tvec2, tvec3, tvec4)
+				GLM_SWIZZLE_GEN_VEC_FROM_VEC2(T, P)
 #			endif//GLM_SWIZZLE
 #		endif
 

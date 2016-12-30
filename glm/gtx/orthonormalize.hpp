@@ -41,7 +41,7 @@ namespace glm
 	///
 	/// @see gtx_orthonormalize
 	template <typename T, precision P> 
-	GLM_FUNC_DECL tvec3<T, P> orthonormalize(tvec3<T, P> const & x, tvec3<T, P> const & y);
+	GLM_FUNC_DECL vec<3, T, P> orthonormalize(vec<3, T, P> const & x, vec<3, T, P> const & y);
 
 	/// @}
 }//namespace glm

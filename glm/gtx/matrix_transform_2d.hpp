@@ -37,7 +37,7 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> translate(
 		tmat3x3<T, P> const & m,
-		tvec2<T, P> const & v);
+		vec<2, T, P> const & v);
 
 	/// Builds a rotation 3 * 3 matrix created from an angle. 
 	///
@@ -55,7 +55,7 @@ namespace glm
 	template <typename T, precision P> 
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> scale(
 		tmat3x3<T, P> const & m,
-		tvec2<T, P> const & v);
+		vec<2, T, P> const & v);
 
 	/// Builds an horizontal (parallel to the x axis) shear 3 * 3 matrix. 
 	///

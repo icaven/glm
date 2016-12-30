@@ -8,16 +8,16 @@ namespace glm
 	(
 		tmat4x4<T, P> const & m,
 		T const & angle,
-		tvec3<T, P> const & v
+		vec<3, T, P> const & v
 	)
 	{
 		T const a = angle;
 		T const c = cos(a);
 		T const s = sin(a);
 
-		tvec3<T, P> const axis(v);
+		vec<3, T, P> const axis(v);
 
-		tvec3<T, P> const temp((static_cast<T>(1) - c) * axis);
+		vec<3, T, P> const temp((static_cast<T>(1) - c) * axis);
 
 		tmat4x4<T, P> Rotate(uninitialize);
 		Rotate[0][0] = c + temp[0] * axis[0];
@@ -45,10 +45,10 @@ namespace glm
 	(
 		tquat<T, P> const & q, 
 		T const & angle,
-		tvec3<T, P> const & v
+		vec<3, T, P> const & v
 	)
 	{
-		tvec3<T, P> const Tmp(v);
+		vec<3, T, P> const Tmp(v);
 
 		T const AngleRad(angle);
 		T const Sin = sin(AngleRad * T(0.5));

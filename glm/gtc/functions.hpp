@@ -41,9 +41,9 @@ namespace glm
 	/// @see gtc_epsilon
 	template <typename T, precision P>
 	GLM_FUNC_DECL T gauss(
-		tvec2<T, P> const& Coord,
-		tvec2<T, P> const& ExpectedValue,
-		tvec2<T, P> const& StandardDeviation);
+		vec<2, T, P> const& Coord,
+		vec<2, T, P> const& ExpectedValue,
+		vec<2, T, P> const& StandardDeviation);
 
 	/// @}
 }//namespace glm

@@ -99,7 +99,7 @@ namespace detail
 	{
 		static tquat<float, P> call(tquat<float, P> const& q, tquat<float, P> const& p)
 		{
-			tvec4<float, P> Result(uninitialize);
+			vec<4, float, P> Result(uninitialize);
 			Result.data = _mm_sub_ps(q.data, p.data);
 			return Result;
 		}
@@ -123,7 +123,7 @@ namespace detail
 	{
 		static tquat<float, P> call(tquat<float, P> const& q, float s)
 		{
-			tvec4<float, P> Result(uninitialize);
+			vec<4, float, P> Result(uninitialize);
 			Result.data = _mm_mul_ps(q.data, _mm_set_ps1(s));
 			return Result;
 		}
@@ -147,7 +147,7 @@ namespace detail
 	{
 		static tquat<float, P> call(tquat<float, P> const& q, float s)
 		{
-			tvec4<float, P> Result(uninitialize);
+			vec<4, float, P> Result(uninitialize);
 			Result.data = _mm_div_ps(q.data, _mm_set_ps1(s));
 			return Result;
 		}
@@ -169,7 +169,7 @@ namespace detail
 	template <precision P>
 	struct compute_quat_mul_vec4<float, P, true>
 	{
-		static tvec4<float, P> call(tquat<float, P> const& q, tvec4<float, P> const& v)
+		static vec<4, float, P> call(tquat<float, P> const& q, vec<4, float, P> const& v)
 		{
 			__m128 const q_wwww = _mm_shuffle_ps(q.data, q.data, _MM_SHUFFLE(3, 3, 3, 3));
 			__m128 const q_swp0 = _mm_shuffle_ps(q.data, q.data, _MM_SHUFFLE(3, 0, 2, 1));
@@ -186,7 +186,7 @@ namespace detail
 			uv  = _mm_mul_ps(uv, _mm_mul_ps(q_wwww, two));
 			uuv = _mm_mul_ps(uuv, two);
 
-			tvec4<float, P> Result(uninitialize);
+			vec<4, float, P> Result(uninitialize);
 			Result.data = _mm_add_ps(v.Data, _mm_add_ps(uv, uuv));
 			return Result;
 		}

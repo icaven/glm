@@ -32,15 +32,15 @@ namespace glm
 	///
 	/// @see gtx_polar_coordinates
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> polar(
-		tvec3<T, P> const & euclidean);
+	GLM_FUNC_DECL vec<3, T, P> polar(
+		vec<3, T, P> const & euclidean);
 
 	/// Convert Polar to Euclidean coordinates.
 	///
 	/// @see gtx_polar_coordinates
 	template <typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> euclidean(
-		tvec2<T, P> const & polar);
+	GLM_FUNC_DECL vec<3, T, P> euclidean(
+		vec<2, T, P> const & polar);
 
 	/// @}
 }//namespace glm

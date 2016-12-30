@@ -32,25 +32,25 @@ namespace glm
 	/// @{
 
 	template <typename T, precision P>
-	inline length_t components(tvec1<T, P> const & v)
+	inline length_t components(vec<1, T, P> const & v)
 	{
 		return v.length();
 	}
 	
 	template <typename T, precision P>
-	inline length_t components(tvec2<T, P> const & v)
+	inline length_t components(vec<2, T, P> const & v)
 	{
 		return v.length();
 	}
 	
 	template <typename T, precision P>
-	inline length_t components(tvec3<T, P> const & v)
+	inline length_t components(vec<3, T, P> const & v)
 	{
 		return v.length();
 	}
 	
 	template <typename T, precision P>
-	inline length_t components(tvec4<T, P> const & v)
+	inline length_t components(vec<4, T, P> const & v)
 	{
 		return v.length();
 	}

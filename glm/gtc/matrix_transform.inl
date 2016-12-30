@@ -8,7 +8,7 @@
 namespace glm
 {
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P> translate(tmat4x4<T, P> const & m, tvec3<T, P> const & v)
+	GLM_FUNC_QUALIFIER tmat4x4<T, P> translate(tmat4x4<T, P> const & m, vec<3, T, P> const & v)
 	{
 		tmat4x4<T, P> Result(m);
 		Result[3] = m[0] * v[0] + m[1] * v[1] + m[2] * v[2] + m[3];
@@ -16,14 +16,14 @@ namespace glm
 	}
 	
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P> rotate(tmat4x4<T, P> const & m, T angle, tvec3<T, P> const & v)
+	GLM_FUNC_QUALIFIER tmat4x4<T, P> rotate(tmat4x4<T, P> const & m, T angle, vec<3, T, P> const & v)
 	{
 		T const a = angle;
 		T const c = cos(a);
 		T const s = sin(a);
 
-		tvec3<T, P> axis(normalize(v));
-		tvec3<T, P> temp((T(1) - c) * axis);
+		vec<3, T, P> axis(normalize(v));
+		vec<3, T, P> temp((T(1) - c) * axis);
 
 		tmat4x4<T, P> Rotate(uninitialize);
 		Rotate[0][0] = c + temp[0] * axis[0];
@@ -47,14 +47,14 @@ namespace glm
 	}
 		
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P> rotate_slow(tmat4x4<T, P> const & m, T angle, tvec3<T, P> const & v)
+	GLM_FUNC_QUALIFIER tmat4x4<T, P> rotate_slow(tmat4x4<T, P> const & m, T angle, vec<3, T, P> const & v)
 	{
 		T const a = angle;
 		T const c = cos(a);
 		T const s = sin(a);
 		tmat4x4<T, P> Result;
 
-		tvec3<T, P> axis = normalize(v);
+		vec<3, T, P> axis = normalize(v);
 
 		Result[0][0] = c + (static_cast<T>(1) - c)      * axis.x     * axis.x;
 		Result[0][1] = (static_cast<T>(1) - c) * axis.x * axis.y + s * axis.z;
@@ -71,12 +71,12 @@ namespace glm
 		Result[2][2] = c + (static_cast<T>(1) - c) * axis.z * axis.z;
 		Result[2][3] = static_cast<T>(0);
 
-		Result[3] = tvec4<T, P>(0, 0, 0, 1);
+		Result[3] = vec<4, T, P>(0, 0, 0, 1);
 		return m * Result;
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P> scale(tmat4x4<T, P> const & m, tvec3<T, P> const & v)
+	GLM_FUNC_QUALIFIER tmat4x4<T, P> scale(tmat4x4<T, P> const & m, vec<3, T, P> const & v)
 	{
 		tmat4x4<T, P> Result(uninitialize);
 		Result[0] = m[0] * v[0];
@@ -87,7 +87,7 @@ namespace glm
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P> scale_slow(tmat4x4<T, P> const & m, tvec3<T, P> const & v)
+	GLM_FUNC_QUALIFIER tmat4x4<T, P> scale_slow(tmat4x4<T, P> const & m, vec<3, T, P> const & v)
 	{
 		tmat4x4<T, P> Result(T(1));
 		Result[0][0] = v.x;
@@ -436,15 +436,15 @@ namespace glm
 	}
 
 	template <typename T, typename U, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> project
+	GLM_FUNC_QUALIFIER vec<3, T, P> project
 	(
-		tvec3<T, P> const & obj,
+		vec<3, T, P> const & obj,
 		tmat4x4<T, P> const & model,
 		tmat4x4<T, P> const & proj,
-		tvec4<U, P> const & viewport
+		vec<4, U, P> const & viewport
 	)
 	{
-		tvec4<T, P> tmp = tvec4<T, P>(obj, static_cast<T>(1));
+		vec<4, T, P> tmp = vec<4, T, P>(obj, static_cast<T>(1));
 		tmp = model * tmp;
 		tmp = proj * tmp;
 
@@ -458,21 +458,21 @@ namespace glm
 		tmp[0] = tmp[0] * T(viewport[2]) + T(viewport[0]);
 		tmp[1] = tmp[1] * T(viewport[3]) + T(viewport[1]);
 
-		return tvec3<T, P>(tmp);
+		return vec<3, T, P>(tmp);
 	}
 
 	template <typename T, typename U, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> unProject
+	GLM_FUNC_QUALIFIER vec<3, T, P> unProject
 	(
-		tvec3<T, P> const & win,
+		vec<3, T, P> const & win,
 		tmat4x4<T, P> const & model,
 		tmat4x4<T, P> const & proj,
-		tvec4<U, P> const & viewport
+		vec<4, U, P> const & viewport
 	)
 	{
 		tmat4x4<T, P> Inverse = inverse(proj * model);
 
-		tvec4<T, P> tmp = tvec4<T, P>(win, T(1));
+		vec<4, T, P> tmp = vec<4, T, P>(win, T(1));
 		tmp.x = (tmp.x - T(viewport[0])) / T(viewport[2]);
 		tmp.y = (tmp.y - T(viewport[1])) / T(viewport[3]);
 #		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
@@ -482,14 +482,14 @@ namespace glm
 			tmp = tmp * static_cast<T>(2) - static_cast<T>(1);
 #		endif
 
-		tvec4<T, P> obj = Inverse * tmp;
+		vec<4, T, P> obj = Inverse * tmp;
 		obj /= obj.w;
 
-		return tvec3<T, P>(obj);
+		return vec<3, T, P>(obj);
 	}
 
 	template <typename T, precision P, typename U>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P> pickMatrix(tvec2<T, P> const & center, tvec2<T, P> const & delta, tvec4<U, P> const & viewport)
+	GLM_FUNC_QUALIFIER tmat4x4<T, P> pickMatrix(vec<2, T, P> const & center, vec<2, T, P> const & delta, vec<4, U, P> const & viewport)
 	{
 		assert(delta.x > static_cast<T>(0) && delta.y > static_cast<T>(0));
 		tmat4x4<T, P> Result(static_cast<T>(1));
@@ -497,18 +497,18 @@ namespace glm
 		if(!(delta.x > static_cast<T>(0) && delta.y > static_cast<T>(0)))
 			return Result; // Error
 
-		tvec3<T, P> Temp(
+		vec<3, T, P> Temp(
 			(static_cast<T>(viewport[2]) - static_cast<T>(2) * (center.x - static_cast<T>(viewport[0]))) / delta.x,
 			(static_cast<T>(viewport[3]) - static_cast<T>(2) * (center.y - static_cast<T>(viewport[1]))) / delta.y,
 			static_cast<T>(0));
 
 		// Translate and scale the picked region to the entire window
 		Result = translate(Result, Temp);
-		return scale(Result, tvec3<T, P>(static_cast<T>(viewport[2]) / delta.x, static_cast<T>(viewport[3]) / delta.y, static_cast<T>(1)));
+		return scale(Result, vec<3, T, P>(static_cast<T>(viewport[2]) / delta.x, static_cast<T>(viewport[3]) / delta.y, static_cast<T>(1)));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tmat4x4<T, P> lookAt(tvec3<T, P> const & eye, tvec3<T, P> const & center, tvec3<T, P> const & up)
+	GLM_FUNC_QUALIFIER tmat4x4<T, P> lookAt(vec<3, T, P> const & eye, vec<3, T, P> const & center, vec<3, T, P> const & up)
 	{
 #		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
 			return lookAtLH(eye, center, up);
@@ -520,14 +520,14 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat4x4<T, P> lookAtRH
 	(
-		tvec3<T, P> const & eye,
-		tvec3<T, P> const & center,
-		tvec3<T, P> const & up
+		vec<3, T, P> const & eye,
+		vec<3, T, P> const & center,
+		vec<3, T, P> const & up
 	)
 	{
-		tvec3<T, P> const f(normalize(center - eye));
-		tvec3<T, P> const s(normalize(cross(f, up)));
-		tvec3<T, P> const u(cross(s, f));
+		vec<3, T, P> const f(normalize(center - eye));
+		vec<3, T, P> const s(normalize(cross(f, up)));
+		vec<3, T, P> const u(cross(s, f));
 
 		tmat4x4<T, P> Result(1);
 		Result[0][0] = s.x;
@@ -548,14 +548,14 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat4x4<T, P> lookAtLH
 	(
-		tvec3<T, P> const & eye,
-		tvec3<T, P> const & center,
-		tvec3<T, P> const & up
+		vec<3, T, P> const & eye,
+		vec<3, T, P> const & center,
+		vec<3, T, P> const & up
 	)
 	{
-		tvec3<T, P> const f(normalize(center - eye));
-		tvec3<T, P> const s(normalize(cross(up, f)));
-		tvec3<T, P> const u(cross(f, s));
+		vec<3, T, P> const f(normalize(center - eye));
+		vec<3, T, P> const s(normalize(cross(up, f)));
+		vec<3, T, P> const u(cross(f, s));
 
 		tmat4x4<T, P> Result(1);
 		Result[0][0] = s.x;

@@ -7,16 +7,16 @@ namespace detail
 	/// Make a linear combination of two vectors and return the result.
 	// result = (a * ascl) + (b * bscl)
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> combine(
-		tvec3<T, P> const & a, 
-		tvec3<T, P> const & b,
+	GLM_FUNC_QUALIFIER vec<3, T, P> combine(
+		vec<3, T, P> const & a, 
+		vec<3, T, P> const & b,
 		T ascl, T bscl)
 	{
 		return (a * ascl) + (b * bscl);
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> scale(tvec3<T, P> const& v, T desiredLength)
+	GLM_FUNC_QUALIFIER vec<3, T, P> scale(vec<3, T, P> const& v, T desiredLength)
 	{
 		return v * desiredLength / length(v);
 	}
@@ -27,7 +27,7 @@ namespace detail
 	// Decomposes the mode matrix to translations,rotation scale components
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER bool decompose(tmat4x4<T, P> const & ModelMatrix, tvec3<T, P> & Scale, tquat<T, P> & Orientation, tvec3<T, P> & Translation, tvec3<T, P> & Skew, tvec4<T, P> & Perspective)
+	GLM_FUNC_QUALIFIER bool decompose(tmat4x4<T, P> const & ModelMatrix, vec<3, T, P> & Scale, tquat<T, P> & Orientation, vec<3, T, P> & Translation, vec<3, T, P> & Skew, vec<4, T, P> & Perspective)
 	{
 		tmat4x4<T, P> LocalMatrix(ModelMatrix);
 
@@ -55,7 +55,7 @@ namespace detail
 		if(LocalMatrix[0][3] != static_cast<T>(0) || LocalMatrix[1][3] != static_cast<T>(0) || LocalMatrix[2][3] != static_cast<T>(0))
 		{
 			// rightHandSide is the right hand side of the equation.
-			tvec4<T, P> RightHandSide;
+			vec<4, T, P> RightHandSide;
 			RightHandSide[0] = LocalMatrix[0][3];
 			RightHandSide[1] = LocalMatrix[1][3];
 			RightHandSide[2] = LocalMatrix[2][3];
@@ -77,14 +77,14 @@ namespace detail
 		else
 		{
 			// No perspective.
-			Perspective = tvec4<T, P>(0, 0, 0, 1);
+			Perspective = vec<4, T, P>(0, 0, 0, 1);
 		}
 
 		// Next take care of translation (easy).
-		Translation = tvec3<T, P>(LocalMatrix[3]);
-		LocalMatrix[3] = tvec4<T, P>(0, 0, 0, LocalMatrix[3].w);
+		Translation = vec<3, T, P>(LocalMatrix[3]);
+		LocalMatrix[3] = vec<4, T, P>(0, 0, 0, LocalMatrix[3].w);
 
-		tvec3<T, P> Row[3], Pdum3;
+		vec<3, T, P> Row[3], Pdum3;
 
 		// Now get scale and shear.
 		for(length_t i = 0; i < 3; ++i)

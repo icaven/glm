@@ -202,25 +202,25 @@ namespace detail
 	}
 
 	template <typename CTy, typename CTr, typename T, precision P>
-	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tvec1<T,P> const& a)
+	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, vec<1, T,P> const& a)
 	{
 		return detail::print_vector_on(os, a);
 	}
 
 	template <typename CTy, typename CTr, typename T, precision P>
-	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tvec2<T,P> const& a)
+	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, vec<2, T,P> const& a)
 	{
 		return detail::print_vector_on(os, a);
 	}
 
 	template <typename CTy, typename CTr, typename T, precision P>
-	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tvec3<T,P> const& a)
+	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, vec<3, T,P> const& a)
 	{
 		return detail::print_vector_on(os, a);
 	}
 
 	template <typename CTy, typename CTr, typename T, precision P>
-	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tvec4<T,P> const& a)
+	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, vec<4, T,P> const& a)
 	{
 		return detail::print_vector_on(os, a);
 	}

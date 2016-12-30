@@ -97,9 +97,9 @@ namespace glm
 	template <typename V1, typename V2, typename V3>
 	GLM_FUNC_QUALIFIER tmat3x2<T, P>::tmat3x2
 	(
-		tvec2<V1, P> const & v1,
-		tvec2<V2, P> const & v2,
-		tvec2<V3, P> const & v3
+		vec<2, V1, P> const & v1,
+		vec<2, V2, P> const & v2,
+		vec<2, V3, P> const & v3
 	)
 	{
 		this->value[0] = col_type(v1);

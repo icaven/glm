@@ -81,7 +81,7 @@ namespace glm
 	
 	template <typename T, precision P>
 	template <typename V1, typename V2>
-	GLM_FUNC_QUALIFIER tmat2x4<T, P>::tmat2x4(tvec4<V1, P> const & v1, tvec4<V2, P> const & v2)
+	GLM_FUNC_QUALIFIER tmat2x4<T, P>::tmat2x4(vec<4, V1, P> const & v1, vec<4, V2, P> const & v2)
 	{
 		this->value[0] = col_type(v1);
 		this->value[1] = col_type(v2);

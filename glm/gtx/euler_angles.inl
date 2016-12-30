@@ -278,7 +278,7 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat3x3<T, P> orientate3
 	(
-		tvec3<T, P> const & angles
+		vec<3, T, P> const & angles
 	)
 	{
 		return tmat3x3<T, P>(yawPitchRoll(angles.z, angles.x, angles.y));
@@ -287,7 +287,7 @@ namespace glm
 	template <typename T, precision P>
 	GLM_FUNC_QUALIFIER tmat4x4<T, P> orientate4
 	(
-		tvec3<T, P> const & angles
+		vec<3, T, P> const & angles
 	)
 	{
 		return yawPitchRoll(angles.z, angles.x, angles.y);

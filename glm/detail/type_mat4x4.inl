@@ -143,10 +143,10 @@ namespace glm
 	template <typename V1, typename V2, typename V3, typename V4>
 	GLM_FUNC_QUALIFIER tmat4x4<T, P>::tmat4x4
 	(
-		tvec4<V1, P> const & v1,
-		tvec4<V2, P> const & v2,
-		tvec4<V3, P> const & v3,
-		tvec4<V4, P> const & v4
+		vec<4, V1, P> const & v1,
+		vec<4, V2, P> const & v2,
+		vec<4, V3, P> const & v3,
+		vec<4, V4, P> const & v4
 	)		
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<V1>::is_iec559 || std::numeric_limits<V1>::is_integer || GLM_UNRESTRICTED_GENTYPE, "*mat4x4 constructor only takes float and integer types, 1st parameter type invalid.");

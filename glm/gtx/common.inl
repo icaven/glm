@@ -38,53 +38,53 @@ namespace detail
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tvec1<T, P>::bool_type isdenormal
+	GLM_FUNC_QUALIFIER typename vec<1, T, P>::bool_type isdenormal
 	(
-		tvec1<T, P> const & x
+		vec<1, T, P> const & x
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isdenormal' only accept floating-point inputs");
 
-		return typename tvec1<T, P>::bool_type(
+		return typename vec<1, T, P>::bool_type(
 			isdenormal(x.x));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tvec2<T, P>::bool_type isdenormal
+	GLM_FUNC_QUALIFIER typename vec<2, T, P>::bool_type isdenormal
 	(
-		tvec2<T, P> const & x
+		vec<2, T, P> const & x
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isdenormal' only accept floating-point inputs");
 
-		return typename tvec2<T, P>::bool_type(
+		return typename vec<2, T, P>::bool_type(
 			isdenormal(x.x),
 			isdenormal(x.y));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tvec3<T, P>::bool_type isdenormal
+	GLM_FUNC_QUALIFIER typename vec<3, T, P>::bool_type isdenormal
 	(
-		tvec3<T, P> const & x
+		vec<3, T, P> const & x
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isdenormal' only accept floating-point inputs");
 
-		return typename tvec3<T, P>::bool_type(
+		return typename vec<3, T, P>::bool_type(
 			isdenormal(x.x),
 			isdenormal(x.y),
 			isdenormal(x.z));
 	}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER typename tvec4<T, P>::bool_type isdenormal
+	GLM_FUNC_QUALIFIER typename vec<4, T, P>::bool_type isdenormal
 	(
-		tvec4<T, P> const & x
+		vec<4, T, P> const & x
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isdenormal' only accept floating-point inputs");
 
-		return typename tvec4<T, P>::bool_type(
+		return typename vec<4, T, P>::bool_type(
 			isdenormal(x.x),
 			isdenormal(x.y),
 			isdenormal(x.z),
@@ -95,7 +95,7 @@ namespace detail
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType fmod(genType x, genType y)
 	{
-		return fmod(tvec1<genType>(x), y).x;
+		return fmod(vec<1, genType>(x), y).x;
 	}
 
 	template <int D, typename T, precision P, template <int, typename, precision> class vecType>

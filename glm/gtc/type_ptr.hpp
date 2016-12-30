@@ -65,17 +65,17 @@ namespace glm
 	/// Build a vector from a pointer.
 	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_DECL tvec2<T, defaultp> make_vec2(T const * const ptr);
+	GLM_FUNC_DECL vec<2, T, defaultp> make_vec2(T const * const ptr);
 
 	/// Build a vector from a pointer.
 	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_DECL tvec3<T, defaultp> make_vec3(T const * const ptr);
+	GLM_FUNC_DECL vec<3, T, defaultp> make_vec3(T const * const ptr);
 
 	/// Build a vector from a pointer.
 	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_DECL tvec4<T, defaultp> make_vec4(T const * const ptr);
+	GLM_FUNC_DECL vec<4, T, defaultp> make_vec4(T const * const ptr);
 
 	/// Build a matrix from a pointer.
 	/// @see gtc_type_ptr

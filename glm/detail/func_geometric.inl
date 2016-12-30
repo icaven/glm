@@ -55,7 +55,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static T call(vec<3, T, P> const & a, vec<3, T, P> const & b)
 		{
-			tvec3<T, P> tmp(a * b);
+			vec<3, T, P> tmp(a * b);
 			return tmp.x + tmp.y + tmp.z;
 		}
 	};
@@ -73,11 +73,11 @@ namespace detail
 	template <typename T, precision P, bool Aligned>
 	struct compute_cross
 	{
-		GLM_FUNC_QUALIFIER static tvec3<T, P> call(tvec3<T, P> const & x, tvec3<T, P> const & y)
+		GLM_FUNC_QUALIFIER static vec<3, T, P> call(vec<3, T, P> const & x, vec<3, T, P> const & y)
 		{
 			GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'cross' accepts only floating-point inputs");
 
-			return tvec3<T, P>(
+			return vec<3, T, P>(
 				x.y * y.z - y.y * x.z,
 				x.z * y.x - y.z * x.x,
 				x.x * y.y - y.x * x.y);
@@ -183,7 +183,7 @@ namespace detail
 
 	// cross
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER tvec3<T, P> cross(tvec3<T, P> const & x, tvec3<T, P> const & y)
+	GLM_FUNC_QUALIFIER vec<3, T, P> cross(vec<3, T, P> const & x, vec<3, T, P> const & y)
 	{
 		return detail::compute_cross<T, P, detail::is_aligned<P>::value>::call(x, y);
 	}

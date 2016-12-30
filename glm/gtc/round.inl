@@ -232,7 +232,7 @@ namespace detail
 	template <typename genType>
 	GLM_FUNC_QUALIFIER genType ceilPowerOfTwo(genType value)
 	{
-		return detail::compute_ceilPowerOfTwo<1, genType, defaultp, vec, std::numeric_limits<genType>::is_signed>::call(tvec1<genType, defaultp>(value)).x;
+		return detail::compute_ceilPowerOfTwo<1, genType, defaultp, vec, std::numeric_limits<genType>::is_signed>::call(vec<1, genType, defaultp>(value)).x;
 	}
 
 	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
@@ -282,7 +282,7 @@ namespace detail
 	template <typename genType>
 	GLM_FUNC_QUALIFIER bool isMultiple(genType Value, genType Multiple)
 	{
-		return isMultiple(tvec1<genType>(Value), tvec1<genType>(Multiple)).x;
+		return isMultiple(vec<1, genType>(Value), vec<1, genType>(Multiple)).x;
 	}
 
 	template <int D, typename T, precision P, template <int, typename, precision> class vecType>

@@ -475,20 +475,20 @@ namespace glm
 	/// the forth component specifies the 16 most-significant bits.
 	/// 
 	/// @see gtc_packing
-	/// @see tvec3<T, P> unpackRGBM(tvec4<T, P> const & p)
+	/// @see vec<3, T, P> unpackRGBM(vec<4, T, P> const & p)
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	template <int D, typename T, precision P>
-	GLM_FUNC_DECL tvec4<T, P> packRGBM(tvec3<T, P> const & rgb);
+	GLM_FUNC_DECL vec<4, T, P> packRGBM(vec<3, T, P> const & rgb);
 
 	/// Returns a floating-point vector with components obtained by reinterpreting an integer vector as 16-bit floating-point numbers and converting them to 32-bit floating-point values.
 	/// The first component of the vector is obtained from the 16 least-significant bits of v;
 	/// the forth component is obtained from the 16 most-significant bits of v.
 	/// 
 	/// @see gtc_packing
-	/// @see tvec4<T, P> packRGBM(tvec3<float, P> const & v)
+	/// @see vec<4, T, P> packRGBM(vec<3, float, P> const & v)
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	template <int D, typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> unpackRGBM(tvec4<T, P> const & rgbm);
+	GLM_FUNC_DECL vec<3, T, P> unpackRGBM(vec<4, T, P> const & rgbm);
 
 	/// Returns an unsigned integer vector obtained by converting the components of a floating-point vector
 	/// to the 16-bit floating-point representation found in the OpenGL Specification.
