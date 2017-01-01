@@ -522,7 +522,7 @@ namespace glm
 	/// 
 	/// @see gtc_packing
 	/// @see vecType<L, intType, P> packUnorm(vecType<L, floatType, P> const & v)
-	template<typename uintType, length_t L, typename floatType, precision P>
+	template<typename floatType, length_t L, typename uintType, precision P>
 	GLM_FUNC_DECL vec<L, floatType, P> unpackUnorm(vec<L, uintType, P> const & v);
 
 	/// Convert each component of the normalized floating-point vector into signed integer values.
@@ -536,7 +536,7 @@ namespace glm
 	/// 
 	/// @see gtc_packing
 	/// @see vecType<L, intType, P> packSnorm(vecType<L, floatType, P> const & v)
-	template<typename intType, length_t L, typename floatType, precision P>
+	template<typename floatType, length_t L, typename intType, precision P>
 	GLM_FUNC_DECL vec<L, floatType, P> unpackSnorm(vec<L, intType, P> const & v);
 
 	/// Convert each component of the normalized floating-point vector into unsigned integer values.

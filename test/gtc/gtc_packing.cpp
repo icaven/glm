@@ -528,8 +528,8 @@ int test_packUnorm()
 	for(std::size_t i = 0; i < A.size(); ++i)
 	{
 		glm::vec2 B(A[i]);
-		glm::u16vec2 C = glm::packUnorm<2, glm::uint16>(B);
-		glm::vec2 D = glm::unpackUnorm<2, glm::uint16, float>(C);
+		glm::u16vec2 C = glm::packUnorm<glm::uint16>(B);
+		glm::vec2 D = glm::unpackUnorm<float>(C);
 		Error += glm::all(glm::epsilonEqual(B, D, 1.0f / 255.f)) ? 0 : 1;
 		assert(!Error);
 	}
@@ -549,8 +549,8 @@ int test_packSnorm()
 	for(std::size_t i = 0; i < A.size(); ++i)
 	{
 		glm::vec2 B(A[i]);
-		glm::i16vec2 C = glm::packSnorm<2, glm::int16>(B);
-		glm::vec2 D = glm::unpackSnorm<2, glm::int16, float>(C);
+		glm::i16vec2 C = glm::packSnorm<glm::int16>(B);
+		glm::vec2 D = glm::unpackSnorm<float>(C);
 		Error += glm::all(glm::epsilonEqual(B, D, 1.0f / 32767.0f * 2.0f)) ? 0 : 1;
 		assert(!Error);
 	}
