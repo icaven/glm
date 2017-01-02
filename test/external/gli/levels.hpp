@@ -18,8 +18,8 @@ namespace gli
 	/// gli::texture2d::extent_type Extent(32, 10);
 	/// gli::texture2d Texture(gli::levels(Extent));
 	/// @endcode
-	template <int D, typename T, precision P, template <int, typename, precision> class vecType>
-	T levels(vecType<D, T, P> const& Extent);
+	template <typename T, precision P, template <typename, precision> class vecType>
+	T levels(vecType<T, P> const& Extent);
 /*
 	/// Compute the number of mipmaps levels necessary to create a mipmap complete texture
 	/// 
