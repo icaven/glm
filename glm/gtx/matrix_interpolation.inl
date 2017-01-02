@@ -94,22 +94,20 @@ namespace glm
 			t * n.x * n.x + c,          t * n.x * n.y + n.z * s,    t * n.x * n.z - n.y * s,    T(0),
 			t * n.x * n.y - n.z * s,    t * n.y * n.y + c,          t * n.y * n.z + n.x * s,    T(0),
 			t * n.x * n.z + n.y * s,    t * n.y * n.z - n.x * s,    t * n.z * n.z + c,          T(0),
-			T(0),                        T(0),                        T(0),                     T(1)
-		);
+			T(0),                        T(0),                        T(0),                     T(1));
 	}
 
 	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> extractMatrixRotation
 	(
-		mat<4, 4, T, P> const& mat
+		mat<4, 4, T, P> const& m
 	)
 	{
 		return mat<4, 4, T, P>(
-			mat[0][0], mat[0][1], mat[0][2], 0.0,
-			mat[1][0], mat[1][1], mat[1][2], 0.0,
-			mat[2][0], mat[2][1], mat[2][2], 0.0,
-			0.0,       0.0,       0.0,       1.0
-		);
+			m[0][0], m[0][1], m[0][2], 0.0,
+			m[1][0], m[1][1], m[1][2], 0.0,
+			m[2][0], m[2][1], m[2][2], 0.0,
+			0.0,     0.0,     0.0,     1.0);
 	}
 
 	template<typename T, precision P>
