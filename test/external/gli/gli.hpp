@@ -59,6 +59,7 @@ namespace gli
 #include "sampler_cube_array.hpp"
 
 #include "duplicate.hpp"
+#include "convert.hpp"
 #include "view.hpp"
 #include "comparison.hpp"
 

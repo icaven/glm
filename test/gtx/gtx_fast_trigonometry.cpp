@@ -173,15 +173,17 @@ namespace fastAtan
 
 namespace taylorCos
 {
+	using glm::precision;
+	
 	glm::vec4 const AngleShift(0.0f, glm::pi<float>() * 0.5f, glm::pi<float>() * 1.0f, glm::pi<float>() * 1.5f);
 
-	template <typename T, glm::precision P, template <typename, glm::precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> taylorSeriesNewCos(vecType<T, P> const & x)
+	template<glm::length_t L, typename T, precision P, template<glm::length_t, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<L, T, P> taylorSeriesNewCos(vecType<L, T, P> const & x)
 	{
-		vecType<T, P> const Powed2(x * x);
-		vecType<T, P> const Powed4(Powed2 * Powed2);
-		vecType<T, P> const Powed6(Powed4 * Powed2);
-		vecType<T, P> const Powed8(Powed4 * Powed4);
+		vecType<L, T, P> const Powed2(x * x);
+		vecType<L, T, P> const Powed4(Powed2 * Powed2);
+		vecType<L, T, P> const Powed6(Powed4 * Powed2);
+		vecType<L, T, P> const Powed8(Powed4 * Powed4);
 
 		return static_cast<T>(1)
 			- Powed2 * static_cast<T>(0.5)
@@ -190,12 +192,12 @@ namespace taylorCos
 			+ Powed8 * static_cast<T>(2.4801587301587301587301587301587e-5);
 	}
 
-	template <typename T, glm::precision P, template <typename, glm::precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> taylorSeriesNewCos6(vecType<T, P> const & x)
+	template<glm::length_t L, typename T, precision P, template<glm::length_t, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<L, T, P> taylorSeriesNewCos6(vecType<L, T, P> const & x)
 	{
-		vecType<T, P> const Powed2(x * x);
-		vecType<T, P> const Powed4(Powed2 * Powed2);
-		vecType<T, P> const Powed6(Powed4 * Powed2);
+		vecType<L, T, P> const Powed2(x * x);
+		vecType<L, T, P> const Powed4(Powed2 * Powed2);
+		vecType<L, T, P> const Powed6(Powed4 * Powed2);
 
 		return static_cast<T>(1)
 			- Powed2 * static_cast<T>(0.5)
@@ -203,8 +205,8 @@ namespace taylorCos
 			- Powed6 * static_cast<T>(0.00138888888888888888888888888889);
 	}
 
-	template <glm::precision P, template <typename, glm::precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<float, P> fastAbs(vecType<float, P> x)
+	template<glm::length_t L, precision P, template<glm::length_t, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<L, float, P> fastAbs(vecType<L, float, P> x)
 	{
 		int* Pointer = reinterpret_cast<int*>(&x[0]);
 		Pointer[0] &= 0x7fffffff;
@@ -214,17 +216,17 @@ namespace taylorCos
 		return x;
 	}
 
-	template <typename T, glm::precision P, template <typename, glm::precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> fastCosNew(vecType<T, P> const & x)
+	template<glm::length_t L, typename T, glm::precision P, template<glm::length_t, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<L, T, P> fastCosNew(vecType<L, T, P> const & x)
 	{
-		vecType<T, P> const Angle0_PI(fastAbs(fmod(x + glm::pi<T>(), glm::two_pi<T>()) - glm::pi<T>()));
+		vecType<L, T, P> const Angle0_PI(fastAbs(fmod(x + glm::pi<T>(), glm::two_pi<T>()) - glm::pi<T>()));
 		return taylorSeriesNewCos6(x);
 /*
-		vecType<bool, P> const FirstQuarterPi(lessThanEqual(Angle0_PI, vecType<T, P>(glm::half_pi<T>())));
+		vecType<L, bool, P> const FirstQuarterPi(lessThanEqual(Angle0_PI, vecType<L, T, P>(glm::half_pi<T>())));
 
-		vecType<T, P> const RevertAngle(mix(vecType<T, P>(glm::pi<T>()), vecType<T, P>(0), FirstQuarterPi));
-		vecType<T, P> const ReturnSign(mix(vecType<T, P>(-1), vecType<T, P>(1), FirstQuarterPi));
-		vecType<T, P> const SectionAngle(RevertAngle - Angle0_PI);
+		vecType<L, T, P> const RevertAngle(mix(vecType<L, T, P>(glm::pi<T>()), vecType<L, T, P>(0), FirstQuarterPi));
+		vecType<L, T, P> const ReturnSign(mix(vecType<L, T, P>(-1), vecType<L, T, P>(1), FirstQuarterPi));
+		vecType<L, T, P> const SectionAngle(RevertAngle - Angle0_PI);
 
 		return ReturnSign * taylorSeriesNewCos(SectionAngle);
 */
@@ -252,21 +254,21 @@ namespace taylorCos
 		return Error;
 	}
 
-	template <typename T, glm::precision P, template <typename, glm::precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> deterministic_fmod(vecType<T, P> const & x, T y)
+	template<glm::length_t L, typename T, precision P, template<glm::length_t, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<L, T, P> deterministic_fmod(vecType<L, T, P> const & x, T y)
 	{
 		return x - y * trunc(x / y);
 	}
 
-	template <typename T, glm::precision P, template <typename, glm::precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> fastCosDeterminisctic(vecType<T, P> const & x)
+	template<glm::length_t L, typename T, precision P, template<glm::length_t, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<L, T, P> fastCosDeterminisctic(vecType<L, T, P> const & x)
 	{
-		vecType<T, P> const Angle0_PI(abs(deterministic_fmod(x + glm::pi<T>(), glm::two_pi<T>()) - glm::pi<T>()));
-		vecType<bool, P> const FirstQuarterPi(lessThanEqual(Angle0_PI, vecType<T, P>(glm::half_pi<T>())));
+		vecType<L, T, P> const Angle0_PI(abs(deterministic_fmod(x + glm::pi<T>(), glm::two_pi<T>()) - glm::pi<T>()));
+		vecType<L, bool, P> const FirstQuarterPi(lessThanEqual(Angle0_PI, vecType<L, T, P>(glm::half_pi<T>())));
 
-		vecType<T, P> const RevertAngle(mix(vecType<T, P>(glm::pi<T>()), vecType<T, P>(0), FirstQuarterPi));
-		vecType<T, P> const ReturnSign(mix(vecType<T, P>(-1), vecType<T, P>(1), FirstQuarterPi));
-		vecType<T, P> const SectionAngle(RevertAngle - Angle0_PI);
+		vecType<L, T, P> const RevertAngle(mix(vecType<L, T, P>(glm::pi<T>()), vecType<L, T, P>(0), FirstQuarterPi));
+		vecType<L, T, P> const ReturnSign(mix(vecType<L, T, P>(-1), vecType<L, T, P>(1), FirstQuarterPi));
+		vecType<L, T, P> const SectionAngle(RevertAngle - Angle0_PI);
 
 		return ReturnSign * taylorSeriesNewCos(SectionAngle);
 	}
@@ -293,8 +295,8 @@ namespace taylorCos
 		return Error;
 	}
 
-	template <typename T, glm::precision P, template <typename, glm::precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> taylorSeriesRefCos(vecType<T, P> const & x)
+	template<glm::length_t L, typename T, precision P, template<glm::length_t, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<L, T, P> taylorSeriesRefCos(vecType<L, T, P> const & x)
 	{
 		return static_cast<T>(1)
 			- (x * x) / glm::factorial(static_cast<T>(2))
@@ -303,17 +305,17 @@ namespace taylorCos
 			+ (x * x * x * x * x * x * x * x) / glm::factorial(static_cast<T>(8));
 	}
 
-	template <typename T, glm::precision P, template <typename, glm::precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<T, P> fastRefCos(vecType<T, P> const & x)
+	template<glm::length_t L, typename T, precision P, template<glm::length_t, typename, precision> class vecType>
+	GLM_FUNC_QUALIFIER vecType<L, T, P> fastRefCos(vecType<L, T, P> const & x)
 	{
-		vecType<T, P> const Angle0_PI(glm::abs(fmod(x + glm::pi<T>(), glm::two_pi<T>()) - glm::pi<T>()));
+		vecType<L, T, P> const Angle0_PI(glm::abs(fmod(x + glm::pi<T>(), glm::two_pi<T>()) - glm::pi<T>()));
 //		return taylorSeriesRefCos(Angle0_PI);
 
-		vecType<bool, P> const FirstQuarterPi(lessThanEqual(Angle0_PI, vecType<T, P>(glm::half_pi<T>())));
+		vecType<L, bool, P> const FirstQuarterPi(lessThanEqual(Angle0_PI, vecType<L, T, P>(glm::half_pi<T>())));
 
-		vecType<T, P> const RevertAngle(mix(vecType<T, P>(glm::pi<T>()), vecType<T, P>(0), FirstQuarterPi));
-		vecType<T, P> const ReturnSign(mix(vecType<T, P>(-1), vecType<T, P>(1), FirstQuarterPi));
-		vecType<T, P> const SectionAngle(RevertAngle - Angle0_PI);
+		vecType<L, T, P> const RevertAngle(mix(vecType<L, T, P>(glm::pi<T>()), vecType<L, T, P>(0), FirstQuarterPi));
+		vecType<L, T, P> const ReturnSign(mix(vecType<L, T, P>(-1), vecType<L, T, P>(1), FirstQuarterPi));
+		vecType<L, T, P> const SectionAngle(RevertAngle - Angle0_PI);
 
 		return ReturnSign * taylorSeriesRefCos(SectionAngle);
 	}

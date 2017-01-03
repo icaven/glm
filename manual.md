@@ -555,7 +555,7 @@ By default GLM only supports basic types as genType for vector, matrix and quate
 ```cpp
 #include <glm/glm.hpp>
 
-typedef glm::tvec4<float> my_fvec4;
+typedef glm::vec<4, float> my_fvec4;
 ```
 
 GLM 0.9.8 introduced GLM\_FORCE\_UNRESTRICTED\_GENTYPE define to relax this restriction:
@@ -566,7 +566,7 @@ GLM 0.9.8 introduced GLM\_FORCE\_UNRESTRICTED\_GENTYPE define to relax this rest
 
 #include "half.hpp" // Define “half” class with equivalent behavior than “float”
 
-typedef glm::tvec4<half> my_hvec4;
+typedef glm::vec<4, half> my_hvec4;
 ```
 
 However, defining GLM\_FORCE\_UNRESTRICTED\_GENTYPE is not compatible with GLM\_FORCE\_SWIZZLE and will generate a compilation error if both are defined at the same time.

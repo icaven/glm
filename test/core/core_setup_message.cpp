@@ -196,19 +196,19 @@ int test_operators()
 	return (S && !R) ? 0 : 1;
 }
 
-template <typename T>
+template<typename T>
 struct vec
 {
 
 };
 
-template <template <typename> class C, typename T>
+template<template<typename> class C, typename T>
 struct Class
 {
 
 };
 
-template <typename T>
+template<typename T>
 struct Class<vec, T>
 {
 

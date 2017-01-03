@@ -285,7 +285,7 @@ namespace gli
 		return Format >= FORMAT_FIRST && Format <= FORMAT_LAST;
 	}
 
-	typedef glm::tvec4<swizzle> swizzles;
+	typedef glm::vec<4, swizzle> swizzles;
 
 	/// Evaluate whether a format is compressed
 	bool is_compressed(format Format);
