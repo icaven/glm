@@ -117,8 +117,8 @@ namespace detail
 	{}
 
 	template <typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, P>::tquat(T const & w, T const & x, T const & y, T const & z)
-		: x(x), y(y), z(z), w(w)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, P>::tquat(T const & _w, T const & _x, T const & _y, T const & _z)
+		: x(_x), y(_y), z(_z), w(_w)
 	{}
 
 	// -- Conversion constructors --
