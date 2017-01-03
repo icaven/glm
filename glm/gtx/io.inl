@@ -379,8 +379,8 @@ namespace detail
 			io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy> >(os));
 			M<C, R, T,P> const& ml(a.first);
 			M<C, R, T,P> const& mr(a.second);
-			length_t const& cols(type<M<C, R, T, P>>::cols);
-			length_t const& rows(type<M<C, R, T, P>>::rows);
+			length_t const& cols(type<M<C, R, T, P> >::cols);
+			length_t const& rows(type<M<C, R, T, P> >::rows);
 
 			if(fmt.formatted)
 			{
