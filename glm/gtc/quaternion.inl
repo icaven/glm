@@ -101,7 +101,7 @@ namespace detail
 
 	template<typename T, precision P>
 	template<precision Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, P>::tquat(tquat<T, Q> const & q)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, P>::tquat(tquat<T, Q> const& q)
 		: x(q.x), y(q.y), z(q.z), w(q.w)
 	{}
 
@@ -112,20 +112,20 @@ namespace detail
 	{}
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, P>::tquat(T const & s, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, P>::tquat(T s, vec<3, T, P> const& v)
 		: x(v.x), y(v.y), z(v.z), w(s)
 	{}
 
-	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, P>::tquat(T const & w, T const & x, T const & y, T const & z)
-		: x(x), y(y), z(z), w(w)
+	template <typename T, precision P>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, P>::tquat(T _w, T _x, T _y, T _z)
+		: x(_x), y(_y), z(_z), w(_w)
 	{}
 
 	// -- Conversion constructors --
 
 	template<typename T, precision P>
 	template<typename U, precision Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, P>::tquat(tquat<U, Q> const & q)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, P>::tquat(tquat<U, Q> const& q)
 		: x(static_cast<T>(q.x))
 		, y(static_cast<T>(q.y))
 		, z(static_cast<T>(q.z))
@@ -151,7 +151,7 @@ namespace detail
 	//}
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(vec<3, T, P> const & u, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(vec<3, T, P> const& u, vec<3, T, P> const& v)
 	{
 		vec<3, T, P> const LocalW(cross(u, v));
 		T Dot = detail::compute_dot<vec<3, T, P>, T, detail::is_aligned<P>::value>::call(u, v);
@@ -161,7 +161,7 @@ namespace detail
 	}
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(vec<3, T, P> const & eulerAngle)
+	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(vec<3, T, P> const& eulerAngle)
 	{
 		vec<3, T, P> c = glm::cos(eulerAngle * T(0.5));
 		vec<3, T, P> s = glm::sin(eulerAngle * T(0.5));
@@ -173,13 +173,13 @@ namespace detail
 	}
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(mat<3, 3, T, P> const & m)
+	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(mat<3, 3, T, P> const& m)
 	{
 		*this = quat_cast(m);
 	}
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(mat<4, 4, T, P> const & m)
+	GLM_FUNC_QUALIFIER tquat<T, P>::tquat(mat<4, 4, T, P> const& m)
 	{
 		*this = quat_cast(m);
 	}
@@ -199,7 +199,7 @@ namespace detail
 #	endif//GLM_HAS_EXPLICIT_CONVERSION_OPERATORS
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P> conjugate(tquat<T, P> const & q)
+	GLM_FUNC_QUALIFIER tquat<T, P> conjugate(tquat<T, P> const& q)
 	{
 		return tquat<T, P>(q.w, -q.x, -q.y, -q.z);
 	}

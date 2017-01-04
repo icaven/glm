@@ -92,7 +92,7 @@ namespace glm
 
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR explicit vec(ctor);
 		GLM_FUNC_DECL GLM_CONSTEXPR explicit vec(T scalar);
-		GLM_FUNC_DECL GLM_CONSTEXPR vec(T s1, T s2);
+		GLM_FUNC_DECL GLM_CONSTEXPR vec(T x, T y);
 
 		// -- Conversion constructors --
 
@@ -100,20 +100,20 @@ namespace glm
 		template<typename A, typename B>
 		GLM_FUNC_DECL GLM_CONSTEXPR vec(A x, B y);
 		template<typename A, typename B>
-		GLM_FUNC_DECL GLM_CONSTEXPR vec(vec<1, A, P> const & v1, vec<1, B, P> const & v2);
+		GLM_FUNC_DECL GLM_CONSTEXPR vec(vec<1, A, P> const& x, vec<1, B, P> const& y);
 
 		// -- Conversion vector constructors --
 
 		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template<typename U, precision Q>
-		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT vec(vec<3, U, Q> const & v);
+		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT vec(vec<3, U, Q> const& v);
 		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template<typename U, precision Q>
-		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT vec(vec<4, U, Q> const & v);
+		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT vec(vec<4, U, Q> const& v);
 
 		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template<typename U, precision Q>
-		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT vec(vec<2, U, Q> const & v);
+		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT vec(vec<2, U, Q> const& v);
 
 		// -- Swizzle constructors --
 #		if GLM_HAS_UNRESTRICTED_UNIONS && (GLM_SWIZZLE == GLM_SWIZZLE_ENABLED)
@@ -129,31 +129,31 @@ namespace glm
 		GLM_FUNC_DECL vec& operator=(vec const & v) GLM_DEFAULT;
 
 		template<typename U>
-		GLM_FUNC_DECL vec& operator=(vec<2, U, P> const & v);
+		GLM_FUNC_DECL vec& operator=(vec<2, U, P> const& v);
 		template<typename U>
 		GLM_FUNC_DECL vec& operator+=(U scalar);
 		template<typename U>
-		GLM_FUNC_DECL vec& operator+=(vec<1, U, P> const & v);
+		GLM_FUNC_DECL vec& operator+=(vec<1, U, P> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec& operator+=(vec<2, U, P> const & v);
+		GLM_FUNC_DECL vec& operator+=(vec<2, U, P> const& v);
 		template<typename U>
 		GLM_FUNC_DECL vec& operator-=(U scalar);
 		template<typename U>
-		GLM_FUNC_DECL vec& operator-=(vec<1, U, P> const & v);
+		GLM_FUNC_DECL vec& operator-=(vec<1, U, P> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec& operator-=(vec<2, U, P> const & v);
+		GLM_FUNC_DECL vec& operator-=(vec<2, U, P> const& v);
 		template<typename U>
 		GLM_FUNC_DECL vec& operator*=(U scalar);
 		template<typename U>
-		GLM_FUNC_DECL vec& operator*=(vec<1, U, P> const & v);
+		GLM_FUNC_DECL vec& operator*=(vec<1, U, P> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec& operator*=(vec<2, U, P> const & v);
+		GLM_FUNC_DECL vec& operator*=(vec<2, U, P> const& v);
 		template<typename U>
 		GLM_FUNC_DECL vec& operator/=(U scalar);
 		template<typename U>
-		GLM_FUNC_DECL vec& operator/=(vec<1, U, P> const & v);
+		GLM_FUNC_DECL vec& operator/=(vec<1, U, P> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec& operator/=(vec<2, U, P> const & v);
+		GLM_FUNC_DECL vec& operator/=(vec<2, U, P> const& v);
 
 		// -- Increment and decrement operators --
 

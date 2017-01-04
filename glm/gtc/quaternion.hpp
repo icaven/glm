@@ -78,20 +78,20 @@ namespace glm
 		// -- Implicit basic constructors --
 
 		GLM_FUNC_DECL GLM_CONSTEXPR tquat() GLM_DEFAULT_CTOR;
-		GLM_FUNC_DECL GLM_CONSTEXPR tquat(tquat<T, P> const & q) GLM_DEFAULT;
+		GLM_FUNC_DECL GLM_CONSTEXPR tquat(tquat<T, P> const& q) GLM_DEFAULT;
 		template<precision Q>
-		GLM_FUNC_DECL GLM_CONSTEXPR tquat(tquat<T, Q> const & q);
+		GLM_FUNC_DECL GLM_CONSTEXPR tquat(tquat<T, Q> const& q);
 
 		// -- Explicit basic constructors --
 
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR explicit tquat(ctor);
-		GLM_FUNC_DECL GLM_CONSTEXPR tquat(T const & s, vec<3, T, P> const & v);
-		GLM_FUNC_DECL GLM_CONSTEXPR tquat(T const & w, T const & x, T const & y, T const & z);
+		GLM_FUNC_DECL GLM_CONSTEXPR tquat(T s, vec<3, T, P> const& v);
+		GLM_FUNC_DECL GLM_CONSTEXPR tquat(T w, T x, T y, T z);
 
 		// -- Conversion constructors --
 
 		template<typename U, precision Q>
-		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tquat(tquat<U, Q> const & q);
+		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tquat(tquat<U, Q> const& q);
 
 		/// Explicit conversion operators
 #		if GLM_HAS_EXPLICIT_CONVERSION_OPERATORS
@@ -108,22 +108,22 @@ namespace glm
 		GLM_FUNC_DECL tquat(vec<3, T, P> const & u, vec<3, T, P> const & v);
 
 		/// Build a quaternion from euler angles (pitch, yaw, roll), in radians.
-		GLM_FUNC_DECL GLM_EXPLICIT tquat(vec<3, T, P> const & eulerAngles);
-		GLM_FUNC_DECL GLM_EXPLICIT tquat(mat<3, 3, T, P> const & m);
-		GLM_FUNC_DECL GLM_EXPLICIT tquat(mat<4, 4, T, P> const & m);
+		GLM_FUNC_DECL GLM_EXPLICIT tquat(vec<3, T, P> const& eulerAngles);
+		GLM_FUNC_DECL GLM_EXPLICIT tquat(mat<3, 3, T, P> const& q);
+		GLM_FUNC_DECL GLM_EXPLICIT tquat(mat<4, 4, T, P> const& q);
 
 		// -- Unary arithmetic operators --
 
-		GLM_FUNC_DECL tquat<T, P> & operator=(tquat<T, P> const & m) GLM_DEFAULT;
+		GLM_FUNC_DECL tquat<T, P> & operator=(tquat<T, P> const& q) GLM_DEFAULT;
 
 		template<typename U>
-		GLM_FUNC_DECL tquat<T, P> & operator=(tquat<U, P> const & m);
+		GLM_FUNC_DECL tquat<T, P> & operator=(tquat<U, P> const& q);
 		template<typename U>
-		GLM_FUNC_DECL tquat<T, P> & operator+=(tquat<U, P> const & q);
+		GLM_FUNC_DECL tquat<T, P> & operator+=(tquat<U, P> const& q);
 		template<typename U>
-		GLM_FUNC_DECL tquat<T, P> & operator-=(tquat<U, P> const & q);
+		GLM_FUNC_DECL tquat<T, P> & operator-=(tquat<U, P> const& q);
 		template<typename U>
-		GLM_FUNC_DECL tquat<T, P> & operator*=(tquat<U, P> const & q);
+		GLM_FUNC_DECL tquat<T, P> & operator*=(tquat<U, P> const& q);
 		template<typename U>
 		GLM_FUNC_DECL tquat<T, P> & operator*=(U s);
 		template<typename U>
@@ -133,10 +133,10 @@ namespace glm
 	// -- Unary bit operators --
 
 	template<typename T, precision P>
-	GLM_FUNC_DECL tquat<T, P> operator+(tquat<T, P> const & q);
+	GLM_FUNC_DECL tquat<T, P> operator+(tquat<T, P> const& q);
 
 	template<typename T, precision P>
-	GLM_FUNC_DECL tquat<T, P> operator-(tquat<T, P> const & q);
+	GLM_FUNC_DECL tquat<T, P> operator-(tquat<T, P> const& q);
 
 	// -- Binary operators --
 
