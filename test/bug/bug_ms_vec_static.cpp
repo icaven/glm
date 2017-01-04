@@ -7,8 +7,8 @@ struct _swizzle
 
 struct vec2
 {
-	constexpr vec2(float x, float y) :
-		x(x), y(y)
+	constexpr vec2() :
+		x(0), y(0)
 	{}
 
 	union
@@ -19,7 +19,7 @@ struct vec2
 };
 
 // Visual C++ has a bug generating the error: fatal error C1001: An internal error has occurred in the compiler.
-vec2 const Bar(1.f, 1.f);
+vec2 Bar;
 
 int main()
 {
