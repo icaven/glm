@@ -7,6 +7,10 @@
 #include <cstdio>
 #include <vector>
 
+static glm::vec3 v1;
+static glm::vec3 v2(1);
+static glm::vec3 v3(1, 1, 1);
+
 int test_vec3_ctor()
 {
 	int Error = 0;

@@ -8,6 +8,10 @@
 #include <ctime>
 #include <vector>
 
+static glm::vec4 v1;
+static glm::vec4 v2(1);
+static glm::vec4 v3(1, 1, 1, 1);
+
 template <int Value>
 struct mask
 {

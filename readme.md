@@ -59,6 +59,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed GCC 6.2 compiler warnings #580
 - Fixed GTX_matrix_decompose decompose #582 #448
 - Fixed GCC 4.5 and older build #566
+- Fixed Visual C++ internal error when declaring a global vec type with siwzzle expression enabled #594
 
 #### [GLM 0.9.8.3](https://github.com/g-truc/glm/releases/tag/0.9.8.3) - 2016-11-12
 ##### Improvements:
