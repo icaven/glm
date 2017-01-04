@@ -1,36 +1,35 @@
 template<typename T> struct vec2;
 
-template<typename T>
 struct _swizzle_base0
 {
 	char _buffer[1];
 };
 
-template<typename T, int E0, int E1, int E2, int E3>
-struct _swizzle_base1 : public _swizzle_base0<T>
+template<int E0, int E1, int E2, int E3>
+struct _swizzle_base1 : public _swizzle_base0
 {
 };
 
-template<typename T, int E0, int E1>
-struct _swizzle_base1<T, E0,E1,-1,-2> : public _swizzle_base0<T>
-{
-
-};
-
-template<typename T, int E0, int E1, int E2, int E3, int DUPLICATE_ELEMENTS>
-struct _swizzle_base2 : public _swizzle_base1<T, E0,E1,E2,E3>
+template<int E0, int E1>
+struct _swizzle_base1<E0,E1,-1,-2> : public _swizzle_base0
 {
 
 };
 
-template<typename T, int E0, int E1, int E2, int E3>
-struct _swizzle_base2<T, E0,E1,E2,E3, 1> : public _swizzle_base1<T, E0,E1,E2,E3>
+template<int E0, int E1, int E2, int E3, int DUPLICATE_ELEMENTS>
+struct _swizzle_base2 : public _swizzle_base1<E0,E1,E2,E3>
 {
 
 };
 
-template<typename T, int E0, int E1, int E2, int E3>
-struct _swizzle : public _swizzle_base2<T, E0, E1, E2, E3, (E0 == E1 || E0 == E2 || E0 == E3 || E1 == E2 || E1 == E3 || E2 == E3)>
+template<int E0, int E1, int E2, int E3>
+struct _swizzle_base2<E0,E1,E2,E3, 1> : public _swizzle_base1<E0,E1,E2,E3>
+{
+
+};
+
+template<int E0, int E1, int E2, int E3>
+struct _swizzle : public _swizzle_base2<E0, E1, E2, E3, (E0 == E1 || E0 == E2 || E0 == E3 || E1 == E2 || E1 == E3 || E2 == E3)>
 {
 
 };
@@ -45,7 +44,7 @@ struct vec2
 	union
 	{
 		struct { T x, y; };
-		struct { _swizzle<T, 0,0,-1,-2> xx; };
+		struct { _swizzle<0,0,-1,-2> xx; };
 	};
 };
 
