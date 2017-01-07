@@ -19,7 +19,7 @@ struct vec2
 };
 
 // Visual C++ has a bug generating the error: fatal error C1001: An internal error has occurred in the compiler.
-vec2 Bar;
+// vec2 Bar;
 
 int main()
 {

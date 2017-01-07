@@ -3,6 +3,9 @@
 #include <glm/gtc/vec1.hpp>
 #include <vector>
 
+static glm::vec1 v1;
+static glm::vec1 v2(1);
+
 int test_vec1_operators()
 {
 	int Error(0);
