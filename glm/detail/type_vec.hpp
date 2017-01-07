@@ -102,7 +102,6 @@ namespace detail
 }//namespace detail
 
 #if GLM_HAS_TEMPLATE_ALIASES
-	template <length_t L, typename T, precision P = defaultp> struct vec;
 	template <typename T, precision P = defaultp> using tvec1 = vec<1, T, P>;
 	template <typename T, precision P = defaultp> using tvec2 = vec<2, T, P>;
 	template <typename T, precision P = defaultp> using tvec3 = vec<3, T, P>;

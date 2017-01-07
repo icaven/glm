@@ -1,3 +1,6 @@
+#include <glm/glm.hpp>
+
+#if GLM_HAS_ALIGNED_TYPE
 struct vec2;
 
 struct _swizzle
@@ -7,7 +10,7 @@ struct _swizzle
 
 struct vec2
 {
-	constexpr vec2() :
+	GLM_CONSTEXPR_CTOR vec2() :
 		x(0), y(0)
 	{}
 
@@ -17,6 +20,7 @@ struct vec2
 		struct { _swizzle xx; };
 	};
 };
+#endif
 
 // Visual C++ has a bug generating the error: fatal error C1001: An internal error has occurred in the compiler.
 // vec2 Bar;
