@@ -66,6 +66,7 @@
 + [7.10. Why some GLM functions can crash because of division by zero?](#section7_10)
 + [7.11. What unit for angles us used in GLM?](#section7_11)
 + [7.12. Windows headers cause build errors...](#section7_12)
++ [7.13. GLM doesn't use C++11 STL features but my compiler support C++11?](#section7_13)
 + [8. Code samples](#section8)
 + [8.1. Compute a triangle normal](#section8_1)
 + [8.2. Matrix transform](#section8_2)
@@ -1134,6 +1135,11 @@ the [link](http://www.g-truc.net/post-0693.html#menu).
 Some Windows headers define min and max as macros which may cause compatibility with third party libraries such as GLM.
 It is highly recommanded to [define NOMINMAX](http://stackoverflow.com/questions/4913922/possible-problems-with-nominmax-on-visual-c) before including Windows headers to workaround this issue.
 To workaround the incompatibility with these macros, GLM will systematically undef these macros if they are defined.
+
+### <a name="section7_13"></a> 7.13. GLM doesn't use C++11 STL features but my compiler support C++11?
+
+There are plenty of compilers' features to dedect C++11 support however C++11 STL support is particularly difficult to detect particularly with libstdc++ or on Android.
+If a developer can garantee that a project is compiled with a C++11 STL, the developer can define GLM_LANG_STL11_FORCED before including GLM header to force the use of STL C++11 features.
 
 ---
 ## <a name="section8"></a> 8. Code samples
