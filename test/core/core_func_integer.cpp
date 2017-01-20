@@ -256,14 +256,6 @@ namespace bitfieldReverse
 
 	typedef type<glm::uint64> typeU64;
 
-#if(((GLM_COMPILER & GLM_COMPILER_GCC) == GLM_COMPILER_GCC) && (GLM_COMPILER < GLM_COMPILER_GCC44))
-	typeU64 const Data64[] =
-	{
-		{0xf000000000000000LLU, 0x000000000000000fLLU, SUCCESS},
-		{0xffffffffffffffffLLU, 0xffffffffffffffffLLU, SUCCESS},
-		{0x0000000000000000LLU, 0x0000000000000000LLU, SUCCESS}
-	};
-#else
 	typeU64 const Data64[] =
 	{
 		{0x00000000000000ff, 0xff00000000000000, SUCCESS},
@@ -272,7 +264,6 @@ namespace bitfieldReverse
 		{0xffffffffffffffff, 0xffffffffffffffff, SUCCESS},
 		{0x0000000000000000, 0x0000000000000000, SUCCESS}
 	};
-#endif
 
 	int test32_bitfieldReverse()
 	{
