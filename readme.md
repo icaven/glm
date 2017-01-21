@@ -68,7 +68,6 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Optimised GTX_color_space_YCoCg YCoCgR conversions
 - Optimized GTX_matrix_interpolation axisAngle function
 - Added FAQ 12: Windows headers cause build errors... #557
-- Added FAQ 13: GLM doesn't use C++11 STL features but my compiler support C++11? #604
 - Removed GCC shadow warnings #595
 
 #### Fixes:
