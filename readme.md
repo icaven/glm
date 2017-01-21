@@ -87,7 +87,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Removed GLM_LEFT_HANDED, use GLM_FORCE_LEFT_HANDED instead
 
 ---
-### [GLM 0.9.8.4](https://github.com/g-truc/glm/tree/0.9.8) - 201X-XX-XX
+### [GLM 0.9.8.4](https://github.com/g-truc/glm/releases/tag/0.9.8.4) - 2017-01-22
 #### Fixes:
 - Fixed GTC_packing test failing on GCC x86 due to denorms #212 #577
 - Fixed POPCNT optimization build in Clang #512
@@ -96,6 +96,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed GTX_matrix_decompose decompose #582 #448
 - Fixed GCC 4.5 and older build #566
 - Fixed Visual C++ internal error when declaring a global vec type with siwzzle expression enabled #594
+- Fixed GLM_FORCE_CXX11 with Clang and libstlc++ which wasn't using C++11 STL features. #604
 
 ---
 ### [GLM 0.9.8.3](https://github.com/g-truc/glm/releases/tag/0.9.8.3) - 2016-11-12
