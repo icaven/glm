@@ -1366,10 +1366,10 @@ LibreOffice includes several applications that make it the most powerful Free an
 * [*OpenGL Tutorial*](http://www.opengl-tutorial.org), tutorials for OpenGL 3.1 and later
 * [*OpenGL Programming on Wikibooks*](http://en.wikibooks.org/wiki/OpenGL_Programming): For beginners who are discovering OpenGL.
 * [*3D Game Engine Programming*](http://3dgep.com/): Learning the latest 3D Game Engine Programming techniques.
-* [Game Tutorials](mailto:http://www.gametutorials.com/opengl-4-matrices-and-glm/), graphics and game programming.
-* [open.gl](mailto:https://open.gl/), OpenGL tutorial
-* [c-jump](mailto:http://www.c-jump.com/bcc/common/Talk3/Math/GLM/GLM.html), GLM tutorial
-* [Learn OpenGL](mailto:http://learnopengl.com/), OpenGL tutorial
+* [Game Tutorials](http://www.gametutorials.com/opengl-4-matrices-and-glm/), graphics and game programming.
+* [open.gl](https://open.gl/), OpenGL tutorial
+* [c-jump](http://www.c-jump.com/bcc/common/Talk3/Math/GLM/GLM.html), GLM tutorial
+* [Learn OpenGL](http://learnopengl.com/), OpenGL tutorial
 ** [Are you using GLM in a tutorial?](mailto:glm@g-truc.net)*
 
 ### <a name="section9_5"></a> 9.5. Equivalent for other languages
