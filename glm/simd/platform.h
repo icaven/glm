@@ -127,7 +127,7 @@
 #	define GLM_COMPILER GLM_COMPILER_UNKNOWN
 
 #elif defined(__INTEL_COMPILER)
-#	if (__clang_major__ < 1400)
+#	if (__INTEL_COMPILER < 1400)
 #		error "GLM requires ICC 2013 SP1 or newer"
 #	elif __INTEL_COMPILER == 1400
 #		define GLM_COMPILER GLM_COMPILER_INTEL14
