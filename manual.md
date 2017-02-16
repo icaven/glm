@@ -1374,6 +1374,7 @@ LibreOffice includes several applications that make it the most powerful Free an
 
 ### <a name="section9_5"></a> 9.5. Equivalent for other languages
 
+* [*cglm*](https://github.com/recp/cglm): OpenGL Mathematics (glm) for C.
 * [*GlmSharp*](https://github.com/Philip-Trettner/GlmSharp): Open-source semi-generated GLM-flavored math library for .NET/C\#.
 * [glm-js](https://github.com/humbletim/glm-js): JavaScript adaptation of the OpenGL Mathematics (GLM) C++ library interfaces
 * [Java OpenGL Mathematics (GLM)](https://github.com/java-graphics/glm)
