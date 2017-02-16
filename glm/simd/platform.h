@@ -152,7 +152,7 @@
 
 // Clang
 #elif defined(__clang__)
-#	if GLM_PLATFORM & GLM_PLATFORM_APPLE
+#	if defined(__apple_build_version__)
 #		if (__clang_major__ < 6)
 #			error "GLM requires Clang 3.4 / Apple Clang 6.0 or higher"
 #		elif __clang_major__ == 6 && __clang_minor__ == 0

@@ -85,6 +85,11 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Removed GLM_LEFT_HANDED, use GLM_FORCE_LEFT_HANDED instead
 
 ---
+### [GLM 0.9.8.5](https://github.com/g-truc/glm/tree/0.9.8) - 2017-0X-XX
+#### Fixes:
+- Fixed Clang version detection from source #608
+
+---
 ### [GLM 0.9.8.4](https://github.com/g-truc/glm/releases/tag/0.9.8.4) - 2017-01-22
 #### Fixes:
 - Fixed GTC_packing test failing on GCC x86 due to denorms #212 #577
