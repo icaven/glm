@@ -329,7 +329,7 @@ precision mediump int;
 precision highp float;
 ```
 
-To use the default precision functionality, GLM provides some defines that need to add before any include of glm.hpp:
+To use the default precision functionality, GLM provides some defines that need to added before any include of `glm.hpp`:
 
 ```cpp
 #define GLM_PRECISION_MEDIUMP_INT
@@ -339,27 +339,27 @@ To use the default precision functionality, GLM provides some defines that need 
 
 Available defines for floating point types (glm::vec\*, glm::mat\*):
 
-GLM\_PRECISION\_LOWP\_FLOAT: Low precision\
-GLM\_PRECISION\_MEDIUMP\_FLOAT: Medium precision\
-GLM\_PRECISION\_HIGHP\_FLOAT: High precision (default)
+* GLM\_PRECISION\_LOWP\_FLOAT: Low precision
+* GLM\_PRECISION\_MEDIUMP\_FLOAT: Medium precision
+* GLM\_PRECISION\_HIGHP\_FLOAT: High precision (default)
 
 Available defines for floating point types (glm::dvec\*, glm::dmat\*):
 
-GLM\_PRECISION\_LOWP\_DOUBLE: Low precision\
-GLM\_PRECISION\_MEDIUMP\_DOUBLE: Medium precision\
-GLM\_PRECISION\_HIGHP\_DOUBLE: High precision (default)
+* GLM\_PRECISION\_LOWP\_DOUBLE: Low precision
+* GLM\_PRECISION\_MEDIUMP\_DOUBLE: Medium precision
+* GLM\_PRECISION\_HIGHP\_DOUBLE: High precision (default)
 
 Available defines for signed integer types (glm::ivec\*):
 
-GLM\_PRECISION\_LOWP\_INT: Low precision
-GLM\_PRECISION\_MEDIUMP\_INT: Medium precision
-GLM\_PRECISION\_HIGHP\_INT: High precision (default)
+* GLM\_PRECISION\_LOWP\_INT: Low precision
+* GLM\_PRECISION\_MEDIUMP\_INT: Medium precision
+* GLM\_PRECISION\_HIGHP\_INT: High precision (default)
 
 Available defines for unsigned integer types (glm::uvec\*):
 
-GLM\_PRECISION\_LOWP\_UINT: Low precision
-GLM\_PRECISION\_MEDIUMP\_UINT: Medium precision
-GLM\_PRECISION\_HIGHP\_UINT: High precision (default)
+* GLM\_PRECISION\_LOWP\_UINT: Low precision
+* GLM\_PRECISION\_MEDIUMP\_UINT: Medium precision
+* GLM\_PRECISION\_HIGHP\_UINT: High precision (default)
 
 ### <a name="section3_2"></a> 3.2. Compile-time message system
 
@@ -464,7 +464,7 @@ Additionally, GLM defines the type glm::length\_t to identify length() returned 
 
 void foo(vec4 const & v)
 {
-    glm::size_t Length = v.length();
+    glm::length_t Length = v.length();
     ...
 }
 ```
@@ -472,7 +472,7 @@ void foo(vec4 const & v)
 ### <a name="section3_7"></a> 3.7. Disabling default constructor initialization
 
 By default and following GLSL specifications, vector and matrix default constructors initialize the components to zero. This is a reliable behavior but initialization has a cost and it’s not always necessary.
-This behavior can be disable at compilation time by define GLM\_FORCE\_NO\_CTOR\_INIT before any inclusion of &lt;glm/glm.hpp&gt; or other GLM include.
+This behavior can be disabled at compilation time by define GLM\_FORCE\_NO\_CTOR\_INIT before any inclusion of &lt;glm/glm.hpp&gt; or other GLM include.
 
 GLM default behavior:
 
@@ -494,7 +494,7 @@ GLM behavior using GLM\_FORCE\_NO\_CTOR\_INIT:
 
 void foo()
 {
-    glm::vec4 v; // v is fill with garbage
+    glm::vec4 v; // v is filled with garbage
     ...
 }
 ```
@@ -564,7 +564,7 @@ GLM 0.9.8 introduced GLM\_FORCE\_UNRESTRICTED\_GENTYPE define to relax this rest
 #define GLM_FORCE_UNRESTRICTED_GENTYPE
 #include <glm/glm.hpp>
 
-#include "half.hpp" // Define “half” class with equivalent behavior than “float”
+#include "half.hpp" // Define “half” class with behavior equivalent to “float”
 
 typedef glm::vec<4, half> my_hvec4;
 ```
@@ -859,8 +859,8 @@ void foo()
     glm::vec4 v(0.0f);
     glm::mat4 m(1.0f);
     ...
-    glVertex3fv(&v\[0\]);
-    glLoadMatrixfv(&m\[0\]\[0\]);
+    glVertex3fv(&v[0]);
+    glLoadMatrixfv(&m[0][0]);
 }
 ```
 
@@ -897,7 +897,7 @@ glm::dmat4 glm::rotate(glm::dmat4 const& m, double angle, glm::dvec3 const& axis
 
 From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
-[***glScale{f, d}: ***](http://www.opengl.org/sdk/docs/man2/xhtml/glScale.xml)
+[***glScale{f, d}:***](http://www.opengl.org/sdk/docs/man2/xhtml/glScale.xml)
 
 ```cpp
 glm::mat4 glm::scale(glm::mat4 const& m, glm::vec3 const& factors);
@@ -924,7 +924,7 @@ glm::dmat4(1.0) or glm::dmat4();
 
 From GLM core library: &lt;glm/glm.hpp&gt;
 
-[***glMultMatrix{f, d}: ***](https://www.opengl.org/sdk/docs/man2/xhtml/glMultMatrix.xml)
+[***glMultMatrix{f, d}:***](https://www.opengl.org/sdk/docs/man2/xhtml/glMultMatrix.xml)
 
 ```cpp
 glm::mat4() * glm::mat4();
@@ -933,7 +933,7 @@ glm::dmat4() * glm::dmat4();
 
 From GLM core library: &lt;glm/glm.hpp&gt;
 
-[***glLoadTransposeMatrix{f, d}: ***](https://www.opengl.org/sdk/docs/man2/xhtml/glLoadTransposeMatrix.xml)
+[***glLoadTransposeMatrix{f, d}:***](https://www.opengl.org/sdk/docs/man2/xhtml/glLoadTransposeMatrix.xml)
 
 ```cpp
 glm::transpose(glm::mat4());
@@ -942,7 +942,7 @@ glm::transpose(glm::dmat4());
 
 From GLM core library: &lt;glm/glm.hpp&gt;
 
-[***glMultTransposeMatrix{f, d}: ***](https://www.opengl.org/sdk/docs/man2/xhtml/glMultTransposeMatrix.xml)
+[***glMultTransposeMatrix{f, d}:***](https://www.opengl.org/sdk/docs/man2/xhtml/glMultTransposeMatrix.xml)
 
 ```cpp
 glm::mat4() * glm::transpose(glm::mat4());
@@ -960,7 +960,7 @@ glm::dmat4 glm::frustum(double left, double right, double bottom, double top, do
 
 From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
-[***glOrtho: ***](https://www.opengl.org/sdk/docs/man2/xhtml/glOrtho.xml)
+[***glOrtho:***](https://www.opengl.org/sdk/docs/man2/xhtml/glOrtho.xml)
 
 ```cpp
 glm::mat4 glm::ortho(float left, float right, float bottom, float top, float zNear, float zFar);
@@ -971,7 +971,7 @@ From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt
 
 ### <a name="section5_2"></a> 5.2. GLM replacements for GLU functions
 
-[***gluLookAt: ***](https://www.opengl.org/sdk/docs/man2/xhtml/gluLookAt.xml)
+[***gluLookAt:***](https://www.opengl.org/sdk/docs/man2/xhtml/gluLookAt.xml)
 
 ```cpp
 glm::mat4 glm::lookAt(glm::vec3 const& eye, glm::vec3 const& center, glm::vec3 const& up);
@@ -980,7 +980,7 @@ glm::dmat4 glm::lookAt(glm::dvec3 const& eye, glm::dvec3 const& center, glm::dve
 
 From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
-[***gluOrtho2D: ***](https://www.opengl.org/sdk/docs/man2/xhtml/gluOrtho2D.xml)
+[***gluOrtho2D:***](https://www.opengl.org/sdk/docs/man2/xhtml/gluOrtho2D.xml)
 
 ```cpp
 glm::mat4 glm::ortho(float left, float right, float bottom, float top);
@@ -989,7 +989,7 @@ glm::dmat4 glm::ortho(double left, double right, double bottom, double top);
 
 From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
-[***gluPerspective: ***](https://www.opengl.org/sdk/docs/man2/xhtml/gluPerspective.xml)
+[***gluPerspective:***](https://www.opengl.org/sdk/docs/man2/xhtml/gluPerspective.xml)
 
 ```cpp
 glm::mat4 perspective(float fovy, float aspect, float zNear, float zFar);
@@ -1009,7 +1009,7 @@ glm::dmat4 pickMatrix(glm::dvec2 const& center, glm::dvec2 const& delta, glm::iv
 
 From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
-[**gluProject:**](http://www.opengl.org/sdk/docs/man2/xhtml/gluProject.xml)
+[***gluProject:***](http://www.opengl.org/sdk/docs/man2/xhtml/gluProject.xml)
 
 ```cpp
 glm::vec3 project(glm::vec3 const& obj, glm::mat4 const& model, glm::mat4 const & proj, glm::ivec4 const& viewport);
@@ -1018,7 +1018,7 @@ glm::dvec3 project(glm::dvec3 const& obj, glm::dmat4 const & model, glm::dmat4 c
 
 From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
 
-[***gluUnProject: ***](https://www.opengl.org/sdk/docs/man2/xhtml/gluUnProject.xml)
+[***gluUnProject:***](https://www.opengl.org/sdk/docs/man2/xhtml/gluUnProject.xml)
 
 ```cpp
 glm::vec3 unProject(glm::vec3 const& win, glm::mat4 const& model, glm::mat4 const& proj, glm::ivec4 const& viewport);
@@ -1090,7 +1090,7 @@ GTX extensions are qualified to be experimental extensions. In GLM this means th
 time. GTC extensions are stabled, tested and perfectly reliable in time. Many GTX extensions extend GTC extensions and provide a way to explore features and implementations and APIs and then are promoted to GTC
 extensions. This is fairly the way OpenGL features are developed; through extensions.
 
-Stating with GLM 0.9.9, to use experimental extensions, an application but define GLM_ENABLE_EXPERIMENTAL.
+Stating with GLM 0.9.9, to use experimental extensions, an application must define GLM_ENABLE_EXPERIMENTAL.
 
 ### <a name="section7_5"></a> 7.5. Where can I ask my questions?
 
@@ -1132,7 +1132,7 @@ the [link](http://www.g-truc.net/post-0693.html#menu).
 ### <a name="section7_12"></a> 7.12. Windows headers cause build errors...
 
 Some Windows headers define min and max as macros which may cause compatibility with third party libraries such as GLM.
-It is highly recommanded to [define NOMINMAX](http://stackoverflow.com/questions/4913922/possible-problems-with-nominmax-on-visual-c) before including Windows headers to workaround this issue.
+It is highly recommended to [define NOMINMAX](http://stackoverflow.com/questions/4913922/possible-problems-with-nominmax-on-visual-c) before including Windows headers to workaround this issue.
 To workaround the incompatibility with these macros, GLM will systematically undef these macros if they are defined.
 
 ---
@@ -1284,7 +1284,7 @@ glm::vec3 lighting(intersection const& Intersection, material const& Material, l
 
 ### <a name="section9_3"></a> 9.3. Projects using GLM
 
-***[Leo’s Forture](http://www.leosfortune.com/) ***
+***[Leo’s Fortune](http://www.leosfortune.com/)***
 
 Leo’s Fortune is a platform adventure game where you hunt down the cunning and mysterious thief that stole your gold. Available on PS4, Xbox One, PC, Mac, iOS and Android.
 
@@ -1370,7 +1370,7 @@ LibreOffice includes several applications that make it the most powerful Free an
 * [open.gl](https://open.gl/), OpenGL tutorial
 * [c-jump](http://www.c-jump.com/bcc/common/Talk3/Math/GLM/GLM.html), GLM tutorial
 * [Learn OpenGL](http://learnopengl.com/), OpenGL tutorial
-** [Are you using GLM in a tutorial?](mailto:glm@g-truc.net)*
+* [***Are you using GLM in a tutorial?***](mailto:glm@g-truc.net)
 
 ### <a name="section9_5"></a> 9.5. Equivalent for other languages
 
