@@ -146,8 +146,12 @@
 #	endif
 #	if CUDA_VERSION < 7000
 #		error "GLM requires CUDA 7.0 or higher"
-#	else
-#		define GLM_COMPILER GLM_COMPILER_CUDA
+#	elif (CUDA_VERSION >= 7000 && CUDA_VERSION < 7500)
+#		define GLM_COMPILER GLM_COMPILER_CUDA70
+#	elif (CUDA_VERSION >= 7500 && CUDA_VERSION < 8000)
+#		define GLM_COMPILER GLM_COMPILER_CUDA75
+#	elif (CUDA_VERSION >= 8000)
+#		define GLM_COMPILER GLM_COMPILER_CUDA80
 #	endif
 
 // Clang
