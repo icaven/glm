@@ -88,6 +88,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 ### [GLM 0.9.8.5](https://github.com/g-truc/glm/tree/0.9.8) - 2017-0X-XX
 #### Fixes:
 - Fixed Clang version detection from source #608
+- Fixed packF3x9_E1x5 exponent packing #614
 
 ---
 ### [GLM 0.9.8.4](https://github.com/g-truc/glm/releases/tag/0.9.8.4) - 2017-01-22
