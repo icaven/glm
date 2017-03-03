@@ -152,6 +152,18 @@ int test_U3x10_1x2()
 		Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
 	}
 
+	glm::u8vec4 const v0(0xff, 0x77, 0x0, 0x33);
+	glm::uint32 const p0 = *(glm::uint32*)(&v0[0]);
+	glm::uint32 const r0 = 0x330077ff;
+
+	Error += p0 == r0 ? 0 : 1;
+
+	glm::uvec4 const v1(0xff, 0x77, 0x0, 0x33);
+	glm::uint32 const p1 = glm::packU3x10_1x2(v1);
+	glm::uint32 const r1 = 0xc001dcff;
+
+	Error += p1 == r1 ? 0 : 1;
+
 	return Error;
 }
 
