@@ -56,6 +56,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added RGBM encoding in GTC_packing #420
 - Added GTX_color_encoding extension
 - Added GTX_vec_swizzle, faster compile time swizzling then swizzle operator #558
+- Added GTX_exterior_product with a vec2 cross implementation #621
 - Added [GLM_ENABLE_EXPERIMENTAL](manual.md#section7_4) to enable experimental features.
 
 #### Improvements:
