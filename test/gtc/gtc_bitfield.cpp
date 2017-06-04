@@ -884,10 +884,10 @@ namespace bitfieldInterleave5
 int main()
 {
 	int Error(0);
-
+/* Tests for a faster and to reserve bitfieldInterleave
 	Error += ::bitfieldInterleave5::test();
 	Error += ::bitfieldInterleave5::perf();
-/*
+*/
 	Error += ::mask::test();
 	Error += ::bitfieldInterleave3::test();
 	Error += ::bitfieldInterleave4::test();
@@ -898,6 +898,6 @@ int main()
 		Error += ::mask::perf();
 		Error += ::bitfieldInterleave::perf();
 #	endif//NDEBUG
-*/
+
 	return Error;
 }
