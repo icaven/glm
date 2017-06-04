@@ -74,6 +74,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Removed doxygen references to GTC_half_float which was removed in 0.9.4
 - Fixed glm::decompose #448
 - Fixed intersectRayTriangle #6
+- Fixed dual quaternion != operator #629
 
 #### Deprecation:
 - Requires Visual Studio 2013, GCC 4.7, Clang 3.4, Cuda 7, ICC 2013 or a C++11 compiler
