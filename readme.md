@@ -79,6 +79,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed dual quaternion != operator #629
 - Fixed usused variable warning in GTX_spline #618
 - Fixed references to GLM_FORCE_RADIANS which was removed #642
+- Fixed glm::fastInverseSqrt to use fast inverse square #640
 
 #### Deprecation:
 - Requires Visual Studio 2013, GCC 4.7, Clang 3.4, Cuda 7, ICC 2013 or a C++11 compiler
