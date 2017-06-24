@@ -59,6 +59,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added GTX_exterior_product with a vec2 cross implementation #621
 - Added [GLM_ENABLE_EXPERIMENTAL](manual.md#section7_4) to enable experimental features.
 - Added packing functions for integer vectors #639
+- Added conan packaging configuration #643 #641
 
 #### Improvements:
 - Added lowp variant of GTC_color_space convertLinearToSRGB #419
