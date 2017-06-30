@@ -75,7 +75,7 @@ namespace glm
 		if (glm::abs(s) < T(0.001))
 			s = (T)1.0;
 		T const angleCos = (mat[0][0] + mat[1][1] + mat[2][2] - (T)1.0) * (T)0.5;
-		if (angleCos - static_cast<T>(1)) < epsilon)
+		if (angleCos - static_cast<T>(1) < epsilon)
 			angle = pi<T>() * static_cast<T>(0.25);
 		else
 			angle = acos(angleCos);
