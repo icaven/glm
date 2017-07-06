@@ -29,21 +29,25 @@ namespace glm {
 		// Source: https://en.wikipedia.org/wiki/Gram–Schmidt_process
 		// And https://en.wikipedia.org/wiki/QR_decomposition
 
+		//For all the linearly independs columns of the input...
+		// (there can be no more linearly independents columns than there are rows.)
 		for (length_t i = 0; i < std::min(R, C); i++) {
+			//Copy in Q the input's i-th column.
 			q[i] = in[i];
 
+			//j = [0,i[
+			// Make that column orthogonal to all the previous ones by substracting to it the non-orthogonal projection of all the previous columns.
+			// Also: Fill the zero elements of R
 			for (length_t j = 0; j < i; j++) {
 				q[i] -= dot(q[i], q[j])*q[j];
-			}
-
-			q[i] = normalize(q[i]);
-		}
-
-		for (length_t i = 0; i < std::min(R, C); i++) {
-			for (length_t j = 0; j < i; j++) {
 				r[j][i] = 0;
 			}
 
+			//Now, Q i-th column is orthogonal to all the previous columns. Normalize it.
+			q[i] = normalize(q[i]);
+
+			//j = [i,C[
+			//Finally, compute the corresponding coefficients of R by computing the projection of the resulting column on the other columns of the input.
 			for (length_t j = i; j < C; j++) {
 				r[j][i] = dot(in[j], q[i]);
 			}

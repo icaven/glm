@@ -22,17 +22,17 @@ int test_qr(matType<C, R, T, P> m) {
 
 	//Test if the columns of q are orthonormal
 	for (glm::length_t i = 0; i < std::min(C, R); i++) {
-		if ((length(q[i]) - 1) > epsilon) return 1;
+		if ((length(q[i]) - 1) > epsilon) return 2;
 
 		for (glm::length_t j = 0; j<i; j++) {
-			if (abs(dot(q[i], q[j])) > epsilon) return 1;
+			if (abs(dot(q[i], q[j])) > epsilon) return 3;
 		}
 	}
 
 	//Test if the matrix r is upper triangular
 	for (glm::length_t i = 0; i < C; i++) {
 		for (glm::length_t j = i + 1; j < std::min(C, R); j++) {
-			if (r[i][j] != 0) return 1;
+			if (r[i][j] != 0) return 4;
 		}
 	}
 
@@ -61,17 +61,17 @@ int test_rq(matType<C, R, T, P> m) {
 	matType<std::min(C, R), C, T, P> tq = transpose(q);
 
 	for (glm::length_t i = 0; i < std::min(C, R); i++) {
-		if ((length(tq[i]) - 1) > epsilon) return 1;
+		if ((length(tq[i]) - 1) > epsilon) return 2;
 
 		for (glm::length_t j = 0; j<i; j++) {
-			if (abs(dot(tq[i], tq[j])) > epsilon) return 1;
+			if (abs(dot(tq[i], tq[j])) > epsilon) return 3;
 		}
 	}
 	
 	//Test if the matrix r is upper triangular
 	for (glm::length_t i = 0; i < std::min(C, R); i++) {
-		for (glm::length_t j = i + 1; j < R; j++) {
-			if (r[i][j] != 0) return 1;
+		for (glm::length_t j = R - std::min(C, R) + i + 1; j < R; j++) {
+			if (r[i][j] != 0) return 4;
 		}
 	}
 
@@ -85,19 +85,19 @@ int main()
 	if(test_qr(glm::dmat3(12, 6, -4, -51, 167, 24, 4, -68, -41))) return 1;
 
 	//Test RQ square
-	if (test_rq(glm::dmat3(12, 6, -4, -51, 167, 24, 4, -68, -41))) return 1;
+	if (test_rq(glm::dmat3(12, 6, -4, -51, 167, 24, 4, -68, -41))) return 2;
 
 	//Test QR triangular 1
-	if (test_qr(glm::dmat3x4(12, 6, -4, -51, 167, 24, 4, -68, -41, 7, 2, 15))) return 1;
+	if (test_qr(glm::dmat3x4(12, 6, -4, -51, 167, 24, 4, -68, -41, 7, 2, 15))) return 3;
 
 	//Test QR triangular 2
-	if (test_qr(glm::dmat4x3(12, 6, -4, -51, 167, 24,  4, -68, -41, 7, 2, 15))) return 1;
+	if (test_qr(glm::dmat4x3(12, 6, -4, -51, 167, 24, 4, -68, -41, 7, 2, 15))) return 4;
 
 	//Test RQ triangular 1 : Fails at the triangular test
-	//if (test_rq(glm::dmat3x4(12, 6, -4, -51, 167, 24, 4, -68, -41, 7, 2, 15))) return 1;
+	if (test_rq(glm::dmat3x4(12, 6, -4, -51, 167, 24, 4, -68, -41, 7, 2, 15))) return 5;
 
 	//Test QR triangular 2
-	if (test_rq(glm::dmat4x3(12, 6, -4, -51, 167, 24, 4, -68, -41, 7, 2, 15))) return 1;
+	if (test_rq(glm::dmat4x3(12, 6, -4, -51, 167, 24, 4, -68, -41, 7, 2, 15))) return 6;
 
 	return 0;
 }
