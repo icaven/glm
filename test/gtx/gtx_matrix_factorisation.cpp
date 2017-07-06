@@ -16,7 +16,7 @@ int test_qr(matType<C, R, T, P> m) {
 
 	for (glm::length_t i = 0; i < C; i++) {
 		for (glm::length_t j = 0; j < R; j++) {
-			if (abs(err[i][j]) > epsilon) return 1;
+			if (std::abs(err[i][j]) > epsilon) return 1;
 		}
 	}
 
@@ -25,7 +25,7 @@ int test_qr(matType<C, R, T, P> m) {
 		if ((length(q[i]) - 1) > epsilon) return 2;
 
 		for (glm::length_t j = 0; j<i; j++) {
-			if (abs(dot(q[i], q[j])) > epsilon) return 3;
+			if (std::abs(dot(q[i], q[j])) > epsilon) return 3;
 		}
 	}
 
@@ -52,7 +52,7 @@ int test_rq(matType<C, R, T, P> m) {
 	
 	for (glm::length_t i = 0; i < C; i++) {
 		for (glm::length_t j = 0; j < R; j++) {
-			if (abs(err[i][j]) > epsilon) return 1;
+			if (std::abs(err[i][j]) > epsilon) return 1;
 		}
 	}
 	
@@ -64,7 +64,7 @@ int test_rq(matType<C, R, T, P> m) {
 		if ((length(tq[i]) - 1) > epsilon) return 2;
 
 		for (glm::length_t j = 0; j<i; j++) {
-			if (abs(dot(tq[i], tq[j])) > epsilon) return 3;
+			if (std::abs(dot(tq[i], tq[j])) > epsilon) return 3;
 		}
 	}
 	
