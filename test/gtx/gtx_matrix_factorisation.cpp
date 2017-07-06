@@ -5,8 +5,8 @@ const double epsilon = 1e-10f;
 
 template <glm::length_t C, glm::length_t R, typename T, glm::precision P, template<glm::length_t, glm::length_t, typename, glm::precision> class matType>
 int test_qr(matType<C, R, T, P> m) {
-	matType<std::min(C, R), R, T, P> q(-999);
-	matType<C, std::min(C, R), T, P> r(-999);
+	matType<(C < R ? C : R), R, T, P> q(-999);
+	matType<C, (C < R ? C : R), T, P> r(-999);
 
 	glm::qr_decompose(q, r, m);
 
@@ -21,7 +21,7 @@ int test_qr(matType<C, R, T, P> m) {
 	}
 
 	//Test if the columns of q are orthonormal
-	for (glm::length_t i = 0; i < std::min(C, R); i++) {
+	for (glm::length_t i = 0; i < (C < R ? C : R); i++) {
 		if ((length(q[i]) - 1) > epsilon) return 2;
 
 		for (glm::length_t j = 0; j<i; j++) {
@@ -31,7 +31,7 @@ int test_qr(matType<C, R, T, P> m) {
 
 	//Test if the matrix r is upper triangular
 	for (glm::length_t i = 0; i < C; i++) {
-		for (glm::length_t j = i + 1; j < std::min(C, R); j++) {
+		for (glm::length_t j = i + 1; j < (C < R ? C : R); j++) {
 			if (r[i][j] != 0) return 4;
 		}
 	}
@@ -41,8 +41,8 @@ int test_qr(matType<C, R, T, P> m) {
 
 template <glm::length_t C, glm::length_t R, typename T, glm::precision P, template<glm::length_t, glm::length_t, typename, glm::precision> class matType>
 int test_rq(matType<C, R, T, P> m) {
-	matType<C, std::min(C, R), T, P> q(-999);
-	matType<std::min(C, R), R, T, P> r(-999);
+	matType<C, (C < R ? C : R), T, P> q(-999);
+	matType<(C < R ? C : R), R, T, P> r(-999);
 
 	glm::rq_decompose(r, q, m);
 
@@ -58,9 +58,9 @@ int test_rq(matType<C, R, T, P> m) {
 	
 	
 	//Test if the rows of q are orthonormal
-	matType<std::min(C, R), C, T, P> tq = transpose(q);
+	matType<(C < R ? C : R), C, T, P> tq = transpose(q);
 
-	for (glm::length_t i = 0; i < std::min(C, R); i++) {
+	for (glm::length_t i = 0; i < (C < R ? C : R); i++) {
 		if ((length(tq[i]) - 1) > epsilon) return 2;
 
 		for (glm::length_t j = 0; j<i; j++) {
@@ -69,8 +69,8 @@ int test_rq(matType<C, R, T, P> m) {
 	}
 	
 	//Test if the matrix r is upper triangular
-	for (glm::length_t i = 0; i < std::min(C, R); i++) {
-		for (glm::length_t j = R - std::min(C, R) + i + 1; j < R; j++) {
+	for (glm::length_t i = 0; i < (C < R ? C : R); i++) {
+		for (glm::length_t j = R - (C < R ? C : R) + i + 1; j < R; j++) {
 			if (r[i][j] != 0) return 4;
 		}
 	}

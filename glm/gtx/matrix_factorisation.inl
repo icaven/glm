@@ -24,14 +24,14 @@ namespace glm {
 	}
 
 	template <length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
-	GLM_FUNC_QUALIFIER void qr_decompose(matType<std::min(C, R), R, T, P>& q, matType<C, std::min(C, R), T, P>& r, const matType<C, R, T, P>& in) {
+	GLM_FUNC_QUALIFIER void qr_decompose(matType<(C < R ? C : R), R, T, P>& q, matType<C, (C < R ? C : R), T, P>& r, const matType<C, R, T, P>& in) {
 		// Uses modified Gram-Schmidt method
 		// Source: https://en.wikipedia.org/wiki/Gram–Schmidt_process
 		// And https://en.wikipedia.org/wiki/QR_decomposition
 
 		//For all the linearly independs columns of the input...
 		// (there can be no more linearly independents columns than there are rows.)
-		for (length_t i = 0; i < std::min(R, C); i++) {
+		for (length_t i = 0; i < (C < R ? C : R); i++) {
 			//Copy in Q the input's i-th column.
 			q[i] = in[i];
 
@@ -55,7 +55,7 @@ namespace glm {
 	}
 
 	template <length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
-	GLM_FUNC_QUALIFIER void rq_decompose(matType<std::min(C, R), R, T, P>& r, matType<C, std::min(C, R), T, P>& q, const matType<C, R, T, P>& in) {
+	GLM_FUNC_QUALIFIER void rq_decompose(matType<(C < R ? C : R), R, T, P>& r, matType<C, (C < R ? C : R), T, P>& q, const matType<C, R, T, P>& in) {
 		// From https://en.wikipedia.org/wiki/QR_decomposition:
 		// The RQ decomposition transforms a matrix A into the product of an upper triangular matrix R (also known as right-triangular) and an orthogonal matrix Q. The only difference from QR decomposition is the order of these matrices.
 		// QR decomposition is Gram–Schmidt orthogonalization of columns of A, started from the first column.
@@ -64,8 +64,8 @@ namespace glm {
 		matType<R, C, T, P> tin = transpose(in);
 		tin = fliplr(tin);
 
-		matType<R, std::min(C, R), T, P> tr;
-		matType<std::min(C, R), C, T, P> tq;
+		matType<R, (C < R ? C : R), T, P> tr;
+		matType<(C < R ? C : R), C, T, P> tq;
 		qr_decompose(tq, tr, tin);
 
 		tr = fliplr(tr);

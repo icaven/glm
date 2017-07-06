@@ -13,7 +13,6 @@
 #pragma once
 
 // Dependency:
-#include <algorithm>
 #include "../glm.hpp"
 
 #ifndef GLM_ENABLE_EXPERIMENTAL
@@ -49,7 +48,7 @@ namespace glm{
 	/// Given an n-by-m input matrix, q has dimensions min(n,m)-by-m, and r has dimensions n-by-min(n,m).
 	/// From GLM_GTX_matrix_factorisation extension.
 	template <length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
-	GLM_FUNC_DECL void qr_decompose(matType<std::min(C, R), R, T, P>& q, matType<C, std::min(C, R), T, P>& r, const matType<C, R, T, P>& in);
+	GLM_FUNC_DECL void qr_decompose(matType<(C < R ? C : R), R, T, P>& q, matType<C, (C < R ? C : R), T, P>& r, const matType<C, R, T, P>& in);
 
 	/// Performs RQ factorisation of a matrix.
 	/// Returns 2 matrices, r and q, such that r is an upper triangular matrix, the rows of q are orthonormal and span the same subspace than those of the input matrix, and r*q=in.
@@ -57,7 +56,7 @@ namespace glm{
 	/// Given an n-by-m input matrix, r has dimensions min(n,m)-by-m, and q has dimensions n-by-min(n,m).
 	/// From GLM_GTX_matrix_factorisation extension.
 	template <length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
-	GLM_FUNC_DECL void rq_decompose(matType<std::min(C, R), R, T, P>& r, matType<C, std::min(C, R), T, P>& q, const matType<C, R, T, P>& in);
+	GLM_FUNC_DECL void rq_decompose(matType<(C < R ? C : R), R, T, P>& r, matType<C, (C < R ? C : R), T, P>& q, const matType<C, R, T, P>& in);
 
 	/// @}
 }
