@@ -19,9 +19,9 @@ namespace detail
 		{
 			mat<4, 4, float, P> result(uninitialize);
 			glm_mat4_matrixCompMult(
-				*(glm_vec4 const (*)[4])&x[0].data,
-				*(glm_vec4 const (*)[4])&y[0].data,
-				*(glm_vec4(*)[4])&result[0].data);
+				*static_cast<glm_vec4 const (*)[4]>(&x[0].data),
+				*static_cast<glm_vec4 const (*)[4]>(&y[0].data),
+				*static_cast<glm_vec4(*)[4]>(&result[0].data));
 			return result;
 		}
 	};
@@ -33,8 +33,8 @@ namespace detail
 		{
 			mat<4, 4, float, P> result(uninitialize);
 			glm_mat4_transpose(
-				*(glm_vec4 const (*)[4])&m[0].data,
-				*(glm_vec4(*)[4])&result[0].data);
+				*static_cast<glm_vec4 const (*)[4]>(&m[0].data),
+				*static_cast<glm_vec4(*)[4]>(&result[0].data));
 			return result;
 		}
 	};

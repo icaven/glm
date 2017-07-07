@@ -191,7 +191,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vec<4, float, P> call(vec<4, float, P> const & x, vec<4, float, P> const & y, vec<4, bool, P> const & a)
 		{
-			__m128i const Load = _mm_set_epi32(-(int)a.w, -(int)a.z, -(int)a.y, -(int)a.x);
+			__m128i const Load = _mm_set_epi32(-static_cast<int>(a.w), -static_cast<int>(a.z), -static_cast<int>(a.y), -static_cast<int>(a.x));
 			__m128 const Mask = _mm_castsi128_ps(Load);
 
 			vec<4, float, P> Result(uninitialize);

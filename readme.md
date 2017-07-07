@@ -73,7 +73,8 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added FAQ 12: Windows headers cause build errors... #557
 - Removed GCC shadow warnings #595
 - Added error for including of different versions of GLM #619
-- Added GLM_FORCE_IGNORE_VERSION to ignore error caused by including different version of GLM #619 
+- Added GLM_FORCE_IGNORE_VERSION to ignore error caused by including different version of GLM #619
+- Reduced warnings when using very strict compilation flags #646 
 
 #### Fixes:
 - Removed doxygen references to GTC_half_float which was removed in 0.9.4

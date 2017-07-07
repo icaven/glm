@@ -14,7 +14,7 @@ include(CMakePackageConfigHelpers)
 
 enable_testing()
 
-add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+add_definitions(-D_CRT_SECURE_NO_WARNINGS -g -Weverything -Wpedantic -Werror -Wno-padded -Wno-c++98-compat -Wno-documentation -std=c++11)
 
 option(GLM_STATIC_LIBRARY_ENABLE "GLM static library" OFF)
 if(GLM_STATIC_LIBRARY_ENABLE)
