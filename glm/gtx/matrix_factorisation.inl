@@ -73,7 +73,7 @@ namespace glm
 
 		matType<R, (C < R ? C : R), T, P> tr;
 		matType<(C < R ? C : R), C, T, P> tq;
-		qr_decompose(tq, tr, tin);
+		qr_decompose(tin, tq, tr);
 
 		tr = fliplr(tr);
 		r = transpose(tr);
