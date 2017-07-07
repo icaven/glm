@@ -29,26 +29,27 @@ Suggestions:
  - Implement other types of matrix factorisation, such as: QL and LQ, L(D)U, eigendecompositions, etc...
 */
 
-namespace glm{
+namespace glm
+{
 	/// @addtogroup gtx_matrix_factorisation
 	/// @{
 
 	/// Flips the matrix rows up and down.
 	/// From GLM_GTX_matrix_factorisation extension.
 	template <length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
-	GLM_FUNC_DECL matType<C, R, T, P> flipud(const matType<C, R, T, P>& in);
+	GLM_FUNC_DECL matType<C, R, T, P> flipud(matType<C, R, T, P> const& in);
 
 	/// Flips the matrix columns right and left.
 	/// From GLM_GTX_matrix_factorisation extension.
 	template <length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
-	GLM_FUNC_DECL matType<C, R, T, P> fliplr(const matType<C, R, T, P>& in);
+	GLM_FUNC_DECL matType<C, R, T, P> fliplr(matType<C, R, T, P> const& in);
 
 	/// Performs QR factorisation of a matrix.
 	/// Returns 2 matrices, q and r, such that the columns of q are orthonormal and span the same subspace than those of the input matrix, r is an upper triangular matrix, and q*r=in.
 	/// Given an n-by-m input matrix, q has dimensions min(n,m)-by-m, and r has dimensions n-by-min(n,m).
 	/// From GLM_GTX_matrix_factorisation extension.
 	template <length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
-	GLM_FUNC_DECL void qr_decompose(matType<(C < R ? C : R), R, T, P>& q, matType<C, (C < R ? C : R), T, P>& r, const matType<C, R, T, P>& in);
+	GLM_FUNC_DECL void qr_decompose(matType<C, R, T, P> const& in, matType<(C < R ? C : R), R, T, P>& q, matType<C, (C < R ? C : R), T, P>& r);
 
 	/// Performs RQ factorisation of a matrix.
 	/// Returns 2 matrices, r and q, such that r is an upper triangular matrix, the rows of q are orthonormal and span the same subspace than those of the input matrix, and r*q=in.
@@ -56,7 +57,7 @@ namespace glm{
 	/// Given an n-by-m input matrix, r has dimensions min(n,m)-by-m, and q has dimensions n-by-min(n,m).
 	/// From GLM_GTX_matrix_factorisation extension.
 	template <length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
-	GLM_FUNC_DECL void rq_decompose(matType<(C < R ? C : R), R, T, P>& r, matType<C, (C < R ? C : R), T, P>& q, const matType<C, R, T, P>& in);
+	GLM_FUNC_DECL void rq_decompose(matType<C, R, T, P> const& in, matType<(C < R ? C : R), R, T, P>& r, matType<C, (C < R ? C : R), T, P>& q);
 
 	/// @}
 }
