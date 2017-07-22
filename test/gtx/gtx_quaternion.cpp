@@ -107,7 +107,7 @@ int test_quatLookAt()
 	return Error;
 }
 
-int main1()
+int main()
 {
 	int Error = 0;
 
