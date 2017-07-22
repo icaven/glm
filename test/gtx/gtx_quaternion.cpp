@@ -90,7 +90,7 @@ int test_log()
 	return Error;
 }
 
-int test_quatLookAt()
+int test_quat_lookAt()
 {
 	int Error(0);
 
@@ -115,7 +115,7 @@ int main()
 	Error += test_rotation();
 	Error += test_quat_fastMix();
 	Error += test_quat_shortMix();
-	Error += test_quatLookAt();
+	Error += test_quat_lookAt();
 
 	return Error;
 }
