@@ -200,7 +200,7 @@ namespace glm
 	/// @param eye Position of the camera
 	/// @param direction Desired direction onto which the +z-axis gets mapped
 	/// @param up Up vector, how the camera is oriented. Typically (0, 1, 0).
-	template <typename T, precision P>
+	template<typename T, precision P>
 	GLM_FUNC_DECL tquat<T, P> quatLookAtLH(
 		tvec3<T, P> const & direction,
 		tvec3<T, P> const & up);
