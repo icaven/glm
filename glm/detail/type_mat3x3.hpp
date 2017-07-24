@@ -24,6 +24,14 @@ namespace glm
 		col_type value[3];
 
 	public:
+		// -- Accesses --
+
+		typedef length_t length_type;
+		GLM_FUNC_DECL static GLM_CONSTEXPR length_type length() { return 3; }
+
+		GLM_FUNC_DECL col_type & operator[](length_type i);
+		GLM_FUNC_DECL col_type const & operator[](length_type i) const;
+
 		// -- Constructors --
 
 		GLM_FUNC_DECL mat() GLM_DEFAULT_CTOR;
@@ -72,14 +80,6 @@ namespace glm
 		GLM_FUNC_DECL GLM_EXPLICIT mat(mat<4, 2, T, P> const & x);
 		GLM_FUNC_DECL GLM_EXPLICIT mat(mat<3, 4, T, P> const & x);
 		GLM_FUNC_DECL GLM_EXPLICIT mat(mat<4, 3, T, P> const & x);
-
-		// -- Accesses --
-
-		typedef length_t length_type;
-		GLM_FUNC_DECL static length_type length(){return 3;}
-
-		GLM_FUNC_DECL col_type & operator[](length_type i);
-		GLM_FUNC_DECL col_type const & operator[](length_type i) const;
 
 		// -- Unary arithmetic operators --
 
