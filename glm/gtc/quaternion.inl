@@ -83,12 +83,9 @@ namespace detail
 
 	// -- Implicit basic constructors --
 
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS || !defined(GLM_FORCE_NO_CTOR_INIT)
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template<typename T, precision P>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, P>::tquat()
-#			ifndef GLM_FORCE_NO_CTOR_INIT
-				: x(0), y(0), z(0), w(1)
-#			endif
 		{}
 #	endif
 
@@ -294,19 +291,19 @@ namespace detail
 	// -- Binary operators --
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P> operator+(tquat<T, P> const & q,	tquat<T, P> const & p)
+	GLM_FUNC_QUALIFIER tquat<T, P> operator+(tquat<T, P> const & q, tquat<T, P> const & p)
 	{
 		return tquat<T, P>(q) += p;
 	}
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P> operator*(tquat<T, P> const & q,	tquat<T, P> const & p)
+	GLM_FUNC_QUALIFIER tquat<T, P> operator*(tquat<T, P> const & q, tquat<T, P> const & p)
 	{
 		return tquat<T, P>(q) *= p;
 	}
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator*(tquat<T, P> const & q,	vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator*(tquat<T, P> const & q, vec<3, T, P> const & v)
 	{
 		vec<3, T, P> const QuatVector(q.x, q.y, q.z);
 		vec<3, T, P> const uv(glm::cross(QuatVector, v));

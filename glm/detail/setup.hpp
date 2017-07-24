@@ -692,14 +692,8 @@
 
 #if GLM_HAS_DEFAULTED_FUNCTIONS
 #	define GLM_DEFAULT = default
-#	ifdef GLM_FORCE_NO_CTOR_INIT
-#		define GLM_DEFAULT_CTOR = default
-#	else
-#		define GLM_DEFAULT_CTOR
-#	endif
 #else
 #	define GLM_DEFAULT
-#	define GLM_DEFAULT_CTOR
 #endif
 
 #if GLM_HAS_CONSTEXPR || GLM_HAS_CONSTEXPR_PARTIAL

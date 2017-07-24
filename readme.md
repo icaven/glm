@@ -64,6 +64,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added quatLookAt to GTX_quaternion #659
 
 #### Improvements:
+- No more default initialization of vector, matrix and quaternion types
 - Added lowp variant of GTC_color_space convertLinearToSRGB #419
 - Replaced the manual by a markdown version #458
 - Optimized GTC_packing implementation

@@ -34,7 +34,7 @@ namespace glm
 
 		// -- Constructors --
 
-		GLM_FUNC_DECL mat() GLM_DEFAULT_CTOR;
+		GLM_FUNC_DECL mat() GLM_DEFAULT;
 		GLM_FUNC_DECL mat(mat<3, 3, T, P> const & m) GLM_DEFAULT;
 		template<precision Q>
 		GLM_FUNC_DECL mat(mat<3, 3, T, Q> const & m);
