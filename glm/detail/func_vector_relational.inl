@@ -10,7 +10,7 @@ namespace glm
 	{
 		assert(x.length() == y.length());
 
-		vecType<L, bool, P> Result(uninitialize);
+		vecType<L, bool, P> Result;
 		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] < y[i];
 
@@ -22,7 +22,7 @@ namespace glm
 	{
 		assert(x.length() == y.length());
 
-		vecType<L, bool, P> Result(uninitialize);
+		vecType<L, bool, P> Result;
 		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] <= y[i];
 		return Result;
@@ -33,7 +33,7 @@ namespace glm
 	{
 		assert(x.length() == y.length());
 
-		vecType<L, bool, P> Result(uninitialize);
+		vecType<L, bool, P> Result;
 		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] > y[i];
 		return Result;
@@ -44,7 +44,7 @@ namespace glm
 	{
 		assert(x.length() == y.length());
 
-		vecType<L, bool, P> Result(uninitialize);
+		vecType<L, bool, P> Result;
 		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] >= y[i];
 		return Result;
@@ -55,7 +55,7 @@ namespace glm
 	{
 		assert(x.length() == y.length());
 
-		vecType<L, bool, P> Result(uninitialize);
+		vecType<L, bool, P> Result;
 		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] == y[i];
 		return Result;
@@ -66,7 +66,7 @@ namespace glm
 	{
 		assert(x.length() == y.length());
 
-		vecType<L, bool, P> Result(uninitialize);
+		vecType<L, bool, P> Result;
 		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] != y[i];
 		return Result;
@@ -93,7 +93,7 @@ namespace glm
 	template<length_t L, precision P, template<length_t, typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<L, bool, P> not_(vecType<L, bool, P> const & v)
 	{
-		vecType<L, bool, P> Result(uninitialize);
+		vecType<L, bool, P> Result;
 		for(length_t i = 0; i < v.length(); ++i)
 			Result[i] = !v[i];
 		return Result;

@@ -202,7 +202,7 @@ namespace glm
 	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<L, T, P> next_float(vecType<L, T, P> const & x)
 	{
-		vecType<L, T, P> Result(uninitialize);
+		vecType<L, T, P> Result;
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = next_float(x[i]);
 		return Result;
@@ -237,7 +237,7 @@ namespace glm
 	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<L, T, P> prev_float(vecType<L, T, P> const & x)
 	{
-		vecType<L, T, P> Result(uninitialize);
+		vecType<L, T, P> Result;
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = prev_float(x[i]);
 		return Result;
@@ -255,7 +255,7 @@ namespace glm
 	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<L, T, P> next_float(vecType<L, T, P> const & x, vecType<L, uint, P> const & ulps)
 	{
-		vecType<L, T, P> Result(uninitialize);
+		vecType<L, T, P> Result;
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = next_float(x[i], ulps[i]);
 		return Result;
@@ -273,7 +273,7 @@ namespace glm
 	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<L, T, P> prev_float(vecType<L, T, P> const & x, vecType<L, uint, P> const & ulps)
 	{
-		vecType<L, T, P> Result(uninitialize);
+		vecType<L, T, P> Result;
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = prev_float(x[i], ulps[i]);
 		return Result;
@@ -313,7 +313,7 @@ namespace glm
 	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<L, uint, P> float_distance(vecType<L, T, P> const & x, vecType<L, T, P> const & y)
 	{
-		vecType<L, uint, P> Result(uninitialize);
+		vecType<L, uint, P> Result;
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = float_distance(x[i], y[i]);
 		return Result;

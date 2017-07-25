@@ -44,9 +44,9 @@ namespace detail
 			__m128 const set1 = _mm_set_ps(0.0f, b.z, b.y, b.x);
 			__m128 const xpd0 = glm_vec4_cross(set0, set1);
 
-			vec<4, float, P> result(uninitialize);
-			result.data = xpd0;
-			return vec<3, float, P>(result);
+			vec<4, float, P> Result;
+			Result.data = xpd0;
+			return vec<3, float, P>(Result);
 		}
 	};
 
@@ -55,9 +55,9 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vec<4, float, P> call(vec<4, float, P> const & v)
 		{
-			vec<4, float, P> result(uninitialize);
-			result.data = glm_vec4_normalize(v.data);
-			return result;
+			vec<4, float, P> Result;
+			Result.data = glm_vec4_normalize(v.data);
+			return Result;
 		}
 	};
 
@@ -66,9 +66,9 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vec<4, float, P> call(vec<4, float, P> const& N, vec<4, float, P> const& I, vec<4, float, P> const& Nref)
 		{
-			vec<4, float, P> result(uninitialize);
-			result.data = glm_vec4_faceforward(N.data, I.data, Nref.data);
-			return result;
+			vec<4, float, P> Result;
+			Result.data = glm_vec4_faceforward(N.data, I.data, Nref.data);
+			return Result;
 		}
 	};
 
@@ -77,9 +77,9 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vec<4, float, P> call(vec<4, float, P> const& I, vec<4, float, P> const& N)
 		{
-			vec<4, float, P> result(uninitialize);
-			result.data = glm_vec4_reflect(I.data, N.data);
-			return result;
+			vec<4, float, P> Result;
+			Result.data = glm_vec4_reflect(I.data, N.data);
+			return Result;
 		}
 	};
 
@@ -88,9 +88,9 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vec<4, float, P> call(vec<4, float, P> const& I, vec<4, float, P> const& N, float eta)
 		{
-			vec<4, float, P> result(uninitialize);
-			result.data = glm_vec4_refract(I.data, N.data, _mm_set1_ps(eta));
-			return result;
+			vec<4, float, P> Result;
+			Result.data = glm_vec4_refract(I.data, N.data, _mm_set1_ps(eta));
+			return Result;
 		}
 	};
 }//namespace detail

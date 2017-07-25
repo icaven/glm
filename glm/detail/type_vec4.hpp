@@ -96,7 +96,6 @@ namespace glm
 
 		// -- Explicit basic constructors --
 
-		GLM_FUNC_DECL GLM_CONSTEXPR_SIMD explicit vec(ctor);
 		GLM_FUNC_DECL GLM_CONSTEXPR_SIMD explicit vec(T scalar);
 		GLM_FUNC_DECL GLM_CONSTEXPR_SIMD vec(T x, T y, T z, T w);
 

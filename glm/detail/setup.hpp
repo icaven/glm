@@ -776,14 +776,6 @@ namespace glm
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
-// Uninitialize constructors
-
-namespace glm
-{
-	enum ctor{uninitialize};
-}//namespace glm
-
-///////////////////////////////////////////////////////////////////////////////////
 // Check inclusions of different versions of GLM
 
 #elif ((GLM_SETUP_INCLUDED != GLM_VERSION) && !defined(GLM_FORCE_IGNORE_VERSION))	

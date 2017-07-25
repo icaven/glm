@@ -16,7 +16,7 @@ namespace glm
 	template <length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
 	GLM_FUNC_QUALIFIER matType<C, R, T, P> fliplr(matType<C, R, T, P> const& in)
 	{
-		matType<C, R, T, P> out(uninitialize);
+		matType<C, R, T, P> out;
 		for (length_t i = 0; i < C; i++)
 		{
 			out[i] = in[(C - i) - 1];

@@ -29,10 +29,6 @@ namespace glm
 	}
 
 	template<typename T, precision P> 
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR mat<2, 3, T, P>::mat(ctor)
-	{}
-
-	template<typename T, precision P> 
 	GLM_FUNC_QUALIFIER mat<2, 3, T, P>::mat(T scalar)
 	{
 		this->value[0] = col_type(scalar, 0, 0);
@@ -390,7 +386,7 @@ namespace glm
 		T SrcB20 = m2[2][0];
 		T SrcB21 = m2[2][1];
 
-		mat<3, 3, T, P> Result(uninitialize);
+		mat<3, 3, T, P> Result;
 		Result[0][0] = SrcA00 * SrcB00 + SrcA10 * SrcB01;
 		Result[0][1] = SrcA01 * SrcB00 + SrcA11 * SrcB01;
 		Result[0][2] = SrcA02 * SrcB00 + SrcA12 * SrcB01;

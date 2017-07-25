@@ -84,7 +84,6 @@ namespace glm
 
 		// -- Explicit basic constructors --
 
-		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR explicit tquat(ctor);
 		GLM_FUNC_DECL GLM_CONSTEXPR tquat(T s, vec<3, T, P> const& v);
 		GLM_FUNC_DECL GLM_CONSTEXPR tquat(T w, T x, T y, T z);
 

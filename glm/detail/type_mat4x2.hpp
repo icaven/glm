@@ -40,7 +40,6 @@ namespace glm
 		template<precision Q>
 		GLM_FUNC_DECL mat(mat<4, 2, T, Q> const & m);
 
-		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR explicit mat(ctor);
 		GLM_FUNC_DECL explicit mat(T scalar);
 		GLM_FUNC_DECL mat(
 			T x0, T y0,

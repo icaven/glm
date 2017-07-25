@@ -17,12 +17,12 @@ namespace detail
 
 		GLM_FUNC_QUALIFIER static mat<4, 4, float, P> call(mat<4, 4, float, P> const & x, mat<4, 4, float, P> const & y)
 		{
-			mat<4, 4, float, P> result(uninitialize);
+			mat<4, 4, float, P> Result;
 			glm_mat4_matrixCompMult(
 				*static_cast<glm_vec4 const (*)[4]>(&x[0].data),
 				*static_cast<glm_vec4 const (*)[4]>(&y[0].data),
-				*static_cast<glm_vec4(*)[4]>(&result[0].data));
-			return result;
+				*static_cast<glm_vec4(*)[4]>(&Result[0].data));
+			return Result;
 		}
 	};
 
@@ -31,11 +31,11 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static mat<4, 4, float, P> call(mat<4, 4, float, P> const & m)
 		{
-			mat<4, 4, float, P> result(uninitialize);
+			mat<4, 4, float, P> Result;
 			glm_mat4_transpose(
 				*static_cast<glm_vec4 const (*)[4]>(&m[0].data),
-				*static_cast<glm_vec4(*)[4]>(&result[0].data));
-			return result;
+				*static_cast<glm_vec4(*)[4]>(&Result[0].data));
+			return Result;
 		}
 	};
 
@@ -53,7 +53,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static mat<4, 4, float, P> call(mat<4, 4, float, P> const& m)
 		{
-			mat<4, 4, float, P> Result(uninitialize);
+			mat<4, 4, float, P> Result;
 			glm_mat4_inverse(*reinterpret_cast<__m128 const(*)[4]>(&m[0].data), *reinterpret_cast<__m128(*)[4]>(&Result[0].data));
 			return Result;
 		}
@@ -63,25 +63,25 @@ namespace detail
 	template<>
 	GLM_FUNC_QUALIFIER mat<4, 4, float, aligned_lowp> outerProduct<4, 4, float, aligned_lowp, vec, vec>(vec<4, float, aligned_lowp> const & c, vec<4, float, aligned_lowp> const & r)
 	{
-		mat<4, 4, float, aligned_lowp> m(uninitialize);
-		glm_mat4_outerProduct(c.data, r.data, *reinterpret_cast<__m128(*)[4]>(&m[0].data));
-		return m;
+		mat<4, 4, float, aligned_lowp> Result;
+		glm_mat4_outerProduct(c.data, r.data, *reinterpret_cast<__m128(*)[4]>(&Result[0].data));
+		return Result;
 	}
 
 	template<>
 	GLM_FUNC_QUALIFIER mat<4, 4, float, aligned_mediump> outerProduct<4, 4, float, aligned_mediump, vec, vec>(vec<4, float, aligned_mediump> const & c, vec<4, float, aligned_mediump> const & r)
 	{
-		mat<4, 4, float, aligned_mediump> m(uninitialize);
-		glm_mat4_outerProduct(c.data, r.data, *reinterpret_cast<__m128(*)[4]>(&m[0].data));
-		return m;
+		mat<4, 4, float, aligned_mediump> Result;
+		glm_mat4_outerProduct(c.data, r.data, *reinterpret_cast<__m128(*)[4]>(&Result[0].data));
+		return Result;
 	}
 
 	template<>
 	GLM_FUNC_QUALIFIER mat<4, 4, float, aligned_highp> outerProduct<4, 4, float, aligned_highp, vec, vec>(vec<4, float, aligned_highp> const & c, vec<4, float, aligned_highp> const & r)
 	{
-		mat<4, 4, float, aligned_highp> m(uninitialize);
-		glm_mat4_outerProduct(c.data, r.data, *reinterpret_cast<__m128(*)[4]>(&m[0].data));
-		return m;
+		mat<4, 4, float, aligned_highp> Result;
+		glm_mat4_outerProduct(c.data, r.data, *reinterpret_cast<__m128(*)[4]>(&Result[0].data));
+		return Result;
 	}
 }//namespace glm
 

@@ -21,13 +21,11 @@ namespace detail
 		{
 			GLM_FUNC_QUALIFIER static vec<4, int, P> call(vec<4, int, P> const& v)
 			{
-				vec<4, int, P> Result(glm::uninitialize);
-
+				vec<4, int, P> Result;
 				_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.x), v.x);
 				_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.y), v.y);
 				_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.z), v.z);
 				_BitScanReverse(reinterpret_cast<unsigned long*>(&Result.w), v.w);
-
 				return Result;
 			}
 		};

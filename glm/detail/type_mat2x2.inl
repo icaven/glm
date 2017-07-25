@@ -31,10 +31,6 @@ namespace glm
 	}
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR mat<2, 2, T, P>::mat(ctor)
-	{}
-
-	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER mat<2, 2, T, P>::mat(T scalar)
 	{
 		this->value[0] = col_type(scalar, 0);

@@ -27,10 +27,6 @@ namespace glm
 	// -- Explicit basic constructors --
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<2, T, P>::vec(ctor)
-	{}
-
-	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<2, T, P>::vec(T scalar)
 		: x(scalar), y(scalar)
 	{}

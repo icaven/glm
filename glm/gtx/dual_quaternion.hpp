@@ -63,7 +63,6 @@ namespace glm
 
 		// -- Explicit basic constructors --
 
-		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR explicit tdualquat(ctor);
 		GLM_FUNC_DECL GLM_CONSTEXPR tdualquat(tquat<T, P> const & real);
 		GLM_FUNC_DECL GLM_CONSTEXPR tdualquat(tquat<T, P> const & orientation, vec<3, T, P> const & translation);
 		GLM_FUNC_DECL GLM_CONSTEXPR tdualquat(tquat<T, P> const & real, tquat<T, P> const & dual);

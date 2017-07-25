@@ -94,7 +94,7 @@ namespace log2_
 
 			for(std::size_t i = 0; i < Count; ++i)
 			{
-				glm::vec<4, unsigned long, glm::defaultp> Tmp(glm::uninitialize);
+				glm::vec<4, unsigned long, glm::defaultp> Tmp;
 				_BitScanReverse(&Tmp.x, i);
 				_BitScanReverse(&Tmp.y, i);
 				_BitScanReverse(&Tmp.z, i);
