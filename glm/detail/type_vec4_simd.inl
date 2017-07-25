@@ -342,23 +342,14 @@ namespace detail
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template<>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD vec<4, float, aligned_lowp>::vec()
-#			ifndef GLM_FORCE_NO_CTOR_INIT
-				: data(_mm_setzero_ps())
-#			endif
 		{}
 
 		template<>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD vec<4, float, aligned_mediump>::vec()
-#			ifndef GLM_FORCE_NO_CTOR_INIT
-			: data(_mm_setzero_ps())
-#			endif
 		{}
 
 		template<>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD vec<4, float, aligned_highp>::vec()
-#			ifndef GLM_FORCE_NO_CTOR_INIT
-			: data(_mm_setzero_ps())
-#			endif
 		{}
 #	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 

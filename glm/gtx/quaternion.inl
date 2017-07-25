@@ -7,6 +7,12 @@
 namespace glm
 {
 	template<typename T, precision P>
+	GLM_FUNC_QUALIFIER tquat<T, P> quat_identity()
+	{
+		return tquat<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0));
+	}
+
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> cross(vec<3, T, P> const& v, tquat<T, P> const& q)
 	{
 		return inverse(q) * v;

@@ -219,6 +219,14 @@ namespace glm
 	// -- Operations --
 
 	template<typename T, precision P>
+	GLM_FUNC_QUALIFIER tdualquat<T, P> dual_quat_identity()
+	{
+		return tdualquat<T, P>(
+			tquat<T, P>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0)),
+			tquat<T, P>(static_cast<T>(0), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0)));
+	}
+
+	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER tdualquat<T, P> normalize(tdualquat<T, P> const & q)
 	{
 		return q / length(q.real);

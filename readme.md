@@ -101,6 +101,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Removed GLM_MESSAGES, use GLM_FORCE_MESSAGES instead
 - Removed GLM_DEPTH_ZERO_TO_ONE, use GLM_FORCE_DEPTH_ZERO_TO_ONE instead
 - Removed GLM_LEFT_HANDED, use GLM_FORCE_LEFT_HANDED instead
+- Removed GLM_FORCE_NO_CTOR_INIT
 
 ---
 ### [GLM 0.9.8.5](https://github.com/g-truc/glm/tree/0.9.8) - 2017-0X-XX

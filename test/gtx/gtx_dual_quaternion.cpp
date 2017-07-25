@@ -22,10 +22,10 @@ float myfrand() // returns values from -1 to 1 inclusive
 int test_dquat_type()
 {
 	glm::dvec3 vA;
-	glm::dquat dqA,dqB;
-	glm::ddualquat C(dqA,dqB);
+	glm::dquat dqA, dqB;
+	glm::ddualquat C(dqA, dqB);
 	glm::ddualquat B(dqA);
-	glm::ddualquat D(dqA,vA);
+	glm::ddualquat D(dqA, vA);
 	return 0;
 }
 
@@ -67,7 +67,7 @@ int test_inverse()
 
 	float const Epsilon = 0.0001f;
 
-	glm::dualquat dqid;
+	glm::dualquat dqid = glm::dual_quat_identity<float, glm::defaultp>();
 	glm::mat4x4 mid(1.0f);
 
 	for (int j = 0; j < 100; ++j)
