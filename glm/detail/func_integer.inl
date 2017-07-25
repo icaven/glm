@@ -298,12 +298,12 @@ namespace detail
 	GLM_FUNC_QUALIFIER vecType<L, T, P> bitfieldReverse(vecType<L, T, P> const& v)
 	{
 		vecType<L, T, P> x(v);
-		x = detail::compute_bitfieldReverseStep<L, T, P, vecType, detail::is_aligned<P>::value, sizeof(T) * 8>=  2>::call(x, T(0x5555555555555555ull), static_cast<T>( 1));
-		x = detail::compute_bitfieldReverseStep<L, T, P, vecType, detail::is_aligned<P>::value, sizeof(T) * 8>=  4>::call(x, T(0x3333333333333333ull), static_cast<T>( 2));
-		x = detail::compute_bitfieldReverseStep<L, T, P, vecType, detail::is_aligned<P>::value, sizeof(T) * 8>=  8>::call(x, T(0x0F0F0F0F0F0F0F0Full), static_cast<T>( 4));
-		x = detail::compute_bitfieldReverseStep<L, T, P, vecType, detail::is_aligned<P>::value, sizeof(T) * 8>= 16>::call(x, T(0x00FF00FF00FF00FFull), static_cast<T>( 8));
-		x = detail::compute_bitfieldReverseStep<L, T, P, vecType, detail::is_aligned<P>::value, sizeof(T) * 8>= 32>::call(x, T(0x0000FFFF0000FFFFull), static_cast<T>(16));
-		x = detail::compute_bitfieldReverseStep<L, T, P, vecType, detail::is_aligned<P>::value, sizeof(T) * 8>= 64>::call(x, T(0x00000000FFFFFFFFull), static_cast<T>(32));
+		x = detail::compute_bitfieldReverseStep<L, T, P, vecType, detail::is_aligned<P>::value, sizeof(T) * 8>=  2>::call(x, static_cast<T>(0x5555555555555555ull), static_cast<T>( 1));
+		x = detail::compute_bitfieldReverseStep<L, T, P, vecType, detail::is_aligned<P>::value, sizeof(T) * 8>=  4>::call(x, static_cast<T>(0x3333333333333333ull), static_cast<T>( 2));
+		x = detail::compute_bitfieldReverseStep<L, T, P, vecType, detail::is_aligned<P>::value, sizeof(T) * 8>=  8>::call(x, static_cast<T>(0x0F0F0F0F0F0F0F0Full), static_cast<T>( 4));
+		x = detail::compute_bitfieldReverseStep<L, T, P, vecType, detail::is_aligned<P>::value, sizeof(T) * 8>= 16>::call(x, static_cast<T>(0x00FF00FF00FF00FFull), static_cast<T>( 8));
+		x = detail::compute_bitfieldReverseStep<L, T, P, vecType, detail::is_aligned<P>::value, sizeof(T) * 8>= 32>::call(x, static_cast<T>(0x0000FFFF0000FFFFull), static_cast<T>(16));
+		x = detail::compute_bitfieldReverseStep<L, T, P, vecType, detail::is_aligned<P>::value, sizeof(T) * 8>= 64>::call(x, static_cast<T>(0x00000000FFFFFFFFull), static_cast<T>(32));
 		return x;
 	}
 

@@ -154,12 +154,9 @@ namespace detail
 
 	// -- Implicit basic constructors --
 
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS || !defined(GLM_FORCE_NO_CTOR_INIT)
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template<typename T, precision P>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD vec<4, T, P>::vec()
-#			ifndef GLM_FORCE_NO_CTOR_INIT
-				: x(0), y(0), z(0), w(0)
-#			endif
 		{}
 #	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 

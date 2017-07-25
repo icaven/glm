@@ -24,13 +24,9 @@ namespace glm
 
 	// -- Implicit basic constructors --
 
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS || !defined(GLM_FORCE_NO_CTOR_INIT)
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template<typename T, precision P>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, P>::tdualquat()
-#			ifndef GLM_FORCE_NO_CTOR_INIT 
-				: real(tquat<T, P>())
-				, dual(tquat<T, P>(0, 0, 0, 0))
-#			endif
 		{}
 #	endif
 

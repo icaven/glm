@@ -22,9 +22,8 @@
 + [3.4. SIMD support](#section3_4)
 + [3.5. Force inline](#section3_5)
 + [3.6. Vector and matrix static size](#section3_6)
-+ [3.7. Disabling default constructor initialization](#section3_7)
-+ [3.8. Requiring explicit conversions](#section3_8)
-+ [3.9. Removing genType restriction](#section3_9)
++ [3.7. Requiring explicit conversions](#section3_7)
++ [3.8. Removing genType restriction](#section3_8)
 + [4. Stable extensions](#section4)
 + [4.1. GLM_GTC_bitfield](#section4_1)
 + [4.2. GLM_GTC_color_space](#section4_2)
@@ -469,49 +468,7 @@ void foo(vec4 const & v)
 }
 ```
 
-### <a name="section3_7"></a> 3.7. Disabling default constructor initialization
-
-By default and following GLSL specifications, vector and matrix default constructors initialize the components to zero. This is a reliable behavior but initialization has a cost and it’s not always necessary.
-This behavior can be disabled at compilation time by define GLM\_FORCE\_NO\_CTOR\_INIT before any inclusion of &lt;glm/glm.hpp&gt; or other GLM include.
-
-GLM default behavior:
-
-```cpp
-#include <glm/glm.hpp>
-
-void foo()
-{
-    glm::vec4 v; // v is (0.0f, 0.0f, 0.0f, 0.0f)
-    ...
-}
-```
-
-GLM behavior using GLM\_FORCE\_NO\_CTOR\_INIT:
-
-```cpp
-#define GLM_FORCE_NO_CTOR_INIT
-#include <glm/glm.hpp>
-
-void foo()
-{
-    glm::vec4 v; // v is filled with garbage
-    ...
-}
-```
-
-Alternatively, GLM allows to explicitly not initialize a variable:
-
-```cpp
-#include <glm/glm.hpp>
-
-void foo()
-{
-    glm::vec4 v(glm::uninitialize);
-    ...
-}
-```
-
-### <a name="section3_8"></a> 3.8. Require explicit conversions
+### <a name="section3_7"></a> 3.7. Requiring explicit conversions
 
 GLSL supports implicit conversions of vector and matrix types. For example, an ivec4 can be implicitly converted into vec4.
 
@@ -548,7 +505,7 @@ void foo()
 }
 ```
 
-### <a name="section3_9"></a> 3.9. Removing genType restriction
+### <a name="section3_8"></a> 3.8. Removing genType restriction
 
 By default GLM only supports basic types as genType for vector, matrix and quaternion types:
 

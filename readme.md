@@ -57,9 +57,14 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added GTX_color_encoding extension
 - Added GTX_vec_swizzle, faster compile time swizzling then swizzle operator #558
 - Added GTX_exterior_product with a vec2 cross implementation #621
+- Added GTX_matrix_factorisation to factor matrices in various forms #654
 - Added [GLM_ENABLE_EXPERIMENTAL](manual.md#section7_4) to enable experimental features.
+- Added packing functions for integer vectors #639
+- Added conan packaging configuration #643 #641
+- Added quatLookAt to GTX_quaternion #659
 
 #### Improvements:
+- No more default initialization of vector, matrix and quaternion types
 - Added lowp variant of GTC_color_space convertLinearToSRGB #419
 - Replaced the manual by a markdown version #458
 - Optimized GTC_packing implementation
@@ -70,7 +75,9 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added FAQ 12: Windows headers cause build errors... #557
 - Removed GCC shadow warnings #595
 - Added error for including of different versions of GLM #619
-- Added GLM_FORCE_IGNORE_VERSION to ignore error caused by including different version of GLM #619 
+- Added GLM_FORCE_IGNORE_VERSION to ignore error caused by including different version of GLM #619
+- Reduced warnings when using very strict compilation flags #646
+- length() member functions are constexpr #657
 
 #### Fixes:
 - Removed doxygen references to GTC_half_float which was removed in 0.9.4
@@ -80,6 +87,10 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed usused variable warning in GTX_spline #618
 - Fixed references to GLM_FORCE_RADIANS which was removed #642
 - Fixed glm::fastInverseSqrt to use fast inverse square #640
+- Fixed axisAngle NaN #638
+- Fixed integer pow from GTX_integer with null exponent #658
+- Fixed quat normalize build error #656
+- Fixed Visual C++ 2017.2 warning regarding __has_feature definision #655
 
 #### Deprecation:
 - Requires Visual Studio 2013, GCC 4.7, Clang 3.4, Cuda 7, ICC 2013 or a C++11 compiler

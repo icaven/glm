@@ -670,6 +670,156 @@ int test_packUnorm2x3_1x2()
 	return Error;
 }
 
+int test_packUint2x8()
+{
+	int Error = 0;
+
+	glm::u8vec2 const Source(1, 2);
+
+	glm::uint16 const Packed = glm::packUint2x8(Source);
+	Error += Packed != 0 ? 0 : 1;
+
+	glm::u8vec2 const Unpacked = glm::unpackUint2x8(Packed);
+	Error += Source == Unpacked ? 0 : 1;
+
+	return Error;
+}
+
+int test_packUint4x8()
+{
+	int Error = 0;
+
+	glm::u8vec4 const Source(1, 2, 3, 4);
+
+	glm::uint32 const Packed = glm::packUint4x8(Source);
+	Error += Packed != 0 ? 0 : 1;
+
+	glm::u8vec4 const Unpacked = glm::unpackUint4x8(Packed);
+	Error += Source == Unpacked ? 0 : 1;
+
+	return Error;
+}
+
+int test_packUint2x16()
+{
+	int Error = 0;
+
+	glm::u16vec2 const Source(1, 2);
+
+	glm::uint32 const Packed = glm::packUint2x16(Source);
+	Error += Packed != 0 ? 0 : 1;
+
+	glm::u16vec2 const Unpacked = glm::unpackUint2x16(Packed);
+	Error += Source == Unpacked ? 0 : 1;
+
+	return Error;
+}
+
+int test_packUint4x16()
+{
+	int Error = 0;
+
+	glm::u16vec4 const Source(1, 2, 3, 4);
+
+	glm::uint64 const Packed = glm::packUint4x16(Source);
+	Error += Packed != 0 ? 0 : 1;
+
+	glm::u16vec4 const Unpacked = glm::unpackUint4x16(Packed);
+	Error += Source == Unpacked ? 0 : 1;
+
+	return Error;
+}
+
+int test_packUint2x32()
+{
+	int Error = 0;
+
+	glm::u32vec2 const Source(1, 2);
+
+	glm::uint64 const Packed = glm::packUint2x32(Source);
+	Error += Packed != 0 ? 0 : 1;
+
+	glm::u32vec2 const Unpacked = glm::unpackUint2x32(Packed);
+	Error += Source == Unpacked ? 0 : 1;
+
+	return Error;
+}
+
+int test_packInt2x8()
+{
+	int Error = 0;
+
+	glm::i8vec2 const Source(1, 2);
+
+	glm::int16 const Packed = glm::packInt2x8(Source);
+	Error += Packed != 0 ? 0 : 1;
+
+	glm::i8vec2 const Unpacked = glm::unpackInt2x8(Packed);
+	Error += Source == Unpacked ? 0 : 1;
+
+	return Error;
+}
+
+int test_packInt4x8()
+{
+	int Error = 0;
+
+	glm::i8vec4 const Source(1, 2, 3, 4);
+
+	glm::int32 const Packed = glm::packInt4x8(Source);
+	Error += Packed != 0 ? 0 : 1;
+
+	glm::i8vec4 const Unpacked = glm::unpackInt4x8(Packed);
+	Error += Source == Unpacked ? 0 : 1;
+
+	return Error;
+}
+
+int test_packInt2x16()
+{
+	int Error = 0;
+
+	glm::i16vec2 const Source(1, 2);
+
+	glm::int32 const Packed = glm::packInt2x16(Source);
+	Error += Packed != 0 ? 0 : 1;
+
+	glm::i16vec2 const Unpacked = glm::unpackInt2x16(Packed);
+	Error += Source == Unpacked ? 0 : 1;
+
+	return Error;
+}
+
+int test_packInt4x16()
+{
+	int Error = 0;
+
+	glm::i16vec4 const Source(1, 2, 3, 4);
+
+	glm::int64 const Packed = glm::packInt4x16(Source);
+	Error += Packed != 0 ? 0 : 1;
+
+	glm::i16vec4 const Unpacked = glm::unpackInt4x16(Packed);
+	Error += Source == Unpacked ? 0 : 1;
+
+	return Error;
+}
+
+int test_packInt2x32()
+{
+	int Error = 0;
+
+	glm::i32vec2 const Source(1, 2);
+
+	glm::int64 const Packed = glm::packInt2x32(Source);
+	Error += Packed != 0 ? 0 : 1;
+
+	glm::i32vec2 const Unpacked = glm::unpackInt2x32(Packed);
+	Error += Source == Unpacked ? 0 : 1;
+
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
@@ -698,6 +848,18 @@ int main()
 	Error += test_packUnorm3x5_1x1();
 	Error += test_packUnorm1x5_1x6_1x5();
 	Error += test_packUnorm2x3_1x2();
+
+	Error += test_packUint2x8();
+	Error += test_packUint4x8();
+	Error += test_packUint2x16();
+	Error += test_packUint4x16();
+	Error += test_packUint2x32();
+
+	Error += test_packInt2x8();
+	Error += test_packInt4x8();
+	Error += test_packInt2x16();
+	Error += test_packInt4x16();
+	Error += test_packInt2x32();
 
 	Error += test_F2x11_1x10();
 	Error += test_F3x9_E1x5();

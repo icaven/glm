@@ -246,6 +246,11 @@ int test_vec3_size()
 	Error += glm::vec3::length() == 3 ? 0 : 1;
 	Error += glm::dvec3::length() == 3 ? 0 : 1;
 
+#	if GLM_HAS_CONSTEXPR_PARTIAL
+	constexpr std::size_t Length = glm::vec3::length();
+	Error += Length == 3 ? 0 : 1;
+#	endif
+
 	return Error;
 }
 

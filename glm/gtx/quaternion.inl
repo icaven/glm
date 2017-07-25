@@ -208,5 +208,39 @@ namespace glm
 			rotationAxis.y * invs,
 			rotationAxis.z * invs);
 	}
+	
+	template<typename T, precision P>
+	GLM_FUNC_QUALIFIER tquat<T, P> quatLookAt(tvec3<T, P> const& direction, tvec3<T, P> const& up)
+	{
+#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
+			return quatLookAtLH(direction, up);
+#		else
+			return quatLookAtRH(direction, up);
+# 		endif
+	}
+
+	template<typename T, precision P>
+	GLM_FUNC_QUALIFIER tquat<T, P> quatLookAtRH(tvec3<T, P> const& direction, tvec3<T, P> const& up)
+	{
+		tmat3x3<T, P> Result(uninitialize);
+
+		Result[2] = -normalize(direction);
+		Result[0] = normalize(cross(up, Result[2]));
+		Result[1] = cross(Result[2], Result[0]);
+
+		return quat_cast(Result);
+	}
+
+	template<typename T, precision P>
+	GLM_FUNC_QUALIFIER tquat<T, P> quatLookAtLH(tvec3<T, P> const& direction, tvec3<T, P> const& up)
+	{
+		tmat3x3<T, P> Result(uninitialize);
+
+		Result[2] = normalize(direction);
+		Result[0] = normalize(cross(up, Result[2]));
+		Result[1] = cross(Result[2], Result[0]);
+
+		return quat_cast(Result);
+	}
 
 }//namespace glm

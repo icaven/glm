@@ -27,14 +27,14 @@ namespace glm
 		// -- Accesses --
 
 		typedef length_t length_type;
-		GLM_FUNC_DECL static length_type length(){return 4;}
+		GLM_FUNC_DECL static GLM_CONSTEXPR length_type length(){return 4;}
 
 		GLM_FUNC_DECL col_type & operator[](length_type i);
 		GLM_FUNC_DECL col_type const & operator[](length_type i) const;
 
 		// -- Constructors --
 
-		GLM_FUNC_DECL mat() GLM_DEFAULT_CTOR;
+		GLM_FUNC_DECL mat() GLM_DEFAULT;
 		GLM_FUNC_DECL mat(mat<4, 4, T, P> const& m) GLM_DEFAULT;
 		template<precision Q>
 		GLM_FUNC_DECL mat(mat<4, 4, T, Q> const& m);
