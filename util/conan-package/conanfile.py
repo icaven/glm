@@ -8,7 +8,7 @@ class GlmConan(ConanFile):
     url="https://github.com/g-truc/glm"
     description="OpenGL Mathematics (GLM)"
     license = "https://github.com/g-truc/glm/blob/manual/copying.txt"
-    exports_sources = ["FindGLM.cmake", os.sep.join(["..", "..", "*"])]
+    exports_sources = ["FindGLM.cmake", os.sep.join(["..", "..", "glm*"])]
     exports = "lib_licenses/*"
 
     def build(self):
