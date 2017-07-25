@@ -107,7 +107,7 @@ int test_vec1_size()
 	Error += glm::dvec1::length() == 1 ? 0 : 1;
 
 #	if GLM_HAS_CONSTEXPR_PARTIAL
-	constexpr std::size_t Length = glm::vec2::length();
+	constexpr std::size_t Length = glm::vec1::length();
 	Error += Length == 1 ? 0 : 1;
 #	endif
 
@@ -144,9 +144,6 @@ int test_vec1_operator_increment()
 int main()
 {
 	int Error = 0;
-
-	glm::vec1 v;
-	assert(v.length() == 1);
 
 	Error += test_vec1_size();
 	Error += test_vec1_ctor();
