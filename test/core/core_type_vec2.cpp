@@ -199,6 +199,10 @@ int test_vec2_ctor()
 {
 	int Error = 0;
 
+#	if GLM_HAS_CONSTEXPR
+	constexpr glm::vec2 v(0);
+#	endif
+
 	{
 		glm::vec2 A(1);
 		glm::vec2 B(A);

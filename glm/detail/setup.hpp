@@ -698,7 +698,7 @@
 
 #if GLM_HAS_CONSTEXPR || GLM_HAS_CONSTEXPR_PARTIAL
 #	define GLM_CONSTEXPR constexpr
-#	if GLM_COMPILER & GLM_COMPILER_VC // Visual C++ has a bug #594 https://github.com/g-truc/glm/issues/594
+#	if ((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER <= GLM_COMPILER_VC14)) // Visual C++ has a bug #594 https://github.com/g-truc/glm/issues/594
 #		define GLM_CONSTEXPR_CTOR
 #	else
 #		define GLM_CONSTEXPR_CTOR constexpr
@@ -712,12 +712,6 @@
 #	define GLM_RELAXED_CONSTEXPR constexpr
 #else
 #	define GLM_RELAXED_CONSTEXPR const
-#endif
-
-#if GLM_ARCH == GLM_ARCH_PURE
-#	define GLM_CONSTEXPR_SIMD GLM_CONSTEXPR_CTOR
-#else
-#	define GLM_CONSTEXPR_SIMD
 #endif
 
 #ifdef GLM_FORCE_EXPLICIT_CTOR

@@ -38,7 +38,7 @@ namespace glm
 	}
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER mat<2, 2, T, P>::mat 
+	GLM_FUNC_QUALIFIER mat<2, 2, T, P>::mat
 	(
 		T const & x0, T const & y0,
 		T const & x1, T const & y1
