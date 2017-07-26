@@ -84,7 +84,7 @@ namespace glm
 	}
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P> pow(tquat<T, P> const & x, T const & y)
+	GLM_FUNC_QUALIFIER tquat<T, P> pow(tquat<T, P> const& x, T const& y)
 	{
 		//Raising to the power of 0 should yield 1
 		//Needed to prevent a division by 0 error later on
@@ -216,7 +216,7 @@ namespace glm
 	}
 	
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P> quatLookAt(tvec3<T, P> const& direction, tvec3<T, P> const& up)
+	GLM_FUNC_QUALIFIER tquat<T, P> quatLookAt(vec<3, T, P> const& direction, vec<3, T, P> const& up)
 	{
 #		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
 			return quatLookAtLH(direction, up);
@@ -226,7 +226,7 @@ namespace glm
 	}
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P> quatLookAtRH(tvec3<T, P> const& direction, tvec3<T, P> const& up)
+	GLM_FUNC_QUALIFIER tquat<T, P> quatLookAtRH(vec<3, T, P> const& direction, vec<3, T, P> const& up)
 	{
 		tmat3x3<T, P> Result;
 
@@ -238,7 +238,7 @@ namespace glm
 	}
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER tquat<T, P> quatLookAtLH(tvec3<T, P> const& direction, tvec3<T, P> const& up)
+	GLM_FUNC_QUALIFIER tquat<T, P> quatLookAtLH(vec<3, T, P> const& direction, vec<3, T, P> const& up)
 	{
 		tmat3x3<T, P> Result;
 
