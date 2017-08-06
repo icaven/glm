@@ -339,20 +339,6 @@ namespace detail
 	};
 }//namespace detail
 
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS
-		template<>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD vec<4, float, aligned_lowp>::vec()
-		{}
-
-		template<>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD vec<4, float, aligned_mediump>::vec()
-		{}
-
-		template<>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD vec<4, float, aligned_highp>::vec()
-		{}
-#	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
-
 	template<>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_SIMD vec<4, float, aligned_lowp>::vec(float _s) :
 		data(_mm_set1_ps(_s))
