@@ -91,7 +91,6 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed integer pow from GTX_integer with null exponent #658
 - Fixed quat normalize build error #656
 - Fixed Visual C++ 2017.2 warning regarding __has_feature definision #655
-- Fixed vec4 SIMD constexpr #653
 
 #### Deprecation:
 - Requires Visual Studio 2013, GCC 4.7, Clang 3.4, Cuda 7, ICC 2013 or a C++11 compiler
