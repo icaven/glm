@@ -503,7 +503,9 @@
 #		endif
 #	else
 #		define GLM_HAS_OPENMP 0
-#	endif// GLM_COMPILER & GLM_COMPILER_VC
+#	endif
+#else
+#	define GLM_HAS_OPENMP 0
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
