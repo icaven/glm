@@ -861,7 +861,7 @@ static int test_openmp()
 	}
 
 	#pragma omp parallel for default(none) shared(VectorA, VectorB, VectorC)
-	for (int i = 0; i < VectorC.size(); ++i)
+	for (int i = 0; i < static_cast<int>(VectorC.size()); ++i)
 	{
 		VectorC[i] = VectorA[i] + VectorB[i];
 	}

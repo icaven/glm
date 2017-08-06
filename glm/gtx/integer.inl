@@ -10,7 +10,7 @@ namespace glm
 			return x >= 0 ? 1 : -1;
 
 		int result = x;
-		for(int i = 1; i < y; ++i)
+		for(uint i = 1; i < y; ++i)
 			result *= x;
 		return result;
 	}

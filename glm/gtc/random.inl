@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <cassert>
+#include <cmath>
 
 namespace glm{
 namespace detail
@@ -311,7 +312,7 @@ namespace detail
 
 	template<typename T>
 	GLM_FUNC_QUALIFIER vec<3, T, defaultp> ballRand(T Radius)
-	{		
+	{
 		vec<3, T, defaultp> Result(T(0));
 		T LenRadius(T(0));
 		
@@ -331,7 +332,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER vec<2, T, defaultp> circularRand(T Radius)
 	{
 		T a = linearRand(T(0), T(6.283185307179586476925286766559f));
-		return vec<2, T, defaultp>(cos(a), sin(a)) * Radius;		
+		return vec<2, T, defaultp>(cos(a), sin(a)) * Radius;
 	}
 
 	template<typename T>
@@ -342,8 +343,8 @@ namespace detail
 
 		T r = sqrt(T(1) - z * z);
 
-		T x = r * cos(a);
-		T y = r * sin(a);
+		T x = r * std::cos(a);
+		T y = r * std::sin(a);
 
 		return vec<3, T, defaultp>(x, y, z) * Radius;
 	}
