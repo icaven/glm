@@ -4,6 +4,7 @@
 #include "../trigonometric.hpp"
 #include "../geometric.hpp"
 #include "../exponential.hpp"
+#include "../detail/compute_vector_relational.hpp"
 #include <limits>
 
 namespace glm{
@@ -754,20 +755,20 @@ namespace detail
 	}
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER vec<4, bool, P> equal(tquat<T, P> const & x, tquat<T, P> const & y)
+	GLM_FUNC_QUALIFIER vec<4, bool, P> equal(tquat<T, P> const& x, tquat<T, P> const& y)
 	{
 		vec<4, bool, P> Result;
 		for(length_t i = 0; i < x.length(); ++i)
-			Result[i] = x[i] == y[i];
+			Result[i] = detail::compute_equal<T>::call(x[i], y[i]);
 		return Result;
 	}
 
 	template<typename T, precision P>
-	GLM_FUNC_QUALIFIER vec<4, bool, P> notEqual(tquat<T, P> const & x, tquat<T, P> const & y)
+	GLM_FUNC_QUALIFIER vec<4, bool, P> notEqual(tquat<T, P> const& x, tquat<T, P> const& y)
 	{
 		vec<4, bool, P> Result;
 		for(length_t i = 0; i < x.length(); ++i)
-			Result[i] = x[i] != y[i];
+			Result[i] = !detail::compute_equal<T>::call(x[i], y[i]);
 		return Result;
 	}
 

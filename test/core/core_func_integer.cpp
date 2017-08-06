@@ -15,17 +15,17 @@ enum result
 
 namespace bitfieldInsert
 {
-	template<typename genType, typename sizeType>
+	template<typename genType>
 	struct type
 	{
 		genType		Base;
 		genType		Insert;
-		sizeType	Offset;
-		sizeType	Bits;
+		int			Offset;
+		int			Bits;
 		genType		Return;
 	};
 
-	typedef type<glm::uint, glm::uint> typeU32;
+	typedef type<glm::uint> typeU32;
 
 	typeU32 const Data32[] =
 	{
@@ -37,7 +37,7 @@ namespace bitfieldInsert
 		{0x0000ffff, 0xffff0000, 16, 16, 0xffffffff}
 	};
 
-	int test()
+	static int test()
 	{
 		int Error = 0;
 		glm::uint count = sizeof(Data32) / sizeof(typeU32);
@@ -59,17 +59,17 @@ namespace bitfieldInsert
 
 namespace bitfieldExtract
 {
-	template<typename genType, typename sizeType>
+	template<typename genType>
 	struct type
 	{
 		genType		Value;
-		sizeType	Offset;
-		sizeType	Bits;
+		int			Offset;
+		int			Bits;
 		genType		Return;
 		result		Result;
 	};
 
-	typedef type<glm::uint, glm::uint> typeU32;
+	typedef type<glm::uint> typeU32;
 
 	typeU32 const Data32[] =
 	{
@@ -95,7 +95,7 @@ namespace bitfieldExtract
 		//{0xffffffff,16,16, 0x00000000, ASSERT}, // Throw an assert 
 	};
 
-	int test()
+	static int test()
 	{
 		int Error = 0;
 
@@ -265,7 +265,7 @@ namespace bitfieldReverse
 		{0x0000000000000000, 0x0000000000000000, SUCCESS}
 	};
 
-	int test32_bitfieldReverse()
+	static int test32_bitfieldReverse()
 	{
 		int Error = 0;
 		std::size_t const Count = sizeof(Data32) / sizeof(typeU32);
@@ -285,7 +285,7 @@ namespace bitfieldReverse
 		return Error;
 	}
 
-	int test32_bitfieldReverseLoop()
+	static int test32_bitfieldReverseLoop()
 	{
 		int Error = 0;
 		std::size_t const Count = sizeof(Data32) / sizeof(typeU32);
@@ -305,7 +305,7 @@ namespace bitfieldReverse
 		return Error;
 	}
 
-	int test32_bitfieldReverseUint32()
+	static int test32_bitfieldReverseUint32()
 	{
 		int Error = 0;
 		std::size_t const Count = sizeof(Data32) / sizeof(typeU32);
@@ -325,7 +325,7 @@ namespace bitfieldReverse
 		return Error;
 	}
 
-	int test32_bitfieldReverseOps()
+	static int test32_bitfieldReverseOps()
 	{
 		int Error = 0;
 		std::size_t const Count = sizeof(Data32) / sizeof(typeU32);
@@ -345,7 +345,7 @@ namespace bitfieldReverse
 		return Error;
 	}
 
-	int test64_bitfieldReverse()
+	static int test64_bitfieldReverse()
 	{
 		int Error = 0;
 		std::size_t const Count = sizeof(Data64) / sizeof(typeU64);
@@ -365,7 +365,7 @@ namespace bitfieldReverse
 		return Error;
 	}
 
-	int test64_bitfieldReverseLoop()
+	static int test64_bitfieldReverseLoop()
 	{
 		int Error = 0;
 		std::size_t const Count = sizeof(Data64) / sizeof(typeU64);
@@ -385,7 +385,7 @@ namespace bitfieldReverse
 		return Error;
 	}
 
-	int test64_bitfieldReverseUint64()
+	static int test64_bitfieldReverseUint64()
 	{
 		int Error = 0;
 		std::size_t const Count = sizeof(Data64) / sizeof(typeU64);
@@ -405,7 +405,7 @@ namespace bitfieldReverse
 		return Error;
 	}
 
-	int test64_bitfieldReverseOps()
+	static int test64_bitfieldReverseOps()
 	{
 		int Error = 0;
 		std::size_t const Count = sizeof(Data64) / sizeof(typeU64);
@@ -425,7 +425,7 @@ namespace bitfieldReverse
 		return Error;
 	}
 
-	int test()
+	static int test()
 	{
 		int Error = 0;
 
@@ -442,7 +442,7 @@ namespace bitfieldReverse
 		return Error;
 	}
 
-	int perf32(glm::uint32 Count)
+	static int perf32(glm::uint32 Count)
 	{
 		int Error = 0;
 
@@ -479,7 +479,7 @@ namespace bitfieldReverse
 		return Error;
 	}
 
-	int perf64(glm::uint64 Count)
+	static int perf64(glm::uint64 Count)
 	{
 		int Error = 0;
 
@@ -516,7 +516,7 @@ namespace bitfieldReverse
 		return Error;
 	}
 
-	int perf(std::size_t Samples)
+	static int perf(std::size_t Samples)
 	{
 		int Error = 0;
 
@@ -538,7 +538,7 @@ namespace findMSB
 
 #	if GLM_HAS_BITSCAN_WINDOWS
 		template<typename genIUType>
-		GLM_FUNC_QUALIFIER int findMSB_intrinsic(genIUType Value)
+		static int findMSB_intrinsic(genIUType Value)
 		{
 			GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findMSB' only accept integer values");
 
@@ -553,7 +553,7 @@ namespace findMSB
 
 #	if GLM_ARCH & GLM_ARCH_AVX && GLM_COMPILER & GLM_COMPILER_VC
 		template<typename genIUType>
-		GLM_FUNC_QUALIFIER int findMSB_avx(genIUType Value)
+		static int findMSB_avx(genIUType Value)
 		{
 			GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findMSB' only accept integer values");
 
@@ -565,7 +565,7 @@ namespace findMSB
 #	endif//GLM_ARCH & GLM_ARCH_AVX && GLM_PLATFORM & GLM_PLATFORM_WINDOWS
 
 	template<typename genIUType>
-	GLM_FUNC_QUALIFIER int findMSB_095(genIUType Value)
+	static int findMSB_095(genIUType Value)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findMSB' only accept integer values");
 		
@@ -575,7 +575,7 @@ namespace findMSB
 		{
 			genIUType Bit = genIUType(-1);
 			for(genIUType tmp = Value; tmp > 0; tmp >>= 1, ++Bit){}
-			return Bit;
+			return static_cast<int>(Bit);
 		}
 		else //if(Value < 0)
 		{
@@ -589,7 +589,7 @@ namespace findMSB
 	}
 
 	template<typename genIUType>
-	GLM_FUNC_QUALIFIER int findMSB_nlz1(genIUType x)
+	static int findMSB_nlz1(genIUType x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findMSB' only accept integer values");
 
@@ -605,21 +605,20 @@ namespace findMSB
 		return 31 - n;
 	}
 
-	int findMSB_nlz2(unsigned int x)
+	static int findMSB_nlz2(unsigned int x)
 	{
-		unsigned y;
-		int n;
+		unsigned int y;
+		int n = 32;
 
-		n = 32;
 		y = x >>16;  if (y != 0) {n = n -16;  x = y;}
 		y = x >> 8;  if (y != 0) {n = n - 8;  x = y;}
 		y = x >> 4;  if (y != 0) {n = n - 4;  x = y;}
 		y = x >> 2;  if (y != 0) {n = n - 2;  x = y;}
 		y = x >> 1;  if (y != 0) return n - 2;
-		return 32 - (n - x);
+		return 32 - (n - static_cast<int>(x));
 	}
 
-	int findMSB_pop(unsigned int x)
+	static int findMSB_pop(unsigned int x)
 	{
 		x = x | (x >> 1);
 		x = x | (x >> 2);
@@ -629,7 +628,7 @@ namespace findMSB
 		return 31 - glm::bitCount(~x);
 	}
 
-	int perf_int(std::size_t Count)
+	static int perf_int(std::size_t Count)
 	{
 		type<int, int> const Data[] =
 		{
@@ -695,7 +694,7 @@ namespace findMSB
 		for(std::size_t k = 0; k < Count; ++k)
 		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int, int>); ++i)
 		{
-			int Result = findMSB_nlz2(Data[i].Value);
+			int Result = findMSB_nlz2(static_cast<unsigned int>(Data[i].Value));
 			Error += Data[i].Return == Result ? 0 : 1;
 		}
 
@@ -704,7 +703,7 @@ namespace findMSB
 		for(std::size_t k = 0; k < Count; ++k)
 		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int, int>); ++i)
 		{
-			int Result = findMSB_095(Data[i].Value);
+			int Result = findMSB_095(static_cast<unsigned int>(Data[i].Value));
 			Error += Data[i].Return == Result ? 0 : 1;
 		}
 
@@ -724,7 +723,7 @@ namespace findMSB
 		for(std::size_t k = 0; k < Count; ++k)
 		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int, int>); ++i)
 		{
-			int Result = findMSB_pop(Data[i].Value);
+			int Result = findMSB_pop(static_cast<unsigned int>(Data[i].Value));
 			Error += Data[i].Return == Result ? 0 : 1;
 		}
 
@@ -737,9 +736,9 @@ namespace findMSB
 				int Result = findMSB_avx(Data[i].Value);
 				Error += Data[i].Return == Result ? 0 : 1;
 			}
-#		endif
 
-		std::clock_t Timestamps7 = std::clock();
+			std::clock_t Timestamps7 = std::clock();
+#		endif
 
 		std::printf("glm::findMSB: %d clocks\n", static_cast<unsigned int>(Timestamps1 - Timestamps0));
 		std::printf("findMSB - nlz1: %d clocks\n", static_cast<unsigned int>(Timestamps2 - Timestamps1));
@@ -758,7 +757,7 @@ namespace findMSB
 		return Error;
 	}
 
-	int test_ivec4()
+	static int test_ivec4()
 	{
 		type<glm::ivec4, glm::ivec4> const Data[] =
 		{
@@ -810,7 +809,7 @@ namespace findMSB
 		return Error;
 	}
 
-	int test_int()
+	static int test_int()
 	{
 		typedef type<glm::uint, int> entry;
 
@@ -896,7 +895,7 @@ namespace findMSB
 		return Error;
 	}
 
-	int test()
+	static int test()
 	{
 		int Error(0);
 
@@ -906,7 +905,7 @@ namespace findMSB
 		return Error;
 	}
 
-	int perf(std::size_t Samples)
+	static int perf(std::size_t Samples)
 	{
 		int Error(0);
 
@@ -942,7 +941,7 @@ namespace findLSB
 
 #	if GLM_HAS_BITSCAN_WINDOWS
 		template<typename genIUType>
-		GLM_FUNC_QUALIFIER int findLSB_intrinsic(genIUType Value)
+		static int findLSB_intrinsic(genIUType Value)
 		{
 			GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findLSB' only accept integer values");
 
@@ -956,7 +955,7 @@ namespace findLSB
 #	endif
 
 	template<typename genIUType>
-	GLM_FUNC_QUALIFIER int findLSB_095(genIUType Value)
+	static int findLSB_095(genIUType Value)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findLSB' only accept integer values");
 		if(Value == 0)
@@ -968,7 +967,7 @@ namespace findLSB
 	}
 
 	template<typename genIUType>
-	GLM_FUNC_QUALIFIER int findLSB_ntz2(genIUType x)
+	static int findLSB_ntz2(genIUType x)
 	{
 		if(x == 0)
 			return -1;
@@ -977,7 +976,7 @@ namespace findLSB
 	}
 
 	template<typename genIUType>
-	GLM_FUNC_QUALIFIER int findLSB_branchfree(genIUType x)
+	static int findLSB_branchfree(genIUType x)
 	{
 		bool IsNull(x == 0);
 		int const Keep(!IsNull);
@@ -986,7 +985,7 @@ namespace findLSB
 		return static_cast<int>(glm::bitCount(~x & (x - static_cast<genIUType>(1)))) * Keep + Discard * -1;
 	}
 
-	int test_int()
+	static int test_int()
 	{
 		int Error(0);
 
@@ -1025,7 +1024,7 @@ namespace findLSB
 		return Error;
 	}
 
-	int test()
+	static int test()
 	{
 		int Error(0);
 
@@ -1034,7 +1033,7 @@ namespace findLSB
 		return Error;
 	}
 
-	int perf_int(std::size_t Count)
+	static int perf_int(std::size_t Count)
 	{
 		int Error(0);
 
@@ -1100,7 +1099,7 @@ namespace findLSB
 		return Error;
 	}
 
-	int perf(std::size_t Samples)
+	static int perf(std::size_t Samples)
 	{
 		int Error(0);
 
@@ -1112,7 +1111,7 @@ namespace findLSB
 
 namespace uaddCarry
 {
-	int test()
+	static int test()
 	{
 		int Error(0);
 		
@@ -1162,7 +1161,7 @@ namespace uaddCarry
 
 namespace usubBorrow
 {
-	int test()
+	static int test()
 	{
 		int Error(0);
 		
@@ -1222,7 +1221,7 @@ namespace usubBorrow
 
 namespace umulExtended
 {
-	int test()
+	static int test()
 	{
 		int Error(0);
 		
@@ -1287,7 +1286,7 @@ namespace umulExtended
 
 namespace imulExtended
 {
-	int test()
+	static int test()
 	{
 		int Error(0);
 		
@@ -1416,7 +1415,7 @@ namespace bitCount
 	};
 
 	template<glm::length_t L, typename T, glm::precision P, template<glm::length_t, typename, glm::precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<L, int, P> bitCount_bitfield(vecType<L, T, P> const & v)
+	static vecType<L, int, P> bitCount_bitfield(vecType<L, T, P> const & v)
 	{
 		vecType<L, typename glm::detail::make_unsigned<T>::type, P> x(*reinterpret_cast<vecType<L, typename glm::detail::make_unsigned<T>::type, P> const *>(&v));
 		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >=  2>::call(x, typename glm::detail::make_unsigned<T>::type(0x5555555555555555ull), typename glm::detail::make_unsigned<T>::type( 1));
@@ -1429,12 +1428,12 @@ namespace bitCount
 	}
 
 	template<typename genType>
-	GLM_FUNC_QUALIFIER int bitCount_bitfield(genType x)
+	static int bitCount_bitfield(genType x)
 	{
 		return bitCount_bitfield(glm::vec<1, genType, glm::defaultp>(x)).x;
 	}
 
-	int perf(std::size_t Size)
+	static int perf(std::size_t Size)
 	{
 		int Error(0);
 
@@ -1495,7 +1494,7 @@ namespace bitCount
 		return Error;
 	}
 
-	int test()
+	static int test()
 	{
 		int Error(0);
 
@@ -1535,11 +1534,14 @@ int main()
 
 #	ifdef NDEBUG
 		std::size_t const Samples = 1000;
-		::bitCount::perf(Samples);
-		::bitfieldReverse::perf(Samples);
-		::findMSB::perf(Samples);
-		::findLSB::perf(Samples);
+#	else
+		std::size_t const Samples = 1;
 #	endif
+
+	::bitCount::perf(Samples);
+	::bitfieldReverse::perf(Samples);
+	::findMSB::perf(Samples);
+	::findLSB::perf(Samples);
 
 	return Error;
 }

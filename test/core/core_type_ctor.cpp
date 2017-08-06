@@ -2,7 +2,7 @@
 #include <glm/gtc/vec1.hpp>
 #include <glm/gtc/quaternion.hpp>
 
-int test_vec1_ctor()
+static int test_vec1_ctor()
 {
 	int Error = 0;
 
@@ -25,7 +25,7 @@ int test_vec1_ctor()
 	return Error;
 }
 
-int test_vec2_ctor()
+static int test_vec2_ctor()
 {
 	int Error = 0;
 
@@ -48,7 +48,7 @@ int test_vec2_ctor()
 	return Error;
 }
 
-int test_vec3_ctor()
+static int test_vec3_ctor()
 {
 	int Error = 0;
 
@@ -71,7 +71,7 @@ int test_vec3_ctor()
 	return Error;
 }
 
-int test_vec4_ctor()
+static int test_vec4_ctor()
 {
 	int Error = 0;
 
@@ -94,7 +94,7 @@ int test_vec4_ctor()
 	return Error;
 }
 
-int test_mat2x2_ctor()
+static int test_mat2x2_ctor()
 {
 	int Error = 0;
 
@@ -117,7 +117,7 @@ int test_mat2x2_ctor()
 	return Error;
 }
 
-int test_mat2x3_ctor()
+static int test_mat2x3_ctor()
 {
 	int Error = 0;
 
@@ -140,7 +140,7 @@ int test_mat2x3_ctor()
 	return Error;
 }
 
-int test_mat2x4_ctor()
+static int test_mat2x4_ctor()
 {
 	int Error = 0;
 
@@ -165,7 +165,7 @@ int test_mat2x4_ctor()
 	return Error;
 }
 
-int test_mat3x2_ctor()
+static int test_mat3x2_ctor()
 {
 	int Error = 0;
 
@@ -188,7 +188,7 @@ int test_mat3x2_ctor()
 	return Error;
 }
 
-int test_mat3x3_ctor()
+static int test_mat3x3_ctor()
 {
 	int Error = 0;
 
@@ -211,7 +211,7 @@ int test_mat3x3_ctor()
 	return Error;
 }
 
-int test_mat3x4_ctor()
+static int test_mat3x4_ctor()
 {
 	int Error = 0;
 
@@ -234,7 +234,7 @@ int test_mat3x4_ctor()
 	return Error;
 }
 
-int test_mat4x2_ctor()
+static int test_mat4x2_ctor()
 {
 	int Error = 0;
 
@@ -257,7 +257,7 @@ int test_mat4x2_ctor()
 	return Error;
 }
 
-int test_mat4x3_ctor()
+static int test_mat4x3_ctor()
 {
 	int Error = 0;
 
@@ -280,7 +280,7 @@ int test_mat4x3_ctor()
 	return Error;
 }
 
-int test_mat4x4_ctor()
+static int test_mat4x4_ctor()
 {
 	int Error = 0;
 
@@ -303,7 +303,7 @@ int test_mat4x4_ctor()
 	return Error;
 }
 
-int test_quat_ctor()
+static int test_quat_ctor()
 {
 	int Error = 0;
 

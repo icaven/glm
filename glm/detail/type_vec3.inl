@@ -966,13 +966,16 @@ namespace glm
 	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER bool operator==(vec<3, T, P> const & v1, vec<3, T, P> const & v2)
 	{
-		return (v1.x == v2.x) && (v1.y == v2.y) && (v1.z == v2.z);
+		return
+			detail::compute_equal<T>::call(v1.x, v2.x) &&
+			detail::compute_equal<T>::call(v1.y, v2.y) &&
+			detail::compute_equal<T>::call(v1.z, v2.z);
 	}
 
 	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER bool operator!=(vec<3, T, P> const & v1, vec<3, T, P> const & v2)
 	{
-		return (v1.x != v2.x) || (v1.y != v2.y) || (v1.z != v2.z);
+		return !(v1 == v2);
 	}
 
 	template<precision P>

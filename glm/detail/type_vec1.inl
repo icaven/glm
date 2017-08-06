@@ -528,13 +528,13 @@ namespace glm
 	template<typename T, precision P> 
 	GLM_FUNC_QUALIFIER bool operator==(vec<1, T, P> const & v1, vec<1, T, P> const & v2)
 	{
-		return (v1.x == v2.x);
+		return detail::compute_equal<T>::call(v1.x, v2.x);
 	}
 
 	template<typename T, precision P> 
 	GLM_FUNC_QUALIFIER bool operator!=(vec<1, T, P> const & v1, vec<1, T, P> const & v2)
 	{
-		return (v1.x != v2.x);
+		return !(v1 == v2);
 	}
 
 	template<precision P>

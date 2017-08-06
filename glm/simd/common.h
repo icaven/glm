@@ -63,7 +63,7 @@ GLM_FUNC_QUALIFIER glm_vec4 glm_vec4_swizzle_xyzw(glm_vec4 a)
 
 GLM_FUNC_QUALIFIER glm_vec4 glm_vec1_fma(glm_vec4 a, glm_vec4 b, glm_vec4 c)
 {
-#	if GLM_ARCH & GLM_ARCH_AVX2_BIT
+#	if (GLM_ARCH & GLM_ARCH_AVX2_BIT) && !(GLM_COMPILER & GLM_COMPILER_CLANG)
 		return _mm_fmadd_ss(a, b, c);
 #	else
 		return _mm_add_ss(_mm_mul_ss(a, b), c);
@@ -72,7 +72,7 @@ GLM_FUNC_QUALIFIER glm_vec4 glm_vec1_fma(glm_vec4 a, glm_vec4 b, glm_vec4 c)
 
 GLM_FUNC_QUALIFIER glm_vec4 glm_vec4_fma(glm_vec4 a, glm_vec4 b, glm_vec4 c)
 {
-#	if GLM_ARCH & GLM_ARCH_AVX2_BIT
+#	if (GLM_ARCH & GLM_ARCH_AVX2_BIT) && !(GLM_COMPILER & GLM_COMPILER_CLANG)
 		return _mm_fmadd_ps(a, b, c);
 #	else
 		return glm_vec4_add(glm_vec4_mul(a, b), c);

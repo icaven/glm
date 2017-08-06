@@ -4,7 +4,7 @@
 #include <glm/vector_relational.hpp>
 #include <glm/gtc/vec1.hpp>
 
-int test_not()
+static int test_not()
 {
 	int Error(0);
 

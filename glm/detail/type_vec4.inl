@@ -129,7 +129,11 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static bool call(vec<4, T, P> const & v1, vec<4, T, P> const & v2)
 		{
-			return (v1.x == v2.x) && (v1.y == v2.y) && (v1.z == v2.z) && (v1.w == v2.w);
+			return
+				detail::compute_equal<T>::call(v1.x, v2.x) &&
+				detail::compute_equal<T>::call(v1.y, v2.y) &&
+				detail::compute_equal<T>::call(v1.z, v2.z) &&
+				detail::compute_equal<T>::call(v1.w, v2.w);
 		}
 	};
 
@@ -138,7 +142,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static bool call(vec<4, T, P> const & v1, vec<4, T, P> const & v2)
 		{
-			return (v1.x != v2.x) || (v1.y != v2.y) || (v1.z != v2.z) || (v1.w != v2.w);
+			return !compute_vec4_equal<T, P, detail::is_int<T>::value, sizeof(T) * 8, detail::is_aligned<P>::value>::call(v1, v2);
 		}
 	};
 

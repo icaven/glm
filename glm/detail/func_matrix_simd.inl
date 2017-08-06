@@ -6,6 +6,7 @@
 #include "type_mat4x4.hpp"
 #include "func_geometric.hpp"
 #include "../simd/matrix.h"
+#include <cstring>
 
 namespace glm{
 namespace detail
@@ -61,26 +62,32 @@ namespace detail
 }//namespace detail
 
 	template<>
-	GLM_FUNC_QUALIFIER mat<4, 4, float, aligned_lowp> outerProduct<4, 4, float, aligned_lowp, vec, vec>(vec<4, float, aligned_lowp> const & c, vec<4, float, aligned_lowp> const & r)
+	GLM_FUNC_QUALIFIER mat<4, 4, float, aligned_lowp> outerProduct<4, 4, float, aligned_lowp>(vec<4, float, aligned_lowp> const& c, vec<4, float, aligned_lowp> const& r)
 	{
+		__m128 NativeResult[4];
+		glm_mat4_outerProduct(c.data, r.data, NativeResult);
 		mat<4, 4, float, aligned_lowp> Result;
-		glm_mat4_outerProduct(c.data, r.data, *reinterpret_cast<__m128(*)[4]>(&Result[0].data));
+		std::memcpy(&Result[0], &NativeResult[0], sizeof(Result));
 		return Result;
 	}
 
 	template<>
-	GLM_FUNC_QUALIFIER mat<4, 4, float, aligned_mediump> outerProduct<4, 4, float, aligned_mediump, vec, vec>(vec<4, float, aligned_mediump> const & c, vec<4, float, aligned_mediump> const & r)
+	GLM_FUNC_QUALIFIER mat<4, 4, float, aligned_mediump> outerProduct<4, 4, float, aligned_mediump>(vec<4, float, aligned_mediump> const& c, vec<4, float, aligned_mediump> const& r)
 	{
+		__m128 NativeResult[4];
+		glm_mat4_outerProduct(c.data, r.data, NativeResult);
 		mat<4, 4, float, aligned_mediump> Result;
-		glm_mat4_outerProduct(c.data, r.data, *reinterpret_cast<__m128(*)[4]>(&Result[0].data));
+		std::memcpy(&Result[0], &NativeResult[0], sizeof(Result));
 		return Result;
 	}
 
 	template<>
-	GLM_FUNC_QUALIFIER mat<4, 4, float, aligned_highp> outerProduct<4, 4, float, aligned_highp, vec, vec>(vec<4, float, aligned_highp> const & c, vec<4, float, aligned_highp> const & r)
+	GLM_FUNC_QUALIFIER mat<4, 4, float, aligned_highp> outerProduct<4, 4, float, aligned_highp>(vec<4, float, aligned_highp> const& c, vec<4, float, aligned_highp> const& r)
 	{
+		__m128 NativeResult[4];
+		glm_mat4_outerProduct(c.data, r.data, NativeResult);
 		mat<4, 4, float, aligned_highp> Result;
-		glm_mat4_outerProduct(c.data, r.data, *reinterpret_cast<__m128(*)[4]>(&Result[0].data));
+		std::memcpy(&Result[0], &NativeResult[0], sizeof(Result));
 		return Result;
 	}
 }//namespace glm

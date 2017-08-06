@@ -78,6 +78,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Added GLM_FORCE_IGNORE_VERSION to ignore error caused by including different version of GLM #619
 - Reduced warnings when using very strict compilation flags #646
 - length() member functions are constexpr #657
+- Added support of -Weverything with Clang #646
 
 #### Fixes:
 - Removed doxygen references to GTC_half_float which was removed in 0.9.4
@@ -91,6 +92,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - Fixed integer pow from GTX_integer with null exponent #658
 - Fixed quat normalize build error #656
 - Fixed Visual C++ 2017.2 warning regarding __has_feature definision #655
+- Fixed documentation warnings
 
 #### Deprecation:
 - Requires Visual Studio 2013, GCC 4.7, Clang 3.4, Cuda 7, ICC 2013 or a C++11 compiler
