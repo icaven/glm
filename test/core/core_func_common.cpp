@@ -844,14 +844,20 @@ namespace sign
 		return (x >> 31) | ((unsigned)-x >> 31);
 	}
 
-	template<typename genFIType> 
-	GLM_FUNC_QUALIFIER genFIType sign_alu2(genFIType x)
+	GLM_FUNC_QUALIFIER int sign_alu2(int x)
 	{
-		GLM_STATIC_ASSERT(
-			std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer, 
-			"'sign' only accept integer inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<int>::is_signed && std::numeric_limits<int>::is_integer, "'sign' only accept integer inputs");
+
+#		if GLM_COMPILER & GLM_COMPILER_VC
+#			pragma warning(push)
+#			pragma warning(disable : 4146) //cast truncates constant value
+#		endif
 
 		return -((unsigned)x >> 31) | (-(unsigned)x >> 31);
+
+#		if GLM_COMPILER & GLM_COMPILER_VC
+#			pragma warning(pop)
+#		endif
 	}
 
 	template<typename genFIType> 

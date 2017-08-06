@@ -81,7 +81,7 @@ namespace detail
 		if((ix>0x7f800000) ||	// x is nan 
 			(iy>0x7f800000))	// y is nan 
 			return x+y;
-		if(detail::compute_equal<float>::call(x, y))
+		if(compute_equal<float>::call(x, y))
 			return y;		// x=y, return y
 		if(ix==0)
 		{				// x == 0
