@@ -70,6 +70,9 @@ if(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang") OR ("${CMAKE_CXX_COMPILER_ID}" 
 		if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
 			add_definitions(-Wno-long-long)
 		endif()
+		if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+			add_definitions(-Wno-c++11-long-long)
+		endif()
 	endif()
 endif()
 
