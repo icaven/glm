@@ -1,7 +1,7 @@
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtc/quaternion.hpp>
 #include <vector>
-#if GLM_HAS_OPENMP
+#if GLM_HAS_OPENMP && 0
 #	include <omp.h>
 #endif
 
@@ -848,7 +848,7 @@ static int test_fvec_conversion()
 	return Error;
 }
 
-#if GLM_HAS_OPENMP
+#if GLM_HAS_OPENMP && 0
 static int test_openmp()
 {
 	std::vector<glm::u8vec3> VectorA(1000);
@@ -875,7 +875,7 @@ int main()
 {
 	int Error = 0;
 
-#	if GLM_HAS_OPENMP
+#	if GLM_HAS_OPENMP && 0
 		Error += test_openmp();
 #	endif//
 
