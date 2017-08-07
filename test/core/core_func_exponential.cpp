@@ -51,13 +51,13 @@ static int test_log()
 	Error += glm::all(glm::epsilonEqual(B, glm::vec1(1.f), 0.01f)) ? 0 : 1;
 
 	glm::vec2 const C = glm::log(glm::vec2(glm::e<float>()));
-	Error += glm::all(glm::epsilonEqual(B, glm::vec2(1.f), 0.01f)) ? 0 : 1;
+	Error += glm::all(glm::epsilonEqual(C, glm::vec2(1.f), 0.01f)) ? 0 : 1;
 
 	glm::vec3 const D = glm::log(glm::vec3(glm::e<float>()));
-	Error += glm::all(glm::epsilonEqual(B, glm::vec3(1.f), 0.01f)) ? 0 : 1;
+	Error += glm::all(glm::epsilonEqual(D, glm::vec3(1.f), 0.01f)) ? 0 : 1;
 
 	glm::vec4 const E = glm::log(glm::vec4(glm::e<float>()));
-	Error += glm::all(glm::epsilonEqual(B, glm::vec4(1.f), 0.01f)) ? 0 : 1;
+	Error += glm::all(glm::epsilonEqual(E, glm::vec4(1.f), 0.01f)) ? 0 : 1;
 
 	return Error;
 }
