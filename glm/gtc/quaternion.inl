@@ -562,25 +562,26 @@ namespace detail
 	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T roll(tquat<T, P> const & q)
 	{
-		return T(atan(T(2) * (q.x * q.y + q.w * q.z), q.w * q.w + q.x * q.x - q.y * q.y - q.z * q.z));
+		return static_cast<T>(atan(static_cast<T>(2) * (q.x * q.y + q.w * q.z), q.w * q.w + q.x * q.x - q.y * q.y - q.z * q.z));
 	}
 
 	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T pitch(tquat<T, P> const & q)
 	{
 		//return T(atan(T(2) * (q.y * q.z + q.w * q.x), q.w * q.w - q.x * q.x - q.y * q.y + q.z * q.z));
-		const T y = T(2) * (q.y * q.z + q.w * q.x);
+		const T y = static_cast<T>(2) * (q.y * q.z + q.w * q.x);
 		const T x = q.w * q.w - q.x * q.x - q.y * q.y + q.z * q.z;
-        	if(y == T(0) && x == T(0)) //avoid atan2(0,0) - handle singularity - Matiis
-            		return T(T(2)*atan(q.x,q.w));
-		
-		return T(atan(y,x));
+
+		if(detail::compute_equal<T>::call(y, static_cast<T>(0)) && detail::compute_equal<T>::call(x, static_cast<T>(0))) //avoid atan2(0,0) - handle singularity - Matiis
+			return static_cast<T>(static_cast<T>(2) * atan(q.x,q.w));
+
+		return static_cast<T>(atan(y,x));
 	}
 
 	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T yaw(tquat<T, P> const & q)
 	{
-		return asin(clamp(T(-2) * (q.x * q.z - q.w * q.y), T(-1), T(1)));
+		return asin(clamp(static_cast<T>(-2) * (q.x * q.z - q.w * q.y), static_cast<T>(-1), static_cast<T>(1)));
 	}
 
 	template<typename T, precision P>
@@ -643,7 +644,7 @@ namespace detail
 			biggestIndex = 3;
 		}
 
-		T biggestVal = sqrt(fourBiggestSquaredMinus1 + T(1)) * T(0.5);
+		T biggestVal = sqrt(fourBiggestSquaredMinus1 + static_cast<T>(1)) * static_cast<T>(0.5);
 		T mult = static_cast<T>(0.25) / biggestVal;
 
 		tquat<T, P> Result;
@@ -690,7 +691,7 @@ namespace detail
 	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER T angle(tquat<T, P> const & x)
 	{
-		return acos(x.w) * T(2);
+		return acos(x.w) * static_cast<T>(2);
 	}
 
 	template<typename T, precision P>
