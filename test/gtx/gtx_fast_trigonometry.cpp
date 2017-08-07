@@ -175,7 +175,7 @@ namespace taylorCos
 {
 	using glm::precision;
 	
-	glm::vec4 const AngleShift(0.0f, glm::pi<float>() * 0.5f, glm::pi<float>() * 1.0f, glm::pi<float>() * 1.5f);
+	glm::vec4 const AngleShift(0.0f, glm::half_pi<float>(), glm::pi<float>(), glm::three_over_two_pi<float>());
 
 	template<glm::length_t L, typename T, precision P, template<glm::length_t, typename, precision> class vecType>
 	GLM_FUNC_QUALIFIER vecType<L, T, P> taylorSeriesNewCos(vecType<L, T, P> const & x)
