@@ -168,7 +168,7 @@ namespace detail
 //
 // Wrapper for a binary operator (e.g. u.yy + v.zy)
 //
-#define _GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)                 \
+#define GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)                 \
 	_GLM_SWIZZLE_TEMPLATE2                                                          \
 	GLM_FUNC_QUALIFIER vec<N, T, P> operator OPERAND ( const _GLM_SWIZZLE_TYPE1& a, const _GLM_SWIZZLE_TYPE2& b)  \
 	{                                                                               \
@@ -188,7 +188,7 @@ namespace detail
 //
 // Wrapper for a operand between a swizzle and a binary (e.g. 1.0f - u.xyz)
 //
-#define _GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)                 \
+#define GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)                 \
 	_GLM_SWIZZLE_TEMPLATE1                                                          \
 	GLM_FUNC_QUALIFIER vec<N, T, P> operator OPERAND ( const _GLM_SWIZZLE_TYPE1& a, const T& b)                   \
 	{                                                                               \
@@ -267,12 +267,12 @@ namespace glm
 {
 	namespace detail
 	{
-		_GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(-)
-		_GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(*)
-		_GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(+)
-		_GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(-)
-		_GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(*)
-		_GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(/)
+		GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(-)
+		GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(*)
+		GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(+)
+		GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(-)
+		GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(*)
+		GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(/)
 	}
 
 	//
@@ -297,13 +297,13 @@ namespace glm
 	//_GLM_SWIZZLE_FUNCTION_2_ARGS_SCALAR(vec_type, mix);
 }
 
-#define _GLM_SWIZZLE2_2_MEMBERS(T, P, E0,E1) \
+#define GLM_SWIZZLE2_2_MEMBERS(T, P, E0,E1) \
 	struct { detail::_swizzle<2, T, P, 0,0,-1,-2> E0 ## E0; }; \
 	struct { detail::_swizzle<2, T, P, 0,1,-1,-2> E0 ## E1; }; \
 	struct { detail::_swizzle<2, T, P, 1,0,-1,-2> E1 ## E0; }; \
 	struct { detail::_swizzle<2, T, P, 1,1,-1,-2> E1 ## E1; }; 
 
-#define _GLM_SWIZZLE2_3_MEMBERS(T, P, E0,E1) \
+#define GLM_SWIZZLE2_3_MEMBERS(T, P, E0,E1) \
 	struct { detail::_swizzle<3,T, P, 0,0,0,-1> E0 ## E0 ## E0; }; \
 	struct { detail::_swizzle<3,T, P, 0,0,1,-1> E0 ## E0 ## E1; }; \
 	struct { detail::_swizzle<3,T, P, 0,1,0,-1> E0 ## E1 ## E0; }; \
@@ -313,7 +313,7 @@ namespace glm
 	struct { detail::_swizzle<3,T, P, 1,1,0,-1> E1 ## E1 ## E0; }; \
 	struct { detail::_swizzle<3,T, P, 1,1,1,-1> E1 ## E1 ## E1; };  
 
-#define _GLM_SWIZZLE2_4_MEMBERS(T, P, E0,E1) \
+#define GLM_SWIZZLE2_4_MEMBERS(T, P, E0,E1) \
 	struct { detail::_swizzle<4,T, P, 0,0,0,0> E0 ## E0 ## E0 ## E0; }; \
 	struct { detail::_swizzle<4,T, P, 0,0,0,1> E0 ## E0 ## E0 ## E1; }; \
 	struct { detail::_swizzle<4,T, P, 0,0,1,0> E0 ## E0 ## E1 ## E0; }; \
@@ -331,7 +331,7 @@ namespace glm
 	struct { detail::_swizzle<4,T, P, 1,1,1,0> E1 ## E1 ## E1 ## E0; }; \
 	struct { detail::_swizzle<4,T, P, 1,1,1,1> E1 ## E1 ## E1 ## E1; };
 
-#define _GLM_SWIZZLE3_2_MEMBERS(T, P, E0,E1,E2) \
+#define GLM_SWIZZLE3_2_MEMBERS(T, P, E0,E1,E2) \
 	struct { detail::_swizzle<2,T, P, 0,0,-1,-2> E0 ## E0; }; \
 	struct { detail::_swizzle<2,T, P, 0,1,-1,-2> E0 ## E1; }; \
 	struct { detail::_swizzle<2,T, P, 0,2,-1,-2> E0 ## E2; }; \
@@ -342,7 +342,7 @@ namespace glm
 	struct { detail::_swizzle<2,T, P, 2,1,-1,-2> E2 ## E1; }; \
 	struct { detail::_swizzle<2,T, P, 2,2,-1,-2> E2 ## E2; };
 
-#define _GLM_SWIZZLE3_3_MEMBERS(T, P ,E0,E1,E2) \
+#define GLM_SWIZZLE3_3_MEMBERS(T, P ,E0,E1,E2) \
 	struct { detail::_swizzle<3, T, P, 0,0,0,-1> E0 ## E0 ## E0; }; \
 	struct { detail::_swizzle<3, T, P, 0,0,1,-1> E0 ## E0 ## E1; }; \
 	struct { detail::_swizzle<3, T, P, 0,0,2,-1> E0 ## E0 ## E2; }; \
@@ -371,7 +371,7 @@ namespace glm
 	struct { detail::_swizzle<3, T, P, 2,2,1,-1> E2 ## E2 ## E1; }; \
 	struct { detail::_swizzle<3, T, P, 2,2,2,-1> E2 ## E2 ## E2; };
 
-#define _GLM_SWIZZLE3_4_MEMBERS(T, P, E0,E1,E2) \
+#define GLM_SWIZZLE3_4_MEMBERS(T, P, E0,E1,E2) \
 	struct { detail::_swizzle<4,T, P, 0,0,0,0> E0 ## E0 ## E0 ## E0; }; \
 	struct { detail::_swizzle<4,T, P, 0,0,0,1> E0 ## E0 ## E0 ## E1; }; \
 	struct { detail::_swizzle<4,T, P, 0,0,0,2> E0 ## E0 ## E0 ## E2; }; \
@@ -454,7 +454,7 @@ namespace glm
 	struct { detail::_swizzle<4,T, P, 2,2,2,1> E2 ## E2 ## E2 ## E1; }; \
 	struct { detail::_swizzle<4,T, P, 2,2,2,2> E2 ## E2 ## E2 ## E2; }; 
 
-#define _GLM_SWIZZLE4_2_MEMBERS(T, P, E0,E1,E2,E3) \
+#define GLM_SWIZZLE4_2_MEMBERS(T, P, E0,E1,E2,E3) \
 	struct { detail::_swizzle<2,T, P, 0,0,-1,-2> E0 ## E0; }; \
 	struct { detail::_swizzle<2,T, P, 0,1,-1,-2> E0 ## E1; }; \
 	struct { detail::_swizzle<2,T, P, 0,2,-1,-2> E0 ## E2; }; \
@@ -472,7 +472,7 @@ namespace glm
 	struct { detail::_swizzle<2,T, P, 3,2,-1,-2> E3 ## E2; }; \
 	struct { detail::_swizzle<2,T, P, 3,3,-1,-2> E3 ## E3; }; 
 
-#define _GLM_SWIZZLE4_3_MEMBERS(T, P, E0,E1,E2,E3) \
+#define GLM_SWIZZLE4_3_MEMBERS(T, P, E0,E1,E2,E3) \
 	struct { detail::_swizzle<3, T, P, 0,0,0,-1> E0 ## E0 ## E0; }; \
 	struct { detail::_swizzle<3, T, P, 0,0,1,-1> E0 ## E0 ## E1; }; \
 	struct { detail::_swizzle<3, T, P, 0,0,2,-1> E0 ## E0 ## E2; }; \
@@ -538,7 +538,7 @@ namespace glm
 	struct { detail::_swizzle<3, T, P, 3,3,2,-1> E3 ## E3 ## E2; }; \
 	struct { detail::_swizzle<3, T, P, 3,3,3,-1> E3 ## E3 ## E3; };  
 
-#define _GLM_SWIZZLE4_4_MEMBERS(T, P, E0,E1,E2,E3) \
+#define GLM_SWIZZLE4_4_MEMBERS(T, P, E0,E1,E2,E3) \
 	struct { detail::_swizzle<4, T, P, 0,0,0,0> E0 ## E0 ## E0 ## E0; }; \
 	struct { detail::_swizzle<4, T, P, 0,0,0,1> E0 ## E0 ## E0 ## E1; }; \
 	struct { detail::_swizzle<4, T, P, 0,0,0,2> E0 ## E0 ## E0 ## E2; }; \
