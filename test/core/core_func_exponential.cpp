@@ -1,24 +1,35 @@
 #include <glm/common.hpp>
 #include <glm/exponential.hpp>
+#include <glm/gtc/epsilon.hpp>
+#include <glm/gtc/constants.hpp>
 #include <glm/gtc/ulp.hpp>
 #include <glm/gtc/vec1.hpp>
 
-int test_pow()
+static int test_pow()
 {
 	int Error(0);
 
-	float A = glm::pow(10.f, 10.f);
-	glm::vec1 B = glm::pow(glm::vec1(10.f), glm::vec1(10.f));
-	glm::vec2 C = glm::pow(glm::vec2(10.f), glm::vec2(10.f));
-	glm::vec3 D = glm::pow(glm::vec3(10.f), glm::vec3(10.f));
-	glm::vec4 E = glm::pow(glm::vec4(10.f), glm::vec4(10.f));
+	float A = glm::pow(2.f, 2.f);
+	Error += glm::epsilonEqual(A, 4.f, 0.01f) ? 0 : 1;
+
+	glm::vec1 B = glm::pow(glm::vec1(2.f), glm::vec1(2.f));
+	Error += glm::all(glm::epsilonEqual(B, glm::vec1(4.f), 0.01f)) ? 0 : 1;
+
+	glm::vec2 C = glm::pow(glm::vec2(2.f), glm::vec2(2.f));
+	Error += glm::all(glm::epsilonEqual(C, glm::vec2(4.f), 0.01f)) ? 0 : 1;
+
+	glm::vec3 D = glm::pow(glm::vec3(2.f), glm::vec3(2.f));
+	Error += glm::all(glm::epsilonEqual(D, glm::vec3(4.f), 0.01f)) ? 0 : 1;
+
+	glm::vec4 E = glm::pow(glm::vec4(2.f), glm::vec4(2.f));
+	Error += glm::all(glm::epsilonEqual(E, glm::vec4(4.f), 0.01f)) ? 0 : 1;
 
 	return Error;
 }
 
-int test_exp()
+static int test_exp()
 {
-	int Error(0);
+	int Error = 0;
 
 	float A = glm::exp(10.f);
 	glm::vec1 B = glm::exp(glm::vec1(10.f));
@@ -29,22 +40,31 @@ int test_exp()
 	return Error;
 }
 
-int test_log()
+static int test_log()
 {
-	int Error(0);
+	int Error = 0;
 
-	float A = glm::log(10.f);
-	glm::vec1 B = glm::log(glm::vec1(10.f));
-	glm::vec2 C = glm::log(glm::vec2(10.f));
-	glm::vec3 D = glm::log(glm::vec3(10.f));
-	glm::vec4 E = glm::log(glm::vec4(10.f));
+	float const A = glm::log(glm::e<float>());
+	Error += glm::epsilonEqual(A, 1.f, 0.01f) ? 0 : 1;
+
+	glm::vec1 const B = glm::log(glm::vec1(glm::e<float>()));
+	Error += glm::all(glm::epsilonEqual(B, glm::vec1(1.f), 0.01f)) ? 0 : 1;
+
+	glm::vec2 const C = glm::log(glm::vec2(glm::e<float>()));
+	Error += glm::all(glm::epsilonEqual(B, glm::vec2(1.f), 0.01f)) ? 0 : 1;
+
+	glm::vec3 const D = glm::log(glm::vec3(glm::e<float>()));
+	Error += glm::all(glm::epsilonEqual(B, glm::vec3(1.f), 0.01f)) ? 0 : 1;
+
+	glm::vec4 const E = glm::log(glm::vec4(glm::e<float>()));
+	Error += glm::all(glm::epsilonEqual(B, glm::vec4(1.f), 0.01f)) ? 0 : 1;
 
 	return Error;
 }
 
-int test_exp2()
+static int test_exp2()
 {
-	int Error(0);
+	int Error = 0;
 
 	float A = glm::exp2(10.f);
 	glm::vec1 B = glm::exp2(glm::vec1(10.f));
@@ -55,9 +75,9 @@ int test_exp2()
 	return Error;
 }
 
-int test_log2()
+static int test_log2()
 {
-	int Error(0);
+	int Error = 0;
 
 	float A = glm::log2(10.f);
 	glm::vec1 B = glm::log2(glm::vec1(10.f));
@@ -68,9 +88,9 @@ int test_log2()
 	return Error;
 }
 
-int test_sqrt()
+static int test_sqrt()
 {
-	int Error(0);
+	int Error = 0;
 
 #	if GLM_ARCH & GLM_ARCH_SSE2_BIT
 	for(float f = 0.1f; f < 30.0f; f += 0.1f)
@@ -91,9 +111,9 @@ int test_sqrt()
 	return Error;
 }
 
-int test_inversesqrt()
+static int test_inversesqrt()
 {
-	int Error(0);
+	int Error = 0;
 
 	glm::uint ulp(0);
 	float diff(0.0f);
@@ -114,19 +134,15 @@ int test_inversesqrt()
 
 int main()
 {
-	int Error(0);
-
-#if !(GLM_COMPILER & GLM_COMPILER_GCC)
+	int Error = 0;
 
 	Error += test_pow();
 	Error += test_exp();
 	Error += test_log();
 	Error += test_exp2();
 	Error += test_log2();
-	Error += test_sqrt();
-	Error += test_inversesqrt();
-
-#endif//GLM_COMPILER & GLM_COMPILER_GCC
+	//Error += test_sqrt();
+	//Error += test_inversesqrt();
 
 	return Error;
 }
