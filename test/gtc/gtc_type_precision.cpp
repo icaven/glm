@@ -848,6 +848,7 @@ static int test_fvec_conversion()
 	return Error;
 }
 
+#if GLM_HAS_OPENMP
 static int test_openmp()
 {
 	std::vector<glm::u8vec3> VectorA(1000);
@@ -868,11 +869,16 @@ static int test_openmp()
 
 	return 0;
 }
+#endif//GLM_HAS_OPENMP
 
 int main()
 {
-	int Error(0);
-	Error += test_openmp();
+	int Error = 0;
+
+#	if GLM_HAS_OPENMP
+		Error += test_openmp();
+#	endif//
+
 	Error += test_scalar_size();
 	Error += test_fvec_size();
 	Error += test_fvec_precision();
@@ -886,5 +892,6 @@ int main()
 	Error += test_dmat_size();
 	Error += test_quat_size();
 	Error += test_quat_precision();
+
 	return Error;
 }
