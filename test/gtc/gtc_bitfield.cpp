@@ -461,6 +461,7 @@ namespace bitfieldInterleave
 
 	int test()
 	{
+/*
 		{
 			for(glm::uint32 y = 0; y < (1 << 10); ++y)
 			for(glm::uint32 x = 0; x < (1 << 10); ++x)
@@ -487,7 +488,7 @@ namespace bitfieldInterleave
 #				endif//GLM_ARCH & GLM_ARCH_SSE2_BIT
 			}
 		}
-
+*/
 		{
 			for(glm::uint8 y = 0; y < 127; ++y)
 			for(glm::uint8 x = 0; x < 127; ++x)
@@ -883,7 +884,7 @@ namespace bitfieldInterleave5
 
 int main()
 {
-	int Error(0);
+	int Error = 0;
 /* Tests for a faster and to reserve bitfieldInterleave
 	Error += ::bitfieldInterleave5::test();
 	Error += ::bitfieldInterleave5::perf();
@@ -892,7 +893,7 @@ int main()
 	Error += ::bitfieldInterleave3::test();
 	Error += ::bitfieldInterleave4::test();
 	Error += ::bitfieldInterleave::test();
-	//Error += ::bitRevert::test();
+	Error += ::bitRevert::test();
 
 #	ifdef NDEBUG
 		Error += ::mask::perf();
