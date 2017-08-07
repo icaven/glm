@@ -893,7 +893,6 @@ int main()
 	Error += ::bitfieldInterleave3::test();
 	Error += ::bitfieldInterleave4::test();
 	Error += ::bitfieldInterleave::test();
-	Error += ::bitRevert::test();
 
 #	ifdef NDEBUG
 		Error += ::mask::perf();
