@@ -101,17 +101,17 @@ static int test_exp2()
 	float A = glm::exp2(4.f);
 	Error += glm::epsilonEqual(A, 16.f, 0.01f) ? 0 : 1;
 
-	glm::vec1 B = glm::exp2(glm::vec1(16.f));
-	Error += glm::all(glm::epsilonEqual(B, glm::vec1(4.f), 0.01f)) ? 0 : 1;
+	glm::vec1 B = glm::exp2(glm::vec1(4.f));
+	Error += glm::all(glm::epsilonEqual(B, glm::vec1(16.f), 0.01f)) ? 0 : 1;
 
-	glm::vec2 C = glm::exp2(glm::vec2(16.f, 8.f));
-	Error += glm::all(glm::epsilonEqual(C, glm::vec2(4.f, 3.f), 0.01f)) ? 0 : 1;
+	glm::vec2 C = glm::exp2(glm::vec2(4.f, 3.f));
+	Error += glm::all(glm::epsilonEqual(C, glm::vec2(16.f, 8.f), 0.01f)) ? 0 : 1;
 
-	glm::vec3 D = glm::exp2(glm::vec3(16.f, 8.f, 4.f));
-	Error += glm::all(glm::epsilonEqual(D, glm::vec3(4.f, 3.f, 2.f), 0.01f)) ? 0 : 1;
+	glm::vec3 D = glm::exp2(glm::vec3(4.f, 3.f, 2.f));
+	Error += glm::all(glm::epsilonEqual(D, glm::vec3(16.f, 8.f, 4.f), 0.01f)) ? 0 : 1;
 
-	glm::vec4 E = glm::exp2(glm::vec4(16.f, 8.f, 4.f, 2.f));
-	Error += glm::all(glm::epsilonEqual(E, glm::vec4(4.f, 3.f, 2.f, 1.f), 0.01f)) ? 0 : 1;
+	glm::vec4 E = glm::exp2(glm::vec4(4.f, 3.f, 2.f, 1.f));
+	Error += glm::all(glm::epsilonEqual(E, glm::vec4(16.f, 8.f, 4.f, 2.f), 0.01f)) ? 0 : 1;
 
 	return Error;
 }
@@ -121,7 +121,7 @@ static int test_log2()
 	int Error = 0;
 
 	float A = glm::log2(16.f);
-	Error += glm::epsilonEqual(A, 1.f, 0.01f) ? 0 : 1;
+	Error += glm::epsilonEqual(A, 4.f, 0.01f) ? 0 : 1;
 
 	glm::vec1 B = glm::log2(glm::vec1(16.f));
 	Error += glm::all(glm::epsilonEqual(B, glm::vec1(4.f), 0.01f)) ? 0 : 1;
@@ -154,7 +154,7 @@ static int test_inversesqrt()
 	glm::vec3 D = glm::inversesqrt(glm::vec3(16.f)) * glm::sqrt(16.f);;
 	Error += glm::all(glm::epsilonEqual(D, glm::vec3(1.f), 0.01f)) ? 0 : 1;
 
-	glm::vec4 E = glm::inversesqrt(glm::vec4(16.f, 8.f, 4.f, 2.f)) * glm::sqrt(16.f);
+	glm::vec4 E = glm::inversesqrt(glm::vec4(16.f)) * glm::sqrt(16.f);
 	Error += glm::all(glm::epsilonEqual(E, glm::vec4(1.f), 0.01f)) ? 0 : 1;
 
 	return Error;
