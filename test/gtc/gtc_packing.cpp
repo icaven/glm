@@ -69,11 +69,11 @@ int test_Half1x16()
 
 	for(std::size_t i = 0; i < Tests.size(); ++i)
 	{
-		glm::uint32 p0 = glm::packHalf1x16(Tests[i]);
+		glm::uint16 p0 = glm::packHalf1x16(Tests[i]);
 		float v0 = glm::unpackHalf1x16(p0);
-		glm::uint32 p1 = glm::packHalf1x16(v0);
+		glm::uint16 p1 = glm::packHalf1x16(v0);
 		float v1 = glm::unpackHalf1x16(p1);
-		Error += (v0 == v1) ? 0 : 1;
+		Error += glm::epsilonEqual(v0, v1, glm::epsilon<float>()) ? 0 : 1;
 	}
 
 	return Error;
@@ -294,7 +294,7 @@ int test_packUnorm1x16()
 	for(std::size_t i = 0; i < A.size(); ++i)
 	{
 		glm::vec1 B(A[i]);
-		glm::uint32 C = glm::packUnorm1x16(B.x);
+		glm::uint16 C = glm::packUnorm1x16(B.x);
 		glm::vec1 D(glm::unpackUnorm1x16(C));
 		Error += glm::all(glm::epsilonEqual(B, D, 1.0f / 65535.f)) ? 0 : 1;
 		assert(!Error);
@@ -316,7 +316,7 @@ int test_packSnorm1x16()
 	for(std::size_t i = 0; i < A.size(); ++i)
 	{
 		glm::vec1 B(A[i]);
-		glm::uint32 C = glm::packSnorm1x16(B.x);
+		glm::uint16 C = glm::packSnorm1x16(B.x);
 		glm::vec1 D(glm::unpackSnorm1x16(C));
 		Error += glm::all(glm::epsilonEqual(B, D, 1.0f / 32767.0f * 2.0f)) ? 0 : 1;
 	}

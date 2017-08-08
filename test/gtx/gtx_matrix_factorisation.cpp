@@ -1,5 +1,7 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/matrix_factorisation.hpp>
+#include <glm/gtc/constants.hpp>
+#include <glm/gtc/epsilon.hpp>
 
 float const epsilon = 1e-10f;
 
@@ -33,7 +35,7 @@ int test_qr(matType<C, R, T, P> m)
 	//Test if the matrix r is upper triangular
 	for (glm::length_t i = 0; i < C; i++)
 	for (glm::length_t j = i + 1; j < (C < R ? C : R); j++)
-			Error += r[i][j] != 0 ? 1 : 0;
+		Error += glm::epsilonEqual(r[i][j], static_cast<T>(0), glm::epsilon<T>()) ? 0 : 1;
 
 	return Error;
 }
@@ -70,7 +72,7 @@ int test_rq(matType<C, R, T, P> m)
 	//Test if the matrix r is upper triangular
 	for (glm::length_t i = 0; i < (C < R ? C : R); i++)
 	for (glm::length_t j = R - (C < R ? C : R) + i + 1; j < R; j++)
-		Error += r[i][j] != 0 ? 1 : 0;
+		Error += glm::epsilonEqual(r[i][j], static_cast<T>(0), glm::epsilon<T>()) ? 0 : 1;
 
 	return Error;
 }
