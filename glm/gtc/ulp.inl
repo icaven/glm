@@ -9,6 +9,7 @@
 /// is preserved.
 
 #include "../detail/type_int.hpp"
+#include "epsilon.hpp"
 #include <cmath>
 #include <cfloat>
 #include <limits>
@@ -304,7 +305,7 @@ namespace glm
 		if(x < y)
 		{
 			T temp = x;
-			while(temp != y)// && ulp < std::numeric_limits<std::size_t>::max())
+			while(glm::epsilonNotEqual(temp, y, glm::epsilon<T>()))// && ulp < std::numeric_limits<std::size_t>::max())
 			{
 				++ulp;
 				temp = next_float(temp);
@@ -313,7 +314,7 @@ namespace glm
 		else if(y < x)
 		{
 			T temp = y;
-			while(temp != x)// && ulp < std::numeric_limits<std::size_t>::max())
+			while(glm::epsilonNotEqual(temp, x, glm::epsilon<T>()))// && ulp < std::numeric_limits<std::size_t>::max())
 			{
 				++ulp;
 				temp = next_float(temp);
