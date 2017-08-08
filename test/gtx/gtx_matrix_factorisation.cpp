@@ -19,7 +19,7 @@ int test_qr(matType<C, R, T, P> m)
 
 	for (glm::length_t i = 0; i < C; i++)
 	for (glm::length_t j = 0; j < R; j++)
-		Error += std::abs(err[i][j]) > epsilon ? 1 : 0;
+		Error += glm::abs(err[i][j]) > epsilon ? 1 : 0;
 
 	//Test if the columns of q are orthonormal
 	for (glm::length_t i = 0; i < (C < R ? C : R); i++)
@@ -27,7 +27,7 @@ int test_qr(matType<C, R, T, P> m)
 		Error += (length(q[i]) - 1) > epsilon ? 1 : 0;
 
 		for (glm::length_t j = 0; j<i; j++)
-			Error += std::abs(dot(q[i], q[j])) > epsilon ? 1 : 0;
+			Error += glm::abs(dot(q[i], q[j])) > epsilon ? 1 : 0;
 	}
 
 	//Test if the matrix r is upper triangular
@@ -54,7 +54,7 @@ int test_rq(matType<C, R, T, P> m)
 
 	for (glm::length_t i = 0; i < C; i++)
 	for (glm::length_t j = 0; j < R; j++)
-		Error += std::abs(err[i][j]) > epsilon ? 1 : 0;
+		Error += glm::abs(err[i][j]) > epsilon ? 1 : 0;
 
 	//Test if the rows of q are orthonormal
 	matType<(C < R ? C : R), C, T, P> tq = transpose(q);
@@ -64,7 +64,7 @@ int test_rq(matType<C, R, T, P> m)
 		Error += (length(tq[i]) - 1) > epsilon ? 1 : 0;
 
 		for (glm::length_t j = 0; j<i; j++)
-			Error += std::abs(dot(tq[i], tq[j])) > epsilon ? 1 : 0;
+			Error += glm::abs(dot(tq[i], tq[j])) > epsilon ? 1 : 0;
 	}
 
 	//Test if the matrix r is upper triangular

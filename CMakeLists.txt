@@ -84,7 +84,7 @@ endif()
 
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
 	add_definitions(-Weverything -Wpedantic -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-padded -Wno-documentation -Wno-gnu-anonymous-struct -Wno-nested-anon-types)
-	add_definitions(-Wno-sign-conversion -Wno-unused-variable -Wno-missing-prototypes -Wno-unreachable-code -Wno-missing-variable-declarations -Wno-sign-compare)
+	add_definitions(-Wno-sign-conversion -Wno-unused-variable -Wno-missing-prototypes -Wno-unreachable-code -Wno-missing-variable-declarations -Wno-sign-compare -Wno-double-promotion)
 endif()
 
 option(GLM_TEST_ENABLE_LANG_EXTENSIONS "Enable language extensions" OFF)

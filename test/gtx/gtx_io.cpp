@@ -30,7 +30,7 @@ namespace
 	}
 
 	template<typename U, glm::precision P, typename T, typename CTy, typename CTr>
-	std::basic_string<CTy> type_name(std::basic_ostream<CTy,CTr>& os, T const&)
+	std::basic_string<CTy> type_name(std::basic_ostream<CTy,CTr>&, T const&)
 	{
 		std::basic_ostringstream<CTy,CTr> ostr;
 
