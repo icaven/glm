@@ -134,7 +134,7 @@ int test_quat_slerp()
 
 	float const Epsilon = 0.0001f;//glm::epsilon<float>();
 
-	float sqrt2 = sqrt(2.0f)/2.0f;
+	float sqrt2 = std::sqrt(2.0f)/2.0f;
 	glm::quat id(static_cast<float>(1), static_cast<float>(0), static_cast<float>(0), static_cast<float>(0));
 	glm::quat Y90rot(sqrt2, 0.0f, sqrt2, 0.0f);
 	glm::quat Y180rot(0.0f, 0.0f, 1.0f, 0.0f);

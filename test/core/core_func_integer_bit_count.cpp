@@ -7,7 +7,7 @@
 
 unsigned rotatel(unsigned x, int n)
 {
-	if ((unsigned)n > 63) {printf("rotatel, n out of range.\n"); exit(1);}
+	if (static_cast<unsigned>(n) > 63) {printf("rotatel, n out of range.\n"); exit(1);}
 	return (x << n) | (x >> (32 - n));
 }
 
@@ -164,7 +164,7 @@ int pop9(unsigned x)
 	y = y & 0x1111111111111111ULL;
 	y = y * 0x1111111111111111ULL;
 	y = y >> 60;
-	return y;
+	return static_cast<int>(y);
 }
 
 int errors;

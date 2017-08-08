@@ -8,9 +8,9 @@ int test_ulp_float_dist()
 	float A = 1.0f;
 
 	float B = glm::next_float(A);
-	Error += A != B ? 0 : 1;
+	Error += glm::epsilonNotEqual(A, B, glm::epsilon<float>()) ? 0 : 1;
 	float C = glm::prev_float(B);
-	Error += A == C ? 0 : 1;
+	Error += glm::epsilonEqual(A, C, glm::epsilon<float>()) ? 0 : 1;
 
 	int D = glm::float_distance(A, B);
 	Error += D == 1 ? 0 : 1;

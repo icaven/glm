@@ -154,7 +154,7 @@ namespace refract
 			float A(-1.0f);
 			float B(1.0f);
 			float C = glm::refract(A, B, 0.5f);
-			Error += C == -1.0f ? 0 : 1;
+			Error += glm::epsilonEqual(C, -1.0f, 0.0001f) ? 0 : 1;
 		}
 
 		{
