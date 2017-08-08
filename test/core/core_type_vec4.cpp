@@ -464,12 +464,12 @@ int test_vec4_perf_SoA(std::size_t Size)
 
 namespace heap
 {
-	class A
+	struct A
 	{
 		float f;
 	};
 
-	class B : public A
+	struct B : public A
 	{
 		float g;
 		glm::vec4 v;
@@ -477,10 +477,13 @@ namespace heap
 
 	int test()
 	{
-		int Error(0);
+		int Error = 0;
 
 		A* p = new B;
+		p->f = 0.0f;
 		delete p;
+
+		Error += sizeof(B) == sizeof(glm::vec4) + sizeof(float) * 2 ? 0 : 1;
 
 		return Error;
 	}

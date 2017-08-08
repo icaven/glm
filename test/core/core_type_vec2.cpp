@@ -7,9 +7,9 @@
 #	include <type_traits>
 #endif
 
-static glm::vec2 v1;
-static glm::vec2 v2(1);
-static glm::vec2 v3(1, 1);
+static glm::vec2 g1;
+static glm::vec2 g2(1);
+static glm::vec2 g3(1, 1);
 
 int test_vec2_operators()
 {
