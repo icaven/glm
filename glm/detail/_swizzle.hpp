@@ -203,7 +203,7 @@ namespace detail
 //
 // Macro for wrapping a function taking one argument (e.g. abs())
 //
-#define _GLM_SWIZZLE_FUNCTION_1_ARGS(RETURN_TYPE,FUNCTION)                          \
+#define GLM_SWIZZLE_FUNCTION_1_ARGS(RETURN_TYPE,FUNCTION)                          \
 	GLM_SWIZZLE_TEMPLATE1                                                          \
 	GLM_FUNC_QUALIFIER typename GLM_SWIZZLE_TYPE1::RETURN_TYPE FUNCTION(const GLM_SWIZZLE_TYPE1& a)  \
 	{                                                                               \
@@ -213,7 +213,7 @@ namespace detail
 //
 // Macro for wrapping a function taking two vector arguments (e.g. dot()).
 //
-#define _GLM_SWIZZLE_FUNCTION_2_ARGS(RETURN_TYPE,FUNCTION)                                                      \
+#define GLM_SWIZZLE_FUNCTION_2_ARGS(RETURN_TYPE,FUNCTION)                                                      \
 	GLM_SWIZZLE_TEMPLATE2                                                                                      \
 	GLM_FUNC_QUALIFIER typename GLM_SWIZZLE_TYPE1::RETURN_TYPE FUNCTION(const GLM_SWIZZLE_TYPE1& a, const GLM_SWIZZLE_TYPE2& b) \
 	{                                                                                                           \
@@ -238,7 +238,7 @@ namespace detail
 //
 // Macro for wrapping a function take 2 vec arguments followed by a scalar (e.g. mix()).
 //
-#define _GLM_SWIZZLE_FUNCTION_2_ARGS_SCALAR(RETURN_TYPE,FUNCTION)                                                             \
+#define GLM_SWIZZLE_FUNCTION_2_ARGS_SCALAR(RETURN_TYPE,FUNCTION)                                                             \
 	GLM_SWIZZLE_TEMPLATE2                                                                                                    \
 	GLM_FUNC_QUALIFIER typename GLM_SWIZZLE_TYPE1::RETURN_TYPE FUNCTION(const GLM_SWIZZLE_TYPE1& a, const GLM_SWIZZLE_TYPE2& b, const T& c)   \
 	{                                                                                                                         \
@@ -285,16 +285,16 @@ namespace glm
 	// to explicitly convert the swizzled type to the unswizzled type.
 	//
 
-	//_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    abs);
-	//_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    acos);
-	//_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    acosh);
-	//_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    all);
-	//_GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    any);
+	//GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    abs);
+	//GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    acos);
+	//GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    acosh);
+	//GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    all);
+	//GLM_SWIZZLE_FUNCTION_1_ARGS(vec_type,    any);
 
-	//_GLM_SWIZZLE_FUNCTION_2_ARGS(value_type,  dot);
-	//_GLM_SWIZZLE_FUNCTION_2_ARGS(vec_type,    cross);
-	//_GLM_SWIZZLE_FUNCTION_2_ARGS(vec_type,    step);    
-	//_GLM_SWIZZLE_FUNCTION_2_ARGS_SCALAR(vec_type, mix);
+	//GLM_SWIZZLE_FUNCTION_2_ARGS(value_type,  dot);
+	//GLM_SWIZZLE_FUNCTION_2_ARGS(vec_type,    cross);
+	//GLM_SWIZZLE_FUNCTION_2_ARGS(vec_type,    step);    
+	//GLM_SWIZZLE_FUNCTION_2_ARGS_SCALAR(vec_type, mix);
 }
 
 #define GLM_SWIZZLE2_2_MEMBERS(T, P, E0,E1) \
