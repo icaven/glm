@@ -332,7 +332,7 @@ namespace mix_
 		T Result;
 	};
 
-	entry<float, bool> TestBool[] =
+	entry<float, bool> const TestBool[] =
 	{
 		{0.0f, 1.0f, false, 0.0f},
 		{0.0f, 1.0f, true, 1.0f},
@@ -340,7 +340,7 @@ namespace mix_
 		{-1.0f, 1.0f, true, 1.0f}
 	};
 
-	entry<float, float> TestFloat[] =
+	entry<float, float> const TestFloat[] =
 	{
 		{0.0f, 1.0f, 0.0f, 0.0f},
 		{0.0f, 1.0f, 1.0f, 1.0f},
@@ -348,7 +348,7 @@ namespace mix_
 		{-1.0f, 1.0f, 1.0f, 1.0f}
 	};
 
-	entry<glm::vec2, bool> TestVec2Bool[] =
+	entry<glm::vec2, bool> const TestVec2Bool[] =
 	{
 		{glm::vec2(0.0f), glm::vec2(1.0f), false, glm::vec2(0.0f)},
 		{glm::vec2(0.0f), glm::vec2(1.0f), true, glm::vec2(1.0f)},
@@ -356,7 +356,7 @@ namespace mix_
 		{glm::vec2(-1.0f), glm::vec2(1.0f), true, glm::vec2(1.0f)}
 	};
 
-	entry<glm::vec2, glm::bvec2> TestBVec2[] =
+	entry<glm::vec2, glm::bvec2> const TestBVec2[] =
 	{
 		{glm::vec2(0.0f), glm::vec2(1.0f), glm::bvec2(false), glm::vec2(0.0f)},
 		{glm::vec2(0.0f), glm::vec2(1.0f), glm::bvec2(true), glm::vec2(1.0f)},
@@ -365,7 +365,7 @@ namespace mix_
 		{glm::vec2(-1.0f), glm::vec2(1.0f), glm::bvec2(true, false), glm::vec2(1.0f, -1.0f)}
 	};
 
-	entry<glm::vec3, bool> TestVec3Bool[] =
+	entry<glm::vec3, bool> const TestVec3Bool[] =
 	{
 		{glm::vec3(0.0f), glm::vec3(1.0f), false, glm::vec3(0.0f)},
 		{glm::vec3(0.0f), glm::vec3(1.0f), true, glm::vec3(1.0f)},
@@ -373,7 +373,7 @@ namespace mix_
 		{glm::vec3(-1.0f), glm::vec3(1.0f), true, glm::vec3(1.0f)}
 	};
 
-	entry<glm::vec3, glm::bvec3> TestBVec3[] =
+	entry<glm::vec3, glm::bvec3> const TestBVec3[] =
 	{
 		{glm::vec3(0.0f), glm::vec3(1.0f), glm::bvec3(false), glm::vec3(0.0f)},
 		{glm::vec3(0.0f), glm::vec3(1.0f), glm::bvec3(true), glm::vec3(1.0f)},
@@ -382,7 +382,7 @@ namespace mix_
 		{glm::vec3(1.0f, 2.0f, 3.0f), glm::vec3(4.0f, 5.0f, 6.0f), glm::bvec3(true, false, true), glm::vec3(4.0f, 2.0f, 6.0f)}
 	};
 
-	entry<glm::vec4, bool> TestVec4Bool[] = 
+	entry<glm::vec4, bool> const TestVec4Bool[] = 
 	{
 		{glm::vec4(0.0f), glm::vec4(1.0f), false, glm::vec4(0.0f)},
 		{glm::vec4(0.0f), glm::vec4(1.0f), true, glm::vec4(1.0f)},
@@ -390,7 +390,7 @@ namespace mix_
 		{glm::vec4(-1.0f), glm::vec4(1.0f), true, glm::vec4(1.0f)}
 	};
 
-	entry<glm::vec4, glm::bvec4> TestBVec4[] = 
+	entry<glm::vec4, glm::bvec4> const TestBVec4[] = 
 	{
 		{glm::vec4(0.0f, 0.0f, 1.0f, 1.0f), glm::vec4(2.0f, 2.0f, 3.0f, 3.0f), glm::bvec4(false, true, false, true), glm::vec4(0.0f, 2.0f, 1.0f, 3.0f)},
 		{glm::vec4(0.0f), glm::vec4(1.0f), glm::bvec4(true), glm::vec4(1.0f)},

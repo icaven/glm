@@ -5,6 +5,7 @@
 #include "../geometric.hpp"
 #include "../exponential.hpp"
 #include "../detail/compute_vector_relational.hpp"
+#include "epsilon.hpp"
 #include <limits>
 
 namespace glm{
@@ -352,13 +353,13 @@ namespace detail
 	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER bool operator==(tquat<T, P> const & q1, tquat<T, P> const & q2)
 	{
-		return (q1.x == q2.x) && (q1.y == q2.y) && (q1.z == q2.z) && (q1.w == q2.w);
+		return all(epsilonEqual(q1, q2, epsilon<T>()));
 	}
 
 	template<typename T, precision P>
 	GLM_FUNC_QUALIFIER bool operator!=(tquat<T, P> const & q1, tquat<T, P> const & q2)
 	{
-		return (q1.x != q2.x) || (q1.y != q2.y) || (q1.z != q2.z) || (q1.w != q2.w);
+		return any(epsilonNotEqual(q1, q2, epsilon<T>()));
 	}
 
 	// -- Operations --
