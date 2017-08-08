@@ -258,10 +258,11 @@ int test_vec3_swizzle3_2()
 {
 	int Error = 0;
 
-	glm::vec3 v(1, 2, 3);
-	glm::vec2 u;
-
 #	if(GLM_LANG & GLM_LANG_CXXMS_FLAG)
+
+		glm::vec3 v(1, 2, 3);
+		glm::vec2 u;
+
 		// Can not assign a vec3 swizzle to a vec2
 		//u = v.xyz;    //Illegal
 		//u = v.rgb;    //Illegal
@@ -321,10 +322,10 @@ int test_vec3_swizzle3_3()
 {
 	int Error = 0;
 
+#	if(GLM_LANG & GLM_LANG_CXXMS_FLAG)
 	glm::vec3 v(1, 2, 3);
 	glm::vec3 u;
 
-#	if(GLM_LANG & GLM_LANG_CXXMS_FLAG)
 		u = v;          Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
 
 		u = v.xyz;      Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
@@ -348,12 +349,12 @@ int test_vec3_swizzle_operators()
 {
 	int Error = 0;
 
-	glm::vec3 q, u, v;
-
-	u = glm::vec3(1, 2, 3);
-	v = glm::vec3(10, 20, 30);
+	glm::vec3 u = glm::vec3(1, 2, 3);
+	glm::vec3 v = glm::vec3(10, 20, 30);
 
 #	if(GLM_LANG & GLM_LANG_CXXMS_FLAG)
+		glm::vec3 q;
+
 		// Swizzle, swizzle binary operators
 		q = u.xyz + v.xyz;          Error += (q == (u + v)) ? 0 : 1;
 		q = (u.zyx + v.zyx).zyx;    Error += (q == (u + v)) ? 0 : 1;
@@ -405,9 +406,8 @@ int test_vec3_swizzle_functions()
 	r = glm::dot(glm::vec2(a.xy()), glm::vec2(b.yy()));       Error += (int(r) == 60) ? 0 : 1;
 
 	// vec3
-	glm::vec3 q, u, v;
-	u = glm::vec3(1, 2, 3);
-	v = glm::vec3(10, 20, 30);
+	glm::vec3 u = glm::vec3(1, 2, 3);
+	glm::vec3 v = glm::vec3(10, 20, 30);
 	r = glm::dot(u, v);                 Error += (int(r) == 140) ? 0 : 1;
 	r = glm::dot(u.xyz(), v.zyz());     Error += (int(r) == 160) ? 0 : 1;
 	r = glm::dot(u, v.zyx());           Error += (int(r) == 100) ? 0 : 1;
@@ -415,9 +415,8 @@ int test_vec3_swizzle_functions()
 	r = glm::dot(u.xy(), v.xy());       Error += (int(r) == 50) ? 0 : 1;
 
 	// vec4
-	glm::vec4 s, t;
-	s = glm::vec4(1, 2, 3, 4);
-	t = glm::vec4(10, 20, 30, 40);
+	glm::vec4 s = glm::vec4(1, 2, 3, 4);
+	glm::vec4 t = glm::vec4(10, 20, 30, 40);
 	r = glm::dot(s, t);                 Error += (int(r) == 300) ? 0 : 1;
 	r = glm::dot(s.xyzw(), t.xyzw());   Error += (int(r) == 300) ? 0 : 1;
 	r = glm::dot(s.xyz(), t.xyz());     Error += (int(r) == 140) ? 0 : 1;
@@ -482,9 +481,6 @@ int test_operator_increment()
 int main()
 {
 	int Error = 0;
-
-	glm::vec3 v;
-	assert(v.length() == 3);
 
 	Error += test_vec3_ctor();
 	Error += test_vec3_operators();

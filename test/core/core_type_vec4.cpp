@@ -546,8 +546,6 @@ int main()
 		printf("GNI\n");
 	}
 */
-	glm::vec4 v;
-	assert(v.length() == 4);
 
 #	ifdef NDEBUG
 		std::size_t const Size(1000000);
