@@ -1,4 +1,5 @@
 #define GLM_FORCE_SWIZZLE
+#include <glm/gtc/epsilon.hpp>
 #include <glm/vector_relational.hpp>
 #include <glm/vec2.hpp>
 #include <vector>
@@ -25,8 +26,8 @@ int test_vec2_operators()
 		glm::vec2 A(1.0f);
 		glm::vec2 C = A + 1.0f;
 		A += 1.0f;
-		Error += A.x == 2.0f && A.y == 2.0f ? 0 : 1;
-		Error += A.x == C.x && A.y == C.y ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(A, glm::vec2(2.0f), glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(A, C, glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	{
@@ -34,16 +35,16 @@ int test_vec2_operators()
 		glm::vec2 B(2.0f,-1.0f);
 		glm::vec2 C = A + B;
 		A += B;
-		Error += A.x == 3.0f && A.y == 0.0f ? 0 : 1;
-		Error += A.x == C.x && A.y == C.y ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(A, glm::vec2(3.0f, 0.0f), glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(A, C, glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	{
 		glm::vec2 A(1.0f);
 		glm::vec2 C = A - 1.0f;
 		A -= 1.0f;
-		Error += A.x == 0.0f && A.y == 0.0f ? 0 : 1;
-		Error += A.x == C.x && A.y == C.y ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(A, glm::vec2(0.0f), glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(A, C, glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	{
@@ -51,16 +52,16 @@ int test_vec2_operators()
 		glm::vec2 B(2.0f,-1.0f);
 		glm::vec2 C = A - B;
 		A -= B;
-		Error += A.x == -1.0f && A.y == 2.0f ? 0 : 1;
-		Error += A.x == C.x && A.y == C.y ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(A, glm::vec2(-1.0f, 2.0f), glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(A, C, glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	{
 		glm::vec2 A(1.0f);
 		glm::vec2 C = A * 2.0f;
 		A *= 2.0f;
-		Error += A.x == 2.0f && A.y == 2.0f ? 0 : 1;
-		Error += A.x == C.x && A.y == C.y ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(A, glm::vec2(2.0f), glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(A, C, glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	{
@@ -68,8 +69,8 @@ int test_vec2_operators()
 		glm::vec2 B(2.0f);
 		glm::vec2 C = A / B;
 		A /= B;
-		Error += A.x == 1.0f && A.y == 1.0f ? 0 : 1;
-		Error += A.x == C.x && A.y == C.y ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(A, glm::vec2(1.0f), glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::epsilonEqual(A, C, glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	{
@@ -310,9 +311,6 @@ int test_operator_increment()
 int main()
 {
 	int Error = 0;
-
-	glm::vec2 v;
-	assert(v.length() == 2);
 
 	Error += test_vec2_size();
 	Error += test_vec2_ctor();
