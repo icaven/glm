@@ -16,12 +16,12 @@ namespace floor_
 		int Error(0);
 
 		{
-			float A(1.1f);
+			float A = 1.1f;
 			float B = glm::floor(A);
 		}
 
 		{
-			double A(1.1f);
+			double A = 1.1;
 			double B = glm::floor(A);
 		}
 
@@ -33,7 +33,7 @@ namespace floor_
 		}
 
 		{
-			glm::dvec1 A(1.1f);
+			glm::dvec1 A(1.1);
 			glm::dvec1 B = glm::floor(A);
 
 			Error += glm::all(glm::epsilonEqual(B, glm::dvec1(1.0), 0.0001)) ? 0 : 1;
@@ -47,7 +47,7 @@ namespace floor_
 		}
 
 		{
-			glm::dvec2 A(1.1f);
+			glm::dvec2 A(1.1);
 			glm::dvec2 B = glm::floor(A);
 
 			Error += glm::all(glm::epsilonEqual(B, glm::dvec2(1.0), 0.0001)) ? 0 : 1;
@@ -61,7 +61,7 @@ namespace floor_
 		}
 
 		{
-			glm::dvec3 A(1.1f);
+			glm::dvec3 A(1.1);
 			glm::dvec3 B = glm::floor(A);
 
 			Error += glm::all(glm::epsilonEqual(B, glm::dvec3(1.0), 0.0001)) ? 0 : 1;
@@ -75,7 +75,7 @@ namespace floor_
 		}
 
 		{
-			glm::dvec4 A(1.1f);
+			glm::dvec4 A(1.1);
 			glm::dvec4 B = glm::floor(A);
 
 			Error += glm::all(glm::epsilonEqual(B, glm::dvec4(1.0), 0.0001)) ? 0 : 1;

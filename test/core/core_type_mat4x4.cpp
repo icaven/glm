@@ -17,10 +17,10 @@ template<typename genType>
 void print(genType const & Mat0)
 {
 	printf("mat4(\n");
-	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f)\n", Mat0[0][0], Mat0[0][1], Mat0[0][2], Mat0[0][3]);
-	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f)\n", Mat0[1][0], Mat0[1][1], Mat0[1][2], Mat0[1][3]);
-	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f)\n", Mat0[2][0], Mat0[2][1], Mat0[2][2], Mat0[2][3]);
-	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f))\n\n", Mat0[3][0], Mat0[3][1], Mat0[3][2], Mat0[3][3]);
+	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f)\n", static_cast<double>(Mat0[0][0]), static_cast<double>(Mat0[0][1]), static_cast<double>(Mat0[0][2]), static_cast<double>(Mat0[0][3]));
+	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f)\n", static_cast<double>(Mat0[1][0]), static_cast<double>(Mat0[1][1]), static_cast<double>(Mat0[1][2]), static_cast<double>(Mat0[1][3]));
+	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f)\n", static_cast<double>(Mat0[2][0]), static_cast<double>(Mat0[2][1]), static_cast<double>(Mat0[2][2]), static_cast<double>(Mat0[2][3]));
+	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f))\n\n", static_cast<double>(Mat0[3][0]), static_cast<double>(Mat0[3][1]), static_cast<double>(Mat0[3][2]), static_cast<double>(Mat0[3][3]));
 }
 
 int test_inverse_mat4x4()

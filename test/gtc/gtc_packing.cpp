@@ -46,7 +46,7 @@ void print_11bits(glm::uint const & s)
 
 void print_value(float const & s)
 {
-	printf("%2.5f, ", s);
+	printf("%2.5f, ", static_cast<double>(s);
 	print_bits(s);
 	printf(", ");
 //	print_11bits(detail::floatTo11bit(s));
