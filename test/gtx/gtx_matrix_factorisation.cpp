@@ -3,12 +3,12 @@
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/epsilon.hpp>
 
-float const epsilon = 1e-10f;
-
 template <glm::length_t C, glm::length_t R, typename T, glm::precision P, template<glm::length_t, glm::length_t, typename, glm::precision> class matType>
 int test_qr(matType<C, R, T, P> m)
 {
 	int Error = 0;
+
+	T const epsilon = static_cast<T>(1e-10);
 
 	matType<(C < R ? C : R), R, T, P> q(-999);
 	matType<C, (C < R ? C : R), T, P> r(-999);
@@ -44,6 +44,8 @@ template <glm::length_t C, glm::length_t R, typename T, glm::precision P, templa
 int test_rq(matType<C, R, T, P> m)
 {
 	int Error = 0;
+
+	T const epsilon = static_cast<T>(1e-10);
 
 	matType<C, (C < R ? C : R), T, P> q(-999);
 	matType<(C < R ? C : R), R, T, P> r(-999);
@@ -82,22 +84,22 @@ int main()
 	int Error = 0;
 
 	//Test QR square
-	Error += test_qr(glm::dmat3(12, 6, -4, -51, 167, 24, 4, -68, -41)) ? 1 : 0;
+	Error += test_qr(glm::dmat3(12.0, 6.0, -4.0, -51.0, 167.0, 24.0, 4.0, -68.0, -41.0)) ? 1 : 0;
 
 	//Test RQ square
-	Error += test_rq(glm::dmat3(12, 6, -4, -51, 167, 24, 4, -68, -41)) ? 1 : 0;
+	Error += test_rq(glm::dmat3(12.0, 6.0, -4.0, -51.0, 167.0, 24.0, 4.0, -68.0, -41.0)) ? 1 : 0;
 
 	//Test QR triangular 1
-	Error += test_qr(glm::dmat3x4(12, 6, -4, -51, 167, 24, 4, -68, -41, 7, 2, 15)) ? 1 : 0;
+	Error += test_qr(glm::dmat3x4(12.0, 6.0, -4.0, -51.0, 167.0, 24.0, 4.0, -68.0, -41.0, 7.0, 2.0, 15.0)) ? 1 : 0;
 
 	//Test QR triangular 2
-	Error += test_qr(glm::dmat4x3(12, 6, -4, -51, 167, 24, 4, -68, -41, 7, 2, 15)) ? 1 : 0;
+	Error += test_qr(glm::dmat4x3(12.0, 6.0, -4.0, -51.0, 167.0, 24.0, 4.0, -68.0, -41.0, 7.0, 2.0, 15.0)) ? 1 : 0;
 
 	//Test RQ triangular 1 : Fails at the triangular test
-	Error += test_rq(glm::dmat3x4(12, 6, -4, -51, 167, 24, 4, -68, -41, 7, 2, 15)) ? 1 : 0;
+	Error += test_rq(glm::dmat3x4(12.0, 6.0, -4.0, -51.0, 167.0, 24.0, 4.0, -68.0, -41.0, 7.0, 2.0, 15.0)) ? 1 : 0;
 
 	//Test QR triangular 2
-	Error += test_rq(glm::dmat4x3(12, 6, -4, -51, 167, 24, 4, -68, -41, 7, 2, 15)) ? 1 : 0;
+	Error += test_rq(glm::dmat4x3(12.0, 6.0, -4.0, -51.0, 167.0, 24.0, 4.0, -68.0, -41.0, 7.0, 2.0, 15.0)) ? 1 : 0;
 
 	return Error;
 }

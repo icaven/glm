@@ -118,7 +118,7 @@ int test_quat_euler()
 	}
 
 	{
-		glm::dquat q(1.0f, 0.0f, 0.0f, 1.0f);
+		glm::dquat q(1.0, 0.0, 0.0, 1.0);
 		double Roll = glm::roll(q);
 		double Pitch = glm::pitch(q);
 		double Yaw = glm::yaw(q);
