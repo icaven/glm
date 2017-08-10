@@ -283,7 +283,7 @@ int test_diskRand()
 
 	{
 		float ResultFloat = 0.0f;
-		double ResultDouble = 0.0f;
+		double ResultDouble = 0.0;
 
 		for(std::size_t i = 0; i < TestSamples; ++i)
 		{
@@ -305,7 +305,7 @@ int test_ballRand()
 
 	{
 		float ResultFloat = 0.0f;
-		double ResultDouble = 0.0f;
+		double ResultDouble = 0.0;
 
 		for(std::size_t i = 0; i < TestSamples; ++i)
 		{
