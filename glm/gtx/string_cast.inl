@@ -199,7 +199,7 @@ namespace detail
 				LiteralStr));
 
 			return detail::format(FormatStr.c_str(),
-				static_cast<cast<T>::value_type>(x[0]));
+				static_cast<typename cast<T>::value_type>(x[0]));
 		}
 	};
 
@@ -215,8 +215,8 @@ namespace detail
 				LiteralStr, LiteralStr));
 
 			return detail::format(FormatStr.c_str(),
-				static_cast<cast<T>::value_type>(x[0]),
-				static_cast<cast<T>::value_type>(x[1]));
+				static_cast<typename cast<T>::value_type>(x[0]),
+				static_cast<typename cast<T>::value_type>(x[1]));
 		}
 	};
 
@@ -232,9 +232,9 @@ namespace detail
 				LiteralStr, LiteralStr, LiteralStr));
 
 			return detail::format(FormatStr.c_str(),
-				static_cast<cast<T>::value_type>(x[0]), 
-				static_cast<cast<T>::value_type>(x[1]), 
-				static_cast<cast<T>::value_type>(x[2]));
+				static_cast<typename cast<T>::value_type>(x[0]), 
+				static_cast<typename cast<T>::value_type>(x[1]), 
+				static_cast<typename cast<T>::value_type>(x[2]));
 		}
 	};
 
@@ -250,10 +250,10 @@ namespace detail
 				LiteralStr, LiteralStr, LiteralStr, LiteralStr));
 
 			return detail::format(FormatStr.c_str(), 
-				static_cast<cast<T>::value_type>(x[0]),
-				static_cast<cast<T>::value_type>(x[1]),
-				static_cast<cast<T>::value_type>(x[2]),
-				static_cast<cast<T>::value_type>(x[3]));
+				static_cast<typename cast<T>::value_type>(x[0]),
+				static_cast<typename cast<T>::value_type>(x[1]),
+				static_cast<typename cast<T>::value_type>(x[2]),
+				static_cast<typename cast<T>::value_type>(x[3]));
 		}
 	};
 
@@ -271,8 +271,8 @@ namespace detail
 				LiteralStr, LiteralStr));
 
 			return detail::format(FormatStr.c_str(),
-				static_cast<cast<T>::value_type>(x[0][0]), static_cast<cast<T>::value_type>(x[0][1]),
-				static_cast<cast<T>::value_type>(x[1][0]), static_cast<cast<T>::value_type>(x[1][1]));
+				static_cast<typename cast<T>::value_type>(x[0][0]), static_cast<typename cast<T>::value_type>(x[0][1]),
+				static_cast<typename cast<T>::value_type>(x[1][0]), static_cast<typename cast<T>::value_type>(x[1][1]));
 		}
 	};
 
@@ -289,8 +289,8 @@ namespace detail
 				LiteralStr, LiteralStr, LiteralStr));
 
 			return detail::format(FormatStr.c_str(),
-				static_cast<cast<T>::value_type>(x[0][0]), static_cast<cast<T>::value_type>(x[0][1]), static_cast<cast<T>::value_type>(x[0][2]),
-				static_cast<cast<T>::value_type>(x[1][0]), static_cast<cast<T>::value_type>(x[1][1]), static_cast<cast<T>::value_type>(x[1][2]));
+				static_cast<typename cast<T>::value_type>(x[0][0]), static_cast<typename cast<T>::value_type>(x[0][1]), static_cast<typename cast<T>::value_type>(x[0][2]),
+				static_cast<typename cast<T>::value_type>(x[1][0]), static_cast<typename cast<T>::value_type>(x[1][1]), static_cast<typename cast<T>::value_type>(x[1][2]));
 		}
 	};
 
@@ -307,8 +307,8 @@ namespace detail
 				LiteralStr, LiteralStr, LiteralStr, LiteralStr));
 
 			return detail::format(FormatStr.c_str(),
-				static_cast<cast<T>::value_type>(x[0][0]), static_cast<cast<T>::value_type>(x[0][1]), static_cast<cast<T>::value_type>(x[0][2]), static_cast<cast<T>::value_type>(x[0][3]),
-				static_cast<cast<T>::value_type>(x[1][0]), static_cast<cast<T>::value_type>(x[1][1]), static_cast<cast<T>::value_type>(x[1][2]), static_cast<cast<T>::value_type>(x[1][3]));
+				static_cast<typename cast<T>::value_type>(x[0][0]), static_cast<typename cast<T>::value_type>(x[0][1]), static_cast<typename cast<T>::value_type>(x[0][2]), static_cast<typename cast<T>::value_type>(x[0][3]),
+				static_cast<typename cast<T>::value_type>(x[1][0]), static_cast<typename cast<T>::value_type>(x[1][1]), static_cast<typename cast<T>::value_type>(x[1][2]), static_cast<typename cast<T>::value_type>(x[1][3]));
 		}
 	};
 
@@ -326,9 +326,9 @@ namespace detail
 				LiteralStr, LiteralStr));
 
 			return detail::format(FormatStr.c_str(),
-				static_cast<cast<T>::value_type>(x[0][0]), static_cast<cast<T>::value_type>(x[0][1]),
-				static_cast<cast<T>::value_type>(x[1][0]), static_cast<cast<T>::value_type>(x[1][1]),
-				static_cast<cast<T>::value_type>(x[2][0]), static_cast<cast<T>::value_type>(x[2][1]));
+				static_cast<typename cast<T>::value_type>(x[0][0]), static_cast<typename cast<T>::value_type>(x[0][1]),
+				static_cast<typename cast<T>::value_type>(x[1][0]), static_cast<typename cast<T>::value_type>(x[1][1]),
+				static_cast<typename cast<T>::value_type>(x[2][0]), static_cast<typename cast<T>::value_type>(x[2][1]));
 		}
 	};
 
@@ -346,9 +346,9 @@ namespace detail
 				LiteralStr, LiteralStr, LiteralStr));
 
 			return detail::format(FormatStr.c_str(),
-				static_cast<cast<T>::value_type>(x[0][0]), static_cast<cast<T>::value_type>(x[0][1]), static_cast<cast<T>::value_type>(x[0][2]),
-				static_cast<cast<T>::value_type>(x[1][0]), static_cast<cast<T>::value_type>(x[1][1]), static_cast<cast<T>::value_type>(x[1][2]),
-				static_cast<cast<T>::value_type>(x[2][0]), static_cast<cast<T>::value_type>(x[2][1]), static_cast<cast<T>::value_type>(x[2][2]));
+				static_cast<typename cast<T>::value_type>(x[0][0]), static_cast<typename cast<T>::value_type>(x[0][1]), static_cast<typename cast<T>::value_type>(x[0][2]),
+				static_cast<typename cast<T>::value_type>(x[1][0]), static_cast<typename cast<T>::value_type>(x[1][1]), static_cast<typename cast<T>::value_type>(x[1][2]),
+				static_cast<typename cast<T>::value_type>(x[2][0]), static_cast<typename cast<T>::value_type>(x[2][1]), static_cast<typename cast<T>::value_type>(x[2][2]));
 		}
 	};
 
@@ -366,9 +366,9 @@ namespace detail
 				LiteralStr, LiteralStr, LiteralStr, LiteralStr));
 
 			return detail::format(FormatStr.c_str(),
-				static_cast<cast<T>::value_type>(x[0][0]), static_cast<cast<T>::value_type>(x[0][1]), static_cast<cast<T>::value_type>(x[0][2]), static_cast<cast<T>::value_type>(x[0][3]),
-				static_cast<cast<T>::value_type>(x[1][0]), static_cast<cast<T>::value_type>(x[1][1]), static_cast<cast<T>::value_type>(x[1][2]), static_cast<cast<T>::value_type>(x[1][3]),
-				static_cast<cast<T>::value_type>(x[2][0]), static_cast<cast<T>::value_type>(x[2][1]), static_cast<cast<T>::value_type>(x[2][2]), static_cast<cast<T>::value_type>(x[2][3]));
+				static_cast<typename cast<T>::value_type>(x[0][0]), static_cast<typename cast<T>::value_type>(x[0][1]), static_cast<typename cast<T>::value_type>(x[0][2]), static_cast<typename cast<T>::value_type>(x[0][3]),
+				static_cast<typename cast<T>::value_type>(x[1][0]), static_cast<typename cast<T>::value_type>(x[1][1]), static_cast<typename cast<T>::value_type>(x[1][2]), static_cast<typename cast<T>::value_type>(x[1][3]),
+				static_cast<typename cast<T>::value_type>(x[2][0]), static_cast<typename cast<T>::value_type>(x[2][1]), static_cast<typename cast<T>::value_type>(x[2][2]), static_cast<typename cast<T>::value_type>(x[2][3]));
 		}
 	};
 
@@ -387,10 +387,10 @@ namespace detail
 				LiteralStr, LiteralStr));
 
 			return detail::format(FormatStr.c_str(),
-				static_cast<cast<T>::value_type>(x[0][0]), static_cast<cast<T>::value_type>(x[0][1]),
-				static_cast<cast<T>::value_type>(x[1][0]), static_cast<cast<T>::value_type>(x[1][1]),
-				static_cast<cast<T>::value_type>(x[2][0]), static_cast<cast<T>::value_type>(x[2][1]),
-				static_cast<cast<T>::value_type>(x[3][0]), static_cast<cast<T>::value_type>(x[3][1]));
+				static_cast<typename cast<T>::value_type>(x[0][0]), static_cast<typename cast<T>::value_type>(x[0][1]),
+				static_cast<typename cast<T>::value_type>(x[1][0]), static_cast<typename cast<T>::value_type>(x[1][1]),
+				static_cast<typename cast<T>::value_type>(x[2][0]), static_cast<typename cast<T>::value_type>(x[2][1]),
+				static_cast<typename cast<T>::value_type>(x[3][0]), static_cast<typename cast<T>::value_type>(x[3][1]));
 		}
 	};
 
@@ -409,10 +409,10 @@ namespace detail
 				LiteralStr, LiteralStr, LiteralStr));
 
 			return detail::format(FormatStr.c_str(),
-				static_cast<cast<T>::value_type>(x[0][0]), static_cast<cast<T>::value_type>(x[0][1]), static_cast<cast<T>::value_type>(x[0][2]),
-				static_cast<cast<T>::value_type>(x[1][0]), static_cast<cast<T>::value_type>(x[1][1]), static_cast<cast<T>::value_type>(x[1][2]),
-				static_cast<cast<T>::value_type>(x[2][0]), static_cast<cast<T>::value_type>(x[2][1]), static_cast<cast<T>::value_type>(x[2][2]),
-				static_cast<cast<T>::value_type>(x[3][0]), static_cast<cast<T>::value_type>(x[3][1]), static_cast<cast<T>::value_type>(x[3][2]));
+				static_cast<typename cast<T>::value_type>(x[0][0]), static_cast<typename cast<T>::value_type>(x[0][1]), static_cast<typename cast<T>::value_type>(x[0][2]),
+				static_cast<typename cast<T>::value_type>(x[1][0]), static_cast<typename cast<T>::value_type>(x[1][1]), static_cast<typename cast<T>::value_type>(x[1][2]),
+				static_cast<typename cast<T>::value_type>(x[2][0]), static_cast<typename cast<T>::value_type>(x[2][1]), static_cast<typename cast<T>::value_type>(x[2][2]),
+				static_cast<typename cast<T>::value_type>(x[3][0]), static_cast<typename cast<T>::value_type>(x[3][1]), static_cast<typename cast<T>::value_type>(x[3][2]));
 		}
 	};
 
@@ -431,10 +431,10 @@ namespace detail
 				LiteralStr, LiteralStr, LiteralStr, LiteralStr));
 
 			return detail::format(FormatStr.c_str(),
-				static_cast<cast<T>::value_type>(x[0][0]), static_cast<cast<T>::value_type>(x[0][1]), static_cast<cast<T>::value_type>(x[0][2]), static_cast<cast<T>::value_type>(x[0][3]),
-				static_cast<cast<T>::value_type>(x[1][0]), static_cast<cast<T>::value_type>(x[1][1]), static_cast<cast<T>::value_type>(x[1][2]), static_cast<cast<T>::value_type>(x[1][3]),
-				static_cast<cast<T>::value_type>(x[2][0]), static_cast<cast<T>::value_type>(x[2][1]), static_cast<cast<T>::value_type>(x[2][2]), static_cast<cast<T>::value_type>(x[2][3]),
-				static_cast<cast<T>::value_type>(x[3][0]), static_cast<cast<T>::value_type>(x[3][1]), static_cast<cast<T>::value_type>(x[3][2]), static_cast<cast<T>::value_type>(x[3][3]));
+				static_cast<typename cast<T>::value_type>(x[0][0]), static_cast<typename cast<T>::value_type>(x[0][1]), static_cast<typename cast<T>::value_type>(x[0][2]), static_cast<typename cast<T>::value_type>(x[0][3]),
+				static_cast<typename cast<T>::value_type>(x[1][0]), static_cast<typename cast<T>::value_type>(x[1][1]), static_cast<typename cast<T>::value_type>(x[1][2]), static_cast<typename cast<T>::value_type>(x[1][3]),
+				static_cast<typename cast<T>::value_type>(x[2][0]), static_cast<typename cast<T>::value_type>(x[2][1]), static_cast<typename cast<T>::value_type>(x[2][2]), static_cast<typename cast<T>::value_type>(x[2][3]),
+				static_cast<typename cast<T>::value_type>(x[3][0]), static_cast<typename cast<T>::value_type>(x[3][1]), static_cast<typename cast<T>::value_type>(x[3][2]), static_cast<typename cast<T>::value_type>(x[3][3]));
 		}
 	};
 
@@ -451,10 +451,10 @@ namespace detail
 				LiteralStr, LiteralStr, LiteralStr, LiteralStr));
 
 			return detail::format(FormatStr.c_str(),
-				static_cast<cast<T>::value_type>(x[0]),
-				static_cast<cast<T>::value_type>(x[1]),
-				static_cast<cast<T>::value_type>(x[2]),
-				static_cast<cast<T>::value_type>(x[3]));
+				static_cast<typename cast<T>::value_type>(x[0]),
+				static_cast<typename cast<T>::value_type>(x[1]),
+				static_cast<typename cast<T>::value_type>(x[2]),
+				static_cast<typename cast<T>::value_type>(x[3]));
 		}
 	};
 
@@ -470,14 +470,14 @@ namespace detail
 				LiteralStr, LiteralStr, LiteralStr, LiteralStr));
 
 			return detail::format(FormatStr.c_str(),
-				static_cast<cast<T>::value_type>(x.real[0]),
-				static_cast<cast<T>::value_type>(x.real[1]),
-				static_cast<cast<T>::value_type>(x.real[2]),
-				static_cast<cast<T>::value_type>(x.real[3]),
-				static_cast<cast<T>::value_type>(x.dual[0]),
-				static_cast<cast<T>::value_type>(x.dual[1]),
-				static_cast<cast<T>::value_type>(x.dual[2]),
-				static_cast<cast<T>::value_type>(x.dual[3]));
+				static_cast<typename cast<T>::value_type>(x.real[0]),
+				static_cast<typename cast<T>::value_type>(x.real[1]),
+				static_cast<typename cast<T>::value_type>(x.real[2]),
+				static_cast<typename cast<T>::value_type>(x.real[3]),
+				static_cast<typename cast<T>::value_type>(x.dual[0]),
+				static_cast<typename cast<T>::value_type>(x.dual[1]),
+				static_cast<typename cast<T>::value_type>(x.dual[2]),
+				static_cast<typename cast<T>::value_type>(x.dual[3]));
 		}
 	};
 
