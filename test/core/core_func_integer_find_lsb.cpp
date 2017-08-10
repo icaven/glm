@@ -319,10 +319,15 @@ int main()
 	printf("ntz4a: %d clocks\n", static_cast<int>(TimestampEnd - TimestampBeg));
 
 	TimestampBeg = std::clock();
-	for (std::size_t k = 0; k < Count; ++k)
-	for (i = 0; i < n; i += 2) {
-		m = test[i+1]; if (m > 8) m = 8;
-		if (ntz5(test[i]) != m) error(test[i], ntz5(test[i]));}
+	for(std::size_t k = 0; k < Count; ++k)
+	for(i = 0; i < n; i += 2)
+	{
+		m = test[i+1];
+		if(m > 8)
+			m = 8;
+		if(ntz5(static_cast<char>(test[i])) != m)
+			error(test[i], ntz5(static_cast<char>(test[i])));
+	}
 	TimestampEnd = std::clock();
 
 	printf("ntz5: %d clocks\n", static_cast<int>(TimestampEnd - TimestampBeg));
