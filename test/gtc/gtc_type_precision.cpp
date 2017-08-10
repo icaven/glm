@@ -875,12 +875,11 @@ int main()
 {
 	int Error = 0;
 
-#	if GLM_HAS_OPENMP && 0
-		Error += test_openmp();
-#	endif//
-
 	Error += test_scalar_size();
 	Error += test_fvec_size();
+
+	return Error;
+
 	Error += test_fvec_precision();
 	Error += test_fvec_conversion();
 	Error += test_dvec_precision();
@@ -892,6 +891,10 @@ int main()
 	Error += test_dmat_size();
 	Error += test_quat_size();
 	Error += test_quat_precision();
+
+#	if GLM_HAS_OPENMP && 0
+		Error += test_openmp();
+#	endif//
 
 	return Error;
 }
