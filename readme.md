@@ -80,6 +80,7 @@ glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
 - length() member functions are constexpr #657
 - Added support of -Weverything with Clang #646
 - Improved exponential funtion test coverage
+- Enabled warnings as error with Clang unit tests
 
 #### Fixes:
 - Removed doxygen references to GTC_half_float which was removed in 0.9.4
