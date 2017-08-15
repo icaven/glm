@@ -46,7 +46,7 @@ namespace glm
 				struct { T r, g, b, a; };
 				struct { T s, t, p, q; };
 
-				typename detail::storage<T, sizeof(T) * 4, detail::is_aligned<P>::value>::type data;
+				typename detail::storage<T, sizeof(T) * 4, detail::is_aligned<Q>::value>::type data;
 
 #				if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
 					GLM_SWIZZLE4_2_MEMBERS(T, P, x, y, z, w)
