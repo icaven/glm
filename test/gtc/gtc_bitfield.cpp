@@ -396,7 +396,7 @@ namespace bitfieldInterleave
 	
 		__m128i Result;
 		_mm_store_si128(&Result, Reg1);
-		return Result.m128i_u64[0];
+		return *reinterpret_cast<glm::uint64*>(&Result);
 	}
 
 	inline glm::uint64 sseUnalignedBitfieldInterleave(glm::uint32 x, glm::uint32 y)
@@ -450,10 +450,10 @@ namespace bitfieldInterleave
 		Reg2 = _mm_slli_epi32(Reg1, 1);
 		Reg2 = _mm_srli_si128(Reg2, 8);
 		Reg1 = _mm_or_si128(Reg1, Reg2);
-	
+
 		__m128i Result;
 		_mm_store_si128(&Result, Reg1);
-		return Result.m128i_u64[0];
+		return *reinterpret_cast<glm::uint64*>(&Result);
 	}
 #endif//GLM_ARCH & GLM_ARCH_SSE2_BIT
 
