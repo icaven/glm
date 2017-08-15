@@ -32,21 +32,21 @@ namespace glm
 
 	//! Transforms a matrix with a shearing on X axis.
 	//! From GLM_GTX_transform2 extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL mat<3, 3, T, P> shearX2D(
 		mat<3, 3, T, P> const& m, 
 		T y);
 
 	//! Transforms a matrix with a shearing on Y axis.
 	//! From GLM_GTX_transform2 extension.
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_DECL mat<3, 3, T, P> shearY2D(
 		mat<3, 3, T, P> const& m, 
 		T x);
 
 	//! Transforms a matrix with a shearing on X axis
 	//! From GLM_GTX_transform2 extension.
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_DECL mat<4, 4, T, P> shearX3D(
 		const mat<4, 4, T, P> & m,
 		T y, 
@@ -54,7 +54,7 @@ namespace glm
 
 	//! Transforms a matrix with a shearing on Y axis.
 	//! From GLM_GTX_transform2 extension.
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_DECL mat<4, 4, T, P> shearY3D(
 		const mat<4, 4, T, P> & m, 
 		T x, 
@@ -62,7 +62,7 @@ namespace glm
 
 	//! Transforms a matrix with a shearing on Z axis. 
 	//! From GLM_GTX_transform2 extension.
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_DECL mat<4, 4, T, P> shearZ3D(
 		const mat<4, 4, T, P> & m, 
 		T x, 
@@ -78,28 +78,28 @@ namespace glm
 		
 	//! Build planar projection matrix along normal axis.
 	//! From GLM_GTX_transform2 extension.
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_DECL mat<3, 3, T, P> proj2D(
 		const mat<3, 3, T, P> & m, 
 		const vec<3, T, P>& normal);
 
 	//! Build planar projection matrix along normal axis.
 	//! From GLM_GTX_transform2 extension.
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_DECL mat<4, 4, T, P> proj3D(
 		const mat<4, 4, T, P> & m, 
 		const vec<3, T, P>& normal);
 
 	//! Build a scale bias matrix. 
 	//! From GLM_GTX_transform2 extension.
-	template<typename valType, precision P> 
+	template<typename valType, qualifier P> 
 	GLM_FUNC_DECL mat<4, 4, valType, P> scaleBias(
 		valType scale, 
 		valType bias);
 
 	//! Build a scale bias matrix.
 	//! From GLM_GTX_transform2 extension.
-	template<typename valType, precision P> 
+	template<typename valType, qualifier P> 
 	GLM_FUNC_DECL mat<4, 4, valType, P> scaleBias(
 		mat<4, 4, valType, P> const & m, 
 		valType scale, 

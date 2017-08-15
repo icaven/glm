@@ -7,7 +7,7 @@ namespace glm{
 namespace detail
 {
 /*
-	template<precision P>
+	template<qualifier P>
 	struct compute_quat_mul<float, P, true>
 	{
 		static tquat<float, P> call(tquat<float, P> const& q1, tquat<float, P> const& q2)
@@ -61,7 +61,7 @@ namespace detail
 	};
 */
 
-	template<precision P>
+	template<qualifier P>
 	struct compute_dot<tquat<float, P>, float, true>
 	{
 		static GLM_FUNC_QUALIFIER float call(tquat<float, P> const& x, tquat<float, P> const& y)
@@ -70,7 +70,7 @@ namespace detail
 		}
 	};
 
-	template<precision P>
+	template<qualifier P>
 	struct compute_quat_add<float, P, true>
 	{
 		static tquat<float, P> call(tquat<float, P> const& q, tquat<float, P> const& p)
@@ -82,7 +82,7 @@ namespace detail
 	};
 
 #	if GLM_ARCH & GLM_ARCH_AVX_BIT
-	template<precision P>
+	template<qualifier P>
 	struct compute_quat_add<double, P, true>
 	{
 		static tquat<double, P> call(tquat<double, P> const & a, tquat<double, P> const & b)
@@ -94,7 +94,7 @@ namespace detail
 	};
 #	endif
 
-	template<precision P>
+	template<qualifier P>
 	struct compute_quat_sub<float, P, true>
 	{
 		static tquat<float, P> call(tquat<float, P> const& q, tquat<float, P> const& p)
@@ -106,7 +106,7 @@ namespace detail
 	};
 
 #	if GLM_ARCH & GLM_ARCH_AVX_BIT
-	template<precision P>
+	template<qualifier P>
 	struct compute_quat_sub<double, P, true>
 	{
 		static tquat<double, P> call(tquat<double, P> const & a, tquat<double, P> const & b)
@@ -118,7 +118,7 @@ namespace detail
 	};
 #	endif
 
-	template<precision P>
+	template<qualifier P>
 	struct compute_quat_mul_scalar<float, P, true>
 	{
 		static tquat<float, P> call(tquat<float, P> const& q, float s)
@@ -130,7 +130,7 @@ namespace detail
 	};
 
 #	if GLM_ARCH & GLM_ARCH_AVX_BIT
-	template<precision P>
+	template<qualifier P>
 	struct compute_quat_mul_scalar<double, P, true>
 	{
 		static tquat<double, P> call(tquat<double, P> const& q, double s)
@@ -142,7 +142,7 @@ namespace detail
 	};
 #	endif
 
-	template<precision P>
+	template<qualifier P>
 	struct compute_quat_div_scalar<float, P, true>
 	{
 		static tquat<float, P> call(tquat<float, P> const& q, float s)
@@ -154,7 +154,7 @@ namespace detail
 	};
 
 #	if GLM_ARCH & GLM_ARCH_AVX_BIT
-	template<precision P>
+	template<qualifier P>
 	struct compute_quat_div_scalar<double, P, true>
 	{
 		static tquat<double, P> call(tquat<double, P> const& q, double s)
@@ -166,7 +166,7 @@ namespace detail
 	};
 #	endif
 
-	template<precision P>
+	template<qualifier P>
 	struct compute_quat_mul_vec4<float, P, true>
 	{
 		static vec<4, float, P> call(tquat<float, P> const& q, vec<4, float, P> const& v)

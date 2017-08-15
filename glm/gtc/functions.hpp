@@ -15,7 +15,7 @@
 
 // Dependencies
 #include "../detail/setup.hpp"
-#include "../detail/precision.hpp"
+#include "../detail/qualifier.hpp"
 #include "../detail/type_vec2.hpp"
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
@@ -39,7 +39,7 @@ namespace glm
 	/// 2D gauss function
 	///
 	/// @see gtc_epsilon
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL T gauss(
 		vec<2, T, P> const& Coord,
 		vec<2, T, P> const& ExpectedValue,

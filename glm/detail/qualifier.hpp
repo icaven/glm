@@ -1,5 +1,5 @@
 /// @ref core
-/// @file glm/detail/precision.hpp
+/// @file glm/detail/qualifier.hpp
 
 #pragma once
 
@@ -7,8 +7,8 @@
 
 namespace glm
 {
-	/// enum precision
-	enum precision
+	/// Qualify GLM types in term of alignment (packed, aligned) and precision in term of ULPs (lowp, mediump, highp)
+	enum qualifier
 	{
 		packed_highp,
 		packed_mediump,
@@ -33,12 +33,12 @@ namespace glm
 #		endif
 	};
 
-	template<length_t L, typename T, precision P = defaultp> struct vec;
-	template<length_t C, length_t R, typename T, precision P = defaultp> struct mat;
+	template<length_t L, typename T, qualifier P = defaultp> struct vec;
+	template<length_t C, length_t R, typename T, qualifier P = defaultp> struct mat;
 
 namespace detail
 {
-	template<glm::precision P>
+	template<glm::qualifier P>
 	struct is_aligned
 	{
 		static const bool value = false;

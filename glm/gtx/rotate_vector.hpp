@@ -37,7 +37,7 @@ namespace glm
 	/// @param a Interpolation factor. The interpolation is defined beyond the range [0, 1].
 	/// 
 	/// @see gtx_rotate_vector
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL vec<3, T, P> slerp(
 		vec<3, T, P> const & x,
 		vec<3, T, P> const & y,
@@ -45,14 +45,14 @@ namespace glm
 
 	//! Rotate a two dimensional vector.
 	//! From GLM_GTX_rotate_vector extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL vec<2, T, P> rotate(
 		vec<2, T, P> const & v,
 		T const & angle);
 		
 	//! Rotate a three dimensional vector around an axis.
 	//! From GLM_GTX_rotate_vector extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL vec<3, T, P> rotate(
 		vec<3, T, P> const & v,
 		T const & angle,
@@ -60,7 +60,7 @@ namespace glm
 		
 	//! Rotate a four dimensional vector around an axis.
 	//! From GLM_GTX_rotate_vector extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL vec<4, T, P> rotate(
 		vec<4, T, P> const & v,
 		T const & angle,
@@ -68,49 +68,49 @@ namespace glm
 		
 	//! Rotate a three dimensional vector around the X axis.
 	//! From GLM_GTX_rotate_vector extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL vec<3, T, P> rotateX(
 		vec<3, T, P> const & v,
 		T const & angle);
 
 	//! Rotate a three dimensional vector around the Y axis.
 	//! From GLM_GTX_rotate_vector extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL vec<3, T, P> rotateY(
 		vec<3, T, P> const & v,
 		T const & angle);
 		
 	//! Rotate a three dimensional vector around the Z axis.
 	//! From GLM_GTX_rotate_vector extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL vec<3, T, P> rotateZ(
 		vec<3, T, P> const & v,
 		T const & angle);
 		
 	//! Rotate a four dimensional vector around the X axis.
 	//! From GLM_GTX_rotate_vector extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL vec<4, T, P> rotateX(
 		vec<4, T, P> const & v,
 		T const & angle);
 		
 	//! Rotate a four dimensional vector around the Y axis.
 	//! From GLM_GTX_rotate_vector extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL vec<4, T, P> rotateY(
 		vec<4, T, P> const & v,
 		T const & angle);
 		
 	//! Rotate a four dimensional vector around the Z axis.
 	//! From GLM_GTX_rotate_vector extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL vec<4, T, P> rotateZ(
 		vec<4, T, P> const & v,
 		T const & angle);
 		
 	//! Build a rotation matrix from a normal and a up vector.
 	//! From GLM_GTX_rotate_vector extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL mat<4, 4, T, P> orientation(
 		vec<3, T, P> const & Normal,
 		vec<3, T, P> const & Up);

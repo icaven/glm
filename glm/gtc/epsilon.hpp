@@ -15,7 +15,7 @@
 
 // Dependencies
 #include "../detail/setup.hpp"
-#include "../detail/precision.hpp"
+#include "../detail/qualifier.hpp"
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
 #	pragma message("GLM: GLM_GTC_epsilon extension included")
@@ -30,7 +30,7 @@ namespace glm
 	/// True if this expression is satisfied.
 	///
 	/// @see gtc_epsilon
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL vec<L, bool, P> epsilonEqual(vec<L, T, P> const& x, vec<L, T, P> const& y, T const & epsilon);
 
 	/// Returns the component-wise comparison of |x - y| < epsilon.
@@ -44,7 +44,7 @@ namespace glm
 	/// True if this expression is not satisfied.
 	///
 	/// @see gtc_epsilon
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL vec<L, bool, P> epsilonNotEqual(vec<L, T, P> const& x, vec<L, T, P> const& y, T const & epsilon);
 
 	/// Returns the component-wise comparison of |x - y| >= epsilon.

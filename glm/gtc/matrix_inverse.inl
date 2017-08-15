@@ -3,7 +3,7 @@
 
 namespace glm
 {
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<3, 3, T, P> affineInverse(mat<3, 3, T, P> const & m)
 	{
 		mat<2, 2, T, P> const Inv(inverse(mat<2, 2, T, P>(m)));
@@ -14,7 +14,7 @@ namespace glm
 			vec<3, T, P>(-Inv * vec<2, T, P>(m[2]), static_cast<T>(1)));
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> affineInverse(mat<4, 4, T, P> const & m)
 	{
 		mat<3, 3, T, P> const Inv(inverse(mat<3, 3, T, P>(m)));
@@ -26,7 +26,7 @@ namespace glm
 			vec<4, T, P>(-Inv * vec<3, T, P>(m[3]), static_cast<T>(1)));
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<2, 2, T, P> inverseTranspose(mat<2, 2, T, P> const & m)
 	{
 		T Determinant = m[0][0] * m[1][1] - m[1][0] * m[0][1];
@@ -40,7 +40,7 @@ namespace glm
 		return Inverse;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<3, 3, T, P> inverseTranspose(mat<3, 3, T, P> const & m)
 	{
 		T Determinant =
@@ -63,7 +63,7 @@ namespace glm
 		return Inverse;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> inverseTranspose(mat<4, 4, T, P> const & m)
 	{
 		T SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];

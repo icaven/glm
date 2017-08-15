@@ -31,25 +31,25 @@ namespace glm
 	/// @addtogroup gtx_range
 	/// @{
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	inline length_t components(vec<1, T, P> const & v)
 	{
 		return v.length();
 	}
 	
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	inline length_t components(vec<2, T, P> const & v)
 	{
 		return v.length();
 	}
 	
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	inline length_t components(vec<3, T, P> const & v)
 	{
 		return v.length();
 	}
 	
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	inline length_t components(vec<4, T, P> const & v)
 	{
 		return v.length();

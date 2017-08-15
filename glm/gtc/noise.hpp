@@ -17,7 +17,7 @@
 
 // Dependencies
 #include "../detail/setup.hpp"
-#include "../detail/precision.hpp"
+#include "../detail/qualifier.hpp"
 #include "../detail/_noise.hpp"
 #include "../geometric.hpp"
 #include "../common.hpp"
@@ -37,22 +37,22 @@ namespace glm
 
 	/// Classic perlin noise.
 	/// @see gtc_noise
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL T perlin(
-		vecType<L, T, P> const& p);
+		vec<L, T, P> const& p);
 		
 	/// Periodic perlin noise.
 	/// @see gtc_noise
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL T perlin(
-		vecType<L, T, P> const& p,
-		vecType<L, T, P> const& rep);
+		vec<L, T, P> const& p,
+		vec<L, T, P> const& rep);
 
 	/// Simplex noise.
 	/// @see gtc_noise
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL T simplex(
-		vecType<L, T, P> const& p);
+		vec<L, T, P> const& p);
 
 	/// @}
 }//namespace glm

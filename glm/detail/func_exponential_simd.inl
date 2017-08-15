@@ -8,7 +8,7 @@
 namespace glm{
 namespace detail
 {
-	template<precision P>
+	template<qualifier P>
 	struct compute_sqrt<4, float, P, true>
 	{
 		GLM_FUNC_QUALIFIER static vec<4, float, P> call(vec<4, float, P> const & v)

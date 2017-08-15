@@ -3,7 +3,7 @@
 
 namespace glm
 {
-	template <length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
+	template <length_t C, length_t R, typename T, qualifier P, template<length_t, length_t, typename, qualifier> class matType>
 	GLM_FUNC_QUALIFIER matType<C, R, T, P> flipud(matType<C, R, T, P> const& in)
 	{
 		matType<R, C, T, P> tin = transpose(in);
@@ -13,7 +13,7 @@ namespace glm
 		return out;
 	}
 
-	template <length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
+	template <length_t C, length_t R, typename T, qualifier P, template<length_t, length_t, typename, qualifier> class matType>
 	GLM_FUNC_QUALIFIER matType<C, R, T, P> fliplr(matType<C, R, T, P> const& in)
 	{
 		matType<C, R, T, P> out;
@@ -25,7 +25,7 @@ namespace glm
 		return out;
 	}
 
-	template <length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
+	template <length_t C, length_t R, typename T, qualifier P, template<length_t, length_t, typename, qualifier> class matType>
 	GLM_FUNC_QUALIFIER void qr_decompose(matType<C, R, T, P> const& in, matType<(C < R ? C : R), R, T, P>& q, matType<C, (C < R ? C : R), T, P>& r)
 	{
 		// Uses modified Gram-Schmidt method
@@ -60,7 +60,7 @@ namespace glm
 		}
 	}
 
-	template <length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
+	template <length_t C, length_t R, typename T, qualifier P, template<length_t, length_t, typename, qualifier> class matType>
 	GLM_FUNC_QUALIFIER void rq_decompose(matType<C, R, T, P> const& in, matType<(C < R ? C : R), R, T, P>& r, matType<C, (C < R ? C : R), T, P>& q)
 	{
 		// From https://en.wikipedia.org/wiki/QR_decomposition:

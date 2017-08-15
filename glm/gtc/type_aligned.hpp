@@ -64,170 +64,170 @@ namespace glm
 
 	// -- *vec2 --
 
-	/// 2 components vector of high single-precision floating-point numbers.
-	/// There is no guarantee on the actual precision.
+	/// 2 components vector of high single-qualifier floating-point numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<2, float, aligned_highp>		aligned_highp_vec2;
 
-	/// 2 components vector of medium single-precision floating-point numbers.
-	/// There is no guarantee on the actual precision.
+	/// 2 components vector of medium single-qualifier floating-point numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<2, float, aligned_mediump>	aligned_mediump_vec2;
 
-	/// 2 components vector of low single-precision floating-point numbers.
-	/// There is no guarantee on the actual precision.
+	/// 2 components vector of low single-qualifier floating-point numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<2, float, aligned_lowp>		aligned_lowp_vec2;
 
-	/// 2 components vector of high double-precision floating-point numbers.
-	/// There is no guarantee on the actual precision.
+	/// 2 components vector of high double-qualifier floating-point numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<2, double, aligned_highp>	aligned_highp_dvec2;
 
-	/// 2 components vector of medium double-precision floating-point numbers.
-	/// There is no guarantee on the actual precision.
+	/// 2 components vector of medium double-qualifier floating-point numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<2, double, aligned_mediump>	aligned_mediump_dvec2;
 
-	/// 2 components vector of low double-precision floating-point numbers.
-	/// There is no guarantee on the actual precision.
+	/// 2 components vector of low double-qualifier floating-point numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<2, double, aligned_lowp>		aligned_lowp_dvec2;
 
-	/// 2 components vector of high precision signed integer numbers.
-	/// There is no guarantee on the actual precision.
+	/// 2 components vector of high qualifier signed integer numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<2, int, aligned_highp>		aligned_highp_ivec2;
 
-	/// 2 components vector of medium precision signed integer numbers.
-	/// There is no guarantee on the actual precision.
+	/// 2 components vector of medium qualifier signed integer numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<2, int, aligned_mediump>		aligned_mediump_ivec2;
 
-	/// 2 components vector of low precision signed integer numbers.
-	/// There is no guarantee on the actual precision.
+	/// 2 components vector of low qualifier signed integer numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<2, int, aligned_lowp>		aligned_lowp_ivec2;
 
-	/// 2 components vector of high precision unsigned integer numbers.
-	/// There is no guarantee on the actual precision.
+	/// 2 components vector of high qualifier unsigned integer numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<2, uint, aligned_highp>		aligned_highp_uvec2;
 
-	/// 2 components vector of medium precision unsigned integer numbers.
-	/// There is no guarantee on the actual precision.
+	/// 2 components vector of medium qualifier unsigned integer numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<2, uint, aligned_mediump>	aligned_mediump_uvec2;
 
-	/// 2 components vector of low precision unsigned integer numbers.
-	/// There is no guarantee on the actual precision.
+	/// 2 components vector of low qualifier unsigned integer numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<2, uint, aligned_lowp>		aligned_lowp_uvec2;
 
-	/// 2 components vector of high precision bool numbers.
-	/// There is no guarantee on the actual precision.
+	/// 2 components vector of high qualifier bool numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<2, bool, aligned_highp>		aligned_highp_bvec2;
 
-	/// 2 components vector of medium precision bool numbers.
-	/// There is no guarantee on the actual precision.
+	/// 2 components vector of medium qualifier bool numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<2, bool, aligned_mediump>	aligned_mediump_bvec2;
 
-	/// 2 components vector of low precision bool numbers.
-	/// There is no guarantee on the actual precision.
+	/// 2 components vector of low qualifier bool numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<2, bool, aligned_lowp>		aligned_lowp_bvec2;
 
 	// -- *vec3 --
 
-	/// 3 components vector of high single-precision floating-point numbers.
-	/// There is no guarantee on the actual precision.
+	/// 3 components vector of high single-qualifier floating-point numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<3, float, aligned_highp>		aligned_highp_vec3;
 
-	/// 3 components vector of medium single-precision floating-point numbers.
-	/// There is no guarantee on the actual precision.
+	/// 3 components vector of medium single-qualifier floating-point numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<3, float, aligned_mediump>	aligned_mediump_vec3;
 
-	/// 3 components vector of low single-precision floating-point numbers.
-	/// There is no guarantee on the actual precision.
+	/// 3 components vector of low single-qualifier floating-point numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<3, float, aligned_lowp>		aligned_lowp_vec3;
 
-	/// 3 components vector of high double-precision floating-point numbers.
-	/// There is no guarantee on the actual precision.
+	/// 3 components vector of high double-qualifier floating-point numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<3, double, aligned_highp>	aligned_highp_dvec3;
 
-	/// 3 components vector of medium double-precision floating-point numbers.
-	/// There is no guarantee on the actual precision.
+	/// 3 components vector of medium double-qualifier floating-point numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<3, double, aligned_mediump>	aligned_mediump_dvec3;
 
-	/// 3 components vector of low double-precision floating-point numbers.
-	/// There is no guarantee on the actual precision.
+	/// 3 components vector of low double-qualifier floating-point numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<3, double, aligned_lowp>		aligned_lowp_dvec3;
 
-	/// 3 components vector of high precision signed integer numbers.
-	/// There is no guarantee on the actual precision.
+	/// 3 components vector of high qualifier signed integer numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<3, int, aligned_highp>		aligned_highp_ivec3;
 
-	/// 3 components vector of medium precision signed integer numbers.
-	/// There is no guarantee on the actual precision.
+	/// 3 components vector of medium qualifier signed integer numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<3, int, aligned_mediump>		aligned_mediump_ivec3;
 
-	/// 3 components vector of low precision signed integer numbers.
-	/// There is no guarantee on the actual precision.
+	/// 3 components vector of low qualifier signed integer numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<3, int, aligned_lowp>		aligned_lowp_ivec3;
 
-	/// 3 components vector of high precision unsigned integer numbers.
-	/// There is no guarantee on the actual precision.
+	/// 3 components vector of high qualifier unsigned integer numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<3, uint, aligned_highp>		aligned_highp_uvec3;
 
-	/// 3 components vector of medium precision unsigned integer numbers.
-	/// There is no guarantee on the actual precision.
+	/// 3 components vector of medium qualifier unsigned integer numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<3, uint, aligned_mediump>	aligned_mediump_uvec3;
 
-	/// 3 components vector of low precision unsigned integer numbers.
-	/// There is no guarantee on the actual precision.
+	/// 3 components vector of low qualifier unsigned integer numbers.
+	/// There is no guarantee on the actual qualifier.
 	typedef vec<3, uint, aligned_lowp>		aligned_lowp_uvec3;
 
-	/// 3 components vector of high precision bool numbers.
+	/// 3 components vector of high qualifier bool numbers.
 	typedef vec<3, bool, aligned_highp>		aligned_highp_bvec3;
 
-	/// 3 components vector of medium precision bool numbers.
+	/// 3 components vector of medium qualifier bool numbers.
 	typedef vec<3, bool, aligned_mediump>	aligned_mediump_bvec3;
 
-	/// 3 components vector of low precision bool numbers.
+	/// 3 components vector of low qualifier bool numbers.
 	typedef vec<3, bool, aligned_lowp>		aligned_lowp_bvec3;
 
 	// -- *vec4 --
 
-	/// 4 components vector of high single-precision floating-point numbers.
+	/// 4 components vector of high single-qualifier floating-point numbers.
 	typedef vec<4, float, aligned_highp>		aligned_highp_vec4;
 
-	/// 4 components vector of medium single-precision floating-point numbers.
+	/// 4 components vector of medium single-qualifier floating-point numbers.
 	typedef vec<4, float, aligned_mediump>	aligned_mediump_vec4;
 
-	/// 4 components vector of low single-precision floating-point numbers.
+	/// 4 components vector of low single-qualifier floating-point numbers.
 	typedef vec<4, float, aligned_lowp>		aligned_lowp_vec4;
 
-	/// 4 components vector of high double-precision floating-point numbers.
+	/// 4 components vector of high double-qualifier floating-point numbers.
 	typedef vec<4, double, aligned_highp>	aligned_highp_dvec4;
 
-	/// 4 components vector of medium double-precision floating-point numbers.
+	/// 4 components vector of medium double-qualifier floating-point numbers.
 	typedef vec<4, double, aligned_mediump>	aligned_mediump_dvec4;
 
-	/// 4 components vector of low double-precision floating-point numbers.
+	/// 4 components vector of low double-qualifier floating-point numbers.
 	typedef vec<4, double, aligned_lowp>		aligned_lowp_dvec4;
 
-	/// 4 components vector of high precision signed integer numbers.
+	/// 4 components vector of high qualifier signed integer numbers.
 	typedef vec<4, int, aligned_highp>		aligned_highp_ivec4;
 
-	/// 4 components vector of medium precision signed integer numbers.
+	/// 4 components vector of medium qualifier signed integer numbers.
 	typedef vec<4, int, aligned_mediump>		aligned_mediump_ivec4;
 
-	/// 4 components vector of low precision signed integer numbers.
+	/// 4 components vector of low qualifier signed integer numbers.
 	typedef vec<4, int, aligned_lowp>		aligned_lowp_ivec4;
 
-	/// 4 components vector of high precision unsigned integer numbers.
+	/// 4 components vector of high qualifier unsigned integer numbers.
 	typedef vec<4, uint, aligned_highp>		aligned_highp_uvec4;
 
-	/// 4 components vector of medium precision unsigned integer numbers.
+	/// 4 components vector of medium qualifier unsigned integer numbers.
 	typedef vec<4, uint, aligned_mediump>	aligned_mediump_uvec4;
 
-	/// 4 components vector of low precision unsigned integer numbers.
+	/// 4 components vector of low qualifier unsigned integer numbers.
 	typedef vec<4, uint, aligned_lowp>		aligned_lowp_uvec4;
 
-	/// 4 components vector of high precision bool numbers.
+	/// 4 components vector of high qualifier bool numbers.
 	typedef vec<4, bool, aligned_highp>		aligned_highp_bvec4;
 
-	/// 4 components vector of medium precision bool numbers.
+	/// 4 components vector of medium qualifier bool numbers.
 	typedef vec<4, bool, aligned_mediump>	aligned_mediump_bvec4;
 
-	/// 4 components vector of low precision bool numbers.
+	/// 4 components vector of low qualifier bool numbers.
 	typedef vec<4, bool, aligned_lowp>		aligned_lowp_bvec4;
 
 	// -- default --
@@ -267,16 +267,16 @@ namespace glm
 	typedef aligned_mediump_dvec3		aligned_dvec3;
 	typedef aligned_mediump_dvec4		aligned_dvec4;
 #else //defined(GLM_PRECISION_HIGHP_DOUBLE)
-	/// 1 component vector of double-precision floating-point numbers.
+	/// 1 component vector of double-qualifier floating-point numbers.
 	typedef aligned_highp_dvec1			aligned_dvec1;
 
-	/// 2 components vector of double-precision floating-point numbers.
+	/// 2 components vector of double-qualifier floating-point numbers.
 	typedef aligned_highp_dvec2			aligned_dvec2;
 
-	/// 3 components vector of double-precision floating-point numbers.
+	/// 3 components vector of double-qualifier floating-point numbers.
 	typedef aligned_highp_dvec3			aligned_dvec3;
 
-	/// 4 components vector of double-precision floating-point numbers.
+	/// 4 components vector of double-qualifier floating-point numbers.
 	typedef aligned_highp_dvec4			aligned_dvec4;
 #endif//GLM_PRECISION
 

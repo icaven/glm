@@ -5,7 +5,7 @@
 
 namespace glm
 {
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER void axisAngle(mat<4, 4, T, P> const& mat, vec<3, T, P> & axis, T & angle)
 	{
 		T epsilon = static_cast<T>(0.01);
@@ -88,7 +88,7 @@ namespace glm
 		axis.z = (mat[0][1] - mat[1][0]) / s;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> axisAngleMatrix(vec<3, T, P> const & axis, T const angle)
 	{
 		T c = cos(angle);
@@ -103,7 +103,7 @@ namespace glm
 			static_cast<T>(0.0),        static_cast<T>(0.0),        static_cast<T>(0.0),        static_cast<T>(1.0));
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> extractMatrixRotation(mat<4, 4, T, P> const& m)
 	{
 		return mat<4, 4, T, P>(
@@ -113,7 +113,7 @@ namespace glm
 			static_cast<T>(0.0), static_cast<T>(0.0), static_cast<T>(0.0), static_cast<T>(1.0));
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> interpolate(mat<4, 4, T, P> const& m1, mat<4, 4, T, P> const& m2, T const delta)
 	{
 		mat<4, 4, T, P> m1rot = extractMatrixRotation(m1);

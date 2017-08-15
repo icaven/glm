@@ -15,7 +15,7 @@
 
 // Dependencies
 #include "../detail/setup.hpp"
-#include "../detail/precision.hpp"
+#include "../detail/qualifier.hpp"
 #include "../detail/type_int.hpp"
 #include "../detail/compute_vector_relational.hpp"
 
@@ -55,8 +55,8 @@ namespace glm
 
 	/// Return the distance in the number of ULP between 2 vectors.
 	/// @see gtc_ulp
-	template<typename T, template<int, typename> class vecType>
-	GLM_FUNC_DECL vecType<2, uint> float_distance(vecType<2, T> const & x, vecType<2, T> const & y);
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL vec<2, uint, Q> float_distance(vec<2, T, Q> const & x, vec<2, T, Q> const & y);
 	
 	/// @}
 }// namespace glm

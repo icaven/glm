@@ -41,8 +41,8 @@ namespace glm
 	/// Faster than the common sqrt function but less accurate.
 	///
 	/// @see gtx_fast_square_root extension.
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<L, T, P> fastSqrt(vecType<L, T, P> const & x);
+	template<length_t L, typename T, qualifier P>
+	GLM_FUNC_DECL vec<L, T, P> fastSqrt(vec<L, T, P> const & x);
 
 	/// Faster than the common inversesqrt function but less accurate.
 	///
@@ -53,8 +53,8 @@ namespace glm
 	/// Faster than the common inversesqrt function but less accurate.
 	///
 	/// @see gtx_fast_square_root extension.
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<L, T, P> fastInverseSqrt(vecType<L, T, P> const & x);
+	template<length_t L, typename T, qualifier P>
+	GLM_FUNC_DECL vec<L, T, P> fastInverseSqrt(vec<L, T, P> const & x);
 
 	/// Faster than the common length function but less accurate.
 	///
@@ -65,8 +65,8 @@ namespace glm
 	/// Faster than the common length function but less accurate.
 	///
 	/// @see gtx_fast_square_root extension.
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
-	GLM_FUNC_DECL T fastLength(vecType<L, T, P> const & x);
+	template<length_t L, typename T, qualifier P>
+	GLM_FUNC_DECL T fastLength(vec<L, T, P> const & x);
 
 	/// Faster than the common distance function but less accurate.
 	///
@@ -77,8 +77,8 @@ namespace glm
 	/// Faster than the common distance function but less accurate.
 	///
 	/// @see gtx_fast_square_root extension.
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
-	GLM_FUNC_DECL T fastDistance(vecType<L, T, P> const & x, vecType<L, T, P> const & y);
+	template<length_t L, typename T, qualifier P>
+	GLM_FUNC_DECL T fastDistance(vec<L, T, P> const & x, vec<L, T, P> const & y);
 
 	/// Faster than the common normalize function but less accurate.
 	///

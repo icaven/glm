@@ -123,7 +123,7 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
 	GLM_FUNC_DECL vec4 unpackSnorm4x8(uint p);
 
-	/// Returns a double-precision value obtained by packing the components of v into a 64-bit value. 
+	/// Returns a double-qualifier value obtained by packing the components of v into a 64-bit value. 
 	/// If an IEEE 754 Inf or NaN is created, it will not signal, and the resulting floating point value is unspecified. 
 	/// Otherwise, the bit- level representation of v is preserved. 
 	/// The first vector component specifies the 32 least significant bits; 

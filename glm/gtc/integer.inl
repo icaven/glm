@@ -4,7 +4,7 @@
 namespace glm{
 namespace detail
 {
-	template<length_t L, typename T, precision P, bool Aligned>
+	template<length_t L, typename T, qualifier P, bool Aligned>
 	struct compute_log2<L, T, P, false, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static vec<L, T, P> call(vec<L, T, P> const& v)
@@ -16,7 +16,7 @@ namespace detail
 	};
 
 #	if GLM_HAS_BITSCAN_WINDOWS
-		template<precision P, bool Aligned>
+		template<qualifier P, bool Aligned>
 		struct compute_log2<4, int, P, false, Aligned>
 		{
 			GLM_FUNC_QUALIFIER static vec<4, int, P> call(vec<4, int, P> const& v)
@@ -40,7 +40,7 @@ namespace detail
 		return static_cast<int>(x + static_cast<genType>(0.5));
 	}
 
-	template<glm::length_t L, typename T, precision P>
+	template<glm::length_t L, typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<L, int, P> iround(vec<L, T, P> const& x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'iround' only accept floating-point inputs");
@@ -58,7 +58,7 @@ namespace detail
 		return static_cast<uint>(x + static_cast<genType>(0.5));
 	}
 
-	template<glm::length_t L, typename T, precision P>
+	template<glm::length_t L, typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<L, uint, P> uround(vec<L, T, P> const& x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'uround' only accept floating-point inputs");

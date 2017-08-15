@@ -141,7 +141,7 @@ namespace detail
 	struct compute_to_string
 	{};
 
-	template<precision P>
+	template<qualifier P>
 	struct compute_to_string<vec<1, bool, P> >
 	{
 		GLM_FUNC_QUALIFIER static std::string call(vec<1, bool, P> const & x)
@@ -151,7 +151,7 @@ namespace detail
 		}
 	};
 
-	template<precision P>
+	template<qualifier P>
 	struct compute_to_string<vec<2, bool, P> >
 	{
 		GLM_FUNC_QUALIFIER static std::string call(vec<2, bool, P> const & x)
@@ -162,7 +162,7 @@ namespace detail
 		}
 	};
 
-	template<precision P>
+	template<qualifier P>
 	struct compute_to_string<vec<3, bool, P> >
 	{
 		GLM_FUNC_QUALIFIER static std::string call(vec<3, bool, P> const & x)
@@ -174,7 +174,7 @@ namespace detail
 		}
 	};
 
-	template<precision P>
+	template<qualifier P>
 	struct compute_to_string<vec<4, bool, P> >
 	{
 		GLM_FUNC_QUALIFIER static std::string call(vec<4, bool, P> const & x)
@@ -187,7 +187,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	struct compute_to_string<vec<1, T, P> >
 	{
 		GLM_FUNC_QUALIFIER static std::string call(vec<1, T, P> const & x)
@@ -203,7 +203,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	struct compute_to_string<vec<2, T, P> >
 	{
 		GLM_FUNC_QUALIFIER static std::string call(vec<2, T, P> const & x)
@@ -220,7 +220,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	struct compute_to_string<vec<3, T, P> >
 	{
 		GLM_FUNC_QUALIFIER static std::string call(vec<3, T, P> const & x)
@@ -238,7 +238,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	struct compute_to_string<vec<4, T, P> >
 	{
 		GLM_FUNC_QUALIFIER static std::string call(vec<4, T, P> const & x)
@@ -258,7 +258,7 @@ namespace detail
 	};
 
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	struct compute_to_string<mat<2, 2, T, P> >
 	{
 		GLM_FUNC_QUALIFIER static std::string call(mat<2, 2, T, P> const & x)
@@ -276,7 +276,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	struct compute_to_string<mat<2, 3, T, P> >
 	{
 		GLM_FUNC_QUALIFIER static std::string call(mat<2, 3, T, P> const & x)
@@ -294,7 +294,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	struct compute_to_string<mat<2, 4, T, P> >
 	{
 		GLM_FUNC_QUALIFIER static std::string call(mat<2, 4, T, P> const & x)
@@ -312,7 +312,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	struct compute_to_string<mat<3, 2, T, P> >
 	{
 		GLM_FUNC_QUALIFIER static std::string call(mat<3, 2, T, P> const & x)
@@ -332,7 +332,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	struct compute_to_string<mat<3, 3, T, P> >
 	{
 		GLM_FUNC_QUALIFIER static std::string call(mat<3, 3, T, P> const & x)
@@ -352,7 +352,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	struct compute_to_string<mat<3, 4, T, P> >
 	{
 		GLM_FUNC_QUALIFIER static std::string call(mat<3, 4, T, P> const & x)
@@ -372,7 +372,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	struct compute_to_string<mat<4, 2, T, P> >
 	{
 		GLM_FUNC_QUALIFIER static std::string call(mat<4, 2, T, P> const & x)
@@ -394,7 +394,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	struct compute_to_string<mat<4, 3, T, P> >
 	{
 		GLM_FUNC_QUALIFIER static std::string call(mat<4, 3, T, P> const & x)
@@ -416,7 +416,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	struct compute_to_string<mat<4, 4, T, P> >
 	{
 		GLM_FUNC_QUALIFIER static std::string call(mat<4, 4, T, P> const & x)
@@ -439,7 +439,7 @@ namespace detail
 	};
 
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	struct compute_to_string<tquat<T, P> >
 	{
 		GLM_FUNC_QUALIFIER static std::string call(tquat<T, P> const & x)
@@ -458,7 +458,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	struct compute_to_string<tdualquat<T, P> >
 	{
 		GLM_FUNC_QUALIFIER static std::string call(tdualquat<T, P> const & x)

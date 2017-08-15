@@ -15,7 +15,7 @@
 
 // Dependencies
 #include "../detail/setup.hpp"
-#include "../detail/precision.hpp"
+#include "../detail/qualifier.hpp"
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
 #	pragma message("GLM: GLM_GTX_exterior_product extension included")
@@ -31,7 +31,7 @@ namespace glm
 	/// @tparam valType Floating-point scalar types.
 	/// 
 	/// @see <a href="https://en.wikipedia.org/wiki/Exterior_algebra#Cross_and_triple_products">Exterior product</a>
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL T cross(vec<2, T, P> const& v, vec<2, T, P> const& u);
 
 	/// @}

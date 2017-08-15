@@ -3,7 +3,7 @@
 
 namespace glm
 {
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<3, 3, T, P> shearX2D(mat<3, 3, T, P> const& m, T s)
 	{
 		mat<3, 3, T, P> r(1);
@@ -11,7 +11,7 @@ namespace glm
 		return m * r;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<3, 3, T, P> shearY2D(mat<3, 3, T, P> const& m, T s)
 	{
 		mat<3, 3, T, P> r(1);
@@ -19,7 +19,7 @@ namespace glm
 		return m * r;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> shearX3D(mat<4, 4, T, P> const& m, T s, T t)
 	{
 		mat<4, 4, T, P> r(1);
@@ -28,7 +28,7 @@ namespace glm
 		return m * r;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> shearY3D(mat<4, 4, T, P> const& m, T s, T t)
 	{
 		mat<4, 4, T, P> r(1);
@@ -37,7 +37,7 @@ namespace glm
 		return m * r;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> shearZ3D(mat<4, 4, T, P> const& m, T s, T t)
 	{
 		mat<4, 4, T, P> r(1);
@@ -46,7 +46,7 @@ namespace glm
 		return m * r;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<3, 3, T, P> reflect2D(mat<3, 3, T, P> const& m, vec<3, T, P> const& normal)
 	{
 		mat<3, 3, T, P> r(static_cast<T>(1));
@@ -57,7 +57,7 @@ namespace glm
 		return m * r;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> reflect3D(mat<4, 4, T, P> const& m, vec<3, T, P> const& normal)
 	{
 		mat<4, 4, T, P> r(static_cast<T>(1));
@@ -75,7 +75,7 @@ namespace glm
 		return m * r;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<3, 3, T, P> proj2D(
 		const mat<3, 3, T, P>& m, 
 		const vec<3, T, P>& normal)
@@ -88,7 +88,7 @@ namespace glm
 		return m * r;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> proj3D(
 		const mat<4, 4, T, P>& m, 
 		const vec<3, T, P>& normal)
@@ -106,7 +106,7 @@ namespace glm
 		return m * r;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> scaleBias(T scale, T bias)
 	{
 		mat<4, 4, T, P> result;
@@ -117,7 +117,7 @@ namespace glm
 		return result;
 	}
 
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> scaleBias(mat<4, 4, T, P> const& m, T scale, T bias)
 	{
 		return m * scaleBias(scale, bias);

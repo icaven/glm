@@ -12,8 +12,8 @@ namespace glm
 		return genType(1) / fastInverseSqrt(x);
 	}
 
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<L, T, P> fastSqrt(vecType<L, T, P> const & x)
+	template<length_t L, typename T, qualifier P>
+	GLM_FUNC_QUALIFIER vec<L, T, P> fastSqrt(vec<L, T, P> const & x)
 	{
 		return detail::functor1<L, T, T, P>::call(fastSqrt, x);
 	}
@@ -30,8 +30,8 @@ namespace glm
 #		endif
 	}
 
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<L, T, P> fastInverseSqrt(vecType<L, T, P> const & x)
+	template<length_t L, typename T, qualifier P>
+	GLM_FUNC_QUALIFIER vec<L, T, P> fastInverseSqrt(vec<L, T, P> const & x)
 	{
 		return detail::compute_inversesqrt<L, T, P, detail::is_aligned<P>::value>::call(x);
 	}
@@ -45,8 +45,8 @@ namespace glm
 		return abs(x);
 	}
 
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER T fastLength(vecType<L, T, P> const & x)
+	template<length_t L, typename T, qualifier P>
+	GLM_FUNC_QUALIFIER T fastLength(vec<L, T, P> const & x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'fastLength' only accept floating-point inputs");
 
@@ -60,8 +60,8 @@ namespace glm
 		return fastLength(y - x);
 	}
 
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER T fastDistance(vecType<L, T, P> const & x, vecType<L, T, P> const & y)
+	template<length_t L, typename T, qualifier P>
+	GLM_FUNC_QUALIFIER T fastDistance(vec<L, T, P> const& x, vec<L, T, P> const& y)
 	{
 		return fastLength(y - x);
 	}
@@ -73,8 +73,8 @@ namespace glm
 		return x > genType(0) ? genType(1) : -genType(1);
 	}
 
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<L, T, P> fastNormalize(vecType<L, T, P> const & x)
+	template<length_t L, typename T, qualifier P>
+	GLM_FUNC_QUALIFIER vec<L, T, P> fastNormalize(vec<L, T, P> const& x)
 	{
 		return x * fastInverseSqrt(dot(x, x));
 	}

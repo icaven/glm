@@ -477,7 +477,7 @@ namespace glm
 	/// @see gtc_packing
 	/// @see vec<3, T, P> unpackRGBM(vec<4, T, P> const & p)
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL vec<4, T, P> packRGBM(vec<3, T, P> const & rgb);
 
 	/// Returns a floating-point vector with components obtained by reinterpreting an integer vector as 16-bit floating-point numbers and converting them to 32-bit floating-point values.
@@ -487,7 +487,7 @@ namespace glm
 	/// @see gtc_packing
 	/// @see vec<4, T, P> packRGBM(vec<3, float, P> const & v)
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL vec<3, T, P> unpackRGBM(vec<4, T, P> const & rgbm);
 
 	/// Returns an unsigned integer vector obtained by converting the components of a floating-point vector
@@ -496,47 +496,47 @@ namespace glm
 	/// the forth component specifies the 16 most-significant bits.
 	/// 
 	/// @see gtc_packing
-	/// @see vecType<L, float, P> unpackHalf(vecType<L, uint16, P> const & p)
+	/// @see vec<L, float, P> unpackHalf(vec<L, uint16, P> const & p)
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
-	template<length_t L, precision P, template<length_t, typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<L, uint16, P> packHalf(vecType<L, float, P> const & v);
+	template<length_t L, qualifier P>
+	GLM_FUNC_DECL vec<L, uint16, P> packHalf(vec<L, float, P> const & v);
 
 	/// Returns a floating-point vector with components obtained by reinterpreting an integer vector as 16-bit floating-point numbers and converting them to 32-bit floating-point values.
 	/// The first component of the vector is obtained from the 16 least-significant bits of v;
 	/// the forth component is obtained from the 16 most-significant bits of v.
 	/// 
 	/// @see gtc_packing
-	/// @see vecType<L, uint16, P> packHalf(vecType<L, float, P> const & v)
+	/// @see vec<L, uint16, P> packHalf(vec<L, float, P> const & v)
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.4 Floating-Point Pack and Unpack Functions</a>
-	template<length_t L, precision P, template<length_t, typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<L, float, P> unpackHalf(vecType<L, uint16, P> const & p);
+	template<length_t L, qualifier P>
+	GLM_FUNC_DECL vec<L, float, P> unpackHalf(vec<L, uint16, P> const & p);
 
 	/// Convert each component of the normalized floating-point vector into unsigned integer values.
 	///
 	/// @see gtc_packing
-	/// @see vecType<L, floatType, P> unpackUnorm(vecType<L, intType, P> const & p);
-	template<typename uintType, length_t L, typename floatType, precision P>
+	/// @see vec<L, floatType, P> unpackUnorm(vec<L, intType, P> const & p);
+	template<typename uintType, length_t L, typename floatType, qualifier P>
 	GLM_FUNC_DECL vec<L, uintType, P> packUnorm(vec<L, floatType, P> const & v);
 
 	/// Convert a packed integer to a normalized floating-point vector.
 	/// 
 	/// @see gtc_packing
-	/// @see vecType<L, intType, P> packUnorm(vecType<L, floatType, P> const & v)
-	template<typename floatType, length_t L, typename uintType, precision P>
+	/// @see vec<L, intType, P> packUnorm(vec<L, floatType, P> const & v)
+	template<typename floatType, length_t L, typename uintType, qualifier P>
 	GLM_FUNC_DECL vec<L, floatType, P> unpackUnorm(vec<L, uintType, P> const & v);
 
 	/// Convert each component of the normalized floating-point vector into signed integer values.
 	///
 	/// @see gtc_packing
-	/// @see vecType<L, floatType, P> unpackSnorm(vecType<L, intType, P> const & p);
-	template<typename intType, length_t L, typename floatType, precision P>
+	/// @see vec<L, floatType, P> unpackSnorm(vec<L, intType, P> const & p);
+	template<typename intType, length_t L, typename floatType, qualifier P>
 	GLM_FUNC_DECL vec<L, intType, P> packSnorm(vec<L, floatType, P> const & v);
 
 	/// Convert a packed integer to a normalized floating-point vector.
 	/// 
 	/// @see gtc_packing
-	/// @see vecType<L, intType, P> packSnorm(vecType<L, floatType, P> const & v)
-	template<typename floatType, length_t L, typename intType, precision P>
+	/// @see vec<L, intType, P> packSnorm(vec<L, floatType, P> const & v)
+	template<typename floatType, length_t L, typename intType, qualifier P>
 	GLM_FUNC_DECL vec<L, floatType, P> unpackSnorm(vec<L, intType, P> const & v);
 
 	/// Convert each component of the normalized floating-point vector into unsigned integer values.

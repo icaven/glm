@@ -10,7 +10,7 @@ namespace glm
 
 	/// Return the constant address to the data of the vector input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T const* value_ptr(vec<2, T, P> const& v)
 	{
 		return &(v.x);
@@ -18,7 +18,7 @@ namespace glm
 
 	//! Return the address to the data of the vector input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T* value_ptr(vec<2, T, P>& v)
 	{
 		return &(v.x);
@@ -26,7 +26,7 @@ namespace glm
 
 	/// Return the constant address to the data of the vector input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T const * value_ptr(vec<3, T, P> const& v)
 	{
 		return &(v.x);
@@ -34,7 +34,7 @@ namespace glm
 
 	//! Return the address to the data of the vector input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T* value_ptr(vec<3, T, P>& v)
 	{
 		return &(v.x);
@@ -42,7 +42,7 @@ namespace glm
 		
 	/// Return the constant address to the data of the vector input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T const* value_ptr(vec<4, T, P> const& v)
 	{
 		return &(v.x);
@@ -50,7 +50,7 @@ namespace glm
 
 	//! Return the address to the data of the vector input.
 	//! From GLM_GTC_type_ptr extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T* value_ptr(vec<4, T, P>& v)
 	{
 		return &(v.x);
@@ -58,7 +58,7 @@ namespace glm
 
 	/// Return the constant address to the data of the matrix input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T const* value_ptr(mat<2, 2, T, P> const& m)
 	{
 		return &(m[0].x);
@@ -66,7 +66,7 @@ namespace glm
 
 	//! Return the address to the data of the matrix input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T* value_ptr(mat<2, 2, T, P>& m)
 	{
 		return &(m[0].x);
@@ -74,7 +74,7 @@ namespace glm
 
 	/// Return the constant address to the data of the matrix input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T const* value_ptr(mat<3, 3, T, P> const& m)
 	{
 		return &(m[0].x);
@@ -82,7 +82,7 @@ namespace glm
 
 	//! Return the address to the data of the matrix input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T* value_ptr(mat<3, 3, T, P>& m)
 	{
 		return &(m[0].x);
@@ -90,7 +90,7 @@ namespace glm
 		
 	/// Return the constant address to the data of the matrix input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T const* value_ptr(mat<4, 4, T, P> const& m)
 	{
 		return &(m[0].x);
@@ -98,7 +98,7 @@ namespace glm
 
 	//! Return the address to the data of the matrix input.
 	//! From GLM_GTC_type_ptr extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T* value_ptr(mat<4, 4, T, P>& m)
 	{
 		return &(m[0].x);
@@ -106,7 +106,7 @@ namespace glm
 
 	/// Return the constant address to the data of the matrix input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T const* value_ptr(mat<2, 3, T, P> const& m)
 	{
 		return &(m[0].x);
@@ -114,7 +114,7 @@ namespace glm
 
 	//! Return the address to the data of the matrix input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T* value_ptr(mat<2, 3, T, P>& m)
 	{
 		return &(m[0].x);
@@ -122,7 +122,7 @@ namespace glm
 		
 	/// Return the constant address to the data of the matrix input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T const* value_ptr(mat<3, 2, T, P> const& m)
 	{
 		return &(m[0].x);
@@ -130,7 +130,7 @@ namespace glm
 
 	//! Return the address to the data of the matrix input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T* value_ptr(mat<3, 2, T, P>& m)
 	{
 		return &(m[0].x);
@@ -138,7 +138,7 @@ namespace glm
 		
 	/// Return the constant address to the data of the matrix input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T const* value_ptr(mat<2, 4, T, P> const& m)
 	{
 		return &(m[0].x);
@@ -146,7 +146,7 @@ namespace glm
 
 	//! Return the address to the data of the matrix input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T* value_ptr(mat<2, 4, T, P>& m)
 	{
 		return &(m[0].x);
@@ -154,7 +154,7 @@ namespace glm
 		
 	/// Return the constant address to the data of the matrix input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T const* value_ptr(mat<4, 2, T, P> const& m)
 	{
 		return &(m[0].x);
@@ -162,7 +162,7 @@ namespace glm
 
 	//! Return the address to the data of the matrix input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T* value_ptr(mat<4, 2, T, P>& m)
 	{
 		return &(m[0].x);
@@ -170,7 +170,7 @@ namespace glm
 		
 	/// Return the constant address to the data of the matrix input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T const* value_ptr(mat<3, 4, T, P> const& m)
 	{
 		return &(m[0].x);
@@ -178,7 +178,7 @@ namespace glm
 
 	//! Return the address to the data of the matrix input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T* value_ptr(mat<3, 4, T, P>& m)
 	{
 		return &(m[0].x);
@@ -186,7 +186,7 @@ namespace glm
 		
 	/// Return the constant address to the data of the matrix input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T const* value_ptr(mat<4, 3, T, P> const& m)
 	{
 		return &(m[0].x);
@@ -194,7 +194,7 @@ namespace glm
 
 	/// Return the address to the data of the matrix input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T * value_ptr(mat<4, 3, T, P>& m)
 	{
 		return &(m[0].x);
@@ -202,7 +202,7 @@ namespace glm
 
 	/// Return the constant address to the data of the input parameter.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T const * value_ptr(tquat<T, P> const& q)
 	{
 		return &(q[0]);
@@ -210,7 +210,7 @@ namespace glm
 
 	/// Return the address to the data of the quaternion input.
 	/// @see gtc_type_ptr
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER T* value_ptr(tquat<T, P>& q)
 	{
 		return &(q[0]);

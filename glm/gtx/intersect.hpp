@@ -46,7 +46,7 @@ namespace glm
 	//! Compute the intersection of a ray and a triangle.
 	/// Based om Tomas Möller implementation http://fileadmin.cs.lth.se/cs/Personal/Tomas_Akenine-Moller/raytri/
 	//! From GLM_GTX_intersect extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL bool intersectRayTriangle(
 		vec<3, T, P> const& orig, vec<3, T, P> const& dir,
 		vec<3, T, P> const& v0, vec<3, T, P> const& v1, vec<3, T, P> const& v2,

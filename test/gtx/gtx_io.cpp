@@ -8,7 +8,7 @@
 namespace
 {
 	template<typename CTy, typename CTr>
-	std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, glm::precision const& a)
+	std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, glm::qualifier const& a)
 	{
 		typename std::basic_ostream<CTy,CTr>::sentry const cerberus(os);
 
@@ -29,7 +29,7 @@ namespace
 		return os;
 	}
 
-	template<typename U, glm::precision P, typename T, typename CTy, typename CTr>
+	template<typename U, glm::qualifier P, typename T, typename CTy, typename CTr>
 	std::basic_string<CTy> type_name(std::basic_ostream<CTy,CTr>&, T const&)
 	{
 		std::basic_ostringstream<CTy,CTr> ostr;
@@ -55,7 +55,7 @@ namespace
 	}
 } // namespace {
 
-template<typename T, glm::precision P, typename OS>
+template<typename T, glm::qualifier P, typename OS>
 int test_io_quat(OS& os)
 {
 	os << '\n' << typeid(OS).name() << '\n';
@@ -79,7 +79,7 @@ int test_io_quat(OS& os)
 	return 0;
 }
 
-template<typename T, glm::precision P, typename OS>
+template<typename T, glm::qualifier P, typename OS>
 int test_io_vec(OS& os)
 {
 	os << '\n' << typeid(OS).name() << '\n';
@@ -102,7 +102,7 @@ int test_io_vec(OS& os)
 	return 0;
 }
 
-template<typename T, glm::precision P, typename OS>
+template<typename T, glm::qualifier P, typename OS>
 int test_io_mat(OS& os, glm::io::order_type otype)
 {
 	os << '\n' << typeid(OS).name() << '\n';

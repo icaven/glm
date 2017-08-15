@@ -3,7 +3,7 @@
 
 namespace glm
 {
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> rgbColor(const vec<3, T, P>& hsvColor)
 	{
 		vec<3, T, P> hsv = hsvColor;
@@ -60,7 +60,7 @@ namespace glm
 		return rgbColor;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> hsvColor(const vec<3, T, P>& rgbColor)
 	{
 		vec<3, T, P> hsv = rgbColor;
@@ -121,19 +121,19 @@ namespace glm
 		return result;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> saturation(const T s, const vec<3, T, P>& color)
 	{
 		return vec<3, T, P>(saturation(s) * vec<4, T, P>(color, T(0)));
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<4, T, P> saturation(const T s, const vec<4, T, P>& color)
 	{
 		return saturation(s) * color;
 	}
 
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_QUALIFIER T luminosity(const vec<3, T, P>& color)
 	{
 		const vec<3, T, P> tmp = vec<3, T, P>(0.33, 0.59, 0.11);

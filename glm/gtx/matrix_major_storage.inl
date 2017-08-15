@@ -3,7 +3,7 @@
 
 namespace glm
 {
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_QUALIFIER mat<2, 2, T, P> rowMajor2
 	(
 		vec<2, T, P> const & v1, 
@@ -18,7 +18,7 @@ namespace glm
 		return Result;
 	}
 
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_QUALIFIER mat<2, 2, T, P> rowMajor2(
 		const mat<2, 2, T, P>& m)
 	{
@@ -30,7 +30,7 @@ namespace glm
 		return Result;
 	}
 
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_QUALIFIER mat<3, 3, T, P> rowMajor3(
 		const vec<3, T, P>& v1, 
 		const vec<3, T, P>& v2, 
@@ -49,7 +49,7 @@ namespace glm
 		return Result;
 	}
 
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_QUALIFIER mat<3, 3, T, P> rowMajor3(
 		const mat<3, 3, T, P>& m)
 	{
@@ -66,7 +66,7 @@ namespace glm
 		return Result;
 	}
 
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> rowMajor4(
 		const vec<4, T, P>& v1, 
 		const vec<4, T, P>& v2, 
@@ -93,7 +93,7 @@ namespace glm
 		return Result;
 	}
 
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> rowMajor4(
 		const mat<4, 4, T, P>& m)
 	{
@@ -117,7 +117,7 @@ namespace glm
 		return Result;
 	}
 
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_QUALIFIER mat<2, 2, T, P> colMajor2(
 		const vec<2, T, P>& v1, 
 		const vec<2, T, P>& v2)
@@ -125,14 +125,14 @@ namespace glm
 		return mat<2, 2, T, P>(v1, v2);
 	}
 
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_QUALIFIER mat<2, 2, T, P> colMajor2(
 		const mat<2, 2, T, P>& m)
 	{
 		return mat<2, 2, T, P>(m);
 	}
 
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_QUALIFIER mat<3, 3, T, P> colMajor3(
 		const vec<3, T, P>& v1, 
 		const vec<3, T, P>& v2, 
@@ -141,14 +141,14 @@ namespace glm
 		return mat<3, 3, T, P>(v1, v2, v3);
 	}
 
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_QUALIFIER mat<3, 3, T, P> colMajor3(
 		const mat<3, 3, T, P>& m)
 	{
 		return mat<3, 3, T, P>(m);
 	}
 
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> colMajor4(
 		const vec<4, T, P>& v1, 
 		const vec<4, T, P>& v2, 
@@ -158,7 +158,7 @@ namespace glm
 		return mat<4, 4, T, P>(v1, v2, v3, v4);
 	}
 
-	template<typename T, precision P> 
+	template<typename T, qualifier P> 
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> colMajor4(
 		const mat<4, 4, T, P>& m)
 	{

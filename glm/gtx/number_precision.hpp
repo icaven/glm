@@ -43,16 +43,16 @@ namespace gtx
 	//////////////////////
 	// Float vector types 
 
-	typedef f32			f32vec1;    //!< \brief Single-precision floating-point scalar. (from GLM_GTX_number_precision extension)
-	typedef f64			f64vec1;    //!< \brief Single-precision floating-point scalar. (from GLM_GTX_number_precision extension)
+	typedef f32			f32vec1;    //!< \brief Single-qualifier floating-point scalar. (from GLM_GTX_number_precision extension)
+	typedef f64			f64vec1;    //!< \brief Single-qualifier floating-point scalar. (from GLM_GTX_number_precision extension)
 
 	//////////////////////
 	// Float matrix types 
 
-	typedef f32			f32mat1;	//!< \brief Single-precision floating-point scalar. (from GLM_GTX_number_precision extension)
-	typedef f32			f32mat1x1;	//!< \brief Single-precision floating-point scalar. (from GLM_GTX_number_precision extension)
-	typedef f64			f64mat1;	//!< \brief Double-precision floating-point scalar. (from GLM_GTX_number_precision extension)
-	typedef f64			f64mat1x1;	//!< \brief Double-precision floating-point scalar. (from GLM_GTX_number_precision extension)
+	typedef f32			f32mat1;	//!< \brief Single-qualifier floating-point scalar. (from GLM_GTX_number_precision extension)
+	typedef f32			f32mat1x1;	//!< \brief Single-qualifier floating-point scalar. (from GLM_GTX_number_precision extension)
+	typedef f64			f64mat1;	//!< \brief Double-qualifier floating-point scalar. (from GLM_GTX_number_precision extension)
+	typedef f64			f64mat1x1;	//!< \brief Double-qualifier floating-point scalar. (from GLM_GTX_number_precision extension)
 
 	/// @}
 }//namespace gtx

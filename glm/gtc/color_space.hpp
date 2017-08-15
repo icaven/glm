@@ -15,7 +15,7 @@
 
 // Dependencies
 #include "../detail/setup.hpp"
-#include "../detail/precision.hpp"
+#include "../detail/qualifier.hpp"
 #include "../exponential.hpp"
 #include "../vec3.hpp"
 #include "../vec4.hpp"
@@ -32,23 +32,23 @@ namespace glm
 
 	/// Convert a linear color to sRGB color using a standard gamma correction.
 	/// IEC 61966-2-1:1999 / Rec. 709 specification https://www.w3.org/Graphics/Color/srgb
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<L, T, P> convertLinearToSRGB(vecType<L, T, P> const & ColorLinear);
+	template<length_t L, typename T, qualifier P>
+	GLM_FUNC_DECL vec<L, T, P> convertLinearToSRGB(vec<L, T, P> const & ColorLinear);
 
 	/// Convert a linear color to sRGB color using a custom gamma correction.
 	/// IEC 61966-2-1:1999 / Rec. 709 specification https://www.w3.org/Graphics/Color/srgb
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<L, T, P> convertLinearToSRGB(vecType<L, T, P> const & ColorLinear, T Gamma);
+	template<length_t L, typename T, qualifier P>
+	GLM_FUNC_DECL vec<L, T, P> convertLinearToSRGB(vec<L, T, P> const & ColorLinear, T Gamma);
 
 	/// Convert a sRGB color to linear color using a standard gamma correction.
 	/// IEC 61966-2-1:1999 / Rec. 709 specification https://www.w3.org/Graphics/Color/srgb
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<L, T, P> convertSRGBToLinear(vecType<L, T, P> const & ColorSRGB);
+	template<length_t L, typename T, qualifier P>
+	GLM_FUNC_DECL vec<L, T, P> convertSRGBToLinear(vec<L, T, P> const & ColorSRGB);
 
 	/// Convert a sRGB color to linear color using a custom gamma correction.
 	// IEC 61966-2-1:1999 / Rec. 709 specification https://www.w3.org/Graphics/Color/srgb
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
-	GLM_FUNC_DECL vecType<L, T, P> convertSRGBToLinear(vecType<L, T, P> const & ColorSRGB, T Gamma);
+	template<length_t L, typename T, qualifier P>
+	GLM_FUNC_DECL vec<L, T, P> convertSRGBToLinear(vec<L, T, P> const & ColorSRGB, T Gamma);
 
 	/// @}
 } //namespace glm

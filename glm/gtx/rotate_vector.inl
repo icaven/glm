@@ -3,7 +3,7 @@
 
 namespace glm
 {
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> slerp
 	(
 		vec<3, T, P> const & x,
@@ -25,7 +25,7 @@ namespace glm
 		return x * t1 + y * t2;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<2, T, P> rotate
 	(
 		vec<2, T, P> const & v,
@@ -41,7 +41,7 @@ namespace glm
 		return Result;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> rotate
 	(
 		vec<3, T, P> const & v,
@@ -52,7 +52,7 @@ namespace glm
 		return mat<3, 3, T, P>(glm::rotate(angle, normal)) * v;
 	}
 	/*
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> rotateGTX(
 		const vec<3, T, P>& x,
 		T angle,
@@ -63,7 +63,7 @@ namespace glm
 		return x * Cos + ((x * normal) * (T(1) - Cos)) * normal + cross(x, normal) * Sin;
 	}
 	*/
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<4, T, P> rotate
 	(
 		vec<4, T, P> const & v,
@@ -74,7 +74,7 @@ namespace glm
 		return rotate(angle, normal) * v;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> rotateX
 	(
 		vec<3, T, P> const & v,
@@ -90,7 +90,7 @@ namespace glm
 		return Result;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> rotateY
 	(
 		vec<3, T, P> const & v,
@@ -106,7 +106,7 @@ namespace glm
 		return Result;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> rotateZ
 	(
 		vec<3, T, P> const & v,
@@ -122,7 +122,7 @@ namespace glm
 		return Result;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<4, T, P> rotateX
 	(
 		vec<4, T, P> const & v,
@@ -138,7 +138,7 @@ namespace glm
 		return Result;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<4, T, P> rotateY
 	(
 		vec<4, T, P> const & v,
@@ -154,7 +154,7 @@ namespace glm
 		return Result;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<4, T, P> rotateZ
 	(
 		vec<4, T, P> const & v,
@@ -170,7 +170,7 @@ namespace glm
 		return Result;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> orientation
 	(
 		vec<3, T, P> const & Normal,

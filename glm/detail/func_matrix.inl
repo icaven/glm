@@ -7,7 +7,7 @@
 namespace glm{
 namespace detail
 {
-	template<template<length_t, length_t, typename, precision> class matType, length_t C, length_t R, typename T, precision P, bool Aligned>
+	template<template<length_t, length_t, typename, qualifier> class matType, length_t C, length_t R, typename T, qualifier P, bool Aligned>
 	struct compute_matrixCompMult
 	{
 		GLM_FUNC_QUALIFIER static matType<C, R, T, P> call(matType<C, R, T, P> const& x, matType<C, R, T, P> const& y)
@@ -19,10 +19,10 @@ namespace detail
 		}
 	};
 
-	template<template<length_t, length_t, typename, precision> class matType, length_t C, length_t R, typename T, precision P, bool Aligned>
+	template<template<length_t, length_t, typename, qualifier> class matType, length_t C, length_t R, typename T, qualifier P, bool Aligned>
 	struct compute_transpose{};
 
-	template<typename T, precision P, bool Aligned>
+	template<typename T, qualifier P, bool Aligned>
 	struct compute_transpose<mat, 2, 2, T, P, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static mat<2, 2, T, P> call(mat<2, 2, T, P> const& m)
@@ -36,7 +36,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P, bool Aligned>
+	template<typename T, qualifier P, bool Aligned>
 	struct compute_transpose<mat, 2, 3, T, P, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static mat<3, 2, T, P> call(mat<2, 3, T, P> const& m)
@@ -52,7 +52,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P, bool Aligned>
+	template<typename T, qualifier P, bool Aligned>
 	struct compute_transpose<mat, 2, 4, T, P, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static mat<4, 2, T, P> call(mat<2, 4, T, P> const& m)
@@ -70,7 +70,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P, bool Aligned>
+	template<typename T, qualifier P, bool Aligned>
 	struct compute_transpose<mat, 3, 2, T, P, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static mat<2, 3, T, P> call(mat<3, 2, T, P> const& m)
@@ -86,7 +86,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P, bool Aligned>
+	template<typename T, qualifier P, bool Aligned>
 	struct compute_transpose<mat, 3, 3, T, P, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static mat<3, 3, T, P> call(mat<3, 3, T, P> const& m)
@@ -107,7 +107,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P, bool Aligned>
+	template<typename T, qualifier P, bool Aligned>
 	struct compute_transpose<mat, 3, 4, T, P, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static mat<4, 3, T, P> call(mat<3, 4, T, P> const& m)
@@ -129,7 +129,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P, bool Aligned>
+	template<typename T, qualifier P, bool Aligned>
 	struct compute_transpose<mat, 4, 2, T, P, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static mat<2, 4, T, P> call(mat<4, 2, T, P> const& m)
@@ -147,7 +147,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P, bool Aligned>
+	template<typename T, qualifier P, bool Aligned>
 	struct compute_transpose<mat, 4, 3, T, P, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static mat<3, 4, T, P> call(mat<4, 3, T, P> const& m)
@@ -169,7 +169,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P, bool Aligned>
+	template<typename T, qualifier P, bool Aligned>
 	struct compute_transpose<mat, 4, 4, T, P, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static mat<4, 4, T, P> call(mat<4, 4, T, P> const& m)
@@ -198,10 +198,10 @@ namespace detail
 		}
 	};
 
-	template<template<length_t, length_t, typename, precision> class matType, length_t C, length_t R, typename T, precision P, bool Aligned>
+	template<template<length_t, length_t, typename, qualifier> class matType, length_t C, length_t R, typename T, qualifier P, bool Aligned>
 	struct compute_determinant{};
 
-	template<typename T, precision P, bool Aligned>
+	template<typename T, qualifier P, bool Aligned>
 	struct compute_determinant<mat, 2, 2, T, P, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static T call(mat<2, 2, T, P> const& m)
@@ -210,7 +210,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P, bool Aligned>
+	template<typename T, qualifier P, bool Aligned>
 	struct compute_determinant<mat, 3, 3, T, P, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static T call(mat<3, 3, T, P> const& m)
@@ -222,7 +222,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P, bool Aligned>
+	template<typename T, qualifier P, bool Aligned>
 	struct compute_determinant<mat, 4, 4, T, P, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static T call(mat<4, 4, T, P> const& m)
@@ -246,10 +246,10 @@ namespace detail
 		}
 	};
 
-	template<template<length_t, length_t, typename, precision> class matType, length_t C, length_t R, typename T, precision P, bool Aligned>
+	template<template<length_t, length_t, typename, qualifier> class matType, length_t C, length_t R, typename T, qualifier P, bool Aligned>
 	struct compute_inverse{};
 
-	template<typename T, precision P, bool Aligned>
+	template<typename T, qualifier P, bool Aligned>
 	struct compute_inverse<mat, 2, 2, T, P, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static mat<2, 2, T, P> call(mat<2, 2, T, P> const& m)
@@ -268,7 +268,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P, bool Aligned>
+	template<typename T, qualifier P, bool Aligned>
 	struct compute_inverse<mat, 3, 3, T, P, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static mat<3, 3, T, P> call(mat<3, 3, T, P> const& m)
@@ -293,7 +293,7 @@ namespace detail
 		}
 	};
 
-	template<typename T, precision P, bool Aligned>
+	template<typename T, qualifier P, bool Aligned>
 	struct compute_inverse<mat, 4, 4, T, P, Aligned>
 	{
 		GLM_FUNC_QUALIFIER static mat<4, 4, T, P> call(mat<4, 4, T, P> const& m)
@@ -355,14 +355,14 @@ namespace detail
 	};
 }//namespace detail
 
-	template<length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
+	template<length_t C, length_t R, typename T, qualifier P, template<length_t, length_t, typename, qualifier> class matType>
 	GLM_FUNC_QUALIFIER matType<C, R, T, P> matrixCompMult(matType<C, R, T, P> const & x, matType<C, R, T, P> const & y)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'matrixCompMult' only accept floating-point inputs");
 		return detail::compute_matrixCompMult<matType, C, R, T, P, detail::is_aligned<P>::value>::call(x, y);
 	}
 
-	template<length_t DA, length_t DB, typename T, precision P>
+	template<length_t DA, length_t DB, typename T, qualifier P>
 	GLM_FUNC_QUALIFIER typename detail::outerProduct_trait<DA, DB, T, P>::type outerProduct(vec<DA, T, P> const & c, vec<DB, T, P> const & r)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'outerProduct' only accept floating-point inputs");
@@ -373,21 +373,21 @@ namespace detail
 		return m;
 	}
 
-	template<length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
+	template<length_t C, length_t R, typename T, qualifier P, template<length_t, length_t, typename, qualifier> class matType>
 	GLM_FUNC_QUALIFIER typename matType<C, R, T, P>::transpose_type transpose(matType<C, R, T, P> const & m)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'transpose' only accept floating-point inputs");
 		return detail::compute_transpose<matType, C, R, T, P, detail::is_aligned<P>::value>::call(m);
 	}
 
-	template<length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
+	template<length_t C, length_t R, typename T, qualifier P, template<length_t, length_t, typename, qualifier> class matType>
 	GLM_FUNC_QUALIFIER T determinant(matType<C, R, T, P> const & m)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'determinant' only accept floating-point inputs");
 		return detail::compute_determinant<matType, C, R, T, P, detail::is_aligned<P>::value>::call(m);
 	}
 
-	template<length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
+	template<length_t C, length_t R, typename T, qualifier P, template<length_t, length_t, typename, qualifier> class matType>
 	GLM_FUNC_QUALIFIER matType<C, R, T, P> inverse(matType<C, R, T, P> const & m)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'inverse' only accept floating-point inputs");

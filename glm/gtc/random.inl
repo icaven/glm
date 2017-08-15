@@ -12,13 +12,13 @@
 namespace glm{
 namespace detail
 {
-	template <length_t L, typename T, precision P>
+	template <length_t L, typename T, qualifier P>
 	struct compute_rand
 	{
 		GLM_FUNC_QUALIFIER static vec<L, T, P> call();
 	};
 
-	template <precision P>
+	template <qualifier P>
 	struct compute_rand<1, uint8, P>
 	{
 		GLM_FUNC_QUALIFIER static vec<1, uint8, P> call()
@@ -28,7 +28,7 @@ namespace detail
 		}
 	};
 
-	template <precision P>
+	template <qualifier P>
 	struct compute_rand<2, uint8, P>
 	{
 		GLM_FUNC_QUALIFIER static vec<2, uint8, P> call()
@@ -39,7 +39,7 @@ namespace detail
 		}
 	};
 
-	template <precision P>
+	template <qualifier P>
 	struct compute_rand<3, uint8, P>
 	{
 		GLM_FUNC_QUALIFIER static vec<3, uint8, P> call()
@@ -51,7 +51,7 @@ namespace detail
 		}
 	};
 
-	template <precision P>
+	template <qualifier P>
 	struct compute_rand<4, uint8, P>
 	{
 		GLM_FUNC_QUALIFIER static vec<4, uint8, P> call()
@@ -64,7 +64,7 @@ namespace detail
 		}
 	};
 
-	template <length_t L, precision P>
+	template <length_t L, qualifier P>
 	struct compute_rand<L, uint16, P>
 	{
 		GLM_FUNC_QUALIFIER static vec<L, uint16, P> call()
@@ -75,7 +75,7 @@ namespace detail
 		}
 	};
 
-	template <length_t L, precision P>
+	template <length_t L, qualifier P>
 	struct compute_rand<L, uint32, P>
 	{
 		GLM_FUNC_QUALIFIER static vec<L, uint32, P> call()
@@ -86,7 +86,7 @@ namespace detail
 		}
 	};
 
-	template <length_t L, precision P>
+	template <length_t L, qualifier P>
 	struct compute_rand<L, uint64, P>
 	{
 		GLM_FUNC_QUALIFIER static vec<L, uint64, P> call()
@@ -97,13 +97,13 @@ namespace detail
 		}
 	};
 
-	template <length_t L, typename T, precision P>
+	template <length_t L, typename T, qualifier P>
 	struct compute_linearRand
 	{
 		GLM_FUNC_QUALIFIER static vec<L, T, P> call(vec<L, T, P> const& Min, vec<L, T, P> const& Max);
 	};
 
-	template<length_t L, precision P>
+	template<length_t L, qualifier P>
 	struct compute_linearRand<L, int8, P>
 	{
 		GLM_FUNC_QUALIFIER static vec<L, int8, P> call(vec<L, int8, P> const& Min, vec<L, int8, P> const& Max)
@@ -112,7 +112,7 @@ namespace detail
 		}
 	};
 
-	template<length_t L, precision P>
+	template<length_t L, qualifier P>
 	struct compute_linearRand<L, uint8, P>
 	{
 		GLM_FUNC_QUALIFIER static vec<L, uint8, P> call(vec<L, uint8, P> const& Min, vec<L, uint8, P> const& Max)
@@ -121,7 +121,7 @@ namespace detail
 		}
 	};
 
-	template<length_t L, precision P>
+	template<length_t L, qualifier P>
 	struct compute_linearRand<L, int16, P>
 	{
 		GLM_FUNC_QUALIFIER static vec<L, int16, P> call(vec<L, int16, P> const& Min, vec<L, int16, P> const& Max)
@@ -130,7 +130,7 @@ namespace detail
 		}
 	};
 
-	template<length_t L, precision P>
+	template<length_t L, qualifier P>
 	struct compute_linearRand<L, uint16, P>
 	{
 		GLM_FUNC_QUALIFIER static vec<L, uint16, P> call(vec<L, uint16, P> const& Min, vec<L, uint16, P> const& Max)
@@ -139,7 +139,7 @@ namespace detail
 		}
 	};
 
-	template<length_t L, precision P>
+	template<length_t L, qualifier P>
 	struct compute_linearRand<L, int32, P>
 	{
 		GLM_FUNC_QUALIFIER static vec<L, int32, P> call(vec<L, int32, P> const & Min, vec<L, int32, P> const& Max)
@@ -148,7 +148,7 @@ namespace detail
 		}
 	};
 
-	template<length_t L, precision P>
+	template<length_t L, qualifier P>
 	struct compute_linearRand<L, uint32, P>
 	{
 		GLM_FUNC_QUALIFIER static vec<L, uint32, P> call(vec<L, uint32, P> const& Min, vec<L, uint32, P> const& Max)
@@ -157,7 +157,7 @@ namespace detail
 		}
 	};
  
-	template<length_t L, precision P>
+	template<length_t L, qualifier P>
 	struct compute_linearRand<L, int64, P>
 	{
 		GLM_FUNC_QUALIFIER static vec<L, int64, P> call(vec<L, int64, P> const& Min, vec<L, int64, P> const& Max)
@@ -166,7 +166,7 @@ namespace detail
 		}
 	};
 
-	template<length_t L, precision P>
+	template<length_t L, qualifier P>
 	struct compute_linearRand<L, uint64, P>
 	{
 		GLM_FUNC_QUALIFIER static vec<L, uint64, P> call(vec<L, uint64, P> const& Min, vec<L, uint64, P> const& Max)
@@ -265,7 +265,7 @@ namespace detail
 			vec<1, genType, highp>(Max)).x;
 	}
 
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<L, T, P> linearRand(vec<L, T, P> const & Min, vec<L, T, P> const& Max)
 	{
 		return detail::compute_linearRand<L, T, P>::call(Min, Max);
@@ -287,7 +287,7 @@ namespace detail
 		return x2 * Deviation * Deviation * sqrt((genType(-2) * log(w)) / w) + Mean;
 	}
 
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<L, T, P> gaussRand(vec<L, T, P> const& Mean, vec<L, T, P> const& Deviation)
 	{
 		return detail::functor2<L, T, P>::call(gaussRand, Mean, Deviation);

@@ -40,9 +40,9 @@ namespace glm
 	/// @param Min Minimum value included in the sampling 
 	/// @param Max Maximum value included in the sampling 
 	/// @tparam T Value type. Currently supported: float or double.
-	/// @tparam vecType A vertor type: tvec1, tvec2, tvec3, tvec4 or compatible
+	///
 	/// @see gtc_random
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL vec<L, T, P> linearRand(vec<L, T, P> const& Min, vec<L, T, P> const& Max);
 
 	/// Generate random numbers in the interval [Min, Max], according a gaussian distribution 

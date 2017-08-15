@@ -3,7 +3,7 @@
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/epsilon.hpp>
 
-template <glm::length_t C, glm::length_t R, typename T, glm::precision P, template<glm::length_t, glm::length_t, typename, glm::precision> class matType>
+template <glm::length_t C, glm::length_t R, typename T, glm::qualifier P, template<glm::length_t, glm::length_t, typename, glm::qualifier> class matType>
 int test_qr(matType<C, R, T, P> m)
 {
 	int Error = 0;
@@ -40,7 +40,7 @@ int test_qr(matType<C, R, T, P> m)
 	return Error;
 }
 
-template <glm::length_t C, glm::length_t R, typename T, glm::precision P, template<glm::length_t, glm::length_t, typename, glm::precision> class matType>
+template <glm::length_t C, glm::length_t R, typename T, glm::qualifier P, template<glm::length_t, glm::length_t, typename, glm::qualifier> class matType>
 int test_rq(matType<C, R, T, P> m)
 {
 	int Error = 0;

@@ -7,7 +7,7 @@
 
 namespace glm
 {
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> translate(mat<4, 4, T, P> const & m, vec<3, T, P> const & v)
 	{
 		mat<4, 4, T, P> Result(m);
@@ -15,7 +15,7 @@ namespace glm
 		return Result;
 	}
 	
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> rotate(mat<4, 4, T, P> const & m, T angle, vec<3, T, P> const & v)
 	{
 		T const a = angle;
@@ -46,7 +46,7 @@ namespace glm
 		return Result;
 	}
 		
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> rotate_slow(mat<4, 4, T, P> const & m, T angle, vec<3, T, P> const & v)
 	{
 		T const a = angle;
@@ -75,7 +75,7 @@ namespace glm
 		return m * Result;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> scale(mat<4, 4, T, P> const & m, vec<3, T, P> const & v)
 	{
 		mat<4, 4, T, P> Result;
@@ -86,7 +86,7 @@ namespace glm
 		return Result;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> scale_slow(mat<4, 4, T, P> const & m, vec<3, T, P> const & v)
 	{
 		mat<4, 4, T, P> Result(T(1));
@@ -435,7 +435,7 @@ namespace glm
 		return tweakedInfinitePerspective(fovy, aspect, zNear, epsilon<T>());
 	}
 
-	template<typename T, typename U, precision P>
+	template<typename T, typename U, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> project
 	(
 		vec<3, T, P> const & obj,
@@ -461,7 +461,7 @@ namespace glm
 		return vec<3, T, P>(tmp);
 	}
 
-	template<typename T, typename U, precision P>
+	template<typename T, typename U, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> unProject
 	(
 		vec<3, T, P> const & win,
@@ -488,7 +488,7 @@ namespace glm
 		return vec<3, T, P>(obj);
 	}
 
-	template<typename T, precision P, typename U>
+	template<typename T, qualifier P, typename U>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> pickMatrix(vec<2, T, P> const & center, vec<2, T, P> const & delta, vec<4, U, P> const & viewport)
 	{
 		assert(delta.x > static_cast<T>(0) && delta.y > static_cast<T>(0));
@@ -507,7 +507,7 @@ namespace glm
 		return scale(Result, vec<3, T, P>(static_cast<T>(viewport[2]) / delta.x, static_cast<T>(viewport[3]) / delta.y, static_cast<T>(1)));
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> lookAt(vec<3, T, P> const & eye, vec<3, T, P> const & center, vec<3, T, P> const & up)
 	{
 #		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
@@ -517,7 +517,7 @@ namespace glm
 #		endif
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> lookAtRH
 	(
 		vec<3, T, P> const & eye,
@@ -545,7 +545,7 @@ namespace glm
 		return Result;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> lookAtLH
 	(
 		vec<3, T, P> const & eye,

@@ -15,7 +15,7 @@
 #pragma once
 
 #include "setup.hpp"
-#include "precision.hpp"
+#include "qualifier.hpp"
 
 namespace glm
 {
@@ -26,22 +26,22 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Enumeration value qualifier
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/radians.xml">GLSL radians man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.1 Angle and Trigonometry Functions</a>
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL GLM_CONSTEXPR vec<L, T, P> radians(vec<L, T, P> const& degrees);
 
 	/// Converts radians to degrees and returns the result.
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Enumeration value qualifier
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/degrees.xml">GLSL degrees man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.1 Angle and Trigonometry Functions</a>
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL GLM_CONSTEXPR vec<L, T, P> degrees(vec<L, T, P> const& radians);
 
 	/// The standard trigonometric sine function. 
@@ -49,11 +49,11 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Enumeration value qualifier
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sin.xml">GLSL sin man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.1 Angle and Trigonometry Functions</a>
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL vec<L, T, P> sin(vec<L, T, P> const& angle);
 
 	/// The standard trigonometric cosine function. 
@@ -61,22 +61,22 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Enumeration value qualifier
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/cos.xml">GLSL cos man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.1 Angle and Trigonometry Functions</a>
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL vec<L, T, P> cos(vec<L, T, P> const& angle);
 
 	/// The standard trigonometric tangent function.
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Enumeration value qualifier
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/tan.xml">GLSL tan man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.1 Angle and Trigonometry Functions</a>
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL vec<L, T, P> tan(vec<L, T, P> const& angle);
 
 	/// Arc sine. Returns an angle whose sine is x. 
@@ -85,11 +85,11 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Enumeration value qualifier
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/asin.xml">GLSL asin man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.1 Angle and Trigonometry Functions</a>
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL vec<L, T, P> asin(vec<L, T, P> const& x);
 
 	/// Arc cosine. Returns an angle whose sine is x. 
@@ -98,11 +98,11 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Enumeration value qualifier
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/acos.xml">GLSL acos man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.1 Angle and Trigonometry Functions</a>
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL vec<L, T, P> acos(vec<L, T, P> const& x);
 
 	/// Arc tangent. Returns an angle whose tangent is y/x. 
@@ -113,11 +113,11 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Enumeration value qualifier
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/atan.xml">GLSL atan man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.1 Angle and Trigonometry Functions</a>
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL vec<L, T, P> atan(vec<L, T, P> const& y, vec<L, T, P> const& x);
 
 	/// Arc tangent. Returns an angle whose tangent is y_over_x. 
@@ -125,55 +125,55 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Enumeration value qualifier
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/atan.xml">GLSL atan man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.1 Angle and Trigonometry Functions</a>
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL vec<L, T, P> atan(vec<L, T, P> const& y_over_x);
 
 	/// Returns the hyperbolic sine function, (exp(x) - exp(-x)) / 2
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Enumeration value qualifier
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sinh.xml">GLSL sinh man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.1 Angle and Trigonometry Functions</a>
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL vec<L, T, P> sinh(vec<L, T, P> const& angle);
 
 	/// Returns the hyperbolic cosine function, (exp(x) + exp(-x)) / 2
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Enumeration value qualifier
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/cosh.xml">GLSL cosh man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.1 Angle and Trigonometry Functions</a>
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL vec<L, T, P> cosh(vec<L, T, P> const& angle);
 
 	/// Returns the hyperbolic tangent function, sinh(angle) / cosh(angle)
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Enumeration value qualifier
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/tanh.xml">GLSL tanh man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.1 Angle and Trigonometry Functions</a>
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL vec<L, T, P> tanh(vec<L, T, P> const& angle);
 
 	/// Arc hyperbolic sine; returns the inverse of sinh.
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Enumeration value qualifier
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/asinh.xml">GLSL asinh man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.1 Angle and Trigonometry Functions</a>
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL vec<L, T, P> asinh(vec<L, T, P> const& x);
 	
 	/// Arc hyperbolic cosine; returns the non-negative inverse
@@ -181,11 +181,11 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Enumeration value qualifier
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/acosh.xml">GLSL acosh man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.1 Angle and Trigonometry Functions</a>
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL vec<L, T, P> acosh(vec<L, T, P> const& x);
 
 	/// Arc hyperbolic tangent; returns the inverse of tanh.
@@ -193,11 +193,11 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Enumeration value qualifier
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/atanh.xml">GLSL atanh man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.1 Angle and Trigonometry Functions</a>
-	template<length_t L, typename T, precision P>
+	template<length_t L, typename T, qualifier P>
 	GLM_FUNC_DECL vec<L, T, P> atanh(vec<L, T, P> const& x);
 
 	/// @}

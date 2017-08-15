@@ -11,7 +11,7 @@
 /// 
 /// @brief std::[w]ostream support for glm types
 ///
-/// std::[w]ostream support for glm types + precision/width/etc. manipulators
+/// std::[w]ostream support for glm types + qualifier/width/etc. manipulators
 /// based on howard hinnant's std::chrono io proposal
 /// [http://home.roadrunner.com/~hinnant/bloomington/chrono_io.html]
 ///
@@ -162,36 +162,36 @@ namespace glm
 		std::basic_ostream<CTy, CTr>& operator<<(std::basic_ostream<CTy, CTr>&, order const&);
 	}//namespace io
 
-	template<typename CTy, typename CTr, typename T, precision P>
+	template<typename CTy, typename CTr, typename T, qualifier P>
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>&, tquat<T,P> const&);
-	template<typename CTy, typename CTr, typename T, precision P>
+	template<typename CTy, typename CTr, typename T, qualifier P>
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>&, vec<1, T,P> const&);
-	template<typename CTy, typename CTr, typename T, precision P>
+	template<typename CTy, typename CTr, typename T, qualifier P>
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>&, vec<2, T,P> const&);
-	template<typename CTy, typename CTr, typename T, precision P>
+	template<typename CTy, typename CTr, typename T, qualifier P>
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>&, vec<3, T,P> const&);
-	template<typename CTy, typename CTr, typename T, precision P>
+	template<typename CTy, typename CTr, typename T, qualifier P>
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>&, vec<4, T,P> const&);
-	template<typename CTy, typename CTr, typename T, precision P>
+	template<typename CTy, typename CTr, typename T, qualifier P>
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>&, mat<2, 2, T,P> const&);
-	template<typename CTy, typename CTr, typename T, precision P>
+	template<typename CTy, typename CTr, typename T, qualifier P>
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>&, mat<2, 3, T,P> const&);
-	template<typename CTy, typename CTr, typename T, precision P>
+	template<typename CTy, typename CTr, typename T, qualifier P>
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>&, mat<2, 4, T,P> const&);
-	template<typename CTy, typename CTr, typename T, precision P>
+	template<typename CTy, typename CTr, typename T, qualifier P>
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>&, mat<3, 2, T,P> const&);
-	template<typename CTy, typename CTr, typename T, precision P>
+	template<typename CTy, typename CTr, typename T, qualifier P>
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>&, mat<3, 3, T,P> const&);
-	template<typename CTy, typename CTr, typename T, precision P>
+	template<typename CTy, typename CTr, typename T, qualifier P>
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>&, mat<3, 4, T,P> const&);
-	template<typename CTy, typename CTr, typename T, precision P>
+	template<typename CTy, typename CTr, typename T, qualifier P>
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>&, mat<4, 2, T,P> const&);
-	template<typename CTy, typename CTr, typename T, precision P>
+	template<typename CTy, typename CTr, typename T, qualifier P>
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>&, mat<4, 3, T,P> const&);
-	template<typename CTy, typename CTr, typename T, precision P>
+	template<typename CTy, typename CTr, typename T, qualifier P>
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>&, mat<4, 4, T,P> const&);
 
-  template<typename CTy, typename CTr, typename T, precision P>
+  template<typename CTy, typename CTr, typename T, qualifier P>
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr> & operator<<(std::basic_ostream<CTy,CTr> &,
                                                          std::pair<mat<4, 4, T,P> const, mat<4, 4, T,P> const> const &);
 

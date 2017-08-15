@@ -124,12 +124,12 @@ namespace glm
 
 	/// Creates a 3D 3 * 3 rotation matrix from euler angles (Y * X * Z). 
 	/// @see gtx_euler_angles
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL mat<3, 3, T, P> orientate3(vec<3, T, P> const & angles);
 		
 	/// Creates a 3D 4 * 4 homogeneous rotation matrix from euler angles (Y * X * Z).
 	/// @see gtx_euler_angles
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL mat<4, 4, T, P> orientate4(vec<3, T, P> const & angles);
 
     /// Extracts the (X * Y * Z) Euler angles from the rotation matrix M

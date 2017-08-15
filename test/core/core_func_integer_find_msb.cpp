@@ -168,7 +168,7 @@ int nlz7(unsigned k)
 	return n;
 }
 
-   /* In single precision, round-to-nearest mode, the basic method fails for:
+   /* In single qualifier, round-to-nearest mode, the basic method fails for:
    k = 0, k = 01FFFFFF, 03FFFFFE <= k <= 03FFFFFF,
                         07FFFFFC <= k <= 07FFFFFF,
                         0FFFFFF8 <= k <= 0FFFFFFF,

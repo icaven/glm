@@ -33,42 +33,42 @@ namespace glm
 
 	/// Return whether a matrix a null matrix.
 	/// From GLM_GTX_matrix_query extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL bool isNull(mat<2, 2, T, P> const & m, T const & epsilon);
 		
 	/// Return whether a matrix a null matrix.
 	/// From GLM_GTX_matrix_query extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL bool isNull(mat<3, 3, T, P> const & m, T const & epsilon);
 		
 	/// Return whether a matrix is a null matrix.
 	/// From GLM_GTX_matrix_query extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL bool isNull(mat<4, 4, T, P> const & m, T const & epsilon);
 			
 	/// Return whether a matrix is an identity matrix.
 	/// From GLM_GTX_matrix_query extension.
-	template<length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
+	template<length_t C, length_t R, typename T, qualifier P, template<length_t, length_t, typename, qualifier> class matType>
 	GLM_FUNC_DECL bool isIdentity(matType<C, R, T, P> const & m, T const & epsilon);
 
 	/// Return whether a matrix is a normalized matrix.
 	/// From GLM_GTX_matrix_query extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL bool isNormalized(mat<2, 2, T, P> const & m, T const & epsilon);
 
 	/// Return whether a matrix is a normalized matrix.
 	/// From GLM_GTX_matrix_query extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL bool isNormalized(mat<3, 3, T, P> const & m, T const & epsilon);
 
 	/// Return whether a matrix is a normalized matrix.
 	/// From GLM_GTX_matrix_query extension.
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_DECL bool isNormalized(mat<4, 4, T, P> const & m, T const & epsilon);
 
 	/// Return whether a matrix is an orthonormalized matrix.
 	/// From GLM_GTX_matrix_query extension.
-	template<length_t C, length_t R, typename T, precision P, template<length_t, length_t, typename, precision> class matType>
+	template<length_t C, length_t R, typename T, qualifier P, template<length_t, length_t, typename, qualifier> class matType>
 	GLM_FUNC_DECL bool isOrthogonal(matType<C, R, T, P> const & m, T const & epsilon);
 
 	/// @}

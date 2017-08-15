@@ -230,7 +230,7 @@ namespace detail
 		return Bits >= sizeof(genIUType) * 8 ? ~static_cast<genIUType>(0) : (static_cast<genIUType>(1) << Bits) - static_cast<genIUType>(1);
 	}
 
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecIUType>
+	template<length_t L, typename T, qualifier P, template<length_t, typename, qualifier> class vecIUType>
 	GLM_FUNC_QUALIFIER vecIUType<L, T, P> mask(vecIUType<L, T, P> const& v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'mask' accepts only integer values");
@@ -247,8 +247,8 @@ namespace detail
 		return (In << static_cast<genIType>(Shift)) | (In >> static_cast<genIType>(BitSize - Shift));
 	}
 
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<L, T, P> bitfieldRotateRight(vecType<L, T, P> const & In, int Shift)
+	template<length_t L, typename T, qualifier P>
+	GLM_FUNC_QUALIFIER vec<L, T, P> bitfieldRotateRight(vec<L, T, P> const & In, int Shift)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldRotateRight' accepts only integer values");
 
@@ -265,8 +265,8 @@ namespace detail
 		return (In >> static_cast<genIType>(Shift)) | (In << static_cast<genIType>(BitSize - Shift));
 	}
 
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<L, T, P> bitfieldRotateLeft(vecType<L, T, P> const& In, int Shift)
+	template<length_t L, typename T, qualifier P>
+	GLM_FUNC_QUALIFIER vec<L, T, P> bitfieldRotateLeft(vec<L, T, P> const& In, int Shift)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldRotateLeft' accepts only integer values");
 
@@ -280,8 +280,8 @@ namespace detail
 		return Value | static_cast<genIUType>(mask(BitCount) << FirstBit);
 	}
 
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<L, T, P> bitfieldFillOne(vecType<L, T, P> const& Value, int FirstBit, int BitCount)
+	template<length_t L, typename T, qualifier P>
+	GLM_FUNC_QUALIFIER vec<L, T, P> bitfieldFillOne(vec<L, T, P> const& Value, int FirstBit, int BitCount)
 	{
 		return Value | static_cast<T>(mask(BitCount) << FirstBit);
 	}
@@ -292,8 +292,8 @@ namespace detail
 		return Value & static_cast<genIUType>(~(mask(BitCount) << FirstBit));
 	}
 
-	template<length_t L, typename T, precision P, template<length_t, typename, precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<L, T, P> bitfieldFillZero(vecType<L, T, P> const& Value, int FirstBit, int BitCount)
+	template<length_t L, typename T, qualifier P>
+	GLM_FUNC_QUALIFIER vec<L, T, P> bitfieldFillZero(vec<L, T, P> const& Value, int FirstBit, int BitCount)
 	{
 		return Value & static_cast<T>(~(mask(BitCount) << FirstBit));
 	}

@@ -23,7 +23,7 @@ namespace glm
 		return false;
 	}
 
-	template<typename T, precision P>
+	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER bool intersectRayTriangle
 	(
 		vec<3, T, P> const& orig, vec<3, T, P> const& dir,
