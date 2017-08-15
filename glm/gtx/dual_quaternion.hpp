@@ -58,8 +58,8 @@ namespace glm
 
 		GLM_FUNC_DECL GLM_CONSTEXPR tdualquat() GLM_DEFAULT;
 		GLM_FUNC_DECL GLM_CONSTEXPR tdualquat(tdualquat<T, Q> const& d) GLM_DEFAULT;
-		template<qualifier Q>
-		GLM_FUNC_DECL GLM_CONSTEXPR tdualquat(tdualquat<T, Q> const& d);
+		template<qualifier P>
+		GLM_FUNC_DECL GLM_CONSTEXPR tdualquat(tdualquat<T, P> const& d);
 
 		// -- Explicit basic constructors --
 
@@ -69,8 +69,8 @@ namespace glm
 
 		// -- Conversion constructors --
 
-		template<typename U, qualifier Q>
-		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tdualquat(tdualquat<U, Q> const& q);
+		template<typename U, qualifier P>
+		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tdualquat(tdualquat<U, P> const& q);
 
 		GLM_FUNC_DECL GLM_EXPLICIT tdualquat(mat<2, 4, T, Q> const& holder_mat);
 		GLM_FUNC_DECL GLM_EXPLICIT tdualquat(mat<3, 4, T, Q> const& aug_mat);
