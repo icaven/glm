@@ -13,7 +13,7 @@
 #include <cstdio>
 #include <vector>
 
-void print(glm::dmat3 const & Mat0)
+void print(glm::dmat3 const& Mat0)
 {
 	printf("mat3(\n");
 	printf("\tvec3(%2.3f, %2.3f, %2.3f)\n", Mat0[0][0], Mat0[0][1], Mat0[0][2]);

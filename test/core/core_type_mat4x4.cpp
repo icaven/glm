@@ -14,7 +14,7 @@
 
 
 template<typename genType>
-void print(genType const & Mat0)
+void print(genType const& Mat0)
 {
 	printf("mat4(\n");
 	printf("\tvec4(%2.9f, %2.9f, %2.9f, %2.9f)\n", static_cast<double>(Mat0[0][0]), static_cast<double>(Mat0[0][1]), static_cast<double>(Mat0[0][2]), static_cast<double>(Mat0[0][3]));

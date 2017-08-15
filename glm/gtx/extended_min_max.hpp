@@ -25,7 +25,7 @@
 
 namespace glm
 {
-	/// @addtogroup gtx_extented_min_max
+	/// @addtogroup gtx_extended_min_max
 	/// @{
 
 	/// Return the minimum component-wise values of 3 inputs 
