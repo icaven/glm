@@ -1397,8 +1397,8 @@ namespace bitCount
 	template<bool EXEC = false>
 	struct compute_bitfieldBitCountStep
 	{
-		template<glm::length_t L, typename T, glm::precision P, template<glm::length_t, typename, glm::precision> class vecType>
-		GLM_FUNC_QUALIFIER static vecType<L, T, P> call(vecType<L, T, P> const & v, T, T)
+		template<glm::length_t L, typename T, glm::precision P>
+		GLM_FUNC_QUALIFIER static glm::vec<L, T, P> call(glm::vec<L, T, P> const& v, T, T)
 		{
 			return v;
 		}
@@ -1407,24 +1407,24 @@ namespace bitCount
 	template<>
 	struct compute_bitfieldBitCountStep<true>
 	{
-		template<glm::length_t L, typename T, glm::precision P, template<glm::length_t, typename, glm::precision> class vecType>
-		GLM_FUNC_QUALIFIER static vecType<L, T, P> call(vecType<L, T, P> const & v, T Mask, T Shift)
+		template<glm::length_t L, typename T, glm::precision P>
+		GLM_FUNC_QUALIFIER static glm::vec<L, T, P> call(glm::vec<L, T, P> const& v, T Mask, T Shift)
 		{
 			return (v & Mask) + ((v >> Shift) & Mask);
 		}
 	};
 
-	template<glm::length_t L, typename T, glm::precision P, template<glm::length_t, typename, glm::precision> class vecType>
-	static vecType<L, int, P> bitCount_bitfield(vecType<L, T, P> const & v)
+	template<glm::length_t L, typename T, glm::precision P>
+	static glm::vec<L, int, P> bitCount_bitfield(glm::vec<L, T, P> const & v)
 	{
-		vecType<L, typename glm::detail::make_unsigned<T>::type, P> x(*reinterpret_cast<vecType<L, typename glm::detail::make_unsigned<T>::type, P> const *>(&v));
+		glm::vec<L, typename glm::detail::make_unsigned<T>::type, P> x(*reinterpret_cast<glm::vec<L, typename glm::detail::make_unsigned<T>::type, P> const *>(&v));
 		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >=  2>::call(x, typename glm::detail::make_unsigned<T>::type(0x5555555555555555ull), typename glm::detail::make_unsigned<T>::type( 1));
 		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >=  4>::call(x, typename glm::detail::make_unsigned<T>::type(0x3333333333333333ull), typename glm::detail::make_unsigned<T>::type( 2));
 		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >=  8>::call(x, typename glm::detail::make_unsigned<T>::type(0x0F0F0F0F0F0F0F0Full), typename glm::detail::make_unsigned<T>::type( 4));
 		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >= 16>::call(x, typename glm::detail::make_unsigned<T>::type(0x00FF00FF00FF00FFull), typename glm::detail::make_unsigned<T>::type( 8));
 		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >= 32>::call(x, typename glm::detail::make_unsigned<T>::type(0x0000FFFF0000FFFFull), typename glm::detail::make_unsigned<T>::type(16));
 		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >= 64>::call(x, typename glm::detail::make_unsigned<T>::type(0x00000000FFFFFFFFull), typename glm::detail::make_unsigned<T>::type(32));
-		return vecType<L, int, P>(x);
+		return glm::vec<L, int, P>(x);
 	}
 
 	template<typename genType>

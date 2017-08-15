@@ -26,6 +26,7 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/abs.xml">GLSL abs man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
+	/// @see precision
 	template<typename genType>
 	GLM_FUNC_DECL genType abs(genType x);
 
@@ -33,7 +34,7 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point or signed integer scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/abs.xml">GLSL abs man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -44,7 +45,7 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sign.xml">GLSL sign man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -55,7 +56,7 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floor.xml">GLSL floor man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -67,7 +68,7 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/trunc.xml">GLSL trunc man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -82,7 +83,7 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/round.xml">GLSL round man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -95,7 +96,7 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/roundEven.xml">GLSL roundEven man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -108,7 +109,7 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/ceil.xml">GLSL ceil man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -128,7 +129,7 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/fract.xml">GLSL fract man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -150,7 +151,7 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml">GLSL mod man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -162,7 +163,7 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml">GLSL mod man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -194,7 +195,7 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point or integer scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/min.xml">GLSL min man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -205,7 +206,7 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point or integer scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/min.xml">GLSL min man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -225,7 +226,7 @@ namespace glm
 	/// 
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point or integer scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/max.xml">GLSL max man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -236,7 +237,7 @@ namespace glm
 	/// 
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point or integer scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/max.xml">GLSL max man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -258,7 +259,7 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point or integer scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/clamp.xml">GLSL clamp man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -270,7 +271,7 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point or integer scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/clamp.xml">GLSL clamp man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -339,7 +340,7 @@ namespace glm
 	/// 
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/step.xml">GLSL step man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -350,7 +351,7 @@ namespace glm
 	/// 
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/step.xml">GLSL step man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -390,7 +391,7 @@ namespace glm
 	/// 
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/isnan.xml">GLSL isnan man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -405,7 +406,7 @@ namespace glm
 	/// 
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point scalar types
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/isinf.xml">GLSL isinf man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -425,7 +426,7 @@ namespace glm
 	/// value's bit-level representation is preserved.
 	/// 
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floatBitsToInt.xml">GLSL floatBitsToInt man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -445,7 +446,7 @@ namespace glm
 	/// value's bit-level representation is preserved.
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floatBitsToUint.xml">GLSL floatBitsToUint man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
@@ -469,12 +470,12 @@ namespace glm
 	/// the bit-level representation is preserved.
 	/// 
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/intBitsToFloat.xml">GLSL intBitsToFloat man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
 	template<length_t L, precision P>
-	GLM_FUNC_DECL vec<L, float, P> intBitsToFloat(vec<L, int, P> const & v);
+	GLM_FUNC_DECL vec<L, float, P> intBitsToFloat(vec<L, int, P> const& v);
 
 	/// Returns a floating-point value corresponding to a
 	/// unsigned integer encoding of a floating-point value.
@@ -493,12 +494,12 @@ namespace glm
 	/// the bit-level representation is preserved.
 	/// 
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
-	/// @tparam P Enumeration value precision
+	/// @tparam P Value from precision enum
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/uintBitsToFloat.xml">GLSL uintBitsToFloat man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
 	template<length_t L, precision P>
-	GLM_FUNC_DECL vec<L, float, P> uintBitsToFloat(vec<L, uint, P> const & v);
+	GLM_FUNC_DECL vec<L, float, P> uintBitsToFloat(vec<L, uint, P> const& v);
 
 	/// Computes and returns a * b + c.
 	/// 

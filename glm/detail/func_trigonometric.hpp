@@ -83,7 +83,9 @@ namespace glm
 	/// The range of values returned by this function is [-PI/2, PI/2]. 
 	/// Results are undefined if |x| > 1.
 	///
-	/// @tparam vecType Floating-point scalar or vector types.
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point scalar types
+	/// @tparam P Enumeration value precision
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/asin.xml">GLSL asin man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.1 Angle and Trigonometry Functions</a>
