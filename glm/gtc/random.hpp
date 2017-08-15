@@ -42,8 +42,8 @@ namespace glm
 	/// @tparam T Value type. Currently supported: float or double.
 	///
 	/// @see gtc_random
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> linearRand(vec<L, T, P> const& Min, vec<L, T, P> const& Max);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> linearRand(vec<L, T, Q> const& Min, vec<L, T, Q> const& Max);
 
 	/// Generate random numbers in the interval [Min, Max], according a gaussian distribution 
 	/// 

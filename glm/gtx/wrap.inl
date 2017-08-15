@@ -3,10 +3,10 @@
 
 namespace glm
 {
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> clamp(vec<L, T, P> const& Texcoord)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, T, Q> clamp(vec<L, T, Q> const& Texcoord)
 	{
-		return glm::clamp(Texcoord, vec<L, T, P>(0), vec<L, T, P>(1));
+		return glm::clamp(Texcoord, vec<L, T, Q>(0), vec<L, T, Q>(1));
 	}
 
 	template<typename genType>
@@ -15,8 +15,8 @@ namespace glm
 		return clamp(vec<1, genType, defaultp>(Texcoord)).x;
 	}
 
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> repeat(vec<L, T, P> const& Texcoord)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, T, Q> repeat(vec<L, T, Q> const& Texcoord)
 	{
 		return glm::fract(Texcoord);
 	}
@@ -27,8 +27,8 @@ namespace glm
 		return repeat(vec<1, genType, defaultp>(Texcoord)).x;
 	}
 
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> mirrorClamp(vec<L, T, P> const& Texcoord)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, T, Q> mirrorClamp(vec<L, T, Q> const& Texcoord)
 	{
 		return glm::fract(glm::abs(Texcoord));
 	}
@@ -39,15 +39,15 @@ namespace glm
 		return mirrorClamp(vec<1, genType, defaultp>(Texcoord)).x;
 	}
 
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> mirrorRepeat(vec<L, T, P> const& Texcoord)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, T, Q> mirrorRepeat(vec<L, T, Q> const& Texcoord)
 	{
-		vec<L, T, P> const Abs = glm::abs(Texcoord);
-		vec<L, T, P> const Clamp = glm::mod(glm::floor(Abs), vec<L, T, P>(2));
-		vec<L, T, P> const Floor = glm::floor(Abs);
-		vec<L, T, P> const Rest = Abs - Floor;
-		vec<L, T, P> const Mirror = Clamp + Rest;
-		return mix(Rest, vec<L, T, P>(1) - Rest, glm::greaterThanEqual(Mirror, vec<L, T, P>(1)));
+		vec<L, T, Q> const Abs = glm::abs(Texcoord);
+		vec<L, T, Q> const Clamp = glm::mod(glm::floor(Abs), vec<L, T, Q>(2));
+		vec<L, T, Q> const Floor = glm::floor(Abs);
+		vec<L, T, Q> const Rest = Abs - Floor;
+		vec<L, T, Q> const Mirror = Clamp + Rest;
+		return mix(Rest, vec<L, T, Q>(1) - Rest, glm::greaterThanEqual(Mirror, vec<L, T, Q>(1)));
 	}
 
 	template<typename genType>

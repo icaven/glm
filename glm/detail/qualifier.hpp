@@ -33,8 +33,8 @@ namespace glm
 #		endif
 	};
 
-	template<length_t L, typename T, qualifier P = defaultp> struct vec;
-	template<length_t C, length_t R, typename T, qualifier P = defaultp> struct mat;
+	template<length_t L, typename T, qualifier Q = defaultp> struct vec;
+	template<length_t C, length_t R, typename T, qualifier Q = defaultp> struct mat;
 
 namespace detail
 {

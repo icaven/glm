@@ -33,16 +33,16 @@ namespace glm
 		return abs(x - y) < epsilon;
 	}
 
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, bool, P> epsilonEqual(vec<L, T, P> const& x, vec<L, T, P> const& y, T const& epsilon)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, bool, Q> epsilonEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y, T const& epsilon)
 	{
-		return lessThan(abs(x - y), vec<L, T, P>(epsilon));
+		return lessThan(abs(x - y), vec<L, T, Q>(epsilon));
 	}
 
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, bool, P> epsilonEqual(vec<L, T, P> const& x, vec<L, T, P> const& y, vec<L, T, P> const& epsilon)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, bool, Q> epsilonEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y, vec<L, T, Q> const& epsilon)
 	{
-		return lessThan(abs(x - y), vec<L, T, P>(epsilon));
+		return lessThan(abs(x - y), vec<L, T, Q>(epsilon));
 	}
 
 	template<>
@@ -57,29 +57,29 @@ namespace glm
 		return abs(x - y) >= epsilon;
 	}
 
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, bool, P> epsilonNotEqual(vec<L, T, P> const& x, vec<L, T, P> const& y, T const& epsilon)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, bool, Q> epsilonNotEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y, T const& epsilon)
 	{
-		return greaterThanEqual(abs(x - y), vec<L, T, P>(epsilon));
+		return greaterThanEqual(abs(x - y), vec<L, T, Q>(epsilon));
 	}
 
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, bool, P> epsilonNotEqual(vec<L, T, P> const& x, vec<L, T, P> const& y, vec<L, T, P> const& epsilon)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, bool, Q> epsilonNotEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y, vec<L, T, Q> const& epsilon)
 	{
-		return greaterThanEqual(abs(x - y), vec<L, T, P>(epsilon));
+		return greaterThanEqual(abs(x - y), vec<L, T, Q>(epsilon));
 	}
 
-	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<4, bool, P> epsilonEqual(tquat<T, P> const& x, tquat<T, P> const& y, T const& epsilon)
+	template<typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<4, bool, Q> epsilonEqual(tquat<T, Q> const& x, tquat<T, Q> const& y, T const& epsilon)
 	{
-		vec<4, T, P> v(x.x - y.x, x.y - y.y, x.z - y.z, x.w - y.w);
-		return lessThan(abs(v), vec<4, T, P>(epsilon));
+		vec<4, T, Q> v(x.x - y.x, x.y - y.y, x.z - y.z, x.w - y.w);
+		return lessThan(abs(v), vec<4, T, Q>(epsilon));
 	}
 
-	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<4, bool, P> epsilonNotEqual(tquat<T, P> const& x, tquat<T, P> const& y, T const& epsilon)
+	template<typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<4, bool, Q> epsilonNotEqual(tquat<T, Q> const& x, tquat<T, Q> const& y, T const& epsilon)
 	{
-		vec<4, T, P> v(x.x - y.x, x.y - y.y, x.z - y.z, x.w - y.w);
-		return greaterThanEqual(abs(v), vec<4, T, P>(epsilon));
+		vec<4, T, Q> v(x.x - y.x, x.y - y.y, x.z - y.z, x.w - y.w);
+		return greaterThanEqual(abs(v), vec<4, T, Q>(epsilon));
 	}
 }//namespace glm

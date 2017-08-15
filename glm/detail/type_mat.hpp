@@ -8,24 +8,24 @@
 namespace glm{
 namespace detail
 {
-	template<length_t Columns, length_t Rows, typename T, qualifier P>
+	template<length_t C, length_t R, typename T, qualifier Q>
 	struct outerProduct_trait{};
 }//namespace detail
 
 #if GLM_HAS_TEMPLATE_ALIASES
-	template <typename T, qualifier P = defaultp> using tmat2x2 = mat<2, 2, T, P>;
-	template <typename T, qualifier P = defaultp> using tmat2x3 = mat<2, 3, T, P>;
-	template <typename T, qualifier P = defaultp> using tmat2x4 = mat<2, 4, T, P>;
-	template <typename T, qualifier P = defaultp> using tmat3x2 = mat<3, 2, T, P>;
-	template <typename T, qualifier P = defaultp> using tmat3x3 = mat<3, 3, T, P>;
-	template <typename T, qualifier P = defaultp> using tmat3x4 = mat<3, 4, T, P>;
-	template <typename T, qualifier P = defaultp> using tmat4x2 = mat<4, 2, T, P>;
-	template <typename T, qualifier P = defaultp> using tmat4x3 = mat<4, 3, T, P>;
-	template <typename T, qualifier P = defaultp> using tmat4x4 = mat<4, 4, T, P>;
+	template <typename T, qualifier Q = defaultp> using tmat2x2 = mat<2, 2, T, Q>;
+	template <typename T, qualifier Q = defaultp> using tmat2x3 = mat<2, 3, T, Q>;
+	template <typename T, qualifier Q = defaultp> using tmat2x4 = mat<2, 4, T, Q>;
+	template <typename T, qualifier Q = defaultp> using tmat3x2 = mat<3, 2, T, Q>;
+	template <typename T, qualifier Q = defaultp> using tmat3x3 = mat<3, 3, T, Q>;
+	template <typename T, qualifier Q = defaultp> using tmat3x4 = mat<3, 4, T, Q>;
+	template <typename T, qualifier Q = defaultp> using tmat4x2 = mat<4, 2, T, Q>;
+	template <typename T, qualifier Q = defaultp> using tmat4x3 = mat<4, 3, T, Q>;
+	template <typename T, qualifier Q = defaultp> using tmat4x4 = mat<4, 4, T, Q>;
 #endif//GLM_HAS_TEMPLATE_ALIASES
 
-	template<typename T, qualifier P, template<typename, qualifier> class matType>
-	GLM_FUNC_DECL matType<T, P> inverse(matType<T, P> const& m);
+	template<length_t C, length_t R, typename T, qualifier Q>
+	GLM_FUNC_DECL mat<C, R, T, Q> inverse(mat<C, R, T, Q> const& m);
 
 	/// @addtogroup core_precision
 	/// @{

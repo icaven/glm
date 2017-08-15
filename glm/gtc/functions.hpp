@@ -39,11 +39,11 @@ namespace glm
 	/// 2D gauss function
 	///
 	/// @see gtc_epsilon
-	template<typename T, qualifier P>
+	template<typename T, qualifier Q>
 	GLM_FUNC_DECL T gauss(
-		vec<2, T, P> const& Coord,
-		vec<2, T, P> const& ExpectedValue,
-		vec<2, T, P> const& StandardDeviation);
+		vec<2, T, Q> const& Coord,
+		vec<2, T, Q> const& ExpectedValue,
+		vec<2, T, Q> const& StandardDeviation);
 
 	/// @}
 }//namespace glm

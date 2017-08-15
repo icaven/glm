@@ -3,21 +3,21 @@
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/epsilon.hpp>
 
-template <glm::length_t C, glm::length_t R, typename T, glm::qualifier P, template<glm::length_t, glm::length_t, typename, glm::qualifier> class matType>
-int test_qr(matType<C, R, T, P> m)
+template <glm::length_t C, glm::length_t R, typename T, glm::qualifier Q>
+int test_qr(glm::mat<C, R, T, Q> m)
 {
 	int Error = 0;
 
 	T const epsilon = static_cast<T>(1e-10);
 
-	matType<(C < R ? C : R), R, T, P> q(-999);
-	matType<C, (C < R ? C : R), T, P> r(-999);
+	glm::mat<(C < R ? C : R), R, T, Q> q(-999);
+	glm::mat<C, (C < R ? C : R), T, Q> r(-999);
 
 	glm::qr_decompose(m, q, r);
 
 	//Test if q*r really equals the input matrix
-	matType<C, R, T, P> tm = q*r;
-	matType<C, R, T, P> err = tm - m;
+	glm::mat<C, R, T, Q> tm = q*r;
+	glm::mat<C, R, T, Q> err = tm - m;
 
 	for (glm::length_t i = 0; i < C; i++)
 	for (glm::length_t j = 0; j < R; j++)
@@ -40,28 +40,28 @@ int test_qr(matType<C, R, T, P> m)
 	return Error;
 }
 
-template <glm::length_t C, glm::length_t R, typename T, glm::qualifier P, template<glm::length_t, glm::length_t, typename, glm::qualifier> class matType>
-int test_rq(matType<C, R, T, P> m)
+template <glm::length_t C, glm::length_t R, typename T, glm::qualifier Q>
+int test_rq(glm::mat<C, R, T, Q> m)
 {
 	int Error = 0;
 
 	T const epsilon = static_cast<T>(1e-10);
 
-	matType<C, (C < R ? C : R), T, P> q(-999);
-	matType<(C < R ? C : R), R, T, P> r(-999);
+	glm::mat<C, (C < R ? C : R), T, Q> q(-999);
+	glm::mat<(C < R ? C : R), R, T, Q> r(-999);
 
 	glm::rq_decompose(m, r, q);
 
 	//Test if q*r really equals the input matrix
-	matType<C, R, T, P> tm = r*q;
-	matType<C, R, T, P> err = tm - m;
+	glm::mat<C, R, T, Q> tm = r*q;
+	glm::mat<C, R, T, Q> err = tm - m;
 
 	for (glm::length_t i = 0; i < C; i++)
 	for (glm::length_t j = 0; j < R; j++)
 		Error += glm::abs(err[i][j]) > epsilon ? 1 : 0;
 
 	//Test if the rows of q are orthonormal
-	matType<(C < R ? C : R), C, T, P> tq = transpose(q);
+	glm::mat<(C < R ? C : R), C, T, Q> tq = transpose(q);
 
 	for (glm::length_t i = 0; i < (C < R ? C : R); i++)
 	{

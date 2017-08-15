@@ -39,8 +39,8 @@ namespace glm
 	/// Find the highest bit set to 1 in a integer variable and return its value.
 	///
 	/// @see gtx_bit
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> highestBitValue(vec<L, T, P> const& value);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> highestBitValue(vec<L, T, Q> const& value);
 
 	/// Return the power of two number which value is just higher the input value.
 	/// Deprecated, use ceilPowerOfTwo from GTC_round instead
@@ -55,8 +55,8 @@ namespace glm
 	///
 	/// @see gtc_round
 	/// @see gtx_bit
-	template<length_t L, typename T, qualifier P>
-	GLM_DEPRECATED GLM_FUNC_DECL vec<L, T, P> powerOfTwoAbove(vec<L, T, P> const& value);
+	template<length_t L, typename T, qualifier Q>
+	GLM_DEPRECATED GLM_FUNC_DECL vec<L, T, Q> powerOfTwoAbove(vec<L, T, Q> const& value);
 
 	/// Return the power of two number which value is just lower the input value.
 	/// Deprecated, use floorPowerOfTwo from GTC_round instead
@@ -71,8 +71,8 @@ namespace glm
 	///
 	/// @see gtc_round
 	/// @see gtx_bit
-	template<length_t L, typename T, qualifier P>
-	GLM_DEPRECATED GLM_FUNC_DECL vec<L, T, P> powerOfTwoBelow(vec<L, T, P> const& value);
+	template<length_t L, typename T, qualifier Q>
+	GLM_DEPRECATED GLM_FUNC_DECL vec<L, T, Q> powerOfTwoBelow(vec<L, T, Q> const& value);
 
 	/// Return the power of two number which value is the closet to the input value.
 	/// Deprecated, use roundPowerOfTwo from GTC_round instead
@@ -87,8 +87,8 @@ namespace glm
 	///
 	/// @see gtc_round
 	/// @see gtx_bit
-	template<length_t L, typename T, qualifier P>
-	GLM_DEPRECATED GLM_FUNC_DECL vec<L, T, P> powerOfTwoNearest(vec<L, T, P> const& value);
+	template<length_t L, typename T, qualifier Q>
+	GLM_DEPRECATED GLM_FUNC_DECL vec<L, T, Q> powerOfTwoNearest(vec<L, T, Q> const& value);
 
 	/// @}
 } //namespace glm

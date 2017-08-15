@@ -10,8 +10,8 @@ namespace glm
 		return glm::log(x) / glm::log(base);
 	}
 
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> log(vec<L, T, P> const& x, vec<L, T, P> const& base)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, T, Q> log(vec<L, T, Q> const& x, vec<L, T, Q> const& base)
 	{
 		return glm::log(x) / glm::log(base);
 	}

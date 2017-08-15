@@ -3,14 +3,14 @@
 
 namespace glm
 {
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T normalizeDot(vec<L, T, P> const& x, vec<L, T, P> const& y)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER T normalizeDot(vec<L, T, Q> const& x, vec<L, T, Q> const& y)
 	{
 		return glm::dot(x, y) * glm::inversesqrt(glm::dot(x, x) * glm::dot(y, y));
 	}
 
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T fastNormalizeDot(vec<L, T, P> const& x, vec<L, T, P> const& y)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER T fastNormalizeDot(vec<L, T, Q> const& x, vec<L, T, Q> const& y)
 	{
 		return glm::dot(x, y) * glm::fastInverseSqrt(glm::dot(x, x) * glm::dot(y, y));
 	}

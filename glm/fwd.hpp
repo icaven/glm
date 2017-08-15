@@ -14,7 +14,7 @@
 // GLM_GTC_quaternion
 namespace glm
 {
-	template<typename T, qualifier P> struct tquat;
+	template<typename T, qualifier Q> struct tquat;
 
 	/// Quaternion of low single-qualifier floating-point numbers.
 	///

@@ -103,10 +103,10 @@ namespace detail
 }//namespace detail
 
 #if GLM_HAS_TEMPLATE_ALIASES
-	template <typename T, qualifier P = defaultp> using tvec1 = vec<1, T, P>;
-	template <typename T, qualifier P = defaultp> using tvec2 = vec<2, T, P>;
-	template <typename T, qualifier P = defaultp> using tvec3 = vec<3, T, P>;
-	template <typename T, qualifier P = defaultp> using tvec4 = vec<4, T, P>;
+	template <typename T, qualifier Q = defaultp> using tvec1 = vec<1, T, Q>;
+	template <typename T, qualifier Q = defaultp> using tvec2 = vec<2, T, Q>;
+	template <typename T, qualifier Q = defaultp> using tvec3 = vec<3, T, Q>;
+	template <typename T, qualifier Q = defaultp> using tvec4 = vec<4, T, Q>;
 #endif//GLM_HAS_TEMPLATE_ALIASES
 
 	typedef vec<1, float, highp>	highp_vec1_t;

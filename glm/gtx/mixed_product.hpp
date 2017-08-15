@@ -29,11 +29,11 @@ namespace glm
 	/// @{
 
 	/// @brief Mixed product of 3 vectors (from GLM_GTX_mixed_product extension)
-	template<typename T, qualifier P> 
+	template<typename T, qualifier Q> 
 	GLM_FUNC_DECL T mixedProduct(
-		vec<3, T, P> const& v1, 
-		vec<3, T, P> const& v2, 
-		vec<3, T, P> const& v3);
+		vec<3, T, Q> const& v1, 
+		vec<3, T, Q> const& v2, 
+		vec<3, T, Q> const& v3);
 
 	/// @}
 }// namespace glm

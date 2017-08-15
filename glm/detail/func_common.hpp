@@ -38,8 +38,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/abs.xml">GLSL abs man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> abs(vec<L, T, P> const& x);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> abs(vec<L, T, Q> const& x);
 
 	/// Returns 1.0 if x > 0, 0.0 if x == 0, or -1.0 if x < 0. 
 	///
@@ -49,8 +49,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sign.xml">GLSL sign man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> sign(vec<L, T, P> const& x);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> sign(vec<L, T, Q> const& x);
 
 	/// Returns a value equal to the nearest integer that is less then or equal to x. 
 	///
@@ -60,8 +60,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floor.xml">GLSL floor man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> floor(vec<L, T, P> const& x);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> floor(vec<L, T, Q> const& x);
 
 	/// Returns a value equal to the nearest integer to x
 	/// whose absolute value is not larger than the absolute value of x.
@@ -72,8 +72,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/trunc.xml">GLSL trunc man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> trunc(vec<L, T, P> const& x);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> trunc(vec<L, T, Q> const& x);
 
 	/// Returns a value equal to the nearest integer to x.
 	/// The fraction 0.5 will round in a direction chosen by the
@@ -87,8 +87,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/round.xml">GLSL round man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> round(vec<L, T, P> const& x);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> round(vec<L, T, Q> const& x);
 
 	/// Returns a value equal to the nearest integer to x.
 	/// A fractional part of 0.5 will round toward the nearest even
@@ -101,8 +101,8 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/roundEven.xml">GLSL roundEven man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
 	/// @see <a href="http://developer.amd.com/documentation/articles/pages/New-Round-to-Even-Technique.aspx">New round to even technique</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> roundEven(vec<L, T, P> const& x);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> roundEven(vec<L, T, Q> const& x);
 
 	/// Returns a value equal to the nearest integer
 	/// that is greater than or equal to x.
@@ -113,8 +113,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/ceil.xml">GLSL ceil man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> ceil(vec<L, T, P> const& x);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> ceil(vec<L, T, Q> const& x);
 
 	/// Return x - floor(x).
 	/// 
@@ -133,8 +133,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/fract.xml">GLSL fract man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> fract(vec<L, T, P> const& x);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> fract(vec<L, T, Q> const& x);
 
 	/// Modulus. Returns x - y * floor(x / y)
 	/// for each component in x using the floating point value y.
@@ -155,8 +155,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml">GLSL mod man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> mod(vec<L, T, P> const& x, T y);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> mod(vec<L, T, Q> const& x, T y);
 
 	/// Modulus. Returns x - y * floor(x / y)
 	/// for each component in x using the floating point value y.
@@ -167,8 +167,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml">GLSL mod man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> mod(vec<L, T, P> const& x, vec<L, T, P> const& y);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> mod(vec<L, T, Q> const& x, vec<L, T, Q> const& y);
 
 	/// Returns the fractional part of x and sets i to the integer
 	/// part (as a whole number floating point value). Both the
@@ -199,8 +199,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/min.xml">GLSL min man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> min(vec<L, T, P> const& x, T y);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> min(vec<L, T, Q> const& x, T y);
 
 	/// Returns y if y < x; otherwise, it returns x.
 	///
@@ -210,8 +210,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/min.xml">GLSL min man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> min(vec<L, T, P> const& x, vec<L, T, P> const& y);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> min(vec<L, T, Q> const& x, vec<L, T, Q> const& y);
 
 	/// Returns y if x < y; otherwise, it returns x.
 	/// 
@@ -230,8 +230,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/max.xml">GLSL max man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> max(vec<L, T, P> const& x, T y);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> max(vec<L, T, Q> const& x, T y);
 
 	/// Returns y if x < y; otherwise, it returns x.
 	/// 
@@ -241,8 +241,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/max.xml">GLSL max man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> max(vec<L, T, P> const& x, vec<L, T, P> const& y);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> max(vec<L, T, Q> const& x, vec<L, T, Q> const& y);
 
 	/// Returns min(max(x, minVal), maxVal) for each component in x 
 	/// using the floating-point values minVal and maxVal.
@@ -263,8 +263,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/clamp.xml">GLSL clamp man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> clamp(vec<L, T, P> const& x, T minVal, T maxVal);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> clamp(vec<L, T, Q> const& x, T minVal, T maxVal);
 
 	/// Returns min(max(x, minVal), maxVal) for each component in x 
 	/// using the floating-point values minVal and maxVal.
@@ -275,8 +275,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/clamp.xml">GLSL clamp man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> clamp(vec<L, T, P> const& x, vec<L, T, P> const& minVal, vec<L, T, P> const& maxVal);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> clamp(vec<L, T, Q> const& x, vec<L, T, Q> const& minVal, vec<L, T, Q> const& maxVal);
 
 	/// If genTypeU is a floating scalar or vector:
 	/// Returns x * (1.0 - a) + y * a, i.e., the linear blend of
@@ -323,11 +323,11 @@ namespace glm
 	template<typename genTypeT, typename genTypeU>
 	GLM_FUNC_DECL genTypeT mix(genTypeT x, genTypeT y, genTypeU a);
 
-	template<length_t L, typename T, typename U, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> mix(vec<L, T, P> const& x, vec<L, T, P> const& y, vec<L, U, P> const& a);
+	template<length_t L, typename T, typename U, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> mix(vec<L, T, Q> const& x, vec<L, T, Q> const& y, vec<L, U, Q> const& a);
 
-	template<length_t L, typename T, typename U, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> mix(vec<L, T, P> const& x, vec<L, T, P> const& y, U a);
+	template<length_t L, typename T, typename U, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> mix(vec<L, T, Q> const& x, vec<L, T, Q> const& y, U a);
 
 	/// Returns 0.0 if x < edge, otherwise it returns 1.0 for each component of a genType.
 	/// 
@@ -344,8 +344,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/step.xml">GLSL step man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> step(T edge, vec<L, T, P> const& x);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> step(T edge, vec<L, T, Q> const& x);
 
 	/// Returns 0.0 if x < edge, otherwise it returns 1.0.
 	/// 
@@ -355,8 +355,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/step.xml">GLSL step man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> step(vec<L, T, P> const& edge, vec<L, T, P> const& x);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> step(vec<L, T, Q> const& edge, vec<L, T, Q> const& x);
 
 	/// Returns 0.0 if x <= edge0 and 1.0 if x >= edge1 and
 	/// performs smooth Hermite interpolation between 0 and 1
@@ -375,11 +375,11 @@ namespace glm
 	template<typename genType>
 	GLM_FUNC_DECL genType smoothstep(genType edge0, genType edge1, genType x);
 
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> smoothstep(T edge0, T edge1, vec<L, T, P> const& x);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> smoothstep(T edge0, T edge1, vec<L, T, Q> const& x);
 
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> smoothstep(vec<L, T, P> const& edge0, vec<L, T, P> const& edge1, vec<L, T, P> const& x);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, T, Q> smoothstep(vec<L, T, Q> const& edge0, vec<L, T, Q> const& edge1, vec<L, T, Q> const& x);
 
 	/// Returns true if x holds a NaN (not a number)
 	/// representation in the underlying implementation's set of
@@ -395,8 +395,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/isnan.xml">GLSL isnan man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, bool, P> isnan(vec<L, T, P> const& x);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, bool, Q> isnan(vec<L, T, Q> const& x);
 
 	/// Returns true if x holds a positive infinity or negative
 	/// infinity representation in the underlying implementation's
@@ -410,8 +410,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/isinf.xml">GLSL isinf man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, bool, P> isinf(vec<L, T, P> const& x);
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, bool, Q> isinf(vec<L, T, Q> const& x);
 
 	/// Returns a signed integer value representing
 	/// the encoding of a floating-point value. The floating-point
@@ -430,8 +430,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floatBitsToInt.xml">GLSL floatBitsToInt man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, qualifier P>
-	GLM_FUNC_DECL vec<L, int, P> floatBitsToInt(vec<L, float, P> const& v);
+	template<length_t L, qualifier Q>
+	GLM_FUNC_DECL vec<L, int, Q> floatBitsToInt(vec<L, float, Q> const& v);
 
 	/// Returns a unsigned integer value representing
 	/// the encoding of a floating-point value. The floatingpoint
@@ -450,8 +450,8 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floatBitsToUint.xml">GLSL floatBitsToUint man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, qualifier P>
-	GLM_FUNC_DECL vec<L, uint, P> floatBitsToUint(vec<L, float, P> const& v);
+	template<length_t L, qualifier Q>
+	GLM_FUNC_DECL vec<L, uint, Q> floatBitsToUint(vec<L, float, Q> const& v);
 
 	/// Returns a floating-point value corresponding to a signed
 	/// integer encoding of a floating-point value.
@@ -474,8 +474,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/intBitsToFloat.xml">GLSL intBitsToFloat man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, qualifier P>
-	GLM_FUNC_DECL vec<L, float, P> intBitsToFloat(vec<L, int, P> const& v);
+	template<length_t L, qualifier Q>
+	GLM_FUNC_DECL vec<L, float, Q> intBitsToFloat(vec<L, int, Q> const& v);
 
 	/// Returns a floating-point value corresponding to a
 	/// unsigned integer encoding of a floating-point value.
@@ -498,8 +498,8 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/uintBitsToFloat.xml">GLSL uintBitsToFloat man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	template<length_t L, qualifier P>
-	GLM_FUNC_DECL vec<L, float, P> uintBitsToFloat(vec<L, uint, P> const& v);
+	template<length_t L, qualifier Q>
+	GLM_FUNC_DECL vec<L, float, Q> uintBitsToFloat(vec<L, uint, Q> const& v);
 
 	/// Computes and returns a * b + c.
 	/// 

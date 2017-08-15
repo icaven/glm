@@ -8,19 +8,19 @@
 namespace glm{
 namespace detail
 {
-	template<length_t L, typename T, qualifier P, bool isFloat = true>
+	template<length_t L, typename T, qualifier Q, bool isFloat = true>
 	struct compute_fmod
 	{
-		GLM_FUNC_QUALIFIER static vec<L, T, P> call(vec<L, T, P> const& a, vec<L, T, P> const& b)
+		GLM_FUNC_QUALIFIER static vec<L, T, Q> call(vec<L, T, Q> const& a, vec<L, T, Q> const& b)
 		{
-			return detail::functor2<L, T, P>::call(std::fmod, a, b);
+			return detail::functor2<L, T, Q>::call(std::fmod, a, b);
 		}
 	};
 
-	template<length_t L, typename T, qualifier P>
-	struct compute_fmod<L, T, P, false>
+	template<length_t L, typename T, qualifier Q>
+	struct compute_fmod<L, T, Q, false>
 	{
-		GLM_FUNC_QUALIFIER static vec<L, T, P> call(vec<L, T, P> const& a, vec<L, T, P> const& b)
+		GLM_FUNC_QUALIFIER static vec<L, T, Q> call(vec<L, T, Q> const& a, vec<L, T, Q> const& b)
 		{
 			return a % b;
 		}
@@ -39,54 +39,54 @@ namespace detail
 #		endif
 	}
 
-	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER typename vec<1, T, P>::bool_type isdenormal
+	template<typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER typename vec<1, T, Q>::bool_type isdenormal
 	(
-		vec<1, T, P> const& x
+		vec<1, T, Q> const& x
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isdenormal' only accept floating-point inputs");
 
-		return typename vec<1, T, P>::bool_type(
+		return typename vec<1, T, Q>::bool_type(
 			isdenormal(x.x));
 	}
 
-	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER typename vec<2, T, P>::bool_type isdenormal
+	template<typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER typename vec<2, T, Q>::bool_type isdenormal
 	(
-		vec<2, T, P> const& x
+		vec<2, T, Q> const& x
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isdenormal' only accept floating-point inputs");
 
-		return typename vec<2, T, P>::bool_type(
+		return typename vec<2, T, Q>::bool_type(
 			isdenormal(x.x),
 			isdenormal(x.y));
 	}
 
-	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER typename vec<3, T, P>::bool_type isdenormal
+	template<typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER typename vec<3, T, Q>::bool_type isdenormal
 	(
-		vec<3, T, P> const& x
+		vec<3, T, Q> const& x
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isdenormal' only accept floating-point inputs");
 
-		return typename vec<3, T, P>::bool_type(
+		return typename vec<3, T, Q>::bool_type(
 			isdenormal(x.x),
 			isdenormal(x.y),
 			isdenormal(x.z));
 	}
 
-	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER typename vec<4, T, P>::bool_type isdenormal
+	template<typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER typename vec<4, T, Q>::bool_type isdenormal
 	(
-		vec<4, T, P> const& x
+		vec<4, T, Q> const& x
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isdenormal' only accept floating-point inputs");
 
-		return typename vec<4, T, P>::bool_type(
+		return typename vec<4, T, Q>::bool_type(
 			isdenormal(x.x),
 			isdenormal(x.y),
 			isdenormal(x.z),
@@ -100,15 +100,15 @@ namespace detail
 		return fmod(vec<1, genType>(x), y).x;
 	}
 
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> fmod(vec<L, T, P> const& x, T y)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, T, Q> fmod(vec<L, T, Q> const& x, T y)
 	{
-		return detail::compute_fmod<L, T, P, std::numeric_limits<T>::is_iec559>::call(x, vec<L, T, P>(y));
+		return detail::compute_fmod<L, T, Q, std::numeric_limits<T>::is_iec559>::call(x, vec<L, T, Q>(y));
 	}
 
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> fmod(vec<L, T, P> const& x, vec<L, T, P> const& y)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, T, Q> fmod(vec<L, T, Q> const& x, vec<L, T, Q> const& y)
 	{
-		return detail::compute_fmod<L, T, P, std::numeric_limits<T>::is_iec559>::call(x, y);
+		return detail::compute_fmod<L, T, Q, std::numeric_limits<T>::is_iec559>::call(x, y);
 	}
 }//namespace glm

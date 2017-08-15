@@ -7,10 +7,10 @@ namespace glm{
 namespace detail
 {
 /*
-	template<qualifier P>
+	template<qualifier Q>
 	struct compute_quat_mul<float, P, true>
 	{
-		static tquat<float, P> call(tquat<float, P> const& q1, tquat<float, P> const& q2)
+		static tquat<float, P> call(tquat<float, Q> const& q1, tquat<float, Q> const& q2)
 		{
 			// SSE2 STATS: 11 shuffle, 8 mul, 8 add
 			// SSE4 STATS: 3 shuffle, 4 mul, 4 dpps
@@ -61,19 +61,19 @@ namespace detail
 	};
 */
 
-	template<qualifier P>
+	template<qualifier Q>
 	struct compute_dot<tquat<float, P>, float, true>
 	{
-		static GLM_FUNC_QUALIFIER float call(tquat<float, P> const& x, tquat<float, P> const& y)
+		static GLM_FUNC_QUALIFIER float call(tquat<float, Q> const& x, tquat<float, Q> const& y)
 		{
 			return _mm_cvtss_f32(glm_vec1_dot(x.data, y.data));
 		}
 	};
 
-	template<qualifier P>
+	template<qualifier Q>
 	struct compute_quat_add<float, P, true>
 	{
-		static tquat<float, P> call(tquat<float, P> const& q, tquat<float, P> const& p)
+		static tquat<float, P> call(tquat<float, Q> const& q, tquat<float, Q> const& p)
 		{
 			tquat<float, P> Result;
 			Result.data = _mm_add_ps(q.data, p.data);
@@ -82,10 +82,10 @@ namespace detail
 	};
 
 #	if GLM_ARCH & GLM_ARCH_AVX_BIT
-	template<qualifier P>
+	template<qualifier Q>
 	struct compute_quat_add<double, P, true>
 	{
-		static tquat<double, P> call(tquat<double, P> const& a, tquat<double, P> const& b)
+		static tquat<double, P> call(tquat<double, Q> const& a, tquat<double, Q> const& b)
 		{
 			tquat<double, P> Result;
 			Result.data = _mm256_add_pd(a.data, b.data);
@@ -94,10 +94,10 @@ namespace detail
 	};
 #	endif
 
-	template<qualifier P>
+	template<qualifier Q>
 	struct compute_quat_sub<float, P, true>
 	{
-		static tquat<float, P> call(tquat<float, P> const& q, tquat<float, P> const& p)
+		static tquat<float, P> call(tquat<float, Q> const& q, tquat<float, Q> const& p)
 		{
 			vec<4, float, P> Result;
 			Result.data = _mm_sub_ps(q.data, p.data);
@@ -106,10 +106,10 @@ namespace detail
 	};
 
 #	if GLM_ARCH & GLM_ARCH_AVX_BIT
-	template<qualifier P>
+	template<qualifier Q>
 	struct compute_quat_sub<double, P, true>
 	{
-		static tquat<double, P> call(tquat<double, P> const& a, tquat<double, P> const& b)
+		static tquat<double, P> call(tquat<double, Q> const& a, tquat<double, Q> const& b)
 		{
 			tquat<double, P> Result;
 			Result.data = _mm256_sub_pd(a.data, b.data);
@@ -118,10 +118,10 @@ namespace detail
 	};
 #	endif
 
-	template<qualifier P>
+	template<qualifier Q>
 	struct compute_quat_mul_scalar<float, P, true>
 	{
-		static tquat<float, P> call(tquat<float, P> const& q, float s)
+		static tquat<float, P> call(tquat<float, Q> const& q, float s)
 		{
 			vec<4, float, P> Result;
 			Result.data = _mm_mul_ps(q.data, _mm_set_ps1(s));
@@ -130,10 +130,10 @@ namespace detail
 	};
 
 #	if GLM_ARCH & GLM_ARCH_AVX_BIT
-	template<qualifier P>
+	template<qualifier Q>
 	struct compute_quat_mul_scalar<double, P, true>
 	{
-		static tquat<double, P> call(tquat<double, P> const& q, double s)
+		static tquat<double, P> call(tquat<double, Q> const& q, double s)
 		{
 			tquat<double, P> Result;
 			Result.data = _mm256_mul_pd(q.data, _mm_set_ps1(s));
@@ -142,10 +142,10 @@ namespace detail
 	};
 #	endif
 
-	template<qualifier P>
+	template<qualifier Q>
 	struct compute_quat_div_scalar<float, P, true>
 	{
-		static tquat<float, P> call(tquat<float, P> const& q, float s)
+		static tquat<float, P> call(tquat<float, Q> const& q, float s)
 		{
 			vec<4, float, P> Result;
 			Result.data = _mm_div_ps(q.data, _mm_set_ps1(s));
@@ -154,10 +154,10 @@ namespace detail
 	};
 
 #	if GLM_ARCH & GLM_ARCH_AVX_BIT
-	template<qualifier P>
+	template<qualifier Q>
 	struct compute_quat_div_scalar<double, P, true>
 	{
-		static tquat<double, P> call(tquat<double, P> const& q, double s)
+		static tquat<double, P> call(tquat<double, Q> const& q, double s)
 		{
 			tquat<double, P> Result;
 			Result.data = _mm256_div_pd(q.data, _mm_set_ps1(s));
@@ -166,10 +166,10 @@ namespace detail
 	};
 #	endif
 
-	template<qualifier P>
+	template<qualifier Q>
 	struct compute_quat_mul_vec4<float, P, true>
 	{
-		static vec<4, float, P> call(tquat<float, P> const& q, vec<4, float, P> const& v)
+		static vec<4, float, P> call(tquat<float, Q> const& q, vec<4, float, Q> const& v)
 		{
 			__m128 const q_wwww = _mm_shuffle_ps(q.data, q.data, _MM_SHUFFLE(3, 3, 3, 3));
 			__m128 const q_swp0 = _mm_shuffle_ps(q.data, q.data, _MM_SHUFFLE(3, 0, 2, 1));

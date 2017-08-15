@@ -217,10 +217,10 @@ namespace glm
 #		endif
 	}
 
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> next_float(vec<L, T, P> const& x)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, T, Q> next_float(vec<L, T, Q> const& x)
 	{
-		vec<L, T, P> Result;
+		vec<L, T, Q> Result;
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = next_float(x[i]);
 		return Result;
@@ -252,10 +252,10 @@ namespace glm
 #		endif
 	}
 
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> prev_float(vec<L, T, P> const& x)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, T, Q> prev_float(vec<L, T, Q> const& x)
 	{
-		vec<L, T, P> Result;
+		vec<L, T, Q> Result;
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = prev_float(x[i]);
 		return Result;
@@ -270,10 +270,10 @@ namespace glm
 		return temp;
 	}
 
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> next_float(vec<L, T, P> const& x, vec<L, uint, P> const& ulps)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, T, Q> next_float(vec<L, T, Q> const& x, vec<L, uint, Q> const& ulps)
 	{
-		vec<L, T, P> Result;
+		vec<L, T, Q> Result;
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = next_float(x[i], ulps[i]);
 		return Result;
@@ -288,10 +288,10 @@ namespace glm
 		return temp;
 	}
 
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> prev_float(vec<L, T, P> const& x, vec<L, uint, P> const& ulps)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, T, Q> prev_float(vec<L, T, Q> const& x, vec<L, uint, Q> const& ulps)
 	{
-		vec<L, T, P> Result;
+		vec<L, T, Q> Result;
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = prev_float(x[i], ulps[i]);
 		return Result;
@@ -328,10 +328,10 @@ namespace glm
 		return ulp;
 	}
 
-	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, uint, P> float_distance(vec<L, T, P> const& x, vec<L, T, P> const& y)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, uint, Q> float_distance(vec<L, T, Q> const& x, vec<L, T, Q> const& y)
 	{
-		vec<L, uint, P> Result;
+		vec<L, uint, Q> Result;
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = float_distance(x[i], y[i]);
 		return Result;

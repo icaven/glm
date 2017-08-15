@@ -11,12 +11,12 @@
 namespace glm{
 namespace detail
 {
-	template<qualifier P>
+	template<qualifier Q>
 	struct compute_matrixCompMult<mat, 4, 4, float, P, true>
 	{
 		GLM_STATIC_ASSERT(detail::is_aligned<P>::value, "Specialization requires aligned");
 
-		GLM_FUNC_QUALIFIER static mat<4, 4, float, P> call(mat<4, 4, float, P> const& x, mat<4, 4, float, P> const& y)
+		GLM_FUNC_QUALIFIER static mat<4, 4, float, P> call(mat<4, 4, float, Q> const& x, mat<4, 4, float, Q> const& y)
 		{
 			mat<4, 4, float, P> Result;
 			glm_mat4_matrixCompMult(
@@ -27,10 +27,10 @@ namespace detail
 		}
 	};
 
-	template<qualifier P>
+	template<qualifier Q>
 	struct compute_transpose<mat, 4, 4, float, P, true>
 	{
-		GLM_FUNC_QUALIFIER static mat<4, 4, float, P> call(mat<4, 4, float, P> const& m)
+		GLM_FUNC_QUALIFIER static mat<4, 4, float, P> call(mat<4, 4, float, Q> const& m)
 		{
 			mat<4, 4, float, P> Result;
 			glm_mat4_transpose(
@@ -40,19 +40,19 @@ namespace detail
 		}
 	};
 
-	template<qualifier P>
+	template<qualifier Q>
 	struct compute_determinant<mat, 4, 4, float, P, true>
 	{
-		GLM_FUNC_QUALIFIER static float call(mat<4, 4, float, P> const& m)
+		GLM_FUNC_QUALIFIER static float call(mat<4, 4, float, Q> const& m)
 		{
 			return _mm_cvtss_f32(glm_mat4_determinant(*reinterpret_cast<__m128 const(*)[4]>(&m[0].data)));
 		}
 	};
 
-	template<qualifier P>
+	template<qualifier Q>
 	struct compute_inverse<mat, 4, 4, float, P, true>
 	{
-		GLM_FUNC_QUALIFIER static mat<4, 4, float, P> call(mat<4, 4, float, P> const& m)
+		GLM_FUNC_QUALIFIER static mat<4, 4, float, P> call(mat<4, 4, float, Q> const& m)
 		{
 			mat<4, 4, float, P> Result;
 			glm_mat4_inverse(*reinterpret_cast<__m128 const(*)[4]>(&m[0].data), *reinterpret_cast<__m128(*)[4]>(&Result[0].data));
