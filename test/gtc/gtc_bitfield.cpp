@@ -344,7 +344,7 @@ namespace bitfieldInterleave
 #if GLM_ARCH & GLM_ARCH_SSE2_BIT
 	inline glm::uint64 sseBitfieldInterleave(glm::uint32 x, glm::uint32 y)
 	{
-		GLM_ALIGN(16) glm::uint32 const Array[4] = {x, 0, y, 0};
+		__m128i const Array = _mm_set_epi32(0, y, 0, x);
 
 		__m128i const Mask4 = _mm_set1_epi32(0x0000FFFF);
 		__m128i const Mask3 = _mm_set1_epi32(0x00FF00FF);
@@ -357,7 +357,7 @@ namespace bitfieldInterleave
 
 		// REG1 = x;
 		// REG2 = y;
-		Reg1 = _mm_load_si128((__m128i*)Array);
+		Reg1 = _mm_load_si128(&Array);
 
 		//REG1 = ((REG1 << 16) | REG1) & glm::uint64(0x0000FFFF0000FFFF);
 		//REG2 = ((REG2 << 16) | REG2) & glm::uint64(0x0000FFFF0000FFFF);
@@ -394,15 +394,14 @@ namespace bitfieldInterleave
 		Reg2 = _mm_srli_si128(Reg2, 8);
 		Reg1 = _mm_or_si128(Reg1, Reg2);
 	
-		GLM_ALIGN(16) glm::uint64 Result[2];
-		_mm_store_si128((__m128i*)Result, Reg1);
-
-		return Result[0];
+		__m128i Result;
+		_mm_store_si128(&Result, Reg1);
+		return Result.m128i_u64[0];
 	}
 
 	inline glm::uint64 sseUnalignedBitfieldInterleave(glm::uint32 x, glm::uint32 y)
 	{
-		glm::uint32 const Array[4] = {x, 0, y, 0};
+		__m128i const Array = _mm_set_epi32(0, y, 0, x);
 
 		__m128i const Mask4 = _mm_set1_epi32(0x0000FFFF);
 		__m128i const Mask3 = _mm_set1_epi32(0x00FF00FF);
@@ -415,7 +414,7 @@ namespace bitfieldInterleave
 
 		// REG1 = x;
 		// REG2 = y;
-		Reg1 = _mm_loadu_si128((__m128i*)Array);
+		Reg1 = _mm_loadu_si128(&Array);
 
 		//REG1 = ((REG1 << 16) | REG1) & glm::uint64(0x0000FFFF0000FFFF);
 		//REG2 = ((REG2 << 16) | REG2) & glm::uint64(0x0000FFFF0000FFFF);
@@ -452,10 +451,9 @@ namespace bitfieldInterleave
 		Reg2 = _mm_srli_si128(Reg2, 8);
 		Reg1 = _mm_or_si128(Reg1, Reg2);
 	
-		glm::uint64 Result[2];
-		_mm_storeu_si128((__m128i*)Result, Reg1);
-
-		return Result[0];
+		__m128i Result;
+		_mm_store_si128(&Result, Reg1);
+		return Result.m128i_u64[0];
 	}
 #endif//GLM_ARCH & GLM_ARCH_SSE2_BIT
 
