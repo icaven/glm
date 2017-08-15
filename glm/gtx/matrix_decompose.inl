@@ -11,8 +11,8 @@ namespace detail
 	// result = (a * ascl) + (b * bscl)
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> combine(
-		vec<3, T, P> const & a, 
-		vec<3, T, P> const & b,
+		vec<3, T, P> const& a, 
+		vec<3, T, P> const& b,
 		T ascl, T bscl)
 	{
 		return (a * ascl) + (b * bscl);
@@ -30,7 +30,7 @@ namespace detail
 	// Decomposes the mode matrix to translations,rotation scale components
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER bool decompose(mat<4, 4, T, P> const & ModelMatrix, vec<3, T, P> & Scale, tquat<T, P> & Orientation, vec<3, T, P> & Translation, vec<3, T, P> & Skew, vec<4, T, P> & Perspective)
+	GLM_FUNC_QUALIFIER bool decompose(mat<4, 4, T, P> const& ModelMatrix, vec<3, T, P> & Scale, tquat<T, P> & Orientation, vec<3, T, P> & Translation, vec<3, T, P> & Skew, vec<4, T, P> & Perspective)
 	{
 		mat<4, 4, T, P> LocalMatrix(ModelMatrix);
 

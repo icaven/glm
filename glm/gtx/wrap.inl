@@ -10,7 +10,7 @@ namespace glm
 	}
 
 	template<typename genType>
-	GLM_FUNC_QUALIFIER genType clamp(genType const & Texcoord)
+	GLM_FUNC_QUALIFIER genType clamp(genType const& Texcoord)
 	{
 		return clamp(vec<1, genType, defaultp>(Texcoord)).x;
 	}
@@ -22,7 +22,7 @@ namespace glm
 	}
 
 	template<typename genType>
-	GLM_FUNC_QUALIFIER genType repeat(genType const & Texcoord)
+	GLM_FUNC_QUALIFIER genType repeat(genType const& Texcoord)
 	{
 		return repeat(vec<1, genType, defaultp>(Texcoord)).x;
 	}
@@ -34,7 +34,7 @@ namespace glm
 	}
 
 	template<typename genType>
-	GLM_FUNC_QUALIFIER genType mirrorClamp(genType const & Texcoord)
+	GLM_FUNC_QUALIFIER genType mirrorClamp(genType const& Texcoord)
 	{
 		return mirrorClamp(vec<1, genType, defaultp>(Texcoord)).x;
 	}

@@ -9,7 +9,7 @@ namespace detail
 	template<length_t L, typename T, qualifier P, bool Aligned>
 	struct compute_length2
 	{
-		GLM_FUNC_QUALIFIER static T call(vec<L, T, P> const & v)
+		GLM_FUNC_QUALIFIER static T call(vec<L, T, P> const& v)
 		{
 			return dot(v, v);
 		}
@@ -24,7 +24,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T length2(vec<L, T, P> const & v)
+	GLM_FUNC_QUALIFIER T length2(vec<L, T, P> const& v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'length2' accepts only floating-point inputs");
 		return detail::compute_length2<L, T, P, detail::is_aligned<P>::value>::call(v);
@@ -38,20 +38,20 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T distance2(vec<L, T, P> const & p0, vec<L, T, P> const & p1)
+	GLM_FUNC_QUALIFIER T distance2(vec<L, T, P> const& p0, vec<L, T, P> const& p1)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'distance2' accepts only floating-point inputs");
 		return length2(p1 - p0);
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T l1Norm(vec<3, T, P> const & a, vec<3, T, P> const & b)
+	GLM_FUNC_QUALIFIER T l1Norm(vec<3, T, P> const& a, vec<3, T, P> const& b)
 	{
 		return abs(b.x - a.x) + abs(b.y - a.y) + abs(b.z - a.z);
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T l1Norm(vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER T l1Norm(vec<3, T, P> const& v)
 	{
 		return abs(v.x) + abs(v.y) + abs(v.z);
 	}
@@ -64,13 +64,13 @@ namespace detail
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T l2Norm(vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER T l2Norm(vec<3, T, P> const& v)
 	{
 		return length(v);
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T lxNorm(vec<3, T, P> const & x, vec<3, T, P> const & y, unsigned int Depth)
+	GLM_FUNC_QUALIFIER T lxNorm(vec<3, T, P> const& x, vec<3, T, P> const& y, unsigned int Depth)
 	{
 		return pow(pow(y.x - x.x, T(Depth)) + pow(y.y - x.y, T(Depth)) + pow(y.z - x.z, T(Depth)), T(1) / T(Depth));
 	}

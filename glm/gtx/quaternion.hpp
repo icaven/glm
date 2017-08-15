@@ -43,16 +43,16 @@ namespace glm
 	/// @see gtx_quaternion
 	template<typename T, qualifier P>
 	GLM_FUNC_DECL vec<3, T, P> cross(
-		tquat<T, P> const & q,
-		vec<3, T, P> const & v);
+		tquat<T, P> const& q,
+		vec<3, T, P> const& v);
 
 	//! Compute a cross product between a vector and a quaternion.
 	///
 	/// @see gtx_quaternion
 	template<typename T, qualifier P>
 	GLM_FUNC_DECL vec<3, T, P> cross(
-		vec<3, T, P> const & v,
-		tquat<T, P> const & q);
+		vec<3, T, P> const& v,
+		tquat<T, P> const& q);
 
 	//! Compute a point on a path according squad equation. 
 	//! q1 and q2 are control points; s1 and s2 are intermediate control points.
@@ -102,7 +102,7 @@ namespace glm
 	/// @see gtx_quaternion
 	//template<typename T, qualifier P>
 	//tquat<T, P> sqrt(
-	//	tquat<T, P> const & q);
+	//	tquat<T, P> const& q);
 
 	//! Rotates a 3 components vector by a quaternion.
 	///
@@ -214,7 +214,7 @@ namespace glm
 	/// 
 	/// @see gtx_quaternion
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL T length2(tquat<T, P> const & q);
+	GLM_FUNC_DECL T length2(tquat<T, P> const& q);
 
 	/// @}
 }//namespace glm

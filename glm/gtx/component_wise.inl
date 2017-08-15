@@ -13,7 +13,7 @@ namespace detail
 	template<length_t L, typename T, typename floatType, qualifier P>
 	struct compute_compNormalize<L, T, floatType, P, true, true>
 	{
-		GLM_FUNC_QUALIFIER static vec<L, floatType, P> call(vec<L, T, P> const & v)
+		GLM_FUNC_QUALIFIER static vec<L, floatType, P> call(vec<L, T, P> const& v)
 		{
 			floatType const Min = static_cast<floatType>(std::numeric_limits<T>::min());
 			floatType const Max = static_cast<floatType>(std::numeric_limits<T>::max());
@@ -24,7 +24,7 @@ namespace detail
 	template<length_t L, typename T, typename floatType, qualifier P>
 	struct compute_compNormalize<L, T, floatType, P, true, false>
 	{
-		GLM_FUNC_QUALIFIER static vec<L, floatType, P> call(vec<L, T, P> const & v)
+		GLM_FUNC_QUALIFIER static vec<L, floatType, P> call(vec<L, T, P> const& v)
 		{
 			return vec<L, floatType, P>(v) / static_cast<floatType>(std::numeric_limits<T>::max());
 		}
@@ -58,7 +58,7 @@ namespace detail
 	template<length_t L, typename T, typename floatType, qualifier P>
 	struct compute_compScale<L, T, floatType, P, true, false>
 	{
-		GLM_FUNC_QUALIFIER static vec<L, T, P> call(vec<L, floatType, P> const & v)
+		GLM_FUNC_QUALIFIER static vec<L, T, P> call(vec<L, floatType, P> const& v)
 		{
 			return vec<L, T, P>(vec<L, floatType, P>(v) * static_cast<floatType>(std::numeric_limits<T>::max()));
 		}
@@ -67,7 +67,7 @@ namespace detail
 	template<length_t L, typename T, typename floatType, qualifier P>
 	struct compute_compScale<L, T, floatType, P, false, true>
 	{
-		GLM_FUNC_QUALIFIER static vec<L, T, P> call(vec<L, floatType, P> const & v)
+		GLM_FUNC_QUALIFIER static vec<L, T, P> call(vec<L, floatType, P> const& v)
 		{
 			return v;
 		}
@@ -75,7 +75,7 @@ namespace detail
 }//namespace detail
 
 	template<typename floatType, length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, floatType, P> compNormalize(vec<L, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<L, floatType, P> compNormalize(vec<L, T, P> const& v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<floatType>::is_iec559, "'compNormalize' accepts only floating-point types for 'floatType' template parameter");
 
@@ -83,7 +83,7 @@ namespace detail
 	}
 
 	template<typename T, length_t L, typename floatType, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> compScale(vec<L, floatType, P> const & v)
+	GLM_FUNC_QUALIFIER vec<L, T, P> compScale(vec<L, floatType, P> const& v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<floatType>::is_iec559, "'compScale' accepts only floating-point types for 'floatType' template parameter");
 
@@ -100,7 +100,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T compMul(vec<L, T, P> const & v)
+	GLM_FUNC_QUALIFIER T compMul(vec<L, T, P> const& v)
 	{
 		T Result(1);
 		for(length_t i = 0, n = v.length(); i < n; ++i)
@@ -109,7 +109,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T compMin(vec<L, T, P> const & v)
+	GLM_FUNC_QUALIFIER T compMin(vec<L, T, P> const& v)
 	{
 		T Result(v[0]);
 		for(length_t i = 1, n = v.length(); i < n; ++i)
@@ -118,7 +118,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T compMax(vec<L, T, P> const & v)
+	GLM_FUNC_QUALIFIER T compMax(vec<L, T, P> const& v)
 	{
 		T Result(v[0]);
 		for(length_t i = 1, n = v.length(); i < n; ++i)

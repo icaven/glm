@@ -6,8 +6,8 @@ namespace glm
 	template<typename genType>
 	GLM_FUNC_QUALIFIER bool intersectRayPlane
 	(
-		genType const & orig, genType const & dir,
-		genType const & planeOrig, genType const & planeNormal,
+		genType const& orig, genType const& dir,
+		genType const& planeOrig, genType const& planeNormal,
 		typename genType::value_type & intersectionDistance
 	)
 	{
@@ -121,8 +121,8 @@ namespace glm
 	template<typename genType>
 	GLM_FUNC_QUALIFIER bool intersectLineTriangle
 	(
-		genType const & orig, genType const & dir,
-		genType const & vert0, genType const & vert1, genType const & vert2,
+		genType const& orig, genType const& dir,
+		genType const& vert0, genType const& vert1, genType const& vert2,
 		genType & position
 	)
 	{
@@ -159,8 +159,8 @@ namespace glm
 	template<typename genType>
 	GLM_FUNC_QUALIFIER bool intersectRaySphere
 	(
-		genType const & rayStarting, genType const & rayNormalizedDirection,
-		genType const & sphereCenter, const typename genType::value_type sphereRadiusSquered,
+		genType const& rayStarting, genType const& rayNormalizedDirection,
+		genType const& sphereCenter, const typename genType::value_type sphereRadiusSquered,
 		typename genType::value_type & intersectionDistance
 	)
 	{
@@ -180,8 +180,8 @@ namespace glm
 	template<typename genType>
 	GLM_FUNC_QUALIFIER bool intersectRaySphere
 	(
-		genType const & rayStarting, genType const & rayNormalizedDirection,
-		genType const & sphereCenter, const typename genType::value_type sphereRadius,
+		genType const& rayStarting, genType const& rayNormalizedDirection,
+		genType const& sphereCenter, const typename genType::value_type sphereRadius,
 		genType & intersectionPosition, genType & intersectionNormal
 	)
 	{
@@ -198,8 +198,8 @@ namespace glm
 	template<typename genType>
 	GLM_FUNC_QUALIFIER bool intersectLineSphere
 	(
-		genType const & point0, genType const & point1,
-		genType const & sphereCenter, typename genType::value_type sphereRadius,
+		genType const& point0, genType const& point1,
+		genType const& sphereCenter, typename genType::value_type sphereRadius,
 		genType & intersectionPoint1, genType & intersectionNormal1, 
 		genType & intersectionPoint2, genType & intersectionNormal2
 	)

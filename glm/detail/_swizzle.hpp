@@ -137,7 +137,7 @@ namespace detail
 	{
 		struct Stub {};
 
-		GLM_FUNC_QUALIFIER _swizzle_base2& operator= (Stub const &) { return *this; }
+		GLM_FUNC_QUALIFIER _swizzle_base2& operator= (Stub const&) { return *this; }
 
 		GLM_FUNC_QUALIFIER T operator[]  (size_t i) const
 		{

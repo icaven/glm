@@ -8,7 +8,7 @@
 namespace glm
 {
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER mat<4, 4, T, P> translate(mat<4, 4, T, P> const & m, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER mat<4, 4, T, P> translate(mat<4, 4, T, P> const& m, vec<3, T, P> const& v)
 	{
 		mat<4, 4, T, P> Result(m);
 		Result[3] = m[0] * v[0] + m[1] * v[1] + m[2] * v[2] + m[3];
@@ -16,7 +16,7 @@ namespace glm
 	}
 	
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER mat<4, 4, T, P> rotate(mat<4, 4, T, P> const & m, T angle, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER mat<4, 4, T, P> rotate(mat<4, 4, T, P> const& m, T angle, vec<3, T, P> const& v)
 	{
 		T const a = angle;
 		T const c = cos(a);
@@ -47,7 +47,7 @@ namespace glm
 	}
 		
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER mat<4, 4, T, P> rotate_slow(mat<4, 4, T, P> const & m, T angle, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER mat<4, 4, T, P> rotate_slow(mat<4, 4, T, P> const& m, T angle, vec<3, T, P> const& v)
 	{
 		T const a = angle;
 		T const c = cos(a);
@@ -76,7 +76,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER mat<4, 4, T, P> scale(mat<4, 4, T, P> const & m, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER mat<4, 4, T, P> scale(mat<4, 4, T, P> const& m, vec<3, T, P> const& v)
 	{
 		mat<4, 4, T, P> Result;
 		Result[0] = m[0] * v[0];
@@ -87,7 +87,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER mat<4, 4, T, P> scale_slow(mat<4, 4, T, P> const & m, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER mat<4, 4, T, P> scale_slow(mat<4, 4, T, P> const& m, vec<3, T, P> const& v)
 	{
 		mat<4, 4, T, P> Result(T(1));
 		Result[0][0] = v.x;
@@ -438,10 +438,10 @@ namespace glm
 	template<typename T, typename U, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> project
 	(
-		vec<3, T, P> const & obj,
+		vec<3, T, P> const& obj,
 		mat<4, 4, T, P> const& model,
 		mat<4, 4, T, P> const& proj,
-		vec<4, U, P> const & viewport
+		vec<4, U, P> const& viewport
 	)
 	{
 		vec<4, T, P> tmp = vec<4, T, P>(obj, static_cast<T>(1));
@@ -464,10 +464,10 @@ namespace glm
 	template<typename T, typename U, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> unProject
 	(
-		vec<3, T, P> const & win,
+		vec<3, T, P> const& win,
 		mat<4, 4, T, P> const& model,
 		mat<4, 4, T, P> const& proj,
-		vec<4, U, P> const & viewport
+		vec<4, U, P> const& viewport
 	)
 	{
 		mat<4, 4, T, P> Inverse = inverse(proj * model);
@@ -489,7 +489,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P, typename U>
-	GLM_FUNC_QUALIFIER mat<4, 4, T, P> pickMatrix(vec<2, T, P> const & center, vec<2, T, P> const & delta, vec<4, U, P> const & viewport)
+	GLM_FUNC_QUALIFIER mat<4, 4, T, P> pickMatrix(vec<2, T, P> const& center, vec<2, T, P> const& delta, vec<4, U, P> const& viewport)
 	{
 		assert(delta.x > static_cast<T>(0) && delta.y > static_cast<T>(0));
 		mat<4, 4, T, P> Result(static_cast<T>(1));
@@ -508,7 +508,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER mat<4, 4, T, P> lookAt(vec<3, T, P> const & eye, vec<3, T, P> const & center, vec<3, T, P> const & up)
+	GLM_FUNC_QUALIFIER mat<4, 4, T, P> lookAt(vec<3, T, P> const& eye, vec<3, T, P> const& center, vec<3, T, P> const& up)
 	{
 #		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
 			return lookAtLH(eye, center, up);
@@ -520,9 +520,9 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> lookAtRH
 	(
-		vec<3, T, P> const & eye,
-		vec<3, T, P> const & center,
-		vec<3, T, P> const & up
+		vec<3, T, P> const& eye,
+		vec<3, T, P> const& center,
+		vec<3, T, P> const& up
 	)
 	{
 		vec<3, T, P> const f(normalize(center - eye));
@@ -548,9 +548,9 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> lookAtLH
 	(
-		vec<3, T, P> const & eye,
-		vec<3, T, P> const & center,
-		vec<3, T, P> const & up
+		vec<3, T, P> const& eye,
+		vec<3, T, P> const& center,
+		vec<3, T, P> const& up
 	)
 	{
 		vec<3, T, P> const f(normalize(center - eye));

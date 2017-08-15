@@ -13,7 +13,7 @@ namespace glm
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> fastSqrt(vec<L, T, P> const & x)
+	GLM_FUNC_QUALIFIER vec<L, T, P> fastSqrt(vec<L, T, P> const& x)
 	{
 		return detail::functor1<L, T, T, P>::call(fastSqrt, x);
 	}
@@ -31,7 +31,7 @@ namespace glm
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> fastInverseSqrt(vec<L, T, P> const & x)
+	GLM_FUNC_QUALIFIER vec<L, T, P> fastInverseSqrt(vec<L, T, P> const& x)
 	{
 		return detail::compute_inversesqrt<L, T, P, detail::is_aligned<P>::value>::call(x);
 	}
@@ -46,7 +46,7 @@ namespace glm
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T fastLength(vec<L, T, P> const & x)
+	GLM_FUNC_QUALIFIER T fastLength(vec<L, T, P> const& x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'fastLength' only accept floating-point inputs");
 

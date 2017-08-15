@@ -116,7 +116,7 @@ namespace glm
 	///
 	/// @see gtc_round
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> ceilMultiple(vec<L, T, P> const & Source, vec<L, T, P> const& Multiple);
+	GLM_FUNC_DECL vec<L, T, P> ceilMultiple(vec<L, T, P> const& Source, vec<L, T, P> const& Multiple);
 
 	/// Lower multiple number of Source.
 	///

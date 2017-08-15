@@ -8,7 +8,7 @@ namespace glm
 	// isfinite
 	template<typename genType>
 	GLM_FUNC_QUALIFIER bool isfinite(
-		genType const & x)
+		genType const& x)
 	{
 #		if GLM_HAS_CXX11_STL
 			return std::isfinite(x) != 0;
@@ -26,7 +26,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<1, bool, P> isfinite(
-		vec<1, T, P> const & x)
+		vec<1, T, P> const& x)
 	{
 		return vec<1, bool, P>(
 			isfinite(x.x));
@@ -34,7 +34,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<2, bool, P> isfinite(
-		vec<2, T, P> const & x)
+		vec<2, T, P> const& x)
 	{
 		return vec<2, bool, P>(
 			isfinite(x.x),
@@ -43,7 +43,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, bool, P> isfinite(
-		vec<3, T, P> const & x)
+		vec<3, T, P> const& x)
 	{
 		return vec<3, bool, P>(
 			isfinite(x.x),
@@ -53,7 +53,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<4, bool, P> isfinite(
-		vec<4, T, P> const & x)
+		vec<4, T, P> const& x)
 	{
 		return vec<4, bool, P>(
 			isfinite(x.x),

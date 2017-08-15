@@ -6,9 +6,9 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER bool rightHanded
 	(
-		vec<3, T, P> const & tangent,
-		vec<3, T, P> const & binormal,
-		vec<3, T, P> const & normal
+		vec<3, T, P> const& tangent,
+		vec<3, T, P> const& binormal,
+		vec<3, T, P> const& normal
 	)
 	{
 		return dot(cross(normal, tangent), binormal) > T(0);
@@ -17,9 +17,9 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER bool leftHanded
 	(
-		vec<3, T, P> const & tangent,
-		vec<3, T, P> const & binormal,
-		vec<3, T, P> const & normal
+		vec<3, T, P> const& tangent,
+		vec<3, T, P> const& binormal,
+		vec<3, T, P> const& normal
 	)
 	{
 		return dot(cross(normal, tangent), binormal) < T(0);

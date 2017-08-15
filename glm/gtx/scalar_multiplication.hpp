@@ -39,19 +39,19 @@ namespace glm
 #define GLM_IMPLEMENT_SCAL_MULT(Vec) \
 	template<typename T> \
 	return_type_scalar_multiplication<T, Vec> \
-	operator*(T const & s, Vec rh){ \
+	operator*(T const& s, Vec rh){ \
 		return rh *= static_cast<float>(s); \
 	} \
 	 \
 	template<typename T> \
 	return_type_scalar_multiplication<T, Vec> \
-	operator*(Vec lh, T const & s){ \
+	operator*(Vec lh, T const& s){ \
 		return lh *= static_cast<float>(s); \
 	} \
 	 \
 	template<typename T> \
 	return_type_scalar_multiplication<T, Vec> \
-	operator/(Vec lh, T const & s){ \
+	operator/(Vec lh, T const& s){ \
 		return lh *= 1.0f / s; \
 	}
 

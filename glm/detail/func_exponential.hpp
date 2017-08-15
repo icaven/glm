@@ -29,7 +29,7 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/pow.xml">GLSL pow man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2 Exponential Functions</a>
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> pow(vec<L, T, P> const & base, vec<L, T, P> const& exponent);
+	GLM_FUNC_DECL vec<L, T, P> pow(vec<L, T, P> const& base, vec<L, T, P> const& exponent);
 
 	/// Returns the natural exponentiation of x, i.e., e^x.
 	///
@@ -87,7 +87,7 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/sqrt.xml">GLSL sqrt man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2 Exponential Functions</a>
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> sqrt(vec<L, T, P> const & v);
+	GLM_FUNC_DECL vec<L, T, P> sqrt(vec<L, T, P> const& v);
 	
 	/// Returns the reciprocal of the positive square root of v.
 	/// 
@@ -98,7 +98,7 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inversesqrt.xml">GLSL inversesqrt man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.2 Exponential Functions</a>
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> inversesqrt(vec<L, T, P> const & v);
+	GLM_FUNC_DECL vec<L, T, P> inversesqrt(vec<L, T, P> const& v);
 
 	/// @}
 }//namespace glm

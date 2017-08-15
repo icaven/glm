@@ -13,14 +13,14 @@ namespace glm
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template<typename T, qualifier P>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<3, T, P>::vec(vec<3, T, P> const & v)
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<3, T, P>::vec(vec<3, T, P> const& v)
 			: x(v.x), y(v.y), z(v.z)
 		{}
 #	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
 	template<typename T, qualifier P>
 	template<qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<3, T, P>::vec(vec<3, T, Q> const & v)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<3, T, P>::vec(vec<3, T, Q> const& v)
 		: x(v.x), y(v.y), z(v.z)
 	{}
 
@@ -114,7 +114,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T const & vec<3, T, P>::operator[](typename vec<3, T, P>::length_type i) const
+	GLM_FUNC_QUALIFIER T const& vec<3, T, P>::operator[](typename vec<3, T, P>::length_type i) const
 	{
 		assert(i >= 0 && i < this->length());
 		return (&x)[i];
@@ -124,7 +124,7 @@ namespace glm
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template<typename T, qualifier P>
-		GLM_FUNC_QUALIFIER vec<3, T, P>& vec<3, T, P>::operator=(vec<3, T, P> const & v)
+		GLM_FUNC_QUALIFIER vec<3, T, P>& vec<3, T, P>::operator=(vec<3, T, P> const& v)
 		{
 			this->x = v.x;
 			this->y = v.y;
@@ -135,7 +135,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U>
-	GLM_FUNC_QUALIFIER vec<3, T, P>& vec<3, T, P>::operator=(vec<3, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P>& vec<3, T, P>::operator=(vec<3, U, P> const& v)
 	{
 		this->x = static_cast<T>(v.x);
 		this->y = static_cast<T>(v.y);
@@ -155,7 +155,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U>
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator+=(vec<1, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator+=(vec<1, U, P> const& v)
 	{
 		this->x += static_cast<T>(v.x);
 		this->y += static_cast<T>(v.x);
@@ -165,7 +165,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U>
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator+=(vec<3, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator+=(vec<3, U, P> const& v)
 	{
 		this->x += static_cast<T>(v.x);
 		this->y += static_cast<T>(v.y);
@@ -185,7 +185,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U>
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator-=(vec<1, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator-=(vec<1, U, P> const& v)
 	{
 		this->x -= static_cast<T>(v.x);
 		this->y -= static_cast<T>(v.x);
@@ -195,7 +195,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U>
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator-=(vec<3, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator-=(vec<3, U, P> const& v)
 	{
 		this->x -= static_cast<T>(v.x);
 		this->y -= static_cast<T>(v.y);
@@ -215,7 +215,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U>
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator*=(vec<1, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator*=(vec<1, U, P> const& v)
 	{
 		this->x *= static_cast<T>(v.x);
 		this->y *= static_cast<T>(v.x);
@@ -225,7 +225,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U>
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator*=(vec<3, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator*=(vec<3, U, P> const& v)
 	{
 		this->x *= static_cast<T>(v.x);
 		this->y *= static_cast<T>(v.y);
@@ -245,7 +245,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U>
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator/=(vec<1, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator/=(vec<1, U, P> const& v)
 	{
 		this->x /= static_cast<T>(v.x);
 		this->y /= static_cast<T>(v.x);
@@ -255,7 +255,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U>
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator/=(vec<3, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator/=(vec<3, U, P> const& v)
 	{
 		this->x /= static_cast<T>(v.x);
 		this->y /= static_cast<T>(v.y);
@@ -313,7 +313,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U>
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator%=(vec<1, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator%=(vec<1, U, P> const& v)
 	{
 		this->x %= v.x;
 		this->y %= v.x;
@@ -323,7 +323,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U>
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator%=(vec<3, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator%=(vec<3, U, P> const& v)
 	{
 		this->x %= v.x;
 		this->y %= v.y;
@@ -343,7 +343,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U>
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator&=(vec<1, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator&=(vec<1, U, P> const& v)
 	{
 		this->x &= v.x;
 		this->y &= v.x;
@@ -353,7 +353,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U>
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator&=(vec<3, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator&=(vec<3, U, P> const& v)
 	{
 		this->x &= v.x;
 		this->y &= v.y;
@@ -373,7 +373,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U> 
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator|=(vec<1, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator|=(vec<1, U, P> const& v)
 	{
 		this->x |= v.x;
 		this->y |= v.x;
@@ -383,7 +383,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U> 
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator|=(vec<3, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator|=(vec<3, U, P> const& v)
 	{
 		this->x |= v.x;
 		this->y |= v.y;
@@ -403,7 +403,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U> 
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator^=(vec<1, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator^=(vec<1, U, P> const& v)
 	{
 		this->x ^= v.x;
 		this->y ^= v.x;
@@ -413,7 +413,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U> 
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator^=(vec<3, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator^=(vec<3, U, P> const& v)
 	{
 		this->x ^= v.x;
 		this->y ^= v.y;
@@ -433,7 +433,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U> 
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator<<=(vec<1, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator<<=(vec<1, U, P> const& v)
 	{
 		this->x <<= static_cast<T>(v.x);
 		this->y <<= static_cast<T>(v.x);
@@ -443,7 +443,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U> 
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator<<=(vec<3, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator<<=(vec<3, U, P> const& v)
 	{
 		this->x <<= static_cast<T>(v.x);
 		this->y <<= static_cast<T>(v.y);
@@ -463,7 +463,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U> 
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator>>=(vec<1, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator>>=(vec<1, U, P> const& v)
 	{
 		this->x >>= static_cast<T>(v.x);
 		this->y >>= static_cast<T>(v.x);
@@ -473,7 +473,7 @@ namespace glm
 
 	template<typename T, qualifier P>
 	template<typename U> 
-	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator>>=(vec<3, U, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> & vec<3, T, P>::operator>>=(vec<3, U, P> const& v)
 	{
 		this->x >>= static_cast<T>(v.x);
 		this->y >>= static_cast<T>(v.y);
@@ -484,13 +484,13 @@ namespace glm
 	// -- Unary arithmetic operators --
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator+(vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator+(vec<3, T, P> const& v)
 	{
 		return v;
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator-(vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator-(vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			-v.x, 
@@ -501,7 +501,7 @@ namespace glm
 	// -- Binary arithmetic operators --
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator+(vec<3, T, P> const & v, T scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator+(vec<3, T, P> const& v, T scalar)
 	{
 		return vec<3, T, P>(
 			v.x + scalar,
@@ -510,7 +510,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator+(vec<3, T, P> const & v, vec<1, T, P> const & scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator+(vec<3, T, P> const& v, vec<1, T, P> const& scalar)
 	{
 		return vec<3, T, P>(
 			v.x + scalar.x,
@@ -519,7 +519,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator+(T scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator+(T scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar + v.x,
@@ -528,7 +528,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator+(vec<1, T, P> const & scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator+(vec<1, T, P> const& scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar.x + v.x,
@@ -537,7 +537,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator+(vec<3, T, P> const & v1, vec<3, T, P> const & v2)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator+(vec<3, T, P> const& v1, vec<3, T, P> const& v2)
 	{
 		return vec<3, T, P>(
 			v1.x + v2.x,
@@ -546,7 +546,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator-(vec<3, T, P> const & v, T scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator-(vec<3, T, P> const& v, T scalar)
 	{
 		return vec<3, T, P>(
 			v.x - scalar,
@@ -555,7 +555,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator-(vec<3, T, P> const & v, vec<1, T, P> const & scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator-(vec<3, T, P> const& v, vec<1, T, P> const& scalar)
 	{
 		return vec<3, T, P>(
 			v.x - scalar.x,
@@ -564,7 +564,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P> 
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator-(T scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator-(T scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar - v.x,
@@ -573,7 +573,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P> 
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator-(vec<1, T, P> const & scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator-(vec<1, T, P> const& scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar.x - v.x,
@@ -582,7 +582,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator-(vec<3, T, P> const & v1, vec<3, T, P> const & v2)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator-(vec<3, T, P> const& v1, vec<3, T, P> const& v2)
 	{
 		return vec<3, T, P>(
 			v1.x - v2.x,
@@ -591,7 +591,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator*(vec<3, T, P> const & v, T scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator*(vec<3, T, P> const& v, T scalar)
 	{
 		return vec<3, T, P>(
 			v.x * scalar,
@@ -600,7 +600,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator*(vec<3, T, P> const & v, vec<1, T, P> const & scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator*(vec<3, T, P> const& v, vec<1, T, P> const& scalar)
 	{
 		return vec<3, T, P>(
 			v.x * scalar.x,
@@ -609,7 +609,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator*(T scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator*(T scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar * v.x,
@@ -618,7 +618,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator*(vec<1, T, P> const & scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator*(vec<1, T, P> const& scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar.x * v.x,
@@ -627,7 +627,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator*(vec<3, T, P> const & v1, vec<3, T, P> const & v2)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator*(vec<3, T, P> const& v1, vec<3, T, P> const& v2)
 	{
 		return vec<3, T, P>(
 			v1.x * v2.x,
@@ -636,7 +636,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator/(vec<3, T, P> const & v, T scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator/(vec<3, T, P> const& v, T scalar)
 	{
 		return vec<3, T, P>(
 			v.x / scalar,
@@ -645,7 +645,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator/(vec<3, T, P> const & v, vec<1, T, P> const & scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator/(vec<3, T, P> const& v, vec<1, T, P> const& scalar)
 	{
 		return vec<3, T, P>(
 			v.x / scalar.x,
@@ -654,7 +654,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator/(T scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator/(T scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar / v.x,
@@ -663,7 +663,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator/(vec<1, T, P> const & scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator/(vec<1, T, P> const& scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar.x / v.x,
@@ -672,7 +672,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator/(vec<3, T, P> const & v1, vec<3, T, P> const & v2)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator/(vec<3, T, P> const& v1, vec<3, T, P> const& v2)
 	{
 		return vec<3, T, P>(
 			v1.x / v2.x,
@@ -683,7 +683,7 @@ namespace glm
 	// -- Binary bit operators --
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator%(vec<3, T, P> const & v, T scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator%(vec<3, T, P> const& v, T scalar)
 	{
 		return vec<3, T, P>(
 			v.x % scalar,
@@ -692,7 +692,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator%(vec<3, T, P> const & v, vec<1, T, P> const & scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator%(vec<3, T, P> const& v, vec<1, T, P> const& scalar)
 	{
 		return vec<3, T, P>(
 			v.x % scalar.x,
@@ -701,7 +701,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator%(T scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator%(T scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar % v.x,
@@ -710,7 +710,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator%(vec<1, T, P> const & scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator%(vec<1, T, P> const& scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar.x % v.x,
@@ -719,7 +719,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator%(vec<3, T, P> const & v1, vec<3, T, P> const & v2)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator%(vec<3, T, P> const& v1, vec<3, T, P> const& v2)
 	{
 		return vec<3, T, P>(
 			v1.x % v2.x,
@@ -728,7 +728,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator&(vec<3, T, P> const & v, T scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator&(vec<3, T, P> const& v, T scalar)
 	{
 		return vec<3, T, P>(
 			v.x & scalar,
@@ -737,7 +737,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator&(vec<3, T, P> const & v, vec<1, T, P> const & scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator&(vec<3, T, P> const& v, vec<1, T, P> const& scalar)
 	{
 		return vec<3, T, P>(
 			v.x & scalar.x,
@@ -746,7 +746,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator&(T scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator&(T scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar & v.x,
@@ -755,7 +755,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator&(vec<1, T, P> const & scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator&(vec<1, T, P> const& scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar.x & v.x,
@@ -764,7 +764,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator&(vec<3, T, P> const & v1, vec<3, T, P> const & v2)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator&(vec<3, T, P> const& v1, vec<3, T, P> const& v2)
 	{
 		return vec<3, T, P>(
 			v1.x & v2.x,
@@ -773,7 +773,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator|(vec<3, T, P> const & v, T scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator|(vec<3, T, P> const& v, T scalar)
 	{
 		return vec<3, T, P>(
 			v.x | scalar,
@@ -782,7 +782,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator|(vec<3, T, P> const & v, vec<1, T, P> const & scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator|(vec<3, T, P> const& v, vec<1, T, P> const& scalar)
 	{
 		return vec<3, T, P>(
 			v.x | scalar.x,
@@ -791,7 +791,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator|(T scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator|(T scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar | v.x,
@@ -800,7 +800,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator|(vec<1, T, P> const & scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator|(vec<1, T, P> const& scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar.x | v.x,
@@ -809,7 +809,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator|(vec<3, T, P> const & v1, vec<3, T, P> const & v2)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator|(vec<3, T, P> const& v1, vec<3, T, P> const& v2)
 	{
 		return vec<3, T, P>(
 			v1.x | v2.x,
@@ -818,7 +818,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator^(vec<3, T, P> const & v, T scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator^(vec<3, T, P> const& v, T scalar)
 	{
 		return vec<3, T, P>(
 			v.x ^ scalar,
@@ -827,7 +827,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator^(vec<3, T, P> const & v, vec<1, T, P> const & scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator^(vec<3, T, P> const& v, vec<1, T, P> const& scalar)
 	{
 		return vec<3, T, P>(
 			v.x ^ scalar.x,
@@ -836,7 +836,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator^(T scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator^(T scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar ^ v.x,
@@ -845,7 +845,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator^(vec<1, T, P> const & scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator^(vec<1, T, P> const& scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar.x ^ v.x,
@@ -854,7 +854,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator^(vec<3, T, P> const & v1, vec<3, T, P> const & v2)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator^(vec<3, T, P> const& v1, vec<3, T, P> const& v2)
 	{
 		return vec<3, T, P>(
 			v1.x ^ v2.x,
@@ -863,7 +863,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator<<(vec<3, T, P> const & v, T scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator<<(vec<3, T, P> const& v, T scalar)
 	{
 		return vec<3, T, P>(
 			v.x << scalar,
@@ -872,7 +872,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator<<(vec<3, T, P> const & v, vec<1, T, P> const & scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator<<(vec<3, T, P> const& v, vec<1, T, P> const& scalar)
 	{
 		return vec<3, T, P>(
 			v.x << scalar.x,
@@ -881,7 +881,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator<<(T scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator<<(T scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar << v.x,
@@ -890,7 +890,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator<<(vec<1, T, P> const & scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator<<(vec<1, T, P> const& scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar.x << v.x,
@@ -899,7 +899,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator<<(vec<3, T, P> const & v1, vec<3, T, P> const & v2)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator<<(vec<3, T, P> const& v1, vec<3, T, P> const& v2)
 	{
 		return vec<3, T, P>(
 			v1.x << v2.x,
@@ -908,7 +908,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator>>(vec<3, T, P> const & v, T scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator>>(vec<3, T, P> const& v, T scalar)
 	{
 		return vec<3, T, P>(
 			v.x >> scalar,
@@ -917,7 +917,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator>>(vec<3, T, P> const & v, vec<1, T, P> const & scalar)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator>>(vec<3, T, P> const& v, vec<1, T, P> const& scalar)
 	{
 		return vec<3, T, P>(
 			v.x >> scalar.x,
@@ -926,7 +926,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator>>(T scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator>>(T scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar >> v.x,
@@ -935,7 +935,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator>>(vec<1, T, P> const & scalar, vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator>>(vec<1, T, P> const& scalar, vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			scalar.x >> v.x,
@@ -944,7 +944,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator>>(vec<3, T, P> const & v1, vec<3, T, P> const & v2)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator>>(vec<3, T, P> const& v1, vec<3, T, P> const& v2)
 	{
 		return vec<3, T, P>(
 			v1.x >> v2.x,
@@ -953,7 +953,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P> 
-	GLM_FUNC_QUALIFIER vec<3, T, P> operator~(vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<3, T, P> operator~(vec<3, T, P> const& v)
 	{
 		return vec<3, T, P>(
 			~v.x,
@@ -964,7 +964,7 @@ namespace glm
 	// -- Boolean operators --
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER bool operator==(vec<3, T, P> const & v1, vec<3, T, P> const & v2)
+	GLM_FUNC_QUALIFIER bool operator==(vec<3, T, P> const& v1, vec<3, T, P> const& v2)
 	{
 		return
 			detail::compute_equal<T>::call(v1.x, v2.x) &&
@@ -973,19 +973,19 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER bool operator!=(vec<3, T, P> const & v1, vec<3, T, P> const & v2)
+	GLM_FUNC_QUALIFIER bool operator!=(vec<3, T, P> const& v1, vec<3, T, P> const& v2)
 	{
 		return !(v1 == v2);
 	}
 
 	template<qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, bool, P> operator&&(vec<3, bool, P> const & v1, vec<3, bool, P> const & v2)
+	GLM_FUNC_QUALIFIER vec<3, bool, P> operator&&(vec<3, bool, P> const& v1, vec<3, bool, P> const& v2)
 	{
 		return vec<3, bool, P>(v1.x && v2.x, v1.y && v2.y, v1.z && v2.z);
 	}
 
 	template<qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, bool, P> operator||(vec<3, bool, P> const & v1, vec<3, bool, P> const & v2)
+	GLM_FUNC_QUALIFIER vec<3, bool, P> operator||(vec<3, bool, P> const& v1, vec<3, bool, P> const& v2)
 	{
 		return vec<3, bool, P>(v1.x || v2.x, v1.y || v2.y, v1.z || v2.z);
 	}

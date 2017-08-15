@@ -446,7 +446,7 @@ GLSL supports the member function .length() for all vector and matrix types.
 ```cpp
 #include <glm/glm.hpp>
 
-void foo(vec4 const & v)
+void foo(vec4 const& v)
 {
     int Length = v.length();
     ...
@@ -461,7 +461,7 @@ Additionally, GLM defines the type glm::length\_t to identify length() returned 
 #define GLM_FORCE_SIZE_T_LENGTH
 #include <glm/glm.hpp>
 
-void foo(vec4 const & v)
+void foo(vec4 const& v)
 {
     glm::length_t Length = v.length();
     ...
@@ -969,8 +969,8 @@ From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt
 [***gluProject:***](http://www.opengl.org/sdk/docs/man2/xhtml/gluProject.xml)
 
 ```cpp
-glm::vec3 project(glm::vec3 const& obj, glm::mat4 const& model, glm::mat4 const & proj, glm::ivec4 const& viewport);
-glm::dvec3 project(glm::dvec3 const& obj, glm::dmat4 const & model, glm::dmat4 const & proj, glm::ivec4 const& viewport);
+glm::vec3 project(glm::vec3 const& obj, glm::mat4 const& model, glm::mat4 const& proj, glm::ivec4 const& viewport);
+glm::dvec3 project(glm::dvec3 const& obj, glm::dmat4 const& model, glm::dmat4 const& proj, glm::ivec4 const& viewport);
 ```
 
 From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;
@@ -979,7 +979,7 @@ From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt
 
 ```cpp
 glm::vec3 unProject(glm::vec3 const& win, glm::mat4 const& model, glm::mat4 const& proj, glm::ivec4 const& viewport);
-glm::dvec3 unProject(glm::dvec3 const& win, glm::dmat4 const& model, glm::dmat4 const& proj, glm::ivec4 const & viewport);
+glm::dvec3 unProject(glm::dvec3 const& win, glm::dmat4 const& model, glm::dmat4 const& proj, glm::ivec4 const& viewport);
 ```
 
 From GLM\_GTC\_matrix\_transform extension: &lt;glm/gtc/matrix\_transform.hpp&gt;

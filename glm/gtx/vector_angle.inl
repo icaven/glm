@@ -6,8 +6,8 @@ namespace glm
 	template<typename genType> 
 	GLM_FUNC_QUALIFIER genType angle
 	(
-		genType const & x,
-		genType const & y
+		genType const& x,
+		genType const& y
 	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'angle' only accept floating-point inputs");
@@ -23,7 +23,7 @@ namespace glm
 
 	//! \todo epsilon is hard coded to 0.01
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T orientedAngle(vec<2, T, P> const & x, vec<2, T, P> const & y)
+	GLM_FUNC_QUALIFIER T orientedAngle(vec<2, T, P> const& x, vec<2, T, P> const& y)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'orientedAngle' only accept floating-point inputs");
 		T const Angle(acos(clamp(dot(x, y), T(-1), T(1))));

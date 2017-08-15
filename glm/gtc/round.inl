@@ -220,7 +220,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, bool, P> isPowerOfTwo(vec<L, T, P> const & Value)
+	GLM_FUNC_QUALIFIER vec<L, bool, P> isPowerOfTwo(vec<L, T, P> const& Value)
 	{
 		vec<L, T, P> const Result(abs(Value));
 		return equal(Result & (Result - 1), vec<L, T, P>(0));
@@ -251,7 +251,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> floorPowerOfTwo(vec<L, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<L, T, P> floorPowerOfTwo(vec<L, T, P> const& v)
 	{
 		return detail::functor1<L, T, T, P>::call(floorPowerOfTwo, v);
 	}
@@ -271,7 +271,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> roundPowerOfTwo(vec<L, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<L, T, P> roundPowerOfTwo(vec<L, T, P> const& v)
 	{
 		return detail::functor1<L, T, T, P>::call(roundPowerOfTwo, v);
 	}
@@ -286,7 +286,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, bool, P> isMultiple(vec<L, T, P> const & Value, T Multiple)
+	GLM_FUNC_QUALIFIER vec<L, bool, P> isMultiple(vec<L, T, P> const& Value, T Multiple)
 	{
 		return (Value % Multiple) == vec<L, T, P>(0);
 	}

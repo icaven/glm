@@ -10,7 +10,7 @@ namespace glm
 	template<typename T, qualifier P> 
 	GLM_FUNC_QUALIFIER mat<3, 3, T, P> translate(
 		mat<3, 3, T, P> const& m,
-		vec<2, T, P> const & v)
+		vec<2, T, P> const& v)
 	{
 		mat<3, 3, T, P> Result(m);
 		Result[2] = m[0] * v[0] + m[1] * v[1] + m[2];
@@ -37,7 +37,7 @@ namespace glm
 	template<typename T, qualifier P> 
 	GLM_FUNC_QUALIFIER mat<3, 3, T, P> scale(
 		mat<3, 3, T, P> const& m,
-		vec<2, T, P> const & v)
+		vec<2, T, P> const& v)
 	{
 		mat<3, 3, T, P> Result;
 		Result[0] = m[0] * v[0];

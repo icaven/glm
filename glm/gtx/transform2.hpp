@@ -101,7 +101,7 @@ namespace glm
 	//! From GLM_GTX_transform2 extension.
 	template<typename valType, qualifier P> 
 	GLM_FUNC_DECL mat<4, 4, valType, P> scaleBias(
-		mat<4, 4, valType, P> const & m, 
+		mat<4, 4, valType, P> const& m, 
 		valType scale, 
 		valType bias);
 

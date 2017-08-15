@@ -6,9 +6,9 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> slerp
 	(
-		vec<3, T, P> const & x,
-		vec<3, T, P> const & y,
-		T const & a
+		vec<3, T, P> const& x,
+		vec<3, T, P> const& y,
+		T const& a
 	)
 	{
 		// get cosine of angle between vectors (-1 -> 1)
@@ -28,8 +28,8 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<2, T, P> rotate
 	(
-		vec<2, T, P> const & v,
-		T const & angle
+		vec<2, T, P> const& v,
+		T const& angle
 	)
 	{
 		vec<2, T, P> Result;
@@ -44,9 +44,9 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> rotate
 	(
-		vec<3, T, P> const & v,
-		T const & angle,
-		vec<3, T, P> const & normal
+		vec<3, T, P> const& v,
+		T const& angle,
+		vec<3, T, P> const& normal
 	)
 	{
 		return mat<3, 3, T, P>(glm::rotate(angle, normal)) * v;
@@ -66,9 +66,9 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<4, T, P> rotate
 	(
-		vec<4, T, P> const & v,
-		T const & angle,
-		vec<3, T, P> const & normal
+		vec<4, T, P> const& v,
+		T const& angle,
+		vec<3, T, P> const& normal
 	)
 	{
 		return rotate(angle, normal) * v;
@@ -77,8 +77,8 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> rotateX
 	(
-		vec<3, T, P> const & v,
-		T const & angle
+		vec<3, T, P> const& v,
+		T const& angle
 	)
 	{
 		vec<3, T, P> Result(v);
@@ -93,8 +93,8 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> rotateY
 	(
-		vec<3, T, P> const & v,
-		T const & angle
+		vec<3, T, P> const& v,
+		T const& angle
 	)
 	{
 		vec<3, T, P> Result = v;
@@ -109,8 +109,8 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> rotateZ
 	(
-		vec<3, T, P> const & v,
-		T const & angle
+		vec<3, T, P> const& v,
+		T const& angle
 	)
 	{
 		vec<3, T, P> Result = v;
@@ -125,8 +125,8 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<4, T, P> rotateX
 	(
-		vec<4, T, P> const & v,
-		T const & angle
+		vec<4, T, P> const& v,
+		T const& angle
 	)
 	{
 		vec<4, T, P> Result = v;
@@ -141,8 +141,8 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<4, T, P> rotateY
 	(
-		vec<4, T, P> const & v,
-		T const & angle
+		vec<4, T, P> const& v,
+		T const& angle
 	)
 	{
 		vec<4, T, P> Result = v;
@@ -157,8 +157,8 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<4, T, P> rotateZ
 	(
-		vec<4, T, P> const & v,
-		T const & angle
+		vec<4, T, P> const& v,
+		T const& angle
 	)
 	{
 		vec<4, T, P> Result = v;
@@ -173,8 +173,8 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> orientation
 	(
-		vec<3, T, P> const & Normal,
-		vec<3, T, P> const & Up
+		vec<3, T, P> const& Normal,
+		vec<3, T, P> const& Up
 	)
 	{
 		if(all(equal(Normal, Up)))

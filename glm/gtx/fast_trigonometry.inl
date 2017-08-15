@@ -58,7 +58,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> fastCos(vec<L, T, P> const & x)
+	GLM_FUNC_QUALIFIER vec<L, T, P> fastCos(vec<L, T, P> const& x)
 	{
 		return detail::functor1<L, T, T, P>::call(fastCos, x);
 	}
@@ -71,7 +71,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> fastSin(vec<L, T, P> const & x)
+	GLM_FUNC_QUALIFIER vec<L, T, P> fastSin(vec<L, T, P> const& x)
 	{
 		return detail::functor1<L, T, T, P>::call(fastSin, x);
 	}
@@ -84,7 +84,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> fastTan(vec<L, T, P> const & x)
+	GLM_FUNC_QUALIFIER vec<L, T, P> fastTan(vec<L, T, P> const& x)
 	{
 		return detail::functor1<L, T, T, P>::call(fastTan, x);
 	}
@@ -97,7 +97,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> fastAsin(vec<L, T, P> const & x)
+	GLM_FUNC_QUALIFIER vec<L, T, P> fastAsin(vec<L, T, P> const& x)
 	{
 		return detail::functor1<L, T, T, P>::call(fastAsin, x);
 	}

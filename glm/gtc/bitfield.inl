@@ -248,7 +248,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> bitfieldRotateRight(vec<L, T, P> const & In, int Shift)
+	GLM_FUNC_QUALIFIER vec<L, T, P> bitfieldRotateRight(vec<L, T, P> const& In, int Shift)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldRotateRight' accepts only integer values");
 

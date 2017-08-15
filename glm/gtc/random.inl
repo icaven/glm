@@ -142,7 +142,7 @@ namespace detail
 	template<length_t L, qualifier P>
 	struct compute_linearRand<L, int32, P>
 	{
-		GLM_FUNC_QUALIFIER static vec<L, int32, P> call(vec<L, int32, P> const & Min, vec<L, int32, P> const& Max)
+		GLM_FUNC_QUALIFIER static vec<L, int32, P> call(vec<L, int32, P> const& Min, vec<L, int32, P> const& Max)
 		{
 			return (vec<L, int32, P>(compute_rand<L, uint32, P>::call() % vec<L, uint32, P>(Max + static_cast<int32>(1) - Min))) + Min;
 		}
@@ -266,7 +266,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> linearRand(vec<L, T, P> const & Min, vec<L, T, P> const& Max)
+	GLM_FUNC_QUALIFIER vec<L, T, P> linearRand(vec<L, T, P> const& Min, vec<L, T, P> const& Max)
 	{
 		return detail::compute_linearRand<L, T, P>::call(Min, Max);
 	}

@@ -198,7 +198,7 @@ namespace bitfieldReverse
 	struct compute_bitfieldReverseStep
 	{
 		template<glm::length_t L, typename T, glm::qualifier P>
-		GLM_FUNC_QUALIFIER static glm::vec<L, T, P> call(glm::vec<L, T, P> const & v, T, T)
+		GLM_FUNC_QUALIFIER static glm::vec<L, T, P> call(glm::vec<L, T, P> const& v, T, T)
 		{
 			return v;
 		}
@@ -208,14 +208,14 @@ namespace bitfieldReverse
 	struct compute_bitfieldReverseStep<true>
 	{
 		template<glm::length_t L, typename T, glm::qualifier P>
-		GLM_FUNC_QUALIFIER static glm::vec<L, T, P> call(glm::vec<L, T, P> const & v, T Mask, T Shift)
+		GLM_FUNC_QUALIFIER static glm::vec<L, T, P> call(glm::vec<L, T, P> const& v, T Mask, T Shift)
 		{
 			return (v & Mask) << Shift | (v & (~Mask)) >> Shift;
 		}
 	};
 
 	template<glm::length_t L, typename T, glm::qualifier P>
-	GLM_FUNC_QUALIFIER glm::vec<L, T, P> bitfieldReverseOps(glm::vec<L, T, P> const & v)
+	GLM_FUNC_QUALIFIER glm::vec<L, T, P> bitfieldReverseOps(glm::vec<L, T, P> const& v)
 	{
 		glm::vec<L, T, P> x(v);
 		x = compute_bitfieldReverseStep<sizeof(T) * 8 >=  2>::call(x, T(0x5555555555555555ull), static_cast<T>( 1));
@@ -1415,7 +1415,7 @@ namespace bitCount
 	};
 
 	template<glm::length_t L, typename T, glm::qualifier P>
-	static glm::vec<L, int, P> bitCount_bitfield(glm::vec<L, T, P> const & v)
+	static glm::vec<L, int, P> bitCount_bitfield(glm::vec<L, T, P> const& v)
 	{
 		glm::vec<L, typename glm::detail::make_unsigned<T>::type, P> x(*reinterpret_cast<glm::vec<L, typename glm::detail::make_unsigned<T>::type, P> const *>(&v));
 		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >=  2>::call(x, typename glm::detail::make_unsigned<T>::type(0x5555555555555555ull), typename glm::detail::make_unsigned<T>::type( 1));

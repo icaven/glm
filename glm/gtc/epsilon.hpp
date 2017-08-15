@@ -31,28 +31,28 @@ namespace glm
 	///
 	/// @see gtc_epsilon
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, bool, P> epsilonEqual(vec<L, T, P> const& x, vec<L, T, P> const& y, T const & epsilon);
+	GLM_FUNC_DECL vec<L, bool, P> epsilonEqual(vec<L, T, P> const& x, vec<L, T, P> const& y, T const& epsilon);
 
 	/// Returns the component-wise comparison of |x - y| < epsilon.
 	/// True if this expression is satisfied.
 	///
 	/// @see gtc_epsilon
 	template<typename genType>
-	GLM_FUNC_DECL bool epsilonEqual(genType const & x, genType const & y, genType const & epsilon);
+	GLM_FUNC_DECL bool epsilonEqual(genType const& x, genType const& y, genType const& epsilon);
 
 	/// Returns the component-wise comparison of |x - y| < epsilon.
 	/// True if this expression is not satisfied.
 	///
 	/// @see gtc_epsilon
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, bool, P> epsilonNotEqual(vec<L, T, P> const& x, vec<L, T, P> const& y, T const & epsilon);
+	GLM_FUNC_DECL vec<L, bool, P> epsilonNotEqual(vec<L, T, P> const& x, vec<L, T, P> const& y, T const& epsilon);
 
 	/// Returns the component-wise comparison of |x - y| >= epsilon.
 	/// True if this expression is not satisfied.
 	///
 	/// @see gtc_epsilon
 	template<typename genType>
-	GLM_FUNC_DECL bool epsilonNotEqual(genType const & x, genType const & y, genType const & epsilon);
+	GLM_FUNC_DECL bool epsilonNotEqual(genType const& x, genType const& y, genType const& epsilon);
 
 	/// @}
 }//namespace glm

@@ -85,7 +85,7 @@ namespace detail
 	template<qualifier P>
 	struct compute_quat_add<double, P, true>
 	{
-		static tquat<double, P> call(tquat<double, P> const & a, tquat<double, P> const & b)
+		static tquat<double, P> call(tquat<double, P> const& a, tquat<double, P> const& b)
 		{
 			tquat<double, P> Result;
 			Result.data = _mm256_add_pd(a.data, b.data);
@@ -109,7 +109,7 @@ namespace detail
 	template<qualifier P>
 	struct compute_quat_sub<double, P, true>
 	{
-		static tquat<double, P> call(tquat<double, P> const & a, tquat<double, P> const & b)
+		static tquat<double, P> call(tquat<double, P> const& a, tquat<double, P> const& b)
 		{
 			tquat<double, P> Result;
 			Result.data = _mm256_sub_pd(a.data, b.data);

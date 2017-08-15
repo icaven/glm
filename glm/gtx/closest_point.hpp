@@ -32,16 +32,16 @@ namespace glm
 	/// @see gtx_closest_point
 	template<typename T, qualifier P>
 	GLM_FUNC_DECL vec<3, T, P> closestPointOnLine(
-		vec<3, T, P> const & point,
-		vec<3, T, P> const & a, 
-		vec<3, T, P> const & b);
+		vec<3, T, P> const& point,
+		vec<3, T, P> const& a, 
+		vec<3, T, P> const& b);
 	
 	/// 2d lines work as well	
 	template<typename T, qualifier P>
 	GLM_FUNC_DECL vec<2, T, P> closestPointOnLine(
-		vec<2, T, P> const & point,
-		vec<2, T, P> const & a, 
-		vec<2, T, P> const & b);	
+		vec<2, T, P> const& point,
+		vec<2, T, P> const& a, 
+		vec<2, T, P> const& b);	
 
 	/// @}
 }// namespace glm

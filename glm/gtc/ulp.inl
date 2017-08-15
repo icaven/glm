@@ -190,7 +190,7 @@ namespace detail
 namespace glm
 {
 	template<>
-	GLM_FUNC_QUALIFIER float next_float(float const & x)
+	GLM_FUNC_QUALIFIER float next_float(float const& x)
 	{
 #		if GLM_HAS_CXX11_STL
 			return std::nextafter(x, std::numeric_limits<float>::max());
@@ -204,7 +204,7 @@ namespace glm
 	}
 
 	template<>
-	GLM_FUNC_QUALIFIER double next_float(double const & x)
+	GLM_FUNC_QUALIFIER double next_float(double const& x)
 	{
 #		if GLM_HAS_CXX11_STL
 			return std::nextafter(x, std::numeric_limits<double>::max());
@@ -218,7 +218,7 @@ namespace glm
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> next_float(vec<L, T, P> const & x)
+	GLM_FUNC_QUALIFIER vec<L, T, P> next_float(vec<L, T, P> const& x)
 	{
 		vec<L, T, P> Result;
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
@@ -226,7 +226,7 @@ namespace glm
 		return Result;
 	}
 
-	GLM_FUNC_QUALIFIER float prev_float(float const & x)
+	GLM_FUNC_QUALIFIER float prev_float(float const& x)
 	{
 #		if GLM_HAS_CXX11_STL
 			return std::nextafter(x, std::numeric_limits<float>::min());
@@ -239,7 +239,7 @@ namespace glm
 #		endif
 	}
 
-	GLM_FUNC_QUALIFIER double prev_float(double const & x)
+	GLM_FUNC_QUALIFIER double prev_float(double const& x)
 	{
 #		if GLM_HAS_CXX11_STL
 			return std::nextafter(x, std::numeric_limits<double>::min());
@@ -253,7 +253,7 @@ namespace glm
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> prev_float(vec<L, T, P> const & x)
+	GLM_FUNC_QUALIFIER vec<L, T, P> prev_float(vec<L, T, P> const& x)
 	{
 		vec<L, T, P> Result;
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
@@ -262,7 +262,7 @@ namespace glm
 	}
 
 	template<typename T>
-	GLM_FUNC_QUALIFIER T next_float(T const & x, uint const & ulps)
+	GLM_FUNC_QUALIFIER T next_float(T const& x, uint const& ulps)
 	{
 		T temp = x;
 		for(uint i = 0; i < ulps; ++i)
@@ -271,7 +271,7 @@ namespace glm
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> next_float(vec<L, T, P> const & x, vec<L, uint, P> const & ulps)
+	GLM_FUNC_QUALIFIER vec<L, T, P> next_float(vec<L, T, P> const& x, vec<L, uint, P> const& ulps)
 	{
 		vec<L, T, P> Result;
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
@@ -280,7 +280,7 @@ namespace glm
 	}
 
 	template<typename T>
-	GLM_FUNC_QUALIFIER T prev_float(T const & x, uint const & ulps)
+	GLM_FUNC_QUALIFIER T prev_float(T const& x, uint const& ulps)
 	{
 		T temp = x;
 		for(uint i = 0; i < ulps; ++i)
@@ -289,7 +289,7 @@ namespace glm
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> prev_float(vec<L, T, P> const & x, vec<L, uint, P> const & ulps)
+	GLM_FUNC_QUALIFIER vec<L, T, P> prev_float(vec<L, T, P> const& x, vec<L, uint, P> const& ulps)
 	{
 		vec<L, T, P> Result;
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
@@ -298,7 +298,7 @@ namespace glm
 	}
 
 	template<typename T>
-	GLM_FUNC_QUALIFIER uint float_distance(T const & x, T const & y)
+	GLM_FUNC_QUALIFIER uint float_distance(T const& x, T const& y)
 	{
 		uint ulp = 0;
 
@@ -329,7 +329,7 @@ namespace glm
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, uint, P> float_distance(vec<L, T, P> const & x, vec<L, T, P> const & y)
+	GLM_FUNC_QUALIFIER vec<L, uint, P> float_distance(vec<L, T, P> const& x, vec<L, T, P> const& y)
 	{
 		vec<L, uint, P> Result;
 		for(length_t i = 0, n = Result.length(); i < n; ++i)

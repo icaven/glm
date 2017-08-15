@@ -73,7 +73,7 @@ namespace glm
 		GLM_FUNC_DECL static GLM_CONSTEXPR length_type length(){return 4;}
 
 		GLM_FUNC_DECL T & operator[](length_type i);
-		GLM_FUNC_DECL T const & operator[](length_type i) const;
+		GLM_FUNC_DECL T const& operator[](length_type i) const;
 
 		// -- Implicit basic constructors --
 
@@ -104,7 +104,7 @@ namespace glm
 		/// @param v A second normalized axis
 		/// @see gtc_quaternion
 		/// @see http://lolengine.net/blog/2013/09/18/beautiful-maths-quaternion-from-vectors
-		GLM_FUNC_DECL tquat(vec<3, T, P> const & u, vec<3, T, P> const & v);
+		GLM_FUNC_DECL tquat(vec<3, T, P> const& u, vec<3, T, P> const& v);
 
 		/// Build a quaternion from euler angles (pitch, yaw, roll), in radians.
 		GLM_FUNC_DECL GLM_EXPLICIT tquat(vec<3, T, P> const& eulerAngles);
@@ -140,39 +140,39 @@ namespace glm
 	// -- Binary operators --
 
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL tquat<T, P> operator+(tquat<T, P> const & q, tquat<T, P> const & p);
+	GLM_FUNC_DECL tquat<T, P> operator+(tquat<T, P> const& q, tquat<T, P> const& p);
 
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL tquat<T, P> operator*(tquat<T, P> const & q, tquat<T, P> const & p);
+	GLM_FUNC_DECL tquat<T, P> operator*(tquat<T, P> const& q, tquat<T, P> const& p);
 
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL vec<3, T, P> operator*(tquat<T, P> const & q, vec<3, T, P> const & v);
+	GLM_FUNC_DECL vec<3, T, P> operator*(tquat<T, P> const& q, vec<3, T, P> const& v);
 
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL vec<3, T, P> operator*(vec<3, T, P> const & v, tquat<T, P> const & q);
+	GLM_FUNC_DECL vec<3, T, P> operator*(vec<3, T, P> const& v, tquat<T, P> const& q);
 
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL vec<4, T, P> operator*(tquat<T, P> const & q, vec<4, T, P> const & v);
+	GLM_FUNC_DECL vec<4, T, P> operator*(tquat<T, P> const& q, vec<4, T, P> const& v);
 
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL vec<4, T, P> operator*(vec<4, T, P> const & v, tquat<T, P> const & q);
+	GLM_FUNC_DECL vec<4, T, P> operator*(vec<4, T, P> const& v, tquat<T, P> const& q);
 
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL tquat<T, P> operator*(tquat<T, P> const & q, T const & s);
+	GLM_FUNC_DECL tquat<T, P> operator*(tquat<T, P> const& q, T const& s);
 
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL tquat<T, P> operator*(T const & s, tquat<T, P> const & q);
+	GLM_FUNC_DECL tquat<T, P> operator*(T const& s, tquat<T, P> const& q);
 
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL tquat<T, P> operator/(tquat<T, P> const & q, T const & s);
+	GLM_FUNC_DECL tquat<T, P> operator/(tquat<T, P> const& q, T const& s);
 
 	// -- Boolean operators --
 
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL bool operator==(tquat<T, P> const & q1, tquat<T, P> const & q2);
+	GLM_FUNC_DECL bool operator==(tquat<T, P> const& q1, tquat<T, P> const& q2);
 
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL bool operator!=(tquat<T, P> const & q1, tquat<T, P> const & q2);
+	GLM_FUNC_DECL bool operator!=(tquat<T, P> const& q1, tquat<T, P> const& q2);
 
 	/// Returns the length of the quaternion.
 	/// 
@@ -180,7 +180,7 @@ namespace glm
 	///
 	/// @see gtc_quaternion
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL T length(tquat<T, P> const & q);
+	GLM_FUNC_DECL T length(tquat<T, P> const& q);
 
 	/// Returns the normalized quaternion.
 	/// 
@@ -188,7 +188,7 @@ namespace glm
 	///
 	/// @see gtc_quaternion
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL tquat<T, P> normalize(tquat<T, P> const & q);
+	GLM_FUNC_DECL tquat<T, P> normalize(tquat<T, P> const& q);
 		
 	/// Returns dot product of q1 and q2, i.e., q1[0] * q2[0] + q1[1] * q2[1] + ...
 	/// 
@@ -196,7 +196,7 @@ namespace glm
 	///
 	/// @see gtc_quaternion
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL T dot(tquat<T, P> const & x, tquat<T, P> const & y);
+	GLM_FUNC_DECL T dot(tquat<T, P> const& x, tquat<T, P> const& y);
 
 	/// Spherical linear interpolation of two quaternions.
 	/// The interpolation is oriented and the rotation is performed at constant speed.
@@ -207,10 +207,10 @@ namespace glm
 	/// @param a Interpolation factor. The interpolation is defined beyond the range [0, 1].
 	/// @tparam T Floating-point scalar types.
 	///
-	/// @see - slerp(tquat<T, P> const & x, tquat<T, P> const & y, T const & a)
+	/// @see - slerp(tquat<T, P> const& x, tquat<T, P> const& y, T const& a)
 	/// @see gtc_quaternion
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL tquat<T, P> mix(tquat<T, P> const & x, tquat<T, P> const & y, T a);
+	GLM_FUNC_DECL tquat<T, P> mix(tquat<T, P> const& x, tquat<T, P> const& y, T a);
 
 	/// Linear interpolation of two quaternions.
 	/// The interpolation is oriented.
@@ -222,7 +222,7 @@ namespace glm
 	///
 	/// @see gtc_quaternion
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL tquat<T, P> lerp(tquat<T, P> const & x, tquat<T, P> const & y, T a);
+	GLM_FUNC_DECL tquat<T, P> lerp(tquat<T, P> const& x, tquat<T, P> const& y, T a);
 
 	/// Spherical linear interpolation of two quaternions.
 	/// The interpolation always take the short path and the rotation is performed at constant speed.
@@ -234,7 +234,7 @@ namespace glm
 	///
 	/// @see gtc_quaternion
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL tquat<T, P> slerp(tquat<T, P> const & x, tquat<T, P> const & y, T a);
+	GLM_FUNC_DECL tquat<T, P> slerp(tquat<T, P> const& x, tquat<T, P> const& y, T a);
 
 	/// Returns the q conjugate.
 	/// 
@@ -242,7 +242,7 @@ namespace glm
 	///
 	/// @see gtc_quaternion
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL tquat<T, P> conjugate(tquat<T, P> const & q);
+	GLM_FUNC_DECL tquat<T, P> conjugate(tquat<T, P> const& q);
 
 	/// Returns the q inverse.
 	/// 
@@ -250,7 +250,7 @@ namespace glm
 	///
 	/// @see gtc_quaternion
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL tquat<T, P> inverse(tquat<T, P> const & q);
+	GLM_FUNC_DECL tquat<T, P> inverse(tquat<T, P> const& q);
 
 	/// Rotates a quaternion from a vector of 3 components axis and an angle.
 	/// 
@@ -261,7 +261,7 @@ namespace glm
 	///
 	/// @see gtc_quaternion
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL tquat<T, P> rotate(tquat<T, P> const & q, T const & angle, vec<3, T, P> const & axis);
+	GLM_FUNC_DECL tquat<T, P> rotate(tquat<T, P> const& q, T const& angle, vec<3, T, P> const& axis);
 
 	/// Returns euler angles, pitch as x, yaw as y, roll as z.
 	/// The result is expressed in radians.
@@ -270,7 +270,7 @@ namespace glm
 	///
 	/// @see gtc_quaternion
 	template<typename T, qualifier P>
-	GLM_FUNC_DECL vec<3, T, P> eulerAngles(tquat<T, P> const & x);
+	GLM_FUNC_DECL vec<3, T, P> eulerAngles(tquat<T, P> const& x);
 
 	/// Returns roll value of euler angles expressed in radians.
 	///

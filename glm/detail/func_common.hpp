@@ -264,7 +264,7 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/clamp.xml">GLSL clamp man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_DECL vec<L, T, P> clamp(vec<L, T, P> const & x, T minVal, T maxVal);
+	GLM_FUNC_DECL vec<L, T, P> clamp(vec<L, T, P> const& x, T minVal, T maxVal);
 
 	/// Returns min(max(x, minVal), maxVal) for each component in x 
 	/// using the floating-point values minVal and maxVal.
@@ -419,7 +419,7 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floatBitsToInt.xml">GLSL floatBitsToInt man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	GLM_FUNC_DECL int floatBitsToInt(float const & v);
+	GLM_FUNC_DECL int floatBitsToInt(float const& v);
 
 	/// Returns a signed integer value representing
 	/// the encoding of a floating-point value. The floatingpoint
@@ -439,7 +439,7 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/floatBitsToUint.xml">GLSL floatBitsToUint man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	GLM_FUNC_DECL uint floatBitsToUint(float const & v);
+	GLM_FUNC_DECL uint floatBitsToUint(float const& v);
 
 	/// Returns a unsigned integer value representing
 	/// the encoding of a floating-point value. The floatingpoint
@@ -461,7 +461,7 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/intBitsToFloat.xml">GLSL intBitsToFloat man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	GLM_FUNC_DECL float intBitsToFloat(int const & v);
+	GLM_FUNC_DECL float intBitsToFloat(int const& v);
 
 	/// Returns a floating-point value corresponding to a signed
 	/// integer encoding of a floating-point value.
@@ -485,7 +485,7 @@ namespace glm
 	/// 
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/uintBitsToFloat.xml">GLSL uintBitsToFloat man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
-	GLM_FUNC_DECL float uintBitsToFloat(uint const & v);
+	GLM_FUNC_DECL float uintBitsToFloat(uint const& v);
 
 	/// Returns a floating-point value corresponding to a
 	/// unsigned integer encoding of a floating-point value.

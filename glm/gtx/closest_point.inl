@@ -6,9 +6,9 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> closestPointOnLine
 	(
-		vec<3, T, P> const & point,
-		vec<3, T, P> const & a,
-		vec<3, T, P> const & b
+		vec<3, T, P> const& point,
+		vec<3, T, P> const& a,
+		vec<3, T, P> const& b
 	)
 	{
 		T LineLength = distance(a, b);
@@ -26,9 +26,9 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<2, T, P> closestPointOnLine
 	(
-		vec<2, T, P> const & point,
-		vec<2, T, P> const & a,
-		vec<2, T, P> const & b
+		vec<2, T, P> const& point,
+		vec<2, T, P> const& a,
+		vec<2, T, P> const& b
 	)
 	{
 		T LineLength = distance(a, b);

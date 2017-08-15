@@ -13,8 +13,8 @@ GLM_FUNC_QUALIFIER U associatedMin(T x, U a, T y, U b)
 template<length_t L, typename T, typename U, qualifier P>
 GLM_FUNC_QUALIFIER vec<2, U, P> associatedMin
 (
-	vec<L, T, P> const& x, vec<L, U, P> const & a,
-	vec<L, T, P> const& y, vec<L, U, P> const & b
+	vec<L, T, P> const& x, vec<L, U, P> const& a,
+	vec<L, T, P> const& y, vec<L, U, P> const& b
 )
 {
 	vec<L, U, P> Result;
@@ -65,9 +65,9 @@ GLM_FUNC_QUALIFIER U associatedMin
 template<length_t L, typename T, typename U, qualifier P>
 GLM_FUNC_QUALIFIER vec<L, U, P> associatedMin
 (
-	vec<L, T, P> const& x, vec<L, U, P> const & a,
-	vec<L, T, P> const& y, vec<L, U, P> const & b,
-	vec<L, T, P> const& z, vec<L, U, P> const & c
+	vec<L, T, P> const& x, vec<L, U, P> const& a,
+	vec<L, T, P> const& y, vec<L, U, P> const& b,
+	vec<L, T, P> const& z, vec<L, U, P> const& c
 )
 {
 	vec<L, U, P> Result;
@@ -98,10 +98,10 @@ GLM_FUNC_QUALIFIER U associatedMin
 template<length_t L, typename T, typename U, qualifier P>
 GLM_FUNC_QUALIFIER vec<L, U, P> associatedMin
 (
-	vec<L, T, P> const& x, vec<L, U, P> const & a,
-	vec<L, T, P> const& y, vec<L, U, P> const & b,
-	vec<L, T, P> const& z, vec<L, U, P> const & c,
-	vec<L, T, P> const& w, vec<L, U, P> const & d
+	vec<L, T, P> const& x, vec<L, U, P> const& a,
+	vec<L, T, P> const& y, vec<L, U, P> const& b,
+	vec<L, T, P> const& z, vec<L, U, P> const& c,
+	vec<L, T, P> const& w, vec<L, U, P> const& d
 )
 {
 	vec<L, U, P> Result;
@@ -120,10 +120,10 @@ GLM_FUNC_QUALIFIER vec<L, U, P> associatedMin
 template<length_t L, typename T, typename U, qualifier P>
 GLM_FUNC_QUALIFIER vec<L, U, P> associatedMin
 (
-	T x, vec<L, U, P> const & a,
-	T y, vec<L, U, P> const & b,
-	T z, vec<L, U, P> const & c,
-	T w, vec<L, U, P> const & d
+	T x, vec<L, U, P> const& a,
+	T y, vec<L, U, P> const& b,
+	T z, vec<L, U, P> const& c,
+	T w, vec<L, U, P> const& d
 )
 {
 	T Test1 = min(x, y);
@@ -172,8 +172,8 @@ GLM_FUNC_QUALIFIER U associatedMax(T x, U a, T y, U b)
 template<length_t L, typename T, typename U, qualifier P>
 GLM_FUNC_QUALIFIER vec<2, U, P> associatedMax
 (
-	vec<L, T, P> const& x, vec<L, U, P> const & a,
-	vec<L, T, P> const& y, vec<L, U, P> const & b
+	vec<L, T, P> const& x, vec<L, U, P> const& a,
+	vec<L, T, P> const& y, vec<L, U, P> const& b
 )
 {
 	vec<L, U, P> Result;
@@ -186,8 +186,8 @@ GLM_FUNC_QUALIFIER vec<2, U, P> associatedMax
 template<length_t L, typename T, typename U, qualifier P>
 GLM_FUNC_QUALIFIER vec<L, T, P> associatedMax
 (
-	T x, vec<L, U, P> const & a,
-	T y, vec<L, U, P> const & b
+	T x, vec<L, U, P> const& a,
+	T y, vec<L, U, P> const& b
 )
 {
 	vec<L, U, P> Result;
@@ -227,9 +227,9 @@ GLM_FUNC_QUALIFIER U associatedMax
 template<length_t L, typename T, typename U, qualifier P>
 GLM_FUNC_QUALIFIER vec<L, U, P> associatedMax
 (
-	vec<L, T, P> const& x, vec<L, U, P> const & a,
-	vec<L, T, P> const& y, vec<L, U, P> const & b,
-	vec<L, T, P> const& z, vec<L, U, P> const & c
+	vec<L, T, P> const& x, vec<L, U, P> const& a,
+	vec<L, T, P> const& y, vec<L, U, P> const& b,
+	vec<L, T, P> const& z, vec<L, U, P> const& c
 )
 {
 	vec<L, U, P> Result;
@@ -242,9 +242,9 @@ GLM_FUNC_QUALIFIER vec<L, U, P> associatedMax
 template<length_t L, typename T, typename U, qualifier P>
 GLM_FUNC_QUALIFIER vec<L, T, P> associatedMax
 (
-	T x, vec<L, U, P> const & a,
-	T y, vec<L, U, P> const & b,
-	T z, vec<L, U, P> const & c
+	T x, vec<L, U, P> const& a,
+	T y, vec<L, U, P> const& b,
+	T z, vec<L, U, P> const& c
 )
 {
 	vec<L, U, P> Result;
@@ -290,10 +290,10 @@ GLM_FUNC_QUALIFIER U associatedMax
 template<length_t L, typename T, typename U, qualifier P>
 GLM_FUNC_QUALIFIER vec<L, U, P> associatedMax
 (
-	vec<L, T, P> const& x, vec<L, U, P> const & a,
-	vec<L, T, P> const& y, vec<L, U, P> const & b,
-	vec<L, T, P> const& z, vec<L, U, P> const & c,
-	vec<L, T, P> const& w, vec<L, U, P> const & d
+	vec<L, T, P> const& x, vec<L, U, P> const& a,
+	vec<L, T, P> const& y, vec<L, U, P> const& b,
+	vec<L, T, P> const& z, vec<L, U, P> const& c,
+	vec<L, T, P> const& w, vec<L, U, P> const& d
 )
 {
 	vec<L, U, P> Result;
@@ -312,10 +312,10 @@ GLM_FUNC_QUALIFIER vec<L, U, P> associatedMax
 template<length_t L, typename T, typename U, qualifier P>
 GLM_FUNC_QUALIFIER vec<L, U, P> associatedMax
 (
-	T x, vec<L, U, P> const & a,
-	T y, vec<L, U, P> const & b,
-	T z, vec<L, U, P> const & c,
-	T w, vec<L, U, P> const & d
+	T x, vec<L, U, P> const& a,
+	T y, vec<L, U, P> const& b,
+	T z, vec<L, U, P> const& c,
+	T w, vec<L, U, P> const& d
 )
 {
 	T Test1 = max(x, y);

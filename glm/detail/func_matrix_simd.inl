@@ -16,7 +16,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(detail::is_aligned<P>::value, "Specialization requires aligned");
 
-		GLM_FUNC_QUALIFIER static mat<4, 4, float, P> call(mat<4, 4, float, P> const & x, mat<4, 4, float, P> const & y)
+		GLM_FUNC_QUALIFIER static mat<4, 4, float, P> call(mat<4, 4, float, P> const& x, mat<4, 4, float, P> const& y)
 		{
 			mat<4, 4, float, P> Result;
 			glm_mat4_matrixCompMult(
@@ -30,7 +30,7 @@ namespace detail
 	template<qualifier P>
 	struct compute_transpose<mat, 4, 4, float, P, true>
 	{
-		GLM_FUNC_QUALIFIER static mat<4, 4, float, P> call(mat<4, 4, float, P> const & m)
+		GLM_FUNC_QUALIFIER static mat<4, 4, float, P> call(mat<4, 4, float, P> const& m)
 		{
 			mat<4, 4, float, P> Result;
 			glm_mat4_transpose(

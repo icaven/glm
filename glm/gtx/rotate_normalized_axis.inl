@@ -7,8 +7,8 @@ namespace glm
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> rotateNormalizedAxis
 	(
 		mat<4, 4, T, P> const& m,
-		T const & angle,
-		vec<3, T, P> const & v
+		T const& angle,
+		vec<3, T, P> const& v
 	)
 	{
 		T const a = angle;
@@ -43,9 +43,9 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER tquat<T, P> rotateNormalizedAxis
 	(
-		tquat<T, P> const & q, 
-		T const & angle,
-		vec<3, T, P> const & v
+		tquat<T, P> const& q, 
+		T const& angle,
+		vec<3, T, P> const& v
 	)
 	{
 		vec<3, T, P> const Tmp(v);

@@ -1017,7 +1017,7 @@ GLM_FUNC_QUALIFIER void glm_mat4_rotate(__m128 const in[4], float Angle, float c
 	sse_mul_ps(in, Result, out);
 }
 */
-GLM_FUNC_QUALIFIER void glm_mat4_outerProduct(__m128 const & c, __m128 const & r, __m128 out[4])
+GLM_FUNC_QUALIFIER void glm_mat4_outerProduct(__m128 const& c, __m128 const& r, __m128 out[4])
 {
 	out[0] = _mm_mul_ps(c, _mm_shuffle_ps(r, r, _MM_SHUFFLE(0, 0, 0, 0)));
 	out[1] = _mm_mul_ps(c, _mm_shuffle_ps(r, r, _MM_SHUFFLE(1, 1, 1, 1)));

@@ -110,7 +110,7 @@ namespace detail
 	template<length_t L, typename T, qualifier P, bool Aligned>
 	struct compute_abs_vector
 	{
-		GLM_FUNC_QUALIFIER static vec<L, T, P> call(vec<L, T, P> const & x)
+		GLM_FUNC_QUALIFIER static vec<L, T, P> call(vec<L, T, P> const& x)
 		{
 			return detail::functor1<L, T, T, P>::call(abs, x);
 		}
@@ -312,7 +312,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> abs(vec<L, T, P> const & x)
+	GLM_FUNC_QUALIFIER vec<L, T, P> abs(vec<L, T, P> const& x)
 	{
 		return detail::compute_abs_vector<L, T, P, detail::is_aligned<P>::value>::call(x);
 	}
@@ -406,7 +406,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> roundEven(vec<L, T, P> const & x)
+	GLM_FUNC_QUALIFIER vec<L, T, P> roundEven(vec<L, T, P> const& x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'roundEven' only accept floating-point inputs");
 		return detail::functor1<L, T, T, P>::call(roundEven, x);
@@ -415,7 +415,7 @@ namespace detail
 	// ceil
 	using ::std::ceil;
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> ceil(vec<L, T, P> const & x)
+	GLM_FUNC_QUALIFIER vec<L, T, P> ceil(vec<L, T, P> const& x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'ceil' only accept floating-point inputs");
 		return detail::compute_ceil<L, T, P, detail::is_aligned<P>::value>::call(x);
@@ -429,7 +429,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> fract(vec<L, T, P> const & x)
+	GLM_FUNC_QUALIFIER vec<L, T, P> fract(vec<L, T, P> const& x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'fract' only accept floating-point inputs");
 		return detail::compute_fract<L, T, P, detail::is_aligned<P>::value>::call(x);
@@ -449,7 +449,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> mod(vec<L, T, P> const & x, T y)
+	GLM_FUNC_QUALIFIER vec<L, T, P> mod(vec<L, T, P> const& x, T y)
 	{
 		return detail::compute_mod<L, T, P, detail::is_aligned<P>::value>::call(x, vec<L, T, P>(y));
 	}
@@ -469,14 +469,14 @@ namespace detail
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<1, T, P> modf(vec<1, T, P> const & x, vec<1, T, P> & i)
+	GLM_FUNC_QUALIFIER vec<1, T, P> modf(vec<1, T, P> const& x, vec<1, T, P> & i)
 	{
 		return vec<1, T, P>(
 			modf(x.x, i.x));
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<2, T, P> modf(vec<2, T, P> const & x, vec<2, T, P> & i)
+	GLM_FUNC_QUALIFIER vec<2, T, P> modf(vec<2, T, P> const& x, vec<2, T, P> & i)
 	{
 		return vec<2, T, P>(
 			modf(x.x, i.x),
@@ -484,7 +484,7 @@ namespace detail
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, T, P> modf(vec<3, T, P> const & x, vec<3, T, P> & i)
+	GLM_FUNC_QUALIFIER vec<3, T, P> modf(vec<3, T, P> const& x, vec<3, T, P> & i)
 	{
 		return vec<3, T, P>(
 			modf(x.x, i.x),
@@ -493,7 +493,7 @@ namespace detail
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<4, T, P> modf(vec<4, T, P> const & x, vec<4, T, P> & i)
+	GLM_FUNC_QUALIFIER vec<4, T, P> modf(vec<4, T, P> const& x, vec<4, T, P> & i)
 	{
 		return vec<4, T, P>(
 			modf(x.x, i.x),
@@ -512,7 +512,7 @@ namespace detail
 
 	// min
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> min(vec<L, T, P> const & a, T b)
+	GLM_FUNC_QUALIFIER vec<L, T, P> min(vec<L, T, P> const& a, T b)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer || GLM_UNRESTRICTED_GENTYPE, "'min' only accept floating-point or integer inputs");
 		return detail::compute_min_vector<L, T, P, detail::is_aligned<P>::value>::call(a, vec<L, T, P>(b));
@@ -533,7 +533,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> max(vec<L, T, P> const& a, vec<L, T, P> const & b)
+	GLM_FUNC_QUALIFIER vec<L, T, P> max(vec<L, T, P> const& a, vec<L, T, P> const& b)
 	{
 		return detail::compute_max_vector<L, T, P, detail::is_aligned<P>::value>::call(a, b);
 	}
@@ -547,7 +547,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> clamp(vec<L, T, P> const & x, T minVal, T maxVal)
+	GLM_FUNC_QUALIFIER vec<L, T, P> clamp(vec<L, T, P> const& x, T minVal, T maxVal)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer || GLM_UNRESTRICTED_GENTYPE, "'clamp' only accept floating-point or integer inputs");
 		return detail::compute_clamp_vector<L, T, P, detail::is_aligned<P>::value>::call(x, vec<L, T, P>(minVal), vec<L, T, P>(maxVal));
@@ -732,7 +732,7 @@ namespace detail
 		return reinterpret_cast<vec<L, uint, P>&>(const_cast<vec<L, float, P>&>(v));
 	}
 
-	GLM_FUNC_QUALIFIER float intBitsToFloat(int const & v)
+	GLM_FUNC_QUALIFIER float intBitsToFloat(int const& v)
 	{
 		union
 		{

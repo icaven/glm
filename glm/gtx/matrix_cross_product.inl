@@ -6,7 +6,7 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<3, 3, T, P> matrixCross3
 	(
-		vec<3, T, P> const & x
+		vec<3, T, P> const& x
 	)
 	{
 		mat<3, 3, T, P> Result(T(0));
@@ -22,7 +22,7 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, P> matrixCross4
 	(
-		vec<3, T, P> const & x
+		vec<3, T, P> const& x
 	)
 	{
 		mat<4, 4, T, P> Result(T(0));

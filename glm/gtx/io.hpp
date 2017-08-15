@@ -193,7 +193,7 @@ namespace glm
 
   template<typename CTy, typename CTr, typename T, qualifier P>
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr> & operator<<(std::basic_ostream<CTy,CTr> &,
-                                                         std::pair<mat<4, 4, T,P> const, mat<4, 4, T,P> const> const &);
+                                                         std::pair<mat<4, 4, T,P> const, mat<4, 4, T,P> const> const&);
 
 	/// @}
 }//namespace glm

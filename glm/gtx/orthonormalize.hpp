@@ -35,13 +35,13 @@ namespace glm
 	///
 	/// @see gtx_orthonormalize
 	template<typename T, qualifier P> 
-	GLM_FUNC_DECL mat<3, 3, T, P> orthonormalize(mat<3, 3, T, P> const & m);
+	GLM_FUNC_DECL mat<3, 3, T, P> orthonormalize(mat<3, 3, T, P> const& m);
 		
 	/// Orthonormalizes x according y.
 	///
 	/// @see gtx_orthonormalize
 	template<typename T, qualifier P> 
-	GLM_FUNC_DECL vec<3, T, P> orthonormalize(vec<3, T, P> const & x, vec<3, T, P> const & y);
+	GLM_FUNC_DECL vec<3, T, P> orthonormalize(vec<3, T, P> const& x, vec<3, T, P> const& y);
 
 	/// @}
 }//namespace glm

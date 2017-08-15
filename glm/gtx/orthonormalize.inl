@@ -4,7 +4,7 @@
 namespace glm
 {
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER mat<3, 3, T, P> orthonormalize(mat<3, 3, T, P> const & m)
+	GLM_FUNC_QUALIFIER mat<3, 3, T, P> orthonormalize(mat<3, 3, T, P> const& m)
 	{
 		mat<3, 3, T, P> r = m;
 
@@ -23,7 +23,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P> 
-	GLM_FUNC_QUALIFIER vec<3, T, P> orthonormalize(vec<3, T, P> const & x, vec<3, T, P> const & y)
+	GLM_FUNC_QUALIFIER vec<3, T, P> orthonormalize(vec<3, T, P> const& x, vec<3, T, P> const& y)
 	{
 		return normalize(x - y * dot(y, x));
 	}

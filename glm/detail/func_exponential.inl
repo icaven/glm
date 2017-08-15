@@ -41,7 +41,7 @@ namespace detail
 	template<length_t L, typename T, qualifier P, bool Aligned>
 	struct compute_inversesqrt
 	{
-		GLM_FUNC_QUALIFIER static vec<L, T, P> call(vec<L, T, P> const & x)
+		GLM_FUNC_QUALIFIER static vec<L, T, P> call(vec<L, T, P> const& x)
 		{
 			return static_cast<T>(1) / sqrt(x);
 		}
@@ -50,7 +50,7 @@ namespace detail
 	template<length_t L, bool Aligned>
 	struct compute_inversesqrt<L, float, lowp, Aligned>
 	{
-		GLM_FUNC_QUALIFIER static vec<L, float, lowp> call(vec<L, float, lowp> const & x)
+		GLM_FUNC_QUALIFIER static vec<L, float, lowp> call(vec<L, float, lowp> const& x)
 		{
 			vec<L, float, lowp> tmp(x);
 			vec<L, float, lowp> xhalf(tmp * 0.5f);
@@ -67,7 +67,7 @@ namespace detail
 	// pow
 	using std::pow;
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> pow(vec<L, T, P> const & base, vec<L, T, P> const& exponent)
+	GLM_FUNC_QUALIFIER vec<L, T, P> pow(vec<L, T, P> const& base, vec<L, T, P> const& exponent)
 	{
 		return detail::functor2<L, T, P>::call(pow, base, exponent);
 	}

@@ -27,11 +27,11 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER tquat<T, P> squad
 	(
-		tquat<T, P> const & q1,
-		tquat<T, P> const & q2,
-		tquat<T, P> const & s1,
-		tquat<T, P> const & s2,
-		T const & h)
+		tquat<T, P> const& q1,
+		tquat<T, P> const& q2,
+		tquat<T, P> const& s1,
+		tquat<T, P> const& s2,
+		T const& h)
 	{
 		return mix(mix(q1, q2, h), mix(s1, s2, h), static_cast<T>(2) * (static_cast<T>(1) - h) * h);
 	}
@@ -39,9 +39,9 @@ namespace glm
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER tquat<T, P> intermediate
 	(
-		tquat<T, P> const & prev,
-		tquat<T, P> const & curr,
-		tquat<T, P> const & next
+		tquat<T, P> const& prev,
+		tquat<T, P> const& curr,
+		tquat<T, P> const& next
 	)
 	{
 		tquat<T, P> invQuat = inverse(curr);
@@ -173,7 +173,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER tquat<T, P> fastMix(tquat<T, P> const& x, tquat<T, P> const& y, T const & a)
+	GLM_FUNC_QUALIFIER tquat<T, P> fastMix(tquat<T, P> const& x, tquat<T, P> const& y, T const& a)
 	{
 		return glm::normalize(x * (static_cast<T>(1) - a) + (y * a));
 	}

@@ -20,7 +20,7 @@ namespace glm
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<L, T, P> highestBitValue(vec<L, T, P> const & v)
+	GLM_FUNC_QUALIFIER vec<L, T, P> highestBitValue(vec<L, T, P> const& v)
 	{
 		return detail::functor1<L, T, T, P>::call(highestBitValue, v);
 	}

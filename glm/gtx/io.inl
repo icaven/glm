@@ -160,7 +160,7 @@ namespace detail
 
 		if(cerberus)
 		{
-			io::format_punct<CTy> const & fmt(io::get_facet<io::format_punct<CTy> >(os));
+			io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy> >(os));
 
 			length_t const& components(type<V>::components);
 
@@ -234,7 +234,7 @@ namespace detail
 
 		if(cerberus)
 		{
-			io::format_punct<CTy> const & fmt(io::get_facet<io::format_punct<CTy> >(os));
+			io::format_punct<CTy> const& fmt(io::get_facet<io::format_punct<CTy> >(os));
 
 			length_t const& cols(type<M<C, R, T, P> >::cols);
 			length_t const& rows(type<M<C, R, T, P> >::rows);

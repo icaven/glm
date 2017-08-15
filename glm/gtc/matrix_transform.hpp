@@ -52,12 +52,12 @@ namespace glm
 	/// // m[3][0] == 1.0f, m[3][1] == 1.0f, m[3][2] == 1.0f, m[3][3] == 1.0f
 	/// @endcode
 	/// @see gtc_matrix_transform
-	/// @see - translate(mat<4, 4, T, P> const & m, T x, T y, T z)
-	/// @see - translate(vec<3, T, P> const & v)
+	/// @see - translate(mat<4, 4, T, P> const& m, T x, T y, T z)
+	/// @see - translate(vec<3, T, P> const& v)
 	template<typename T, qualifier P>
 	GLM_FUNC_DECL mat<4, 4, T, P> translate(
 		mat<4, 4, T, P> const& m,
-		vec<3, T, P> const & v);
+		vec<3, T, P> const& v);
 		
 	/// Builds a rotation 4 * 4 matrix created from an axis vector and an angle. 
 	/// 
@@ -66,13 +66,13 @@ namespace glm
 	/// @param axis Rotation axis, recommended to be normalized.
 	/// @tparam T Value type used to build the matrix. Supported: half, float or double.
 	/// @see gtc_matrix_transform
-	/// @see - rotate(mat<4, 4, T, P> const & m, T angle, T x, T y, T z) 
-	/// @see - rotate(T angle, vec<3, T, P> const & v) 
+	/// @see - rotate(mat<4, 4, T, P> const& m, T angle, T x, T y, T z) 
+	/// @see - rotate(T angle, vec<3, T, P> const& v) 
 	template<typename T, qualifier P>
 	GLM_FUNC_DECL mat<4, 4, T, P> rotate(
 		mat<4, 4, T, P> const& m,
 		T angle,
-		vec<3, T, P> const & axis);
+		vec<3, T, P> const& axis);
 
 	/// Builds a scale 4 * 4 matrix created from 3 scalars. 
 	/// 
@@ -80,12 +80,12 @@ namespace glm
 	/// @param v Ratio of scaling for each axis.
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
-	/// @see - scale(mat<4, 4, T, P> const & m, T x, T y, T z)
-	/// @see - scale(vec<3, T, P> const & v)
+	/// @see - scale(mat<4, 4, T, P> const& m, T x, T y, T z)
+	/// @see - scale(vec<3, T, P> const& v)
 	template<typename T, qualifier P>
 	GLM_FUNC_DECL mat<4, 4, T, P> scale(
 		mat<4, 4, T, P> const& m,
-		vec<3, T, P> const & v);
+		vec<3, T, P> const& v);
 
 	/// Creates a matrix for an orthographic parallel viewing volume, using the default handedness.
 	///
@@ -97,7 +97,7 @@ namespace glm
 	/// @param zFar
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
-	/// @see - glm::ortho(T const & left, T const & right, T const & bottom, T const & top)
+	/// @see - glm::ortho(T const& left, T const& right, T const& bottom, T const& top)
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> ortho(
 		T left,
@@ -117,7 +117,7 @@ namespace glm
 	/// @param zFar
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
-	/// @see - glm::ortho(T const & left, T const & right, T const & bottom, T const & top)
+	/// @see - glm::ortho(T const& left, T const& right, T const& bottom, T const& top)
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> orthoLH(
 		T left,
@@ -137,7 +137,7 @@ namespace glm
 	/// @param zFar
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
-	/// @see - glm::ortho(T const & left, T const & right, T const & bottom, T const & top)
+	/// @see - glm::ortho(T const& left, T const& right, T const& bottom, T const& top)
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> orthoRH(
 		T left,
@@ -155,7 +155,7 @@ namespace glm
 	/// @param top
 	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
 	/// @see gtc_matrix_transform
-	/// @see - glm::ortho(T const & left, T const & right, T const & bottom, T const & top, T const & zNear, T const & zFar)
+	/// @see - glm::ortho(T const& left, T const& right, T const& bottom, T const& top, T const& zNear, T const& zFar)
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> ortho(
 		T left,
@@ -384,10 +384,10 @@ namespace glm
 	/// @see gtc_matrix_transform
 	template<typename T, typename U, qualifier P>
 	GLM_FUNC_DECL vec<3, T, P> project(
-		vec<3, T, P> const & obj,
+		vec<3, T, P> const& obj,
 		mat<4, 4, T, P> const& model,
 		mat<4, 4, T, P> const& proj,
-		vec<4, U, P> const & viewport);
+		vec<4, U, P> const& viewport);
 
 	/// Map the specified window coordinates (win.x, win.y, win.z) into object coordinates.
 	///
@@ -401,10 +401,10 @@ namespace glm
 	/// @see gtc_matrix_transform
 	template<typename T, typename U, qualifier P>
 	GLM_FUNC_DECL vec<3, T, P> unProject(
-		vec<3, T, P> const & win,
+		vec<3, T, P> const& win,
 		mat<4, 4, T, P> const& model,
 		mat<4, 4, T, P> const& proj,
-		vec<4, U, P> const & viewport);
+		vec<4, U, P> const& viewport);
 
 	/// Define a picking region
 	///
@@ -416,9 +416,9 @@ namespace glm
 	/// @see gtc_matrix_transform
 	template<typename T, qualifier P, typename U>
 	GLM_FUNC_DECL mat<4, 4, T, P> pickMatrix(
-		vec<2, T, P> const & center,
-		vec<2, T, P> const & delta,
-		vec<4, U, P> const & viewport);
+		vec<2, T, P> const& center,
+		vec<2, T, P> const& delta,
+		vec<4, U, P> const& viewport);
 
 	/// Build a look at view matrix based on the default handedness.
 	///
@@ -426,12 +426,12 @@ namespace glm
 	/// @param center Position where the camera is looking at
 	/// @param up Normalized up vector, how the camera is oriented. Typically (0, 0, 1)
 	/// @see gtc_matrix_transform
-	/// @see - frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal) frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal)
+	/// @see - frustum(T const& left, T const& right, T const& bottom, T const& top, T const& nearVal, T const& farVal) frustum(T const& left, T const& right, T const& bottom, T const& top, T const& nearVal, T const& farVal)
 	template<typename T, qualifier P>
 	GLM_FUNC_DECL mat<4, 4, T, P> lookAt(
-		vec<3, T, P> const & eye,
-		vec<3, T, P> const & center,
-		vec<3, T, P> const & up);
+		vec<3, T, P> const& eye,
+		vec<3, T, P> const& center,
+		vec<3, T, P> const& up);
 
 	/// Build a right handed look at view matrix.
 	///
@@ -439,12 +439,12 @@ namespace glm
 	/// @param center Position where the camera is looking at
 	/// @param up Normalized up vector, how the camera is oriented. Typically (0, 0, 1)
 	/// @see gtc_matrix_transform
-	/// @see - frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal) frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal)
+	/// @see - frustum(T const& left, T const& right, T const& bottom, T const& top, T const& nearVal, T const& farVal) frustum(T const& left, T const& right, T const& bottom, T const& top, T const& nearVal, T const& farVal)
 	template<typename T, qualifier P>
 	GLM_FUNC_DECL mat<4, 4, T, P> lookAtRH(
-		vec<3, T, P> const & eye,
-		vec<3, T, P> const & center,
-		vec<3, T, P> const & up);
+		vec<3, T, P> const& eye,
+		vec<3, T, P> const& center,
+		vec<3, T, P> const& up);
 
 	/// Build a left handed look at view matrix.
 	///
@@ -452,12 +452,12 @@ namespace glm
 	/// @param center Position where the camera is looking at
 	/// @param up Normalized up vector, how the camera is oriented. Typically (0, 0, 1)
 	/// @see gtc_matrix_transform
-	/// @see - frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal) frustum(T const & left, T const & right, T const & bottom, T const & top, T const & nearVal, T const & farVal)
+	/// @see - frustum(T const& left, T const& right, T const& bottom, T const& top, T const& nearVal, T const& farVal) frustum(T const& left, T const& right, T const& bottom, T const& top, T const& nearVal, T const& farVal)
 	template<typename T, qualifier P>
 	GLM_FUNC_DECL mat<4, 4, T, P> lookAtLH(
-		vec<3, T, P> const & eye,
-		vec<3, T, P> const & center,
-		vec<3, T, P> const & up);
+		vec<3, T, P> const& eye,
+		vec<3, T, P> const& center,
+		vec<3, T, P> const& up);
 
 	/// @}
 }//namespace glm

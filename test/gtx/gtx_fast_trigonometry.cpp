@@ -178,7 +178,7 @@ namespace taylorCos
 	glm::vec4 const AngleShift(0.0f, glm::half_pi<float>(), glm::pi<float>(), glm::three_over_two_pi<float>());
 
 	template<glm::length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER glm::vec<L, T, P> taylorSeriesNewCos(glm::vec<L, T, P> const & x)
+	GLM_FUNC_QUALIFIER glm::vec<L, T, P> taylorSeriesNewCos(glm::vec<L, T, P> const& x)
 	{
 		glm::vec<L, T, P> const Powed2(x * x);
 		glm::vec<L, T, P> const Powed4(Powed2 * Powed2);
@@ -193,7 +193,7 @@ namespace taylorCos
 	}
 
 	template<glm::length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER glm::vec<L, T, P> taylorSeriesNewCos6(glm::vec<L, T, P> const & x)
+	GLM_FUNC_QUALIFIER glm::vec<L, T, P> taylorSeriesNewCos6(glm::vec<L, T, P> const& x)
 	{
 		glm::vec<L, T, P> const Powed2(x * x);
 		glm::vec<L, T, P> const Powed4(Powed2 * Powed2);
@@ -217,7 +217,7 @@ namespace taylorCos
 	}
 
 	template<glm::length_t L, typename T, glm::qualifier P>
-	GLM_FUNC_QUALIFIER glm::vec<L, T, P> fastCosNew(glm::vec<L, T, P> const & x)
+	GLM_FUNC_QUALIFIER glm::vec<L, T, P> fastCosNew(glm::vec<L, T, P> const& x)
 	{
 		glm::vec<L, T, P> const Angle0_PI(fastAbs(fmod(x + glm::pi<T>(), glm::two_pi<T>()) - glm::pi<T>()));
 		return taylorSeriesNewCos6(x);
@@ -255,13 +255,13 @@ namespace taylorCos
 	}
 
 	template<glm::length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER glm::vec<L, T, P> deterministic_fmod(glm::vec<L, T, P> const & x, T y)
+	GLM_FUNC_QUALIFIER glm::vec<L, T, P> deterministic_fmod(glm::vec<L, T, P> const& x, T y)
 	{
 		return x - y * trunc(x / y);
 	}
 
 	template<glm::length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER glm::vec<L, T, P> fastCosDeterminisctic(glm::vec<L, T, P> const & x)
+	GLM_FUNC_QUALIFIER glm::vec<L, T, P> fastCosDeterminisctic(glm::vec<L, T, P> const& x)
 	{
 		glm::vec<L, T, P> const Angle0_PI(abs(deterministic_fmod(x + glm::pi<T>(), glm::two_pi<T>()) - glm::pi<T>()));
 		glm::vec<L, bool, P> const FirstQuarterPi(lessThanEqual(Angle0_PI, glm::vec<L, T, P>(glm::half_pi<T>())));
@@ -296,7 +296,7 @@ namespace taylorCos
 	}
 
 	template<glm::length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER glm::vec<L, T, P> taylorSeriesRefCos(glm::vec<L, T, P> const & x)
+	GLM_FUNC_QUALIFIER glm::vec<L, T, P> taylorSeriesRefCos(glm::vec<L, T, P> const& x)
 	{
 		return static_cast<T>(1)
 			- (x * x) / glm::factorial(static_cast<T>(2))
@@ -306,7 +306,7 @@ namespace taylorCos
 	}
 
 	template<glm::length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER glm::vec<L, T, P> fastRefCos(glm::vec<L, T, P> const & x)
+	GLM_FUNC_QUALIFIER glm::vec<L, T, P> fastRefCos(glm::vec<L, T, P> const& x)
 	{
 		glm::vec<L, T, P> const Angle0_PI(glm::abs(fmod(x + glm::pi<T>(), glm::two_pi<T>()) - glm::pi<T>()));
 //		return taylorSeriesRefCos(Angle0_PI);

@@ -25,7 +25,7 @@ namespace detail
 #endif//GLM_HAS_TEMPLATE_ALIASES
 
 	template<typename T, qualifier P, template<typename, qualifier> class matType>
-	GLM_FUNC_DECL matType<T, P> inverse(matType<T, P> const & m);
+	GLM_FUNC_DECL matType<T, P> inverse(matType<T, P> const& m);
 
 	/// @addtogroup core_precision
 	/// @{

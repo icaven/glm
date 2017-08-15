@@ -3,7 +3,7 @@
 #include <cstdio>
 #include <vector>
 
-void print_bits(float const & s)
+void print_bits(float const& s)
 {
 	union
 	{
@@ -22,7 +22,7 @@ void print_bits(float const & s)
 	}
 }
 
-void print_10bits(glm::uint const & s)
+void print_10bits(glm::uint const& s)
 {
 	printf("10b: ");
 	for(std::size_t j = 10; j > 0; --j)
@@ -33,7 +33,7 @@ void print_10bits(glm::uint const & s)
 	}
 }
 
-void print_11bits(glm::uint const & s)
+void print_11bits(glm::uint const& s)
 {
 	printf("11b: ");
 	for(std::size_t j = 11; j > 0; --j)
@@ -44,7 +44,7 @@ void print_11bits(glm::uint const & s)
 	}
 }
 
-void print_value(float const & s)
+void print_value(float const& s)
 {
 	printf("%2.5f, ", static_cast<double>(s));
 	print_bits(s);

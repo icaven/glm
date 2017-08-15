@@ -10,7 +10,7 @@ namespace glm{
 namespace gtc
 {
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<4, T, P> grad4(T const & j, vec<4, T, P> const & ip)
+	GLM_FUNC_QUALIFIER vec<4, T, P> grad4(T const& j, vec<4, T, P> const& ip)
 	{
 		vec<3, T, P> pXYZ = floor(fract(vec<3, T, P>(j) * vec<3, T, P>(ip)) * T(7)) * ip[2] - T(1);
 		T pW = static_cast<T>(1.5) - dot(abs(pXYZ), vec<3, T, P>(1));
@@ -22,7 +22,7 @@ namespace gtc
 
 	// Classic Perlin noise
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T perlin(vec<2, T, P> const & Position)
+	GLM_FUNC_QUALIFIER T perlin(vec<2, T, P> const& Position)
 	{
 		vec<4, T, P> Pi = glm::floor(vec<4, T, P>(Position.x, Position.y, Position.x, Position.y)) + vec<4, T, P>(0.0, 0.0, 1.0, 1.0);
 		vec<4, T, P> Pf = glm::fract(vec<4, T, P>(Position.x, Position.y, Position.x, Position.y)) - vec<4, T, P>(0.0, 0.0, 1.0, 1.0);
@@ -63,7 +63,7 @@ namespace gtc
 
 	// Classic Perlin noise
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T perlin(vec<3, T, P> const & Position)
+	GLM_FUNC_QUALIFIER T perlin(vec<3, T, P> const& Position)
 	{
 		vec<3, T, P> Pi0 = floor(Position); // Integer part for indexing
 		vec<3, T, P> Pi1 = Pi0 + T(1); // Integer part + 1
@@ -134,7 +134,7 @@ namespace gtc
 	/*
 	// Classic Perlin noise
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T perlin(vec<3, T, P> const & P)
+	GLM_FUNC_QUALIFIER T perlin(vec<3, T, P> const& P)
 	{
 		vec<3, T, P> Pi0 = floor(P); // Integer part for indexing
 		vec<3, T, P> Pi1 = Pi0 + T(1); // Integer part + 1
@@ -207,7 +207,7 @@ namespace gtc
 	*/
 	// Classic Perlin noise
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T perlin(vec<4, T, P> const & Position)
+	GLM_FUNC_QUALIFIER T perlin(vec<4, T, P> const& Position)
 	{
 		vec<4, T, P> Pi0 = floor(Position);	// Integer part for indexing
 		vec<4, T, P> Pi1 = Pi0 + T(1);		// Integer part + 1
@@ -343,7 +343,7 @@ namespace gtc
 
 	// Classic Perlin noise, periodic variant
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T perlin(vec<2, T, P> const & Position, vec<2, T, P> const & rep)
+	GLM_FUNC_QUALIFIER T perlin(vec<2, T, P> const& Position, vec<2, T, P> const& rep)
 	{
 		vec<4, T, P> Pi = floor(vec<4, T, P>(Position.x, Position.y, Position.x, Position.y)) + vec<4, T, P>(0.0, 0.0, 1.0, 1.0);
 		vec<4, T, P> Pf = fract(vec<4, T, P>(Position.x, Position.y, Position.x, Position.y)) - vec<4, T, P>(0.0, 0.0, 1.0, 1.0);
@@ -385,7 +385,7 @@ namespace gtc
 
 	// Classic Perlin noise, periodic variant
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T perlin(vec<3, T, P> const & Position, vec<3, T, P> const & rep)
+	GLM_FUNC_QUALIFIER T perlin(vec<3, T, P> const& Position, vec<3, T, P> const& rep)
 	{
 		vec<3, T, P> Pi0 = mod(floor(Position), rep); // Integer part, modulo period
 		vec<3, T, P> Pi1 = mod(Pi0 + vec<3, T, P>(T(1)), rep); // Integer part + 1, mod period
@@ -456,7 +456,7 @@ namespace gtc
 
 	// Classic Perlin noise, periodic version
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T perlin(vec<4, T, P> const & Position, vec<4, T, P> const & rep)
+	GLM_FUNC_QUALIFIER T perlin(vec<4, T, P> const& Position, vec<4, T, P> const& rep)
 	{
 		vec<4, T, P> Pi0 = mod(floor(Position), rep); // Integer part modulo rep
 		vec<4, T, P> Pi1 = mod(Pi0 + T(1), rep); // Integer part + 1 mod rep
@@ -589,7 +589,7 @@ namespace gtc
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T simplex(glm::vec<2, T, P> const & v)
+	GLM_FUNC_QUALIFIER T simplex(glm::vec<2, T, P> const& v)
 	{
 		vec<4, T, P> const C = vec<4, T, P>(
 			T( 0.211324865405187),  // (3.0 -  sqrt(3.0)) / 6.0
@@ -646,7 +646,7 @@ namespace gtc
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T simplex(vec<3, T, P> const & v)
+	GLM_FUNC_QUALIFIER T simplex(vec<3, T, P> const& v)
 	{
 		vec<2, T, P> const C(1.0 / 6.0, 1.0 / 3.0);
 		vec<4, T, P> const D(0.0, 0.5, 1.0, 2.0);
@@ -721,7 +721,7 @@ namespace gtc
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER T simplex(vec<4, T, P> const & v)
+	GLM_FUNC_QUALIFIER T simplex(vec<4, T, P> const& v)
 	{
 		vec<4, T, P> const C(
 			0.138196601125011,  // (5 - sqrt(5))/20  G4

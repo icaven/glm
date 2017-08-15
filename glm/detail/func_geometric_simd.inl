@@ -11,7 +11,7 @@ namespace detail
 	template<qualifier P>
 	struct compute_length<4, float, P, true>
 	{
-		GLM_FUNC_QUALIFIER static float call(vec<4, float, P> const & v)
+		GLM_FUNC_QUALIFIER static float call(vec<4, float, P> const& v)
 		{
 			return _mm_cvtss_f32(glm_vec4_length(v.data));
 		}
@@ -20,7 +20,7 @@ namespace detail
 	template<qualifier P>
 	struct compute_distance<4, float, P, true>
 	{
-		GLM_FUNC_QUALIFIER static float call(vec<4, float, P> const & p0, vec<4, float, P> const & p1)
+		GLM_FUNC_QUALIFIER static float call(vec<4, float, P> const& p0, vec<4, float, P> const& p1)
 		{
 			return _mm_cvtss_f32(glm_vec4_distance(p0.data, p1.data));
 		}
@@ -38,7 +38,7 @@ namespace detail
 	template<qualifier P>
 	struct compute_cross<float, P, true>
 	{
-		GLM_FUNC_QUALIFIER static vec<3, float, P> call(vec<3, float, P> const & a, vec<3, float, P> const & b)
+		GLM_FUNC_QUALIFIER static vec<3, float, P> call(vec<3, float, P> const& a, vec<3, float, P> const& b)
 		{
 			__m128 const set0 = _mm_set_ps(0.0f, a.z, a.y, a.x);
 			__m128 const set1 = _mm_set_ps(0.0f, b.z, b.y, b.x);
@@ -53,7 +53,7 @@ namespace detail
 	template<qualifier P>
 	struct compute_normalize<4, float, P, true>
 	{
-		GLM_FUNC_QUALIFIER static vec<4, float, P> call(vec<4, float, P> const & v)
+		GLM_FUNC_QUALIFIER static vec<4, float, P> call(vec<4, float, P> const& v)
 		{
 			vec<4, float, P> Result;
 			Result.data = glm_vec4_normalize(v.data);

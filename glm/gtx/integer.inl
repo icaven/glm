@@ -71,7 +71,7 @@ namespace detail
 
 	// factorial (!12 max, integer only)
 	template<typename genType>
-	GLM_FUNC_QUALIFIER genType factorial(genType const & x)
+	GLM_FUNC_QUALIFIER genType factorial(genType const& x)
 	{
 		genType Temp = x;
 		genType Result;
@@ -82,7 +82,7 @@ namespace detail
 
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<2, T, P> factorial(
-		vec<2, T, P> const & x)
+		vec<2, T, P> const& x)
 	{
 		return vec<2, T, P>(
 			factorial(x.x),
@@ -91,7 +91,7 @@ namespace detail
 
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<3, T, P> factorial(
-		vec<3, T, P> const & x)
+		vec<3, T, P> const& x)
 	{
 		return vec<3, T, P>(
 			factorial(x.x),
@@ -101,7 +101,7 @@ namespace detail
 
 	template<typename T, qualifier P>
 	GLM_FUNC_QUALIFIER vec<4, T, P> factorial(
-		vec<4, T, P> const & x)
+		vec<4, T, P> const& x)
 	{
 		return vec<4, T, P>(
 			factorial(x.x),

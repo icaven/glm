@@ -47,91 +47,91 @@ namespace std
 	template<typename T, glm::qualifier P>
 	struct hash<glm::vec<1, T,P> >
 	{
-		GLM_FUNC_DECL size_t operator()(glm::vec<1, T, P> const & v) const;
+		GLM_FUNC_DECL size_t operator()(glm::vec<1, T, P> const& v) const;
 	};
 
 	template<typename T, glm::qualifier P>
 	struct hash<glm::vec<2, T,P> >
 	{
-		GLM_FUNC_DECL size_t operator()(glm::vec<2, T, P> const & v) const;
+		GLM_FUNC_DECL size_t operator()(glm::vec<2, T, P> const& v) const;
 	};
 
 	template<typename T, glm::qualifier P>
 	struct hash<glm::vec<3, T,P> >
 	{
-		GLM_FUNC_DECL size_t operator()(glm::vec<3, T, P> const & v) const;
+		GLM_FUNC_DECL size_t operator()(glm::vec<3, T, P> const& v) const;
 	};
 
 	template<typename T, glm::qualifier P>
 	struct hash<glm::vec<4, T,P> >
 	{
-		GLM_FUNC_DECL size_t operator()(glm::vec<4, T, P> const & v) const;
+		GLM_FUNC_DECL size_t operator()(glm::vec<4, T, P> const& v) const;
 	};
 
 	template<typename T, glm::qualifier P>
 	struct hash<glm::tquat<T,P>>
 	{
-		GLM_FUNC_DECL size_t operator()(glm::tquat<T, P> const & q) const;
+		GLM_FUNC_DECL size_t operator()(glm::tquat<T, P> const& q) const;
 	};
 
 	template<typename T, glm::qualifier P>
 	struct hash<glm::tdualquat<T,P> >
 	{
-		GLM_FUNC_DECL size_t operator()(glm::tdualquat<T,P> const & q) const;
+		GLM_FUNC_DECL size_t operator()(glm::tdualquat<T,P> const& q) const;
 	};
 
 	template<typename T, glm::qualifier P>
 	struct hash<glm::mat<2, 2, T,P> >
 	{
-		GLM_FUNC_DECL size_t operator()(glm::mat<2, 2, T,P> const & m) const;
+		GLM_FUNC_DECL size_t operator()(glm::mat<2, 2, T,P> const& m) const;
 	};
 
 	template<typename T, glm::qualifier P>
 	struct hash<glm::mat<2, 3, T,P> >
 	{
-		GLM_FUNC_DECL size_t operator()(glm::mat<2, 3, T,P> const & m) const;
+		GLM_FUNC_DECL size_t operator()(glm::mat<2, 3, T,P> const& m) const;
 	};
 
 	template<typename T, glm::qualifier P>
 	struct hash<glm::mat<2, 4, T,P> >
 	{
-		GLM_FUNC_DECL size_t operator()(glm::mat<2, 4, T,P> const & m) const;
+		GLM_FUNC_DECL size_t operator()(glm::mat<2, 4, T,P> const& m) const;
 	};
 
 	template<typename T, glm::qualifier P>
 	struct hash<glm::mat<3, 2, T,P> >
 	{
-		GLM_FUNC_DECL size_t operator()(glm::mat<3, 2, T,P> const & m) const;
+		GLM_FUNC_DECL size_t operator()(glm::mat<3, 2, T,P> const& m) const;
 	};
 
 	template<typename T, glm::qualifier P>
 	struct hash<glm::mat<3, 3, T,P> >
 	{
-		GLM_FUNC_DECL size_t operator()(glm::mat<3, 3, T,P> const & m) const;
+		GLM_FUNC_DECL size_t operator()(glm::mat<3, 3, T,P> const& m) const;
 	};
 
 	template<typename T, glm::qualifier P>
 	struct hash<glm::mat<3, 4, T,P> >
 	{
-		GLM_FUNC_DECL size_t operator()(glm::mat<3, 4, T,P> const & m) const;
+		GLM_FUNC_DECL size_t operator()(glm::mat<3, 4, T,P> const& m) const;
 	};
 
 	template<typename T, glm::qualifier P>
 	struct hash<glm::mat<4, 2, T,P> >
 	{
-		GLM_FUNC_DECL size_t operator()(glm::mat<4, 2, T,P> const & m) const;
+		GLM_FUNC_DECL size_t operator()(glm::mat<4, 2, T,P> const& m) const;
 	};
 	
 	template<typename T, glm::qualifier P>
 	struct hash<glm::mat<4, 3, T,P> >
 	{
-		GLM_FUNC_DECL size_t operator()(glm::mat<4, 3, T,P> const & m) const;
+		GLM_FUNC_DECL size_t operator()(glm::mat<4, 3, T,P> const& m) const;
 	};
 
 	template<typename T, glm::qualifier P>
 	struct hash<glm::mat<4, 4, T,P> >
 	{
-		GLM_FUNC_DECL size_t operator()(glm::mat<4, 4, T,P> const & m) const;
+		GLM_FUNC_DECL size_t operator()(glm::mat<4, 4, T,P> const& m) const;
 	};
 } // namespace std
 

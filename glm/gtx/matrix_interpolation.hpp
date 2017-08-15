@@ -41,7 +41,7 @@ namespace glm
 	/// From GLM_GTX_matrix_interpolation extension.
 	template<typename T, qualifier P>
 	GLM_FUNC_DECL mat<4, 4, T, P> axisAngleMatrix(
-		vec<3, T, P> const & axis,
+		vec<3, T, P> const& axis,
 		T const angle);
 
 	/// Extracts the rotation part of a matrix.

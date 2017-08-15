@@ -12,7 +12,7 @@ namespace detail
 	template<typename T, qualifier P>
 	struct compute_areCollinear<2, T, P>
 	{
-		GLM_FUNC_QUALIFIER static bool call(vec<2, T, P> const & v0, vec<2, T, P> const & v1, T const & epsilon)
+		GLM_FUNC_QUALIFIER static bool call(vec<2, T, P> const& v0, vec<2, T, P> const& v1, T const& epsilon)
 		{
 			return length(cross(vec<3, T, P>(v0, static_cast<T>(0)), vec<3, T, P>(v1, static_cast<T>(0)))) < epsilon;
 		}
@@ -21,7 +21,7 @@ namespace detail
 	template<typename T, qualifier P>
 	struct compute_areCollinear<3, T, P>
 	{
-		GLM_FUNC_QUALIFIER static bool call(vec<3, T, P> const & v0, vec<3, T, P> const & v1, T const & epsilon)
+		GLM_FUNC_QUALIFIER static bool call(vec<3, T, P> const& v0, vec<3, T, P> const& v1, T const& epsilon)
 		{
 			return length(cross(v0, v1)) < epsilon;
 		}
@@ -30,7 +30,7 @@ namespace detail
 	template<typename T, qualifier P>
 	struct compute_areCollinear<4, T, P>
 	{
-		GLM_FUNC_QUALIFIER static bool call(vec<4, T, P> const & v0, vec<4, T, P> const & v1, T const & epsilon)
+		GLM_FUNC_QUALIFIER static bool call(vec<4, T, P> const& v0, vec<4, T, P> const& v1, T const& epsilon)
 		{
 			return length(cross(vec<3, T, P>(v0), vec<3, T, P>(v1))) < epsilon;
 		}
@@ -42,7 +42,7 @@ namespace detail
 	template<typename T, qualifier P>
 	struct compute_isCompNull<2, T, P>
 	{
-		GLM_FUNC_QUALIFIER static vec<2, bool, P> call(vec<2, T, P> const & v, T const & epsilon)
+		GLM_FUNC_QUALIFIER static vec<2, bool, P> call(vec<2, T, P> const& v, T const& epsilon)
 		{
 			return vec<2, bool, P>(
 				(abs(v.x) < epsilon),
@@ -53,7 +53,7 @@ namespace detail
 	template<typename T, qualifier P>
 	struct compute_isCompNull<3, T, P>
 	{
-		GLM_FUNC_QUALIFIER static vec<3, bool, P> call(vec<3, T, P> const & v, T const & epsilon)
+		GLM_FUNC_QUALIFIER static vec<3, bool, P> call(vec<3, T, P> const& v, T const& epsilon)
 		{
 			return vec<3, bool, P>(
 				(abs(v.x) < epsilon),
@@ -65,7 +65,7 @@ namespace detail
 	template<typename T, qualifier P>
 	struct compute_isCompNull<4, T, P>
 	{
-		GLM_FUNC_QUALIFIER static vec<4, bool, P> call(vec<4, T, P> const & v, T const& epsilon)
+		GLM_FUNC_QUALIFIER static vec<4, bool, P> call(vec<4, T, P> const& v, T const& epsilon)
 		{
 			return vec<4, bool, P>(
 				(abs(v.x) < epsilon),
@@ -120,7 +120,7 @@ namespace detail
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<2, bool, P> isCompNull(vec<2, T, P> const & v, T const & epsilon)
+	GLM_FUNC_QUALIFIER vec<2, bool, P> isCompNull(vec<2, T, P> const& v, T const& epsilon)
 	{
 		return vec<2, bool, P>(
 			abs(v.x) < epsilon,
@@ -128,7 +128,7 @@ namespace detail
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<3, bool, P> isCompNull(vec<3, T, P> const & v, T const& epsilon)
+	GLM_FUNC_QUALIFIER vec<3, bool, P> isCompNull(vec<3, T, P> const& v, T const& epsilon)
 	{
 		return vec<3, bool, P>(
 			abs(v.x) < epsilon,
@@ -137,7 +137,7 @@ namespace detail
 	}
 
 	template<typename T, qualifier P>
-	GLM_FUNC_QUALIFIER vec<4, bool, P> isCompNull(vec<4, T, P> const & v, T const & epsilon)
+	GLM_FUNC_QUALIFIER vec<4, bool, P> isCompNull(vec<4, T, P> const& v, T const& epsilon)
 	{
 		return vec<4, bool, P>(
 			abs(v.x) < epsilon,
@@ -147,7 +147,7 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier P>
-	GLM_FUNC_QUALIFIER bool areOrthonormal(vec<L, T, P> const& v0, vec<L, T, P> const& v1, T const & epsilon)
+	GLM_FUNC_QUALIFIER bool areOrthonormal(vec<L, T, P> const& v0, vec<L, T, P> const& v1, T const& epsilon)
 	{
 		return isNormalized(v0, epsilon) && isNormalized(v1, epsilon) && (abs(dot(v0, v1)) <= epsilon);
 	}

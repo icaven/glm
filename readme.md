@@ -29,7 +29,7 @@ Thanks for contributing to the project by [submitting issues](https://github.com
 #include <glm/gtc/matrix_transform.hpp> // glm::translate, glm::rotate, glm::scale, glm::perspective
 #include <glm/gtc/constants.hpp> // glm::pi
 
-glm::mat4 camera(float Translate, glm::vec2 const & Rotate)
+glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 {
 	glm::mat4 Projection = glm::perspective(glm::pi<float>() * 0.25f, 4.0f / 3.0f, 0.1f, 100.f);
 	glm::mat4 View = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -Translate));
