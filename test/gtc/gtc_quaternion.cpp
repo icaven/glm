@@ -39,7 +39,7 @@ int test_quat_angleAxis()
 {
 	int Error = 0;
 
-	glm::quat A = glm::angleAxis(0.0f, glm::vec3(0, 0, 1));
+	glm::quat A = glm::angleAxis(0.f, glm::vec3(0.f, 0.f, 1.f));
 	glm::quat B = glm::angleAxis(glm::pi<float>() * 0.5f, glm::vec3(0, 0, 1));
 	glm::quat C = glm::mix(A, B, 0.5f);
 	glm::quat D = glm::angleAxis(glm::pi<float>() * 0.25f, glm::vec3(0, 0, 1));
@@ -56,7 +56,7 @@ int test_quat_mix()
 {
 	int Error = 0;
 
-	glm::quat A = glm::angleAxis(0.0f, glm::vec3(0, 0, 1));
+	glm::quat A = glm::angleAxis(0.f, glm::vec3(0.f, 0.f, 1.f));
 	glm::quat B = glm::angleAxis(glm::pi<float>() * 0.5f, glm::vec3(0, 0, 1));
 	glm::quat C = glm::mix(A, B, 0.5f);
 	glm::quat D = glm::angleAxis(glm::pi<float>() * 0.25f, glm::vec3(0, 0, 1));
