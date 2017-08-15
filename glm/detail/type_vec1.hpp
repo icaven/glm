@@ -87,8 +87,8 @@ namespace glm
 
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec() GLM_DEFAULT;
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(vec const& v) GLM_DEFAULT;
-		template<qualifier Q>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(vec<1, T, Q> const& v);
+		template<qualifier P>
+		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(vec<1, T, P> const& v);
 
 		// -- Explicit basic constructors --
 

@@ -53,7 +53,7 @@ namespace glm
 			union
 			{
 				struct { T x, y, z, w;};
-				typename detail::storage<T, sizeof(T) * 4, detail::is_aligned<P>::value>::type data;
+				typename detail::storage<T, sizeof(T) * 4, detail::is_aligned<Q>::value>::type data;
 			};
 		
 #			if GLM_COMPILER & GLM_COMPILER_CLANG
