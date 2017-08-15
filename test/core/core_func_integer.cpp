@@ -151,17 +151,17 @@ namespace bitfieldReverse
 		return Result;
 	}
 */
-	template<glm::length_t L, typename T, glm::precision P, template<glm::length_t, typename, glm::precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<L, T, P> bitfieldReverseLoop(vecType<L, T, P> const & v)
+	template<glm::length_t L, typename T, glm::precision P>
+	GLM_FUNC_QUALIFIER glm::vec<L, T, P> bitfieldReverseLoop(glm::vec<L, T, P> const& v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'bitfieldReverse' only accept integer values");
 
-		vecType<L, T, P> Result(0);
+		glm::vec<L, T, P> Result(0);
 		T const BitSize = static_cast<T>(sizeof(T) * 8);
 		for(T i = 0; i < BitSize; ++i)
 		{
-			vecType<L, T, P> const BitSet(v & (static_cast<T>(1) << i));
-			vecType<L, T, P> const BitFirst(BitSet >> i);
+			glm::vec<L, T, P> const BitSet(v & (static_cast<T>(1) << i));
+			glm::vec<L, T, P> const BitFirst(BitSet >> i);
 			Result |= BitFirst << (BitSize - 1 - i);
 		}
 		return Result;
@@ -197,8 +197,8 @@ namespace bitfieldReverse
 	template<bool EXEC = false>
 	struct compute_bitfieldReverseStep
 	{
-		template<glm::length_t L, typename T, glm::precision P, template<glm::length_t, typename, glm::precision> class vecType>
-		GLM_FUNC_QUALIFIER static vecType<L, T, P> call(vecType<L, T, P> const & v, T, T)
+		template<glm::length_t L, typename T, glm::precision P>
+		GLM_FUNC_QUALIFIER static glm::vec<L, T, P> call(glm::vec<L, T, P> const & v, T, T)
 		{
 			return v;
 		}
@@ -207,17 +207,17 @@ namespace bitfieldReverse
 	template<>
 	struct compute_bitfieldReverseStep<true>
 	{
-		template<glm::length_t L, typename T, glm::precision P, template<glm::length_t, typename, glm::precision> class vecType>
-		GLM_FUNC_QUALIFIER static vecType<L, T, P> call(vecType<L, T, P> const & v, T Mask, T Shift)
+		template<glm::length_t L, typename T, glm::precision P>
+		GLM_FUNC_QUALIFIER static glm::vec<L, T, P> call(glm::vec<L, T, P> const & v, T Mask, T Shift)
 		{
 			return (v & Mask) << Shift | (v & (~Mask)) >> Shift;
 		}
 	};
 
-	template<glm::length_t L, typename T, glm::precision P, template<glm::length_t, typename, glm::precision> class vecType>
-	GLM_FUNC_QUALIFIER vecType<L, T, P> bitfieldReverseOps(vecType<L, T, P> const & v)
+	template<glm::length_t L, typename T, glm::precision P>
+	GLM_FUNC_QUALIFIER glm::vec<L, T, P> bitfieldReverseOps(glm::vec<L, T, P> const & v)
 	{
-		vecType<L, T, P> x(v);
+		glm::vec<L, T, P> x(v);
 		x = compute_bitfieldReverseStep<sizeof(T) * 8 >=  2>::call(x, T(0x5555555555555555ull), static_cast<T>( 1));
 		x = compute_bitfieldReverseStep<sizeof(T) * 8 >=  4>::call(x, T(0x3333333333333333ull), static_cast<T>( 2));
 		x = compute_bitfieldReverseStep<sizeof(T) * 8 >=  8>::call(x, T(0x0F0F0F0F0F0F0F0Full), static_cast<T>( 4));

@@ -169,7 +169,7 @@ namespace log2_
 			std::clock_t Begin = clock();
 
 			for(int i = 0; i < static_cast<int>(Count); ++i)
-				Result[i] = glm::log2(glm::vec4(i));
+				Result[i] = glm::log2(glm::vec4(static_cast<float>(i)));
 
 			std::clock_t End = clock();
 
