@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['saturate',['saturate',['../a00190.html#ga0fd09e616d122bc2ed9726682ffd44b7',1,'glm::saturate(T x)'],['../a00190.html#gac0e1bcffe443aecc54ef77904d50d599',1,'glm::saturate(const vec&lt; 2, T, P &gt; &amp;x)'],['../a00190.html#ga1e64e4005c546d8e96bdbfc2dec44b0a',1,'glm::saturate(const vec&lt; 3, T, P &gt; &amp;x)'],['../a00190.html#gac8927bfced419a1c89b397797bf4c54d',1,'glm::saturate(const vec&lt; 4, T, P &gt; &amp;x)']]],
+  ['saturation',['saturation',['../a00187.html#ga01a97152b44e1550edcac60bd849e884',1,'glm::saturation(T const s)'],['../a00187.html#gabac01d0b2e939c8d457b95d3e23afaee',1,'glm::saturation(T const s, vec&lt; 3, T, P &gt; const &amp;color)'],['../a00187.html#ga4271afb4406bb1b688635792abc2401d',1,'glm::saturation(T const s, vec&lt; 4, T, P &gt; const &amp;color)']]],
+  ['scale',['scale',['../a00171.html#gac75b07513cf3f87d8ccbf3a55c5e24b9',1,'glm::scale(mat&lt; 4, 4, T, P &gt; const &amp;m, vec&lt; 3, T, P &gt; const &amp;v)'],['../a00214.html#ga6c6fc9d6df792dcebf6d81ae68982b1c',1,'glm::scale(mat&lt; 3, 3, T, P &gt; const &amp;m, vec&lt; 2, T, P &gt; const &amp;v)'],['../a00234.html#gaf3fb2bbefefc1d4b6d86a1dfa499f87b',1,'glm::scale(vec&lt; 3, T, P &gt; const &amp;v)']]],
+  ['scalebias',['scaleBias',['../a00235.html#gad5a94791d829201842c62ac8f171f745',1,'glm::scaleBias(valType scale, valType bias)'],['../a00235.html#gacdcefa1b707754990d5e05bb77155515',1,'glm::scaleBias(mat&lt; 4, 4, valType, P &gt; const &amp;m, valType scale, valType bias)']]],
+  ['sec',['sec',['../a00176.html#gae4bcbebee670c5ea155f0777b3acbd84',1,'glm']]],
+  ['sech',['sech',['../a00176.html#ga9a5cfd1e7170104a7b33863b1b75e5ae',1,'glm']]],
+  ['shearx',['shearX',['../a00214.html#gad2abda4d1b3cc6bf0c8d3d87741a376b',1,'glm']]],
+  ['shearx2d',['shearX2D',['../a00235.html#ga74cd1180e992af0389aa232090af4275',1,'glm']]],
+  ['shearx3d',['shearX3D',['../a00235.html#ga91693061d1e30b5b0b0795f35504d1fd',1,'glm']]],
+  ['sheary',['shearY',['../a00214.html#ga149783af58949bc614258394b25e33de',1,'glm']]],
+  ['sheary2d',['shearY2D',['../a00235.html#ga9d89a1e35f5eb6897e09900cb7d5f8ae',1,'glm']]],
+  ['sheary3d',['shearY3D',['../a00235.html#ga60b0944be84224a22fc32bfa1afc169a',1,'glm']]],
+  ['shearz3d',['shearZ3D',['../a00235.html#ga711ef58f247b5d6d5f7ffcf8f0997416',1,'glm']]],
+  ['shortmix',['shortMix',['../a00225.html#ga3534443de2a1a806f386976546cddc81',1,'glm']]],
+  ['sign',['sign',['../a00148.html#ga62933815c9d7ea5507441856fa802c94',1,'glm::sign(vec&lt; L, T, P &gt; const &amp;x)'],['../a00206.html#ga5586959c9e16de6a42b908562be9b2c1',1,'glm::sign(vec&lt; L, T, P &gt; const &amp;x, vec&lt; L, T, P &gt; const &amp;base)']]],
+  ['simplex',['simplex',['../a00172.html#ga7b869f8b8bf2228001063c5f3bd4646d',1,'glm']]],
+  ['sin',['sin',['../a00154.html#gace40403215c8fbdcfcb71d0ee7f754c5',1,'glm']]],
+  ['sinh',['sinh',['../a00154.html#gaa11ee703574f57880f7d60bc02b54812',1,'glm']]],
+  ['slerp',['slerp',['../a00174.html#ga22b438c7252f3fa5b773c9882471652a',1,'glm::slerp(tquat&lt; T, P &gt; const &amp;x, tquat&lt; T, P &gt; const &amp;y, T a)'],['../a00229.html#ga4759411640205da0eb29c6bfe3d4038b',1,'glm::slerp(vec&lt; 3, T, P &gt; const &amp;x, vec&lt; 3, T, P &gt; const &amp;y, T const &amp;a)']]],
+  ['smoothstep',['smoothstep',['../a00148.html#ga562edf7eca082cc5b7a0aaf180436daf',1,'glm']]],
+  ['sphericalrand',['sphericalRand',['../a00175.html#ga22f90fcaccdf001c516ca90f6428e138',1,'glm']]],
+  ['sqrt',['sqrt',['../a00149.html#ga43935741899fb441fa1e6e2f69d74f24',1,'glm::sqrt(vec&lt; L, T, P &gt; const &amp;v)'],['../a00203.html#ga7ce36693a75879ccd9bb10167cfa722d',1,'glm::sqrt(int x)'],['../a00203.html#ga1975d318978d6dacf78b6444fa5ed7bc',1,'glm::sqrt(uint x)']]],
+  ['squad',['squad',['../a00225.html#gae75f537becdf2b1381b4482ec96e6c82',1,'glm']]],
+  ['step',['step',['../a00148.html#ga015a1261ff23e12650211aa872863cce',1,'glm::step(genType edge, genType x)'],['../a00148.html#gacc503b27d51eea01a065f80c69f0a268',1,'glm::step(T edge, vec&lt; L, T, P &gt; const &amp;x)'],['../a00148.html#ga0ae969e5f5124844affd1dc58b1dee10',1,'glm::step(vec&lt; L, T, P &gt; const &amp;edge, vec&lt; L, T, P &gt; const &amp;x)']]]
+];
