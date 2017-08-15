@@ -36,8 +36,8 @@ namespace glm
 
 		GLM_FUNC_DECL mat() GLM_DEFAULT;
 		GLM_FUNC_DECL mat(mat<4, 4, T, Q> const& m) GLM_DEFAULT;
-		template<qualifier Q>
-		GLM_FUNC_DECL mat(mat<4, 4, T, Q> const& m);
+		template<qualifier P>
+		GLM_FUNC_DECL mat(mat<4, 4, T, P> const& m);
 
 		GLM_FUNC_DECL explicit mat(T const& x);
 		GLM_FUNC_DECL mat(
@@ -73,8 +73,8 @@ namespace glm
 
 		// -- Matrix conversions --
 
-		template<typename U, qualifier Q>
-		GLM_FUNC_DECL GLM_EXPLICIT mat(mat<4, 4, U, Q> const& m);
+		template<typename U, qualifier P>
+		GLM_FUNC_DECL GLM_EXPLICIT mat(mat<4, 4, U, P> const& m);
 
 		GLM_FUNC_DECL GLM_EXPLICIT mat(mat<2, 2, T, Q> const& x);
 		GLM_FUNC_DECL GLM_EXPLICIT mat(mat<3, 3, T, Q> const& x);
