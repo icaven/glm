@@ -142,6 +142,7 @@ int main()
 	std::size_t C1 = sizeof(glm::aligned_vec4);
 
 	Error += test_ctor();
+	Error += test_copy();
 
 	return Error;
 }
