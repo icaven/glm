@@ -13,7 +13,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vec<4, float, Q> call(vec<4, float, Q> const& v)
 		{
-			vec<4, float, P> Result;
+			vec<4, float, Q> Result;
 			Result.data = _mm_sqrt_ps(v.data);
 			return Result;
 		}
