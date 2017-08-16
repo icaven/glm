@@ -16,3 +16,4 @@ conanfile.pyc
 conaninfo.txt
 conanbuildinfo.txt
 conanbuildinfo.cmake
+!FindGLM.cmake
