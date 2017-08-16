@@ -1,5 +1,6 @@
 #define GLM_FORCE_ALIGNED
 #define GLM_FORCE_SWIZZLE
+#include <glm/gtc/epsilon.hpp>
 #include <glm/vector_relational.hpp>
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
@@ -33,7 +34,7 @@ enum comp
 //	return _mm_shuffle_ps(Src, Src, mask<(int(W) << 6) | (int(Z) << 4) | (int(Y) << 2) | (int(X) << 0)>::value);
 //}
 
-int test_vec4_ctor()
+static int test_vec4_ctor()
 {
 	int Error = 0;
 
@@ -128,7 +129,7 @@ int test_vec4_ctor()
 	return Error;
 }
 
-int test_bvec4_ctor()
+static int test_bvec4_ctor()
 {
 	int Error = 0;
 
@@ -148,7 +149,7 @@ int test_bvec4_ctor()
 	return Error;
 }
 
-int test_vec4_operators()
+static int test_vec4_operators()
 {
 	int Error = 0;
 	
@@ -284,7 +285,7 @@ int test_vec4_operators()
 	return Error;
 }
 
-int test_vec4_equal()
+static int test_vec4_equal()
 {
 	int Error = 0;
 
@@ -305,7 +306,7 @@ int test_vec4_equal()
 	return Error;
 }
 
-int test_vec4_size()
+static int test_vec4_size()
 {
 	int Error = 0;
 
@@ -330,7 +331,7 @@ int test_vec4_size()
 	return Error;
 }
 
-int test_vec4_swizzle_partial()
+static int test_vec4_swizzle_partial()
 {
 	int Error = 0;
 
@@ -367,7 +368,7 @@ int test_vec4_swizzle_partial()
 	return Error;
 }
 
-int test_operator_increment()
+static int test_operator_increment()
 {
 	int Error(0);
 
@@ -402,7 +403,7 @@ struct AoS
 	glm::vec2 D;
 };
 
-int test_vec4_perf_AoS(std::size_t Size)
+static int test_vec4_perf_AoS(std::size_t Size)
 {
 	int Error(0);
 
@@ -423,7 +424,7 @@ int test_vec4_perf_AoS(std::size_t Size)
 	return Error;
 }
 
-int test_vec4_perf_SoA(std::size_t Size)
+static int test_vec4_perf_SoA(std::size_t Size)
 {
 	int Error(0);
 
@@ -475,7 +476,7 @@ namespace heap
 		glm::vec4 v;
 	};
 
-	int test()
+	static int test()
 	{
 		int Error = 0;
 
@@ -489,7 +490,7 @@ namespace heap
 	}
 }//namespace heap
 
-int test_vec4_simd()
+static int test_vec4_simd()
 {
 	int Error = 0;
 
@@ -504,9 +505,34 @@ int test_vec4_simd()
 	return Error;
 }
 
+static int test_inheritance()
+{
+	struct my_vec4 : public glm::vec4
+	{
+		my_vec4()
+			: glm::vec4(76.f, 75.f, 74.f, 73.f)
+			, data(82)
+		{}
+
+		int data;
+	};
+
+	int Error = 0;
+
+	my_vec4 v;
+
+	Error += v.data == 82 ? 0 : 1;
+	Error += glm::epsilonEqual(v.x, 76.f, glm::epsilon<float>()) ? 0 : 1;
+	Error += glm::epsilonEqual(v.y, 75.f, glm::epsilon<float>()) ? 0 : 1;
+	Error += glm::epsilonEqual(v.z, 74.f, glm::epsilon<float>()) ? 0 : 1;
+	Error += glm::epsilonEqual(v.w, 73.f, glm::epsilon<float>()) ? 0 : 1;
+
+	return Error;
+}
+
 int main()
 {
-	int Error(0);
+	int Error = 0;
 
 /*
 	{
@@ -565,6 +591,7 @@ int main()
 	Error += test_vec4_simd();
 	Error += test_operator_increment();
 	Error += heap::test();
+	Error += test_inheritance();
 
 	return Error;
 }
