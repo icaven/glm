@@ -49,15 +49,15 @@ namespace glm
 				typename detail::storage<T, sizeof(T) * 4, detail::is_aligned<Q>::value>::type data;
 
 #				if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
-					GLM_SWIZZLE4_2_MEMBERS(T, P, x, y, z, w)
-					GLM_SWIZZLE4_2_MEMBERS(T, P, r, g, b, a)
-					GLM_SWIZZLE4_2_MEMBERS(T, P, s, t, p, q)
-					GLM_SWIZZLE4_3_MEMBERS(T, P, x, y, z, w)
-					GLM_SWIZZLE4_3_MEMBERS(T, P, r, g, b, a)
-					GLM_SWIZZLE4_3_MEMBERS(T, P, s, t, p, q)
-					GLM_SWIZZLE4_4_MEMBERS(T, P, x, y, z, w)
-					GLM_SWIZZLE4_4_MEMBERS(T, P, r, g, b, a)
-					GLM_SWIZZLE4_4_MEMBERS(T, P, s, t, p, q)
+					GLM_SWIZZLE4_2_MEMBERS(T, Q, x, y, z, w)
+					GLM_SWIZZLE4_2_MEMBERS(T, Q, r, g, b, a)
+					GLM_SWIZZLE4_2_MEMBERS(T, Q, s, t, p, q)
+					GLM_SWIZZLE4_3_MEMBERS(T, Q, x, y, z, w)
+					GLM_SWIZZLE4_3_MEMBERS(T, Q, r, g, b, a)
+					GLM_SWIZZLE4_3_MEMBERS(T, Q, s, t, p, q)
+					GLM_SWIZZLE4_4_MEMBERS(T, Q, x, y, z, w)
+					GLM_SWIZZLE4_4_MEMBERS(T, Q, r, g, b, a)
+					GLM_SWIZZLE4_4_MEMBERS(T, Q, s, t, p, q)
 #				endif//GLM_SWIZZLE
 			};
 

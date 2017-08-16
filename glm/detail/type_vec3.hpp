@@ -47,15 +47,15 @@ namespace glm
 				struct{ T s, t, p; };
 
 #				if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
-					GLM_SWIZZLE3_2_MEMBERS(T, P, x, y, z)
-					GLM_SWIZZLE3_2_MEMBERS(T, P, r, g, b)
-					GLM_SWIZZLE3_2_MEMBERS(T, P, s, t, p)
-					GLM_SWIZZLE3_3_MEMBERS(T, P, x, y, z)
-					GLM_SWIZZLE3_3_MEMBERS(T, P, r, g, b)
-					GLM_SWIZZLE3_3_MEMBERS(T, P, s, t, p)
-					GLM_SWIZZLE3_4_MEMBERS(T, P, x, y, z)
-					GLM_SWIZZLE3_4_MEMBERS(T, P, r, g, b)
-					GLM_SWIZZLE3_4_MEMBERS(T, P, s, t, p)
+					GLM_SWIZZLE3_2_MEMBERS(T, Q, x, y, z)
+					GLM_SWIZZLE3_2_MEMBERS(T, Q, r, g, b)
+					GLM_SWIZZLE3_2_MEMBERS(T, Q, s, t, p)
+					GLM_SWIZZLE3_3_MEMBERS(T, Q, x, y, z)
+					GLM_SWIZZLE3_3_MEMBERS(T, Q, r, g, b)
+					GLM_SWIZZLE3_3_MEMBERS(T, Q, s, t, p)
+					GLM_SWIZZLE3_4_MEMBERS(T, Q, x, y, z)
+					GLM_SWIZZLE3_4_MEMBERS(T, Q, r, g, b)
+					GLM_SWIZZLE3_4_MEMBERS(T, Q, s, t, p)
 #				endif//GLM_SWIZZLE
 			};
 		

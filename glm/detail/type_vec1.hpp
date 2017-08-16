@@ -48,15 +48,15 @@ namespace glm
 				T s;
 /*
 #				if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
-					_GLM_SWIZZLE1_2_MEMBERS(T, P, tvec2, x)
-					_GLM_SWIZZLE1_2_MEMBERS(T, P, tvec2, r)
-					_GLM_SWIZZLE1_2_MEMBERS(T, P, tvec2, s)
-					_GLM_SWIZZLE1_3_MEMBERS(T, P, tvec3, x)
-					_GLM_SWIZZLE1_3_MEMBERS(T, P, tvec3, r)
-					_GLM_SWIZZLE1_3_MEMBERS(T, P, tvec3, s)
-					_GLM_SWIZZLE1_4_MEMBERS(T, P, tvec4, x)
-					_GLM_SWIZZLE1_4_MEMBERS(T, P, tvec4, r)
-					_GLM_SWIZZLE1_4_MEMBERS(T, P, tvec4, s)
+					_GLM_SWIZZLE1_2_MEMBERS(T, Q, tvec2, x)
+					_GLM_SWIZZLE1_2_MEMBERS(T, Q, tvec2, r)
+					_GLM_SWIZZLE1_2_MEMBERS(T, Q, tvec2, s)
+					_GLM_SWIZZLE1_3_MEMBERS(T, Q, tvec3, x)
+					_GLM_SWIZZLE1_3_MEMBERS(T, Q, tvec3, r)
+					_GLM_SWIZZLE1_3_MEMBERS(T, Q, tvec3, s)
+					_GLM_SWIZZLE1_4_MEMBERS(T, Q, tvec4, x)
+					_GLM_SWIZZLE1_4_MEMBERS(T, Q, tvec4, r)
+					_GLM_SWIZZLE1_4_MEMBERS(T, Q, tvec4, s)
 #				endif//GLM_SWIZZLE*/
 			};
 		
