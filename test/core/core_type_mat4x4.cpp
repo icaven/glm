@@ -1,3 +1,4 @@
+#include <glm/gtc/constants.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <glm/matrix.hpp>
 #include <glm/mat2x2.hpp>
@@ -263,7 +264,7 @@ namespace cast
 		glm::mat4x4 Identity(1.0f);
 
 		for(glm::length_t i = 0, length = B.length(); i < length; ++i)
-			Error += glm::all(glm::equal(B[i], Identity[i])) ? 0 : 1;
+			Error += glm::all(glm::epsilonEqual(B[i], Identity[i], glm::epsilon<float>())) ? 0 : 1;
 
 		return Error;
 	}
