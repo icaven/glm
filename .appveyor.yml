@@ -8,6 +8,7 @@ platform:
   - x86_64
 
 build_script:
+- cmake --version
 - md build_pure_11
 - cd build_pure_11
 - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_FORCE_PURE=ON ..

@@ -30,6 +30,7 @@ compiler:
 before_script: 
 
 script:
+- cmake --version
 - mkdir ./build_pure_11
 - cd ./build_pure_11
 - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_FORCE_PURE=ON ..
