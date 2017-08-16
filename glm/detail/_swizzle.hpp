@@ -55,7 +55,7 @@ namespace detail
 			containing duplicate elements so that they cannot be used as r-values).            
 	*/
 	template<int N, typename T, qualifier Q, int E0, int E1, int E2, int E3, int DUPLICATE_ELEMENTS>
-	struct _swizzle_base2 : public _swizzle_base1<N, T, P, E0,E1,E2,E3, detail::is_aligned<P>::value>
+	struct _swizzle_base2 : public _swizzle_base1<N, T, Q, E0,E1,E2,E3, detail::is_aligned<P>::value>
 	{
 		GLM_FUNC_QUALIFIER _swizzle_base2& operator= (const T& t)
 		{
@@ -133,7 +133,7 @@ namespace detail
 
 	// Specialization for swizzles containing duplicate elements.  These cannot be modified.
 	template<int N, typename T, qualifier Q, int E0, int E1, int E2, int E3>
-	struct _swizzle_base2<N, T, P, E0,E1,E2,E3, 1> : public _swizzle_base1<N, T, P, E0,E1,E2,E3, detail::is_aligned<P>::value>
+	struct _swizzle_base2<N, T, Q, E0,E1,E2,E3, 1> : public _swizzle_base1<N, T, P, E0,E1,E2,E3, detail::is_aligned<P>::value>
 	{
 		struct Stub {};
 
@@ -147,7 +147,7 @@ namespace detail
 	};
 
 	template<int N, typename T, qualifier Q, int E0, int E1, int E2, int E3>
-	struct _swizzle : public _swizzle_base2<N, T, P, E0, E1, E2, E3, (E0 == E1 || E0 == E2 || E0 == E3 || E1 == E2 || E1 == E3 || E2 == E3)>
+	struct _swizzle : public _swizzle_base2<N, T, Q, E0, E1, E2, E3, (E0 == E1 || E0 == E2 || E0 == E3 || E1 == E2 || E1 == E3 || E2 == E3)>
 	{
 		typedef _swizzle_base2<N, T, P, E0, E1, E2, E3, (E0 == E1 || E0 == E2 || E0 == E3 || E1 == E2 || E1 == E3 || E2 == E3)> base_type;
 
@@ -161,25 +161,25 @@ namespace detail
 //
 #define GLM_SWIZZLE_TEMPLATE1   template<int N, typename T, qualifier Q, int E0, int E1, int E2, int E3>
 #define GLM_SWIZZLE_TEMPLATE2   template<int N, typename T, qualifier Q, int E0, int E1, int E2, int E3, int F0, int F1, int F2, int F3>
-#define GLM_SWIZZLE_TYPE1       _swizzle<N, T, P, E0, E1, E2, E3>
-#define GLM_SWIZZLE_TYPE2       _swizzle<N, T, P, F0, F1, F2, F3>
+#define GLM_SWIZZLE_TYPE1       _swizzle<N, T, Q, E0, E1, E2, E3>
+#define GLM_SWIZZLE_TYPE2       _swizzle<N, T, Q, F0, F1, F2, F3>
 
 //
 // Wrapper for a binary operator (e.g. u.yy + v.zy)
 //
 #define GLM_SWIZZLE_VECTOR_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)                 \
 	GLM_SWIZZLE_TEMPLATE2                                                          \
-	GLM_FUNC_QUALIFIER vec<N, T, P> operator OPERAND ( const GLM_SWIZZLE_TYPE1& a, const GLM_SWIZZLE_TYPE2& b)  \
+	GLM_FUNC_QUALIFIER vec<N, T, Q> operator OPERAND ( const GLM_SWIZZLE_TYPE1& a, const GLM_SWIZZLE_TYPE2& b)  \
 	{                                                                               \
 		return a() OPERAND b();                                                     \
 	}                                                                               \
 	GLM_SWIZZLE_TEMPLATE1                                                          \
-	GLM_FUNC_QUALIFIER vec<N, T, P> operator OPERAND ( const GLM_SWIZZLE_TYPE1& a, const vec<N, T, P>& b)                   \
+	GLM_FUNC_QUALIFIER vec<N, T, Q> operator OPERAND ( const GLM_SWIZZLE_TYPE1& a, const vec<N, T, P>& b)                   \
 	{                                                                               \
 		return a() OPERAND b;                                                       \
 	}                                                                               \
 	GLM_SWIZZLE_TEMPLATE1                                                          \
-	GLM_FUNC_QUALIFIER vec<N, T, P> operator OPERAND ( const vec<N, T, P>& a, const GLM_SWIZZLE_TYPE1& b)                   \
+	GLM_FUNC_QUALIFIER vec<N, T, Q> operator OPERAND ( const vec<N, T, P>& a, const GLM_SWIZZLE_TYPE1& b)                   \
 	{                                                                               \
 		return a OPERAND b();                                                       \
 	}
@@ -189,12 +189,12 @@ namespace detail
 //
 #define GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)                 \
 	GLM_SWIZZLE_TEMPLATE1                                                          \
-	GLM_FUNC_QUALIFIER vec<N, T, P> operator OPERAND ( const GLM_SWIZZLE_TYPE1& a, const T& b)                   \
+	GLM_FUNC_QUALIFIER vec<N, T, Q> operator OPERAND ( const GLM_SWIZZLE_TYPE1& a, const T& b)                   \
 	{                                                                               \
 		return a() OPERAND b;                                                       \
 	}                                                                               \
 	GLM_SWIZZLE_TEMPLATE1                                                          \
-	GLM_FUNC_QUALIFIER vec<N, T, P> operator OPERAND ( const T& a, const GLM_SWIZZLE_TYPE1& b)                   \
+	GLM_FUNC_QUALIFIER vec<N, T, Q> operator OPERAND ( const T& a, const GLM_SWIZZLE_TYPE1& b)                   \
 	{                                                                               \
 		return a OPERAND b();                                                       \
 	}
@@ -296,52 +296,52 @@ namespace glm
 	//GLM_SWIZZLE_FUNCTION_2_ARGS_SCALAR(vec_type, mix);
 }
 
-#define GLM_SWIZZLE2_2_MEMBERS(T, P, E0,E1) \
+#define GLM_SWIZZLE2_2_MEMBERS(T, Q, E0,E1) \
 	struct { detail::_swizzle<2, T, Q, 0,0,-1,-2> E0 ## E0; }; \
 	struct { detail::_swizzle<2, T, Q, 0,1,-1,-2> E0 ## E1; }; \
 	struct { detail::_swizzle<2, T, Q, 1,0,-1,-2> E1 ## E0; }; \
 	struct { detail::_swizzle<2, T, Q, 1,1,-1,-2> E1 ## E1; }; 
 
-#define GLM_SWIZZLE2_3_MEMBERS(T, P, E0,E1) \
-	struct { detail::_swizzle<3,T, P, 0,0,0,-1> E0 ## E0 ## E0; }; \
-	struct { detail::_swizzle<3,T, P, 0,0,1,-1> E0 ## E0 ## E1; }; \
-	struct { detail::_swizzle<3,T, P, 0,1,0,-1> E0 ## E1 ## E0; }; \
-	struct { detail::_swizzle<3,T, P, 0,1,1,-1> E0 ## E1 ## E1; }; \
-	struct { detail::_swizzle<3,T, P, 1,0,0,-1> E1 ## E0 ## E0; }; \
-	struct { detail::_swizzle<3,T, P, 1,0,1,-1> E1 ## E0 ## E1; }; \
-	struct { detail::_swizzle<3,T, P, 1,1,0,-1> E1 ## E1 ## E0; }; \
-	struct { detail::_swizzle<3,T, P, 1,1,1,-1> E1 ## E1 ## E1; };  
+#define GLM_SWIZZLE2_3_MEMBERS(T, Q, E0,E1) \
+	struct { detail::_swizzle<3,T, Q, 0,0,0,-1> E0 ## E0 ## E0; }; \
+	struct { detail::_swizzle<3,T, Q, 0,0,1,-1> E0 ## E0 ## E1; }; \
+	struct { detail::_swizzle<3,T, Q, 0,1,0,-1> E0 ## E1 ## E0; }; \
+	struct { detail::_swizzle<3,T, Q, 0,1,1,-1> E0 ## E1 ## E1; }; \
+	struct { detail::_swizzle<3,T, Q, 1,0,0,-1> E1 ## E0 ## E0; }; \
+	struct { detail::_swizzle<3,T, Q, 1,0,1,-1> E1 ## E0 ## E1; }; \
+	struct { detail::_swizzle<3,T, Q, 1,1,0,-1> E1 ## E1 ## E0; }; \
+	struct { detail::_swizzle<3,T, Q, 1,1,1,-1> E1 ## E1 ## E1; };  
 
-#define GLM_SWIZZLE2_4_MEMBERS(T, P, E0,E1) \
-	struct { detail::_swizzle<4,T, P, 0,0,0,0> E0 ## E0 ## E0 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 0,0,0,1> E0 ## E0 ## E0 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 0,0,1,0> E0 ## E0 ## E1 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 0,0,1,1> E0 ## E0 ## E1 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 0,1,0,0> E0 ## E1 ## E0 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 0,1,0,1> E0 ## E1 ## E0 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 0,1,1,0> E0 ## E1 ## E1 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 0,1,1,1> E0 ## E1 ## E1 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 1,0,0,0> E1 ## E0 ## E0 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 1,0,0,1> E1 ## E0 ## E0 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 1,0,1,0> E1 ## E0 ## E1 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 1,0,1,1> E1 ## E0 ## E1 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 1,1,0,0> E1 ## E1 ## E0 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 1,1,0,1> E1 ## E1 ## E0 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 1,1,1,0> E1 ## E1 ## E1 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 1,1,1,1> E1 ## E1 ## E1 ## E1; };
+#define GLM_SWIZZLE2_4_MEMBERS(T, Q, E0,E1) \
+	struct { detail::_swizzle<4,T, Q, 0,0,0,0> E0 ## E0 ## E0 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 0,0,0,1> E0 ## E0 ## E0 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 0,0,1,0> E0 ## E0 ## E1 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 0,0,1,1> E0 ## E0 ## E1 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 0,1,0,0> E0 ## E1 ## E0 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 0,1,0,1> E0 ## E1 ## E0 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 0,1,1,0> E0 ## E1 ## E1 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 0,1,1,1> E0 ## E1 ## E1 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 1,0,0,0> E1 ## E0 ## E0 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 1,0,0,1> E1 ## E0 ## E0 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 1,0,1,0> E1 ## E0 ## E1 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 1,0,1,1> E1 ## E0 ## E1 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 1,1,0,0> E1 ## E1 ## E0 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 1,1,0,1> E1 ## E1 ## E0 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 1,1,1,0> E1 ## E1 ## E1 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 1,1,1,1> E1 ## E1 ## E1 ## E1; };
 
-#define GLM_SWIZZLE3_2_MEMBERS(T, P, E0,E1,E2) \
-	struct { detail::_swizzle<2,T, P, 0,0,-1,-2> E0 ## E0; }; \
-	struct { detail::_swizzle<2,T, P, 0,1,-1,-2> E0 ## E1; }; \
-	struct { detail::_swizzle<2,T, P, 0,2,-1,-2> E0 ## E2; }; \
-	struct { detail::_swizzle<2,T, P, 1,0,-1,-2> E1 ## E0; }; \
-	struct { detail::_swizzle<2,T, P, 1,1,-1,-2> E1 ## E1; }; \
-	struct { detail::_swizzle<2,T, P, 1,2,-1,-2> E1 ## E2; }; \
-	struct { detail::_swizzle<2,T, P, 2,0,-1,-2> E2 ## E0; }; \
-	struct { detail::_swizzle<2,T, P, 2,1,-1,-2> E2 ## E1; }; \
-	struct { detail::_swizzle<2,T, P, 2,2,-1,-2> E2 ## E2; };
+#define GLM_SWIZZLE3_2_MEMBERS(T, Q, E0,E1,E2) \
+	struct { detail::_swizzle<2,T, Q, 0,0,-1,-2> E0 ## E0; }; \
+	struct { detail::_swizzle<2,T, Q, 0,1,-1,-2> E0 ## E1; }; \
+	struct { detail::_swizzle<2,T, Q, 0,2,-1,-2> E0 ## E2; }; \
+	struct { detail::_swizzle<2,T, Q, 1,0,-1,-2> E1 ## E0; }; \
+	struct { detail::_swizzle<2,T, Q, 1,1,-1,-2> E1 ## E1; }; \
+	struct { detail::_swizzle<2,T, Q, 1,2,-1,-2> E1 ## E2; }; \
+	struct { detail::_swizzle<2,T, Q, 2,0,-1,-2> E2 ## E0; }; \
+	struct { detail::_swizzle<2,T, Q, 2,1,-1,-2> E2 ## E1; }; \
+	struct { detail::_swizzle<2,T, Q, 2,2,-1,-2> E2 ## E2; };
 
-#define GLM_SWIZZLE3_3_MEMBERS(T, P ,E0,E1,E2) \
+#define GLM_SWIZZLE3_3_MEMBERS(T, Q ,E0,E1,E2) \
 	struct { detail::_swizzle<3, T, Q, 0,0,0,-1> E0 ## E0 ## E0; }; \
 	struct { detail::_swizzle<3, T, Q, 0,0,1,-1> E0 ## E0 ## E1; }; \
 	struct { detail::_swizzle<3, T, Q, 0,0,2,-1> E0 ## E0 ## E2; }; \
@@ -370,108 +370,108 @@ namespace glm
 	struct { detail::_swizzle<3, T, Q, 2,2,1,-1> E2 ## E2 ## E1; }; \
 	struct { detail::_swizzle<3, T, Q, 2,2,2,-1> E2 ## E2 ## E2; };
 
-#define GLM_SWIZZLE3_4_MEMBERS(T, P, E0,E1,E2) \
-	struct { detail::_swizzle<4,T, P, 0,0,0,0> E0 ## E0 ## E0 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 0,0,0,1> E0 ## E0 ## E0 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 0,0,0,2> E0 ## E0 ## E0 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 0,0,1,0> E0 ## E0 ## E1 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 0,0,1,1> E0 ## E0 ## E1 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 0,0,1,2> E0 ## E0 ## E1 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 0,0,2,0> E0 ## E0 ## E2 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 0,0,2,1> E0 ## E0 ## E2 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 0,0,2,2> E0 ## E0 ## E2 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 0,1,0,0> E0 ## E1 ## E0 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 0,1,0,1> E0 ## E1 ## E0 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 0,1,0,2> E0 ## E1 ## E0 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 0,1,1,0> E0 ## E1 ## E1 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 0,1,1,1> E0 ## E1 ## E1 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 0,1,1,2> E0 ## E1 ## E1 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 0,1,2,0> E0 ## E1 ## E2 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 0,1,2,1> E0 ## E1 ## E2 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 0,1,2,2> E0 ## E1 ## E2 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 0,2,0,0> E0 ## E2 ## E0 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 0,2,0,1> E0 ## E2 ## E0 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 0,2,0,2> E0 ## E2 ## E0 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 0,2,1,0> E0 ## E2 ## E1 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 0,2,1,1> E0 ## E2 ## E1 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 0,2,1,2> E0 ## E2 ## E1 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 0,2,2,0> E0 ## E2 ## E2 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 0,2,2,1> E0 ## E2 ## E2 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 0,2,2,2> E0 ## E2 ## E2 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 1,0,0,0> E1 ## E0 ## E0 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 1,0,0,1> E1 ## E0 ## E0 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 1,0,0,2> E1 ## E0 ## E0 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 1,0,1,0> E1 ## E0 ## E1 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 1,0,1,1> E1 ## E0 ## E1 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 1,0,1,2> E1 ## E0 ## E1 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 1,0,2,0> E1 ## E0 ## E2 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 1,0,2,1> E1 ## E0 ## E2 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 1,0,2,2> E1 ## E0 ## E2 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 1,1,0,0> E1 ## E1 ## E0 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 1,1,0,1> E1 ## E1 ## E0 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 1,1,0,2> E1 ## E1 ## E0 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 1,1,1,0> E1 ## E1 ## E1 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 1,1,1,1> E1 ## E1 ## E1 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 1,1,1,2> E1 ## E1 ## E1 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 1,1,2,0> E1 ## E1 ## E2 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 1,1,2,1> E1 ## E1 ## E2 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 1,1,2,2> E1 ## E1 ## E2 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 1,2,0,0> E1 ## E2 ## E0 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 1,2,0,1> E1 ## E2 ## E0 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 1,2,0,2> E1 ## E2 ## E0 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 1,2,1,0> E1 ## E2 ## E1 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 1,2,1,1> E1 ## E2 ## E1 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 1,2,1,2> E1 ## E2 ## E1 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 1,2,2,0> E1 ## E2 ## E2 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 1,2,2,1> E1 ## E2 ## E2 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 1,2,2,2> E1 ## E2 ## E2 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 2,0,0,0> E2 ## E0 ## E0 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 2,0,0,1> E2 ## E0 ## E0 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 2,0,0,2> E2 ## E0 ## E0 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 2,0,1,0> E2 ## E0 ## E1 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 2,0,1,1> E2 ## E0 ## E1 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 2,0,1,2> E2 ## E0 ## E1 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 2,0,2,0> E2 ## E0 ## E2 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 2,0,2,1> E2 ## E0 ## E2 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 2,0,2,2> E2 ## E0 ## E2 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 2,1,0,0> E2 ## E1 ## E0 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 2,1,0,1> E2 ## E1 ## E0 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 2,1,0,2> E2 ## E1 ## E0 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 2,1,1,0> E2 ## E1 ## E1 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 2,1,1,1> E2 ## E1 ## E1 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 2,1,1,2> E2 ## E1 ## E1 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 2,1,2,0> E2 ## E1 ## E2 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 2,1,2,1> E2 ## E1 ## E2 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 2,1,2,2> E2 ## E1 ## E2 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 2,2,0,0> E2 ## E2 ## E0 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 2,2,0,1> E2 ## E2 ## E0 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 2,2,0,2> E2 ## E2 ## E0 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 2,2,1,0> E2 ## E2 ## E1 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 2,2,1,1> E2 ## E2 ## E1 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 2,2,1,2> E2 ## E2 ## E1 ## E2; }; \
-	struct { detail::_swizzle<4,T, P, 2,2,2,0> E2 ## E2 ## E2 ## E0; }; \
-	struct { detail::_swizzle<4,T, P, 2,2,2,1> E2 ## E2 ## E2 ## E1; }; \
-	struct { detail::_swizzle<4,T, P, 2,2,2,2> E2 ## E2 ## E2 ## E2; }; 
+#define GLM_SWIZZLE3_4_MEMBERS(T, Q, E0,E1,E2) \
+	struct { detail::_swizzle<4,T, Q, 0,0,0,0> E0 ## E0 ## E0 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 0,0,0,1> E0 ## E0 ## E0 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 0,0,0,2> E0 ## E0 ## E0 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 0,0,1,0> E0 ## E0 ## E1 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 0,0,1,1> E0 ## E0 ## E1 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 0,0,1,2> E0 ## E0 ## E1 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 0,0,2,0> E0 ## E0 ## E2 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 0,0,2,1> E0 ## E0 ## E2 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 0,0,2,2> E0 ## E0 ## E2 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 0,1,0,0> E0 ## E1 ## E0 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 0,1,0,1> E0 ## E1 ## E0 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 0,1,0,2> E0 ## E1 ## E0 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 0,1,1,0> E0 ## E1 ## E1 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 0,1,1,1> E0 ## E1 ## E1 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 0,1,1,2> E0 ## E1 ## E1 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 0,1,2,0> E0 ## E1 ## E2 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 0,1,2,1> E0 ## E1 ## E2 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 0,1,2,2> E0 ## E1 ## E2 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 0,2,0,0> E0 ## E2 ## E0 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 0,2,0,1> E0 ## E2 ## E0 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 0,2,0,2> E0 ## E2 ## E0 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 0,2,1,0> E0 ## E2 ## E1 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 0,2,1,1> E0 ## E2 ## E1 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 0,2,1,2> E0 ## E2 ## E1 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 0,2,2,0> E0 ## E2 ## E2 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 0,2,2,1> E0 ## E2 ## E2 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 0,2,2,2> E0 ## E2 ## E2 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 1,0,0,0> E1 ## E0 ## E0 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 1,0,0,1> E1 ## E0 ## E0 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 1,0,0,2> E1 ## E0 ## E0 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 1,0,1,0> E1 ## E0 ## E1 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 1,0,1,1> E1 ## E0 ## E1 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 1,0,1,2> E1 ## E0 ## E1 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 1,0,2,0> E1 ## E0 ## E2 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 1,0,2,1> E1 ## E0 ## E2 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 1,0,2,2> E1 ## E0 ## E2 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 1,1,0,0> E1 ## E1 ## E0 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 1,1,0,1> E1 ## E1 ## E0 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 1,1,0,2> E1 ## E1 ## E0 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 1,1,1,0> E1 ## E1 ## E1 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 1,1,1,1> E1 ## E1 ## E1 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 1,1,1,2> E1 ## E1 ## E1 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 1,1,2,0> E1 ## E1 ## E2 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 1,1,2,1> E1 ## E1 ## E2 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 1,1,2,2> E1 ## E1 ## E2 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 1,2,0,0> E1 ## E2 ## E0 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 1,2,0,1> E1 ## E2 ## E0 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 1,2,0,2> E1 ## E2 ## E0 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 1,2,1,0> E1 ## E2 ## E1 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 1,2,1,1> E1 ## E2 ## E1 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 1,2,1,2> E1 ## E2 ## E1 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 1,2,2,0> E1 ## E2 ## E2 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 1,2,2,1> E1 ## E2 ## E2 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 1,2,2,2> E1 ## E2 ## E2 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 2,0,0,0> E2 ## E0 ## E0 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 2,0,0,1> E2 ## E0 ## E0 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 2,0,0,2> E2 ## E0 ## E0 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 2,0,1,0> E2 ## E0 ## E1 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 2,0,1,1> E2 ## E0 ## E1 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 2,0,1,2> E2 ## E0 ## E1 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 2,0,2,0> E2 ## E0 ## E2 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 2,0,2,1> E2 ## E0 ## E2 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 2,0,2,2> E2 ## E0 ## E2 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 2,1,0,0> E2 ## E1 ## E0 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 2,1,0,1> E2 ## E1 ## E0 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 2,1,0,2> E2 ## E1 ## E0 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 2,1,1,0> E2 ## E1 ## E1 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 2,1,1,1> E2 ## E1 ## E1 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 2,1,1,2> E2 ## E1 ## E1 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 2,1,2,0> E2 ## E1 ## E2 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 2,1,2,1> E2 ## E1 ## E2 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 2,1,2,2> E2 ## E1 ## E2 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 2,2,0,0> E2 ## E2 ## E0 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 2,2,0,1> E2 ## E2 ## E0 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 2,2,0,2> E2 ## E2 ## E0 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 2,2,1,0> E2 ## E2 ## E1 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 2,2,1,1> E2 ## E2 ## E1 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 2,2,1,2> E2 ## E2 ## E1 ## E2; }; \
+	struct { detail::_swizzle<4,T, Q, 2,2,2,0> E2 ## E2 ## E2 ## E0; }; \
+	struct { detail::_swizzle<4,T, Q, 2,2,2,1> E2 ## E2 ## E2 ## E1; }; \
+	struct { detail::_swizzle<4,T, Q, 2,2,2,2> E2 ## E2 ## E2 ## E2; }; 
 
-#define GLM_SWIZZLE4_2_MEMBERS(T, P, E0,E1,E2,E3) \
-	struct { detail::_swizzle<2,T, P, 0,0,-1,-2> E0 ## E0; }; \
-	struct { detail::_swizzle<2,T, P, 0,1,-1,-2> E0 ## E1; }; \
-	struct { detail::_swizzle<2,T, P, 0,2,-1,-2> E0 ## E2; }; \
-	struct { detail::_swizzle<2,T, P, 0,3,-1,-2> E0 ## E3; }; \
-	struct { detail::_swizzle<2,T, P, 1,0,-1,-2> E1 ## E0; }; \
-	struct { detail::_swizzle<2,T, P, 1,1,-1,-2> E1 ## E1; }; \
-	struct { detail::_swizzle<2,T, P, 1,2,-1,-2> E1 ## E2; }; \
-	struct { detail::_swizzle<2,T, P, 1,3,-1,-2> E1 ## E3; }; \
-	struct { detail::_swizzle<2,T, P, 2,0,-1,-2> E2 ## E0; }; \
-	struct { detail::_swizzle<2,T, P, 2,1,-1,-2> E2 ## E1; }; \
-	struct { detail::_swizzle<2,T, P, 2,2,-1,-2> E2 ## E2; }; \
-	struct { detail::_swizzle<2,T, P, 2,3,-1,-2> E2 ## E3; }; \
-	struct { detail::_swizzle<2,T, P, 3,0,-1,-2> E3 ## E0; }; \
-	struct { detail::_swizzle<2,T, P, 3,1,-1,-2> E3 ## E1; }; \
-	struct { detail::_swizzle<2,T, P, 3,2,-1,-2> E3 ## E2; }; \
-	struct { detail::_swizzle<2,T, P, 3,3,-1,-2> E3 ## E3; }; 
+#define GLM_SWIZZLE4_2_MEMBERS(T, Q, E0,E1,E2,E3) \
+	struct { detail::_swizzle<2,T, Q, 0,0,-1,-2> E0 ## E0; }; \
+	struct { detail::_swizzle<2,T, Q, 0,1,-1,-2> E0 ## E1; }; \
+	struct { detail::_swizzle<2,T, Q, 0,2,-1,-2> E0 ## E2; }; \
+	struct { detail::_swizzle<2,T, Q, 0,3,-1,-2> E0 ## E3; }; \
+	struct { detail::_swizzle<2,T, Q, 1,0,-1,-2> E1 ## E0; }; \
+	struct { detail::_swizzle<2,T, Q, 1,1,-1,-2> E1 ## E1; }; \
+	struct { detail::_swizzle<2,T, Q, 1,2,-1,-2> E1 ## E2; }; \
+	struct { detail::_swizzle<2,T, Q, 1,3,-1,-2> E1 ## E3; }; \
+	struct { detail::_swizzle<2,T, Q, 2,0,-1,-2> E2 ## E0; }; \
+	struct { detail::_swizzle<2,T, Q, 2,1,-1,-2> E2 ## E1; }; \
+	struct { detail::_swizzle<2,T, Q, 2,2,-1,-2> E2 ## E2; }; \
+	struct { detail::_swizzle<2,T, Q, 2,3,-1,-2> E2 ## E3; }; \
+	struct { detail::_swizzle<2,T, Q, 3,0,-1,-2> E3 ## E0; }; \
+	struct { detail::_swizzle<2,T, Q, 3,1,-1,-2> E3 ## E1; }; \
+	struct { detail::_swizzle<2,T, Q, 3,2,-1,-2> E3 ## E2; }; \
+	struct { detail::_swizzle<2,T, Q, 3,3,-1,-2> E3 ## E3; }; 
 
-#define GLM_SWIZZLE4_3_MEMBERS(T, P, E0,E1,E2,E3) \
+#define GLM_SWIZZLE4_3_MEMBERS(T, Q, E0,E1,E2,E3) \
 	struct { detail::_swizzle<3, T, Q, 0,0,0,-1> E0 ## E0 ## E0; }; \
 	struct { detail::_swizzle<3, T, Q, 0,0,1,-1> E0 ## E0 ## E1; }; \
 	struct { detail::_swizzle<3, T, Q, 0,0,2,-1> E0 ## E0 ## E2; }; \
@@ -537,7 +537,7 @@ namespace glm
 	struct { detail::_swizzle<3, T, Q, 3,3,2,-1> E3 ## E3 ## E2; }; \
 	struct { detail::_swizzle<3, T, Q, 3,3,3,-1> E3 ## E3 ## E3; };  
 
-#define GLM_SWIZZLE4_4_MEMBERS(T, P, E0,E1,E2,E3) \
+#define GLM_SWIZZLE4_4_MEMBERS(T, Q, E0,E1,E2,E3) \
 	struct { detail::_swizzle<4, T, Q, 0,0,0,0> E0 ## E0 ## E0 ## E0; }; \
 	struct { detail::_swizzle<4, T, Q, 0,0,0,1> E0 ## E0 ## E0 ## E1; }; \
 	struct { detail::_swizzle<4, T, Q, 0,0,0,2> E0 ## E0 ## E0 ## E2; }; \
