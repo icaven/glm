@@ -133,7 +133,7 @@ namespace detail
 
 	// Specialization for swizzles containing duplicate elements.  These cannot be modified.
 	template<int N, typename T, qualifier Q, int E0, int E1, int E2, int E3>
-	struct _swizzle_base2<N, T, Q, E0,E1,E2,E3, 1> : public _swizzle_base1<N, T, P, E0,E1,E2,E3, detail::is_aligned<Q>::value>
+	struct _swizzle_base2<N, T, Q, E0,E1,E2,E3, 1> : public _swizzle_base1<N, T, Q, E0,E1,E2,E3, detail::is_aligned<Q>::value>
 	{
 		struct Stub {};
 
@@ -149,11 +149,11 @@ namespace detail
 	template<int N, typename T, qualifier Q, int E0, int E1, int E2, int E3>
 	struct _swizzle : public _swizzle_base2<N, T, Q, E0, E1, E2, E3, (E0 == E1 || E0 == E2 || E0 == E3 || E1 == E2 || E1 == E3 || E2 == E3)>
 	{
-		typedef _swizzle_base2<N, T, P, E0, E1, E2, E3, (E0 == E1 || E0 == E2 || E0 == E3 || E1 == E2 || E1 == E3 || E2 == E3)> base_type;
+		typedef _swizzle_base2<N, T, Q, E0, E1, E2, E3, (E0 == E1 || E0 == E2 || E0 == E3 || E1 == E2 || E1 == E3 || E2 == E3)> base_type;
 
 		using base_type::operator=;
 
-		GLM_FUNC_QUALIFIER operator vec<N, T, P> () const { return (*this)(); }
+		GLM_FUNC_QUALIFIER operator vec<N, T, Q> () const { return (*this)(); }
 	};
 
 //
@@ -174,12 +174,12 @@ namespace detail
 		return a() OPERAND b();                                                     \
 	}                                                                               \
 	GLM_SWIZZLE_TEMPLATE1                                                          \
-	GLM_FUNC_QUALIFIER vec<N, T, Q> operator OPERAND ( const GLM_SWIZZLE_TYPE1& a, const vec<N, T, P>& b)                   \
+	GLM_FUNC_QUALIFIER vec<N, T, Q> operator OPERAND ( const GLM_SWIZZLE_TYPE1& a, const vec<N, T, Q>& b)                   \
 	{                                                                               \
 		return a() OPERAND b;                                                       \
 	}                                                                               \
 	GLM_SWIZZLE_TEMPLATE1                                                          \
-	GLM_FUNC_QUALIFIER vec<N, T, Q> operator OPERAND ( const vec<N, T, P>& a, const GLM_SWIZZLE_TYPE1& b)                   \
+	GLM_FUNC_QUALIFIER vec<N, T, Q> operator OPERAND ( const vec<N, T, Q>& a, const GLM_SWIZZLE_TYPE1& b)                   \
 	{                                                                               \
 		return a OPERAND b();                                                       \
 	}
