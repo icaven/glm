@@ -104,6 +104,17 @@ static int test_vec4_ctor()
 	}
 #endif// GLM_HAS_UNRESTRICTED_UNIONS && defined(GLM_FORCE_SWIZZLE)
 
+#	if GLM_HAS_CONSTEXPR && GLM_ARCH == GLM_ARCH_PURE
+	{
+		constexpr glm::ivec4 v(1);
+
+		Error += v.x == 1 ? 0 : 1;
+		Error += v.y == 1 ? 0 : 1;
+		Error += v.z == 1 ? 0 : 1;
+		Error += v.w == 1 ? 0 : 1;
+	}
+#	endif
+
 	{
 		glm::vec4 A(1);
 		glm::vec4 B(1, 1, 1, 1);
@@ -577,10 +588,13 @@ int main()
 */
 
 #	ifdef NDEBUG
-		std::size_t const Size(1000000);
-		Error += test_vec4_perf_AoS(Size);
-		Error += test_vec4_perf_SoA(Size);
+	std::size_t const Size(1000000);
+#	else
+	std::size_t const Size(1);
 #	endif//NDEBUG
+
+	Error += test_vec4_perf_AoS(Size);
+	Error += test_vec4_perf_SoA(Size);
 
 	Error += test_vec4_ctor();
 	Error += test_bvec4_ctor();

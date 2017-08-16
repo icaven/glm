@@ -842,7 +842,6 @@ namespace glm
 	/// @see gtc_type_precision
 	typedef mat<4, 4, f64, defaultp> f64mat4x4;
 
-
 	//////////////////////////
 	// Quaternion types
 

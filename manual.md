@@ -65,6 +65,7 @@
 + [7.10. Why some GLM functions can crash because of division by zero?](#section7_10)
 + [7.11. What unit for angles us used in GLM?](#section7_11)
 + [7.12. Windows headers cause build errors...](#section7_12)
++ [7.13. Constant expressions support](#section7_13)
 + [8. Code samples](#section8)
 + [8.1. Compute a triangle normal](#section8_1)
 + [8.2. Matrix transform](#section8_2)
@@ -1091,6 +1092,11 @@ the [link](http://www.g-truc.net/post-0693.html#menu).
 Some Windows headers define min and max as macros which may cause compatibility with third party libraries such as GLM.
 It is highly recommended to [define NOMINMAX](http://stackoverflow.com/questions/4913922/possible-problems-with-nominmax-on-visual-c) before including Windows headers to workaround this issue.
 To workaround the incompatibility with these macros, GLM will systematically undef these macros if they are defined.
+
+### <a name="section7_13"></a> 7.13. Constant expressions support
+
+GLM has some C++ <a href="http://en.cppreference.com/w/cpp/language/constexpr">constant expressions</a> support. However, GLM automatically detects the use of SIMD instruction sets through compiler arguments to populate its implementation with SIMD intrinsics.
+Unfortunately, GCC and Clang doesn't support SIMD instrinsics as constant expressions. To allow constant expressions on all vectors and matrices types, define GLM\_FORCE\_PURE before including GLM headers.
 
 ---
 ## <a name="section8"></a> 8. Code samples
