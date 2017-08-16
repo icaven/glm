@@ -12,13 +12,13 @@ namespace glm{
 namespace detail
 {
 	template<qualifier Q>
-	struct compute_matrixCompMult<mat, 4, 4, float, P, true>
+	struct compute_matrixCompMult<mat, 4, 4, float, Q, true>
 	{
 		GLM_STATIC_ASSERT(detail::is_aligned<P>::value, "Specialization requires aligned");
 
-		GLM_FUNC_QUALIFIER static mat<4, 4, float, P> call(mat<4, 4, float, Q> const& x, mat<4, 4, float, Q> const& y)
+		GLM_FUNC_QUALIFIER static mat<4, 4, float, Q> call(mat<4, 4, float, Q> const& x, mat<4, 4, float, Q> const& y)
 		{
-			mat<4, 4, float, P> Result;
+			mat<4, 4, float, Q> Result;
 			glm_mat4_matrixCompMult(
 				*static_cast<glm_vec4 const (*)[4]>(&x[0].data),
 				*static_cast<glm_vec4 const (*)[4]>(&y[0].data),
@@ -28,11 +28,11 @@ namespace detail
 	};
 
 	template<qualifier Q>
-	struct compute_transpose<mat, 4, 4, float, P, true>
+	struct compute_transpose<mat, 4, 4, float, Q, true>
 	{
-		GLM_FUNC_QUALIFIER static mat<4, 4, float, P> call(mat<4, 4, float, Q> const& m)
+		GLM_FUNC_QUALIFIER static mat<4, 4, float, Q> call(mat<4, 4, float, Q> const& m)
 		{
-			mat<4, 4, float, P> Result;
+			mat<4, 4, float, Q> Result;
 			glm_mat4_transpose(
 				*static_cast<glm_vec4 const (*)[4]>(&m[0].data),
 				*static_cast<glm_vec4(*)[4]>(&Result[0].data));
@@ -41,7 +41,7 @@ namespace detail
 	};
 
 	template<qualifier Q>
-	struct compute_determinant<mat, 4, 4, float, P, true>
+	struct compute_determinant<mat, 4, 4, float, Q, true>
 	{
 		GLM_FUNC_QUALIFIER static float call(mat<4, 4, float, Q> const& m)
 		{
@@ -50,11 +50,11 @@ namespace detail
 	};
 
 	template<qualifier Q>
-	struct compute_inverse<mat, 4, 4, float, P, true>
+	struct compute_inverse<mat, 4, 4, float, Q, true>
 	{
-		GLM_FUNC_QUALIFIER static mat<4, 4, float, P> call(mat<4, 4, float, Q> const& m)
+		GLM_FUNC_QUALIFIER static mat<4, 4, float, Q> call(mat<4, 4, float, Q> const& m)
 		{
-			mat<4, 4, float, P> Result;
+			mat<4, 4, float, Q> Result;
 			glm_mat4_inverse(*reinterpret_cast<__m128 const(*)[4]>(&m[0].data), *reinterpret_cast<__m128(*)[4]>(&Result[0].data));
 			return Result;
 		}
