@@ -55,7 +55,7 @@ namespace detail
 			containing duplicate elements so that they cannot be used as r-values).            
 	*/
 	template<int N, typename T, qualifier Q, int E0, int E1, int E2, int E3, int DUPLICATE_ELEMENTS>
-	struct _swizzle_base2 : public _swizzle_base1<N, T, Q, E0,E1,E2,E3, detail::is_aligned<P>::value>
+	struct _swizzle_base2 : public _swizzle_base1<N, T, Q, E0,E1,E2,E3, detail::is_aligned<Q>::value>
 	{
 		GLM_FUNC_QUALIFIER _swizzle_base2& operator= (const T& t)
 		{
@@ -133,7 +133,7 @@ namespace detail
 
 	// Specialization for swizzles containing duplicate elements.  These cannot be modified.
 	template<int N, typename T, qualifier Q, int E0, int E1, int E2, int E3>
-	struct _swizzle_base2<N, T, Q, E0,E1,E2,E3, 1> : public _swizzle_base1<N, T, P, E0,E1,E2,E3, detail::is_aligned<P>::value>
+	struct _swizzle_base2<N, T, Q, E0,E1,E2,E3, 1> : public _swizzle_base1<N, T, P, E0,E1,E2,E3, detail::is_aligned<Q>::value>
 	{
 		struct Stub {};
 
