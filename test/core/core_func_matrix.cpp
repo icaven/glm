@@ -264,13 +264,16 @@ int main()
 	Error += test_inverse_simd();
 
 #	ifdef NDEBUG
-	std::size_t const Samples(1000);
+	std::size_t const Samples = 1000;
+#	else
+	std::size_t const Samples = 1;
+#	endif//NDEBUG
+
 	for(std::size_t i = 0; i < 1; ++i)
 	{
 		Error += test_inverse_perf<glm::vec3, glm::mat4>(Samples, i, "mat4");
 		Error += test_inverse_perf<glm::dvec3, glm::dmat4>(Samples, i, "dmat4");
 	}
-#	endif//NDEBUG
 
 	return Error;
 }
