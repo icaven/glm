@@ -648,11 +648,14 @@ namespace detail
 #	endif
 
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, bool, Q> isnan(vec<L, T, Q> const& x)
+	GLM_FUNC_QUALIFIER vec<L, bool, Q> isnan(vec<L, T, Q> const& v)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isnan' only accept floating-point inputs");
 
-		return detail::functor1<L, bool, T, Q>::call(glm::isnan, x);
+		vec<L, bool, Q> Result;
+		for (length_t l = 0; l < v.length(); ++l)
+			Result[l] = glm::isnan(v[l]);
+		return Result;
 	}
 
 #	if GLM_HAS_CXX11_STL
@@ -687,11 +690,14 @@ namespace detail
 #	endif
 
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, bool, Q> isinf(vec<L, T, Q> const& x)
+	GLM_FUNC_QUALIFIER vec<L, bool, Q> isinf(vec<L, T, Q> const& v)
 	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isnan' only accept floating-point inputs");
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isinf' only accept floating-point inputs");
 
-		return detail::functor1<L, bool, T, Q>::call(glm::isinf, x);
+		vec<L, bool, Q> Result;
+		for (length_t l = 0; l < v.length(); ++l)
+			Result[l] = glm::isinf(v[l]);
+		return Result;
 	}
 
 	GLM_FUNC_QUALIFIER int floatBitsToInt(float const& v)
