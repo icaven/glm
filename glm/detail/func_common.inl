@@ -652,7 +652,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isnan' only accept floating-point inputs");
 
-		return detail::functor1<L, bool, T, Q>::call(isnan, x);
+		return detail::functor1<L, bool, T, Q>::call(glm::isnan, x);
 	}
 
 #	if GLM_HAS_CXX11_STL
@@ -691,7 +691,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'isnan' only accept floating-point inputs");
 
-		return detail::functor1<L, bool, T, Q>::call(isinf, x);
+		return detail::functor1<L, bool, T, Q>::call(glm::isinf, x);
 	}
 
 	GLM_FUNC_QUALIFIER int floatBitsToInt(float const& v)
