@@ -14,7 +14,7 @@
 #pragma once
 
 // Dependency:
-#include "../detail/func_geometric.hpp"
+#include "../geometric.hpp"
 #include "../gtx/quaternion.hpp"
 
 #ifndef GLM_ENABLE_EXPERIMENTAL

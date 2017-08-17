@@ -1,7 +1,7 @@
 /// @ref core
 /// @file glm/detail/type_mat3x3.inl
 
-#include "func_matrix.hpp"
+#include "../matrix.hpp"
 
 namespace glm
 {

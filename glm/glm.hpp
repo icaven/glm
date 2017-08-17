@@ -1,9 +1,9 @@
 /// @ref core
 /// @file glm/glm.hpp
 ///
-/// @defgroup core GLM Core
+/// @defgroup core Core features
 ///
-/// @brief The core of GLM, which implements exactly and only the GLSL specification to the degree possible.
+/// @brief Features that implement in C++ the GLSL specification as closely as possible.
 ///
 /// The GLM core consists of @ref core_types "C++ types that mirror GLSL types" and
 /// C++ functions that mirror the GLSL functions. It also includes 

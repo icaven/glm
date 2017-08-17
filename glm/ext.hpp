@@ -2,19 +2,18 @@
 ///
 /// @ref core (Dependence)
 /// 
-/// @defgroup gtc GTC Extensions (Stable)
+/// @defgroup gtc Stable extensions
 ///
-/// @brief Functions and types that the GLSL specification doesn't define, but useful to have for a C++ program.
+/// @brief Additional features not specified by GLSL specification.
 /// 
 /// GTC extensions aim to be stable. 
 /// 
 /// Even if it's highly unrecommended, it's possible to include all the extensions at once by
 /// including <glm/ext.hpp>. Otherwise, each extension needs to be included  a specific file.
 /// 
-/// @defgroup gtx GTX Extensions (Experimental)
+/// @defgroup gtx Experimental extensions
 /// 
-/// @brief Functions and types that the GLSL specification doesn't define, but 
-/// useful to have for a C++ program.
+/// @brief Experimental features not specified by GLSL specification.
 /// 
 /// Experimental extensions are useful functions and types, but the development of
 /// their API and functionality is not necessarily stable. They can change 

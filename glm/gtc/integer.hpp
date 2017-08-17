@@ -16,9 +16,9 @@
 // Dependencies
 #include "../detail/setup.hpp"
 #include "../detail/qualifier.hpp"
-#include "../detail/func_common.hpp"
-#include "../detail/func_integer.hpp"
-#include "../detail/func_exponential.hpp"
+#include "../common.hpp"
+#include "../integer.hpp"
+#include "../exponential.hpp"
 #include <limits>
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)

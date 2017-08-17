@@ -3,7 +3,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtx_extented_min_max GLM_GTX_extented_min_max
+/// @defgroup gtx_extended_min_max GLM_GTX_extented_min_max
 /// @ingroup gtx
 ///
 /// Include <glm/gtx/extented_min_max.hpp> to use the features of this extension.

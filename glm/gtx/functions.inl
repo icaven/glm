@@ -1,7 +1,7 @@
 /// @ref gtx_functions
 /// @file glm/gtx/functions.inl
 
-#include "../detail/func_exponential.hpp"
+#include "../exponential.hpp"
 
 namespace glm
 {

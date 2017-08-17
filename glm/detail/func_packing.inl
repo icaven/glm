@@ -1,7 +1,7 @@
 /// @ref core
 /// @file glm/detail/func_packing.inl
 
-#include "func_common.hpp"
+#include "../common.hpp"
 #include "type_half.hpp"
 #include "../fwd.hpp"
 
