@@ -16,14 +16,14 @@
 + [2.1. Default C++98 implementation](#section2_1)
 + [2.2. Anonynous union member implementation](#section2_2)
 + [3. Preprocessor options](#section3)
-+ [3.1. Default precision](#section3_1)
-+ [3.2. Compile-time message system](#section3_2)
-+ [3.3. C++ language detection](#section3_3)
++ [3.1. GLM\_PRECISION\_**: Default precision](#section3_1)
++ [3.2. GLM\_FORCE\_MESSAGES: Compile-time message system](#section3_2)
++ [3.3. GLM\_FORCE\_CXX**: C++ language detection](#section3_3)
 + [3.4. SIMD support](#section3_4)
-+ [3.5. Force inline](#section3_5)
-+ [3.6. Vector and matrix static size](#section3_6)
-+ [3.7. Requiring explicit conversions](#section3_7)
-+ [3.8. Removing genType restriction](#section3_8)
++ [3.5. GLM\_FORCE\_INLINE: Force inline](#section3_5)
++ [3.6. GLM\_FORCE\_SIZE\_T\_LENGTH: Vector and matrix static size](#section3_6)
++ [3.7. GLM\_FORCE\_EXPLICIT\_CTOR: Requiring explicit conversions](#section3_7)
++ [3.8. GLM\_FORCE\_UNRESTRICTED\_GENTYPE: Removing genType restriction](#section3_8)
 + [4. Stable extensions](#section4)
 + [4.1. GLM_GTC_bitfield](#section4_1)
 + [4.2. GLM_GTC_color_space](#section4_2)
@@ -320,7 +320,7 @@ void foo()
 ---
 ## <a name="section3"></a> 3. Preprocessor options
 
-### <a name="section3_1"></a> 3.1. Default precision
+### <a name="section3_1"></a> 3.1. GLM\_PRECISION\_**: Default precision
 
 C++ does not provide a way to implement GLSL default precision selection (as defined in GLSL 4.10 specification section 4.5.3) with GLSL-like syntax.
 
@@ -361,7 +361,7 @@ Available defines for unsigned integer types (glm::uvec\*):
 * GLM\_PRECISION\_MEDIUMP\_UINT: Medium precision
 * GLM\_PRECISION\_HIGHP\_UINT: High precision (default)
 
-### <a name="section3_2"></a> 3.2. Compile-time message system
+### <a name="section3_2"></a> 3.2. GLM\_FORCE\_MESSAGES: Compile-time message system
 
 GLM includes a notification system which can display some information at build time:
 
@@ -381,7 +381,7 @@ only once per project build.
 #include <glm/glm.hpp>
 ```
 
-### <a name="section3_3"></a> 3.3. C++ language detection
+### <a name="section3_3"></a> 3.3. GLM\_FORCE\_CXX**: C++ language detection
 
 GLM will automatically take advantage of compilers’ language extensions when enabled. To increase cross platform compatibility and to avoid compiler extensions, a programmer can define GLM\_FORCE\_CXX98 before
 any inclusion of &lt;glm/glm.hpp&gt; to restrict the language feature set C++98:
@@ -431,7 +431,7 @@ The use of intrinsic functions by GLM implementation can be avoided using the de
 
 Additionally, GLM provides a low level SIMD API in glm/simd directory for users who are really interested in writing fast algorithms.
 
-### <a name="section3_5"></a> 3.5. Force inline
+### <a name="section3_5"></a> 3.5. GLM\_FORCE\_INLINE: Force inline
 
 To push further the software performance, a programmer can define GLM\_FORCE\_INLINE before any inclusion of &lt;glm/glm.hpp&gt; to force the compiler to inline GLM code.
 
@@ -440,7 +440,7 @@ To push further the software performance, a programmer can define GLM\_FORCE\_IN
 #include <glm/glm.hpp>
 ```
 
-### <a name="section3_6"></a> 3.6. Vector and matrix static size
+### <a name="section3_6"></a> 3.6. GLM\_FORCE\_SIZE\_T\_LENGTH: Vector and matrix static size
 
 GLSL supports the member function .length() for all vector and matrix types.
 
@@ -469,7 +469,7 @@ void foo(vec4 const& v)
 }
 ```
 
-### <a name="section3_7"></a> 3.7. Requiring explicit conversions
+### <a name="section3_7"></a> 3.7. GLM\_FORCE\_EXPLICIT\_CTOR: Requiring explicit conversions
 
 GLSL supports implicit conversions of vector and matrix types. For example, an ivec4 can be implicitly converted into vec4.
 
@@ -506,7 +506,7 @@ void foo()
 }
 ```
 
-### <a name="section3_8"></a> 3.8. Removing genType restriction
+### <a name="section3_8"></a> 3.8. GLM\_FORCE\_UNRESTRICTED\_GENTYPE: Removing genType restriction
 
 By default GLM only supports basic types as genType for vector, matrix and quaternion types:
 
