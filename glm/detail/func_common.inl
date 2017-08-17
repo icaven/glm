@@ -790,45 +790,15 @@ namespace detail
 		return std::frexp(x, &exp);
 	}
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<1, T, Q> frexp(vec<1, T, Q> const& x, vec<1, int, Q>& exp)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, T, Q> frexp(vec<L, T, Q> const& v, vec<L, int, Q>& exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'frexp' only accept floating-point inputs");
 
-		return vec<1, T, Q>(std::frexp(x.x, &exp.x));
-	}
-
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<2, T, Q> frexp(vec<2, T, Q> const& x, vec<2, int, Q>& exp)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'frexp' only accept floating-point inputs");
-
-		return vec<2, T, Q>(
-			frexp(x.x, exp.x),
-			frexp(x.y, exp.y));
-	}
-
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<3, T, Q> frexp(vec<3, T, Q> const& x, vec<3, int, Q>& exp)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'frexp' only accept floating-point inputs");
-
-		return vec<3, T, Q>(
-			frexp(x.x, exp.x),
-			frexp(x.y, exp.y),
-			frexp(x.z, exp.z));
-	}
-
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<4, T, Q> frexp(vec<4, T, Q> const& x, vec<4, int, Q>& exp)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'frexp' only accept floating-point inputs");
-
-		return vec<4, T, Q>(
-			frexp(x.x, exp.x),
-			frexp(x.y, exp.y),
-			frexp(x.z, exp.z),
-			frexp(x.w, exp.w));
+		vec<L, T, Q> Result;
+		for (length_t l = 0; l < v.length(); ++l)
+			Result[l] = std::frexp(v[l], &exp[l]);
+		return Result;
 	}
 
 	template<typename genType>
@@ -839,46 +809,15 @@ namespace detail
 		return std::ldexp(x, exp);
 	}
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<1, T, Q> ldexp(vec<1, T, Q> const& x, vec<1, int, Q> const& exp)
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, T, Q> ldexp(vec<L, T, Q> const& v, vec<L, int, Q> const& exp)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'ldexp' only accept floating-point inputs");
 
-		return vec<1, T, Q>(
-			ldexp(x.x, exp.x));
-	}
-
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<2, T, Q> ldexp(vec<2, T, Q> const& x, vec<2, int, Q> const& exp)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'ldexp' only accept floating-point inputs");
-
-		return vec<2, T, Q>(
-			ldexp(x.x, exp.x),
-			ldexp(x.y, exp.y));
-	}
-
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<3, T, Q> ldexp(vec<3, T, Q> const& x, vec<3, int, Q> const& exp)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'ldexp' only accept floating-point inputs");
-
-		return vec<3, T, Q>(
-			ldexp(x.x, exp.x),
-			ldexp(x.y, exp.y),
-			ldexp(x.z, exp.z));
-	}
-
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<4, T, Q> ldexp(vec<4, T, Q> const& x, vec<4, int, Q> const& exp)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || GLM_UNRESTRICTED_GENTYPE, "'ldexp' only accept floating-point inputs");
-
-		return vec<4, T, Q>(
-			ldexp(x.x, exp.x),
-			ldexp(x.y, exp.y),
-			ldexp(x.z, exp.z),
-			ldexp(x.w, exp.w));
+		vec<L, T, Q> Result;
+		for (length_t l = 0; l < v.length(); ++l)
+			Result[l] = std::ldexp(v[l], exp[l]);
+		return Result;
 	}
 }//namespace glm
 
