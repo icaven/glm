@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['opengl_20mathematics',['OpenGL Mathematics',['../index.html',1,'']]],
+  ['opengl_20mathematics_20_28glm_29',['OpenGL Mathematics (GLM)',['../index.html',1,'']]],
   ['one',['one',['../a00151.html#ga39c2fb227631ca25894326529bdd1ee5',1,'glm']]],
   ['one_5fover_5fpi',['one_over_pi',['../a00151.html#ga555150da2b06d23c8738981d5013e0eb',1,'glm']]],
   ['one_5fover_5froot_5ftwo',['one_over_root_two',['../a00151.html#ga788fa23a0939bac4d1d0205fb4f35818',1,'glm']]],

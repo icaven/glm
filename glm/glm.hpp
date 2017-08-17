@@ -70,6 +70,11 @@
 /// Even if it's highly unrecommended, it's possible to include all the extensions 
 /// at once by including <glm/ext.hpp>. Otherwise, each extension needs to be 
 /// included  a specific file.
+/// 
+/// @mainpage OpenGL Mathematics (GLM)
+/// - Website: <a href="https://glm.g-truc.net">glm.g-truc.net</a>
+/// - <a href="modules.html">GLM API documentation</a>
+/// - <a href="https://github.com/g-truc/glm/blob/master/manual.md">GLM Manual</a>
 
 #include "detail/_fixes.hpp"
 
