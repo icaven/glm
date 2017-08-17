@@ -6,10 +6,10 @@
 ///
 /// @defgroup gtx_exterior_product GLM_GTX_exterior_product
 /// @ingroup gtx
+///
+/// Include <glm/gtx/exterior_product.hpp> to use the features of this extension.
 /// 
 /// @brief Allow to perform bit operations on integer values
-/// 
-/// <glm/gtc/bitfield.hpp> need to be included to use these functionalities.
 
 #pragma once
 

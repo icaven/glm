@@ -6,11 +6,11 @@
 /// @defgroup gtx_fast_square_root GLM_GTX_fast_square_root
 /// @ingroup gtx
 ///
-/// @brief Fast but less accurate implementations of square root based functions.
+/// Include <glm/gtx/fast_square_root.hpp> to use the features of this extension.
+///
+/// Fast but less accurate implementations of square root based functions.
 /// - Sqrt optimisation based on Newton's method, 
 /// www.gamedev.net/community/forums/topic.asp?topic id=139956
-///
-/// <glm/gtx/fast_square_root.hpp> need to be included to use these functionalities.
 
 #pragma once
 

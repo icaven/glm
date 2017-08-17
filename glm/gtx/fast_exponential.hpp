@@ -7,9 +7,9 @@
 /// @defgroup gtx_fast_exponential GLM_GTX_fast_exponential
 /// @ingroup gtx
 ///
-/// @brief Fast but less accurate implementations of exponential based functions.
+/// Include <glm/gtx/fast_exponential.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/fast_exponential.hpp> need to be included to use these functionalities.
+/// Fast but less accurate implementations of exponential based functions.
 
 #pragma once
 

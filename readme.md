@@ -67,6 +67,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - No more default initialization of vector, matrix and quaternion types
 - Added lowp variant of GTC_color_space convertLinearToSRGB #419
 - Replaced the manual by a markdown version #458
+- Improved API documentation #668
 - Optimized GTC_packing implementation
 - Optimized GTC_noise functions
 - Optimized GTC_color_space HSV to RGB conversions

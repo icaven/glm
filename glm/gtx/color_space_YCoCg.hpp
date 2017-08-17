@@ -6,9 +6,9 @@
 /// @defgroup gtx_color_space_YCoCg GLM_GTX_color_space_YCoCg
 /// @ingroup gtx
 ///
-/// @brief RGB to YCoCg conversions and operations
+/// Include <glm/gtx/color_space_YCoCg.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/color_space_YCoCg.hpp> need to be included to use these functionalities.
+/// RGB to YCoCg conversions and operations
 
 #pragma once
 

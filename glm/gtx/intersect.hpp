@@ -7,9 +7,9 @@
 /// @defgroup gtx_intersect GLM_GTX_intersect
 /// @ingroup gtx
 ///
-/// @brief Add intersection functions
+/// Include <glm/gtx/intersect.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/intersect.hpp> need to be included to use these functionalities.
+/// Add intersection functions
 
 #pragma once
 

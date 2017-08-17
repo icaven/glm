@@ -7,9 +7,9 @@
 /// @defgroup gtc_color_space GLM_GTC_color_space
 /// @ingroup gtc
 ///
-/// @brief Allow to perform bit operations on integer values
+/// Include <glm/gtc/color_space.hpp> to use the features of this extension.
 ///
-/// <glm/gtc/color_space.hpp> need to be included to use these functionalities.
+/// Allow to perform bit operations on integer values
 
 #pragma once
 

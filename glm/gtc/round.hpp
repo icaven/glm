@@ -7,9 +7,9 @@
 /// @defgroup gtc_round GLM_GTC_round
 /// @ingroup gtc
 ///
-/// @brief rounding value to specific boundings
+/// Include <glm/gtc/round.hpp> to use the features of this extension.
 ///
-/// <glm/gtc/round.hpp> need to be included to use these functionalities.
+/// Rounding value to specific boundings
 
 #pragma once
 

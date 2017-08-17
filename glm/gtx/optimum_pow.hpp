@@ -6,9 +6,9 @@
 /// @defgroup gtx_optimum_pow GLM_GTX_optimum_pow
 /// @ingroup gtx
 ///
-/// @brief Integer exponentiation of power functions.
+/// Include <glm/gtx/optimum_pow.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/optimum_pow.hpp> need to be included to use these functionalities.
+/// Integer exponentiation of power functions.
 
 #pragma once
 

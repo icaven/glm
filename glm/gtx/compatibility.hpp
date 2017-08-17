@@ -6,9 +6,9 @@
 /// @defgroup gtx_compatibility GLM_GTX_compatibility
 /// @ingroup gtx
 ///
-/// @brief Provide functions to increase the compatibility with Cg and HLSL languages
+/// Include <glm/gtx/compatibility.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/compatibility.hpp> need to be included to use these functionalities.
+/// Provide functions to increase the compatibility with Cg and HLSL languages
 
 #pragma once
 

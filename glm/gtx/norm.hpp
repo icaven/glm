@@ -7,9 +7,9 @@
 /// @defgroup gtx_norm GLM_GTX_norm
 /// @ingroup gtx
 ///
-/// @brief Various ways to compute vector norms.
-/// 
-/// <glm/gtx/norm.hpp> need to be included to use these functionalities.
+/// Include <glm/gtx/norm.hpp> to use the features of this extension.
+///
+/// Various ways to compute vector norms.
 
 #pragma once
 

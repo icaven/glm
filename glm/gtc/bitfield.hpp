@@ -7,9 +7,9 @@
 /// @defgroup gtc_bitfield GLM_GTC_bitfield
 /// @ingroup gtc
 /// 
-/// @brief Allow to perform bit operations on integer values
+/// Include <glm/gtc/bitfield.hpp> to use the features of this extension.
 /// 
-/// <glm/gtc/bitfield.hpp> need to be included to use these functionalities.
+/// Allow to perform bit operations on integer values
 
 #include "../detail/setup.hpp"
 

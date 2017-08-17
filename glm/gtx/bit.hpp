@@ -5,10 +5,10 @@
 ///
 /// @defgroup gtx_bit GLM_GTX_bit
 /// @ingroup gtx
+///
+/// Include <glm/gtx/bit.hpp> to use the features of this extension.
 /// 
-/// @brief Allow to perform bit operations on integer values
-/// 
-/// <glm/gtx/bit.hpp> need to be included to use these functionalities.
+/// Allow to perform bit operations on integer values
 
 #pragma once
 

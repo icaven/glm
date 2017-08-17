@@ -6,9 +6,9 @@
 /// @defgroup gtx_matrix_factorisation GLM_GTX_matrix_factorisation
 /// @ingroup gtx
 ///
-/// @brief Functions to factor matrices in various forms
+/// Include <glm/gtx/matrix_factorisation.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/matrix_factorisation.hpp> need to be included to use these functionalities.
+/// Functions to factor matrices in various forms
 
 #pragma once
 

@@ -6,9 +6,9 @@
 /// @defgroup gtx_vec_swizzle GLM_GTX_vec_swizzle
 /// @ingroup gtx
 ///
-/// @brief Functions to perform swizzle operation.
+/// Include <glm/gtx/vec_swizzle.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/vec_swizzle.hpp> need to be included to use these functionalities.
+/// Functions to perform swizzle operation.
 
 #pragma once
 

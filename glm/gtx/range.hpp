@@ -5,10 +5,10 @@
 /// @defgroup gtx_range GLM_GTX_range
 /// @ingroup gtx
 ///
-/// @brief Defines begin and end for vectors and matrices. Useful for range-based for loop.
-/// The range is defined over the elements, not over columns or rows (e.g. mat4 has 16 elements).
+/// Include <glm/gtx/range.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/range.hpp> need to be included to use these functionalities.
+/// Defines begin and end for vectors and matrices. Useful for range-based for loop.
+/// The range is defined over the elements, not over columns or rows (e.g. mat4 has 16 elements).
 
 #pragma once
 

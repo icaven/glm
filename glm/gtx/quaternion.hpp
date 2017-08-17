@@ -7,9 +7,9 @@
 /// @defgroup gtx_quaternion GLM_GTX_quaternion
 /// @ingroup gtx
 ///
-/// @brief Extented quaternion types and functions
+/// Include <glm/gtx/quaternion.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/quaternion.hpp> need to be included to use these functionalities.
+/// Extented quaternion types and functions
 
 #pragma once
 

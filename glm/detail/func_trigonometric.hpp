@@ -6,6 +6,8 @@
 /// @defgroup core_func_trigonometric Angle and Trigonometry Functions
 /// @ingroup core
 /// 
+/// Include <glm/trigonometric.hpp> to use these core features.
+///
 /// Function parameters specified as angle are assumed to be in units of radians. 
 /// In no case will any of these functions result in a divide by zero error. If 
 /// the divisor of a ratio is 0, then results will be undefined.

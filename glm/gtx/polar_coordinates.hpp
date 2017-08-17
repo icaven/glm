@@ -6,9 +6,9 @@
 /// @defgroup gtx_polar_coordinates GLM_GTX_polar_coordinates
 /// @ingroup gtx
 ///
-/// @brief Conversion from Euclidean space to polar space and revert.
+/// Include <glm/gtx/polar_coordinates.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/polar_coordinates.hpp> need to be included to use these functionalities.
+/// Conversion from Euclidean space to polar space and revert.
 
 #pragma once
 

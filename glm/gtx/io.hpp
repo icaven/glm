@@ -8,14 +8,14 @@
 ///
 /// @defgroup gtx_io GLM_GTX_io
 /// @ingroup gtx
+///
+/// Include <glm/gtx/io.hpp> to use the features of this extension.
 /// 
-/// @brief std::[w]ostream support for glm types
+/// std::[w]ostream support for glm types
 ///
 /// std::[w]ostream support for glm types + qualifier/width/etc. manipulators
 /// based on howard hinnant's std::chrono io proposal
 /// [http://home.roadrunner.com/~hinnant/bloomington/chrono_io.html]
-///
-/// <glm/gtx/io.hpp> needs to be included to use these functionalities.
 
 #pragma once
 

@@ -6,9 +6,9 @@
 /// @defgroup gtx_extented_min_max GLM_GTX_extented_min_max
 /// @ingroup gtx
 ///
-/// Min and max functions for 3 to 4 parameters.
+/// Include <glm/gtx/extented_min_max.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/extented_min_max.hpp> need to be included to use these functionalities.
+/// Min and max functions for 3 to 4 parameters.
 
 #pragma once
 

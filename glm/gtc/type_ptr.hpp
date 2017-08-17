@@ -7,7 +7,9 @@
 /// @defgroup gtc_type_ptr GLM_GTC_type_ptr
 /// @ingroup gtc
 ///
-/// @brief Handles the interaction between pointers and vector, matrix types.
+/// Include <glm/gtc/type_ptr.hpp> to use the features of this extension.
+///
+/// Handles the interaction between pointers and vector, matrix types.
 ///
 /// This extension defines an overloaded function, glm::value_ptr, which
 /// takes any of the \ref core_template "core template types". It returns
@@ -28,7 +30,7 @@
 /// glUniformMatrix4fv(uniformMatrixLoc, 1, GL_FALSE, glm::value_ptr(someMatrix));
 /// @endcode
 ///
-/// <glm/gtc/type_ptr.hpp> need to be included to use these functionalities.
+/// <glm/gtc/type_ptr.hpp> need to be included to use the features of this extension.
 
 #pragma once
 

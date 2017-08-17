@@ -7,12 +7,12 @@
 /// @defgroup gtc_type_precision GLM_GTC_type_precision
 /// @ingroup gtc
 ///
-/// @brief Defines specific C++-based qualifier types.
+/// Include <glm/gtc/type_precision.hpp> to use the features of this extension.
+///
+/// Defines specific C++-based qualifier types.
 /// 
 /// @ref core_precision defines types based on GLSL's qualifier qualifiers. This
 /// extension defines types based on explicitly-sized C++ data types.
-///
-/// <glm/gtc/type_precision.hpp> need to be included to use these functionalities.
 
 #pragma once
 

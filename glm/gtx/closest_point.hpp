@@ -6,9 +6,9 @@
 /// @defgroup gtx_closest_point GLM_GTX_closest_point
 /// @ingroup gtx
 ///
-/// @brief Find the point on a straight line which is the closet of a point.
+/// Include <glm/gtx/closest_point.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/closest_point.hpp> need to be included to use these functionalities.
+/// Find the point on a straight line which is the closet of a point.
 
 #pragma once
 

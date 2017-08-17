@@ -6,9 +6,9 @@
 /// @defgroup gtx_vector_query GLM_GTX_vector_query
 /// @ingroup gtx
 ///
-/// @brief Query informations of vector types
+/// Include <glm/gtx/vector_query.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/vector_query.hpp> need to be included to use these functionalities.
+/// Query informations of vector types
 
 #pragma once
 

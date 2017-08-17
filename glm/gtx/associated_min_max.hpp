@@ -6,9 +6,10 @@
 ///
 /// @defgroup gtx_associated_min_max GLM_GTX_associated_min_max
 /// @ingroup gtx
+///
+/// Include <glm/gtx/associated_min_max.hpp> to use the features of this extension.
 /// 
 /// @brief Min and max functions that return associated values not the compared onces.
-/// <glm/gtx/associated_min_max.hpp> need to be included to use these functionalities.
 
 #pragma once
 

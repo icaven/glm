@@ -6,9 +6,9 @@
 /// @defgroup gtx_color_space GLM_GTX_color_space
 /// @ingroup gtx
 ///
-/// @brief Related to RGB to HSV conversions and operations.
+/// Include <glm/gtx/color_space.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/color_space.hpp> need to be included to use these functionalities.
+/// Related to RGB to HSV conversions and operations.
 
 #pragma once
 

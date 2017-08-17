@@ -5,10 +5,10 @@
 ///
 /// @defgroup gtx_hash GLM_GTX_hash
 /// @ingroup gtx
+///
+/// Include <glm/gtx/hash.hpp> to use the features of this extension.
 /// 
-/// @brief Add std::hash support for glm types
-/// 
-/// <glm/gtx/hash.hpp> need to be included to use these functionalities.
+/// Add std::hash support for glm types
 
 #pragma once
 

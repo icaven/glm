@@ -7,9 +7,9 @@
 /// @defgroup gtx_matrix_transform_2d GLM_GTX_matrix_transform_2d
 /// @ingroup gtx
 ///
-/// @brief Defines functions that generate common 2d transformation matrices.
+/// Include <glm/gtx/matrix_transform_2d.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/matrix_transform_2d.hpp> need to be included to use these functionalities.
+/// Defines functions that generate common 2d transformation matrices.
 
 #pragma once
 

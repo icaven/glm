@@ -2,7 +2,9 @@
 /// @file glm/gtx/scalar_multiplication.hpp
 /// @author Joshua Moerman
 ///
-/// @brief Enables scalar multiplication for all types
+/// Include <glm/gtx/scalar_multiplication.hpp> to use the features of this extension.
+///
+/// Enables scalar multiplication for all types
 ///
 /// Since GLSL is very strict about types, the following (often used) combinations do not work:
 ///    double * vec4

@@ -6,9 +6,9 @@
 /// @defgroup gtx_spline GLM_GTX_spline
 /// @ingroup gtx
 ///
-/// @brief Spline functions
+/// Include <glm/gtx/spline.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/spline.hpp> need to be included to use these functionalities.
+/// Spline functions
 
 #pragma once
 

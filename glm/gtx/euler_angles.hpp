@@ -6,9 +6,9 @@
 /// @defgroup gtx_euler_angles GLM_GTX_euler_angles
 /// @ingroup gtx
 ///
-/// @brief Build matrices from Euler angles.
+/// Include <glm/gtx/euler_angles.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/euler_angles.hpp> need to be included to use these functionalities.
+/// Build matrices from Euler angles.
 
 #pragma once
 

@@ -7,9 +7,9 @@
 /// @defgroup gtc_integer GLM_GTC_integer
 /// @ingroup gtc
 ///
-/// @brief Allow to perform bit operations on integer values
+/// Include <glm/gtc/integer.hpp> to use the features of this extension.
 ///
-/// <glm/gtc/integer.hpp> need to be included to use these functionalities.
+/// @brief Allow to perform bit operations on integer values
 
 #pragma once
 

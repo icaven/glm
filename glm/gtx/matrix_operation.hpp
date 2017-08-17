@@ -6,9 +6,9 @@
 /// @defgroup gtx_matrix_operation GLM_GTX_matrix_operation
 /// @ingroup gtx
 ///
-/// @brief Build diagonal matrices from vectors.
+/// Include <glm/gtx/matrix_operation.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/matrix_operation.hpp> need to be included to use these functionalities.
+/// Build diagonal matrices from vectors.
 
 #pragma once
 

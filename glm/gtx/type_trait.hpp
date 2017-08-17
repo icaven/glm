@@ -6,9 +6,9 @@
 /// @defgroup gtx_type_trait GLM_GTX_type_trait
 /// @ingroup gtx
 ///
-/// @brief Defines traits for each type.
+/// Include <glm/gtx/type_trait.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/type_trait.hpp> need to be included to use these functionalities.
+/// Defines traits for each type.
 
 #pragma once
 

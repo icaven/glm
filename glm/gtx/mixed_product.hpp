@@ -6,9 +6,9 @@
 /// @defgroup gtx_mixed_product GLM_GTX_mixed_producte
 /// @ingroup gtx
 ///
-/// @brief Mixed product of 3 vectors.
+/// Include <glm/gtx/mixed_product.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/mixed_product.hpp> need to be included to use these functionalities.
+/// Mixed product of 3 vectors.
 
 #pragma once
 

@@ -1,4 +1,4 @@
-#include <glm/gtc/functions.hpp>
+#include <glm/gtx/functions.hpp>
 #include <vector>
 
 int test_gauss_1d()

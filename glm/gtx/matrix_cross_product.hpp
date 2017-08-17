@@ -7,9 +7,9 @@
 /// @defgroup gtx_matrix_cross_product GLM_GTX_matrix_cross_product
 /// @ingroup gtx
 ///
-/// @brief Build cross product matrices
+/// Include <glm/gtx/matrix_cross_product.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/matrix_cross_product.hpp> need to be included to use these functionalities.
+/// Build cross product matrices
 
 #pragma once
 

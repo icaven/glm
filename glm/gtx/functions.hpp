@@ -1,15 +1,15 @@
-/// @ref gtc_functions
-/// @file glm/gtc/functions.hpp
+/// @ref gtx_functions
+/// @file glm/gtx/functions.hpp
 /// 
 /// @see core (dependence)
 /// @see gtc_quaternion (dependence)
 ///
-/// @defgroup gtc_functions GLM_GTC_functions
-/// @ingroup gtc
+/// @defgroup gtx_functions GLM_GTX_functions
+/// @ingroup gtx
+///
+/// Include <glm/gtx/functions.hpp> to use the features of this extension.
 /// 
-/// @brief List of useful common functions.
-/// 
-/// <glm/gtc/functions.hpp> need to be included to use these functionalities.
+/// List of useful common functions.
 
 #pragma once
 
@@ -19,12 +19,12 @@
 #include "../detail/type_vec2.hpp"
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTC_functions extension included")
+#	pragma message("GLM: GLM_GTX_functions extension included")
 #endif
 
 namespace glm
 {
-	/// @addtogroup gtc_functions
+	/// @addtogroup gtx_functions
 	/// @{
 
 	/// 1D gauss function

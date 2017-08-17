@@ -29,23 +29,22 @@
 + [4.2. GLM_GTC_color_space](#section4_2)
 + [4.3. GLM_GTC_constants](#section4_3)
 + [4.4. GLM_GTC_epsilon](#section4_4)
-+ [4.5. GLM_GTC_functions](#section4_5)
-+ [4.6. GLM_GTC_integer](#section4_6)
-+ [4.7. GLM_GTC_matrix_access](#section4_7)
-+ [4.8. GLM_GTC_matrix_integer](#section4_8)
-+ [4.9. GLM_GTC_matrix_inverse](#section4_9)
-+ [4.10. GLM_GTC_matrix_transform](#section4_10)
-+ [4.11. GLM_GTC_noise](#section4_11)
-+ [4.12. GLM_GTC_packing](#section4_12)
-+ [4.13. GLM_GTC_quaternion](#section4_13)
-+ [4.14. GLM_GTC_random](#section4_14)
-+ [4.15. GLM_GTC_reciprocal](#section4_15)
-+ [4.16. GLM_GTC_round](#section4_16)
-+ [4.17. GLM_GTC_type_alignment](#section4_17)
-+ [4.18. GLM_GTC_type_precision](#section4_18)
-+ [4.19. GLM_GTC_type_ptr](#section4_19)
-+ [4.20. GLM_GTC_ulp](#section4_20)
-+ [4.21. GLM_GTC_vec1](#section4_21)
++ [4.5. GLM_GTC_integer](#section4_5)
++ [4.6. GLM_GTC_matrix_access](#section4_6)
++ [4.7. GLM_GTC_matrix_integer](#section4_7)
++ [4.8. GLM_GTC_matrix_inverse](#section4_8)
++ [4.9. GLM_GTC_matrix_transform](#section4_9)
++ [4.10. GLM_GTC_noise](#section4_10)
++ [4.11. GLM_GTC_packing](#section4_11)
++ [4.12. GLM_GTC_quaternion](#section4_12)
++ [4.13. GLM_GTC_random](#section4_13)
++ [4.14. GLM_GTC_reciprocal](#section4_14)
++ [4.15. GLM_GTC_round](#section4_15)
++ [4.16. GLM_GTC_type_alignment](#section4_16)
++ [4.17. GLM_GTC_type_precision](#section4_17)
++ [4.18. GLM_GTC_type_ptr](#section4_18)
++ [4.19. GLM_GTC_ulp](#section4_19)
++ [4.20. GLM_GTC_vec1](#section4_20)
 + [5. OpenGL interoperability](#section5)
 + [5.1. GLM Replacements for deprecated OpenGL functions](#section5_1)
 + [5.2. GLM Replacements for GPU functions](#section5_2)
@@ -578,37 +577,31 @@ Approximate equality comparisons for floating-point numbers, possibly with a use
 
 &lt;glm/gtc/epsilon.hpp&gt; need to be included to use these features.
 
-### <a name="section4_5"></a> 4.5. GLM\_GTC\_functions
-
-Useful functions.
-
-&lt;glm/gtc/functions.hpp&gt; need to be included to use these features.
-
-### <a name="section4_6"></a> 4.6. GLM\_GTC\_integer
+### <a name="section4_5"></a> 4.5. GLM\_GTC\_integer
 
 Integer variants of core GLM functions.
 
 &lt;glm/gtc/integer.hpp&gt; need to be included to use these features.
 
-### <a name="section4_7"></a> 4.7. GLM\_GTC\_matrix\_access
+### <a name="section4_6"></a> 4.6. GLM\_GTC\_matrix\_access
 
 Functions to conveniently access the individual rows or columns of a matrix.
 
 &lt;glm/gtc/matrix\_access.hpp&gt; need to be included to use these features.
 
-### <a name="section4_8"></a> 4.8. GLM\_GTC\_matrix\_integer
+### <a name="section4_7"></a> 4.7. GLM\_GTC\_matrix\_integer
 
 Integer matrix types similar to the core floating-point matrices.  Some operations (such as inverse and determinant) are not supported.
 
 &lt;glm/gtc/matrix\_integer.hpp&gt; need to be included to use these features.
 
-### <a name="section4_9"></a> 4.9. GLM\_GTC\_matrix\_inverse
+### <a name="section4_8"></a> 4.8. GLM\_GTC\_matrix\_inverse
 
 Additional matrix inverse functions.
 
 &lt;glm/gtc/matrix\_inverse.hpp&gt; need to be included to use these features.
 
-### <a name="section4_10"></a> 4.10. GLM\_GTC\_matrix\_transform
+### <a name="section4_9"></a> 4.9. GLM\_GTC\_matrix\_transform
 
 Matrix transformation functions that follow the OpenGL fixed-function conventions.
 
@@ -619,7 +612,7 @@ projective matrix functions (***perspective***, ***ortho***, etc) are designed t
 
 &lt;glm/gtc/matrix\_transform.hpp&gt; need to be included to use these features.
 
-### <a name="section4_11"></a> 4.11. GLM\_GTC\_noise
+### <a name="section4_10"></a> 4.10. GLM\_GTC\_noise
 
 Define 2D, 3D and 4D procedural noise functions.
 
@@ -627,53 +620,53 @@ Define 2D, 3D and 4D procedural noise functions.
 
 ![](/doc/manual/noise-simplex1.jpg)
 
-Figure 4.11.1: glm::simplex(glm::vec2(x / 16.f, y / 16.f));
+Figure 4.10.1: glm::simplex(glm::vec2(x / 16.f, y / 16.f));
 
 ![](/doc/manual/noise-simplex2.jpg)
 
-Figure 4.11.2: glm::simplex(glm::vec3(x / 16.f, y / 16.f, 0.5f));
+Figure 4.10.2: glm::simplex(glm::vec3(x / 16.f, y / 16.f, 0.5f));
 
 ![](/doc/manual/noise-simplex3.jpg)
 
-Figure 4.11.3: glm::simplex(glm::vec4(x / 16.f, y / 16.f, 0.5f, 0.5f));
+Figure 4.10.3: glm::simplex(glm::vec4(x / 16.f, y / 16.f, 0.5f, 0.5f));
 
 ![](/doc/manual/noise-perlin1.jpg)
 
-Figure 4.11.4: glm::perlin(glm::vec2(x / 16.f, y / 16.f));
+Figure 4.10.4: glm::perlin(glm::vec2(x / 16.f, y / 16.f));
 
 ![](/doc/manual/noise-perlin2.jpg)
 
-Figure 4.11.5: glm::perlin(glm::vec3(x / 16.f, y / 16.f, 0.5f));
+Figure 4.10.5: glm::perlin(glm::vec3(x / 16.f, y / 16.f, 0.5f));
 
 ![](/doc/manual/noise-perlin3.jpg)
 
-Figure 4.11.6: glm::perlin(glm::vec4(x / 16.f, y / 16.f, 0.5f, 0.5f)));
+Figure 4.10.6: glm::perlin(glm::vec4(x / 16.f, y / 16.f, 0.5f, 0.5f)));
 
 ![](/doc/manual/noise-perlin4.png)
 
-Figure 4.11.7: glm::perlin(glm::vec2(x / 16.f, y / 16.f), glm::vec2(2.0f));
+Figure 4.10.7: glm::perlin(glm::vec2(x / 16.f, y / 16.f), glm::vec2(2.0f));
 
 ![](/doc/manual/noise-perlin5.png)
 
-Figure 4.11.8: glm::perlin(glm::vec3(x / 16.f, y / 16.f, 0.5f), glm::vec3(2.0f));
+Figure 4.10.8: glm::perlin(glm::vec3(x / 16.f, y / 16.f, 0.5f), glm::vec3(2.0f));
 
 ![](/doc/manual/noise-perlin6.png)
 
-Figure 4.11.9: glm::perlin(glm::vec4(x / 16.f, y / 16.f, glm::vec2(0.5f)), glm::vec4(2.0f));
+Figure 4.10.9: glm::perlin(glm::vec4(x / 16.f, y / 16.f, glm::vec2(0.5f)), glm::vec4(2.0f));
 
-### <a name="section4_12"></a> 4.12. GLM\_GTC\_packing
+### <a name="section4_11"></a> 4.11. GLM\_GTC\_packing
 
 Convert scalar and vector types to and from packed formats, saving space at the cost of precision. However, packing a value into a format that it was previously unpacked from is guaranteed to be lossless.
 
 &lt;glm/gtc/packing.hpp&gt; need to be included to use these features.
 
-### <a name="section4_13"></a> 4.13. GLM\_GTC\_quaternion
+### <a name="section4_12"></a> 4.12. GLM\_GTC\_quaternion
 
 Quaternions and operations upon thereof.
 
 &lt;glm/gtc/quaternion.hpp&gt; need to be included to use these features.
 
-### <a name="section4_14"></a> 4.14. GLM\_GTC\_random
+### <a name="section4_13"></a> 4.13. GLM\_GTC\_random
 
 Probability distributions in up to four dimensions.
 
@@ -681,47 +674,47 @@ Probability distributions in up to four dimensions.
 
 ![](/doc/manual/random-linearrand.png)
 
-Figure 4.14.1: glm::vec4(glm::linearRand(glm::vec2(-1), glm::vec2(1)), 0, 1);
+Figure 4.13.1: glm::vec4(glm::linearRand(glm::vec2(-1), glm::vec2(1)), 0, 1);
 
 ![](/doc/manual/random-circularrand.png)
 
-Figure 4.14.2: glm::vec4(glm::circularRand(1.0f), 0, 1);
+Figure 4.13.2: glm::vec4(glm::circularRand(1.0f), 0, 1);
 
 ![](/doc/manual/random-sphericalrand.png)
 
-Figure 4.14.3: glm::vec4(glm::sphericalRand(1.0f), 1);
+Figure 4.13.3: glm::vec4(glm::sphericalRand(1.0f), 1);
 
 ![](/doc/manual/random-diskrand.png)
 
-Figure 4.14.4: glm::vec4(glm::diskRand(1.0f), 0, 1);
+Figure 4.13.4: glm::vec4(glm::diskRand(1.0f), 0, 1);
 
 ![](/doc/manual/random-ballrand.png)
 
-Figure 4.14.5: glm::vec4(glm::ballRand(1.0f), 1);
+Figure 4.13.5: glm::vec4(glm::ballRand(1.0f), 1);
 
 ![](/doc/manual/random-gaussrand.png)
 
-Figure 4.14.6: glm::vec4(glm::gaussRand(glm::vec3(0), glm::vec3(1)), 1);
+Figure 4.13.6: glm::vec4(glm::gaussRand(glm::vec3(0), glm::vec3(1)), 1);
 
-### <a name="section4_15"></a> 4.15. GLM\_GTC\_reciprocal
+### <a name="section4_14"></a> 4.14. GLM\_GTC\_reciprocal
 
 Reciprocal trigonometric functions (e.g. secant, cosecant, tangent).
 
-&lt;glm/gtc/reciprocal.hpp&gt; need to be included to use these functionalities.
+&lt;glm/gtc/reciprocal.hpp&gt; need to be included to use the features of this extension.
 
-### <a name="section4_16"></a> 4.16. GLM\_GTC\_round
+### <a name="section4_15"></a> 4.15. GLM\_GTC\_round
 
 Various rounding operations and common special cases thereof.
 
-&lt;glm/gtc/round.hpp&gt; need to be included to use these functionalities.
+&lt;glm/gtc/round.hpp&gt; need to be included to use the features of this extension.
 
-### <a name="section4_17"></a> 4.17. GLM\_GTC\_type\_aligned
+### <a name="section4_16"></a> 4.16. GLM\_GTC\_type\_aligned
 
 Aligned vector types.
 
-&lt;glm/gtc/type\_aligned.hpp&gt; need to be included to use these functionalities.
+&lt;glm/gtc/type\_aligned.hpp&gt; need to be included to use the features of this extension.
 
-### <a name="section4_18"></a> 4.18. GLM\_GTC\_type\_precision
+### <a name="section4_17"></a> 4.17. GLM\_GTC\_type\_precision
 
 Vector and matrix types with defined precisions, e.g. i8vec4, which is a 4D vector of signed 8-bit integers.
 
@@ -787,9 +780,9 @@ Available defines for 64-bit floating-point types (glm::f64vec\*, glm::f64mat\*,
 * GLM\_PRECISION\_MEDIUMP\_FLOAT64: Medium precision
 * GLM\_PRECISION\_HIGHP\_FLOAT64: High precision (default)
 
-&lt;glm/gtc/type\_precision.hpp&gt; need to be included to use these functionalities.
+&lt;glm/gtc/type\_precision.hpp&gt; need to be included to use the features of this extension.
 
-### <a name="section4_19"></a> 4.19. GLM\_GTC\_type\_ptr
+### <a name="section4_18"></a> 4.18. GLM\_GTC\_type\_ptr
 
 Facilitate interactions between pointers to basic types (e.g. float*) and GLM types (e.g. mat4).
 
@@ -827,13 +820,13 @@ implicit cast in this example. However cast operators may produce programs runni
 
 &lt;glm/gtc/type\_ptr.hpp&gt; need to be included to use these features.
 
-### <a name="section4_20"></a> 4.20. GLM\_GTC\_ulp
+### <a name="section4_19"></a> 4.19. GLM\_GTC\_ulp
 
 Measure a function's accuracy given a reference implementation of it. This extension works on floating-point data and provides results in [ULP](http://ljk.imag.fr/membres/Carine.Lucas/TPScilab/JMMuller/ulp-toms.pdf).
 
 &lt;glm/gtc/ulp.hpp&gt; need to be included to use these features.
 
-### <a name="section4_21"></a> 4.21. GLM\_GTC\_vec1
+### <a name="section4_20"></a> 4.20. GLM\_GTC\_vec1
 
 Add \*vec1 types.
 

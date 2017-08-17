@@ -6,9 +6,9 @@
 /// @defgroup gtx_matrix_decompose GLM_GTX_matrix_decompose
 /// @ingroup gtx
 ///
-/// @brief Decomposes a model matrix to translations, rotation and scale components
+/// Include <glm/gtx/matrix_decompose.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/matrix_decompose.hpp> need to be included to use these functionalities.
+/// Decomposes a model matrix to translations, rotation and scale components
 
 #pragma once
 

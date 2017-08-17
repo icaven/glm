@@ -6,9 +6,9 @@
 /// @defgroup gtx_log_base GLM_GTX_log_base
 /// @ingroup gtx
 ///
-/// @brief Logarithm for any base. base can be a vector or a scalar.
+/// Include <glm/gtx/log_base.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/log_base.hpp> need to be included to use these functionalities.
+/// Logarithm for any base. base can be a vector or a scalar.
 
 #pragma once
 

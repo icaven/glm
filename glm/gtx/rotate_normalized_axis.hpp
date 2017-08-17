@@ -8,9 +8,9 @@
 /// @defgroup gtx_rotate_normalized_axis GLM_GTX_rotate_normalized_axis
 /// @ingroup gtx
 ///
-/// @brief Quaternions and matrices rotations around normalized axis.
+/// Include <glm/gtx/rotate_normalized_axis.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/rotate_normalized_axis.hpp> need to be included to use these functionalities.
+/// Quaternions and matrices rotations around normalized axis.
 
 #pragma once
 

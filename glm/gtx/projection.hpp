@@ -6,9 +6,9 @@
 /// @defgroup gtx_projection GLM_GTX_projection
 /// @ingroup gtx
 ///
-/// @brief Projection of a vector to other one
+/// Include <glm/gtx/projection.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/projection.hpp> need to be included to use these functionalities.
+/// Projection of a vector to other one
 
 #pragma once
 

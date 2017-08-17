@@ -6,10 +6,10 @@
 /// @defgroup gtc_packing GLM_GTC_packing
 /// @ingroup gtc
 ///
-/// @brief This extension provides a set of function to convert vertors to packed
-/// formats.
+/// Include <glm/gtc/packing.hpp> to use the features of this extension.
 ///
-/// <glm/gtc/packing.hpp> need to be included to use these features.
+/// This extension provides a set of function to convert vertors to packed
+/// formats.
 
 #pragma once
 

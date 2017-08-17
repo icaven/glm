@@ -7,9 +7,9 @@
 /// @defgroup gtx_transform2 GLM_GTX_transform2
 /// @ingroup gtx
 ///
-/// @brief Add extra transformation matrices
+/// Include <glm/gtx/transform2.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/transform2.hpp> need to be included to use these functionalities.
+/// Add extra transformation matrices
 
 #pragma once
 

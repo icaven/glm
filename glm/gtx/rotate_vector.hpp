@@ -7,9 +7,9 @@
 /// @defgroup gtx_rotate_vector GLM_GTX_rotate_vector
 /// @ingroup gtx
 ///
-/// @brief Function to directly rotate a vector
+/// Include <glm/gtx/rotate_vector.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/rotate_vector.hpp> need to be included to use these functionalities.
+/// Function to directly rotate a vector
 
 #pragma once
 

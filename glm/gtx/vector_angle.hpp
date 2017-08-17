@@ -8,9 +8,9 @@
 /// @defgroup gtx_vector_angle GLM_GTX_vector_angle
 /// @ingroup gtx
 ///
-/// @brief Compute angle between vectors
+/// Include <glm/gtx/vector_angle.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/vector_angle.hpp> need to be included to use these functionalities.
+/// Compute angle between vectors
 
 #pragma once
 

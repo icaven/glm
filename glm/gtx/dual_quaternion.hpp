@@ -9,9 +9,9 @@
 /// @defgroup gtx_dual_quaternion GLM_GTX_dual_quaternion
 /// @ingroup gtx
 ///
-/// @brief Defines a templated dual-quaternion type and several dual-quaternion operations.
+/// Include <glm/gtx/dual_quaternion.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/dual_quaternion.hpp> need to be included to use these functionalities.
+/// Defines a templated dual-quaternion type and several dual-quaternion operations.
 
 #pragma once
 

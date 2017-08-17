@@ -6,9 +6,9 @@
 /// @defgroup gtx_integer GLM_GTX_integer
 /// @ingroup gtx
 ///
-/// @brief Add support for integer for core functions
+/// Include <glm/gtx/integer.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/integer.hpp> need to be included to use these functionalities.
+/// Add support for integer for core functions
 
 #pragma once
 

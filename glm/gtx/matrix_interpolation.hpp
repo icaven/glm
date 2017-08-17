@@ -7,9 +7,9 @@
 /// @defgroup gtx_matrix_interpolation GLM_GTX_matrix_interpolation
 /// @ingroup gtx
 ///
-/// @brief Allows to directly interpolate two exiciting matrices.
+/// Include <glm/gtx/matrix_interpolation.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/matrix_interpolation.hpp> need to be included to use these functionalities.
+/// Allows to directly interpolate two exiciting matrices.
 
 #pragma once
 

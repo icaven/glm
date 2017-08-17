@@ -7,9 +7,9 @@
 /// @defgroup gtx_color_encoding GLM_GTX_color_encoding
 /// @ingroup gtx
 ///
-/// @brief Allow to perform bit operations on integer values
+/// Include <glm/gtx/color_encoding.hpp> to use the features of this extension.
 ///
-/// <glm/gtc/color_encoding.hpp> need to be included to use these functionalities.
+/// @brief Allow to perform bit operations on integer values
 
 #pragma once
 

@@ -7,9 +7,9 @@
 /// @defgroup gtx_orthonormalize GLM_GTX_orthonormalize
 /// @ingroup gtx
 ///
-/// @brief Orthonormalize matrices.
+/// Include <glm/gtx/orthonormalize.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/orthonormalize.hpp> need to be included to use these functionalities.
+/// Orthonormalize matrices.
 
 #pragma once
 

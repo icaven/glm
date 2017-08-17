@@ -8,9 +8,9 @@
 /// @defgroup gtx_number_precision GLM_GTX_number_precision
 /// @ingroup gtx
 ///
-/// @brief Defined size types.
+/// Include <glm/gtx/number_precision.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/number_precision.hpp> need to be included to use these functionalities.
+/// Defined size types.
 
 #pragma once
 

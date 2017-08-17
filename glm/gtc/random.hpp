@@ -7,9 +7,9 @@
 /// @defgroup gtc_random GLM_GTC_random
 /// @ingroup gtc
 ///
-/// @brief Generate random number from various distribution methods.
+/// Include <glm/gtc/random.hpp> to use the features of this extension.
 ///
-/// <glm/gtc/random.hpp> need to be included to use these functionalities.
+/// Generate random number from various distribution methods.
 
 #pragma once
 

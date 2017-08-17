@@ -6,8 +6,9 @@
 /// @defgroup gtc_type_aligned GLM_GTC_type_aligned
 /// @ingroup gtc
 ///
-/// @brief Aligned types.
-/// <glm/gtc/type_aligned.hpp> need to be included to use these features.
+/// Include <glm/gtc/type_aligned.hpp> to use the features of this extension.
+///
+/// Aligned types allowing SIMD optimizations of vectors and matrices types
 
 #pragma once
 

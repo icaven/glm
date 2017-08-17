@@ -7,9 +7,9 @@
 /// @defgroup gtx_matrix_query GLM_GTX_matrix_query
 /// @ingroup gtx
 ///
-/// @brief Query to evaluate matrix properties
+/// Include <glm/gtx/matrix_query.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/matrix_query.hpp> need to be included to use these functionalities.
+/// Query to evaluate matrix properties
 
 #pragma once
 

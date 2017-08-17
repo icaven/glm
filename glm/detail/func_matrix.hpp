@@ -6,6 +6,8 @@
 /// @defgroup core_func_matrix Matrix functions
 /// @ingroup core
 /// 
+/// Include <glm/matrix.hpp> to use these core features.
+///
 /// For each of the following built-in matrix functions, there is both a 
 /// single-qualifier floating point version, where all arguments and return values 
 /// are single qualifier, and a double-qualifier floating version, where all 

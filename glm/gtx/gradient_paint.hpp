@@ -7,8 +7,9 @@
 /// @defgroup gtx_gradient_paint GLM_GTX_gradient_paint
 /// @ingroup gtx
 ///
-/// @brief Functions that return the color of procedural gradient for specific coordinates.
-/// <glm/gtx/gradient_paint.hpp> need to be included to use these functionalities.
+/// Include <glm/gtx/gradient_paint.hpp> to use the features of this extension.
+///
+/// Functions that return the color of procedural gradient for specific coordinates.
 
 #pragma once
 

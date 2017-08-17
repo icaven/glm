@@ -9,9 +9,9 @@
 /// @defgroup gtx_transform GLM_GTX_transform
 /// @ingroup gtx
 ///
-/// @brief Add transformation matrices
+/// Include <glm/gtx/transform.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/transform.hpp> need to be included to use these functionalities.
+/// Add transformation matrices
 
 #pragma once
 

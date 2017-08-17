@@ -7,9 +7,9 @@
 /// @defgroup gtx_normal GLM_GTX_normal
 /// @ingroup gtx
 ///
-/// @brief Compute the normal of a triangle.
+/// Include <glm/gtx/normal.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/normal.hpp> need to be included to use these functionalities.
+/// Compute the normal of a triangle.
 
 #pragma once
 

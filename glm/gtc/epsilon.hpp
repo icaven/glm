@@ -6,10 +6,10 @@
 ///
 /// @defgroup gtc_epsilon GLM_GTC_epsilon
 /// @ingroup gtc
+///
+/// Include <glm/gtc/epsilon.hpp> to use the features of this extension.
 /// 
-/// @brief Comparison functions for a user defined epsilon values.
-/// 
-/// <glm/gtc/epsilon.hpp> need to be included to use these functionalities.
+/// Comparison functions for a user defined epsilon values.
 
 #pragma once
 

@@ -5,9 +5,10 @@
 ///
 /// @defgroup gtc_vec1 GLM_GTC_vec1
 /// @ingroup gtc
+///
+/// Include <glm/gtc/vec1.hpp> to use the features of this extension.
 /// 
-/// @brief Add vec1, ivec1, uvec1 and bvec1 types.
-/// <glm/gtc/vec1.hpp> need to be included to use these functionalities.
+/// Add vec1, ivec1, uvec1 and bvec1 types.
 
 #pragma once
 

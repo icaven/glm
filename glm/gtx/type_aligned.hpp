@@ -7,11 +7,11 @@
 /// @defgroup gtx_type_aligned GLM_GTX_type_aligned
 /// @ingroup gtx
 ///
-/// @brief Defines aligned types.
+/// Include <glm/gtx/type_aligned.hpp> to use the features of this extension.
+///
+/// Defines aligned types.
 ///
 /// @ref core_precision defines aligned types.
-///
-/// <glm/gtx/type_aligned.hpp> need to be included to use these functionalities.
 
 #pragma once
 

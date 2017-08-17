@@ -7,9 +7,9 @@
 /// @defgroup gtx_matrix_major_storage GLM_GTX_matrix_major_storage
 /// @ingroup gtx
 ///
-/// @brief Build matrices with specific matrix order, row or column
+/// Include <glm/gtx/matrix_major_storage.hpp> to use the features of this extension.
 ///
-/// <glm/gtx/matrix_major_storage.hpp> need to be included to use these functionalities.
+/// Build matrices with specific matrix order, row or column
 
 #pragma once
 

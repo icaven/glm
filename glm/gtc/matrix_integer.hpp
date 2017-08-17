@@ -6,8 +6,9 @@
 /// @defgroup gtc_matrix_integer GLM_GTC_matrix_integer
 /// @ingroup gtc
 ///
+/// Include <glm/gtc/matrix_integer.hpp> to use the features of this extension.
+///
 /// Defines a number of matrices with integer types.
-/// <glm/gtc/matrix_integer.hpp> need to be included to use these functionalities.
 
 #pragma once
 

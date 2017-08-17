@@ -5,9 +5,10 @@
 ///
 /// @defgroup gtc_matrix_access GLM_GTC_matrix_access
 /// @ingroup gtc
-/// 
+///
+/// Include <glm/gtc/matrix_access.hpp> to use the features of this extension.
+///
 /// Defines functions to access rows or columns of a matrix easily.
-/// <glm/gtc/matrix_access.hpp> need to be included to use these functionalities.
 
 #pragma once
 
