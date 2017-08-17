@@ -28,7 +28,8 @@ namespace glm
 
 	/// Returns the cross product of x and y.
 	///
-	/// @tparam valType Floating-point scalar types.
+	/// @tparam T Floating-point scalar types
+	/// @tparam Q Value from qualifier enum
 	/// 
 	/// @see <a href="https://en.wikipedia.org/wiki/Exterior_algebra#Cross_and_triple_products">Exterior product</a>
 	template<typename T, qualifier Q>

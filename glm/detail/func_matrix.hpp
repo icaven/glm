@@ -96,7 +96,10 @@ namespace detail
 	/// Multiply matrix x by matrix y component-wise, i.e., 
 	/// result[i][j] is the scalar product of x[i][j] and y[i][j].
 	/// 
-	/// @tparam matType Floating-point matrix types.
+	/// @tparam C Integer between 1 and 4 included that qualify the number a column
+	/// @tparam R Integer between 1 and 4 included that qualify the number a row
+	/// @tparam T Floating-point or signed integer scalar types
+	/// @tparam Q Value from qualifier enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/matrixCompMult.xml">GLSL matrixCompMult man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
@@ -107,14 +110,22 @@ namespace detail
 	/// and the second parameter r as a row vector
 	/// and does a linear algebraic matrix multiply c * r.
 	/// 
+	/// @tparam C Integer between 1 and 4 included that qualify the number a column
+	/// @tparam R Integer between 1 and 4 included that qualify the number a row
+	/// @tparam T Floating-point or signed integer scalar types
+	/// @tparam Q Value from qualifier enum
+	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/outerProduct.xml">GLSL outerProduct man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
-	template<length_t DA, length_t DB, typename T, qualifier Q>
-	GLM_FUNC_DECL typename detail::outerProduct_trait<DA, DB, T, Q>::type outerProduct(vec<DA, T, Q> const& c, vec<DB, T, Q> const& r);
+	template<length_t C, length_t R, typename T, qualifier Q>
+	GLM_FUNC_DECL typename detail::outerProduct_trait<C, R, T, Q>::type outerProduct(vec<C, T, Q> const& c, vec<R, T, Q> const& r);
 
 	/// Returns the transposed matrix of x
 	/// 
-	/// @tparam matType Floating-point matrix types.
+	/// @tparam C Integer between 1 and 4 included that qualify the number a column
+	/// @tparam R Integer between 1 and 4 included that qualify the number a row
+	/// @tparam T Floating-point or signed integer scalar types
+	/// @tparam Q Value from qualifier enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/transpose.xml">GLSL transpose man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>
@@ -123,7 +134,10 @@ namespace detail
 	
 	/// Return the determinant of a squared matrix.
 	/// 
-	/// @tparam T Floating-point scalar types.
+	/// @tparam C Integer between 1 and 4 included that qualify the number a column
+	/// @tparam R Integer between 1 and 4 included that qualify the number a row
+	/// @tparam T Floating-point or signed integer scalar types
+	/// @tparam Q Value from qualifier enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>	
@@ -132,7 +146,10 @@ namespace detail
 
 	/// Return the inverse of a squared matrix.
 	/// 
-	/// @tparam T Floating-point scalar types.
+	/// @tparam C Integer between 1 and 4 included that qualify the number a column
+	/// @tparam R Integer between 1 and 4 included that qualify the number a row
+	/// @tparam T Floating-point or signed integer scalar types
+	/// @tparam Q Value from qualifier enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inverse.xml">GLSL inverse man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a>	 

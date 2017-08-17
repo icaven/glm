@@ -40,7 +40,7 @@ namespace glm
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Signed and unsigned integer scalar types
-	/// @tparam P Value from qualifier enum
+	/// @tparam Q Value from qualifier enum
 	///
 	/// @see gtc_bitfield
 	template<length_t L, typename T, qualifier Q>
@@ -54,6 +54,10 @@ namespace glm
 
 	/// Rotate all bits to the right. All the bits dropped in the right side are inserted back on the left side.
 	///
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Signed and unsigned integer scalar types
+	/// @tparam Q Value from qualifier enum
+	///
 	/// @see gtc_bitfield
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_DECL vec<L, T, Q> bitfieldRotateRight(vec<L, T, Q> const& In, int Shift);
@@ -65,6 +69,10 @@ namespace glm
 	GLM_FUNC_DECL genIUType bitfieldRotateLeft(genIUType In, int Shift);
 
 	/// Rotate all bits to the left. All the bits dropped in the left side are inserted back on the right side.
+	///
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Signed and unsigned integer scalar types
+	/// @tparam Q Value from qualifier enum
 	///
 	/// @see gtc_bitfield
 	template<length_t L, typename T, qualifier Q>
@@ -78,6 +86,10 @@ namespace glm
 
 	/// Set to 1 a range of bits.
 	///
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Signed and unsigned integer scalar types
+	/// @tparam Q Value from qualifier enum
+	///
 	/// @see gtc_bitfield
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_DECL vec<L, T, Q> bitfieldFillOne(vec<L, T, Q> const& Value, int FirstBit, int BitCount);
@@ -89,6 +101,10 @@ namespace glm
 	GLM_FUNC_DECL genIUType bitfieldFillZero(genIUType Value, int FirstBit, int BitCount);
 
 	/// Set to 0 a range of bits.
+	///
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Signed and unsigned integer scalar types
+	/// @tparam Q Value from qualifier enum
 	///
 	/// @see gtc_bitfield
 	template<length_t L, typename T, qualifier Q>

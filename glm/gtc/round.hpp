@@ -38,6 +38,10 @@ namespace glm
 
 	/// Return true if the value is a power of two number.
 	///
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point or integer scalar types
+	/// @tparam Q Value from qualifier enum
+	///
 	/// @see gtc_round
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_DECL vec<L, bool, Q> isPowerOfTwo(vec<L, T, Q> const& value);
@@ -51,6 +55,10 @@ namespace glm
 
 	/// Return the power of two number which value is just higher the input value,
 	/// round up to a power of two.
+	///
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point or integer scalar types
+	/// @tparam Q Value from qualifier enum
 	///
 	/// @see gtc_round
 	template<length_t L, typename T, qualifier Q>
@@ -66,6 +74,10 @@ namespace glm
 	/// Return the power of two number which value is just lower the input value,
 	/// round down to a power of two.
 	///
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point or integer scalar types
+	/// @tparam Q Value from qualifier enum
+	///
 	/// @see gtc_round
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_DECL vec<L, T, Q> floorPowerOfTwo(vec<L, T, Q> const& value);
@@ -77,6 +89,10 @@ namespace glm
 	GLM_FUNC_DECL genIUType roundPowerOfTwo(genIUType Value);
 
 	/// Return the power of two number which value is the closet to the input value.
+	///
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point or integer scalar types
+	/// @tparam Q Value from qualifier enum
 	///
 	/// @see gtc_round
 	template<length_t L, typename T, qualifier Q>
@@ -90,11 +106,19 @@ namespace glm
 
 	/// Return true if the 'Value' is a multiple of 'Multiple'.
 	///
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point or integer scalar types
+	/// @tparam Q Value from qualifier enum
+	///
 	/// @see gtc_round
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_DECL vec<L, bool, Q> isMultiple(vec<L, T, Q> const& Value, T Multiple);
 
 	/// Return true if the 'Value' is a multiple of 'Multiple'.
+	///
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point or integer scalar types
+	/// @tparam Q Value from qualifier enum
 	///
 	/// @see gtc_round
 	template<length_t L, typename T, qualifier Q>
@@ -111,7 +135,9 @@ namespace glm
 
 	/// Higher multiple number of Source.
 	///
-	/// @tparam genType Floating-point or integer scalar or vector types.
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point or integer scalar types
+	/// @tparam Q Value from qualifier enum
 	/// @param Multiple Must be a null or positive value
 	///
 	/// @see gtc_round
@@ -129,7 +155,9 @@ namespace glm
 
 	/// Lower multiple number of Source.
 	///
-	/// @tparam genType Floating-point or integer scalar or vector types.
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point or integer scalar types
+	/// @tparam Q Value from qualifier enum
 	/// @param Multiple Must be a null or positive value
 	///
 	/// @see gtc_round
@@ -147,7 +175,9 @@ namespace glm
 
 	/// Lower multiple number of Source.
 	///
-	/// @tparam genType Floating-point or integer scalar or vector types.
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point or integer scalar types
+	/// @tparam Q Value from qualifier enum
 	/// @param Multiple Must be a null or positive value
 	///
 	/// @see gtc_round
