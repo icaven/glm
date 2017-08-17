@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: rotate_normalized_axis.hpp File Reference</title>
+<title>0.9.9 API documenation: string_cast.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -86,35 +86,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">rotate_normalized_axis.hpp File Reference</div>  </div>
+<div class="title">string_cast.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="a00228.html">GLM_GTX_rotate_normalized_axis</a>  
+<p><a class="el" href="a00220.html">GLM_GTX_string_cast</a>  
 <a href="#details">More...</a></p>
 
 <p><a href="a00097_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga90cde825f60859ebf14f3e294fe9cff1"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga90cde825f60859ebf14f3e294fe9cff1"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00228.html#ga90cde825f60859ebf14f3e294fe9cff1">rotateNormalizedAxis</a> (mat&lt; 4, 4, T, P &gt; const &amp;m, T const &amp;angle, vec&lt; 3, T, P &gt; const &amp;axis)</td></tr>
-<tr class="memdesc:ga90cde825f60859ebf14f3e294fe9cff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a rotation 4 * 4 matrix created from a normalized axis and an angle.  <a href="a00228.html#ga90cde825f60859ebf14f3e294fe9cff1">More...</a><br /></td></tr>
-<tr class="separator:ga90cde825f60859ebf14f3e294fe9cff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2d90d33e38df823443823f4dd0d0d8e6"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga2d90d33e38df823443823f4dd0d0d8e6"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL tquat&lt; T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00228.html#ga2d90d33e38df823443823f4dd0d0d8e6">rotateNormalizedAxis</a> (tquat&lt; T, P &gt; const &amp;q, T const &amp;angle, vec&lt; 3, T, P &gt; const &amp;axis)</td></tr>
-<tr class="memdesc:ga2d90d33e38df823443823f4dd0d0d8e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotates a quaternion from a vector of 3 components normalized axis and an angle.  <a href="a00228.html#ga2d90d33e38df823443823f4dd0d0d8e6">More...</a><br /></td></tr>
-<tr class="separator:ga2d90d33e38df823443823f4dd0d0d8e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f0dced1fd45e67e2d77e80ab93c7af5"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga8f0dced1fd45e67e2d77e80ab93c7af5"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00220.html#ga8f0dced1fd45e67e2d77e80ab93c7af5">to_string</a> (genType const &amp;x)</td></tr>
+<tr class="memdesc:ga8f0dced1fd45e67e2d77e80ab93c7af5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a string from a GLM vector or matrix typed variable.  <a href="a00220.html#ga8f0dced1fd45e67e2d77e80ab93c7af5">More...</a><br /></td></tr>
+<tr class="separator:ga8f0dced1fd45e67e2d77e80ab93c7af5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="a00228.html">GLM_GTX_rotate_normalized_axis</a> </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00158.html" title="The core of GLM, which implements exactly and only the GLSL specification to the degree possible...">GLM Core</a> (dependence) </dd>
+<div class="textblock"><p><a class="el" href="a00220.html">GLM_GTX_string_cast</a> </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00143.html" title="Features that implement in C++ the GLSL specification as closely as possible. ">Core features</a> (dependence) </dd>
 <dd>
-<a class="el" href="a00171.html" title="Defines functions that generate common transformation matrices. ">GLM_GTC_matrix_transform</a> </dd>
+<a class="el" href="a00190.html" title="Include <glm/gtx/integer.hpp> to use the features of this extension. ">GLM_GTX_integer</a> (dependence) </dd>
 <dd>
-<a class="el" href="a00174.html" title="Defines a templated quaternion type and several quaternion operations. ">GLM_GTC_quaternion</a> </dd></dl>
+<a class="el" href="a00212.html" title="Include <glm/gtx/quaternion.hpp> to use the features of this extension. ">GLM_GTX_quaternion</a> (dependence) </dd></dl>
 
-<p>Definition in file <a class="el" href="a00097_source.html">rotate_normalized_axis.hpp</a>.</p>
+<p>Definition in file <a class="el" href="a00097_source.html">string_cast.hpp</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

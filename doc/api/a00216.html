@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTX_norm</title>
+<title>0.9.9 API documenation: GLM_GTX_rotate_vector</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,67 +77,79 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_norm<div class="ingroups"><a class="el" href="a00157.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_rotate_vector<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Various ways to compute vector norms.  
+<p>Include &lt;<a class="el" href="a00090.html" title="GLM_GTX_rotate_vector ">glm/gtx/rotate_vector.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga4c6073a9c281c944136e61b2532be936"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga4c6073a9c281c944136e61b2532be936"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#ga4c6073a9c281c944136e61b2532be936">distance2</a> (vec&lt; L, T, P &gt; const &amp;p0, vec&lt; L, T, P &gt; const &amp;p1)</td></tr>
-<tr class="memdesc:ga4c6073a9c281c944136e61b2532be936"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the squared distance between p0 and p1, i.e., length2(p0 - p1).  <a href="a00216.html#ga4c6073a9c281c944136e61b2532be936">More...</a><br /></td></tr>
-<tr class="separator:ga4c6073a9c281c944136e61b2532be936"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga37960d52e54bab9a8f212199907d2013"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga37960d52e54bab9a8f212199907d2013"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#ga37960d52e54bab9a8f212199907d2013">l1Norm</a> (vec&lt; 3, T, P &gt; const &amp;x, vec&lt; 3, T, P &gt; const &amp;y)</td></tr>
-<tr class="memdesc:ga37960d52e54bab9a8f212199907d2013"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the L1 norm between x and y.  <a href="a00216.html#ga37960d52e54bab9a8f212199907d2013">More...</a><br /></td></tr>
-<tr class="separator:ga37960d52e54bab9a8f212199907d2013"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga571fbbeb06443fd1cbae176b7388c140"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga571fbbeb06443fd1cbae176b7388c140"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#ga571fbbeb06443fd1cbae176b7388c140">l1Norm</a> (vec&lt; 3, T, P &gt; const &amp;v)</td></tr>
-<tr class="memdesc:ga571fbbeb06443fd1cbae176b7388c140"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the L1 norm of v.  <a href="a00216.html#ga571fbbeb06443fd1cbae176b7388c140">More...</a><br /></td></tr>
-<tr class="separator:ga571fbbeb06443fd1cbae176b7388c140"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8590366c5da7b312aed20aeb6d014014"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga8590366c5da7b312aed20aeb6d014014"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#ga8590366c5da7b312aed20aeb6d014014">l2Norm</a> (vec&lt; 3, T, P &gt; const &amp;x, vec&lt; 3, T, P &gt; const &amp;y)</td></tr>
-<tr class="memdesc:ga8590366c5da7b312aed20aeb6d014014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the L2 norm between x and y.  <a href="a00216.html#ga8590366c5da7b312aed20aeb6d014014">More...</a><br /></td></tr>
-<tr class="separator:ga8590366c5da7b312aed20aeb6d014014"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga11330d56fb8d605af08aac8c36aa9592"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga11330d56fb8d605af08aac8c36aa9592"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#ga11330d56fb8d605af08aac8c36aa9592">l2Norm</a> (vec&lt; 3, T, P &gt; const &amp;x)</td></tr>
-<tr class="memdesc:ga11330d56fb8d605af08aac8c36aa9592"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the L2 norm of v.  <a href="a00216.html#ga11330d56fb8d605af08aac8c36aa9592">More...</a><br /></td></tr>
-<tr class="separator:ga11330d56fb8d605af08aac8c36aa9592"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga824d4ac86af677742fe1963552f96591"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga824d4ac86af677742fe1963552f96591"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#ga824d4ac86af677742fe1963552f96591">length2</a> (vec&lt; L, T, P &gt; const &amp;x)</td></tr>
-<tr class="memdesc:ga824d4ac86af677742fe1963552f96591"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the squared length of x.  <a href="a00216.html#ga824d4ac86af677742fe1963552f96591">More...</a><br /></td></tr>
-<tr class="separator:ga824d4ac86af677742fe1963552f96591"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf21eab38aabe0b0d1f26acfdb4498086"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gaf21eab38aabe0b0d1f26acfdb4498086"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#gaf21eab38aabe0b0d1f26acfdb4498086">lxNorm</a> (vec&lt; 3, T, P &gt; const &amp;x, vec&lt; 3, T, P &gt; const &amp;y, unsigned int Depth)</td></tr>
-<tr class="memdesc:gaf21eab38aabe0b0d1f26acfdb4498086"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the L norm between x and y.  <a href="a00216.html#gaf21eab38aabe0b0d1f26acfdb4498086">More...</a><br /></td></tr>
-<tr class="separator:gaf21eab38aabe0b0d1f26acfdb4498086"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7c9b58a8f0647f959ccc26b90045e1c6"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga7c9b58a8f0647f959ccc26b90045e1c6"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#ga7c9b58a8f0647f959ccc26b90045e1c6">lxNorm</a> (vec&lt; 3, T, P &gt; const &amp;x, unsigned int Depth)</td></tr>
-<tr class="memdesc:ga7c9b58a8f0647f959ccc26b90045e1c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the L norm of v.  <a href="a00216.html#ga7c9b58a8f0647f959ccc26b90045e1c6">More...</a><br /></td></tr>
-<tr class="separator:ga7c9b58a8f0647f959ccc26b90045e1c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a32fceb71962e6160e8af295c91930a"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga1a32fceb71962e6160e8af295c91930a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#ga1a32fceb71962e6160e8af295c91930a">orientation</a> (vec&lt; 3, T, Q &gt; const &amp;Normal, vec&lt; 3, T, Q &gt; const &amp;Up)</td></tr>
+<tr class="memdesc:ga1a32fceb71962e6160e8af295c91930a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a rotation matrix from a normal and a up vector.  <a href="a00216.html#ga1a32fceb71962e6160e8af295c91930a">More...</a><br /></td></tr>
+<tr class="separator:ga1a32fceb71962e6160e8af295c91930a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab64a67b52ff4f86c3ba16595a5a25af6"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gab64a67b52ff4f86c3ba16595a5a25af6"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 2, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#gab64a67b52ff4f86c3ba16595a5a25af6">rotate</a> (vec&lt; 2, T, Q &gt; const &amp;v, T const &amp;angle)</td></tr>
+<tr class="memdesc:gab64a67b52ff4f86c3ba16595a5a25af6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate a two dimensional vector.  <a href="a00216.html#gab64a67b52ff4f86c3ba16595a5a25af6">More...</a><br /></td></tr>
+<tr class="separator:gab64a67b52ff4f86c3ba16595a5a25af6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1ba501ef83d1a009a17ac774cc560f21"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga1ba501ef83d1a009a17ac774cc560f21"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#ga1ba501ef83d1a009a17ac774cc560f21">rotate</a> (vec&lt; 3, T, Q &gt; const &amp;v, T const &amp;angle, vec&lt; 3, T, Q &gt; const &amp;normal)</td></tr>
+<tr class="memdesc:ga1ba501ef83d1a009a17ac774cc560f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate a three dimensional vector around an axis.  <a href="a00216.html#ga1ba501ef83d1a009a17ac774cc560f21">More...</a><br /></td></tr>
+<tr class="separator:ga1ba501ef83d1a009a17ac774cc560f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1005f1267ed9c57faa3f24cf6873b961"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga1005f1267ed9c57faa3f24cf6873b961"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#ga1005f1267ed9c57faa3f24cf6873b961">rotate</a> (vec&lt; 4, T, Q &gt; const &amp;v, T const &amp;angle, vec&lt; 3, T, Q &gt; const &amp;normal)</td></tr>
+<tr class="memdesc:ga1005f1267ed9c57faa3f24cf6873b961"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate a four dimensional vector around an axis.  <a href="a00216.html#ga1005f1267ed9c57faa3f24cf6873b961">More...</a><br /></td></tr>
+<tr class="separator:ga1005f1267ed9c57faa3f24cf6873b961"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga059fdbdba4cca35cdff172a9d0d0afc9"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga059fdbdba4cca35cdff172a9d0d0afc9"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#ga059fdbdba4cca35cdff172a9d0d0afc9">rotateX</a> (vec&lt; 3, T, Q &gt; const &amp;v, T const &amp;angle)</td></tr>
+<tr class="memdesc:ga059fdbdba4cca35cdff172a9d0d0afc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate a three dimensional vector around the X axis.  <a href="a00216.html#ga059fdbdba4cca35cdff172a9d0d0afc9">More...</a><br /></td></tr>
+<tr class="separator:ga059fdbdba4cca35cdff172a9d0d0afc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4333b1ea8ebf1bd52bc3801a7617398a"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga4333b1ea8ebf1bd52bc3801a7617398a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#ga4333b1ea8ebf1bd52bc3801a7617398a">rotateX</a> (vec&lt; 4, T, Q &gt; const &amp;v, T const &amp;angle)</td></tr>
+<tr class="memdesc:ga4333b1ea8ebf1bd52bc3801a7617398a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate a four dimensional vector around the X axis.  <a href="a00216.html#ga4333b1ea8ebf1bd52bc3801a7617398a">More...</a><br /></td></tr>
+<tr class="separator:ga4333b1ea8ebf1bd52bc3801a7617398a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaebdc8b054ace27d9f62e054531c6f44d"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaebdc8b054ace27d9f62e054531c6f44d"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#gaebdc8b054ace27d9f62e054531c6f44d">rotateY</a> (vec&lt; 3, T, Q &gt; const &amp;v, T const &amp;angle)</td></tr>
+<tr class="memdesc:gaebdc8b054ace27d9f62e054531c6f44d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate a three dimensional vector around the Y axis.  <a href="a00216.html#gaebdc8b054ace27d9f62e054531c6f44d">More...</a><br /></td></tr>
+<tr class="separator:gaebdc8b054ace27d9f62e054531c6f44d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3ce3db0867b7f8efd878ee34f95a623b"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga3ce3db0867b7f8efd878ee34f95a623b"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#ga3ce3db0867b7f8efd878ee34f95a623b">rotateY</a> (vec&lt; 4, T, Q &gt; const &amp;v, T const &amp;angle)</td></tr>
+<tr class="memdesc:ga3ce3db0867b7f8efd878ee34f95a623b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate a four dimensional vector around the Y axis.  <a href="a00216.html#ga3ce3db0867b7f8efd878ee34f95a623b">More...</a><br /></td></tr>
+<tr class="separator:ga3ce3db0867b7f8efd878ee34f95a623b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a048838a03f6249acbacb4dbacf79c4"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga5a048838a03f6249acbacb4dbacf79c4"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#ga5a048838a03f6249acbacb4dbacf79c4">rotateZ</a> (vec&lt; 3, T, Q &gt; const &amp;v, T const &amp;angle)</td></tr>
+<tr class="memdesc:ga5a048838a03f6249acbacb4dbacf79c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate a three dimensional vector around the Z axis.  <a href="a00216.html#ga5a048838a03f6249acbacb4dbacf79c4">More...</a><br /></td></tr>
+<tr class="separator:ga5a048838a03f6249acbacb4dbacf79c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga923b75c6448161053768822d880702e6"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga923b75c6448161053768822d880702e6"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#ga923b75c6448161053768822d880702e6">rotateZ</a> (vec&lt; 4, T, Q &gt; const &amp;v, T const &amp;angle)</td></tr>
+<tr class="memdesc:ga923b75c6448161053768822d880702e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate a four dimensional vector around the Z axis.  <a href="a00216.html#ga923b75c6448161053768822d880702e6">More...</a><br /></td></tr>
+<tr class="separator:ga923b75c6448161053768822d880702e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8b11b18ce824174ea1a5a69ea14e2cee"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga8b11b18ce824174ea1a5a69ea14e2cee"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00216.html#ga8b11b18ce824174ea1a5a69ea14e2cee">slerp</a> (vec&lt; 3, T, Q &gt; const &amp;x, vec&lt; 3, T, Q &gt; const &amp;y, T const &amp;a)</td></tr>
+<tr class="memdesc:ga8b11b18ce824174ea1a5a69ea14e2cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns Spherical interpolation between two vectors.  <a href="a00216.html#ga8b11b18ce824174ea1a5a69ea14e2cee">More...</a><br /></td></tr>
+<tr class="separator:ga8b11b18ce824174ea1a5a69ea14e2cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Various ways to compute vector norms. </p>
-<p>&lt;<a class="el" href="a00078.html" title="GLM_GTX_norm ">glm/gtx/norm.hpp</a>&gt; need to be included to use these functionalities. </p>
+<p>Include &lt;<a class="el" href="a00090.html" title="GLM_GTX_rotate_vector ">glm/gtx/rotate_vector.hpp</a>&gt; to use the features of this extension. </p>
+<p>Function to directly rotate a vector </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga4c6073a9c281c944136e61b2532be936"></a>
+<a class="anchor" id="ga1a32fceb71962e6160e8af295c91930a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::distance2 </td>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::orientation </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>p0</em>, </td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>Normal</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>p1</em>&#160;</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>Up</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -147,26 +159,26 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the squared distance between p0 and p1, i.e., length2(p0 - p1). </p>
-<p>From GLM_GTX_norm extension. </p>
+<p>Build a rotation matrix from a normal and a up vector. </p>
+<p>From GLM_GTX_rotate_vector extension. </p>
 
 </div>
 </div>
-<a class="anchor" id="ga37960d52e54bab9a8f212199907d2013"></a>
+<a class="anchor" id="gab64a67b52ff4f86c3ba16595a5a25af6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::l1Norm </td>
+          <td class="memname">GLM_FUNC_DECL vec&lt;2, T, Q&gt; glm::rotate </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>angle</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -176,45 +188,32 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the L1 norm between x and y. </p>
-<p>From GLM_GTX_norm extension. </p>
+<p>Rotate a two dimensional vector. </p>
+<p>From GLM_GTX_rotate_vector extension. </p>
 
 </div>
 </div>
-<a class="anchor" id="ga571fbbeb06443fd1cbae176b7388c140"></a>
+<a class="anchor" id="ga1ba501ef83d1a009a17ac774cc560f21"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::l1Norm </td>
+          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, Q&gt; glm::rotate </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the L1 norm of v. </p>
-<p>From GLM_GTX_norm extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="ga8590366c5da7b312aed20aeb6d014014"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::l2Norm </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>normal</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -224,70 +223,241 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the L2 norm between x and y. </p>
-<p>From GLM_GTX_norm extension. </p>
+<p>Rotate a three dimensional vector around an axis. </p>
+<p>From GLM_GTX_rotate_vector extension. </p>
 
 </div>
 </div>
-<a class="anchor" id="ga11330d56fb8d605af08aac8c36aa9592"></a>
+<a class="anchor" id="ga1005f1267ed9c57faa3f24cf6873b961"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::l2Norm </td>
+          <td class="memname">GLM_FUNC_DECL vec&lt;4, T, Q&gt; glm::rotate </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">vec&lt; 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>normal</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the L2 norm of v. </p>
-<p>From GLM_GTX_norm extension. </p>
+<p>Rotate a four dimensional vector around an axis. </p>
+<p>From GLM_GTX_rotate_vector extension. </p>
 
 </div>
 </div>
-<a class="anchor" id="ga824d4ac86af677742fe1963552f96591"></a>
+<a class="anchor" id="ga059fdbdba4cca35cdff172a9d0d0afc9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::length2 </td>
+          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, Q&gt; glm::rotateX </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>angle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the squared length of x. </p>
-<p>From GLM_GTX_norm extension. </p>
+<p>Rotate a three dimensional vector around the X axis. </p>
+<p>From GLM_GTX_rotate_vector extension. </p>
 
 </div>
 </div>
-<a class="anchor" id="gaf21eab38aabe0b0d1f26acfdb4498086"></a>
+<a class="anchor" id="ga4333b1ea8ebf1bd52bc3801a7617398a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::lxNorm </td>
+          <td class="memname">GLM_FUNC_DECL vec&lt;4, T, Q&gt; glm::rotateX </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
+          <td class="paramtype">vec&lt; 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>angle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rotate a four dimensional vector around the X axis. </p>
+<p>From GLM_GTX_rotate_vector extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="gaebdc8b054ace27d9f62e054531c6f44d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, Q&gt; glm::rotateY </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>angle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rotate a three dimensional vector around the Y axis. </p>
+<p>From GLM_GTX_rotate_vector extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga3ce3db0867b7f8efd878ee34f95a623b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;4, T, Q&gt; glm::rotateY </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>angle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rotate a four dimensional vector around the Y axis. </p>
+<p>From GLM_GTX_rotate_vector extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga5a048838a03f6249acbacb4dbacf79c4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, Q&gt; glm::rotateZ </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>angle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rotate a three dimensional vector around the Z axis. </p>
+<p>From GLM_GTX_rotate_vector extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga923b75c6448161053768822d880702e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;4, T, Q&gt; glm::rotateZ </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>angle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rotate a four dimensional vector around the Z axis. </p>
+<p>From GLM_GTX_rotate_vector extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga8b11b18ce824174ea1a5a69ea14e2cee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, Q&gt; glm::slerp </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
           <td class="paramname"><em>y</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>Depth</em>&#160;</td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -297,37 +467,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the L norm between x and y. </p>
-<p>From GLM_GTX_norm extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="ga7c9b58a8f0647f959ccc26b90045e1c6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::lxNorm </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>Depth</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the L norm of v. </p>
-<p>From GLM_GTX_norm extension. </p>
+<p>Returns Spherical interpolation between two vectors. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>A first vector </td></tr>
+    <tr><td class="paramname">y</td><td>A second vector </td></tr>
+    <tr><td class="paramname">a</td><td>Interpolation factor. The interpolation is defined beyond the range [0, 1].</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00216.html" title="Include <glm/gtx/rotate_vector.hpp> to use the features of this extension. ">GLM_GTX_rotate_vector</a> </dd></dl>
 
 </div>
 </div>

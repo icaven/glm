@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['matrix_20functions',['Matrix functions',['../a00152.html',1,'']]]
+  ['matrix_20functions',['Matrix functions',['../a00230.html',1,'']]]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: quaternion.hpp File Reference</title>
+<title>0.9.9 API documenation: round.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -86,137 +86,93 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">gtc/quaternion.hpp File Reference</div>  </div>
+<div class="title">round.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="a00174.html">GLM_GTC_quaternion</a>  
+<p><a class="el" href="a00163.html">GLM_GTC_round</a>  
 <a href="#details">More...</a></p>
 
 <p><a href="a00091_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gad4a4448baedb198b2b1e7880d2544dc9"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gad4a4448baedb198b2b1e7880d2544dc9"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#gad4a4448baedb198b2b1e7880d2544dc9">angle</a> (tquat&lt; T, P &gt; const &amp;x)</td></tr>
-<tr class="memdesc:gad4a4448baedb198b2b1e7880d2544dc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the quaternion rotation angle.  <a href="a00174.html#gad4a4448baedb198b2b1e7880d2544dc9">More...</a><br /></td></tr>
-<tr class="separator:gad4a4448baedb198b2b1e7880d2544dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga513e3fb694837e1f40352cb5873828f8"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga513e3fb694837e1f40352cb5873828f8"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL tquat&lt; T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga513e3fb694837e1f40352cb5873828f8">angleAxis</a> (T const &amp;angle, vec&lt; 3, T, P &gt; const &amp;axis)</td></tr>
-<tr class="memdesc:ga513e3fb694837e1f40352cb5873828f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a quaternion from an angle and a normalized axis.  <a href="a00174.html#ga513e3fb694837e1f40352cb5873828f8">More...</a><br /></td></tr>
-<tr class="separator:ga513e3fb694837e1f40352cb5873828f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga30f9cab44cd6038900b8e021e8f6b935"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga30f9cab44cd6038900b8e021e8f6b935"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga30f9cab44cd6038900b8e021e8f6b935">axis</a> (tquat&lt; T, P &gt; const &amp;x)</td></tr>
-<tr class="memdesc:ga30f9cab44cd6038900b8e021e8f6b935"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the q rotation axis.  <a href="a00174.html#ga30f9cab44cd6038900b8e021e8f6b935">More...</a><br /></td></tr>
-<tr class="separator:ga30f9cab44cd6038900b8e021e8f6b935"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab1ace864fbf189ffa368950001808a3c"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gab1ace864fbf189ffa368950001808a3c"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL tquat&lt; T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#gab1ace864fbf189ffa368950001808a3c">conjugate</a> (tquat&lt; T, P &gt; const &amp;q)</td></tr>
-<tr class="memdesc:gab1ace864fbf189ffa368950001808a3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the q conjugate.  <a href="a00174.html#gab1ace864fbf189ffa368950001808a3c">More...</a><br /></td></tr>
-<tr class="separator:gab1ace864fbf189ffa368950001808a3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga19bac6fb47e7dbcda35534253b501955"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga19bac6fb47e7dbcda35534253b501955"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga19bac6fb47e7dbcda35534253b501955">dot</a> (tquat&lt; T, P &gt; const &amp;x, tquat&lt; T, P &gt; const &amp;y)</td></tr>
-<tr class="memdesc:ga19bac6fb47e7dbcda35534253b501955"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns dot product of q1 and q2, i.e., q1[0] * q2[0] + q1[1] * q2[1] + ...  <a href="a00174.html#ga19bac6fb47e7dbcda35534253b501955">More...</a><br /></td></tr>
-<tr class="separator:ga19bac6fb47e7dbcda35534253b501955"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac1fcd8c68742992fd59310203423c023"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gac1fcd8c68742992fd59310203423c023"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 4, bool, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#gac1fcd8c68742992fd59310203423c023">equal</a> (tquat&lt; T, P &gt; const &amp;x, tquat&lt; T, P &gt; const &amp;y)</td></tr>
-<tr class="memdesc:gac1fcd8c68742992fd59310203423c023"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the component-wise comparison of result x == y.  <a href="a00174.html#gac1fcd8c68742992fd59310203423c023">More...</a><br /></td></tr>
-<tr class="separator:gac1fcd8c68742992fd59310203423c023"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac4b0e197d14c7faec9d6640d0f8efc16"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gac4b0e197d14c7faec9d6640d0f8efc16"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#gac4b0e197d14c7faec9d6640d0f8efc16">eulerAngles</a> (tquat&lt; T, P &gt; const &amp;x)</td></tr>
-<tr class="memdesc:gac4b0e197d14c7faec9d6640d0f8efc16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns euler angles, pitch as x, yaw as y, roll as z.  <a href="a00174.html#gac4b0e197d14c7faec9d6640d0f8efc16">More...</a><br /></td></tr>
-<tr class="separator:gac4b0e197d14c7faec9d6640d0f8efc16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga50a059de28c47e7dccb7019b4d37fb73"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga50a059de28c47e7dccb7019b4d37fb73"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 4, bool, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga50a059de28c47e7dccb7019b4d37fb73">greaterThan</a> (tquat&lt; T, P &gt; const &amp;x, tquat&lt; T, P &gt; const &amp;y)</td></tr>
-<tr class="memdesc:ga50a059de28c47e7dccb7019b4d37fb73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the component-wise comparison of result x &gt; y.  <a href="a00174.html#ga50a059de28c47e7dccb7019b4d37fb73">More...</a><br /></td></tr>
-<tr class="separator:ga50a059de28c47e7dccb7019b4d37fb73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga76fa0d99965764a16b8fe8d34f60cfa1"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga76fa0d99965764a16b8fe8d34f60cfa1"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 4, bool, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga76fa0d99965764a16b8fe8d34f60cfa1">greaterThanEqual</a> (tquat&lt; T, P &gt; const &amp;x, tquat&lt; T, P &gt; const &amp;y)</td></tr>
-<tr class="memdesc:ga76fa0d99965764a16b8fe8d34f60cfa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the component-wise comparison of result x &gt;= y.  <a href="a00174.html#ga76fa0d99965764a16b8fe8d34f60cfa1">More...</a><br /></td></tr>
-<tr class="separator:ga76fa0d99965764a16b8fe8d34f60cfa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5f47300c024c2d809944e6ac661d6d14"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga5f47300c024c2d809944e6ac661d6d14"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL tquat&lt; T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga5f47300c024c2d809944e6ac661d6d14">inverse</a> (tquat&lt; T, P &gt; const &amp;q)</td></tr>
-<tr class="memdesc:ga5f47300c024c2d809944e6ac661d6d14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the q inverse.  <a href="a00174.html#ga5f47300c024c2d809944e6ac661d6d14">More...</a><br /></td></tr>
-<tr class="separator:ga5f47300c024c2d809944e6ac661d6d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga88474bed7bdbedfe1b226a4c50ee39e5"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga88474bed7bdbedfe1b226a4c50ee39e5"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 4, bool, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga88474bed7bdbedfe1b226a4c50ee39e5">isinf</a> (tquat&lt; T, P &gt; const &amp;x)</td></tr>
-<tr class="memdesc:ga88474bed7bdbedfe1b226a4c50ee39e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if x holds a positive infinity or negative infinity representation in the underlying implementation's set of floating point representations.  <a href="a00174.html#ga88474bed7bdbedfe1b226a4c50ee39e5">More...</a><br /></td></tr>
-<tr class="separator:ga88474bed7bdbedfe1b226a4c50ee39e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga299e93c52ef2509965f7999cd0196e7a"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga299e93c52ef2509965f7999cd0196e7a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 4, bool, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga299e93c52ef2509965f7999cd0196e7a">isnan</a> (tquat&lt; T, P &gt; const &amp;x)</td></tr>
-<tr class="memdesc:ga299e93c52ef2509965f7999cd0196e7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if x holds a NaN (not a number) representation in the underlying implementation's set of floating point representations.  <a href="a00174.html#ga299e93c52ef2509965f7999cd0196e7a">More...</a><br /></td></tr>
-<tr class="separator:ga299e93c52ef2509965f7999cd0196e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac682181783027544c8d251b4d3a60cf8"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gac682181783027544c8d251b4d3a60cf8"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#gac682181783027544c8d251b4d3a60cf8">length</a> (tquat&lt; T, P &gt; const &amp;q)</td></tr>
-<tr class="memdesc:gac682181783027544c8d251b4d3a60cf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the length of the quaternion.  <a href="a00174.html#gac682181783027544c8d251b4d3a60cf8">More...</a><br /></td></tr>
-<tr class="separator:gac682181783027544c8d251b4d3a60cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5692804fa4db9e762a1c19b607e54435"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga5692804fa4db9e762a1c19b607e54435"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL tquat&lt; T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga5692804fa4db9e762a1c19b607e54435">lerp</a> (tquat&lt; T, P &gt; const &amp;x, tquat&lt; T, P &gt; const &amp;y, T a)</td></tr>
-<tr class="memdesc:ga5692804fa4db9e762a1c19b607e54435"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear interpolation of two quaternions.  <a href="a00174.html#ga5692804fa4db9e762a1c19b607e54435">More...</a><br /></td></tr>
-<tr class="separator:ga5692804fa4db9e762a1c19b607e54435"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2cdaac7278237a6ca46355abb7ef03ce"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga2cdaac7278237a6ca46355abb7ef03ce"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 4, bool, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga2cdaac7278237a6ca46355abb7ef03ce">lessThan</a> (tquat&lt; T, P &gt; const &amp;x, tquat&lt; T, P &gt; const &amp;y)</td></tr>
-<tr class="memdesc:ga2cdaac7278237a6ca46355abb7ef03ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the component-wise comparison result of x &lt; y.  <a href="a00174.html#ga2cdaac7278237a6ca46355abb7ef03ce">More...</a><br /></td></tr>
-<tr class="separator:ga2cdaac7278237a6ca46355abb7ef03ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2cc86c3780498566589a5c915b660d49"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga2cc86c3780498566589a5c915b660d49"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 4, bool, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga2cc86c3780498566589a5c915b660d49">lessThanEqual</a> (tquat&lt; T, P &gt; const &amp;x, tquat&lt; T, P &gt; const &amp;y)</td></tr>
-<tr class="memdesc:ga2cc86c3780498566589a5c915b660d49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the component-wise comparison of result x &lt;= y.  <a href="a00174.html#ga2cc86c3780498566589a5c915b660d49">More...</a><br /></td></tr>
-<tr class="separator:ga2cc86c3780498566589a5c915b660d49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga903647421102a0ce39f06d10e4b14d3c"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga903647421102a0ce39f06d10e4b14d3c"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 3, 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga903647421102a0ce39f06d10e4b14d3c">mat3_cast</a> (tquat&lt; T, P &gt; const &amp;x)</td></tr>
-<tr class="memdesc:ga903647421102a0ce39f06d10e4b14d3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a quaternion to a 3 * 3 matrix.  <a href="a00174.html#ga903647421102a0ce39f06d10e4b14d3c">More...</a><br /></td></tr>
-<tr class="separator:ga903647421102a0ce39f06d10e4b14d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2aab716151de566a3f6ec3bad49f3964"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga2aab716151de566a3f6ec3bad49f3964"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga2aab716151de566a3f6ec3bad49f3964">mat4_cast</a> (tquat&lt; T, P &gt; const &amp;x)</td></tr>
-<tr class="memdesc:ga2aab716151de566a3f6ec3bad49f3964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a quaternion to a 4 * 4 matrix.  <a href="a00174.html#ga2aab716151de566a3f6ec3bad49f3964">More...</a><br /></td></tr>
-<tr class="separator:ga2aab716151de566a3f6ec3bad49f3964"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga31cc82178742c36450f5662bd4fb30b0"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga31cc82178742c36450f5662bd4fb30b0"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL tquat&lt; T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga31cc82178742c36450f5662bd4fb30b0">mix</a> (tquat&lt; T, P &gt; const &amp;x, tquat&lt; T, P &gt; const &amp;y, T a)</td></tr>
-<tr class="memdesc:ga31cc82178742c36450f5662bd4fb30b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spherical linear interpolation of two quaternions.  <a href="a00174.html#ga31cc82178742c36450f5662bd4fb30b0">More...</a><br /></td></tr>
-<tr class="separator:ga31cc82178742c36450f5662bd4fb30b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga35b6bcb22ac6d1e4a85440f5b69bdf86"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga35b6bcb22ac6d1e4a85440f5b69bdf86"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL tquat&lt; T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga35b6bcb22ac6d1e4a85440f5b69bdf86">normalize</a> (tquat&lt; T, P &gt; const &amp;q)</td></tr>
-<tr class="memdesc:ga35b6bcb22ac6d1e4a85440f5b69bdf86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the normalized quaternion.  <a href="a00174.html#ga35b6bcb22ac6d1e4a85440f5b69bdf86">More...</a><br /></td></tr>
-<tr class="separator:ga35b6bcb22ac6d1e4a85440f5b69bdf86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9bfd0663b62132254f9cb1c2672f5bbf"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga9bfd0663b62132254f9cb1c2672f5bbf"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 4, bool, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga9bfd0663b62132254f9cb1c2672f5bbf">notEqual</a> (tquat&lt; T, P &gt; const &amp;x, tquat&lt; T, P &gt; const &amp;y)</td></tr>
-<tr class="memdesc:ga9bfd0663b62132254f9cb1c2672f5bbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the component-wise comparison of result x != y.  <a href="a00174.html#ga9bfd0663b62132254f9cb1c2672f5bbf">More...</a><br /></td></tr>
-<tr class="separator:ga9bfd0663b62132254f9cb1c2672f5bbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2c08b93a4261c10748fd4d2104346f17"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga2c08b93a4261c10748fd4d2104346f17"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga2c08b93a4261c10748fd4d2104346f17">pitch</a> (tquat&lt; T, P &gt; const &amp;x)</td></tr>
-<tr class="memdesc:ga2c08b93a4261c10748fd4d2104346f17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns pitch value of euler angles expressed in radians.  <a href="a00174.html#ga2c08b93a4261c10748fd4d2104346f17">More...</a><br /></td></tr>
-<tr class="separator:ga2c08b93a4261c10748fd4d2104346f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga61f11ea26c2e7f2bb5e8bd3019c3f739"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga61f11ea26c2e7f2bb5e8bd3019c3f739"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL tquat&lt; T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga61f11ea26c2e7f2bb5e8bd3019c3f739">quat_cast</a> (mat&lt; 3, 3, T, P &gt; const &amp;x)</td></tr>
-<tr class="memdesc:ga61f11ea26c2e7f2bb5e8bd3019c3f739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a 3 * 3 matrix to a quaternion.  <a href="a00174.html#ga61f11ea26c2e7f2bb5e8bd3019c3f739">More...</a><br /></td></tr>
-<tr class="separator:ga61f11ea26c2e7f2bb5e8bd3019c3f739"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaca51f7c22c4a76b9d4104ad862da15ce"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gaca51f7c22c4a76b9d4104ad862da15ce"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL tquat&lt; T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#gaca51f7c22c4a76b9d4104ad862da15ce">quat_cast</a> (mat&lt; 4, 4, T, P &gt; const &amp;x)</td></tr>
-<tr class="memdesc:gaca51f7c22c4a76b9d4104ad862da15ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a 4 * 4 matrix to a quaternion.  <a href="a00174.html#gaca51f7c22c4a76b9d4104ad862da15ce">More...</a><br /></td></tr>
-<tr class="separator:gaca51f7c22c4a76b9d4104ad862da15ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4fd705376c6c1fd667be0055a0ea58ec"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga4fd705376c6c1fd667be0055a0ea58ec"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga4fd705376c6c1fd667be0055a0ea58ec">roll</a> (tquat&lt; T, P &gt; const &amp;x)</td></tr>
-<tr class="memdesc:ga4fd705376c6c1fd667be0055a0ea58ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns roll value of euler angles expressed in radians.  <a href="a00174.html#ga4fd705376c6c1fd667be0055a0ea58ec">More...</a><br /></td></tr>
-<tr class="separator:ga4fd705376c6c1fd667be0055a0ea58ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6e6822072246ec0c805873a968b1a1e2"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga6e6822072246ec0c805873a968b1a1e2"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL tquat&lt; T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga6e6822072246ec0c805873a968b1a1e2">rotate</a> (tquat&lt; T, P &gt; const &amp;q, T const &amp;angle, vec&lt; 3, T, P &gt; const &amp;axis)</td></tr>
-<tr class="memdesc:ga6e6822072246ec0c805873a968b1a1e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotates a quaternion from a vector of 3 components axis and an angle.  <a href="a00174.html#ga6e6822072246ec0c805873a968b1a1e2">More...</a><br /></td></tr>
-<tr class="separator:ga6e6822072246ec0c805873a968b1a1e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga22b438c7252f3fa5b773c9882471652a"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga22b438c7252f3fa5b773c9882471652a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL tquat&lt; T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga22b438c7252f3fa5b773c9882471652a">slerp</a> (tquat&lt; T, P &gt; const &amp;x, tquat&lt; T, P &gt; const &amp;y, T a)</td></tr>
-<tr class="memdesc:ga22b438c7252f3fa5b773c9882471652a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spherical linear interpolation of two quaternions.  <a href="a00174.html#ga22b438c7252f3fa5b773c9882471652a">More...</a><br /></td></tr>
-<tr class="separator:ga22b438c7252f3fa5b773c9882471652a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga724a5df282b70cec0a6cb0d6dcddb6d6"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga724a5df282b70cec0a6cb0d6dcddb6d6"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00174.html#ga724a5df282b70cec0a6cb0d6dcddb6d6">yaw</a> (tquat&lt; T, P &gt; const &amp;x)</td></tr>
-<tr class="memdesc:ga724a5df282b70cec0a6cb0d6dcddb6d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns yaw value of euler angles expressed in radians.  <a href="a00174.html#ga724a5df282b70cec0a6cb0d6dcddb6d6">More...</a><br /></td></tr>
-<tr class="separator:ga724a5df282b70cec0a6cb0d6dcddb6d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac84898c466e609cdd2e81d9ba907d9e8"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gac84898c466e609cdd2e81d9ba907d9e8"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00163.html#gac84898c466e609cdd2e81d9ba907d9e8">ceilMultiple</a> (genType Source, genType Multiple)</td></tr>
+<tr class="memdesc:gac84898c466e609cdd2e81d9ba907d9e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Higher multiple number of Source.  <a href="a00163.html#gac84898c466e609cdd2e81d9ba907d9e8">More...</a><br /></td></tr>
+<tr class="separator:gac84898c466e609cdd2e81d9ba907d9e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga073227936f36f9102cd3a8aa45871b26"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga073227936f36f9102cd3a8aa45871b26"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00163.html#ga073227936f36f9102cd3a8aa45871b26">ceilMultiple</a> (vec&lt; L, T, Q &gt; const &amp;Source, vec&lt; L, T, Q &gt; const &amp;Multiple)</td></tr>
+<tr class="memdesc:ga073227936f36f9102cd3a8aa45871b26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Higher multiple number of Source.  <a href="a00163.html#ga073227936f36f9102cd3a8aa45871b26">More...</a><br /></td></tr>
+<tr class="separator:ga073227936f36f9102cd3a8aa45871b26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa73c7690c787086fa3ac1c312264acab"><td class="memTemplParams" colspan="2">template&lt;typename genIUType &gt; </td></tr>
+<tr class="memitem:gaa73c7690c787086fa3ac1c312264acab"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genIUType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00163.html#gaa73c7690c787086fa3ac1c312264acab">ceilPowerOfTwo</a> (genIUType Value)</td></tr>
+<tr class="memdesc:gaa73c7690c787086fa3ac1c312264acab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the power of two number which value is just higher the input value, round up to a power of two.  <a href="a00163.html#gaa73c7690c787086fa3ac1c312264acab">More...</a><br /></td></tr>
+<tr class="separator:gaa73c7690c787086fa3ac1c312264acab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac46c061058771cb31c467ef673d12c80"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gac46c061058771cb31c467ef673d12c80"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00163.html#gac46c061058771cb31c467ef673d12c80">ceilPowerOfTwo</a> (vec&lt; L, T, Q &gt; const &amp;value)</td></tr>
+<tr class="memdesc:gac46c061058771cb31c467ef673d12c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the power of two number which value is just higher the input value, round up to a power of two.  <a href="a00163.html#gac46c061058771cb31c467ef673d12c80">More...</a><br /></td></tr>
+<tr class="separator:gac46c061058771cb31c467ef673d12c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9eafb9dbedf84e5cece65c2fe9d5631d"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga9eafb9dbedf84e5cece65c2fe9d5631d"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00163.html#ga9eafb9dbedf84e5cece65c2fe9d5631d">floorMultiple</a> (genType Source, genType Multiple)</td></tr>
+<tr class="memdesc:ga9eafb9dbedf84e5cece65c2fe9d5631d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lower multiple number of Source.  <a href="a00163.html#ga9eafb9dbedf84e5cece65c2fe9d5631d">More...</a><br /></td></tr>
+<tr class="separator:ga9eafb9dbedf84e5cece65c2fe9d5631d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2b6d6bcdf0641b54cb539104c224885b"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga2b6d6bcdf0641b54cb539104c224885b"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00163.html#ga2b6d6bcdf0641b54cb539104c224885b">floorMultiple</a> (vec&lt; L, T, Q &gt; const &amp;Source, vec&lt; L, T, Q &gt; const &amp;Multiple)</td></tr>
+<tr class="memdesc:ga2b6d6bcdf0641b54cb539104c224885b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lower multiple number of Source.  <a href="a00163.html#ga2b6d6bcdf0641b54cb539104c224885b">More...</a><br /></td></tr>
+<tr class="separator:ga2b6d6bcdf0641b54cb539104c224885b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac80f6519c31baae10d8d7bea6735d1fa"><td class="memTemplParams" colspan="2">template&lt;typename genIUType &gt; </td></tr>
+<tr class="memitem:gac80f6519c31baae10d8d7bea6735d1fa"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genIUType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00163.html#gac80f6519c31baae10d8d7bea6735d1fa">floorPowerOfTwo</a> (genIUType Value)</td></tr>
+<tr class="memdesc:gac80f6519c31baae10d8d7bea6735d1fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the power of two number which value is just lower the input value, round down to a power of two.  <a href="a00163.html#gac80f6519c31baae10d8d7bea6735d1fa">More...</a><br /></td></tr>
+<tr class="separator:gac80f6519c31baae10d8d7bea6735d1fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ebfea889605abf6629c7589e0cb2e28"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga6ebfea889605abf6629c7589e0cb2e28"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00163.html#ga6ebfea889605abf6629c7589e0cb2e28">floorPowerOfTwo</a> (vec&lt; L, T, Q &gt; const &amp;value)</td></tr>
+<tr class="memdesc:ga6ebfea889605abf6629c7589e0cb2e28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the power of two number which value is just lower the input value, round down to a power of two.  <a href="a00163.html#ga6ebfea889605abf6629c7589e0cb2e28">More...</a><br /></td></tr>
+<tr class="separator:ga6ebfea889605abf6629c7589e0cb2e28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf7444a7b2eb524f373463ceba76b9326"><td class="memTemplParams" colspan="2">template&lt;typename genIUType &gt; </td></tr>
+<tr class="memitem:gaf7444a7b2eb524f373463ceba76b9326"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00163.html#gaf7444a7b2eb524f373463ceba76b9326">isMultiple</a> (genIUType Value, genIUType Multiple)</td></tr>
+<tr class="memdesc:gaf7444a7b2eb524f373463ceba76b9326"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if the 'Value' is a multiple of 'Multiple'.  <a href="a00163.html#gaf7444a7b2eb524f373463ceba76b9326">More...</a><br /></td></tr>
+<tr class="separator:gaf7444a7b2eb524f373463ceba76b9326"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga908a61945ecb235817a9a87b249d4b2d"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga908a61945ecb235817a9a87b249d4b2d"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, bool, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00163.html#ga908a61945ecb235817a9a87b249d4b2d">isMultiple</a> (vec&lt; L, T, Q &gt; const &amp;Value, T Multiple)</td></tr>
+<tr class="memdesc:ga908a61945ecb235817a9a87b249d4b2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if the 'Value' is a multiple of 'Multiple'.  <a href="a00163.html#ga908a61945ecb235817a9a87b249d4b2d">More...</a><br /></td></tr>
+<tr class="separator:ga908a61945ecb235817a9a87b249d4b2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga12b5f07c3ed46acc6838f159ca6ef368"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga12b5f07c3ed46acc6838f159ca6ef368"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, bool, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00163.html#ga12b5f07c3ed46acc6838f159ca6ef368">isMultiple</a> (vec&lt; L, T, Q &gt; const &amp;Value, vec&lt; L, T, Q &gt; const &amp;Multiple)</td></tr>
+<tr class="memdesc:ga12b5f07c3ed46acc6838f159ca6ef368"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if the 'Value' is a multiple of 'Multiple'.  <a href="a00163.html#ga12b5f07c3ed46acc6838f159ca6ef368">More...</a><br /></td></tr>
+<tr class="separator:ga12b5f07c3ed46acc6838f159ca6ef368"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaebf826fbb6e0a70eeaab0792d89b25ec"><td class="memTemplParams" colspan="2">template&lt;typename genIUType &gt; </td></tr>
+<tr class="memitem:gaebf826fbb6e0a70eeaab0792d89b25ec"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00163.html#gaebf826fbb6e0a70eeaab0792d89b25ec">isPowerOfTwo</a> (genIUType Value)</td></tr>
+<tr class="memdesc:gaebf826fbb6e0a70eeaab0792d89b25ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if the value is a power of two number.  <a href="a00163.html#gaebf826fbb6e0a70eeaab0792d89b25ec">More...</a><br /></td></tr>
+<tr class="separator:gaebf826fbb6e0a70eeaab0792d89b25ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga866a7bbd725d7d40b5d433d02bf70f17"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga866a7bbd725d7d40b5d433d02bf70f17"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, bool, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00163.html#ga866a7bbd725d7d40b5d433d02bf70f17">isPowerOfTwo</a> (vec&lt; L, T, Q &gt; const &amp;value)</td></tr>
+<tr class="memdesc:ga866a7bbd725d7d40b5d433d02bf70f17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if the value is a power of two number.  <a href="a00163.html#ga866a7bbd725d7d40b5d433d02bf70f17">More...</a><br /></td></tr>
+<tr class="separator:ga866a7bbd725d7d40b5d433d02bf70f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6739d1de04b2cea7c78675b365644bce"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga6739d1de04b2cea7c78675b365644bce"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00163.html#ga6739d1de04b2cea7c78675b365644bce">roundMultiple</a> (genType Source, genType Multiple)</td></tr>
+<tr class="memdesc:ga6739d1de04b2cea7c78675b365644bce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lower multiple number of Source.  <a href="a00163.html#ga6739d1de04b2cea7c78675b365644bce">More...</a><br /></td></tr>
+<tr class="separator:ga6739d1de04b2cea7c78675b365644bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga812d27fa1a60c48dc111d67da26b1455"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga812d27fa1a60c48dc111d67da26b1455"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00163.html#ga812d27fa1a60c48dc111d67da26b1455">roundMultiple</a> (vec&lt; L, T, Q &gt; const &amp;Source, vec&lt; L, T, Q &gt; const &amp;Multiple)</td></tr>
+<tr class="memdesc:ga812d27fa1a60c48dc111d67da26b1455"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lower multiple number of Source.  <a href="a00163.html#ga812d27fa1a60c48dc111d67da26b1455">More...</a><br /></td></tr>
+<tr class="separator:ga812d27fa1a60c48dc111d67da26b1455"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6d24a9e3abe3e6a908661b43acb8efe0"><td class="memTemplParams" colspan="2">template&lt;typename genIUType &gt; </td></tr>
+<tr class="memitem:ga6d24a9e3abe3e6a908661b43acb8efe0"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genIUType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00163.html#ga6d24a9e3abe3e6a908661b43acb8efe0">roundPowerOfTwo</a> (genIUType Value)</td></tr>
+<tr class="memdesc:ga6d24a9e3abe3e6a908661b43acb8efe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the power of two number which value is the closet to the input value.  <a href="a00163.html#ga6d24a9e3abe3e6a908661b43acb8efe0">More...</a><br /></td></tr>
+<tr class="separator:ga6d24a9e3abe3e6a908661b43acb8efe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga31bea2d2e0b9bc62bd14b60fcb10f4e6"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga31bea2d2e0b9bc62bd14b60fcb10f4e6"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00163.html#ga31bea2d2e0b9bc62bd14b60fcb10f4e6">roundPowerOfTwo</a> (vec&lt; L, T, Q &gt; const &amp;value)</td></tr>
+<tr class="memdesc:ga31bea2d2e0b9bc62bd14b60fcb10f4e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the power of two number which value is the closet to the input value.  <a href="a00163.html#ga31bea2d2e0b9bc62bd14b60fcb10f4e6">More...</a><br /></td></tr>
+<tr class="separator:ga31bea2d2e0b9bc62bd14b60fcb10f4e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="a00174.html">GLM_GTC_quaternion</a> </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00158.html" title="The core of GLM, which implements exactly and only the GLSL specification to the degree possible...">GLM Core</a> (dependence) </dd>
+<div class="textblock"><p><a class="el" href="a00163.html">GLM_GTC_round</a> </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00143.html" title="Features that implement in C++ the GLSL specification as closely as possible. ">Core features</a> (dependence) </dd>
 <dd>
-<a class="el" href="a00164.html" title="Provide a list of constants and precomputed useful values. ">GLM_GTC_constants</a> (dependence) </dd></dl>
+<a class="el" href="a00163.html" title="Include <glm/gtc/round.hpp> to use the features of this extension. ">GLM_GTC_round</a> (dependence) </dd></dl>
 
-<p>Definition in file <a class="el" href="a00091_source.html">gtc/quaternion.hpp</a>.</p>
+<p>Definition in file <a class="el" href="a00091_source.html">round.hpp</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

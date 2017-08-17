@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTX_matrix_transform_2d</title>
+<title>0.9.9 API documenation: GLM_GTX_raw_data</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -75,214 +75,99 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_matrix_transform_2d<div class="ingroups"><a class="el" href="a00157.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_raw_data<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Defines functions that generate common 2d transformation matrices.  
+<p>Include &lt;<a class="el" href="a00087.html" title="GLM_GTX_raw_data ">glm/gtx/raw_data.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga6f345617cd464e6132256255adbbf491"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga6f345617cd464e6132256255adbbf491"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00214.html#ga6f345617cd464e6132256255adbbf491">rotate</a> (mat&lt; 3, 3, T, P &gt; const &amp;m, T angle)</td></tr>
-<tr class="memdesc:ga6f345617cd464e6132256255adbbf491"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a rotation 3 * 3 matrix created from an angle.  <a href="a00214.html#ga6f345617cd464e6132256255adbbf491">More...</a><br /></td></tr>
-<tr class="separator:ga6f345617cd464e6132256255adbbf491"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6c6fc9d6df792dcebf6d81ae68982b1c"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga6c6fc9d6df792dcebf6d81ae68982b1c"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00214.html#ga6c6fc9d6df792dcebf6d81ae68982b1c">scale</a> (mat&lt; 3, 3, T, P &gt; const &amp;m, vec&lt; 2, T, P &gt; const &amp;v)</td></tr>
-<tr class="memdesc:ga6c6fc9d6df792dcebf6d81ae68982b1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a scale 3 * 3 matrix created from a vector of 2 components.  <a href="a00214.html#ga6c6fc9d6df792dcebf6d81ae68982b1c">More...</a><br /></td></tr>
-<tr class="separator:ga6c6fc9d6df792dcebf6d81ae68982b1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad2abda4d1b3cc6bf0c8d3d87741a376b"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gad2abda4d1b3cc6bf0c8d3d87741a376b"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00214.html#gad2abda4d1b3cc6bf0c8d3d87741a376b">shearX</a> (mat&lt; 3, 3, T, P &gt; const &amp;m, T y)</td></tr>
-<tr class="memdesc:gad2abda4d1b3cc6bf0c8d3d87741a376b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds an horizontal (parallel to the x axis) shear 3 * 3 matrix.  <a href="a00214.html#gad2abda4d1b3cc6bf0c8d3d87741a376b">More...</a><br /></td></tr>
-<tr class="separator:gad2abda4d1b3cc6bf0c8d3d87741a376b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga149783af58949bc614258394b25e33de"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga149783af58949bc614258394b25e33de"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00214.html#ga149783af58949bc614258394b25e33de">shearY</a> (mat&lt; 3, 3, T, P &gt; const &amp;m, T x)</td></tr>
-<tr class="memdesc:ga149783af58949bc614258394b25e33de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a vertical (parallel to the y axis) shear 3 * 3 matrix.  <a href="a00214.html#ga149783af58949bc614258394b25e33de">More...</a><br /></td></tr>
-<tr class="separator:ga149783af58949bc614258394b25e33de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1553c827dbe9648415611251535cfb05"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga1553c827dbe9648415611251535cfb05"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00214.html#ga1553c827dbe9648415611251535cfb05">translate</a> (mat&lt; 3, 3, T, P &gt; const &amp;m, vec&lt; 2, T, P &gt; const &amp;v)</td></tr>
-<tr class="memdesc:ga1553c827dbe9648415611251535cfb05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a translation 3 * 3 matrix created from a vector of 2 components.  <a href="a00214.html#ga1553c827dbe9648415611251535cfb05">More...</a><br /></td></tr>
-<tr class="separator:ga1553c827dbe9648415611251535cfb05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga3005cb0d839d546c616becfa6602c607"><td class="memItemLeft" align="right" valign="top">typedef detail::uint8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00214.html#ga3005cb0d839d546c616becfa6602c607">byte</a></td></tr>
+<tr class="memdesc:ga3005cb0d839d546c616becfa6602c607"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for byte numbers.  <a href="a00214.html#ga3005cb0d839d546c616becfa6602c607">More...</a><br /></td></tr>
+<tr class="separator:ga3005cb0d839d546c616becfa6602c607"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga86e46fff9f80ae33893d8d697f2ca98a"><td class="memItemLeft" align="right" valign="top">typedef detail::uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00214.html#ga86e46fff9f80ae33893d8d697f2ca98a">dword</a></td></tr>
+<tr class="memdesc:ga86e46fff9f80ae33893d8d697f2ca98a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for dword numbers.  <a href="a00214.html#ga86e46fff9f80ae33893d8d697f2ca98a">More...</a><br /></td></tr>
+<tr class="separator:ga86e46fff9f80ae33893d8d697f2ca98a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4021754ffb8e5ef14c75802b15657714"><td class="memItemLeft" align="right" valign="top">typedef detail::uint64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00214.html#ga4021754ffb8e5ef14c75802b15657714">qword</a></td></tr>
+<tr class="memdesc:ga4021754ffb8e5ef14c75802b15657714"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for qword numbers.  <a href="a00214.html#ga4021754ffb8e5ef14c75802b15657714">More...</a><br /></td></tr>
+<tr class="separator:ga4021754ffb8e5ef14c75802b15657714"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga16e9fea0ef1e6c4ef472d3d1731c49a5"><td class="memItemLeft" align="right" valign="top">typedef detail::uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00214.html#ga16e9fea0ef1e6c4ef472d3d1731c49a5">word</a></td></tr>
+<tr class="memdesc:ga16e9fea0ef1e6c4ef472d3d1731c49a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for word numbers.  <a href="a00214.html#ga16e9fea0ef1e6c4ef472d3d1731c49a5">More...</a><br /></td></tr>
+<tr class="separator:ga16e9fea0ef1e6c4ef472d3d1731c49a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Defines functions that generate common 2d transformation matrices. </p>
-<p>&lt;<a class="el" href="a00075.html" title="GLM_GTX_matrix_transform_2d ">glm/gtx/matrix_transform_2d.hpp</a>&gt; need to be included to use these functionalities. </p>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga6f345617cd464e6132256255adbbf491"></a>
+<p>Include &lt;<a class="el" href="a00087.html" title="GLM_GTX_raw_data ">glm/gtx/raw_data.hpp</a>&gt; to use the features of this extension. </p>
+<p>Projection of a vector to other one </p>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="ga3005cb0d839d546c616becfa6602c607"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_QUALIFIER mat&lt;3, 3, T, P&gt; glm::rotate </td>
-          <td>(</td>
-          <td class="paramtype">mat&lt; 3, 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>m</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>angle</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">typedef detail::uint8 byte</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Builds a rotation 3 * 3 matrix created from an angle. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">m</td><td>Input matrix multiplied by this translation matrix. </td></tr>
-    <tr><td class="paramname">angle</td><td>Rotation angle expressed in radians. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Type for byte numbers. </p>
+<p>From GLM_GTX_raw_data extension. </p>
+
+<p>Definition at line <a class="el" href="a00087_source.html#l00034">34</a> of file <a class="el" href="a00087_source.html">raw_data.hpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ga6c6fc9d6df792dcebf6d81ae68982b1c"></a>
+<a class="anchor" id="ga86e46fff9f80ae33893d8d697f2ca98a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_QUALIFIER mat&lt;3, 3, T, P&gt; glm::scale </td>
-          <td>(</td>
-          <td class="paramtype">mat&lt; 3, 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>m</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 2, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">typedef detail::uint32 dword</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Builds a scale 3 * 3 matrix created from a vector of 2 components. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">m</td><td>Input matrix multiplied by this translation matrix. </td></tr>
-    <tr><td class="paramname">v</td><td>Coordinates of a scale vector. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Type for dword numbers. </p>
+<p>From GLM_GTX_raw_data extension. </p>
+
+<p>Definition at line <a class="el" href="a00087_source.html#l00042">42</a> of file <a class="el" href="a00087_source.html">raw_data.hpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="gad2abda4d1b3cc6bf0c8d3d87741a376b"></a>
+<a class="anchor" id="ga4021754ffb8e5ef14c75802b15657714"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_QUALIFIER mat&lt;3, 3, T, P&gt; glm::shearX </td>
-          <td>(</td>
-          <td class="paramtype">mat&lt; 3, 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>m</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">typedef detail::uint64 qword</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Builds an horizontal (parallel to the x axis) shear 3 * 3 matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">m</td><td>Input matrix multiplied by this translation matrix. </td></tr>
-    <tr><td class="paramname">y</td><td>Shear factor. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Type for qword numbers. </p>
+<p>From GLM_GTX_raw_data extension. </p>
+
+<p>Definition at line <a class="el" href="a00087_source.html#l00046">46</a> of file <a class="el" href="a00087_source.html">raw_data.hpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ga149783af58949bc614258394b25e33de"></a>
+<a class="anchor" id="ga16e9fea0ef1e6c4ef472d3d1731c49a5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_QUALIFIER mat&lt;3, 3, T, P&gt; glm::shearY </td>
-          <td>(</td>
-          <td class="paramtype">mat&lt; 3, 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>m</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>x</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">typedef detail::uint16 word</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Builds a vertical (parallel to the y axis) shear 3 * 3 matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">m</td><td>Input matrix multiplied by this translation matrix. </td></tr>
-    <tr><td class="paramname">x</td><td>Shear factor. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Type for word numbers. </p>
+<p>From GLM_GTX_raw_data extension. </p>
 
-</div>
-</div>
-<a class="anchor" id="ga1553c827dbe9648415611251535cfb05"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_QUALIFIER mat&lt;3, 3, T, P&gt; glm::translate </td>
-          <td>(</td>
-          <td class="paramtype">mat&lt; 3, 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>m</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 2, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Builds a translation 3 * 3 matrix created from a vector of 2 components. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">m</td><td>Input matrix multiplied by this translation matrix. </td></tr>
-    <tr><td class="paramname">v</td><td>Coordinates of a translation vector. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Definition at line <a class="el" href="a00087_source.html#l00038">38</a> of file <a class="el" href="a00087_source.html">raw_data.hpp</a>.</p>
 
 </div>
 </div>

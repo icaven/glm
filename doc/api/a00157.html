@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GTX Extensions (Experimental)</title>
+<title>0.9.9 API documenation: GLM_GTC_matrix_transform</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -75,199 +75,1625 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GTX Extensions (Experimental)</div>  </div>
+<div class="title">GLM_GTC_matrix_transform<div class="ingroups"><a class="el" href="a00147.html">Stable extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Functions and types that the GLSL specification doesn't define, but useful to have for a C++ program.  
+<p>Include &lt;<a class="el" href="a00066.html" title="GLM_GTC_matrix_transform ">glm/gtc/matrix_transform.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
-Modules</h2></td></tr>
-<tr class="memitem:a00183"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00183.html">GLM_GTX_associated_min_max</a></td></tr>
-<tr class="memdesc:a00183"><td class="mdescLeft">&#160;</td><td class="mdescRight">Min and max functions that return associated values not the compared onces. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00184"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00184.html">GLM_GTX_bit</a></td></tr>
-<tr class="memdesc:a00184"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow to perform bit operations on integer values. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00185"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00185.html">GLM_GTX_closest_point</a></td></tr>
-<tr class="memdesc:a00185"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the point on a straight line which is the closet of a point. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00186"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00186.html">GLM_GTX_color_encoding</a></td></tr>
-<tr class="memdesc:a00186"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow to perform bit operations on integer values. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00187"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00187.html">GLM_GTX_color_space</a></td></tr>
-<tr class="memdesc:a00187"><td class="mdescLeft">&#160;</td><td class="mdescRight">Related to RGB to HSV conversions and operations. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00188"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00188.html">GLM_GTX_color_space_YCoCg</a></td></tr>
-<tr class="memdesc:a00188"><td class="mdescLeft">&#160;</td><td class="mdescRight">RGB to YCoCg conversions and operations. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00189"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html">GLM_GTX_common</a></td></tr>
-<tr class="memdesc:a00189"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provide functions to increase the compatibility with Cg and HLSL languages. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00190"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00190.html">GLM_GTX_compatibility</a></td></tr>
-<tr class="memdesc:a00190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provide functions to increase the compatibility with Cg and HLSL languages. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00191"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html">GLM_GTX_component_wise</a></td></tr>
-<tr class="memdesc:a00191"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operations between components of a type. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00192"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00192.html">GLM_GTX_dual_quaternion</a></td></tr>
-<tr class="memdesc:a00192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines a templated dual-quaternion type and several dual-quaternion operations. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00193"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html">GLM_GTX_euler_angles</a></td></tr>
-<tr class="memdesc:a00193"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build matrices from Euler angles. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00194"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html">GLM_GTX_extend</a></td></tr>
-<tr class="memdesc:a00194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extend a position from a source to a position at a defined length. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00195"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html">GLM_GTX_extented_min_max</a></td></tr>
-<tr class="memdesc:a00195"><td class="mdescLeft">&#160;</td><td class="mdescRight">Min and max functions for 3 to 4 parameters. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00196"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00196.html">GLM_GTX_exterior_product</a></td></tr>
-<tr class="memdesc:a00196"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow to perform bit operations on integer values. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00197"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00197.html">GLM_GTX_fast_exponential</a></td></tr>
-<tr class="memdesc:a00197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fast but less accurate implementations of exponential based functions. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00198"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00198.html">GLM_GTX_fast_square_root</a></td></tr>
-<tr class="memdesc:a00198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fast but less accurate implementations of square root based functions. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00199"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00199.html">GLM_GTX_fast_trigonometry</a></td></tr>
-<tr class="memdesc:a00199"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fast but less accurate implementations of trigonometric functions. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00200"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html">GLM_GTX_gradient_paint</a></td></tr>
-<tr class="memdesc:a00200"><td class="mdescLeft">&#160;</td><td class="mdescRight">Functions that return the color of procedural gradient for specific coordinates. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00201"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html">GLM_GTX_handed_coordinate_space</a></td></tr>
-<tr class="memdesc:a00201"><td class="mdescLeft">&#160;</td><td class="mdescRight">To know if a set of three basis vectors defines a right or left-handed coordinate system. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00202"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00202.html">GLM_GTX_hash</a></td></tr>
-<tr class="memdesc:a00202"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add std::hash support for glm types. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00203"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00203.html">GLM_GTX_integer</a></td></tr>
-<tr class="memdesc:a00203"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add support for integer for core functions. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00204"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00204.html">GLM_GTX_intersect</a></td></tr>
-<tr class="memdesc:a00204"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add intersection functions. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00205"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html">GLM_GTX_io</a></td></tr>
-<tr class="memdesc:a00205"><td class="mdescLeft">&#160;</td><td class="mdescRight">std::[w]ostream support for glm types <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00206"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00206.html">GLM_GTX_log_base</a></td></tr>
-<tr class="memdesc:a00206"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logarithm for any base. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00207"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00207.html">GLM_GTX_matrix_cross_product</a></td></tr>
-<tr class="memdesc:a00207"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build cross product matrices. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00208"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00208.html">GLM_GTX_matrix_decompose</a></td></tr>
-<tr class="memdesc:a00208"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decomposes a model matrix to translations, rotation and scale components. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00209"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00209.html">GLM_GTX_matrix_factorisation</a></td></tr>
-<tr class="memdesc:a00209"><td class="mdescLeft">&#160;</td><td class="mdescRight">Functions to factor matrices in various forms. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00210"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00210.html">GLM_GTX_matrix_interpolation</a></td></tr>
-<tr class="memdesc:a00210"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows to directly interpolate two exiciting matrices. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00211"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00211.html">GLM_GTX_matrix_major_storage</a></td></tr>
-<tr class="memdesc:a00211"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build matrices with specific matrix order, row or column. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00212"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00212.html">GLM_GTX_matrix_operation</a></td></tr>
-<tr class="memdesc:a00212"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build diagonal matrices from vectors. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00213"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html">GLM_GTX_matrix_query</a></td></tr>
-<tr class="memdesc:a00213"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query to evaluate matrix properties. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00214"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00214.html">GLM_GTX_matrix_transform_2d</a></td></tr>
-<tr class="memdesc:a00214"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines functions that generate common 2d transformation matrices. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00215"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00215.html">GLM_GTX_mixed_producte</a></td></tr>
-<tr class="memdesc:a00215"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mixed product of 3 vectors. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00216"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00216.html">GLM_GTX_norm</a></td></tr>
-<tr class="memdesc:a00216"><td class="mdescLeft">&#160;</td><td class="mdescRight">Various ways to compute vector norms. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00217"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00217.html">GLM_GTX_normal</a></td></tr>
-<tr class="memdesc:a00217"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the normal of a triangle. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00218"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html">GLM_GTX_normalize_dot</a></td></tr>
-<tr class="memdesc:a00218"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dot product of vectors that need to be normalize with a single square root. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00219"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00219.html">GLM_GTX_number_precision</a></td></tr>
-<tr class="memdesc:a00219"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defined size types. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00220"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html">GLM_GTX_optimum_pow</a></td></tr>
-<tr class="memdesc:a00220"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integer exponentiation of power functions. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00221"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00221.html">GLM_GTX_orthonormalize</a></td></tr>
-<tr class="memdesc:a00221"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orthonormalize matrices. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00222"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00222.html">GLM_GTX_perpendicular</a></td></tr>
-<tr class="memdesc:a00222"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perpendicular of a vector from other one. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00223"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00223.html">GLM_GTX_polar_coordinates</a></td></tr>
-<tr class="memdesc:a00223"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion from Euclidean space to polar space and revert. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00224"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00224.html">GLM_GTX_projection</a></td></tr>
-<tr class="memdesc:a00224"><td class="mdescLeft">&#160;</td><td class="mdescRight">Projection of a vector to other one. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00225"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00225.html">GLM_GTX_quaternion</a></td></tr>
-<tr class="memdesc:a00225"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extented quaternion types and functions. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00226"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00226.html">GLM_GTX_range</a></td></tr>
-<tr class="memdesc:a00226"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines begin and end for vectors and matrices. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00227"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00227.html">GLM_GTX_raw_data</a></td></tr>
-<tr class="memdesc:a00227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Projection of a vector to other one. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00228"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00228.html">GLM_GTX_rotate_normalized_axis</a></td></tr>
-<tr class="memdesc:a00228"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quaternions and matrices rotations around normalized axis. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00229"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00229.html">GLM_GTX_rotate_vector</a></td></tr>
-<tr class="memdesc:a00229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to directly rotate a vector. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00230"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00230.html">GLM_GTX_scalar_relational</a></td></tr>
-<tr class="memdesc:a00230"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extend a position from a source to a position at a defined length. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00231"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00231.html">GLM_GTX_spline</a></td></tr>
-<tr class="memdesc:a00231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spline functions. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00232"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00232.html">GLM_GTX_std_based_type</a></td></tr>
-<tr class="memdesc:a00232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds vector types based on STL value types. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00233"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00233.html">GLM_GTX_string_cast</a></td></tr>
-<tr class="memdesc:a00233"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup strings for GLM type values. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00234"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html">GLM_GTX_transform</a></td></tr>
-<tr class="memdesc:a00234"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add transformation matrices. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00235"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00235.html">GLM_GTX_transform2</a></td></tr>
-<tr class="memdesc:a00235"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add extra transformation matrices. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00236"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00236.html">GLM_GTX_type_aligned</a></td></tr>
-<tr class="memdesc:a00236"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines aligned types. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00237"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00237.html">GLM_GTX_type_trait</a></td></tr>
-<tr class="memdesc:a00237"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines traits for each type. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00238"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00238.html">GLM_GTX_vec_swizzle</a></td></tr>
-<tr class="memdesc:a00238"><td class="mdescLeft">&#160;</td><td class="mdescRight">Functions to perform swizzle operation. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00239"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00239.html">GLM_GTX_vector_angle</a></td></tr>
-<tr class="memdesc:a00239"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute angle between vectors. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00240"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00240.html">GLM_GTX_vector_query</a></td></tr>
-<tr class="memdesc:a00240"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query informations of vector types. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00241"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00241.html">GLM_GTX_wrap</a></td></tr>
-<tr class="memdesc:a00241"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapping mode of texture coordinates. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga0bcd4542e0affc63a0b8c08fcb839ea9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga0bcd4542e0affc63a0b8c08fcb839ea9"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga0bcd4542e0affc63a0b8c08fcb839ea9">frustum</a> (T left, T right, T bottom, T top, T near, T far)</td></tr>
+<tr class="memdesc:ga0bcd4542e0affc63a0b8c08fcb839ea9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a frustum matrix with default handedness.  <a href="a00157.html#ga0bcd4542e0affc63a0b8c08fcb839ea9">More...</a><br /></td></tr>
+<tr class="separator:ga0bcd4542e0affc63a0b8c08fcb839ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae4277c37f61d81da01bc9db14ea90296"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gae4277c37f61d81da01bc9db14ea90296"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gae4277c37f61d81da01bc9db14ea90296">frustumLH</a> (T left, T right, T bottom, T top, T near, T far)</td></tr>
+<tr class="memdesc:gae4277c37f61d81da01bc9db14ea90296"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a left handed frustum matrix.  <a href="a00157.html#gae4277c37f61d81da01bc9db14ea90296">More...</a><br /></td></tr>
+<tr class="separator:gae4277c37f61d81da01bc9db14ea90296"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4366ab45880c6c5f8b3e8c371ca4b136"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga4366ab45880c6c5f8b3e8c371ca4b136"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga4366ab45880c6c5f8b3e8c371ca4b136">frustumRH</a> (T left, T right, T bottom, T top, T near, T far)</td></tr>
+<tr class="memdesc:ga4366ab45880c6c5f8b3e8c371ca4b136"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a right handed frustum matrix.  <a href="a00157.html#ga4366ab45880c6c5f8b3e8c371ca4b136">More...</a><br /></td></tr>
+<tr class="separator:ga4366ab45880c6c5f8b3e8c371ca4b136"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga44fa38a18349450325cae2661bb115ca"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga44fa38a18349450325cae2661bb115ca"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga44fa38a18349450325cae2661bb115ca">infinitePerspective</a> (T fovy, T aspect, T near)</td></tr>
+<tr class="memdesc:ga44fa38a18349450325cae2661bb115ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for a symmetric perspective-view frustum with far plane at infinite with default handedness.  <a href="a00157.html#ga44fa38a18349450325cae2661bb115ca">More...</a><br /></td></tr>
+<tr class="separator:ga44fa38a18349450325cae2661bb115ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3201b30f5b3ea0f933246d87bfb992a9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga3201b30f5b3ea0f933246d87bfb992a9"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga3201b30f5b3ea0f933246d87bfb992a9">infinitePerspectiveLH</a> (T fovy, T aspect, T near)</td></tr>
+<tr class="memdesc:ga3201b30f5b3ea0f933246d87bfb992a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for a left handed, symmetric perspective-view frustum with far plane at infinite.  <a href="a00157.html#ga3201b30f5b3ea0f933246d87bfb992a9">More...</a><br /></td></tr>
+<tr class="separator:ga3201b30f5b3ea0f933246d87bfb992a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga99672ffe5714ef478dab2437255fe7e1"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga99672ffe5714ef478dab2437255fe7e1"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga99672ffe5714ef478dab2437255fe7e1">infinitePerspectiveRH</a> (T fovy, T aspect, T near)</td></tr>
+<tr class="memdesc:ga99672ffe5714ef478dab2437255fe7e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for a right handed, symmetric perspective-view frustum with far plane at infinite.  <a href="a00157.html#ga99672ffe5714ef478dab2437255fe7e1">More...</a><br /></td></tr>
+<tr class="separator:ga99672ffe5714ef478dab2437255fe7e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa64aa951a0e99136bba9008d2b59c78e"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaa64aa951a0e99136bba9008d2b59c78e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gaa64aa951a0e99136bba9008d2b59c78e">lookAt</a> (vec&lt; 3, T, Q &gt; const &amp;eye, vec&lt; 3, T, Q &gt; const &amp;center, vec&lt; 3, T, Q &gt; const &amp;up)</td></tr>
+<tr class="memdesc:gaa64aa951a0e99136bba9008d2b59c78e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a look at view matrix based on the default handedness.  <a href="a00157.html#gaa64aa951a0e99136bba9008d2b59c78e">More...</a><br /></td></tr>
+<tr class="separator:gaa64aa951a0e99136bba9008d2b59c78e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab2c09e25b0a16d3a9d89cc85bbae41b0"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gab2c09e25b0a16d3a9d89cc85bbae41b0"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gab2c09e25b0a16d3a9d89cc85bbae41b0">lookAtLH</a> (vec&lt; 3, T, Q &gt; const &amp;eye, vec&lt; 3, T, Q &gt; const &amp;center, vec&lt; 3, T, Q &gt; const &amp;up)</td></tr>
+<tr class="memdesc:gab2c09e25b0a16d3a9d89cc85bbae41b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a left handed look at view matrix.  <a href="a00157.html#gab2c09e25b0a16d3a9d89cc85bbae41b0">More...</a><br /></td></tr>
+<tr class="separator:gab2c09e25b0a16d3a9d89cc85bbae41b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacfa12c8889c754846bc20c65d9b5c701"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gacfa12c8889c754846bc20c65d9b5c701"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gacfa12c8889c754846bc20c65d9b5c701">lookAtRH</a> (vec&lt; 3, T, Q &gt; const &amp;eye, vec&lt; 3, T, Q &gt; const &amp;center, vec&lt; 3, T, Q &gt; const &amp;up)</td></tr>
+<tr class="memdesc:gacfa12c8889c754846bc20c65d9b5c701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a right handed look at view matrix.  <a href="a00157.html#gacfa12c8889c754846bc20c65d9b5c701">More...</a><br /></td></tr>
+<tr class="separator:gacfa12c8889c754846bc20c65d9b5c701"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6615d8a9d39432e279c4575313ecb456"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga6615d8a9d39432e279c4575313ecb456"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga6615d8a9d39432e279c4575313ecb456">ortho</a> (T left, T right, T bottom, T top, T zNear, T zFar)</td></tr>
+<tr class="memdesc:ga6615d8a9d39432e279c4575313ecb456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for an orthographic parallel viewing volume, using the default handedness.  <a href="a00157.html#ga6615d8a9d39432e279c4575313ecb456">More...</a><br /></td></tr>
+<tr class="separator:ga6615d8a9d39432e279c4575313ecb456"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5b6b40ed882cd56cd7cb97701909c06"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gae5b6b40ed882cd56cd7cb97701909c06"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gae5b6b40ed882cd56cd7cb97701909c06">ortho</a> (T left, T right, T bottom, T top)</td></tr>
+<tr class="memdesc:gae5b6b40ed882cd56cd7cb97701909c06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for projecting two-dimensional coordinates onto the screen.  <a href="a00157.html#gae5b6b40ed882cd56cd7cb97701909c06">More...</a><br /></td></tr>
+<tr class="separator:gae5b6b40ed882cd56cd7cb97701909c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad122a79aadaa5529cec4ac197203db7f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gad122a79aadaa5529cec4ac197203db7f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gad122a79aadaa5529cec4ac197203db7f">orthoLH</a> (T left, T right, T bottom, T top, T zNear, T zFar)</td></tr>
+<tr class="memdesc:gad122a79aadaa5529cec4ac197203db7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for an orthographic parallel viewing volume, using left-handedness.  <a href="a00157.html#gad122a79aadaa5529cec4ac197203db7f">More...</a><br /></td></tr>
+<tr class="separator:gad122a79aadaa5529cec4ac197203db7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga16264c9b838edeb9dd1de7a1010a13a4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga16264c9b838edeb9dd1de7a1010a13a4"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga16264c9b838edeb9dd1de7a1010a13a4">orthoRH</a> (T left, T right, T bottom, T top, T zNear, T zFar)</td></tr>
+<tr class="memdesc:ga16264c9b838edeb9dd1de7a1010a13a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for an orthographic parallel viewing volume, using right-handedness.  <a href="a00157.html#ga16264c9b838edeb9dd1de7a1010a13a4">More...</a><br /></td></tr>
+<tr class="separator:ga16264c9b838edeb9dd1de7a1010a13a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga747c8cf99458663dd7ad1bb3a2f07787"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga747c8cf99458663dd7ad1bb3a2f07787"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga747c8cf99458663dd7ad1bb3a2f07787">perspective</a> (T fovy, T aspect, T near, T far)</td></tr>
+<tr class="memdesc:ga747c8cf99458663dd7ad1bb3a2f07787"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for a symetric perspective-view frustum based on the default handedness.  <a href="a00157.html#ga747c8cf99458663dd7ad1bb3a2f07787">More...</a><br /></td></tr>
+<tr class="separator:ga747c8cf99458663dd7ad1bb3a2f07787"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaebd02240fd36e85ad754f02ddd9a560d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gaebd02240fd36e85ad754f02ddd9a560d"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gaebd02240fd36e85ad754f02ddd9a560d">perspectiveFov</a> (T fov, T width, T height, T near, T far)</td></tr>
+<tr class="memdesc:gaebd02240fd36e85ad754f02ddd9a560d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a perspective projection matrix based on a field of view and the default handedness.  <a href="a00157.html#gaebd02240fd36e85ad754f02ddd9a560d">More...</a><br /></td></tr>
+<tr class="separator:gaebd02240fd36e85ad754f02ddd9a560d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6aebe16c164bd8e52554cbe0304ef4aa"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga6aebe16c164bd8e52554cbe0304ef4aa"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga6aebe16c164bd8e52554cbe0304ef4aa">perspectiveFovLH</a> (T fov, T width, T height, T near, T far)</td></tr>
+<tr class="memdesc:ga6aebe16c164bd8e52554cbe0304ef4aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a left handed perspective projection matrix based on a field of view.  <a href="a00157.html#ga6aebe16c164bd8e52554cbe0304ef4aa">More...</a><br /></td></tr>
+<tr class="separator:ga6aebe16c164bd8e52554cbe0304ef4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf32bf563f28379c68554a44ee60c6a85"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gaf32bf563f28379c68554a44ee60c6a85"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gaf32bf563f28379c68554a44ee60c6a85">perspectiveFovRH</a> (T fov, T width, T height, T near, T far)</td></tr>
+<tr class="memdesc:gaf32bf563f28379c68554a44ee60c6a85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a right handed perspective projection matrix based on a field of view.  <a href="a00157.html#gaf32bf563f28379c68554a44ee60c6a85">More...</a><br /></td></tr>
+<tr class="separator:gaf32bf563f28379c68554a44ee60c6a85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9bd34951dc7022ac256fcb51d7f6fc2f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga9bd34951dc7022ac256fcb51d7f6fc2f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga9bd34951dc7022ac256fcb51d7f6fc2f">perspectiveLH</a> (T fovy, T aspect, T near, T far)</td></tr>
+<tr class="memdesc:ga9bd34951dc7022ac256fcb51d7f6fc2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for a left handed, symetric perspective-view frustum.  <a href="a00157.html#ga9bd34951dc7022ac256fcb51d7f6fc2f">More...</a><br /></td></tr>
+<tr class="separator:ga9bd34951dc7022ac256fcb51d7f6fc2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga26b88757fbd90601b80768a7e1ad3aa1"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga26b88757fbd90601b80768a7e1ad3aa1"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga26b88757fbd90601b80768a7e1ad3aa1">perspectiveRH</a> (T fovy, T aspect, T near, T far)</td></tr>
+<tr class="memdesc:ga26b88757fbd90601b80768a7e1ad3aa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for a right handed, symetric perspective-view frustum.  <a href="a00157.html#ga26b88757fbd90601b80768a7e1ad3aa1">More...</a><br /></td></tr>
+<tr class="separator:ga26b88757fbd90601b80768a7e1ad3aa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf6b21eadb7ac2ecbbe258a9a233b4c82"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q, typename U &gt; </td></tr>
+<tr class="memitem:gaf6b21eadb7ac2ecbbe258a9a233b4c82"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gaf6b21eadb7ac2ecbbe258a9a233b4c82">pickMatrix</a> (vec&lt; 2, T, Q &gt; const &amp;center, vec&lt; 2, T, Q &gt; const &amp;delta, vec&lt; 4, U, Q &gt; const &amp;viewport)</td></tr>
+<tr class="memdesc:gaf6b21eadb7ac2ecbbe258a9a233b4c82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a picking region.  <a href="a00157.html#gaf6b21eadb7ac2ecbbe258a9a233b4c82">More...</a><br /></td></tr>
+<tr class="separator:gaf6b21eadb7ac2ecbbe258a9a233b4c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf36e96033f456659e6705472a06b6e11"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaf36e96033f456659e6705472a06b6e11"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gaf36e96033f456659e6705472a06b6e11">project</a> (vec&lt; 3, T, Q &gt; const &amp;obj, mat&lt; 4, 4, T, Q &gt; const &amp;model, mat&lt; 4, 4, T, Q &gt; const &amp;proj, vec&lt; 4, U, Q &gt; const &amp;viewport)</td></tr>
+<tr class="memdesc:gaf36e96033f456659e6705472a06b6e11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map the specified object coordinates (obj.x, obj.y, obj.z) into window coordinates.  <a href="a00157.html#gaf36e96033f456659e6705472a06b6e11">More...</a><br /></td></tr>
+<tr class="separator:gaf36e96033f456659e6705472a06b6e11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee9e865eaa9776370996da2940873fd4"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaee9e865eaa9776370996da2940873fd4"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gaee9e865eaa9776370996da2940873fd4">rotate</a> (mat&lt; 4, 4, T, Q &gt; const &amp;m, T angle, vec&lt; 3, T, Q &gt; const &amp;axis)</td></tr>
+<tr class="memdesc:gaee9e865eaa9776370996da2940873fd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a rotation 4 * 4 matrix created from an axis vector and an angle.  <a href="a00157.html#gaee9e865eaa9776370996da2940873fd4">More...</a><br /></td></tr>
+<tr class="separator:gaee9e865eaa9776370996da2940873fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga05051adbee603fb3c5095d8cf5cc229b"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga05051adbee603fb3c5095d8cf5cc229b"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga05051adbee603fb3c5095d8cf5cc229b">scale</a> (mat&lt; 4, 4, T, Q &gt; const &amp;m, vec&lt; 3, T, Q &gt; const &amp;v)</td></tr>
+<tr class="memdesc:ga05051adbee603fb3c5095d8cf5cc229b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a scale 4 * 4 matrix created from 3 scalars.  <a href="a00157.html#ga05051adbee603fb3c5095d8cf5cc229b">More...</a><br /></td></tr>
+<tr class="separator:ga05051adbee603fb3c5095d8cf5cc229b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a4ecc4ad82652b8fb14dcb087879284"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga1a4ecc4ad82652b8fb14dcb087879284"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga1a4ecc4ad82652b8fb14dcb087879284">translate</a> (mat&lt; 4, 4, T, Q &gt; const &amp;m, vec&lt; 3, T, Q &gt; const &amp;v)</td></tr>
+<tr class="memdesc:ga1a4ecc4ad82652b8fb14dcb087879284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a translation 4 * 4 matrix created from a vector of 3 components.  <a href="a00157.html#ga1a4ecc4ad82652b8fb14dcb087879284">More...</a><br /></td></tr>
+<tr class="separator:ga1a4ecc4ad82652b8fb14dcb087879284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaeacc04a2a6f4b18c5899d37e7bb3ef9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gaaeacc04a2a6f4b18c5899d37e7bb3ef9"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gaaeacc04a2a6f4b18c5899d37e7bb3ef9">tweakedInfinitePerspective</a> (T fovy, T aspect, T near)</td></tr>
+<tr class="memdesc:gaaeacc04a2a6f4b18c5899d37e7bb3ef9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for a symmetric perspective-view frustum with far plane at infinite for graphics hardware that doesn't support depth clamping.  <a href="a00157.html#gaaeacc04a2a6f4b18c5899d37e7bb3ef9">More...</a><br /></td></tr>
+<tr class="separator:gaaeacc04a2a6f4b18c5899d37e7bb3ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf5b3c85ff6737030a1d2214474ffa7a8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gaf5b3c85ff6737030a1d2214474ffa7a8"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gaf5b3c85ff6737030a1d2214474ffa7a8">tweakedInfinitePerspective</a> (T fovy, T aspect, T near, T ep)</td></tr>
+<tr class="memdesc:gaf5b3c85ff6737030a1d2214474ffa7a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for a symmetric perspective-view frustum with far plane at infinite for graphics hardware that doesn't support depth clamping.  <a href="a00157.html#gaf5b3c85ff6737030a1d2214474ffa7a8">More...</a><br /></td></tr>
+<tr class="separator:gaf5b3c85ff6737030a1d2214474ffa7a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga36641e5d60f994e01c3d8f56b10263d2"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga36641e5d60f994e01c3d8f56b10263d2"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga36641e5d60f994e01c3d8f56b10263d2">unProject</a> (vec&lt; 3, T, Q &gt; const &amp;win, mat&lt; 4, 4, T, Q &gt; const &amp;model, mat&lt; 4, 4, T, Q &gt; const &amp;proj, vec&lt; 4, U, Q &gt; const &amp;viewport)</td></tr>
+<tr class="memdesc:ga36641e5d60f994e01c3d8f56b10263d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map the specified window coordinates (win.x, win.y, win.z) into object coordinates.  <a href="a00157.html#ga36641e5d60f994e01c3d8f56b10263d2">More...</a><br /></td></tr>
+<tr class="separator:ga36641e5d60f994e01c3d8f56b10263d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Functions and types that the GLSL specification doesn't define, but useful to have for a C++ program. </p>
-<p>Experimental extensions are useful functions and types, but the development of their API and functionality is not necessarily stable. They can change substantially between versions. Backwards compatibility is not much of an issue for them.</p>
-<p>Even if it's highly unrecommended, it's possible to include all the extensions at once by including &lt;<a class="el" href="a00025.html" title="GLM Core (Dependence) ">glm/ext.hpp</a>&gt;. Otherwise, each extension needs to be included a specific file. </p>
+<p>Include &lt;<a class="el" href="a00066.html" title="GLM_GTC_matrix_transform ">glm/gtc/matrix_transform.hpp</a>&gt; to use the features of this extension. </p>
+<p>Defines functions that generate common transformation matrices.</p>
+<p>The matrices generated by this extension use standard OpenGL fixed-function conventions. For example, the lookAt function generates a transform from world space into the specific eye space that the projective matrix functions (perspective, ortho, etc) are designed to expect. The OpenGL compatibility specifications defines the particular layout of this eye space. </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ga0bcd4542e0affc63a0b8c08fcb839ea9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::frustum </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>right</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>bottom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>top</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>near</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>far</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a frustum matrix with default handedness. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
+<dd>
+<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glFrustum.xml">glFrustum man page</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gae4277c37f61d81da01bc9db14ea90296"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::frustumLH </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>right</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>bottom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>top</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>near</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>far</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a left handed frustum matrix. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga4366ab45880c6c5f8b3e8c371ca4b136"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::frustumRH </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>right</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>bottom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>top</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>near</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>far</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a right handed frustum matrix. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga44fa38a18349450325cae2661bb115ca"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::infinitePerspective </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>fovy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>aspect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>near</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a matrix for a symmetric perspective-view frustum with far plane at infinite with default handedness. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fovy</td><td>Specifies the field of view angle, in degrees, in the y direction. Expressed in radians. </td></tr>
+    <tr><td class="paramname">aspect</td><td>Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height). </td></tr>
+    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga3201b30f5b3ea0f933246d87bfb992a9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::infinitePerspectiveLH </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>fovy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>aspect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>near</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a matrix for a left handed, symmetric perspective-view frustum with far plane at infinite. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fovy</td><td>Specifies the field of view angle, in degrees, in the y direction. Expressed in radians. </td></tr>
+    <tr><td class="paramname">aspect</td><td>Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height). </td></tr>
+    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga99672ffe5714ef478dab2437255fe7e1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::infinitePerspectiveRH </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>fovy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>aspect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>near</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a matrix for a right handed, symmetric perspective-view frustum with far plane at infinite. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fovy</td><td>Specifies the field of view angle, in degrees, in the y direction. Expressed in radians. </td></tr>
+    <tr><td class="paramname">aspect</td><td>Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height). </td></tr>
+    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaa64aa951a0e99136bba9008d2b59c78e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::lookAt </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>eye</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>center</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>up</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Build a look at view matrix based on the default handedness. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eye</td><td>Position of the camera </td></tr>
+    <tr><td class="paramname">center</td><td>Position where the camera is looking at </td></tr>
+    <tr><td class="paramname">up</td><td>Normalized up vector, how the camera is oriented. Typically (0, 0, 1) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
+<dd>
+- frustum(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top, T const&amp; nearVal, T const&amp; farVal) frustum(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top, T const&amp; nearVal, T const&amp; farVal) </dd>
+<dd>
+<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluLookAt.xml">gluLookAt man page</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gab2c09e25b0a16d3a9d89cc85bbae41b0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::lookAtLH </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>eye</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>center</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>up</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Build a left handed look at view matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eye</td><td>Position of the camera </td></tr>
+    <tr><td class="paramname">center</td><td>Position where the camera is looking at </td></tr>
+    <tr><td class="paramname">up</td><td>Normalized up vector, how the camera is oriented. Typically (0, 0, 1) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
+<dd>
+- frustum(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top, T const&amp; nearVal, T const&amp; farVal) frustum(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top, T const&amp; nearVal, T const&amp; farVal) </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gacfa12c8889c754846bc20c65d9b5c701"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::lookAtRH </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>eye</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>center</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>up</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Build a right handed look at view matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eye</td><td>Position of the camera </td></tr>
+    <tr><td class="paramname">center</td><td>Position where the camera is looking at </td></tr>
+    <tr><td class="paramname">up</td><td>Normalized up vector, how the camera is oriented. Typically (0, 0, 1) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
+<dd>
+- frustum(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top, T const&amp; nearVal, T const&amp; farVal) frustum(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top, T const&amp; nearVal, T const&amp; farVal) </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga6615d8a9d39432e279c4575313ecb456"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::ortho </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>right</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>bottom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>top</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>zNear</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>zFar</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a matrix for an orthographic parallel viewing volume, using the default handedness. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
+<dd>
+- glm::ortho(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top) </dd>
+<dd>
+<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glOrtho.xml">glOrtho man page</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gae5b6b40ed882cd56cd7cb97701909c06"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::ortho </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>right</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>bottom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>top</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a matrix for projecting two-dimensional coordinates onto the screen. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
+<dd>
+- glm::ortho(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top, T const&amp; zNear, T const&amp; zFar) </dd>
+<dd>
+<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluOrtho2D.xml">gluOrtho2D man page</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gad122a79aadaa5529cec4ac197203db7f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::orthoLH </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>right</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>bottom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>top</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>zNear</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>zFar</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a matrix for an orthographic parallel viewing volume, using left-handedness. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
+<dd>
+- glm::ortho(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top) </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga16264c9b838edeb9dd1de7a1010a13a4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::orthoRH </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>right</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>bottom</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>top</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>zNear</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>zFar</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a matrix for an orthographic parallel viewing volume, using right-handedness. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
+<dd>
+- glm::ortho(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top) </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga747c8cf99458663dd7ad1bb3a2f07787"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::perspective </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>fovy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>aspect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>near</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>far</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a matrix for a symetric perspective-view frustum based on the default handedness. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fovy</td><td>Specifies the field of view angle in the y direction. Expressed in radians. </td></tr>
+    <tr><td class="paramname">aspect</td><td>Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height). </td></tr>
+    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
+    <tr><td class="paramname">far</td><td>Specifies the distance from the viewer to the far clipping plane (always positive). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
+<dd>
+<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluPerspective.xml">gluPerspective man page</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaebd02240fd36e85ad754f02ddd9a560d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::perspectiveFov </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>fov</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>near</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>far</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds a perspective projection matrix based on a field of view and the default handedness. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fov</td><td>Expressed in radians. </td></tr>
+    <tr><td class="paramname">width</td><td>Width of the viewport </td></tr>
+    <tr><td class="paramname">height</td><td>Height of the viewport </td></tr>
+    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
+    <tr><td class="paramname">far</td><td>Specifies the distance from the viewer to the far clipping plane (always positive). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga6aebe16c164bd8e52554cbe0304ef4aa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::perspectiveFovLH </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>fov</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>near</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>far</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds a left handed perspective projection matrix based on a field of view. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fov</td><td>Expressed in radians. </td></tr>
+    <tr><td class="paramname">width</td><td>Width of the viewport </td></tr>
+    <tr><td class="paramname">height</td><td>Height of the viewport </td></tr>
+    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
+    <tr><td class="paramname">far</td><td>Specifies the distance from the viewer to the far clipping plane (always positive). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaf32bf563f28379c68554a44ee60c6a85"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::perspectiveFovRH </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>fov</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>near</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>far</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds a right handed perspective projection matrix based on a field of view. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fov</td><td>Expressed in radians. </td></tr>
+    <tr><td class="paramname">width</td><td>Width of the viewport </td></tr>
+    <tr><td class="paramname">height</td><td>Height of the viewport </td></tr>
+    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
+    <tr><td class="paramname">far</td><td>Specifies the distance from the viewer to the far clipping plane (always positive). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga9bd34951dc7022ac256fcb51d7f6fc2f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::perspectiveLH </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>fovy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>aspect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>near</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>far</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a matrix for a left handed, symetric perspective-view frustum. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fovy</td><td>Specifies the field of view angle, in degrees, in the y direction. Expressed in radians. </td></tr>
+    <tr><td class="paramname">aspect</td><td>Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height). </td></tr>
+    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
+    <tr><td class="paramname">far</td><td>Specifies the distance from the viewer to the far clipping plane (always positive). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga26b88757fbd90601b80768a7e1ad3aa1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::perspectiveRH </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>fovy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>aspect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>near</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>far</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a matrix for a right handed, symetric perspective-view frustum. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fovy</td><td>Specifies the field of view angle, in degrees, in the y direction. Expressed in radians. </td></tr>
+    <tr><td class="paramname">aspect</td><td>Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height). </td></tr>
+    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
+    <tr><td class="paramname">far</td><td>Specifies the distance from the viewer to the far clipping plane (always positive). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaf6b21eadb7ac2ecbbe258a9a233b4c82"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::pickMatrix </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>center</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>delta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 4, U, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>viewport</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define a picking region. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">center</td><td>Specify the center of a picking region in window coordinates. </td></tr>
+    <tr><td class="paramname">delta</td><td>Specify the width and height, respectively, of the picking region in window coordinates. </td></tr>
+    <tr><td class="paramname">viewport</td><td>Rendering viewport </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Native type used for the computation. Currently supported: half (not recommanded), float or double. </td></tr>
+    <tr><td class="paramname">U</td><td>Currently supported: Floating-point types and integer types. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
+<dd>
+<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluPickMatrix.xml">gluPickMatrix man page</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaf36e96033f456659e6705472a06b6e11"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, Q&gt; glm::project </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">mat&lt; 4, 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">mat&lt; 4, 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>proj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 4, U, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>viewport</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Map the specified object coordinates (obj.x, obj.y, obj.z) into window coordinates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>Specify the object coordinates. </td></tr>
+    <tr><td class="paramname">model</td><td>Specifies the current modelview matrix </td></tr>
+    <tr><td class="paramname">proj</td><td>Specifies the current projection matrix </td></tr>
+    <tr><td class="paramname">viewport</td><td>Specifies the current viewport </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Return the computed window coordinates. </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Native type used for the computation. Currently supported: half (not recommanded), float or double. </td></tr>
+    <tr><td class="paramname">U</td><td>Currently supported: Floating-point types and integer types. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
+<dd>
+<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluProject.xml">gluProject man page</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaee9e865eaa9776370996da2940873fd4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::rotate </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; 4, 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>axis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds a rotation 4 * 4 matrix created from an axis vector and an angle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Input matrix multiplied by this rotation matrix. </td></tr>
+    <tr><td class="paramname">angle</td><td>Rotation angle expressed in radians. </td></tr>
+    <tr><td class="paramname">axis</td><td>Rotation axis, recommended to be normalized. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Supported: half, float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
+<dd>
+- rotate(mat&lt;4, 4, T, Q&gt; const&amp; m, T angle, T x, T y, T z) </dd>
+<dd>
+- rotate(T angle, vec&lt;3, T, Q&gt; const&amp; v) </dd>
+<dd>
+<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glRotate.xml">glRotate man page</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga05051adbee603fb3c5095d8cf5cc229b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::scale </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; 4, 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds a scale 4 * 4 matrix created from 3 scalars. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Input matrix multiplied by this scale matrix. </td></tr>
+    <tr><td class="paramname">v</td><td>Ratio of scaling for each axis. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommended), float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
+<dd>
+- scale(mat&lt;4, 4, T, Q&gt; const&amp; m, T x, T y, T z) </dd>
+<dd>
+- scale(vec&lt;3, T, Q&gt; const&amp; v) </dd>
+<dd>
+<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glScale.xml">glScale man page</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga1a4ecc4ad82652b8fb14dcb087879284"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::translate </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; 4, 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds a translation 4 * 4 matrix created from a vector of 3 components. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Input matrix multiplied by this translation matrix. </td></tr>
+    <tr><td class="paramname">v</td><td>Coordinates of a translation vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="a00035.html">glm/glm.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="a00066.html">glm/gtc/matrix_transform.hpp</a>&gt;</span></div>
+<div class="line">...</div>
+<div class="line">glm::mat4 m = <a class="code" href="a00157.html#ga1a4ecc4ad82652b8fb14dcb087879284">glm::translate</a>(<a class="code" href="a00144.html#gade0eb47c01f79384a6f38017ede17446">glm::mat4</a>(1.0f), <a class="code" href="a00144.html#gaa8ea2429bb3cb41a715258a447f39897">glm::vec3</a>(1.0f));</div>
+<div class="line"><span class="comment">// m[0][0] == 1.0f, m[0][1] == 0.0f, m[0][2] == 0.0f, m[0][3] == 0.0f</span></div>
+<div class="line"><span class="comment">// m[1][0] == 0.0f, m[1][1] == 1.0f, m[1][2] == 0.0f, m[1][3] == 0.0f</span></div>
+<div class="line"><span class="comment">// m[2][0] == 0.0f, m[2][1] == 0.0f, m[2][2] == 1.0f, m[2][3] == 0.0f</span></div>
+<div class="line"><span class="comment">// m[3][0] == 1.0f, m[3][1] == 1.0f, m[3][2] == 1.0f, m[3][3] == 1.0f</span></div>
+</div><!-- fragment --> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
+<dd>
+- translate(mat&lt;4, 4, T, Q&gt; const&amp; m, T x, T y, T z) </dd>
+<dd>
+- translate(vec&lt;3, T, Q&gt; const&amp; v) </dd>
+<dd>
+<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glTranslate.xml">glTranslate man page</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaaeacc04a2a6f4b18c5899d37e7bb3ef9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::tweakedInfinitePerspective </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>fovy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>aspect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>near</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a matrix for a symmetric perspective-view frustum with far plane at infinite for graphics hardware that doesn't support depth clamping. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fovy</td><td>Specifies the field of view angle, in degrees, in the y direction. Expressed in radians. </td></tr>
+    <tr><td class="paramname">aspect</td><td>Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height). </td></tr>
+    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaf5b3c85ff6737030a1d2214474ffa7a8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::tweakedInfinitePerspective </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>fovy</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>aspect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>near</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>ep</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a matrix for a symmetric perspective-view frustum with far plane at infinite for graphics hardware that doesn't support depth clamping. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fovy</td><td>Specifies the field of view angle, in degrees, in the y direction. Expressed in radians. </td></tr>
+    <tr><td class="paramname">aspect</td><td>Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height). </td></tr>
+    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
+    <tr><td class="paramname">ep</td><td>Epsilon </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga36641e5d60f994e01c3d8f56b10263d2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, Q&gt; glm::unProject </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>win</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">mat&lt; 4, 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">mat&lt; 4, 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>proj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 4, U, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>viewport</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Map the specified window coordinates (win.x, win.y, win.z) into object coordinates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">win</td><td>Specify the window coordinates to be mapped. </td></tr>
+    <tr><td class="paramname">model</td><td>Specifies the modelview matrix </td></tr>
+    <tr><td class="paramname">proj</td><td>Specifies the projection matrix </td></tr>
+    <tr><td class="paramname">viewport</td><td>Specifies the viewport </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the computed object coordinates. </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Native type used for the computation. Currently supported: half (not recommanded), float or double. </td></tr>
+    <tr><td class="paramname">U</td><td>Currently supported: Floating-point types and integer types. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
+<dd>
+<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluUnProject.xml">gluUnProject man page</a> </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

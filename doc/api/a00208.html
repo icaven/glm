@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTX_matrix_decompose</title>
+<title>0.9.9 API documenation: GLM_GTX_orthonormalize</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,63 +77,62 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_matrix_decompose<div class="ingroups"><a class="el" href="a00157.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_orthonormalize<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Decomposes a model matrix to translations, rotation and scale components.  
+<p>Include &lt;<a class="el" href="a00075.html" title="GLM_GTX_orthonormalize ">glm/gtx/orthonormalize.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaccfbae8848b64afae5f983192aa0fe24"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gaccfbae8848b64afae5f983192aa0fe24"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00208.html#gaccfbae8848b64afae5f983192aa0fe24">decompose</a> (mat&lt; 4, 4, T, P &gt; const &amp;modelMatrix, vec&lt; 3, T, P &gt; &amp;scale, tquat&lt; T, P &gt; &amp;orientation, vec&lt; 3, T, P &gt; &amp;translation, vec&lt; 3, T, P &gt; &amp;skew, vec&lt; 4, T, P &gt; &amp;perspective)</td></tr>
-<tr class="memdesc:gaccfbae8848b64afae5f983192aa0fe24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decomposes a model matrix to translations, rotation and scale components.  <a href="a00208.html#gaccfbae8848b64afae5f983192aa0fe24">More...</a><br /></td></tr>
-<tr class="separator:gaccfbae8848b64afae5f983192aa0fe24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4cab5d698e6e2eccea30c8e81c74371f"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga4cab5d698e6e2eccea30c8e81c74371f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00208.html#ga4cab5d698e6e2eccea30c8e81c74371f">orthonormalize</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m)</td></tr>
+<tr class="memdesc:ga4cab5d698e6e2eccea30c8e81c74371f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the orthonormalized matrix of m.  <a href="a00208.html#ga4cab5d698e6e2eccea30c8e81c74371f">More...</a><br /></td></tr>
+<tr class="separator:ga4cab5d698e6e2eccea30c8e81c74371f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac3bc7ef498815026bc3d361ae0b7138e"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gac3bc7ef498815026bc3d361ae0b7138e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00208.html#gac3bc7ef498815026bc3d361ae0b7138e">orthonormalize</a> (vec&lt; 3, T, Q &gt; const &amp;x, vec&lt; 3, T, Q &gt; const &amp;y)</td></tr>
+<tr class="memdesc:gac3bc7ef498815026bc3d361ae0b7138e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orthonormalizes x according y.  <a href="a00208.html#gac3bc7ef498815026bc3d361ae0b7138e">More...</a><br /></td></tr>
+<tr class="separator:gac3bc7ef498815026bc3d361ae0b7138e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Decomposes a model matrix to translations, rotation and scale components. </p>
-<p>&lt;<a class="el" href="a00066.html" title="GLM_GTX_matrix_decompose ">glm/gtx/matrix_decompose.hpp</a>&gt; need to be included to use these functionalities. </p>
+<p>Include &lt;<a class="el" href="a00075.html" title="GLM_GTX_orthonormalize ">glm/gtx/orthonormalize.hpp</a>&gt; to use the features of this extension. </p>
+<p>Orthonormalize matrices. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="gaccfbae8848b64afae5f983192aa0fe24"></a>
+<a class="anchor" id="ga4cab5d698e6e2eccea30c8e81c74371f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL bool glm::decompose </td>
+          <td class="memname">GLM_FUNC_DECL mat&lt;3, 3, T, Q&gt; glm::orthonormalize </td>
           <td>(</td>
-          <td class="paramtype">mat&lt; 4, 4, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>modelMatrix</em>, </td>
+          <td class="paramtype">mat&lt; 3, 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the orthonormalized matrix of m. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00208.html" title="Include <glm/gtx/orthonormalize.hpp> to use the features of this extension. ">GLM_GTX_orthonormalize</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gac3bc7ef498815026bc3d361ae0b7138e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, Q&gt; glm::orthonormalize </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; &amp;&#160;</td>
-          <td class="paramname"><em>scale</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">tquat&lt; T, P &gt; &amp;&#160;</td>
-          <td class="paramname"><em>orientation</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; &amp;&#160;</td>
-          <td class="paramname"><em>translation</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; &amp;&#160;</td>
-          <td class="paramname"><em>skew</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 4, T, P &gt; &amp;&#160;</td>
-          <td class="paramname"><em>perspective</em>&#160;</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -143,8 +142,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Decomposes a model matrix to translations, rotation and scale components. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00208.html" title="Decomposes a model matrix to translations, rotation and scale components. ">GLM_GTX_matrix_decompose</a> </dd></dl>
+<p>Orthonormalizes x according y. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00208.html" title="Include <glm/gtx/orthonormalize.hpp> to use the features of this extension. ">GLM_GTX_orthonormalize</a> </dd></dl>
 
 </div>
 </div>

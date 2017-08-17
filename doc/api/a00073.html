@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: matrix_query.hpp File Reference</title>
+<title>0.9.9 API documenation: number_precision.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,59 +84,69 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">matrix_query.hpp File Reference</div>  </div>
+<div class="title">number_precision.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="a00213.html">GLM_GTX_matrix_query</a>  
+<p><a class="el" href="a00206.html">GLM_GTX_number_precision</a>  
 <a href="#details">More...</a></p>
 
 <p><a href="a00073_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga9d001ed94dc7563cfc0af4608d04a2b6"><td class="memTemplParams" colspan="2">template&lt;length_t C, length_t R, typename T , qualifier P, template&lt; length_t, length_t, typename, qualifier &gt; class matType&gt; </td></tr>
-<tr class="memitem:ga9d001ed94dc7563cfc0af4608d04a2b6"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00213.html#ga9d001ed94dc7563cfc0af4608d04a2b6">isIdentity</a> (matType&lt; C, R, T, P &gt; const &amp;m, T const &amp;epsilon)</td></tr>
-<tr class="memdesc:ga9d001ed94dc7563cfc0af4608d04a2b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether a matrix is an identity matrix.  <a href="a00213.html#ga9d001ed94dc7563cfc0af4608d04a2b6">More...</a><br /></td></tr>
-<tr class="separator:ga9d001ed94dc7563cfc0af4608d04a2b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7b5bd79dd0810895ed617603eabc12f2"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga7b5bd79dd0810895ed617603eabc12f2"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00213.html#ga7b5bd79dd0810895ed617603eabc12f2">isNormalized</a> (mat&lt; 2, 2, T, P &gt; const &amp;m, T const &amp;epsilon)</td></tr>
-<tr class="memdesc:ga7b5bd79dd0810895ed617603eabc12f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether a matrix is a normalized matrix.  <a href="a00213.html#ga7b5bd79dd0810895ed617603eabc12f2">More...</a><br /></td></tr>
-<tr class="separator:ga7b5bd79dd0810895ed617603eabc12f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6677b3786936523db58eae6abc970f4c"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga6677b3786936523db58eae6abc970f4c"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00213.html#ga6677b3786936523db58eae6abc970f4c">isNormalized</a> (mat&lt; 3, 3, T, P &gt; const &amp;m, T const &amp;epsilon)</td></tr>
-<tr class="memdesc:ga6677b3786936523db58eae6abc970f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether a matrix is a normalized matrix.  <a href="a00213.html#ga6677b3786936523db58eae6abc970f4c">More...</a><br /></td></tr>
-<tr class="separator:ga6677b3786936523db58eae6abc970f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga77a72258482086749af8ce72de8b8c57"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga77a72258482086749af8ce72de8b8c57"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00213.html#ga77a72258482086749af8ce72de8b8c57">isNormalized</a> (mat&lt; 4, 4, T, P &gt; const &amp;m, T const &amp;epsilon)</td></tr>
-<tr class="memdesc:ga77a72258482086749af8ce72de8b8c57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether a matrix is a normalized matrix.  <a href="a00213.html#ga77a72258482086749af8ce72de8b8c57">More...</a><br /></td></tr>
-<tr class="separator:ga77a72258482086749af8ce72de8b8c57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2b06d76b4dbd06913ef2fb2aef96b975"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga2b06d76b4dbd06913ef2fb2aef96b975"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00213.html#ga2b06d76b4dbd06913ef2fb2aef96b975">isNull</a> (mat&lt; 2, 2, T, P &gt; const &amp;m, T const &amp;epsilon)</td></tr>
-<tr class="memdesc:ga2b06d76b4dbd06913ef2fb2aef96b975"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether a matrix a null matrix.  <a href="a00213.html#ga2b06d76b4dbd06913ef2fb2aef96b975">More...</a><br /></td></tr>
-<tr class="separator:ga2b06d76b4dbd06913ef2fb2aef96b975"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae9ae6d81a10d126f7974a41c0f806073"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gae9ae6d81a10d126f7974a41c0f806073"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00213.html#gae9ae6d81a10d126f7974a41c0f806073">isNull</a> (mat&lt; 3, 3, T, P &gt; const &amp;m, T const &amp;epsilon)</td></tr>
-<tr class="memdesc:gae9ae6d81a10d126f7974a41c0f806073"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether a matrix a null matrix.  <a href="a00213.html#gae9ae6d81a10d126f7974a41c0f806073">More...</a><br /></td></tr>
-<tr class="separator:gae9ae6d81a10d126f7974a41c0f806073"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga72a53937c4aef5ad895456abae806f55"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga72a53937c4aef5ad895456abae806f55"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00213.html#ga72a53937c4aef5ad895456abae806f55">isNull</a> (mat&lt; 4, 4, T, P &gt; const &amp;m, T const &amp;epsilon)</td></tr>
-<tr class="memdesc:ga72a53937c4aef5ad895456abae806f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether a matrix is a null matrix.  <a href="a00213.html#ga72a53937c4aef5ad895456abae806f55">More...</a><br /></td></tr>
-<tr class="separator:ga72a53937c4aef5ad895456abae806f55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa035a00c0a5d72b77bd1b558ccb75278"><td class="memTemplParams" colspan="2">template&lt;length_t C, length_t R, typename T , qualifier P, template&lt; length_t, length_t, typename, qualifier &gt; class matType&gt; </td></tr>
-<tr class="memitem:gaa035a00c0a5d72b77bd1b558ccb75278"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00213.html#gaa035a00c0a5d72b77bd1b558ccb75278">isOrthogonal</a> (matType&lt; C, R, T, P &gt; const &amp;m, T const &amp;epsilon)</td></tr>
-<tr class="memdesc:gaa035a00c0a5d72b77bd1b558ccb75278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether a matrix is an orthonormalized matrix.  <a href="a00213.html#gaa035a00c0a5d72b77bd1b558ccb75278">More...</a><br /></td></tr>
-<tr class="separator:gaa035a00c0a5d72b77bd1b558ccb75278"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga145ad477a2a3e152855511c3b52469a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga145ad477a2a3e152855511c3b52469a6"></a>
+typedef f32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00206.html#ga145ad477a2a3e152855511c3b52469a6">f32mat1</a></td></tr>
+<tr class="memdesc:ga145ad477a2a3e152855511c3b52469a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Single-qualifier floating-point scalar. (from GLM_GTX_number_precision extension) <br /></td></tr>
+<tr class="separator:ga145ad477a2a3e152855511c3b52469a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac88c6a4dbfc380aa26e3adbbade36348"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gac88c6a4dbfc380aa26e3adbbade36348"></a>
+typedef f32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00206.html#gac88c6a4dbfc380aa26e3adbbade36348">f32mat1x1</a></td></tr>
+<tr class="memdesc:gac88c6a4dbfc380aa26e3adbbade36348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Single-qualifier floating-point scalar. (from GLM_GTX_number_precision extension) <br /></td></tr>
+<tr class="separator:gac88c6a4dbfc380aa26e3adbbade36348"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga07f8d7348eb7ae059a84c118fdfeb943"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga07f8d7348eb7ae059a84c118fdfeb943"></a>
+typedef f32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00206.html#ga07f8d7348eb7ae059a84c118fdfeb943">f32vec1</a></td></tr>
+<tr class="memdesc:ga07f8d7348eb7ae059a84c118fdfeb943"><td class="mdescLeft">&#160;</td><td class="mdescRight">Single-qualifier floating-point scalar. (from GLM_GTX_number_precision extension) <br /></td></tr>
+<tr class="separator:ga07f8d7348eb7ae059a84c118fdfeb943"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga59bfa589419b5265d01314fcecd33435"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga59bfa589419b5265d01314fcecd33435"></a>
+typedef f64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00206.html#ga59bfa589419b5265d01314fcecd33435">f64mat1</a></td></tr>
+<tr class="memdesc:ga59bfa589419b5265d01314fcecd33435"><td class="mdescLeft">&#160;</td><td class="mdescRight">Double-qualifier floating-point scalar. (from GLM_GTX_number_precision extension) <br /></td></tr>
+<tr class="separator:ga59bfa589419b5265d01314fcecd33435"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga448eeb08d0b7d8c43a8b292c981955fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga448eeb08d0b7d8c43a8b292c981955fd"></a>
+typedef f64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00206.html#ga448eeb08d0b7d8c43a8b292c981955fd">f64mat1x1</a></td></tr>
+<tr class="memdesc:ga448eeb08d0b7d8c43a8b292c981955fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Double-qualifier floating-point scalar. (from GLM_GTX_number_precision extension) <br /></td></tr>
+<tr class="separator:ga448eeb08d0b7d8c43a8b292c981955fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5987a61b8c03d5c432a9e62f0b3efe1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gae5987a61b8c03d5c432a9e62f0b3efe1"></a>
+typedef f64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00206.html#gae5987a61b8c03d5c432a9e62f0b3efe1">f64vec1</a></td></tr>
+<tr class="memdesc:gae5987a61b8c03d5c432a9e62f0b3efe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Single-qualifier floating-point scalar. (from GLM_GTX_number_precision extension) <br /></td></tr>
+<tr class="separator:gae5987a61b8c03d5c432a9e62f0b3efe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga52cc069a92e126c3a8dcde93424d2ef0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga52cc069a92e126c3a8dcde93424d2ef0"></a>
+typedef u16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00206.html#ga52cc069a92e126c3a8dcde93424d2ef0">u16vec1</a></td></tr>
+<tr class="memdesc:ga52cc069a92e126c3a8dcde93424d2ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">16bit unsigned integer scalar. (from GLM_GTX_number_precision extension) <br /></td></tr>
+<tr class="separator:ga52cc069a92e126c3a8dcde93424d2ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9bbc1e14aea65cba5e2dcfef6a67d9f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga9bbc1e14aea65cba5e2dcfef6a67d9f3"></a>
+typedef u32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00206.html#ga9bbc1e14aea65cba5e2dcfef6a67d9f3">u32vec1</a></td></tr>
+<tr class="memdesc:ga9bbc1e14aea65cba5e2dcfef6a67d9f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">32bit unsigned integer scalar. (from GLM_GTX_number_precision extension) <br /></td></tr>
+<tr class="separator:ga9bbc1e14aea65cba5e2dcfef6a67d9f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga818de170e2584ab037130f2881925974"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga818de170e2584ab037130f2881925974"></a>
+typedef u64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00206.html#ga818de170e2584ab037130f2881925974">u64vec1</a></td></tr>
+<tr class="memdesc:ga818de170e2584ab037130f2881925974"><td class="mdescLeft">&#160;</td><td class="mdescRight">64bit unsigned integer scalar. (from GLM_GTX_number_precision extension) <br /></td></tr>
+<tr class="separator:ga818de170e2584ab037130f2881925974"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5853fe457f4c8a6bc09343d0e9833980"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ga5853fe457f4c8a6bc09343d0e9833980"></a>
+typedef u8&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00206.html#ga5853fe457f4c8a6bc09343d0e9833980">u8vec1</a></td></tr>
+<tr class="memdesc:ga5853fe457f4c8a6bc09343d0e9833980"><td class="mdescLeft">&#160;</td><td class="mdescRight">8bit unsigned integer scalar. (from GLM_GTX_number_precision extension) <br /></td></tr>
+<tr class="separator:ga5853fe457f4c8a6bc09343d0e9833980"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="a00213.html">GLM_GTX_matrix_query</a> </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00158.html" title="The core of GLM, which implements exactly and only the GLSL specification to the degree possible...">GLM Core</a> (dependence) </dd>
+<div class="textblock"><p><a class="el" href="a00206.html">GLM_GTX_number_precision</a> </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00143.html" title="Features that implement in C++ the GLSL specification as closely as possible. ">Core features</a> (dependence) </dd>
 <dd>
-<a class="el" href="a00240.html" title="Query informations of vector types. ">GLM_GTX_vector_query</a> (dependence) </dd></dl>
+<a class="el" href="a00165.html" title="Include <glm/gtc/type_precision.hpp> to use the features of this extension. ">GLM_GTC_type_precision</a> (dependence) </dd>
+<dd>
+<a class="el" href="a00160.html" title="Include <glm/gtc/quaternion.hpp> to use the features of this extension. ">GLM_GTC_quaternion</a> (dependence) </dd></dl>
 
-<p>Definition in file <a class="el" href="a00073_source.html">matrix_query.hpp</a>.</p>
+<p>Definition in file <a class="el" href="a00073_source.html">number_precision.hpp</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

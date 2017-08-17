@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTX_matrix_factorisation</title>
+<title>0.9.9 API documenation: GLM_GTX_perpendicular</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,109 +77,50 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_matrix_factorisation<div class="ingroups"><a class="el" href="a00157.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_perpendicular<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Functions to factor matrices in various forms.  
+<p>Include &lt;<a class="el" href="a00079.html" title="GLM_GTX_perpendicular ">glm/gtx/perpendicular.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga834fe9f3b29ac4f6636e102dcf6c45be"><td class="memTemplParams" colspan="2">template&lt;length_t C, length_t R, typename T , qualifier P, template&lt; length_t, length_t, typename, qualifier &gt; class matType&gt; </td></tr>
-<tr class="memitem:ga834fe9f3b29ac4f6636e102dcf6c45be"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL matType&lt; C, R, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00209.html#ga834fe9f3b29ac4f6636e102dcf6c45be">fliplr</a> (matType&lt; C, R, T, P &gt; const &amp;in)</td></tr>
-<tr class="memdesc:ga834fe9f3b29ac4f6636e102dcf6c45be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flips the matrix columns right and left.  <a href="a00209.html#ga834fe9f3b29ac4f6636e102dcf6c45be">More...</a><br /></td></tr>
-<tr class="separator:ga834fe9f3b29ac4f6636e102dcf6c45be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5c0b0b7dde6aef33a8c73376fe00ddc6"><td class="memTemplParams" colspan="2">template&lt;length_t C, length_t R, typename T , qualifier P, template&lt; length_t, length_t, typename, qualifier &gt; class matType&gt; </td></tr>
-<tr class="memitem:ga5c0b0b7dde6aef33a8c73376fe00ddc6"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL matType&lt; C, R, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00209.html#ga5c0b0b7dde6aef33a8c73376fe00ddc6">flipud</a> (matType&lt; C, R, T, P &gt; const &amp;in)</td></tr>
-<tr class="memdesc:ga5c0b0b7dde6aef33a8c73376fe00ddc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flips the matrix rows up and down.  <a href="a00209.html#ga5c0b0b7dde6aef33a8c73376fe00ddc6">More...</a><br /></td></tr>
-<tr class="separator:ga5c0b0b7dde6aef33a8c73376fe00ddc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3f35a503ef41c16f83cf6cd8a191aca6"><td class="memTemplParams" colspan="2">template&lt;length_t C, length_t R, typename T , qualifier P, template&lt; length_t, length_t, typename, qualifier &gt; class matType&gt; </td></tr>
-<tr class="memitem:ga3f35a503ef41c16f83cf6cd8a191aca6"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00209.html#ga3f35a503ef41c16f83cf6cd8a191aca6">qr_decompose</a> (matType&lt; C, R, T, P &gt; const &amp;in, matType&lt;(C&lt; R?C:R), R, T, P &gt; &amp;q, matType&lt; C,(C&lt; R?C:R), T, P &gt; &amp;r)</td></tr>
-<tr class="memdesc:ga3f35a503ef41c16f83cf6cd8a191aca6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs QR factorisation of a matrix.  <a href="a00209.html#ga3f35a503ef41c16f83cf6cd8a191aca6">More...</a><br /></td></tr>
-<tr class="separator:ga3f35a503ef41c16f83cf6cd8a191aca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac81cf0350006c3f004887fa4fb57880e"><td class="memTemplParams" colspan="2">template&lt;length_t C, length_t R, typename T , qualifier P, template&lt; length_t, length_t, typename, qualifier &gt; class matType&gt; </td></tr>
-<tr class="memitem:gac81cf0350006c3f004887fa4fb57880e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00209.html#gac81cf0350006c3f004887fa4fb57880e">rq_decompose</a> (matType&lt; C, R, T, P &gt; const &amp;in, matType&lt;(C&lt; R?C:R), R, T, P &gt; &amp;r, matType&lt; C,(C&lt; R?C:R), T, P &gt; &amp;q)</td></tr>
-<tr class="memdesc:gac81cf0350006c3f004887fa4fb57880e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs RQ factorisation of a matrix.  <a href="a00209.html#gac81cf0350006c3f004887fa4fb57880e">More...</a><br /></td></tr>
-<tr class="separator:gac81cf0350006c3f004887fa4fb57880e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga264cfc4e180cf9b852e943b35089003c"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga264cfc4e180cf9b852e943b35089003c"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00209.html#ga264cfc4e180cf9b852e943b35089003c">perp</a> (genType const &amp;x, genType const &amp;Normal)</td></tr>
+<tr class="memdesc:ga264cfc4e180cf9b852e943b35089003c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Projects x a perpendicular axis of Normal.  <a href="a00209.html#ga264cfc4e180cf9b852e943b35089003c">More...</a><br /></td></tr>
+<tr class="separator:ga264cfc4e180cf9b852e943b35089003c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Functions to factor matrices in various forms. </p>
-<p>&lt;<a class="el" href="a00067.html" title="GLM_GTX_matrix_factorisation ">glm/gtx/matrix_factorisation.hpp</a>&gt; need to be included to use these functionalities. </p>
+<p>Include &lt;<a class="el" href="a00079.html" title="GLM_GTX_perpendicular ">glm/gtx/perpendicular.hpp</a>&gt; to use the features of this extension. </p>
+<p>Perpendicular of a vector from other one </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga834fe9f3b29ac4f6636e102dcf6c45be"></a>
+<a class="anchor" id="ga264cfc4e180cf9b852e943b35089003c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL matType&lt;C, R, T, P&gt; glm::fliplr </td>
+          <td class="memname">GLM_FUNC_DECL genType glm::perp </td>
           <td>(</td>
-          <td class="paramtype">matType&lt; C, R, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>in</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Flips the matrix columns right and left. </p>
-<p>From GLM_GTX_matrix_factorisation extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="ga5c0b0b7dde6aef33a8c73376fe00ddc6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL matType&lt;C, R, T, P&gt; glm::flipud </td>
-          <td>(</td>
-          <td class="paramtype">matType&lt; C, R, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>in</em></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>Normal</em>&#160;</td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Flips the matrix rows up and down. </p>
-<p>From GLM_GTX_matrix_factorisation extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="ga3f35a503ef41c16f83cf6cd8a191aca6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL void glm::qr_decompose </td>
-          <td>(</td>
-          <td class="paramtype">matType&lt; C, R, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>in</em></td><td>)</td>
           <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Performs QR factorisation of a matrix. </p>
-<p>Returns 2 matrices, q and r, such that the columns of q are orthonormal and span the same subspace than those of the input matrix, r is an upper triangular matrix, and q*r=in. Given an n-by-m input matrix, q has dimensions min(n,m)-by-m, and r has dimensions n-by-min(n,m). From GLM_GTX_matrix_factorisation extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="gac81cf0350006c3f004887fa4fb57880e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL void glm::rq_decompose </td>
-          <td>(</td>
-          <td class="paramtype">matType&lt; C, R, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>in</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Performs RQ factorisation of a matrix. </p>
-<p>Returns 2 matrices, r and q, such that r is an upper triangular matrix, the rows of q are orthonormal and span the same subspace than those of the input matrix, and r*q=in. Note that in the context of RQ factorisation, the diagonal is seen as starting in the lower-right corner of the matrix, instead of the usual upper-left. Given an n-by-m input matrix, r has dimensions min(n,m)-by-m, and q has dimensions n-by-min(n,m). From GLM_GTX_matrix_factorisation extension. </p>
+<p>Projects x a perpendicular axis of Normal. </p>
+<p>From GLM_GTX_perpendicular extension. </p>
 
 </div>
 </div>

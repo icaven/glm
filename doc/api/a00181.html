@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTC_ulp</title>
+<title>0.9.9 API documenation: GLM_GTX_extented_min_max</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,50 +77,74 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTC_ulp<div class="ingroups"><a class="el" href="a00156.html">GTC Extensions (Stable)</a></div></div>  </div>
+<div class="title">GLM_GTX_extented_min_max<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Allow the measurement of the accuracy of a function against a reference implementation.  
+<p>Include &lt;glm/gtx/extented_min_max.hpp&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga2e09bd6c8b0a9c91f6f5683d68245634"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga2e09bd6c8b0a9c91f6f5683d68245634"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL uint&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00181.html#ga2e09bd6c8b0a9c91f6f5683d68245634">float_distance</a> (T const &amp;x, T const &amp;y)</td></tr>
-<tr class="memdesc:ga2e09bd6c8b0a9c91f6f5683d68245634"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the distance in the number of ULP between 2 scalars.  <a href="a00181.html#ga2e09bd6c8b0a9c91f6f5683d68245634">More...</a><br /></td></tr>
-<tr class="separator:ga2e09bd6c8b0a9c91f6f5683d68245634"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga72b3223069013f336d8c31812b7ada80"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
-<tr class="memitem:ga72b3223069013f336d8c31812b7ada80"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 2, uint, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00181.html#ga72b3223069013f336d8c31812b7ada80">float_distance</a> (vec&lt; 2, T, Q &gt; const &amp;x, vec&lt; 2, T, Q &gt; const &amp;y)</td></tr>
-<tr class="memdesc:ga72b3223069013f336d8c31812b7ada80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the distance in the number of ULP between 2 vectors.  <a href="a00181.html#ga72b3223069013f336d8c31812b7ada80">More...</a><br /></td></tr>
-<tr class="separator:ga72b3223069013f336d8c31812b7ada80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae516ae554faa6117660828240e8bdaf0"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:gae516ae554faa6117660828240e8bdaf0"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00181.html#gae516ae554faa6117660828240e8bdaf0">next_float</a> (genType const &amp;x)</td></tr>
-<tr class="memdesc:gae516ae554faa6117660828240e8bdaf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the next ULP value(s) after the input value(s).  <a href="a00181.html#gae516ae554faa6117660828240e8bdaf0">More...</a><br /></td></tr>
-<tr class="separator:gae516ae554faa6117660828240e8bdaf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad107ec3d9697ef82032a33338a73ebdd"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:gad107ec3d9697ef82032a33338a73ebdd"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00181.html#gad107ec3d9697ef82032a33338a73ebdd">next_float</a> (genType const &amp;x, uint const &amp;Distance)</td></tr>
-<tr class="memdesc:gad107ec3d9697ef82032a33338a73ebdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value(s) ULP distance after the input value(s).  <a href="a00181.html#gad107ec3d9697ef82032a33338a73ebdd">More...</a><br /></td></tr>
-<tr class="separator:gad107ec3d9697ef82032a33338a73ebdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2fcbb7bfbfc595712bfddc51b0715b07"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:ga2fcbb7bfbfc595712bfddc51b0715b07"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00181.html#ga2fcbb7bfbfc595712bfddc51b0715b07">prev_float</a> (genType const &amp;x)</td></tr>
-<tr class="memdesc:ga2fcbb7bfbfc595712bfddc51b0715b07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the previous ULP value(s) before the input value(s).  <a href="a00181.html#ga2fcbb7bfbfc595712bfddc51b0715b07">More...</a><br /></td></tr>
-<tr class="separator:ga2fcbb7bfbfc595712bfddc51b0715b07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa399d5b6472a70e8952f9b26ecaacdec"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:gaa399d5b6472a70e8952f9b26ecaacdec"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00181.html#gaa399d5b6472a70e8952f9b26ecaacdec">prev_float</a> (genType const &amp;x, uint const &amp;Distance)</td></tr>
-<tr class="memdesc:gaa399d5b6472a70e8952f9b26ecaacdec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value(s) ULP distance before the input value(s).  <a href="a00181.html#gaa399d5b6472a70e8952f9b26ecaacdec">More...</a><br /></td></tr>
-<tr class="separator:gaa399d5b6472a70e8952f9b26ecaacdec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga04991ccb9865c4c4e58488cfb209ce69"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga04991ccb9865c4c4e58488cfb209ce69"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00181.html#ga04991ccb9865c4c4e58488cfb209ce69">max</a> (T const &amp;x, T const &amp;y, T const &amp;z)</td></tr>
+<tr class="memdesc:ga04991ccb9865c4c4e58488cfb209ce69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the maximum component-wise values of 3 inputs.  <a href="a00181.html#ga04991ccb9865c4c4e58488cfb209ce69">More...</a><br /></td></tr>
+<tr class="separator:ga04991ccb9865c4c4e58488cfb209ce69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae1b7bbe5c91de4924835ea3e14530744"><td class="memTemplParams" colspan="2">template&lt;typename T , template&lt; typename &gt; class C&gt; </td></tr>
+<tr class="memitem:gae1b7bbe5c91de4924835ea3e14530744"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL C&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00181.html#gae1b7bbe5c91de4924835ea3e14530744">max</a> (C&lt; T &gt; const &amp;x, typename C&lt; T &gt;::T const &amp;y, typename C&lt; T &gt;::T const &amp;z)</td></tr>
+<tr class="memdesc:gae1b7bbe5c91de4924835ea3e14530744"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the maximum component-wise values of 3 inputs.  <a href="a00181.html#gae1b7bbe5c91de4924835ea3e14530744">More...</a><br /></td></tr>
+<tr class="separator:gae1b7bbe5c91de4924835ea3e14530744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf832e9d4ab4826b2dda2fda25935a3a4"><td class="memTemplParams" colspan="2">template&lt;typename T , template&lt; typename &gt; class C&gt; </td></tr>
+<tr class="memitem:gaf832e9d4ab4826b2dda2fda25935a3a4"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL C&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00181.html#gaf832e9d4ab4826b2dda2fda25935a3a4">max</a> (C&lt; T &gt; const &amp;x, C&lt; T &gt; const &amp;y, C&lt; T &gt; const &amp;z)</td></tr>
+<tr class="memdesc:gaf832e9d4ab4826b2dda2fda25935a3a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the maximum component-wise values of 3 inputs.  <a href="a00181.html#gaf832e9d4ab4826b2dda2fda25935a3a4">More...</a><br /></td></tr>
+<tr class="separator:gaf832e9d4ab4826b2dda2fda25935a3a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga78e04a0cef1c4863fcae1a2130500d87"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga78e04a0cef1c4863fcae1a2130500d87"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00181.html#ga78e04a0cef1c4863fcae1a2130500d87">max</a> (T const &amp;x, T const &amp;y, T const &amp;z, T const &amp;w)</td></tr>
+<tr class="memdesc:ga78e04a0cef1c4863fcae1a2130500d87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the maximum component-wise values of 4 inputs.  <a href="a00181.html#ga78e04a0cef1c4863fcae1a2130500d87">More...</a><br /></td></tr>
+<tr class="separator:ga78e04a0cef1c4863fcae1a2130500d87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7cca8b53cfda402040494cdf40fbdf4a"><td class="memTemplParams" colspan="2">template&lt;typename T , template&lt; typename &gt; class C&gt; </td></tr>
+<tr class="memitem:ga7cca8b53cfda402040494cdf40fbdf4a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL C&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00181.html#ga7cca8b53cfda402040494cdf40fbdf4a">max</a> (C&lt; T &gt; const &amp;x, typename C&lt; T &gt;::T const &amp;y, typename C&lt; T &gt;::T const &amp;z, typename C&lt; T &gt;::T const &amp;w)</td></tr>
+<tr class="memdesc:ga7cca8b53cfda402040494cdf40fbdf4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the maximum component-wise values of 4 inputs.  <a href="a00181.html#ga7cca8b53cfda402040494cdf40fbdf4a">More...</a><br /></td></tr>
+<tr class="separator:ga7cca8b53cfda402040494cdf40fbdf4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaacffbc466c2d08c140b181e7fd8a4858"><td class="memTemplParams" colspan="2">template&lt;typename T , template&lt; typename &gt; class C&gt; </td></tr>
+<tr class="memitem:gaacffbc466c2d08c140b181e7fd8a4858"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL C&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00181.html#gaacffbc466c2d08c140b181e7fd8a4858">max</a> (C&lt; T &gt; const &amp;x, C&lt; T &gt; const &amp;y, C&lt; T &gt; const &amp;z, C&lt; T &gt; const &amp;w)</td></tr>
+<tr class="memdesc:gaacffbc466c2d08c140b181e7fd8a4858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the maximum component-wise values of 4 inputs.  <a href="a00181.html#gaacffbc466c2d08c140b181e7fd8a4858">More...</a><br /></td></tr>
+<tr class="separator:gaacffbc466c2d08c140b181e7fd8a4858"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga713d3f9b3e76312c0d314e0c8611a6a6"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga713d3f9b3e76312c0d314e0c8611a6a6"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00181.html#ga713d3f9b3e76312c0d314e0c8611a6a6">min</a> (T const &amp;x, T const &amp;y, T const &amp;z)</td></tr>
+<tr class="memdesc:ga713d3f9b3e76312c0d314e0c8611a6a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the minimum component-wise values of 3 inputs.  <a href="a00181.html#ga713d3f9b3e76312c0d314e0c8611a6a6">More...</a><br /></td></tr>
+<tr class="separator:ga713d3f9b3e76312c0d314e0c8611a6a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga74d1a96e7cdbac40f6d35142d3bcbbd4"><td class="memTemplParams" colspan="2">template&lt;typename T , template&lt; typename &gt; class C&gt; </td></tr>
+<tr class="memitem:ga74d1a96e7cdbac40f6d35142d3bcbbd4"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL C&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00181.html#ga74d1a96e7cdbac40f6d35142d3bcbbd4">min</a> (C&lt; T &gt; const &amp;x, typename C&lt; T &gt;::T const &amp;y, typename C&lt; T &gt;::T const &amp;z)</td></tr>
+<tr class="memdesc:ga74d1a96e7cdbac40f6d35142d3bcbbd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the minimum component-wise values of 3 inputs.  <a href="a00181.html#ga74d1a96e7cdbac40f6d35142d3bcbbd4">More...</a><br /></td></tr>
+<tr class="separator:ga74d1a96e7cdbac40f6d35142d3bcbbd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga42b5c3fc027fd3d9a50d2ccc9126d9f0"><td class="memTemplParams" colspan="2">template&lt;typename T , template&lt; typename &gt; class C&gt; </td></tr>
+<tr class="memitem:ga42b5c3fc027fd3d9a50d2ccc9126d9f0"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL C&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00181.html#ga42b5c3fc027fd3d9a50d2ccc9126d9f0">min</a> (C&lt; T &gt; const &amp;x, C&lt; T &gt; const &amp;y, C&lt; T &gt; const &amp;z)</td></tr>
+<tr class="memdesc:ga42b5c3fc027fd3d9a50d2ccc9126d9f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the minimum component-wise values of 3 inputs.  <a href="a00181.html#ga42b5c3fc027fd3d9a50d2ccc9126d9f0">More...</a><br /></td></tr>
+<tr class="separator:ga42b5c3fc027fd3d9a50d2ccc9126d9f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga95466987024d03039607f09e69813d69"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga95466987024d03039607f09e69813d69"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00181.html#ga95466987024d03039607f09e69813d69">min</a> (T const &amp;x, T const &amp;y, T const &amp;z, T const &amp;w)</td></tr>
+<tr class="memdesc:ga95466987024d03039607f09e69813d69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the minimum component-wise values of 4 inputs.  <a href="a00181.html#ga95466987024d03039607f09e69813d69">More...</a><br /></td></tr>
+<tr class="separator:ga95466987024d03039607f09e69813d69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4fe35dd31dd0c45693c9b60b830b8d47"><td class="memTemplParams" colspan="2">template&lt;typename T , template&lt; typename &gt; class C&gt; </td></tr>
+<tr class="memitem:ga4fe35dd31dd0c45693c9b60b830b8d47"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL C&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00181.html#ga4fe35dd31dd0c45693c9b60b830b8d47">min</a> (C&lt; T &gt; const &amp;x, typename C&lt; T &gt;::T const &amp;y, typename C&lt; T &gt;::T const &amp;z, typename C&lt; T &gt;::T const &amp;w)</td></tr>
+<tr class="memdesc:ga4fe35dd31dd0c45693c9b60b830b8d47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the minimum component-wise values of 4 inputs.  <a href="a00181.html#ga4fe35dd31dd0c45693c9b60b830b8d47">More...</a><br /></td></tr>
+<tr class="separator:ga4fe35dd31dd0c45693c9b60b830b8d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7471ea4159eed8dd9ea4ac5d46c2fead"><td class="memTemplParams" colspan="2">template&lt;typename T , template&lt; typename &gt; class C&gt; </td></tr>
+<tr class="memitem:ga7471ea4159eed8dd9ea4ac5d46c2fead"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL C&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00181.html#ga7471ea4159eed8dd9ea4ac5d46c2fead">min</a> (C&lt; T &gt; const &amp;x, C&lt; T &gt; const &amp;y, C&lt; T &gt; const &amp;z, C&lt; T &gt; const &amp;w)</td></tr>
+<tr class="memdesc:ga7471ea4159eed8dd9ea4ac5d46c2fead"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the minimum component-wise values of 4 inputs.  <a href="a00181.html#ga7471ea4159eed8dd9ea4ac5d46c2fead">More...</a><br /></td></tr>
+<tr class="separator:ga7471ea4159eed8dd9ea4ac5d46c2fead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Allow the measurement of the accuracy of a function against a reference implementation. </p>
-<p>This extension works on floating-point data and provide results in ULP. &lt;<a class="el" href="a00133.html" title="GLM_GTC_ulp ">glm/gtc/ulp.hpp</a>&gt; need to be included to use these features. </p>
+<p>Include &lt;glm/gtx/extented_min_max.hpp&gt; to use the features of this extension. </p>
+<p>Min and max functions for 3 to 4 parameters. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga2e09bd6c8b0a9c91f6f5683d68245634"></a>
+<a class="anchor" id="ga04991ccb9865c4c4e58488cfb209ce69"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL uint glm::float_distance </td>
+          <td class="memname">GLM_FUNC_DECL T glm::max </td>
           <td>(</td>
           <td class="paramtype">T const &amp;&#160;</td>
           <td class="paramname"><em>x</em>, </td>
@@ -129,7 +153,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">T const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -139,26 +169,32 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the distance in the number of ULP between 2 scalars. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00181.html" title="Allow the measurement of the accuracy of a function against a reference implementation. ">GLM_GTC_ulp</a> </dd></dl>
+<p>Return the maximum component-wise values of 3 inputs. </p>
+<dl class="section see"><dt>See also</dt><dd>gtx_extented_min_max </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga72b3223069013f336d8c31812b7ada80"></a>
+<a class="anchor" id="gae1b7bbe5c91de4924835ea3e14530744"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;2, uint, Q&gt; glm::float_distance </td>
+          <td class="memname">GLM_FUNC_DECL C&lt;T&gt; glm::max </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramtype">C&lt; T &gt; const &amp;&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramtype">typename C&lt; T &gt;::T const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename C&lt; T &gt;::T const &amp;&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -168,45 +204,32 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the distance in the number of ULP between 2 vectors. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00181.html" title="Allow the measurement of the accuracy of a function against a reference implementation. ">GLM_GTC_ulp</a> </dd></dl>
+<p>Return the maximum component-wise values of 3 inputs. </p>
+<dl class="section see"><dt>See also</dt><dd>gtx_extented_min_max </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gae516ae554faa6117660828240e8bdaf0"></a>
+<a class="anchor" id="gaf832e9d4ab4826b2dda2fda25935a3a4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::next_float </td>
+          <td class="memname">GLM_FUNC_DECL C&lt;T&gt; glm::max </td>
           <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the next ULP value(s) after the input value(s). </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00181.html" title="Allow the measurement of the accuracy of a function against a reference implementation. ">GLM_GTC_ulp</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gad107ec3d9697ef82032a33338a73ebdd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::next_float </td>
-          <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramtype">C&lt; T &gt; const &amp;&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00160.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> const &amp;&#160;</td>
-          <td class="paramname"><em>Distance</em>&#160;</td>
+          <td class="paramtype">C&lt; T &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">C&lt; T &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -216,45 +239,38 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the value(s) ULP distance after the input value(s). </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00181.html" title="Allow the measurement of the accuracy of a function against a reference implementation. ">GLM_GTC_ulp</a> </dd></dl>
+<p>Return the maximum component-wise values of 3 inputs. </p>
+<dl class="section see"><dt>See also</dt><dd>gtx_extented_min_max </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga2fcbb7bfbfc595712bfddc51b0715b07"></a>
+<a class="anchor" id="ga78e04a0cef1c4863fcae1a2130500d87"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::prev_float </td>
+          <td class="memname">GLM_FUNC_DECL T glm::max </td>
           <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the previous ULP value(s) before the input value(s). </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00181.html" title="Allow the measurement of the accuracy of a function against a reference implementation. ">GLM_GTC_ulp</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gaa399d5b6472a70e8952f9b26ecaacdec"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::prev_float </td>
-          <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramtype">T const &amp;&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00160.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> const &amp;&#160;</td>
-          <td class="paramname"><em>Distance</em>&#160;</td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>w</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -264,8 +280,318 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the value(s) ULP distance before the input value(s). </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00181.html" title="Allow the measurement of the accuracy of a function against a reference implementation. ">GLM_GTC_ulp</a> </dd></dl>
+<p>Return the maximum component-wise values of 4 inputs. </p>
+<dl class="section see"><dt>See also</dt><dd>gtx_extented_min_max </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga7cca8b53cfda402040494cdf40fbdf4a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL C&lt;T&gt; glm::max </td>
+          <td>(</td>
+          <td class="paramtype">C&lt; T &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename C&lt; T &gt;::T const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename C&lt; T &gt;::T const &amp;&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename C&lt; T &gt;::T const &amp;&#160;</td>
+          <td class="paramname"><em>w</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the maximum component-wise values of 4 inputs. </p>
+<dl class="section see"><dt>See also</dt><dd>gtx_extented_min_max </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaacffbc466c2d08c140b181e7fd8a4858"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL C&lt;T&gt; glm::max </td>
+          <td>(</td>
+          <td class="paramtype">C&lt; T &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">C&lt; T &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">C&lt; T &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">C&lt; T &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>w</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the maximum component-wise values of 4 inputs. </p>
+<dl class="section see"><dt>See also</dt><dd>gtx_extented_min_max </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga713d3f9b3e76312c0d314e0c8611a6a6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL T glm::min </td>
+          <td>(</td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the minimum component-wise values of 3 inputs. </p>
+<dl class="section see"><dt>See also</dt><dd>gtx_extented_min_max </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga74d1a96e7cdbac40f6d35142d3bcbbd4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL C&lt;T&gt; glm::min </td>
+          <td>(</td>
+          <td class="paramtype">C&lt; T &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename C&lt; T &gt;::T const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename C&lt; T &gt;::T const &amp;&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the minimum component-wise values of 3 inputs. </p>
+<dl class="section see"><dt>See also</dt><dd>gtx_extented_min_max </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga42b5c3fc027fd3d9a50d2ccc9126d9f0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL C&lt;T&gt; glm::min </td>
+          <td>(</td>
+          <td class="paramtype">C&lt; T &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">C&lt; T &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">C&lt; T &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the minimum component-wise values of 3 inputs. </p>
+<dl class="section see"><dt>See also</dt><dd>gtx_extented_min_max </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga95466987024d03039607f09e69813d69"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL T glm::min </td>
+          <td>(</td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>w</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the minimum component-wise values of 4 inputs. </p>
+<dl class="section see"><dt>See also</dt><dd>gtx_extented_min_max </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga4fe35dd31dd0c45693c9b60b830b8d47"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL C&lt;T&gt; glm::min </td>
+          <td>(</td>
+          <td class="paramtype">C&lt; T &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename C&lt; T &gt;::T const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename C&lt; T &gt;::T const &amp;&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename C&lt; T &gt;::T const &amp;&#160;</td>
+          <td class="paramname"><em>w</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the minimum component-wise values of 4 inputs. </p>
+<dl class="section see"><dt>See also</dt><dd>gtx_extented_min_max </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga7471ea4159eed8dd9ea4ac5d46c2fead"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL C&lt;T&gt; glm::min </td>
+          <td>(</td>
+          <td class="paramtype">C&lt; T &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">C&lt; T &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">C&lt; T &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">C&lt; T &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>w</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the minimum component-wise values of 4 inputs. </p>
+<dl class="section see"><dt>See also</dt><dd>gtx_extented_min_max </dd></dl>
 
 </div>
 </div>

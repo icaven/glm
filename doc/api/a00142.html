@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: wrap.hpp File Reference</title>
+<title>0.9.9 API documenation: Geometric functions</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -39,7 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -58,11 +58,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>File&#160;List</span></a></li>
-    </ul>
-  </div>
+</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -77,49 +73,353 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_934f46a345653ef2b3014a1b37a162c1.html">G:</a></li><li class="navelem"><a class="el" href="dir_98f7f9d41f9d3029bd68cf237526a774.html">Source</a></li><li class="navelem"><a class="el" href="dir_9344afb825aed5e2f5be1d2015dde43c.html">G-Truc</a></li><li class="navelem"><a class="el" href="dir_45973f864e07b2505003ae343b7c8af7.html">glm</a></li><li class="navelem"><a class="el" href="dir_304be5dfae1339a7705426c0b536faf2.html">glm</a></li><li class="navelem"><a class="el" href="dir_e8f3c1046ba4b357711397765359cd18.html">gtx</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">wrap.hpp File Reference</div>  </div>
+<div class="title">Geometric functions<div class="ingroups"><a class="el" href="a00143.html">Core features</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="a00241.html">GLM_GTX_wrap</a>  
+<p>Include &lt;<a class="el" href="a00034.html" title="Core features ">glm/geometric.hpp</a>&gt; to use these core features.  
 <a href="#details">More...</a></p>
-
-<p><a href="a00142_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga6c0cc6bd1d67ea1008d2592e998bad33"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:ga6c0cc6bd1d67ea1008d2592e998bad33"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00241.html#ga6c0cc6bd1d67ea1008d2592e998bad33">clamp</a> (genType const &amp;Texcoord)</td></tr>
-<tr class="memdesc:ga6c0cc6bd1d67ea1008d2592e998bad33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulate GL_CLAMP OpenGL wrap mode.  <a href="a00241.html#ga6c0cc6bd1d67ea1008d2592e998bad33">More...</a><br /></td></tr>
-<tr class="separator:ga6c0cc6bd1d67ea1008d2592e998bad33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa6856a0a048d2749252848da35e10c8b"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:gaa6856a0a048d2749252848da35e10c8b"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00241.html#gaa6856a0a048d2749252848da35e10c8b">mirrorClamp</a> (genType const &amp;Texcoord)</td></tr>
-<tr class="memdesc:gaa6856a0a048d2749252848da35e10c8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulate GL_MIRRORED_REPEAT OpenGL wrap mode.  <a href="a00241.html#gaa6856a0a048d2749252848da35e10c8b">More...</a><br /></td></tr>
-<tr class="separator:gaa6856a0a048d2749252848da35e10c8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga16a89b0661b60d5bea85137bbae74d73"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:ga16a89b0661b60d5bea85137bbae74d73"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00241.html#ga16a89b0661b60d5bea85137bbae74d73">mirrorRepeat</a> (genType const &amp;Texcoord)</td></tr>
-<tr class="memdesc:ga16a89b0661b60d5bea85137bbae74d73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulate GL_MIRROR_REPEAT OpenGL wrap mode.  <a href="a00241.html#ga16a89b0661b60d5bea85137bbae74d73">More...</a><br /></td></tr>
-<tr class="separator:ga16a89b0661b60d5bea85137bbae74d73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga809650c6310ea7c42666e918c117fb6f"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:ga809650c6310ea7c42666e918c117fb6f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00241.html#ga809650c6310ea7c42666e918c117fb6f">repeat</a> (genType const &amp;Texcoord)</td></tr>
-<tr class="memdesc:ga809650c6310ea7c42666e918c117fb6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulate GL_REPEAT OpenGL wrap mode.  <a href="a00241.html#ga809650c6310ea7c42666e918c117fb6f">More...</a><br /></td></tr>
-<tr class="separator:ga809650c6310ea7c42666e918c117fb6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeeec0794212fe84fc9d261de067c9587"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaeeec0794212fe84fc9d261de067c9587"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00142.html#gaeeec0794212fe84fc9d261de067c9587">cross</a> (vec&lt; 3, T, Q &gt; const &amp;x, vec&lt; 3, T, Q &gt; const &amp;y)</td></tr>
+<tr class="memdesc:gaeeec0794212fe84fc9d261de067c9587"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the cross product of x and y.  <a href="a00142.html#gaeeec0794212fe84fc9d261de067c9587">More...</a><br /></td></tr>
+<tr class="separator:gaeeec0794212fe84fc9d261de067c9587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa68de6c53e20dfb2dac2d20197562e3f"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaa68de6c53e20dfb2dac2d20197562e3f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00142.html#gaa68de6c53e20dfb2dac2d20197562e3f">distance</a> (vec&lt; L, T, Q &gt; const &amp;p0, vec&lt; L, T, Q &gt; const &amp;p1)</td></tr>
+<tr class="memdesc:gaa68de6c53e20dfb2dac2d20197562e3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the distance betwwen p0 and p1, i.e., length(p0 - p1).  <a href="a00142.html#gaa68de6c53e20dfb2dac2d20197562e3f">More...</a><br /></td></tr>
+<tr class="separator:gaa68de6c53e20dfb2dac2d20197562e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaad6c5d9d39bdc0bf43baf1b22e147a0a"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaad6c5d9d39bdc0bf43baf1b22e147a0a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00142.html#gaad6c5d9d39bdc0bf43baf1b22e147a0a">dot</a> (vec&lt; L, T, Q &gt; const &amp;x, vec&lt; L, T, Q &gt; const &amp;y)</td></tr>
+<tr class="memdesc:gaad6c5d9d39bdc0bf43baf1b22e147a0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the dot product of x and y, i.e., result = x * y.  <a href="a00142.html#gaad6c5d9d39bdc0bf43baf1b22e147a0a">More...</a><br /></td></tr>
+<tr class="separator:gaad6c5d9d39bdc0bf43baf1b22e147a0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7aed0a36c738169402404a3a5d54e43b"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga7aed0a36c738169402404a3a5d54e43b"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00142.html#ga7aed0a36c738169402404a3a5d54e43b">faceforward</a> (vec&lt; L, T, Q &gt; const &amp;N, vec&lt; L, T, Q &gt; const &amp;I, vec&lt; L, T, Q &gt; const &amp;Nref)</td></tr>
+<tr class="memdesc:ga7aed0a36c738169402404a3a5d54e43b"><td class="mdescLeft">&#160;</td><td class="mdescRight">If dot(Nref, I) &lt; 0.0, return N, otherwise, return -N.  <a href="a00142.html#ga7aed0a36c738169402404a3a5d54e43b">More...</a><br /></td></tr>
+<tr class="separator:ga7aed0a36c738169402404a3a5d54e43b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0cdabbb000834d994a1d6dc56f8f5263"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga0cdabbb000834d994a1d6dc56f8f5263"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00142.html#ga0cdabbb000834d994a1d6dc56f8f5263">length</a> (vec&lt; L, T, Q &gt; const &amp;x)</td></tr>
+<tr class="memdesc:ga0cdabbb000834d994a1d6dc56f8f5263"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the length of x, i.e., sqrt(x * x).  <a href="a00142.html#ga0cdabbb000834d994a1d6dc56f8f5263">More...</a><br /></td></tr>
+<tr class="separator:ga0cdabbb000834d994a1d6dc56f8f5263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3b8d3dcae77870781392ed2902cce597"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga3b8d3dcae77870781392ed2902cce597"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00142.html#ga3b8d3dcae77870781392ed2902cce597">normalize</a> (vec&lt; L, T, Q &gt; const &amp;x)</td></tr>
+<tr class="memdesc:ga3b8d3dcae77870781392ed2902cce597"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a vector in the same direction as x but with length of 1.  <a href="a00142.html#ga3b8d3dcae77870781392ed2902cce597">More...</a><br /></td></tr>
+<tr class="separator:ga3b8d3dcae77870781392ed2902cce597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5631dd1d5618de5450b1ea3cf3e94905"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga5631dd1d5618de5450b1ea3cf3e94905"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00142.html#ga5631dd1d5618de5450b1ea3cf3e94905">reflect</a> (vec&lt; L, T, Q &gt; const &amp;I, vec&lt; L, T, Q &gt; const &amp;N)</td></tr>
+<tr class="memdesc:ga5631dd1d5618de5450b1ea3cf3e94905"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the incident vector I and surface orientation N, returns the reflection direction : result = I - 2.0 * dot(N, I) * N.  <a href="a00142.html#ga5631dd1d5618de5450b1ea3cf3e94905">More...</a><br /></td></tr>
+<tr class="separator:ga5631dd1d5618de5450b1ea3cf3e94905"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga01da3dff9e2ef6b9d4915c3047e22b74"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga01da3dff9e2ef6b9d4915c3047e22b74"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00142.html#ga01da3dff9e2ef6b9d4915c3047e22b74">refract</a> (vec&lt; L, T, Q &gt; const &amp;I, vec&lt; L, T, Q &gt; const &amp;N, T eta)</td></tr>
+<tr class="memdesc:ga01da3dff9e2ef6b9d4915c3047e22b74"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the incident vector I and surface normal N, and the ratio of indices of refraction eta, return the refraction vector.  <a href="a00142.html#ga01da3dff9e2ef6b9d4915c3047e22b74">More...</a><br /></td></tr>
+<tr class="separator:ga01da3dff9e2ef6b9d4915c3047e22b74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="a00241.html">GLM_GTX_wrap</a> </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00158.html" title="The core of GLM, which implements exactly and only the GLSL specification to the degree possible...">GLM Core</a> (dependence) </dd></dl>
+<p>Include &lt;<a class="el" href="a00034.html" title="Core features ">glm/geometric.hpp</a>&gt; to use these core features. </p>
+<p>These operate on vectors as vectors, not component-wise. </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="gaeeec0794212fe84fc9d261de067c9587"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, Q&gt; glm::cross </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
-<p>Definition in file <a class="el" href="a00142_source.html">wrap.hpp</a>.</p>
-</div></div><!-- contents -->
+<p>Returns the cross product of x and y. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Floating-point scalar types.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/cross.xml">GLSL cross man page</a> </dd>
+<dd>
+<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaa68de6c53e20dfb2dac2d20197562e3f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL T glm::distance </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>p0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>p1</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the distance betwwen p0 and p1, i.e., length(p0 - p1). </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">L</td><td>An integer between 1 and 4 included that qualify the dimension of the vector. </td></tr>
+    <tr><td class="paramname">T</td><td>Floating-point scalar types.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/distance.xml">GLSL distance man page</a> </dd>
+<dd>
+<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaad6c5d9d39bdc0bf43baf1b22e147a0a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL T glm::dot </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the dot product of x and y, i.e., result = x * y. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">L</td><td>An integer between 1 and 4 included that qualify the dimension of the vector. </td></tr>
+    <tr><td class="paramname">T</td><td>Floating-point scalar types.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/dot.xml">GLSL dot man page</a> </dd>
+<dd>
+<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga7aed0a36c738169402404a3a5d54e43b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, Q&gt; glm::faceforward </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>N</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>I</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>Nref</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If dot(Nref, I) &lt; 0.0, return N, otherwise, return -N. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">L</td><td>An integer between 1 and 4 included that qualify the dimension of the vector. </td></tr>
+    <tr><td class="paramname">T</td><td>Floating-point scalar types.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/faceforward.xml">GLSL faceforward man page</a> </dd>
+<dd>
+<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga0cdabbb000834d994a1d6dc56f8f5263"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL T glm::length </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the length of x, i.e., sqrt(x * x). </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">L</td><td>An integer between 1 and 4 included that qualify the dimension of the vector. </td></tr>
+    <tr><td class="paramname">T</td><td>Floating-point scalar types.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/length.xml">GLSL length man page</a> </dd>
+<dd>
+<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga3b8d3dcae77870781392ed2902cce597"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, Q&gt; glm::normalize </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a vector in the same direction as x but with length of 1. </p>
+<p>According to issue 10 GLSL 1.10 specification, if length(x) == 0 then result is undefined and generate an error.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">L</td><td>An integer between 1 and 4 included that qualify the dimension of the vector. </td></tr>
+    <tr><td class="paramname">T</td><td>Floating-point scalar types.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/normalize.xml">GLSL normalize man page</a> </dd>
+<dd>
+<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga5631dd1d5618de5450b1ea3cf3e94905"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, Q&gt; glm::reflect </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>I</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>N</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>For the incident vector I and surface orientation N, returns the reflection direction : result = I - 2.0 * dot(N, I) * N. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">L</td><td>An integer between 1 and 4 included that qualify the dimension of the vector. </td></tr>
+    <tr><td class="paramname">T</td><td>Floating-point scalar types.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/reflect.xml">GLSL reflect man page</a> </dd>
+<dd>
+<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga01da3dff9e2ef6b9d4915c3047e22b74"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, Q&gt; glm::refract </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>I</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>N</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>eta</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>For the incident vector I and surface normal N, and the ratio of indices of refraction eta, return the refraction vector. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">L</td><td>An integer between 1 and 4 included that qualify the dimension of the vector. </td></tr>
+    <tr><td class="paramname">T</td><td>Floating-point scalar types.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/refract.xml">GLSL refract man page</a> </dd>
+<dd>
+<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a> </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

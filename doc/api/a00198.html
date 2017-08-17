@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTX_fast_square_root</title>
+<title>0.9.9 API documenation: GLM_GTX_matrix_major_storage</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,74 +77,83 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_fast_square_root<div class="ingroups"><a class="el" href="a00157.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_matrix_major_storage<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Fast but less accurate implementations of square root based functions.  
+<p>Include &lt;<a class="el" href="a00063.html" title="GLM_GTX_matrix_major_storage ">glm/gtx/matrix_major_storage.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaac333418d0c4e0cc6d3d219ed606c238"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:gaac333418d0c4e0cc6d3d219ed606c238"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#gaac333418d0c4e0cc6d3d219ed606c238">fastDistance</a> (genType x, genType y)</td></tr>
-<tr class="memdesc:gaac333418d0c4e0cc6d3d219ed606c238"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common distance function but less accurate.  <a href="a00198.html#gaac333418d0c4e0cc6d3d219ed606c238">More...</a><br /></td></tr>
-<tr class="separator:gaac333418d0c4e0cc6d3d219ed606c238"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6852c4d8c4fc5346b65e6e4700c6bd19"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga6852c4d8c4fc5346b65e6e4700c6bd19"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#ga6852c4d8c4fc5346b65e6e4700c6bd19">fastDistance</a> (vec&lt; L, T, P &gt; const &amp;x, vec&lt; L, T, P &gt; const &amp;y)</td></tr>
-<tr class="memdesc:ga6852c4d8c4fc5346b65e6e4700c6bd19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common distance function but less accurate.  <a href="a00198.html#ga6852c4d8c4fc5346b65e6e4700c6bd19">More...</a><br /></td></tr>
-<tr class="separator:ga6852c4d8c4fc5346b65e6e4700c6bd19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7f081b14d9c7035c8714eba5f7f75a8f"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:ga7f081b14d9c7035c8714eba5f7f75a8f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#ga7f081b14d9c7035c8714eba5f7f75a8f">fastInverseSqrt</a> (genType x)</td></tr>
-<tr class="memdesc:ga7f081b14d9c7035c8714eba5f7f75a8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common inversesqrt function but less accurate.  <a href="a00198.html#ga7f081b14d9c7035c8714eba5f7f75a8f">More...</a><br /></td></tr>
-<tr class="separator:ga7f081b14d9c7035c8714eba5f7f75a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2879b142a894f623d545eff460842b17"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga2879b142a894f623d545eff460842b17"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#ga2879b142a894f623d545eff460842b17">fastInverseSqrt</a> (vec&lt; L, T, P &gt; const &amp;x)</td></tr>
-<tr class="memdesc:ga2879b142a894f623d545eff460842b17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common inversesqrt function but less accurate.  <a href="a00198.html#ga2879b142a894f623d545eff460842b17">More...</a><br /></td></tr>
-<tr class="separator:ga2879b142a894f623d545eff460842b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafe697d6287719538346bbdf8b1367c59"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:gafe697d6287719538346bbdf8b1367c59"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#gafe697d6287719538346bbdf8b1367c59">fastLength</a> (genType x)</td></tr>
-<tr class="memdesc:gafe697d6287719538346bbdf8b1367c59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common length function but less accurate.  <a href="a00198.html#gafe697d6287719538346bbdf8b1367c59">More...</a><br /></td></tr>
-<tr class="separator:gafe697d6287719538346bbdf8b1367c59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga47b9f08eccedaf563b9c1d2aa358761d"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga47b9f08eccedaf563b9c1d2aa358761d"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#ga47b9f08eccedaf563b9c1d2aa358761d">fastLength</a> (vec&lt; L, T, P &gt; const &amp;x)</td></tr>
-<tr class="memdesc:ga47b9f08eccedaf563b9c1d2aa358761d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common length function but less accurate.  <a href="a00198.html#ga47b9f08eccedaf563b9c1d2aa358761d">More...</a><br /></td></tr>
-<tr class="separator:ga47b9f08eccedaf563b9c1d2aa358761d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3b02c1d6e0c754144e2f1e110bf9f16c"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:ga3b02c1d6e0c754144e2f1e110bf9f16c"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#ga3b02c1d6e0c754144e2f1e110bf9f16c">fastNormalize</a> (genType const &amp;x)</td></tr>
-<tr class="memdesc:ga3b02c1d6e0c754144e2f1e110bf9f16c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common normalize function but less accurate.  <a href="a00198.html#ga3b02c1d6e0c754144e2f1e110bf9f16c">More...</a><br /></td></tr>
-<tr class="separator:ga3b02c1d6e0c754144e2f1e110bf9f16c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6c460e9414a50b2fc455c8f64c86cdc9"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:ga6c460e9414a50b2fc455c8f64c86cdc9"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#ga6c460e9414a50b2fc455c8f64c86cdc9">fastSqrt</a> (genType x)</td></tr>
-<tr class="memdesc:ga6c460e9414a50b2fc455c8f64c86cdc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common sqrt function but less accurate.  <a href="a00198.html#ga6c460e9414a50b2fc455c8f64c86cdc9">More...</a><br /></td></tr>
-<tr class="separator:ga6c460e9414a50b2fc455c8f64c86cdc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0698f6cd07d1cb4a0e7093a2b63ff3b1"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga0698f6cd07d1cb4a0e7093a2b63ff3b1"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#ga0698f6cd07d1cb4a0e7093a2b63ff3b1">fastSqrt</a> (vec&lt; L, T, P &gt; const &amp;x)</td></tr>
-<tr class="memdesc:ga0698f6cd07d1cb4a0e7093a2b63ff3b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common sqrt function but less accurate.  <a href="a00198.html#ga0698f6cd07d1cb4a0e7093a2b63ff3b1">More...</a><br /></td></tr>
-<tr class="separator:ga0698f6cd07d1cb4a0e7093a2b63ff3b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaff72f11286e59a4a88ed21a347f284c"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaaff72f11286e59a4a88ed21a347f284c"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 2, 2, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#gaaff72f11286e59a4a88ed21a347f284c">colMajor2</a> (vec&lt; 2, T, Q &gt; const &amp;v1, vec&lt; 2, T, Q &gt; const &amp;v2)</td></tr>
+<tr class="memdesc:gaaff72f11286e59a4a88ed21a347f284c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a column major matrix from column vectors.  <a href="a00198.html#gaaff72f11286e59a4a88ed21a347f284c">More...</a><br /></td></tr>
+<tr class="separator:gaaff72f11286e59a4a88ed21a347f284c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafc25fd44196c92b1397b127aec1281ab"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gafc25fd44196c92b1397b127aec1281ab"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 2, 2, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#gafc25fd44196c92b1397b127aec1281ab">colMajor2</a> (mat&lt; 2, 2, T, Q &gt; const &amp;m)</td></tr>
+<tr class="memdesc:gafc25fd44196c92b1397b127aec1281ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a column major matrix from other matrix.  <a href="a00198.html#gafc25fd44196c92b1397b127aec1281ab">More...</a><br /></td></tr>
+<tr class="separator:gafc25fd44196c92b1397b127aec1281ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1e25b72b085087740c92f5c70f3b051f"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga1e25b72b085087740c92f5c70f3b051f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#ga1e25b72b085087740c92f5c70f3b051f">colMajor3</a> (vec&lt; 3, T, Q &gt; const &amp;v1, vec&lt; 3, T, Q &gt; const &amp;v2, vec&lt; 3, T, Q &gt; const &amp;v3)</td></tr>
+<tr class="memdesc:ga1e25b72b085087740c92f5c70f3b051f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a column major matrix from column vectors.  <a href="a00198.html#ga1e25b72b085087740c92f5c70f3b051f">More...</a><br /></td></tr>
+<tr class="separator:ga1e25b72b085087740c92f5c70f3b051f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga86bd0656e787bb7f217607572590af27"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga86bd0656e787bb7f217607572590af27"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#ga86bd0656e787bb7f217607572590af27">colMajor3</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m)</td></tr>
+<tr class="memdesc:ga86bd0656e787bb7f217607572590af27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a column major matrix from other matrix.  <a href="a00198.html#ga86bd0656e787bb7f217607572590af27">More...</a><br /></td></tr>
+<tr class="separator:ga86bd0656e787bb7f217607572590af27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf4aa6c7e17bfce41a6c13bf6469fab05"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaf4aa6c7e17bfce41a6c13bf6469fab05"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#gaf4aa6c7e17bfce41a6c13bf6469fab05">colMajor4</a> (vec&lt; 4, T, Q &gt; const &amp;v1, vec&lt; 4, T, Q &gt; const &amp;v2, vec&lt; 4, T, Q &gt; const &amp;v3, vec&lt; 4, T, Q &gt; const &amp;v4)</td></tr>
+<tr class="memdesc:gaf4aa6c7e17bfce41a6c13bf6469fab05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a column major matrix from column vectors.  <a href="a00198.html#gaf4aa6c7e17bfce41a6c13bf6469fab05">More...</a><br /></td></tr>
+<tr class="separator:gaf4aa6c7e17bfce41a6c13bf6469fab05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf3f9511c366c20ba2e4a64c9e4cec2b3"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaf3f9511c366c20ba2e4a64c9e4cec2b3"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#gaf3f9511c366c20ba2e4a64c9e4cec2b3">colMajor4</a> (mat&lt; 4, 4, T, Q &gt; const &amp;m)</td></tr>
+<tr class="memdesc:gaf3f9511c366c20ba2e4a64c9e4cec2b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a column major matrix from other matrix.  <a href="a00198.html#gaf3f9511c366c20ba2e4a64c9e4cec2b3">More...</a><br /></td></tr>
+<tr class="separator:gaf3f9511c366c20ba2e4a64c9e4cec2b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf5b1aee9e3eb1acf9d6c3c8be1e73bb8"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaf5b1aee9e3eb1acf9d6c3c8be1e73bb8"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 2, 2, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#gaf5b1aee9e3eb1acf9d6c3c8be1e73bb8">rowMajor2</a> (vec&lt; 2, T, Q &gt; const &amp;v1, vec&lt; 2, T, Q &gt; const &amp;v2)</td></tr>
+<tr class="memdesc:gaf5b1aee9e3eb1acf9d6c3c8be1e73bb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a row major matrix from row vectors.  <a href="a00198.html#gaf5b1aee9e3eb1acf9d6c3c8be1e73bb8">More...</a><br /></td></tr>
+<tr class="separator:gaf5b1aee9e3eb1acf9d6c3c8be1e73bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf66c75ed69ca9e87462550708c2c6726"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaf66c75ed69ca9e87462550708c2c6726"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 2, 2, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#gaf66c75ed69ca9e87462550708c2c6726">rowMajor2</a> (mat&lt; 2, 2, T, Q &gt; const &amp;m)</td></tr>
+<tr class="memdesc:gaf66c75ed69ca9e87462550708c2c6726"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a row major matrix from other matrix.  <a href="a00198.html#gaf66c75ed69ca9e87462550708c2c6726">More...</a><br /></td></tr>
+<tr class="separator:gaf66c75ed69ca9e87462550708c2c6726"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ae46497493339f745754e40f438442e"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga2ae46497493339f745754e40f438442e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#ga2ae46497493339f745754e40f438442e">rowMajor3</a> (vec&lt; 3, T, Q &gt; const &amp;v1, vec&lt; 3, T, Q &gt; const &amp;v2, vec&lt; 3, T, Q &gt; const &amp;v3)</td></tr>
+<tr class="memdesc:ga2ae46497493339f745754e40f438442e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a row major matrix from row vectors.  <a href="a00198.html#ga2ae46497493339f745754e40f438442e">More...</a><br /></td></tr>
+<tr class="separator:ga2ae46497493339f745754e40f438442e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad8a3a50ab47bbe8d36cdb81d90dfcf77"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gad8a3a50ab47bbe8d36cdb81d90dfcf77"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#gad8a3a50ab47bbe8d36cdb81d90dfcf77">rowMajor3</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m)</td></tr>
+<tr class="memdesc:gad8a3a50ab47bbe8d36cdb81d90dfcf77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a row major matrix from other matrix.  <a href="a00198.html#gad8a3a50ab47bbe8d36cdb81d90dfcf77">More...</a><br /></td></tr>
+<tr class="separator:gad8a3a50ab47bbe8d36cdb81d90dfcf77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9636cd6bbe2c32a8d0c03ffb8b1ef284"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga9636cd6bbe2c32a8d0c03ffb8b1ef284"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#ga9636cd6bbe2c32a8d0c03ffb8b1ef284">rowMajor4</a> (vec&lt; 4, T, Q &gt; const &amp;v1, vec&lt; 4, T, Q &gt; const &amp;v2, vec&lt; 4, T, Q &gt; const &amp;v3, vec&lt; 4, T, Q &gt; const &amp;v4)</td></tr>
+<tr class="memdesc:ga9636cd6bbe2c32a8d0c03ffb8b1ef284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a row major matrix from row vectors.  <a href="a00198.html#ga9636cd6bbe2c32a8d0c03ffb8b1ef284">More...</a><br /></td></tr>
+<tr class="separator:ga9636cd6bbe2c32a8d0c03ffb8b1ef284"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac92ad1c2acdf18d3eb7be45a32f9566b"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gac92ad1c2acdf18d3eb7be45a32f9566b"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00198.html#gac92ad1c2acdf18d3eb7be45a32f9566b">rowMajor4</a> (mat&lt; 4, 4, T, Q &gt; const &amp;m)</td></tr>
+<tr class="memdesc:gac92ad1c2acdf18d3eb7be45a32f9566b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a row major matrix from other matrix.  <a href="a00198.html#gac92ad1c2acdf18d3eb7be45a32f9566b">More...</a><br /></td></tr>
+<tr class="separator:gac92ad1c2acdf18d3eb7be45a32f9566b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Fast but less accurate implementations of square root based functions. </p>
-<ul>
-<li>Sqrt optimisation based on Newton's method, www.gamedev.net/community/forums/topic.asp?topic id=139956</li>
-</ul>
-<p>&lt;<a class="el" href="a00030.html" title="GLM_GTX_fast_square_root ">glm/gtx/fast_square_root.hpp</a>&gt; need to be included to use these functionalities. </p>
+<p>Include &lt;<a class="el" href="a00063.html" title="GLM_GTX_matrix_major_storage ">glm/gtx/matrix_major_storage.hpp</a>&gt; to use the features of this extension. </p>
+<p>Build matrices with specific matrix order, row or column </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="gaac333418d0c4e0cc6d3d219ed606c238"></a>
+<a class="anchor" id="gaaff72f11286e59a4a88ed21a347f284c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::fastDistance </td>
+          <td class="memname">GLM_FUNC_DECL mat&lt;2, 2, T, Q&gt; glm::colMajor2 </td>
           <td>(</td>
-          <td class="paramtype">genType&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">genType&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -154,26 +163,51 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Faster than the common distance function but less accurate. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00198.html" title="Fast but less accurate implementations of square root based functions. ">GLM_GTX_fast_square_root</a> extension. </dd></dl>
+<p>Build a column major matrix from column vectors. </p>
+<p>From GLM_GTX_matrix_major_storage extension. </p>
 
 </div>
 </div>
-<a class="anchor" id="ga6852c4d8c4fc5346b65e6e4700c6bd19"></a>
+<a class="anchor" id="gafc25fd44196c92b1397b127aec1281ab"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::fastDistance </td>
+          <td class="memname">GLM_FUNC_DECL mat&lt;2, 2, T, Q&gt; glm::colMajor2 </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
+          <td class="paramtype">mat&lt; 2, 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Build a column major matrix from other matrix. </p>
+<p>From GLM_GTX_matrix_major_storage extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga1e25b72b085087740c92f5c70f3b051f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;3, 3, T, Q&gt; glm::colMajor3 </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v3</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -183,141 +217,249 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Faster than the common distance function but less accurate. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00198.html" title="Fast but less accurate implementations of square root based functions. ">GLM_GTX_fast_square_root</a> extension. </dd></dl>
+<p>Build a column major matrix from column vectors. </p>
+<p>From GLM_GTX_matrix_major_storage extension. </p>
 
 </div>
 </div>
-<a class="anchor" id="ga7f081b14d9c7035c8714eba5f7f75a8f"></a>
+<a class="anchor" id="ga86bd0656e787bb7f217607572590af27"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::fastInverseSqrt </td>
+          <td class="memname">GLM_FUNC_DECL mat&lt;3, 3, T, Q&gt; glm::colMajor3 </td>
           <td>(</td>
-          <td class="paramtype">genType&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">mat&lt; 3, 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Faster than the common inversesqrt function but less accurate. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00198.html" title="Fast but less accurate implementations of square root based functions. ">GLM_GTX_fast_square_root</a> extension. </dd></dl>
+<p>Build a column major matrix from other matrix. </p>
+<p>From GLM_GTX_matrix_major_storage extension. </p>
 
 </div>
 </div>
-<a class="anchor" id="ga2879b142a894f623d545eff460842b17"></a>
+<a class="anchor" id="gaf4aa6c7e17bfce41a6c13bf6469fab05"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, P&gt; glm::fastInverseSqrt </td>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::colMajor4 </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">vec&lt; 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v4</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Build a column major matrix from column vectors. </p>
+<p>From GLM_GTX_matrix_major_storage extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="gaf3f9511c366c20ba2e4a64c9e4cec2b3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::colMajor4 </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; 4, 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Faster than the common inversesqrt function but less accurate. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00198.html" title="Fast but less accurate implementations of square root based functions. ">GLM_GTX_fast_square_root</a> extension. </dd></dl>
+<p>Build a column major matrix from other matrix. </p>
+<p>From GLM_GTX_matrix_major_storage extension. </p>
 
 </div>
 </div>
-<a class="anchor" id="gafe697d6287719538346bbdf8b1367c59"></a>
+<a class="anchor" id="gaf5b1aee9e3eb1acf9d6c3c8be1e73bb8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::fastLength </td>
+          <td class="memname">GLM_FUNC_DECL mat&lt;2, 2, T, Q&gt; glm::rowMajor2 </td>
           <td>(</td>
-          <td class="paramtype">genType&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Build a row major matrix from row vectors. </p>
+<p>From GLM_GTX_matrix_major_storage extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="gaf66c75ed69ca9e87462550708c2c6726"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;2, 2, T, Q&gt; glm::rowMajor2 </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; 2, 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Faster than the common length function but less accurate. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00198.html" title="Fast but less accurate implementations of square root based functions. ">GLM_GTX_fast_square_root</a> extension. </dd></dl>
+<p>Build a row major matrix from other matrix. </p>
+<p>From GLM_GTX_matrix_major_storage extension. </p>
 
 </div>
 </div>
-<a class="anchor" id="ga47b9f08eccedaf563b9c1d2aa358761d"></a>
+<a class="anchor" id="ga2ae46497493339f745754e40f438442e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::fastLength </td>
+          <td class="memname">GLM_FUNC_DECL mat&lt;3, 3, T, Q&gt; glm::rowMajor3 </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v3</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Build a row major matrix from row vectors. </p>
+<p>From GLM_GTX_matrix_major_storage extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="gad8a3a50ab47bbe8d36cdb81d90dfcf77"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;3, 3, T, Q&gt; glm::rowMajor3 </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; 3, 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Faster than the common length function but less accurate. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00198.html" title="Fast but less accurate implementations of square root based functions. ">GLM_GTX_fast_square_root</a> extension. </dd></dl>
+<p>Build a row major matrix from other matrix. </p>
+<p>From GLM_GTX_matrix_major_storage extension. </p>
 
 </div>
 </div>
-<a class="anchor" id="ga3b02c1d6e0c754144e2f1e110bf9f16c"></a>
+<a class="anchor" id="ga9636cd6bbe2c32a8d0c03ffb8b1ef284"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::fastNormalize </td>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::rowMajor4 </td>
           <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">vec&lt; 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v4</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Build a row major matrix from row vectors. </p>
+<p>From GLM_GTX_matrix_major_storage extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="gac92ad1c2acdf18d3eb7be45a32f9566b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::rowMajor4 </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; 4, 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Faster than the common normalize function but less accurate. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00198.html" title="Fast but less accurate implementations of square root based functions. ">GLM_GTX_fast_square_root</a> extension. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga6c460e9414a50b2fc455c8f64c86cdc9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::fastSqrt </td>
-          <td>(</td>
-          <td class="paramtype">genType&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Faster than the common sqrt function but less accurate. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00198.html" title="Fast but less accurate implementations of square root based functions. ">GLM_GTX_fast_square_root</a> extension. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga0698f6cd07d1cb4a0e7093a2b63ff3b1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, P&gt; glm::fastSqrt </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Faster than the common sqrt function but less accurate. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00198.html" title="Fast but less accurate implementations of square root based functions. ">GLM_GTX_fast_square_root</a> extension. </dd></dl>
+<p>Build a row major matrix from other matrix. </p>
+<p>From GLM_GTX_matrix_major_storage extension. </p>
 
 </div>
 </div>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTX_exterior_product</title>
+<title>0.9.9 API documenation: GLM_GTX_matrix_factorisation</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,56 +77,111 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_exterior_product<div class="ingroups"><a class="el" href="a00157.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_matrix_factorisation<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Allow to perform bit operations on integer values.  
+<p>Include &lt;<a class="el" href="a00059.html" title="GLM_GTX_matrix_factorisation ">glm/gtx/matrix_factorisation.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaf3a62994e7f7cebc33e9ec802bd6564a"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gaf3a62994e7f7cebc33e9ec802bd6564a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00196.html#gaf3a62994e7f7cebc33e9ec802bd6564a">cross</a> (vec&lt; 2, T, P &gt; const &amp;v, vec&lt; 2, T, P &gt; const &amp;u)</td></tr>
-<tr class="memdesc:gaf3a62994e7f7cebc33e9ec802bd6564a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the cross product of x and y.  <a href="a00196.html#gaf3a62994e7f7cebc33e9ec802bd6564a">More...</a><br /></td></tr>
-<tr class="separator:gaf3a62994e7f7cebc33e9ec802bd6564a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf39f4e5f78eb29c1a90277d45b9b3feb"><td class="memTemplParams" colspan="2">template&lt;length_t C, length_t R, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaf39f4e5f78eb29c1a90277d45b9b3feb"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; C, R, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00196.html#gaf39f4e5f78eb29c1a90277d45b9b3feb">fliplr</a> (mat&lt; C, R, T, Q &gt; const &amp;in)</td></tr>
+<tr class="memdesc:gaf39f4e5f78eb29c1a90277d45b9b3feb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flips the matrix columns right and left.  <a href="a00196.html#gaf39f4e5f78eb29c1a90277d45b9b3feb">More...</a><br /></td></tr>
+<tr class="separator:gaf39f4e5f78eb29c1a90277d45b9b3feb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga85003371f0ba97380dd25e8905de1870"><td class="memTemplParams" colspan="2">template&lt;length_t C, length_t R, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga85003371f0ba97380dd25e8905de1870"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; C, R, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00196.html#ga85003371f0ba97380dd25e8905de1870">flipud</a> (mat&lt; C, R, T, Q &gt; const &amp;in)</td></tr>
+<tr class="memdesc:ga85003371f0ba97380dd25e8905de1870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flips the matrix rows up and down.  <a href="a00196.html#ga85003371f0ba97380dd25e8905de1870">More...</a><br /></td></tr>
+<tr class="separator:ga85003371f0ba97380dd25e8905de1870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac62d7bfc8dc661e616620d70552cd566"><td class="memTemplParams" colspan="2">template&lt;length_t C, length_t R, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gac62d7bfc8dc661e616620d70552cd566"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00196.html#gac62d7bfc8dc661e616620d70552cd566">qr_decompose</a> (mat&lt; C, R, T, Q &gt; const &amp;in, mat&lt;(C&lt; R?C:R), R, T, Q &gt; &amp;q, mat&lt; C,(C&lt; R?C:R), T, Q &gt; &amp;r)</td></tr>
+<tr class="memdesc:gac62d7bfc8dc661e616620d70552cd566"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs QR factorisation of a matrix.  <a href="a00196.html#gac62d7bfc8dc661e616620d70552cd566">More...</a><br /></td></tr>
+<tr class="separator:gac62d7bfc8dc661e616620d70552cd566"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga82874e2ebe891ba35ac21d9993873758"><td class="memTemplParams" colspan="2">template&lt;length_t C, length_t R, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga82874e2ebe891ba35ac21d9993873758"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00196.html#ga82874e2ebe891ba35ac21d9993873758">rq_decompose</a> (mat&lt; C, R, T, Q &gt; const &amp;in, mat&lt;(C&lt; R?C:R), R, T, Q &gt; &amp;r, mat&lt; C,(C&lt; R?C:R), T, Q &gt; &amp;q)</td></tr>
+<tr class="memdesc:ga82874e2ebe891ba35ac21d9993873758"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs RQ factorisation of a matrix.  <a href="a00196.html#ga82874e2ebe891ba35ac21d9993873758">More...</a><br /></td></tr>
+<tr class="separator:ga82874e2ebe891ba35ac21d9993873758"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Allow to perform bit operations on integer values. </p>
-<p>&lt;<a class="el" href="a00009.html" title="GLM_GTC_bitfield ">glm/gtc/bitfield.hpp</a>&gt; need to be included to use these functionalities. </p>
+<p>Include &lt;<a class="el" href="a00059.html" title="GLM_GTX_matrix_factorisation ">glm/gtx/matrix_factorisation.hpp</a>&gt; to use the features of this extension. </p>
+<p>Functions to factor matrices in various forms </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="gaf3a62994e7f7cebc33e9ec802bd6564a"></a>
+<a class="anchor" id="gaf39f4e5f78eb29c1a90277d45b9b3feb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::cross </td>
+          <td class="memname">GLM_FUNC_DECL mat&lt;C, R, T, Q&gt; glm::fliplr </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; 2, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">mat&lt; C, R, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">vec&lt; 2, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>u</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the cross product of x and y. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">valType</td><td>Floating-point scalar types.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a href="https://en.wikipedia.org/wiki/Exterior_algebra#Cross_and_triple_products">Exterior product</a> </dd></dl>
+<p>Flips the matrix columns right and left. </p>
+<p>From GLM_GTX_matrix_factorisation extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga85003371f0ba97380dd25e8905de1870"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;C, R, T, Q&gt; glm::flipud </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; C, R, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Flips the matrix rows up and down. </p>
+<p>From GLM_GTX_matrix_factorisation extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="gac62d7bfc8dc661e616620d70552cd566"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL void glm::qr_decompose </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; C, R, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Performs QR factorisation of a matrix. </p>
+<p>Returns 2 matrices, q and r, such that the columns of q are orthonormal and span the same subspace than those of the input matrix, r is an upper triangular matrix, and q*r=in. Given an n-by-m input matrix, q has dimensions min(n,m)-by-m, and r has dimensions n-by-min(n,m).</p>
+<p>From GLM_GTX_matrix_factorisation extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga82874e2ebe891ba35ac21d9993873758"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL void glm::rq_decompose </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; C, R, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Performs RQ factorisation of a matrix. </p>
+<p>Returns 2 matrices, r and q, such that r is an upper triangular matrix, the rows of q are orthonormal and span the same subspace than those of the input matrix, and r*q=in. Note that in the context of RQ factorisation, the diagonal is seen as starting in the lower-right corner of the matrix, instead of the usual upper-left. Given an n-by-m input matrix, r has dimensions min(n,m)-by-m, and q has dimensions n-by-min(n,m).</p>
+<p>From GLM_GTX_matrix_factorisation extension. </p>
 
 </div>
 </div>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTX_matrix_major_storage</title>
+<title>0.9.9 API documenation: GLM_GTX_projection</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,83 +77,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_matrix_major_storage<div class="ingroups"><a class="el" href="a00157.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_projection<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Build matrices with specific matrix order, row or column.  
+<p>Include &lt;<a class="el" href="a00081.html" title="GLM_GTX_projection ">glm/gtx/projection.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gacefe7d18c4a4433edbb04fdc3423121e"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gacefe7d18c4a4433edbb04fdc3423121e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 2, 2, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00211.html#gacefe7d18c4a4433edbb04fdc3423121e">colMajor2</a> (vec&lt; 2, T, P &gt; const &amp;v1, vec&lt; 2, T, P &gt; const &amp;v2)</td></tr>
-<tr class="memdesc:gacefe7d18c4a4433edbb04fdc3423121e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a column major matrix from column vectors.  <a href="a00211.html#gacefe7d18c4a4433edbb04fdc3423121e">More...</a><br /></td></tr>
-<tr class="separator:gacefe7d18c4a4433edbb04fdc3423121e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6fc5c8a0d9aeb748ce50d57bbab09a41"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga6fc5c8a0d9aeb748ce50d57bbab09a41"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 2, 2, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00211.html#ga6fc5c8a0d9aeb748ce50d57bbab09a41">colMajor2</a> (mat&lt; 2, 2, T, P &gt; const &amp;m)</td></tr>
-<tr class="memdesc:ga6fc5c8a0d9aeb748ce50d57bbab09a41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a column major matrix from other matrix.  <a href="a00211.html#ga6fc5c8a0d9aeb748ce50d57bbab09a41">More...</a><br /></td></tr>
-<tr class="separator:ga6fc5c8a0d9aeb748ce50d57bbab09a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadd042bee09a9e0363fdd839d84107862"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gadd042bee09a9e0363fdd839d84107862"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 3, 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00211.html#gadd042bee09a9e0363fdd839d84107862">colMajor3</a> (vec&lt; 3, T, P &gt; const &amp;v1, vec&lt; 3, T, P &gt; const &amp;v2, vec&lt; 3, T, P &gt; const &amp;v3)</td></tr>
-<tr class="memdesc:gadd042bee09a9e0363fdd839d84107862"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a column major matrix from column vectors.  <a href="a00211.html#gadd042bee09a9e0363fdd839d84107862">More...</a><br /></td></tr>
-<tr class="separator:gadd042bee09a9e0363fdd839d84107862"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac6ec46a4d21833eb7c321a531ef79c80"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gac6ec46a4d21833eb7c321a531ef79c80"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 3, 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00211.html#gac6ec46a4d21833eb7c321a531ef79c80">colMajor3</a> (mat&lt; 3, 3, T, P &gt; const &amp;m)</td></tr>
-<tr class="memdesc:gac6ec46a4d21833eb7c321a531ef79c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a column major matrix from other matrix.  <a href="a00211.html#gac6ec46a4d21833eb7c321a531ef79c80">More...</a><br /></td></tr>
-<tr class="separator:gac6ec46a4d21833eb7c321a531ef79c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga41dcbcac68e8e2ca7fe527db12ca1ec4"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga41dcbcac68e8e2ca7fe527db12ca1ec4"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00211.html#ga41dcbcac68e8e2ca7fe527db12ca1ec4">colMajor4</a> (vec&lt; 4, T, P &gt; const &amp;v1, vec&lt; 4, T, P &gt; const &amp;v2, vec&lt; 4, T, P &gt; const &amp;v3, vec&lt; 4, T, P &gt; const &amp;v4)</td></tr>
-<tr class="memdesc:ga41dcbcac68e8e2ca7fe527db12ca1ec4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a column major matrix from column vectors.  <a href="a00211.html#ga41dcbcac68e8e2ca7fe527db12ca1ec4">More...</a><br /></td></tr>
-<tr class="separator:ga41dcbcac68e8e2ca7fe527db12ca1ec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga62fb78aa6191e93716d99da69d6a5b15"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga62fb78aa6191e93716d99da69d6a5b15"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00211.html#ga62fb78aa6191e93716d99da69d6a5b15">colMajor4</a> (mat&lt; 4, 4, T, P &gt; const &amp;m)</td></tr>
-<tr class="memdesc:ga62fb78aa6191e93716d99da69d6a5b15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a column major matrix from other matrix.  <a href="a00211.html#ga62fb78aa6191e93716d99da69d6a5b15">More...</a><br /></td></tr>
-<tr class="separator:ga62fb78aa6191e93716d99da69d6a5b15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabc97126621109ba72a8dd2d25d3304fd"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gabc97126621109ba72a8dd2d25d3304fd"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 2, 2, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00211.html#gabc97126621109ba72a8dd2d25d3304fd">rowMajor2</a> (vec&lt; 2, T, P &gt; const &amp;v1, vec&lt; 2, T, P &gt; const &amp;v2)</td></tr>
-<tr class="memdesc:gabc97126621109ba72a8dd2d25d3304fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a row major matrix from row vectors.  <a href="a00211.html#gabc97126621109ba72a8dd2d25d3304fd">More...</a><br /></td></tr>
-<tr class="separator:gabc97126621109ba72a8dd2d25d3304fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7afc830131aad34244300be5df6f6e0c"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga7afc830131aad34244300be5df6f6e0c"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 2, 2, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00211.html#ga7afc830131aad34244300be5df6f6e0c">rowMajor2</a> (mat&lt; 2, 2, T, P &gt; const &amp;m)</td></tr>
-<tr class="memdesc:ga7afc830131aad34244300be5df6f6e0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a row major matrix from other matrix.  <a href="a00211.html#ga7afc830131aad34244300be5df6f6e0c">More...</a><br /></td></tr>
-<tr class="separator:ga7afc830131aad34244300be5df6f6e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga308064cf65fae1e5df0ea9a628334c86"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga308064cf65fae1e5df0ea9a628334c86"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 3, 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00211.html#ga308064cf65fae1e5df0ea9a628334c86">rowMajor3</a> (vec&lt; 3, T, P &gt; const &amp;v1, vec&lt; 3, T, P &gt; const &amp;v2, vec&lt; 3, T, P &gt; const &amp;v3)</td></tr>
-<tr class="memdesc:ga308064cf65fae1e5df0ea9a628334c86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a row major matrix from row vectors.  <a href="a00211.html#ga308064cf65fae1e5df0ea9a628334c86">More...</a><br /></td></tr>
-<tr class="separator:ga308064cf65fae1e5df0ea9a628334c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga458a0aa2af3b7e2be6aa2d28bcfd0223"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga458a0aa2af3b7e2be6aa2d28bcfd0223"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 3, 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00211.html#ga458a0aa2af3b7e2be6aa2d28bcfd0223">rowMajor3</a> (mat&lt; 3, 3, T, P &gt; const &amp;m)</td></tr>
-<tr class="memdesc:ga458a0aa2af3b7e2be6aa2d28bcfd0223"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a row major matrix from other matrix.  <a href="a00211.html#ga458a0aa2af3b7e2be6aa2d28bcfd0223">More...</a><br /></td></tr>
-<tr class="separator:ga458a0aa2af3b7e2be6aa2d28bcfd0223"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2312a23f93c29cede2626b7597b0f5e9"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga2312a23f93c29cede2626b7597b0f5e9"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00211.html#ga2312a23f93c29cede2626b7597b0f5e9">rowMajor4</a> (vec&lt; 4, T, P &gt; const &amp;v1, vec&lt; 4, T, P &gt; const &amp;v2, vec&lt; 4, T, P &gt; const &amp;v3, vec&lt; 4, T, P &gt; const &amp;v4)</td></tr>
-<tr class="memdesc:ga2312a23f93c29cede2626b7597b0f5e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a row major matrix from row vectors.  <a href="a00211.html#ga2312a23f93c29cede2626b7597b0f5e9">More...</a><br /></td></tr>
-<tr class="separator:ga2312a23f93c29cede2626b7597b0f5e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga51586db352ba7f8a0840c64cd0b08c3f"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga51586db352ba7f8a0840c64cd0b08c3f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00211.html#ga51586db352ba7f8a0840c64cd0b08c3f">rowMajor4</a> (mat&lt; 4, 4, T, P &gt; const &amp;m)</td></tr>
-<tr class="memdesc:ga51586db352ba7f8a0840c64cd0b08c3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a row major matrix from other matrix.  <a href="a00211.html#ga51586db352ba7f8a0840c64cd0b08c3f">More...</a><br /></td></tr>
-<tr class="separator:ga51586db352ba7f8a0840c64cd0b08c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga58384b7170801dd513de46f87c7fb00e"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga58384b7170801dd513de46f87c7fb00e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00211.html#ga58384b7170801dd513de46f87c7fb00e">proj</a> (genType const &amp;x, genType const &amp;Normal)</td></tr>
+<tr class="memdesc:ga58384b7170801dd513de46f87c7fb00e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Projects x on Normal.  <a href="a00211.html#ga58384b7170801dd513de46f87c7fb00e">More...</a><br /></td></tr>
+<tr class="separator:ga58384b7170801dd513de46f87c7fb00e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Build matrices with specific matrix order, row or column. </p>
-<p>&lt;<a class="el" href="a00071.html" title="GLM_GTX_matrix_major_storage ">glm/gtx/matrix_major_storage.hpp</a>&gt; need to be included to use these functionalities. </p>
+<p>Include &lt;<a class="el" href="a00081.html" title="GLM_GTX_projection ">glm/gtx/projection.hpp</a>&gt; to use the features of this extension. </p>
+<p>Projection of a vector to other one </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="gacefe7d18c4a4433edbb04fdc3423121e"></a>
+<a class="anchor" id="ga58384b7170801dd513de46f87c7fb00e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;2, 2, T, P&gt; glm::colMajor2 </td>
+          <td class="memname">GLM_FUNC_DECL genType glm::proj </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; 2, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v1</em>, </td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; 2, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v2</em>&#160;</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>Normal</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -163,303 +119,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Build a column major matrix from column vectors. </p>
-<p>From GLM_GTX_matrix_major_storage extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="ga6fc5c8a0d9aeb748ce50d57bbab09a41"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;2, 2, T, P&gt; glm::colMajor2 </td>
-          <td>(</td>
-          <td class="paramtype">mat&lt; 2, 2, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>m</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Build a column major matrix from other matrix. </p>
-<p>From GLM_GTX_matrix_major_storage extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="gadd042bee09a9e0363fdd839d84107862"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;3, 3, T, P&gt; glm::colMajor3 </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v3</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Build a column major matrix from column vectors. </p>
-<p>From GLM_GTX_matrix_major_storage extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="gac6ec46a4d21833eb7c321a531ef79c80"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;3, 3, T, P&gt; glm::colMajor3 </td>
-          <td>(</td>
-          <td class="paramtype">mat&lt; 3, 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>m</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Build a column major matrix from other matrix. </p>
-<p>From GLM_GTX_matrix_major_storage extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="ga41dcbcac68e8e2ca7fe527db12ca1ec4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, P&gt; glm::colMajor4 </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; 4, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 4, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 4, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v3</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 4, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v4</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Build a column major matrix from column vectors. </p>
-<p>From GLM_GTX_matrix_major_storage extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="ga62fb78aa6191e93716d99da69d6a5b15"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, P&gt; glm::colMajor4 </td>
-          <td>(</td>
-          <td class="paramtype">mat&lt; 4, 4, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>m</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Build a column major matrix from other matrix. </p>
-<p>From GLM_GTX_matrix_major_storage extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="gabc97126621109ba72a8dd2d25d3304fd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;2, 2, T, P&gt; glm::rowMajor2 </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; 2, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 2, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v2</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Build a row major matrix from row vectors. </p>
-<p>From GLM_GTX_matrix_major_storage extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="ga7afc830131aad34244300be5df6f6e0c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;2, 2, T, P&gt; glm::rowMajor2 </td>
-          <td>(</td>
-          <td class="paramtype">mat&lt; 2, 2, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>m</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Build a row major matrix from other matrix. </p>
-<p>From GLM_GTX_matrix_major_storage extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="ga308064cf65fae1e5df0ea9a628334c86"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;3, 3, T, P&gt; glm::rowMajor3 </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v3</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Build a row major matrix from row vectors. </p>
-<p>From GLM_GTX_matrix_major_storage extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="ga458a0aa2af3b7e2be6aa2d28bcfd0223"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;3, 3, T, P&gt; glm::rowMajor3 </td>
-          <td>(</td>
-          <td class="paramtype">mat&lt; 3, 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>m</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Build a row major matrix from other matrix. </p>
-<p>From GLM_GTX_matrix_major_storage extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="ga2312a23f93c29cede2626b7597b0f5e9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, P&gt; glm::rowMajor4 </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; 4, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 4, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 4, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v3</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 4, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v4</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Build a row major matrix from row vectors. </p>
-<p>From GLM_GTX_matrix_major_storage extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="ga51586db352ba7f8a0840c64cd0b08c3f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, P&gt; glm::rowMajor4 </td>
-          <td>(</td>
-          <td class="paramtype">mat&lt; 4, 4, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>m</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Build a row major matrix from other matrix. </p>
-<p>From GLM_GTX_matrix_major_storage extension. </p>
+<p>Projects x on Normal. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00211.html" title="Include <glm/gtx/projection.hpp> to use the features of this extension. ">GLM_GTX_projection</a> </dd></dl>
 
 </div>
 </div>

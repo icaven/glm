@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: normalize_dot.hpp File Reference</title>
+<title>0.9.9 API documenation: polar_coordinates.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -86,33 +86,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">normalize_dot.hpp File Reference</div>  </div>
+<div class="title">polar_coordinates.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="a00218.html">GLM_GTX_normalize_dot</a>  
+<p><a class="el" href="a00210.html">GLM_GTX_polar_coordinates</a>  
 <a href="#details">More...</a></p>
 
 <p><a href="a00080_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gabf5553d2beb5e536b44abb48525657ec"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gabf5553d2beb5e536b44abb48525657ec"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00218.html#gabf5553d2beb5e536b44abb48525657ec">fastNormalizeDot</a> (vec&lt; L, T, P &gt; const &amp;x, vec&lt; L, T, P &gt; const &amp;y)</td></tr>
-<tr class="memdesc:gabf5553d2beb5e536b44abb48525657ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize parameters and returns the dot product of x and y.  <a href="a00218.html#gabf5553d2beb5e536b44abb48525657ec">More...</a><br /></td></tr>
-<tr class="separator:gabf5553d2beb5e536b44abb48525657ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab445b8fe1f595c1515a8280e6ca89c88"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gab445b8fe1f595c1515a8280e6ca89c88"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00218.html#gab445b8fe1f595c1515a8280e6ca89c88">normalizeDot</a> (vec&lt; L, T, P &gt; const &amp;x, vec&lt; L, T, P &gt; const &amp;y)</td></tr>
-<tr class="memdesc:gab445b8fe1f595c1515a8280e6ca89c88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize parameters and returns the dot product of x and y.  <a href="a00218.html#gab445b8fe1f595c1515a8280e6ca89c88">More...</a><br /></td></tr>
-<tr class="separator:gab445b8fe1f595c1515a8280e6ca89c88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1821d5b3324201e60a9e2823d0b5d0c8"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga1821d5b3324201e60a9e2823d0b5d0c8"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00210.html#ga1821d5b3324201e60a9e2823d0b5d0c8">euclidean</a> (vec&lt; 2, T, Q &gt; const &amp;polar)</td></tr>
+<tr class="memdesc:ga1821d5b3324201e60a9e2823d0b5d0c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert Polar to Euclidean coordinates.  <a href="a00210.html#ga1821d5b3324201e60a9e2823d0b5d0c8">More...</a><br /></td></tr>
+<tr class="separator:ga1821d5b3324201e60a9e2823d0b5d0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab83ac2c0e55b684b06b6c46c28b1590d"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gab83ac2c0e55b684b06b6c46c28b1590d"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00210.html#gab83ac2c0e55b684b06b6c46c28b1590d">polar</a> (vec&lt; 3, T, Q &gt; const &amp;euclidean)</td></tr>
+<tr class="memdesc:gab83ac2c0e55b684b06b6c46c28b1590d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert Euclidean to Polar coordinates, x is the xz distance, y, the latitude and z the longitude.  <a href="a00210.html#gab83ac2c0e55b684b06b6c46c28b1590d">More...</a><br /></td></tr>
+<tr class="separator:gab83ac2c0e55b684b06b6c46c28b1590d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="a00218.html">GLM_GTX_normalize_dot</a> </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00158.html" title="The core of GLM, which implements exactly and only the GLSL specification to the degree possible...">GLM Core</a> (dependence) </dd>
-<dd>
-<a class="el" href="a00198.html" title="Fast but less accurate implementations of square root based functions. ">GLM_GTX_fast_square_root</a> (dependence) </dd></dl>
+<div class="textblock"><p><a class="el" href="a00210.html">GLM_GTX_polar_coordinates</a> </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00143.html" title="Features that implement in C++ the GLSL specification as closely as possible. ">Core features</a> (dependence) </dd></dl>
 
-<p>Definition in file <a class="el" href="a00080_source.html">normalize_dot.hpp</a>.</p>
+<p>Definition in file <a class="el" href="a00080_source.html">polar_coordinates.hpp</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

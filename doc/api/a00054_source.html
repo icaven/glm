@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: mat2x2.hpp Source File</title>
+<title>0.9.9 API documenation: mat4x4.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,40 +84,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">mat2x2.hpp</div>  </div>
+<div class="title">mat4x4.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00054.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00102.html">detail/setup.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00094.html">detail/setup.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00116.html">detail/type_mat2x2.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00116.html">detail/type_mat4x4.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00143.html">glm</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00135.html">glm</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">typedef</span> mat&lt;2, 2, float, lowp&gt;          <a class="code" href="a00160.html#ga08bba677ef7b2809ac0061fa9a3db854">lowp_mat2</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">typedef</span> mat&lt;4, 4, float, lowp&gt;          <a class="code" href="a00145.html#ga73e2f3bcae71b05736f2c962f98565a1">lowp_mat4</a>;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">typedef</span> mat&lt;2, 2, float, mediump&gt;               <a class="code" href="a00160.html#ga83fe5281ac0a3d153226b903badd415b">mediump_mat2</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">typedef</span> mat&lt;4, 4, float, mediump&gt;               <a class="code" href="a00145.html#ga0f910a2c5bf1c3fd153c4bc13cefee58">mediump_mat4</a>;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">typedef</span> mat&lt;2, 2, float, highp&gt;         <a class="code" href="a00160.html#ga4fcceff924fa2dc1f3d5217f68c5f81a">highp_mat2</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">typedef</span> mat&lt;4, 4, float, highp&gt;         <a class="code" href="a00145.html#ga332149037f33cec9d9b583e11c3c8524">highp_mat4</a>;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">typedef</span> mat&lt;2, 2, float, lowp&gt;          <a class="code" href="a00160.html#ga993bdd19989dc1f4d09f664a2ee74cb5">lowp_mat2x2</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">typedef</span> mat&lt;4, 4, float, lowp&gt;          <a class="code" href="a00145.html#ga8378facff06c21d2092a9a13c9ef0a0b">lowp_mat4x4</a>;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">typedef</span> mat&lt;2, 2, float, mediump&gt;               <a class="code" href="a00160.html#gaf1beb3328c79fece7dcc34c5b05b57a0">mediump_mat2x2</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">typedef</span> mat&lt;4, 4, float, mediump&gt;               <a class="code" href="a00145.html#ga005facdef4caac0ef7435eee609c7e46">mediump_mat4x4</a>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">typedef</span> mat&lt;2, 2, float, highp&gt;         <a class="code" href="a00160.html#gabb2ee47d6bffb6d6363b34a7c61c8229">highp_mat2x2</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">typedef</span> mat&lt;4, 4, float, highp&gt;         <a class="code" href="a00145.html#ga989736bc5e50330ef3ab13d34bebc66f">highp_mat4x4</a>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}<span class="comment">//namespace glm</span></div>
-<div class="ttc" id="a00160_html_ga83fe5281ac0a3d153226b903badd415b"><div class="ttname"><a href="a00160.html#ga83fe5281ac0a3d153226b903badd415b">glm::mediump_mat2</a></div><div class="ttdeci">mat&lt; 2, 2, float, mediump &gt; mediump_mat2</div><div class="ttdoc">2 columns of 2 components matrix of medium qualifier floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00115_source.html#l00045">type_mat.hpp:45</a></div></div>
-<div class="ttc" id="a00160_html_gaf1beb3328c79fece7dcc34c5b05b57a0"><div class="ttname"><a href="a00160.html#gaf1beb3328c79fece7dcc34c5b05b57a0">glm::mediump_mat2x2</a></div><div class="ttdeci">mat&lt; 2, 2, float, mediump &gt; mediump_mat2x2</div><div class="ttdoc">2 columns of 2 components matrix of medium qualifier floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00115_source.html#l00066">type_mat.hpp:66</a></div></div>
-<div class="ttc" id="a00160_html_ga993bdd19989dc1f4d09f664a2ee74cb5"><div class="ttname"><a href="a00160.html#ga993bdd19989dc1f4d09f664a2ee74cb5">glm::lowp_mat2x2</a></div><div class="ttdeci">mat&lt; 2, 2, float, lowp &gt; lowp_mat2x2</div><div class="ttdoc">2 columns of 2 components matrix of low qualifier floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00115_source.html#l00059">type_mat.hpp:59</a></div></div>
-<div class="ttc" id="a00143_html"><div class="ttname"><a href="a00143.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00003_source.html#l00011">_noise.hpp:11</a></div></div>
-<div class="ttc" id="a00160_html_gabb2ee47d6bffb6d6363b34a7c61c8229"><div class="ttname"><a href="a00160.html#gabb2ee47d6bffb6d6363b34a7c61c8229">glm::highp_mat2x2</a></div><div class="ttdeci">mat&lt; 2, 2, float, highp &gt; highp_mat2x2</div><div class="ttdoc">2 columns of 2 components matrix of high qualifier floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00115_source.html#l00073">type_mat.hpp:73</a></div></div>
-<div class="ttc" id="a00160_html_ga4fcceff924fa2dc1f3d5217f68c5f81a"><div class="ttname"><a href="a00160.html#ga4fcceff924fa2dc1f3d5217f68c5f81a">glm::highp_mat2</a></div><div class="ttdeci">mat&lt; 2, 2, float, highp &gt; highp_mat2</div><div class="ttdoc">2 columns of 2 components matrix of high qualifier floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00115_source.html#l00052">type_mat.hpp:52</a></div></div>
-<div class="ttc" id="a00160_html_ga08bba677ef7b2809ac0061fa9a3db854"><div class="ttname"><a href="a00160.html#ga08bba677ef7b2809ac0061fa9a3db854">glm::lowp_mat2</a></div><div class="ttdeci">mat&lt; 2, 2, float, lowp &gt; lowp_mat2</div><div class="ttdoc">2 columns of 2 components matrix of low qualifier floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00115_source.html#l00038">type_mat.hpp:38</a></div></div>
-<div class="ttc" id="a00116_html"><div class="ttname"><a href="a00116.html">type_mat2x2.hpp</a></div><div class="ttdoc">GLM Core </div></div>
-<div class="ttc" id="a00102_html"><div class="ttname"><a href="a00102.html">setup.hpp</a></div><div class="ttdoc">GLM Core </div></div>
+<div class="ttc" id="a00145_html_ga0f910a2c5bf1c3fd153c4bc13cefee58"><div class="ttname"><a href="a00145.html#ga0f910a2c5bf1c3fd153c4bc13cefee58">glm::mediump_mat4</a></div><div class="ttdeci">mat&lt; 4, 4, float, mediump &gt; mediump_mat4</div><div class="ttdoc">4 columns of 4 components matrix of medium qualifier floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00296">type_mat.hpp:296</a></div></div>
+<div class="ttc" id="a00145_html_ga005facdef4caac0ef7435eee609c7e46"><div class="ttname"><a href="a00145.html#ga005facdef4caac0ef7435eee609c7e46">glm::mediump_mat4x4</a></div><div class="ttdeci">mat&lt; 4, 4, float, mediump &gt; mediump_mat4x4</div><div class="ttdoc">4 columns of 4 components matrix of medium qualifier floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00317">type_mat.hpp:317</a></div></div>
+<div class="ttc" id="a00135_html"><div class="ttname"><a href="a00135.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00015_source.html#l00020">common.hpp:20</a></div></div>
+<div class="ttc" id="a00145_html_ga332149037f33cec9d9b583e11c3c8524"><div class="ttname"><a href="a00145.html#ga332149037f33cec9d9b583e11c3c8524">glm::highp_mat4</a></div><div class="ttdeci">mat&lt; 4, 4, float, highp &gt; highp_mat4</div><div class="ttdoc">4 columns of 4 components matrix of high qualifier floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00303">type_mat.hpp:303</a></div></div>
+<div class="ttc" id="a00145_html_ga73e2f3bcae71b05736f2c962f98565a1"><div class="ttname"><a href="a00145.html#ga73e2f3bcae71b05736f2c962f98565a1">glm::lowp_mat4</a></div><div class="ttdeci">mat&lt; 4, 4, float, lowp &gt; lowp_mat4</div><div class="ttdoc">4 columns of 4 components matrix of low qualifier floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00289">type_mat.hpp:289</a></div></div>
+<div class="ttc" id="a00145_html_ga8378facff06c21d2092a9a13c9ef0a0b"><div class="ttname"><a href="a00145.html#ga8378facff06c21d2092a9a13c9ef0a0b">glm::lowp_mat4x4</a></div><div class="ttdeci">mat&lt; 4, 4, float, lowp &gt; lowp_mat4x4</div><div class="ttdoc">4 columns of 4 components matrix of low qualifier floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00310">type_mat.hpp:310</a></div></div>
+<div class="ttc" id="a00094_html"><div class="ttname"><a href="a00094.html">setup.hpp</a></div><div class="ttdoc">Core features </div></div>
+<div class="ttc" id="a00145_html_ga989736bc5e50330ef3ab13d34bebc66f"><div class="ttname"><a href="a00145.html#ga989736bc5e50330ef3ab13d34bebc66f">glm::highp_mat4x4</a></div><div class="ttdeci">mat&lt; 4, 4, float, highp &gt; highp_mat4x4</div><div class="ttdoc">4 columns of 4 components matrix of high qualifier floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00324">type_mat.hpp:324</a></div></div>
+<div class="ttc" id="a00116_html"><div class="ttname"><a href="a00116.html">type_mat4x4.hpp</a></div><div class="ttdoc">Core features </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

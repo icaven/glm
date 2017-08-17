@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: func_matrix.hpp File Reference</title>
+<title>0.9.9 API documenation: gradient_paint.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -79,50 +79,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_934f46a345653ef2b3014a1b37a162c1.html">G:</a></li><li class="navelem"><a class="el" href="dir_98f7f9d41f9d3029bd68cf237526a774.html">Source</a></li><li class="navelem"><a class="el" href="dir_9344afb825aed5e2f5be1d2015dde43c.html">G-Truc</a></li><li class="navelem"><a class="el" href="dir_45973f864e07b2505003ae343b7c8af7.html">glm</a></li><li class="navelem"><a class="el" href="dir_304be5dfae1339a7705426c0b536faf2.html">glm</a></li><li class="navelem"><a class="el" href="dir_da256b9dd32ba43e2eaa8a2832c37f1b.html">detail</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_934f46a345653ef2b3014a1b37a162c1.html">G:</a></li><li class="navelem"><a class="el" href="dir_98f7f9d41f9d3029bd68cf237526a774.html">Source</a></li><li class="navelem"><a class="el" href="dir_9344afb825aed5e2f5be1d2015dde43c.html">G-Truc</a></li><li class="navelem"><a class="el" href="dir_45973f864e07b2505003ae343b7c8af7.html">glm</a></li><li class="navelem"><a class="el" href="dir_304be5dfae1339a7705426c0b536faf2.html">glm</a></li><li class="navelem"><a class="el" href="dir_e8f3c1046ba4b357711397765359cd18.html">gtx</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">func_matrix.hpp File Reference</div>  </div>
+<div class="title">gradient_paint.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="a00158.html">GLM Core</a>  
+<p><a class="el" href="a00187.html">GLM_GTX_gradient_paint</a>  
 <a href="#details">More...</a></p>
 
 <p><a href="a00036_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga26ea77c574802bc6fc193c40478718d2"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P, template&lt; typename, qualifier &gt; class matType&gt; </td></tr>
-<tr class="memitem:ga26ea77c574802bc6fc193c40478718d2"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00152.html#ga26ea77c574802bc6fc193c40478718d2">determinant</a> (matType&lt; T, P &gt; const &amp;m)</td></tr>
-<tr class="memdesc:ga26ea77c574802bc6fc193c40478718d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the determinant of a squared matrix.  <a href="a00152.html#ga26ea77c574802bc6fc193c40478718d2">More...</a><br /></td></tr>
-<tr class="separator:ga26ea77c574802bc6fc193c40478718d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa7e1d5586cd499126cec76e0f11871e3"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P, template&lt; typename, qualifier &gt; class matType&gt; </td></tr>
-<tr class="memitem:gaa7e1d5586cd499126cec76e0f11871e3"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL matType&lt; T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00152.html#gaa7e1d5586cd499126cec76e0f11871e3">inverse</a> (matType&lt; T, P &gt; const &amp;m)</td></tr>
-<tr class="memdesc:gaa7e1d5586cd499126cec76e0f11871e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the inverse of a squared matrix.  <a href="a00152.html#gaa7e1d5586cd499126cec76e0f11871e3">More...</a><br /></td></tr>
-<tr class="separator:gaa7e1d5586cd499126cec76e0f11871e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4a54992e4741188ee624b21e3ba91814"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P, template&lt; typename, qualifier &gt; class matType&gt; </td></tr>
-<tr class="memitem:ga4a54992e4741188ee624b21e3ba91814"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL matType&lt; T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00152.html#ga4a54992e4741188ee624b21e3ba91814">matrixCompMult</a> (matType&lt; T, P &gt; const &amp;x, matType&lt; T, P &gt; const &amp;y)</td></tr>
-<tr class="memdesc:ga4a54992e4741188ee624b21e3ba91814"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply matrix x by matrix y component-wise, i.e., result[i][j] is the scalar product of x[i][j] and y[i][j].  <a href="a00152.html#ga4a54992e4741188ee624b21e3ba91814">More...</a><br /></td></tr>
-<tr class="separator:ga4a54992e4741188ee624b21e3ba91814"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9348717490466ca316a46ebdf332477f"><td class="memTemplParams" colspan="2">template&lt;length_t DA, length_t DB, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga9348717490466ca316a46ebdf332477f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL detail::outerProduct_trait&lt; DA, DB, T, P &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00152.html#ga9348717490466ca316a46ebdf332477f">outerProduct</a> (vec&lt; DA, T, P &gt; const &amp;c, vec&lt; DB, T, P &gt; const &amp;r)</td></tr>
-<tr class="memdesc:ga9348717490466ca316a46ebdf332477f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Treats the first parameter c as a column vector and the second parameter r as a row vector and does a linear algebraic matrix multiply c * r.  <a href="a00152.html#ga9348717490466ca316a46ebdf332477f">More...</a><br /></td></tr>
-<tr class="separator:ga9348717490466ca316a46ebdf332477f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2385252993a548fe3861d7ef2e495665"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P, template&lt; typename, qualifier &gt; class matType&gt; </td></tr>
-<tr class="memitem:ga2385252993a548fe3861d7ef2e495665"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL matType&lt; T, P &gt;::transpose_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00152.html#ga2385252993a548fe3861d7ef2e495665">transpose</a> (matType&lt; T, P &gt; const &amp;x)</td></tr>
-<tr class="memdesc:ga2385252993a548fe3861d7ef2e495665"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the transposed matrix of x.  <a href="a00152.html#ga2385252993a548fe3861d7ef2e495665">More...</a><br /></td></tr>
-<tr class="separator:ga2385252993a548fe3861d7ef2e495665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga849241df1e55129b8ce9476200307419"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga849241df1e55129b8ce9476200307419"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00187.html#ga849241df1e55129b8ce9476200307419">linearGradient</a> (vec&lt; 2, T, Q &gt; const &amp;Point0, vec&lt; 2, T, Q &gt; const &amp;Point1, vec&lt; 2, T, Q &gt; const &amp;Position)</td></tr>
+<tr class="memdesc:ga849241df1e55129b8ce9476200307419"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a color from a linear gradient.  <a href="a00187.html#ga849241df1e55129b8ce9476200307419">More...</a><br /></td></tr>
+<tr class="separator:ga849241df1e55129b8ce9476200307419"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaecb1e93de4cbe0758b882812d4da294"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaaecb1e93de4cbe0758b882812d4da294"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00187.html#gaaecb1e93de4cbe0758b882812d4da294">radialGradient</a> (vec&lt; 2, T, Q &gt; const &amp;Center, T const &amp;Radius, vec&lt; 2, T, Q &gt; const &amp;Focal, vec&lt; 2, T, Q &gt; const &amp;Position)</td></tr>
+<tr class="memdesc:gaaecb1e93de4cbe0758b882812d4da294"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a color from a radial gradient.  <a href="a00187.html#gaaecb1e93de4cbe0758b882812d4da294">More...</a><br /></td></tr>
+<tr class="separator:gaaecb1e93de4cbe0758b882812d4da294"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="a00158.html">GLM Core</a> </p>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a> </dd></dl>
+<div class="textblock"><p><a class="el" href="a00187.html">GLM_GTX_gradient_paint</a> </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00143.html" title="Features that implement in C++ the GLSL specification as closely as possible. ">Core features</a> (dependence) </dd>
+<dd>
+<a class="el" href="a00207.html" title="Include <glm/gtx/optimum_pow.hpp> to use the features of this extension. ">GLM_GTX_optimum_pow</a> (dependence) </dd></dl>
 
-<p>Definition in file <a class="el" href="a00036_source.html">func_matrix.hpp</a>.</p>
+<p>Definition in file <a class="el" href="a00036_source.html">gradient_paint.hpp</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: Integer functions</title>
+<title>0.9.9 API documenation: GLM_GTC_constants</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,552 +77,655 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Integer functions<div class="ingroups"><a class="el" href="a00158.html">GLM Core</a></div></div>  </div>
+<div class="title">GLM_GTC_constants<div class="ingroups"><a class="el" href="a00147.html">Stable extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>These all operate component-wise.  
+<p>Include &lt;<a class="el" href="a00020.html" title="GLM_GTC_constants ">glm/gtc/constants.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga44abfe3379e11cbd29425a843420d0d6"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:ga44abfe3379e11cbd29425a843420d0d6"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga44abfe3379e11cbd29425a843420d0d6">bitCount</a> (genType v)</td></tr>
-<tr class="memdesc:ga44abfe3379e11cbd29425a843420d0d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of bits set to 1 in the binary representation of value.  <a href="a00151.html#ga44abfe3379e11cbd29425a843420d0d6">More...</a><br /></td></tr>
-<tr class="separator:ga44abfe3379e11cbd29425a843420d0d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gace2dbfa083773466715be25947dc4518"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gace2dbfa083773466715be25947dc4518"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, int, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#gace2dbfa083773466715be25947dc4518">bitCount</a> (vec&lt; L, T, P &gt; const &amp;v)</td></tr>
-<tr class="memdesc:gace2dbfa083773466715be25947dc4518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of bits set to 1 in the binary representation of value.  <a href="a00151.html#gace2dbfa083773466715be25947dc4518">More...</a><br /></td></tr>
-<tr class="separator:gace2dbfa083773466715be25947dc4518"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2ab9ea1a1079e80a82191edee14c06c8"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga2ab9ea1a1079e80a82191edee14c06c8"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga2ab9ea1a1079e80a82191edee14c06c8">bitfieldExtract</a> (vec&lt; L, T, P &gt; const &amp;Value, int Offset, int Bits)</td></tr>
-<tr class="memdesc:ga2ab9ea1a1079e80a82191edee14c06c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts bits [offset, offset + bits - 1] from value, returning them in the least significant bits of the result.  <a href="a00151.html#ga2ab9ea1a1079e80a82191edee14c06c8">More...</a><br /></td></tr>
-<tr class="separator:ga2ab9ea1a1079e80a82191edee14c06c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1136d17630ecbecb9f4a63d9749f5ee7"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga1136d17630ecbecb9f4a63d9749f5ee7"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga1136d17630ecbecb9f4a63d9749f5ee7">bitfieldInsert</a> (vec&lt; L, T, P &gt; const &amp;Base, vec&lt; L, T, P &gt; const &amp;Insert, int Offset, int Bits)</td></tr>
-<tr class="memdesc:ga1136d17630ecbecb9f4a63d9749f5ee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the insertion the bits least-significant bits of insert into base.  <a href="a00151.html#ga1136d17630ecbecb9f4a63d9749f5ee7">More...</a><br /></td></tr>
-<tr class="separator:ga1136d17630ecbecb9f4a63d9749f5ee7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga524fde34694a91d2066162ab0bf17859"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga524fde34694a91d2066162ab0bf17859"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga524fde34694a91d2066162ab0bf17859">bitfieldReverse</a> (vec&lt; L, T, P &gt; const &amp;v)</td></tr>
-<tr class="memdesc:ga524fde34694a91d2066162ab0bf17859"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the reversal of the bits of value.  <a href="a00151.html#ga524fde34694a91d2066162ab0bf17859">More...</a><br /></td></tr>
-<tr class="separator:ga524fde34694a91d2066162ab0bf17859"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf74c4d969fa34ab8acb9d390f5ca5274"><td class="memTemplParams" colspan="2">template&lt;typename genIUType &gt; </td></tr>
-<tr class="memitem:gaf74c4d969fa34ab8acb9d390f5ca5274"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#gaf74c4d969fa34ab8acb9d390f5ca5274">findLSB</a> (genIUType x)</td></tr>
-<tr class="memdesc:gaf74c4d969fa34ab8acb9d390f5ca5274"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the bit number of the least significant bit set to 1 in the binary representation of value.  <a href="a00151.html#gaf74c4d969fa34ab8acb9d390f5ca5274">More...</a><br /></td></tr>
-<tr class="separator:gaf74c4d969fa34ab8acb9d390f5ca5274"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga29a63a1a0b5bcad9288e731204cd717e"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga29a63a1a0b5bcad9288e731204cd717e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, int, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga29a63a1a0b5bcad9288e731204cd717e">findLSB</a> (vec&lt; L, T, P &gt; const &amp;v)</td></tr>
-<tr class="memdesc:ga29a63a1a0b5bcad9288e731204cd717e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the bit number of the least significant bit set to 1 in the binary representation of value.  <a href="a00151.html#ga29a63a1a0b5bcad9288e731204cd717e">More...</a><br /></td></tr>
-<tr class="separator:ga29a63a1a0b5bcad9288e731204cd717e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7e4a794d766861c70bc961630f8ef621"><td class="memTemplParams" colspan="2">template&lt;typename genIUType &gt; </td></tr>
-<tr class="memitem:ga7e4a794d766861c70bc961630f8ef621"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga7e4a794d766861c70bc961630f8ef621">findMSB</a> (genIUType x)</td></tr>
-<tr class="memdesc:ga7e4a794d766861c70bc961630f8ef621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the bit number of the most significant bit in the binary representation of value.  <a href="a00151.html#ga7e4a794d766861c70bc961630f8ef621">More...</a><br /></td></tr>
-<tr class="separator:ga7e4a794d766861c70bc961630f8ef621"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga23a934e033f663a4e7173f98af1e0f73"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga23a934e033f663a4e7173f98af1e0f73"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, int, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga23a934e033f663a4e7173f98af1e0f73">findMSB</a> (vec&lt; L, T, P &gt; const &amp;v)</td></tr>
-<tr class="memdesc:ga23a934e033f663a4e7173f98af1e0f73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the bit number of the most significant bit in the binary representation of value.  <a href="a00151.html#ga23a934e033f663a4e7173f98af1e0f73">More...</a><br /></td></tr>
-<tr class="separator:ga23a934e033f663a4e7173f98af1e0f73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gada3cb816d88f9b68fb7a187effb4f974"><td class="memTemplParams" colspan="2">template&lt;length_t L, qualifier P&gt; </td></tr>
-<tr class="memitem:gada3cb816d88f9b68fb7a187effb4f974"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#gada3cb816d88f9b68fb7a187effb4f974">imulExtended</a> (vec&lt; L, int, P &gt; const &amp;x, vec&lt; L, int, P &gt; const &amp;y, vec&lt; L, int, P &gt; &amp;msb, vec&lt; L, int, P &gt; &amp;lsb)</td></tr>
-<tr class="memdesc:gada3cb816d88f9b68fb7a187effb4f974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies 32-bit integers x and y, producing a 64-bit result.  <a href="a00151.html#gada3cb816d88f9b68fb7a187effb4f974">More...</a><br /></td></tr>
-<tr class="separator:gada3cb816d88f9b68fb7a187effb4f974"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2580af497d2105957cc589ffd4a853cd"><td class="memTemplParams" colspan="2">template&lt;length_t L, qualifier P&gt; </td></tr>
-<tr class="memitem:ga2580af497d2105957cc589ffd4a853cd"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, uint, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga2580af497d2105957cc589ffd4a853cd">uaddCarry</a> (vec&lt; L, uint, P &gt; const &amp;x, vec&lt; L, uint, P &gt; const &amp;y, vec&lt; L, uint, P &gt; &amp;carry)</td></tr>
-<tr class="memdesc:ga2580af497d2105957cc589ffd4a853cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds 32-bit unsigned integer x and y, returning the sum modulo pow(2, 32).  <a href="a00151.html#ga2580af497d2105957cc589ffd4a853cd">More...</a><br /></td></tr>
-<tr class="separator:ga2580af497d2105957cc589ffd4a853cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac763612c0295fb7b31bd31f1b56761a8"><td class="memTemplParams" colspan="2">template&lt;length_t L, qualifier P&gt; </td></tr>
-<tr class="memitem:gac763612c0295fb7b31bd31f1b56761a8"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#gac763612c0295fb7b31bd31f1b56761a8">umulExtended</a> (vec&lt; L, uint, P &gt; const &amp;x, vec&lt; L, uint, P &gt; const &amp;y, vec&lt; L, uint, P &gt; &amp;msb, vec&lt; L, uint, P &gt; &amp;lsb)</td></tr>
-<tr class="memdesc:gac763612c0295fb7b31bd31f1b56761a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiplies 32-bit integers x and y, producing a 64-bit result.  <a href="a00151.html#gac763612c0295fb7b31bd31f1b56761a8">More...</a><br /></td></tr>
-<tr class="separator:gac763612c0295fb7b31bd31f1b56761a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6f98b07ab5cf0d1df97b34c28aafa723"><td class="memTemplParams" colspan="2">template&lt;length_t L, qualifier P&gt; </td></tr>
-<tr class="memitem:ga6f98b07ab5cf0d1df97b34c28aafa723"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, uint, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga6f98b07ab5cf0d1df97b34c28aafa723">usubBorrow</a> (vec&lt; L, uint, P &gt; const &amp;x, vec&lt; L, uint, P &gt; const &amp;y, vec&lt; L, uint, P &gt; &amp;borrow)</td></tr>
-<tr class="memdesc:ga6f98b07ab5cf0d1df97b34c28aafa723"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtracts the 32-bit unsigned integer y from x, returning the difference if non-negative, or pow(2, 32) plus the difference otherwise.  <a href="a00151.html#ga6f98b07ab5cf0d1df97b34c28aafa723">More...</a><br /></td></tr>
-<tr class="separator:ga6f98b07ab5cf0d1df97b34c28aafa723"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4b7956eb6e2fbedfc7cf2e46e85c5139"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga4b7956eb6e2fbedfc7cf2e46e85c5139"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga4b7956eb6e2fbedfc7cf2e46e85c5139">e</a> ()</td></tr>
+<tr class="memdesc:ga4b7956eb6e2fbedfc7cf2e46e85c5139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return e constant.  <a href="a00151.html#ga4b7956eb6e2fbedfc7cf2e46e85c5139">More...</a><br /></td></tr>
+<tr class="separator:ga4b7956eb6e2fbedfc7cf2e46e85c5139"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2a1e57fc5592b69cfae84174cbfc9429"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga2a1e57fc5592b69cfae84174cbfc9429"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga2a1e57fc5592b69cfae84174cbfc9429">epsilon</a> ()</td></tr>
+<tr class="memdesc:ga2a1e57fc5592b69cfae84174cbfc9429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the epsilon constant for floating point types.  <a href="a00151.html#ga2a1e57fc5592b69cfae84174cbfc9429">More...</a><br /></td></tr>
+<tr class="separator:ga2a1e57fc5592b69cfae84174cbfc9429"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad8fe2e6f90bce9d829e9723b649fbd42"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gad8fe2e6f90bce9d829e9723b649fbd42"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#gad8fe2e6f90bce9d829e9723b649fbd42">euler</a> ()</td></tr>
+<tr class="memdesc:gad8fe2e6f90bce9d829e9723b649fbd42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return Euler's constant.  <a href="a00151.html#gad8fe2e6f90bce9d829e9723b649fbd42">More...</a><br /></td></tr>
+<tr class="separator:gad8fe2e6f90bce9d829e9723b649fbd42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga753950e5140e4ea6a88e4a18ba61dc09"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga753950e5140e4ea6a88e4a18ba61dc09"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga753950e5140e4ea6a88e4a18ba61dc09">four_over_pi</a> ()</td></tr>
+<tr class="memdesc:ga753950e5140e4ea6a88e4a18ba61dc09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 4 / pi.  <a href="a00151.html#ga753950e5140e4ea6a88e4a18ba61dc09">More...</a><br /></td></tr>
+<tr class="separator:ga753950e5140e4ea6a88e4a18ba61dc09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga748cf8642830657c5b7eae04d0a80899"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga748cf8642830657c5b7eae04d0a80899"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga748cf8642830657c5b7eae04d0a80899">golden_ratio</a> ()</td></tr>
+<tr class="memdesc:ga748cf8642830657c5b7eae04d0a80899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the golden ratio constant.  <a href="a00151.html#ga748cf8642830657c5b7eae04d0a80899">More...</a><br /></td></tr>
+<tr class="separator:ga748cf8642830657c5b7eae04d0a80899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c36b41d462e45641faf7d7938948bac"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga0c36b41d462e45641faf7d7938948bac"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga0c36b41d462e45641faf7d7938948bac">half_pi</a> ()</td></tr>
+<tr class="memdesc:ga0c36b41d462e45641faf7d7938948bac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return pi / 2.  <a href="a00151.html#ga0c36b41d462e45641faf7d7938948bac">More...</a><br /></td></tr>
+<tr class="separator:ga0c36b41d462e45641faf7d7938948bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaca94292c839ed31a405ab7a81ae7e850"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gaca94292c839ed31a405ab7a81ae7e850"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#gaca94292c839ed31a405ab7a81ae7e850">ln_ln_two</a> ()</td></tr>
+<tr class="memdesc:gaca94292c839ed31a405ab7a81ae7e850"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return ln(ln(2)).  <a href="a00151.html#gaca94292c839ed31a405ab7a81ae7e850">More...</a><br /></td></tr>
+<tr class="separator:gaca94292c839ed31a405ab7a81ae7e850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf97ebc6c059ffd788e6c4946f71ef66c"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gaf97ebc6c059ffd788e6c4946f71ef66c"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#gaf97ebc6c059ffd788e6c4946f71ef66c">ln_ten</a> ()</td></tr>
+<tr class="memdesc:gaf97ebc6c059ffd788e6c4946f71ef66c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return ln(10).  <a href="a00151.html#gaf97ebc6c059ffd788e6c4946f71ef66c">More...</a><br /></td></tr>
+<tr class="separator:gaf97ebc6c059ffd788e6c4946f71ef66c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga24f4d27765678116f41a2f336ab7975c"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga24f4d27765678116f41a2f336ab7975c"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga24f4d27765678116f41a2f336ab7975c">ln_two</a> ()</td></tr>
+<tr class="memdesc:ga24f4d27765678116f41a2f336ab7975c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return ln(2).  <a href="a00151.html#ga24f4d27765678116f41a2f336ab7975c">More...</a><br /></td></tr>
+<tr class="separator:ga24f4d27765678116f41a2f336ab7975c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga39c2fb227631ca25894326529bdd1ee5"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga39c2fb227631ca25894326529bdd1ee5"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga39c2fb227631ca25894326529bdd1ee5">one</a> ()</td></tr>
+<tr class="memdesc:ga39c2fb227631ca25894326529bdd1ee5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 1.  <a href="a00151.html#ga39c2fb227631ca25894326529bdd1ee5">More...</a><br /></td></tr>
+<tr class="separator:ga39c2fb227631ca25894326529bdd1ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga555150da2b06d23c8738981d5013e0eb"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga555150da2b06d23c8738981d5013e0eb"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga555150da2b06d23c8738981d5013e0eb">one_over_pi</a> ()</td></tr>
+<tr class="memdesc:ga555150da2b06d23c8738981d5013e0eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 1 / pi.  <a href="a00151.html#ga555150da2b06d23c8738981d5013e0eb">More...</a><br /></td></tr>
+<tr class="separator:ga555150da2b06d23c8738981d5013e0eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga788fa23a0939bac4d1d0205fb4f35818"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga788fa23a0939bac4d1d0205fb4f35818"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga788fa23a0939bac4d1d0205fb4f35818">one_over_root_two</a> ()</td></tr>
+<tr class="memdesc:ga788fa23a0939bac4d1d0205fb4f35818"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 1 / sqrt(2).  <a href="a00151.html#ga788fa23a0939bac4d1d0205fb4f35818">More...</a><br /></td></tr>
+<tr class="separator:ga788fa23a0939bac4d1d0205fb4f35818"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c922b427986cbb2e4c6ac69874eefbc"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga7c922b427986cbb2e4c6ac69874eefbc"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga7c922b427986cbb2e4c6ac69874eefbc">one_over_two_pi</a> ()</td></tr>
+<tr class="memdesc:ga7c922b427986cbb2e4c6ac69874eefbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 1 / (pi * 2).  <a href="a00151.html#ga7c922b427986cbb2e4c6ac69874eefbc">More...</a><br /></td></tr>
+<tr class="separator:ga7c922b427986cbb2e4c6ac69874eefbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga94bafeb2a0f23ab6450fed1f98ee4e45"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga94bafeb2a0f23ab6450fed1f98ee4e45"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga94bafeb2a0f23ab6450fed1f98ee4e45">pi</a> ()</td></tr>
+<tr class="memdesc:ga94bafeb2a0f23ab6450fed1f98ee4e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the pi constant.  <a href="a00151.html#ga94bafeb2a0f23ab6450fed1f98ee4e45">More...</a><br /></td></tr>
+<tr class="separator:ga94bafeb2a0f23ab6450fed1f98ee4e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3c9df42bd73c519a995c43f0f99e77e0"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga3c9df42bd73c519a995c43f0f99e77e0"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga3c9df42bd73c519a995c43f0f99e77e0">quarter_pi</a> ()</td></tr>
+<tr class="memdesc:ga3c9df42bd73c519a995c43f0f99e77e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return pi / 4.  <a href="a00151.html#ga3c9df42bd73c519a995c43f0f99e77e0">More...</a><br /></td></tr>
+<tr class="separator:ga3c9df42bd73c519a995c43f0f99e77e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae9ebbded75b53d4faeb1e4ef8b3347a2"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gae9ebbded75b53d4faeb1e4ef8b3347a2"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#gae9ebbded75b53d4faeb1e4ef8b3347a2">root_five</a> ()</td></tr>
+<tr class="memdesc:gae9ebbded75b53d4faeb1e4ef8b3347a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return sqrt(5).  <a href="a00151.html#gae9ebbded75b53d4faeb1e4ef8b3347a2">More...</a><br /></td></tr>
+<tr class="separator:gae9ebbded75b53d4faeb1e4ef8b3347a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4e276cb823cc5e612d4f89ed99c75039"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga4e276cb823cc5e612d4f89ed99c75039"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga4e276cb823cc5e612d4f89ed99c75039">root_half_pi</a> ()</td></tr>
+<tr class="memdesc:ga4e276cb823cc5e612d4f89ed99c75039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return sqrt(pi / 2).  <a href="a00151.html#ga4e276cb823cc5e612d4f89ed99c75039">More...</a><br /></td></tr>
+<tr class="separator:ga4e276cb823cc5e612d4f89ed99c75039"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4129412e96b33707a77c1a07652e23e2"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga4129412e96b33707a77c1a07652e23e2"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga4129412e96b33707a77c1a07652e23e2">root_ln_four</a> ()</td></tr>
+<tr class="memdesc:ga4129412e96b33707a77c1a07652e23e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return sqrt(ln(4)).  <a href="a00151.html#ga4129412e96b33707a77c1a07652e23e2">More...</a><br /></td></tr>
+<tr class="separator:ga4129412e96b33707a77c1a07652e23e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga261380796b2cd496f68d2cf1d08b8eb9"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga261380796b2cd496f68d2cf1d08b8eb9"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga261380796b2cd496f68d2cf1d08b8eb9">root_pi</a> ()</td></tr>
+<tr class="memdesc:ga261380796b2cd496f68d2cf1d08b8eb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return square root of pi.  <a href="a00151.html#ga261380796b2cd496f68d2cf1d08b8eb9">More...</a><br /></td></tr>
+<tr class="separator:ga261380796b2cd496f68d2cf1d08b8eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4f286be4abe88be1eed7d2a9f6cb193e"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga4f286be4abe88be1eed7d2a9f6cb193e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga4f286be4abe88be1eed7d2a9f6cb193e">root_three</a> ()</td></tr>
+<tr class="memdesc:ga4f286be4abe88be1eed7d2a9f6cb193e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return sqrt(3).  <a href="a00151.html#ga4f286be4abe88be1eed7d2a9f6cb193e">More...</a><br /></td></tr>
+<tr class="separator:ga4f286be4abe88be1eed7d2a9f6cb193e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga74e607d29020f100c0d0dc46ce2ca950"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga74e607d29020f100c0d0dc46ce2ca950"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga74e607d29020f100c0d0dc46ce2ca950">root_two</a> ()</td></tr>
+<tr class="memdesc:ga74e607d29020f100c0d0dc46ce2ca950"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return sqrt(2).  <a href="a00151.html#ga74e607d29020f100c0d0dc46ce2ca950">More...</a><br /></td></tr>
+<tr class="separator:ga74e607d29020f100c0d0dc46ce2ca950"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2bcedc575039fe0cd765742f8bbb0bd3"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga2bcedc575039fe0cd765742f8bbb0bd3"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga2bcedc575039fe0cd765742f8bbb0bd3">root_two_pi</a> ()</td></tr>
+<tr class="memdesc:ga2bcedc575039fe0cd765742f8bbb0bd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return sqrt(2 * pi).  <a href="a00151.html#ga2bcedc575039fe0cd765742f8bbb0bd3">More...</a><br /></td></tr>
+<tr class="separator:ga2bcedc575039fe0cd765742f8bbb0bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3077c6311010a214b69ddc8214ec13b5"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga3077c6311010a214b69ddc8214ec13b5"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga3077c6311010a214b69ddc8214ec13b5">third</a> ()</td></tr>
+<tr class="memdesc:ga3077c6311010a214b69ddc8214ec13b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 1 / 3.  <a href="a00151.html#ga3077c6311010a214b69ddc8214ec13b5">More...</a><br /></td></tr>
+<tr class="separator:ga3077c6311010a214b69ddc8214ec13b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae94950df74b0ce382b1fc1d978ef7394"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gae94950df74b0ce382b1fc1d978ef7394"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#gae94950df74b0ce382b1fc1d978ef7394">three_over_two_pi</a> ()</td></tr>
+<tr class="memdesc:gae94950df74b0ce382b1fc1d978ef7394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return pi / 2 * 3.  <a href="a00151.html#gae94950df74b0ce382b1fc1d978ef7394">More...</a><br /></td></tr>
+<tr class="separator:gae94950df74b0ce382b1fc1d978ef7394"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga74eadc8a211253079683219a3ea0462a"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga74eadc8a211253079683219a3ea0462a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga74eadc8a211253079683219a3ea0462a">two_over_pi</a> ()</td></tr>
+<tr class="memdesc:ga74eadc8a211253079683219a3ea0462a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 2 / pi.  <a href="a00151.html#ga74eadc8a211253079683219a3ea0462a">More...</a><br /></td></tr>
+<tr class="separator:ga74eadc8a211253079683219a3ea0462a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5827301817640843cf02026a8d493894"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga5827301817640843cf02026a8d493894"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga5827301817640843cf02026a8d493894">two_over_root_pi</a> ()</td></tr>
+<tr class="memdesc:ga5827301817640843cf02026a8d493894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 2 / sqrt(pi).  <a href="a00151.html#ga5827301817640843cf02026a8d493894">More...</a><br /></td></tr>
+<tr class="separator:ga5827301817640843cf02026a8d493894"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa5276a4617566abcfe49286f40e3a256"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gaa5276a4617566abcfe49286f40e3a256"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#gaa5276a4617566abcfe49286f40e3a256">two_pi</a> ()</td></tr>
+<tr class="memdesc:gaa5276a4617566abcfe49286f40e3a256"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return pi * 2.  <a href="a00151.html#gaa5276a4617566abcfe49286f40e3a256">More...</a><br /></td></tr>
+<tr class="separator:gaa5276a4617566abcfe49286f40e3a256"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b4d2f4322edcf63a6737b92a29dd1f5"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga9b4d2f4322edcf63a6737b92a29dd1f5"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga9b4d2f4322edcf63a6737b92a29dd1f5">two_thirds</a> ()</td></tr>
+<tr class="memdesc:ga9b4d2f4322edcf63a6737b92a29dd1f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 2 / 3.  <a href="a00151.html#ga9b4d2f4322edcf63a6737b92a29dd1f5">More...</a><br /></td></tr>
+<tr class="separator:ga9b4d2f4322edcf63a6737b92a29dd1f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga788f5a421fc0f40a1296ebc094cbaa8a"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga788f5a421fc0f40a1296ebc094cbaa8a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00151.html#ga788f5a421fc0f40a1296ebc094cbaa8a">zero</a> ()</td></tr>
+<tr class="memdesc:ga788f5a421fc0f40a1296ebc094cbaa8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 0.  <a href="a00151.html#ga788f5a421fc0f40a1296ebc094cbaa8a">More...</a><br /></td></tr>
+<tr class="separator:ga788f5a421fc0f40a1296ebc094cbaa8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>These all operate component-wise. </p>
-<p>The description is per component. The notation [a, b] means the set of bits from bit-number a through bit-number b, inclusive. The lowest-order bit is bit 0. </p>
+<p>Include &lt;<a class="el" href="a00020.html" title="GLM_GTC_constants ">glm/gtc/constants.hpp</a>&gt; to use the features of this extension. </p>
+<p>Provide a list of constants and precomputed useful values. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga44abfe3379e11cbd29425a843420d0d6"></a>
+<a class="anchor" id="ga4b7956eb6e2fbedfc7cf2e46e85c5139"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL int glm::bitCount </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::e </td>
           <td>(</td>
-          <td class="paramtype">genType&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the number of bits set to 1 in the binary representation of value. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">genType</td><td>Signed or unsigned integer scalar or vector types.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitCount.xml">GLSL bitCount man page</a> </dd>
-<dd>
-<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a> </dd></dl>
+<p>Return e constant. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gace2dbfa083773466715be25947dc4518"></a>
+<a class="anchor" id="ga2a1e57fc5592b69cfae84174cbfc9429"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, int, P&gt; glm::bitCount </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::epsilon </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the number of bits set to 1 in the binary representation of value. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">L</td><td>An integer between 1 and 4 included that qualify the dimension of the vector. </td></tr>
-    <tr><td class="paramname">T</td><td>Signed or unsigned integer scalar or vector types.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitCount.xml">GLSL bitCount man page</a> </dd>
-<dd>
-<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a> </dd></dl>
+<p>Return the epsilon constant for floating point types. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga2ab9ea1a1079e80a82191edee14c06c8"></a>
+<a class="anchor" id="gad8fe2e6f90bce9d829e9723b649fbd42"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, P&gt; glm::bitfieldExtract </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::euler </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>Value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>Offset</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>Bits</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Extracts bits [offset, offset + bits - 1] from value, returning them in the least significant bits of the result. </p>
-<p>For unsigned data types, the most significant bits of the result will be set to zero. For signed data types, the most significant bits will be set to the value of bit offset + base - 1.</p>
-<p>If bits is zero, the result will be zero. The result will be undefined if offset or bits is negative, or if the sum of offset and bits is greater than the number of bits used to store the operand.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">L</td><td>An integer between 1 and 4 included that qualify the dimension of the vector. </td></tr>
-    <tr><td class="paramname">T</td><td>Signed or unsigned integer scalar types.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitfieldExtract.xml">GLSL bitfieldExtract man page</a> </dd>
-<dd>
-<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga1136d17630ecbecb9f4a63d9749f5ee7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, P&gt; glm::bitfieldInsert </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>Base</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>Insert</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>Offset</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>Bits</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the insertion the bits least-significant bits of insert into base. </p>
-<p>The result will have bits [offset, offset + bits - 1] taken from bits [0, bits - 1] of insert, and all other bits taken directly from the corresponding bits of base. If bits is zero, the result will simply be base. The result will be undefined if offset or bits is negative, or if the sum of offset and bits is greater than the number of bits used to store the operand.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">L</td><td>An integer between 1 and 4 included that qualify the dimension of the vector. </td></tr>
-    <tr><td class="paramname">T</td><td>Signed or unsigned integer scalar or vector types.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitfieldInsert.xml">GLSL bitfieldInsert man page</a> </dd>
-<dd>
-<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga524fde34694a91d2066162ab0bf17859"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, P&gt; glm::bitfieldReverse </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the reversal of the bits of value. </p>
-<p>The bit numbered n of the result will be taken from bit (bits - 1) - n of value, where bits is the total number of bits used to represent value.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">L</td><td>An integer between 1 and 4 included that qualify the dimension of the vector. </td></tr>
-    <tr><td class="paramname">T</td><td>Signed or unsigned integer scalar or vector types.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/bitfieldReverse.xml">GLSL bitfieldReverse man page</a> </dd>
-<dd>
-<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a> </dd></dl>
+<p>Return Euler's constant. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gaf74c4d969fa34ab8acb9d390f5ca5274"></a>
+<a class="anchor" id="ga753950e5140e4ea6a88e4a18ba61dc09"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL int glm::findLSB </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::four_over_pi </td>
           <td>(</td>
-          <td class="paramtype">genIUType&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the bit number of the least significant bit set to 1 in the binary representation of value. </p>
-<p>If value is zero, -1 will be returned.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">genIUType</td><td>Signed or unsigned integer scalar types.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/findLSB.xml">GLSL findLSB man page</a> </dd>
-<dd>
-<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a> </dd></dl>
+<p>Return 4 / pi. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga29a63a1a0b5bcad9288e731204cd717e"></a>
+<a class="anchor" id="ga748cf8642830657c5b7eae04d0a80899"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, int, P&gt; glm::findLSB </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::golden_ratio </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the bit number of the least significant bit set to 1 in the binary representation of value. </p>
-<p>If value is zero, -1 will be returned.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">L</td><td>An integer between 1 and 4 included that qualify the dimension of the vector. </td></tr>
-    <tr><td class="paramname">T</td><td>Signed or unsigned integer scalar types.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/findLSB.xml">GLSL findLSB man page</a> </dd>
-<dd>
-<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a> </dd></dl>
+<p>Return the golden ratio constant. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga7e4a794d766861c70bc961630f8ef621"></a>
+<a class="anchor" id="ga0c36b41d462e45641faf7d7938948bac"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL int glm::findMSB </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::half_pi </td>
           <td>(</td>
-          <td class="paramtype">genIUType&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the bit number of the most significant bit in the binary representation of value. </p>
-<p>For positive integers, the result will be the bit number of the most significant bit set to 1. For negative integers, the result will be the bit number of the most significant bit set to 0. For a value of zero or negative one, -1 will be returned.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">genIUType</td><td>Signed or unsigned integer scalar types.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/findMSB.xml">GLSL findMSB man page</a> </dd>
-<dd>
-<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a> </dd></dl>
+<p>Return pi / 2. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga23a934e033f663a4e7173f98af1e0f73"></a>
+<a class="anchor" id="gaca94292c839ed31a405ab7a81ae7e850"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, int, P&gt; glm::findMSB </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::ln_ln_two </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the bit number of the most significant bit in the binary representation of value. </p>
-<p>For positive integers, the result will be the bit number of the most significant bit set to 1. For negative integers, the result will be the bit number of the most significant bit set to 0. For a value of zero or negative one, -1 will be returned.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">L</td><td>An integer between 1 and 4 included that qualify the dimension of the vector. </td></tr>
-    <tr><td class="paramname">T</td><td>Signed or unsigned integer scalar types.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/findMSB.xml">GLSL findMSB man page</a> </dd>
-<dd>
-<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a> </dd></dl>
+<p>Return ln(ln(2)). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gada3cb816d88f9b68fb7a187effb4f974"></a>
+<a class="anchor" id="gaf97ebc6c059ffd788e6c4946f71ef66c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL void glm::imulExtended </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::ln_ten </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, int, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">vec&lt; L, int, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, int, P &gt; &amp;&#160;</td>
-          <td class="paramname"><em>msb</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, int, P &gt; &amp;&#160;</td>
-          <td class="paramname"><em>lsb</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Multiplies 32-bit integers x and y, producing a 64-bit result. </p>
-<p>The 32 least-significant bits are returned in lsb. The 32 most-significant bits are returned in msb.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">L</td><td>An integer between 1 and 4 included that qualify the dimension of the vector.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/imulExtended.xml">GLSL imulExtended man page</a> </dd>
-<dd>
-<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a> </dd></dl>
+<p>Return ln(10). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga2580af497d2105957cc589ffd4a853cd"></a>
+<a class="anchor" id="ga24f4d27765678116f41a2f336ab7975c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, uint, P&gt; glm::uaddCarry </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::ln_two </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, <a class="el" href="a00160.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">vec&lt; L, <a class="el" href="a00160.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, <a class="el" href="a00160.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>, P &gt; &amp;&#160;</td>
-          <td class="paramname"><em>carry</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds 32-bit unsigned integer x and y, returning the sum modulo pow(2, 32). </p>
-<p>The value carry is set to 0 if the sum was less than pow(2, 32), or to 1 otherwise.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">L</td><td>An integer between 1 and 4 included that qualify the dimension of the vector.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/uaddCarry.xml">GLSL uaddCarry man page</a> </dd>
-<dd>
-<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a> </dd></dl>
+<p>Return ln(2). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gac763612c0295fb7b31bd31f1b56761a8"></a>
+<a class="anchor" id="ga39c2fb227631ca25894326529bdd1ee5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL void glm::umulExtended </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::one </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, <a class="el" href="a00160.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">vec&lt; L, <a class="el" href="a00160.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, <a class="el" href="a00160.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>, P &gt; &amp;&#160;</td>
-          <td class="paramname"><em>msb</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, <a class="el" href="a00160.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>, P &gt; &amp;&#160;</td>
-          <td class="paramname"><em>lsb</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Multiplies 32-bit integers x and y, producing a 64-bit result. </p>
-<p>The 32 least-significant bits are returned in lsb. The 32 most-significant bits are returned in msb.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">L</td><td>An integer between 1 and 4 included that qualify the dimension of the vector.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/umulExtended.xml">GLSL umulExtended man page</a> </dd>
-<dd>
-<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a> </dd></dl>
+<p>Return 1. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga6f98b07ab5cf0d1df97b34c28aafa723"></a>
+<a class="anchor" id="ga555150da2b06d23c8738981d5013e0eb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, uint, P&gt; glm::usubBorrow </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::one_over_pi </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, <a class="el" href="a00160.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">vec&lt; L, <a class="el" href="a00160.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, <a class="el" href="a00160.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a>, P &gt; &amp;&#160;</td>
-          <td class="paramname"><em>borrow</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Subtracts the 32-bit unsigned integer y from x, returning the difference if non-negative, or pow(2, 32) plus the difference otherwise. </p>
-<p>The value borrow is set to 0 if x &gt;= y, or to 1 otherwise.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">L</td><td>An integer between 1 and 4 included that qualify the dimension of the vector.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/usubBorrow.xml">GLSL usubBorrow man page</a> </dd>
-<dd>
-<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.8 Integer Functions</a> </dd></dl>
+<p>Return 1 / pi. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga788fa23a0939bac4d1d0205fb4f35818"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::one_over_root_two </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return 1 / sqrt(2). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga7c922b427986cbb2e4c6ac69874eefbc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::one_over_two_pi </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return 1 / (pi * 2). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga94bafeb2a0f23ab6450fed1f98ee4e45"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::pi </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the pi constant. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga3c9df42bd73c519a995c43f0f99e77e0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::quarter_pi </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return pi / 4. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gae9ebbded75b53d4faeb1e4ef8b3347a2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::root_five </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return sqrt(5). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga4e276cb823cc5e612d4f89ed99c75039"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::root_half_pi </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return sqrt(pi / 2). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga4129412e96b33707a77c1a07652e23e2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::root_ln_four </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return sqrt(ln(4)). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga261380796b2cd496f68d2cf1d08b8eb9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::root_pi </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return square root of pi. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga4f286be4abe88be1eed7d2a9f6cb193e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::root_three </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return sqrt(3). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga74e607d29020f100c0d0dc46ce2ca950"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::root_two </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return sqrt(2). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga2bcedc575039fe0cd765742f8bbb0bd3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::root_two_pi </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return sqrt(2 * pi). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga3077c6311010a214b69ddc8214ec13b5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::third </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return 1 / 3. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gae94950df74b0ce382b1fc1d978ef7394"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::three_over_two_pi </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return pi / 2 * 3. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga74eadc8a211253079683219a3ea0462a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::two_over_pi </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return 2 / pi. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga5827301817640843cf02026a8d493894"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::two_over_root_pi </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return 2 / sqrt(pi). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaa5276a4617566abcfe49286f40e3a256"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::two_pi </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return pi * 2. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga9b4d2f4322edcf63a6737b92a29dd1f5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::two_thirds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return 2 / 3. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga788f5a421fc0f40a1296ebc094cbaa8a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::zero </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return 0. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00151.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>

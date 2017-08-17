@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: noise.hpp Source File</title>
+<title>0.9.9 API documenation: packing.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -79,54 +79,69 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_934f46a345653ef2b3014a1b37a162c1.html">G:</a></li><li class="navelem"><a class="el" href="dir_98f7f9d41f9d3029bd68cf237526a774.html">Source</a></li><li class="navelem"><a class="el" href="dir_9344afb825aed5e2f5be1d2015dde43c.html">G-Truc</a></li><li class="navelem"><a class="el" href="dir_45973f864e07b2505003ae343b7c8af7.html">glm</a></li><li class="navelem"><a class="el" href="dir_304be5dfae1339a7705426c0b536faf2.html">glm</a></li><li class="navelem"><a class="el" href="dir_7997edb062bdde9a99cb6835d42b0d9d.html">gtc</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_934f46a345653ef2b3014a1b37a162c1.html">G:</a></li><li class="navelem"><a class="el" href="dir_98f7f9d41f9d3029bd68cf237526a774.html">Source</a></li><li class="navelem"><a class="el" href="dir_9344afb825aed5e2f5be1d2015dde43c.html">G-Truc</a></li><li class="navelem"><a class="el" href="dir_45973f864e07b2505003ae343b7c8af7.html">glm</a></li><li class="navelem"><a class="el" href="dir_304be5dfae1339a7705426c0b536faf2.html">glm</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">noise.hpp</div>  </div>
+<div class="title">packing.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00077.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">// Dependencies</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;../detail/setup.hpp&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;../detail/qualifier.hpp&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;../detail/_noise.hpp&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;../geometric.hpp&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;../common.hpp&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;../vector_relational.hpp&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;../vec2.hpp&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;../vec3.hpp&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;../vec4.hpp&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#if GLM_MESSAGES == GLM_MESSAGES_ENABLED &amp;&amp; !defined(GLM_EXT_INCLUDED)</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#       pragma message(&quot;GLM: GLM_GTC_noise extension included&quot;)</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00143.html">glm</a></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier P&gt;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        GLM_FUNC_DECL T <a class="code" href="a00172.html#ga5c8effcc7ea8e6ab541eaaa53e62f9ec">perlin</a>(</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                vec&lt;L, T, P&gt; <span class="keyword">const</span>&amp; p);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier P&gt;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        GLM_FUNC_DECL T <a class="code" href="a00172.html#ga5c8effcc7ea8e6ab541eaaa53e62f9ec">perlin</a>(</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                vec&lt;L, T, P&gt; <span class="keyword">const</span>&amp; p,</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                vec&lt;L, T, P&gt; <span class="keyword">const</span>&amp; rep);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier P&gt;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        GLM_FUNC_DECL T <a class="code" href="a00172.html#ga7b869f8b8bf2228001063c5f3bd4646d">simplex</a>(</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                vec&lt;L, T, P&gt; <span class="keyword">const</span>&amp; p);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}<span class="comment">//namespace glm</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#include &quot;noise.inl&quot;</span></div>
-<div class="ttc" id="a00172_html_ga7b869f8b8bf2228001063c5f3bd4646d"><div class="ttname"><a href="a00172.html#ga7b869f8b8bf2228001063c5f3bd4646d">glm::simplex</a></div><div class="ttdeci">GLM_FUNC_DECL T simplex(vec&lt; L, T, P &gt; const &amp;p)</div><div class="ttdoc">Simplex noise. </div></div>
-<div class="ttc" id="a00143_html"><div class="ttname"><a href="a00143.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00003_source.html#l00011">_noise.hpp:11</a></div></div>
-<div class="ttc" id="a00172_html_ga5c8effcc7ea8e6ab541eaaa53e62f9ec"><div class="ttname"><a href="a00172.html#ga5c8effcc7ea8e6ab541eaaa53e62f9ec">glm::perlin</a></div><div class="ttdeci">GLM_FUNC_DECL T perlin(vec&lt; L, T, P &gt; const &amp;p, vec&lt; L, T, P &gt; const &amp;rep)</div><div class="ttdoc">Periodic perlin noise. </div></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00122.html">detail/type_vec2.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00124.html">detail/type_vec4.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00135.html">glm</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        GLM_FUNC_DECL <a class="code" href="a00145.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="code" href="a00231.html#ga0e2d107039fe608a209497af867b85fb">packUnorm2x16</a>(<a class="code" href="a00144.html#ga09d0200e8ff86391d8804b4fefd5f1da">vec2</a> <span class="keyword">const</span>&amp; v);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        GLM_FUNC_DECL <a class="code" href="a00145.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="code" href="a00231.html#ga977ab172da5494e5ac63e952afacfbe2">packSnorm2x16</a>(<a class="code" href="a00144.html#ga09d0200e8ff86391d8804b4fefd5f1da">vec2</a> <span class="keyword">const</span>&amp; v);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        GLM_FUNC_DECL <a class="code" href="a00145.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="code" href="a00231.html#gaf7d2f7341a9eeb4a436929d6f9ad08f2">packUnorm4x8</a>(<a class="code" href="a00144.html#gafbab23070ca47932487d25332adc7d7c">vec4</a> <span class="keyword">const</span>&amp; v);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        GLM_FUNC_DECL <a class="code" href="a00145.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="code" href="a00231.html#ga85e8f17627516445026ab7a9c2e3531a">packSnorm4x8</a>(<a class="code" href="a00144.html#gafbab23070ca47932487d25332adc7d7c">vec4</a> <span class="keyword">const</span>&amp; v);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        GLM_FUNC_DECL <a class="code" href="a00144.html#ga09d0200e8ff86391d8804b4fefd5f1da">vec2</a> <a class="code" href="a00231.html#ga1f66188e5d65afeb9ffba1ad971e4007">unpackUnorm2x16</a>(<a class="code" href="a00145.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> p);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        GLM_FUNC_DECL <a class="code" href="a00144.html#ga09d0200e8ff86391d8804b4fefd5f1da">vec2</a> <a class="code" href="a00231.html#gacd8f8971a3fe28418be0d0fa1f786b38">unpackSnorm2x16</a>(<a class="code" href="a00145.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> p);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        GLM_FUNC_DECL <a class="code" href="a00144.html#gafbab23070ca47932487d25332adc7d7c">vec4</a> <a class="code" href="a00231.html#ga7f903259150b67e9466f5f8edffcd197">unpackUnorm4x8</a>(<a class="code" href="a00145.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> p);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        GLM_FUNC_DECL <a class="code" href="a00144.html#gafbab23070ca47932487d25332adc7d7c">vec4</a> <a class="code" href="a00231.html#ga2db488646d48b7c43d3218954523fe82">unpackSnorm4x8</a>(<a class="code" href="a00145.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> p);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        GLM_FUNC_DECL <span class="keywordtype">double</span> <a class="code" href="a00231.html#gaa916ca426b2bb0343ba17e3753e245c2">packDouble2x32</a>(<a class="code" href="a00144.html#ga9bcffa2d49f28d16f680757b5c0e7c84">uvec2</a> <span class="keyword">const</span>&amp; v);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        GLM_FUNC_DECL <a class="code" href="a00144.html#ga9bcffa2d49f28d16f680757b5c0e7c84">uvec2</a> <a class="code" href="a00231.html#ga5f4296dc5f12f0aa67ac05b8bb322483">unpackDouble2x32</a>(<span class="keywordtype">double</span> v);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        GLM_FUNC_DECL <a class="code" href="a00145.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> <a class="code" href="a00231.html#ga20f134b07db3a3d3a38efb2617388c92">packHalf2x16</a>(<a class="code" href="a00144.html#ga09d0200e8ff86391d8804b4fefd5f1da">vec2</a> <span class="keyword">const</span>&amp; v);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        GLM_FUNC_DECL <a class="code" href="a00144.html#ga09d0200e8ff86391d8804b4fefd5f1da">vec2</a> <a class="code" href="a00231.html#gaf59b52e6b28da9335322c4ae19b5d745">unpackHalf2x16</a>(<a class="code" href="a00145.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> v);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;}<span class="comment">//namespace glm</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="preprocessor">#include &quot;detail/func_packing.inl&quot;</span></div>
+<div class="ttc" id="a00124_html"><div class="ttname"><a href="a00124.html">type_vec4.hpp</a></div><div class="ttdoc">Core features </div></div>
+<div class="ttc" id="a00122_html"><div class="ttname"><a href="a00122.html">type_vec2.hpp</a></div><div class="ttdoc">Core features </div></div>
+<div class="ttc" id="a00231_html_ga7f903259150b67e9466f5f8edffcd197"><div class="ttname"><a href="a00231.html#ga7f903259150b67e9466f5f8edffcd197">glm::unpackUnorm4x8</a></div><div class="ttdeci">GLM_FUNC_DECL vec4 unpackUnorm4x8(uint p)</div><div class="ttdoc">First, unpacks a single 32-bit unsigned integer p into a pair of 16-bit unsigned integers, four 8-bit unsigned integers, or four 8-bit signed integers. </div></div>
+<div class="ttc" id="a00144_html_ga09d0200e8ff86391d8804b4fefd5f1da"><div class="ttname"><a href="a00144.html#ga09d0200e8ff86391d8804b4fefd5f1da">glm::vec2</a></div><div class="ttdeci">highp_vec2 vec2</div><div class="ttdoc">2 components vector of floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00120_source.html#l00457">type_vec.hpp:457</a></div></div>
+<div class="ttc" id="a00135_html"><div class="ttname"><a href="a00135.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00015_source.html#l00020">common.hpp:20</a></div></div>
+<div class="ttc" id="a00231_html_gacd8f8971a3fe28418be0d0fa1f786b38"><div class="ttname"><a href="a00231.html#gacd8f8971a3fe28418be0d0fa1f786b38">glm::unpackSnorm2x16</a></div><div class="ttdeci">GLM_FUNC_DECL vec2 unpackSnorm2x16(uint p)</div><div class="ttdoc">First, unpacks a single 32-bit unsigned integer p into a pair of 16-bit unsigned integers, four 8-bit unsigned integers, or four 8-bit signed integers. </div></div>
+<div class="ttc" id="a00231_html_gaf7d2f7341a9eeb4a436929d6f9ad08f2"><div class="ttname"><a href="a00231.html#gaf7d2f7341a9eeb4a436929d6f9ad08f2">glm::packUnorm4x8</a></div><div class="ttdeci">GLM_FUNC_DECL uint packUnorm4x8(vec4 const &amp;v)</div><div class="ttdoc">First, converts each component of the normalized floating-point value v into 8- or 16-bit integer val...</div></div>
+<div class="ttc" id="a00144_html_gafbab23070ca47932487d25332adc7d7c"><div class="ttname"><a href="a00144.html#gafbab23070ca47932487d25332adc7d7c">glm::vec4</a></div><div class="ttdeci">highp_vec4 vec4</div><div class="ttdoc">4 components vector of floating-point numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00120_source.html#l00467">type_vec.hpp:467</a></div></div>
+<div class="ttc" id="a00231_html_ga5f4296dc5f12f0aa67ac05b8bb322483"><div class="ttname"><a href="a00231.html#ga5f4296dc5f12f0aa67ac05b8bb322483">glm::unpackDouble2x32</a></div><div class="ttdeci">GLM_FUNC_DECL uvec2 unpackDouble2x32(double v)</div><div class="ttdoc">Returns a two-component unsigned integer vector representation of v. </div></div>
+<div class="ttc" id="a00231_html_ga20f134b07db3a3d3a38efb2617388c92"><div class="ttname"><a href="a00231.html#ga20f134b07db3a3d3a38efb2617388c92">glm::packHalf2x16</a></div><div class="ttdeci">GLM_FUNC_DECL uint packHalf2x16(vec2 const &amp;v)</div><div class="ttdoc">Returns an unsigned integer obtained by converting the components of a two-component floating-point v...</div></div>
+<div class="ttc" id="a00231_html_ga85e8f17627516445026ab7a9c2e3531a"><div class="ttname"><a href="a00231.html#ga85e8f17627516445026ab7a9c2e3531a">glm::packSnorm4x8</a></div><div class="ttdeci">GLM_FUNC_DECL uint packSnorm4x8(vec4 const &amp;v)</div><div class="ttdoc">First, converts each component of the normalized floating-point value v into 8- or 16-bit integer val...</div></div>
+<div class="ttc" id="a00231_html_gaa916ca426b2bb0343ba17e3753e245c2"><div class="ttname"><a href="a00231.html#gaa916ca426b2bb0343ba17e3753e245c2">glm::packDouble2x32</a></div><div class="ttdeci">GLM_FUNC_DECL double packDouble2x32(uvec2 const &amp;v)</div><div class="ttdoc">Returns a double-qualifier value obtained by packing the components of v into a 64-bit value...</div></div>
+<div class="ttc" id="a00231_html_ga2db488646d48b7c43d3218954523fe82"><div class="ttname"><a href="a00231.html#ga2db488646d48b7c43d3218954523fe82">glm::unpackSnorm4x8</a></div><div class="ttdeci">GLM_FUNC_DECL vec4 unpackSnorm4x8(uint p)</div><div class="ttdoc">First, unpacks a single 32-bit unsigned integer p into a pair of 16-bit unsigned integers, four 8-bit unsigned integers, or four 8-bit signed integers. </div></div>
+<div class="ttc" id="a00231_html_gaf59b52e6b28da9335322c4ae19b5d745"><div class="ttname"><a href="a00231.html#gaf59b52e6b28da9335322c4ae19b5d745">glm::unpackHalf2x16</a></div><div class="ttdeci">GLM_FUNC_DECL vec2 unpackHalf2x16(uint v)</div><div class="ttdoc">Returns a two-component floating-point vector with components obtained by unpacking a 32-bit unsigned...</div></div>
+<div class="ttc" id="a00231_html_ga1f66188e5d65afeb9ffba1ad971e4007"><div class="ttname"><a href="a00231.html#ga1f66188e5d65afeb9ffba1ad971e4007">glm::unpackUnorm2x16</a></div><div class="ttdeci">GLM_FUNC_DECL vec2 unpackUnorm2x16(uint p)</div><div class="ttdoc">First, unpacks a single 32-bit unsigned integer p into a pair of 16-bit unsigned integers, four 8-bit unsigned integers, or four 8-bit signed integers. </div></div>
+<div class="ttc" id="a00144_html_ga9bcffa2d49f28d16f680757b5c0e7c84"><div class="ttname"><a href="a00144.html#ga9bcffa2d49f28d16f680757b5c0e7c84">glm::uvec2</a></div><div class="ttdeci">highp_uvec2 uvec2</div><div class="ttdoc">2 components vector of unsigned integer numbers. </div><div class="ttdef"><b>Definition:</b> <a href="a00120_source.html#l00538">type_vec.hpp:538</a></div></div>
+<div class="ttc" id="a00231_html_ga977ab172da5494e5ac63e952afacfbe2"><div class="ttname"><a href="a00231.html#ga977ab172da5494e5ac63e952afacfbe2">glm::packSnorm2x16</a></div><div class="ttdeci">GLM_FUNC_DECL uint packSnorm2x16(vec2 const &amp;v)</div><div class="ttdoc">First, converts each component of the normalized floating-point value v into 8- or 16-bit integer val...</div></div>
+<div class="ttc" id="a00145_html_ga91ad9478d81a7aaf2593e8d9c3d06a14"><div class="ttname"><a href="a00145.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">glm::uint</a></div><div class="ttdeci">unsigned int uint</div><div class="ttdoc">Unsigned integer type. </div><div class="ttdef"><b>Definition:</b> <a href="a00106_source.html#l00288">type_int.hpp:288</a></div></div>
+<div class="ttc" id="a00231_html_ga0e2d107039fe608a209497af867b85fb"><div class="ttname"><a href="a00231.html#ga0e2d107039fe608a209497af867b85fb">glm::packUnorm2x16</a></div><div class="ttdeci">GLM_FUNC_DECL uint packUnorm2x16(vec2 const &amp;v)</div><div class="ttdoc">First, converts each component of the normalized floating-point value v into 8- or 16-bit integer val...</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

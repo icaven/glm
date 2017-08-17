@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTX_bit</title>
+<title>0.9.9 API documenation: GLM_GTX_fast_square_root</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,236 +77,246 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_bit<div class="ingroups"><a class="el" href="a00157.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_fast_square_root<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Allow to perform bit operations on integer values.  
+<p>Include &lt;<a class="el" href="a00030.html" title="GLM_GTX_fast_square_root ">glm/gtx/fast_square_root.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga0dcc8fe7c3d3ad60dea409281efa3d05"><td class="memTemplParams" colspan="2">template&lt;typename genIUType &gt; </td></tr>
-<tr class="memitem:ga0dcc8fe7c3d3ad60dea409281efa3d05"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genIUType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00184.html#ga0dcc8fe7c3d3ad60dea409281efa3d05">highestBitValue</a> (genIUType Value)</td></tr>
-<tr class="separator:ga0dcc8fe7c3d3ad60dea409281efa3d05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7b559ec55e7ec4103c63d877df4594b5"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga7b559ec55e7ec4103c63d877df4594b5"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00184.html#ga7b559ec55e7ec4103c63d877df4594b5">highestBitValue</a> (vec&lt; L, T, P &gt; const &amp;value)</td></tr>
-<tr class="memdesc:ga7b559ec55e7ec4103c63d877df4594b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the highest bit set to 1 in a integer variable and return its value.  <a href="a00184.html#ga7b559ec55e7ec4103c63d877df4594b5">More...</a><br /></td></tr>
-<tr class="separator:ga7b559ec55e7ec4103c63d877df4594b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2ff6568089f3a9b67f5c30918855fc6f"><td class="memTemplParams" colspan="2">template&lt;typename genIUType &gt; </td></tr>
-<tr class="memitem:ga2ff6568089f3a9b67f5c30918855fc6f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genIUType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00184.html#ga2ff6568089f3a9b67f5c30918855fc6f">lowestBitValue</a> (genIUType Value)</td></tr>
-<tr class="separator:ga2ff6568089f3a9b67f5c30918855fc6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8cda2459871f574a0aecbe702ac93291"><td class="memTemplParams" colspan="2">template&lt;typename genIUType &gt; </td></tr>
-<tr class="memitem:ga8cda2459871f574a0aecbe702ac93291"><td class="memTemplItemLeft" align="right" valign="top">GLM_DEPRECATED GLM_FUNC_DECL genIUType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00184.html#ga8cda2459871f574a0aecbe702ac93291">powerOfTwoAbove</a> (genIUType Value)</td></tr>
-<tr class="memdesc:ga8cda2459871f574a0aecbe702ac93291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the power of two number which value is just higher the input value.  <a href="a00184.html#ga8cda2459871f574a0aecbe702ac93291">More...</a><br /></td></tr>
-<tr class="separator:ga8cda2459871f574a0aecbe702ac93291"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga75b5b40b975d346033e26b11b0b77300"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga75b5b40b975d346033e26b11b0b77300"><td class="memTemplItemLeft" align="right" valign="top">GLM_DEPRECATED GLM_FUNC_DECL vec&lt; L, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00184.html#ga75b5b40b975d346033e26b11b0b77300">powerOfTwoAbove</a> (vec&lt; L, T, P &gt; const &amp;value)</td></tr>
-<tr class="memdesc:ga75b5b40b975d346033e26b11b0b77300"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the power of two number which value is just higher the input value.  <a href="a00184.html#ga75b5b40b975d346033e26b11b0b77300">More...</a><br /></td></tr>
-<tr class="separator:ga75b5b40b975d346033e26b11b0b77300"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3de7df63c589325101a2817a56f8e29d"><td class="memTemplParams" colspan="2">template&lt;typename genIUType &gt; </td></tr>
-<tr class="memitem:ga3de7df63c589325101a2817a56f8e29d"><td class="memTemplItemLeft" align="right" valign="top">GLM_DEPRECATED GLM_FUNC_DECL genIUType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00184.html#ga3de7df63c589325101a2817a56f8e29d">powerOfTwoBelow</a> (genIUType Value)</td></tr>
-<tr class="memdesc:ga3de7df63c589325101a2817a56f8e29d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the power of two number which value is just lower the input value.  <a href="a00184.html#ga3de7df63c589325101a2817a56f8e29d">More...</a><br /></td></tr>
-<tr class="separator:ga3de7df63c589325101a2817a56f8e29d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga736d1ab1b4ad53a8e5f67692949ce164"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga736d1ab1b4ad53a8e5f67692949ce164"><td class="memTemplItemLeft" align="right" valign="top">GLM_DEPRECATED GLM_FUNC_DECL vec&lt; L, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00184.html#ga736d1ab1b4ad53a8e5f67692949ce164">powerOfTwoBelow</a> (vec&lt; L, T, P &gt; const &amp;value)</td></tr>
-<tr class="memdesc:ga736d1ab1b4ad53a8e5f67692949ce164"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the power of two number which value is just lower the input value.  <a href="a00184.html#ga736d1ab1b4ad53a8e5f67692949ce164">More...</a><br /></td></tr>
-<tr class="separator:ga736d1ab1b4ad53a8e5f67692949ce164"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5f65973a5d2ea38c719e6a663149ead9"><td class="memTemplParams" colspan="2">template&lt;typename genIUType &gt; </td></tr>
-<tr class="memitem:ga5f65973a5d2ea38c719e6a663149ead9"><td class="memTemplItemLeft" align="right" valign="top">GLM_DEPRECATED GLM_FUNC_DECL genIUType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00184.html#ga5f65973a5d2ea38c719e6a663149ead9">powerOfTwoNearest</a> (genIUType Value)</td></tr>
-<tr class="memdesc:ga5f65973a5d2ea38c719e6a663149ead9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the power of two number which value is the closet to the input value.  <a href="a00184.html#ga5f65973a5d2ea38c719e6a663149ead9">More...</a><br /></td></tr>
-<tr class="separator:ga5f65973a5d2ea38c719e6a663149ead9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga68d3ae1b89171e649b827c7d74dcde57"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga68d3ae1b89171e649b827c7d74dcde57"><td class="memTemplItemLeft" align="right" valign="top">GLM_DEPRECATED GLM_FUNC_DECL vec&lt; L, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00184.html#ga68d3ae1b89171e649b827c7d74dcde57">powerOfTwoNearest</a> (vec&lt; L, T, P &gt; const &amp;value)</td></tr>
-<tr class="memdesc:ga68d3ae1b89171e649b827c7d74dcde57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the power of two number which value is the closet to the input value.  <a href="a00184.html#ga68d3ae1b89171e649b827c7d74dcde57">More...</a><br /></td></tr>
-<tr class="separator:ga68d3ae1b89171e649b827c7d74dcde57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaac333418d0c4e0cc6d3d219ed606c238"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gaac333418d0c4e0cc6d3d219ed606c238"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00184.html#gaac333418d0c4e0cc6d3d219ed606c238">fastDistance</a> (genType x, genType y)</td></tr>
+<tr class="memdesc:gaac333418d0c4e0cc6d3d219ed606c238"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common distance function but less accurate.  <a href="a00184.html#gaac333418d0c4e0cc6d3d219ed606c238">More...</a><br /></td></tr>
+<tr class="separator:gaac333418d0c4e0cc6d3d219ed606c238"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga42d3e771fa7cb3c60d828e315829df19"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga42d3e771fa7cb3c60d828e315829df19"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00184.html#ga42d3e771fa7cb3c60d828e315829df19">fastDistance</a> (vec&lt; L, T, Q &gt; const &amp;x, vec&lt; L, T, Q &gt; const &amp;y)</td></tr>
+<tr class="memdesc:ga42d3e771fa7cb3c60d828e315829df19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common distance function but less accurate.  <a href="a00184.html#ga42d3e771fa7cb3c60d828e315829df19">More...</a><br /></td></tr>
+<tr class="separator:ga42d3e771fa7cb3c60d828e315829df19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7f081b14d9c7035c8714eba5f7f75a8f"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga7f081b14d9c7035c8714eba5f7f75a8f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00184.html#ga7f081b14d9c7035c8714eba5f7f75a8f">fastInverseSqrt</a> (genType x)</td></tr>
+<tr class="memdesc:ga7f081b14d9c7035c8714eba5f7f75a8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common inversesqrt function but less accurate.  <a href="a00184.html#ga7f081b14d9c7035c8714eba5f7f75a8f">More...</a><br /></td></tr>
+<tr class="separator:ga7f081b14d9c7035c8714eba5f7f75a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadcd7be12b1e5ee182141359d4c45dd24"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gadcd7be12b1e5ee182141359d4c45dd24"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00184.html#gadcd7be12b1e5ee182141359d4c45dd24">fastInverseSqrt</a> (vec&lt; L, T, Q &gt; const &amp;x)</td></tr>
+<tr class="memdesc:gadcd7be12b1e5ee182141359d4c45dd24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common inversesqrt function but less accurate.  <a href="a00184.html#gadcd7be12b1e5ee182141359d4c45dd24">More...</a><br /></td></tr>
+<tr class="separator:gadcd7be12b1e5ee182141359d4c45dd24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafe697d6287719538346bbdf8b1367c59"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gafe697d6287719538346bbdf8b1367c59"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00184.html#gafe697d6287719538346bbdf8b1367c59">fastLength</a> (genType x)</td></tr>
+<tr class="memdesc:gafe697d6287719538346bbdf8b1367c59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common length function but less accurate.  <a href="a00184.html#gafe697d6287719538346bbdf8b1367c59">More...</a><br /></td></tr>
+<tr class="separator:gafe697d6287719538346bbdf8b1367c59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga90f66be92ef61e705c005e7b3209edb8"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga90f66be92ef61e705c005e7b3209edb8"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00184.html#ga90f66be92ef61e705c005e7b3209edb8">fastLength</a> (vec&lt; L, T, Q &gt; const &amp;x)</td></tr>
+<tr class="memdesc:ga90f66be92ef61e705c005e7b3209edb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common length function but less accurate.  <a href="a00184.html#ga90f66be92ef61e705c005e7b3209edb8">More...</a><br /></td></tr>
+<tr class="separator:ga90f66be92ef61e705c005e7b3209edb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3b02c1d6e0c754144e2f1e110bf9f16c"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga3b02c1d6e0c754144e2f1e110bf9f16c"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00184.html#ga3b02c1d6e0c754144e2f1e110bf9f16c">fastNormalize</a> (genType const &amp;x)</td></tr>
+<tr class="memdesc:ga3b02c1d6e0c754144e2f1e110bf9f16c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common normalize function but less accurate.  <a href="a00184.html#ga3b02c1d6e0c754144e2f1e110bf9f16c">More...</a><br /></td></tr>
+<tr class="separator:ga3b02c1d6e0c754144e2f1e110bf9f16c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6c460e9414a50b2fc455c8f64c86cdc9"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga6c460e9414a50b2fc455c8f64c86cdc9"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00184.html#ga6c460e9414a50b2fc455c8f64c86cdc9">fastSqrt</a> (genType x)</td></tr>
+<tr class="memdesc:ga6c460e9414a50b2fc455c8f64c86cdc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common sqrt function but less accurate.  <a href="a00184.html#ga6c460e9414a50b2fc455c8f64c86cdc9">More...</a><br /></td></tr>
+<tr class="separator:ga6c460e9414a50b2fc455c8f64c86cdc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae83f0c03614f73eae5478c5b6274ee6d"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gae83f0c03614f73eae5478c5b6274ee6d"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00184.html#gae83f0c03614f73eae5478c5b6274ee6d">fastSqrt</a> (vec&lt; L, T, Q &gt; const &amp;x)</td></tr>
+<tr class="memdesc:gae83f0c03614f73eae5478c5b6274ee6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common sqrt function but less accurate.  <a href="a00184.html#gae83f0c03614f73eae5478c5b6274ee6d">More...</a><br /></td></tr>
+<tr class="separator:gae83f0c03614f73eae5478c5b6274ee6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Allow to perform bit operations on integer values. </p>
-<p>&lt;<a class="el" href="a00008.html" title="GLM_GTX_bit ">glm/gtx/bit.hpp</a>&gt; need to be included to use these functionalities. </p>
+<p>Include &lt;<a class="el" href="a00030.html" title="GLM_GTX_fast_square_root ">glm/gtx/fast_square_root.hpp</a>&gt; to use the features of this extension. </p>
+<p>Fast but less accurate implementations of square root based functions.</p><ul>
+<li>Sqrt optimisation based on Newton's method, www.gamedev.net/community/forums/topic.asp?topic id=139956 </li>
+</ul>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga0dcc8fe7c3d3ad60dea409281efa3d05"></a>
+<a class="anchor" id="gaac333418d0c4e0cc6d3d219ed606c238"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genIUType glm::highestBitValue </td>
+          <td class="memname">GLM_FUNC_DECL genType glm::fastDistance </td>
           <td>(</td>
-          <td class="paramtype">genIUType&#160;</td>
-          <td class="paramname"><em>Value</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">genType&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00184.html" title="Allow to perform bit operations on integer values. ">GLM_GTX_bit</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga7b559ec55e7ec4103c63d877df4594b5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, P&gt; glm::highestBitValue </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">genType&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Find the highest bit set to 1 in a integer variable and return its value. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00184.html" title="Allow to perform bit operations on integer values. ">GLM_GTX_bit</a> </dd></dl>
+<p>Faster than the common distance function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00184.html" title="Include <glm/gtx/fast_square_root.hpp> to use the features of this extension. ">GLM_GTX_fast_square_root</a> extension. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga2ff6568089f3a9b67f5c30918855fc6f"></a>
+<a class="anchor" id="ga42d3e771fa7cb3c60d828e315829df19"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genIUType glm::lowestBitValue </td>
+          <td class="memname">GLM_FUNC_DECL T glm::fastDistance </td>
           <td>(</td>
-          <td class="paramtype">genIUType&#160;</td>
-          <td class="paramname"><em>Value</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00184.html" title="Allow to perform bit operations on integer values. ">GLM_GTX_bit</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga8cda2459871f574a0aecbe702ac93291"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">GLM_DEPRECATED GLM_FUNC_DECL genIUType glm::powerOfTwoAbove </td>
-          <td>(</td>
-          <td class="paramtype">genIUType&#160;</td>
-          <td class="paramname"><em>Value</em></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the power of two number which value is just higher the input value. </p>
-<p>Deprecated, use ceilPowerOfTwo from GTC_round instead</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd>
-<dd>
-<a class="el" href="a00184.html" title="Allow to perform bit operations on integer values. ">GLM_GTX_bit</a> </dd></dl>
+<p>Faster than the common distance function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00184.html" title="Include <glm/gtx/fast_square_root.hpp> to use the features of this extension. ">GLM_GTX_fast_square_root</a> extension. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga75b5b40b975d346033e26b11b0b77300"></a>
+<a class="anchor" id="ga7f081b14d9c7035c8714eba5f7f75a8f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_DEPRECATED GLM_FUNC_DECL vec&lt;L, T, P&gt; glm::powerOfTwoAbove </td>
+          <td class="memname">GLM_FUNC_DECL genType glm::fastInverseSqrt </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramtype">genType&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the power of two number which value is just higher the input value. </p>
-<p>Deprecated, use ceilPowerOfTwo from GTC_round instead</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd>
-<dd>
-<a class="el" href="a00184.html" title="Allow to perform bit operations on integer values. ">GLM_GTX_bit</a> </dd></dl>
+<p>Faster than the common inversesqrt function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00184.html" title="Include <glm/gtx/fast_square_root.hpp> to use the features of this extension. ">GLM_GTX_fast_square_root</a> extension. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga3de7df63c589325101a2817a56f8e29d"></a>
+<a class="anchor" id="gadcd7be12b1e5ee182141359d4c45dd24"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_DEPRECATED GLM_FUNC_DECL genIUType glm::powerOfTwoBelow </td>
+          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, Q&gt; glm::fastInverseSqrt </td>
           <td>(</td>
-          <td class="paramtype">genIUType&#160;</td>
-          <td class="paramname"><em>Value</em></td><td>)</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the power of two number which value is just lower the input value. </p>
-<p>Deprecated, use floorPowerOfTwo from GTC_round instead</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd>
-<dd>
-<a class="el" href="a00184.html" title="Allow to perform bit operations on integer values. ">GLM_GTX_bit</a> </dd></dl>
+<p>Faster than the common inversesqrt function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00184.html" title="Include <glm/gtx/fast_square_root.hpp> to use the features of this extension. ">GLM_GTX_fast_square_root</a> extension. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga736d1ab1b4ad53a8e5f67692949ce164"></a>
+<a class="anchor" id="gafe697d6287719538346bbdf8b1367c59"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_DEPRECATED GLM_FUNC_DECL vec&lt;L, T, P&gt; glm::powerOfTwoBelow </td>
+          <td class="memname">GLM_FUNC_DECL genType glm::fastLength </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramtype">genType&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the power of two number which value is just lower the input value. </p>
-<p>Deprecated, use floorPowerOfTwo from GTC_round instead</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd>
-<dd>
-<a class="el" href="a00184.html" title="Allow to perform bit operations on integer values. ">GLM_GTX_bit</a> </dd></dl>
+<p>Faster than the common length function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00184.html" title="Include <glm/gtx/fast_square_root.hpp> to use the features of this extension. ">GLM_GTX_fast_square_root</a> extension. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga5f65973a5d2ea38c719e6a663149ead9"></a>
+<a class="anchor" id="ga90f66be92ef61e705c005e7b3209edb8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_DEPRECATED GLM_FUNC_DECL genIUType glm::powerOfTwoNearest </td>
+          <td class="memname">GLM_FUNC_DECL T glm::fastLength </td>
           <td>(</td>
-          <td class="paramtype">genIUType&#160;</td>
-          <td class="paramname"><em>Value</em></td><td>)</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the power of two number which value is the closet to the input value. </p>
-<p>Deprecated, use roundPowerOfTwo from GTC_round instead</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd>
-<dd>
-<a class="el" href="a00184.html" title="Allow to perform bit operations on integer values. ">GLM_GTX_bit</a> </dd></dl>
+<p>Faster than the common length function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00184.html" title="Include <glm/gtx/fast_square_root.hpp> to use the features of this extension. ">GLM_GTX_fast_square_root</a> extension. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga68d3ae1b89171e649b827c7d74dcde57"></a>
+<a class="anchor" id="ga3b02c1d6e0c754144e2f1e110bf9f16c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_DEPRECATED GLM_FUNC_DECL vec&lt;L, T, P&gt; glm::powerOfTwoNearest </td>
+          <td class="memname">GLM_FUNC_DECL genType glm::fastNormalize </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the power of two number which value is the closet to the input value. </p>
-<p>Deprecated, use roundPowerOfTwo from GTC_round instead</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd>
-<dd>
-<a class="el" href="a00184.html" title="Allow to perform bit operations on integer values. ">GLM_GTX_bit</a> </dd></dl>
+<p>Faster than the common normalize function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00184.html" title="Include <glm/gtx/fast_square_root.hpp> to use the features of this extension. ">GLM_GTX_fast_square_root</a> extension. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga6c460e9414a50b2fc455c8f64c86cdc9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL genType glm::fastSqrt </td>
+          <td>(</td>
+          <td class="paramtype">genType&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Faster than the common sqrt function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00184.html" title="Include <glm/gtx/fast_square_root.hpp> to use the features of this extension. ">GLM_GTX_fast_square_root</a> extension. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gae83f0c03614f73eae5478c5b6274ee6d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, Q&gt; glm::fastSqrt </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Faster than the common sqrt function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00184.html" title="Include <glm/gtx/fast_square_root.hpp> to use the features of this extension. ">GLM_GTX_fast_square_root</a> extension. </dd></dl>
 
 </div>
 </div>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTX_color_space</title>
+<title>0.9.9 API documenation: GLM_GTX_gradient_paint</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,135 +77,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_color_space<div class="ingroups"><a class="el" href="a00157.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_gradient_paint<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Related to RGB to HSV conversions and operations.  
+<p>Include &lt;<a class="el" href="a00036.html" title="GLM_GTX_gradient_paint ">glm/gtx/gradient_paint.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaade1964c868332aa49e2fa3f27ea0922"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gaade1964c868332aa49e2fa3f27ea0922"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00187.html#gaade1964c868332aa49e2fa3f27ea0922">hsvColor</a> (vec&lt; 3, T, P &gt; const &amp;rgbValue)</td></tr>
-<tr class="memdesc:gaade1964c868332aa49e2fa3f27ea0922"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a color from RGB color space to its color in HSV color space.  <a href="a00187.html#gaade1964c868332aa49e2fa3f27ea0922">More...</a><br /></td></tr>
-<tr class="separator:gaade1964c868332aa49e2fa3f27ea0922"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga00f1dfcb6dbec92dbe77a9bc31e4a59a"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga00f1dfcb6dbec92dbe77a9bc31e4a59a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00187.html#ga00f1dfcb6dbec92dbe77a9bc31e4a59a">luminosity</a> (vec&lt; 3, T, P &gt; const &amp;color)</td></tr>
-<tr class="memdesc:ga00f1dfcb6dbec92dbe77a9bc31e4a59a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute color luminosity associating ratios (0.33, 0.59, 0.11) to RGB canals.  <a href="a00187.html#ga00f1dfcb6dbec92dbe77a9bc31e4a59a">More...</a><br /></td></tr>
-<tr class="separator:ga00f1dfcb6dbec92dbe77a9bc31e4a59a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafe081a0fe99c4abd5d22866107fe5f49"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gafe081a0fe99c4abd5d22866107fe5f49"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00187.html#gafe081a0fe99c4abd5d22866107fe5f49">rgbColor</a> (vec&lt; 3, T, P &gt; const &amp;hsvValue)</td></tr>
-<tr class="memdesc:gafe081a0fe99c4abd5d22866107fe5f49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a color from HSV color space to its color in RGB color space.  <a href="a00187.html#gafe081a0fe99c4abd5d22866107fe5f49">More...</a><br /></td></tr>
-<tr class="separator:gafe081a0fe99c4abd5d22866107fe5f49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga01a97152b44e1550edcac60bd849e884"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga01a97152b44e1550edcac60bd849e884"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00187.html#ga01a97152b44e1550edcac60bd849e884">saturation</a> (T const s)</td></tr>
-<tr class="memdesc:ga01a97152b44e1550edcac60bd849e884"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a saturation matrix.  <a href="a00187.html#ga01a97152b44e1550edcac60bd849e884">More...</a><br /></td></tr>
-<tr class="separator:ga01a97152b44e1550edcac60bd849e884"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabac01d0b2e939c8d457b95d3e23afaee"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gabac01d0b2e939c8d457b95d3e23afaee"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00187.html#gabac01d0b2e939c8d457b95d3e23afaee">saturation</a> (T const s, vec&lt; 3, T, P &gt; const &amp;color)</td></tr>
-<tr class="memdesc:gabac01d0b2e939c8d457b95d3e23afaee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify the saturation of a color.  <a href="a00187.html#gabac01d0b2e939c8d457b95d3e23afaee">More...</a><br /></td></tr>
-<tr class="separator:gabac01d0b2e939c8d457b95d3e23afaee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4271afb4406bb1b688635792abc2401d"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga4271afb4406bb1b688635792abc2401d"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 4, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00187.html#ga4271afb4406bb1b688635792abc2401d">saturation</a> (T const s, vec&lt; 4, T, P &gt; const &amp;color)</td></tr>
-<tr class="memdesc:ga4271afb4406bb1b688635792abc2401d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modify the saturation of a color.  <a href="a00187.html#ga4271afb4406bb1b688635792abc2401d">More...</a><br /></td></tr>
-<tr class="separator:ga4271afb4406bb1b688635792abc2401d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga849241df1e55129b8ce9476200307419"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga849241df1e55129b8ce9476200307419"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00187.html#ga849241df1e55129b8ce9476200307419">linearGradient</a> (vec&lt; 2, T, Q &gt; const &amp;Point0, vec&lt; 2, T, Q &gt; const &amp;Point1, vec&lt; 2, T, Q &gt; const &amp;Position)</td></tr>
+<tr class="memdesc:ga849241df1e55129b8ce9476200307419"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a color from a linear gradient.  <a href="a00187.html#ga849241df1e55129b8ce9476200307419">More...</a><br /></td></tr>
+<tr class="separator:ga849241df1e55129b8ce9476200307419"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaecb1e93de4cbe0758b882812d4da294"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaaecb1e93de4cbe0758b882812d4da294"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00187.html#gaaecb1e93de4cbe0758b882812d4da294">radialGradient</a> (vec&lt; 2, T, Q &gt; const &amp;Center, T const &amp;Radius, vec&lt; 2, T, Q &gt; const &amp;Focal, vec&lt; 2, T, Q &gt; const &amp;Position)</td></tr>
+<tr class="memdesc:gaaecb1e93de4cbe0758b882812d4da294"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a color from a radial gradient.  <a href="a00187.html#gaaecb1e93de4cbe0758b882812d4da294">More...</a><br /></td></tr>
+<tr class="separator:gaaecb1e93de4cbe0758b882812d4da294"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Related to RGB to HSV conversions and operations. </p>
-<p>&lt;<a class="el" href="a00013.html" title="GLM_GTX_color_space ">glm/gtx/color_space.hpp</a>&gt; need to be included to use these functionalities. </p>
+<p>Include &lt;<a class="el" href="a00036.html" title="GLM_GTX_gradient_paint ">glm/gtx/gradient_paint.hpp</a>&gt; to use the features of this extension. </p>
+<p>Functions that return the color of procedural gradient for specific coordinates. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="gaade1964c868332aa49e2fa3f27ea0922"></a>
+<a class="anchor" id="ga849241df1e55129b8ce9476200307419"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, P&gt; glm::hsvColor </td>
+          <td class="memname">GLM_FUNC_DECL T glm::linearGradient </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>rgbValue</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Converts a color from RGB color space to its color in HSV color space. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00187.html" title="Related to RGB to HSV conversions and operations. ">GLM_GTX_color_space</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga00f1dfcb6dbec92dbe77a9bc31e4a59a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::luminosity </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>color</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Compute color luminosity associating ratios (0.33, 0.59, 0.11) to RGB canals. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00187.html" title="Related to RGB to HSV conversions and operations. ">GLM_GTX_color_space</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gafe081a0fe99c4abd5d22866107fe5f49"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, P&gt; glm::rgbColor </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>hsvValue</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Converts a color from HSV color space to its color in RGB color space. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00187.html" title="Related to RGB to HSV conversions and operations. ">GLM_GTX_color_space</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga01a97152b44e1550edcac60bd849e884"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::saturation </td>
-          <td>(</td>
-          <td class="paramtype">T const&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Build a saturation matrix. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00187.html" title="Related to RGB to HSV conversions and operations. ">GLM_GTX_color_space</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gabac01d0b2e939c8d457b95d3e23afaee"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, P&gt; glm::saturation </td>
-          <td>(</td>
-          <td class="paramtype">T const&#160;</td>
-          <td class="paramname"><em>s</em>, </td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>Point0</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>color</em>&#160;</td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>Point1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>Position</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -215,26 +129,38 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Modify the saturation of a color. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00187.html" title="Related to RGB to HSV conversions and operations. ">GLM_GTX_color_space</a> </dd></dl>
+<p>Return a color from a linear gradient. </p>
+<dl class="section see"><dt>See also</dt><dd>- <a class="el" href="a00187.html" title="Include <glm/gtx/gradient_paint.hpp> to use the features of this extension. ">GLM_GTX_gradient_paint</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga4271afb4406bb1b688635792abc2401d"></a>
+<a class="anchor" id="gaaecb1e93de4cbe0758b882812d4da294"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;4, T, P&gt; glm::saturation </td>
+          <td class="memname">GLM_FUNC_DECL T glm::radialGradient </td>
           <td>(</td>
-          <td class="paramtype">T const&#160;</td>
-          <td class="paramname"><em>s</em>, </td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>Center</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; 4, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>color</em>&#160;</td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>Radius</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>Focal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>Position</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -244,8 +170,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Modify the saturation of a color. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00187.html" title="Related to RGB to HSV conversions and operations. ">GLM_GTX_color_space</a> </dd></dl>
+<p>Return a color from a radial gradient. </p>
+<dl class="section see"><dt>See also</dt><dd>- <a class="el" href="a00187.html" title="Include <glm/gtx/gradient_paint.hpp> to use the features of this extension. ">GLM_GTX_gradient_paint</a> </dd></dl>
 
 </div>
 </div>

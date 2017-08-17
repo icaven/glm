@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTX_orthonormalize</title>
+<title>0.9.9 API documenation: GLM_GTX_transform</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,62 +77,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_orthonormalize<div class="ingroups"><a class="el" href="a00157.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_transform<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Orthonormalize matrices.  
+<p>Include &lt;<a class="el" href="a00098.html" title="GLM_GTX_transform ">glm/gtx/transform.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga5f566e2d226297ced157bd16b7544726"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga5f566e2d226297ced157bd16b7544726"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 3, 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00221.html#ga5f566e2d226297ced157bd16b7544726">orthonormalize</a> (mat&lt; 3, 3, T, P &gt; const &amp;m)</td></tr>
-<tr class="memdesc:ga5f566e2d226297ced157bd16b7544726"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the orthonormalized matrix of m.  <a href="a00221.html#ga5f566e2d226297ced157bd16b7544726">More...</a><br /></td></tr>
-<tr class="separator:ga5f566e2d226297ced157bd16b7544726"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafae90daec65cbe8b8e158d6bbab4345c"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gafae90daec65cbe8b8e158d6bbab4345c"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00221.html#gafae90daec65cbe8b8e158d6bbab4345c">orthonormalize</a> (vec&lt; 3, T, P &gt; const &amp;x, vec&lt; 3, T, P &gt; const &amp;y)</td></tr>
-<tr class="memdesc:gafae90daec65cbe8b8e158d6bbab4345c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orthonormalizes x according y.  <a href="a00221.html#gafae90daec65cbe8b8e158d6bbab4345c">More...</a><br /></td></tr>
-<tr class="separator:gafae90daec65cbe8b8e158d6bbab4345c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf599be4c0e9d99be1f9cddba79b6018b"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaf599be4c0e9d99be1f9cddba79b6018b"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00221.html#gaf599be4c0e9d99be1f9cddba79b6018b">rotate</a> (T angle, vec&lt; 3, T, Q &gt; const &amp;v)</td></tr>
+<tr class="memdesc:gaf599be4c0e9d99be1f9cddba79b6018b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a rotation 4 * 4 matrix created from an axis of 3 scalars and an angle expressed in radians.  <a href="a00221.html#gaf599be4c0e9d99be1f9cddba79b6018b">More...</a><br /></td></tr>
+<tr class="separator:gaf599be4c0e9d99be1f9cddba79b6018b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafbeefee8fec884d566e4ada0049174d7"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gafbeefee8fec884d566e4ada0049174d7"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00221.html#gafbeefee8fec884d566e4ada0049174d7">scale</a> (vec&lt; 3, T, Q &gt; const &amp;v)</td></tr>
+<tr class="memdesc:gafbeefee8fec884d566e4ada0049174d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms a matrix with a scale 4 * 4 matrix created from a vector of 3 components.  <a href="a00221.html#gafbeefee8fec884d566e4ada0049174d7">More...</a><br /></td></tr>
+<tr class="separator:gafbeefee8fec884d566e4ada0049174d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga309a30e652e58c396e2c3d4db3ee7658"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga309a30e652e58c396e2c3d4db3ee7658"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00221.html#ga309a30e652e58c396e2c3d4db3ee7658">translate</a> (vec&lt; 3, T, Q &gt; const &amp;v)</td></tr>
+<tr class="memdesc:ga309a30e652e58c396e2c3d4db3ee7658"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transforms a matrix with a translation 4 * 4 matrix created from 3 scalars.  <a href="a00221.html#ga309a30e652e58c396e2c3d4db3ee7658">More...</a><br /></td></tr>
+<tr class="separator:ga309a30e652e58c396e2c3d4db3ee7658"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Orthonormalize matrices. </p>
-<p>&lt;<a class="el" href="a00083.html" title="GLM_GTX_orthonormalize ">glm/gtx/orthonormalize.hpp</a>&gt; need to be included to use these functionalities. </p>
+<p>Include &lt;<a class="el" href="a00098.html" title="GLM_GTX_transform ">glm/gtx/transform.hpp</a>&gt; to use the features of this extension. </p>
+<p>Add transformation matrices </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga5f566e2d226297ced157bd16b7544726"></a>
+<a class="anchor" id="gaf599be4c0e9d99be1f9cddba79b6018b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;3, 3, T, P&gt; glm::orthonormalize </td>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::rotate </td>
           <td>(</td>
-          <td class="paramtype">mat&lt; 3, 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>m</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the orthonormalized matrix of m. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00221.html" title="Orthonormalize matrices. ">GLM_GTX_orthonormalize</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gafae90daec65cbe8b8e158d6bbab4345c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, P&gt; glm::orthonormalize </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -142,8 +127,52 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Orthonormalizes x according y. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00221.html" title="Orthonormalize matrices. ">GLM_GTX_orthonormalize</a> </dd></dl>
+<p>Builds a rotation 4 * 4 matrix created from an axis of 3 scalars and an angle expressed in radians. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
+<dd>
+<a class="el" href="a00221.html" title="Include <glm/gtx/transform.hpp> to use the features of this extension. ">GLM_GTX_transform</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gafbeefee8fec884d566e4ada0049174d7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::scale </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transforms a matrix with a scale 4 * 4 matrix created from a vector of 3 components. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
+<dd>
+<a class="el" href="a00221.html" title="Include <glm/gtx/transform.hpp> to use the features of this extension. ">GLM_GTX_transform</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga309a30e652e58c396e2c3d4db3ee7658"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::translate </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transforms a matrix with a translation 4 * 4 matrix created from 3 scalars. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
+<dd>
+<a class="el" href="a00221.html" title="Include <glm/gtx/transform.hpp> to use the features of this extension. ">GLM_GTX_transform</a> </dd></dl>
 
 </div>
 </div>

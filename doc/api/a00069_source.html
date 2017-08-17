@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: matrix_interpolation.hpp Source File</title>
+<title>0.9.9 API documenation: noise.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -79,62 +79,54 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_934f46a345653ef2b3014a1b37a162c1.html">G:</a></li><li class="navelem"><a class="el" href="dir_98f7f9d41f9d3029bd68cf237526a774.html">Source</a></li><li class="navelem"><a class="el" href="dir_9344afb825aed5e2f5be1d2015dde43c.html">G-Truc</a></li><li class="navelem"><a class="el" href="dir_45973f864e07b2505003ae343b7c8af7.html">glm</a></li><li class="navelem"><a class="el" href="dir_304be5dfae1339a7705426c0b536faf2.html">glm</a></li><li class="navelem"><a class="el" href="dir_e8f3c1046ba4b357711397765359cd18.html">gtx</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_934f46a345653ef2b3014a1b37a162c1.html">G:</a></li><li class="navelem"><a class="el" href="dir_98f7f9d41f9d3029bd68cf237526a774.html">Source</a></li><li class="navelem"><a class="el" href="dir_9344afb825aed5e2f5be1d2015dde43c.html">G-Truc</a></li><li class="navelem"><a class="el" href="dir_45973f864e07b2505003ae343b7c8af7.html">glm</a></li><li class="navelem"><a class="el" href="dir_304be5dfae1339a7705426c0b536faf2.html">glm</a></li><li class="navelem"><a class="el" href="dir_7997edb062bdde9a99cb6835d42b0d9d.html">gtc</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">matrix_interpolation.hpp</div>  </div>
+<div class="title">noise.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00069.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// Dependency:</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;../glm.hpp&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifndef GLM_ENABLE_EXPERIMENTAL</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#       error &quot;GLM: GLM_GTX_matrix_interpolation is an experimental extension and may change in the future. Use #define GLM_ENABLE_EXPERIMENTAL before including it, if you really want to use it.&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#if GLM_MESSAGES == GLM_MESSAGES_ENABLED &amp;&amp; !defined(GLM_EXT_INCLUDED)</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#       pragma message(&quot;GLM: GLM_GTX_matrix_interpolation extension included&quot;)</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00143.html">glm</a></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, qualifier P&gt;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        GLM_FUNC_DECL <span class="keywordtype">void</span> <a class="code" href="a00210.html#ga8a1bad8efb86c86a3ace904d23863019">axisAngle</a>(</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                mat&lt;4, 4, T, P&gt; <span class="keyword">const</span>&amp; mat,</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                vec&lt;3, T, P&gt; &amp; <a class="code" href="a00174.html#ga30f9cab44cd6038900b8e021e8f6b935">axis</a>,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                T &amp; <a class="code" href="a00174.html#gad4a4448baedb198b2b1e7880d2544dc9">angle</a>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, qualifier P&gt;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        GLM_FUNC_DECL mat&lt;4, 4, T, P&gt; <a class="code" href="a00210.html#gaf4c62093a1e1d61c5d1e0d1e02455cbf">axisAngleMatrix</a>(</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                vec&lt;3, T, P&gt; <span class="keyword">const</span> &amp; <a class="code" href="a00174.html#ga30f9cab44cd6038900b8e021e8f6b935">axis</a>,</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                T <span class="keyword">const</span> <a class="code" href="a00174.html#gad4a4448baedb198b2b1e7880d2544dc9">angle</a>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, qualifier P&gt;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        GLM_FUNC_DECL mat&lt;4, 4, T, P&gt; <a class="code" href="a00210.html#ga7d194e86005f40cde677d6d2fadf6205">extractMatrixRotation</a>(</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                mat&lt;4, 4, T, P&gt; <span class="keyword">const</span>&amp; mat);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, qualifier P&gt;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        GLM_FUNC_DECL mat&lt;4, 4, T, P&gt; <a class="code" href="a00210.html#ga8614879ae96ceaf18a4ef1b8ce2bc5aa">interpolate</a>(</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                mat&lt;4, 4, T, P&gt; <span class="keyword">const</span>&amp; m1,</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                mat&lt;4, 4, T, P&gt; <span class="keyword">const</span>&amp; m2,</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                T <span class="keyword">const</span> delta);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}<span class="comment">//namespace glm</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#include &quot;matrix_interpolation.inl&quot;</span></div>
-<div class="ttc" id="a00210_html_ga7d194e86005f40cde677d6d2fadf6205"><div class="ttname"><a href="a00210.html#ga7d194e86005f40cde677d6d2fadf6205">glm::extractMatrixRotation</a></div><div class="ttdeci">GLM_FUNC_DECL mat&lt; 4, 4, T, P &gt; extractMatrixRotation(mat&lt; 4, 4, T, P &gt; const &amp;mat)</div><div class="ttdoc">Extracts the rotation part of a matrix. </div></div>
-<div class="ttc" id="a00143_html"><div class="ttname"><a href="a00143.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00003_source.html#l00011">_noise.hpp:11</a></div></div>
-<div class="ttc" id="a00174_html_gad4a4448baedb198b2b1e7880d2544dc9"><div class="ttname"><a href="a00174.html#gad4a4448baedb198b2b1e7880d2544dc9">glm::angle</a></div><div class="ttdeci">GLM_FUNC_DECL T angle(tquat&lt; T, P &gt; const &amp;x)</div><div class="ttdoc">Returns the quaternion rotation angle. </div></div>
-<div class="ttc" id="a00174_html_ga30f9cab44cd6038900b8e021e8f6b935"><div class="ttname"><a href="a00174.html#ga30f9cab44cd6038900b8e021e8f6b935">glm::axis</a></div><div class="ttdeci">GLM_FUNC_DECL vec&lt; 3, T, P &gt; axis(tquat&lt; T, P &gt; const &amp;x)</div><div class="ttdoc">Returns the q rotation axis. </div></div>
-<div class="ttc" id="a00210_html_gaf4c62093a1e1d61c5d1e0d1e02455cbf"><div class="ttname"><a href="a00210.html#gaf4c62093a1e1d61c5d1e0d1e02455cbf">glm::axisAngleMatrix</a></div><div class="ttdeci">GLM_FUNC_DECL mat&lt; 4, 4, T, P &gt; axisAngleMatrix(vec&lt; 3, T, P &gt; const &amp;axis, T const angle)</div><div class="ttdoc">Build a matrix from axis and angle. </div></div>
-<div class="ttc" id="a00210_html_ga8614879ae96ceaf18a4ef1b8ce2bc5aa"><div class="ttname"><a href="a00210.html#ga8614879ae96ceaf18a4ef1b8ce2bc5aa">glm::interpolate</a></div><div class="ttdeci">GLM_FUNC_DECL mat&lt; 4, 4, T, P &gt; interpolate(mat&lt; 4, 4, T, P &gt; const &amp;m1, mat&lt; 4, 4, T, P &gt; const &amp;m2, T const delta)</div><div class="ttdoc">Build a interpolation of 4 * 4 matrixes. </div></div>
-<div class="ttc" id="a00210_html_ga8a1bad8efb86c86a3ace904d23863019"><div class="ttname"><a href="a00210.html#ga8a1bad8efb86c86a3ace904d23863019">glm::axisAngle</a></div><div class="ttdeci">GLM_FUNC_DECL void axisAngle(mat&lt; 4, 4, T, P &gt; const &amp;mat, vec&lt; 3, T, P &gt; &amp;axis, T &amp;angle)</div><div class="ttdoc">Get the axis and angle of the rotation from a matrix. </div></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">// Dependencies</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;../detail/setup.hpp&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;../detail/qualifier.hpp&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;../detail/_noise.hpp&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;../geometric.hpp&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;../common.hpp&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;../vector_relational.hpp&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;../vec2.hpp&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;../vec3.hpp&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;../vec4.hpp&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#if GLM_MESSAGES == GLM_MESSAGES_ENABLED &amp;&amp; !defined(GLM_EXT_INCLUDED)</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#       pragma message(&quot;GLM: GLM_GTC_noise extension included&quot;)</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00135.html">glm</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier Q&gt;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        GLM_FUNC_DECL T <a class="code" href="a00158.html#gac270edc54c5fc52f5985a45f940bb103">perlin</a>(</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                vec&lt;L, T, Q&gt; <span class="keyword">const</span>&amp; p);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier Q&gt;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        GLM_FUNC_DECL T <a class="code" href="a00158.html#gac270edc54c5fc52f5985a45f940bb103">perlin</a>(</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                vec&lt;L, T, Q&gt; <span class="keyword">const</span>&amp; p,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                vec&lt;L, T, Q&gt; <span class="keyword">const</span>&amp; rep);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier Q&gt;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        GLM_FUNC_DECL T <a class="code" href="a00158.html#ga8122468c69015ff397349a7dcc638b27">simplex</a>(</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                vec&lt;L, T, Q&gt; <span class="keyword">const</span>&amp; p);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}<span class="comment">//namespace glm</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#include &quot;noise.inl&quot;</span></div>
+<div class="ttc" id="a00158_html_gac270edc54c5fc52f5985a45f940bb103"><div class="ttname"><a href="a00158.html#gac270edc54c5fc52f5985a45f940bb103">glm::perlin</a></div><div class="ttdeci">GLM_FUNC_DECL T perlin(vec&lt; L, T, Q &gt; const &amp;p, vec&lt; L, T, Q &gt; const &amp;rep)</div><div class="ttdoc">Periodic perlin noise. </div></div>
+<div class="ttc" id="a00135_html"><div class="ttname"><a href="a00135.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00015_source.html#l00020">common.hpp:20</a></div></div>
+<div class="ttc" id="a00158_html_ga8122468c69015ff397349a7dcc638b27"><div class="ttname"><a href="a00158.html#ga8122468c69015ff397349a7dcc638b27">glm::simplex</a></div><div class="ttdeci">GLM_FUNC_DECL T simplex(vec&lt; L, T, Q &gt; const &amp;p)</div><div class="ttdoc">Simplex noise. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM Core</title>
+<title>0.9.9 API documenation: GLM_GTC_noise</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -75,56 +75,101 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM Core</div>  </div>
+<div class="title">GLM_GTC_noise<div class="ingroups"><a class="el" href="a00147.html">Stable extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The core of GLM, which implements exactly and only the GLSL specification to the degree possible.  
+<p>Include &lt;<a class="el" href="a00069.html" title="GLM_GTC_noise ">glm/gtc/noise.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="groups"></a>
-Modules</h2></td></tr>
-<tr class="memitem:a00148"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00148.html">Common functions</a></td></tr>
-<tr class="memdesc:a00148"><td class="mdescLeft">&#160;</td><td class="mdescRight">These all operate component-wise. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00149"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html">Exponential functions</a></td></tr>
-<tr class="memdesc:a00149"><td class="mdescLeft">&#160;</td><td class="mdescRight">These all operate component-wise. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00150"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00150.html">Geometric functions</a></td></tr>
-<tr class="memdesc:a00150"><td class="mdescLeft">&#160;</td><td class="mdescRight">These operate on vectors as vectors, not component-wise. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00151"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00151.html">Integer functions</a></td></tr>
-<tr class="memdesc:a00151"><td class="mdescLeft">&#160;</td><td class="mdescRight">These all operate component-wise. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00152"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00152.html">Matrix functions</a></td></tr>
-<tr class="memdesc:a00152"><td class="mdescLeft">&#160;</td><td class="mdescRight">For each of the following built-in matrix functions, there is both a single-qualifier floating point version, where all arguments and return values are single qualifier, and a double-qualifier floating version, where all arguments and return values are double qualifier. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00153"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00153.html">Floating-Point Pack and Unpack Functions</a></td></tr>
-<tr class="memdesc:a00153"><td class="mdescLeft">&#160;</td><td class="mdescRight">These functions do not operate component-wise, rather as described in each case. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00154"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00154.html">Angle and Trigonometry Functions</a></td></tr>
-<tr class="memdesc:a00154"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function parameters specified as angle are assumed to be in units of radians. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00155"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00155.html">Vector Relational Functions</a></td></tr>
-<tr class="memdesc:a00155"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relational and equality operators (&lt;, &lt;=, &gt;, &gt;=, ==, !=) are defined to operate on scalars and produce scalar Boolean results. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00159"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00159.html">Types</a></td></tr>
-<tr class="memdesc:a00159"><td class="mdescLeft">&#160;</td><td class="mdescRight">The standard types defined by the specification. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00160"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00160.html">Precision types</a></td></tr>
-<tr class="memdesc:a00160"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-GLSL types that are used to define qualifier-based types. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00161"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00161.html">Template types</a></td></tr>
-<tr class="memdesc:a00161"><td class="mdescLeft">&#160;</td><td class="mdescRight">The generic template types used as the basis for the core types. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga1e043ce3b51510e9bc4469227cefc38a"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga1e043ce3b51510e9bc4469227cefc38a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00158.html#ga1e043ce3b51510e9bc4469227cefc38a">perlin</a> (vec&lt; L, T, Q &gt; const &amp;p)</td></tr>
+<tr class="memdesc:ga1e043ce3b51510e9bc4469227cefc38a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classic perlin noise.  <a href="a00158.html#ga1e043ce3b51510e9bc4469227cefc38a">More...</a><br /></td></tr>
+<tr class="separator:ga1e043ce3b51510e9bc4469227cefc38a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac270edc54c5fc52f5985a45f940bb103"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gac270edc54c5fc52f5985a45f940bb103"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00158.html#gac270edc54c5fc52f5985a45f940bb103">perlin</a> (vec&lt; L, T, Q &gt; const &amp;p, vec&lt; L, T, Q &gt; const &amp;rep)</td></tr>
+<tr class="memdesc:gac270edc54c5fc52f5985a45f940bb103"><td class="mdescLeft">&#160;</td><td class="mdescRight">Periodic perlin noise.  <a href="a00158.html#gac270edc54c5fc52f5985a45f940bb103">More...</a><br /></td></tr>
+<tr class="separator:gac270edc54c5fc52f5985a45f940bb103"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8122468c69015ff397349a7dcc638b27"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga8122468c69015ff397349a7dcc638b27"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00158.html#ga8122468c69015ff397349a7dcc638b27">simplex</a> (vec&lt; L, T, Q &gt; const &amp;p)</td></tr>
+<tr class="memdesc:ga8122468c69015ff397349a7dcc638b27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simplex noise.  <a href="a00158.html#ga8122468c69015ff397349a7dcc638b27">More...</a><br /></td></tr>
+<tr class="separator:ga8122468c69015ff397349a7dcc638b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>The core of GLM, which implements exactly and only the GLSL specification to the degree possible. </p>
-<p>The GLM core consists of <a class="el" href="a00159.html">C++ types that mirror GLSL types</a> and C++ functions that mirror the GLSL functions. It also includes <a class="el" href="a00160.html">a set of qualifier-based types</a> that can be used in the appropriate functions. The C++ types are all based on a basic set of <a class="el" href="a00161.html">template types</a>.</p>
-<p>The best documentation for GLM Core is the current GLSL specification, <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.clean.pdf">version 4.2 (pdf file)</a>.</p>
-<p>GLM core functionalities require &lt;<a class="el" href="a00043.html" title="GLM Core ">glm/glm.hpp</a>&gt; to be included to be used. </p>
+<p>Include &lt;<a class="el" href="a00069.html" title="GLM_GTC_noise ">glm/gtc/noise.hpp</a>&gt; to use the features of this extension. </p>
+<p>Defines 2D, 3D and 4D procedural noise functions Based on the work of Stefan Gustavson and Ashima Arts on "webgl-noise": <a href="https://github.com/ashima/webgl-noise">https://github.com/ashima/webgl-noise</a> Following Stefan Gustavson's paper "Simplex noise demystified": <a href="http://www.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf">http://www.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf</a> </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ga1e043ce3b51510e9bc4469227cefc38a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL T glm::perlin </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Classic perlin noise. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00158.html" title="Include <glm/gtc/noise.hpp> to use the features of this extension. ">GLM_GTC_noise</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gac270edc54c5fc52f5985a45f940bb103"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL T glm::perlin </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>rep</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Periodic perlin noise. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00158.html" title="Include <glm/gtc/noise.hpp> to use the features of this extension. ">GLM_GTC_noise</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga8122468c69015ff397349a7dcc638b27"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL T glm::simplex </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Simplex noise. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00158.html" title="Include <glm/gtc/noise.hpp> to use the features of this extension. ">GLM_GTC_noise</a> </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

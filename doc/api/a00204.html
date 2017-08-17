@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTX_intersect</title>
+<title>0.9.9 API documenation: GLM_GTX_normal</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,95 +77,45 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_intersect<div class="ingroups"><a class="el" href="a00157.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_normal<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Add intersection functions.  
+<p>Include &lt;<a class="el" href="a00071.html" title="GLM_GTX_normal ">glm/gtx/normal.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga9c68139f3d8a4f3d7fe45f9dbc0de5b7"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:ga9c68139f3d8a4f3d7fe45f9dbc0de5b7"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00204.html#ga9c68139f3d8a4f3d7fe45f9dbc0de5b7">intersectLineSphere</a> (genType const &amp;point0, genType const &amp;point1, genType const &amp;sphereCenter, typename genType::value_type sphereRadius, genType &amp;intersectionPosition1, genType &amp;intersectionNormal1, genType &amp;intersectionPosition2=genType(), genType &amp;intersectionNormal2=genType())</td></tr>
-<tr class="memdesc:ga9c68139f3d8a4f3d7fe45f9dbc0de5b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the intersection of a line and a sphere.  <a href="a00204.html#ga9c68139f3d8a4f3d7fe45f9dbc0de5b7">More...</a><br /></td></tr>
-<tr class="separator:ga9c68139f3d8a4f3d7fe45f9dbc0de5b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9d29b9b3acb504d43986502f42740df4"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:ga9d29b9b3acb504d43986502f42740df4"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00204.html#ga9d29b9b3acb504d43986502f42740df4">intersectLineTriangle</a> (genType const &amp;orig, genType const &amp;dir, genType const &amp;vert0, genType const &amp;vert1, genType const &amp;vert2, genType &amp;position)</td></tr>
-<tr class="memdesc:ga9d29b9b3acb504d43986502f42740df4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the intersection of a line and a triangle.  <a href="a00204.html#ga9d29b9b3acb504d43986502f42740df4">More...</a><br /></td></tr>
-<tr class="separator:ga9d29b9b3acb504d43986502f42740df4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad3697a9700ea379739a667ea02573488"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:gad3697a9700ea379739a667ea02573488"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00204.html#gad3697a9700ea379739a667ea02573488">intersectRayPlane</a> (genType const &amp;orig, genType const &amp;dir, genType const &amp;planeOrig, genType const &amp;planeNormal, typename genType::value_type &amp;intersectionDistance)</td></tr>
-<tr class="memdesc:gad3697a9700ea379739a667ea02573488"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the intersection of a ray and a plane.  <a href="a00204.html#gad3697a9700ea379739a667ea02573488">More...</a><br /></td></tr>
-<tr class="separator:gad3697a9700ea379739a667ea02573488"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac88f8cd84c4bcb5b947d56acbbcfa56e"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:gac88f8cd84c4bcb5b947d56acbbcfa56e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00204.html#gac88f8cd84c4bcb5b947d56acbbcfa56e">intersectRaySphere</a> (genType const &amp;rayStarting, genType const &amp;rayNormalizedDirection, genType const &amp;sphereCenter, typename genType::value_type const sphereRadiusSquered, typename genType::value_type &amp;intersectionDistance)</td></tr>
-<tr class="memdesc:gac88f8cd84c4bcb5b947d56acbbcfa56e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the intersection distance of a ray and a sphere.  <a href="a00204.html#gac88f8cd84c4bcb5b947d56acbbcfa56e">More...</a><br /></td></tr>
-<tr class="separator:gac88f8cd84c4bcb5b947d56acbbcfa56e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad28c00515b823b579c608aafa1100c1d"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:gad28c00515b823b579c608aafa1100c1d"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00204.html#gad28c00515b823b579c608aafa1100c1d">intersectRaySphere</a> (genType const &amp;rayStarting, genType const &amp;rayNormalizedDirection, genType const &amp;sphereCenter, const typename genType::value_type sphereRadius, genType &amp;intersectionPosition, genType &amp;intersectionNormal)</td></tr>
-<tr class="memdesc:gad28c00515b823b579c608aafa1100c1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the intersection of a ray and a sphere.  <a href="a00204.html#gad28c00515b823b579c608aafa1100c1d">More...</a><br /></td></tr>
-<tr class="separator:gad28c00515b823b579c608aafa1100c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga458087cc2b9a55cc0fb15e7d9dd1ed2c"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga458087cc2b9a55cc0fb15e7d9dd1ed2c"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00204.html#ga458087cc2b9a55cc0fb15e7d9dd1ed2c">intersectRayTriangle</a> (vec&lt; 3, T, P &gt; const &amp;orig, vec&lt; 3, T, P &gt; const &amp;dir, vec&lt; 3, T, P &gt; const &amp;v0, vec&lt; 3, T, P &gt; const &amp;v1, vec&lt; 3, T, P &gt; const &amp;v2, vec&lt; 3, T, P &gt; &amp;baryPosition, T &amp;distance)</td></tr>
-<tr class="memdesc:ga458087cc2b9a55cc0fb15e7d9dd1ed2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the intersection of a ray and a triangle.  <a href="a00204.html#ga458087cc2b9a55cc0fb15e7d9dd1ed2c">More...</a><br /></td></tr>
-<tr class="separator:ga458087cc2b9a55cc0fb15e7d9dd1ed2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaff1cb5496925dfa7962df457772a7f35"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaff1cb5496925dfa7962df457772a7f35"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00204.html#gaff1cb5496925dfa7962df457772a7f35">triangleNormal</a> (vec&lt; 3, T, Q &gt; const &amp;p1, vec&lt; 3, T, Q &gt; const &amp;p2, vec&lt; 3, T, Q &gt; const &amp;p3)</td></tr>
+<tr class="memdesc:gaff1cb5496925dfa7962df457772a7f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes triangle normal from triangle points.  <a href="a00204.html#gaff1cb5496925dfa7962df457772a7f35">More...</a><br /></td></tr>
+<tr class="separator:gaff1cb5496925dfa7962df457772a7f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Add intersection functions. </p>
-<p>&lt;<a class="el" href="a00050.html" title="GLM_GTX_intersect ">glm/gtx/intersect.hpp</a>&gt; need to be included to use these functionalities. </p>
+<p>Include &lt;<a class="el" href="a00071.html" title="GLM_GTX_normal ">glm/gtx/normal.hpp</a>&gt; to use the features of this extension. </p>
+<p>Compute the normal of a triangle. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga9c68139f3d8a4f3d7fe45f9dbc0de5b7"></a>
+<a class="anchor" id="gaff1cb5496925dfa7962df457772a7f35"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL bool glm::intersectLineSphere </td>
+          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, Q&gt; glm::triangleNormal </td>
           <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>point0</em>, </td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>point1</em>, </td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>p2</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>sphereCenter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">typename genType::value_type&#160;</td>
-          <td class="paramname"><em>sphereRadius</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType &amp;&#160;</td>
-          <td class="paramname"><em>intersectionPosition1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType &amp;&#160;</td>
-          <td class="paramname"><em>intersectionNormal1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType &amp;&#160;</td>
-          <td class="paramname"><em>intersectionPosition2</em> = <code>genType()</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType &amp;&#160;</td>
-          <td class="paramname"><em>intersectionNormal2</em> = <code>genType()</code>&#160;</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>p3</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -175,267 +125,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Compute the intersection of a line and a sphere. </p>
-<p>From GLM_GTX_intersect extension </p>
-
-</div>
-</div>
-<a class="anchor" id="ga9d29b9b3acb504d43986502f42740df4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL bool glm::intersectLineTriangle </td>
-          <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>orig</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>dir</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>vert0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>vert1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>vert2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType &amp;&#160;</td>
-          <td class="paramname"><em>position</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Compute the intersection of a line and a triangle. </p>
-<p>From GLM_GTX_intersect extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="gad3697a9700ea379739a667ea02573488"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL bool glm::intersectRayPlane </td>
-          <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>orig</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>dir</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>planeOrig</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>planeNormal</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">typename genType::value_type &amp;&#160;</td>
-          <td class="paramname"><em>intersectionDistance</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Compute the intersection of a ray and a plane. </p>
-<p>Ray direction and plane normal must be unit length. From GLM_GTX_intersect extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="gac88f8cd84c4bcb5b947d56acbbcfa56e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL bool glm::intersectRaySphere </td>
-          <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>rayStarting</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>rayNormalizedDirection</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>sphereCenter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">typename genType::value_type const&#160;</td>
-          <td class="paramname"><em>sphereRadiusSquered</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">typename genType::value_type &amp;&#160;</td>
-          <td class="paramname"><em>intersectionDistance</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Compute the intersection distance of a ray and a sphere. </p>
-<p>The ray direction vector is unit length. From GLM_GTX_intersect extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="gad28c00515b823b579c608aafa1100c1d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL bool glm::intersectRaySphere </td>
-          <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>rayStarting</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>rayNormalizedDirection</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>sphereCenter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const typename genType::value_type&#160;</td>
-          <td class="paramname"><em>sphereRadius</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType &amp;&#160;</td>
-          <td class="paramname"><em>intersectionPosition</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType &amp;&#160;</td>
-          <td class="paramname"><em>intersectionNormal</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Compute the intersection of a ray and a sphere. </p>
-<p>From GLM_GTX_intersect extension. </p>
-
-</div>
-</div>
-<a class="anchor" id="ga458087cc2b9a55cc0fb15e7d9dd1ed2c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL bool glm::intersectRayTriangle </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>orig</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>dir</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v1</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v2</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; &amp;&#160;</td>
-          <td class="paramname"><em>baryPosition</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T &amp;&#160;</td>
-          <td class="paramname"><em>distance</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Compute the intersection of a ray and a triangle. </p>
-<p>Based om Tomas Möller implementation <a href="http://fileadmin.cs.lth.se/cs/Personal/Tomas_Akenine-Moller/raytri/">http://fileadmin.cs.lth.se/cs/Personal/Tomas_Akenine-Moller/raytri/</a> From GLM_GTX_intersect extension. </p>
+<p>Computes triangle normal from triangle points. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00204.html" title="Include <glm/gtx/normal.hpp> to use the features of this extension. ">GLM_GTX_normal</a> </dd></dl>
 
 </div>
 </div>

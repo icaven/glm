@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['vector_20relational_20functions',['Vector Relational Functions',['../a00155.html',1,'']]]
+  ['template_20types',['Template types',['../a00146.html',1,'']]],
+  ['types',['Types',['../a00144.html',1,'']]]
 ];

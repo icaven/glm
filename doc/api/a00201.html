@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTX_handed_coordinate_space</title>
+<title>0.9.9 API documenation: GLM_GTX_matrix_transform_2d</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,49 +77,55 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_handed_coordinate_space<div class="ingroups"><a class="el" href="a00157.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_matrix_transform_2d<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>To know if a set of three basis vectors defines a right or left-handed coordinate system.  
+<p>Include &lt;<a class="el" href="a00067.html" title="GLM_GTX_matrix_transform_2d ">glm/gtx/matrix_transform_2d.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga95202d2b16aba5e2caf2e009c39faa8f"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga95202d2b16aba5e2caf2e009c39faa8f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00201.html#ga95202d2b16aba5e2caf2e009c39faa8f">leftHanded</a> (vec&lt; 3, T, P &gt; const &amp;tangent, vec&lt; 3, T, P &gt; const &amp;binormal, vec&lt; 3, T, P &gt; const &amp;normal)</td></tr>
-<tr class="memdesc:ga95202d2b16aba5e2caf2e009c39faa8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return if a trihedron left handed or not.  <a href="a00201.html#ga95202d2b16aba5e2caf2e009c39faa8f">More...</a><br /></td></tr>
-<tr class="separator:ga95202d2b16aba5e2caf2e009c39faa8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae2783689006f6fe78b02d83cdba6a728"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gae2783689006f6fe78b02d83cdba6a728"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00201.html#gae2783689006f6fe78b02d83cdba6a728">rightHanded</a> (vec&lt; 3, T, P &gt; const &amp;tangent, vec&lt; 3, T, P &gt; const &amp;binormal, vec&lt; 3, T, P &gt; const &amp;normal)</td></tr>
-<tr class="memdesc:gae2783689006f6fe78b02d83cdba6a728"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return if a trihedron right handed or not.  <a href="a00201.html#gae2783689006f6fe78b02d83cdba6a728">More...</a><br /></td></tr>
-<tr class="separator:gae2783689006f6fe78b02d83cdba6a728"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad5c84a4932a758f385a87098ce1b1660"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gad5c84a4932a758f385a87098ce1b1660"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00201.html#gad5c84a4932a758f385a87098ce1b1660">rotate</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m, T angle)</td></tr>
+<tr class="memdesc:gad5c84a4932a758f385a87098ce1b1660"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a rotation 3 * 3 matrix created from an angle.  <a href="a00201.html#gad5c84a4932a758f385a87098ce1b1660">More...</a><br /></td></tr>
+<tr class="separator:gad5c84a4932a758f385a87098ce1b1660"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadb47d2ad2bd984b213e8ff7d9cd8154e"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gadb47d2ad2bd984b213e8ff7d9cd8154e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00201.html#gadb47d2ad2bd984b213e8ff7d9cd8154e">scale</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m, vec&lt; 2, T, Q &gt; const &amp;v)</td></tr>
+<tr class="memdesc:gadb47d2ad2bd984b213e8ff7d9cd8154e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a scale 3 * 3 matrix created from a vector of 2 components.  <a href="a00201.html#gadb47d2ad2bd984b213e8ff7d9cd8154e">More...</a><br /></td></tr>
+<tr class="separator:gadb47d2ad2bd984b213e8ff7d9cd8154e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2a118ece5db1e2022112b954846012af"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga2a118ece5db1e2022112b954846012af"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00201.html#ga2a118ece5db1e2022112b954846012af">shearX</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m, T y)</td></tr>
+<tr class="memdesc:ga2a118ece5db1e2022112b954846012af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds an horizontal (parallel to the x axis) shear 3 * 3 matrix.  <a href="a00201.html#ga2a118ece5db1e2022112b954846012af">More...</a><br /></td></tr>
+<tr class="separator:ga2a118ece5db1e2022112b954846012af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga717f1833369c1ac4a40e4ac015af885e"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga717f1833369c1ac4a40e4ac015af885e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00201.html#ga717f1833369c1ac4a40e4ac015af885e">shearY</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m, T x)</td></tr>
+<tr class="memdesc:ga717f1833369c1ac4a40e4ac015af885e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a vertical (parallel to the y axis) shear 3 * 3 matrix.  <a href="a00201.html#ga717f1833369c1ac4a40e4ac015af885e">More...</a><br /></td></tr>
+<tr class="separator:ga717f1833369c1ac4a40e4ac015af885e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf4573ae47c80938aa9053ef6a33755ab"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaf4573ae47c80938aa9053ef6a33755ab"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00201.html#gaf4573ae47c80938aa9053ef6a33755ab">translate</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m, vec&lt; 2, T, Q &gt; const &amp;v)</td></tr>
+<tr class="memdesc:gaf4573ae47c80938aa9053ef6a33755ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a translation 3 * 3 matrix created from a vector of 2 components.  <a href="a00201.html#gaf4573ae47c80938aa9053ef6a33755ab">More...</a><br /></td></tr>
+<tr class="separator:gaf4573ae47c80938aa9053ef6a33755ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>To know if a set of three basis vectors defines a right or left-handed coordinate system. </p>
-<p>&lt;glm/gtx/handed_coordinate_system.hpp&gt; need to be included to use these functionalities. </p>
+<p>Include &lt;<a class="el" href="a00067.html" title="GLM_GTX_matrix_transform_2d ">glm/gtx/matrix_transform_2d.hpp</a>&gt; to use the features of this extension. </p>
+<p>Defines functions that generate common 2d transformation matrices. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga95202d2b16aba5e2caf2e009c39faa8f"></a>
+<a class="anchor" id="gad5c84a4932a758f385a87098ce1b1660"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL bool glm::leftHanded </td>
+          <td class="memname">GLM_FUNC_QUALIFIER mat&lt;3, 3, T, Q&gt; glm::rotate </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>tangent</em>, </td>
+          <td class="paramtype">mat&lt; 3, 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>binormal</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>normal</em>&#160;</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>angle</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -129,32 +135,32 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return if a trihedron left handed or not. </p>
-<p>From GLM_GTX_handed_coordinate_space extension. </p>
+<p>Builds a rotation 3 * 3 matrix created from an angle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Input matrix multiplied by this translation matrix. </td></tr>
+    <tr><td class="paramname">angle</td><td>Rotation angle expressed in radians. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a class="anchor" id="gae2783689006f6fe78b02d83cdba6a728"></a>
+<a class="anchor" id="gadb47d2ad2bd984b213e8ff7d9cd8154e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL bool glm::rightHanded </td>
+          <td class="memname">GLM_FUNC_QUALIFIER mat&lt;3, 3, T, Q&gt; glm::scale </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>tangent</em>, </td>
+          <td class="paramtype">mat&lt; 3, 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>binormal</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>normal</em>&#160;</td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -164,8 +170,119 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return if a trihedron right handed or not. </p>
-<p>From GLM_GTX_handed_coordinate_space extension. </p>
+<p>Builds a scale 3 * 3 matrix created from a vector of 2 components. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Input matrix multiplied by this translation matrix. </td></tr>
+    <tr><td class="paramname">v</td><td>Coordinates of a scale vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga2a118ece5db1e2022112b954846012af"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_QUALIFIER mat&lt;3, 3, T, Q&gt; glm::shearX </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; 3, 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds an horizontal (parallel to the x axis) shear 3 * 3 matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Input matrix multiplied by this translation matrix. </td></tr>
+    <tr><td class="paramname">y</td><td>Shear factor. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga717f1833369c1ac4a40e4ac015af885e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_QUALIFIER mat&lt;3, 3, T, Q&gt; glm::shearY </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; 3, 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds a vertical (parallel to the y axis) shear 3 * 3 matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Input matrix multiplied by this translation matrix. </td></tr>
+    <tr><td class="paramname">x</td><td>Shear factor. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gaf4573ae47c80938aa9053ef6a33755ab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_QUALIFIER mat&lt;3, 3, T, Q&gt; glm::translate </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; 3, 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds a translation 3 * 3 matrix created from a vector of 2 components. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Input matrix multiplied by this translation matrix. </td></tr>
+    <tr><td class="paramname">v</td><td>Coordinates of a translation vector. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: Matrix functions</title>
+<title>0.9.9 API documenation: GLM_GTC_epsilon</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,146 +77,57 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Matrix functions<div class="ingroups"><a class="el" href="a00158.html">GLM Core</a></div></div>  </div>
+<div class="title">GLM_GTC_epsilon<div class="ingroups"><a class="el" href="a00147.html">Stable extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>For each of the following built-in matrix functions, there is both a single-qualifier floating point version, where all arguments and return values are single qualifier, and a double-qualifier floating version, where all arguments and return values are double qualifier.  
+<p>Include &lt;<a class="el" href="a00022.html" title="GLM_GTC_epsilon ">glm/gtc/epsilon.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga26ea77c574802bc6fc193c40478718d2"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P, template&lt; typename, qualifier &gt; class matType&gt; </td></tr>
-<tr class="memitem:ga26ea77c574802bc6fc193c40478718d2"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00152.html#ga26ea77c574802bc6fc193c40478718d2">determinant</a> (matType&lt; T, P &gt; const &amp;m)</td></tr>
-<tr class="memdesc:ga26ea77c574802bc6fc193c40478718d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the determinant of a squared matrix.  <a href="a00152.html#ga26ea77c574802bc6fc193c40478718d2">More...</a><br /></td></tr>
-<tr class="separator:ga26ea77c574802bc6fc193c40478718d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa7e1d5586cd499126cec76e0f11871e3"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P, template&lt; typename, qualifier &gt; class matType&gt; </td></tr>
-<tr class="memitem:gaa7e1d5586cd499126cec76e0f11871e3"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL matType&lt; T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00152.html#gaa7e1d5586cd499126cec76e0f11871e3">inverse</a> (matType&lt; T, P &gt; const &amp;m)</td></tr>
-<tr class="memdesc:gaa7e1d5586cd499126cec76e0f11871e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the inverse of a squared matrix.  <a href="a00152.html#gaa7e1d5586cd499126cec76e0f11871e3">More...</a><br /></td></tr>
-<tr class="separator:gaa7e1d5586cd499126cec76e0f11871e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4a54992e4741188ee624b21e3ba91814"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P, template&lt; typename, qualifier &gt; class matType&gt; </td></tr>
-<tr class="memitem:ga4a54992e4741188ee624b21e3ba91814"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL matType&lt; T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00152.html#ga4a54992e4741188ee624b21e3ba91814">matrixCompMult</a> (matType&lt; T, P &gt; const &amp;x, matType&lt; T, P &gt; const &amp;y)</td></tr>
-<tr class="memdesc:ga4a54992e4741188ee624b21e3ba91814"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply matrix x by matrix y component-wise, i.e., result[i][j] is the scalar product of x[i][j] and y[i][j].  <a href="a00152.html#ga4a54992e4741188ee624b21e3ba91814">More...</a><br /></td></tr>
-<tr class="separator:ga4a54992e4741188ee624b21e3ba91814"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9348717490466ca316a46ebdf332477f"><td class="memTemplParams" colspan="2">template&lt;length_t DA, length_t DB, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga9348717490466ca316a46ebdf332477f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL detail::outerProduct_trait&lt; DA, DB, T, P &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00152.html#ga9348717490466ca316a46ebdf332477f">outerProduct</a> (vec&lt; DA, T, P &gt; const &amp;c, vec&lt; DB, T, P &gt; const &amp;r)</td></tr>
-<tr class="memdesc:ga9348717490466ca316a46ebdf332477f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Treats the first parameter c as a column vector and the second parameter r as a row vector and does a linear algebraic matrix multiply c * r.  <a href="a00152.html#ga9348717490466ca316a46ebdf332477f">More...</a><br /></td></tr>
-<tr class="separator:ga9348717490466ca316a46ebdf332477f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2385252993a548fe3861d7ef2e495665"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P, template&lt; typename, qualifier &gt; class matType&gt; </td></tr>
-<tr class="memitem:ga2385252993a548fe3861d7ef2e495665"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL matType&lt; T, P &gt;::transpose_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00152.html#ga2385252993a548fe3861d7ef2e495665">transpose</a> (matType&lt; T, P &gt; const &amp;x)</td></tr>
-<tr class="memdesc:ga2385252993a548fe3861d7ef2e495665"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the transposed matrix of x.  <a href="a00152.html#ga2385252993a548fe3861d7ef2e495665">More...</a><br /></td></tr>
-<tr class="separator:ga2385252993a548fe3861d7ef2e495665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga91b417866cafadd076004778217a1844"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga91b417866cafadd076004778217a1844"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, bool, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00152.html#ga91b417866cafadd076004778217a1844">epsilonEqual</a> (vec&lt; L, T, Q &gt; const &amp;x, vec&lt; L, T, Q &gt; const &amp;y, T const &amp;epsilon)</td></tr>
+<tr class="memdesc:ga91b417866cafadd076004778217a1844"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the component-wise comparison of |x - y| &lt; epsilon.  <a href="a00152.html#ga91b417866cafadd076004778217a1844">More...</a><br /></td></tr>
+<tr class="separator:ga91b417866cafadd076004778217a1844"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa7f227999ca09e7ca994e8b35aba47bb"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gaa7f227999ca09e7ca994e8b35aba47bb"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00152.html#gaa7f227999ca09e7ca994e8b35aba47bb">epsilonEqual</a> (genType const &amp;x, genType const &amp;y, genType const &amp;epsilon)</td></tr>
+<tr class="memdesc:gaa7f227999ca09e7ca994e8b35aba47bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the component-wise comparison of |x - y| &lt; epsilon.  <a href="a00152.html#gaa7f227999ca09e7ca994e8b35aba47bb">More...</a><br /></td></tr>
+<tr class="separator:gaa7f227999ca09e7ca994e8b35aba47bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf840d33b9a5261ec78dcd5125743b025"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaf840d33b9a5261ec78dcd5125743b025"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, bool, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00152.html#gaf840d33b9a5261ec78dcd5125743b025">epsilonNotEqual</a> (vec&lt; L, T, Q &gt; const &amp;x, vec&lt; L, T, Q &gt; const &amp;y, T const &amp;epsilon)</td></tr>
+<tr class="memdesc:gaf840d33b9a5261ec78dcd5125743b025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the component-wise comparison of |x - y| &lt; epsilon.  <a href="a00152.html#gaf840d33b9a5261ec78dcd5125743b025">More...</a><br /></td></tr>
+<tr class="separator:gaf840d33b9a5261ec78dcd5125743b025"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga50a92103fb0cbd796908e1bf20c79aaf"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga50a92103fb0cbd796908e1bf20c79aaf"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00152.html#ga50a92103fb0cbd796908e1bf20c79aaf">epsilonNotEqual</a> (genType const &amp;x, genType const &amp;y, genType const &amp;epsilon)</td></tr>
+<tr class="memdesc:ga50a92103fb0cbd796908e1bf20c79aaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the component-wise comparison of |x - y| &gt;= epsilon.  <a href="a00152.html#ga50a92103fb0cbd796908e1bf20c79aaf">More...</a><br /></td></tr>
+<tr class="separator:ga50a92103fb0cbd796908e1bf20c79aaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>For each of the following built-in matrix functions, there is both a single-qualifier floating point version, where all arguments and return values are single qualifier, and a double-qualifier floating version, where all arguments and return values are double qualifier. </p>
-<p>Only the single-qualifier floating point version is shown. </p>
+<p>Include &lt;<a class="el" href="a00022.html" title="GLM_GTC_epsilon ">glm/gtc/epsilon.hpp</a>&gt; to use the features of this extension. </p>
+<p>Comparison functions for a user defined epsilon values. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga26ea77c574802bc6fc193c40478718d2"></a>
+<a class="anchor" id="ga91b417866cafadd076004778217a1844"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::determinant </td>
+          <td class="memname">GLM_FUNC_DECL vec&lt;L, bool, Q&gt; glm::epsilonEqual </td>
           <td>(</td>
-          <td class="paramtype">matType&lt; T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>m</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the determinant of a squared matrix. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Floating-point scalar types.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/determinant.xml">GLSL determinant man page</a> </dd>
-<dd>
-<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gaa7e1d5586cd499126cec76e0f11871e3"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL matType&lt; T, P &gt; inverse </td>
-          <td>(</td>
-          <td class="paramtype">matType&lt; T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>m</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the inverse of a squared matrix. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Floating-point scalar types.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/inverse.xml">GLSL inverse man page</a> </dd>
-<dd>
-<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga4a54992e4741188ee624b21e3ba91814"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL matType&lt;T, P&gt; glm::matrixCompMult </td>
-          <td>(</td>
-          <td class="paramtype">matType&lt; T, P &gt; const &amp;&#160;</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">matType&lt; T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Multiply matrix x by matrix y component-wise, i.e., result[i][j] is the scalar product of x[i][j] and y[i][j]. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">matType</td><td>Floating-point matrix types.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/matrixCompMult.xml">GLSL matrixCompMult man page</a> </dd>
-<dd>
-<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga9348717490466ca316a46ebdf332477f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL detail::outerProduct_trait&lt;DA, DB, T, P&gt;::type glm::outerProduct </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; DA, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; DB, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>r</em>&#160;</td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>epsilon</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -226,37 +137,117 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Treats the first parameter c as a column vector and the second parameter r as a row vector and does a linear algebraic matrix multiply c * r. </p>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/outerProduct.xml">GLSL outerProduct man page</a> </dd>
-<dd>
-<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a> </dd></dl>
+<p>Returns the component-wise comparison of |x - y| &lt; epsilon. </p>
+<p>True if this expression is satisfied.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00152.html" title="Include <glm/gtc/epsilon.hpp> to use the features of this extension. ">GLM_GTC_epsilon</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga2385252993a548fe3861d7ef2e495665"></a>
+<a class="anchor" id="gaa7f227999ca09e7ca994e8b35aba47bb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL matType&lt;T, P&gt;::transpose_type glm::transpose </td>
+          <td class="memname">GLM_FUNC_DECL bool glm::epsilonEqual </td>
           <td>(</td>
-          <td class="paramtype">matType&lt; T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>epsilon</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the transposed matrix of x. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">matType</td><td>Floating-point matrix types.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/transpose.xml">GLSL transpose man page</a> </dd>
-<dd>
-<a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.6 Matrix Functions</a> </dd></dl>
+<p>Returns the component-wise comparison of |x - y| &lt; epsilon. </p>
+<p>True if this expression is satisfied.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00152.html" title="Include <glm/gtc/epsilon.hpp> to use the features of this extension. ">GLM_GTC_epsilon</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaf840d33b9a5261ec78dcd5125743b025"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;L, bool, Q&gt; glm::epsilonNotEqual </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>epsilon</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the component-wise comparison of |x - y| &lt; epsilon. </p>
+<p>True if this expression is not satisfied.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00152.html" title="Include <glm/gtc/epsilon.hpp> to use the features of this extension. ">GLM_GTC_epsilon</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga50a92103fb0cbd796908e1bf20c79aaf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL bool glm::epsilonNotEqual </td>
+          <td>(</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>epsilon</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the component-wise comparison of |x - y| &gt;= epsilon. </p>
+<p>True if this expression is not satisfied.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00152.html" title="Include <glm/gtc/epsilon.hpp> to use the features of this extension. ">GLM_GTC_epsilon</a> </dd></dl>
 
 </div>
 </div>

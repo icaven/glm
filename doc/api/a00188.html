@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTX_color_space_YCoCg</title>
+<title>0.9.9 API documenation: GLM_GTX_handed_coordinate_space</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,113 +77,95 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_color_space_YCoCg<div class="ingroups"><a class="el" href="a00157.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_handed_coordinate_space<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>RGB to YCoCg conversions and operations.  
+<p>Include &lt;glm/gtx/handed_coordinate_system.hpp&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga97679738c63011aca86d12a86d6f3bff"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga97679738c63011aca86d12a86d6f3bff"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00188.html#ga97679738c63011aca86d12a86d6f3bff">rgb2YCoCg</a> (vec&lt; 3, T, P &gt; const &amp;rgbColor)</td></tr>
-<tr class="memdesc:ga97679738c63011aca86d12a86d6f3bff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a color from RGB color space to YCoCg color space.  <a href="a00188.html#ga97679738c63011aca86d12a86d6f3bff">More...</a><br /></td></tr>
-<tr class="separator:ga97679738c63011aca86d12a86d6f3bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae78b75967b1129e3f8bec9ab41d1075a"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gae78b75967b1129e3f8bec9ab41d1075a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00188.html#gae78b75967b1129e3f8bec9ab41d1075a">rgb2YCoCgR</a> (vec&lt; 3, T, P &gt; const &amp;rgbColor)</td></tr>
-<tr class="memdesc:gae78b75967b1129e3f8bec9ab41d1075a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a color from RGB color space to YCoCgR color space.  <a href="a00188.html#gae78b75967b1129e3f8bec9ab41d1075a">More...</a><br /></td></tr>
-<tr class="separator:gae78b75967b1129e3f8bec9ab41d1075a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga01744cc4cf6b3cb42487f9aaa046af6e"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga01744cc4cf6b3cb42487f9aaa046af6e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00188.html#ga01744cc4cf6b3cb42487f9aaa046af6e">YCoCg2rgb</a> (vec&lt; 3, T, P &gt; const &amp;YCoCgColor)</td></tr>
-<tr class="memdesc:ga01744cc4cf6b3cb42487f9aaa046af6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a color from YCoCg color space to RGB color space.  <a href="a00188.html#ga01744cc4cf6b3cb42487f9aaa046af6e">More...</a><br /></td></tr>
-<tr class="separator:ga01744cc4cf6b3cb42487f9aaa046af6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga69fdf8ac1f4867965a3cdcdc0804c123"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga69fdf8ac1f4867965a3cdcdc0804c123"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00188.html#ga69fdf8ac1f4867965a3cdcdc0804c123">YCoCgR2rgb</a> (vec&lt; 3, T, P &gt; const &amp;YCoCgColor)</td></tr>
-<tr class="memdesc:ga69fdf8ac1f4867965a3cdcdc0804c123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a color from YCoCgR color space to RGB color space.  <a href="a00188.html#ga69fdf8ac1f4867965a3cdcdc0804c123">More...</a><br /></td></tr>
-<tr class="separator:ga69fdf8ac1f4867965a3cdcdc0804c123"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6f1bad193b9a3b048543d1935cf04dd3"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga6f1bad193b9a3b048543d1935cf04dd3"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00188.html#ga6f1bad193b9a3b048543d1935cf04dd3">leftHanded</a> (vec&lt; 3, T, Q &gt; const &amp;tangent, vec&lt; 3, T, Q &gt; const &amp;binormal, vec&lt; 3, T, Q &gt; const &amp;normal)</td></tr>
+<tr class="memdesc:ga6f1bad193b9a3b048543d1935cf04dd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return if a trihedron left handed or not.  <a href="a00188.html#ga6f1bad193b9a3b048543d1935cf04dd3">More...</a><br /></td></tr>
+<tr class="separator:ga6f1bad193b9a3b048543d1935cf04dd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga99386a5ab5491871b947076e21699cc8"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga99386a5ab5491871b947076e21699cc8"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00188.html#ga99386a5ab5491871b947076e21699cc8">rightHanded</a> (vec&lt; 3, T, Q &gt; const &amp;tangent, vec&lt; 3, T, Q &gt; const &amp;binormal, vec&lt; 3, T, Q &gt; const &amp;normal)</td></tr>
+<tr class="memdesc:ga99386a5ab5491871b947076e21699cc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return if a trihedron right handed or not.  <a href="a00188.html#ga99386a5ab5491871b947076e21699cc8">More...</a><br /></td></tr>
+<tr class="separator:ga99386a5ab5491871b947076e21699cc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>RGB to YCoCg conversions and operations. </p>
-<p>&lt;<a class="el" href="a00014.html" title="GLM_GTX_color_space_YCoCg ">glm/gtx/color_space_YCoCg.hpp</a>&gt; need to be included to use these functionalities. </p>
+<p>Include &lt;glm/gtx/handed_coordinate_system.hpp&gt; to use the features of this extension. </p>
+<p>To know if a set of three basis vectors defines a right or left-handed coordinate system. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga97679738c63011aca86d12a86d6f3bff"></a>
+<a class="anchor" id="ga6f1bad193b9a3b048543d1935cf04dd3"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, P&gt; glm::rgb2YCoCg </td>
+          <td class="memname">GLM_FUNC_DECL bool glm::leftHanded </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>rgbColor</em></td><td>)</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>tangent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>binormal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>normal</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Convert a color from RGB color space to YCoCg color space. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00188.html" title="RGB to YCoCg conversions and operations. ">GLM_GTX_color_space_YCoCg</a> </dd></dl>
+<p>Return if a trihedron left handed or not. </p>
+<p>From GLM_GTX_handed_coordinate_space extension. </p>
 
 </div>
 </div>
-<a class="anchor" id="gae78b75967b1129e3f8bec9ab41d1075a"></a>
+<a class="anchor" id="ga99386a5ab5491871b947076e21699cc8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, P&gt; glm::rgb2YCoCgR </td>
+          <td class="memname">GLM_FUNC_DECL bool glm::rightHanded </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>rgbColor</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>tangent</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Convert a color from RGB color space to YCoCgR color space. </p>
-<dl class="section see"><dt>See also</dt><dd>"YCoCg-R: A Color Space with RGB Reversibility and Low Dynamic Range" </dd>
-<dd>
-<a class="el" href="a00188.html" title="RGB to YCoCg conversions and operations. ">GLM_GTX_color_space_YCoCg</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga01744cc4cf6b3cb42487f9aaa046af6e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, P&gt; glm::YCoCg2rgb </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>YCoCgColor</em></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>binormal</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Convert a color from YCoCg color space to RGB color space. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00188.html" title="RGB to YCoCg conversions and operations. ">GLM_GTX_color_space_YCoCg</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga69fdf8ac1f4867965a3cdcdc0804c123"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, P&gt; glm::YCoCgR2rgb </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>YCoCgColor</em></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>normal</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Convert a color from YCoCgR color space to RGB color space. </p>
-<dl class="section see"><dt>See also</dt><dd>"YCoCg-R: A Color Space with RGB Reversibility and Low Dynamic Range" </dd>
-<dd>
-<a class="el" href="a00188.html" title="RGB to YCoCg conversions and operations. ">GLM_GTX_color_space_YCoCg</a> </dd></dl>
+<p>Return if a trihedron right handed or not. </p>
+<p>From GLM_GTX_handed_coordinate_space extension. </p>
 
 </div>
 </div>

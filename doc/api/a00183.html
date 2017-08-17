@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTX_associated_min_max</title>
+<title>0.9.9 API documenation: GLM_GTX_fast_exponential</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,135 +77,235 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_associated_min_max<div class="ingroups"><a class="el" href="a00157.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_fast_exponential<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Min and max functions that return associated values not the compared onces.  
+<p>Include &lt;<a class="el" href="a00029.html" title="GLM_GTX_fast_exponential ">glm/gtx/fast_exponential.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga7d9c8785230c8db60f72ec8975f1ba45"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U &gt; </td></tr>
-<tr class="memitem:ga7d9c8785230c8db60f72ec8975f1ba45"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL U&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga7d9c8785230c8db60f72ec8975f1ba45">associatedMax</a> (T x, U a, T y, U b)</td></tr>
-<tr class="memdesc:ga7d9c8785230c8db60f72ec8975f1ba45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum comparison between 2 variables and returns 2 associated variable values.  <a href="a00183.html#ga7d9c8785230c8db60f72ec8975f1ba45">More...</a><br /></td></tr>
-<tr class="separator:ga7d9c8785230c8db60f72ec8975f1ba45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0a0ecbedef8fa5d345a0d4bda27943a3"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , typename U , qualifier P&gt; </td></tr>
-<tr class="memitem:ga0a0ecbedef8fa5d345a0d4bda27943a3"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 2, U, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga0a0ecbedef8fa5d345a0d4bda27943a3">associatedMax</a> (vec&lt; L, T, P &gt; const &amp;x, vec&lt; L, U, P &gt; const &amp;a, vec&lt; L, T, P &gt; const &amp;y, vec&lt; L, U, P &gt; const &amp;b)</td></tr>
-<tr class="memdesc:ga0a0ecbedef8fa5d345a0d4bda27943a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum comparison between 2 variables and returns 2 associated variable values.  <a href="a00183.html#ga0a0ecbedef8fa5d345a0d4bda27943a3">More...</a><br /></td></tr>
-<tr class="separator:ga0a0ecbedef8fa5d345a0d4bda27943a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6ff3085b87ed37b7ef2cc16995552526"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , typename U , qualifier P&gt; </td></tr>
-<tr class="memitem:ga6ff3085b87ed37b7ef2cc16995552526"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga6ff3085b87ed37b7ef2cc16995552526">associatedMax</a> (T x, vec&lt; L, U, P &gt; const &amp;a, T y, vec&lt; L, U, P &gt; const &amp;b)</td></tr>
-<tr class="memdesc:ga6ff3085b87ed37b7ef2cc16995552526"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum comparison between 2 variables and returns 2 associated variable values.  <a href="a00183.html#ga6ff3085b87ed37b7ef2cc16995552526">More...</a><br /></td></tr>
-<tr class="separator:ga6ff3085b87ed37b7ef2cc16995552526"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gace24f8004770a48ae5b3cdeabc653612"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , typename U , qualifier P&gt; </td></tr>
-<tr class="memitem:gace24f8004770a48ae5b3cdeabc653612"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, U, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#gace24f8004770a48ae5b3cdeabc653612">associatedMax</a> (vec&lt; L, T, P &gt; const &amp;x, U a, vec&lt; L, T, P &gt; const &amp;y, U b)</td></tr>
-<tr class="memdesc:gace24f8004770a48ae5b3cdeabc653612"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum comparison between 2 variables and returns 2 associated variable values.  <a href="a00183.html#gace24f8004770a48ae5b3cdeabc653612">More...</a><br /></td></tr>
-<tr class="separator:gace24f8004770a48ae5b3cdeabc653612"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaec891e363d91abbf3a4443cf2f652209"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U &gt; </td></tr>
-<tr class="memitem:gaec891e363d91abbf3a4443cf2f652209"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL U&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#gaec891e363d91abbf3a4443cf2f652209">associatedMax</a> (T x, U a, T y, U b, T z, U c)</td></tr>
-<tr class="memdesc:gaec891e363d91abbf3a4443cf2f652209"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum comparison between 3 variables and returns 3 associated variable values.  <a href="a00183.html#gaec891e363d91abbf3a4443cf2f652209">More...</a><br /></td></tr>
-<tr class="separator:gaec891e363d91abbf3a4443cf2f652209"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9d6a89b26c93c6246e71b973261c49e4"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , typename U , qualifier P&gt; </td></tr>
-<tr class="memitem:ga9d6a89b26c93c6246e71b973261c49e4"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, U, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga9d6a89b26c93c6246e71b973261c49e4">associatedMax</a> (vec&lt; L, T, P &gt; const &amp;x, vec&lt; L, U, P &gt; const &amp;a, vec&lt; L, T, P &gt; const &amp;y, vec&lt; L, U, P &gt; const &amp;b, vec&lt; L, T, P &gt; const &amp;z, vec&lt; L, U, P &gt; const &amp;c)</td></tr>
-<tr class="memdesc:ga9d6a89b26c93c6246e71b973261c49e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum comparison between 3 variables and returns 3 associated variable values.  <a href="a00183.html#ga9d6a89b26c93c6246e71b973261c49e4">More...</a><br /></td></tr>
-<tr class="separator:ga9d6a89b26c93c6246e71b973261c49e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae24662ef66fce12e13699aa7c594973f"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , typename U , qualifier P&gt; </td></tr>
-<tr class="memitem:gae24662ef66fce12e13699aa7c594973f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#gae24662ef66fce12e13699aa7c594973f">associatedMax</a> (T x, vec&lt; L, U, P &gt; const &amp;a, T y, vec&lt; L, U, P &gt; const &amp;b, T z, vec&lt; L, U, P &gt; const &amp;c)</td></tr>
-<tr class="memdesc:gae24662ef66fce12e13699aa7c594973f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum comparison between 3 variables and returns 3 associated variable values.  <a href="a00183.html#gae24662ef66fce12e13699aa7c594973f">More...</a><br /></td></tr>
-<tr class="separator:gae24662ef66fce12e13699aa7c594973f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7f05c53e06c8a98e669d622d933e3cfa"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , typename U , qualifier P&gt; </td></tr>
-<tr class="memitem:ga7f05c53e06c8a98e669d622d933e3cfa"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, U, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga7f05c53e06c8a98e669d622d933e3cfa">associatedMax</a> (vec&lt; L, T, P &gt; const &amp;x, U a, vec&lt; L, T, P &gt; const &amp;y, U b, vec&lt; L, T, P &gt; const &amp;z, U c)</td></tr>
-<tr class="memdesc:ga7f05c53e06c8a98e669d622d933e3cfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum comparison between 3 variables and returns 3 associated variable values.  <a href="a00183.html#ga7f05c53e06c8a98e669d622d933e3cfa">More...</a><br /></td></tr>
-<tr class="separator:ga7f05c53e06c8a98e669d622d933e3cfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3038ffcb43eaa6af75897a99a5047ccc"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U &gt; </td></tr>
-<tr class="memitem:ga3038ffcb43eaa6af75897a99a5047ccc"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL U&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga3038ffcb43eaa6af75897a99a5047ccc">associatedMax</a> (T x, U a, T y, U b, T z, U c, T w, U d)</td></tr>
-<tr class="memdesc:ga3038ffcb43eaa6af75897a99a5047ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum comparison between 4 variables and returns 4 associated variable values.  <a href="a00183.html#ga3038ffcb43eaa6af75897a99a5047ccc">More...</a><br /></td></tr>
-<tr class="separator:ga3038ffcb43eaa6af75897a99a5047ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga49f0beb7fcbbb841f9beedf5266ef07e"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , typename U , qualifier P&gt; </td></tr>
-<tr class="memitem:ga49f0beb7fcbbb841f9beedf5266ef07e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, U, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga49f0beb7fcbbb841f9beedf5266ef07e">associatedMax</a> (vec&lt; L, T, P &gt; const &amp;x, vec&lt; L, U, P &gt; const &amp;a, vec&lt; L, T, P &gt; const &amp;y, vec&lt; L, U, P &gt; const &amp;b, vec&lt; L, T, P &gt; const &amp;z, vec&lt; L, U, P &gt; const &amp;c, vec&lt; L, T, P &gt; const &amp;w, vec&lt; L, U, P &gt; const &amp;d)</td></tr>
-<tr class="memdesc:ga49f0beb7fcbbb841f9beedf5266ef07e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum comparison between 4 variables and returns 4 associated variable values.  <a href="a00183.html#ga49f0beb7fcbbb841f9beedf5266ef07e">More...</a><br /></td></tr>
-<tr class="separator:ga49f0beb7fcbbb841f9beedf5266ef07e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga781b25c74ecade09269daa22e89b0833"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , typename U , qualifier P&gt; </td></tr>
-<tr class="memitem:ga781b25c74ecade09269daa22e89b0833"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, U, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga781b25c74ecade09269daa22e89b0833">associatedMax</a> (T x, vec&lt; L, U, P &gt; const &amp;a, T y, vec&lt; L, U, P &gt; const &amp;b, T z, vec&lt; L, U, P &gt; const &amp;c, T w, vec&lt; L, U, P &gt; const &amp;d)</td></tr>
-<tr class="memdesc:ga781b25c74ecade09269daa22e89b0833"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum comparison between 4 variables and returns 4 associated variable values.  <a href="a00183.html#ga781b25c74ecade09269daa22e89b0833">More...</a><br /></td></tr>
-<tr class="separator:ga781b25c74ecade09269daa22e89b0833"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadceef1a3b593288ec9f743f8b0b7bf00"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , typename U , qualifier P&gt; </td></tr>
-<tr class="memitem:gadceef1a3b593288ec9f743f8b0b7bf00"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, U, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#gadceef1a3b593288ec9f743f8b0b7bf00">associatedMax</a> (vec&lt; L, T, P &gt; const &amp;x, U a, vec&lt; L, T, P &gt; const &amp;y, U b, vec&lt; L, T, P &gt; const &amp;z, U c, vec&lt; L, T, P &gt; const &amp;w, U d)</td></tr>
-<tr class="memdesc:gadceef1a3b593288ec9f743f8b0b7bf00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum comparison between 4 variables and returns 4 associated variable values.  <a href="a00183.html#gadceef1a3b593288ec9f743f8b0b7bf00">More...</a><br /></td></tr>
-<tr class="separator:gadceef1a3b593288ec9f743f8b0b7bf00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacc01bd272359572fc28437ae214a02df"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U , qualifier P&gt; </td></tr>
-<tr class="memitem:gacc01bd272359572fc28437ae214a02df"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL U&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#gacc01bd272359572fc28437ae214a02df">associatedMin</a> (T x, U a, T y, U b)</td></tr>
-<tr class="memdesc:gacc01bd272359572fc28437ae214a02df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum comparison between 2 variables and returns 2 associated variable values.  <a href="a00183.html#gacc01bd272359572fc28437ae214a02df">More...</a><br /></td></tr>
-<tr class="separator:gacc01bd272359572fc28437ae214a02df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadc89baccc014bf4ecd2b77ae2d659e15"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , typename U , qualifier P&gt; </td></tr>
-<tr class="memitem:gadc89baccc014bf4ecd2b77ae2d659e15"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 2, U, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#gadc89baccc014bf4ecd2b77ae2d659e15">associatedMin</a> (vec&lt; L, T, P &gt; const &amp;x, vec&lt; L, U, P &gt; const &amp;a, vec&lt; L, T, P &gt; const &amp;y, vec&lt; L, U, P &gt; const &amp;b)</td></tr>
-<tr class="memdesc:gadc89baccc014bf4ecd2b77ae2d659e15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum comparison between 2 variables and returns 2 associated variable values.  <a href="a00183.html#gadc89baccc014bf4ecd2b77ae2d659e15">More...</a><br /></td></tr>
-<tr class="separator:gadc89baccc014bf4ecd2b77ae2d659e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae81f6ba74f5ace30467767e862d05285"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , typename U , qualifier P&gt; </td></tr>
-<tr class="memitem:gae81f6ba74f5ace30467767e862d05285"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, U, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#gae81f6ba74f5ace30467767e862d05285">associatedMin</a> (T x, const vec&lt; L, U, P &gt; &amp;a, T y, const vec&lt; L, U, P &gt; &amp;b)</td></tr>
-<tr class="memdesc:gae81f6ba74f5ace30467767e862d05285"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum comparison between 2 variables and returns 2 associated variable values.  <a href="a00183.html#gae81f6ba74f5ace30467767e862d05285">More...</a><br /></td></tr>
-<tr class="separator:gae81f6ba74f5ace30467767e862d05285"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga00b7a3ca3984e5da909e99e08f270d49"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , typename U , qualifier P&gt; </td></tr>
-<tr class="memitem:ga00b7a3ca3984e5da909e99e08f270d49"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, U, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga00b7a3ca3984e5da909e99e08f270d49">associatedMin</a> (vec&lt; L, T, P &gt; const &amp;x, U a, vec&lt; L, T, P &gt; const &amp;y, U b)</td></tr>
-<tr class="memdesc:ga00b7a3ca3984e5da909e99e08f270d49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum comparison between 2 variables and returns 2 associated variable values.  <a href="a00183.html#ga00b7a3ca3984e5da909e99e08f270d49">More...</a><br /></td></tr>
-<tr class="separator:ga00b7a3ca3984e5da909e99e08f270d49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad0aa8f86259a26d839d34a3577a923fc"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U &gt; </td></tr>
-<tr class="memitem:gad0aa8f86259a26d839d34a3577a923fc"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL U&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#gad0aa8f86259a26d839d34a3577a923fc">associatedMin</a> (T x, U a, T y, U b, T z, U c)</td></tr>
-<tr class="memdesc:gad0aa8f86259a26d839d34a3577a923fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum comparison between 3 variables and returns 3 associated variable values.  <a href="a00183.html#gad0aa8f86259a26d839d34a3577a923fc">More...</a><br /></td></tr>
-<tr class="separator:gad0aa8f86259a26d839d34a3577a923fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga562c0039d0b25ee6fc11b67037cd9eb8"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , typename U , qualifier P&gt; </td></tr>
-<tr class="memitem:ga562c0039d0b25ee6fc11b67037cd9eb8"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, U, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga562c0039d0b25ee6fc11b67037cd9eb8">associatedMin</a> (vec&lt; L, T, P &gt; const &amp;x, vec&lt; L, U, P &gt; const &amp;a, vec&lt; L, T, P &gt; const &amp;y, vec&lt; L, U, P &gt; const &amp;b, vec&lt; L, T, P &gt; const &amp;z, vec&lt; L, U, P &gt; const &amp;c)</td></tr>
-<tr class="memdesc:ga562c0039d0b25ee6fc11b67037cd9eb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum comparison between 3 variables and returns 3 associated variable values.  <a href="a00183.html#ga562c0039d0b25ee6fc11b67037cd9eb8">More...</a><br /></td></tr>
-<tr class="separator:ga562c0039d0b25ee6fc11b67037cd9eb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga432224ebe2085eaa2b63a077ecbbbff6"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U &gt; </td></tr>
-<tr class="memitem:ga432224ebe2085eaa2b63a077ecbbbff6"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL U&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga432224ebe2085eaa2b63a077ecbbbff6">associatedMin</a> (T x, U a, T y, U b, T z, U c, T w, U d)</td></tr>
-<tr class="memdesc:ga432224ebe2085eaa2b63a077ecbbbff6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum comparison between 4 variables and returns 4 associated variable values.  <a href="a00183.html#ga432224ebe2085eaa2b63a077ecbbbff6">More...</a><br /></td></tr>
-<tr class="separator:ga432224ebe2085eaa2b63a077ecbbbff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga00e3256832e6326daee1751af5f48853"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , typename U , qualifier P&gt; </td></tr>
-<tr class="memitem:ga00e3256832e6326daee1751af5f48853"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, U, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga00e3256832e6326daee1751af5f48853">associatedMin</a> (vec&lt; L, T, P &gt; const &amp;x, vec&lt; L, U, P &gt; const &amp;a, vec&lt; L, T, P &gt; const &amp;y, vec&lt; L, U, P &gt; const &amp;b, vec&lt; L, T, P &gt; const &amp;z, vec&lt; L, U, P &gt; const &amp;c, vec&lt; L, T, P &gt; const &amp;w, vec&lt; L, U, P &gt; const &amp;d)</td></tr>
-<tr class="memdesc:ga00e3256832e6326daee1751af5f48853"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum comparison between 4 variables and returns 4 associated variable values.  <a href="a00183.html#ga00e3256832e6326daee1751af5f48853">More...</a><br /></td></tr>
-<tr class="separator:ga00e3256832e6326daee1751af5f48853"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga57e537aabe5b8c411b17bd1e6fef041e"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , typename U , qualifier P&gt; </td></tr>
-<tr class="memitem:ga57e537aabe5b8c411b17bd1e6fef041e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, U, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga57e537aabe5b8c411b17bd1e6fef041e">associatedMin</a> (T x, vec&lt; L, U, P &gt; const &amp;a, T y, vec&lt; L, U, P &gt; const &amp;b, T z, vec&lt; L, U, P &gt; const &amp;c, T w, vec&lt; L, U, P &gt; const &amp;d)</td></tr>
-<tr class="memdesc:ga57e537aabe5b8c411b17bd1e6fef041e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum comparison between 4 variables and returns 4 associated variable values.  <a href="a00183.html#ga57e537aabe5b8c411b17bd1e6fef041e">More...</a><br /></td></tr>
-<tr class="separator:ga57e537aabe5b8c411b17bd1e6fef041e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae48ef2b49683322023b835b44ba378b1"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , typename U , qualifier P&gt; </td></tr>
-<tr class="memitem:gae48ef2b49683322023b835b44ba378b1"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, U, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#gae48ef2b49683322023b835b44ba378b1">associatedMin</a> (vec&lt; L, T, P &gt; const &amp;x, U a, vec&lt; L, T, P &gt; const &amp;y, U b, vec&lt; L, T, P &gt; const &amp;z, U c, vec&lt; L, T, P &gt; const &amp;w, U d)</td></tr>
-<tr class="memdesc:gae48ef2b49683322023b835b44ba378b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum comparison between 4 variables and returns 4 associated variable values.  <a href="a00183.html#gae48ef2b49683322023b835b44ba378b1">More...</a><br /></td></tr>
-<tr class="separator:gae48ef2b49683322023b835b44ba378b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa3180ac8f96ab37ab96e0cacaf608e10"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gaa3180ac8f96ab37ab96e0cacaf608e10"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#gaa3180ac8f96ab37ab96e0cacaf608e10">fastExp</a> (T x)</td></tr>
+<tr class="memdesc:gaa3180ac8f96ab37ab96e0cacaf608e10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common exp function but less accurate.  <a href="a00183.html#gaa3180ac8f96ab37ab96e0cacaf608e10">More...</a><br /></td></tr>
+<tr class="separator:gaa3180ac8f96ab37ab96e0cacaf608e10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3ba6153aec6bd74628f8b00530aa8d58"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga3ba6153aec6bd74628f8b00530aa8d58"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga3ba6153aec6bd74628f8b00530aa8d58">fastExp</a> (vec&lt; L, T, Q &gt; const &amp;x)</td></tr>
+<tr class="memdesc:ga3ba6153aec6bd74628f8b00530aa8d58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common exp function but less accurate.  <a href="a00183.html#ga3ba6153aec6bd74628f8b00530aa8d58">More...</a><br /></td></tr>
+<tr class="separator:ga3ba6153aec6bd74628f8b00530aa8d58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0af50585955eb14c60bb286297fabab2"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga0af50585955eb14c60bb286297fabab2"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga0af50585955eb14c60bb286297fabab2">fastExp2</a> (T x)</td></tr>
+<tr class="memdesc:ga0af50585955eb14c60bb286297fabab2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common exp2 function but less accurate.  <a href="a00183.html#ga0af50585955eb14c60bb286297fabab2">More...</a><br /></td></tr>
+<tr class="separator:ga0af50585955eb14c60bb286297fabab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacaaed8b67d20d244b7de217e7816c1b6"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gacaaed8b67d20d244b7de217e7816c1b6"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#gacaaed8b67d20d244b7de217e7816c1b6">fastExp2</a> (vec&lt; L, T, Q &gt; const &amp;x)</td></tr>
+<tr class="memdesc:gacaaed8b67d20d244b7de217e7816c1b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common exp2 function but less accurate.  <a href="a00183.html#gacaaed8b67d20d244b7de217e7816c1b6">More...</a><br /></td></tr>
+<tr class="separator:gacaaed8b67d20d244b7de217e7816c1b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae1bdc97b7f96a600e29c753f1cd4388a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gae1bdc97b7f96a600e29c753f1cd4388a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#gae1bdc97b7f96a600e29c753f1cd4388a">fastLog</a> (T x)</td></tr>
+<tr class="memdesc:gae1bdc97b7f96a600e29c753f1cd4388a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common log function but less accurate.  <a href="a00183.html#gae1bdc97b7f96a600e29c753f1cd4388a">More...</a><br /></td></tr>
+<tr class="separator:gae1bdc97b7f96a600e29c753f1cd4388a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga937256993a7219e73f186bb348fe6be8"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga937256993a7219e73f186bb348fe6be8"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga937256993a7219e73f186bb348fe6be8">fastLog</a> (vec&lt; L, T, Q &gt; const &amp;x)</td></tr>
+<tr class="memdesc:ga937256993a7219e73f186bb348fe6be8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common exp2 function but less accurate.  <a href="a00183.html#ga937256993a7219e73f186bb348fe6be8">More...</a><br /></td></tr>
+<tr class="separator:ga937256993a7219e73f186bb348fe6be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6e98118685f6dc9e05fbb13dd5e5234e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga6e98118685f6dc9e05fbb13dd5e5234e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga6e98118685f6dc9e05fbb13dd5e5234e">fastLog2</a> (T x)</td></tr>
+<tr class="memdesc:ga6e98118685f6dc9e05fbb13dd5e5234e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common log2 function but less accurate.  <a href="a00183.html#ga6e98118685f6dc9e05fbb13dd5e5234e">More...</a><br /></td></tr>
+<tr class="separator:ga6e98118685f6dc9e05fbb13dd5e5234e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7562043539194ccc24649f8475bc5584"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga7562043539194ccc24649f8475bc5584"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga7562043539194ccc24649f8475bc5584">fastLog2</a> (vec&lt; L, T, Q &gt; const &amp;x)</td></tr>
+<tr class="memdesc:ga7562043539194ccc24649f8475bc5584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common log2 function but less accurate.  <a href="a00183.html#ga7562043539194ccc24649f8475bc5584">More...</a><br /></td></tr>
+<tr class="separator:ga7562043539194ccc24649f8475bc5584"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5340e98a11fcbbd936ba6e983a154d50"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga5340e98a11fcbbd936ba6e983a154d50"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga5340e98a11fcbbd936ba6e983a154d50">fastPow</a> (genType x, genType y)</td></tr>
+<tr class="memdesc:ga5340e98a11fcbbd936ba6e983a154d50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common pow function but less accurate.  <a href="a00183.html#ga5340e98a11fcbbd936ba6e983a154d50">More...</a><br /></td></tr>
+<tr class="separator:ga5340e98a11fcbbd936ba6e983a154d50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga15325a8ed2d1c4ed2412c4b3b3927aa2"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga15325a8ed2d1c4ed2412c4b3b3927aa2"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga15325a8ed2d1c4ed2412c4b3b3927aa2">fastPow</a> (vec&lt; L, T, Q &gt; const &amp;x, vec&lt; L, T, Q &gt; const &amp;y)</td></tr>
+<tr class="memdesc:ga15325a8ed2d1c4ed2412c4b3b3927aa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common pow function but less accurate.  <a href="a00183.html#ga15325a8ed2d1c4ed2412c4b3b3927aa2">More...</a><br /></td></tr>
+<tr class="separator:ga15325a8ed2d1c4ed2412c4b3b3927aa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7f2562db9c3e02ae76169c36b086c3f6"><td class="memTemplParams" colspan="2">template&lt;typename genTypeT , typename genTypeU &gt; </td></tr>
+<tr class="memitem:ga7f2562db9c3e02ae76169c36b086c3f6"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genTypeT&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga7f2562db9c3e02ae76169c36b086c3f6">fastPow</a> (genTypeT x, genTypeU y)</td></tr>
+<tr class="memdesc:ga7f2562db9c3e02ae76169c36b086c3f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common pow function but less accurate.  <a href="a00183.html#ga7f2562db9c3e02ae76169c36b086c3f6">More...</a><br /></td></tr>
+<tr class="separator:ga7f2562db9c3e02ae76169c36b086c3f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1abe488c0829da5b9de70ac64aeaa7e5"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga1abe488c0829da5b9de70ac64aeaa7e5"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00183.html#ga1abe488c0829da5b9de70ac64aeaa7e5">fastPow</a> (vec&lt; L, T, Q &gt; const &amp;x)</td></tr>
+<tr class="memdesc:ga1abe488c0829da5b9de70ac64aeaa7e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faster than the common pow function but less accurate.  <a href="a00183.html#ga1abe488c0829da5b9de70ac64aeaa7e5">More...</a><br /></td></tr>
+<tr class="separator:ga1abe488c0829da5b9de70ac64aeaa7e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Min and max functions that return associated values not the compared onces. </p>
-<p>&lt;<a class="el" href="a00007.html" title="GLM_GTX_associated_min_max ">glm/gtx/associated_min_max.hpp</a>&gt; need to be included to use these functionalities. </p>
+<p>Include &lt;<a class="el" href="a00029.html" title="GLM_GTX_fast_exponential ">glm/gtx/fast_exponential.hpp</a>&gt; to use the features of this extension. </p>
+<p>Fast but less accurate implementations of exponential based functions. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga7d9c8785230c8db60f72ec8975f1ba45"></a>
+<a class="anchor" id="gaa3180ac8f96ab37ab96e0cacaf608e10"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL U glm::associatedMax </td>
+          <td class="memname">GLM_FUNC_DECL T glm::fastExp </td>
           <td>(</td>
           <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Faster than the common exp function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Include <glm/gtx/fast_exponential.hpp> to use the features of this extension. ">GLM_GTX_fast_exponential</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga3ba6153aec6bd74628f8b00530aa8d58"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, Q&gt; glm::fastExp </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Faster than the common exp function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Include <glm/gtx/fast_exponential.hpp> to use the features of this extension. ">GLM_GTX_fast_exponential</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga0af50585955eb14c60bb286297fabab2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL T glm::fastExp2 </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Faster than the common exp2 function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Include <glm/gtx/fast_exponential.hpp> to use the features of this extension. ">GLM_GTX_fast_exponential</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gacaaed8b67d20d244b7de217e7816c1b6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, Q&gt; glm::fastExp2 </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Faster than the common exp2 function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Include <glm/gtx/fast_exponential.hpp> to use the features of this extension. ">GLM_GTX_fast_exponential</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gae1bdc97b7f96a600e29c753f1cd4388a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL T glm::fastLog </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Faster than the common log function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Include <glm/gtx/fast_exponential.hpp> to use the features of this extension. ">GLM_GTX_fast_exponential</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga937256993a7219e73f186bb348fe6be8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, Q&gt; glm::fastLog </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Faster than the common exp2 function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Include <glm/gtx/fast_exponential.hpp> to use the features of this extension. ">GLM_GTX_fast_exponential</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga6e98118685f6dc9e05fbb13dd5e5234e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL T glm::fastLog2 </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Faster than the common log2 function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Include <glm/gtx/fast_exponential.hpp> to use the features of this extension. ">GLM_GTX_fast_exponential</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga7562043539194ccc24649f8475bc5584"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, Q&gt; glm::fastLog2 </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Faster than the common log2 function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Include <glm/gtx/fast_exponential.hpp> to use the features of this extension. ">GLM_GTX_fast_exponential</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga5340e98a11fcbbd936ba6e983a154d50"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL genType glm::fastPow </td>
+          <td>(</td>
+          <td class="paramtype">genType&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
+          <td class="paramtype">genType&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -215,38 +315,26 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Maximum comparison between 2 variables and returns 2 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
+<p>Faster than the common pow function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Include <glm/gtx/fast_exponential.hpp> to use the features of this extension. ">GLM_GTX_fast_exponential</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga0a0ecbedef8fa5d345a0d4bda27943a3"></a>
+<a class="anchor" id="ga15325a8ed2d1c4ed2412c4b3b3927aa2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;2, U, P&gt; glm::associatedMax </td>
+          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, Q&gt; glm::fastPow </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -256,38 +344,26 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Maximum comparison between 2 variables and returns 2 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
+<p>Faster than the common pow function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Include <glm/gtx/fast_exponential.hpp> to use the features of this extension. ">GLM_GTX_fast_exponential</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga6ff3085b87ed37b7ef2cc16995552526"></a>
+<a class="anchor" id="ga7f2562db9c3e02ae76169c36b086c3f6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, P&gt; glm::associatedMax </td>
+          <td class="memname">GLM_FUNC_DECL genTypeT glm::fastPow </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
+          <td class="paramtype">genTypeT&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
+          <td class="paramtype">genTypeU&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -297,1051 +373,27 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Maximum comparison between 2 variables and returns 2 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
+<p>Faster than the common pow function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Include <glm/gtx/fast_exponential.hpp> to use the features of this extension. ">GLM_GTX_fast_exponential</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gace24f8004770a48ae5b3cdeabc653612"></a>
+<a class="anchor" id="ga1abe488c0829da5b9de70ac64aeaa7e5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, U, P&gt; glm::associatedMax </td>
+          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, Q&gt; glm::fastPow </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Maximum comparison between 2 variables and returns 2 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gaec891e363d91abbf3a4443cf2f652209"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL U glm::associatedMax </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>z</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>c</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Maximum comparison between 3 variables and returns 3 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga9d6a89b26c93c6246e71b973261c49e4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, U, P&gt; glm::associatedMax </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>z</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>c</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Maximum comparison between 3 variables and returns 3 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gae24662ef66fce12e13699aa7c594973f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, P&gt; glm::associatedMax </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>z</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>c</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Maximum comparison between 3 variables and returns 3 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga7f05c53e06c8a98e669d622d933e3cfa"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, U, P&gt; glm::associatedMax </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>z</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>c</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Maximum comparison between 3 variables and returns 3 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga3038ffcb43eaa6af75897a99a5047ccc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL U glm::associatedMax </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>z</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>d</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Maximum comparison between 4 variables and returns 4 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga49f0beb7fcbbb841f9beedf5266ef07e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, U, P&gt; glm::associatedMax </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>z</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>d</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Maximum comparison between 4 variables and returns 4 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga781b25c74ecade09269daa22e89b0833"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, U, P&gt; glm::associatedMax </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>z</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>d</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Maximum comparison between 4 variables and returns 4 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gadceef1a3b593288ec9f743f8b0b7bf00"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, U, P&gt; glm::associatedMax </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>z</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>d</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Maximum comparison between 4 variables and returns 4 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gacc01bd272359572fc28437ae214a02df"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL U glm::associatedMin </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Minimum comparison between 2 variables and returns 2 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gadc89baccc014bf4ecd2b77ae2d659e15"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;2, U, P&gt; glm::associatedMin </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Minimum comparison between 2 variables and returns 2 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gae81f6ba74f5ace30467767e862d05285"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, U, P&gt; glm::associatedMin </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const vec&lt; L, U, P &gt; &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const vec&lt; L, U, P &gt; &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Minimum comparison between 2 variables and returns 2 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga00b7a3ca3984e5da909e99e08f270d49"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, U, P&gt; glm::associatedMin </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Minimum comparison between 2 variables and returns 2 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gad0aa8f86259a26d839d34a3577a923fc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL U glm::associatedMin </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>z</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>c</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Minimum comparison between 3 variables and returns 3 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga562c0039d0b25ee6fc11b67037cd9eb8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, U, P&gt; glm::associatedMin </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>z</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>c</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Minimum comparison between 3 variables and returns 3 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga432224ebe2085eaa2b63a077ecbbbff6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL U glm::associatedMin </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>z</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>d</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Minimum comparison between 4 variables and returns 4 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga00e3256832e6326daee1751af5f48853"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, U, P&gt; glm::associatedMin </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>z</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>d</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Minimum comparison between 4 variables and returns 4 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga57e537aabe5b8c411b17bd1e6fef041e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, U, P&gt; glm::associatedMin </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>z</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, U, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>d</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Minimum comparison between 4 variables and returns 4 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gae48ef2b49683322023b835b44ba378b1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, U, P&gt; glm::associatedMin </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>z</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">U&#160;</td>
-          <td class="paramname"><em>d</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Minimum comparison between 4 variables and returns 4 associated variable values. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Min and max functions that return associated values not the compared onces. ">GLM_GTX_associated_min_max</a> </dd></dl>
+<p>Faster than the common pow function but less accurate. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00183.html" title="Include <glm/gtx/fast_exponential.hpp> to use the features of this extension. ">GLM_GTX_fast_exponential</a> </dd></dl>
 
 </div>
 </div>

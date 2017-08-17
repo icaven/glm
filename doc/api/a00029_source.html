@@ -101,54 +101,54 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#       pragma message(&quot;GLM: GLM_GTX_fast_exponential extension included&quot;)</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00143.html">glm</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00135.html">glm</a></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> genType&gt;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        GLM_FUNC_DECL genType <a class="code" href="a00197.html#ga2dcc3e266e210c123970399452b65c04">fastPow</a>(genType x, genType y);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        GLM_FUNC_DECL genType <a class="code" href="a00183.html#ga1abe488c0829da5b9de70ac64aeaa7e5">fastPow</a>(genType x, genType y);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier P&gt;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, P&gt; <a class="code" href="a00197.html#ga2dcc3e266e210c123970399452b65c04">fastPow</a>(vec&lt;L, T, P&gt; <span class="keyword">const</span> &amp; x, vec&lt;L, T, P&gt; <span class="keyword">const</span> &amp; y);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier Q&gt;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, Q&gt; <a class="code" href="a00183.html#ga1abe488c0829da5b9de70ac64aeaa7e5">fastPow</a>(vec&lt;L, T, Q&gt; <span class="keyword">const</span>&amp; x, vec&lt;L, T, Q&gt; <span class="keyword">const</span>&amp; y);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> genTypeT, <span class="keyword">typename</span> genTypeU&gt;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        GLM_FUNC_DECL genTypeT <a class="code" href="a00197.html#ga2dcc3e266e210c123970399452b65c04">fastPow</a>(genTypeT x, genTypeU y);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        GLM_FUNC_DECL genTypeT <a class="code" href="a00183.html#ga1abe488c0829da5b9de70ac64aeaa7e5">fastPow</a>(genTypeT x, genTypeU y);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier P&gt;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, P&gt; <a class="code" href="a00197.html#ga2dcc3e266e210c123970399452b65c04">fastPow</a>(vec&lt;L, T, P&gt; <span class="keyword">const</span> &amp; x);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier Q&gt;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, Q&gt; <a class="code" href="a00183.html#ga1abe488c0829da5b9de70ac64aeaa7e5">fastPow</a>(vec&lt;L, T, Q&gt; <span class="keyword">const</span>&amp; x);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        GLM_FUNC_DECL T <a class="code" href="a00197.html#ga85b1ac8bcc3f4aa0ea653ed0686b9ef6">fastExp</a>(T x);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        GLM_FUNC_DECL T <a class="code" href="a00183.html#ga3ba6153aec6bd74628f8b00530aa8d58">fastExp</a>(T x);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier P&gt;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, P&gt; <a class="code" href="a00197.html#ga85b1ac8bcc3f4aa0ea653ed0686b9ef6">fastExp</a>(vec&lt;L, T, P&gt; <span class="keyword">const</span> &amp; x);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier Q&gt;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, Q&gt; <a class="code" href="a00183.html#ga3ba6153aec6bd74628f8b00530aa8d58">fastExp</a>(vec&lt;L, T, Q&gt; <span class="keyword">const</span>&amp; x);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        GLM_FUNC_DECL T <a class="code" href="a00197.html#ga51fc374fd9f53792429821a684731034">fastLog</a>(T x);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        GLM_FUNC_DECL T <a class="code" href="a00183.html#ga937256993a7219e73f186bb348fe6be8">fastLog</a>(T x);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier P&gt;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, P&gt; <a class="code" href="a00197.html#ga51fc374fd9f53792429821a684731034">fastLog</a>(vec&lt;L, T, P&gt; <span class="keyword">const</span> &amp; x);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier Q&gt;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, Q&gt; <a class="code" href="a00183.html#ga937256993a7219e73f186bb348fe6be8">fastLog</a>(vec&lt;L, T, Q&gt; <span class="keyword">const</span>&amp; x);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        GLM_FUNC_DECL T <a class="code" href="a00197.html#ga53a3df8e34a5d56feb866934abbe62a7">fastExp2</a>(T x);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        GLM_FUNC_DECL T <a class="code" href="a00183.html#gacaaed8b67d20d244b7de217e7816c1b6">fastExp2</a>(T x);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier P&gt;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, P&gt; <a class="code" href="a00197.html#ga53a3df8e34a5d56feb866934abbe62a7">fastExp2</a>(vec&lt;L, T, P&gt; <span class="keyword">const</span> &amp; x);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier Q&gt;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, Q&gt; <a class="code" href="a00183.html#gacaaed8b67d20d244b7de217e7816c1b6">fastExp2</a>(vec&lt;L, T, Q&gt; <span class="keyword">const</span>&amp; x);</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        GLM_FUNC_DECL T <a class="code" href="a00197.html#gaedb3311ff09108d883a8a93a3edde68f">fastLog2</a>(T x);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        GLM_FUNC_DECL T <a class="code" href="a00183.html#ga7562043539194ccc24649f8475bc5584">fastLog2</a>(T x);</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier P&gt;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, P&gt; <a class="code" href="a00197.html#gaedb3311ff09108d883a8a93a3edde68f">fastLog2</a>(vec&lt;L, T, P&gt; <span class="keyword">const</span> &amp; x);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier Q&gt;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, Q&gt; <a class="code" href="a00183.html#ga7562043539194ccc24649f8475bc5584">fastLog2</a>(vec&lt;L, T, Q&gt; <span class="keyword">const</span>&amp; x);</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}<span class="comment">//namespace glm</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#include &quot;fast_exponential.inl&quot;</span></div>
-<div class="ttc" id="a00197_html_ga85b1ac8bcc3f4aa0ea653ed0686b9ef6"><div class="ttname"><a href="a00197.html#ga85b1ac8bcc3f4aa0ea653ed0686b9ef6">glm::fastExp</a></div><div class="ttdeci">GLM_FUNC_DECL vec&lt; L, T, P &gt; fastExp(vec&lt; L, T, P &gt; const &amp;x)</div><div class="ttdoc">Faster than the common exp function but less accurate. </div></div>
-<div class="ttc" id="a00197_html_ga53a3df8e34a5d56feb866934abbe62a7"><div class="ttname"><a href="a00197.html#ga53a3df8e34a5d56feb866934abbe62a7">glm::fastExp2</a></div><div class="ttdeci">GLM_FUNC_DECL vec&lt; L, T, P &gt; fastExp2(vec&lt; L, T, P &gt; const &amp;x)</div><div class="ttdoc">Faster than the common exp2 function but less accurate. </div></div>
-<div class="ttc" id="a00143_html"><div class="ttname"><a href="a00143.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00003_source.html#l00011">_noise.hpp:11</a></div></div>
-<div class="ttc" id="a00197_html_ga2dcc3e266e210c123970399452b65c04"><div class="ttname"><a href="a00197.html#ga2dcc3e266e210c123970399452b65c04">glm::fastPow</a></div><div class="ttdeci">GLM_FUNC_DECL vec&lt; L, T, P &gt; fastPow(vec&lt; L, T, P &gt; const &amp;x)</div><div class="ttdoc">Faster than the common pow function but less accurate. </div></div>
-<div class="ttc" id="a00197_html_ga51fc374fd9f53792429821a684731034"><div class="ttname"><a href="a00197.html#ga51fc374fd9f53792429821a684731034">glm::fastLog</a></div><div class="ttdeci">GLM_FUNC_DECL vec&lt; L, T, P &gt; fastLog(vec&lt; L, T, P &gt; const &amp;x)</div><div class="ttdoc">Faster than the common exp2 function but less accurate. </div></div>
-<div class="ttc" id="a00197_html_gaedb3311ff09108d883a8a93a3edde68f"><div class="ttname"><a href="a00197.html#gaedb3311ff09108d883a8a93a3edde68f">glm::fastLog2</a></div><div class="ttdeci">GLM_FUNC_DECL vec&lt; L, T, P &gt; fastLog2(vec&lt; L, T, P &gt; const &amp;x)</div><div class="ttdoc">Faster than the common log2 function but less accurate. </div></div>
+<div class="ttc" id="a00183_html_ga7562043539194ccc24649f8475bc5584"><div class="ttname"><a href="a00183.html#ga7562043539194ccc24649f8475bc5584">glm::fastLog2</a></div><div class="ttdeci">GLM_FUNC_DECL vec&lt; L, T, Q &gt; fastLog2(vec&lt; L, T, Q &gt; const &amp;x)</div><div class="ttdoc">Faster than the common log2 function but less accurate. </div></div>
+<div class="ttc" id="a00135_html"><div class="ttname"><a href="a00135.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00015_source.html#l00020">common.hpp:20</a></div></div>
+<div class="ttc" id="a00183_html_ga1abe488c0829da5b9de70ac64aeaa7e5"><div class="ttname"><a href="a00183.html#ga1abe488c0829da5b9de70ac64aeaa7e5">glm::fastPow</a></div><div class="ttdeci">GLM_FUNC_DECL vec&lt; L, T, Q &gt; fastPow(vec&lt; L, T, Q &gt; const &amp;x)</div><div class="ttdoc">Faster than the common pow function but less accurate. </div></div>
+<div class="ttc" id="a00183_html_gacaaed8b67d20d244b7de217e7816c1b6"><div class="ttname"><a href="a00183.html#gacaaed8b67d20d244b7de217e7816c1b6">glm::fastExp2</a></div><div class="ttdeci">GLM_FUNC_DECL vec&lt; L, T, Q &gt; fastExp2(vec&lt; L, T, Q &gt; const &amp;x)</div><div class="ttdoc">Faster than the common exp2 function but less accurate. </div></div>
+<div class="ttc" id="a00183_html_ga3ba6153aec6bd74628f8b00530aa8d58"><div class="ttname"><a href="a00183.html#ga3ba6153aec6bd74628f8b00530aa8d58">glm::fastExp</a></div><div class="ttdeci">GLM_FUNC_DECL vec&lt; L, T, Q &gt; fastExp(vec&lt; L, T, Q &gt; const &amp;x)</div><div class="ttdoc">Faster than the common exp function but less accurate. </div></div>
+<div class="ttc" id="a00183_html_ga937256993a7219e73f186bb348fe6be8"><div class="ttname"><a href="a00183.html#ga937256993a7219e73f186bb348fe6be8">glm::fastLog</a></div><div class="ttdeci">GLM_FUNC_DECL vec&lt; L, T, Q &gt; fastLog(vec&lt; L, T, Q &gt; const &amp;x)</div><div class="ttdoc">Faster than the common exp2 function but less accurate. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

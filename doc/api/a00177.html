@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTC_round</title>
+<title>0.9.9 API documenation: GLM_GTX_component_wise</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,570 +77,155 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTC_round<div class="ingroups"><a class="el" href="a00156.html">GTC Extensions (Stable)</a></div></div>  </div>
+<div class="title">GLM_GTX_component_wise<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>rounding value to specific boundings  
+<p>Include &lt;<a class="el" href="a00018.html" title="GLM_GTX_component_wise ">glm/gtx/component_wise.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gac84898c466e609cdd2e81d9ba907d9e8"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:gac84898c466e609cdd2e81d9ba907d9e8"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#gac84898c466e609cdd2e81d9ba907d9e8">ceilMultiple</a> (genType Source, genType Multiple)</td></tr>
-<tr class="memdesc:gac84898c466e609cdd2e81d9ba907d9e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Higher multiple number of Source.  <a href="a00177.html#gac84898c466e609cdd2e81d9ba907d9e8">More...</a><br /></td></tr>
-<tr class="separator:gac84898c466e609cdd2e81d9ba907d9e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad45973192fb6a37fc2ac4a4d11f50ed7"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gad45973192fb6a37fc2ac4a4d11f50ed7"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#gad45973192fb6a37fc2ac4a4d11f50ed7">ceilMultiple</a> (vec&lt; L, T, P &gt; const &amp;Source, vec&lt; L, T, P &gt; const &amp;Multiple)</td></tr>
-<tr class="memdesc:gad45973192fb6a37fc2ac4a4d11f50ed7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Higher multiple number of Source.  <a href="a00177.html#gad45973192fb6a37fc2ac4a4d11f50ed7">More...</a><br /></td></tr>
-<tr class="separator:gad45973192fb6a37fc2ac4a4d11f50ed7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa73c7690c787086fa3ac1c312264acab"><td class="memTemplParams" colspan="2">template&lt;typename genIUType &gt; </td></tr>
-<tr class="memitem:gaa73c7690c787086fa3ac1c312264acab"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genIUType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#gaa73c7690c787086fa3ac1c312264acab">ceilPowerOfTwo</a> (genIUType Value)</td></tr>
-<tr class="memdesc:gaa73c7690c787086fa3ac1c312264acab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the power of two number which value is just higher the input value, round up to a power of two.  <a href="a00177.html#gaa73c7690c787086fa3ac1c312264acab">More...</a><br /></td></tr>
-<tr class="separator:gaa73c7690c787086fa3ac1c312264acab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab96d6621f379126ac9e94619d72fb3c2"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gab96d6621f379126ac9e94619d72fb3c2"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#gab96d6621f379126ac9e94619d72fb3c2">ceilPowerOfTwo</a> (vec&lt; L, T, P &gt; const &amp;value)</td></tr>
-<tr class="memdesc:gab96d6621f379126ac9e94619d72fb3c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the power of two number which value is just higher the input value, round up to a power of two.  <a href="a00177.html#gab96d6621f379126ac9e94619d72fb3c2">More...</a><br /></td></tr>
-<tr class="separator:gab96d6621f379126ac9e94619d72fb3c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9eafb9dbedf84e5cece65c2fe9d5631d"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:ga9eafb9dbedf84e5cece65c2fe9d5631d"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#ga9eafb9dbedf84e5cece65c2fe9d5631d">floorMultiple</a> (genType Source, genType Multiple)</td></tr>
-<tr class="memdesc:ga9eafb9dbedf84e5cece65c2fe9d5631d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lower multiple number of Source.  <a href="a00177.html#ga9eafb9dbedf84e5cece65c2fe9d5631d">More...</a><br /></td></tr>
-<tr class="separator:ga9eafb9dbedf84e5cece65c2fe9d5631d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga82343a05a66184e3a2e33f514e5980c9"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga82343a05a66184e3a2e33f514e5980c9"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#ga82343a05a66184e3a2e33f514e5980c9">floorMultiple</a> (vec&lt; L, T, P &gt; const &amp;Source, vec&lt; L, T, P &gt; const &amp;Multiple)</td></tr>
-<tr class="memdesc:ga82343a05a66184e3a2e33f514e5980c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lower multiple number of Source.  <a href="a00177.html#ga82343a05a66184e3a2e33f514e5980c9">More...</a><br /></td></tr>
-<tr class="separator:ga82343a05a66184e3a2e33f514e5980c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac80f6519c31baae10d8d7bea6735d1fa"><td class="memTemplParams" colspan="2">template&lt;typename genIUType &gt; </td></tr>
-<tr class="memitem:gac80f6519c31baae10d8d7bea6735d1fa"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genIUType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#gac80f6519c31baae10d8d7bea6735d1fa">floorPowerOfTwo</a> (genIUType Value)</td></tr>
-<tr class="memdesc:gac80f6519c31baae10d8d7bea6735d1fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the power of two number which value is just lower the input value, round down to a power of two.  <a href="a00177.html#gac80f6519c31baae10d8d7bea6735d1fa">More...</a><br /></td></tr>
-<tr class="separator:gac80f6519c31baae10d8d7bea6735d1fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadcd07cdcbd366b917d147073633b0094"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gadcd07cdcbd366b917d147073633b0094"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#gadcd07cdcbd366b917d147073633b0094">floorPowerOfTwo</a> (vec&lt; L, T, P &gt; const &amp;value)</td></tr>
-<tr class="memdesc:gadcd07cdcbd366b917d147073633b0094"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the power of two number which value is just lower the input value, round down to a power of two.  <a href="a00177.html#gadcd07cdcbd366b917d147073633b0094">More...</a><br /></td></tr>
-<tr class="separator:gadcd07cdcbd366b917d147073633b0094"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf7444a7b2eb524f373463ceba76b9326"><td class="memTemplParams" colspan="2">template&lt;typename genIUType &gt; </td></tr>
-<tr class="memitem:gaf7444a7b2eb524f373463ceba76b9326"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#gaf7444a7b2eb524f373463ceba76b9326">isMultiple</a> (genIUType Value, genIUType Multiple)</td></tr>
-<tr class="memdesc:gaf7444a7b2eb524f373463ceba76b9326"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if the 'Value' is a multiple of 'Multiple'.  <a href="a00177.html#gaf7444a7b2eb524f373463ceba76b9326">More...</a><br /></td></tr>
-<tr class="separator:gaf7444a7b2eb524f373463ceba76b9326"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga01d49b7af4985cd4e58e137132fe9541"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga01d49b7af4985cd4e58e137132fe9541"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, bool, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#ga01d49b7af4985cd4e58e137132fe9541">isMultiple</a> (vec&lt; L, T, P &gt; const &amp;Value, T Multiple)</td></tr>
-<tr class="memdesc:ga01d49b7af4985cd4e58e137132fe9541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if the 'Value' is a multiple of 'Multiple'.  <a href="a00177.html#ga01d49b7af4985cd4e58e137132fe9541">More...</a><br /></td></tr>
-<tr class="separator:ga01d49b7af4985cd4e58e137132fe9541"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac8f2fac09b70d2132d83c9026ce8a1c4"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:gac8f2fac09b70d2132d83c9026ce8a1c4"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, bool, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#gac8f2fac09b70d2132d83c9026ce8a1c4">isMultiple</a> (vec&lt; L, T, P &gt; const &amp;Value, vec&lt; L, T, P &gt; const &amp;Multiple)</td></tr>
-<tr class="memdesc:gac8f2fac09b70d2132d83c9026ce8a1c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if the 'Value' is a multiple of 'Multiple'.  <a href="a00177.html#gac8f2fac09b70d2132d83c9026ce8a1c4">More...</a><br /></td></tr>
-<tr class="separator:gac8f2fac09b70d2132d83c9026ce8a1c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaebf826fbb6e0a70eeaab0792d89b25ec"><td class="memTemplParams" colspan="2">template&lt;typename genIUType &gt; </td></tr>
-<tr class="memitem:gaebf826fbb6e0a70eeaab0792d89b25ec"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#gaebf826fbb6e0a70eeaab0792d89b25ec">isPowerOfTwo</a> (genIUType Value)</td></tr>
-<tr class="memdesc:gaebf826fbb6e0a70eeaab0792d89b25ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if the value is a power of two number.  <a href="a00177.html#gaebf826fbb6e0a70eeaab0792d89b25ec">More...</a><br /></td></tr>
-<tr class="separator:gaebf826fbb6e0a70eeaab0792d89b25ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga54a1f4178f145dc57239732473421f2c"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga54a1f4178f145dc57239732473421f2c"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, bool, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#ga54a1f4178f145dc57239732473421f2c">isPowerOfTwo</a> (vec&lt; L, T, P &gt; const &amp;value)</td></tr>
-<tr class="memdesc:ga54a1f4178f145dc57239732473421f2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if the value is a power of two number.  <a href="a00177.html#ga54a1f4178f145dc57239732473421f2c">More...</a><br /></td></tr>
-<tr class="separator:ga54a1f4178f145dc57239732473421f2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6739d1de04b2cea7c78675b365644bce"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:ga6739d1de04b2cea7c78675b365644bce"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#ga6739d1de04b2cea7c78675b365644bce">roundMultiple</a> (genType Source, genType Multiple)</td></tr>
-<tr class="memdesc:ga6739d1de04b2cea7c78675b365644bce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lower multiple number of Source.  <a href="a00177.html#ga6739d1de04b2cea7c78675b365644bce">More...</a><br /></td></tr>
-<tr class="separator:ga6739d1de04b2cea7c78675b365644bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga60f4ac8add99642616c4c49f128bd718"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga60f4ac8add99642616c4c49f128bd718"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#ga60f4ac8add99642616c4c49f128bd718">roundMultiple</a> (vec&lt; L, T, P &gt; const &amp;Source, vec&lt; L, T, P &gt; const &amp;Multiple)</td></tr>
-<tr class="memdesc:ga60f4ac8add99642616c4c49f128bd718"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lower multiple number of Source.  <a href="a00177.html#ga60f4ac8add99642616c4c49f128bd718">More...</a><br /></td></tr>
-<tr class="separator:ga60f4ac8add99642616c4c49f128bd718"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6d24a9e3abe3e6a908661b43acb8efe0"><td class="memTemplParams" colspan="2">template&lt;typename genIUType &gt; </td></tr>
-<tr class="memitem:ga6d24a9e3abe3e6a908661b43acb8efe0"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genIUType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#ga6d24a9e3abe3e6a908661b43acb8efe0">roundPowerOfTwo</a> (genIUType Value)</td></tr>
-<tr class="memdesc:ga6d24a9e3abe3e6a908661b43acb8efe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the power of two number which value is the closet to the input value.  <a href="a00177.html#ga6d24a9e3abe3e6a908661b43acb8efe0">More...</a><br /></td></tr>
-<tr class="separator:ga6d24a9e3abe3e6a908661b43acb8efe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga74eabb74ece6a03e9c0347a1cf6a045d"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier P&gt; </td></tr>
-<tr class="memitem:ga74eabb74ece6a03e9c0347a1cf6a045d"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#ga74eabb74ece6a03e9c0347a1cf6a045d">roundPowerOfTwo</a> (vec&lt; L, T, P &gt; const &amp;value)</td></tr>
-<tr class="memdesc:ga74eabb74ece6a03e9c0347a1cf6a045d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the power of two number which value is the closet to the input value.  <a href="a00177.html#ga74eabb74ece6a03e9c0347a1cf6a045d">More...</a><br /></td></tr>
-<tr class="separator:ga74eabb74ece6a03e9c0347a1cf6a045d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf71833350e15e74d31cbf8a3e7f27051"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gaf71833350e15e74d31cbf8a3e7f27051"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType::value_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#gaf71833350e15e74d31cbf8a3e7f27051">compAdd</a> (genType const &amp;v)</td></tr>
+<tr class="memdesc:gaf71833350e15e74d31cbf8a3e7f27051"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add all vector components together.  <a href="a00177.html#gaf71833350e15e74d31cbf8a3e7f27051">More...</a><br /></td></tr>
+<tr class="separator:gaf71833350e15e74d31cbf8a3e7f27051"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabfa4bb19298c8c73d4217ba759c496b6"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gabfa4bb19298c8c73d4217ba759c496b6"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType::value_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#gabfa4bb19298c8c73d4217ba759c496b6">compMax</a> (genType const &amp;v)</td></tr>
+<tr class="memdesc:gabfa4bb19298c8c73d4217ba759c496b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the maximum value between single vector components.  <a href="a00177.html#gabfa4bb19298c8c73d4217ba759c496b6">More...</a><br /></td></tr>
+<tr class="separator:gabfa4bb19298c8c73d4217ba759c496b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab5d0832b5c7bb01b8d7395973bfb1425"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gab5d0832b5c7bb01b8d7395973bfb1425"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType::value_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#gab5d0832b5c7bb01b8d7395973bfb1425">compMin</a> (genType const &amp;v)</td></tr>
+<tr class="memdesc:gab5d0832b5c7bb01b8d7395973bfb1425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the minimum value between single vector components.  <a href="a00177.html#gab5d0832b5c7bb01b8d7395973bfb1425">More...</a><br /></td></tr>
+<tr class="separator:gab5d0832b5c7bb01b8d7395973bfb1425"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae8ab88024197202c9479d33bdc5a8a5d"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gae8ab88024197202c9479d33bdc5a8a5d"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType::value_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#gae8ab88024197202c9479d33bdc5a8a5d">compMul</a> (genType const &amp;v)</td></tr>
+<tr class="memdesc:gae8ab88024197202c9479d33bdc5a8a5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply all vector components together.  <a href="a00177.html#gae8ab88024197202c9479d33bdc5a8a5d">More...</a><br /></td></tr>
+<tr class="separator:gae8ab88024197202c9479d33bdc5a8a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f2b81ada8515875e58cb1667b6b9908"><td class="memTemplParams" colspan="2">template&lt;typename floatType , length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga8f2b81ada8515875e58cb1667b6b9908"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, floatType, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#ga8f2b81ada8515875e58cb1667b6b9908">compNormalize</a> (vec&lt; L, T, Q &gt; const &amp;v)</td></tr>
+<tr class="memdesc:ga8f2b81ada8515875e58cb1667b6b9908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert an integer vector to a normalized float vector.  <a href="a00177.html#ga8f2b81ada8515875e58cb1667b6b9908">More...</a><br /></td></tr>
+<tr class="separator:ga8f2b81ada8515875e58cb1667b6b9908"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga80abc2980d65d675f435d178c36880eb"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , typename floatType , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga80abc2980d65d675f435d178c36880eb"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00177.html#ga80abc2980d65d675f435d178c36880eb">compScale</a> (vec&lt; L, floatType, Q &gt; const &amp;v)</td></tr>
+<tr class="memdesc:ga80abc2980d65d675f435d178c36880eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a normalized float vector to an integer vector.  <a href="a00177.html#ga80abc2980d65d675f435d178c36880eb">More...</a><br /></td></tr>
+<tr class="separator:ga80abc2980d65d675f435d178c36880eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>rounding value to specific boundings </p>
-<p>&lt;<a class="el" href="a00099.html" title="GLM_GTC_round ">glm/gtc/round.hpp</a>&gt; need to be included to use these functionalities. </p>
+<p>Include &lt;<a class="el" href="a00018.html" title="GLM_GTX_component_wise ">glm/gtx/component_wise.hpp</a>&gt; to use the features of this extension. </p>
+<p>Operations between components of a type </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="gac84898c466e609cdd2e81d9ba907d9e8"></a>
+<a class="anchor" id="gaf71833350e15e74d31cbf8a3e7f27051"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::ceilMultiple </td>
+          <td class="memname">GLM_FUNC_DECL genType::value_type glm::compAdd </td>
           <td>(</td>
-          <td class="paramtype">genType&#160;</td>
-          <td class="paramname"><em>Source</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType&#160;</td>
-          <td class="paramname"><em>Multiple</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Higher multiple number of Source. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">genType</td><td>Floating-point or integer scalar or vector types. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Multiple</td><td>Must be a null or positive value</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gad45973192fb6a37fc2ac4a4d11f50ed7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, P&gt; glm::ceilMultiple </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>Source</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>Multiple</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Higher multiple number of Source. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">genType</td><td>Floating-point or integer scalar or vector types. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Multiple</td><td>Must be a null or positive value</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gaa73c7690c787086fa3ac1c312264acab"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL genIUType glm::ceilPowerOfTwo </td>
-          <td>(</td>
-          <td class="paramtype">genIUType&#160;</td>
-          <td class="paramname"><em>Value</em></td><td>)</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the power of two number which value is just higher the input value, round up to a power of two. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd></dl>
+<p>Add all vector components together. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="Include <glm/gtx/component_wise.hpp> to use the features of this extension. ">GLM_GTX_component_wise</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gab96d6621f379126ac9e94619d72fb3c2"></a>
+<a class="anchor" id="gabfa4bb19298c8c73d4217ba759c496b6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, P&gt; glm::ceilPowerOfTwo </td>
+          <td class="memname">GLM_FUNC_DECL genType::value_type glm::compMax </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the power of two number which value is just higher the input value, round up to a power of two. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd></dl>
+<p>Find the maximum value between single vector components. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="Include <glm/gtx/component_wise.hpp> to use the features of this extension. ">GLM_GTX_component_wise</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga9eafb9dbedf84e5cece65c2fe9d5631d"></a>
+<a class="anchor" id="gab5d0832b5c7bb01b8d7395973bfb1425"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::floorMultiple </td>
+          <td class="memname">GLM_FUNC_DECL genType::value_type glm::compMin </td>
           <td>(</td>
-          <td class="paramtype">genType&#160;</td>
-          <td class="paramname"><em>Source</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType&#160;</td>
-          <td class="paramname"><em>Multiple</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Lower multiple number of Source. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">genType</td><td>Floating-point or integer scalar or vector types. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Multiple</td><td>Must be a null or positive value</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga82343a05a66184e3a2e33f514e5980c9"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, P&gt; glm::floorMultiple </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>Source</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>Multiple</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Lower multiple number of Source. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">genType</td><td>Floating-point or integer scalar or vector types. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Multiple</td><td>Must be a null or positive value</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gac80f6519c31baae10d8d7bea6735d1fa"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL genIUType glm::floorPowerOfTwo </td>
-          <td>(</td>
-          <td class="paramtype">genIUType&#160;</td>
-          <td class="paramname"><em>Value</em></td><td>)</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the power of two number which value is just lower the input value, round down to a power of two. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd></dl>
+<p>Find the minimum value between single vector components. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="Include <glm/gtx/component_wise.hpp> to use the features of this extension. ">GLM_GTX_component_wise</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gadcd07cdcbd366b917d147073633b0094"></a>
+<a class="anchor" id="gae8ab88024197202c9479d33bdc5a8a5d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, P&gt; glm::floorPowerOfTwo </td>
+          <td class="memname">GLM_FUNC_DECL genType::value_type glm::compMul </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the power of two number which value is just lower the input value, round down to a power of two. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd></dl>
+<p>Multiply all vector components together. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="Include <glm/gtx/component_wise.hpp> to use the features of this extension. ">GLM_GTX_component_wise</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gaf7444a7b2eb524f373463ceba76b9326"></a>
+<a class="anchor" id="ga8f2b81ada8515875e58cb1667b6b9908"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL bool glm::isMultiple </td>
+          <td class="memname">GLM_FUNC_DECL vec&lt;L, floatType, Q&gt; glm::compNormalize </td>
           <td>(</td>
-          <td class="paramtype">genIUType&#160;</td>
-          <td class="paramname"><em>Value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genIUType&#160;</td>
-          <td class="paramname"><em>Multiple</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return true if the 'Value' is a multiple of 'Multiple'. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga01d49b7af4985cd4e58e137132fe9541"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, bool, P&gt; glm::isMultiple </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>Value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>Multiple</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return true if the 'Value' is a multiple of 'Multiple'. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gac8f2fac09b70d2132d83c9026ce8a1c4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, bool, P&gt; glm::isMultiple </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>Value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>Multiple</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return true if the 'Value' is a multiple of 'Multiple'. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gaebf826fbb6e0a70eeaab0792d89b25ec"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL bool glm::isPowerOfTwo </td>
-          <td>(</td>
-          <td class="paramtype">genIUType&#160;</td>
-          <td class="paramname"><em>Value</em></td><td>)</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return true if the value is a power of two number. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd></dl>
+<p>Convert an integer vector to a normalized float vector. </p>
+<p>If the parameter value type is already a floating qualifier type, the value is passed through. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="Include <glm/gtx/component_wise.hpp> to use the features of this extension. ">GLM_GTX_component_wise</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga54a1f4178f145dc57239732473421f2c"></a>
+<a class="anchor" id="ga80abc2980d65d675f435d178c36880eb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, bool, P&gt; glm::isPowerOfTwo </td>
+          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, Q&gt; glm::compScale </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
+          <td class="paramtype">vec&lt; L, floatType, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return true if the value is a power of two number. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga6739d1de04b2cea7c78675b365644bce"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::roundMultiple </td>
-          <td>(</td>
-          <td class="paramtype">genType&#160;</td>
-          <td class="paramname"><em>Source</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">genType&#160;</td>
-          <td class="paramname"><em>Multiple</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Lower multiple number of Source. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">genType</td><td>Floating-point or integer scalar or vector types. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Multiple</td><td>Must be a null or positive value</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga60f4ac8add99642616c4c49f128bd718"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, P&gt; glm::roundMultiple </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>Source</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>Multiple</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Lower multiple number of Source. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">genType</td><td>Floating-point or integer scalar or vector types. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Multiple</td><td>Must be a null or positive value</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga6d24a9e3abe3e6a908661b43acb8efe0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL genIUType glm::roundPowerOfTwo </td>
-          <td>(</td>
-          <td class="paramtype">genIUType&#160;</td>
-          <td class="paramname"><em>Value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the power of two number which value is the closet to the input value. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ga74eabb74ece6a03e9c0347a1cf6a045d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, P&gt; glm::roundPowerOfTwo </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, P &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the power of two number which value is the closet to the input value. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="rounding value to specific boundings ">GLM_GTC_round</a> </dd></dl>
+<p>Convert a normalized float vector to an integer vector. </p>
+<p>If the parameter value type is already a floating qualifier type, the value is passed through. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="a00177.html" title="Include <glm/gtx/component_wise.hpp> to use the features of this extension. ">GLM_GTX_component_wise</a> </dd></dl>
 
 </div>
 </div>

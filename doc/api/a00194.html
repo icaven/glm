@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTX_extend</title>
+<title>0.9.9 API documenation: GLM_GTX_matrix_cross_product</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,56 +77,63 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_extend<div class="ingroups"><a class="el" href="a00157.html">GTX Extensions (Experimental)</a></div></div>  </div>
+<div class="title">GLM_GTX_matrix_cross_product<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Extend a position from a source to a position at a defined length.  
+<p>Include &lt;<a class="el" href="a00057.html" title="GLM_GTX_matrix_cross_product ">glm/gtx/matrix_cross_product.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga8140caae613b0f847ab0d7175dc03a37"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:ga8140caae613b0f847ab0d7175dc03a37"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00194.html#ga8140caae613b0f847ab0d7175dc03a37">extend</a> (genType const &amp;Origin, genType const &amp;Source, typename genType::value_type const Length)</td></tr>
-<tr class="memdesc:ga8140caae613b0f847ab0d7175dc03a37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends of Length the Origin position using the (Source - Origin) direction.  <a href="a00194.html#ga8140caae613b0f847ab0d7175dc03a37">More...</a><br /></td></tr>
-<tr class="separator:ga8140caae613b0f847ab0d7175dc03a37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5802386bb4c37b3332a3b6fd8b6960ff"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga5802386bb4c37b3332a3b6fd8b6960ff"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00194.html#ga5802386bb4c37b3332a3b6fd8b6960ff">matrixCross3</a> (vec&lt; 3, T, Q &gt; const &amp;x)</td></tr>
+<tr class="memdesc:ga5802386bb4c37b3332a3b6fd8b6960ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a cross product matrix.  <a href="a00194.html#ga5802386bb4c37b3332a3b6fd8b6960ff">More...</a><br /></td></tr>
+<tr class="separator:ga5802386bb4c37b3332a3b6fd8b6960ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga20057fff91ddafa102934adb25458cde"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga20057fff91ddafa102934adb25458cde"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00194.html#ga20057fff91ddafa102934adb25458cde">matrixCross4</a> (vec&lt; 3, T, Q &gt; const &amp;x)</td></tr>
+<tr class="memdesc:ga20057fff91ddafa102934adb25458cde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a cross product matrix.  <a href="a00194.html#ga20057fff91ddafa102934adb25458cde">More...</a><br /></td></tr>
+<tr class="separator:ga20057fff91ddafa102934adb25458cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Extend a position from a source to a position at a defined length. </p>
-<p>&lt;<a class="el" href="a00026.html" title="GLM_GTX_extend ">glm/gtx/extend.hpp</a>&gt; need to be included to use these functionalities. </p>
+<p>Include &lt;<a class="el" href="a00057.html" title="GLM_GTX_matrix_cross_product ">glm/gtx/matrix_cross_product.hpp</a>&gt; to use the features of this extension. </p>
+<p>Build cross product matrices </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga8140caae613b0f847ab0d7175dc03a37"></a>
+<a class="anchor" id="ga5802386bb4c37b3332a3b6fd8b6960ff"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::extend </td>
+          <td class="memname">GLM_FUNC_DECL mat&lt;3, 3, T, Q&gt; glm::matrixCross3 </td>
           <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>Origin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>Source</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">typename genType::value_type const&#160;</td>
-          <td class="paramname"><em>Length</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Extends of Length the Origin position using the (Source - Origin) direction. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00194.html" title="Extend a position from a source to a position at a defined length. ">GLM_GTX_extend</a> </dd></dl>
+<p>Build a cross product matrix. </p>
+<p>From GLM_GTX_matrix_cross_product extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga20057fff91ddafa102934adb25458cde"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::matrixCross4 </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Build a cross product matrix. </p>
+<p>From GLM_GTX_matrix_cross_product extension. </p>
 
 </div>
 </div>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: matrix_factorisation.hpp File Reference</title>
+<title>0.9.9 API documenation: matrix_transform_2d.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -86,39 +86,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">matrix_factorisation.hpp File Reference</div>  </div>
+<div class="title">matrix_transform_2d.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="a00209.html">GLM_GTX_matrix_factorisation</a>  
+<p><a class="el" href="a00201.html">GLM_GTX_matrix_transform_2d</a>  
 <a href="#details">More...</a></p>
 
 <p><a href="a00067_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga834fe9f3b29ac4f6636e102dcf6c45be"><td class="memTemplParams" colspan="2">template&lt;length_t C, length_t R, typename T , qualifier P, template&lt; length_t, length_t, typename, qualifier &gt; class matType&gt; </td></tr>
-<tr class="memitem:ga834fe9f3b29ac4f6636e102dcf6c45be"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL matType&lt; C, R, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00209.html#ga834fe9f3b29ac4f6636e102dcf6c45be">fliplr</a> (matType&lt; C, R, T, P &gt; const &amp;in)</td></tr>
-<tr class="memdesc:ga834fe9f3b29ac4f6636e102dcf6c45be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flips the matrix columns right and left.  <a href="a00209.html#ga834fe9f3b29ac4f6636e102dcf6c45be">More...</a><br /></td></tr>
-<tr class="separator:ga834fe9f3b29ac4f6636e102dcf6c45be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5c0b0b7dde6aef33a8c73376fe00ddc6"><td class="memTemplParams" colspan="2">template&lt;length_t C, length_t R, typename T , qualifier P, template&lt; length_t, length_t, typename, qualifier &gt; class matType&gt; </td></tr>
-<tr class="memitem:ga5c0b0b7dde6aef33a8c73376fe00ddc6"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL matType&lt; C, R, T, P &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00209.html#ga5c0b0b7dde6aef33a8c73376fe00ddc6">flipud</a> (matType&lt; C, R, T, P &gt; const &amp;in)</td></tr>
-<tr class="memdesc:ga5c0b0b7dde6aef33a8c73376fe00ddc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flips the matrix rows up and down.  <a href="a00209.html#ga5c0b0b7dde6aef33a8c73376fe00ddc6">More...</a><br /></td></tr>
-<tr class="separator:ga5c0b0b7dde6aef33a8c73376fe00ddc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3f35a503ef41c16f83cf6cd8a191aca6"><td class="memTemplParams" colspan="2">template&lt;length_t C, length_t R, typename T , qualifier P, template&lt; length_t, length_t, typename, qualifier &gt; class matType&gt; </td></tr>
-<tr class="memitem:ga3f35a503ef41c16f83cf6cd8a191aca6"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00209.html#ga3f35a503ef41c16f83cf6cd8a191aca6">qr_decompose</a> (matType&lt; C, R, T, P &gt; const &amp;in, matType&lt;(C&lt; R?C:R), R, T, P &gt; &amp;q, matType&lt; C,(C&lt; R?C:R), T, P &gt; &amp;r)</td></tr>
-<tr class="memdesc:ga3f35a503ef41c16f83cf6cd8a191aca6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs QR factorisation of a matrix.  <a href="a00209.html#ga3f35a503ef41c16f83cf6cd8a191aca6">More...</a><br /></td></tr>
-<tr class="separator:ga3f35a503ef41c16f83cf6cd8a191aca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac81cf0350006c3f004887fa4fb57880e"><td class="memTemplParams" colspan="2">template&lt;length_t C, length_t R, typename T , qualifier P, template&lt; length_t, length_t, typename, qualifier &gt; class matType&gt; </td></tr>
-<tr class="memitem:gac81cf0350006c3f004887fa4fb57880e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00209.html#gac81cf0350006c3f004887fa4fb57880e">rq_decompose</a> (matType&lt; C, R, T, P &gt; const &amp;in, matType&lt;(C&lt; R?C:R), R, T, P &gt; &amp;r, matType&lt; C,(C&lt; R?C:R), T, P &gt; &amp;q)</td></tr>
-<tr class="memdesc:gac81cf0350006c3f004887fa4fb57880e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs RQ factorisation of a matrix.  <a href="a00209.html#gac81cf0350006c3f004887fa4fb57880e">More...</a><br /></td></tr>
-<tr class="separator:gac81cf0350006c3f004887fa4fb57880e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad5c84a4932a758f385a87098ce1b1660"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gad5c84a4932a758f385a87098ce1b1660"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00201.html#gad5c84a4932a758f385a87098ce1b1660">rotate</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m, T angle)</td></tr>
+<tr class="memdesc:gad5c84a4932a758f385a87098ce1b1660"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a rotation 3 * 3 matrix created from an angle.  <a href="a00201.html#gad5c84a4932a758f385a87098ce1b1660">More...</a><br /></td></tr>
+<tr class="separator:gad5c84a4932a758f385a87098ce1b1660"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadb47d2ad2bd984b213e8ff7d9cd8154e"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gadb47d2ad2bd984b213e8ff7d9cd8154e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00201.html#gadb47d2ad2bd984b213e8ff7d9cd8154e">scale</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m, vec&lt; 2, T, Q &gt; const &amp;v)</td></tr>
+<tr class="memdesc:gadb47d2ad2bd984b213e8ff7d9cd8154e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a scale 3 * 3 matrix created from a vector of 2 components.  <a href="a00201.html#gadb47d2ad2bd984b213e8ff7d9cd8154e">More...</a><br /></td></tr>
+<tr class="separator:gadb47d2ad2bd984b213e8ff7d9cd8154e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2a118ece5db1e2022112b954846012af"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga2a118ece5db1e2022112b954846012af"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00201.html#ga2a118ece5db1e2022112b954846012af">shearX</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m, T y)</td></tr>
+<tr class="memdesc:ga2a118ece5db1e2022112b954846012af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds an horizontal (parallel to the x axis) shear 3 * 3 matrix.  <a href="a00201.html#ga2a118ece5db1e2022112b954846012af">More...</a><br /></td></tr>
+<tr class="separator:ga2a118ece5db1e2022112b954846012af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga717f1833369c1ac4a40e4ac015af885e"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga717f1833369c1ac4a40e4ac015af885e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00201.html#ga717f1833369c1ac4a40e4ac015af885e">shearY</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m, T x)</td></tr>
+<tr class="memdesc:ga717f1833369c1ac4a40e4ac015af885e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a vertical (parallel to the y axis) shear 3 * 3 matrix.  <a href="a00201.html#ga717f1833369c1ac4a40e4ac015af885e">More...</a><br /></td></tr>
+<tr class="separator:ga717f1833369c1ac4a40e4ac015af885e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf4573ae47c80938aa9053ef6a33755ab"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaf4573ae47c80938aa9053ef6a33755ab"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00201.html#gaf4573ae47c80938aa9053ef6a33755ab">translate</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m, vec&lt; 2, T, Q &gt; const &amp;v)</td></tr>
+<tr class="memdesc:gaf4573ae47c80938aa9053ef6a33755ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a translation 3 * 3 matrix created from a vector of 2 components.  <a href="a00201.html#gaf4573ae47c80938aa9053ef6a33755ab">More...</a><br /></td></tr>
+<tr class="separator:gaf4573ae47c80938aa9053ef6a33755ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="a00209.html">GLM_GTX_matrix_factorisation</a> </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00158.html" title="The core of GLM, which implements exactly and only the GLSL specification to the degree possible...">GLM Core</a> (dependence) </dd></dl>
+<div class="textblock"><p><a class="el" href="a00201.html">GLM_GTX_matrix_transform_2d</a> </p>
+<dl class="section author"><dt>Author</dt><dd>Miguel Ángel Pérez Martínez</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00143.html" title="Features that implement in C++ the GLSL specification as closely as possible. ">Core features</a> (dependence) </dd></dl>
 
-<p>Definition in file <a class="el" href="a00067_source.html">matrix_factorisation.hpp</a>.</p>
+<p>Definition in file <a class="el" href="a00067_source.html">matrix_transform_2d.hpp</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
