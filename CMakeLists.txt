@@ -133,7 +133,7 @@ endif()
 
 # Compiler and default options
 
-if((CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
+if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 	message("GLM: Clang - ${CMAKE_CXX_COMPILER_ID} compiler")
 
 	add_compile_options(-Werror -Weverything)
@@ -152,7 +152,8 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "Intel")
 elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 	message("GLM: Visual C++ - ${CMAKE_CXX_COMPILER_ID} compiler")
 
-	add_compile_options(/FAs)
+	add_compile_options(/FAs /W4 /WX)
+	add_compile_options(/wd4324 /wd4389 /wd4127 /wd4309 /wd4267 /wd4146 /wd4201 /wd4464 /wd4514 /wd4701 /wd4820 /wd4365)
 	add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 endif()
 

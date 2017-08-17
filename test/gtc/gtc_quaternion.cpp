@@ -107,7 +107,7 @@ int test_quat_normalize()
 
 int test_quat_euler()
 {
-	int Error(0);
+	int Error = 0;
 
 	{
 		glm::quat q(1.0f, 0.0f, 0.0f, 1.0f);
@@ -115,6 +115,7 @@ int test_quat_euler()
 		float Pitch = glm::pitch(q);
 		float Yaw = glm::yaw(q);
 		glm::vec3 Angles = glm::eulerAngles(q);
+		Error += glm::all(glm::epsilonEqual(Angles, glm::vec3(Pitch, Yaw, Roll), 0.000001f)) ? 0 : 1;
 	}
 
 	{
@@ -123,6 +124,7 @@ int test_quat_euler()
 		double Pitch = glm::pitch(q);
 		double Yaw = glm::yaw(q);
 		glm::dvec3 Angles = glm::eulerAngles(q);
+		Error += glm::all(glm::epsilonEqual(Angles, glm::dvec3(Pitch, Yaw, Roll), 0.000001)) ? 0 : 1;
 	}
 
 	return Error;
@@ -130,7 +132,7 @@ int test_quat_euler()
 
 int test_quat_slerp()
 {
-	int Error(0);
+	int Error = 0;
 
 	float const Epsilon = 0.0001f;//glm::epsilon<float>();
 
@@ -236,14 +238,6 @@ int test_quat_two_axis_ctr()
 	return Error;
 }
 
-int test_quat_type()
-{
-	glm::quat A;
-	glm::dquat B;
-
-	return 0;
-}
-
 int test_quat_mul_vec()
 {
 	int Error(0);
@@ -310,7 +304,6 @@ int main()
 	Error += test_quat_two_axis_ctr();
 	Error += test_quat_mul();
 	Error += test_quat_precision();
-	Error += test_quat_type();
 	Error += test_quat_angle();
 	Error += test_quat_angleAxis();
 	Error += test_quat_mix();

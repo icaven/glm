@@ -18,11 +18,13 @@ namespace floor_
 		{
 			float A = 1.1f;
 			float B = glm::floor(A);
+			Error += glm::epsilonEqual(B, 1.f, 0.0001f) ? 0 : 1;
 		}
 
 		{
 			double A = 1.1;
 			double B = glm::floor(A);
+			Error += glm::epsilonEqual(B, 1.0, 0.0001) ? 0 : 1;
 		}
 
 		{

@@ -271,7 +271,7 @@ int test_RGBM()
 
 	for(std::size_t i = 0; i < 1024; ++i)
 	{
-		glm::vec3 const Color(i);
+		glm::vec3 const Color(static_cast<float>(i));
 		glm::vec4 const RGBM = glm::packRGBM(Color);
 		glm::vec3 const Result= glm::unpackRGBM(RGBM);
 

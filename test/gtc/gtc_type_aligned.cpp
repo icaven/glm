@@ -130,17 +130,6 @@ int main()
 {
 	int Error = 0;
 
-	my_vec4_aligned GNA;
-	my_dvec4_aligned GNI;
-
-	std::size_t A0 = sizeof(my_dvec4_aligned);
-	std::size_t B0 = sizeof(my_dvec4_packed);
-	std::size_t C0 = sizeof(glm::aligned_dvec4);
-
-	std::size_t A1 = sizeof(my_vec4_aligned);
-	std::size_t B1 = sizeof(my_vec4_packed);
-	std::size_t C1 = sizeof(glm::aligned_vec4);
-
 	Error += test_ctor();
 	Error += test_copy();
 

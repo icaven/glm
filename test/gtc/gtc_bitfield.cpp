@@ -124,7 +124,7 @@ namespace mask
 			{32, 0xffffffff}
 		};
 
-		int Error(0);
+		int Error = 0;
 /* mask_zero is sadly not a correct code
 		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<int>); ++i)
 		{
@@ -495,6 +495,9 @@ namespace bitfieldInterleave
 				glm::uint64 B(glm::bitfieldInterleave(glm::uint16(x), glm::uint16(y)));
 				glm::uint64 C(glm::bitfieldInterleave(glm::uint32(x), glm::uint32(y)));
 
+				assert(A == B);
+				assert(A == C);
+
 				glm::int64 D(glm::bitfieldInterleave(glm::int8(x), glm::int8(y)));
 				glm::int64 E(glm::bitfieldInterleave(glm::int16(x), glm::int16(y)));
 				glm::int64 F(glm::bitfieldInterleave(glm::int32(x), glm::int32(y)));
@@ -675,10 +678,10 @@ namespace bitfieldInterleave5
 	GLM_FUNC_QUALIFIER glm::uint32 bitfieldInterleave_u16vec2(glm::uint16 x, glm::uint16 y)
 	{
 		glm::uint64 Result = (glm::uint64(y) << 32) | glm::uint64(x);
-		Result = ((Result <<  8) | Result) & glm::uint32(0x00FF00FF00FF00FFull);
-		Result = ((Result <<  4) | Result) & glm::uint32(0x0F0F0F0F0F0F0F0Full);
-		Result = ((Result <<  2) | Result) & glm::uint32(0x3333333333333333ull);
-		Result = ((Result <<  1) | Result) & glm::uint32(0x5555555555555555ull);
+		Result = ((Result <<  8) | Result) & static_cast<glm::uint32>(0x00FF00FF00FF00FFull);
+		Result = ((Result <<  4) | Result) & static_cast<glm::uint32>(0x0F0F0F0F0F0F0F0Full);
+		Result = ((Result <<  2) | Result) & static_cast<glm::uint32>(0x3333333333333333ull);
+		Result = ((Result <<  1) | Result) & static_cast<glm::uint32>(0x5555555555555555ull);
 		return static_cast<glm::uint32>((Result & 0x00000000FFFFFFFFull) | (Result >> 31));
 	}
 

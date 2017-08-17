@@ -8,7 +8,6 @@ int test_axisAngle()
 {
 	int Error = 0;
 
-	float p = 0.171654f;
 	glm::mat4 m1(-0.9946f, 0.0f, -0.104531f, 0.0f,
 		0.0f, 1.0f, 0.0f, 0.0f,
 		0.104531f, 0.0f, -0.9946f, 0.0f,
