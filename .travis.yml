@@ -20,8 +20,8 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - g++-6
-      env: COMPILER=g++-6
+            - g++-7.1
+      env: COMPILER=g++-7.1
     - compiler: clang
       addons:
         apt:
