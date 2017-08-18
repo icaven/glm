@@ -31,6 +31,11 @@ namespace glm
 	/// @addtogroup gtx_range
 	/// @{
 
+#	if GLM_COMPILER & GLM_COMPILER_VC
+#		pragma warning(push)
+#		pragma warning(disable : 4100) // unreferenced formal parameter
+#	endif
+
 	template<typename T, qualifier Q>
 	inline length_t components(vec<1, T, Q> const& v)
 	{
@@ -84,6 +89,10 @@ namespace glm
 	{
 		return begin(v) + components(v);
 	}
+
+#	if GLM_COMPILER & GLM_COMPILER_VC
+#		pragma warning(pop)
+#	endif
 
 	/// @}
 }//namespace glm

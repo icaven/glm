@@ -1,7 +1,4 @@
-// This has the programs for computing the number of leading zeros
-// in a word.
-// Max line length is 57, to fit in hacker.book.
-// Compile with g++, not gcc.
+#include <glm/glm.hpp>
 #include <cstdio>
 #include <cstdlib>     // To define "exit", req'd by XLC.
 #include <ctime>

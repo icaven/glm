@@ -1,6 +1,4 @@
-// This has the programs for computing the number of trailing zeros
-// in a word.
-// Max line length is 57, to fit in hacker.book.
+#include <glm/glm.hpp>
 #include <cstdio>
 #include <cstdlib>     //To define "exit", req'd by XLC.
 #include <ctime>
@@ -144,6 +142,11 @@ int ntz7(unsigned x)
 	b0 = (y & 0x55555555) ? 0 : 1;
 	return bz + b4 + b3 + b2 + b1 + b0;
 }
+
+// This file has divisions by zero to test isnan
+#if GLM_COMPILER & GLM_COMPILER_VC
+#	pragma warning(disable : 4800)
+#endif
 
 int ntz7_christophe(unsigned x)
 {

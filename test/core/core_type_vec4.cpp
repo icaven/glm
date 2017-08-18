@@ -150,12 +150,15 @@ static int test_bvec4_ctor()
 	glm::bvec4 const D = A && B;
 	glm::bvec4 const E = A && C;
 	glm::bvec4 const F = A || C;
-	bool const G = A == C;
-	bool const H = A != C;
 
 	Error += D == glm::bvec4(true) ? 0 : 1;
 	Error += E == glm::bvec4(false) ? 0 : 1;
 	Error += F == glm::bvec4(true) ? 0 : 1;
+
+	bool const G = A == C;
+	bool const H = A != C;
+	Error += !G ? 0 : 1;
+	Error += H ? 0 : 1;
 
 	return Error;
 }

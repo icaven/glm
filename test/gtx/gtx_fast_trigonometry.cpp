@@ -420,7 +420,7 @@ namespace taylorCos
 			Error += glm::abs(Cos1 - Cos0) < 0.1f ? 0 : 1;
 
 			float const Cos2 = taylorCos::fastCosNew(glm::fvec1(radAngle)).x;
-			//Error += glm::abs(Cos2 - Cos0) < 0.1f ? 0 : 1;
+			Error += glm::abs(Cos2 - Cos0) < 0.1f ? 0 : 1;
 
 			assert(!Error);
 		}
