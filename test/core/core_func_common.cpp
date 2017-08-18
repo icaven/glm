@@ -11,7 +11,7 @@
 
 namespace floor_
 {
-	int test()
+	static int test()
 	{
 		int Error(0);
 
@@ -89,7 +89,7 @@ namespace floor_
 
 namespace modf_
 {
-	int test()
+	static int test()
 	{
 		int Error(0);
 
@@ -135,7 +135,7 @@ namespace modf_
 
 namespace mod_
 {
-	int test()
+	static int test()
 	{
 		int Error(0);
 
@@ -185,7 +185,7 @@ namespace mod_
 
 namespace floatBitsToInt
 {
-	int test()
+	static int test()
 	{
 		int Error = 0;
 	
@@ -223,7 +223,7 @@ namespace floatBitsToInt
 
 namespace floatBitsToUint
 {
-	int test()
+	static int test()
 	{
 		int Error = 0;
 	
@@ -261,7 +261,7 @@ namespace floatBitsToUint
 
 namespace min_
 {
-	int test()
+	static int test()
 	{
 		int Error = 0;
 
@@ -288,7 +288,7 @@ namespace min_
 
 namespace max_
 {
-	int test()
+	static int test()
 	{
 		int Error = 0;
 
@@ -315,7 +315,7 @@ namespace max_
 
 namespace clamp_
 {
-	int test()
+	static int test()
 	{
 		int Error = 0;
 
@@ -401,7 +401,7 @@ namespace mix_
 		{glm::vec4(1.0f, 2.0f, 3.0f, 4.0f), glm::vec4(5.0f, 6.0f, 7.0f, 8.0f), glm::bvec4(true, false, true, false), glm::vec4(5.0f, 2.0f, 7.0f, 4.0f)}
 	};
 
-	int test()
+	static int test()
 	{
 		int Error = 0;
 
@@ -518,7 +518,7 @@ namespace step_
 		{ glm::vec4( 0.0f, 1.0f, 2.0f, 3.0f), glm::vec4(-1.0f,-2.0f,-3.0f,-4.0f), glm::vec4(0.0f) }
 	};
 
-	int test()
+	static int test()
 	{
 		int Error = 0;
 
@@ -546,7 +546,7 @@ namespace step_
 
 namespace round_
 {
-	int test()
+	static int test()
 	{
 		int Error = 0;
 
@@ -590,7 +590,7 @@ namespace round_
 
 namespace roundEven
 {
-	int test()
+	static int test()
 	{
 		int Error = 0;
 
@@ -736,7 +736,7 @@ namespace roundEven
 
 namespace isnan_
 {
-	int test()
+	static int test()
 	{
 		int Error = 0;
 
@@ -763,7 +763,7 @@ namespace isnan_
 
 namespace isinf_
 {
-	int test()
+	static int test()
 	{
 		int Error = 0;
 
@@ -966,7 +966,7 @@ namespace sign
 		return Error;
 	}
 
-	int test()
+	static int test()
 	{
 		int Error = 0;
 
@@ -1122,7 +1122,7 @@ namespace sign
 		return Error;
 	}
 
-	int perf(std::size_t Samples)
+	static int perf(std::size_t Samples)
 	{
 		int Error(0);
 
@@ -1136,7 +1136,7 @@ namespace sign
 
 namespace frexp_
 {
-	int test()
+	static int test()
 	{
 		int Error(0);
 
@@ -1178,7 +1178,7 @@ namespace frexp_
 
 namespace ldexp_
 {
-	int test()
+	static int test()
 	{
 		int Error(0);
 
@@ -1218,20 +1218,6 @@ int main()
 {
 	int Error = 0;
 
-	glm::ivec4 const a(1);
-	glm::ivec4 const b = ~a;
-
-	glm::int32 const c(1);
-	glm::int32 const d = ~c;
-
-#	if GLM_ARCH & GLM_ARCH_AVX_BIT && GLM_HAS_UNRESTRICTED_UNIONS
-	glm_vec4 const A = _mm_set_ps(4, 3, 2, 1);
-	glm_vec4 const B = glm_vec4_swizzle_xyzw(A);
-	glm_vec4 const C = _mm_permute_ps(A, _MM_SHUFFLE(3, 2, 1, 0));
-	glm_vec4 const D = _mm_permute_ps(A, _MM_SHUFFLE(0, 1, 2, 3));
-	glm_vec4 const E = _mm_shuffle_ps(A, A, _MM_SHUFFLE(0, 1, 2, 3));
-#	endif
-
 	Error += sign::test();
 	Error += floor_::test();
 	Error += mod_::test();
@@ -1242,6 +1228,7 @@ int main()
 	Error += step_::test();
 	Error += max_::test();
 	Error += min_::test();
+	Error += clamp_::test();
 	Error += round_::test();
 	Error += roundEven::test();
 	Error += isnan_::test();
@@ -1251,8 +1238,10 @@ int main()
 
 #	ifdef NDEBUG
 		std::size_t Samples = 1000;
-		Error += sign::perf(Samples);
+#	else
+		std::size_t Samples = 1;
 #	endif
+	Error += sign::perf(Samples);
 
 	return Error;
 }

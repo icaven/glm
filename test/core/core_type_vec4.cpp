@@ -104,7 +104,7 @@ static int test_vec4_ctor()
 	}
 #endif// GLM_HAS_UNRESTRICTED_UNIONS && defined(GLM_FORCE_SWIZZLE)
 
-#	if GLM_HAS_CONSTEXPR && GLM_ARCH == GLM_ARCH_PURE
+#	if GLM_HAS_CONSTEXPR && GLM_ARCH == GLM_ARCH_PURE && !(GLM_COMPILER & GLM_COMPILER_VC) // Visual Studio bug?
 	{
 		constexpr glm::ivec4 v(1);
 
