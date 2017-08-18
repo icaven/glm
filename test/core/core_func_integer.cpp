@@ -488,23 +488,23 @@ namespace bitfieldReverse
 
 		std::clock_t Timestamps0 = std::clock();
 
-		for(glm::uint32 k = 0; k < Count; ++k)
-			Data[k] = glm::bitfieldReverse(k);
+		for(glm::uint64 k = 0; k < Count; ++k)
+			Data[static_cast<std::size_t>(k)] = glm::bitfieldReverse(k);
 
 		std::clock_t Timestamps1 = std::clock();
 
 		for(glm::uint64 k = 0; k < Count; ++k)
-			Data[k] = bitfieldReverseLoop(k);
+			Data[static_cast<std::size_t>(k)] = bitfieldReverseLoop<glm::uint64>(k);
 
 		std::clock_t Timestamps2 = std::clock();
 
 		for(glm::uint64 k = 0; k < Count; ++k)
-			Data[k] = bitfieldReverseUint64(k);
+			Data[static_cast<std::size_t>(k)] = bitfieldReverseUint64(k);
 
 		std::clock_t Timestamps3 = std::clock();
 
 		for(glm::uint64 k = 0; k < Count; ++k)
-			Data[k] = bitfieldReverseOps(k);
+			Data[static_cast<std::size_t>(k)] = bitfieldReverseOps(k);
 
 		std::clock_t Timestamps4 = std::clock();
 
