@@ -138,25 +138,9 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_DECL vec<L, T, Q> fract(vec<L, T, Q> const& x);
 
-	/// Modulus. Returns x - y * floor(x / y)
-	/// for each component in x using the floating point value y.
-	///
-	/// @tparam genType Floating-point scalar or vector types.
-	///
-	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml">GLSL mod man page</a>
-	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
 	template<typename genType>
 	GLM_FUNC_DECL genType mod(genType x, genType y);
 
-	/// Modulus. Returns x - y * floor(x / y)
-	/// for each component in x using the floating point value y.
-	///
-	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
-	/// @tparam T Floating-point scalar types
-	/// @tparam Q Value from qualifier enum
-	///
-	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml">GLSL mod man page</a>
-	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_DECL vec<L, T, Q> mod(vec<L, T, Q> const& x, T y);
 
@@ -164,7 +148,7 @@ namespace glm
 	/// for each component in x using the floating point value y.
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
-	/// @tparam T Floating-point scalar types
+	/// @tparam T Floating-point scalar types, include glm/gtc/integer for integer scalar types support
 	/// @tparam Q Value from qualifier enum
 	///
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/mod.xml">GLSL mod man page</a>
