@@ -459,6 +459,8 @@ namespace bitfieldInterleave
 
 	int test()
 	{
+		int Error = 0;
+
 /*
 		{
 			for(glm::uint32 y = 0; y < (1 << 10); ++y)
@@ -495,19 +497,19 @@ namespace bitfieldInterleave
 				glm::uint64 B(glm::bitfieldInterleave(glm::uint16(x), glm::uint16(y)));
 				glm::uint64 C(glm::bitfieldInterleave(glm::uint32(x), glm::uint32(y)));
 
-				assert(A == B);
-				assert(A == C);
+				Error += A == B ? 0 : 1;
+				Error += A == C ? 0 : 1;
 
 				glm::int64 D(glm::bitfieldInterleave(glm::int8(x), glm::int8(y)));
 				glm::int64 E(glm::bitfieldInterleave(glm::int16(x), glm::int16(y)));
 				glm::int64 F(glm::bitfieldInterleave(glm::int32(x), glm::int32(y)));
 
-				assert(D == E);
-				assert(D == F);
+				Error += D == E ? 0 : 1;
+				Error += D == F ? 0 : 1;
 			}
 		}
 
-		return 0;
+		return Error;
 	}
 
 	int perf()
