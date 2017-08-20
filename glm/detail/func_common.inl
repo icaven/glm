@@ -15,7 +15,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER genType min(genType x, genType y)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer || GLM_UNRESTRICTED_GENTYPE, "'min' only accept floating-point or integer inputs");
-		return x < y ? x : y;
+		return (y < x) ? y : x;
 	}
 
 	// max
@@ -24,7 +24,7 @@ namespace glm
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer || GLM_UNRESTRICTED_GENTYPE, "'max' only accept floating-point or integer inputs");
 
-		return x > y ? x : y;
+		return (x < y) ? y : x;
 	}
 
 	// abs
