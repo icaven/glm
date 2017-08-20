@@ -5,9 +5,7 @@
 #include "quaternion.hpp"
 #include "../vector_relational.hpp"
 #include "../common.hpp"
-#include "../vec2.hpp"
-#include "../vec3.hpp"
-#include "../vec4.hpp"
+#include "../detail/type_vec.hpp"
 
 namespace glm
 {

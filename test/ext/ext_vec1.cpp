@@ -1,4 +1,4 @@
-#include <glm/gtc/vec1.hpp>
+#include <glm/ext/vec1.hpp>
 
 int main()
 {
