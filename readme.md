@@ -62,6 +62,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Added packing functions for integer vectors #639
 - Added conan packaging configuration #643 #641
 - Added quatLookAt to GTX_quaternion #659
+- Added fmin, fmax and fclamp to GTX_extended_min_max #372
 
 #### Improvements:
 - No more default initialization of vector, matrix and quaternion types
