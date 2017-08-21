@@ -174,13 +174,6 @@ namespace detail
 		return detail::compute_dot<vec<L, T, Q>, T, detail::is_aligned<Q>::value>::call(x, y);
 	}
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER T dot(tquat<T, Q> const& x, tquat<T, Q> const& y)
-	{
-		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'dot' accepts only floating-point inputs");
-		return detail::compute_dot<tquat<T, Q>, T, detail::is_aligned<Q>::value>::call(x, y);
-	}
-
 	// cross
 	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> cross(vec<3, T, Q> const& x, vec<3, T, Q> const& y)

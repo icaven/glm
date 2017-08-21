@@ -1,3 +1,4 @@
+#include <glm/packing.hpp>
 #include <glm/gtc/packing.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <cstdio>

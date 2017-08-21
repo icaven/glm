@@ -103,27 +103,10 @@ namespace detail
 }//namespace detail
 
 #if GLM_HAS_TEMPLATE_ALIASES
-	template <typename T, qualifier Q = defaultp> using tvec1 = vec<1, T, Q>;
 	template <typename T, qualifier Q = defaultp> using tvec2 = vec<2, T, Q>;
 	template <typename T, qualifier Q = defaultp> using tvec3 = vec<3, T, Q>;
 	template <typename T, qualifier Q = defaultp> using tvec4 = vec<4, T, Q>;
 #endif//GLM_HAS_TEMPLATE_ALIASES
-
-	typedef vec<1, float, highp>	highp_vec1_t;
-	typedef vec<1, float, mediump>	mediump_vec1_t;
-	typedef vec<1, float, lowp>		lowp_vec1_t;
-	typedef vec<1, double, highp>	highp_dvec1_t;
-	typedef vec<1, double, mediump>	mediump_dvec1_t;
-	typedef vec<1, double, lowp>	lowp_dvec1_t;
-	typedef vec<1, int, highp>		highp_ivec1_t;
-	typedef vec<1, int, mediump>	mediump_ivec1_t;
-	typedef vec<1, int, lowp>		lowp_ivec1_t;
-	typedef vec<1, uint, highp>		highp_uvec1_t;
-	typedef vec<1, uint, mediump>	mediump_uvec1_t;
-	typedef vec<1, uint, lowp>		lowp_uvec1_t;
-	typedef vec<1, bool, highp>		highp_bvec1_t;
-	typedef vec<1, bool, mediump>	mediump_bvec1_t;
-	typedef vec<1, bool, lowp>		lowp_bvec1_t;
 
 	/// @addtogroup core_precision
 	/// @{

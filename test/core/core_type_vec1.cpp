@@ -1,6 +1,7 @@
 #define GLM_FORCE_SWIZZLE
 #include <glm/vector_relational.hpp>
 #include <glm/gtc/vec1.hpp>
+#include <glm/vec2.hpp>
 #include <vector>
 
 static glm::vec1 g1;

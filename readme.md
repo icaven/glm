@@ -64,6 +64,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Added quatLookAt to GTX_quaternion #659
 - Added fmin, fmax and fclamp to GTX_extended_min_max #372
 - Added EXT_vector_relational: extend equal and notEqual to take an epsilon argument
+- Added EXT_vec1: *vec1 types
 
 #### Improvements:
 - No more default initialization of vector, matrix and quaternion types

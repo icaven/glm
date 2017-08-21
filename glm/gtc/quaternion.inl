@@ -365,6 +365,13 @@ namespace detail
 	// -- Operations --
 
 	template<typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER T dot(tquat<T, Q> const& x, tquat<T, Q> const& y)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'dot' accepts only floating-point inputs");
+		return detail::compute_dot<tquat<T, Q>, T, detail::is_aligned<Q>::value>::call(x, y);
+	}
+
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER T length(tquat<T, Q> const& q)
 	{
 		return glm::sqrt(dot(q, q));
