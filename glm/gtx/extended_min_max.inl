@@ -146,8 +146,8 @@ namespace glm
 		{
 			GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'fmin' only accept floating-point input");
 
-			if (isnan(y))
-				return x;
+			if (isnan(x))
+				return y;
 			if (isnan(y))
 				return x;
 
@@ -176,8 +176,8 @@ namespace glm
 		{
 			GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'fmax' only accept floating-point input");
 
-			if (isnan(y))
-				return x;
+			if (isnan(x))
+				return y;
 			if (isnan(y))
 				return x;
 
