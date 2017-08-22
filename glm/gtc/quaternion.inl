@@ -148,11 +148,25 @@ namespace detail
 	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER tquat<T, Q>::tquat(vec<3, T, Q> const& u, vec<3, T, Q> const& v)
 	{
-		vec<3, T, Q> const LocalW(cross(u, v));
-		T Dot = detail::compute_dot<vec<3, T, Q>, T, detail::is_aligned<Q>::value>::call(u, v);
-		tquat<T, Q> q(T(1) + Dot, LocalW.x, LocalW.y, LocalW.z);
+		T norm_u_norm_v = sqrt(dot(u, u) * dot(v, v));
+		T real_part = norm_u_norm_v + dot(u, v);
+		vec<3, T, Q> w;
 
-		*this = normalize(q);
+		if(real_part < static_cast<T>(1.e-6f) * norm_u_norm_v)
+		{
+			// If u and v are exactly opposite, rotate 180 degrees
+			// around an arbitrary orthogonal axis. Axis normalisation
+			// can happen later, when we normalise the quaternion.
+			real_part = static_cast<T>(0);
+			w = abs(u.x) > abs(u.z) ? vec<3, T, Q>(-u.y, u.x, static_cast<T>(0)) : vec<3, T, Q>(static_cast<T>(0), -u.z, u.y);
+		}
+		else
+		{
+			// Otherwise, build quaternion the standard way.
+			w = cross(u, v);
+		}
+
+	    *this = normalize(tquat<T, Q>(real_part, w.x, w.y, w.z));
 	}
 
 	template<typename T, qualifier Q>
