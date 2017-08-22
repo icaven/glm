@@ -150,7 +150,7 @@ namespace detail
 	{
 		T norm_u_norm_v = sqrt(dot(u, u) * dot(v, v));
 		T real_part = norm_u_norm_v + dot(u, v);
-		vec<3, T, Q> w;
+		vec<3, T, Q> t;
 
 		if(real_part < static_cast<T>(1.e-6f) * norm_u_norm_v)
 		{
@@ -158,15 +158,15 @@ namespace detail
 			// around an arbitrary orthogonal axis. Axis normalisation
 			// can happen later, when we normalise the quaternion.
 			real_part = static_cast<T>(0);
-			w = abs(u.x) > abs(u.z) ? vec<3, T, Q>(-u.y, u.x, static_cast<T>(0)) : vec<3, T, Q>(static_cast<T>(0), -u.z, u.y);
+			t = abs(u.x) > abs(u.z) ? vec<3, T, Q>(-u.y, u.x, static_cast<T>(0)) : vec<3, T, Q>(static_cast<T>(0), -u.z, u.y);
 		}
 		else
 		{
 			// Otherwise, build quaternion the standard way.
-			w = cross(u, v);
+			t = cross(u, v);
 		}
 
-	    *this = normalize(tquat<T, Q>(real_part, w.x, w.y, w.z));
+	    *this = normalize(tquat<T, Q>(real_part, t.x, t.y, t.z));
 	}
 
 	template<typename T, qualifier Q>
