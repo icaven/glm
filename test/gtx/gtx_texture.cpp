@@ -5,7 +5,5 @@ int main()
 {
 	int Error = 0;
 
-	Error += clamp::test();
-
 	return Error;
 }
