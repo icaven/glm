@@ -225,15 +225,27 @@ int test_quat_mul()
 
 int test_quat_two_axis_ctr()
 {
-	int Error(0);
+	int Error = 0;
 
-	glm::quat q1(glm::vec3(1, 0, 0), glm::vec3(0, 1, 0));
-	glm::vec3 v1 = q1 * glm::vec3(1, 0, 0);
+	glm::quat const q1(glm::vec3(1, 0, 0), glm::vec3(0, 1, 0));
+	glm::vec3 const v1 = q1 * glm::vec3(1, 0, 0);
 	Error += glm::all(glm::epsilonEqual(v1, glm::vec3(0, 1, 0), 0.0001f)) ? 0 : 1;
 
-	glm::quat q2 = q1 * q1;
-	glm::vec3 v2 = q2 * glm::vec3(1, 0, 0);
+	glm::quat const q2 = q1 * q1;
+	glm::vec3 const v2 = q2 * glm::vec3(1, 0, 0);
 	Error += glm::all(glm::epsilonEqual(v2, glm::vec3(-1, 0, 0), 0.0001f)) ? 0 : 1;
+
+	glm::quat const q3(glm::vec3(1, 0, 0), glm::vec3(-1, 0, 0));
+	glm::vec3 const v3 = q3 * glm::vec3(1, 0, 0);
+	Error += glm::all(glm::epsilonEqual(v3, glm::vec3(-1, 0, 0), 0.0001f)) ? 0 : 1;
+
+	glm::quat const q4(glm::vec3(0, 1, 0), glm::vec3(0, -1, 0));
+	glm::vec3 const v4 = q4 * glm::vec3(0, 1, 0);
+	Error += glm::all(glm::epsilonEqual(v4, glm::vec3(0, -1, 0), 0.0001f)) ? 0 : 1;
+
+	glm::quat const q5(glm::vec3(0, 0, 1), glm::vec3(0, 0, -1));
+	glm::vec3 const v5 = q5 * glm::vec3(0, 0, 1);
+	Error += glm::all(glm::epsilonEqual(v5, glm::vec3(0, 0, -1), 0.0001f)) ? 0 : 1;
 
 	return Error;
 }
