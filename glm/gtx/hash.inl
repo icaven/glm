@@ -22,14 +22,14 @@ namespace detail
 
 namespace std
 {
-	template<typename T, glm::qualifier P>
+	template<typename T, glm::qualifier Q>
 	GLM_FUNC_QUALIFIER size_t hash<glm::vec<1, T, Q>>::operator()(glm::vec<1, T, Q> const& v) const
 	{
 		hash<T> hasher;
 		return hasher(v.x);
 	}
 
-	template<typename T, glm::qualifier P>
+	template<typename T, glm::qualifier Q>
 	GLM_FUNC_QUALIFIER size_t hash<glm::vec<2, T, Q>>::operator()(glm::vec<2, T, Q> const& v) const
 	{
 		size_t seed = 0;
@@ -39,7 +39,7 @@ namespace std
 		return seed;
 	}
 
-	template<typename T, glm::qualifier P>
+	template<typename T, glm::qualifier Q>
 	GLM_FUNC_QUALIFIER size_t hash<glm::vec<3, T, Q>>::operator()(glm::vec<3, T, Q> const& v) const
 	{
 		size_t seed = 0;
@@ -50,7 +50,7 @@ namespace std
 		return seed;
 	}
 
-	template<typename T, glm::qualifier P>
+	template<typename T, glm::qualifier Q>
 	GLM_FUNC_QUALIFIER size_t hash<glm::vec<4, T, Q>>::operator()(glm::vec<4, T, Q> const& v) const
 	{
 		size_t seed = 0;
@@ -62,8 +62,8 @@ namespace std
 		return seed;
 	}
 
-	template<typename T, glm::qualifier P>
-	GLM_FUNC_QUALIFIER size_t hash<glm::tquat<T, Q>>::operator()(glm::tquat<T,P> const& q) const
+	template<typename T, glm::qualifier Q>
+	GLM_FUNC_QUALIFIER size_t hash<glm::tquat<T, Q>>::operator()(glm::tquat<T,Q> const& q) const
 	{
 		size_t seed = 0;
 		hash<T> hasher;
@@ -74,7 +74,7 @@ namespace std
 		return seed;
 	}
 
-	template<typename T, glm::qualifier P>
+	template<typename T, glm::qualifier Q>
 	GLM_FUNC_QUALIFIER size_t hash<glm::tdualquat<T, Q>>::operator()(glm::tdualquat<T, Q> const& q) const
 	{
 		size_t seed = 0;
@@ -84,7 +84,7 @@ namespace std
 		return seed;
 	}
 
-	template<typename T, glm::qualifier P>
+	template<typename T, glm::qualifier Q>
 	GLM_FUNC_QUALIFIER size_t hash<glm::mat<2, 2, T, Q>>::operator()(glm::mat<2, 2, T, Q> const& m) const
 	{
 		size_t seed = 0;
@@ -94,7 +94,7 @@ namespace std
 		return seed;
 	}
 
-	template<typename T, glm::qualifier P>
+	template<typename T, glm::qualifier Q>
 	GLM_FUNC_QUALIFIER size_t hash<glm::mat<2, 3, T, Q>>::operator()(glm::mat<2, 3, T, Q> const& m) const
 	{
 		size_t seed = 0;
@@ -104,7 +104,7 @@ namespace std
 		return seed;
 	}
 
-	template<typename T, glm::qualifier P>
+	template<typename T, glm::qualifier Q>
 	GLM_FUNC_QUALIFIER size_t hash<glm::mat<2, 4, T, Q>>::operator()(glm::mat<2, 4, T, Q> const& m) const
 	{
 		size_t seed = 0;
@@ -114,7 +114,7 @@ namespace std
 		return seed;
 	}
 
-	template<typename T, glm::qualifier P>
+	template<typename T, glm::qualifier Q>
 	GLM_FUNC_QUALIFIER size_t hash<glm::mat<3, 2, T, Q>>::operator()(glm::mat<3, 2, T, Q> const& m) const
 	{
 		size_t seed = 0;
@@ -125,7 +125,7 @@ namespace std
 		return seed;
 	}
 
-	template<typename T, glm::qualifier P>
+	template<typename T, glm::qualifier Q>
 	GLM_FUNC_QUALIFIER size_t hash<glm::mat<3, 3, T, Q>>::operator()(glm::mat<3, 3, T, Q> const& m) const
 	{
 		size_t seed = 0;
@@ -136,7 +136,7 @@ namespace std
 		return seed;
 	}
 
-	template<typename T, glm::qualifier P>
+	template<typename T, glm::qualifier Q>
 	GLM_FUNC_QUALIFIER size_t hash<glm::mat<3, 4, T, Q>>::operator()(glm::mat<3, 4, T, Q> const& m) const
 	{
 		size_t seed = 0;
@@ -147,8 +147,8 @@ namespace std
 		return seed;
 	}
 
-	template<typename T, glm::qualifier P>
-	GLM_FUNC_QUALIFIER size_t hash<glm::mat<4, 2, T,P>>::operator()(glm::mat<4, 2, T,P> const& m) const
+	template<typename T, glm::qualifier Q>
+	GLM_FUNC_QUALIFIER size_t hash<glm::mat<4, 2, T,Q>>::operator()(glm::mat<4, 2, T,Q> const& m) const
 	{
 		size_t seed = 0;
 		hash<glm::vec<2, T, Q>> hasher;
@@ -159,8 +159,8 @@ namespace std
 		return seed;
 	}
 
-	template<typename T, glm::qualifier P>
-	GLM_FUNC_QUALIFIER size_t hash<glm::mat<4, 3, T,P>>::operator()(glm::mat<4, 3, T,P> const& m) const
+	template<typename T, glm::qualifier Q>
+	GLM_FUNC_QUALIFIER size_t hash<glm::mat<4, 3, T,Q>>::operator()(glm::mat<4, 3, T,Q> const& m) const
 	{
 		size_t seed = 0;
 		hash<glm::vec<3, T, Q>> hasher;
@@ -171,8 +171,8 @@ namespace std
 		return seed;
 	}
 
-	template<typename T, glm::qualifier P>
-	GLM_FUNC_QUALIFIER size_t hash<glm::mat<4, 4, T,P>>::operator()(glm::mat<4, 4, T, Q> const& m) const
+	template<typename T, glm::qualifier Q>
+	GLM_FUNC_QUALIFIER size_t hash<glm::mat<4, 4, T,Q>>::operator()(glm::mat<4, 4, T, Q> const& m) const
 	{
 		size_t seed = 0;
 		hash<glm::vec<4, T, Q>> hasher;
