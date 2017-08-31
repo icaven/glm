@@ -409,7 +409,7 @@ namespace detail
 							if(0 != i)
 								os << fmt.space;
 
-								os << column(ml, i) << ((cols-1 != i) ? fmt.space : fmt.delim_right) << fmt.space << ((0 != i) ? fmt.space : fmt.delim_left) << column(mr, i);
+							os << column(ml, i) << ((cols-1 != i) ? fmt.space : fmt.delim_right) << fmt.space << ((0 != i) ? fmt.space : fmt.delim_left) << column(mr, i);
 
 							if(cols-1 != i)
 								os << fmt.newline;
