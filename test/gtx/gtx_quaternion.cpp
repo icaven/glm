@@ -99,7 +99,7 @@ int test_quat_lookAt()
 
 	glm::vec3 eye(0.0f);
 	glm::vec3 center(1.1f, -2.0f, 3.1416f);
-	glm::vec3 up = glm::vec3(-0.17f, 7.23f, -1.744f);
+	glm::vec3 up(-0.17f, 7.23f, -1.744f);
 
 	glm::quat test_quat = glm::quatLookAt(glm::normalize(center - eye), up);
 	glm::quat test_mat = glm::conjugate(glm::quat_cast(glm::lookAt(eye, center, up)));
