@@ -309,7 +309,7 @@ int test_make_vec4()
 	Error += v3 == glm::ivec4(2, 2, 2, 1) ? 0 : 1;
 
 	glm::ivec4 const v4 = glm::make_vec4(glm::ivec4(2));
-	Error += v3 == glm::ivec4(2, 2, 2, 4) ? 0 : 1;
+	Error += v4 == glm::ivec4(2, 2, 2, 2) ? 0 : 1;
 
 	return Error;
 }
