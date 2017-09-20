@@ -31,12 +31,36 @@ int test_notEqual()
 	return Error;
 }
 
+int test_openBounded()
+{
+	int Error = 0;
+
+	Error += glm::all(glm::openBounded(glm::ivec2(2), glm::ivec2(1), glm::ivec2(3))) ? 0 : 1;
+	Error += !glm::all(glm::openBounded(glm::ivec2(1), glm::ivec2(1), glm::ivec2(3))) ? 0 : 1;
+	Error += !glm::all(glm::openBounded(glm::ivec2(3), glm::ivec2(1), glm::ivec2(3))) ? 0 : 1;
+
+	return Error;
+}
+
+int test_closeBounded()
+{
+	int Error = 0;
+
+	Error += glm::all(glm::closeBounded(glm::ivec2(2), glm::ivec2(1), glm::ivec2(3))) ? 0 : 1;
+	Error += glm::all(glm::closeBounded(glm::ivec2(1), glm::ivec2(1), glm::ivec2(3))) ? 0 : 1;
+	Error += glm::all(glm::closeBounded(glm::ivec2(3), glm::ivec2(1), glm::ivec2(3))) ? 0 : 1;
+
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
 
 	Error += test_equal();
 	Error += test_notEqual();
+	Error += test_openBounded();
+	Error += test_closeBounded();
 
 	return Error;
 }

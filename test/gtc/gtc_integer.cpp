@@ -26,7 +26,7 @@ namespace log2_
 		glm::ivec3 D0(glm::log2(glm::vec3(16.f)));
 		glm::ivec4 E0(glm::log2(glm::vec4(16.f)));
 
-		int A1 = glm::log2(int(1024));
+		int A1 = glm::log2(int(16));
 		glm::ivec1 B1 = glm::log2(glm::ivec1(16));
 		glm::ivec2 C1 = glm::log2(glm::ivec2(16));
 		glm::ivec3 D1 = glm::log2(glm::ivec3(16));
