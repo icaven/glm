@@ -117,11 +117,24 @@ int test_string_cast_matrix()
 	return Error;
 }
 
+int test_string_cast_quaternion()
+{
+	int Error = 0;
+
+	glm::quat Q0 = glm::quat(1.0f, 2.0f, 3.0f, 4.0f);
+	std::string S0 = glm::to_string(Q0);
+	Error += S0 != std::string("quat(1.000000, {2.000000, 3.000000, 4.000000})") ? 1 : 0;
+
+	return Error;
+
+}
+
 int main()
 {
 	int Error = 0;
 	Error += test_string_cast_vector();
 	Error += test_string_cast_matrix();
+	Error += test_string_cast_quaternion();
 
 	return Error;
 }
