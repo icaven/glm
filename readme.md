@@ -67,6 +67,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Added EXT_vector_relational: openBounded and closeBounded
 - Added EXT_vec1: *vec1 types
 - Added GTX_texture: levels function
+- Added spearate functions to use both nagative one and zero near clip plans #680
 
 #### Improvements:
 - No more default initialization of vector, matrix and quaternion types
