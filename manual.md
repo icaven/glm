@@ -24,6 +24,7 @@
 + [3.6. GLM\_FORCE\_SIZE\_T\_LENGTH: Vector and matrix static size](#section3_6)
 + [3.7. GLM\_FORCE\_EXPLICIT\_CTOR: Requiring explicit conversions](#section3_7)
 + [3.8. GLM\_FORCE\_UNRESTRICTED\_GENTYPE: Removing genType restriction](#section3_8)
++ [3.9. GLM\_FORCE\_SINGLE\_ONLY: Removed explicit 64-bits floating point types](#section3_9)
 + [4. Stable extensions](#section4)
 + [4.1. GLM_GTC_bitfield](#section4_1)
 + [4.2. GLM_GTC_color_space](#section4_2)
@@ -527,6 +528,10 @@ typedef glm::vec<4, half> my_hvec4;
 ```
 
 However, defining GLM\_FORCE\_UNRESTRICTED\_GENTYPE is not compatible with GLM\_FORCE\_SWIZZLE and will generate a compilation error if both are defined at the same time.
+
+### <a name="section3_9"></a> 3.9. GLM\_FORCE\_SINGLE\_ONLY: Removed explicit 64-bits floating point types
+
+Some platforms (Dreamcast) doesn't support double precision floating point values. To compile on such platforms, GCC has the --m4-single-only build argument. When defining GLM\_FORCE\_SINGLE\_ONLY before including GLM headers, GLM releases the requirement of double precision floating point values support. Effectivement, all the float64 types are no longer defined and double behaves like float. 
 
 ---
 ## <a name="section4"></a> 4. Stable extensions
