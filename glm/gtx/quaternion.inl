@@ -184,8 +184,10 @@ namespace glm
 		T cosTheta = dot(orig, dest);
 		vec<3, T, Q> rotationAxis;
 
-		if(cosTheta >= static_cast<T>(1) - epsilon<T>())
-			return quat();
+		if(cosTheta >= static_cast<T>(1) - epsilon<T>()) {
+			// orig and dest point in the same direction : return identity quaternion.
+			return quat(1, 0, 0, 0);
+		}
 
 		if(cosTheta < static_cast<T>(-1) + epsilon<T>())
 		{
