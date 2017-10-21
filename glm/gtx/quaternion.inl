@@ -186,7 +186,7 @@ namespace glm
 
 		if(cosTheta >= static_cast<T>(1) - epsilon<T>()) {
 			// orig and dest point in the same direction
-			return quat_identity();
+			return quat_identity<T,Q>();
 		}
 
 		if(cosTheta < static_cast<T>(-1) + epsilon<T>())
