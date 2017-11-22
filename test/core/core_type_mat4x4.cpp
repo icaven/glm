@@ -1,5 +1,6 @@
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/epsilon.hpp>
+#include <glm/ext/vector_relational.hpp>
 #include <glm/matrix.hpp>
 #include <glm/mat2x2.hpp>
 #include <glm/mat2x3.hpp>
@@ -219,6 +220,14 @@ int test_ctr()
 		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
 		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
 		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}};
+
+	glm::mat4 m4{
+		{1, 0, 0, 0},
+		{0, 1, 0, 0},
+		{0, 0, 1, 0},
+		{0, 0, 0, 1} };
+
+	Error += glm::equal(m4[0][3], 1.0f, 0.0001f) ? 0 : 1;
 
 	std::vector<glm::mat4> v1{
 		{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},
