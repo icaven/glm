@@ -24,7 +24,7 @@ int test_axisAngle()
 	float dltAngle = 0.0f;
 	glm::axisAngle(dltRotation, dltAxis, dltAngle);
 
-	std::cout << "dltAngle: (" << dltAxis.x << ", " << dltAxis.y << ", " << dltAxis.z << "), dltAngle: " << dltAngle << std::endl;
+	std::cout << "dltAxis: (" << dltAxis.x << ", " << dltAxis.y << ", " << dltAxis.z << "), dltAngle: " << dltAngle << std::endl;
 
 	glm::fquat q = glm::quat_cast(dltRotation);
 	std::cout << "q: (" << q.x << ", " << q.y << ", " << q.z << ", " << q.w << ")" << std::endl;
