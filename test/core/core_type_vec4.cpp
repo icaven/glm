@@ -525,17 +525,17 @@ static int test_inheritance()
 	{
 		my_vec4()
 			: glm::vec4(76.f, 75.f, 74.f, 73.f)
-			, data(82)
+			, member(82)
 		{}
 
-		int data;
+		int member;
 	};
 
 	int Error = 0;
 
 	my_vec4 v;
 
-	Error += v.data == 82 ? 0 : 1;
+	Error += v.member == 82 ? 0 : 1;
 	Error += glm::epsilonEqual(v.x, 76.f, glm::epsilon<float>()) ? 0 : 1;
 	Error += glm::epsilonEqual(v.y, 75.f, glm::epsilon<float>()) ? 0 : 1;
 	Error += glm::epsilonEqual(v.z, 74.f, glm::epsilon<float>()) ? 0 : 1;
