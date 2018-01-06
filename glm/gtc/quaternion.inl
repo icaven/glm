@@ -200,7 +200,7 @@ namespace detail
 		return mat3_cast(*this);
 	}
 	
-	template<typename T, qualifier Q>	
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER tquat<T, Q>::operator mat<4, 4, T, Q>()
 	{
 		return mat4_cast(*this);
@@ -306,6 +306,12 @@ namespace detail
 	GLM_FUNC_QUALIFIER tquat<T, Q> operator+(tquat<T, Q> const& q, tquat<T, Q> const& p)
 	{
 		return tquat<T, Q>(q) += p;
+	}
+
+	template<typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER tquat<T, Q> operator-(tquat<T, Q> const& q, tquat<T, Q> const& p)
+	{
+		return tquat<T, Q>(q) -= p;
 	}
 
 	template<typename T, qualifier Q>
