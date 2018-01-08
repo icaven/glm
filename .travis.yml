@@ -31,14 +31,6 @@ matrix:
           packages:
             - clang-3.6
       env: COMPILER=clang++-3.6
-    - compiler: clang
-      addons:
-        apt:
-          sources:
-            - llvm-toolchain-trusty-4.0
-          packages:
-            - clang-4.0
-      env: COMPILER=clang++-4.0
 compiler:
   - clang
 
