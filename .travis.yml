@@ -30,12 +30,11 @@ matrix:
       addons:
         apt:
           sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise-3.6
+            - llvm-toolchain-trusty-3.9
           packages:
-            - clang-3.6
+            - clang-3.9
       env:
-        - MATRIX_EVAL="CC=clang-3.6 && CXX=clang++-3.6"
+        - MATRIX_EVAL="CC=clang-3.9 && CXX=clang++-3.9"
 
     - os: linux
       addons:
