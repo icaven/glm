@@ -194,7 +194,7 @@ namespace glm
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template<typename T, qualifier Q>
-		GLM_FUNC_QUALIFIER mat<3, 3, T, Q> & mat<3, 3, T, Q>::operator=(mat<3, 3, T, Q> const& m)
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 mat<3, 3, T, Q> & mat<3, 3, T, Q>::operator=(mat<3, 3, T, Q> const& m)
 		{
 			this->value[0] = m[0];
 			this->value[1] = m[1];
@@ -205,7 +205,7 @@ namespace glm
 
 	template<typename T, qualifier Q>
 	template<typename U>
-	GLM_FUNC_QUALIFIER mat<3, 3, T, Q> & mat<3, 3, T, Q>::operator=(mat<3, 3, U, Q> const& m)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 mat<3, 3, T, Q> & mat<3, 3, T, Q>::operator=(mat<3, 3, U, Q> const& m)
 	{
 		this->value[0] = m[0];
 		this->value[1] = m[1];

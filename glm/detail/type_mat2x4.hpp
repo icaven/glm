@@ -78,10 +78,10 @@ namespace glm
 
 		// -- Unary arithmetic operators --
 
-		GLM_FUNC_DECL mat<2, 4, T, Q> & operator=(mat<2, 4, T, Q> const& m) GLM_DEFAULT;
+		GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 mat<2, 4, T, Q> & operator=(mat<2, 4, T, Q> const& m) GLM_DEFAULT;
 
 		template<typename U>
-		GLM_FUNC_DECL mat<2, 4, T, Q> & operator=(mat<2, 4, U, Q> const& m);
+		GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 mat<2, 4, T, Q> & operator=(mat<2, 4, U, Q> const& m);
 		template<typename U>
 		GLM_FUNC_DECL mat<2, 4, T, Q> & operator+=(U s);
 		template<typename U>
