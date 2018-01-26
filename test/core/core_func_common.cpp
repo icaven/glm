@@ -235,7 +235,7 @@ namespace floatBitsToUint
 		{
 			float A = 1.0f;
 			glm::uint B = glm::floatBitsToUint(A);
-			float C = glm::intBitsToFloat(B);
+			float C = glm::uintBitsToFloat(B);
 			Error += glm::epsilonEqual(A, C, 0.0001f) ? 0 : 1;
 		}
 	
