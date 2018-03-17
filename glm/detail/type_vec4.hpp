@@ -281,7 +281,7 @@ namespace glm
 	// -- Binary operators --
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<4, T, Q> operator+(vec<4, T, Q> const& v, T scalar);
+	GLM_FUNC_DECL vec<4, T, Q> operator+(vec<4, T, Q> const& v, T const & scalar);
 
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL vec<4, T, Q> operator+(vec<4, T, Q> const& v1, vec<1, T, Q> const& v2);
@@ -296,7 +296,7 @@ namespace glm
 	GLM_FUNC_DECL vec<4, T, Q> operator+(vec<4, T, Q> const& v1, vec<4, T, Q> const& v2);
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<4, T, Q> operator-(vec<4, T, Q> const& v, T scalar);
+	GLM_FUNC_DECL vec<4, T, Q> operator-(vec<4, T, Q> const& v, T const & scalar);
 
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL vec<4, T, Q> operator-(vec<4, T, Q> const& v1, vec<1, T, Q> const& v2);
@@ -311,7 +311,7 @@ namespace glm
 	GLM_FUNC_DECL vec<4, T, Q> operator-(vec<4, T, Q> const& v1, vec<4, T, Q> const& v2);
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<4, T, Q> operator*(vec<4, T, Q> const& v, T scalar);
+	GLM_FUNC_DECL vec<4, T, Q> operator*(vec<4, T, Q> const& v, T const & scalar);
 
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL vec<4, T, Q> operator*(vec<4, T, Q> const& v1, vec<1, T, Q> const& v2);
@@ -326,7 +326,7 @@ namespace glm
 	GLM_FUNC_DECL vec<4, T, Q> operator*(vec<4, T, Q> const& v1, vec<4, T, Q> const& v2);
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<4, T, Q> operator/(vec<4, T, Q> const& v, T scalar);
+	GLM_FUNC_DECL vec<4, T, Q> operator/(vec<4, T, Q> const& v, T const & scalar);
 
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL vec<4, T, Q> operator/(vec<4, T, Q> const& v1, vec<1, T, Q> const& v2);

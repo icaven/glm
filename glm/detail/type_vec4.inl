@@ -627,7 +627,7 @@ namespace detail
 	// -- Binary arithmetic operators --
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<4, T, Q> operator+(vec<4, T, Q> const& v, T scalar)
+	GLM_FUNC_QUALIFIER vec<4, T, Q> operator+(vec<4, T, Q> const& v, T const & scalar)
 	{
 		return vec<4, T, Q>(v) += scalar;
 	}
@@ -657,7 +657,7 @@ namespace detail
 	}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<4, T, Q> operator-(vec<4, T, Q> const& v, T scalar)
+	GLM_FUNC_QUALIFIER vec<4, T, Q> operator-(vec<4, T, Q> const& v, T const & scalar)
 	{
 		return vec<4, T, Q>(v) -= scalar;
 	}
@@ -687,7 +687,7 @@ namespace detail
 	}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<4, T, Q> operator*(vec<4, T, Q> const& v, T scalar)
+	GLM_FUNC_QUALIFIER vec<4, T, Q> operator*(vec<4, T, Q> const& v, T const & scalar)
 	{
 		return vec<4, T, Q>(v) *= scalar;
 	}
@@ -717,7 +717,7 @@ namespace detail
 	}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<4, T, Q> operator/(vec<4, T, Q> const& v, T scalar)
+	GLM_FUNC_QUALIFIER vec<4, T, Q> operator/(vec<4, T, Q> const& v, T const & scalar)
 	{
 		return vec<4, T, Q>(v) /= scalar;
 	}
