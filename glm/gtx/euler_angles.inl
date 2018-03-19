@@ -53,6 +53,57 @@ namespace glm
 			T(0),	T(0),	T(0), T(1));
 	}
 
+	template <typename T>
+	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> derivedEulerAngleX
+	(
+		T const & angleX,
+		T const & angularVelocityX
+	)
+	{
+		T cosX = glm::cos(angleX) * angularVelocityX;
+		T sinX = glm::sin(angleX) * angularVelocityX;
+
+		return mat<4, 4, T, defaultp>(
+			T(0), T(0), T(0), T(0),
+			T(0),-sinX, cosX, T(0),
+			T(0),-cosX,-sinX, T(0),
+			T(0), T(0), T(0), T(0));
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> derivedEulerAngleY
+	(
+		T const & angleY,
+		T const & angularVelocityY
+	)
+	{
+		T cosY = glm::cos(angleY) * angularVelocityY;
+		T sinY = glm::sin(angleY) * angularVelocityY;
+
+		return mat<4, 4, T, defaultp>(
+			-sinY, T(0), -cosY, T(0),
+			 T(0), T(0),  T(0), T(0),
+			 cosY, T(0), -sinY, T(0),
+			 T(0), T(0),  T(0), T(0));
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> derivedEulerAngleZ
+	(
+		T const & angleZ,
+		T const & angularVelocityZ
+	)
+	{
+		T cosZ = glm::cos(angleZ) * angularVelocityZ;
+		T sinZ = glm::sin(angleZ) * angularVelocityZ;
+
+		return mat<4, 4, T, defaultp>(
+			-sinZ,  cosZ, T(0), T(0),
+			-cosZ, -sinZ, T(0), T(0),
+			 T(0),  T(0), T(0), T(0),
+			 T(0),  T(0), T(0), T(0));
+	}
+
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXY
 	(
