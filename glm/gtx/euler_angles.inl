@@ -252,6 +252,356 @@ namespace glm
 		return Result;
 	}
 
+	template <typename T>
+	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXZX
+	(
+		T const & t1,
+		T const & t2,
+		T const & t3
+	)
+	{
+		T c1 = glm::cos(t1);
+		T s1 = glm::sin(t1);
+		T c2 = glm::cos(t2);
+		T s2 = glm::sin(t2);
+		T c3 = glm::cos(t3);
+		T s3 = glm::sin(t3);
+
+		mat<4, 4, T, defaultp> Result;
+		Result[0][0] = c2;
+		Result[0][1] = c1 * s2;
+		Result[0][2] = s1 * s2;
+		Result[0][3] = static_cast<T>(0);
+		Result[1][0] =-c3 * s2;
+		Result[1][1] = c1 * c2 * c3 - s1 * s3;
+		Result[1][2] = c1 * s3 + c2 * c3 * s1;
+		Result[1][3] = static_cast<T>(0);
+		Result[2][0] = s2 * s3;
+		Result[2][1] =-c3 * s1 - c1 * c2 * s3;
+		Result[2][2] = c1 * c3 - c2 * s1 * s3;
+		Result[2][3] = static_cast<T>(0);
+		Result[3][0] = static_cast<T>(0);
+		Result[3][1] = static_cast<T>(0);
+		Result[3][2] = static_cast<T>(0);
+		Result[3][3] = static_cast<T>(1);
+		return Result;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXYX
+	(
+		T const & t1,
+		T const & t2,
+		T const & t3
+	)
+	{
+		T c1 = glm::cos(t1);
+		T s1 = glm::sin(t1);
+		T c2 = glm::cos(t2);
+		T s2 = glm::sin(t2);
+		T c3 = glm::cos(t3);
+		T s3 = glm::sin(t3);
+
+		mat<4, 4, T, defaultp> Result;
+		Result[0][0] = c2;
+		Result[0][1] = s1 * s2;
+		Result[0][2] =-c1 * s2;
+		Result[0][3] = static_cast<T>(0);
+		Result[1][0] = s2 * s3;
+		Result[1][1] = c1 * c3 - c2 * s1 * s3;
+		Result[1][2] = c3 * s1 + c1 * c2 * s3;
+		Result[1][3] = static_cast<T>(0);
+		Result[2][0] = c3 * s2;
+		Result[2][1] =-c1 * s3 - c2 * c3 * s1;
+		Result[2][2] = c1 * c2 * c3 - s1 * s3;
+		Result[2][3] = static_cast<T>(0);
+		Result[3][0] = static_cast<T>(0);
+		Result[3][1] = static_cast<T>(0);
+		Result[3][2] = static_cast<T>(0);
+		Result[3][3] = static_cast<T>(1);
+		return Result;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYXY
+	(
+		T const & t1,
+		T const & t2,
+		T const & t3
+	)
+	{
+		T c1 = glm::cos(t1);
+		T s1 = glm::sin(t1);
+		T c2 = glm::cos(t2);
+		T s2 = glm::sin(t2);
+		T c3 = glm::cos(t3);
+		T s3 = glm::sin(t3);
+
+		mat<4, 4, T, defaultp> Result;
+		Result[0][0] = c1 * c3 - c2 * s1 * s3;
+		Result[0][1] = s2* s3;
+		Result[0][2] =-c3 * s1 - c1 * c2 * s3;
+		Result[0][3] = static_cast<T>(0);
+		Result[1][0] = s1 * s2;
+		Result[1][1] = c2;
+		Result[1][2] = c1 * s2;
+		Result[1][3] = static_cast<T>(0);
+		Result[2][0] = c1 * s3 + c2 * c3 * s1;
+		Result[2][1] =-c3 * s2;
+		Result[2][2] = c1 * c2 * c3 - s1 * s3;
+		Result[2][3] = static_cast<T>(0);
+		Result[3][0] = static_cast<T>(0);
+		Result[3][1] = static_cast<T>(0);
+		Result[3][2] = static_cast<T>(0);
+		Result[3][3] = static_cast<T>(1);
+		return Result;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYZY
+	(
+		T const & t1,
+		T const & t2,
+		T const & t3
+	)
+	{
+		T c1 = glm::cos(t1);
+		T s1 = glm::sin(t1);
+		T c2 = glm::cos(t2);
+		T s2 = glm::sin(t2);
+		T c3 = glm::cos(t3);
+		T s3 = glm::sin(t3);
+
+		mat<4, 4, T, defaultp> Result;
+		Result[0][0] = c1 * c2 * c3 - s1 * s3;
+		Result[0][1] = c3 * s2;
+		Result[0][2] =-c1 * s3 - c2 * c3 * s1;
+		Result[0][3] = static_cast<T>(0);
+		Result[1][0] =-c1 * s2;
+		Result[1][1] = c2;
+		Result[1][2] = s1 * s2;
+		Result[1][3] = static_cast<T>(0);
+		Result[2][0] = c3 * s1 + c1 * c2 * s3;
+		Result[2][1] = s2 * s3;
+		Result[2][2] = c1 * c3 - c2 * s1 * s3;
+		Result[2][3] = static_cast<T>(0);
+		Result[3][0] = static_cast<T>(0);
+		Result[3][1] = static_cast<T>(0);
+		Result[3][2] = static_cast<T>(0);
+		Result[3][3] = static_cast<T>(1);
+		return Result;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZYZ
+	(
+		T const & t1,
+		T const & t2,
+		T const & t3
+	)
+	{
+		T c1 = glm::cos(t1);
+		T s1 = glm::sin(t1);
+		T c2 = glm::cos(t2);
+		T s2 = glm::sin(t2);
+		T c3 = glm::cos(t3);
+		T s3 = glm::sin(t3);
+
+		mat<4, 4, T, defaultp> Result;
+		Result[0][0] = c1 * c2 * c3 - s1 * s3;
+		Result[0][1] = c1 * s3 + c2 * c3 * s1;
+		Result[0][2] =-c3 * s2;
+		Result[0][3] = static_cast<T>(0);
+		Result[1][0] =-c3 * s1 - c1 * c2 * s3;
+		Result[1][1] = c1 * c3 - c2 * s1 * s3;
+		Result[1][2] = s2 * s3;
+		Result[1][3] = static_cast<T>(0);
+		Result[2][0] = c1 * s2;
+		Result[2][1] = s1 * s2;
+		Result[2][2] = c2;
+		Result[2][3] = static_cast<T>(0);
+		Result[3][0] = static_cast<T>(0);
+		Result[3][1] = static_cast<T>(0);
+		Result[3][2] = static_cast<T>(0);
+		Result[3][3] = static_cast<T>(1);
+		return Result;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZXZ
+	(
+		T const & t1,
+		T const & t2,
+		T const & t3
+	)
+	{
+		T c1 = glm::cos(t1);
+		T s1 = glm::sin(t1);
+		T c2 = glm::cos(t2);
+		T s2 = glm::sin(t2);
+		T c3 = glm::cos(t3);
+		T s3 = glm::sin(t3);
+
+		mat<4, 4, T, defaultp> Result;
+		Result[0][0] = c1 * c3 - c2 * s1 * s3;
+		Result[0][1] = c3 * s1 + c1 * c2 * s3;
+		Result[0][2] = s2 *s3;
+		Result[0][3] = static_cast<T>(0);
+		Result[1][0] =-c1 * s3 - c2 * c3 * s1;
+		Result[1][1] = c1 * c2 * c3 - s1 * s3;
+		Result[1][2] = c3 * s2;
+		Result[1][3] = static_cast<T>(0);
+		Result[2][0] = s1 * s2;
+		Result[2][1] =-c1 * s2;
+		Result[2][2] = c2;
+		Result[2][3] = static_cast<T>(0);
+		Result[3][0] = static_cast<T>(0);
+		Result[3][1] = static_cast<T>(0);
+		Result[3][2] = static_cast<T>(0);
+		Result[3][3] = static_cast<T>(1);
+		return Result;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleXZY
+	(
+		T const & t1,
+		T const & t2,
+		T const & t3
+	)
+	{
+		T c1 = glm::cos(t1);
+		T s1 = glm::sin(t1);
+		T c2 = glm::cos(t2);
+		T s2 = glm::sin(t2);
+		T c3 = glm::cos(t3);
+		T s3 = glm::sin(t3);
+
+		mat<4, 4, T, defaultp> Result;
+		Result[0][0] = c2 * c3;
+		Result[0][1] = s1 * s3 + c1 * c3 * s2;
+		Result[0][2] = c3 * s1 * s2 - c1 * s3;
+		Result[0][3] = static_cast<T>(0);
+		Result[1][0] =-s2;
+		Result[1][1] = c1 * c2;
+		Result[1][2] = c2 * s1;
+		Result[1][3] = static_cast<T>(0);
+		Result[2][0] = c2 * s3;
+		Result[2][1] = c1 * s2 * s3 - c3 * s1;
+		Result[2][2] = c1 * c3 + s1 * s2 *s3;
+		Result[2][3] = static_cast<T>(0);
+		Result[3][0] = static_cast<T>(0);
+		Result[3][1] = static_cast<T>(0);
+		Result[3][2] = static_cast<T>(0);
+		Result[3][3] = static_cast<T>(1);
+		return Result;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleYZX
+	(
+		T const & t1,
+		T const & t2,
+		T const & t3
+	)
+	{
+		T c1 = glm::cos(t1);
+		T s1 = glm::sin(t1);
+		T c2 = glm::cos(t2);
+		T s2 = glm::sin(t2);
+		T c3 = glm::cos(t3);
+		T s3 = glm::sin(t3);
+
+		mat<4, 4, T, defaultp> Result;
+		Result[0][0] = c1 * c2;
+		Result[0][1] = s2;
+		Result[0][2] =-c2 * s1;
+		Result[0][3] = static_cast<T>(0);
+		Result[1][0] = s1 * s3 - c1 * c3 * s2;
+		Result[1][1] = c2 * c3;
+		Result[1][2] = c1 * s3 + c3 * s1 * s2;
+		Result[1][3] = static_cast<T>(0);
+		Result[2][0] = c3 * s1 + c1 * s2 * s3;
+		Result[2][1] =-c2 * s3;
+		Result[2][2] = c1 * c3 - s1 * s2 * s3;
+		Result[2][3] = static_cast<T>(0);
+		Result[3][0] = static_cast<T>(0);
+		Result[3][1] = static_cast<T>(0);
+		Result[3][2] = static_cast<T>(0);
+		Result[3][3] = static_cast<T>(1);
+		return Result;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZYX
+	(
+		T const & t1,
+		T const & t2,
+		T const & t3
+	)
+	{
+		T c1 = glm::cos(t1);
+		T s1 = glm::sin(t1);
+		T c2 = glm::cos(t2);
+		T s2 = glm::sin(t2);
+		T c3 = glm::cos(t3);
+		T s3 = glm::sin(t3);
+
+		mat<4, 4, T, defaultp> Result;
+		Result[0][0] = c1 * c2;
+		Result[0][1] = c2 * s1;
+		Result[0][2] =-s2;
+		Result[0][3] = static_cast<T>(0);
+		Result[1][0] = c1 * s2 * s3 - c3 * s1;
+		Result[1][1] = c1 * c3 + s1 * s2 * s3;
+		Result[1][2] = c2 * s3;
+		Result[1][3] = static_cast<T>(0);
+		Result[2][0] = s1 * s3 + c1 * c3 * s2;
+		Result[2][1] = c3 * s1 * s2 - c1 * s3;
+		Result[2][2] = c2 * c3;
+		Result[2][3] = static_cast<T>(0);
+		Result[3][0] = static_cast<T>(0);
+		Result[3][1] = static_cast<T>(0);
+		Result[3][2] = static_cast<T>(0);
+		Result[3][3] = static_cast<T>(1);
+		return Result;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> eulerAngleZXY
+	(
+		T const & t1,
+		T const & t2,
+		T const & t3
+	)
+	{
+		T c1 = glm::cos(t1);
+		T s1 = glm::sin(t1);
+		T c2 = glm::cos(t2);
+		T s2 = glm::sin(t2);
+		T c3 = glm::cos(t3);
+		T s3 = glm::sin(t3);
+
+		mat<4, 4, T, defaultp> Result;
+		Result[0][0] = c1 * c3 - s1 * s2 * s3;
+		Result[0][1] = c3 * s1 + c1 * s2 * s3;
+		Result[0][2] =-c2 * s3;
+		Result[0][3] = static_cast<T>(0);
+		Result[1][0] =-c2 * s1;
+		Result[1][1] = c1 * c2;
+		Result[1][2] = s2;
+		Result[1][3] = static_cast<T>(0);
+		Result[2][0] = c1 * s3 + c3 * s1 * s2;
+		Result[2][1] = s1 * s3 - c1 * c3 * s2;
+		Result[2][2] = c2 * c3;
+		Result[2][3] = static_cast<T>(0);
+		Result[3][0] = static_cast<T>(0);
+		Result[3][1] = static_cast<T>(0);
+		Result[3][2] = static_cast<T>(0);
+		Result[3][3] = static_cast<T>(1);
+		return Result;
+	}
+
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> yawPitchRoll
 	(
