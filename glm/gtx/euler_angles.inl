@@ -710,4 +710,191 @@ namespace glm
         t2 = -T2;
         t3 = -T3;
     }
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER void extractEulerAngleYXZ(mat<4, 4, T, defaultp> const & M,
+												 T & t1,
+												 T & t2,
+												 T & t3)
+	{
+		T T1 = glm::atan2<T, defaultp>(M[2][0], M[2][2]);
+		T C2 = glm::sqrt(M[0][1]*M[0][1] + M[1][1]*M[1][1]);
+		T T2 = glm::atan2<T, defaultp>(-M[2][1], C2);
+		T S1 = glm::sin(T1);
+		T C1 = glm::cos(T1);
+		T T3 = glm::atan2<T, defaultp>(S1*M[1][2] - C1*M[1][0], C1*M[0][0] - S1*M[0][2]);
+		t1 = T1;
+		t2 = T2;
+		t3 = T3;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER void extractEulerAngleXZX(mat<4, 4, T, defaultp> const & M,
+												 T & t1,
+												 T & t2,
+												 T & t3)
+	{
+		T T1 = glm::atan2<T, defaultp>(M[0][2], M[0][1]);
+		T S2 = glm::sqrt(M[1][0]*M[1][0] + M[2][0]*M[2][0]);
+		T T2 = glm::atan2<T, defaultp>(S2, M[0][0]);
+		T S1 = glm::sin(T1);
+		T C1 = glm::cos(T1);
+		T T3 = glm::atan2<T, defaultp>(C1*M[1][2] - S1*M[1][1], C1*M[2][2] - S1*M[2][1]);
+		t1 = T1;
+		t2 = T2;
+		t3 = T3;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER void extractEulerAngleXYX(mat<4, 4, T, defaultp> const & M,
+												 T & t1,
+												 T & t2,
+												 T & t3)
+	{
+		T T1 = glm::atan2<T, defaultp>(M[0][1], -M[0][2]);
+		T S2 = glm::sqrt(M[1][0]*M[1][0] + M[2][0]*M[2][0]);
+		T T2 = glm::atan2<T, defaultp>(S2, M[0][0]);
+		T S1 = glm::sin(T1);
+		T C1 = glm::cos(T1);
+		T T3 = glm::atan2<T, defaultp>(-C1*M[2][1] - S1*M[2][2], C1*M[1][1] + S1*M[1][2]);
+		t1 = T1;
+		t2 = T2;
+		t3 = T3;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER void extractEulerAngleYXY(mat<4, 4, T, defaultp> const & M,
+												 T & t1,
+												 T & t2,
+												 T & t3)
+	{
+		T T1 = glm::atan2<T, defaultp>(M[1][0], M[1][2]);
+		T S2 = glm::sqrt(M[0][1]*M[0][1] + M[2][1]*M[2][1]);
+		T T2 = glm::atan2<T, defaultp>(S2, M[1][1]);
+		T S1 = glm::sin(T1);
+		T C1 = glm::cos(T1);
+		T T3 = glm::atan2<T, defaultp>(C1*M[2][0] - S1*M[2][2], C1*M[0][0] - S1*M[0][2]);
+		t1 = T1;
+		t2 = T2;
+		t3 = T3;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER void extractEulerAngleYZY(mat<4, 4, T, defaultp> const & M,
+												 T & t1,
+												 T & t2,
+												 T & t3)
+	{
+		T T1 = glm::atan2<T, defaultp>(M[1][2], -M[1][0]);
+		T S2 = glm::sqrt(M[0][1]*M[0][1] + M[2][1]*M[2][1]);
+		T T2 = glm::atan2<T, defaultp>(S2, M[1][1]);
+		T S1 = glm::sin(T1);
+		T C1 = glm::cos(T1);
+		T T3 = glm::atan2<T, defaultp>(-S1*M[0][0] - C1*M[0][2], S1*M[2][0] + C1*M[2][2]);
+		t1 = T1;
+		t2 = T2;
+		t3 = T3;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER void extractEulerAngleZYZ(mat<4, 4, T, defaultp> const & M,
+												 T & t1,
+												 T & t2,
+												 T & t3)
+	{
+		T T1 = glm::atan2<T, defaultp>(M[2][1], M[2][0]);
+		T S2 = glm::sqrt(M[0][2]*M[0][2] + M[1][2]*M[1][2]);
+		T T2 = glm::atan2<T, defaultp>(S2, M[2][2]);
+		T S1 = glm::sin(T1);
+		T C1 = glm::cos(T1);
+		T T3 = glm::atan2<T, defaultp>(C1*M[0][1] - S1*M[0][0], C1*M[1][1] - S1*M[1][0]);
+		t1 = T1;
+		t2 = T2;
+		t3 = T3;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER void extractEulerAngleZXZ(mat<4, 4, T, defaultp> const & M,
+												 T & t1,
+												 T & t2,
+												 T & t3)
+	{
+		T T1 = glm::atan2<T, defaultp>(M[2][0], -M[2][1]);
+		T S2 = glm::sqrt(M[0][2]*M[0][2] + M[1][2]*M[1][2]);
+		T T2 = glm::atan2<T, defaultp>(S2, M[2][2]);
+		T S1 = glm::sin(T1);
+		T C1 = glm::cos(T1);
+		T T3 = glm::atan2<T, defaultp>(-C1*M[1][0] - S1*M[1][1], C1*M[0][0] + S1*M[0][1]);
+		t1 = T1;
+		t2 = T2;
+		t3 = T3;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER void extractEulerAngleXZY(mat<4, 4, T, defaultp> const & M,
+												 T & t1,
+												 T & t2,
+												 T & t3)
+	{
+		T T1 = glm::atan2<T, defaultp>(M[1][2], M[1][1]);
+		T C2 = glm::sqrt(M[0][0]*M[0][0] + M[2][0]*M[2][0]);
+		T T2 = glm::atan2<T, defaultp>(-M[1][0], C2);
+		T S1 = glm::sin(T1);
+		T C1 = glm::cos(T1);
+		T T3 = glm::atan2<T, defaultp>(S1*M[0][1] - C1*M[0][2], C1*M[2][2] - S1*M[2][1]);
+		t1 = T1;
+		t2 = T2;
+		t3 = T3;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER void extractEulerAngleYZX(mat<4, 4, T, defaultp> const & M,
+												 T & t1,
+												 T & t2,
+												 T & t3)
+	{
+		T T1 = glm::atan2<T, defaultp>(-M[0][2], M[0][0]);
+		T C2 = glm::sqrt(M[1][1]*M[1][1] + M[2][1]*M[2][1]);
+		T T2 = glm::atan2<T, defaultp>(M[0][1], C2);
+		T S1 = glm::sin(T1);
+		T C1 = glm::cos(T1);
+		T T3 = glm::atan2<T, defaultp>(S1*M[1][0] + C1*M[1][2], S1*M[2][0] + C1*M[2][2]);
+		t1 = T1;
+		t2 = T2;
+		t3 = T3;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER void extractEulerAngleZYX(mat<4, 4, T, defaultp> const & M,
+												 T & t1,
+												 T & t2,
+												 T & t3)
+	{
+		T T1 = glm::atan2<T, defaultp>(M[0][1], M[0][0]);
+		T C2 = glm::sqrt(M[1][2]*M[1][2] + M[2][2]*M[2][2]);
+		T T2 = glm::atan2<T, defaultp>(-M[0][2], C2);
+		T S1 = glm::sin(T1);
+		T C1 = glm::cos(T1);
+		T T3 = glm::atan2<T, defaultp>(S1*M[2][0] - C1*M[2][1], C1*M[1][1] - S1*M[1][0]);
+		t1 = T1;
+		t2 = T2;
+		t3 = T3;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER void extractEulerAngleZXY(mat<4, 4, T, defaultp> const & M,
+												 T & t1,
+												 T & t2,
+												 T & t3)
+	{
+		T T1 = glm::atan2<T, defaultp>(-M[1][0], M[1][1]);
+		T C2 = glm::sqrt(M[0][2]*M[0][2] + M[2][2]*M[2][2]);
+		T T2 = glm::atan2<T, defaultp>(M[1][2], C2);
+		T S1 = glm::sin(T1);
+		T C1 = glm::cos(T1);
+		T T3 = glm::atan2<T, defaultp>(C1*M[2][0] + S1*M[2][1], C1*M[0][0] + S1*M[0][1]);
+		t1 = T1;
+		t2 = T2;
+		t3 = T3;
+	}
 }//namespace glm
