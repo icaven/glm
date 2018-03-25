@@ -124,7 +124,7 @@ namespace glm
 		T const& yaw,
 		T const& pitch,
 		T const& roll);
-    
+
 	/// Creates a 3D 4 * 4 homogeneous rotation matrix from euler angles (X * Z * X).
 	/// @see gtx_euler_angles
 	template <typename T>
@@ -240,7 +240,7 @@ namespace glm
                                             T & t1,
                                             T & t2,
                                             T & t3);
-    
+
 	/// Extracts the (Y * X * Z) Euler angles from the rotation matrix M
 	/// @see gtx_euler_angles
 	template <typename T>

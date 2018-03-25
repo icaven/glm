@@ -85,7 +85,7 @@ namespace glm
 #	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
 	template<typename T, qualifier Q>
-	template<typename U> 
+	template<typename U>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 vec<1, T, Q> & vec<1, T, Q>::operator=(vec<1, U, Q> const& v)
 	{
 		this->x = static_cast<T>(v.x);
