@@ -339,7 +339,7 @@ namespace detail
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template<typename T, qualifier Q>
-		GLM_FUNC_QUALIFIER vec<4, T, Q>& vec<4, T, Q>::operator=(vec<4, T, Q> const& v)
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 vec<4, T, Q>& vec<4, T, Q>::operator=(vec<4, T, Q> const& v)
 		{
 			this->x = v.x;
 			this->y = v.y;
@@ -351,7 +351,7 @@ namespace detail
 
 	template<typename T, qualifier Q>
 	template<typename U>
-	GLM_FUNC_QUALIFIER vec<4, T, Q>& vec<4, T, Q>::operator=(vec<4, U, Q> const& v)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 vec<4, T, Q>& vec<4, T, Q>::operator=(vec<4, U, Q> const& v)
 	{
 		this->x = static_cast<T>(v.x);
 		this->y = static_cast<T>(v.y);
