@@ -69,7 +69,7 @@ namespace glm
 		this->value[0] = col_type(static_cast<T>(x1), value_type(y1), value_type(z1), value_type(w1));
 		this->value[1] = col_type(static_cast<T>(x2), value_type(y2), value_type(z2), value_type(w2));
 	}
-	
+
 	template<typename T, qualifier Q>
 	template<typename V1, typename V2>
 	GLM_FUNC_QUALIFIER mat<2, 4, T, Q>::mat(vec<4, V1, Q> const& v1, vec<4, V2, Q> const& v2)
@@ -281,7 +281,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER mat<2, 4, T, Q> operator-(mat<2, 4, T, Q> const& m)
 	{
 		return mat<2, 4, T, Q>(
-			-m[0], 
+			-m[0],
 			-m[1]);
 	}
 
@@ -295,7 +295,7 @@ namespace glm
 			m[1] + scalar);
 	}
 
-	template<typename T, qualifier Q> 
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER mat<2, 4, T, Q> operator+(mat<2, 4, T, Q> const& m1, mat<2, 4, T, Q> const& m2)
 	{
 		return mat<2, 4, T, Q>(
@@ -303,7 +303,7 @@ namespace glm
 			m1[1] + m2[1]);
 	}
 
-	template<typename T, qualifier Q> 
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER mat<2, 4, T, Q> operator-(mat<2, 4, T, Q> const& m, T scalar)
 	{
 		return mat<2, 4, T, Q>(
@@ -327,7 +327,7 @@ namespace glm
 			m[1] * scalar);
 	}
 
-	template<typename T, qualifier Q> 
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER mat<2, 4, T, Q> operator*(T scalar, mat<2, 4, T, Q> const& m)
 	{
 		return mat<2, 4, T, Q>(
@@ -426,7 +426,7 @@ namespace glm
 			m1[0][3] * m2[2][0] + m1[1][3] * m2[2][1]);
 	}
 
-	template<typename T, qualifier Q> 
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER mat<2, 4, T, Q> operator/(mat<2, 4, T, Q> const& m, T scalar)
 	{
 		return mat<2, 4, T, Q>(

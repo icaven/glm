@@ -283,7 +283,7 @@ namespace glm
 		return *this;
 	}
 
-	template<typename T, qualifier Q> 
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> vec<3, T, Q>::operator++(int)
 	{
 		vec<3, T, Q> Result(*this);
@@ -291,7 +291,7 @@ namespace glm
 		return Result;
 	}
 
-	template<typename T, qualifier Q> 
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> vec<3, T, Q>::operator--(int)
 	{
 		vec<3, T, Q> Result(*this);
@@ -372,7 +372,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
-	template<typename U> 
+	template<typename U>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> & vec<3, T, Q>::operator|=(vec<1, U, Q> const& v)
 	{
 		this->x |= v.x;
@@ -382,7 +382,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
-	template<typename U> 
+	template<typename U>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> & vec<3, T, Q>::operator|=(vec<3, U, Q> const& v)
 	{
 		this->x |= v.x;
@@ -392,7 +392,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
-	template<typename U> 
+	template<typename U>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> & vec<3, T, Q>::operator^=(U scalar)
 	{
 		this->x ^= scalar;
@@ -402,7 +402,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
-	template<typename U> 
+	template<typename U>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> & vec<3, T, Q>::operator^=(vec<1, U, Q> const& v)
 	{
 		this->x ^= v.x;
@@ -412,7 +412,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
-	template<typename U> 
+	template<typename U>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> & vec<3, T, Q>::operator^=(vec<3, U, Q> const& v)
 	{
 		this->x ^= v.x;
@@ -422,7 +422,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
-	template<typename U> 
+	template<typename U>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> & vec<3, T, Q>::operator<<=(U scalar)
 	{
 		this->x <<= scalar;
@@ -432,7 +432,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
-	template<typename U> 
+	template<typename U>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> & vec<3, T, Q>::operator<<=(vec<1, U, Q> const& v)
 	{
 		this->x <<= static_cast<T>(v.x);
@@ -442,7 +442,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
-	template<typename U> 
+	template<typename U>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> & vec<3, T, Q>::operator<<=(vec<3, U, Q> const& v)
 	{
 		this->x <<= static_cast<T>(v.x);
@@ -452,7 +452,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
-	template<typename U> 
+	template<typename U>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> & vec<3, T, Q>::operator>>=(U scalar)
 	{
 		this->x >>= static_cast<T>(scalar);
@@ -462,7 +462,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
-	template<typename U> 
+	template<typename U>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> & vec<3, T, Q>::operator>>=(vec<1, U, Q> const& v)
 	{
 		this->x >>= static_cast<T>(v.x);
@@ -472,7 +472,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
-	template<typename U> 
+	template<typename U>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> & vec<3, T, Q>::operator>>=(vec<3, U, Q> const& v)
 	{
 		this->x >>= static_cast<T>(v.x);
@@ -493,8 +493,8 @@ namespace glm
 	GLM_FUNC_QUALIFIER vec<3, T, Q> operator-(vec<3, T, Q> const& v)
 	{
 		return vec<3, T, Q>(
-			-v.x, 
-			-v.y, 
+			-v.x,
+			-v.y,
 			-v.z);
 	}
 
@@ -563,7 +563,7 @@ namespace glm
 			v.z - scalar.x);
 	}
 
-	template<typename T, qualifier Q> 
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> operator-(T scalar, vec<3, T, Q> const& v)
 	{
 		return vec<3, T, Q>(
@@ -572,7 +572,7 @@ namespace glm
 			scalar - v.z);
 	}
 
-	template<typename T, qualifier Q> 
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> operator-(vec<1, T, Q> const& scalar, vec<3, T, Q> const& v)
 	{
 		return vec<3, T, Q>(
@@ -952,7 +952,7 @@ namespace glm
 			v1.z >> v2.z);
 	}
 
-	template<typename T, qualifier Q> 
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> operator~(vec<3, T, Q> const& v)
 	{
 		return vec<3, T, Q>(

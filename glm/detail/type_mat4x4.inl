@@ -85,7 +85,7 @@ namespace glm
 
 	// -- Conversions --
 
-	template<typename T, qualifier Q> 
+	template<typename T, qualifier Q>
 	template<
 		typename X1, typename Y1, typename Z1, typename W1,
 		typename X2, typename Y2, typename Z2, typename W2,
@@ -124,7 +124,7 @@ namespace glm
 		this->value[2] = col_type(static_cast<T>(x3), value_type(y3), value_type(z3), value_type(w3));
 		this->value[3] = col_type(static_cast<T>(x4), value_type(y4), value_type(z4), value_type(w4));
 	}
-	
+
 	template<typename T, qualifier Q>
 	template<typename V1, typename V2, typename V3, typename V4>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, Q>::mat
@@ -133,7 +133,7 @@ namespace glm
 		vec<4, V2, Q> const& v2,
 		vec<4, V3, Q> const& v3,
 		vec<4, V4, Q> const& v4
-	)		
+	)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<V1>::is_iec559 || std::numeric_limits<V1>::is_integer || GLM_UNRESTRICTED_GENTYPE, "*mat4x4 constructor only takes float and integer types, 1st parameter type invalid.");
 		GLM_STATIC_ASSERT(std::numeric_limits<V2>::is_iec559 || std::numeric_limits<V2>::is_integer || GLM_UNRESTRICTED_GENTYPE, "*mat4x4 constructor only takes float and integer types, 2nd parameter type invalid.");
@@ -252,8 +252,8 @@ namespace glm
 		}
 #	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
-	template<typename T, qualifier Q> 
-	template<typename U> 
+	template<typename T, qualifier Q>
+	template<typename U>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, Q>& mat<4, 4, T, Q>::operator=(mat<4, 4, U, Q> const& m)
 	{
 		//memcpy could be faster

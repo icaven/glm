@@ -806,7 +806,7 @@ namespace glm
 ///////////////////////////////////////////////////////////////////////////////////
 // Check inclusions of different versions of GLM
 
-#elif ((GLM_SETUP_INCLUDED != GLM_VERSION) && !defined(GLM_FORCE_IGNORE_VERSION))	
+#elif ((GLM_SETUP_INCLUDED != GLM_VERSION) && !defined(GLM_FORCE_IGNORE_VERSION))
 #	error "GLM error: A different version of GLM is already included. Define GLM_FORCE_IGNORE_VERSION before including GLM headers to ignore this error."
 #elif GLM_SETUP_INCLUDED == GLM_VERSION
 

@@ -6,7 +6,7 @@ namespace glm
 	// -- Constructors --
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS
-		template<typename T, qualifier Q> 
+		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER mat<3, 2, T, Q>::mat()
 		{}
 #	endif
@@ -315,7 +315,7 @@ namespace glm
 		return m;
 	}
 
-	template<typename T, qualifier Q> 
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER mat<3, 2, T, Q> operator-(mat<3, 2, T, Q> const& m)
 	{
 		return mat<3, 2, T, Q>(
@@ -353,7 +353,7 @@ namespace glm
 			m[2] - scalar);
 	}
 
-	template<typename T, qualifier Q> 
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER mat<3, 2, T, Q> operator-(mat<3, 2, T, Q> const& m1, mat<3, 2, T, Q> const& m2)
 	{
 		return mat<3, 2, T, Q>(
@@ -362,7 +362,7 @@ namespace glm
 			m1[2] - m2[2]);
 	}
 
-	template<typename T, qualifier Q> 
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER mat<3, 2, T, Q> operator*(mat<3, 2, T, Q> const& m, T scalar)
 	{
 		return mat<3, 2, T, Q>(
@@ -371,7 +371,7 @@ namespace glm
 			m[2] * scalar);
 	}
 
-	template<typename T, qualifier Q> 
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER mat<3, 2, T, Q> operator*(T scalar, mat<3, 2, T, Q> const& m)
 	{
 		return mat<3, 2, T, Q>(
@@ -379,7 +379,7 @@ namespace glm
 			m[1] * scalar,
 			m[2] * scalar);
 	}
-   
+
 	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER typename mat<3, 2, T, Q>::col_type operator*(mat<3, 2, T, Q> const& m, typename mat<3, 2, T, Q>::row_type const& v)
 	{
@@ -457,7 +457,7 @@ namespace glm
 			m[2] / scalar);
 	}
 
-	template<typename T, qualifier Q> 
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER mat<3, 2, T, Q> operator/(T scalar, mat<3, 2, T, Q> const& m)
 	{
 		return mat<3, 2, T, Q>(
@@ -474,7 +474,7 @@ namespace glm
 		return (m1[0] == m2[0]) && (m1[1] == m2[1]) && (m1[2] == m2[2]);
 	}
 
-	template<typename T, qualifier Q> 
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER bool operator!=(mat<3, 2, T, Q> const& m1, mat<3, 2, T, Q> const& m2)
 	{
 		return (m1[0] != m2[0]) || (m1[1] != m2[1]) || (m1[2] != m2[2]);

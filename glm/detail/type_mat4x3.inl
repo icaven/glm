@@ -92,7 +92,7 @@ namespace glm
 		this->value[2] = col_type(static_cast<T>(x3), value_type(y3), value_type(z3));
 		this->value[3] = col_type(static_cast<T>(x4), value_type(y4), value_type(z4));
 	}
-	
+
 	template<typename T, qualifier Q>
 	template<typename V1, typename V2, typename V3, typename V4>
 	GLM_FUNC_QUALIFIER mat<4, 3, T, Q>::mat

@@ -39,7 +39,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER mat<3, 4, T, Q>::mat 
+	GLM_FUNC_QUALIFIER mat<3, 4, T, Q>::mat
 	(
 		T x0, T y0, T z0, T w0,
 		T x1, T y1, T z1, T w1,
@@ -52,7 +52,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER mat<3, 4, T, Q>::mat 
+	GLM_FUNC_QUALIFIER mat<3, 4, T, Q>::mat
 	(
 		col_type const& v0,
 		col_type const& v1,
@@ -71,7 +71,7 @@ namespace glm
 		typename X1, typename Y1, typename Z1, typename W1,
 		typename X2, typename Y2, typename Z2, typename W2,
 		typename X3, typename Y3, typename Z3, typename W3>
-	GLM_FUNC_QUALIFIER mat<3, 4, T, Q>::mat 
+	GLM_FUNC_QUALIFIER mat<3, 4, T, Q>::mat
 	(
 		X1 x1, Y1 y1, Z1 z1, W1 w1,
 		X2 x2, Y2 y2, Z2 z2, W2 w2,
@@ -82,10 +82,10 @@ namespace glm
 		this->value[1] = col_type(static_cast<T>(x2), value_type(y2), value_type(z2), value_type(w2));
 		this->value[2] = col_type(static_cast<T>(x3), value_type(y3), value_type(z3), value_type(w3));
 	}
-	
+
 	template<typename T, qualifier Q>
 	template<typename V1, typename V2, typename V3>
-	GLM_FUNC_QUALIFIER mat<3, 4, T, Q>::mat 
+	GLM_FUNC_QUALIFIER mat<3, 4, T, Q>::mat
 	(
 		vec<4, V1, Q> const& v1,
 		vec<4, V2, Q> const& v2,
@@ -96,7 +96,7 @@ namespace glm
 		this->value[1] = col_type(v2);
 		this->value[2] = col_type(v3);
 	}
-	
+
 	// -- Matrix conversions --
 
 	template<typename T, qualifier Q>
@@ -201,8 +201,8 @@ namespace glm
 		}
 #	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
-	template<typename T, qualifier Q> 
-	template<typename U> 
+	template<typename T, qualifier Q>
+	template<typename U>
 	GLM_FUNC_QUALIFIER mat<3, 4, T, Q>& mat<3, 4, T, Q>::operator=(mat<3, 4, U, Q> const& m)
 	{
 		this->value[0] = m[0];
@@ -211,8 +211,8 @@ namespace glm
 		return *this;
 	}
 
-	template<typename T, qualifier Q> 
-	template<typename U> 
+	template<typename T, qualifier Q>
+	template<typename U>
 	GLM_FUNC_QUALIFIER mat<3, 4, T, Q>& mat<3, 4, T, Q>::operator+=(U s)
 	{
 		this->value[0] += s;
@@ -221,8 +221,8 @@ namespace glm
 		return *this;
 	}
 
-	template<typename T, qualifier Q> 
-	template<typename U> 
+	template<typename T, qualifier Q>
+	template<typename U>
 	GLM_FUNC_QUALIFIER mat<3, 4, T, Q>& mat<3, 4, T, Q>::operator+=(mat<3, 4, U, Q> const& m)
 	{
 		this->value[0] += m[0];

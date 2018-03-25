@@ -95,7 +95,7 @@ namespace glm
         T const& t1,
         T const& t2,
         T const& t3);
-    
+
 	/// Creates a 3D 4 * 4 homogeneous rotation matrix from euler angles (Y * X * Z).
 	/// @see gtx_euler_angles
 	template<typename T>
@@ -103,7 +103,7 @@ namespace glm
 		T const& yaw,
 		T const& pitch,
 		T const& roll);
-    
+
 	/// Creates a 3D 4 * 4 homogeneous rotation matrix from euler angles (Y * X * Z).
 	/// @see gtx_euler_angles
 	template<typename T>
@@ -122,11 +122,11 @@ namespace glm
 	template<typename T>
 	GLM_FUNC_DECL mat<3, 3, T, defaultp> orientate3(T const& angle);
 
-	/// Creates a 3D 3 * 3 rotation matrix from euler angles (Y * X * Z). 
+	/// Creates a 3D 3 * 3 rotation matrix from euler angles (Y * X * Z).
 	/// @see gtx_euler_angles
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL mat<3, 3, T, Q> orientate3(vec<3, T, Q> const& angles);
-		
+
 	/// Creates a 3D 4 * 4 homogeneous rotation matrix from euler angles (Y * X * Z).
 	/// @see gtx_euler_angles
 	template<typename T, qualifier Q>
@@ -139,7 +139,7 @@ namespace glm
                                             T & t1,
                                             T & t2,
                                             T & t3);
-    
+
 	/// @}
 }//namespace glm
 
