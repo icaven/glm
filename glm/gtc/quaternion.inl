@@ -127,7 +127,7 @@ namespace detail
 		, w(static_cast<T>(q.w))
 	{}
 
-	//template<typename valType> 
+	//template<typename valType>
 	//GLM_FUNC_QUALIFIER tquat<valType>::tquat
 	//(
 	//	valType const& pitch,
@@ -138,7 +138,7 @@ namespace detail
 	//	vec<3, valType> eulerAngle(pitch * valType(0.5), yaw * valType(0.5), roll * valType(0.5));
 	//	vec<3, valType> c = glm::cos(eulerAngle * valType(0.5));
 	//	vec<3, valType> s = glm::sin(eulerAngle * valType(0.5));
-	//	
+	//
 	//	this->w = c.x * c.y * c.z + s.x * s.y * s.z;
 	//	this->x = s.x * c.y * c.z - c.x * s.y * s.z;
 	//	this->y = c.x * s.y * c.z + s.x * c.y * s.z;
@@ -174,7 +174,7 @@ namespace detail
 	{
 		vec<3, T, Q> c = glm::cos(eulerAngle * T(0.5));
 		vec<3, T, Q> s = glm::sin(eulerAngle * T(0.5));
-		
+
 		this->w = c.x * c.y * c.z + s.x * s.y * s.z;
 		this->x = s.x * c.y * c.z - c.x * s.y * s.z;
 		this->y = c.x * s.y * c.z + s.x * c.y * s.z;
@@ -199,7 +199,7 @@ namespace detail
 	{
 		return mat3_cast(*this);
 	}
-	
+
 	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER tquat<T, Q>::operator mat<4, 4, T, Q>()
 	{
@@ -458,8 +458,8 @@ namespace detail
 	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER tquat<T, Q> mix2
 	(
-		tquat<T, Q> const& x, 
-		tquat<T, Q> const& y, 
+		tquat<T, Q> const& x,
+		tquat<T, Q> const& y,
 		T const& a
 	)
 	{
@@ -488,7 +488,7 @@ namespace detail
 
 		if(flip)
 			alpha = -alpha;
-		
+
 		return normalize(beta * x + alpha * y);
 	}
 */
@@ -533,7 +533,7 @@ namespace detail
 
 		T cosTheta = dot(x, y);
 
-		// If cosTheta < 0, the interpolation will take the long way around the sphere. 
+		// If cosTheta < 0, the interpolation will take the long way around the sphere.
 		// To fix this, one quat must be negated.
 		if (cosTheta < T(0))
 		{

@@ -238,7 +238,7 @@ namespace glm
 		return *this;
 	}
 
-	template<typename T, qualifier Q> 
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<2, T, Q> vec<2, T, Q>::operator++(int)
 	{
 		vec<2, T, Q> Result(*this);
@@ -246,7 +246,7 @@ namespace glm
 		return Result;
 	}
 
-	template<typename T, qualifier Q> 
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<2, T, Q> vec<2, T, Q>::operator--(int)
 	{
 		vec<2, T, Q> Result(*this);
@@ -430,7 +430,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER vec<2, T, Q> operator-(vec<2, T, Q> const& v)
 	{
 		return vec<2, T, Q>(
-			-v.x, 
+			-v.x,
 			-v.y);
 	}
 
