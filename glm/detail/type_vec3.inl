@@ -5,11 +5,14 @@ namespace glm
 {
 	// -- Implicit basic constructors --
 
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS || defined(GLM_FORCE_CTOR_INIT)
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<3, T, Q>::vec()
+#			ifdef GLM_FORCE_CTOR_INIT
+				: x(0), y(0), z(0)
+#			endif
 		{}
-#	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
+#	endif//!GLM_HAS_DEFAULTED_FUNCTIONS || defined(GLM_FORCE_CTOR_INIT)
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template<typename T, qualifier Q>

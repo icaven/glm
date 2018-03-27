@@ -7,10 +7,15 @@ namespace glm
 {
 	// -- Constructors --
 
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS || defined(GLM_FORCE_CTOR_INIT)
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR_CXX14 mat<2, 2, T, Q>::mat()
-		{}
+		{
+#			ifdef GLM_FORCE_CTOR_INIT
+				this->value[0] = col_type(1, 0);
+				this->value[1] = col_type(0, 1);
+#			endif
+		}
 #	endif
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS

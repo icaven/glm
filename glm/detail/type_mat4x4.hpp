@@ -34,7 +34,7 @@ namespace glm
 
 		// -- Constructors --
 
-		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR_CXX14 mat() GLM_DEFAULT;
+		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR_CXX14 mat() GLM_DEFAULT_CTOR;
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR_CXX14 mat(mat<4, 4, T, Q> const& m) GLM_DEFAULT;
 		template<qualifier P>
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR_CXX14 mat(mat<4, 4, T, P> const& m);

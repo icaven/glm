@@ -720,8 +720,19 @@
 
 #if GLM_HAS_DEFAULTED_FUNCTIONS
 #	define GLM_DEFAULT = default
+
+#	ifdef GLM_FORCE_NO_CTOR_INIT
+#		undef GLM_FORCE_CTOR_INIT
+#	endif
+
+#	ifdef GLM_FORCE_CTOR_INIT
+#		define GLM_DEFAULT_CTOR
+#	else
+#		define GLM_DEFAULT_CTOR = default
+#	endif
 #else
 #	define GLM_DEFAULT
+#	define GLM_DEFAULT_CTOR
 #endif
 
 #if GLM_HAS_CONSTEXPR || GLM_HAS_CONSTEXPR_PARTIAL

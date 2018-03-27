@@ -85,9 +85,12 @@ namespace detail
 
 	// -- Implicit basic constructors --
 
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS
+#	if !GLM_HAS_DEFAULTED_FUNCTIONS || defined(GLM_FORCE_CTOR_INIT)
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, Q>::tquat()
+#			ifdef GLM_FORCE_CTOR_INIT
+			: x(0), y(0), z(0), w(1)
+#			endif
 		{}
 #	endif
 
