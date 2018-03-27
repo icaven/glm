@@ -40,7 +40,7 @@ namespace glm
 	///
 	/// @param m Input matrix multiplied by this translation matrix.
 	/// @param v Coordinates of a translation vector.
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @code
 	/// #include <glm/glm.hpp>
 	/// #include <glm/gtc/matrix_transform.hpp>
@@ -88,7 +88,7 @@ namespace glm
 
 	/// Creates a matrix for projecting two-dimensional coordinates onto the screen.
 	///
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	/// @see - glm::ortho(T const& left, T const& right, T const& bottom, T const& top, T const& zNear, T const& zFar)
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluOrtho2D.xml">gluOrtho2D man page</a>
@@ -99,7 +99,7 @@ namespace glm
 	/// Creates a matrix for an orthographic parallel viewing volume, using left-handed coordinates.
 	/// The near and far clip planes correspond to z normalized device coordinates of 0 and +1 respectively. (Direct3D clip volume definition)
 	///
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	/// @see - glm::ortho(T const& left, T const& right, T const& bottom, T const& top)
 	template<typename T>
@@ -109,7 +109,7 @@ namespace glm
 	/// Creates a matrix for an orthographic parallel viewing volume using right-handed coordinates.
 	/// The near and far clip planes correspond to z normalized device coordinates of -1 and +1 respectively. (OpenGL clip volume definition)
 	///
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	/// @see - glm::ortho(T const& left, T const& right, T const& bottom, T const& top)
 	template<typename T>
@@ -119,7 +119,7 @@ namespace glm
 	/// Creates a matrix for an orthographic parallel viewing volume, using left-handed coordinates.
 	/// The near and far clip planes correspond to z normalized device coordinates of 0 and +1 respectively. (Direct3D clip volume definition)
 	///
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	/// @see - glm::ortho(T const& left, T const& right, T const& bottom, T const& top)
 	template<typename T>
@@ -129,7 +129,7 @@ namespace glm
 	/// Creates a matrix for an orthographic parallel viewing volume, using right-handed coordinates.
 	/// The near and far clip planes correspond to z normalized device coordinates of -1 and +1 respectively. (OpenGL clip volume definition)
 	///
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	/// @see - glm::ortho(T const& left, T const& right, T const& bottom, T const& top)
 	template<typename T>
@@ -139,7 +139,7 @@ namespace glm
 	/// Creates a matrix for an orthographic parallel viewing volume, using left-handed coordinates.
 	/// The near and far clip planes correspond to z normalized device coordinates of 0 and +1 respectively. (Direct3D clip volume definition)
 	///
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	/// @see - glm::ortho(T const& left, T const& right, T const& bottom, T const& top)
 	template<typename T>
@@ -149,7 +149,7 @@ namespace glm
 	/// Creates a matrix for an orthographic parallel viewing volume, using left-handed coordinates if GLM_FORCE_LEFT_HANDED if defined or right-handed coordinates otherwise.
 	/// The near and far clip planes correspond to z normalized device coordinates of -1 and +1 respectively. (OpenGL clip volume definition)
 	///
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	/// @see - glm::ortho(T const& left, T const& right, T const& bottom, T const& top)
 	template<typename T>
@@ -160,7 +160,7 @@ namespace glm
 	/// If GLM_FORCE_DEPTH_ZERO_TO_ONE is defined, the near and far clip planes correspond to z normalized device coordinates of 0 and +1 respectively. (Direct3D clip volume definition)
 	/// Otherwise, the near and far clip planes correspond to z normalized device coordinates of -1 and +1 respectively. (OpenGL clip volume definition)
 	///
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	/// @see - glm::ortho(T const& left, T const& right, T const& bottom, T const& top)
 	template<typename T>
@@ -171,7 +171,7 @@ namespace glm
 	/// If GLM_FORCE_DEPTH_ZERO_TO_ONE is defined, the near and far clip planes correspond to z normalized device coordinates of 0 and +1 respectively. (Direct3D clip volume definition)
 	/// Otherwise, the near and far clip planes correspond to z normalized device coordinates of -1 and +1 respectively. (OpenGL clip volume definition)
 	///
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	/// @see - glm::ortho(T const& left, T const& right, T const& bottom, T const& top)
 	template<typename T>
@@ -181,7 +181,7 @@ namespace glm
 	/// Creates a matrix for an orthographic parallel viewing volume, using the default handedness and default near and far clip planes definition.
 	/// To change default handedness use GLM_FORCE_LEFT_HANDED. To change default near and far clip planes definition use GLM_FORCE_DEPTH_ZERO_TO_ONE.
 	///
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	/// @see - glm::ortho(T const& left, T const& right, T const& bottom, T const& top)
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glOrtho.xml">glOrtho man page</a>
@@ -192,7 +192,7 @@ namespace glm
 	/// Creates a left handed frustum matrix.
 	/// The near and far clip planes correspond to z normalized device coordinates of 0 and +1 respectively. (Direct3D clip volume definition)
 	///
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> frustumLH_ZO(
@@ -201,7 +201,7 @@ namespace glm
 	/// Creates a left handed frustum matrix.
 	/// The near and far clip planes correspond to z normalized device coordinates of -1 and +1 respectively. (OpenGL clip volume definition)
 	///
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> frustumLH_NO(
@@ -210,7 +210,7 @@ namespace glm
 	/// Creates a right handed frustum matrix.
 	/// The near and far clip planes correspond to z normalized device coordinates of 0 and +1 respectively. (Direct3D clip volume definition)
 	///
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> frustumRH_ZO(
@@ -219,7 +219,7 @@ namespace glm
 	/// Creates a right handed frustum matrix.
 	/// The near and far clip planes correspond to z normalized device coordinates of -1 and +1 respectively. (OpenGL clip volume definition)
 	///
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> frustumRH_NO(
@@ -228,7 +228,7 @@ namespace glm
 	/// Creates a frustum matrix using left-handed coordinates if GLM_FORCE_LEFT_HANDED if defined or right-handed coordinates otherwise.
 	/// The near and far clip planes correspond to z normalized device coordinates of 0 and +1 respectively. (Direct3D clip volume definition)
 	///
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> frustumZO(
@@ -237,7 +237,7 @@ namespace glm
 	/// Creates a frustum matrix using left-handed coordinates if GLM_FORCE_LEFT_HANDED if defined or right-handed coordinates otherwise.
 	/// The near and far clip planes correspond to z normalized device coordinates of -1 and +1 respectively. (OpenGL clip volume definition)
 	///
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> frustumNO(
@@ -247,7 +247,7 @@ namespace glm
 	/// If GLM_FORCE_DEPTH_ZERO_TO_ONE is defined, the near and far clip planes correspond to z normalized device coordinates of 0 and +1 respectively. (Direct3D clip volume definition)
 	/// Otherwise, the near and far clip planes correspond to z normalized device coordinates of -1 and +1 respectively. (OpenGL clip volume definition)
 	///
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> frustumLH(
@@ -257,7 +257,7 @@ namespace glm
 	/// If GLM_FORCE_DEPTH_ZERO_TO_ONE is defined, the near and far clip planes correspond to z normalized device coordinates of 0 and +1 respectively. (Direct3D clip volume definition)
 	/// Otherwise, the near and far clip planes correspond to z normalized device coordinates of -1 and +1 respectively. (OpenGL clip volume definition)
 	///
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> frustumRH(
@@ -266,7 +266,7 @@ namespace glm
 	/// Creates a frustum matrix with default handedness, using the default handedness and default near and far clip planes definition.
 	/// To change default handedness use GLM_FORCE_LEFT_HANDED. To change default near and far clip planes definition use GLM_FORCE_DEPTH_ZERO_TO_ONE.
 	///
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glFrustum.xml">glFrustum man page</a>
 	template<typename T>
@@ -281,7 +281,7 @@ namespace glm
 	/// @param aspect Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height).
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
 	/// @param far Specifies the distance from the viewer to the far clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveRH_ZO(
@@ -294,7 +294,7 @@ namespace glm
 	/// @param aspect Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height).
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
 	/// @param far Specifies the distance from the viewer to the far clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveRH_NO(
@@ -307,7 +307,7 @@ namespace glm
 	/// @param aspect Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height).
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
 	/// @param far Specifies the distance from the viewer to the far clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveLH_ZO(
@@ -320,7 +320,7 @@ namespace glm
 	/// @param aspect Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height).
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
 	/// @param far Specifies the distance from the viewer to the far clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveLH_NO(
@@ -333,7 +333,7 @@ namespace glm
 	/// @param aspect Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height).
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
 	/// @param far Specifies the distance from the viewer to the far clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveZO(
@@ -346,7 +346,7 @@ namespace glm
 	/// @param aspect Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height).
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
 	/// @param far Specifies the distance from the viewer to the far clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveNO(
@@ -360,7 +360,7 @@ namespace glm
 	/// @param aspect Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height).
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
 	/// @param far Specifies the distance from the viewer to the far clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveRH(
@@ -374,7 +374,7 @@ namespace glm
 	/// @param aspect Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height).
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
 	/// @param far Specifies the distance from the viewer to the far clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveLH(
@@ -387,7 +387,7 @@ namespace glm
 	/// @param aspect Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height).
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
 	/// @param far Specifies the distance from the viewer to the far clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluPerspective.xml">gluPerspective man page</a>
 	template<typename T>
@@ -402,7 +402,7 @@ namespace glm
 	/// @param height Height of the viewport
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
 	/// @param far Specifies the distance from the viewer to the far clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveFovRH_ZO(
@@ -416,7 +416,7 @@ namespace glm
 	/// @param height Height of the viewport
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
 	/// @param far Specifies the distance from the viewer to the far clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveFovRH_NO(
@@ -430,7 +430,7 @@ namespace glm
 	/// @param height Height of the viewport
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
 	/// @param far Specifies the distance from the viewer to the far clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveFovLH_ZO(
@@ -444,7 +444,7 @@ namespace glm
 	/// @param height Height of the viewport
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
 	/// @param far Specifies the distance from the viewer to the far clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveFovLH_NO(
@@ -458,7 +458,7 @@ namespace glm
 	/// @param height Height of the viewport
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
 	/// @param far Specifies the distance from the viewer to the far clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveFovZO(
@@ -472,7 +472,7 @@ namespace glm
 	/// @param height Height of the viewport
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
 	/// @param far Specifies the distance from the viewer to the far clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveFovNO(
@@ -487,7 +487,7 @@ namespace glm
 	/// @param height Height of the viewport
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
 	/// @param far Specifies the distance from the viewer to the far clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveFovRH(
@@ -502,7 +502,7 @@ namespace glm
 	/// @param height Height of the viewport
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
 	/// @param far Specifies the distance from the viewer to the far clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveFovLH(
@@ -516,7 +516,7 @@ namespace glm
 	/// @param height Height of the viewport
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
 	/// @param far Specifies the distance from the viewer to the far clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> perspectiveFov(
@@ -527,7 +527,7 @@ namespace glm
 	/// @param fovy Specifies the field of view angle, in degrees, in the y direction. Expressed in radians.
 	/// @param aspect Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height).
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> infinitePerspectiveLH(
@@ -538,7 +538,7 @@ namespace glm
 	/// @param fovy Specifies the field of view angle, in degrees, in the y direction. Expressed in radians.
 	/// @param aspect Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height).
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> infinitePerspectiveRH(
@@ -549,7 +549,7 @@ namespace glm
 	/// @param fovy Specifies the field of view angle, in degrees, in the y direction. Expressed in radians.
 	/// @param aspect Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height).
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> infinitePerspective(
@@ -560,7 +560,7 @@ namespace glm
 	/// @param fovy Specifies the field of view angle, in degrees, in the y direction. Expressed in radians.
 	/// @param aspect Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height).
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> tweakedInfinitePerspective(
@@ -572,7 +572,7 @@ namespace glm
 	/// @param aspect Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height).
 	/// @param near Specifies the distance from the viewer to the near clipping plane (always positive).
 	/// @param ep Epsilon
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	/// @see gtc_matrix_transform
 	template<typename T>
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> tweakedInfinitePerspective(
@@ -586,7 +586,7 @@ namespace glm
 	/// @param proj Specifies the current projection matrix
 	/// @param viewport Specifies the current viewport
 	/// @return Return the computed window coordinates.
-	/// @tparam T Native type used for the computation. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Native type used for the computation. Currently supported: half (not recommended), float or double.
 	/// @tparam U Currently supported: Floating-point types and integer types.
 	/// @see gtc_matrix_transform
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluProject.xml">gluProject man page</a>
@@ -602,7 +602,7 @@ namespace glm
 	/// @param proj Specifies the current projection matrix
 	/// @param viewport Specifies the current viewport
 	/// @return Return the computed window coordinates.
-	/// @tparam T Native type used for the computation. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Native type used for the computation. Currently supported: half (not recommended), float or double.
 	/// @tparam U Currently supported: Floating-point types and integer types.
 	/// @see gtc_matrix_transform
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluProject.xml">gluProject man page</a>
@@ -618,7 +618,7 @@ namespace glm
 	/// @param proj Specifies the current projection matrix
 	/// @param viewport Specifies the current viewport
 	/// @return Return the computed window coordinates.
-	/// @tparam T Native type used for the computation. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Native type used for the computation. Currently supported: half (not recommended), float or double.
 	/// @tparam U Currently supported: Floating-point types and integer types.
 	/// @see gtc_matrix_transform
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluProject.xml">gluProject man page</a>
@@ -634,7 +634,7 @@ namespace glm
 	/// @param proj Specifies the projection matrix
 	/// @param viewport Specifies the viewport
 	/// @return Returns the computed object coordinates.
-	/// @tparam T Native type used for the computation. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Native type used for the computation. Currently supported: half (not recommended), float or double.
 	/// @tparam U Currently supported: Floating-point types and integer types.
 	/// @see gtc_matrix_transform
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluUnProject.xml">gluUnProject man page</a>
@@ -650,7 +650,7 @@ namespace glm
 	/// @param proj Specifies the projection matrix
 	/// @param viewport Specifies the viewport
 	/// @return Returns the computed object coordinates.
-	/// @tparam T Native type used for the computation. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Native type used for the computation. Currently supported: half (not recommended), float or double.
 	/// @tparam U Currently supported: Floating-point types and integer types.
 	/// @see gtc_matrix_transform
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluUnProject.xml">gluUnProject man page</a>
@@ -666,7 +666,7 @@ namespace glm
 	/// @param proj Specifies the projection matrix
 	/// @param viewport Specifies the viewport
 	/// @return Returns the computed object coordinates.
-	/// @tparam T Native type used for the computation. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Native type used for the computation. Currently supported: half (not recommended), float or double.
 	/// @tparam U Currently supported: Floating-point types and integer types.
 	/// @see gtc_matrix_transform
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluUnProject.xml">gluUnProject man page</a>
@@ -679,7 +679,7 @@ namespace glm
 	/// @param center Specify the center of a picking region in window coordinates.
 	/// @param delta Specify the width and height, respectively, of the picking region in window coordinates.
 	/// @param viewport Rendering viewport
-	/// @tparam T Native type used for the computation. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Native type used for the computation. Currently supported: half (not recommended), float or double.
 	/// @tparam U Currently supported: Floating-point types and integer types.
 	/// @see gtc_matrix_transform
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluPickMatrix.xml">gluPickMatrix man page</a>

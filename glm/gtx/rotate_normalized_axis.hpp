@@ -37,7 +37,7 @@ namespace glm
 	/// @param m Input matrix multiplied by this rotation matrix.
 	/// @param angle Rotation angle expressed in radians.
 	/// @param axis Rotation axis, must be normalized.
-	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommanded), float or double.
+	/// @tparam T Value type used to build the matrix. Currently supported: half (not recommended), float or double.
 	///
 	/// @see gtx_rotate_normalized_axis
 	/// @see - rotate(T angle, T x, T y, T z)
