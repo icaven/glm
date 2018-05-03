@@ -93,7 +93,30 @@ float foo()
 	return glm::length(bar);
 }
 
-int test_vec3_operators()
+static int test_bvec3_ctor()
+{
+	int Error = 0;
+
+	glm::bvec3 const A(true);
+	glm::bvec3 const B(true);
+	glm::bvec3 const C(false);
+	glm::bvec3 const D = A && B;
+	glm::bvec3 const E = A && C;
+	glm::bvec3 const F = A || C;
+
+	Error += D == glm::bvec3(true) ? 0 : 1;
+	Error += E == glm::bvec3(false) ? 0 : 1;
+	Error += F == glm::bvec3(true) ? 0 : 1;
+
+	bool const G = A == C;
+	bool const H = A != C;
+	Error += !G ? 0 : 1;
+	Error += H ? 0 : 1;
+
+	return Error;
+}
+
+static int test_vec3_operators()
 {
 	int Error = 0;
 	
@@ -483,6 +506,7 @@ int main()
 	int Error = 0;
 
 	Error += test_vec3_ctor();
+	Error += test_bvec3_ctor();
 	Error += test_vec3_operators();
 	Error += test_vec3_size();
 	Error += test_vec3_swizzle3_2();
