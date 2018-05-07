@@ -89,6 +89,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Added support of -Weverything with Clang #646
 - Improved exponential funtion test coverage
 - Enabled warnings as error with Clang unit tests
+- Canan package is an external repository: https://github.com/bincrafters/conan-glm
 
 #### Fixes:
 - Removed doxygen references to GTC_half_float which was removed in 0.9.4
