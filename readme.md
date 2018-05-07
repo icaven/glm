@@ -110,6 +110,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Fixed quaternion constructor from two vectors special cases #469
 - Fixed glm::to_string on quaternions wrong components order #681
 - Fixed acsch #698
+- Fixed isnan on CUDA #727
 
 #### Deprecation:
 - Requires Visual Studio 2013, GCC 4.7, Clang 3.4, Cuda 7, ICC 2013 or a C++11 compiler
