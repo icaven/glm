@@ -246,7 +246,11 @@ namespace glm{
 		if(a <= zero<genType>())
 			return a;
 		else
-			return glm::pow<genType>(static_cast<genType>(2), static_cast<genType>(10) * (a - one<genType>()));
+		{
+			genType const Complementary = a - one<genType>();
+			genType const Two = static_cast<genType>(2);
+			return glm::pow<genType>(Two, Complementary * static_cast<genType>(10));
+		}
 	}
 
 	template <typename genType>
