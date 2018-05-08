@@ -103,40 +103,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#       pragma message(&quot;GLM: GLM_GTX_spline extension included&quot;)</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00135.html">glm</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00138.html">glm</a></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> genType&gt; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        GLM_FUNC_DECL genType <a class="code" href="a00218.html#ga8119c04f8210fd0d292757565cd6918d">catmullRom</a>(</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                genType <span class="keyword">const</span>&amp; v1, </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                genType <span class="keyword">const</span>&amp; v2, </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                genType <span class="keyword">const</span>&amp; v3, </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                genType <span class="keyword">const</span>&amp; v4, </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> genType&gt;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        GLM_FUNC_DECL genType <a class="code" href="a00225.html#ga8119c04f8210fd0d292757565cd6918d">catmullRom</a>(</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                genType <span class="keyword">const</span>&amp; v1,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                genType <span class="keyword">const</span>&amp; v2,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                genType <span class="keyword">const</span>&amp; v3,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                genType <span class="keyword">const</span>&amp; v4,</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                <span class="keyword">typename</span> genType::value_type <span class="keyword">const</span>&amp; s);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> genType&gt; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        GLM_FUNC_DECL genType <a class="code" href="a00218.html#gaa69e143f6374d32f934a8edeaa50bac9">hermite</a>(</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                genType <span class="keyword">const</span>&amp; v1, </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                genType <span class="keyword">const</span>&amp; t1, </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                genType <span class="keyword">const</span>&amp; v2, </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                genType <span class="keyword">const</span>&amp; t2, </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> genType&gt;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        GLM_FUNC_DECL genType <a class="code" href="a00225.html#gaa69e143f6374d32f934a8edeaa50bac9">hermite</a>(</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                genType <span class="keyword">const</span>&amp; v1,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                genType <span class="keyword">const</span>&amp; t1,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                genType <span class="keyword">const</span>&amp; v2,</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                genType <span class="keyword">const</span>&amp; t2,</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keyword">typename</span> genType::value_type <span class="keyword">const</span>&amp; s);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> genType&gt; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        GLM_FUNC_DECL genType <a class="code" href="a00218.html#ga6b867eb52e2fc933d2e0bf26aabc9a70">cubic</a>(</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                genType <span class="keyword">const</span>&amp; v1, </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                genType <span class="keyword">const</span>&amp; v2, </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                genType <span class="keyword">const</span>&amp; v3, </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                genType <span class="keyword">const</span>&amp; v4, </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> genType&gt;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        GLM_FUNC_DECL genType <a class="code" href="a00225.html#ga6b867eb52e2fc933d2e0bf26aabc9a70">cubic</a>(</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                genType <span class="keyword">const</span>&amp; v1,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                genType <span class="keyword">const</span>&amp; v2,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                genType <span class="keyword">const</span>&amp; v3,</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                genType <span class="keyword">const</span>&amp; v4,</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keyword">typename</span> genType::value_type <span class="keyword">const</span>&amp; s);</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}<span class="comment">//namespace glm</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#include &quot;spline.inl&quot;</span></div>
-<div class="ttc" id="a00135_html"><div class="ttname"><a href="a00135.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00015_source.html#l00020">common.hpp:20</a></div></div>
-<div class="ttc" id="a00218_html_gaa69e143f6374d32f934a8edeaa50bac9"><div class="ttname"><a href="a00218.html#gaa69e143f6374d32f934a8edeaa50bac9">glm::hermite</a></div><div class="ttdeci">GLM_FUNC_DECL genType hermite(genType const &amp;v1, genType const &amp;t1, genType const &amp;v2, genType const &amp;t2, typename genType::value_type const &amp;s)</div><div class="ttdoc">Return a point from a hermite curve. </div></div>
-<div class="ttc" id="a00218_html_ga6b867eb52e2fc933d2e0bf26aabc9a70"><div class="ttname"><a href="a00218.html#ga6b867eb52e2fc933d2e0bf26aabc9a70">glm::cubic</a></div><div class="ttdeci">GLM_FUNC_DECL genType cubic(genType const &amp;v1, genType const &amp;v2, genType const &amp;v3, genType const &amp;v4, typename genType::value_type const &amp;s)</div><div class="ttdoc">Return a point from a cubic curve. </div></div>
-<div class="ttc" id="a00218_html_ga8119c04f8210fd0d292757565cd6918d"><div class="ttname"><a href="a00218.html#ga8119c04f8210fd0d292757565cd6918d">glm::catmullRom</a></div><div class="ttdeci">GLM_FUNC_DECL genType catmullRom(genType const &amp;v1, genType const &amp;v2, genType const &amp;v3, genType const &amp;v4, typename genType::value_type const &amp;s)</div><div class="ttdoc">Return a point from a catmull rom curve. </div></div>
+<div class="ttc" id="a00225_html_gaa69e143f6374d32f934a8edeaa50bac9"><div class="ttname"><a href="a00225.html#gaa69e143f6374d32f934a8edeaa50bac9">glm::hermite</a></div><div class="ttdeci">GLM_FUNC_DECL genType hermite(genType const &amp;v1, genType const &amp;t1, genType const &amp;v2, genType const &amp;t2, typename genType::value_type const &amp;s)</div><div class="ttdoc">Return a point from a hermite curve. </div></div>
+<div class="ttc" id="a00225_html_ga6b867eb52e2fc933d2e0bf26aabc9a70"><div class="ttname"><a href="a00225.html#ga6b867eb52e2fc933d2e0bf26aabc9a70">glm::cubic</a></div><div class="ttdeci">GLM_FUNC_DECL genType cubic(genType const &amp;v1, genType const &amp;v2, genType const &amp;v3, genType const &amp;v4, typename genType::value_type const &amp;s)</div><div class="ttdoc">Return a point from a cubic curve. </div></div>
+<div class="ttc" id="a00138_html"><div class="ttname"><a href="a00138.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00015_source.html#l00020">common.hpp:20</a></div></div>
+<div class="ttc" id="a00225_html_ga8119c04f8210fd0d292757565cd6918d"><div class="ttname"><a href="a00225.html#ga8119c04f8210fd0d292757565cd6918d">glm::catmullRom</a></div><div class="ttdeci">GLM_FUNC_DECL genType catmullRom(genType const &amp;v1, genType const &amp;v2, genType const &amp;v3, genType const &amp;v4, typename genType::value_type const &amp;s)</div><div class="ttdoc">Return a point from a catmull rom curve. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

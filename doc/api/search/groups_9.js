@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['template_20types',['Template types',['../a00146.html',1,'']]],
-  ['types',['Types',['../a00144.html',1,'']]]
+  ['stable_20extensions',['Stable extensions',['../a00152.html',1,'']]]
 ];

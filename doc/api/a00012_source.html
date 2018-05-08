@@ -103,28 +103,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#       pragma message(&quot;GLM: GLM_GTC_color_space extension included&quot;)</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00135.html">glm</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00138.html">glm</a></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier Q&gt;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, Q&gt; <a class="code" href="a00150.html#gaace0a21167d13d26116c283009af57f6">convertLinearToSRGB</a>(vec&lt;L, T, Q&gt; <span class="keyword">const</span>&amp; ColorLinear);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, Q&gt; <a class="code" href="a00156.html#gaace0a21167d13d26116c283009af57f6">convertLinearToSRGB</a>(vec&lt;L, T, Q&gt; <span class="keyword">const</span>&amp; ColorLinear);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier Q&gt;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, Q&gt; <a class="code" href="a00150.html#gaace0a21167d13d26116c283009af57f6">convertLinearToSRGB</a>(vec&lt;L, T, Q&gt; <span class="keyword">const</span>&amp; ColorLinear, T Gamma);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, Q&gt; <a class="code" href="a00156.html#gaace0a21167d13d26116c283009af57f6">convertLinearToSRGB</a>(vec&lt;L, T, Q&gt; <span class="keyword">const</span>&amp; ColorLinear, T Gamma);</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier Q&gt;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, Q&gt; <a class="code" href="a00150.html#gad1b91f27a9726c9cb403f9fee6e2e200">convertSRGBToLinear</a>(vec&lt;L, T, Q&gt; <span class="keyword">const</span>&amp; ColorSRGB);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, Q&gt; <a class="code" href="a00156.html#gad1b91f27a9726c9cb403f9fee6e2e200">convertSRGBToLinear</a>(vec&lt;L, T, Q&gt; <span class="keyword">const</span>&amp; ColorSRGB);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">// IEC 61966-2-1:1999 / Rec. 709 specification https://www.w3.org/Graphics/Color/srgb</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">template</span>&lt;length_t L, <span class="keyword">typename</span> T, qualifier Q&gt;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, Q&gt; <a class="code" href="a00150.html#gad1b91f27a9726c9cb403f9fee6e2e200">convertSRGBToLinear</a>(vec&lt;L, T, Q&gt; <span class="keyword">const</span>&amp; ColorSRGB, T Gamma);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        GLM_FUNC_DECL vec&lt;L, T, Q&gt; <a class="code" href="a00156.html#gad1b91f27a9726c9cb403f9fee6e2e200">convertSRGBToLinear</a>(vec&lt;L, T, Q&gt; <span class="keyword">const</span>&amp; ColorSRGB, T Gamma);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} <span class="comment">//namespace glm</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#include &quot;color_space.inl&quot;</span></div>
-<div class="ttc" id="a00150_html_gaace0a21167d13d26116c283009af57f6"><div class="ttname"><a href="a00150.html#gaace0a21167d13d26116c283009af57f6">glm::convertLinearToSRGB</a></div><div class="ttdeci">GLM_FUNC_DECL vec&lt; L, T, Q &gt; convertLinearToSRGB(vec&lt; L, T, Q &gt; const &amp;ColorLinear, T Gamma)</div><div class="ttdoc">Convert a linear color to sRGB color using a custom gamma correction. </div></div>
-<div class="ttc" id="a00150_html_gad1b91f27a9726c9cb403f9fee6e2e200"><div class="ttname"><a href="a00150.html#gad1b91f27a9726c9cb403f9fee6e2e200">glm::convertSRGBToLinear</a></div><div class="ttdeci">GLM_FUNC_DECL vec&lt; L, T, Q &gt; convertSRGBToLinear(vec&lt; L, T, Q &gt; const &amp;ColorSRGB, T Gamma)</div><div class="ttdoc">Convert a sRGB color to linear color using a custom gamma correction. </div></div>
-<div class="ttc" id="a00135_html"><div class="ttname"><a href="a00135.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00015_source.html#l00020">common.hpp:20</a></div></div>
+<div class="ttc" id="a00138_html"><div class="ttname"><a href="a00138.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00015_source.html#l00020">common.hpp:20</a></div></div>
+<div class="ttc" id="a00156_html_gaace0a21167d13d26116c283009af57f6"><div class="ttname"><a href="a00156.html#gaace0a21167d13d26116c283009af57f6">glm::convertLinearToSRGB</a></div><div class="ttdeci">GLM_FUNC_DECL vec&lt; L, T, Q &gt; convertLinearToSRGB(vec&lt; L, T, Q &gt; const &amp;ColorLinear, T Gamma)</div><div class="ttdoc">Convert a linear color to sRGB color using a custom gamma correction. </div></div>
+<div class="ttc" id="a00156_html_gad1b91f27a9726c9cb403f9fee6e2e200"><div class="ttname"><a href="a00156.html#gad1b91f27a9726c9cb403f9fee6e2e200">glm::convertSRGBToLinear</a></div><div class="ttdeci">GLM_FUNC_DECL vec&lt; L, T, Q &gt; convertSRGBToLinear(vec&lt; L, T, Q &gt; const &amp;ColorSRGB, T Gamma)</div><div class="ttdoc">Convert a sRGB color to linear color using a custom gamma correction. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

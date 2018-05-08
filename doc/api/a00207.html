@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTX_optimum_pow</title>
+<title>0.9.9 API documenation: GLM_GTX_matrix_query</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -78,86 +78,281 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_optimum_pow<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
+<div class="title">GLM_GTX_matrix_query<div class="ingroups"><a class="el" href="a00154.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Include &lt;<a class="el" href="a00074.html" title="GLM_GTX_optimum_pow ">glm/gtx/optimum_pow.hpp</a>&gt; to use the features of this extension.  
+<p>Include &lt;<a class="el" href="a00066.html" title="GLM_GTX_matrix_query ">glm/gtx/matrix_query.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga19aaff3213bf23bdec3ef124ace237e9"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:ga19aaff3213bf23bdec3ef124ace237e9"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00207.html#ga19aaff3213bf23bdec3ef124ace237e9">pow2</a> (genType const &amp;x)</td></tr>
-<tr class="memdesc:ga19aaff3213bf23bdec3ef124ace237e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns x raised to the power of 2.  <a href="a00207.html#ga19aaff3213bf23bdec3ef124ace237e9">More...</a><br /></td></tr>
-<tr class="separator:ga19aaff3213bf23bdec3ef124ace237e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga35689d03cd434d6ea819f1942d3bf82e"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:ga35689d03cd434d6ea819f1942d3bf82e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00207.html#ga35689d03cd434d6ea819f1942d3bf82e">pow3</a> (genType const &amp;x)</td></tr>
-<tr class="memdesc:ga35689d03cd434d6ea819f1942d3bf82e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns x raised to the power of 3.  <a href="a00207.html#ga35689d03cd434d6ea819f1942d3bf82e">More...</a><br /></td></tr>
-<tr class="separator:ga35689d03cd434d6ea819f1942d3bf82e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacef0968763026e180e53e735007dbf5a"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:gacef0968763026e180e53e735007dbf5a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00207.html#gacef0968763026e180e53e735007dbf5a">pow4</a> (genType const &amp;x)</td></tr>
-<tr class="memdesc:gacef0968763026e180e53e735007dbf5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns x raised to the power of 4.  <a href="a00207.html#gacef0968763026e180e53e735007dbf5a">More...</a><br /></td></tr>
-<tr class="separator:gacef0968763026e180e53e735007dbf5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee935d145581c82e82b154ccfd78ad91"><td class="memTemplParams" colspan="2">template&lt;length_t C, length_t R, typename T , qualifier Q, template&lt; length_t, length_t, typename, qualifier &gt; class matType&gt; </td></tr>
+<tr class="memitem:gaee935d145581c82e82b154ccfd78ad91"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00207.html#gaee935d145581c82e82b154ccfd78ad91">isIdentity</a> (matType&lt; C, R, T, Q &gt; const &amp;m, T const &amp;epsilon)</td></tr>
+<tr class="memdesc:gaee935d145581c82e82b154ccfd78ad91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether a matrix is an identity matrix.  <a href="a00207.html#gaee935d145581c82e82b154ccfd78ad91">More...</a><br /></td></tr>
+<tr class="separator:gaee935d145581c82e82b154ccfd78ad91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae785af56f47ce220a1609f7f84aa077a"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gae785af56f47ce220a1609f7f84aa077a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00207.html#gae785af56f47ce220a1609f7f84aa077a">isNormalized</a> (mat&lt; 2, 2, T, Q &gt; const &amp;m, T const &amp;epsilon)</td></tr>
+<tr class="memdesc:gae785af56f47ce220a1609f7f84aa077a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether a matrix is a normalized matrix.  <a href="a00207.html#gae785af56f47ce220a1609f7f84aa077a">More...</a><br /></td></tr>
+<tr class="separator:gae785af56f47ce220a1609f7f84aa077a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa068311695f28f5f555f5f746a6a66fb"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaa068311695f28f5f555f5f746a6a66fb"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00207.html#gaa068311695f28f5f555f5f746a6a66fb">isNormalized</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m, T const &amp;epsilon)</td></tr>
+<tr class="memdesc:gaa068311695f28f5f555f5f746a6a66fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether a matrix is a normalized matrix.  <a href="a00207.html#gaa068311695f28f5f555f5f746a6a66fb">More...</a><br /></td></tr>
+<tr class="separator:gaa068311695f28f5f555f5f746a6a66fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4d9bb4d0465df49fedfad79adc6ce4ad"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga4d9bb4d0465df49fedfad79adc6ce4ad"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00207.html#ga4d9bb4d0465df49fedfad79adc6ce4ad">isNormalized</a> (mat&lt; 4, 4, T, Q &gt; const &amp;m, T const &amp;epsilon)</td></tr>
+<tr class="memdesc:ga4d9bb4d0465df49fedfad79adc6ce4ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether a matrix is a normalized matrix.  <a href="a00207.html#ga4d9bb4d0465df49fedfad79adc6ce4ad">More...</a><br /></td></tr>
+<tr class="separator:ga4d9bb4d0465df49fedfad79adc6ce4ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9790ec222ce948c0ff0d8ce927340dba"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga9790ec222ce948c0ff0d8ce927340dba"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00207.html#ga9790ec222ce948c0ff0d8ce927340dba">isNull</a> (mat&lt; 2, 2, T, Q &gt; const &amp;m, T const &amp;epsilon)</td></tr>
+<tr class="memdesc:ga9790ec222ce948c0ff0d8ce927340dba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether a matrix a null matrix.  <a href="a00207.html#ga9790ec222ce948c0ff0d8ce927340dba">More...</a><br /></td></tr>
+<tr class="separator:ga9790ec222ce948c0ff0d8ce927340dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae14501c6b14ccda6014cc5350080103d"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gae14501c6b14ccda6014cc5350080103d"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00207.html#gae14501c6b14ccda6014cc5350080103d">isNull</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m, T const &amp;epsilon)</td></tr>
+<tr class="memdesc:gae14501c6b14ccda6014cc5350080103d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether a matrix a null matrix.  <a href="a00207.html#gae14501c6b14ccda6014cc5350080103d">More...</a><br /></td></tr>
+<tr class="separator:gae14501c6b14ccda6014cc5350080103d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2b98bb30a9fefa7cdea5f1dcddba677b"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga2b98bb30a9fefa7cdea5f1dcddba677b"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00207.html#ga2b98bb30a9fefa7cdea5f1dcddba677b">isNull</a> (mat&lt; 4, 4, T, Q &gt; const &amp;m, T const &amp;epsilon)</td></tr>
+<tr class="memdesc:ga2b98bb30a9fefa7cdea5f1dcddba677b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether a matrix is a null matrix.  <a href="a00207.html#ga2b98bb30a9fefa7cdea5f1dcddba677b">More...</a><br /></td></tr>
+<tr class="separator:ga2b98bb30a9fefa7cdea5f1dcddba677b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga58f3289f74dcab653387dd78ad93ca40"><td class="memTemplParams" colspan="2">template&lt;length_t C, length_t R, typename T , qualifier Q, template&lt; length_t, length_t, typename, qualifier &gt; class matType&gt; </td></tr>
+<tr class="memitem:ga58f3289f74dcab653387dd78ad93ca40"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00207.html#ga58f3289f74dcab653387dd78ad93ca40">isOrthogonal</a> (matType&lt; C, R, T, Q &gt; const &amp;m, T const &amp;epsilon)</td></tr>
+<tr class="memdesc:ga58f3289f74dcab653387dd78ad93ca40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether a matrix is an orthonormalized matrix.  <a href="a00207.html#ga58f3289f74dcab653387dd78ad93ca40">More...</a><br /></td></tr>
+<tr class="separator:ga58f3289f74dcab653387dd78ad93ca40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Include &lt;<a class="el" href="a00074.html" title="GLM_GTX_optimum_pow ">glm/gtx/optimum_pow.hpp</a>&gt; to use the features of this extension. </p>
-<p>Integer exponentiation of power functions. </p>
+<p>Include &lt;<a class="el" href="a00066.html" title="GLM_GTX_matrix_query ">glm/gtx/matrix_query.hpp</a>&gt; to use the features of this extension. </p>
+<p>Query to evaluate matrix properties </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga19aaff3213bf23bdec3ef124ace237e9"></a>
+<a class="anchor" id="gaee935d145581c82e82b154ccfd78ad91"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::gtx::pow2 </td>
+          <td class="memname">GLM_FUNC_DECL bool glm::isIdentity </td>
           <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">matType&lt; C, R, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>epsilon</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns x raised to the power of 2. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00207.html" title="Include <glm/gtx/optimum_pow.hpp> to use the features of this extension. ">GLM_GTX_optimum_pow</a> </dd></dl>
+<p>Return whether a matrix is an identity matrix. </p>
+<p>From GLM_GTX_matrix_query extension. </p>
 
 </div>
 </div>
-<a class="anchor" id="ga35689d03cd434d6ea819f1942d3bf82e"></a>
+<a class="anchor" id="gae785af56f47ce220a1609f7f84aa077a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::gtx::pow3 </td>
+          <td class="memname">GLM_FUNC_DECL bool glm::isNormalized </td>
           <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">mat&lt; 2, 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>epsilon</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns x raised to the power of 3. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00207.html" title="Include <glm/gtx/optimum_pow.hpp> to use the features of this extension. ">GLM_GTX_optimum_pow</a> </dd></dl>
+<p>Return whether a matrix is a normalized matrix. </p>
+<p>From GLM_GTX_matrix_query extension. </p>
 
 </div>
 </div>
-<a class="anchor" id="gacef0968763026e180e53e735007dbf5a"></a>
+<a class="anchor" id="gaa068311695f28f5f555f5f746a6a66fb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::gtx::pow4 </td>
+          <td class="memname">GLM_FUNC_DECL bool glm::isNormalized </td>
           <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">mat&lt; 3, 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>epsilon</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns x raised to the power of 4. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00207.html" title="Include <glm/gtx/optimum_pow.hpp> to use the features of this extension. ">GLM_GTX_optimum_pow</a> </dd></dl>
+<p>Return whether a matrix is a normalized matrix. </p>
+<p>From GLM_GTX_matrix_query extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga4d9bb4d0465df49fedfad79adc6ce4ad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL bool glm::isNormalized </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; 4, 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>epsilon</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return whether a matrix is a normalized matrix. </p>
+<p>From GLM_GTX_matrix_query extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga9790ec222ce948c0ff0d8ce927340dba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL bool glm::isNull </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; 2, 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>epsilon</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return whether a matrix a null matrix. </p>
+<p>From GLM_GTX_matrix_query extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="gae14501c6b14ccda6014cc5350080103d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL bool glm::isNull </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; 3, 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>epsilon</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return whether a matrix a null matrix. </p>
+<p>From GLM_GTX_matrix_query extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga2b98bb30a9fefa7cdea5f1dcddba677b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL bool glm::isNull </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; 4, 4, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>epsilon</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return whether a matrix is a null matrix. </p>
+<p>From GLM_GTX_matrix_query extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga58f3289f74dcab653387dd78ad93ca40"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL bool glm::isOrthogonal </td>
+          <td>(</td>
+          <td class="paramtype">matType&lt; C, R, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>epsilon</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return whether a matrix is an orthonormalized matrix. </p>
+<p>From GLM_GTX_matrix_query extension. </p>
 
 </div>
 </div>

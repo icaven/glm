@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTC_ulp</title>
+<title>0.9.9 API documenation: GLM_GTC_random</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -78,59 +78,120 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTC_ulp<div class="ingroups"><a class="el" href="a00147.html">Stable extensions</a></div></div>  </div>
+<div class="title">GLM_GTC_random<div class="ingroups"><a class="el" href="a00153.html">Recommended extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Include &lt;<a class="el" href="a00125.html" title="GLM_GTC_ulp ">glm/gtc/ulp.hpp</a>&gt; to use the features of this extension.  
+<p>Include &lt;<a class="el" href="a00085.html" title="GLM_GTC_random ">glm/gtc/random.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga2e09bd6c8b0a9c91f6f5683d68245634"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga2e09bd6c8b0a9c91f6f5683d68245634"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL uint&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00167.html#ga2e09bd6c8b0a9c91f6f5683d68245634">float_distance</a> (T const &amp;x, T const &amp;y)</td></tr>
-<tr class="memdesc:ga2e09bd6c8b0a9c91f6f5683d68245634"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the distance in the number of ULP between 2 scalars.  <a href="a00167.html#ga2e09bd6c8b0a9c91f6f5683d68245634">More...</a><br /></td></tr>
-<tr class="separator:ga2e09bd6c8b0a9c91f6f5683d68245634"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga72b3223069013f336d8c31812b7ada80"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
-<tr class="memitem:ga72b3223069013f336d8c31812b7ada80"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 2, uint, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00167.html#ga72b3223069013f336d8c31812b7ada80">float_distance</a> (vec&lt; 2, T, Q &gt; const &amp;x, vec&lt; 2, T, Q &gt; const &amp;y)</td></tr>
-<tr class="memdesc:ga72b3223069013f336d8c31812b7ada80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the distance in the number of ULP between 2 vectors.  <a href="a00167.html#ga72b3223069013f336d8c31812b7ada80">More...</a><br /></td></tr>
-<tr class="separator:ga72b3223069013f336d8c31812b7ada80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae516ae554faa6117660828240e8bdaf0"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:gae516ae554faa6117660828240e8bdaf0"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00167.html#gae516ae554faa6117660828240e8bdaf0">next_float</a> (genType const &amp;x)</td></tr>
-<tr class="memdesc:gae516ae554faa6117660828240e8bdaf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the next ULP value(s) after the input value(s).  <a href="a00167.html#gae516ae554faa6117660828240e8bdaf0">More...</a><br /></td></tr>
-<tr class="separator:gae516ae554faa6117660828240e8bdaf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad107ec3d9697ef82032a33338a73ebdd"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:gad107ec3d9697ef82032a33338a73ebdd"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00167.html#gad107ec3d9697ef82032a33338a73ebdd">next_float</a> (genType const &amp;x, uint const &amp;Distance)</td></tr>
-<tr class="memdesc:gad107ec3d9697ef82032a33338a73ebdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value(s) ULP distance after the input value(s).  <a href="a00167.html#gad107ec3d9697ef82032a33338a73ebdd">More...</a><br /></td></tr>
-<tr class="separator:gad107ec3d9697ef82032a33338a73ebdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2fcbb7bfbfc595712bfddc51b0715b07"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:ga2fcbb7bfbfc595712bfddc51b0715b07"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00167.html#ga2fcbb7bfbfc595712bfddc51b0715b07">prev_float</a> (genType const &amp;x)</td></tr>
-<tr class="memdesc:ga2fcbb7bfbfc595712bfddc51b0715b07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the previous ULP value(s) before the input value(s).  <a href="a00167.html#ga2fcbb7bfbfc595712bfddc51b0715b07">More...</a><br /></td></tr>
-<tr class="separator:ga2fcbb7bfbfc595712bfddc51b0715b07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa399d5b6472a70e8952f9b26ecaacdec"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:gaa399d5b6472a70e8952f9b26ecaacdec"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00167.html#gaa399d5b6472a70e8952f9b26ecaacdec">prev_float</a> (genType const &amp;x, uint const &amp;Distance)</td></tr>
-<tr class="memdesc:gaa399d5b6472a70e8952f9b26ecaacdec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value(s) ULP distance before the input value(s).  <a href="a00167.html#gaa399d5b6472a70e8952f9b26ecaacdec">More...</a><br /></td></tr>
-<tr class="separator:gaa399d5b6472a70e8952f9b26ecaacdec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c53b7797f3147af68a11c767679fa3f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga7c53b7797f3147af68a11c767679fa3f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00167.html#ga7c53b7797f3147af68a11c767679fa3f">ballRand</a> (T Radius)</td></tr>
+<tr class="memdesc:ga7c53b7797f3147af68a11c767679fa3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random 3D vector which coordinates are regulary distributed within the volume of a ball of a given radius.  <a href="a00167.html#ga7c53b7797f3147af68a11c767679fa3f">More...</a><br /></td></tr>
+<tr class="separator:ga7c53b7797f3147af68a11c767679fa3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9dd05c36025088fae25b97c869e88517"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga9dd05c36025088fae25b97c869e88517"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 2, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00167.html#ga9dd05c36025088fae25b97c869e88517">circularRand</a> (T Radius)</td></tr>
+<tr class="memdesc:ga9dd05c36025088fae25b97c869e88517"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random 2D vector which coordinates are regulary distributed on a circle of a given radius.  <a href="a00167.html#ga9dd05c36025088fae25b97c869e88517">More...</a><br /></td></tr>
+<tr class="separator:ga9dd05c36025088fae25b97c869e88517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa0b18071f3f97dbf8bcf6f53c6fe5f73"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:gaa0b18071f3f97dbf8bcf6f53c6fe5f73"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 2, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00167.html#gaa0b18071f3f97dbf8bcf6f53c6fe5f73">diskRand</a> (T Radius)</td></tr>
+<tr class="memdesc:gaa0b18071f3f97dbf8bcf6f53c6fe5f73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random 2D vector which coordinates are regulary distributed within the area of a disk of a given radius.  <a href="a00167.html#gaa0b18071f3f97dbf8bcf6f53c6fe5f73">More...</a><br /></td></tr>
+<tr class="separator:gaa0b18071f3f97dbf8bcf6f53c6fe5f73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5193a83e49e4fdc5652c084711083574"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga5193a83e49e4fdc5652c084711083574"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00167.html#ga5193a83e49e4fdc5652c084711083574">gaussRand</a> (genType Mean, genType Deviation)</td></tr>
+<tr class="memdesc:ga5193a83e49e4fdc5652c084711083574"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate random numbers in the interval [Min, Max], according a gaussian distribution.  <a href="a00167.html#ga5193a83e49e4fdc5652c084711083574">More...</a><br /></td></tr>
+<tr class="separator:ga5193a83e49e4fdc5652c084711083574"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga04e241ab88374a477a2c2ceadd2fa03d"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga04e241ab88374a477a2c2ceadd2fa03d"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00167.html#ga04e241ab88374a477a2c2ceadd2fa03d">linearRand</a> (genType Min, genType Max)</td></tr>
+<tr class="memdesc:ga04e241ab88374a477a2c2ceadd2fa03d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate random numbers in the interval [Min, Max], according a linear distribution.  <a href="a00167.html#ga04e241ab88374a477a2c2ceadd2fa03d">More...</a><br /></td></tr>
+<tr class="separator:ga04e241ab88374a477a2c2ceadd2fa03d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga94731130c298a9ff5e5025fdee6d97a0"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga94731130c298a9ff5e5025fdee6d97a0"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00167.html#ga94731130c298a9ff5e5025fdee6d97a0">linearRand</a> (vec&lt; L, T, Q &gt; const &amp;Min, vec&lt; L, T, Q &gt; const &amp;Max)</td></tr>
+<tr class="memdesc:ga94731130c298a9ff5e5025fdee6d97a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate random numbers in the interval [Min, Max], according a linear distribution.  <a href="a00167.html#ga94731130c298a9ff5e5025fdee6d97a0">More...</a><br /></td></tr>
+<tr class="separator:ga94731130c298a9ff5e5025fdee6d97a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga22f90fcaccdf001c516ca90f6428e138"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga22f90fcaccdf001c516ca90f6428e138"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00167.html#ga22f90fcaccdf001c516ca90f6428e138">sphericalRand</a> (T Radius)</td></tr>
+<tr class="memdesc:ga22f90fcaccdf001c516ca90f6428e138"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random 3D vector which coordinates are regulary distributed on a sphere of a given radius.  <a href="a00167.html#ga22f90fcaccdf001c516ca90f6428e138">More...</a><br /></td></tr>
+<tr class="separator:ga22f90fcaccdf001c516ca90f6428e138"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Include &lt;<a class="el" href="a00125.html" title="GLM_GTC_ulp ">glm/gtc/ulp.hpp</a>&gt; to use the features of this extension. </p>
-<p>Allow the measurement of the accuracy of a function against a reference implementation. This extension works on floating-point data and provide results in ULP. </p>
+<p>Include &lt;<a class="el" href="a00085.html" title="GLM_GTC_random ">glm/gtc/random.hpp</a>&gt; to use the features of this extension. </p>
+<p>Generate random number from various distribution methods. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga2e09bd6c8b0a9c91f6f5683d68245634"></a>
+<a class="anchor" id="ga7c53b7797f3147af68a11c767679fa3f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL uint glm::float_distance </td>
+          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, defaultp&gt; glm::ballRand </td>
           <td>(</td>
-          <td class="paramtype">T const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>Radius</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generate a random 3D vector which coordinates are regulary distributed within the volume of a ball of a given radius. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00167.html" title="Include <glm/gtc/random.hpp> to use the features of this extension. ">GLM_GTC_random</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga9dd05c36025088fae25b97c869e88517"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;2, T, defaultp&gt; glm::circularRand </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>Radius</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generate a random 2D vector which coordinates are regulary distributed on a circle of a given radius. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00167.html" title="Include <glm/gtc/random.hpp> to use the features of this extension. ">GLM_GTC_random</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaa0b18071f3f97dbf8bcf6f53c6fe5f73"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;2, T, defaultp&gt; glm::diskRand </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>Radius</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generate a random 2D vector which coordinates are regulary distributed within the area of a disk of a given radius. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00167.html" title="Include <glm/gtc/random.hpp> to use the features of this extension. ">GLM_GTC_random</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga5193a83e49e4fdc5652c084711083574"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL genType glm::gaussRand </td>
+          <td>(</td>
+          <td class="paramtype">genType&#160;</td>
+          <td class="paramname"><em>Mean</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">T const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramtype">genType&#160;</td>
+          <td class="paramname"><em>Deviation</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -140,26 +201,26 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the distance in the number of ULP between 2 scalars. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00167.html" title="Include <glm/gtc/ulp.hpp> to use the features of this extension. ">GLM_GTC_ulp</a> </dd></dl>
+<p>Generate random numbers in the interval [Min, Max], according a gaussian distribution. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00167.html" title="Include <glm/gtc/random.hpp> to use the features of this extension. ">GLM_GTC_random</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga72b3223069013f336d8c31812b7ada80"></a>
+<a class="anchor" id="ga04e241ab88374a477a2c2ceadd2fa03d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;2, uint, Q&gt; glm::float_distance </td>
+          <td class="memname">GLM_FUNC_DECL genType glm::linearRand </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
+          <td class="paramtype">genType&#160;</td>
+          <td class="paramname"><em>Min</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramtype">genType&#160;</td>
+          <td class="paramname"><em>Max</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -169,45 +230,39 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the distance in the number of ULP between 2 vectors. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00167.html" title="Include <glm/gtc/ulp.hpp> to use the features of this extension. ">GLM_GTC_ulp</a> </dd></dl>
+<p>Generate random numbers in the interval [Min, Max], according a linear distribution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Min</td><td>Minimum value included in the sampling </td></tr>
+    <tr><td class="paramname">Max</td><td>Maximum value included in the sampling </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">genType</td><td>Value type. Currently supported: float or double scalars. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00167.html" title="Include <glm/gtc/random.hpp> to use the features of this extension. ">GLM_GTC_random</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gae516ae554faa6117660828240e8bdaf0"></a>
+<a class="anchor" id="ga94731130c298a9ff5e5025fdee6d97a0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::next_float </td>
+          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, Q&gt; glm::linearRand </td>
           <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the next ULP value(s) after the input value(s). </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00167.html" title="Include <glm/gtc/ulp.hpp> to use the features of this extension. ">GLM_GTC_ulp</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gad107ec3d9697ef82032a33338a73ebdd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::next_float </td>
-          <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>Min</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00145.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> const &amp;&#160;</td>
-          <td class="paramname"><em>Distance</em>&#160;</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>Max</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -217,56 +272,40 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the value(s) ULP distance after the input value(s). </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00167.html" title="Include <glm/gtc/ulp.hpp> to use the features of this extension. ">GLM_GTC_ulp</a> </dd></dl>
+<p>Generate random numbers in the interval [Min, Max], according a linear distribution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Min</td><td>Minimum value included in the sampling </td></tr>
+    <tr><td class="paramname">Max</td><td>Maximum value included in the sampling </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Value type. Currently supported: float or double.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00167.html" title="Include <glm/gtc/random.hpp> to use the features of this extension. ">GLM_GTC_random</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga2fcbb7bfbfc595712bfddc51b0715b07"></a>
+<a class="anchor" id="ga22f90fcaccdf001c516ca90f6428e138"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::prev_float </td>
+          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, defaultp&gt; glm::sphericalRand </td>
           <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>Radius</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return the previous ULP value(s) before the input value(s). </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00167.html" title="Include <glm/gtc/ulp.hpp> to use the features of this extension. ">GLM_GTC_ulp</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gaa399d5b6472a70e8952f9b26ecaacdec"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::prev_float </td>
-          <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00145.html#ga91ad9478d81a7aaf2593e8d9c3d06a14">uint</a> const &amp;&#160;</td>
-          <td class="paramname"><em>Distance</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the value(s) ULP distance before the input value(s). </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00167.html" title="Include <glm/gtc/ulp.hpp> to use the features of this extension. ">GLM_GTC_ulp</a> </dd></dl>
+<p>Generate a random 3D vector which coordinates are regulary distributed on a sphere of a given radius. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00167.html" title="Include <glm/gtc/random.hpp> to use the features of this extension. ">GLM_GTC_random</a> </dd></dl>
 
 </div>
 </div>

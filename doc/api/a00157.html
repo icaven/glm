@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTC_matrix_transform</title>
+<title>0.9.9 API documenation: GLM_GTC_constants</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -78,1620 +78,655 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTC_matrix_transform<div class="ingroups"><a class="el" href="a00147.html">Stable extensions</a></div></div>  </div>
+<div class="title">GLM_GTC_constants<div class="ingroups"><a class="el" href="a00153.html">Recommended extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Include &lt;<a class="el" href="a00066.html" title="GLM_GTC_matrix_transform ">glm/gtc/matrix_transform.hpp</a>&gt; to use the features of this extension.  
+<p>Include &lt;<a class="el" href="a00020.html" title="GLM_GTC_constants ">glm/gtc/constants.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga0bcd4542e0affc63a0b8c08fcb839ea9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga0bcd4542e0affc63a0b8c08fcb839ea9"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga0bcd4542e0affc63a0b8c08fcb839ea9">frustum</a> (T left, T right, T bottom, T top, T near, T far)</td></tr>
-<tr class="memdesc:ga0bcd4542e0affc63a0b8c08fcb839ea9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a frustum matrix with default handedness.  <a href="a00157.html#ga0bcd4542e0affc63a0b8c08fcb839ea9">More...</a><br /></td></tr>
-<tr class="separator:ga0bcd4542e0affc63a0b8c08fcb839ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae4277c37f61d81da01bc9db14ea90296"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:gae4277c37f61d81da01bc9db14ea90296"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gae4277c37f61d81da01bc9db14ea90296">frustumLH</a> (T left, T right, T bottom, T top, T near, T far)</td></tr>
-<tr class="memdesc:gae4277c37f61d81da01bc9db14ea90296"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a left handed frustum matrix.  <a href="a00157.html#gae4277c37f61d81da01bc9db14ea90296">More...</a><br /></td></tr>
-<tr class="separator:gae4277c37f61d81da01bc9db14ea90296"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4366ab45880c6c5f8b3e8c371ca4b136"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga4366ab45880c6c5f8b3e8c371ca4b136"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga4366ab45880c6c5f8b3e8c371ca4b136">frustumRH</a> (T left, T right, T bottom, T top, T near, T far)</td></tr>
-<tr class="memdesc:ga4366ab45880c6c5f8b3e8c371ca4b136"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a right handed frustum matrix.  <a href="a00157.html#ga4366ab45880c6c5f8b3e8c371ca4b136">More...</a><br /></td></tr>
-<tr class="separator:ga4366ab45880c6c5f8b3e8c371ca4b136"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga44fa38a18349450325cae2661bb115ca"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga44fa38a18349450325cae2661bb115ca"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga44fa38a18349450325cae2661bb115ca">infinitePerspective</a> (T fovy, T aspect, T near)</td></tr>
-<tr class="memdesc:ga44fa38a18349450325cae2661bb115ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for a symmetric perspective-view frustum with far plane at infinite with default handedness.  <a href="a00157.html#ga44fa38a18349450325cae2661bb115ca">More...</a><br /></td></tr>
-<tr class="separator:ga44fa38a18349450325cae2661bb115ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3201b30f5b3ea0f933246d87bfb992a9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga3201b30f5b3ea0f933246d87bfb992a9"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga3201b30f5b3ea0f933246d87bfb992a9">infinitePerspectiveLH</a> (T fovy, T aspect, T near)</td></tr>
-<tr class="memdesc:ga3201b30f5b3ea0f933246d87bfb992a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for a left handed, symmetric perspective-view frustum with far plane at infinite.  <a href="a00157.html#ga3201b30f5b3ea0f933246d87bfb992a9">More...</a><br /></td></tr>
-<tr class="separator:ga3201b30f5b3ea0f933246d87bfb992a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga99672ffe5714ef478dab2437255fe7e1"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga99672ffe5714ef478dab2437255fe7e1"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga99672ffe5714ef478dab2437255fe7e1">infinitePerspectiveRH</a> (T fovy, T aspect, T near)</td></tr>
-<tr class="memdesc:ga99672ffe5714ef478dab2437255fe7e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for a right handed, symmetric perspective-view frustum with far plane at infinite.  <a href="a00157.html#ga99672ffe5714ef478dab2437255fe7e1">More...</a><br /></td></tr>
-<tr class="separator:ga99672ffe5714ef478dab2437255fe7e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa64aa951a0e99136bba9008d2b59c78e"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
-<tr class="memitem:gaa64aa951a0e99136bba9008d2b59c78e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gaa64aa951a0e99136bba9008d2b59c78e">lookAt</a> (vec&lt; 3, T, Q &gt; const &amp;eye, vec&lt; 3, T, Q &gt; const &amp;center, vec&lt; 3, T, Q &gt; const &amp;up)</td></tr>
-<tr class="memdesc:gaa64aa951a0e99136bba9008d2b59c78e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a look at view matrix based on the default handedness.  <a href="a00157.html#gaa64aa951a0e99136bba9008d2b59c78e">More...</a><br /></td></tr>
-<tr class="separator:gaa64aa951a0e99136bba9008d2b59c78e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab2c09e25b0a16d3a9d89cc85bbae41b0"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
-<tr class="memitem:gab2c09e25b0a16d3a9d89cc85bbae41b0"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gab2c09e25b0a16d3a9d89cc85bbae41b0">lookAtLH</a> (vec&lt; 3, T, Q &gt; const &amp;eye, vec&lt; 3, T, Q &gt; const &amp;center, vec&lt; 3, T, Q &gt; const &amp;up)</td></tr>
-<tr class="memdesc:gab2c09e25b0a16d3a9d89cc85bbae41b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a left handed look at view matrix.  <a href="a00157.html#gab2c09e25b0a16d3a9d89cc85bbae41b0">More...</a><br /></td></tr>
-<tr class="separator:gab2c09e25b0a16d3a9d89cc85bbae41b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacfa12c8889c754846bc20c65d9b5c701"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
-<tr class="memitem:gacfa12c8889c754846bc20c65d9b5c701"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gacfa12c8889c754846bc20c65d9b5c701">lookAtRH</a> (vec&lt; 3, T, Q &gt; const &amp;eye, vec&lt; 3, T, Q &gt; const &amp;center, vec&lt; 3, T, Q &gt; const &amp;up)</td></tr>
-<tr class="memdesc:gacfa12c8889c754846bc20c65d9b5c701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a right handed look at view matrix.  <a href="a00157.html#gacfa12c8889c754846bc20c65d9b5c701">More...</a><br /></td></tr>
-<tr class="separator:gacfa12c8889c754846bc20c65d9b5c701"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6615d8a9d39432e279c4575313ecb456"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga6615d8a9d39432e279c4575313ecb456"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga6615d8a9d39432e279c4575313ecb456">ortho</a> (T left, T right, T bottom, T top, T zNear, T zFar)</td></tr>
-<tr class="memdesc:ga6615d8a9d39432e279c4575313ecb456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for an orthographic parallel viewing volume, using the default handedness.  <a href="a00157.html#ga6615d8a9d39432e279c4575313ecb456">More...</a><br /></td></tr>
-<tr class="separator:ga6615d8a9d39432e279c4575313ecb456"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae5b6b40ed882cd56cd7cb97701909c06"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:gae5b6b40ed882cd56cd7cb97701909c06"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gae5b6b40ed882cd56cd7cb97701909c06">ortho</a> (T left, T right, T bottom, T top)</td></tr>
-<tr class="memdesc:gae5b6b40ed882cd56cd7cb97701909c06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for projecting two-dimensional coordinates onto the screen.  <a href="a00157.html#gae5b6b40ed882cd56cd7cb97701909c06">More...</a><br /></td></tr>
-<tr class="separator:gae5b6b40ed882cd56cd7cb97701909c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad122a79aadaa5529cec4ac197203db7f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:gad122a79aadaa5529cec4ac197203db7f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gad122a79aadaa5529cec4ac197203db7f">orthoLH</a> (T left, T right, T bottom, T top, T zNear, T zFar)</td></tr>
-<tr class="memdesc:gad122a79aadaa5529cec4ac197203db7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for an orthographic parallel viewing volume, using left-handedness.  <a href="a00157.html#gad122a79aadaa5529cec4ac197203db7f">More...</a><br /></td></tr>
-<tr class="separator:gad122a79aadaa5529cec4ac197203db7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga16264c9b838edeb9dd1de7a1010a13a4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga16264c9b838edeb9dd1de7a1010a13a4"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga16264c9b838edeb9dd1de7a1010a13a4">orthoRH</a> (T left, T right, T bottom, T top, T zNear, T zFar)</td></tr>
-<tr class="memdesc:ga16264c9b838edeb9dd1de7a1010a13a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for an orthographic parallel viewing volume, using right-handedness.  <a href="a00157.html#ga16264c9b838edeb9dd1de7a1010a13a4">More...</a><br /></td></tr>
-<tr class="separator:ga16264c9b838edeb9dd1de7a1010a13a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga747c8cf99458663dd7ad1bb3a2f07787"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga747c8cf99458663dd7ad1bb3a2f07787"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga747c8cf99458663dd7ad1bb3a2f07787">perspective</a> (T fovy, T aspect, T near, T far)</td></tr>
-<tr class="memdesc:ga747c8cf99458663dd7ad1bb3a2f07787"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for a symetric perspective-view frustum based on the default handedness.  <a href="a00157.html#ga747c8cf99458663dd7ad1bb3a2f07787">More...</a><br /></td></tr>
-<tr class="separator:ga747c8cf99458663dd7ad1bb3a2f07787"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaebd02240fd36e85ad754f02ddd9a560d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:gaebd02240fd36e85ad754f02ddd9a560d"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gaebd02240fd36e85ad754f02ddd9a560d">perspectiveFov</a> (T fov, T width, T height, T near, T far)</td></tr>
-<tr class="memdesc:gaebd02240fd36e85ad754f02ddd9a560d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a perspective projection matrix based on a field of view and the default handedness.  <a href="a00157.html#gaebd02240fd36e85ad754f02ddd9a560d">More...</a><br /></td></tr>
-<tr class="separator:gaebd02240fd36e85ad754f02ddd9a560d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6aebe16c164bd8e52554cbe0304ef4aa"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga6aebe16c164bd8e52554cbe0304ef4aa"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga6aebe16c164bd8e52554cbe0304ef4aa">perspectiveFovLH</a> (T fov, T width, T height, T near, T far)</td></tr>
-<tr class="memdesc:ga6aebe16c164bd8e52554cbe0304ef4aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a left handed perspective projection matrix based on a field of view.  <a href="a00157.html#ga6aebe16c164bd8e52554cbe0304ef4aa">More...</a><br /></td></tr>
-<tr class="separator:ga6aebe16c164bd8e52554cbe0304ef4aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf32bf563f28379c68554a44ee60c6a85"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:gaf32bf563f28379c68554a44ee60c6a85"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gaf32bf563f28379c68554a44ee60c6a85">perspectiveFovRH</a> (T fov, T width, T height, T near, T far)</td></tr>
-<tr class="memdesc:gaf32bf563f28379c68554a44ee60c6a85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a right handed perspective projection matrix based on a field of view.  <a href="a00157.html#gaf32bf563f28379c68554a44ee60c6a85">More...</a><br /></td></tr>
-<tr class="separator:gaf32bf563f28379c68554a44ee60c6a85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9bd34951dc7022ac256fcb51d7f6fc2f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga9bd34951dc7022ac256fcb51d7f6fc2f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga9bd34951dc7022ac256fcb51d7f6fc2f">perspectiveLH</a> (T fovy, T aspect, T near, T far)</td></tr>
-<tr class="memdesc:ga9bd34951dc7022ac256fcb51d7f6fc2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for a left handed, symetric perspective-view frustum.  <a href="a00157.html#ga9bd34951dc7022ac256fcb51d7f6fc2f">More...</a><br /></td></tr>
-<tr class="separator:ga9bd34951dc7022ac256fcb51d7f6fc2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga26b88757fbd90601b80768a7e1ad3aa1"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ga26b88757fbd90601b80768a7e1ad3aa1"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga26b88757fbd90601b80768a7e1ad3aa1">perspectiveRH</a> (T fovy, T aspect, T near, T far)</td></tr>
-<tr class="memdesc:ga26b88757fbd90601b80768a7e1ad3aa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for a right handed, symetric perspective-view frustum.  <a href="a00157.html#ga26b88757fbd90601b80768a7e1ad3aa1">More...</a><br /></td></tr>
-<tr class="separator:ga26b88757fbd90601b80768a7e1ad3aa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf6b21eadb7ac2ecbbe258a9a233b4c82"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q, typename U &gt; </td></tr>
-<tr class="memitem:gaf6b21eadb7ac2ecbbe258a9a233b4c82"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gaf6b21eadb7ac2ecbbe258a9a233b4c82">pickMatrix</a> (vec&lt; 2, T, Q &gt; const &amp;center, vec&lt; 2, T, Q &gt; const &amp;delta, vec&lt; 4, U, Q &gt; const &amp;viewport)</td></tr>
-<tr class="memdesc:gaf6b21eadb7ac2ecbbe258a9a233b4c82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a picking region.  <a href="a00157.html#gaf6b21eadb7ac2ecbbe258a9a233b4c82">More...</a><br /></td></tr>
-<tr class="separator:gaf6b21eadb7ac2ecbbe258a9a233b4c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf36e96033f456659e6705472a06b6e11"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U , qualifier Q&gt; </td></tr>
-<tr class="memitem:gaf36e96033f456659e6705472a06b6e11"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gaf36e96033f456659e6705472a06b6e11">project</a> (vec&lt; 3, T, Q &gt; const &amp;obj, mat&lt; 4, 4, T, Q &gt; const &amp;model, mat&lt; 4, 4, T, Q &gt; const &amp;proj, vec&lt; 4, U, Q &gt; const &amp;viewport)</td></tr>
-<tr class="memdesc:gaf36e96033f456659e6705472a06b6e11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map the specified object coordinates (obj.x, obj.y, obj.z) into window coordinates.  <a href="a00157.html#gaf36e96033f456659e6705472a06b6e11">More...</a><br /></td></tr>
-<tr class="separator:gaf36e96033f456659e6705472a06b6e11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaee9e865eaa9776370996da2940873fd4"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
-<tr class="memitem:gaee9e865eaa9776370996da2940873fd4"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gaee9e865eaa9776370996da2940873fd4">rotate</a> (mat&lt; 4, 4, T, Q &gt; const &amp;m, T angle, vec&lt; 3, T, Q &gt; const &amp;axis)</td></tr>
-<tr class="memdesc:gaee9e865eaa9776370996da2940873fd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a rotation 4 * 4 matrix created from an axis vector and an angle.  <a href="a00157.html#gaee9e865eaa9776370996da2940873fd4">More...</a><br /></td></tr>
-<tr class="separator:gaee9e865eaa9776370996da2940873fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga05051adbee603fb3c5095d8cf5cc229b"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
-<tr class="memitem:ga05051adbee603fb3c5095d8cf5cc229b"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga05051adbee603fb3c5095d8cf5cc229b">scale</a> (mat&lt; 4, 4, T, Q &gt; const &amp;m, vec&lt; 3, T, Q &gt; const &amp;v)</td></tr>
-<tr class="memdesc:ga05051adbee603fb3c5095d8cf5cc229b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a scale 4 * 4 matrix created from 3 scalars.  <a href="a00157.html#ga05051adbee603fb3c5095d8cf5cc229b">More...</a><br /></td></tr>
-<tr class="separator:ga05051adbee603fb3c5095d8cf5cc229b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1a4ecc4ad82652b8fb14dcb087879284"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
-<tr class="memitem:ga1a4ecc4ad82652b8fb14dcb087879284"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga1a4ecc4ad82652b8fb14dcb087879284">translate</a> (mat&lt; 4, 4, T, Q &gt; const &amp;m, vec&lt; 3, T, Q &gt; const &amp;v)</td></tr>
-<tr class="memdesc:ga1a4ecc4ad82652b8fb14dcb087879284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a translation 4 * 4 matrix created from a vector of 3 components.  <a href="a00157.html#ga1a4ecc4ad82652b8fb14dcb087879284">More...</a><br /></td></tr>
-<tr class="separator:ga1a4ecc4ad82652b8fb14dcb087879284"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaeacc04a2a6f4b18c5899d37e7bb3ef9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:gaaeacc04a2a6f4b18c5899d37e7bb3ef9"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gaaeacc04a2a6f4b18c5899d37e7bb3ef9">tweakedInfinitePerspective</a> (T fovy, T aspect, T near)</td></tr>
-<tr class="memdesc:gaaeacc04a2a6f4b18c5899d37e7bb3ef9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for a symmetric perspective-view frustum with far plane at infinite for graphics hardware that doesn't support depth clamping.  <a href="a00157.html#gaaeacc04a2a6f4b18c5899d37e7bb3ef9">More...</a><br /></td></tr>
-<tr class="separator:gaaeacc04a2a6f4b18c5899d37e7bb3ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf5b3c85ff6737030a1d2214474ffa7a8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:gaf5b3c85ff6737030a1d2214474ffa7a8"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, defaultp &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gaf5b3c85ff6737030a1d2214474ffa7a8">tweakedInfinitePerspective</a> (T fovy, T aspect, T near, T ep)</td></tr>
-<tr class="memdesc:gaf5b3c85ff6737030a1d2214474ffa7a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a matrix for a symmetric perspective-view frustum with far plane at infinite for graphics hardware that doesn't support depth clamping.  <a href="a00157.html#gaf5b3c85ff6737030a1d2214474ffa7a8">More...</a><br /></td></tr>
-<tr class="separator:gaf5b3c85ff6737030a1d2214474ffa7a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga36641e5d60f994e01c3d8f56b10263d2"><td class="memTemplParams" colspan="2">template&lt;typename T , typename U , qualifier Q&gt; </td></tr>
-<tr class="memitem:ga36641e5d60f994e01c3d8f56b10263d2"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga36641e5d60f994e01c3d8f56b10263d2">unProject</a> (vec&lt; 3, T, Q &gt; const &amp;win, mat&lt; 4, 4, T, Q &gt; const &amp;model, mat&lt; 4, 4, T, Q &gt; const &amp;proj, vec&lt; 4, U, Q &gt; const &amp;viewport)</td></tr>
-<tr class="memdesc:ga36641e5d60f994e01c3d8f56b10263d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map the specified window coordinates (win.x, win.y, win.z) into object coordinates.  <a href="a00157.html#ga36641e5d60f994e01c3d8f56b10263d2">More...</a><br /></td></tr>
-<tr class="separator:ga36641e5d60f994e01c3d8f56b10263d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4b7956eb6e2fbedfc7cf2e46e85c5139"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga4b7956eb6e2fbedfc7cf2e46e85c5139"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga4b7956eb6e2fbedfc7cf2e46e85c5139">e</a> ()</td></tr>
+<tr class="memdesc:ga4b7956eb6e2fbedfc7cf2e46e85c5139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return e constant.  <a href="a00157.html#ga4b7956eb6e2fbedfc7cf2e46e85c5139">More...</a><br /></td></tr>
+<tr class="separator:ga4b7956eb6e2fbedfc7cf2e46e85c5139"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2a1e57fc5592b69cfae84174cbfc9429"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga2a1e57fc5592b69cfae84174cbfc9429"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga2a1e57fc5592b69cfae84174cbfc9429">epsilon</a> ()</td></tr>
+<tr class="memdesc:ga2a1e57fc5592b69cfae84174cbfc9429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the epsilon constant for floating point types.  <a href="a00157.html#ga2a1e57fc5592b69cfae84174cbfc9429">More...</a><br /></td></tr>
+<tr class="separator:ga2a1e57fc5592b69cfae84174cbfc9429"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad8fe2e6f90bce9d829e9723b649fbd42"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gad8fe2e6f90bce9d829e9723b649fbd42"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gad8fe2e6f90bce9d829e9723b649fbd42">euler</a> ()</td></tr>
+<tr class="memdesc:gad8fe2e6f90bce9d829e9723b649fbd42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return Euler's constant.  <a href="a00157.html#gad8fe2e6f90bce9d829e9723b649fbd42">More...</a><br /></td></tr>
+<tr class="separator:gad8fe2e6f90bce9d829e9723b649fbd42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga753950e5140e4ea6a88e4a18ba61dc09"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga753950e5140e4ea6a88e4a18ba61dc09"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga753950e5140e4ea6a88e4a18ba61dc09">four_over_pi</a> ()</td></tr>
+<tr class="memdesc:ga753950e5140e4ea6a88e4a18ba61dc09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 4 / pi.  <a href="a00157.html#ga753950e5140e4ea6a88e4a18ba61dc09">More...</a><br /></td></tr>
+<tr class="separator:ga753950e5140e4ea6a88e4a18ba61dc09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga748cf8642830657c5b7eae04d0a80899"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga748cf8642830657c5b7eae04d0a80899"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga748cf8642830657c5b7eae04d0a80899">golden_ratio</a> ()</td></tr>
+<tr class="memdesc:ga748cf8642830657c5b7eae04d0a80899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the golden ratio constant.  <a href="a00157.html#ga748cf8642830657c5b7eae04d0a80899">More...</a><br /></td></tr>
+<tr class="separator:ga748cf8642830657c5b7eae04d0a80899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c36b41d462e45641faf7d7938948bac"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga0c36b41d462e45641faf7d7938948bac"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga0c36b41d462e45641faf7d7938948bac">half_pi</a> ()</td></tr>
+<tr class="memdesc:ga0c36b41d462e45641faf7d7938948bac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return pi / 2.  <a href="a00157.html#ga0c36b41d462e45641faf7d7938948bac">More...</a><br /></td></tr>
+<tr class="separator:ga0c36b41d462e45641faf7d7938948bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaca94292c839ed31a405ab7a81ae7e850"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gaca94292c839ed31a405ab7a81ae7e850"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gaca94292c839ed31a405ab7a81ae7e850">ln_ln_two</a> ()</td></tr>
+<tr class="memdesc:gaca94292c839ed31a405ab7a81ae7e850"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return ln(ln(2)).  <a href="a00157.html#gaca94292c839ed31a405ab7a81ae7e850">More...</a><br /></td></tr>
+<tr class="separator:gaca94292c839ed31a405ab7a81ae7e850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf97ebc6c059ffd788e6c4946f71ef66c"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gaf97ebc6c059ffd788e6c4946f71ef66c"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gaf97ebc6c059ffd788e6c4946f71ef66c">ln_ten</a> ()</td></tr>
+<tr class="memdesc:gaf97ebc6c059ffd788e6c4946f71ef66c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return ln(10).  <a href="a00157.html#gaf97ebc6c059ffd788e6c4946f71ef66c">More...</a><br /></td></tr>
+<tr class="separator:gaf97ebc6c059ffd788e6c4946f71ef66c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga24f4d27765678116f41a2f336ab7975c"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga24f4d27765678116f41a2f336ab7975c"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga24f4d27765678116f41a2f336ab7975c">ln_two</a> ()</td></tr>
+<tr class="memdesc:ga24f4d27765678116f41a2f336ab7975c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return ln(2).  <a href="a00157.html#ga24f4d27765678116f41a2f336ab7975c">More...</a><br /></td></tr>
+<tr class="separator:ga24f4d27765678116f41a2f336ab7975c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga39c2fb227631ca25894326529bdd1ee5"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga39c2fb227631ca25894326529bdd1ee5"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga39c2fb227631ca25894326529bdd1ee5">one</a> ()</td></tr>
+<tr class="memdesc:ga39c2fb227631ca25894326529bdd1ee5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 1.  <a href="a00157.html#ga39c2fb227631ca25894326529bdd1ee5">More...</a><br /></td></tr>
+<tr class="separator:ga39c2fb227631ca25894326529bdd1ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga555150da2b06d23c8738981d5013e0eb"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga555150da2b06d23c8738981d5013e0eb"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga555150da2b06d23c8738981d5013e0eb">one_over_pi</a> ()</td></tr>
+<tr class="memdesc:ga555150da2b06d23c8738981d5013e0eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 1 / pi.  <a href="a00157.html#ga555150da2b06d23c8738981d5013e0eb">More...</a><br /></td></tr>
+<tr class="separator:ga555150da2b06d23c8738981d5013e0eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga788fa23a0939bac4d1d0205fb4f35818"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga788fa23a0939bac4d1d0205fb4f35818"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga788fa23a0939bac4d1d0205fb4f35818">one_over_root_two</a> ()</td></tr>
+<tr class="memdesc:ga788fa23a0939bac4d1d0205fb4f35818"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 1 / sqrt(2).  <a href="a00157.html#ga788fa23a0939bac4d1d0205fb4f35818">More...</a><br /></td></tr>
+<tr class="separator:ga788fa23a0939bac4d1d0205fb4f35818"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c922b427986cbb2e4c6ac69874eefbc"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga7c922b427986cbb2e4c6ac69874eefbc"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga7c922b427986cbb2e4c6ac69874eefbc">one_over_two_pi</a> ()</td></tr>
+<tr class="memdesc:ga7c922b427986cbb2e4c6ac69874eefbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 1 / (pi * 2).  <a href="a00157.html#ga7c922b427986cbb2e4c6ac69874eefbc">More...</a><br /></td></tr>
+<tr class="separator:ga7c922b427986cbb2e4c6ac69874eefbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga94bafeb2a0f23ab6450fed1f98ee4e45"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga94bafeb2a0f23ab6450fed1f98ee4e45"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga94bafeb2a0f23ab6450fed1f98ee4e45">pi</a> ()</td></tr>
+<tr class="memdesc:ga94bafeb2a0f23ab6450fed1f98ee4e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the pi constant.  <a href="a00157.html#ga94bafeb2a0f23ab6450fed1f98ee4e45">More...</a><br /></td></tr>
+<tr class="separator:ga94bafeb2a0f23ab6450fed1f98ee4e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3c9df42bd73c519a995c43f0f99e77e0"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga3c9df42bd73c519a995c43f0f99e77e0"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga3c9df42bd73c519a995c43f0f99e77e0">quarter_pi</a> ()</td></tr>
+<tr class="memdesc:ga3c9df42bd73c519a995c43f0f99e77e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return pi / 4.  <a href="a00157.html#ga3c9df42bd73c519a995c43f0f99e77e0">More...</a><br /></td></tr>
+<tr class="separator:ga3c9df42bd73c519a995c43f0f99e77e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae9ebbded75b53d4faeb1e4ef8b3347a2"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gae9ebbded75b53d4faeb1e4ef8b3347a2"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gae9ebbded75b53d4faeb1e4ef8b3347a2">root_five</a> ()</td></tr>
+<tr class="memdesc:gae9ebbded75b53d4faeb1e4ef8b3347a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return sqrt(5).  <a href="a00157.html#gae9ebbded75b53d4faeb1e4ef8b3347a2">More...</a><br /></td></tr>
+<tr class="separator:gae9ebbded75b53d4faeb1e4ef8b3347a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4e276cb823cc5e612d4f89ed99c75039"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga4e276cb823cc5e612d4f89ed99c75039"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga4e276cb823cc5e612d4f89ed99c75039">root_half_pi</a> ()</td></tr>
+<tr class="memdesc:ga4e276cb823cc5e612d4f89ed99c75039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return sqrt(pi / 2).  <a href="a00157.html#ga4e276cb823cc5e612d4f89ed99c75039">More...</a><br /></td></tr>
+<tr class="separator:ga4e276cb823cc5e612d4f89ed99c75039"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4129412e96b33707a77c1a07652e23e2"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga4129412e96b33707a77c1a07652e23e2"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga4129412e96b33707a77c1a07652e23e2">root_ln_four</a> ()</td></tr>
+<tr class="memdesc:ga4129412e96b33707a77c1a07652e23e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return sqrt(ln(4)).  <a href="a00157.html#ga4129412e96b33707a77c1a07652e23e2">More...</a><br /></td></tr>
+<tr class="separator:ga4129412e96b33707a77c1a07652e23e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga261380796b2cd496f68d2cf1d08b8eb9"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga261380796b2cd496f68d2cf1d08b8eb9"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga261380796b2cd496f68d2cf1d08b8eb9">root_pi</a> ()</td></tr>
+<tr class="memdesc:ga261380796b2cd496f68d2cf1d08b8eb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return square root of pi.  <a href="a00157.html#ga261380796b2cd496f68d2cf1d08b8eb9">More...</a><br /></td></tr>
+<tr class="separator:ga261380796b2cd496f68d2cf1d08b8eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4f286be4abe88be1eed7d2a9f6cb193e"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga4f286be4abe88be1eed7d2a9f6cb193e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga4f286be4abe88be1eed7d2a9f6cb193e">root_three</a> ()</td></tr>
+<tr class="memdesc:ga4f286be4abe88be1eed7d2a9f6cb193e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return sqrt(3).  <a href="a00157.html#ga4f286be4abe88be1eed7d2a9f6cb193e">More...</a><br /></td></tr>
+<tr class="separator:ga4f286be4abe88be1eed7d2a9f6cb193e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga74e607d29020f100c0d0dc46ce2ca950"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga74e607d29020f100c0d0dc46ce2ca950"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga74e607d29020f100c0d0dc46ce2ca950">root_two</a> ()</td></tr>
+<tr class="memdesc:ga74e607d29020f100c0d0dc46ce2ca950"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return sqrt(2).  <a href="a00157.html#ga74e607d29020f100c0d0dc46ce2ca950">More...</a><br /></td></tr>
+<tr class="separator:ga74e607d29020f100c0d0dc46ce2ca950"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2bcedc575039fe0cd765742f8bbb0bd3"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga2bcedc575039fe0cd765742f8bbb0bd3"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga2bcedc575039fe0cd765742f8bbb0bd3">root_two_pi</a> ()</td></tr>
+<tr class="memdesc:ga2bcedc575039fe0cd765742f8bbb0bd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return sqrt(2 * pi).  <a href="a00157.html#ga2bcedc575039fe0cd765742f8bbb0bd3">More...</a><br /></td></tr>
+<tr class="separator:ga2bcedc575039fe0cd765742f8bbb0bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3077c6311010a214b69ddc8214ec13b5"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga3077c6311010a214b69ddc8214ec13b5"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga3077c6311010a214b69ddc8214ec13b5">third</a> ()</td></tr>
+<tr class="memdesc:ga3077c6311010a214b69ddc8214ec13b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 1 / 3.  <a href="a00157.html#ga3077c6311010a214b69ddc8214ec13b5">More...</a><br /></td></tr>
+<tr class="separator:ga3077c6311010a214b69ddc8214ec13b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae94950df74b0ce382b1fc1d978ef7394"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gae94950df74b0ce382b1fc1d978ef7394"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gae94950df74b0ce382b1fc1d978ef7394">three_over_two_pi</a> ()</td></tr>
+<tr class="memdesc:gae94950df74b0ce382b1fc1d978ef7394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return pi / 2 * 3.  <a href="a00157.html#gae94950df74b0ce382b1fc1d978ef7394">More...</a><br /></td></tr>
+<tr class="separator:gae94950df74b0ce382b1fc1d978ef7394"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga74eadc8a211253079683219a3ea0462a"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga74eadc8a211253079683219a3ea0462a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga74eadc8a211253079683219a3ea0462a">two_over_pi</a> ()</td></tr>
+<tr class="memdesc:ga74eadc8a211253079683219a3ea0462a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 2 / pi.  <a href="a00157.html#ga74eadc8a211253079683219a3ea0462a">More...</a><br /></td></tr>
+<tr class="separator:ga74eadc8a211253079683219a3ea0462a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5827301817640843cf02026a8d493894"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga5827301817640843cf02026a8d493894"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga5827301817640843cf02026a8d493894">two_over_root_pi</a> ()</td></tr>
+<tr class="memdesc:ga5827301817640843cf02026a8d493894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 2 / sqrt(pi).  <a href="a00157.html#ga5827301817640843cf02026a8d493894">More...</a><br /></td></tr>
+<tr class="separator:ga5827301817640843cf02026a8d493894"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa5276a4617566abcfe49286f40e3a256"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gaa5276a4617566abcfe49286f40e3a256"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#gaa5276a4617566abcfe49286f40e3a256">two_pi</a> ()</td></tr>
+<tr class="memdesc:gaa5276a4617566abcfe49286f40e3a256"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return pi * 2.  <a href="a00157.html#gaa5276a4617566abcfe49286f40e3a256">More...</a><br /></td></tr>
+<tr class="separator:gaa5276a4617566abcfe49286f40e3a256"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b4d2f4322edcf63a6737b92a29dd1f5"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga9b4d2f4322edcf63a6737b92a29dd1f5"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga9b4d2f4322edcf63a6737b92a29dd1f5">two_thirds</a> ()</td></tr>
+<tr class="memdesc:ga9b4d2f4322edcf63a6737b92a29dd1f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 2 / 3.  <a href="a00157.html#ga9b4d2f4322edcf63a6737b92a29dd1f5">More...</a><br /></td></tr>
+<tr class="separator:ga9b4d2f4322edcf63a6737b92a29dd1f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga788f5a421fc0f40a1296ebc094cbaa8a"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga788f5a421fc0f40a1296ebc094cbaa8a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL GLM_CONSTEXPR genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00157.html#ga788f5a421fc0f40a1296ebc094cbaa8a">zero</a> ()</td></tr>
+<tr class="memdesc:ga788f5a421fc0f40a1296ebc094cbaa8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return 0.  <a href="a00157.html#ga788f5a421fc0f40a1296ebc094cbaa8a">More...</a><br /></td></tr>
+<tr class="separator:ga788f5a421fc0f40a1296ebc094cbaa8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Include &lt;<a class="el" href="a00066.html" title="GLM_GTC_matrix_transform ">glm/gtc/matrix_transform.hpp</a>&gt; to use the features of this extension. </p>
-<p>Defines functions that generate common transformation matrices.</p>
-<p>The matrices generated by this extension use standard OpenGL fixed-function conventions. For example, the lookAt function generates a transform from world space into the specific eye space that the projective matrix functions (perspective, ortho, etc) are designed to expect. The OpenGL compatibility specifications defines the particular layout of this eye space. </p>
+<p>Include &lt;<a class="el" href="a00020.html" title="GLM_GTC_constants ">glm/gtc/constants.hpp</a>&gt; to use the features of this extension. </p>
+<p>Provide a list of constants and precomputed useful values. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga0bcd4542e0affc63a0b8c08fcb839ea9"></a>
+<a class="anchor" id="ga4b7956eb6e2fbedfc7cf2e46e85c5139"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::frustum </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::e </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>left</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>right</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>bottom</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>top</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>near</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>far</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a frustum matrix with default handedness. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
-<dd>
-<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glFrustum.xml">glFrustum man page</a> </dd></dl>
+<p>Return e constant. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gae4277c37f61d81da01bc9db14ea90296"></a>
+<a class="anchor" id="ga2a1e57fc5592b69cfae84174cbfc9429"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::frustumLH </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::epsilon </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>left</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>right</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>bottom</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>top</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>near</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>far</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a left handed frustum matrix. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+<p>Return the epsilon constant for floating point types. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga4366ab45880c6c5f8b3e8c371ca4b136"></a>
+<a class="anchor" id="gad8fe2e6f90bce9d829e9723b649fbd42"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::frustumRH </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::euler </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>left</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>right</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>bottom</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>top</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>near</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>far</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a right handed frustum matrix. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+<p>Return Euler's constant. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga44fa38a18349450325cae2661bb115ca"></a>
+<a class="anchor" id="ga753950e5140e4ea6a88e4a18ba61dc09"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::infinitePerspective </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::four_over_pi </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>fovy</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>aspect</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>near</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a matrix for a symmetric perspective-view frustum with far plane at infinite with default handedness. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fovy</td><td>Specifies the field of view angle, in degrees, in the y direction. Expressed in radians. </td></tr>
-    <tr><td class="paramname">aspect</td><td>Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height). </td></tr>
-    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+<p>Return 4 / pi. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga3201b30f5b3ea0f933246d87bfb992a9"></a>
+<a class="anchor" id="ga748cf8642830657c5b7eae04d0a80899"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::infinitePerspectiveLH </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::golden_ratio </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>fovy</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>aspect</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>near</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a matrix for a left handed, symmetric perspective-view frustum with far plane at infinite. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fovy</td><td>Specifies the field of view angle, in degrees, in the y direction. Expressed in radians. </td></tr>
-    <tr><td class="paramname">aspect</td><td>Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height). </td></tr>
-    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+<p>Return the golden ratio constant. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga99672ffe5714ef478dab2437255fe7e1"></a>
+<a class="anchor" id="ga0c36b41d462e45641faf7d7938948bac"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::infinitePerspectiveRH </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::half_pi </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>fovy</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>aspect</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>near</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a matrix for a right handed, symmetric perspective-view frustum with far plane at infinite. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fovy</td><td>Specifies the field of view angle, in degrees, in the y direction. Expressed in radians. </td></tr>
-    <tr><td class="paramname">aspect</td><td>Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height). </td></tr>
-    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+<p>Return pi / 2. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gaa64aa951a0e99136bba9008d2b59c78e"></a>
+<a class="anchor" id="gaca94292c839ed31a405ab7a81ae7e850"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::lookAt </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::ln_ln_two </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>eye</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>center</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>up</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Build a look at view matrix based on the default handedness. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">eye</td><td>Position of the camera </td></tr>
-    <tr><td class="paramname">center</td><td>Position where the camera is looking at </td></tr>
-    <tr><td class="paramname">up</td><td>Normalized up vector, how the camera is oriented. Typically (0, 0, 1) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
-<dd>
-- frustum(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top, T const&amp; nearVal, T const&amp; farVal) frustum(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top, T const&amp; nearVal, T const&amp; farVal) </dd>
-<dd>
-<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluLookAt.xml">gluLookAt man page</a> </dd></dl>
+<p>Return ln(ln(2)). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gab2c09e25b0a16d3a9d89cc85bbae41b0"></a>
+<a class="anchor" id="gaf97ebc6c059ffd788e6c4946f71ef66c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::lookAtLH </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::ln_ten </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>eye</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>center</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>up</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Build a left handed look at view matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">eye</td><td>Position of the camera </td></tr>
-    <tr><td class="paramname">center</td><td>Position where the camera is looking at </td></tr>
-    <tr><td class="paramname">up</td><td>Normalized up vector, how the camera is oriented. Typically (0, 0, 1) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
-<dd>
-- frustum(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top, T const&amp; nearVal, T const&amp; farVal) frustum(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top, T const&amp; nearVal, T const&amp; farVal) </dd></dl>
+<p>Return ln(10). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gacfa12c8889c754846bc20c65d9b5c701"></a>
+<a class="anchor" id="ga24f4d27765678116f41a2f336ab7975c"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::lookAtRH </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::ln_two </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>eye</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>center</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>up</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Build a right handed look at view matrix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">eye</td><td>Position of the camera </td></tr>
-    <tr><td class="paramname">center</td><td>Position where the camera is looking at </td></tr>
-    <tr><td class="paramname">up</td><td>Normalized up vector, how the camera is oriented. Typically (0, 0, 1) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
-<dd>
-- frustum(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top, T const&amp; nearVal, T const&amp; farVal) frustum(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top, T const&amp; nearVal, T const&amp; farVal) </dd></dl>
+<p>Return ln(2). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga6615d8a9d39432e279c4575313ecb456"></a>
+<a class="anchor" id="ga39c2fb227631ca25894326529bdd1ee5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::ortho </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::one </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>left</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>right</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>bottom</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>top</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>zNear</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>zFar</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a matrix for an orthographic parallel viewing volume, using the default handedness. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
-<dd>
-- glm::ortho(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top) </dd>
-<dd>
-<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glOrtho.xml">glOrtho man page</a> </dd></dl>
+<p>Return 1. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gae5b6b40ed882cd56cd7cb97701909c06"></a>
+<a class="anchor" id="ga555150da2b06d23c8738981d5013e0eb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::ortho </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::one_over_pi </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>left</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>right</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>bottom</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>top</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a matrix for projecting two-dimensional coordinates onto the screen. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
-<dd>
-- glm::ortho(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top, T const&amp; zNear, T const&amp; zFar) </dd>
-<dd>
-<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluOrtho2D.xml">gluOrtho2D man page</a> </dd></dl>
+<p>Return 1 / pi. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gad122a79aadaa5529cec4ac197203db7f"></a>
+<a class="anchor" id="ga788fa23a0939bac4d1d0205fb4f35818"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::orthoLH </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::one_over_root_two </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>left</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>right</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>bottom</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>top</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>zNear</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>zFar</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a matrix for an orthographic parallel viewing volume, using left-handedness. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
-<dd>
-- glm::ortho(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top) </dd></dl>
+<p>Return 1 / sqrt(2). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga16264c9b838edeb9dd1de7a1010a13a4"></a>
+<a class="anchor" id="ga7c922b427986cbb2e4c6ac69874eefbc"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::orthoRH </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::one_over_two_pi </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>left</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>right</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>bottom</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>top</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>zNear</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>zFar</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a matrix for an orthographic parallel viewing volume, using right-handedness. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
-<dd>
-- glm::ortho(T const&amp; left, T const&amp; right, T const&amp; bottom, T const&amp; top) </dd></dl>
+<p>Return 1 / (pi * 2). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga747c8cf99458663dd7ad1bb3a2f07787"></a>
+<a class="anchor" id="ga94bafeb2a0f23ab6450fed1f98ee4e45"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::perspective </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::pi </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>fovy</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>aspect</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>near</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>far</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a matrix for a symetric perspective-view frustum based on the default handedness. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fovy</td><td>Specifies the field of view angle in the y direction. Expressed in radians. </td></tr>
-    <tr><td class="paramname">aspect</td><td>Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height). </td></tr>
-    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
-    <tr><td class="paramname">far</td><td>Specifies the distance from the viewer to the far clipping plane (always positive). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
-<dd>
-<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluPerspective.xml">gluPerspective man page</a> </dd></dl>
+<p>Return the pi constant. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gaebd02240fd36e85ad754f02ddd9a560d"></a>
+<a class="anchor" id="ga3c9df42bd73c519a995c43f0f99e77e0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::perspectiveFov </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::quarter_pi </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>fov</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>height</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>near</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>far</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Builds a perspective projection matrix based on a field of view and the default handedness. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fov</td><td>Expressed in radians. </td></tr>
-    <tr><td class="paramname">width</td><td>Width of the viewport </td></tr>
-    <tr><td class="paramname">height</td><td>Height of the viewport </td></tr>
-    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
-    <tr><td class="paramname">far</td><td>Specifies the distance from the viewer to the far clipping plane (always positive). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+<p>Return pi / 4. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga6aebe16c164bd8e52554cbe0304ef4aa"></a>
+<a class="anchor" id="gae9ebbded75b53d4faeb1e4ef8b3347a2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::perspectiveFovLH </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::root_five </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>fov</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>height</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>near</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>far</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Builds a left handed perspective projection matrix based on a field of view. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fov</td><td>Expressed in radians. </td></tr>
-    <tr><td class="paramname">width</td><td>Width of the viewport </td></tr>
-    <tr><td class="paramname">height</td><td>Height of the viewport </td></tr>
-    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
-    <tr><td class="paramname">far</td><td>Specifies the distance from the viewer to the far clipping plane (always positive). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+<p>Return sqrt(5). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gaf32bf563f28379c68554a44ee60c6a85"></a>
+<a class="anchor" id="ga4e276cb823cc5e612d4f89ed99c75039"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::perspectiveFovRH </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::root_half_pi </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>fov</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>height</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>near</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>far</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Builds a right handed perspective projection matrix based on a field of view. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fov</td><td>Expressed in radians. </td></tr>
-    <tr><td class="paramname">width</td><td>Width of the viewport </td></tr>
-    <tr><td class="paramname">height</td><td>Height of the viewport </td></tr>
-    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
-    <tr><td class="paramname">far</td><td>Specifies the distance from the viewer to the far clipping plane (always positive). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+<p>Return sqrt(pi / 2). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga9bd34951dc7022ac256fcb51d7f6fc2f"></a>
+<a class="anchor" id="ga4129412e96b33707a77c1a07652e23e2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::perspectiveLH </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::root_ln_four </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>fovy</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>aspect</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>near</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>far</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a matrix for a left handed, symetric perspective-view frustum. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fovy</td><td>Specifies the field of view angle, in degrees, in the y direction. Expressed in radians. </td></tr>
-    <tr><td class="paramname">aspect</td><td>Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height). </td></tr>
-    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
-    <tr><td class="paramname">far</td><td>Specifies the distance from the viewer to the far clipping plane (always positive). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+<p>Return sqrt(ln(4)). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga26b88757fbd90601b80768a7e1ad3aa1"></a>
+<a class="anchor" id="ga261380796b2cd496f68d2cf1d08b8eb9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::perspectiveRH </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::root_pi </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>fovy</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>aspect</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>near</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>far</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a matrix for a right handed, symetric perspective-view frustum. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fovy</td><td>Specifies the field of view angle, in degrees, in the y direction. Expressed in radians. </td></tr>
-    <tr><td class="paramname">aspect</td><td>Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height). </td></tr>
-    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
-    <tr><td class="paramname">far</td><td>Specifies the distance from the viewer to the far clipping plane (always positive). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+<p>Return square root of pi. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gaf6b21eadb7ac2ecbbe258a9a233b4c82"></a>
+<a class="anchor" id="ga4f286be4abe88be1eed7d2a9f6cb193e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::pickMatrix </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::root_three </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>center</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>delta</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 4, U, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>viewport</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Define a picking region. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">center</td><td>Specify the center of a picking region in window coordinates. </td></tr>
-    <tr><td class="paramname">delta</td><td>Specify the width and height, respectively, of the picking region in window coordinates. </td></tr>
-    <tr><td class="paramname">viewport</td><td>Rendering viewport </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Native type used for the computation. Currently supported: half (not recommanded), float or double. </td></tr>
-    <tr><td class="paramname">U</td><td>Currently supported: Floating-point types and integer types. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
-<dd>
-<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluPickMatrix.xml">gluPickMatrix man page</a> </dd></dl>
+<p>Return sqrt(3). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gaf36e96033f456659e6705472a06b6e11"></a>
+<a class="anchor" id="ga74e607d29020f100c0d0dc46ce2ca950"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, Q&gt; glm::project </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::root_two </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>obj</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">mat&lt; 4, 4, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>model</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">mat&lt; 4, 4, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>proj</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 4, U, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>viewport</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Map the specified object coordinates (obj.x, obj.y, obj.z) into window coordinates. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">obj</td><td>Specify the object coordinates. </td></tr>
-    <tr><td class="paramname">model</td><td>Specifies the current modelview matrix </td></tr>
-    <tr><td class="paramname">proj</td><td>Specifies the current projection matrix </td></tr>
-    <tr><td class="paramname">viewport</td><td>Specifies the current viewport </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Return the computed window coordinates. </dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Native type used for the computation. Currently supported: half (not recommanded), float or double. </td></tr>
-    <tr><td class="paramname">U</td><td>Currently supported: Floating-point types and integer types. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
-<dd>
-<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluProject.xml">gluProject man page</a> </dd></dl>
+<p>Return sqrt(2). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gaee9e865eaa9776370996da2940873fd4"></a>
+<a class="anchor" id="ga2bcedc575039fe0cd765742f8bbb0bd3"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::rotate </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::root_two_pi </td>
           <td>(</td>
-          <td class="paramtype">mat&lt; 4, 4, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>m</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>angle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>axis</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Builds a rotation 4 * 4 matrix created from an axis vector and an angle. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">m</td><td>Input matrix multiplied by this rotation matrix. </td></tr>
-    <tr><td class="paramname">angle</td><td>Rotation angle expressed in radians. </td></tr>
-    <tr><td class="paramname">axis</td><td>Rotation axis, recommended to be normalized. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Supported: half, float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
-<dd>
-- rotate(mat&lt;4, 4, T, Q&gt; const&amp; m, T angle, T x, T y, T z) </dd>
-<dd>
-- rotate(T angle, vec&lt;3, T, Q&gt; const&amp; v) </dd>
-<dd>
-<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glRotate.xml">glRotate man page</a> </dd></dl>
+<p>Return sqrt(2 * pi). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga05051adbee603fb3c5095d8cf5cc229b"></a>
+<a class="anchor" id="ga3077c6311010a214b69ddc8214ec13b5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::scale </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::third </td>
           <td>(</td>
-          <td class="paramtype">mat&lt; 4, 4, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>m</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Builds a scale 4 * 4 matrix created from 3 scalars. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">m</td><td>Input matrix multiplied by this scale matrix. </td></tr>
-    <tr><td class="paramname">v</td><td>Ratio of scaling for each axis. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommended), float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
-<dd>
-- scale(mat&lt;4, 4, T, Q&gt; const&amp; m, T x, T y, T z) </dd>
-<dd>
-- scale(vec&lt;3, T, Q&gt; const&amp; v) </dd>
-<dd>
-<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glScale.xml">glScale man page</a> </dd></dl>
+<p>Return 1 / 3. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga1a4ecc4ad82652b8fb14dcb087879284"></a>
+<a class="anchor" id="gae94950df74b0ce382b1fc1d978ef7394"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, Q&gt; glm::translate </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::three_over_two_pi </td>
           <td>(</td>
-          <td class="paramtype">mat&lt; 4, 4, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>m</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>v</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Builds a translation 4 * 4 matrix created from a vector of 3 components. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">m</td><td>Input matrix multiplied by this translation matrix. </td></tr>
-    <tr><td class="paramname">v</td><td>Coordinates of a translation vector. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="a00035.html">glm/glm.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="a00066.html">glm/gtc/matrix_transform.hpp</a>&gt;</span></div>
-<div class="line">...</div>
-<div class="line">glm::mat4 m = <a class="code" href="a00157.html#ga1a4ecc4ad82652b8fb14dcb087879284">glm::translate</a>(<a class="code" href="a00144.html#gade0eb47c01f79384a6f38017ede17446">glm::mat4</a>(1.0f), <a class="code" href="a00144.html#gaa8ea2429bb3cb41a715258a447f39897">glm::vec3</a>(1.0f));</div>
-<div class="line"><span class="comment">// m[0][0] == 1.0f, m[0][1] == 0.0f, m[0][2] == 0.0f, m[0][3] == 0.0f</span></div>
-<div class="line"><span class="comment">// m[1][0] == 0.0f, m[1][1] == 1.0f, m[1][2] == 0.0f, m[1][3] == 0.0f</span></div>
-<div class="line"><span class="comment">// m[2][0] == 0.0f, m[2][1] == 0.0f, m[2][2] == 1.0f, m[2][3] == 0.0f</span></div>
-<div class="line"><span class="comment">// m[3][0] == 1.0f, m[3][1] == 1.0f, m[3][2] == 1.0f, m[3][3] == 1.0f</span></div>
-</div><!-- fragment --> </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
-<dd>
-- translate(mat&lt;4, 4, T, Q&gt; const&amp; m, T x, T y, T z) </dd>
-<dd>
-- translate(vec&lt;3, T, Q&gt; const&amp; v) </dd>
-<dd>
-<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/glTranslate.xml">glTranslate man page</a> </dd></dl>
+<p>Return pi / 2 * 3. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gaaeacc04a2a6f4b18c5899d37e7bb3ef9"></a>
+<a class="anchor" id="ga74eadc8a211253079683219a3ea0462a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::tweakedInfinitePerspective </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::two_over_pi </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>fovy</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>aspect</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>near</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a matrix for a symmetric perspective-view frustum with far plane at infinite for graphics hardware that doesn't support depth clamping. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fovy</td><td>Specifies the field of view angle, in degrees, in the y direction. Expressed in radians. </td></tr>
-    <tr><td class="paramname">aspect</td><td>Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height). </td></tr>
-    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+<p>Return 2 / pi. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="gaf5b3c85ff6737030a1d2214474ffa7a8"></a>
+<a class="anchor" id="ga5827301817640843cf02026a8d493894"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;4, 4, T, defaultp&gt; glm::tweakedInfinitePerspective </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::two_over_root_pi </td>
           <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>fovy</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>aspect</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>near</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>ep</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a matrix for a symmetric perspective-view frustum with far plane at infinite for graphics hardware that doesn't support depth clamping. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fovy</td><td>Specifies the field of view angle, in degrees, in the y direction. Expressed in radians. </td></tr>
-    <tr><td class="paramname">aspect</td><td>Specifies the aspect ratio that determines the field of view in the x direction. The aspect ratio is the ratio of x (width) to y (height). </td></tr>
-    <tr><td class="paramname">near</td><td>Specifies the distance from the viewer to the near clipping plane (always positive). </td></tr>
-    <tr><td class="paramname">ep</td><td>Epsilon </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Value type used to build the matrix. Currently supported: half (not recommanded), float or double. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd></dl>
+<p>Return 2 / sqrt(pi). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga36641e5d60f994e01c3d8f56b10263d2"></a>
+<a class="anchor" id="gaa5276a4617566abcfe49286f40e3a256"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, Q&gt; glm::unProject </td>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::two_pi </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>win</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">mat&lt; 4, 4, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>model</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">mat&lt; 4, 4, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>proj</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 4, U, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>viewport</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Map the specified window coordinates (win.x, win.y, win.z) into object coordinates. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">win</td><td>Specify the window coordinates to be mapped. </td></tr>
-    <tr><td class="paramname">model</td><td>Specifies the modelview matrix </td></tr>
-    <tr><td class="paramname">proj</td><td>Specifies the projection matrix </td></tr>
-    <tr><td class="paramname">viewport</td><td>Specifies the viewport </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns the computed object coordinates. </dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Native type used for the computation. Currently supported: half (not recommanded), float or double. </td></tr>
-    <tr><td class="paramname">U</td><td>Currently supported: Floating-point types and integer types. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/matrix_transform.hpp> to use the features of this extension. ">GLM_GTC_matrix_transform</a> </dd>
-<dd>
-<a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluUnProject.xml">gluUnProject man page</a> </dd></dl>
+<p>Return pi * 2. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga9b4d2f4322edcf63a6737b92a29dd1f5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::two_thirds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return 2 / 3. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga788f5a421fc0f40a1296ebc094cbaa8a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL GLM_CONSTEXPR genType glm::zero </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return 0. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00157.html" title="Include <glm/gtc/constants.hpp> to use the features of this extension. ">GLM_GTC_constants</a> </dd></dl>
 
 </div>
 </div>

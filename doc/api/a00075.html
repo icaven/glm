@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: orthonormalize.hpp File Reference</title>
+<title>0.9.9 API documenation: optimum_pow.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -87,33 +87,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">orthonormalize.hpp File Reference</div>  </div>
+<div class="title">optimum_pow.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="a00208.html">GLM_GTX_orthonormalize</a>  
+<p><a class="el" href="a00214.html">GLM_GTX_optimum_pow</a>  
 <a href="#details">More...</a></p>
 
 <p><a href="a00075_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga4cab5d698e6e2eccea30c8e81c74371f"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
-<tr class="memitem:ga4cab5d698e6e2eccea30c8e81c74371f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00208.html#ga4cab5d698e6e2eccea30c8e81c74371f">orthonormalize</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m)</td></tr>
-<tr class="memdesc:ga4cab5d698e6e2eccea30c8e81c74371f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the orthonormalized matrix of m.  <a href="a00208.html#ga4cab5d698e6e2eccea30c8e81c74371f">More...</a><br /></td></tr>
-<tr class="separator:ga4cab5d698e6e2eccea30c8e81c74371f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac3bc7ef498815026bc3d361ae0b7138e"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
-<tr class="memitem:gac3bc7ef498815026bc3d361ae0b7138e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00208.html#gac3bc7ef498815026bc3d361ae0b7138e">orthonormalize</a> (vec&lt; 3, T, Q &gt; const &amp;x, vec&lt; 3, T, Q &gt; const &amp;y)</td></tr>
-<tr class="memdesc:gac3bc7ef498815026bc3d361ae0b7138e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orthonormalizes x according y.  <a href="a00208.html#gac3bc7ef498815026bc3d361ae0b7138e">More...</a><br /></td></tr>
-<tr class="separator:gac3bc7ef498815026bc3d361ae0b7138e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga19aaff3213bf23bdec3ef124ace237e9"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga19aaff3213bf23bdec3ef124ace237e9"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00214.html#ga19aaff3213bf23bdec3ef124ace237e9">pow2</a> (genType const &amp;x)</td></tr>
+<tr class="memdesc:ga19aaff3213bf23bdec3ef124ace237e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns x raised to the power of 2.  <a href="a00214.html#ga19aaff3213bf23bdec3ef124ace237e9">More...</a><br /></td></tr>
+<tr class="separator:ga19aaff3213bf23bdec3ef124ace237e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga35689d03cd434d6ea819f1942d3bf82e"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga35689d03cd434d6ea819f1942d3bf82e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00214.html#ga35689d03cd434d6ea819f1942d3bf82e">pow3</a> (genType const &amp;x)</td></tr>
+<tr class="memdesc:ga35689d03cd434d6ea819f1942d3bf82e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns x raised to the power of 3.  <a href="a00214.html#ga35689d03cd434d6ea819f1942d3bf82e">More...</a><br /></td></tr>
+<tr class="separator:ga35689d03cd434d6ea819f1942d3bf82e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacef0968763026e180e53e735007dbf5a"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gacef0968763026e180e53e735007dbf5a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00214.html#gacef0968763026e180e53e735007dbf5a">pow4</a> (genType const &amp;x)</td></tr>
+<tr class="memdesc:gacef0968763026e180e53e735007dbf5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns x raised to the power of 4.  <a href="a00214.html#gacef0968763026e180e53e735007dbf5a">More...</a><br /></td></tr>
+<tr class="separator:gacef0968763026e180e53e735007dbf5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="a00208.html">GLM_GTX_orthonormalize</a> </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00143.html" title="Features that implement in C++ the GLSL specification as closely as possible. ">Core features</a> (dependence) </dd>
-<dd>
-gtx_extented_min_max (dependence) </dd></dl>
+<div class="textblock"><p><a class="el" href="a00214.html">GLM_GTX_optimum_pow</a> </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00148.html" title="Features that implement in C++ the GLSL specification as closely as possible. ">Core features</a> (dependence) </dd></dl>
 
-<p>Definition in file <a class="el" href="a00075_source.html">orthonormalize.hpp</a>.</p>
+<p>Definition in file <a class="el" href="a00075_source.html">optimum_pow.hpp</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

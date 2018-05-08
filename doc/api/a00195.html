@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTX_matrix_decompose</title>
+<title>0.9.9 API documenation: GLM_GTX_handed_coordinate_space</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -78,63 +78,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_matrix_decompose<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
+<div class="title">GLM_GTX_handed_coordinate_space<div class="ingroups"><a class="el" href="a00154.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Include &lt;<a class="el" href="a00058.html" title="GLM_GTX_matrix_decompose ">glm/gtx/matrix_decompose.hpp</a>&gt; to use the features of this extension.  
+<p>Include &lt;glm/gtx/handed_coordinate_system.hpp&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga91185463739c855d602596907a9994bc"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
-<tr class="memitem:ga91185463739c855d602596907a9994bc"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00195.html#ga91185463739c855d602596907a9994bc">decompose</a> (mat&lt; 4, 4, T, Q &gt; const &amp;modelMatrix, vec&lt; 3, T, Q &gt; &amp;scale, tquat&lt; T, Q &gt; &amp;orientation, vec&lt; 3, T, Q &gt; &amp;translation, vec&lt; 3, T, Q &gt; &amp;skew, vec&lt; 4, T, Q &gt; &amp;perspective)</td></tr>
-<tr class="memdesc:ga91185463739c855d602596907a9994bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decomposes a model matrix to translations, rotation and scale components.  <a href="a00195.html#ga91185463739c855d602596907a9994bc">More...</a><br /></td></tr>
-<tr class="separator:ga91185463739c855d602596907a9994bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6f1bad193b9a3b048543d1935cf04dd3"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga6f1bad193b9a3b048543d1935cf04dd3"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00195.html#ga6f1bad193b9a3b048543d1935cf04dd3">leftHanded</a> (vec&lt; 3, T, Q &gt; const &amp;tangent, vec&lt; 3, T, Q &gt; const &amp;binormal, vec&lt; 3, T, Q &gt; const &amp;normal)</td></tr>
+<tr class="memdesc:ga6f1bad193b9a3b048543d1935cf04dd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return if a trihedron left handed or not.  <a href="a00195.html#ga6f1bad193b9a3b048543d1935cf04dd3">More...</a><br /></td></tr>
+<tr class="separator:ga6f1bad193b9a3b048543d1935cf04dd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga99386a5ab5491871b947076e21699cc8"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga99386a5ab5491871b947076e21699cc8"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00195.html#ga99386a5ab5491871b947076e21699cc8">rightHanded</a> (vec&lt; 3, T, Q &gt; const &amp;tangent, vec&lt; 3, T, Q &gt; const &amp;binormal, vec&lt; 3, T, Q &gt; const &amp;normal)</td></tr>
+<tr class="memdesc:ga99386a5ab5491871b947076e21699cc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return if a trihedron right handed or not.  <a href="a00195.html#ga99386a5ab5491871b947076e21699cc8">More...</a><br /></td></tr>
+<tr class="separator:ga99386a5ab5491871b947076e21699cc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Include &lt;<a class="el" href="a00058.html" title="GLM_GTX_matrix_decompose ">glm/gtx/matrix_decompose.hpp</a>&gt; to use the features of this extension. </p>
-<p>Decomposes a model matrix to translations, rotation and scale components </p>
+<p>Include &lt;glm/gtx/handed_coordinate_system.hpp&gt; to use the features of this extension. </p>
+<p>To know if a set of three basis vectors defines a right or left-handed coordinate system. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga91185463739c855d602596907a9994bc"></a>
+<a class="anchor" id="ga6f1bad193b9a3b048543d1935cf04dd3"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL bool glm::decompose </td>
+          <td class="memname">GLM_FUNC_DECL bool glm::leftHanded </td>
           <td>(</td>
-          <td class="paramtype">mat&lt; 4, 4, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>modelMatrix</em>, </td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>tangent</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; 3, T, Q &gt; &amp;&#160;</td>
-          <td class="paramname"><em>scale</em>, </td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>binormal</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">tquat&lt; T, Q &gt; &amp;&#160;</td>
-          <td class="paramname"><em>orientation</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 3, T, Q &gt; &amp;&#160;</td>
-          <td class="paramname"><em>translation</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 3, T, Q &gt; &amp;&#160;</td>
-          <td class="paramname"><em>skew</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vec&lt; 4, T, Q &gt; &amp;&#160;</td>
-          <td class="paramname"><em>perspective</em>&#160;</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>normal</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -144,8 +130,43 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Decomposes a model matrix to translations, rotation and scale components. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00195.html" title="Include <glm/gtx/matrix_decompose.hpp> to use the features of this extension. ">GLM_GTX_matrix_decompose</a> </dd></dl>
+<p>Return if a trihedron left handed or not. </p>
+<p>From GLM_GTX_handed_coordinate_space extension. </p>
+
+</div>
+</div>
+<a class="anchor" id="ga99386a5ab5491871b947076e21699cc8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL bool glm::rightHanded </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>tangent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>binormal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>normal</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return if a trihedron right handed or not. </p>
+<p>From GLM_GTX_handed_coordinate_space extension. </p>
 
 </div>
 </div>

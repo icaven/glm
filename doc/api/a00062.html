@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: matrix_inverse.hpp File Reference</title>
+<title>0.9.9 API documenation: matrix_interpolation.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,38 +80,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_934f46a345653ef2b3014a1b37a162c1.html">G:</a></li><li class="navelem"><a class="el" href="dir_98f7f9d41f9d3029bd68cf237526a774.html">Source</a></li><li class="navelem"><a class="el" href="dir_9344afb825aed5e2f5be1d2015dde43c.html">G-Truc</a></li><li class="navelem"><a class="el" href="dir_45973f864e07b2505003ae343b7c8af7.html">glm</a></li><li class="navelem"><a class="el" href="dir_304be5dfae1339a7705426c0b536faf2.html">glm</a></li><li class="navelem"><a class="el" href="dir_7997edb062bdde9a99cb6835d42b0d9d.html">gtc</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_934f46a345653ef2b3014a1b37a162c1.html">G:</a></li><li class="navelem"><a class="el" href="dir_98f7f9d41f9d3029bd68cf237526a774.html">Source</a></li><li class="navelem"><a class="el" href="dir_9344afb825aed5e2f5be1d2015dde43c.html">G-Truc</a></li><li class="navelem"><a class="el" href="dir_45973f864e07b2505003ae343b7c8af7.html">glm</a></li><li class="navelem"><a class="el" href="dir_304be5dfae1339a7705426c0b536faf2.html">glm</a></li><li class="navelem"><a class="el" href="dir_e8f3c1046ba4b357711397765359cd18.html">gtx</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">matrix_inverse.hpp File Reference</div>  </div>
+<div class="title">matrix_interpolation.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="a00156.html">GLM_GTC_matrix_inverse</a>  
+<p><a class="el" href="a00204.html">GLM_GTX_matrix_interpolation</a>  
 <a href="#details">More...</a></p>
 
 <p><a href="a00062_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gae0fcc5fc8783291f9702272de428fa0e"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:gae0fcc5fc8783291f9702272de428fa0e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00156.html#gae0fcc5fc8783291f9702272de428fa0e">affineInverse</a> (genType const &amp;m)</td></tr>
-<tr class="memdesc:gae0fcc5fc8783291f9702272de428fa0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fast matrix inverse for affine matrix.  <a href="a00156.html#gae0fcc5fc8783291f9702272de428fa0e">More...</a><br /></td></tr>
-<tr class="separator:gae0fcc5fc8783291f9702272de428fa0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab213cd0e3ead5f316d583f99d6312008"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:gab213cd0e3ead5f316d583f99d6312008"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00156.html#gab213cd0e3ead5f316d583f99d6312008">inverseTranspose</a> (genType const &amp;m)</td></tr>
-<tr class="memdesc:gab213cd0e3ead5f316d583f99d6312008"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the inverse transpose of a matrix.  <a href="a00156.html#gab213cd0e3ead5f316d583f99d6312008">More...</a><br /></td></tr>
-<tr class="separator:gab213cd0e3ead5f316d583f99d6312008"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga97f160158906ea89676f56cc4697ec98"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga97f160158906ea89676f56cc4697ec98"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00204.html#ga97f160158906ea89676f56cc4697ec98">axisAngle</a> (mat&lt; 4, 4, T, Q &gt; const &amp;mat, vec&lt; 3, T, Q &gt; &amp;axis, T &amp;angle)</td></tr>
+<tr class="memdesc:ga97f160158906ea89676f56cc4697ec98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the axis and angle of the rotation from a matrix.  <a href="a00204.html#ga97f160158906ea89676f56cc4697ec98">More...</a><br /></td></tr>
+<tr class="separator:ga97f160158906ea89676f56cc4697ec98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga992a5db71893ed1ba6ebac99f0f69831"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga992a5db71893ed1ba6ebac99f0f69831"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00204.html#ga992a5db71893ed1ba6ebac99f0f69831">axisAngleMatrix</a> (vec&lt; 3, T, Q &gt; const &amp;axis, T const angle)</td></tr>
+<tr class="memdesc:ga992a5db71893ed1ba6ebac99f0f69831"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a matrix from axis and angle.  <a href="a00204.html#ga992a5db71893ed1ba6ebac99f0f69831">More...</a><br /></td></tr>
+<tr class="separator:ga992a5db71893ed1ba6ebac99f0f69831"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8834d4499a1a52fcf531b4506f0b5f67"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga8834d4499a1a52fcf531b4506f0b5f67"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00204.html#ga8834d4499a1a52fcf531b4506f0b5f67">extractMatrixRotation</a> (mat&lt; 4, 4, T, Q &gt; const &amp;mat)</td></tr>
+<tr class="memdesc:ga8834d4499a1a52fcf531b4506f0b5f67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts the rotation part of a matrix.  <a href="a00204.html#ga8834d4499a1a52fcf531b4506f0b5f67">More...</a><br /></td></tr>
+<tr class="separator:ga8834d4499a1a52fcf531b4506f0b5f67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad5fc63a2e084000b39f6508ab07421a5"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gad5fc63a2e084000b39f6508ab07421a5"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 4, 4, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00204.html#gad5fc63a2e084000b39f6508ab07421a5">interpolate</a> (mat&lt; 4, 4, T, Q &gt; const &amp;m1, mat&lt; 4, 4, T, Q &gt; const &amp;m2, T const delta)</td></tr>
+<tr class="memdesc:gad5fc63a2e084000b39f6508ab07421a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build a interpolation of 4 * 4 matrixes.  <a href="a00204.html#gad5fc63a2e084000b39f6508ab07421a5">More...</a><br /></td></tr>
+<tr class="separator:gad5fc63a2e084000b39f6508ab07421a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="a00156.html">GLM_GTC_matrix_inverse</a> </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00143.html" title="Features that implement in C++ the GLSL specification as closely as possible. ">Core features</a> (dependence) </dd></dl>
+<div class="textblock"><p><a class="el" href="a00204.html">GLM_GTX_matrix_interpolation</a> </p>
+<dl class="section author"><dt>Author</dt><dd>Ghenadii Ursachi (<a href="#" onclick="location.href='mai'+'lto:'+'the'+'.a'+'ste'+'ro'+'th@'+'gm'+'ail'+'.c'+'om'; return false;">the.a<span style="display: none;">.nosp@m.</span>ster<span style="display: none;">.nosp@m.</span>oth@g<span style="display: none;">.nosp@m.</span>mail<span style="display: none;">.nosp@m.</span>.com</a>)</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00148.html" title="Features that implement in C++ the GLSL specification as closely as possible. ">Core features</a> (dependence) </dd></dl>
 
-<p>Definition in file <a class="el" href="a00062_source.html">matrix_inverse.hpp</a>.</p>
+<p>Definition in file <a class="el" href="a00062_source.html">matrix_interpolation.hpp</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

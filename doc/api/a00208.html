@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTX_orthonormalize</title>
+<title>0.9.9 API documenation: GLM_GTX_matrix_transform_2d</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -78,61 +78,124 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_orthonormalize<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
+<div class="title">GLM_GTX_matrix_transform_2d<div class="ingroups"><a class="el" href="a00154.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Include &lt;<a class="el" href="a00075.html" title="GLM_GTX_orthonormalize ">glm/gtx/orthonormalize.hpp</a>&gt; to use the features of this extension.  
+<p>Include &lt;<a class="el" href="a00068.html" title="GLM_GTX_matrix_transform_2d ">glm/gtx/matrix_transform_2d.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga4cab5d698e6e2eccea30c8e81c74371f"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
-<tr class="memitem:ga4cab5d698e6e2eccea30c8e81c74371f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00208.html#ga4cab5d698e6e2eccea30c8e81c74371f">orthonormalize</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m)</td></tr>
-<tr class="memdesc:ga4cab5d698e6e2eccea30c8e81c74371f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the orthonormalized matrix of m.  <a href="a00208.html#ga4cab5d698e6e2eccea30c8e81c74371f">More...</a><br /></td></tr>
-<tr class="separator:ga4cab5d698e6e2eccea30c8e81c74371f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac3bc7ef498815026bc3d361ae0b7138e"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
-<tr class="memitem:gac3bc7ef498815026bc3d361ae0b7138e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00208.html#gac3bc7ef498815026bc3d361ae0b7138e">orthonormalize</a> (vec&lt; 3, T, Q &gt; const &amp;x, vec&lt; 3, T, Q &gt; const &amp;y)</td></tr>
-<tr class="memdesc:gac3bc7ef498815026bc3d361ae0b7138e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orthonormalizes x according y.  <a href="a00208.html#gac3bc7ef498815026bc3d361ae0b7138e">More...</a><br /></td></tr>
-<tr class="separator:gac3bc7ef498815026bc3d361ae0b7138e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad5c84a4932a758f385a87098ce1b1660"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gad5c84a4932a758f385a87098ce1b1660"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00208.html#gad5c84a4932a758f385a87098ce1b1660">rotate</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m, T angle)</td></tr>
+<tr class="memdesc:gad5c84a4932a758f385a87098ce1b1660"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a rotation 3 * 3 matrix created from an angle.  <a href="a00208.html#gad5c84a4932a758f385a87098ce1b1660">More...</a><br /></td></tr>
+<tr class="separator:gad5c84a4932a758f385a87098ce1b1660"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadb47d2ad2bd984b213e8ff7d9cd8154e"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gadb47d2ad2bd984b213e8ff7d9cd8154e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00208.html#gadb47d2ad2bd984b213e8ff7d9cd8154e">scale</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m, vec&lt; 2, T, Q &gt; const &amp;v)</td></tr>
+<tr class="memdesc:gadb47d2ad2bd984b213e8ff7d9cd8154e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a scale 3 * 3 matrix created from a vector of 2 components.  <a href="a00208.html#gadb47d2ad2bd984b213e8ff7d9cd8154e">More...</a><br /></td></tr>
+<tr class="separator:gadb47d2ad2bd984b213e8ff7d9cd8154e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2a118ece5db1e2022112b954846012af"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga2a118ece5db1e2022112b954846012af"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00208.html#ga2a118ece5db1e2022112b954846012af">shearX</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m, T y)</td></tr>
+<tr class="memdesc:ga2a118ece5db1e2022112b954846012af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds an horizontal (parallel to the x axis) shear 3 * 3 matrix.  <a href="a00208.html#ga2a118ece5db1e2022112b954846012af">More...</a><br /></td></tr>
+<tr class="separator:ga2a118ece5db1e2022112b954846012af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga717f1833369c1ac4a40e4ac015af885e"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga717f1833369c1ac4a40e4ac015af885e"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00208.html#ga717f1833369c1ac4a40e4ac015af885e">shearY</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m, T x)</td></tr>
+<tr class="memdesc:ga717f1833369c1ac4a40e4ac015af885e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a vertical (parallel to the y axis) shear 3 * 3 matrix.  <a href="a00208.html#ga717f1833369c1ac4a40e4ac015af885e">More...</a><br /></td></tr>
+<tr class="separator:ga717f1833369c1ac4a40e4ac015af885e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf4573ae47c80938aa9053ef6a33755ab"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaf4573ae47c80938aa9053ef6a33755ab"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_QUALIFIER mat&lt; 3, 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00208.html#gaf4573ae47c80938aa9053ef6a33755ab">translate</a> (mat&lt; 3, 3, T, Q &gt; const &amp;m, vec&lt; 2, T, Q &gt; const &amp;v)</td></tr>
+<tr class="memdesc:gaf4573ae47c80938aa9053ef6a33755ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a translation 3 * 3 matrix created from a vector of 2 components.  <a href="a00208.html#gaf4573ae47c80938aa9053ef6a33755ab">More...</a><br /></td></tr>
+<tr class="separator:gaf4573ae47c80938aa9053ef6a33755ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Include &lt;<a class="el" href="a00075.html" title="GLM_GTX_orthonormalize ">glm/gtx/orthonormalize.hpp</a>&gt; to use the features of this extension. </p>
-<p>Orthonormalize matrices. </p>
+<p>Include &lt;<a class="el" href="a00068.html" title="GLM_GTX_matrix_transform_2d ">glm/gtx/matrix_transform_2d.hpp</a>&gt; to use the features of this extension. </p>
+<p>Defines functions that generate common 2d transformation matrices. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga4cab5d698e6e2eccea30c8e81c74371f"></a>
+<a class="anchor" id="gad5c84a4932a758f385a87098ce1b1660"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL mat&lt;3, 3, T, Q&gt; glm::orthonormalize </td>
+          <td class="memname">GLM_FUNC_QUALIFIER mat&lt;3, 3, T, Q&gt; glm::rotate </td>
           <td>(</td>
           <td class="paramtype">mat&lt; 3, 3, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>m</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the orthonormalized matrix of m. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00208.html" title="Include <glm/gtx/orthonormalize.hpp> to use the features of this extension. ">GLM_GTX_orthonormalize</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gac3bc7ef498815026bc3d361ae0b7138e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;3, T, Q&gt; glm::orthonormalize </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
+          <td class="paramname"><em>m</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>angle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds a rotation 3 * 3 matrix created from an angle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Input matrix multiplied by this translation matrix. </td></tr>
+    <tr><td class="paramname">angle</td><td>Rotation angle expressed in radians. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gadb47d2ad2bd984b213e8ff7d9cd8154e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_QUALIFIER mat&lt;3, 3, T, Q&gt; glm::scale </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; 3, 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds a scale 3 * 3 matrix created from a vector of 2 components. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Input matrix multiplied by this translation matrix. </td></tr>
+    <tr><td class="paramname">v</td><td>Coordinates of a scale vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga2a118ece5db1e2022112b954846012af"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_QUALIFIER mat&lt;3, 3, T, Q&gt; glm::shearX </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; 3, 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
           <td class="paramname"><em>y</em>&#160;</td>
         </tr>
         <tr>
@@ -143,8 +206,84 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Orthonormalizes x according y. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00208.html" title="Include <glm/gtx/orthonormalize.hpp> to use the features of this extension. ">GLM_GTX_orthonormalize</a> </dd></dl>
+<p>Builds an horizontal (parallel to the x axis) shear 3 * 3 matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Input matrix multiplied by this translation matrix. </td></tr>
+    <tr><td class="paramname">y</td><td>Shear factor. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ga717f1833369c1ac4a40e4ac015af885e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_QUALIFIER mat&lt;3, 3, T, Q&gt; glm::shearY </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; 3, 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds a vertical (parallel to the y axis) shear 3 * 3 matrix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Input matrix multiplied by this translation matrix. </td></tr>
+    <tr><td class="paramname">x</td><td>Shear factor. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="gaf4573ae47c80938aa9053ef6a33755ab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_QUALIFIER mat&lt;3, 3, T, Q&gt; glm::translate </td>
+          <td>(</td>
+          <td class="paramtype">mat&lt; 3, 3, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds a translation 3 * 3 matrix created from a vector of 2 components. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">m</td><td>Input matrix multiplied by this translation matrix. </td></tr>
+    <tr><td class="paramname">v</td><td>Coordinates of a translation vector. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

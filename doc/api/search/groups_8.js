@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stable_20extensions',['Stable extensions',['../a00147.html',1,'']]]
+  ['recommended_20extensions',['Recommended extensions',['../a00153.html',1,'']]]
 ];

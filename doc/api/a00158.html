@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTC_noise</title>
+<title>0.9.9 API documenation: GLM_GTC_epsilon</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -78,66 +78,57 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTC_noise<div class="ingroups"><a class="el" href="a00147.html">Stable extensions</a></div></div>  </div>
+<div class="title">GLM_GTC_epsilon<div class="ingroups"><a class="el" href="a00153.html">Recommended extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Include &lt;<a class="el" href="a00069.html" title="GLM_GTC_noise ">glm/gtc/noise.hpp</a>&gt; to use the features of this extension.  
+<p>Include &lt;<a class="el" href="a00023.html" title="GLM_GTC_epsilon ">glm/gtc/epsilon.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga1e043ce3b51510e9bc4469227cefc38a"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
-<tr class="memitem:ga1e043ce3b51510e9bc4469227cefc38a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00158.html#ga1e043ce3b51510e9bc4469227cefc38a">perlin</a> (vec&lt; L, T, Q &gt; const &amp;p)</td></tr>
-<tr class="memdesc:ga1e043ce3b51510e9bc4469227cefc38a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classic perlin noise.  <a href="a00158.html#ga1e043ce3b51510e9bc4469227cefc38a">More...</a><br /></td></tr>
-<tr class="separator:ga1e043ce3b51510e9bc4469227cefc38a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac270edc54c5fc52f5985a45f940bb103"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
-<tr class="memitem:gac270edc54c5fc52f5985a45f940bb103"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00158.html#gac270edc54c5fc52f5985a45f940bb103">perlin</a> (vec&lt; L, T, Q &gt; const &amp;p, vec&lt; L, T, Q &gt; const &amp;rep)</td></tr>
-<tr class="memdesc:gac270edc54c5fc52f5985a45f940bb103"><td class="mdescLeft">&#160;</td><td class="mdescRight">Periodic perlin noise.  <a href="a00158.html#gac270edc54c5fc52f5985a45f940bb103">More...</a><br /></td></tr>
-<tr class="separator:gac270edc54c5fc52f5985a45f940bb103"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8122468c69015ff397349a7dcc638b27"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
-<tr class="memitem:ga8122468c69015ff397349a7dcc638b27"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00158.html#ga8122468c69015ff397349a7dcc638b27">simplex</a> (vec&lt; L, T, Q &gt; const &amp;p)</td></tr>
-<tr class="memdesc:ga8122468c69015ff397349a7dcc638b27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simplex noise.  <a href="a00158.html#ga8122468c69015ff397349a7dcc638b27">More...</a><br /></td></tr>
-<tr class="separator:ga8122468c69015ff397349a7dcc638b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga91b417866cafadd076004778217a1844"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga91b417866cafadd076004778217a1844"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, bool, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00158.html#ga91b417866cafadd076004778217a1844">epsilonEqual</a> (vec&lt; L, T, Q &gt; const &amp;x, vec&lt; L, T, Q &gt; const &amp;y, T const &amp;epsilon)</td></tr>
+<tr class="memdesc:ga91b417866cafadd076004778217a1844"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the component-wise comparison of |x - y| &lt; epsilon.  <a href="a00158.html#ga91b417866cafadd076004778217a1844">More...</a><br /></td></tr>
+<tr class="separator:ga91b417866cafadd076004778217a1844"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa7f227999ca09e7ca994e8b35aba47bb"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:gaa7f227999ca09e7ca994e8b35aba47bb"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00158.html#gaa7f227999ca09e7ca994e8b35aba47bb">epsilonEqual</a> (genType const &amp;x, genType const &amp;y, genType const &amp;epsilon)</td></tr>
+<tr class="memdesc:gaa7f227999ca09e7ca994e8b35aba47bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the component-wise comparison of |x - y| &lt; epsilon.  <a href="a00158.html#gaa7f227999ca09e7ca994e8b35aba47bb">More...</a><br /></td></tr>
+<tr class="separator:gaa7f227999ca09e7ca994e8b35aba47bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf840d33b9a5261ec78dcd5125743b025"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gaf840d33b9a5261ec78dcd5125743b025"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, bool, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00158.html#gaf840d33b9a5261ec78dcd5125743b025">epsilonNotEqual</a> (vec&lt; L, T, Q &gt; const &amp;x, vec&lt; L, T, Q &gt; const &amp;y, T const &amp;epsilon)</td></tr>
+<tr class="memdesc:gaf840d33b9a5261ec78dcd5125743b025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the component-wise comparison of |x - y| &lt; epsilon.  <a href="a00158.html#gaf840d33b9a5261ec78dcd5125743b025">More...</a><br /></td></tr>
+<tr class="separator:gaf840d33b9a5261ec78dcd5125743b025"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga50a92103fb0cbd796908e1bf20c79aaf"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
+<tr class="memitem:ga50a92103fb0cbd796908e1bf20c79aaf"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00158.html#ga50a92103fb0cbd796908e1bf20c79aaf">epsilonNotEqual</a> (genType const &amp;x, genType const &amp;y, genType const &amp;epsilon)</td></tr>
+<tr class="memdesc:ga50a92103fb0cbd796908e1bf20c79aaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the component-wise comparison of |x - y| &gt;= epsilon.  <a href="a00158.html#ga50a92103fb0cbd796908e1bf20c79aaf">More...</a><br /></td></tr>
+<tr class="separator:ga50a92103fb0cbd796908e1bf20c79aaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Include &lt;<a class="el" href="a00069.html" title="GLM_GTC_noise ">glm/gtc/noise.hpp</a>&gt; to use the features of this extension. </p>
-<p>Defines 2D, 3D and 4D procedural noise functions Based on the work of Stefan Gustavson and Ashima Arts on "webgl-noise": <a href="https://github.com/ashima/webgl-noise">https://github.com/ashima/webgl-noise</a> Following Stefan Gustavson's paper "Simplex noise demystified": <a href="http://www.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf">http://www.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf</a> </p>
+<p>Include &lt;<a class="el" href="a00023.html" title="GLM_GTC_epsilon ">glm/gtc/epsilon.hpp</a>&gt; to use the features of this extension. </p>
+<p>Comparison functions for a user defined epsilon values. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga1e043ce3b51510e9bc4469227cefc38a"></a>
+<a class="anchor" id="ga91b417866cafadd076004778217a1844"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::perlin </td>
+          <td class="memname">GLM_FUNC_DECL vec&lt;L, bool, Q&gt; glm::epsilonEqual </td>
           <td>(</td>
           <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Classic perlin noise. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00158.html" title="Include <glm/gtc/noise.hpp> to use the features of this extension. ">GLM_GTC_noise</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="gac270edc54c5fc52f5985a45f940bb103"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::perlin </td>
-          <td>(</td>
-          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
+          <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>rep</em>&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>epsilon</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -147,27 +138,117 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Periodic perlin noise. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00158.html" title="Include <glm/gtc/noise.hpp> to use the features of this extension. ">GLM_GTC_noise</a> </dd></dl>
+<p>Returns the component-wise comparison of |x - y| &lt; epsilon. </p>
+<p>True if this expression is satisfied.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00158.html" title="Include <glm/gtc/epsilon.hpp> to use the features of this extension. ">GLM_GTC_epsilon</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga8122468c69015ff397349a7dcc638b27"></a>
+<a class="anchor" id="gaa7f227999ca09e7ca994e8b35aba47bb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL T glm::simplex </td>
+          <td class="memname">GLM_FUNC_DECL bool glm::epsilonEqual </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>epsilon</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Simplex noise. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00158.html" title="Include <glm/gtc/noise.hpp> to use the features of this extension. ">GLM_GTC_noise</a> </dd></dl>
+<p>Returns the component-wise comparison of |x - y| &lt; epsilon. </p>
+<p>True if this expression is satisfied.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00158.html" title="Include <glm/gtc/epsilon.hpp> to use the features of this extension. ">GLM_GTC_epsilon</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="gaf840d33b9a5261ec78dcd5125743b025"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL vec&lt;L, bool, Q&gt; glm::epsilonNotEqual </td>
+          <td>(</td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>epsilon</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the component-wise comparison of |x - y| &lt; epsilon. </p>
+<p>True if this expression is not satisfied.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00158.html" title="Include <glm/gtc/epsilon.hpp> to use the features of this extension. ">GLM_GTC_epsilon</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ga50a92103fb0cbd796908e1bf20c79aaf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLM_FUNC_DECL bool glm::epsilonNotEqual </td>
+          <td>(</td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramname"><em>epsilon</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the component-wise comparison of |x - y| &gt;= epsilon. </p>
+<p>True if this expression is not satisfied.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00158.html" title="Include <glm/gtc/epsilon.hpp> to use the features of this extension. ">GLM_GTC_epsilon</a> </dd></dl>
 
 </div>
 </div>

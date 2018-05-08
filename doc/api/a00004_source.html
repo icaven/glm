@@ -91,7 +91,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="a00004.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00135.html">glm</a>{</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00138.html">glm</a>{</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>detail</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <span class="comment">// Internal class for implementing swizzle operators</span></div>
@@ -104,7 +104,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                <span class="comment">// Use an opaque buffer to *ensure* the compiler doesn&#39;t call a constructor.</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                <span class="comment">// The size 1 buffer is assumed to aligned to the actual members so that the</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                <span class="comment">// elem() </span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                <span class="comment">// elem()</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                <span class="keywordtype">char</span>    _buffer[1];</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        };</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
@@ -127,7 +127,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, qualifier Q, <span class="keywordtype">int</span> E0, <span class="keywordtype">int</span> E1, <span class="keywordtype">int</span> E2, <span class="keywordtype">int</span> E3, <span class="keywordtype">bool</span> Aligned&gt;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">struct </span>_swizzle_base1&lt;4, T, Q, E0,E1,E2,E3, Aligned&gt; : <span class="keyword">public</span> _swizzle_base0&lt;T, 4&gt;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        { </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                GLM_FUNC_QUALIFIER vec&lt;4, T, Q&gt; operator ()()<span class="keyword">  const </span>{ <span class="keywordflow">return</span> vec&lt;4, T, Q&gt;(this-&gt;elem(E0), this-&gt;elem(E1), this-&gt;elem(E2), this-&gt;elem(E3)); }</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        };</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
@@ -140,7 +140,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">                E0...3          = what index the n-th element of this swizzle refers to in the unswizzled vec</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">                DUPLICATE_ELEMENTS = 1 if there is a repeated element, 0 otherwise (used to specialize swizzles</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">                        containing duplicate elements so that they cannot be used as r-values).            </span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">                        containing duplicate elements so that they cannot be used as r-values).</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">        */</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">template</span>&lt;<span class="keywordtype">int</span> N, <span class="keyword">typename</span> T, qualifier Q, <span class="keywordtype">int</span> E0, <span class="keywordtype">int</span> E1, <span class="keywordtype">int</span> E2, <span class="keywordtype">int</span> E3, <span class="keywordtype">int</span> DUPLICATE_ELEMENTS&gt;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">struct </span>_swizzle_base2 : <span class="keyword">public</span> _swizzle_base1&lt;N, T, Q, E0,E1,E2,E3, detail::is_aligned&lt;Q&gt;::value&gt;</div>
@@ -154,8 +154,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                GLM_FUNC_QUALIFIER _swizzle_base2&amp; operator= (vec&lt;N, T, Q&gt; <span class="keyword">const</span>&amp; that)</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                        <span class="keyword">struct </span>op { </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                GLM_FUNC_QUALIFIER <span class="keywordtype">void</span> operator() (T&amp; <a class="code" href="a00151.html#ga4b7956eb6e2fbedfc7cf2e46e85c5139">e</a>, T&amp; t) { e = t; } </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                        <span class="keyword">struct </span>op {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                                GLM_FUNC_QUALIFIER <span class="keywordtype">void</span> operator() (T&amp; <a class="code" href="a00157.html#ga4b7956eb6e2fbedfc7cf2e46e85c5139">e</a>, T&amp; t) { e = t; }</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        };</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                        _apply_op(that, op());</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
@@ -163,32 +163,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                GLM_FUNC_QUALIFIER <span class="keywordtype">void</span> operator -= (vec&lt;N, T, Q&gt; <span class="keyword">const</span>&amp; that)</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                {</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                        <span class="keyword">struct </span>op { </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                                GLM_FUNC_QUALIFIER <span class="keywordtype">void</span> operator() (T&amp; <a class="code" href="a00151.html#ga4b7956eb6e2fbedfc7cf2e46e85c5139">e</a>, T&amp; t) { e -= t; } </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                        <span class="keyword">struct </span>op {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                                GLM_FUNC_QUALIFIER <span class="keywordtype">void</span> operator() (T&amp; <a class="code" href="a00157.html#ga4b7956eb6e2fbedfc7cf2e46e85c5139">e</a>, T&amp; t) { e -= t; }</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                        };</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                        _apply_op(that, op());</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                }</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                GLM_FUNC_QUALIFIER <span class="keywordtype">void</span> operator += (vec&lt;N, T, Q&gt; <span class="keyword">const</span>&amp; that)</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                        <span class="keyword">struct </span>op { </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                                GLM_FUNC_QUALIFIER <span class="keywordtype">void</span> operator() (T&amp; <a class="code" href="a00151.html#ga4b7956eb6e2fbedfc7cf2e46e85c5139">e</a>, T&amp; t) { e += t; } </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                        <span class="keyword">struct </span>op {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                                GLM_FUNC_QUALIFIER <span class="keywordtype">void</span> operator() (T&amp; <a class="code" href="a00157.html#ga4b7956eb6e2fbedfc7cf2e46e85c5139">e</a>, T&amp; t) { e += t; }</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                        };</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                        _apply_op(that, op());</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                }</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                GLM_FUNC_QUALIFIER <span class="keywordtype">void</span> operator *= (vec&lt;N, T, Q&gt; <span class="keyword">const</span>&amp; that)</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                        <span class="keyword">struct </span>op { </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                                GLM_FUNC_QUALIFIER <span class="keywordtype">void</span> operator() (T&amp; <a class="code" href="a00151.html#ga4b7956eb6e2fbedfc7cf2e46e85c5139">e</a>, T&amp; t) { e *= t; } </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                        <span class="keyword">struct </span>op {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                                GLM_FUNC_QUALIFIER <span class="keywordtype">void</span> operator() (T&amp; <a class="code" href="a00157.html#ga4b7956eb6e2fbedfc7cf2e46e85c5139">e</a>, T&amp; t) { e *= t; }</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                        };</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                        _apply_op(that, op());</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                }</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                GLM_FUNC_QUALIFIER <span class="keywordtype">void</span> operator /= (vec&lt;N, T, Q&gt; <span class="keyword">const</span>&amp; that)</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                        <span class="keyword">struct </span>op { </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                GLM_FUNC_QUALIFIER <span class="keywordtype">void</span> operator() (T&amp; <a class="code" href="a00151.html#ga4b7956eb6e2fbedfc7cf2e46e85c5139">e</a>, T&amp; t) { e /= t; } </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                        <span class="keyword">struct </span>op {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                                GLM_FUNC_QUALIFIER <span class="keywordtype">void</span> operator() (T&amp; <a class="code" href="a00157.html#ga4b7956eb6e2fbedfc7cf2e46e85c5139">e</a>, T&amp; t) { e /= t; }</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                        };</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                        _apply_op(that, op());</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                }</div>
@@ -320,7 +320,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="preprocessor">        GLM_FUNC_QUALIFIER typename GLM_SWIZZLE_TYPE1::RETURN_TYPE FUNCTION(const V&amp; a, const GLM_SWIZZLE_TYPE1&amp; b)                  \</span></div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="preprocessor">        {                                                                                                           \</span></div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="preprocessor">                return FUNCTION(a, b());                                                                                \</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="preprocessor">        } </span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="preprocessor">        }</span></div>
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="comment">// Macro for wrapping a function take 2 vec arguments followed by a scalar (e.g. mix()).</span></div>
@@ -345,12 +345,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="preprocessor">        GLM_FUNC_QUALIFIER typename GLM_SWIZZLE_TYPE1::RETURN_TYPE FUNCTION(const typename V&amp; a, const GLM_SWIZZLE_TYPE1&amp; b, const T&amp; c)           \</span></div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="preprocessor">        {                                                                                                                         \</span></div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="preprocessor">                return FUNCTION(a, b(), c);                                                                                           \</span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="preprocessor">        } </span></div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;}<span class="comment">//namespace detail </span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="preprocessor">        }</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;}<span class="comment">//namespace detail</span></div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;}<span class="comment">//namespace glm</span></div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00135.html">glm</a></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="keyword">namespace </span><a class="code" href="a00138.html">glm</a></div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;{</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        <span class="keyword">namespace </span>detail</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        {</div>
@@ -380,7 +380,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
 <div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <span class="comment">//GLM_SWIZZLE_FUNCTION_2_ARGS(value_type,  dot);</span></div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="comment">//GLM_SWIZZLE_FUNCTION_2_ARGS(vec_type,    cross);</span></div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        <span class="comment">//GLM_SWIZZLE_FUNCTION_2_ARGS(vec_type,    step);    </span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        <span class="comment">//GLM_SWIZZLE_FUNCTION_2_ARGS(vec_type,    step);</span></div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="comment">//GLM_SWIZZLE_FUNCTION_2_ARGS_SCALAR(vec_type, mix);</span></div>
 <div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;}</div>
 <div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
@@ -388,7 +388,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;2, T, Q, 0,0,-1,-2&gt; E0 ## E0; }; \</span></div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;2, T, Q, 0,1,-1,-2&gt; E0 ## E1; }; \</span></div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;2, T, Q, 1,0,-1,-2&gt; E1 ## E0; }; \</span></div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;2, T, Q, 1,1,-1,-2&gt; E1 ## E1; }; </span></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;2, T, Q, 1,1,-1,-2&gt; E1 ## E1; };</span></div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="preprocessor">#define GLM_SWIZZLE2_3_MEMBERS(T, Q, E0,E1) \</span></div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;3,T, Q, 0,0,0,-1&gt; E0 ## E0 ## E0; }; \</span></div>
@@ -398,7 +398,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;3,T, Q, 1,0,0,-1&gt; E1 ## E0 ## E0; }; \</span></div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;3,T, Q, 1,0,1,-1&gt; E1 ## E0 ## E1; }; \</span></div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;3,T, Q, 1,1,0,-1&gt; E1 ## E1 ## E0; }; \</span></div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;3,T, Q, 1,1,1,-1&gt; E1 ## E1 ## E1; };  </span></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;3,T, Q, 1,1,1,-1&gt; E1 ## E1 ## E1; };</span></div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;<span class="preprocessor">#define GLM_SWIZZLE2_4_MEMBERS(T, Q, E0,E1) \</span></div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;4,T, Q, 0,0,0,0&gt; E0 ## E0 ## E0 ## E0; }; \</span></div>
@@ -539,7 +539,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;4,T, Q, 2,2,1,2&gt; E2 ## E2 ## E1 ## E2; }; \</span></div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;4,T, Q, 2,2,2,0&gt; E2 ## E2 ## E2 ## E0; }; \</span></div>
 <div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;4,T, Q, 2,2,2,1&gt; E2 ## E2 ## E2 ## E1; }; \</span></div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;4,T, Q, 2,2,2,2&gt; E2 ## E2 ## E2 ## E2; }; </span></div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;4,T, Q, 2,2,2,2&gt; E2 ## E2 ## E2 ## E2; };</span></div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;</div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;<span class="preprocessor">#define GLM_SWIZZLE4_2_MEMBERS(T, Q, E0,E1,E2,E3) \</span></div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;2,T, Q, 0,0,-1,-2&gt; E0 ## E0; }; \</span></div>
@@ -557,7 +557,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;2,T, Q, 3,0,-1,-2&gt; E3 ## E0; }; \</span></div>
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;2,T, Q, 3,1,-1,-2&gt; E3 ## E1; }; \</span></div>
 <div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;2,T, Q, 3,2,-1,-2&gt; E3 ## E2; }; \</span></div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;2,T, Q, 3,3,-1,-2&gt; E3 ## E3; }; </span></div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;2,T, Q, 3,3,-1,-2&gt; E3 ## E3; };</span></div>
 <div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;</div>
 <div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;<span class="preprocessor">#define GLM_SWIZZLE4_3_MEMBERS(T, Q, E0,E1,E2,E3) \</span></div>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;3, T, Q, 0,0,0,-1&gt; E0 ## E0 ## E0; }; \</span></div>
@@ -623,7 +623,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;3, T, Q, 3,3,0,-1&gt; E3 ## E3 ## E0; }; \</span></div>
 <div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;3, T, Q, 3,3,1,-1&gt; E3 ## E3 ## E1; }; \</span></div>
 <div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;3, T, Q, 3,3,2,-1&gt; E3 ## E3 ## E2; }; \</span></div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;3, T, Q, 3,3,3,-1&gt; E3 ## E3 ## E3; };  </span></div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;3, T, Q, 3,3,3,-1&gt; E3 ## E3 ## E3; };</span></div>
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;</div>
 <div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;<span class="preprocessor">#define GLM_SWIZZLE4_4_MEMBERS(T, Q, E0,E1,E2,E3) \</span></div>
 <div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;4, T, Q, 0,0,0,0&gt; E0 ## E0 ## E0 ## E0; }; \</span></div>
@@ -882,8 +882,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;4, T, Q, 3,3,3,1&gt; E3 ## E3 ## E3 ## E1; }; \</span></div>
 <div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;4, T, Q, 3,3,3,2&gt; E3 ## E3 ## E3 ## E2; }; \</span></div>
 <div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;<span class="preprocessor">        struct { detail::_swizzle&lt;4, T, Q, 3,3,3,3&gt; E3 ## E3 ## E3 ## E3; };</span></div>
-<div class="ttc" id="a00135_html"><div class="ttname"><a href="a00135.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00015_source.html#l00020">common.hpp:20</a></div></div>
-<div class="ttc" id="a00151_html_ga4b7956eb6e2fbedfc7cf2e46e85c5139"><div class="ttname"><a href="a00151.html#ga4b7956eb6e2fbedfc7cf2e46e85c5139">glm::e</a></div><div class="ttdeci">GLM_FUNC_DECL GLM_CONSTEXPR genType e()</div><div class="ttdoc">Return e constant. </div></div>
+<div class="ttc" id="a00157_html_ga4b7956eb6e2fbedfc7cf2e46e85c5139"><div class="ttname"><a href="a00157.html#ga4b7956eb6e2fbedfc7cf2e46e85c5139">glm::e</a></div><div class="ttdeci">GLM_FUNC_DECL GLM_CONSTEXPR genType e()</div><div class="ttdoc">Return e constant. </div></div>
+<div class="ttc" id="a00138_html"><div class="ttname"><a href="a00138.html">glm</a></div><div class="ttdef"><b>Definition:</b> <a href="a00015_source.html#l00020">common.hpp:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: normal.hpp File Reference</title>
+<title>0.9.9 API documenation: norm.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -87,29 +87,57 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">normal.hpp File Reference</div>  </div>
+<div class="title">norm.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="a00204.html">GLM_GTX_normal</a>  
+<p><a class="el" href="a00210.html">GLM_GTX_norm</a>  
 <a href="#details">More...</a></p>
 
 <p><a href="a00071_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaff1cb5496925dfa7962df457772a7f35"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
-<tr class="memitem:gaff1cb5496925dfa7962df457772a7f35"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; 3, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00204.html#gaff1cb5496925dfa7962df457772a7f35">triangleNormal</a> (vec&lt; 3, T, Q &gt; const &amp;p1, vec&lt; 3, T, Q &gt; const &amp;p2, vec&lt; 3, T, Q &gt; const &amp;p3)</td></tr>
-<tr class="memdesc:gaff1cb5496925dfa7962df457772a7f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes triangle normal from triangle points.  <a href="a00204.html#gaff1cb5496925dfa7962df457772a7f35">More...</a><br /></td></tr>
-<tr class="separator:gaff1cb5496925dfa7962df457772a7f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga85660f1b79f66c09c7b5a6f80e68c89f"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga85660f1b79f66c09c7b5a6f80e68c89f"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00210.html#ga85660f1b79f66c09c7b5a6f80e68c89f">distance2</a> (vec&lt; L, T, Q &gt; const &amp;p0, vec&lt; L, T, Q &gt; const &amp;p1)</td></tr>
+<tr class="memdesc:ga85660f1b79f66c09c7b5a6f80e68c89f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the squared distance between p0 and p1, i.e., length2(p0 - p1).  <a href="a00210.html#ga85660f1b79f66c09c7b5a6f80e68c89f">More...</a><br /></td></tr>
+<tr class="separator:ga85660f1b79f66c09c7b5a6f80e68c89f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae2fc0b2aa967bebfd6a244700bff6997"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gae2fc0b2aa967bebfd6a244700bff6997"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00210.html#gae2fc0b2aa967bebfd6a244700bff6997">l1Norm</a> (vec&lt; 3, T, Q &gt; const &amp;x, vec&lt; 3, T, Q &gt; const &amp;y)</td></tr>
+<tr class="memdesc:gae2fc0b2aa967bebfd6a244700bff6997"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the L1 norm between x and y.  <a href="a00210.html#gae2fc0b2aa967bebfd6a244700bff6997">More...</a><br /></td></tr>
+<tr class="separator:gae2fc0b2aa967bebfd6a244700bff6997"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a7491e2037ceeb37f83ce41addfc0be"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga1a7491e2037ceeb37f83ce41addfc0be"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00210.html#ga1a7491e2037ceeb37f83ce41addfc0be">l1Norm</a> (vec&lt; 3, T, Q &gt; const &amp;v)</td></tr>
+<tr class="memdesc:ga1a7491e2037ceeb37f83ce41addfc0be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the L1 norm of v.  <a href="a00210.html#ga1a7491e2037ceeb37f83ce41addfc0be">More...</a><br /></td></tr>
+<tr class="separator:ga1a7491e2037ceeb37f83ce41addfc0be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga41340b2ef40a9307ab0f137181565168"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga41340b2ef40a9307ab0f137181565168"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00210.html#ga41340b2ef40a9307ab0f137181565168">l2Norm</a> (vec&lt; 3, T, Q &gt; const &amp;x, vec&lt; 3, T, Q &gt; const &amp;y)</td></tr>
+<tr class="memdesc:ga41340b2ef40a9307ab0f137181565168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the L2 norm between x and y.  <a href="a00210.html#ga41340b2ef40a9307ab0f137181565168">More...</a><br /></td></tr>
+<tr class="separator:ga41340b2ef40a9307ab0f137181565168"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae288bde8f0e41fb4ed62e65137b18cba"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gae288bde8f0e41fb4ed62e65137b18cba"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00210.html#gae288bde8f0e41fb4ed62e65137b18cba">l2Norm</a> (vec&lt; 3, T, Q &gt; const &amp;x)</td></tr>
+<tr class="memdesc:gae288bde8f0e41fb4ed62e65137b18cba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the L2 norm of v.  <a href="a00210.html#gae288bde8f0e41fb4ed62e65137b18cba">More...</a><br /></td></tr>
+<tr class="separator:gae288bde8f0e41fb4ed62e65137b18cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8d1789651050adb7024917984b41c3de"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:ga8d1789651050adb7024917984b41c3de"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00210.html#ga8d1789651050adb7024917984b41c3de">length2</a> (vec&lt; L, T, Q &gt; const &amp;x)</td></tr>
+<tr class="memdesc:ga8d1789651050adb7024917984b41c3de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the squared length of x.  <a href="a00210.html#ga8d1789651050adb7024917984b41c3de">More...</a><br /></td></tr>
+<tr class="separator:ga8d1789651050adb7024917984b41c3de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacad23d30497eb16f67709f2375d1f66a"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gacad23d30497eb16f67709f2375d1f66a"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00210.html#gacad23d30497eb16f67709f2375d1f66a">lxNorm</a> (vec&lt; 3, T, Q &gt; const &amp;x, vec&lt; 3, T, Q &gt; const &amp;y, unsigned int Depth)</td></tr>
+<tr class="memdesc:gacad23d30497eb16f67709f2375d1f66a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the L norm between x and y.  <a href="a00210.html#gacad23d30497eb16f67709f2375d1f66a">More...</a><br /></td></tr>
+<tr class="separator:gacad23d30497eb16f67709f2375d1f66a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac61b6d81d796d6eb4d4183396a19ab91"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gac61b6d81d796d6eb4d4183396a19ab91"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00210.html#gac61b6d81d796d6eb4d4183396a19ab91">lxNorm</a> (vec&lt; 3, T, Q &gt; const &amp;x, unsigned int Depth)</td></tr>
+<tr class="memdesc:gac61b6d81d796d6eb4d4183396a19ab91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the L norm of v.  <a href="a00210.html#gac61b6d81d796d6eb4d4183396a19ab91">More...</a><br /></td></tr>
+<tr class="separator:gac61b6d81d796d6eb4d4183396a19ab91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="a00204.html">GLM_GTX_normal</a> </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00143.html" title="Features that implement in C++ the GLSL specification as closely as possible. ">Core features</a> (dependence) </dd>
+<div class="textblock"><p><a class="el" href="a00210.html">GLM_GTX_norm</a> </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00148.html" title="Features that implement in C++ the GLSL specification as closely as possible. ">Core features</a> (dependence) </dd>
 <dd>
-gtx_extented_min_max (dependence) </dd></dl>
+<a class="el" href="a00219.html" title="Include <glm/gtx/quaternion.hpp> to use the features of this extension. ">GLM_GTX_quaternion</a> (dependence) </dd></dl>
 
-<p>Definition in file <a class="el" href="a00071_source.html">normal.hpp</a>.</p>
+<p>Definition in file <a class="el" href="a00071_source.html">norm.hpp</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

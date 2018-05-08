@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>0.9.9 API documenation: GLM_GTX_log_base</title>
+<title>0.9.9 API documenation: GLM_GTX_functions</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -78,43 +78,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">GLM_GTX_log_base<div class="ingroups"><a class="el" href="a00148.html">Experimental extensions</a></div></div>  </div>
+<div class="title">GLM_GTX_functions<div class="ingroups"><a class="el" href="a00154.html">Experimental extensions</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Include &lt;<a class="el" href="a00044.html" title="GLM_GTX_log_base ">glm/gtx/log_base.hpp</a>&gt; to use the features of this extension.  
+<p>Include &lt;<a class="el" href="a00033.html" title="GLM_GTX_functions ">glm/gtx/functions.hpp</a>&gt; to use the features of this extension.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga60a7b0a401da660869946b2b77c710c9"><td class="memTemplParams" colspan="2">template&lt;typename genType &gt; </td></tr>
-<tr class="memitem:ga60a7b0a401da660869946b2b77c710c9"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL genType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00193.html#ga60a7b0a401da660869946b2b77c710c9">log</a> (genType const &amp;x, genType const &amp;base)</td></tr>
-<tr class="memdesc:ga60a7b0a401da660869946b2b77c710c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logarithm for any base.  <a href="a00193.html#ga60a7b0a401da660869946b2b77c710c9">More...</a><br /></td></tr>
-<tr class="separator:ga60a7b0a401da660869946b2b77c710c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga04ef803a24f3d4f8c67dbccb33b0fce0"><td class="memTemplParams" colspan="2">template&lt;length_t L, typename T , qualifier Q&gt; </td></tr>
-<tr class="memitem:ga04ef803a24f3d4f8c67dbccb33b0fce0"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL vec&lt; L, T, Q &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00193.html#ga04ef803a24f3d4f8c67dbccb33b0fce0">sign</a> (vec&lt; L, T, Q &gt; const &amp;x, vec&lt; L, T, Q &gt; const &amp;base)</td></tr>
-<tr class="memdesc:ga04ef803a24f3d4f8c67dbccb33b0fce0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logarithm for any base.  <a href="a00193.html#ga04ef803a24f3d4f8c67dbccb33b0fce0">More...</a><br /></td></tr>
-<tr class="separator:ga04ef803a24f3d4f8c67dbccb33b0fce0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0b50b197ff74261a0fad90f4b8d24702"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ga0b50b197ff74261a0fad90f4b8d24702"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00193.html#ga0b50b197ff74261a0fad90f4b8d24702">gauss</a> (T x, T ExpectedValue, T StandardDeviation)</td></tr>
+<tr class="memdesc:ga0b50b197ff74261a0fad90f4b8d24702"><td class="mdescLeft">&#160;</td><td class="mdescRight">1D gauss function  <a href="a00193.html#ga0b50b197ff74261a0fad90f4b8d24702">More...</a><br /></td></tr>
+<tr class="separator:ga0b50b197ff74261a0fad90f4b8d24702"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad19ec8754a83c0b9a8dc16b7e60705ab"><td class="memTemplParams" colspan="2">template&lt;typename T , qualifier Q&gt; </td></tr>
+<tr class="memitem:gad19ec8754a83c0b9a8dc16b7e60705ab"><td class="memTemplItemLeft" align="right" valign="top">GLM_FUNC_DECL T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00193.html#gad19ec8754a83c0b9a8dc16b7e60705ab">gauss</a> (vec&lt; 2, T, Q &gt; const &amp;Coord, vec&lt; 2, T, Q &gt; const &amp;ExpectedValue, vec&lt; 2, T, Q &gt; const &amp;StandardDeviation)</td></tr>
+<tr class="memdesc:gad19ec8754a83c0b9a8dc16b7e60705ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">2D gauss function  <a href="a00193.html#gad19ec8754a83c0b9a8dc16b7e60705ab">More...</a><br /></td></tr>
+<tr class="separator:gad19ec8754a83c0b9a8dc16b7e60705ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Include &lt;<a class="el" href="a00044.html" title="GLM_GTX_log_base ">glm/gtx/log_base.hpp</a>&gt; to use the features of this extension. </p>
-<p>Logarithm for any base. base can be a vector or a scalar. </p>
+<p>Include &lt;<a class="el" href="a00033.html" title="GLM_GTX_functions ">glm/gtx/functions.hpp</a>&gt; to use the features of this extension. </p>
+<p>List of useful common functions. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ga60a7b0a401da660869946b2b77c710c9"></a>
+<a class="anchor" id="ga0b50b197ff74261a0fad90f4b8d24702"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL genType glm::log </td>
+          <td class="memname">GLM_FUNC_DECL T glm::gauss </td>
           <td>(</td>
-          <td class="paramtype">genType const &amp;&#160;</td>
+          <td class="paramtype">T&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">genType const &amp;&#160;</td>
-          <td class="paramname"><em>base</em>&#160;</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>ExpectedValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>StandardDeviation</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -124,26 +130,32 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Logarithm for any base. </p>
-<p>From GLM_GTX_log_base. </p>
+<p>1D gauss function </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00158.html" title="Include <glm/gtc/epsilon.hpp> to use the features of this extension. ">GLM_GTC_epsilon</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ga04ef803a24f3d4f8c67dbccb33b0fce0"></a>
+<a class="anchor" id="gad19ec8754a83c0b9a8dc16b7e60705ab"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">GLM_FUNC_DECL vec&lt;L, T, Q&gt; glm::sign </td>
+          <td class="memname">GLM_FUNC_DECL T glm::gauss </td>
           <td>(</td>
-          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>Coord</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">vec&lt; L, T, Q &gt; const &amp;&#160;</td>
-          <td class="paramname"><em>base</em>&#160;</td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>ExpectedValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vec&lt; 2, T, Q &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>StandardDeviation</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -153,8 +165,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Logarithm for any base. </p>
-<p>From GLM_GTX_log_base. </p>
+<p>2D gauss function </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="a00158.html" title="Include <glm/gtc/epsilon.hpp> to use the features of this extension. ">GLM_GTC_epsilon</a> </dd></dl>
 
 </div>
 </div>
