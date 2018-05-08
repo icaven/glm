@@ -119,7 +119,7 @@ namespace glm{
 		assert(a >= zero<genType>());
 		assert(a <= one<genType>());
 
-		if (a < static_cast<genType>(0.5))
+		if(a < static_cast<genType>(0.5))
 		{
 			return static_cast<genType>(8) * a * a * a * a;
 		}
@@ -158,7 +158,7 @@ namespace glm{
 		assert(a >= zero<genType>());
 		assert(a <= one<genType>());
 
-		if (a < static_cast<genType>(0.5))
+		if(a < static_cast<genType>(0.5))
 		{
 			return static_cast<genType>(16) * a * a * a * a * a;
 		}
@@ -243,7 +243,10 @@ namespace glm{
 		assert(a >= zero<genType>());
 		assert(a <= one<genType>());
 
-		return (a == zero<genType>()) ? a : pow<genType>(static_cast<genType>(2), static_cast<genType>(10) * (a - one<genType>()));
+		if(a <= zero<genType>())
+			return a;
+		else
+			return pow<genType>(static_cast<genType>(2), static_cast<genType>(10) * (a - one<genType>()));
 	}
 
 	template <typename genType>
@@ -253,7 +256,10 @@ namespace glm{
 		assert(a >= zero<genType>());
 		assert(a <= one<genType>());
 
-		return (a == one<genType>()) ? a : one<genType>() - pow<genType>(static_cast<genType>(2), -static_cast<genType>(10) * a);
+		if(a >= one<genType>())
+			return a;
+		else
+			return one<genType>() - pow<genType>(static_cast<genType>(2), -static_cast<genType>(10) * a);
 	}
 
 	template <typename genType>
@@ -263,16 +269,10 @@ namespace glm{
 		assert(a >= zero<genType>());
 		assert(a <= one<genType>());
 
-		if(a == zero<genType>() || a == one<genType>()) return a;
-		
 		if(a < static_cast<genType>(0.5))
-		{
 			return static_cast<genType>(0.5) * pow<genType>(static_cast<genType>(2), (static_cast<genType>(20) * a) - static_cast<genType>(10));
-		}
 		else
-		{
 			return -static_cast<genType>(0.5) * pow<genType>(static_cast<genType>(2), (-static_cast<genType>(20) * a) + static_cast<genType>(10)) + one<genType>();
-		}
 	}
 
 	template <typename genType>
@@ -303,13 +303,9 @@ namespace glm{
 		assert(a <= one<genType>());
 
 		if(a < static_cast<genType>(0.5))
-		{
 			return static_cast<genType>(0.5) * sin(static_cast<genType>(13) * half_pi<genType>() * (static_cast<genType>(2) * a)) * pow<genType>(static_cast<genType>(2), static_cast<genType>(10) * ((static_cast<genType>(2) * a) - one<genType>()));
-		}
 		else
-		{
 			return static_cast<genType>(0.5) * (sin(-static_cast<genType>(13) * half_pi<genType>() * ((static_cast<genType>(2) * a - one<genType>()) + one<genType>())) * pow<genType>(static_cast<genType>(2), -static_cast<genType>(10) * (static_cast<genType>(2) * a - one<genType>())) + static_cast<genType>(2));
-		}
 	}
 
 	template <typename genType>

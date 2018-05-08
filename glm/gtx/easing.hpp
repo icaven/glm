@@ -185,16 +185,19 @@ namespace glm{
 	template <typename genType>
 	GLM_FUNC_DECL genType backEaseInOut(genType const& a);
 
+	/// @param a parameter
 	/// @param o Optional overshoot modifier
 	/// @see gtx_easing
 	template <typename genType>
 	GLM_FUNC_DECL genType backEaseIn(genType const& a, genType const& o);
 
+	/// @param a parameter
 	/// @param o Optional overshoot modifier
 	/// @see gtx_easing
 	template <typename genType>
 	GLM_FUNC_DECL genType backEaseOut(genType const& a, genType const& o);
 
+	/// @param a parameter
 	/// @param o Optional overshoot modifier
 	/// @see gtx_easing
 	template <typename genType>
