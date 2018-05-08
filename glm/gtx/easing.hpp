@@ -171,29 +171,41 @@ namespace glm{
 	template <typename genType>
 	GLM_FUNC_DECL genType elasticEaseInOut(genType const & a);
 
+	/// @see gtx_easing
+	template <typename genType>
+	GLM_FUNC_DECL genType backEaseIn(genType const& a);
+
+	/// @see gtx_easing
+	template <typename genType>
+	GLM_FUNC_DECL genType backEaseOut(genType const& a);
+
+	/// @see gtx_easing
+	template <typename genType>
+	GLM_FUNC_DECL genType backEaseInOut(genType const& a);
+
 	/// @param o Optional overshoot modifier
 	/// @see gtx_easing
 	template <typename genType>
-	GLM_FUNC_DECL genType backEaseIn(genType const & a, genType const & o = 1.70158f);
+	GLM_FUNC_DECL genType backEaseIn(genType const& a, genType const& o);
 
 	/// @param o Optional overshoot modifier
 	/// @see gtx_easing
 	template <typename genType>
-	GLM_FUNC_DECL genType backEaseOut(genType const & a, genType const & o = 1.70158f);
+	GLM_FUNC_DECL genType backEaseOut(genType const& a, genType const& o);
 
 	/// @param o Optional overshoot modifier
 	/// @see gtx_easing
 	template <typename genType>
-	GLM_FUNC_DECL genType backEaseInOut(genType const & a, genType const & o = 1.70158f);
+	GLM_FUNC_DECL genType backEaseInOut(genType const& a, genType const& o);
 
 	template <typename genType>
-	GLM_FUNC_DECL genType bounceEaseIn(genType const & a);
+	GLM_FUNC_DECL genType bounceEaseIn(genType const& a);
 
 	template <typename genType>
-	GLM_FUNC_DECL genType bounceEaseOut(genType const & a);
+	GLM_FUNC_DECL genType bounceEaseOut(genType const& a);
 
 	template <typename genType>
-	GLM_FUNC_DECL genType bounceEaseInOut(genType const & a, genType);
+	GLM_FUNC_DECL genType bounceEaseInOut(genType const& a, genType);
 
 	/// @}
 }//namespace glm

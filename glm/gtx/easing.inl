@@ -362,6 +362,24 @@ namespace glm{
 	}
 
 	template <typename genType>
+	GLM_FUNC_QUALIFIER genType backEaseIn(genType const& a)
+	{
+		return backEaseIn(a, static_cast<genType>(1.70158));
+	}
+
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType backEaseOut(genType const& a)
+	{
+		return backEaseOut(a, static_cast<genType>(1.70158));
+	}
+
+	template <typename genType>
+	GLM_FUNC_QUALIFIER genType backEaseInOut(genType const& a)
+	{
+		return backEaseInOut(a, static_cast<genType>(1.70158));
+	}
+
+	template <typename genType>
 	GLM_FUNC_QUALIFIER genType bounceEaseOut(genType const& a)
 	{
 		// Only defined in [0, 1]
