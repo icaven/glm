@@ -32,7 +32,7 @@ namespace glm{
 		assert(a >= zero<genType>());
 		assert(a <= one<genType>());
 
-		return -(a * (a - 2));
+		return -(a * (a - static_cast<genType>(2)));
 	}
 
 	template <typename genType>
@@ -42,13 +42,13 @@ namespace glm{
 		assert(a >= zero<genType>());
 		assert(a <= one<genType>());
 
-		if(a < 0.5)
+		if(a < static_cast<genType>(0.5))
 		{
-			return 2 * a * a;
+			return static_cast<genType>(2) * a * a;
 		}
 		else
 		{
-			return (-2 * a * a) + (4 * a) - one<genType>();
+			return (-static_cast<genType>(2) * a * a) + (4 * a) - one<genType>();
 		}
 	}
 
@@ -80,14 +80,14 @@ namespace glm{
 		assert(a >= zero<genType>());
 		assert(a <= one<genType>());
 
-		if (a < 0.5)
+		if (a < static_cast<genType>(0.5))
 		{
-			return 4 * a * a * a;
+			return static_cast<genType>(4) * a * a * a;
 		}
 		else
 		{
-			genType const f = ((2 * a) - 2);
-			return 0.5f * f * f * f + one<genType>();
+			genType const f = ((static_cast<genType>(2) * a) - static_cast<genType>(2));
+			return static_cast<genType>(0.5) * f * f * f + one<genType>();
 		}
 	}
 
@@ -119,14 +119,14 @@ namespace glm{
 		assert(a >= zero<genType>());
 		assert(a <= one<genType>());
 
-		if (a < 0.5)
+		if (a < static_cast<genType>(0.5))
 		{
-			return 8 * a * a * a * a;
+			return static_cast<genType>(8) * a * a * a * a;
 		}
 		else
 		{
 			genType const f = (a - one<genType>());
-			return -8 * f * f * f * f + one<genType>();
+			return -static_cast<genType>(8) * f * f * f * f + one<genType>();
 		}
 	}
 
@@ -158,14 +158,14 @@ namespace glm{
 		assert(a >= zero<genType>());
 		assert(a <= one<genType>());
 
-		if (a < 0.5)
+		if (a < static_cast<genType>(0.5))
 		{
-			return 16 * a * a * a * a * a;
+			return static_cast<genType>(16) * a * a * a * a * a;
 		}
 		else
 		{
-			genType const f = ((2 * a) - 2);
-			return 0.5f * f * f * f * f * f + one<genType>();
+			genType const f = ((static_cast<genType>(2) * a) - static_cast<genType>(2));
+			return static_cast<genType>(0.5) * f * f * f * f * f + one<genType>();
 		}
 	}
 
@@ -196,7 +196,7 @@ namespace glm{
 		assert(a >= zero<genType>());
 		assert(a <= one<genType>());
 
-		return 0.5f * (one<genType>() - cos(a * pi<genType>()));
+		return static_cast<genType>(0.5) * (one<genType>() - cos(a * pi<genType>()));
 	}
 
 	template <typename genType>
@@ -216,7 +216,7 @@ namespace glm{
 		assert(a >= zero<genType>());
 		assert(a <= one<genType>());
 
-		return sqrt((2 - a) * a);
+		return sqrt((static_cast<genType>(2) - a) * a);
 	}
 
 	template <typename genType>
@@ -267,11 +267,11 @@ namespace glm{
 		
 		if(a < static_cast<genType>(0.5))
 		{
-			return static_cast<genType>(0.5) * pow<genType>(2, (20 * a) - 10);
+			return static_cast<genType>(0.5) * pow<genType>(static_cast<genType>(2), (static_cast<genType>(20) * a) - static_cast<genType>(10));
 		}
 		else
 		{
-			return -static_cast<genType>(0.5) * pow<genType>(2, (-20 * a) + 10) + one<genType>();
+			return -static_cast<genType>(0.5) * pow<genType>(static_cast<genType>(2), (-static_cast<genType>(20) * a) + static_cast<genType>(10)) + one<genType>();
 		}
 	}
 
@@ -282,7 +282,7 @@ namespace glm{
 		assert(a >= zero<genType>());
 		assert(a <= one<genType>());
 
-		return sin(13 * half_pi<genType>() * a) * pow<genType>(static_cast<genType>(2), 10 * (a - one<genType>()));
+		return sin(static_cast<genType>(13) * half_pi<genType>() * a) * pow<genType>(static_cast<genType>(2), static_cast<genType>(10) * (a - one<genType>()));
 	}
 
 	template <typename genType>
@@ -292,7 +292,7 @@ namespace glm{
 		assert(a >= zero<genType>());
 		assert(a <= one<genType>());
 
-		return sin(-13 * half_pi<genType>() * (a + one<genType>())) * pow<genType>(static_cast<genType>(2), -10 * a) + one<genType>();
+		return sin(-static_cast<genType>(13) * half_pi<genType>() * (a + one<genType>())) * pow<genType>(static_cast<genType>(2), -static_cast<genType>(10) * a) + one<genType>();
 	}
 
 	template <typename genType>
