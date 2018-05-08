@@ -249,7 +249,8 @@ namespace glm{
 		{
 			genType const Complementary = a - one<genType>();
 			genType const Two = static_cast<genType>(2);
-			return glm::pow<genType>(Two, Complementary * static_cast<genType>(10));
+			
+			return glm::pow(Two, Complementary * static_cast<genType>(10));
 		}
 	}
 
@@ -263,7 +264,9 @@ namespace glm{
 		if(a >= one<genType>())
 			return a;
 		else
-			return one<genType>() - glm::pow<genType>(static_cast<genType>(2), -static_cast<genType>(10) * a);
+		{
+			return one<genType>() - glm::pow(static_cast<genType>(2), -static_cast<genType>(10) * a);
+		}
 	}
 
 	template <typename genType>
@@ -274,9 +277,9 @@ namespace glm{
 		assert(a <= one<genType>());
 
 		if(a < static_cast<genType>(0.5))
-			return static_cast<genType>(0.5) * glm::pow<genType>(static_cast<genType>(2), (static_cast<genType>(20) * a) - static_cast<genType>(10));
+			return static_cast<genType>(0.5) * glm::pow(static_cast<genType>(2), (static_cast<genType>(20) * a) - static_cast<genType>(10));
 		else
-			return -static_cast<genType>(0.5) * glm::pow<genType>(static_cast<genType>(2), (-static_cast<genType>(20) * a) + static_cast<genType>(10)) + one<genType>();
+			return -static_cast<genType>(0.5) * glm::pow(static_cast<genType>(2), (-static_cast<genType>(20) * a) + static_cast<genType>(10)) + one<genType>();
 	}
 
 	template <typename genType>
@@ -286,7 +289,7 @@ namespace glm{
 		assert(a >= zero<genType>());
 		assert(a <= one<genType>());
 
-		return std::sin(static_cast<genType>(13) * half_pi<genType>() * a) * glm::pow<genType>(static_cast<genType>(2), static_cast<genType>(10) * (a - one<genType>()));
+		return std::sin(static_cast<genType>(13) * half_pi<genType>() * a) * glm::pow(static_cast<genType>(2), static_cast<genType>(10) * (a - one<genType>()));
 	}
 
 	template <typename genType>
@@ -296,7 +299,7 @@ namespace glm{
 		assert(a >= zero<genType>());
 		assert(a <= one<genType>());
 
-		return std::sin(-static_cast<genType>(13) * half_pi<genType>() * (a + one<genType>())) * glm::pow<genType>(static_cast<genType>(2), -static_cast<genType>(10) * a) + one<genType>();
+		return std::sin(-static_cast<genType>(13) * half_pi<genType>() * (a + one<genType>())) * glm::pow(static_cast<genType>(2), -static_cast<genType>(10) * a) + one<genType>();
 	}
 
 	template <typename genType>
@@ -307,9 +310,9 @@ namespace glm{
 		assert(a <= one<genType>());
 
 		if(a < static_cast<genType>(0.5))
-			return static_cast<genType>(0.5) * std::sin(static_cast<genType>(13) * half_pi<genType>() * (static_cast<genType>(2) * a)) * glm::pow<genType>(static_cast<genType>(2), static_cast<genType>(10) * ((static_cast<genType>(2) * a) - one<genType>()));
+			return static_cast<genType>(0.5) * std::sin(static_cast<genType>(13) * half_pi<genType>() * (static_cast<genType>(2) * a)) * glm::pow(static_cast<genType>(2), static_cast<genType>(10) * ((static_cast<genType>(2) * a) - one<genType>()));
 		else
-			return static_cast<genType>(0.5) * (std::sin(-static_cast<genType>(13) * half_pi<genType>() * ((static_cast<genType>(2) * a - one<genType>()) + one<genType>())) * glm::pow<genType>(static_cast<genType>(2), -static_cast<genType>(10) * (static_cast<genType>(2) * a - one<genType>())) + static_cast<genType>(2));
+			return static_cast<genType>(0.5) * (std::sin(-static_cast<genType>(13) * half_pi<genType>() * ((static_cast<genType>(2) * a - one<genType>()) + one<genType>())) * glm::pow(static_cast<genType>(2), -static_cast<genType>(10) * (static_cast<genType>(2) * a - one<genType>())) + static_cast<genType>(2));
 	}
 
 	template <typename genType>
