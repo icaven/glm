@@ -200,14 +200,17 @@ namespace glm{
 	template <typename genType>
 	GLM_FUNC_DECL genType backEaseInOut(genType const& a, genType const& o);
 
+	/// @see gtx_easing
 	template <typename genType>
 	GLM_FUNC_DECL genType bounceEaseIn(genType const& a);
 
+	/// @see gtx_easing
 	template <typename genType>
 	GLM_FUNC_DECL genType bounceEaseOut(genType const& a);
 
+	/// @see gtx_easing
 	template <typename genType>
-	GLM_FUNC_DECL genType bounceEaseInOut(genType const& a, genType);
+	GLM_FUNC_DECL genType bounceEaseInOut(genType const& a);
 
 	/// @}
 }//namespace glm
