@@ -9,7 +9,7 @@ namespace
 	template<typename T>
 	void _test_easing()
 	{
-		T a = static_cast<float>(0.5);
+		T a = static_cast<T>(0.5);
 		T r;
 
 		r = glm::linearInterpolation(a);
