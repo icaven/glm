@@ -490,6 +490,11 @@ namespace detail
 		return detail::bitfieldInterleave<uint8, uint32>(x, y, z);
 	}
 
+	GLM_FUNC_QUALIFIER uint32 bitfieldInterleave(u8vec3 const& v)
+	{
+		return detail::bitfieldInterleave<uint8, uint32>(v.x, v.y, v.z);
+	}
+
 	GLM_FUNC_QUALIFIER int64 bitfieldInterleave(int16 x, int16 y, int16 z)
 	{
 		union sign16
@@ -517,6 +522,11 @@ namespace detail
 		return detail::bitfieldInterleave<uint32, uint64>(x, y, z);
 	}
 
+	GLM_FUNC_QUALIFIER uint64 bitfieldInterleave(u16vec3 const& v)
+	{
+		return detail::bitfieldInterleave<uint32, uint64>(v.x, v.y, v.z);
+	}
+
 	GLM_FUNC_QUALIFIER int64 bitfieldInterleave(int32 x, int32 y, int32 z)
 	{
 		union sign16
@@ -542,6 +552,11 @@ namespace detail
 	GLM_FUNC_QUALIFIER uint64 bitfieldInterleave(uint32 x, uint32 y, uint32 z)
 	{
 		return detail::bitfieldInterleave<uint32, uint64>(x, y, z);
+	}
+
+	GLM_FUNC_QUALIFIER uint64 bitfieldInterleave(u32vec3 const& v)
+	{
+		return detail::bitfieldInterleave<uint32, uint64>(v.x, v.y, v.z);
 	}
 
 	GLM_FUNC_QUALIFIER int32 bitfieldInterleave(int8 x, int8 y, int8 z, int8 w)
@@ -572,6 +587,11 @@ namespace detail
 		return detail::bitfieldInterleave<uint8, uint32>(x, y, z, w);
 	}
 
+	GLM_FUNC_QUALIFIER uint64 bitfieldInterleave(u8vec4 const& v)
+	{
+		return detail::bitfieldInterleave<uint32, uint64>(v.x, v.y, v.z, v.w);
+	}
+
 	GLM_FUNC_QUALIFIER int64 bitfieldInterleave(int16 x, int16 y, int16 z, int16 w)
 	{
 		union sign16
@@ -598,5 +618,10 @@ namespace detail
 	GLM_FUNC_QUALIFIER uint64 bitfieldInterleave(uint16 x, uint16 y, uint16 z, uint16 w)
 	{
 		return detail::bitfieldInterleave<uint16, uint64>(x, y, z, w);
+	}
+
+	GLM_FUNC_QUALIFIER uint64 bitfieldInterleave(u16vec4 const& v)
+	{
+		return detail::bitfieldInterleave<uint16, uint64>(v.x, v.y, v.z, v.w);
 	}
 }//namespace glm
