@@ -300,7 +300,7 @@ namespace min_
 		return y ^ ((x ^ y) & -(x < y)); 
 	}
 
-	static int perf(int Count)
+	static int perf(std::size_t Count)
 	{
 		std::vector<int> A(Count);
 		std::vector<int> B(Count);
