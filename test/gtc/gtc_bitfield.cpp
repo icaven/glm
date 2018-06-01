@@ -493,19 +493,29 @@ namespace bitfieldInterleave
 			for(glm::uint8 y = 0; y < 127; ++y)
 			for(glm::uint8 x = 0; x < 127; ++x)
 			{
-				glm::uint64 A(glm::bitfieldInterleave(glm::uint8(x), glm::uint8(y)));
-				glm::uint64 B(glm::bitfieldInterleave(glm::uint16(x), glm::uint16(y)));
-				glm::uint64 C(glm::bitfieldInterleave(glm::uint32(x), glm::uint32(y)));
+				glm::uint64 A(glm::bitfieldInterleave(glm::u8vec2(x, y)));
+				glm::uint64 B(glm::bitfieldInterleave(glm::u16vec2(x, y)));
+				glm::uint64 C(glm::bitfieldInterleave(glm::u32vec2(x, y)));
 
 				Error += A == B ? 0 : 1;
 				Error += A == C ? 0 : 1;
 
-				glm::int64 D(glm::bitfieldInterleave(glm::int8(x), glm::int8(y)));
-				glm::int64 E(glm::bitfieldInterleave(glm::int16(x), glm::int16(y)));
-				glm::int64 F(glm::bitfieldInterleave(glm::int32(x), glm::int32(y)));
+				glm::u32vec2 const& D = glm::bitfieldDeinterleave(C);
+				Error += D.x == x ? 0 : 1;
+				Error += D.y == y ? 0 : 1;
+			}
+		}
 
-				Error += D == E ? 0 : 1;
-				Error += D == F ? 0 : 1;
+		{
+			for(glm::uint8 y = 0; y < 127; ++y)
+			for(glm::uint8 x = 0; x < 127; ++x)
+			{
+				glm::int64 A(glm::bitfieldInterleave(glm::int8(x), glm::int8(y)));
+				glm::int64 B(glm::bitfieldInterleave(glm::int16(x), glm::int16(y)));
+				glm::int64 C(glm::bitfieldInterleave(glm::int32(x), glm::int32(y)));
+
+				Error += A == B ? 0 : 1;
+				Error += A == C ? 0 : 1;
 			}
 		}
 
@@ -888,6 +898,7 @@ namespace bitfieldInterleave5
 int main()
 {
 	int Error = 0;
+
 /* Tests for a faster and to reserve bitfieldInterleave
 	Error += ::bitfieldInterleave5::test();
 	Error += ::bitfieldInterleave5::perf();

@@ -289,6 +289,62 @@ namespace min_
 
 		return Error;
 	}
+
+	int min_tern(int a, int b)
+	{
+		return a < b ? a : b;
+	}
+
+	int min_int(int x, int y)
+	{
+		return y ^ ((x ^ y) & -(x < y)); 
+	}
+
+	static int perf(int Count)
+	{
+		std::vector<int> A(Count);
+		std::vector<int> B(Count);
+
+		std::size_t const InternalCount = 200000;
+
+		for(std::size_t i = 0; i < Count; ++i)
+		{
+			A[i] = glm::linearRand(-1000, 1000);
+			B[i] = glm::linearRand(-1000, 1000);
+		}
+
+		int Error = 0;
+
+		glm::int32 SumA = 0;
+		{
+			std::clock_t Timestamp0 = std::clock();
+
+			for (std::size_t j = 0; j < InternalCount; ++j)
+			for (std::size_t i = 0; i < Count; ++i)
+				SumA += min_tern(A[i], B[i]);
+
+			std::clock_t Timestamp1 = std::clock();
+
+			std::printf("min_tern Time %d clocks\n", static_cast<unsigned int>(Timestamp1 - Timestamp0));
+		}
+
+		glm::int32 SumB = 0;
+		{
+			std::clock_t Timestamp0 = std::clock();
+
+			for (std::size_t j = 0; j < InternalCount; ++j)
+			for (std::size_t i = 0; i < Count; ++i)
+				SumB += min_int(A[i], B[i]);
+
+			std::clock_t Timestamp1 = std::clock();
+
+			std::printf("min_int Time %d clocks\n", static_cast<unsigned int>(Timestamp1 - Timestamp0));
+		}
+
+		Error += SumA == SumB ? 0 : 1;
+
+		return Error;
+	}
 }//namespace min_
 
 namespace max_
@@ -1261,6 +1317,8 @@ int main()
 		std::size_t Samples = 1;
 #	endif
 	Error += sign::perf(Samples);
+
+	Error += min_::perf(Samples);
 
 	return Error;
 }
