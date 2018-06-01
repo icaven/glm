@@ -587,9 +587,9 @@ namespace detail
 		return detail::bitfieldInterleave<uint8, uint32>(x, y, z, w);
 	}
 
-	GLM_FUNC_QUALIFIER uint64 bitfieldInterleave(u8vec4 const& v)
+	GLM_FUNC_QUALIFIER uint32 bitfieldInterleave(u8vec4 const& v)
 	{
-		return detail::bitfieldInterleave<uint32, uint64>(v.x, v.y, v.z, v.w);
+		return detail::bitfieldInterleave<uint8, uint32>(v.x, v.y, v.z, v.w);
 	}
 
 	GLM_FUNC_QUALIFIER int64 bitfieldInterleave(int16 x, int16 y, int16 z, int16 w)
