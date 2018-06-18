@@ -31,8 +31,8 @@ namespace fastCos
 		const std::clock_t timestamp3 = std::clock();
 		const std::clock_t time_fast = timestamp2 - timestamp1;
 		const std::clock_t time_default = timestamp3 - timestamp2;
-		std::printf("fastCos Time %d clocks\n", static_cast<unsigned int>(time_fast));
-		std::printf("cos Time %d clocks\n", static_cast<unsigned int>(time_default));
+		std::printf("fastCos Time %d clocks\n", static_cast<int>(time_fast));
+		std::printf("cos Time %d clocks\n", static_cast<int>(time_default));
 
 		return time_fast <= time_default ? 0 : 1;
 	}
@@ -65,8 +65,8 @@ namespace fastSin
 		const std::clock_t timestamp3 = std::clock();
 		const std::clock_t time_fast = timestamp2 - timestamp1;
 		const std::clock_t time_default = timestamp3 - timestamp2;
-		std::printf("fastSin Time %d clocks\n", static_cast<unsigned int>(time_fast));
-		std::printf("sin Time %d clocks\n", static_cast<unsigned int>(time_default));
+		std::printf("fastSin Time %d clocks\n", static_cast<int>(time_fast));
+		std::printf("sin Time %d clocks\n", static_cast<int>(time_default));
 
 		return time_fast <= time_default ? 0 : 1;
 	}
@@ -91,8 +91,8 @@ namespace fastTan
 		const std::clock_t timestamp3 = std::clock();
 		const std::clock_t time_fast = timestamp2 - timestamp1;
 		const std::clock_t time_default = timestamp3 - timestamp2;
-		std::printf("fastTan Time %d clocks\n", static_cast<unsigned int>(time_fast));
-		std::printf("tan Time %d clocks\n", static_cast<unsigned int>(time_default));
+		std::printf("fastTan Time %d clocks\n", static_cast<int>(time_fast));
+		std::printf("tan Time %d clocks\n", static_cast<int>(time_default));
 
 		return time_fast <= time_default ? 0 : 1;
 	}
@@ -118,8 +118,8 @@ namespace fastAcos
 		const std::clock_t time_fast = timestamp2 - timestamp1;
 		const std::clock_t time_default = timestamp3 - timestamp2;
 
-		std::printf("fastAcos Time %d clocks\n", static_cast<unsigned int>(time_fast));
-		std::printf("acos Time %d clocks\n", static_cast<unsigned int>(time_default));
+		std::printf("fastAcos Time %d clocks\n", static_cast<int>(time_fast));
+		std::printf("acos Time %d clocks\n", static_cast<int>(time_default));
 
 		return time_fast <= time_default ? 0 : 1;
 	}
@@ -141,8 +141,8 @@ namespace fastAsin
 		const std::clock_t timestamp3 = std::clock();
 		const std::clock_t time_fast = timestamp2 - timestamp1;
 		const std::clock_t time_default = timestamp3 - timestamp2;
-		std::printf("fastAsin Time %d clocks\n", static_cast<unsigned int>(time_fast));
-		std::printf("asin Time %d clocks\n", static_cast<unsigned int>(time_default));
+		std::printf("fastAsin Time %d clocks\n", static_cast<int>(time_fast));
+		std::printf("asin Time %d clocks\n", static_cast<int>(time_default));
 
 		return time_fast <= time_default ? 0 : 1;
 	}
@@ -164,8 +164,8 @@ namespace fastAtan
 		const std::clock_t timestamp3 = std::clock();
 		const std::clock_t time_fast = timestamp2 - timestamp1;
 		const std::clock_t time_default = timestamp3 - timestamp2;
-		std::printf("fastAtan Time %d clocks\n", static_cast<unsigned int>(time_fast));
-		std::printf("atan Time %d clocks\n", static_cast<unsigned int>(time_default));
+		std::printf("fastAtan Time %d clocks\n", static_cast<int>(time_fast));
+		std::printf("atan Time %d clocks\n", static_cast<int>(time_default));
 
 		return time_fast <= time_default ? 0 : 1;
 	}
@@ -247,7 +247,7 @@ namespace taylorCos
 
 		std::clock_t const TimeStampEnd = std::clock();
 
-		std::printf("fastCosNew %ld clocks\n", TimeStampEnd - TimeStampBegin);
+		std::printf("fastCosNew %d clocks\n", static_cast<int>(TimeStampEnd - TimeStampBegin));
 
 		int Error = 0;
 		for(std::size_t i = 0; i < Samples; ++i)
@@ -288,7 +288,7 @@ namespace taylorCos
 
 		std::clock_t const TimeStampEnd = std::clock();
 
-		std::printf("fastCosDeterminisctic %ld clocks\n", TimeStampEnd - TimeStampBegin);
+		std::printf("fastCosDeterminisctic %d clocks\n", static_cast<int>(TimeStampEnd - TimeStampBegin));
 
 		int Error = 0;
 		for(std::size_t i = 0; i < Samples; ++i)
@@ -335,7 +335,7 @@ namespace taylorCos
 
 		std::clock_t const TimeStampEnd = std::clock();
 
-		std::printf("fastCosRef %ld clocks\n", TimeStampEnd - TimeStampBegin);
+		std::printf("fastCosRef %d clocks\n", static_cast<int>(TimeStampEnd - TimeStampBegin));
 
 		int Error = 0;
 		for(std::size_t i = 0; i < Samples; ++i)
@@ -357,7 +357,7 @@ namespace taylorCos
 
 		std::clock_t const TimeStampEnd = std::clock();
 
-		std::printf("fastCosOld %ld clocks\n", TimeStampEnd - TimeStampBegin);
+		std::printf("fastCosOld %d clocks\n", static_cast<int>(TimeStampEnd - TimeStampBegin));
 
 		int Error = 0;
 		for(std::size_t i = 0; i < Samples; ++i)
@@ -379,7 +379,7 @@ namespace taylorCos
 
 		std::clock_t const TimeStampEnd = std::clock();
 
-		std::printf("cos %ld clocks\n", TimeStampEnd - TimeStampBegin);
+		std::printf("cos %d clocks\n", static_cast<int>(TimeStampEnd - TimeStampBegin));
 
 		int Error = 0;
 		for(std::size_t i = 0; i < Samples; ++i)
@@ -474,7 +474,7 @@ namespace taylor2
 
 		std::clock_t const TimeStampEnd = std::clock();
 
-		std::printf("taylorCosA %ld clocks\n", TimeStampEnd - TimeStampBegin);
+		std::printf("taylorCosA %d clocks\n", static_cast<int>(TimeStampEnd - TimeStampBegin));
 
 		int Error = 0;
 		for(std::size_t i = 0; i < Samples; ++i)
@@ -496,7 +496,7 @@ namespace taylor2
 
 		std::clock_t const TimeStampEnd = std::clock();
 
-		std::printf("taylorCosB %ld clocks\n", TimeStampEnd - TimeStampBegin);
+		std::printf("taylorCosB %d clocks\n", static_cast<int>(TimeStampEnd - TimeStampBegin));
 
 		int Error = 0;
 		for(std::size_t i = 0; i < Samples; ++i)
@@ -518,7 +518,7 @@ namespace taylor2
 
 		std::clock_t const TimeStampEnd = std::clock();
 
-		std::printf("taylorCosC %ld clocks\n", TimeStampEnd - TimeStampBegin);
+		std::printf("taylorCosC %d clocks\n", static_cast<int>(TimeStampEnd - TimeStampBegin));
 
 		int Error = 0;
 		for(std::size_t i = 0; i < Samples; ++i)

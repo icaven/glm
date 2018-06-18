@@ -433,7 +433,7 @@ static int test_vec4_perf_AoS(std::size_t Size)
 
 	std::clock_t EndTime = std::clock();
 
-	std::printf("AoS: %ld\n", EndTime - StartTime);
+	std::printf("AoS: %d\n", static_cast<int>(EndTime - StartTime));
 
 	return Error;
 }
@@ -472,7 +472,7 @@ static int test_vec4_perf_SoA(std::size_t Size)
 
 	std::clock_t EndTime = std::clock();
 
-	std::printf("SoA: %ld\n", EndTime - StartTime);
+	std::printf("SoA: %d\n", static_cast<int>(EndTime - StartTime));
 
 	return Error;
 }

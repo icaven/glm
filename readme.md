@@ -55,6 +55,9 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 #### Features:
 - Added bitfieldDeinterleave to GTC_bitfield
 
+#### Fixes:
+- Fixed build problems due to printf and std::clock_t #778
+
 ### [GLM 0.9.9.0](https://github.com/g-truc/glm/releases/tag/0.9.9.0) - 2018-05-22
 #### Features:
 - Added RGBM encoding in GTC_packing #420
