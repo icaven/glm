@@ -57,6 +57,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 
 #### Fixes:
 - Fixed build problems due to printf and std::clock_t #778
+- Fixed int mod
 
 ### [GLM 0.9.9.0](https://github.com/g-truc/glm/releases/tag/0.9.9.0) - 2018-05-22
 #### Features:
