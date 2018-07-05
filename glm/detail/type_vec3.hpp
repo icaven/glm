@@ -102,6 +102,18 @@ namespace glm
 		template<typename X, typename Y, typename Z>
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(X x, Y y, Z z);
 		template<typename X, typename Y, typename Z>
+		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(vec<1, X, Q> const& _x, Y _y, Z _z);
+		template<typename X, typename Y, typename Z>
+		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(X _x, vec<1, Y, Q> const& _y, Z _z);
+		template<typename X, typename Y, typename Z>
+		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(vec<1, X, Q> const& _x, vec<1, Y, Q> const& _y, Z _z);
+		template<typename X, typename Y, typename Z>
+		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(X _x, Y _y, vec<1, Z, Q> const& _z);
+		template<typename X, typename Y, typename Z>
+		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(vec<1, X, Q> const& _x, Y _y, vec<1, Z, Q> const& _z);
+		template<typename X, typename Y, typename Z>
+		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(X _x, vec<1, Y, Q> const& _y, vec<1, Z, Q> const& _z);
+		template<typename X, typename Y, typename Z>
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(vec<1, X, Q> const& _x, vec<1, Y, Q> const& _y, vec<1, Z, Q> const& _z);
 
 		// -- Conversion vector constructors --

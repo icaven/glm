@@ -2,6 +2,7 @@
 #include <glm/gtc/epsilon.hpp>
 #include <glm/vector_relational.hpp>
 #include <glm/vec2.hpp>
+#include <glm/ext/vec1.hpp>
 #include <vector>
 #if GLM_HAS_TRIVIAL_QUERIES
 #	include <type_traits>
@@ -255,6 +256,25 @@ int test_vec2_ctor()
 		//glm::vec2 D = glm::dvec2(2.0); // Build error TODO: What does the specification says?
 		glm::vec2 E(glm::dvec2(2.0));
 		glm::vec2 F(glm::ivec2(2));
+	}
+
+	{
+		glm::vec1 const R(1.0f);
+		glm::vec1 const S(2.0f);
+		glm::vec2 const O(1.0f, 2.0f);
+
+		glm::vec2 const A(R);
+		glm::vec2 const B(1.0f);
+		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
+
+		glm::vec2 const C(R, S);
+		Error += glm::all(glm::equal(C, O)) ? 0 : 1;
+
+		glm::vec2 const D(R, 2.0f);
+		Error += glm::all(glm::equal(D, O)) ? 0 : 1;
+
+		glm::vec2 const E(1.0f, S);
+		Error += glm::all(glm::equal(E, O)) ? 0 : 1;
 	}
 
 	return Error;

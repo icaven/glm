@@ -35,6 +35,11 @@ namespace glm
 	{}
 
 	template<typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<2, T, Q>::vec(vec<1, T, P> const& v)
+		: x(v.x), y(v.x)
+	{}
+
+	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<2, T, Q>::vec(T _x, T _y)
 		: x(_x), y(_y)
 	{}
@@ -46,6 +51,20 @@ namespace glm
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<2, T, Q>::vec(A _x, B _y)
 		: x(static_cast<T>(_x))
 		, y(static_cast<T>(_y))
+	{}
+
+	template<typename T, qualifier Q>
+	template<typename A, typename B>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<2, T, Q>::vec(vec<1, A, Q> const& _x, B _y)
+		: x(static_cast<T>(_x.x))
+		, y(static_cast<T>(_y))
+	{}
+
+	template<typename T, qualifier Q>
+	template<typename A, typename B>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<2, T, Q>::vec(A _x, vec<1, B, Q> const& _y)
+		: x(static_cast<T>(_x))
+		, y(static_cast<T>(_y.x))
 	{}
 
 	template<typename T, qualifier Q>
