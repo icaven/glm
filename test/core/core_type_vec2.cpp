@@ -277,6 +277,25 @@ int test_vec2_ctor()
 		Error += glm::all(glm::equal(E, O)) ? 0 : 1;
 	}
 
+	{
+		glm::vec1 const R(1.0f);
+		glm::dvec1 const S(2.0);
+		glm::vec2 const O(1.0, 2.0);
+
+		glm::vec2 const A(R);
+		glm::vec2 const B(1.0);
+		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
+
+		glm::vec2 const C(R, S);
+		Error += glm::all(glm::equal(C, O)) ? 0 : 1;
+
+		glm::vec2 const D(R, 2.0);
+		Error += glm::all(glm::equal(D, O)) ? 0 : 1;
+
+		glm::vec2 const E(1.0, S);
+		Error += glm::all(glm::equal(E, O)) ? 0 : 1;
+	}
+
 	return Error;
 }
 

@@ -98,6 +98,9 @@ namespace glm
 
 		// -- Conversion scalar constructors --
 
+		template<typename U, qualifier P>
+		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR explicit vec(vec<1, U, P> const& v);
+
 		/// Explicit converions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template<typename X, typename Y, typename Z>
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(X x, Y y, Z z);

@@ -35,16 +35,18 @@ namespace glm
 	{}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<2, T, Q>::vec(vec<1, T, P> const& v)
-		: x(v.x), y(v.x)
-	{}
-
-	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<2, T, Q>::vec(T _x, T _y)
 		: x(_x), y(_y)
 	{}
 
 	// -- Conversion scalar constructors --
+
+	template<typename T, qualifier Q>
+	template<typename U, qualifier P>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<2, T, Q>::vec(vec<1, U, P> const& v)
+		: x(static_cast<T>(v.x))
+		, y(static_cast<T>(v.x))
+	{}
 
 	template<typename T, qualifier Q>
 	template<typename A, typename B>

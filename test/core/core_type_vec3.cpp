@@ -1,4 +1,5 @@
 #define GLM_FORCE_SWIZZLE
+#include <glm/ext/vec1.hpp>
 #include <glm/vector_relational.hpp>
 #include <glm/geometric.hpp>
 #include <glm/vec2.hpp>
@@ -71,7 +72,7 @@ int test_vec3_ctor()
 		
 		Error += A == B ? 0 : 1;
 	}
-	
+
 	{
 		std::vector<glm::vec3> Tests;
 		Tests.push_back(glm::vec3(glm::vec2(1, 2), 3));
@@ -82,7 +83,65 @@ int test_vec3_ctor()
 		for(std::size_t i = 0; i < Tests.size(); ++i)
 			Error += Tests[i] == glm::vec3(1, 2, 3) ? 0 : 1;
 	}
-		
+
+	{
+		glm::vec1 const R(1.0f);
+		glm::vec1 const S(2.0f);
+		glm::vec1 const T(3.0f);
+		glm::vec3 const O(1.0f, 2.0f, 3.0f);
+
+		glm::vec3 const A(R);
+		glm::vec3 const B(1.0f);
+		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
+
+		glm::vec3 const C(R, S, T);
+		Error += glm::all(glm::equal(C, O)) ? 0 : 1;
+
+		glm::vec3 const D(R, 2.0f, 3.0f);
+		Error += glm::all(glm::equal(D, O)) ? 0 : 1;
+
+		glm::vec3 const E(1.0f, S, 3.0f);
+		Error += glm::all(glm::equal(E, O)) ? 0 : 1;
+
+		glm::vec3 const F(1.0f, S, T);
+		Error += glm::all(glm::equal(F, O)) ? 0 : 1;
+
+		glm::vec3 const G(R, 2.0f, T);
+		Error += glm::all(glm::equal(G, O)) ? 0 : 1;
+
+		glm::vec3 const H(R, S, 3.0f);
+		Error += glm::all(glm::equal(H, O)) ? 0 : 1;
+	}
+
+	{
+		glm::vec1 const R(1.0);
+		glm::dvec1 const S(2.0);
+		glm::vec1 const T(3.0);
+		glm::vec3 const O(1.0f, 2.0f, 3.0f);
+
+		glm::vec3 const A(R);
+		glm::vec3 const B(1.0);
+		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
+
+		glm::vec3 const C(R, S, T);
+		Error += glm::all(glm::equal(C, O)) ? 0 : 1;
+
+		glm::vec3 const D(R, 2.0, 3.0);
+		Error += glm::all(glm::equal(D, O)) ? 0 : 1;
+
+		glm::vec3 const E(1.0f, S, 3.0);
+		Error += glm::all(glm::equal(E, O)) ? 0 : 1;
+
+		glm::vec3 const F(1.0, S, T);
+		Error += glm::all(glm::equal(F, O)) ? 0 : 1;
+
+		glm::vec3 const G(R, 2.0, T);
+		Error += glm::all(glm::equal(G, O)) ? 0 : 1;
+
+		glm::vec3 const H(R, S, 3.0);
+		Error += glm::all(glm::equal(H, O)) ? 0 : 1;
+	}
+
 	return Error;
 }
 
