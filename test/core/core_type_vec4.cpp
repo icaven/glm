@@ -1,6 +1,7 @@
 #define GLM_FORCE_ALIGNED
 #define GLM_FORCE_SWIZZLE
 #include <glm/gtc/epsilon.hpp>
+#include <glm/ext/vec1.hpp>
 #include <glm/vector_relational.hpp>
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
@@ -136,7 +137,121 @@ static int test_vec4_ctor()
 		for(std::size_t i = 0; i < Tests.size(); ++i)
 			Error += Tests[i] == glm::vec4(1, 2, 3, 4) ? 0 : 1;
 	}
-	
+
+	{
+		glm::vec1 const R(1.0f);
+		glm::vec1 const S(2.0f);
+		glm::vec1 const T(3.0f);
+		glm::vec1 const U(4.0f);
+		glm::vec4 const O(1.0f, 2.0f, 3.0f, 4.0f);
+
+		glm::vec4 const A(R);
+		glm::vec4 const B(1.0f);
+		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
+
+		glm::vec4 const C(R, S, T, U);
+		Error += glm::all(glm::equal(C, O)) ? 0 : 1;
+
+		glm::vec4 const D(R, 2.0f, 3.0f, 4.0f);
+		Error += glm::all(glm::equal(D, O)) ? 0 : 1;
+
+		glm::vec4 const E(1.0f, S, 3.0f, 4.0f);
+		Error += glm::all(glm::equal(E, O)) ? 0 : 1;
+
+		glm::vec4 const F(R, S, 3.0f, 4.0f);
+		Error += glm::all(glm::equal(F, O)) ? 0 : 1;
+
+		glm::vec4 const G(1.0f, 2.0f, T, 4.0f);
+		Error += glm::all(glm::equal(G, O)) ? 0 : 1;
+
+		glm::vec4 const H(R, 2.0f, T, 4.0f);
+		Error += glm::all(glm::equal(H, O)) ? 0 : 1;
+
+		glm::vec4 const I(1.0f, S, T, 4.0f);
+		Error += glm::all(glm::equal(I, O)) ? 0 : 1;
+
+		glm::vec4 const J(R, S, T, 4.0f);
+		Error += glm::all(glm::equal(J, O)) ? 0 : 1;
+
+		glm::vec4 const K(R, 2.0f, 3.0f, U);
+		Error += glm::all(glm::equal(K, O)) ? 0 : 1;
+
+		glm::vec4 const L(1.0f, S, 3.0f, U);
+		Error += glm::all(glm::equal(L, O)) ? 0 : 1;
+
+		glm::vec4 const M(R, S, 3.0f, U);
+		Error += glm::all(glm::equal(M, O)) ? 0 : 1;
+
+		glm::vec4 const N(1.0f, 2.0f, T, U);
+		Error += glm::all(glm::equal(N, O)) ? 0 : 1;
+
+		glm::vec4 const P(R, 2.0f, T, U);
+		Error += glm::all(glm::equal(P, O)) ? 0 : 1;
+
+		glm::vec4 const Q(1.0f, S, T, U);
+		Error += glm::all(glm::equal(Q, O)) ? 0 : 1;
+
+		glm::vec4 const V(R, S, T, U);
+		Error += glm::all(glm::equal(V, O)) ? 0 : 1;
+	}
+
+	{
+		glm::vec1 const R(1.0f);
+		glm::dvec1 const S(2.0f);
+		glm::vec1 const T(3.0);
+		glm::dvec1 const U(4.0);
+		glm::vec4 const O(1.0f, 2.0, 3.0f, 4.0);
+
+		glm::vec4 const A(R);
+		glm::vec4 const B(1.0);
+		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
+
+		glm::vec4 const C(R, S, T, U);
+		Error += glm::all(glm::equal(C, O)) ? 0 : 1;
+
+		glm::vec4 const D(R, 2.0f, 3.0, 4.0f);
+		Error += glm::all(glm::equal(D, O)) ? 0 : 1;
+
+		glm::vec4 const E(1.0, S, 3.0f, 4.0);
+		Error += glm::all(glm::equal(E, O)) ? 0 : 1;
+
+		glm::vec4 const F(R, S, 3.0, 4.0f);
+		Error += glm::all(glm::equal(F, O)) ? 0 : 1;
+
+		glm::vec4 const G(1.0f, 2.0, T, 4.0);
+		Error += glm::all(glm::equal(G, O)) ? 0 : 1;
+
+		glm::vec4 const H(R, 2.0, T, 4.0);
+		Error += glm::all(glm::equal(H, O)) ? 0 : 1;
+
+		glm::vec4 const I(1.0, S, T, 4.0f);
+		Error += glm::all(glm::equal(I, O)) ? 0 : 1;
+
+		glm::vec4 const J(R, S, T, 4.0f);
+		Error += glm::all(glm::equal(J, O)) ? 0 : 1;
+
+		glm::vec4 const K(R, 2.0f, 3.0, U);
+		Error += glm::all(glm::equal(K, O)) ? 0 : 1;
+
+		glm::vec4 const L(1.0f, S, 3.0, U);
+		Error += glm::all(glm::equal(L, O)) ? 0 : 1;
+
+		glm::vec4 const M(R, S, 3.0, U);
+		Error += glm::all(glm::equal(M, O)) ? 0 : 1;
+
+		glm::vec4 const N(1.0f, 2.0, T, U);
+		Error += glm::all(glm::equal(N, O)) ? 0 : 1;
+
+		glm::vec4 const P(R, 2.0, T, U);
+		Error += glm::all(glm::equal(P, O)) ? 0 : 1;
+
+		glm::vec4 const Q(1.0f, S, T, U);
+		Error += glm::all(glm::equal(Q, O)) ? 0 : 1;
+
+		glm::vec4 const V(R, S, T, U);
+		Error += glm::all(glm::equal(V, O)) ? 0 : 1;
+	}
+
 	return Error;
 }
 
