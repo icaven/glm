@@ -143,16 +143,34 @@ namespace glm
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(vec<2, A, P> const& _xy, B _z, C _w);
 		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template<typename A, typename B, typename C, qualifier P>
+		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(vec<2, A, P> const& _xy, vec<1, B, P> const& _z, C _w);
+		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template<typename A, typename B, typename C, qualifier P>
+		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(vec<2, A, P> const& _xy, B _z, vec<1, C, P> const& _w);
+		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template<typename A, typename B, typename C, qualifier P>
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(vec<2, A, P> const& _xy, vec<1, B, P> const& _z, vec<1, C, P> const& _w);
 		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template<typename A, typename B, typename C, qualifier P>
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(A _x, vec<2, B, P> const& _yz, C _w);
 		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template<typename A, typename B, typename C, qualifier P>
+		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(vec<1, A, P> const& _x, vec<2, B, P> const& _yz, C _w);
+		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template<typename A, typename B, typename C, qualifier P>
+		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(A _x, vec<2, B, P> const& _yz, vec<1, C, P> const& _w);
+		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template<typename A, typename B, typename C, qualifier P>
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(vec<1, A, P> const& _x, vec<2, B, P> const& _yz, vec<1, C, P> const& _w);
 		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template<typename A, typename B, typename C, qualifier P>
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(A _x, B _y, vec<2, C, P> const& _zw);
+		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template<typename A, typename B, typename C, qualifier P>
+		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(vec<1, A, P> const& _x, B _y, vec<2, C, P> const& _zw);
+		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
+		template<typename A, typename B, typename C, qualifier P>
+		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(A _x, vec<1, B, P> const& _y, vec<2, C, P> const& _zw);
 		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template<typename A, typename B, typename C, qualifier P>
 		GLM_FUNC_DECL GLM_CONSTEXPR_CTOR vec(vec<1, A, P> const& _x, vec<1, B, P> const& _y, vec<2, C, P> const& _zw);

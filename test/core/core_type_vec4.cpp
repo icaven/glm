@@ -252,6 +252,77 @@ static int test_vec4_ctor()
 		Error += glm::all(glm::equal(V, O)) ? 0 : 1;
 	}
 
+	{
+		glm::vec1 const v1_0(1.0f);
+		glm::vec1 const v1_1(2.0f);
+		glm::vec1 const v1_2(3.0f);
+		glm::vec1 const v1_3(4.0f);
+
+		glm::vec2 const v2_0(1.0f, 2.0f);
+		glm::vec2 const v2_1(2.0f, 3.0f);
+		glm::vec2 const v2_2(3.0f, 4.0f);
+
+		glm::vec3 const v3_0(1.0f, 2.0f, 3.0f);
+		glm::vec3 const v3_1(2.0f, 3.0f, 4.0f);
+
+		glm::vec4 const O(1.0f, 2.0, 3.0f, 4.0);
+
+		glm::vec4 const A(v1_0, v1_1, v2_2);
+		Error += glm::all(glm::equal(A, O)) ? 0 : 1;
+
+		glm::vec4 const B(1.0f, 2.0f, v2_2);
+		Error += glm::all(glm::equal(B, O)) ? 0 : 1;
+
+		glm::vec4 const C(v1_0, 2.0f, v2_2);
+		Error += glm::all(glm::equal(C, O)) ? 0 : 1;
+
+		glm::vec4 const D(1.0f, v1_1, v2_2);
+		Error += glm::all(glm::equal(D, O)) ? 0 : 1;
+
+		glm::vec4 const E(v2_0, v1_2, v1_3);
+		Error += glm::all(glm::equal(E, O)) ? 0 : 1;
+
+		glm::vec4 const F(v2_0, 3.0, v1_3);
+		Error += glm::all(glm::equal(F, O)) ? 0 : 1;
+
+		glm::vec4 const G(v2_0, v1_2, 4.0);
+		Error += glm::all(glm::equal(G, O)) ? 0 : 1;
+
+		glm::vec4 const H(v2_0, 3.0f, 4.0);
+		Error += glm::all(glm::equal(H, O)) ? 0 : 1;
+	}
+
+	{
+		glm::vec1 const v1_0(1.0f);
+		glm::vec1 const v1_1(2.0f);
+		glm::vec1 const v1_2(3.0f);
+		glm::vec1 const v1_3(4.0f);
+
+		glm::vec2 const v2_0(1.0f, 2.0f);
+		glm::vec2 const v2_1(2.0f, 3.0f);
+		glm::vec2 const v2_2(3.0f, 4.0f);
+
+		glm::vec3 const v3_0(1.0f, 2.0f, 3.0f);
+		glm::vec3 const v3_1(2.0f, 3.0f, 4.0f);
+
+		glm::vec4 const O(1.0f, 2.0, 3.0f, 4.0);
+
+		glm::vec4 const A(v1_0, v2_0, v1_3);
+		Error += glm::all(glm::equal(A, O)) ? 0 : 1;
+
+		glm::vec4 const B(v1_0, v2_0, 4.0);
+		Error += glm::all(glm::equal(B, O)) ? 0 : 1;
+
+		glm::vec4 const C(1.0, v2_0, v1_3);
+		Error += glm::all(glm::equal(C, O)) ? 0 : 1;
+
+		glm::vec4 const D(1.0f, v2_0, 4.0);
+		Error += glm::all(glm::equal(D, O)) ? 0 : 1;
+
+		glm::vec4 const E(1.0, v2_0, 4.0f);
+		Error += glm::all(glm::equal(E, O)) ? 0 : 1;
+	}
+
 	return Error;
 }
 

@@ -55,6 +55,9 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 #### Features:
 - Added bitfieldDeinterleave to GTC_bitfield
 
+#### Improvements:
+- Added missing vec1 based constructors
+
 #### Fixes:
 - Fixed build problems due to printf and std::clock_t #778
 - Fixed int mod
