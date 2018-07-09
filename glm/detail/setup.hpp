@@ -800,7 +800,7 @@ namespace glm
 ///////////////////////////////////////////////////////////////////////////////////
 // countof
 
-#if GLM_HAS_CONSTEXPR_PARTIAL
+#if GLM_HAS_CONSTEXPR_CXX11
 	namespace glm
 	{
 		template<typename T, std::size_t N>
