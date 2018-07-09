@@ -87,7 +87,7 @@ namespace detail
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS || defined(GLM_FORCE_CTOR_INIT)
 		template<typename T, qualifier Q>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, Q>::tquat()
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 tquat<T, Q>::tquat()
 #			ifdef GLM_FORCE_CTOR_INIT
 			: x(0), y(0), z(0), w(1)
 #			endif
@@ -96,26 +96,26 @@ namespace detail
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template<typename T, qualifier Q>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, Q>::tquat(tquat<T, Q> const& q)
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 tquat<T, Q>::tquat(tquat<T, Q> const& q)
 			: x(q.x), y(q.y), z(q.z), w(q.w)
 		{}
 #	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
 	template<typename T, qualifier Q>
 	template<qualifier P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, Q>::tquat(tquat<T, P> const& q)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 tquat<T, Q>::tquat(tquat<T, P> const& q)
 		: x(q.x), y(q.y), z(q.z), w(q.w)
 	{}
 
 	// -- Explicit basic constructors --
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, Q>::tquat(T s, vec<3, T, Q> const& v)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 tquat<T, Q>::tquat(T s, vec<3, T, Q> const& v)
 		: x(v.x), y(v.y), z(v.z), w(s)
 	{}
 
 	template <typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, Q>::tquat(T _w, T _x, T _y, T _z)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 tquat<T, Q>::tquat(T _w, T _x, T _y, T _z)
 		: x(_x), y(_y), z(_z), w(_w)
 	{}
 
@@ -123,7 +123,7 @@ namespace detail
 
 	template<typename T, qualifier Q>
 	template<typename U, qualifier P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, Q>::tquat(tquat<U, P> const& q)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 tquat<T, Q>::tquat(tquat<U, P> const& q)
 		: x(static_cast<T>(q.x))
 		, y(static_cast<T>(q.y))
 		, z(static_cast<T>(q.z))

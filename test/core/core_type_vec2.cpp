@@ -312,10 +312,8 @@ int test_vec2_size()
 	Error += glm::vec2::length() == 2 ? 0 : 1;
 	Error += glm::dvec2::length() == 2 ? 0 : 1;
 
-#	if GLM_HAS_CONSTEXPR_PARTIAL
-		constexpr std::size_t Length = glm::vec2::length();
-		Error += Length == 2 ? 0 : 1;
-#	endif
+	GLM_CONSTEXPR_CXX11 std::size_t Length = glm::vec2::length();
+	Error += Length == 2 ? 0 : 1;
 
 	return Error;
 }

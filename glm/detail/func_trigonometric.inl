@@ -9,7 +9,7 @@ namespace glm
 {
 	// radians
 	template<typename genType>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR genType radians(genType degrees)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 genType radians(genType degrees)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'radians' only accept floating-point input");
 
@@ -17,14 +17,14 @@ namespace glm
 	}
 
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, T, Q> radians(vec<L, T, Q> const& v)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 vec<L, T, Q> radians(vec<L, T, Q> const& v)
 	{
 		return detail::functor1<L, T, T, Q>::call(radians, v);
 	}
 
 	// degrees
 	template<typename genType>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR genType degrees(genType radians)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 genType degrees(genType radians)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'degrees' only accept floating-point input");
 
@@ -32,7 +32,7 @@ namespace glm
 	}
 
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, T, Q> degrees(vec<L, T, Q> const& v)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 vec<L, T, Q> degrees(vec<L, T, Q> const& v)
 	{
 		return detail::functor1<L, T, T, Q>::call(degrees, v);
 	}

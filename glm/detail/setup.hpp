@@ -441,6 +441,43 @@
 		((GLM_COMPILER & GLM_COMPILER_CUDA) && (GLM_COMPILER >= GLM_COMPILER_CUDA70))))
 #endif
 
+// N2235 Generalized Constant Expressions http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2235.pdf
+#if GLM_COMPILER & GLM_COMPILER_CLANG
+#	define GLM_HAS_CONSTEXPR_CXX11 __has_feature(cxx_constexpr)
+#elif GLM_LANG & GLM_LANG_CXX11_FLAG
+#	define GLM_HAS_CONSTEXPR_CXX11 1
+#else
+#	define GLM_HAS_CONSTEXPR_CXX11 ((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (\
+		((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC46)) || \
+		((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_COMPILER >= GLM_COMPILER_INTEL14)) || \
+		((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC14) && (GLM_ARCH == GLM_ARCH_PURE)))) // Visual C++ has a bug #594 https://github.com/g-truc/glm/issues/594
+#endif
+
+#if GLM_HAS_CONSTEXPR_CXX11
+#	define GLM_CONSTEXPR_CXX11 constexpr
+#else
+#	define GLM_CONSTEXPR_CXX11
+#endif
+
+// N3652 Extended Constant Expressions http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3652.html
+#if GLM_COMPILER & GLM_COMPILER_CLANG
+#	define GLM_HAS_CONSTEXPR_CXX14 __has_feature(cxx_relaxed_constexpr)
+#elif GLM_LANG & GLM_LANG_CXX14_FLAG
+#	define GLM_HAS_CONSTEXPR_CXX14 1
+#else
+#	define GLM_HAS_CONSTEXPR_CXX14 ((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (\
+		((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC50)) || \
+		((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_COMPILER >= GLM_COMPILER_INTEL17)) || \
+		((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC14) && (GLM_ARCH == GLM_ARCH_PURE))))
+#endif
+
+#if GLM_HAS_CONSTEXPR_CXX14
+#	define GLM_CONSTEXPR_CXX14 constexpr
+#else
+#	define GLM_CONSTEXPR_CXX14
+#endif
+
+//
 #define GLM_HAS_ONLY_XYZW ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER < GLM_COMPILER_GCC46))
 #if GLM_HAS_ONLY_XYZW
 #	pragma message("GLM: GCC older than 4.6 has a bug presenting the use of rgba and stpq components")
@@ -511,7 +548,6 @@
 ///////////////////////////////////////////////////////////////////////////////////
 // nullptr
 
-//
 #if GLM_LANG & GLM_LANG_CXX0X_FLAG
 #	define GLM_HAS_NULLPTR 1
 #else
@@ -735,41 +771,7 @@
 #	define GLM_DEFAULT_CTOR
 #endif
 
-#if GLM_HAS_CONSTEXPR || GLM_HAS_CONSTEXPR_PARTIAL
-#	define GLM_CONSTEXPR constexpr
-#	if ((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER <= GLM_COMPILER_VC14)) // Visual C++ has a bug #594 https://github.com/g-truc/glm/issues/594
-#		define GLM_CONSTEXPR_CTOR
-#	else
-#		define GLM_CONSTEXPR_CTOR constexpr
-#	endif
-#else
-#	define GLM_CONSTEXPR
-#	define GLM_CONSTEXPR_CTOR
-#endif
-
-#if GLM_HAS_CONSTEXPR
-#	define GLM_RELAXED_CONSTEXPR constexpr
-#else
-#	define GLM_RELAXED_CONSTEXPR const
-#endif
-
-#if GLM_LANG >= GLM_LANG_CXX14
-#	if ((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER <= GLM_COMPILER_VC14)) // Visual C++ < 2017 does not support extended const expressions https://msdn.microsoft.com/en-us/library/hh567368.aspx https://github.com/g-truc/glm/issues/749
-#		define GLM_CONSTEXPR_CXX14
-#	else
-#		define GLM_CONSTEXPR_CXX14 GLM_CONSTEXPR
-#	endif
-#	define GLM_CONSTEXPR_CTOR_CXX14 GLM_CONSTEXPR_CTOR
-#else
-#	define GLM_CONSTEXPR_CXX14
-#	define GLM_CONSTEXPR_CTOR_CXX14
-#endif
-
-#if GLM_ARCH == GLM_ARCH_PURE
-#	define GLM_CONSTEXPR_SIMD GLM_CONSTEXPR_CTOR
-#else
-#	define GLM_CONSTEXPR_SIMD
-#endif
+///////////////////////////////////////////////////////////////////////////////////
 
 #ifdef GLM_FORCE_EXPLICIT_CTOR
 #	define GLM_EXPLICIT explicit

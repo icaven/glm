@@ -518,10 +518,8 @@ static int test_vec4_size()
 	Error += glm::vec4::length() == 4 ? 0 : 1;
 	Error += glm::dvec4::length() == 4 ? 0 : 1;
 
-#	if GLM_HAS_CONSTEXPR_PARTIAL
-	constexpr std::size_t Length = glm::vec4::length();
+	GLM_CONSTEXPR_CXX11 std::size_t Length = glm::vec4::length();
 	Error += Length == 4 ? 0 : 1;
-#	endif
 
 	return Error;
 }

@@ -7,7 +7,7 @@ namespace glm
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS || defined(GLM_FORCE_CTOR_INIT)
 		template<typename T, qualifier Q>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<1, T, Q>::vec()
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 vec<1, T, Q>::vec()
 #			ifdef GLM_FORCE_CTOR_INIT
 				: x(0)
 #			endif
@@ -16,21 +16,21 @@ namespace glm
 
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template<typename T, qualifier Q>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<1, T, Q>::vec(vec<1, T, Q> const& v)
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 vec<1, T, Q>::vec(vec<1, T, Q> const& v)
 			: x(v.x)
 		{}
 #	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
 	template<typename T, qualifier Q>
 	template<qualifier P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<1, T, Q>::vec(vec<1, T, P> const& v)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 vec<1, T, Q>::vec(vec<1, T, P> const& v)
 		: x(v.x)
 	{}
 
 	// -- Explicit basic constructors --
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<1, T, Q>::vec(T scalar)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 vec<1, T, Q>::vec(T scalar)
 		: x(scalar)
 	{}
 
@@ -38,25 +38,25 @@ namespace glm
 
 	template<typename T, qualifier Q>
 	template<typename U, qualifier P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<1, T, Q>::vec(vec<1, U, P> const& v)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 vec<1, T, Q>::vec(vec<1, U, P> const& v)
 		: x(static_cast<T>(v.x))
 	{}
 
 	template<typename T, qualifier Q>
 	template<typename U, qualifier P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<1, T, Q>::vec(vec<2, U, P> const& v)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 vec<1, T, Q>::vec(vec<2, U, P> const& v)
 		: x(static_cast<T>(v.x))
 	{}
 
 	template<typename T, qualifier Q>
 	template<typename U, qualifier P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<1, T, Q>::vec(vec<3, U, P> const& v)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 vec<1, T, Q>::vec(vec<3, U, P> const& v)
 		: x(static_cast<T>(v.x))
 	{}
 
 	template<typename T, qualifier Q>
 	template<typename U, qualifier P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CTOR vec<1, T, Q>::vec(vec<4, U, P> const& v)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 vec<1, T, Q>::vec(vec<4, U, P> const& v)
 		: x(static_cast<T>(v.x))
 	{}
 
