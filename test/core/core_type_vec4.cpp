@@ -298,28 +298,23 @@ static int test_vec4_ctor()
 		glm::vec1 const v1_2(3.0f);
 		glm::vec1 const v1_3(4.0f);
 
-		glm::vec2 const v2_0(1.0f, 2.0f);
-		glm::vec2 const v2_1(2.0f, 3.0f);
-		glm::vec2 const v2_2(3.0f, 4.0f);
-
-		glm::vec3 const v3_0(1.0f, 2.0f, 3.0f);
-		glm::vec3 const v3_1(2.0f, 3.0f, 4.0f);
+		glm::vec2 const v2(2.0f, 3.0f);
 
 		glm::vec4 const O(1.0f, 2.0, 3.0f, 4.0);
 
-		glm::vec4 const A(v1_0, v2_0, v1_3);
+		glm::vec4 const A(v1_0, v2, v1_3);
 		Error += glm::all(glm::equal(A, O)) ? 0 : 1;
 
-		glm::vec4 const B(v1_0, v2_0, 4.0);
+		glm::vec4 const B(v1_0, v2, 4.0);
 		Error += glm::all(glm::equal(B, O)) ? 0 : 1;
 
-		glm::vec4 const C(1.0, v2_0, v1_3);
+		glm::vec4 const C(1.0, v2, v1_3);
 		Error += glm::all(glm::equal(C, O)) ? 0 : 1;
 
-		glm::vec4 const D(1.0f, v2_0, 4.0);
+		glm::vec4 const D(1.0f, v2, 4.0);
 		Error += glm::all(glm::equal(D, O)) ? 0 : 1;
 
-		glm::vec4 const E(1.0, v2_0, 4.0f);
+		glm::vec4 const E(1.0, v2, 4.0f);
 		Error += glm::all(glm::equal(E, O)) ? 0 : 1;
 	}
 
