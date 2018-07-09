@@ -345,6 +345,16 @@ int test_operator_increment()
 	return Error;
 }
 
+int test_vec2_constexpr()
+{
+#if GLM_HAS_CONSTEXPR_CXX11
+	static_assert(glm::vec2::length() == 2, "GLM: Failed constexpr");
+	static_assert(glm::vec2(1.0f).x > 0.0f, "GLM: Failed constexpr");
+#endif
+
+	return 0;
+}
+
 int main()
 {
 	int Error = 0;
@@ -353,6 +363,7 @@ int main()
 	Error += test_vec2_ctor();
 	Error += test_vec2_operators();
 	Error += test_operator_increment();
+	Error += test_vec2_constexpr();
 
 	return Error;
 }

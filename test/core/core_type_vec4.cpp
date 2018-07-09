@@ -518,9 +518,6 @@ static int test_vec4_size()
 	Error += glm::vec4::length() == 4 ? 0 : 1;
 	Error += glm::dvec4::length() == 4 ? 0 : 1;
 
-	GLM_CONSTEXPR_CXX11 std::size_t Length = glm::vec4::length();
-	Error += Length == 4 ? 0 : 1;
-
 	return Error;
 }
 
@@ -723,6 +720,16 @@ static int test_inheritance()
 	return Error;
 }
 
+int test_vec4_constexpr()
+{
+#if GLM_HAS_CONSTEXPR_CXX11
+	static_assert(glm::vec4::length() == 4, "GLM: Failed constexpr");
+	static_assert(glm::vec4(1.0f).x > 0.0f, "GLM: Failed constexpr");
+#endif
+
+	return 0;
+}
+
 int main()
 {
 	int Error = 0;
@@ -788,6 +795,7 @@ int main()
 	Error += test_operator_increment();
 	Error += heap::test();
 	Error += test_inheritance();
+	Error += test_vec4_constexpr();
 
 	return Error;
 }

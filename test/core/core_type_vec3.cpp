@@ -558,6 +558,16 @@ int test_operator_increment()
 	return Error;
 }
 
+int test_vec3_constexpr()
+{
+#if GLM_HAS_CONSTEXPR_CXX11
+	static_assert(glm::vec3::length() == 3, "GLM: Failed constexpr");
+	static_assert(glm::vec3(1.0f).x > 0.0f, "GLM: Failed constexpr");
+#endif
+
+	return 0;
+}
+
 int main()
 {
 	int Error = 0;
@@ -569,6 +579,7 @@ int main()
 	Error += test_vec3_swizzle3_2();
 	Error += test_vec3_swizzle3_3();
 	Error += test_operator_increment();
+	Error += test_vec3_constexpr();
 
 #	if !GLM_HAS_ONLY_XYZW
 		Error += test_vec3_swizzle_partial();
