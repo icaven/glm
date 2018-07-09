@@ -202,7 +202,7 @@ int test_quat_slerp()
 
 int test_quat_mul()
 {
-	int Error(0);
+	int Error = 0;
 
 	glm::quat temp1 = glm::normalize(glm::quat(1.0f, glm::vec3(0.0, 1.0, 0.0)));
 	glm::quat temp2 = glm::normalize(glm::quat(0.5f, glm::vec3(1.0, 0.0, 0.0)));
@@ -307,6 +307,16 @@ int test_size()
 	return Error;
 }
 
+static int test_constexpr()
+{
+#if GLM_HAS_CONSTEXPR_CXX11
+	static_assert(glm::quat::length() == 4, "GLM: Failed constexpr");
+	static_assert(glm::quat(1.0f, glm::vec3(0.0f)).w > 0.0f, "GLM: Failed constexpr");
+#endif
+
+	return 0;
+}
+
 int main()
 {
 	int Error = 0;
@@ -323,6 +333,7 @@ int main()
 	Error += test_quat_euler();
 	Error += test_quat_slerp();
 	Error += test_size();
+	Error += test_constexpr();
 
 	return Error;
 }

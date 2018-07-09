@@ -105,17 +105,6 @@ static int test_vec4_ctor()
 	}
 #endif// GLM_HAS_UNRESTRICTED_UNIONS && defined(GLM_FORCE_SWIZZLE)
 
-#	if GLM_HAS_CONSTEXPR && GLM_ARCH == GLM_ARCH_PURE && !(GLM_COMPILER & GLM_COMPILER_VC) // Visual Studio bug?
-	{
-		constexpr glm::ivec4 v(1);
-
-		Error += v.x == 1 ? 0 : 1;
-		Error += v.y == 1 ? 0 : 1;
-		Error += v.z == 1 ? 0 : 1;
-		Error += v.w == 1 ? 0 : 1;
-	}
-#	endif
-
 	{
 		glm::vec4 A(1);
 		glm::vec4 B(1, 1, 1, 1);
@@ -725,6 +714,8 @@ static int test_constexpr()
 #if GLM_HAS_CONSTEXPR_CXX11
 	static_assert(glm::vec4::length() == 4, "GLM: Failed constexpr");
 	static_assert(glm::vec4(1.0f).x > 0.0f, "GLM: Failed constexpr");
+	static_assert(glm::vec4(1.0f, -1.0f, -1.0f, -1.0f).x > 0.0f, "GLM: Failed constexpr");
+	static_assert(glm::vec4(1.0f, -1.0f, -1.0f, -1.0f).y < 0.0f, "GLM: Failed constexpr");
 #endif
 
 	return 0;
