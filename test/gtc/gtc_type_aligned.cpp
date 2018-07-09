@@ -94,7 +94,7 @@ static int test_ctor()
 {
 	int Error = 0;
 
-#	if GLM_HAS_CONSTEXPR && GLM_ARCH == GLM_ARCH_PURE
+#	if GLM_HAS_CONSTEXPR_CXX11
 	{
 		constexpr glm::aligned_ivec4 v(1);
 
@@ -121,7 +121,7 @@ static int test_ctor()
 		Error += v.z == 1 ? 0 : 1;
 		Error += v.w == 1 ? 0 : 1;
 	}
-#	endif
+#	endif//GLM_HAS_CONSTEXPR_CXX11
 
 	return Error;
 }
