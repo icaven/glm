@@ -197,7 +197,7 @@ static int test_vec4_ctor()
 
 	{
 		glm::vec1 const R(1.0f);
-		glm::dvec1 const S(2.0f);
+		glm::dvec1 const S(2.0);
 		glm::vec1 const T(3.0);
 		glm::dvec1 const U(4.0);
 		glm::vec4 const O(1.0f, 2.0, 3.0f, 4.0);
