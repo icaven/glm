@@ -19,8 +19,17 @@ int test_compiler()
 		case GLM_COMPILER_VC15:
 			std::printf("Visual C++ 15 - 2017\n");
 			break;
-		case GLM_COMPILER_VC16:
-			std::printf("Visual C++ 16 - 20XX\n");
+		case GLM_COMPILER_VC15_3:
+			std::printf("Visual C++ 15.3 - 2017\n");
+			break;
+		case GLM_COMPILER_VC15_5:
+			std::printf("Visual C++ 15.5 - 2017\n");
+			break;
+		case GLM_COMPILER_VC15_6:
+			std::printf("Visual C++ 15.6 - 2017\n");
+			break;
+		case GLM_COMPILER_VC15_7:
+			std::printf("Visual C++ 15.7 - 2017\n");
 			break;
 		default:
 			std::printf("Visual C++ version not detected\n");

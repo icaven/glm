@@ -58,6 +58,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 #### Improvements:
 - Added missing vec1 based constructors
 - Redesigned constexpr support which requires disable GLM SIMD on Visual C++ #783
+- Added detection of Visual C++ 2017 toolsets
 
 #### Fixes:
 - Fixed build problems due to printf and std::clock_t #778
