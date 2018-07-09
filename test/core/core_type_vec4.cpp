@@ -344,7 +344,7 @@ static int test_bvec4_ctor()
 	return Error;
 }
 
-static int test_vec4_operators()
+static int test_operators()
 {
 	int Error = 0;
 	
@@ -480,7 +480,7 @@ static int test_vec4_operators()
 	return Error;
 }
 
-static int test_vec4_equal()
+static int test_equal()
 {
 	int Error = 0;
 
@@ -501,7 +501,7 @@ static int test_vec4_equal()
 	return Error;
 }
 
-static int test_vec4_size()
+static int test_size()
 {
 	int Error = 0;
 
@@ -521,7 +521,7 @@ static int test_vec4_size()
 	return Error;
 }
 
-static int test_vec4_swizzle_partial()
+static int test_swizzle_partial()
 {
 	int Error = 0;
 
@@ -560,7 +560,7 @@ static int test_vec4_swizzle_partial()
 
 static int test_operator_increment()
 {
-	int Error(0);
+	int Error = 0;
 
 	glm::ivec4 v0(1);
 	glm::ivec4 v1(v0);
@@ -593,9 +593,9 @@ struct AoS
 	glm::vec2 D;
 };
 
-static int test_vec4_perf_AoS(std::size_t Size)
+static int test_perf_AoS(std::size_t Size)
 {
-	int Error(0);
+	int Error = 0;
 
 	std::vector<AoS> In;
 	std::vector<AoS> Out;
@@ -614,9 +614,9 @@ static int test_vec4_perf_AoS(std::size_t Size)
 	return Error;
 }
 
-static int test_vec4_perf_SoA(std::size_t Size)
+static int test_perf_SoA(std::size_t Size)
 {
-	int Error(0);
+	int Error = 0;
 
 	std::vector<glm::vec4> InA;
 	std::vector<glm::vec3> InB;
@@ -680,7 +680,7 @@ namespace heap
 	}
 }//namespace heap
 
-static int test_vec4_simd()
+static int test_simd()
 {
 	int Error = 0;
 
@@ -720,7 +720,7 @@ static int test_inheritance()
 	return Error;
 }
 
-int test_vec4_constexpr()
+static int test_constexpr()
 {
 #if GLM_HAS_CONSTEXPR_CXX11
 	static_assert(glm::vec4::length() == 4, "GLM: Failed constexpr");
@@ -782,20 +782,20 @@ int main()
 	std::size_t const Size(1);
 #	endif//NDEBUG
 
-	Error += test_vec4_perf_AoS(Size);
-	Error += test_vec4_perf_SoA(Size);
+	Error += test_perf_AoS(Size);
+	Error += test_perf_SoA(Size);
 
 	Error += test_vec4_ctor();
 	Error += test_bvec4_ctor();
-	Error += test_vec4_size();
-	Error += test_vec4_operators();
-	Error += test_vec4_equal();
-	Error += test_vec4_swizzle_partial();
-	Error += test_vec4_simd();
+	Error += test_size();
+	Error += test_operators();
+	Error += test_equal();
+	Error += test_swizzle_partial();
+	Error += test_simd();
 	Error += test_operator_increment();
 	Error += heap::test();
 	Error += test_inheritance();
-	Error += test_vec4_constexpr();
+	Error += test_constexpr();
 
 	return Error;
 }

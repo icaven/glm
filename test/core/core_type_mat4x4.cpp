@@ -305,7 +305,7 @@ struct repro
 	glm::mat4* matrix;
 };
 
-int test_size()
+static int test_size()
 {
 	int Error = 0;
 
@@ -317,6 +317,15 @@ int test_size()
 	Error += glm::dmat4::length() == 4 ? 0 : 1;
 
 	return Error;
+}
+
+static int test_constexpr()
+{
+#if GLM_HAS_CONSTEXPR_CXX11
+	static_assert(glm::mat4::length() == 4, "GLM: Failed constexpr");
+#endif
+
+	return 0;
 }
 
 int main()
@@ -332,6 +341,7 @@ int main()
 	Error += test_operators();
 	Error += test_inverse();
 	Error += test_size();
+	Error += test_constexpr();
 
 	Error += perf_mul();
 

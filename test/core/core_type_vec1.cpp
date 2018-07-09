@@ -94,7 +94,7 @@ int test_vec1_ctor()
 	return Error;
 }
 
-int test_vec1_size()
+static int test_vec1_size()
 {
 	int Error = 0;
 
@@ -110,7 +110,7 @@ int test_vec1_size()
 	return Error;
 }
 
-int test_vec1_operator_increment()
+static int test_vec1_operator_increment()
 {
 	int Error(0);
 

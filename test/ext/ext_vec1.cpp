@@ -6,7 +6,7 @@
 static glm::vec1 g1;
 static glm::vec1 g2(1);
 
-int test_vec1_operators()
+static int test_vec1_operators()
 {
 	int Error(0);
 
@@ -34,7 +34,7 @@ int test_vec1_operators()
 	return Error;
 }
 
-int test_vec1_ctor()
+static int test_vec1_ctor()
 {
 	int Error = 0;
 
@@ -63,7 +63,7 @@ int test_vec1_ctor()
 	return Error;
 }
 
-int test_vec1_size()
+static int test_vec1_size()
 {
 	int Error = 0;
 
@@ -82,7 +82,7 @@ int test_vec1_size()
 	return Error;
 }
 
-int test_vec1_operator_increment()
+static int test_vec1_operator_increment()
 {
 	int Error(0);
 
@@ -132,7 +132,7 @@ static int test_bvec1_ctor()
 	return Error;
 }
 
-int test_vec1_constexpr()
+static int test_constexpr()
 {
 #if GLM_HAS_CONSTEXPR_CXX11
 	static_assert(glm::vec1::length() == 1, "GLM: Failed constexpr");
@@ -151,7 +151,7 @@ int main()
 	Error += test_bvec1_ctor();
 	Error += test_vec1_operators();
 	Error += test_vec1_operator_increment();
-	Error += test_vec1_constexpr();
+	Error += test_constexpr();
 	
 	return Error;
 }

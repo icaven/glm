@@ -114,7 +114,7 @@ namespace cast
 	}
 }//namespace cast
 
-int test_size()
+static int test_size()
 {
 	int Error = 0;
 
@@ -128,6 +128,15 @@ int test_size()
 	return Error;
 }
 
+static int test_constexpr()
+{
+#if GLM_HAS_CONSTEXPR_CXX11
+	static_assert(glm::mat4x2::length() == 4, "GLM: Failed constexpr");
+#endif
+
+	return 0;
+}
+
 int main()
 {
 	int Error = 0;
@@ -136,6 +145,7 @@ int main()
 	Error += test_ctr();
 	Error += test_operators();
 	Error += test_size();
+	Error += test_constexpr();
 
 	return Error;
 }
