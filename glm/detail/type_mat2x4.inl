@@ -33,14 +33,14 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 mat<2, 4, T, Q>::mat(T scalar)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 mat<2, 4, T, Q>::mat(T s)
 #		if GLM_HAS_INITIALIZER_LISTS
-			: value{col_type(scalar, 0, 0, 0), col_type(0, scalar, 0, 0)}
+			: value{col_type(s, 0, 0, 0), col_type(0, s, 0, 0)}
 #		endif
 	{
 #		if !GLM_HAS_INITIALIZER_LISTS
-			this->value[0] = col_type(scalar, 0, 0, 0);
-			this->value[1] = col_type(0, scalar, 0, 0);
+			this->value[0] = col_type(s, 0, 0, 0);
+			this->value[1] = col_type(0, s, 0, 0);
 #		endif
 	}
 
@@ -85,13 +85,13 @@ namespace glm
 	)
 #		if GLM_HAS_INITIALIZER_LISTS
 			: value{
-				col_type(static_cast<T>(x1), static_cast<T>(y1), static_cast<T>(z1), static_cast<T>(w1)),
-				col_type(static_cast<T>(x2), static_cast<T>(y2), static_cast<T>(z2), static_cast<T>(w2))}
+				col_type(x1, y1, z1, w1),
+				col_type(x2, y2, z2, w2)}
 #		endif
 	{
 #		if !GLM_HAS_INITIALIZER_LISTS
-			this->value[0] = col_type(static_cast<T>(x1), static_cast<T>(y1), static_cast<T>(z1), static_cast<T>(w1));
-			this->value[1] = col_type(static_cast<T>(x2), static_cast<T>(y2), static_cast<T>(z2), static_cast<T>(w2));
+			this->value[0] = col_type(x1, y1, z1, w1);
+			this->value[1] = col_type(x2, y2, z2, w2);
 #		endif
 	}
 
@@ -238,7 +238,7 @@ namespace glm
 	// -- Unary updatable operators --
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 mat<2, 4, T, Q>& mat<2, 4, T, Q>::operator=(mat<2, 4, T, Q> const& m)
+	GLM_FUNC_QUALIFIER mat<2, 4, T, Q>& mat<2, 4, T, Q>::operator=(mat<2, 4, T, Q> const& m)
 	{
 		this->value[0] = m[0];
 		this->value[1] = m[1];
@@ -247,7 +247,7 @@ namespace glm
 
 	template<typename T, qualifier Q>
 	template<typename U>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 mat<2, 4, T, Q>& mat<2, 4, T, Q>::operator=(mat<2, 4, U, Q> const& m)
+	GLM_FUNC_QUALIFIER mat<2, 4, T, Q>& mat<2, 4, T, Q>::operator=(mat<2, 4, U, Q> const& m)
 	{
 		this->value[0] = m[0];
 		this->value[1] = m[1];

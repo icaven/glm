@@ -84,12 +84,12 @@ namespace glm
 		X2 x2, Y2 y2, Z2 z2
 	)
 #		if GLM_HAS_INITIALIZER_LISTS
-			: value{col_type(static_cast<T>(x1), value_type(y1), value_type(z1)), col_type(static_cast<T>(x2), value_type(y2), value_type(z2))}
+			: value{col_type(x1, y1, z1), col_type(x2, y2, z2)}
 #		endif
 	{
 #		if !GLM_HAS_INITIALIZER_LISTS
-			this->value[0] = col_type(static_cast<T>(x1), value_type(y1), value_type(z1));
-			this->value[1] = col_type(static_cast<T>(x2), value_type(y2), value_type(z2));
+			this->value[0] = col_type(x1, y1, z1);
+			this->value[1] = col_type(x2, y2, z2);
 #		endif
 	}
 
@@ -236,7 +236,7 @@ namespace glm
 	// -- Unary updatable operators --
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 mat<2, 3, T, Q>& mat<2, 3, T, Q>::operator=(mat<2, 3, T, Q> const& m)
+	GLM_FUNC_QUALIFIER mat<2, 3, T, Q>& mat<2, 3, T, Q>::operator=(mat<2, 3, T, Q> const& m)
 	{
 		this->value[0] = m[0];
 		this->value[1] = m[1];
@@ -245,7 +245,7 @@ namespace glm
 
 	template<typename T, qualifier Q>
 	template<typename U>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 mat<2, 3, T, Q>& mat<2, 3, T, Q>::operator=(mat<2, 3, U, Q> const& m)
+	GLM_FUNC_QUALIFIER mat<2, 3, T, Q>& mat<2, 3, T, Q>::operator=(mat<2, 3, U, Q> const& m)
 	{
 		this->value[0] = m[0];
 		this->value[1] = m[1];

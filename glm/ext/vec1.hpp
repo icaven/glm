@@ -138,10 +138,10 @@ namespace glm
 */
 		// -- Unary arithmetic operators --
 
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 vec & operator=(vec const& v) GLM_DEFAULT;
+		GLM_FUNC_DECL vec & operator=(vec const& v);
 
 		template<typename U>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 vec & operator=(vec<1, U, Q> const& v);
+		GLM_FUNC_DECL vec & operator=(vec<1, U, Q> const& v);
 		template<typename U>
 		GLM_FUNC_DECL vec & operator+=(U scalar);
 		template<typename U>

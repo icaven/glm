@@ -305,7 +305,7 @@ namespace glm
 	// -- Unary arithmetic operators --
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 mat<4, 4, T, Q>& mat<4, 4, T, Q>::operator=(mat<4, 4, T, Q> const& m)
+	GLM_FUNC_QUALIFIER mat<4, 4, T, Q>& mat<4, 4, T, Q>::operator=(mat<4, 4, T, Q> const& m)
 	{
 		//memcpy could be faster
 		//memcpy(&this->value, &m.value, 16 * sizeof(valType));
@@ -318,7 +318,7 @@ namespace glm
 
 	template<typename T, qualifier Q>
 	template<typename U>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 mat<4, 4, T, Q>& mat<4, 4, T, Q>::operator=(mat<4, 4, U, Q> const& m)
+	GLM_FUNC_QUALIFIER mat<4, 4, T, Q>& mat<4, 4, T, Q>::operator=(mat<4, 4, U, Q> const& m)
 	{
 		//memcpy could be faster
 		//memcpy(&this->value, &m.value, 16 * sizeof(valType));
