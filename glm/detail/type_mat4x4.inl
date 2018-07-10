@@ -10,8 +10,11 @@ namespace glm
 #	if !GLM_HAS_DEFAULTED_FUNCTIONS || defined(GLM_FORCE_CTOR_INIT)
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 mat<4, 4, T, Q>::mat()
+#			if defined(GLM_FORCE_CTOR_INIT) && GLM_HAS_INITIALIZER_LISTS
+				: value{col_type(1, 0, 0, 0), col_type(0, 1, 0, 0), col_type(0, 0, 1, 0), col_type(0, 0, 0, 1)}
+#			endif
 		{
-#			ifdef GLM_FORCE_CTOR_INIT
+#			if defined(GLM_FORCE_CTOR_INIT) && !GLM_HAS_INITIALIZER_LISTS
 				this->value[0] = col_type(1, 0, 0, 0);
 				this->value[1] = col_type(0, 1, 0, 0);
 				this->value[2] = col_type(0, 0, 1, 0);
@@ -19,17 +22,6 @@ namespace glm
 #			endif
 		}
 #	endif
-
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS
-		template<typename T, qualifier Q>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 mat<4, 4, T, Q>::mat(mat<4, 4, T, Q> const& m)
-		{
-			this->value[0] = m[0];
-			this->value[1] = m[1];
-			this->value[2] = m[2];
-			this->value[3] = m[3];
-		}
-#	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
 
 	template<typename T, qualifier Q>
 	template<qualifier P>

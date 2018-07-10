@@ -57,11 +57,20 @@ int test_inverse()
 
 int test_ctr()
 {
-	int Error(0);
+	int Error = 0;
+	
+	{
+		glm::mediump_mat2x2 const A(1.0f);
+		glm::highp_mat2x2 const B(A);
+		glm::mediump_mat2x2 const C(B);
+
+		for(glm::length_t i = 0; i < A.length(); ++i)
+			Error += glm::all(glm::equal(A[i], C[i])) ? 0 : 1;
+	}
 
 #if GLM_HAS_INITIALIZER_LISTS
 	glm::mat2x2 m0(
-		glm::vec2(0, 1), 
+		glm::vec2(0, 1),
 		glm::vec2(2, 3));
 
 	glm::mat2x2 m1{0, 1, 2, 3};
