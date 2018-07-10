@@ -29,8 +29,8 @@ namespace glm
 #		endif
 	{
 #		if !GLM_HAS_INITIALIZER_LISTS
-			this->value[0] = m.value[0];
-			this->value[1] = m.value[1];
+			this->value[0] = m[0];
+			this->value[1] = m[1];
 #		endif
 	}
 
