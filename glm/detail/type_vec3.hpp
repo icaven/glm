@@ -406,7 +406,7 @@ namespace glm
 	// -- Boolean operators --
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_DECL bool operator==(vec<3, T, Q> const& v1, vec<3, T, Q> const& v2);
+	GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 bool operator==(vec<3, T, Q> const& v1, vec<3, T, Q> const& v2);
 
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL bool operator!=(vec<3, T, Q> const& v1, vec<3, T, Q> const& v2);
