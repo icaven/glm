@@ -248,7 +248,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER typename mat<3, 3, T, Q>::col_type const& mat<3, 3, T, Q>::operator[](typename mat<3, 3, T, Q>::length_type i) const
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 typename mat<3, 3, T, Q>::col_type const& mat<3, 3, T, Q>::operator[](typename mat<3, 3, T, Q>::length_type i) const
 	{
 		assert(i < this->length());
 		return this->value[i];
@@ -591,7 +591,7 @@ namespace glm
 	// -- Boolean operators --
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER bool operator==(mat<3, 3, T, Q> const& m1, mat<3, 3, T, Q> const& m2)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 bool operator==(mat<3, 3, T, Q> const& m1, mat<3, 3, T, Q> const& m2)
 	{
 		return (m1[0] == m2[0]) && (m1[1] == m2[1]) && (m1[2] == m2[2]);
 	}
