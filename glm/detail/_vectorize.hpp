@@ -17,7 +17,7 @@ namespace detail
 	template<typename R, typename T, qualifier Q>
 	struct functor1<1, R, T, Q>
 	{
-		GLM_FUNC_QUALIFIER static vec<1, R, Q> call(R (*Func) (T x), vec<1, T, Q> const& v)
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 static vec<1, R, Q> call(R (*Func) (T x), vec<1, T, Q> const& v)
 		{
 			return vec<1, R, Q>(Func(v.x));
 		}
@@ -26,7 +26,7 @@ namespace detail
 	template<typename R, typename T, qualifier Q>
 	struct functor1<2, R, T, Q>
 	{
-		GLM_FUNC_QUALIFIER static vec<2, R, Q> call(R (*Func) (T x), vec<2, T, Q> const& v)
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 static vec<2, R, Q> call(R (*Func) (T x), vec<2, T, Q> const& v)
 		{
 			return vec<2, R, Q>(Func(v.x), Func(v.y));
 		}
@@ -35,7 +35,7 @@ namespace detail
 	template<typename R, typename T, qualifier Q>
 	struct functor1<3, R, T, Q>
 	{
-		GLM_FUNC_QUALIFIER static vec<3, R, Q> call(R (*Func) (T x), vec<3, T, Q> const& v)
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 static vec<3, R, Q> call(R (*Func) (T x), vec<3, T, Q> const& v)
 		{
 			return vec<3, R, Q>(Func(v.x), Func(v.y), Func(v.z));
 		}
@@ -44,7 +44,7 @@ namespace detail
 	template<typename R, typename T, qualifier Q>
 	struct functor1<4, R, T, Q>
 	{
-		GLM_FUNC_QUALIFIER static vec<4, R, Q> call(R (*Func) (T x), vec<4, T, Q> const& v)
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 static vec<4, R, Q> call(R (*Func) (T x), vec<4, T, Q> const& v)
 		{
 			return vec<4, R, Q>(Func(v.x), Func(v.y), Func(v.z), Func(v.w));
 		}

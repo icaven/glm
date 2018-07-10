@@ -42,7 +42,7 @@ namespace glm
 
 			union
 			{
-				struct { T x, y, z, w;};
+				struct { T x, y, z, w; };
 				struct { T r, g, b, a; };
 				struct { T s, t, p, q; };
 

@@ -1023,17 +1023,14 @@ namespace glm
 	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 bool operator==(vec<3, T, Q> const& v1, vec<3, T, Q> const& v2)
 	{
-		return v1.x == v2.x && v1.y == v2.y && v1.z == v2.z;
-/*
 		return
 			detail::compute_equal<T>::call(v1.x, v2.x) &&
 			detail::compute_equal<T>::call(v1.y, v2.y) &&
 			detail::compute_equal<T>::call(v1.z, v2.z);
-*/
 	}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER bool operator!=(vec<3, T, Q> const& v1, vec<3, T, Q> const& v2)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 bool operator!=(vec<3, T, Q> const& v1, vec<3, T, Q> const& v2)
 	{
 		return !(v1 == v2);
 	}

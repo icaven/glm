@@ -2,6 +2,7 @@
 /// @file glm/detail/func_common.inl
 
 #include "../vector_relational.hpp"
+#include "compute_common.hpp"
 #include "type_vec2.hpp"
 #include "type_vec3.hpp"
 #include "type_vec4.hpp"
@@ -66,56 +67,6 @@ namespace glm
 namespace glm{
 namespace detail
 {
-	template<typename genFIType, bool /*signed*/>
-	struct compute_abs
-	{};
-
-	template<typename genFIType>
-	struct compute_abs<genFIType, true>
-	{
-		GLM_FUNC_QUALIFIER static genFIType call(genFIType x)
-		{
-			GLM_STATIC_ASSERT(
-				std::numeric_limits<genFIType>::is_iec559 || std::numeric_limits<genFIType>::is_signed || GLM_UNRESTRICTED_GENTYPE,
-				"'abs' only accept floating-point and integer scalar or vector inputs");
-
-			return x >= genFIType(0) ? x : -x;
-			// TODO, perf comp with: *(((int *) &x) + 1) &= 0x7fffffff;
-		}
-	};
-
-	#if GLM_COMPILER & GLM_COMPILER_CUDA
-	template<>
-	struct compute_abs<float, true>
-	{
-		GLM_FUNC_QUALIFIER static float call(float x)
-		{
-			return fabsf(x);
-		}
-	};
-	#endif
-
-	template<typename genFIType>
-	struct compute_abs<genFIType, false>
-	{
-		GLM_FUNC_QUALIFIER static genFIType call(genFIType x)
-		{
-			GLM_STATIC_ASSERT(
-				(!std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer) || GLM_UNRESTRICTED_GENTYPE,
-				"'abs' only accept floating-point and integer scalar or vector inputs");
-			return x;
-		}
-	};
-
-	template<length_t L, typename T, qualifier Q, bool Aligned>
-	struct compute_abs_vector
-	{
-		GLM_FUNC_QUALIFIER static vec<L, T, Q> call(vec<L, T, Q> const& x)
-		{
-			return detail::functor1<L, T, T, Q>::call(abs, x);
-		}
-	};
-
 	template<length_t L, typename T, typename U, qualifier Q, bool Aligned>
 	struct compute_mix_vector
 	{
@@ -306,13 +257,13 @@ namespace detail
 }//namespace detail
 
 	template<typename genFIType>
-	GLM_FUNC_QUALIFIER genFIType abs(genFIType x)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 genFIType abs(genFIType x)
 	{
 		return detail::compute_abs<genFIType, std::numeric_limits<genFIType>::is_signed>::call(x);
 	}
 
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> abs(vec<L, T, Q> const& x)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 vec<L, T, Q> abs(vec<L, T, Q> const& x)
 	{
 		return detail::compute_abs_vector<L, T, Q, detail::is_aligned<Q>::value>::call(x);
 	}

@@ -1289,10 +1289,19 @@ namespace ldexp_
 	}
 }//namespace ldexp_
 
+static int test_constexpr()
+{
+	static_assert(glm::abs(1.0f) > 0.0f, "GLM: Failed constexpr");
+	static_assert(glm::abs(glm::vec3(1.0f)) != glm::vec3(0.0f), "GLM: Failed constexpr");
+
+	return 0;
+}
+
 int main()
 {
 	int Error = 0;
 
+	Error += test_constexpr();
 	Error += sign::test();
 	Error += floor_::test();
 	Error += mod_::test();
