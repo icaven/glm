@@ -96,9 +96,9 @@ namespace glm
 #		endif
 	{
 #		if !GLM_HAS_INITIALIZER_LISTS
-			this->value[0] = col_type(x1, y1);
-			this->value[1] = col_type(x2, y2);
-			this->value[2] = col_type(x3, y3);
+			this->value[0] = col_type(x0, y0);
+			this->value[1] = col_type(x1, y1);
+			this->value[2] = col_type(x2, y2);
 #		endif
 	}
 
@@ -253,15 +253,6 @@ namespace glm
 	}
 
 	// -- Unary updatable operators --
-
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER mat<3, 2, T, Q>& mat<3, 2, T, Q>::operator=(mat<3, 2, T, Q> const& m)
-	{
-		this->value[0] = m[0];
-		this->value[1] = m[1];
-		this->value[2] = m[2];
-		return *this;
-	}
 
 	template<typename T, qualifier Q>
 	template<typename U>

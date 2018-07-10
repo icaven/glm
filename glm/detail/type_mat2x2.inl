@@ -236,14 +236,6 @@ namespace glm
 	// -- Unary updatable operators --
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER mat<2, 2, T, Q>& mat<2, 2, T, Q>::operator=(mat<2, 2, T, Q> const& m)
-	{
-		this->value[0] = m[0];
-		this->value[1] = m[1];
-		return *this;
-	}
-
-	template<typename T, qualifier Q>
 	template<typename U>
 	GLM_FUNC_QUALIFIER mat<2, 2, T, Q>& mat<2, 2, T, Q>::operator=(mat<2, 2, U, Q> const& m)
 	{

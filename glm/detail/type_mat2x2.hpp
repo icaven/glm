@@ -74,8 +74,6 @@ namespace glm
 
 		// -- Unary arithmetic operators --
 
-		GLM_FUNC_DECL mat<2, 2, T, Q> & operator=(mat<2, 2, T, Q> const& v);
-
 		template<typename U>
 		GLM_FUNC_DECL mat<2, 2, T, Q> & operator=(mat<2, 2, U, Q> const& m);
 		template<typename U>
