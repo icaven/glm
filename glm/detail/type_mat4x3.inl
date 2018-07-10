@@ -210,17 +210,15 @@ namespace glm
 
 	// -- Unary updatable operators --
 
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS
-		template<typename T, qualifier Q>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 mat<4, 3, T, Q>& mat<4, 3, T, Q>::operator=(mat<4, 3, T, Q> const& m)
-		{
-			this->value[0] = m[0];
-			this->value[1] = m[1];
-			this->value[2] = m[2];
-			this->value[3] = m[3];
-			return *this;
-		}
-#	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
+	template<typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 mat<4, 3, T, Q>& mat<4, 3, T, Q>::operator=(mat<4, 3, T, Q> const& m)
+	{
+		this->value[0] = m[0];
+		this->value[1] = m[1];
+		this->value[2] = m[2];
+		this->value[3] = m[3];
+		return *this;
+	}
 
 	template<typename T, qualifier Q>
 	template<typename U>
