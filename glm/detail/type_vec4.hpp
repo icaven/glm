@@ -178,7 +178,7 @@ namespace glm
 		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 GLM_EXPLICIT vec(vec<4, U, P> const& v);
 
 		// -- Swizzle constructors --
-#		if GLM_HAS_UNRESTRICTED_UNIONS && (GLM_SWIZZLE == GLM_SWIZZLE_ENABLED)
+#		if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
 			template<int E0, int E1, int E2, int E3>
 			GLM_FUNC_DECL vec(detail::_swizzle<4, T, Q, E0, E1, E2, E3> const& that)
 			{
@@ -220,7 +220,7 @@ namespace glm
 			{
 				*this = vec<4, T, Q>(x, v());
 			}
-#		endif// GLM_HAS_UNRESTRICTED_UNIONS && (GLM_SWIZZLE == GLM_SWIZZLE_ENABLED)
+#		endif//GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
 
 		// -- Unary arithmetic operators --
 

@@ -113,13 +113,13 @@ namespace glm
 
 		// -- Swizzle constructors --
 /*
-#		if(GLM_HAS_UNRESTRICTED_UNIONS && (GLM_SWIZZLE == GLM_SWIZZLE_ENABLED))
+#		if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
 			template<int E0>
 			GLM_FUNC_DECL tvec(detail::_swizzle<1, T, Q, tvec1, E0, -1,-2,-3> const& that)
 			{
 				*this = that();
 			}
-#		endif//(GLM_HAS_UNRESTRICTED_UNIONS && (GLM_SWIZZLE == GLM_SWIZZLE_ENABLED))
+#		endif//GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
 */
 		// -- Unary arithmetic operators --
 
