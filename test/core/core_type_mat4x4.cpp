@@ -180,7 +180,7 @@ int test_inverse()
 
 int test_ctr()
 {
-	int Error(0);
+	int Error = 0;
 
 #if GLM_HAS_TRIVIAL_QUERIES
 	//Error += std::is_trivially_default_constructible<glm::mat4>::value ? 0 : 1;
@@ -190,9 +190,9 @@ int test_ctr()
 	//Error += std::has_trivial_copy_constructor<glm::mat4>::value ? 0 : 1;
 #endif
 
-#if(GLM_HAS_INITIALIZER_LISTS)
+#if GLM_HAS_INITIALIZER_LISTS
 	glm::mat4 m0(
-		glm::vec4(0, 1, 2, 3), 
+		glm::vec4(0, 1, 2, 3),
 		glm::vec4(4, 5, 6, 7),
 		glm::vec4(8, 9, 10, 11),
 		glm::vec4(12, 13, 14, 15));

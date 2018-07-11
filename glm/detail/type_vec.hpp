@@ -10,92 +10,101 @@
 namespace glm{
 namespace detail
 {
-	template<typename T, std::size_t size, bool aligned>
+	template<length_t L, typename T, qualifier Q>
+	struct storage_alignment
+	{};
+
+	template<length_t L, typename T>
+	struct alignas(L * sizeof(T)) storage_alignment<L, T, aligned_highp>
+	{};
+
+	template<length_t L, typename T>
+	struct alignas(L * sizeof(T)) storage_alignment<L, T, aligned_mediump>
+	{};
+
+	template<length_t L, typename T>
+	struct alignas(L * sizeof(T)) storage_alignment<L, T, aligned_lowp>
+	{};
+
+	template<length_t L, typename T, bool is_aligned>
 	struct storage
 	{
 		typedef struct type {
-			uint8 data[size];
+			T data[L];
 		} type;
 	};
 
-	#define GLM_ALIGNED_STORAGE_TYPE_STRUCT(x) \
-		template<typename T> \
-		struct storage<T, x, true> { \
-			GLM_ALIGNED_STRUCT(x) type { \
-				uint8 data[x]; \
-			}; \
-		};
+	template<length_t L, typename T>
+	struct storage<L, T, true>
+	{
+		typedef struct alignas(L * sizeof(T)) type {
+			T data[L];
+		} type;
+	};
 
-	GLM_ALIGNED_STORAGE_TYPE_STRUCT(1)
-	GLM_ALIGNED_STORAGE_TYPE_STRUCT(2)
-	GLM_ALIGNED_STORAGE_TYPE_STRUCT(4)
-	GLM_ALIGNED_STORAGE_TYPE_STRUCT(8)
-	GLM_ALIGNED_STORAGE_TYPE_STRUCT(16)
-	GLM_ALIGNED_STORAGE_TYPE_STRUCT(32)
-	GLM_ALIGNED_STORAGE_TYPE_STRUCT(64)
+	template<typename T>
+	struct storage<3, T, true>
+	{
+		typedef struct alignas(4 * sizeof(T)) type {
+			T data[4];
+		} type;
+	};
 
 #	if GLM_ARCH & GLM_ARCH_SSE2_BIT
 		template<>
-		struct storage<float, 16, true>
+		struct storage<4, float, true>
 		{
-			typedef glm_vec4 type;
+			typedef glm_f32vec4 type;
 		};
 
 		template<>
-		struct storage<int, 16, true>
+		struct storage<4, int32, true>
 		{
-			typedef glm_ivec4 type;
+			typedef glm_i32vec4 type;
 		};
 
 		template<>
-		struct storage<unsigned int, 16, true>
+		struct storage<4, uint32, true>
 		{
-			typedef glm_uvec4 type;
-		};
-/*
-#	else
-		typedef union __declspec(align(16)) glm_128
-		{
-			unsigned __int8 data[16];
-		} glm_128;
-
-		template<>
-		struct storage<float, 16, true>
-		{
-			typedef glm_128 type;
+			typedef glm_u32vec4 type;
 		};
 
 		template<>
-		struct storage<int, 16, true>
+		struct storage<2, double, true>
 		{
-			typedef glm_128 type;
+			typedef glm_f64vec2 type;
 		};
 
 		template<>
-		struct storage<unsigned int, 16, true>
+		struct storage<2, int64, true>
 		{
-			typedef glm_128 type;
+			typedef glm_i64vec2 type;
 		};
-*/
+
+		template<>
+		struct storage<2, uint64, true>
+		{
+			typedef glm_u64vec2 type;
+		};
 #	endif
 
 #	if (GLM_ARCH & GLM_ARCH_AVX_BIT)
 		template<>
-		struct storage<double, 32, true>
+		struct storage<4, double, true>
 		{
-			typedef glm_dvec4 type;
+			typedef glm_f64vec4 type;
 		};
 #	endif
 
 #	if (GLM_ARCH & GLM_ARCH_AVX2_BIT)
 		template<>
-		struct storage<int64, 32, true>
+		struct storage<4, int64, true>
 		{
 			typedef glm_i64vec4 type;
 		};
 
 		template<>
-		struct storage<uint64, 32, true>
+		struct storage<4, uint64, true>
 		{
 			typedef glm_u64vec4 type;
 		};

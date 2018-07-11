@@ -45,7 +45,7 @@ int test_vec3_ctor()
 	}
 #endif
 
-#if(GLM_HAS_UNRESTRICTED_UNIONS && defined(GLM_FORCE_SWIZZLE))
+#if(GLM_LANG & GLM_LANG_CXXMS_FLAG && defined(GLM_FORCE_SWIZZLE))
 	{
 		glm::vec3 A = glm::vec3(1.0f, 2.0f, 3.0f);
 		glm::vec3 B = A.xyz;
@@ -64,7 +64,7 @@ int test_vec3_ctor()
 		Error += glm::all(glm::equal(A, G)) ? 0 : 1;
 		Error += glm::all(glm::equal(A, H)) ? 0 : 1;
 	}
-#endif//(GLM_HAS_UNRESTRICTED_UNIONS && defined(GLM_FORCE_SWIZZLE))
+#endif//(GLM_LANG & GLM_LANG_CXXMS_FLAG && defined(GLM_FORCE_SWIZZLE))
 
 	{
 		glm::vec3 A(1);
@@ -469,6 +469,8 @@ int test_vec3_swizzle_functions()
 {
 	int Error = 0;
 
+#	if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
+
 	// NOTE: template functions cannot pick up the implicit conversion from
 	// a swizzle to the unswizzled type, therefore the operator() must be 
 	// used.  E.g.:
@@ -500,6 +502,8 @@ int test_vec3_swizzle_functions()
 	r = glm::dot(s, t);                 Error += (int(r) == 300) ? 0 : 1;
 	r = glm::dot(s.xyzw(), t.xyzw());   Error += (int(r) == 300) ? 0 : 1;
 	r = glm::dot(s.xyz(), t.xyz());     Error += (int(r) == 140) ? 0 : 1;
+
+#endif//GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
 
 	return Error;
 }

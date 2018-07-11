@@ -428,7 +428,7 @@ namespace glm
 	typedef aligned_highp_vec3			aligned_vec3;
 
 	/// 4 components vector aligned in memory of single-precision floating-point numbers.
-	typedef aligned_highp_vec4			aligned_vec4;
+	typedef aligned_highp_vec4 			aligned_vec4;
 
 	/// 1 component vector tightly packed in memory of single-precision floating-point numbers.
 	typedef packed_highp_vec1			packed_vec1;

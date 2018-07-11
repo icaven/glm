@@ -5,7 +5,7 @@
 
 #include "type_vec.hpp"
 #if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
-#	if GLM_HAS_UNRESTRICTED_UNIONS
+#	if GLM_LANG & GLM_LANG_CXXMS_FLAG
 #		include "_swizzle.hpp"
 #	else
 #		include "_swizzle_func.hpp"
@@ -29,22 +29,14 @@ namespace glm
 #		if GLM_HAS_ONLY_XYZW
 			T x, y;
 
-#		elif GLM_HAS_ALIGNED_TYPE
-#			if GLM_COMPILER & GLM_COMPILER_GCC
-#				pragma GCC diagnostic push
-#				pragma GCC diagnostic ignored "-Wpedantic"
-#			endif
-#			if GLM_COMPILER & GLM_COMPILER_CLANG
-#				pragma clang diagnostic push
-#				pragma clang diagnostic ignored "-Wgnu-anonymous-struct"
-#				pragma clang diagnostic ignored "-Wnested-anon-types"
-#			endif
-
+#		elif GLM_LANG & GLM_LANG_CXXMS_FLAG
 			union
 			{
 				struct{ T x, y; };
 				struct{ T r, g; };
 				struct{ T s, t; };
+
+				typename detail::storage<2, T, detail::is_aligned<Q>::value>::type data;
 
 #				if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
 					GLM_SWIZZLE2_2_MEMBERS(T, Q, x, y)
@@ -57,22 +49,14 @@ namespace glm
 					GLM_SWIZZLE2_4_MEMBERS(T, Q, r, g)
 					GLM_SWIZZLE2_4_MEMBERS(T, Q, s, t)
 #				endif//GLM_SWIZZLE
-
 			};
-
-#			if GLM_COMPILER & GLM_COMPILER_CLANG
-#				pragma clang diagnostic pop
-#			endif
-#			if GLM_COMPILER & GLM_COMPILER_GCC
-#				pragma GCC diagnostic pop
-#			endif
 #		else
 			union {T x, r, s;};
 			union {T y, g, t;};
 
-#			if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
-				GLM_SWIZZLE_GEN_VEC_FROM_VEC2(T, P)
-#			endif//GLM_SWIZZLE
+//#			if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
+//				GLM_SWIZZLE_GEN_VEC_FROM_VEC2(T, Q)
+//#			endif//GLM_SWIZZLE
 #		endif
 
 		// -- Component accesses --

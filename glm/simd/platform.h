@@ -385,16 +385,25 @@
 #endif//GLM_ARCH
 
 #if GLM_ARCH & GLM_ARCH_SSE2_BIT
-	typedef __m128		glm_vec4;
-	typedef __m128i		glm_ivec4;
-	typedef __m128i		glm_uvec4;
+	typedef __m128			glm_f32vec4;
+	typedef __m128i			glm_i32vec4;
+	typedef __m128i			glm_u32vec4;
+	typedef __m128d			glm_f64vec2;
+	typedef __m128i			glm_i64vec2;
+	typedef __m128i			glm_u64vec2;
+
+	typedef glm_f32vec4		glm_vec4;
+	typedef glm_i32vec4		glm_ivec4;
+	typedef glm_u32vec4		glm_uvec4;
+	typedef glm_f64vec2		glm_dvec2;
 #endif
 
 #if GLM_ARCH & GLM_ARCH_AVX_BIT
-	typedef __m256d		glm_dvec4;
+	typedef __m256d			glm_f64vec4;
+	typedef glm_f64vec4		glm_dvec4;
 #endif
 
 #if GLM_ARCH & GLM_ARCH_AVX2_BIT
-	typedef __m256i		glm_i64vec4;
-	typedef __m256i		glm_u64vec4;
+	typedef __m256i			glm_i64vec4;
+	typedef __m256i			glm_u64vec4;
 #endif

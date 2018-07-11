@@ -54,6 +54,8 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 ### [GLM 0.9.9.1](https://github.com/g-truc/glm/commits/master) - 2018-0X-XX
 #### Features:
 - Added bitfieldDeinterleave to GTC_bitfield
+- Added C++17 detection
+- Added Visual C++ language standard version detection
 
 #### Improvements:
 - Added missing vec1 based constructors
@@ -63,6 +65,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 #### Fixes:
 - Fixed build problems due to printf and std::clock_t #778
 - Fixed int mod
+- Anonymous unions require C++ language extensions
 
 ### [GLM 0.9.9.0](https://github.com/g-truc/glm/releases/tag/0.9.9.0) - 2018-05-22
 #### Features:

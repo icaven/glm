@@ -125,142 +125,94 @@
 #define GLM_LANG_CXX03_FLAG			(1 << 2)
 #define GLM_LANG_CXX0X_FLAG			(1 << 3)
 #define GLM_LANG_CXX11_FLAG			(1 << 4)
-#define GLM_LANG_CXX1Y_FLAG			(1 << 5)
-#define GLM_LANG_CXX14_FLAG			(1 << 6)
-#define GLM_LANG_CXX1Z_FLAG			(1 << 7)
-#define GLM_LANG_CXXMS_FLAG			(1 << 8)
-#define GLM_LANG_CXXGNU_FLAG		(1 << 9)
+#define GLM_LANG_CXX14_FLAG			(1 << 5)
+#define GLM_LANG_CXX17_FLAG			(1 << 6)
+#define GLM_LANG_CXXMS_FLAG			(1 << 7)
+#define GLM_LANG_CXXGNU_FLAG		(1 << 8)
 
 #define GLM_LANG_CXX98			GLM_LANG_CXX98_FLAG
 #define GLM_LANG_CXX03			(GLM_LANG_CXX98 | GLM_LANG_CXX03_FLAG)
 #define GLM_LANG_CXX0X			(GLM_LANG_CXX03 | GLM_LANG_CXX0X_FLAG)
 #define GLM_LANG_CXX11			(GLM_LANG_CXX0X | GLM_LANG_CXX11_FLAG)
-#define GLM_LANG_CXX1Y			(GLM_LANG_CXX11 | GLM_LANG_CXX1Y_FLAG)
-#define GLM_LANG_CXX14			(GLM_LANG_CXX1Y | GLM_LANG_CXX14_FLAG)
-#define GLM_LANG_CXX1Z			(GLM_LANG_CXX14 | GLM_LANG_CXX1Z_FLAG)
+#define GLM_LANG_CXX14			(GLM_LANG_CXX11 | GLM_LANG_CXX14_FLAG)
+#define GLM_LANG_CXX17			(GLM_LANG_CXX14 | GLM_LANG_CXX17_FLAG)
 #define GLM_LANG_CXXMS			GLM_LANG_CXXMS_FLAG
 #define GLM_LANG_CXXGNU			GLM_LANG_CXXGNU_FLAG
 
-#if defined(GLM_FORCE_CXX14)
-#	if((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER <= GLM_COMPILER_GCC50)) || ((GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_COMPILER <= GLM_COMPILER_CLANG34))
-#			pragma message("GLM: Using GLM_FORCE_CXX14 with a compiler that doesn't fully support C++14")
-#	elif GLM_COMPILER & GLM_COMPILER_VC
-#			pragma message("GLM: Using GLM_FORCE_CXX14 but there is no known version of Visual C++ compiler that fully supports C++14")
-#	elif GLM_COMPILER & GLM_COMPILER_INTEL
-#			pragma message("GLM: Using GLM_FORCE_CXX14 but there is no known version of ICC compiler that fully supports C++14")
+#ifdef _MSC_EXTENSIONS
+#	define GLM_MSC_EXT GLM_LANG_CXXMS_FLAG
+#else
+#	define GLM_MSC_EXT 0
+#endif
+
+#ifdef _MSVC_LANG
+#	if _MSVC_LANG == 201703
+#		define GLM_FORCE_CXX17
+#	elif _MSVC_LANG == 201402
+#		define GLM_FORCE_CXX14
 #	endif
-#	define GLM_LANG GLM_LANG_CXX14
+#endif
+
+#if defined(GLM_FORCE_CXX17)
+#	if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_FORCE_CXX17_DISPLAYED)
+#		define GLM_MESSAGE_FORCE_CXX17_DISPLAYED
+#		if (__cplusplus >= 201703L) || ((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC15_7)) || ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC80)) || ((GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_COMPILER >= GLM_COMPILER_CLANG50))
+#			pragma message("GLM: Force the use of C++17 only")
+#		else
+#			pragma message("GLM: Force the use of C++17 on a compiler that doesn't have full C++17 support")
+#		endif
+#	endif//GLM_MESSAGES
+#	define GLM_LANG (GLM_LANG_CXX17 | GLM_MSC_EXT)
+#	define GLM_LANG_STL11_FORCED
+#elif defined(GLM_FORCE_CXX14)
+#	if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_FORCE_CXX14_DISPLAYED)
+#		define GLM_MESSAGE_FORCE_CXX14_DISPLAYED
+#		if (__cplusplus >= 201402L) || ((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC15)) || ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC50)) || ((GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_COMPILER >= GLM_COMPILER_CLANG34))
+#			pragma message("GLM: Force the use of C++14 only")
+#		else
+#			pragma message("GLM: Force the use of C++14 on a compiler that doesn't have full C++14 support")
+#		endif
+#	endif//GLM_MESSAGES
+#	define GLM_LANG (GLM_LANG_CXX14 | GLM_MSC_EXT)
 #	define GLM_LANG_STL11_FORCED
 #elif defined(GLM_FORCE_CXX11)
-#	if((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER <= GLM_COMPILER_GCC48)) || ((GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_COMPILER <= GLM_COMPILER_CLANG33))
-#			pragma message("GLM: Using GLM_FORCE_CXX11 with a compiler that doesn't fully support C++11")
-#	elif GLM_COMPILER & GLM_COMPILER_VC
-#			pragma message("GLM: Using GLM_FORCE_CXX11 but there is no known version of Visual C++ compiler that fully supports C++11")
-#	elif GLM_COMPILER & GLM_COMPILER_INTEL
-#			pragma message("GLM: Using GLM_FORCE_CXX11 but there is no known version of ICC compiler that fully supports C++11")
-#	endif
-#	define GLM_LANG GLM_LANG_CXX11
+#	if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_FORCE_CXX11_DISPLAYED)
+#		define GLM_MESSAGE_FORCE_CXX11_DISPLAYED
+#		if (__cplusplus >= 201103L) || ((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC14)) || ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC49)) || ((GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_COMPILER >= GLM_COMPILER_CLANG33))
+#			pragma message("GLM: Force the use of C++11 only")
+#		else
+#			pragma message("GLM: Force the use of C++11 on a compiler that doesn't have full C++11 support")
+#		endif
+#	endif//GLM_MESSAGES
+#	define GLM_LANG (GLM_LANG_CXX11 | GLM_MSC_EXT)
 #	define GLM_LANG_STL11_FORCED
 #elif defined(GLM_FORCE_CXX03)
 #	define GLM_LANG GLM_LANG_CXX03
 #elif defined(GLM_FORCE_CXX98)
 #	define GLM_LANG GLM_LANG_CXX98
 #else
-#	if GLM_COMPILER & GLM_COMPILER_CLANG
-#		if __cplusplus >= 201402L // GLM_COMPILER_CLANG34 + -std=c++14
-#			define GLM_LANG GLM_LANG_CXX14
-#		elif __has_feature(cxx_decltype_auto) && __has_feature(cxx_aggregate_nsdmi) // GLM_COMPILER_CLANG33 + -std=c++1y
-#			define GLM_LANG GLM_LANG_CXX1Y
-#		elif __cplusplus >= 201103L // GLM_COMPILER_CLANG33 + -std=c++11
-#			define GLM_LANG GLM_LANG_CXX11
-#		elif __has_feature(cxx_static_assert) // GLM_COMPILER_CLANG29 + -std=c++11
-#			define GLM_LANG GLM_LANG_CXX0X
-#		elif __cplusplus >= 199711L
-#			define GLM_LANG GLM_LANG_CXX98
-#		else
-#			define GLM_LANG GLM_LANG_CXX
-#		endif
-#	elif GLM_COMPILER & GLM_COMPILER_GCC
-#		if __cplusplus >= 201402L
-#			define GLM_LANG GLM_LANG_CXX14
-#		elif __cplusplus >= 201103L
-#			define GLM_LANG GLM_LANG_CXX11
-#		elif defined(__GXX_EXPERIMENTAL_CXX0X__)
-#			define GLM_LANG GLM_LANG_CXX0X
-#		else
-#			define GLM_LANG GLM_LANG_CXX98
-#		endif
-#	elif GLM_COMPILER & GLM_COMPILER_VC
-#		ifdef _MSC_EXTENSIONS
-#			if __cplusplus >= 201402L
-#				define GLM_LANG (GLM_LANG_CXX14 | GLM_LANG_CXXMS_FLAG)
-#			elif __cplusplus >= 201103L
-#				define GLM_LANG (GLM_LANG_CXX11 | GLM_LANG_CXXMS_FLAG)
-#			else
-#				define GLM_LANG (GLM_LANG_CXX0X | GLM_LANG_CXXMS_FLAG)
-#			endif
-#		else
-#			if __cplusplus >= 201402L
-#				define GLM_LANG GLM_LANG_CXX14
-#			elif __cplusplus >= 201103L
-#				define GLM_LANG GLM_LANG_CXX11
-#			else
-#				define GLM_LANG GLM_LANG_CXX0X
-#			endif
-#		endif
-#	elif GLM_COMPILER & GLM_COMPILER_INTEL
-#		ifdef _MSC_EXTENSIONS
-#			define GLM_MSC_EXT GLM_LANG_CXXMS_FLAG
-#		else
-#			define GLM_MSC_EXT 0
-#		endif
-#		if __cplusplus >= 201402L
-#			define GLM_LANG (GLM_LANG_CXX14 | GLM_MSC_EXT)
-#		elif __cplusplus >= 201103L
-#			define GLM_LANG (GLM_LANG_CXX11 | GLM_MSC_EXT)
-#		elif __INTEL_CXX11_MODE__
-#			define GLM_LANG (GLM_LANG_CXX0X | GLM_MSC_EXT)
-#		elif __cplusplus >= 199711L
-#			define GLM_LANG (GLM_LANG_CXX98 | GLM_MSC_EXT)
-#		else
-#			define GLM_LANG (GLM_LANG_CXX | GLM_MSC_EXT)
-#		endif
-#	elif GLM_COMPILER & GLM_COMPILER_CUDA
-#		ifdef _MSC_EXTENSIONS
-#			define GLM_MSC_EXT GLM_LANG_CXXMS_FLAG
-#		else
-#			define GLM_MSC_EXT 0
-#		endif
-#		if GLM_COMPILER >= GLM_COMPILER_CUDA75
-#			define GLM_LANG (GLM_LANG_CXX0X | GLM_MSC_EXT)
-#		else
-#			define GLM_LANG (GLM_LANG_CXX98 | GLM_MSC_EXT)
-#		endif
-#	else // Unknown compiler
-#		if __cplusplus >= 201402L
-#			define GLM_LANG GLM_LANG_CXX14
-#		elif __cplusplus >= 201103L
-#			define GLM_LANG GLM_LANG_CXX11
-#		elif __cplusplus >= 199711L
-#			define GLM_LANG GLM_LANG_CXX98
-#		else
-#			define GLM_LANG GLM_LANG_CXX // Good luck with that!
-#		endif
-#		ifndef GLM_FORCE_PURE
-#			define GLM_FORCE_PURE
-#		endif
+#	if __cplusplus >= 201703L
+#		define GLM_LANG (GLM_LANG_CXX17 | GLM_MSC_EXT)
+#	elif __cplusplus >= 201402L
+#		define GLM_LANG (GLM_LANG_CXX14 | GLM_MSC_EXT)
+#	elif __cplusplus >= 201103L
+#		define GLM_LANG (GLM_LANG_CXX11 | GLM_MSC_EXT)
+#	elif defined(__INTEL_CXX11_MODE__) || defined(_MSC_VER) || defined(__GXX_EXPERIMENTAL_CXX0X__)
+#		define GLM_LANG (GLM_LANG_CXX0X | GLM_MSC_EXT)
+#	elif __cplusplus >= 199711L
+#		define GLM_LANG (GLM_LANG_CXX98 | GLM_MSC_EXT)
+#	else
+#		define GLM_LANG (GLM_LANG_CXX | GLM_MSC_EXT)
 #	endif
 #endif
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_LANG_DISPLAYED)
 #	define GLM_MESSAGE_LANG_DISPLAYED
 
-#	if GLM_LANG & GLM_LANG_CXX1Z_FLAG
-#		pragma message("GLM: C++1z")
+#	if GLM_LANG & GLM_LANG_CXX17_FLAG
+#		pragma message("GLM: C++17")
 #	elif GLM_LANG & GLM_LANG_CXX14_FLAG
 #		pragma message("GLM: C++14")
-#	elif GLM_LANG & GLM_LANG_CXX1Y_FLAG
-#		pragma message("GLM: C++1y")
 #	elif GLM_LANG & GLM_LANG_CXX11_FLAG
 #		pragma message("GLM: C++11")
 #	elif GLM_LANG & GLM_LANG_CXX0X_FLAG
@@ -340,7 +292,7 @@
 // N2544 Unrestricted unions http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2544.pdf
 #if GLM_COMPILER & GLM_COMPILER_CLANG
 #	define GLM_HAS_UNRESTRICTED_UNIONS __has_feature(cxx_unrestricted_unions)
-#elif GLM_LANG & (GLM_LANG_CXX11_FLAG | GLM_LANG_CXXMS_FLAG)
+#elif GLM_LANG & GLM_LANG_CXX11_FLAG
 #	define GLM_HAS_UNRESTRICTED_UNIONS 1
 #else
 #	define GLM_HAS_UNRESTRICTED_UNIONS (GLM_LANG & GLM_LANG_CXX0X_FLAG) && (\
@@ -608,7 +560,7 @@
 #define GLM_SWIZZLE_ENABLED 1
 #define GLM_SWIZZLE_DISABLE 0
 
-#if defined(GLM_FORCE_SWIZZLE)
+#if defined(GLM_FORCE_SWIZZLE) && (GLM_LANG & GLM_LANG_CXXMS_FLAG)
 #	define GLM_SWIZZLE GLM_SWIZZLE_ENABLED
 #else
 #	define GLM_SWIZZLE GLM_SWIZZLE_DISABLE
@@ -619,7 +571,7 @@
 #	if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
 #		pragma message("GLM: Swizzling operators enabled")
 #	else
-#		pragma message("GLM: Swizzling operators disabled, #define GLM_SWIZZLE to enable swizzle operators")
+#		pragma message("GLM: Swizzling operators disabled, #define GLM_FORCE_SWIZZLE to enable swizzle operators")
 #	endif
 #endif//GLM_MESSAGES
 
