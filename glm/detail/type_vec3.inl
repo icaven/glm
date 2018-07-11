@@ -1,7 +1,7 @@
 /// @ref core
 /// @file glm/detail/type_tvec3.inl
 
-#include "./compute_common.hpp"
+#include "./compute_vector_relational.hpp"
 
 namespace glm
 {
