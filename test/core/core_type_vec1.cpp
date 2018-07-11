@@ -69,18 +69,6 @@ int test_vec1_ctor()
 	}
 #endif
 */
-#if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
-	{
-		glm::vec2 A = glm::vec2(1.0f, 2.0f);
-		glm::vec2 B = A.xy;
-		glm::vec2 C(A.xy);
-		glm::vec2 D(A.xy());
-
-		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, C)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, D)) ? 0 : 1;
-	}
-#endif//GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
 
 	{
 		glm::vec2 A = glm::vec2(2.0f);
@@ -137,6 +125,24 @@ static int test_vec1_operator_increment()
 	return Error;
 }
 
+static int test_swizzle()
+{
+	int Error = 0;
+
+#if GLM_HAS_ANONYMOUS_STRUCT && GLM_SWIZZLE == GLM_ENABLE
+	{
+		glm::vec1 A = glm::vec1(1.0f);
+		//glm::vec1 B = A.x;
+		glm::vec1 C(A.x);
+
+		//Error += glm::all(glm::equal(A, B)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, C)) ? 0 : 1;
+	}
+#endif//GLM_SWIZZLE == GLM_ENABLE
+
+	return Error;
+}
+
 static int test_constexpr()
 {
 #if GLM_HAS_CONSTEXPR_CXX14
@@ -155,6 +161,7 @@ int main()
 	Error += test_vec1_ctor();
 	Error += test_vec1_operators();
 	Error += test_vec1_operator_increment();
+	Error += test_swizzle();
 	Error += test_constexpr();
 	
 	return Error;

@@ -3,31 +3,30 @@
 
 #ifndef GLM_SETUP_INCLUDED
 
+#include <cassert>
+#include <cstddef>
+
 #define GLM_VERSION_MAJOR			0
 #define GLM_VERSION_MINOR			9
 #define GLM_VERSION_PATCH			9
-#define GLM_VERSION_REVISION		0
-#define GLM_VERSION					990
+#define GLM_VERSION_REVISION		1
+#define GLM_VERSION					991
 
 #define GLM_SETUP_INCLUDED GLM_VERSION
 
-#if defined(GLM_FORCE_SWIZZLE) && defined(GLM_FORCE_UNRESTRICTED_GENTYPE)
-#	error "Both GLM_FORCE_SWIZZLE and GLM_FORCE_UNRESTRICTED_GENTYPE can't be defined at the same time"
-#endif
+///////////////////////////////////////////////////////////////////////////////////
+// Active states
 
-#include <cassert>
-#include <cstddef>
+#define GLM_DISABLE		0
+#define GLM_ENABLE		1
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Messages
 
-#define GLM_MESSAGES_ENABLED 1
-#define GLM_MESSAGES_DISABLE 0
-
 #if defined(GLM_FORCE_MESSAGES)
-#	define GLM_MESSAGES GLM_MESSAGES_ENABLED
+#	define GLM_MESSAGES GLM_ENABLE
 #else
-#	define GLM_MESSAGES GLM_MESSAGES_DISABLE
+#	define GLM_MESSAGES GLM_DISABLE
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -38,13 +37,13 @@
 ///////////////////////////////////////////////////////////////////////////////////
 // Version
 
-#if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_VERSION_DISPLAYED)
+#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_VERSION_DISPLAYED)
 #	define GLM_MESSAGE_VERSION_DISPLAYED
-#	pragma message ("GLM: version 0.9.9.0")
+#	pragma message ("GLM: version 0.9.9.1")
 #endif//GLM_MESSAGES
 
 // Report compiler detection
-#if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_COMPILER_DISPLAYED)
+#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_COMPILER_DISPLAYED)
 #	define GLM_MESSAGE_COMPILER_DISPLAYED
 #	if GLM_COMPILER & GLM_COMPILER_CUDA
 #		pragma message("GLM: CUDA compiler detected")
@@ -62,6 +61,13 @@
 #endif//GLM_MESSAGES
 
 ///////////////////////////////////////////////////////////////////////////////////
+// Incompatible GLM_FORCE defines
+
+#if defined(GLM_FORCE_SWIZZLE) && defined(GLM_FORCE_UNRESTRICTED_GENTYPE)
+#	error "Both GLM_FORCE_SWIZZLE and GLM_FORCE_UNRESTRICTED_GENTYPE can't be defined at the same time"
+#endif
+
+///////////////////////////////////////////////////////////////////////////////////
 // Build model
 
 #if defined(__arch64__) || defined(__LP64__) || defined(_M_X64) || defined(__ppc64__) || defined(__x86_64__)
@@ -76,7 +82,7 @@
 #	error "GLM_MODEL undefined, your compiler may not be supported by GLM. Add #define GLM_MODEL 0 to ignore this message."
 #endif//GLM_MODEL
 
-#if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_MODEL_DISPLAYED)
+#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_MODEL_DISPLAYED)
 #	define GLM_MESSAGE_MODEL_DISPLAYED
 #	if(GLM_MODEL == GLM_MODEL_64)
 #		pragma message("GLM: 64 bits model")
@@ -85,7 +91,7 @@
 #	endif//GLM_MODEL
 #endif//GLM_MESSAGES
 
-#if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_ARCH_DISPLAYED)
+#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_ARCH_DISPLAYED)
 #	define GLM_MESSAGE_ARCH_DISPLAYED
 #	if(GLM_ARCH == GLM_ARCH_PURE)
 #		pragma message("GLM: Platform independent code")
@@ -158,14 +164,14 @@
 #endif
 
 #if defined(GLM_FORCE_CXX2A)
-#	if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_FORCE_CXX2A_DISPLAYED)
+#	if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_FORCE_CXX2A_DISPLAYED)
 #		define GLM_MESSAGE_FORCE_CXX2A_DISPLAYED
 #		pragma message("GLM: Force the use of C++2a only")
 #	endif//GLM_MESSAGES
 #	define GLM_LANG (GLM_LANG_CXX2A | GLM_MSC_EXT)
 #	define GLM_LANG_STL11_FORCED
 #elif defined(GLM_FORCE_CXX17)
-#	if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_FORCE_CXX17_DISPLAYED)
+#	if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_FORCE_CXX17_DISPLAYED)
 #		define GLM_MESSAGE_FORCE_CXX17_DISPLAYED
 #		if (__cplusplus >= 201703L) || ((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC15_7)) || ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC80)) || ((GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_COMPILER >= GLM_COMPILER_CLANG50))
 #			pragma message("GLM: Force the use of C++17 only")
@@ -176,7 +182,7 @@
 #	define GLM_LANG (GLM_LANG_CXX17 | GLM_MSC_EXT)
 #	define GLM_LANG_STL11_FORCED
 #elif defined(GLM_FORCE_CXX14)
-#	if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_FORCE_CXX14_DISPLAYED)
+#	if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_FORCE_CXX14_DISPLAYED)
 #		define GLM_MESSAGE_FORCE_CXX14_DISPLAYED
 #		if (__cplusplus >= 201402L) || ((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC15)) || ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC50)) || ((GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_COMPILER >= GLM_COMPILER_CLANG34))
 #			pragma message("GLM: Force the use of C++14 only")
@@ -187,7 +193,7 @@
 #	define GLM_LANG (GLM_LANG_CXX14 | GLM_MSC_EXT)
 #	define GLM_LANG_STL11_FORCED
 #elif defined(GLM_FORCE_CXX11)
-#	if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_FORCE_CXX11_DISPLAYED)
+#	if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_FORCE_CXX11_DISPLAYED)
 #		define GLM_MESSAGE_FORCE_CXX11_DISPLAYED
 #		if (__cplusplus >= 201103L) || ((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC14)) || ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC49)) || ((GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_COMPILER >= GLM_COMPILER_CLANG33))
 #			pragma message("GLM: Force the use of C++11 only")
@@ -217,7 +223,7 @@
 #	endif
 #endif
 
-#if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_LANG_DISPLAYED)
+#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_LANG_DISPLAYED)
 #	define GLM_MESSAGE_LANG_DISPLAYED
 
 #	if GLM_LANG & GLM_LANG_CXX17_FLAG
@@ -237,7 +243,7 @@
 #	endif//GLM_LANG
 
 #	if GLM_LANG & (GLM_LANG_CXXGNU_FLAG | GLM_LANG_CXXMS_FLAG)
-#		pragma message("GLM: Language extensions enabled")
+#		pragma message("GLM: C++ language extensions enabled")
 #	endif//GLM_LANG
 #endif//GLM_MESSAGES
 
@@ -417,12 +423,6 @@
 #endif
 
 //
-#define GLM_HAS_ONLY_XYZW ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER < GLM_COMPILER_GCC46))
-#if GLM_HAS_ONLY_XYZW
-#	pragma message("GLM: GCC older than 4.6 has a bug presenting the use of rgba and stpq components")
-#endif
-
-//
 #if GLM_LANG & GLM_LANG_CXX11_FLAG
 #	define GLM_HAS_ASSIGNABLE 1
 #else
@@ -555,18 +555,15 @@
 
 // User defines: GLM_FORCE_SWIZZLE
 
-#define GLM_SWIZZLE_ENABLED 1
-#define GLM_SWIZZLE_DISABLE 0
-
-#if defined(GLM_FORCE_SWIZZLE) && (GLM_LANG & GLM_LANG_CXXMS_FLAG)
-#	define GLM_SWIZZLE GLM_SWIZZLE_ENABLED
+#if defined(GLM_FORCE_SWIZZLE)
+#	define GLM_SWIZZLE GLM_ENABLE
 #else
-#	define GLM_SWIZZLE GLM_SWIZZLE_DISABLE
+#	define GLM_SWIZZLE GLM_DISABLE
 #endif
 
-#if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_SWIZZLE_DISPLAYED)
+#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_SWIZZLE_DISPLAYED)
 #	define GLM_MESSAGE_SWIZZLE_DISPLAYED
-#	if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
+#	if GLM_SWIZZLE == GLM_ENABLE
 #		pragma message("GLM: Swizzling operators enabled")
 #	else
 #		pragma message("GLM: Swizzling operators disabled, #define GLM_FORCE_SWIZZLE to enable swizzle operators")
@@ -584,7 +581,7 @@
 #	define GLM_UNRESTRICTED_GENTYPE 0
 #endif
 
-#if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_UNRESTRICTED_GENTYPE_DISPLAYED)
+#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_UNRESTRICTED_GENTYPE_DISPLAYED)
 #	define GLM_MESSAGE_UNRESTRICTED_GENTYPE_DISPLAYED
 #	ifdef GLM_FORCE_UNRESTRICTED_GENTYPE
 #		pragma message("GLM: Use unrestricted genType")
@@ -594,7 +591,7 @@
 ///////////////////////////////////////////////////////////////////////////////////
 // Force single only (remove explicit float64 types)
 
-#if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_SINGLE_ONLY_DISPLAYED)
+#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_SINGLE_ONLY_DISPLAYED)
 #	define GLM_MESSAGE_SINGLE_ONLY_DISPLAYED
 #	ifdef GLM_FORCE_SINGLE_ONLY
 #		pragma message("GLM: Using only single precision floating-point types")
@@ -613,7 +610,7 @@
 #	define GLM_DEPTH_CLIP_SPACE GLM_DEPTH_NEGATIVE_ONE_TO_ONE
 #endif
 
-#if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_DEPTH_DISPLAYED)
+#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_DEPTH_DISPLAYED)
 #	define GLM_MESSAGE_DEPTH_DISPLAYED
 #	if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
 #		pragma message("GLM: Depth clip space: Zero to one")
@@ -635,7 +632,7 @@
 #	define GLM_COORDINATE_SYSTEM GLM_RIGHT_HANDED
 #endif
 
-#if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_HANDED_DISPLAYED)
+#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_HANDED_DISPLAYED)
 #	define GLM_MESSAGE_HANDED_DISPLAYED
 #	if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
 #		pragma message("GLM: Coordinate system: left handed")
@@ -739,7 +736,7 @@ namespace glm
 #	endif
 }//namespace glm
 
-#if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_FORCE_SIZE_T_LENGTH)
+#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_FORCE_SIZE_T_LENGTH)
 #	define GLM_MESSAGE_FORCE_SIZE_T_LENGTH
 #	if defined GLM_FORCE_SIZE_T_LENGTH
 #		pragma message("GLM: .length() returns glm::length_t, a typedef of std::size_t")

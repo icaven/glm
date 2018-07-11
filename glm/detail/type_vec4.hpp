@@ -4,8 +4,8 @@
 #pragma once
 
 #include "type_vec.hpp"
-#if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
-#	if GLM_LANG & GLM_LANG_CXXMS_FLAG
+#if GLM_SWIZZLE == GLM_ENABLE
+#	if GLM_HAS_ANONYMOUS_STRUCT
 #		include "_swizzle.hpp"
 #	else
 #		include "_swizzle_func.hpp"
@@ -26,10 +26,7 @@ namespace glm
 
 		// -- Data --
 
-#		if GLM_HAS_ONLY_XYZW
-			T x, y, z, w;
-
-#		elif GLM_HAS_ANONYMOUS_STRUCT
+#		if GLM_HAS_ANONYMOUS_STRUCT
 			union
 			{
 				struct { T x, y, z, w; };
@@ -38,7 +35,7 @@ namespace glm
 
 				typename detail::storage<4, T, detail::is_aligned<Q>::value>::type data;
 
-#				if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
+#				if GLM_SWIZZLE == GLM_ENABLE
 					GLM_SWIZZLE4_2_MEMBERS(T, Q, x, y, z, w)
 					GLM_SWIZZLE4_2_MEMBERS(T, Q, r, g, b, a)
 					GLM_SWIZZLE4_2_MEMBERS(T, Q, s, t, p, q)
@@ -56,9 +53,9 @@ namespace glm
 			union { T z, b, p; };
 			union { T w, a, q; };
 
-//#			if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
-//				GLM_SWIZZLE_GEN_VEC_FROM_VEC4(T, Q)
-//#			endif//GLM_SWIZZLE
+#			if GLM_SWIZZLE == GLM_ENABLE
+				GLM_SWIZZLE_GEN_VEC_FROM_VEC4(T, Q)
+#			endif//GLM_SWIZZLE
 #		endif
 
 		// -- Component accesses --
@@ -178,7 +175,7 @@ namespace glm
 		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 GLM_EXPLICIT vec(vec<4, U, P> const& v);
 
 		// -- Swizzle constructors --
-#		if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
+#		if GLM_HAS_ANONYMOUS_STRUCT && GLM_SWIZZLE == GLM_ENABLE
 			template<int E0, int E1, int E2, int E3>
 			GLM_FUNC_DECL vec(detail::_swizzle<4, T, Q, E0, E1, E2, E3> const& that)
 			{
@@ -220,7 +217,7 @@ namespace glm
 			{
 				*this = vec<4, T, Q>(x, v());
 			}
-#		endif//GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
+#		endif//GLM_HAS_ANONYMOUS_STRUCT && GLM_SWIZZLE == GLM_ENABLE
 
 		// -- Unary arithmetic operators --
 

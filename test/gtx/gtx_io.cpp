@@ -1,4 +1,6 @@
 #define GLM_ENABLE_EXPERIMENTAL
+#include <glm/glm.hpp>
+#if GLM_LANG & GLM_LANG_CXXMS_FLAG
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtx/io.hpp>
 #include <iostream>
@@ -174,3 +176,11 @@ int main()
 
 	return Error;
 }
+#else
+
+int main()
+{
+	return 0;
+}
+
+#endif// GLM_LANG & GLM_LANG_CXXMS_FLAG

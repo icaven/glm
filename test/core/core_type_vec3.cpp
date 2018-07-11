@@ -27,7 +27,7 @@ int test_vec3_ctor()
 		Error += std::is_copy_constructible<glm::vec3>::value ? 0 : 1;
 #	endif
 
-#if (GLM_HAS_INITIALIZER_LISTS)
+#	if GLM_HAS_INITIALIZER_LISTS
 	{
 		glm::vec3 a{ 0, 1, 2 };
 		std::vector<glm::vec3> v = {
@@ -43,28 +43,7 @@ int test_vec3_ctor()
 			{4, 5, 6},
 			{8, 9, 0}};
 	}
-#endif
-
-#if(GLM_LANG & GLM_LANG_CXXMS_FLAG && defined(GLM_FORCE_SWIZZLE))
-	{
-		glm::vec3 A = glm::vec3(1.0f, 2.0f, 3.0f);
-		glm::vec3 B = A.xyz;
-		glm::vec3 C(A.xyz);
-		glm::vec3 D(A.xyz());
-		glm::vec3 E(A.x, A.yz);
-		glm::vec3 F(A.x, A.yz());
-		glm::vec3 G(A.xy, A.z);
-		glm::vec3 H(A.xy(), A.z);
-
-		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, C)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, D)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, E)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, F)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, G)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, H)) ? 0 : 1;
-	}
-#endif//(GLM_LANG & GLM_LANG_CXXMS_FLAG && defined(GLM_FORCE_SWIZZLE))
+#	endif
 
 	{
 		glm::vec3 A(1);
@@ -338,7 +317,7 @@ int test_vec3_swizzle3_2()
 {
 	int Error = 0;
 
-#	if(GLM_LANG & GLM_LANG_CXXMS_FLAG)
+#	if GLM_SWIZZLE == GLM_ENABLE && GLM_HAS_ANONYMOUS_STRUCT
 
 		glm::vec3 v(1, 2, 3);
 		glm::vec2 u;
@@ -402,7 +381,7 @@ int test_vec3_swizzle3_3()
 {
 	int Error = 0;
 
-#	if(GLM_LANG & GLM_LANG_CXXMS_FLAG)
+#	if GLM_SWIZZLE == GLM_ENABLE && GLM_HAS_ANONYMOUS_STRUCT
 	glm::vec3 v(1, 2, 3);
 	glm::vec3 u;
 
@@ -424,7 +403,6 @@ int test_vec3_swizzle3_3()
 	return Error;
 }
 
-#if !GLM_HAS_ONLY_XYZW
 int test_vec3_swizzle_operators()
 {
 	int Error = 0;
@@ -432,7 +410,7 @@ int test_vec3_swizzle_operators()
 	glm::vec3 u = glm::vec3(1, 2, 3);
 	glm::vec3 v = glm::vec3(10, 20, 30);
 
-#	if(GLM_LANG & GLM_LANG_CXXMS_FLAG)
+#	if GLM_SWIZZLE == GLM_ENABLE && GLM_HAS_ANONYMOUS_STRUCT
 		glm::vec3 q;
 
 		// Swizzle, swizzle binary operators
@@ -469,7 +447,7 @@ int test_vec3_swizzle_functions()
 {
 	int Error = 0;
 
-#	if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
+#	if GLM_SWIZZLE == GLM_ENABLE
 
 	// NOTE: template functions cannot pick up the implicit conversion from
 	// a swizzle to the unswizzled type, therefore the operator() must be 
@@ -503,7 +481,7 @@ int test_vec3_swizzle_functions()
 	r = glm::dot(s.xyzw(), t.xyzw());   Error += (int(r) == 300) ? 0 : 1;
 	r = glm::dot(s.xyz(), t.xyz());     Error += (int(r) == 140) ? 0 : 1;
 
-#endif//GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
+#endif//GLM_SWIZZLE == GLM_ENABLE
 
 	return Error;
 }
@@ -512,9 +490,10 @@ int test_vec3_swizzle_partial()
 {
 	int Error = 0;
 
+#	if GLM_SWIZZLE == GLM_ENABLE && GLM_HAS_ANONYMOUS_STRUCT
+	
 	glm::vec3 A(1, 2, 3);
 
-#	if(GLM_LANG & GLM_LANG_CXXMS_FLAG)
 	{
 		glm::vec3 B(A.xy, 3.0f);
 		Error += A == B ? 0 : 1;
@@ -529,15 +508,14 @@ int test_vec3_swizzle_partial()
 		glm::vec3 B(A.xyz);
 		Error += A == B ? 0 : 1;
 	}
-#	endif//GLM_LANG
+#	endif//GLM_SWIZZLE == GLM_ENABLE && GLM_HAS_ANONYMOUS_STRUCT
 
 	return Error;
 }
-#endif//!GLM_HAS_ONLY_XYZW
 
 static int test_operator_increment()
 {
-	int Error(0);
+	int Error = 0;
 
 	glm::ivec3 v0(1);
 	glm::ivec3 v1(v0);
@@ -558,6 +536,53 @@ static int test_operator_increment()
 	Error += i0 == i4 ? 0 : 1;
 	Error += i1 == i2 ? 0 : 1;
 	Error += i1 == i3 ? 0 : 1;
+
+	return Error;
+}
+
+static int test_swizzle()
+{
+	int Error = 0;
+
+#	if GLM_SWIZZLE == GLM_ENABLE && GLM_HAS_ANONYMOUS_STRUCT
+	{
+		glm::vec3 A = glm::vec3(1.0f, 2.0f, 3.0f);
+		glm::vec3 B = A.xyz;
+		glm::vec3 C(A.xyz);
+		glm::vec3 D(A.xyz());
+		glm::vec3 E(A.x, A.yz);
+		glm::vec3 F(A.x, A.yz());
+		glm::vec3 G(A.xy, A.z);
+		glm::vec3 H(A.xy(), A.z);
+
+		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, C)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, D)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, E)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, F)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, G)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, H)) ? 0 : 1;
+	}
+#	elif GLM_SWIZZLE == GLM_ENABLE
+	{
+		glm::vec3 A = glm::vec3(1.0f, 2.0f, 3.0f);
+		glm::vec3 B = A.xyz();
+		glm::vec3 C(A.xyz());
+		glm::vec3 D(A.xyz());
+		glm::vec3 E(A.x, A.yz());
+		glm::vec3 F(A.x, A.yz());
+		glm::vec3 G(A.xy(), A.z);
+		glm::vec3 H(A.xy(), A.z);
+
+		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, C)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, D)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, E)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, F)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, G)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, H)) ? 0 : 1;
+	}
+#	endif//GLM_SWIZZLE == GLM_ENABLE
 
 	return Error;
 }
@@ -583,16 +608,15 @@ int main()
 	Error += test_bvec3_ctor();
 	Error += test_vec3_operators();
 	Error += test_vec3_size();
-	Error += test_vec3_swizzle3_2();
-	Error += test_vec3_swizzle3_3();
 	Error += test_operator_increment();
 	Error += test_constexpr();
 
-#	if !GLM_HAS_ONLY_XYZW
-		Error += test_vec3_swizzle_partial();
-		Error += test_vec3_swizzle_operators();
-		Error += test_vec3_swizzle_functions();
-#	endif//!GLM_HAS_ONLY_XYZW
+	Error += test_swizzle();
+	Error += test_vec3_swizzle3_2();
+	Error += test_vec3_swizzle3_3();
+	Error += test_vec3_swizzle_partial();
+	Error += test_vec3_swizzle_operators();
+	Error += test_vec3_swizzle_functions();
 
 	return Error;
 }

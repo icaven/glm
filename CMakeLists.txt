@@ -59,10 +59,15 @@ option(GLM_TEST_ENABLE_LANG_EXTENSIONS "Enable language extensions" OFF)
 
 if(GLM_TEST_ENABLE_LANG_EXTENSIONS)
 	set(CMAKE_CXX_EXTENSIONS ON)
-
+	if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+		add_compile_options(/Ze)
+	endif()
 	message(STATUS "GLM: Build with C++ language extensions")
 else()
 	set(CMAKE_CXX_EXTENSIONS OFF)
+	if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+		add_compile_options(/Za)
+	endif()
 endif()
 
 option(GLM_TEST_ENABLE_FAST_MATH "Enable fast math optimizations" OFF)

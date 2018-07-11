@@ -6,7 +6,7 @@
 namespace glm{
 namespace detail
 {
-#	if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
+#	if GLM_SWIZZLE == GLM_ENABLE
 	template<qualifier Q, int E0, int E1, int E2, int E3>
 	struct _swizzle_base1<4, float, Q, E0,E1,E2,E3, true> : public _swizzle_base0<float, 4>
 	{
@@ -49,7 +49,7 @@ namespace detail
 			return Result;
 		}
 	};
-#	endif// GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
+#	endif// GLM_SWIZZLE == GLM_ENABLE
 
 	template<qualifier Q>
 	struct compute_vec4_add<float, Q, true>

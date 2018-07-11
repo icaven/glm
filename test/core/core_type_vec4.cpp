@@ -74,37 +74,6 @@ static int test_vec4_ctor()
 	}
 #endif
 
-#if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
-	{
-		glm::vec4 A = glm::vec4(1.0f, 2.0f, 3.0f, 4.0f);
-		glm::vec4 B = A.xyzw;
-		glm::vec4 C(A.xyzw);
-		glm::vec4 D(A.xyzw());
-		glm::vec4 E(A.x, A.yzw);
-		glm::vec4 F(A.x, A.yzw());
-		glm::vec4 G(A.xyz, A.w);
-		glm::vec4 H(A.xyz(), A.w);
-		glm::vec4 I(A.xy, A.zw);
-		glm::vec4 J(A.xy(), A.zw());
-		glm::vec4 K(A.x, A.y, A.zw);
-		glm::vec4 L(A.x, A.yz, A.w);
-		glm::vec4 M(A.xy, A.z, A.w);
-
-		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, C)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, D)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, E)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, F)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, G)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, H)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, I)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, J)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, K)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, L)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, M)) ? 0 : 1;
-	}
-#endif// GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
-
 	{
 		glm::vec4 A(1);
 		glm::vec4 B(1, 1, 1, 1);
@@ -516,7 +485,7 @@ static int test_swizzle_partial()
 
 	glm::vec4 A(1, 2, 3, 4);
 
-#	if GLM_HAS_UNRESTRICTED_UNIONS && defined(GLM_SWIZZLE_RELAX)
+#	if GLM_SWIZZLE == GLM_ENABLE && GLM_HAS_ANONYMOUS_STRUCT
 	{
 		glm::vec4 B(A.xy, A.zw);
 		Error += A == B ? 0 : 1;
@@ -542,7 +511,74 @@ static int test_swizzle_partial()
 		glm::vec4 B(1.0f, A.yzw);
 		Error += A == B ? 0 : 1;
 	}
-#	endif
+#	endif//GLM_SWIZZLE == GLM_ENABLE
+
+	return Error;
+}
+
+static int test_swizzle()
+{
+	int Error = 0;
+
+#	if GLM_SWIZZLE == GLM_ENABLE && GLM_HAS_ANONYMOUS_STRUCT
+	{
+		glm::vec4 A = glm::vec4(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::vec4 B = A.xyzw;
+		glm::vec4 C(A.xyzw);
+		glm::vec4 D(A.xyzw());
+		glm::vec4 E(A.x, A.yzw);
+		glm::vec4 F(A.x, A.yzw());
+		glm::vec4 G(A.xyz, A.w);
+		glm::vec4 H(A.xyz(), A.w);
+		glm::vec4 I(A.xy, A.zw);
+		glm::vec4 J(A.xy(), A.zw());
+		glm::vec4 K(A.x, A.y, A.zw);
+		glm::vec4 L(A.x, A.yz, A.w);
+		glm::vec4 M(A.xy, A.z, A.w);
+
+		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, C)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, D)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, E)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, F)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, G)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, H)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, I)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, J)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, K)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, L)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, M)) ? 0 : 1;
+	}
+#	elif GLM_SWIZZLE == GLM_ENABLE
+	{
+		glm::vec4 A = glm::vec4(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::vec4 B = A.xyzw();
+		glm::vec4 C(A.xyzw());
+		glm::vec4 D(A.xyzw());
+		glm::vec4 E(A.x, A.yzw());
+		glm::vec4 F(A.x, A.yzw());
+		glm::vec4 G(A.xyz(), A.w);
+		glm::vec4 H(A.xyz(), A.w);
+		glm::vec4 I(A.xy(), A.zw());
+		glm::vec4 J(A.xy(), A.zw());
+		glm::vec4 K(A.x, A.y, A.zw());
+		glm::vec4 L(A.x, A.yz(), A.w);
+		glm::vec4 M(A.xy(), A.z, A.w);
+
+		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, C)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, D)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, E)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, F)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, G)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, H)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, I)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, J)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, K)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, L)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, M)) ? 0 : 1;
+	}
+#	endif//GLM_SWIZZLE == GLM_ENABLE && GLM_HAS_ANONYMOUS_STRUCT
 
 	return Error;
 }
@@ -782,6 +818,7 @@ int main()
 	Error += test_size();
 	Error += test_operators();
 	Error += test_equal();
+	Error += test_swizzle();
 	Error += test_swizzle_partial();
 	Error += test_simd();
 	Error += test_operator_increment();
