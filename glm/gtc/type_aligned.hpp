@@ -12,7 +12,7 @@
 
 #pragma once
 
-#if !GLM_HAS_ALIGNED_TYPE
+#if !GLM_HAS_ANONYMOUS_STRUCT
 #	error "GLM: Aligned types are not supported on this platform"
 #endif
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)

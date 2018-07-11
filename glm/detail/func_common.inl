@@ -67,6 +67,15 @@ namespace glm
 namespace glm{
 namespace detail
 {
+	template<length_t L, typename T, qualifier Q, bool Aligned>
+	struct compute_abs_vector
+	{
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 static vec<L, T, Q> call(vec<L, T, Q> const& x)
+		{
+			return detail::functor1<vec, L, T, T, Q>::call(abs, x);
+		}
+	};
+
 	template<length_t L, typename T, typename U, qualifier Q, bool Aligned>
 	struct compute_mix_vector
 	{
@@ -158,7 +167,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vec<L, T, Q> call(vec<L, T, Q> const& x)
 		{
-			return detail::functor1<L, T, T, Q>::call(std::floor, x);
+			return detail::functor1<vec, L, T, T, Q>::call(std::floor, x);
 		}
 	};
 
@@ -167,7 +176,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vec<L, T, Q> call(vec<L, T, Q> const& x)
 		{
-			return detail::functor1<L, T, T, Q>::call(std::ceil, x);
+			return detail::functor1<vec, L, T, T, Q>::call(std::ceil, x);
 		}
 	};
 
@@ -185,7 +194,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vec<L, T, Q> call(vec<L, T, Q> const& x)
 		{
-			return detail::functor1<L, T, T, Q>::call(trunc, x);
+			return detail::functor1<vec, L, T, T, Q>::call(trunc, x);
 		}
 	};
 
@@ -194,7 +203,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vec<L, T, Q> call(vec<L, T, Q> const& x)
 		{
-			return detail::functor1<L, T, T, Q>::call(round, x);
+			return detail::functor1<vec, L, T, T, Q>::call(round, x);
 		}
 	};
 
@@ -213,7 +222,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vec<L, T, Q> call(vec<L, T, Q> const& x, vec<L, T, Q> const& y)
 		{
-			return detail::functor2<L, T, Q>::call(min, x, y);
+			return detail::functor2<vec, L, T, Q>::call(min, x, y);
 		}
 	};
 
@@ -222,7 +231,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static vec<L, T, Q> call(vec<L, T, Q> const& x, vec<L, T, Q> const& y)
 		{
-			return detail::functor2<L, T, Q>::call(max, x, y);
+			return detail::functor2<vec, L, T, Q>::call(max, x, y);
 		}
 	};
 
@@ -360,7 +369,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER vec<L, T, Q> roundEven(vec<L, T, Q> const& x)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'roundEven' only accept floating-point inputs");
-		return detail::functor1<L, T, T, Q>::call(roundEven, x);
+		return detail::functor1<vec, L, T, T, Q>::call(roundEven, x);
 	}
 
 	// ceil

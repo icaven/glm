@@ -19,7 +19,7 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 vec<L, T, Q> radians(vec<L, T, Q> const& v)
 	{
-		return detail::functor1<L, T, T, Q>::call(radians, v);
+		return detail::functor1<vec, L, T, T, Q>::call(radians, v);
 	}
 
 	// degrees
@@ -34,7 +34,7 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 vec<L, T, Q> degrees(vec<L, T, Q> const& v)
 	{
-		return detail::functor1<L, T, T, Q>::call(degrees, v);
+		return detail::functor1<vec, L, T, T, Q>::call(degrees, v);
 	}
 
 	// sin
@@ -43,7 +43,7 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<L, T, Q> sin(vec<L, T, Q> const& v)
 	{
-		return detail::functor1<L, T, T, Q>::call(sin, v);
+		return detail::functor1<vec, L, T, T, Q>::call(sin, v);
 	}
 
 	// cos
@@ -52,7 +52,7 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<L, T, Q> cos(vec<L, T, Q> const& v)
 	{
-		return detail::functor1<L, T, T, Q>::call(cos, v);
+		return detail::functor1<vec, L, T, T, Q>::call(cos, v);
 	}
 
 	// tan
@@ -61,7 +61,7 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<L, T, Q> tan(vec<L, T, Q> const& v)
 	{
-		return detail::functor1<L, T, T, Q>::call(tan, v);
+		return detail::functor1<vec, L, T, T, Q>::call(tan, v);
 	}
 
 	// asin
@@ -70,7 +70,7 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<L, T, Q> asin(vec<L, T, Q> const& v)
 	{
-		return detail::functor1<L, T, T, Q>::call(asin, v);
+		return detail::functor1<vec, L, T, T, Q>::call(asin, v);
 	}
 
 	// acos
@@ -79,7 +79,7 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<L, T, Q> acos(vec<L, T, Q> const& v)
 	{
-		return detail::functor1<L, T, T, Q>::call(acos, v);
+		return detail::functor1<vec, L, T, T, Q>::call(acos, v);
 	}
 
 	// atan
@@ -94,7 +94,7 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<L, T, Q> atan(vec<L, T, Q> const& a, vec<L, T, Q> const& b)
 	{
-		return detail::functor2<L, T, Q>::call(::std::atan2, a, b);
+		return detail::functor2<vec, L, T, Q>::call(::std::atan2, a, b);
 	}
 
 	using std::atan;
@@ -102,7 +102,7 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<L, T, Q> atan(vec<L, T, Q> const& v)
 	{
-		return detail::functor1<L, T, T, Q>::call(atan, v);
+		return detail::functor1<vec, L, T, T, Q>::call(atan, v);
 	}
 
 	// sinh
@@ -111,7 +111,7 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<L, T, Q> sinh(vec<L, T, Q> const& v)
 	{
-		return detail::functor1<L, T, T, Q>::call(sinh, v);
+		return detail::functor1<vec, L, T, T, Q>::call(sinh, v);
 	}
 
 	// cosh
@@ -120,7 +120,7 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<L, T, Q> cosh(vec<L, T, Q> const& v)
 	{
-		return detail::functor1<L, T, T, Q>::call(cosh, v);
+		return detail::functor1<vec, L, T, T, Q>::call(cosh, v);
 	}
 
 	// tanh
@@ -129,7 +129,7 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<L, T, Q> tanh(vec<L, T, Q> const& v)
 	{
-		return detail::functor1<L, T, T, Q>::call(tanh, v);
+		return detail::functor1<vec, L, T, T, Q>::call(tanh, v);
 	}
 
 	// asinh
@@ -148,7 +148,7 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<L, T, Q> asinh(vec<L, T, Q> const& v)
 	{
-		return detail::functor1<L, T, T, Q>::call(asinh, v);
+		return detail::functor1<vec, L, T, T, Q>::call(asinh, v);
 	}
 
 	// acosh
@@ -169,7 +169,7 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<L, T, Q> acosh(vec<L, T, Q> const& v)
 	{
-		return detail::functor1<L, T, T, Q>::call(acosh, v);
+		return detail::functor1<vec, L, T, T, Q>::call(acosh, v);
 	}
 
 	// atanh
@@ -190,7 +190,7 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<L, T, Q> atanh(vec<L, T, Q> const& v)
 	{
-		return detail::functor1<L, T, T, Q>::call(atanh, v);
+		return detail::functor1<vec, L, T, T, Q>::call(atanh, v);
 	}
 }//namespace glm
 

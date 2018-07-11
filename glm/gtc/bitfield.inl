@@ -235,7 +235,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'mask' accepts only integer values");
 
-		return detail::functor1<L, T, T, Q>::call(mask, v);
+		return detail::functor1<vec, L, T, T, Q>::call(mask, v);
 	}
 
 	template<typename genIType>

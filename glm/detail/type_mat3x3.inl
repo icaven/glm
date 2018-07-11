@@ -248,11 +248,9 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 typename mat<3, 3, T, Q>::col_type const& mat<3, 3, T, Q>::operator[](typename mat<3, 3, T, Q>::length_type i) const
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 typename mat<3, 3, T, Q>::col_type const& mat<3, 3, T, Q>::operator[](typename mat<3, 3, T, Q>::length_type i) const
 	{
-#		if GLM_HAS_CONSTEXPR_CXX14
-			assert(i < this->length());
-#		endif
+		assert(i < this->length());
 		return this->value[i];
 	}
 

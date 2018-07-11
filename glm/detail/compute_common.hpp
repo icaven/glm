@@ -1,8 +1,6 @@
 #pragma once
 
 #include "setup.hpp"
-#include "_vectorize.hpp"
-#include <cstring>
 #include <limits>
 
 namespace glm{
@@ -46,15 +44,6 @@ namespace detail
 				(!std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer) || GLM_UNRESTRICTED_GENTYPE,
 				"'abs' only accept floating-point and integer scalar or vector inputs");
 			return x;
-		}
-	};
-
-	template<length_t L, typename T, qualifier Q, bool Aligned>
-	struct compute_abs_vector
-	{
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 static vec<L, T, Q> call(vec<L, T, Q> const& x)
-		{
-			return detail::functor1<L, T, T, Q>::call(abs, x);
 		}
 	};
 }//namespace detail

@@ -1,6 +1,6 @@
 #include <glm/glm.hpp>
 
-#if GLM_HAS_ALIGNED_TYPE
+#if GLM_HAS_ANONYMOUS_STRUCT
 struct vec2;
 
 struct _swizzle

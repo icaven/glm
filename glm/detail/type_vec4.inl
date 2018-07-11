@@ -512,7 +512,7 @@ namespace detail
 	}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER T const& vec<4, T, Q>::operator[](typename vec<4, T, Q>::length_type i) const
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 T const& vec<4, T, Q>::operator[](typename vec<4, T, Q>::length_type i) const
 	{
 		assert(i >= 0 && i < this->length());
 		return (&x)[i];
@@ -1142,6 +1142,6 @@ namespace detail
 	}
 }//namespace glm
 
-#if GLM_ARCH != GLM_ARCH_PURE && GLM_HAS_ALIGNED_TYPE
+#if GLM_ARCH != GLM_ARCH_PURE && GLM_HAS_ANONYMOUS_STRUCT
 #	include "type_vec4_simd.inl"
 #endif

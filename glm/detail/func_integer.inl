@@ -153,7 +153,7 @@ namespace detail
 		{
 			GLM_FUNC_QUALIFIER static vec<L, int, Q> call(vec<L, T, Q> const& x)
 			{
-				return detail::functor1<L, int, T, Q>::call(compute_findMSB_32, x);
+				return detail::functor1<vec, L, int, T, Q>::call(compute_findMSB_32, x);
 			}
 		};
 
@@ -171,7 +171,7 @@ namespace detail
 		{
 			GLM_FUNC_QUALIFIER static vec<L, int, Q> call(vec<L, T, Q> const& x)
 			{
-				return detail::functor1<L, int, T, Q>::call(compute_findMSB_64, x);
+				return detail::functor1<vec, L, int, T, Q>::call(compute_findMSB_64, x);
 			}
 		};
 #		endif
@@ -351,7 +351,7 @@ namespace detail
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'findLSB' only accept integer values");
 
-		return detail::functor1<L, int, T, Q>::call(findLSB, x);
+		return detail::functor1<vec, L, int, T, Q>::call(findLSB, x);
 	}
 
 	// findMSB

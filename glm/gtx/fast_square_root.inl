@@ -15,7 +15,7 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<L, T, Q> fastSqrt(vec<L, T, Q> const& x)
 	{
-		return detail::functor1<L, T, T, Q>::call(fastSqrt, x);
+		return detail::functor1<vec, L, T, T, Q>::call(fastSqrt, x);
 	}
 
 	// fastInversesqrt

@@ -30,7 +30,7 @@ namespace glm
 		GLM_FUNC_DECL static GLM_CONSTEXPR_CXX11 length_type length() { return 3; }
 
 		GLM_FUNC_DECL col_type & operator[](length_type i);
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 col_type const& operator[](length_type i) const;
+		GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 col_type const& operator[](length_type i) const;
 
 		// -- Constructors --
 

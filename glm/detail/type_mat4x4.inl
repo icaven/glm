@@ -296,7 +296,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER typename mat<4, 4, T, Q>::col_type const& mat<4, 4, T, Q>::operator[](typename mat<4, 4, T, Q>::length_type i) const
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 typename mat<4, 4, T, Q>::col_type const& mat<4, 4, T, Q>::operator[](typename mat<4, 4, T, Q>::length_type i) const
 	{
 		assert(i < this->length());
 		return this->value[i];

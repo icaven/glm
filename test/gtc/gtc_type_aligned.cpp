@@ -1,7 +1,7 @@
 #define GLM_FORCE_MESSAGES
 #include <glm/glm.hpp>
 
-#if GLM_HAS_ALIGNED_TYPE
+#if GLM_HAS_ANONYMOUS_STRUCT
 #include <glm/gtc/type_aligned.hpp>
 
 GLM_STATIC_ASSERT(glm::detail::is_aligned<glm::aligned_lowp>::value, "aligned_lowp is not aligned");
@@ -143,4 +143,4 @@ int main()
 	return 0;
 }
 
-#endif//GLM_HAS_ALIGNED_TYPE
+#endif//GLM_HAS_ANONYMOUS_STRUCT

@@ -29,7 +29,7 @@ namespace glm
 #		if GLM_HAS_ONLY_XYZW
 			T x, y, z, w;
 
-#		elif GLM_LANG & GLM_LANG_CXXMS_FLAG
+#		elif GLM_HAS_ANONYMOUS_STRUCT
 			union
 			{
 				struct { T x, y, z, w; };
@@ -68,7 +68,7 @@ namespace glm
 		GLM_FUNC_DECL static GLM_CONSTEXPR_CXX11 length_type length(){return 4;}
 
 		GLM_FUNC_DECL T & operator[](length_type i);
-		GLM_FUNC_DECL T const& operator[](length_type i) const;
+		GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 T const& operator[](length_type i) const;
 
 		// -- Implicit basic constructors --
 

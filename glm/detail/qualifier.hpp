@@ -15,7 +15,7 @@ namespace glm
 		packed_mediump, ///< Typed data is tightly packed in memory  and operations are executed with medium precision in term of ULPs for higher performance
 		packed_lowp, ///< Typed data is tightly packed in memory  and operations are executed with low precision in term of ULPs to maximize performance
 
-#		if GLM_HAS_ALIGNED_TYPE
+#		if GLM_HAS_ANONYMOUS_STRUCT
 			aligned_highp, ///< Typed data is aligned in memory allowing SIMD optimizations and operations are executed with high precision in term of ULPs
 			aligned_mediump, ///< Typed data is aligned in memory allowing SIMD optimizations and operations are executed with high precision in term of ULPs for higher performance
 			aligned_lowp, // ///< Typed data is aligned in memory allowing SIMD optimizations and operations are executed with high precision in term of ULPs to maximize performance
@@ -27,7 +27,7 @@ namespace glm
 		lowp = packed_lowp, ///< By default lowp qualifier is also packed
 		packed = packed_highp, ///< By default packed qualifier is also high precision
 
-#		if GLM_HAS_ALIGNED_TYPE && defined(GLM_FORCE_ALIGNED)
+#		if GLM_HAS_ANONYMOUS_STRUCT && defined(GLM_FORCE_ALIGNED)
 			defaultp = aligned_highp
 #		else
 			defaultp = highp
@@ -47,23 +47,25 @@ namespace detail
 		static const bool value = false;
 	};
 
-	template<>
-	struct is_aligned<glm::aligned_lowp>
-	{
-		static const bool value = true;
-	};
+#	if GLM_HAS_ANONYMOUS_STRUCT
+		template<>
+		struct is_aligned<glm::aligned_lowp>
+		{
+			static const bool value = true;
+		};
 
-	template<>
-	struct is_aligned<glm::aligned_mediump>
-	{
-		static const bool value = true;
-	};
+		template<>
+		struct is_aligned<glm::aligned_mediump>
+		{
+			static const bool value = true;
+		};
 
-	template<>
-	struct is_aligned<glm::aligned_highp>
-	{
-		static const bool value = true;
-	};
+		template<>
+		struct is_aligned<glm::aligned_highp>
+		{
+			static const bool value = true;
+		};
+#	endif//GLM_HAS_ANONYMOUS_STRUCT
 
 	template<length_t L, typename T, bool is_aligned>
 	struct storage

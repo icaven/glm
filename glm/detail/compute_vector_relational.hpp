@@ -2,7 +2,6 @@
 
 #include "compute_common.hpp"
 #include "setup.hpp"
-#include <cstring>
 #include <limits>
 
 namespace glm{

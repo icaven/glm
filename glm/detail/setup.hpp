@@ -296,7 +296,7 @@
 #	define GLM_HAS_UNRESTRICTED_UNIONS 1
 #else
 #	define GLM_HAS_UNRESTRICTED_UNIONS (GLM_LANG & GLM_LANG_CXX0X_FLAG) && (\
-		((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_LANG & GLM_LANG_CXXMS_FLAG)) || \
+		(GLM_COMPILER & GLM_COMPILER_VC) || \
 		((GLM_COMPILER & GLM_COMPILER_CUDA) && (GLM_COMPILER >= GLM_COMPILER_CUDA75)) || \
 		((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC46)))
 #endif
@@ -722,7 +722,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-#define GLM_HAS_ALIGNED_TYPE GLM_HAS_UNRESTRICTED_UNIONS
+#define GLM_HAS_ANONYMOUS_STRUCT (GLM_LANG & GLM_LANG_CXXMS_FLAG)
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Length type: all length functions returns a length_t type.
