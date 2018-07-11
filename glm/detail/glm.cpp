@@ -1,6 +1,7 @@
 /// @ref core
 /// @file glm/glm.cpp
 
+#define GLM_FORCE_MESSAGES
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/glm.hpp>
 #include <glm/ext/vec1.hpp>
