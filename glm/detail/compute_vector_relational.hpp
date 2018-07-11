@@ -8,7 +8,7 @@
 namespace glm{
 namespace detail
 {
-	template <typename T, bool isFloat = std::numeric_limits<T>::is_iec559>
+	template <typename T, bool isFloat>
 	struct compute_equal
 	{
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 static bool call(T a, T b)

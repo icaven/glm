@@ -1,8 +1,6 @@
 /// @ref core
 /// @file glm/detail/type_tvec3.inl
 
-#include "./compute_vector_relational.hpp"
-
 namespace glm
 {
 	// -- Implicit basic constructors --
@@ -1026,9 +1024,9 @@ namespace glm
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 bool operator==(vec<3, T, Q> const& v1, vec<3, T, Q> const& v2)
 	{
 		return
-			detail::compute_equal<T>::call(v1.x, v2.x) &&
-			detail::compute_equal<T>::call(v1.y, v2.y) &&
-			detail::compute_equal<T>::call(v1.z, v2.z);
+			detail::compute_equal<T, std::numeric_limits<T>::is_iec559>::call(v1.x, v2.x) &&
+			detail::compute_equal<T, std::numeric_limits<T>::is_iec559>::call(v1.y, v2.y) &&
+			detail::compute_equal<T, std::numeric_limits<T>::is_iec559>::call(v1.z, v2.z);
 	}
 
 	template<typename T, qualifier Q>

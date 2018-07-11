@@ -4,7 +4,6 @@
 #include "../trigonometric.hpp"
 #include "../geometric.hpp"
 #include "../exponential.hpp"
-#include "../detail/compute_vector_relational.hpp"
 #include "epsilon.hpp"
 #include <limits>
 
@@ -603,7 +602,7 @@ namespace detail
 		const T y = static_cast<T>(2) * (q.y * q.z + q.w * q.x);
 		const T x = q.w * q.w - q.x * q.x - q.y * q.y + q.z * q.z;
 
-		if(detail::compute_equal<T>::call(y, static_cast<T>(0)) && detail::compute_equal<T>::call(x, static_cast<T>(0))) //avoid atan2(0,0) - handle singularity - Matiis
+		if(detail::compute_equal<T, std::numeric_limits<T>::is_iec559>::call(y, static_cast<T>(0)) && detail::compute_equal<T, std::numeric_limits<T>::is_iec559>::call(x, static_cast<T>(0))) //avoid atan2(0,0) - handle singularity - Matiis
 			return static_cast<T>(static_cast<T>(2) * atan(q.x,q.w));
 
 		return static_cast<T>(atan(y,x));
@@ -772,7 +771,7 @@ namespace detail
 	{
 		vec<4, bool, Q> Result;
 		for(length_t i = 0; i < x.length(); ++i)
-			Result[i] = detail::compute_equal<T>::call(x[i], y[i]);
+			Result[i] = detail::compute_equal<T, std::numeric_limits<T>::is_iec559>::call(x[i], y[i]);
 		return Result;
 	}
 
@@ -781,7 +780,7 @@ namespace detail
 	{
 		vec<4, bool, Q> Result;
 		for(length_t i = 0; i < x.length(); ++i)
-			Result[i] = !detail::compute_equal<T>::call(x[i], y[i]);
+			Result[i] = !detail::compute_equal<T, std::numeric_limits<T>::is_iec559>::call(x[i], y[i]);
 		return Result;
 	}
 

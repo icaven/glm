@@ -50,7 +50,7 @@ namespace glm
 		T const& y
 	)
 	{
-		return detail::compute_equal<T>::call(x, y);
+		return detail::compute_equal<T, std::numeric_limits<T>::is_iec559>::call(x, y);
 	}
 
 	template<typename T>
@@ -60,7 +60,7 @@ namespace glm
 		T const& y
 	)
 	{
-		return !detail::compute_equal<T>::call(x, y);
+		return !detail::compute_equal<T, std::numeric_limits<T>::is_iec559>::call(x, y);
 	}
 
 	GLM_FUNC_QUALIFIER bool any
