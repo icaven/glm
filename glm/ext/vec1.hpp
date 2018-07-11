@@ -285,16 +285,16 @@ namespace glm
 	// -- Boolean operators --
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_DECL bool operator==(vec<1, T, Q> const& v1, vec<1, T, Q> const& v2);
+	GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 bool operator==(vec<1, T, Q> const& v1, vec<1, T, Q> const& v2);
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_DECL bool operator!=(vec<1, T, Q> const& v1, vec<1, T, Q> const& v2);
+	GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 bool operator!=(vec<1, T, Q> const& v1, vec<1, T, Q> const& v2);
 
 	template<qualifier Q>
-	GLM_FUNC_DECL vec<1, bool, Q> operator&&(vec<1, bool, Q> const& v1, vec<1, bool, Q> const& v2);
+	GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 vec<1, bool, Q> operator&&(vec<1, bool, Q> const& v1, vec<1, bool, Q> const& v2);
 
 	template<qualifier Q>
-	GLM_FUNC_DECL vec<1, bool, Q> operator||(vec<1, bool, Q> const& v1, vec<1, bool, Q> const& v2);
+	GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 vec<1, bool, Q> operator||(vec<1, bool, Q> const& v1, vec<1, bool, Q> const& v2);
 
 	/// 1 component vector of single-precision floating-point numbers using high precision arithmetic in term of ULPs.
 	///

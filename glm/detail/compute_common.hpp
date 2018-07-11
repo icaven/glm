@@ -13,7 +13,7 @@ namespace detail
 	template<typename genFIType>
 	struct compute_abs<genFIType, true>
 	{
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 static genFIType call(genFIType x)
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 static genFIType call(genFIType x)
 		{
 			GLM_STATIC_ASSERT(
 				std::numeric_limits<genFIType>::is_iec559 || std::numeric_limits<genFIType>::is_signed || GLM_UNRESTRICTED_GENTYPE,
@@ -28,7 +28,7 @@ namespace detail
 	template<>
 	struct compute_abs<float, true>
 	{
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 static float call(float x)
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 static float call(float x)
 		{
 			return fabsf(x);
 		}
@@ -38,7 +38,7 @@ namespace detail
 	template<typename genFIType>
 	struct compute_abs<genFIType, false>
 	{
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 static genFIType call(genFIType x)
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 static genFIType call(genFIType x)
 		{
 			GLM_STATIC_ASSERT(
 				(!std::numeric_limits<genFIType>::is_signed && std::numeric_limits<genFIType>::is_integer) || GLM_UNRESTRICTED_GENTYPE,

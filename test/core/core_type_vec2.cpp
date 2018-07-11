@@ -347,7 +347,7 @@ static int test_operator_increment()
 
 static int test_constexpr()
 {
-#if GLM_HAS_CONSTEXPR_CXX11
+#if GLM_HAS_CONSTEXPR_CXX14
 	static_assert(glm::vec2::length() == 2, "GLM: Failed constexpr");
 	static_assert(glm::vec2(1.0f).x > 0.0f, "GLM: Failed constexpr");
 	static_assert(glm::vec2(1.0f, -1.0f).x > 0.0f, "GLM: Failed constexpr");

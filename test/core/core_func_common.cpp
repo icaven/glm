@@ -1291,10 +1291,13 @@ namespace ldexp_
 
 static int test_constexpr()
 {
-#if GLM_HAS_CONSTEXPR_CXX11
+#if GLM_HAS_CONSTEXPR_CXX14
 	static_assert(glm::abs(1.0f) > 0.0f, "GLM: Failed constexpr");
+	static_assert(glm::abs(glm::vec1(1.0f)) != glm::vec1(0.0f), "GLM: Failed constexpr");
+	static_assert(glm::abs(glm::vec2(1.0f)) != glm::vec2(0.0f), "GLM: Failed constexpr");
 	static_assert(glm::abs(glm::vec3(1.0f)) != glm::vec3(0.0f), "GLM: Failed constexpr");
-#endif // GLM_HAS_CONSTEXPR_CXX11
+	static_assert(glm::abs(glm::vec4(1.0f)) != glm::vec4(0.0f), "GLM: Failed constexpr");
+#endif // GLM_HAS_CONSTEXPR_CXX14
 
 	return 0;
 }

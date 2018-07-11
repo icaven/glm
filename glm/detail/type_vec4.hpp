@@ -466,16 +466,16 @@ namespace glm
 	// -- Boolean operators --
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_DECL bool operator==(vec<4, T, Q> const& v1, vec<4, T, Q> const& v2);
+	GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 bool operator==(vec<4, T, Q> const& v1, vec<4, T, Q> const& v2);
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_DECL bool operator!=(vec<4, T, Q> const& v1, vec<4, T, Q> const& v2);
+	GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 bool operator!=(vec<4, T, Q> const& v1, vec<4, T, Q> const& v2);
 
 	template<qualifier Q>
-	GLM_FUNC_DECL vec<4, bool, Q> operator&&(vec<4, bool, Q> const& v1, vec<4, bool, Q> const& v2);
+	GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 vec<4, bool, Q> operator&&(vec<4, bool, Q> const& v1, vec<4, bool, Q> const& v2);
 
 	template<qualifier Q>
-	GLM_FUNC_DECL vec<4, bool, Q> operator||(vec<4, bool, Q> const& v1, vec<4, bool, Q> const& v2);
+	GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 vec<4, bool, Q> operator||(vec<4, bool, Q> const& v1, vec<4, bool, Q> const& v2);
 }//namespace glm
 
 #ifndef GLM_EXTERNAL_TEMPLATE

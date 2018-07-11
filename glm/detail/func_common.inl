@@ -30,7 +30,7 @@ namespace glm
 
 	// abs
 	template<>
-	GLM_FUNC_QUALIFIER int32 abs(int32 x)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 int32 abs(int32 x)
 	{
 		int32 const y = x >> 31;
 		return (x ^ y) - y;
@@ -266,13 +266,13 @@ namespace detail
 }//namespace detail
 
 	template<typename genFIType>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 genFIType abs(genFIType x)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 genFIType abs(genFIType x)
 	{
 		return detail::compute_abs<genFIType, std::numeric_limits<genFIType>::is_signed>::call(x);
 	}
 
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 vec<L, T, Q> abs(vec<L, T, Q> const& x)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 vec<L, T, Q> abs(vec<L, T, Q> const& x)
 	{
 		return detail::compute_abs_vector<L, T, Q, detail::is_aligned<Q>::value>::call(x);
 	}
