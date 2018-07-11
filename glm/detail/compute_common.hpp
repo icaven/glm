@@ -1,6 +1,7 @@
 #pragma once
 
 #include "setup.hpp"
+#include "_vectorize.hpp"
 #include <cstring>
 #include <limits>
 

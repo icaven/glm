@@ -38,7 +38,7 @@ namespace glm
 		// -- Implementation detail --
 
 		typedef T value_type;
-		typedef vec type;
+		typedef vec<1, T, Q> type;
 		typedef vec<1, bool, Q> bool_type;
 
 		// -- Data --

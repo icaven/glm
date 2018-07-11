@@ -4,6 +4,7 @@
 #pragma once
 
 #include "setup.hpp"
+#include "type_int.hpp"
 
 namespace glm
 {
@@ -46,24 +47,106 @@ namespace detail
 		static const bool value = false;
 	};
 
-#	if GLM_HAS_ALIGNED_TYPE
-		template<>
-		struct is_aligned<glm::aligned_lowp>
-		{
-			static const bool value = true;
-		};
+	template<>
+	struct is_aligned<glm::aligned_lowp>
+	{
+		static const bool value = true;
+	};
 
-		template<>
-		struct is_aligned<glm::aligned_mediump>
-		{
-			static const bool value = true;
-		};
+	template<>
+	struct is_aligned<glm::aligned_mediump>
+	{
+		static const bool value = true;
+	};
 
-		template<>
-		struct is_aligned<glm::aligned_highp>
-		{
-			static const bool value = true;
-		};
+	template<>
+	struct is_aligned<glm::aligned_highp>
+	{
+		static const bool value = true;
+	};
+
+	template<length_t L, typename T, bool is_aligned>
+	struct storage
+	{
+		typedef struct type {
+			T data[L];
+		} type;
+	};
+
+	template<length_t L, typename T>
+	struct storage<L, T, true>
+	{
+		typedef struct alignas(L * sizeof(T)) type {
+			T data[L];
+		} type;
+	};
+
+	template<typename T>
+	struct storage<3, T, true>
+	{
+		typedef struct alignas(4 * sizeof(T)) type {
+			T data[4];
+		} type;
+	};
+
+#	if GLM_ARCH & GLM_ARCH_SSE2_BIT
+	template<>
+	struct storage<4, float, true>
+	{
+		typedef glm_f32vec4 type;
+	};
+
+	template<>
+	struct storage<4, int32, true>
+	{
+		typedef glm_i32vec4 type;
+	};
+
+	template<>
+	struct storage<4, uint32, true>
+	{
+		typedef glm_u32vec4 type;
+	};
+
+	template<>
+	struct storage<2, double, true>
+	{
+		typedef glm_f64vec2 type;
+	};
+
+	template<>
+	struct storage<2, int64, true>
+	{
+		typedef glm_i64vec2 type;
+	};
+
+	template<>
+	struct storage<2, uint64, true>
+	{
+		typedef glm_u64vec2 type;
+	};
+#	endif
+
+#	if (GLM_ARCH & GLM_ARCH_AVX_BIT)
+	template<>
+	struct storage<4, double, true>
+	{
+		typedef glm_f64vec4 type;
+	};
+#	endif
+
+#	if (GLM_ARCH & GLM_ARCH_AVX2_BIT)
+	template<>
+	struct storage<4, int64, true>
+	{
+		typedef glm_i64vec4 type;
+	};
+
+	template<>
+	struct storage<4, uint64, true>
+	{
+		typedef glm_u64vec4 type;
+	};
 #	endif
 }//namespace detail
 }//namespace glm
