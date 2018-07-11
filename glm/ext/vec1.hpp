@@ -23,7 +23,7 @@
 #endif //GLM_SWIZZLE
 #include <cstddef>
 
-#if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
+#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
 #	pragma message("GLM: GLM_EXT_vec1 extension included")
 #endif
 

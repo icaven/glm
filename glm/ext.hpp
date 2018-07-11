@@ -8,7 +8,7 @@
 
 #include "glm.hpp"
 
-#if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_MESSAGE_EXT_INCLUDED_DISPLAYED)
+#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_EXT_INCLUDED_DISPLAYED)
 #	define GLM_MESSAGE_EXT_INCLUDED_DISPLAYED
 #	pragma message("GLM: All extensions included (not recommended)")
 #endif//GLM_MESSAGES
