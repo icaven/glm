@@ -1,6 +1,8 @@
 /// @ref core
 /// @file glm/detail/type_vec1.inl
 
+#include "./compute_common.hpp"
+
 namespace glm
 {
 	// -- Implicit basic constructors --
