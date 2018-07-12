@@ -25,15 +25,6 @@ int test_aligned()
 	size_t align4_aligned = alignof(glm::detail::storage<4, int, true>::type);
 	Error += align4_aligned == 16 ? 0 : 1;
 
-#	elif GLM_COMPILER & GLM_COMPILER_GCC
-
-	size_t align1_aligned = __alignof__(glm::detail::storage<1, int, true>::type);
-	Error += align1_aligned == 4 ? 0 : 1;
-	size_t align2_aligned = __alignof__(glm::detail::storage<2, int, true>::type);
-	Error += align2_aligned == 8 ? 0 : 1;
-	size_t align8_aligned = __alignof__(glm::detail::storage<4, int, true>::type);
-	Error += align8_aligned == 16 ? 0 : 1;
-
 #	endif //GLM_HAS_ALIGNOF
 
 	return Error;
@@ -53,17 +44,6 @@ int test_unaligned()
 	Error += align3_unaligned == sizeof(int) ? 0 : 1;
 	size_t align4_unaligned = alignof(glm::detail::storage<4, int, false>::type);
 	Error += align4_unaligned == sizeof(int) ? 0 : 1;
-
-#	elif GLM_COMPILER & GLM_COMPILER_GCC
-
-	size_t align1_unaligned = __alignof__(glm::detail::storage<1, int, false>::type);
-	Error += align1_unaligned == sizeof(int) ? 0 : 1;
-	size_t align2_unaligned = __alignof__(glm::detail::storage<2, int, false>::type);
-	Error += align2_unaligned == sizeof(int) ? 0 : 1;
-	size_t align4_unaligned = __alignof__(glm::detail::storage<3, int, false>::type);
-	Error += align4_unaligned == sizeof(int) ? 0 : 1;
-	size_t align8_unaligned = __alignof__(glm::detail::storage<4, int, false>::type);
-	Error += align8_unaligned == sizeof(int) ? 0 : 1;
 
 #	endif //GLM_HAS_ALIGNOF
 
