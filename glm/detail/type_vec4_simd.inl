@@ -316,7 +316,9 @@ namespace detail
 	{
 		static bool call(vec<4, int32, Q> const& v1, vec<4, int32, Q> const& v2)
 		{
-			return _mm_movemask_epi8(_mm_cmpeq_epi32(v1.data, v2.data)) != 0;
+			//return _mm_movemask_epi8(_mm_cmpeq_epi32(v1.data, v2.data)) != 0;
+			__m128i neq = _mm_xor_si128(v1.data, v2.data);
+			return _mm_test_all_zeros(neq, neq) == 0;
 		}
 	};
 
@@ -334,7 +336,9 @@ namespace detail
 	{
 		static bool call(vec<4, int32, Q> const& v1, vec<4, int32, Q> const& v2)
 		{
-			return _mm_movemask_epi8(_mm_cmpneq_epi32(v1.data, v2.data)) != 0;
+			//return _mm_movemask_epi8(_mm_cmpneq_epi32(v1.data, v2.data)) != 0;
+			__m128i neq = _mm_xor_si128(v1.data, v2.data);
+			return _mm_test_all_zeros(neq, neq) != 0;
 		}
 	};
 }//namespace detail

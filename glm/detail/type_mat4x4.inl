@@ -704,6 +704,6 @@ namespace glm
 	}
 }//namespace glm
 
-#if GLM_ARCH != GLM_ARCH_PURE
+#if GLM_ARCH != GLM_ARCH_PURE && GLM_HAS_ANONYMOUS_STRUCT
 #	include "type_mat4x4_simd.inl"
 #endif

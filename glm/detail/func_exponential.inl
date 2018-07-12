@@ -146,7 +146,7 @@ namespace detail
 	}
 }//namespace glm
 
-#if GLM_ARCH != GLM_ARCH_PURE && GLM_HAS_UNRESTRICTED_UNIONS
+#if GLM_ARCH != GLM_ARCH_PURE && GLM_HAS_ANONYMOUS_STRUCT
 #	include "func_exponential_simd.inl"
 #endif
 

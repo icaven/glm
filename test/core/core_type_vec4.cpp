@@ -757,10 +757,27 @@ static int test_constexpr()
 
 	return 0;
 }
+/*
+static int test_simd_gen()
+{
+	int Error = 0;
 
+	int const C = static_cast<int>(std::clock());
+	int const D = static_cast<int>(std::clock());
+
+	glm::ivec4 const A(C);
+	glm::ivec4 const B(D);
+
+	Error += A != B ? 0 : 1;
+
+	return Error;
+}
+*/
 int main()
 {
 	int Error = 0;
+
+	//Error += test_simd_gen();
 
 /*
 	{
