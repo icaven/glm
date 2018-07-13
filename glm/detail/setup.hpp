@@ -11,6 +11,7 @@
 #define GLM_VERSION_PATCH			9
 #define GLM_VERSION_REVISION		1
 #define GLM_VERSION					991
+#define GLM_VERSION_MESSAGE			"GLM: version 0.9.9.1"
 
 #define GLM_SETUP_INCLUDED GLM_VERSION
 
@@ -35,32 +36,6 @@
 #include "../simd/platform.h"
 
 ///////////////////////////////////////////////////////////////////////////////////
-// Version
-
-#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_VERSION_DISPLAYED)
-#	define GLM_MESSAGE_VERSION_DISPLAYED
-#	pragma message ("GLM: version 0.9.9.1")
-#endif//GLM_MESSAGES
-
-// Report compiler detection
-#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_COMPILER_DISPLAYED)
-#	define GLM_MESSAGE_COMPILER_DISPLAYED
-#	if GLM_COMPILER & GLM_COMPILER_CUDA
-#		pragma message("GLM: CUDA compiler detected")
-#	elif GLM_COMPILER & GLM_COMPILER_VC
-#		pragma message("GLM: Visual C++ compiler detected")
-#	elif GLM_COMPILER & GLM_COMPILER_CLANG
-#		pragma message("GLM: Clang compiler detected")
-#	elif GLM_COMPILER & GLM_COMPILER_INTEL
-#		pragma message("GLM: Intel Compiler detected")
-#	elif GLM_COMPILER & GLM_COMPILER_GCC
-#		pragma message("GLM: GCC compiler detected")
-#	else
-#		pragma message("GLM: Compiler not detected")
-#	endif
-#endif//GLM_MESSAGES
-
-///////////////////////////////////////////////////////////////////////////////////
 // Incompatible GLM_FORCE defines
 
 #if defined(GLM_FORCE_SWIZZLE) && defined(GLM_FORCE_UNRESTRICTED_GENTYPE)
@@ -81,46 +56,6 @@
 #if !defined(GLM_MODEL) && GLM_COMPILER != 0
 #	error "GLM_MODEL undefined, your compiler may not be supported by GLM. Add #define GLM_MODEL 0 to ignore this message."
 #endif//GLM_MODEL
-
-#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_MODEL_DISPLAYED)
-#	define GLM_MESSAGE_MODEL_DISPLAYED
-#	if(GLM_MODEL == GLM_MODEL_64)
-#		pragma message("GLM: 64 bits model")
-#	elif(GLM_MODEL == GLM_MODEL_32)
-#		pragma message("GLM: 32 bits model")
-#	endif//GLM_MODEL
-#endif//GLM_MESSAGES
-
-#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_ARCH_DISPLAYED)
-#	define GLM_MESSAGE_ARCH_DISPLAYED
-#	if(GLM_ARCH == GLM_ARCH_PURE)
-#		pragma message("GLM: Platform independent code")
-#	elif(GLM_ARCH == GLM_ARCH_AVX2)
-#		pragma message("GLM: AVX2 instruction set")
-#	elif(GLM_ARCH == GLM_ARCH_AVX)
-#		pragma message("GLM: AVX instruction set")
-#	elif(GLM_ARCH == GLM_ARCH_SSE42)
-#		pragma message("GLM: SSE4.2 instruction set")
-#	elif(GLM_ARCH == GLM_ARCH_SSE41)
-#		pragma message("GLM: SSE4.1 instruction set")
-#	elif(GLM_ARCH == GLM_ARCH_SSSE3)
-#		pragma message("GLM: SSSE3 instruction set")
-#	elif(GLM_ARCH == GLM_ARCH_SSE3)
-#		pragma message("GLM: SSE3 instruction set")
-#	elif(GLM_ARCH == GLM_ARCH_SSE2)
-#		pragma message("GLM: SSE2 instruction set")
-#	elif(GLM_ARCH == GLM_ARCH_X86)
-#		pragma message("GLM: x86 instruction set")
-#	elif(GLM_ARCH == GLM_ARCH_NEON)
-#		pragma message("GLM: NEON instruction set")
-#	elif(GLM_ARCH == GLM_ARCH_ARM)
-#		pragma message("GLM: ARM instruction set")
-#	elif(GLM_ARCH == GLM_ARCH_MIPS)
-#		pragma message("GLM: MIPS instruction set")
-#	elif(GLM_ARCH == GLM_ARCH_PPC)
-#		pragma message("GLM: PowerPC architechture")
-#	endif//GLM_ARCH
-#endif//GLM_MESSAGES
 
 ///////////////////////////////////////////////////////////////////////////////////
 // C++ Version
@@ -151,16 +86,6 @@
 #	define GLM_MSC_EXT GLM_LANG_CXXMS_FLAG
 #else
 #	define GLM_MSC_EXT 0
-#endif
-
-#ifdef _MSVC_LANG
-#	if _MSVC_LANG == 201402
-#		define GLM_FORCE_CXX14
-#	elif _MSVC_LANG == 201703
-#		define GLM_FORCE_CXX17
-#	elif _MSVC_LANG > 201703
-#		define GLM_FORCE_CXX2A
-#	endif
 #endif
 
 #if defined(GLM_FORCE_CXX2A)
@@ -208,44 +133,26 @@
 #elif defined(GLM_FORCE_CXX98)
 #	define GLM_LANG GLM_LANG_CXX98
 #else
-#	if __cplusplus >= 201703L
+#	ifndef _MSVC_LANG
+#		define _MSVC_LANG 0
+#	endif
+
+#	if __cplusplus > 201703L || _MSVC_LANG > 201703L
+#		define GLM_LANG (GLM_LANG_CXX2A | GLM_MSC_EXT)
+#	elif __cplusplus == 201703L || _MSVC_LANG == 201703L
 #		define GLM_LANG (GLM_LANG_CXX17 | GLM_MSC_EXT)
-#	elif __cplusplus >= 201402L
+#	elif __cplusplus == 201402L || _MSVC_LANG == 201402L
 #		define GLM_LANG (GLM_LANG_CXX14 | GLM_MSC_EXT)
-#	elif __cplusplus >= 201103L
+#	elif __cplusplus == 201103L || _MSVC_LANG == 201103L
 #		define GLM_LANG (GLM_LANG_CXX11 | GLM_MSC_EXT)
 #	elif defined(__INTEL_CXX11_MODE__) || defined(_MSC_VER) || defined(__GXX_EXPERIMENTAL_CXX0X__)
 #		define GLM_LANG (GLM_LANG_CXX0X | GLM_MSC_EXT)
-#	elif __cplusplus >= 199711L
+#	elif __cplusplus == 199711L
 #		define GLM_LANG (GLM_LANG_CXX98 | GLM_MSC_EXT)
 #	else
 #		define GLM_LANG (GLM_LANG_CXX | GLM_MSC_EXT)
 #	endif
 #endif
-
-#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_LANG_DISPLAYED)
-#	define GLM_MESSAGE_LANG_DISPLAYED
-
-#	if GLM_LANG & GLM_LANG_CXX17_FLAG
-#		pragma message("GLM: C++17")
-#	elif GLM_LANG & GLM_LANG_CXX14_FLAG
-#		pragma message("GLM: C++14")
-#	elif GLM_LANG & GLM_LANG_CXX11_FLAG
-#		pragma message("GLM: C++11")
-#	elif GLM_LANG & GLM_LANG_CXX0X_FLAG
-#		pragma message("GLM: C++0x")
-#	elif GLM_LANG & GLM_LANG_CXX03_FLAG
-#		pragma message("GLM: C++03")
-#	elif GLM_LANG & GLM_LANG_CXX98_FLAG
-#		pragma message("GLM: C++98")
-#	else
-#		pragma message("GLM: C++ language undetected")
-#	endif//GLM_LANG
-
-#	if GLM_LANG & (GLM_LANG_CXXGNU_FLAG | GLM_LANG_CXXMS_FLAG)
-#		pragma message("GLM: C++ language extensions enabled")
-#	endif//GLM_LANG
-#endif//GLM_MESSAGES
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Has of C++ features
@@ -387,14 +294,14 @@
 #endif
 
 // N2235 Generalized Constant Expressions http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2235.pdf
-#if (GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_ARCH == GLM_ARCH_PURE)
+#if (GLM_COMPILER & GLM_COMPILER_CLANG) && !(GLM_ARCH & GLM_ARCH_SIMD_BIT)
 #	define GLM_HAS_CONSTEXPR_CXX11 __has_feature(cxx_constexpr)
-#elif (GLM_LANG & GLM_LANG_CXX11_FLAG) && (GLM_ARCH == GLM_ARCH_PURE)
+#elif (GLM_LANG & GLM_LANG_CXX11_FLAG) && !(GLM_ARCH & GLM_ARCH_SIMD_BIT)
 #	define GLM_HAS_CONSTEXPR_CXX11 1
 #else
 	// GCC 4.6 support constexpr but there is a compiler bug causing a crash
 	// Visual C++ has a bug #594 https://github.com/g-truc/glm/issues/594
-#	define GLM_HAS_CONSTEXPR_CXX11 ((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_ARCH == GLM_ARCH_PURE) && (\
+#	define GLM_HAS_CONSTEXPR_CXX11 ((GLM_LANG & GLM_LANG_CXX0X_FLAG) && !(GLM_ARCH & GLM_ARCH_SIMD_BIT) && (\
 		((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_COMPILER >= GLM_COMPILER_INTEL14)) || \
 		((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC14))))
 #endif
@@ -406,12 +313,12 @@
 #endif
 
 // N3652 Extended Constant Expressions http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3652.html
-#if (GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_ARCH == GLM_ARCH_PURE)
+#if (GLM_COMPILER & GLM_COMPILER_CLANG) && !(GLM_ARCH & GLM_ARCH_SIMD_BIT)
 #	define GLM_HAS_CONSTEXPR_CXX14 __has_feature(cxx_relaxed_constexpr)
-#elif (GLM_LANG & GLM_LANG_CXX14_FLAG) && (GLM_ARCH == GLM_ARCH_PURE)
+#elif (GLM_LANG & GLM_LANG_CXX14_FLAG) && !(GLM_ARCH & GLM_ARCH_SIMD_BIT)
 #	define GLM_HAS_CONSTEXPR_CXX14 1
 #else
-#	define GLM_HAS_CONSTEXPR_CXX14 ((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_ARCH == GLM_ARCH_PURE) && GLM_HAS_INITIALIZER_LISTS && (\
+#	define GLM_HAS_CONSTEXPR_CXX14 ((GLM_LANG & GLM_LANG_CXX0X_FLAG) && !(GLM_ARCH & GLM_ARCH_SIMD_BIT) && GLM_HAS_INITIALIZER_LISTS && (\
 		((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_COMPILER >= GLM_COMPILER_INTEL17)) || \
 		((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC15))))
 #endif
@@ -443,7 +350,7 @@
 		((GLM_COMPILER & GLM_COMPILER_CUDA))))
 #endif
 
-#if GLM_ARCH == GLM_ARCH_PURE
+#if defined(GLM_FORCE_PURE)
 #	define GLM_HAS_BITSCAN_WINDOWS 0
 #else
 #	define GLM_HAS_BITSCAN_WINDOWS ((GLM_PLATFORM & GLM_PLATFORM_WINDOWS) && (\
@@ -561,15 +468,6 @@
 #	define GLM_SWIZZLE GLM_DISABLE
 #endif
 
-#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_SWIZZLE_DISPLAYED)
-#	define GLM_MESSAGE_SWIZZLE_DISPLAYED
-#	if GLM_SWIZZLE == GLM_ENABLE
-#		pragma message("GLM: Swizzling operators enabled")
-#	else
-#		pragma message("GLM: Swizzling operators disabled, #define GLM_FORCE_SWIZZLE to enable swizzle operators")
-#	endif
-#endif//GLM_MESSAGES
-
 ///////////////////////////////////////////////////////////////////////////////////
 // Allows using not basic types as genType
 
@@ -580,23 +478,6 @@
 #else
 #	define GLM_UNRESTRICTED_GENTYPE 0
 #endif
-
-#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_UNRESTRICTED_GENTYPE_DISPLAYED)
-#	define GLM_MESSAGE_UNRESTRICTED_GENTYPE_DISPLAYED
-#	ifdef GLM_FORCE_UNRESTRICTED_GENTYPE
-#		pragma message("GLM: Use unrestricted genType")
-#	endif
-#endif//GLM_MESSAGES
-
-///////////////////////////////////////////////////////////////////////////////////
-// Force single only (remove explicit float64 types)
-
-#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_SINGLE_ONLY_DISPLAYED)
-#	define GLM_MESSAGE_SINGLE_ONLY_DISPLAYED
-#	ifdef GLM_FORCE_SINGLE_ONLY
-#		pragma message("GLM: Using only single precision floating-point types")
-#	endif
-#endif//GLM_MESSAGES
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Clip control
@@ -610,15 +491,6 @@
 #	define GLM_DEPTH_CLIP_SPACE GLM_DEPTH_NEGATIVE_ONE_TO_ONE
 #endif
 
-#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_DEPTH_DISPLAYED)
-#	define GLM_MESSAGE_DEPTH_DISPLAYED
-#	if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
-#		pragma message("GLM: Depth clip space: Zero to one")
-#	else
-#		pragma message("GLM: Depth clip space: negative one to one")
-#	endif
-#endif//GLM_MESSAGES
-
 ///////////////////////////////////////////////////////////////////////////////////
 // Coordinate system, define GLM_FORCE_LEFT_HANDED before including GLM
 // to use left handed coordinate system by default.
@@ -631,15 +503,6 @@
 #else
 #	define GLM_COORDINATE_SYSTEM GLM_RIGHT_HANDED
 #endif
-
-#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_HANDED_DISPLAYED)
-#	define GLM_MESSAGE_HANDED_DISPLAYED
-#	if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
-#		pragma message("GLM: Coordinate system: left handed")
-#	else
-#		pragma message("GLM: Coordinate system: right handed")
-#	endif
-#endif//GLM_MESSAGES
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Qualifiers
@@ -736,15 +599,6 @@ namespace glm
 #	endif
 }//namespace glm
 
-#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_FORCE_SIZE_T_LENGTH)
-#	define GLM_MESSAGE_FORCE_SIZE_T_LENGTH
-#	if defined GLM_FORCE_SIZE_T_LENGTH
-#		pragma message("GLM: .length() returns glm::length_t, a typedef of std::size_t")
-#	else
-#		pragma message("GLM: .length() returns glm::length_t, a typedef of int following the GLSL specification")
-#	endif
-#endif//GLM_MESSAGES
-
 ///////////////////////////////////////////////////////////////////////////////////
 // countof
 
@@ -770,5 +624,213 @@ namespace glm
 #elif ((GLM_SETUP_INCLUDED != GLM_VERSION) && !defined(GLM_FORCE_IGNORE_VERSION))
 #	error "GLM error: A different version of GLM is already included. Define GLM_FORCE_IGNORE_VERSION before including GLM headers to ignore this error."
 #elif GLM_SETUP_INCLUDED == GLM_VERSION
+
+///////////////////////////////////////////////////////////////////////////////////
+// Messages
+
+#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_DISPLAYED)
+#	define GLM_MESSAGE_DISPLAYED
+
+	// Report GLM version
+#	pragma message (GLM_VERSION_MESSAGE)
+
+	// Report C++ language
+#	if GLM_LANG & GLM_LANG_CXX2A_FLAG
+#		if GLM_LANG & (GLM_LANG_CXXGNU_FLAG | GLM_LANG_CXXMS_FLAG)
+#			pragma message("GLM: C++ 2A with extensions")
+#		else
+#			pragma message("GLM: C++ 2A")
+#		endif
+#	elif GLM_LANG & GLM_LANG_CXX17_FLAG
+#		if GLM_LANG & (GLM_LANG_CXXGNU_FLAG | GLM_LANG_CXXMS_FLAG)
+#			pragma message("GLM: C++ 17 with extensions")
+#		else
+#			pragma message("GLM: C++ 17")
+#		endif
+#	elif GLM_LANG & GLM_LANG_CXX14_FLAG
+#		if GLM_LANG & (GLM_LANG_CXXGNU_FLAG | GLM_LANG_CXXMS_FLAG)
+#			pragma message("GLM: C++ 14 with extensions")
+#		else
+#			pragma message("GLM: C++ 14")
+#		endif
+#	elif GLM_LANG & GLM_LANG_CXX11_FLAG
+#		if GLM_LANG & (GLM_LANG_CXXGNU_FLAG | GLM_LANG_CXXMS_FLAG)
+#			pragma message("GLM: C++ 11 with extensions")
+#		else
+#			pragma message("GLM: C++ 11")
+#		endif
+#	elif GLM_LANG & GLM_LANG_CXX0X_FLAG
+#		if GLM_LANG & (GLM_LANG_CXXGNU_FLAG | GLM_LANG_CXXMS_FLAG)
+#			pragma message("GLM: C++ 0x with extensions")
+#		else
+#			pragma message("GLM: C++ 0x")
+#		endif
+#	elif GLM_LANG & GLM_LANG_CXX03_FLAG
+#		if GLM_LANG & (GLM_LANG_CXXGNU_FLAG | GLM_LANG_CXXMS_FLAG)
+#			pragma message("GLM: C++ 03 with extensions")
+#		else
+#			pragma message("GLM: C++ 03")
+#		endif
+#	elif GLM_LANG & GLM_LANG_CXX98_FLAG
+#		if GLM_LANG & (GLM_LANG_CXXGNU_FLAG | GLM_LANG_CXXMS_FLAG)
+#			pragma message("GLM: C++ 98 with extensions")
+#		else
+#			pragma message("GLM: C++ 98")
+#		endif
+#	else
+#		pragma message("GLM: C++ language undetected")
+#	endif//GLM_LANG
+
+	// Report compiler detection
+#	if GLM_COMPILER & GLM_COMPILER_CUDA
+#		pragma message("GLM: CUDA compiler detected")
+#	elif GLM_COMPILER & GLM_COMPILER_VC
+#		pragma message("GLM: Visual C++ compiler detected")
+#	elif GLM_COMPILER & GLM_COMPILER_CLANG
+#		pragma message("GLM: Clang compiler detected")
+#	elif GLM_COMPILER & GLM_COMPILER_INTEL
+#		pragma message("GLM: Intel Compiler detected")
+#	elif GLM_COMPILER & GLM_COMPILER_GCC
+#		pragma message("GLM: GCC compiler detected")
+#	else
+#		pragma message("GLM: Compiler not detected")
+#	endif
+
+	// Report build target
+#	if GLM_ARCH == GLM_ARCH_X86
+#		if GLM_MODEL == GLM_MODEL_64
+#			pragma message("GLM: x86 64 bits build target")
+#		else
+#			pragma message("GLM: x86 32 bits build target")
+#		endif
+#	elif GLM_ARCH == GLM_ARCH_AVX2
+#		if GLM_MODEL == GLM_MODEL_64
+#			pragma message("GLM: x86 64 bits with AVX2 instruction set build target")
+#		else
+#			pragma message("GLM: x86 32 bits with AVX2 instruction set build target")
+#		endif
+#	elif(GLM_ARCH == GLM_ARCH_AVX)
+#		if GLM_MODEL == GLM_MODEL_64
+#			pragma message("GLM: x86 64 bits with AVX instruction set build target")
+#		else
+#			pragma message("GLM: x86 32 bits with AVX instruction set build target")
+#		endif
+#	elif(GLM_ARCH == GLM_ARCH_SSE42)
+#		if GLM_MODEL == GLM_MODEL_64
+#			pragma message("GLM: x86 64 bits with SSE4.2 instruction set build target")
+#		else
+#			pragma message("GLM: x86 32 bits with SSE4.2 instruction set build target")
+#		endif
+#	elif(GLM_ARCH == GLM_ARCH_SSE41)
+#		if GLM_MODEL == GLM_MODEL_64
+#			pragma message("GLM: x86 64 bits with SSE4.1 instruction set build target")
+#		else
+#			pragma message("GLM: x86 32 bits with SSE4.1 instruction set build target")
+#		endif
+#	elif(GLM_ARCH == GLM_ARCH_SSSE3)
+#		if GLM_MODEL == GLM_MODEL_64
+#			pragma message("GLM: x86 64 bits with SSSE3 instruction set build target")
+#		else
+#			pragma message("GLM: x86 32 bits with SSSE3 instruction set build target")
+#		endif
+#	elif(GLM_ARCH == GLM_ARCH_SSE3)
+#		if GLM_MODEL == GLM_MODEL_64
+#			pragma message("GLM: x86 64 bits with SSE3 instruction set build target")
+#		else
+#			pragma message("GLM: x86 32 bits with SSE3 instruction set build target")
+#		endif
+#	elif(GLM_ARCH == GLM_ARCH_SSE2)
+#		if GLM_MODEL == GLM_MODEL_64
+#			pragma message("GLM: x86 64 bits with SSE2 instruction set build target")
+#		else
+#			pragma message("GLM: x86 32 bits with SSE2 instruction set build target")
+#		endif
+#	elif(GLM_ARCH == GLM_ARCH_ARM)
+#		if GLM_MODEL == GLM_MODEL_64
+#			pragma message("GLM: ARM 64 bits build target")
+#		else
+#			pragma message("GLM: ARM 32 bits build target")
+#		endif
+#	elif(GLM_ARCH == GLM_ARCH_NEON)
+#		if GLM_MODEL == GLM_MODEL_64
+#			pragma message("GLM: ARM 64 bits with Neon instruction set build target")
+#		else
+#			pragma message("GLM: ARM 32 bits with Neon instruction set build target")
+#		endif
+#	elif(GLM_ARCH == GLM_ARCH_MIPS)
+#		if GLM_MODEL == GLM_MODEL_64
+#			pragma message("GLM: MIPS 64 bits build target")
+#		else
+#			pragma message("GLM: MIPS 32 bits build target")
+#		endif
+#	elif(GLM_ARCH == GLM_ARCH_PPC)
+#		if GLM_MODEL == GLM_MODEL_64
+#			pragma message("GLM: PowerPC 64 bits build target")
+#		else
+#			pragma message("GLM: PowerPC 32 bits build target")
+#		endif
+#	else
+#		pragma message("GLM: Unknown build target")
+#	endif//GLM_ARCH
+
+	// Report platform name
+#	if(GLM_PLATFORM & GLM_PLATFORM_QNXNTO)
+#		pragma message("GLM: QNX platform detected")
+//#	elif(GLM_PLATFORM & GLM_PLATFORM_IOS)
+//#		pragma message("GLM: iOS platform detected")
+#	elif(GLM_PLATFORM & GLM_PLATFORM_APPLE)
+#		pragma message("GLM: Apple platform detected")
+#	elif(GLM_PLATFORM & GLM_PLATFORM_WINCE)
+#		pragma message("GLM: WinCE platform detected")
+#	elif(GLM_PLATFORM & GLM_PLATFORM_WINDOWS)
+#		pragma message("GLM: Windows platform detected")
+#	elif(GLM_PLATFORM & GLM_PLATFORM_CHROME_NACL)
+#		pragma message("GLM: Native Client detected")
+#	elif(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
+#		pragma message("GLM: Android platform detected")
+#	elif(GLM_PLATFORM & GLM_PLATFORM_LINUX)
+#		pragma message("GLM: Linux platform detected")
+#	elif(GLM_PLATFORM & GLM_PLATFORM_UNIX)
+#		pragma message("GLM: UNIX platform detected")
+#	elif(GLM_PLATFORM & GLM_PLATFORM_UNKNOWN)
+#		pragma message("GLM: platform unknown")
+#	else
+#		pragma message("GLM: platform not detected")
+#	endif
+
+	// Report swizzle operator support
+#	if GLM_SWIZZLE == GLM_ENABLE
+#		pragma message("GLM: Swizzling operators enabled")
+#	else
+#		pragma message("GLM: Swizzling operators disabled, #define GLM_FORCE_SWIZZLE to enable swizzle operators")
+#	endif
+
+	// Report .length() type
+#	if defined GLM_FORCE_SIZE_T_LENGTH
+#		pragma message("GLM: .length() returns glm::length_t, a typedef of std::size_t")
+#	else
+#		pragma message("GLM: .length() returns glm::length_t, a typedef of int following the GLSL specification")
+#	endif
+
+#	ifdef GLM_FORCE_UNRESTRICTED_GENTYPE
+#		pragma message("GLM: Use unrestricted genType")
+#	endif
+
+#	ifdef GLM_FORCE_SINGLE_ONLY
+#		pragma message("GLM: Using only single precision floating-point types")
+#	endif
+
+#	if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+#		pragma message("GLM: Depth clip space: Zero to one")
+#	else
+#		pragma message("GLM: Depth clip space: negative one to one")
+#	endif
+
+#	if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
+#		pragma message("GLM: Coordinate system: left handed")
+#	else
+#		pragma message("GLM: Coordinate system: right handed")
+#	endif
+#endif//GLM_MESSAGES
 
 #endif//GLM_SETUP_INCLUDED

@@ -42,34 +42,6 @@
 #	define GLM_PLATFORM GLM_PLATFORM_UNKNOWN
 #endif//
 
-// Report platform detection
-#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_PLATFORM_DISPLAYED)
-#	define GLM_MESSAGE_PLATFORM_DISPLAYED
-#	if(GLM_PLATFORM & GLM_PLATFORM_QNXNTO)
-#		pragma message("GLM: QNX platform detected")
-//#	elif(GLM_PLATFORM & GLM_PLATFORM_IOS)
-//#		pragma message("GLM: iOS platform detected")
-#	elif(GLM_PLATFORM & GLM_PLATFORM_APPLE)
-#		pragma message("GLM: Apple platform detected")
-#	elif(GLM_PLATFORM & GLM_PLATFORM_WINCE)
-#		pragma message("GLM: WinCE platform detected")
-#	elif(GLM_PLATFORM & GLM_PLATFORM_WINDOWS)
-#		pragma message("GLM: Windows platform detected")
-#	elif(GLM_PLATFORM & GLM_PLATFORM_CHROME_NACL)
-#		pragma message("GLM: Native Client detected")
-#	elif(GLM_PLATFORM & GLM_PLATFORM_ANDROID)
-#		pragma message("GLM: Android platform detected")
-#	elif(GLM_PLATFORM & GLM_PLATFORM_LINUX)
-#		pragma message("GLM: Linux platform detected")
-#	elif(GLM_PLATFORM & GLM_PLATFORM_UNIX)
-#		pragma message("GLM: UNIX platform detected")
-#	elif(GLM_PLATFORM & GLM_PLATFORM_UNKNOWN)
-#		pragma message("GLM: platform unknown")
-#	else
-#		pragma message("GLM: platform not detected")
-#	endif
-#endif//GLM_MESSAGES
-
 ///////////////////////////////////////////////////////////////////////////////////
 // Compiler
 
@@ -250,21 +222,21 @@
 
 // User defines: GLM_FORCE_PURE GLM_FORCE_SSE2 GLM_FORCE_SSE3 GLM_FORCE_AVX GLM_FORCE_AVX2 GLM_FORCE_AVX2
 
-#define GLM_ARCH_X86_BIT		0x00000001
-#define GLM_ARCH_SSE2_BIT		0x00000002
-#define GLM_ARCH_SSE3_BIT		0x00000004
-#define GLM_ARCH_SSSE3_BIT		0x00000008
-#define GLM_ARCH_SSE41_BIT		0x00000010
-#define GLM_ARCH_SSE42_BIT		0x00000020
-#define GLM_ARCH_AVX_BIT		0x00000040
-#define GLM_ARCH_AVX2_BIT		0x00000080
-#define GLM_ARCH_AVX512_BIT		0x00000200 // Skylake subset
-#define GLM_ARCH_ARM_BIT		0x00000400
-#define GLM_ARCH_NEON_BIT		0x00000800
-#define GLM_ARCH_MIPS_BIT		0x00010000
-#define GLM_ARCH_PPC_BIT		0x01000000
+#define GLM_ARCH_SIMD_BIT	(0x00001000)
+#define GLM_ARCH_MIPS_BIT	(0x10000000)
+#define GLM_ARCH_PPC_BIT	(0x20000000)
+#define GLM_ARCH_ARM_BIT	(0x40000000)
+#define GLM_ARCH_NEON_BIT	(0x00000001 | GLM_ARCH_SIMD_BIT)
+#define GLM_ARCH_X86_BIT	(0x80000000)
+#define GLM_ARCH_SSE2_BIT	(0x80000002 | GLM_ARCH_SIMD_BIT)
+#define GLM_ARCH_SSE3_BIT	(0x80000004 | GLM_ARCH_SIMD_BIT)
+#define GLM_ARCH_SSSE3_BIT	(0x80000008 | GLM_ARCH_SIMD_BIT)
+#define GLM_ARCH_SSE41_BIT	(0x80000010 | GLM_ARCH_SIMD_BIT)
+#define GLM_ARCH_SSE42_BIT	(0x80000020 | GLM_ARCH_SIMD_BIT)
+#define GLM_ARCH_AVX_BIT	(0x80000040 | GLM_ARCH_SIMD_BIT)
+#define GLM_ARCH_AVX2_BIT	(0x80000080 | GLM_ARCH_SIMD_BIT)
 
-#define GLM_ARCH_PURE		(0x00000000)
+#define GLM_ARCH_UNKNOWED	(0)
 #define GLM_ARCH_X86		(GLM_ARCH_X86_BIT)
 #define GLM_ARCH_SSE2		(GLM_ARCH_SSE2_BIT | GLM_ARCH_X86)
 #define GLM_ARCH_SSE3		(GLM_ARCH_SSE3_BIT | GLM_ARCH_SSE2)
@@ -273,22 +245,25 @@
 #define GLM_ARCH_SSE42		(GLM_ARCH_SSE42_BIT | GLM_ARCH_SSE41)
 #define GLM_ARCH_AVX		(GLM_ARCH_AVX_BIT | GLM_ARCH_SSE42)
 #define GLM_ARCH_AVX2		(GLM_ARCH_AVX2_BIT | GLM_ARCH_AVX)
-#define GLM_ARCH_AVX512		(GLM_ARCH_AVX512_BIT | GLM_ARCH_AVX2) // Skylake subset
 #define GLM_ARCH_ARM		(GLM_ARCH_ARM_BIT)
 #define GLM_ARCH_NEON		(GLM_ARCH_NEON_BIT | GLM_ARCH_ARM)
 #define GLM_ARCH_MIPS		(GLM_ARCH_MIPS_BIT)
 #define GLM_ARCH_PPC		(GLM_ARCH_PPC_BIT)
 
 #if defined(GLM_FORCE_PURE)
-#	define GLM_ARCH GLM_ARCH_PURE
-#elif defined(GLM_FORCE_MIPS)
-#	define GLM_ARCH (GLM_ARCH_MIPS)
-#elif defined(GLM_FORCE_PPC)
-#	define GLM_ARCH (GLM_ARCH_PPC)
+#	if defined(__x86_64__) || defined(_M_X64) || defined(_M_IX86) || defined(__i386__)
+#		define GLM_ARCH (GLM_ARCH_X86)
+#	elif defined(__arm__ ) || defined(_M_ARM)
+#		define GLM_ARCH (GLM_ARCH_ARM)
+#	elif defined(__powerpc__ ) || defined(_M_PPC)
+#		define GLM_ARCH (GLM_ARCH_PPC)
+#	elif defined(__mips__ )
+#		define GLM_ARCH (GLM_ARCH_MIPS)
+#	else
+#		define GLM_ARCH (GLM_ARCH_UNKNOWN)
+#	endif
 #elif defined(GLM_FORCE_NEON)
 #	define GLM_ARCH (GLM_ARCH_NEON)
-#elif defined(GLM_FORCE_AVX512)
-#	define GLM_ARCH (GLM_ARCH_AVX512)
 #elif defined(GLM_FORCE_AVX2)
 #	define GLM_ARCH (GLM_ARCH_AVX2)
 #elif defined(GLM_FORCE_AVX)
@@ -303,11 +278,8 @@
 #	define GLM_ARCH (GLM_ARCH_SSE3)
 #elif defined(GLM_FORCE_SSE2)
 #	define GLM_ARCH (GLM_ARCH_SSE2)
-#elif (GLM_COMPILER & (GLM_COMPILER_CLANG | GLM_COMPILER_GCC)) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_LINUX))
-//	This is Skylake set of instruction set
-#	if defined(__AVX512BW__) && defined(__AVX512F__) && defined(__AVX512CD__) && defined(__AVX512VL__) && defined(__AVX512DQ__)
-#		define GLM_ARCH (GLM_ARCH_AVX512)
-#	elif defined(__AVX2__)
+#else
+#	if defined(__AVX2__)
 #		define GLM_ARCH (GLM_ARCH_AVX2)
 #	elif defined(__AVX__)
 #		define GLM_ARCH (GLM_ARCH_AVX)
@@ -319,50 +291,21 @@
 #		define GLM_ARCH (GLM_ARCH_SSSE3)
 #	elif defined(__SSE3__)
 #		define GLM_ARCH (GLM_ARCH_SSE3)
-#	elif defined(__SSE2__)
+#	elif defined(__SSE2__) || defined(__x86_64__) || defined(_M_X64) || defined(_M_IX86_FP)
 #		define GLM_ARCH (GLM_ARCH_SSE2)
-#	elif defined(__i386__) || defined(__x86_64__)
+#	elif defined(__i386__)
 #		define GLM_ARCH (GLM_ARCH_X86)
 #	elif defined(__ARM_NEON)
 #		define GLM_ARCH (GLM_ARCH_ARM | GLM_ARCH_NEON)
-#	elif defined(__arm__ )
+#	elif defined(__arm__ ) || defined(_M_ARM)
 #		define GLM_ARCH (GLM_ARCH_ARM)
 #	elif defined(__mips__ )
 #		define GLM_ARCH (GLM_ARCH_MIPS)
-#	elif defined(__powerpc__ )
+#	elif defined(__powerpc__ ) || defined(_M_PPC)
 #		define GLM_ARCH (GLM_ARCH_PPC)
 #	else
-#		define GLM_ARCH (GLM_ARCH_PURE)
+#		define GLM_ARCH (GLM_ARCH_UNKNOWN)
 #	endif
-#elif (GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS))
-#	if defined(_M_ARM)
-#		define GLM_ARCH (GLM_ARCH_ARM)
-#	elif defined(__AVX2__)
-#		define GLM_ARCH (GLM_ARCH_AVX2)
-#	elif defined(__AVX__)
-#		define GLM_ARCH (GLM_ARCH_AVX)
-#	elif defined(_M_X64)
-#		define GLM_ARCH (GLM_ARCH_SSE2)
-#	elif defined(_M_IX86_FP)
-#		if _M_IX86_FP >= 2
-#			define GLM_ARCH (GLM_ARCH_SSE2)
-#		else
-#			define GLM_ARCH (GLM_ARCH_PURE)
-#		endif
-#	elif defined(_M_PPC)
-#		define GLM_ARCH (GLM_ARCH_PPC)
-#	else
-#		define GLM_ARCH (GLM_ARCH_PURE)
-#	endif
-#else
-#	define GLM_ARCH GLM_ARCH_PURE
-#endif
-
-// With MinGW-W64, including intrinsic headers before intrin.h will produce some errors. The problem is
-// that windows.h (and maybe other headers) will silently include intrin.h, which of course causes problems.
-// To fix, we just explicitly include intrin.h here.
-#if defined(__MINGW64__) && (GLM_ARCH != GLM_ARCH_PURE)
-#	include <intrin.h>
 #endif
 
 #if GLM_ARCH & GLM_ARCH_AVX2_BIT

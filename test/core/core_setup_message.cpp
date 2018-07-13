@@ -162,8 +162,6 @@ int test_instruction_set()
 
 	std::printf("GLM_ARCH: ");
 
-	if(GLM_ARCH == GLM_ARCH_PURE)
-		std::printf("GLM_ARCH_PURE ");
 	if(GLM_ARCH & GLM_ARCH_ARM_BIT)
 		std::printf("ARM ");
 	if(GLM_ARCH & GLM_ARCH_NEON_BIT)

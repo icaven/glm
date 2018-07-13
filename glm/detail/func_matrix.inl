@@ -395,7 +395,7 @@ namespace detail
 	}
 }//namespace glm
 
-#if GLM_ARCH != GLM_ARCH_PURE && GLM_HAS_ANONYMOUS_STRUCT
+#if (GLM_ARCH & GLM_ARCH_SIMD_BIT) && (GLM_HAS_ANONYMOUS_STRUCT)
 #	include "func_matrix_simd.inl"
 #endif
 
