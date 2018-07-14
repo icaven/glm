@@ -6,7 +6,7 @@ static int test_ivec2_swizzle()
 {
 	int Error = 0;
 
-#	if GLM_SWIZZLE
+#	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR || GLM_SWIZZLE == GLM_SWIZZLE_FUNCTION
 	{
 		glm::ivec2 A(1, 2);
 		glm::ivec2 B = A.yx();
@@ -47,7 +47,7 @@ int test_ivec3_swizzle()
 {
 	int Error = 0;
 
-#	if GLM_SWIZZLE == GLM_ENABLE
+#	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR || GLM_SWIZZLE == GLM_SWIZZLE_FUNCTION
 	{
 		glm::ivec3 A(1, 2, 3);
 		glm::ivec3 B = A.zyx();
@@ -56,7 +56,7 @@ int test_ivec3_swizzle()
 		Error += A != B ? 0 : 1;
 		Error += A == C ? 0 : 1;
 	}
-#	endif//GLM_SWIZZLE == GLM_ENABLE
+#	endif
 
 #	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 	{
@@ -94,8 +94,16 @@ int test_ivec3_swizzle()
 
 		glm::ivec3 const I = A.xxx / A.xxx;
 		Error += I == glm::ivec3(1) ? 0 : 1;
+
+		glm::ivec3 J(1, 2, 3);
+		J.xyz += glm::ivec3(1);
+		Error += J == glm::ivec3(2, 3, 4) ? 0 : 1;
+
+		glm::ivec3 K(1, 2, 3);
+		K.xyz += A.xyz;
+		Error += K == glm::ivec3(2, 4, 6) ? 0 : 1;
 	}
-#	endif//GLM_SWIZZLE
+#	endif
 
 	return Error;
 }
@@ -104,14 +112,16 @@ int test_ivec4_swizzle()
 {
 	int Error = 0;
 
-#if GLM_SWIZZLE == GLM_ENABLE
-	glm::ivec4 A(1, 2, 3, 4);
-	glm::ivec4 B = A.wzyx();
-	glm::ivec4 C = B.wzyx();
+#	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR || GLM_SWIZZLE == GLM_SWIZZLE_FUNCTION
+	{
+		glm::ivec4 A(1, 2, 3, 4);
+		glm::ivec4 B = A.wzyx();
+		glm::ivec4 C = B.wzyx();
 
-	Error += A != B ? 0 : 1;
-	Error += A == C ? 0 : 1;
-#endif//GLM_SWIZZLE == GLM_ENABLE
+		Error += A != B ? 0 : 1;
+		Error += A == C ? 0 : 1;
+	}
+#	endif
 
 	return Error;
 }
@@ -120,17 +130,19 @@ int test_vec4_swizzle()
 {
 	int Error = 0;
 
-#if GLM_SWIZZLE == GLM_ENABLE
-	glm::vec4 A(1, 2, 3, 4);
-	glm::vec4 B = A.wzyx();
-	glm::vec4 C = B.wzyx();
+#	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR || GLM_SWIZZLE == GLM_SWIZZLE_FUNCTION
+	{
+		glm::vec4 A(1, 2, 3, 4);
+		glm::vec4 B = A.wzyx();
+		glm::vec4 C = B.wzyx();
 
-	Error += A != B ? 0 : 1;
-	Error += A == C ? 0 : 1;
+		Error += A != B ? 0 : 1;
+		Error += A == C ? 0 : 1;
 
-	float f = glm::dot(C.wzyx(), C.xyzw());
-	Error += glm::abs(f - 20.f) < 0.01f ? 0 : 1;
-#endif//GLM_SWIZZLE == GLM_ENABLE
+		float f = glm::dot(C.wzyx(), C.xyzw());
+		Error += glm::abs(f - 20.f) < 0.01f ? 0 : 1;
+	}
+#	endif
 
 	return Error;
 }

@@ -50,7 +50,7 @@ int test_vec4_ctor()
 	}
 #endif
 
-#	if GLM_SWIZZLE == GLM_ENABLE && GLM_HAS_ANONYMOUS_STRUCT
+#	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 	{
 		glm::vec4 A = glm::vec4(1.0f, 2.0f, 3.0f, 4.0f);
 		glm::vec4 B = A.xyzw;
@@ -79,7 +79,7 @@ int test_vec4_ctor()
 		Error += glm::all(glm::equal(A, L)) ? 0 : 1;
 		Error += glm::all(glm::equal(A, M)) ? 0 : 1;
 	}
-#	elif GLM_SWIZZLE == GLM_ENABLE
+#	elif GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 	{
 		glm::vec4 A = glm::vec4(1.0f, 2.0f, 3.0f, 4.0f);
 		glm::vec4 B = A.xyzw();
@@ -108,7 +108,7 @@ int test_vec4_ctor()
 		Error += glm::all(glm::equal(A, L)) ? 0 : 1;
 		Error += glm::all(glm::equal(A, M)) ? 0 : 1;
 	}
-#	endif//GLM_SWIZZLE == GLM_ENABLE
+#	endif//GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 
 	{
 		glm::vec4 A(1);
@@ -340,7 +340,7 @@ int test_vec4_swizzle_partial()
 
 	glm::vec4 A(1, 2, 3, 4);
 
-#	if GLM_HAS_ANONYMOUS_STRUCT && GLM_SWIZZLE == GLM_ENABLE
+#	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 	{
 		glm::vec4 B(A.xy, A.zw);
 		Error += A == B ? 0 : 1;

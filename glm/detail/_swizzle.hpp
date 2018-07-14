@@ -187,48 +187,48 @@ namespace detail
 //
 // Wrapper for a operand between a swizzle and a binary (e.g. 1.0f - u.xyz)
 //
-#define GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)                 \
-	GLM_SWIZZLE_TEMPLATE1                                                          \
-	GLM_FUNC_QUALIFIER vec<N, T, Q> operator OPERAND ( const GLM_SWIZZLE_TYPE1& a, const T& b)                   \
-	{                                                                               \
-		return a() OPERAND b;                                                       \
-	}                                                                               \
-	GLM_SWIZZLE_TEMPLATE1                                                          \
-	GLM_FUNC_QUALIFIER vec<N, T, Q> operator OPERAND ( const T& a, const GLM_SWIZZLE_TYPE1& b)                   \
-	{                                                                               \
-		return a OPERAND b();                                                       \
+#define GLM_SWIZZLE_SCALAR_BINARY_OPERATOR_IMPLEMENTATION(OPERAND)								\
+	GLM_SWIZZLE_TEMPLATE1																		\
+	GLM_FUNC_QUALIFIER vec<N, T, Q> operator OPERAND ( const GLM_SWIZZLE_TYPE1& a, const T& b)	\
+	{																							\
+		return a() OPERAND b;																	\
+	}																							\
+	GLM_SWIZZLE_TEMPLATE1																		\
+	GLM_FUNC_QUALIFIER vec<N, T, Q> operator OPERAND ( const T& a, const GLM_SWIZZLE_TYPE1& b)	\
+	{																							\
+		return a OPERAND b();																	\
 	}
 
 //
 // Macro for wrapping a function taking one argument (e.g. abs())
 //
-#define GLM_SWIZZLE_FUNCTION_1_ARGS(RETURN_TYPE,FUNCTION)                          \
-	GLM_SWIZZLE_TEMPLATE1                                                          \
-	GLM_FUNC_QUALIFIER typename GLM_SWIZZLE_TYPE1::RETURN_TYPE FUNCTION(const GLM_SWIZZLE_TYPE1& a)  \
-	{                                                                               \
-		return FUNCTION(a());                                                       \
+#define GLM_SWIZZLE_FUNCTION_1_ARGS(RETURN_TYPE,FUNCTION)												\
+	GLM_SWIZZLE_TEMPLATE1																				\
+	GLM_FUNC_QUALIFIER typename GLM_SWIZZLE_TYPE1::RETURN_TYPE FUNCTION(const GLM_SWIZZLE_TYPE1& a)		\
+	{																									\
+		return FUNCTION(a());																			\
 	}
 
 //
 // Macro for wrapping a function taking two vector arguments (e.g. dot()).
 //
-#define GLM_SWIZZLE_FUNCTION_2_ARGS(RETURN_TYPE,FUNCTION)                                                      \
-	GLM_SWIZZLE_TEMPLATE2                                                                                      \
+#define GLM_SWIZZLE_FUNCTION_2_ARGS(RETURN_TYPE,FUNCTION)                                                       \
+	GLM_SWIZZLE_TEMPLATE2                                                                                       \
 	GLM_FUNC_QUALIFIER typename GLM_SWIZZLE_TYPE1::RETURN_TYPE FUNCTION(const GLM_SWIZZLE_TYPE1& a, const GLM_SWIZZLE_TYPE2& b) \
 	{                                                                                                           \
 		return FUNCTION(a(), b());                                                                              \
 	}                                                                                                           \
-	GLM_SWIZZLE_TEMPLATE1                                                                                      \
+	GLM_SWIZZLE_TEMPLATE1                                                                                       \
 	GLM_FUNC_QUALIFIER typename GLM_SWIZZLE_TYPE1::RETURN_TYPE FUNCTION(const GLM_SWIZZLE_TYPE1& a, const GLM_SWIZZLE_TYPE1& b) \
 	{                                                                                                           \
 		return FUNCTION(a(), b());                                                                              \
 	}                                                                                                           \
-	GLM_SWIZZLE_TEMPLATE1                                                                                      \
+	GLM_SWIZZLE_TEMPLATE1                                                                                       \
 	GLM_FUNC_QUALIFIER typename GLM_SWIZZLE_TYPE1::RETURN_TYPE FUNCTION(const GLM_SWIZZLE_TYPE1& a, const typename V& b)         \
 	{                                                                                                           \
 		return FUNCTION(a(), b);                                                                                \
 	}                                                                                                           \
-	GLM_SWIZZLE_TEMPLATE1                                                                                      \
+	GLM_SWIZZLE_TEMPLATE1                                                                                       \
 	GLM_FUNC_QUALIFIER typename GLM_SWIZZLE_TYPE1::RETURN_TYPE FUNCTION(const V& a, const GLM_SWIZZLE_TYPE1& b)                  \
 	{                                                                                                           \
 		return FUNCTION(a, b());                                                                                \

@@ -129,7 +129,7 @@ static int test_swizzle()
 {
 	int Error = 0;
 
-#if GLM_HAS_ANONYMOUS_STRUCT && GLM_SWIZZLE == GLM_ENABLE
+#	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 	{
 		glm::vec1 A = glm::vec1(1.0f);
 		//glm::vec1 B = A.x;
@@ -138,7 +138,7 @@ static int test_swizzle()
 		//Error += glm::all(glm::equal(A, B)) ? 0 : 1;
 		Error += glm::all(glm::equal(A, C)) ? 0 : 1;
 	}
-#endif//GLM_SWIZZLE == GLM_ENABLE
+#	endif//GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 
 	return Error;
 }

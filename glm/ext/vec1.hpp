@@ -65,10 +65,11 @@ namespace glm
 			};
 #		else
 			union {T x, r, s;};
-
+/*
 #			if GLM_SWIZZLE == GLM_SWIZZLE_FUNCTION
 				GLM_SWIZZLE_GEN_VEC_FROM_VEC1(T, Q)
 #			endif
+*/
 #		endif
 
 		// -- Component accesses --
