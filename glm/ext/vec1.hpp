@@ -15,9 +15,9 @@
 #include "../fwd.hpp"
 #include "../detail/type_vec.hpp"
 #if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
-#	include "_swizzle.hpp"
+#	include "../detail/_swizzle.hpp"
 #elif GLM_SWIZZLE == GLM_SWIZZLE_FUNCTION
-#	include "_swizzle_func.hpp"
+#	include "../detail/_swizzle_func.hpp"
 #endif
 #include <cstddef>
 
