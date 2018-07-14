@@ -700,73 +700,73 @@ namespace glm
 #	endif
 
 	// Report build target
-#	if GLM_ARCH == GLM_ARCH_X86
-#		if GLM_MODEL == GLM_MODEL_64
-#			pragma message("GLM: x86 64 bits build target")
-#		else
-#			pragma message("GLM: x86 32 bits build target")
-#		endif
-#	elif GLM_ARCH == GLM_ARCH_AVX2
+#	if GLM_ARCH & GLM_ARCH_AVX2_BIT
 #		if GLM_MODEL == GLM_MODEL_64
 #			pragma message("GLM: x86 64 bits with AVX2 instruction set build target")
 #		else
 #			pragma message("GLM: x86 32 bits with AVX2 instruction set build target")
 #		endif
-#	elif(GLM_ARCH == GLM_ARCH_AVX)
+#	elif GLM_ARCH & GLM_ARCH_AVX_BIT
 #		if GLM_MODEL == GLM_MODEL_64
 #			pragma message("GLM: x86 64 bits with AVX instruction set build target")
 #		else
 #			pragma message("GLM: x86 32 bits with AVX instruction set build target")
 #		endif
-#	elif(GLM_ARCH == GLM_ARCH_SSE42)
+#	elif GLM_ARCH & GLM_ARCH_SSE42_BIT
 #		if GLM_MODEL == GLM_MODEL_64
 #			pragma message("GLM: x86 64 bits with SSE4.2 instruction set build target")
 #		else
 #			pragma message("GLM: x86 32 bits with SSE4.2 instruction set build target")
 #		endif
-#	elif(GLM_ARCH == GLM_ARCH_SSE41)
+#	elif GLM_ARCH & GLM_ARCH_SSE41_BIT
 #		if GLM_MODEL == GLM_MODEL_64
 #			pragma message("GLM: x86 64 bits with SSE4.1 instruction set build target")
 #		else
 #			pragma message("GLM: x86 32 bits with SSE4.1 instruction set build target")
 #		endif
-#	elif(GLM_ARCH == GLM_ARCH_SSSE3)
+#	elif GLM_ARCH & GLM_ARCH_SSSE3_BIT
 #		if GLM_MODEL == GLM_MODEL_64
 #			pragma message("GLM: x86 64 bits with SSSE3 instruction set build target")
 #		else
 #			pragma message("GLM: x86 32 bits with SSSE3 instruction set build target")
 #		endif
-#	elif(GLM_ARCH == GLM_ARCH_SSE3)
+#	elif GLM_ARCH & GLM_ARCH_SSE3_BIT
 #		if GLM_MODEL == GLM_MODEL_64
 #			pragma message("GLM: x86 64 bits with SSE3 instruction set build target")
 #		else
 #			pragma message("GLM: x86 32 bits with SSE3 instruction set build target")
 #		endif
-#	elif(GLM_ARCH == GLM_ARCH_SSE2)
+#	elif GLM_ARCH & GLM_ARCH_SSE2_BIT
 #		if GLM_MODEL == GLM_MODEL_64
 #			pragma message("GLM: x86 64 bits with SSE2 instruction set build target")
 #		else
 #			pragma message("GLM: x86 32 bits with SSE2 instruction set build target")
 #		endif
-#	elif(GLM_ARCH == GLM_ARCH_ARM)
+#	elif GLM_ARCH & GLM_ARCH_X86_BIT
 #		if GLM_MODEL == GLM_MODEL_64
-#			pragma message("GLM: ARM 64 bits build target")
+#			pragma message("GLM: x86 64 bits build target")
 #		else
-#			pragma message("GLM: ARM 32 bits build target")
+#			pragma message("GLM: x86 32 bits build target")
 #		endif
-#	elif(GLM_ARCH == GLM_ARCH_NEON)
+#	elif GLM_ARCH & GLM_ARCH_NEON_BIT
 #		if GLM_MODEL == GLM_MODEL_64
 #			pragma message("GLM: ARM 64 bits with Neon instruction set build target")
 #		else
 #			pragma message("GLM: ARM 32 bits with Neon instruction set build target")
 #		endif
-#	elif(GLM_ARCH == GLM_ARCH_MIPS)
+#	elif GLM_ARCH & GLM_ARCH_ARM_BIT
+#		if GLM_MODEL == GLM_MODEL_64
+#			pragma message("GLM: ARM 64 bits build target")
+#		else
+#			pragma message("GLM: ARM 32 bits build target")
+#		endif
+#	elif GLM_ARCH & GLM_ARCH_MIPS_BIT
 #		if GLM_MODEL == GLM_MODEL_64
 #			pragma message("GLM: MIPS 64 bits build target")
 #		else
 #			pragma message("GLM: MIPS 32 bits build target")
 #		endif
-#	elif(GLM_ARCH == GLM_ARCH_PPC)
+#	elif GLM_ARCH & GLM_ARCH_PPC_BIT
 #		if GLM_MODEL == GLM_MODEL_64
 #			pragma message("GLM: PowerPC 64 bits build target")
 #		else
