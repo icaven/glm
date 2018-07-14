@@ -60,7 +60,7 @@ int test_ivec3_swizzle()
 
 #	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 	{
-		glm::ivec3 A(1, 2, 3);
+		glm::ivec3 const A(1, 2, 3);
 		glm::ivec2 B = A.yx;
 		glm::ivec2 C = A.yx;
 
@@ -82,6 +82,18 @@ int test_ivec3_swizzle()
 
 		Error += E == A.xy() ? 0 : 1;
 		Error += E.xy() == A.xy() ? 0 : 1;
+
+		glm::ivec3 const F = A.xxx + A.xxx;
+		Error += F == glm::ivec3(2) ? 0 : 1;
+
+		glm::ivec3 const G = A.xxx - A.xxx;
+		Error += G == glm::ivec3(0) ? 0 : 1;
+
+		glm::ivec3 const H = A.xxx * A.xxx;
+		Error += H == glm::ivec3(1) ? 0 : 1;
+
+		glm::ivec3 const I = A.xxx / A.xxx;
+		Error += I == glm::ivec3(1) ? 0 : 1;
 	}
 #	endif//GLM_SWIZZLE
 

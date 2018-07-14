@@ -51,25 +51,24 @@ namespace glm
 				typename detail::storage<1, T, detail::is_aligned<Q>::value>::type data;
 /*
 #				if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
-					_GLM_SWIZZLE1_2_MEMBERS(T, Q, tvec2, x)
-					_GLM_SWIZZLE1_2_MEMBERS(T, Q, tvec2, r)
-					_GLM_SWIZZLE1_2_MEMBERS(T, Q, tvec2, s)
-					_GLM_SWIZZLE1_3_MEMBERS(T, Q, tvec3, x)
-					_GLM_SWIZZLE1_3_MEMBERS(T, Q, tvec3, r)
-					_GLM_SWIZZLE1_3_MEMBERS(T, Q, tvec3, s)
-					_GLM_SWIZZLE1_4_MEMBERS(T, Q, tvec4, x)
-					_GLM_SWIZZLE1_4_MEMBERS(T, Q, tvec4, r)
-					_GLM_SWIZZLE1_4_MEMBERS(T, Q, tvec4, s)
+					_GLM_SWIZZLE1_2_MEMBERS(T, Q, x)
+					_GLM_SWIZZLE1_2_MEMBERS(T, Q, r)
+					_GLM_SWIZZLE1_2_MEMBERS(T, Q, s)
+					_GLM_SWIZZLE1_3_MEMBERS(T, Q, x)
+					_GLM_SWIZZLE1_3_MEMBERS(T, Q, r)
+					_GLM_SWIZZLE1_3_MEMBERS(T, Q, s)
+					_GLM_SWIZZLE1_4_MEMBERS(T, Q, x)
+					_GLM_SWIZZLE1_4_MEMBERS(T, Q, r)
+					_GLM_SWIZZLE1_4_MEMBERS(T, Q, s)
 #				endif
 */
 			};
 #		else
 			union {T x, r, s;};
-/*
+
 #			if GLM_SWIZZLE == GLM_SWIZZLE_FUNCTION
-				GLM_SWIZZLE_GEN_VEC_FROM_VEC1(T, Q, tvec2, tvec2, tvec3, tvec4)
+				GLM_SWIZZLE_GEN_VEC_FROM_VEC1(T, Q)
 #			endif
-*/
 #		endif
 
 		// -- Component accesses --
@@ -112,7 +111,7 @@ namespace glm
 /*
 #		if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 			template<int E0>
-			GLM_FUNC_DECL tvec(detail::_swizzle<1, T, Q, tvec1, E0, -1,-2,-3> const& that)
+			GLM_FUNC_DECL tvec(detail::_swizzle<1, T, Q, E0, -1,-2,-3> const& that)
 			{
 				*this = that();
 			}
