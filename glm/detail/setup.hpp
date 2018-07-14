@@ -361,6 +361,10 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
+
+#define GLM_HAS_ANONYMOUS_STRUCT (GLM_LANG & GLM_LANG_CXXMS_FLAG)
+
+///////////////////////////////////////////////////////////////////////////////////
 // OpenMP
 #ifdef _OPENMP
 #	if GLM_COMPILER & GLM_COMPILER_GCC
@@ -465,8 +469,13 @@
 
 // User defines: GLM_FORCE_SWIZZLE
 
-#if defined(GLM_FORCE_SWIZZLE)
-#	define GLM_SWIZZLE GLM_ENABLE
+#define GLM_SWIZZLE_OPERATOR 1
+#define GLM_SWIZZLE_FUNCTION 2
+
+#if defined(GLM_FORCE_SWIZZLE) && GLM_HAS_ANONYMOUS_STRUCT
+#	define GLM_SWIZZLE GLM_SWIZZLE_OPERATOR
+#elif defined(GLM_FORCE_SWIZZLE)
+#	define GLM_SWIZZLE GLM_SWIZZLE_FUNCTION
 #else
 #	define GLM_SWIZZLE GLM_DISABLE
 #endif
@@ -477,9 +486,9 @@
 // #define GLM_FORCE_UNRESTRICTED_GENTYPE
 
 #ifdef GLM_FORCE_UNRESTRICTED_GENTYPE
-#	define GLM_UNRESTRICTED_GENTYPE 1
+#	define GLM_UNRESTRICTED_GENTYPE GLM_ENABLE
 #else
-#	define GLM_UNRESTRICTED_GENTYPE 0
+#	define GLM_UNRESTRICTED_GENTYPE GLM_DISABLE
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -580,10 +589,6 @@
 #else
 #	define GLM_EXPLICIT
 #endif
-
-///////////////////////////////////////////////////////////////////////////////////
-
-#define GLM_HAS_ANONYMOUS_STRUCT (GLM_LANG & GLM_LANG_CXXMS_FLAG)
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Length type: all length functions returns a length_t type.
@@ -802,37 +807,41 @@ namespace glm
 #	endif
 
 	// Report swizzle operator support
-#	if GLM_SWIZZLE == GLM_ENABLE
-#		pragma message("GLM: Swizzling operators enabled")
+#	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
+#		pragma message("GLM: GLM_FORCE_SWIZZLE is defined, swizzling operators enabled")
+#	elif GLM_SWIZZLE == GLM_SWIZZLE_FUNCTION
+#		pragma message("GLM: GLM_FORCE_SWIZZLE is defined, swizzling functions enabled. Enable compiler C++ language extensions to enable swizzle operators.")
 #	else
-#		pragma message("GLM: Swizzling operators disabled, #define GLM_FORCE_SWIZZLE to enable swizzle operators")
+#		pragma message("GLM: GLM_FORCE_SWIZZLE is undefined. swizzling functions or operators are disabled.")
 #	endif
 
 	// Report .length() type
 #	if defined GLM_FORCE_SIZE_T_LENGTH
-#		pragma message("GLM: .length() returns glm::length_t, a typedef of std::size_t")
+#		pragma message("GLM: GLM_FORCE_SIZE_T_LENGTH is defined. .length() returns a glm::length_t, a typedef of std::size_t instead of int.")
 #	else
-#		pragma message("GLM: .length() returns glm::length_t, a typedef of int following the GLSL specification")
+#		pragma message("GLM: GLM_FORCE_SIZE_T_LENGTH is undefined. .length() returns a glm::length_t, a typedef of int following the GLSL specification. Define GLM_FORCE_SIZE_T_LENGTH to make glm::length_t, a typedef of std::size_t.")
 #	endif
 
 #	ifdef GLM_FORCE_UNRESTRICTED_GENTYPE
-#		pragma message("GLM: Use unrestricted genType")
+#		pragma message("GLM: GLM_FORCE_UNRESTRICTED_GENTYPE is defined. Removes GLSL specification restrictions on valid function genTypes.")
+#	else
+#		pragma message("GLM: GLM_FORCE_UNRESTRICTED_GENTYPE is undefined. Follows strictly GLSL specification on valid function genTypes.")
 #	endif
 
 #	ifdef GLM_FORCE_SINGLE_ONLY
-#		pragma message("GLM: Using only single precision floating-point types")
+#		pragma message("GLM: GLM_FORCE_SINGLE_ONLY is defined. Using only single precision floating-point types")
 #	endif
 
 #	if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
-#		pragma message("GLM: Depth clip space: Zero to one")
+#		pragma message("GLM: GLM_FORCE_DEPTH_ZERO_TO_ONE is defined. Using zero to one depth clip space.")
 #	else
-#		pragma message("GLM: Depth clip space: negative one to one")
+#		pragma message("GLM: GLM_FORCE_DEPTH_ZERO_TO_ONE is undefined. Using negative one to one depth clip space.")
 #	endif
 
 #	if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
-#		pragma message("GLM: Coordinate system: left handed")
+#		pragma message("GLM: GLM_FORCE_LEFT_HANDED is defined. Using left handed coordinate system.")
 #	else
-#		pragma message("GLM: Coordinate system: right handed")
+#		pragma message("GLM: GLM_FORCE_LEFT_HANDED is undefined. Using right handed coordinate system.")
 #	endif
 #endif//GLM_MESSAGES
 

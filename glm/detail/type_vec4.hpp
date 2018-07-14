@@ -4,13 +4,11 @@
 #pragma once
 
 #include "type_vec.hpp"
-#if GLM_SWIZZLE == GLM_ENABLE
-#	if GLM_HAS_ANONYMOUS_STRUCT
-#		include "_swizzle.hpp"
-#	else
-#		include "_swizzle_func.hpp"
-#	endif
-#endif //GLM_SWIZZLE
+#if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
+#	include "_swizzle.hpp"
+#elif GLM_SWIZZLE == GLM_SWIZZLE_FUNCTION
+#	include "_swizzle_func.hpp"
+#endif
 #include <cstddef>
 
 namespace glm
@@ -35,7 +33,7 @@ namespace glm
 
 				typename detail::storage<4, T, detail::is_aligned<Q>::value>::type data;
 
-#				if GLM_SWIZZLE == GLM_ENABLE
+#				if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 					GLM_SWIZZLE4_2_MEMBERS(T, Q, x, y, z, w)
 					GLM_SWIZZLE4_2_MEMBERS(T, Q, r, g, b, a)
 					GLM_SWIZZLE4_2_MEMBERS(T, Q, s, t, p, q)
@@ -45,7 +43,7 @@ namespace glm
 					GLM_SWIZZLE4_4_MEMBERS(T, Q, x, y, z, w)
 					GLM_SWIZZLE4_4_MEMBERS(T, Q, r, g, b, a)
 					GLM_SWIZZLE4_4_MEMBERS(T, Q, s, t, p, q)
-#				endif//GLM_SWIZZLE
+#				endif
 			};
 #		else
 			union { T x, r, s; };
@@ -53,9 +51,9 @@ namespace glm
 			union { T z, b, p; };
 			union { T w, a, q; };
 
-#			if GLM_SWIZZLE == GLM_ENABLE
+#			if GLM_SWIZZLE == GLM_SWIZZLE_FUNCTION
 				GLM_SWIZZLE_GEN_VEC_FROM_VEC4(T, Q)
-#			endif//GLM_SWIZZLE
+#			endif
 #		endif
 
 		// -- Component accesses --
@@ -175,7 +173,7 @@ namespace glm
 		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 GLM_EXPLICIT vec(vec<4, U, P> const& v);
 
 		// -- Swizzle constructors --
-#		if GLM_HAS_ANONYMOUS_STRUCT && GLM_SWIZZLE == GLM_ENABLE
+#		if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 			template<int E0, int E1, int E2, int E3>
 			GLM_FUNC_DECL vec(detail::_swizzle<4, T, Q, E0, E1, E2, E3> const& that)
 			{
@@ -217,7 +215,7 @@ namespace glm
 			{
 				*this = vec<4, T, Q>(x, v());
 			}
-#		endif//GLM_HAS_ANONYMOUS_STRUCT && GLM_SWIZZLE == GLM_ENABLE
+#		endif//GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 
 		// -- Unary arithmetic operators --
 
