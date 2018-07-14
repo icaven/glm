@@ -83,9 +83,9 @@
 #define GLM_LANG_CXXGNU			GLM_LANG_CXXGNU_FLAG
 
 #ifdef _MSC_EXTENSIONS
-#	define GLM_MSC_EXT GLM_LANG_CXXMS_FLAG
+#	define GLM_LANG_EXT GLM_LANG_CXXMS_FLAG
 #else
-#	define GLM_MSC_EXT 0
+#	define GLM_LANG_EXT 0
 #endif
 
 #if defined(GLM_FORCE_CXX2A)
@@ -93,7 +93,7 @@
 #		define GLM_MESSAGE_FORCE_CXX2A_DISPLAYED
 #		pragma message("GLM: Force the use of C++2a only")
 #	endif//GLM_MESSAGES
-#	define GLM_LANG (GLM_LANG_CXX2A | GLM_MSC_EXT)
+#	define GLM_LANG (GLM_LANG_CXX2A | GLM_LANG_EXT)
 #	define GLM_LANG_STL11_FORCED
 #elif defined(GLM_FORCE_CXX17)
 #	if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_FORCE_CXX17_DISPLAYED)
@@ -104,7 +104,7 @@
 #			pragma message("GLM: Force the use of C++17 on a compiler that doesn't have full C++17 support")
 #		endif
 #	endif//GLM_MESSAGES
-#	define GLM_LANG (GLM_LANG_CXX17 | GLM_MSC_EXT)
+#	define GLM_LANG (GLM_LANG_CXX17 | GLM_LANG_EXT)
 #	define GLM_LANG_STL11_FORCED
 #elif defined(GLM_FORCE_CXX14)
 #	if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_FORCE_CXX14_DISPLAYED)
@@ -115,7 +115,7 @@
 #			pragma message("GLM: Force the use of C++14 on a compiler that doesn't have full C++14 support")
 #		endif
 #	endif//GLM_MESSAGES
-#	define GLM_LANG (GLM_LANG_CXX14 | GLM_MSC_EXT)
+#	define GLM_LANG (GLM_LANG_CXX14 | GLM_LANG_EXT)
 #	define GLM_LANG_STL11_FORCED
 #elif defined(GLM_FORCE_CXX11)
 #	if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_FORCE_CXX11_DISPLAYED)
@@ -126,7 +126,7 @@
 #			pragma message("GLM: Force the use of C++11 on a compiler that doesn't have full C++11 support")
 #		endif
 #	endif//GLM_MESSAGES
-#	define GLM_LANG (GLM_LANG_CXX11 | GLM_MSC_EXT)
+#	define GLM_LANG (GLM_LANG_CXX11 | GLM_LANG_EXT)
 #	define GLM_LANG_STL11_FORCED
 #elif defined(GLM_FORCE_CXX03)
 #	define GLM_LANG GLM_LANG_CXX03
@@ -140,19 +140,19 @@
 #	endif
 
 #	if __cplusplus > 201703L || GLM_LANG_PLATFORM > 201703L
-#		define GLM_LANG (GLM_LANG_CXX2A | GLM_MSC_EXT)
+#		define GLM_LANG (GLM_LANG_CXX2A | GLM_LANG_EXT)
 #	elif __cplusplus == 201703L || GLM_LANG_PLATFORM == 201703L
-#		define GLM_LANG (GLM_LANG_CXX17 | GLM_MSC_EXT)
+#		define GLM_LANG (GLM_LANG_CXX17 | GLM_LANG_EXT)
 #	elif __cplusplus == 201402L || GLM_LANG_PLATFORM == 201402L
-#		define GLM_LANG (GLM_LANG_CXX14 | GLM_MSC_EXT)
+#		define GLM_LANG (GLM_LANG_CXX14 | GLM_LANG_EXT)
 #	elif __cplusplus == 201103L || GLM_LANG_PLATFORM == 201103L
-#		define GLM_LANG (GLM_LANG_CXX11 | GLM_MSC_EXT)
+#		define GLM_LANG (GLM_LANG_CXX11 | GLM_LANG_EXT)
 #	elif defined(__INTEL_CXX11_MODE__) || defined(_MSC_VER) || defined(__GXX_EXPERIMENTAL_CXX0X__)
-#		define GLM_LANG (GLM_LANG_CXX0X | GLM_MSC_EXT)
+#		define GLM_LANG (GLM_LANG_CXX0X | GLM_LANG_EXT)
 #	elif __cplusplus == 199711L
-#		define GLM_LANG (GLM_LANG_CXX98 | GLM_MSC_EXT)
+#		define GLM_LANG (GLM_LANG_CXX98 | GLM_LANG_EXT)
 #	else
-#		define GLM_LANG (GLM_LANG_CXX | GLM_MSC_EXT)
+#		define GLM_LANG (0 | GLM_LANG_EXT)
 #	endif
 #endif
 
