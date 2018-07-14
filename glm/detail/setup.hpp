@@ -133,17 +133,19 @@
 #elif defined(GLM_FORCE_CXX98)
 #	define GLM_LANG GLM_LANG_CXX98
 #else
-#	ifndef _MSVC_LANG
-#		define _MSVC_LANG 0
+#	ifdef _MSVC_LANG
+#		define GLM_LANG_PLATFORM _MSVC_LANG
+#	else
+#		define GLM_LANG_PLATFORM 0
 #	endif
 
-#	if __cplusplus > 201703L || _MSVC_LANG > 201703L
+#	if __cplusplus > 201703L || GLM_LANG_PLATFORM > 201703L
 #		define GLM_LANG (GLM_LANG_CXX2A | GLM_MSC_EXT)
-#	elif __cplusplus == 201703L || _MSVC_LANG == 201703L
+#	elif __cplusplus == 201703L || GLM_LANG_PLATFORM == 201703L
 #		define GLM_LANG (GLM_LANG_CXX17 | GLM_MSC_EXT)
-#	elif __cplusplus == 201402L || _MSVC_LANG == 201402L
+#	elif __cplusplus == 201402L || GLM_LANG_PLATFORM == 201402L
 #		define GLM_LANG (GLM_LANG_CXX14 | GLM_MSC_EXT)
-#	elif __cplusplus == 201103L || _MSVC_LANG == 201103L
+#	elif __cplusplus == 201103L || GLM_LANG_PLATFORM == 201103L
 #		define GLM_LANG (GLM_LANG_CXX11 | GLM_MSC_EXT)
 #	elif defined(__INTEL_CXX11_MODE__) || defined(_MSC_VER) || defined(__GXX_EXPERIMENTAL_CXX0X__)
 #		define GLM_LANG (GLM_LANG_CXX0X | GLM_MSC_EXT)
@@ -358,6 +360,7 @@
 		((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC14) && (GLM_ARCH & GLM_ARCH_X86_BIT))))
 #endif
 
+///////////////////////////////////////////////////////////////////////////////////
 // OpenMP
 #ifdef _OPENMP
 #	if GLM_COMPILER & GLM_COMPILER_GCC
