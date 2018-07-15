@@ -57,6 +57,7 @@ else()
 	set(CMAKE_CXX_EXTENSIONS OFF)
 	if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 		add_compile_options(/Za)
+		add_compile_options(/permissive-)
 	endif()
 endif()
 
