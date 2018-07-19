@@ -133,8 +133,18 @@
 #elif defined(GLM_FORCE_CXX98)
 #	define GLM_LANG GLM_LANG_CXX98
 #else
-#	ifdef _MSVC_LANG
-#		define GLM_LANG_PLATFORM _MSVC_LANG
+#	if GLM_COMPILER & GLM_COMPILER_VC && defined(_MSVC_LANG)
+#		if GLM_COMPILER >= GLM_COMPILER_VC15_7
+#			define GLM_LANG_PLATFORM _MSVC_LANG
+#		elif GLM_COMPILER >= GLM_COMPILER_VC15
+#			if _MSVC_LANG > 201402L
+#				define GLM_LANG_PLATFORM 201402L
+#			else
+#				define GLM_LANG_PLATFORM _MSVC_LANG
+#			endif
+#		else
+#			define GLM_LANG_PLATFORM 0
+#		endif
 #	else
 #		define GLM_LANG_PLATFORM 0
 #	endif
