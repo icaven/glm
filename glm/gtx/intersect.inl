@@ -41,20 +41,20 @@ namespace glm
 		// if determinant is near zero, ray lies in plane of triangle
 		T const det = glm::dot(edge1, p);
 
-		vec<3, T, Q> qvec;
+		vec<3, T, Q> qvec(0);
 
 		if(det > std::numeric_limits<T>::epsilon())
 		{
 			// calculate distance from vert0 to ray origin
-			vec<3, T, Q> const tvec = orig - vert0;
+			vec<3, T, Q> const dist = orig - vert0;
 
 			// calculate U parameter and test bounds
-			baryPosition.x = glm::dot(tvec, p);
+			baryPosition.x = glm::dot(dist, p);
 			if(baryPosition.x < static_cast<T>(0) || baryPosition.x > det)
 				return false;
 
 			// prepare to test V parameter
-			qvec = glm::cross(tvec, edge1);
+			qvec = glm::cross(dist, edge1);
 
 			// calculate V parameter and test bounds
 			baryPosition.y = glm::dot(dir, qvec);
@@ -64,15 +64,15 @@ namespace glm
 		else if(det < -std::numeric_limits<T>::epsilon())
 		{
 			// calculate distance from vert0 to ray origin
-			vec<3, T, Q> const tvec = orig - vert0;
+			vec<3, T, Q> const dist = orig - vert0;
 
 			// calculate U parameter and test bounds
-			baryPosition.x = glm::dot(tvec, p);
+			baryPosition.x = glm::dot(dist, p);
 			if((baryPosition.x > static_cast<T>(0)) || (baryPosition.x < det))
 				return false;
 
 			// prepare to test V parameter
-			qvec = glm::cross(tvec, edge1);
+			qvec = glm::cross(dist, edge1);
 
 			// calculate V parameter and test bounds
 			baryPosition.y = glm::dot(dir, qvec);
