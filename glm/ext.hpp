@@ -36,7 +36,7 @@
 #include "./gtc/type_ptr.hpp"
 #include "./gtc/ulp.hpp"
 #include "./gtc/vec1.hpp"
-#if GLM_HAS_ANONYMOUS_STRUCT
+#if GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE
 #	include "./gtc/type_aligned.hpp"
 #endif
 

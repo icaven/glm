@@ -483,7 +483,8 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
-// Clip control
+// Clip control, define GLM_FORCE_DEPTH_ZERO_TO_ONE before including GLM
+// to use a clip space between 0 to 1.
 
 #define GLM_DEPTH_ZERO_TO_ONE				0x00000001
 #define GLM_DEPTH_NEGATIVE_ONE_TO_ONE		0x00000002
