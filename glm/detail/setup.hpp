@@ -639,7 +639,7 @@ namespace glm
 ///////////////////////////////////////////////////////////////////////////////////
 // Enable aligned gentypes
 
-#if defined(GLM_FORCE_ALIGNED_GENTYPES) && GLM_HAS_ALIGNOF
+#if defined(GLM_FORCE_ALIGNED_GENTYPES) && GLM_HAS_ALIGNOF && (GLM_LANG & GLM_LANG_CXXMS_FLAG)
 #	define GLM_USE_ALIGNED_GENTYPES GLM_ENABLE
 #else
 #	define GLM_USE_ALIGNED_GENTYPES GLM_DISABLE
