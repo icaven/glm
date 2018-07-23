@@ -27,7 +27,7 @@ namespace glm
 #	if GLM_USE_DEFAULTED_FUNCTIONS == GLM_DISABLE
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 tdualquat<T, Q>::tdualquat()
-#			ifdef GLM_FORCE_CTOR_INIT
+#			if GLM_USE_DEFAULTED_FUNCTIONS != GLM_DISABLE
 			: real(tquat<T, Q>())
 			, dual(tquat<T, Q>(0, 0, 0, 0))
 #			endif

@@ -564,20 +564,6 @@
 
 ///////////////////////////////////////////////////////////////////////////////////
 
-#ifdef GLM_FORCE_NO_CTOR_INIT
-#	undef GLM_FORCE_CTOR_INIT
-#endif
-
-#if GLM_HAS_DEFAULTED_FUNCTIONS && !defined(GLM_FORCE_CTOR_INIT)
-#	define GLM_USE_DEFAULTED_FUNCTIONS GLM_ENABLE
-#	define GLM_DEFAULT = default
-#else
-#	define GLM_USE_DEFAULTED_FUNCTIONS GLM_DISABLE
-#	define GLM_DEFAULT
-#endif
-
-///////////////////////////////////////////////////////////////////////////////////
-
 #ifdef GLM_FORCE_EXPLICIT_CTOR
 #	define GLM_EXPLICIT explicit
 #else
@@ -628,7 +614,32 @@ namespace glm
 #elif GLM_SETUP_INCLUDED == GLM_VERSION
 
 ///////////////////////////////////////////////////////////////////////////////////
-// Enable aligned gentypes
+// Configure the use of defaulted initialized types
+
+#define GLM_CTOR_INITIALIZER_LIST	(1 << 1)
+#define GLM_CTOR_INITIALISATION		(1 << 2)
+
+#if defined(GLM_FORCE_CTOR_INIT) && GLM_HAS_INITIALIZER_LISTS
+#	define GLM_USE_CTOR_INIT GLM_CTOR_INITIALIZER_LIST
+#elif defined(GLM_FORCE_CTOR_INIT) && !GLM_HAS_INITIALIZER_LISTS
+#	define GLM_USE_CTOR_INIT GLM_CTOR_INITIALISATION
+#else
+#	define GLM_USE_CTOR_INIT GLM_DISABLE
+#endif
+
+///////////////////////////////////////////////////////////////////////////////////
+// Configure the use of defaulted function
+
+#if GLM_HAS_DEFAULTED_FUNCTIONS && GLM_USE_CTOR_INIT == GLM_DISABLE
+#	define GLM_USE_DEFAULTED_FUNCTIONS GLM_ENABLE
+#	define GLM_DEFAULT = default
+#else
+#	define GLM_USE_DEFAULTED_FUNCTIONS GLM_DISABLE
+#	define GLM_DEFAULT
+#endif
+
+///////////////////////////////////////////////////////////////////////////////////
+// Configure the use of aligned gentypes
 
 #if defined(GLM_FORCE_ALIGNED_GENTYPES) && GLM_HAS_ALIGNOF && (GLM_LANG & GLM_LANG_CXXMS_FLAG)
 #	define GLM_USE_ALIGNED_GENTYPES GLM_ENABLE
@@ -637,9 +648,18 @@ namespace glm
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
-// Implementation detail
+// Use SIMD instruction sets
 
-#if (((GLM_LANG & GLM_LANG_CXXMS_FLAG) && (GLM_ARCH & GLM_ARCH_SIMD_BIT)) || (GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR) || (GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE))
+#if (GLM_LANG & GLM_LANG_CXXMS_FLAG) && (GLM_ARCH & GLM_ARCH_SIMD_BIT)
+#define GLM_USE_SIMD GLM_ENABLE
+#else
+#define GLM_USE_SIMD GLM_DISABLE
+#endif
+
+///////////////////////////////////////////////////////////////////////////////////
+// Configure the use of anonymous structure as implementation detail
+
+#if ((GLM_USE_SIMD == GLM_ENABLE) || (GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR) || (GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE))
 #	define GLM_USE_ANONYMOUS_STRUCT GLM_ENABLE
 #else
 #	define GLM_USE_ANONYMOUS_STRUCT GLM_DISABLE

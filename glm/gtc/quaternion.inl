@@ -87,7 +87,7 @@ namespace detail
 #	if GLM_USE_DEFAULTED_FUNCTIONS == GLM_DISABLE
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 tquat<T, Q>::tquat()
-#			ifdef GLM_FORCE_CTOR_INIT
+#			if GLM_USE_DEFAULTED_FUNCTIONS != GLM_DISABLE
 			: x(0), y(0), z(0), w(1)
 #			endif
 		{}
