@@ -37,7 +37,7 @@ int test_intersectLineTriangle()
 
 	bool const Result = glm::intersectLineTriangle(Orig, Dir, Vert0, Vert1, Vert2, Position);
 
-	Error += glm::all(glm::epsilonEqual(Position, glm::vec3(0), std::numeric_limits<float>::epsilon())) ? 0 : 1;
+	Error += glm::all(glm::epsilonEqual(Position, glm::vec3(2.0f, 0.0f, 0.0f), std::numeric_limits<float>::epsilon())) ? 0 : 1;
 	Error += Result ? 0 : 1;
 
 	return Error;
