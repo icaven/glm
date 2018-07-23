@@ -36,13 +36,6 @@
 #include "../simd/platform.h"
 
 ///////////////////////////////////////////////////////////////////////////////////
-// Incompatible GLM_FORCE defines
-
-#if defined(GLM_FORCE_SWIZZLE) && defined(GLM_FORCE_UNRESTRICTED_GENTYPE)
-#	error "Both GLM_FORCE_SWIZZLE and GLM_FORCE_UNRESTRICTED_GENTYPE can't be defined at the same time"
-#endif
-
-///////////////////////////////////////////////////////////////////////////////////
 // Build model
 
 #if defined(__arch64__) || defined(__LP64__) || defined(_M_X64) || defined(__ppc64__) || defined(__x86_64__)
