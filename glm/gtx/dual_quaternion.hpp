@@ -56,24 +56,24 @@ namespace glm
 
 		// -- Implicit basic constructors --
 
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 tdualquat() GLM_DEFAULT_CTOR;
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 tdualquat(tdualquat<T, Q> const& d) GLM_DEFAULT;
+		GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 tdualquat() GLM_DEFAULT;
+		GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 tdualquat(tdualquat<T, Q> const& d) GLM_DEFAULT;
 		template<qualifier P>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 tdualquat(tdualquat<T, P> const& d);
+		GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 tdualquat(tdualquat<T, P> const& d);
 
 		// -- Explicit basic constructors --
 
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 tdualquat(tquat<T, Q> const& real);
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 tdualquat(tquat<T, Q> const& orientation, vec<3, T, Q> const& translation);
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 tdualquat(tquat<T, Q> const& real, tquat<T, Q> const& dual);
+		GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 tdualquat(tquat<T, Q> const& real);
+		GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 tdualquat(tquat<T, Q> const& orientation, vec<3, T, Q> const& translation);
+		GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 tdualquat(tquat<T, Q> const& real, tquat<T, Q> const& dual);
 
 		// -- Conversion constructors --
 
 		template<typename U, qualifier P>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 GLM_EXPLICIT tdualquat(tdualquat<U, P> const& q);
+		GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 GLM_EXPLICIT tdualquat(tdualquat<U, P> const& q);
 
-		GLM_FUNC_DECL GLM_EXPLICIT tdualquat(mat<2, 4, T, Q> const& holder_mat);
-		GLM_FUNC_DECL GLM_EXPLICIT tdualquat(mat<3, 4, T, Q> const& aug_mat);
+		GLM_FUNC_DECL GLM_EXPLICIT GLM_CONSTEXPR_CXX14 tdualquat(mat<2, 4, T, Q> const& holder_mat);
+		GLM_FUNC_DECL GLM_EXPLICIT GLM_CONSTEXPR_CXX14 tdualquat(mat<3, 4, T, Q> const& aug_mat);
 
 		// -- Unary arithmetic operators --
 

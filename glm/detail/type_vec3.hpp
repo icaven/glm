@@ -66,7 +66,7 @@ namespace glm
 
 		// -- Implicit basic constructors --
 
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec() GLM_DEFAULT_CTOR;
+		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec() GLM_DEFAULT;
 		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec(vec const& v) GLM_DEFAULT;
 		template<qualifier P>
 		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec(vec<3, T, P> const& v);
@@ -144,80 +144,80 @@ namespace glm
 
 		// -- Unary arithmetic operators --
 
-		GLM_FUNC_DECL vec & operator=(vec const& v);
+		GLM_FUNC_DECL vec<3, T, Q>& operator=(vec<3, T, Q> const& v);
 
 		template<typename U>
-		GLM_FUNC_DECL vec & operator=(vec<3, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator=(vec<3, U, Q> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator+=(U scalar);
+		GLM_FUNC_DECL vec<3, T, Q> & operator+=(U scalar);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator+=(vec<1, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator+=(vec<1, U, Q> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator+=(vec<3, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator+=(vec<3, U, Q> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator-=(U scalar);
+		GLM_FUNC_DECL vec<3, T, Q> & operator-=(U scalar);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator-=(vec<1, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator-=(vec<1, U, Q> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator-=(vec<3, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator-=(vec<3, U, Q> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator*=(U scalar);
+		GLM_FUNC_DECL vec<3, T, Q> & operator*=(U scalar);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator*=(vec<1, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator*=(vec<1, U, Q> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator*=(vec<3, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator*=(vec<3, U, Q> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator/=(U scalar);
+		GLM_FUNC_DECL vec<3, T, Q> & operator/=(U scalar);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator/=(vec<1, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator/=(vec<1, U, Q> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator/=(vec<3, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator/=(vec<3, U, Q> const& v);
 
 		// -- Increment and decrement operators --
 
-		GLM_FUNC_DECL vec & operator++();
-		GLM_FUNC_DECL vec & operator--();
-		GLM_FUNC_DECL vec operator++(int);
-		GLM_FUNC_DECL vec operator--(int);
+		GLM_FUNC_DECL vec<3, T, Q> & operator++();
+		GLM_FUNC_DECL vec<3, T, Q> & operator--();
+		GLM_FUNC_DECL vec<3, T, Q> operator++(int);
+		GLM_FUNC_DECL vec<3, T, Q> operator--(int);
 
 		// -- Unary bit operators --
 
 		template<typename U>
-		GLM_FUNC_DECL vec & operator%=(U scalar);
+		GLM_FUNC_DECL vec<3, T, Q> & operator%=(U scalar);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator%=(vec<1, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator%=(vec<1, U, Q> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator%=(vec<3, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator%=(vec<3, U, Q> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator&=(U scalar);
+		GLM_FUNC_DECL vec<3, T, Q> & operator&=(U scalar);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator&=(vec<1, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator&=(vec<1, U, Q> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator&=(vec<3, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator&=(vec<3, U, Q> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator|=(U scalar);
+		GLM_FUNC_DECL vec<3, T, Q> & operator|=(U scalar);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator|=(vec<1, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator|=(vec<1, U, Q> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator|=(vec<3, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator|=(vec<3, U, Q> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator^=(U scalar);
+		GLM_FUNC_DECL vec<3, T, Q> & operator^=(U scalar);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator^=(vec<1, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator^=(vec<1, U, Q> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator^=(vec<3, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator^=(vec<3, U, Q> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator<<=(U scalar);
+		GLM_FUNC_DECL vec<3, T, Q> & operator<<=(U scalar);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator<<=(vec<1, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator<<=(vec<1, U, Q> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator<<=(vec<3, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator<<=(vec<3, U, Q> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator>>=(U scalar);
+		GLM_FUNC_DECL vec<3, T, Q> & operator>>=(U scalar);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator>>=(vec<1, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator>>=(vec<1, U, Q> const& v);
 		template<typename U>
-		GLM_FUNC_DECL vec & operator>>=(vec<3, U, Q> const& v);
+		GLM_FUNC_DECL vec<3, T, Q> & operator>>=(vec<3, U, Q> const& v);
 	};
 
 	// -- Unary operators --
