@@ -147,6 +147,7 @@ namespace detail
 	};
 #	endif
 
+#	if GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE
 	template<>
 	struct compute_vec4_div<float, aligned_lowp, true>
 	{
@@ -157,6 +158,7 @@ namespace detail
 			return Result;
 		}
 	};
+#	endif
 
 	template<typename T, qualifier Q>
 	struct compute_vec4_and<T, Q, true, 32, true>
@@ -343,6 +345,7 @@ namespace detail
 	};
 }//namespace detail
 
+#	if GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE
 	template<>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 vec<4, float, aligned_lowp>::vec(float _s) :
 		data(_mm_set1_ps(_s))
@@ -457,6 +460,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 vec<4, float, aligned_highp>::vec(int32 _x, int32 _y, int32 _z, int32 _w) :
 		data(_mm_castsi128_ps(_mm_set_epi32(_w, _z, _y, _x)))
 	{}
+#endif// GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE
 }//namespace glm
 
 #endif//GLM_ARCH & GLM_ARCH_SSE2_BIT
