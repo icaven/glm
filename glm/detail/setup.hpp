@@ -399,12 +399,12 @@
 // nullptr
 
 #if GLM_LANG & GLM_LANG_CXX0X_FLAG
-#	define GLM_HAS_NULLPTR 1
+#	define GLM_USE_NULLPTR GLM_ENABLE
 #else
-#	define GLM_HAS_NULLPTR 0
+#	define GLM_USE_NULLPTR GLM_DISABLE
 #endif
 
-#if GLM_HAS_NULLPTR
+#if GLM_USE_NULLPTR == GLM_ENABLE
 #	define GLM_NULLPTR nullptr
 #else
 #	define GLM_NULLPTR 0
@@ -431,12 +431,6 @@
 #else
 #	define GLM_CUDA_FUNC_DEF
 #	define GLM_CUDA_FUNC_DECL
-#endif
-
-#if GLM_COMPILER & GLM_COMPILER_GCC
-#	define GLM_VAR_USED __attribute__ ((unused))
-#else
-#	define GLM_VAR_USED
 #endif
 
 #if defined(GLM_FORCE_INLINE)
@@ -518,49 +512,17 @@
 
 #if (GLM_COMPILER & GLM_COMPILER_VC) || ((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_PLATFORM & GLM_PLATFORM_WINDOWS))
 #	define GLM_DEPRECATED __declspec(deprecated)
-#	define GLM_ALIGN(x) __declspec(align(x))
-#	define GLM_ALIGNED_STRUCT(x) struct __declspec(align(x))
 #	define GLM_ALIGNED_TYPEDEF(type, name, alignment) typedef __declspec(align(alignment)) type name
-#	define GLM_RESTRICT_FUNC __declspec(restrict)
-#	define GLM_RESTRICT __restrict
-#	if GLM_COMPILER >= GLM_COMPILER_VC12
-#		define GLM_VECTOR_CALL __vectorcall
-#	else
-#		define GLM_VECTOR_CALL
-#	endif
 #elif GLM_COMPILER & (GLM_COMPILER_GCC | GLM_COMPILER_CLANG | GLM_COMPILER_INTEL)
 #	define GLM_DEPRECATED __attribute__((__deprecated__))
-#	define GLM_ALIGN(x) __attribute__((aligned(x)))
-#	define GLM_ALIGNED_STRUCT(x) struct __attribute__((aligned(x)))
 #	define GLM_ALIGNED_TYPEDEF(type, name, alignment) typedef type name __attribute__((aligned(alignment)))
-#	define GLM_RESTRICT_FUNC __restrict__
-#	define GLM_RESTRICT __restrict__
-#	if GLM_COMPILER & GLM_COMPILER_CLANG
-#		if GLM_COMPILER >= GLM_COMPILER_CLANG37
-#			define GLM_VECTOR_CALL __vectorcall
-#		else
-#			define GLM_VECTOR_CALL
-#		endif
-#	else
-#		define GLM_VECTOR_CALL
-#	endif
 #elif GLM_COMPILER & GLM_COMPILER_CUDA
 #	define GLM_DEPRECATED
-#	define GLM_ALIGN(x) __align__(x)
-#	define GLM_ALIGNED_STRUCT(x) struct __align__(x)
 #	define GLM_ALIGNED_TYPEDEF(type, name, alignment) typedef type name __align__(x)
-#	define GLM_RESTRICT_FUNC __restrict__
-#	define GLM_RESTRICT __restrict__
-#	define GLM_VECTOR_CALL
 #else
 #	define GLM_DEPRECATED
-#	define GLM_ALIGN
-#	define GLM_ALIGNED_STRUCT(x) struct
 #	define GLM_ALIGNED_TYPEDEF(type, name, alignment) typedef type name
-#	define GLM_RESTRICT_FUNC
-#	define GLM_RESTRICT
-#	define GLM_VECTOR_CALL
-#endif//GLM_COMPILER
+#endif
 
 ///////////////////////////////////////////////////////////////////////////////////
 
@@ -605,13 +567,6 @@ namespace glm
 #else
 #	define GLM_COUNTOF(arr) sizeof(arr) / sizeof(arr[0])
 #endif
-
-///////////////////////////////////////////////////////////////////////////////////
-// Check inclusions of different versions of GLM
-
-#elif ((GLM_SETUP_INCLUDED != GLM_VERSION) && !defined(GLM_FORCE_IGNORE_VERSION))
-#	error "GLM error: A different version of GLM is already included. Define GLM_FORCE_IGNORE_VERSION before including GLM headers to ignore this error."
-#elif GLM_SETUP_INCLUDED == GLM_VERSION
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Configure the use of defaulted initialized types
@@ -664,6 +619,13 @@ namespace glm
 #else
 #	define GLM_USE_ANONYMOUS_STRUCT GLM_DISABLE
 #endif
+
+///////////////////////////////////////////////////////////////////////////////////
+// Check inclusions of different versions of GLM
+
+#elif ((GLM_SETUP_INCLUDED != GLM_VERSION) && !defined(GLM_FORCE_IGNORE_VERSION))
+#	error "GLM error: A different version of GLM is already included. Define GLM_FORCE_IGNORE_VERSION before including GLM headers to ignore this error."
+#elif GLM_SETUP_INCLUDED == GLM_VERSION
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Messages
