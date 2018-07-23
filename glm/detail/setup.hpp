@@ -371,10 +371,6 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
-
-#define GLM_HAS_ANONYMOUS_STRUCT (GLM_LANG & GLM_LANG_CXXMS_FLAG)
-
-///////////////////////////////////////////////////////////////////////////////////
 // OpenMP
 #ifdef _OPENMP
 #	if GLM_COMPILER & GLM_COMPILER_GCC
@@ -482,7 +478,7 @@
 #define GLM_SWIZZLE_OPERATOR 1
 #define GLM_SWIZZLE_FUNCTION 2
 
-#if defined(GLM_FORCE_SWIZZLE) && GLM_HAS_ANONYMOUS_STRUCT
+#if defined(GLM_FORCE_SWIZZLE) && (GLM_LANG & GLM_LANG_CXXMS_FLAG)
 #	define GLM_SWIZZLE GLM_SWIZZLE_OPERATOR
 #elif defined(GLM_FORCE_SWIZZLE)
 #	define GLM_SWIZZLE GLM_SWIZZLE_FUNCTION
@@ -582,8 +578,10 @@
 #endif
 
 #if GLM_HAS_DEFAULTED_FUNCTIONS && !defined(GLM_FORCE_CTOR_INIT)
+#	define GLM_USE_DEFAULTED_FUNCTIONS GLM_ENABLE
 #	define GLM_DEFAULT = default
 #else
+#	define GLM_USE_DEFAULTED_FUNCTIONS GLM_DISABLE
 #	define GLM_DEFAULT
 #endif
 
@@ -637,6 +635,24 @@ namespace glm
 #elif ((GLM_SETUP_INCLUDED != GLM_VERSION) && !defined(GLM_FORCE_IGNORE_VERSION))
 #	error "GLM error: A different version of GLM is already included. Define GLM_FORCE_IGNORE_VERSION before including GLM headers to ignore this error."
 #elif GLM_SETUP_INCLUDED == GLM_VERSION
+
+///////////////////////////////////////////////////////////////////////////////////
+// Enable aligned gentypes
+
+#if defined(GLM_FORCE_ALIGNED_GENTYPES) && GLM_HAS_ALIGNOF
+#	define GLM_USE_ALIGNED_GENTYPES GLM_ENABLE
+#else
+#	define GLM_USE_ALIGNED_GENTYPES GLM_DISABLE
+#endif
+
+///////////////////////////////////////////////////////////////////////////////////
+// Implementation detail
+
+#if (((GLM_LANG & GLM_LANG_CXXMS_FLAG) && (GLM_ARCH & GLM_ARCH_SIMD_BIT)) || (GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR) || (GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE))
+#	define GLM_USE_ANONYMOUS_STRUCT GLM_ENABLE
+#else
+#	define GLM_USE_ANONYMOUS_STRUCT GLM_DISABLE
+#endif
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Messages

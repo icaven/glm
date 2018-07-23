@@ -41,7 +41,7 @@ namespace glm
 
 		// -- Data --
 
-#		if GLM_HAS_ANONYMOUS_STRUCT
+#		if GLM_USE_ANONYMOUS_STRUCT == GLM_ENABLE
 			union
 			{
 				T x;
@@ -120,7 +120,7 @@ namespace glm
 */
 		// -- Unary arithmetic operators --
 
-		GLM_FUNC_DECL vec<1, T, Q> & operator=(vec const& v);
+		GLM_FUNC_DECL vec<1, T, Q> & operator=(vec const& v) GLM_DEFAULT;
 
 		template<typename U>
 		GLM_FUNC_DECL vec<1, T, Q> & operator=(vec<1, U, Q> const& v);

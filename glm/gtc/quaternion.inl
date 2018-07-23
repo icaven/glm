@@ -84,21 +84,19 @@ namespace detail
 
 	// -- Implicit basic constructors --
 
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS || defined(GLM_FORCE_CTOR_INIT)
+#	if GLM_USE_DEFAULTED_FUNCTIONS == GLM_DISABLE
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 tquat<T, Q>::tquat()
 #			ifdef GLM_FORCE_CTOR_INIT
 			: x(0), y(0), z(0), w(1)
 #			endif
 		{}
-#	endif
 
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 tquat<T, Q>::tquat(tquat<T, Q> const& q)
 			: x(q.x), y(q.y), z(q.z), w(q.w)
 		{}
-#	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
+#	endif
 
 	template<typename T, qualifier Q>
 	template<qualifier P>
@@ -223,7 +221,7 @@ namespace detail
 
 	// -- Unary arithmetic operators --
 
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS
+#	if GLM_USE_DEFAULTED_FUNCTIONS == GLM_DISABLE
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER tquat<T, Q> & tquat<T, Q>::operator=(tquat<T, Q> const& q)
 		{
@@ -233,7 +231,7 @@ namespace detail
 			this->z = q.z;
 			return *this;
 		}
-#	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
+#	endif
 
 	template<typename T, qualifier Q>
 	template<typename U>

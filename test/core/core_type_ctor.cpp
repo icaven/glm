@@ -6,7 +6,7 @@ static int test_vec1_ctor()
 {
 	int Error = 0;
 
-#	if GLM_HAS_DEFAULTED_FUNCTIONS
+#	if GLM_USE_DEFAULTED_FUNCTIONS == GLM_ENABLE
 	{
 		union pack
 		{
@@ -20,7 +20,7 @@ static int test_vec1_ctor()
 		B.f = glm::vec1(1);
 		Error += glm::all(glm::equal(B.i, glm::ivec1(1065353216))) ? 0 : 1;
 	}
-#	endif//GLM_HAS_DEFAULTED_FUNCTIONS
+#	endif//GLM_USE_DEFAULTED_FUNCTIONS == GLM_ENABLE
 
 	return Error;
 }
@@ -29,7 +29,7 @@ static int test_vec2_ctor()
 {
 	int Error = 0;
 
-#	if GLM_HAS_DEFAULTED_FUNCTIONS
+#	if GLM_USE_DEFAULTED_FUNCTIONS == GLM_ENABLE
 	{
 		union pack
 		{
@@ -43,7 +43,7 @@ static int test_vec2_ctor()
 		B.f = glm::vec2(1);
 		Error += glm::all(glm::equal(B.i, glm::ivec2(1065353216))) ? 0 : 1;
 	}
-#	endif//GLM_HAS_DEFAULTED_FUNCTIONS
+#	endif
 
 	return Error;
 }
@@ -52,7 +52,7 @@ static int test_vec3_ctor()
 {
 	int Error = 0;
 
-#	if GLM_HAS_DEFAULTED_FUNCTIONS
+#	if GLM_USE_DEFAULTED_FUNCTIONS == GLM_ENABLE
 	{
 		union pack
 		{
@@ -66,7 +66,7 @@ static int test_vec3_ctor()
 		B.f = glm::vec3(1);
 		Error += glm::all(glm::equal(B.i, glm::ivec3(1065353216))) ? 0 : 1;
 	}
-#	endif//GLM_HAS_DEFAULTED_FUNCTIONS
+#	endif
 
 	return Error;
 }
@@ -75,7 +75,7 @@ static int test_vec4_ctor()
 {
 	int Error = 0;
 
-#	if GLM_HAS_DEFAULTED_FUNCTIONS
+#	if GLM_USE_DEFAULTED_FUNCTIONS == GLM_ENABLE
 	{
 		union pack
 		{
@@ -89,7 +89,7 @@ static int test_vec4_ctor()
 		B.f = glm::vec4(1);
 		Error += glm::all(glm::equal(B.i, glm::ivec4(1065353216))) ? 0 : 1;
 	}
-#	endif//GLM_HAS_DEFAULTED_FUNCTIONS
+#	endif
 
 	return Error;
 }

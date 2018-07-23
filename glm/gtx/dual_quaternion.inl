@@ -24,7 +24,7 @@ namespace glm
 
 	// -- Implicit basic constructors --
 
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS || defined(GLM_FORCE_CTOR_INIT)
+#	if GLM_USE_DEFAULTED_FUNCTIONS == GLM_DISABLE
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 tdualquat<T, Q>::tdualquat()
 #			ifdef GLM_FORCE_CTOR_INIT
@@ -32,15 +32,13 @@ namespace glm
 			, dual(tquat<T, Q>(0, 0, 0, 0))
 #			endif
 		{}
-#	endif
 
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 tdualquat<T, Q>::tdualquat(tdualquat<T, Q> const& d)
 			: real(d.real)
 			, dual(d.dual)
 		{}
-#	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
+#	endif
 
 	template<typename T, qualifier Q>
 	template<qualifier P>
@@ -93,7 +91,7 @@ namespace glm
 
 	// -- Unary arithmetic operators --
 
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS
+#	if GLM_USE_DEFAULTED_FUNCTIONS == GLM_DISABLE
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER tdualquat<T, Q> & tdualquat<T, Q>::operator=(tdualquat<T, Q> const& q)
 		{
@@ -101,7 +99,7 @@ namespace glm
 			this->dual = q.dual;
 			return *this;
 		}
-#	endif//!GLM_HAS_DEFAULTED_FUNCTIONS
+#	endif
 
 	template<typename T, qualifier Q>
 	template<typename U>

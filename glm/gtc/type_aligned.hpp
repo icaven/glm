@@ -12,9 +12,10 @@
 
 #pragma once
 
-#if !GLM_HAS_ANONYMOUS_STRUCT
-#	error "GLM: Aligned types are not supported on this platform"
+#if !GLM_USE_ANONYMOUS_STRUCT
+#	error "GLM: Aligned gentypes require to enable C++ language extensions and to define GLM_FORCE_ALIGNED_GENTYPES before including GLM headers."
 #endif
+
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
 # pragma message("GLM: GLM_GTC_type_aligned extension included")
 #endif
