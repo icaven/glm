@@ -67,6 +67,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Fixed int mod
 - Anonymous unions require C++ language extensions
 - Fixed ortho #790
+- Fixed Visual C++ 2013 warnings in vector relational code #782
 
 ### [GLM 0.9.9.0](https://github.com/g-truc/glm/releases/tag/0.9.9.0) - 2018-05-22
 #### Features:

@@ -3,6 +3,13 @@
 
 #include "compute_vector_relational.hpp"
 
+// Bug #782: Warning C4701: potentially uninitialized local variable 'Result' used
+#if ((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC12))
+#	define GLM_BUG_VC_INIT (false)
+#else
+#	define GLM_BUG_VC_INIT
+#endif
+
 namespace glm
 {
 	template<length_t L, typename T, qualifier Q>
@@ -10,7 +17,7 @@ namespace glm
 	{
 		assert(x.length() == y.length());
 
-		vec<L, bool, Q> Result;
+		vec<L, bool, Q> Result GLM_BUG_VC_INIT;
 		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] < y[i];
 
@@ -22,7 +29,7 @@ namespace glm
 	{
 		assert(x.length() == y.length());
 
-		vec<L, bool, Q> Result;
+		vec<L, bool, Q> Result GLM_BUG_VC_INIT;
 		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] <= y[i];
 		return Result;
@@ -33,7 +40,7 @@ namespace glm
 	{
 		assert(x.length() == y.length());
 
-		vec<L, bool, Q> Result;
+		vec<L, bool, Q> Result GLM_BUG_VC_INIT;
 		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] > y[i];
 		return Result;
@@ -44,7 +51,7 @@ namespace glm
 	{
 		assert(x.length() == y.length());
 
-		vec<L, bool, Q> Result;
+		vec<L, bool, Q> Result GLM_BUG_VC_INIT;
 		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = x[i] >= y[i];
 		return Result;
@@ -55,7 +62,7 @@ namespace glm
 	{
 		assert(x.length() == y.length());
 
-		vec<L, bool, Q> Result;
+		vec<L, bool, Q> Result GLM_BUG_VC_INIT;
 		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = detail::compute_equal<T, std::numeric_limits<T>::is_iec559>::call(x[i], y[i]);
 		return Result;
@@ -66,7 +73,7 @@ namespace glm
 	{
 		assert(x.length() == y.length());
 
-		vec<L, bool, Q> Result;
+		vec<L, bool, Q> Result GLM_BUG_VC_INIT;
 		for(length_t i = 0; i < x.length(); ++i)
 			Result[i] = !detail::compute_equal<T, std::numeric_limits<T>::is_iec559>::call(x[i], y[i]);
 		return Result;
