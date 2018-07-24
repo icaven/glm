@@ -1,3 +1,7 @@
+glmCreateTestGTC(core_force_aligned_gentypes)
+glmCreateTestGTC(core_force_ctor_init)
+glmCreateTestGTC(core_force_explicit_ctor)
+glmCreateTestGTC(core_force_inline)
 glmCreateTestGTC(core_force_pure)
 glmCreateTestGTC(core_force_unrestricted_gentype)
 glmCreateTestGTC(core_type_aligned)

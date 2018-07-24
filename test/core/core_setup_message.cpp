@@ -1,4 +1,3 @@
-#define GLM_FORCE_MESSAGES
 #include <glm/vec3.hpp>
 #include <cstdio>
 

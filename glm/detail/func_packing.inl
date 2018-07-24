@@ -184,7 +184,7 @@ namespace glm
 	}
 }//namespace glm
 
-#if (GLM_ARCH & GLM_ARCH_SIMD_BIT) && (GLM_HAS_ANONYMOUS_STRUCT)
+#if GLM_USE_SIMD == GLM_ENABLE
 #	include "func_packing_simd.inl"
 #endif
 

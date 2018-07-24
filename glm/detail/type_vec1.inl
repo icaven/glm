@@ -8,7 +8,7 @@ namespace glm
 #	if GLM_USE_DEFAULTED_FUNCTIONS == GLM_DISABLE
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 vec<1, T, Q>::vec()
-#			ifdef GLM_FORCE_CTOR_INIT
+#			if GLM_USE_DEFAULTED_FUNCTIONS != GLM_DISABLE
 				: x(0)
 #			endif
 		{}

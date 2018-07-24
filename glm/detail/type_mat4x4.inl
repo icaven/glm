@@ -7,14 +7,14 @@ namespace glm
 {
 	// -- Constructors --
 
-#	if !GLM_HAS_DEFAULTED_FUNCTIONS || defined(GLM_FORCE_CTOR_INIT)
+#	if GLM_USE_DEFAULTED_FUNCTIONS == GLM_DISABLE
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 mat<4, 4, T, Q>::mat()
-#			if defined(GLM_FORCE_CTOR_INIT) && GLM_HAS_INITIALIZER_LISTS
+#			if GLM_USE_CTOR_INIT == GLM_CTOR_INITIALIZER_LIST
 				: value{col_type(1, 0, 0, 0), col_type(0, 1, 0, 0), col_type(0, 0, 1, 0), col_type(0, 0, 0, 1)}
 #			endif
 		{
-#			if defined(GLM_FORCE_CTOR_INIT) && !GLM_HAS_INITIALIZER_LISTS
+#			if GLM_USE_CTOR_INIT == GLM_CTOR_INITIALISATION
 				this->value[0] = col_type(1, 0, 0, 0);
 				this->value[1] = col_type(0, 1, 0, 0);
 				this->value[2] = col_type(0, 0, 1, 0);
@@ -704,6 +704,6 @@ namespace glm
 	}
 }//namespace glm
 
-#if (GLM_ARCH & GLM_ARCH_SIMD_BIT) && (GLM_HAS_ANONYMOUS_STRUCT)
+#if GLM_USE_SIMD == GLM_ENABLE
 #	include "type_mat4x4_simd.inl"
 #endif

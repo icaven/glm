@@ -24,11 +24,31 @@ int test_intersectRayTriangle()
 	return Error;
 }
 
+int test_intersectLineTriangle()
+{
+	int Error = 0;
+
+	glm::vec3 const Orig(0, 0, 2);
+	glm::vec3 const Dir(0, 0, -1);
+	glm::vec3 const Vert0(0, 0, 0);
+	glm::vec3 const Vert1(-1, -1, 0);
+	glm::vec3 const Vert2(1, -1, 0);
+	glm::vec3 Position(2.0f, 0.0f, 0.0f);
+
+	bool const Result = glm::intersectLineTriangle(Orig, Dir, Vert0, Vert1, Vert2, Position);
+
+	Error += glm::all(glm::epsilonEqual(Position, glm::vec3(2.0f, 0.0f, 0.0f), std::numeric_limits<float>::epsilon())) ? 0 : 1;
+	Error += Result ? 0 : 1;
+
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
 
 	Error += test_intersectRayTriangle();
+	Error += test_intersectLineTriangle();
 
 	return Error;
 }
