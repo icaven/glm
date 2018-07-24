@@ -64,7 +64,7 @@ namespace glm
 
 		vec<L, bool, Q> Result GLM_BUG_VC_INIT;
 		for(length_t i = 0; i < x.length(); ++i)
-			Result[i] = x[i] == y[i];
+			Result[i] = detail::compute_equal<T, std::numeric_limits<T>::is_iec559>::call(x[i], y[i]);
 		return Result;
 	}
 
@@ -75,7 +75,7 @@ namespace glm
 
 		vec<L, bool, Q> Result GLM_BUG_VC_INIT;
 		for(length_t i = 0; i < x.length(); ++i)
-			Result[i] = x[i] != y[i];
+			Result[i] = !detail::compute_equal<T, std::numeric_limits<T>::is_iec559>::call(x[i], y[i]);
 		return Result;
 	}
 
