@@ -52,27 +52,27 @@ namespace glm
 
 		typedef length_t length_type;
 		/// Return the count of components of a quaternion
-		GLM_FUNC_DECL static GLM_CONSTEXPR_CXX11 length_type length(){return 4;}
+		GLM_FUNC_DECL static GLM_CONSTEXPR length_type length(){return 4;}
 
 		GLM_FUNC_DECL T & operator[](length_type i);
 		GLM_FUNC_DECL T const& operator[](length_type i) const;
 
 		// -- Implicit basic constructors --
 
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 tquat() GLM_DEFAULT;
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 tquat(tquat<T, Q> const& q) GLM_DEFAULT;
+		GLM_FUNC_DECL GLM_CONSTEXPR tquat() GLM_DEFAULT;
+		GLM_FUNC_DECL GLM_CONSTEXPR tquat(tquat<T, Q> const& q) GLM_DEFAULT;
 		template<qualifier P>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 tquat(tquat<T, P> const& q);
+		GLM_FUNC_DECL GLM_CONSTEXPR tquat(tquat<T, P> const& q);
 
 		// -- Explicit basic constructors --
 
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 tquat(T s, vec<3, T, Q> const& v);
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 tquat(T w, T x, T y, T z);
+		GLM_FUNC_DECL GLM_CONSTEXPR tquat(T s, vec<3, T, Q> const& v);
+		GLM_FUNC_DECL GLM_CONSTEXPR tquat(T w, T x, T y, T z);
 
 		// -- Conversion constructors --
 
 		template<typename U, qualifier P>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 GLM_EXPLICIT tquat(tquat<U, P> const& q);
+		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT tquat(tquat<U, P> const& q);
 
 		/// Explicit conversion operators
 #		if GLM_HAS_EXPLICIT_CONVERSION_OPERATORS

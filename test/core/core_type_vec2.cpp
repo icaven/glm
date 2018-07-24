@@ -299,7 +299,7 @@ static int test_size()
 	Error += glm::vec2::length() == 2 ? 0 : 1;
 	Error += glm::dvec2::length() == 2 ? 0 : 1;
 
-	GLM_CONSTEXPR_CXX11 std::size_t Length = glm::vec2::length();
+	GLM_CONSTEXPR std::size_t Length = glm::vec2::length();
 	Error += Length == 2 ? 0 : 1;
 
 	return Error;
@@ -334,7 +334,7 @@ static int test_operator_increment()
 
 static int test_constexpr()
 {
-#if GLM_HAS_CONSTEXPR_CXX14
+#if GLM_HAS_CONSTEXPR
 	static_assert(glm::vec2::length() == 2, "GLM: Failed constexpr");
 	static_assert(glm::vec2(1.0f).x > 0.0f, "GLM: Failed constexpr");
 	static_assert(glm::vec2(1.0f, -1.0f).x > 0.0f, "GLM: Failed constexpr");

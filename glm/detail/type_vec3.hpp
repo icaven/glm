@@ -59,67 +59,67 @@ namespace glm
 
 		/// Return the count of components of the vector
 		typedef length_t length_type;
-		GLM_FUNC_DECL static GLM_CONSTEXPR_CXX11 length_type length(){return 3;}
+		GLM_FUNC_DECL static GLM_CONSTEXPR length_type length(){return 3;}
 
 		GLM_FUNC_DECL T & operator[](length_type i);
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 T const& operator[](length_type i) const;
+		GLM_FUNC_DECL GLM_CONSTEXPR T const& operator[](length_type i) const;
 
 		// -- Implicit basic constructors --
 
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec() GLM_DEFAULT;
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec(vec const& v) GLM_DEFAULT;
+		GLM_FUNC_DECL GLM_CONSTEXPR vec() GLM_DEFAULT;
+		GLM_FUNC_DECL GLM_CONSTEXPR vec(vec const& v) GLM_DEFAULT;
 		template<qualifier P>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec(vec<3, T, P> const& v);
+		GLM_FUNC_DECL GLM_CONSTEXPR vec(vec<3, T, P> const& v);
 
 		// -- Explicit basic constructors --
 
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 explicit vec(T scalar);
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec(T a, T b, T c);
+		GLM_FUNC_DECL GLM_CONSTEXPR explicit vec(T scalar);
+		GLM_FUNC_DECL GLM_CONSTEXPR vec(T a, T b, T c);
 
 		// -- Conversion scalar constructors --
 
 		template<typename U, qualifier P>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 explicit vec(vec<1, U, P> const& v);
+		GLM_FUNC_DECL GLM_CONSTEXPR explicit vec(vec<1, U, P> const& v);
 
 		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template<typename X, typename Y, typename Z>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec(X x, Y y, Z z);
+		GLM_FUNC_DECL GLM_CONSTEXPR vec(X x, Y y, Z z);
 		template<typename X, typename Y, typename Z>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec(vec<1, X, Q> const& _x, Y _y, Z _z);
+		GLM_FUNC_DECL GLM_CONSTEXPR vec(vec<1, X, Q> const& _x, Y _y, Z _z);
 		template<typename X, typename Y, typename Z>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec(X _x, vec<1, Y, Q> const& _y, Z _z);
+		GLM_FUNC_DECL GLM_CONSTEXPR vec(X _x, vec<1, Y, Q> const& _y, Z _z);
 		template<typename X, typename Y, typename Z>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec(vec<1, X, Q> const& _x, vec<1, Y, Q> const& _y, Z _z);
+		GLM_FUNC_DECL GLM_CONSTEXPR vec(vec<1, X, Q> const& _x, vec<1, Y, Q> const& _y, Z _z);
 		template<typename X, typename Y, typename Z>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec(X _x, Y _y, vec<1, Z, Q> const& _z);
+		GLM_FUNC_DECL GLM_CONSTEXPR vec(X _x, Y _y, vec<1, Z, Q> const& _z);
 		template<typename X, typename Y, typename Z>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec(vec<1, X, Q> const& _x, Y _y, vec<1, Z, Q> const& _z);
+		GLM_FUNC_DECL GLM_CONSTEXPR vec(vec<1, X, Q> const& _x, Y _y, vec<1, Z, Q> const& _z);
 		template<typename X, typename Y, typename Z>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec(X _x, vec<1, Y, Q> const& _y, vec<1, Z, Q> const& _z);
+		GLM_FUNC_DECL GLM_CONSTEXPR vec(X _x, vec<1, Y, Q> const& _y, vec<1, Z, Q> const& _z);
 		template<typename X, typename Y, typename Z>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec(vec<1, X, Q> const& _x, vec<1, Y, Q> const& _y, vec<1, Z, Q> const& _z);
+		GLM_FUNC_DECL GLM_CONSTEXPR vec(vec<1, X, Q> const& _x, vec<1, Y, Q> const& _y, vec<1, Z, Q> const& _z);
 
 		// -- Conversion vector constructors --
 
 		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template<typename A, typename B, qualifier P>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec(vec<2, A, P> const& _xy, B _z);
+		GLM_FUNC_DECL GLM_CONSTEXPR vec(vec<2, A, P> const& _xy, B _z);
 		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template<typename A, typename B, qualifier P>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec(vec<2, A, P> const& _xy, vec<1, B, P> const& _z);
+		GLM_FUNC_DECL GLM_CONSTEXPR vec(vec<2, A, P> const& _xy, vec<1, B, P> const& _z);
 		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template<typename A, typename B, qualifier P>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec(A _x, vec<2, B, P> const& _yz);
+		GLM_FUNC_DECL GLM_CONSTEXPR vec(A _x, vec<2, B, P> const& _yz);
 		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template<typename A, typename B, qualifier P>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 vec(vec<1, A, P> const& _x, vec<2, B, P> const& _yz);
+		GLM_FUNC_DECL GLM_CONSTEXPR vec(vec<1, A, P> const& _x, vec<2, B, P> const& _yz);
 		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template<typename U, qualifier P>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 GLM_EXPLICIT vec(vec<4, U, P> const& v);
+		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT vec(vec<4, U, P> const& v);
 
 		/// Explicit conversions (From section 5.4.1 Conversion and scalar constructors of GLSL 1.30.08 specification)
 		template<typename U, qualifier P>
-		GLM_FUNC_DECL GLM_CONSTEXPR_CXX11 GLM_EXPLICIT vec(vec<3, U, P> const& v);
+		GLM_FUNC_DECL GLM_CONSTEXPR GLM_EXPLICIT vec(vec<3, U, P> const& v);
 
 		// -- Swizzle constructors --
 #		if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
@@ -386,16 +386,16 @@ namespace glm
 	// -- Boolean operators --
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 bool operator==(vec<3, T, Q> const& v1, vec<3, T, Q> const& v2);
+	GLM_FUNC_DECL GLM_CONSTEXPR bool operator==(vec<3, T, Q> const& v1, vec<3, T, Q> const& v2);
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 bool operator!=(vec<3, T, Q> const& v1, vec<3, T, Q> const& v2);
+	GLM_FUNC_DECL GLM_CONSTEXPR bool operator!=(vec<3, T, Q> const& v1, vec<3, T, Q> const& v2);
 
 	template<qualifier Q>
-	GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 vec<3, bool, Q> operator&&(vec<3, bool, Q> const& v1, vec<3, bool, Q> const& v2);
+	GLM_FUNC_DECL GLM_CONSTEXPR vec<3, bool, Q> operator&&(vec<3, bool, Q> const& v1, vec<3, bool, Q> const& v2);
 
 	template<qualifier Q>
-	GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 vec<3, bool, Q> operator||(vec<3, bool, Q> const& v1, vec<3, bool, Q> const& v2);
+	GLM_FUNC_DECL GLM_CONSTEXPR vec<3, bool, Q> operator||(vec<3, bool, Q> const& v1, vec<3, bool, Q> const& v2);
 }//namespace glm
 
 #ifndef GLM_EXTERNAL_TEMPLATE

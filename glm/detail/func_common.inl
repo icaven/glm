@@ -30,7 +30,7 @@ namespace glm
 
 	// abs
 	template<>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 int32 abs(int32 x)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR int32 abs(int32 x)
 	{
 		int32 const y = x >> 31;
 		return (x ^ y) - y;
@@ -70,7 +70,7 @@ namespace detail
 	template<length_t L, typename T, qualifier Q, bool Aligned>
 	struct compute_abs_vector
 	{
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX11 static vec<L, T, Q> call(vec<L, T, Q> const& x)
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static vec<L, T, Q> call(vec<L, T, Q> const& x)
 		{
 			return detail::functor1<vec, L, T, T, Q>::call(abs, x);
 		}
@@ -266,13 +266,13 @@ namespace detail
 }//namespace detail
 
 	template<typename genFIType>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 genFIType abs(genFIType x)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR genFIType abs(genFIType x)
 	{
 		return detail::compute_abs<genFIType, std::numeric_limits<genFIType>::is_signed>::call(x);
 	}
 
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 vec<L, T, Q> abs(vec<L, T, Q> const& x)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, T, Q> abs(vec<L, T, Q> const& x)
 	{
 		return detail::compute_abs_vector<L, T, Q, detail::is_aligned<Q>::value>::call(x);
 	}

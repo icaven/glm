@@ -26,7 +26,7 @@ namespace glm
 
 #	if GLM_USE_DEFAULTED_FUNCTIONS == GLM_DISABLE
 		template<typename T, qualifier Q>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 tdualquat<T, Q>::tdualquat()
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat()
 #			if GLM_USE_DEFAULTED_FUNCTIONS != GLM_DISABLE
 			: real(tquat<T, Q>())
 			, dual(tquat<T, Q>(0, 0, 0, 0))
@@ -34,7 +34,7 @@ namespace glm
 		{}
 
 		template<typename T, qualifier Q>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 tdualquat<T, Q>::tdualquat(tdualquat<T, Q> const& d)
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(tdualquat<T, Q> const& d)
 			: real(d.real)
 			, dual(d.dual)
 		{}
@@ -42,7 +42,7 @@ namespace glm
 
 	template<typename T, qualifier Q>
 	template<qualifier P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 tdualquat<T, Q>::tdualquat(tdualquat<T, P> const& d)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(tdualquat<T, P> const& d)
 		: real(d.real)
 		, dual(d.dual)
 	{}
@@ -50,12 +50,12 @@ namespace glm
 	// -- Explicit basic constructors --
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 tdualquat<T, Q>::tdualquat(tquat<T, Q> const& r)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(tquat<T, Q> const& r)
 		: real(r), dual(tquat<T, Q>(0, 0, 0, 0))
 	{}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 tdualquat<T, Q>::tdualquat(tquat<T, Q> const& q, vec<3, T, Q> const& p)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(tquat<T, Q> const& q, vec<3, T, Q> const& p)
 		: real(q), dual(
 			T(-0.5) * ( p.x*q.x + p.y*q.y + p.z*q.z),
 			T(+0.5) * ( p.x*q.w + p.y*q.z - p.z*q.y),
@@ -64,7 +64,7 @@ namespace glm
 	{}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 tdualquat<T, Q>::tdualquat(tquat<T, Q> const& r, tquat<T, Q> const& d)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(tquat<T, Q> const& r, tquat<T, Q> const& d)
 		: real(r), dual(d)
 	{}
 
@@ -72,19 +72,19 @@ namespace glm
 
 	template<typename T, qualifier Q>
 	template<typename U, qualifier P>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 tdualquat<T, Q>::tdualquat(tdualquat<U, P> const& q)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(tdualquat<U, P> const& q)
 		: real(q.real)
 		, dual(q.dual)
 	{}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 tdualquat<T, Q>::tdualquat(mat<2, 4, T, Q> const& m)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(mat<2, 4, T, Q> const& m)
 	{
 		*this = dualquat_cast(m);
 	}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR_CXX14 tdualquat<T, Q>::tdualquat(mat<3, 4, T, Q> const& m)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(mat<3, 4, T, Q> const& m)
 	{
 		*this = dualquat_cast(m);
 	}

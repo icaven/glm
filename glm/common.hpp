@@ -30,7 +30,7 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
 	/// @see qualifier
 	template<typename genType>
-	GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 genType abs(genType x);
+	GLM_FUNC_DECL GLM_CONSTEXPR genType abs(genType x);
 
 	/// Returns x if x >= 0; otherwise, it returns -x.
 	///
@@ -41,7 +41,7 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/abs.xml">GLSL abs man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.3 Common Functions</a>
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL GLM_CONSTEXPR_CXX14 vec<L, T, Q> abs(vec<L, T, Q> const& x);
+	GLM_FUNC_DECL GLM_CONSTEXPR vec<L, T, Q> abs(vec<L, T, Q> const& x);
 
 	/// Returns 1.0 if x > 0, 0.0 if x == 0, or -1.0 if x < 0.
 	///

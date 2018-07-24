@@ -128,7 +128,7 @@ static int test_size()
 
 static int test_constexpr()
 {
-#if GLM_HAS_CONSTEXPR_CXX14
+#if GLM_HAS_CONSTEXPR
 	static_assert(glm::mat3x4::length() == 3, "GLM: Failed constexpr");
 #endif
 

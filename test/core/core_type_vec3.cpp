@@ -307,7 +307,7 @@ int test_vec3_size()
 	Error += glm::vec3::length() == 3 ? 0 : 1;
 	Error += glm::dvec3::length() == 3 ? 0 : 1;
 
-	GLM_CONSTEXPR_CXX11 std::size_t Length = glm::vec3::length();
+	GLM_CONSTEXPR std::size_t Length = glm::vec3::length();
 	Error += Length == 3 ? 0 : 1;
 
 	return Error;
@@ -595,7 +595,7 @@ static int test_swizzle()
 
 static int test_constexpr()
 {
-#if GLM_HAS_CONSTEXPR_CXX14
+#if GLM_HAS_CONSTEXPR
 	static_assert(glm::vec3::length() == 3, "GLM: Failed constexpr");
 	static_assert(glm::vec3(1.0f).x > 0.0f, "GLM: Failed constexpr");
 	static_assert(glm::vec3(1.0f) == glm::vec3(1.0f), "GLM: Failed constexpr");
