@@ -317,6 +317,55 @@ static int test_constexpr()
 	return 0;
 }
 
+using namespace glm;
+
+/*
+template<template<length_t C, length_t R, typename T, qualifier Q> class matType>
+struct init_mat
+{
+	static matType<C, R, T, Q> identity()
+	{
+		return matType<C, R, T, Q>(1, 0, 0, 0);
+	}
+};
+*/
+
+template<typename T, qualifier Q>
+struct init_quat
+{
+	static tquat<T, Q> identity()
+	{
+		return tquat<T, Q>(1, 0, 0, 0);
+	}
+};
+
+template<typename genType>
+struct init
+{
+	static genType identity()
+	{
+		return init_quat<typename genType::value_type, highp>::identity();
+	}
+};
+
+template<typename genType>
+inline genType identity()
+{
+	return init<genType>::identity();
+}
+
+int test_identity()
+{
+	int Error = 0;
+
+	glm::quat const Q = identity<glm::quat>();
+
+	Error += glm::all(glm::equal(Q, glm::quat(1, 0, 0, 0), 0.0001f)) ? 0 : 1;
+	Error += glm::any(glm::notEqual(Q, glm::quat(1, 0, 0, 0), 0.0001f)) ? 1 : 0;
+
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
@@ -334,6 +383,7 @@ int main()
 	Error += test_quat_slerp();
 	Error += test_size();
 	Error += test_constexpr();
+	Error += test_identity();
 
 	return Error;
 }

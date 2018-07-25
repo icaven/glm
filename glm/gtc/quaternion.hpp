@@ -379,6 +379,14 @@ namespace glm
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL vec<4, bool, Q> equal(tquat<T, Q> const& x, tquat<T, Q> const& y);
 
+	/// Returns the component-wise comparison of |x - y| < epsilon.
+	///
+	/// @tparam T Floating-point scalar types.
+	///
+	/// @see gtc_quaternion
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL vec<4, bool, Q> equal(tquat<T, Q> const& x, tquat<T, Q> const& y, T epsilon);
+
 	/// Returns the component-wise comparison of result x != y.
 	///
 	/// @tparam T Floating-point scalar types.
@@ -386,6 +394,15 @@ namespace glm
 	/// @see gtc_quaternion
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL vec<4, bool, Q> notEqual(tquat<T, Q> const& x, tquat<T, Q> const& y);
+
+	/// Returns the component-wise comparison of |x - y| >= epsilon.
+	///
+	/// @tparam T Floating-point scalar types.
+	///
+	/// @see gtc_quaternion
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL vec<4, bool, Q> notEqual(tquat<T, Q> const& x, tquat<T, Q> const& y, T epsilon);
+
 
 	/// Returns true if x holds a NaN (not a number)
 	/// representation in the underlying implementation's set of

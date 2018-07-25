@@ -61,6 +61,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Added missing vec1 based constructors
 - Redesigned constexpr support which excludes both SIMD and constexpr #783
 - Added detection of Visual C++ 2017 toolsets
+- Added missing equal and notEqual with epsilon for quaternion types
 
 #### Fixes:
 - Fixed build problems due to printf and std::clock_t #778
