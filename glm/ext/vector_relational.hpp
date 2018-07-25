@@ -33,8 +33,30 @@ namespace glm
 	/// @tparam Q Value from qualifier enum
 	///
 	/// @see ext_vector_relational
+	template<length_t C, length_t R, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<C, bool, Q> equal(mat<C, R, T, Q> const& x, mat<C, R, T, Q> const& y, T epsilon);
+
+	/// Returns the component-wise comparison of |x - y| < epsilon.
+	/// True if this expression is satisfied.
+	///
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point or integer scalar types
+	/// @tparam Q Value from qualifier enum
+	///
+	/// @see ext_vector_relational
+	template<length_t C, length_t R, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<C, bool, Q> equal(mat<C, R, T, Q> const& x, mat<C, R, T, Q> const& y, vec<C, T, Q> const& epsilon);
+
+	/// Returns the component-wise comparison of |x - y| < epsilon.
+	/// True if this expression is satisfied.
+	///
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point or integer scalar types
+	/// @tparam Q Value from qualifier enum
+	///
+	/// @see ext_vector_relational
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, bool, Q> equal(vec<L, T, Q> const& x, vec<L, T, Q> const& y, T const& epsilon);
+	GLM_FUNC_DECL vec<L, bool, Q> equal(vec<L, T, Q> const& x, vec<L, T, Q> const& y, T epsilon);
 
 	/// Returns the component-wise comparison of |x - y| < epsilon.
 	/// True if this expression is satisfied.
@@ -64,10 +86,32 @@ namespace glm
 	/// @tparam Q Value from qualifier enum
 	///
 	/// @see ext_vector_relational
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, bool, Q> notEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y, T const& epsilon);
+	template<length_t C, length_t R, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<C, bool, Q> notEqual(mat<C, R, T, Q> const& x, mat<C, R, T, Q> const& y, T epsilon);
 
-	/// Returns the component-wise comparison of |x - y| < epsilon.
+	/// Returns the component-wise comparison of |x - y| >= epsilon.
+	/// True if this expression is not satisfied.
+	///
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point or integer scalar types
+	/// @tparam Q Value from qualifier enum
+	///
+	/// @see ext_vector_relational
+	template<length_t C, length_t R, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<C, bool, Q> notEqual(mat<C, R, T, Q> const& x, mat<C, R, T, Q> const& y, vec<C, T, Q> const& epsilon);
+
+	/// Returns the component-wise comparison of |x - y| >= epsilon.
+	/// True if this expression is not satisfied.
+	///
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point or integer scalar types
+	/// @tparam Q Value from qualifier enum
+	///
+	/// @see ext_vector_relational
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<L, bool, Q> notEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y, T epsilon);
+
+	/// Returns the component-wise comparison of |x - y| >= epsilon.
 	/// True if this expression is not satisfied.
 	///
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
