@@ -1,6 +1,6 @@
 #include <glm/gtc/quaternion.hpp>
-#include <glm/gtc/epsilon.hpp>
-#include <glm/vector_relational.hpp>
+#include <glm/ext/vector_relational.hpp>
+#include <glm/glm.hpp>
 #include <vector>
 
 int test_quat_angle()
@@ -319,39 +319,57 @@ static int test_constexpr()
 
 using namespace glm;
 
-/*
-template<template<length_t C, length_t R, typename T, qualifier Q> class matType>
-struct init_mat
+enum genTypeEnum
 {
-	static matType<C, R, T, Q> identity()
-	{
-		return matType<C, R, T, Q>(1, 0, 0, 0);
-	}
+	GENTYPE_VEC,
+	GENTYPE_MAT,
+	GENTYPE_QUAT
 };
-*/
 
-template<typename T, qualifier Q>
-struct init_quat
+template <typename genType>
+struct genTypeTrait
+{};
+
+template <typename T>
+struct genTypeTrait<tquat<T> >
 {
-	static tquat<T, Q> identity()
+	static const genTypeEnum GENTYPE = GENTYPE_QUAT;
+};
+
+template <length_t C, length_t R, typename T>
+struct genTypeTrait<mat<C, R, T> >
+{
+	static const genTypeEnum GENTYPE = GENTYPE_MAT;
+};
+
+template<typename genType, genTypeEnum type>
+struct init_gentype
+{
+};
+
+template<typename genType>
+struct init_gentype<genType, GENTYPE_QUAT>
+{
+	static genType identity()
 	{
-		return tquat<T, Q>(1, 0, 0, 0);
+		return genType(1, 0, 0, 0);
 	}
 };
 
 template<typename genType>
-struct init
+struct init_gentype<genType, GENTYPE_MAT>
 {
 	static genType identity()
 	{
-		return init_quat<typename genType::value_type, highp>::identity();
+		return genType(1);
 	}
 };
 
 template<typename genType>
 inline genType identity()
 {
-	return init<genType>::identity();
+	//return init_gentype<genType, genType::GENTYPE>::identity();
+	return init_gentype<genType, genTypeTrait<genType>::GENTYPE>::identity();
 }
 
 int test_identity()
@@ -362,6 +380,14 @@ int test_identity()
 
 	Error += glm::all(glm::equal(Q, glm::quat(1, 0, 0, 0), 0.0001f)) ? 0 : 1;
 	Error += glm::any(glm::notEqual(Q, glm::quat(1, 0, 0, 0), 0.0001f)) ? 1 : 0;
+
+	glm::mat4 const M = identity<glm::mat4x4>();
+	glm::mat4 const N(1.0f);
+
+	Error += glm::all(glm::equal(M[0], N[0], 0.0001f)) ? 0 : 1;
+	Error += glm::all(glm::equal(M[1], N[1], 0.0001f)) ? 0 : 1;
+	Error += glm::all(glm::equal(M[2], N[2], 0.0001f)) ? 0 : 1;
+	Error += glm::all(glm::equal(M[3], N[3], 0.0001f)) ? 0 : 1;
 
 	return Error;
 }
