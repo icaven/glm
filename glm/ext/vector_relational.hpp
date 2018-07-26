@@ -28,7 +28,8 @@ namespace glm
 	/// Returns the component-wise comparison of |x - y| < epsilon.
 	/// True if this expression is satisfied.
 	///
-	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam C Integer between 1 and 4 included that qualify the number of columns of the matrix
+	/// @tparam R Integer between 1 and 4 included that qualify the number of rows of the matrix
 	/// @tparam T Floating-point or integer scalar types
 	/// @tparam Q Value from qualifier enum
 	///
@@ -39,7 +40,8 @@ namespace glm
 	/// Returns the component-wise comparison of |x - y| < epsilon.
 	/// True if this expression is satisfied.
 	///
-	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam C Integer between 1 and 4 included that qualify the number of columns of the matrix
+	/// @tparam R Integer between 1 and 4 included that qualify the number of rows of the matrix
 	/// @tparam T Floating-point or integer scalar types
 	/// @tparam Q Value from qualifier enum
 	///
@@ -81,7 +83,8 @@ namespace glm
 	/// Returns the component-wise comparison of |x - y| < epsilon.
 	/// True if this expression is not satisfied.
 	///
-	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam C Integer between 1 and 4 included that qualify the number of columns of the matrix
+	/// @tparam R Integer between 1 and 4 included that qualify the number of rows of the matrix
 	/// @tparam T Floating-point or integer scalar types
 	/// @tparam Q Value from qualifier enum
 	///
@@ -92,7 +95,8 @@ namespace glm
 	/// Returns the component-wise comparison of |x - y| >= epsilon.
 	/// True if this expression is not satisfied.
 	///
-	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam C Integer between 1 and 4 included that qualify the number of columns of the matrix
+	/// @tparam R Integer between 1 and 4 included that qualify the number of rows of the matrix
 	/// @tparam T Floating-point or integer scalar types
 	/// @tparam Q Value from qualifier enum
 	///
