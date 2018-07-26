@@ -1,6 +1,6 @@
 #pragma once
 
-#include "compute_common.hpp"
+//#include "compute_common.hpp"
 #include "setup.hpp"
 #include <limits>
 
@@ -15,7 +15,7 @@ namespace detail
 			return a == b;
 		}
 	};
-
+/*
 	template <typename T>
 	struct compute_equal<T, true>
 	{
@@ -25,5 +25,6 @@ namespace detail
 			//return std::memcmp(&a, &b, sizeof(T)) == 0;
 		}
 	};
+*/
 }//namespace detail
 }//namespace glm
