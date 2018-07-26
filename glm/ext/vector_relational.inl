@@ -11,7 +11,7 @@ namespace glm
 	template<typename genType>
 	GLM_FUNC_QUALIFIER bool equal(genType const& x, genType const& y, genType const& epsilon)
 	{
-		return abs(x - y) < epsilon;
+		return abs(x - y) <= epsilon;
 	}
 
 	template<length_t L, typename T, qualifier Q>
@@ -23,7 +23,13 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<L, bool, Q> equal(vec<L, T, Q> const& x, vec<L, T, Q> const& y, vec<L, T, Q> const& epsilon)
 	{
-		return lessThan(abs(x - y), epsilon);
+		return lessThanEqual(abs(x - y), epsilon);
+	}
+
+	template<length_t C, length_t R, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<C, bool, Q> equal(mat<C, R, T, Q> const& a, mat<C, R, T, Q> const& b)
+	{
+		return equal(a, b, static_cast<T>(0));
 	}
 
 	template<length_t C, length_t R, typename T, qualifier Q>
@@ -44,7 +50,7 @@ namespace glm
 	template<typename genType>
 	GLM_FUNC_QUALIFIER bool notEqual(genType const& x, genType const& y, genType const& epsilon)
 	{
-		return abs(x - y) >= epsilon;
+		return abs(x - y) > epsilon;
 	}
 
 	template<length_t L, typename T, qualifier Q>
@@ -56,7 +62,13 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<L, bool, Q> notEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y, vec<L, T, Q> const& epsilon)
 	{
-		return greaterThanEqual(abs(x - y), epsilon);
+		return greaterThan(abs(x - y), epsilon);
+	}
+
+	template<length_t C, length_t R, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<C, bool, Q> notEqual(mat<C, R, T, Q> const& x, mat<C, R, T, Q> const& y)
+	{
+		return notEqual(x, y, static_cast<T>(0));
 	}
 
 	template<length_t C, length_t R, typename T, qualifier Q>

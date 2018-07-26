@@ -25,6 +25,18 @@ namespace glm
 	/// @addtogroup ext_vector_relational
 	/// @{
 
+	/// Returns the component-wise comparison of |x - y| <= 0.0.
+	/// True if this expression is satisfied.
+	///
+	/// @tparam C Integer between 1 and 4 included that qualify the number of columns of the matrix
+	/// @tparam R Integer between 1 and 4 included that qualify the number of rows of the matrix
+	/// @tparam T Floating-point or integer scalar types
+	/// @tparam Q Value from qualifier enum
+	///
+	/// @see ext_vector_relational
+	template<length_t C, length_t R, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<C, bool, Q> equal(mat<C, R, T, Q> const& x, mat<C, R, T, Q> const& y);
+
 	/// Returns the component-wise comparison of |x - y| < epsilon.
 	/// True if this expression is satisfied.
 	///
@@ -79,6 +91,18 @@ namespace glm
 	/// @see ext_vector_relational
 	template<typename genType>
 	GLM_FUNC_DECL bool equal(genType const& x, genType const& y, genType const& epsilon);
+
+	/// Returns the component-wise comparison of |x - y| <= 0.0.
+	/// True if this expression is not satisfied.
+	///
+	/// @tparam C Integer between 1 and 4 included that qualify the number of columns of the matrix
+	/// @tparam R Integer between 1 and 4 included that qualify the number of rows of the matrix
+	/// @tparam T Floating-point or integer scalar types
+	/// @tparam Q Value from qualifier enum
+	///
+	/// @see ext_vector_relational
+	template<length_t C, length_t R, typename T, qualifier Q>
+	GLM_FUNC_DECL vec<C, bool, Q> notEqual(mat<C, R, T, Q> const& x, mat<C, R, T, Q> const& y);
 
 	/// Returns the component-wise comparison of |x - y| < epsilon.
 	/// True if this expression is not satisfied.
