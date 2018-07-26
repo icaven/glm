@@ -36,6 +36,10 @@ namespace glm
 	/// @addtogroup gtc_matrix_transform
 	/// @{
 
+	/// Builds an identity matrix.
+	template<typename genType>
+	GLM_FUNC_DECL genType identity();
+
 	/// Builds a translation 4 * 4 matrix created from a vector of 3 components.
 	///
 	/// @param m Input matrix multiplied by this translation matrix.

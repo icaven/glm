@@ -63,6 +63,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Added detection of Visual C++ 2017 toolsets
 - Added missing equal and notEqual with epsilon for quaternion types in EXT_vector_relational
 - Added missing equal and notEqual with epsilon for matrix types in EXT_vector_relational
+- Added identity functions #765
 
 #### Fixes:
 - Fixed build problems due to printf and std::clock_t #778

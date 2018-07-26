@@ -19,6 +19,7 @@
 #include "../vec3.hpp"
 #include "../vec4.hpp"
 #include "../gtc/constants.hpp"
+#include "../gtc/matrix_transform.hpp"
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
 #	pragma message("GLM: GLM_GTC_quaternion extension included")
@@ -158,6 +159,10 @@ namespace glm
 
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL bool operator!=(tquat<T, Q> const& q1, tquat<T, Q> const& q2);
+
+	/// Builds an identity quaternion.
+	template<typename genType>
+	GLM_FUNC_DECL genType identity();
 
 	/// Returns the length of the quaternion.
 	///

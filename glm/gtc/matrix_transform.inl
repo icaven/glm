@@ -7,6 +7,12 @@
 
 namespace glm
 {
+	template<typename genType>
+	GLM_FUNC_QUALIFIER genType identity()
+	{
+		return detail::init_gentype<genType, detail::genTypeTrait<genType>::GENTYPE>::identity();
+	}
+
 	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, Q> translate(mat<4, 4, T, Q> const& m, vec<3, T, Q> const& v)
 	{

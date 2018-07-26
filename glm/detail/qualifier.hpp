@@ -152,5 +152,45 @@ namespace detail
 		typedef glm_u64vec4 type;
 	};
 #	endif
+
+	enum genTypeEnum
+	{
+		GENTYPE_VEC,
+		GENTYPE_MAT,
+		GENTYPE_QUAT
+	};
+
+	template <typename genType>
+	struct genTypeTrait
+	{};
+
+	template <length_t C, length_t R, typename T>
+	struct genTypeTrait<mat<C, R, T> >
+	{
+		static const genTypeEnum GENTYPE = GENTYPE_MAT;
+	};
+
+	template<typename genType, genTypeEnum type>
+	struct init_gentype
+	{
+	};
+
+	template<typename genType>
+	struct init_gentype<genType, GENTYPE_QUAT>
+	{
+		GLM_FUNC_QUALIFIER static genType identity()
+		{
+			return genType(1, 0, 0, 0);
+		}
+	};
+
+	template<typename genType>
+	struct init_gentype<genType, GENTYPE_MAT>
+	{
+		GLM_FUNC_QUALIFIER static genType identity()
+		{
+			return genType(1);
+		}
+	};
 }//namespace detail
 }//namespace glm

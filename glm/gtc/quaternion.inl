@@ -10,6 +10,12 @@
 namespace glm{
 namespace detail
 {
+	template <typename T>
+	struct genTypeTrait<tquat<T> >
+	{
+		static const genTypeEnum GENTYPE = GENTYPE_QUAT;
+	};
+
 	template<typename T, qualifier Q, bool Aligned>
 	struct compute_dot<tquat<T, Q>, T, Aligned>
 	{

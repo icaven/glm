@@ -1,4 +1,5 @@
 #include <glm/gtc/quaternion.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include <glm/ext/vector_relational.hpp>
 #include <glm/glm.hpp>
 #include <vector>
@@ -317,71 +318,16 @@ static int test_constexpr()
 	return 0;
 }
 
-using namespace glm;
-
-enum genTypeEnum
-{
-	GENTYPE_VEC,
-	GENTYPE_MAT,
-	GENTYPE_QUAT
-};
-
-template <typename genType>
-struct genTypeTrait
-{};
-
-template <typename T>
-struct genTypeTrait<tquat<T> >
-{
-	static const genTypeEnum GENTYPE = GENTYPE_QUAT;
-};
-
-template <length_t C, length_t R, typename T>
-struct genTypeTrait<mat<C, R, T> >
-{
-	static const genTypeEnum GENTYPE = GENTYPE_MAT;
-};
-
-template<typename genType, genTypeEnum type>
-struct init_gentype
-{
-};
-
-template<typename genType>
-struct init_gentype<genType, GENTYPE_QUAT>
-{
-	static genType identity()
-	{
-		return genType(1, 0, 0, 0);
-	}
-};
-
-template<typename genType>
-struct init_gentype<genType, GENTYPE_MAT>
-{
-	static genType identity()
-	{
-		return genType(1);
-	}
-};
-
-template<typename genType>
-inline genType identity()
-{
-	//return init_gentype<genType, genType::GENTYPE>::identity();
-	return init_gentype<genType, genTypeTrait<genType>::GENTYPE>::identity();
-}
-
 int test_identity()
 {
 	int Error = 0;
 
-	glm::quat const Q = identity<glm::quat>();
+	glm::quat const Q = glm::identity<glm::quat>();
 
 	Error += glm::all(glm::equal(Q, glm::quat(1, 0, 0, 0), 0.0001f)) ? 0 : 1;
 	Error += glm::any(glm::notEqual(Q, glm::quat(1, 0, 0, 0), 0.0001f)) ? 1 : 0;
 
-	glm::mat4 const M = identity<glm::mat4x4>();
+	glm::mat4 const M = glm::identity<glm::mat4x4>();
 	glm::mat4 const N(1.0f);
 
 	Error += glm::all(glm::equal(M[0], N[0], 0.0001f)) ? 0 : 1;
