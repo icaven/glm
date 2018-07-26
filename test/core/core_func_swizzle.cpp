@@ -1,4 +1,5 @@
 #define GLM_FORCE_SWIZZLE
+#include <glm/ext/vector_relational.hpp>
 #include <glm/glm.hpp>
 
 static int test_ivec2_swizzle()
@@ -138,8 +139,8 @@ int test_vec4_swizzle()
 		Error += A != B ? 0 : 1;
 		Error += A == C ? 0 : 1;
 
-		float f = glm::dot(C.wzyx(), C.xyzw());
-		Error += glm::abs(f - 20.f) < 0.01f ? 0 : 1;
+		float D = glm::dot(C.wzyx(), C.xyzw());
+		Error += glm::equal(D, 20.f, 0.001f) ? 0 : 1;
 	}
 #	endif
 

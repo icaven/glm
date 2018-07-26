@@ -1,4 +1,5 @@
-#include <glm/gtc/epsilon.hpp>
+#include <glm/ext/vector_relational.hpp>
+#include <glm/gtc/constants.hpp>
 #include <glm/matrix.hpp>
 #include <glm/vector_relational.hpp>
 #include <glm/mat2x2.hpp>
@@ -25,8 +26,8 @@ int test_operators()
 	glm::mat2x2 o = m / x;
 	glm::mat2x2 p = x * m;
 	glm::mat2x2 q = m * x;
-	bool R = m != q;
-	bool S = m == l;
+	bool R = glm::any(glm::notEqual(m, q, glm::epsilon<float>()));
+	bool S = glm::all(glm::equal(m, l, glm::epsilon<float>()));
 
 	return (S && !R) ? 0 : 1;
 }
@@ -40,16 +41,16 @@ int test_inverse()
 		glm::mat2 const Inverse = glm::inverse(Matrix);
 		glm::mat2 const Identity = Matrix * Inverse;
 
-		Error += glm::all(glm::epsilonEqual(Identity[0], glm::vec2(1.0f, 0.0f), glm::vec2(0.01f))) ? 0 : 1;
-		Error += glm::all(glm::epsilonEqual(Identity[1], glm::vec2(0.0f, 1.0f), glm::vec2(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::equal(Identity[0], glm::vec2(1.0f, 0.0f), glm::vec2(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::equal(Identity[1], glm::vec2(0.0f, 1.0f), glm::vec2(0.01f))) ? 0 : 1;
 	}
 
 	{
 		glm::mat2 const Matrix(1, 2, 3, 4);
 		glm::mat2 const Identity = Matrix / Matrix;
 
-		Error += glm::all(glm::epsilonEqual(Identity[0], glm::vec2(1.0f, 0.0f), glm::vec2(0.01f))) ? 0 : 1;
-		Error += glm::all(glm::epsilonEqual(Identity[1], glm::vec2(0.0f, 1.0f), glm::vec2(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::equal(Identity[0], glm::vec2(1.0f, 0.0f), glm::vec2(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::equal(Identity[1], glm::vec2(0.0f, 1.0f), glm::vec2(0.01f))) ? 0 : 1;
 	}
 
 	return Error;
