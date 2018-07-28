@@ -533,9 +533,11 @@ namespace glm
 }//namespace glm
 
 ///////////////////////////////////////////////////////////////////////////////////
-// countof
+// constexpr
 
 #if GLM_HAS_CONSTEXPR
+#	define GLM_USE_CONSTEXP GLM_ENABLE
+
 	namespace glm
 	{
 		template<typename T, std::size_t N>
@@ -546,8 +548,12 @@ namespace glm
 	}//namespace glm
 #	define GLM_COUNTOF(arr) glm::countof(arr)
 #elif defined(_MSC_VER)
+#	define GLM_USE_CONSTEXP GLM_DISABLE
+
 #	define GLM_COUNTOF(arr) _countof(arr)
 #else
+#	define GLM_USE_CONSTEXP GLM_DISABLE
+
 #	define GLM_COUNTOF(arr) sizeof(arr) / sizeof(arr[0])
 #endif
 

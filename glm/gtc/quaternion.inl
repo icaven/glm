@@ -82,7 +82,7 @@ namespace detail
 	}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER T const& tquat<T, Q>::operator[](typename tquat<T, Q>::length_type i) const
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T const& tquat<T, Q>::operator[](typename tquat<T, Q>::length_type i) const
 	{
 		assert(i >= 0 && i < this->length());
 		return (&x)[i];
@@ -377,15 +377,15 @@ namespace detail
 	// -- Boolean operators --
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER bool operator==(tquat<T, Q> const& q1, tquat<T, Q> const& q2)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR bool operator==(tquat<T, Q> const& q1, tquat<T, Q> const& q2)
 	{
-		return all(epsilonEqual(q1, q2, epsilon<T>()));
+		return q1.x == q2.x && q1.y == q2.y && q1.z == q2.z && q1.w == q2.w;
 	}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER bool operator!=(tquat<T, Q> const& q1, tquat<T, Q> const& q2)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR bool operator!=(tquat<T, Q> const& q1, tquat<T, Q> const& q2)
 	{
-		return any(epsilonNotEqual(q1, q2, epsilon<T>()));
+		return q1.x != q2.x || q1.y != q2.y || q1.z != q2.z || q1.w != q2.w;
 	}
 
 	// -- Operations --

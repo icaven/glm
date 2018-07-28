@@ -8,7 +8,7 @@
 namespace glm
 {
 	template<typename genType>
-	GLM_FUNC_QUALIFIER genType identity()
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR genType identity()
 	{
 		return detail::init_gentype<genType, detail::genTypeTrait<genType>::GENTYPE>::identity();
 	}

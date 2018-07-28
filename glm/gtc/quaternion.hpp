@@ -57,7 +57,7 @@ namespace glm
 		GLM_FUNC_DECL static GLM_CONSTEXPR length_type length(){return 4;}
 
 		GLM_FUNC_DECL T & operator[](length_type i);
-		GLM_FUNC_DECL T const& operator[](length_type i) const;
+		GLM_FUNC_DECL GLM_CONSTEXPR T const& operator[](length_type i) const;
 
 		// -- Implicit basic constructors --
 
@@ -156,14 +156,14 @@ namespace glm
 	// -- Boolean operators --
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_DECL bool operator==(tquat<T, Q> const& q1, tquat<T, Q> const& q2);
+	GLM_FUNC_DECL GLM_CONSTEXPR bool operator==(tquat<T, Q> const& q1, tquat<T, Q> const& q2);
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_DECL bool operator!=(tquat<T, Q> const& q1, tquat<T, Q> const& q2);
+	GLM_FUNC_DECL GLM_CONSTEXPR bool operator!=(tquat<T, Q> const& q1, tquat<T, Q> const& q2);
 
 	/// Builds an identity quaternion.
 	template<typename genType>
-	GLM_FUNC_DECL genType identity();
+	GLM_FUNC_DECL GLM_CONSTEXPR genType identity();
 
 	/// Returns the length of the quaternion.
 	///

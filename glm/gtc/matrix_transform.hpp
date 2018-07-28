@@ -38,7 +38,7 @@ namespace glm
 
 	/// Builds an identity matrix.
 	template<typename genType>
-	GLM_FUNC_DECL genType identity();
+	GLM_FUNC_DECL GLM_CONSTEXPR genType identity();
 
 	/// Builds a translation 4 * 4 matrix created from a vector of 3 components.
 	///
