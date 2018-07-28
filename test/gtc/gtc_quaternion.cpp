@@ -220,7 +220,7 @@ int test_quat_mul()
 	temp7 *= temp5;
 	temp7 *= glm::inverse(temp5);
 
-	Error += temp7 != glm::quat(1.0f, glm::vec3(0.0, 1.0, 0.0));
+	Error += glm::any(glm::notEqual(temp7, glm::quat(1.0f, glm::vec3(0.0, 1.0, 0.0)), glm::epsilon<float>())) ? 1 : 0;
 
 	return Error;
 }
