@@ -523,19 +523,19 @@ static int test_swizzle()
 
 #	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 	{
-		glm::vec4 A = glm::vec4(1.0f, 2.0f, 3.0f, 4.0f);
-		glm::vec4 B = A.xyzw;
-		glm::vec4 C(A.xyzw);
-		glm::vec4 D(A.xyzw());
-		glm::vec4 E(A.x, A.yzw);
-		glm::vec4 F(A.x, A.yzw());
-		glm::vec4 G(A.xyz, A.w);
-		glm::vec4 H(A.xyz(), A.w);
-		glm::vec4 I(A.xy, A.zw);
-		glm::vec4 J(A.xy(), A.zw());
-		glm::vec4 K(A.x, A.y, A.zw);
-		glm::vec4 L(A.x, A.yz, A.w);
-		glm::vec4 M(A.xy, A.z, A.w);
+		glm::ivec4 A = glm::ivec4(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::ivec4 B = A.xyzw;
+		glm::ivec4 C(A.xyzw);
+		glm::ivec4 D(A.xyzw());
+		glm::ivec4 E(A.x, A.yzw);
+		glm::ivec4 F(A.x, A.yzw());
+		glm::ivec4 G(A.xyz, A.w);
+		glm::ivec4 H(A.xyz(), A.w);
+		glm::ivec4 I(A.xy, A.zw);
+		glm::ivec4 J(A.xy(), A.zw());
+		glm::ivec4 K(A.x, A.y, A.zw);
+		glm::ivec4 L(A.x, A.yz, A.w);
+		glm::ivec4 M(A.xy, A.z, A.w);
 
 		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
 		Error += glm::all(glm::equal(A, C)) ? 0 : 1;

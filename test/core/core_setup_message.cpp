@@ -194,8 +194,8 @@ int test_cpp_version()
 
 int test_operators()
 {
-	glm::ivec3 A(1.0f);
-	glm::ivec3 B(1.0f);
+	glm::ivec3 A(1);
+	glm::ivec3 B(1);
 	bool R = A != B;
 	bool S = A == B;
 

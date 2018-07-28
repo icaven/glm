@@ -1,6 +1,7 @@
 #include <glm/packing.hpp>
 #include <glm/gtc/packing.hpp>
 #include <glm/gtc/epsilon.hpp>
+#include <glm/ext/vector_relational.hpp>
 #include <cstdio>
 #include <vector>
 
@@ -101,8 +102,8 @@ int test_Half4x16()
 		glm::u16vec4 p2 = glm::packHalf(v0);
 		glm::vec4 v2 = glm::unpackHalf(p2);
 
-		Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
-		Error += glm::all(glm::equal(v0, v2)) ? 0 : 1;
+		Error += glm::all(glm::equal(v0, v1, glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(v0, v2, glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	return Error;
@@ -236,7 +237,7 @@ int test_F2x11_1x10()
 		glm::vec3 v0 = glm::unpackF2x11_1x10(p0);
 		glm::uint32 p1 = glm::packF2x11_1x10(v0);
 		glm::vec3 v1 = glm::unpackF2x11_1x10(p1);
-		Error += glm::all(glm::equal(v0, v1)) ? 0 : 1;
+		Error += glm::all(glm::equal(v0, v1, glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	return Error;
@@ -260,7 +261,7 @@ int test_F3x9_E1x5()
 		glm::vec3 v0 = glm::unpackF3x9_E1x5(p0);
 		glm::uint32 p1 = glm::packF3x9_E1x5(v0);
 		glm::vec3 v1 = glm::unpackF3x9_E1x5(p1);
-		Error += glm::all(glm::epsilonEqual(v0, v1, 0.01f)) ? 0 : 1;
+		Error += glm::all(glm::equal(v0, v1, glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	return Error;
@@ -276,7 +277,7 @@ int test_RGBM()
 		glm::vec4 const RGBM = glm::packRGBM(Color);
 		glm::vec3 const Result= glm::unpackRGBM(RGBM);
 
-		Error += glm::all(glm::epsilonEqual(Color, Result, 0.01f)) ? 0 : 1;
+		Error += glm::all(glm::equal(Color, Result, 0.01f)) ? 0 : 1;
 	}
 
 	return Error;

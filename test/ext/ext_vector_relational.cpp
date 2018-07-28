@@ -16,7 +16,6 @@ int test_equal()
 
 	Error += glm::all(glm::equal(glm::mat4x3(1), glm::mat4x3(1), 0.001f)) ? 0 : 1;
 	Error += glm::all(glm::equal(glm::mat4x3(1), glm::mat4x3(2), glm::vec4(0.001f))) ? 1 : 0;
-	Error += glm::all(glm::equal(glm::mat4x3(1), glm::mat4x3(1))) ? 0 : 1;
 
 	return Error;
 }
@@ -35,7 +34,6 @@ int test_notEqual()
 
 	Error += !glm::any(glm::notEqual(glm::mat4x3(1), glm::mat4x3(1), 0.001f)) ? 0 : 1;
 	Error += !glm::any(glm::notEqual(glm::mat4x3(1), glm::mat4x3(2), glm::vec4(0.001f))) ? 1 : 0;
-	Error += !glm::any(glm::notEqual(glm::mat4x3(1), glm::mat4x3(1))) ? 0 : 1;
 
 	return Error;
 }
