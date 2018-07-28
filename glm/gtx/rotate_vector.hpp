@@ -14,8 +14,10 @@
 #pragma once
 
 // Dependency:
-#include "../glm.hpp"
 #include "../gtx/transform.hpp"
+#include "../gtc/epsilon.hpp"
+#include "../ext/vector_relational.hpp"
+#include "../glm.hpp"
 
 #ifndef GLM_ENABLE_EXPERIMENTAL
 #	error "GLM: GLM_GTX_rotate_vector is an experimental extension and may change in the future. Use #define GLM_ENABLE_EXPERIMENTAL before including it, if you really want to use it."
