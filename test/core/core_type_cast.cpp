@@ -1,3 +1,5 @@
+#include <glm/gtc/constants.hpp>
+#include <glm/ext/vector_relational.hpp>
 #include <glm/glm.hpp>
 #include <algorithm>
 #include <vector>
@@ -27,10 +29,10 @@ int test_vec2_cast()
 
 	int Error(0);
 	
-	Error += glm::all(glm::equal(A, E)) ? 0 : 1;
-	Error += glm::all(glm::equal(B, F)) ? 0 : 1;
-	Error += glm::all(glm::equal(C, G)) ? 0 : 1;
-	Error += glm::all(glm::equal(D, H)) ? 0 : 1;
+	Error += glm::all(glm::equal(A, E, glm::epsilon<float>())) ? 0 : 1;
+	Error += glm::all(glm::equal(B, F, glm::epsilon<float>())) ? 0 : 1;
+	Error += glm::all(glm::equal(C, G, glm::epsilon<float>())) ? 0 : 1;
+	Error += glm::all(glm::equal(D, H, glm::epsilon<float>())) ? 0 : 1;
 	
 	return Error;
 }
@@ -49,10 +51,10 @@ int test_vec3_cast()
 	
 	int Error(0);
 	
-	Error += glm::all(glm::equal(A, E)) ? 0 : 1;
-	Error += glm::all(glm::equal(B, F)) ? 0 : 1;
-	Error += glm::all(glm::equal(C, G)) ? 0 : 1;
-	Error += glm::all(glm::equal(D, H)) ? 0 : 1;
+	Error += glm::all(glm::equal(A, E, glm::epsilon<float>())) ? 0 : 1;
+	Error += glm::all(glm::equal(B, F, glm::epsilon<float>())) ? 0 : 1;
+	Error += glm::all(glm::equal(C, G, glm::epsilon<float>())) ? 0 : 1;
+	Error += glm::all(glm::equal(D, H, glm::epsilon<float>())) ? 0 : 1;
 	
 	return Error;
 }
@@ -71,10 +73,10 @@ int test_vec4_cast()
 	
 	int Error(0);
 	
-	Error += glm::all(glm::equal(A, E)) ? 0 : 1;
-	Error += glm::all(glm::equal(B, F)) ? 0 : 1;
-	Error += glm::all(glm::equal(C, G)) ? 0 : 1;
-	Error += glm::all(glm::equal(D, H)) ? 0 : 1;
+	Error += glm::all(glm::equal(A, E, glm::epsilon<float>())) ? 0 : 1;
+	Error += glm::all(glm::equal(B, F, glm::epsilon<float>())) ? 0 : 1;
+	Error += glm::all(glm::equal(C, G, glm::epsilon<float>())) ? 0 : 1;
+	Error += glm::all(glm::equal(D, H, glm::epsilon<float>())) ? 0 : 1;
 	
 	return Error;
 }
