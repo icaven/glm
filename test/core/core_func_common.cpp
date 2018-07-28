@@ -1035,7 +1035,7 @@ namespace sign
 		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<glm::vec4>); ++i)
 		{
 			glm::vec4 Result = glm::sign(Data[i].Value);
-			Error += glm::all(glm::equal(Data[i].Return, Result)) ? 0 : 1;
+			Error += glm::all(glm::equal(Data[i].Return, Result, glm::epsilon<float>())) ? 0 : 1;
 		}
 
 		return Error;
@@ -1213,37 +1213,37 @@ namespace frexp_
 {
 	static int test()
 	{
-		int Error(0);
+		int Error = 0;
 
 		{
-			glm::vec1 x(1024);
+			glm::vec1 const x(1024);
 			glm::ivec1 exp;
 			glm::vec1 A = glm::frexp(x, exp);
-			Error += glm::all(glm::equal(A, glm::vec1(0.5), 0.00001f)) ? 0 : 1;
+			Error += glm::all(glm::equal(A, glm::vec1(0.5), glm::epsilon<float>())) ? 0 : 1;
 			Error += glm::all(glm::equal(exp, glm::ivec1(11))) ? 0 : 1;
 		}
 
 		{
-			glm::vec2 x(1024, 0.24);
+			glm::vec2 const x(1024, 0.24);
 			glm::ivec2 exp;
 			glm::vec2 A = glm::frexp(x, exp);
-			Error += glm::all(glm::equal(A, glm::vec2(0.5, 0.96), 0.00001f)) ? 0 : 1;
+			Error += glm::all(glm::equal(A, glm::vec2(0.5, 0.96), glm::epsilon<float>())) ? 0 : 1;
 			Error += glm::all(glm::equal(exp, glm::ivec2(11, -2))) ? 0 : 1;
 		}
 
 		{
-			glm::vec3 x(1024, 0.24, 0);
+			glm::vec3 const x(1024, 0.24, 0);
 			glm::ivec3 exp;
 			glm::vec3 A = glm::frexp(x, exp);
-			Error += glm::all(glm::equal(A, glm::vec3(0.5, 0.96, 0.0), 0.00001f)) ? 0 : 1;
+			Error += glm::all(glm::equal(A, glm::vec3(0.5, 0.96, 0.0), glm::epsilon<float>())) ? 0 : 1;
 			Error += glm::all(glm::equal(exp, glm::ivec3(11, -2, 0))) ? 0 : 1;
 		}
 
 		{
-			glm::vec4 x(1024, 0.24, 0, -1.33);
+			glm::vec4 const x(1024, 0.24, 0, -1.33);
 			glm::ivec4 exp;
 			glm::vec4 A = glm::frexp(x, exp);
-			Error += glm::all(glm::equal(A, glm::vec4(0.5, 0.96, 0.0, -0.665), 0.00001f)) ? 0 : 1;
+			Error += glm::all(glm::equal(A, glm::vec4(0.5, 0.96, 0.0, -0.665), glm::epsilon<float>())) ? 0 : 1;
 			Error += glm::all(glm::equal(exp, glm::ivec4(11, -2, 0, 1))) ? 0 : 1;
 		}
 
