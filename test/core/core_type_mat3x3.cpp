@@ -1,4 +1,5 @@
-#include <glm/gtc/epsilon.hpp>
+#include <glm/gtc/constants.hpp>
+#include <glm/ext/vector_relational.hpp>
 #include <glm/matrix.hpp>
 #include <glm/vector_relational.hpp>
 #include <glm/mat2x2.hpp>
@@ -68,9 +69,9 @@ int test_inverse()
 		glm::mat3 const Inverse = glm::inverse(Matrix);
 		glm::mat3 const Identity = Matrix * Inverse;
 
-		Error += glm::all(glm::epsilonEqual(Identity[0], glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.01f))) ? 0 : 1;
-		Error += glm::all(glm::epsilonEqual(Identity[1], glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.01f))) ? 0 : 1;
-		Error += glm::all(glm::epsilonEqual(Identity[2], glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::equal(Identity[0], glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::equal(Identity[1], glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::equal(Identity[2], glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(0.01f))) ? 0 : 1;
 	}
 
 	{
@@ -80,9 +81,9 @@ int test_inverse()
 			glm::vec3(0.3f, 0.5f, 0.7f));
 		glm::mat3 const Identity = Matrix / Matrix;
 
-		Error += glm::all(glm::epsilonEqual(Identity[0], glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.01f))) ? 0 : 1;
-		Error += glm::all(glm::epsilonEqual(Identity[1], glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.01f))) ? 0 : 1;
-		Error += glm::all(glm::epsilonEqual(Identity[2], glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::equal(Identity[0], glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::equal(Identity[1], glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(0.01f))) ? 0 : 1;
+		Error += glm::all(glm::equal(Identity[2], glm::vec3(0.0f, 0.0f, 1.0f), glm::vec3(0.01f))) ? 0 : 1;
 	}
 
 	return Error;
@@ -104,13 +105,10 @@ int test_ctr()
 		{0, 1, 2},
 		{3, 4, 5},
 		{6, 7, 8}};
-	
-	for(glm::length_t i = 0; i < m0.length(); ++i)
-		Error += glm::all(glm::equal(m0[i], m2[i])) ? 0 : 1;
-	
-	for(glm::length_t i = 0; i < m1.length(); ++i)
-		Error += glm::all(glm::equal(m1[i], m2[i])) ? 0 : 1;
-	
+
+	Error += glm::all(glm::equal(m0, m2, glm::epsilon<float>())) ? 0 : 1;
+	Error += glm::all(glm::equal(m1, m2, glm::epsilon<float>())) ? 0 : 1;
+
 	std::vector<glm::mat3x3> v1{
 		{0, 1, 2, 3, 4, 5, 6, 7, 8},
 		{0, 1, 2, 3, 4, 5, 6, 7, 8}
@@ -145,8 +143,7 @@ namespace cast
 		glm::mat3x3 B(A);
 		glm::mat3x3 Identity(1.0f);
 
-		for(glm::length_t i = 0, length = B.length(); i < length; ++i)
-			Error += glm::all(glm::equal(B[i], Identity[i])) ? 0 : 1;
+		Error += glm::all(glm::equal(B, Identity, glm::epsilon<float>())) ? 0 : 1;
 
 		return Error;
 	}

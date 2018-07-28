@@ -65,8 +65,7 @@ int test_ctr()
 		glm::highp_mat2x2 const B(A);
 		glm::mediump_mat2x2 const C(B);
 
-		for(glm::length_t i = 0; i < A.length(); ++i)
-			Error += glm::all(glm::equal(A[i], C[i])) ? 0 : 1;
+		Error += glm::all(glm::equal(A, C, glm::epsilon<float>())) ? 0 : 1;
 	}
 
 #if GLM_HAS_INITIALIZER_LISTS
@@ -80,11 +79,8 @@ int test_ctr()
 		{0, 1},
 		{2, 3}};
 
-	for(glm::length_t i = 0; i < m0.length(); ++i)
-		Error += glm::all(glm::equal(m0[i], m2[i])) ? 0 : 1;
-
-	for(glm::length_t i = 0; i < m1.length(); ++i)
-		Error += glm::all(glm::equal(m1[i], m2[i])) ? 0 : 1;
+	Error += glm::all(glm::equal(m0, m2, glm::epsilon<float>())) ? 0 : 1;
+	Error += glm::all(glm::equal(m1, m2, glm::epsilon<float>())) ? 0 : 1;
 
 	std::vector<glm::mat2x2> v1{
 		{0, 1, 2, 3},
@@ -118,8 +114,7 @@ namespace cast
 		glm::mat2 B(A);
 		glm::mat2 Identity(1.0f);
 
-		for(glm::length_t i = 0, length = B.length(); i < length; ++i)
-			Error += glm::all(glm::equal(B[i], Identity[i])) ? 0 : 1;
+		Error += glm::all(glm::equal(B, Identity, glm::epsilon<float>())) ? 0 : 1;
 
 		return Error;
 	}

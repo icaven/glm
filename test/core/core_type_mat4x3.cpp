@@ -1,4 +1,5 @@
-#include <glm/vector_relational.hpp>
+#include <glm/gtc/constants.hpp>
+#include <glm/ext/vector_relational.hpp>
 #include <glm/mat2x2.hpp>
 #include <glm/mat2x3.hpp>
 #include <glm/mat2x4.hpp>
@@ -90,8 +91,7 @@ namespace cast
 		glm::mat4x3 B(A);
 		glm::mat4x3 Identity(1.0f);
 
-		for(glm::length_t i = 0, length = B.length(); i < length; ++i)
-			Error += glm::all(glm::equal(B[i], Identity[i])) ? 0 : 1;
+		Error += glm::all(glm::equal(B, Identity, glm::epsilon<float>())) ? 0 : 1;
 
 		return Error;
 	}
