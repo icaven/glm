@@ -75,7 +75,7 @@ namespace detail
 	// -- Component accesses --
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER T & tquat<T, Q>::operator[](typename tquat<T, Q>::length_type i)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T & tquat<T, Q>::operator[](typename tquat<T, Q>::length_type i)
 	{
 		assert(i >= 0 && i < this->length());
 		return (&x)[i];

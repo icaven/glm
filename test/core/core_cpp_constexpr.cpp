@@ -31,6 +31,8 @@ static int test_vec1()
 	}
 
 	{
+		constexpr glm::ivec1 A(1);
+		static_assert(A[0] == 1, "GLM: Failed constexpr");
 		static_assert(glm::vec1(1.0f).x > 0.0f, "GLM: Failed constexpr");
 		static_assert(glm::vec1::length() == 1, "GLM: Failed constexpr");
 	}
@@ -85,6 +87,8 @@ static int test_vec2()
 	}
 
 	{
+		constexpr glm::ivec2 A(1);
+		static_assert(A[0] == 1, "GLM: Failed constexpr");
 		static_assert(glm::vec2(1.0f).x > 0.0f, "GLM: Failed constexpr");
 		static_assert(glm::vec2(1.0f, -1.0f).x > 0.0f, "GLM: Failed constexpr");
 		static_assert(glm::vec2(1.0f, -1.0f).y < 0.0f, "GLM: Failed constexpr");
@@ -98,6 +102,13 @@ static int test_vec2()
 		constexpr glm::bvec2 B2(false);
 		static_assert(A1 == A2 && B1 == B2, "GLM: Failed constexpr");
 		static_assert(A1 == A2 || B1 == B2, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec2 A(1);
+		constexpr glm::ivec2 B = A + 1;
+		constexpr glm::ivec2 C(3);
+		static_assert(A + B == C, "GLM: Failed constexpr");
 	}
 
 	return Error;
@@ -161,6 +172,8 @@ static int test_vec3()
 	}
 
 	{
+		constexpr glm::ivec3 const A(1);
+		static_assert(A[0] == 1, "GLM: Failed constexpr");
 		static_assert(glm::vec3(1.0f).x > 0.0f, "GLM: Failed constexpr");
 		static_assert(glm::vec3(1.0f, -1.0f, -1.0f).x > 0.0f, "GLM: Failed constexpr");
 		static_assert(glm::vec3(1.0f, -1.0f, -1.0f).y < 0.0f, "GLM: Failed constexpr");
@@ -215,6 +228,8 @@ static int test_vec4()
 	}
 
 	{
+		constexpr glm::ivec4 A(1);
+		static_assert(A[0] == 1, "GLM: Failed constexpr");
 		static_assert(glm::ivec4(1).x > 0, "GLM: Failed constexpr");
 		static_assert(glm::ivec4(1.0f, -1.0f, -1.0f, 1.0f).x > 0, "GLM: Failed constexpr");
 		static_assert(glm::ivec4(1.0f, -1.0f, -1.0f, 1.0f).y < 0, "GLM: Failed constexpr");
@@ -244,6 +259,7 @@ static int test_quat()
 
 		glm::quat constexpr Q = glm::identity<glm::quat>();
 		static_assert(Q.x - glm::quat(1.0f, glm::vec3(0.0f)).x <= glm::epsilon<float>(), "GLM: Failed constexpr");
+		static_assert(Q[0] == 0, "GLM: Failed constexpr");
 	}
 
 	return Error;
