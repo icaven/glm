@@ -498,9 +498,9 @@ int test_vec3_swizzle_partial()
 
 #	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 	{
-		glm::ivec3 const A(1, 2, 3);
-		glm::ivec3 B(A.xy, 3);
-		Error += A == B ? 0 : 1;
+		glm::vec3 const A(1, 2, 3);
+		glm::vec3 B(A.xy, 3);
+		Error += glm::all(glm::equal(A, B, glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	{
@@ -561,13 +561,13 @@ static int test_swizzle()
 		glm::vec3 G(A.xy, A.z);
 		glm::vec3 H(A.xy(), A.z);
 
-		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, C)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, D)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, E)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, F)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, G)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, H)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, B, glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(A, C, glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(A, D, glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(A, E, glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(A, F, glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(A, G, glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(A, H, glm::epsilon<float>())) ? 0 : 1;
 	}
 #	endif//GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 
@@ -582,13 +582,13 @@ static int test_swizzle()
 		glm::vec3 G(A.xy(), A.z);
 		glm::vec3 H(A.xy(), A.z);
 
-		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, C)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, D)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, E)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, F)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, G)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, H)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, B, glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(A, C, glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(A, D, glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(A, E, glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(A, F, glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(A, G, glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(A, H, glm::epsilon<float>())) ? 0 : 1;
 	}
 #	endif//GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR || GLM_SWIZZLE == GLM_SWIZZLE_FUNCTION
 
