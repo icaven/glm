@@ -1,8 +1,8 @@
 /// @ref gtc_packing
 /// @file glm/gtc/packing.inl
 
+#include "../ext/vector_relational.hpp"
 #include "../common.hpp"
-#include "../vector_relational.hpp"
 #include "../vec2.hpp"
 #include "../vec3.hpp"
 #include "../vec4.hpp"

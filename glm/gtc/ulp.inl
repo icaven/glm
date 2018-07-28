@@ -82,13 +82,13 @@ namespace detail
 		if((ix>0x7f800000) ||	// x is nan
 			(iy>0x7f800000))	// y is nan
 			return x+y;
-		if(equal(x, y, epsilon<float>()))
+		if(abs(y - x) <= epsilon<float>())
 			return y;		// x=y, return y
 		if(ix==0)
 		{				// x == 0
 			GLM_SET_FLOAT_WORD(x,(hy&0x80000000)|1);// return +-minsubnormal
 			t = x*x;
-			if(equal(t, x, epsilon<float>()))
+			if(abs(t - x) <= epsilon<float>())
 				return t;
 			else
 				return x;	// raise underflow flag
@@ -113,7 +113,7 @@ namespace detail
 		if(hy<0x00800000)		// underflow
 		{
 			t = x*x;
-			if(!detail::compute_equal<float, true>::call(t, x))
+			if(abs(t - x) > epsilon<float>())
 			{					// raise underflow flag
 				GLM_SET_FLOAT_WORD(y,hx);
 				return y;
@@ -137,13 +137,13 @@ namespace detail
 		if(((ix>=0x7ff00000)&&((ix-0x7ff00000)|lx)!=0) ||	// x is nan
 			((iy>=0x7ff00000)&&((iy-0x7ff00000)|ly)!=0))	// y is nan
 			return x+y;
-		if(equal(x, y, epsilon<double>()))
+		if(abs(y - x) <= epsilon<double>())
 			return y;									// x=y, return y
 		if((ix|lx)==0)
 		{													// x == 0
 			GLM_INSERT_WORDS(x, hy & 0x80000000, 1);		// return +-minsubnormal
 			t = x*x;
-			if(equal(t, x, epsilon<double>()))
+			if(abs(t - x) <= epsilon<double>())
 				return t;
 			else
 				return x;   // raise underflow flag
@@ -171,7 +171,7 @@ namespace detail
 		if(hy<0x00100000)
 		{						// underflow
 			t = x*x;
-			if(!detail::compute_equal<double, true>::call(t, x))
+			if(abs(t - x) > epsilon<double>())
 			{					// raise underflow flag
 				GLM_INSERT_WORDS(y,hx,lx);
 				return y;
