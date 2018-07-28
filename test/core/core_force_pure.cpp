@@ -249,10 +249,10 @@ int test_vec4_operators()
 		glm::ivec4 B(4.0f, 4.0f, 6.0f, 8.0f);
 
 		B /= A;
-		Error += B == glm::ivec4(4, 2, 2, 4) ? 0 : 1;
+		Error += B == glm::ivec4(4, 2, 2, 2) ? 0 : 1;
 
 		B /= 2;
-		Error += B == glm::ivec4(2, 1, 1, 2) ? 0 : 1;
+		Error += B == glm::ivec4(2, 1, 1, 1) ? 0 : 1;
 	}
 	{
 		glm::ivec4 B(2);
@@ -443,7 +443,7 @@ int test_vec4_simd()
 
 int main()
 {
-	int Error(0);
+	int Error = 0;
 
 	Error += test_vec4_ctor();
 	Error += test_bvec4_ctor();

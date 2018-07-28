@@ -161,8 +161,8 @@ static int test_vec3_operators()
 	int Error = 0;
 	
 	{
-		glm::ivec3 A(1.0f);
-		glm::ivec3 B(1.0f);
+		glm::ivec3 A(1);
+		glm::ivec3 B(1);
 		bool R = A != B;
 		bool S = A == B;
 
@@ -251,10 +251,10 @@ static int test_vec3_operators()
 		Error += B == glm::ivec3(2, 1, 1) ? 0 : 1;
 	}
 	{
-		glm::ivec3 B(2.0f);
+		glm::ivec3 B(2);
 
 		B /= B.y;
-		Error += B == glm::ivec3(1.0f) ? 0 : 1;
+		Error += B == glm::ivec3(1) ? 0 : 1;
 	}
 
 	{
@@ -423,7 +423,7 @@ int test_vec3_swizzle_operators()
 		q = (u.zyx + v.zyx).zyx;    Error += (q == (u + v)) ? 0 : 1;
 		q = (u.xyz - v.xyz);        Error += (q == (u - v)) ? 0 : 1;
 		q = (u.xyz * v.xyz);        Error += (q == (u * v)) ? 0 : 1;
-		q = (u.xxx * v.xxx);        Error += (q == glm::vec3(u.x * v.x)) ? 0 : 1;
+		q = (u.xxx * v.xxx);        Error += (q == glm::ivec3(u.x * v.x)) ? 0 : 1;
 		q = (u.xyz / v.xyz);        Error += (q == (u / v)) ? 0 : 1;
 
 		// vec, swizzle binary operators
@@ -499,13 +499,13 @@ int test_vec3_swizzle_partial()
 #	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 	{
 		glm::ivec3 const A(1, 2, 3);
-		glm::ivec3 B(A.xy, 3.0f);
+		glm::ivec3 B(A.xy, 3);
 		Error += A == B ? 0 : 1;
 	}
 
 	{
 		glm::ivec3 const A(1, 2, 3);
-		glm::ivec3 const B(1.0f, A.yz);
+		glm::ivec3 const B(1, A.yz);
 		Error += A == B ? 0 : 1;
 	}
 

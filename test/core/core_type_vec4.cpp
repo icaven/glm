@@ -308,8 +308,8 @@ static int test_operators()
 	int Error = 0;
 	
 	{
-		glm::ivec4 A(1.0f);
-		glm::ivec4 B(1.0f);
+		glm::ivec4 A(1);
+		glm::ivec4 B(1);
 		bool R = A != B;
 		bool S = A == B;
 
@@ -398,10 +398,10 @@ static int test_operators()
 		Error += B == glm::ivec4(2, 1, 2, 1) ? 0 : 1;
 	}
 	{
-		glm::ivec4 B(2.0f);
+		glm::ivec4 B(2);
 
 		B /= B.y;
-		Error += B == glm::ivec4(1.0f) ? 0 : 1;
+		Error += B == glm::ivec4(1) ? 0 : 1;
 	}
 
 	{
