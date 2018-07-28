@@ -112,8 +112,8 @@ int test_vec4_ctor()
 #	endif//GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 
 	{
-		glm::vec4 A(1);
-		glm::vec4 B(1, 1, 1, 1);
+		glm::ivec4 A(1);
+		glm::ivec4 B(1, 1, 1, 1);
 		
 		Error += A == B ? 0 : 1;
 	}

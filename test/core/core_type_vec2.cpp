@@ -18,8 +18,8 @@ static int test_operators()
 	int Error = 0;
 
 	{
-		glm::vec2 A(1.0f);
-		glm::vec2 B(1.0f);
+		glm::ivec2 A(1.0f);
+		glm::ivec2 B(1.0f);
 		Error += A != B ? 1 : 0;
 		Error += A == B ? 0 : 1;
 	}
