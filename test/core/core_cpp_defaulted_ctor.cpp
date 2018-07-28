@@ -121,7 +121,7 @@ static int test_quat_memcpy()
 		glm::quat const A = glm::quat(1, 0, 0, 0);
 		glm::quat B;
 		std::memcpy(&B, &A, sizeof(glm::quat));
-		Error += B == A ? 0 : 1;
+		Error += glm::all(glm::equal(B, A, glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	return Error;
