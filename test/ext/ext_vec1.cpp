@@ -10,8 +10,8 @@ static int test_vec1_operators()
 {
 	int Error(0);
 
-	glm::ivec1 A(1.0f);
-	glm::ivec1 B(1.0f);
+	glm::ivec1 A(1);
+	glm::ivec1 B(1);
 	{
 		bool R = A != B;
 		bool S = A == B;

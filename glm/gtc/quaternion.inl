@@ -603,13 +603,13 @@ namespace detail
 	GLM_FUNC_QUALIFIER T pitch(tquat<T, Q> const& q)
 	{
 		//return T(atan(T(2) * (q.y * q.z + q.w * q.x), q.w * q.w - q.x * q.x - q.y * q.y + q.z * q.z));
-		const T y = static_cast<T>(2) * (q.y * q.z + q.w * q.x);
-		const T x = q.w * q.w - q.x * q.x - q.y * q.y + q.z * q.z;
+		T const y = static_cast<T>(2) * (q.y * q.z + q.w * q.x);
+		T const x = q.w * q.w - q.x * q.x - q.y * q.y + q.z * q.z;
 
-		if(detail::compute_equal<T, std::numeric_limits<T>::is_iec559>::call(y, static_cast<T>(0)) && detail::compute_equal<T, std::numeric_limits<T>::is_iec559>::call(x, static_cast<T>(0))) //avoid atan2(0,0) - handle singularity - Matiis
-			return static_cast<T>(static_cast<T>(2) * atan(q.x,q.w));
+		if(all(equal(vec<2, T, Q>(x, y), vec<2, T, Q>(0), epsilon<T>()))) //avoid atan2(0,0) - handle singularity - Matiis
+			return static_cast<T>(static_cast<T>(2) * atan(q.x, q.w));
 
-		return static_cast<T>(atan(y,x));
+		return static_cast<T>(atan(y, x));
 	}
 
 	template<typename T, qualifier Q>

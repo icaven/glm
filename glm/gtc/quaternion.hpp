@@ -18,6 +18,7 @@
 #include "../mat4x4.hpp"
 #include "../vec3.hpp"
 #include "../vec4.hpp"
+#include "../ext/vector_relational.hpp"
 #include "../gtc/constants.hpp"
 #include "../gtc/matrix_transform.hpp"
 
