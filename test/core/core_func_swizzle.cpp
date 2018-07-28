@@ -136,8 +136,8 @@ int test_vec4_swizzle()
 		glm::vec4 B = A.wzyx();
 		glm::vec4 C = B.wzyx();
 
-		Error += A != B ? 0 : 1;
-		Error += A == C ? 0 : 1;
+		Error += glm::any(glm::notEqual(A, B, 0.0001f)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, C, 0.0001f)) ? 0 : 1;
 
 		float D = glm::dot(C.wzyx(), C.xyzw());
 		Error += glm::equal(D, 20.f, 0.001f) ? 0 : 1;
