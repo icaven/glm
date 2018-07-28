@@ -57,17 +57,17 @@ namespace fmax_
 
 		glm::vec2 B0 = glm::fmax(glm::vec2(1), glm::vec2(1));
 		glm::vec2 B1 = glm::fmax(glm::vec2(1), 1.0f);
-		bool B2 = glm::all(glm::equal(B0, B1));
+		bool B2 = glm::all(glm::equal(B0, B1, glm::epsilon<float>()));
 		Error += B2 ? 0 : 1;
 
 		glm::vec3 C0 = glm::fmax(glm::vec3(1), glm::vec3(1));
 		glm::vec3 C1 = glm::fmax(glm::vec3(1), 1.0f);
-		bool C2 = glm::all(glm::equal(C0, C1));
+		bool C2 = glm::all(glm::equal(C0, C1, glm::epsilon<float>()));
 		Error += C2 ? 0 : 1;
 
 		glm::vec4 D0 = glm::fmax(glm::vec4(1), glm::vec4(1));
 		glm::vec4 D1 = glm::fmax(glm::vec4(1), 1.0f);
-		bool D2 = glm::all(glm::equal(D0, D1));
+		bool D2 = glm::all(glm::equal(D0, D1, glm::epsilon<float>()));
 		Error += D2 ? 0 : 1;
 
 		return Error;
