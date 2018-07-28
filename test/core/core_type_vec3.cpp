@@ -48,21 +48,21 @@ int test_vec3_ctor()
 #	endif
 
 	{
-		glm::vec3 A(1);
-		glm::vec3 B(1, 1, 1);
+		glm::ivec3 A(1);
+		glm::ivec3 B(1, 1, 1);
 		
 		Error += A == B ? 0 : 1;
 	}
 
 	{
-		std::vector<glm::vec3> Tests;
-		Tests.push_back(glm::vec3(glm::vec2(1, 2), 3));
-		Tests.push_back(glm::vec3(1, glm::vec2(2, 3)));
-		Tests.push_back(glm::vec3(1, 2, 3));
-		Tests.push_back(glm::vec3(glm::vec4(1, 2, 3, 4)));
+		std::vector<glm::ivec3> Tests;
+		Tests.push_back(glm::ivec3(glm::ivec2(1, 2), 3));
+		Tests.push_back(glm::ivec3(1, glm::ivec2(2, 3)));
+		Tests.push_back(glm::ivec3(1, 2, 3));
+		Tests.push_back(glm::ivec3(glm::ivec4(1, 2, 3, 4)));
 
 		for(std::size_t i = 0; i < Tests.size(); ++i)
-			Error += Tests[i] == glm::vec3(1, 2, 3) ? 0 : 1;
+			Error += Tests[i] == glm::ivec3(1, 2, 3) ? 0 : 1;
 	}
 
 	{
