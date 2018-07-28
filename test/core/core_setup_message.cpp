@@ -194,36 +194,16 @@ int test_cpp_version()
 
 int test_operators()
 {
-	glm::vec3 A(1.0f);
-	glm::vec3 B(1.0f);
+	glm::ivec3 A(1.0f);
+	glm::ivec3 B(1.0f);
 	bool R = A != B;
 	bool S = A == B;
 
 	return (S && !R) ? 0 : 1;
 }
 
-template<typename T>
-struct vec
-{
-
-};
-
-template<template<typename> class C, typename T>
-struct Class
-{
-
-};
-
-template<typename T>
-struct Class<vec, T>
-{
-
-};
-
 int main()
 {
-	//Class<vec, float> C;
-
 	int Error = 0;
 
 	Error += test_cpp_version();
