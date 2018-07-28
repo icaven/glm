@@ -24,8 +24,8 @@ static int test_operators()
 	glm::mat4x2 o = m / x;
 	glm::mat4x2 p = x * m;
 	glm::mat4x2 q = m * x;
-	bool R = m != q;
-	bool S = m == l;
+	bool R = glm::any(glm::notEqual(m, q, glm::epsilon<float>()));
+	bool S = glm::all(glm::equal(m, l, glm::epsilon<float>()));
 
 	return (S && !R) ? 0 : 1;
 }
