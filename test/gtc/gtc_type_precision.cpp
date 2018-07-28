@@ -1,5 +1,7 @@
 #include <glm/gtc/type_precision.hpp>
 #include <glm/gtc/quaternion.hpp>
+#include <glm/gtc/constants.hpp>
+#include <glm/ext/vector_relational.hpp>
 #include <vector>
 #if GLM_HAS_OPENMP
 #	include <omp.h>
@@ -94,27 +96,16 @@ static int test_fvec_size()
 static int test_fvec_precision()
 {
 	int Error = 0;
-/*
-	{
-		glm::f32vec2 v1;
-		glm::lowp_f32vec2 v2((glm::f32vec2(v1)));
-		glm::mediump_f32vec2 v3((glm::f32vec2(v1)));
-		glm::highp_f32vec2 v4((glm::f32vec2(v1)));
 
-		Error += glm::all(glm::equal(v1, v2)) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, v3)) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, v4)) ? 0 : 1;
-	}
-*/
 	{
 		glm::f32vec2 v1(1.f);
 		glm::lowp_f32vec2 v2(v1);
 		glm::mediump_f32vec2 v3(v1);
 		glm::highp_f32vec2 v4(v1);
 
-		Error += glm::all(glm::equal(v1, glm::f32vec2(v2))) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, glm::f32vec2(v3))) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, glm::f32vec2(v4))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f32vec2(v2), glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f32vec2(v3), glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f32vec2(v4), glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	{
@@ -123,9 +114,9 @@ static int test_fvec_precision()
 		glm::mediump_f32vec3 v3(v1);
 		glm::highp_f32vec3 v4(v1);
 
-		Error += glm::all(glm::equal(v1, glm::f32vec3(v2))) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, glm::f32vec3(v3))) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, glm::f32vec3(v4))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f32vec3(v2), glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f32vec3(v3), glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f32vec3(v4), glm::epsilon<float>())) ? 0 : 1;
 	}
 	
 	{
@@ -134,9 +125,9 @@ static int test_fvec_precision()
 		glm::mediump_f32vec4 v3(v1);
 		glm::highp_f32vec4 v4(v1);
 
-		Error += glm::all(glm::equal(v1, glm::f32vec4(v2))) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, glm::f32vec4(v3))) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, glm::f32vec4(v4))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f32vec4(v2), glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f32vec4(v3), glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f32vec4(v4), glm::epsilon<float>())) ? 0 : 1;
 	}
 	
 	return Error;
@@ -152,9 +143,9 @@ static int test_dvec_precision()
 		glm::mediump_f64vec2 v3(v1);
 		glm::highp_f64vec2 v4(v1);
 
-		Error += glm::all(glm::equal(v1, glm::f64vec2(v2))) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, glm::f64vec2(v3))) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, glm::f64vec2(v4))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f64vec2(v2), glm::epsilon<double>())) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f64vec2(v3), glm::epsilon<double>())) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f64vec2(v4), glm::epsilon<double>())) ? 0 : 1;
 	}
 
 	{
@@ -163,9 +154,9 @@ static int test_dvec_precision()
 		glm::mediump_f64vec3 v3(v1);
 		glm::highp_f64vec3 v4(v1);
 
-		Error += glm::all(glm::equal(v1, glm::f64vec3(v2))) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, glm::f64vec3(v3))) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, glm::f64vec3(v4))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f64vec3(v2), glm::epsilon<double>())) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f64vec3(v3), glm::epsilon<double>())) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f64vec3(v4), glm::epsilon<double>())) ? 0 : 1;
 	}
 
 	{
@@ -174,9 +165,9 @@ static int test_dvec_precision()
 		glm::mediump_f64vec4 v3(v1);
 		glm::highp_f64vec4 v4(v1);
 
-		Error += glm::all(glm::equal(v1, glm::f64vec4(v2))) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, glm::f64vec4(v3))) ? 0 : 1;
-		Error += glm::all(glm::equal(v1, glm::f64vec4(v4))) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f64vec4(v2), glm::epsilon<double>())) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f64vec4(v3), glm::epsilon<double>())) ? 0 : 1;
+		Error += glm::all(glm::equal(v1, glm::f64vec4(v4), glm::epsilon<double>())) ? 0 : 1;
 	}
 
 	return Error;
@@ -833,9 +824,9 @@ static int test_quat_precision()
 		glm::f32quat q3(qB);
 		glm::f32quat q4(qC);
 		
-		Error += glm::all(glm::equal(q1, q2)) ? 0 : 1;
-		Error += glm::all(glm::equal(q1, q3)) ? 0 : 1;
-		Error += glm::all(glm::equal(q1, q4)) ? 0 : 1;
+		Error += glm::all(glm::equal(q1, q2, glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(q1, q3, glm::epsilon<float>())) ? 0 : 1;
+		Error += glm::all(glm::equal(q1, q4, glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	return Error;
@@ -853,7 +844,7 @@ static int test_fvec_conversion()
 		glm::lowp_ivec4 e = glm::ivec4(d);
 		glm::lowp_ivec3 f = glm::ivec3(e);
 
-		Error += glm::all(glm::equal(b, d)) ? 0 : 1;
+		Error += glm::all(glm::equal(b, d, glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	return Error;

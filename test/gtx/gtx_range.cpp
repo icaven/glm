@@ -1,6 +1,7 @@
 #define GLM_ENABLE_EXPERIMENTAL
+#include <glm/gtc/constants.hpp>
+#include <glm/ext/vector_relational.hpp>
 #include <glm/glm.hpp>
-#include <glm/gtc/epsilon.hpp>
 
 #if GLM_HAS_RANGE_FOR
 
@@ -49,7 +50,7 @@ int test_mat()
 			Sum += x;
 		}
 		Error += count == 12 ? 0 : 1;
-		Error += glm::epsilonEqual(Sum, 3.0f, 0.001f) ? 0 : 1;
+		Error += glm::equal(Sum, 3.0f, 0.001f) ? 0 : 1;
 	}
 
 	{
@@ -57,7 +58,7 @@ int test_mat()
 
 		for (float& x : m) { x = 0; }
 		glm::vec4 v(1, 1, 1, 1);
-		Error += glm::all(glm::equal(m*v, glm::vec3(0, 0, 0))) ? 0 : 1;
+		Error += glm::all(glm::equal(m*v, glm::vec3(0, 0, 0), glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	return Error;
