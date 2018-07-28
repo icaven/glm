@@ -1,5 +1,7 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/vec1.hpp>
+#include <glm/gtc/constants.hpp>
+#include <glm/ext/vector_relational.hpp>
 
 int test_value_ptr_vec()
 {
