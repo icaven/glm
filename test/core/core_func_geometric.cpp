@@ -169,7 +169,7 @@ namespace refract
 			glm::dvec2 A(0.0f,-1.0f);
 			glm::dvec2 B(0.0f, 1.0f);
 			glm::dvec2 C = glm::refract(A, B, 0.5);
-			Error += C == glm::dvec2(0.0, -1.0) ? 0 : 1;
+			Error += glm::all(glm::equal(C, glm::dvec2(0.0, -1.0), 0.0001)) ? 0 : 1;
 		}
 
 		return Error;

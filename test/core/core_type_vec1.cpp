@@ -1,6 +1,7 @@
 #define GLM_FORCE_SWIZZLE
-#include <glm/vector_relational.hpp>
-#include <glm/gtc/vec1.hpp>
+#include <glm/gtc/constants.hpp>
+#include <glm/ext/vector_relational.hpp>
+#include <glm/ext/vec1.hpp>
 #include <glm/vec2.hpp>
 #include <vector>
 
@@ -136,7 +137,7 @@ static int test_swizzle()
 		glm::vec1 C(A.x);
 
 		//Error += glm::all(glm::equal(A, B)) ? 0 : 1;
-		Error += glm::all(glm::equal(A, C)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, C, glm::epsilon<float>())) ? 0 : 1;
 	}
 #	endif//GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 
