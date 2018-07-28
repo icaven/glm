@@ -1,5 +1,7 @@
 #define GLM_FORCE_SWIZZLE
+#include <glm/gtc/constants.hpp>
 #include <glm/ext/vec1.hpp>
+#include <glm/ext/vector_relational.hpp>
 #include <glm/vector_relational.hpp>
 #include <glm/geometric.hpp>
 #include <glm/vec2.hpp>
@@ -71,25 +73,25 @@ int test_vec3_ctor()
 
 		glm::vec3 const A(R);
 		glm::vec3 const B(1.0f);
-		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, B, glm::epsilon<float>())) ? 0 : 1;
 
 		glm::vec3 const C(R, S, T);
-		Error += glm::all(glm::equal(C, O)) ? 0 : 1;
+		Error += glm::all(glm::equal(C, O, glm::epsilon<float>())) ? 0 : 1;
 
 		glm::vec3 const D(R, 2.0f, 3.0f);
-		Error += glm::all(glm::equal(D, O)) ? 0 : 1;
+		Error += glm::all(glm::equal(D, O, glm::epsilon<float>())) ? 0 : 1;
 
 		glm::vec3 const E(1.0f, S, 3.0f);
-		Error += glm::all(glm::equal(E, O)) ? 0 : 1;
+		Error += glm::all(glm::equal(E, O, glm::epsilon<float>())) ? 0 : 1;
 
 		glm::vec3 const F(1.0f, S, T);
-		Error += glm::all(glm::equal(F, O)) ? 0 : 1;
+		Error += glm::all(glm::equal(F, O, glm::epsilon<float>())) ? 0 : 1;
 
 		glm::vec3 const G(R, 2.0f, T);
-		Error += glm::all(glm::equal(G, O)) ? 0 : 1;
+		Error += glm::all(glm::equal(G, O, glm::epsilon<float>())) ? 0 : 1;
 
 		glm::vec3 const H(R, S, 3.0f);
-		Error += glm::all(glm::equal(H, O)) ? 0 : 1;
+		Error += glm::all(glm::equal(H, O, glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	{
@@ -100,25 +102,25 @@ int test_vec3_ctor()
 
 		glm::vec3 const A(R);
 		glm::vec3 const B(1.0);
-		Error += glm::all(glm::equal(A, B)) ? 0 : 1;
+		Error += glm::all(glm::equal(A, B, glm::epsilon<float>())) ? 0 : 1;
 
 		glm::vec3 const C(R, S, T);
-		Error += glm::all(glm::equal(C, O)) ? 0 : 1;
+		Error += glm::all(glm::equal(C, O, glm::epsilon<float>())) ? 0 : 1;
 
 		glm::vec3 const D(R, 2.0, 3.0);
-		Error += glm::all(glm::equal(D, O)) ? 0 : 1;
+		Error += glm::all(glm::equal(D, O, glm::epsilon<float>())) ? 0 : 1;
 
 		glm::vec3 const E(1.0f, S, 3.0);
-		Error += glm::all(glm::equal(E, O)) ? 0 : 1;
+		Error += glm::all(glm::equal(E, O, glm::epsilon<float>())) ? 0 : 1;
 
 		glm::vec3 const F(1.0, S, T);
-		Error += glm::all(glm::equal(F, O)) ? 0 : 1;
+		Error += glm::all(glm::equal(F, O, glm::epsilon<float>())) ? 0 : 1;
 
 		glm::vec3 const G(R, 2.0, T);
-		Error += glm::all(glm::equal(G, O)) ? 0 : 1;
+		Error += glm::all(glm::equal(G, O, glm::epsilon<float>())) ? 0 : 1;
 
 		glm::vec3 const H(R, S, 3.0);
-		Error += glm::all(glm::equal(H, O)) ? 0 : 1;
+		Error += glm::all(glm::equal(H, O, glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	return Error;
@@ -159,8 +161,8 @@ static int test_vec3_operators()
 	int Error = 0;
 	
 	{
-		glm::vec3 A(1.0f);
-		glm::vec3 B(1.0f);
+		glm::ivec3 A(1.0f);
+		glm::ivec3 B(1.0f);
 		bool R = A != B;
 		bool S = A == B;
 
@@ -168,123 +170,123 @@ static int test_vec3_operators()
 	}
 
 	{
-		glm::vec3 A(1.0f, 2.0f, 3.0f);
-		glm::vec3 B(4.0f, 5.0f, 6.0f);
+		glm::vec3 const A(1.0f, 2.0f, 3.0f);
+		glm::vec3 const B(4.0f, 5.0f, 6.0f);
 
-		glm::vec3 C = A + B;
-		Error += C == glm::vec3(5, 7, 9) ? 0 : 1;
+		glm::vec3 const C = A + B;
+		Error += glm::all(glm::equal(C, glm::vec3(5, 7, 9), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec3 D = B - A;
-		Error += D == glm::vec3(3, 3, 3) ? 0 : 1;
+		glm::vec3 const D = B - A;
+		Error += glm::all(glm::equal(D, glm::vec3(3, 3, 3), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec3 E = A * B;
-		Error += E == glm::vec3(4, 10, 18) ? 0 : 1;
+		glm::vec3 const E = A * B;
+		Error += glm::all(glm::equal(E, glm::vec3(4, 10, 18), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec3 F = B / A;
-		Error += F == glm::vec3(4, 2.5, 2) ? 0 : 1;
+		glm::vec3 const F = B / A;
+		Error += glm::all(glm::equal(F, glm::vec3(4, 2.5, 2), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec3 G = A + 1.0f;
-		Error += G == glm::vec3(2, 3, 4) ? 0 : 1;
+		glm::vec3 const G = A + 1.0f;
+		Error += glm::all(glm::equal(G, glm::vec3(2, 3, 4), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec3 H = B - 1.0f;
-		Error += H == glm::vec3(3, 4, 5) ? 0 : 1;
+		glm::vec3 const H = B - 1.0f;
+		Error += glm::all(glm::equal(H, glm::vec3(3, 4, 5), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec3 I = A * 2.0f;
-		Error += I == glm::vec3(2, 4, 6) ? 0 : 1;
+		glm::vec3 const I = A * 2.0f;
+		Error += glm::all(glm::equal(I, glm::vec3(2, 4, 6), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec3 J = B / 2.0f;
-		Error += J == glm::vec3(2, 2.5, 3) ? 0 : 1;
+		glm::vec3 const J = B / 2.0f;
+		Error += glm::all(glm::equal(J, glm::vec3(2, 2.5, 3), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec3 K = 1.0f + A;
-		Error += K == glm::vec3(2, 3, 4) ? 0 : 1;
+		glm::vec3 const K = 1.0f + A;
+		Error += glm::all(glm::equal(K, glm::vec3(2, 3, 4), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec3 L = 1.0f - B;
-		Error += L == glm::vec3(-3, -4, -5) ? 0 : 1;
+		glm::vec3 const L = 1.0f - B;
+		Error += glm::all(glm::equal(L, glm::vec3(-3, -4, -5), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec3 M = 2.0f * A;
-		Error += M == glm::vec3(2, 4, 6) ? 0 : 1;
+		glm::vec3 const M = 2.0f * A;
+		Error += glm::all(glm::equal(M, glm::vec3(2, 4, 6), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec3 N = 2.0f / B;
-		Error += N == glm::vec3(0.5, 2.0 / 5.0, 2.0 / 6.0) ? 0 : 1;
+		glm::vec3 const N = 2.0f / B;
+		Error += glm::all(glm::equal(N, glm::vec3(0.5, 2.0 / 5.0, 2.0 / 6.0), glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	{
-		glm::vec3 A(1.0f, 2.0f, 3.0f);
-		glm::vec3 B(4.0f, 5.0f, 6.0f);
+		glm::ivec3 A(1.0f, 2.0f, 3.0f);
+		glm::ivec3 B(4.0f, 5.0f, 6.0f);
 
 		A += B;
-		Error += A == glm::vec3(5, 7, 9) ? 0 : 1;
+		Error += A == glm::ivec3(5, 7, 9) ? 0 : 1;
 
-		A += 1.0f;
-		Error += A == glm::vec3(6, 8, 10) ? 0 : 1;
+		A += 1;
+		Error += A == glm::ivec3(6, 8, 10) ? 0 : 1;
 	}
 	{
-		glm::vec3 A(1.0f, 2.0f, 3.0f);
-		glm::vec3 B(4.0f, 5.0f, 6.0f);
+		glm::ivec3 A(1.0f, 2.0f, 3.0f);
+		glm::ivec3 B(4.0f, 5.0f, 6.0f);
 
 		B -= A;
-		Error += B == glm::vec3(3, 3, 3) ? 0 : 1;
+		Error += B == glm::ivec3(3, 3, 3) ? 0 : 1;
 
-		B -= 1.0f;
-		Error += B == glm::vec3(2, 2, 2) ? 0 : 1;
+		B -= 1;
+		Error += B == glm::ivec3(2, 2, 2) ? 0 : 1;
 	}
 	{
-		glm::vec3 A(1.0f, 2.0f, 3.0f);
-		glm::vec3 B(4.0f, 5.0f, 6.0f);
+		glm::ivec3 A(1.0f, 2.0f, 3.0f);
+		glm::ivec3 B(4.0f, 5.0f, 6.0f);
 
 		A *= B;
-		Error += A == glm::vec3(4, 10, 18) ? 0 : 1;
+		Error += A == glm::ivec3(4, 10, 18) ? 0 : 1;
 
-		A *= 2.0f;
-		Error += A == glm::vec3(8, 20, 36) ? 0 : 1;
+		A *= 2;
+		Error += A == glm::ivec3(8, 20, 36) ? 0 : 1;
 	}
 	{
-		glm::vec3 A(1.0f, 2.0f, 3.0f);
-		glm::vec3 B(4.0f, 5.0f, 6.0f);
+		glm::ivec3 A(1.0f, 2.0f, 3.0f);
+		glm::ivec3 B(4.0f, 4.0f, 6.0f);
 
 		B /= A;
-		Error += B == glm::vec3(4, 2.5, 2) ? 0 : 1;
+		Error += B == glm::ivec3(4, 2, 2) ? 0 : 1;
 
-		B /= 2.0f;
-		Error += B == glm::vec3(2, 1.25, 1) ? 0 : 1;
+		B /= 2;
+		Error += B == glm::ivec3(2, 1, 1) ? 0 : 1;
 	}
 	{
-		glm::vec3 B(2.0f);
+		glm::ivec3 B(2.0f);
 
 		B /= B.y;
-		Error += B == glm::vec3(1.0f) ? 0 : 1;
+		Error += B == glm::ivec3(1.0f) ? 0 : 1;
 	}
 
 	{
-		glm::vec3 A(1.0f, 2.0f, 3.0f);
-		glm::vec3 B = -A;
-		Error += B == glm::vec3(-1.0f, -2.0f, -3.0f) ? 0 : 1;
+		glm::ivec3 A(1.0f, 2.0f, 3.0f);
+		glm::ivec3 B = -A;
+		Error += B == glm::ivec3(-1.0f, -2.0f, -3.0f) ? 0 : 1;
 	}
 
 	{
-		glm::vec3 A(1.0f, 2.0f, 3.0f);
-		glm::vec3 B = --A;
-		Error += B == glm::vec3(0.0f, 1.0f, 2.0f) ? 0 : 1;
+		glm::ivec3 A(1.0f, 2.0f, 3.0f);
+		glm::ivec3 B = --A;
+		Error += B == glm::ivec3(0.0f, 1.0f, 2.0f) ? 0 : 1;
 	}
 
 	{
-		glm::vec3 A(1.0f, 2.0f, 3.0f);
-		glm::vec3 B = A--;
-		Error += B == glm::vec3(1.0f, 2.0f, 3.0f) ? 0 : 1;
-		Error += A == glm::vec3(0.0f, 1.0f, 2.0f) ? 0 : 1;
+		glm::ivec3 A(1.0f, 2.0f, 3.0f);
+		glm::ivec3 B = A--;
+		Error += B == glm::ivec3(1.0f, 2.0f, 3.0f) ? 0 : 1;
+		Error += A == glm::ivec3(0.0f, 1.0f, 2.0f) ? 0 : 1;
 	}
 
 	{
-		glm::vec3 A(1.0f, 2.0f, 3.0f);
-		glm::vec3 B = ++A;
-		Error += B == glm::vec3(2.0f, 3.0f, 4.0f) ? 0 : 1;
+		glm::ivec3 A(1.0f, 2.0f, 3.0f);
+		glm::ivec3 B = ++A;
+		Error += B == glm::ivec3(2.0f, 3.0f, 4.0f) ? 0 : 1;
 	}
 
 	{
-		glm::vec3 A(1.0f, 2.0f, 3.0f);
-		glm::vec3 B = A++;
-		Error += B == glm::vec3(1.0f, 2.0f, 3.0f) ? 0 : 1;
-		Error += A == glm::vec3(2.0f, 3.0f, 4.0f) ? 0 : 1;
+		glm::ivec3 A(1.0f, 2.0f, 3.0f);
+		glm::ivec3 B = A++;
+		Error += B == glm::ivec3(1.0f, 2.0f, 3.0f) ? 0 : 1;
+		Error += A == glm::ivec3(2.0f, 3.0f, 4.0f) ? 0 : 1;
 	}
 
 	return Error;
@@ -319,57 +321,57 @@ int test_vec3_swizzle3_2()
 
 #	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 	{
-		glm::vec3 v(1, 2, 3);
-		glm::vec2 u;
+		glm::ivec3 v(1, 2, 3);
+		glm::ivec2 u;
 
 		// Can not assign a vec3 swizzle to a vec2
 		//u = v.xyz;    //Illegal
 		//u = v.rgb;    //Illegal
 		//u = v.stp;    //Illegal
 
-		u = v.xx;       Error += (u.x == 1.0f && u.y == 1.0f) ? 0 : 1;
-		u = v.xy;       Error += (u.x == 1.0f && u.y == 2.0f) ? 0 : 1;
-		u = v.xz;       Error += (u.x == 1.0f && u.y == 3.0f) ? 0 : 1;
-		u = v.yx;       Error += (u.x == 2.0f && u.y == 1.0f) ? 0 : 1;
-		u = v.yy;       Error += (u.x == 2.0f && u.y == 2.0f) ? 0 : 1;
-		u = v.yz;       Error += (u.x == 2.0f && u.y == 3.0f) ? 0 : 1;
-		u = v.zx;       Error += (u.x == 3.0f && u.y == 1.0f) ? 0 : 1;
-		u = v.zy;       Error += (u.x == 3.0f && u.y == 2.0f) ? 0 : 1;
-		u = v.zz;       Error += (u.x == 3.0f && u.y == 3.0f) ? 0 : 1;
+		u = v.xx;       Error += (u.x == 1 && u.y == 1) ? 0 : 1;
+		u = v.xy;       Error += (u.x == 1 && u.y == 2) ? 0 : 1;
+		u = v.xz;       Error += (u.x == 1 && u.y == 3) ? 0 : 1;
+		u = v.yx;       Error += (u.x == 2 && u.y == 1) ? 0 : 1;
+		u = v.yy;       Error += (u.x == 2 && u.y == 2) ? 0 : 1;
+		u = v.yz;       Error += (u.x == 2 && u.y == 3) ? 0 : 1;
+		u = v.zx;       Error += (u.x == 3 && u.y == 1) ? 0 : 1;
+		u = v.zy;       Error += (u.x == 3 && u.y == 2) ? 0 : 1;
+		u = v.zz;       Error += (u.x == 3 && u.y == 3) ? 0 : 1;
 
-		u = v.rr;       Error += (u.r == 1.0f && u.g == 1.0f) ? 0 : 1;
-		u = v.rg;       Error += (u.r == 1.0f && u.g == 2.0f) ? 0 : 1;
-		u = v.rb;       Error += (u.r == 1.0f && u.g == 3.0f) ? 0 : 1;
-		u = v.gr;       Error += (u.r == 2.0f && u.g == 1.0f) ? 0 : 1;
-		u = v.gg;       Error += (u.r == 2.0f && u.g == 2.0f) ? 0 : 1;
-		u = v.gb;       Error += (u.r == 2.0f && u.g == 3.0f) ? 0 : 1;
-		u = v.br;       Error += (u.r == 3.0f && u.g == 1.0f) ? 0 : 1;
-		u = v.bg;       Error += (u.r == 3.0f && u.g == 2.0f) ? 0 : 1;
-		u = v.bb;       Error += (u.r == 3.0f && u.g == 3.0f) ? 0 : 1;
+		u = v.rr;       Error += (u.r == 1 && u.g == 1) ? 0 : 1;
+		u = v.rg;       Error += (u.r == 1 && u.g == 2) ? 0 : 1;
+		u = v.rb;       Error += (u.r == 1 && u.g == 3) ? 0 : 1;
+		u = v.gr;       Error += (u.r == 2 && u.g == 1) ? 0 : 1;
+		u = v.gg;       Error += (u.r == 2 && u.g == 2) ? 0 : 1;
+		u = v.gb;       Error += (u.r == 2 && u.g == 3) ? 0 : 1;
+		u = v.br;       Error += (u.r == 3 && u.g == 1) ? 0 : 1;
+		u = v.bg;       Error += (u.r == 3 && u.g == 2) ? 0 : 1;
+		u = v.bb;       Error += (u.r == 3 && u.g == 3) ? 0 : 1;
 
-		u = v.ss;       Error += (u.s == 1.0f && u.t == 1.0f) ? 0 : 1;
-		u = v.st;       Error += (u.s == 1.0f && u.t == 2.0f) ? 0 : 1;
-		u = v.sp;       Error += (u.s == 1.0f && u.t == 3.0f) ? 0 : 1;
-		u = v.ts;       Error += (u.s == 2.0f && u.t == 1.0f) ? 0 : 1;
-		u = v.tt;       Error += (u.s == 2.0f && u.t == 2.0f) ? 0 : 1;
-		u = v.tp;       Error += (u.s == 2.0f && u.t == 3.0f) ? 0 : 1;
-		u = v.ps;       Error += (u.s == 3.0f && u.t == 1.0f) ? 0 : 1;
-		u = v.pt;       Error += (u.s == 3.0f && u.t == 2.0f) ? 0 : 1;
-		u = v.pp;       Error += (u.s == 3.0f && u.t == 3.0f) ? 0 : 1;
+		u = v.ss;       Error += (u.s == 1 && u.t == 1) ? 0 : 1;
+		u = v.st;       Error += (u.s == 1 && u.t == 2) ? 0 : 1;
+		u = v.sp;       Error += (u.s == 1 && u.t == 3) ? 0 : 1;
+		u = v.ts;       Error += (u.s == 2 && u.t == 1) ? 0 : 1;
+		u = v.tt;       Error += (u.s == 2 && u.t == 2) ? 0 : 1;
+		u = v.tp;       Error += (u.s == 2 && u.t == 3) ? 0 : 1;
+		u = v.ps;       Error += (u.s == 3 && u.t == 1) ? 0 : 1;
+		u = v.pt;       Error += (u.s == 3 && u.t == 2) ? 0 : 1;
+		u = v.pp;       Error += (u.s == 3 && u.t == 3) ? 0 : 1;
 		// Mixed member aliases are not valid
 		//u = v.rx;     //Illegal
 		//u = v.sy;     //Illegal
 
-		u = glm::vec2(1, 2);
-		v = glm::vec3(1, 2, 3);
+		u = glm::ivec2(1, 2);
+		v = glm::ivec3(1, 2, 3);
 		//v.xx = u;     //Illegal
-		v.xy = u;       Error += (v.x == 1.0f && v.y == 2.0f && v.z == 3.0f) ? 0 : 1;
-		v.xz = u;       Error += (v.x == 1.0f && v.y == 2.0f && v.z == 2.0f) ? 0 : 1;
-		v.yx = u;       Error += (v.x == 2.0f && v.y == 1.0f && v.z == 2.0f) ? 0 : 1;
+		v.xy = u;       Error += (v.x == 1 && v.y == 2 && v.z == 3) ? 0 : 1;
+		v.xz = u;       Error += (v.x == 1 && v.y == 2 && v.z == 2) ? 0 : 1;
+		v.yx = u;       Error += (v.x == 2 && v.y == 1 && v.z == 2) ? 0 : 1;
 		//v.yy = u;     //Illegal
-		v.yz = u;       Error += (v.x == 2.0f && v.y == 1.0f && v.z == 2.0f) ? 0 : 1;
-		v.zx = u;       Error += (v.x == 2.0f && v.y == 1.0f && v.z == 1.0f) ? 0 : 1;
-		v.zy = u;       Error += (v.x == 2.0f && v.y == 2.0f && v.z == 1.0f) ? 0 : 1;
+		v.yz = u;       Error += (v.x == 2 && v.y == 1 && v.z == 2) ? 0 : 1;
+		v.zx = u;       Error += (v.x == 2 && v.y == 1 && v.z == 1) ? 0 : 1;
+		v.zy = u;       Error += (v.x == 2 && v.y == 2 && v.z == 1) ? 0 : 1;
 		//v.zz = u;     //Illegal
 	}
 #	endif//GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
@@ -383,22 +385,22 @@ int test_vec3_swizzle3_3()
 
 #	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 	{
-		glm::vec3 v(1, 2, 3);
-		glm::vec3 u;
+		glm::ivec3 v(1, 2, 3);
+		glm::ivec3 u;
 
-		u = v;          Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
+		u = v;          Error += (u.x == 1 && u.y == 2 && u.z == 3) ? 0 : 1;
 
-		u = v.xyz;      Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
-		u = v.zyx;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
-		u.zyx = v;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+		u = v.xyz;      Error += (u.x == 1 && u.y == 2 && u.z == 3) ? 0 : 1;
+		u = v.zyx;      Error += (u.x == 3 && u.y == 2 && u.z == 1) ? 0 : 1;
+		u.zyx = v;      Error += (u.x == 3 && u.y == 2 && u.z == 1) ? 0 : 1;
 
-		u = v.rgb;      Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
-		u = v.bgr;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
-		u.bgr = v;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+		u = v.rgb;      Error += (u.x == 1 && u.y == 2 && u.z == 3) ? 0 : 1;
+		u = v.bgr;      Error += (u.x == 3 && u.y == 2 && u.z == 1) ? 0 : 1;
+		u.bgr = v;      Error += (u.x == 3 && u.y == 2 && u.z == 1) ? 0 : 1;
 
-		u = v.stp;      Error += (u.x == 1.0f && u.y == 2.0f && u.z == 3.0f) ? 0 : 1;
-		u = v.pts;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
-		u.pts = v;      Error += (u.x == 3.0f && u.y == 2.0f && u.z == 1.0f) ? 0 : 1;
+		u = v.stp;      Error += (u.x == 1 && u.y == 2 && u.z == 3) ? 0 : 1;
+		u = v.pts;      Error += (u.x == 3 && u.y == 2 && u.z == 1) ? 0 : 1;
+		u.pts = v;      Error += (u.x == 3 && u.y == 2 && u.z == 1) ? 0 : 1;
 	}
 #	endif//GLM_LANG
 
@@ -409,12 +411,12 @@ int test_vec3_swizzle_operators()
 {
 	int Error = 0;
 
-	glm::vec3 u = glm::vec3(1, 2, 3);
-	glm::vec3 v = glm::vec3(10, 20, 30);
+	glm::ivec3 const u = glm::ivec3(1, 2, 3);
+	glm::ivec3 const v = glm::ivec3(10, 20, 30);
 
 #	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 	{
-		glm::vec3 q;
+		glm::ivec3 q;
 
 		// Swizzle, swizzle binary operators
 		q = u.xyz + v.xyz;          Error += (q == (u + v)) ? 0 : 1;
@@ -496,20 +498,20 @@ int test_vec3_swizzle_partial()
 
 #	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 	{
-		glm::vec3 const A(1, 2, 3);
-		glm::vec3 B(A.xy, 3.0f);
+		glm::ivec3 const A(1, 2, 3);
+		glm::ivec3 B(A.xy, 3.0f);
 		Error += A == B ? 0 : 1;
 	}
 
 	{
-		glm::vec3 const A(1, 2, 3);
-		glm::vec3 const B(1.0f, A.yz);
+		glm::ivec3 const A(1, 2, 3);
+		glm::ivec3 const B(1.0f, A.yz);
 		Error += A == B ? 0 : 1;
 	}
 
 	{
-		glm::vec3 const A(1, 2, 3);
-		glm::vec3 const B(A.xyz);
+		glm::ivec3 const A(1, 2, 3);
+		glm::ivec3 const B(A.xyz);
 		Error += A == B ? 0 : 1;
 	}
 #	endif//GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR

@@ -2,6 +2,7 @@
 #define GLM_FORCE_SWIZZLE
 #include <glm/gtc/epsilon.hpp>
 #include <glm/ext/vec1.hpp>
+#include <glm/ext/vector_relational.hpp>
 #include <glm/vector_relational.hpp>
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
@@ -75,8 +76,8 @@ static int test_vec4_ctor()
 #endif
 
 	{
-		glm::vec4 A(1);
-		glm::vec4 B(1, 1, 1, 1);
+		glm::ivec4 const A(1);
+		glm::ivec4 const B(1, 1, 1, 1);
 		
 		Error += A == B ? 0 : 1;
 	}
@@ -307,8 +308,8 @@ static int test_operators()
 	int Error = 0;
 	
 	{
-		glm::vec4 A(1.0f);
-		glm::vec4 B(1.0f);
+		glm::ivec4 A(1.0f);
+		glm::ivec4 B(1.0f);
 		bool R = A != B;
 		bool S = A == B;
 
@@ -316,123 +317,123 @@ static int test_operators()
 	}
 
 	{
-		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
-		glm::vec4 B(4.0f, 5.0f, 6.0f, 7.0f);
+		glm::vec4 const A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::vec4 const B(4.0f, 5.0f, 6.0f, 7.0f);
 
-		glm::vec4 C = A + B;
-		Error += C == glm::vec4(5, 7, 9, 11) ? 0 : 1;
+		glm::vec4 const C = A + B;
+		Error += glm::all(glm::equal(C, glm::vec4(5, 7, 9, 11), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec4 D = B - A;
-		Error += D == glm::vec4(3, 3, 3, 3) ? 0 : 1;
+		glm::vec4 const D = B - A;
+		Error += glm::all(glm::equal(D, glm::vec4(3, 3, 3, 3), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec4 E = A * B;
-		Error += E == glm::vec4(4, 10, 18, 28) ? 0 : 1;
+		glm::vec4 const E = A * B;
+		Error += glm::all(glm::equal(E, glm::vec4(4, 10, 18, 28), glm::epsilon<float>()) )? 0 : 1;
 
-		glm::vec4 F = B / A;
-		Error += F == glm::vec4(4, 2.5, 2, 7.0f / 4.0f) ? 0 : 1;
+		glm::vec4 const F = B / A;
+		Error += glm::all(glm::equal(F, glm::vec4(4, 2.5, 2, 7.0f / 4.0f), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec4 G = A + 1.0f;
-		Error += G == glm::vec4(2, 3, 4, 5) ? 0 : 1;
+		glm::vec4 const G = A + 1.0f;
+		Error += glm::all(glm::equal(G, glm::vec4(2, 3, 4, 5), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec4 H = B - 1.0f;
-		Error += H == glm::vec4(3, 4, 5, 6) ? 0 : 1;
+		glm::vec4 const H = B - 1.0f;
+		Error += glm::all(glm::equal(H, glm::vec4(3, 4, 5, 6), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec4 I = A * 2.0f;
-		Error += I == glm::vec4(2, 4, 6, 8) ? 0 : 1;
+		glm::vec4 const I = A * 2.0f;
+		Error += glm::all(glm::equal(I, glm::vec4(2, 4, 6, 8), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec4 J = B / 2.0f;
-		Error += J == glm::vec4(2, 2.5, 3, 3.5) ? 0 : 1;
+		glm::vec4 const J = B / 2.0f;
+		Error += glm::all(glm::equal(J, glm::vec4(2, 2.5, 3, 3.5), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec4 K = 1.0f + A;
-		Error += K == glm::vec4(2, 3, 4, 5) ? 0 : 1;
+		glm::vec4 const K = 1.0f + A;
+		Error += glm::all(glm::equal(K, glm::vec4(2, 3, 4, 5), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec4 L = 1.0f - B;
-		Error += L == glm::vec4(-3, -4, -5, -6) ? 0 : 1;
+		glm::vec4 const L = 1.0f - B;
+		Error += glm::all(glm::equal(L, glm::vec4(-3, -4, -5, -6), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec4 M = 2.0f * A;
-		Error += M == glm::vec4(2, 4, 6, 8) ? 0 : 1;
+		glm::vec4 const M = 2.0f * A;
+		Error += glm::all(glm::equal(M, glm::vec4(2, 4, 6, 8), glm::epsilon<float>())) ? 0 : 1;
 
-		glm::vec4 N = 2.0f / B;
-		Error += N == glm::vec4(0.5, 2.0 / 5.0, 2.0 / 6.0, 2.0 / 7.0) ? 0 : 1;
+		glm::vec4 const N = 2.0f / B;
+		Error += glm::all(glm::equal(N, glm::vec4(0.5, 2.0 / 5.0, 2.0 / 6.0, 2.0 / 7.0), glm::epsilon<float>())) ? 0 : 1;
 	}
 
 	{
-		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
-		glm::vec4 B(4.0f, 5.0f, 6.0f, 7.0f);
+		glm::ivec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::ivec4 B(4.0f, 5.0f, 6.0f, 7.0f);
 
 		A += B;
-		Error += A == glm::vec4(5, 7, 9, 11) ? 0 : 1;
+		Error += A == glm::ivec4(5, 7, 9, 11) ? 0 : 1;
 
-		A += 1.0f;
-		Error += A == glm::vec4(6, 8, 10, 12) ? 0 : 1;
+		A += 1;
+		Error += A == glm::ivec4(6, 8, 10, 12) ? 0 : 1;
 	}
 	{
-		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
-		glm::vec4 B(4.0f, 5.0f, 6.0f, 7.0f);
+		glm::ivec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::ivec4 B(4.0f, 5.0f, 6.0f, 7.0f);
 
 		B -= A;
-		Error += B == glm::vec4(3, 3, 3, 3) ? 0 : 1;
+		Error += B == glm::ivec4(3, 3, 3, 3) ? 0 : 1;
 
-		B -= 1.0f;
-		Error += B == glm::vec4(2, 2, 2, 2) ? 0 : 1;
+		B -= 1;
+		Error += B == glm::ivec4(2, 2, 2, 2) ? 0 : 1;
 	}
 	{
-		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
-		glm::vec4 B(4.0f, 5.0f, 6.0f, 7.0f);
+		glm::ivec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::ivec4 B(4.0f, 5.0f, 6.0f, 7.0f);
 
 		A *= B;
-		Error += A == glm::vec4(4, 10, 18, 28) ? 0 : 1;
+		Error += A == glm::ivec4(4, 10, 18, 28) ? 0 : 1;
 
-		A *= 2.0f;
-		Error += A == glm::vec4(8, 20, 36, 56) ? 0 : 1;
+		A *= 2;
+		Error += A == glm::ivec4(8, 20, 36, 56) ? 0 : 1;
 	}
 	{
-		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
-		glm::vec4 B(4.0f, 5.0f, 6.0f, 7.0f);
+		glm::ivec4 A(1.0f, 2.0f, 2.0f, 4.0f);
+		glm::ivec4 B(4.0f, 4.0f, 8.0f, 8.0f);
 
 		B /= A;
-		Error += B == glm::vec4(4, 2.5, 2, 7.0f / 4.0f) ? 0 : 1;
+		Error += B == glm::ivec4(4, 2, 4, 2) ? 0 : 1;
 
-		B /= 2.0f;
-		Error += B == glm::vec4(2, 1.25, 1, 7.0f / 4.0f / 2.0f) ? 0 : 1;
+		B /= 2;
+		Error += B == glm::ivec4(2, 1, 2, 1) ? 0 : 1;
 	}
 	{
-		glm::vec4 B(2.0f);
+		glm::ivec4 B(2.0f);
 
 		B /= B.y;
-		Error += B == glm::vec4(1.0f) ? 0 : 1;
+		Error += B == glm::ivec4(1.0f) ? 0 : 1;
 	}
 
 	{
-		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
-		glm::vec4 B = -A;
-		Error += B == glm::vec4(-1.0f, -2.0f, -3.0f, -4.0f) ? 0 : 1;
+		glm::ivec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::ivec4 B = -A;
+		Error += B == glm::ivec4(-1.0f, -2.0f, -3.0f, -4.0f) ? 0 : 1;
 	}
 
 	{
-		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
-		glm::vec4 B = --A;
-		Error += B == glm::vec4(0.0f, 1.0f, 2.0f, 3.0f) ? 0 : 1;
+		glm::ivec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::ivec4 B = --A;
+		Error += B == glm::ivec4(0.0f, 1.0f, 2.0f, 3.0f) ? 0 : 1;
 	}
 
 	{
-		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
-		glm::vec4 B = A--;
-		Error += B == glm::vec4(1.0f, 2.0f, 3.0f, 4.0f) ? 0 : 1;
-		Error += A == glm::vec4(0.0f, 1.0f, 2.0f, 3.0f) ? 0 : 1;
+		glm::ivec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::ivec4 B = A--;
+		Error += B == glm::ivec4(1.0f, 2.0f, 3.0f, 4.0f) ? 0 : 1;
+		Error += A == glm::ivec4(0.0f, 1.0f, 2.0f, 3.0f) ? 0 : 1;
 	}
 
 	{
-		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
-		glm::vec4 B = ++A;
-		Error += B == glm::vec4(2.0f, 3.0f, 4.0f, 5.0f) ? 0 : 1;
+		glm::ivec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::ivec4 B = ++A;
+		Error += B == glm::ivec4(2.0f, 3.0f, 4.0f, 5.0f) ? 0 : 1;
 	}
 
 	{
-		glm::vec4 A(1.0f, 2.0f, 3.0f, 4.0f);
-		glm::vec4 B = A++;
-		Error += B == glm::vec4(1.0f, 2.0f, 3.0f, 4.0f) ? 0 : 1;
-		Error += A == glm::vec4(2.0f, 3.0f, 4.0f, 5.0f) ? 0 : 1;
+		glm::ivec4 A(1.0f, 2.0f, 3.0f, 4.0f);
+		glm::ivec4 B = A++;
+		Error += B == glm::ivec4(1.0f, 2.0f, 3.0f, 4.0f) ? 0 : 1;
+		Error += A == glm::ivec4(2.0f, 3.0f, 4.0f, 5.0f) ? 0 : 1;
 	}
 
 	return Error;
@@ -443,8 +444,8 @@ static int test_equal()
 	int Error = 0;
 
 	{
-		glm::vec4 const A(1, 2, 3, 4);
-		glm::vec4 const B(1, 2, 3, 4);
+		glm::uvec4 const A(1, 2, 3, 4);
+		glm::uvec4 const B(1, 2, 3, 4);
 		Error += A == B ? 0 : 1;
 		Error += A != B ? 1 : 0;
 	}
@@ -483,33 +484,33 @@ static int test_swizzle_partial()
 {
 	int Error = 0;
 
-	glm::vec4 A(1, 2, 3, 4);
+	glm::vec4 const A(1, 2, 3, 4);
 
 #	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
 	{
 		glm::vec4 B(A.xy, A.zw);
-		Error += A == B ? 0 : 1;
+		Error += glm::all(glm::equal(A, B, 0.0001f)) ? 0 : 1;
 	}
 	{
 		glm::vec4 B(A.xy, 3.0f, 4.0f);
-		Error += A == B ? 0 : 1;
+		Error += glm::all(glm::equal(A, B, 0.0001f)) ? 0 : 1;
 	}
 	{
 		glm::vec4 B(1.0f, A.yz, 4.0f);
-		Error += A == B ? 0 : 1;
+		Error += glm::all(glm::equal(A, B, 0.0001f)) ? 0 : 1;
 	}
 	{
 		glm::vec4 B(1.0f, 2.0f, A.zw);
-		Error += A == B ? 0 : 1;
+		Error += glm::all(glm::equal(A, B, 0.0001f)) ? 0 : 1;
 	}
 
 	{
 		glm::vec4 B(A.xyz, 4.0f);
-		Error += A == B ? 0 : 1;
+		Error += glm::all(glm::equal(A, B, 0.0001f)) ? 0 : 1;
 	}
 	{
 		glm::vec4 B(1.0f, A.yzw);
-		Error += A == B ? 0 : 1;
+		Error += glm::all(glm::equal(A, B, 0.0001f)) ? 0 : 1;
 	}
 #	endif//GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR || GLM_SWIZZLE == GLM_SWIZZLE_FUNCTION
 
