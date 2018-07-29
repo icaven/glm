@@ -54,6 +54,9 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 ### [GLM 0.9.9.1](https://github.com/g-truc/glm/commits/master) - 2018-0X-XX
 #### Features:
 - Added bitfieldDeinterleave to GTC_bitfield
+- Added missing equal and notEqual with epsilon for quaternion types to EXT_vector_relational
+- Added missing equal and notEqual with epsilon for matrix types to EXT_vector_relational
+- Added missing aligned matrix types to GTC_type_aligned
 - Added C++17 detection
 - Added Visual C++ language standard version detection
 
@@ -61,8 +64,6 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Added missing vec1 based constructors
 - Redesigned constexpr support which excludes both SIMD and constexpr #783
 - Added detection of Visual C++ 2017 toolsets
-- Added missing equal and notEqual with epsilon for quaternion types in EXT_vector_relational
-- Added missing equal and notEqual with epsilon for matrix types in EXT_vector_relational
 - Added identity functions #765
 
 #### Fixes:
