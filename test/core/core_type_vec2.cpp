@@ -9,9 +9,9 @@
 #	include <type_traits>
 #endif
 
-static glm::vec2 g1;
-static glm::vec2 g2(1);
-static glm::vec2 g3(1, 1);
+static glm::ivec2 g1;
+static glm::ivec2 g2(1);
+static glm::ivec2 g3(1, 1);
 
 static int test_operators()
 {
