@@ -127,6 +127,19 @@ static int test_ctor()
 	return Error;
 }
 
+static int test_aligned_ivec4()
+{
+	int Error = 0;
+
+	glm::aligned_ivec4 const v(1, 2, 3, 4);
+	Error += glm::all(glm::equal(v, glm::aligned_ivec4(1, 2, 3, 4))) ? 0 : 1;
+
+	glm::aligned_ivec4 const u = v * 2;
+	Error += glm::all(glm::equal(u, glm::aligned_ivec4(2, 4, 6, 8))) ? 0 : 1;
+
+	return Error;
+}
+
 static int test_aligned_mat4()
 {
 	int Error = 0;
@@ -151,6 +164,7 @@ int main()
 
 	Error += test_ctor();
 	Error += test_copy();
+	Error += test_aligned_ivec4();
 	Error += test_aligned_mat4();
 
 	return Error;
