@@ -127,7 +127,6 @@ static int test_ctor()
 	return Error;
 }
 
-/*
 using namespace glm;
 
 typedef mat<4, 4, float, aligned> aligned_mat4;
@@ -144,7 +143,6 @@ static int test_aligned_mat4()
 
 	return Error;
 }
-*/
 
 int main()
 {
@@ -152,7 +150,7 @@ int main()
 
 	Error += test_ctor();
 	Error += test_copy();
-//	Error += test_aligned_mat4();
+	Error += test_aligned_mat4();
 
 	return Error;
 }

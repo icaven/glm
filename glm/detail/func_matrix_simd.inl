@@ -33,9 +33,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static mat<4, 4, float, Q> call(mat<4, 4, float, Q> const& m)
 		{
 			mat<4, 4, float, Q> Result;
-			glm_mat4_transpose(
-				*static_cast<glm_vec4 const (*)[4]>(&m[0].data),
-				*static_cast<glm_vec4(*)[4]>(&Result[0].data));
+			glm_mat4_transpose(&m[0].data, &Result[0].data);
 			return Result;
 		}
 	};
@@ -45,7 +43,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER static float call(mat<4, 4, float, Q> const& m)
 		{
-			return _mm_cvtss_f32(glm_mat4_determinant(*reinterpret_cast<__m128 const(*)[4]>(&m[0].data)));
+			return _mm_cvtss_f32(glm_mat4_determinant(&m[0].data));
 		}
 	};
 
@@ -55,7 +53,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static mat<4, 4, float, Q> call(mat<4, 4, float, Q> const& m)
 		{
 			mat<4, 4, float, Q> Result;
-			glm_mat4_inverse(*reinterpret_cast<__m128 const(*)[4]>(&m[0].data), *reinterpret_cast<__m128(*)[4]>(&Result[0].data));
+			glm_mat4_inverse(&m[0].data, &Result[0].data);
 			return Result;
 		}
 	};

@@ -20,10 +20,10 @@
 # pragma message("GLM: GLM_GTC_type_aligned extension included")
 #endif
 
+#include "../gtc/vec1.hpp"
 #include "../vec2.hpp"
 #include "../vec3.hpp"
 #include "../vec4.hpp"
-#include "../gtc/vec1.hpp"
 
 namespace glm
 {
