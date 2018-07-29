@@ -75,6 +75,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Fixed ICC build errors with constexpr #704
 - Fixed defaulted operator= and constructors #791
 - Fixed invalid conversion from int scalar with vec4 constructor when using SSE instruction
+- Fixed infinite loop in random functions when using negative radius values using an assert #739
 
 ### [GLM 0.9.9.0](https://github.com/g-truc/glm/releases/tag/0.9.9.0) - 2018-05-22
 #### Features:

@@ -243,6 +243,8 @@ namespace detail
 	template<typename T>
 	GLM_FUNC_QUALIFIER vec<2, T, defaultp> diskRand(T Radius)
 	{
+		assert(Radius > static_cast<T>(0));
+
 		vec<2, T, defaultp> Result(T(0));
 		T LenRadius(T(0));
 
@@ -261,6 +263,8 @@ namespace detail
 	template<typename T>
 	GLM_FUNC_QUALIFIER vec<3, T, defaultp> ballRand(T Radius)
 	{
+		assert(Radius > static_cast<T>(0));
+
 		vec<3, T, defaultp> Result(T(0));
 		T LenRadius(T(0));
 
@@ -279,6 +283,8 @@ namespace detail
 	template<typename T>
 	GLM_FUNC_QUALIFIER vec<2, T, defaultp> circularRand(T Radius)
 	{
+		assert(Radius > static_cast<T>(0));
+
 		T a = linearRand(T(0), static_cast<T>(6.283185307179586476925286766559));
 		return vec<2, T, defaultp>(glm::cos(a), glm::sin(a)) * Radius;
 	}
@@ -286,6 +292,8 @@ namespace detail
 	template<typename T>
 	GLM_FUNC_QUALIFIER vec<3, T, defaultp> sphericalRand(T Radius)
 	{
+		assert(Radius > static_cast<T>(0));
+
 		T theta = linearRand(T(0), T(6.283185307179586476925286766559f));
 		T phi = std::acos(linearRand(T(-1.0f), T(1.0f)));
 
