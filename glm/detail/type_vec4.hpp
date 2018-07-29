@@ -24,7 +24,9 @@ namespace glm
 
 		// -- Data --
 
-#		if GLM_USE_ANONYMOUS_STRUCT == GLM_ENABLE
+#		if GLM_USE_XYZW_ONLY
+			T x, y, z, w;
+#		elif GLM_USE_ANONYMOUS_STRUCT == GLM_ENABLE
 			union
 			{
 				struct { T x, y, z, w; };

@@ -41,7 +41,9 @@ namespace glm
 
 		// -- Data --
 
-#		if GLM_USE_ANONYMOUS_STRUCT == GLM_ENABLE
+#		if GLM_USE_XYZW_ONLY
+			T x;
+#		elif GLM_USE_ANONYMOUS_STRUCT == GLM_ENABLE
 			union
 			{
 				T x;

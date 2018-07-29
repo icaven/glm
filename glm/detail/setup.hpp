@@ -445,9 +445,9 @@
 #define GLM_SWIZZLE_OPERATOR 1
 #define GLM_SWIZZLE_FUNCTION 2
 
-#if defined(GLM_FORCE_SWIZZLE) && (GLM_LANG & GLM_LANG_CXXMS_FLAG)
+#if defined(GLM_FORCE_SWIZZLE) && !defined(GLM_FORCE_XYZW_ONLY) && (GLM_LANG & GLM_LANG_CXXMS_FLAG)
 #	define GLM_SWIZZLE GLM_SWIZZLE_OPERATOR
-#elif defined(GLM_FORCE_SWIZZLE)
+#elif defined(GLM_FORCE_SWIZZLE) && !defined(GLM_FORCE_XYZW_ONLY)
 #	define GLM_SWIZZLE GLM_SWIZZLE_FUNCTION
 #else
 #	define GLM_SWIZZLE GLM_DISABLE
@@ -598,6 +598,15 @@ namespace glm
 #define GLM_USE_SIMD GLM_ENABLE
 #else
 #define GLM_USE_SIMD GLM_DISABLE
+#endif
+
+///////////////////////////////////////////////////////////////////////////////////
+// Only use x, y, z, w as vector type components
+
+#ifdef GLM_FORCE_XYZW_ONLY
+#	define GLM_USE_XYZW_ONLY GLM_ENABLE
+#else
+#	define GLM_USE_XYZW_ONLY GLM_DISABLE
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -787,6 +796,11 @@ namespace glm
 #		pragma message("GLM: platform unknown")
 #	else
 #		pragma message("GLM: platform not detected")
+#	endif
+
+	// Report whether only xyzw component are used
+#	if defined GLM_FORCE_XYZW_ONLY
+#		pragma message("GLM: GLM_FORCE_XYZW_ONLY is defined. Only x, y, z and w component are available in vector type. This define disables swizzle operators and SIMD instruction sets")
 #	endif
 
 	// Report swizzle operator support
