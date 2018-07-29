@@ -46,6 +46,105 @@ static int test_vec1()
 		static_assert(A1 == A2 || B1 == B2, "GLM: Failed constexpr");
 	}
 
+	{
+		constexpr glm::ivec1 A(1);
+		constexpr glm::ivec1 B = A + 1;
+		constexpr glm::ivec1 C(3);
+		static_assert(A + B == C, "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 D = +A;
+		static_assert(D == A, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec1 A(3);
+		constexpr glm::ivec1 B = A - 1;
+		constexpr glm::ivec1 C(1);
+		static_assert(A - B == C, "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 D = -A;
+		static_assert(-D == A, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec1 A(3);
+		constexpr glm::ivec1 B = A * 1;
+		static_assert(A == B, "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 C(1);
+		static_assert(B * C == A, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec1 A(3);
+		constexpr glm::ivec1 B = A / 1;
+		static_assert(A == B, "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 C(1);
+		static_assert(B / C == A, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec1 A(3);
+		constexpr glm::ivec1 B = A % 2;
+		constexpr glm::ivec1 C(1);
+		static_assert(B == C, "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 D(2);
+		static_assert(A % D == C, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec1 A(1);
+		constexpr glm::ivec1 B = A & 1;
+		static_assert(A == B, "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 C(1);
+		static_assert(A == (A & C), "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec1 A(1);
+		constexpr glm::ivec1 B = A | 1;
+		static_assert(A == B, "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 C(1);
+		static_assert(A == (A | C), "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec1 A(1);
+		constexpr glm::ivec1 B = A ^ 0;
+		static_assert(A == B, "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 C(0);
+		static_assert(A == (A ^ C), "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec1 A(1);
+		constexpr glm::ivec1 B = A << 1;
+		static_assert(B == glm::ivec1(2), "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 C(1);
+		static_assert(B == (A << C), "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec1 A(2);
+		constexpr glm::ivec1 B = A >> 1;
+		static_assert(B == glm::ivec1(1), "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 C(1);
+		static_assert(B == A >> C, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec1 A(~0);
+		constexpr glm::ivec1 B = ~A;
+		static_assert(A == ~B, "GLM: Failed constexpr");
+	}
+
 	return Error;
 }
 
@@ -281,6 +380,105 @@ static int test_vec3()
 		static_assert(A1 == A2 || B1 == B2, "GLM: Failed constexpr");
 	}
 
+	{
+		constexpr glm::ivec3 A(1);
+		constexpr glm::ivec3 B = A + 1;
+		constexpr glm::ivec3 C(3);
+		static_assert(A + B == C, "GLM: Failed constexpr");
+
+		constexpr glm::ivec3 D = +A;
+		static_assert(D == A, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec3 A(3);
+		constexpr glm::ivec3 B = A - 1;
+		constexpr glm::ivec3 C(1);
+		static_assert(A - B == C, "GLM: Failed constexpr");
+
+		constexpr glm::ivec3 D = -A;
+		static_assert(-D == A, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec3 A(3);
+		constexpr glm::ivec3 B = A * 1;
+		static_assert(A == B, "GLM: Failed constexpr");
+
+		constexpr glm::ivec3 C(1);
+		static_assert(B * C == A, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec3 A(3);
+		constexpr glm::ivec3 B = A / 1;
+		static_assert(A == B, "GLM: Failed constexpr");
+
+		constexpr glm::ivec3 C(1);
+		static_assert(B / C == A, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec3 A(3);
+		constexpr glm::ivec3 B = A % 2;
+		constexpr glm::ivec3 C(1);
+		static_assert(B == C, "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 D(2);
+		static_assert(A % D == C, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec3 A(1);
+		constexpr glm::ivec3 B = A & 1;
+		static_assert(A == B, "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 C(1);
+		static_assert(A == (A & C), "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec3 A(1);
+		constexpr glm::ivec3 B = A | 1;
+		static_assert(A == B, "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 C(1);
+		static_assert(A == (A | C), "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec3 A(1);
+		constexpr glm::ivec3 B = A ^ 0;
+		static_assert(A == B, "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 C(0);
+		static_assert(A == (A ^ C), "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec3 A(1);
+		constexpr glm::ivec3 B = A << 1;
+		static_assert(B == glm::ivec3(2), "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 C(1);
+		static_assert(B == (A << C), "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec3 A(2);
+		constexpr glm::ivec3 B = A >> 1;
+		static_assert(B == glm::ivec3(1), "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 C(1);
+		static_assert(B == A >> C, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec3 A(~0);
+		constexpr glm::ivec3 B = ~A;
+		static_assert(A == ~B, "GLM: Failed constexpr");
+	}
+
 	return Error;
 }
 
@@ -335,6 +533,105 @@ static int test_vec4()
 		constexpr glm::bvec4 B2(false);
 		static_assert(A1 == A2 && B1 == B2, "GLM: Failed constexpr");
 		static_assert(A1 == A2 || B1 == B2, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec4 A(1);
+		constexpr glm::ivec4 B = A + 1;
+		constexpr glm::ivec4 C(3);
+		static_assert(A + B == C, "GLM: Failed constexpr");
+
+		constexpr glm::ivec4 D = +A;
+		static_assert(D == A, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec4 A(3);
+		constexpr glm::ivec4 B = A - 1;
+		constexpr glm::ivec4 C(1);
+		static_assert(A - B == C, "GLM: Failed constexpr");
+
+		constexpr glm::ivec4 D = -A;
+		static_assert(-D == A, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec4 A(3);
+		constexpr glm::ivec4 B = A * 1;
+		static_assert(A == B, "GLM: Failed constexpr");
+
+		constexpr glm::ivec4 C(1);
+		static_assert(B * C == A, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec4 A(3);
+		constexpr glm::ivec4 B = A / 1;
+		static_assert(A == B, "GLM: Failed constexpr");
+
+		constexpr glm::ivec4 C(1);
+		static_assert(B / C == A, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec4 A(3);
+		constexpr glm::ivec4 B = A % 2;
+		constexpr glm::ivec4 C(1);
+		static_assert(B == C, "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 D(2);
+		static_assert(A % D == C, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec4 A(1);
+		constexpr glm::ivec4 B = A & 1;
+		static_assert(A == B, "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 C(1);
+		static_assert(A == (A & C), "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec4 A(1);
+		constexpr glm::ivec4 B = A | 1;
+		static_assert(A == B, "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 C(1);
+		static_assert(A == (A | C), "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec4 A(1);
+		constexpr glm::ivec4 B = A ^ 0;
+		static_assert(A == B, "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 C(0);
+		static_assert(A == (A ^ C), "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec4 A(1);
+		constexpr glm::ivec4 B = A << 1;
+		static_assert(B == glm::ivec4(2), "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 C(1);
+		static_assert(B == (A << C), "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec4 A(2);
+		constexpr glm::ivec4 B = A >> 1;
+		static_assert(B == glm::ivec4(1), "GLM: Failed constexpr");
+
+		constexpr glm::ivec1 C(1);
+		static_assert(B == A >> C, "GLM: Failed constexpr");
+	}
+
+	{
+		constexpr glm::ivec4 A(~0);
+		constexpr glm::ivec4 B = ~A;
+		static_assert(A == ~B, "GLM: Failed constexpr");
 	}
 
 	return Error;
