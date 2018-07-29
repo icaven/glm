@@ -74,6 +74,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Fixed Visual C++ 2013 warnings in vector relational code #782
 - Fixed ICC build errors with constexpr #704
 - Fixed defaulted operator= and constructors #791
+- Fixed invalid conversion from int scalar with vec4 constructor when using SSE instruction
 
 ### [GLM 0.9.9.0](https://github.com/g-truc/glm/releases/tag/0.9.9.0) - 2018-05-22
 #### Features:

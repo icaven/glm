@@ -127,19 +127,20 @@ static int test_ctor()
 	return Error;
 }
 
-using namespace glm;
-
-typedef mat<4, 4, float, aligned> aligned_mat4;
-
 static int test_aligned_mat4()
 {
 	int Error = 0;
 
-	aligned_mat4 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
-	aligned_mat4 t = transpose(m);
-	aligned_mat4 const expected = mat4(0, 4, 8, 12, 1, 5, 9, 13, 2, 6, 10, 14, 3, 7, 11, 15);
-	for (length_t l = 0; l < expected.length(); ++l)
-		Error += all(equal(t[l], expected[l], 0.0001f)) ? 0 : 1;
+	glm::aligned_vec4 const u(1.f, 2.f, 3.f, 4.f);
+	Error += glm::all(glm::equal(u, glm::aligned_vec4(1.f, 2.f, 3.f, 4.f), 0.0001f)) ? 0 : 1;
+
+	glm::aligned_vec4 const v(1, 2, 3, 4);
+	Error += glm::all(glm::equal(v, glm::aligned_vec4(1.f, 2.f, 3.f, 4.f), 0.0001f)) ? 0 : 1;
+
+	glm::aligned_mat4 const m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+	glm::aligned_mat4 const t = glm::transpose(m);
+	glm::aligned_mat4 const expected = glm::mat4(0, 4, 8, 12, 1, 5, 9, 13, 2, 6, 10, 14, 3, 7, 11, 15);
+	Error += glm::all(glm::equal(t, expected, 0.0001f)) ? 0 : 1;
 
 	return Error;
 }

@@ -446,19 +446,19 @@ namespace detail
 	template<>
 	template<>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<4, float, aligned_lowp>::vec(int32 _x, int32 _y, int32 _z, int32 _w) :
-		data(_mm_castsi128_ps(_mm_set_epi32(_w, _z, _y, _x)))
+		data(_mm_cvtepi32_ps(_mm_set_epi32(_w, _z, _y, _x)))
 	{}
 
 	template<>
 	template<>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<4, float, aligned_mediump>::vec(int32 _x, int32 _y, int32 _z, int32 _w) :
-		data(_mm_castsi128_ps(_mm_set_epi32(_w, _z, _y, _x)))
+		data(_mm_cvtepi32_ps(_mm_set_epi32(_w, _z, _y, _x)))
 	{}
 
 	template<>
 	template<>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<4, float, aligned_highp>::vec(int32 _x, int32 _y, int32 _z, int32 _w) :
-		data(_mm_castsi128_ps(_mm_set_epi32(_w, _z, _y, _x)))
+		data(_mm_cvtepi32_ps(_mm_set_epi32(_w, _z, _y, _x)))
 	{}
 #endif// GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE
 }//namespace glm
