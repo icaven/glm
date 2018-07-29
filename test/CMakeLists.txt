@@ -7,10 +7,12 @@ function(glmCreateTestGTC NAME)
 		COMMAND $<TARGET_FILE:${SAMPLE_NAME}> )
 endfunction()
 
-add_subdirectory(bug)
-add_subdirectory(core)
-add_subdirectory(ext)
-add_subdirectory(gtc)
-add_subdirectory(gtx)
+if(GLM_TEST_ENABLE)
+	add_subdirectory(bug)
+	add_subdirectory(core)
+	add_subdirectory(ext)
+	add_subdirectory(gtc)
+	add_subdirectory(gtx)
+endif()
 
 
