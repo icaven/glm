@@ -1,0 +1,72 @@
+#define GLM_FORCE_ALIGNED_GENTYPES
+#define GLM_ENABLE_EXPERIMENTAL
+#include <glm/gtx/common.hpp>
+#include <glm/gtc/integer.hpp>
+#include <glm/gtc/epsilon.hpp>
+#include <glm/gtc/type_aligned.hpp>
+#include <glm/ext/vector_relational.hpp>
+#include <glm/glm.hpp>
+
+#if GLM_USE_SIMD == GLM_ENABLE && GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE
+
+namespace glm
+{
+/*
+	template <typename genType, typename valType>
+	genType load(valType const* Mem)
+	{
+		
+	}
+*/
+
+	aligned_vec4 loadu(float const* Mem)
+	{
+		aligned_vec4 Result;
+#		if GLM_ARCH & GLM_ARCH_SSE_BIT
+			Result.data = _mm_loadu_ps(Mem);
+#		else
+			Result[0] = *(Mem + 0);
+			Result[1] = *(Mem + 1);
+			Result[2] = *(Mem + 2);
+			Result[3] = *(Mem + 3);
+#		endif//GLM_ARCH & GLM_ARCH_SSE_BIT
+		return Result;
+	}
+
+	aligned_vec4 loada(float const* Mem)
+	{
+		aligned_vec4 Result;
+#		if GLM_ARCH & GLM_ARCH_SSE_BIT
+			Result.data = _mm_load_ps(Mem);
+#		else
+			Result[0] = *(Mem + 0);
+			Result[1] = *(Mem + 1);
+			Result[2] = *(Mem + 2);
+			Result[3] = *(Mem + 3);
+#		endif//GLM_ARCH & GLM_ARCH_SSE_BIT
+		return Result;
+	}
+}//namespace glm
+
+int test_vec4_load()
+{
+	int Error = 0;
+
+	float Data[] = {1.f, 2.f, 3.f, 4.f};
+	glm::aligned_vec4 const V = glm::loadu(Data);
+	Error += glm::all(glm::equal(V, glm::aligned_vec4(1.f, 2.f, 3.f, 4.f), glm::epsilon<float>())) ? 0 : 1;
+
+	return Error;
+}
+#endif
+
+int main()
+{
+	int Error = 0;
+
+#	if GLM_USE_SIMD == GLM_ENABLE && GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE
+		Error += test_vec4_load();
+#	endif
+
+	return Error;
+}
