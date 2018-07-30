@@ -6,7 +6,7 @@
 #include <glm/gtc/type_aligned.hpp>
 #include <glm/ext/vector_relational.hpp>
 #include <glm/glm.hpp>
-
+/*
 #if GLM_USE_SIMD == GLM_ENABLE && GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE
 
 namespace glm
@@ -111,14 +111,14 @@ int test_vec4_load()
 	return Error;
 }
 #endif
-
+*/
 int main()
 {
 	int Error = 0;
-
+/*
 #	if GLM_USE_SIMD == GLM_ENABLE && GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE
 		Error += test_vec4_load();
 #	endif
-
+*/
 	return Error;
 }
