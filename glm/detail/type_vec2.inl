@@ -1,5 +1,5 @@
 /// @ref core
-/// @file glm/core/type_tvec2.inl
+/// @file glm/detail/type_vec2.inl
 
 #include "./compute_vector_relational.hpp"
 
