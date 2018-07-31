@@ -1,5 +1,4 @@
 /// @ref core
-/// @file glm/detail/type_vec2.inl
 
 #include "./compute_vector_relational.hpp"
 
