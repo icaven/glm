@@ -1,4 +1,3 @@
-#define GLM_FORCE_ALIGNED_GENTYPES
 #include <glm/glm.hpp>
 
 #if GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
