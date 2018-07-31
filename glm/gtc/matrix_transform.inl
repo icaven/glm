@@ -169,55 +169,51 @@ namespace glm
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> orthoZO(T left, T right, T bottom, T top, T zNear, T zFar)
 	{
-#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT)
 			return orthoLH_ZO(left, right, bottom, top, zNear, zFar);
-#		else
+		else
 			return orthoRH_ZO(left, right, bottom, top, zNear, zFar);
-#		endif
 	}
 
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> orthoNO(T left, T right, T bottom, T top, T zNear, T zFar)
 	{
-#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT)
 			return orthoLH_NO(left, right, bottom, top, zNear, zFar);
-#		else
+		else
 			return orthoRH_NO(left, right, bottom, top, zNear, zFar);
-#		endif
 	}
 
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> orthoLH(T left, T right, T bottom, T top, T zNear, T zFar)
 	{
-#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT)
 			return orthoLH_ZO(left, right, bottom, top, zNear, zFar);
-#		else
+		else
 			return orthoLH_NO(left, right, bottom, top, zNear, zFar);
-#		endif
+
 	}
 
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> orthoRH(T left, T right, T bottom, T top, T zNear, T zFar)
 	{
-#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT)
 			return orthoRH_ZO(left, right, bottom, top, zNear, zFar);
-#		else
+		else
 			return orthoRH_NO(left, right, bottom, top, zNear, zFar);
-#		endif
 	}
 
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> ortho(T left, T right, T bottom, T top, T zNear, T zFar)
 	{
-#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED && GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+		if(GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_LH_ZO)
 			return orthoLH_ZO(left, right, bottom, top, zNear, zFar);
-#		elif GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED && GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_NEGATIVE_ONE_TO_ONE
+		else if(GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_LH_NO)
 			return orthoLH_NO(left, right, bottom, top, zNear, zFar);
-#		elif GLM_COORDINATE_SYSTEM == GLM_RIGHT_HANDED && GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+		else if(GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_RH_ZO)
 			return orthoRH_ZO(left, right, bottom, top, zNear, zFar);
-#		elif GLM_COORDINATE_SYSTEM == GLM_RIGHT_HANDED && GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_NEGATIVE_ONE_TO_ONE
+		else if(GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_RH_NO)
 			return orthoRH_NO(left, right, bottom, top, zNear, zFar);
-#		endif
 	}
 
 	template<typename T>
@@ -279,55 +275,50 @@ namespace glm
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> frustumZO(T left, T right, T bottom, T top, T nearVal, T farVal)
 	{
-#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT)
 			return frustumLH_ZO(left, right, bottom, top, nearVal, farVal);
-#		else
+		else
 			return frustumRH_ZO(left, right, bottom, top, nearVal, farVal);
-#		endif
 	}
 
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> frustumNO(T left, T right, T bottom, T top, T nearVal, T farVal)
 	{
-#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT)
 			return frustumLH_NO(left, right, bottom, top, nearVal, farVal);
-#		else
+		else
 			return frustumRH_NO(left, right, bottom, top, nearVal, farVal);
-#		endif
 	}
 
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> frustumLH(T left, T right, T bottom, T top, T nearVal, T farVal)
 	{
-#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT)
 			return frustumLH_ZO(left, right, bottom, top, nearVal, farVal);
-#		else
+		else
 			return frustumLH_NO(left, right, bottom, top, nearVal, farVal);
-#		endif
 	}
 
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> frustumRH(T left, T right, T bottom, T top, T nearVal, T farVal)
 	{
-#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT)
 			return frustumRH_ZO(left, right, bottom, top, nearVal, farVal);
-#		else
+		else
 			return frustumRH_NO(left, right, bottom, top, nearVal, farVal);
-#		endif
 	}
 
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> frustum(T left, T right, T bottom, T top, T nearVal, T farVal)
 	{
-#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED && GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+		if(GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_LH_ZO)
 			return frustumLH_ZO(left, right, bottom, top, nearVal, farVal);
-#		elif GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED && GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_NEGATIVE_ONE_TO_ONE
+		else if(GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_LH_NO)
 			return frustumLH_NO(left, right, bottom, top, nearVal, farVal);
-#		elif GLM_COORDINATE_SYSTEM == GLM_RIGHT_HANDED && GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+		else if(GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_RH_ZO)
 			return frustumRH_ZO(left, right, bottom, top, nearVal, farVal);
-#		elif GLM_COORDINATE_SYSTEM == GLM_RIGHT_HANDED && GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_NEGATIVE_ONE_TO_ONE
+		else if(GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_RH_NO)
 			return frustumRH_NO(left, right, bottom, top, nearVal, farVal);
-#		endif
 	}
 
 	template<typename T>
@@ -397,55 +388,51 @@ namespace glm
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveZO(T fovy, T aspect, T zNear, T zFar)
 	{
-#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT)
 			return perspectiveLH_ZO(fovy, aspect, zNear, zFar);
-#		else
+		else
 			return perspectiveRH_ZO(fovy, aspect, zNear, zFar);
-#		endif
 	}
 
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveNO(T fovy, T aspect, T zNear, T zFar)
 	{
-#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT)
 			return perspectiveLH_NO(fovy, aspect, zNear, zFar);
-#		else
+		else
 			return perspectiveRH_NO(fovy, aspect, zNear, zFar);
-#		endif
 	}
 
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveLH(T fovy, T aspect, T zNear, T zFar)
 	{
-#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT)
 			return perspectiveLH_ZO(fovy, aspect, zNear, zFar);
-#		else
+		else
 			return perspectiveLH_NO(fovy, aspect, zNear, zFar);
-#		endif
+
 	}
 
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveRH(T fovy, T aspect, T zNear, T zFar)
 	{
-#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT)
 			return perspectiveRH_ZO(fovy, aspect, zNear, zFar);
-#		else
+		else
 			return perspectiveRH_NO(fovy, aspect, zNear, zFar);
-#		endif
 	}
 
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspective(T fovy, T aspect, T zNear, T zFar)
 	{
-#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED && GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+		if(GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_LH_ZO)
 			return perspectiveLH_ZO(fovy, aspect, zNear, zFar);
-#		elif GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED && GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_NEGATIVE_ONE_TO_ONE
+		else if(GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_LH_NO)
 			return perspectiveLH_NO(fovy, aspect, zNear, zFar);
-#		elif GLM_COORDINATE_SYSTEM == GLM_RIGHT_HANDED && GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+		else if(GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_RH_ZO)
 			return perspectiveRH_ZO(fovy, aspect, zNear, zFar);
-#		elif GLM_COORDINATE_SYSTEM == GLM_RIGHT_HANDED && GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_NEGATIVE_ONE_TO_ONE
+		else if(GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_RH_NO)
 			return perspectiveRH_NO(fovy, aspect, zNear, zFar);
-#		endif
 	}
 
 	template<typename T>
@@ -531,55 +518,50 @@ namespace glm
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveFovZO(T fov, T width, T height, T zNear, T zFar)
 	{
-#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT)
 			return perspectiveFovLH_ZO(fov, width, height, zNear, zFar);
-#		else
+		else
 			return perspectiveFovRH_ZO(fov, width, height, zNear, zFar);
-#		endif
 	}
 
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveFovNO(T fov, T width, T height, T zNear, T zFar)
 	{
-#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CONFIG_CLIP_CONTROL_LEFT_HANDED_BIT)
 			return perspectiveFovLH_NO(fov, width, height, zNear, zFar);
-#		else
+		else
 			return perspectiveFovRH_NO(fov, width, height, zNear, zFar);
-#		endif
 	}
 
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveFovLH(T fov, T width, T height, T zNear, T zFar)
 	{
-#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CONFIG_CLIP_CONTROL_ZERO_TO_ONE_BIT)
 			return perspectiveFovLH_ZO(fov, width, height, zNear, zFar);
-#		else
+		else
 			return perspectiveFovLH_NO(fov, width, height, zNear, zFar);
-#		endif
 	}
 
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveFovRH(T fov, T width, T height, T zNear, T zFar)
 	{
-#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CONFIG_CLIP_CONTROL_ZERO_TO_ONE_BIT)
 			return perspectiveFovRH_ZO(fov, width, height, zNear, zFar);
-#		else
+		else
 			return perspectiveFovRH_NO(fov, width, height, zNear, zFar);
-#		endif
 	}
 
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveFov(T fov, T width, T height, T zNear, T zFar)
 	{
-#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED && GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+		if(GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_LH_ZO)
 			return perspectiveFovLH_ZO(fov, width, height, zNear, zFar);
-#		elif GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED && GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_NEGATIVE_ONE_TO_ONE
+		else if(GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_LH_NO)
 			return perspectiveFovLH_NO(fov, width, height, zNear, zFar);
-#		elif GLM_COORDINATE_SYSTEM == GLM_RIGHT_HANDED && GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+		else if(GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_RH_ZO)
 			return perspectiveFovRH_ZO(fov, width, height, zNear, zFar);
-#		elif GLM_COORDINATE_SYSTEM == GLM_RIGHT_HANDED && GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_NEGATIVE_ONE_TO_ONE
+		else if(GLM_CONFIG_CLIP_CONTROL == GLM_CLIP_CONTROL_RH_NO)
 			return perspectiveFovRH_NO(fov, width, height, zNear, zFar);
-#		endif
 	}
 
 	template<typename T>
@@ -621,11 +603,10 @@ namespace glm
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> infinitePerspective(T fovy, T aspect, T zNear)
 	{
-#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT)
 			return infinitePerspectiveLH(fovy, aspect, zNear);
-#		else
+		else
 			return infinitePerspectiveRH(fovy, aspect, zNear);
-#		endif
 	}
 
 	// Infinite projection matrix: http://www.terathon.com/gdc07_lengyel.pdf
@@ -688,11 +669,10 @@ namespace glm
 	template<typename T, typename U, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> project(vec<3, T, Q> const& obj, mat<4, 4, T, Q> const& model, mat<4, 4, T, Q> const& proj, vec<4, U, Q> const& viewport)
 	{
-#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT)
 			return projectZO(obj, model, proj, viewport);
-#		else
+		else
 			return projectNO(obj, model, proj, viewport);
-#		endif
 	}
 
 	template<typename T, typename U, qualifier Q>
@@ -731,11 +711,10 @@ namespace glm
 	template<typename T, typename U, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<3, T, Q> unProject(vec<3, T, Q> const& win, mat<4, 4, T, Q> const& model, mat<4, 4, T, Q> const& proj, vec<4, U, Q> const& viewport)
 	{
-#		if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT)
 			return unProjectZO(win, model, proj, viewport);
-#		else
+		else
 			return unProjectNO(win, model, proj, viewport);
-#		endif
 	}
 
 	template<typename T, qualifier Q, typename U>
@@ -806,10 +785,9 @@ namespace glm
 	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, Q> lookAt(vec<3, T, Q> const& eye, vec<3, T, Q> const& center, vec<3, T, Q> const& up)
 	{
-#		if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT)
 			return lookAtLH(eye, center, up);
-#		else
+		else
 			return lookAtRH(eye, center, up);
-#		endif
 	}
 }//namespace glm

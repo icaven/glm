@@ -486,7 +486,7 @@ static int test_swizzle_partial()
 
 	glm::vec4 const A(1, 2, 3, 4);
 
-#	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
+#	if GLM_CONFIG_SWIZZLE == GLM_SWIZZLE_OPERATOR
 	{
 		glm::vec4 B(A.xy, A.zw);
 		Error += glm::all(glm::equal(A, B, glm::epsilon<float>())) ? 0 : 1;
@@ -512,7 +512,7 @@ static int test_swizzle_partial()
 		glm::vec4 B(1.0f, A.yzw);
 		Error += glm::all(glm::equal(A, B, glm::epsilon<float>())) ? 0 : 1;
 	}
-#	endif//GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR || GLM_SWIZZLE == GLM_SWIZZLE_FUNCTION
+#	endif//GLM_CONFIG_SWIZZLE == GLM_SWIZZLE_OPERATOR || GLM_CONFIG_SWIZZLE == GLM_SWIZZLE_FUNCTION
 
 	return Error;
 }
@@ -521,7 +521,7 @@ static int test_swizzle()
 {
 	int Error = 0;
 
-#	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
+#	if GLM_CONFIG_SWIZZLE == GLM_SWIZZLE_OPERATOR
 	{
 		glm::ivec4 A = glm::ivec4(1.0f, 2.0f, 3.0f, 4.0f);
 		glm::ivec4 B = A.xyzw;
@@ -550,9 +550,9 @@ static int test_swizzle()
 		Error += glm::all(glm::equal(A, L)) ? 0 : 1;
 		Error += glm::all(glm::equal(A, M)) ? 0 : 1;
 	}
-#	endif//GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
+#	endif//GLM_CONFIG_SWIZZLE == GLM_SWIZZLE_OPERATOR
 
-#	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR || GLM_SWIZZLE == GLM_SWIZZLE_FUNCTION
+#	if GLM_CONFIG_SWIZZLE == GLM_SWIZZLE_OPERATOR || GLM_CONFIG_SWIZZLE == GLM_SWIZZLE_FUNCTION
 	{
 		glm::vec4 A = glm::vec4(1.0f, 2.0f, 3.0f, 4.0f);
 		glm::vec4 B = A.xyzw();
@@ -581,7 +581,7 @@ static int test_swizzle()
 		Error += glm::all(glm::equal(A, L, glm::epsilon<float>())) ? 0 : 1;
 		Error += glm::all(glm::equal(A, M, glm::epsilon<float>())) ? 0 : 1;
 	}
-#	endif//GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR || GLM_SWIZZLE == GLM_SWIZZLE_FUNCTION
+#	endif//GLM_CONFIG_SWIZZLE == GLM_SWIZZLE_OPERATOR || GLM_CONFIG_SWIZZLE == GLM_SWIZZLE_FUNCTION
 
 	return Error;
 }

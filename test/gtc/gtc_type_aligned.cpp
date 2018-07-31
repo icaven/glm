@@ -1,7 +1,7 @@
 #define GLM_FORCE_ALIGNED_GENTYPES
 #include <glm/glm.hpp>
 
-#if GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE
+#if GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
 #include <glm/gtc/type_aligned.hpp>
 #include <glm/ext/vector_relational.hpp>
 
@@ -177,4 +177,4 @@ int main()
 	return 0;
 }
 
-#endif//GLM_USE_ANONYMOUS_STRUCT
+#endif//GLM_CONFIG_ANONYMOUS_STRUCT

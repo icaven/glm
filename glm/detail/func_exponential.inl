@@ -146,7 +146,7 @@ namespace detail
 	}
 }//namespace glm
 
-#if GLM_USE_SIMD == GLM_ENABLE
+#if GLM_CONFIG_SIMD == GLM_ENABLE
 #	include "func_exponential_simd.inl"
 #endif
 

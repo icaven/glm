@@ -7,7 +7,7 @@
 #include <glm/ext/vector_relational.hpp>
 #include <glm/glm.hpp>
 /*
-#if GLM_USE_SIMD == GLM_ENABLE && GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE
+#if GLM_CONFIG_SIMD == GLM_ENABLE && GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
 
 namespace glm
 {
@@ -116,7 +116,7 @@ int main()
 {
 	int Error = 0;
 /*
-#	if GLM_USE_SIMD == GLM_ENABLE && GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE
+#	if GLM_CONFIG_SIMD == GLM_ENABLE && GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
 		Error += test_vec4_load();
 #	endif
 */

@@ -6,7 +6,7 @@
 namespace glm{
 namespace detail
 {
-#	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
+#	if GLM_CONFIG_SWIZZLE == GLM_SWIZZLE_OPERATOR
 	template<qualifier Q, int E0, int E1, int E2, int E3>
 	struct _swizzle_base1<4, float, Q, E0,E1,E2,E3, true> : public _swizzle_base0<float, 4>
 	{
@@ -49,7 +49,7 @@ namespace detail
 			return Result;
 		}
 	};
-#	endif// GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
+#	endif// GLM_CONFIG_SWIZZLE == GLM_SWIZZLE_OPERATOR
 
 	template<qualifier Q>
 	struct compute_vec4_add<float, Q, true>
@@ -147,7 +147,7 @@ namespace detail
 	};
 #	endif
 
-#	if GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE
+#	if GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
 	template<>
 	struct compute_vec4_div<float, aligned_lowp, true>
 	{
@@ -345,7 +345,7 @@ namespace detail
 	};
 }//namespace detail
 
-#	if GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE
+#	if GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
 	template<>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<4, float, aligned_lowp>::vec(float _s) :
 		data(_mm_set1_ps(_s))
@@ -460,7 +460,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<4, float, aligned_highp>::vec(int32 _x, int32 _y, int32 _z, int32 _w) :
 		data(_mm_cvtepi32_ps(_mm_set_epi32(_w, _z, _y, _x)))
 	{}
-#endif// GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE
+#endif// GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
 }//namespace glm
 
 #endif//GLM_ARCH & GLM_ARCH_SSE2_BIT

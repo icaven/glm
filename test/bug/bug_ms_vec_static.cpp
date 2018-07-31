@@ -1,6 +1,6 @@
 #include <glm/glm.hpp>
 
-#if GLM_USE_ANONYMOUS_STRUCT == GLM_ENABLE
+#if GLM_CONFIG_ANONYMOUS_STRUCT == GLM_ENABLE
 struct vec2;
 
 struct _swizzle

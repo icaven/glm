@@ -59,7 +59,7 @@ namespace detail
 	};
 }//namespace detail
 
-#	if GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE
+#	if GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
 	template<>
 	GLM_FUNC_QUALIFIER mat<4, 4, float, aligned_lowp> outerProduct<4, 4, float, aligned_lowp>(vec<4, float, aligned_lowp> const& c, vec<4, float, aligned_lowp> const& r)
 	{

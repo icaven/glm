@@ -12,7 +12,7 @@
 
 #pragma once
 
-#if !GLM_USE_ANONYMOUS_STRUCT
+#if !GLM_CONFIG_ANONYMOUS_STRUCT
 #	error "GLM: Aligned gentypes require to enable C++ language extensions and to define GLM_FORCE_ALIGNED_GENTYPES before including GLM headers."
 #endif
 

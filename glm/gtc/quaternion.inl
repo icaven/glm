@@ -90,10 +90,10 @@ namespace detail
 
 	// -- Implicit basic constructors --
 
-#	if GLM_USE_DEFAULTED_FUNCTIONS == GLM_DISABLE
+#	if GLM_CONFIG_DEFAULTED_FUNCTIONS == GLM_DISABLE
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR tquat<T, Q>::tquat()
-#			if GLM_USE_DEFAULTED_FUNCTIONS != GLM_DISABLE
+#			if GLM_CONFIG_DEFAULTED_FUNCTIONS != GLM_DISABLE
 			: x(0), y(0), z(0), w(1)
 #			endif
 		{}
@@ -227,7 +227,7 @@ namespace detail
 
 	// -- Unary arithmetic operators --
 
-#	if GLM_USE_DEFAULTED_FUNCTIONS == GLM_DISABLE
+#	if GLM_CONFIG_DEFAULTED_FUNCTIONS == GLM_DISABLE
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER tquat<T, Q> & tquat<T, Q>::operator=(tquat<T, Q> const& q)
 		{
@@ -819,7 +819,7 @@ namespace detail
 	}
 }//namespace glm
 
-#if GLM_USE_SIMD == GLM_ENABLE
+#if GLM_CONFIG_SIMD == GLM_ENABLE
 #	include "quaternion_simd.inl"
 #endif
 

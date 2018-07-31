@@ -1,6 +1,6 @@
 #include <glm/glm.hpp>
 
-#if GLM_USE_CONSTEXP == GLM_ENABLE
+#if GLM_CONFIG_CONSTEXP == GLM_ENABLE
 
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/quaternion.hpp>
@@ -663,20 +663,20 @@ static int test_mat2x2()
 	return Error;
 }
 
-#endif//GLM_USE_CONSTEXP == GLM_ENABLE
+#endif//GLM_CONFIG_CONSTEXP == GLM_ENABLE
 
 int main()
 {
 	int Error = 0;
 
-#	if GLM_USE_CONSTEXP == GLM_ENABLE
+#	if GLM_CONFIG_CONSTEXP == GLM_ENABLE
 		Error += test_vec1();
 		Error += test_vec2();
 		Error += test_vec3();
 		Error += test_vec4();
 		Error += test_quat();
 		Error += test_mat2x2();
-#	endif//GLM_USE_CONSTEXP == GLM_ENABLE
+#	endif//GLM_CONFIG_CONSTEXP == GLM_ENABLE
 
 	return Error;
 }

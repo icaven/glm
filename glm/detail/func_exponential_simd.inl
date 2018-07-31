@@ -19,7 +19,7 @@ namespace detail
 		}
 	};
 
-#	if GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE
+#	if GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
 	template<>
 	struct compute_sqrt<4, float, aligned_lowp, true>
 	{

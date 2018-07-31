@@ -5,14 +5,14 @@ namespace glm
 {
 	// -- Constructors --
 
-#	if GLM_USE_DEFAULTED_FUNCTIONS == GLM_DISABLE
+#	if GLM_CONFIG_DEFAULTED_FUNCTIONS == GLM_DISABLE
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR mat<2, 4, T, Q>::mat()
-#			if GLM_USE_CTOR_INIT == GLM_CTOR_INITIALIZER_LIST
+#			if GLM_CONFIG_CTOR_INIT == GLM_CTOR_INITIALIZER_LIST
 				: value{col_type(1, 0, 0, 0), col_type(0, 1, 0, 0)}
 #			endif
 		{
-#			if GLM_USE_CTOR_INIT == GLM_CTOR_INITIALISATION
+#			if GLM_CONFIG_CTOR_INIT == GLM_CTOR_INITIALISATION
 				this->value[0] = col_type(1, 0, 0, 0);
 				this->value[1] = col_type(0, 1, 0, 0);
 #			endif

@@ -381,12 +381,12 @@
 // nullptr
 
 #if GLM_LANG & GLM_LANG_CXX0X_FLAG
-#	define GLM_USE_NULLPTR GLM_ENABLE
+#	define GLM_CONFIG_NULLPTR GLM_ENABLE
 #else
-#	define GLM_USE_NULLPTR GLM_DISABLE
+#	define GLM_CONFIG_NULLPTR GLM_DISABLE
 #endif
 
-#if GLM_USE_NULLPTR == GLM_ENABLE
+#if GLM_CONFIG_NULLPTR == GLM_ENABLE
 #	define GLM_NULLPTR nullptr
 #else
 #	define GLM_NULLPTR 0
@@ -442,15 +442,16 @@
 
 // User defines: GLM_FORCE_SWIZZLE
 
-#define GLM_SWIZZLE_OPERATOR 1
-#define GLM_SWIZZLE_FUNCTION 2
+#define GLM_SWIZZLE_DISABLED		0
+#define GLM_SWIZZLE_OPERATOR		1
+#define GLM_SWIZZLE_FUNCTION		2
 
 #if defined(GLM_FORCE_SWIZZLE) && !defined(GLM_FORCE_XYZW_ONLY) && (GLM_LANG & GLM_LANG_CXXMS_FLAG)
-#	define GLM_SWIZZLE GLM_SWIZZLE_OPERATOR
+#	define GLM_CONFIG_SWIZZLE GLM_SWIZZLE_OPERATOR
 #elif defined(GLM_FORCE_SWIZZLE) && !defined(GLM_FORCE_XYZW_ONLY)
-#	define GLM_SWIZZLE GLM_SWIZZLE_FUNCTION
+#	define GLM_CONFIG_SWIZZLE GLM_SWIZZLE_FUNCTION
 #else
-#	define GLM_SWIZZLE GLM_DISABLE
+#	define GLM_CONFIG_SWIZZLE GLM_SWIZZLE_DISABLED
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -459,35 +460,39 @@
 // #define GLM_FORCE_UNRESTRICTED_GENTYPE
 
 #ifdef GLM_FORCE_UNRESTRICTED_GENTYPE
-#	define GLM_UNRESTRICTED_GENTYPE GLM_ENABLE
+#	define GLM_CONFIG_UNRESTRICTED_GENTYPE GLM_ENABLE
 #else
-#	define GLM_UNRESTRICTED_GENTYPE GLM_DISABLE
+#	define GLM_CONFIG_UNRESTRICTED_GENTYPE GLM_DISABLE
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Clip control, define GLM_FORCE_DEPTH_ZERO_TO_ONE before including GLM
 // to use a clip space between 0 to 1.
-
-#define GLM_DEPTH_ZERO_TO_ONE				0x00000001
-#define GLM_DEPTH_NEGATIVE_ONE_TO_ONE		0x00000002
-
-#ifdef GLM_FORCE_DEPTH_ZERO_TO_ONE
-#	define GLM_DEPTH_CLIP_SPACE GLM_DEPTH_ZERO_TO_ONE
-#else
-#	define GLM_DEPTH_CLIP_SPACE GLM_DEPTH_NEGATIVE_ONE_TO_ONE
-#endif
-
-///////////////////////////////////////////////////////////////////////////////////
 // Coordinate system, define GLM_FORCE_LEFT_HANDED before including GLM
 // to use left handed coordinate system by default.
 
-#define GLM_LEFT_HANDED				0x00000001	// For DirectX, Metal, Vulkan
-#define GLM_RIGHT_HANDED			0x00000002	// For OpenGL, default in GLM
+#define GLM_CLIP_CONTROL_ZO_BIT		(1 << 0) // ZERO_TO_ONE
+#define GLM_CLIP_CONTROL_NO_BIT		(1 << 1) // NEGATIVE_ONE_TO_ONE
+#define GLM_CLIP_CONTROL_LH_BIT		(1 << 2) // LEFT_HANDED, For DirectX, Metal, Vulkan
+#define GLM_CLIP_CONTROL_RH_BIT		(1 << 3) // RIGHT_HANDED, For OpenGL, default in GLM
 
-#ifdef GLM_FORCE_LEFT_HANDED
-#	define GLM_COORDINATE_SYSTEM GLM_LEFT_HANDED
+#define GLM_CLIP_CONTROL_LH_ZO (GLM_CLIP_CONTROL_LH_BIT | GLM_CLIP_CONTROL_ZO_BIT)
+#define GLM_CLIP_CONTROL_LH_NO (GLM_CLIP_CONTROL_LH_BIT | GLM_CLIP_CONTROL_NO_BIT)
+#define GLM_CLIP_CONTROL_RH_ZO (GLM_CLIP_CONTROL_RH_BIT | GLM_CLIP_CONTROL_ZO_BIT)
+#define GLM_CLIP_CONTROL_RH_NO (GLM_CLIP_CONTROL_RH_BIT | GLM_CLIP_CONTROL_NO_BIT)
+
+#ifdef GLM_FORCE_DEPTH_ZERO_TO_ONE
+#	ifdef GLM_FORCE_LEFT_HANDED
+#		define GLM_CONFIG_CLIP_CONTROL GLM_CLIP_CONTROL_LH_ZO
+#	else
+#		define GLM_CONFIG_CLIP_CONTROL GLM_CLIP_CONTROL_RH_ZO
+#	endif
 #else
-#	define GLM_COORDINATE_SYSTEM GLM_RIGHT_HANDED
+#	ifdef GLM_FORCE_LEFT_HANDED
+#		define GLM_CONFIG_CLIP_CONTROL GLM_CLIP_CONTROL_LH_NO
+#	else
+#		define GLM_CONFIG_CLIP_CONTROL GLM_CLIP_CONTROL_RH_NO
+#	endif
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -520,12 +525,19 @@
 // When GLM_FORCE_SIZE_T_LENGTH is defined, length_t is a typedef of size_t otherwise
 // length_t is a typedef of int like GLSL defines it.
 
-// User define: GLM_FORCE_SIZE_T_LENGTH
+#define GLM_LENGTH_INT		1
+#define GLM_LENGTH_SIZE_T	2
+
+#ifdef GLM_FORCE_SIZE_T_LENGTH
+#	define GLM_CONFIG_LENGTH_TYPE		GLM_LENGTH_SIZE_T
+#else
+#	define GLM_CONFIG_LENGTH_TYPE		GLM_LENGTH_INT
+#endif
 
 namespace glm
 {
 	using std::size_t;
-#	if defined(GLM_FORCE_SIZE_T_LENGTH)
+#	if GLM_CONFIG_LENGTH_TYPE == GLM_LENGTH_SIZE_T
 		typedef size_t length_t;
 #	else
 		typedef int length_t;
@@ -536,7 +548,7 @@ namespace glm
 // constexpr
 
 #if GLM_HAS_CONSTEXPR
-#	define GLM_USE_CONSTEXP GLM_ENABLE
+#	define GLM_CONFIG_CONSTEXP GLM_ENABLE
 
 	namespace glm
 	{
@@ -548,11 +560,11 @@ namespace glm
 	}//namespace glm
 #	define GLM_COUNTOF(arr) glm::countof(arr)
 #elif defined(_MSC_VER)
-#	define GLM_USE_CONSTEXP GLM_DISABLE
+#	define GLM_CONFIG_CONSTEXP GLM_DISABLE
 
 #	define GLM_COUNTOF(arr) _countof(arr)
 #else
-#	define GLM_USE_CONSTEXP GLM_DISABLE
+#	define GLM_CONFIG_CONSTEXP GLM_DISABLE
 
 #	define GLM_COUNTOF(arr) sizeof(arr) / sizeof(arr[0])
 #endif
@@ -564,21 +576,21 @@ namespace glm
 #define GLM_CTOR_INITIALISATION		(1 << 2)
 
 #if defined(GLM_FORCE_CTOR_INIT) && GLM_HAS_INITIALIZER_LISTS
-#	define GLM_USE_CTOR_INIT GLM_CTOR_INITIALIZER_LIST
+#	define GLM_CONFIG_CTOR_INIT GLM_CTOR_INITIALIZER_LIST
 #elif defined(GLM_FORCE_CTOR_INIT) && !GLM_HAS_INITIALIZER_LISTS
-#	define GLM_USE_CTOR_INIT GLM_CTOR_INITIALISATION
+#	define GLM_CONFIG_CTOR_INIT GLM_CTOR_INITIALISATION
 #else
-#	define GLM_USE_CTOR_INIT GLM_DISABLE
+#	define GLM_CONFIG_CTOR_INIT GLM_DISABLE
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Configure the use of defaulted function
 
-#if GLM_HAS_DEFAULTED_FUNCTIONS && GLM_USE_CTOR_INIT == GLM_DISABLE
-#	define GLM_USE_DEFAULTED_FUNCTIONS GLM_ENABLE
+#if GLM_HAS_DEFAULTED_FUNCTIONS && GLM_CONFIG_CTOR_INIT == GLM_DISABLE
+#	define GLM_CONFIG_DEFAULTED_FUNCTIONS GLM_ENABLE
 #	define GLM_DEFAULT = default
 #else
-#	define GLM_USE_DEFAULTED_FUNCTIONS GLM_DISABLE
+#	define GLM_CONFIG_DEFAULTED_FUNCTIONS GLM_DISABLE
 #	define GLM_DEFAULT
 #endif
 
@@ -586,36 +598,36 @@ namespace glm
 // Configure the use of aligned gentypes
 
 #if defined(GLM_FORCE_ALIGNED_GENTYPES) && GLM_HAS_ALIGNOF && (GLM_LANG & GLM_LANG_CXXMS_FLAG)
-#	define GLM_USE_ALIGNED_GENTYPES GLM_ENABLE
+#	define GLM_CONFIG_ALIGNED_GENTYPES GLM_ENABLE
 #else
-#	define GLM_USE_ALIGNED_GENTYPES GLM_DISABLE
+#	define GLM_CONFIG_ALIGNED_GENTYPES GLM_DISABLE
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Use SIMD instruction sets
 
 #if (GLM_LANG & GLM_LANG_CXXMS_FLAG) && (GLM_ARCH & GLM_ARCH_SIMD_BIT)
-#define GLM_USE_SIMD GLM_ENABLE
+#define GLM_CONFIG_SIMD GLM_ENABLE
 #else
-#define GLM_USE_SIMD GLM_DISABLE
+#define GLM_CONFIG_SIMD GLM_DISABLE
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Only use x, y, z, w as vector type components
 
 #ifdef GLM_FORCE_XYZW_ONLY
-#	define GLM_USE_XYZW_ONLY GLM_ENABLE
+#	define GLM_CONFIG_XYZW_ONLY GLM_ENABLE
 #else
-#	define GLM_USE_XYZW_ONLY GLM_DISABLE
+#	define GLM_CONFIG_XYZW_ONLY GLM_DISABLE
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Configure the use of anonymous structure as implementation detail
 
-#if ((GLM_USE_SIMD == GLM_ENABLE) || (GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR) || (GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE))
-#	define GLM_USE_ANONYMOUS_STRUCT GLM_ENABLE
+#if ((GLM_CONFIG_SIMD == GLM_ENABLE) || (GLM_CONFIG_SWIZZLE == GLM_SWIZZLE_OPERATOR) || (GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE))
+#	define GLM_CONFIG_ANONYMOUS_STRUCT GLM_ENABLE
 #else
-#	define GLM_USE_ANONYMOUS_STRUCT GLM_DISABLE
+#	define GLM_CONFIG_ANONYMOUS_STRUCT GLM_DISABLE
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -804,22 +816,22 @@ namespace glm
 #	endif
 
 	// Report swizzle operator support
-#	if GLM_SWIZZLE == GLM_SWIZZLE_OPERATOR
+#	if GLM_CONFIG_SWIZZLE == GLM_SWIZZLE_OPERATOR
 #		pragma message("GLM: GLM_FORCE_SWIZZLE is defined, swizzling operators enabled")
-#	elif GLM_SWIZZLE == GLM_SWIZZLE_FUNCTION
+#	elif GLM_CONFIG_SWIZZLE == GLM_SWIZZLE_FUNCTION
 #		pragma message("GLM: GLM_FORCE_SWIZZLE is defined, swizzling functions enabled. Enable compiler C++ language extensions to enable swizzle operators.")
 #	else
 #		pragma message("GLM: GLM_FORCE_SWIZZLE is undefined. swizzling functions or operators are disabled.")
 #	endif
 
 	// Report .length() type
-#	if defined GLM_FORCE_SIZE_T_LENGTH
+#	if GLM_CONFIG_LENGTH_TYPE == GLM_LENGTH_SIZE_T
 #		pragma message("GLM: GLM_FORCE_SIZE_T_LENGTH is defined. .length() returns a glm::length_t, a typedef of std::size_t instead of int.")
 #	else
 #		pragma message("GLM: GLM_FORCE_SIZE_T_LENGTH is undefined. .length() returns a glm::length_t, a typedef of int following the GLSL specification. Define GLM_FORCE_SIZE_T_LENGTH to make glm::length_t, a typedef of std::size_t.")
 #	endif
 
-#	ifdef GLM_FORCE_UNRESTRICTED_GENTYPE
+#	if GLM_CONFIG_UNRESTRICTED_GENTYPE == GLM_ENABLE
 #		pragma message("GLM: GLM_FORCE_UNRESTRICTED_GENTYPE is defined. Removes GLSL specification restrictions on valid function genTypes.")
 #	else
 #		pragma message("GLM: GLM_FORCE_UNRESTRICTED_GENTYPE is undefined. Follows strictly GLSL specification on valid function genTypes.")
@@ -829,13 +841,13 @@ namespace glm
 #		pragma message("GLM: GLM_FORCE_SINGLE_ONLY is defined. Using only single precision floating-point types")
 #	endif
 
-#	if GLM_DEPTH_CLIP_SPACE == GLM_DEPTH_ZERO_TO_ONE
+#	if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT
 #		pragma message("GLM: GLM_FORCE_DEPTH_ZERO_TO_ONE is defined. Using zero to one depth clip space.")
 #	else
 #		pragma message("GLM: GLM_FORCE_DEPTH_ZERO_TO_ONE is undefined. Using negative one to one depth clip space.")
 #	endif
 
-#	if GLM_COORDINATE_SYSTEM == GLM_LEFT_HANDED
+#	if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT
 #		pragma message("GLM: GLM_FORCE_LEFT_HANDED is defined. Using left handed coordinate system.")
 #	else
 #		pragma message("GLM: GLM_FORCE_LEFT_HANDED is undefined. Using right handed coordinate system.")
