@@ -78,7 +78,7 @@
 + [9.4. Tutorials using GLM](#section9_4)
 + [9.5. Equivalent for other languages](#section9_5)
 + [9.6. Alternatives to GLM](#section9_6)
-+ [9.8. Acknowledgements](#section9_8)
++ [9.7. Acknowledgements](#section9_7)
 
 ---
 ## <a name="section0"></a> Licenses
