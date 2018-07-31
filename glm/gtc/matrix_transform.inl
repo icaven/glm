@@ -527,7 +527,7 @@ namespace glm
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveFovNO(T fov, T width, T height, T zNear, T zFar)
 	{
-		if(GLM_CONFIG_CLIP_CONTROL & GLM_CONFIG_CLIP_CONTROL_LEFT_HANDED_BIT)
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_LH_BIT)
 			return perspectiveFovLH_NO(fov, width, height, zNear, zFar);
 		else
 			return perspectiveFovRH_NO(fov, width, height, zNear, zFar);
@@ -536,7 +536,7 @@ namespace glm
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveFovLH(T fov, T width, T height, T zNear, T zFar)
 	{
-		if(GLM_CONFIG_CLIP_CONTROL & GLM_CONFIG_CLIP_CONTROL_ZERO_TO_ONE_BIT)
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT)
 			return perspectiveFovLH_ZO(fov, width, height, zNear, zFar);
 		else
 			return perspectiveFovLH_NO(fov, width, height, zNear, zFar);
@@ -545,7 +545,7 @@ namespace glm
 	template<typename T>
 	GLM_FUNC_QUALIFIER mat<4, 4, T, defaultp> perspectiveFovRH(T fov, T width, T height, T zNear, T zFar)
 	{
-		if(GLM_CONFIG_CLIP_CONTROL & GLM_CONFIG_CLIP_CONTROL_ZERO_TO_ONE_BIT)
+		if(GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT)
 			return perspectiveFovRH_ZO(fov, width, height, zNear, zFar);
 		else
 			return perspectiveFovRH_NO(fov, width, height, zNear, zFar);
