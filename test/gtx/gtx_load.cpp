@@ -1,19 +1,13 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/glm.hpp>
 /*
-#if GLM_USE_SIMD == GLM_ENABLE && GLM_USE_ALIGNED_GENTYPES == GLM_ENABLE
+#if GLM_CONFIG_SIMD == GLM_ENABLE && GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
 
 #include <glm/gtx/common.hpp>
 #include <glm/gtc/integer.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <glm/gtc/type_aligned.hpp>
 #include <glm/ext/vector_relational.hpp>
-<<<<<<< HEAD
-#include <glm/glm.hpp>
-/*
-#if GLM_CONFIG_SIMD == GLM_ENABLE && GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
-=======
->>>>>>> b4a2eb14070b391370d94b0165681387ff37dc9c
 
 namespace glm
 {
