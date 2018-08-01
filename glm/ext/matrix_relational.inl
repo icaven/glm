@@ -4,7 +4,6 @@
 // Dependency:
 #include "../vector_relational.hpp"
 #include "../common.hpp"
-#include "../detail/type_vec.hpp"
 
 namespace glm
 {

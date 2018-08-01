@@ -7,7 +7,6 @@
 
 #include "detail/type_int.hpp"
 #include "detail/type_float.hpp"
-#include "detail/type_vec.hpp"
 #include "detail/type_mat.hpp"
 
 //////////////////////

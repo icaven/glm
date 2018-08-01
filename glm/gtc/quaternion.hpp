@@ -436,6 +436,52 @@ namespace glm
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL vec<4, bool, Q> isinf(tquat<T, Q> const& x);
 
+	/// Quaternion of low single-qualifier floating-point numbers.
+	///
+	/// @see gtc_quaternion
+	typedef tquat<float, lowp>		lowp_quat;
+
+	/// Quaternion of medium single-qualifier floating-point numbers.
+	///
+	/// @see gtc_quaternion
+	typedef tquat<float, mediump>	mediump_quat;
+
+	/// Quaternion of high single-qualifier floating-point numbers.
+	///
+	/// @see gtc_quaternion
+	typedef tquat<float, highp>		highp_quat;
+
+#if(defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
+	typedef highp_quat			quat;
+#elif(!defined(GLM_PRECISION_HIGHP_FLOAT) && defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
+	typedef mediump_quat		quat;
+#elif(!defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && defined(GLM_PRECISION_LOWP_FLOAT))
+	typedef lowp_quat			quat;
+#elif(!defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
+	/// Quaternion of default single-qualifier floating-point numbers.
+	typedef highp_quat			quat;
+#endif
+
+	/// Quaternion of low single-qualifier floating-point numbers.
+	///
+	/// @see gtc_quaternion
+	typedef lowp_quat			lowp_fquat;
+
+	/// Quaternion of medium single-qualifier floating-point numbers.
+	///
+	/// @see gtc_quaternion
+	typedef mediump_quat		mediump_fquat;
+
+	/// Quaternion of high single-qualifier floating-point numbers.
+	///
+	/// @see gtc_quaternion
+	typedef highp_quat			highp_fquat;
+
+	/// Quaternion of default single-qualifier floating-point numbers.
+	///
+	/// @see gtc_quaternion
+	typedef quat				fquat;
+
 	/// @}
 } //namespace glm
 

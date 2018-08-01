@@ -1,5 +1,6 @@
 #include <glm/gtc/epsilon.hpp>
 #include <glm/gtc/constants.hpp>
+#include <glm/gtc/quaternion.hpp>
 #include <glm/vector_relational.hpp>
 
 int test_defined()
