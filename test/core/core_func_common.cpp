@@ -4,6 +4,11 @@
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/vec1.hpp>
 #include <glm/gtc/random.hpp>
+#include <glm/ivec4.hpp>
+#include <glm/dvec4.hpp>
+#include <glm/vec4.hpp>
+#include <glm/vec3.hpp>
+#include <glm/vec2.hpp>
 #include <vector>
 #include <cstdio>
 #include <cmath>
@@ -18,7 +23,7 @@ namespace floor_
 {
 	static int test()
 	{
-		int Error(0);
+		int Error = 0;
 
 		{
 			float A = 1.1f;

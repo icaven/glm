@@ -2,7 +2,13 @@
 #include <glm/trigonometric.hpp>
 #include <glm/vector_relational.hpp>
 #include <glm/ext/vector_relational.hpp>
-#include <glm/gtc/vec1.hpp>
+#include <glm/ext/fvec1.hpp>
+#include <glm/fvec2.hpp>
+#include <glm/fvec3.hpp>
+#include <glm/fvec4.hpp>
+#include <glm/dvec2.hpp>
+#include <glm/dvec3.hpp>
+#include <glm/dvec4.hpp>
 #include <limits>
 
 namespace length
