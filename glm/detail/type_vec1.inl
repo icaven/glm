@@ -1,5 +1,7 @@
 /// @ref core
 
+#include "./compute_vector_relational.hpp"
+
 namespace glm
 {
 	// -- Implicit basic constructors --

@@ -995,22 +995,22 @@ namespace sign
 
 	int test_i32vec4()
 	{
-		type<glm::i32vec4> const Data[] =
+		type<glm::ivec4> const Data[] =
 		{
-			{glm::i32vec4( 1), glm::i32vec4( 1)},
-			{glm::i32vec4( 0), glm::i32vec4( 0)},
-			{glm::i32vec4( 2), glm::i32vec4( 1)},
-			{glm::i32vec4( 3), glm::i32vec4( 1)},
-			{glm::i32vec4(-1), glm::i32vec4(-1)},
-			{glm::i32vec4(-2), glm::i32vec4(-1)},
-			{glm::i32vec4(-3), glm::i32vec4(-1)}
+			{glm::ivec4( 1), glm::ivec4( 1)},
+			{glm::ivec4( 0), glm::ivec4( 0)},
+			{glm::ivec4( 2), glm::ivec4( 1)},
+			{glm::ivec4( 3), glm::ivec4( 1)},
+			{glm::ivec4(-1), glm::ivec4(-1)},
+			{glm::ivec4(-2), glm::ivec4(-1)},
+			{glm::ivec4(-3), glm::ivec4(-1)}
 		};
 
 		int Error = 0;
 
-		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<glm::i32vec4>); ++i)
+		for(std::size_t i = 0; i < sizeof(Data) / sizeof(type<glm::ivec4>); ++i)
 		{
-			glm::i32vec4 Result = glm::sign(Data[i].Value);
+			glm::ivec4 Result = glm::sign(Data[i].Value);
 			Error += glm::all(glm::equal(Data[i].Return, Result)) ? 0 : 1;
 		}
 

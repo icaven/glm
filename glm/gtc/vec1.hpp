@@ -19,4 +19,3 @@
 #	pragma message("GLM: GLM_GTC_vec1 extension included")
 #endif
 
-#include "vec1.inl"
