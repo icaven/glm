@@ -1,7 +1,9 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/scalar_relational.hpp>
 #include <glm/gtc/constants.hpp>
+#include <glm/ext/scalar_relational.hpp>
 #include <glm/ext/vector_relational.hpp>
+#include <glm/ext/matrix_relational.hpp>
 #include <glm/glm.hpp>
 
 static int test_lessThan()

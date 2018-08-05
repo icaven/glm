@@ -1,4 +1,6 @@
+#include <glm/ext/matrix_relational.hpp>
 #include <glm/ext/vector_relational.hpp>
+#include <glm/ext/scalar_relational.hpp>
 #include <glm/gtc/constants.hpp>
 #include <glm/matrix.hpp>
 #include <glm/vector_relational.hpp>

@@ -1,7 +1,9 @@
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/ext/matrix_relational.hpp>
 #include <glm/ext/vector_relational.hpp>
+#include <glm/ext/scalar_relational.hpp>
 #include <glm/glm.hpp>
 #include <vector>
 

@@ -1,5 +1,6 @@
 #include <glm/geometric.hpp>
 #include <glm/trigonometric.hpp>
+#include <glm/ext/scalar_relational.hpp>
 #include <glm/ext/vector_relational.hpp>
 #include <glm/ext/vector_vec1.hpp>
 #include <glm/vector_vec2.hpp>

@@ -1,4 +1,5 @@
 #define GLM_FORCE_EXPLICIT_CTOR
+#include <glm/ext/scalar_relational.hpp>
 #include <glm/ext/vector_relational.hpp>
 #include <glm/common.hpp>
 #include <glm/gtc/constants.hpp>

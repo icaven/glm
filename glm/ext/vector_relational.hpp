@@ -47,15 +47,6 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_DECL vec<L, bool, Q> equal(vec<L, T, Q> const& x, vec<L, T, Q> const& y, vec<L, T, Q> const& epsilon);
 
-	/// Returns the component-wise comparison of |x - y| < epsilon.
-	/// True if this expression is satisfied.
-	///
-	/// @tparam genType Floating-point or integer scalar types
-	///
-	/// @see ext_vector_relational
-	template<typename genType>
-	GLM_FUNC_DECL bool equal(genType const& x, genType const& y, genType const& epsilon);
-
 	/// Returns the component-wise comparison of |x - y| >= epsilon.
 	/// True if this expression is not satisfied.
 	///
@@ -77,15 +68,6 @@ namespace glm
 	/// @see ext_vector_relational
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_DECL vec<L, bool, Q> notEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y, vec<L, T, Q> const& epsilon);
-
-	/// Returns the component-wise comparison of |x - y| >= epsilon.
-	/// True if this expression is not satisfied.
-	///
-	/// @tparam genType Floating-point or integer scalar types
-	///
-	/// @see ext_vector_relational
-	template<typename genType>
-	GLM_FUNC_DECL bool notEqual(genType const& x, genType const& y, genType const& epsilon);
 
 	/// @}
 }//namespace glm

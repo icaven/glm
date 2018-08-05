@@ -1,4 +1,5 @@
 #define GLM_FORCE_SWIZZLE
+#include <glm/ext/scalar_relational.hpp>
 #include <glm/ext/vector_relational.hpp>
 #include <glm/glm.hpp>
 

@@ -3,6 +3,7 @@
 #include <glm/gtx/extended_min_max.hpp>
 #include <glm/gtc/vec1.hpp>
 #include <glm/gtc/constants.hpp>
+#include <glm/ext/scalar_relational.hpp>
 #include <glm/ext/vector_relational.hpp>
 
 // This file has divisions by zero to test isnan
