@@ -1,8 +1,8 @@
-#include <glm/ext/vector_uvec1.hpp>
-#include <glm/ext/vector_uvec1_precision.hpp>
-#include <glm/vector_uvec2.hpp>
-#include <glm/vector_uvec3.hpp>
-#include <glm/vector_uvec4.hpp>
+#include <glm/ext/vector_ivec1.hpp>
+#include <glm/ext/vector_ivec1_precision.hpp>
+#include <glm/vector_ivec2.hpp>
+#include <glm/vector_ivec3.hpp>
+#include <glm/vector_ivec4.hpp>
 #include <glm/vector_relational.hpp>
 
 template <typename genType>
@@ -84,22 +84,22 @@ static int test_ctor()
 {
 	int Error = 0;
 
-	glm::uvec1 const A = genType(1);
+	glm::ivec1 const A = genType(1);
 
-	glm::uvec1 const E(genType(1));
+	glm::ivec1 const E(genType(1));
 	Error += A == E ? 0 : 1;
 
-	glm::uvec1 const F(E);
+	glm::ivec1 const F(E);
 	Error += A == F ? 0 : 1;
 
 	genType const B = genType(1);
-	genType const G(glm::uvec2(1));
+	genType const G(glm::ivec2(1));
 	Error += B == G ? 0 : 1;
 
-	genType const H(glm::uvec3(1));
+	genType const H(glm::ivec3(1));
 	Error += B == H ? 0 : 1;
 
-	genType const I(glm::uvec4(1));
+	genType const I(glm::ivec4(1));
 	Error += B == I ? 0 : 1;
 
 	return Error;
@@ -110,7 +110,7 @@ static int test_size()
 {
 	int Error = 0;
 
-	Error += sizeof(glm::uvec1) == sizeof(genType) ? 0 : 1;
+	Error += sizeof(glm::ivec1) == sizeof(genType) ? 0 : 1;
 	Error += genType().length() == 1 ? 0 : 1;
 	Error += genType::length() == 1 ? 0 : 1;
 
@@ -140,7 +140,7 @@ static int test_constexpr()
 #	if GLM_CONFIG_CONSTEXP == GLM_ENABLE
 		static_assert(genType::length() == 1, "GLM: Failed constexpr");
 		static_assert(genType(1)[0] == 1, "GLM: Failed constexpr");
-		static_assert(genType(1) == genType(glm::uvec1(1)), "GLM: Failed constexpr");
+		static_assert(genType(1) == genType(glm::ivec1(1)), "GLM: Failed constexpr");
 		static_assert(genType(1) != genType(0), "GLM: Failed constexpr");
 #	endif
 
@@ -151,30 +151,30 @@ int main()
 {
 	int Error = 0;
 
-	Error += test_operators<glm::uvec1>();
-	Error += test_operators<glm::lowp_uvec1>();
-	Error += test_operators<glm::mediump_uvec1>();
-	Error += test_operators<glm::highp_uvec1>();
+	Error += test_operators<glm::ivec1>();
+	Error += test_operators<glm::lowp_ivec1>();
+	Error += test_operators<glm::mediump_ivec1>();
+	Error += test_operators<glm::highp_ivec1>();
 
-	Error += test_ctor<glm::uvec1>();
-	Error += test_ctor<glm::lowp_uvec1>();
-	Error += test_ctor<glm::mediump_uvec1>();
-	Error += test_ctor<glm::highp_uvec1>();
+	Error += test_ctor<glm::ivec1>();
+	Error += test_ctor<glm::lowp_ivec1>();
+	Error += test_ctor<glm::mediump_ivec1>();
+	Error += test_ctor<glm::highp_ivec1>();
 
-	Error += test_size<glm::uvec1>();
-	Error += test_size<glm::lowp_uvec1>();
-	Error += test_size<glm::mediump_uvec1>();
-	Error += test_size<glm::highp_uvec1>();
+	Error += test_size<glm::ivec1>();
+	Error += test_size<glm::lowp_ivec1>();
+	Error += test_size<glm::mediump_ivec1>();
+	Error += test_size<glm::highp_ivec1>();
 
-	Error += test_relational<glm::uvec1>();
-	Error += test_relational<glm::lowp_uvec1>();
-	Error += test_relational<glm::mediump_uvec1>();
-	Error += test_relational<glm::highp_uvec1>();
+	Error += test_relational<glm::ivec1>();
+	Error += test_relational<glm::lowp_ivec1>();
+	Error += test_relational<glm::mediump_ivec1>();
+	Error += test_relational<glm::highp_ivec1>();
 
-	Error += test_constexpr<glm::uvec1>();
-	Error += test_constexpr<glm::lowp_uvec1>();
-	Error += test_constexpr<glm::mediump_uvec1>();
-	Error += test_constexpr<glm::highp_uvec1>();
+	Error += test_constexpr<glm::ivec1>();
+	Error += test_constexpr<glm::lowp_ivec1>();
+	Error += test_constexpr<glm::mediump_ivec1>();
+	Error += test_constexpr<glm::highp_ivec1>();
 
 	return Error;
 }
