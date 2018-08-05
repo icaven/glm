@@ -14,10 +14,10 @@
 #pragma once
 
 // Dependency:
-#include "../mat3x3.hpp"
-#include "../mat4x4.hpp"
-#include "../vec3.hpp"
-#include "../vec4.hpp"
+#include "../detail/type_mat3x3.hpp"
+#include "../detail/type_mat4x4.hpp"
+#include "../detail/type_vec3.hpp"
+#include "../detail/type_vec4.hpp"
 #include "../ext/vector_relational.hpp"
 #include "../gtc/constants.hpp"
 #include "../gtc/matrix_transform.hpp"
@@ -46,6 +46,8 @@ namespace glm
 			{
 				struct { T x, y, z, w;};
 			};
+
+			typename detail::storage<4, T, detail::is_aligned<Q>::value>::type data;
 #		else
 			T x, y, z, w;
 #		endif
