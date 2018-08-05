@@ -45,6 +45,8 @@ template <typename matType>
 static int test_inverse()
 {
 	typedef typename matType::value_type value_type;
+
+	value_type const Epsilon = 0.001f;
 	
 	int Error = 0;
 
@@ -57,7 +59,6 @@ static int test_inverse()
 	matType const Inverse = Identity / Matrix;
 	matType const Result = Matrix * Inverse;
 
-	value_type const Epsilon(0.001);
 	Error += glm::all(glm::equal(Identity, Result, Epsilon)) ? 0 : 1;
 	
 	return Error;
