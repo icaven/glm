@@ -1,5 +1,4 @@
 /// @ref core
-/// @file glm/detail/type_half.inl
 
 namespace glm{
 namespace detail

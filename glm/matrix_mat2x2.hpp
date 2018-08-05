@@ -1,5 +1,5 @@
 /// @ref core
-/// @file glm/mat2x2.hpp
+/// @file glm/matrix_mat2x2.hpp
 
 #pragma once
 #include "detail/setup.hpp"

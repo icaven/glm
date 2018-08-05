@@ -1,5 +1,4 @@
 /// @ref gtx_quaternion
-/// @file glm/gtx/quaternion.inl
 
 #include <limits>
 #include "../gtc/constants.hpp"

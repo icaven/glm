@@ -1,5 +1,4 @@
 /// @ref gtc_epsilon
-/// @file glm/gtc/epsilon.inl
 
 // Dependency:
 #include "quaternion.hpp"

@@ -1,13 +1,12 @@
 /// @ref core
 /// @file glm/fwd.hpp
 
-#include "detail/setup.hpp"
-
 #pragma once
+#include "glm.hpp"
 
+/*
 #include "detail/type_int.hpp"
 #include "detail/type_float.hpp"
-#include "detail/type_mat.hpp"
 
 //////////////////////
 // GLM_GTC_quaternion
@@ -2569,3 +2568,5 @@ namespace glm
 #endif
 
 }//namespace glm
+
+*/

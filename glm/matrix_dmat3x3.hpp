@@ -1,5 +1,5 @@
 /// @ref core
-/// @file glm/dmat3x3.hpp
+/// @file glm/matrix_dmat3x3.hpp
 
 #pragma once
 #include "detail/type_mat3x3.hpp"

@@ -1,5 +1,4 @@
 /// @ref core
-/// @file glm/gtc/quaternion_simd.inl
 
 #if GLM_ARCH & GLM_ARCH_SSE2_BIT
 

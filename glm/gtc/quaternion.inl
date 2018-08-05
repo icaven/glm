@@ -1,5 +1,4 @@
 /// @ref gtc_quaternion
-/// @file glm/gtc/quaternion.inl
 
 #include "../trigonometric.hpp"
 #include "../geometric.hpp"

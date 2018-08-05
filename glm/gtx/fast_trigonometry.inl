@@ -1,5 +1,4 @@
 /// @ref gtx_fast_trigonometry
-/// @file glm/gtx/fast_trigonometry.inl
 
 namespace glm{
 namespace detail

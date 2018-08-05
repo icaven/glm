@@ -1,5 +1,4 @@
 /// @ref gtx_intersect
-/// @file glm/gtx/intersect.inl
 
 namespace glm
 {

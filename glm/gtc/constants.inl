@@ -1,5 +1,4 @@
 /// @ref gtc_constants
-/// @file glm/gtc/constants.inl
 
 #include <limits>
 

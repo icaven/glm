@@ -1,33 +1,16 @@
 /// @ref core
 /// @file glm/mat3x2.hpp
 
-#include "detail/setup.hpp"
-
 #pragma once
-
-#include "detail/type_mat3x2.hpp"
+#include "matrix_dmat3x2.hpp"
+#include "matrix_dmat3x2_precision.hpp"
+#include "matrix_mat3x2.hpp"
+#include "matrix_mat3x2_precision.hpp"
 
 namespace glm
 {
-	/// 3 columns of 2 components matrix of low qualifier floating-point numbers.
-	/// There is no guarantee on the actual qualifier.
-	///
-	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
-	typedef mat<3, 2, float, lowp>		lowp_mat3x2;
+#if GLM_HAS_TEMPLATE_ALIASES
+	template <typename T, qualifier Q = defaultp> using tmat3x2 = mat<3, 2, T, Q>;
+#endif//GLM_HAS_TEMPLATE_ALIASES
 
-	/// 3 columns of 2 components matrix of medium qualifier floating-point numbers.
-	/// There is no guarantee on the actual qualifier.
-	///
-	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
-	typedef mat<3, 2, float, mediump>		mediump_mat3x2;
-
-	/// 3 columns of 2 components matrix of high qualifier floating-point numbers.
-	/// There is no guarantee on the actual qualifier.
-	///
-	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.6 Matrices</a>
-	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
-	typedef mat<3, 2, float, highp>		highp_mat3x2;
-
-}//namespace
+}//namespace glm

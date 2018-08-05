@@ -1,5 +1,4 @@
 /// @ref gtx_fast_exponential
-/// @file glm/gtx/fast_exponential.inl
 
 namespace glm
 {

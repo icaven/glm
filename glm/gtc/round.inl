@@ -1,5 +1,4 @@
 /// @ref gtc_round
-/// @file glm/gtc/round.inl
 
 #include "../integer.hpp"
 

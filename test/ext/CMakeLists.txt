@@ -1,5 +1,6 @@
-glmCreateTestGTC(ext_bvec1)
 glmCreateTestGTC(ext_matrix_relational)
 glmCreateTestGTC(ext_scalar_relational)
 glmCreateTestGTC(ext_vec1)
+glmCreateTestGTC(ext_vector_bvec1)
+glmCreateTestGTC(ext_vector_uvec1)
 glmCreateTestGTC(ext_vector_relational)

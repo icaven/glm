@@ -1,5 +1,4 @@
 /// @ref gtx_compatibility
-/// @file glm/gtx/compatibility.inl
 
 #include <limits>
 

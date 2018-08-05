@@ -1,5 +1,4 @@
 /// @ref gtx_dual_quaternion
-/// @file glm/gtx/dual_quaternion.inl
 
 #include "../geometric.hpp"
 #include <limits>

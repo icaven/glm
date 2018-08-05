@@ -1,5 +1,4 @@
 /// @ref gtc_random
-/// @file glm/gtc/random.inl
 
 #include "../geometric.hpp"
 #include "../exponential.hpp"

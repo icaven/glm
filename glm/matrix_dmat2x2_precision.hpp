@@ -1,5 +1,5 @@
 /// @ref core
-/// @file glm/dmat2x2_precision.hpp
+/// @file glm/matrix_dmat2x2_precision.hpp
 
 #pragma once
 #include "detail/type_mat2x2.hpp"

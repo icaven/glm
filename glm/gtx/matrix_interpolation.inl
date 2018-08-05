@@ -1,5 +1,4 @@
 /// @ref gtx_matrix_interpolation
-/// @file glm/gtx/matrix_interpolation.hpp
 
 #include "../gtc/constants.hpp"
 

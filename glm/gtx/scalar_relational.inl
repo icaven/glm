@@ -1,5 +1,4 @@
 /// @ref gtx_scalar_relational
-/// @file glm/gtx/scalar_relational.inl
 
 namespace glm
 {

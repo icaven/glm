@@ -1,5 +1,4 @@
 /// @ref gtx_string_cast
-/// @file glm/gtx/string_cast.inl
 
 #include <cstdarg>
 #include <cstdio>

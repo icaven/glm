@@ -1,5 +1,4 @@
 /// @ref gtc_ulp
-/// @file glm/gtc/ulp.inl
 ///
 /// Copyright (C) 1993 by Sun Microsystems, Inc. All rights reserved.
 ///

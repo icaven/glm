@@ -1,11 +1,11 @@
 #include <glm/integer.hpp>
 #include <glm/vector_relational.hpp>
-#include <glm/ivec2.hpp>
-#include <glm/ivec3.hpp>
-#include <glm/ivec4.hpp>
-#include <glm/uvec2.hpp>
-#include <glm/uvec3.hpp>
-#include <glm/uvec4.hpp>
+#include <glm/vector_ivec2.hpp>
+#include <glm/vector_ivec3.hpp>
+#include <glm/vector_ivec4.hpp>
+#include <glm/vector_uvec2.hpp>
+#include <glm/vector_uvec3.hpp>
+#include <glm/vector_uvec4.hpp>
 #include <vector>
 #include <ctime>
 #include <cstdio>

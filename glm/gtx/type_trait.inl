@@ -1,5 +1,4 @@
 /// @ref gtx_type_trait
-/// @file glm/gtx/type_trait.inl
 
 namespace glm
 {

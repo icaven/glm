@@ -1,5 +1,4 @@
 /// @ref gtx_extended_min_max
-/// @file glm/gtx/extended_min_max.inl
 
 namespace glm
 {

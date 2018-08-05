@@ -1,5 +1,4 @@
 /// @ref gtc_matrix_transform
-/// @file glm/gtc/matrix_transform.inl
 
 #include "../geometric.hpp"
 #include "../trigonometric.hpp"

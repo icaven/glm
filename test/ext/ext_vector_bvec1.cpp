@@ -1,6 +1,5 @@
-#include <glm/ext/bvec1.hpp>
-#include <glm/ext/bvec1_precision.hpp>
-#include <vector>
+#include <glm/ext/vector_bvec1.hpp>
+#include <glm/ext/vector_bvec1_precision.hpp>
 
 template <typename genType>
 static int test_operators()

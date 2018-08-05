@@ -2,16 +2,16 @@
 /// @file glm/vec2.hpp
 
 #pragma once
-#include "bvec2.hpp"
-#include "bvec2_precision.hpp"
-#include "fvec2.hpp"
-#include "fvec2_precision.hpp"
-#include "dvec2.hpp"
-#include "dvec2_precision.hpp"
-#include "ivec2.hpp"
-#include "ivec2_precision.hpp"
-#include "uvec2.hpp"
-#include "uvec2_precision.hpp"
+#include "vector_bvec2.hpp"
+#include "vector_bvec2_precision.hpp"
+#include "vector_vec2.hpp"
+#include "vector_vec2_precision.hpp"
+#include "vector_dvec2.hpp"
+#include "vector_dvec2_precision.hpp"
+#include "vector_ivec2.hpp"
+#include "vector_ivec2_precision.hpp"
+#include "vector_uvec2.hpp"
+#include "vector_uvec2_precision.hpp"
 
 namespace glm
 {

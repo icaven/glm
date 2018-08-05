@@ -1,5 +1,4 @@
 /// @ref gtx_log_base
-/// @file glm/gtx/log_base.inl
 
 namespace glm
 {
