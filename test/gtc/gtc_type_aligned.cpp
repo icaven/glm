@@ -2,7 +2,9 @@
 
 #if GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
 #include <glm/gtc/type_aligned.hpp>
+#include <glm/gtc/type_precision.hpp>
 #include <glm/ext/vector_relational.hpp>
+#include <glm/ext/matrix_relational.hpp>
 
 GLM_STATIC_ASSERT(glm::detail::is_aligned<glm::aligned_lowp>::value, "aligned_lowp is not aligned");
 GLM_STATIC_ASSERT(glm::detail::is_aligned<glm::aligned_mediump>::value, "aligned_mediump is not aligned");

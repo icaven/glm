@@ -89,9 +89,6 @@ static int test_constexpr()
 {
 #	if GLM_CONFIG_CONSTEXP == GLM_ENABLE
 		static_assert(genType::length() == 1, "GLM: Failed constexpr");
-		static_assert(glm::equal(genType(1)[0], 1.0f, glm::epsilon<float>()), "GLM: Failed constexpr");
-		static_assert(glm::all(glm::equal(genType(1), genType(glm::vec1(1), glm::epsilon<float>()), "GLM: Failed constexpr");
-		static_assert(glm::all(glm::notEqual(genType(1), genType(0), glm::epsilon<float>())), "GLM: Failed constexpr");
 #	endif
 
 	return 0;

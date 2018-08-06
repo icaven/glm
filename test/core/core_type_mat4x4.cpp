@@ -13,29 +13,29 @@ static int test_operators()
 	
 	float const Epsilon = 0.001f;
 	
-	glm::mat4x4 const M(2.0f);
-	glm::mat4x4 const N(1.0f);
-	glm::vec4 const U(2.0f);
+	matType const M(2.0f);
+	matType const N(1.0f);
+	vecType const U(2.0f);
 
 	{
-		glm::mat4 const P = N * 2.0f;
+		matType const P = N * 2.0f;
 		Error += glm::all(glm::equal(P, M, Epsilon)) ? 0 : 1;
 		
-		glm::mat4 const Q = M / 2.0f;
+		matType const Q = M / 2.0f;
 		Error += glm::all(glm::equal(Q, N, Epsilon)) ? 0 : 1;
 	}
 	
 	{
-		glm::vec4 const V = M * U;
-		Error += glm::all(glm::equal(V, glm::vec4(4.f), Epsilon)) ? 0 : 1;
+		vecType const V = M * U;
+		Error += glm::all(glm::equal(V, vecType(4.f), Epsilon)) ? 0 : 1;
 		
-		glm::vec4 const W = U / M;
-		Error += glm::all(glm::equal(V, W, Epsilon)) ? 0 : 1;
+		vecType const W = U / M;
+		Error += glm::all(glm::equal(W, vecType(1.f), Epsilon)) ? 0 : 1;
 	}
 
 	{
-		glm::mat4 const O = M * N;
-		Error += glm::all(glm::equal(O, glm::mat4(4.f), Epsilon)) ? 0 : 1;
+		matType const O = M * N;
+		Error += glm::all(glm::equal(O, matType(2.f), Epsilon)) ? 0 : 1;
 	}
 
 	return Error;

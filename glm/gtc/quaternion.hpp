@@ -45,9 +45,9 @@ namespace glm
 			union
 			{
 				struct { T x, y, z, w;};
-			};
 
-			typename detail::storage<4, T, detail::is_aligned<Q>::value>::type data;
+				typename detail::storage<4, T, detail::is_aligned<Q>::value>::type data;
+			};
 #		else
 			T x, y, z, w;
 #		endif

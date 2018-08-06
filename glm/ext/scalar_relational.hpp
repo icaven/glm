@@ -29,7 +29,7 @@ namespace glm
 	///
 	/// @see ext_vector_relational
 	template<typename genType>
-	GLM_FUNC_DECL bool equal(genType const& x, genType const& y, genType const& epsilon);
+	GLM_FUNC_DECL GLM_CONSTEXPR bool equal(genType const& x, genType const& y, genType const& epsilon);
 
 	/// Returns the component-wise comparison of |x - y| >= epsilon.
 	/// True if this expression is not satisfied.
@@ -38,7 +38,7 @@ namespace glm
 	///
 	/// @see ext_vector_relational
 	template<typename genType>
-	GLM_FUNC_DECL bool notEqual(genType const& x, genType const& y, genType const& epsilon);
+	GLM_FUNC_DECL GLM_CONSTEXPR bool notEqual(genType const& x, genType const& y, genType const& epsilon);
 
 	/// @}
 }//namespace glm
