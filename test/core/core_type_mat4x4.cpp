@@ -9,33 +9,35 @@
 template <typename matType, typename vecType>
 static int test_operators()
 {
+	typedef typename matType::value_type value_type;
+
+	value_type const Epsilon = static_cast<value_type>(0.001);
+
 	int Error = 0;
-	
-	float const Epsilon = 0.001f;
-	
-	matType const M(2.0f);
-	matType const N(1.0f);
-	vecType const U(2.0f);
+
+	matType const M(static_cast<value_type>(2.0f));
+	matType const N(static_cast<value_type>(1.0f));
+	vecType const U(static_cast<value_type>(2.0f));
 
 	{
-		matType const P = N * 2.0f;
+		matType const P = N * static_cast<value_type>(2.0f);
 		Error += glm::all(glm::equal(P, M, Epsilon)) ? 0 : 1;
 		
-		matType const Q = M / 2.0f;
+		matType const Q = M / static_cast<value_type>(2.0f);
 		Error += glm::all(glm::equal(Q, N, Epsilon)) ? 0 : 1;
 	}
 	
 	{
 		vecType const V = M * U;
-		Error += glm::all(glm::equal(V, vecType(4.f), Epsilon)) ? 0 : 1;
+		Error += glm::all(glm::equal(V, vecType(static_cast<value_type>(4.f)), Epsilon)) ? 0 : 1;
 		
 		vecType const W = U / M;
-		Error += glm::all(glm::equal(W, vecType(1.f), Epsilon)) ? 0 : 1;
+		Error += glm::all(glm::equal(W, vecType(static_cast<value_type>(1.f)), Epsilon)) ? 0 : 1;
 	}
 
 	{
 		matType const O = M * N;
-		Error += glm::all(glm::equal(O, matType(2.f), Epsilon)) ? 0 : 1;
+		Error += glm::all(glm::equal(O, matType(static_cast<value_type>(2.f)), Epsilon)) ? 0 : 1;
 	}
 
 	return Error;
@@ -46,11 +48,11 @@ static int test_inverse()
 {
 	typedef typename matType::value_type value_type;
 
-	value_type const Epsilon = 0.001f;
+	value_type const Epsilon = static_cast<value_type>(0.001);
 	
 	int Error = 0;
 
-	matType const Identity(1.0f);
+	matType const Identity(static_cast<value_type>(1.0f));
 	matType const Matrix(
 		glm::vec4(0.6f, 0.2f, 0.3f, 0.4f),
 		glm::vec4(0.2f, 0.7f, 0.5f, 0.3f),
@@ -182,24 +184,28 @@ int main()
 	int Error = 0;
 
 	Error += test_member_alloc_bug();
-	
 	Error += test_ctr();
-	
+
 	Error += test_operators<glm::mat4, glm::vec4>();
 	Error += test_operators<glm::lowp_mat4, glm::lowp_vec4>();
 	Error += test_operators<glm::mediump_mat4, glm::mediump_vec4>();
 	Error += test_operators<glm::highp_mat4, glm::highp_vec4>();
-	
+
+	Error += test_operators<glm::dmat4, glm::dvec4>();
+	Error += test_operators<glm::lowp_dmat4, glm::lowp_dvec4>();
+	Error += test_operators<glm::mediump_dmat4, glm::mediump_dvec4>();
+	Error += test_operators<glm::highp_dmat4, glm::highp_dvec4>();
+
 	Error += test_inverse<glm::mat4>();
 	Error += test_inverse<glm::lowp_mat4>();
 	Error += test_inverse<glm::mediump_mat4>();
 	Error += test_inverse<glm::highp_mat4>();
-	
+
 	Error += test_inverse<glm::dmat4>();
 	Error += test_inverse<glm::lowp_dmat4>();
 	Error += test_inverse<glm::mediump_dmat4>();
 	Error += test_inverse<glm::highp_dmat4>();
-	
+
 	Error += test_size();
 	Error += test_constexpr();
 
