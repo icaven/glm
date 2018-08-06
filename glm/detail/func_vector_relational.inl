@@ -14,10 +14,15 @@ namespace detail
 {
 	enum relational_type
 	{
+		EQUAL,
+		NOT_EQUAL,
 		LESS,
 		LESS_EQUAL,
 		GREATER,
-		GREATER_EQUAL
+		GREATER_EQUAL,
+		ANY,
+		ALL,
+		NOT
 	};
 
 	template <relational_type R>
@@ -25,6 +30,26 @@ namespace detail
 	{
 		template<typename T>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static bool call(T Src0, T Src1);
+	};
+
+	template <>
+	struct relational<EQUAL>
+	{
+		template<typename T>
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static bool call(T Src0, T Src1)
+		{
+			return Src0 == Src1;
+		}
+	};
+
+	template <>
+	struct relational<NOT_EQUAL>
+	{
+		template<typename T>
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static bool call(T Src0, T Src1)
+		{
+			return Src0 != Src1;
+		}
 	};
 
 	template <>
@@ -66,6 +91,59 @@ namespace detail
 			return Src0 >= Src1;
 		}
 	};
+
+	template <>
+	struct relational<ANY>
+	{
+		template<typename T>
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static bool call(T Src0, T Src1)
+		{
+			return Src0 || Src1;
+		}
+	};
+
+	template <>
+	struct relational<ALL>
+	{
+		template<typename T>
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static bool call(T Src0, T Src1)
+		{
+			return Src0 && Src1;
+		}
+	};
+
+	template <>
+	struct relational<NOT>
+	{
+		template<typename T>
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static bool call(T Src0, T)
+		{
+			return !Src0;
+		}
+	};
+
+
+
+	template<length_t I, length_t N, relational_type R>
+	struct reduce_relational
+	{
+		template<typename vecType>
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static void call(bool& Dst, vecType const& Src)
+		{
+			Dst = relational<R>::call(Dst, Src[I]);
+			reduce_relational<I + 1, N, R>::call(Dst, Src);
+		}
+	};
+
+	template <length_t N, relational_type R>
+	struct reduce_relational<N, N, R>
+	{
+		template<typename vecType>
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static void call(bool&, vecType const&)
+		{}
+	};
+
+
 
 	template<length_t I, length_t N, relational_type R>
 	struct loop_relational
@@ -120,47 +198,42 @@ namespace detail
 	}
 
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, bool, Q> equal(vec<L, T, Q> const& x, vec<L, T, Q> const& y)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool, Q> equal(vec<L, T, Q> const& x, vec<L, T, Q> const& y)
 	{
 		vec<L, bool, Q> Result GLM_BUG_VC_INIT;
-		for(length_t i = 0; i < x.length(); ++i)
-			Result[i] = detail::compute_equal<T, std::numeric_limits<T>::is_iec559>::call(x[i], y[i]);
+		detail::loop_relational<0, L, detail::EQUAL>::call(Result, x, y);
 		return Result;
 	}
 
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, bool, Q> notEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool, Q> notEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y)
 	{
 		vec<L, bool, Q> Result GLM_BUG_VC_INIT;
-		for(length_t i = 0; i < x.length(); ++i)
-			Result[i] = !detail::compute_equal<T, std::numeric_limits<T>::is_iec559>::call(x[i], y[i]);
+		detail::loop_relational<0, L, detail::NOT_EQUAL>::call(Result, x, y);
 		return Result;
 	}
 
 	template<length_t L, qualifier Q>
-	GLM_FUNC_QUALIFIER bool any(vec<L, bool, Q> const& v)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR bool any(vec<L, bool, Q> const& v)
 	{
 		bool Result = false;
-		for(length_t i = 0; i < v.length(); ++i)
-			Result = Result || v[i];
+		detail::reduce_relational<0, L, detail::ANY>::call(Result, v);
 		return Result;
 	}
 
 	template<length_t L, qualifier Q>
-	GLM_FUNC_QUALIFIER bool all(vec<L, bool, Q> const& v)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR bool all(vec<L, bool, Q> const& v)
 	{
 		bool Result = true;
-		for(length_t i = 0; i < v.length(); ++i)
-			Result = Result && v[i];
+		detail::reduce_relational<0, L, detail::ALL>::call(Result, v);
 		return Result;
 	}
 
 	template<length_t L, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, bool, Q> not_(vec<L, bool, Q> const& v)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool, Q> not_(vec<L, bool, Q> const& v)
 	{
 		vec<L, bool, Q> Result;
-		for(length_t i = 0; i < v.length(); ++i)
-			Result[i] = !v[i];
+		detail::loop_relational<0, L, detail::NOT>::call(Result, v, v);
 		return Result;
 	}
 }//namespace glm

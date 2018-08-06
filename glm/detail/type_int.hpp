@@ -258,28 +258,20 @@ namespace detail
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
 	typedef detail::highp_uint_t			highp_uint;
 
-#if(!defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
-	typedef mediump_int					int_t;
-#elif(defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
-	typedef highp_int					int_t;
-#elif(!defined(GLM_PRECISION_HIGHP_INT) && defined(GLM_PRECISION_MEDIUMP_INT) && !defined(GLM_PRECISION_LOWP_INT))
-	typedef mediump_int					int_t;
-#elif(!defined(GLM_PRECISION_HIGHP_INT) && !defined(GLM_PRECISION_MEDIUMP_INT) && defined(GLM_PRECISION_LOWP_INT))
+#if GLM_CONFIG_PRECISION_INT == GLM_LOWP
 	typedef lowp_int					int_t;
+#elif GLM_CONFIG_PRECISION_INT == GLM_MEDIUMP
+	typedef mediump_int					int_t;
 #else
-#	error "GLM error: multiple default precision requested for signed integer types"
+	typedef highp_int					int_t;
 #endif
 
-#if(!defined(GLM_PRECISION_HIGHP_UINT) && !defined(GLM_PRECISION_MEDIUMP_UINT) && !defined(GLM_PRECISION_LOWP_UINT))
-	typedef mediump_uint				uint_t;
-#elif(defined(GLM_PRECISION_HIGHP_UINT) && !defined(GLM_PRECISION_MEDIUMP_UINT) && !defined(GLM_PRECISION_LOWP_UINT))
-	typedef highp_uint					uint_t;
-#elif(!defined(GLM_PRECISION_HIGHP_UINT) && defined(GLM_PRECISION_MEDIUMP_UINT) && !defined(GLM_PRECISION_LOWP_UINT))
-	typedef mediump_uint				uint_t;
-#elif(!defined(GLM_PRECISION_HIGHP_UINT) && !defined(GLM_PRECISION_MEDIUMP_UINT) && defined(GLM_PRECISION_LOWP_UINT))
+#if GLM_CONFIG_PRECISION_UINT == GLM_LOWP
 	typedef lowp_uint					uint_t;
+#elif GLM_CONFIG_PRECISION_UINT == GLM_MEDIUMP
+	typedef mediump_uint				uint_t;
 #else
-#	error "GLM error: multiple default precision requested for unsigned integer types"
+	typedef highp_uint					uint_t;
 #endif
 
 	/// Unsigned integer type.
