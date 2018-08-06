@@ -631,6 +631,63 @@ namespace glm
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
+// Precision
+
+#define GLM_HIGHP		1
+#define GLM_MEDIUMP		2
+#define GLM_LOWP		3
+
+#ifdef GLM_PRECISION_HIGHP_BOOL
+#	define GLM_CONFIG_PRECISION_BOOL		GLM_HIGHP
+#elif defined(GLM_PRECISION_MEDIUMP_BOOL)
+#	define GLM_CONFIG_PRECISION_BOOL		GLM_MEDIUMP
+#elif defined(GLM_PRECISION_LOWP_BOOL)
+#	define GLM_CONFIG_PRECISION_BOOL		GLM_LOWP
+#else
+#	define GLM_CONFIG_PRECISION_BOOL		GLM_HIGHP
+#endif
+
+#ifdef GLM_PRECISION_HIGHP_INT
+#	define GLM_CONFIG_PRECISION_INT			GLM_HIGHP
+#elif defined(GLM_PRECISION_MEDIUMP_INT)
+#	define GLM_CONFIG_PRECISION_INT			GLM_MEDIUMP
+#elif defined(GLM_PRECISION_LOWP_INT)
+#	define GLM_CONFIG_PRECISION_INT			GLM_LOWP
+#else
+#	define GLM_CONFIG_PRECISION_INT			GLM_HIGHP
+#endif
+
+#ifdef GLM_PRECISION_HIGHP_UINT
+#	define GLM_CONFIG_PRECISION_UINT		GLM_HIGHP
+#elif defined(GLM_PRECISION_MEDIUMP_UINT)
+#	define GLM_CONFIG_PRECISION_UINT		GLM_MEDIUMP
+#elif defined(GLM_PRECISION_LOWP_UINT)
+#	define GLM_CONFIG_PRECISION_UINT		GLM_LOWP
+#else
+#	define GLM_CONFIG_PRECISION_UINT		GLM_HIGHP
+#endif
+
+#ifdef GLM_PRECISION_HIGHP_FLOAT
+#	define GLM_CONFIG_PRECISION_FLOAT		GLM_HIGHP
+#elif defined(GLM_PRECISION_MEDIUMP_FLOAT)
+#	define GLM_CONFIG_PRECISION_FLOAT		GLM_MEDIUMP
+#elif defined(GLM_PRECISION_LOWP_FLOAT)
+#	define GLM_CONFIG_PRECISION_FLOAT		GLM_LOWP
+#else
+#	define GLM_CONFIG_PRECISION_FLOAT		GLM_HIGHP
+#endif
+
+#ifdef GLM_PRECISION_HIGHP_DOUBLE
+#	define GLM_CONFIG_PRECISION_DOUBLE		GLM_HIGHP
+#elif defined(GLM_PRECISION_MEDIUMP_DOUBLE)
+#	define GLM_CONFIG_PRECISION_DOUBLE		GLM_MEDIUMP
+#elif defined(GLM_PRECISION_LOWP_DOUBLE)
+#	define GLM_CONFIG_PRECISION_DOUBLE		GLM_LOWP
+#else
+#	define GLM_CONFIG_PRECISION_DOUBLE		GLM_HIGHP
+#endif
+
+///////////////////////////////////////////////////////////////////////////////////
 // Check inclusions of different versions of GLM
 
 #elif ((GLM_SETUP_INCLUDED != GLM_VERSION) && !defined(GLM_FORCE_IGNORE_VERSION))

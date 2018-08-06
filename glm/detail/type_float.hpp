@@ -43,22 +43,18 @@ namespace detail
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
 	typedef highp_float_t		highp_float;
 
-#if(!defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
-	typedef mediump_float		float_t;
-#elif(defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
+#if GLM_CONFIG_PRECISION_FLOAT == GLM_HIGHP
 	typedef highp_float			float_t;
-#elif(!defined(GLM_PRECISION_HIGHP_FLOAT) && defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
+#elif GLM_CONFIG_PRECISION_FLOAT == GLM_MEDIUMP
 	typedef mediump_float		float_t;
-#elif(!defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && defined(GLM_PRECISION_LOWP_FLOAT))
+#elif GLM_CONFIG_PRECISION_FLOAT == GLM_LOWP
 	typedef lowp_float			float_t;
-#else
-#	error "GLM error: multiple default precision requested for floating-point types"
 #endif
 
 	typedef float				float32;
 
 #	ifndef GLM_FORCE_SINGLE_ONLY
-		typedef double				float64;
+		typedef double			float64;
 #	endif//GLM_FORCE_SINGLE_ONLY
 
 ////////////////////

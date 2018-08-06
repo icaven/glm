@@ -1,38 +1,38 @@
-/// @ref ext_vec1
-/// @file glm/ext/vec1.hpp
+/// @ref ext_vector_vec1
+/// @file glm/ext/vector_vec1.hpp
 ///
 /// @see core (dependence)
 ///
-/// @defgroup ext_vec1 GLM_EXT_fvec1
+/// @defgroup ext_vector_vec1 GLM_EXT_vector_vec1
 /// @ingroup ext
 ///
-/// Include <glm/ext/vec1.hpp> to use the features of this extension.
+/// Include <glm/ext/vector_vec1.hpp> to use the features of this extension.
 ///
-/// Expose vec1 vector type.
+/// Exposes vec1 vector type.
 
 #pragma once
 
 #include "../detail/type_vec1.hpp"
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_EXT_fvec1 extension included")
+#	pragma message("GLM: GLM_EXT_vector_vec1 extension included")
 #endif
 
 namespace glm
 {
-	/// @addtogroup ext_fvec1
+	/// @addtogroup ext_vector_vec1
 	/// @{
 
-#	if(defined(GLM_PRECISION_LOWP_FLOAT))
+#	if GLM_CONFIG_PRECISION_FLOAT == GLM_LOWP
 		typedef vec<1, float, lowp>			vec1;
-#	elif(defined(GLM_PRECISION_MEDIUMP_FLOAT))
+#	elif GLM_CONFIG_PRECISION_FLOAT == GLM_MEDIUMP
 		typedef vec<1, float, mediump>		vec1;
-#	else //defined(GLM_PRECISION_HIGHP_FLOAT)
+#	else
 		/// 1 components vector of single-precision floating-point numbers.
 		///
-		/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+		/// @see ext_vector_vec1 extension.
 		typedef vec<1, float, highp>		vec1;
-#	endif//GLM_PRECISION
+#	endif
 
 	/// @}
 }//namespace glm

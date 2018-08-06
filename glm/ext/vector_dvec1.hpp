@@ -1,12 +1,12 @@
-/// @ref ext_dvec1
-/// @file glm/ext/dvec1.hpp
+/// @ref ext_vector_dvec1
+/// @file glm/ext/vector_dvec1.hpp
 ///
 /// @see core (dependence)
 ///
-/// @defgroup ext_dvec1 GLM_EXT_dvec1
+/// @defgroup ext_vector_dvec1 GLM_EXT_vector_dvec1
 /// @ingroup ext
 ///
-/// Include <glm/ext/dvec1.hpp> to use the features of this extension.
+/// Include <glm/ext/vector_dvec1.hpp> to use the features of this extension.
 ///
 /// Expose dvec1 vector type.
 
@@ -15,24 +15,24 @@
 #include "../detail/type_vec1.hpp"
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_EXT_dvec1 extension included")
+#	pragma message("GLM: GLM_EXT_vector_dvec1 extension included")
 #endif
 
 namespace glm
 {
-	/// @addtogroup ext_dvec1
+	/// @addtogroup ext_vector_dvec1
 	/// @{
 
-#	if(defined(GLM_PRECISION_LOWP_DOUBLE))
+#	if GLM_CONFIG_PRECISION_DOUBLE == GLM_LOWP
 		typedef vec<1, double, lowp>		dvec1;
-#	elif(defined(GLM_PRECISION_MEDIUMP_DOUBLE))
+#	elif GLM_CONFIG_PRECISION_DOUBLE == GLM_MEDIUMP
 		typedef vec<1, double, mediump>		dvec1;
-#	else //defined(GLM_PRECISION_HIGHP_DOUBLE)
+#	else
 		/// 1 components vector of double-precision floating-point numbers.
 		///
-		/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
+		/// @see ext_vector_dvec1 extension.
 		typedef vec<1, double, highp>		dvec1;
-#	endif//GLM_PRECISION
+#	endif
 
 	/// @}
 }//namespace glm
