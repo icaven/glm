@@ -1,11 +1,13 @@
 #define GLM_FORCE_XYZW_ONLY
 
+#include <glm/gtc/constants.hpp>
+#include <glm/ext/vector_relational.hpp>
 #include <glm/ext/vec1.hpp>
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
 #include <glm/vec4.hpp>
 
-int test_comp()
+static int test_comp()
 {
 	int Error = 0;
 
@@ -38,12 +40,19 @@ int test_comp()
 	return Error;
 }
 
+static int test_constexpr()
+{
+	int Error = 0;
+
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
 
 	Error += test_comp();
+	Error += test_constexpr();
 
 	return Error;
 }
-

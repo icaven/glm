@@ -195,7 +195,7 @@ namespace detail
 }//namespace detail
 
 	template<typename CTy, typename CTr, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, tquat<T, Q> const& a)
+	GLM_FUNC_QUALIFIER std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>& os, qua<T, Q> const& a)
 	{
 		return detail::print_vector_on(os, a);
 	}

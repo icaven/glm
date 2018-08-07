@@ -36,7 +36,7 @@ namespace
 	{
 		std::basic_ostringstream<CTy,CTr> ostr;
 
-		if      (typeid(T) == typeid(glm::tquat<U,P>))   { ostr << "quat"; }
+		if      (typeid(T) == typeid(glm::qua<U,P>))   { ostr << "quat"; }
 		else if (typeid(T) == typeid(glm::vec<2, U,P>))   { ostr << "vec2"; }
 		else if (typeid(T) == typeid(glm::vec<3, U,P>))   { ostr << "vec3"; }
 		else if (typeid(T) == typeid(glm::vec<4, U,P>))   { ostr << "vec4"; }
@@ -62,20 +62,20 @@ int test_io_quat(OS& os)
 {
 	os << '\n' << typeid(OS).name() << '\n';
 
-	glm::tquat<T,P> const q(1, 0, 0, 0);
+	glm::qua<T, P> const q(1, 0, 0, 0);
 
 	{
 		glm::io::basic_format_saver<typename OS::char_type> const iofs(os);
 
 		os << glm::io::precision(2) << glm::io::width(1 + 2 + 1 + 2)
-			<< type_name<T,P>(os, q) << ": " << q << '\n';
+			<< type_name<T, P>(os, q) << ": " << q << '\n';
 	}
 
 	{
 		glm::io::basic_format_saver<typename OS::char_type> const iofs(os);
 
 		os << glm::io::unformatted
-			<< type_name<T,P>(os, q) << ": " << q << '\n';
+			<< type_name<T, P>(os, q) << ": " << q << '\n';
 	}
 
 	return 0;

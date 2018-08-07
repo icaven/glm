@@ -163,7 +163,7 @@ namespace glm
 	}//namespace io
 
 	template<typename CTy, typename CTr, typename T, qualifier Q>
-	GLM_FUNC_DECL std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>&, tquat<T, Q> const&);
+	GLM_FUNC_DECL std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>&, qua<T, Q> const&);
 	template<typename CTy, typename CTr, typename T, qualifier Q>
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>&, vec<1, T, Q> const&);
 	template<typename CTy, typename CTr, typename T, qualifier Q>
