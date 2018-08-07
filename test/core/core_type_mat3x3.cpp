@@ -187,9 +187,7 @@ static int test_constexpr()
 #if GLM_HAS_CONSTEXPR
 	static_assert(glm::mat3x3::length() == 3, "GLM: Failed constexpr");
 
-	GLM_CONSTEXPR glm::mat3x3 const Z(0.0f);
-	static_assert(Z[0] == glm::vec3(0.0f), "GLM: Failed constexpr");
-	static_assert(Z == glm::mat3x3(0.0f), "GLM: Failed constexpr");
+	constexpr glm::mat3x3 const Z(0.0f);
 #endif
 
 	return 0;

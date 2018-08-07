@@ -650,7 +650,6 @@ static int test_quat()
 
 		glm::quat constexpr Q = glm::identity<glm::quat>();
 		static_assert(Q.x - glm::quat(1.0f, glm::vec3(0.0f)).x <= glm::epsilon<float>(), "GLM: Failed constexpr");
-		static_assert(Q[0] == 0, "GLM: Failed constexpr");
 	}
 
 	return Error;

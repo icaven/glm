@@ -123,25 +123,6 @@ namespace detail
 	};
 
 	template<length_t I, length_t N, relational_type R>
-	struct reduce_relational
-	{
-		template<typename vecType>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static void call(bool& Dst, vecType const& Src)
-		{
-			Dst = relational<R>::call(Dst, Src[I]);
-			reduce_relational<I + 1, N, R>::call(Dst, Src);
-		}
-	};
-
-	template <length_t N, relational_type R>
-	struct reduce_relational<N, N, R>
-	{
-		template<typename vecType>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static void call(bool&, vecType const&)
-		{}
-	};
-
-	template<length_t I, length_t N, relational_type R>
 	struct loop_relational
 	{
 		template<typename vecBType, typename vecType>
@@ -159,7 +140,50 @@ namespace detail
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static void call(vecBType&, vecType const&, vecType const&)
 		{}
 	};
+
+	template<length_t I, length_t N, relational_type R>
+	struct reduce_relational
+	{
+		template<typename vecType>
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static void call(bool& Dst, vecType const& Src)
+		{
+			Dst = relational<R>::call(Dst, Src[I]);
+			reduce_relational<I + 1, N, R>::call(Dst, Src);
+		}
+	};
+
+	template <length_t N, relational_type R>
+	struct reduce_relational<N, N, R>
+	{
+		template<typename vecType>
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static void call(bool&, vecType const&)
+		{}
+	};
 }//namespace detail
+
+	template<length_t L, qualifier Q>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR bool any(vec<L, bool, Q> const& v)
+	{
+		bool Result = false;
+		detail::reduce_relational<0, L, detail::ANY>::call(Result, v);
+		return Result;
+	}
+
+	template<length_t L, qualifier Q>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR bool all(vec<L, bool, Q> const& v)
+	{
+		bool Result = true;
+		detail::reduce_relational<0, L, detail::ALL>::call(Result, v);
+		return Result;
+	}
+
+	template<length_t L, qualifier Q>
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool, Q> not_(vec<L, bool, Q> const& v)
+	{
+		vec<L, bool, Q> Result;
+		detail::loop_relational<0, L, detail::NOT>::call(Result, v, v);
+		return Result;
+	}
 
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool, Q> lessThan(vec<L, T, Q> const& x, vec<L, T, Q> const& y)
@@ -206,30 +230,6 @@ namespace detail
 	{
 		vec<L, bool, Q> Result GLM_BUG_VC_INIT;
 		detail::loop_relational<0, L, detail::NOT_EQUAL>::call(Result, x, y);
-		return Result;
-	}
-
-	template<length_t L, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR bool any(vec<L, bool, Q> const& v)
-	{
-		bool Result = false;
-		detail::reduce_relational<0, L, detail::ANY>::call(Result, v);
-		return Result;
-	}
-
-	template<length_t L, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR bool all(vec<L, bool, Q> const& v)
-	{
-		bool Result = true;
-		detail::reduce_relational<0, L, detail::ALL>::call(Result, v);
-		return Result;
-	}
-
-	template<length_t L, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool, Q> not_(vec<L, bool, Q> const& v)
-	{
-		vec<L, bool, Q> Result;
-		detail::loop_relational<0, L, detail::NOT>::call(Result, v, v);
 		return Result;
 	}
 }//namespace glm
