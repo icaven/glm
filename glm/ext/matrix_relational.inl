@@ -22,7 +22,7 @@ namespace glm
 	template<length_t C, length_t R, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<C, bool, Q> equal(mat<C, R, T, Q> const& a, mat<C, R, T, Q> const& b, vec<C, T, Q> const& Epsilon)
 	{
-		vec<C, bool, Q> Result;
+		vec<C, bool, Q> Result(true);
 		for(length_t i = 0; i < C; ++i)
 			Result[i] = all(equal(a[i], b[i], Epsilon[i]));
 		return Result;
@@ -43,7 +43,7 @@ namespace glm
 	template<length_t C, length_t R, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<C, bool, Q> notEqual(mat<C, R, T, Q> const& a, mat<C, R, T, Q> const& b, vec<C, T, Q> const& Epsilon)
 	{
-		vec<C, bool, Q> Result;
+		vec<C, bool, Q> Result(true);
 		for(length_t i = 0; i < C; ++i)
 			Result[i] = any(notEqual(a[i], b[i], Epsilon[i]));
 		return Result;

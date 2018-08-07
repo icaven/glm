@@ -4,6 +4,7 @@
 #include <glm/ext/matrix_relational.hpp>
 #include <glm/matrix.hpp>
 #include <glm/mat4x4.hpp>
+#include <glm/vec4.hpp>
 #include <vector>
 
 template <typename matType, typename vecType>
@@ -174,6 +175,10 @@ static int test_constexpr()
 {
 #if GLM_HAS_CONSTEXPR
 	static_assert(glm::mat4::length() == 4, "GLM: Failed constexpr");
+	constexpr glm::mat4 A(1.f);
+	constexpr glm::mat4 B(1.f);
+	constexpr glm::bvec4 C = glm::equal(A, B, 0.01f);
+	static_assert(glm::all(C), "GLM: Failed constexpr");
 #endif
 
 	return 0;
