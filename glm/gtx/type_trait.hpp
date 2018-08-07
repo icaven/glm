@@ -62,7 +62,7 @@ namespace glm
 	};
 
 	template<typename T, qualifier Q>
-	struct type<tquat<T, Q> >
+	struct type<qua<T, Q> >
 	{
 		static bool const is_vec = false;
 		static bool const is_mat = false;

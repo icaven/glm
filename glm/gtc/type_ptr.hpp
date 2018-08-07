@@ -223,7 +223,7 @@ namespace glm
 	/// Build a quaternion from a pointer.
 	/// @see gtc_type_ptr
 	template<typename T>
-	GLM_FUNC_DECL tquat<T, defaultp> make_quat(T const * const ptr);
+	GLM_FUNC_DECL qua<T, defaultp> make_quat(T const * const ptr);
 
 	/// @}
 }//namespace glm

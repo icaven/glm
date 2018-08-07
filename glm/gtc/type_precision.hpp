@@ -2204,37 +2204,37 @@ namespace glm
 
 	/// Single-qualifier floating-point quaternion.
 	/// @see gtc_type_precision
-	typedef tquat<f32, defaultp> f32quat;
+	typedef qua<f32, defaultp> f32quat;
 
 	/// Low single-qualifier floating-point quaternion.
 	/// @see gtc_type_precision
-	typedef tquat<f32, lowp> lowp_f32quat;
+	typedef qua<f32, lowp> lowp_f32quat;
 
 	/// Low double-qualifier floating-point quaternion.
 	/// @see gtc_type_precision
-	typedef tquat<f64, lowp> lowp_f64quat;
+	typedef qua<f64, lowp> lowp_f64quat;
 
 	/// Medium single-qualifier floating-point quaternion.
 	/// @see gtc_type_precision
-	typedef tquat<f32, mediump> mediump_f32quat;
+	typedef qua<f32, mediump> mediump_f32quat;
 
 #	ifndef GLM_FORCE_SINGLE_ONLY
 
 	/// Medium double-qualifier floating-point quaternion.
 	/// @see gtc_type_precision
-	typedef tquat<f64, mediump> mediump_f64quat;
+	typedef qua<f64, mediump> mediump_f64quat;
 
 	/// High single-qualifier floating-point quaternion.
 	/// @see gtc_type_precision
-	typedef tquat<f32, highp> highp_f32quat;
+	typedef qua<f32, highp> highp_f32quat;
 
 	/// High double-qualifier floating-point quaternion.
 	/// @see gtc_type_precision
-	typedef tquat<f64, highp> highp_f64quat;
+	typedef qua<f64, highp> highp_f64quat;
 
 	/// Double-qualifier floating-point quaternion.
 	/// @see gtc_type_precision
-	typedef tquat<f64, defaultp> f64quat;
+	typedef qua<f64, defaultp> f64quat;
 
 #	endif//GLM_FORCE_SINGLE_ONLY
 

@@ -57,8 +57,8 @@ namespace glm
 	///
 	/// @see gtx_rotate_normalized_axis
 	template<typename T, qualifier Q>
-	GLM_FUNC_DECL tquat<T, Q> rotateNormalizedAxis(
-		tquat<T, Q> const& q,
+	GLM_FUNC_DECL qua<T, Q> rotateNormalizedAxis(
+		qua<T, Q> const& q,
 		T const& angle,
 		vec<3, T, Q> const& axis);
 

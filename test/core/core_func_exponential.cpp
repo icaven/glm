@@ -3,7 +3,10 @@
 #include <glm/gtc/epsilon.hpp>
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/ulp.hpp>
-#include <glm/gtc/vec1.hpp>
+#include <glm/ext/vector_vec1.hpp>
+#include <glm/ext/vector_vec2.hpp>
+#include <glm/ext/vector_vec3.hpp>
+#include <glm/ext/vector_vec4.hpp>
 
 static int test_pow()
 {

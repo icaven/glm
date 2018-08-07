@@ -1,7 +1,8 @@
 #define GLM_FORCE_ALIGNED
 #define GLM_FORCE_SWIZZLE
-#include <glm/gtc/epsilon.hpp>
+#include <glm/gtc/constants.hpp>
 #include <glm/ext/vec1.hpp>
+#include <glm/ext/scalar_relational.hpp>
 #include <glm/ext/vector_relational.hpp>
 #include <glm/vector_relational.hpp>
 #include <glm/vec2.hpp>
@@ -740,10 +741,10 @@ static int test_inheritance()
 	my_vec4 v;
 
 	Error += v.member == 82 ? 0 : 1;
-	Error += glm::epsilonEqual(v.x, 76.f, glm::epsilon<float>()) ? 0 : 1;
-	Error += glm::epsilonEqual(v.y, 75.f, glm::epsilon<float>()) ? 0 : 1;
-	Error += glm::epsilonEqual(v.z, 74.f, glm::epsilon<float>()) ? 0 : 1;
-	Error += glm::epsilonEqual(v.w, 73.f, glm::epsilon<float>()) ? 0 : 1;
+	Error += glm::equal(v.x, 76.f, glm::epsilon<float>()) ? 0 : 1;
+	Error += glm::equal(v.y, 75.f, glm::epsilon<float>()) ? 0 : 1;
+	Error += glm::equal(v.z, 74.f, glm::epsilon<float>()) ? 0 : 1;
+	Error += glm::equal(v.w, 73.f, glm::epsilon<float>()) ? 0 : 1;
 
 	return Error;
 }

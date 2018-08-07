@@ -39,11 +39,11 @@ namespace glm
 		// -- Implementation detail --
 
 		typedef T value_type;
-		typedef glm::tquat<T, Q> part_type;
+		typedef qua<T, Q> part_type;
 
 		// -- Data --
 
-		glm::tquat<T, Q> real, dual;
+		qua<T, Q> real, dual;
 
 		// -- Component accesses --
 
@@ -63,9 +63,9 @@ namespace glm
 
 		// -- Explicit basic constructors --
 
-		GLM_FUNC_DECL GLM_CONSTEXPR tdualquat(tquat<T, Q> const& real);
-		GLM_FUNC_DECL GLM_CONSTEXPR tdualquat(tquat<T, Q> const& orientation, vec<3, T, Q> const& translation);
-		GLM_FUNC_DECL GLM_CONSTEXPR tdualquat(tquat<T, Q> const& real, tquat<T, Q> const& dual);
+		GLM_FUNC_DECL GLM_CONSTEXPR tdualquat(qua<T, Q> const& real);
+		GLM_FUNC_DECL GLM_CONSTEXPR tdualquat(qua<T, Q> const& orientation, vec<3, T, Q> const& translation);
+		GLM_FUNC_DECL GLM_CONSTEXPR tdualquat(qua<T, Q> const& real, qua<T, Q> const& dual);
 
 		// -- Conversion constructors --
 

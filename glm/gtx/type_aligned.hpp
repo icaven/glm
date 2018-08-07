@@ -960,7 +960,7 @@ namespace glm
 
 	/// Single-qualifier floating-point aligned quaternion.
 	/// @see gtx_type_aligned
-	GLM_ALIGNED_TYPEDEF(fquat, aligned_fquat, 16);
+	GLM_ALIGNED_TYPEDEF(quat, aligned_fquat, 16);
 
 	/// Double-qualifier floating-point aligned quaternion.
 	/// @see gtx_type_aligned

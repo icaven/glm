@@ -38,7 +38,7 @@ namespace glm
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL bool decompose(
 		mat<4, 4, T, Q> const& modelMatrix,
-		vec<3, T, Q> & scale, tquat<T, Q> & orientation, vec<3, T, Q> & translation, vec<3, T, Q> & skew, vec<4, T, Q> & perspective);
+		vec<3, T, Q> & scale, qua<T, Q> & orientation, vec<3, T, Q> & translation, vec<3, T, Q> & skew, vec<4, T, Q> & perspective);
 
 	/// @}
 }//namespace glm
