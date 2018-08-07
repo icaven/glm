@@ -2,7 +2,7 @@
 /// @file glm/ivec4.hpp
 
 #pragma once
-#include "detail/type_vec4.hpp"
+#include "../detail/type_vec4.hpp"
 
 namespace glm
 {

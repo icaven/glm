@@ -2,10 +2,10 @@
 /// @file glm/mat2x3.hpp
 
 #pragma once
-#include "matrix_dmat2x3.hpp"
-#include "matrix_dmat2x3_precision.hpp"
-#include "matrix_mat2x3.hpp"
-#include "matrix_mat2x3_precision.hpp"
+#include "./ext/matrix_dmat2x3.hpp"
+#include "./ext/matrix_dmat2x3_precision.hpp"
+#include "./ext/matrix_mat2x3.hpp"
+#include "./ext/matrix_mat2x3_precision.hpp"
 
 namespace glm
 {

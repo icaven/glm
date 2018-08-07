@@ -1,8 +1,8 @@
 /// @ref core
-/// @file glm/uvec3.hpp
+/// @file glm/uvec4.hpp
 
 #pragma once
-#include "detail/type_vec3.hpp"
+#include "../detail/type_vec4.hpp"
 
 namespace glm
 {
@@ -10,14 +10,14 @@ namespace glm
 	/// @{
 
 #	if(defined(GLM_PRECISION_LOWP_UINT))
-		typedef vec<3, uint, lowp>		uvec3;
+		typedef vec<4, uint, lowp>		uvec4;
 #	elif(defined(GLM_PRECISION_MEDIUMP_UINT))
-		typedef vec<3, uint, mediump>	uvec3;
+		typedef vec<4, uint, mediump>	uvec4;
 #	else //defined(GLM_PRECISION_HIGHP_UINT)
-		/// 3 components vector of unsigned integer numbers.
+		/// 4 components vector of unsigned integer numbers.
 		///
 		/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
-		typedef vec<3, uint, highp>		uvec3;
+		typedef vec<4, uint, highp>		uvec4;
 #	endif//GLM_PRECISION
 
 	/// @}

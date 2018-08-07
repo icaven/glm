@@ -3,9 +3,9 @@
 #include <glm/ext/vector_relational.hpp>
 #include <glm/ext/vector_dvec1.hpp>
 #include <glm/ext/vector_dvec1_precision.hpp>
-#include <glm/vector_dvec2.hpp>
-#include <glm/vector_dvec3.hpp>
-#include <glm/vector_dvec4.hpp>
+#include <glm/ext/vector_dvec2.hpp>
+#include <glm/ext/vector_dvec3.hpp>
+#include <glm/ext/vector_dvec4.hpp>
 
 template <typename genType>
 static int test_operators()

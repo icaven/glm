@@ -1,8 +1,8 @@
 /// @ref core
-/// @file glm/ivec2.hpp
+/// @file glm/ivec3.hpp
 
 #pragma once
-#include "detail/type_vec2.hpp"
+#include "../detail/type_vec3.hpp"
 
 namespace glm
 {
@@ -10,14 +10,14 @@ namespace glm
 	/// @{
 
 #	if(defined(GLM_PRECISION_LOWP_INT))
-		typedef vec<2, int, lowp>		ivec2;
+		typedef vec<3, int, lowp>		ivec3;
 #	elif(defined(GLM_PRECISION_MEDIUMP_INT))
-		typedef vec<2, int, mediump>	ivec2;
+		typedef vec<3, int, mediump>	ivec3;
 #	else //defined(GLM_PRECISION_HIGHP_INT)
-		/// 2 components vector of signed integer numbers.
+		/// 3 components vector of signed integer numbers.
 		///
 		/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
-		typedef vec<2, int, highp>		ivec2;
+		typedef vec<3, int, highp>		ivec3;
 #	endif//GLM_PRECISION
 
 	/// @}

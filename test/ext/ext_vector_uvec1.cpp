@@ -1,9 +1,9 @@
 #include <glm/ext/vector_uvec1.hpp>
 #include <glm/ext/vector_uvec1_precision.hpp>
-#include <glm/vector_uvec2.hpp>
-#include <glm/vector_uvec3.hpp>
-#include <glm/vector_uvec4.hpp>
-#include <glm/vector_relational.hpp>
+#include <glm/ext/vector_uvec2.hpp>
+#include <glm/ext/vector_uvec3.hpp>
+#include <glm/ext/vector_uvec4.hpp>
+#include <glm/ext/vector_relational.hpp>
 
 template <typename genType>
 static int test_operators()

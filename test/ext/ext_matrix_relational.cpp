@@ -1,6 +1,6 @@
 #include <glm/ext/matrix_relational.hpp>
-#include <glm/matrix_mat4x3.hpp>
-#include <glm/vector_vec4.hpp>
+#include <glm/ext/matrix_mat4x3.hpp>
+#include <glm/ext/vector_vec4.hpp>
 
 int test_equal()
 {

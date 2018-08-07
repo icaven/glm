@@ -3,12 +3,12 @@
 #include <glm/ext/scalar_relational.hpp>
 #include <glm/ext/vector_relational.hpp>
 #include <glm/ext/vector_vec1.hpp>
-#include <glm/vector_vec2.hpp>
-#include <glm/vector_vec3.hpp>
-#include <glm/vector_vec4.hpp>
-#include <glm/vector_dvec2.hpp>
-#include <glm/vector_dvec3.hpp>
-#include <glm/vector_dvec4.hpp>
+#include <glm/ext/vector_vec2.hpp>
+#include <glm/ext/vector_vec3.hpp>
+#include <glm/ext/vector_vec4.hpp>
+#include <glm/ext/vector_dvec2.hpp>
+#include <glm/ext/vector_dvec3.hpp>
+#include <glm/ext/vector_dvec4.hpp>
 #include <limits>
 
 namespace length

@@ -122,8 +122,6 @@ namespace detail
 		}
 	};
 
-
-
 	template<length_t I, length_t N, relational_type R>
 	struct reduce_relational
 	{
@@ -142,8 +140,6 @@ namespace detail
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static void call(bool&, vecType const&)
 		{}
 	};
-
-
 
 	template<length_t I, length_t N, relational_type R>
 	struct loop_relational

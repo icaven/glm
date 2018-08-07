@@ -1,8 +1,8 @@
 #include <glm/ext/vector_ivec1.hpp>
 #include <glm/ext/vector_ivec1_precision.hpp>
-#include <glm/vector_ivec2.hpp>
-#include <glm/vector_ivec3.hpp>
-#include <glm/vector_ivec4.hpp>
+#include <glm/ext/vector_ivec2.hpp>
+#include <glm/ext/vector_ivec3.hpp>
+#include <glm/ext/vector_ivec4.hpp>
 #include <glm/vector_relational.hpp>
 
 template <typename genType>

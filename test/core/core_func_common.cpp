@@ -1,12 +1,10 @@
 #define GLM_FORCE_EXPLICIT_CTOR
+#include <glm/gtc/constants.hpp>
+#include <glm/gtc/random.hpp>
 #include <glm/ext/scalar_relational.hpp>
 #include <glm/ext/vector_relational.hpp>
+#include <glm/ext/vec1.hpp>
 #include <glm/common.hpp>
-#include <glm/gtc/constants.hpp>
-#include <glm/gtc/vec1.hpp>
-#include <glm/gtc/random.hpp>
-#include <glm/vector_ivec4.hpp>
-#include <glm/vector_dvec4.hpp>
 #include <glm/vec4.hpp>
 #include <glm/vec3.hpp>
 #include <glm/vec2.hpp>

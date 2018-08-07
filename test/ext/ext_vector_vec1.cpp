@@ -2,9 +2,9 @@
 #include <glm/ext/vector_relational.hpp>
 #include <glm/ext/vector_vec1.hpp>
 #include <glm/ext/vector_vec1_precision.hpp>
-#include <glm/vector_vec2.hpp>
-#include <glm/vector_vec3.hpp>
-#include <glm/vector_vec4.hpp>
+#include <glm/ext/vector_vec2.hpp>
+#include <glm/ext/vector_vec3.hpp>
+#include <glm/ext/vector_vec4.hpp>
 
 template <typename genType>
 static int test_operators()

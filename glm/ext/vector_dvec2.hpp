@@ -1,8 +1,8 @@
 /// @ref core
-/// @file glm/dvec3.hpp
+/// @file glm/dvec2.hpp
 
 #pragma once
-#include "detail/type_vec3.hpp"
+#include "../detail/type_vec2.hpp"
 
 namespace glm
 {
@@ -10,14 +10,14 @@ namespace glm
 	/// @{
 
 #	if(defined(GLM_PRECISION_LOWP_DOUBLE))
-		typedef vec<3, double, lowp>		dvec3;
+		typedef vec<2, double, lowp>		dvec2;
 #	elif(defined(GLM_PRECISION_MEDIUMP_DOUBLE))
-		typedef vec<3, double, mediump>		dvec3;
+		typedef vec<2, double, mediump>		dvec2;
 #	else //defined(GLM_PRECISION_HIGHP_DOUBLE)
-		/// 3 components vector of double-precision floating-point numbers.
+		/// 2 components vector of double-precision floating-point numbers.
 		///
 		/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
-		typedef vec<3, double, highp>		dvec3;
+		typedef vec<2, double, highp>		dvec2;
 #	endif//GLM_PRECISION
 
 	/// @}
