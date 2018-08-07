@@ -2,7 +2,7 @@
 /// @file glm/matrix_mat2x4.hpp
 
 #pragma once
-#include "detail/type_mat2x4.hpp"
+#include "../detail/type_mat2x4.hpp"
 
 namespace glm
 {

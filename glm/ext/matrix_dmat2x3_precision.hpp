@@ -2,7 +2,7 @@
 /// @file glm/matrix_dmat2x3_precision.hpp
 
 #pragma once
-#include "detail/type_mat2x3.hpp"
+#include "../detail/type_mat2x3.hpp"
 
 namespace glm
 {

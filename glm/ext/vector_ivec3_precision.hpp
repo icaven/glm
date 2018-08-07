@@ -2,8 +2,8 @@
 /// @file glm/ivec3_precision.hpp
 
 #pragma once
-#include "detail/setup.hpp"
-#include "detail/type_vec3.hpp"
+#include "../detail/setup.hpp"
+#include "../detail/type_vec3.hpp"
 
 namespace glm
 {
