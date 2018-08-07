@@ -5,7 +5,9 @@
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/quaternion.hpp>
 #include <glm/ext/vector_relational.hpp>
-#include <glm/ext/vec1.hpp>
+#include <glm/ext/vector_int1.hpp>
+#include <glm/ext/vector_bool1.hpp>
+#include <glm/ext/vector_float1.hpp>
 
 static int test_vec1()
 {

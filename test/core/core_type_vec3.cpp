@@ -1,6 +1,6 @@
 #define GLM_FORCE_SWIZZLE
 #include <glm/gtc/constants.hpp>
-#include <glm/ext/vec1.hpp>
+#include <glm/gtc/vec1.hpp>
 #include <glm/ext/vector_relational.hpp>
 #include <glm/vector_relational.hpp>
 #include <glm/geometric.hpp>

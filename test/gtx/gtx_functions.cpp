@@ -1,5 +1,5 @@
 #include <glm/gtx/functions.hpp>
-#include <glm/ext/vector_vec2.hpp>
+#include <glm/ext/vector_float2.hpp>
 #include <vector>
 
 int test_gauss_1d()

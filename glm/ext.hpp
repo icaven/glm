@@ -13,7 +13,6 @@
 #	pragma message("GLM: All extensions included (not recommended)")
 #endif//GLM_MESSAGES
 
-#include "./ext/vec1.hpp"
 #include "./ext/vector_relational.hpp"
 
 #include "./gtc/bitfield.hpp"

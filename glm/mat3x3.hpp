@@ -2,15 +2,7 @@
 /// @file glm/mat3x3.hpp
 
 #pragma once
-#include "./ext/matrix_dmat3x3.hpp"
-#include "./ext/matrix_dmat3x3_precision.hpp"
-#include "./ext/matrix_mat3x3.hpp"
-#include "./ext/matrix_mat3x3_precision.hpp"
-
-namespace glm
-{
-#if GLM_HAS_TEMPLATE_ALIASES
-	template <typename T, qualifier Q = defaultp> using tmat3x3 = mat<3, 3, T, Q>;
-#endif//GLM_HAS_TEMPLATE_ALIASES
-
-}//namespace glm
+#include "./ext/matrix_double3x3.hpp"
+#include "./ext/matrix_double3x3_precision.hpp"
+#include "./ext/matrix_float3x3.hpp"
+#include "./ext/matrix_float3x3_precision.hpp"

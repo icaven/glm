@@ -1,11 +1,11 @@
 #include <glm/gtc/constants.hpp>
 #include <glm/ext/scalar_relational.hpp>
 #include <glm/ext/vector_relational.hpp>
-#include <glm/ext/vector_dvec1.hpp>
-#include <glm/ext/vector_dvec1_precision.hpp>
-#include <glm/ext/vector_dvec2.hpp>
-#include <glm/ext/vector_dvec3.hpp>
-#include <glm/ext/vector_dvec4.hpp>
+#include <glm/ext/vector_double1.hpp>
+#include <glm/ext/vector_double1_precision.hpp>
+#include <glm/ext/vector_double2.hpp>
+#include <glm/ext/vector_double3.hpp>
+#include <glm/ext/vector_double4.hpp>
 
 template <typename genType>
 static int test_operators()

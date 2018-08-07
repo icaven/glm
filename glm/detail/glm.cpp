@@ -4,7 +4,7 @@
 #define GLM_FORCE_MESSAGES
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/glm.hpp>
-#include <glm/ext/vec1.hpp>
+#include <glm/gtc/vec1.hpp>
 #include <glm/gtc/quaternion.hpp>
 #include <glm/gtx/dual_quaternion.hpp>
 

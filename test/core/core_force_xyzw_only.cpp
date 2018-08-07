@@ -1,8 +1,8 @@
 #define GLM_FORCE_XYZW_ONLY
 
 #include <glm/gtc/constants.hpp>
+#include <glm/gtc/vec1.hpp>
 #include <glm/ext/vector_relational.hpp>
-#include <glm/ext/vec1.hpp>
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
 #include <glm/vec4.hpp>
