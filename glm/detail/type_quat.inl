@@ -388,6 +388,6 @@ namespace detail
 }//namespace glm
 
 #if GLM_CONFIG_SIMD == GLM_ENABLE
-#	include "quaternion_simd.inl"
+#	include "type_quat_simd.inl"
 #endif
 
