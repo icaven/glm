@@ -1,3 +1,5 @@
+#include "../detail/compute_vector_relational.hpp"
+
 namespace glm
 {
 	template<typename T, qualifier Q>
