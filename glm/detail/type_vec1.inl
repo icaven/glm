@@ -62,16 +62,14 @@ namespace glm
 	// -- Component accesses --
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T & vec<1, T, Q>::operator[](typename vec<1, T, Q>::length_type i)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T & vec<1, T, Q>::operator[](typename vec<1, T, Q>::length_type)
 	{
-		assert(i >= 0 && i < this->length());
 		return x;
 	}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T const& vec<1, T, Q>::operator[](typename vec<1, T, Q>::length_type i) const
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T const& vec<1, T, Q>::operator[](typename vec<1, T, Q>::length_type) const
 	{
-		assert(i >= 0 && i < this->length());
 		return x;
 	}
 
