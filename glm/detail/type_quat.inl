@@ -1,8 +1,6 @@
-/// @ref gtc_quaternion
-
 #include "../trigonometric.hpp"
-#include "../geometric.hpp"
 #include "../exponential.hpp"
+#include "../ext/quaternion_geometric.hpp"
 #include <limits>
 
 namespace glm{
@@ -170,7 +168,7 @@ namespace detail
 			t = cross(u, v);
 		}
 
-	    *this = normalize(qua<T, Q>(real_part, t.x, t.y, t.z));
+		*this = normalize(qua<T, Q>(real_part, t.x, t.y, t.z));
 	}
 
 	template<typename T, qualifier Q>

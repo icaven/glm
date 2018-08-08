@@ -21,6 +21,8 @@
 #include "../ext/quaternion_float_precision.hpp"
 #include "../ext/quaternion_double.hpp"
 #include "../ext/quaternion_double_precision.hpp"
+#include "../ext/quaternion_relational.hpp"
+#include "../ext/quaternion_geometric.hpp"
 #include "../detail/type_mat3x3.hpp"
 #include "../detail/type_mat4x4.hpp"
 #include "../detail/type_vec3.hpp"
@@ -34,14 +36,6 @@ namespace glm
 {
 	/// @addtogroup gtc_quaternion
 	/// @{
-
-	// -- Boolean operators --
-
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL GLM_CONSTEXPR bool operator==(qua<T, Q> const& q1, qua<T, Q> const& q2);
-
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL GLM_CONSTEXPR bool operator!=(qua<T, Q> const& q1, qua<T, Q> const& q2);
 
 	/// Builds an identity quaternion.
 	template<typename genType>

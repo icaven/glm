@@ -19,6 +19,7 @@
 #include "../detail/type_vec3.hpp"
 #include "../detail/type_vec4.hpp"
 #include "../ext/vector_relational.hpp"
+#include "../ext/quaternion_relational.hpp"
 #include "../gtc/constants.hpp"
 #include "../gtc/matrix_transform.hpp"
 
