@@ -1,9 +1,9 @@
-/// @ref ext_vector_uvec1
+/// @ref ext_vector_uint1
 /// @file glm/ext/vector_uint1.hpp
 ///
 /// @see core (dependence)
 ///
-/// @defgroup ext_vector_uvec1 GLM_EXT_vector_uvec1
+/// @defgroup ext_vector_uvec1 GLM_EXT_vector_uint1
 /// @ingroup ext
 ///
 /// Include <glm/ext/vector_uvec1.hpp> to use the features of this extension.
@@ -15,12 +15,12 @@
 #include "../detail/type_vec1.hpp"
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_EXT_vector_uvec1 extension included")
+#	pragma message("GLM: GLM_EXT_vector_uint1 extension included")
 #endif
 
 namespace glm
 {
-	/// @addtogroup ext_vector_uvec1
+	/// @addtogroup ext_vector_uint1
 	/// @{
 
 #	if GLM_CONFIG_PRECISION_UINT == GLM_LOWP
@@ -30,7 +30,7 @@ namespace glm
 #	else
 		/// 1 component vector of unsigned integer numbers.
 		///
-		/// @see ext_vector_uvec1 extension.
+		/// @see ext_vector_uint1 extension.
 		typedef vec<1, uint, highp>			uvec1;
 #	endif
 
