@@ -1,12 +1,12 @@
-/// @ref ext_vector_ivec1
-/// @file glm/ext/vector_ivec1.hpp
+/// @ref ext_vector_int1
+/// @file glm/ext/vector_int1.hpp
 ///
 /// @see core (dependence)
 ///
-/// @defgroup ext_vector_ivec1 GLM_EXT_vector_ivec1
+/// @defgroup ext_vector_int1 GLM_EXT_vector_int1
 /// @ingroup ext
 ///
-/// Include <glm/ext/vector_ivec1.hpp> to use the features of this extension.
+/// Include <glm/ext/vector_int1.hpp> to use the features of this extension.
 ///
 /// Exposes ivec1 vector type.
 
@@ -15,12 +15,12 @@
 #include "../detail/type_vec1.hpp"
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_EXT_vector_ivec1 extension included")
+#	pragma message("GLM: GLM_EXT_vector_int1 extension included")
 #endif
 
 namespace glm
 {
-	/// @addtogroup ext_vector_ivec1
+	/// @addtogroup ext_vector_int1
 	/// @{
 
 #	if GLM_CONFIG_PRECISION_INT == GLM_LOWP
@@ -30,7 +30,7 @@ namespace glm
 #	else
 		/// 1 component vector of signed integer numbers.
 		///
-		/// @see ext_vector_ivec1 extension.
+		/// @see ext_vector_int1 extension.
 		typedef vec<1, int, highp>			ivec1;
 #	endif
 

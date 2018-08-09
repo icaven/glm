@@ -1,5 +1,5 @@
 /// @ref core
-/// @file glm/dvec3_precision.hpp
+/// @file glm/vector_double3_precision.hpp
 
 #pragma once
 #include "../detail/type_vec3.hpp"

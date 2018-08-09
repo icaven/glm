@@ -1,10 +1,10 @@
-/// @ref quaternion_float
+/// @ref ext_quaternion_float
 /// @file glm/ext/quaternion_float.hpp
 ///
 /// @see core (dependence)
 ///
-/// @defgroup gtc_quaternion GLM_EXT_quaternion_float
-/// @ingroup gtc
+/// @defgroup ext_quaternion_float GLM_EXT_quaternion_float
+/// @ingroup ext
 ///
 /// Include <glm/ext/quaternion_float.hpp> to use the features of this extension.
 ///

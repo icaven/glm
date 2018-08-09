@@ -1,6 +1,6 @@
 #include "../geometric.hpp"
 #include "../exponential.hpp"
-#include <limits>
+#include "../ext/vector_relational.hpp"
 
 namespace glm
 {
@@ -25,7 +25,7 @@ namespace glm
 		T len = length(q);
 		if(len <= static_cast<T>(0)) // Problem
 			return qua<T, Q>(static_cast<T>(1), static_cast<T>(0), static_cast<T>(0), static_cast<T>(0));
-		T oneOverLen = T(1) / len;
+		T oneOverLen = static_cast<T>(1) / len;
 		return qua<T, Q>(q.w * oneOverLen, q.x * oneOverLen, q.y * oneOverLen, q.z * oneOverLen);
 	}
 

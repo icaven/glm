@@ -13,18 +13,7 @@
 #pragma once
 
 // Dependency:
-#include "../gtc/constants.hpp"
-#include "../gtc/matrix_transform.hpp"
-#include "../ext/vector_relational.hpp"
-#include "../ext/quaternion_float.hpp"
-#include "../ext/quaternion_float_precision.hpp"
-#include "../ext/quaternion_double.hpp"
-#include "../ext/quaternion_double_precision.hpp"
-#include "../ext/quaternion_relational.hpp"
-#include "../detail/type_mat3x3.hpp"
-#include "../detail/type_mat4x4.hpp"
-#include "../detail/type_vec3.hpp"
-#include "../detail/type_vec4.hpp"
+#include "../detail/qualifier.hpp"
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
 #	pragma message("GLM: GLM_GTC_quaternion extension included")

@@ -13,7 +13,6 @@
 #pragma once
 
 // Dependencies
-#include "../detail/setup.hpp"
 #include "../detail/qualifier.hpp"
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)

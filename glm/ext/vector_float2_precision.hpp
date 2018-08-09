@@ -1,5 +1,5 @@
 /// @ref core
-/// @file glm/fvec2_precision.hpp
+/// @file glm/ext/vector_float2_precision.hpp
 
 #pragma once
 #include "../detail/type_vec2.hpp"

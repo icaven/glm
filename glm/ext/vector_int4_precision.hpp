@@ -1,5 +1,5 @@
 /// @ref core
-/// @file glm/ivec4_precision.hpp
+/// @file glm/vector_int4_precision.hpp
 
 #pragma once
 #include "../detail/type_vec4.hpp"
