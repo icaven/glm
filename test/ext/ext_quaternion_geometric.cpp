@@ -12,7 +12,7 @@
 
 #include <glm/gtc/quaternion.hpp>
 
-float const Epsilon = 0.001f;;
+float const Epsilon = 0.001f;
 
 static int test_angle()
 {
