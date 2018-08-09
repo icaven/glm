@@ -338,7 +338,7 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<4, bool, Q> lessThan(qua<T, Q> const& A, qua<T, Q> const& B)
+	GLM_FUNC_QUALIFIER vec<4, bool, Q> lessThan(qua<T, Q> const& x, qua<T, Q> const& y)
 	{
 		vec<4, bool, Q> Result;
 		for(length_t i = 0; i < x.length(); ++i)
