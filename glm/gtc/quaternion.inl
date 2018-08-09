@@ -336,6 +336,42 @@ namespace glm
 
 		return vec<4, bool, Q>(isinf(q.x), isinf(q.y), isinf(q.z), isinf(q.w));
 	}
+
+	template<typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<4, bool, Q> lessThan(qua<T, Q> const& A, qua<T, Q> const& B)
+	{
+		vec<4, bool, Q> Result;
+		for(length_t i = 0; i < x.length(); ++i)
+			Result[i] = x[i] < y[i];
+		return Result;
+	}
+
+	template<typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<4, bool, Q> lessThanEqual(qua<T, Q> const& x, qua<T, Q> const& y)
+	{
+		vec<4, bool, Q> Result;
+		for(length_t i = 0; i < x.length(); ++i)
+			Result[i] = x[i] <= y[i];
+		return Result;
+	}
+
+	template<typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<4, bool, Q> greaterThan(qua<T, Q> const& x, qua<T, Q> const& y)
+	{
+		vec<4, bool, Q> Result;
+		for(length_t i = 0; i < x.length(); ++i)
+			Result[i] = x[i] > y[i];
+		return Result;
+	}
+
+	template<typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<4, bool, Q> greaterThanEqual(qua<T, Q> const& x, qua<T, Q> const& y)
+	{
+		vec<4, bool, Q> Result;
+		for(length_t i = 0; i < x.length(); ++i)
+			Result[i] = x[i] >= y[i];
+		return Result;
+	}
 }//namespace glm
 
 #if GLM_CONFIG_SIMD == GLM_ENABLE

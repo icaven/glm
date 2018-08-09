@@ -1,43 +1,8 @@
-#include "../detail/compute_vector_relational.hpp"
+#include "./quaternion_geometric.hpp"
+#include "../vector_relational.hpp"
 
 namespace glm
 {
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<4, bool, Q> lessThan(qua<T, Q> const& x, qua<T, Q> const& y)
-	{
-		vec<4, bool, Q> Result;
-		for(length_t i = 0; i < x.length(); ++i)
-			Result[i] = x[i] < y[i];
-		return Result;
-	}
-
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<4, bool, Q> lessThanEqual(qua<T, Q> const& x, qua<T, Q> const& y)
-	{
-		vec<4, bool, Q> Result;
-		for(length_t i = 0; i < x.length(); ++i)
-			Result[i] = x[i] <= y[i];
-		return Result;
-	}
-
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<4, bool, Q> greaterThan(qua<T, Q> const& x, qua<T, Q> const& y)
-	{
-		vec<4, bool, Q> Result;
-		for(length_t i = 0; i < x.length(); ++i)
-			Result[i] = x[i] > y[i];
-		return Result;
-	}
-
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<4, bool, Q> greaterThanEqual(qua<T, Q> const& x, qua<T, Q> const& y)
-	{
-		vec<4, bool, Q> Result;
-		for(length_t i = 0; i < x.length(); ++i)
-			Result[i] = x[i] >= y[i];
-		return Result;
-	}
-
 	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<4, bool, Q> equal(qua<T, Q> const& x, qua<T, Q> const& y)
 	{

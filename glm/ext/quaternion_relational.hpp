@@ -22,42 +22,6 @@ namespace glm
 	/// @addtogroup ext_quaternion_relational
 	/// @{
 
-	/// Returns the component-wise comparison result of x < y.
-	///
-	/// @tparam T Floating-point scalar types
-	/// @tparam Q Value from qualifier enum
-	///
-	/// @see ext_quaternion_relational
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<4, bool, Q> lessThan(qua<T, Q> const& x, qua<T, Q> const& y);
-
-	/// Returns the component-wise comparison of result x <= y.
-	///
-	/// @tparam T Floating-point scalar types
-	/// @tparam Q Value from qualifier enum
-	///
-	/// @see ext_quaternion_relational
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<4, bool, Q> lessThanEqual(qua<T, Q> const& x, qua<T, Q> const& y);
-
-	/// Returns the component-wise comparison of result x > y.
-	///
-	/// @tparam T Floating-point scalar types
-	/// @tparam Q Value from qualifier enum
-	///
-	/// @see ext_quaternion_relational
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<4, bool, Q> greaterThan(qua<T, Q> const& x, qua<T, Q> const& y);
-
-	/// Returns the component-wise comparison of result x >= y.
-	///
-	/// @tparam T Floating-point scalar types
-	/// @tparam Q Value from qualifier enum
-	///
-	/// @see ext_quaternion_relational
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<4, bool, Q> greaterThanEqual(qua<T, Q> const& x, qua<T, Q> const& y);
-
 	/// Returns the component-wise comparison of result x == y.
 	///
 	/// @tparam T Floating-point scalar types

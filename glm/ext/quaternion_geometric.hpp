@@ -35,7 +35,7 @@ namespace glm
 	/// @addtogroup ext_quaternion_geometric
 	/// @{
 
-	/// Returns the length of the quaternion.
+	/// Returns the norm of a quaternions
 	///
 	/// @tparam T Floating-point scalar types.
 	///
