@@ -23,8 +23,8 @@ static int test_equal()
 
 	valType const A = static_cast<valType>(1.01f);
 	valType const B = static_cast<valType>(1.02f);
-	valType const Epsilon1(0.1f);
-	valType const Epsilon2(0.001f);
+	valType const Epsilon1 = static_cast<valType>(0.1f);
+	valType const Epsilon2 = static_cast<valType>(0.001f);
 
 	int Error = 0;
 
@@ -44,8 +44,8 @@ static int test_notEqual()
 
 	valType const A = static_cast<valType>(1.01f);
 	valType const B = static_cast<valType>(1.02f);
-	valType const Epsilon1(0.1f);
-	valType const Epsilon2(0.001f);
+	valType const Epsilon1 = static_cast<valType>(0.1f);
+	valType const Epsilon2 = static_cast<valType>(0.001f);
 
 	int Error = 0;
 
