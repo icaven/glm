@@ -12,9 +12,7 @@
 
 #pragma once
 
-#include "detail/setup.hpp"
 #include "detail/qualifier.hpp"
-#include "detail/type_int.hpp"
 #include "detail/_fixes.hpp"
 
 namespace glm

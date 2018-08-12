@@ -30,9 +30,9 @@ namespace glm
 
 	// abs
 	template<>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR int32 abs(int32 x)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR int abs(int x)
 	{
-		int32 const y = x >> 31;
+		int const y = x >> (sizeof(int) * 8 - 1);
 		return (x ^ y) - y;
 	}
 
@@ -155,7 +155,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER static vec<L, T, Q> call(vec<L, T, Q> const& x)
 		{
 			T const Shift(static_cast<T>(sizeof(T) * 8 - 1));
-			vec<L, T, Q> const y(vec<L, typename make_unsigned<T>::type, Q>(-x) >> typename make_unsigned<T>::type(Shift));
+			vec<L, T, Q> const y(vec<L, typename detail::make_unsigned<T>::type, Q>(-x) >> typename detail::make_unsigned<T>::type(Shift));
 
 			return (x >> Shift) | y;
 		}

@@ -7,7 +7,6 @@
 /// software is freely granted, provided that this notice
 /// is preserved.
 
-#include "../detail/type_int.hpp"
 #include "epsilon.hpp"
 #include <cmath>
 #include <cfloat>
@@ -30,8 +29,8 @@ typedef union
 	double value;
 	struct
 	{
-		glm::detail::int32 lsw;
-		glm::detail::int32 msw;
+		int lsw;
+		int msw;
 	} parts;
 } ieee_double_shape_type;
 
@@ -71,7 +70,7 @@ namespace detail
 	GLM_FUNC_QUALIFIER float nextafterf(float x, float y)
 	{
 		volatile float t;
-		glm::detail::int32 hx, hy, ix, iy;
+		int hx, hy, ix, iy;
 
 		GLM_GET_FLOAT_WORD(hx, x);
 		GLM_GET_FLOAT_WORD(hy, y);
@@ -125,8 +124,8 @@ namespace detail
 	GLM_FUNC_QUALIFIER double nextafter(double x, double y)
 	{
 		volatile double t;
-		glm::detail::int32 hx, hy, ix, iy;
-		glm::detail::uint32 lx, ly;
+		int hx, hy, ix, iy;
+		unsigned int lx, ly;
 
 		GLM_EXTRACT_WORDS(hx, lx, x);
 		GLM_EXTRACT_WORDS(hy, ly, y);

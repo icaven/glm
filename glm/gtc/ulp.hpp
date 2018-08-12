@@ -15,9 +15,6 @@
 #pragma once
 
 // Dependencies
-#include "../detail/setup.hpp"
-#include "../detail/qualifier.hpp"
-#include "../detail/type_int.hpp"
 #include "../gtc/constants.hpp"
 #include "../ext/vector_relational.hpp"
 

@@ -1,11 +1,5 @@
-/// @ref core
-/// @file glm/detail/func_geometric.inl
-
 #include "../exponential.hpp"
 #include "../common.hpp"
-#include "type_vec2.hpp"
-#include "type_vec4.hpp"
-#include "type_float.hpp"
 
 namespace glm{
 namespace detail

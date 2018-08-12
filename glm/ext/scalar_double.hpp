@@ -1,5 +1,14 @@
-/// @ref core
-/// @file glm/detail/type_float.hpp
+/// @ref ext_scalar_double
+/// @file glm/ext/scalar_double.hpp
+///
+/// @see core (dependence)
+///
+/// @defgroup ext_scalar_double GLM_EXT_scalar_double
+/// @ingroup ext
+///
+/// Include <glm/ext/scalar_double.hpp> to use the features of this extension.
+///
+/// Exposes double scalar type.
 
 #pragma once
 
@@ -59,12 +68,9 @@ namespace detail
 
 ////////////////////
 // check type sizes
-#ifndef GLM_STATIC_ASSERT_NULL
-	GLM_STATIC_ASSERT(sizeof(glm::float32) == 4, "float32 size isn't 4 bytes on this platform");
 #	ifndef GLM_FORCE_SINGLE_ONLY
 		GLM_STATIC_ASSERT(sizeof(glm::float64) == 8, "float64 size isn't 8 bytes on this platform");
 #	endif//GLM_FORCE_SINGLE_ONLY
-#endif//GLM_STATIC_ASSERT_NULL
 
 	/// @}
 

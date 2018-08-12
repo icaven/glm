@@ -13,7 +13,7 @@
 #pragma once
 
 // Dependencies
-#include "../detail/setup.hpp"
+#include "../ext/scalar_constants.hpp"
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
 #	pragma message("GLM: GLM_GTC_constants extension included")
@@ -24,11 +24,6 @@ namespace glm
 	/// @addtogroup gtc_constants
 	/// @{
 
-	/// Return the epsilon constant for floating point types.
-	/// @see gtc_constants
-	template<typename genType>
-	GLM_FUNC_DECL GLM_CONSTEXPR genType epsilon();
-
 	/// Return 0.
 	/// @see gtc_constants
 	template<typename genType>
@@ -38,11 +33,6 @@ namespace glm
 	/// @see gtc_constants
 	template<typename genType>
 	GLM_FUNC_DECL GLM_CONSTEXPR genType one();
-
-	/// Return the pi constant.
-	/// @see gtc_constants
-	template<typename genType>
-	GLM_FUNC_DECL GLM_CONSTEXPR genType pi();
 
 	/// Return pi * 2.
 	/// @see gtc_constants

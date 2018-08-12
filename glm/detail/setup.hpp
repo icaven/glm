@@ -335,6 +335,7 @@
 		((GLM_COMPILER & GLM_COMPILER_CUDA))))
 #endif
 
+//
 #if defined(GLM_FORCE_PURE)
 #	define GLM_HAS_BITSCAN_WINDOWS 0
 #else
@@ -567,6 +568,153 @@ namespace glm
 #	define GLM_CONFIG_CONSTEXP GLM_DISABLE
 
 #	define GLM_COUNTOF(arr) sizeof(arr) / sizeof(arr[0])
+#endif
+
+///////////////////////////////////////////////////////////////////////////////////
+// uint
+
+namespace glm{
+namespace detail
+{
+	template<typename T>
+	struct is_int
+	{
+		enum test {value = 0};
+	};
+
+	template<>
+	struct is_int<unsigned int>
+	{
+		enum test {value = ~0};
+	};
+
+	template<>
+	struct is_int<signed int>
+	{
+		enum test {value = ~0};
+	};
+}//namespace detail
+
+	typedef unsigned int	uint;
+}//namespace glm
+
+///////////////////////////////////////////////////////////////////////////////////
+// 64-bit int
+
+#if GLM_HAS_EXTENDED_INTEGER_TYPE
+#	include <cstdint>
+#endif
+
+namespace glm{
+namespace detail
+{
+#	if GLM_HAS_EXTENDED_INTEGER_TYPE
+		typedef std::uint64_t						uint64;
+		typedef std::int64_t						int64;
+#	elif (defined(__STDC_VERSION__) && (__STDC_VERSION__ >= 199901L)) // C99 detected, 64 bit types available
+		typedef uint64_t							uint64;
+		typedef int64_t								int64;
+#	elif GLM_COMPILER & GLM_COMPILER_VC
+		typedef unsigned __int64					uint64;
+		typedef signed __int64						int64;
+#	elif GLM_COMPILER & GLM_COMPILER_GCC
+#		pragma GCC diagnostic ignored "-Wlong-long"
+		__extension__ typedef unsigned long long	uint64;
+		__extension__ typedef signed long long		int64;
+#	elif (GLM_COMPILER & GLM_COMPILER_CLANG)
+#		pragma clang diagnostic ignored "-Wc++11-long-long"
+		typedef unsigned long long					uint64;
+		typedef signed long long					int64;
+#	else//unknown compiler
+		typedef unsigned long long					uint64;
+		typedef signed long long					int64;
+#	endif
+}//namespace detail
+}//namespace glm
+
+///////////////////////////////////////////////////////////////////////////////////
+// make_unsigned
+
+#if GLM_HAS_MAKE_SIGNED
+#	include <type_traits>
+
+namespace glm{
+namespace detail
+{
+	using std::make_unsigned;
+}//namespace detail
+}//namespace glm
+
+#else
+
+namespace glm{
+namespace detail
+{
+	template<typename genType>
+	struct make_unsigned
+	{};
+
+	template<>
+	struct make_unsigned<char>
+	{
+		typedef unsigned char type;
+	};
+
+	template<>
+	struct make_unsigned<short>
+	{
+		typedef unsigned short type;
+	};
+
+	template<>
+	struct make_unsigned<int>
+	{
+		typedef unsigned int type;
+	};
+
+	template<>
+	struct make_unsigned<long>
+	{
+		typedef unsigned long type;
+	};
+
+	template<>
+	struct make_unsigned<int64>
+	{
+		typedef uint64 type;
+	};
+
+	template<>
+	struct make_unsigned<unsigned char>
+	{
+		typedef unsigned char type;
+	};
+
+	template<>
+	struct make_unsigned<unsigned short>
+	{
+		typedef unsigned short type;
+	};
+
+	template<>
+	struct make_unsigned<unsigned int>
+	{
+		typedef unsigned int type;
+	};
+
+	template<>
+	struct make_unsigned<unsigned long>
+	{
+		typedef unsigned long type;
+	};
+
+	template<>
+	struct make_unsigned<uint64>
+	{
+		typedef uint64 type;
+	};
+}//namespace detail
+}//namespace glm
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////

@@ -1,10 +1,6 @@
-/// @ref core
-/// @file glm/detail/qualifier.hpp
-
 #pragma once
 
 #include "setup.hpp"
-#include "type_int.hpp"
 
 namespace glm
 {

@@ -14,8 +14,9 @@
 #pragma once
 
 // Dependency:
-#include "../vec2.hpp"
-#include "../vec3.hpp"
+#include "../ext/scalar_int_sized.hpp"
+#include "../ext/scalar_uint_sized.hpp"
+#include "../detail/qualifier.hpp"
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
 #	pragma message("GLM: GLM_GTC_random extension included")

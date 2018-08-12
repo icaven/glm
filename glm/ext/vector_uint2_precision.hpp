@@ -13,19 +13,19 @@ namespace glm
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
-	typedef vec<2, uint, highp>		highp_uvec2;
+	typedef vec<2, unsigned int, highp>		highp_uvec2;
 
 	/// 2 components vector of medium qualifier unsigned integer numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
-	typedef vec<2, uint, mediump>	mediump_uvec2;
+	typedef vec<2, unsigned int, mediump>	mediump_uvec2;
 
 	/// 2 components vector of low qualifier unsigned integer numbers.
 	///
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.1.5 Vectors</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 4.7.2 Precision Qualifier</a>
-	typedef vec<2, uint, lowp>		lowp_uvec2;
+	typedef vec<2, unsigned int, lowp>		lowp_uvec2;
 
 	/// @}
 }//namespace glm

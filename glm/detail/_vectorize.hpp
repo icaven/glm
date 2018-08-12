@@ -1,6 +1,3 @@
-/// @ref core
-/// @file glm/detail/_vectorize.hpp
-
 #pragma once
 
 namespace glm{

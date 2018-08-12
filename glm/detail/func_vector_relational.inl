@@ -1,7 +1,3 @@
-/// @ref core
-
-#include "compute_vector_relational.hpp"
-
 namespace glm
 {
 	template<length_t L, typename T, qualifier Q>

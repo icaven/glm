@@ -8,6 +8,8 @@
 #include <glm/ext/vector_uint2.hpp>
 #include <glm/ext/vector_uint3.hpp>
 #include <glm/ext/vector_uint4.hpp>
+#include <glm/ext/scalar_int_sized.hpp>
+#include <glm/ext/scalar_uint_sized.hpp>
 #include <vector>
 #include <ctime>
 #include <cstdio>

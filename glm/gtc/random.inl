@@ -1,5 +1,3 @@
-/// @ref gtc_random
-
 #include "../geometric.hpp"
 #include "../exponential.hpp"
 #include "../trigonometric.hpp"

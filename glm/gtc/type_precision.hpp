@@ -19,18 +19,21 @@
 // Dependency:
 #include "../gtc/quaternion.hpp"
 #include "../gtc/vec1.hpp"
-#include "../vec2.hpp"
-#include "../vec3.hpp"
-#include "../vec4.hpp"
-#include "../mat2x2.hpp"
-#include "../mat2x3.hpp"
-#include "../mat2x4.hpp"
-#include "../mat3x2.hpp"
-#include "../mat3x3.hpp"
-#include "../mat3x4.hpp"
-#include "../mat4x2.hpp"
-#include "../mat4x3.hpp"
-#include "../mat4x4.hpp"
+#include "../ext/scalar_float_sized.hpp"
+#include "../ext/scalar_int_sized.hpp"
+#include "../ext/scalar_uint_sized.hpp"
+#include "../detail/type_vec2.hpp"
+#include "../detail/type_vec3.hpp"
+#include "../detail/type_vec4.hpp"
+#include "../detail/type_mat2x2.hpp"
+#include "../detail/type_mat2x3.hpp"
+#include "../detail/type_mat2x4.hpp"
+#include "../detail/type_mat3x2.hpp"
+#include "../detail/type_mat3x3.hpp"
+#include "../detail/type_mat3x4.hpp"
+#include "../detail/type_mat4x2.hpp"
+#include "../detail/type_mat4x3.hpp"
+#include "../detail/type_mat4x4.hpp"
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
 #	pragma message("GLM: GLM_GTC_type_precision extension included")
@@ -738,43 +741,19 @@ namespace glm
 
 	/// Low 32 bit single-qualifier floating-point scalar.
 	/// @see gtc_type_precision
-	typedef detail::float32 lowp_float32;
+	typedef float32 lowp_float32;
 
 	/// Low 64 bit double-qualifier floating-point scalar.
 	/// @see gtc_type_precision
-	typedef detail::float64 lowp_float64;
+	typedef float64 lowp_float64;
 
 	/// Low 32 bit single-qualifier floating-point scalar.
 	/// @see gtc_type_precision
-	typedef detail::float32 lowp_float32_t;
+	typedef float32 lowp_float32_t;
 
 	/// Low 64 bit double-qualifier floating-point scalar.
 	/// @see gtc_type_precision
-	typedef detail::float64 lowp_float64_t;
-
-	/// Low 32 bit single-qualifier floating-point scalar.
-	/// @see gtc_type_precision
-	typedef float32 lowp_f32;
-
-	/// Low 64 bit double-qualifier floating-point scalar.
-	/// @see gtc_type_precision
-	typedef float64 lowp_f64;
-
-	/// Low 32 bit single-qualifier floating-point scalar.
-	/// @see gtc_type_precision
-	typedef detail::float32 lowp_float32;
-
-	/// Low 64 bit double-qualifier floating-point scalar.
-	/// @see gtc_type_precision
-	typedef detail::float64 lowp_float64;
-
-	/// Low 32 bit single-qualifier floating-point scalar.
-	/// @see gtc_type_precision
-	typedef detail::float32 lowp_float32_t;
-
-	/// Low 64 bit double-qualifier floating-point scalar.
-	/// @see gtc_type_precision
-	typedef detail::float64 lowp_float64_t;
+	typedef float64 lowp_float64_t;
 
 	/// Low 32 bit single-qualifier floating-point scalar.
 	/// @see gtc_type_precision
@@ -784,22 +763,46 @@ namespace glm
 	/// @see gtc_type_precision
 	typedef float64 lowp_f64;
 
-
 	/// Low 32 bit single-qualifier floating-point scalar.
 	/// @see gtc_type_precision
-	typedef detail::float32 lowp_float32;
+	typedef float32 lowp_float32;
 
 	/// Low 64 bit double-qualifier floating-point scalar.
 	/// @see gtc_type_precision
-	typedef detail::float64 lowp_float64;
+	typedef float64 lowp_float64;
 
 	/// Low 32 bit single-qualifier floating-point scalar.
 	/// @see gtc_type_precision
-	typedef detail::float32 lowp_float32_t;
+	typedef float32 lowp_float32_t;
 
 	/// Low 64 bit double-qualifier floating-point scalar.
 	/// @see gtc_type_precision
-	typedef detail::float64 lowp_float64_t;
+	typedef float64 lowp_float64_t;
+
+	/// Low 32 bit single-qualifier floating-point scalar.
+	/// @see gtc_type_precision
+	typedef float32 lowp_f32;
+
+	/// Low 64 bit double-qualifier floating-point scalar.
+	/// @see gtc_type_precision
+	typedef float64 lowp_f64;
+
+
+	/// Low 32 bit single-qualifier floating-point scalar.
+	/// @see gtc_type_precision
+	typedef float32 lowp_float32;
+
+	/// Low 64 bit double-qualifier floating-point scalar.
+	/// @see gtc_type_precision
+	typedef float64 lowp_float64;
+
+	/// Low 32 bit single-qualifier floating-point scalar.
+	/// @see gtc_type_precision
+	typedef float32 lowp_float32_t;
+
+	/// Low 64 bit double-qualifier floating-point scalar.
+	/// @see gtc_type_precision
+	typedef float64 lowp_float64_t;
 
 	/// Low 32 bit single-qualifier floating-point scalar.
 	/// @see gtc_type_precision
@@ -812,19 +815,19 @@ namespace glm
 
 	/// Medium 32 bit single-qualifier floating-point scalar.
 	/// @see gtc_type_precision
-	typedef detail::float32 mediump_float32;
+	typedef float32 mediump_float32;
 
 	/// Medium 64 bit double-qualifier floating-point scalar.
 	/// @see gtc_type_precision
-	typedef detail::float64 mediump_float64;
+	typedef float64 mediump_float64;
 
 	/// Medium 32 bit single-qualifier floating-point scalar.
 	/// @see gtc_type_precision
-	typedef detail::float32 mediump_float32_t;
+	typedef float32 mediump_float32_t;
 
 	/// Medium 64 bit double-qualifier floating-point scalar.
 	/// @see gtc_type_precision
-	typedef detail::float64 mediump_float64_t;
+	typedef float64 mediump_float64_t;
 
 	/// Medium 32 bit single-qualifier floating-point scalar.
 	/// @see gtc_type_precision
@@ -837,19 +840,19 @@ namespace glm
 
 	/// High 32 bit single-qualifier floating-point scalar.
 	/// @see gtc_type_precision
-	typedef detail::float32 highp_float32;
+	typedef float32 highp_float32;
 
 	/// High 64 bit double-qualifier floating-point scalar.
 	/// @see gtc_type_precision
-	typedef detail::float64 highp_float64;
+	typedef float64 highp_float64;
 
 	/// High 32 bit single-qualifier floating-point scalar.
 	/// @see gtc_type_precision
-	typedef detail::float32 highp_float32_t;
+	typedef float32 highp_float32_t;
 
 	/// High 64 bit double-qualifier floating-point scalar.
 	/// @see gtc_type_precision
-	typedef detail::float64 highp_float64_t;
+	typedef float64 highp_float64_t;
 
 	/// High 32 bit single-qualifier floating-point scalar.
 	/// @see gtc_type_precision
@@ -1943,24 +1946,17 @@ namespace glm
 
 	/// 32 bit single-qualifier floating-point scalar.
 	/// @see gtc_type_precision
-	typedef detail::float32 float32;
-
-	/// 32 bit single-qualifier floating-point scalar.
-	/// @see gtc_type_precision
-	typedef detail::float32 float32_t;
+	typedef float32 float32_t;
 
 	/// 32 bit single-qualifier floating-point scalar.
 	/// @see gtc_type_precision
 	typedef float32 f32;
 
 #	ifndef GLM_FORCE_SINGLE_ONLY
-		/// 64 bit double-qualifier floating-point scalar.
-		/// @see gtc_type_precision
-		typedef detail::float64 float64;
 
 		/// 64 bit double-qualifier floating-point scalar.
 		/// @see gtc_type_precision
-		typedef detail::float64 float64_t;
+		typedef float64 float64_t;
 
 		/// 64 bit double-qualifier floating-point scalar.
 		/// @see gtc_type_precision

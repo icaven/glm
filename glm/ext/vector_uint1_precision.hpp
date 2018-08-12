@@ -26,17 +26,17 @@ namespace glm
 	/// 1 component vector of unsigned integer values.
 	///
 	/// @see ext_vec1
-	typedef vec<1, uint, highp>			highp_uvec1;
+	typedef vec<1, unsigned int, highp>			highp_uvec1;
 
 	/// 1 component vector of unsigned integer values.
 	///
 	/// @see ext_vec1
-	typedef vec<1, uint, mediump>		mediump_uvec1;
+	typedef vec<1, unsigned int, mediump>		mediump_uvec1;
 
 	/// 1 component vector of unsigned integer values.
 	///
 	/// @see ext_vec1
-	typedef vec<1, uint, lowp>			lowp_uvec1;
+	typedef vec<1, unsigned int, lowp>			lowp_uvec1;
 
 	/// @}
 }//namespace glm

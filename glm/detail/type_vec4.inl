@@ -5,36 +5,6 @@
 namespace glm{
 namespace detail
 {
-	template<typename T>
-	struct is_int
-	{
-		enum test {value = 0};
-	};
-
-	template<>
-	struct is_int<uint32>
-	{
-		enum test {value = ~0};
-	};
-
-	template<>
-	struct is_int<int32>
-	{
-		enum test {value = ~0};
-	};
-
-	template<>
-	struct is_int<uint64>
-	{
-		enum test {value = ~0};
-	};
-
-	template<>
-	struct is_int<int64>
-	{
-		enum test {value = ~0};
-	};
-
 	template<typename T, qualifier Q, bool Aligned>
 	struct compute_vec4_add
 	{

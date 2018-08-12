@@ -1,6 +1,3 @@
-/// @ref core
-/// @file glm/detail/func_trigonometric.inl
-
 #include "_vectorize.hpp"
 #include <cmath>
 #include <limits>
