@@ -49,11 +49,11 @@ static int test_notEqual()
 
 	int Error = 0;
 
-	Error += glm::all(glm::notEqual(vecType(1.01f), vecType(1.02f), Epsilon2)) ? 0 : 1;
-	Error += glm::all(glm::notEqual(vecType(1.01f), vecType(1.02f), vecType(Epsilon2))) ? 0 : 1;
+	Error += glm::all(glm::notEqual(vecType(A), vecType(B), Epsilon2)) ? 0 : 1;
+	Error += glm::all(glm::notEqual(vecType(A), vecType(B), vecType(Epsilon2))) ? 0 : 1;
 
-	Error += !glm::any(glm::notEqual(vecType(1.01f), vecType(1.02f), Epsilon1)) ? 0 : 1;
-	Error += !glm::any(glm::notEqual(vecType(1.01f), vecType(1.02f), vecType(Epsilon1))) ? 0 : 1;
+	Error += !glm::any(glm::notEqual(vecType(A), vecType(B), Epsilon1)) ? 0 : 1;
+	Error += !glm::any(glm::notEqual(vecType(A), vecType(B), vecType(Epsilon1))) ? 0 : 1;
 
 	return Error;
 }
