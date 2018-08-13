@@ -25,6 +25,8 @@
 #include "../vec2.hpp"
 #include "../vec3.hpp"
 #include "../vec4.hpp"
+#include "../ext/matrix_projection.hpp"
+#include "../ext/matrix_clip_space.hpp"
 #include "../ext/matrix_transform.hpp"
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
