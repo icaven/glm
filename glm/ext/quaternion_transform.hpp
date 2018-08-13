@@ -3,7 +3,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup ext_quaternion_common GLM_EXT_quaternion_transform
+/// @defgroup ext_quaternion_transform GLM_EXT_quaternion_transform
 /// @ingroup ext
 ///
 /// Include <glm/ext/quaternion_transform.hpp> to use the features of this extension.
@@ -31,7 +31,9 @@ namespace glm
 	/// @param q Source orientation
 	/// @param angle Angle expressed in radians.
 	/// @param axis Axis of the rotation
-	/// @tparam T Floating-point scalar types.
+	///
+	/// @tparam T Floating-point scalar types
+	/// @tparam Q Value from qualifier enum
 	///
 	/// @see ext_quaternion_transform
 	template<typename T, qualifier Q>

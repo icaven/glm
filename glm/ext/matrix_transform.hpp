@@ -19,11 +19,10 @@
 #pragma once
 
 // Dependencies
-#include "../mat4x4.hpp"
-#include "../vec2.hpp"
-#include "../vec3.hpp"
-#include "../vec4.hpp"
 #include "../gtc/constants.hpp"
+#include "../geometric.hpp"
+#include "../trigonometric.hpp"
+#include "../matrix.hpp"
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
 #	pragma message("GLM: GLM_EXT_matrix_transform extension included")

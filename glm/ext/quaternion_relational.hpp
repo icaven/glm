@@ -2,7 +2,7 @@
 /// @file glm/ext/quaternion_relational.hpp
 ///
 /// @defgroup ext_quaternion_relational GLM_EXT_quaternion_relational
-/// @ingroup gtc
+/// @ingroup ext
 ///
 /// Include <glm/ext/quaternion_relational.hpp> to use the features of this extension.
 ///
