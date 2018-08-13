@@ -29,9 +29,9 @@ static int test_equal()
 {
 	typedef typename matType::value_type valType;
 
-	valType const Epsilon(0.001f);
-	valType const One(1);
-	valType const Two(2);
+	valType const Epsilon = static_cast<valType>(0.001f);
+	valType const One = static_cast<valType>(1);
+	valType const Two = static_cast<valType>(2);
 
 	int Error = 0;
 
@@ -46,9 +46,9 @@ static int test_notEqual()
 {
 	typedef typename matType::value_type valType;
 
-	valType const Epsilon(0.001f);
-	valType const One(1);
-	valType const Two(2);
+	valType const Epsilon = static_cast<valType>(0.001f);
+	valType const One = static_cast<valType>(1);
+	valType const Two = static_cast<valType>(2);
 
 	int Error = 0;
 
