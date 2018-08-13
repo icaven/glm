@@ -1,11 +1,5 @@
-#include "../geometric.hpp"
-#include "../exponential.hpp"
-#include "../ext/vector_relational.hpp"
-
 namespace glm
 {
-	// -- Operations --
-
 	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER T dot(qua<T, Q> const& x, qua<T, Q> const& y)
 	{

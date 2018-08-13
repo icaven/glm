@@ -17,6 +17,7 @@
 #include "../gtc/constants.hpp"
 #include "../gtc/matrix_transform.hpp"
 #include "../ext/vector_relational.hpp"
+#include "../ext/quaternion_common.hpp"
 #include "../ext/quaternion_float.hpp"
 #include "../ext/quaternion_float_precision.hpp"
 #include "../ext/quaternion_double.hpp"
@@ -36,44 +37,6 @@ namespace glm
 {
 	/// @addtogroup gtc_quaternion
 	/// @{
-
-	/// Spherical linear interpolation of two quaternions.
-	/// The interpolation is oriented and the rotation is performed at constant speed.
-	/// For short path spherical linear interpolation, use the slerp function.
-	///
-	/// @param x A quaternion
-	/// @param y A quaternion
-	/// @param a Interpolation factor. The interpolation is defined beyond the range [0, 1].
-	/// @tparam T Floating-point scalar types.
-	///
-	/// @see - slerp(qua<T, Q> const& x, qua<T, Q> const& y, T const& a)
-	/// @see gtc_quaternion
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL qua<T, Q> mix(qua<T, Q> const& x, qua<T, Q> const& y, T a);
-
-	/// Linear interpolation of two quaternions.
-	/// The interpolation is oriented.
-	///
-	/// @param x A quaternion
-	/// @param y A quaternion
-	/// @param a Interpolation factor. The interpolation is defined in the range [0, 1].
-	/// @tparam T Floating-point scalar types.
-	///
-	/// @see gtc_quaternion
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL qua<T, Q> lerp(qua<T, Q> const& x, qua<T, Q> const& y, T a);
-
-	/// Spherical linear interpolation of two quaternions.
-	/// The interpolation always take the short path and the rotation is performed at constant speed.
-	///
-	/// @param x A quaternion
-	/// @param y A quaternion
-	/// @param a Interpolation factor. The interpolation is defined beyond the range [0, 1].
-	/// @tparam T Floating-point scalar types.
-	///
-	/// @see gtc_quaternion
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL qua<T, Q> slerp(qua<T, Q> const& x, qua<T, Q> const& y, T a);
 
 	/// Returns the q conjugate.
 	///
@@ -192,32 +155,6 @@ namespace glm
 	/// @see gtc_quaternion
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> angleAxis(T const& angle, vec<3, T, Q> const& axis);
-
-	/// Returns true if x holds a NaN (not a number)
-	/// representation in the underlying implementation's set of
-	/// floating point representations. Returns false otherwise,
-	/// including for implementations with no NaN
-	/// representations.
-	///
-	/// /!\ When using compiler fast math, this function may fail.
-	///
-	/// @tparam T Floating-point scalar types.
-	///
-	/// @see gtc_quaternion
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<4, bool, Q> isnan(qua<T, Q> const& x);
-
-	/// Returns true if x holds a positive infinity or negative
-	/// infinity representation in the underlying implementation's
-	/// set of floating point representations. Returns false
-	/// otherwise, including for implementations with no infinity
-	/// representations.
-	///
-	/// @tparam T Floating-point scalar types.
-	///
-	/// @see gtc_quaternion
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<4, bool, Q> isinf(qua<T, Q> const& x);
 
 	/// Returns the component-wise comparison result of x < y.
 	///

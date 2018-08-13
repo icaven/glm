@@ -209,18 +209,6 @@ namespace detail
 	}
 #	endif//GLM_HAS_EXPLICIT_CONVERSION_OPERATORS
 
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER qua<T, Q> conjugate(qua<T, Q> const& q)
-	{
-		return qua<T, Q>(q.w, -q.x, -q.y, -q.z);
-	}
-
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER qua<T, Q> inverse(qua<T, Q> const& q)
-	{
-		return conjugate(q) / dot(q, q);
-	}
-
 	// -- Unary arithmetic operators --
 
 #	if GLM_CONFIG_DEFAULTED_FUNCTIONS == GLM_DISABLE

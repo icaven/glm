@@ -1,6 +1,3 @@
-#include "./quaternion_geometric.hpp"
-#include "../vector_relational.hpp"
-
 namespace glm
 {
 	template<typename T, qualifier Q>
