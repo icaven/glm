@@ -24,6 +24,7 @@
 #include "../ext/quaternion_double_precision.hpp"
 #include "../ext/quaternion_relational.hpp"
 #include "../ext/quaternion_geometric.hpp"
+#include "../ext/quaternion_transform.hpp"
 #include "../detail/type_mat3x3.hpp"
 #include "../detail/type_mat4x4.hpp"
 #include "../detail/type_vec3.hpp"

@@ -17,6 +17,7 @@
 #include "../glm.hpp"
 #include "../gtc/constants.hpp"
 #include "../gtc/quaternion.hpp"
+#include "../ext/quaternion_exponential.hpp"
 #include "../gtx/norm.hpp"
 
 #ifndef GLM_ENABLE_EXPERIMENTAL
@@ -74,28 +75,6 @@ namespace glm
 		qua<T, Q> const& prev,
 		qua<T, Q> const& curr,
 		qua<T, Q> const& next);
-
-	//! Returns a exp of a quaternion.
-	///
-	/// @see gtx_quaternion
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL qua<T, Q> exp(
-		qua<T, Q> const& q);
-
-	//! Returns a log of a quaternion.
-	///
-	/// @see gtx_quaternion
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL qua<T, Q> log(
-		qua<T, Q> const& q);
-
-	/// Returns x raised to the y power.
-	///
-	/// @see gtx_quaternion
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL qua<T, Q> pow(
-		qua<T, Q> const& x,
-		T const& y);
 
 	//! Returns quarternion square root.
 	///
@@ -182,33 +161,6 @@ namespace glm
 	GLM_FUNC_DECL qua<T, Q> rotation(
 		vec<3, T, Q> const& orig,
 		vec<3, T, Q> const& dest);
-
-	/// Build a look at quaternion based on the default handedness.
-	///
-	/// @param direction Desired forward direction. Needs to be normalized.
-	/// @param up Up vector, how the camera is oriented. Typically (0, 1, 0).
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL qua<T, Q> quatLookAt(
-		vec<3, T, Q> const& direction,
-		vec<3, T, Q> const& up);
-
-	/// Build a right-handed look at quaternion.
-	///
-	/// @param direction Desired forward direction onto which the -z-axis gets mapped. Needs to be normalized.
-	/// @param up Up vector, how the camera is oriented. Typically (0, 1, 0).
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL qua<T, Q> quatLookAtRH(
-		vec<3, T, Q> const& direction,
-		vec<3, T, Q> const& up);
-
-	/// Build a left-handed look at quaternion.
-	///
-	/// @param direction Desired forward direction onto which the +z-axis gets mapped. Needs to be normalized.
-	/// @param up Up vector, how the camera is oriented. Typically (0, 1, 0).
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL qua<T, Q> quatLookAtLH(
-		vec<3, T, Q> const& direction,
-		vec<3, T, Q> const& up);
 
 	/// Returns the squared length of x.
 	///

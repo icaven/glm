@@ -47,6 +47,7 @@ namespace glm
 	/// Returns dot product of q1 and q2, i.e., q1[0] * q2[0] + q1[1] * q2[1] + ...
 	///
 	/// @tparam T Floating-point scalar types.
+	/// @tparam Q Value from qualifier enum
 	///
 	/// @see ext_quaternion_geometric
 	template<typename T, qualifier Q>
