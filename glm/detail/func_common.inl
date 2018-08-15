@@ -13,7 +13,7 @@ namespace glm
 {
 	// min
 	template<typename genType>
-	GLM_FUNC_QUALIFIER genType min(genType x, genType y)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR genType min(genType x, genType y)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer || GLM_CONFIG_UNRESTRICTED_GENTYPE, "'min' only accept floating-point or integer inputs");
 		return (y < x) ? y : x;
@@ -21,7 +21,7 @@ namespace glm
 
 	// max
 	template<typename genType>
-	GLM_FUNC_QUALIFIER genType max(genType x, genType y)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR genType max(genType x, genType y)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer || GLM_CONFIG_UNRESTRICTED_GENTYPE, "'max' only accept floating-point or integer inputs");
 
@@ -472,49 +472,49 @@ namespace detail
 
 	// min
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> min(vec<L, T, Q> const& a, T b)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, T, Q> min(vec<L, T, Q> const& a, T b)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer || GLM_CONFIG_UNRESTRICTED_GENTYPE, "'min' only accept floating-point or integer inputs");
 		return detail::compute_min_vector<L, T, Q, detail::is_aligned<Q>::value>::call(a, vec<L, T, Q>(b));
 	}
 
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> min(vec<L, T, Q> const& a, vec<L, T, Q> const& b)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, T, Q> min(vec<L, T, Q> const& a, vec<L, T, Q> const& b)
 	{
 		return detail::compute_min_vector<L, T, Q, detail::is_aligned<Q>::value>::call(a, b);
 	}
 
 	// max
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> max(vec<L, T, Q> const& a, T b)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, T, Q> max(vec<L, T, Q> const& a, T b)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer || GLM_CONFIG_UNRESTRICTED_GENTYPE, "'max' only accept floating-point or integer inputs");
 		return detail::compute_max_vector<L, T, Q, detail::is_aligned<Q>::value>::call(a, vec<L, T, Q>(b));
 	}
 
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> max(vec<L, T, Q> const& a, vec<L, T, Q> const& b)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, T, Q> max(vec<L, T, Q> const& a, vec<L, T, Q> const& b)
 	{
 		return detail::compute_max_vector<L, T, Q, detail::is_aligned<Q>::value>::call(a, b);
 	}
 
 	// clamp
 	template<typename genType>
-	GLM_FUNC_QUALIFIER genType clamp(genType x, genType minVal, genType maxVal)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR genType clamp(genType x, genType minVal, genType maxVal)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559 || std::numeric_limits<genType>::is_integer || GLM_CONFIG_UNRESTRICTED_GENTYPE, "'clamp' only accept floating-point or integer inputs");
 		return min(max(x, minVal), maxVal);
 	}
 
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> clamp(vec<L, T, Q> const& x, T minVal, T maxVal)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, T, Q> clamp(vec<L, T, Q> const& x, T minVal, T maxVal)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer || GLM_CONFIG_UNRESTRICTED_GENTYPE, "'clamp' only accept floating-point or integer inputs");
 		return detail::compute_clamp_vector<L, T, Q, detail::is_aligned<Q>::value>::call(x, vec<L, T, Q>(minVal), vec<L, T, Q>(maxVal));
 	}
 
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> clamp(vec<L, T, Q> const& x, vec<L, T, Q> const& minVal, vec<L, T, Q> const& maxVal)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, T, Q> clamp(vec<L, T, Q> const& x, vec<L, T, Q> const& minVal, vec<L, T, Q> const& maxVal)
 	{
 		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559 || std::numeric_limits<T>::is_integer || GLM_CONFIG_UNRESTRICTED_GENTYPE, "'clamp' only accept floating-point or integer inputs");
 		return detail::compute_clamp_vector<L, T, Q, detail::is_aligned<Q>::value>::call(x, minVal, maxVal);

@@ -1,5 +1,3 @@
-/// @ref core
-
 namespace glm
 {
 	// -- Constructors --

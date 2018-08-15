@@ -1,5 +1,3 @@
-/// @ref core
-
 #include "../matrix.hpp"
 
 namespace glm

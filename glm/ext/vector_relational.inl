@@ -1,6 +1,3 @@
-/// @ref ext_vector_relational
-
-// Dependency:
 #include "../vector_relational.hpp"
 #include "../common.hpp"
 #include "../detail/qualifier.hpp"
