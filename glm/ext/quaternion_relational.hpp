@@ -11,7 +11,6 @@
 #pragma once
 
 // Dependency:
-#include "./quaternion_geometric.hpp"
 #include "../vector_relational.hpp"
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)

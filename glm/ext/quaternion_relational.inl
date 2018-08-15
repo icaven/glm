@@ -5,7 +5,7 @@ namespace glm
 	{
 		vec<4, bool, Q> Result;
 		for(length_t i = 0; i < x.length(); ++i)
-			Result[i] = detail::compute_equal<T, std::numeric_limits<T>::is_iec559>::call(x[i], y[i]);
+			Result[i] = x[i] == y[i];
 		return Result;
 	}
 
@@ -21,7 +21,7 @@ namespace glm
 	{
 		vec<4, bool, Q> Result;
 		for(length_t i = 0; i < x.length(); ++i)
-			Result[i] = !detail::compute_equal<T, std::numeric_limits<T>::is_iec559>::call(x[i], y[i]);
+			Result[i] = x[i] != y[i];
 		return Result;
 	}
 
