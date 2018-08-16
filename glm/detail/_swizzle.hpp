@@ -64,7 +64,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER _swizzle_base2& operator= (vec<N, T, Q> const& that)
 		{
 			struct op {
-				GLM_FUNC_QUALIFIER void operator() (T& e, T& t) { e = t; }
+				GLM_FUNC_QUALIFIER void operator() (T& e, T& t) const{ e = t; }
 			};
 			_apply_op(that, op());
 			return *this;
@@ -73,7 +73,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER void operator -= (vec<N, T, Q> const& that)
 		{
 			struct op {
-				GLM_FUNC_QUALIFIER void operator() (T& e, T& t) { e -= t; }
+				GLM_FUNC_QUALIFIER void operator() (T& e, T& t) const{ e -= t; }
 			};
 			_apply_op(that, op());
 		}
@@ -81,7 +81,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER void operator += (vec<N, T, Q> const& that)
 		{
 			struct op {
-				GLM_FUNC_QUALIFIER void operator() (T& e, T& t) { e += t; }
+				GLM_FUNC_QUALIFIER void operator() (T& e, T& t) const{ e += t; }
 			};
 			_apply_op(that, op());
 		}
@@ -89,7 +89,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER void operator *= (vec<N, T, Q> const& that)
 		{
 			struct op {
-				GLM_FUNC_QUALIFIER void operator() (T& e, T& t) { e *= t; }
+				GLM_FUNC_QUALIFIER void operator() (T& e, T& t) const{ e *= t; }
 			};
 			_apply_op(that, op());
 		}
@@ -97,7 +97,7 @@ namespace detail
 		GLM_FUNC_QUALIFIER void operator /= (vec<N, T, Q> const& that)
 		{
 			struct op {
-				GLM_FUNC_QUALIFIER void operator() (T& e, T& t) { e /= t; }
+				GLM_FUNC_QUALIFIER void operator() (T& e, T& t) const{ e /= t; }
 			};
 			_apply_op(that, op());
 		}
@@ -115,7 +115,7 @@ namespace detail
 
 	protected:
 		template<typename U>
-		GLM_FUNC_QUALIFIER void _apply_op(vec<N, T, Q> const& that, U op)
+		GLM_FUNC_QUALIFIER void _apply_op(vec<N, T, Q> const& that, const U& op)
 		{
 			// Make a copy of the data in this == &that.
 			// The copier should optimize out the copy in cases where the function is

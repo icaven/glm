@@ -1,6 +1,3 @@
-/// @ref core
-/// @file glm/detail/func_matrix_simd.inl
-
 #if GLM_ARCH & GLM_ARCH_SSE2_BIT
 
 #include "type_mat4x4.hpp"
@@ -11,6 +8,7 @@
 namespace glm{
 namespace detail
 {
+#	if GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
 	template<qualifier Q>
 	struct compute_matrixCompMult<4, 4, float, Q, true>
 	{
@@ -26,6 +24,7 @@ namespace detail
 			return Result;
 		}
 	};
+#	endif
 
 	template<qualifier Q>
 	struct compute_transpose<4, 4, float, Q, true>

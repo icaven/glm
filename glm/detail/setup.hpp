@@ -403,7 +403,7 @@
 #elif GLM_COMPILER & GLM_COMPILER_VC
 #	define GLM_STATIC_ASSERT(x, message) typedef char __CASSERT__##__LINE__[(x) ? 1 : -1]
 #else
-#	define GLM_STATIC_ASSERT(x, message)
+#	define GLM_STATIC_ASSERT(x, message) assert(x)
 #endif//GLM_LANG
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -448,7 +448,7 @@
 #define GLM_SWIZZLE_OPERATOR		1
 #define GLM_SWIZZLE_FUNCTION		2
 
-#if defined(GLM_FORCE_SWIZZLE) && !defined(GLM_FORCE_XYZW_ONLY) && (GLM_LANG & GLM_LANG_CXXMS_FLAG)
+#if defined(GLM_FORCE_SWIZZLE) && !defined(GLM_FORCE_XYZW_ONLY) && (GLM_LANG & GLM_LANG_CXX11_FLAG) && (GLM_LANG & GLM_LANG_CXXMS_FLAG)
 #	define GLM_CONFIG_SWIZZLE GLM_SWIZZLE_OPERATOR
 #elif defined(GLM_FORCE_SWIZZLE) && !defined(GLM_FORCE_XYZW_ONLY)
 #	define GLM_CONFIG_SWIZZLE GLM_SWIZZLE_FUNCTION
@@ -755,7 +755,7 @@ namespace detail
 ///////////////////////////////////////////////////////////////////////////////////
 // Use SIMD instruction sets
 
-#if (GLM_LANG & GLM_LANG_CXXMS_FLAG) && (GLM_ARCH & GLM_ARCH_SIMD_BIT)
+#if GLM_HAS_ALIGNOF && (GLM_LANG & GLM_LANG_CXXMS_FLAG) && (GLM_ARCH & GLM_ARCH_SIMD_BIT)
 #	define GLM_CONFIG_SIMD GLM_ENABLE
 #else
 #	define GLM_CONFIG_SIMD GLM_DISABLE
