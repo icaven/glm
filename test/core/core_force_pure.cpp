@@ -341,32 +341,32 @@ int test_vec4_swizzle_partial()
 {
 	int Error = 0;
 
-	glm::vec4 A(1, 2, 3, 4);
+	glm::ivec4 A(1, 2, 3, 4);
 
 #	if GLM_CONFIG_SWIZZLE == GLM_SWIZZLE_OPERATOR
 	{
-		glm::vec4 B(A.xy, A.zw);
+		glm::ivec4 B(A.xy, A.zw);
 		Error += A == B ? 0 : 1;
 	}
 	{
-		glm::vec4 B(A.xy, 3.0f, 4.0f);
+		glm::ivec4 B(A.xy, 3.0f, 4.0f);
 		Error += A == B ? 0 : 1;
 	}
 	{
-		glm::vec4 B(1.0f, A.yz, 4.0f);
+		glm::ivec4 B(1.0f, A.yz, 4.0f);
 		Error += A == B ? 0 : 1;
 	}
 	{
-		glm::vec4 B(1.0f, 2.0f, A.zw);
+		glm::ivec4 B(1.0f, 2.0f, A.zw);
 		Error += A == B ? 0 : 1;
 	}
 
 	{
-		glm::vec4 B(A.xyz, 4.0f);
+		glm::ivec4 B(A.xyz, 4.0f);
 		Error += A == B ? 0 : 1;
 	}
 	{
-		glm::vec4 B(1.0f, A.yzw);
+		glm::ivec4 B(1.0f, A.yzw);
 		Error += A == B ? 0 : 1;
 	}
 #	endif

@@ -56,7 +56,3 @@ namespace glm
 	}
 }//namespace glm
 
-#if GLM_CONFIG_SIMD == GLM_ENABLE
-#	include "quaternion_transform_simd.inl"
-#endif
-

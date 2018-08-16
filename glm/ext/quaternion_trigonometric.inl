@@ -25,8 +25,3 @@ namespace glm
 		return qua<T, Q>(glm::cos(a * static_cast<T>(0.5)), v * s);
 	}
 }//namespace glm
-
-#if GLM_CONFIG_SIMD == GLM_ENABLE
-#	include "quaternion_trigonometric_simd.inl"
-#endif
-
