@@ -72,10 +72,9 @@
 #define GLM_LANG_CXXMS			GLM_LANG_CXXMS_FLAG
 #define GLM_LANG_CXXGNU			GLM_LANG_CXXGNU_FLAG
 
-//#ifdef _MSC_EXTENSIONS
-#if ((GLM_COMPILER & GLM_COMPILER_VC) && defined(_MSC_EXTENSIONS))
+#if (defined(_MSC_EXTENSIONS))
 #	define GLM_LANG_EXT GLM_LANG_CXXMS_FLAG
-#elif (!(GLM_COMPILER & GLM_COMPILER_VC) && (GLM_ARCH & GLM_ARCH_SIMD_BIT))
+#elif ((GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_ARCH & GLM_ARCH_SIMD_BIT))
 #	define GLM_LANG_EXT GLM_LANG_CXXMS_FLAG
 #else
 #	define GLM_LANG_EXT 0
@@ -122,9 +121,9 @@
 #	define GLM_LANG (GLM_LANG_CXX11 | GLM_LANG_EXT)
 #	define GLM_LANG_STL11_FORCED
 #elif defined(GLM_FORCE_CXX03)
-#	define GLM_LANG GLM_LANG_CXX03
+#	define GLM_LANG (GLM_LANG_CXX03 | GLM_LANG_EXT)
 #elif defined(GLM_FORCE_CXX98)
-#	define GLM_LANG GLM_LANG_CXX98
+#	define GLM_LANG (GLM_LANG_CXX98 | GLM_LANG_EXT)
 #else
 #	if GLM_COMPILER & GLM_COMPILER_VC && defined(_MSVC_LANG)
 #		if GLM_COMPILER >= GLM_COMPILER_VC15_7
@@ -289,7 +288,7 @@
 
 // N2341 http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2341.pdf
 #if GLM_COMPILER & GLM_COMPILER_CLANG
-#	define GLM_HAS_ALIGNOF __has_feature(c_alignof)
+#	define GLM_HAS_ALIGNOF __has_feature(cxx_alignas)
 #elif GLM_LANG & GLM_LANG_CXX11_FLAG
 #	define GLM_HAS_ALIGNOF 1
 #else
@@ -757,9 +756,9 @@ namespace detail
 // Use SIMD instruction sets
 
 #if (GLM_LANG & GLM_LANG_CXXMS_FLAG) && (GLM_ARCH & GLM_ARCH_SIMD_BIT)
-#define GLM_CONFIG_SIMD GLM_ENABLE
+#	define GLM_CONFIG_SIMD GLM_ENABLE
 #else
-#define GLM_CONFIG_SIMD GLM_DISABLE
+#	define GLM_CONFIG_SIMD GLM_DISABLE
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////

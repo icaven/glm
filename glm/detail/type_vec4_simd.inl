@@ -1,5 +1,3 @@
-/// @ref core
-
 #if GLM_ARCH & GLM_ARCH_SSE2_BIT
 
 namespace glm{
@@ -404,7 +402,7 @@ namespace detail
 	{}
 
 	template<>
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<4, int64, aligned_highp>::vec(detail::int64 _s) :
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<4, detail::int64, aligned_highp>::vec(detail::int64 _s) :
 		data(_mm256_set1_epi64x(_s))
 	{}
 #	endif
