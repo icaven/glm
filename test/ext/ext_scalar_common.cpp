@@ -45,7 +45,7 @@ static int test_min_nan()
 
 	T const A = static_cast<T>(0);
 	T const B = static_cast<T>(1);
-	T const N = GLM_NAN;
+	T const N = static_cast<T>(GLM_NAN);
 	Error += glm::isnan(glm::min(N, B)) ? 0 : 1;
 	Error += !glm::isnan(glm::min(B, N)) ? 0 : 1;
 
@@ -104,7 +104,7 @@ static int test_max_nan()
 
 	T const A = static_cast<T>(0);
 	T const B = static_cast<T>(1);
-	T const N = GLM_NAN;
+	T const N = static_cast<T>(GLM_NAN);
 	Error += glm::isnan(glm::max(N, B)) ? 0 : 1;
 	Error += !glm::isnan(glm::max(B, N)) ? 0 : 1;
 
@@ -134,7 +134,7 @@ static int test_fmin()
 
 	T const A = static_cast<T>(0);
 	T const B = static_cast<T>(1);
-	T const N = GLM_NAN;
+	T const N = static_cast<T>(GLM_NAN);
 	Error += glm::equal(glm::fmin(N, B), B, glm::epsilon<T>()) ? 0 : 1;
 	Error += glm::equal(glm::fmin(B, N), B, glm::epsilon<T>()) ? 0 : 1;
 
@@ -164,7 +164,7 @@ static int test_fmax()
 
 	T const A = static_cast<T>(0);
 	T const B = static_cast<T>(1);
-	T const N = GLM_NAN;
+	T const N = static_cast<T>(GLM_NAN);
 	Error += glm::equal(glm::fmax(N, B), B, glm::epsilon<T>()) ? 0 : 1;
 	Error += glm::equal(glm::fmax(B, N), B, glm::epsilon<T>()) ? 0 : 1;
 
