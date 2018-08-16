@@ -28,39 +28,6 @@ namespace glm
 	/// @addtogroup ext_quaternion_trigonometric
 	/// @{
 
-	/// Returns euler angles, pitch as x, yaw as y, roll as z.
-	/// The result is expressed in radians.
-	///
-	/// @tparam T Floating-point scalar types.
-	///
-	/// @see ext_quaternion_trigonometric
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<3, T, Q> eulerAngles(qua<T, Q> const& x);
-
-	/// Returns roll value of euler angles expressed in radians.
-	///
-	/// @tparam T Floating-point scalar types.
-	///
-	/// @see ext_quaternion_trigonometric
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL T roll(qua<T, Q> const& x);
-
-	/// Returns pitch value of euler angles expressed in radians.
-	///
-	/// @tparam T Floating-point scalar types.
-	///
-	/// @see ext_quaternion_trigonometric
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL T pitch(qua<T, Q> const& x);
-
-	/// Returns yaw value of euler angles expressed in radians.
-	///
-	/// @tparam T Floating-point scalar types.
-	///
-	/// @see ext_quaternion_trigonometric
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL T yaw(qua<T, Q> const& x);
-
 	/// Returns the quaternion rotation angle.
 	///
 	/// @tparam T Floating-point scalar types.

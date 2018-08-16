@@ -24,6 +24,7 @@
 #include "../ext/quaternion_double_precision.hpp"
 #include "../ext/quaternion_relational.hpp"
 #include "../ext/quaternion_geometric.hpp"
+#include "../ext/quaternion_trigonometric.hpp"
 #include "../ext/quaternion_transform.hpp"
 #include "../detail/type_mat3x3.hpp"
 #include "../detail/type_mat4x4.hpp"
@@ -38,22 +39,6 @@ namespace glm
 {
 	/// @addtogroup gtc_quaternion
 	/// @{
-
-	/// Returns the q conjugate.
-	///
-	/// @tparam T Floating-point scalar types.
-	///
-	/// @see gtc_quaternion
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL qua<T, Q> conjugate(qua<T, Q> const& q);
-
-	/// Returns the q inverse.
-	///
-	/// @tparam T Floating-point scalar types.
-	///
-	/// @see gtc_quaternion
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL qua<T, Q> inverse(qua<T, Q> const& q);
 
 	/// Rotates a quaternion from a vector of 3 components axis and an angle.
 	///
@@ -130,32 +115,6 @@ namespace glm
 	/// @see gtc_quaternion
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> quat_cast(mat<4, 4, T, Q> const& x);
-
-	/// Returns the quaternion rotation angle.
-	///
-	/// @tparam T Floating-point scalar types.
-	///
-	/// @see gtc_quaternion
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL T angle(qua<T, Q> const& x);
-
-	/// Returns the q rotation axis.
-	///
-	/// @tparam T Floating-point scalar types.
-	///
-	/// @see gtc_quaternion
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL vec<3, T, Q> axis(qua<T, Q> const& x);
-
-	/// Build a quaternion from an angle and a normalized axis.
-	///
-	/// @param angle Angle expressed in radians.
-	/// @param axis Axis of the quaternion, must be normalized.
-	/// @tparam T Floating-point scalar types.
-	///
-	/// @see gtc_quaternion
-	template<typename T, qualifier Q>
-	GLM_FUNC_DECL qua<T, Q> angleAxis(T const& angle, vec<3, T, Q> const& axis);
 
 	/// Returns the component-wise comparison result of x < y.
 	///

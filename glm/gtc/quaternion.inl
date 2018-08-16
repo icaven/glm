@@ -123,37 +123,6 @@ namespace glm
 	}
 
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER T angle(qua<T, Q> const& x)
-	{
-		return acos(x.w) * static_cast<T>(2);
-	}
-
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<3, T, Q> axis(qua<T, Q> const& x)
-	{
-		T tmp1 = static_cast<T>(1) - x.w * x.w;
-		if(tmp1 <= static_cast<T>(0))
-			return vec<3, T, Q>(0, 0, 1);
-		T tmp2 = static_cast<T>(1) / sqrt(tmp1);
-		return vec<3, T, Q>(x.x * tmp2, x.y * tmp2, x.z * tmp2);
-	}
-
-	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER qua<T, Q> angleAxis(T const& angle, vec<3, T, Q> const& v)
-	{
-		qua<T, Q> Result;
-
-		T const a(angle);
-		T const s = glm::sin(a * static_cast<T>(0.5));
-
-		Result.w = glm::cos(a * static_cast<T>(0.5));
-		Result.x = v.x * s;
-		Result.y = v.y * s;
-		Result.z = v.z * s;
-		return Result;
-	}
-
-	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER vec<4, bool, Q> lessThan(qua<T, Q> const& x, qua<T, Q> const& y)
 	{
 		vec<4, bool, Q> Result;

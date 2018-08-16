@@ -3,6 +3,12 @@
 #include <glm/ext/scalar_relational.hpp>
 #include <glm/common.hpp>
 
+#if ((GLM_LANG & GLM_LANG_CXX11_FLAG) || (GLM_COMPILER & GLM_COMPILER_VC))
+#	define GLM_NAN NAN
+#else
+#	define GLM_NAN (A / A)
+#endif
+
 template <typename T>
 static int test_min()
 {
@@ -39,7 +45,7 @@ static int test_min_nan()
 
 	T const A = static_cast<T>(0);
 	T const B = static_cast<T>(1);
-	T const N = A / A;
+	T const N = GLM_NAN;
 	Error += glm::isnan(glm::min(N, B)) ? 0 : 1;
 	Error += !glm::isnan(glm::min(B, N)) ? 0 : 1;
 
@@ -98,7 +104,7 @@ static int test_max_nan()
 
 	T const A = static_cast<T>(0);
 	T const B = static_cast<T>(1);
-	T const N = A / A;
+	T const N = GLM_NAN;
 	Error += glm::isnan(glm::max(N, B)) ? 0 : 1;
 	Error += !glm::isnan(glm::max(B, N)) ? 0 : 1;
 
@@ -128,24 +134,25 @@ static int test_fmin()
 
 	T const A = static_cast<T>(0);
 	T const B = static_cast<T>(1);
-	Error += glm::equal(glm::fmin(A / A, B), B, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmin(B, A / A), B, glm::epsilon<T>()) ? 0 : 1;
+	T const N = GLM_NAN;
+	Error += glm::equal(glm::fmin(N, B), B, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmin(B, N), B, glm::epsilon<T>()) ? 0 : 1;
 
 	T const C = static_cast<T>(2);
-	Error += glm::equal(glm::fmin(A / A, B, C), B, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmin(B, A / A, C), B, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmin(C, A / A, B), B, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmin(C, B, A / A), B, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmin(B, C, A / A), B, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmin(A / A, C, B), B, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmin(N, B, C), B, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmin(B, N, C), B, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmin(C, N, B), B, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmin(C, B, N), B, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmin(B, C, N), B, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmin(N, C, B), B, glm::epsilon<T>()) ? 0 : 1;
 
 	T const D = static_cast<T>(3);
-	Error += glm::equal(glm::fmin(D, A / A, B, C), B, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmin(B, D, A / A, C), B, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmin(C, A / A, D, B), B, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmin(C, B, D, A / A), B, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmin(B, C, A / A, D), B, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmin(A / A, C, B, D), B, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmin(D, N, B, C), B, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmin(B, D, N, C), B, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmin(C, N, D, B), B, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmin(C, B, D, N), B, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmin(B, C, N, D), B, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmin(N, C, B, D), B, glm::epsilon<T>()) ? 0 : 1;
 
 	return Error;
 }
@@ -157,24 +164,25 @@ static int test_fmax()
 
 	T const A = static_cast<T>(0);
 	T const B = static_cast<T>(1);
-	Error += glm::equal(glm::fmax(A / A, B), B, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmax(B, A / A), B, glm::epsilon<T>()) ? 0 : 1;
+	T const N = GLM_NAN;
+	Error += glm::equal(glm::fmax(N, B), B, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmax(B, N), B, glm::epsilon<T>()) ? 0 : 1;
 
 	T const C = static_cast<T>(2);
-	Error += glm::equal(glm::fmax(A / A, B, C), C, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmax(B, A / A, C), C, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmax(C, A / A, B), C, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmax(C, B, A / A), C, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmax(B, C, A / A), C, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmax(A / A, C, B), C, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmax(N, B, C), C, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmax(B, N, C), C, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmax(C, N, B), C, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmax(C, B, N), C, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmax(B, C, N), C, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmax(N, C, B), C, glm::epsilon<T>()) ? 0 : 1;
 
 	T const D = static_cast<T>(3);
-	Error += glm::equal(glm::fmax(D, A / A, B, C), D, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmax(B, D, A / A, C), D, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmax(C, A / A, D, B), D, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmax(C, B, D, A / A), D, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmax(B, C, A / A, D), D, glm::epsilon<T>()) ? 0 : 1;
-	Error += glm::equal(glm::fmax(A / A, C, B, D), D, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmax(D, N, B, C), D, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmax(B, D, N, C), D, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmax(C, N, D, B), D, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmax(C, B, D, N), D, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmax(B, C, N, D), D, glm::epsilon<T>()) ? 0 : 1;
+	Error += glm::equal(glm::fmax(N, C, B, D), D, glm::epsilon<T>()) ? 0 : 1;
 
 	return Error;
 }
