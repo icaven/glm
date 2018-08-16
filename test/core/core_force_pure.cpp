@@ -341,9 +341,10 @@ int test_vec4_swizzle_partial()
 {
 	int Error = 0;
 
+#	if GLM_CONFIG_SWIZZLE == GLM_SWIZZLE_OPERATOR
+
 	glm::ivec4 A(1, 2, 3, 4);
 
-#	if GLM_CONFIG_SWIZZLE == GLM_SWIZZLE_OPERATOR
 	{
 		glm::ivec4 B(A.xy, A.zw);
 		Error += A == B ? 0 : 1;
