@@ -23,16 +23,10 @@ namespace glm
 	/// @addtogroup ext_bvec1
 	/// @{
 
-#	if GLM_CONFIG_PRECISION_BOOL == GLM_LOWP
-		typedef vec<1, bool, lowp>		bvec1;
-#	elif GLM_CONFIG_PRECISION_BOOL == GLM_MEDIUMP
-		typedef vec<1, bool, mediump>	bvec1;
-#	else
-		/// 1 components vector of boolean.
-		///
-		/// @see ext_vector_bvec1 extension.
-		typedef vec<1, bool, highp>		bvec1;
-#	endif
+	/// 1 components vector of boolean.
+	///
+	/// @see ext_vector_bvec1 extension.
+	typedef vec<1, bool, defaultp>		bvec1;
 
 	/// @}
 }//namespace glm

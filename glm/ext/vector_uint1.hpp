@@ -23,16 +23,10 @@ namespace glm
 	/// @addtogroup ext_vector_uint1
 	/// @{
 
-#	if GLM_CONFIG_PRECISION_UINT == GLM_LOWP
-		typedef vec<1, unsigned int, lowp>			uvec1;
-#	elif GLM_CONFIG_PRECISION_UINT == GLM_MEDIUMP
-		typedef vec<1, unsigned int, mediump>		uvec1;
-#	elif GLM_CONFIG_PRECISION_UINT == GLM_HIGHP
-		/// 1 component vector of unsigned integer numbers.
-		///
-		/// @see ext_vector_uint1 extension.
-		typedef vec<1, unsigned int, highp>			uvec1;
-#	endif
+	/// 1 component vector of unsigned integer numbers.
+	///
+	/// @see ext_vector_uint1 extension.
+	typedef vec<1, unsigned int, defaultp>			uvec1;
 
 	/// @}
 }//namespace glm

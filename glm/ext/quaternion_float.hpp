@@ -24,13 +24,10 @@ namespace glm
 	/// @addtogroup ext_quaternion_float
 	/// @{
 
-#if GLM_CONFIG_PRECISION_FLOAT == GLM_HIGHP
-	typedef qua<float, highp>		quat;
-#elif GLM_CONFIG_PRECISION_FLOAT == GLM_MEDIUMP
-	typedef qua<float, mediump>		quat;
-#else
-	typedef qua<float, lowp>		quat;
-#endif
+	/// Quaternion of single-precision floating-point numbers.
+	///
+	/// @see ext_quaternion_float
+	typedef qua<float, defaultp>		quat;
 
 	/// @}
 } //namespace glm

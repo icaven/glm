@@ -23,16 +23,10 @@ namespace glm
 	/// @addtogroup ext_vector_float1
 	/// @{
 
-#	if GLM_CONFIG_PRECISION_FLOAT == GLM_LOWP
-		typedef vec<1, float, lowp>			vec1;
-#	elif GLM_CONFIG_PRECISION_FLOAT == GLM_MEDIUMP
-		typedef vec<1, float, mediump>		vec1;
-#	else
-		/// 1 components vector of single-precision floating-point numbers.
-		///
-		/// @see ext_vector_float1 extension.
-		typedef vec<1, float, highp>		vec1;
-#	endif
+	/// 1 components vector of single-precision floating-point numbers.
+	///
+	/// @see ext_vector_float1 extension.
+	typedef vec<1, float, defaultp>		vec1;
 
 	/// @}
 }//namespace glm

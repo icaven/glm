@@ -23,16 +23,10 @@ namespace glm
 	/// @addtogroup ext_vector_int1
 	/// @{
 
-#	if GLM_CONFIG_PRECISION_INT == GLM_LOWP
-		typedef vec<1, int, lowp>			ivec1;
-#	elif GLM_CONFIG_PRECISION_INT == GLM_MEDIUMP
-		typedef vec<1, int, mediump>		ivec1;
-#	else
-		/// 1 component vector of signed integer numbers.
-		///
-		/// @see ext_vector_int1 extension.
-		typedef vec<1, int, highp>			ivec1;
-#	endif
+	/// 1 component vector of signed integer numbers.
+	///
+	/// @see ext_vector_int1 extension.
+	typedef vec<1, int, defaultp>			ivec1;
 
 	/// @}
 }//namespace glm
