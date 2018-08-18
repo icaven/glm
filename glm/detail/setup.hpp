@@ -448,9 +448,13 @@
 #define GLM_SWIZZLE_OPERATOR		1
 #define GLM_SWIZZLE_FUNCTION		2
 
-#if defined(GLM_FORCE_SWIZZLE) && !defined(GLM_FORCE_XYZW_ONLY) && (GLM_LANG & GLM_LANG_CXX0X_FLAG) && (GLM_LANG & GLM_LANG_CXXMS_FLAG)
+#if defined(GLM_FORCE_XYZW_ONLY)
+#	undef GLM_FORCE_SWIZZLE
+#endif
+
+#if defined(GLM_FORCE_SWIZZLE) && (GLM_LANG & GLM_LANG_CXXMS_FLAG)
 #	define GLM_CONFIG_SWIZZLE GLM_SWIZZLE_OPERATOR
-#elif defined(GLM_FORCE_SWIZZLE) && !defined(GLM_FORCE_XYZW_ONLY)
+#elif defined(GLM_FORCE_SWIZZLE)
 #	define GLM_CONFIG_SWIZZLE GLM_SWIZZLE_FUNCTION
 #else
 #	define GLM_CONFIG_SWIZZLE GLM_SWIZZLE_DISABLED
@@ -719,6 +723,15 @@ namespace detail
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
+// Only use x, y, z, w as vector type components
+
+#ifdef GLM_FORCE_XYZW_ONLY
+#	define GLM_CONFIG_XYZW_ONLY GLM_ENABLE
+#else
+#	define GLM_CONFIG_XYZW_ONLY GLM_DISABLE
+#endif
+
+///////////////////////////////////////////////////////////////////////////////////
 // Configure the use of defaulted initialized types
 
 #define GLM_CTOR_INITIALIZER_LIST	(1 << 1)
@@ -759,15 +772,6 @@ namespace detail
 #	define GLM_CONFIG_SIMD GLM_ENABLE
 #else
 #	define GLM_CONFIG_SIMD GLM_DISABLE
-#endif
-
-///////////////////////////////////////////////////////////////////////////////////
-// Only use x, y, z, w as vector type components
-
-#ifdef GLM_FORCE_XYZW_ONLY
-#	define GLM_CONFIG_XYZW_ONLY GLM_ENABLE
-#else
-#	define GLM_CONFIG_XYZW_ONLY GLM_DISABLE
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////

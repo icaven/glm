@@ -1,7 +1,7 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/glm.hpp>
 /*
-#if GLM_CONFIG_SIMD == GLM_ENABLE && GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
+#if GLM_CONFIG_SIMD == GLM_ENABLE
 
 #include <glm/gtx/common.hpp>
 #include <glm/gtc/integer.hpp>
@@ -116,7 +116,7 @@ int main()
 {
 	int Error = 0;
 /*
-#	if GLM_CONFIG_SIMD == GLM_ENABLE && GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
+#	if GLM_CONFIG_SIMD == GLM_ENABLE
 		Error += test_vec4_load();
 #	endif
 */
