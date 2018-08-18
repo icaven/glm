@@ -21,27 +21,27 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if(GLM_TEST_ENABLE_CXX_20)
 	set(CMAKE_CXX_STANDARD 20)
-#	add_definitions(-DGLM_FORCE_CXX2A)
+	add_definitions(-DGLM_FORCE_CXX2A)
 	message(STATUS "GLM: Build with C++20 features")
 
 elseif(GLM_TEST_ENABLE_CXX_17)
 	set(CMAKE_CXX_STANDARD 17)
-#	add_definitions(-DGLM_FORCE_CXX17)
+	add_definitions(-DGLM_FORCE_CXX17)
 	message(STATUS "GLM: Build with C++17 features")
 
 elseif(GLM_TEST_ENABLE_CXX_14)
 	set(CMAKE_CXX_STANDARD 14)
-#	add_definitions(-DGLM_FORCE_CXX14)
+	add_definitions(-DGLM_FORCE_CXX14)
 	message(STATUS "GLM: Build with C++14 features")
 
 elseif(GLM_TEST_ENABLE_CXX_11)
 	set(CMAKE_CXX_STANDARD 11)
-#	add_definitions(-DGLM_FORCE_CXX11)
+	add_definitions(-DGLM_FORCE_CXX11)
 	message(STATUS "GLM: Build with C++11 features")
 
 elseif(GLM_TEST_ENABLE_CXX_98)
 	set(CMAKE_CXX_STANDARD 98)
-#	add_definitions(-DGLM_FORCE_CXX98)
+	add_definitions(-DGLM_FORCE_CXX98)
 	message(STATUS "GLM: Build with C++98 features")
 endif()
 
