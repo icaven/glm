@@ -1,6 +1,3 @@
-/// @ref core
-/// @file glm/detail/func_matrix.inl
-
 #include "../geometric.hpp"
 #include <limits>
 
