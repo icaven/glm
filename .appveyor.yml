@@ -24,7 +24,7 @@ before_build:
     mkdir build
     cd build
     cmake --version
-    cmake .. -G %generator%
+    cmake .. -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -G %generator%
 
 build:
   project: c:\dev\glm-cmake\build\template.sln
