@@ -1,5 +1,3 @@
-/// @ref gtx_compatibility
-
 #include <limits>
 
 namespace glm
