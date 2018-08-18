@@ -308,6 +308,7 @@ namespace detail
 		}
 	};
 
+#	if GLM_ARCH & GLM_ARCH_SSE41_BIT
 	template<qualifier Q>
 	struct compute_vec4_equal<int, Q, true, 32, true>
 	{
@@ -318,6 +319,7 @@ namespace detail
 			return _mm_test_all_zeros(neq, neq) == 0;
 		}
 	};
+#	endif
 
 	template<qualifier Q>
 	struct compute_vec4_nequal<float, Q, false, 32, true>
@@ -328,6 +330,7 @@ namespace detail
 		}
 	};
 
+#	if GLM_ARCH & GLM_ARCH_SSE41_BIT
 	template<qualifier Q>
 	struct compute_vec4_nequal<int, Q, true, 32, true>
 	{
@@ -338,6 +341,7 @@ namespace detail
 			return _mm_test_all_zeros(neq, neq) != 0;
 		}
 	};
+#	endif
 }//namespace detail
 
 	template<>
