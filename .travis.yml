@@ -4,6 +4,46 @@ matrix:
   include:
     - os: osx
       osx_image: xcode8
+      script:
+        - cmake --version
+        - mkdir ./build_pure_14_release
+        - cd ./build_pure_14_release
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_FORCE_PURE=ON ..
+        - cmake -E time cmake --build .
+        - ctest
+        - cd ..
+        - mkdir ./build_simd_14_release
+        - cd ./build_simd_14_release
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
+        - cmake -E time cmake --build .
+        - ctest
+
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-4.9
+      env:
+        - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
+      script:
+        - cmake --version
+        - mkdir ./build_pure_98_release
+        - cd ./build_pure_98_release
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_FORCE_PURE=ON ..
+        - cmake --build .
+        - ctest
+        - mkdir ./build_pure_98_debug
+        - cd ./build_pure_98_debug
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_FORCE_PURE=ON ..
+        - cmake --build .
+        - ctest
+        - mkdir ./build_pure_ms_release
+        - cd ./build_pure_ms_release
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_FORCE_PURE=ON ..
+        - cmake --build .
+        - ctest
 
     - os: linux
       addons:
@@ -14,6 +54,25 @@ matrix:
             - g++-7
       env:
         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+      script:
+        - cmake --version
+        - mkdir ./build_pure_14_release
+        - cd ./build_pure_14_release
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_FORCE_PURE=ON ..
+        - cmake -E time cmake --build .
+        - ctest
+        - cd ..
+        - mkdir ./build_simd_14_release
+        - cd ./build_simd_14_release
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
+        - cmake -E time cmake --build .
+        - ctest
+        - cd ..
+        - mkdir ./build_simd_14_debug
+        - cd ./build_simd_14_debug
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
+        - cmake -E time cmake --build .
+        - ctest
 
     - os: linux
       addons:
@@ -24,34 +83,27 @@ matrix:
             - clang-5.0
       env:
         - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
+      script:
+        - cmake --version
+        - mkdir ./build_pure_14_release
+        - cd ./build_pure_14_release
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_FORCE_PURE=ON ..
+        - cmake -E time cmake --build .
+        - ctest
+        - cd ..
+        - mkdir ./build_simd_14_release
+        - cd ./build_simd_14_release
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
+        - cmake -E time cmake --build .
+        - ctest
+        - cd ..
+        - mkdir ./build_simd_14_debug
+        - cd ./build_simd_14_debug
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
+        - cmake -E time cmake --build .
+        - ctest
 
 before_install:
     - eval "${MATRIX_EVAL}"
 
-script:
-- cmake --version
-- mkdir ./build_pure_98_release
-- cd ./build_pure_98_release
-- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_FORCE_PURE=ON ..
-- cmake --build .
-- ctest
-- cd ..
-- mkdir ./build_pure_14_release
-- cd ./build_pure_14_release
-- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_FORCE_PURE=ON ..
-- cmake -E time cmake --build .
-- ctest
-- cd ..
-- mkdir ./build_simd_14_release
-- cd ./build_simd_14_release
-- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
-- cmake -E time cmake --build .
-- ctest
-- cd ..
-- mkdir ./build_simd_14_debug
-- cd ./build_simd_14_debug
-- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
-- cmake -E time cmake --build .
-- ctest
-- cd ..
 
