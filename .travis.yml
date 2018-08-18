@@ -188,7 +188,7 @@ matrix:
       script:
         - cmake --version
         - mkdir ./build_sse3_ms_release
-        - cd ./build_sse4_ms_release
+        - cd ./build_sse3_ms_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
         - cmake --build .
         - ctest
