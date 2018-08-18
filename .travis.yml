@@ -133,7 +133,75 @@ matrix:
           packages:
             - g++-5
       env:
-         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && INFO=C++14-pure-release"
+         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && INFO=C++11-pure-release"
+      script:
+        - cmake --version
+        - mkdir ./build_pure_11_release
+        - cd ./build_pure_11_release
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_FORCE_PURE=ON ..
+        - cmake --build .
+        - ctest
+
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-5
+      env:
+         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && INFO=C++11-pure-debug"
+      script:
+        - cmake --version
+        - mkdir ./build_pure_11_debug
+        - cd ./build_pure_11_debug
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_FORCE_PURE=ON ..
+        - cmake --build .
+        - ctest
+
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-5
+      env:
+         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && INFO=C++11-pure-ms"
+      script:
+        - cmake --version
+        - mkdir ./build_pure_ms_release
+        - cd ./build_pure_ms_release
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_FORCE_PURE=ON ..
+        - cmake --build .
+        - ctest
+
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-5
+      env:
+         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && INFO=C++11-sse3-release"
+      script:
+        - cmake --version
+        - mkdir ./build_sse3_ms_release
+        - cd ./build_sse3_ms_release
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
+        - cmake --build .
+        - ctest
+
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-6
+      env:
+         - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6 && INFO=C++14-pure-release"
       script:
         - cmake --version
         - mkdir ./build_pure_14_release
@@ -148,9 +216,9 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - g++-5
+            - g++-6
       env:
-         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && INFO=C++14-pure-debug"
+         - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6 && INFO=C++14-pure-debug"
       script:
         - cmake --version
         - mkdir ./build_pure_14_debug
@@ -165,9 +233,9 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - g++-5
+            - g++-6
       env:
-         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && INFO=C++14-pure-ms"
+         - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6 && INFO=C++14-pure-ms"
       script:
         - cmake --version
         - mkdir ./build_pure_ms_release
@@ -182,9 +250,9 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - g++-5
+            - g++-6
       env:
-         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && INFO=C++14-sse3-release"
+         - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6 && INFO=C++14-sse3-release"
       script:
         - cmake --version
         - mkdir ./build_sse3_ms_release
