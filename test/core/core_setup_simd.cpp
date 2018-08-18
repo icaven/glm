@@ -11,8 +11,6 @@
 template <typename matType, typename vecType>
 static void test_mat_mul_vec(matType const& M, std::vector<vecType> const& I, std::vector<vecType>& O)
 {
-	typedef typename vecType::value_type T;
-
 	for (std::size_t i = 0, n = I.size(); i < n; ++i)
 		O[i] = M * I[i];
 }
@@ -42,8 +40,6 @@ static int launch_mat_mul_vec(std::size_t Samples)
 template <typename matType, typename vecType>
 static void test_vec_mul_mat(matType const& M, std::vector<vecType> const& I, std::vector<vecType>& O)
 {
-	typedef typename vecType::value_type T;
-
 	for (std::size_t i = 0, n = I.size(); i < n; ++i)
 		O[i] = I[i] * M;
 }
@@ -62,7 +58,7 @@ static int launch_vec_mul_mat(std::size_t Samples)
 		I[i] = vecType(static_cast<T>(i)) * vecType(0.01, 0.02, 0.03, 0.05);
 
 	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
-	test_mat_mul_vec<matType, vecType>(Transform, I, O);
+	test_vec_mul_mat<matType, vecType>(Transform, I, O);
 	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 
 	return static_cast<int>(std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count());
@@ -71,8 +67,6 @@ static int launch_vec_mul_mat(std::size_t Samples)
 template <typename matType>
 static void test_mat_mul_mat(matType const& M, std::vector<matType> const& I, std::vector<matType>& O)
 {
-	typedef typename matType::value_type T;
-
 	for (std::size_t i = 0, n = I.size(); i < n; ++i)
 		O[i] = M * I[i];
 }
@@ -84,26 +78,22 @@ static int launch_mat_mul_mat(std::size_t Samples)
 
 	static const matType Transform(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
 
-	{
-		std::vector<matType> I(Samples);
-		std::vector<matType> O(Samples);
+	std::vector<matType> I(Samples);
+	std::vector<matType> O(Samples);
 
-		for(std::size_t i = 0; i < Samples; ++i)
-			I[i] = matType(static_cast<T>(i)) * matType(0.01, 0.02, 0.03, 0.05, 0.01, 0.02, 0.03, 0.05, 0.01, 0.02, 0.03, 0.05, 0.01, 0.02, 0.03, 0.05);
+	for(std::size_t i = 0; i < Samples; ++i)
+		I[i] = matType(0.01, 0.02, 0.03, 0.05, 0.01, 0.02, 0.03, 0.05, 0.01, 0.02, 0.03, 0.05, 0.01, 0.02, 0.03, 0.05) * static_cast<T>(i);
 
-		std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
-		test_mat_mul_mat<matType>(Transform, I, O);
-		std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
+	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
+	test_mat_mul_mat<matType>(Transform, I, O);
+	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 
-		return static_cast<int>(std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count());
-	}
+	return static_cast<int>(std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count());
 }
 
 template <typename matType>
 static void test_mat_div_mat(matType const& M, std::vector<matType> const& I, std::vector<matType>& O)
 {
-	typedef typename matType::value_type T;
-
 	for (std::size_t i = 0, n = I.size(); i < n; ++i)
 		O[i] = M / I[i];
 }
@@ -112,22 +102,20 @@ template <typename matType>
 static int launch_mat_div_mat(std::size_t Samples)
 {
 	typedef typename matType::value_type T;
-
+	
 	static const matType Transform(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
 
-	{
-		std::vector<matType> I(Samples);
-		std::vector<matType> O(Samples);
+	std::vector<matType> I(Samples);
+	std::vector<matType> O(Samples);
 
-		for(std::size_t i = 0; i < Samples; ++i)
-			I[i] = matType(static_cast<T>(i)) * matType(0.01, 0.02, 0.03, 0.05, 0.01, 0.02, 0.03, 0.05, 0.01, 0.02, 0.03, 0.05, 0.01, 0.02, 0.03, 0.05);
+	for(std::size_t i = 0; i < Samples; ++i)
+		I[i] = matType(0.01, 0.02, 0.03, 0.05, 0.01, 0.02, 0.03, 0.05, 0.01, 0.02, 0.03, 0.05, 0.01, 0.02, 0.03, 0.05) * static_cast<T>(i);
 
-		std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
-		test_mat_div_mat<matType>(Transform, I, O);
-		std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
+	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
+	test_mat_div_mat<matType>(Transform, I, O);
+	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 
-		return static_cast<int>(std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count());
-	}
+	return static_cast<int>(std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count());
 }
 
 int main()
