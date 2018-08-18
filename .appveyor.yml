@@ -1,81 +1,82 @@
 clone_folder: c:\dev\glm-cmake
 
-matrix:
-  os: Visual Studio 2013
-    - platform: x86
-      configuration: Release
-      build_script:
-      - md build32_pure_98_release
-      - cd build32_pure_98_release
-      - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_FORCE_PURE=ON ..
-      - cmake -E time cmake --build . --config Release
+environment:
+  matrix:
+    os: Visual Studio 2013
+      - platform: x86
+        configuration: Release
+        build_script:
+          - md build32_pure_98_release
+          - cd build32_pure_98_release
+          - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_FORCE_PURE=ON ..
+          - cmake -E time cmake --build . --config Release
 
-    - platform: x64
-      configuration: Release
-      build_script:
-      - md build64_pure_98_release
-      - cd build64_pure_98_release
-      - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_FORCE_PURE=ON ..
-      - cmake -E time cmake --build . --config Release
+      - platform: x64
+        configuration: Release
+        build_script:
+          - md build64_pure_98_release
+          - cd build64_pure_98_release
+          - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_FORCE_PURE=ON ..
+          - cmake -E time cmake --build . --config Release
 
-    - platform: x64
-      configuration: Release
-      build_script:
-      - md build64_pure_ms_release
-      - cd build64_pure_ms_release
-      - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_FORCE_PURE=ON ..
-      - cmake -E time cmake --build . --config Release
+      - platform: x64
+        configuration: Release
+        build_script:
+          - md build64_pure_ms_release
+          - cd build64_pure_ms_release
+          - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_FORCE_PURE=ON ..
+          - cmake -E time cmake --build . --config Release
 
-  os: Visual Studio 2015
-    - platform: x64
-      configuration: Debug
-      build_script:
-      - md build_pure_11_debug
-      - cd build_pure_11_debug
-      - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_FORCE_PURE=ON ..
-      - cmake -E time cmake --build . --config Debug
+    os: Visual Studio 2015
+      - platform: x64
+        configuration: Debug
+        build_script:
+          - md build_pure_11_debug
+          - cd build_pure_11_debug
+          - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_FORCE_PURE=ON ..
+          - cmake -E time cmake --build . --config Debug
 
-    - platform: x64
-      configuration: Release
-      build_script:
-      - md build64_pure_11_release
-      - cd build64_pure_11_release
-      - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_FORCE_PURE=ON ..
-      - cmake -E time cmake --build . --config Release
+      - platform: x64
+        configuration: Release
+        build_script:
+          - md build64_pure_11_release
+          - cd build64_pure_11_release
+          - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_FORCE_PURE=ON ..
+          - cmake -E time cmake --build . --config Release
 
-    - platform: x64
-      configuration: Release
-      build_script:
-      - md build64_sse3_11_release
-      - cd build64_sse3_11_release
-      - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
-      - cmake -E time cmake --build . --config Release
+      - platform: x64
+        configuration: Release
+        build_script:
+          - md build64_sse3_11_release
+          - cd build64_sse3_11_release
+          - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
+          - cmake -E time cmake --build . --config Release
 
-  os: Visual Studio 2017
-    - platform: x64
-      configuration: Release
-      build_script:
-      - md build64_pure_14_release
-      - cd build64_pure_14_release
-      - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_FORCE_PURE=ON ..
-      - cmake -E time cmake --build . --config Release
+    os: Visual Studio 2017
+      - platform: x64
+        configuration: Release
+        build_script:
+          - md build64_pure_14_release
+          - cd build64_pure_14_release
+          - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_FORCE_PURE=ON ..
+          - cmake -E time cmake --build . --config Release
 
-    - platform: x64
-      configuration: Release
-      build_script:
-      - md build64_sse3_14_release
-      - cd build64_sse3_14_release
-      - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
-      - cmake -E time cmake --build . --config Release
+      - platform: x64
+        configuration: Release
+        build_script:
+          - md build64_sse3_14_release
+          - cd build64_sse3_14_release
+          - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
+          - cmake -E time cmake --build . --config Release
 
-  os: Visual Studio 2017
-    - platform: x64
-      configuration: Release
-      build_script:
-      - md build64_avx_14_release
-      - cd build64_avx_14_release
-      - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON ..
-      - cmake -E time cmake --build . --config Release
+    os: Visual Studio 2017
+      - platform: x64
+        configuration: Release
+        build_script:
+          - md build64_avx_14_release
+          - cd build64_avx_14_release
+          - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON ..
+          - cmake -E time cmake --build . --config Release
 
 after_build:
   - cd ..
