@@ -18,13 +18,13 @@ matrix:
       osx_image: xcode10
       script:
         - cmake --version
-        - mkdir ./build_simd_17_release
-        - cd ./build_simd_17_release
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
+        - mkdir ./build_avx_17_release
+        - cd ./build_avx_17_release
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON ..
         - cmake -E time cmake --build .
         - ctest
       env:
-        - MATRIX_EVAL="INFO=C++17-simd-release"
+        - MATRIX_EVAL="INFO=C++17-avx-release"
 
     - os: osx
       osx_image: xcode8
@@ -42,13 +42,13 @@ matrix:
       osx_image: xcode8
       script:
         - cmake --version
-        - mkdir ./build_simd_14_release
-        - cd ./build_simd_14_release
+        - mkdir ./build_sse3_14_release
+        - cd ./build_sse3_14_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
         - cmake -E time cmake --build .
         - ctest
       env:
-        - MATRIX_EVAL="INFO=C++14-simd-release"
+        - MATRIX_EVAL="INFO=C++14-sse3-release"
 
     - os: osx
       osx_image: xcode6.4
@@ -66,13 +66,13 @@ matrix:
       osx_image: xcode6.4
       script:
         - cmake --version
-        - mkdir ./build_simd_11_release
-        - cd ./build_simd_11_release
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
+        - mkdir ./build_sse2_11_release
+        - cd ./build_sse2_11_release
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE2=ON ..
         - cmake -E time cmake --build .
         - ctest
       env:
-        - MATRIX_EVAL="INFO=C++11-simd-release"
+        - MATRIX_EVAL="INFO=C++11-sse2-release"
 
     - os: linux
       addons:
