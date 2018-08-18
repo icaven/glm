@@ -350,24 +350,24 @@ int test_vec4_swizzle_partial()
 		Error += A == B ? 0 : 1;
 	}
 	{
-		glm::ivec4 B(A.xy, 3.0f, 4.0f);
+		glm::ivec4 B(A.xy, 3, 4);
 		Error += A == B ? 0 : 1;
 	}
 	{
-		glm::ivec4 B(1.0f, A.yz, 4.0f);
+		glm::ivec4 B(1, A.yz, 4);
 		Error += A == B ? 0 : 1;
 	}
 	{
-		glm::ivec4 B(1.0f, 2.0f, A.zw);
+		glm::ivec4 B(1, 2, A.zw);
 		Error += A == B ? 0 : 1;
 	}
 
 	{
-		glm::ivec4 B(A.xyz, 4.0f);
+		glm::ivec4 B(A.xyz, 4);
 		Error += A == B ? 0 : 1;
 	}
 	{
-		glm::ivec4 B(1.0f, A.yzw);
+		glm::ivec4 B(1, A.yzw);
 		Error += A == B ? 0 : 1;
 	}
 #	endif
