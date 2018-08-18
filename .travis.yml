@@ -34,19 +34,19 @@ before_install:
 script:
 - cmake --version
 - mkdir ./build_pure_14_release
-- cd ./build_pure_11
+- cd ./build_pure_14_release
 - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_FORCE_PURE=ON ..
 - cmake -E time cmake --build .
 - ctest
 - cd ..
 - mkdir ./build_pure_98_release
-- cd ./build_pure_98
+- cd ./build_pure_98_release
 - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_FORCE_PURE=ON ..
 - cmake --build .
 - ctest
 - cd ..
 - mkdir ./build_pure_14_debug
-- cd ./build_pure_11_debug
+- cd ./build_pure_14_debug
 - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_FORCE_PURE=ON ..
 - cmake -E time cmake --build .
 - ctest
@@ -58,13 +58,13 @@ script:
 - ctest
 - cd ..
 - mkdir ./build_simd_14_release
-- cd ./build_simd_11
+- cd ./build_simd_14_release
 - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
 - cmake -E time cmake --build .
 - ctest
 - cd ..
 - mkdir ./build_simd_98_release
-- cd ./build_simd_98
+- cd ./build_simd_98_release
 - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
 - cmake -E time cmake --build .
 - ctest
