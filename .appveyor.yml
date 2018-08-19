@@ -1,82 +1,50 @@
-clone_folder: c:\dev\glm-cmake
+shallow_clone: true
+
+platform:
+  - x86
+  - x64
+
+configuration:
+  - Debug
+  - Release
+
+image:
+  - Visual Studio 2013
+  - Visual Studio 2015
+  - Visual Studio 2017
 
 environment:
   matrix:
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-      CMAKE_GENERATOR: 'Visual Studio 15 2017 Win64'
-      ADDITIONAL_CMAKE_ARGS: '-DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX2=ON'
-      CONFIGURATION: Release
+    - GLM_ARGUMENTS: -DGLM_TEST_ENABLE=ON -DGLM_TEST_FORCE_PURE=ON
+    - GLM_ARGUMENTS: -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE2=ON
+    - GLM_ARGUMENTS: -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON
 
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-      CMAKE_GENERATOR: 'Visual Studio 15 2017 Win64'
-      ADDITIONAL_CMAKE_ARGS: '-DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX2=ON'
-      CONFIGURATION: Debug
-
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-      CMAKE_GENERATOR: 'Visual Studio 15 2017 Win64'
-      ADDITIONAL_CMAKE_ARGS: '-DGLM_TEST_ENABLE=ON -DGLM_TEST_FORCE_PURE=ON'
-      CONFIGURATION: Release
-
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-      CMAKE_GENERATOR: 'Visual Studio 15 2017 Win64'
-      ADDITIONAL_CMAKE_ARGS: '-DGLM_TEST_ENABLE=ON -DGLM_TEST_FORCE_PURE=ON'
-      CONFIGURATION: Debug
-
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-      CMAKE_GENERATOR: 'Visual Studio 14 2015 Win64'
-      ADDITIONAL_CMAKE_ARGS: '-DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON'
-      CONFIGURATION: Release
-
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-      CMAKE_GENERATOR: 'Visual Studio 14 2015 Win64'
-      ADDITIONAL_CMAKE_ARGS: '-DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON'
-      CONFIGURATION: Debug
-
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-      CMAKE_GENERATOR: 'Visual Studio 14 2015 Win64'
-      ADDITIONAL_CMAKE_ARGS: '-DGLM_TEST_ENABLE=ON -DGLM_TEST_FORCE_PURE=ON'
-      CONFIGURATION: Release
-
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-      CMAKE_GENERATOR: 'Visual Studio 14 2015 Win64'
-      ADDITIONAL_CMAKE_ARGS: '-DGLM_TEST_ENABLE=ON -DGLM_TEST_FORCE_PURE=ON'
-      CONFIGURATION: Debug
-
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2013
-      CMAKE_GENERATOR: 'Visual Studio 12 2013 Win64'
-      ADDITIONAL_CMAKE_ARGS: '-DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE2=ON'
-      CONFIGURATION: Release
-
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2013
-      CMAKE_GENERATOR: 'Visual Studio 12 2013 Win64'
-      ADDITIONAL_CMAKE_ARGS: '-DGLM_TEST_ENABLE=ON -DGLM_TEST_FORCE_PURE=ON'
-      CONFIGURATION: Release
-
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2013
-      CMAKE_GENERATOR: 'Visual Studio 12 2015'
-      ADDITIONAL_CMAKE_ARGS: '-DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE2=ON'
-      CONFIGURATION: Release
-
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2013
-      CMAKE_GENERATOR: 'Visual Studio 12 2015'
-      ADDITIONAL_CMAKE_ARGS: '-DGLM_TEST_ENABLE=ON -DGLM_TEST_FORCE_PURE=ON'
-      CONFIGURATION: Release
-
-platform:
-  - x64
-
-build:
-  parallel: true
-  verbosity: minimal
+matrix:
+    exclude:
+    - image: Visual Studio 2013
+      GLM_ARGUMENTS: -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON
 
 before_build:
-- cmake --version
-- md build
-- cd build
-- cmake -DCMAKE_CXX_COMPILER=$COMPILER $ADDITIONAL_CMAKE_ARGS ..
+  - ps: |
+      mkdir build
+      cd build
+      if ("$env:APPVEYOR_JOB_NAME" -match "Image: Visual Studio 2013") {
+          $env:generator="Visual Studio 12 2013"
+      } else if ("$env:APPVEYOR_JOB_NAME" -match "Image: Visual Studio 2015") {
+          $env:generator="Visual Studio 14 2015"
+      } else {
+          $env:generator="Visual Studio 15 2017"
+      }
+      if ($env:PLATFORM -eq "x64") {
+          $env:generator="$env:generator Win64"
+      }
+      echo generator="$env:generator"
+      cmake .. -G "$env:generator" "$env:GLM_ARGUMENTS"
 
 build_script:
-- cmake -E time cmake --build . --config %CONFIGURATION% -- /verbosity:minimal
+  - cmake --build . --config %CONFIGURATION% -- /m /v:minimal
 
-after_build:
-- ctest -C %CONFIGURATION%
+test_script:
+  - ctest -j2
+
+deploy: off
