@@ -28,7 +28,7 @@
 + [2.13. GLM\_FORCE\_UNRESTRICTED\_GENTYPE: Removing genType restriction](#section2_13)
 + [2.14. GLM\_FORCE\_SINGLE\_ONLY: Removed explicit 64-bits floating point types](#section2_14)
 + [2.15. GLM\_FORCE\_DEFAULT\_ALIGNED_GENTYPES: Force GLM to use aligned types by default](#section2_15)
-+ [2.16. GLM_\FORCE\_PLATFORM\_UNKNOWN: Force GLM to no detect the build platform](#section2_16)
++ [2.16. GLM\_FORCE\_PLATFORM\_UNKNOWN: Force GLM to no detect the build platform](#section2_16)
 + [3. Stable extensions](#section3)
 + [3.1. Scalar types](#section3_1)
 + [3.2. Scalar functions](#section3_2)
