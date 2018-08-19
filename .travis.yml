@@ -6,30 +6,6 @@ matrix:
       osx_image: xcode10
       script:
         - cmake --version
-        - mkdir ./build_pure_17_release
-        - cd ./build_pure_17_release
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_FORCE_PURE=ON ..
-        - cmake -E time cmake --build .
-        - ctest
-      env:
-        - MATRIX_EVAL="INFO=C++17-pure-release"
-
-    - os: osx
-      osx_image: xcode10
-      script:
-        - cmake --version
-        - mkdir ./build_pure_17_debug
-        - cd ./build_pure_17_debug
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_FORCE_PURE=ON ..
-        - cmake -E time cmake --build .
-        - ctest
-      env:
-        - MATRIX_EVAL="INFO=C++17-pure-debug"
-
-    - os: osx
-      osx_image: xcode10
-      script:
-        - cmake --version
         - mkdir ./build_avx2_17_release
         - cd ./build_avx2_17_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX2=ON ..
@@ -54,25 +30,49 @@ matrix:
       osx_image: xcode10
       script:
         - cmake --version
-        - mkdir ./build_avx_17_release
-        - cd ./build_avx_17_release
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON ..
+        - mkdir ./build_pure_17_release
+        - cd ./build_pure_17_release
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_FORCE_PURE=ON ..
         - cmake -E time cmake --build .
         - ctest
       env:
-        - MATRIX_EVAL="INFO=C++17-avx-release"
+        - MATRIX_EVAL="INFO=C++17-pure-release"
 
     - os: osx
       osx_image: xcode10
       script:
         - cmake --version
-        - mkdir ./build_avx_17_debug
-        - cd ./build_avx_17_debug
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON ..
+        - mkdir ./build_pure_17_debug
+        - cd ./build_pure_17_debug
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_FORCE_PURE=ON ..
         - cmake -E time cmake --build .
         - ctest
       env:
-        - MATRIX_EVAL="INFO=C++17-avx-debug"
+        - MATRIX_EVAL="INFO=C++17-pure-debug"
+
+    - os: osx
+      osx_image: xcode8
+      script:
+        - cmake --version
+        - mkdir ./build_avx_14_release
+        - cd ./build_avx_14_release
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON ..
+        - cmake -E time cmake --build .
+        - ctest
+      env:
+        - MATRIX_EVAL="INFO=C++14-avx-release"
+
+    - os: osx
+      osx_image: xcode8
+      script:
+        - cmake --version
+        - mkdir ./build_avx_14_debug
+        - cd ./build_avx_14_debug
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON ..
+        - cmake -E time cmake --build .
+        - ctest
+      env:
+        - MATRIX_EVAL="INFO=C++14-avx-debug"
 
     - os: osx
       osx_image: xcode8
