@@ -14,3 +14,6 @@ build_script:
 - cd build
 - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON ..
 - cmake -E time cmake --build . 
+
+after_build:
+- ctest
