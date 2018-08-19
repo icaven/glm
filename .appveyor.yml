@@ -15,9 +15,9 @@ image:
 
 environment:
   matrix:
-    - GLM_ARGUMENTS: -DGLM_TEST_ENABLE=ON -DGLM_TEST_FORCE_PURE=ON
-    - GLM_ARGUMENTS: -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE2=ON
-    - GLM_ARGUMENTS: -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON
+    - GLM_ARGUMENTS: -DGLM_TEST_FORCE_PURE=ON
+    - GLM_ARGUMENTS: -DGLM_TEST_ENABLE_SIMD_SSE2=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+    - GLM_ARGUMENTS: -DGLM_TEST_ENABLE_SIMD_AVX=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
 
 matrix:
     exclude:
@@ -39,7 +39,7 @@ before_build:
           $env:generator="$env:generator Win64"
       }
       echo generator="$env:generator"
-      cmake .. -G "$env:generator" "$env:GLM_ARGUMENTS"
+      cmake .. -G "$env:generator" -DGLM_TEST_ENABLE=ON  "$env:GLM_ARGUMENTS"
 
 build_script:
   - cmake --build . --config %CONFIGURATION% -- /m /v:minimal
