@@ -12,29 +12,14 @@ image:
   - Visual Studio 2015
   - Visual Studio 2017
 
-environment:
-  matrix:
-    - GLM_ARGUMENTS: "-DGLM_TEST_FORCE_PURE=ON"
-    - GLM_ARGUMENTS: "-DGLM_TEST_ENABLE_SIMD_SSE2=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON"
-    - GLM_ARGUMENTS: "-DGLM_TEST_ENABLE_SIMD_AVX=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON"
-
-matrix:
-    exclude:
-    - image: Visual Studio 2015
-      platform: x86
-    - image: Visual Studio 2015
-      configuration: Debug
-    - image: Visual Studio 2017
-      platform: x86
-
 before_build:
   - ps: |
       mkdir build
       cd build
+
       if ("$env:APPVEYOR_JOB_NAME" -match "Image: Visual Studio 2015") {
           $env:generator="Visual Studio 14 2015"
-      }
-      if ("$env:APPVEYOR_JOB_NAME" -match "Image: Visual Studio 2017") {
+      } else {
           $env:generator="Visual Studio 15 2017"
       }
       if ($env:PLATFORM -eq "x64") {
