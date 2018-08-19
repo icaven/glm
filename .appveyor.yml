@@ -19,4 +19,4 @@ build_script:
 - cmake -E time cmake --build . 
 
 after_build:
-- ctest
+- ctest -C Release
