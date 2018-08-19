@@ -1,34 +1,16 @@
 clone_folder: c:\dev\glm-cmake
 
-image:
-- Visual Studio 2013
-- Visual Studio 2015
-- Visual Studio 2017
-configuration:
-- Release
+os:
+  - Visual Studio 2013
+  - Visual Studio 2013
+  - Visual Studio 2017
+
 platform:
-- x64
+  - x86_64
 
-init:
-- set arch=
-- if "%arch%"=="Win64" ( set arch= Win64)
-- echo %arch%
-- echo %APPVEYOR_BUILD_WORKER_IMAGE%
-- if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2017" ( set generator="Visual Studio 15 2017%arch%" )
-- if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2015" ( set generator="Visual Studio 14 2015%arch%" )
-- if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2013" ( set generator="Visual Studio 12 2013%arch%" )
-- echo %generator%
-
-before_build:
-- cmd: |-
-    mkdir build
-    cd build
-    cmake --version
-    cmake .. -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -G %generator%
-
-build:
-  cmake --build .
-
-after_build:
-  - ctest
-
+build_script:
+- cmake --version
+- md build
+- cd build
+- cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON ..
+- cmake -E time cmake --build . 
