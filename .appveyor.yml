@@ -23,8 +23,12 @@ matrix:
     exclude:
     - image: Visual Studio 2013
       GLM_ARGUMENTS: -DGLM_TEST_ENABLE_SIMD_AVX=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+    - image: Visual Studio 2013
+      configuration: Debug
     - image: Visual Studio 2015
       platform: x86
+    - image: Visual Studio 2015
+      configuration: Debug
     - image: Visual Studio 2017
       platform: x86
 
@@ -49,6 +53,6 @@ build_script:
   - cmake --build . --config %CONFIGURATION% -- /m /v:minimal
 
 test_script:
-  - ctest -j2
+  - ctest -j4
 
 deploy: off
