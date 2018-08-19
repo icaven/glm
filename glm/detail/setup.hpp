@@ -10,7 +10,7 @@
 #define GLM_VERSION					991
 #define GLM_VERSION_MESSAGE			"GLM: version 0.9.9.1"
 
-#define GLM_SETUP_INCLUDED GLM_VERSION
+#define GLM_SETUP_INCLUDED			GLM_VERSION
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Active states
