@@ -22,7 +22,11 @@ environment:
 matrix:
     exclude:
     - image: Visual Studio 2013
-      GLM_ARGUMENTS: -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON
+      GLM_ARGUMENTS: -DGLM_TEST_ENABLE_SIMD_AVX=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+    - image: Visual Studio 2015
+      platform: x86
+    - image: Visual Studio 2017
+      platform: x86
 
 before_build:
   - ps: |
