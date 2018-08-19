@@ -65,9 +65,11 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Redesigned constexpr support which excludes both SIMD and constexpr #783
 - Added detection of Visual C++ 2017 toolsets
 - Added identity functions #765
-- Split headers to improve compilation time #670
+- Splitted headers into EXT extensions to improve compilation time #670
+- Added separated performance tests
 
 #### Fixes:
+- Fixed SIMD detection on Clang and GCC
 - Fixed build problems due to printf and std::clock_t #778
 - Fixed int mod
 - Anonymous unions require C++ language extensions
