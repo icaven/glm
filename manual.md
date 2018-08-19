@@ -12,7 +12,7 @@
 + [1.2. Faster compilation](#section1_2)
 + [1.3. Example usage](#section1_3)
 + [1.4. Dependencies](#section1_4)
-+ [2. Preprocessor options](#section2)
++ [2. Preprocessor configurations](#section2)
 + [2.1. GLM\_FORCE\_SWIZZLE: Enable swizzle operators](#section2_1)
 + [2.2. GLM\_FORCE\_SWIZZLE: Enable swizzle functions](#section2_2)
 + [2.3. GLM\_FORCE\_XYZW\_ONLY: Only exposes x, y, z and w components](#section2_3)
@@ -98,7 +98,7 @@
 
 ### The Happy Bunny License (Modified MIT License)
 
-Copyright (c) 2005 - 2017 G-Truc Creation
+Copyright (c) 2005 - G-Truc Creation
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the
@@ -126,7 +126,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ### The MIT License
 
-Copyright (c) 2005 - 2017 G-Truc Creation
+Copyright (c) 2005 - G-Truc Creation
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the
@@ -152,63 +152,92 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ---
 
 ## <a name="section1"></a> 1. Getting started
-### <a name="section1_1"></a> 1.1. Setup
+### <a name="section1_1"></a> 1.1. Using global headers
 
-GLM is a header-only library, and thus does not need to be compiled.  We can use GLM's implementation of GLSL's mathematics functionality by including the `<glm/glm.hpp>` header.  The library can also be installed with CMake, though the details of doing so will differ depending on the target build system.
-
-Features can also be included individually to shorten compilation times.
+GLM is a header-only library, and thus does not need to be compiled. We can use GLM's implementation of GLSL's mathematics functionality by including the `<glm/glm.hpp>` header:
 
 ```cpp
-#include <glm/vec2.hpp> // vec2, bvec2, dvec2, ivec2 and uvec2
-#include <glm/vec3.hpp> // vec3, bvec3, dvec3, ivec3 and uvec3
-#include <glm/vec4.hpp> // vec4, bvec4, dvec4, ivec4 and uvec4
-#include <glm/mat2x2.hpp> // mat2, dmat2
-#include <glm/mat2x3.hpp> // mat2x3, dmat2x3
-#include <glm/mat2x4.hpp> // mat2x4, dmat2x4
-#include <glm/mat3x2.hpp> // mat3x2, dmat3x2
-#include <glm/mat3x3.hpp> // mat3, dmat3
-#include <glm/mat3x4.hpp> // mat3x4, dmat2
-#include <glm/mat4x2.hpp> // mat4x2, dmat4x2
-#include <glm/mat4x3.hpp> // mat4x3, dmat4x3
-#include <glm/mat4x4.hpp> // mat4, dmat4
-#include <glm/common.hpp> // all the GLSL common functions
-#include <glm/exponential.hpp> // all the GLSL exponential functions
-#include <glm/geometry.hpp> // all the GLSL geometry functions
-#include <glm/integer.hpp> // all the GLSL integer functions
-#include <glm/matrix.hpp> // all the GLSL matrix functions
-#include <glm/packing.hpp> // all the GLSL packing functions
-#include <glm/trigonometric.hpp> // all the GLSL trigonometric functions
-#include <glm/vector_relational.hpp> // all the GLSL vector relational functions
+#include <glm/glm.hpp>
 ```
-### <a name="section1_2"></a> 1.2. Faster compilation
 
-GLM uses C++ templates heavily, and may significantly increase compilation times for projects that use it.  Hence, source files should only include the headers they actually use.
+Using GLM through headers including everything:
+```cpp 
+// Include all GLM core / GLSL features
+#include <glm/glm.hpp> // vec2, vec3, mat4, radians
 
-To reduce compilation time, we can include `<glm/fwd.hpp>`, which forward-declares all types should their definitions not be needed.
+// Include all GLM extensions
+#include <glm/ext.hpp> // perspective, translate, rotate
+
+glm::mat4 transform(glm::vec2 const& Orientation, glm::vec3 const& Translate, glm::vec3 const& Up)
+{
+    glm::mat4 Proj = glm::perspective(glm::radians(45.f), 1.33f, 0.1f, 10.f);
+    glm::mat4 ViewTranslate = glm::translate(glm::mat4(1.f), Translate);
+    glm::mat4 ViewRotateX = glm::rotate(ViewTranslate, Orientation.y, Up);
+    glm::mat4 View = glm::rotate(ViewRotateX, Orientation.x, Up);
+    glm::mat4 Model = glm::mat4(1.0f);
+    return Proj * View * Model;
+}
+```
+
+### <a name="section1_2"></a> 1.2. Using separated headers
+
+GLM relies on C++ templates heavily, and may significantly increase compilation times for projects that use it. Hence, user projects could only include the features they actually use:
 
 ```cpp
-// Header file (forward declarations only)
-#include <glm/fwd.hpp>
-
-// At this point, we don't care what exactly makes up a vec2; that won't matter
-// until we write this function's implementation.
-glm::vec2 functionDeclaration(const glm::vec2& input);
+#include <glm/vec2.hpp>               // vec2, bvec2, dvec2, ivec2 and uvec2
+#include <glm/vec3.hpp>               // vec3, bvec3, dvec3, ivec3 and uvec3
+#include <glm/vec4.hpp>               // vec4, bvec4, dvec4, ivec4 and uvec4
+#include <glm/mat2x2.hpp>             // mat2, dmat2
+#include <glm/mat2x3.hpp>             // mat2x3, dmat2x3
+#include <glm/mat2x4.hpp>             // mat2x4, dmat2x4
+#include <glm/mat3x2.hpp>             // mat3x2, dmat3x2
+#include <glm/mat3x3.hpp>             // mat3, dmat3
+#include <glm/mat3x4.hpp>             // mat3x4, dmat2
+#include <glm/mat4x2.hpp>             // mat4x2, dmat4x2
+#include <glm/mat4x3.hpp>             // mat4x3, dmat4x3
+#include <glm/mat4x4.hpp>             // mat4, dmat4
+#include <glm/common.hpp>             // all the GLSL common functions: abs, min, mix, isnan, fma, etc.
+#include <glm/exponential.hpp>        // all the GLSL exponential functions: pow, log, exp2, sqrt, etc.
+#include <glm/geometry.hpp>           // all the GLSL geometry functions: dot, cross, reflect, etc.
+#include <glm/integer.hpp>            // all the GLSL integer functions: findMSB, bitfieldExtract, etc.
+#include <glm/matrix.hpp>             // all the GLSL matrix functions: transpose, inverse, etc.
+#include <glm/packing.hpp>            // all the GLSL packing functions: packUnorm4x8, unpackHalf2x16, etc.
+#include <glm/trigonometric.hpp>      // all the GLSL trigonometric functions: radians, cos, asin, etc.
+#include <glm/vector_relational.hpp>  // all the GLSL vector relational functions: equal, less, etc.
 ```
 
-Precompiled headers will also be helpful, though are not covered by this manual.
-
-### <a name="section1_3"></a> 1.3. Example usage
-
-
+Using GLM through headers including features separated following the structure of GLSL specifications:
 ```cpp
 // Include GLM core features
-#include <glm/vec3.hpp>
-#include <glm/vec4.hpp>
-#include <glm/mat4x4.hpp>
-#include <glm/trigonometric.hpp>
+#include <glm/vec2.hpp>           // vec2
+#include <glm/vec3.hpp>           // vec3
+#include <glm/mat4x4.hpp>         // mat4
+#include <glm/trigonometric.hpp>  //radians
 
 // Include GLM extensions
-#include <glm/gtc/matrix_transform.hpp>
+#include <glm/ext/matrix_transform.hpp> // perspective, translate, rotate
+
+glm::mat4 transform(glm::vec2 const& Orientation, glm::vec3 const& Translate, glm::vec3 const& Up)
+{
+    glm::mat4 Proj = glm::perspective(glm::radians(45.f), 1.33f, 0.1f, 10.f);
+    glm::mat4 ViewTranslate = glm::translate(glm::mat4(1.f), Translate);
+    glm::mat4 ViewRotateX = glm::rotate(ViewTranslate, Orientation.y, Up);
+    glm::mat4 View = glm::rotate(ViewRotateX, Orientation.x, Up);
+    glm::mat4 Model = glm::mat4(1.0f);
+    return Proj * View * Model;
+}
+```
+
+### <a name="section1_3"></a> 1.3. Using extension headers
+
+Using GLM through split headers to minimize the project build time:
+```cpp
+// Include GLM extensions
+#include <glm/ext/vector_float2.hpp>     // vec2
+#include <glm/ext/vector_float3.hpp>     // vec3
+#include <glm/ext/matrix_float4x4.hpp>   // mat4
+#include <glm/ext/matrix_transform.hpp>  // perspective, translate, rotate
+#include <glm/trigonometric.hpp>         // radians
 
 glm::mat4 transform(glm::vec2 const& Orientation, glm::vec3 const& Translate, glm::vec3 const& Up)
 {
