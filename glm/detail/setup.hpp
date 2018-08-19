@@ -981,15 +981,15 @@ namespace detail
 
 	// Report .length() type
 #	if GLM_CONFIG_LENGTH_TYPE == GLM_LENGTH_SIZE_T
-#		pragma message("GLM: GLM_FORCE_SIZE_T_LENGTH is defined. .length() returns a glm::length_t, a typedef of std::size_t instead of int.")
+#		pragma message("GLM: GLM_FORCE_SIZE_T_LENGTH is defined. .length() returns a glm::length_t, a typedef of std::size_t.")
 #	else
-#		pragma message("GLM: GLM_FORCE_SIZE_T_LENGTH is undefined. .length() returns a glm::length_t, a typedef of int following the GLSL specification. Define GLM_FORCE_SIZE_T_LENGTH to make glm::length_t, a typedef of std::size_t.")
+#		pragma message("GLM: GLM_FORCE_SIZE_T_LENGTH is undefined. .length() returns a glm::length_t, a typedef of int following GLSL.")
 #	endif
 
 #	if GLM_CONFIG_UNRESTRICTED_GENTYPE == GLM_ENABLE
-#		pragma message("GLM: GLM_FORCE_UNRESTRICTED_GENTYPE is defined. Removes GLSL specification restrictions on valid function genTypes.")
+#		pragma message("GLM: GLM_FORCE_UNRESTRICTED_GENTYPE is defined. Removes GLSL restrictions on valid function genTypes.")
 #	else
-#		pragma message("GLM: GLM_FORCE_UNRESTRICTED_GENTYPE is undefined. Follows strictly GLSL specification on valid function genTypes.")
+#		pragma message("GLM: GLM_FORCE_UNRESTRICTED_GENTYPE is undefined. Follows strictly GLSL on valid function genTypes.")
 #	endif
 
 #	ifdef GLM_FORCE_SINGLE_ONLY
