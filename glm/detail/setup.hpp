@@ -81,43 +81,15 @@
 #endif
 
 #if defined(GLM_FORCE_CXX2A)
-#	if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_FORCE_CXX2A_DISPLAYED)
-#		define GLM_MESSAGE_FORCE_CXX2A_DISPLAYED
-#		pragma message("GLM: Force the use of C++2a only")
-#	endif//GLM_MESSAGES
 #	define GLM_LANG (GLM_LANG_CXX2A | GLM_LANG_EXT)
 #	define GLM_LANG_STL11_FORCED
 #elif defined(GLM_FORCE_CXX17)
-#	if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_FORCE_CXX17_DISPLAYED)
-#		define GLM_MESSAGE_FORCE_CXX17_DISPLAYED
-#		if (__cplusplus >= 201703L) || ((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC15_7)) || ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC80)) || ((GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_COMPILER >= GLM_COMPILER_CLANG50))
-#			pragma message("GLM: Force the use of C++17 only")
-#		else
-#			pragma message("GLM: Force the use of C++17 on a compiler that doesn't have full C++17 support")
-#		endif
-#	endif//GLM_MESSAGES
 #	define GLM_LANG (GLM_LANG_CXX17 | GLM_LANG_EXT)
 #	define GLM_LANG_STL11_FORCED
 #elif defined(GLM_FORCE_CXX14)
-#	if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_FORCE_CXX14_DISPLAYED)
-#		define GLM_MESSAGE_FORCE_CXX14_DISPLAYED
-#		if (__cplusplus >= 201402L) || ((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC15)) || ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC50)) || ((GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_COMPILER >= GLM_COMPILER_CLANG34))
-#			pragma message("GLM: Force the use of C++14 only")
-#		else
-#			pragma message("GLM: Force the use of C++14 on a compiler that doesn't have full C++14 support")
-#		endif
-#	endif//GLM_MESSAGES
 #	define GLM_LANG (GLM_LANG_CXX14 | GLM_LANG_EXT)
 #	define GLM_LANG_STL11_FORCED
 #elif defined(GLM_FORCE_CXX11)
-#	if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_FORCE_CXX11_DISPLAYED)
-#		define GLM_MESSAGE_FORCE_CXX11_DISPLAYED
-#		if (__cplusplus >= 201103L) || ((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC14)) || ((GLM_COMPILER & GLM_COMPILER_GCC) && (GLM_COMPILER >= GLM_COMPILER_GCC49)) || ((GLM_COMPILER & GLM_COMPILER_CLANG) && (GLM_COMPILER >= GLM_COMPILER_CLANG33))
-#			pragma message("GLM: Force the use of C++11 only")
-#		else
-#			pragma message("GLM: Force the use of C++11 on a compiler that doesn't have full C++11 support")
-#		endif
-#	endif//GLM_MESSAGES
 #	define GLM_LANG (GLM_LANG_CXX11 | GLM_LANG_EXT)
 #	define GLM_LANG_STL11_FORCED
 #elif defined(GLM_FORCE_CXX03)
@@ -854,7 +826,7 @@ namespace detail
 #	define GLM_MESSAGE_DISPLAYED
 
 	// Report GLM version
-#	pragma message (GLM_VERSION_MESSAGE)
+#		pragma message (GLM_VERSION_MESSAGE)
 
 	// Report C++ language
 #	if (GLM_LANG & GLM_LANG_CXX2A_FLAG) && (GLM_LANG & GLM_LANG_EXT)
