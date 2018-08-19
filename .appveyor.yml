@@ -9,7 +9,6 @@ configuration:
   - Release
 
 image:
-  - Visual Studio 2013
   - Visual Studio 2015
   - Visual Studio 2017
 
@@ -21,10 +20,6 @@ environment:
 
 matrix:
     exclude:
-    - image: Visual Studio 2013
-      GLM_ARGUMENTS: "-DGLM_TEST_ENABLE_SIMD_AVX=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON"
-    - image: Visual Studio 2013
-      configuration: Debug
     - image: Visual Studio 2015
       platform: x86
     - image: Visual Studio 2015
@@ -36,9 +31,6 @@ before_build:
   - ps: |
       mkdir build
       cd build
-      if ("$env:APPVEYOR_JOB_NAME" -match "Image: Visual Studio 2013") {
-          $env:generator="Visual Studio 12 2013"
-      }
       if ("$env:APPVEYOR_JOB_NAME" -match "Image: Visual Studio 2015") {
           $env:generator="Visual Studio 14 2015"
       }
