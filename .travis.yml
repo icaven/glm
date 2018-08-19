@@ -494,6 +494,57 @@ matrix:
           packages:
             - clang-5.0
       env:
+        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0 && INFO=C++17-ssse3-release"
+      script:
+        - cmake --version
+        - mkdir ./build_ssse3_17_release
+        - cd ./build_ssse3_17_release
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -GLM_TEST_ENABLE_SIMD_SSSE3=ON ..
+        - cmake -E time cmake --build .
+        - ctest
+
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-5.0
+          packages:
+            - clang-5.0
+      env:
+        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0 && INFO=C++17-sse41-release"
+      script:
+        - cmake --version
+        - mkdir ./build_sse41_17_release
+        - cd ./build_sse41_17_release
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -GLM_TEST_ENABLE_SIMD_SSE4_1=ON ..
+        - cmake -E time cmake --build .
+        - ctest
+
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-5.0
+          packages:
+            - clang-5.0
+      env:
+        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0 && INFO=C++17-sse42-release"
+      script:
+        - cmake --version
+        - mkdir ./build_sse42_17_release
+        - cd ./build_sse42_17_release
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -GLM_TEST_ENABLE_SIMD_SSE4_2=ON ..
+        - cmake -E time cmake --build .
+        - ctest
+
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-5.0
+          packages:
+            - clang-5.0
+      env:
         - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0 && INFO=C++17-avx-release"
       script:
         - cmake --version
