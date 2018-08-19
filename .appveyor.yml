@@ -37,7 +37,7 @@ before_build:
           $env:generator="$env:generator Win64"
       }
       echo generator="$env:generator"
-      cmake .. -G "$env:generator" -DGLM_TEST_ENABLE=ON
+      cmake .. -G "$env:generator" -DGLM_QUIET=ON -DGLM_TEST_ENABLE=ON
 
 build_script:
   - cmake --build . --config %CONFIGURATION% -- /m /v:minimal
