@@ -15,14 +15,14 @@ image:
 
 environment:
   matrix:
-    - GLM_ARGUMENTS: -DGLM_TEST_FORCE_PURE=ON
-    - GLM_ARGUMENTS: -DGLM_TEST_ENABLE_SIMD_SSE2=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
-    - GLM_ARGUMENTS: -DGLM_TEST_ENABLE_SIMD_AVX=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+    - GLM_ARGUMENTS: "-DGLM_TEST_FORCE_PURE=ON"
+    - GLM_ARGUMENTS: "-DGLM_TEST_ENABLE_SIMD_SSE2=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON"
+    - GLM_ARGUMENTS: "-DGLM_TEST_ENABLE_SIMD_AVX=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON"
 
 matrix:
     exclude:
     - image: Visual Studio 2013
-      GLM_ARGUMENTS: -DGLM_TEST_ENABLE_SIMD_AVX=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+      GLM_ARGUMENTS: "-DGLM_TEST_ENABLE_SIMD_AVX=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON"
     - image: Visual Studio 2013
       configuration: Debug
     - image: Visual Studio 2015
@@ -49,7 +49,7 @@ before_build:
           $env:generator="$env:generator Win64"
       }
       echo generator="$env:generator"
-      cmake .. -G "$env:generator" -DGLM_TEST_ENABLE=ON  "$env:GLM_ARGUMENTS"
+      cmake .. -G "$env:generator" -DGLM_TEST_ENABLE=ON "$env:GLM_ARGUMENTS"
 
 build_script:
   - cmake --build . --config %CONFIGURATION% -- /m /v:minimal
