@@ -1,0 +1,2 @@
+glmCreateTestGTC(perf_matrix_mul)
+glmCreateTestGTC(perf_matrix_div)

@@ -13,6 +13,7 @@ if(GLM_TEST_ENABLE)
 	add_subdirectory(ext)
 	add_subdirectory(gtc)
 	add_subdirectory(gtx)
+	add_subdirectory(perf)
 endif()
 
 

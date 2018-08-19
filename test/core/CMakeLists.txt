@@ -42,7 +42,3 @@ glmCreateTestGTC(core_setup_force_cxx98)
 glmCreateTestGTC(core_setup_force_size_t_length)
 glmCreateTestGTC(core_setup_message)
 glmCreateTestGTC(core_setup_precision)
-glmCreateTestGTC(core_setup_simd)
-
-
-
