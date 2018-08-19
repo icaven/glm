@@ -27,9 +27,7 @@ before_build:
     cmake .. -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -G %generator%
 
 build:
-  project: c:\dev\glm-cmake\build\template.sln
-  verbosity: minimal
-  parallel: true
+  cmake --build .
 
 after_build:
   - ctest
