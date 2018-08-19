@@ -25,7 +25,7 @@ build_script:
 - md build
 - cd build
 - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON ..
-- cmake -E time cmake --build . --config %CONFIGURATION%
+- cmake -E time cmake --build . --config %CONFIGURATION% -- /verbosity:quiet
 
 after_build:
 - ctest -C %CONFIGURATION%
