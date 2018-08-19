@@ -1,7 +1,6 @@
 /// @ref core
 /// @file glm/glm.cpp
 
-#define GLM_FORCE_MESSAGES
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/dual_quaternion.hpp>
 #include <glm/gtc/vec1.hpp>
