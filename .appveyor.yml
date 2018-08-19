@@ -13,8 +13,8 @@ matrix:
   fast_finish: true
 
 platform:
-  - x86
-  - x86_64
+  - Win32
+  - x64
 
 build:
   parallel: true
