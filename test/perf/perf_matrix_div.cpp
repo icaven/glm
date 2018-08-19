@@ -26,7 +26,7 @@ static int launch_mat_div_mat(std::vector<matType>& O, matType const& Transform,
 	O.resize(Samples);
 
 	for(std::size_t i = 0; i < Samples; ++i)
-		I[i] = Scale * static_cast<T>(i);
+		I[i] = Scale * static_cast<T>(i) + Scale;
 
 	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
 	test_mat_div_mat<matType>(Transform, I, O);
@@ -56,6 +56,7 @@ static int comp_mat2_div_mat2(std::size_t Samples)
 		packedMatType const A = SISD[i];
 		packedMatType const B = SIMD[i];
 		Error += glm::all(glm::equal(A, B, static_cast<T>(0.001))) ? 0 : 1;
+		assert(!Error);
 	}
 	
 	return Error;
@@ -82,6 +83,7 @@ static int comp_mat3_div_mat3(std::size_t Samples)
 		packedMatType const A = SISD[i];
 		packedMatType const B = SIMD[i];
 		Error += glm::all(glm::equal(A, B, static_cast<T>(0.001))) ? 0 : 1;
+		assert(!Error);
 	}
 	
 	return Error;
@@ -95,7 +97,7 @@ static int comp_mat4_div_mat4(std::size_t Samples)
 	int Error = 0;
 
 	packedMatType const Transform(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
-	packedMatType const Scale(0.01, 0.02, 0.03, 0.05, 0.01, 0.02, 0.03, 0.05, 0.01, 0.02, 0.03, 0.05, 0.01, 0.02, 0.03, 0.05);
+	packedMatType const Scale(0.01, 0.02, 0.05, 0.04, 0.02, 0.08, 0.05, 0.01, 0.08, 0.03, 0.05, 0.06, 0.02, 0.03, 0.07, 0.05);
 
 	std::vector<packedMatType> SISD;
 	printf("- SISD: %d us\n", launch_mat_div_mat<packedMatType>(SISD, Transform, Scale, Samples));
@@ -108,6 +110,7 @@ static int comp_mat4_div_mat4(std::size_t Samples)
 		packedMatType const A = SISD[i];
 		packedMatType const B = SIMD[i];
 		Error += glm::all(glm::equal(A, B, static_cast<T>(0.001))) ? 0 : 1;
+		assert(!Error);
 	}
 	
 	return Error;

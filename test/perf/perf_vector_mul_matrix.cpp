@@ -15,14 +15,14 @@
 #include <cstdio>
 
 template <typename matType, typename vecType>
-static void test_mat_mul_vec(matType const& M, std::vector<vecType> const& I, std::vector<vecType>& O)
+static void test_vec_mul_mat(matType const& M, std::vector<vecType> const& I, std::vector<vecType>& O)
 {
 	for (std::size_t i = 0, n = I.size(); i < n; ++i)
-		O[i] = M * I[i];
+		O[i] = I[i] * M;
 }
 
 template <typename matType, typename vecType>
-static int launch_mat_mul_vec(std::vector<vecType>& O, matType const& Transform, vecType const& Scale, std::size_t Samples)
+static int launch_vec_mul_mat(std::vector<vecType>& O, matType const& Transform, vecType const& Scale, std::size_t Samples)
 {
 	typedef typename matType::value_type T;
 
@@ -33,14 +33,14 @@ static int launch_mat_mul_vec(std::vector<vecType>& O, matType const& Transform,
 		I[i] = Scale * static_cast<T>(i);
 
 	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
-	test_mat_mul_vec<matType, vecType>(Transform, I, O);
+	test_vec_mul_mat<matType, vecType>(Transform, I, O);
 	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 
 	return static_cast<int>(std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count());
 }
 
 template <typename packedMatType, typename packedVecType, typename alignedMatType, typename alignedVecType>
-static int comp_mat2_mul_vec2(std::size_t Samples)
+static int comp_vec2_mul_mat2(std::size_t Samples)
 {
 	typedef typename packedMatType::value_type T;
 	
@@ -50,10 +50,10 @@ static int comp_mat2_mul_vec2(std::size_t Samples)
 	packedVecType const Scale(0.01, 0.02);
 
 	std::vector<packedVecType> SISD;
-	printf("- SISD: %d us\n", launch_mat_mul_vec<packedMatType, packedVecType>(SISD, Transform, Scale, Samples));
+	printf("- SISD: %d us\n", launch_vec_mul_mat<packedMatType, packedVecType>(SISD, Transform, Scale, Samples));
 
 	std::vector<alignedVecType> SIMD;
-	printf("- SIMD: %d us\n", launch_mat_mul_vec<alignedMatType, alignedVecType>(SIMD, Transform, Scale, Samples));
+	printf("- SIMD: %d us\n", launch_vec_mul_mat<alignedMatType, alignedVecType>(SIMD, Transform, Scale, Samples));
 
 	for(std::size_t i = 0; i < Samples; ++i)
 	{
@@ -66,7 +66,7 @@ static int comp_mat2_mul_vec2(std::size_t Samples)
 }
 
 template <typename packedMatType, typename packedVecType, typename alignedMatType, typename alignedVecType>
-static int comp_mat3_mul_vec3(std::size_t Samples)
+static int comp_vec3_mul_mat3(std::size_t Samples)
 {
 	typedef typename packedMatType::value_type T;
 	
@@ -76,10 +76,10 @@ static int comp_mat3_mul_vec3(std::size_t Samples)
 	packedVecType const Scale(0.01, 0.02, 0.05);
 
 	std::vector<packedVecType> SISD;
-	printf("- SISD: %d us\n", launch_mat_mul_vec<packedMatType, packedVecType>(SISD, Transform, Scale, Samples));
+	printf("- SISD: %d us\n", launch_vec_mul_mat<packedMatType, packedVecType>(SISD, Transform, Scale, Samples));
 
 	std::vector<alignedVecType> SIMD;
-	printf("- SIMD: %d us\n", launch_mat_mul_vec<alignedMatType, alignedVecType>(SIMD, Transform, Scale, Samples));
+	printf("- SIMD: %d us\n", launch_vec_mul_mat<alignedMatType, alignedVecType>(SIMD, Transform, Scale, Samples));
 
 	for(std::size_t i = 0; i < Samples; ++i)
 	{
@@ -92,7 +92,7 @@ static int comp_mat3_mul_vec3(std::size_t Samples)
 }
 
 template <typename packedMatType, typename packedVecType, typename alignedMatType, typename alignedVecType>
-static int comp_mat4_mul_vec4(std::size_t Samples)
+static int comp_vec4_mul_mat4(std::size_t Samples)
 {
 	typedef typename packedMatType::value_type T;
 	
@@ -102,10 +102,10 @@ static int comp_mat4_mul_vec4(std::size_t Samples)
 	packedVecType const Scale(0.01, 0.02, 0.03, 0.05);
 
 	std::vector<packedVecType> SISD;
-	printf("- SISD: %d us\n", launch_mat_mul_vec<packedMatType, packedVecType>(SISD, Transform, Scale, Samples));
+	printf("- SISD: %d us\n", launch_vec_mul_mat<packedMatType, packedVecType>(SISD, Transform, Scale, Samples));
 
 	std::vector<alignedVecType> SIMD;
-	printf("- SIMD: %d us\n", launch_mat_mul_vec<alignedMatType, alignedVecType>(SIMD, Transform, Scale, Samples));
+	printf("- SIMD: %d us\n", launch_vec_mul_mat<alignedMatType, alignedVecType>(SIMD, Transform, Scale, Samples));
 
 	for(std::size_t i = 0; i < Samples; ++i)
 	{
@@ -123,23 +123,23 @@ int main()
 	
 	int Error = 0;
 
-	printf("mat2 * vec2:\n");
-	Error += comp_mat2_mul_vec2<glm::mat2, glm::vec2, glm::aligned_mat2, glm::aligned_vec2>(Samples);
+	printf("vec2 * mat2:\n");
+	Error += comp_vec2_mul_mat2<glm::mat2, glm::vec2, glm::aligned_mat2, glm::aligned_vec2>(Samples);
 	
-	printf("dmat2 * dvec2:\n");
-	Error += comp_mat2_mul_vec2<glm::dmat2, glm::dvec2,glm::aligned_dmat2, glm::aligned_dvec2>(Samples);
+	printf("dvec2 * dmat2:\n");
+	Error += comp_vec2_mul_mat2<glm::dmat2, glm::dvec2,glm::aligned_dmat2, glm::aligned_dvec2>(Samples);
 
-	printf("mat3 * vec3:\n");
-	Error += comp_mat3_mul_vec3<glm::mat3, glm::vec3, glm::aligned_mat3, glm::aligned_vec3>(Samples);
+	printf("vec3 * mat3:\n");
+	Error += comp_vec3_mul_mat3<glm::mat3, glm::vec3, glm::aligned_mat3, glm::aligned_vec3>(Samples);
 	
-	printf("dmat3 * dvec3:\n");
-	Error += comp_mat3_mul_vec3<glm::dmat3, glm::dvec3, glm::aligned_dmat3, glm::aligned_dvec3>(Samples);
+	printf("dvec3 * dmat3:\n");
+	Error += comp_vec3_mul_mat3<glm::dmat3, glm::dvec3, glm::aligned_dmat3, glm::aligned_dvec3>(Samples);
 
-	printf("mat4 * vec4:\n");
-	Error += comp_mat4_mul_vec4<glm::mat4, glm::vec4, glm::aligned_mat4, glm::aligned_vec4>(Samples);
+	printf("vec4 * mat4:\n");
+	Error += comp_vec4_mul_mat4<glm::mat4, glm::vec4, glm::aligned_mat4, glm::aligned_vec4>(Samples);
 	
-	printf("dmat4 * dvec4:\n");
-	Error += comp_mat4_mul_vec4<glm::dmat4, glm::dvec4, glm::aligned_dmat4, glm::aligned_dvec4>(Samples);
+	printf("dvec4 * dmat4:\n");
+	Error += comp_vec4_mul_mat4<glm::dmat4, glm::dvec4, glm::aligned_dmat4, glm::aligned_dvec4>(Samples);
 
 	return Error;
 }
