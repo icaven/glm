@@ -14,7 +14,7 @@
 + [1.4. Dependencies](#section1_4)
 + [2. Preprocessor configurations](#section2)
 + [2.1. GLM\_FORCE\_MESSAGES: Platform auto detection and default configuration](#section2_1)
-+ [2.2. GLM_\FORCE\_PLATFORM\_UNKNOWN: Force GLM to no detect the build platform](#section2_2)
++ [2.2. GLM\_FORCE\_PLATFORM\_UNKNOWN: Force GLM to no detect the build platform](#section2_2)
 + [2.3. GLM\_FORCE\_CXX**: C++ language detection](#section2_3)
 + [2.4. GLM\_FORCE\_EXPLICIT\_CTOR: Requiring explicit conversions](#section2_4)
 + [2.5. GLM\_FORCE\_INLINE: Force inline](#section2_5)
