@@ -289,7 +289,7 @@ GLM: GLM_FORCE_LEFT_HANDED is undefined. Using right handed coordinate system.
 
 The following subsections describe each configurations and defines.
 
-### <a name="section2_2"></a> 2.2. GLM_\FORCE\_PLATFORM\_UNKNOWN: Force GLM to no detect the build platform
+### <a name="section2_2"></a> 2.2. GLM\_FORCE\_PLATFORM\_UNKNOWN: Force GLM to no detect the build platform
 
 TODO
 
