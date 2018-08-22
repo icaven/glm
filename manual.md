@@ -15,19 +15,22 @@
 + [2. Preprocessor configurations](#section2)
 + [2.1. GLM\_FORCE\_MESSAGES: Platform auto detection and default configuration](#section2_1)
 + [2.2. GLM\_FORCE\_PLATFORM\_UNKNOWN: Force GLM to no detect the build platform](#section2_2)
-+ [2.3. GLM\_FORCE\_CXX**: C++ language detection](#section2_3)
-+ [2.4. GLM\_FORCE\_EXPLICIT\_CTOR: Requiring explicit conversions](#section2_4)
-+ [2.5. GLM\_FORCE\_INLINE: Force inline](#section2_5)
-+ [2.6. GLM\_FORCE\_DEFAULT\_ALIGNED_GENTYPES: Force GLM to use aligned types by default](#section2_6)
-+ [2.7. GLM\_FORCE\_SIMD\_**: Using SIMD optimizations](#section2_7)
-+ [2.8. GLM\_PRECISION\_**: Default precision](#section2_8)
-+ [2.9. GLM\_FORCE\_SINGLE\_ONLY: Removed explicit 64-bits floating point types](#section2_9)
-+ [2.10. GLM\_FORCE\_SWIZZLE: Enable swizzle operators](#section2_10)
-+ [2.11. GLM\_FORCE\_XYZW\_ONLY: Only exposes x, y, z and w components](#section2_11)
-+ [2.12. GLM\_FORCE\_LEFT\_HANDED: Force left handed coordinate system](#section2_12)
-+ [2.13. GLM\_FORCE\_DEPTH\_ZERO\_TO\_ONE: Force the use of a clip space between 0 to 1](#section2_13)
-+ [2.14. GLM\_FORCE\_SIZE\_T\_LENGTH: Vector and matrix static size type](#section2_14)
-+ [2.15. GLM\_FORCE\_UNRESTRICTED\_GENTYPE: Removing genType restriction](#section2_15)
++ [2.3. GLM\_FORCE\_COMPILER\_UNKNOWN: Force GLM to no detect the C++ compiler
++ [2.4. GLM\_FORCE\_ARCH\_UNKNOWN: Force GLM to no detect the build architecture
++ [2.5. GLM\_FORCE\_CXX\_UNKNOWN: Force GLM to no detect the C++ standard
++ [2.6. GLM\_FORCE\_CXX**: C++ language detection](#section2_3)
++ [2.7. GLM\_FORCE\_EXPLICIT\_CTOR: Requiring explicit conversions](#section2_4)
++ [2.8. GLM\_FORCE\_INLINE: Force inline](#section2_5)
++ [2.9. GLM\_FORCE\_DEFAULT\_ALIGNED_GENTYPES: Force GLM to use aligned types by default](#section2_6)
++ [2.10. GLM\_FORCE\_SIMD\_**: Using SIMD optimizations](#section2_7)
++ [2.11. GLM\_PRECISION\_**: Default precision](#section2_8)
++ [2.12. GLM\_FORCE\_SINGLE\_ONLY: Removed explicit 64-bits floating point types](#section2_9)
++ [2.13. GLM\_FORCE\_SWIZZLE: Enable swizzle operators](#section2_10)
++ [2.14. GLM\_FORCE\_XYZW\_ONLY: Only exposes x, y, z and w components](#section2_11)
++ [2.15. GLM\_FORCE\_LEFT\_HANDED: Force left handed coordinate system](#section2_12)
++ [2.16. GLM\_FORCE\_DEPTH\_ZERO\_TO\_ONE: Force the use of a clip space between 0 to 1](#section2_13)
++ [2.17. GLM\_FORCE\_SIZE\_T\_LENGTH: Vector and matrix static size type](#section2_14)
++ [2.18. GLM\_FORCE\_UNRESTRICTED\_GENTYPE: Removing genType restriction](#section2_15)
 + [3. Stable extensions](#section3)
 + [3.1. Scalar types](#section3_1)
 + [3.2. Scalar functions](#section3_2)
@@ -291,21 +294,21 @@ The following subsections describe each configurations and defines.
 
 ### <a name="section2_2"></a> 2.2. GLM\_FORCE\_PLATFORM\_UNKNOWN: Force GLM to no detect the build platform
 
-TODO
+`GLM_FORCE_PLATFORM_UNKNOWN` prevents GLM from detecting the build platform.
 
-### <a name="section2_3"></a> 2.3. GLM\_FORCE\_COMPILER\_UNKNOWN: Force GLM to no detect the build compiler
+### <a name="section2_3"></a> 2.3. GLM\_FORCE\_COMPILER\_UNKNOWN: Force GLM to no detect the C++ compiler
 
-TODO
+`GLM_FORCE_COMPILER_UNKNOWN` prevents GLM from detecting the C++ compiler.
 
 ### <a name="section2_4"></a> 2.4. GLM\_FORCE\_ARCH\_UNKNOWN: Force GLM to no detect the build architecture
 
-TODO
+`GLM_FORCE_ARCH_UNKNOWN` prevents GLM from detecting the build target architechture.
 
 ### <a name="section2_5"></a> 2.5. GLM\_FORCE\_CXX\_UNKNOWN: Force GLM to no detect the C++ standard
 
-TODO
+`GLM_FORCE_CSS_UNKNOWN` prevents GLM from detecting the C++ compiler standard support.
 
-### <a name="section2_3"></a> 2.3. GLM\_FORCE\_CXX**: C++ language detection
+### <a name="section2_6"></a> 2.6. GLM\_FORCE\_CXX**: C++ language detection
 
 GLM will automatically take advantage of compilers’ language extensions when enabled. To increase cross platform compatibility and to avoid compiler extensions, a programmer can define GLM\_FORCE\_CXX98 before
 any inclusion of &lt;glm/glm.hpp&gt; to restrict the language feature set C++98:
@@ -328,7 +331,7 @@ GLM\_FORCE\_CXX11, GLM\_FORCE\_CXX14.
 GLM\_FORCE\_CXX14 overrides GLM\_FORCE\_CXX11 and GLM\_FORCE\_CXX11
 overrides GLM\_FORCE\_CXX98 defines.
 
-### <a name="section2_4"></a> 2.4. GLM\_FORCE\_EXPLICIT\_CTOR: Requiring explicit conversions
+### <a name="section2_7"></a> 2.7. GLM\_FORCE\_EXPLICIT\_CTOR: Requiring explicit conversions
 
 GLSL supports implicit conversions of vector and matrix types. For example, an ivec4 can be implicitly converted into vec4.
 
@@ -364,7 +367,7 @@ void foo()
 }
 ```
 
-### <a name="section2_5"></a> 2.5. GLM\_FORCE\_INLINE: Force inline
+### <a name="section2_8"></a> 2.8. GLM\_FORCE\_INLINE: Force inline
 
 To push further the software performance, a programmer can define GLM\_FORCE\_INLINE before any inclusion of &lt;glm/glm.hpp&gt; to force the compiler to inline GLM code.
 
@@ -373,11 +376,11 @@ To push further the software performance, a programmer can define GLM\_FORCE\_IN
 #include <glm/glm.hpp>
 ```
 
-### <a name="section2_6"></a> 2.6. GLM\_FORCE\_DEFAULT\_ALIGNED_GENTYPES: Force GLM to use aligned types by default
+### <a name="section2_9"></a> 2.9. GLM\_FORCE\_DEFAULT\_ALIGNED_GENTYPES: Force GLM to use aligned types by default
 
 TODO
 
-### <a name="section2_7"></a> 2.7. GLM\_FORCE\_SIMD\_**: Using SIMD optimizations
+### <a name="section2_10"></a> 2.10. GLM\_FORCE\_SIMD\_**: Using SIMD optimizations
 
 GLM provides some SIMD optimizations based on [compiler intrinsics](https://msdn.microsoft.com/en-us/library/26td21ds.aspx).
 These optimizations will be automatically thanks to compiler arguments.
@@ -404,7 +407,7 @@ The use of intrinsic functions by GLM implementation can be avoided using the de
 
 Additionally, GLM provides a low level SIMD API in glm/simd directory for users who are really interested in writing fast algorithms.
 
-### <a name="section2_8"></a> 2.8. GLM\_PRECISION\_**: Default precision
+### <a name="section2_11"></a> 2.11. GLM\_PRECISION\_**: Default precision
 
 C++ does not provide a way to implement GLSL default precision selection (as defined in GLSL 4.10 specification section 4.5.3) with GLSL-like syntax.
 
@@ -445,11 +448,11 @@ Available defines for unsigned integer types (glm::uvec\*):
 * GLM\_PRECISION\_MEDIUMP\_UINT: Medium precision
 * GLM\_PRECISION\_HIGHP\_UINT: High precision (default)
 
-### <a name="section2_9"></a> 2.9. GLM\_FORCE\_SINGLE\_ONLY: Removed explicit 64-bits floating point types
+### <a name="section2_12"></a> 2.12. GLM\_FORCE\_SINGLE\_ONLY: Removed explicit 64-bits floating point types
 
 Some platforms (Dreamcast) doesn't support double precision floating point values. To compile on such platforms, GCC has the --m4-single-only build argument. When defining GLM\_FORCE\_SINGLE\_ONLY before including GLM headers, GLM releases the requirement of double precision floating point values support. Effectivement, all the float64 types are no longer defined and double behaves like float.
 
-### <a name="section2_10"></a> 2.10. GLM\_FORCE\_SWIZZLE: Enable swizzle operators
+### <a name="section2_13"></a> 2.13. GLM\_FORCE\_SWIZZLE: Enable swizzle operators
 
 Shader languages like GLSL often feature so-called swizzle expressions, which may be used to freely select and arrange a vector's components. For example, `variable.x`, `variable.xzy` and `variable.zxyy` respectively form a scalar, a 3D vector and a 4D vector.  The result of a swizzle expression in GLSL can be either an R-value or an L-value. Swizzle expressions can be written with characters from exactly one of `xyzw` (usually for positions), `rgba` (usually for colors), and `stpq` (usually for texture coordinates).
 
@@ -469,7 +472,7 @@ GLM supports some of this functionality. Swizzling can be enabled by defining `G
 
 GLM has two levels of swizzling support described in the following subsections.
 
-#### 2.10.1. Swizzle functions for standard C++ 98 
+#### 2.13.1. Swizzle functions for standard C++ 98 
 
 When compiling GLM as C++98, R-value swizzle expressions are simulated through member functions of each vector type.
 
@@ -479,14 +482,14 @@ When compiling GLM as C++98, R-value swizzle expressions are simulated through m
 
 void foo()
 {
-    glm::vec4 ColorRGBA = glm::vec4(1.0f, 0.5f, 0.0f, 1.0f);
-    glm::vec3 ColorBGR = ColorRGBA.bgr();
+    glm::vec4 const ColorRGBA = glm::vec4(1.0f, 0.5f, 0.0f, 1.0f);
+    glm::vec3 const ColorBGR = ColorRGBA.bgr();
 
-    glm::vec3 PositionA = glm::vec3(1.0f, 0.5f, 0.0f);
-    glm::vec3 PositionB = PositionXYZ.xyz() * 2.0f;
+    glm::vec3 const PositionA = glm::vec3(1.0f, 0.5f, 0.0f);
+    glm::vec3 const PositionB = PositionXYZ.xyz() * 2.0f;
 
-    glm::vec2 TexcoordST = glm::vec2(1.0f, 0.5f);
-    glm::vec4 TexcoordSTPQ = TexcoordST.stst();
+    glm::vec2 const TexcoordST = glm::vec2(1.0f, 0.5f);
+    glm::vec4 const TexcoordSTPQ = TexcoordST.stst();
 }
 ```
 
@@ -498,7 +501,7 @@ Swizzle operators return a **copy** of the component values, and thus *can't* be
 
 void foo()
 {
-  glm::vec3 A = glm::vec3(1.0f, 0.5f, 0.0f);
+  glm::vec3 const A = glm::vec3(1.0f, 0.5f, 0.0f);
 
   // No compiler error, but A is not modified.
   // An anonymous copy is being modified (and then discarded).
@@ -506,7 +509,7 @@ void foo()
 }
 ```
 
-#### 2.10.2. Swizzle operations for C++ 98 with language extensions
+#### 2.13.2. Swizzle operations for C++ 98 with language extensions
 
 Visual C++, GCC and Clang support, as a _non-standard language extension_, anonymous `struct`s as `union` members. This permits a powerful swizzling implementation that both allows L-value swizzle expressions and GLSL-like syntax. To use this feature, the language extension must be enabled by a supporting compiler and `GLM_FORCE_SWIZZLE` must be `#define`d.
 
@@ -556,19 +559,24 @@ void foo()
 
 *Note: The implementation has a caveat: Swizzle operator types must be different on both size of the equal operator or the operation will fail. There is no known fix for this issue to date*
 
-### <a name="section2_11"></a> 2.11. GLM\_FORCE\_XYZW\_ONLY: Only exposes x, y, z and w components
+### <a name="section2_14"></a> 2.14. GLM\_FORCE\_XYZW\_ONLY: Only exposes x, y, z and w components
+
+Following GLSL specifications, GLM supports three sets of components to access vector types member: x, y, z, w; r, g, b, a; and s, t, p, q.
+Also, this is making vector component very expressive in the code, it may make debugging vector types a little cubersom as the debuggers will typically display three time the values for each compoenents due to the existance of the three sets.
+
+To simplify vector types, GLM allows exposing only x, y, z and w components thanks to `GLM_FORCE_XYZW_ONLY` define.
+
+### <a name="section2_15"></a> 2.15. GLM\_FORCE\_LEFT\_HANDED: Force left handed coordinate system
+
+OpenGL is using by default a right handed coordinate system. However, others APIs such as Direct3D have done different choice and relies on the left handed coordinate system.
+
+GLM allows switching the coordinate system to left handed by defining `GLM_FORCE_LEFT_HANDED`.
+
+### <a name="section2_16"></a> 2.16. GLM\_FORCE\_DEPTH\_ZERO\_TO\_ONE: Force the use of a clip space between 0 to 1
 
 TODO
 
-### <a name="section2_12"></a> 2.12. GLM\_FORCE\_LEFT\_HANDED: Force left handed coordinate system
-
-TODO
-
-### <a name="section2_13"></a> 2.13. GLM\_FORCE\_DEPTH\_ZERO\_TO\_ONE: Force the use of a clip space between 0 to 1
-
-TODO
-
-### <a name="section2_14"></a> 2.14. GLM\_FORCE\_SIZE\_T\_LENGTH: Vector and matrix static size
+### <a name="section2_17"></a> 2.17. GLM\_FORCE\_SIZE\_T\_LENGTH: Vector and matrix static size
 
 GLSL supports the member function .length() for all vector and matrix types.
 
@@ -597,7 +605,7 @@ void foo(vec4 const& v)
 }
 ```
 
-### <a name="section2_15"></a> 2.15. GLM\_FORCE\_UNRESTRICTED\_GENTYPE: Removing genType restriction
+### <a name="section2_18"></a> 2.18. GLM\_FORCE\_UNRESTRICTED\_GENTYPE: Removing genType restriction
 
 By default GLM only supports basic types as genType for vector, matrix and quaternion types:
 
