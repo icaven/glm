@@ -207,11 +207,15 @@ int main()
 {
 	int Error = 0;
 
-	Error += test_cpp_version();
-	Error += test_compiler();
-	Error += test_model();
-	Error += test_instruction_set();
-	Error += test_operators();
+#	if !defined(GLM_FORCE_PLATFORM_UNKNOWN) && !defined(GLM_FORCE_COMPILER_UNKNOWN) && !defined(GLM_FORCE_ARCH_UNKNOWN) && !defined(GLM_FORCE_CXX_UNKNOWN)
+		
+		Error += test_cpp_version();
+		Error += test_compiler();
+		Error += test_model();
+		Error += test_instruction_set();
+		Error += test_operators();
+
+#	endif
 	
 	return Error;
 }
