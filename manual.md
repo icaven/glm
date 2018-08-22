@@ -293,6 +293,18 @@ The following subsections describe each configurations and defines.
 
 TODO
 
+### <a name="section2_3"></a> 2.3. GLM\_FORCE\_COMPILER\_UNKNOWN: Force GLM to no detect the build compiler
+
+TODO
+
+### <a name="section2_4"></a> 2.4. GLM\_FORCE\_ARCH\_UNKNOWN: Force GLM to no detect the build architecture
+
+TODO
+
+### <a name="section2_5"></a> 2.5. GLM\_FORCE\_CXX\_UNKNOWN: Force GLM to no detect the C++ standard
+
+TODO
+
 ### <a name="section2_3"></a> 2.3. GLM\_FORCE\_CXX**: C++ language detection
 
 GLM will automatically take advantage of compilers’ language extensions when enabled. To increase cross platform compatibility and to avoid compiler extensions, a programmer can define GLM\_FORCE\_CXX98 before
