@@ -6,6 +6,18 @@ matrix:
       osx_image: xcode6.4
       script:
         - cmake --version
+        - mkdir ./build_unknown_release
+        - cd ./build_unknown_release
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_DISABLE_AUTO_DETECTION=ON ..
+        - cmake -E time cmake --build .
+        - ctest
+      env:
+        - MATRIX_EVAL="INFO=C++unknown-release"
+
+    - os: osx
+      osx_image: xcode6.4
+      script:
+        - cmake --version
         - mkdir ./build_pure_98_release
         - cd ./build_pure_98_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_FORCE_PURE=ON ..
