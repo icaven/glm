@@ -334,7 +334,7 @@ For C++11, C++14, and C++17 equivalent defines are available:
 
 ### <a name="section2_7"></a> 2.7. GLM\_FORCE\_EXPLICIT\_CTOR: Requiring explicit conversions
 
-GLSL supports implicit conversions of vector and matrix types. For example, an ivec4 can be implicitly converted into vec4.
+GLSL supports implicit conversions of vector and matrix types. For example, an ivec4 can be implicitly converted into `vec4`.
 
 Often, this behaviour is not desirable but following the spirit of the library, this is the default behavior in GLM. However, GLM 0.9.6 introduced the define `GLM_FORCE_EXPLICIT_CTOR` to require explicit conversion for GLM types.
 
@@ -370,7 +370,7 @@ void foo()
 
 ### <a name="section2_8"></a> 2.8. GLM\_FORCE\_INLINE: Force inline
 
-To push further the software performance, a programmer can define GLM\_FORCE\_INLINE before any inclusion of `<glm/glm.hpp>` to force the compiler to inline GLM code.
+To push further the software performance, a programmer can define `GLM_FORCE_INLINE` before any inclusion of `<glm/glm.hpp>` to force the compiler to inline GLM code.
 
 ```cpp
 #define GLM_FORCE_INLINE
@@ -385,7 +385,7 @@ TODO
 
 GLM provides some SIMD optimizations based on [compiler intrinsics](https://msdn.microsoft.com/en-us/library/26td21ds.aspx).
 These optimizations will be automatically thanks to compiler arguments.
-For example, if a program is compiled with Visual Studio using /arch:AVX, GLM will detect this argument and generate code using AVX instructions automatically when available.
+For example, if a program is compiled with Visual Studio using `/arch:AVX`, GLM will detect this argument and generate code using AVX instructions automatically when available.
 
 It’s possible to avoid the instruction set detection by forcing the use of a specific instruction set with one of the fallowing define:
 `GLM_FORCE_SSE2`, `GLM_FORCE_SSE3`, `GLM_FORCE_SSSE3`, `GLM_FORCE_SSE41`, `GLM_FORCE_SSE42`, `GLM_FORCE_AVX`, `GLM_FORCE_AVX2` or `GLM_FORCE_AVX512`.
@@ -425,29 +425,29 @@ To use the default precision functionality, GLM provides some defines that need 
 #include <glm/glm.hpp>
 ```
 
-Available defines for floating point types (glm::vec\*, glm::mat\*):
+Available defines for floating point types (`glm::vec\*`, `glm::mat\*`):
 
-* GLM\_FORCE\_PRECISION\_LOWP\_FLOAT: Low precision
-* GLM\_FORCE\_PRECISION\_MEDIUMP\_FLOAT: Medium precision
-* GLM\_FORCE\_PRECISION\_HIGHP\_FLOAT: High precision (default)
+* `GLM_FORCE_PRECISION_LOWP_FLOAT`: Low precision
+* `GLM_FORCE_PRECISION_MEDIUMP_FLOAT`: Medium precision
+* `GLM_FORCE_PRECISION_HIGHP_FLOAT`: High precision (default)
 
-Available defines for floating point types (glm::dvec\*, glm::dmat\*):
+Available defines for floating point types (`glm::dvec\*`, `glm::dmat\*`):
 
-* GLM\_FORCE\_PRECISION\_LOWP\_DOUBLE: Low precision
-* GLM\_FORCE\_PRECISION\_MEDIUMP\_DOUBLE: Medium precision
-* GLM\_FORCE\_PRECISION\_HIGHP\_DOUBLE: High precision (default)
+* `GLM_FORCE_PRECISION_LOWP_DOUBLE`: Low precision
+* `GLM_FORCE_PRECISION_MEDIUMP_DOUBLE`: Medium precision
+* `GLM_FORCE_PRECISION_HIGHP_DOUBLE`: High precision (default)
 
-Available defines for signed integer types (glm::ivec\*):
+Available defines for signed integer types (`glm::ivec\*`):
 
-* GLM\_FORCE\_PRECISION\_LOWP\_INT: Low precision
-* GLM\_FORCE\_PRECISION\_MEDIUMP\_INT: Medium precision
-* GLM\_FORCE\_PRECISION\_HIGHP\_INT: High precision (default)
+* `GLM_FORCE_PRECISION_LOWP_INT`: Low precision
+* `GLM_FORCE_PRECISION_MEDIUMP_INT`: Medium precision
+* `GLM_FORCE_PRECISION_HIGHP_INT`: High precision (default)
 
-Available defines for unsigned integer types (glm::uvec\*):
+Available defines for unsigned integer types (`glm::uvec\*`):
 
-* GLM\_FORCE\_PRECISION\_LOWP\_UINT: Low precision
-* GLM\_FORCE\_PRECISION\_MEDIUMP\_UINT: Medium precision
-* GLM\_FORCE\_PRECISION\_HIGHP\_UINT: High precision (default)
+* `GLM_FORCE_PRECISION_LOWP_UINT`: Low precision
+* `GLM_FORCE_PRECISION_MEDIUMP_UINT`: Medium precision
+* `GLM_FORCE_PRECISION_HIGHP_UINT`: High precision (default)
 
 ### <a name="section2_12"></a> 2.12. GLM\_FORCE\_SINGLE\_ONLY: Removed explicit 64-bits floating point types
 
@@ -640,13 +640,19 @@ TODO
 
 TODO
 
+Include `<glm/ext/scalar_float_sized.hpp>` to use these features.
+
 #### 3.1.2. GLM_EXT_scalar_int_sized
 
 TODO
 
+Include `<glm/ext/scalar_int_sized.hpp>` to use these features.
+
 #### 3.1.3. GLM_EXT_scalar_uint_sized
 
 TODO
+
+Include `<glm/ext/scalar_uint_sized.hpp>` to use these features.
 
 ### <a name="section3_2"></a> 3.2. Scalar functions
 
@@ -654,13 +660,19 @@ TODO
 
 TODO
 
+Include `<glm/ext/scalar_common.hpp>` to use these features.
+
 #### 3.2.2. GLM_EXT_scalar_relational
 
 TODO
 
+Include `<glm/ext/scalar_relational.hpp>` to use these features.
+
 #### 3.2.3. GLM_EXT_scalar_constants
 
 TODO
+
+Include `<glm/ext/scalar_constants.hpp>` to use these features.
 
 ### <a name="section3_3"></a> 3.3. Vector types
 
@@ -690,9 +702,13 @@ TODO
 
 TODO
 
+Include `<glm/ext/vector_constants.hpp>` to use these features.
+
 ### <a name="section3_26"></a> 3.26. GLM_EXT_vector_relational
 
 TODO
+
+Include `<glm/ext/vector_relational.hpp>` to use these features.
 
 ### <a name="section3_5"></a> 3.5. Matrix types
 
@@ -710,17 +726,25 @@ TODO
 
 TODO
 
+Include `<glm/ext/matrix_relational.hpp>` to use these features.
+
 #### 3.6.2. GLM_EXT_matrix_transform
 
 TODO
+
+Include `<glm/ext/matrix_transform.hpp>` to use these features.
 
 #### 3.6.3. GLM_EXT_matrix_clip_space
 
 TODO
 
+Include `<glm/ext/matrix_clip_space.hpp>` to use these features.
+
 #### 3.6.4. GLM_EXT_matrix_projection
 
 TODO
+
+Include `<glm/ext/matrix_projection.hpp>` to use these features.
 
 ### <a name="section3_5"></a> 3.7. Quaternion types
 
@@ -738,25 +762,37 @@ TODO
 
 TODO
 
+Include `<glm/ext/quaternion_common.hpp>` to use these features.
+
 3.8.2. GLM_EXT_quaternion_geometric
 
 TODO
+
+Include `<glm/ext/quaternion_geometric.hpp>` to use these features.
 
 3.8.3. GLM_EXT_quaternion_trigonometric
 
 TODO
 
+Include `<glm/ext/quaternion_trigonometric.hpp>` to use these features.
+
 3.8.4. GLM_EXT_quaternion_exponential
 
 TODO
 
-3.8.5. GLM_EXT_quaternion_relation
+Include `<glm/ext/quaternion_exponential.hpp>` to use these features.
+
+3.8.5. GLM_EXT_quaternion_relational
 
 TODO
+
+Include `<glm/ext/quaternion_relational.hpp>` to use these features.
 
 3.8.6. GLM_EXT_quaternion_transform
 
 TODO
+
+Include `<glm/ext/quaternion_transform.hpp>` to use these features.
 
 ---
 ## <a name="section4"></a> 4. Recommended extensions
@@ -835,10 +871,10 @@ Additional matrix inverse functions.
 
 Matrix transformation functions that follow the OpenGL fixed-function conventions.
 
-For example, the ***lookAt*** function generates a transformation matrix that projects world coordinates into eye coordinates suitable for projection matrices (e.g. ***perspective***, ***ortho***). See the OpenGL compatibility specifications for more information about the layout of these generated matrices.
+For example, the `lookAt` function generates a transformation matrix that projects world coordinates into eye coordinates suitable for projection matrices (e.g. `perspective`, `ortho`). See the OpenGL compatibility specifications for more information about the layout of these generated matrices.
 
-The matrices generated by this extension use standard OpenGL fixed-function conventions. For example, the ***lookAt*** function generates a transform from world space into the specific eye space that the
-projective matrix functions (***perspective***, ***ortho***, etc) are designed to expect. The OpenGL compatibility specifications define the particular layout of this eye space.
+The matrices generated by this extension use standard OpenGL fixed-function conventions. For example, the `lookAt` function generates a transform from world space into the specific eye space that the
+projective matrix functions (`perspective`, `ortho`, etc) are designed to expect. The OpenGL compatibility specifications define the particular layout of this eye space.
 
 `<glm/gtc/matrix_transform.hpp>` need to be included to use these features.
 
@@ -946,15 +982,15 @@ Aligned vector types.
 
 ### <a name="section4_17"></a> 4.17. GLM\_GTC\_type\_precision
 
-Vector and matrix types with defined precisions, e.g. i8vec4, which is a 4D vector of signed 8-bit integers.
+Vector and matrix types with defined precisions, e.g. `i8vec4`, which is a 4D vector of signed 8-bit integers.
 
 `<glm/gtc/type\_precision.hpp>` need to be included to use the features of this extension.
 
 ### <a name="section4_18"></a> 4.18. GLM\_GTC\_type\_ptr
 
-Facilitate interactions between pointers to basic types (e.g. float*) and GLM types (e.g. mat4).
+Facilitate interactions between pointers to basic types (e.g. `float*`) and GLM types (e.g. `mat4`).
 
-This extension defines an overloaded function, glm::value_ptr, which returns a pointer to the memory layout of any GLM vector or matrix (vec3, mat4, etc.). Matrix types store their values in column-major order. This is useful for uploading data to matrices or for copying data to buffer objects.
+This extension defines an overloaded function, `glm::value_ptr`, which returns a pointer to the memory layout of any GLM vector or matrix (`vec3`, `mat4`, etc.). Matrix types store their values in column-major order. This is useful for uploading data to matrices or for copying data to buffer objects.
 
 ```cpp
 // GLM_GTC_type_ptr provides a safe solution:
@@ -983,7 +1019,7 @@ void foo()
 }
 ```
 
-*Note: It would be possible to implement [*glVertex3fv*](http://www.opengl.org/sdk/docs/man2/xhtml/glVertex.xml)(glm::vec3(0)) in C++ with the appropriate cast operator that would result as an
+*Note: It would be possible to implement [`glVertex3fv`](http://www.opengl.org/sdk/docs/man2/xhtml/glVertex.xml)(glm::vec3(0)) in C++ with the appropriate cast operator that would result as an
 implicit cast in this example. However cast operators may produce programs running with unexpected behaviours without build error or any form of notification. *
 
 `<glm/gtc/type_ptr.hpp>` need to be included to use these features.
