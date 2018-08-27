@@ -99,6 +99,8 @@ namespace glm
 	/// and the ratio of indices of refraction eta,
 	/// return the refraction vector.
 	///
+	/// @param eta Indice of refraction. Must be a value between -1 and 1 inclusively.
+	///
 	/// @tparam L An integer between 1 and 4 included that qualify the dimension of the vector.
 	/// @tparam T Floating-point scalar types.
 	///
