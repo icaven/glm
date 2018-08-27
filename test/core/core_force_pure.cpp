@@ -1,7 +1,7 @@
 #ifndef GLM_FORCE_PURE
 #	define GLM_FORCE_PURE
 #endif//GLM_FORCE_PURE
-#define GLM_FORCE_ALIGNED
+#define GLM_FORCE_DEFAULT_ALIGNED_GENTYPES
 #define GLM_FORCE_SWIZZLE
 #include <glm/ext/vector_relational.hpp>
 #include <glm/vector_relational.hpp>
@@ -12,7 +12,7 @@
 #include <ctime>
 #include <vector>
 
-int test_vec4_ctor()
+static int test_vec4_ctor()
 {
 	int Error = 0;
 
@@ -138,7 +138,7 @@ int test_vec4_ctor()
 	return Error;
 }
 
-int test_bvec4_ctor()
+static int test_bvec4_ctor()
 {
 	int Error = 0;
 
@@ -162,7 +162,7 @@ int test_bvec4_ctor()
 	return Error;
 }
 
-int test_vec4_operators()
+static int test_vec4_operators()
 {
 	int Error = 0;
 	
@@ -298,7 +298,7 @@ int test_vec4_operators()
 	return Error;
 }
 
-int test_vec4_equal()
+static int test_vec4_equal()
 {
 	int Error = 0;
 
@@ -319,7 +319,7 @@ int test_vec4_equal()
 	return Error;
 }
 
-int test_vec4_size()
+static int test_vec4_size()
 {
 	int Error = 0;
 
@@ -337,7 +337,7 @@ int test_vec4_size()
 	return Error;
 }
 
-int test_vec4_swizzle_partial()
+static int test_vec4_swizzle_partial()
 {
 	int Error = 0;
 
@@ -375,7 +375,7 @@ int test_vec4_swizzle_partial()
 	return Error;
 }
 
-int test_operator_increment()
+static int test_operator_increment()
 {
 	int Error(0);
 
@@ -429,7 +429,7 @@ namespace heap
 	}
 }//namespace heap
 
-int test_vec4_simd()
+static int test_vec4_simd()
 {
 	int Error = 0;
 

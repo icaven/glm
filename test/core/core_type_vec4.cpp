@@ -1,4 +1,3 @@
-#define GLM_FORCE_ALIGNED
 #define GLM_FORCE_SWIZZLE
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/vec1.hpp>
