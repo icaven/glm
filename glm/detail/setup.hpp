@@ -832,9 +832,11 @@ namespace detail
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_MESSAGE_DISPLAYED)
 #	define GLM_MESSAGE_DISPLAYED
+#		define GLM_STR_HELPER(x) #x
+#		define GLM_STR(x) GLM_STR_HELPER(x)
 
 	// Report GLM version
-#		pragma message (GLM_VERSION_MESSAGE)
+#		pragma message (GLM_STR(GLM_VERSION_MESSAGE))
 
 	// Report C++ language
 #	if (GLM_LANG & GLM_LANG_CXX2A_FLAG) && (GLM_LANG & GLM_LANG_EXT)
