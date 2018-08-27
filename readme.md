@@ -67,6 +67,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Added identity functions #765
 - Splitted headers into EXT extensions to improve compilation time #670
 - Added separated performance tests
+- Refactor manual, lists all configuration defines
 
 #### Fixes:
 - Fixed SIMD detection on Clang and GCC

@@ -390,11 +390,13 @@ For example, if a program is compiled with Visual Studio using `/arch:AVX`, GLM 
 It’s possible to avoid the instruction set detection by forcing the use of a specific instruction set with one of the fallowing define:
 `GLM_FORCE_SSE2`, `GLM_FORCE_SSE3`, `GLM_FORCE_SSSE3`, `GLM_FORCE_SSE41`, `GLM_FORCE_SSE42`, `GLM_FORCE_AVX`, `GLM_FORCE_AVX2` or `GLM_FORCE_AVX512`.
 
-The use of intrinsic functions by GLM implementation can be avoided using the define `GLM_FORCE_PURE` before any inclusion of GLM headers.
+The use of intrinsic functions by GLM implementation can be avoided using the define `GLM_FORCE_PURE` before any inclusion of GLM headers. This can be particularly useful if we want to rely on C++14 `constexpr`.
 
 ```cpp
 #define GLM_FORCE_PURE
 #include <glm/glm.hpp>
+
+static_assert(glm::vec4::length() == 4, "Using GLM C++ 14 constexpr support for compile time tests");
 
 // GLM code will be compiled using pure C++ code without any intrinsics
 ```

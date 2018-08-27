@@ -274,12 +274,14 @@
 
 // N2235 Generalized Constant Expressions http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2235.pdf
 // N3652 Extended Constant Expressions http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2013/n3652.html
-#if (GLM_COMPILER & GLM_COMPILER_CLANG) && !(GLM_ARCH & GLM_ARCH_SIMD_BIT)
+#if (GLM_ARCH & GLM_ARCH_SIMD_BIT) // Compiler SIMD intrinsics don't support constexpr...
+#	define GLM_HAS_CONSTEXPR 0
+#elif (GLM_COMPILER & GLM_COMPILER_CLANG)
 #	define GLM_HAS_CONSTEXPR __has_feature(cxx_relaxed_constexpr)
-#elif (GLM_LANG & GLM_LANG_CXX14_FLAG) && !(GLM_ARCH & GLM_ARCH_SIMD_BIT)
+#elif (GLM_LANG & GLM_LANG_CXX14_FLAG)
 #	define GLM_HAS_CONSTEXPR 1
 #else
-#	define GLM_HAS_CONSTEXPR ((GLM_LANG & GLM_LANG_CXX0X_FLAG) && !(GLM_ARCH & GLM_ARCH_SIMD_BIT) && GLM_HAS_INITIALIZER_LISTS && (\
+#	define GLM_HAS_CONSTEXPR ((GLM_LANG & GLM_LANG_CXX0X_FLAG) && GLM_HAS_INITIALIZER_LISTS && (\
 		((GLM_COMPILER & GLM_COMPILER_INTEL) && (GLM_COMPILER >= GLM_COMPILER_INTEL17)) || \
 		((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC15))))
 #endif
