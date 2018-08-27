@@ -1,9 +1,9 @@
 #define GLM_FORCE_DEFAULT_ALIGNED_GENTYPES
 #include <glm/glm.hpp>
 
-#if GLM_HAS_ALIGNOF
+#if GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
 #include <type_traits>
-/*
+
 static_assert(sizeof(glm::bvec4) > sizeof(glm::bvec2), "Invalid sizeof");
 static_assert(sizeof(glm::ivec4) > sizeof(glm::uvec2), "Invalid sizeof");
 static_assert(sizeof(glm::dvec4) > sizeof(glm::dvec2), "Invalid sizeof");
@@ -11,7 +11,7 @@ static_assert(sizeof(glm::dvec4) > sizeof(glm::dvec2), "Invalid sizeof");
 static_assert(sizeof(glm::bvec4) == sizeof(glm::bvec3), "Invalid sizeof");
 static_assert(sizeof(glm::uvec4) == sizeof(glm::uvec3), "Invalid sizeof");
 static_assert(sizeof(glm::dvec4) == sizeof(glm::dvec3), "Invalid sizeof");
-*/
+
 static int test_storage_aligned()
 {
 	int Error = 0;
@@ -82,7 +82,7 @@ int main()
 {
 	int Error = 0;
 
-#	if GLM_HAS_ALIGNOF
+#	if GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
 		Error += test_storage_aligned();
 		Error += test_storage_unaligned();
 		Error += test_vec3_aligned();

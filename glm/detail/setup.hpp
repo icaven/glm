@@ -1000,6 +1000,11 @@ namespace detail
 #		pragma message("GLM: GLM_FORCE_SINGLE_ONLY is defined. Using only single precision floating-point types")
 #	endif
 
+#	if defined(GLM_FORCE_DEFAULT_ALIGNED_GENTYPES) && (GLM_CONFIG_ALIGNED_GENTYPES == GLM_DISABLE)
+#		undef GLM_FORCE_DEFAULT_ALIGNED_GENTYPES
+#		pragma message("GLM: GLM_FORCE_DEFAULT_ALIGNED_GENTYPES is defined but is disabled. It requires C++11 and language extensions")
+#	endif
+
 #	if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT
 #		pragma message("GLM: GLM_FORCE_DEPTH_ZERO_TO_ONE is defined. Using zero to one depth clip space.")
 #	else
