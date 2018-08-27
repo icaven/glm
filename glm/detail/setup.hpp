@@ -735,6 +735,10 @@ namespace detail
 ///////////////////////////////////////////////////////////////////////////////////
 // Configure the use of aligned gentypes
 
+#ifdef GLM_FORCE_ALIGNED // Legacy define
+#	define GLM_FORCE_DEFAULT_ALIGNED_GENTYPES
+#endif
+
 #if GLM_HAS_ALIGNOF && (GLM_LANG & GLM_LANG_CXXMS_FLAG)
 #	define GLM_CONFIG_ALIGNED_GENTYPES GLM_ENABLE
 #else
