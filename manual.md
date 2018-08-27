@@ -377,9 +377,54 @@ To push further the software performance, a programmer can define `GLM_FORCE_INL
 #include <glm/glm.hpp>
 ```
 
-### <a name="section2_9"></a> 2.9. GLM\_FORCE\_DEFAULT\_ALIGNED_GENTYPES: Force GLM to use aligned types by default
+### <a name="section2_9"></a> 2.9. GLM\_FORCE\_DEFAULT\_ALIGNED\_GENTYPES: Force GLM to use aligned types by default
 
-TODO
+Every object type has the property called alignment requirement, which is an integer value (of type `std::size_t`, always a power of 2) representing the number of bytes between successive addresses at which objects of this type can be allocated. The alignment requirement of a type can be queried with alignof or `std::alignment_of`. The pointer alignment function `std::align` can be used to obtain a suitably-aligned pointer within some buffer, and `std::aligned_storage` can be used to obtain suitably-aligned storage.
+
+Each object type imposes its alignment requirement on every object of that type; stricter alignment (with larger alignment requirement) can be requested using C++11 `alignas`.
+
+In order to satisfy alignment requirements of all non-static members of a class, padding may be inserted after some of its members. 
+
+GLM supports both packed and aligned types. Packed types allow filling data structure without inserting extra padding. Aligned GLM types align addresses based on the size of the value type of a GLM type.
+
+```cpp
+#define GLM_FORCE_DEFAULT_ALIGNED_GENTYPES
+#include <glm/glm.hpp>
+
+struct MyStruct
+{
+    glm::vec4 a;
+    float b;
+    glm::vec3 c;
+};
+
+void foo()
+{
+    printf("MyStruct requires memory padding: %d bytes\n", sizeof(MyStruct));
+}
+
+>>> MyStruct requires memory padding: 48 bytes
+```
+
+```cpp
+#include <glm/glm.hpp>
+
+struct MyStruct
+{
+    glm::vec4 a;
+    float b;
+    glm::vec3 c;
+};
+
+void foo()
+{
+    printf("MyStruct is tightly packed: %d bytes\n", sizeof(MyStruct));
+}
+
+>>> MyStruct is tightly packed: 32 bytes
+```
+
+*Note: GLM SIMD optimizations require the use of aligned types*
 
 ### <a name="section2_10"></a> 2.10. GLM\_FORCE\_SIMD\_**: Using SIMD optimizations
 
@@ -571,13 +616,15 @@ To simplify vector types, GLM allows exposing only x, y, z and w components than
 
 ### <a name="section2_15"></a> 2.15. GLM\_FORCE\_LEFT\_HANDED: Force left handed coordinate system
 
-OpenGL is using by default a right handed coordinate system. However, others APIs such as Direct3D have done different choice and relies on the left handed coordinate system.
+By default, OpenGL is using a right handed coordinate system. However, others APIs such as Direct3D have done different choice and relies on the left handed coordinate system.
 
 GLM allows switching the coordinate system to left handed by defining `GLM_FORCE_LEFT_HANDED`.
 
 ### <a name="section2_16"></a> 2.16. GLM\_FORCE\_DEPTH\_ZERO\_TO\_ONE: Force the use of a clip space between 0 to 1
 
-TODO
+By default, OpenGL is using a -1 to 1 clip space in Z-axis. However, others APIs such as Direct3D relies on a clip space between 0 to 1 in Z-axis.
+
+GLM allows switching the clip space in Z-axis to 0 to 1 by defining `GLM_FORCE_DEPTH_ZERO_TO_ONE`.
 
 ### <a name="section2_17"></a> 2.17. GLM\_FORCE\_SIZE\_T\_LENGTH: Vector and matrix static size
 
@@ -629,7 +676,7 @@ GLM 0.9.8 introduced GLM\_FORCE\_UNRESTRICTED\_GENTYPE define to relax this rest
 typedef glm::vec<4, half> my_hvec4;
 ```
 
-However, defining `GLM_FORCE_UNRESTRICTED\_GENTYPE` is not compatible with `GLM_FORCE_SWIZZLE` and will generate a compilation error if both are defined at the same time.
+However, defining `GLM_FORCE_UNRESTRICTED_GENTYPE` is not compatible with `GLM_FORCE_SWIZZLE` and will generate a compilation error if both are defined at the same time.
 
 ---
 ## <a name="section3"></a> 3. Stable extensions

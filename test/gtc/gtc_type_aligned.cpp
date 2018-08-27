@@ -178,4 +178,4 @@ int main()
 	return 0;
 }
 
-#endif//GLM_CONFIG_ANONYMOUS_STRUCT
+#endif
