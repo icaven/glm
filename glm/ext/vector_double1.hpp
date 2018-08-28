@@ -3,7 +3,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup ext_vector_dvec1 GLM_EXT_vector_double1
+/// @defgroup ext_vector_double1 GLM_EXT_vector_double1
 /// @ingroup ext
 ///
 /// Include <glm/ext/vector_double1.hpp> to use the features of this extension.
@@ -20,12 +20,12 @@
 
 namespace glm
 {
-	/// @addtogroup ext_vector_dvec1
+	/// @addtogroup ext_vector_double1
 	/// @{
 
 	/// 1 components vector of double-precision floating-point numbers.
 	///
-	/// @see ext_vector_dvec1 extension.
+	/// @see ext_vector_double1 extension.
 	typedef vec<1, double, defaultp>		dvec1;
 
 	/// @}

@@ -3,7 +3,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup ext_vector_relational GLM_EXT_scalar_relational
+/// @defgroup ext_scalar_relational GLM_EXT_scalar_relational
 /// @ingroup ext
 ///
 /// Include <glm/ext/scalar_relational.hpp> to use the features of this extension.
@@ -26,7 +26,7 @@ namespace glm
 	///
 	/// @tparam genType Floating-point or integer scalar types
 	///
-	/// @see ext_vector_relational
+	/// @see ext_scalar_relational
 	template<typename genType>
 	GLM_FUNC_DECL GLM_CONSTEXPR bool equal(genType const& x, genType const& y, genType const& epsilon);
 
@@ -35,7 +35,7 @@ namespace glm
 	///
 	/// @tparam genType Floating-point or integer scalar types
 	///
-	/// @see ext_vector_relational
+	/// @see ext_scalar_relational
 	template<typename genType>
 	GLM_FUNC_DECL GLM_CONSTEXPR bool notEqual(genType const& x, genType const& y, genType const& epsilon);
 

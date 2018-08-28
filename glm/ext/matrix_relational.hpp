@@ -3,7 +3,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup ext_vector_relational GLM_EXT_matrix_relational
+/// @defgroup ext_matrix_relational GLM_EXT_matrix_relational
 /// @ingroup ext
 ///
 /// Include <glm/ext/matrix_relational.hpp> to use the features of this extension.

@@ -1,5 +1,5 @@
 /// @ref core
-/// @file glm/matrix_mat3x4_precision.hpp
+/// @file glm/ext/matrix_float3x4_precision.hpp
 
 #pragma once
 #include "../detail/type_mat3x4.hpp"
