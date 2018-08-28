@@ -6,7 +6,7 @@
 
 namespace glm
 {
-	/// @addtogroup core
+	/// @ingroup core
 	/// @{
 
 	/// 4 columns of 4 components matrix of single-precision floating-point numbers.

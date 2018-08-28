@@ -5,25 +5,16 @@
 ///
 /// @brief Features that implement in C++ the GLSL specification as closely as possible.
 ///
-/// The GLM core consists of @ref core_types "C++ types that mirror GLSL types" and
+/// The GLM core consists of C++ types that mirror GLSL types and
 /// C++ functions that mirror the GLSL functions. It also includes
 /// @ref core_precision "a set of qualifier-based types" that can be used in the appropriate
-/// functions. The C++ types are all based on a basic set of @ref core_template "template types".
+/// functions.
 ///
 /// The best documentation for GLM Core is the current GLSL specification,
 /// <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.clean.pdf">version 4.2
 /// (pdf file)</a>.
 ///
 /// GLM core functionalities require <glm/glm.hpp> to be included to be used.
-///
-/// @defgroup core_types Types
-///
-/// @brief The standard types defined by the specification.
-///
-/// These types are all typedefs of more generalized, template types. To see the definition
-/// of these template types, go to @ref core_template.
-///
-/// @ingroup core
 ///
 /// @defgroup core_precision Precision types
 ///
@@ -34,18 +25,9 @@
 /// with OpenGL ES's qualifier qualifiers, where they @em do have an effect.
 ///
 /// C++ has no language equivalent to qualifier qualifiers. So GLM provides the next-best thing:
-/// a number of typedefs of the @ref core_template that use a particular qualifier.
+/// a number of typedefs that use a particular qualifier.
 ///
 /// None of these types make any guarantees about the actual qualifier used.
-///
-/// @ingroup core
-///
-/// @defgroup core_template Template types
-///
-/// @brief The generic template types used as the basis for the core types.
-///
-/// These types are all templates used to define the actual @ref core_types.
-/// These templates are implementation details of GLM types and should not be used explicitly.
 ///
 /// @ingroup core
 ///

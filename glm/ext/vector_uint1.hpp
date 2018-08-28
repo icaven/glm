@@ -3,7 +3,7 @@
 ///
 /// @see core (dependence)
 ///
-/// @defgroup ext_vector_uvec1 GLM_EXT_vector_uint1
+/// @defgroup ext_vector_uint1 GLM_EXT_vector_uint1
 /// @ingroup ext
 ///
 /// Include <glm/ext/vector_uvec1.hpp> to use the features of this extension.

@@ -20,13 +20,13 @@
 
 namespace glm
 {
-	/// @addtogroup ext_scalar_float
+	/// @addtogroup ext_scalar_float_sized
 	/// @{
 
 	/// Low qualifier floating-point numbers.
 	/// There is no guarantee on the actual qualifier.
 	///
-	/// @see ext_vector_relational
+	/// @see ext_scalar_float_sized
 	typedef float			float32;
 
 
@@ -35,7 +35,7 @@ namespace glm
 	/// Low qualifier floating-point numbers.
 	/// There is no guarantee on the actual qualifier.
 	///
-	/// @see ext_vector_relational
+	/// @see ext_scalar_float_sized
 	typedef double			float64;
 
 #	endif//GLM_FORCE_SINGLE_ONLY

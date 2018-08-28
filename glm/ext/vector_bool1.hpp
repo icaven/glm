@@ -15,12 +15,12 @@
 #include "../detail/type_vec1.hpp"
 
 #if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_EXT_vector_bvec1 extension included")
+#	pragma message("GLM: GLM_EXT_vector_bool1 extension included")
 #endif
 
 namespace glm
 {
-	/// @addtogroup ext_bvec1
+	/// @addtogroup ext_vector_bool1
 	/// @{
 
 	/// 1 components vector of boolean.
