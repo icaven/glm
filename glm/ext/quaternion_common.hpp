@@ -1,8 +1,6 @@
 /// @ref ext_quaternion_common
 /// @file glm/ext/quaternion_common.hpp
 ///
-/// @see core (dependence)
-///
 /// @defgroup ext_quaternion_common GLM_EXT_quaternion_common
 /// @ingroup ext
 ///
@@ -39,7 +37,6 @@ namespace glm
 	/// @tparam T Floating-point scalar types.
 	///
 	/// @see - slerp(qua<T, Q> const& x, qua<T, Q> const& y, T const& a)
-	/// @see ext_quaternion_common
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> mix(qua<T, Q> const& x, qua<T, Q> const& y, T a);
 
@@ -50,8 +47,6 @@ namespace glm
 	/// @param y A quaternion
 	/// @param a Interpolation factor. The interpolation is defined in the range [0, 1].
 	/// @tparam T Floating-point scalar types.
-	///
-	/// @see ext_quaternion_common
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> lerp(qua<T, Q> const& x, qua<T, Q> const& y, T a);
 
@@ -62,24 +57,18 @@ namespace glm
 	/// @param y A quaternion
 	/// @param a Interpolation factor. The interpolation is defined beyond the range [0, 1].
 	/// @tparam T Floating-point scalar types.
-	///
-	/// @see ext_quaternion_common
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> slerp(qua<T, Q> const& x, qua<T, Q> const& y, T a);
 
 	/// Returns the q conjugate.
 	///
 	/// @tparam T Floating-point scalar types.
-	///
-	/// @see ext_quaternion_common
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> conjugate(qua<T, Q> const& q);
 
 	/// Returns the q inverse.
 	///
 	/// @tparam T Floating-point scalar types.
-	///
-	/// @see ext_quaternion_common
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> inverse(qua<T, Q> const& q);
 
@@ -92,8 +81,6 @@ namespace glm
 	/// /!\ When using compiler fast math, this function may fail.
 	///
 	/// @tparam T Floating-point scalar types.
-	///
-	/// @see ext_quaternion_common
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL vec<4, bool, Q> isnan(qua<T, Q> const& x);
 
@@ -104,8 +91,6 @@ namespace glm
 	/// representations.
 	///
 	/// @tparam T Floating-point scalar types.
-	///
-	/// @see ext_quaternion_common
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL vec<4, bool, Q> isinf(qua<T, Q> const& x);
 

@@ -1,8 +1,6 @@
 /// @ref ext_quaternion_double_precision
 /// @file glm/ext/quaternion_double_precision.hpp
 ///
-/// @see core (dependence)
-///
 /// @defgroup ext_quaternion_double_precision GLM_EXT_quaternion_double_precision
 /// @ingroup ext
 ///

@@ -1,14 +1,15 @@
 /// @ref ext_vector_relational
 /// @file glm/ext/vector_relational.hpp
 ///
-/// @see core (dependence)
-///
 /// @defgroup ext_vector_relational GLM_EXT_vector_relational
 /// @ingroup ext
 ///
+/// Comparison functions for a user defined epsilon values.
+///
 /// Include <glm/ext/vector_relational.hpp> to use the features of this extension.
 ///
-/// Comparison functions for a user defined epsilon values.
+/// @see core_vector_relational
+/// @see ext_scalar_relational
 
 #pragma once
 

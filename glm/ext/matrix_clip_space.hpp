@@ -1,12 +1,8 @@
 /// @ref ext_matrix_clip_space
 /// @file glm/ext/matrix_clip_space.hpp
 ///
-/// @see core (dependence)
-///
 /// @defgroup ext_matrix_clip_space GLM_EXT_matrix_clip_space
 /// @ingroup ext
-///
-/// Include <glm/ext/matrix_clip_space.hpp> to use the features of this extension.
 ///
 /// Defines functions that generate common transformation matrices.
 ///
@@ -15,6 +11,8 @@
 /// space into the specific eye space that the projective matrix functions
 /// (perspective, ortho, etc) are designed to expect. The OpenGL compatibility
 /// specifications defines the particular layout of this eye space.
+///
+/// Include <glm/ext/matrix_clip_space.hpp> to use the features of this extension.
 
 #pragma once
 

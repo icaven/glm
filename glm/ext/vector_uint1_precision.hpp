@@ -1,8 +1,6 @@
 /// @ref ext_vector_uint1_precision
 /// @file glm/ext/vector_uint1_precision.hpp
 ///
-/// @see core (dependence)
-///
 /// @defgroup ext_vector_uint1_precision GLM_EXT_vector_uint1_precision
 /// @ingroup ext
 ///

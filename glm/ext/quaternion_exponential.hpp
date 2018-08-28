@@ -1,8 +1,6 @@
 /// @ref ext_quaternion_exponential
 /// @file glm/ext/quaternion_exponential.hpp
 ///
-/// @see core (dependence)
-///
 /// @defgroup ext_quaternion_exponential GLM_EXT_quaternion_exponential
 /// @ingroup ext
 ///

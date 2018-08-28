@@ -1,8 +1,6 @@
 /// @ref ext_matrix_projection
 /// @file glm/ext/matrix_projection.hpp
 ///
-/// @see core (dependence)
-///
 /// @defgroup ext_matrix_projection GLM_EXT_matrix_projection
 /// @ingroup ext
 ///
@@ -43,7 +41,7 @@ namespace glm
 	/// @return Return the computed window coordinates.
 	/// @tparam T Native type used for the computation. Currently supported: half (not recommended), float or double.
 	/// @tparam U Currently supported: Floating-point types and integer types.
-	/// @see gtc_matrix_transform
+	///
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluProject.xml">gluProject man page</a>
 	template<typename T, typename U, qualifier Q>
 	GLM_FUNC_DECL vec<3, T, Q> projectZO(
@@ -59,7 +57,7 @@ namespace glm
 	/// @return Return the computed window coordinates.
 	/// @tparam T Native type used for the computation. Currently supported: half (not recommended), float or double.
 	/// @tparam U Currently supported: Floating-point types and integer types.
-	/// @see gtc_matrix_transform
+	///
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluProject.xml">gluProject man page</a>
 	template<typename T, typename U, qualifier Q>
 	GLM_FUNC_DECL vec<3, T, Q> projectNO(
@@ -75,7 +73,7 @@ namespace glm
 	/// @return Return the computed window coordinates.
 	/// @tparam T Native type used for the computation. Currently supported: half (not recommended), float or double.
 	/// @tparam U Currently supported: Floating-point types and integer types.
-	/// @see gtc_matrix_transform
+	///
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluProject.xml">gluProject man page</a>
 	template<typename T, typename U, qualifier Q>
 	GLM_FUNC_DECL vec<3, T, Q> project(
@@ -91,7 +89,7 @@ namespace glm
 	/// @return Returns the computed object coordinates.
 	/// @tparam T Native type used for the computation. Currently supported: half (not recommended), float or double.
 	/// @tparam U Currently supported: Floating-point types and integer types.
-	/// @see gtc_matrix_transform
+	///
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluUnProject.xml">gluUnProject man page</a>
 	template<typename T, typename U, qualifier Q>
 	GLM_FUNC_DECL vec<3, T, Q> unProjectZO(
@@ -107,7 +105,7 @@ namespace glm
 	/// @return Returns the computed object coordinates.
 	/// @tparam T Native type used for the computation. Currently supported: half (not recommended), float or double.
 	/// @tparam U Currently supported: Floating-point types and integer types.
-	/// @see gtc_matrix_transform
+	///
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluUnProject.xml">gluUnProject man page</a>
 	template<typename T, typename U, qualifier Q>
 	GLM_FUNC_DECL vec<3, T, Q> unProjectNO(
@@ -123,7 +121,7 @@ namespace glm
 	/// @return Returns the computed object coordinates.
 	/// @tparam T Native type used for the computation. Currently supported: half (not recommended), float or double.
 	/// @tparam U Currently supported: Floating-point types and integer types.
-	/// @see gtc_matrix_transform
+	///
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluUnProject.xml">gluUnProject man page</a>
 	template<typename T, typename U, qualifier Q>
 	GLM_FUNC_DECL vec<3, T, Q> unProject(
@@ -136,7 +134,7 @@ namespace glm
 	/// @param viewport Rendering viewport
 	/// @tparam T Native type used for the computation. Currently supported: half (not recommended), float or double.
 	/// @tparam U Currently supported: Floating-point types and integer types.
-	/// @see gtc_matrix_transform
+	///
 	/// @see <a href="https://www.khronos.org/registry/OpenGL-Refpages/gl2.1/xhtml/gluPickMatrix.xml">gluPickMatrix man page</a>
 	template<typename T, qualifier Q, typename U>
 	GLM_FUNC_DECL mat<4, 4, T, Q> pickMatrix(

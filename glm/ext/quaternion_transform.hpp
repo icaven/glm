@@ -1,8 +1,6 @@
 /// @ref ext_quaternion_transform
 /// @file glm/ext/quaternion_transform.hpp
 ///
-/// @see core (dependence)
-///
 /// @defgroup ext_quaternion_transform GLM_EXT_quaternion_transform
 /// @ingroup ext
 ///

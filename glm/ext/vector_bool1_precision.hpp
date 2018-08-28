@@ -1,14 +1,12 @@
 /// @ref ext_vector_bool1_precision
 /// @file glm/ext/vector_bool1_precision.hpp
 ///
-/// @see core (dependence)
-///
 /// @defgroup ext_vector_bool1_precision GLM_EXT_vector_bool1_precision
 /// @ingroup ext
 ///
-/// Include <glm/ext/vector_bool1_precision.hpp> to use the features of this extension.
-///
 /// Exposes highp_bvec1, mediump_bvec1 and lowp_bvec1 types.
+///
+/// Include <glm/ext/vector_bool1_precision.hpp> to use the features of this extension.
 
 #pragma once
 
@@ -24,18 +22,12 @@ namespace glm
 	/// @{
 
 	/// 1 component vector of bool values.
-	///
-	/// @see ext_vector_bool1_precision
 	typedef vec<1, bool, highp>			highp_bvec1;
 
 	/// 1 component vector of bool values.
-	///
-	/// @see ext_vector_bool1_precision
 	typedef vec<1, bool, mediump>		mediump_bvec1;
 
 	/// 1 component vector of bool values.
-	///
-	/// @see ext_vector_bool1_precision
 	typedef vec<1, bool, lowp>			lowp_bvec1;
 
 	/// @}

@@ -1,8 +1,6 @@
 /// @ref ext_scalar_relational
 /// @file glm/ext/scalar_relational.hpp
 ///
-/// @see core (dependence)
-///
 /// @defgroup ext_scalar_relational GLM_EXT_scalar_relational
 /// @ingroup ext
 ///

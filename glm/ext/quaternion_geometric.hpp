@@ -1,8 +1,6 @@
 /// @ref ext_quaternion_geometric
 /// @file glm/ext/quaternion_geometric.hpp
 ///
-/// @see core (dependence)
-///
 /// @defgroup ext_quaternion_geometric GLM_EXT_quaternion_geometric
 /// @ingroup ext
 ///

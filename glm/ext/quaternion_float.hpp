@@ -1,14 +1,15 @@
 /// @ref ext_quaternion_float
 /// @file glm/ext/quaternion_float.hpp
 ///
-/// @see core (dependence)
-///
 /// @defgroup ext_quaternion_float GLM_EXT_quaternion_float
 /// @ingroup ext
 ///
+/// Defines a templated quaternion type and several quaternion operations.
+///
 /// Include <glm/ext/quaternion_float.hpp> to use the features of this extension.
 ///
-/// Defines a templated quaternion type and several quaternion operations.
+/// @see ext_quaternion_double
+/// @see ext_quaternion_float_precision
 
 #pragma once
 
@@ -25,8 +26,6 @@ namespace glm
 	/// @{
 
 	/// Quaternion of single-precision floating-point numbers.
-	///
-	/// @see ext_quaternion_float
 	typedef qua<float, defaultp>		quat;
 
 	/// @}

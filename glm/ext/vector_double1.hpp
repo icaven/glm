@@ -1,14 +1,15 @@
 /// @ref ext_vector_double1
 /// @file glm/ext/vector_double1.hpp
 ///
-/// @see core (dependence)
-///
 /// @defgroup ext_vector_double1 GLM_EXT_vector_double1
 /// @ingroup ext
 ///
+/// Expose dvec1 vector type.
+///
 /// Include <glm/ext/vector_double1.hpp> to use the features of this extension.
 ///
-/// Expose dvec1 vector type.
+/// @see ext_vector_double1_precision extension.
+/// @see ext_vector_float1 extension.
 
 #pragma once
 
@@ -24,8 +25,6 @@ namespace glm
 	/// @{
 
 	/// 1 components vector of double-precision floating-point numbers.
-	///
-	/// @see ext_vector_double1 extension.
 	typedef vec<1, double, defaultp>		dvec1;
 
 	/// @}
