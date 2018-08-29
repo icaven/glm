@@ -687,21 +687,15 @@ However, defining `GLM_FORCE_UNRESTRICTED_GENTYPE` is not compatible with `GLM_F
 
 ### <a name="section3_1"></a> 3.1. Scalar types
 
-#### 3.1.1. GLM_EXT_scalar_float_sized
+#### 3.1.1. GLM_EXT_scalar_int_sized
 
-TODO
-
-Include `<glm/ext/scalar_float_sized.hpp>` to use these features.
-
-#### 3.1.2. GLM_EXT_scalar_int_sized
-
-TODO
+This extension exposes sized and signed integer types.
 
 Include `<glm/ext/scalar_int_sized.hpp>` to use these features.
 
-#### 3.1.3. GLM_EXT_scalar_uint_sized
+#### 3.1.2. GLM_EXT_scalar_uint_sized
 
-TODO
+This extension exposes sized and unsigned integer types.
 
 Include `<glm/ext/scalar_uint_sized.hpp>` to use these features.
 
@@ -709,13 +703,32 @@ Include `<glm/ext/scalar_uint_sized.hpp>` to use these features.
 
 #### 3.2.1. GLM_EXT_scalar_common
 
-TODO
+This extension exposes support for `min` and `max` functions taking more than two scalar arguments. Also, it adds `fmin` and `fmax` variants which prevents `NaN` probagation.
+
+```cpp
+#include <glm/ext/scalar_common.hpp>
+
+float PositiveMax(float const a, float const b)
+{
+    return glm::fmax(a, b, 0.0f);
+}
+```
 
 Include `<glm/ext/scalar_common.hpp>` to use these features.
 
 #### 3.2.2. GLM_EXT_scalar_relational
 
-TODO
+This extension exposes `equal` and `notEqual` variants which takes an epsilon argument.
+
+```cpp
+#include <glm/ext/scalar_relational.hpp>
+
+bool myEqual(float const a, float const b)
+{
+    float const CustomEpsilon = 0.0001f;
+    return glm::equal(a, b, CustomEpsilon);
+}
+```
 
 Include `<glm/ext/scalar_relational.hpp>` to use these features.
 
@@ -888,7 +901,7 @@ Provide a list of built-in constants.
 
 `<glm/gtc/constants.hpp>` need to be included to use these features.
 
-### <a name="section4_4"></a> 4.4. GLM_GTC_epsilon
+### <a name="section4_4"></a> 4.4. GLM\_GTC\_epsilon
 
 Approximate equality comparisons for floating-point numbers, possibly with a user-defined epsilon.
 
