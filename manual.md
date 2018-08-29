@@ -662,7 +662,7 @@ void foo(vec4 const& v)
 ### <a name="section2_18"></a> 2.18. GLM\_FORCE\_UNRESTRICTED\_GENTYPE: Removing genType restriction
 
 GLSL has restrictions on types supported by certain functions that may appear excessive.
-By default, GLM follows the GLSL specification as accurately as possible however it's possible to relax these rules using GLM\_FORCE\_UNRESTRICTED\_GENTYPE define.
+By default, GLM follows the GLSL specification as accurately as possible however it's possible to relax these rules using `GLM_FORCE_UNRESTRICTED_GENTYPE` define.
 
 ```cpp
 #include <glm/glm.hpp>
