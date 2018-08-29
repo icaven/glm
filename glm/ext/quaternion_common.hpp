@@ -34,7 +34,9 @@ namespace glm
 	/// @param x A quaternion
 	/// @param y A quaternion
 	/// @param a Interpolation factor. The interpolation is defined beyond the range [0, 1].
-	/// @tparam T Floating-point scalar types.
+	///
+	/// @tparam T A floating-point scalar type
+	/// @tparam Q A value from qualifier enum
 	///
 	/// @see - slerp(qua<T, Q> const& x, qua<T, Q> const& y, T const& a)
 	template<typename T, qualifier Q>
@@ -46,7 +48,9 @@ namespace glm
 	/// @param x A quaternion
 	/// @param y A quaternion
 	/// @param a Interpolation factor. The interpolation is defined in the range [0, 1].
-	/// @tparam T Floating-point scalar types.
+	///
+	/// @tparam T A floating-point scalar type
+	/// @tparam Q A value from qualifier enum
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> lerp(qua<T, Q> const& x, qua<T, Q> const& y, T a);
 
@@ -56,19 +60,23 @@ namespace glm
 	/// @param x A quaternion
 	/// @param y A quaternion
 	/// @param a Interpolation factor. The interpolation is defined beyond the range [0, 1].
-	/// @tparam T Floating-point scalar types.
+	///
+	/// @tparam T A floating-point scalar type
+	/// @tparam Q A value from qualifier enum
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> slerp(qua<T, Q> const& x, qua<T, Q> const& y, T a);
 
 	/// Returns the q conjugate.
 	///
-	/// @tparam T Floating-point scalar types.
+	/// @tparam T A floating-point scalar type
+	/// @tparam Q A value from qualifier enum
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> conjugate(qua<T, Q> const& q);
 
 	/// Returns the q inverse.
 	///
-	/// @tparam T Floating-point scalar types.
+	/// @tparam T A floating-point scalar type
+	/// @tparam Q A value from qualifier enum
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> inverse(qua<T, Q> const& q);
 
@@ -80,7 +88,8 @@ namespace glm
 	///
 	/// /!\ When using compiler fast math, this function may fail.
 	///
-	/// @tparam T Floating-point scalar types.
+	/// @tparam T A floating-point scalar type
+	/// @tparam Q A value from qualifier enum
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL vec<4, bool, Q> isnan(qua<T, Q> const& x);
 
@@ -90,7 +99,8 @@ namespace glm
 	/// otherwise, including for implementations with no infinity
 	/// representations.
 	///
-	/// @tparam T Floating-point scalar types.
+	/// @tparam T A floating-point scalar type
+	/// @tparam Q A value from qualifier enum
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL vec<4, bool, Q> isinf(qua<T, Q> const& x);
 

@@ -31,8 +31,6 @@ namespace glm
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point or integer scalar types
 	/// @tparam Q Value from qualifier enum
-	///
-	/// @see ext_vector_relational
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_DECL GLM_CONSTEXPR vec<L, bool, Q> equal(vec<L, T, Q> const& x, vec<L, T, Q> const& y, T epsilon);
 
@@ -42,8 +40,6 @@ namespace glm
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point or integer scalar types
 	/// @tparam Q Value from qualifier enum
-	///
-	/// @see ext_vector_relational
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_DECL GLM_CONSTEXPR vec<L, bool, Q> equal(vec<L, T, Q> const& x, vec<L, T, Q> const& y, vec<L, T, Q> const& epsilon);
 
@@ -53,8 +49,6 @@ namespace glm
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point or integer scalar types
 	/// @tparam Q Value from qualifier enum
-	///
-	/// @see ext_vector_relational
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_DECL GLM_CONSTEXPR vec<L, bool, Q> notEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y, T epsilon);
 
@@ -64,8 +58,6 @@ namespace glm
 	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
 	/// @tparam T Floating-point or integer scalar types
 	/// @tparam Q Value from qualifier enum
-	///
-	/// @see ext_vector_relational
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_DECL GLM_CONSTEXPR vec<L, bool, Q> notEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y, vec<L, T, Q> const& epsilon);
 

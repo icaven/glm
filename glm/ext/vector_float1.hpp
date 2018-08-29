@@ -9,6 +9,7 @@
 /// Include <glm/ext/vector_float1.hpp> to use the features of this extension.
 ///
 /// @see ext_vector_float1_precision extension.
+/// @see ext_vector_double1 extension.
 
 #pragma once
 
@@ -24,9 +25,6 @@ namespace glm
 	/// @{
 
 	/// 1 components vector of single-precision floating-point numbers.
-	///
-	/// @see ext_vector_float1_precision extension.
-	/// @see ext_vector_double1 extension.
 	typedef vec<1, float, defaultp>		vec1;
 
 	/// @}

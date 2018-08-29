@@ -23,8 +23,6 @@ namespace glm
 	/// True if this expression is satisfied.
 	///
 	/// @tparam genType Floating-point or integer scalar types
-	///
-	/// @see ext_scalar_relational
 	template<typename genType>
 	GLM_FUNC_DECL GLM_CONSTEXPR bool equal(genType const& x, genType const& y, genType const& epsilon);
 
@@ -32,8 +30,6 @@ namespace glm
 	/// True if this expression is not satisfied.
 	///
 	/// @tparam genType Floating-point or integer scalar types
-	///
-	/// @see ext_scalar_relational
 	template<typename genType>
 	GLM_FUNC_DECL GLM_CONSTEXPR bool notEqual(genType const& x, genType const& y, genType const& epsilon);
 

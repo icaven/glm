@@ -29,8 +29,6 @@ namespace glm
 	///
 	/// @tparam T A floating-point scalar type
 	/// @tparam Q A value from qualifier enum
-	///
-	/// @see ext_quaternion_exponential
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> exp(qua<T, Q> const& q);
 
@@ -38,8 +36,6 @@ namespace glm
 	///
 	/// @tparam T A floating-point scalar type
 	/// @tparam Q A value from qualifier enum
-	///
-	/// @see ext_quaternion_exponential
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> log(qua<T, Q> const& q);
 
@@ -47,8 +43,6 @@ namespace glm
 	///
 	/// @tparam T A floating-point scalar type
 	/// @tparam Q A value from qualifier enum
-	///
-	/// @see ext_quaternion_exponential
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> pow(qua<T, Q> const& q, T y);
 
@@ -56,8 +50,6 @@ namespace glm
 	///
 	/// @tparam T A floating-point scalar type
 	/// @tparam Q A value from qualifier enum
-	///
-	/// @see ext_quaternion_exponential
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL qua<T, Q> sqrt(qua<T, Q> const& q);
 
