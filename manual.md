@@ -661,26 +661,29 @@ void foo(vec4 const& v)
 
 ### <a name="section2_18"></a> 2.18. GLM\_FORCE\_UNRESTRICTED\_GENTYPE: Removing genType restriction
 
-By default GLM only supports basic types as genType for vector, matrix and quaternion types:
+GLSL has restrictions on types supported by certain functions that may appear excessive.
+By default, GLM follows the GLSL specification as accurately as possible however it's possible to relax these rules using GLM\_FORCE\_UNRESTRICTED\_GENTYPE define.
 
 ```cpp
 #include <glm/glm.hpp>
 
-typedef glm::vec<4, float> my_fvec4;
+float average(float const A, float const B)
+{
+    return glm::mix(A, B, 0.5f); // By default glm::mix only supports floating-point types
+}
 ```
 
-GLM 0.9.8 introduced GLM\_FORCE\_UNRESTRICTED\_GENTYPE define to relax this restriction:
+By defining GLM\_FORCE\_UNRESTRICTED\_GENTYPE, we allow using integer types:
 
 ```cpp
 #define GLM_FORCE_UNRESTRICTED_GENTYPE
 #include <glm/glm.hpp>
 
-#include "half.hpp" // Define “half” class with behavior equivalent to “float”
-
-typedef glm::vec<4, half> my_hvec4;
+int average(int const A, int const B)
+{
+    return glm::mix(A, B, 0.5f); // integers are ok thanks to GLM_FORCE_UNRESTRICTED_GENTYPE
+}
 ```
-
-However, defining `GLM_FORCE_UNRESTRICTED_GENTYPE` is not compatible with `GLM_FORCE_SWIZZLE` and will generate a compilation error if both are defined at the same time.
 
 ---
 ## <a name="section3"></a> 3. Stable extensions
@@ -703,12 +706,12 @@ Include `<glm/ext/scalar_uint_sized.hpp>` to use these features.
 
 #### 3.2.1. GLM_EXT_scalar_common
 
-This extension exposes support for `min` and `max` functions taking more than two scalar arguments. Also, it adds `fmin` and `fmax` variants which prevents `NaN` probagation.
+This extension exposes support for `min` and `max` functions taking more than two scalar arguments. Also, it adds `fmin` and `fmax` variants which prevents `NaN` propagation.
 
 ```cpp
 #include <glm/ext/scalar_common.hpp>
 
-float PositiveMax(float const a, float const b)
+float positiveMax(float const a, float const b)
 {
     return glm::fmax(a, b, 0.0f);
 }
@@ -718,12 +721,12 @@ Include `<glm/ext/scalar_common.hpp>` to use these features.
 
 #### 3.2.2. GLM_EXT_scalar_relational
 
-This extension exposes `equal` and `notEqual` variants which takes an epsilon argument.
+This extension exposes `equal` and `notEqual` scalar variants which takes an epsilon argument.
 
 ```cpp
 #include <glm/ext/scalar_relational.hpp>
 
-bool myEqual(float const a, float const b)
+bool epsilonEqual(float const a, float const b)
 {
     float const CustomEpsilon = 0.0001f;
     return glm::equal(a, b, CustomEpsilon);
@@ -734,7 +737,26 @@ Include `<glm/ext/scalar_relational.hpp>` to use these features.
 
 #### 3.2.3. GLM_EXT_scalar_constants
 
-TODO
+This extension exposes useful constants such as `epsilon` and `pi`.
+
+```cpp
+#include <glm/ext/scalar_constants.hpp>
+
+float circumference(float const Diameter)
+{
+    return glm::pi<float>() * Diameter;
+}
+```
+
+```cpp
+#include <glm/common.hpp> // abs
+#include <glm/ext/scalar_constants.hpp> // epsilon
+
+bool equalULP1(float const a, float const b)
+{
+    return glm::abs(a - b) <= glm::epsilon<float>();
+}
+```
 
 Include `<glm/ext/scalar_constants.hpp>` to use these features.
 
@@ -764,13 +786,34 @@ TODO
 
 #### 3.4.1. GLM_EXT_vector_common
 
-TODO
+This extension exposes support for `min` and `max` functions taking more than two vector arguments. Also, it adds `fmin` and `fmax` variants which prevents `NaN` propagation.
 
-Include `<glm/ext/vector_constants.hpp>` to use these features.
+```cpp
+#include <glm/ext/vector_float2.hpp> // vec2
+#include <glm/ext/vector_common.hpp> // fmax
+
+float positiveMax(float const a, float const b)
+{
+    return glm::fmax(a, b, 0.0f);
+}
+```
+
+Include `<glm/ext/vector_common.hpp>` to use these features.
 
 #### 3.4.2. GLM_EXT_vector_relational
 
-TODO
+This extension exposes `equal` and `notEqual` vector variants which takes an epsilon argument.
+
+```cpp
+#include <glm/ext/vector_float2.hpp> // vec2
+#include <glm/ext/vector_relational.hpp> // equal, all
+
+bool epsilonEqual(glm::vec2 const& A, glm::vec2 const& B)
+{
+    float const CustomEpsilon = 0.0001f;
+    return glm::all(glm::equal(A, B, CustomEpsilon));
+}
+```
 
 Include `<glm/ext/vector_relational.hpp>` to use these features.
 
@@ -788,7 +831,20 @@ TODO
 
 #### 3.6.1. GLM_EXT_matrix_relational
 
-TODO
+This extension exposes `equal` and `notEqual` matrix variants which takes an optional epsilon argument.
+
+```cpp
+#include <glm/ext/vector_bool4.hpp> // bvec4
+#include <glm/ext/matrix_float4x4.hpp> // mat4
+#include <glm/ext/matrix_relational.hpp> // equal, all
+
+bool epsilonEqual(glm::mat4 const& A, glm::mat4 const& B)
+{
+    float const CustomEpsilon = 0.0001f;
+    glm::bvec4 const ColumnEqual = glm::equal(A, B, CustomEpsilon); // Evaluation per column
+    return glm::all(ColumnEqual);
+}
+```
 
 Include `<glm/ext/matrix_relational.hpp>` to use these features.
 
