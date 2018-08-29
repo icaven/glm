@@ -7,6 +7,10 @@
 /// Comparison functions for a user defined epsilon values.
 ///
 /// Include <glm/ext/matrix_relational.hpp> to use the features of this extension.
+///
+/// @see ext_vector_relational
+/// @see ext_scalar_relational
+/// @see ext_quaternion_relational
 
 #pragma once
 

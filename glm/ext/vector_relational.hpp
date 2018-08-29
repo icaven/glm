@@ -10,6 +10,7 @@
 ///
 /// @see core_vector_relational
 /// @see ext_scalar_relational
+/// @see ext_matrix_relational
 
 #pragma once
 

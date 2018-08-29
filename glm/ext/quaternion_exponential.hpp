@@ -4,9 +4,13 @@
 /// @defgroup ext_quaternion_exponential GLM_EXT_quaternion_exponential
 /// @ingroup ext
 ///
+/// Defines a templated quaternion type and several quaternion operations.
+///
 /// Include <glm/ext/quaternion_exponential.hpp> to use the features of this extension.
 ///
-/// Defines a templated quaternion type and several quaternion operations.
+/// @see core_exponential
+/// @see ext_quaternion_float
+/// @see ext_quaternion_double
 
 #pragma once
 

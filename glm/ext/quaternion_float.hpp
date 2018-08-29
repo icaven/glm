@@ -10,6 +10,12 @@
 ///
 /// @see ext_quaternion_double
 /// @see ext_quaternion_float_precision
+/// @see ext_quaternion_common
+/// @see ext_quaternion_exponential
+/// @see ext_quaternion_geometric
+/// @see ext_quaternion_relational
+/// @see ext_quaternion_transform
+/// @see ext_quaternion_trigonometric
 
 #pragma once
 

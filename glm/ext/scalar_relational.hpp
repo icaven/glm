@@ -4,9 +4,13 @@
 /// @defgroup ext_scalar_relational GLM_EXT_scalar_relational
 /// @ingroup ext
 ///
+/// Comparison functions for a user defined epsilon values.
+///
 /// Include <glm/ext/scalar_relational.hpp> to use the features of this extension.
 ///
-/// Comparison functions for a user defined epsilon values.
+/// @see core_vector_relational
+/// @see ext_vector_relational
+/// @see ext_matrix_relational
 
 #pragma once
 

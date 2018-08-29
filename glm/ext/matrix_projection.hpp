@@ -13,6 +13,9 @@
 /// specifications defines the particular layout of this eye space.
 ///
 /// Include <glm/ext/matrix_projection.hpp> to use the features of this extension.
+///
+/// @see ext_matrix_transform
+/// @see ext_matrix_clip_space
 
 #pragma once
 

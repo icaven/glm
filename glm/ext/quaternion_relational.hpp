@@ -7,6 +7,12 @@
 /// Include <glm/ext/quaternion_relational.hpp> to use the features of this extension.
 ///
 /// Defines a templated quaternion type and several quaternion operations.
+///
+/// @see core_vector_relational
+/// @see ext_vector_relational
+/// @see ext_matrix_relational
+/// @see ext_quaternion_float
+/// @see ext_quaternion_double
 
 #pragma once
 

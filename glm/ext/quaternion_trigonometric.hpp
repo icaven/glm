@@ -7,6 +7,13 @@
 /// Include <glm/ext/quaternion_trigonometric.hpp> to use the features of this extension.
 ///
 /// Defines a templated quaternion type and several quaternion operations.
+///
+/// @see ext_quaternion_float
+/// @see ext_quaternion_double
+/// @see ext_quaternion_exponential
+/// @see ext_quaternion_geometric
+/// @see ext_quaternion_relational
+/// @see ext_quaternion_transform
 
 #pragma once
 

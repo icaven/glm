@@ -13,6 +13,9 @@
 /// space into the specific eye space that the projective matrix functions
 /// (perspective, ortho, etc) are designed to expect. The OpenGL compatibility
 /// specifications defines the particular layout of this eye space.
+///
+/// @see ext_matrix_projection
+/// @see ext_matrix_clip_space
 
 #pragma once
 
