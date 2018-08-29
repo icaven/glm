@@ -687,8 +687,6 @@ However, defining `GLM_FORCE_UNRESTRICTED_GENTYPE` is not compatible with `GLM_F
 
 ### <a name="section3_1"></a> 3.1. Scalar types
 
-TODO
-
 #### 3.1.1. GLM_EXT_scalar_float_sized
 
 TODO
@@ -751,13 +749,13 @@ TODO
 
 ### <a name="section3_4"></a> 3.4. Vector functions
 
-### <a name="section3_22"></a> 3.22. GLM_EXT_vector_common
+#### 3.4.1. GLM_EXT_vector_common
 
 TODO
 
 Include `<glm/ext/vector_constants.hpp>` to use these features.
 
-### <a name="section3_26"></a> 3.26. GLM_EXT_vector_relational
+#### 3.4.2. GLM_EXT_vector_relational
 
 TODO
 
@@ -799,7 +797,7 @@ TODO
 
 Include `<glm/ext/matrix_projection.hpp>` to use these features.
 
-### <a name="section3_5"></a> 3.7. Quaternion types
+### <a name="section3_7"></a> 3.7. Quaternion types
 
 #### 3.7.1. GLM_EXT_quaternion_float(_precision)
 
@@ -809,39 +807,39 @@ TODO
 
 TODO
 
-### <a name="section3_6"></a> 3.8. Quaternion functions
+### <a name="section3_8"></a> 3.8. Quaternion functions
 
-3.8.1. GLM_EXT_quaternion_common
+#### 3.8.1. GLM_EXT_quaternion_common
 
 TODO
 
 Include `<glm/ext/quaternion_common.hpp>` to use these features.
 
-3.8.2. GLM_EXT_quaternion_geometric
+#### 3.8.2. GLM_EXT_quaternion_geometric
 
 TODO
 
 Include `<glm/ext/quaternion_geometric.hpp>` to use these features.
 
-3.8.3. GLM_EXT_quaternion_trigonometric
+#### 3.8.3. GLM_EXT_quaternion_trigonometric
 
 TODO
 
 Include `<glm/ext/quaternion_trigonometric.hpp>` to use these features.
 
-3.8.4. GLM_EXT_quaternion_exponential
+#### 3.8.4. GLM_EXT_quaternion_exponential
 
 TODO
 
 Include `<glm/ext/quaternion_exponential.hpp>` to use these features.
 
-3.8.5. GLM_EXT_quaternion_relational
+#### 3.8.5. GLM_EXT_quaternion_relational
 
 TODO
 
 Include `<glm/ext/quaternion_relational.hpp>` to use these features.
 
-3.8.6. GLM_EXT_quaternion_transform
+#### 3.8.6. GLM_EXT_quaternion_transform
 
 TODO
 
@@ -884,13 +882,13 @@ Conversion between linear RGB and sRGB color spaces.
 
 `<glm/gtc/color_space.hpp>` need to be included to use these features.
 
-### <a name="section4_3"></a> 4.3. GLM\_GTC\_constants
+### <a name="section4_3"></a> 4.3. GLM_GTC_constants
 
 Provide a list of built-in constants.
 
 `<glm/gtc/constants.hpp>` need to be included to use these features.
 
-### <a name="section4_4"></a> 4.4. GLM\_GTC\_epsilon
+### <a name="section4_4"></a> 4.4. GLM_GTC_epsilon
 
 Approximate equality comparisons for floating-point numbers, possibly with a user-defined epsilon.
 
