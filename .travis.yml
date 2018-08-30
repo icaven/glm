@@ -434,11 +434,12 @@ matrix:
       addons:
         apt:
           sources:
-            - llvm-toolchain-trusty-3.9
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.6
           packages:
-            - clang-3.9
+            - clang-3.6
       env:
-        - MATRIX_EVAL="CC=clang-3.9 && CXX=clang++-3.9 && INFO=C++14-pure-release"
+        - MATRIX_EVAL="CC=clang-3.6 && CXX=clang++-3.6 && INFO=C++14-pure-release"
       script:
         - cmake --version
         - mkdir ./build_pure_14_release
@@ -451,11 +452,12 @@ matrix:
       addons:
         apt:
           sources:
-            - llvm-toolchain-trusty-3.9
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.6
           packages:
-            - clang-3.9
+            - clang-3.6
       env:
-        - MATRIX_EVAL="CC=clang-3.9 && CXX=clang++-3.9 && INFO=C++14-pure-debug"
+        - MATRIX_EVAL="CC=clang-3.6 && CXX=clang++-3.6 && INFO=C++14-pure-debug"
       script:
         - cmake --version
         - mkdir ./build_pure_14_debug
@@ -468,11 +470,12 @@ matrix:
       addons:
         apt:
           sources:
-            - llvm-toolchain-trusty-3.9
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.6
           packages:
-            - clang-3.9
+            - clang-3.6
       env:
-        - MATRIX_EVAL="CC=clang-3.9 && CXX=clang++-3.9 && INFO=C++14-avx-debug"
+        - MATRIX_EVAL="CC=clang-3.6 && CXX=clang++-3.6 && INFO=C++14-avx-debug"
       script:
         - cmake --version
         - mkdir ./build_avx_14_debug
