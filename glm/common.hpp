@@ -6,9 +6,9 @@
 /// @defgroup core_func_common Common functions
 /// @ingroup core
 ///
-/// Include <glm/common.hpp> to use these core features.
-///
 /// These all operate component-wise. The description is per component.
+///
+/// Include <glm/common.hpp> to use these core features.
 
 #pragma once
 

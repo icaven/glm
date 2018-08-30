@@ -463,7 +463,7 @@ Additionally, GLM provides a low level SIMD API in glm/simd directory for users 
 
 C++ does not provide a way to implement GLSL default precision selection (as defined in GLSL 4.10 specification section 4.5.3) with GLSL-like syntax.
 
-```cpp
+```glsl
 precision mediump int;
 precision highp float;
 ```
@@ -508,7 +508,7 @@ Some platforms (Dreamcast) doesn't support double precision floating point value
 
 Shader languages like GLSL often feature so-called swizzle expressions, which may be used to freely select and arrange a vector's components. For example, `variable.x`, `variable.xzy` and `variable.zxyy` respectively form a scalar, a 3D vector and a 4D vector.  The result of a swizzle expression in GLSL can be either an R-value or an L-value. Swizzle expressions can be written with characters from exactly one of `xyzw` (usually for positions), `rgba` (usually for colors), and `stpq` (usually for texture coordinates).
 
-```cpp
+```glsl
 vec4 A;
 vec2 B;
 
@@ -700,6 +700,19 @@ Include `<glm/ext/scalar_int_sized.hpp>` to use these features.
 
 This extension exposes sized and unsigned integer types.
 
+```cpp
+#include <glm/ext/scalar_common.hpp>
+
+glm::uint64 pack(glm::uint32 A, glm::uint16 B, glm::uint8 C, glm::uint8 D)
+{
+	glm::uint64 ShiftA = 0;
+	glm::uint64 ShiftB = sizeof(glm::uint32) * 8;
+	glm::uint64 ShiftC = (sizeof(glm::uint32) + sizeof(glm::uint16)) * 8;
+	glm::uint64 ShiftD = (sizeof(glm::uint32) + sizeof(glm::uint16) + sizeof(glm::uint8)) * 8;
+	return (glm::uint64(A) << ShiftA) | (glm::uint64(B) << ShiftB) | (glm::uint64(C) << ShiftC) | (glm::uint64(D) << ShiftD);
+}
+```
+
 Include `<glm/ext/scalar_uint_sized.hpp>` to use these features.
 
 ### <a name="section3_2"></a> 3.2. Scalar functions
@@ -850,17 +863,44 @@ Include `<glm/ext/matrix_relational.hpp>` to use these features.
 
 #### 3.6.2. GLM_EXT_matrix_transform
 
-TODO
+This extension exposes matrix transformation functions: `translate`, `rotate` and `scale`.
+
+```cpp
+#include <glm/ext/vector_float2.hpp> // vec2
+#include <glm/ext/vector_float3.hpp> // vec3
+#include <glm/ext/matrix_float4x4.hpp> // mat4x4
+#include <glm/ext/matrix_transform.hpp> // translate, rotate, scale, identity
+
+glm::mat4 computeModelViewMatrix(float Translate, glm::vec2 const & Rotate)
+{
+	glm::mat4 View = glm::translate(glm::identity(), glm::vec3(0.0f, 0.0f, -Translate));
+	View = glm::rotate(View, Rotate.y, glm::vec3(-1.0f, 0.0f, 0.0f));
+	View = glm::rotate(View, Rotate.x, glm::vec3(0.0f, 1.0f, 0.0f));
+	glm::mat4 Model = glm::scale(glm::identity(), glm::vec3(0.5f));
+	return View * Model;
+}
+```
 
 Include `<glm/ext/matrix_transform.hpp>` to use these features.
 
-#### 3.6.3. GLM_EXT_matrix_clip_space
+#### 3.6.4. GLM_EXT_matrix_clip_space
 
-TODO
+This extension exposes functions to transform scenes into the clip space.
+
+```cpp
+#include <glm/ext/matrix_float4x4.hpp> // mat4x4
+#include <glm/ext/matrix_clip_space.hpp> // perspective
+#include <glm/trigonometric.hpp> // radians
+
+glm::mat4 computeProjection(float Width, float Height)
+{
+	return glm::perspective(glm::radians(45.0f), Width / Height, 0.1f, 100.f);
+}
+```
 
 Include `<glm/ext/matrix_clip_space.hpp>` to use these features.
 
-#### 3.6.4. GLM_EXT_matrix_projection
+#### 3.6.3. GLM_EXT_matrix_projection
 
 TODO
 

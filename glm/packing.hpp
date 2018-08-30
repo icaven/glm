@@ -7,9 +7,9 @@
 /// @defgroup core_func_packing Floating-Point Pack and Unpack Functions
 /// @ingroup core
 ///
-/// Include <glm/packing.hpp> to use these core features.
-///
 /// These functions do not operate component-wise, rather as described in each case.
+///
+/// Include <glm/packing.hpp> to use these core features.
 
 #pragma once
 
