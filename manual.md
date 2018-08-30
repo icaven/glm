@@ -775,13 +775,107 @@ Include `<glm/ext/scalar_constants.hpp>` to use these features.
 
 ### <a name="section3_3"></a> 3.3. Vector types
 
-#### 3.3.1. GLM_EXT_vector_floatX(_precision)
+#### 3.3.1. GLM_EXT_vector_float1
 
-TODO
+This extension exposes single-precision floating point vector with 1 component: `vec1`.
 
-#### 3.3.2. GLM_EXT_vector_doubleX(_precision)
+Include `<glm/ext/vector_float1.hpp>` to use these features.
 
-TODO
+#### 3.3.2. GLM_EXT_vector_float1_precision
+
+This extension exposes single-precision floating point vector with 1 component using various precision in term of ULPs: `lowp_vec1`, `mediump_vec1` and `highp_vec1`.
+
+Include `<glm/ext/vector_float1_precision.hpp>` to use these features.
+
+#### 3.3.3. GLM_EXT_vector_float2
+
+This extension exposes single-precision floating point vector with 2 components: `vec2`.
+
+Include `<glm/ext/vector_float2.hpp>` to use these features.
+
+#### 3.3.4. GLM_EXT_vector_float2_precision
+
+This extension exposes single-precision floating point vector with 2 components using various precision in term of ULPs: `lowp_vec2`, `mediump_vec2` and `highp_vec2`.
+
+Include `<glm/ext/vector_float2_precision.hpp>` to use these features.
+
+#### 3.3.5. GLM_EXT_vector_float3
+
+This extension exposes single-precision floating point vector with 3 components: `vec3`.
+
+Include `<glm/ext/vector_float3.hpp>` to use these features.
+
+#### 3.3.6. GLM_EXT_vector_float3_precision
+
+This extension exposes single-precision floating point vector with 3 components using various precision in term of ULPs: `lowp_vec3`, `mediump_vec3` and `highp_vec3`.
+
+Include `<glm/ext/vector_float3_precision.hpp>` to use these features.
+
+#### 3.3.7. GLM_EXT_vector_float4
+
+This extension exposes single-precision floating point vector with 4 components: `vec4`.
+
+Include `<glm/ext/vector_float4.hpp>` to use these features.
+
+#### 3.3.8. GLM_EXT_vector_float4_precision
+
+This extension exposes single-precision floating point vector with 4 components using various precision in term of ULPs: `lowp_vec4`, `mediump_vec4` and `highp_vec4`.
+
+Include `<glm/ext/vector_float4_precision.hpp>` to use these features.
+
+#### 3.3.9. GLM_EXT_vector_double1
+
+This extension exposes double-precision floating point vector with 1 component: `dvec1`.
+
+Include `<glm/ext/vector_double1.hpp>` to use these features.
+
+#### 3.3.10. GLM_EXT_vector_double1_precision
+
+This extension exposes double-precision floating point vector with 1 component using various precision in term of ULPs: `lowp_dvec1`, `mediump_dvec1` and `highp_dvec1`.
+
+Include `<glm/ext/vector_double1_precision.hpp>` to use these features.
+
+#### 3.3.11. GLM_EXT_vector_double2
+
+This extension exposes double-precision floating point vector with 2 components: `dvec2`.
+
+Include `<glm/ext/vector_double2.hpp>` to use these features.
+
+#### 3.3.12. GLM_EXT_vector_double2_precision
+
+This extension exposes double-precision floating point vector with 2 components using various precision in term of ULPs: `lowp_dvec2`, `mediump_dvec2` and `highp_dvec2`.
+
+Include `<glm/ext/vector_double2_precision.hpp>` to use these features.
+
+#### 3.3.13. GLM_EXT_vector_double3
+
+This extension exposes double-precision floating point vector with 3 components: `dvec3`.
+
+Include `<glm/ext/vector_double3.hpp>` to use these features.
+
+#### 3.3.14. GLM_EXT_vector_double3_precision
+
+This extension exposes double-precision floating point vector with 3 components using various precision in term of ULPs: `lowp_dvec3`, `mediump_dvec3` and `highp_dvec3`.
+
+Include `<glm/ext/vector_double3_precision.hpp>` to use these features.
+
+#### 3.3.15. GLM_EXT_vector_double4
+
+This extension exposes double-precision floating point vector with 4 components: `dvec4`.
+
+Include `<glm/ext/vector_double4.hpp>` to use these features.
+
+#### 3.3.16. GLM_EXT_vector_double4_precision
+
+This extension exposes double-precision floating point vector with 4 components using various precision in term of ULPs: `lowp_dvec4`, `mediump_dvec4` and `highp_dvec4`.
+
+Include `<glm/ext/vector_double4_precision.hpp>` to use these features.
+
+
+
+
+
+
 
 #### 3.3.3. GLM_EXT_vector_intX(_precision)
 
@@ -902,7 +996,7 @@ Include `<glm/ext/matrix_clip_space.hpp>` to use these features.
 
 #### 3.6.3. GLM_EXT_matrix_projection
 
-TODO
+This extension exposes functions to map object coordinates into window coordinates and reverse
 
 Include `<glm/ext/matrix_projection.hpp>` to use these features.
 
@@ -920,19 +1014,19 @@ TODO
 
 #### 3.8.1. GLM_EXT_quaternion_common
 
-TODO
+This extension exposes common quaternion functions such as `slerp`, `conjugate` and `inverse`.
 
 Include `<glm/ext/quaternion_common.hpp>` to use these features.
 
 #### 3.8.2. GLM_EXT_quaternion_geometric
 
-TODO
+This extension exposes geometric quaternion functions such as `length`, `normalize`, `dot` and `cross`.
 
 Include `<glm/ext/quaternion_geometric.hpp>` to use these features.
 
 #### 3.8.3. GLM_EXT_quaternion_trigonometric
 
-TODO
+This extension exposes trigonometric quaternion functions such as `angle` and `axis`.
 
 Include `<glm/ext/quaternion_trigonometric.hpp>` to use these features.
 
@@ -944,13 +1038,13 @@ Include `<glm/ext/quaternion_exponential.hpp>` to use these features.
 
 #### 3.8.5. GLM_EXT_quaternion_relational
 
-TODO
+This extension exposes relational functions to compare quaternions.
 
 Include `<glm/ext/quaternion_relational.hpp>` to use these features.
 
 #### 3.8.6. GLM_EXT_quaternion_transform
 
-TODO
+This extension exposes functions to transform objects.
 
 Include `<glm/ext/quaternion_transform.hpp>` to use these features.
 
