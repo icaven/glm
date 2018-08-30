@@ -7,7 +7,6 @@
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
 #include <glm/vec4.hpp>
-#include <cstdio>
 #include <vector>
 
 static glm::vec3 g1;
