@@ -4,7 +4,7 @@
 /// @defgroup ext_quaternion_geometric GLM_EXT_quaternion_geometric
 /// @ingroup ext
 ///
-/// Defines a templated quaternion type and several quaternion operations.
+/// Provides geometric functions for quaternion types
 ///
 /// Include <glm/ext/quaternion_geometric.hpp> to use the features of this extension.
 ///

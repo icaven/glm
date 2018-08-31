@@ -7,6 +7,8 @@
 /// @defgroup core_func_packing Floating-Point Pack and Unpack Functions
 /// @ingroup core
 ///
+/// Provide GLSL functions to pack and unpack half, single and double-precision floating point values into more compact integer types.
+///
 /// These functions do not operate component-wise, rather as described in each case.
 ///
 /// Include <glm/packing.hpp> to use these core features.

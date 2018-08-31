@@ -4,7 +4,7 @@
 /// @defgroup ext_scalar_common GLM_EXT_scalar_common
 /// @ingroup ext
 ///
-/// Min and max functions for 3 to 4 scalar parameters.
+/// Exposes min and max functions for 3 to 4 scalar parameters.
 ///
 /// Include <glm/ext/scalar_common.hpp> to use the features of this extension.
 ///

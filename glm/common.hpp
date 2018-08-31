@@ -6,6 +6,8 @@
 /// @defgroup core_func_common Common functions
 /// @ingroup core
 ///
+/// Provide GLSL common functions
+///
 /// These all operate component-wise. The description is per component.
 ///
 /// Include <glm/common.hpp> to use these core features.

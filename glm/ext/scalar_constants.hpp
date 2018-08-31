@@ -4,7 +4,7 @@
 /// @defgroup ext_scalar_constants GLM_EXT_scalar_constants
 /// @ingroup ext
 ///
-/// Provide a list of constants and precomputed useful values.
+/// Provides a list of constants and precomputed useful values.
 ///
 /// Include <glm/ext/scalar_constants.hpp> to use the features of this extension.
 

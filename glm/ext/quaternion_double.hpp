@@ -4,7 +4,7 @@
 /// @defgroup ext_quaternion_double GLM_EXT_quaternion_double
 /// @ingroup ext
 ///
-/// Defines a templated quaternion type and several quaternion operations.
+/// Exposes double-precision floating point quaternion type.
 ///
 /// Include <glm/ext/quaternion_double.hpp> to use the features of this extension.
 ///

@@ -4,7 +4,7 @@
 /// @defgroup ext_vector_common GLM_EXT_vector_common
 /// @ingroup ext
 ///
-/// Min and max functions for 3 to 4 parameters.
+/// Exposes min and max functions for 3 to 4 vector parameters.
 ///
 /// Include <glm/ext/vector_common.hpp> to use the features of this extension.
 ///
