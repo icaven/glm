@@ -4,9 +4,9 @@
 /// @defgroup ext_quaternion_double_precision GLM_EXT_quaternion_double_precision
 /// @ingroup ext
 ///
-/// Include <glm/ext/quaternion_double_precision.hpp> to use the features of this extension.
-///
 /// Defines a templated quaternion type and several quaternion operations.
+///
+/// Include <glm/ext/quaternion_double_precision.hpp> to use the features of this extension.
 
 #pragma once
 

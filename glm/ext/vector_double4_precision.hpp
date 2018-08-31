@@ -7,7 +7,7 @@
 
 namespace glm
 {
-	/// @addtogroup core_precision
+	/// @addtogroup core_vector_precision
 	/// @{
 
 	/// 4 components vector of high double-qualifier floating-point numbers.

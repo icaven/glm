@@ -4,9 +4,9 @@
 /// @defgroup ext_quaternion_transform GLM_EXT_quaternion_transform
 /// @ingroup ext
 ///
-/// Include <glm/ext/quaternion_transform.hpp> to use the features of this extension.
-///
 /// Defines a templated quaternion type and several quaternion operations.
+///
+/// Include <glm/ext/quaternion_transform.hpp> to use the features of this extension.
 ///
 /// @see ext_quaternion_float
 /// @see ext_quaternion_double

@@ -6,7 +6,7 @@
 
 namespace glm
 {
-	/// @addtogroup core_precision
+	/// @addtogroup core_matrix_precision
 	/// @{
 
 	/// 4 columns of 4 components matrix of single-precision floating-point numbers using low precision arithmetic in term of ULPs.

@@ -4,7 +4,7 @@
 /// @defgroup ext_vector_float1 GLM_EXT_vector_float1
 /// @ingroup ext
 ///
-/// Floating point vector type with one component.
+/// Exposes single-precision floating point vector type with one component.
 ///
 /// Include <glm/ext/vector_float1.hpp> to use the features of this extension.
 ///

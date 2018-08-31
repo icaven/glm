@@ -4,9 +4,9 @@
 /// @defgroup ext_quaternion_relational GLM_EXT_quaternion_relational
 /// @ingroup ext
 ///
-/// Include <glm/ext/quaternion_relational.hpp> to use the features of this extension.
-///
 /// Defines a templated quaternion type and several quaternion operations.
+///
+/// Include <glm/ext/quaternion_relational.hpp> to use the features of this extension.
 ///
 /// @see core_vector_relational
 /// @see ext_vector_relational

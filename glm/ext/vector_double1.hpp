@@ -4,7 +4,7 @@
 /// @defgroup ext_vector_double1 GLM_EXT_vector_double1
 /// @ingroup ext
 ///
-/// Expose dvec1 vector type.
+/// Exposes double-precision floating point vector type with one component.
 ///
 /// Include <glm/ext/vector_double1.hpp> to use the features of this extension.
 ///

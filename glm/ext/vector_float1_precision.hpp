@@ -4,9 +4,9 @@
 /// @defgroup ext_vector_float1_precision GLM_EXT_vector_float1_precision
 /// @ingroup ext
 ///
-/// Include <glm/ext/vector_float1_precision.hpp> to use the features of this extension.
-///
 /// Exposes highp_vec1, mediump_vec1 and lowp_vec1 types.
+///
+/// Include <glm/ext/vector_float1_precision.hpp> to use the features of this extension.
 ///
 /// @see ext_vector_float1 extension.
 

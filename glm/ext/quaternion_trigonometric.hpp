@@ -4,9 +4,9 @@
 /// @defgroup ext_quaternion_trigonometric GLM_EXT_quaternion_trigonometric
 /// @ingroup ext
 ///
-/// Include <glm/ext/quaternion_trigonometric.hpp> to use the features of this extension.
-///
 /// Defines a templated quaternion type and several quaternion operations.
+///
+/// Include <glm/ext/quaternion_trigonometric.hpp> to use the features of this extension.
 ///
 /// @see ext_quaternion_float
 /// @see ext_quaternion_double

@@ -6,7 +6,7 @@
 
 namespace glm
 {
-	/// @addtogroup core_precision
+	/// @addtogroup core_vector_precision
 	/// @{
 
 	/// 3 components vector of high qualifier bool numbers.
