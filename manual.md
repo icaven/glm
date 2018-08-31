@@ -1273,21 +1273,29 @@ Include `<glm/ext/matrix_projection.hpp>` to use these features.
 
 #### 3.9.1. GLM_EXT_quaternion_float
 
-TODO
+This extension exposes single-precision floating point quaternion: `quat`.
+
+Include `<glm/ext/quaternion_float.hpp>` to use these features.
 
 #### 3.9.2. GLM_EXT_quaternion_double
 
-TODO
+This extension exposes double-precision floating point quaternion: `dquat`.
+
+Include `<glm/ext/quaternion_double.hpp>` to use these features.
 
 ### <a name="section3_10"></a> 3.10. Quaternion types with precision qualifiers
 
 #### 3.10.1. GLM_EXT_quaternion_float_precision
 
-TODO
+This extension exposes single-precision floating point quaternion using various precision in term of ULPs: `lowp_quat`, `mediump_quat` and `highp_quat`.
+
+Include `<glm/ext/quaternion_float_precision.hpp>` to use these features.
 
 #### 3.10.2. GLM_EXT_quaternion_double_precision
 
-TODO
+This extension exposes double-precision floating point quaternion using various precision in term of ULPs: `lowp_dquat`, `mediump_dquat` and `highp_dquat`.
+
+Include `<glm/ext/quaternion_double_precision.hpp>` to use these features.
 
 ### <a name="section3_11"></a> 3.11. Quaternion functions
 
@@ -1311,7 +1319,7 @@ Include `<glm/ext/quaternion_trigonometric.hpp>` to use these features.
 
 #### 3.11.4. GLM_EXT_quaternion_exponential
 
-TODO
+This extensions expose exponential functions for quaternions such as `exp`, `log`, `pow` and `sqrt`.
 
 Include `<glm/ext/quaternion_exponential.hpp>` to use these features.
 

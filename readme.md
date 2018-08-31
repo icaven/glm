@@ -61,13 +61,14 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Added Visual C++ language standard version detection
 
 #### Improvements:
+- Added a section to the manual for contributing to GLM
+- Refactor manual, lists all configuration defines
 - Added missing vec1 based constructors
 - Redesigned constexpr support which excludes both SIMD and constexpr #783
 - Added detection of Visual C++ 2017 toolsets
 - Added identity functions #765
 - Splitted headers into EXT extensions to improve compilation time #670
 - Added separated performance tests
-- Refactor manual, lists all configuration defines
 - Clarified refract valid range of the indices of refraction, between -1 and 1 inclusively #806
 
 #### Fixes:
