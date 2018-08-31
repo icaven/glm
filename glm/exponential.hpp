@@ -6,7 +6,7 @@
 /// @defgroup core_func_exponential Exponential functions
 /// @ingroup core
 ///
-/// Provide GLSL exponential functions
+/// Provides GLSL exponential functions
 ///
 /// These all operate component-wise. The description is per component.
 ///

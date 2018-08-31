@@ -6,7 +6,7 @@
 /// @defgroup core_func_matrix Matrix functions
 /// @ingroup core
 ///
-/// Provide GLSL matrix functions.
+/// Provides GLSL matrix functions.
 ///
 /// Include <glm/matrix.hpp> to use these core features.
 
