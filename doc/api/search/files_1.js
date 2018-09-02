@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['associated_5fmin_5fmax_2ehpp',['associated_min_max.hpp',['../a00007.html',1,'']]]
+  ['bit_2ehpp',['bit.hpp',['../a00449.html',1,'']]],
+  ['bitfield_2ehpp',['bitfield.hpp',['../a00389.html',1,'']]]
 ];

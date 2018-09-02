@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['precision_20types',['Precision types',['../a00150.html',1,'']]]
+  ['recommended_20extensions',['Recommended extensions',['../a00704.html',1,'']]]
 ];
