@@ -1,10 +1,12 @@
-![Alt](/doc/manual/logo-mini.png "GLM Logo")
+![Alt](./doc/manual/logo-mini.png "GLM Logo")
 
 # GLM 0.9.9 Manual
 
-![Alt](/doc/manual/g-truc.png "G-Truc Logo")
+![Alt](./doc/manual/g-truc.png "G-Truc Logo")
 
 ---
+<div style="page-break-after: always;"> </div>
+
 ## Table of Contents
 + [0. Licenses](#section0)
 + [1. Getting started](#section1)
@@ -103,6 +105,8 @@
 + [10.7. Acknowledgements](#section10_7)
 
 ---
+<div style="page-break-after: always;"> </div>
+
 ## <a name="section0"></a> Licenses
 
 ### The Happy Bunny License (Modified MIT License)
@@ -131,7 +135,7 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-![](https://github.com/g-truc/glm/blob/manual/doc/manual/frontpage1.png)
+![](./doc/manual/frontpage1.png)
 
 ### The MIT License
 
@@ -156,14 +160,16 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-![](https://github.com/g-truc/glm/blob/manual/doc/manual/frontpage2.png)
+![](./doc/manual/frontpage2.png)
 
 ---
+<div style="page-break-after: always;"> </div>
 
 ## <a name="section1"></a> 1. Getting started
 ### <a name="section1_1"></a> 1.1. Using global headers
 
 GLM is a header-only library, and thus does not need to be compiled. We can use GLM's implementation of GLSL's mathematics functionality by including the `<glm/glm.hpp>` header:
+
 ```cpp
 #include <glm/glm.hpp>
 ```
@@ -266,6 +272,8 @@ glm::mat4 transform(glm::vec2 const& Orientation, glm::vec3 const& Translate, gl
 GLM does not depend on external libraries or headers such as `<GL/gl.h>`, [`<GL/glcorearb.h>`](http://www.opengl.org/registry/api/GL/glcorearb.h), `<GLES3/gl3.h>`, `<GL/glu.h>`, or `<windows.h>`.
 
 ---
+<div style="page-break-after: always;"> </div>
+
 ## <a name="section2"></a> 2. Preprocessor configurations
 
 ### <a name="section2_1"></a> 2.1. GLM\_FORCE\_MESSAGES: Platform auto detection and default configuration
@@ -689,6 +697,8 @@ int average(int const A, int const B)
 ```
 
 ---
+<div style="page-break-after: always;"> </div>
+
 ## <a name="section3"></a> 3. Stable extensions
 
 ### <a name="section3_1"></a> 3.1. Scalar types
@@ -1336,6 +1346,8 @@ This extension exposes functions to transform objects.
 Include `<glm/ext/quaternion_transform.hpp>` to use these features.
 
 ---
+<div style="page-break-after: always;"> </div>
+
 ## <a name="section4"></a> 4. Recommended extensions
 
 GLM extends the core GLSL feature set with extensions. These extensions include: quaternion, transformation, spline, matrix inverse, color spaces, etc.
@@ -1578,6 +1590,8 @@ Add \*vec1 types.
 `<glm/gtc/vec1.hpp>` need to be included to use these features.
 
 ---
+<div style="page-break-after: always;"> </div>
+
 ## <a name="section5"></a> 5. OpenGL interoperability
 
 ### <a name="section5_1"></a> 5.1. GLM replacements for deprecated OpenGL functions
@@ -1724,6 +1738,8 @@ glm::dvec3 unProject(glm::dvec3 const& win, glm::dmat4 const& model, glm::dmat4 
 From `GLM_GTC_matrix_transform` extension: `<glm/gtc/matrix_transform.hpp>`
 
 ---
+<div style="page-break-after: always;"> </div>
+
 ## <a name="section6"></a> 6. Known issues
 
 This section reports GLSL features that GLM can't accurately emulate due to language restrictions.
@@ -1763,6 +1779,8 @@ ivec3 foo(const vec4 & v)
 ```
 
 ---
+<div style="page-break-after: always;"> </div>
+
 ## <a name="section7"></a> 7. FAQ
 
 ### <a name="section7_1"></a> 7.1 Why GLM follows GLSL specification and conventions?
@@ -1835,6 +1853,8 @@ GLM has some C++ <a href="http://en.cppreference.com/w/cpp/language/constexpr">c
 Unfortunately, GCC and Clang doesn't support SIMD instrinsics as constant expressions. To allow constant expressions on all vectors and matrices types, define `GLM_FORCE_PURE` before including GLM headers.
 
 ---
+<div style="page-break-after: always;"> </div>
+
 ## <a name="section8"></a> 8. Code samples
 
 This series of samples only shows various GLM features without consideration of any sort.
@@ -1969,6 +1989,8 @@ glm::vec3 lighting(intersection const& Intersection, material const& Material, l
 ```
 
 ---
+<div style="page-break-after: always;"> </div>
+
 ## <a name="section9"></a> 9. Contributing to GLM
 
 ### <a name="section9_1"></a> 9.1. Submitting bug reports
@@ -2184,6 +2206,8 @@ namespace detail // glm::detail namespace is for implementation detail
 ```
 
 ---
+<div style="page-break-after: always;"> </div>
+
 ## <a name="section10"></a> 10. References
 
 ### <a name="section10_1"></a> 10.1. OpenGL specifications
