@@ -336,7 +336,7 @@ any inclusion of `<glm/glm.hpp>` to restrict the language feature set C++98:
 For C++11, C++14, and C++17 equivalent defines are available:
 * `GLM_FORCE_CXX11`
 * `GLM_FORCE_CXX14`
-* `GLM_FORCE_CXX14`
+* `GLM_FORCE_CXX17`
 
 ```cpp
 #define GLM_FORCE_CXX11
