@@ -1,6 +1,7 @@
 #include <glm/ext/scalar_relational.hpp>
+#include <cmath>
 
-int test_equal()
+int test_equal_epsilon()
 {
 #	if GLM_CONFIG_CONSTEXP == GLM_ENABLE
 		static_assert(glm::equal(1.01f, 1.02f, 0.1f), "GLM: Failed constexpr");
@@ -15,7 +16,7 @@ int test_equal()
 	return Error;
 }
 
-int test_notEqual()
+int test_notEqual_epsilon()
 {
 #	if GLM_CONFIG_CONSTEXP == GLM_ENABLE
 		static_assert(glm::notEqual(1.01f, 1.02f, 0.001f), "GLM: Failed constexpr");
@@ -30,12 +31,57 @@ int test_notEqual()
 	return Error;
 }
 
+#if GLM_LANG & GLM_LANG_CXX11_FLAG
+int test_equal_ulps()
+{
+	int Error = 0;
+	
+	float const ULP1Plus = std::nextafter(1.0f, 2.0f);
+	Error += glm::equal(1.0f, ULP1Plus, 1) ? 0 : 1;
+
+	float const ULP2Plus = std::nextafter(ULP1Plus, 2.0f);
+	Error += !glm::equal(1.0f, ULP2Plus, 1) ? 0 : 1;
+	
+	float const ULP1Minus = std::nextafter(1.0f, 0.0f);
+	Error += glm::equal(1.0f, ULP1Minus, 1) ? 0 : 1;
+
+	float const ULP2Minus = std::nextafter(ULP1Minus, 0.0f);
+	Error += !glm::equal(1.0f, ULP2Minus, 1) ? 0 : 1;
+	
+	return Error;
+}
+
+int test_notEqual_ulps()
+{
+	int Error = 0;
+	
+	float const ULP1Plus = std::nextafter(1.0f, 2.0f);
+	Error += !glm::notEqual(1.0f, ULP1Plus, 1) ? 0 : 1;
+	
+	float const ULP2Plus = std::nextafter(ULP1Plus, 2.0f);
+	Error += glm::notEqual(1.0f, ULP2Plus, 1) ? 0 : 1;
+	
+	float const ULP1Minus = std::nextafter(1.0f, 0.0f);
+	Error += !glm::notEqual(1.0f, ULP1Minus, 1) ? 0 : 1;
+	
+	float const ULP2Minus = std::nextafter(ULP1Minus, 0.0f);
+	Error += glm::notEqual(1.0f, ULP2Minus, 1) ? 0 : 1;
+	
+	return Error;
+}
+#endif
+
 int main()
 {
 	int Error = 0;
 
-	Error += test_equal();
-	Error += test_notEqual();
-
+	Error += test_equal_epsilon();
+	Error += test_notEqual_epsilon();
+	
+#if GLM_LANG & GLM_LANG_CXX11_FLAG
+	Error += test_equal_ulps();
+	Error += test_notEqual_ulps();
+#endif
+	
 	return Error;
 }
