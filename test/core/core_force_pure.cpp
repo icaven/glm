@@ -422,7 +422,10 @@ namespace heap
 		p->f = 0.f;
 		delete p;
 
-		Error += sizeof(B) == (sizeof(glm::vec4) + sizeof(float) * 2) ? 0 : 1;
+		std::size_t const Count1 = sizeof(B);
+		std::size_t const Count2 = 32;
+
+		Error += Count1 == Count2 ? 0 : 1;
 
 		return Error;
 	}

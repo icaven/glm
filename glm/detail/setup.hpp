@@ -710,21 +710,22 @@ namespace detail
 ///////////////////////////////////////////////////////////////////////////////////
 // Configure the use of defaulted initialized types
 
-#define GLM_CTOR_INITIALIZER_LIST	(1 << 1)
-#define GLM_CTOR_INITIALISATION		(1 << 2)
+#define GLM_CTOR_INIT_DISABLE		0
+#define GLM_CTOR_INITIALIZER_LIST	1
+#define GLM_CTOR_INITIALISATION		2
 
 #if defined(GLM_FORCE_CTOR_INIT) && GLM_HAS_INITIALIZER_LISTS
 #	define GLM_CONFIG_CTOR_INIT GLM_CTOR_INITIALIZER_LIST
 #elif defined(GLM_FORCE_CTOR_INIT) && !GLM_HAS_INITIALIZER_LISTS
 #	define GLM_CONFIG_CTOR_INIT GLM_CTOR_INITIALISATION
 #else
-#	define GLM_CONFIG_CTOR_INIT GLM_DISABLE
+#	define GLM_CONFIG_CTOR_INIT GLM_CTOR_INIT_DISABLE
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Configure the use of defaulted function
 
-#if GLM_HAS_DEFAULTED_FUNCTIONS && GLM_CONFIG_CTOR_INIT == GLM_DISABLE
+#if GLM_HAS_DEFAULTED_FUNCTIONS && GLM_CONFIG_CTOR_INIT == GLM_CTOR_INIT_DISABLE
 #	define GLM_CONFIG_DEFAULTED_FUNCTIONS GLM_ENABLE
 #	define GLM_DEFAULT = default
 #else
