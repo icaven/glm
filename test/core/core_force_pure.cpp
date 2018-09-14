@@ -401,36 +401,6 @@ static int test_operator_increment()
 	return Error;
 }
 
-namespace heap
-{
-	struct A
-	{
-		float f;
-	};
-
-	struct B : public A
-	{
-		float g;
-		glm::vec4 v;
-	};
-
-	int test()
-	{
-		int Error = 0;
-
-		A* p = new B;
-		p->f = 0.f;
-		delete p;
-
-		std::size_t const Count1 = sizeof(B);
-		std::size_t const Count2 = 32;
-
-		Error += Count1 == Count2 ? 0 : 1;
-
-		return Error;
-	}
-}//namespace heap
-
 static int test_vec4_simd()
 {
 	int Error = 0;
@@ -458,7 +428,6 @@ int main()
 	Error += test_vec4_swizzle_partial();
 	Error += test_vec4_simd();
 	Error += test_operator_increment();
-	Error += heap::test();
 
 	return Error;
 }
