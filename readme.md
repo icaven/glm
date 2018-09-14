@@ -52,7 +52,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 
 ## Release notes
 
-### [GLM 0.9.9.2](https://github.com/g-truc/glm/commits/master) - 2018-XX-XX
+### [GLM 0.9.9.2](https://github.com/g-truc/glm/releases/tag/0.9.9.2) - 2018-09-14
 #### Fixes:
 - Fixed GLM_FORCE_CXX** section in the manual
 - Fixed default initialization with vector and quaternion types using GLM_FORCE_CTOR_INIT #812
