@@ -1,6 +1,7 @@
 #include "../vector_relational.hpp"
 #include "../common.hpp"
 #include "../detail/qualifier.hpp"
+#include "../detail/type_float.hpp"
 
 namespace glm
 {
@@ -41,8 +42,8 @@ namespace glm
 		vec<L, bool, Q> Result;
 		for(length_t i = 0; i < L; ++i)
 		{
-			detail::float_t const a(x[i]);
-			detail::float_t const b(y[i]);
+			detail::float_t<T> const a(x[i]);
+			detail::float_t<T> const b(y[i]);
 
 			// Different signs means they do not match.
 			if(a.negative() != b.negative())
@@ -52,7 +53,7 @@ namespace glm
 			}
 
 			// Find the difference in ULPs.
-			int const DiffULPs = abs(a.i - b.i);
+			typename detail::float_t<T>::int_type const DiffULPs = abs(a.i - b.i);
 			Result[i] = DiffULPs <= MaxULPs;
 		}
 		return Result;

@@ -1,6 +1,7 @@
 #include "../common.hpp"
 #include "../ext/scalar_int_sized.hpp"
 #include "../ext/scalar_uint_sized.hpp"
+#include "../detail/type_float.hpp"
 
 namespace glm
 {
@@ -19,8 +20,8 @@ namespace glm
 	template<typename genType>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR bool equal(genType const& x, genType const& y, int MaxULPs)
 	{
-		detail::float_t const a(x);
-		detail::float_t const b(y);
+		detail::float_t<genType> const a(x);
+		detail::float_t<genType> const b(y);
 
 		// Different signs means they do not match.
 		if(a.negative() != b.negative())
@@ -30,7 +31,7 @@ namespace glm
 		}
 
 		// Find the difference in ULPs.
-		int const DiffULPs = abs(a.i - b.i);
+		typename detail::float_t<genType>::int_type const DiffULPs = abs(a.i - b.i);
 		return DiffULPs <= MaxULPs;
 	}
 
