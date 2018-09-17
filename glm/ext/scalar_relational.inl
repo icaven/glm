@@ -2,23 +2,8 @@
 #include "../ext/scalar_int_sized.hpp"
 #include "../ext/scalar_uint_sized.hpp"
 
-namespace glm{
-namespace detail
+namespace glm
 {
-	// https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/
-	union float_t
-	{
-		GLM_CONSTEXPR float_t(float Num = 0.0f) : f(Num) {}
-		// Portable extraction of components.
-		GLM_CONSTEXPR bool negative() const { return i < 0; }
-		GLM_CONSTEXPR int32 mantissa() const { return i & ((1 << 23) - 1); }
-		GLM_CONSTEXPR int32 exponent() const { return (i >> 23) & 0xFF; }
-
-		int32 const i;
-		float const f;
-	};
-}//namespace detail
-
 	template<typename genType>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR bool equal(genType const& x, genType const& y, genType const& epsilon)
 	{

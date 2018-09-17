@@ -206,5 +206,18 @@ namespace detail
 			return genType(1);
 		}
 	};
+
+	// https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/
+	union float_t
+	{
+		GLM_CONSTEXPR float_t(float Num = 0.0f) : f(Num) {}
+		// Portable extraction of components.
+		GLM_CONSTEXPR bool negative() const { return i < 0; }
+		GLM_CONSTEXPR int mantissa() const { return i & ((1 << 23) - 1); }
+		GLM_CONSTEXPR int exponent() const { return (i >> 23) & 0xFF; }
+
+		int const i;
+		float const f;
+	};
 }//namespace detail
 }//namespace glm
