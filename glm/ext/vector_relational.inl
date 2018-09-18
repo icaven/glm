@@ -49,12 +49,14 @@ namespace glm
 			if(a.negative() != b.negative())
 			{
 				// Check for equality to make sure +0==-0
-				return a.mantissa() == b.mantissa() && a.exponent() == b.exponent();
+				Result[i] = a.mantissa() == b.mantissa() && a.exponent() == b.exponent();
 			}
-
-			// Find the difference in ULPs.
-			typename detail::float_t<T>::int_type const DiffULPs = abs(a.i - b.i);
-			Result[i] = DiffULPs <= MaxULPs;
+			else
+			{
+				// Find the difference in ULPs.
+				typename detail::float_t<T>::int_type const DiffULPs = abs(a.i - b.i);
+				Result[i] = DiffULPs <= MaxULPs[i];
+			}
 		}
 		return Result;
 	}
@@ -62,12 +64,12 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool, Q> notEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y, int MaxULPs)
 	{
-		return !equal(x, y, MaxULPs);
+		return notEqual(x, y, vec<L, int, Q>(MaxULPs));
 	}
 
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool, Q> notEqual(vec<L, T, Q> const& x, vec<L, T, Q> const& y, vec<L, int, Q> const& MaxULPs)
 	{
-		return !equal(x, y, MaxULPs);
+		return not_(equal(x, y, MaxULPs));
 	}
 }//namespace glm

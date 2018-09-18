@@ -765,6 +765,15 @@ namespace detail
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
+// Silent warnings
+
+#ifdef GLM_FORCE_SILENT_WARNINGS
+#	define GLM_SILENT_WARNINGS GLM_ENABLE
+#else
+#	define GLM_SILENT_WARNINGS GLM_DISABLE
+#endif
+
+///////////////////////////////////////////////////////////////////////////////////
 // Precision
 
 #define GLM_HIGHP		1
@@ -1001,6 +1010,12 @@ namespace detail
 #		pragma message("GLM: GLM_FORCE_UNRESTRICTED_GENTYPE is defined. Removes GLSL restrictions on valid function genTypes.")
 #	else
 #		pragma message("GLM: GLM_FORCE_UNRESTRICTED_GENTYPE is undefined. Follows strictly GLSL on valid function genTypes.")
+#	endif
+
+#	if GLM_SILENT_WARNINGS == GLM_ENABLE
+#		pragma message("GLM: GLM_FORCE_SILENT_WARNINGS is defined. Ignores C++ warnings from using C++ language extensions.")
+#	else
+#		pragma message("GLM: GLM_FORCE_SILENT_WARNINGS is undefined. Shows C++ warnings from using C++ language extensions.")
 #	endif
 
 #	ifdef GLM_FORCE_SINGLE_ONLY

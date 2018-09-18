@@ -1,7 +1,7 @@
 #include <glm/ext/scalar_relational.hpp>
 #include <cmath>
 
-int test_equal_epsilon()
+static int test_equal_epsilon()
 {
 #	if GLM_CONFIG_CONSTEXP == GLM_ENABLE
 		static_assert(glm::equal(1.01f, 1.02f, 0.1f), "GLM: Failed constexpr");
@@ -16,7 +16,7 @@ int test_equal_epsilon()
 	return Error;
 }
 
-int test_notEqual_epsilon()
+static int test_notEqual_epsilon()
 {
 #	if GLM_CONFIG_CONSTEXP == GLM_ENABLE
 		static_assert(glm::notEqual(1.01f, 1.02f, 0.001f), "GLM: Failed constexpr");
@@ -31,8 +31,7 @@ int test_notEqual_epsilon()
 	return Error;
 }
 
-#if GLM_LANG & GLM_LANG_CXX11_FLAG
-int test_equal_ulps()
+static int test_equal_ulps()
 {
 	int Error = 0;
 	
@@ -51,7 +50,7 @@ int test_equal_ulps()
 	return Error;
 }
 
-int test_notEqual_ulps()
+static int test_notEqual_ulps()
 {
 	int Error = 0;
 	
@@ -69,7 +68,6 @@ int test_notEqual_ulps()
 	
 	return Error;
 }
-#endif
 
 int main()
 {
@@ -77,11 +75,9 @@ int main()
 
 	Error += test_equal_epsilon();
 	Error += test_notEqual_epsilon();
-	
-#if GLM_LANG & GLM_LANG_CXX11_FLAG
+
 	Error += test_equal_ulps();
 	Error += test_notEqual_ulps();
-#endif
-	
+
 	return Error;
 }

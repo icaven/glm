@@ -33,6 +33,7 @@
 + [2.16. GLM\_FORCE\_DEPTH\_ZERO\_TO\_ONE: Force the use of a clip space between 0 to 1](#section2_16)
 + [2.17. GLM\_FORCE\_SIZE\_T\_LENGTH: Vector and matrix static size type](#section2_17)
 + [2.18. GLM\_FORCE\_UNRESTRICTED\_GENTYPE: Removing genType restriction](#section2_18)
++ [2.19. GLM\_FORCE\_SILENT\_WARNINGS: Silent C++ warnings from language extensions](#section2_19)
 + [3. Stable extensions](#section3)
 + [3.1. Scalar types](#section3_1)
 + [3.2. Scalar functions](#section3_2)
@@ -695,6 +696,11 @@ int average(int const A, int const B)
     return glm::mix(A, B, 0.5f); // integers are ok thanks to GLM_FORCE_UNRESTRICTED_GENTYPE
 }
 ```
+
+### <a name="section2_19"></a> 2.19. GLM\_FORCE\_SILENT\_WARNINGS: Silent C++ warnings from language extensions
+
+When using /W4 on Visual C++ or -Wpedantic on GCC, for example, the compilers will generate warnings for using C++ language extensions (/Za with Visual C++) such as anonymous struct.
+GLM relies on anonymous structs for swizzle operators and aligned vector types. To silent those warnings define `GLM_FORCE_SILENT_WARNINGS` before including GLM headers.
 
 ---
 <div style="page-break-after: always;"> </div>
