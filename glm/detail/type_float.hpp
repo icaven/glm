@@ -4,7 +4,6 @@
 
 #if GLM_COMPILER == GLM_COMPILER_VC12
 #	pragma warning(push)
-#	pragma warning(disable: 2220)
 #	pragma warning(disable: 4512) // assignment operator could not be generated
 #endif
 
