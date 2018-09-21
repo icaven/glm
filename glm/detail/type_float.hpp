@@ -2,6 +2,12 @@
 
 #include "setup.hpp"
 
+#if GLM_COMPILER == GLM_COMPILER_VC12
+#	pragma warning(push)
+#	pragma warning(disable: 2220)
+#	pragma warning(disable: 4512) // assignment operator could not be generated
+#endif
+
 namespace glm{
 namespace detail
 {
@@ -18,13 +24,19 @@ namespace detail
 
 		GLM_CONSTEXPR float_t(float_type Num = 0.0f) : f(Num) {}
 
+		GLM_CONSTEXPR float_t& operator=(float_t const& x)
+		{
+			f = x.f;
+			return *this;
+		}
+
 		// Portable extraction of components.
 		GLM_CONSTEXPR bool negative() const { return i < 0; }
 		GLM_CONSTEXPR int_type mantissa() const { return i & ((1 << 23) - 1); }
 		GLM_CONSTEXPR int_type exponent() const { return (i >> 23) & ((1 << 8) - 1); }
 
-		int_type const i;
-		float_type const f;
+		int_type i;
+		float_type f;
 	};
 
 	template <>
@@ -35,14 +47,23 @@ namespace detail
 
 		GLM_CONSTEXPR float_t(float_type Num = static_cast<float_type>(0)) : f(Num) {}
 
+		GLM_CONSTEXPR float_t& operator=(float_t const& x)
+		{
+			f = x.f;
+			return *this;
+		}
+
 		// Portable extraction of components.
 		GLM_CONSTEXPR bool negative() const { return i < 0; }
 		GLM_CONSTEXPR int_type mantissa() const { return i & ((int_type(1) << 52) - 1); }
 		GLM_CONSTEXPR int_type exponent() const { return (i >> 52) & ((int_type(1) << 11) - 1); }
 
-		int_type const i;
-		float_type const f;
+		int_type i;
+		float_type f;
 	};
 }//namespace detail
 }//namespace glm
 
+#if GLM_COMPILER == GLM_COMPILER_VC12
+#	pragma warning(pop)
+#endif

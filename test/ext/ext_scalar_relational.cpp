@@ -1,4 +1,5 @@
 #include <glm/ext/scalar_relational.hpp>
+#include <glm/gtc/ulp.hpp>
 #include <cmath>
 
 static int test_equal_epsilon()
@@ -35,16 +36,16 @@ static int test_equal_ulps()
 {
 	int Error = 0;
 	
-	float const ULP1Plus = std::nextafter(1.0f, 2.0f);
+	float const ULP1Plus = glm::next_float(1.0f);
 	Error += glm::equal(1.0f, ULP1Plus, 1) ? 0 : 1;
 
-	float const ULP2Plus = std::nextafter(ULP1Plus, 2.0f);
+	float const ULP2Plus = glm::next_float(ULP1Plus);
 	Error += !glm::equal(1.0f, ULP2Plus, 1) ? 0 : 1;
 	
-	float const ULP1Minus = std::nextafter(1.0f, 0.0f);
+	float const ULP1Minus = glm::prev_float(1.0f);
 	Error += glm::equal(1.0f, ULP1Minus, 1) ? 0 : 1;
 
-	float const ULP2Minus = std::nextafter(ULP1Minus, 0.0f);
+	float const ULP2Minus = glm::prev_float(ULP1Minus);
 	Error += !glm::equal(1.0f, ULP2Minus, 1) ? 0 : 1;
 	
 	return Error;
@@ -54,16 +55,16 @@ static int test_notEqual_ulps()
 {
 	int Error = 0;
 	
-	float const ULP1Plus = std::nextafter(1.0f, 2.0f);
+	float const ULP1Plus = glm::next_float(1.0f);
 	Error += !glm::notEqual(1.0f, ULP1Plus, 1) ? 0 : 1;
 	
-	float const ULP2Plus = std::nextafter(ULP1Plus, 2.0f);
+	float const ULP2Plus = glm::next_float(ULP1Plus);
 	Error += glm::notEqual(1.0f, ULP2Plus, 1) ? 0 : 1;
 	
-	float const ULP1Minus = std::nextafter(1.0f, 0.0f);
+	float const ULP1Minus = glm::prev_float(1.0f);
 	Error += !glm::notEqual(1.0f, ULP1Minus, 1) ? 0 : 1;
 	
-	float const ULP2Minus = std::nextafter(ULP1Minus, 0.0f);
+	float const ULP2Minus = glm::prev_float(ULP1Minus);
 	Error += glm::notEqual(1.0f, ULP2Minus, 1) ? 0 : 1;
 	
 	return Error;
