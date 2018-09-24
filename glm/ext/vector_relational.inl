@@ -39,7 +39,7 @@ namespace glm
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<L, bool, Q> equal(vec<L, T, Q> const& x, vec<L, T, Q> const& y, vec<L, int, Q> const& MaxULPs)
 	{
-		vec<L, bool, Q> Result;
+		vec<L, bool, Q> Result(false);
 		for(length_t i = 0; i < L; ++i)
 		{
 			detail::float_t<T> const a(x[i]);
