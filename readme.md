@@ -55,8 +55,13 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 ### [GLM 0.9.9.3](https://github.com/g-truc/glm/commits/master) - 2018-XX-XX
 #### Features:
 - Added equal and notEqual overload with max ULPs parameters for scalar numbers #121
-- Added constant time ULP distance between float #121
 - Added GLM_FORCE_SILENT_WARNINGS to silent GLM warnings when using language extensions but using W4 or Wpedantic warnings #814 #775
+
+#### Improvements:
+- Added constant time ULP distance between float #121
+
+#### Fixes:
+- Fixed simplex noise build with double #734
 
 ### [GLM 0.9.9.2](https://github.com/g-truc/glm/releases/tag/0.9.9.2) - 2018-09-14
 #### Fixes:
