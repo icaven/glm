@@ -792,6 +792,22 @@ bool equalULP1(float const a, float const b)
 
 Include `<glm/ext/scalar_constants.hpp>` to use these features.
 
+#### 3.2.4. GLM_EXT_scalar_ulp
+
+This extension exposes function that measure of accuracy in numeric calculations.
+
+```cpp
+#include <glm/ext/scalar_ulp.hpp>
+
+bool test_ulp(float x)
+{
+    float const a = glm::next_float(x); // return a float a ULP away from the float argument.
+    return float_distance(a, x) == 1; // check both float are a single ULP away.
+}
+```
+
+Include `<glm/ext/scalar_ulp.hpp>` to use these features.
+
 ### <a name="section3_3"></a> 3.3. Vector types
 
 #### 3.3.1. GLM_EXT_vector_float1
@@ -998,6 +1014,24 @@ bool epsilonEqual(glm::vec2 const& A, glm::vec2 const& B)
 ```
 
 Include `<glm/ext/vector_relational.hpp>` to use these features.
+
+#### 3.5.3. GLM_EXT_vector_ulp
+
+This extension exposes function that measure of accuracy in numeric calculations.
+
+```cpp
+#include <glm/ext/vector_ulp.hpp>
+#include <glm/ext/vector_float4.hpp>
+#include <glm/ext/vector_int4.hpp>
+
+bool test_ulp(glm::vec4 const& x)
+{
+    glm::vec4 const a = glm::next_float(x); // return a float a ULP away from the float argument.
+    return glm::all(float_distance(a, x) == glm::ivec4(1)); // check both float are a single ULP away.
+}
+```
+
+Include `<glm/ext/vector_ulp.hpp>` to use these features.
 
 ### <a name="section3_6"></a> 3.6. Matrix types
 
