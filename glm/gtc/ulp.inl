@@ -11,6 +11,7 @@
 #include <cmath>
 #include <cfloat>
 #include <limits>
+#include "../detail/type_float.hpp"
 
 #if(GLM_COMPILER & GLM_COMPILER_VC)
 #	pragma warning(push)
@@ -260,16 +261,16 @@ namespace glm
 	}
 
 	template<typename T>
-	GLM_FUNC_QUALIFIER T next_float(T const& x, uint const& ulps)
+	GLM_FUNC_QUALIFIER T next_float(T const& x, int ulps)
 	{
 		T temp = x;
-		for(uint i = 0; i < ulps; ++i)
+		for(int i = 0; i < ulps; ++i)
 			temp = next_float(temp);
 		return temp;
 	}
 
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> next_float(vec<L, T, Q> const& x, vec<L, uint, Q> const& ulps)
+	GLM_FUNC_QUALIFIER vec<L, T, Q> next_float(vec<L, T, Q> const& x, vec<L, int, Q> const& ulps)
 	{
 		vec<L, T, Q> Result;
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
@@ -278,16 +279,18 @@ namespace glm
 	}
 
 	template<typename T>
-	GLM_FUNC_QUALIFIER T prev_float(T const& x, uint const& ulps)
+	GLM_FUNC_QUALIFIER T prev_float(T const& x, int ulps)
 	{
+		assert(ulps >= 0);
+
 		T temp = x;
-		for(uint i = 0; i < ulps; ++i)
+		for(int i = 0; i < ulps; ++i)
 			temp = prev_float(temp);
 		return temp;
 	}
 
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, T, Q> prev_float(vec<L, T, Q> const& x, vec<L, uint, Q> const& ulps)
+	GLM_FUNC_QUALIFIER vec<L, T, Q> prev_float(vec<L, T, Q> const& x, vec<L, int, Q> const& ulps)
 	{
 		vec<L, T, Q> Result;
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
@@ -295,41 +298,35 @@ namespace glm
 		return Result;
 	}
 
-	template<typename T>
-	GLM_FUNC_QUALIFIER uint float_distance(T const& x, T const& y)
+	GLM_FUNC_QUALIFIER int float_distance(float x, float y)
 	{
-		uint ulp = 0;
+		detail::float_t<float> const a(x);
+		detail::float_t<float> const b(y);
 
-		if(x < y)
-		{
-			T temp = x;
-			while(glm::epsilonNotEqual(temp, y, glm::epsilon<T>()))// && ulp < std::numeric_limits<std::size_t>::max())
-			{
-				++ulp;
-				temp = next_float(temp);
-			}
-		}
-		else if(y < x)
-		{
-			T temp = y;
-			while(glm::epsilonNotEqual(temp, x, glm::epsilon<T>()))// && ulp < std::numeric_limits<std::size_t>::max())
-			{
-				++ulp;
-				temp = next_float(temp);
-			}
-		}
-		else // ==
-		{
-
-		}
-
-		return ulp;
+		return abs(a.i - b.i);
 	}
 
-	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<L, uint, Q> float_distance(vec<L, T, Q> const& x, vec<L, T, Q> const& y)
+	GLM_FUNC_QUALIFIER int64 float_distance(double x, double y)
 	{
-		vec<L, uint, Q> Result;
+		detail::float_t<double> const a(x);
+		detail::float_t<double> const b(y);
+
+		return abs(a.i - b.i);
+	}
+
+	template<length_t L, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, int, Q> float_distance(vec<L, float, Q> const& x, vec<L, float, Q> const& y)
+	{
+		vec<L, int, Q> Result;
+		for(length_t i = 0, n = Result.length(); i < n; ++i)
+			Result[i] = float_distance(x[i], y[i]);
+		return Result;
+	}
+
+	template<length_t L, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, int64, Q> float_distance(vec<L, double, Q> const& x, vec<L, double, Q> const& y)
+	{
+		vec<L, int64, Q> Result;
 		for(length_t i = 0, n = Result.length(); i < n; ++i)
 			Result[i] = float_distance(x[i], y[i]);
 		return Result;
