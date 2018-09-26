@@ -62,9 +62,9 @@ static int test_perlin_pedioric_double()
 {
 	int Error = 0;
 
-	glm::u8vec4 const PixelPeriodic2D(glm::byte(glm::abs(glm::perlin(glm::dvec2(0.f, 0.f), glm::dvec2(2.0f))) * 255.));
-	glm::u8vec4 const PixelPeriodic3D(glm::byte(glm::abs(glm::perlin(glm::dvec3(0.f, 0.f, 0.f), glm::dvec3(2.0f))) * 255.));
-	glm::u8vec4 const PixelPeriodic4D(glm::byte(glm::abs(glm::perlin(glm::dvec4(0.f, 0.f, 0.f, 0.f), glm::dvec4(2.0f))) * 255.));
+	glm::u8vec4 const PixelPeriodic2D(glm::byte(glm::abs(glm::perlin(glm::dvec2(0.f, 0.f), glm::dvec2(2.0))) * 255.));
+	glm::u8vec4 const PixelPeriodic3D(glm::byte(glm::abs(glm::perlin(glm::dvec3(0.f, 0.f, 0.f), glm::dvec3(2.0))) * 255.));
+	glm::u8vec4 const PixelPeriodic4D(glm::byte(glm::abs(glm::perlin(glm::dvec4(0.f, 0.f, 0.f, 0.f), glm::dvec4(2.0))) * 255.));
 
 	return Error;
 }
