@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-int test_axisAngle()
+static int test_axisAngle()
 {
 	int Error = 0;
 
@@ -34,11 +34,24 @@ int test_axisAngle()
 	return Error;
 }
 
+static int test_rotate()
+{
+	glm::mat4 m2(1.0);
+	float myAngle = 1.0f;
+	m2 = glm::rotate(m2, myAngle, glm::vec3(1.0f, 0.0f, 0.0f));
+	glm::vec3 m2Axis;
+	float m2Angle;
+	glm::axisAngle(m2, m2Axis, m2Angle);
+
+	return 0;
+}
+
 int main()
 {
 	int Error = 0;
 
 	Error += test_axisAngle();
+	Error += test_rotate();
 
 	return Error;
 }
