@@ -27,7 +27,9 @@ namespace glm
 {
 	/// Return the next ULP value(s) after the input value(s).
 	///
-	/// @tparam genType A floating-point scalar type.
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point
+	/// @tparam Q Value from qualifier enum
 	///
 	/// @see ext_scalar_ulp
 	template<length_t L, typename T, qualifier Q>
@@ -35,7 +37,9 @@ namespace glm
 
 	/// Return the value(s) ULP distance after the input value(s).
 	///
-	/// @tparam genType A floating-point scalar type.
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point
+	/// @tparam Q Value from qualifier enum
 	///
 	/// @see ext_scalar_ulp
 	template<length_t L, typename T, qualifier Q>
@@ -43,7 +47,9 @@ namespace glm
 
 	/// Return the value(s) ULP distance after the input value(s).
 	///
-	/// @tparam genType A floating-point scalar type.
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point
+	/// @tparam Q Value from qualifier enum
 	///
 	/// @see ext_scalar_ulp
 	template<length_t L, typename T, qualifier Q>
@@ -51,7 +57,9 @@ namespace glm
 
 	/// Return the previous ULP value(s) before the input value(s).
 	///
-	/// @tparam genType A floating-point scalar type.
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point
+	/// @tparam Q Value from qualifier enum
 	///
 	/// @see ext_scalar_ulp
 	template<length_t L, typename T, qualifier Q>
@@ -59,7 +67,9 @@ namespace glm
 
 	/// Return the value(s) ULP distance before the input value(s).
 	///
-	/// @tparam genType A floating-point scalar type.
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point
+	/// @tparam Q Value from qualifier enum
 	///
 	/// @see ext_scalar_ulp
 	template<length_t L, typename T, qualifier Q>
@@ -67,7 +77,9 @@ namespace glm
 
 	/// Return the value(s) ULP distance before the input value(s).
 	///
-	/// @tparam genType A floating-point scalar type.
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam T Floating-point
+	/// @tparam Q Value from qualifier enum
 	///
 	/// @see ext_scalar_ulp
 	template<length_t L, typename T, qualifier Q>
@@ -75,11 +87,17 @@ namespace glm
 
 	/// Return the distance in the number of ULP between 2 single-precision floating-point scalars.
 	///
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam Q Value from qualifier enum
+	///
 	/// @see ext_scalar_ulp
 	template<length_t L, typename T, qualifier Q>
 	GLM_FUNC_DECL vec<L, int, Q> float_distance(vec<L, float, Q> const& x, vec<L, float, Q> const& y);
 
 	/// Return the distance in the number of ULP between 2 double-precision floating-point scalars.
+	///
+	/// @tparam L Integer between 1 and 4 included that qualify the dimension of the vector
+	/// @tparam Q Value from qualifier enum
 	///
 	/// @see ext_scalar_ulp
 	template<length_t L, typename T, qualifier Q>

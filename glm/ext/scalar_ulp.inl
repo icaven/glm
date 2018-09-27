@@ -7,6 +7,7 @@
 
 #include "../detail/type_float.hpp"
 #include "../ext/scalar_constants.hpp"
+#include <cmath>
 
 #if(GLM_COMPILER & GLM_COMPILER_VC)
 #	pragma warning(push)
