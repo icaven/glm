@@ -56,6 +56,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 #### Features:
 - Added equal and notEqual overload with max ULPs parameters for scalar numbers #121
 - Added GLM_FORCE_SILENT_WARNINGS to silent GLM warnings when using language extensions but using W4 or Wpedantic warnings #814 #775
+- Added adjugate functions to GTX_matrix_operation #151
 
 #### Improvements:
 - Added constant time ULP distance between float #121
