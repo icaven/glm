@@ -2,6 +2,8 @@
 
 #if GLM_CONFIG_CONSTEXP == GLM_ENABLE
 
+//#error GNI
+
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/quaternion.hpp>
 #include <glm/ext/vector_relational.hpp>
