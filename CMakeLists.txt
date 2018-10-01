@@ -109,7 +109,7 @@ option(GLM_TEST_ENABLE_SIMD_AVX2 "Enable AVX2 optimizations" OFF)
 option(GLM_TEST_FORCE_PURE "Force 'pure' instructions" OFF)
 
 if(GLM_TEST_FORCE_PURE)
-	//add_definitions(-DGLM_FORCE_PURE)
+	add_definitions(-DGLM_FORCE_PURE)
 
 	if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
 		add_compile_options(-mfpmath=387)
