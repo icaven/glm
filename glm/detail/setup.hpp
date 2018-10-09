@@ -1035,9 +1035,13 @@ namespace detail
 #		pragma message("GLM: GLM_FORCE_ALIGNED_GENTYPES is defined but is disabled. It requires C++11 and language extensions")
 #	endif
 
-#	if defined(GLM_FORCE_DEFAULT_ALIGNED_GENTYPES) && (GLM_CONFIG_ALIGNED_GENTYPES == GLM_DISABLE)
-#		undef GLM_FORCE_DEFAULT_ALIGNED_GENTYPES
-#		pragma message("GLM: GLM_FORCE_DEFAULT_ALIGNED_GENTYPES is defined but is disabled. It requires C++11 and language extensions")
+#	if defined(GLM_FORCE_DEFAULT_ALIGNED_GENTYPES)
+#		if GLM_CONFIG_ALIGNED_GENTYPES == GLM_DISABLE
+#			undef GLM_FORCE_DEFAULT_ALIGNED_GENTYPES
+#			pragma message("GLM: GLM_FORCE_DEFAULT_ALIGNED_GENTYPES is defined but is disabled. It requires C++11 and language extensions.")
+#		elif GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE
+#			pragma message("GLM: GLM_FORCE_DEFAULT_ALIGNED_GENTYPES is defined. All gentypes (e.g. vec3) will be aligned and padded by default.")
+#		endif
 #	endif
 
 #	if GLM_CONFIG_CLIP_CONTROL & GLM_CLIP_CONTROL_ZO_BIT
