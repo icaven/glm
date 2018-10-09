@@ -992,12 +992,12 @@ namespace detail
 
 	// Report whether only xyzw component are used
 #	if defined GLM_FORCE_XYZW_ONLY
-#		pragma message("GLM: GLM_FORCE_XYZW_ONLY is defined. Only x, y, z and w component are available in vector type. This define disables swizzle operators and SIMD instruction sets")
+#		pragma message("GLM: GLM_FORCE_XYZW_ONLY is defined. Only x, y, z and w component are available in vector type. This define disables swizzle operators and SIMD instruction sets.")
 #	endif
 
 	// Report swizzle operator support
 #	if GLM_CONFIG_SWIZZLE == GLM_SWIZZLE_OPERATOR
-#		pragma message("GLM: GLM_FORCE_SWIZZLE is defined, swizzling operators enabled")
+#		pragma message("GLM: GLM_FORCE_SWIZZLE is defined, swizzling operators enabled.")
 #	elif GLM_CONFIG_SWIZZLE == GLM_SWIZZLE_FUNCTION
 #		pragma message("GLM: GLM_FORCE_SWIZZLE is defined, swizzling functions enabled. Enable compiler C++ language extensions to enable swizzle operators.")
 #	else
@@ -1024,7 +1024,7 @@ namespace detail
 #	endif
 
 #	ifdef GLM_FORCE_SINGLE_ONLY
-#		pragma message("GLM: GLM_FORCE_SINGLE_ONLY is defined. Using only single precision floating-point types")
+#		pragma message("GLM: GLM_FORCE_SINGLE_ONLY is defined. Using only single precision floating-point types.")
 #	endif
 
 #	if defined(GLM_FORCE_ALIGNED_GENTYPES) && (GLM_CONFIG_ALIGNED_GENTYPES == GLM_ENABLE)
@@ -1032,7 +1032,7 @@ namespace detail
 #		pragma message("GLM: GLM_FORCE_ALIGNED_GENTYPES is defined, allowing aligned types. This prevents the use of C++ constexpr.")
 #	elif defined(GLM_FORCE_ALIGNED_GENTYPES) && (GLM_CONFIG_ALIGNED_GENTYPES == GLM_DISABLE)
 #		undef GLM_FORCE_ALIGNED_GENTYPES
-#		pragma message("GLM: GLM_FORCE_ALIGNED_GENTYPES is defined but is disabled. It requires C++11 and language extensions")
+#		pragma message("GLM: GLM_FORCE_ALIGNED_GENTYPES is defined but is disabled. It requires C++11 and language extensions.")
 #	endif
 
 #	if defined(GLM_FORCE_DEFAULT_ALIGNED_GENTYPES)
