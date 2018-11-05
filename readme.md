@@ -147,7 +147,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Reduced warnings when using very strict compilation flags #646
 - length() member functions are constexpr #657
 - Added support of -Weverything with Clang #646
-- Improved exponential funtion test coverage
+- Improved exponential function test coverage
 - Enabled warnings as error with Clang unit tests
 - Conan package is an external repository: https://github.com/bincrafters/conan-glm
 - Clarify quat_cast documentation, applying on pure rotation matrices #759

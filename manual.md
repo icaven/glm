@@ -319,7 +319,7 @@ The following subsections describe each configurations and defines.
 
 ### <a name="section2_4"></a> 2.4. GLM\_FORCE\_ARCH\_UNKNOWN: Force GLM to no detect the build architecture
 
-`GLM_FORCE_ARCH_UNKNOWN` prevents GLM from detecting the build target architechture.
+`GLM_FORCE_ARCH_UNKNOWN` prevents GLM from detecting the build target architecture.
 
 ### <a name="section2_5"></a> 2.5. GLM\_FORCE\_CXX\_UNKNOWN: Force GLM to no detect the C++ standard
 
@@ -640,7 +640,7 @@ void foo()
 ### <a name="section2_15"></a> 2.15. GLM\_FORCE\_XYZW\_ONLY: Only exposes x, y, z and w components
 
 Following GLSL specifications, GLM supports three sets of components to access vector types member: x, y, z, w; r, g, b, a; and s, t, p, q.
-Also, this is making vector component very expressive in the code, it may make debugging vector types a little cubersom as the debuggers will typically display three time the values for each compoenents due to the existance of the three sets.
+Also, this is making vector component very expressive in the code, it may make debugging vector types a little cubersom as the debuggers will typically display three time the values for each compoenents due to the existence of the three sets.
 
 To simplify vector types, GLM allows exposing only x, y, z and w components thanks to `GLM_FORCE_XYZW_ONLY` define.
 
