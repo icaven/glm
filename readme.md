@@ -52,6 +52,10 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 
 ## Release notes
 
+### [GLM 0.9.9.4](https://github.com/g-truc/glm/tree/master) - 2018-1X-XX
+#### Fixes:
+- Fixed in mat4x3 conversion #829
+
 ### [GLM 0.9.9.3](https://github.com/g-truc/glm/releases/tag/0.9.9.3) - 2018-10-31
 #### Features:
 - Added equal and notEqual overload with max ULPs parameters for scalar numbers #121
