@@ -70,7 +70,7 @@
 + [4.20. GLM_GTC_vec1](#section4_20)
 + [5. OpenGL interoperability](#section5)
 + [5.1. GLM Replacements for deprecated OpenGL functions](#section5_1)
-+ [5.2. GLM Replacements for GPU functions](#section5_2)
++ [5.2. GLM Replacements for GLU functions](#section5_2)
 + [6. Known issues](#section6)
 + [6.1. Not function](#section6_1)
 + [6.2. Precision qualifiers support](#section6_2)
