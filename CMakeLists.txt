@@ -117,6 +117,8 @@ if(GLM_TEST_FORCE_PURE)
 	message(STATUS "GLM: No SIMD instruction set")
 
 elseif(GLM_TEST_ENABLE_SIMD_AVX2)
+	add_definitions(-DGLM_FORCE_PURE)
+
 	if((CMAKE_CXX_COMPILER_ID MATCHES "GNU") OR (CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
 		add_compile_options(-mavx2)
 	elseif(CMAKE_CXX_COMPILER_ID MATCHES "Intel")
@@ -127,6 +129,8 @@ elseif(GLM_TEST_ENABLE_SIMD_AVX2)
 	message(STATUS "GLM: AVX2 instruction set")
 
 elseif(GLM_TEST_ENABLE_SIMD_AVX)
+	add_definitions(-DGLM_FORCE_INTRINSICS)
+
 	if((CMAKE_CXX_COMPILER_ID MATCHES "GNU") OR (CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
 		add_compile_options(-mavx)
 	elseif(CMAKE_CXX_COMPILER_ID MATCHES "Intel")
@@ -137,6 +141,8 @@ elseif(GLM_TEST_ENABLE_SIMD_AVX)
 	message(STATUS "GLM: AVX instruction set")
 
 elseif(GLM_TEST_ENABLE_SIMD_SSE4_2)
+	add_definitions(-DGLM_FORCE_INTRINSICS)
+
 	if((CMAKE_CXX_COMPILER_ID MATCHES "GNU") OR (CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
 		add_compile_options(-msse4.2)
 	elseif(CMAKE_CXX_COMPILER_ID MATCHES "Intel")
@@ -147,6 +153,8 @@ elseif(GLM_TEST_ENABLE_SIMD_SSE4_2)
 	message(STATUS "GLM: SSE4.2 instruction set")
 
 elseif(GLM_TEST_ENABLE_SIMD_SSE4_1)
+	add_definitions(-DGLM_FORCE_INTRINSICS)
+
 	if((CMAKE_CXX_COMPILER_ID MATCHES "GNU") OR (CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
 		add_compile_options(-msse4.1)
 	elseif(CMAKE_CXX_COMPILER_ID MATCHES "Intel")
@@ -157,6 +165,8 @@ elseif(GLM_TEST_ENABLE_SIMD_SSE4_1)
 	message(STATUS "GLM: SSE4.1 instruction set")
 
 elseif(GLM_TEST_ENABLE_SIMD_SSSE3)
+	add_definitions(-DGLM_FORCE_INTRINSICS)
+
 	if((CMAKE_CXX_COMPILER_ID MATCHES "GNU") OR (CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
 		add_compile_options(-mssse3)
 	elseif(CMAKE_CXX_COMPILER_ID MATCHES "Intel")
@@ -167,6 +177,8 @@ elseif(GLM_TEST_ENABLE_SIMD_SSSE3)
 	message(STATUS "GLM: SSSE3 instruction set")
 
 elseif(GLM_TEST_ENABLE_SIMD_SSE3)
+	add_definitions(-DGLM_FORCE_INTRINSICS)
+
 	if((CMAKE_CXX_COMPILER_ID MATCHES "GNU") OR (CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
 		add_compile_options(-msse3)
 	elseif(CMAKE_CXX_COMPILER_ID MATCHES "Intel")
@@ -177,6 +189,8 @@ elseif(GLM_TEST_ENABLE_SIMD_SSE3)
 	message(STATUS "GLM: SSE3 instruction set")
 
 elseif(GLM_TEST_ENABLE_SIMD_SSE2)
+	add_definitions(-DGLM_FORCE_INTRINSICS)
+
 	if((CMAKE_CXX_COMPILER_ID MATCHES "GNU") OR (CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
 		add_compile_options(-msse2)
 	elseif(CMAKE_CXX_COMPILER_ID MATCHES "Intel")

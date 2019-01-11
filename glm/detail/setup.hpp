@@ -315,12 +315,12 @@
 #endif
 
 //
-#if defined(GLM_FORCE_PURE)
-#	define GLM_HAS_BITSCAN_WINDOWS 0
-#else
+#if defined(GLM_FORCE_INTRINSICS)
 #	define GLM_HAS_BITSCAN_WINDOWS ((GLM_PLATFORM & GLM_PLATFORM_WINDOWS) && (\
 		((GLM_COMPILER & GLM_COMPILER_INTEL)) || \
 		((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC14) && (GLM_ARCH & GLM_ARCH_X86_BIT))))
+#else
+#	define GLM_HAS_BITSCAN_WINDOWS 0
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////

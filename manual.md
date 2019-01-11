@@ -25,7 +25,7 @@
 + [2.8. GLM\_FORCE\_INLINE: Force inline](#section2_8)
 + [2.9. GLM\_FORCE\_ALIGNED\_GENTYPES: Force GLM to enable aligned types](#section2_9)
 + [2.10. GLM\_FORCE\_DEFAULT\_ALIGNED\_GENTYPES: Force GLM to use aligned types by default](#section2_10)
-+ [2.11. GLM\_FORCE\_SIMD\_**: Using SIMD optimizations](#section2_11)
++ [2.11. GLM\_FORCE\_INTRINSICS: Using SIMD optimizations](#section2_11)
 + [2.12. GLM\_FORCE\_PRECISION\_**: Default precision](#section2_12)
 + [2.13. GLM\_FORCE\_SINGLE\_ONLY: Removed explicit 64-bits floating point types](#section2_13)
 + [2.14. GLM\_FORCE\_SWIZZLE: Enable swizzle operators](#section2_14)
@@ -456,10 +456,10 @@ void foo()
 
 *Note: GLM SIMD optimizations require the use of aligned types*
 
-### <a name="section2_11"></a> 2.11. GLM\_FORCE\_SIMD\_**: Using SIMD optimizations
+### <a name="section2_11"></a> 2.11. GLM\_FORCE\_INTRINSICS: Using SIMD optimizations
 
 GLM provides some SIMD optimizations based on [compiler intrinsics](https://msdn.microsoft.com/en-us/library/26td21ds.aspx).
-These optimizations will be automatically thanks to compiler arguments.
+These optimizations will be automatically thanks to compiler arguments when `GLM_FORCE_INTRINSICS` is defined before including GLM files.
 For example, if a program is compiled with Visual Studio using `/arch:AVX`, GLM will detect this argument and generate code using AVX instructions automatically when available.
 
 It’s possible to avoid the instruction set detection by forcing the use of a specific instruction set with one of the fallowing define:

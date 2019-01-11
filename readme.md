@@ -53,6 +53,9 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 ## Release notes
 
 ### [GLM 0.9.9.4](https://github.com/g-truc/glm/tree/master) - 2018-1X-XX
+#### Improvements:
+- Added GLM_FORCE_INTRINSICS to enable SIMD instruction code path. By default, it's disabled allowing constexpr support by default.
+
 #### Fixes:
 - Fixed in mat4x3 conversion #829
 
