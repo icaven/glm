@@ -58,12 +58,12 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Added BUILD_SHARED_LIBS and BUILD_STATIC_LIBS build options #871
 
 #### Improvements:
-- Added GLM_FORCE_INTRINSICS to enable SIMD instruction code path. By default, it's disabled allowing constexpr support by default.
+- Added GLM_FORCE_INTRINSICS to enable SIMD instruction code path. By default, it's disabled allowing constexpr support by default. #865
 - Optimized inverseTransform #867
 
 #### Fixes:
 - Fixed in mat4x3 conversion #829
-- Fixed constexpr issue on GCC #832
+- Fixed constexpr issue on GCC #832 #865
 - Fixed mix implementation to improve GLSL conformance #866
 - Fixed int8 being defined as unsigned char with some compiler #839
 - Fixed vec1 include #856
