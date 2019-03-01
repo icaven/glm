@@ -58,6 +58,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 
 #### Fixes:
 - Fixed in mat4x3 conversion #829
+- Fixed constexpr issue on GCC #832
 
 ### [GLM 0.9.9.3](https://github.com/g-truc/glm/releases/tag/0.9.9.3) - 2018-10-31
 #### Features:
