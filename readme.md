@@ -55,15 +55,19 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 ### [GLM 0.9.9.4](https://github.com/g-truc/glm/tree/master) - 2018-1X-XX
 #### Features:
 - Added mix implementation for matrices in EXT_matrix_common #842
+- Added BUILD_SHARED_LIBS and BUILD_STATIC_LIBS build options #871
 
 #### Improvements:
 - Added GLM_FORCE_INTRINSICS to enable SIMD instruction code path. By default, it's disabled allowing constexpr support by default.
+- Optimized inverseTransform #867
 
 #### Fixes:
 - Fixed in mat4x3 conversion #829
 - Fixed constexpr issue on GCC #832
 - Fixed mix implementation to improve GLSL conformance #866
 - Fixed int8 being defined as unsigned char with some compiler #839
+- Fixed vec1 include #856
+- Ignore .vscode #848
 
 ### [GLM 0.9.9.3](https://github.com/g-truc/glm/releases/tag/0.9.9.3) - 2018-10-31
 #### Features:
