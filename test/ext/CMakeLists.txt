@@ -1,5 +1,6 @@
 glmCreateTestGTC(ext_matrix_relational)
 glmCreateTestGTC(ext_matrix_transform)
+glmCreateTestGTC(ext_matrix_common)
 glmCreateTestGTC(ext_quaternion_common)
 glmCreateTestGTC(ext_quaternion_exponential)
 glmCreateTestGTC(ext_quaternion_geometric)
