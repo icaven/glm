@@ -30,6 +30,9 @@ namespace glm
 
 	/// Projects x on Normal.
 	///
+	/// @param[in] x A vector to project
+	/// @param[in] Normal A normal that doesn't need to be of unit length.
+	///
 	/// @see gtx_projection
 	template<typename genType>
 	GLM_FUNC_DECL genType proj(genType const& x, genType const& Normal);
