@@ -60,6 +60,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Fixed in mat4x3 conversion #829
 - Fixed constexpr issue on GCC #832
 - Fixed mix implementation to improve GLSL conformance #866
+- Fixed int8 being defined as unsigned char with some compiler #839
 
 ### [GLM 0.9.9.3](https://github.com/g-truc/glm/releases/tag/0.9.9.3) - 2018-10-31
 #### Features:
