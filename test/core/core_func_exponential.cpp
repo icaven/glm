@@ -153,13 +153,13 @@ static int test_inversesqrt()
 	float A = glm::inversesqrt(16.f) * glm::sqrt(16.f);
 	Error += glm::equal(A, 1.f, 0.01f) ? 0 : 1;
 
-	glm::vec1 B = glm::inversesqrt(glm::vec1(16.f)) * glm::sqrt(16.f);;
+	glm::vec1 B = glm::inversesqrt(glm::vec1(16.f)) * glm::sqrt(16.f);
 	Error += glm::all(glm::equal(B, glm::vec1(1.f), 0.01f)) ? 0 : 1;
 
-	glm::vec2 C = glm::inversesqrt(glm::vec2(16.f)) * glm::sqrt(16.f);;
+	glm::vec2 C = glm::inversesqrt(glm::vec2(16.f)) * glm::sqrt(16.f);
 	Error += glm::all(glm::equal(C, glm::vec2(1.f), 0.01f)) ? 0 : 1;
 
-	glm::vec3 D = glm::inversesqrt(glm::vec3(16.f)) * glm::sqrt(16.f);;
+	glm::vec3 D = glm::inversesqrt(glm::vec3(16.f)) * glm::sqrt(16.f);
 	Error += glm::all(glm::equal(D, glm::vec3(1.f), 0.01f)) ? 0 : 1;
 
 	glm::vec4 E = glm::inversesqrt(glm::vec4(16.f)) * glm::sqrt(16.f);
