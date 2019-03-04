@@ -34,7 +34,7 @@ namespace
 		r = glm::circularEaseOut(a);
 		r = glm::circularEaseInOut(a);
 
-		r = glm::exponentialEaseIn(a);;
+		r = glm::exponentialEaseIn(a);
 		r = glm::exponentialEaseOut(a);
 		r = glm::exponentialEaseInOut(a);
 
@@ -46,7 +46,7 @@ namespace
 		r = glm::backEaseOut(a);
 		r = glm::backEaseInOut(a);
 
-		r = glm::bounceEaseIn(a);;
+		r = glm::bounceEaseIn(a);
 		r = glm::bounceEaseOut(a);
 		r = glm::bounceEaseInOut(a);
 	}
