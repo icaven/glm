@@ -52,7 +52,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 
 ## Release notes
 
-### [GLM 0.9.9.4](https://github.com/g-truc/glm/tree/master) - 2018-1X-XX
+### [GLM 0.9.9.4](https://github.com/g-truc/glm/releases/tag/0.9.9.4) - 2019-03-19
 #### Features:
 - Added mix implementation for matrices in EXT_matrix_common #842
 - Added BUILD_SHARED_LIBS and BUILD_STATIC_LIBS build options #871
