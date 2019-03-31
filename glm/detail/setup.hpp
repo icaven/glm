@@ -306,6 +306,8 @@
 # else
 # 	define GLM_IF_CONSTEXPR if
 # endif
+#else
+#	define GLM_IF_CONSTEXPR if
 #endif
 
 //
