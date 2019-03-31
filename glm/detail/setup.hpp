@@ -289,6 +289,11 @@
 
 #if GLM_HAS_CONSTEXPR
 #	define GLM_CONSTEXPR constexpr
+#if GLM_LANG_CXX17_FLAG
+# 	define GLM_IF_CONSTEXPR constexpr
+#else
+# 	define GLM_IF_CONSTEXPR
+#endif
 #else
 #	define GLM_CONSTEXPR
 #endif
