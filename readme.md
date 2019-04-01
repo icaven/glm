@@ -52,6 +52,10 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 
 ## Release notes
 
+### [GLM 0.9.9.5](https://github.com/g-truc/glm/releases/tag/0.9.9.5) - 2019-04-01
+#### Fixes:
+- Build errors when defining GLM_ENABLE_EXPERIMENTAL #884 #883
+
 ### [GLM 0.9.9.4](https://github.com/g-truc/glm/releases/tag/0.9.9.4) - 2019-03-19
 #### Features:
 - Added mix implementation for matrices in EXT_matrix_common #842
