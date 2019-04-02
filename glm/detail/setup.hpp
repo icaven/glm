@@ -7,8 +7,8 @@
 #define GLM_VERSION_MINOR			9
 #define GLM_VERSION_PATCH			9
 #define GLM_VERSION_REVISION		4
-#define GLM_VERSION					994
-#define GLM_VERSION_MESSAGE			"GLM: version 0.9.9.4"
+#define GLM_VERSION					995
+#define GLM_VERSION_MESSAGE			"GLM: version 0.9.9.5"
 
 #define GLM_SETUP_INCLUDED			GLM_VERSION
 
