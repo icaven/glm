@@ -55,6 +55,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 ### [GLM 0.9.9.6](https://github.com/g-truc/glm/tree/master)
 #### Improvements:
 - Added Visual C++ 2019 detection
+- Added Visual C++ 2017 15.8 and 15.9 detection
 
 ### [GLM 0.9.9.5](https://github.com/g-truc/glm/releases/tag/0.9.9.5) - 2019-04-01
 #### Fixes:

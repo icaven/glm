@@ -60,7 +60,9 @@
 #define GLM_COMPILER_VC15_5			0x01000005
 #define GLM_COMPILER_VC15_6			0x01000006
 #define GLM_COMPILER_VC15_7			0x01000007
-#define GLM_COMPILER_VC16			0x01000008
+#define GLM_COMPILER_VC15_8			0x01000008
+#define GLM_COMPILER_VC15_9			0x01000009
+#define GLM_COMPILER_VC16			0x0100000A
 
 // GCC defines
 #define GLM_COMPILER_GCC			0x02000000
@@ -100,16 +102,16 @@
 #	define GLM_COMPILER GLM_COMPILER_UNKNOWN
 
 #elif defined(__INTEL_COMPILER)
-#	if (__INTEL_COMPILER < 1400)
-#		error "GLM requires ICC 2013 SP1 or newer"
-#	elif __INTEL_COMPILER == 1400
-#		define GLM_COMPILER GLM_COMPILER_INTEL14
-#	elif __INTEL_COMPILER == 1500
-#		define GLM_COMPILER GLM_COMPILER_INTEL15
-#	elif __INTEL_COMPILER == 1600
-#		define GLM_COMPILER GLM_COMPILER_INTEL16
-#	elif __INTEL_COMPILER >= 1700
+#	if __INTEL_COMPILER >= 1700
 #		define GLM_COMPILER GLM_COMPILER_INTEL17
+#	elif __INTEL_COMPILER >= 1600
+#		define GLM_COMPILER GLM_COMPILER_INTEL16
+#	elif __INTEL_COMPILER >= 1500
+#		define GLM_COMPILER GLM_COMPILER_INTEL15
+#	elif __INTEL_COMPILER >= 1400
+#		define GLM_COMPILER GLM_COMPILER_INTEL14
+#	elif __INTEL_COMPILER < 1400
+#		error "GLM requires ICC 2013 SP1 or newer"
 #	endif
 
 // CUDA
@@ -117,14 +119,14 @@
 #	if !defined(CUDA_VERSION) && !defined(GLM_FORCE_CUDA)
 #		include <cuda.h>  // make sure version is defined since nvcc does not define it itself!
 #	endif
-#	if CUDA_VERSION < 7000
-#		error "GLM requires CUDA 7.0 or higher"
-#	elif (CUDA_VERSION >= 7000 && CUDA_VERSION < 7500)
-#		define GLM_COMPILER GLM_COMPILER_CUDA70
-#	elif (CUDA_VERSION >= 7500 && CUDA_VERSION < 8000)
-#		define GLM_COMPILER GLM_COMPILER_CUDA75
-#	elif (CUDA_VERSION >= 8000)
+#	if CUDA_VERSION >= 8000
 #		define GLM_COMPILER GLM_COMPILER_CUDA80
+#	elif CUDA_VERSION >= 7500
+#		define GLM_COMPILER GLM_COMPILER_CUDA75
+#	elif CUDA_VERSION >= 7000
+#		define GLM_COMPILER GLM_COMPILER_CUDA70
+#	elif CUDA_VERSION < 7000
+#		error "GLM requires CUDA 7.0 or higher"
 #	endif
 
 // Clang
@@ -167,46 +169,50 @@
 
 // Visual C++
 #elif defined(_MSC_VER)
-#	if _MSC_VER < 1800
-#		error "GLM requires Visual C++ 12 - 2013 or higher"
-#	elif _MSC_VER == 1800
-#		define GLM_COMPILER GLM_COMPILER_VC12
-#	elif _MSC_VER == 1900
-#		define GLM_COMPILER GLM_COMPILER_VC14
-#	elif _MSC_VER == 1910
-#		define GLM_COMPILER GLM_COMPILER_VC15
-#	elif _MSC_VER == 1911
-#		define GLM_COMPILER GLM_COMPILER_VC15_3
-#	elif _MSC_VER == 1912
-#		define GLM_COMPILER GLM_COMPILER_VC15_5
-#	elif _MSC_VER == 1913
-#		define GLM_COMPILER GLM_COMPILER_VC15_6
-#	elif _MSC_VER == 1914
-#		define GLM_COMPILER GLM_COMPILER_VC15_7
-#	elif _MSC_VER >= 1920
+#	if _MSC_VER >= 1920
 #		define GLM_COMPILER GLM_COMPILER_VC16
+#	elif _MSC_VER >= 1916
+#		define GLM_COMPILER GLM_COMPILER_VC15_9
+#	elif _MSC_VER >= 1915
+#		define GLM_COMPILER GLM_COMPILER_VC15_8
+#	elif _MSC_VER >= 1914
+#		define GLM_COMPILER GLM_COMPILER_VC15_7
+#	elif _MSC_VER >= 1913
+#		define GLM_COMPILER GLM_COMPILER_VC15_6
+#	elif _MSC_VER >= 1912
+#		define GLM_COMPILER GLM_COMPILER_VC15_5
+#	elif _MSC_VER >= 1911
+#		define GLM_COMPILER GLM_COMPILER_VC15_3
+#	elif _MSC_VER >= 1910
+#		define GLM_COMPILER GLM_COMPILER_VC15
+#	elif _MSC_VER >= 1900
+#		define GLM_COMPILER GLM_COMPILER_VC14
+#	elif _MSC_VER >= 1800
+#		define GLM_COMPILER GLM_COMPILER_VC12
+#	elif _MSC_VER < 1800
+#		error "GLM requires Visual C++ 12 - 2013 or higher"
 #	endif//_MSC_VER
 
 // G++
 #elif defined(__GNUC__) || defined(__MINGW32__)
-#	if ((__GNUC__ == 4) && (__GNUC_MINOR__ < 6)) || (__GNUC__ < 4)
-#		error "GLM requires GCC 4.7 or higher"
-#	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 6)
-#		define GLM_COMPILER (GLM_COMPILER_GCC46)
-#	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 7)
-#		define GLM_COMPILER (GLM_COMPILER_GCC47)
-#	elif (__GNUC__ == 4) && (__GNUC_MINOR__ == 8)
-#		define GLM_COMPILER (GLM_COMPILER_GCC48)
-#	elif (__GNUC__ == 4) && (__GNUC_MINOR__ >= 9)
-#		define GLM_COMPILER (GLM_COMPILER_GCC49)
-#	elif (__GNUC__ == 5)
-#		define GLM_COMPILER (GLM_COMPILER_GCC5)
-#	elif (__GNUC__ == 6)
-#		define GLM_COMPILER (GLM_COMPILER_GCC6)
-#	elif (__GNUC__ == 7)
-#		define GLM_COMPILER (GLM_COMPILER_GCC7)
-#	elif (__GNUC__ >= 8)
-#		define GLM_COMPILER (GLM_COMPILER_GCC8)
+#	if __GNUC__ >= 8
+#		define GLM_COMPILER GLM_COMPILER_GCC8
+#	elif __GNUC__ >= 7
+#		define GLM_COMPILER GLM_COMPILER_GCC7
+#	elif __GNUC__ >= 6
+#		define GLM_COMPILER GLM_COMPILER_GCC6
+#	elif __GNUC__ >= 5
+#		define GLM_COMPILER GLM_COMPILER_GCC5
+#	elif __GNUC__ == 4 && __GNUC_MINOR__ >= 9
+#		define GLM_COMPILER GLM_COMPILER_GCC49
+#	elif __GNUC__ == 4 && __GNUC_MINOR__ >= 8
+#		define GLM_COMPILER GLM_COMPILER_GCC48
+#	elif __GNUC__ == 4 && __GNUC_MINOR__ >= 7
+#		define GLM_COMPILER GLM_COMPILER_GCC47
+#	elif __GNUC__ == 4 && __GNUC_MINOR__ >= 6
+#		define GLM_COMPILER GLM_COMPILER_GCC46
+#	elif ((__GNUC__ == 4) && (__GNUC_MINOR__ < 6)) || (__GNUC__ < 4)
+#		error "GLM requires GCC 4.6 or higher"
 #	endif
 
 #else
