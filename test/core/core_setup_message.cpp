@@ -31,6 +31,9 @@ int test_compiler()
 		case GLM_COMPILER_VC15_7:
 			std::printf("Visual C++ 15.7 - 2017\n");
 			break;
+		case GLM_COMPILER_VC16:
+			std::printf("Visual C++ 16 - 2019\n");
+			break;
 		default:
 			std::printf("Visual C++ version not detected\n");
 			Error += 1;
