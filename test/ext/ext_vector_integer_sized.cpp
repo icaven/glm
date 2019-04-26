@@ -1,14 +1,8 @@
+#include <glm/ext/vector_integer.hpp>
 #include <glm/ext/vector_int1.hpp>
 #include <glm/ext/vector_int1_precision.hpp>
-#include <glm/ext/vector_int2.hpp>
-#include <glm/ext/vector_int3.hpp>
-#include <glm/ext/vector_int4.hpp>
 #include <glm/ext/vector_uint1.hpp>
 #include <glm/ext/vector_uint1_precision.hpp>
-#include <glm/ext/vector_uint2.hpp>
-#include <glm/ext/vector_uint3.hpp>
-#include <glm/ext/vector_uint4.hpp>
-#include <glm/vector_relational.hpp>
 
 template <typename genType>
 static int test_operators()

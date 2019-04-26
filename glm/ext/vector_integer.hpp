@@ -101,7 +101,7 @@ namespace glm
 	/// @param v Source values to which is applied the function
 	/// @param Multiple Must be a null or positive value
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL vec<L, T, Q> prevMultiple(vec<L, T, Q> const& v, T const& Multiple);
+	GLM_FUNC_DECL vec<L, T, Q> prevMultiple(vec<L, T, Q> const& v, T Multiple);
 
 	/// Lower multiple number of Source.
 	///
