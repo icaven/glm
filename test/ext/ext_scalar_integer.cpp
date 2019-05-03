@@ -4,6 +4,7 @@
 #include <vector>
 #include <ctime>
 #include <cstdio>
+#include <chrono>
 
 namespace isPowerOfTwo
 {
@@ -369,6 +370,157 @@ namespace prevMultiple
 
 namespace nextMultiple
 {
+	static glm::uint const Multiples = 128;
+
+	int perf_nextMultiple(glm::uint Samples)
+	{
+		std::vector<glm::uint> Results(Samples * Multiples);
+
+		std::chrono::high_resolution_clock::time_point t0 = std::chrono::high_resolution_clock::now();
+
+		for(glm::uint Source = 0; Source < Samples; ++Source)
+		for(glm::uint Multiple = 0; Multiple < Multiples; ++Multiple)
+		{
+			Results[Source * Multiples + Multiple] = glm::nextMultiple(Source, Multiples);
+		}
+
+		std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
+
+		std::printf("- glm::nextMultiple Time %d microseconds\n", static_cast<int>(std::chrono::duration_cast<std::chrono::microseconds>(t1 - t0).count()));
+
+		glm::uint Result = 0;
+		for(std::size_t i = 0, n = Results.size(); i < n; ++i)
+			Result += Results[i];
+
+		return Result > 0;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER T nextMultipleMod(T Source, T Multiple)
+	{
+		T const Tmp = Source - static_cast<T>(1);
+		return Tmp + (Multiple - (Tmp % Multiple));
+	}
+
+	int perf_nextMultipleMod(glm::uint Samples)
+	{
+		std::vector<glm::uint> Results(Samples * Multiples);
+
+		std::chrono::high_resolution_clock::time_point t0 = std::chrono::high_resolution_clock::now();
+
+		for(glm::uint Multiple = 0; Multiple < Multiples; ++Multiple)
+			for (glm::uint Source = 0; Source < Samples; ++Source)
+		{
+			Results[Source * Multiples + Multiple] = nextMultipleMod(Source, Multiples);
+		}
+
+		std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
+
+		std::printf("- nextMultipleMod Time %d microseconds\n", static_cast<int>(std::chrono::duration_cast<std::chrono::microseconds>(t1 - t0).count()));
+
+		glm::uint Result = 0;
+		for(std::size_t i = 0, n = Results.size(); i < n; ++i)
+			Result += Results[i];
+
+		return Result > 0;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER T nextMultipleNeg(T Source, T Multiple)
+	{
+		if(Source > static_cast<T>(0))
+		{
+			T const Tmp = Source - static_cast<T>(1);
+			return Tmp + (Multiple - (Tmp % Multiple));
+		}
+		else
+			return Source + (-Source % Multiple);
+	}
+
+	int perf_nextMultipleNeg(glm::uint Samples)
+	{
+		std::vector<glm::uint> Results(Samples * Multiples);
+
+		std::chrono::high_resolution_clock::time_point t0 = std::chrono::high_resolution_clock::now();
+
+		for(glm::uint Source = 0; Source < Samples; ++Source)
+		for(glm::uint Multiple = 0; Multiple < Multiples; ++Multiple)
+		{
+			Results[Source * Multiples + Multiple] = nextMultipleNeg(Source, Multiples);
+		}
+
+		std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
+
+		std::printf("- nextMultipleNeg Time %d microseconds\n", static_cast<int>(std::chrono::duration_cast<std::chrono::microseconds>(t1 - t0).count()));
+
+		glm::uint Result = 0;
+		for (std::size_t i = 0, n = Results.size(); i < n; ++i)
+			Result += Results[i];
+
+		return Result > 0;
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER T nextMultipleUFloat(T Source, T Multiple)
+	{
+		return Source + (Multiple - std::fmod(Source, Multiple));
+	}
+
+	int perf_nextMultipleUFloat(glm::uint Samples)
+	{
+		std::vector<float> Results(Samples * Multiples);
+
+		std::chrono::high_resolution_clock::time_point t0 = std::chrono::high_resolution_clock::now();
+
+		for(glm::uint Source = 0; Source < Samples; ++Source)
+		for(glm::uint Multiple = 0; Multiple < Multiples; ++Multiple)
+		{
+			Results[Source * Multiples + Multiple] = nextMultipleUFloat(static_cast<float>(Source), static_cast<float>(Multiples));
+		}
+
+		std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
+
+		std::printf("- nextMultipleUFloat Time %d microseconds\n", static_cast<int>(std::chrono::duration_cast<std::chrono::microseconds>(t1 - t0).count()));
+
+		float Result = 0;
+		for (std::size_t i = 0, n = Results.size(); i < n; ++i)
+			Result += Results[i];
+
+		return Result > static_cast<float>(0);
+	}
+
+	template <typename T>
+	GLM_FUNC_QUALIFIER T nextMultipleFloat(T Source, T Multiple)
+	{
+		if(Source > static_cast<float>(0))
+			return Source + (Multiple - std::fmod(Source, Multiple));
+		else
+			return Source + std::fmod(-Source, Multiple);
+	}
+
+	int perf_nextMultipleFloat(glm::uint Samples)
+	{
+		std::vector<float> Results(Samples * Multiples);
+
+		std::chrono::high_resolution_clock::time_point t0 = std::chrono::high_resolution_clock::now();
+
+		for(glm::uint Source = 0; Source < Samples; ++Source)
+		for(glm::uint Multiple = 0; Multiple < Multiples; ++Multiple)
+		{
+			Results[Source * Multiples + Multiple] = nextMultipleFloat(static_cast<float>(Source), static_cast<float>(Multiples));
+		}
+
+		std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
+
+		std::printf("- nextMultipleFloat Time %d microseconds\n", static_cast<int>(std::chrono::duration_cast<std::chrono::microseconds>(t1 - t0).count()));
+
+		float Result = 0;
+		for (std::size_t i = 0, n = Results.size(); i < n; ++i)
+			Result += Results[i];
+
+		return Result > static_cast<float>(0);
+	}
+
 	template<typename genIUType>
 	struct type
 	{
@@ -378,20 +530,49 @@ namespace nextMultiple
 	};
 
 	template <typename T>
-	int run()
+	int test_uint()
 	{
 		type<T> const Data[] =
 		{
-			{ 8, 3, 6 },
-			{ 7, 7, 7 }
+			{ 3, 4, 4 },
+			{ 6, 3, 6 },
+			{ 5, 3, 6 },
+			{ 7, 7, 7 },
+			{ 0, 1, 0 },
+			{ 8, 3, 9 }
 		};
 
 		int Error = 0;
 
 		for(std::size_t i = 0, n = sizeof(Data) / sizeof(type<T>); i < n; ++i)
 		{
-			T const Result = glm::nextMultiple(Data[i].Source, Data[i].Multiple);
-			Error += Data[i].Return == Result ? 0 : 1;
+			T const Result0 = glm::nextMultiple(Data[i].Source, Data[i].Multiple);
+			Error += Data[i].Return == Result0 ? 0 : 1;
+			assert(!Error);
+
+			T const Result1 = nextMultipleMod(Data[i].Source, Data[i].Multiple);
+			Error += Data[i].Return == Result1 ? 0 : 1;
+			assert(!Error);
+		}
+
+		return Error;
+	}
+
+	int perf()
+	{
+		int Error = 0;
+
+		glm::uint const Samples = 10000;
+
+		for(int i = 0; i < 4; ++i)
+		{
+			std::printf("Run %d :\n", i);
+			Error += perf_nextMultiple(Samples);
+			Error += perf_nextMultipleMod(Samples);
+			Error += perf_nextMultipleNeg(Samples);
+			Error += perf_nextMultipleUFloat(Samples);
+			Error += perf_nextMultipleFloat(Samples);
+			std::printf("\n");
 		}
 
 		return Error;
@@ -401,15 +582,19 @@ namespace nextMultiple
 	{
 		int Error = 0;
 
-		Error += run<glm::int8>();
-		Error += run<glm::int16>();
-		Error += run<glm::int32>();
-		Error += run<glm::int64>();
+		Error += test_uint<glm::int8>();
+		Error += test_uint<glm::int16>();
+		Error += test_uint<glm::int32>();
+		Error += test_uint<glm::int64>();
 
-		Error += run<glm::uint8>();
-		Error += run<glm::uint16>();
-		Error += run<glm::uint32>();
-		Error += run<glm::uint64>();
+		Error += test_uint<glm::uint8>();
+		Error += test_uint<glm::uint16>();
+		Error += test_uint<glm::uint32>();
+		Error += test_uint<glm::uint64>();
+
+#		ifdef NDEBUG
+			Error += perf();
+#		endif//NDEBUG
 
 		return Error;
 	}

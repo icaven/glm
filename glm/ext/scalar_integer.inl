@@ -96,6 +96,7 @@ namespace detail
 		template<typename genType>
 		GLM_FUNC_QUALIFIER static genType call(genType Source, genType Multiple)
 		{
+			assert(Multiple > genType(0));
 			if(Source > genType(0))
 			{
 				genType Tmp = Source - genType(1);
