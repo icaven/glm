@@ -245,7 +245,17 @@ add_subdirectory(test)
 set(GLM_INSTALL_CONFIGDIR "${CMAKE_INSTALL_LIBDIR}/cmake/glm")
 install(DIRECTORY glm DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
+
+# CMake automatically adds an architecture compatibility check to make sure
+# 32 and 64 bit code is not accidentally mixed. For a header-only library this
+# is not required. The check can be disabled by temporarily unsetting
+# CMAKE_SIZEOF_VOID_P. In CMake 3.14 and later this can be achieved more cleanly
+# with write_basic_package_version_file(ARCH_INDEPENDENT).
+# TODO: Use this once a newer CMake can be required.
+set(GLM_SIZEOF_VOID_P ${CMAKE_SIZEOF_VOID_P})
+unset(CMAKE_SIZEOF_VOID_P)
 write_basic_package_version_file("${CMAKE_CURRENT_BINARY_DIR}/glmConfigVersion.cmake" VERSION ${GLM_VERSION} COMPATIBILITY AnyNewerVersion)
+set(CMAKE_SIZEOF_VOID_P ${GLM_SIZEOF_VOID_P})
 
 # build tree package config
 configure_file(cmake/glmBuildConfig.cmake.in glmConfig.cmake @ONLY)
