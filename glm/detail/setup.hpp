@@ -410,7 +410,6 @@
 #if GLM_COMPILER & GLM_COMPILER_CUDA
 #	define GLM_CUDA_FUNC_DEF __device__ __host__
 #	define GLM_CUDA_FUNC_DECL __device__ __host__
-#error "oops cuda shit"
 #else
 #	define GLM_CUDA_FUNC_DEF
 #	define GLM_CUDA_FUNC_DECL

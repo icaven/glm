@@ -15,7 +15,7 @@ This library works perfectly with *[OpenGL](https://www.opengl.org)* but it also
 - [LLVM](http://llvm.org/) 3.4 and higher
 - [Visual C++](http://www.visualstudio.com/) 2013 and higher
 - [CUDA](https://developer.nvidia.com/about-cuda) 7.0 and higher (experimental)
-- [SYCL](https://www.khronos.org/sycl/) 1.2.1 and higher (experimental: only [ComputeCpp](https://codeplay.com/products/computesuite/computecpp) has been tested).
+- [SYCL](https://www.khronos.org/sycl/) (experimental: only [ComputeCpp](https://codeplay.com/products/computesuite/computecpp) implementation has been tested).
 - Any C++11 compiler
 
 For more information about *GLM*, please have a look at the [manual](manual.md) and the [API reference documentation](http://glm.g-truc.net/0.9.8/api/index.html).
