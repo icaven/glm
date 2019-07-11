@@ -55,8 +55,16 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 
 ### [GLM 0.9.9.6](https://github.com/g-truc/glm/tree/master)
 #### Improvements:
+- Added SYCL support #914
 - Added Visual C++ 2019 detection
 - Added Visual C++ 2017 15.8 and 15.9 detection
+
+#### Fixes:
+- Fixed for g++6 where -std=c++1z sets __cplusplus to 201500 instead of 201402 #921
+- Fixed hash hashes qua instead of tquat #919
+- Fixed .natvis as structs renamed #915
+- Fixed ldexp and frexp declaration #895
+- Fixed missing const to quaternion conversion operators #890
 
 ### [GLM 0.9.9.5](https://github.com/g-truc/glm/releases/tag/0.9.9.5) - 2019-04-01
 #### Fixes:
