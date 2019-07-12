@@ -90,32 +90,32 @@ namespace detail
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua()
 #			if GLM_CONFIG_CTOR_INIT != GLM_CTOR_INIT_DISABLE
-			: x(0), y(0), z(0), w(1)
+			: w(1), x(0), y(0), z(0)
 #			endif
 		{}
 
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua(qua<T, Q> const& q)
-			: x(q.x), y(q.y), z(q.z), w(q.w)
+			: w(q.w), x(q.x), y(q.y), z(q.z)
 		{}
 #	endif
 
 	template<typename T, qualifier Q>
 	template<qualifier P>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua(qua<T, P> const& q)
-		: x(q.x), y(q.y), z(q.z), w(q.w)
+		: w(q.w), x(q.x), y(q.y), z(q.z)
 	{}
 
 	// -- Explicit basic constructors --
 
 	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua(T s, vec<3, T, Q> const& v)
-		: x(v.x), y(v.y), z(v.z), w(s)
+		: w(s), x(v.x), y(v.y), z(v.z)
 	{}
 
 	template <typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua(T _w, T _x, T _y, T _z)
-		: x(_x), y(_y), z(_z), w(_w)
+		: w(_w), x(_x), y(_y), z(_z)
 	{}
 
 	// -- Conversion constructors --
@@ -123,10 +123,10 @@ namespace detail
 	template<typename T, qualifier Q>
 	template<typename U, qualifier P>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua(qua<U, P> const& q)
-		: x(static_cast<T>(q.x))
+		: w(static_cast<T>(q.w))
+		, x(static_cast<T>(q.x))
 		, y(static_cast<T>(q.y))
 		, z(static_cast<T>(q.z))
-		, w(static_cast<T>(q.w))
 	{}
 
 	//template<typename valType>
