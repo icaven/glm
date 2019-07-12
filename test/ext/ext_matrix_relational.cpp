@@ -23,7 +23,7 @@
 #include <glm/ext/vector_float2.hpp>
 #include <glm/ext/vector_float3.hpp>
 #include <glm/ext/vector_float4.hpp>
-#include <glm/gtc/ulp.hpp>
+#include <glm/ext/scalar_ulp.hpp>
 
 template <typename matType, typename vecType>
 static int test_equal()
@@ -70,16 +70,16 @@ static int test_equal_ulps()
 
 	int Error = 0;
 
-	T const ULP1Plus = glm::next_float(One);
+	T const ULP1Plus = glm::nextFloat(One);
 	Error += glm::all(glm::equal(Ones, mat4(ULP1Plus), 1)) ? 0 : 1;
 
-	T const ULP2Plus = glm::next_float(ULP1Plus);
+	T const ULP2Plus = glm::nextFloat(ULP1Plus);
 	Error += !glm::all(glm::equal(Ones, mat4(ULP2Plus), 1)) ? 0 : 1;
 
-	T const ULP1Minus = glm::prev_float(One);
+	T const ULP1Minus = glm::prevFloat(One);
 	Error += glm::all(glm::equal(Ones, mat4(ULP1Minus), 1)) ? 0 : 1;
 
-	T const ULP2Minus = glm::prev_float(ULP1Minus);
+	T const ULP2Minus = glm::prevFloat(ULP1Minus);
 	Error += !glm::all(glm::equal(Ones, mat4(ULP2Minus), 1)) ? 0 : 1;
 
 	return Error;
@@ -95,16 +95,16 @@ static int test_notEqual_ulps()
 
 	int Error = 0;
 
-	T const ULP1Plus = glm::next_float(One);
+	T const ULP1Plus = glm::nextFloat(One);
 	Error += !glm::all(glm::notEqual(Ones, mat4(ULP1Plus), 1)) ? 0 : 1;
 
-	T const ULP2Plus = glm::next_float(ULP1Plus);
+	T const ULP2Plus = glm::nextFloat(ULP1Plus);
 	Error += glm::all(glm::notEqual(Ones, mat4(ULP2Plus), 1)) ? 0 : 1;
 
-	T const ULP1Minus = glm::prev_float(One);
+	T const ULP1Minus = glm::prevFloat(One);
 	Error += !glm::all(glm::notEqual(Ones, mat4(ULP1Minus), 1)) ? 0 : 1;
 
-	T const ULP2Minus = glm::prev_float(ULP1Minus);
+	T const ULP2Minus = glm::prevFloat(ULP1Minus);
 	Error += glm::all(glm::notEqual(Ones, mat4(ULP2Minus), 1)) ? 0 : 1;
 
 	return Error;

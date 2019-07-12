@@ -54,6 +54,10 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 ## Release notes
 
 ### [GLM 0.9.9.6](https://github.com/g-truc/glm/tree/master)
+#### Features:
+- Added EXT_scalar_integer extension with power of two and multiple scalar functions
+- Added EXT_vector_integer extension with power of two and multiple vector functions
+
 #### Improvements:
 - Added SYCL support #914
 - Added Visual C++ 2019 detection
@@ -65,6 +69,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Fixed .natvis as structs renamed #915
 - Fixed ldexp and frexp declaration #895
 - Fixed missing const to quaternion conversion operators #890
+- Fixed EXT_scalar_ulp and EXT_vector_ulp API coding style
 
 ### [GLM 0.9.9.5](https://github.com/g-truc/glm/releases/tag/0.9.9.5) - 2019-04-01
 #### Fixes:

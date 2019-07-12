@@ -159,6 +159,8 @@ namespace detail
 	template<typename genIUType>
 	GLM_FUNC_QUALIFIER bool isPowerOfTwo(genIUType Value)
 	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'isPowerOfTwo' only accept integer inputs");
+
 		genIUType const Result = glm::abs(Value);
 		return !(Result & (Result - 1));
 	}
@@ -166,30 +168,40 @@ namespace detail
 	template<typename genIUType>
 	GLM_FUNC_QUALIFIER genIUType nextPowerOfTwo(genIUType value)
 	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'nextPowerOfTwo' only accept integer inputs");
+
 		return detail::compute_ceilPowerOfTwo<1, genIUType, defaultp, std::numeric_limits<genIUType>::is_signed>::call(vec<1, genIUType, defaultp>(value)).x;
 	}
 
 	template<typename genIUType>
 	GLM_FUNC_QUALIFIER genIUType prevPowerOfTwo(genIUType value)
 	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'prevPowerOfTwo' only accept integer inputs");
+
 		return isPowerOfTwo(value) ? value : static_cast<genIUType>(1) << findMSB(value);
 	}
 
 	template<typename genIUType>
 	GLM_FUNC_QUALIFIER bool isMultiple(genIUType Value, genIUType Multiple)
 	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'isMultiple' only accept integer inputs");
+
 		return isMultiple(vec<1, genIUType>(Value), vec<1, genIUType>(Multiple)).x;
 	}
 
 	template<typename genIUType>
 	GLM_FUNC_QUALIFIER genIUType nextMultiple(genIUType Source, genIUType Multiple)
 	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'nextMultiple' only accept integer inputs");
+
 		return detail::compute_ceilMultiple<std::numeric_limits<genIUType>::is_iec559, std::numeric_limits<genIUType>::is_signed>::call(Source, Multiple);
 	}
 
 	template<typename genIUType>
 	GLM_FUNC_QUALIFIER genIUType prevMultiple(genIUType Source, genIUType Multiple)
 	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'prevMultiple' only accept integer inputs");
+
 		return detail::compute_floorMultiple<std::numeric_limits<genIUType>::is_iec559, std::numeric_limits<genIUType>::is_signed>::call(Source, Multiple);
 	}
 }//namespace glm
