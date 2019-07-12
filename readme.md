@@ -65,6 +65,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Fixed .natvis as structs renamed #915
 - Fixed ldexp and frexp declaration #895
 - Fixed missing const to quaternion conversion operators #890
+- Fixed quaternion componant order: w, {x, y, z} #916
 
 ### [GLM 0.9.9.5](https://github.com/g-truc/glm/releases/tag/0.9.9.5) - 2019-04-01
 #### Fixes:

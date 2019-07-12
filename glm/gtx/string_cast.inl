@@ -450,10 +450,10 @@ namespace detail
 				LiteralStr, LiteralStr, LiteralStr, LiteralStr));
 
 			return detail::format(FormatStr.c_str(),
-				static_cast<typename cast<T>::value_type>(x[3]),
 				static_cast<typename cast<T>::value_type>(x[0]),
 				static_cast<typename cast<T>::value_type>(x[1]),
-				static_cast<typename cast<T>::value_type>(x[2]));
+				static_cast<typename cast<T>::value_type>(x[2]),
+				static_cast<typename cast<T>::value_type>(x[3]));
 		}
 	};
 
@@ -470,14 +470,14 @@ namespace detail
 				LiteralStr, LiteralStr, LiteralStr, LiteralStr));
 
 			return detail::format(FormatStr.c_str(),
-				static_cast<typename cast<T>::value_type>(x.real[3]),
 				static_cast<typename cast<T>::value_type>(x.real[0]),
 				static_cast<typename cast<T>::value_type>(x.real[1]),
 				static_cast<typename cast<T>::value_type>(x.real[2]),
-				static_cast<typename cast<T>::value_type>(x.dual[3]),
+				static_cast<typename cast<T>::value_type>(x.real[3]),
 				static_cast<typename cast<T>::value_type>(x.dual[0]),
 				static_cast<typename cast<T>::value_type>(x.dual[1]),
-				static_cast<typename cast<T>::value_type>(x.dual[2]));
+				static_cast<typename cast<T>::value_type>(x.dual[2]),
+				static_cast<typename cast<T>::value_type>(x.dual[3]));
 		}
 	};
 
