@@ -3,8 +3,61 @@
 #include "../integer.hpp"
 #include "../ext/vector_integer.hpp"
 
-namespace glm
+namespace glm{
+namespace detail
 {
+	template<bool is_float, bool is_signed>
+	struct compute_roundMultiple {};
+
+	template<>
+	struct compute_roundMultiple<true, true>
+	{
+		template<typename genType>
+		GLM_FUNC_QUALIFIER static genType call(genType Source, genType Multiple)
+		{
+			if (Source >= genType(0))
+				return Source - std::fmod(Source, Multiple);
+			else
+			{
+				genType Tmp = Source + genType(1);
+				return Tmp - std::fmod(Tmp, Multiple) - Multiple;
+			}
+		}
+	};
+
+	template<>
+	struct compute_roundMultiple<false, false>
+	{
+		template<typename genType>
+		GLM_FUNC_QUALIFIER static genType call(genType Source, genType Multiple)
+		{
+			if (Source >= genType(0))
+				return Source - Source % Multiple;
+			else
+			{
+				genType Tmp = Source + genType(1);
+				return Tmp - Tmp % Multiple - Multiple;
+			}
+		}
+	};
+
+	template<>
+	struct compute_roundMultiple<false, true>
+	{
+		template<typename genType>
+		GLM_FUNC_QUALIFIER static genType call(genType Source, genType Multiple)
+		{
+			if (Source >= genType(0))
+				return Source - Source % Multiple;
+			else
+			{
+				genType Tmp = Source + genType(1);
+				return Tmp - Tmp % Multiple - Multiple;
+			}
+		}
+	};
+}//namespace detail
+
 	//////////////////
 	// ceilPowerOfTwo
 
