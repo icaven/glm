@@ -1,15 +1,5 @@
-/// @ref gtc_quaternion
-/// @file glm/gtc/quaternion.hpp
-///
-/// @see core (dependence)
-/// @see gtc_constants (dependence)
-///
-/// @defgroup gtc_quaternion GLM_GTC_quaternion
-/// @ingroup gtc
-///
-/// Include <glm/gtc/quaternion.hpp> to use the features of this extension.
-///
-/// Defines a templated quaternion type and several quaternion operations.
+/// @ref core
+/// @file glm/detail/type_quat.hpp
 
 #pragma once
 
@@ -25,9 +15,6 @@
 
 namespace glm
 {
-	/// @addtogroup gtc_quaternion
-	/// @{
-
 	template<typename T, qualifier Q>
 	struct qua
 	{
@@ -55,7 +42,7 @@ namespace glm
 #		if GLM_LANG & GLM_LANG_CXXMS_FLAG
 			union
 			{
-				struct { T x, y, z, w;};
+				struct { T w, x, y, z;};
 
 				typename detail::storage<4, T, detail::is_aligned<Q>::value>::type data;
 			};
@@ -76,6 +63,7 @@ namespace glm
 		// -- Component accesses --
 
 		typedef length_t length_type;
+
 		/// Return the count of components of a quaternion
 		GLM_FUNC_DECL static GLM_CONSTEXPR length_type length(){return 4;}
 
@@ -183,8 +171,8 @@ namespace glm
 
 	template<typename T, qualifier Q>
 	GLM_FUNC_DECL GLM_CONSTEXPR bool operator!=(qua<T, Q> const& q1, qua<T, Q> const& q2);
-
-	/// @}
 } //namespace glm
 
+#ifndef GLM_EXTERNAL_TEMPLATE
 #include "type_quat.inl"
+#endif//GLM_EXTERNAL_TEMPLATE
