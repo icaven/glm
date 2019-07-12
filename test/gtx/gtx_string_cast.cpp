@@ -143,6 +143,7 @@ int test_string_cast_dual_quaternion()
 int main()
 {
 	int Error = 0;
+
 	Error += test_string_cast_vector();
 	Error += test_string_cast_matrix();
 	Error += test_string_cast_quaternion();
