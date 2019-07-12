@@ -444,6 +444,74 @@ namespace nextMultiple
 	}
 }//namespace nextMultiple
 
+namespace findNSB
+{
+	template<typename T>
+	struct type
+	{
+		T Source;
+		int SignificantBitCount;
+		int Return;
+	};
+
+	template <glm::length_t L, typename T>
+	int run()
+	{
+		type<T> const Data[] =
+		{
+			{ 0x00, 1,-1 },
+			{ 0x01, 2,-1 },
+			{ 0x02, 2,-1 },
+			{ 0x06, 3,-1 },
+			{ 0x01, 1, 0 },
+			{ 0x03, 1, 0 },
+			{ 0x03, 2, 1 },
+			{ 0x07, 2, 1 },
+			{ 0x05, 2, 2 },
+			{ 0x0D, 2, 2 }
+		};
+
+		int Error = 0;
+
+		for (std::size_t i = 0, n = sizeof(Data) / sizeof(type<T>); i < n; ++i)
+		{
+			glm::vec<L, int> const Result0 = glm::findNSB<L, T, glm::defaultp>(glm::vec<L, T>(Data[i].Source), glm::vec<L, int>(Data[i].SignificantBitCount));
+			Error += glm::vec<L, int>(Data[i].Return) == Result0 ? 0 : 1;
+			assert(!Error);
+		}
+
+		return Error;
+	}
+
+	int test()
+	{
+		int Error = 0;
+/*
+		Error += run<1, glm::uint8>();
+		Error += run<2, glm::uint8>();
+		Error += run<3, glm::uint8>();
+		Error += run<4, glm::uint8>();
+
+		Error += run<1, glm::uint16>();
+		Error += run<2, glm::uint16>();
+		Error += run<3, glm::uint16>();
+		Error += run<4, glm::uint16>();
+
+		Error += run<1, glm::uint32>();
+		Error += run<2, glm::uint32>();
+		Error += run<3, glm::uint32>();
+*/
+		Error += run<4, glm::uint32>();
+/*
+		Error += run<1, glm::uint64>();
+		Error += run<2, glm::uint64>();
+		Error += run<3, glm::uint64>();
+		Error += run<4, glm::uint64>();
+*/
+		return Error;
+	}
+}//namespace findNSB
+
 int main()
 {
 	int Error = 0;
@@ -453,6 +521,7 @@ int main()
 	Error += nextPowerOfTwo::test();
 	Error += prevMultiple::test();
 	Error += nextMultiple::test();
+	Error += findNSB::test();
 
 	return Error;
 }

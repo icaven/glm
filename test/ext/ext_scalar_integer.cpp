@@ -600,9 +600,68 @@ namespace nextMultiple
 	}
 }//namespace nextMultiple
 
+namespace findNSB
+{
+	template<typename T>
+	struct type
+	{
+		T Source;
+		int SignificantBitCount;
+		int Return;
+	};
+
+	template <typename T>
+	int run()
+	{
+		type<T> const Data[] =
+		{
+			{ 0x00, 1,-1 },
+			{ 0x01, 2,-1 },
+			{ 0x02, 2,-1 },
+			{ 0x06, 3,-1 },
+			{ 0x01, 1, 0 },
+			{ 0x03, 1, 0 },
+			{ 0x03, 2, 1 },
+			{ 0x07, 2, 1 },
+			{ 0x05, 2, 2 },
+			{ 0x0D, 2, 2 }
+		};
+
+		int Error = 0;
+
+		for (std::size_t i = 0, n = sizeof(Data) / sizeof(type<T>); i < n; ++i)
+		{
+			int const Result0 = glm::findNSB(Data[i].Source, Data[i].SignificantBitCount);
+			Error += Data[i].Return == Result0 ? 0 : 1;
+			assert(!Error);
+		}
+
+		return Error;
+	}
+
+	int test()
+	{
+		int Error = 0;
+
+		Error += run<glm::uint8>();
+		Error += run<glm::uint16>();
+		Error += run<glm::uint32>();
+		Error += run<glm::uint64>();
+/*
+		Error += run<glm::int8>();
+		Error += run<glm::int16>();
+		Error += run<glm::int32>();
+		Error += run<glm::int64>();
+*/
+		return Error;
+	}
+}//namespace findNSB
+
 int main()
 {
-	int Error(0);
+	int Error = 0;
+
+	Error += findNSB::test();
 
 	Error += isPowerOfTwo::test();
 	Error += prevPowerOfTwo::test();

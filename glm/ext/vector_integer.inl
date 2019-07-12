@@ -74,4 +74,12 @@ namespace glm
 
 		return detail::functor2<vec, L, T, Q>::call(prevMultiple, Source, Multiple);
 	}
+
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, int, Q> findNSB(vec<L, T, Q> const& Source, vec<L, int, Q> SignificantBitCount)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<T>::is_integer, "'findNSB' only accept integer inputs");
+
+		return detail::functor2_vec_int<L, T, Q>::call(findNSB, Source, SignificantBitCount);
+	}
 }//namespace glm

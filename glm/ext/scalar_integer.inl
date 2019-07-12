@@ -204,4 +204,40 @@ namespace detail
 
 		return detail::compute_floorMultiple<std::numeric_limits<genIUType>::is_iec559, std::numeric_limits<genIUType>::is_signed>::call(Source, Multiple);
 	}
+
+	template<typename genIUType>
+	GLM_FUNC_QUALIFIER int findNSB(genIUType x, int significantBitCount)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genIUType>::is_integer, "'findNSB' only accept integer inputs");
+
+		if(bitCount(x) < significantBitCount)
+			return -1;
+
+		genIUType const One = static_cast<genIUType>(1);
+		int bitPos = 0;
+
+		genIUType key = x;
+		int nBitCount = significantBitCount;
+		int Step = sizeof(x) * 8 / 2;
+		while (key > One)
+		{
+			genIUType Mask = static_cast<genIUType>((One << Step) - One);
+			genIUType currentKey = key & Mask;
+			int currentBitCount = bitCount(currentKey);
+			if (nBitCount > currentBitCount)
+			{
+				nBitCount -= currentBitCount;
+				bitPos += Step;
+				key >>= static_cast<genIUType>(Step);
+			}
+			else
+			{
+				key = key & Mask;
+			}
+
+			Step >>= 1;
+		}
+
+		return static_cast<int>(bitPos);
+	}
 }//namespace glm
