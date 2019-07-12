@@ -392,7 +392,7 @@ namespace nextMultiple
 		for(std::size_t i = 0, n = Results.size(); i < n; ++i)
 			Result += Results[i];
 
-		return Result > 0;
+		return Result > 0 ? 0 : 1;
 	}
 
 	template <typename T>
@@ -422,7 +422,7 @@ namespace nextMultiple
 		for(std::size_t i = 0, n = Results.size(); i < n; ++i)
 			Result += Results[i];
 
-		return Result > 0;
+		return Result > 0 ? 0 : 1;
 	}
 
 	template <typename T>
@@ -457,7 +457,7 @@ namespace nextMultiple
 		for (std::size_t i = 0, n = Results.size(); i < n; ++i)
 			Result += Results[i];
 
-		return Result > 0;
+		return Result > 0 ? 0 : 1;
 	}
 
 	template <typename T>
@@ -486,7 +486,7 @@ namespace nextMultiple
 		for (std::size_t i = 0, n = Results.size(); i < n; ++i)
 			Result += Results[i];
 
-		return Result > static_cast<float>(0);
+		return Result > 0.0f ? 0 : 1;
 	}
 
 	template <typename T>
@@ -518,7 +518,7 @@ namespace nextMultiple
 		for (std::size_t i = 0, n = Results.size(); i < n; ++i)
 			Result += Results[i];
 
-		return Result > static_cast<float>(0);
+		return Result > 0.0f ? 0 : 1;
 	}
 
 	template<typename genIUType>
@@ -592,10 +592,6 @@ namespace nextMultiple
 		Error += test_uint<glm::uint32>();
 		Error += test_uint<glm::uint64>();
 
-#		ifdef NDEBUG
-			Error += perf();
-#		endif//NDEBUG
-
 		return Error;
 	}
 }//namespace nextMultiple
@@ -667,13 +663,13 @@ int main()
 	Error += prevPowerOfTwo::test();
 	Error += nextPowerOfTwo::test();
 	Error += nextPowerOfTwo_advanced::test();
-	
-#	ifdef NDEBUG
-		Error += nextPowerOfTwo_advanced::perf();
-#	endif//NDEBUG
-
 	Error += prevMultiple::test();
 	Error += nextMultiple::test();
+
+#	ifdef NDEBUG
+		Error += nextPowerOfTwo_advanced::perf();
+		Error += nextMultiple::perf();
+#	endif//NDEBUG
 
 	return Error;
 }
