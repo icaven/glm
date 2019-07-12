@@ -6,7 +6,7 @@ namespace glm
 	GLM_FUNC_QUALIFIER vec<L, bool, Q> isPowerOfTwo(vec<L, T, Q> const& Value)
 	{
 		vec<L, T, Q> const Result(abs(Value));
-		return equal(Result & (Result - 1), vec<L, T, Q>(0));
+		return equal(Result & (Result - vec<L, T, Q>(1)), vec<L, T, Q>(0));
 	}
 
 	template<length_t L, typename T, qualifier Q>
