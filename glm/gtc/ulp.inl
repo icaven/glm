@@ -1,7 +1,6 @@
 /// @ref gtc_ulp
 
-#include "../ext/scalar_integer.hpp"
-#include "../ext/vector_integer.hpp"
+#include "../ext/scalar_ulp.hpp"
 
 namespace glm
 {
