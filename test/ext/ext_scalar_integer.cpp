@@ -4,6 +4,8 @@
 #include <vector>
 #include <ctime>
 #include <cstdio>
+
+#if GLM_LANG & GLM_LANG_CXX11_FLAG
 #include <chrono>
 
 namespace isPowerOfTwo
@@ -673,3 +675,12 @@ int main()
 
 	return Error;
 }
+
+#else
+
+int main()
+{
+	return 0;
+}
+
+#endif
