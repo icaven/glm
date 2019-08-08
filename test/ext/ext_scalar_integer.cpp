@@ -645,12 +645,12 @@ namespace findNSB
 		Error += run<glm::uint16>();
 		Error += run<glm::uint32>();
 		Error += run<glm::uint64>();
-/*
+
 		Error += run<glm::int8>();
 		Error += run<glm::int16>();
 		Error += run<glm::int32>();
 		Error += run<glm::int64>();
-*/
+
 		return Error;
 	}
 }//namespace findNSB

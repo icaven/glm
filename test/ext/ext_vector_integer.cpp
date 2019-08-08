@@ -507,6 +507,27 @@ namespace findNSB
 		Error += run<3, glm::uint64>();
 		Error += run<4, glm::uint64>();
 
+		Error += run<1, glm::int8>();
+		Error += run<2, glm::int8>();
+		Error += run<3, glm::int8>();
+		Error += run<4, glm::int8>();
+
+		Error += run<1, glm::int16>();
+		Error += run<2, glm::int16>();
+		Error += run<3, glm::int16>();
+		Error += run<4, glm::int16>();
+
+		Error += run<1, glm::int32>();
+		Error += run<2, glm::int32>();
+		Error += run<3, glm::int32>();
+		Error += run<4, glm::int32>();
+
+		Error += run<1, glm::int64>();
+		Error += run<2, glm::int64>();
+		Error += run<3, glm::int64>();
+		Error += run<4, glm::int64>();
+
+
 		return Error;
 	}
 }//namespace findNSB
