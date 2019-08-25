@@ -4,6 +4,8 @@
 #include <vector>
 #include <ctime>
 #include <cstdio>
+
+#if GLM_LANG & GLM_LANG_CXX11_FLAG
 #include <chrono>
 
 namespace isPowerOfTwo
@@ -643,12 +645,12 @@ namespace findNSB
 		Error += run<glm::uint16>();
 		Error += run<glm::uint32>();
 		Error += run<glm::uint64>();
-/*
+
 		Error += run<glm::int8>();
 		Error += run<glm::int16>();
 		Error += run<glm::int32>();
 		Error += run<glm::int64>();
-*/
+
 		return Error;
 	}
 }//namespace findNSB
@@ -673,3 +675,12 @@ int main()
 
 	return Error;
 }
+
+#else
+
+int main()
+{
+	return 0;
+}
+
+#endif

@@ -47,7 +47,7 @@ namespace glm
 				typename detail::storage<4, T, detail::is_aligned<Q>::value>::type data;
 			};
 #		else
-			T x, y, z, w;
+			T w, x, y, z;
 #		endif
 
 #		if GLM_SILENT_WARNINGS == GLM_ENABLE
