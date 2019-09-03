@@ -321,12 +321,9 @@
 #		define GLM_ARCH (GLM_ARCH_X86)
 #	elif defined(__ARM_ARCH) && (__ARM_ARCH >= 8)
 #		define GLM_ARCH (GLM_ARCH_ARMV8)
-#warning "ARM v8"
 #	elif defined(__ARM_NEON)
-#warning "ARM NEON"
 #		define GLM_ARCH (GLM_ARCH_ARM | GLM_ARCH_NEON)
 #	elif defined(__arm__ ) || defined(_M_ARM)
-#warning "ARM v6"
 #		define GLM_ARCH (GLM_ARCH_ARM)
 #	elif defined(__mips__ )
 #		define GLM_ARCH (GLM_ARCH_MIPS)
