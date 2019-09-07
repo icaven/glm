@@ -55,6 +55,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 
 ### [GLM 0.9.9.6](https://github.com/g-truc/glm/tree/master)
 #### Features:
+- Added Neon support to glm #945
 - Added EXT_scalar_integer extension with power of two and multiple scalar functions
 - Added EXT_vector_integer extension with power of two and multiple vector functions
 
