@@ -485,12 +485,7 @@ matrix:
         - ctest
 
     - os: linux
-      addons:
-        apt:
-          sources:
-            - llvm-toolchain-bionic-7.0
-          packages:
-            - clang-7.0
+      dist: bionic
       env:
         - MATRIX_EVAL="CC=clang-7.0 && CXX=clang++-7.0 && INFO=C++17-pure-release"
       script:
@@ -502,12 +497,7 @@ matrix:
         - ctest
 
     - os: linux
-      addons:
-        apt:
-          sources:
-            - llvm-toolchain-bionic-7.0
-          packages:
-            - clang-7.0
+      dist: bionic
       env:
         - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-7.0 && INFO=C++17-pure-debug"
       script:
@@ -519,12 +509,7 @@ matrix:
         - ctest
 
     - os: linux
-      addons:
-        apt:
-          sources:
-            - llvm-toolchain-bionic-7.0
-          packages:
-            - clang-7.0
+      dist: bionic
       env:
         - MATRIX_EVAL="CC=clang-7.0 && CXX=clang++-7.0 && INFO=C++17-sse3-release"
       script:
@@ -536,12 +521,7 @@ matrix:
         - ctest
 
     - os: linux
-      addons:
-        apt:
-          sources:
-            - llvm-toolchain-bionic-7.0
-          packages:
-            - clang-7.0
+      dist: bionic
       env:
         - MATRIX_EVAL="CC=clang-7.0 && CXX=clang++-7.0 && INFO=C++17-sse3-debug"
       script:
@@ -553,12 +533,7 @@ matrix:
         - ctest
 
     - os: linux
-      addons:
-        apt:
-          sources:
-            - llvm-toolchain-bionic-7.0
-          packages:
-            - clang-7.0
+      dist: bionic
       env:
         - MATRIX_EVAL="CC=clang-7.0 && CXX=clang++-7.0 && INFO=C++17-ssse3-release"
       script:
