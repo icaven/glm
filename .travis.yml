@@ -488,11 +488,11 @@ matrix:
       addons:
         apt:
           sources:
-            - llvm-toolchain-trusty-5.0
+            - llvm-toolchain-bionic-7.0
           packages:
-            - clang-5.0
+            - clang-7.0
       env:
-        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0 && INFO=C++17-pure-release"
+        - MATRIX_EVAL="CC=clang-7.0 && CXX=clang++-7.0 && INFO=C++17-pure-release"
       script:
         - cmake --version
         - mkdir ./build_pure_17_release
@@ -505,11 +505,11 @@ matrix:
       addons:
         apt:
           sources:
-            - llvm-toolchain-trusty-5.0
+            - llvm-toolchain-bionic-7.0
           packages:
-            - clang-5.0
+            - clang-7.0
       env:
-        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0 && INFO=C++17-pure-debug"
+        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-7.0 && INFO=C++17-pure-debug"
       script:
         - cmake --version
         - mkdir ./build_pure_17_debug
@@ -522,11 +522,11 @@ matrix:
       addons:
         apt:
           sources:
-            - llvm-toolchain-trusty-5.0
+            - llvm-toolchain-bionic-7.0
           packages:
-            - clang-5.0
+            - clang-7.0
       env:
-        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0 && INFO=C++17-sse3-release"
+        - MATRIX_EVAL="CC=clang-7.0 && CXX=clang++-7.0 && INFO=C++17-sse3-release"
       script:
         - cmake --version
         - mkdir ./build_sse3_17_release
@@ -539,11 +539,11 @@ matrix:
       addons:
         apt:
           sources:
-            - llvm-toolchain-trusty-5.0
+            - llvm-toolchain-bionic-7.0
           packages:
-            - clang-5.0
+            - clang-7.0
       env:
-        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0 && INFO=C++17-sse3-debug"
+        - MATRIX_EVAL="CC=clang-7.0 && CXX=clang++-7.0 && INFO=C++17-sse3-debug"
       script:
         - cmake --version
         - mkdir ./build_sse3_17_debug
@@ -556,11 +556,11 @@ matrix:
       addons:
         apt:
           sources:
-            - llvm-toolchain-trusty-5.0
+            - llvm-toolchain-bionic-7.0
           packages:
-            - clang-5.0
+            - clang-7.0
       env:
-        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0 && INFO=C++17-ssse3-release"
+        - MATRIX_EVAL="CC=clang-7.0 && CXX=clang++-7.0 && INFO=C++17-ssse3-release"
       script:
         - cmake --version
         - mkdir ./build_ssse3_17_release
