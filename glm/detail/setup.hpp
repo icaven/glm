@@ -294,10 +294,8 @@
 
 //
 #if GLM_HAS_CONSTEXPR
-# if (GLM_COMPILER & GLM_COMPILER_CLANG)
-#	define GLM_HAS_IF_CONSTEXPR __has_feature(cxx_if_constexpr)
-# elif (GLM_COMPILER & GLM_COMPILER_GCC) 
-#	define GLM_HAS_IF_CONSTEXPR (__cplusplus >= 201703L)
+# if (GLM_COMPILER & GLM_COMPILER_CLANG) && __has_feature(cxx_if_constexpr)
+#	define GLM_HAS_IF_CONSTEXPR 1
 # elif (GLM_LANG & GLM_LANG_CXX17_FLAG)
 # 	define GLM_HAS_IF_CONSTEXPR 1
 # else
