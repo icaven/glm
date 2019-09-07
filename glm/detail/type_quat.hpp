@@ -42,7 +42,7 @@ namespace glm
 #		if GLM_LANG & GLM_LANG_CXXMS_FLAG
 			union
 			{
-				struct { T w, x, y, z;};
+				struct { T x, y, z, w;};
 
 				typename detail::storage<4, T, detail::is_aligned<Q>::value>::type data;
 			};

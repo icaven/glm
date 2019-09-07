@@ -103,19 +103,19 @@ namespace detail
 	template<typename T, qualifier Q>
 	template<qualifier P>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua(qua<T, P> const& q)
-		: w(q.w), x(q.x), y(q.y), z(q.z)
+		: x(q.x), y(q.y), z(q.z), w(q.w)
 	{}
 
 	// -- Explicit basic constructors --
 
 	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua(T s, vec<3, T, Q> const& v)
-		: w(s), x(v.x), y(v.y), z(v.z)
+		: x(v.x), y(v.y), z(v.z), w(s)
 	{}
 
 	template <typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua(T _w, T _x, T _y, T _z)
-		: w(_w), x(_x), y(_y), z(_z)
+		: x(_x), y(_y), z(_z), w(_w)
 	{}
 
 	// -- Conversion constructors --
@@ -123,10 +123,10 @@ namespace detail
 	template<typename T, qualifier Q>
 	template<typename U, qualifier P>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua(qua<U, P> const& q)
-		: w(static_cast<T>(q.w))
-		, x(static_cast<T>(q.x))
+		: x(static_cast<T>(q.x))
 		, y(static_cast<T>(q.y))
 		, z(static_cast<T>(q.z))
+		, w(static_cast<T>(q.w))
 	{}
 
 	//template<typename valType>
