@@ -75,6 +75,9 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Fixed GLM_HAS_CXX11_STL broken on Clang with Linux #926
 - Fixed Clang or GCC build due to wrong GLM_HAS_IF_CONSTEXPR definition #907
 
+#### Deprecation:
+ - Removed CMake install and uninstall scripts
+
 ### [GLM 0.9.9.5](https://github.com/g-truc/glm/releases/tag/0.9.9.5) - 2019-04-01
 #### Fixes:
 - Fixed build errors when defining GLM_ENABLE_EXPERIMENTAL #884 #883
