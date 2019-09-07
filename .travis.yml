@@ -535,7 +535,7 @@ matrix:
     - os: linux
       dist: bionic
       env:
-        - MATRIX_EVAL="CC=clang-7.0 && && INFO=C++17-ssse3-release"
+        - MATRIX_EVAL="CC=clang-7.0 && INFO=C++17-ssse3-release"
       script:
         - cmake --version
         - mkdir ./build_ssse3_17_release
