@@ -14,7 +14,7 @@ This library works perfectly with *[OpenGL](https://www.opengl.org)* but it also
 - [Intel C++ Composer](https://software.intel.com/en-us/intel-compilers) XE 2013 and higher
 - [LLVM](http://llvm.org/) 3.4 and higher
 - [Visual C++](http://www.visualstudio.com/) 2013 and higher
-- [CUDA](https://developer.nvidia.com/about-cuda) 7.0 and higher (experimental)
+- [CUDA](https://developer.nvidia.com/about-cuda) 9.0 and higher (experimental)
 - [SYCL](https://www.khronos.org/sycl/) (experimental: only [ComputeCpp](https://codeplay.com/products/computesuite/computecpp) implementation has been tested).
 - Any C++11 compiler
 
@@ -56,11 +56,11 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 ### [GLM 0.9.9.6](https://github.com/g-truc/glm/tree/master)
 #### Features:
 - Added Neon support to glm #945
+- Added SYCL support #914
 - Added EXT_scalar_integer extension with power of two and multiple scalar functions
 - Added EXT_vector_integer extension with power of two and multiple vector functions
 
 #### Improvements:
-- Added SYCL support #914
 - Added Visual C++ 2019 detection
 - Added Visual C++ 2017 15.8 and 15.9 detection
 
@@ -74,6 +74,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Fixed quaternion componant order: w, {x, y, z} #916
 - Fixed GLM_HAS_CXX11_STL broken on Clang with Linux #926
 - Fixed Clang or GCC build due to wrong GLM_HAS_IF_CONSTEXPR definition #907
+- Fixed CUDA 9 build #910
 
 #### Deprecation:
  - Removed CMake install and uninstall scripts
