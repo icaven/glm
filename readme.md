@@ -53,7 +53,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 
 ## Release notes
 
-### [GLM 0.9.9.6](https://github.com/g-truc/glm/tree/master)
+### [GLM 0.9.9.6](https://github.com/g-truc/glm/releases/tag/0.9.9.6) - 2019-09-08
 #### Features:
 - Added Neon support to glm #945
 - Added SYCL support #914
