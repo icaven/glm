@@ -27,6 +27,8 @@ matrix:
     - image: Visual Studio 2013
       configuration: Debug
     - image: Visual Studio 2015
+      GLM_ARGUMENTS: -DGLM_TEST_ENABLE_SIMD_SSE2=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+    - image: Visual Studio 2015
       platform: x86
     - image: Visual Studio 2015
       configuration: Debug
@@ -35,7 +37,7 @@ matrix:
     - image: Visual Studio 2017
       configuration: Debug
     - image: Visual Studio 2019
-      platform: x86
+      GLM_ARGUMENTS: -DGLM_TEST_ENABLE_SIMD_SSE2=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
 
 before_build:
   - ps: |
