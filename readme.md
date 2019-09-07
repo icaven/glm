@@ -71,6 +71,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Fixed missing const to quaternion conversion operators #890
 - Fixed EXT_scalar_ulp and EXT_vector_ulp API coding style
 - Fixed quaternion componant order: w, {x, y, z} #916
+- Fixed GLM_HAS_CXX11_STL broken on Clang with Linux #926
 
 ### [GLM 0.9.9.5](https://github.com/g-truc/glm/releases/tag/0.9.9.5) - 2019-04-01
 #### Fixes:
