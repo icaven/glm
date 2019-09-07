@@ -90,7 +90,7 @@ namespace detail
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua()
 #			if GLM_CONFIG_CTOR_INIT != GLM_CTOR_INIT_DISABLE
-			: w(1), x(0), y(0), z(0)
+			: x(0), y(0), z(0), w(1)
 #			endif
 		{}
 
