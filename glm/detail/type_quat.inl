@@ -96,7 +96,7 @@ namespace detail
 
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua(qua<T, Q> const& q)
-			: w(q.w), x(q.x), y(q.y), z(q.z)
+			: x(q.x), y(q.y), z(q.z), w(q.w)
 		{}
 #	endif
 
