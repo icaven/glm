@@ -63,6 +63,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 #### Improvements:
 - Added Visual C++ 2019 detection
 - Added Visual C++ 2017 15.8 and 15.9 detection
+- Added missing genType check for bitCount and bitfieldReverse #893
 
 #### Fixes:
 - Fixed for g++6 where -std=c++1z sets __cplusplus to 201500 instead of 201402 #921
