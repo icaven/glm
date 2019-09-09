@@ -1,7 +1,7 @@
 ================================================================================
 OpenGL Mathematics (GLM)
 --------------------------------------------------------------------------------
-GLM is licensed under The Happy Bunny License and MIT License
+GLM is licensed under The Happy Bunny License or MIT License
 
 ================================================================================
 The Happy Bunny License (Modified MIT License)
