@@ -35,12 +35,12 @@
 ///////////////////////////////////////////////////////////////////////////////////
 // Build model
 
-#if defined(__LP64__)
+#if defined(_M_ARM64) || defined(__LP64__) || defined(_M_X64) || defined(__ppc64__) || defined(__x86_64__)
 #	define GLM_MODEL	GLM_MODEL_64
-#elif defined(__ILP32__)
+#elif defined(__i386__) || defined(__ppc__) || defined(__ILP32__) || defined(_M_ARM)
 #	define GLM_MODEL	GLM_MODEL_32
 #else
-#	error "Architecture must be either 32 or 64-bits"
+#	define GLM_MODEL	GLM_MODEL_32
 #endif//
 
 #if !defined(GLM_MODEL) && GLM_COMPILER != 0
