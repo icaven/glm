@@ -14,7 +14,7 @@ int test_fastInverseSqrt()
 	Error += glm::all(glm::epsilonEqual(glm::fastInverseSqrt(glm::dvec3(1.0)), glm::dvec3(1.0), 0.01)) ? 0 : 1;
 	Error += glm::all(glm::epsilonEqual(glm::fastInverseSqrt(glm::dvec4(1.0)), glm::dvec4(1.0), 0.01)) ? 0 : 1;
 
-	return 0;
+	return Error;
 }
 
 int test_fastDistance()
