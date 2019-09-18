@@ -159,7 +159,6 @@ namespace detail
 			return Result;
 		}
 	};
-
 }//namespace detail
 }//namespace glm
 
