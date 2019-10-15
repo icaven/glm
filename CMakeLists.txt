@@ -4,6 +4,13 @@ cmake_policy(VERSION 3.2)
 set(GLM_VERSION "0.9.9")
 project(glm VERSION ${GLM_VERSION} LANGUAGES CXX)
 
+add_subdirectory(glm)
+
+add_library(glm::glm ALIAS glm)
+
+if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_subdirectory(test)
 enable_testing()
 
 option(GLM_QUIET "No CMake Message" OFF)
@@ -232,8 +239,4 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 	add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 endif()
 
-include_directories("${PROJECT_SOURCE_DIR}")
-
-add_subdirectory(glm)
-add_subdirectory(test)
-
+endif(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
