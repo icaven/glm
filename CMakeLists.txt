@@ -10,7 +10,6 @@ add_library(glm::glm ALIAS glm)
 
 if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
 
-add_subdirectory(test)
 enable_testing()
 
 option(GLM_QUIET "No CMake Message" OFF)
@@ -238,5 +237,7 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 	add_compile_options(/wd4309 /wd4324 /wd4389 /wd4127 /wd4267 /wd4146 /wd4201 /wd4464 /wd4514 /wd4701 /wd4820 /wd4365)
 	add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 endif()
+
+add_subdirectory(test)
 
 endif(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
