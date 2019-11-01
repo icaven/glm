@@ -67,5 +67,11 @@ build_script:
 
 test_script:
   - ctest -j4 -C %CONFIGURATION%
+  - cd ..
+  - ps: |
+      mkdir build_test_cmake
+      cd build_test_cmake
+      cmake ..\test\cmake\ -G "$env:generator" -Dglm_DIR="$env:APPVEYOR_BUILD_FOLDER"
+  - cmake --build . --config %CONFIGURATION% -- /m /v:minimal
 
 deploy: off

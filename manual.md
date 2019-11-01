@@ -14,6 +14,7 @@
 + [1.2. Using separated headers](#section1_2)
 + [1.3. Using extension headers](#section1_3)
 + [1.4. Dependencies](#section1_4)
++ [1.5. Finding GLM with CMake](#section1_5)
 + [2. Preprocessor configurations](#section2)
 + [2.1. GLM\_FORCE\_MESSAGES: Platform auto detection and default configuration](#section2_1)
 + [2.2. GLM\_FORCE\_PLATFORM\_UNKNOWN: Force GLM to no detect the build platform](#section2_2)
@@ -272,6 +273,10 @@ glm::mat4 transform(glm::vec2 const& Orientation, glm::vec3 const& Translate, gl
 ### <a name="section1_4"></a> 1.4. Dependencies
 
 GLM does not depend on external libraries or headers such as `<GL/gl.h>`, [`<GL/glcorearb.h>`](http://www.opengl.org/registry/api/GL/glcorearb.h), `<GLES3/gl3.h>`, `<GL/glu.h>`, or `<windows.h>`.
+
+### <a name="section1_5"></a> 1.5. Finding GLM with CMake
+
+GLM packages a `glmConfig.cmake` and `glmConfig-version.cmake` in the root of the repository and the release archives. To find GLM with CMake you can pass `-Dglm_DIR=<path to glm root>` when running CMake. You can then either add `${GLM_INCLUDE_DIRS}` to your target's include directories, or link against the imported `glm::glm` target.
 
 ---
 <div style="page-break-after: always;"> </div>
