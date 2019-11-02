@@ -76,6 +76,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Fixed GLM_HAS_CXX11_STL broken on Clang with Linux #926
 - Fixed Clang or GCC build due to wrong GLM_HAS_IF_CONSTEXPR definition #907
 - Fixed CUDA 9 build #910
+- Fixed equal ULP variation when using negative sign #965
 
 #### Deprecation:
  - Removed CMake install and uninstall scripts
