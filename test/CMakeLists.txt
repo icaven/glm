@@ -1,5 +1,3 @@
-enable_testing()
-
 option(GLM_QUIET "No CMake Message" OFF)
 option(BUILD_SHARED_LIBS "Build shared library" ON)
 option(BUILD_STATIC_LIBS "Build static library" ON)
