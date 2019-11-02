@@ -61,7 +61,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 #### Fixes:
 - Fixed equal ULP variation when using negative sign #965
 - Fixed for intersection ray/plane and added related tests #953
-- Fixed ARM 64bit detection
+- Fixed ARM 64bit detection #949
 
 ### [GLM 0.9.9.6](https://github.com/g-truc/glm/releases/tag/0.9.9.6) - 2019-09-08
 #### Features:
