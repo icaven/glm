@@ -91,4 +91,41 @@ namespace detail
 #	endif
 }//namespace glm
 
+#elif GLM_ARCH & GLM_ARCH_NEON_BIT
+
+namespace glm {
+#if GLM_LANG & GLM_LANG_CXX11_FLAG
+	template <qualifier Q>
+	GLM_FUNC_QUALIFIER
+	typename std::enable_if<detail::is_aligned<Q>::value, mat<4, 4, float, Q>>::type
+	operator*(mat<4, 4, float, Q> const & m1, mat<4, 4, float, Q> const & m2)
+	{
+		auto MulRow = [&](int l) {
+			float32x4_t const SrcA = m2[l].data;
+
+#if GLM_ARCH & GLM_ARCH_ARMV8_BIT
+			float32x4_t r=   vmulq_laneq_f32(m1[0].data, SrcA, 0);
+			r = vaddq_f32(r, vmulq_laneq_f32(m1[1].data, SrcA, 1));
+			r = vaddq_f32(r, vmulq_laneq_f32(m1[2].data, SrcA, 2));
+			r = vaddq_f32(r, vmulq_laneq_f32(m1[3].data, SrcA, 3));
+#else
+			float32x4_t r=   vmulq_f32(m1[0].data, vdupq_n_f32(vgetq_lane_f32(SrcA, 0)));
+			r = vaddq_f32(r, vmulq_f32(m1[1].data, vdupq_n_f32(vgetq_lane_f32(SrcA, 1))));
+			r = vaddq_f32(r, vmulq_f32(m1[2].data, vdupq_n_f32(vgetq_lane_f32(SrcA, 2))));
+			r = vaddq_f32(r, vmulq_f32(m1[3].data, vdupq_n_f32(vgetq_lane_f32(SrcA, 3))));
+#endif
+
+			return r;
+		};
+
+		mat<4, 4, float, aligned_highp> Result;
+		Result[0].data = MulRow(0);
+		Result[1].data = MulRow(1);
+		Result[2].data = MulRow(2);
+		Result[3].data = MulRow(3);
+
+		return Result;
+	}
+#endif // CXX11
+}//namespace glm
 #endif
