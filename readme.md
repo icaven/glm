@@ -58,6 +58,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Improved Neon support with more functions optimized #950
 - Added CMake GLM interface #963
 - Added fma implementation based on std::fma #969
+- Added missing quat constexpr #955
 
 #### Fixes:
 - Fixed equal ULP variation when using negative sign #965
