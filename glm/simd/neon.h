@@ -47,39 +47,39 @@ namespace glm {
 		static float32x4_t copy_lane(float32x4_t vdst, int dlane, float32x4_t vsrc, int slane) {
 #if GLM_ARCH & GLM_ARCH_ARMV8_BIT
 			switch(dlane) {
-                case 0:
+				case 0:
 					switch(slane) {
-		                case 0: return vcopyq_laneq_f32(vdst, 0, vsrc, 0);
-		                case 1: return vcopyq_laneq_f32(vdst, 0, vsrc, 1);
-		                case 2: return vcopyq_laneq_f32(vdst, 0, vsrc, 2);
-		                case 3: return vcopyq_laneq_f32(vdst, 0, vsrc, 3);
-                    }
-			        assert(!"Unreachable code executed!");
-                case 1:
+						case 0: return vcopyq_laneq_f32(vdst, 0, vsrc, 0);
+						case 1: return vcopyq_laneq_f32(vdst, 0, vsrc, 1);
+						case 2: return vcopyq_laneq_f32(vdst, 0, vsrc, 2);
+						case 3: return vcopyq_laneq_f32(vdst, 0, vsrc, 3);
+					}
+					assert(!"Unreachable code executed!");
+				case 1:
 					switch(slane) {
-		                case 0: return vcopyq_laneq_f32(vdst, 1, vsrc, 0);
-		                case 1: return vcopyq_laneq_f32(vdst, 1, vsrc, 1);
-		                case 2: return vcopyq_laneq_f32(vdst, 1, vsrc, 2);
-		                case 3: return vcopyq_laneq_f32(vdst, 1, vsrc, 3);
-                    }
-			        assert(!"Unreachable code executed!");
-                case 2:
+						case 0: return vcopyq_laneq_f32(vdst, 1, vsrc, 0);
+						case 1: return vcopyq_laneq_f32(vdst, 1, vsrc, 1);
+						case 2: return vcopyq_laneq_f32(vdst, 1, vsrc, 2);
+						case 3: return vcopyq_laneq_f32(vdst, 1, vsrc, 3);
+					}
+					assert(!"Unreachable code executed!");
+				case 2:
 					switch(slane) {
-		                case 0: return vcopyq_laneq_f32(vdst, 2, vsrc, 0);
-		                case 1: return vcopyq_laneq_f32(vdst, 2, vsrc, 1);
-		                case 2: return vcopyq_laneq_f32(vdst, 2, vsrc, 2);
-		                case 3: return vcopyq_laneq_f32(vdst, 2, vsrc, 3);
-                    }
-			        assert(!"Unreachable code executed!");
-                case 3:
+						case 0: return vcopyq_laneq_f32(vdst, 2, vsrc, 0);
+						case 1: return vcopyq_laneq_f32(vdst, 2, vsrc, 1);
+						case 2: return vcopyq_laneq_f32(vdst, 2, vsrc, 2);
+						case 3: return vcopyq_laneq_f32(vdst, 2, vsrc, 3);
+					}
+					assert(!"Unreachable code executed!");
+				case 3:
 					switch(slane) {
-		                case 0: return vcopyq_laneq_f32(vdst, 3, vsrc, 0);
-		                case 1: return vcopyq_laneq_f32(vdst, 3, vsrc, 1);
-		                case 2: return vcopyq_laneq_f32(vdst, 3, vsrc, 2);
-		                case 3: return vcopyq_laneq_f32(vdst, 3, vsrc, 3);
-                    }
-			        assert(!"Unreachable code executed!");
-            }
+						case 0: return vcopyq_laneq_f32(vdst, 3, vsrc, 0);
+						case 1: return vcopyq_laneq_f32(vdst, 3, vsrc, 1);
+						case 2: return vcopyq_laneq_f32(vdst, 3, vsrc, 2);
+						case 3: return vcopyq_laneq_f32(vdst, 3, vsrc, 3);
+					}
+					assert(!"Unreachable code executed!");
+			}
 #else
 
 			float l;
@@ -104,7 +104,7 @@ namespace glm {
 
 		static float32x4_t mul_lane(float32x4_t v, float32x4_t vlane, int lane) {
 #if GLM_ARCH & GLM_ARCH_ARMV8_BIT
-            switch(lane) { 
+			switch(lane) { 
 				case 0: return vmulq_laneq_f32(v, vlane, 0); break;
 				case 1: return vmulq_laneq_f32(v, vlane, 1); break;
 				case 2: return vmulq_laneq_f32(v, vlane, 2); break;
@@ -127,19 +127,19 @@ namespace glm {
 #	define FMADD_LANE(acc, x, y, L) do { acc = vmlaq_laneq_f32(acc, x, y, L); } while(0)
 #endif
 
-            switch(lane) { 
+			switch(lane) { 
 				case 0: 
-                    FMADD_LANE(acc, v, vlane, 0);
-                    return acc;
+					FMADD_LANE(acc, v, vlane, 0);
+					return acc;
 				case 1:
-                    FMADD_LANE(acc, v, vlane, 1);
-                    return acc;
+					FMADD_LANE(acc, v, vlane, 1);
+					return acc;
 				case 2:
-                    FMADD_LANE(acc, v, vlane, 2);
-                    return acc;
+					FMADD_LANE(acc, v, vlane, 2);
+					return acc;
 				case 3:
-                    FMADD_LANE(acc, v, vlane, 3);
-                    return acc;
+					FMADD_LANE(acc, v, vlane, 3);
+					return acc;
 				default: 
 					assert(!"Unreachable code executed!");
 			}
