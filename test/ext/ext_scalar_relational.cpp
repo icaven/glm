@@ -71,6 +71,25 @@ static int test_notEqual_ulps()
 	return Error;
 }
 
+static int test_equal_sign()
+{
+	int Error = 0;
+
+	Error += !glm::equal(-0.0f, 0.0f, 2) ? 0 : 1;
+	Error += !glm::equal(-0.0, 0.0, 2) ? 0 : 1;
+
+	Error += !glm::equal(-1.0f, 2.0f, 2) ? 0 : 1;
+	Error += !glm::equal(-1.0, 2.0, 2) ? 0 : 1;
+
+	Error += !glm::equal(-0.00001f, 1.00000f, 2) ? 0 : 1;
+	Error += !glm::equal(-0.00001, 1.00000, 2) ? 0 : 1;
+
+	Error += !glm::equal(-1.0f, 1.0f, 2) ? 0 : 1;
+	Error += !glm::equal(-1.0, 1.0, 2) ? 0 : 1;
+
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
@@ -80,6 +99,8 @@ int main()
 
 	Error += test_equal_ulps();
 	Error += test_notEqual_ulps();
+
+	Error += test_equal_sign();
 
 	return Error;
 }

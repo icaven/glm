@@ -53,9 +53,22 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 
 ## Release notes
 
+### [GLM 0.9.9.7](https://github.com/g-truc/glm/releases/latest) - 2019-XX-XX
+#### Improvements:
+- Improved Neon support with more functions optimized #950
+- Added CMake GLM interface #963
+- Added fma implementation based on std::fma #969
+- Added missing quat constexpr #955
+
+#### Fixes:
+- Fixed equal ULP variation when using negative sign #965
+- Fixed for intersection ray/plane and added related tests #953
+- Fixed ARM 64bit detection #949
+- Fixed GLM_EXT_matrix_clip_space warnings #980
+
 ### [GLM 0.9.9.6](https://github.com/g-truc/glm/releases/tag/0.9.9.6) - 2019-09-08
 #### Features:
-- Added Neon support to glm #945
+- Added Neon support #945
 - Added SYCL support #914
 - Added EXT_scalar_integer extension with power of two and multiple scalar functions
 - Added EXT_vector_integer extension with power of two and multiple vector functions
