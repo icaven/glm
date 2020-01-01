@@ -647,7 +647,7 @@ matrix:
     - os: linux
       dist: bionic
       env:
-        - MATRIX_EVAL="CC=clang-7.0 && INFO=C++17-pure-release"
+        - MATRIX_EVAL="CC=clang && CXX=clang++ && INFO=C++17-pure-release"
       script:
         - cmake --version
         - mkdir ./build_pure_17_release
@@ -664,7 +664,7 @@ matrix:
     - os: linux
       dist: bionic
       env:
-        - MATRIX_EVAL="CC=clang-7.0 && INFO=C++17-pure-debug"
+        - MATRIX_EVAL="CC=clang && CXX=clang++ && INFO=C++17-pure-debug"
       script:
         - cmake --version
         - mkdir ./build_pure_17_debug
@@ -681,7 +681,7 @@ matrix:
     - os: linux
       dist: bionic
       env:
-        - MATRIX_EVAL="CC=clang-7.0 && INFO=C++17-sse3-release"
+        - MATRIX_EVAL="CC=clang && CXX=clang++ && INFO=C++17-sse3-release
       script:
         - cmake --version
         - mkdir ./build_sse3_17_release
@@ -698,7 +698,7 @@ matrix:
     - os: linux
       dist: bionic
       env:
-        - MATRIX_EVAL="CC=clang-7.0 && INFO=C++17-sse3-debug"
+        - MATRIX_EVAL="CC=clang && CXX=clang++ && INFO=C++17-sse3-debug"
       script:
         - cmake --version
         - mkdir ./build_sse3_17_debug
@@ -715,7 +715,7 @@ matrix:
     - os: linux
       dist: bionic
       env:
-        - MATRIX_EVAL="CC=clang-7.0 && INFO=C++17-ssse3-release"
+        - MATRIX_EVAL="CC=clang && CXX=clang++ && INFO=C++17-ssse3-release"
       script:
         - cmake --version
         - mkdir ./build_ssse3_17_release
