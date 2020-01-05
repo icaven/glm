@@ -59,6 +59,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Added CMake GLM interface #963
 - Added fma implementation based on std::fma #969
 - Added missing quat constexpr #955
+- Added GLM_FORCE_QUAT_DATA_WXYZ to store quat data as w,x,y,z instead of x,y,z,w #983
 
 #### Fixes:
 - Fixed equal ULP variation when using negative sign #965
