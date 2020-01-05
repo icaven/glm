@@ -155,7 +155,7 @@ namespace detail
 
 			float32x4_t vd = vrsqrteq_f32(p);
 			vec<4, float, Q> Result;
-			Result.data = vmulq_f32(v, vd);
+			Result.data = vmulq_f32(v.data, vd);
 			return Result;
 		}
 	};
