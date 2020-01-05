@@ -66,6 +66,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Fixed ARM 64bit detection #949
 - Fixed GLM_EXT_matrix_clip_space warnings #980
 - Fixed Wimplicit-int-float-conversion warnings with clang 10+ #986
+- Fixed EXT_matrix_clip_space perspectiveFov
 
 ### [GLM 0.9.9.6](https://github.com/g-truc/glm/releases/tag/0.9.9.6) - 2019-09-08
 #### Features:
