@@ -1,4 +1,6 @@
-#define GLM_FORCE_COMPILER_UNKNOWN
+#ifndef GLM_FORCE_COMPILER_UNKNOWN
+#	define GLM_FORCE_COMPILER_UNKNOWN
+#endif
 
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
