@@ -74,14 +74,22 @@ namespace detail
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T & qua<T, Q>::operator[](typename qua<T, Q>::length_type i)
 	{
 		assert(i >= 0 && i < this->length());
-		return (&x)[i];
+#		ifdef GLM_FORCE_QUAT_DATA_WXYZ
+			return (&w)[i];
+#		else
+			return (&x)[i];
+#		endif
 	}
 
 	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR T const& qua<T, Q>::operator[](typename qua<T, Q>::length_type i) const
 	{
 		assert(i >= 0 && i < this->length());
-		return (&x)[i];
+#		ifdef GLM_FORCE_QUAT_DATA_WXYZ
+			return (&w)[i];
+#		else
+			return (&x)[i];
+#		endif
 	}
 
 	// -- Implicit basic constructors --
