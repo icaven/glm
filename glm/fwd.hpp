@@ -86,6 +86,8 @@ namespace glm
 
 	// Scalar uint
 
+	typedef unsigned int			uint;
+
 	typedef uint8					lowp_u8;
 	typedef uint8					mediump_u8;
 	typedef uint8					highp_u8;
@@ -786,6 +788,419 @@ namespace glm
 	typedef mat<2, 4, f64, defaultp>	f64mat2x4;
 	typedef mat<3, 4, f64, defaultp>	f64mat3x4;
 	typedef mat<4, 4, f64, defaultp>	f64mat4x4;
+
+	// Signed integer matrix MxN
+
+	typedef mat<2, 2, int, lowp>		lowp_imat2x2;
+	typedef mat<2, 3, int, lowp>		lowp_imat2x3;
+	typedef mat<2, 4, int, lowp>		lowp_imat2x4;
+	typedef mat<3, 2, int, lowp>		lowp_imat3x2;
+	typedef mat<3, 3, int, lowp>		lowp_imat3x3;
+	typedef mat<3, 4, int, lowp>		lowp_imat3x4;
+	typedef mat<4, 2, int, lowp>		lowp_imat4x2;
+	typedef mat<4, 3, int, lowp>		lowp_imat4x3;
+	typedef mat<4, 4, int, lowp>		lowp_imat4x4;
+
+	typedef mat<2, 2, int, mediump>		mediump_imat2x2;
+	typedef mat<2, 3, int, mediump>		mediump_imat2x3;
+	typedef mat<2, 4, int, mediump>		mediump_imat2x4;
+	typedef mat<3, 2, int, mediump>		mediump_imat3x2;
+	typedef mat<3, 3, int, mediump>		mediump_imat3x3;
+	typedef mat<3, 4, int, mediump>		mediump_imat3x4;
+	typedef mat<4, 2, int, mediump>		mediump_imat4x2;
+	typedef mat<4, 3, int, mediump>		mediump_imat4x3;
+	typedef mat<4, 4, int, mediump>		mediump_imat4x4;
+
+	typedef mat<2, 2, int, highp>		highp_imat2x2;
+	typedef mat<2, 3, int, highp>		highp_imat2x3;
+	typedef mat<2, 4, int, highp>		highp_imat2x4;
+	typedef mat<3, 2, int, highp>		highp_imat3x2;
+	typedef mat<3, 3, int, highp>		highp_imat3x3;
+	typedef mat<3, 4, int, highp>		highp_imat3x4;
+	typedef mat<4, 2, int, highp>		highp_imat4x2;
+	typedef mat<4, 3, int, highp>		highp_imat4x3;
+	typedef mat<4, 4, int, highp>		highp_imat4x4;
+
+	typedef mat<2, 2, int, defaultp>	imat2x2;
+	typedef mat<3, 2, int, defaultp>	imat3x2;
+	typedef mat<4, 2, int, defaultp>	imat4x2;
+	typedef mat<2, 3, int, defaultp>	imat2x3;
+	typedef mat<3, 3, int, defaultp>	imat3x3;
+	typedef mat<4, 3, int, defaultp>	imat4x3;
+	typedef mat<2, 4, int, defaultp>	imat2x4;
+	typedef mat<3, 4, int, defaultp>	imat3x4;
+	typedef mat<4, 4, int, defaultp>	imat4x4;
+
+
+	typedef mat<2, 2, int8, lowp>		lowp_i8mat2x2;
+	typedef mat<2, 3, int8, lowp>		lowp_i8mat2x3;
+	typedef mat<2, 4, int8, lowp>		lowp_i8mat2x4;
+	typedef mat<3, 2, int8, lowp>		lowp_i8mat3x2;
+	typedef mat<3, 3, int8, lowp>		lowp_i8mat3x3;
+	typedef mat<3, 4, int8, lowp>		lowp_i8mat3x4;
+	typedef mat<4, 2, int8, lowp>		lowp_i8mat4x2;
+	typedef mat<4, 3, int8, lowp>		lowp_i8mat4x3;
+	typedef mat<4, 4, int8, lowp>		lowp_i8mat4x4;
+
+	typedef mat<2, 2, int8, mediump>	mediump_i8mat2x2;
+	typedef mat<2, 3, int8, mediump>	mediump_i8mat2x3;
+	typedef mat<2, 4, int8, mediump>	mediump_i8mat2x4;
+	typedef mat<3, 2, int8, mediump>	mediump_i8mat3x2;
+	typedef mat<3, 3, int8, mediump>	mediump_i8mat3x3;
+	typedef mat<3, 4, int8, mediump>	mediump_i8mat3x4;
+	typedef mat<4, 2, int8, mediump>	mediump_i8mat4x2;
+	typedef mat<4, 3, int8, mediump>	mediump_i8mat4x3;
+	typedef mat<4, 4, int8, mediump>	mediump_i8mat4x4;
+
+	typedef mat<2, 2, int8, highp>		highp_i8mat2x2;
+	typedef mat<2, 3, int8, highp>		highp_i8mat2x3;
+	typedef mat<2, 4, int8, highp>		highp_i8mat2x4;
+	typedef mat<3, 2, int8, highp>		highp_i8mat3x2;
+	typedef mat<3, 3, int8, highp>		highp_i8mat3x3;
+	typedef mat<3, 4, int8, highp>		highp_i8mat3x4;
+	typedef mat<4, 2, int8, highp>		highp_i8mat4x2;
+	typedef mat<4, 3, int8, highp>		highp_i8mat4x3;
+	typedef mat<4, 4, int8, highp>		highp_i8mat4x4;
+
+	typedef mat<2, 2, int8, defaultp>	i8mat2x2;
+	typedef mat<3, 2, int8, defaultp>	i8mat3x2;
+	typedef mat<4, 2, int8, defaultp>	i8mat4x2;
+	typedef mat<2, 3, int8, defaultp>	i8mat2x3;
+	typedef mat<3, 3, int8, defaultp>	i8mat3x3;
+	typedef mat<4, 3, int8, defaultp>	i8mat4x3;
+	typedef mat<2, 4, int8, defaultp>	i8mat2x4;
+	typedef mat<3, 4, int8, defaultp>	i8mat3x4;
+	typedef mat<4, 4, int8, defaultp>	i8mat4x4;
+
+
+	typedef mat<2, 2, int16, lowp>		lowp_i16mat2x2;
+	typedef mat<2, 3, int16, lowp>		lowp_i16mat2x3;
+	typedef mat<2, 4, int16, lowp>		lowp_i16mat2x4;
+	typedef mat<3, 2, int16, lowp>		lowp_i16mat3x2;
+	typedef mat<3, 3, int16, lowp>		lowp_i16mat3x3;
+	typedef mat<3, 4, int16, lowp>		lowp_i16mat3x4;
+	typedef mat<4, 2, int16, lowp>		lowp_i16mat4x2;
+	typedef mat<4, 3, int16, lowp>		lowp_i16mat4x3;
+	typedef mat<4, 4, int16, lowp>		lowp_i16mat4x4;
+
+	typedef mat<2, 2, int16, mediump>	mediump_i16mat2x2;
+	typedef mat<2, 3, int16, mediump>	mediump_i16mat2x3;
+	typedef mat<2, 4, int16, mediump>	mediump_i16mat2x4;
+	typedef mat<3, 2, int16, mediump>	mediump_i16mat3x2;
+	typedef mat<3, 3, int16, mediump>	mediump_i16mat3x3;
+	typedef mat<3, 4, int16, mediump>	mediump_i16mat3x4;
+	typedef mat<4, 2, int16, mediump>	mediump_i16mat4x2;
+	typedef mat<4, 3, int16, mediump>	mediump_i16mat4x3;
+	typedef mat<4, 4, int16, mediump>	mediump_i16mat4x4;
+
+	typedef mat<2, 2, int16, highp>		highp_i16mat2x2;
+	typedef mat<2, 3, int16, highp>		highp_i16mat2x3;
+	typedef mat<2, 4, int16, highp>		highp_i16mat2x4;
+	typedef mat<3, 2, int16, highp>		highp_i16mat3x2;
+	typedef mat<3, 3, int16, highp>		highp_i16mat3x3;
+	typedef mat<3, 4, int16, highp>		highp_i16mat3x4;
+	typedef mat<4, 2, int16, highp>		highp_i16mat4x2;
+	typedef mat<4, 3, int16, highp>		highp_i16mat4x3;
+	typedef mat<4, 4, int16, highp>		highp_i16mat4x4;
+
+	typedef mat<2, 2, int16, defaultp>	i16mat2x2;
+	typedef mat<3, 2, int16, defaultp>	i16mat3x2;
+	typedef mat<4, 2, int16, defaultp>	i16mat4x2;
+	typedef mat<2, 3, int16, defaultp>	i16mat2x3;
+	typedef mat<3, 3, int16, defaultp>	i16mat3x3;
+	typedef mat<4, 3, int16, defaultp>	i16mat4x3;
+	typedef mat<2, 4, int16, defaultp>	i16mat2x4;
+	typedef mat<3, 4, int16, defaultp>	i16mat3x4;
+	typedef mat<4, 4, int16, defaultp>	i16mat4x4;
+
+
+	typedef mat<2, 2, int32, lowp>		lowp_i32mat2x2;
+	typedef mat<2, 3, int32, lowp>		lowp_i32mat2x3;
+	typedef mat<2, 4, int32, lowp>		lowp_i32mat2x4;
+	typedef mat<3, 2, int32, lowp>		lowp_i32mat3x2;
+	typedef mat<3, 3, int32, lowp>		lowp_i32mat3x3;
+	typedef mat<3, 4, int32, lowp>		lowp_i32mat3x4;
+	typedef mat<4, 2, int32, lowp>		lowp_i32mat4x2;
+	typedef mat<4, 3, int32, lowp>		lowp_i32mat4x3;
+	typedef mat<4, 4, int32, lowp>		lowp_i32mat4x4;
+
+	typedef mat<2, 2, int32, mediump>	mediump_i32mat2x2;
+	typedef mat<2, 3, int32, mediump>	mediump_i32mat2x3;
+	typedef mat<2, 4, int32, mediump>	mediump_i32mat2x4;
+	typedef mat<3, 2, int32, mediump>	mediump_i32mat3x2;
+	typedef mat<3, 3, int32, mediump>	mediump_i32mat3x3;
+	typedef mat<3, 4, int32, mediump>	mediump_i32mat3x4;
+	typedef mat<4, 2, int32, mediump>	mediump_i32mat4x2;
+	typedef mat<4, 3, int32, mediump>	mediump_i32mat4x3;
+	typedef mat<4, 4, int32, mediump>	mediump_i32mat4x4;
+
+	typedef mat<2, 2, int32, highp>		highp_i32mat2x2;
+	typedef mat<2, 3, int32, highp>		highp_i32mat2x3;
+	typedef mat<2, 4, int32, highp>		highp_i32mat2x4;
+	typedef mat<3, 2, int32, highp>		highp_i32mat3x2;
+	typedef mat<3, 3, int32, highp>		highp_i32mat3x3;
+	typedef mat<3, 4, int32, highp>		highp_i32mat3x4;
+	typedef mat<4, 2, int32, highp>		highp_i32mat4x2;
+	typedef mat<4, 3, int32, highp>		highp_i32mat4x3;
+	typedef mat<4, 4, int32, highp>		highp_i32mat4x4;
+
+	typedef mat<2, 2, int32, defaultp>	i32mat2x2;
+	typedef mat<3, 2, int32, defaultp>	i32mat3x2;
+	typedef mat<4, 2, int32, defaultp>	i32mat4x2;
+	typedef mat<2, 3, int32, defaultp>	i32mat2x3;
+	typedef mat<3, 3, int32, defaultp>	i32mat3x3;
+	typedef mat<4, 3, int32, defaultp>	i32mat4x3;
+	typedef mat<2, 4, int32, defaultp>	i32mat2x4;
+	typedef mat<3, 4, int32, defaultp>	i32mat3x4;
+	typedef mat<4, 4, int32, defaultp>	i32mat4x4;
+
+
+	typedef mat<2, 2, int64, lowp>		lowp_i64mat2x2;
+	typedef mat<2, 3, int64, lowp>		lowp_i64mat2x3;
+	typedef mat<2, 4, int64, lowp>		lowp_i64mat2x4;
+	typedef mat<3, 2, int64, lowp>		lowp_i64mat3x2;
+	typedef mat<3, 3, int64, lowp>		lowp_i64mat3x3;
+	typedef mat<3, 4, int64, lowp>		lowp_i64mat3x4;
+	typedef mat<4, 2, int64, lowp>		lowp_i64mat4x2;
+	typedef mat<4, 3, int64, lowp>		lowp_i64mat4x3;
+	typedef mat<4, 4, int64, lowp>		lowp_i64mat4x4;
+
+	typedef mat<2, 2, int64, mediump>	mediump_i64mat2x2;
+	typedef mat<2, 3, int64, mediump>	mediump_i64mat2x3;
+	typedef mat<2, 4, int64, mediump>	mediump_i64mat2x4;
+	typedef mat<3, 2, int64, mediump>	mediump_i64mat3x2;
+	typedef mat<3, 3, int64, mediump>	mediump_i64mat3x3;
+	typedef mat<3, 4, int64, mediump>	mediump_i64mat3x4;
+	typedef mat<4, 2, int64, mediump>	mediump_i64mat4x2;
+	typedef mat<4, 3, int64, mediump>	mediump_i64mat4x3;
+	typedef mat<4, 4, int64, mediump>	mediump_i64mat4x4;
+
+	typedef mat<2, 2, int64, highp>		highp_i64mat2x2;
+	typedef mat<2, 3, int64, highp>		highp_i64mat2x3;
+	typedef mat<2, 4, int64, highp>		highp_i64mat2x4;
+	typedef mat<3, 2, int64, highp>		highp_i64mat3x2;
+	typedef mat<3, 3, int64, highp>		highp_i64mat3x3;
+	typedef mat<3, 4, int64, highp>		highp_i64mat3x4;
+	typedef mat<4, 2, int64, highp>		highp_i64mat4x2;
+	typedef mat<4, 3, int64, highp>		highp_i64mat4x3;
+	typedef mat<4, 4, int64, highp>		highp_i64mat4x4;
+
+	typedef mat<2, 2, int64, defaultp>	i64mat2x2;
+	typedef mat<3, 2, int64, defaultp>	i64mat3x2;
+	typedef mat<4, 2, int64, defaultp>	i64mat4x2;
+	typedef mat<2, 3, int64, defaultp>	i64mat2x3;
+	typedef mat<3, 3, int64, defaultp>	i64mat3x3;
+	typedef mat<4, 3, int64, defaultp>	i64mat4x3;
+	typedef mat<2, 4, int64, defaultp>	i64mat2x4;
+	typedef mat<3, 4, int64, defaultp>	i64mat3x4;
+	typedef mat<4, 4, int64, defaultp>	i64mat4x4;
+
+
+	// Unsigned integer matrix MxN
+
+	typedef mat<2, 2, uint, lowp>		lowp_umat2x2;
+	typedef mat<2, 3, uint, lowp>		lowp_umat2x3;
+	typedef mat<2, 4, uint, lowp>		lowp_umat2x4;
+	typedef mat<3, 2, uint, lowp>		lowp_umat3x2;
+	typedef mat<3, 3, uint, lowp>		lowp_umat3x3;
+	typedef mat<3, 4, uint, lowp>		lowp_umat3x4;
+	typedef mat<4, 2, uint, lowp>		lowp_umat4x2;
+	typedef mat<4, 3, uint, lowp>		lowp_umat4x3;
+	typedef mat<4, 4, uint, lowp>		lowp_umat4x4;
+
+	typedef mat<2, 2, uint, mediump>	mediump_umat2x2;
+	typedef mat<2, 3, uint, mediump>	mediump_umat2x3;
+	typedef mat<2, 4, uint, mediump>	mediump_umat2x4;
+	typedef mat<3, 2, uint, mediump>	mediump_umat3x2;
+	typedef mat<3, 3, uint, mediump>	mediump_umat3x3;
+	typedef mat<3, 4, uint, mediump>	mediump_umat3x4;
+	typedef mat<4, 2, uint, mediump>	mediump_umat4x2;
+	typedef mat<4, 3, uint, mediump>	mediump_umat4x3;
+	typedef mat<4, 4, uint, mediump>	mediump_umat4x4;
+
+	typedef mat<2, 2, uint, highp>		highp_umat2x2;
+	typedef mat<2, 3, uint, highp>		highp_umat2x3;
+	typedef mat<2, 4, uint, highp>		highp_umat2x4;
+	typedef mat<3, 2, uint, highp>		highp_umat3x2;
+	typedef mat<3, 3, uint, highp>		highp_umat3x3;
+	typedef mat<3, 4, uint, highp>		highp_umat3x4;
+	typedef mat<4, 2, uint, highp>		highp_umat4x2;
+	typedef mat<4, 3, uint, highp>		highp_umat4x3;
+	typedef mat<4, 4, uint, highp>		highp_umat4x4;
+
+	typedef mat<2, 2, uint, defaultp>	umat2x2;
+	typedef mat<3, 2, uint, defaultp>	umat3x2;
+	typedef mat<4, 2, uint, defaultp>	umat4x2;
+	typedef mat<2, 3, uint, defaultp>	umat2x3;
+	typedef mat<3, 3, uint, defaultp>	umat3x3;
+	typedef mat<4, 3, uint, defaultp>	umat4x3;
+	typedef mat<2, 4, uint, defaultp>	umat2x4;
+	typedef mat<3, 4, uint, defaultp>	umat3x4;
+	typedef mat<4, 4, uint, defaultp>	umat4x4;
+
+
+	typedef mat<2, 2, uint8, lowp>		lowp_u8mat2x2;
+	typedef mat<2, 3, uint8, lowp>		lowp_u8mat2x3;
+	typedef mat<2, 4, uint8, lowp>		lowp_u8mat2x4;
+	typedef mat<3, 2, uint8, lowp>		lowp_u8mat3x2;
+	typedef mat<3, 3, uint8, lowp>		lowp_u8mat3x3;
+	typedef mat<3, 4, uint8, lowp>		lowp_u8mat3x4;
+	typedef mat<4, 2, uint8, lowp>		lowp_u8mat4x2;
+	typedef mat<4, 3, uint8, lowp>		lowp_u8mat4x3;
+	typedef mat<4, 4, uint8, lowp>		lowp_u8mat4x4;
+
+	typedef mat<2, 2, uint8, mediump>	mediump_u8mat2x2;
+	typedef mat<2, 3, uint8, mediump>	mediump_u8mat2x3;
+	typedef mat<2, 4, uint8, mediump>	mediump_u8mat2x4;
+	typedef mat<3, 2, uint8, mediump>	mediump_u8mat3x2;
+	typedef mat<3, 3, uint8, mediump>	mediump_u8mat3x3;
+	typedef mat<3, 4, uint8, mediump>	mediump_u8mat3x4;
+	typedef mat<4, 2, uint8, mediump>	mediump_u8mat4x2;
+	typedef mat<4, 3, uint8, mediump>	mediump_u8mat4x3;
+	typedef mat<4, 4, uint8, mediump>	mediump_u8mat4x4;
+
+	typedef mat<2, 2, uint8, highp>		highp_u8mat2x2;
+	typedef mat<2, 3, uint8, highp>		highp_u8mat2x3;
+	typedef mat<2, 4, uint8, highp>		highp_u8mat2x4;
+	typedef mat<3, 2, uint8, highp>		highp_u8mat3x2;
+	typedef mat<3, 3, uint8, highp>		highp_u8mat3x3;
+	typedef mat<3, 4, uint8, highp>		highp_u8mat3x4;
+	typedef mat<4, 2, uint8, highp>		highp_u8mat4x2;
+	typedef mat<4, 3, uint8, highp>		highp_u8mat4x3;
+	typedef mat<4, 4, uint8, highp>		highp_u8mat4x4;
+
+	typedef mat<2, 2, uint8, defaultp>	u8mat2x2;
+	typedef mat<3, 2, uint8, defaultp>	u8mat3x2;
+	typedef mat<4, 2, uint8, defaultp>	u8mat4x2;
+	typedef mat<2, 3, uint8, defaultp>	u8mat2x3;
+	typedef mat<3, 3, uint8, defaultp>	u8mat3x3;
+	typedef mat<4, 3, uint8, defaultp>	u8mat4x3;
+	typedef mat<2, 4, uint8, defaultp>	u8mat2x4;
+	typedef mat<3, 4, uint8, defaultp>	u8mat3x4;
+	typedef mat<4, 4, uint8, defaultp>	u8mat4x4;
+
+
+	typedef mat<2, 2, uint16, lowp>		lowp_u16mat2x2;
+	typedef mat<2, 3, uint16, lowp>		lowp_u16mat2x3;
+	typedef mat<2, 4, uint16, lowp>		lowp_u16mat2x4;
+	typedef mat<3, 2, uint16, lowp>		lowp_u16mat3x2;
+	typedef mat<3, 3, uint16, lowp>		lowp_u16mat3x3;
+	typedef mat<3, 4, uint16, lowp>		lowp_u16mat3x4;
+	typedef mat<4, 2, uint16, lowp>		lowp_u16mat4x2;
+	typedef mat<4, 3, uint16, lowp>		lowp_u16mat4x3;
+	typedef mat<4, 4, uint16, lowp>		lowp_u16mat4x4;
+
+	typedef mat<2, 2, uint16, mediump>	mediump_u16mat2x2;
+	typedef mat<2, 3, uint16, mediump>	mediump_u16mat2x3;
+	typedef mat<2, 4, uint16, mediump>	mediump_u16mat2x4;
+	typedef mat<3, 2, uint16, mediump>	mediump_u16mat3x2;
+	typedef mat<3, 3, uint16, mediump>	mediump_u16mat3x3;
+	typedef mat<3, 4, uint16, mediump>	mediump_u16mat3x4;
+	typedef mat<4, 2, uint16, mediump>	mediump_u16mat4x2;
+	typedef mat<4, 3, uint16, mediump>	mediump_u16mat4x3;
+	typedef mat<4, 4, uint16, mediump>	mediump_u16mat4x4;
+
+	typedef mat<2, 2, uint16, highp>	highp_u16mat2x2;
+	typedef mat<2, 3, uint16, highp>	highp_u16mat2x3;
+	typedef mat<2, 4, uint16, highp>	highp_u16mat2x4;
+	typedef mat<3, 2, uint16, highp>	highp_u16mat3x2;
+	typedef mat<3, 3, uint16, highp>	highp_u16mat3x3;
+	typedef mat<3, 4, uint16, highp>	highp_u16mat3x4;
+	typedef mat<4, 2, uint16, highp>	highp_u16mat4x2;
+	typedef mat<4, 3, uint16, highp>	highp_u16mat4x3;
+	typedef mat<4, 4, uint16, highp>	highp_u16mat4x4;
+
+	typedef mat<2, 2, uint16, defaultp>	u16mat2x2;
+	typedef mat<3, 2, uint16, defaultp>	u16mat3x2;
+	typedef mat<4, 2, uint16, defaultp>	u16mat4x2;
+	typedef mat<2, 3, uint16, defaultp>	u16mat2x3;
+	typedef mat<3, 3, uint16, defaultp>	u16mat3x3;
+	typedef mat<4, 3, uint16, defaultp>	u16mat4x3;
+	typedef mat<2, 4, uint16, defaultp>	u16mat2x4;
+	typedef mat<3, 4, uint16, defaultp>	u16mat3x4;
+	typedef mat<4, 4, uint16, defaultp>	u16mat4x4;
+
+
+	typedef mat<2, 2, uint32, lowp>		lowp_u32mat2x2;
+	typedef mat<2, 3, uint32, lowp>		lowp_u32mat2x3;
+	typedef mat<2, 4, uint32, lowp>		lowp_u32mat2x4;
+	typedef mat<3, 2, uint32, lowp>		lowp_u32mat3x2;
+	typedef mat<3, 3, uint32, lowp>		lowp_u32mat3x3;
+	typedef mat<3, 4, uint32, lowp>		lowp_u32mat3x4;
+	typedef mat<4, 2, uint32, lowp>		lowp_u32mat4x2;
+	typedef mat<4, 3, uint32, lowp>		lowp_u32mat4x3;
+	typedef mat<4, 4, uint32, lowp>		lowp_u32mat4x4;
+
+	typedef mat<2, 2, uint32, mediump>	mediump_u32mat2x2;
+	typedef mat<2, 3, uint32, mediump>	mediump_u32mat2x3;
+	typedef mat<2, 4, uint32, mediump>	mediump_u32mat2x4;
+	typedef mat<3, 2, uint32, mediump>	mediump_u32mat3x2;
+	typedef mat<3, 3, uint32, mediump>	mediump_u32mat3x3;
+	typedef mat<3, 4, uint32, mediump>	mediump_u32mat3x4;
+	typedef mat<4, 2, uint32, mediump>	mediump_u32mat4x2;
+	typedef mat<4, 3, uint32, mediump>	mediump_u32mat4x3;
+	typedef mat<4, 4, uint32, mediump>	mediump_u32mat4x4;
+
+	typedef mat<2, 2, uint32, highp>	highp_u32mat2x2;
+	typedef mat<2, 3, uint32, highp>	highp_u32mat2x3;
+	typedef mat<2, 4, uint32, highp>	highp_u32mat2x4;
+	typedef mat<3, 2, uint32, highp>	highp_u32mat3x2;
+	typedef mat<3, 3, uint32, highp>	highp_u32mat3x3;
+	typedef mat<3, 4, uint32, highp>	highp_u32mat3x4;
+	typedef mat<4, 2, uint32, highp>	highp_u32mat4x2;
+	typedef mat<4, 3, uint32, highp>	highp_u32mat4x3;
+	typedef mat<4, 4, uint32, highp>	highp_u32mat4x4;
+
+	typedef mat<2, 2, uint32, defaultp>	u32mat2x2;
+	typedef mat<3, 2, uint32, defaultp>	u32mat3x2;
+	typedef mat<4, 2, uint32, defaultp>	u32mat4x2;
+	typedef mat<2, 3, uint32, defaultp>	u32mat2x3;
+	typedef mat<3, 3, uint32, defaultp>	u32mat3x3;
+	typedef mat<4, 3, uint32, defaultp>	u32mat4x3;
+	typedef mat<2, 4, uint32, defaultp>	u32mat2x4;
+	typedef mat<3, 4, uint32, defaultp>	u32mat3x4;
+	typedef mat<4, 4, uint32, defaultp>	u32mat4x4;
+
+
+	typedef mat<2, 2, uint64, lowp>		lowp_u64mat2x2;
+	typedef mat<2, 3, uint64, lowp>		lowp_u64mat2x3;
+	typedef mat<2, 4, uint64, lowp>		lowp_u64mat2x4;
+	typedef mat<3, 2, uint64, lowp>		lowp_u64mat3x2;
+	typedef mat<3, 3, uint64, lowp>		lowp_u64mat3x3;
+	typedef mat<3, 4, uint64, lowp>		lowp_u64mat3x4;
+	typedef mat<4, 2, uint64, lowp>		lowp_u64mat4x2;
+	typedef mat<4, 3, uint64, lowp>		lowp_u64mat4x3;
+	typedef mat<4, 4, uint64, lowp>		lowp_u64mat4x4;
+
+	typedef mat<2, 2, uint64, mediump>	mediump_u64mat2x2;
+	typedef mat<2, 3, uint64, mediump>	mediump_u64mat2x3;
+	typedef mat<2, 4, uint64, mediump>	mediump_u64mat2x4;
+	typedef mat<3, 2, uint64, mediump>	mediump_u64mat3x2;
+	typedef mat<3, 3, uint64, mediump>	mediump_u64mat3x3;
+	typedef mat<3, 4, uint64, mediump>	mediump_u64mat3x4;
+	typedef mat<4, 2, uint64, mediump>	mediump_u64mat4x2;
+	typedef mat<4, 3, uint64, mediump>	mediump_u64mat4x3;
+	typedef mat<4, 4, uint64, mediump>	mediump_u64mat4x4;
+
+	typedef mat<2, 2, uint64, highp>	highp_u64mat2x2;
+	typedef mat<2, 3, uint64, highp>	highp_u64mat2x3;
+	typedef mat<2, 4, uint64, highp>	highp_u64mat2x4;
+	typedef mat<3, 2, uint64, highp>	highp_u64mat3x2;
+	typedef mat<3, 3, uint64, highp>	highp_u64mat3x3;
+	typedef mat<3, 4, uint64, highp>	highp_u64mat3x4;
+	typedef mat<4, 2, uint64, highp>	highp_u64mat4x2;
+	typedef mat<4, 3, uint64, highp>	highp_u64mat4x3;
+	typedef mat<4, 4, uint64, highp>	highp_u64mat4x4;
+
+	typedef mat<2, 2, uint64, defaultp>	u64mat2x2;
+	typedef mat<3, 2, uint64, defaultp>	u64mat3x2;
+	typedef mat<4, 2, uint64, defaultp>	u64mat4x2;
+	typedef mat<2, 3, uint64, defaultp>	u64mat2x3;
+	typedef mat<3, 3, uint64, defaultp>	u64mat3x3;
+	typedef mat<4, 3, uint64, defaultp>	u64mat4x3;
+	typedef mat<2, 4, uint64, defaultp>	u64mat2x4;
+	typedef mat<3, 4, uint64, defaultp>	u64mat3x4;
+	typedef mat<4, 4, uint64, defaultp>	u64mat4x4;
 
 	// Quaternion
 
