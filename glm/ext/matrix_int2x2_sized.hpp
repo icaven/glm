@@ -6,7 +6,7 @@
 /// @defgroup ext_matrix_int2x2_sized GLM_EXT_matrix_int2x2_sized
 /// @ingroup ext
 ///
-/// Include <glm/ext/matrix_int2x2.hpp> to use the features of this extension.
+/// Include <glm/ext/matrix_int2x2_sized.hpp> to use the features of this extension.
 ///
 /// Defines a number of matrices with integer types.
 
