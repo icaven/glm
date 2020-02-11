@@ -55,7 +55,11 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 
 ### [GLM 0.9.9.8](https://github.com/g-truc/glm/releases/tag/0.9.9.8) - 2020-0X-XX
 #### Features:
-- Added GLM_EXT_vector_intX_sized and GLM_EXT_vector_uintX_sized extensions
+- Added GLM_EXT_vector_intX* and GLM_EXT_vector_uintX* extensions
+- Added GLM_EXT_matrix_intX* and GLM_EXT_matrix_uintX* extensions
+
+#### Improvements:
+- Added clamp, repeat, mirrorClamp and mirrorRepeat function to GLM_EXT_scalar_commond and GLM_EXT_vector_commond extensions with tests
 
 ### [GLM 0.9.9.7](https://github.com/g-truc/glm/releases/tag/0.9.9.7) - 2020-01-05
 #### Improvements:

@@ -113,11 +113,43 @@ namespace glm
 
 	/// Returns min(max(x, minVal), maxVal) for each component in x. If one of the two arguments is NaN, the value of the other argument is returned.
 	///
-	/// @tparam genType Floating-point scalar or vector types.
+	/// @tparam genType Floating-point scalar types.
 	///
 	/// @see ext_scalar_common
 	template<typename genType>
 	GLM_FUNC_DECL genType fclamp(genType x, genType minVal, genType maxVal);
+
+	/// Simulate GL_CLAMP OpenGL wrap mode
+	///
+	/// @tparam genType Floating-point scalar types.
+	///
+	/// @see ext_scalar_common extension.
+	template<typename genType>
+	GLM_FUNC_DECL genType clamp(genType const& Texcoord);
+
+	/// Simulate GL_REPEAT OpenGL wrap mode
+	///
+	/// @tparam genType Floating-point scalar types.
+	///
+	/// @see ext_scalar_common extension.
+	template<typename genType>
+	GLM_FUNC_DECL genType repeat(genType const& Texcoord);
+
+	/// Simulate GL_MIRRORED_REPEAT OpenGL wrap mode
+	///
+	/// @tparam genType Floating-point scalar types.
+	///
+	/// @see ext_scalar_common extension.
+	template<typename genType>
+	GLM_FUNC_DECL genType mirrorClamp(genType const& Texcoord);
+
+	/// Simulate GL_MIRROR_REPEAT OpenGL wrap mode
+	///
+	/// @tparam genType Floating-point scalar types.
+	///
+	/// @see ext_scalar_common extension.
+	template<typename genType>
+	GLM_FUNC_DECL genType mirrorRepeat(genType const& Texcoord);
 
 	/// @}
 }//namespace glm

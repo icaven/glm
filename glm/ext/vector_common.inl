@@ -97,4 +97,33 @@ namespace glm
 	{
 		return fmin(fmax(x, minVal), maxVal);
 	}
+
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, T, Q> clamp(vec<L, T, Q> const& Texcoord)
+	{
+		return glm::clamp(Texcoord, vec<L, T, Q>(0), vec<L, T, Q>(1));
+	}
+
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, T, Q> repeat(vec<L, T, Q> const& Texcoord)
+	{
+		return glm::fract(Texcoord);
+	}
+
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, T, Q> mirrorClamp(vec<L, T, Q> const& Texcoord)
+	{
+		return glm::fract(glm::abs(Texcoord));
+	}
+
+	template<length_t L, typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<L, T, Q> mirrorRepeat(vec<L, T, Q> const& Texcoord)
+	{
+		vec<L, T, Q> const Abs = glm::abs(Texcoord);
+		vec<L, T, Q> const Clamp = glm::mod(glm::floor(Abs), vec<L, T, Q>(2));
+		vec<L, T, Q> const Floor = glm::floor(Abs);
+		vec<L, T, Q> const Rest = Abs - Floor;
+		vec<L, T, Q> const Mirror = Clamp + Rest;
+		return mix(Rest, vec<L, T, Q>(1) - Rest, glm::greaterThanEqual(Mirror, vec<L, T, Q>(1)));
+	}
 }//namespace glm
