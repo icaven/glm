@@ -112,4 +112,12 @@ namespace glm
 			return max(a, b, c);
 		return max(a, b, c, d);
 	}
+
+	// fclamp
+	template<typename genType>
+	GLM_FUNC_QUALIFIER genType fclamp(genType x, genType minVal, genType maxVal)
+	{
+		GLM_STATIC_ASSERT(std::numeric_limits<genType>::is_iec559, "'fclamp' only accept floating-point or integer inputs");
+		return fmin(fmax(x, minVal), maxVal);
+	}
 }//namespace glm
