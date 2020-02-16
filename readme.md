@@ -53,6 +53,10 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 
 ## Release notes
 
+### [GLM 0.9.9.8](https://github.com/g-truc/glm/releases/tag/0.9.9.8) - 2020-0X-XX
+#### Features:
+- Added GLM_EXT_vector_intX_sized and GLM_EXT_vector_uintX_sized extensions
+
 ### [GLM 0.9.9.7](https://github.com/g-truc/glm/releases/tag/0.9.9.7) - 2020-01-05
 #### Improvements:
 - Improved Neon support with more functions optimized #950
