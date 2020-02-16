@@ -277,7 +277,7 @@ GLM does not depend on external libraries or headers such as `<GL/gl.h>`, [`<GL/
 
 ### <a name="section1_5"></a> 1.5. Finding GLM with CMake
 
-GLM packages a `glmConfig.cmake` and `glmConfig-version.cmake` in the root of the repository and the release archives. To find GLM with CMake you can pass `-Dglm_DIR=<path to glm root>` when running CMake. You can then either add `${GLM_INCLUDE_DIRS}` to your target's include directories, or link against the imported `glm::glm` target.
+GLM packages a `glmConfig.cmake` and `glmConfig-version.cmake` in the root of the repository and the release archives. To find GLM with CMake you can pass `-Dglm_DIR=<path to glm root>/cmake/glm/` when running CMake. You can then either add `${GLM_INCLUDE_DIRS}` to your target's include directories, or link against the imported `glm::glm` target.
 
 ---
 <div style="page-break-after: always;"> </div>
