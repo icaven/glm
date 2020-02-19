@@ -14,7 +14,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
       env:
         - MATRIX_EVAL="INFO=C++unknown-release"
@@ -31,7 +31,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
       env:
         - MATRIX_EVAL="INFO=C++98-pure-release"
@@ -48,7 +48,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
       env:
         - MATRIX_EVAL="INFO=C++98-pure-ms-release"
@@ -65,7 +65,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
       env:
         - MATRIX_EVAL="INFO=C++11-pure-release"
@@ -82,7 +82,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
       env:
         - MATRIX_EVAL="INFO=C++11-sse2-release"
@@ -99,7 +99,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
       env:
         - MATRIX_EVAL="INFO=C++14-pure-release"
@@ -116,7 +116,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
       env:
         - MATRIX_EVAL="INFO=C++14-sse3-release"
@@ -133,7 +133,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
       env:
         - MATRIX_EVAL="INFO=C++14-avx-release"
@@ -150,7 +150,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
       env:
         - MATRIX_EVAL="INFO=C++14-avx-debug"
@@ -167,7 +167,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
       env:
         - MATRIX_EVAL="INFO=C++17-pure-release"
@@ -184,7 +184,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
       env:
         - MATRIX_EVAL="INFO=C++17-pure-debug"
@@ -201,7 +201,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
       env:
         - MATRIX_EVAL="INFO=C++17-avx-release"
@@ -218,7 +218,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
       env:
         - MATRIX_EVAL="INFO=C++17-avx-debug"
@@ -242,7 +242,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -264,7 +264,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -286,7 +286,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -308,7 +308,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -330,7 +330,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -352,7 +352,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -374,7 +374,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -396,7 +396,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -418,7 +418,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -440,7 +440,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -462,7 +462,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -484,7 +484,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -506,7 +506,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -528,7 +528,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -550,7 +550,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -572,7 +572,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -595,7 +595,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -618,7 +618,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -641,7 +641,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -658,7 +658,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -675,7 +675,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -692,7 +692,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -709,7 +709,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
     - os: linux
@@ -726,7 +726,7 @@ matrix:
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build .
 
 before_install:
