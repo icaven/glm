@@ -194,6 +194,84 @@ int test_quat_slerp()
 	return Error;
 }
 
+int test_quat_slerp_spins()
+{
+    int Error = 0;
+
+    float const Epsilon = 0.0001f;//glm::epsilon<float>();
+
+    float sqrt2 = std::sqrt(2.0f) / 2.0f;
+    glm::quat id(static_cast<float>(1), static_cast<float>(0), static_cast<float>(0), static_cast<float>(0));
+    glm::quat Y90rot(sqrt2, 0.0f, sqrt2, 0.0f);
+    glm::quat Y180rot(0.0f, 0.0f, 1.0f, 0.0f);
+
+    // Testing a == 0, k == 1
+    // Must be id
+    glm::quat id2 = glm::slerp(id, id, 1.0f, 1);
+    Error += glm::all(glm::equal(id, id2, Epsilon)) ? 0 : 1;
+
+    // Testing a == 1, k == 2
+    // Must be id
+    glm::quat id3 = glm::slerp(id, id, 1.0f, 2);
+    Error += glm::all(glm::equal(id, id3, Epsilon)) ? 0 : 1;
+
+    // Testing a == 1, k == 1
+    // Must be 90° rotation on Y : 0 0.7 0 0.7
+    // Negative quaternion is representing same orientation
+    glm::quat Y90rot2 = glm::slerp(id, Y90rot, 1.0f, 1);
+    Error += glm::all(glm::equal(Y90rot, -Y90rot2, Epsilon)) ? 0 : 1;
+
+    // Testing a == 1, k == 2
+    // Must be id
+    glm::quat Y90rot3 = glm::slerp(id, Y90rot, 8.0f / 9.0f, 2);
+    Error += glm::all(glm::equal(id, Y90rot3, Epsilon)) ? 0 : 1;
+
+    // Testing a == 1, k == 1
+    // Must be 90° rotation on Y : 0 0.7 0 0.7
+    glm::quat Y90rot4 = glm::slerp(id, Y90rot, 0.2f, 1);
+    Error += glm::all(glm::equal(Y90rot, Y90rot4, Epsilon)) ? 0 : 1;
+
+    // Testing reverse case
+    // Must be 45° rotation on Y : 0 0.38 0 0.92
+    // Negative quaternion is representing same orientation
+    glm::quat Ym45rot2 = glm::slerp(Y90rot, id, 0.9f, 1);
+    glm::quat Ym45rot3 = glm::slerp(Y90rot, id, 0.5f);
+    Error += glm::all(glm::equal(-Ym45rot2, Ym45rot3, Epsilon)) ? 0 : 1;
+
+    // Testing against full circle around the sphere instead of shortest path
+    // Must be 45° rotation on Y
+    // certainly not a 135° rotation
+    glm::quat Y45rot3 = glm::slerp(id, -Y90rot, 0.5f, 0);
+    float Y45angle3 = glm::angle(Y45rot3);
+    Error += glm::equal(Y45angle3, glm::pi<float>() * 0.25f, Epsilon) ? 0 : 1;
+    Error += glm::all(glm::equal(Ym45rot3, Y45rot3, Epsilon)) ? 0 : 1;
+
+    // Same, but inverted
+    // Must also be 45° rotation on Y :  0 0.38 0 0.92
+    // -0 -0.38 -0 -0.92 is ok too
+    glm::quat Y45rot4 = glm::slerp(-Y90rot, id, 0.5f, 0);
+    Error += glm::all(glm::equal(Ym45rot2, Y45rot4, Epsilon)) ? 0 : 1;
+
+    // Testing q1 = q2 k == 2
+    // Must be 90° rotation on Y : 0 0.7 0 0.7
+    glm::quat Y90rot5 = glm::slerp(Y90rot, Y90rot, 0.5f, 2);
+    Error += glm::all(glm::equal(Y90rot, Y90rot5, Epsilon)) ? 0 : 1;
+
+    // Testing 180° rotation
+    // Must be 90° rotation on almost any axis that is on the XZ plane
+    glm::quat XZ90rot = glm::slerp(id, -Y90rot, 0.5f, 1);
+    float XZ90angle = glm::angle(XZ90rot); // Must be PI/4 = 0.78;
+    Error += glm::equal(XZ90angle, glm::pi<float>() * 1.25f, Epsilon) ? 0 : 1;
+
+    // Testing rotation over long arc
+    // Distance from id to 90° is 270°, so 2/3 of it should be 180°
+    // Negative quaternion is representing same orientation
+    glm::quat Neg90rot = glm::slerp(id, Y90rot, 2.0f / 3.0f, -1);
+    Error += glm::all(glm::equal(Y180rot, -Neg90rot, Epsilon)) ? 0 : 1;
+
+    return Error;
+}
+
 static int test_quat_mul_vec()
 {
 	int Error(0);
@@ -260,6 +338,7 @@ int main()
 	Error += test_quat_normalize();
 	Error += test_quat_euler();
 	Error += test_quat_slerp();
+    Error += test_quat_slerp_spins();
 	Error += test_identity();
 
 	return Error;
