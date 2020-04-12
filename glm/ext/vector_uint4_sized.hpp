@@ -40,7 +40,6 @@ namespace glm
 	/// @see ext_vector_uint4_sized
 	typedef vec<4, uint32, defaultp>	u32vec4;
 
-	typedef vec<4, uint64, highp>		highp_u64vec4;
 	/// 64 bit unsigned integer vector of 4 components type.
 	///
 	/// @see ext_vector_uint4_sized
