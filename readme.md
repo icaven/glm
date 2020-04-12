@@ -65,6 +65,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Fixed unnecessary warnings from matrix_projection.inl #995
 - Fixed quaternion slerp overload which interpolates with extra spins #996
 - Fixed for glm::length using arch64 #992
+- Fixed singularity check for quatLookAt #770
 
 ### [GLM 0.9.9.7](https://github.com/g-truc/glm/releases/tag/0.9.9.7) - 2020-01-05
 #### Improvements:
