@@ -1,212 +1,547 @@
-#include <glm/ext/vector_int1.hpp>
-#include <glm/ext/vector_int1_precision.hpp>
-#include <glm/ext/vector_int2.hpp>
-#include <glm/ext/vector_int3.hpp>
-#include <glm/ext/vector_int4.hpp>
-#include <glm/ext/vector_uint1.hpp>
-#include <glm/ext/vector_uint1_precision.hpp>
-#include <glm/ext/vector_uint2.hpp>
-#include <glm/ext/vector_uint3.hpp>
-#include <glm/ext/vector_uint4.hpp>
-#include <glm/vector_relational.hpp>
+#include <glm/ext/vector_integer.hpp>
+#include <glm/ext/scalar_int_sized.hpp>
+#include <glm/ext/scalar_uint_sized.hpp>
+#include <vector>
+#include <ctime>
+#include <cstdio>
 
-template <typename genType>
-static int test_operators()
+namespace isPowerOfTwo
 {
-	int Error = 0;
-
+	template<typename genType>
+	struct type
 	{
-		genType const A(1);
-		genType const B(1);
+		genType		Value;
+		bool		Return;
+	};
 
-		bool const R = A != B;
-		bool const S = A == B;
-		Error += (S && !R) ? 0 : 1;
+	template <glm::length_t L>
+	int test_int16()
+	{
+		type<glm::int16> const Data[] =
+		{
+			{ 0x0001, true },
+			{ 0x0002, true },
+			{ 0x0004, true },
+			{ 0x0080, true },
+			{ 0x0000, true },
+			{ 0x0003, false }
+		};
+
+		int Error = 0;
+
+		for (std::size_t i = 0, n = sizeof(Data) / sizeof(type<glm::int16>); i < n; ++i)
+		{
+			glm::vec<L, bool> const Result = glm::isPowerOfTwo(glm::vec<L, glm::int16>(Data[i].Value));
+			Error += glm::vec<L, bool>(Data[i].Return) == Result ? 0 : 1;
+		}
+
+		return Error;
 	}
 
+	template <glm::length_t L>
+	int test_uint16()
 	{
-		genType const A(1);
-		genType const B(1);
+		type<glm::uint16> const Data[] =
+		{
+			{ 0x0001, true },
+			{ 0x0002, true },
+			{ 0x0004, true },
+			{ 0x0000, true },
+			{ 0x0000, true },
+			{ 0x0003, false }
+		};
 
-		genType const C = A + B;
-		Error += C == genType(2) ? 0 : 1;
+		int Error = 0;
 
-		genType const D = A - B;
-		Error += D == genType(0) ? 0 : 1;
+		for (std::size_t i = 0, n = sizeof(Data) / sizeof(type<glm::uint16>); i < n; ++i)
+		{
+			glm::vec<L, bool> const Result = glm::isPowerOfTwo(glm::vec<L, glm::uint16>(Data[i].Value));
+			Error += glm::vec<L, bool>(Data[i].Return) == Result ? 0 : 1;
+		}
 
-		genType const E = A * B;
-		Error += E == genType(1) ? 0 : 1;
-
-		genType const F = A / B;
-		Error += F == genType(1) ? 0 : 1;
+		return Error;
 	}
 
+	template <glm::length_t L>
+	int test_int32()
 	{
-		genType const A(3);
-		genType const B(2);
+		type<int> const Data[] =
+		{
+			{ 0x00000001, true },
+			{ 0x00000002, true },
+			{ 0x00000004, true },
+			{ 0x0000000f, false },
+			{ 0x00000000, true },
+			{ 0x00000003, false }
+		};
 
-		genType const C = A % B;
-		Error += C == genType(1) ? 0 : 1;
+		int Error = 0;
+
+		for (std::size_t i = 0, n = sizeof(Data) / sizeof(type<int>); i < n; ++i)
+		{
+			glm::vec<L, bool> const Result = glm::isPowerOfTwo(glm::vec<L, glm::int32>(Data[i].Value));
+			Error += glm::vec<L, bool>(Data[i].Return) == Result ? 0 : 1;
+		}
+
+		return Error;
 	}
 
+	template <glm::length_t L>
+	int test_uint32()
 	{
-		genType const A(1);
-		genType const B(1);
-		genType const C(0);
+		type<glm::uint> const Data[] =
+		{
+			{ 0x00000001, true },
+			{ 0x00000002, true },
+			{ 0x00000004, true },
+			{ 0x80000000, true },
+			{ 0x00000000, true },
+			{ 0x00000003, false }
+		};
 
-		genType const I = A & B;
-		Error += I == genType(1) ? 0 : 1;
-		genType const D = A & C;
-		Error += D == genType(0) ? 0 : 1;
+		int Error = 0;
 
-		genType const E = A | B;
-		Error += E == genType(1) ? 0 : 1;
-		genType const F = A | C;
-		Error += F == genType(1) ? 0 : 1;
+		for (std::size_t i = 0, n = sizeof(Data) / sizeof(type<glm::uint>); i < n; ++i)
+		{
+			glm::vec<L, bool> const Result = glm::isPowerOfTwo(glm::vec<L, glm::uint32>(Data[i].Value));
+			Error += glm::vec<L, bool>(Data[i].Return) == Result ? 0 : 1;
+		}
 
-		genType const G = A ^ B;
-		Error += G == genType(0) ? 0 : 1;
-		genType const H = A ^ C;
-		Error += H == genType(1) ? 0 : 1;
+		return Error;
 	}
 
+	int test()
 	{
-		genType const A(0);
-		genType const B(1);
-		genType const C(2);
+		int Error = 0;
 
-		genType const D = B << B;
-		Error += D == genType(2) ? 0 : 1;
-		genType const E = C >> B;
-		Error += E == genType(1) ? 0 : 1;
+		Error += test_int16<1>();
+		Error += test_int16<2>();
+		Error += test_int16<3>();
+		Error += test_int16<4>();
+
+		Error += test_uint16<1>();
+		Error += test_uint16<2>();
+		Error += test_uint16<3>();
+		Error += test_uint16<4>();
+
+		Error += test_int32<1>();
+		Error += test_int32<2>();
+		Error += test_int32<3>();
+		Error += test_int32<4>();
+
+		Error += test_uint32<1>();
+		Error += test_uint32<2>();
+		Error += test_uint32<3>();
+		Error += test_uint32<4>();
+
+		return Error;
+	}
+}//isPowerOfTwo
+
+namespace prevPowerOfTwo
+{
+	template <glm::length_t L, typename T>
+	int run()
+	{
+		int Error = 0;
+
+		glm::vec<L, T> const A = glm::prevPowerOfTwo(glm::vec<L, T>(7));
+		Error += A == glm::vec<L, T>(4) ? 0 : 1;
+
+		glm::vec<L, T> const B = glm::prevPowerOfTwo(glm::vec<L, T>(15));
+		Error += B == glm::vec<L, T>(8) ? 0 : 1;
+
+		glm::vec<L, T> const C = glm::prevPowerOfTwo(glm::vec<L, T>(31));
+		Error += C == glm::vec<L, T>(16) ? 0 : 1;
+
+		glm::vec<L, T> const D = glm::prevPowerOfTwo(glm::vec<L, T>(32));
+		Error += D == glm::vec<L, T>(32) ? 0 : 1;
+
+		return Error;
 	}
 
-	return Error;
-}
+	int test()
+	{
+		int Error = 0;
 
-template <typename genType>
-static int test_ctor()
+		Error += run<1, glm::int8>();
+		Error += run<2, glm::int8>();
+		Error += run<3, glm::int8>();
+		Error += run<4, glm::int8>();
+
+		Error += run<1, glm::int16>();
+		Error += run<2, glm::int16>();
+		Error += run<3, glm::int16>();
+		Error += run<4, glm::int16>();
+
+		Error += run<1, glm::int32>();
+		Error += run<2, glm::int32>();
+		Error += run<3, glm::int32>();
+		Error += run<4, glm::int32>();
+
+		Error += run<1, glm::int64>();
+		Error += run<2, glm::int64>();
+		Error += run<3, glm::int64>();
+		Error += run<4, glm::int64>();
+
+		Error += run<1, glm::uint8>();
+		Error += run<2, glm::uint8>();
+		Error += run<3, glm::uint8>();
+		Error += run<4, glm::uint8>();
+
+		Error += run<1, glm::uint16>();
+		Error += run<2, glm::uint16>();
+		Error += run<3, glm::uint16>();
+		Error += run<4, glm::uint16>();
+
+		Error += run<1, glm::uint32>();
+		Error += run<2, glm::uint32>();
+		Error += run<3, glm::uint32>();
+		Error += run<4, glm::uint32>();
+
+		Error += run<1, glm::uint64>();
+		Error += run<2, glm::uint64>();
+		Error += run<3, glm::uint64>();
+		Error += run<4, glm::uint64>();
+
+		return Error;
+	}
+}//namespace prevPowerOfTwo
+
+namespace nextPowerOfTwo
 {
-	typedef typename genType::value_type T;
-	
-	int Error = 0;
+	template <glm::length_t L, typename T>
+	int run()
+	{
+		int Error = 0;
 
-	genType const A = genType(1);
+		glm::vec<L, T> const A = glm::nextPowerOfTwo(glm::vec<L, T>(7));
+		Error += A == glm::vec<L, T>(8) ? 0 : 1;
 
-	genType const E(genType(1));
-	Error += A == E ? 0 : 1;
+		glm::vec<L, T> const B = glm::nextPowerOfTwo(glm::vec<L, T>(15));
+		Error += B == glm::vec<L, T>(16) ? 0 : 1;
 
-	genType const F(E);
-	Error += A == F ? 0 : 1;
+		glm::vec<L, T> const C = glm::nextPowerOfTwo(glm::vec<L, T>(31));
+		Error += C == glm::vec<L, T>(32) ? 0 : 1;
 
-	genType const B = genType(1);
-	genType const G(glm::vec<2, T>(1));
-	Error += B == G ? 0 : 1;
+		glm::vec<L, T> const D = glm::nextPowerOfTwo(glm::vec<L, T>(32));
+		Error += D == glm::vec<L, T>(32) ? 0 : 1;
 
-	genType const H(glm::vec<3, T>(1));
-	Error += B == H ? 0 : 1;
+		return Error;
+	}
 
-	genType const I(glm::vec<4, T>(1));
-	Error += B == I ? 0 : 1;
+	int test()
+	{
+		int Error = 0;
 
-	return Error;
-}
+		Error += run<1, glm::int8>();
+		Error += run<2, glm::int8>();
+		Error += run<3, glm::int8>();
+		Error += run<4, glm::int8>();
 
-template <typename genType>
-static int test_size()
+		Error += run<1, glm::int16>();
+		Error += run<2, glm::int16>();
+		Error += run<3, glm::int16>();
+		Error += run<4, glm::int16>();
+
+		Error += run<1, glm::int32>();
+		Error += run<2, glm::int32>();
+		Error += run<3, glm::int32>();
+		Error += run<4, glm::int32>();
+
+		Error += run<1, glm::int64>();
+		Error += run<2, glm::int64>();
+		Error += run<3, glm::int64>();
+		Error += run<4, glm::int64>();
+
+		Error += run<1, glm::uint8>();
+		Error += run<2, glm::uint8>();
+		Error += run<3, glm::uint8>();
+		Error += run<4, glm::uint8>();
+
+		Error += run<1, glm::uint16>();
+		Error += run<2, glm::uint16>();
+		Error += run<3, glm::uint16>();
+		Error += run<4, glm::uint16>();
+
+		Error += run<1, glm::uint32>();
+		Error += run<2, glm::uint32>();
+		Error += run<3, glm::uint32>();
+		Error += run<4, glm::uint32>();
+
+		Error += run<1, glm::uint64>();
+		Error += run<2, glm::uint64>();
+		Error += run<3, glm::uint64>();
+		Error += run<4, glm::uint64>();
+
+		return Error;
+	}
+}//namespace nextPowerOfTwo
+
+namespace prevMultiple
 {
-	int Error = 0;
+	template<typename genIUType>
+	struct type
+	{
+		genIUType Source;
+		genIUType Multiple;
+		genIUType Return;
+	};
 
-	Error += sizeof(typename genType::value_type) == sizeof(genType) ? 0 : 1;
-	Error += genType().length() == 1 ? 0 : 1;
-	Error += genType::length() == 1 ? 0 : 1;
+	template <glm::length_t L, typename T>
+	int run()
+	{
+		type<T> const Data[] =
+		{
+			{ 8, 3, 6 },
+			{ 7, 7, 7 }
+		};
 
-	return Error;
-}
+		int Error = 0;
 
-template <typename genType>
-static int test_relational()
+		for (std::size_t i = 0, n = sizeof(Data) / sizeof(type<T>); i < n; ++i)
+		{
+			glm::vec<L, T> const Result0 = glm::prevMultiple(glm::vec<L, T>(Data[i].Source), Data[i].Multiple);
+			Error += glm::vec<L, T>(Data[i].Return) == Result0 ? 0 : 1;
+
+			glm::vec<L, T> const Result1 = glm::prevMultiple(glm::vec<L, T>(Data[i].Source), glm::vec<L, T>(Data[i].Multiple));
+			Error += glm::vec<L, T>(Data[i].Return) == Result1 ? 0 : 1;
+		}
+
+		return Error;
+	}
+
+	int test()
+	{
+		int Error = 0;
+
+		Error += run<1, glm::int8>();
+		Error += run<2, glm::int8>();
+		Error += run<3, glm::int8>();
+		Error += run<4, glm::int8>();
+
+		Error += run<1, glm::int16>();
+		Error += run<2, glm::int16>();
+		Error += run<3, glm::int16>();
+		Error += run<4, glm::int16>();
+
+		Error += run<1, glm::int32>();
+		Error += run<2, glm::int32>();
+		Error += run<3, glm::int32>();
+		Error += run<4, glm::int32>();
+
+		Error += run<1, glm::int64>();
+		Error += run<2, glm::int64>();
+		Error += run<3, glm::int64>();
+		Error += run<4, glm::int64>();
+
+		Error += run<1, glm::uint8>();
+		Error += run<2, glm::uint8>();
+		Error += run<3, glm::uint8>();
+		Error += run<4, glm::uint8>();
+
+		Error += run<1, glm::uint16>();
+		Error += run<2, glm::uint16>();
+		Error += run<3, glm::uint16>();
+		Error += run<4, glm::uint16>();
+
+		Error += run<1, glm::uint32>();
+		Error += run<2, glm::uint32>();
+		Error += run<3, glm::uint32>();
+		Error += run<4, glm::uint32>();
+
+		Error += run<1, glm::uint64>();
+		Error += run<2, glm::uint64>();
+		Error += run<3, glm::uint64>();
+		Error += run<4, glm::uint64>();
+
+		return Error;
+	}
+}//namespace prevMultiple
+
+namespace nextMultiple
 {
-	int Error = 0;
+	template<typename genIUType>
+	struct type
+	{
+		genIUType Source;
+		genIUType Multiple;
+		genIUType Return;
+	};
 
-	genType const A(1);
-	genType const B(1);
-	genType const C(0);
+	template <glm::length_t L, typename T>
+	int run()
+	{
+		type<T> const Data[] =
+		{
+			{ 3, 4, 4 },
+			{ 6, 3, 6 },
+			{ 5, 3, 6 },
+			{ 7, 7, 7 },
+			{ 0, 1, 0 },
+			{ 8, 3, 9 }
+		};
 
-	Error += A == B ? 0 : 1;
-	Error += A != C ? 0 : 1;
-	Error += all(equal(A, B)) ? 0 : 1;
-	Error += any(notEqual(A, C)) ? 0 : 1;
+		int Error = 0;
 
-	return Error;
-}
+		for (std::size_t i = 0, n = sizeof(Data) / sizeof(type<T>); i < n; ++i)
+		{
+			glm::vec<L, T> const Result0 = glm::nextMultiple(glm::vec<L, T>(Data[i].Source), glm::vec<L, T>(Data[i].Multiple));
+			Error += glm::vec<L, T>(Data[i].Return) == Result0 ? 0 : 1;
 
-template <typename genType>
-static int test_constexpr()
+			glm::vec<L, T> const Result1 = glm::nextMultiple(glm::vec<L, T>(Data[i].Source), Data[i].Multiple);
+			Error += glm::vec<L, T>(Data[i].Return) == Result1 ? 0 : 1;
+		}
+
+		return Error;
+	}
+
+	int test()
+	{
+		int Error = 0;
+
+		Error += run<1, glm::int8>();
+		Error += run<2, glm::int8>();
+		Error += run<3, glm::int8>();
+		Error += run<4, glm::int8>();
+
+		Error += run<1, glm::int16>();
+		Error += run<2, glm::int16>();
+		Error += run<3, glm::int16>();
+		Error += run<4, glm::int16>();
+
+		Error += run<1, glm::int32>();
+		Error += run<2, glm::int32>();
+		Error += run<3, glm::int32>();
+		Error += run<4, glm::int32>();
+
+		Error += run<1, glm::int64>();
+		Error += run<2, glm::int64>();
+		Error += run<3, glm::int64>();
+		Error += run<4, glm::int64>();
+
+		Error += run<1, glm::uint8>();
+		Error += run<2, glm::uint8>();
+		Error += run<3, glm::uint8>();
+		Error += run<4, glm::uint8>();
+
+		Error += run<1, glm::uint16>();
+		Error += run<2, glm::uint16>();
+		Error += run<3, glm::uint16>();
+		Error += run<4, glm::uint16>();
+
+		Error += run<1, glm::uint32>();
+		Error += run<2, glm::uint32>();
+		Error += run<3, glm::uint32>();
+		Error += run<4, glm::uint32>();
+
+		Error += run<1, glm::uint64>();
+		Error += run<2, glm::uint64>();
+		Error += run<3, glm::uint64>();
+		Error += run<4, glm::uint64>();
+
+		return Error;
+	}
+}//namespace nextMultiple
+
+namespace findNSB
 {
-#	if GLM_CONFIG_CONSTEXP == GLM_ENABLE
-		static_assert(genType::length() == 1, "GLM: Failed constexpr");
-		static_assert(genType(1)[0] == 1, "GLM: Failed constexpr");
-		static_assert(genType(1) == genType(1), "GLM: Failed constexpr");
-		static_assert(genType(1) != genType(0), "GLM: Failed constexpr");
-#	endif
+	template<typename T>
+	struct type
+	{
+		T Source;
+		int SignificantBitCount;
+		int Return;
+	};
 
-	return 0;
-}
+	template <glm::length_t L, typename T>
+	int run()
+	{
+		type<T> const Data[] =
+		{
+			{ 0x00, 1,-1 },
+			{ 0x01, 2,-1 },
+			{ 0x02, 2,-1 },
+			{ 0x06, 3,-1 },
+			{ 0x01, 1, 0 },
+			{ 0x03, 1, 0 },
+			{ 0x03, 2, 1 },
+			{ 0x07, 2, 1 },
+			{ 0x05, 2, 2 },
+			{ 0x0D, 2, 2 }
+		};
+
+		int Error = 0;
+
+		for (std::size_t i = 0, n = sizeof(Data) / sizeof(type<T>); i < n; ++i)
+		{
+			glm::vec<L, int> const Result0 = glm::findNSB<L, T, glm::defaultp>(glm::vec<L, T>(Data[i].Source), glm::vec<L, int>(Data[i].SignificantBitCount));
+			Error += glm::vec<L, int>(Data[i].Return) == Result0 ? 0 : 1;
+			assert(!Error);
+		}
+
+		return Error;
+	}
+
+	int test()
+	{
+		int Error = 0;
+
+		Error += run<1, glm::uint8>();
+		Error += run<2, glm::uint8>();
+		Error += run<3, glm::uint8>();
+		Error += run<4, glm::uint8>();
+
+		Error += run<1, glm::uint16>();
+		Error += run<2, glm::uint16>();
+		Error += run<3, glm::uint16>();
+		Error += run<4, glm::uint16>();
+
+		Error += run<1, glm::uint32>();
+		Error += run<2, glm::uint32>();
+		Error += run<3, glm::uint32>();
+		Error += run<4, glm::uint32>();
+
+		Error += run<1, glm::uint64>();
+		Error += run<2, glm::uint64>();
+		Error += run<3, glm::uint64>();
+		Error += run<4, glm::uint64>();
+
+		Error += run<1, glm::int8>();
+		Error += run<2, glm::int8>();
+		Error += run<3, glm::int8>();
+		Error += run<4, glm::int8>();
+
+		Error += run<1, glm::int16>();
+		Error += run<2, glm::int16>();
+		Error += run<3, glm::int16>();
+		Error += run<4, glm::int16>();
+
+		Error += run<1, glm::int32>();
+		Error += run<2, glm::int32>();
+		Error += run<3, glm::int32>();
+		Error += run<4, glm::int32>();
+
+		Error += run<1, glm::int64>();
+		Error += run<2, glm::int64>();
+		Error += run<3, glm::int64>();
+		Error += run<4, glm::int64>();
+
+
+		return Error;
+	}
+}//namespace findNSB
 
 int main()
 {
 	int Error = 0;
 
-	Error += test_operators<glm::ivec1>();
-	Error += test_operators<glm::lowp_ivec1>();
-	Error += test_operators<glm::mediump_ivec1>();
-	Error += test_operators<glm::highp_ivec1>();
+	Error += isPowerOfTwo::test();
+	Error += prevPowerOfTwo::test();
+	Error += nextPowerOfTwo::test();
+	Error += prevMultiple::test();
+	Error += nextMultiple::test();
+	Error += findNSB::test();
 
-	Error += test_ctor<glm::ivec1>();
-	Error += test_ctor<glm::lowp_ivec1>();
-	Error += test_ctor<glm::mediump_ivec1>();
-	Error += test_ctor<glm::highp_ivec1>();
-
-	Error += test_size<glm::ivec1>();
-	Error += test_size<glm::lowp_ivec1>();
-	Error += test_size<glm::mediump_ivec1>();
-	Error += test_size<glm::highp_ivec1>();
-
-	Error += test_relational<glm::ivec1>();
-	Error += test_relational<glm::lowp_ivec1>();
-	Error += test_relational<glm::mediump_ivec1>();
-	Error += test_relational<glm::highp_ivec1>();
-
-	Error += test_constexpr<glm::ivec1>();
-	Error += test_constexpr<glm::lowp_ivec1>();
-	Error += test_constexpr<glm::mediump_ivec1>();
-	Error += test_constexpr<glm::highp_ivec1>();
-
-	Error += test_operators<glm::uvec1>();
-	Error += test_operators<glm::lowp_uvec1>();
-	Error += test_operators<glm::mediump_uvec1>();
-	Error += test_operators<glm::highp_uvec1>();
-	
-	Error += test_ctor<glm::uvec1>();
-	Error += test_ctor<glm::lowp_uvec1>();
-	Error += test_ctor<glm::mediump_uvec1>();
-	Error += test_ctor<glm::highp_uvec1>();
-	
-	Error += test_size<glm::uvec1>();
-	Error += test_size<glm::lowp_uvec1>();
-	Error += test_size<glm::mediump_uvec1>();
-	Error += test_size<glm::highp_uvec1>();
-	
-	Error += test_relational<glm::uvec1>();
-	Error += test_relational<glm::lowp_uvec1>();
-	Error += test_relational<glm::mediump_uvec1>();
-	Error += test_relational<glm::highp_uvec1>();
-	
-	Error += test_constexpr<glm::uvec1>();
-	Error += test_constexpr<glm::lowp_uvec1>();
-	Error += test_constexpr<glm::mediump_uvec1>();
-	Error += test_constexpr<glm::highp_uvec1>();
-	
 	return Error;
 }

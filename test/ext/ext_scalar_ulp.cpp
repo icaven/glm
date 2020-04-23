@@ -7,14 +7,14 @@ static int test_ulp_float_dist()
 
 	float A = 1.0f;
 
-	float B = glm::next_float(A);
+	float B = glm::nextFloat(A);
 	Error += glm::notEqual(A, B, 0) ? 0 : 1;
-	float C = glm::prev_float(B);
+	float C = glm::prevFloat(B);
 	Error += glm::equal(A, C, 0) ? 0 : 1;
 
-	int D = glm::float_distance(A, B);
+	int D = glm::floatDistance(A, B);
 	Error += D == 1 ? 0 : 1;
-	int E = glm::float_distance(A, C);
+	int E = glm::floatDistance(A, C);
 	Error += E == 0 ? 0 : 1;
 
 	return Error;
@@ -28,14 +28,14 @@ static int test_ulp_float_step()
 
 	for(int i = 10; i < 1000; i *= 10)
 	{
-		float B = glm::next_float(A, i);
+		float B = glm::nextFloat(A, i);
 		Error += glm::notEqual(A, B, 0) ? 0 : 1;
-		float C = glm::prev_float(B, i);
+		float C = glm::prevFloat(B, i);
 		Error += glm::equal(A, C, 0) ? 0 : 1;
 
-		int D = glm::float_distance(A, B);
+		int D = glm::floatDistance(A, B);
 		Error += D == i ? 0 : 1;
-		int E = glm::float_distance(A, C);
+		int E = glm::floatDistance(A, C);
 		Error += E == 0 ? 0 : 1;
 	}
 
@@ -48,14 +48,14 @@ static int test_ulp_double_dist()
 
 	double A = 1.0;
 
-	double B = glm::next_float(A);
+	double B = glm::nextFloat(A);
 	Error += glm::notEqual(A, B, 0) ? 0 : 1;
-	double C = glm::prev_float(B);
+	double C = glm::prevFloat(B);
 	Error += glm::equal(A, C, 0) ? 0 : 1;
 
-	glm::int64 const D = glm::float_distance(A, B);
+	glm::int64 const D = glm::floatDistance(A, B);
 	Error += D == 1 ? 0 : 1;
-	glm::int64 const E = glm::float_distance(A, C);
+	glm::int64 const E = glm::floatDistance(A, C);
 	Error += E == 0 ? 0 : 1;
 
 	return Error;
@@ -69,14 +69,14 @@ static int test_ulp_double_step()
 
 	for(int i = 10; i < 1000; i *= 10)
 	{
-		double B = glm::next_float(A, i);
+		double B = glm::nextFloat(A, i);
 		Error += glm::notEqual(A, B, 0) ? 0 : 1;
-		double C = glm::prev_float(B, i);
+		double C = glm::prevFloat(B, i);
 		Error += glm::equal(A, C, 0) ? 0 : 1;
 
-		glm::int64 const D = glm::float_distance(A, B);
+		glm::int64 const D = glm::floatDistance(A, B);
 		Error += D == i ? 0 : 1;
-		glm::int64 const E = glm::float_distance(A, C);
+		glm::int64 const E = glm::floatDistance(A, C);
 		Error += E == 0 ? 0 : 1;
 	}
 

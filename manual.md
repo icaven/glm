@@ -14,6 +14,7 @@
 + [1.2. Using separated headers](#section1_2)
 + [1.3. Using extension headers](#section1_3)
 + [1.4. Dependencies](#section1_4)
++ [1.5. Finding GLM with CMake](#section1_5)
 + [2. Preprocessor configurations](#section2)
 + [2.1. GLM\_FORCE\_MESSAGES: Platform auto detection and default configuration](#section2_1)
 + [2.2. GLM\_FORCE\_PLATFORM\_UNKNOWN: Force GLM to no detect the build platform](#section2_2)
@@ -35,6 +36,7 @@
 + [2.18. GLM\_FORCE\_SIZE\_T\_LENGTH: Vector and matrix static size type](#section2_18)
 + [2.19. GLM\_FORCE\_UNRESTRICTED\_GENTYPE: Removing genType restriction](#section2_19)
 + [2.20. GLM\_FORCE\_SILENT\_WARNINGS: Silent C++ warnings from language extensions](#section2_20)
++ [2.21. GLM\_FORCE\_QUAT\_DATA\_WXYZ: Force GLM to store quat data as w,x,y,z instead of x,y,z,w](#section2_21)
 + [3. Stable extensions](#section3)
 + [3.1. Scalar types](#section3_1)
 + [3.2. Scalar functions](#section3_2)
@@ -272,6 +274,10 @@ glm::mat4 transform(glm::vec2 const& Orientation, glm::vec3 const& Translate, gl
 ### <a name="section1_4"></a> 1.4. Dependencies
 
 GLM does not depend on external libraries or headers such as `<GL/gl.h>`, [`<GL/glcorearb.h>`](http://www.opengl.org/registry/api/GL/glcorearb.h), `<GLES3/gl3.h>`, `<GL/glu.h>`, or `<windows.h>`.
+
+### <a name="section1_5"></a> 1.5. Finding GLM with CMake
+
+GLM packages a `glmConfig.cmake` and `glmConfig-version.cmake` in the root of the repository and the release archives. To find GLM with CMake you can pass `-Dglm_DIR=<path to glm root>/cmake/glm/` when running CMake. You can then either add `${GLM_INCLUDE_DIRS}` to your target's include directories, or link against the imported `glm::glm` target.
 
 ---
 <div style="page-break-after: always;"> </div>
@@ -715,6 +721,11 @@ int average(int const A, int const B)
 
 When using /W4 on Visual C++ or -Wpedantic on GCC, for example, the compilers will generate warnings for using C++ language extensions (/Za with Visual C++) such as anonymous struct.
 GLM relies on anonymous structs for swizzle operators and aligned vector types. To silent those warnings define `GLM_FORCE_SILENT_WARNINGS` before including GLM headers.
+
+
+### <a name="section2_21"></a> 2.21. GLM\_FORCE\_QUAT\_DATA\_WXYZ: Force GLM to store quat data as w,x,y,z instead of x,y,z,w
+
+By default GLM store quaternion components with the x, y, z, w order. `GLM_FORCE_QUAT_DATA_WXYZ` allows switching the quaternion data storage to the w, x, y, z order.
 
 ---
 <div style="page-break-after: always;"> </div>

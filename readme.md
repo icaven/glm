@@ -14,11 +14,12 @@ This library works perfectly with *[OpenGL](https://www.opengl.org)* but it also
 - [Intel C++ Composer](https://software.intel.com/en-us/intel-compilers) XE 2013 and higher
 - [LLVM](http://llvm.org/) 3.4 and higher
 - [Visual C++](http://www.visualstudio.com/) 2013 and higher
-- [CUDA](https://developer.nvidia.com/about-cuda) 7.0 and higher (experimental)
+- [CUDA](https://developer.nvidia.com/about-cuda) 9.0 and higher (experimental)
+- [SYCL](https://www.khronos.org/sycl/) (experimental: only [ComputeCpp](https://codeplay.com/products/computesuite/computecpp) implementation has been tested).
 - Any C++11 compiler
 
 For more information about *GLM*, please have a look at the [manual](manual.md) and the [API reference documentation](http://glm.g-truc.net/0.9.8/api/index.html).
-The source code and the documentation are licensed under both the [Happy Bunny License (Modified MIT) or the MIT License](manual.md#section0).
+The source code and the documentation are licensed under either the [Happy Bunny License (Modified MIT) or the MIT License](manual.md#section0).
 
 Thanks for contributing to the project by [submitting issues](https://github.com/g-truc/glm/issues) for bug reports and feature requests. Any feedback is welcome at [glm@g-truc.net](mailto://glm@g-truc.net).
 
@@ -52,10 +53,62 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 
 ## Release notes
 
-### [GLM 0.9.9.6](https://github.com/g-truc/glm/tree/master)
+### [GLM 0.9.9.8](https://github.com/g-truc/glm/releases/tag/0.9.9.8) - 2020-04-13
+#### Features:
+- Added GLM_EXT_vector_intX* and GLM_EXT_vector_uintX* extensions
+- Added GLM_EXT_matrix_intX* and GLM_EXT_matrix_uintX* extensions
+
+#### Improvements:
+- Added clamp, repeat, mirrorClamp and mirrorRepeat function to GLM_EXT_scalar_commond and GLM_EXT_vector_commond extensions with tests
+
+#### Fixes:
+- Fixed unnecessary warnings from matrix_projection.inl #995
+- Fixed quaternion slerp overload which interpolates with extra spins #996
+- Fixed for glm::length using arch64 #992
+- Fixed singularity check for quatLookAt #770
+
+### [GLM 0.9.9.7](https://github.com/g-truc/glm/releases/tag/0.9.9.7) - 2020-01-05
+#### Improvements:
+- Improved Neon support with more functions optimized #950
+- Added CMake GLM interface #963
+- Added fma implementation based on std::fma #969
+- Added missing quat constexpr #955
+- Added GLM_FORCE_QUAT_DATA_WXYZ to store quat data as w,x,y,z instead of x,y,z,w #983
+
+#### Fixes:
+- Fixed equal ULP variation when using negative sign #965
+- Fixed for intersection ray/plane and added related tests #953
+- Fixed ARM 64bit detection #949
+- Fixed GLM_EXT_matrix_clip_space warnings #980
+- Fixed Wimplicit-int-float-conversion warnings with clang 10+ #986
+- Fixed EXT_matrix_clip_space perspectiveFov
+
+### [GLM 0.9.9.6](https://github.com/g-truc/glm/releases/tag/0.9.9.6) - 2019-09-08
+#### Features:
+- Added Neon support #945
+- Added SYCL support #914
+- Added EXT_scalar_integer extension with power of two and multiple scalar functions
+- Added EXT_vector_integer extension with power of two and multiple vector functions
+
 #### Improvements:
 - Added Visual C++ 2019 detection
 - Added Visual C++ 2017 15.8 and 15.9 detection
+- Added missing genType check for bitCount and bitfieldReverse #893
+
+#### Fixes:
+- Fixed for g++6 where -std=c++1z sets __cplusplus to 201500 instead of 201402 #921
+- Fixed hash hashes qua instead of tquat #919
+- Fixed .natvis as structs renamed #915
+- Fixed ldexp and frexp declaration #895
+- Fixed missing const to quaternion conversion operators #890
+- Fixed EXT_scalar_ulp and EXT_vector_ulp API coding style
+- Fixed quaternion componant order: w, {x, y, z} #916
+- Fixed GLM_HAS_CXX11_STL broken on Clang with Linux #926
+- Fixed Clang or GCC build due to wrong GLM_HAS_IF_CONSTEXPR definition #907
+- Fixed CUDA 9 build #910
+
+#### Deprecation:
+ - Removed CMake install and uninstall scripts
 
 ### [GLM 0.9.9.5](https://github.com/g-truc/glm/releases/tag/0.9.9.5) - 2019-04-01
 #### Fixes:
