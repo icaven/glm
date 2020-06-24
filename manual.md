@@ -217,7 +217,7 @@ GLM relies on C++ templates heavily, and may significantly increase compilation 
 #include <glm/mat4x4.hpp>             // mat4, dmat4
 #include <glm/common.hpp>             // all the GLSL common functions: abs, min, mix, isnan, fma, etc.
 #include <glm/exponential.hpp>        // all the GLSL exponential functions: pow, log, exp2, sqrt, etc.
-#include <glm/geometry.hpp>           // all the GLSL geometry functions: dot, cross, reflect, etc.
+#include <glm/geometric.hpp>           // all the GLSL geometry functions: dot, cross, reflect, etc.
 #include <glm/integer.hpp>            // all the GLSL integer functions: findMSB, bitfieldExtract, etc.
 #include <glm/matrix.hpp>             // all the GLSL matrix functions: transpose, inverse, etc.
 #include <glm/packing.hpp>            // all the GLSL packing functions: packUnorm4x8, unpackHalf2x16, etc.
