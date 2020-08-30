@@ -2351,7 +2351,7 @@ Cinder is production-proven, powerful enough to be the primary tool for professi
 
 ![](/doc/manual/references-cinder.png)
 
-[***opencloth***](http://code.google.com/p/opencloth/)
+[***opencloth***](https://github.com/mmmovania/opencloth/)
 
 A collection of source codes implementing cloth simulation algorithms in OpenGL.
 
