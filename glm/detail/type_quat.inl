@@ -94,7 +94,7 @@ namespace detail
 
 	// -- Implicit basic constructors --
 
-#	if GLM_CONFIG_DEFAULTED_FUNCTIONS == GLM_DISABLE
+#	if GLM_CONFIG_DEFAULTED_DEFAULT_CTOR == GLM_DISABLE
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua()
 #			if GLM_CONFIG_CTOR_INIT != GLM_CTOR_INIT_DISABLE
@@ -105,7 +105,9 @@ namespace detail
 #				endif
 #			endif
 		{}
+#	endif
 
+#	if GLM_CONFIG_DEFAULTED_FUNCTIONS == GLM_DISABLE
 		template<typename T, qualifier Q>
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua(qua<T, Q> const& q)
 #			ifdef GLM_FORCE_QUAT_DATA_WXYZ
