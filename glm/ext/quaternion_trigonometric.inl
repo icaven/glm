@@ -9,7 +9,7 @@ namespace glm
 		{
 			T const a = asin(sqrt(x.x * x.x + x.y * x.y + x.z * x.z)) * static_cast<T>(2);
 			if(x.w < static_cast<T>(0))
-				return two_pi<T>() - a;
+				return pi<T>() * static_cast<T>(2) - a;
 			return a;
 		}
 
