@@ -47,7 +47,7 @@ namespace glm
 	/// @see <a href="http://www.opengl.org/sdk/docs/manglsl/xhtml/dot.xml">GLSL dot man page</a>
 	/// @see <a href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.8.pdf">GLSL 4.20.8 specification, section 8.5 Geometric Functions</a>
 	template<length_t L, typename T, qualifier Q>
-	GLM_FUNC_DECL T dot(vec<L, T, Q> const& x, vec<L, T, Q> const& y);
+	GLM_FUNC_DECL GLM_CONSTEXPR T dot(vec<L, T, Q> const& x, vec<L, T, Q> const& y);
 
 	/// Returns the cross product of x and y.
 	///
