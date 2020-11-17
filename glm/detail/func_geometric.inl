@@ -67,7 +67,7 @@ namespace detail
 	template<typename T, qualifier Q, bool Aligned>
 	struct compute_cross
 	{
-		GLM_FUNC_QUALIFIER static vec<3, T, Q> call(vec<3, T, Q> const& x, vec<3, T, Q> const& y)
+		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static vec<3, T, Q> call(vec<3, T, Q> const& x, vec<3, T, Q> const& y)
 		{
 			GLM_STATIC_ASSERT(std::numeric_limits<T>::is_iec559, "'cross' accepts only floating-point inputs");
 
@@ -172,7 +172,7 @@ namespace detail
 
 	// cross
 	template<typename T, qualifier Q>
-	GLM_FUNC_QUALIFIER vec<3, T, Q> cross(vec<3, T, Q> const& x, vec<3, T, Q> const& y)
+	GLM_FUNC_QUALIFIER GLM_CONSTEXPR vec<3, T, Q> cross(vec<3, T, Q> const& x, vec<3, T, Q> const& y)
 	{
 		return detail::compute_cross<T, Q, detail::is_aligned<Q>::value>::call(x, y);
 	}
