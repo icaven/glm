@@ -44,7 +44,6 @@ static int test_length_mat()
 
 static int test_length_vec()
 {
-
 	int Error = 0;
 	
 	Error += glm::vec2().length() == 2 ? 0 : 1;
