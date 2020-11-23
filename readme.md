@@ -53,7 +53,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 
 ## Release notes
 
-### [GLM 0.9.9.9](https://github.com/g-truc/glm/releases/tag/0.9.9.9) - 2020-10-23
+### [GLM 0.9.9.9](https://github.com/g-truc/glm/releases/tag/0.9.9.9) - 2020-XX-XX
 #### Features:
 - Added *GLM_EXT_scalar_reciprocal* with tests
 - Added *GLM_EXT_vector_reciprocal* with tests
