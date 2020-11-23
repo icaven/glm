@@ -66,6 +66,9 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 - Fixed incorrect assertion for `glm::min` and `glm::max` #1009
 - Fixed quaternion orientation in `glm::decompose` #1012
 - Fixed singularity in quaternion to euler angle roll conversion #1019
+- Fixed `quat` `glm::pow` handling of small magnitude quaternions #1022
+- Fixed `glm::fastNormalize` build error #1033
+- Fixed `glm::isMultiple` build error #1034
 - Fixed `glm::adjugate` calculation #1035
 - Fixed `glm::angle` discards the sign of result for angles in range (2*pi-1, 2*pi) #1038
 - Removed ban on using `glm::string_cast` with *CUDA* host code #1041
