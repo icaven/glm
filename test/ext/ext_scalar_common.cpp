@@ -298,6 +298,36 @@ static int test_mirrorRepeat()
 	return Error;
 }
 
+static int test_iround()
+{
+	int Error = 0;
+
+	for(float f = 0.0f; f < 3.1f; f += 0.05f)
+	{
+		int RoundFast = static_cast<int>(glm::iround(f));
+		int RoundSTD = static_cast<int>(glm::round(f));
+		Error += RoundFast == RoundSTD ? 0 : 1;
+		assert(!Error);
+	}
+
+	return Error;
+}
+
+static int test_uround()
+{
+	int Error = 0;
+
+	for(float f = 0.0f; f < 3.1f; f += 0.05f)
+	{
+		int RoundFast = static_cast<int>(glm::uround(f));
+		int RoundSTD = static_cast<int>(glm::round(f));
+		Error += RoundFast == RoundSTD ? 0 : 1;
+		assert(!Error);
+	}
+
+	return Error;
+}
+
 int main()
 {
 	int Error = 0;
@@ -322,6 +352,9 @@ int main()
 	Error += test_repeat();
 	Error += test_mirrorClamp();
 	Error += test_mirrorRepeat();
+
+	Error += test_iround();
+	Error += test_uround();
 
 	return Error;
 }

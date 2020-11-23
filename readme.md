@@ -57,6 +57,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 #### Features:
 - Added *GLM_EXT_scalar_reciprocal* with tests
 - Added *GLM_EXT_vector_reciprocal* with tests
+- Added `glm::iround` and `glm::uround` to *GLM_EXT_scalar_common* and *GLM_EXT_vector_common*
 
 #### Improvements:
 - Added `constexpr` qualifier for `cross` product #1040
