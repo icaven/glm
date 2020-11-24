@@ -73,15 +73,15 @@ before_build:
       cmake .. -G "$env:generator" -DGLM_QUIET=ON -DGLM_TEST_ENABLE=ON "$env:GLM_ARGUMENTS"
 
 build_script:
-  - cmake --parallel --build . --config %CONFIGURATION% -- /m /v:minimal
+  - cmake --build . --parallel --config %CONFIGURATION% -- /m /v:minimal
 
 test_script:
-  - ctest --parallel 4 -C %CONFIGURATION%
+  - ctest --parallel 4 --output-on-failure -C %CONFIGURATION%
   - cd ..
   - ps: |
       mkdir build_test_cmake
       cd build_test_cmake
       cmake ..\test\cmake\ -G "$env:generator" -Dglm_DIR="$env:APPVEYOR_BUILD_FOLDER/cmake/glm/"
-  - cmake --build . --config %CONFIGURATION% -- /m /v:minimal
+  - cmake --build . --parallel --config %CONFIGURATION% -- /m /v:minimal
 
 deploy: off
