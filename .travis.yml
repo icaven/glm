@@ -10,7 +10,7 @@ matrix:
         - cd ./build_unknown_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_DISABLE_AUTO_DETECTION=ON ..
         - cmake --build .
-        - ctest --output-on-failure
+        - ctest --verbose
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
@@ -27,7 +27,7 @@ matrix:
         - cd ./build_pure_98_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_FORCE_PURE=ON ..
         - cmake --build .
-        - ctest --output-on-failure
+        - ctest --verbose
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
@@ -44,7 +44,7 @@ matrix:
         - cd ./build_pure_ms_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON ..
         - cmake --build .
-        - ctest --output-on-failure
+        - ctest --verbose
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
@@ -61,7 +61,7 @@ matrix:
         - cd ./build_pure_11_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_FORCE_PURE=ON ..
         - cmake --build .
-        - ctest --output-on-failure
+        - ctest --verbose
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
@@ -78,7 +78,7 @@ matrix:
         - cd ./build_sse2_11_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE2=ON ..
         - cmake --build .
-        - ctest --output-on-failure
+        - ctest --verbose
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
