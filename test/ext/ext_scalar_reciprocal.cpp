@@ -118,8 +118,8 @@ static int test_acsch()
 {
 	int Error = 0;
 	
-	Error += glm::acsch(0.0001) > 10000.0, 0.01 ? 0 : 1;
-	Error += glm::acsch(-0.0001) < -10000.0, 0.01 ? 0 : 1;
+	Error += glm::acsch(0.0001) > 10000.0 ? 0 : 1;
+	Error += glm::acsch(-0.0001) < -10000.0 ? 0 : 1;
 
 	Error += glm::equal(glm::acsch(100.0), 0.0, 0.01) ? 0 : 1;
 	Error += glm::equal(glm::acsch(-100.0), 0.0, 0.01) ? 0 : 1;
