@@ -76,7 +76,7 @@ build_script:
   - cmake --build . --parallel --config %CONFIGURATION% -- /m /v:minimal
 
 test_script:
-  - ctest --parallel 4 --output-on-failure -C %CONFIGURATION%
+  - ctest --parallel 4 --verbose -C %CONFIGURATION%
   - cd ..
   - ps: |
       mkdir build_test_cmake
