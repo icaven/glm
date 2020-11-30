@@ -1,8 +1,15 @@
-#include <glm/matrix.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/ulp.hpp>
-#include <glm/gtc/epsilon.hpp>
-#include <glm/gtc/constants.hpp>
+#include <glm/ext/matrix_relational.hpp>
+#include <glm/ext/matrix_transform.hpp>
+#include <glm/ext/scalar_constants.hpp>
+#include <glm/mat2x2.hpp>
+#include <glm/mat2x3.hpp>
+#include <glm/mat2x4.hpp>
+#include <glm/mat3x2.hpp>
+#include <glm/mat3x3.hpp>
+#include <glm/mat3x4.hpp>
+#include <glm/mat4x2.hpp>
+#include <glm/mat4x3.hpp>
+#include <glm/mat4x4.hpp>
 #include <vector>
 #include <ctime>
 #include <cstdio>
@@ -17,72 +24,63 @@ int test_matrixCompMult()
 		mat2 m(0, 1, 2, 3);
 		mat2 n = matrixCompMult(m, m);
 		mat2 expected = mat2(0, 1, 4, 9);
-		for (length_t l = 0; l < m.length(); ++l)
-			Error += all(epsilonEqual(n[l], expected[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(n, expected, epsilon<float>())) ? 0 : 1;
 	}
 
 	{
 		mat2x3 m(0, 1, 2, 3, 4, 5);
 		mat2x3 n = matrixCompMult(m, m);
 		mat2x3 expected = mat2x3(0, 1, 4, 9, 16, 25);
-		for (length_t l = 0; l < m.length(); ++l)
-			Error += all(epsilonEqual(n[l], expected[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(n, expected, epsilon<float>())) ? 0 : 1;
 	}
 
 	{
 		mat2x4 m(0, 1, 2, 3, 4, 5, 6, 7);
 		mat2x4 n = matrixCompMult(m, m);
 		mat2x4 expected = mat2x4(0, 1, 4, 9, 16, 25, 36, 49);
-		for (length_t l = 0; l < m.length(); ++l)
-			Error += all(epsilonEqual(n[l], expected[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(n, expected, epsilon<float>())) ? 0 : 1;
 	}
 
 	{
 		mat3 m(0, 1, 2, 3, 4, 5, 6, 7, 8);
 		mat3 n = matrixCompMult(m, m);
 		mat3 expected = mat3(0, 1, 4, 9, 16, 25, 36, 49, 64);
-		for (length_t l = 0; l < m.length(); ++l)
-			Error += all(epsilonEqual(n[l], expected[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(n, expected, epsilon<float>())) ? 0 : 1;
 	}
 
 	{
 		mat3x2 m(0, 1, 2, 3, 4, 5);
 		mat3x2 n = matrixCompMult(m, m);
 		mat3x2 expected = mat3x2(0, 1, 4, 9, 16, 25);
-		for (length_t l = 0; l < m.length(); ++l)
-			Error += all(epsilonEqual(n[l], expected[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(n, expected, epsilon<float>())) ? 0 : 1;
 	}
 
 	{
 		mat3x4 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
 		mat3x4 n = matrixCompMult(m, m);
 		mat3x4 expected = mat3x4(0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121);
-		for (length_t l = 0; l < m.length(); ++l)
-			Error += all(epsilonEqual(n[l], expected[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(n, expected, epsilon<float>())) ? 0 : 1;
 	}
 
 	{
 		mat4 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
 		mat4 n = matrixCompMult(m, m);
 		mat4 expected = mat4(0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225);
-		for (length_t l = 0; l < m.length(); ++l)
-			Error += all(epsilonEqual(n[l], expected[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(n, expected, epsilon<float>())) ? 0 : 1;
 	}
 
 	{
 		mat4x2 m(0, 1, 2, 3, 4, 5, 6, 7);
 		mat4x2 n = matrixCompMult(m, m);
 		mat4x2 expected = mat4x2(0, 1, 4, 9, 16, 25, 36, 49);
-		for (length_t l = 0; l < m.length(); ++l)
-			Error += all(epsilonEqual(n[l], expected[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(n, expected, epsilon<float>())) ? 0 : 1;
 	}
 
 	{
 		mat4x3 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
 		mat4x3 n = matrixCompMult(m, m);
 		mat4x3 expected = mat4x3(0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121);
-		for (length_t l = 0; l < m.length(); ++l)
-			Error += all(epsilonEqual(n[l], expected[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(n, expected, epsilon<float>())) ? 0 : 1;
 	}
 
 	return Error;
@@ -114,72 +112,63 @@ int test_transpose()
 		mat2 const m(0, 1, 2, 3);
 		mat2 const t = transpose(m);
 		mat2 const expected = mat2(0, 2, 1, 3);
-		for (length_t l = 0; l < expected.length(); ++l)
-			Error += all(epsilonEqual(t[l], expected[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(t, expected, epsilon<float>())) ? 0 : 1;
 	}
 
 	{
 		mat2x3 m(0, 1, 2, 3, 4, 5);
 		mat3x2 t = transpose(m);
 		mat3x2 const expected = mat3x2(0, 3, 1, 4, 2, 5);
-		for (length_t l = 0; l < expected.length(); ++l)
-			Error += all(epsilonEqual(t[l], expected[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(t, expected, epsilon<float>())) ? 0 : 1;
 	}
 
 	{
 		mat2x4 m(0, 1, 2, 3, 4, 5, 6, 7);
 		mat4x2 t = transpose(m);
 		mat4x2 const expected = mat4x2(0, 4, 1, 5, 2, 6, 3, 7);
-		for (length_t l = 0; l < expected.length(); ++l)
-			Error += all(epsilonEqual(t[l], expected[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(t, expected, epsilon<float>())) ? 0 : 1;
 	}
 
 	{
 		mat3 m(0, 1, 2, 3, 4, 5, 6, 7, 8);
 		mat3 t = transpose(m);
 		mat3 const expected = mat3(0, 3, 6, 1, 4, 7, 2, 5, 8);
-		for (length_t l = 0; l < expected.length(); ++l)
-			Error += all(epsilonEqual(t[l], expected[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(t, expected, epsilon<float>())) ? 0 : 1;
 	}
 
 	{
 		mat3x2 m(0, 1, 2, 3, 4, 5);
 		mat2x3 t = transpose(m);
 		mat2x3 const expected = mat2x3(0, 2, 4, 1, 3, 5);
-		for (length_t l = 0; l < expected.length(); ++l)
-			Error += all(epsilonEqual(t[l], expected[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(t, expected, epsilon<float>())) ? 0 : 1;
 	}
 
 	{
 		mat3x4 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
 		mat4x3 t = transpose(m);
 		mat4x3 const expected = mat4x3(0, 4, 8, 1, 5, 9, 2, 6, 10, 3, 7, 11);
-		for (length_t l = 0; l < expected.length(); ++l)
-			Error += all(epsilonEqual(t[l], expected[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(t, expected, epsilon<float>())) ? 0 : 1;
 	}
 
 	{
 		mat4 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
 		mat4 t = transpose(m);
 		mat4 const expected = mat4(0, 4, 8, 12, 1, 5, 9, 13, 2, 6, 10, 14, 3, 7, 11, 15);
-		for (length_t l = 0; l < expected.length(); ++l)
-			Error += all(epsilonEqual(t[l], expected[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(t, expected, epsilon<float>())) ? 0 : 1;
 	}
 
 	{
 		mat4x2 m(0, 1, 2, 3, 4, 5, 6, 7);
 		mat2x4 t = transpose(m);
 		mat2x4 const expected = mat2x4(0, 2, 4, 6, 1, 3, 5, 7);
-		for (length_t l = 0; l < expected.length(); ++l)
-			Error += all(epsilonEqual(t[l], expected[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(t, expected, epsilon<float>())) ? 0 : 1;
 	}
 
 	{
 		mat4x3 m(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
 		mat3x4 t = transpose(m);
 		mat3x4 const expected = mat3x4(0, 3, 6, 9, 1, 4, 7, 10, 2, 5, 8, 11);
-		for (length_t l = 0; l < expected.length(); ++l)
-			Error += all(epsilonEqual(t[l], expected[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(t, expected, epsilon<float>())) ? 0 : 1;
 	}
 
 	return Error;
@@ -205,8 +194,7 @@ int test_inverse()
 		glm::mat4x4 B4x4 = inverse(A4x4);
 		glm::mat4x4 I4x4 = A4x4 * B4x4;
 		glm::mat4x4 Identity(1);
-		for (length_t l = 0; l < Identity.length(); ++l)
-			Error += all(epsilonEqual(I4x4[l], Identity[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(I4x4, Identity, epsilon<float>())) ? 0 : 1;
 	}
 
 	{
@@ -217,8 +205,7 @@ int test_inverse()
 		glm::mat3x3 B3x3 = glm::inverse(A3x3);
 		glm::mat3x3 I3x3 = A3x3 * B3x3;
 		glm::mat3x3 Identity(1);
-		for (length_t l = 0; l < Identity.length(); ++l)
-			Error += all(epsilonEqual(I3x3[l], Identity[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(I3x3, Identity, epsilon<float>())) ? 0 : 1;
 	}
 
 	{
@@ -228,8 +215,7 @@ int test_inverse()
 		glm::mat2x2 B2x2 = glm::inverse(A2x2);
 		glm::mat2x2 I2x2 = A2x2 * B2x2;
 		glm::mat2x2 Identity(1);
-		for (length_t l = 0; l < Identity.length(); ++l)
-			Error += all(epsilonEqual(I2x2[l], Identity[l], epsilon<float>())) ? 0 : 1;
+		Error += all(equal(I2x2, Identity, epsilon<float>())) ? 0 : 1;
 	}
 
 	return Error;
@@ -249,10 +235,7 @@ int test_inverse_simd()
 	glm::mat4x4 const B4x4 = glm::inverse(A4x4);
 	glm::mat4x4 const I4x4 = A4x4 * B4x4;
 
-	Error += glm::all(glm::epsilonEqual(I4x4[0], Identity[0], 0.001f)) ? 0 : 1;
-	Error += glm::all(glm::epsilonEqual(I4x4[1], Identity[1], 0.001f)) ? 0 : 1;
-	Error += glm::all(glm::epsilonEqual(I4x4[2], Identity[2], 0.001f)) ? 0 : 1;
-	Error += glm::all(glm::epsilonEqual(I4x4[3], Identity[3], 0.001f)) ? 0 : 1;
+	Error += glm::all(glm::equal(I4x4, Identity, 0.001f)) ? 0 : 1;
 
 	return Error;
 }
