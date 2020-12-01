@@ -1,5 +1,10 @@
 language: cpp
 
+branches:
+  only:
+    - master
+    - stable
+
 matrix:
   include:
     - os: osx
