@@ -229,6 +229,7 @@ matrix:
         - MATRIX_EVAL="INFO=C++17-avx-debug"
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -251,6 +252,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -273,6 +275,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -295,6 +298,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -317,6 +321,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -339,6 +344,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -361,6 +367,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -383,6 +390,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -405,6 +413,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -427,6 +436,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -449,6 +459,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -471,6 +482,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -493,6 +505,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -515,6 +528,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -537,6 +551,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -559,6 +574,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
