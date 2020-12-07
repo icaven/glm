@@ -229,7 +229,7 @@ matrix:
         - MATRIX_EVAL="INFO=C++17-avx-debug"
 
     - os: linux
-      dist: bionic
+      dist: Xenial
       addons:
         apt:
           sources:
@@ -252,7 +252,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      dist: bionic
+      dist: Xenial
       addons:
         apt:
           sources:
@@ -275,7 +275,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      dist: bionic
+      dist: Xenial
       addons:
         apt:
           sources:
@@ -298,7 +298,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      dist: bionic
+      dist: Xenial
       addons:
         apt:
           sources:
@@ -321,7 +321,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      dist: bionic
+      dist: Xenial
       addons:
         apt:
           sources:
@@ -344,7 +344,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      dist: bionic
+      dist: Xenial
       addons:
         apt:
           sources:
@@ -367,7 +367,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      dist: bionic
+      dist: Xenial
       addons:
         apt:
           sources:
@@ -597,6 +597,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -620,6 +621,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -643,6 +645,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -666,7 +669,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      dist: bionic
+      dist: focal
       env:
         - MATRIX_EVAL="CC=clang && CXX=clang++ && INFO=C++17-pure-release"
       script:
@@ -683,7 +686,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      dist: bionic
+      dist: focal
       env:
         - MATRIX_EVAL="CC=clang && CXX=clang++ && INFO=C++17-pure-debug"
       script:
@@ -700,7 +703,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      dist: bionic
+      dist: focal
       env:
         - MATRIX_EVAL="CC=clang && CXX=clang++ && INFO=C++17-sse3-release
       script:
@@ -717,7 +720,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      dist: bionic
+      dist: focal
       env:
         - MATRIX_EVAL="CC=clang && CXX=clang++ && INFO=C++17-sse3-debug"
       script:
@@ -734,7 +737,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      dist: bionic
+      dist: focal
       env:
         - MATRIX_EVAL="CC=clang && CXX=clang++ && INFO=C++17-ssse3-release"
       script:
