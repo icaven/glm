@@ -597,7 +597,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      dist: bionic
+      dist: Xenial
       addons:
         apt:
           sources:
@@ -621,7 +621,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      dist: bionic
+      dist: Xenial
       addons:
         apt:
           sources:
@@ -645,7 +645,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      dist: bionic
+      dist: Xenial
       addons:
         apt:
           sources:
