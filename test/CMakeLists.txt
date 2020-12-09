@@ -106,7 +106,7 @@ if(GLM_TEST_FORCE_PURE)
 	message(STATUS "GLM: No SIMD instruction set")
 
 elseif(GLM_TEST_ENABLE_SIMD_AVX2)
-	add_definitions(-DGLM_FORCE_PURE)
+	add_definitions(-DGLM_FORCE_INTRINSICS)
 
 	if((CMAKE_CXX_COMPILER_ID MATCHES "GNU") OR (CMAKE_CXX_COMPILER_ID MATCHES "Clang"))
 		add_compile_options(-mavx2)
