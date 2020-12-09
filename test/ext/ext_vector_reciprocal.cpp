@@ -130,8 +130,11 @@ static int test_acsch()
 {
 	int Error = 0;
 	
-	Error += glm::acsch(glm::dvec1(0.0001)).x > 10000.0 ? 0 : 1;
-	Error += glm::acsch(glm::dvec1(-0.0001)).x < -10000.0 ? 0 : 1;
+	glm::dvec1 const a(glm::acsch(glm::dvec1(0.01)));
+	Error += a.x > 1.0 ? 0 : 1;
+
+	glm::dvec1 const b(glm::acsch(glm::dvec1(-0.01)));
+	Error += b.x < -1.0 ? 0 : 1;
 
 	Error += glm::all(glm::equal(glm::acsch(glm::dvec1(100.0)), glm::dvec1(0.0), 0.01)) ? 0 : 1;
 	Error += glm::all(glm::equal(glm::acsch(glm::dvec1(-100.0)), glm::dvec1(0.0), 0.01)) ? 0 : 1;

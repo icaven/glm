@@ -1,24 +1,12 @@
 language: cpp
 
+branches:
+  only:
+    - master
+    - stable
+
 matrix:
   include:
-    - os: osx
-      osx_image: xcode7.3
-      script:
-        - cmake --version
-        - mkdir ./build_unknown_release
-        - cd ./build_unknown_release
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_DISABLE_AUTO_DETECTION=ON ..
-        - cmake --build .
-        - ctest --verbose
-        - cd $TRAVIS_BUILD_DIR
-        - mkdir ./build_test_cmake
-        - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
-        - cmake --build .
-      env:
-        - MATRIX_EVAL="INFO=C++unknown-release"
-
     - os: osx
       osx_image: xcode7.3
       script:
@@ -88,142 +76,109 @@ matrix:
         - MATRIX_EVAL="INFO=C++11-sse2-release"
 
     - os: osx
-      osx_image: xcode8
+      osx_image: xcode10.3
       script:
         - cmake --version
         - mkdir ./build_pure_14_release
         - cd ./build_pure_14_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_FORCE_PURE=ON ..
-        - cmake --build . --parallel
-        - ctest --parallel 4 --output-on-failure
+        - cmake --build . --parallel 4
+        - ctest  --parallel 4 --output-on-failure
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
-        - cmake --build . --parallel
+        - cmake --parallel 4 --build .
       env:
         - MATRIX_EVAL="INFO=C++14-pure-release"
 
     - os: osx
-      osx_image: xcode8
+      osx_image: xcode10.3
       script:
         - cmake --version
         - mkdir ./build_sse3_14_release
         - cd ./build_sse3_14_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
-        - cmake --build . --parallel
+        - cmake --build . --parallel 4
         - ctest --parallel 4 --output-on-failure
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
-        - cmake --build . --parallel
+        - cmake --build . --parallel 4
       env:
         - MATRIX_EVAL="INFO=C++14-sse3-release"
 
     - os: osx
-      osx_image: xcode8
-      script:
-        - cmake --version
-        - mkdir ./build_avx_14_release
-        - cd ./build_avx_14_release
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON ..
-        - cmake --build . --parallel
-        - ctest --parallel 4 --output-on-failure
-        - cd $TRAVIS_BUILD_DIR
-        - mkdir ./build_test_cmake
-        - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
-        - cmake --build . --parallel
-      env:
-        - MATRIX_EVAL="INFO=C++14-avx-release"
-
-    - os: osx
-      osx_image: xcode8
+      osx_image: xcode10.3
       script:
         - cmake --version
         - mkdir ./build_avx_14_debug
         - cd ./build_avx_14_debug
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON ..
-        - cmake --build . --parallel
+        - cmake --build . --parallel 4
         - ctest --parallel 4 --output-on-failure
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
-        - cmake --build . --parallel
+        - cmake --build . --parallel 4
       env:
         - MATRIX_EVAL="INFO=C++14-avx-debug"
 
     - os: osx
-      osx_image: xcode11
+      osx_image: xcode12.2
       script:
         - cmake --version
         - mkdir ./build_pure_17_release
         - cd ./build_pure_17_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_FORCE_PURE=ON ..
-        - cmake --build . --parallel
+        - cmake --build . --parallel 4
         - ctest --parallel 4 --output-on-failure
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
-        - cmake --build . --parallel
+        - cmake --build . --parallel 4
       env:
         - MATRIX_EVAL="INFO=C++17-pure-release"
 
     - os: osx
-      osx_image: xcode11
+      osx_image: xcode12.2
       script:
         - cmake --version
         - mkdir ./build_pure_17_debug
         - cd ./build_pure_17_debug
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_FORCE_PURE=ON ..
-        - cmake --build . --parallel
+        - cmake --build . --parallel 4
         - ctest --parallel 4 --output-on-failure
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
-        - cmake --build . --parallel
+        - cmake --build . --parallel 4
       env:
         - MATRIX_EVAL="INFO=C++17-pure-debug"
 
     - os: osx
-      osx_image: xcode11
-      script:
-        - cmake --version
-        - mkdir ./build_avx_17_release
-        - cd ./build_avx_17_release
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON ..
-        - cmake --build . --parallel
-        - ctest --parallel 4 --output-on-failure
-        - cd $TRAVIS_BUILD_DIR
-        - mkdir ./build_test_cmake
-        - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
-        - cmake --build . --parallel
-      env:
-        - MATRIX_EVAL="INFO=C++17-avx-release"
-
-    - os: osx
-      osx_image: xcode11
+      osx_image: xcode12.2
       script:
         - cmake --version
         - mkdir ./build_avx_17_debug
         - cd ./build_avx_17_debug
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON ..
-        - cmake --build . --parallel
+        - cmake --build . --parallel 4
         - ctest --parallel 4 --output-on-failure
         - cd $TRAVIS_BUILD_DIR
         - mkdir ./build_test_cmake
         - cd ./build_test_cmake
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
-        - cmake --build . --parallel
+        - cmake --build . --parallel 4
       env:
         - MATRIX_EVAL="INFO=C++17-avx-debug"
 
     - os: linux
+      dist: Xenial
       addons:
         apt:
           sources:
@@ -246,6 +201,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: Xenial
       addons:
         apt:
           sources:
@@ -268,6 +224,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: Xenial
       addons:
         apt:
           sources:
@@ -290,28 +247,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-5
-      env:
-         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && INFO=C++11-pure-release"
-      script:
-        - cmake --version
-        - mkdir ./build_pure_11_release
-        - cd ./build_pure_11_release
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_FORCE_PURE=ON ..
-        - cmake --build . --parallel
-        - ctest --parallel 4 --output-on-failure
-        - cd $TRAVIS_BUILD_DIR
-        - mkdir ./build_test_cmake
-        - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
-        - cmake --build . --parallel
-
-    - os: linux
+      dist: Xenial
       addons:
         apt:
           sources:
@@ -334,6 +270,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: Xenial
       addons:
         apt:
           sources:
@@ -356,6 +293,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: Xenial
       addons:
         apt:
           sources:
@@ -378,28 +316,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-6
-      env:
-         - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6 && INFO=C++14-pure-release"
-      script:
-        - cmake --version
-        - mkdir ./build_pure_14_release
-        - cd ./build_pure_14_release
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_FORCE_PURE=ON ..
-        - cmake --build . --parallel
-        - ctest --parallel 4 --output-on-failure
-        - cd $TRAVIS_BUILD_DIR
-        - mkdir ./build_test_cmake
-        - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
-        - cmake --build . --parallel
-
-    - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -422,6 +339,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -444,28 +362,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-6
-      env:
-         - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6 && INFO=C++14-sse3-release"
-      script:
-        - cmake --version
-        - mkdir ./build_sse3_ms_release
-        - cd ./build_sse3_ms_release
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
-        - cmake --build . --parallel
-        - ctest --parallel 4 --output-on-failure
-        - cd $TRAVIS_BUILD_DIR
-        - mkdir ./build_test_cmake
-        - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
-        - cmake --build . --parallel
-
-    - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -488,6 +385,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -510,6 +408,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -517,12 +416,12 @@ matrix:
           packages:
             - g++-7
       env:
-        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && INFO=C++17-sse3-release"
+        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && INFO=C++17-sse3-debug"
       script:
         - cmake --version
-        - mkdir ./build_sse3_17_release
-        - cd ./build_sse3_17_release
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
+        - mkdir ./build_sse3_17_debug
+        - cd ./build_sse3_17_debug
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
         - cmake -E time cmake --build . --parallel
         - ctest --parallel 4 --output-on-failure
         - cd $TRAVIS_BUILD_DIR
@@ -532,6 +431,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: bionic
       addons:
         apt:
           sources:
@@ -539,12 +439,12 @@ matrix:
           packages:
             - g++-7
       env:
-        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && INFO=C++17-avx-release"
+        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && INFO=C++17-avx2-debug"
       script:
         - cmake --version
-        - mkdir ./build_avx_17_release
-        - cd ./build_avx_17_release
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON ..
+        - mkdir ./build_avx2_17_debug
+        - cd ./build_avx2_17_debug
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX2=ON ..
         - cmake -E time cmake --build . --parallel
         - ctest --parallel 4 --output-on-failure
         - cd $TRAVIS_BUILD_DIR
@@ -554,51 +454,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-7
-      env:
-        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && INFO=C++17-avx2-release"
-      script:
-        - cmake --version
-        - mkdir ./build_avx2_17_release
-        - cd ./build_avx2_17_release
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX2=ON ..
-        - cmake -E time cmake --build . --parallel
-        - ctest --parallel 4 --output-on-failure
-        - cd $TRAVIS_BUILD_DIR
-        - mkdir ./build_test_cmake
-        - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
-        - cmake --build . --parallel
-
-    - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise-3.6
-          packages:
-            - clang-3.6
-      env:
-        - MATRIX_EVAL="CC=clang-3.6 && CXX=clang++-3.6 && INFO=C++14-pure-release"
-      script:
-        - cmake --version
-        - mkdir ./build_pure_14_release
-        - cd ./build_pure_14_release
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_FORCE_PURE=ON ..
-        - cmake -E time cmake --build . --parallel
-        - ctest --parallel 4 --output-on-failure
-        - cd $TRAVIS_BUILD_DIR
-        - mkdir ./build_test_cmake
-        - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
-        - cmake --build . --parallel
-
-    - os: linux
+      dist: Xenial
       addons:
         apt:
           sources:
@@ -622,6 +478,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
+      dist: Xenial
       addons:
         apt:
           sources:
@@ -645,24 +502,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      dist: bionic
-      env:
-        - MATRIX_EVAL="CC=clang && CXX=clang++ && INFO=C++17-pure-release"
-      script:
-        - cmake --version
-        - mkdir ./build_pure_17_release
-        - cd ./build_pure_17_release
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_FORCE_PURE=ON ..
-        - cmake -E time cmake --build . --parallel
-        - ctest --parallel 4 --output-on-failure
-        - cd $TRAVIS_BUILD_DIR
-        - mkdir ./build_test_cmake
-        - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
-        - cmake --build . --parallel
-
-    - os: linux
-      dist: bionic
+      dist: focal
       env:
         - MATRIX_EVAL="CC=clang && CXX=clang++ && INFO=C++17-pure-debug"
       script:
@@ -679,24 +519,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      dist: bionic
-      env:
-        - MATRIX_EVAL="CC=clang && CXX=clang++ && INFO=C++17-sse3-release
-      script:
-        - cmake --version
-        - mkdir ./build_sse3_17_release
-        - cd ./build_sse3_17_release
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
-        - cmake -E time cmake --build . --parallel
-        - ctest --parallel 4 --output-on-failure
-        - cd $TRAVIS_BUILD_DIR
-        - mkdir ./build_test_cmake
-        - cd ./build_test_cmake
-        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
-        - cmake --build . --parallel
-
-    - os: linux
-      dist: bionic
+      dist: focal
       env:
         - MATRIX_EVAL="CC=clang && CXX=clang++ && INFO=C++17-sse3-debug"
       script:
@@ -713,7 +536,7 @@ matrix:
         - cmake --build . --parallel
 
     - os: linux
-      dist: bionic
+      dist: focal
       env:
         - MATRIX_EVAL="CC=clang && CXX=clang++ && INFO=C++17-ssse3-release"
       script:

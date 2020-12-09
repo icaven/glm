@@ -1,6 +1,7 @@
 glmCreateTestGTC(ext_matrix_relational)
 glmCreateTestGTC(ext_matrix_transform)
 glmCreateTestGTC(ext_matrix_common)
+glmCreateTestGTC(ext_matrix_integer)
 glmCreateTestGTC(ext_matrix_int2x2_sized)
 glmCreateTestGTC(ext_matrix_int2x3_sized)
 glmCreateTestGTC(ext_matrix_int2x4_sized)
