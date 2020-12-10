@@ -280,21 +280,6 @@ jobs:
         - CTEST_ENV="--parallel 4 --output-on-failure"
         - CMAKE_ENV="--parallel"
 
-    - name: "GCC 10 C++17 sse3 debug"
-      os: linux
-      dist: bionic
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-10
-      env:
-        - MATRIX_EVAL="CC=gcc-10 && CXX=g++-10"
-        - CMAKE_BUILD_ENV="-DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON"
-        - CTEST_ENV="--parallel 4 --output-on-failure"
-        - CMAKE_ENV="--parallel"
-
     - name: "GCC 10 C++17 pure release"
       os: linux
       dist: bionic
