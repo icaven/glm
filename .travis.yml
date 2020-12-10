@@ -10,7 +10,6 @@ matrix:
     - os: osx
       osx_image: xcode7.3
       script:
-        - cmake --version
         - mkdir ./build_pure_98_release
         - cd ./build_pure_98_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_FORCE_PURE=ON ..
@@ -27,7 +26,6 @@ matrix:
     - os: osx
       osx_image: xcode7.3
       script:
-        - cmake --version
         - mkdir ./build_pure_ms_release
         - cd ./build_pure_ms_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON ..
@@ -44,7 +42,6 @@ matrix:
     - os: osx
       osx_image: xcode7.3
       script:
-        - cmake --version
         - mkdir ./build_pure_11_release
         - cd ./build_pure_11_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_FORCE_PURE=ON ..
@@ -61,7 +58,6 @@ matrix:
     - os: osx
       osx_image: xcode7.3
       script:
-        - cmake --version
         - mkdir ./build_sse2_11_release
         - cd ./build_sse2_11_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE2=ON ..
@@ -78,7 +74,6 @@ matrix:
     - os: osx
       osx_image: xcode10.3
       script:
-        - cmake --version
         - mkdir ./build_pure_14_release
         - cd ./build_pure_14_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_FORCE_PURE=ON ..
@@ -95,7 +90,6 @@ matrix:
     - os: osx
       osx_image: xcode10.3
       script:
-        - cmake --version
         - mkdir ./build_sse3_14_release
         - cd ./build_sse3_14_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
@@ -112,7 +106,6 @@ matrix:
     - os: osx
       osx_image: xcode10.3
       script:
-        - cmake --version
         - mkdir ./build_avx_14_debug
         - cd ./build_avx_14_debug
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON ..
@@ -129,7 +122,6 @@ matrix:
     - os: osx
       osx_image: xcode12.2
       script:
-        - cmake --version
         - mkdir ./build_pure_17_release
         - cd ./build_pure_17_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_FORCE_PURE=ON ..
@@ -146,7 +138,6 @@ matrix:
     - os: osx
       osx_image: xcode12.2
       script:
-        - cmake --version
         - mkdir ./build_pure_17_debug
         - cd ./build_pure_17_debug
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_FORCE_PURE=ON ..
@@ -163,7 +154,6 @@ matrix:
     - os: osx
       osx_image: xcode12.2
       script:
-        - cmake --version
         - mkdir ./build_avx_17_debug
         - cd ./build_avx_17_debug
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON ..
@@ -180,7 +170,6 @@ matrix:
     - os: osx
       osx_image: xcode12.2
       script:
-        - cmake --version
         - mkdir ./build_avx2_17_debug
         - cd ./build_avx2_17_debug
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX2=ON ..
@@ -205,7 +194,6 @@ matrix:
       env:
         - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9 && INFO=C++98-pure-release"
       script:
-        - cmake --version
         - mkdir ./build_pure_98_release
         - cd ./build_pure_98_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_FORCE_PURE=ON ..
@@ -228,7 +216,6 @@ matrix:
       env:
         - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9 && INFO=C++98-pure-debug"
       script:
-        - cmake --version
         - mkdir ./build_pure_98_debug
         - cd ./build_pure_98_debug
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_FORCE_PURE=ON ..
@@ -251,7 +238,6 @@ matrix:
       env:
         - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9 && INFO=C++98-pure-release-ms"
       script:
-        - cmake --version
         - mkdir ./build_pure_ms_release
         - cd ./build_pure_ms_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_FORCE_PURE=ON ..
@@ -274,7 +260,6 @@ matrix:
       env:
          - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && INFO=C++11-pure-debug"
       script:
-        - cmake --version
         - mkdir ./build_pure_11_debug
         - cd ./build_pure_11_debug
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_FORCE_PURE=ON ..
@@ -297,7 +282,6 @@ matrix:
       env:
          - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && INFO=C++11-pure-release-ms"
       script:
-        - cmake --version
         - mkdir ./build_pure_ms_release
         - cd ./build_pure_ms_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_FORCE_PURE=ON ..
@@ -320,7 +304,6 @@ matrix:
       env:
          - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6 && INFO=C++14-pure-debug"
       script:
-        - cmake --version
         - mkdir ./build_pure_14_debug
         - cd ./build_pure_14_debug
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_FORCE_PURE=ON ..
@@ -343,7 +326,6 @@ matrix:
       env:
          - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6 && INFO=C++14-pure-release-ms"
       script:
-        - cmake --version
         - mkdir ./build_pure_ms_release
         - cd ./build_pure_ms_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_FORCE_PURE=ON ..
@@ -366,7 +348,6 @@ matrix:
       env:
         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && INFO=C++17-pure-release"
       script:
-        - cmake --version
         - mkdir ./build_pure_17_release
         - cd ./build_pure_17_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_FORCE_PURE=ON ..
@@ -389,7 +370,6 @@ matrix:
       env:
         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && INFO=C++17-pure-debug"
       script:
-        - cmake --version
         - mkdir ./build_pure_17_debug
         - cd ./build_pure_17_debug
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_FORCE_PURE=ON ..
@@ -412,10 +392,53 @@ matrix:
       env:
         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7 && INFO=C++17-pure-debug-ms"
       script:
-        - cmake --version
         - mkdir ./build_pure_17_debug_ms
         - cd ./build_pure_17_debug_ms
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_FORCE_PURE=ON ..
+        - cmake -E time cmake --build . --parallel
+        - ctest --parallel 4 --output-on-failure
+        - cd $TRAVIS_BUILD_DIR
+        - mkdir ./build_test_cmake
+        - cd ./build_test_cmake
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
+        - cmake --build . --parallel
+
+    - os: linux
+      dist: bionic
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-10
+      env:
+        - MATRIX_EVAL="CC=gcc-10 && CXX=g++-10 && INFO=C++17-pure-debug-ms"
+      script:
+        - mkdir ./build_pure_17_debug_ms
+        - cd ./build_pure_17_debug_ms
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_FORCE_PURE=ON ..
+        - cmake -E time cmake --build . --parallel
+        - ctest --parallel 4 --output-on-failure
+        - cd $TRAVIS_BUILD_DIR
+        - mkdir ./build_test_cmake
+        - cd ./build_test_cmake
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
+        - cmake --build . --parallel
+
+    - os: linux
+      dist: bionic
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-10
+      env:
+        - MATRIX_EVAL="CC=gcc-10 && CXX=g++-10 && INFO=C++17-avx-debug-ms"
+      script:
+        - mkdir ./build_pure_17_debug_ms
+        - cd ./build_pure_17_debug_ms
+        - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON ..
         - cmake -E time cmake --build . --parallel
         - ctest --parallel 4 --output-on-failure
         - cd $TRAVIS_BUILD_DIR
@@ -436,7 +459,6 @@ matrix:
       env:
         - MATRIX_EVAL="CC=clang-3.6 && CXX=clang++-3.6 && INFO=C++14-pure-debug"
       script:
-        - cmake --version
         - mkdir ./build_pure_14_debug
         - cd ./build_pure_14_debug
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_FORCE_PURE=ON ..
@@ -460,7 +482,6 @@ matrix:
       env:
         - MATRIX_EVAL="CC=clang-3.6 && CXX=clang++-3.6 && INFO=C++14-avx-debug"
       script:
-        - cmake --version
         - mkdir ./build_avx_14_debug
         - cd ./build_avx_14_debug
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX=ON ..
@@ -474,10 +495,13 @@ matrix:
 
     - os: linux
       dist: focal
+      addons:
+        apt:
+          packages:
+          - clang-9
       env:
-        - MATRIX_EVAL="CC=clang && CXX=clang++ && INFO=C++17-pure-debug"
+        - MATRIX_EVAL="CC=clang-9 && CXX=clang++-9 && INFO=C++17-pure-debug"
       script:
-        - cmake --version
         - mkdir ./build_pure_17_debug
         - cd ./build_pure_17_debug
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_FORCE_PURE=ON ..
@@ -491,10 +515,13 @@ matrix:
 
     - os: linux
       dist: focal
+      addons:
+        apt:
+          packages:
+          - clang-9
       env:
-        - MATRIX_EVAL="CC=clang && CXX=clang++ && INFO=C++17-sse3-debug"
+        - MATRIX_EVAL="CC=clang-9 && CXX=clang++-9 && INFO=C++17-sse3-debug"
       script:
-        - cmake --version
         - mkdir ./build_sse3_17_debug
         - cd ./build_sse3_17_debug
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE3=ON ..
@@ -508,10 +535,13 @@ matrix:
 
     - os: linux
       dist: focal
+      addons:
+        apt:
+          packages:
+          - clang-9
       env:
-        - MATRIX_EVAL="CC=clang && CXX=clang++ && INFO=C++17-ssse3-release"
+        - MATRIX_EVAL="CC=clang-9 && CXX=clang++-9 && INFO=C++17-ssse3-release"
       script:
-        - cmake --version
         - mkdir ./build_ssse3_17_release
         - cd ./build_ssse3_17_release
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSSE3=ON ..
@@ -523,7 +553,8 @@ matrix:
         - cmake -DCMAKE_CXX_COMPILER=$COMPILER $TRAVIS_BUILD_DIR/test/cmake/ -Dglm_DIR=$TRAVIS_BUILD_DIR/cmake/glm/
         - cmake --build . --parallel
 
-before_install:
+before_script:
+    - cmake --version
     - eval "${MATRIX_EVAL}"
 
 
