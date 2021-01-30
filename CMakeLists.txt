@@ -20,7 +20,11 @@ enable_testing()
 
 add_subdirectory(glm)
 add_library(glm::glm ALIAS glm)
-install(EXPORT glm FILE glm-config.cmake DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake NAMESPACE glm::)
+install(EXPORT glm FILE glmConfig.cmake DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/glm NAMESPACE glm::)
+
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file("glmConfigVersion.cmake" COMPATIBILITY AnyNewerVersion ARCH_INDEPENDENT)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/glmConfigVersion.cmake DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/glm)
 
 if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
 
