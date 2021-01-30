@@ -49,6 +49,8 @@ target_include_directories(glm INTERFACE
 	$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
+install(TARGETS glm EXPORT glm)
+
 if(BUILD_STATIC_LIBS)
 add_library(glm_static STATIC ${ROOT_TEXT} ${ROOT_MD} ${ROOT_NAT}
 	${ROOT_SOURCE}    ${ROOT_INLINE}    ${ROOT_HEADER}
