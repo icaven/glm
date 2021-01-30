@@ -49,10 +49,6 @@ target_include_directories(glm INTERFACE
 	$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
-include(GNUInstallDirs)
-install(TARGETS glm EXPORT glm)
-install(DIRECTORY . DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/glm" PATTERN "CMakeLists.txt" EXCLUDE)
-
 if(BUILD_STATIC_LIBS)
 add_library(glm_static STATIC ${ROOT_TEXT} ${ROOT_MD} ${ROOT_NAT}
 	${ROOT_SOURCE}    ${ROOT_INLINE}    ${ROOT_HEADER}
