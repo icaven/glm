@@ -26,7 +26,7 @@ if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
 	install(DIRECTORY glm DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} PATTERN "CMakeLists.txt" EXCLUDE)
 	install(EXPORT glm FILE glmConfig.cmake DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/glm NAMESPACE glm::)
 	include(CMakePackageConfigHelpers)
-	write_basic_package_version_file("glmConfigVersion.cmake" COMPATIBILITY AnyNewerVersion ARCH_INDEPENDENT)
+	write_basic_package_version_file("glmConfigVersion.cmake" COMPATIBILITY AnyNewerVersion)
 	install(FILES ${CMAKE_CURRENT_BINARY_DIR}/glmConfigVersion.cmake DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/glm)
 
 	include(CTest)
