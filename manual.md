@@ -277,16 +277,25 @@ GLM does not depend on external libraries or headers such as `<GL/gl.h>`, [`<GL/
 
 ### <a name="section1_5"></a> 1.5. Finding GLM with CMake
 
-GLM provides the CMake package configuration files `glmConfig.cmake` and `glmConfig-version.cmake`.
+When installed, GLM provides the CMake package configuration files `glmConfig.cmake` and `glmConfigVersion.cmake`.
 
-To use these configurations files, you may need to set the `glm_DIR` variable to the directory containing the configuration files `<path to glm root>/cmake/glm/`.
+To use these configurations files, you may need to set the `glm_DIR` variable to the directory containing the configuration files `<installation prefix>/lib/cmake/glm/`.
 
 Use the `find_package` CMake command to load the configurations into your project. Lastly, either link your executable against the `glm::glm` target or add `${GLM_INCLUDE_DIRS}` to your target's include directories:
 
 ```cmake
-set(glm_DIR <path to glm root>/cmake/glm) # if necessary
+set(glm_DIR <installation prefix>/lib/cmake/glm) # if necessary
 find_package(glm REQUIRED)
 target_link_libraries(<your executable> glm::glm)
+```
+
+To use GLM as a submodule in a project instead, use `add_subdirectory` to expose the same target, or add the directory to your target's 
+
+```cmake
+add_subdirectory(glm)
+target_link_libraries(<your executable> glm::glm)
+# or
+target_include_directories(<your executable> glm)
 ```
 
 ---
