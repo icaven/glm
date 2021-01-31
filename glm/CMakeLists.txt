@@ -44,6 +44,8 @@ source_group("SIMD Files" FILES ${SIMD_HEADER})
 
 add_library(glm INTERFACE)
 
+include(GNUInstallDirs)
+
 target_include_directories(glm INTERFACE
 	$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}>
 	$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
