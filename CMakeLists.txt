@@ -16,13 +16,30 @@ set(GLM_VERSION ${GLM_VERSION_MAJOR}.${GLM_VERSION_MINOR}.${GLM_VERSION_PATCH}.$
 project(glm VERSION ${GLM_VERSION} LANGUAGES CXX)
 message(STATUS "GLM: Version " ${GLM_VERSION})
 
-enable_testing()
-
 add_subdirectory(glm)
 add_library(glm::glm ALIAS glm)
 
 if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
 
-add_subdirectory(test)
+	include(CPack)
+	install(DIRECTORY glm DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} PATTERN "CMakeLists.txt" EXCLUDE)
+	install(EXPORT glm FILE glmConfig.cmake DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/glm NAMESPACE glm::)
+	include(CMakePackageConfigHelpers)
+	write_basic_package_version_file("glmConfigVersion.cmake" COMPATIBILITY AnyNewerVersion)
+	install(FILES ${CMAKE_CURRENT_BINARY_DIR}/glmConfigVersion.cmake DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/glm)
+
+	include(CTest)
+	if(BUILD_TESTING)
+		add_subdirectory(test)
+	endif()
 
 endif(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
+
+if (NOT TARGET uninstall)
+configure_file(cmake/cmake_uninstall.cmake.in
+               cmake_uninstall.cmake IMMEDIATE @ONLY)
+
+add_custom_target(uninstall
+                  "${CMAKE_COMMAND}" -P
+                  "${CMAKE_BINARY_DIR}/cmake_uninstall.cmake")
+endif()

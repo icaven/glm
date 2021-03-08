@@ -74,10 +74,11 @@ before_build:
           $env:generator="$env:generator Win64"
       }
       echo generator="$env:generator"
-      cmake .. -G "$env:generator" -DGLM_QUIET=ON -DGLM_TEST_ENABLE=ON "$env:GLM_ARGUMENTS"
+      cmake .. -G "$env:generator" -DCMAKE_INSTALL_PREFIX="$env:APPVEYOR_BUILD_FOLDER/install" -DGLM_QUIET=ON -DGLM_TEST_ENABLE=ON "$env:GLM_ARGUMENTS"
 
 build_script:
   - cmake --build . --parallel --config %CONFIGURATION% -- /m /v:minimal
+  - cmake --build . --target install --parallel --config %CONFIGURATION% -- /m /v:minimal
 
 test_script:
   - ctest --parallel 4 --verbose -C %CONFIGURATION%
@@ -85,7 +86,7 @@ test_script:
   - ps: |
       mkdir build_test_cmake
       cd build_test_cmake
-      cmake ..\test\cmake\ -G "$env:generator" -Dglm_DIR="$env:APPVEYOR_BUILD_FOLDER/cmake/glm/"
+      cmake ..\test\cmake\ -G "$env:generator" -DCMAKE_PREFIX_PATH="$env:APPVEYOR_BUILD_FOLDER/install"
   - cmake --build . --parallel --config %CONFIGURATION% -- /m /v:minimal
 
 deploy: off
