@@ -87,6 +87,10 @@ static int test_axisAngle2()
     Error += testForAxisAngle(glm::vec3(1.0f, 0.0f, 0.0f), glm::pi<float>());
     Error += testForAxisAngle(glm::vec3(0.0f, 1.0f, 0.0f), -glm::pi<float>());
     Error += testForAxisAngle(glm::vec3(0.358f, 0.0716f, 0.9309f), -glm::pi<float>());
+    Error += testForAxisAngle(glm::vec3(1.0f, 0.0f, 0.0f), glm::pi<float>() + 2e-6f);
+    Error += testForAxisAngle(glm::vec3(1.0f, 0.0f, 0.0f), glm::pi<float>() + 1e-4f);
+    Error += testForAxisAngle(glm::vec3(0.0f, 1.0f, 0.0f), -glm::pi<float>() + 1e-3f);
+    Error += testForAxisAngle(glm::vec3(0.358f, 0.0716f, 0.9309f), -glm::pi<float>() + 5e-3f);
 
 	return Error;
 }
