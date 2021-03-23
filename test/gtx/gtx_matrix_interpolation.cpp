@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <limits>
+#include <math.h>
 
 
 static int test_axisAngle()
@@ -40,7 +41,7 @@ static int test_axisAngle()
 template <class T>
 int testForAxisAngle(glm::vec<3, T, glm::defaultp> const axisTrue, T const angleTrue)
 {
-    T const eps = sqrt(std::numeric_limits<T>::epsilon());
+    T const eps = std::sqrt(std::numeric_limits<T>::epsilon());
 
     glm::mat<4, 4, T, glm::defaultp> const matTrue = glm::axisAngleMatrix(axisTrue, angleTrue);
 
