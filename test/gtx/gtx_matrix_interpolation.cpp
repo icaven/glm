@@ -1,8 +1,11 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtc/quaternion.hpp>
+#include <glm/gtx/component_wise.hpp>
 #include <glm/gtx/matrix_interpolation.hpp>
 
 #include <iostream>
+#include <limits>
+
 
 static int test_axisAngle()
 {
@@ -34,6 +37,60 @@ static int test_axisAngle()
 	return Error;
 }
 
+template <class T>
+int testForAxisAngle(glm::tvec3<T> const axisTrue, T const angleTrue)
+{
+    T const eps = sqrt(std::numeric_limits<T>::epsilon());
+
+    glm::tmat4x4<T> const matTrue = glm::axisAngleMatrix(axisTrue, angleTrue);
+
+    glm::tvec3<T> axis;
+    T angle;
+    glm::axisAngle(matTrue, axis, angle);
+    glm::tmat4x4<T> const matRebuilt = glm::axisAngleMatrix(axis, angle);
+
+    glm::tmat4x4<T> const errMat = matTrue - matRebuilt;
+    T const maxErr = glm::compMax(glm::tvec4<T>(
+            glm::compMax(glm::abs(errMat[0])),
+            glm::compMax(glm::abs(errMat[1])),
+            glm::compMax(glm::abs(errMat[2])),
+            glm::compMax(glm::abs(errMat[3]))
+        ));
+    
+    return maxErr < eps ? 0 : 1;
+}
+
+static int test_axisAngle2()
+{
+	int Error = 0;
+    
+    Error += testForAxisAngle(glm::vec3(0.0f, 1.0f, 0.0f), 0.0f);
+    Error += testForAxisAngle(glm::vec3(0.358f, 0.0716f, 0.9309f), 0.00001f);
+    Error += testForAxisAngle(glm::vec3(1.0f, 0.0f, 0.0f), 0.0001f);
+    Error += testForAxisAngle(glm::vec3(0.0f, 0.0f, 1.0f), 0.001f);
+    Error += testForAxisAngle(glm::vec3(0.0f, 0.0f, 1.0f), 0.001f);
+    Error += testForAxisAngle(glm::vec3(0.0f, 1.0f, 0.0f), 0.005f);
+    Error += testForAxisAngle(glm::vec3(0.0f, 0.0f, 1.0f), 0.005f);
+    Error += testForAxisAngle(glm::vec3(0.358f, 0.0716f, 0.9309f), 0.03f);
+    Error += testForAxisAngle(glm::vec3(0.358f, 0.0716f, 0.9309f), 0.0003f);
+    Error += testForAxisAngle(glm::vec3(0.0f, 0.0f, 1.0f), 0.01f);
+    Error += testForAxisAngle(glm::dvec3(0.0f, 1.0f, 0.0f), 0.00005);
+    Error += testForAxisAngle(glm::dvec3(-1.0f, 0.0f, 0.0f), 0.000001);
+    Error += testForAxisAngle(glm::dvec3(0.7071f, 0.7071f, 0.0f), 0.5);
+    Error += testForAxisAngle(glm::dvec3(0.7071f, 0.0f, 0.7071f), 0.0002);
+    Error += testForAxisAngle(glm::dvec3(0.7071f, 0.0f, 0.7071f), 0.00002);
+    Error += testForAxisAngle(glm::dvec3(0.7071f, 0.0f, 0.7071f), 0.000002);
+    Error += testForAxisAngle(glm::dvec3(0.7071f, 0.0f, 0.7071f), 0.0000002);
+    Error += testForAxisAngle(glm::vec3(0.0f, 0.7071f, 0.7071f), 1.3f);
+    Error += testForAxisAngle(glm::vec3(0.0f, 0.7071f, 0.7071f), 6.3f);
+    Error += testForAxisAngle(glm::vec3(1.0f, 0.0f, 0.0f), -0.23456f);
+    Error += testForAxisAngle(glm::vec3(1.0f, 0.0f, 0.0f), glm::pi<float>());
+    Error += testForAxisAngle(glm::vec3(0.0f, 1.0f, 0.0f), -glm::pi<float>());
+    Error += testForAxisAngle(glm::vec3(0.358f, 0.0716f, 0.9309f), -glm::pi<float>());
+
+	return Error;
+}
+
 static int test_rotate()
 {
 	glm::mat4 m2(1.0);
@@ -49,8 +106,9 @@ static int test_rotate()
 int main()
 {
 	int Error = 0;
-
+    
 	Error += test_axisAngle();
+	Error += test_axisAngle2();
 	Error += test_rotate();
 
 	return Error;
