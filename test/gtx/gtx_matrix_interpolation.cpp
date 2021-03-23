@@ -38,19 +38,19 @@ static int test_axisAngle()
 }
 
 template <class T>
-int testForAxisAngle(glm::tvec3<T> const axisTrue, T const angleTrue)
+int testForAxisAngle(glm::vec<3, T, glm::defaultp> const axisTrue, T const angleTrue)
 {
     T const eps = sqrt(std::numeric_limits<T>::epsilon());
 
-    glm::tmat4x4<T> const matTrue = glm::axisAngleMatrix(axisTrue, angleTrue);
+    glm::mat<4, 4, T, glm::defaultp> const matTrue = glm::axisAngleMatrix(axisTrue, angleTrue);
 
-    glm::tvec3<T> axis;
+    glm::vec<3, T, glm::defaultp> axis;
     T angle;
     glm::axisAngle(matTrue, axis, angle);
-    glm::tmat4x4<T> const matRebuilt = glm::axisAngleMatrix(axis, angle);
+    glm::mat<4, 4, T, glm::defaultp> const matRebuilt = glm::axisAngleMatrix(axis, angle);
 
-    glm::tmat4x4<T> const errMat = matTrue - matRebuilt;
-    T const maxErr = glm::compMax(glm::tvec4<T>(
+    glm::mat<4, 4, T, glm::defaultp> const errMat = matTrue - matRebuilt;
+    T const maxErr = glm::compMax(glm::vec<4, T, glm::defaultp>(
             glm::compMax(glm::abs(errMat[0])),
             glm::compMax(glm::abs(errMat[1])),
             glm::compMax(glm::abs(errMat[2])),
