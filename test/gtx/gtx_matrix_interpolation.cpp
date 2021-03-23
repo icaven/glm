@@ -110,7 +110,7 @@ static int test_rotate()
 int main()
 {
 	int Error = 0;
-    
+
 	Error += test_axisAngle();
 	Error += test_axisAngle2();
 	Error += test_rotate();
