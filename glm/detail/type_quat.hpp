@@ -88,7 +88,7 @@ namespace glm
 		// -- Explicit basic constructors --
 
 		GLM_FUNC_DECL GLM_CONSTEXPR qua(T s, vec<3, T, Q> const& v);
-		GLM_FUNC_DECL GLM_CONSTEXPR qua(T w, T x, T y, T z);
+		GLM_FUNC_DECL GLM_CONSTEXPR qua(T, T, T, T);
 
 		// -- Conversion constructors --
 
