@@ -712,7 +712,7 @@ static int test_quat()
 	{
 		static_assert(glm::quat::length() == 4, "GLM: Failed constexpr");
 		static_assert(glm::quat(1.0f, glm::vec3(0.0f)).w > 0.0f, "GLM: Failed constexpr");
-		static_assert(glm::quat(1.0f, 0.0f, 0.0f, 0.0f).w > 0.0f, "GLM: Failed constexpr");
+		static_assert(glm::quat(0.0f, 0.0f, 0.0f, 1.0f).w > 0.0f, "GLM: Failed constexpr");
 
 		glm::quat constexpr Q = glm::identity<glm::quat>();
 		static_assert(Q.x - glm::quat(1.0f, glm::vec3(0.0f)).x <= glm::epsilon<float>(), "GLM: Failed constexpr");
