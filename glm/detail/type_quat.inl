@@ -141,11 +141,10 @@ namespace detail
 	{}
 
 	template <typename T, qualifier Q>
-#		ifdef GLM_FORCE_QUAT_DATA_WXYZ
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua(T _w, T _x, T _y, T _z)
+#		ifdef GLM_FORCE_QUAT_DATA_WXYZ
 			: w(_w), x(_x), y(_y), z(_z)
 #		else
-	GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua(T _x, T _y, T _z, T _w)
 			: x(_x), y(_y), z(_z), w(_w)
 #		endif
 	{}
