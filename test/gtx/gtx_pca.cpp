@@ -1,6 +1,7 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/glm.hpp>
 #include <glm/gtx/pca.hpp>
+#include <glm/gtc/epsilon.hpp>
 
 #include <vector>
 #include <random>
@@ -18,7 +19,7 @@ namespace _1aga
 	{
 		// x,y,z coordinates copied from RCSB PDB file of 1AGA
 		// w coordinate randomized with standard normal distribution
-		constexpr double _1aga[] = {
+		static const double _1aga[] = {
 			3.219, -0.637, 19.462, 2.286,
 			4.519, 0.024, 18.980, -0.828,
 			4.163, 1.425, 18.481, -0.810,
@@ -146,17 +147,17 @@ namespace _1aga
 			3.830, 3.522, 5.367, -0.302,
 			5.150, 4.461, 2.116, -1.615
 		};
-		constexpr size_t _1agaSize = sizeof(_1aga) / (4 * sizeof(double));
+		static const size_t _1agaSize = sizeof(_1aga) / (4 * sizeof(double));
 
 		outTestData.resize(_1agaSize);
 		for(size_t i = 0; i < _1agaSize; ++i)
-			for(size_t d = 0; d < vec::length(); ++d)
+			for(size_t d = 0; d < static_cast<size_t>(vec::length()); ++d)
 				outTestData[i][d] = static_cast<typename vec::value_type>(_1aga[i * 4 + d]);
 	}
 
 	void getExpectedCovarDataPtr(const double*& ptr)
 	{
-		static constexpr double _1agaCovar4x4d[] = {
+		static const double _1agaCovar4x4d[] = {
 			9.624340680272107, -0.000066573696146, -4.293213765684049, 0.018793741874528,
 			-0.000066573696146, 9.624439378684805, 5.351138726379443, -0.115692591458806,
 			-4.293213765684049, 5.351138726379443, 35.628485496346691, 0.908742392542202,
@@ -167,7 +168,7 @@ namespace _1aga
 	void getExpectedCovarDataPtr(const float*& ptr)
 	{
 		// note: the value difference to `_1agaCovar4x4d` is due to the numeric error propagation during computation of the covariance matrix.
-		static constexpr float _1agaCovar4x4f[] = {
+		static const float _1agaCovar4x4f[] = {
 			9.624336242675781f, -0.000066711785621f, -4.293214797973633f, 0.018793795257807f,
 			-0.000066711785621f, 9.624438285827637f, 5.351140022277832f, -0.115692682564259f,
 			-4.293214797973633f, 5.351140022277832f, 35.628479003906250f, 0.908742427825928f,
@@ -191,10 +192,10 @@ namespace _1aga
 	template<glm::length_t D, typename T> void getExpectedEigenvaluesEigenvectorsDataPtr(const T*& evals, const T*& evecs);
 	template<> void getExpectedEigenvaluesEigenvectorsDataPtr<2, float>(const float*& evals, const float*& evecs)
 	{
-		static constexpr float expectedEvals[] = {
+		static const float expectedEvals[] = {
 			9.624471664428711f, 9.624302864074707f
 		};
-		static constexpr float expectedEvecs[] = {
+		static const float expectedEvecs[] = {
 			-0.443000972270966f, 0.896521151065826f,
 			0.896521151065826f, 0.443000972270966f
 		};
@@ -203,10 +204,10 @@ namespace _1aga
 	}
 	template<> void getExpectedEigenvaluesEigenvectorsDataPtr<2, double>(const double*& evals, const double*& evecs)
 	{
-		static constexpr double expectedEvals[] = {
+		static const double expectedEvals[] = {
 			9.624472899262972, 9.624307159693940
 		};
-		static constexpr double expectedEvecs[] = {
+		static const double expectedEvecs[] = {
 			-0.449720461624363, 0.893169360421846,
 			0.893169360421846, 0.449720461624363
 		};
@@ -215,10 +216,10 @@ namespace _1aga
 	}
 	template<> void getExpectedEigenvaluesEigenvectorsDataPtr<3, float>(const float*& evals, const float*& evecs)
 	{
-		static constexpr float expectedEvals[] = {
+		static const float expectedEvals[] = {
 			37.327442169189453f, 9.624311447143555f, 7.925499439239502f
 		};
-		static constexpr float expectedEvecs[] = {
+		static const float expectedEvecs[] = {
 			-0.150428697466850f, 0.187497511506081f, 0.970678031444550f,
 			0.779980957508087f, 0.625803351402283f, -0.000005212802080f,
 			0.607454538345337f, -0.757109522819519f, 0.240383237600327f
@@ -228,10 +229,10 @@ namespace _1aga
 	}
 	template<> void getExpectedEigenvaluesEigenvectorsDataPtr<3, double>(const double*& evals, const double*& evecs)
 	{
-		static constexpr double expectedEvals[] = {
+		static const double expectedEvals[] = {
 			37.327449427468345, 9.624314341614987, 7.925501786220276
 		};
-		static constexpr double expectedEvecs[] = {
+		static const double expectedEvecs[] = {
 			-0.150428640509585, 0.187497426513576, 0.970678082149394,
 			0.779981605126846, 0.625802441381904, -0.000004919018357,
 			0.607453635908278, -0.757110308615089, 0.240383154173870
@@ -241,10 +242,10 @@ namespace _1aga
 	}
 	template<> void getExpectedEigenvaluesEigenvectorsDataPtr<4, float>(const float*& evals, const float*& evecs)
 	{
-		static constexpr float expectedEvals[] = {
+		static const float expectedEvals[] = {
 			37.347740173339844f, 9.624703407287598f, 7.940164566040039f, 1.061712265014648f
 		};
-		static constexpr float expectedEvecs[] = {
+		static const float expectedEvecs[] = {
 			-0.150269940495491f, 0.187220811843872f, 0.970467865467072f, 0.023652425035834f,
 			0.779159665107727f, 0.626788496971130f, -0.000105984276161f, -0.006797631736845f,
 			0.608242213726044f, -0.755563497543335f, 0.238818943500519f, 0.046158745884895f,
@@ -255,10 +256,10 @@ namespace _1aga
 	}
 	template<> void getExpectedEigenvaluesEigenvectorsDataPtr<4, double>(const double*& evals, const double*& evecs)
 	{
-		static constexpr double expectedEvals[] = {
+		static const double expectedEvals[] = {
 			37.347738991879226, 9.624706889211053, 7.940170752816341, 1.061708639965897
 		};
-		static constexpr double expectedEvecs[] = {
+		static const double expectedEvecs[] = {
 			-0.150269954805403, 0.187220917596058, 0.970467838469868, 0.023652551509145,
 			0.779159831346545, 0.626788431871120, -0.000105940250315, -0.006797622027466,
 			0.608241962267880, -0.755563776664248, 0.238818902950296, 0.046158707986616,
@@ -299,13 +300,23 @@ vec computeCenter(const std::vector<vec>& testData)
 	std::fill(c, c + vec::length(), 0.0);
 
 	for(vec const& v : testData)
-		for(size_t d = 0; d < vec::length(); ++d)
+		for(size_t d = 0; d < static_cast<size_t>(vec::length()); ++d)
 			c[d] += static_cast<double>(v[d]);
 
 	vec cVec;
-	for(size_t d = 0; d < vec::length(); ++d)
+	for(size_t d = 0; d < static_cast<size_t>(vec::length()); ++d)
 		cVec[d] = static_cast<typename vec::value_type>(c[d] / static_cast<double>(testData.size()));
-	return std::move(cVec);
+	return cVec;
+}
+
+template<glm::length_t D, typename T, glm::qualifier Q>
+bool matrixEpsilonEqual(glm::mat<D, D, T, Q> const& a, glm::mat<D, D, T, Q> const& b)
+{
+	for (int c = 0; c < D; ++c)
+		for (int r = 0; r < D; ++r)
+			if (!glm::epsilonEqual(a[c][r], b[c][r], static_cast<T>(0.000001)))
+				return false;
+	return true;
 }
 
 // Test sorting of Eigenvalue&Eigenvector lists. Use exhaustive search.
@@ -313,26 +324,22 @@ template<glm::length_t D, typename T, glm::qualifier Q>
 int testEigenvalueSort()
 {
 	// Test input data: four arbitrary values
-	constexpr glm::vec<D, T, Q> refVal
-	{
-		glm::vec<4, T, Q>
-		{
+	static const glm::vec<D, T, Q> refVal(
+		glm::vec<4, T, Q>(
 			10, 8, 6, 4
-		}
-	};
+		)
+	);
 	// Test input data: four arbitrary vectors, which can be matched to the above values
-	constexpr glm::mat<D, D, T, Q> refVec
-	{
-		glm::mat<4, 4, T, Q>
-		{
+	static const glm::mat<D, D, T, Q> refVec(
+		glm::mat<4, 4, T, Q>(
 			10, 20, 5, 40,
 			8, 16, 4, 32,
 			6, 12, 3, 24,
 			4, 8, 2, 16
-		}
-	};
+		)
+	);
 	// Permutations of test input data for exhaustive check, based on `D` (1 <= D <= 4)
-	constexpr int permutationCount[]
+	static const int permutationCount[]
 	{
 		0,
 		1,
@@ -341,7 +348,7 @@ int testEigenvalueSort()
 		24
 	};
 	// The permutations t perform, based on `D` (1 <= D <= 4)
-	constexpr glm::ivec4 permutation[]
+	static const glm::ivec4 permutation[]
 	{
 		{ 0, 1, 2, 3 },
 		{ 1, 0, 2, 3 }, // last for D = 2
@@ -368,32 +375,11 @@ int testEigenvalueSort()
 		{ 3, 2, 0, 1 },
 		{ 3, 2, 1, 0 }  // last for D = 4
 	};
-	// Lambda utility to check the result
-	auto checkResult = [&refVal,&refVec](glm::vec<D, T, Q> const& value, glm::mat<D, D, T, Q> const& vector)
-	{
-		constexpr T epsilon = static_cast<T>(0.0000001);
-		// check that values are ordered ascending
-		for(int i = 1; i < D; ++i)
-		{
-			if(value[0] < value[1])
-				return false;
-		}
-		// check that values and vectors are equal to the reference values
-		for(int i = 0; i < D; ++i)
-		{
-			if(!glm::equal<T>(refVal[i], value[i], epsilon))
-				return false;
-			for(int j = 0; j < D; ++j)
-			{
-				if(!glm::equal<T>(refVec[i][j], vector[i][j], epsilon))
-					return false;
-			}
-		}
-		return true; // all matched
-	};
 
 	// initial sanity check
-	if(!checkResult(refVal, refVec))
+	if(!glm::all(glm::epsilonEqual(refVal, refVal, static_cast<T>(0.000001))))
+		return 1;
+	if(!matrixEpsilonEqual(refVec, refVec))
 		return 1;
 
 	// Exhaustive search through all permutations
@@ -409,8 +395,10 @@ int testEigenvalueSort()
 
 		glm::sortEigenvalues(testVal, testVec);
 
-		if(!checkResult(testVal, testVec))
-			return 2 + p;
+		if (!glm::all(glm::epsilonEqual(testVal, refVal, static_cast<T>(0.000001))))
+			return 2 + p * 2;
+		if (!matrixEpsilonEqual(testVec, refVec))
+			return 2 + 1 + p * 2;
 	}
 
 	return 0;
@@ -435,7 +423,7 @@ int testCovar(unsigned int dataSize, unsigned int randomEngineSeed)
 		return 1;
 
 	// #2: test function variant consitency with random data
-	std::default_random_engine rndEng{ randomEngineSeed };
+	std::default_random_engine rndEng(randomEngineSeed);
 	std::normal_distribution<T> normalDist;
 	testData.resize(dataSize);
 	// some common offset of all data
@@ -458,11 +446,11 @@ int testCovar(unsigned int dataSize, unsigned int randomEngineSeed)
 	mat c3 = glm::computeCovarianceMatrix(testData.data(), testData.size(), center);
 	mat c4 = glm::computeCovarianceMatrix<D, T, Q>(testData.rbegin(), testData.rend(), center);
 
-	if(c1 != c2)
+	if(!matrixEpsilonEqual(c1, c2))
 		return 1;
-	if(c1 != c3)
+	if(!matrixEpsilonEqual(c1, c3))
 		return 1;
-	if(c1 != c4)
+	if(!matrixEpsilonEqual(c1, c4))
 		return 1;
 
 	return 0;
@@ -506,7 +494,7 @@ int smokeTest()
 	for(int x = -5; x <= 5; ++x)
 		for(int y = -7; y <= 7; ++y)
 			for(int z = -3; z <= 3; ++z)
-				pts.push_back(vec3{ x, y, z });
+				pts.push_back(vec3(x, y, z));
 
 	mat3 covar = glm::computeCovarianceMatrix(pts.data(), pts.size());
 	mat3 eVec;
@@ -532,11 +520,11 @@ int smokeTest()
 		std::swap(eVec[1], eVec[2]);
 	}
 
-	if(!glm::all(glm::equal(glm::abs(eVec[0]), vec3{ 0, 1, 0 })))
+	if(!glm::all(glm::equal(glm::abs(eVec[0]), vec3(0, 1, 0))))
 		return 2;
-	if(!glm::all(glm::equal(glm::abs(eVec[1]), vec3{ 1, 0, 0 })))
+	if(!glm::all(glm::equal(glm::abs(eVec[1]), vec3(1, 0, 0))))
 		return 3;
-	if(!glm::all(glm::equal(glm::abs(eVec[2]), vec3{ 0, 0, 1 })))
+	if(!glm::all(glm::equal(glm::abs(eVec[2]), vec3(0, 0, 1))))
 		return 4;
 
 	return 0;
@@ -544,24 +532,24 @@ int smokeTest()
 
 int rndTest(unsigned int randomEngineSeed)
 {
-	std::default_random_engine rndEng{ randomEngineSeed };
+	std::default_random_engine rndEng(randomEngineSeed);
 	std::normal_distribution<double> normalDist;
 
 	// construct orthonormal system
-	glm::dvec3 x{ normalDist(rndEng), normalDist(rndEng), normalDist(rndEng) };
+	glm::dvec3 x(normalDist(rndEng), normalDist(rndEng), normalDist(rndEng));
 	double l = glm::length(x);
 	while(l < 0.000001)
-		x = glm::dvec3{ normalDist(rndEng), normalDist(rndEng), normalDist(rndEng) };
+		x = glm::dvec3(normalDist(rndEng), normalDist(rndEng), normalDist(rndEng));
 	x = glm::normalize(x);
-	glm::dvec3 y{ normalDist(rndEng), normalDist(rndEng), normalDist(rndEng) };
+	glm::dvec3 y(normalDist(rndEng), normalDist(rndEng), normalDist(rndEng));
 	l = glm::length(y);
 	while(l < 0.000001)
-		y = glm::dvec3{ normalDist(rndEng), normalDist(rndEng), normalDist(rndEng) };
+		y = glm::dvec3(normalDist(rndEng), normalDist(rndEng), normalDist(rndEng));
 	while(glm::abs(glm::dot(x, y)) < 0.000001)
 	{
-		y = glm::dvec3{ normalDist(rndEng), normalDist(rndEng), normalDist(rndEng) };
+		y = glm::dvec3(normalDist(rndEng), normalDist(rndEng), normalDist(rndEng));
 		while(l < 0.000001)
-			y = glm::dvec3{ normalDist(rndEng), normalDist(rndEng), normalDist(rndEng) };
+			y = glm::dvec3(normalDist(rndEng), normalDist(rndEng), normalDist(rndEng));
 	}
 	y = glm::normalize(y);
 	glm::dvec3 z = glm::normalize(glm::cross(x, y));
@@ -574,13 +562,13 @@ int rndTest(unsigned int randomEngineSeed)
 
 	// generate input point data
 	std::vector<glm::dvec3> ptData;
-	constexpr int patters[] = {
+	static const int patters[] = {
 		8, 0, 0,
 		4, 1, 2,
 		0, 2, 0,
 		0, 0, 4
 	};
-	glm::dvec3 offset{ normalDist(rndEng), normalDist(rndEng), normalDist(rndEng) };
+	glm::dvec3 offset(normalDist(rndEng), normalDist(rndEng), normalDist(rndEng));
 	for(int p = 0; p < 4; ++p)
 		for(int xs = 1; xs >= -1; xs -= 2)
 			for(int ys = 1; ys >= -1; ys -= 2)
