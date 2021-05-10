@@ -343,67 +343,47 @@ jobs:
         - CTEST_ENV="--parallel 4 --output-on-failure"
         - CMAKE_ENV="--parallel"
 
-    - name: "Clang 9 C++14 sse2 debug"
+    - name: "Clang C++14 sse2 debug"
       os: linux
       dist: focal
-      addons:
-        apt:
-          packages:
-            - clang-9
       env:
-        - MATRIX_EVAL="CC=clang-9 && CXX=clang++-9"
+        - MATRIX_EVAL="CC=clang && CXX=clang++"
         - CMAKE_BUILD_ENV="-DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE2=ON"
         - CTEST_ENV="--parallel 4 --output-on-failure"
         - CMAKE_ENV="--parallel"
 
-    - name: "Clang 9 C++17 sse2 debug"
+    - name: "Clang C++17 sse2 debug"
       os: linux
       dist: focal
-      addons:
-        apt:
-          packages:
-            - clang-9
       env:
-        - MATRIX_EVAL="CC=clang-9 && CXX=clang++-9"
+        - MATRIX_EVAL="CC=clang && CXX=clang++"
         - CMAKE_BUILD_ENV="-DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE2=ON"
         - CTEST_ENV="--parallel 4 --output-on-failure"
         - CMAKE_ENV="--parallel"
 
-    - name: "Clang 9 C++17 avx2 debug"
+    - name: "Clang C++17 avx2 debug"
       os: linux
       dist: focal
-      addons:
-        apt:
-          packages:
-            - clang-9
       env:
-        - MATRIX_EVAL="CC=clang-9 && CXX=clang++-9"
+        - MATRIX_EVAL="CC=clang && CXX=clang++"
         - CMAKE_BUILD_ENV="-DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_AVX2=ON"
         - CTEST_ENV="--parallel 4 --output-on-failure"
         - CMAKE_ENV="--parallel"
 
-    - name: "Clang 9 C++17 pure debug"
+    - name: "Clang C++17 pure debug"
       os: linux
       dist: focal
-      addons:
-        apt:
-          packages:
-            - clang-9
       env:
-        - MATRIX_EVAL="CC=clang-9 && CXX=clang++-9"
+        - MATRIX_EVAL="CC=clang && CXX=clang++"
         - CMAKE_BUILD_ENV="-DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_FORCE_PURE=ON"
         - CTEST_ENV="--parallel 4 --output-on-failure"
         - CMAKE_ENV="--parallel"
 
-    - name: "Clang 9 C++17 pure release"
+    - name: "Clang C++17 pure release"
       os: linux
       dist: focal
-      addons:
-        apt:
-          packages:
-            - clang-9
       env:
-        - MATRIX_EVAL="CC=clang-9 && CXX=clang++-9"
+        - MATRIX_EVAL="CC=clang && CXX=clang++"
         - CMAKE_BUILD_ENV="-DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_17=ON -DGLM_TEST_FORCE_PURE=ON"
         - CTEST_ENV="--parallel 4 --output-on-failure"
         - CMAKE_ENV="--parallel"
