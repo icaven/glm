@@ -2,9 +2,11 @@
 #include <glm/glm.hpp>
 #include <glm/gtx/pca.hpp>
 #include <glm/gtc/epsilon.hpp>
+#include <glm/gtx/string_cast.hpp>
 
+#include <cstdio>
 #include <vector>
-#ifdef GLM_HAS_CXX11_STL
+#if GLM_HAS_CXX11_STL == 1
 #include <random>
 #endif
 
@@ -30,8 +32,8 @@ bool matrixEpsilonEqual(glm::mat<D, D, T, Q> const& a, glm::mat<D, D, T, Q> cons
 template<typename T>
 T failReport(T line)
 {
-	printf("Failed in line %d\n", static_cast<int>(line));
-	fprintf(stderr, "Failed in line %d\n", static_cast<int>(line));
+	printf("I:Failed in line %d\n", static_cast<int>(line));
+	fprintf(stderr, "E:Failed in line %d\n", static_cast<int>(line));
 	return line;
 }
 
@@ -438,10 +440,14 @@ int testCovar(glm::length_t dataSize, unsigned int randomEngineSeed)
 
 	mat covarMat = glm::computeCovarianceMatrix(testData.data(), testData.size(), center);
 	if(_1aga::checkCovarMat(covarMat))
+	{
+		fprintf(stdout, "I:Reconstructed covarMat:\n%s\n", glm::to_string(covarMat).c_str());
+		fprintf(stderr, "E:Reconstructed covarMat:\n%s\n", glm::to_string(covarMat).c_str());
 		return failReport(__LINE__);
+	}
 
 	// #2: test function variant consitency with random data
-#ifdef GLM_HAS_CXX11_STL
+#if GLM_HAS_CXX11_STL == 1
 	std::default_random_engine rndEng(randomEngineSeed);
 	std::normal_distribution<T> normalDist;
 	testData.resize(dataSize);
@@ -472,9 +478,9 @@ int testCovar(glm::length_t dataSize, unsigned int randomEngineSeed)
 		return failReport(__LINE__);
 	if(!matrixEpsilonEqual(c1, c4))
 		return failReport(__LINE__);
-#else // GLM_HAS_CXX11_STL
+#else // GLM_HAS_CXX11_STL == 1
 	printf("dummy: %d %d\n", static_cast<int>(randomEngineSeed), static_cast<int>(dataSize));
-#endif // GLM_HAS_CXX11_STL
+#endif // GLM_HAS_CXX11_STL == 1
 	return 0;
 }
 
@@ -552,7 +558,7 @@ int smokeTest()
 	return 0;
 }
 
-#ifdef GLM_HAS_CXX11_STL
+#if GLM_HAS_CXX11_STL == 1
 int rndTest(unsigned int randomEngineSeed)
 {
 	std::default_random_engine rndEng(randomEngineSeed);
@@ -626,7 +632,7 @@ int rndTest(unsigned int randomEngineSeed)
 
 	return 0;
 }
-#endif // GLM_HAS_CXX11_STL
+#endif // GLM_HAS_CXX11_STL == 1
 
 int main()
 {
@@ -679,12 +685,12 @@ int main()
 		return failReport(__LINE__);
 
 	// Final tests with randomized data
-#ifdef GLM_HAS_CXX11_STL
+#if GLM_HAS_CXX11_STL == 1
 	if(rndTest(12345) != 0)
 		return failReport(__LINE__);
 	if(rndTest(42) != 0)
 		return failReport(__LINE__);
-#endif // GLM_HAS_CXX11_STL
+#endif // GLM_HAS_CXX11_STL == 1
 
 	return 0;
 }
