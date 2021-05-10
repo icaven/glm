@@ -295,50 +295,29 @@ jobs:
         - CTEST_ENV="--parallel 4 --output-on-failure"
         - CMAKE_ENV="--parallel"
 
-    - name: "Clang 3.6 C++14 pure release"
+    - name: "Clang C++14 pure release"
       os: linux
       dist: Xenial
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise-3.6
-          packages:
-            - clang-3.6
       env:
-        - MATRIX_EVAL="CC=clang-3.6 && CXX=clang++-3.6"
+        - MATRIX_EVAL="CC=clang && CXX=clang++"
         - CMAKE_BUILD_ENV="-DCMAKE_BUILD_TYPE=Release -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_FORCE_PURE=ON"
         - CTEST_ENV="--parallel 4 --output-on-failure"
         - CMAKE_ENV="--parallel"
 
-    - name: "Clang 3.6 C++14 pure debug"
+    - name: "Clang C++14 pure debug"
       os: linux
       dist: Xenial
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise-3.6
-          packages:
-            - clang-3.6
       env:
-        - MATRIX_EVAL="CC=clang-3.6 && CXX=clang++-3.6"
+        - MATRIX_EVAL="CC=clang && CXX=clang++"
         - CMAKE_BUILD_ENV="-DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_FORCE_PURE=ON"
         - CTEST_ENV="--parallel 4 --output-on-failure"
         - CMAKE_ENV="--parallel"
 
-    - name: "Clang 3.6 C++14 sse2 debug"
+    - name: "Clang C++14 sse2 debug"
       os: linux
       dist: Xenial
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-precise-3.6
-          packages:
-            - clang-3.6
       env:
-        - MATRIX_EVAL="CC=clang-3.6 && CXX=clang++-3.6"
+        - MATRIX_EVAL="CC=clang && CXX=clang++"
         - CMAKE_BUILD_ENV="-DCMAKE_BUILD_TYPE=Debug -DGLM_TEST_ENABLE=ON -DGLM_TEST_ENABLE_CXX_14=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON -DGLM_TEST_ENABLE_SIMD_SSE2=ON"
         - CTEST_ENV="--parallel 4 --output-on-failure"
         - CMAKE_ENV="--parallel"
@@ -393,6 +372,7 @@ before_script:
     - eval "${MATRIX_EVAL}"
 
 script:
+  - ${CC} --version
   - mkdir ./build
   - cd ./build
   - cmake -DCMAKE_INSTALL_PREFIX=$TRAVIS_BUILD_DIR/install -DCMAKE_CXX_COMPILER=$COMPILER ${CMAKE_BUILD_ENV} ..
