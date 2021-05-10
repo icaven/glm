@@ -10,11 +10,19 @@
 #include <random>
 #endif
 
+template<typename T>
+T myEpsilon();
+template<>
+GLM_INLINE GLM_CONSTEXPR float myEpsilon<float>() { return 0.000005f; }
+template<>
+GLM_INLINE GLM_CONSTEXPR double myEpsilon<double>() { return 0.000001; }
+
+
 template<glm::length_t D, typename T, glm::qualifier Q>
 bool vectorEpsilonEqual(glm::vec<D, T, Q> const& a, glm::vec<D, T, Q> const& b)
 {
 	for (int c = 0; c < D; ++c)
-		if (!glm::epsilonEqual(a[c], b[c], static_cast<T>(0.000001)))
+		if (!glm::epsilonEqual(a[c], b[c], myEpsilon<T>()))
 			return false;
 	return true;
 }
@@ -24,7 +32,7 @@ bool matrixEpsilonEqual(glm::mat<D, D, T, Q> const& a, glm::mat<D, D, T, Q> cons
 {
 	for (int c = 0; c < D; ++c)
 		for (int r = 0; r < D; ++r)
-			if (!glm::epsilonEqual(a[c][r], b[c][r], static_cast<T>(0.000001)))
+			if (!glm::epsilonEqual(a[c][r], b[c][r], myEpsilon<T>()))
 				return false;
 	return true;
 }
@@ -214,7 +222,7 @@ namespace _1aga
 		getExpectedCovarDataPtr(expectedCovarData);
 		for(glm::length_t x = 0; x < D; ++x)
 			for(glm::length_t y = 0; y < D; ++y)
-				if(!glm::equal(covarMat[y][x], expectedCovarData[x * 4 + y], static_cast<T>(0.000001)))
+				if(!glm::equal(covarMat[y][x], expectedCovarData[x * 4 + y], myEpsilon<T>()))
 				{
 					fprintf(stderr, "E: %.15lf != %.15lf ; diff: %.20lf\n",
 						static_cast<double>(covarMat[y][x]),
@@ -316,12 +324,12 @@ namespace _1aga
 		getExpectedEigenvaluesEigenvectorsDataPtr<D, T>(expectedEvals, expectedEvecs);
 
 		for(int i = 0; i < D; ++i)
-			if(!glm::equal(evals[i], expectedEvals[i], static_cast<T>(0.000001)))
+			if(!glm::equal(evals[i], expectedEvals[i], myEpsilon<T>()))
 				return failReport(__LINE__);
 
 		for (int i = 0; i < D; ++i)
 			for (int d = 0; d < D; ++d)
-				if (!glm::equal(evecs[i][d], expectedEvecs[i * D + d], static_cast<T>(0.000001)))
+				if (!glm::equal(evecs[i][d], expectedEvecs[i * D + d], myEpsilon<T>()))
 					return failReport(__LINE__);
 
 		return 0;
@@ -432,7 +440,13 @@ int testEigenvalueSort()
 
 // Test covariance matrix creation functions
 template<glm::length_t D, typename T, glm::qualifier Q>
-int testCovar(glm::length_t dataSize, unsigned int randomEngineSeed)
+int testCovar(
+#if GLM_HAS_CXX11_STL == 1
+	glm::length_t dataSize, unsigned int randomEngineSeed
+#else // GLM_HAS_CXX11_STL == 1
+	glm::length_t, unsigned int
+#endif // GLM_HAS_CXX11_STL == 1
+)
 {
 	typedef glm::vec<D, T, Q> vec;
 	typedef glm::mat<D, D, T, Q> mat;
@@ -483,8 +497,6 @@ int testCovar(glm::length_t dataSize, unsigned int randomEngineSeed)
 		return failReport(__LINE__);
 	if(!matrixEpsilonEqual(c1, c4))
 		return failReport(__LINE__);
-#else // GLM_HAS_CXX11_STL == 1
-	printf("dummy: %d %d\n", static_cast<int>(randomEngineSeed), static_cast<int>(dataSize));
 #endif // GLM_HAS_CXX11_STL == 1
 	return 0;
 }
@@ -572,17 +584,17 @@ int rndTest(unsigned int randomEngineSeed)
 	// construct orthonormal system
 	glm::dvec3 x(normalDist(rndEng), normalDist(rndEng), normalDist(rndEng));
 	double l = glm::length(x);
-	while(l < 0.000001)
+	while(l < myEpsilon<double>())
 		x = glm::dvec3(normalDist(rndEng), normalDist(rndEng), normalDist(rndEng));
 	x = glm::normalize(x);
 	glm::dvec3 y(normalDist(rndEng), normalDist(rndEng), normalDist(rndEng));
 	l = glm::length(y);
-	while(l < 0.000001)
+	while(l < myEpsilon<double>())
 		y = glm::dvec3(normalDist(rndEng), normalDist(rndEng), normalDist(rndEng));
-	while(glm::abs(glm::dot(x, y)) < 0.000001)
+	while(glm::abs(glm::dot(x, y)) < myEpsilon<double>())
 	{
 		y = glm::dvec3(normalDist(rndEng), normalDist(rndEng), normalDist(rndEng));
-		while(l < 0.000001)
+		while(l < myEpsilon<double>())
 			y = glm::dvec3(normalDist(rndEng), normalDist(rndEng), normalDist(rndEng));
 	}
 	y = glm::normalize(y);
@@ -628,11 +640,11 @@ int rndTest(unsigned int randomEngineSeed)
 	//printf("evec2: %.10lf, %.10lf, %.10lf\n", evecs[2].x, evecs[2].y, evecs[2].z);
 	//printf("evec1: %.10lf, %.10lf, %.10lf\n", evecs[1].x, evecs[1].y, evecs[1].z);
 
-	if(glm::length(glm::abs(x) - glm::abs(evecs[0])) > 0.000001)
+	if(glm::length(glm::abs(x) - glm::abs(evecs[0])) > myEpsilon<double>())
 		return failReport(__LINE__);
-	if(glm::length(glm::abs(y) - glm::abs(evecs[2])) > 0.000001)
+	if(glm::length(glm::abs(y) - glm::abs(evecs[2])) > myEpsilon<double>())
 		return failReport(__LINE__);
-	if(glm::length(glm::abs(z) - glm::abs(evecs[1])) > 0.000001)
+	if(glm::length(glm::abs(z) - glm::abs(evecs[1])) > myEpsilon<double>())
 		return failReport(__LINE__);
 
 	return 0;
