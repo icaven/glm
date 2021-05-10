@@ -13,7 +13,7 @@
 template<typename T>
 T myEpsilon();
 template<>
-GLM_INLINE GLM_CONSTEXPR float myEpsilon<float>() { return 0.000005f; }
+GLM_INLINE GLM_CONSTEXPR float myEpsilon<float>() { return 0.00001f; }
 template<>
 GLM_INLINE GLM_CONSTEXPR double myEpsilon<double>() { return 0.000001; }
 
@@ -330,7 +330,14 @@ namespace _1aga
 		for (int i = 0; i < D; ++i)
 			for (int d = 0; d < D; ++d)
 				if (!glm::equal(evecs[i][d], expectedEvecs[i * D + d], myEpsilon<T>()))
+				{
+					fprintf(stderr, "E: %.15lf != %.15lf ; diff: %.20lf\n",
+						static_cast<double>(evecs[i][d]),
+						static_cast<double>(expectedEvecs[i * D + d]),
+						static_cast<double>(evecs[i][d] - expectedEvecs[i * D + d])
+					);
 					return failReport(__LINE__);
+				}
 
 		return 0;
 	}
