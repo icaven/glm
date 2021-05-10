@@ -29,15 +29,16 @@ namespace glm {
 		glm::mat<D, D, T, Q> m(0);
 
 		size_t cnt = 0;
-		for (I i = b; i != e; i++)
+		for(I i = b; i != e; i++)
 		{
 			vec<D, T, Q> const& v = *i;
-			for (length_t x = 0; x < D; ++x)
-				for (length_t y = 0; y < D; ++y)
+			for(length_t x = 0; x < D; ++x)
+				for(length_t y = 0; y < D; ++y)
 					m[x][y] += static_cast<T>(v[x] * v[y]);
 			cnt++;
 		}
-		if (cnt > 0) m /= static_cast<T>(cnt);
+		if(cnt > 0)
+			m /= static_cast<T>(cnt);
 
 		return m;
 	}
@@ -50,15 +51,16 @@ namespace glm {
 		glm::vec<D, T, Q> v;
 
 		size_t cnt = 0;
-		for (I i = b; i != e; i++)
+		for(I i = b; i != e; i++)
 		{
 			v = *i - c;
-			for (length_t x = 0; x < D; ++x)
-				for (length_t y = 0; y < D; ++y)
+			for(length_t x = 0; x < D; ++x)
+				for(length_t y = 0; y < D; ++y)
 					m[x][y] += static_cast<T>(v[x] * v[y]);
 			cnt++;
 		}
-		if (cnt > 0) m /= static_cast<T>(cnt);
+		if(cnt > 0)
+			m /= static_cast<T>(cnt);
 
 		return m;
 	}
@@ -77,12 +79,12 @@ namespace glm {
 			static const T epsilon = static_cast<T>(0.0000001);
 			T absa = glm::abs(a);
 			T absb = glm::abs(b);
-			if (absa > absb) {
+			if(absa > absb) {
 				absb /= absa;
 				absb *= absb;
 				return absa * glm::sqrt(static_cast<T>(1) + absb);
 			}
-			if (glm::equal<T>(absb, 0, epsilon)) return static_cast<T>(0);
+			if(glm::equal<T>(absb, 0, epsilon)) return static_cast<T>(0);
 			absa /= absb;
 			absa *= absa;
 			return absb * glm::sqrt(static_cast<T>(1) + absa);
@@ -105,28 +107,33 @@ namespace glm {
 		T d[D]; // diagonal elements
 		T e[D]; // off-diagonal elements
 
-		for (length_t r = 0; r < D; r++) {
-			for (length_t c = 0; c < D; c++) {
+		for(length_t r = 0; r < D; r++)
+			for(length_t c = 0; c < D; c++)
 				a[(r) * D + (c)] = covarMat[c][r];
-			}
-		}
 
 		// 1. Householder reduction.
 		length_t l, k, j, i;
 		T scale, hh, h, g, f;
 		static const T epsilon = static_cast<T>(0.0000001);
 
-		for (i = D; i >= 2; i--) {
+		for(i = D; i >= 2; i--)
+		{
 			l = i - 1;
 			h = scale = 0;
-			if (l > 1) {
-				for (k = 1; k <= l; k++) {
+			if(l > 1)
+			{
+				for(k = 1; k <= l; k++)
+				{
 					scale += glm::abs(a[(i - 1) * D + (k - 1)]);
 				}
-				if (glm::equal<T>(scale, 0, epsilon)) {
+				if(glm::equal<T>(scale, 0, epsilon))
+				{
 					e[i - 1] = a[(i - 1) * D + (l - 1)];
-				} else {
-					for (k = 1; k <= l; k++) {
+				}
+				else
+				{
+					for(k = 1; k <= l; k++)
+					{
 						a[(i - 1) * D + (k - 1)] /= scale;
 						h += a[(i - 1) * D + (k - 1)] * a[(i - 1) * D + (k - 1)];
 					}
@@ -136,50 +143,63 @@ namespace glm {
 					h -= f * g;
 					a[(i - 1) * D + (l - 1)] = f - g;
 					f = 0;
-					for (j = 1; j <= l; j++) {
+					for(j = 1; j <= l; j++)
+					{
 						a[(j - 1) * D + (i - 1)] = a[(i - 1) * D + (j - 1)] / h;
 						g = 0;
-						for (k = 1; k <= j; k++) {
+						for(k = 1; k <= j; k++)
+						{
 							g += a[(j - 1) * D + (k - 1)] * a[(i - 1) * D + (k - 1)];
 						}
-						for (k = j + 1; k <= l; k++) {
+						for(k = j + 1; k <= l; k++)
+						{
 							g += a[(k - 1) * D + (j - 1)] * a[(i - 1) * D + (k - 1)];
 						}
 						e[j - 1] = g / h;
 						f += e[j - 1] * a[(i - 1) * D + (j - 1)];
 					}
 					hh = f / (h + h);
-					for (j = 1; j <= l; j++) {
+					for(j = 1; j <= l; j++)
+					{
 						f = a[(i - 1) * D + (j - 1)];
 						e[j - 1] = g = e[j - 1] - hh * f;
-						for (k = 1; k <= j; k++) {
+						for(k = 1; k <= j; k++)
+						{
 							a[(j - 1) * D + (k - 1)] -= (f * e[k - 1] + g * a[(i - 1) * D + (k - 1)]);
 						}
 					}
 				}
-			} else {
+			}
+			else
+			{
 				e[i - 1] = a[(i - 1) * D + (l - 1)];
 			}
 			d[i - 1] = h;
 		}
 		d[0] = 0;
 		e[0] = 0;
-		for (i = 1; i <= D; i++) {
+		for(i = 1; i <= D; i++)
+		{
 			l = i - 1;
-			if (!glm::equal<T>(d[i - 1], 0, epsilon)) {
-				for (j = 1; j <= l; j++) {
+			if(!glm::equal<T>(d[i - 1], 0, epsilon))
+			{
+				for(j = 1; j <= l; j++)
+				{
 					g = 0;
-					for (k = 1; k <= l; k++) {
+					for(k = 1; k <= l; k++)
+					{
 						g += a[(i - 1) * D + (k - 1)] * a[(k - 1) * D + (j - 1)];
 					}
-					for (k = 1; k <= l; k++) {
+					for(k = 1; k <= l; k++)
+					{
 						a[(k - 1) * D + (j - 1)] -= g * a[(k - 1) * D + (i - 1)];
 					}
 				}
 			}
 			d[i - 1] = a[(i - 1) * D + (i - 1)];
 			a[(i - 1) * D + (i - 1)] = 1;
-			for (j = 1; j <= l; j++) {
+			for(j = 1; j <= l; j++)
+			{
 				a[(j - 1) * D + (i - 1)] = a[(i - 1) * D + (j - 1)] = 0;
 			}
 		}
@@ -189,20 +209,27 @@ namespace glm {
 		T s, r, p, dd, c, b;
 		const length_t MAX_ITER = 30;
 
-		for (i = 2; i <= D; i++) {
+		for(i = 2; i <= D; i++)
+		{
 			e[i - 2] = e[i - 1];
 		}
 		e[D - 1] = 0;
 
-		for (l = 1; l <= D; l++) {
+		for(l = 1; l <= D; l++)
+		{
 			iter = 0;
-			do {
-				for (m = l; m <= D - 1; m++) {
+			do
+			{
+				for(m = l; m <= D - 1; m++)
+				{
 					dd = glm::abs(d[m - 1]) + glm::abs(d[m - 1 + 1]);
-					if (glm::equal<T>(glm::abs(e[m - 1]) + dd, dd, epsilon)) break;
+					if(glm::equal<T>(glm::abs(e[m - 1]) + dd, dd, epsilon))
+						break;
 				}
-				if (m != l) {
-					if (iter++ == MAX_ITER) {
+				if(m != l)
+				{
+					if(iter++ == MAX_ITER)
+					{
 						return 0; // Too many iterations in FindEigenvalues
 					}
 					g = (d[l - 1 + 1] - d[l - 1]) / (2 * e[l - 1]);
@@ -210,11 +237,13 @@ namespace glm {
 					g = d[m - 1] - d[l - 1] + e[l - 1] / (g + transferSign(r, g));
 					s = c = 1;
 					p = 0;
-					for (i = m - 1; i >= l; i--) {
+					for(i = m - 1; i >= l; i--)
+					{
 						f = s * e[i - 1];
 						b = c * e[i - 1];
 						e[i - 1 + 1] = r = pythag(f, g);
-						if (glm::equal<T>(r, 0, epsilon)) {
+						if(glm::equal<T>(r, 0, epsilon))
+						{
 							d[i - 1 + 1] -= p;
 							e[m - 1] = 0;
 							break;
@@ -225,18 +254,20 @@ namespace glm {
 						r = (d[i - 1] - g) * s + 2 * c * b;
 						d[i - 1 + 1] = g + (p = s * r);
 						g = c * r - b;
-						for (k = 1; k <= D; k++) {
+						for(k = 1; k <= D; k++)
+						{
 							f = a[(k - 1) * D + (i - 1 + 1)];
 							a[(k - 1) * D + (i - 1 + 1)] = s * a[(k - 1) * D + (i - 1)] + c * f;
 							a[(k - 1) * D + (i - 1)] = c * a[(k - 1) * D + (i - 1)] - s * f;
 						}
 					}
-					if (glm::equal<T>(r, 0, epsilon) && (i >= l)) continue;
+					if(glm::equal<T>(r, 0, epsilon) && (i >= l))
+						continue;
 					d[l - 1] -= p;
 					e[l - 1] = g;
 					e[m - 1] = 0;
 				}
-			} while (m != l);
+			} while(m != l);
 		}
 
 		// 3. output

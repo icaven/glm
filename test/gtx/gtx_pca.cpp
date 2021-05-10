@@ -32,8 +32,7 @@ bool matrixEpsilonEqual(glm::mat<D, D, T, Q> const& a, glm::mat<D, D, T, Q> cons
 template<typename T>
 T failReport(T line)
 {
-	printf("I:Failed in line %d\n", static_cast<int>(line));
-	fprintf(stderr, "E:Failed in line %d\n", static_cast<int>(line));
+	fprintf(stderr, "Failed in line %d\n", static_cast<int>(line));
 	return line;
 }
 
@@ -211,12 +210,19 @@ namespace _1aga
 	template<glm::length_t D, typename T, glm::qualifier Q>
 	int checkCovarMat(glm::mat<D, D, T, Q> const& covarMat)
 	{
-		const T* expectedCovarData = nullptr;
+		const T* expectedCovarData = GLM_NULLPTR;
 		getExpectedCovarDataPtr(expectedCovarData);
 		for(glm::length_t x = 0; x < D; ++x)
 			for(glm::length_t y = 0; y < D; ++y)
 				if(!glm::equal(covarMat[y][x], expectedCovarData[x * 4 + y], static_cast<T>(0.000001)))
+				{
+					fprintf(stderr, "E: %.15lf != %.15lf ; diff: %.20lf\n",
+						static_cast<double>(covarMat[y][x]),
+						static_cast<double>(expectedCovarData[x * 4 + y]),
+						static_cast<double>(covarMat[y][x] - expectedCovarData[x * 4 + y])
+					);
 					return failReport(__LINE__);
+				}
 		return 0;
 	}
 
@@ -305,8 +311,8 @@ namespace _1aga
 		glm::vec<D, T, Q> const& evals,
 		glm::mat<D, D, T, Q> const& evecs)
 	{
-		const T* expectedEvals = nullptr;
-		const T* expectedEvecs = nullptr;
+		const T* expectedEvals = GLM_NULLPTR;
+		const T* expectedEvecs = GLM_NULLPTR;
 		getExpectedEigenvaluesEigenvectorsDataPtr<D, T>(expectedEvals, expectedEvecs);
 
 		for(int i = 0; i < D; ++i)
@@ -441,8 +447,7 @@ int testCovar(glm::length_t dataSize, unsigned int randomEngineSeed)
 	mat covarMat = glm::computeCovarianceMatrix(testData.data(), testData.size(), center);
 	if(_1aga::checkCovarMat(covarMat))
 	{
-		fprintf(stdout, "I:Reconstructed covarMat:\n%s\n", glm::to_string(covarMat).c_str());
-		fprintf(stderr, "E:Reconstructed covarMat:\n%s\n", glm::to_string(covarMat).c_str());
+		fprintf(stderr, "Reconstructed covarMat:\n%s\n", glm::to_string(covarMat).c_str());
 		return failReport(__LINE__);
 	}
 
@@ -636,6 +641,7 @@ int rndTest(unsigned int randomEngineSeed)
 
 int main()
 {
+	int error(0);
 
 	// A small smoke test to fail early with most problems
 	if(smokeTest())
@@ -643,54 +649,62 @@ int main()
 
 	// test sorting utility.
 	if(testEigenvalueSort<2, float, glm::defaultp>() != 0)
-		return failReport(__LINE__);
+		error = failReport(__LINE__);
 	if(testEigenvalueSort<2, double, glm::defaultp>() != 0)
-		return failReport(__LINE__);
+		error = failReport(__LINE__);
 	if(testEigenvalueSort<3, float, glm::defaultp>() != 0)
-		return failReport(__LINE__);
+		error = failReport(__LINE__);
 	if(testEigenvalueSort<3, double, glm::defaultp>() != 0)
-		return failReport(__LINE__);
+		error = failReport(__LINE__);
 	if(testEigenvalueSort<4, float, glm::defaultp>() != 0)
-		return failReport(__LINE__);
+		error = failReport(__LINE__);
 	if(testEigenvalueSort<4, double, glm::defaultp>() != 0)
-		return failReport(__LINE__);
+		error = failReport(__LINE__);
+	if (error != 0)
+		return error;
 
 	// Note: the random engine uses a fixed seed to create consistent and reproducible test data
 	// test covariance matrix computation from different data sources
 	if(testCovar<2, float, glm::defaultp>(100, 12345) != 0)
-		return failReport(__LINE__);
+		error = failReport(__LINE__);
 	if(testCovar<2, double, glm::defaultp>(100, 42) != 0)
-		return failReport(__LINE__);
+		error = failReport(__LINE__);
 	if(testCovar<3, float, glm::defaultp>(100, 2021) != 0)
-		return failReport(__LINE__);
+		error = failReport(__LINE__);
 	if(testCovar<3, double, glm::defaultp>(100, 815) != 0)
-		return failReport(__LINE__);
+		error = failReport(__LINE__);
 	if(testCovar<4, float, glm::defaultp>(100, 3141) != 0)
-		return failReport(__LINE__);
+		error = failReport(__LINE__);
 	if(testCovar<4, double, glm::defaultp>(100, 174) != 0)
-		return failReport(__LINE__);
+		error = failReport(__LINE__);
+	if (error != 0)
+		return error;
 
 	// test PCA eigen vector reconstruction
 	if(testEigenvectors<2, float, glm::defaultp>() != 0)
-		return failReport(__LINE__);
+		error = failReport(__LINE__);
 	if(testEigenvectors<2, double, glm::defaultp>() != 0)
-		return failReport(__LINE__);
+		error = failReport(__LINE__);
 	if(testEigenvectors<3, float, glm::defaultp>() != 0)
-		return failReport(__LINE__);
+		error = failReport(__LINE__);
 	if(testEigenvectors<3, double, glm::defaultp>() != 0)
-		return failReport(__LINE__);
-	if (testEigenvectors<4, float, glm::defaultp>() != 0)
-		return failReport(__LINE__);
-	if (testEigenvectors<4, double, glm::defaultp>() != 0)
-		return failReport(__LINE__);
+		error = failReport(__LINE__);
+	if(testEigenvectors<4, float, glm::defaultp>() != 0)
+		error = failReport(__LINE__);
+	if(testEigenvectors<4, double, glm::defaultp>() != 0)
+		error = failReport(__LINE__);
+	if(error != 0)
+		return error;
 
 	// Final tests with randomized data
 #if GLM_HAS_CXX11_STL == 1
 	if(rndTest(12345) != 0)
-		return failReport(__LINE__);
+		error = failReport(__LINE__);
 	if(rndTest(42) != 0)
-		return failReport(__LINE__);
+		error = failReport(__LINE__);
+	if (error != 0)
+		return error;
 #endif // GLM_HAS_CXX11_STL == 1
 
-	return 0;
+	return error;
 }
