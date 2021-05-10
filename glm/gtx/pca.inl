@@ -70,7 +70,7 @@ namespace glm {
 		GLM_INLINE T transferSign(T const& v, T const& s)
 		{
 			return ((s) >= 0 ? glm::abs(v) : -glm::abs(v));
-		};
+		}
 
 		template<typename T>
 		GLM_INLINE T pythag(T const& a, T const& b) {
@@ -86,7 +86,7 @@ namespace glm {
 			absa /= absb;
 			absa *= absa;
 			return absb * glm::sqrt(static_cast<T>(1) + absa);
-		};
+		}
 
 	}
 

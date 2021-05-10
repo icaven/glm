@@ -6,6 +6,33 @@
 #include <vector>
 #include <random>
 
+template<glm::length_t D, typename T, glm::qualifier Q>
+bool vectorEpsilonEqual(glm::vec<D, T, Q> const& a, glm::vec<D, T, Q> const& b)
+{
+	for (int c = 0; c < D; ++c)
+		if (!glm::epsilonEqual(a[c], b[c], static_cast<T>(0.000001)))
+			return false;
+	return true;
+}
+
+template<glm::length_t D, typename T, glm::qualifier Q>
+bool matrixEpsilonEqual(glm::mat<D, D, T, Q> const& a, glm::mat<D, D, T, Q> const& b)
+{
+	for (int c = 0; c < D; ++c)
+		for (int r = 0; r < D; ++r)
+			if (!glm::epsilonEqual(a[c][r], b[c][r], static_cast<T>(0.000001)))
+				return false;
+	return true;
+}
+
+template<typename T>
+T failReport(T line)
+{
+	printf("Failed in line %d\n", static_cast<int>(line));
+	fprintf(stderr, "Failed in line %d\n", static_cast<int>(line));
+	return line;
+}
+
 // Test data: 1AGA 'agarose double helix'
 // https://www.rcsb.org/structure/1aga
 // The fourth coordinate is randomized
@@ -147,11 +174,11 @@ namespace _1aga
 			3.830, 3.522, 5.367, -0.302,
 			5.150, 4.461, 2.116, -1.615
 		};
-		static const size_t _1agaSize = sizeof(_1aga) / (4 * sizeof(double));
+		static const glm::length_t _1agaSize = sizeof(_1aga) / (4 * sizeof(double));
 
 		outTestData.resize(_1agaSize);
-		for(size_t i = 0; i < _1agaSize; ++i)
-			for(size_t d = 0; d < static_cast<size_t>(vec::length()); ++d)
+		for(glm::length_t i = 0; i < _1agaSize; ++i)
+			for(glm::length_t d = 0; d < static_cast<glm::length_t>(vec::length()); ++d)
 				outTestData[i][d] = static_cast<typename vec::value_type>(_1aga[i * 4 + d]);
 	}
 
@@ -182,10 +209,10 @@ namespace _1aga
 	{
 		const T* expectedCovarData = nullptr;
 		getExpectedCovarDataPtr(expectedCovarData);
-		for(size_t x = 0; x < D; ++x)
-			for(size_t y = 0; y < D; ++y)
+		for(glm::length_t x = 0; x < D; ++x)
+			for(glm::length_t y = 0; y < D; ++y)
 				if(!glm::equal(covarMat[y][x], expectedCovarData[x * 4 + y], static_cast<T>(0.000001)))
-					return 1;
+					return failReport(__LINE__);
 		return 0;
 	}
 
@@ -280,12 +307,12 @@ namespace _1aga
 
 		for(int i = 0; i < D; ++i)
 			if(!glm::equal(evals[i], expectedEvals[i], static_cast<T>(0.000001)))
-				return 1;
+				return failReport(__LINE__);
 
 		for (int i = 0; i < D; ++i)
 			for (int d = 0; d < D; ++d)
 				if (!glm::equal(evecs[i][d], expectedEvecs[i * D + d], static_cast<T>(0.000001)))
-					return 1;
+					return failReport(__LINE__);
 
 		return 0;
 	}
@@ -296,27 +323,18 @@ namespace _1aga
 template<typename vec>
 vec computeCenter(const std::vector<vec>& testData)
 {
-	double c[vec::length()];
+	double c[4];
 	std::fill(c, c + vec::length(), 0.0);
 
-	for(vec const& v : testData)
-		for(size_t d = 0; d < static_cast<size_t>(vec::length()); ++d)
-			c[d] += static_cast<double>(v[d]);
+	typename std::vector<vec>::const_iterator e = testData.end();
+	for(typename std::vector<vec>::const_iterator i = testData.begin(); i != e; ++i)
+		for(glm::length_t d = 0; d < static_cast<glm::length_t>(vec::length()); ++d)
+			c[d] += static_cast<double>((*i)[d]);
 
-	vec cVec;
-	for(size_t d = 0; d < static_cast<size_t>(vec::length()); ++d)
+	vec cVec(0);
+	for(glm::length_t d = 0; d < static_cast<glm::length_t>(vec::length()); ++d)
 		cVec[d] = static_cast<typename vec::value_type>(c[d] / static_cast<double>(testData.size()));
 	return cVec;
-}
-
-template<glm::length_t D, typename T, glm::qualifier Q>
-bool matrixEpsilonEqual(glm::mat<D, D, T, Q> const& a, glm::mat<D, D, T, Q> const& b)
-{
-	for (int c = 0; c < D; ++c)
-		for (int r = 0; r < D; ++r)
-			if (!glm::epsilonEqual(a[c][r], b[c][r], static_cast<T>(0.000001)))
-				return false;
-	return true;
 }
 
 // Test sorting of Eigenvalue&Eigenvector lists. Use exhaustive search.
@@ -339,8 +357,7 @@ int testEigenvalueSort()
 		)
 	);
 	// Permutations of test input data for exhaustive check, based on `D` (1 <= D <= 4)
-	static const int permutationCount[]
-	{
+	static const int permutationCount[] = {
 		0,
 		1,
 		2,
@@ -348,8 +365,7 @@ int testEigenvalueSort()
 		24
 	};
 	// The permutations t perform, based on `D` (1 <= D <= 4)
-	static const glm::ivec4 permutation[]
-	{
+	static const glm::ivec4 permutation[] = {
 		{ 0, 1, 2, 3 },
 		{ 1, 0, 2, 3 }, // last for D = 2
 		{ 0, 2, 1, 3 },
@@ -377,10 +393,10 @@ int testEigenvalueSort()
 	};
 
 	// initial sanity check
-	if(!glm::all(glm::epsilonEqual(refVal, refVal, static_cast<T>(0.000001))))
-		return 1;
+	if(!vectorEpsilonEqual(refVal, refVal))
+		return failReport(__LINE__);
 	if(!matrixEpsilonEqual(refVec, refVec))
-		return 1;
+		return failReport(__LINE__);
 
 	// Exhaustive search through all permutations
 	for(int p = 0; p < permutationCount[D]; ++p)
@@ -395,10 +411,10 @@ int testEigenvalueSort()
 
 		glm::sortEigenvalues(testVal, testVec);
 
-		if (!glm::all(glm::epsilonEqual(testVal, refVal, static_cast<T>(0.000001))))
-			return 2 + p * 2;
+		if (!vectorEpsilonEqual(testVal, refVal))
+			return failReport(__LINE__);
 		if (!matrixEpsilonEqual(testVec, refVec))
-			return 2 + 1 + p * 2;
+			return failReport(__LINE__);
 	}
 
 	return 0;
@@ -406,7 +422,7 @@ int testEigenvalueSort()
 
 // Test covariance matrix creation functions
 template<glm::length_t D, typename T, glm::qualifier Q>
-int testCovar(unsigned int dataSize, unsigned int randomEngineSeed)
+int testCovar(glm::length_t dataSize, unsigned int randomEngineSeed)
 {
 	typedef glm::vec<D, T, Q> vec;
 	typedef glm::mat<D, D, T, Q> mat;
@@ -420,7 +436,7 @@ int testCovar(unsigned int dataSize, unsigned int randomEngineSeed)
 
 	mat covarMat = glm::computeCovarianceMatrix(testData.data(), testData.size(), center);
 	if(_1aga::checkCovarMat(covarMat))
-		return 1;
+		return failReport(__LINE__);
 
 	// #2: test function variant consitency with random data
 	std::default_random_engine rndEng(randomEngineSeed);
@@ -428,18 +444,19 @@ int testCovar(unsigned int dataSize, unsigned int randomEngineSeed)
 	testData.resize(dataSize);
 	// some common offset of all data
 	T offset[D];
-	for(size_t d = 0; d < D; ++d)
+	for(glm::length_t d = 0; d < D; ++d)
 		offset[d] = normalDist(rndEng);
 	// init data
-	for(size_t i = 0; i < dataSize; ++i)
-		for(size_t d = 0; d < D; ++d)
+	for(glm::length_t i = 0; i < dataSize; ++i)
+		for(glm::length_t d = 0; d < D; ++d)
 			testData[i][d] = offset[d] + normalDist(rndEng);
 	center = computeCenter(testData);
 
 	std::vector<vec> centeredTestData;
 	centeredTestData.reserve(testData.size());
-	for(vec const& v : testData)
-		centeredTestData.push_back(v - center);
+	std::vector<vec>::const_iterator e = testData.end();
+	for(std::vector<vec>::const_iterator i = testData.begin(); i != e; ++i)
+		centeredTestData.push_back((*i) - center);
 
 	mat c1 = glm::computeCovarianceMatrix(centeredTestData.data(), centeredTestData.size());
 	mat c2 = glm::computeCovarianceMatrix<D, T, Q>(centeredTestData.begin(), centeredTestData.end());
@@ -447,11 +464,11 @@ int testCovar(unsigned int dataSize, unsigned int randomEngineSeed)
 	mat c4 = glm::computeCovarianceMatrix<D, T, Q>(testData.rbegin(), testData.rend(), center);
 
 	if(!matrixEpsilonEqual(c1, c2))
-		return 1;
+		return failReport(__LINE__);
 	if(!matrixEpsilonEqual(c1, c3))
-		return 1;
+		return failReport(__LINE__);
 	if(!matrixEpsilonEqual(c1, c4))
-		return 1;
+		return failReport(__LINE__);
 
 	return 0;
 }
@@ -471,11 +488,11 @@ int testEigenvectors()
 	mat eigenvectors;
 	unsigned int c = glm::findEigenvaluesSymReal(covarMat, eigenvalues, eigenvectors);
 	if(c != D)
-		return 1;
+		return failReport(__LINE__);
 	glm::sortEigenvalues(eigenvalues, eigenvectors);
 
 	if(_1aga::checkEigenvaluesEigenvectors(eigenvalues, eigenvectors) != 0)
-		return 1;
+		return failReport(__LINE__);
 
 	return 0;
 }
@@ -501,7 +518,7 @@ int smokeTest()
 	vec3 eVal;
 	int eCnt = glm::findEigenvaluesSymReal(covar, eVal, eVec);
 	if(eCnt != 3)
-		return 1;
+		return failReport(__LINE__);
 
 	// sort eVec by decending eVal
 	if(eVal[0] < eVal[1])
@@ -520,12 +537,12 @@ int smokeTest()
 		std::swap(eVec[1], eVec[2]);
 	}
 
-	if(!glm::all(glm::equal(glm::abs(eVec[0]), vec3(0, 1, 0))))
-		return 2;
-	if(!glm::all(glm::equal(glm::abs(eVec[1]), vec3(1, 0, 0))))
-		return 3;
-	if(!glm::all(glm::equal(glm::abs(eVec[2]), vec3(0, 0, 1))))
-		return 4;
+	if(!vectorEpsilonEqual(glm::abs(eVec[0]), vec3(0, 1, 0)))
+		return failReport(__LINE__);
+	if(!vectorEpsilonEqual(glm::abs(eVec[1]), vec3(1, 0, 0)))
+		return failReport(__LINE__);
+	if(!vectorEpsilonEqual(glm::abs(eVec[2]), vec3(0, 0, 1)))
+		return failReport(__LINE__);
 
 	return 0;
 }
@@ -586,7 +603,7 @@ int rndTest(unsigned int randomEngineSeed)
 	glm::dmat3 evecs;
 	int evcnt = glm::findEigenvaluesSymReal(covarMat, evals, evecs);
 	if(evcnt != 3)
-		return 1;
+		return failReport(__LINE__);
 	glm::sortEigenvalues(evals, evecs);
 
 	//printf("\n");
@@ -595,11 +612,11 @@ int rndTest(unsigned int randomEngineSeed)
 	//printf("evec1: %.10lf, %.10lf, %.10lf\n", evecs[1].x, evecs[1].y, evecs[1].z);
 
 	if(glm::length(glm::abs(x) - glm::abs(evecs[0])) > 0.000001)
-		return 1;
+		return failReport(__LINE__);
 	if(glm::length(glm::abs(y) - glm::abs(evecs[2])) > 0.000001)
-		return 1;
+		return failReport(__LINE__);
 	if(glm::length(glm::abs(z) - glm::abs(evecs[1])) > 0.000001)
-		return 1;
+		return failReport(__LINE__);
 
 	return 0;
 }
@@ -609,56 +626,56 @@ int main()
 
 	// A small smoke test to fail early with most problems
 	if(smokeTest())
-		return __LINE__;
+		return failReport(__LINE__);
 
 	// test sorting utility.
 	if(testEigenvalueSort<2, float, glm::defaultp>() != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 	if(testEigenvalueSort<2, double, glm::defaultp>() != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 	if(testEigenvalueSort<3, float, glm::defaultp>() != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 	if(testEigenvalueSort<3, double, glm::defaultp>() != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 	if(testEigenvalueSort<4, float, glm::defaultp>() != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 	if(testEigenvalueSort<4, double, glm::defaultp>() != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 
 	// Note: the random engine uses a fixed seed to create consistent and reproducible test data
 	// test covariance matrix computation from different data sources
 	if(testCovar<2, float, glm::defaultp>(100, 12345) != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 	if(testCovar<2, double, glm::defaultp>(100, 42) != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 	if(testCovar<3, float, glm::defaultp>(100, 2021) != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 	if(testCovar<3, double, glm::defaultp>(100, 815) != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 	if(testCovar<4, float, glm::defaultp>(100, 3141) != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 	if(testCovar<4, double, glm::defaultp>(100, 174) != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 
 	// test PCA eigen vector reconstruction
 	if(testEigenvectors<2, float, glm::defaultp>() != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 	if(testEigenvectors<2, double, glm::defaultp>() != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 	if(testEigenvectors<3, float, glm::defaultp>() != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 	if(testEigenvectors<3, double, glm::defaultp>() != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 	if (testEigenvectors<4, float, glm::defaultp>() != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 	if (testEigenvectors<4, double, glm::defaultp>() != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 
 	// Final tests with randomized data
 	if(rndTest(12345) != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 	if(rndTest(42) != 0)
-		return __LINE__;
+		return failReport(__LINE__);
 
 	return 0;
 }
