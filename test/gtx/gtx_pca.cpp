@@ -4,7 +4,9 @@
 #include <glm/gtc/epsilon.hpp>
 
 #include <vector>
+#ifdef GLM_HAS_CXX11_STL
 #include <random>
+#endif
 
 template<glm::length_t D, typename T, glm::qualifier Q>
 bool vectorEpsilonEqual(glm::vec<D, T, Q> const& a, glm::vec<D, T, Q> const& b)
@@ -366,30 +368,30 @@ int testEigenvalueSort()
 	};
 	// The permutations t perform, based on `D` (1 <= D <= 4)
 	static const glm::ivec4 permutation[] = {
-		{ 0, 1, 2, 3 },
-		{ 1, 0, 2, 3 }, // last for D = 2
-		{ 0, 2, 1, 3 },
-		{ 1, 2, 0, 3 },
-		{ 2, 0, 1, 3 },
-		{ 2, 1, 0, 3 }, // last for D = 3
-		{ 0, 1, 3, 2 },
-		{ 1, 0, 3, 2 },
-		{ 0, 2, 3, 1 },
-		{ 1, 2, 3, 0 },
-		{ 2, 0, 3, 1 },
-		{ 2, 1, 3, 0 },
-		{ 0, 3, 1, 2 },
-		{ 1, 3, 0, 2 },
-		{ 0, 3, 2, 1 },
-		{ 1, 3, 2, 0 },
-		{ 2, 3, 0, 1 },
-		{ 2, 3, 1, 0 },
-		{ 3, 0, 1, 2 },
-		{ 3, 1, 0, 2 },
-		{ 3, 0, 2, 1 },
-		{ 3, 1, 2, 0 },
-		{ 3, 2, 0, 1 },
-		{ 3, 2, 1, 0 }  // last for D = 4
+		glm::ivec4(0, 1, 2, 3),
+		glm::ivec4(1, 0, 2, 3), // last for D = 2
+		glm::ivec4(0, 2, 1, 3),
+		glm::ivec4(1, 2, 0, 3),
+		glm::ivec4(2, 0, 1, 3),
+		glm::ivec4(2, 1, 0, 3), // last for D = 3
+		glm::ivec4(0, 1, 3, 2),
+		glm::ivec4(1, 0, 3, 2),
+		glm::ivec4(0, 2, 3, 1),
+		glm::ivec4(1, 2, 3, 0),
+		glm::ivec4(2, 0, 3, 1),
+		glm::ivec4(2, 1, 3, 0),
+		glm::ivec4(0, 3, 1, 2),
+		glm::ivec4(1, 3, 0, 2),
+		glm::ivec4(0, 3, 2, 1),
+		glm::ivec4(1, 3, 2, 0),
+		glm::ivec4(2, 3, 0, 1),
+		glm::ivec4(2, 3, 1, 0),
+		glm::ivec4(3, 0, 1, 2),
+		glm::ivec4(3, 1, 0, 2),
+		glm::ivec4(3, 0, 2, 1),
+		glm::ivec4(3, 1, 2, 0),
+		glm::ivec4(3, 2, 0, 1),
+		glm::ivec4(3, 2, 1, 0)  // last for D = 4
 	};
 
 	// initial sanity check
@@ -439,6 +441,7 @@ int testCovar(glm::length_t dataSize, unsigned int randomEngineSeed)
 		return failReport(__LINE__);
 
 	// #2: test function variant consitency with random data
+#ifdef GLM_HAS_CXX11_STL
 	std::default_random_engine rndEng(randomEngineSeed);
 	std::normal_distribution<T> normalDist;
 	testData.resize(dataSize);
@@ -454,8 +457,8 @@ int testCovar(glm::length_t dataSize, unsigned int randomEngineSeed)
 
 	std::vector<vec> centeredTestData;
 	centeredTestData.reserve(testData.size());
-	std::vector<vec>::const_iterator e = testData.end();
-	for(std::vector<vec>::const_iterator i = testData.begin(); i != e; ++i)
+	typename std::vector<vec>::const_iterator e = testData.end();
+	for(typename std::vector<vec>::const_iterator i = testData.begin(); i != e; ++i)
 		centeredTestData.push_back((*i) - center);
 
 	mat c1 = glm::computeCovarianceMatrix(centeredTestData.data(), centeredTestData.size());
@@ -469,7 +472,9 @@ int testCovar(glm::length_t dataSize, unsigned int randomEngineSeed)
 		return failReport(__LINE__);
 	if(!matrixEpsilonEqual(c1, c4))
 		return failReport(__LINE__);
-
+#else // GLM_HAS_CXX11_STL
+	printf("dummy: %d %d\n", static_cast<int>(randomEngineSeed), static_cast<int>(dataSize));
+#endif // GLM_HAS_CXX11_STL
 	return 0;
 }
 
@@ -547,6 +552,7 @@ int smokeTest()
 	return 0;
 }
 
+#ifdef GLM_HAS_CXX11_STL
 int rndTest(unsigned int randomEngineSeed)
 {
 	std::default_random_engine rndEng(randomEngineSeed);
@@ -620,6 +626,7 @@ int rndTest(unsigned int randomEngineSeed)
 
 	return 0;
 }
+#endif // GLM_HAS_CXX11_STL
 
 int main()
 {
@@ -672,10 +679,12 @@ int main()
 		return failReport(__LINE__);
 
 	// Final tests with randomized data
+#ifdef GLM_HAS_CXX11_STL
 	if(rndTest(12345) != 0)
 		return failReport(__LINE__);
 	if(rndTest(42) != 0)
 		return failReport(__LINE__);
+#endif // GLM_HAS_CXX11_STL
 
 	return 0;
 }
