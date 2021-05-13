@@ -122,7 +122,9 @@
 #	if !defined(CUDA_VERSION) && !defined(GLM_FORCE_CUDA)
 #		include <cuda.h>  // make sure version is defined since nvcc does not define it itself!
 #	endif
-#	if CUDA_VERSION >= 8000
+# if defined(__CUDACC_RTC__)
+#		define GLM_COMPILER GLM_COMPILER_CUDA_RTC
+#	elif CUDA_VERSION >= 8000
 #		define GLM_COMPILER GLM_COMPILER_CUDA80
 #	elif CUDA_VERSION >= 7500
 #		define GLM_COMPILER GLM_COMPILER_CUDA75
