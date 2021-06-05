@@ -53,6 +53,12 @@ bool matrixEpsilonEqual(glm::mat<D, D, T, Q> const& a, glm::mat<D, D, T, Q> cons
 }
 
 template<typename T>
+GLM_INLINE bool sameSign(T const& a, T const& b)
+{
+	return ((a >= 0) && (b >= 0)) || ((a < 0) && (b < 0));
+}
+
+template<typename T>
 T failReport(T line)
 {
 	fprintf(stderr, "Failed in line %d\n", static_cast<int>(line));
@@ -518,7 +524,7 @@ int testEigenvectors(T epsilon)
 	{
 		vec act = glm::normalize(eigenvectors[i]);
 		vec exp = glm::normalize(_1aga::expectedEigenvectors<D>()[i]);
-		if (glm::sign(act[0]) != glm::sign(exp[0])) exp = -exp;
+		if (!sameSign(act[0], exp[0])) exp = -exp;
 		if (!vectorEpsilonEqual(act, exp, epsilon))
 			return failReport(__LINE__);
 	}
@@ -631,13 +637,13 @@ int rndTest(unsigned int randomEngineSeed)
 		return failReport(__LINE__);
 	glm::sortEigenvalues(evals, evecs);
 
-	if (glm::sign(evecs[0][0]) != glm::sign(x[0])) evecs[0] = -evecs[0];
+	if (!sameSign(evecs[0][0], x[0])) evecs[0] = -evecs[0];
 	if(!vectorEpsilonEqual(x, evecs[0], myEpsilon<double>()))
 		return failReport(__LINE__);
-	if (glm::sign(evecs[2][0]) != glm::sign(y[0])) evecs[2] = -evecs[2];
+	if (!sameSign(evecs[2][0], y[0])) evecs[2] = -evecs[2];
 	if (!vectorEpsilonEqual(y, evecs[2], myEpsilon<double>()))
 		return failReport(__LINE__);
-	if (glm::sign(evecs[1][0]) != glm::sign(z[0])) evecs[1] = -evecs[1];
+	if (!sameSign(evecs[1][0], z[0])) evecs[1] = -evecs[1];
 	if (!vectorEpsilonEqual(z, evecs[1], myEpsilon<double>()))
 		return failReport(__LINE__);
 
