@@ -17,30 +17,38 @@ GLM_INLINE GLM_CONSTEXPR float myEpsilon<float>() { return 0.00001f; }
 template<>
 GLM_INLINE GLM_CONSTEXPR double myEpsilon<double>() { return 0.000001; }
 
-template<typename T>
-T myEpsilon2();
-template<>
-GLM_INLINE GLM_CONSTEXPR float myEpsilon2<float>() { return 0.01f; }
-template<>
-GLM_INLINE GLM_CONSTEXPR double myEpsilon2<double>() { return 0.000001; }
-
-
 template<glm::length_t D, typename T, glm::qualifier Q>
-bool vectorEpsilonEqual(glm::vec<D, T, Q> const& a, glm::vec<D, T, Q> const& b)
+bool vectorEpsilonEqual(glm::vec<D, T, Q> const& a, glm::vec<D, T, Q> const& b, T epsilon)
 {
 	for (int c = 0; c < D; ++c)
-		if (!glm::epsilonEqual(a[c], b[c], myEpsilon<T>()))
+		if (!glm::epsilonEqual(a[c], b[c], epsilon))
+		{
+			fprintf(stderr, "failing vectorEpsilonEqual: [%d] %lf != %lf (~%lf)\n",
+				c,
+				static_cast<double>(a[c]),
+				static_cast<double>(b[c]),
+				static_cast<double>(epsilon)
+			);
 			return false;
+		}
 	return true;
 }
 
 template<glm::length_t D, typename T, glm::qualifier Q>
-bool matrixEpsilonEqual(glm::mat<D, D, T, Q> const& a, glm::mat<D, D, T, Q> const& b)
+bool matrixEpsilonEqual(glm::mat<D, D, T, Q> const& a, glm::mat<D, D, T, Q> const& b, T epsilon)
 {
 	for (int c = 0; c < D; ++c)
 		for (int r = 0; r < D; ++r)
-			if (!glm::epsilonEqual(a[c][r], b[c][r], myEpsilon<T>()))
+			if (!glm::epsilonEqual(a[c][r], b[c][r], epsilon))
+			{
+				fprintf(stderr, "failing vectorEpsilonEqual: [%d][%d] %lf != %lf (~%lf)\n",
+					c, r,
+					static_cast<double>(a[c][r]),
+					static_cast<double>(b[c][r]),
+					static_cast<double>(epsilon)
+				);
 				return false;
+			}
 	return true;
 }
 
@@ -200,153 +208,123 @@ namespace _1aga
 				outTestData[i][d] = static_cast<typename vec::value_type>(_1aga[i * 4 + d]);
 	}
 
-	void getExpectedCovarDataPtr(const double*& ptr)
+	// All reference values computed separately using symbolic precision
+	// https://github.com/sgrottel/exp-pca-precision
+	// This applies to all functions named: `_1aga::expected*()`
+
+	GLM_INLINE glm::dmat4 const& expectedCovarData()
 	{
-		static const double _1agaCovar4x4d[] = {
-			9.624340680272107, -0.000066573696146, -4.293213765684049, 0.018793741874528,
-			-0.000066573696146, 9.624439378684805, 5.351138726379443, -0.115692591458806,
-			-4.293213765684049, 5.351138726379443, 35.628485496346691, 0.908742392542202,
-			0.018793741874528, -0.115692591458806, 0.908742392542202, 1.097059718568909
-		};
-		ptr = _1agaCovar4x4d;
-	}
-	void getExpectedCovarDataPtr(const float*& ptr)
-	{
-		// note: the value difference to `_1agaCovar4x4d` is due to the numeric error propagation during computation of the covariance matrix.
-		static const float _1agaCovar4x4f[] = {
-			9.624336242675781f, -0.000066711785621f, -4.293214797973633f, 0.018793795257807f,
-			-0.000066711785621f, 9.624438285827637f, 5.351140022277832f, -0.115692682564259f,
-			-4.293214797973633f, 5.351140022277832f, 35.628479003906250f, 0.908742427825928f,
-			0.018793795257807f, -0.115692682564259f, 0.908742427825928f, 1.097059369087219f
-		};
-		ptr = _1agaCovar4x4f;
+		static const glm::dmat4 covar4x4d(
+			9.62434068027210898322, -0.00006657369614512471, -4.29321376568405099761, 0.01879374187452758846,
+			-0.00006657369614512471, 9.62443937868480681175, 5.35113872637944076871, -0.11569259145880574080,
+			-4.29321376568405099761, 5.35113872637944076871, 35.62848549634668415820, 0.90874239254220201545,
+			0.01879374187452758846, -0.11569259145880574080, 0.90874239254220201545, 1.09705971856890904803
+		);
+		return covar4x4d;
 	}
 
-	template<glm::length_t D, typename T, glm::qualifier Q>
-	int checkCovarMat(glm::mat<D, D, T, Q> const& covarMat)
+	template<glm::length_t D>
+	GLM_INLINE glm::vec<D, double, glm::defaultp> const& expectedEigenvalues();
+	template<>
+	GLM_INLINE glm::dvec2 const& expectedEigenvalues<2>()
 	{
-		const T* expectedCovarData = GLM_NULLPTR;
-		getExpectedCovarDataPtr(expectedCovarData);
-		for(glm::length_t x = 0; x < D; ++x)
-			for(glm::length_t y = 0; y < D; ++y)
-				if(!glm::equal(covarMat[y][x], expectedCovarData[x * 4 + y], myEpsilon<T>()))
-				{
-					fprintf(stderr, "E: %.15lf != %.15lf ; diff: %.20lf\n",
-						static_cast<double>(covarMat[y][x]),
-						static_cast<double>(expectedCovarData[x * 4 + y]),
-						static_cast<double>(covarMat[y][x] - expectedCovarData[x * 4 + y])
-					);
-					return failReport(__LINE__);
-				}
-		return 0;
+		static const glm::dvec2 evals2(
+			9.62447289926297399961763301774251330057894539467032275382255,
+			9.62430715969394210015560961264297422776572580714373620309355
+		);
+		return evals2;
+	}
+	template<>
+	GLM_INLINE glm::dvec3 const& expectedEigenvalues<3>()
+	{
+		static const glm::dvec3 evals3(
+				37.3274494274683425233695502581182052836449738530676689472257,
+				9.62431434161498823505729817436585077939509766554969096873168,
+				7.92550178622027216422369326567668971675332732240052872097887
+			);
+		return evals3;
+	}
+	template<>
+	GLM_INLINE glm::dvec4 const& expectedEigenvalues<4>()
+	{
+		static const glm::dvec4 evals4(
+				37.3477389918792213596879452204499702406947817221901007885630,
+				9.62470688921105696017807313860277172063600080413412567999700,
+				7.94017075281634999342344275928070533134615133171969063657713,
+				1.06170863996588365446060186982477896078741484440002343404155
+			);
+		return evals4;
 	}
 
-	template<glm::length_t D, typename T> void getExpectedEigenvaluesEigenvectorsDataPtr(const T*& evals, const T*& evecs);
-	template<> void getExpectedEigenvaluesEigenvectorsDataPtr<2, float>(const float*& evals, const float*& evecs)
+	template<glm::length_t D>
+	GLM_INLINE glm::mat<D, D, double, glm::defaultp> const& expectedEigenvectors();
+	template<>
+	GLM_INLINE glm::dmat2 const& expectedEigenvectors<2>()
 	{
-		static const float expectedEvals[] = {
-			9.624471664428711f, 9.624302864074707f
-		};
-		static const float expectedEvecs[] = {
-			-0.443000972270966f, 0.896521151065826f,
-			0.896521151065826f, 0.443000972270966f
-		};
-		evals = expectedEvals;
-		evecs = expectedEvecs;
+		static const glm::dmat2 evecs2(
+			glm::dvec2(
+				-0.503510847492551904906870957742619139443409162857537237123308,
+				1
+			),
+			glm::dvec2(
+				1.98605453086051402895741763848787613048533838388005162794043,
+				1
+			)
+		);
+		return evecs2;
 	}
-	template<> void getExpectedEigenvaluesEigenvectorsDataPtr<2, double>(const double*& evals, const double*& evecs)
+	template<>
+	GLM_INLINE glm::dmat3 const& expectedEigenvectors<3>()
 	{
-		static const double expectedEvals[] = {
-			9.624472899262972, 9.624307159693940
-		};
-		static const double expectedEvecs[] = {
-			-0.449720461624363, 0.893169360421846,
-			0.893169360421846, 0.449720461624363
-		};
-		evals = expectedEvals;
-		evecs = expectedEvecs;
+		static const glm::dmat3 evecs3(
+			glm::dvec3(
+				-0.154972738414395866005286433008304444294405085038689821864654,
+				0.193161285869815165989799191097521722568079378840201629578695,
+				1
+			),
+			glm::dvec3(
+				-158565.112775416943154745839952575022429933119522746586149868,
+				-127221.506282351944358932458687410410814983610301927832439675,
+				1
+			),
+			glm::dvec3(
+				2.52702248596556806145700361724323960543858113426446460406536,
+				-3.14959802931313870497377546974185300816008580801457419079412,
+				1
+			)
+		);
+		return evecs3;
 	}
-	template<> void getExpectedEigenvaluesEigenvectorsDataPtr<3, float>(const float*& evals, const float*& evecs)
+	template<>
+	GLM_INLINE glm::dmat4 const& expectedEigenvectors<4>()
 	{
-		static const float expectedEvals[] = {
-			37.327442169189453f, 9.624311447143555f, 7.925499439239502f
-		};
-		static const float expectedEvecs[] = {
-			-0.150428697466850f, 0.187497511506081f, 0.970678031444550f,
-			0.779980957508087f, 0.625803351402283f, -0.000005212802080f,
-			0.607454538345337f, -0.757109522819519f, 0.240383237600327f
-		};
-		evals = expectedEvals;
-		evecs = expectedEvecs;
-	}
-	template<> void getExpectedEigenvaluesEigenvectorsDataPtr<3, double>(const double*& evals, const double*& evecs)
-	{
-		static const double expectedEvals[] = {
-			37.327449427468345, 9.624314341614987, 7.925501786220276
-		};
-		static const double expectedEvecs[] = {
-			-0.150428640509585, 0.187497426513576, 0.970678082149394,
-			0.779981605126846, 0.625802441381904, -0.000004919018357,
-			0.607453635908278, -0.757110308615089, 0.240383154173870
-		};
-		evals = expectedEvals;
-		evecs = expectedEvecs;
-	}
-	template<> void getExpectedEigenvaluesEigenvectorsDataPtr<4, float>(const float*& evals, const float*& evecs)
-	{
-		static const float expectedEvals[] = {
-			37.347740173339844f, 9.624703407287598f, 7.940164566040039f, 1.061712265014648f
-		};
-		static const float expectedEvecs[] = {
-			-0.150269940495491f, 0.187220811843872f, 0.970467865467072f, 0.023652425035834f,
-			0.779159665107727f, 0.626788496971130f, -0.000105984276161f, -0.006797631736845f,
-			0.608242213726044f, -0.755563497543335f, 0.238818943500519f, 0.046158745884895f,
-			-0.019251370802522f, 0.034755907952785f, -0.034024771302938f, 0.998630762100220f,
-		};
-		evals = expectedEvals;
-		evecs = expectedEvecs;
-	}
-	template<> void getExpectedEigenvaluesEigenvectorsDataPtr<4, double>(const double*& evals, const double*& evecs)
-	{
-		static const double expectedEvals[] = {
-			37.347738991879226, 9.624706889211053, 7.940170752816341, 1.061708639965897
-		};
-		static const double expectedEvecs[] = {
-			-0.150269954805403, 0.187220917596058, 0.970467838469868, 0.023652551509145,
-			0.779159831346545, 0.626788431871120, -0.000105940250315, -0.006797622027466,
-			0.608241962267880, -0.755563776664248, 0.238818902950296, 0.046158707986616,
-			-0.019251317755512, 0.034755849578017, -0.034024915369495, 0.998630924225204,
-		};
-		evals = expectedEvals;
-		evecs = expectedEvecs;
-	}
-
-	template<glm::length_t D, typename T, glm::qualifier Q>
-	int checkEigenvaluesEigenvectors(
-		glm::vec<D, T, Q> const& evals,
-		glm::mat<D, D, T, Q> const& evecs)
-	{
-		const T* expectedEvals = GLM_NULLPTR;
-		const T* expectedEvecs = GLM_NULLPTR;
-		getExpectedEigenvaluesEigenvectorsDataPtr<D, T>(expectedEvals, expectedEvecs);
-
-		for(int i = 0; i < D; ++i)
-			if(!glm::equal(evals[i], expectedEvals[i], myEpsilon<T>()))
-				return failReport(__LINE__);
-
-		for (int i = 0; i < D; ++i)
-			for (int d = 0; d < D; ++d)
-				if (!glm::equal(evecs[i][d], expectedEvecs[i * D + d], myEpsilon2<T>()))
-				{
-					fprintf(stderr, "E: %.15lf != %.15lf ; diff: %.20lf\n",
-						static_cast<double>(evecs[i][d]),
-						static_cast<double>(expectedEvecs[i * D + d]),
-						static_cast<double>(evecs[i][d] - expectedEvecs[i * D + d])
-					);
-					return failReport(__LINE__);
-				}
-
-		return 0;
+		static const glm::dmat4 evecs4(
+			glm::dvec4(
+				-6.35322390281037045217295803597357821705371650876122113027264,
+				7.91546394153385394517767054617789939529794642646629201212056,
+				41.0301543819240679808549819457450130787045236815736490549663,
+				1
+			),
+			glm::dvec4(
+				-114.622418941087829756565311692197154422302604224781253861297,
+				-92.2070185807065289900871215218752013659402949497379896153118,
+				0.0155846091025912430932734548933329458404665760587569100867246,
+				1
+			),
+			glm::dvec4(
+				13.1771887761559019483954743159026938257325190511642952175789,
+				-16.3688257459634877666638419310116970616615816436949741766895,
+				5.17386502341472097227408249233288958059579189051394773143190,
+				1
+			),
+			glm::dvec4(
+				-0.0192777078948229800494895064532553117703859768210647632969276,
+				0.0348034950916108873629241563077465542944938906271231198634442,
+				-0.0340715609308469289267379681032545422644143611273049912226126,
+				1
+			)
+		);
+		return evecs4;
 	}
 
 } // namespace _1aga
@@ -425,9 +403,9 @@ int testEigenvalueSort()
 	};
 
 	// initial sanity check
-	if(!vectorEpsilonEqual(refVal, refVal))
+	if(!vectorEpsilonEqual(refVal, refVal, myEpsilon<T>()))
 		return failReport(__LINE__);
-	if(!matrixEpsilonEqual(refVec, refVec))
+	if(!matrixEpsilonEqual(refVec, refVec, myEpsilon<T>()))
 		return failReport(__LINE__);
 
 	// Exhaustive search through all permutations
@@ -443,9 +421,9 @@ int testEigenvalueSort()
 
 		glm::sortEigenvalues(testVal, testVec);
 
-		if (!vectorEpsilonEqual(testVal, refVal))
+		if (!vectorEpsilonEqual(testVal, refVal, myEpsilon<T>()))
 			return failReport(__LINE__);
-		if (!matrixEpsilonEqual(testVec, refVec))
+		if (!matrixEpsilonEqual(testVec, refVec, myEpsilon<T>()))
 			return failReport(__LINE__);
 	}
 
@@ -473,7 +451,7 @@ int testCovar(
 	vec center = computeCenter(testData);
 
 	mat covarMat = glm::computeCovarianceMatrix(testData.data(), testData.size(), center);
-	if(_1aga::checkCovarMat(covarMat))
+	if(!matrixEpsilonEqual(covarMat, mat(_1aga::expectedCovarData()), myEpsilon<T>()))
 	{
 		fprintf(stderr, "Reconstructed covarMat:\n%s\n", glm::to_string(covarMat).c_str());
 		return failReport(__LINE__);
@@ -505,27 +483,27 @@ int testCovar(
 	mat c3 = glm::computeCovarianceMatrix(testData.data(), testData.size(), center);
 	mat c4 = glm::computeCovarianceMatrix<D, T, Q>(testData.rbegin(), testData.rend(), center);
 
-	if(!matrixEpsilonEqual(c1, c2))
+	if(!matrixEpsilonEqual(c1, c2, myEpsilon<T>()))
 		return failReport(__LINE__);
-	if(!matrixEpsilonEqual(c1, c3))
+	if(!matrixEpsilonEqual(c1, c3, myEpsilon<T>()))
 		return failReport(__LINE__);
-	if(!matrixEpsilonEqual(c1, c4))
+	if(!matrixEpsilonEqual(c1, c4, myEpsilon<T>()))
 		return failReport(__LINE__);
 #endif // GLM_HAS_CXX11_STL == 1
 	return 0;
 }
 
+// Computes eigenvalues and eigenvectors from well-known covariance matrix
 template<glm::length_t D, typename T, glm::qualifier Q>
-int testEigenvectors()
+int testEigenvectors(T epsilon)
 {
 	typedef glm::vec<D, T, Q> vec;
 	typedef glm::mat<D, D, T, Q> mat;
 
 	// test expected result with fixed data set
 	std::vector<vec> testData;
-	_1aga::fillTestData(testData);
-	vec center = computeCenter(testData);
-	mat covarMat = glm::computeCovarianceMatrix(testData.data(), testData.size(), center);
+	mat covarMat(_1aga::expectedCovarData());
+
 	vec eigenvalues;
 	mat eigenvectors;
 	unsigned int c = glm::findEigenvaluesSymReal(covarMat, eigenvalues, eigenvectors);
@@ -533,16 +511,25 @@ int testEigenvectors()
 		return failReport(__LINE__);
 	glm::sortEigenvalues(eigenvalues, eigenvectors);
 
-	if(_1aga::checkEigenvaluesEigenvectors(eigenvalues, eigenvectors) != 0)
+	if (!vectorEpsilonEqual(eigenvalues, vec(_1aga::expectedEigenvalues<D>()), epsilon))
 		return failReport(__LINE__);
+
+	for (int i = 0; i < D; ++i)
+	{
+		vec act = glm::normalize(eigenvectors[i]);
+		vec exp = glm::normalize(_1aga::expectedEigenvectors<D>()[i]);
+		if (glm::sign(act[0]) != glm::sign(exp[0])) exp = -exp;
+		if (!vectorEpsilonEqual(act, exp, epsilon))
+			return failReport(__LINE__);
+	}
 
 	return 0;
 }
 
-/// A simple small smoke test:
-/// - a uniformly sampled block
-/// - reconstruct main axes
-/// - check order of eigenvalues equals order of extends of block in direction of main axes
+// A simple small smoke test:
+// - a uniformly sampled block
+// - reconstruct main axes
+// - check order of eigenvalues equals order of extends of block in direction of main axes
 int smokeTest()
 {
 	using glm::vec3;
@@ -579,11 +566,11 @@ int smokeTest()
 		std::swap(eVec[1], eVec[2]);
 	}
 
-	if(!vectorEpsilonEqual(glm::abs(eVec[0]), vec3(0, 1, 0)))
+	if(!vectorEpsilonEqual(glm::abs(eVec[0]), vec3(0, 1, 0), myEpsilon<float>()))
 		return failReport(__LINE__);
-	if(!vectorEpsilonEqual(glm::abs(eVec[1]), vec3(1, 0, 0)))
+	if(!vectorEpsilonEqual(glm::abs(eVec[1]), vec3(1, 0, 0), myEpsilon<float>()))
 		return failReport(__LINE__);
-	if(!vectorEpsilonEqual(glm::abs(eVec[2]), vec3(0, 0, 1)))
+	if(!vectorEpsilonEqual(glm::abs(eVec[2]), vec3(0, 0, 1), myEpsilon<float>()))
 		return failReport(__LINE__);
 
 	return 0;
@@ -615,14 +602,9 @@ int rndTest(unsigned int randomEngineSeed)
 	glm::dvec3 z = glm::normalize(glm::cross(x, y));
 	y = glm::normalize(glm::cross(z, x));
 
-	//printf("\n");
-	//printf("x: %.10lf, %.10lf, %.10lf\n", x.x, x.y, x.z);
-	//printf("y: %.10lf, %.10lf, %.10lf\n", y.x, y.y, y.z);
-	//printf("z: %.10lf, %.10lf, %.10lf\n", z.x, z.y, z.z);
-
 	// generate input point data
 	std::vector<glm::dvec3> ptData;
-	static const int patters[] = {
+	static const int pattern[] = {
 		8, 0, 0,
 		4, 1, 2,
 		0, 2, 0,
@@ -635,9 +617,9 @@ int rndTest(unsigned int randomEngineSeed)
 				for(int zs = 1; zs >= -1; zs -= 2)
 					ptData.push_back(
 						offset
-						+ x * static_cast<double>(patters[p * 3 + 0] * xs)
-						+ y * static_cast<double>(patters[p * 3 + 1] * ys)
-						+ z * static_cast<double>(patters[p * 3 + 2] * zs));
+						+ x * static_cast<double>(pattern[p * 3 + 0] * xs)
+						+ y * static_cast<double>(pattern[p * 3 + 1] * ys)
+						+ z * static_cast<double>(pattern[p * 3 + 2] * zs));
 
 	// perform PCA:
 	glm::dvec3 center = computeCenter(ptData);
@@ -649,16 +631,14 @@ int rndTest(unsigned int randomEngineSeed)
 		return failReport(__LINE__);
 	glm::sortEigenvalues(evals, evecs);
 
-	//printf("\n");
-	//printf("evec0: %.10lf, %.10lf, %.10lf\n", evecs[0].x, evecs[0].y, evecs[0].z);
-	//printf("evec2: %.10lf, %.10lf, %.10lf\n", evecs[2].x, evecs[2].y, evecs[2].z);
-	//printf("evec1: %.10lf, %.10lf, %.10lf\n", evecs[1].x, evecs[1].y, evecs[1].z);
-
-	if(glm::length(glm::abs(x) - glm::abs(evecs[0])) > myEpsilon<double>())
+	if (glm::sign(evecs[0][0]) != glm::sign(x[0])) evecs[0] = -evecs[0];
+	if(!vectorEpsilonEqual(x, evecs[0], myEpsilon<double>()))
 		return failReport(__LINE__);
-	if(glm::length(glm::abs(y) - glm::abs(evecs[2])) > myEpsilon<double>())
+	if (glm::sign(evecs[2][0]) != glm::sign(y[0])) evecs[2] = -evecs[2];
+	if (!vectorEpsilonEqual(y, evecs[2], myEpsilon<double>()))
 		return failReport(__LINE__);
-	if(glm::length(glm::abs(z) - glm::abs(evecs[1])) > myEpsilon<double>())
+	if (glm::sign(evecs[1][0]) != glm::sign(z[0])) evecs[1] = -evecs[1];
+	if (!vectorEpsilonEqual(z, evecs[1], myEpsilon<double>()))
 		return failReport(__LINE__);
 
 	return 0;
@@ -707,17 +687,19 @@ int main()
 		return error;
 
 	// test PCA eigen vector reconstruction
-	if(testEigenvectors<2, float, glm::defaultp>() != 0)
+	// Expected epsilon precision evaluated separately:
+	// https://github.com/sgrottel/exp-pca-precision
+	if(testEigenvectors<2, float, glm::defaultp>(0.002f) != 0)
 		error = failReport(__LINE__);
-	if(testEigenvectors<2, double, glm::defaultp>() != 0)
+	if(testEigenvectors<2, double, glm::defaultp>(0.00000000001) != 0)
 		error = failReport(__LINE__);
-	if(testEigenvectors<3, float, glm::defaultp>() != 0)
+	if(testEigenvectors<3, float, glm::defaultp>(0.00001f) != 0)
 		error = failReport(__LINE__);
-	if(testEigenvectors<3, double, glm::defaultp>() != 0)
+	if(testEigenvectors<3, double, glm::defaultp>(0.0000000001) != 0)
 		error = failReport(__LINE__);
-	if(testEigenvectors<4, float, glm::defaultp>() != 0)
+	if(testEigenvectors<4, float, glm::defaultp>(0.0001f) != 0)
 		error = failReport(__LINE__);
-	if(testEigenvectors<4, double, glm::defaultp>() != 0)
+	if(testEigenvectors<4, double, glm::defaultp>(0.0000001) != 0)
 		error = failReport(__LINE__);
 	if(error != 0)
 		return error;
