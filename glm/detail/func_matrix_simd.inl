@@ -121,8 +121,10 @@ namespace glm {
 	}
 #endif // CXX11
 
+namespace detail
+{
 	template<qualifier Q>
-	struct detail::compute_inverse<4, 4, float, Q, true>
+	struct compute_inverse<4, 4, float, Q, true>
 	{
 		GLM_FUNC_QUALIFIER static mat<4, 4, float, Q> call(mat<4, 4, float, Q> const& m)
 		{
@@ -245,5 +247,6 @@ namespace glm {
 			return r;
 		}
 	};
+}//namespace detail
 }//namespace glm
 #endif
