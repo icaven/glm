@@ -240,6 +240,85 @@ int test_inverse_simd()
 	return Error;
 }
 
+int test_shearing()
+{
+    int Error = 0;
+
+    {
+        glm::vec3 const center(0, 0, 0);
+        glm::vec2 const l_x(2, 0);
+        glm::vec2 const l_y(0, 0);
+        glm::vec2 const l_z(0, 0);
+        glm::mat4x4 const A4x4(
+                glm::vec4(0, 0, 1, 1),
+                glm::vec4(0, 1, 1, 0),
+                glm::vec4(1, 1, 1, 0),
+                glm::vec4(1, 1, 0, 1));
+        glm::mat4x4 const B4x4 = glm::shear(A4x4, center, l_x, l_y, l_z);
+        glm::mat4x4 const expected(
+                glm::vec4(0, 0, 1, 1),
+                glm::vec4(2, 1, 1, 0),
+                glm::vec4(3, 1, 1, 0),
+                glm::vec4(3, 1, 0, 1));
+        Error += all(equal(B4x4, expected, epsilon<float>())) ? 0 : 1;
+    }
+
+    {
+        glm::vec3 const center(0, 0, 0);
+        glm::vec2 const l_x(1, 0);
+        glm::vec2 const l_y(0, 1);
+        glm::vec2 const l_z(1, 0);
+        glm::mat4x4 const A4x4(
+                glm::vec4(0, 0, 1, 0),
+                glm::vec4(0, 1, 1, 0),
+                glm::vec4(1, 1, 1, 0),
+                glm::vec4(1, 0, 0, 0));
+        glm::mat4x4 const B4x4 = glm::shear(A4x4, center, l_x, l_y, l_z);
+        glm::mat4x4 const expected(
+                glm::vec4(0, 1, 1, 0),
+                glm::vec4(1, 2, 1, 0),
+                glm::vec4(2, 2, 2, 0),
+                glm::vec4(1, 0, 1, 0));
+        Error += all(equal(B4x4, expected, epsilon<float>())) ? 0 : 1;
+    }
+
+    {
+        glm::vec3 const center(3, 2, 1);
+        glm::vec2 const l_x(1, 2);
+        glm::vec2 const l_y(3, 1);
+        glm::vec2 const l_z(4, 5);
+        glm::mat4x4 const A4x4(1);
+        glm::mat4x4 const B4x4 = glm::shear(A4x4, center, l_x, l_y, l_z);
+        glm::mat4x4 const expected(
+                glm::vec4(1, 3, 4, 0),
+                glm::vec4(1, 1, 5, 0),
+                glm::vec4(2, 1, 1, 0),
+                glm::vec4(-9, -8, -9, 1));
+        Error += all(equal(B4x4, expected, epsilon<float>())) ? 0 : 1;
+    }
+
+    {
+        glm::vec3 const center(3, 2, 1);
+        glm::vec2 const l_x(1, 2);
+        glm::vec2 const l_y(3, 1);
+        glm::vec2 const l_z(4, 5);
+        glm::mat4x4 const A4x4(
+                glm::vec4(-3, 2, 1, 0),
+                glm::vec4(3, 2, 1, 0),
+                glm::vec4(4, -8, 0, 0),
+                glm::vec4(7, 1, -2, 0));
+        glm::mat4x4 const B4x4 = glm::shear(A4x4, center, l_x, l_y, l_z);
+        glm::mat4x4 const expected(
+                glm::vec4(1, -6, -1, 0),
+                glm::vec4(7, 12, 23, 0),
+                glm::vec4(-4, 4, -24, 0),
+                glm::vec4(4, 20, 31, 0));
+        Error += all(equal(B4x4, expected, epsilon<float>())) ? 0 : 1;
+    }
+
+    return Error;
+}
+
 template<typename VEC3, typename MAT4>
 int test_inverse_perf(std::size_t Count, std::size_t Instance, char const * Message)
 {
@@ -293,7 +372,8 @@ int main()
 	Error += test_transpose();
 	Error += test_determinant();
 	Error += test_inverse();
-	Error += test_inverse_simd();
+    Error += test_inverse_simd();
+    Error += test_shearing();
 
 #	ifdef NDEBUG
 	std::size_t const Samples = 1000;
