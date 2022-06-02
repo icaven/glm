@@ -423,6 +423,8 @@
 ///////////////////////////////////////////////////////////////////////////////////
 // Qualifiers
 
+// User defines: GLM_CUDA_FORCE_DEVICE_FUNC, GLM_CUDA_FORCE_HOST_FUNC
+
 #if (GLM_COMPILER & GLM_COMPILER_CUDA) || (GLM_COMPILER & GLM_COMPILER_HIP)
 #	if defined(GLM_CUDA_FORCE_DEVICE_FUNC) && defined(GLM_CUDA_FORCE_HOST_FUNC)
 #		error "GLM error: GLM_CUDA_FORCE_DEVICE_FUNC and GLM_CUDA_FORCE_HOST_FUNC should not be defined at the same time, GLM by default generates both device and host code for CUDA compiler."
