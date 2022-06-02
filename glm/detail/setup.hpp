@@ -424,8 +424,20 @@
 // Qualifiers
 
 #if (GLM_COMPILER & GLM_COMPILER_CUDA) || (GLM_COMPILER & GLM_COMPILER_HIP)
-#	define GLM_CUDA_FUNC_DEF __device__ __host__
-#	define GLM_CUDA_FUNC_DECL __device__ __host__
+#	if defined(GLM_CUDA_FORCE_DEVICE_FUNC) && defined(GLM_CUDA_FORCE_HOST_FUNC)
+#		error "GLM error: GLM_CUDA_FORCE_DEVICE_FUNC and GLM_CUDA_FORCE_HOST_FUNC should not be defined at the same time, GLM by default generates both device and host code for CUDA compiler."
+#	endif//defined(GLM_CUDA_FORCE_DEVICE_FUNC) && defined(GLM_CUDA_FORCE_HOST_FUNC)
+
+#	if defined(GLM_CUDA_FORCE_DEVICE_FUNC)
+#		define GLM_CUDA_FUNC_DEF __device__
+#		define GLM_CUDA_FUNC_DECL __device__
+#	elif defined(GLM_CUDA_FORCE_HOST_FUNC)
+#		define GLM_CUDA_FUNC_DEF __host__
+#		define GLM_CUDA_FUNC_DECL __host__
+#	else
+#		define GLM_CUDA_FUNC_DEF __device__ __host__
+#		define GLM_CUDA_FUNC_DECL __device__ __host__
+#	endif//defined(GLM_CUDA_FORCE_XXXX_FUNC)
 #else
 #	define GLM_CUDA_FUNC_DEF
 #	define GLM_CUDA_FUNC_DECL
