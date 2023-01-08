@@ -17,23 +17,26 @@ jobs:
     - name: Check out repository code
       uses: actions/checkout@v3
       
+    - name: Set env
+      run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      
     - name: Prepare layout
       run: mv copying.txt glm
       
     - name: Create zip archive
-      run: zip -r glm-${{ github.ref }}-light.zip glm
+      run: zip -r glm-${{ env.RELEASE_VERSION }}-light.zip glm
       
     - name: Create 7z archive
-      run: 7z a glm-${{ github.ref }}-light.7z glm
+      run: 7z a glm-${{ env.RELEASE_VERSION }}-light.7z glm
       
     - uses: actions/upload-artifact@v3
       with:
-        name: glm-${{ github.ref }}-light
-        path: glm-${{ github.ref }}-light.*
+        name: glm-${{ env.RELEASE_VERSION }}-light
+        path: glm-${{ env.RELEASE_VERSION }}-light.*
         
     - name: Add to Release
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          glm-${{ github.ref }}-light.zip
-          glm-${{ github.ref }}-light.7z
+          glm-${{ env.RELEASE_VERSION }}-light.zip
+          glm-${{ env.RELEASE_VERSION }}-light.7z
