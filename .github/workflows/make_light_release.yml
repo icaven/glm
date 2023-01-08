@@ -32,7 +32,8 @@ jobs:
         path: glm-${{ github.ref }}-light.*
         
     - name: Add to Release
-        uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v1
+      with:
         files: |
           glm-${{ github.ref }}-light.zip
           glm-${{ github.ref }}-light.7z
