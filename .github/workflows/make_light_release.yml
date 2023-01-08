@@ -21,12 +21,18 @@ jobs:
       run: mv copying.txt glm
       
     - name: Create zip archive
-      run: zip -r glm-${{ github.GITHUB_REF }}-light.zip glm
+      run: zip -r glm-${{ github.ref }}-light.zip glm
       
     - name: Create 7z archive
-      run: 7z a glm-${{ github.GITHUB_REF }}-light.7z glm
+      run: 7z a glm-${{ github.ref }}-light.7z glm
       
     - uses: actions/upload-artifact@v3
       with:
-        name: glm-${{ github.GITHUB_REF }}-light
-        path: glm-${{ github.GITHUB_REF }}-light.*
+        name: glm-${{ github.ref }}-light
+        path: glm-${{ github.ref }}-light.*
+        
+    - name: Add to Release
+        uses: softprops/action-gh-release@v1
+        files: |
+          glm-${{ github.ref }}-light.zip
+          glm-${{ github.ref }}-light.7z
