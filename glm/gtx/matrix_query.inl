@@ -99,14 +99,14 @@ namespace glm
 		bool result = true;
 		for(length_t i(0); result && i < m.length() - 1; ++i)
 		for(length_t j(i + 1); result && j < m.length(); ++j)
-			result = areOrthogonal(m[i], m[j], epsilon);
+			result = areOrthonormal(m[i], m[j], epsilon);
 
 		if(result)
 		{
 			mat<C, R, T, Q> tmp = transpose(m);
 			for(length_t i(0); result && i < m.length() - 1 ; ++i)
 			for(length_t j(i + 1); result && j < m.length(); ++j)
-				result = areOrthogonal(tmp[i], tmp[j], epsilon);
+				result = areOrthonormal(tmp[i], tmp[j], epsilon);
 		}
 		return result;
 	}
