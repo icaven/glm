@@ -212,16 +212,14 @@
 // N2346
 #if GLM_COMPILER & GLM_COMPILER_CLANG
 #	define GLM_HAS_DEFAULTED_FUNCTIONS __has_feature(cxx_defaulted_functions)
-#elif GLM_COMPILER & GLM_COMPILER_CUDA
-	// Do not use defaulted functions for CUDA compiler when function qualifiers are present
-#	define GLM_HAS_DEFAULTED_FUNCTIONS 0
 #elif GLM_LANG & GLM_LANG_CXX11_FLAG
 #	define GLM_HAS_DEFAULTED_FUNCTIONS 1
 #else
 #	define GLM_HAS_DEFAULTED_FUNCTIONS ((GLM_LANG & GLM_LANG_CXX0X_FLAG) && (\
 		((GLM_COMPILER & GLM_COMPILER_VC) && (GLM_COMPILER >= GLM_COMPILER_VC12)) || \
 		((GLM_COMPILER & GLM_COMPILER_INTEL)) || \
-		((GLM_COMPILER & GLM_COMPILER_HIP))))
+		(GLM_COMPILER & GLM_COMPILER_CUDA)) || \
+		((GLM_COMPILER & GLM_COMPILER_HIP)))
 #endif
 
 // N2118
