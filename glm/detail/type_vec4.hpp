@@ -97,7 +97,7 @@ namespace glm
 
 		// -- Implicit basic constructors --
 
-		GLM_DEFAULTED_FUNC_DECL GLM_CONSTEXPR vec() GLM_DEFAULT_CTOR;
+		GLM_DEFAULTED_DEFAULT_CTOR_DECL GLM_CONSTEXPR vec() GLM_DEFAULT_CTOR;
 		GLM_DEFAULTED_FUNC_DECL GLM_CONSTEXPR vec(vec<4, T, Q> const& v) GLM_DEFAULT;
 		template<qualifier P>
 		GLM_FUNC_DECL GLM_CONSTEXPR vec(vec<4, T, P> const& v);
