@@ -25,7 +25,7 @@ namespace glm
 
 #	if GLM_CONFIG_DEFAULTED_FUNCTIONS == GLM_DISABLE
 		template<typename T, qualifier Q>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat()
+		GLM_DEFAULTED_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat()
 #			if GLM_CONFIG_DEFAULTED_FUNCTIONS != GLM_DISABLE
 			: real(qua<T, Q>())
 			, dual(qua<T, Q>(0, 0, 0, 0))
@@ -33,7 +33,7 @@ namespace glm
 		{}
 
 		template<typename T, qualifier Q>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(tdualquat<T, Q> const& d)
+		GLM_DEFAULTED_FUNC_QUALIFIER GLM_CONSTEXPR tdualquat<T, Q>::tdualquat(tdualquat<T, Q> const& d)
 			: real(d.real)
 			, dual(d.dual)
 		{}
@@ -92,7 +92,7 @@ namespace glm
 
 #	if GLM_CONFIG_DEFAULTED_FUNCTIONS == GLM_DISABLE
 		template<typename T, qualifier Q>
-		GLM_FUNC_QUALIFIER tdualquat<T, Q> & tdualquat<T, Q>::operator=(tdualquat<T, Q> const& q)
+		GLM_DEFAULTED_FUNC_QUALIFIER tdualquat<T, Q> & tdualquat<T, Q>::operator=(tdualquat<T, Q> const& q)
 		{
 			this->real = q.real;
 			this->dual = q.dual;
