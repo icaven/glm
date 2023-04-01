@@ -11,7 +11,7 @@ namespace glm
 		if(cosTheta > static_cast<T>(1) - epsilon<T>())
 		{
 			// Linear interpolation
-			return qua<T, Q>(
+			return qua<T, Q>::wxyz(
 				mix(x.w, y.w, a),
 				mix(x.x, y.x, a),
 				mix(x.y, y.y, a),
@@ -58,7 +58,7 @@ namespace glm
 		if(cosTheta > static_cast<T>(1) - epsilon<T>())
 		{
 			// Linear interpolation
-			return qua<T, Q>(
+			return qua<T, Q>::wxyz(
 				mix(x.w, z.w, a),
 				mix(x.x, z.x, a),
 				mix(x.y, z.y, a),
@@ -94,7 +94,7 @@ namespace glm
         if (cosTheta > static_cast<T>(1) - epsilon<T>())
         {
             // Linear interpolation
-            return qua<T, Q>(
+            return qua<T, Q>::wxyz(
                 mix(x.w, z.w, a),
                 mix(x.x, z.x, a),
                 mix(x.y, z.y, a),
@@ -112,7 +112,7 @@ namespace glm
 	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER qua<T, Q> conjugate(qua<T, Q> const& q)
 	{
-		return qua<T, Q>(q.w, -q.x, -q.y, -q.z);
+		return qua<T, Q>::wxyz(q.w, -q.x, -q.y, -q.z);
 	}
 
 	template<typename T, qualifier Q>

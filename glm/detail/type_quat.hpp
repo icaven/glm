@@ -95,6 +95,8 @@ namespace glm
 		GLM_FUNC_DECL GLM_CONSTEXPR qua(T w, T x, T y, T z);
 #		endif
 
+		GLM_FUNC_DECL static GLM_CONSTEXPR qua<T, Q> wxyz(T w, T x, T y, T z);
+
 		// -- Conversion constructors --
 
 		template<typename U, qualifier P>
