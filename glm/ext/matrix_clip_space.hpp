@@ -53,7 +53,7 @@ namespace glm
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> orthoLH_ZO(
 		T left, T right, T bottom, T top, T zNear, T zFar);
 
-	/// Creates a matrix for an orthographic parallel viewing volume using right-handed coordinates.
+	/// Creates a matrix for an orthographic parallel viewing volume using left-handed coordinates.
 	/// The near and far clip planes correspond to z normalized device coordinates of -1 and +1 respectively. (OpenGL clip volume definition)
 	///
 	/// @tparam T A floating-point scalar type
@@ -63,7 +63,7 @@ namespace glm
 	GLM_FUNC_DECL mat<4, 4, T, defaultp> orthoLH_NO(
 		T left, T right, T bottom, T top, T zNear, T zFar);
 
-	/// Creates a matrix for an orthographic parallel viewing volume, using left-handed coordinates.
+	/// Creates a matrix for an orthographic parallel viewing volume, using right-handed coordinates.
 	/// The near and far clip planes correspond to z normalized device coordinates of 0 and +1 respectively. (Direct3D clip volume definition)
 	///
 	/// @tparam T A floating-point scalar type
