@@ -68,7 +68,7 @@ T failReport(T line)
 // Test data: 1AGA 'agarose double helix'
 // https://www.rcsb.org/structure/1aga
 // The fourth coordinate is randomized
-namespace _1aga
+namespace agarose
 {
 
 	// Fills `outTestData` with hard-coded atom positions from 1AGA
@@ -216,7 +216,7 @@ namespace _1aga
 
 	// All reference values computed separately using symbolic precision
 	// https://github.com/sgrottel/exp-pca-precision
-	// This applies to all functions named: `_1aga::expected*()`
+	// This applies to all functions named: `agarose::expected*()`
 
 	GLM_INLINE glm::dmat4 const& expectedCovarData()
 	{
@@ -333,7 +333,7 @@ namespace _1aga
 		return evecs4;
 	}
 
-} // namespace _1aga
+} // namespace agarose
 
 // Compute center of gravity
 template<typename vec>
@@ -451,13 +451,13 @@ int testCovar(
 
 	// #1: test expected result with fixed data set
 	std::vector<vec> testData;
-	_1aga::fillTestData(testData);
+	agarose::fillTestData(testData);
 
 	// compute center of gravity
 	vec center = computeCenter(testData);
 
 	mat covarMat = glm::computeCovarianceMatrix(testData.data(), testData.size(), center);
-	if(!matrixEpsilonEqual(covarMat, mat(_1aga::expectedCovarData()), myEpsilon<T>()))
+	if(!matrixEpsilonEqual(covarMat, mat(agarose::expectedCovarData()), myEpsilon<T>()))
 	{
 		fprintf(stderr, "Reconstructed covarMat:\n%s\n", glm::to_string(covarMat).c_str());
 		return failReport(__LINE__);
@@ -508,7 +508,7 @@ int testEigenvectors(T epsilon)
 
 	// test expected result with fixed data set
 	std::vector<vec> testData;
-	mat covarMat(_1aga::expectedCovarData());
+	mat covarMat(agarose::expectedCovarData());
 
 	vec eigenvalues;
 	mat eigenvectors;
@@ -517,13 +517,13 @@ int testEigenvectors(T epsilon)
 		return failReport(__LINE__);
 	glm::sortEigenvalues(eigenvalues, eigenvectors);
 
-	if (!vectorEpsilonEqual(eigenvalues, vec(_1aga::expectedEigenvalues<D>()), epsilon))
+	if (!vectorEpsilonEqual(eigenvalues, vec(agarose::expectedEigenvalues<D>()), epsilon))
 		return failReport(__LINE__);
 
 	for (int i = 0; i < D; ++i)
 	{
 		vec act = glm::normalize(eigenvectors[i]);
-		vec exp = glm::normalize(_1aga::expectedEigenvectors<D>()[i]);
+		vec exp = glm::normalize(agarose::expectedEigenvectors<D>()[i]);
 		if (!sameSign(act[0], exp[0])) exp = -exp;
 		if (!vectorEpsilonEqual(act, exp, epsilon))
 			return failReport(__LINE__);
