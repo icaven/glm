@@ -97,7 +97,7 @@ namespace detail
 
 #	if GLM_CONFIG_DEFAULTED_DEFAULT_CTOR == GLM_DISABLE
 		template<typename T, qualifier Q>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua()
+		GLM_DEFAULTED_DEFAULT_CTOR_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua()
 #			if GLM_CONFIG_CTOR_INIT != GLM_CTOR_INIT_DISABLE
 #				ifdef GLM_FORCE_QUAT_DATA_XYZW
 					: x(0), y(0), z(0), w(1)
@@ -110,7 +110,7 @@ namespace detail
 
 #	if GLM_CONFIG_DEFAULTED_FUNCTIONS == GLM_DISABLE
 		template<typename T, qualifier Q>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua(qua<T, Q> const& q)
+		GLM_DEFAULTED_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q>::qua(qua<T, Q> const& q)
 #			ifdef GLM_FORCE_QUAT_DATA_XYZW
 				: x(q.x), y(q.y), z(q.z), w(q.w)
 #			else
@@ -246,7 +246,7 @@ namespace detail
 
 #	if GLM_CONFIG_DEFAULTED_FUNCTIONS == GLM_DISABLE
 		template<typename T, qualifier Q>
-		GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q> & qua<T, Q>::operator=(qua<T, Q> const& q)
+		GLM_DEFAULTED_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q> & qua<T, Q>::operator=(qua<T, Q> const& q)
 		{
 			this->w = q.w;
 			this->x = q.x;
