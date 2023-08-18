@@ -239,7 +239,8 @@ The following is a code sample using separated core headers and an extension:
 #include <glm/trigonometric.hpp>  //radians
 
 // Include GLM extension
-#include <glm/ext/matrix_transform.hpp> // perspective, translate, rotate
+#include <glm/ext/matrix_transform.hpp>     // translate, rotate
+#include <glm/ext/matrix_clip_space.hpp>    // perspective
 
 glm::mat4 transform(glm::vec2 const& Orientation, glm::vec3 const& Translate, glm::vec3 const& Up)
 {
@@ -264,7 +265,8 @@ Using GLM through split headers to minimize the project build time:
 
 // Include GLM matrix extensions:
 #include <glm/ext/matrix_float4x4.hpp>              // mat4
-#include <glm/ext/matrix_transform.hpp>             // perspective, translate, rotate
+#include <glm/ext/matrix_transform.hpp>             // translate, rotate
+#include <glm/ext/matrix_clip_space.hpp>            // perspective
 
 glm::mat4 transform(glm::vec2 const& Orientation, glm::vec3 const& Translate, glm::vec3 const& Up)
 {
