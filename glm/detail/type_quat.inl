@@ -28,7 +28,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static qua<T, Q> call(qua<T, Q> const& q, qua<T, Q> const& p)
 		{
-			return qua<T, Q>(q.w + p.w, q.x + p.x, q.y + p.y, q.z + p.z);
+			return qua<T, Q>::wxyz(q.w + p.w, q.x + p.x, q.y + p.y, q.z + p.z);
 		}
 	};
 
@@ -37,7 +37,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static qua<T, Q> call(qua<T, Q> const& q, qua<T, Q> const& p)
 		{
-			return qua<T, Q>(q.w - p.w, q.x - p.x, q.y - p.y, q.z - p.z);
+			return qua<T, Q>::wxyz(q.w - p.w, q.x - p.x, q.y - p.y, q.z - p.z);
 		}
 	};
 
@@ -46,7 +46,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static qua<T, Q> call(qua<T, Q> const& q, T s)
 		{
-			return qua<T, Q>(q.w * s, q.x * s, q.y * s, q.z * s);
+			return qua<T, Q>::wxyz(q.w * s, q.x * s, q.y * s, q.z * s);
 		}
 	};
 
@@ -55,7 +55,7 @@ namespace detail
 	{
 		GLM_FUNC_QUALIFIER GLM_CONSTEXPR static qua<T, Q> call(qua<T, Q> const& q, T s)
 		{
-			return qua<T, Q>(q.w / s, q.x / s, q.y / s, q.z / s);
+			return qua<T, Q>::wxyz(q.w / s, q.x / s, q.y / s, q.z / s);
 		}
 	};
 
@@ -150,6 +150,15 @@ namespace detail
 #	endif
 	{}
 
+	template <typename T, qualifier Q>
+	GLM_CONSTEXPR qua<T, Q> qua<T, Q>::wxyz(T w, T x, T y, T z) {
+#	ifdef GLM_FORCE_QUAT_DATA_XYZW
+		return qua<T, Q>(x, y, z, w);
+#	else
+		return qua<T, Q>(w, x, y, z);
+#	endif
+	}
+	
 	// -- Conversion constructors --
 
 	template<typename T, qualifier Q>
@@ -201,7 +210,7 @@ namespace detail
 			t = cross(u, v);
 		}
 
-		*this = normalize(qua<T, Q>(real_part, t.x, t.y, t.z));
+		*this = normalize(qua<T, Q>::wxyz(real_part, t.x, t.y, t.z));
 	}
 
 	template<typename T, qualifier Q>
@@ -320,7 +329,7 @@ namespace detail
 	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q> operator-(qua<T, Q> const& q)
 	{
-		return qua<T, Q>(-q.w, -q.x, -q.y, -q.z);
+		return qua<T, Q>::wxyz(-q.w, -q.x, -q.y, -q.z);
 	}
 
 	// -- Binary operators --
@@ -374,7 +383,7 @@ namespace detail
 	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q> operator*(qua<T, Q> const& q, T const& s)
 	{
-		return qua<T, Q>(
+		return qua<T, Q>::wxyz(
 			q.w * s, q.x * s, q.y * s, q.z * s);
 	}
 
@@ -387,7 +396,7 @@ namespace detail
 	template<typename T, qualifier Q>
 	GLM_FUNC_QUALIFIER GLM_CONSTEXPR qua<T, Q> operator/(qua<T, Q> const& q, T const& s)
 	{
-		return qua<T, Q>(
+		return qua<T, Q>::wxyz(
 			q.w / s, q.x / s, q.y / s, q.z / s);
 	}
 
