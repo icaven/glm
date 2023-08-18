@@ -751,9 +751,9 @@ int average(int const A, int const B)
 When using /W4 on Visual C++ or -Wpedantic on GCC, for example, the compilers will generate warnings for using C++ language extensions (/Za with Visual C++) such as anonymous struct.
 GLM relies on anonymous structs for swizzle operators and aligned vector types. To silent those warnings define `GLM_FORCE_SILENT_WARNINGS` before including GLM headers.
 
-### <a name="section2_21"></a> 2.21. GLM\_FORCE\_QUAT\_DATA\_WXYZ: Force GLM to store quat data as w,x,y,z instead of x,y,z,w
+### <a name="section2_21"></a> 2.21. GLM\_FORCE\_QUAT\_DATA\_XYZW: Force GLM to store quat data as x,y,z,w instead of w,x,y,z
 
-By default GLM store quaternion components with the x, y, z, w order. `GLM_FORCE_QUAT_DATA_WXYZ` allows switching the quaternion data storage to the w, x, y, z order.
+By default GLM stores quaternion components with the w, x, y, z order. `GLM_FORCE_QUAT_DATA_XYZW` allows switching the quaternion data storage to the x, y, z, w order.
 
 ---
 <div style="page-break-after: always;"> </div>
