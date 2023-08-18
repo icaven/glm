@@ -15,5 +15,7 @@ int main()
 
 	glm::decompose(Matrix, Scale, Orientation, Translation, Skew, Perspective);
 
+	glm::mat4 Out = glm::recompose(Scale, Orientation, Translation, Skew, Perspective);
+
 	return Error;
 }
