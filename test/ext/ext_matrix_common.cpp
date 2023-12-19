@@ -70,7 +70,7 @@ static int test_abs()
 		glm::bvec4 const col2 = glm::equal(D[1], A[1]);
 		glm::bvec4 const col3 = glm::equal(D[2], A[2]);
 		glm::bvec4 const col4 = glm::equal(D[3], A[3]);
-		Error += glm::all(glm::bvec4{glm::all(col1), glm::all(col2), glm::all(col3), glm::all(col4)}) ? 0 : 1;
+		Error += glm::all(glm::bvec4(glm::all(col1), glm::all(col2), glm::all(col3), glm::all(col4))) ? 0 : 1;
 	}
 	{
 		glm::mat4x3 A(
@@ -91,7 +91,7 @@ static int test_abs()
 		glm::bvec3 const col2 = glm::equal(D[1], A[1]);
 		glm::bvec3 const col3 = glm::equal(D[2], A[2]);
 		glm::bvec3 const col4 = glm::equal(D[3], A[3]);
-		Error += glm::all(glm::bvec4{glm::all(col1), glm::all(col2), glm::all(col3), glm::all(col4)}) ? 0 : 1;
+		Error += glm::all(glm::bvec4(glm::all(col1), glm::all(col2), glm::all(col3), glm::all(col4))) ? 0 : 1;
 	}
 	{
 		glm::mat4x2 A(
@@ -112,7 +112,7 @@ static int test_abs()
 		glm::bvec2 const col2 = glm::equal(D[1], A[1]);
 		glm::bvec2 const col3 = glm::equal(D[2], A[2]);
 		glm::bvec2 const col4 = glm::equal(D[3], A[3]);
-		Error += glm::all(glm::bvec4{glm::all(col1), glm::all(col2), glm::all(col3), glm::all(col4)}) ? 0 : 1;
+		Error += glm::all(glm::bvec4(glm::all(col1), glm::all(col2), glm::all(col3), glm::all(col4))) ? 0 : 1;
 	}
 
 	// -------------------- //
@@ -134,7 +134,7 @@ static int test_abs()
 		glm::bvec4 const col1 = glm::equal(D[0], A[0]);
 		glm::bvec4 const col2 = glm::equal(D[1], A[1]);
 		glm::bvec4 const col3 = glm::equal(D[2], A[2]);
-		Error += glm::all(glm::bvec3{glm::all(col1), glm::all(col2), glm::all(col3)}) ? 0 : 1;
+		Error += glm::all(glm::bvec3(glm::all(col1), glm::all(col2), glm::all(col3))) ? 0 : 1;
 	}
 	{
 		glm::mat3 A(
@@ -152,7 +152,7 @@ static int test_abs()
 		glm::bvec3 const col1 = glm::equal(D[0], A[0]);
 		glm::bvec3 const col2 = glm::equal(D[1], A[1]);
 		glm::bvec3 const col3 = glm::equal(D[2], A[2]);
-		Error += glm::all(glm::bvec3{glm::all(col1), glm::all(col2), glm::all(col3)}) ? 0 : 1;
+		Error += glm::all(glm::bvec3(glm::all(col1), glm::all(col2), glm::all(col3))) ? 0 : 1;
 	}
 	{
 		glm::mat3x2 A(
@@ -170,7 +170,7 @@ static int test_abs()
 		glm::bvec2 const col1 = glm::equal(D[0], A[0]);
 		glm::bvec2 const col2 = glm::equal(D[1], A[1]);
 		glm::bvec2 const col3 = glm::equal(D[2], A[2]);
-		Error += glm::all(glm::bvec3{glm::all(col1), glm::all(col2), glm::all(col3)}) ? 0 : 1;
+		Error += glm::all(glm::bvec3(glm::all(col1), glm::all(col2), glm::all(col3))) ? 0 : 1;
 	}
 
 	// -------------------- //
@@ -189,7 +189,7 @@ static int test_abs()
 		glm::mat2x4 D = glm::abs(C);
 		glm::bvec4 const col1 = glm::equal(D[0], A[0]);
 		glm::bvec4 const col2 = glm::equal(D[1], A[1]);
-		Error += glm::all(glm::bvec2{glm::all(col1), glm::all(col2)}) ? 0 : 1;
+		Error += glm::all(glm::bvec2(glm::all(col1), glm::all(col2))) ? 0 : 1;
 	}
 	{
 		glm::mat2x3 A(
@@ -204,7 +204,7 @@ static int test_abs()
 		glm::mat2x3 D = glm::abs(C);
 		glm::bvec3 const col1 = glm::equal(D[0], A[0]);
 		glm::bvec3 const col2 = glm::equal(D[1], A[1]);
-		Error += glm::all(glm::bvec2{glm::all(col1), glm::all(col2)}) ? 0 : 1;
+		Error += glm::all(glm::bvec2(glm::all(col1), glm::all(col2))) ? 0 : 1;
 	}
 	{
 		glm::mat2 A(
@@ -219,7 +219,7 @@ static int test_abs()
 		glm::mat2 D = glm::abs(C);
 		glm::bvec2 const col1 = glm::equal(D[0], A[0]);
 		glm::bvec2 const col2 = glm::equal(D[1], A[1]);
-		Error += glm::all(glm::bvec2{glm::all(col1), glm::all(col2)}) ? 0 : 1;
+		Error += glm::all(glm::bvec2(glm::all(col1), glm::all(col2))) ? 0 : 1;
 	}
 
 	return Error;

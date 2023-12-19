@@ -82,8 +82,8 @@
 
 #if (defined(GLM_FORCE_CXX_UNKNOWN))
 #	define GLM_LANG 0
-#elif defined(GLM_FORCE_CXX2A)
-#	define GLM_LANG (GLM_LANG_CXX2A | GLM_LANG_EXT)
+#elif defined(GLM_FORCE_CXX20)
+#	define GLM_LANG (GLM_LANG_CXX20 | GLM_LANG_EXT)
 #	define GLM_LANG_STL11_FORCED
 #elif defined(GLM_FORCE_CXX17)
 #	define GLM_LANG (GLM_LANG_CXX17 | GLM_LANG_EXT)

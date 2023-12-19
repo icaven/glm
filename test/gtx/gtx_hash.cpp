@@ -1,5 +1,7 @@
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/hash.hpp>
+
+#if defined(GLM_GTX_hash) && GLM_LANG & GLM_LANG_CXX11
 #include <unordered_map>
 
 int test_compile()
@@ -42,15 +44,18 @@ int test_compile()
     std::unordered_map<glm::mat4x4, int> map_mat4x4;
     Error += ++map_mat4x4[glm::mat4x4(0.0f)];
 
-	return Error > 0 ? 0 : 1;
+    return Error > 0 ? 0 : 1;
 }
+#endif//GLM_LANG& GLM_LANG_CXX11
 
 int main()
 {
-	int Error = 0;
+    int Error = 0;
 
-	Error += test_compile();
+#if defined(GLM_GTX_hash)
+    Error += test_compile();
+#endif//
 
-	return Error;
+    return Error;
 }
 

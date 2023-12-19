@@ -2,14 +2,13 @@ name: ci
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  Pure:
-    runs-on: ${{ matrix.os}}
+  windows-latest:
+    runs-on: windows-latest
     strategy:
       fail-fast: false
       matrix:
-        std: [98, 11, 14, 17, 20]
         config: [Debug, Release]
-        os: [ubuntu-latest, macos-latest, windows-latest]
+
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -22,10 +21,140 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      #- run: cmake -S. -B ./build_98_pure -D GLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_FORCE_PURE=ON -DCMAKE_BUILD_TYPE=${{matrix.config}}
-      - run: cmake -S. -B ./build_auto -DCMAKE_BUILD_TYPE=${{matrix.config}}
-      - run: cmake --build ./build_auto --parallel --config ${{matrix.config}}
-      - run: ctest --parallel 4 --verbose -C ${{matrix.config}} --test-dir ./build_auto
+      - name: CMake Version
+        run: cmake --version
+      - run: cmake -S. -B ./build_pure_98_std -DGLM_TEST_FORCE_PURE=ON -DGLM_TEST_ENABLE_CXX_98=ON
+      - run: cmake -S. -B ./build_pure_98_ext -DGLM_TEST_FORCE_PURE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+      - run: cmake -S. -B ./build_sse2_98_std -DGLM_TEST_ENABLE_SIMD_SSE2=ON -DGLM_TEST_ENABLE_CXX_98=ON
+      - run: cmake -S. -B ./build_sse2_98_ext -DGLM_TEST_ENABLE_SIMD_SSE2=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+      - run: cmake -S. -B ./build_pure_11_std -DGLM_TEST_FORCE_PURE=ON -DGLM_TEST_ENABLE_CXX_11=ON
+      - run: cmake -S. -B ./build_pure_11_ext -DGLM_TEST_FORCE_PURE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+      - run: cmake -S. -B ./build_sse2_11_std -DGLM_TEST_ENABLE_SIMD_SSE2=ON -DGLM_TEST_ENABLE_CXX_11=ON
+      - run: cmake -S. -B ./build_sse2_11_ext -DGLM_TEST_ENABLE_SIMD_SSE2=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+      #- run: cmake -S. -B ./build_avx2_std -DGLM_TEST_ENABLE_SIMD_AVX=ON
+      #- run: cmake -S. -B ./build_avx2_ext -DGLM_TEST_ENABLE_SIMD_AVX=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+      - run: cmake --build ./build_pure_98_std --config ${{matrix.config}}
+      - run: cmake --build ./build_pure_98_ext --config ${{matrix.config}}
+      - run: cmake --build ./build_sse2_98_std --config ${{matrix.config}}
+      - run: cmake --build ./build_sse2_98_ext --config ${{matrix.config}}
+      - run: cmake --build ./build_pure_11_std --config ${{matrix.config}}
+      - run: cmake --build ./build_pure_11_ext --config ${{matrix.config}}
+      - run: cmake --build ./build_sse2_11_std --config ${{matrix.config}}
+      - run: cmake --build ./build_sse2_11_ext --config ${{matrix.config}}
+      #- run: cmake --build ./build_avx2_std --config ${{matrix.config}}
+      #- run: cmake --build ./build_avx2_ext --config ${{matrix.config}}
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_pure_98_std
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_pure_98_ext
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_sse2_98_std
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_sse2_98_ext
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_pure_11_std
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_pure_11_ext
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_sse2_11_std
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_sse2_11_ext
+      #- run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_avx2_std
+      #- run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_avx2_ext
+  ubuntu-latest:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        config: [Debug, Release]
+
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: GCC Version
+        run: gcc --version
+      - name: CMake Version
+        run: cmake --version
+      - run: cmake -S. -B ./build_pure_98_std -DGLM_TEST_FORCE_PURE=ON -DGLM_TEST_ENABLE_CXX_98=ON
+      - run: cmake -S. -B ./build_pure_98_ext -DGLM_TEST_FORCE_PURE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+      - run: cmake -S. -B ./build_sse2_98_std -DGLM_TEST_ENABLE_SIMD_SSE2=ON -DGLM_TEST_ENABLE_CXX_98=ON
+      - run: cmake -S. -B ./build_sse2_98_ext -DGLM_TEST_ENABLE_SIMD_SSE2=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+      - run: cmake -S. -B ./build_pure_11_std -DGLM_TEST_FORCE_PURE=ON -DGLM_TEST_ENABLE_CXX_11=ON
+      - run: cmake -S. -B ./build_pure_11_ext -DGLM_TEST_FORCE_PURE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+      - run: cmake -S. -B ./build_sse2_11_std -DGLM_TEST_ENABLE_SIMD_SSE2=ON -DGLM_TEST_ENABLE_CXX_11=ON
+      - run: cmake -S. -B ./build_sse2_11_ext -DGLM_TEST_ENABLE_SIMD_SSE2=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+      #- run: cmake -S. -B ./build_avx2_std -DGLM_TEST_ENABLE_SIMD_AVX=ON
+      #- run: cmake -S. -B ./build_avx2_ext -DGLM_TEST_ENABLE_SIMD_AVX=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+      - run: cmake --build ./build_pure_98_std --config ${{matrix.config}}
+      - run: cmake --build ./build_pure_98_ext --config ${{matrix.config}}
+      - run: cmake --build ./build_sse2_98_std --config ${{matrix.config}}
+      - run: cmake --build ./build_sse2_98_ext --config ${{matrix.config}}
+      - run: cmake --build ./build_pure_11_std --config ${{matrix.config}}
+      - run: cmake --build ./build_pure_11_ext --config ${{matrix.config}}
+      - run: cmake --build ./build_sse2_11_std --config ${{matrix.config}}
+      - run: cmake --build ./build_sse2_11_ext --config ${{matrix.config}}
+      #- run: cmake --build ./build_avx2_std --config ${{matrix.config}}
+      #- run: cmake --build ./build_avx2_ext --config ${{matrix.config}}
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_pure_98_std
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_pure_98_ext
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_sse2_98_std
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_sse2_98_ext
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_pure_11_std
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_pure_11_ext
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_sse2_11_std
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_sse2_11_ext
+  macos-latest:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        config: [Debug, Release]
+
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: CMake Version
+        run: cmake --version
+      - name: Clang Version
+        run: clang --version
+      - run: cmake -S. -B ./build_pure_98_std -DGLM_TEST_FORCE_PURE=ON -DGLM_TEST_ENABLE_CXX_98=ON
+      - run: cmake -S. -B ./build_pure_98_ext -DGLM_TEST_FORCE_PURE=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+      - run: cmake -S. -B ./build_sse2_98_std -DGLM_TEST_ENABLE_SIMD_SSE2=ON -DGLM_TEST_ENABLE_CXX_98=ON
+      - run: cmake -S. -B ./build_sse2_98_ext -DGLM_TEST_ENABLE_SIMD_SSE2=ON -DGLM_TEST_ENABLE_CXX_98=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+      - run: cmake -S. -B ./build_pure_11_std -DGLM_TEST_FORCE_PURE=ON -DGLM_TEST_ENABLE_CXX_11=ON
+      - run: cmake -S. -B ./build_pure_11_ext -DGLM_TEST_FORCE_PURE=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+      - run: cmake -S. -B ./build_sse2_11_std -DGLM_TEST_ENABLE_SIMD_SSE2=ON -DGLM_TEST_ENABLE_CXX_11=ON
+      - run: cmake -S. -B ./build_sse2_11_ext -DGLM_TEST_ENABLE_SIMD_SSE2=ON -DGLM_TEST_ENABLE_CXX_11=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+      #- run: cmake -S. -B ./build_avx2_std -DGLM_TEST_ENABLE_SIMD_AVX=ON
+      #- run: cmake -S. -B ./build_avx2_ext -DGLM_TEST_ENABLE_SIMD_AVX=ON -DGLM_TEST_ENABLE_LANG_EXTENSIONS=ON
+      - run: cmake --build ./build_pure_98_std --config ${{matrix.config}}
+      - run: cmake --build ./build_pure_98_ext --config ${{matrix.config}}
+      - run: cmake --build ./build_sse2_98_std --config ${{matrix.config}}
+      - run: cmake --build ./build_sse2_98_ext --config ${{matrix.config}}
+      - run: cmake --build ./build_pure_11_std --config ${{matrix.config}}
+      - run: cmake --build ./build_pure_11_ext --config ${{matrix.config}}
+      - run: cmake --build ./build_sse2_11_std --config ${{matrix.config}}
+      - run: cmake --build ./build_sse2_11_ext --config ${{matrix.config}}
+      #- run: cmake --build ./build_avx2_std --config ${{matrix.config}}
+      #- run: cmake --build ./build_avx2_ext --config ${{matrix.config}}
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_pure_98_std
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_pure_98_ext
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_sse2_98_std
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_sse2_98_ext
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_pure_11_std
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_pure_11_ext
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_sse2_11_std
+      - run: ctest --verbose -C ${{matrix.config}} --test-dir ./build_sse2_11_ext
 
 #name: GLM Unit Tests
 

@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if(GLM_TEST_ENABLE_CXX_20)
 	set(CMAKE_CXX_STANDARD 20)
-	add_definitions(-DGLM_FORCE_CXX2A)
+	add_definitions(-DGLM_FORCE_CXX20)
 	if(NOT GLM_QUIET)
 		message(STATUS "GLM: Build with C++20 features")
 	endif()
