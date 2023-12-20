@@ -1426,7 +1426,7 @@ namespace bitCount
 	template<glm::length_t L, typename T, glm::qualifier Q>
 	static glm::vec<L, int, Q> bitCount_bitfield(glm::vec<L, T, Q> const& v)
 	{
-		glm::vec<L, typename glm::detail::make_unsigned<T>::type, Q> x(*reinterpret_cast<glm::vec<L, typename glm::detail::make_unsigned<T>::type, Q> const *>(&v));
+		glm::vec<L, typename glm::detail::make_unsigned<T>::type, Q> x(v);
 		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >=  2>::call(x, static_cast<typename glm::detail::make_unsigned<T>::type>(0x5555555555555555ull), static_cast<typename glm::detail::make_unsigned<T>::type>( 1));
 		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >=  4>::call(x, static_cast<typename glm::detail::make_unsigned<T>::type>(0x3333333333333333ull), static_cast<typename glm::detail::make_unsigned<T>::type>( 2));
 		x = compute_bitfieldBitCountStep<sizeof(T) * 8 >=  8>::call(x, static_cast<typename glm::detail::make_unsigned<T>::type>(0x0F0F0F0F0F0F0F0Full), static_cast<typename glm::detail::make_unsigned<T>::type>( 4));
@@ -1512,7 +1512,7 @@ namespace bitCount
 			int ResultA = glm::bitCount(DataI32[i].Value);
 			Error += DataI32[i].Return == ResultA ? 0 : 1;
 			assert(!Error);
-/*
+
 			int ResultB = bitCount_if(DataI32[i].Value);
 			Error += DataI32[i].Return == ResultB ? 0 : 1;
 			assert(!Error);
@@ -1524,7 +1524,6 @@ namespace bitCount
 			int ResultE = bitCount_bitfield(DataI32[i].Value);
 			Error += DataI32[i].Return == ResultE ? 0 : 1;
 			assert(!Error);
-*/
 		}
 
 		return Error;
