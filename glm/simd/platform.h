@@ -180,11 +180,6 @@
 
 // Visual C++
 #elif defined(_MSC_VER)
-#	if INTPTR_MAX == INT64_MAX // 64bits compiler has always at least SSE2 support
-#		ifndef GLM_FORCE_INTRINSICS
-#			define GLM_FORCE_INTRINSICS
-#		endif
-#	endif
 #	if _MSC_VER >= 1920
 #		define GLM_COMPILER GLM_COMPILER_VC16
 #	elif _MSC_VER >= 1916

@@ -1,5 +1,4 @@
 #define GLM_FORCE_SWIZZLE
-#define GLM_FORCE_MESSAGES
 #include <glm/gtc/constants.hpp>
 #include <glm/gtc/vec1.hpp>
 #include <glm/ext/scalar_relational.hpp>
