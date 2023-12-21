@@ -1,19 +1,40 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2012 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2010-09-16
-// Updated : 2010-09-16
-// Licence : This source is under MIT licence
-// File    : test/gtx/simd-mat4.cpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+/// OpenGL Mathematics (glm.g-truc.net)
+///
+/// Copyright (c) 2005 - 2012 G-Truc Creation (www.g-truc.net)
+/// Permission is hereby granted, free of charge, to any person obtaining a copy
+/// of this software and associated documentation files (the "Software"), to deal
+/// in the Software without restriction, including without limitation the rights
+/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+/// copies of the Software, and to permit persons to whom the Software is
+/// furnished to do so, subject to the following conditions:
+/// 
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+/// 
+/// Restrictions:
+///		By making use of the Software for military purposes, you choose to make
+///		a Bunny unhappy.
+/// 
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+/// THE SOFTWARE.
+///
+/// @file test/gtx/gtx_simd_mat4.cpp
+/// @date 2010-09-16 / 2014-11-25
+/// @author Christophe Riccio
+///////////////////////////////////////////////////////////////////////////////////
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/quaternion.hpp>
-#include <glm/gtx/random.hpp>
+#include <glm/gtc/random.hpp>
 #include <glm/gtx/simd_vec4.hpp>
 #include <glm/gtx/simd_mat4.hpp>
-#include <iostream>
 #include <cstdio>
 #include <ctime>
 #include <vector>
@@ -181,7 +202,9 @@ void test_mulD(std::vector<glm::mat4> const & Data, std::vector<glm::mat4> & Out
 	{
 		_mm_prefetch((char*)&Data[i + 1], _MM_HINT_T0);
 		glm::simdMat4 m(Data[i]);
-		glm::detail::sse_mul_ps((__m128 const * const)&m, (__m128 const * const)&m, (__m128*)&Out[i]);
+		glm::simdMat4 o;
+		glm::detail::sse_mul_ps((__m128 const * const)&m, (__m128 const * const)&m, (__m128*)&o);
+		Out[i] = *(glm::mat4*)&o;
 	}
 
 	std::clock_t TimeEnd = clock();
@@ -201,21 +224,21 @@ int test_compute_gtx()
 
 	for(std::size_t k = 0; k < Output.size(); ++k)
 	{
-		float i = float(k) / 1000.f;
+		float i = float(k) / 1000.f + 0.001f;
 		glm::vec3 A = glm::normalize(glm::vec3(i));
-		glm::vec3 B = glm::cross(A, glm::vec3(0, 0, 1));
+		glm::vec3 B = glm::cross(A, glm::normalize(glm::vec3(1, 1, 2)));
 		glm::mat4 C = glm::rotate(glm::mat4(1.0f), i, B);
 		glm::mat4 D = glm::scale(C, glm::vec3(0.8f, 1.0f, 1.2f));
 		glm::mat4 E = glm::translate(D, glm::vec3(1.4f, 1.2f, 1.1f));
 		glm::mat4 F = glm::perspective(i, 1.5f, 0.1f, 1000.f);
 		glm::mat4 G = glm::inverse(F * E);
 		glm::vec3 H = glm::unProject(glm::vec3(i), G, F, E[3]);
-		glm::vec3 I = glm::project(H, G, F, E[3]);
-		glm::mat4 J = glm::lookAt(glm::normalize(B), H, I);
+		glm::vec3 I = glm::any(glm::isnan(glm::project(H, G, F, E[3]))) ? glm::vec3(2) : glm::vec3(1);
+		glm::mat4 J = glm::lookAt(glm::normalize(glm::max(B, glm::vec3(0.001f))), H, I);
 		glm::mat4 K = glm::transpose(J);
 		glm::quat L = glm::normalize(glm::quat_cast(K));
 		glm::vec4 M = L * glm::smoothstep(K[3], J[3], glm::vec4(i));
-		glm::mat4 N = glm::mat4(glm::normalize(M), K[3], J[3], glm::vec4(i));
+		glm::mat4 N = glm::mat4(glm::normalize(glm::max(M, glm::vec4(0.001f))), K[3], J[3], glm::vec4(i));
 		glm::mat4 O = N * glm::inverse(N);
 		glm::vec4 P = O * glm::reflect(N[3], glm::vec4(A, 1.0f));
 		glm::vec4 Q = glm::vec4(glm::dot(M, P));
@@ -236,10 +259,10 @@ int main()
 	std::vector<glm::mat4> Data(64 * 64 * 1);
 	for(std::size_t i = 0; i < Data.size(); ++i)
 		Data[i] = glm::mat4(
-			glm::vec4(glm::compRand4(-2.0f, 2.0f)),
-			glm::vec4(glm::compRand4(-2.0f, 2.0f)),
-			glm::vec4(glm::compRand4(-2.0f, 2.0f)),
-			glm::vec4(glm::compRand4(-2.0f, 2.0f)));
+			glm::vec4(glm::linearRand(glm::vec4(-2.0f), glm::vec4(2.0f))),
+			glm::vec4(glm::linearRand(glm::vec4(-2.0f), glm::vec4(2.0f))),
+			glm::vec4(glm::linearRand(glm::vec4(-2.0f), glm::vec4(2.0f))),
+			glm::vec4(glm::linearRand(glm::vec4(-2.0f), glm::vec4(2.0f))));
 
 	{
 		std::vector<glm::mat4> TestInvA;
@@ -281,7 +304,6 @@ int main()
 
 	Error += test_compute_glm();
 	Error += test_compute_gtx();
-	
 	float Det = glm::determinant(glm::simdMat4(1.0));
 	Error += Det == 1.0f ? 0 : 1;
 	

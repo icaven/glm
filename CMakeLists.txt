@@ -1,40 +1,45 @@
-cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
-cmake_policy(VERSION 2.6)
+cmake_minimum_required(VERSION 3.6 FATAL_ERROR)
+cmake_policy(VERSION 3.6)
 
-project(glm)
-enable_testing()
 
-add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+file(READ "glm/detail/setup.hpp" GLM_SETUP_FILE)
+string(REGEX MATCH "#define[ ]+GLM_VERSION_MAJOR[ ]+([0-9]+)" _ ${GLM_SETUP_FILE})
+set(GLM_VERSION_MAJOR "${CMAKE_MATCH_1}")
+string(REGEX MATCH "#define[ ]+GLM_VERSION_MINOR[ ]+([0-9]+)" _ ${GLM_SETUP_FILE})
+set(GLM_VERSION_MINOR "${CMAKE_MATCH_1}")
+string(REGEX MATCH "#define[ ]+GLM_VERSION_PATCH[ ]+([0-9]+)" _ ${GLM_SETUP_FILE})
+set(GLM_VERSION_PATCH "${CMAKE_MATCH_1}")
+string(REGEX MATCH "#define[ ]+GLM_VERSION_REVISION[ ]+([0-9]+)" _ ${GLM_SETUP_FILE})
+set(GLM_VERSION_REVISION "${CMAKE_MATCH_1}")
 
-if(CMAKE_COMPILER_IS_GNUCXX)
-	#add_definitions(/Za)
-	#add_definitions(-pedantic)
-	#add_definitions(-S)
-	#add_definitions(-s)
-	#add_definitions(-msse2)
-	#add_definitions(-std=c++0x)
-	#add_definitions(-fms-extensions)
-	#add_definitions(-D_MSC_EXTENSIONS)
-	#add_definitions(-m32)
-	#add_definitions(-mfpmath=387)
-	#add_definitions(-ffast-math)
-	#add_definitions(-O3)
-    
-    #add_definitions(-fprofile-arcs -ftest-coverage) gcov
-    #ctest_enable_coverage()
-endif()
-
-include_directories(".")
-include_directories("./test/external")
+set(GLM_VERSION ${GLM_VERSION_MAJOR}.${GLM_VERSION_MINOR}.${GLM_VERSION_PATCH}.${GLM_VERSION_REVISION})
+project(glm VERSION ${GLM_VERSION} LANGUAGES CXX)
+message(STATUS "GLM: Version " ${GLM_VERSION})
 
 add_subdirectory(glm)
-add_subdirectory(test)
-add_subdirectory(bench)
-add_subdirectory(doc)
+add_library(glm::glm ALIAS glm)
 
-option(GLM_TEST_MODE "GLM test" OFF)
-if(NOT GLM_TEST_MODE)
-	message(FATAL_ERROR "GLM is a header only library, no need to build it. Set the option GLM_TEST_MODE with ON to build and run the test bench")
+if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
+
+	include(CPack)
+	install(DIRECTORY glm DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} PATTERN "CMakeLists.txt" EXCLUDE)
+	install(EXPORT glm FILE glmConfig.cmake DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/glm NAMESPACE glm::)
+	include(CMakePackageConfigHelpers)
+	write_basic_package_version_file("glmConfigVersion.cmake" COMPATIBILITY AnyNewerVersion)
+	install(FILES ${CMAKE_CURRENT_BINARY_DIR}/glmConfigVersion.cmake DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/glm)
+
+	include(CTest)
+	if(BUILD_TESTING)
+		add_subdirectory(test)
+	endif()
+
+endif(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
+
+if (NOT TARGET uninstall)
+configure_file(cmake/cmake_uninstall.cmake.in
+               cmake_uninstall.cmake IMMEDIATE @ONLY)
+
+add_custom_target(uninstall
+                  "${CMAKE_COMMAND}" -P
+                  "${CMAKE_BINARY_DIR}/cmake_uninstall.cmake")
 endif()
-
-install(DIRECTORY glm DESTINATION include)

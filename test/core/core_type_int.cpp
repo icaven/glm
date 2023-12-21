@@ -1,52 +1,26 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2012 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2008-08-31
-// Updated : 2011-05-06
-// Licence : This source is under MIT License
-// File    : test/core/type_int.cpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
 #include <glm/glm.hpp>
+#include <glm/ext/scalar_int_sized.hpp>
 
-int test_int_size()
+static int test_bit_operator()
 {
-    return
-        sizeof(glm::int_t) != sizeof(glm::lowp_int) &&
-        sizeof(glm::int_t) != sizeof(glm::mediump_int) && 
-        sizeof(glm::int_t) != sizeof(glm::highp_int);
-}
+	int Error = 0;
 
-int test_uint_size()
-{
-    return
-        sizeof(glm::uint_t) != sizeof(glm::lowp_uint) &&
-        sizeof(glm::uint_t) != sizeof(glm::mediump_uint) && 
-        sizeof(glm::uint_t) != sizeof(glm::highp_uint);
-}
+	glm::ivec4 const a(1);
+	glm::ivec4 const b = ~a;
+	Error += glm::all(glm::equal(b, glm::ivec4(-2))) ? 0 : 1;
 
-int test_int_precision()
-{
-    return (
-            sizeof(glm::lowp_int) <= sizeof(glm::mediump_int) && 
-            sizeof(glm::mediump_int) <= sizeof(glm::highp_int)) ? 0 : 1;
-}
+	glm::int32 const c(1);
+	glm::int32 const d = ~c;
+	Error += d == -2 ? 0 : 1;
 
-int test_uint_precision()
-{
-    return (
-            sizeof(glm::lowp_uint) <= sizeof(glm::mediump_uint) && 
-            sizeof(glm::mediump_uint) <= sizeof(glm::highp_uint)) ? 0 : 1;
+	return Error;
 }
 
 int main()
 {
-    int Error = 0;
-    
-    Error += test_int_size();
-    Error += test_int_precision();
-    Error += test_uint_size();
-    Error += test_uint_precision();
-    
+	int Error = 0;
+
+	Error += test_bit_operator();
+
 	return Error;
 }

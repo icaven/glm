@@ -1,18 +1,12 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2012 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2011-11-23
-// Updated : 2011-11-23
-// Licence : This source is under MIT licence
-// File    : test/gtx/vector_query.cpp
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-#include <glm/glm.hpp>
+#define GLM_ENABLE_EXPERIMENTAL
+#include <glm/vec2.hpp>
+#include <glm/vec3.hpp>
+#include <glm/vec4.hpp>
 #include <glm/gtx/vector_query.hpp>
 
 int test_areCollinear()
 {
-    int Error(0);
+	int Error(0);
 
 	{
 		bool TestA = glm::areCollinear(glm::vec2(-1), glm::vec2(1), 0.00001f);
@@ -29,47 +23,47 @@ int test_areCollinear()
 		Error += TestA ? 0 : 1;
 	}
 
-    return Error;
+	return Error;
 }
 
 int test_areOrthogonal()
 {
-    int Error(0);
-    
+	int Error(0);
+	
 	bool TestA = glm::areOrthogonal(glm::vec2(1, 0), glm::vec2(0, 1), 0.00001f);
-    Error += TestA ? 0 : 1;
+	Error += TestA ? 0 : 1;
 
-    return Error;
+	return Error;
 }
 
 int test_isNormalized()
 {
-    int Error(0);
-    
+	int Error(0);
+	
 	bool TestA = glm::isNormalized(glm::vec4(1, 0, 0, 0), 0.00001f);
-    Error += TestA ? 0 : 1;
+	Error += TestA ? 0 : 1;
 
-    return Error;
+	return Error;
 }
 
 int test_isNull()
 {
-    int Error(0);
-    
+	int Error(0);
+	
 	bool TestA = glm::isNull(glm::vec4(0), 0.00001f);
-    Error += TestA ? 0 : 1;
+	Error += TestA ? 0 : 1;
 
-    return Error;
+	return Error;
 }
 
 int test_areOrthonormal()
 {
-    int Error(0);
-    
-	bool TestA = glm::areOrthonormal(glm::vec2(1, 0), glm::vec2(0, 1), 0.00001f);
-    Error += TestA ? 0 : 1;
+	int Error(0);
 
-    return Error;
+	bool TestA = glm::areOrthonormal(glm::vec2(1, 0), glm::vec2(0, 1), 0.00001f);
+	Error += TestA ? 0 : 1;
+
+	return Error;
 }
 
 int main()

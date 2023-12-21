@@ -1,275 +1,173 @@
-///////////////////////////////////////////////////////////////////////////////////
-/// OpenGL Mathematics (glm.g-truc.net)
-///
-/// Copyright (c) 2005 - 2012 G-Truc Creation (www.g-truc.net)
-/// Permission is hereby granted, free of charge, to any person obtaining a copy
-/// of this software and associated documentation files (the "Software"), to deal
-/// in the Software without restriction, including without limitation the rights
-/// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-/// copies of the Software, and to permit persons to whom the Software is
-/// furnished to do so, subject to the following conditions:
-/// 
-/// The above copyright notice and this permission notice shall be included in
-/// all copies or substantial portions of the Software.
-/// 
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-/// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-/// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-/// THE SOFTWARE.
-///
 /// @ref gtc_quaternion
 /// @file glm/gtc/quaternion.hpp
-/// @date 2009-05-21 / 2011-06-05
-/// @author Christophe Riccio
 ///
 /// @see core (dependence)
-/// @see gtc_half_float (dependence)
-/// 
-/// @defgroup gtc_quaternion GLM_GTC_quaternion: Quaternion types and functions
+/// @see gtc_constants (dependence)
+///
+/// @defgroup gtc_quaternion GLM_GTC_quaternion
 /// @ingroup gtc
-/// 
-/// @brief Defines a templated quaternion type and several quaternion operations.
-/// 
-/// <glm/gtc/quaternion.hpp> need to be included to use these functionalities.
-///////////////////////////////////////////////////////////////////////////////////
+///
+/// Include <glm/gtc/quaternion.hpp> to use the features of this extension.
+///
+/// Defines a templated quaternion type and several quaternion operations.
 
-#ifndef GLM_GTC_quaternion
-#define GLM_GTC_quaternion GLM_VERSION
+#pragma once
 
 // Dependency:
-#include "../glm.hpp"
-#include "../gtc/half_float.hpp"
+#include "../gtc/constants.hpp"
+#include "../gtc/matrix_transform.hpp"
+#include "../ext/vector_relational.hpp"
+#include "../ext/quaternion_common.hpp"
+#include "../ext/quaternion_float.hpp"
+#include "../ext/quaternion_float_precision.hpp"
+#include "../ext/quaternion_double.hpp"
+#include "../ext/quaternion_double_precision.hpp"
+#include "../ext/quaternion_relational.hpp"
+#include "../ext/quaternion_geometric.hpp"
+#include "../ext/quaternion_trigonometric.hpp"
+#include "../ext/quaternion_transform.hpp"
+#include "../detail/type_mat3x3.hpp"
+#include "../detail/type_mat4x4.hpp"
+#include "../detail/type_vec3.hpp"
+#include "../detail/type_vec4.hpp"
 
-#if(defined(GLM_MESSAGES) && !defined(glm_ext))
+#if GLM_MESSAGES == GLM_ENABLE && !defined(GLM_EXT_INCLUDED)
 #	pragma message("GLM: GLM_GTC_quaternion extension included")
 #endif
 
-namespace glm{
-namespace detail
+namespace glm
 {
-	/// @brief Template for quaternion. 
-	/// @see gtc_quaternion
-	/// @ingroup gtc_quaternion
-	template <typename T> 
-	struct tquat// : public genType<T, tquat>
-	{
-        enum ctor{null};
-        
-        typedef T value_type;
-        typedef std::size_t size_type;
-
-	public:
-		value_type x, y, z, w;
-        
-        GLM_FUNC_DECL size_type length() const;
-
-		// Constructors
-		tquat();
-		explicit tquat(
-			value_type const & s, 
-			glm::detail::tvec3<T> const & v);
-		explicit tquat(
-			value_type const & w, 
-			value_type const & x, 
-			value_type const & y, 
-			value_type const & z);
-
-		// Convertions
-		//explicit tquat(valType const & pitch, valType const & yaw, valType const & roll);
-		//! Build a quaternion from euler angles (pitch, yaw, roll), in radians.
-		explicit tquat(
-			tvec3<T> const & eulerAngles);
-		explicit tquat(
-			tmat3x3<T> const & m);
-		explicit tquat(
-			tmat4x4<T> const & m);
-
-		// Accesses
-		value_type & operator[](int i);
-		value_type const & operator[](int i) const;
-
-		// Operators
-		tquat<T> & operator*=(value_type const & s);
-		tquat<T> & operator/=(value_type const & s);
-	};
-
-	template <typename T> 
-	detail::tquat<T> operator- (
-		detail::tquat<T> const & q);
-
-	template <typename T> 
-	detail::tquat<T> operator+ ( 
-		detail::tquat<T> const & q, 
-		detail::tquat<T> const & p); 
-
-	template <typename T> 
-	detail::tquat<T> operator* ( 
-		detail::tquat<T> const & q, 
-		detail::tquat<T> const & p); 
-
-	template <typename T> 
-	detail::tvec3<T> operator* (
-		detail::tquat<T> const & q, 
-		detail::tvec3<T> const & v);
-
-	template <typename T> 
-	detail::tvec3<T> operator* (
-		detail::tvec3<T> const & v,
-		detail::tquat<T> const & q);
-
-	template <typename T> 
-	detail::tvec4<T> operator* (
-		detail::tquat<T> const & q, 
-		detail::tvec4<T> const & v);
-
-	template <typename T> 
-	detail::tvec4<T> operator* (
-		detail::tvec4<T> const & v,
-		detail::tquat<T> const & q);
-
-	template <typename T> 
-	detail::tquat<T> operator* (
-		detail::tquat<T> const & q, 
-		typename detail::tquat<T>::value_type const & s);
-
-	template <typename T> 
-	detail::tquat<T> operator* (
-		typename detail::tquat<T>::value_type const & s,
-		detail::tquat<T> const & q);
-
-	template <typename T> 
-	detail::tquat<T> operator/ (
-		detail::tquat<T> const & q, 
-		typename detail::tquat<T>::value_type const & s);
-
-} //namespace detail
-
 	/// @addtogroup gtc_quaternion
 	/// @{
 
-	/// Returns the length of the quaternion. 
-	/// 
+	/// Returns euler angles, pitch as x, yaw as y, roll as z.
+	/// The result is expressed in radians.
+	///
+	/// @tparam T Floating-point scalar types.
+	///
 	/// @see gtc_quaternion
-    template <typename T> 
-    T length(
-		detail::tquat<T> const & q);
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL vec<3, T, Q> eulerAngles(qua<T, Q> const& x);
 
-    /// Returns the normalized quaternion. 
-	/// 
+	/// Returns roll value of euler angles expressed in radians.
+	///
+	/// @tparam T Floating-point scalar types.
+	///
 	/// @see gtc_quaternion
-	template <typename T> 
-	detail::tquat<T> normalize(
-		detail::tquat<T> const & q);
-		
-    /// Returns dot product of q1 and q2, i.e., q1[0] * q2[0] + q1[1] * q2[1] + ... 
-	/// 
-	/// @see gtc_quaternion
-	template <typename T> 
-	T dot(
-		detail::tquat<T> const & q1, 
-		detail::tquat<T> const & q2);
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL T roll(qua<T, Q> const& x);
 
-	/// Returns a SLERP interpolated quaternion of x and y according a. 
-	/// 
+	/// Returns pitch value of euler angles expressed in radians.
+	///
+	/// @tparam T Floating-point scalar types.
+	///
 	/// @see gtc_quaternion
-	template <typename T> 
-	detail::tquat<T> mix(
-		detail::tquat<T> const & x, 
-		detail::tquat<T> const & y, 
-		T const & a);
-		
-	/// Returns the q conjugate. 
-	/// 
-	/// @see gtc_quaternion
-    template <typename T> 
-	detail::tquat<T> conjugate(
-		detail::tquat<T> const & q);
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL T pitch(qua<T, Q> const& x);
 
-	/// Returns the q inverse. 
-	/// 
+	/// Returns yaw value of euler angles expressed in radians.
+	///
+	/// @tparam T Floating-point scalar types.
+	///
 	/// @see gtc_quaternion
-    template <typename T> 
-	detail::tquat<T> inverse(
-		detail::tquat<T> const & q);
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL T yaw(qua<T, Q> const& x);
 
-	/// Rotates a quaternion from an vector of 3 components axis and an angle expressed in degrees.
-	/// 
+	/// Converts a quaternion to a 3 * 3 matrix.
+	///
+	/// @tparam T Floating-point scalar types.
+	///
 	/// @see gtc_quaternion
-	template <typename T> 
-	detail::tquat<T> rotate(
-		detail::tquat<T> const & q, 
-		typename detail::tquat<T>::value_type const & angle, 
-		detail::tvec3<T> const & v);
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL mat<3, 3, T, Q> mat3_cast(qua<T, Q> const& x);
 
-	/// Converts a quaternion to a 3 * 3 matrix. 
-	/// 
+	/// Converts a quaternion to a 4 * 4 matrix.
+	///
+	/// @tparam T Floating-point scalar types.
+	///
 	/// @see gtc_quaternion
-    template <typename T> 
-	detail::tmat3x3<T> mat3_cast(
-		detail::tquat<T> const & x);
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL mat<4, 4, T, Q> mat4_cast(qua<T, Q> const& x);
 
-	/// Converts a quaternion to a 4 * 4 matrix. 
-	/// 
+	/// Converts a pure rotation 3 * 3 matrix to a quaternion.
+	///
+	/// @tparam T Floating-point scalar types.
+	///
 	/// @see gtc_quaternion
-	template <typename T> 
-	detail::tmat4x4<T> mat4_cast(
-		detail::tquat<T> const & x);
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL qua<T, Q> quat_cast(mat<3, 3, T, Q> const& x);
 
-	/// Converts a 3 * 3 matrix to a quaternion. 
-	/// 
+	/// Converts a pure rotation 4 * 4 matrix to a quaternion.
+	///
+	/// @tparam T Floating-point scalar types.
+	///
 	/// @see gtc_quaternion
-	template <typename T> 
-	detail::tquat<T> quat_cast(
-		detail::tmat3x3<T> const & x);
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL qua<T, Q> quat_cast(mat<4, 4, T, Q> const& x);
 
-	/// Converts a 4 * 4 matrix to a quaternion. 
-	/// 
-	/// @see gtc_quaternion
-	template <typename T> 
-	detail::tquat<T> quat_cast(
-		detail::tmat4x4<T> const & x);
+	/// Returns the component-wise comparison result of x < y.
+	///
+	/// @tparam T Floating-point scalar types
+	/// @tparam Q Value from qualifier enum
+	///
+	/// @see ext_quaternion_relational
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL vec<4, bool, Q> lessThan(qua<T, Q> const& x, qua<T, Q> const& y);
 
-	/// Quaternion of floating-point numbers. 
-	/// 
-	/// @see gtc_quaternion
-    typedef detail::tquat<float> quat;
+	/// Returns the component-wise comparison of result x <= y.
+	///
+	/// @tparam T Floating-point scalar types
+	/// @tparam Q Value from qualifier enum
+	///
+	/// @see ext_quaternion_relational
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL vec<4, bool, Q> lessThanEqual(qua<T, Q> const& x, qua<T, Q> const& y);
 
-	/// Quaternion of half-precision floating-point numbers.
-	/// 
-	/// @see gtc_quaternion
-	typedef detail::tquat<detail::half>	hquat;
+	/// Returns the component-wise comparison of result x > y.
+	///
+	/// @tparam T Floating-point scalar types
+	/// @tparam Q Value from qualifier enum
+	///
+	/// @see ext_quaternion_relational
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL vec<4, bool, Q> greaterThan(qua<T, Q> const& x, qua<T, Q> const& y);
 
-	/// Quaternion of single-precision floating-point numbers. 
-	/// 
-	/// @see gtc_quaternion
-	typedef detail::tquat<float>	fquat;
+	/// Returns the component-wise comparison of result x >= y.
+	///
+	/// @tparam T Floating-point scalar types
+	/// @tparam Q Value from qualifier enum
+	///
+	/// @see ext_quaternion_relational
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL vec<4, bool, Q> greaterThanEqual(qua<T, Q> const& x, qua<T, Q> const& y);
 
-	/// Quaternion of double-precision floating-point numbers. 
-	/// 
-	/// @see gtc_quaternion
-	typedef detail::tquat<double>	dquat;
+	/// Build a look at quaternion based on the default handedness.
+	///
+	/// @param direction Desired forward direction. Needs to be normalized.
+	/// @param up Up vector, how the camera is oriented. Typically (0, 1, 0).
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL qua<T, Q> quatLookAt(
+		vec<3, T, Q> const& direction,
+		vec<3, T, Q> const& up);
 
-	/// Quaternion of low precision floating-point numbers.
-	/// 
-	/// @see gtc_quaternion
-	typedef detail::tquat<lowp_float>		lowp_quat;
+	/// Build a right-handed look at quaternion.
+	///
+	/// @param direction Desired forward direction onto which the -z-axis gets mapped. Needs to be normalized.
+	/// @param up Up vector, how the camera is oriented. Typically (0, 1, 0).
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL qua<T, Q> quatLookAtRH(
+		vec<3, T, Q> const& direction,
+		vec<3, T, Q> const& up);
 
-	/// Quaternion of medium precision floating-point numbers. 
-	/// 
-	/// @see gtc_quaternion
-	typedef detail::tquat<mediump_float>	mediump_quat;
-
-	/// Quaternion of high precision floating-point numbers. 
-	/// 
-	/// @see gtc_quaternion
-	typedef detail::tquat<highp_float>		highp_quat;
-
+	/// Build a left-handed look at quaternion.
+	///
+	/// @param direction Desired forward direction onto which the +z-axis gets mapped. Needs to be normalized.
+	/// @param up Up vector, how the camera is oriented. Typically (0, 1, 0).
+	template<typename T, qualifier Q>
+	GLM_FUNC_DECL qua<T, Q> quatLookAtLH(
+		vec<3, T, Q> const& direction,
+		vec<3, T, Q> const& up);
 	/// @}
 } //namespace glm
 
 #include "quaternion.inl"
-
-#endif//GLM_GTC_quaternion

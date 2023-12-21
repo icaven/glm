@@ -1,39 +1,33 @@
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// OpenGL Mathematics Copyright (c) 2005 - 2012 G-Truc Creation (www.g-truc.net)
-///////////////////////////////////////////////////////////////////////////////////////////////////
-// Created : 2007-03-06
-// Updated : 2009-05-01
-// Licence : This source is under MIT License
-// File    : glm/gtx/polar_coordinates.inl
-///////////////////////////////////////////////////////////////////////////////////////////////////
+/// @ref gtx_polar_coordinates
 
 namespace glm
 {
-	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tvec3<T> polar
+	template<typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<3, T, Q> polar
 	(
-		detail::tvec3<T> const & euclidean
+		vec<3, T, Q> const& euclidean
 	)
 	{
-		T length = length(euclidean);
-		detail::tvec3<T> tmp = euclidean / length;
-		T xz_dist = sqrt(tmp.x * tmp.x + tmp.z * tmp.z);
+		T const Length(length(euclidean));
+		vec<3, T, Q> const tmp(euclidean / Length);
+		T const xz_dist(sqrt(tmp.x * tmp.x + tmp.z * tmp.z));
 
-		return detail::tvec3<T>(
-			degrees(atan(xz_dist, tmp.y)),	// latitude
-			degrees(atan(tmp.x, tmp.z)),		// longitude
-			xz_dist);									// xz distance
+		return vec<3, T, Q>(
+			asin(tmp.y),	// latitude
+			atan(tmp.x, tmp.z),		// longitude
+			xz_dist);				// xz distance
 	}
 
-	template <typename T> 
-	GLM_FUNC_QUALIFIER detail::tvec3<T> euclidean
+	template<typename T, qualifier Q>
+	GLM_FUNC_QUALIFIER vec<3, T, Q> euclidean
 	(
-		detail::tvec3<T> const & polar
+		vec<2, T, Q> const& polar
 	)
 	{
-		T latitude = radians(polar.x);
-		T longitude = radians(polar.y);
-		return detail::tvec3<T>(
+		T const latitude(polar.x);
+		T const longitude(polar.y);
+
+		return vec<3, T, Q>(
 			cos(latitude) * sin(longitude),
 			sin(latitude),
 			cos(latitude) * cos(longitude));
