@@ -1,6 +1,12 @@
 name: ci
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+
+on:
+    push:
+    pull_request:
+        branches:
+            - main
+
 jobs:
   windows-latest:
     runs-on: windows-latest
