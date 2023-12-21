@@ -42,17 +42,17 @@ namespace glm
 #		if GLM_LANG & GLM_LANG_CXXMS_FLAG
 			union
 			{
-#				ifdef GLM_FORCE_QUAT_DATA_XYZW
-					struct { T x, y, z, w; };
-#				else
+#				ifdef GLM_FORCE_QUAT_DATA_WXYZ
 					struct { T w, x, y, z; };
+#				else
+					struct { T x, y, z, w; };
 #				endif
 
 				typename detail::storage<4, T, detail::is_aligned<Q>::value>::type data;
 			};
 #		else
-#			ifdef GLM_FORCE_QUAT_DATA_XYZW
-				T x, y, z, w;
+#			ifdef GLM_FORCE_QUAT_DATA_WXYZ
+				T w, x, y, z;
 #			else
 				T w, x, y, z;
 #			endif
