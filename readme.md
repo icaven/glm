@@ -105,7 +105,7 @@ target_link_libraries(main PRIVATE glm::glm)
 
 ## Release notes
 
-### [GLM 1.0.0](https://github.com/g-truc/glm/releases/tag/1.0.0) - 2024-01-XX
+### [GLM 1.0.0](https://github.com/g-truc/glm/releases/tag/1.0.0) - 2024-01-24
 #### Features:
 - Added *GLM_EXT_scalar_reciprocal* with tests
 - Added *GLM_EXT_vector_reciprocal* with tests

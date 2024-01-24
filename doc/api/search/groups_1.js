@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['core_20features',['Core features',['../a00280.html',1,'']]],
-  ['common_20functions',['Common functions',['../a00241.html',1,'']]]
+  ['core_20features_4355',['Core features',['../a00889.html',1,'']]],
+  ['common_20functions_4356',['Common functions',['../a00803.html',1,'']]]
 ];

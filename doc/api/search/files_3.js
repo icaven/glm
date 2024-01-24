@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dual_5fquaternion_2ehpp',['dual_quaternion.hpp',['../a00022.html',1,'']]]
+  ['dual_5fquaternion_2ehpp_2279',['dual_quaternion.hpp',['../a00605.html',1,'']]]
 ];
