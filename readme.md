@@ -107,6 +107,9 @@ target_link_libraries(main PRIVATE glm::glm)
 
 ### [GLM 1.0.1](https://github.com/g-truc/glm) - 2024-XX-XX
 
+#### Improvements:
+- Enables only warnings as errors while building unit tests
+
 #### Fixes:
 - Fixed C++ language auto detection build, disable C++98 warnings with Clang #1235, #1231
 - Fixed `GTX_color_space` missing <glm/ext/scalar_constants.hpp> include #1233 #1238

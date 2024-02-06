@@ -244,49 +244,6 @@ elseif(GLM_ENABLE_SIMD_SSE2)
 	message(STATUS "GLM: SSE2 instruction set")
 endif()
 
-# Compiler and default options
-
-if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-	if(NOT GLM_QUIET)
-		message("GLM: Clang - ${CMAKE_CXX_COMPILER_ID} compiler")
-	endif()
-
-	if(NOT GLM_DISABLE_AUTO_DETECTION)
-		add_compile_options(-Werror -Weverything)
-	endif()
-#	add_compile_options(-Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-c++11-long-long -Wno-padded -Wno-gnu-anonymous-struct -Wno-nested-anon-types)
-#	add_compile_options(-Wno-undefined-reinterpret-cast -Wno-sign-conversion -Wno-unused-variable -Wno-missing-prototypes -Wno-unreachable-code -Wno-missing-variable-declarations -Wno-sign-compare -Wno-global-constructors -Wno-unused-macros -Wno-format-nonliteral -Wno-float-equal)
-
-elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-	if(NOT GLM_QUIET)
-		message("GLM: GCC - ${CMAKE_CXX_COMPILER_ID} compiler")
-	endif()
-
-	if(NOT GLM_DISABLE_AUTO_DETECTION)
-		add_compile_options(-Werror)
-#		add_compile_options(-Wpedantic)
-#		add_compile_options(-Wall)
-#		add_compile_options(-Wextra)
-	endif()
-	add_compile_options(-O2)
-	#add_compile_options(-Wno-long-long)
-elseif(CMAKE_CXX_COMPILER_ID MATCHES "Intel")
-	if(NOT GLM_QUIET)
-		message("GLM: Intel - ${CMAKE_CXX_COMPILER_ID} compiler")
-	endif()
-
-elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
-	if(NOT GLM_QUIET)
-		message("GLM: Visual C++ - ${CMAKE_CXX_COMPILER_ID} compiler")
-	endif()
-
-	if(NOT GLM_DISABLE_AUTO_DETECTION)
-		add_compile_options(/W4 /WX)
-	endif()
-#	add_compile_options(/wd4309 /wd4324 /wd4389 /wd4127 /wd4267 /wd4146 /wd4201 /wd4464 /wd4514 /wd4701 /wd4820 /wd4365)
-	add_definitions(-D_CRT_SECURE_NO_WARNINGS)
-endif()
-
 add_subdirectory(glm)
 
 if (GLM_BUILD_TESTS)
