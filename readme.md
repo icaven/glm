@@ -109,6 +109,7 @@ target_link_libraries(main PRIVATE glm::glm)
 
 #### Fixes:
 - Fixed C++ language auto detection build, disable C++98 warnings with Clang #1235, #1231
+- Fixed `GTX_color_space` missing <glm/ext/scalar_constants.hpp> include #1233 #1238
 
 ### [GLM 1.0.0](https://github.com/g-truc/glm/releases/tag/1.0.0) - 2024-01-24
 #### Features:
