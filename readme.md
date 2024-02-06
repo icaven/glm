@@ -105,6 +105,11 @@ target_link_libraries(main PRIVATE glm::glm)
 
 ## Release notes
 
+### [GLM 1.0.1](https://github.com/g-truc/glm) - 2024-XX-XX
+
+#### Fixes:
+- Fixed C++ language auto detection build, disable C++98 warnings with Clang #1235, #1231
+
 ### [GLM 1.0.0](https://github.com/g-truc/glm/releases/tag/1.0.0) - 2024-01-24
 #### Features:
 - Added *GLM_EXT_scalar_reciprocal* with tests

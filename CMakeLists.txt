@@ -88,6 +88,17 @@ elseif(GLM_ENABLE_CXX_98)
 	if(NOT GLM_QUIET)
 		message(STATUS "GLM: Build with C++98 features")
 	endif()
+
+else()
+	if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+		message(STATUS "GLM: Disable -Wc++98-compat warnings")
+		add_compile_options(-Wno-c++98-compat)
+		add_compile_options(-Wno-c++98-compat-pedantic)
+	endif()
+	if(NOT GLM_QUIET)
+		message(STATUS "GLM: Build with C++ features auto detection")
+	endif()
+
 endif()
 
 option(GLM_ENABLE_LANG_EXTENSIONS "Enable language extensions" OFF)
