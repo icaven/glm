@@ -109,6 +109,7 @@ target_link_libraries(main PRIVATE glm::glm)
 
 #### Improvements:
 - Enables only warnings as errors while building unit tests
+- Added aligned_*vec3 simd support #1245
 
 #### Fixes:
 - Fixed C++ language auto detection build, disable C++98 warnings with Clang #1235, #1231
