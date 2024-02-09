@@ -47,17 +47,84 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 
 | Service | Status |
 | ------- | ------ |
-| [GitHub actions](https://github.com/g-truc/glm/actions)| [![GLM tests](https://github.com/g-truc/glm/actions/workflows/test.yml/badge.svg?event=push)](https://github.com/g-truc/glm/actions/workflows/c.i.yml)
+| [GitHub actions](https://github.com/g-truc/glm/actions)| [![.github/workflows/ci.yml](https://github.com/g-truc/glm/actions/workflows/ci.yml/badge.svg)](https://github.com/g-truc/glm/actions/workflows/ci.yml)
+
+## Build and Install
+
+```shell
+cd /path/to/glm
+cmake \
+    -DGLM_BUILD_TESTS=OFF \
+    -DBUILD_SHARED_LIBS=OFF \
+    -B build .
+cmake --build build -- all
+cmake --build build -- install
+```
+
+Passing `-DBUILD_SHARED_LIBS=ON` to build shared library
+
+And then in your `CMakeLists.txt`:
+
+```cmake
+find_package(glm CONFIG REQUIRED)
+target_link_libraries(main PRIVATE glm::glm)
+```
+
+If your perfer to use header-only version of GLM
+
+```cmake
+find_package(glm CONFIG REQUIRED)
+target_link_libraries(main PRIVATE glm::glm-header-only)
+```
+
+## Vcpkg
+
+```shell
+vcpkg install glm
+```
+
+## CMake using FetchContent
+You can add glm to your CMake project to be built together.
+
+Add to the `CMakeLists.txt` file:
+```cmake
+cmake_minimum_required(VERSION 3.11) # FetchContent is new in version 3.11.
+
+include(FetchContent)
+
+FetchContent_Declare(
+	glm
+	GIT_REPOSITORY	https://github.com/g-truc/glm.git
+	GIT_TAG 	bf71a834948186f4097caa076cd2663c69a10e1e #refs/tags/0.9.9.8
+)
+
+FetchContent_MakeAvailable(glm)
+
+target_link_libraries(main PRIVATE glm::glm)
+```
 
 ## Release notes
 
-### [GLM 0.9.9.9](https://github.com/g-truc/glm/releases/tag/0.9.9.9) - 2024-01-XX
+### [GLM 1.0.1](https://github.com/g-truc/glm) - 2024-02-XX
+
+#### Improvements:
+- Enables only warnings as errors while building unit tests
+- Added aligned_*vec3 simd support #1245
+
+#### Fixes:
+- Fixed C++ language auto detection build, disable C++98 warnings with Clang #1235, #1231
+- Fixed `GTX_color_space` missing <glm/ext/scalar_constants.hpp> include #1233 #1238
+- Fixed `EXT_matrix_transform` `shear` implementation #1140 #1182
+- Fixed `smoothstep` SIMD implementation #1222
+
+### [GLM 1.0.0](https://github.com/g-truc/glm/releases/tag/1.0.0) - 2024-01-24
 #### Features:
 - Added *GLM_EXT_scalar_reciprocal* with tests
 - Added *GLM_EXT_vector_reciprocal* with tests
 - Added `glm::iround` and `glm::uround` to *GLM_EXT_scalar_common* and *GLM_EXT_vector_common*
 - Added *GLM_EXT_matrix_integer* with tests
 - Added Github Actions
+- Added GLM_FORCE_UNRESTRICTED_FLOAT to prevent static asserts when using other scalar types with function expecting floats. 
 
 #### Improvements:
 - Added `constexpr` qualifier for `cross` product #1040

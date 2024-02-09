@@ -1,6 +1,6 @@
 ![Alt](./doc/manual/logo-mini.png "GLM Logo")
 
-# GLM 0.9.9 Manual
+# GLM 1.0.0 Manual
 
 ![Alt](./doc/manual/g-truc.png "G-Truc Logo")
 
@@ -180,7 +180,7 @@ GLM is a header-only library, and thus does not need to be compiled. We can use 
 #include <glm/glm.hpp>
 ```
 
-To extend the feature set supported by GLM and keeping the library as close to GLSL as possible, new features are implemented as extensions that can be included thought a separated header:
+To extend the feature set supported by GLM and keeping the library as close to GLSL as possible, new features are implemented as extensions that can be included through a separate header:
 
 ```cpp
 // Include all GLM core / GLSL features

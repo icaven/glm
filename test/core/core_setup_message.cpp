@@ -2,11 +2,11 @@
 #include <glm/vec3.hpp>
 #include <cstdio>
 
-int test_compiler()
+static int test_compiler()
 {
 	int Error(0);
 	
-	if(GLM_COMPILER & GLM_COMPILER_VC)
+#	if(GLM_COMPILER & GLM_COMPILER_VC)
 	{
 		switch(GLM_COMPILER)
 		{
@@ -40,13 +40,16 @@ int test_compiler()
 		case GLM_COMPILER_VC16:
 			std::printf("Visual C++ 16 - 2019\n");
 			break;
+		case GLM_COMPILER_VC17:
+			std::printf("Visual C++ 17 - 2022\n");
+			break;
 		default:
 			std::printf("Visual C++ version not detected\n");
 			Error += 1;
 			break;
 		}
 	}
-	else if(GLM_COMPILER & GLM_COMPILER_GCC)
+#	elif(GLM_COMPILER & GLM_COMPILER_GCC)
 	{
 		switch(GLM_COMPILER)
 		{
@@ -74,17 +77,35 @@ int test_compiler()
 		case GLM_COMPILER_GCC8:
 			std::printf("GCC 8\n");
 			break;
+		case GLM_COMPILER_GCC9:
+			std::printf("GCC 9\n");
+			break;
+		case GLM_COMPILER_GCC10:
+			std::printf("GCC 10\n");
+			break;
+		case GLM_COMPILER_GCC11:
+			std::printf("GCC 11\n");
+			break;
+		case GLM_COMPILER_GCC12:
+			std::printf("GCC 12\n");
+			break;
+		case GLM_COMPILER_GCC13:
+			std::printf("GCC 13\n");
+			break;
+		case GLM_COMPILER_GCC14:
+			std::printf("GCC 14\n");
+			break;
 		default:
 			std::printf("GCC version not detected\n");
 			Error += 1;
 			break;
 		}
 	}
-	else if(GLM_COMPILER & GLM_COMPILER_CUDA)
+#	elif(GLM_COMPILER & GLM_COMPILER_CUDA)
 	{
 		std::printf("CUDA\n");
 	}
-	else if(GLM_COMPILER & GLM_COMPILER_CLANG)
+#	elif(GLM_COMPILER & GLM_COMPILER_CLANG)
 	{
 		switch(GLM_COMPILER)
 		{
@@ -106,21 +127,60 @@ int test_compiler()
 		case GLM_COMPILER_CLANG39:
 			std::printf("Clang 3.9\n");
 			break;
-		case GLM_COMPILER_CLANG40:
-			std::printf("Clang 4.0\n");
+		case GLM_COMPILER_CLANG4:
+			std::printf("Clang 4\n");
 			break;
-		case GLM_COMPILER_CLANG41:
-			std::printf("Clang 4.1\n");
+		case GLM_COMPILER_CLANG5:
+			std::printf("Clang 5\n");
 			break;
-		case GLM_COMPILER_CLANG42:
-			std::printf("Clang 4.2\n");
+		case GLM_COMPILER_CLANG6:
+			std::printf("Clang 6\n");
+			break;
+		case GLM_COMPILER_CLANG7:
+			std::printf("Clang 7\n");
+			break;
+		case GLM_COMPILER_CLANG8:
+			std::printf("Clang 8\n");
+			break;
+		case GLM_COMPILER_CLANG9:
+			std::printf("Clang 9\n");
+			break;
+		case GLM_COMPILER_CLANG10:
+			std::printf("Clang 10\n");
+			break;
+		case GLM_COMPILER_CLANG11:
+			std::printf("Clang 11\n");
+			break;
+		case GLM_COMPILER_CLANG12:
+			std::printf("Clang 12\n");
+			break;
+		case GLM_COMPILER_CLANG13:
+			std::printf("Clang 13\n");
+			break;
+		case GLM_COMPILER_CLANG14:
+			std::printf("Clang 14\n");
+			break;
+		case GLM_COMPILER_CLANG15:
+			std::printf("Clang 15\n");
+			break;
+		case GLM_COMPILER_CLANG16:
+			std::printf("Clang 16\n");
+			break;
+		case GLM_COMPILER_CLANG17:
+			std::printf("Clang 17\n");
+			break;
+		case GLM_COMPILER_CLANG18:
+			std::printf("Clang 18\n");
+			break;
+		case GLM_COMPILER_CLANG19:
+			std::printf("Clang 19\n");
 			break;
 		default:
 			std::printf("LLVM version not detected\n");
 			break;
 		}
 	}
-	else if(GLM_COMPILER & GLM_COMPILER_INTEL)
+#	elif(GLM_COMPILER & GLM_COMPILER_INTEL)
 	{
 		switch(GLM_COMPILER)
 		{
@@ -131,10 +191,19 @@ int test_compiler()
 			std::printf("ICC 15 - 2015\n");
 			break;
 		case GLM_COMPILER_INTEL16:
-			std::printf("ICC 16 - 2017\n");
+			std::printf("ICC 16 - 2015\n");
 			break;
 		case GLM_COMPILER_INTEL17:
-			std::printf("ICC 17 - 20XX\n");
+			std::printf("ICC 17 - 2016\n");
+			break;
+		case GLM_COMPILER_INTEL18:
+			std::printf("ICC 18 - 2017\n");
+			break;
+		case GLM_COMPILER_INTEL19:
+			std::printf("ICC 19 - 2018\n");
+			break;
+		case GLM_COMPILER_INTEL21:
+			std::printf("ICC 21 - 2021\n");
 			break;
 		default:
 			std::printf("Intel compiler version not detected\n");
@@ -142,67 +211,83 @@ int test_compiler()
 			break;
 		}
 	}
-	else
+#else
 	{
 		std::printf("Undetected compiler\n");
 		Error += 1;
 	}
-	
+#endif
 	return Error;
 }
 
-int test_model()
+static int test_model()
 {
 	int Error = 0;
 	
 	Error += ((sizeof(void*) == 4) && (GLM_MODEL == GLM_MODEL_32)) || ((sizeof(void*) == 8) && (GLM_MODEL == GLM_MODEL_64)) ? 0 : 1;
 	
-	if(GLM_MODEL == GLM_MODEL_32)
+#	if GLM_MODEL == GLM_MODEL_32
 		std::printf("GLM_MODEL_32\n");
-	else if(GLM_MODEL == GLM_MODEL_64)
+#	elif GLM_MODEL == GLM_MODEL_64
 		std::printf("GLM_MODEL_64\n");
-	
+#	endif
+
 	return Error;
 }
 
-int test_instruction_set()
+static int test_instruction_set()
 {
 	int Error = 0;
 
 	std::printf("GLM_ARCH: ");
 
-	if(GLM_ARCH & GLM_ARCH_ARM_BIT)
+#	if(GLM_ARCH & GLM_ARCH_ARM_BIT)
 		std::printf("ARM ");
-	if(GLM_ARCH & GLM_ARCH_NEON_BIT)
+#	elif(GLM_ARCH & GLM_ARCH_NEON_BIT)
 		std::printf("NEON ");
-	if(GLM_ARCH & GLM_ARCH_AVX2_BIT)
+#	elif(GLM_ARCH & GLM_ARCH_AVX2_BIT)
 		std::printf("AVX2 ");
-	if(GLM_ARCH & GLM_ARCH_AVX_BIT)
+#	elif(GLM_ARCH & GLM_ARCH_AVX_BIT)
 		std::printf("AVX ");
-	if(GLM_ARCH & GLM_ARCH_SSE42_BIT)
+#	elif(GLM_ARCH & GLM_ARCH_SSE42_BIT)
 		std::printf("SSE4.2 ");
-	if(GLM_ARCH & GLM_ARCH_SSE41_BIT)
+#	elif(GLM_ARCH & GLM_ARCH_SSE41_BIT)
 		std::printf("SSE4.1 ");
-	if(GLM_ARCH & GLM_ARCH_SSSE3_BIT)
+#	elif(GLM_ARCH & GLM_ARCH_SSSE3_BIT)
 		std::printf("SSSE3 ");
-	if(GLM_ARCH & GLM_ARCH_SSE3_BIT)
+#	elif(GLM_ARCH & GLM_ARCH_SSE3_BIT)
 		std::printf("SSE3 ");
-	if(GLM_ARCH & GLM_ARCH_SSE2_BIT)
+#	elif(GLM_ARCH & GLM_ARCH_SSE2_BIT)
 		std::printf("SSE2 ");
+#	endif
 
 	std::printf("\n");
 
 	return Error;
 }
 
-int test_cpp_version()
+static int test_cpp_version()
 {
 	std::printf("__cplusplus: %d\n", static_cast<int>(__cplusplus));
 	
+	std::printf("GLM_LANG: ");
+
+#	if(GLM_LANG & GLM_LANG_CXX20_FLAG)
+		std::printf("C++ 20");
+#	elif(GLM_LANG & GLM_LANG_CXX17_FLAG)
+		std::printf("C++ 17");
+#	elif(GLM_LANG & GLM_LANG_CXX14_FLAG)
+		std::printf("C++ 14");
+#	elif(GLM_LANG & GLM_LANG_CXX11_FLAG)
+		std::printf("C++ 11");
+#	elif(GLM_LANG & GLM_LANG_CXX98_FLAG)
+		std::printf("C++ 98");
+#	endif
+
 	return 0;
 }
 
-int test_operators()
+static int test_operators()
 {
 	glm::ivec3 A(1);
 	glm::ivec3 B(1);

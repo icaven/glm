@@ -16,7 +16,7 @@
 
 using namespace glm;
 
-int test_matrixCompMult()
+static int test_matrixCompMult()
 {
 	int Error(0);
 
@@ -86,25 +86,50 @@ int test_matrixCompMult()
 	return Error;
 }
 
-int test_outerProduct()
+static int test_outerProduct()
 {
-	{ glm::mat2 m = glm::outerProduct(glm::vec2(1.0f), glm::vec2(1.0f)); }
-	{ glm::mat3 m = glm::outerProduct(glm::vec3(1.0f), glm::vec3(1.0f)); }
-	{ glm::mat4 m = glm::outerProduct(glm::vec4(1.0f), glm::vec4(1.0f)); }
+	int Error = 0;
 
-	{ glm::mat2x3 m = glm::outerProduct(glm::vec3(1.0f), glm::vec2(1.0f)); }
-	{ glm::mat2x4 m = glm::outerProduct(glm::vec4(1.0f), glm::vec2(1.0f)); }
+	glm::mat2 m0 = glm::outerProduct(glm::vec2(1.0f), glm::vec2(1.0f));
+	glm::mat2 n0(1, 1, 1, 1);
+	Error += all(equal(m0, n0, epsilon<float>())) ? 0 : 1;
 
-	{ glm::mat3x2 m = glm::outerProduct(glm::vec2(1.0f), glm::vec3(1.0f)); }
-	{ glm::mat3x4 m = glm::outerProduct(glm::vec4(1.0f), glm::vec3(1.0f)); }
-  
-	{ glm::mat4x2 m = glm::outerProduct(glm::vec2(1.0f), glm::vec4(1.0f)); }
-	{ glm::mat4x3 m = glm::outerProduct(glm::vec3(1.0f), glm::vec4(1.0f)); }
+	glm::mat3 m1 = glm::outerProduct(glm::vec3(1.0f), glm::vec3(1.0f));
+	glm::mat3 n1(1, 1, 1, 1, 1, 1, 1, 1, 1);
+	Error += all(equal(m1, n1, epsilon<float>())) ? 0 : 1;
 
-	return 0;
+	glm::mat4 m2 = glm::outerProduct(glm::vec4(1.0f), glm::vec4(1.0f));
+	glm::mat4 n2(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+	Error += all(equal(m2, n2, epsilon<float>())) ? 0 : 1;
+
+	glm::mat2x3 m3 = glm::outerProduct(glm::vec3(1.0f), glm::vec2(1.0f));
+	glm::mat2x3 n3(1, 1, 1, 1, 1, 1);
+	Error += all(equal(m3, n3, epsilon<float>())) ? 0 : 1;
+
+	glm::mat2x4 m4 = glm::outerProduct(glm::vec4(1.0f), glm::vec2(1.0f));
+	glm::mat2x4 n4(1, 1, 1, 1, 1, 1, 1, 1);
+	Error += all(equal(m4, n4, epsilon<float>())) ? 0 : 1;
+
+	glm::mat3x2 m5 = glm::outerProduct(glm::vec2(1.0f), glm::vec3(1.0f));
+	glm::mat3x2 n5(1, 1, 1, 1, 1, 1);
+	Error += all(equal(m5, n5, epsilon<float>())) ? 0 : 1;
+
+	glm::mat3x4 m6 = glm::outerProduct(glm::vec4(1.0f), glm::vec3(1.0f));
+	glm::mat3x4 n6(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+	Error += all(equal(m6, n6, epsilon<float>())) ? 0 : 1;
+
+	glm::mat4x2 m7 = glm::outerProduct(glm::vec2(1.0f), glm::vec4(1.0f));
+	glm::mat4x2 n7(1, 1, 1, 1, 1, 1, 1, 1);
+	Error += all(equal(m7, n7, epsilon<float>())) ? 0 : 1;
+
+	glm::mat4x3 m8 = glm::outerProduct(glm::vec3(1.0f), glm::vec4(1.0f));
+	glm::mat4x3 n8(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+	Error += all(equal(m8, n8, epsilon<float>())) ? 0 : 1;
+
+	return Error;
 }
 
-int test_transpose()
+static int test_transpose()
 {
 	int Error(0);
 
@@ -174,14 +199,14 @@ int test_transpose()
 	return Error;
 }
 
-int test_determinant()
+static int test_determinant()
 {
 
 
 	return 0;
 }
 
-int test_inverse()
+static int test_inverse()
 {
 	int Error = 0;
 
@@ -221,7 +246,7 @@ int test_inverse()
 	return Error;
 }
 
-int test_inverse_simd()
+static int test_inverse_simd()
 {
 	int Error = 0;
 
@@ -240,7 +265,7 @@ int test_inverse_simd()
 	return Error;
 }
 
-int test_shearing()
+static int test_shearing()
 {
     int Error = 0;
 
@@ -255,12 +280,14 @@ int test_shearing()
                 glm::vec4(1, 1, 1, 0),
                 glm::vec4(1, 1, 0, 1));
         glm::mat4x4 const B4x4 = glm::shear(A4x4, center, l_x, l_y, l_z);
+        glm::mat4x4 const C4x4 = glm::shear_slow(A4x4, center, l_x, l_y, l_z);
         glm::mat4x4 const expected(
                 glm::vec4(0, 0, 1, 1),
-                glm::vec4(2, 1, 1, 0),
-                glm::vec4(3, 1, 1, 0),
-                glm::vec4(3, 1, 0, 1));
+                glm::vec4(0, 1, 3, 2),
+                glm::vec4(1, 1, 1, 0),
+                glm::vec4(1, 1, 0, 1));
         Error += all(equal(B4x4, expected, epsilon<float>())) ? 0 : 1;
+        Error += all(equal(C4x4, expected, epsilon<float>())) ? 0 : 1;
     }
 
     {
@@ -274,12 +301,14 @@ int test_shearing()
                 glm::vec4(1, 1, 1, 0),
                 glm::vec4(1, 0, 0, 0));
         glm::mat4x4 const B4x4 = glm::shear(A4x4, center, l_x, l_y, l_z);
+        glm::mat4x4 const C4x4 = glm::shear_slow(A4x4, center, l_x, l_y, l_z);
         glm::mat4x4 const expected(
-                glm::vec4(0, 1, 1, 0),
-                glm::vec4(1, 2, 1, 0),
-                glm::vec4(2, 2, 2, 0),
-                glm::vec4(1, 0, 1, 0));
+                glm::vec4(1, 1, 2, 0),
+                glm::vec4(0, 1, 2, 0),
+                glm::vec4(1, 2, 2, 0),
+                glm::vec4(1, 0, 0, 0));
         Error += all(equal(B4x4, expected, epsilon<float>())) ? 0 : 1;
+        Error += all(equal(C4x4, expected, epsilon<float>())) ? 0 : 1;
     }
 
     {
@@ -289,12 +318,14 @@ int test_shearing()
         glm::vec2 const l_z(4, 5);
         glm::mat4x4 const A4x4(1);
         glm::mat4x4 const B4x4 = glm::shear(A4x4, center, l_x, l_y, l_z);
+        glm::mat4x4 const C4x4 = glm::shear_slow(A4x4, center, l_x, l_y, l_z);
         glm::mat4x4 const expected(
                 glm::vec4(1, 3, 4, 0),
                 glm::vec4(1, 1, 5, 0),
                 glm::vec4(2, 1, 1, 0),
                 glm::vec4(-9, -8, -9, 1));
         Error += all(equal(B4x4, expected, epsilon<float>())) ? 0 : 1;
+        Error += all(equal(C4x4, expected, epsilon<float>())) ? 0 : 1;
     }
 
     {
@@ -308,19 +339,21 @@ int test_shearing()
                 glm::vec4(4, -8, 0, 0),
                 glm::vec4(7, 1, -2, 0));
         glm::mat4x4 const B4x4 = glm::shear(A4x4, center, l_x, l_y, l_z);
+        glm::mat4x4 const C4x4 = glm::shear_slow(A4x4, center, l_x, l_y, l_z);
         glm::mat4x4 const expected(
-                glm::vec4(1, -6, -1, 0),
-                glm::vec4(7, 12, 23, 0),
-                glm::vec4(-4, 4, -24, 0),
-                glm::vec4(4, 20, 31, 0));
+                glm::vec4(22, -24, 4, 0),
+                glm::vec4(20, -36, 2, 0),
+                glm::vec4(1, -2, 3, 0),
+                glm::vec4(-26, 39, -19, 0));
         Error += all(equal(B4x4, expected, epsilon<float>())) ? 0 : 1;
+        Error += all(equal(C4x4, expected, epsilon<float>())) ? 0 : 1;
     }
 
     return Error;
 }
 
 template<typename VEC3, typename MAT4>
-int test_inverse_perf(std::size_t Count, std::size_t Instance, char const * Message)
+static int test_inverse_perf(std::size_t Count, std::size_t Instance, char const * Message)
 {
 	std::vector<MAT4> TestInputs;
 	TestInputs.resize(Count);
@@ -367,19 +400,20 @@ int test_inverse_perf(std::size_t Count, std::size_t Instance, char const * Mess
 int main()
 {
 	int Error = 0;
+
 	Error += test_matrixCompMult();
 	Error += test_outerProduct();
 	Error += test_transpose();
 	Error += test_determinant();
 	Error += test_inverse();
-    Error += test_inverse_simd();
-    Error += test_shearing();
+	Error += test_inverse_simd();
+	Error += test_shearing();
 
-#	ifdef NDEBUG
+#ifdef NDEBUG
 	std::size_t const Samples = 1000;
-#	else
+#else
 	std::size_t const Samples = 1;
-#	endif//NDEBUG
+#endif//NDEBUG
 
 	for(std::size_t i = 0; i < 1; ++i)
 	{

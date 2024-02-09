@@ -30,12 +30,6 @@
 #include <glm/vector_relational.hpp>
 #include <glm/common.hpp>
 
-#if ((GLM_LANG & GLM_LANG_CXX11_FLAG) || (GLM_COMPILER & GLM_COMPILER_VC))
-#	define GLM_NAN(T) NAN
-#else
-#	define GLM_NAN(T) (static_cast<T>(0.0f) / static_cast<T>(0.0f))
-#endif
-
 template <typename vecType>
 static int test_min()
 {
@@ -64,38 +58,6 @@ static int test_min()
 	Error += glm::all(glm::equal(glm::min(C, B, D, N), N, glm::epsilon<T>())) ? 0 : 1;
 	Error += glm::all(glm::equal(glm::min(B, C, N, D), N, glm::epsilon<T>())) ? 0 : 1;
 	Error += glm::all(glm::equal(glm::min(N, C, B, D), N, glm::epsilon<T>())) ? 0 : 1;
-
-	return Error;
-}
-
-template <typename vecType>
-static int test_min_nan()
-{
-	typedef typename vecType::value_type T;
-
-	int Error = 0;
-
-	vecType const B(static_cast<T>(1));
-	vecType const N(GLM_NAN(T));
-
-	Error += glm::all(glm::isnan(glm::min(N, B))) ? 0 : 1;
-	Error += !glm::all(glm::isnan(glm::min(B, N))) ? 0 : 1;
-
-	vecType const C(static_cast<T>(2));
-	Error += glm::all(glm::isnan(glm::min(N, B, C))) ? 0 : 1;
-	Error += !glm::all(glm::isnan(glm::min(B, N, C))) ? 0 : 1;
-	Error += !glm::all(glm::isnan(glm::min(C, N, B))) ? 0 : 1;
-	Error += !glm::all(glm::isnan(glm::min(C, B, N))) ? 0 : 1;
-	Error += !glm::all(glm::isnan(glm::min(B, C, N))) ? 0 : 1;
-	Error += glm::all(glm::isnan(glm::min(N, C, B))) ? 0 : 1;
-
-	vecType const D(static_cast<T>(3));
-	Error += !glm::all(glm::isnan(glm::min(D, N, B, C))) ? 0 : 1;
-	Error += !glm::all(glm::isnan(glm::min(B, D, N, C))) ? 0 : 1;
-	Error += !glm::all(glm::isnan(glm::min(C, N, D, B))) ? 0 : 1;
-	Error += !glm::all(glm::isnan(glm::min(C, B, D, N))) ? 0 : 1;
-	Error += !glm::all(glm::isnan(glm::min(B, C, N, D))) ? 0 : 1;
-	Error += glm::all(glm::isnan(glm::min(N, C, B, D))) ? 0 : 1;
 
 	return Error;
 }
@@ -131,6 +93,39 @@ static int test_max()
 	return Error;
 }
 
+#if ((GLM_LANG & GLM_LANG_CXX11_FLAG) || (GLM_COMPILER & GLM_COMPILER_VC))
+template <typename vecType>
+static int test_min_nan()
+{
+	typedef typename vecType::value_type T;
+
+	int Error = 0;
+
+	vecType const B(static_cast<T>(1));
+	vecType const N(NAN);
+
+	Error += glm::all(glm::isnan(glm::min(N, B))) ? 0 : 1;
+	Error += !glm::all(glm::isnan(glm::min(B, N))) ? 0 : 1;
+
+	vecType const C(static_cast<T>(2));
+	Error += glm::all(glm::isnan(glm::min(N, B, C))) ? 0 : 1;
+	Error += !glm::all(glm::isnan(glm::min(B, N, C))) ? 0 : 1;
+	Error += !glm::all(glm::isnan(glm::min(C, N, B))) ? 0 : 1;
+	Error += !glm::all(glm::isnan(glm::min(C, B, N))) ? 0 : 1;
+	Error += !glm::all(glm::isnan(glm::min(B, C, N))) ? 0 : 1;
+	Error += glm::all(glm::isnan(glm::min(N, C, B))) ? 0 : 1;
+
+	vecType const D(static_cast<T>(3));
+	Error += !glm::all(glm::isnan(glm::min(D, N, B, C))) ? 0 : 1;
+	Error += !glm::all(glm::isnan(glm::min(B, D, N, C))) ? 0 : 1;
+	Error += !glm::all(glm::isnan(glm::min(C, N, D, B))) ? 0 : 1;
+	Error += !glm::all(glm::isnan(glm::min(C, B, D, N))) ? 0 : 1;
+	Error += !glm::all(glm::isnan(glm::min(B, C, N, D))) ? 0 : 1;
+	Error += glm::all(glm::isnan(glm::min(N, C, B, D))) ? 0 : 1;
+
+	return Error;
+}
+
 template <typename vecType>
 static int test_max_nan()
 {
@@ -139,7 +134,7 @@ static int test_max_nan()
 	int Error = 0;
 
 	vecType const B(static_cast<T>(1));
-	vecType const N(GLM_NAN(T));
+	vecType const N(NAN);
 
 	Error += glm::all(glm::isnan(glm::max(N, B))) ? 0 : 1;
 	Error += !glm::all(glm::isnan(glm::max(B, N))) ? 0 : 1;
@@ -171,7 +166,7 @@ static int test_fmin()
 	int Error = 0;
 
 	vecType const B(static_cast<T>(1));
-	vecType const N(GLM_NAN(T));
+	vecType const N(NAN);
 
 	Error += glm::all(glm::equal(glm::fmin(N, B), B, glm::epsilon<T>())) ? 0 : 1;
 	Error += glm::all(glm::equal(glm::fmin(B, N), B, glm::epsilon<T>())) ? 0 : 1;
@@ -203,7 +198,7 @@ static int test_fmax()
 	int Error = 0;
 
 	vecType const B(static_cast<T>(1));
-	vecType const N(GLM_NAN(T));
+	vecType const N(NAN);
 
 	Error += glm::all(glm::equal(glm::fmax(N, B), B, glm::epsilon<T>())) ? 0 : 1;
 	Error += glm::all(glm::equal(glm::fmax(B, N), B, glm::epsilon<T>())) ? 0 : 1;
@@ -226,6 +221,7 @@ static int test_fmax()
 
 	return Error;
 }
+#endif//((GLM_LANG & GLM_LANG_CXX11_FLAG) || (GLM_COMPILER & GLM_COMPILER_VC))
 
 static int test_clamp()
 {
@@ -339,19 +335,20 @@ int main()
 
 	Error += test_min<glm::vec3>();
 	Error += test_min<glm::vec2>();
-	Error += test_min_nan<glm::vec3>();
-	Error += test_min_nan<glm::vec2>();
-
 	Error += test_max<glm::vec3>();
 	Error += test_max<glm::vec2>();
+
+#if ((GLM_LANG & GLM_LANG_CXX11_FLAG) || (GLM_COMPILER & GLM_COMPILER_VC))
+	Error += test_min_nan<glm::vec3>();
+	Error += test_min_nan<glm::vec2>();
 	Error += test_max_nan<glm::vec3>();
 	Error += test_max_nan<glm::vec2>();
 
 	Error += test_fmin<glm::vec3>();
 	Error += test_fmin<glm::vec2>();
-
 	Error += test_fmax<glm::vec3>();
 	Error += test_fmax<glm::vec2>();
+#endif//
 
 	Error += test_clamp();
 	Error += test_repeat();

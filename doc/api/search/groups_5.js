@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['integer_20functions',['Integer functions',['../a00370.html',1,'']]]
+  ['integer_20functions_4528',['Integer functions',['../a00981.html',1,'']]]
 ];

@@ -3,14 +3,24 @@
 #include <cassert>
 #include <cstddef>
 
-#define GLM_VERSION_MAJOR 0
-#define GLM_VERSION_MINOR 9
-#define GLM_VERSION_PATCH 9
-#define GLM_VERSION_REVISION 9
-#define GLM_VERSION 999
-#define GLM_VERSION_MESSAGE "GLM: version 0.9.9.9"
+#define GLM_VERSION_MAJOR 1
+#define GLM_VERSION_MINOR 0
+#define GLM_VERSION_PATCH 0
+#define GLM_VERSION_REVISION 0 // Deprecated
+#define GLM_VERSION 1000 // Deprecated
+#define GLM_VERSION_MESSAGE "GLM: version 1.0.0"
+
+#define GLM_MAKE_API_VERSION(variant, major, minor, patch) \
+    ((((uint32_t)(variant)) << 29U) | (((uint32_t)(major)) << 22U) | (((uint32_t)(minor)) << 12U) | ((uint32_t)(patch)))
+
+#define GLM_VERSION_COMPLETE GLM_MAKE_API_VERSION(0, GLM_VERSION_MAJOR, GLM_VERSION_MINOR, GLM_VERSION_PATCH)
 
 #define GLM_SETUP_INCLUDED GLM_VERSION
+
+#define GLM_GET_VERSION_VARIANT(version) ((uint32_t)(version) >> 29U)
+#define GLM_GET_VERSION_MAJOR(version) (((uint32_t)(version) >> 22U) & 0x7FU)
+#define GLM_GET_VERSION_MINOR(version) (((uint32_t)(version) >> 12U) & 0x3FFU)
+#define GLM_GET_VERSION_PATCH(version) ((uint32_t)(version) & 0xFFFU)
 
 ///////////////////////////////////////////////////////////////////////////////////
 // Active states
@@ -58,7 +68,7 @@
 #define GLM_LANG_CXX11_FLAG			(1 << 4)
 #define GLM_LANG_CXX14_FLAG			(1 << 5)
 #define GLM_LANG_CXX17_FLAG			(1 << 6)
-#define GLM_LANG_CXX2A_FLAG			(1 << 7)
+#define GLM_LANG_CXX20_FLAG			(1 << 7)
 #define GLM_LANG_CXXMS_FLAG			(1 << 8)
 #define GLM_LANG_CXXGNU_FLAG		(1 << 9)
 
@@ -68,7 +78,7 @@
 #define GLM_LANG_CXX11			(GLM_LANG_CXX0X | GLM_LANG_CXX11_FLAG)
 #define GLM_LANG_CXX14			(GLM_LANG_CXX11 | GLM_LANG_CXX14_FLAG)
 #define GLM_LANG_CXX17			(GLM_LANG_CXX14 | GLM_LANG_CXX17_FLAG)
-#define GLM_LANG_CXX2A			(GLM_LANG_CXX17 | GLM_LANG_CXX2A_FLAG)
+#define GLM_LANG_CXX20			(GLM_LANG_CXX17 | GLM_LANG_CXX20_FLAG)
 #define GLM_LANG_CXXMS			GLM_LANG_CXXMS_FLAG
 #define GLM_LANG_CXXGNU			GLM_LANG_CXXGNU_FLAG
 
@@ -116,7 +126,7 @@
 #	endif
 
 #	if __cplusplus > 201703L || GLM_LANG_PLATFORM > 201703L
-#		define GLM_LANG (GLM_LANG_CXX2A | GLM_LANG_EXT)
+#		define GLM_LANG (GLM_LANG_CXX20 | GLM_LANG_EXT)
 #	elif __cplusplus == 201703L || GLM_LANG_PLATFORM == 201703L
 #		define GLM_LANG (GLM_LANG_CXX17 | GLM_LANG_EXT)
 #	elif __cplusplus == 201402L || __cplusplus == 201406L || __cplusplus == 201500L || GLM_LANG_PLATFORM == 201402L
@@ -529,6 +539,17 @@
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
+// Allows using any scaler as float
+
+// #define GLM_FORCE_UNRESTRICTED_FLOAT
+
+#ifdef GLM_FORCE_UNRESTRICTED_FLOAT
+#	define GLM_CONFIG_UNRESTRICTED_FLOAT GLM_ENABLE
+#else
+#	define GLM_CONFIG_UNRESTRICTED_FLOAT GLM_DISABLE
+#endif
+
+///////////////////////////////////////////////////////////////////////////////////
 // Clip control, define GLM_FORCE_DEPTH_ZERO_TO_ONE before including GLM
 // to use a clip space between 0 to 1.
 // Coordinate system, define GLM_FORCE_LEFT_HANDED before including GLM
@@ -593,8 +614,10 @@
 
 #ifdef GLM_FORCE_SIZE_T_LENGTH
 #	define GLM_CONFIG_LENGTH_TYPE		GLM_LENGTH_SIZE_T
+#	define GLM_ASSERT_LENGTH(l, max) (assert ((l) < (max)))
 #else
 #	define GLM_CONFIG_LENGTH_TYPE		GLM_LENGTH_INT
+#	define GLM_ASSERT_LENGTH(l, max) (assert ((l) >= 0 && (l) < (max)))
 #endif
 
 namespace glm
@@ -866,10 +889,10 @@ namespace detail
 ///////////////////////////////////////////////////////////////////////////////////
 // Silent warnings
 
-#ifdef GLM_FORCE_SILENT_WARNINGS
-#	define GLM_SILENT_WARNINGS GLM_ENABLE
-#else
+#ifdef GLM_FORCE_WARNINGS
 #	define GLM_SILENT_WARNINGS GLM_DISABLE
+#else
+#	define GLM_SILENT_WARNINGS GLM_ENABLE
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -948,9 +971,9 @@ namespace detail
 #		pragma message (GLM_STR(GLM_VERSION_MESSAGE))
 
 	// Report C++ language
-#	if (GLM_LANG & GLM_LANG_CXX2A_FLAG) && (GLM_LANG & GLM_LANG_EXT)
-#		pragma message("GLM: C++ 2A with extensions")
-#	elif (GLM_LANG & GLM_LANG_CXX2A_FLAG)
+#	if (GLM_LANG & GLM_LANG_CXX20_FLAG) && (GLM_LANG & GLM_LANG_EXT)
+#		pragma message("GLM: C++ 20 with extensions")
+#	elif (GLM_LANG & GLM_LANG_CXX20_FLAG)
 #		pragma message("GLM: C++ 2A")
 #	elif (GLM_LANG & GLM_LANG_CXX17_FLAG) && (GLM_LANG & GLM_LANG_EXT)
 #		pragma message("GLM: C++ 17 with extensions")

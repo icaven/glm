@@ -1,4 +1,6 @@
+#ifndef GLM_FORCE_PURE
 #define GLM_FORCE_DEFAULT_ALIGNED_GENTYPES
+#endif
 #include <glm/gtc/random.hpp>
 #include <glm/gtc/epsilon.hpp>
 #include <glm/gtc/type_precision.hpp>
@@ -8,7 +10,7 @@
 
 std::size_t const TestSamples = 10000;
 
-int test_linearRand()
+static int test_linearRand()
 {
 	int Error = 0;
 
@@ -220,7 +222,7 @@ int test_linearRand()
 	return Error;
 }
 
-int test_circularRand()
+static int test_circularRand()
 {
 	int Error = 0;
 
@@ -244,7 +246,7 @@ int test_circularRand()
 	return Error;
 }
 
-int test_sphericalRand()
+static int test_sphericalRand()
 {
 	int Error = 0;
 
@@ -279,7 +281,7 @@ int test_sphericalRand()
 	return Error;
 }
 
-int test_diskRand()
+static int test_diskRand()
 {
 	int Error = 0;
 
@@ -301,7 +303,7 @@ int test_diskRand()
 	return Error;
 }
 
-int test_ballRand()
+static int test_ballRand()
 {
 	int Error = 0;
 

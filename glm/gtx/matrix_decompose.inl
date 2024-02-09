@@ -173,10 +173,10 @@ namespace detail
 			j = Next[i];
 			k = Next[j];
 
-#           ifdef GLM_FORCE_QUAT_DATA_XYZW
-                int off = 0;
-#           else
+#           ifdef GLM_FORCE_QUAT_DATA_WXYZ
                 int off = 1;
+#           else
+                int off = 0;
 #           endif
 
 			root = sqrt(Row[i][i] - Row[j][j] - Row[k][k] + static_cast<T>(1.0));
