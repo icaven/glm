@@ -41,7 +41,7 @@ glm::mat4 camera(float Translate, glm::vec2 const& Rotate)
 }
 ```
 
-## [Lastest release](https://github.com/g-truc/glm/releases/latest)
+## [Latest release](https://github.com/g-truc/glm/releases/latest)
 
 ## Project Health
 
